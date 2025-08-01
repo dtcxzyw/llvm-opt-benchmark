@@ -392,16 +392,16 @@ define internal fastcc void @initialize_lsm(ptr noundef readonly captures(none) 
   %15 = load ptr, ptr %14, align 8
   %16 = tail call i32 %15() #17
   %17 = icmp eq i32 %16, 0
-  br i1 %17, label %20, label %18, !prof !10
+  br i1 %17, label %20, label %18, !prof !9
 
 18:                                               ; preds = %13
-  tail call void asm sideeffect "446: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 446b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 446) #17, !srcloc !11
+  tail call void asm sideeffect "446: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 446b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 446) #17, !srcloc !10
   %19 = load ptr, ptr %0, align 8
   tail call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str.43, ptr noundef %19, i32 noundef %16) #17
-  tail call void asm sideeffect "447: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 447b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 447) #17, !srcloc !12
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.44, i32 263, i32 2313, i64 12) #17, !srcloc !13
-  tail call void asm sideeffect "448: nop\0A\09.pushsection .discard.instr_end\0A\09.long 448b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 448) #17, !srcloc !14
-  tail call void asm sideeffect "449: nop\0A\09.pushsection .discard.instr_end\0A\09.long 449b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 449) #17, !srcloc !15
+  tail call void asm sideeffect "447: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 447b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 447) #17, !srcloc !11
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.44, i32 263, i32 2313, i64 12) #17, !srcloc !12
+  tail call void asm sideeffect "448: nop\0A\09.pushsection .discard.instr_end\0A\09.long 448b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 448) #17, !srcloc !13
+  tail call void asm sideeffect "449: nop\0A\09.pushsection .discard.instr_end\0A\09.long 449b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 449) #17, !srcloc !14
   br label %20
 
 20:                                               ; preds = %18, %13, %5, %1
@@ -477,7 +477,7 @@ define dso_local noundef i32 @security_init() local_unnamed_addr #0 section ".in
 35:                                               ; preds = %32, %28
   %36 = getelementptr i8, ptr %15, i64 48
   %37 = icmp ult ptr %36, @__end_early_lsm_info
-  br i1 %37, label %.preheader, label %.loopexit, !llvm.loop !16
+  br i1 %37, label %.preheader, label %.loopexit, !llvm.loop !15
 
 .loopexit:                                        ; preds = %35, %.thread3
   tail call fastcc void @ordered_lsm_init() #15
@@ -501,12 +501,12 @@ define internal fastcc noundef range(i32 -12, 1) i32 @lsm_append(ptr noundef %0)
 
 7:                                                ; preds = %1
   %8 = icmp eq ptr %0, null
-  br i1 %8, label %9, label %10, !prof !17
+  br i1 %8, label %9, label %10, !prof !16
 
 9:                                                ; preds = %7
-  tail call void asm sideeffect "450: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 450b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 450) #17, !srcloc !18
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.44, i32 505, i32 2305, i64 12) #17, !srcloc !19
-  tail call void asm sideeffect "451: nop\0A\09.pushsection .discard.instr_end\0A\09.long 451b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 451) #17, !srcloc !20
+  tail call void asm sideeffect "450: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 450b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 450) #17, !srcloc !17
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.44, i32 505, i32 2305, i64 12) #17, !srcloc !18
+  tail call void asm sideeffect "451: nop\0A\09.pushsection .discard.instr_end\0A\09.long 451b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 451) #17, !srcloc !19
   %.pre = load ptr, ptr @lsm_names, align 8
   br label %17
 
@@ -544,7 +544,7 @@ define internal fastcc void @ordered_lsm_init() unnamed_addr #0 section ".init.t
   %1 = sdiv exact i64 sub (i64 ptrtoint (ptr @__end_lsm_info to i64), i64 ptrtoint (ptr @__start_lsm_info to i64)), 48
   %2 = add nsw i64 %1, 1
   %3 = icmp ugt i64 %2, 2305843009213693951
-  br i1 %3, label %7, label %4, !prof !17
+  br i1 %3, label %7, label %4, !prof !16
 
 4:                                                ; preds = %0
   %5 = shl nuw nsw i64 %2, 3
@@ -591,7 +591,7 @@ define internal fastcc void @ordered_lsm_init() unnamed_addr #0 section ".init.t
   %25 = getelementptr i8, ptr %24, i64 8
   %26 = load ptr, ptr %25, align 8
   %27 = icmp eq ptr %26, null
-  br i1 %27, label %.loopexit33, label %.preheader32, !llvm.loop !21
+  br i1 %27, label %.loopexit33, label %.preheader32, !llvm.loop !20
 
 .loopexit33:                                      ; preds = %.preheader32, %19
   tail call fastcc void @report_lsm_order() #15
@@ -666,7 +666,7 @@ define internal fastcc void @ordered_lsm_init() unnamed_addr #0 section ".init.t
   br label %59
 
 59:                                               ; preds = %57, %54
-  %60 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #19, !srcloc !22
+  %60 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #19, !srcloc !21
   %61 = inttoptr i64 %60 to ptr
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 1784
   %63 = load ptr, ptr %62, align 8
@@ -684,7 +684,7 @@ define internal fastcc void @ordered_lsm_init() unnamed_addr #0 section ".init.t
   %69 = getelementptr i8, ptr %68, i64 8
   %70 = load ptr, ptr %69, align 8
   %71 = icmp eq ptr %70, null
-  br i1 %71, label %.loopexit.loopexit, label %.preheader, !llvm.loop !23
+  br i1 %71, label %.loopexit.loopexit, label %.preheader, !llvm.loop !22
 
 .loopexit.loopexit:                               ; preds = %.preheader
   %.pre34 = load ptr, ptr @ordered_lsms, align 8
@@ -766,7 +766,7 @@ define dso_local void @security_add_hooks(ptr noundef %0, i32 noundef %1, ptr no
   %29 = phi ptr [ %26, %21 ], [ %30, %27 ]
   %30 = load ptr, ptr %29, align 8
   %31 = icmp eq ptr %30, null
-  br i1 %31, label %32, label %27, !llvm.loop !24
+  br i1 %31, label %32, label %27, !llvm.loop !23
 
 32:                                               ; preds = %27
   %33 = icmp eq ptr %28, null
@@ -777,14 +777,14 @@ define dso_local void @security_add_hooks(ptr noundef %0, i32 noundef %1, ptr no
   %36 = load ptr, ptr %28, align 8
   store ptr %36, ptr %23, align 8
   store volatile ptr %28, ptr %34, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !25
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !24
   br label %42
 
 37:                                               ; preds = %32
   %38 = load ptr, ptr %26, align 8
   store ptr %38, ptr %23, align 8
   store volatile ptr %26, ptr %34, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !26
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !25
   store volatile ptr %23, ptr %26, align 8
   %39 = icmp eq ptr %38, null
   br i1 %39, label %44, label %40
@@ -801,7 +801,7 @@ define dso_local void @security_add_hooks(ptr noundef %0, i32 noundef %1, ptr no
 44:                                               ; preds = %42, %37
   %45 = add nuw nsw i64 %22, 1
   %46 = icmp eq i64 %45, %20
-  br i1 %46, label %.loopexit, label %21, !llvm.loop !27
+  br i1 %46, label %.loopexit, label %21, !llvm.loop !26
 
 .loopexit:                                        ; preds = %44, %17
   %47 = tail call zeroext i1 @slab_is_available() #17
@@ -900,12 +900,12 @@ define dso_local range(i32 -14, 1) i32 @lsm_fill_user_ctx(ptr noundef %0, ptr no
   %19 = getelementptr inbounds nuw i8, ptr %13, i64 32
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %19, ptr align 1 %2, i64 %3, i1 false)
   %20 = icmp ugt i64 %8, 2147483647
-  br i1 %20, label %21, label %22, !prof !17
+  br i1 %20, label %21, label %22, !prof !16
 
 21:                                               ; preds = %15
-  tail call void asm sideeffect "48: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 48b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 48) #17, !srcloc !28
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.75, i32 249, i32 2307, i64 12) #17, !srcloc !29
-  tail call void asm sideeffect "49: nop\0A\09.pushsection .discard.instr_end\0A\09.long 49b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 49) #17, !srcloc !30
+  tail call void asm sideeffect "48: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 48b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 48) #17, !srcloc !27
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.75, i32 249, i32 2307, i64 12) #17, !srcloc !28
+  tail call void asm sideeffect "49: nop\0A\09.pushsection .discard.instr_end\0A\09.long 49b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 49) #17, !srcloc !29
   br label %26
 
 22:                                               ; preds = %15
@@ -943,7 +943,7 @@ define dso_local i32 @security_binder_set_context_mgr(ptr noundef %0) local_unna
   %8 = load ptr, ptr %7, align 8
   %9 = tail call i32 %8(ptr noundef %0) #17
   %10 = icmp eq i32 %9, 0
-  br i1 %10, label %2, label %11, !llvm.loop !31
+  br i1 %10, label %2, label %11, !llvm.loop !30
 
 11:                                               ; preds = %6, %2
   %12 = phi i32 [ %9, %6 ], [ 0, %2 ]
@@ -965,7 +965,7 @@ define dso_local i32 @security_binder_transaction(ptr noundef %0, ptr noundef %1
   %9 = load ptr, ptr %8, align 8
   %10 = tail call i32 %9(ptr noundef %0, ptr noundef %1) #17
   %11 = icmp eq i32 %10, 0
-  br i1 %11, label %3, label %12, !llvm.loop !32
+  br i1 %11, label %3, label %12, !llvm.loop !31
 
 12:                                               ; preds = %7, %3
   %13 = phi i32 [ %10, %7 ], [ 0, %3 ]
@@ -987,7 +987,7 @@ define dso_local i32 @security_binder_transfer_binder(ptr noundef %0, ptr nounde
   %9 = load ptr, ptr %8, align 8
   %10 = tail call i32 %9(ptr noundef %0, ptr noundef %1) #17
   %11 = icmp eq i32 %10, 0
-  br i1 %11, label %3, label %12, !llvm.loop !33
+  br i1 %11, label %3, label %12, !llvm.loop !32
 
 12:                                               ; preds = %7, %3
   %13 = phi i32 [ %10, %7 ], [ 0, %3 ]
@@ -1009,7 +1009,7 @@ define dso_local i32 @security_binder_transfer_file(ptr noundef %0, ptr noundef 
   %10 = load ptr, ptr %9, align 8
   %11 = tail call i32 %10(ptr noundef %0, ptr noundef %1, ptr noundef %2) #17
   %12 = icmp eq i32 %11, 0
-  br i1 %12, label %4, label %13, !llvm.loop !34
+  br i1 %12, label %4, label %13, !llvm.loop !33
 
 13:                                               ; preds = %8, %4
   %14 = phi i32 [ %11, %8 ], [ 0, %4 ]
@@ -1031,7 +1031,7 @@ define dso_local i32 @security_ptrace_access_check(ptr noundef %0, i32 noundef %
   %9 = load ptr, ptr %8, align 8
   %10 = tail call i32 %9(ptr noundef %0, i32 noundef %1) #17
   %11 = icmp eq i32 %10, 0
-  br i1 %11, label %3, label %12, !llvm.loop !35
+  br i1 %11, label %3, label %12, !llvm.loop !34
 
 12:                                               ; preds = %7, %3
   %13 = phi i32 [ %10, %7 ], [ 0, %3 ]
@@ -1053,7 +1053,7 @@ define dso_local i32 @security_ptrace_traceme(ptr noundef %0) local_unnamed_addr
   %8 = load ptr, ptr %7, align 8
   %9 = tail call i32 %8(ptr noundef %0) #17
   %10 = icmp eq i32 %9, 0
-  br i1 %10, label %2, label %11, !llvm.loop !36
+  br i1 %10, label %2, label %11, !llvm.loop !35
 
 11:                                               ; preds = %6, %2
   %12 = phi i32 [ %9, %6 ], [ 0, %2 ]
@@ -1075,7 +1075,7 @@ define dso_local i32 @security_capget(ptr noundef %0, ptr noundef %1, ptr nounde
   %11 = load ptr, ptr %10, align 8
   %12 = tail call i32 %11(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #17
   %13 = icmp eq i32 %12, 0
-  br i1 %13, label %5, label %14, !llvm.loop !37
+  br i1 %13, label %5, label %14, !llvm.loop !36
 
 14:                                               ; preds = %9, %5
   %15 = phi i32 [ %12, %9 ], [ 0, %5 ]
@@ -1097,7 +1097,7 @@ define dso_local i32 @security_capset(ptr noundef %0, ptr noundef %1, ptr nounde
   %12 = load ptr, ptr %11, align 8
   %13 = tail call i32 %12(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #17
   %14 = icmp eq i32 %13, 0
-  br i1 %14, label %6, label %15, !llvm.loop !38
+  br i1 %14, label %6, label %15, !llvm.loop !37
 
 15:                                               ; preds = %10, %6
   %16 = phi i32 [ %13, %10 ], [ 0, %6 ]
@@ -1119,7 +1119,7 @@ define dso_local i32 @security_capable(ptr noundef %0, ptr noundef %1, i32 nound
   %11 = load ptr, ptr %10, align 8
   %12 = tail call i32 %11(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) #17
   %13 = icmp eq i32 %12, 0
-  br i1 %13, label %5, label %14, !llvm.loop !39
+  br i1 %13, label %5, label %14, !llvm.loop !38
 
 14:                                               ; preds = %9, %5
   %15 = phi i32 [ %12, %9 ], [ 0, %5 ]
@@ -1141,7 +1141,7 @@ define dso_local i32 @security_quotactl(i32 noundef %0, i32 noundef %1, i32 noun
   %11 = load ptr, ptr %10, align 8
   %12 = tail call i32 %11(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) #17
   %13 = icmp eq i32 %12, 0
-  br i1 %13, label %5, label %14, !llvm.loop !40
+  br i1 %13, label %5, label %14, !llvm.loop !39
 
 14:                                               ; preds = %9, %5
   %15 = phi i32 [ %12, %9 ], [ 0, %5 ]
@@ -1163,7 +1163,7 @@ define dso_local i32 @security_quota_on(ptr noundef %0) local_unnamed_addr #3 al
   %8 = load ptr, ptr %7, align 8
   %9 = tail call i32 %8(ptr noundef %0) #17
   %10 = icmp eq i32 %9, 0
-  br i1 %10, label %2, label %11, !llvm.loop !41
+  br i1 %10, label %2, label %11, !llvm.loop !40
 
 11:                                               ; preds = %6, %2
   %12 = phi i32 [ %9, %6 ], [ 0, %2 ]
@@ -1185,7 +1185,7 @@ define dso_local i32 @security_syslog(i32 noundef %0) local_unnamed_addr #3 alig
   %8 = load ptr, ptr %7, align 8
   %9 = tail call i32 %8(i32 noundef %0) #17
   %10 = icmp eq i32 %9, 0
-  br i1 %10, label %2, label %11, !llvm.loop !42
+  br i1 %10, label %2, label %11, !llvm.loop !41
 
 11:                                               ; preds = %6, %2
   %12 = phi i32 [ %9, %6 ], [ 0, %2 ]
@@ -1207,7 +1207,7 @@ define dso_local i32 @security_settime64(ptr noundef %0, ptr noundef %1) local_u
   %9 = load ptr, ptr %8, align 8
   %10 = tail call i32 %9(ptr noundef %0, ptr noundef %1) #17
   %11 = icmp eq i32 %10, 0
-  br i1 %11, label %3, label %12, !llvm.loop !43
+  br i1 %11, label %3, label %12, !llvm.loop !42
 
 12:                                               ; preds = %7, %3
   %13 = phi i32 [ %10, %7 ], [ 0, %3 ]
@@ -1229,7 +1229,7 @@ define dso_local i32 @security_vm_enough_memory_mm(ptr noundef %0, i64 noundef %
   %9 = load ptr, ptr %8, align 8
   %10 = tail call i32 %9(ptr noundef %0, i64 noundef %1) #17
   %11 = icmp slt i32 %10, 1
-  br i1 %11, label %12, label %3, !llvm.loop !44
+  br i1 %11, label %12, label %3, !llvm.loop !43
 
 12:                                               ; preds = %7, %3
   %13 = phi i32 [ 1, %3 ], [ 0, %7 ]
@@ -1255,7 +1255,7 @@ define dso_local i32 @security_bprm_creds_for_exec(ptr noundef %0) local_unnamed
   %8 = load ptr, ptr %7, align 8
   %9 = tail call i32 %8(ptr noundef %0) #17
   %10 = icmp eq i32 %9, 0
-  br i1 %10, label %2, label %11, !llvm.loop !45
+  br i1 %10, label %2, label %11, !llvm.loop !44
 
 11:                                               ; preds = %6, %2
   %12 = phi i32 [ %9, %6 ], [ 0, %2 ]
@@ -1277,7 +1277,7 @@ define dso_local i32 @security_bprm_creds_from_file(ptr noundef %0, ptr noundef 
   %9 = load ptr, ptr %8, align 8
   %10 = tail call i32 %9(ptr noundef %0, ptr noundef %1) #17
   %11 = icmp eq i32 %10, 0
-  br i1 %11, label %3, label %12, !llvm.loop !46
+  br i1 %11, label %3, label %12, !llvm.loop !45
 
 12:                                               ; preds = %7, %3
   %13 = phi i32 [ %10, %7 ], [ 0, %3 ]
@@ -1299,7 +1299,7 @@ define dso_local i32 @security_bprm_check(ptr noundef %0) local_unnamed_addr #3 
   %8 = load ptr, ptr %7, align 8
   %9 = tail call i32 %8(ptr noundef %0) #17
   %10 = icmp eq i32 %9, 0
-  br i1 %10, label %2, label %11, !llvm.loop !47
+  br i1 %10, label %2, label %11, !llvm.loop !46
 
 11:                                               ; preds = %6, %2
   %12 = phi i32 [ %9, %6 ], [ 0, %2 ]
@@ -1319,7 +1319,7 @@ define dso_local void @security_bprm_committing_creds(ptr noundef %0) local_unna
   tail call void %6(ptr noundef %0) #17
   %7 = load ptr, ptr %4, align 8
   %8 = icmp eq ptr %7, null
-  br i1 %8, label %.loopexit, label %.preheader, !llvm.loop !48
+  br i1 %8, label %.loopexit, label %.preheader, !llvm.loop !47
 
 .loopexit:                                        ; preds = %.preheader, %1
   ret void
@@ -1338,7 +1338,7 @@ define dso_local void @security_bprm_committed_creds(ptr noundef %0) local_unnam
   tail call void %6(ptr noundef %0) #17
   %7 = load ptr, ptr %4, align 8
   %8 = icmp eq ptr %7, null
-  br i1 %8, label %.loopexit, label %.preheader, !llvm.loop !49
+  br i1 %8, label %.loopexit, label %.preheader, !llvm.loop !48
 
 .loopexit:                                        ; preds = %.preheader, %1
   ret void
@@ -1359,7 +1359,7 @@ define dso_local i32 @security_fs_context_submount(ptr noundef %0, ptr noundef %
   %9 = load ptr, ptr %8, align 8
   %10 = tail call i32 %9(ptr noundef %0, ptr noundef %1) #17
   %11 = icmp eq i32 %10, 0
-  br i1 %11, label %3, label %12, !llvm.loop !50
+  br i1 %11, label %3, label %12, !llvm.loop !49
 
 12:                                               ; preds = %7, %3
   %13 = phi i32 [ %10, %7 ], [ 0, %3 ]
@@ -1381,7 +1381,7 @@ define dso_local i32 @security_fs_context_dup(ptr noundef %0, ptr noundef %1) lo
   %9 = load ptr, ptr %8, align 8
   %10 = tail call i32 %9(ptr noundef %0, ptr noundef %1) #17
   %11 = icmp eq i32 %10, 0
-  br i1 %11, label %3, label %12, !llvm.loop !51
+  br i1 %11, label %3, label %12, !llvm.loop !50
 
 12:                                               ; preds = %7, %3
   %13 = phi i32 [ %10, %7 ], [ 0, %3 ]
@@ -1412,7 +1412,7 @@ define dso_local i32 @security_fs_context_parse_param(ptr noundef %0, ptr nounde
   %12 = phi i32 [ %9, %.preheader ], [ %6, %10 ]
   %13 = load ptr, ptr %5, align 8
   %14 = icmp eq ptr %13, null
-  br i1 %14, label %.loopexit, label %.preheader, !llvm.loop !52
+  br i1 %14, label %.loopexit, label %.preheader, !llvm.loop !51
 
 .loopexit:                                        ; preds = %11, %.preheader, %2
   %15 = phi i32 [ -519, %2 ], [ %12, %11 ], [ %9, %.preheader ]
@@ -1452,7 +1452,7 @@ define dso_local i32 @security_sb_alloc(ptr noundef initializes((160, 168)) %0) 
   %17 = load ptr, ptr %16, align 8
   %18 = tail call i32 %17(ptr noundef %0) #17
   %19 = icmp eq i32 %18, 0
-  br i1 %19, label %11, label %20, !llvm.loop !53
+  br i1 %19, label %11, label %20, !llvm.loop !52
 
 20:                                               ; preds = %15
   tail call void @security_sb_free(ptr noundef %0)
@@ -1476,7 +1476,7 @@ define dso_local void @security_sb_free(ptr noundef %0) local_unnamed_addr #3 al
   tail call void %6(ptr noundef %0) #17
   %7 = load ptr, ptr %4, align 8
   %8 = icmp eq ptr %7, null
-  br i1 %8, label %.loopexit, label %.preheader, !llvm.loop !54
+  br i1 %8, label %.loopexit, label %.preheader, !llvm.loop !53
 
 .loopexit:                                        ; preds = %.preheader, %1
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 160
@@ -1499,7 +1499,7 @@ define dso_local void @security_sb_delete(ptr noundef %0) local_unnamed_addr #3 
   tail call void %6(ptr noundef %0) #17
   %7 = load ptr, ptr %4, align 8
   %8 = icmp eq ptr %7, null
-  br i1 %8, label %.loopexit, label %.preheader, !llvm.loop !55
+  br i1 %8, label %.loopexit, label %.preheader, !llvm.loop !54
 
 .loopexit:                                        ; preds = %.preheader, %1
   ret void
@@ -1524,7 +1524,7 @@ define dso_local void @security_free_mnt_opts(ptr noundef captures(none) %0) #3 
   tail call void %9(ptr noundef %10) #17
   %11 = load ptr, ptr %7, align 8
   %12 = icmp eq ptr %11, null
-  br i1 %12, label %.loopexit, label %.preheader, !llvm.loop !56
+  br i1 %12, label %.loopexit, label %.preheader, !llvm.loop !55
 
 .loopexit:                                        ; preds = %.preheader, %4
   store ptr null, ptr %0, align 8
@@ -1549,7 +1549,7 @@ define dso_local i32 @security_sb_eat_lsm_opts(ptr noundef %0, ptr noundef %1) #
   %9 = load ptr, ptr %8, align 8
   %10 = tail call i32 %9(ptr noundef %0, ptr noundef %1) #17
   %11 = icmp eq i32 %10, 0
-  br i1 %11, label %3, label %12, !llvm.loop !57
+  br i1 %11, label %3, label %12, !llvm.loop !56
 
 12:                                               ; preds = %7, %3
   %13 = phi i32 [ %10, %7 ], [ 0, %3 ]
@@ -1571,7 +1571,7 @@ define dso_local i32 @security_sb_mnt_opts_compat(ptr noundef %0, ptr noundef %1
   %9 = load ptr, ptr %8, align 8
   %10 = tail call i32 %9(ptr noundef %0, ptr noundef %1) #17
   %11 = icmp eq i32 %10, 0
-  br i1 %11, label %3, label %12, !llvm.loop !58
+  br i1 %11, label %3, label %12, !llvm.loop !57
 
 12:                                               ; preds = %7, %3
   %13 = phi i32 [ %10, %7 ], [ 0, %3 ]
@@ -1593,7 +1593,7 @@ define dso_local i32 @security_sb_remount(ptr noundef %0, ptr noundef %1) #3 ali
   %9 = load ptr, ptr %8, align 8
   %10 = tail call i32 %9(ptr noundef %0, ptr noundef %1) #17
   %11 = icmp eq i32 %10, 0
-  br i1 %11, label %3, label %12, !llvm.loop !59
+  br i1 %11, label %3, label %12, !llvm.loop !58
 
 12:                                               ; preds = %7, %3
   %13 = phi i32 [ %10, %7 ], [ 0, %3 ]
@@ -1615,7 +1615,7 @@ define dso_local i32 @security_sb_kern_mount(ptr noundef %0) local_unnamed_addr 
   %8 = load ptr, ptr %7, align 8
   %9 = tail call i32 %8(ptr noundef %0) #17
   %10 = icmp eq i32 %9, 0
-  br i1 %10, label %2, label %11, !llvm.loop !60
+  br i1 %10, label %2, label %11, !llvm.loop !59
 
 11:                                               ; preds = %6, %2
   %12 = phi i32 [ %9, %6 ], [ 0, %2 ]
@@ -1637,7 +1637,7 @@ define dso_local i32 @security_sb_show_options(ptr noundef %0, ptr noundef %1) l
   %9 = load ptr, ptr %8, align 8
   %10 = tail call i32 %9(ptr noundef %0, ptr noundef %1) #17
   %11 = icmp eq i32 %10, 0
-  br i1 %11, label %3, label %12, !llvm.loop !61
+  br i1 %11, label %3, label %12, !llvm.loop !60
 
 12:                                               ; preds = %7, %3
   %13 = phi i32 [ %10, %7 ], [ 0, %3 ]
@@ -1659,7 +1659,7 @@ define dso_local i32 @security_sb_statfs(ptr noundef %0) local_unnamed_addr #3 a
   %8 = load ptr, ptr %7, align 8
   %9 = tail call i32 %8(ptr noundef %0) #17
   %10 = icmp eq i32 %9, 0
-  br i1 %10, label %2, label %11, !llvm.loop !62
+  br i1 %10, label %2, label %11, !llvm.loop !61
 
 11:                                               ; preds = %6, %2
   %12 = phi i32 [ %9, %6 ], [ 0, %2 ]
@@ -1681,7 +1681,7 @@ define dso_local i32 @security_sb_mount(ptr noundef %0, ptr noundef %1, ptr noun
   %12 = load ptr, ptr %11, align 8
   %13 = tail call i32 %12(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4) #17
   %14 = icmp eq i32 %13, 0
-  br i1 %14, label %6, label %15, !llvm.loop !63
+  br i1 %14, label %6, label %15, !llvm.loop !62
 
 15:                                               ; preds = %10, %6
   %16 = phi i32 [ %13, %10 ], [ 0, %6 ]
@@ -1703,7 +1703,7 @@ define dso_local i32 @security_sb_umount(ptr noundef %0, i32 noundef %1) local_u
   %9 = load ptr, ptr %8, align 8
   %10 = tail call i32 %9(ptr noundef %0, i32 noundef %1) #17
   %11 = icmp eq i32 %10, 0
-  br i1 %11, label %3, label %12, !llvm.loop !64
+  br i1 %11, label %3, label %12, !llvm.loop !63
 
 12:                                               ; preds = %7, %3
   %13 = phi i32 [ %10, %7 ], [ 0, %3 ]
@@ -1725,7 +1725,7 @@ define dso_local i32 @security_sb_pivotroot(ptr noundef %0, ptr noundef %1) loca
   %9 = load ptr, ptr %8, align 8
   %10 = tail call i32 %9(ptr noundef %0, ptr noundef %1) #17
   %11 = icmp eq i32 %10, 0
-  br i1 %11, label %3, label %12, !llvm.loop !65
+  br i1 %11, label %3, label %12, !llvm.loop !64
 
 12:                                               ; preds = %7, %3
   %13 = phi i32 [ %10, %7 ], [ 0, %3 ]
@@ -1743,7 +1743,7 @@ define dso_local i32 @security_sb_set_mnt_opts(ptr noundef %0, ptr noundef %1, i
 9:                                                ; preds = %.preheader
   %10 = load ptr, ptr %12, align 8
   %11 = icmp eq ptr %10, null
-  br i1 %11, label %.loopexit, label %.preheader, !llvm.loop !66
+  br i1 %11, label %.loopexit, label %.preheader, !llvm.loop !65
 
 .preheader:                                       ; preds = %4, %9
   %12 = phi ptr [ %10, %9 ], [ %7, %4 ]
@@ -1751,7 +1751,7 @@ define dso_local i32 @security_sb_set_mnt_opts(ptr noundef %0, ptr noundef %1, i
   %14 = load ptr, ptr %13, align 8
   %15 = tail call i32 %14(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3) #17
   %16 = icmp eq i32 %15, 0
-  br i1 %16, label %9, label %.loopexit, !llvm.loop !67
+  br i1 %16, label %9, label %.loopexit, !llvm.loop !65
 
 .loopexit:                                        ; preds = %.preheader, %9, %4
   %17 = phi i32 [ %6, %4 ], [ %15, %.preheader ], [ 0, %9 ]
@@ -1773,7 +1773,7 @@ define dso_local i32 @security_sb_clone_mnt_opts(ptr noundef %0, ptr noundef %1,
   %11 = load ptr, ptr %10, align 8
   %12 = tail call i32 %11(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3) #17
   %13 = icmp eq i32 %12, 0
-  br i1 %13, label %5, label %14, !llvm.loop !68
+  br i1 %13, label %5, label %14, !llvm.loop !66
 
 14:                                               ; preds = %9, %5
   %15 = phi i32 [ %12, %9 ], [ 0, %5 ]
@@ -1795,7 +1795,7 @@ define dso_local i32 @security_move_mount(ptr noundef %0, ptr noundef %1) local_
   %9 = load ptr, ptr %8, align 8
   %10 = tail call i32 %9(ptr noundef %0, ptr noundef %1) #17
   %11 = icmp eq i32 %10, 0
-  br i1 %11, label %3, label %12, !llvm.loop !69
+  br i1 %11, label %3, label %12, !llvm.loop !67
 
 12:                                               ; preds = %7, %3
   %13 = phi i32 [ %10, %7 ], [ 0, %3 ]
@@ -1817,7 +1817,7 @@ define dso_local i32 @security_path_notify(ptr noundef %0, i64 noundef %1, i32 n
   %10 = load ptr, ptr %9, align 8
   %11 = tail call i32 %10(ptr noundef %0, i64 noundef %1, i32 noundef %2) #17
   %12 = icmp eq i32 %11, 0
-  br i1 %12, label %4, label %13, !llvm.loop !70
+  br i1 %12, label %4, label %13, !llvm.loop !68
 
 13:                                               ; preds = %8, %4
   %14 = phi i32 [ %11, %8 ], [ 0, %4 ]
@@ -1856,7 +1856,7 @@ define dso_local i32 @security_inode_alloc(ptr noundef initializes((56, 64)) %0)
   %16 = load ptr, ptr %15, align 8
   %17 = tail call i32 %16(ptr noundef %0) #17
   %18 = icmp eq i32 %17, 0
-  br i1 %18, label %10, label %19, !llvm.loop !71
+  br i1 %18, label %10, label %19, !llvm.loop !69
 
 19:                                               ; preds = %14
   tail call void @security_inode_free(ptr noundef %0)
@@ -1881,7 +1881,7 @@ define dso_local void @security_inode_free(ptr noundef %0) local_unnamed_addr #3
   tail call void %6(ptr noundef %0) #17
   %7 = load ptr, ptr %4, align 8
   %8 = icmp eq ptr %7, null
-  br i1 %8, label %.loopexit, label %.preheader, !llvm.loop !72
+  br i1 %8, label %.loopexit, label %.preheader, !llvm.loop !70
 
 .loopexit:                                        ; preds = %.preheader, %1
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -1925,7 +1925,7 @@ define dso_local i32 @security_dentry_init_security(ptr noundef %0, i32 noundef 
   %13 = load ptr, ptr %12, align 8
   %14 = tail call i32 %13(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #17
   %15 = icmp eq i32 %14, -95
-  br i1 %15, label %7, label %16, !llvm.loop !73
+  br i1 %15, label %7, label %16, !llvm.loop !71
 
 16:                                               ; preds = %11, %7
   %17 = phi i32 [ %14, %11 ], [ -95, %7 ]
@@ -1947,7 +1947,7 @@ define dso_local i32 @security_dentry_create_files_as(ptr noundef %0, i32 nounde
   %12 = load ptr, ptr %11, align 8
   %13 = tail call i32 %12(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #17
   %14 = icmp eq i32 %13, 0
-  br i1 %14, label %6, label %15, !llvm.loop !74
+  br i1 %14, label %6, label %15, !llvm.loop !72
 
 15:                                               ; preds = %10, %6
   %16 = phi i32 [ %13, %10 ], [ 0, %6 ]
@@ -1963,7 +1963,7 @@ define dso_local noundef i32 @security_inode_init_security(ptr noundef %0, ptr n
   %8 = load i32, ptr %7, align 4
   %9 = and i32 %8, 512
   %10 = icmp eq i32 %9, 0
-  br i1 %10, label %11, label %.thread, !prof !10
+  br i1 %10, label %11, label %.thread, !prof !9
 
 11:                                               ; preds = %5
   %12 = load i32, ptr @blob_sizes.7, align 4
@@ -1979,7 +1979,7 @@ define dso_local noundef i32 @security_inode_init_security(ptr noundef %0, ptr n
   %18 = sext i32 %17 to i64
   %19 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %18, i64 24)
   %20 = extractvalue { i64, i1 } %19, 1
-  br i1 %20, label %.thread, label %21, !prof !17
+  br i1 %20, label %.thread, label %21, !prof !16
 
 21:                                               ; preds = %16
   %22 = extractvalue { i64, i1 } %19, 0
@@ -2010,7 +2010,7 @@ define dso_local noundef i32 @security_inode_init_security(ptr noundef %0, ptr n
 33:                                               ; preds = %.preheader6, %.preheader6
   %34 = load ptr, ptr %29, align 8
   %35 = icmp eq ptr %34, null
-  br i1 %35, label %.loopexit7, label %.preheader6, !llvm.loop !75
+  br i1 %35, label %.loopexit7, label %.preheader6, !llvm.loop !73
 
 .loopexit7:                                       ; preds = %33
   %.pre = load i32, ptr %6, align 4
@@ -2038,7 +2038,7 @@ define dso_local noundef i32 @security_inode_init_security(ptr noundef %0, ptr n
   %46 = add i32 %45, -1
   store i32 %46, ptr %6, align 4
   %47 = icmp sgt i32 %46, 0
-  br i1 %47, label %.preheader, label %.thread5, !llvm.loop !76
+  br i1 %47, label %.preheader, label %.thread5, !llvm.loop !74
 
 .thread5:                                         ; preds = %.preheader, %.loopexit7, %.loopexit
   %48 = phi i32 [ %.ph, %.loopexit ], [ %32, %.loopexit7 ], [ %.ph, %.preheader ]
@@ -2071,7 +2071,7 @@ define dso_local i32 @security_inode_init_security_anon(ptr noundef %0, ptr noun
   %10 = load ptr, ptr %9, align 8
   %11 = tail call i32 %10(ptr noundef %0, ptr noundef %1, ptr noundef %2) #17
   %12 = icmp eq i32 %11, 0
-  br i1 %12, label %4, label %13, !llvm.loop !77
+  br i1 %12, label %4, label %13, !llvm.loop !75
 
 13:                                               ; preds = %8, %4
   %14 = phi i32 [ %11, %8 ], [ 0, %4 ]
@@ -2084,7 +2084,7 @@ define dso_local i32 @security_inode_create(ptr noundef %0, ptr noundef %1, i16 
   %5 = load i32, ptr %4, align 4
   %6 = and i32 %5, 512
   %7 = icmp eq i32 %6, 0
-  br i1 %7, label %.preheader, label %.loopexit, !prof !10
+  br i1 %7, label %.preheader, label %.loopexit, !prof !9
 
 .preheader:                                       ; preds = %3, %11
   %8 = phi ptr [ %9, %11 ], [ getelementptr inbounds nuw (i8, ptr @security_hook_heads, i64 360), %3 ]
@@ -2097,7 +2097,7 @@ define dso_local i32 @security_inode_create(ptr noundef %0, ptr noundef %1, i16 
   %13 = load ptr, ptr %12, align 8
   %14 = tail call i32 %13(ptr noundef %0, ptr noundef %1, i16 noundef zeroext %2) #17
   %15 = icmp eq i32 %14, 0
-  br i1 %15, label %.preheader, label %.loopexit, !llvm.loop !78
+  br i1 %15, label %.preheader, label %.loopexit, !llvm.loop !76
 
 .loopexit:                                        ; preds = %11, %.preheader, %3
   %16 = phi i32 [ 0, %3 ], [ 0, %.preheader ], [ %14, %11 ]
@@ -2112,7 +2112,7 @@ define dso_local i32 @security_inode_link(ptr noundef %0, ptr noundef %1, ptr no
   %7 = load i32, ptr %6, align 4
   %8 = and i32 %7, 512
   %9 = icmp eq i32 %8, 0
-  br i1 %9, label %.preheader, label %.loopexit, !prof !10
+  br i1 %9, label %.preheader, label %.loopexit, !prof !9
 
 .preheader:                                       ; preds = %3, %13
   %10 = phi ptr [ %11, %13 ], [ getelementptr inbounds nuw (i8, ptr @security_hook_heads, i64 368), %3 ]
@@ -2125,7 +2125,7 @@ define dso_local i32 @security_inode_link(ptr noundef %0, ptr noundef %1, ptr no
   %15 = load ptr, ptr %14, align 8
   %16 = tail call i32 %15(ptr noundef %0, ptr noundef %1, ptr noundef %2) #17
   %17 = icmp eq i32 %16, 0
-  br i1 %17, label %.preheader, label %.loopexit, !llvm.loop !79
+  br i1 %17, label %.preheader, label %.loopexit, !llvm.loop !77
 
 .loopexit:                                        ; preds = %13, %.preheader, %3
   %18 = phi i32 [ 0, %3 ], [ 0, %.preheader ], [ %16, %13 ]
@@ -2140,7 +2140,7 @@ define dso_local i32 @security_inode_unlink(ptr noundef %0, ptr noundef %1) loca
   %6 = load i32, ptr %5, align 4
   %7 = and i32 %6, 512
   %8 = icmp eq i32 %7, 0
-  br i1 %8, label %.preheader, label %.loopexit, !prof !10
+  br i1 %8, label %.preheader, label %.loopexit, !prof !9
 
 .preheader:                                       ; preds = %2, %12
   %9 = phi ptr [ %10, %12 ], [ getelementptr inbounds nuw (i8, ptr @security_hook_heads, i64 376), %2 ]
@@ -2153,7 +2153,7 @@ define dso_local i32 @security_inode_unlink(ptr noundef %0, ptr noundef %1) loca
   %14 = load ptr, ptr %13, align 8
   %15 = tail call i32 %14(ptr noundef %0, ptr noundef %1) #17
   %16 = icmp eq i32 %15, 0
-  br i1 %16, label %.preheader, label %.loopexit, !llvm.loop !80
+  br i1 %16, label %.preheader, label %.loopexit, !llvm.loop !78
 
 .loopexit:                                        ; preds = %12, %.preheader, %2
   %17 = phi i32 [ 0, %2 ], [ 0, %.preheader ], [ %15, %12 ]
@@ -2166,7 +2166,7 @@ define dso_local i32 @security_inode_symlink(ptr noundef %0, ptr noundef %1, ptr
   %5 = load i32, ptr %4, align 4
   %6 = and i32 %5, 512
   %7 = icmp eq i32 %6, 0
-  br i1 %7, label %.preheader, label %.loopexit, !prof !10
+  br i1 %7, label %.preheader, label %.loopexit, !prof !9
 
 .preheader:                                       ; preds = %3, %11
   %8 = phi ptr [ %9, %11 ], [ getelementptr inbounds nuw (i8, ptr @security_hook_heads, i64 384), %3 ]
@@ -2179,7 +2179,7 @@ define dso_local i32 @security_inode_symlink(ptr noundef %0, ptr noundef %1, ptr
   %13 = load ptr, ptr %12, align 8
   %14 = tail call i32 %13(ptr noundef %0, ptr noundef %1, ptr noundef %2) #17
   %15 = icmp eq i32 %14, 0
-  br i1 %15, label %.preheader, label %.loopexit, !llvm.loop !81
+  br i1 %15, label %.preheader, label %.loopexit, !llvm.loop !79
 
 .loopexit:                                        ; preds = %11, %.preheader, %3
   %16 = phi i32 [ 0, %3 ], [ 0, %.preheader ], [ %14, %11 ]
@@ -2192,7 +2192,7 @@ define dso_local i32 @security_inode_mkdir(ptr noundef %0, ptr noundef %1, i16 n
   %5 = load i32, ptr %4, align 4
   %6 = and i32 %5, 512
   %7 = icmp eq i32 %6, 0
-  br i1 %7, label %.preheader, label %.loopexit, !prof !10
+  br i1 %7, label %.preheader, label %.loopexit, !prof !9
 
 .preheader:                                       ; preds = %3, %11
   %8 = phi ptr [ %9, %11 ], [ getelementptr inbounds nuw (i8, ptr @security_hook_heads, i64 392), %3 ]
@@ -2205,7 +2205,7 @@ define dso_local i32 @security_inode_mkdir(ptr noundef %0, ptr noundef %1, i16 n
   %13 = load ptr, ptr %12, align 8
   %14 = tail call i32 %13(ptr noundef %0, ptr noundef %1, i16 noundef zeroext %2) #17
   %15 = icmp eq i32 %14, 0
-  br i1 %15, label %.preheader, label %.loopexit, !llvm.loop !82
+  br i1 %15, label %.preheader, label %.loopexit, !llvm.loop !80
 
 .loopexit:                                        ; preds = %11, %.preheader, %3
   %16 = phi i32 [ 0, %3 ], [ 0, %.preheader ], [ %14, %11 ]
@@ -2220,7 +2220,7 @@ define dso_local i32 @security_inode_rmdir(ptr noundef %0, ptr noundef %1) local
   %6 = load i32, ptr %5, align 4
   %7 = and i32 %6, 512
   %8 = icmp eq i32 %7, 0
-  br i1 %8, label %.preheader, label %.loopexit, !prof !10
+  br i1 %8, label %.preheader, label %.loopexit, !prof !9
 
 .preheader:                                       ; preds = %2, %12
   %9 = phi ptr [ %10, %12 ], [ getelementptr inbounds nuw (i8, ptr @security_hook_heads, i64 400), %2 ]
@@ -2233,7 +2233,7 @@ define dso_local i32 @security_inode_rmdir(ptr noundef %0, ptr noundef %1) local
   %14 = load ptr, ptr %13, align 8
   %15 = tail call i32 %14(ptr noundef %0, ptr noundef %1) #17
   %16 = icmp eq i32 %15, 0
-  br i1 %16, label %.preheader, label %.loopexit, !llvm.loop !83
+  br i1 %16, label %.preheader, label %.loopexit, !llvm.loop !81
 
 .loopexit:                                        ; preds = %12, %.preheader, %2
   %17 = phi i32 [ 0, %2 ], [ 0, %.preheader ], [ %15, %12 ]
@@ -2246,7 +2246,7 @@ define dso_local i32 @security_inode_mknod(ptr noundef %0, ptr noundef %1, i16 n
   %6 = load i32, ptr %5, align 4
   %7 = and i32 %6, 512
   %8 = icmp eq i32 %7, 0
-  br i1 %8, label %.preheader, label %.loopexit, !prof !10
+  br i1 %8, label %.preheader, label %.loopexit, !prof !9
 
 .preheader:                                       ; preds = %4, %12
   %9 = phi ptr [ %10, %12 ], [ getelementptr inbounds nuw (i8, ptr @security_hook_heads, i64 408), %4 ]
@@ -2259,7 +2259,7 @@ define dso_local i32 @security_inode_mknod(ptr noundef %0, ptr noundef %1, i16 n
   %14 = load ptr, ptr %13, align 8
   %15 = tail call i32 %14(ptr noundef %0, ptr noundef %1, i16 noundef zeroext %2, i32 noundef %3) #17
   %16 = icmp eq i32 %15, 0
-  br i1 %16, label %.preheader, label %.loopexit, !llvm.loop !84
+  br i1 %16, label %.preheader, label %.loopexit, !llvm.loop !82
 
 .loopexit:                                        ; preds = %12, %.preheader, %4
   %17 = phi i32 [ 0, %4 ], [ 0, %.preheader ], [ %15, %12 ]
@@ -2274,7 +2274,7 @@ define dso_local i32 @security_inode_rename(ptr noundef %0, ptr noundef %1, ptr 
   %9 = load i32, ptr %8, align 4
   %10 = and i32 %9, 512
   %11 = icmp eq i32 %10, 0
-  br i1 %11, label %12, label %.loopexit, !prof !10
+  br i1 %11, label %12, label %.loopexit, !prof !9
 
 12:                                               ; preds = %5
   %13 = load i32, ptr %3, align 8
@@ -2289,7 +2289,7 @@ define dso_local i32 @security_inode_rename(ptr noundef %0, ptr noundef %1, ptr 
   %20 = load i32, ptr %19, align 4
   %21 = and i32 %20, 512
   %22 = icmp eq i32 %21, 0
-  br i1 %22, label %23, label %.loopexit, !prof !10
+  br i1 %22, label %23, label %.loopexit, !prof !9
 
 23:                                               ; preds = %16, %12
   %24 = and i32 %4, 2
@@ -2310,7 +2310,7 @@ define dso_local i32 @security_inode_rename(ptr noundef %0, ptr noundef %1, ptr 
   %31 = load ptr, ptr %30, align 8
   %32 = tail call i32 %31(ptr noundef %2, ptr noundef %3, ptr noundef %0, ptr noundef %1) #17
   %33 = icmp eq i32 %32, 0
-  br i1 %33, label %.preheader, label %.loopexit, !llvm.loop !85
+  br i1 %33, label %.preheader, label %.loopexit, !llvm.loop !83
 
 .thread:                                          ; preds = %.thread.preheader, %37
   %34 = phi ptr [ %35, %37 ], [ getelementptr inbounds nuw (i8, ptr @security_hook_heads, i64 416), %.thread.preheader ]
@@ -2323,7 +2323,7 @@ define dso_local i32 @security_inode_rename(ptr noundef %0, ptr noundef %1, ptr 
   %39 = load ptr, ptr %38, align 8
   %40 = tail call i32 %39(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #17
   %41 = icmp eq i32 %40, 0
-  br i1 %41, label %.thread, label %.loopexit, !llvm.loop !86
+  br i1 %41, label %.thread, label %.loopexit, !llvm.loop !84
 
 .loopexit:                                        ; preds = %29, %37, %.thread, %16, %5
   %42 = phi i32 [ 0, %16 ], [ 0, %5 ], [ 0, %.thread ], [ %40, %37 ], [ %32, %29 ]
@@ -2338,7 +2338,7 @@ define dso_local i32 @security_inode_readlink(ptr noundef %0) local_unnamed_addr
   %5 = load i32, ptr %4, align 4
   %6 = and i32 %5, 512
   %7 = icmp eq i32 %6, 0
-  br i1 %7, label %.preheader, label %.loopexit, !prof !10
+  br i1 %7, label %.preheader, label %.loopexit, !prof !9
 
 .preheader:                                       ; preds = %1, %11
   %8 = phi ptr [ %9, %11 ], [ getelementptr inbounds nuw (i8, ptr @security_hook_heads, i64 424), %1 ]
@@ -2351,7 +2351,7 @@ define dso_local i32 @security_inode_readlink(ptr noundef %0) local_unnamed_addr
   %13 = load ptr, ptr %12, align 8
   %14 = tail call i32 %13(ptr noundef %0) #17
   %15 = icmp eq i32 %14, 0
-  br i1 %15, label %.preheader, label %.loopexit, !llvm.loop !87
+  br i1 %15, label %.preheader, label %.loopexit, !llvm.loop !85
 
 .loopexit:                                        ; preds = %11, %.preheader, %1
   %16 = phi i32 [ 0, %1 ], [ 0, %.preheader ], [ %14, %11 ]
@@ -2364,7 +2364,7 @@ define dso_local i32 @security_inode_follow_link(ptr noundef %0, ptr noundef %1,
   %5 = load i32, ptr %4, align 4
   %6 = and i32 %5, 512
   %7 = icmp eq i32 %6, 0
-  br i1 %7, label %.preheader, label %.loopexit, !prof !10
+  br i1 %7, label %.preheader, label %.loopexit, !prof !9
 
 .preheader:                                       ; preds = %3, %11
   %8 = phi ptr [ %9, %11 ], [ getelementptr inbounds nuw (i8, ptr @security_hook_heads, i64 432), %3 ]
@@ -2377,7 +2377,7 @@ define dso_local i32 @security_inode_follow_link(ptr noundef %0, ptr noundef %1,
   %13 = load ptr, ptr %12, align 8
   %14 = tail call i32 %13(ptr noundef %0, ptr noundef %1, i1 noundef zeroext %2) #17
   %15 = icmp eq i32 %14, 0
-  br i1 %15, label %.preheader, label %.loopexit, !llvm.loop !88
+  br i1 %15, label %.preheader, label %.loopexit, !llvm.loop !86
 
 .loopexit:                                        ; preds = %11, %.preheader, %3
   %16 = phi i32 [ 0, %3 ], [ 0, %.preheader ], [ %14, %11 ]
@@ -2390,7 +2390,7 @@ define dso_local i32 @security_inode_permission(ptr noundef %0, i32 noundef %1) 
   %4 = load i32, ptr %3, align 4
   %5 = and i32 %4, 512
   %6 = icmp eq i32 %5, 0
-  br i1 %6, label %.preheader, label %.loopexit, !prof !10
+  br i1 %6, label %.preheader, label %.loopexit, !prof !9
 
 .preheader:                                       ; preds = %2, %10
   %7 = phi ptr [ %8, %10 ], [ getelementptr inbounds nuw (i8, ptr @security_hook_heads, i64 440), %2 ]
@@ -2403,7 +2403,7 @@ define dso_local i32 @security_inode_permission(ptr noundef %0, i32 noundef %1) 
   %12 = load ptr, ptr %11, align 8
   %13 = tail call i32 %12(ptr noundef %0, i32 noundef %1) #17
   %14 = icmp eq i32 %13, 0
-  br i1 %14, label %.preheader, label %.loopexit, !llvm.loop !89
+  br i1 %14, label %.preheader, label %.loopexit, !llvm.loop !87
 
 .loopexit:                                        ; preds = %10, %.preheader, %2
   %15 = phi i32 [ 0, %2 ], [ 0, %.preheader ], [ %13, %10 ]
@@ -2418,7 +2418,7 @@ define dso_local i32 @security_inode_setattr(ptr readnone captures(none) %0, ptr
   %7 = load i32, ptr %6, align 4
   %8 = and i32 %7, 512
   %9 = icmp eq i32 %8, 0
-  br i1 %9, label %.preheader, label %.loopexit, !prof !10
+  br i1 %9, label %.preheader, label %.loopexit, !prof !9
 
 .preheader:                                       ; preds = %3, %13
   %10 = phi ptr [ %11, %13 ], [ getelementptr inbounds nuw (i8, ptr @security_hook_heads, i64 448), %3 ]
@@ -2431,7 +2431,7 @@ define dso_local i32 @security_inode_setattr(ptr readnone captures(none) %0, ptr
   %15 = load ptr, ptr %14, align 8
   %16 = tail call i32 %15(ptr noundef %1, ptr noundef %2) #17
   %17 = icmp eq i32 %16, 0
-  br i1 %17, label %.preheader, label %.loopexit, !llvm.loop !90
+  br i1 %17, label %.preheader, label %.loopexit, !llvm.loop !88
 
 .loopexit:                                        ; preds = %13, %.preheader, %3
   %18 = phi i32 [ 0, %3 ], [ 0, %.preheader ], [ %16, %13 ]
@@ -2448,7 +2448,7 @@ define dso_local i32 @security_inode_getattr(ptr noundef %0) local_unnamed_addr 
   %7 = load i32, ptr %6, align 4
   %8 = and i32 %7, 512
   %9 = icmp eq i32 %8, 0
-  br i1 %9, label %.preheader, label %.loopexit, !prof !10
+  br i1 %9, label %.preheader, label %.loopexit, !prof !9
 
 .preheader:                                       ; preds = %1, %13
   %10 = phi ptr [ %11, %13 ], [ getelementptr inbounds nuw (i8, ptr @security_hook_heads, i64 456), %1 ]
@@ -2461,7 +2461,7 @@ define dso_local i32 @security_inode_getattr(ptr noundef %0) local_unnamed_addr 
   %15 = load ptr, ptr %14, align 8
   %16 = tail call i32 %15(ptr noundef %0) #17
   %17 = icmp eq i32 %16, 0
-  br i1 %17, label %.preheader, label %.loopexit, !llvm.loop !91
+  br i1 %17, label %.preheader, label %.loopexit, !llvm.loop !89
 
 .loopexit:                                        ; preds = %13, %.preheader, %1
   %18 = phi i32 [ 0, %1 ], [ 0, %.preheader ], [ %16, %13 ]
@@ -2476,7 +2476,7 @@ define dso_local i32 @security_inode_setxattr(ptr noundef %0, ptr noundef %1, pt
   %10 = load i32, ptr %9, align 4
   %11 = and i32 %10, 512
   %12 = icmp eq i32 %11, 0
-  br i1 %12, label %13, label %.thread4, !prof !10
+  br i1 %12, label %13, label %.thread4, !prof !9
 
 13:                                               ; preds = %6
   %14 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @security_hook_heads, i64 464), align 8
@@ -2486,7 +2486,7 @@ define dso_local i32 @security_inode_setxattr(ptr noundef %0, ptr noundef %1, pt
 16:                                               ; preds = %.preheader
   %17 = load ptr, ptr %19, align 8
   %18 = icmp eq ptr %17, null
-  br i1 %18, label %.thread4, label %.preheader, !llvm.loop !92
+  br i1 %18, label %.thread4, label %.preheader, !llvm.loop !90
 
 .preheader:                                       ; preds = %13, %16
   %19 = phi ptr [ %17, %16 ], [ %14, %13 ]
@@ -2518,7 +2518,7 @@ define dso_local i32 @security_inode_set_acl(ptr noundef %0, ptr noundef %1, ptr
   %8 = load i32, ptr %7, align 4
   %9 = and i32 %8, 512
   %10 = icmp eq i32 %9, 0
-  br i1 %10, label %.preheader, label %.loopexit, !prof !10
+  br i1 %10, label %.preheader, label %.loopexit, !prof !9
 
 .preheader:                                       ; preds = %4, %14
   %11 = phi ptr [ %12, %14 ], [ getelementptr inbounds nuw (i8, ptr @security_hook_heads, i64 504), %4 ]
@@ -2531,7 +2531,7 @@ define dso_local i32 @security_inode_set_acl(ptr noundef %0, ptr noundef %1, ptr
   %16 = load ptr, ptr %15, align 8
   %17 = tail call i32 %16(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #17
   %18 = icmp eq i32 %17, 0
-  br i1 %18, label %.preheader, label %.loopexit, !llvm.loop !93
+  br i1 %18, label %.preheader, label %.loopexit, !llvm.loop !91
 
 .loopexit:                                        ; preds = %14, %.preheader, %4
   %19 = phi i32 [ 0, %4 ], [ 0, %.preheader ], [ %17, %14 ]
@@ -2546,7 +2546,7 @@ define dso_local i32 @security_inode_get_acl(ptr noundef %0, ptr noundef %1, ptr
   %7 = load i32, ptr %6, align 4
   %8 = and i32 %7, 512
   %9 = icmp eq i32 %8, 0
-  br i1 %9, label %.preheader, label %.loopexit, !prof !10
+  br i1 %9, label %.preheader, label %.loopexit, !prof !9
 
 .preheader:                                       ; preds = %3, %13
   %10 = phi ptr [ %11, %13 ], [ getelementptr inbounds nuw (i8, ptr @security_hook_heads, i64 512), %3 ]
@@ -2559,7 +2559,7 @@ define dso_local i32 @security_inode_get_acl(ptr noundef %0, ptr noundef %1, ptr
   %15 = load ptr, ptr %14, align 8
   %16 = tail call i32 %15(ptr noundef %0, ptr noundef %1, ptr noundef %2) #17
   %17 = icmp eq i32 %16, 0
-  br i1 %17, label %.preheader, label %.loopexit, !llvm.loop !94
+  br i1 %17, label %.preheader, label %.loopexit, !llvm.loop !92
 
 .loopexit:                                        ; preds = %13, %.preheader, %3
   %18 = phi i32 [ 0, %3 ], [ 0, %.preheader ], [ %16, %13 ]
@@ -2574,7 +2574,7 @@ define dso_local i32 @security_inode_remove_acl(ptr noundef %0, ptr noundef %1, 
   %7 = load i32, ptr %6, align 4
   %8 = and i32 %7, 512
   %9 = icmp eq i32 %8, 0
-  br i1 %9, label %.preheader, label %.loopexit, !prof !10
+  br i1 %9, label %.preheader, label %.loopexit, !prof !9
 
 .preheader:                                       ; preds = %3, %13
   %10 = phi ptr [ %11, %13 ], [ getelementptr inbounds nuw (i8, ptr @security_hook_heads, i64 520), %3 ]
@@ -2587,7 +2587,7 @@ define dso_local i32 @security_inode_remove_acl(ptr noundef %0, ptr noundef %1, 
   %15 = load ptr, ptr %14, align 8
   %16 = tail call i32 %15(ptr noundef %0, ptr noundef %1, ptr noundef %2) #17
   %17 = icmp eq i32 %16, 0
-  br i1 %17, label %.preheader, label %.loopexit, !llvm.loop !95
+  br i1 %17, label %.preheader, label %.loopexit, !llvm.loop !93
 
 .loopexit:                                        ; preds = %13, %.preheader, %3
   %18 = phi i32 [ 0, %3 ], [ 0, %.preheader ], [ %16, %13 ]
@@ -2605,7 +2605,7 @@ define dso_local void @security_inode_post_setxattr(ptr noundef %0, ptr noundef 
   %12 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @security_hook_heads, i64 472), align 8
   %13 = icmp eq ptr %12, null
   %14 = select i1 %11, i1 true, i1 %13
-  br i1 %14, label %.loopexit, label %.preheader, !prof !96
+  br i1 %14, label %.loopexit, label %.preheader, !prof !94
 
 .preheader:                                       ; preds = %5, %.preheader
   %15 = phi ptr [ %18, %.preheader ], [ %12, %5 ]
@@ -2614,7 +2614,7 @@ define dso_local void @security_inode_post_setxattr(ptr noundef %0, ptr noundef 
   tail call void %17(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i32 noundef %4) #17
   %18 = load ptr, ptr %15, align 8
   %19 = icmp eq ptr %18, null
-  br i1 %19, label %.loopexit, label %.preheader, !llvm.loop !97
+  br i1 %19, label %.loopexit, label %.preheader, !llvm.loop !95
 
 .loopexit:                                        ; preds = %.preheader, %5
   ret void
@@ -2628,7 +2628,7 @@ define dso_local i32 @security_inode_getxattr(ptr noundef %0, ptr noundef %1) lo
   %6 = load i32, ptr %5, align 4
   %7 = and i32 %6, 512
   %8 = icmp eq i32 %7, 0
-  br i1 %8, label %.preheader, label %.loopexit, !prof !10
+  br i1 %8, label %.preheader, label %.loopexit, !prof !9
 
 .preheader:                                       ; preds = %2, %12
   %9 = phi ptr [ %10, %12 ], [ getelementptr inbounds nuw (i8, ptr @security_hook_heads, i64 480), %2 ]
@@ -2641,7 +2641,7 @@ define dso_local i32 @security_inode_getxattr(ptr noundef %0, ptr noundef %1) lo
   %14 = load ptr, ptr %13, align 8
   %15 = tail call i32 %14(ptr noundef %0, ptr noundef %1) #17
   %16 = icmp eq i32 %15, 0
-  br i1 %16, label %.preheader, label %.loopexit, !llvm.loop !98
+  br i1 %16, label %.preheader, label %.loopexit, !llvm.loop !96
 
 .loopexit:                                        ; preds = %12, %.preheader, %2
   %17 = phi i32 [ 0, %2 ], [ 0, %.preheader ], [ %15, %12 ]
@@ -2656,7 +2656,7 @@ define dso_local i32 @security_inode_listxattr(ptr noundef %0) local_unnamed_add
   %5 = load i32, ptr %4, align 4
   %6 = and i32 %5, 512
   %7 = icmp eq i32 %6, 0
-  br i1 %7, label %.preheader, label %.loopexit, !prof !10
+  br i1 %7, label %.preheader, label %.loopexit, !prof !9
 
 .preheader:                                       ; preds = %1, %11
   %8 = phi ptr [ %9, %11 ], [ getelementptr inbounds nuw (i8, ptr @security_hook_heads, i64 488), %1 ]
@@ -2669,7 +2669,7 @@ define dso_local i32 @security_inode_listxattr(ptr noundef %0) local_unnamed_add
   %13 = load ptr, ptr %12, align 8
   %14 = tail call i32 %13(ptr noundef %0) #17
   %15 = icmp eq i32 %14, 0
-  br i1 %15, label %.preheader, label %.loopexit, !llvm.loop !99
+  br i1 %15, label %.preheader, label %.loopexit, !llvm.loop !97
 
 .loopexit:                                        ; preds = %11, %.preheader, %1
   %16 = phi i32 [ 0, %1 ], [ 0, %.preheader ], [ %14, %11 ]
@@ -2684,7 +2684,7 @@ define dso_local i32 @security_inode_removexattr(ptr noundef %0, ptr noundef %1,
   %7 = load i32, ptr %6, align 4
   %8 = and i32 %7, 512
   %9 = icmp eq i32 %8, 0
-  br i1 %9, label %10, label %.thread4, !prof !10
+  br i1 %9, label %10, label %.thread4, !prof !9
 
 10:                                               ; preds = %3
   %11 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @security_hook_heads, i64 496), align 8
@@ -2694,7 +2694,7 @@ define dso_local i32 @security_inode_removexattr(ptr noundef %0, ptr noundef %1,
 13:                                               ; preds = %.preheader
   %14 = load ptr, ptr %16, align 8
   %15 = icmp eq ptr %14, null
-  br i1 %15, label %.thread4, label %.preheader, !llvm.loop !100
+  br i1 %15, label %.thread4, label %.preheader, !llvm.loop !98
 
 .preheader:                                       ; preds = %10, %13
   %16 = phi ptr [ %14, %13 ], [ %11, %10 ]
@@ -2733,7 +2733,7 @@ define dso_local i32 @security_inode_need_killpriv(ptr noundef %0) local_unnamed
   %8 = load ptr, ptr %7, align 8
   %9 = tail call i32 %8(ptr noundef %0) #17
   %10 = icmp eq i32 %9, 0
-  br i1 %10, label %2, label %11, !llvm.loop !101
+  br i1 %10, label %2, label %11, !llvm.loop !99
 
 11:                                               ; preds = %6, %2
   %12 = phi i32 [ %9, %6 ], [ 0, %2 ]
@@ -2755,7 +2755,7 @@ define dso_local i32 @security_inode_killpriv(ptr noundef %0, ptr noundef %1) lo
   %9 = load ptr, ptr %8, align 8
   %10 = tail call i32 %9(ptr noundef %0, ptr noundef %1) #17
   %11 = icmp eq i32 %10, 0
-  br i1 %11, label %3, label %12, !llvm.loop !102
+  br i1 %11, label %3, label %12, !llvm.loop !100
 
 12:                                               ; preds = %7, %3
   %13 = phi i32 [ %10, %7 ], [ 0, %3 ]
@@ -2768,7 +2768,7 @@ define dso_local i32 @security_inode_getsecurity(ptr noundef %0, ptr noundef %1,
   %7 = load i32, ptr %6, align 4
   %8 = and i32 %7, 512
   %9 = icmp eq i32 %8, 0
-  br i1 %9, label %.preheader, label %.loopexit, !prof !10
+  br i1 %9, label %.preheader, label %.loopexit, !prof !9
 
 .preheader:                                       ; preds = %5, %13
   %10 = phi ptr [ %11, %13 ], [ getelementptr inbounds nuw (i8, ptr @security_hook_heads, i64 544), %5 ]
@@ -2781,7 +2781,7 @@ define dso_local i32 @security_inode_getsecurity(ptr noundef %0, ptr noundef %1,
   %15 = load ptr, ptr %14, align 8
   %16 = tail call i32 %15(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i1 noundef zeroext %4) #17
   %17 = icmp eq i32 %16, -95
-  br i1 %17, label %.preheader, label %.loopexit, !llvm.loop !103
+  br i1 %17, label %.preheader, label %.loopexit, !llvm.loop !101
 
 .loopexit:                                        ; preds = %13, %.preheader, %5
   %18 = phi i32 [ -95, %5 ], [ -95, %.preheader ], [ %16, %13 ]
@@ -2794,7 +2794,7 @@ define dso_local i32 @security_inode_setsecurity(ptr noundef %0, ptr noundef %1,
   %7 = load i32, ptr %6, align 4
   %8 = and i32 %7, 512
   %9 = icmp eq i32 %8, 0
-  br i1 %9, label %.preheader, label %.loopexit, !prof !10
+  br i1 %9, label %.preheader, label %.loopexit, !prof !9
 
 .preheader:                                       ; preds = %5, %13
   %10 = phi ptr [ %11, %13 ], [ getelementptr inbounds nuw (i8, ptr @security_hook_heads, i64 552), %5 ]
@@ -2807,7 +2807,7 @@ define dso_local i32 @security_inode_setsecurity(ptr noundef %0, ptr noundef %1,
   %15 = load ptr, ptr %14, align 8
   %16 = tail call i32 %15(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i32 noundef %4) #17
   %17 = icmp eq i32 %16, -95
-  br i1 %17, label %.preheader, label %.loopexit, !llvm.loop !104
+  br i1 %17, label %.preheader, label %.loopexit, !llvm.loop !102
 
 .loopexit:                                        ; preds = %13, %.preheader, %5
   %18 = phi i32 [ -95, %5 ], [ -95, %.preheader ], [ %16, %13 ]
@@ -2820,7 +2820,7 @@ define dso_local i32 @security_inode_listsecurity(ptr noundef %0, ptr noundef %1
   %5 = load i32, ptr %4, align 4
   %6 = and i32 %5, 512
   %7 = icmp eq i32 %6, 0
-  br i1 %7, label %.preheader, label %.loopexit, !prof !10
+  br i1 %7, label %.preheader, label %.loopexit, !prof !9
 
 .preheader:                                       ; preds = %3, %11
   %8 = phi ptr [ %9, %11 ], [ getelementptr inbounds nuw (i8, ptr @security_hook_heads, i64 560), %3 ]
@@ -2833,7 +2833,7 @@ define dso_local i32 @security_inode_listsecurity(ptr noundef %0, ptr noundef %1
   %13 = load ptr, ptr %12, align 8
   %14 = tail call i32 %13(ptr noundef %0, ptr noundef %1, i64 noundef %2) #17
   %15 = icmp eq i32 %14, 0
-  br i1 %15, label %.preheader, label %.loopexit, !llvm.loop !105
+  br i1 %15, label %.preheader, label %.loopexit, !llvm.loop !103
 
 .loopexit:                                        ; preds = %11, %.preheader, %3
   %16 = phi i32 [ 0, %3 ], [ 0, %.preheader ], [ %14, %11 ]
@@ -2853,7 +2853,7 @@ define dso_local void @security_inode_getsecid(ptr noundef %0, ptr noundef %1) l
   tail call void %7(ptr noundef %0, ptr noundef %1) #17
   %8 = load ptr, ptr %5, align 8
   %9 = icmp eq ptr %8, null
-  br i1 %9, label %.loopexit, label %.preheader, !llvm.loop !106
+  br i1 %9, label %.loopexit, label %.preheader, !llvm.loop !104
 
 .loopexit:                                        ; preds = %.preheader, %2
   ret void
@@ -2874,7 +2874,7 @@ define dso_local i32 @security_inode_copy_up(ptr noundef %0, ptr noundef %1) #3 
   %9 = load ptr, ptr %8, align 8
   %10 = tail call i32 %9(ptr noundef %0, ptr noundef %1) #17
   %11 = icmp eq i32 %10, 0
-  br i1 %11, label %3, label %12, !llvm.loop !107
+  br i1 %11, label %3, label %12, !llvm.loop !105
 
 12:                                               ; preds = %7, %3
   %13 = phi i32 [ %10, %7 ], [ 0, %3 ]
@@ -2896,7 +2896,7 @@ define dso_local range(i32 -94, -95) i32 @security_inode_copy_up_xattr(ptr nound
   %8 = load ptr, ptr %7, align 8
   %9 = tail call i32 %8(ptr noundef %0) #17
   %10 = icmp eq i32 %9, -95
-  br i1 %10, label %2, label %11, !llvm.loop !108
+  br i1 %10, label %2, label %11, !llvm.loop !106
 
 11:                                               ; preds = %6, %2
   %12 = phi i32 [ %9, %6 ], [ 0, %2 ]
@@ -2918,7 +2918,7 @@ define dso_local i32 @security_kernfs_init_security(ptr noundef %0, ptr noundef 
   %9 = load ptr, ptr %8, align 8
   %10 = tail call i32 %9(ptr noundef %0, ptr noundef %1) #17
   %11 = icmp eq i32 %10, 0
-  br i1 %11, label %3, label %12, !llvm.loop !109
+  br i1 %11, label %3, label %12, !llvm.loop !107
 
 12:                                               ; preds = %7, %3
   %13 = phi i32 [ %10, %7 ], [ 0, %3 ]
@@ -2940,7 +2940,7 @@ define dso_local i32 @security_file_permission(ptr noundef %0, i32 noundef %1) l
   %9 = load ptr, ptr %8, align 8
   %10 = tail call i32 %9(ptr noundef %0, i32 noundef %1) #17
   %11 = icmp eq i32 %10, 0
-  br i1 %11, label %3, label %12, !llvm.loop !110
+  br i1 %11, label %3, label %12, !llvm.loop !108
 
 12:                                               ; preds = %7, %3
   %13 = phi i32 [ %10, %7 ], [ 0, %3 ]
@@ -2979,7 +2979,7 @@ define dso_local i32 @security_file_alloc(ptr noundef initializes((192, 200)) %0
   %16 = load ptr, ptr %15, align 8
   %17 = tail call i32 %16(ptr noundef %0) #17
   %18 = icmp eq i32 %17, 0
-  br i1 %18, label %10, label %19, !llvm.loop !111
+  br i1 %18, label %10, label %19, !llvm.loop !109
 
 19:                                               ; preds = %14
   tail call void @security_file_free(ptr noundef %0)
@@ -3003,7 +3003,7 @@ define dso_local void @security_file_free(ptr noundef %0) local_unnamed_addr #3 
   tail call void %6(ptr noundef %0) #17
   %7 = load ptr, ptr %4, align 8
   %8 = icmp eq ptr %7, null
-  br i1 %8, label %.loopexit, label %.preheader, !llvm.loop !112
+  br i1 %8, label %.loopexit, label %.preheader, !llvm.loop !110
 
 .loopexit:                                        ; preds = %.preheader, %1
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 192
@@ -3039,7 +3039,7 @@ define dso_local i32 @security_file_ioctl(ptr noundef %0, i32 noundef %1, i64 no
   %10 = load ptr, ptr %9, align 8
   %11 = tail call i32 %10(ptr noundef %0, i32 noundef %1, i64 noundef %2) #17
   %12 = icmp eq i32 %11, 0
-  br i1 %12, label %4, label %13, !llvm.loop !113
+  br i1 %12, label %4, label %13, !llvm.loop !111
 
 13:                                               ; preds = %8, %4
   %14 = phi i32 [ %11, %8 ], [ 0, %4 ]
@@ -3061,7 +3061,7 @@ define dso_local i32 @security_file_ioctl_compat(ptr noundef %0, i32 noundef %1,
   %10 = load ptr, ptr %9, align 8
   %11 = tail call i32 %10(ptr noundef %0, i32 noundef %1, i64 noundef %2) #17
   %12 = icmp eq i32 %11, 0
-  br i1 %12, label %4, label %13, !llvm.loop !114
+  br i1 %12, label %4, label %13, !llvm.loop !112
 
 13:                                               ; preds = %8, %4
   %14 = phi i32 [ %11, %8 ], [ 0, %4 ]
@@ -3075,7 +3075,7 @@ define dso_local i32 @security_mmap_file(ptr noundef %0, i64 noundef %1, i64 nou
   br i1 %5, label %6, label %22
 
 6:                                                ; preds = %3
-  %7 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #19, !srcloc !22
+  %7 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #19, !srcloc !21
   %8 = inttoptr i64 %7 to ptr
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 1240
   %10 = load i32, ptr %9, align 8
@@ -3113,7 +3113,7 @@ define dso_local i32 @security_mmap_file(ptr noundef %0, i64 noundef %1, i64 nou
   %30 = load ptr, ptr %29, align 8
   %31 = tail call i32 %30(ptr noundef %0, i64 noundef %1, i64 noundef %23, i64 noundef %2) #17
   %32 = icmp eq i32 %31, 0
-  br i1 %32, label %24, label %33, !llvm.loop !115
+  br i1 %32, label %24, label %33, !llvm.loop !113
 
 33:                                               ; preds = %28, %24
   %34 = phi i32 [ %31, %28 ], [ 0, %24 ]
@@ -3135,7 +3135,7 @@ define dso_local i32 @security_mmap_addr(i64 noundef %0) local_unnamed_addr #3 a
   %8 = load ptr, ptr %7, align 8
   %9 = tail call i32 %8(i64 noundef %0) #17
   %10 = icmp eq i32 %9, 0
-  br i1 %10, label %2, label %11, !llvm.loop !116
+  br i1 %10, label %2, label %11, !llvm.loop !114
 
 11:                                               ; preds = %6, %2
   %12 = phi i32 [ %9, %6 ], [ 0, %2 ]
@@ -3157,7 +3157,7 @@ define dso_local i32 @security_file_mprotect(ptr noundef %0, i64 noundef %1, i64
   %10 = load ptr, ptr %9, align 8
   %11 = tail call i32 %10(ptr noundef %0, i64 noundef %1, i64 noundef %2) #17
   %12 = icmp eq i32 %11, 0
-  br i1 %12, label %4, label %13, !llvm.loop !117
+  br i1 %12, label %4, label %13, !llvm.loop !115
 
 13:                                               ; preds = %8, %4
   %14 = phi i32 [ %11, %8 ], [ 0, %4 ]
@@ -3179,7 +3179,7 @@ define dso_local i32 @security_file_lock(ptr noundef %0, i32 noundef %1) local_u
   %9 = load ptr, ptr %8, align 8
   %10 = tail call i32 %9(ptr noundef %0, i32 noundef %1) #17
   %11 = icmp eq i32 %10, 0
-  br i1 %11, label %3, label %12, !llvm.loop !118
+  br i1 %11, label %3, label %12, !llvm.loop !116
 
 12:                                               ; preds = %7, %3
   %13 = phi i32 [ %10, %7 ], [ 0, %3 ]
@@ -3201,7 +3201,7 @@ define dso_local i32 @security_file_fcntl(ptr noundef %0, i32 noundef %1, i64 no
   %10 = load ptr, ptr %9, align 8
   %11 = tail call i32 %10(ptr noundef %0, i32 noundef %1, i64 noundef %2) #17
   %12 = icmp eq i32 %11, 0
-  br i1 %12, label %4, label %13, !llvm.loop !119
+  br i1 %12, label %4, label %13, !llvm.loop !117
 
 13:                                               ; preds = %8, %4
   %14 = phi i32 [ %11, %8 ], [ 0, %4 ]
@@ -3221,7 +3221,7 @@ define dso_local void @security_file_set_fowner(ptr noundef %0) local_unnamed_ad
   tail call void %6(ptr noundef %0) #17
   %7 = load ptr, ptr %4, align 8
   %8 = icmp eq ptr %7, null
-  br i1 %8, label %.loopexit, label %.preheader, !llvm.loop !120
+  br i1 %8, label %.loopexit, label %.preheader, !llvm.loop !118
 
 .loopexit:                                        ; preds = %.preheader, %1
   ret void
@@ -3242,7 +3242,7 @@ define dso_local i32 @security_file_send_sigiotask(ptr noundef %0, ptr noundef %
   %10 = load ptr, ptr %9, align 8
   %11 = tail call i32 %10(ptr noundef %0, ptr noundef %1, i32 noundef %2) #17
   %12 = icmp eq i32 %11, 0
-  br i1 %12, label %4, label %13, !llvm.loop !121
+  br i1 %12, label %4, label %13, !llvm.loop !119
 
 13:                                               ; preds = %8, %4
   %14 = phi i32 [ %11, %8 ], [ 0, %4 ]
@@ -3264,7 +3264,7 @@ define dso_local i32 @security_file_receive(ptr noundef %0) local_unnamed_addr #
   %8 = load ptr, ptr %7, align 8
   %9 = tail call i32 %8(ptr noundef %0) #17
   %10 = icmp eq i32 %9, 0
-  br i1 %10, label %2, label %11, !llvm.loop !122
+  br i1 %10, label %2, label %11, !llvm.loop !120
 
 11:                                               ; preds = %6, %2
   %12 = phi i32 [ %9, %6 ], [ 0, %2 ]
@@ -3286,7 +3286,7 @@ define dso_local i32 @security_file_open(ptr noundef %0) local_unnamed_addr #3 a
   %8 = load ptr, ptr %7, align 8
   %9 = tail call i32 %8(ptr noundef %0) #17
   %10 = icmp eq i32 %9, 0
-  br i1 %10, label %2, label %11, !llvm.loop !123
+  br i1 %10, label %2, label %11, !llvm.loop !121
 
 11:                                               ; preds = %6, %2
   %12 = phi i32 [ %9, %6 ], [ 0, %2 ]
@@ -3308,7 +3308,7 @@ define dso_local i32 @security_file_truncate(ptr noundef %0) local_unnamed_addr 
   %8 = load ptr, ptr %7, align 8
   %9 = tail call i32 %8(ptr noundef %0) #17
   %10 = icmp eq i32 %9, 0
-  br i1 %10, label %2, label %11, !llvm.loop !124
+  br i1 %10, label %2, label %11, !llvm.loop !122
 
 11:                                               ; preds = %6, %2
   %12 = phi i32 [ %9, %6 ], [ 0, %2 ]
@@ -3348,7 +3348,7 @@ define dso_local i32 @security_task_alloc(ptr noundef initializes((2696, 2704)) 
   %18 = load ptr, ptr %17, align 8
   %19 = tail call i32 %18(ptr noundef %0, i64 noundef %1) #17
   %20 = icmp eq i32 %19, 0
-  br i1 %20, label %12, label %21, !llvm.loop !125
+  br i1 %20, label %12, label %21, !llvm.loop !123
 
 21:                                               ; preds = %16
   tail call void @security_task_free(ptr noundef %0)
@@ -3372,7 +3372,7 @@ define dso_local void @security_task_free(ptr noundef %0) local_unnamed_addr #3 
   tail call void %6(ptr noundef %0) #17
   %7 = load ptr, ptr %4, align 8
   %8 = icmp eq ptr %7, null
-  br i1 %8, label %.loopexit, label %.preheader, !llvm.loop !126
+  br i1 %8, label %.loopexit, label %.preheader, !llvm.loop !124
 
 .loopexit:                                        ; preds = %.preheader, %1
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 2696
@@ -3416,7 +3416,7 @@ define dso_local i32 @security_cred_alloc_blank(ptr noundef initializes((128, 13
   %19 = load ptr, ptr %18, align 8
   %20 = tail call i32 %19(ptr noundef %0, i32 noundef %1) #17
   %21 = icmp eq i32 %20, 0
-  br i1 %21, label %13, label %22, !llvm.loop !127
+  br i1 %21, label %13, label %22, !llvm.loop !125
 
 22:                                               ; preds = %17
   tail call void @security_cred_free(ptr noundef %0)
@@ -3432,7 +3432,7 @@ define dso_local void @security_cred_free(ptr noundef %0) local_unnamed_addr #3 
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
-  br i1 %4, label %14, label %5, !prof !17
+  br i1 %4, label %14, label %5, !prof !16
 
 5:                                                ; preds = %1
   %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @security_hook_heads, i64 744), align 8
@@ -3446,7 +3446,7 @@ define dso_local void @security_cred_free(ptr noundef %0) local_unnamed_addr #3 
   tail call void %10(ptr noundef %0) #17
   %11 = load ptr, ptr %8, align 8
   %12 = icmp eq ptr %11, null
-  br i1 %12, label %.loopexit.loopexit, label %.preheader, !llvm.loop !128
+  br i1 %12, label %.loopexit.loopexit, label %.preheader, !llvm.loop !126
 
 .loopexit.loopexit:                               ; preds = %.preheader
   %.pre = load ptr, ptr %2, align 8
@@ -3496,7 +3496,7 @@ define dso_local i32 @security_prepare_creds(ptr noundef initializes((128, 136))
   %20 = load ptr, ptr %19, align 8
   %21 = tail call i32 %20(ptr noundef %0, ptr noundef %1, i32 noundef %2) #17
   %22 = icmp eq i32 %21, 0
-  br i1 %22, label %14, label %23, !llvm.loop !129
+  br i1 %22, label %14, label %23, !llvm.loop !127
 
 23:                                               ; preds = %18
   tail call void @security_cred_free(ptr noundef %0)
@@ -3520,7 +3520,7 @@ define dso_local void @security_transfer_creds(ptr noundef %0, ptr noundef %1) l
   tail call void %7(ptr noundef %0, ptr noundef %1) #17
   %8 = load ptr, ptr %5, align 8
   %9 = icmp eq ptr %8, null
-  br i1 %9, label %.loopexit, label %.preheader, !llvm.loop !130
+  br i1 %9, label %.loopexit, label %.preheader, !llvm.loop !128
 
 .loopexit:                                        ; preds = %.preheader, %2
   ret void
@@ -3540,7 +3540,7 @@ define dso_local void @security_cred_getsecid(ptr noundef %0, ptr noundef initia
   tail call void %7(ptr noundef %0, ptr noundef %1) #17
   %8 = load ptr, ptr %5, align 8
   %9 = icmp eq ptr %8, null
-  br i1 %9, label %.loopexit, label %.preheader, !llvm.loop !131
+  br i1 %9, label %.loopexit, label %.preheader, !llvm.loop !129
 
 .loopexit:                                        ; preds = %.preheader, %2
   ret void
@@ -3561,7 +3561,7 @@ define dso_local i32 @security_kernel_act_as(ptr noundef %0, i32 noundef %1) loc
   %9 = load ptr, ptr %8, align 8
   %10 = tail call i32 %9(ptr noundef %0, i32 noundef %1) #17
   %11 = icmp eq i32 %10, 0
-  br i1 %11, label %3, label %12, !llvm.loop !132
+  br i1 %11, label %3, label %12, !llvm.loop !130
 
 12:                                               ; preds = %7, %3
   %13 = phi i32 [ %10, %7 ], [ 0, %3 ]
@@ -3583,7 +3583,7 @@ define dso_local i32 @security_kernel_create_files_as(ptr noundef %0, ptr nounde
   %9 = load ptr, ptr %8, align 8
   %10 = tail call i32 %9(ptr noundef %0, ptr noundef %1) #17
   %11 = icmp eq i32 %10, 0
-  br i1 %11, label %3, label %12, !llvm.loop !133
+  br i1 %11, label %3, label %12, !llvm.loop !131
 
 12:                                               ; preds = %7, %3
   %13 = phi i32 [ %10, %7 ], [ 0, %3 ]
@@ -3605,7 +3605,7 @@ define dso_local i32 @security_kernel_module_request(ptr noundef %0) local_unnam
   %8 = load ptr, ptr %7, align 8
   %9 = tail call i32 %8(ptr noundef %0) #17
   %10 = icmp eq i32 %9, 0
-  br i1 %10, label %2, label %11, !llvm.loop !134
+  br i1 %10, label %2, label %11, !llvm.loop !132
 
 11:                                               ; preds = %6, %2
   %12 = phi i32 [ %9, %6 ], [ 0, %2 ]
@@ -3627,7 +3627,7 @@ define dso_local i32 @security_kernel_read_file(ptr noundef %0, i32 noundef %1, 
   %10 = load ptr, ptr %9, align 8
   %11 = tail call i32 %10(ptr noundef %0, i32 noundef %1, i1 noundef zeroext %2) #17
   %12 = icmp eq i32 %11, 0
-  br i1 %12, label %4, label %13, !llvm.loop !135
+  br i1 %12, label %4, label %13, !llvm.loop !133
 
 13:                                               ; preds = %8, %4
   %14 = phi i32 [ %11, %8 ], [ 0, %4 ]
@@ -3649,7 +3649,7 @@ define dso_local i32 @security_kernel_post_read_file(ptr noundef %0, ptr noundef
   %11 = load ptr, ptr %10, align 8
   %12 = tail call i32 %11(ptr noundef %0, ptr noundef %1, i64 noundef %2, i32 noundef %3) #17
   %13 = icmp eq i32 %12, 0
-  br i1 %13, label %5, label %14, !llvm.loop !136
+  br i1 %13, label %5, label %14, !llvm.loop !134
 
 14:                                               ; preds = %9, %5
   %15 = phi i32 [ %12, %9 ], [ 0, %5 ]
@@ -3671,7 +3671,7 @@ define dso_local i32 @security_kernel_load_data(i32 noundef %0, i1 noundef zeroe
   %9 = load ptr, ptr %8, align 8
   %10 = tail call i32 %9(i32 noundef %0, i1 noundef zeroext %1) #17
   %11 = icmp eq i32 %10, 0
-  br i1 %11, label %3, label %12, !llvm.loop !137
+  br i1 %11, label %3, label %12, !llvm.loop !135
 
 12:                                               ; preds = %7, %3
   %13 = phi i32 [ %10, %7 ], [ 0, %3 ]
@@ -3693,7 +3693,7 @@ define dso_local i32 @security_kernel_post_load_data(ptr noundef %0, i64 noundef
   %11 = load ptr, ptr %10, align 8
   %12 = tail call i32 %11(ptr noundef %0, i64 noundef %1, i32 noundef %2, ptr noundef %3) #17
   %13 = icmp eq i32 %12, 0
-  br i1 %13, label %5, label %14, !llvm.loop !138
+  br i1 %13, label %5, label %14, !llvm.loop !136
 
 14:                                               ; preds = %9, %5
   %15 = phi i32 [ %12, %9 ], [ 0, %5 ]
@@ -3715,7 +3715,7 @@ define dso_local i32 @security_task_fix_setuid(ptr noundef %0, ptr noundef %1, i
   %10 = load ptr, ptr %9, align 8
   %11 = tail call i32 %10(ptr noundef %0, ptr noundef %1, i32 noundef %2) #17
   %12 = icmp eq i32 %11, 0
-  br i1 %12, label %4, label %13, !llvm.loop !139
+  br i1 %12, label %4, label %13, !llvm.loop !137
 
 13:                                               ; preds = %8, %4
   %14 = phi i32 [ %11, %8 ], [ 0, %4 ]
@@ -3737,7 +3737,7 @@ define dso_local i32 @security_task_fix_setgid(ptr noundef %0, ptr noundef %1, i
   %10 = load ptr, ptr %9, align 8
   %11 = tail call i32 %10(ptr noundef %0, ptr noundef %1, i32 noundef %2) #17
   %12 = icmp eq i32 %11, 0
-  br i1 %12, label %4, label %13, !llvm.loop !140
+  br i1 %12, label %4, label %13, !llvm.loop !138
 
 13:                                               ; preds = %8, %4
   %14 = phi i32 [ %11, %8 ], [ 0, %4 ]
@@ -3759,7 +3759,7 @@ define dso_local i32 @security_task_fix_setgroups(ptr noundef %0, ptr noundef %1
   %9 = load ptr, ptr %8, align 8
   %10 = tail call i32 %9(ptr noundef %0, ptr noundef %1) #17
   %11 = icmp eq i32 %10, 0
-  br i1 %11, label %3, label %12, !llvm.loop !141
+  br i1 %11, label %3, label %12, !llvm.loop !139
 
 12:                                               ; preds = %7, %3
   %13 = phi i32 [ %10, %7 ], [ 0, %3 ]
@@ -3781,7 +3781,7 @@ define dso_local i32 @security_task_setpgid(ptr noundef %0, i32 noundef %1) loca
   %9 = load ptr, ptr %8, align 8
   %10 = tail call i32 %9(ptr noundef %0, i32 noundef %1) #17
   %11 = icmp eq i32 %10, 0
-  br i1 %11, label %3, label %12, !llvm.loop !142
+  br i1 %11, label %3, label %12, !llvm.loop !140
 
 12:                                               ; preds = %7, %3
   %13 = phi i32 [ %10, %7 ], [ 0, %3 ]
@@ -3803,7 +3803,7 @@ define dso_local i32 @security_task_getpgid(ptr noundef %0) local_unnamed_addr #
   %8 = load ptr, ptr %7, align 8
   %9 = tail call i32 %8(ptr noundef %0) #17
   %10 = icmp eq i32 %9, 0
-  br i1 %10, label %2, label %11, !llvm.loop !143
+  br i1 %10, label %2, label %11, !llvm.loop !141
 
 11:                                               ; preds = %6, %2
   %12 = phi i32 [ %9, %6 ], [ 0, %2 ]
@@ -3825,7 +3825,7 @@ define dso_local i32 @security_task_getsid(ptr noundef %0) local_unnamed_addr #3
   %8 = load ptr, ptr %7, align 8
   %9 = tail call i32 %8(ptr noundef %0) #17
   %10 = icmp eq i32 %9, 0
-  br i1 %10, label %2, label %11, !llvm.loop !144
+  br i1 %10, label %2, label %11, !llvm.loop !142
 
 11:                                               ; preds = %6, %2
   %12 = phi i32 [ %9, %6 ], [ 0, %2 ]
@@ -3846,7 +3846,7 @@ define dso_local void @security_current_getsecid_subj(ptr noundef initializes((0
   tail call void %6(ptr noundef %0) #17
   %7 = load ptr, ptr %4, align 8
   %8 = icmp eq ptr %7, null
-  br i1 %8, label %.loopexit, label %.preheader, !llvm.loop !145
+  br i1 %8, label %.loopexit, label %.preheader, !llvm.loop !143
 
 .loopexit:                                        ; preds = %.preheader, %1
   ret void
@@ -3866,7 +3866,7 @@ define dso_local void @security_task_getsecid_obj(ptr noundef %0, ptr noundef in
   tail call void %7(ptr noundef %0, ptr noundef %1) #17
   %8 = load ptr, ptr %5, align 8
   %9 = icmp eq ptr %8, null
-  br i1 %9, label %.loopexit, label %.preheader, !llvm.loop !146
+  br i1 %9, label %.loopexit, label %.preheader, !llvm.loop !144
 
 .loopexit:                                        ; preds = %.preheader, %2
   ret void
@@ -3887,7 +3887,7 @@ define dso_local i32 @security_task_setnice(ptr noundef %0, i32 noundef %1) loca
   %9 = load ptr, ptr %8, align 8
   %10 = tail call i32 %9(ptr noundef %0, i32 noundef %1) #17
   %11 = icmp eq i32 %10, 0
-  br i1 %11, label %3, label %12, !llvm.loop !147
+  br i1 %11, label %3, label %12, !llvm.loop !145
 
 12:                                               ; preds = %7, %3
   %13 = phi i32 [ %10, %7 ], [ 0, %3 ]
@@ -3909,7 +3909,7 @@ define dso_local i32 @security_task_setioprio(ptr noundef %0, i32 noundef %1) lo
   %9 = load ptr, ptr %8, align 8
   %10 = tail call i32 %9(ptr noundef %0, i32 noundef %1) #17
   %11 = icmp eq i32 %10, 0
-  br i1 %11, label %3, label %12, !llvm.loop !148
+  br i1 %11, label %3, label %12, !llvm.loop !146
 
 12:                                               ; preds = %7, %3
   %13 = phi i32 [ %10, %7 ], [ 0, %3 ]
@@ -3931,7 +3931,7 @@ define dso_local i32 @security_task_getioprio(ptr noundef %0) local_unnamed_addr
   %8 = load ptr, ptr %7, align 8
   %9 = tail call i32 %8(ptr noundef %0) #17
   %10 = icmp eq i32 %9, 0
-  br i1 %10, label %2, label %11, !llvm.loop !149
+  br i1 %10, label %2, label %11, !llvm.loop !147
 
 11:                                               ; preds = %6, %2
   %12 = phi i32 [ %9, %6 ], [ 0, %2 ]
@@ -3953,7 +3953,7 @@ define dso_local i32 @security_task_prlimit(ptr noundef %0, ptr noundef %1, i32 
   %10 = load ptr, ptr %9, align 8
   %11 = tail call i32 %10(ptr noundef %0, ptr noundef %1, i32 noundef %2) #17
   %12 = icmp eq i32 %11, 0
-  br i1 %12, label %4, label %13, !llvm.loop !150
+  br i1 %12, label %4, label %13, !llvm.loop !148
 
 13:                                               ; preds = %8, %4
   %14 = phi i32 [ %11, %8 ], [ 0, %4 ]
@@ -3975,7 +3975,7 @@ define dso_local i32 @security_task_setrlimit(ptr noundef %0, i32 noundef %1, pt
   %10 = load ptr, ptr %9, align 8
   %11 = tail call i32 %10(ptr noundef %0, i32 noundef %1, ptr noundef %2) #17
   %12 = icmp eq i32 %11, 0
-  br i1 %12, label %4, label %13, !llvm.loop !151
+  br i1 %12, label %4, label %13, !llvm.loop !149
 
 13:                                               ; preds = %8, %4
   %14 = phi i32 [ %11, %8 ], [ 0, %4 ]
@@ -3997,7 +3997,7 @@ define dso_local i32 @security_task_setscheduler(ptr noundef %0) local_unnamed_a
   %8 = load ptr, ptr %7, align 8
   %9 = tail call i32 %8(ptr noundef %0) #17
   %10 = icmp eq i32 %9, 0
-  br i1 %10, label %2, label %11, !llvm.loop !152
+  br i1 %10, label %2, label %11, !llvm.loop !150
 
 11:                                               ; preds = %6, %2
   %12 = phi i32 [ %9, %6 ], [ 0, %2 ]
@@ -4019,7 +4019,7 @@ define dso_local i32 @security_task_getscheduler(ptr noundef %0) local_unnamed_a
   %8 = load ptr, ptr %7, align 8
   %9 = tail call i32 %8(ptr noundef %0) #17
   %10 = icmp eq i32 %9, 0
-  br i1 %10, label %2, label %11, !llvm.loop !153
+  br i1 %10, label %2, label %11, !llvm.loop !151
 
 11:                                               ; preds = %6, %2
   %12 = phi i32 [ %9, %6 ], [ 0, %2 ]
@@ -4041,7 +4041,7 @@ define dso_local i32 @security_task_movememory(ptr noundef %0) local_unnamed_add
   %8 = load ptr, ptr %7, align 8
   %9 = tail call i32 %8(ptr noundef %0) #17
   %10 = icmp eq i32 %9, 0
-  br i1 %10, label %2, label %11, !llvm.loop !154
+  br i1 %10, label %2, label %11, !llvm.loop !152
 
 11:                                               ; preds = %6, %2
   %12 = phi i32 [ %9, %6 ], [ 0, %2 ]
@@ -4063,7 +4063,7 @@ define dso_local i32 @security_task_kill(ptr noundef %0, ptr noundef %1, i32 nou
   %11 = load ptr, ptr %10, align 8
   %12 = tail call i32 %11(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) #17
   %13 = icmp eq i32 %12, 0
-  br i1 %13, label %5, label %14, !llvm.loop !155
+  br i1 %13, label %5, label %14, !llvm.loop !153
 
 14:                                               ; preds = %9, %5
   %15 = phi i32 [ %12, %9 ], [ 0, %5 ]
@@ -4094,7 +4094,7 @@ define dso_local i32 @security_task_prctl(i32 noundef %0, i64 noundef %1, i64 no
   %15 = phi i32 [ %9, %.preheader ], [ 0, %13 ]
   %16 = load ptr, ptr %8, align 8
   %17 = icmp eq ptr %16, null
-  br i1 %17, label %.loopexit, label %.preheader, !llvm.loop !156
+  br i1 %17, label %.loopexit, label %.preheader, !llvm.loop !154
 
 .loopexit:                                        ; preds = %14, %.preheader, %5
   %18 = phi i32 [ -38, %5 ], [ %12, %.preheader ], [ %15, %14 ]
@@ -4114,7 +4114,7 @@ define dso_local void @security_task_to_inode(ptr noundef %0, ptr noundef %1) lo
   tail call void %7(ptr noundef %0, ptr noundef %1) #17
   %8 = load ptr, ptr %5, align 8
   %9 = icmp eq ptr %8, null
-  br i1 %9, label %.loopexit, label %.preheader, !llvm.loop !157
+  br i1 %9, label %.loopexit, label %.preheader, !llvm.loop !155
 
 .loopexit:                                        ; preds = %.preheader, %2
   ret void
@@ -4135,7 +4135,7 @@ define dso_local i32 @security_create_user_ns(ptr noundef %0) local_unnamed_addr
   %8 = load ptr, ptr %7, align 8
   %9 = tail call i32 %8(ptr noundef %0) #17
   %10 = icmp eq i32 %9, 0
-  br i1 %10, label %2, label %11, !llvm.loop !158
+  br i1 %10, label %2, label %11, !llvm.loop !156
 
 11:                                               ; preds = %6, %2
   %12 = phi i32 [ %9, %6 ], [ 0, %2 ]
@@ -4157,7 +4157,7 @@ define dso_local i32 @security_ipc_permission(ptr noundef %0, i16 noundef signex
   %9 = load ptr, ptr %8, align 8
   %10 = tail call i32 %9(ptr noundef %0, i16 noundef signext %1) #17
   %11 = icmp eq i32 %10, 0
-  br i1 %11, label %3, label %12, !llvm.loop !159
+  br i1 %11, label %3, label %12, !llvm.loop !157
 
 12:                                               ; preds = %7, %3
   %13 = phi i32 [ %10, %7 ], [ 0, %3 ]
@@ -4178,7 +4178,7 @@ define dso_local void @security_ipc_getsecid(ptr noundef %0, ptr noundef initial
   tail call void %7(ptr noundef %0, ptr noundef %1) #17
   %8 = load ptr, ptr %5, align 8
   %9 = icmp eq ptr %8, null
-  br i1 %9, label %.loopexit, label %.preheader, !llvm.loop !160
+  br i1 %9, label %.loopexit, label %.preheader, !llvm.loop !158
 
 .loopexit:                                        ; preds = %.preheader, %2
   ret void
@@ -4217,7 +4217,7 @@ define dso_local i32 @security_msg_msg_alloc(ptr noundef initializes((40, 48)) %
   %17 = load ptr, ptr %16, align 8
   %18 = tail call i32 %17(ptr noundef %0) #17
   %19 = icmp eq i32 %18, 0
-  br i1 %19, label %11, label %20, !llvm.loop !161
+  br i1 %19, label %11, label %20, !llvm.loop !159
 
 20:                                               ; preds = %15
   tail call void @security_msg_msg_free(ptr noundef %0)
@@ -4241,7 +4241,7 @@ define dso_local void @security_msg_msg_free(ptr noundef %0) local_unnamed_addr 
   tail call void %6(ptr noundef %0) #17
   %7 = load ptr, ptr %4, align 8
   %8 = icmp eq ptr %7, null
-  br i1 %8, label %.loopexit, label %.preheader, !llvm.loop !162
+  br i1 %8, label %.loopexit, label %.preheader, !llvm.loop !160
 
 .loopexit:                                        ; preds = %.preheader, %1
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -4284,7 +4284,7 @@ define dso_local i32 @security_msg_queue_alloc(ptr noundef initializes((48, 56))
   %17 = load ptr, ptr %16, align 8
   %18 = tail call i32 %17(ptr noundef %0) #17
   %19 = icmp eq i32 %18, 0
-  br i1 %19, label %11, label %20, !llvm.loop !163
+  br i1 %19, label %11, label %20, !llvm.loop !161
 
 20:                                               ; preds = %15
   tail call void @security_msg_queue_free(ptr noundef %0)
@@ -4308,7 +4308,7 @@ define dso_local void @security_msg_queue_free(ptr noundef %0) local_unnamed_add
   tail call void %6(ptr noundef %0) #17
   %7 = load ptr, ptr %4, align 8
   %8 = icmp eq ptr %7, null
-  br i1 %8, label %.loopexit, label %.preheader, !llvm.loop !164
+  br i1 %8, label %.loopexit, label %.preheader, !llvm.loop !162
 
 .loopexit:                                        ; preds = %.preheader, %1
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -4333,7 +4333,7 @@ define dso_local i32 @security_msg_queue_associate(ptr noundef %0, i32 noundef %
   %9 = load ptr, ptr %8, align 8
   %10 = tail call i32 %9(ptr noundef %0, i32 noundef %1) #17
   %11 = icmp eq i32 %10, 0
-  br i1 %11, label %3, label %12, !llvm.loop !165
+  br i1 %11, label %3, label %12, !llvm.loop !163
 
 12:                                               ; preds = %7, %3
   %13 = phi i32 [ %10, %7 ], [ 0, %3 ]
@@ -4355,7 +4355,7 @@ define dso_local i32 @security_msg_queue_msgctl(ptr noundef %0, i32 noundef %1) 
   %9 = load ptr, ptr %8, align 8
   %10 = tail call i32 %9(ptr noundef %0, i32 noundef %1) #17
   %11 = icmp eq i32 %10, 0
-  br i1 %11, label %3, label %12, !llvm.loop !166
+  br i1 %11, label %3, label %12, !llvm.loop !164
 
 12:                                               ; preds = %7, %3
   %13 = phi i32 [ %10, %7 ], [ 0, %3 ]
@@ -4377,7 +4377,7 @@ define dso_local i32 @security_msg_queue_msgsnd(ptr noundef %0, ptr noundef %1, 
   %10 = load ptr, ptr %9, align 8
   %11 = tail call i32 %10(ptr noundef %0, ptr noundef %1, i32 noundef %2) #17
   %12 = icmp eq i32 %11, 0
-  br i1 %12, label %4, label %13, !llvm.loop !167
+  br i1 %12, label %4, label %13, !llvm.loop !165
 
 13:                                               ; preds = %8, %4
   %14 = phi i32 [ %11, %8 ], [ 0, %4 ]
@@ -4399,7 +4399,7 @@ define dso_local i32 @security_msg_queue_msgrcv(ptr noundef %0, ptr noundef %1, 
   %12 = load ptr, ptr %11, align 8
   %13 = tail call i32 %12(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i32 noundef %4) #17
   %14 = icmp eq i32 %13, 0
-  br i1 %14, label %6, label %15, !llvm.loop !168
+  br i1 %14, label %6, label %15, !llvm.loop !166
 
 15:                                               ; preds = %10, %6
   %16 = phi i32 [ %13, %10 ], [ 0, %6 ]
@@ -4439,7 +4439,7 @@ define dso_local i32 @security_shm_alloc(ptr noundef initializes((48, 56)) %0) l
   %17 = load ptr, ptr %16, align 8
   %18 = tail call i32 %17(ptr noundef %0) #17
   %19 = icmp eq i32 %18, 0
-  br i1 %19, label %11, label %20, !llvm.loop !169
+  br i1 %19, label %11, label %20, !llvm.loop !167
 
 20:                                               ; preds = %15
   tail call void @security_shm_free(ptr noundef %0)
@@ -4463,7 +4463,7 @@ define dso_local void @security_shm_free(ptr noundef %0) local_unnamed_addr #3 a
   tail call void %6(ptr noundef %0) #17
   %7 = load ptr, ptr %4, align 8
   %8 = icmp eq ptr %7, null
-  br i1 %8, label %.loopexit, label %.preheader, !llvm.loop !170
+  br i1 %8, label %.loopexit, label %.preheader, !llvm.loop !168
 
 .loopexit:                                        ; preds = %.preheader, %1
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -4488,7 +4488,7 @@ define dso_local i32 @security_shm_associate(ptr noundef %0, i32 noundef %1) loc
   %9 = load ptr, ptr %8, align 8
   %10 = tail call i32 %9(ptr noundef %0, i32 noundef %1) #17
   %11 = icmp eq i32 %10, 0
-  br i1 %11, label %3, label %12, !llvm.loop !171
+  br i1 %11, label %3, label %12, !llvm.loop !169
 
 12:                                               ; preds = %7, %3
   %13 = phi i32 [ %10, %7 ], [ 0, %3 ]
@@ -4510,7 +4510,7 @@ define dso_local i32 @security_shm_shmctl(ptr noundef %0, i32 noundef %1) local_
   %9 = load ptr, ptr %8, align 8
   %10 = tail call i32 %9(ptr noundef %0, i32 noundef %1) #17
   %11 = icmp eq i32 %10, 0
-  br i1 %11, label %3, label %12, !llvm.loop !172
+  br i1 %11, label %3, label %12, !llvm.loop !170
 
 12:                                               ; preds = %7, %3
   %13 = phi i32 [ %10, %7 ], [ 0, %3 ]
@@ -4532,7 +4532,7 @@ define dso_local i32 @security_shm_shmat(ptr noundef %0, ptr noundef %1, i32 nou
   %10 = load ptr, ptr %9, align 8
   %11 = tail call i32 %10(ptr noundef %0, ptr noundef %1, i32 noundef %2) #17
   %12 = icmp eq i32 %11, 0
-  br i1 %12, label %4, label %13, !llvm.loop !173
+  br i1 %12, label %4, label %13, !llvm.loop !171
 
 13:                                               ; preds = %8, %4
   %14 = phi i32 [ %11, %8 ], [ 0, %4 ]
@@ -4572,7 +4572,7 @@ define dso_local i32 @security_sem_alloc(ptr noundef initializes((48, 56)) %0) l
   %17 = load ptr, ptr %16, align 8
   %18 = tail call i32 %17(ptr noundef %0) #17
   %19 = icmp eq i32 %18, 0
-  br i1 %19, label %11, label %20, !llvm.loop !174
+  br i1 %19, label %11, label %20, !llvm.loop !172
 
 20:                                               ; preds = %15
   tail call void @security_sem_free(ptr noundef %0)
@@ -4596,7 +4596,7 @@ define dso_local void @security_sem_free(ptr noundef %0) local_unnamed_addr #3 a
   tail call void %6(ptr noundef %0) #17
   %7 = load ptr, ptr %4, align 8
   %8 = icmp eq ptr %7, null
-  br i1 %8, label %.loopexit, label %.preheader, !llvm.loop !175
+  br i1 %8, label %.loopexit, label %.preheader, !llvm.loop !173
 
 .loopexit:                                        ; preds = %.preheader, %1
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -4621,7 +4621,7 @@ define dso_local i32 @security_sem_associate(ptr noundef %0, i32 noundef %1) loc
   %9 = load ptr, ptr %8, align 8
   %10 = tail call i32 %9(ptr noundef %0, i32 noundef %1) #17
   %11 = icmp eq i32 %10, 0
-  br i1 %11, label %3, label %12, !llvm.loop !176
+  br i1 %11, label %3, label %12, !llvm.loop !174
 
 12:                                               ; preds = %7, %3
   %13 = phi i32 [ %10, %7 ], [ 0, %3 ]
@@ -4643,7 +4643,7 @@ define dso_local i32 @security_sem_semctl(ptr noundef %0, i32 noundef %1) local_
   %9 = load ptr, ptr %8, align 8
   %10 = tail call i32 %9(ptr noundef %0, i32 noundef %1) #17
   %11 = icmp eq i32 %10, 0
-  br i1 %11, label %3, label %12, !llvm.loop !177
+  br i1 %11, label %3, label %12, !llvm.loop !175
 
 12:                                               ; preds = %7, %3
   %13 = phi i32 [ %10, %7 ], [ 0, %3 ]
@@ -4665,7 +4665,7 @@ define dso_local i32 @security_sem_semop(ptr noundef %0, ptr noundef %1, i32 nou
   %11 = load ptr, ptr %10, align 8
   %12 = tail call i32 %11(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) #17
   %13 = icmp eq i32 %12, 0
-  br i1 %13, label %5, label %14, !llvm.loop !178
+  br i1 %13, label %5, label %14, !llvm.loop !176
 
 14:                                               ; preds = %9, %5
   %15 = phi i32 [ %12, %9 ], [ 0, %5 ]
@@ -4685,7 +4685,7 @@ define dso_local void @security_d_instantiate(ptr noundef %0, ptr noundef %1) #3
   %9 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @security_hook_heads, i64 1160), align 8
   %10 = icmp eq ptr %9, null
   %11 = select i1 %8, i1 true, i1 %10
-  br i1 %11, label %.loopexit, label %.preheader, !prof !96
+  br i1 %11, label %.loopexit, label %.preheader, !prof !94
 
 12:                                               ; preds = %2
   %13 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @security_hook_heads, i64 1160), align 8
@@ -4703,7 +4703,7 @@ define dso_local void @security_d_instantiate(ptr noundef %0, ptr noundef %1) #3
   tail call void %18(ptr noundef %0, ptr noundef %1) #17
   %19 = load ptr, ptr %16, align 8
   %20 = icmp eq ptr %19, null
-  br i1 %20, label %.loopexit, label %15, !llvm.loop !179
+  br i1 %20, label %.loopexit, label %15, !llvm.loop !177
 
 .loopexit:                                        ; preds = %15, %12, %4
   ret void
@@ -4723,7 +4723,7 @@ define dso_local i32 @security_getselfattr(i32 noundef %0, ptr noundef %1, ptr n
 
 10:                                               ; preds = %4
   %11 = tail call i64 @llvm.read_register.i64(metadata !0)
-  %12 = tail call { ptr, i64, i64 } asm sideeffect "call __get_user_${4:P}", "={ax},={rdx},={rsp},0,i,{rsp},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %2, i64 8, i64 %11) #17, !srcloc !180
+  %12 = tail call { ptr, i64, i64 } asm sideeffect "call __get_user_${4:P}", "={ax},={rdx},={rsp},0,i,{rsp},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %2, i64 8, i64 %11) #17, !srcloc !178
   %13 = extractvalue { ptr, i64, i64 } %12, 0
   %14 = extractvalue { ptr, i64, i64 } %12, 1
   %15 = extractvalue { ptr, i64, i64 } %12, 2
@@ -4734,7 +4734,7 @@ define dso_local i32 @security_getselfattr(i32 noundef %0, ptr noundef %1, ptr n
   br i1 %18, label %19, label %.loopexit
 
 19:                                               ; preds = %10
-  store i64 0, ptr %6, align 8, !annotation !181
+  store i64 0, ptr %6, align 8, !annotation !179
   %20 = icmp eq i32 %3, 0
   br i1 %20, label %31, label %21
 
@@ -4815,7 +4815,7 @@ define dso_local i32 @security_getselfattr(i32 noundef %0, ptr noundef %1, ptr n
   %64 = phi i64 [ %58, %53 ], [ %39, %.split.us ]
   %65 = load ptr, ptr %37, align 8
   %66 = icmp eq ptr %65, null
-  br i1 %66, label %.split8.us, label %.split.us, !llvm.loop !182
+  br i1 %66, label %.split8.us, label %.split.us, !llvm.loop !180
 
 .split.split:                                     ; preds = %.thread, %83
   %67 = phi ptr [ %84, %83 ], [ %34, %.thread ]
@@ -4850,7 +4850,7 @@ define dso_local i32 @security_getselfattr(i32 noundef %0, ptr noundef %1, ptr n
 83:                                               ; preds = %74, %.split.split
   %84 = load ptr, ptr %67, align 8
   %85 = icmp eq ptr %84, null
-  br i1 %85, label %.split8.us, label %.split.split, !llvm.loop !184
+  br i1 %85, label %.split8.us, label %.split.split, !llvm.loop !182
 
 .split8.us:                                       ; preds = %83, %60, %.loopexit19
   %.us-phi9 = phi i32 [ %80, %.loopexit19 ], [ %61, %60 ], [ 0, %83 ]
@@ -4864,7 +4864,7 @@ define dso_local i32 @security_getselfattr(i32 noundef %0, ptr noundef %1, ptr n
   %89 = phi i1 [ false, %31 ], [ %86, %.split8.us ], [ false, %.thread ]
   %90 = phi i64 [ 0, %31 ], [ %.us-phi11, %.split8.us ], [ 0, %.thread ]
   %91 = call i64 @llvm.read_register.i64(metadata !0)
-  %92 = call { ptr, i64 } asm sideeffect "call __put_user_${4:P}", "={cx},={rsp},0,{rax},i,{rsp},~{ebx},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %2, i64 %90, i64 8, i64 %91) #17, !srcloc !185
+  %92 = call { ptr, i64 } asm sideeffect "call __put_user_${4:P}", "={cx},={rsp},0,{rax},i,{rsp},~{ebx},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %2, i64 %90, i64 8, i64 %91) #17, !srcloc !183
   %93 = extractvalue { ptr, i64 } %92, 0
   %94 = extractvalue { ptr, i64 } %92, 1
   %95 = ptrtoint ptr %93 to i64
@@ -4946,7 +4946,7 @@ define dso_local i32 @security_setselfattr(i32 noundef %0, ptr noundef %1, i64 n
   %35 = load i64, ptr %34, align 8
   %36 = load i64, ptr %11, align 8
   %37 = icmp eq i64 %35, %36
-  br i1 %37, label %38, label %.preheader, !llvm.loop !186
+  br i1 %37, label %38, label %.preheader, !llvm.loop !184
 
 38:                                               ; preds = %31
   %39 = getelementptr inbounds nuw i8, ptr %29, i64 24
@@ -4993,7 +4993,7 @@ define dso_local i32 @security_getprocattr(ptr noundef %0, i32 noundef %1, ptr n
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load i64, ptr %15, align 8
   %17 = icmp eq i64 %16, %6
-  br i1 %17, label %.split3.us, label %.split, !llvm.loop !187
+  br i1 %17, label %.split3.us, label %.split, !llvm.loop !185
 
 .split3.us:                                       ; preds = %12, %.split.us
   %.us-phi = phi ptr [ %7, %.split.us ], [ %10, %12 ]
@@ -5030,7 +5030,7 @@ define dso_local i32 @security_setprocattr(i32 noundef %0, ptr noundef %1, ptr n
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load i64, ptr %15, align 8
   %17 = icmp eq i64 %16, %6
-  br i1 %17, label %.split3.us, label %.split, !llvm.loop !188
+  br i1 %17, label %.split3.us, label %.split, !llvm.loop !186
 
 .split3.us:                                       ; preds = %12, %.split.us
   %.us-phi = phi ptr [ %7, %.split.us ], [ %10, %12 ]
@@ -5059,7 +5059,7 @@ define dso_local i32 @security_netlink_send(ptr noundef %0, ptr noundef %1) loca
   %9 = load ptr, ptr %8, align 8
   %10 = tail call i32 %9(ptr noundef %0, ptr noundef %1) #17
   %11 = icmp eq i32 %10, 0
-  br i1 %11, label %3, label %12, !llvm.loop !189
+  br i1 %11, label %3, label %12, !llvm.loop !187
 
 12:                                               ; preds = %7, %3
   %13 = phi i32 [ %10, %7 ], [ 0, %3 ]
@@ -5081,7 +5081,7 @@ define dso_local i32 @security_ismaclabel(ptr noundef %0) #3 align 16 {
   %8 = load ptr, ptr %7, align 8
   %9 = tail call i32 %8(ptr noundef %0) #17
   %10 = icmp eq i32 %9, 0
-  br i1 %10, label %2, label %11, !llvm.loop !190
+  br i1 %10, label %2, label %11, !llvm.loop !188
 
 11:                                               ; preds = %6, %2
   %12 = phi i32 [ %9, %6 ], [ 0, %2 ]
@@ -5103,7 +5103,7 @@ define dso_local i32 @security_secid_to_secctx(i32 noundef %0, ptr noundef %1, p
   %10 = load ptr, ptr %9, align 8
   %11 = tail call i32 %10(i32 noundef %0, ptr noundef %1, ptr noundef %2) #17
   %12 = icmp eq i32 %11, -95
-  br i1 %12, label %4, label %13, !llvm.loop !191
+  br i1 %12, label %4, label %13, !llvm.loop !189
 
 13:                                               ; preds = %8, %4
   %14 = phi i32 [ %11, %8 ], [ -95, %4 ]
@@ -5126,7 +5126,7 @@ define dso_local i32 @security_secctx_to_secid(ptr noundef %0, i32 noundef %1, p
   %10 = load ptr, ptr %9, align 8
   %11 = tail call i32 %10(ptr noundef %0, i32 noundef %1, ptr noundef %2) #17
   %12 = icmp eq i32 %11, 0
-  br i1 %12, label %4, label %13, !llvm.loop !192
+  br i1 %12, label %4, label %13, !llvm.loop !190
 
 13:                                               ; preds = %8, %4
   %14 = phi i32 [ %11, %8 ], [ 0, %4 ]
@@ -5146,7 +5146,7 @@ define dso_local void @security_release_secctx(ptr noundef %0, i32 noundef %1) #
   tail call void %7(ptr noundef %0, i32 noundef %1) #17
   %8 = load ptr, ptr %5, align 8
   %9 = icmp eq ptr %8, null
-  br i1 %9, label %.loopexit, label %.preheader, !llvm.loop !193
+  br i1 %9, label %.loopexit, label %.preheader, !llvm.loop !191
 
 .loopexit:                                        ; preds = %.preheader, %2
   ret void
@@ -5165,7 +5165,7 @@ define dso_local void @security_inode_invalidate_secctx(ptr noundef %0) #3 align
   tail call void %6(ptr noundef %0) #17
   %7 = load ptr, ptr %4, align 8
   %8 = icmp eq ptr %7, null
-  br i1 %8, label %.loopexit, label %.preheader, !llvm.loop !194
+  br i1 %8, label %.loopexit, label %.preheader, !llvm.loop !192
 
 .loopexit:                                        ; preds = %.preheader, %1
   ret void
@@ -5186,7 +5186,7 @@ define dso_local i32 @security_inode_notifysecctx(ptr noundef %0, ptr noundef %1
   %10 = load ptr, ptr %9, align 8
   %11 = tail call i32 %10(ptr noundef %0, ptr noundef %1, i32 noundef %2) #17
   %12 = icmp eq i32 %11, 0
-  br i1 %12, label %4, label %13, !llvm.loop !195
+  br i1 %12, label %4, label %13, !llvm.loop !193
 
 13:                                               ; preds = %8, %4
   %14 = phi i32 [ %11, %8 ], [ 0, %4 ]
@@ -5208,7 +5208,7 @@ define dso_local i32 @security_inode_setsecctx(ptr noundef %0, ptr noundef %1, i
   %10 = load ptr, ptr %9, align 8
   %11 = tail call i32 %10(ptr noundef %0, ptr noundef %1, i32 noundef %2) #17
   %12 = icmp eq i32 %11, 0
-  br i1 %12, label %4, label %13, !llvm.loop !196
+  br i1 %12, label %4, label %13, !llvm.loop !194
 
 13:                                               ; preds = %8, %4
   %14 = phi i32 [ %11, %8 ], [ 0, %4 ]
@@ -5230,7 +5230,7 @@ define dso_local i32 @security_inode_getsecctx(ptr noundef %0, ptr noundef %1, p
   %10 = load ptr, ptr %9, align 8
   %11 = tail call i32 %10(ptr noundef %0, ptr noundef %1, ptr noundef %2) #17
   %12 = icmp eq i32 %11, -95
-  br i1 %12, label %4, label %13, !llvm.loop !197
+  br i1 %12, label %4, label %13, !llvm.loop !195
 
 13:                                               ; preds = %8, %4
   %14 = phi i32 [ %11, %8 ], [ -95, %4 ]
@@ -5252,7 +5252,7 @@ define dso_local i32 @security_unix_stream_connect(ptr noundef %0, ptr noundef %
   %10 = load ptr, ptr %9, align 8
   %11 = tail call i32 %10(ptr noundef %0, ptr noundef %1, ptr noundef %2) #17
   %12 = icmp eq i32 %11, 0
-  br i1 %12, label %4, label %13, !llvm.loop !198
+  br i1 %12, label %4, label %13, !llvm.loop !196
 
 13:                                               ; preds = %8, %4
   %14 = phi i32 [ %11, %8 ], [ 0, %4 ]
@@ -5274,7 +5274,7 @@ define dso_local i32 @security_unix_may_send(ptr noundef %0, ptr noundef %1) #3 
   %9 = load ptr, ptr %8, align 8
   %10 = tail call i32 %9(ptr noundef %0, ptr noundef %1) #17
   %11 = icmp eq i32 %10, 0
-  br i1 %11, label %3, label %12, !llvm.loop !199
+  br i1 %11, label %3, label %12, !llvm.loop !197
 
 12:                                               ; preds = %7, %3
   %13 = phi i32 [ %10, %7 ], [ 0, %3 ]
@@ -5296,7 +5296,7 @@ define dso_local i32 @security_socket_create(i32 noundef %0, i32 noundef %1, i32
   %11 = load ptr, ptr %10, align 8
   %12 = tail call i32 %11(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) #17
   %13 = icmp eq i32 %12, 0
-  br i1 %13, label %5, label %14, !llvm.loop !200
+  br i1 %13, label %5, label %14, !llvm.loop !198
 
 14:                                               ; preds = %9, %5
   %15 = phi i32 [ %12, %9 ], [ 0, %5 ]
@@ -5318,7 +5318,7 @@ define dso_local i32 @security_socket_post_create(ptr noundef %0, i32 noundef %1
   %12 = load ptr, ptr %11, align 8
   %13 = tail call i32 %12(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) #17
   %14 = icmp eq i32 %13, 0
-  br i1 %14, label %6, label %15, !llvm.loop !201
+  br i1 %14, label %6, label %15, !llvm.loop !199
 
 15:                                               ; preds = %10, %6
   %16 = phi i32 [ %13, %10 ], [ 0, %6 ]
@@ -5340,7 +5340,7 @@ define dso_local i32 @security_socket_socketpair(ptr noundef %0, ptr noundef %1)
   %9 = load ptr, ptr %8, align 8
   %10 = tail call i32 %9(ptr noundef %0, ptr noundef %1) #17
   %11 = icmp eq i32 %10, 0
-  br i1 %11, label %3, label %12, !llvm.loop !202
+  br i1 %11, label %3, label %12, !llvm.loop !200
 
 12:                                               ; preds = %7, %3
   %13 = phi i32 [ %10, %7 ], [ 0, %3 ]
@@ -5362,7 +5362,7 @@ define dso_local i32 @security_socket_bind(ptr noundef %0, ptr noundef %1, i32 n
   %10 = load ptr, ptr %9, align 8
   %11 = tail call i32 %10(ptr noundef %0, ptr noundef %1, i32 noundef %2) #17
   %12 = icmp eq i32 %11, 0
-  br i1 %12, label %4, label %13, !llvm.loop !203
+  br i1 %12, label %4, label %13, !llvm.loop !201
 
 13:                                               ; preds = %8, %4
   %14 = phi i32 [ %11, %8 ], [ 0, %4 ]
@@ -5384,7 +5384,7 @@ define dso_local i32 @security_socket_connect(ptr noundef %0, ptr noundef %1, i3
   %10 = load ptr, ptr %9, align 8
   %11 = tail call i32 %10(ptr noundef %0, ptr noundef %1, i32 noundef %2) #17
   %12 = icmp eq i32 %11, 0
-  br i1 %12, label %4, label %13, !llvm.loop !204
+  br i1 %12, label %4, label %13, !llvm.loop !202
 
 13:                                               ; preds = %8, %4
   %14 = phi i32 [ %11, %8 ], [ 0, %4 ]
@@ -5406,7 +5406,7 @@ define dso_local i32 @security_socket_listen(ptr noundef %0, i32 noundef %1) loc
   %9 = load ptr, ptr %8, align 8
   %10 = tail call i32 %9(ptr noundef %0, i32 noundef %1) #17
   %11 = icmp eq i32 %10, 0
-  br i1 %11, label %3, label %12, !llvm.loop !205
+  br i1 %11, label %3, label %12, !llvm.loop !203
 
 12:                                               ; preds = %7, %3
   %13 = phi i32 [ %10, %7 ], [ 0, %3 ]
@@ -5428,7 +5428,7 @@ define dso_local i32 @security_socket_accept(ptr noundef %0, ptr noundef %1) loc
   %9 = load ptr, ptr %8, align 8
   %10 = tail call i32 %9(ptr noundef %0, ptr noundef %1) #17
   %11 = icmp eq i32 %10, 0
-  br i1 %11, label %3, label %12, !llvm.loop !206
+  br i1 %11, label %3, label %12, !llvm.loop !204
 
 12:                                               ; preds = %7, %3
   %13 = phi i32 [ %10, %7 ], [ 0, %3 ]
@@ -5450,7 +5450,7 @@ define dso_local i32 @security_socket_sendmsg(ptr noundef %0, ptr noundef %1, i3
   %10 = load ptr, ptr %9, align 8
   %11 = tail call i32 %10(ptr noundef %0, ptr noundef %1, i32 noundef %2) #17
   %12 = icmp eq i32 %11, 0
-  br i1 %12, label %4, label %13, !llvm.loop !207
+  br i1 %12, label %4, label %13, !llvm.loop !205
 
 13:                                               ; preds = %8, %4
   %14 = phi i32 [ %11, %8 ], [ 0, %4 ]
@@ -5472,7 +5472,7 @@ define dso_local i32 @security_socket_recvmsg(ptr noundef %0, ptr noundef %1, i3
   %11 = load ptr, ptr %10, align 8
   %12 = tail call i32 %11(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) #17
   %13 = icmp eq i32 %12, 0
-  br i1 %13, label %5, label %14, !llvm.loop !208
+  br i1 %13, label %5, label %14, !llvm.loop !206
 
 14:                                               ; preds = %9, %5
   %15 = phi i32 [ %12, %9 ], [ 0, %5 ]
@@ -5494,7 +5494,7 @@ define dso_local i32 @security_socket_getsockname(ptr noundef %0) local_unnamed_
   %8 = load ptr, ptr %7, align 8
   %9 = tail call i32 %8(ptr noundef %0) #17
   %10 = icmp eq i32 %9, 0
-  br i1 %10, label %2, label %11, !llvm.loop !209
+  br i1 %10, label %2, label %11, !llvm.loop !207
 
 11:                                               ; preds = %6, %2
   %12 = phi i32 [ %9, %6 ], [ 0, %2 ]
@@ -5516,7 +5516,7 @@ define dso_local i32 @security_socket_getpeername(ptr noundef %0) local_unnamed_
   %8 = load ptr, ptr %7, align 8
   %9 = tail call i32 %8(ptr noundef %0) #17
   %10 = icmp eq i32 %9, 0
-  br i1 %10, label %2, label %11, !llvm.loop !210
+  br i1 %10, label %2, label %11, !llvm.loop !208
 
 11:                                               ; preds = %6, %2
   %12 = phi i32 [ %9, %6 ], [ 0, %2 ]
@@ -5538,7 +5538,7 @@ define dso_local i32 @security_socket_getsockopt(ptr noundef %0, i32 noundef %1,
   %10 = load ptr, ptr %9, align 8
   %11 = tail call i32 %10(ptr noundef %0, i32 noundef %1, i32 noundef %2) #17
   %12 = icmp eq i32 %11, 0
-  br i1 %12, label %4, label %13, !llvm.loop !211
+  br i1 %12, label %4, label %13, !llvm.loop !209
 
 13:                                               ; preds = %8, %4
   %14 = phi i32 [ %11, %8 ], [ 0, %4 ]
@@ -5560,7 +5560,7 @@ define dso_local i32 @security_socket_setsockopt(ptr noundef %0, i32 noundef %1,
   %10 = load ptr, ptr %9, align 8
   %11 = tail call i32 %10(ptr noundef %0, i32 noundef %1, i32 noundef %2) #17
   %12 = icmp eq i32 %11, 0
-  br i1 %12, label %4, label %13, !llvm.loop !212
+  br i1 %12, label %4, label %13, !llvm.loop !210
 
 13:                                               ; preds = %8, %4
   %14 = phi i32 [ %11, %8 ], [ 0, %4 ]
@@ -5582,7 +5582,7 @@ define dso_local i32 @security_socket_shutdown(ptr noundef %0, i32 noundef %1) l
   %9 = load ptr, ptr %8, align 8
   %10 = tail call i32 %9(ptr noundef %0, i32 noundef %1) #17
   %11 = icmp eq i32 %10, 0
-  br i1 %11, label %3, label %12, !llvm.loop !213
+  br i1 %11, label %3, label %12, !llvm.loop !211
 
 12:                                               ; preds = %7, %3
   %13 = phi i32 [ %10, %7 ], [ 0, %3 ]
@@ -5604,7 +5604,7 @@ define dso_local i32 @security_sock_rcv_skb(ptr noundef %0, ptr noundef %1) #3 a
   %9 = load ptr, ptr %8, align 8
   %10 = tail call i32 %9(ptr noundef %0, ptr noundef %1) #17
   %11 = icmp eq i32 %10, 0
-  br i1 %11, label %3, label %12, !llvm.loop !214
+  br i1 %11, label %3, label %12, !llvm.loop !212
 
 12:                                               ; preds = %7, %3
   %13 = phi i32 [ %10, %7 ], [ 0, %3 ]
@@ -5626,7 +5626,7 @@ define dso_local i32 @security_socket_getpeersec_stream(ptr noundef %0, ptr %1, 
   %13 = load ptr, ptr %12, align 8
   %14 = tail call i32 %13(ptr noundef %0, ptr %1, i8 %2, ptr %3, i8 %4, i32 noundef %5) #17
   %15 = icmp eq i32 %14, -92
-  br i1 %15, label %7, label %16, !llvm.loop !215
+  br i1 %15, label %7, label %16, !llvm.loop !213
 
 16:                                               ; preds = %11, %7
   %17 = phi i32 [ %14, %11 ], [ -92, %7 ]
@@ -5648,7 +5648,7 @@ define dso_local i32 @security_socket_getpeersec_dgram(ptr noundef %0, ptr nound
   %10 = load ptr, ptr %9, align 8
   %11 = tail call i32 %10(ptr noundef %0, ptr noundef %1, ptr noundef %2) #17
   %12 = icmp eq i32 %11, -92
-  br i1 %12, label %4, label %13, !llvm.loop !216
+  br i1 %12, label %4, label %13, !llvm.loop !214
 
 13:                                               ; preds = %8, %4
   %14 = phi i32 [ %11, %8 ], [ -92, %4 ]
@@ -5670,7 +5670,7 @@ define dso_local i32 @security_sk_alloc(ptr noundef %0, i32 noundef %1, i32 noun
   %10 = load ptr, ptr %9, align 8
   %11 = tail call i32 %10(ptr noundef %0, i32 noundef %1, i32 noundef %2) #17
   %12 = icmp eq i32 %11, 0
-  br i1 %12, label %4, label %13, !llvm.loop !217
+  br i1 %12, label %4, label %13, !llvm.loop !215
 
 13:                                               ; preds = %8, %4
   %14 = phi i32 [ %11, %8 ], [ 0, %4 ]
@@ -5690,7 +5690,7 @@ define dso_local void @security_sk_free(ptr noundef %0) local_unnamed_addr #3 al
   tail call void %6(ptr noundef %0) #17
   %7 = load ptr, ptr %4, align 8
   %8 = icmp eq ptr %7, null
-  br i1 %8, label %.loopexit, label %.preheader, !llvm.loop !218
+  br i1 %8, label %.loopexit, label %.preheader, !llvm.loop !216
 
 .loopexit:                                        ; preds = %.preheader, %1
   ret void
@@ -5709,7 +5709,7 @@ define dso_local void @security_sk_clone(ptr noundef %0, ptr noundef %1) #3 alig
   tail call void %7(ptr noundef %0, ptr noundef %1) #17
   %8 = load ptr, ptr %5, align 8
   %9 = icmp eq ptr %8, null
-  br i1 %9, label %.loopexit, label %.preheader, !llvm.loop !219
+  br i1 %9, label %.loopexit, label %.preheader, !llvm.loop !217
 
 .loopexit:                                        ; preds = %.preheader, %2
   ret void
@@ -5732,7 +5732,7 @@ define dso_local void @security_sk_classify_flow(ptr noundef %0, ptr noundef %1)
   tail call void %10(ptr noundef %0, ptr noundef nonnull %6) #17
   %11 = load ptr, ptr %8, align 8
   %12 = icmp eq ptr %11, null
-  br i1 %12, label %.loopexit, label %7, !llvm.loop !220
+  br i1 %12, label %.loopexit, label %7, !llvm.loop !218
 
 .loopexit:                                        ; preds = %7, %2
   ret void
@@ -5751,7 +5751,7 @@ define dso_local void @security_req_classify_flow(ptr noundef %0, ptr noundef %1
   tail call void %7(ptr noundef %0, ptr noundef %1) #17
   %8 = load ptr, ptr %5, align 8
   %9 = icmp eq ptr %8, null
-  br i1 %9, label %.loopexit, label %.preheader, !llvm.loop !221
+  br i1 %9, label %.loopexit, label %.preheader, !llvm.loop !219
 
 .loopexit:                                        ; preds = %.preheader, %2
   ret void
@@ -5770,7 +5770,7 @@ define dso_local void @security_sock_graft(ptr noundef %0, ptr noundef %1) #3 al
   tail call void %7(ptr noundef %0, ptr noundef %1) #17
   %8 = load ptr, ptr %5, align 8
   %9 = icmp eq ptr %8, null
-  br i1 %9, label %.loopexit, label %.preheader, !llvm.loop !222
+  br i1 %9, label %.loopexit, label %.preheader, !llvm.loop !220
 
 .loopexit:                                        ; preds = %.preheader, %2
   ret void
@@ -5791,7 +5791,7 @@ define dso_local i32 @security_inet_conn_request(ptr noundef %0, ptr noundef %1,
   %10 = load ptr, ptr %9, align 8
   %11 = tail call i32 %10(ptr noundef %0, ptr noundef %1, ptr noundef %2) #17
   %12 = icmp eq i32 %11, 0
-  br i1 %12, label %4, label %13, !llvm.loop !223
+  br i1 %12, label %4, label %13, !llvm.loop !221
 
 13:                                               ; preds = %8, %4
   %14 = phi i32 [ %11, %8 ], [ 0, %4 ]
@@ -5811,7 +5811,7 @@ define dso_local void @security_inet_csk_clone(ptr noundef %0, ptr noundef %1) l
   tail call void %7(ptr noundef %0, ptr noundef %1) #17
   %8 = load ptr, ptr %5, align 8
   %9 = icmp eq ptr %8, null
-  br i1 %9, label %.loopexit, label %.preheader, !llvm.loop !224
+  br i1 %9, label %.loopexit, label %.preheader, !llvm.loop !222
 
 .loopexit:                                        ; preds = %.preheader, %2
   ret void
@@ -5830,7 +5830,7 @@ define dso_local void @security_inet_conn_established(ptr noundef %0, ptr nounde
   tail call void %7(ptr noundef %0, ptr noundef %1) #17
   %8 = load ptr, ptr %5, align 8
   %9 = icmp eq ptr %8, null
-  br i1 %9, label %.loopexit, label %.preheader, !llvm.loop !225
+  br i1 %9, label %.loopexit, label %.preheader, !llvm.loop !223
 
 .loopexit:                                        ; preds = %.preheader, %2
   ret void
@@ -5851,7 +5851,7 @@ define dso_local i32 @security_secmark_relabel_packet(i32 noundef %0) #3 align 1
   %8 = load ptr, ptr %7, align 8
   %9 = tail call i32 %8(i32 noundef %0) #17
   %10 = icmp eq i32 %9, 0
-  br i1 %10, label %2, label %11, !llvm.loop !226
+  br i1 %10, label %2, label %11, !llvm.loop !224
 
 11:                                               ; preds = %6, %2
   %12 = phi i32 [ %9, %6 ], [ 0, %2 ]
@@ -5871,7 +5871,7 @@ define dso_local void @security_secmark_refcount_inc() #3 align 16 {
   tail call void %5() #17
   %6 = load ptr, ptr %3, align 8
   %7 = icmp eq ptr %6, null
-  br i1 %7, label %.loopexit, label %.preheader, !llvm.loop !227
+  br i1 %7, label %.loopexit, label %.preheader, !llvm.loop !225
 
 .loopexit:                                        ; preds = %.preheader, %0
   ret void
@@ -5890,7 +5890,7 @@ define dso_local void @security_secmark_refcount_dec() #3 align 16 {
   tail call void %5() #17
   %6 = load ptr, ptr %3, align 8
   %7 = icmp eq ptr %6, null
-  br i1 %7, label %.loopexit, label %.preheader, !llvm.loop !228
+  br i1 %7, label %.loopexit, label %.preheader, !llvm.loop !226
 
 .loopexit:                                        ; preds = %.preheader, %0
   ret void
@@ -5911,7 +5911,7 @@ define dso_local i32 @security_tun_dev_alloc_security(ptr noundef %0) #3 align 1
   %8 = load ptr, ptr %7, align 8
   %9 = tail call i32 %8(ptr noundef %0) #17
   %10 = icmp eq i32 %9, 0
-  br i1 %10, label %2, label %11, !llvm.loop !229
+  br i1 %10, label %2, label %11, !llvm.loop !227
 
 11:                                               ; preds = %6, %2
   %12 = phi i32 [ %9, %6 ], [ 0, %2 ]
@@ -5931,7 +5931,7 @@ define dso_local void @security_tun_dev_free_security(ptr noundef %0) #3 align 1
   tail call void %6(ptr noundef %0) #17
   %7 = load ptr, ptr %4, align 8
   %8 = icmp eq ptr %7, null
-  br i1 %8, label %.loopexit, label %.preheader, !llvm.loop !230
+  br i1 %8, label %.loopexit, label %.preheader, !llvm.loop !228
 
 .loopexit:                                        ; preds = %.preheader, %1
   ret void
@@ -5952,7 +5952,7 @@ define dso_local i32 @security_tun_dev_create() #3 align 16 {
   %7 = load ptr, ptr %6, align 8
   %8 = tail call i32 %7() #17
   %9 = icmp eq i32 %8, 0
-  br i1 %9, label %1, label %10, !llvm.loop !231
+  br i1 %9, label %1, label %10, !llvm.loop !229
 
 10:                                               ; preds = %5, %1
   %11 = phi i32 [ %8, %5 ], [ 0, %1 ]
@@ -5974,7 +5974,7 @@ define dso_local i32 @security_tun_dev_attach_queue(ptr noundef %0) #3 align 16 
   %8 = load ptr, ptr %7, align 8
   %9 = tail call i32 %8(ptr noundef %0) #17
   %10 = icmp eq i32 %9, 0
-  br i1 %10, label %2, label %11, !llvm.loop !232
+  br i1 %10, label %2, label %11, !llvm.loop !230
 
 11:                                               ; preds = %6, %2
   %12 = phi i32 [ %9, %6 ], [ 0, %2 ]
@@ -5996,7 +5996,7 @@ define dso_local i32 @security_tun_dev_attach(ptr noundef %0, ptr noundef %1) #3
   %9 = load ptr, ptr %8, align 8
   %10 = tail call i32 %9(ptr noundef %0, ptr noundef %1) #17
   %11 = icmp eq i32 %10, 0
-  br i1 %11, label %3, label %12, !llvm.loop !233
+  br i1 %11, label %3, label %12, !llvm.loop !231
 
 12:                                               ; preds = %7, %3
   %13 = phi i32 [ %10, %7 ], [ 0, %3 ]
@@ -6018,7 +6018,7 @@ define dso_local i32 @security_tun_dev_open(ptr noundef %0) #3 align 16 {
   %8 = load ptr, ptr %7, align 8
   %9 = tail call i32 %8(ptr noundef %0) #17
   %10 = icmp eq i32 %9, 0
-  br i1 %10, label %2, label %11, !llvm.loop !234
+  br i1 %10, label %2, label %11, !llvm.loop !232
 
 11:                                               ; preds = %6, %2
   %12 = phi i32 [ %9, %6 ], [ 0, %2 ]
@@ -6040,7 +6040,7 @@ define dso_local i32 @security_sctp_assoc_request(ptr noundef %0, ptr noundef %1
   %9 = load ptr, ptr %8, align 8
   %10 = tail call i32 %9(ptr noundef %0, ptr noundef %1) #17
   %11 = icmp eq i32 %10, 0
-  br i1 %11, label %3, label %12, !llvm.loop !235
+  br i1 %11, label %3, label %12, !llvm.loop !233
 
 12:                                               ; preds = %7, %3
   %13 = phi i32 [ %10, %7 ], [ 0, %3 ]
@@ -6062,7 +6062,7 @@ define dso_local i32 @security_sctp_bind_connect(ptr noundef %0, i32 noundef %1,
   %11 = load ptr, ptr %10, align 8
   %12 = tail call i32 %11(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3) #17
   %13 = icmp eq i32 %12, 0
-  br i1 %13, label %5, label %14, !llvm.loop !236
+  br i1 %13, label %5, label %14, !llvm.loop !234
 
 14:                                               ; preds = %9, %5
   %15 = phi i32 [ %12, %9 ], [ 0, %5 ]
@@ -6082,7 +6082,7 @@ define dso_local void @security_sctp_sk_clone(ptr noundef %0, ptr noundef %1, pt
   tail call void %8(ptr noundef %0, ptr noundef %1, ptr noundef %2) #17
   %9 = load ptr, ptr %6, align 8
   %10 = icmp eq ptr %9, null
-  br i1 %10, label %.loopexit, label %.preheader, !llvm.loop !237
+  br i1 %10, label %.loopexit, label %.preheader, !llvm.loop !235
 
 .loopexit:                                        ; preds = %.preheader, %3
   ret void
@@ -6103,7 +6103,7 @@ define dso_local i32 @security_sctp_assoc_established(ptr noundef %0, ptr nounde
   %9 = load ptr, ptr %8, align 8
   %10 = tail call i32 %9(ptr noundef %0, ptr noundef %1) #17
   %11 = icmp eq i32 %10, 0
-  br i1 %11, label %3, label %12, !llvm.loop !238
+  br i1 %11, label %3, label %12, !llvm.loop !236
 
 12:                                               ; preds = %7, %3
   %13 = phi i32 [ %10, %7 ], [ 0, %3 ]
@@ -6125,7 +6125,7 @@ define dso_local i32 @security_mptcp_add_subflow(ptr noundef %0, ptr noundef %1)
   %9 = load ptr, ptr %8, align 8
   %10 = tail call i32 %9(ptr noundef %0, ptr noundef %1) #17
   %11 = icmp eq i32 %10, 0
-  br i1 %11, label %3, label %12, !llvm.loop !239
+  br i1 %11, label %3, label %12, !llvm.loop !237
 
 12:                                               ; preds = %7, %3
   %13 = phi i32 [ %10, %7 ], [ 0, %3 ]
@@ -6147,7 +6147,7 @@ define dso_local i32 @security_key_alloc(ptr noundef %0, ptr noundef %1, i64 nou
   %10 = load ptr, ptr %9, align 8
   %11 = tail call i32 %10(ptr noundef %0, ptr noundef %1, i64 noundef %2) #17
   %12 = icmp eq i32 %11, 0
-  br i1 %12, label %4, label %13, !llvm.loop !240
+  br i1 %12, label %4, label %13, !llvm.loop !238
 
 13:                                               ; preds = %8, %4
   %14 = phi i32 [ %11, %8 ], [ 0, %4 ]
@@ -6167,7 +6167,7 @@ define dso_local void @security_key_free(ptr noundef %0) local_unnamed_addr #3 a
   tail call void %6(ptr noundef %0) #17
   %7 = load ptr, ptr %4, align 8
   %8 = icmp eq ptr %7, null
-  br i1 %8, label %.loopexit, label %.preheader, !llvm.loop !241
+  br i1 %8, label %.loopexit, label %.preheader, !llvm.loop !239
 
 .loopexit:                                        ; preds = %.preheader, %1
   ret void
@@ -6188,7 +6188,7 @@ define dso_local i32 @security_key_permission(ptr noundef %0, ptr noundef %1, i3
   %10 = load ptr, ptr %9, align 8
   %11 = tail call i32 %10(ptr noundef %0, ptr noundef %1, i32 noundef %2) #17
   %12 = icmp eq i32 %11, 0
-  br i1 %12, label %4, label %13, !llvm.loop !242
+  br i1 %12, label %4, label %13, !llvm.loop !240
 
 13:                                               ; preds = %8, %4
   %14 = phi i32 [ %11, %8 ], [ 0, %4 ]
@@ -6211,7 +6211,7 @@ define dso_local i32 @security_key_getsecurity(ptr noundef %0, ptr noundef initi
   %9 = load ptr, ptr %8, align 8
   %10 = tail call i32 %9(ptr noundef %0, ptr noundef %1) #17
   %11 = icmp eq i32 %10, 0
-  br i1 %11, label %3, label %12, !llvm.loop !243
+  br i1 %11, label %3, label %12, !llvm.loop !241
 
 12:                                               ; preds = %7, %3
   %13 = phi i32 [ %10, %7 ], [ 0, %3 ]
@@ -6233,7 +6233,7 @@ define dso_local i32 @security_audit_rule_init(i32 noundef %0, i32 noundef %1, p
   %11 = load ptr, ptr %10, align 8
   %12 = tail call i32 %11(i32 noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) #17
   %13 = icmp eq i32 %12, 0
-  br i1 %13, label %5, label %14, !llvm.loop !244
+  br i1 %13, label %5, label %14, !llvm.loop !242
 
 14:                                               ; preds = %9, %5
   %15 = phi i32 [ %12, %9 ], [ 0, %5 ]
@@ -6255,7 +6255,7 @@ define dso_local i32 @security_audit_rule_known(ptr noundef %0) local_unnamed_ad
   %8 = load ptr, ptr %7, align 8
   %9 = tail call i32 %8(ptr noundef %0) #17
   %10 = icmp eq i32 %9, 0
-  br i1 %10, label %2, label %11, !llvm.loop !245
+  br i1 %10, label %2, label %11, !llvm.loop !243
 
 11:                                               ; preds = %6, %2
   %12 = phi i32 [ %9, %6 ], [ 0, %2 ]
@@ -6275,7 +6275,7 @@ define dso_local void @security_audit_rule_free(ptr noundef %0) local_unnamed_ad
   tail call void %6(ptr noundef %0) #17
   %7 = load ptr, ptr %4, align 8
   %8 = icmp eq ptr %7, null
-  br i1 %8, label %.loopexit, label %.preheader, !llvm.loop !246
+  br i1 %8, label %.loopexit, label %.preheader, !llvm.loop !244
 
 .loopexit:                                        ; preds = %.preheader, %1
   ret void
@@ -6296,7 +6296,7 @@ define dso_local i32 @security_audit_rule_match(i32 noundef %0, i32 noundef %1, 
   %11 = load ptr, ptr %10, align 8
   %12 = tail call i32 %11(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) #17
   %13 = icmp eq i32 %12, 0
-  br i1 %13, label %5, label %14, !llvm.loop !247
+  br i1 %13, label %5, label %14, !llvm.loop !245
 
 14:                                               ; preds = %9, %5
   %15 = phi i32 [ %12, %9 ], [ 0, %5 ]
@@ -6318,7 +6318,7 @@ define dso_local i32 @security_locked_down(i32 noundef %0) #3 align 16 {
   %8 = load ptr, ptr %7, align 8
   %9 = tail call i32 %8(i32 noundef %0) #17
   %10 = icmp eq i32 %9, 0
-  br i1 %10, label %2, label %11, !llvm.loop !248
+  br i1 %10, label %2, label %11, !llvm.loop !246
 
 11:                                               ; preds = %6, %2
   %12 = phi i32 [ %9, %6 ], [ 0, %2 ]
@@ -6340,7 +6340,7 @@ define dso_local i32 @security_perf_event_open(ptr noundef %0, i32 noundef %1) l
   %9 = load ptr, ptr %8, align 8
   %10 = tail call i32 %9(ptr noundef %0, i32 noundef %1) #17
   %11 = icmp eq i32 %10, 0
-  br i1 %11, label %3, label %12, !llvm.loop !249
+  br i1 %11, label %3, label %12, !llvm.loop !247
 
 12:                                               ; preds = %7, %3
   %13 = phi i32 [ %10, %7 ], [ 0, %3 ]
@@ -6362,7 +6362,7 @@ define dso_local i32 @security_perf_event_alloc(ptr noundef %0) local_unnamed_ad
   %8 = load ptr, ptr %7, align 8
   %9 = tail call i32 %8(ptr noundef %0) #17
   %10 = icmp eq i32 %9, 0
-  br i1 %10, label %2, label %11, !llvm.loop !250
+  br i1 %10, label %2, label %11, !llvm.loop !248
 
 11:                                               ; preds = %6, %2
   %12 = phi i32 [ %9, %6 ], [ 0, %2 ]
@@ -6382,7 +6382,7 @@ define dso_local void @security_perf_event_free(ptr noundef %0) local_unnamed_ad
   tail call void %6(ptr noundef %0) #17
   %7 = load ptr, ptr %4, align 8
   %8 = icmp eq ptr %7, null
-  br i1 %8, label %.loopexit, label %.preheader, !llvm.loop !251
+  br i1 %8, label %.loopexit, label %.preheader, !llvm.loop !249
 
 .loopexit:                                        ; preds = %.preheader, %1
   ret void
@@ -6403,7 +6403,7 @@ define dso_local i32 @security_perf_event_read(ptr noundef %0) local_unnamed_add
   %8 = load ptr, ptr %7, align 8
   %9 = tail call i32 %8(ptr noundef %0) #17
   %10 = icmp eq i32 %9, 0
-  br i1 %10, label %2, label %11, !llvm.loop !252
+  br i1 %10, label %2, label %11, !llvm.loop !250
 
 11:                                               ; preds = %6, %2
   %12 = phi i32 [ %9, %6 ], [ 0, %2 ]
@@ -6425,7 +6425,7 @@ define dso_local i32 @security_perf_event_write(ptr noundef %0) local_unnamed_ad
   %8 = load ptr, ptr %7, align 8
   %9 = tail call i32 %8(ptr noundef %0) #17
   %10 = icmp eq i32 %9, 0
-  br i1 %10, label %2, label %11, !llvm.loop !253
+  br i1 %10, label %2, label %11, !llvm.loop !251
 
 11:                                               ; preds = %6, %2
   %12 = phi i32 [ %9, %6 ], [ 0, %2 ]
@@ -6447,7 +6447,7 @@ define dso_local i32 @security_uring_override_creds(ptr noundef %0) local_unname
   %8 = load ptr, ptr %7, align 8
   %9 = tail call i32 %8(ptr noundef %0) #17
   %10 = icmp eq i32 %9, 0
-  br i1 %10, label %2, label %11, !llvm.loop !254
+  br i1 %10, label %2, label %11, !llvm.loop !252
 
 11:                                               ; preds = %6, %2
   %12 = phi i32 [ %9, %6 ], [ 0, %2 ]
@@ -6469,7 +6469,7 @@ define dso_local i32 @security_uring_sqpoll() local_unnamed_addr #3 align 16 {
   %7 = load ptr, ptr %6, align 8
   %8 = tail call i32 %7() #17
   %9 = icmp eq i32 %8, 0
-  br i1 %9, label %1, label %10, !llvm.loop !255
+  br i1 %9, label %1, label %10, !llvm.loop !253
 
 10:                                               ; preds = %5, %1
   %11 = phi i32 [ %8, %5 ], [ 0, %1 ]
@@ -6491,7 +6491,7 @@ define dso_local i32 @security_uring_cmd(ptr noundef %0) local_unnamed_addr #3 a
   %8 = load ptr, ptr %7, align 8
   %9 = tail call i32 %8(ptr noundef %0) #17
   %10 = icmp eq i32 %9, 0
-  br i1 %10, label %2, label %11, !llvm.loop !256
+  br i1 %10, label %2, label %11, !llvm.loop !254
 
 11:                                               ; preds = %6, %2
   %12 = phi i32 [ %9, %6 ], [ 0, %2 ]
@@ -6697,7 +6697,7 @@ define internal fastcc void @ordered_lsm_parse(ptr noundef %0, ptr noundef %1) u
 10:                                               ; preds = %9, %.preheader18
   %11 = getelementptr i8, ptr %5, i64 48
   %12 = icmp ult ptr %11, @__end_lsm_info
-  br i1 %12, label %.preheader18, label %.loopexit19, !llvm.loop !257
+  br i1 %12, label %.preheader18, label %.loopexit19, !llvm.loop !255
 
 .loopexit19:                                      ; preds = %10, %2
   %13 = load ptr, ptr @chosen_major_lsm, align 8
@@ -6759,7 +6759,7 @@ define internal fastcc void @ordered_lsm_parse(ptr noundef %0, ptr noundef %1) u
 43:                                               ; preds = %40, %38, %22, %.preheader16
   %44 = getelementptr i8, ptr %17, i64 48
   %45 = icmp ult ptr %44, @__end_lsm_info
-  br i1 %45, label %.preheader16, label %.loopexit17, !llvm.loop !258
+  br i1 %45, label %.preheader16, label %.loopexit17, !llvm.loop !256
 
 .loopexit17:                                      ; preds = %43, %.loopexit19
   %46 = tail call noalias ptr @kstrdup(ptr noundef %0, i32 noundef 3264) #17
@@ -6794,7 +6794,7 @@ define internal fastcc void @ordered_lsm_parse(ptr noundef %0, ptr noundef %1) u
   %61 = phi i8 [ %51, %.preheader13 ], [ 1, %59 ], [ 1, %55 ]
   %62 = getelementptr i8, ptr %50, i64 48
   %63 = icmp ult ptr %62, @__end_lsm_info
-  br i1 %63, label %.preheader13, label %64, !llvm.loop !259
+  br i1 %63, label %.preheader13, label %64, !llvm.loop !257
 
 64:                                               ; preds = %60
   %65 = icmp eq i8 %61, 0
@@ -6811,7 +6811,7 @@ define internal fastcc void @ordered_lsm_parse(ptr noundef %0, ptr noundef %1) u
 69:                                               ; preds = %67, %.thread, %64
   %70 = call ptr @strsep(ptr noundef nonnull %3, ptr noundef nonnull @.str.60) #17
   %71 = icmp eq ptr %70, null
-  br i1 %71, label %.loopexit15, label %.preheader14, !llvm.loop !260
+  br i1 %71, label %.loopexit15, label %.preheader14, !llvm.loop !258
 
 .loopexit15:                                      ; preds = %69, %.loopexit17
   %72 = load ptr, ptr @chosen_major_lsm, align 8
@@ -6837,7 +6837,7 @@ define internal fastcc void @ordered_lsm_parse(ptr noundef %0, ptr noundef %1) u
   %81 = icmp ne ptr %79, %76
   %82 = and i1 %81, %80
   %83 = getelementptr i8, ptr %78, i64 8
-  br i1 %82, label %77, label %84, !llvm.loop !261
+  br i1 %82, label %77, label %84, !llvm.loop !259
 
 84:                                               ; preds = %77
   br i1 %80, label %91, label %85
@@ -6858,7 +6858,7 @@ define internal fastcc void @ordered_lsm_parse(ptr noundef %0, ptr noundef %1) u
   %92 = phi ptr [ %.pre, %90 ], [ %75, %85 ], [ %75, %84 ]
   %93 = getelementptr i8, ptr %76, i64 48
   %94 = icmp ult ptr %93, @__end_lsm_info
-  br i1 %94, label %.preheader11, label %.loopexit12, !llvm.loop !262
+  br i1 %94, label %.preheader11, label %.loopexit12, !llvm.loop !260
 
 .loopexit12:                                      ; preds = %91, %.loopexit15
   br i1 %4, label %.preheader10, label %.loopexit
@@ -6877,7 +6877,7 @@ define internal fastcc void @ordered_lsm_parse(ptr noundef %0, ptr noundef %1) u
 100:                                              ; preds = %99, %.preheader10
   %101 = getelementptr i8, ptr %95, i64 48
   %102 = icmp ult ptr %101, @__end_lsm_info
-  br i1 %102, label %.preheader10, label %.preheader.preheader, !llvm.loop !263
+  br i1 %102, label %.preheader10, label %.preheader.preheader, !llvm.loop !261
 
 .preheader.preheader:                             ; preds = %100
   %.pre26 = load ptr, ptr @ordered_lsms, align 8
@@ -6895,7 +6895,7 @@ define internal fastcc void @ordered_lsm_parse(ptr noundef %0, ptr noundef %1) u
   %109 = icmp ne ptr %107, %104
   %110 = and i1 %109, %108
   %111 = getelementptr i8, ptr %106, i64 8
-  br i1 %110, label %105, label %112, !llvm.loop !264
+  br i1 %110, label %105, label %112, !llvm.loop !259
 
 112:                                              ; preds = %105
   br i1 %108, label %129, label %113
@@ -6940,7 +6940,7 @@ define internal fastcc void @ordered_lsm_parse(ptr noundef %0, ptr noundef %1) u
   %130 = phi ptr [ %.pre25, %126 ], [ %103, %124 ], [ %103, %112 ]
   %131 = getelementptr i8, ptr %104, i64 48
   %132 = icmp ult ptr %131, @__end_lsm_info
-  br i1 %132, label %.preheader, label %.loopexit, !llvm.loop !265
+  br i1 %132, label %.preheader, label %.loopexit, !llvm.loop !262
 
 .loopexit:                                        ; preds = %129, %.loopexit12, %74
   call void @kfree(ptr noundef %46) #17
@@ -6979,7 +6979,7 @@ define internal fastcc void @report_lsm_order() unnamed_addr #0 section ".init.t
   %18 = phi i32 [ %12, %11 ], [ %4, %8 ], [ %4, %.preheader5 ]
   %19 = getelementptr i8, ptr %3, i64 48
   %20 = icmp ult ptr %19, @__end_early_lsm_info
-  br i1 %20, label %.preheader5, label %.loopexit6, !llvm.loop !266
+  br i1 %20, label %.preheader5, label %.loopexit6, !llvm.loop !263
 
 .loopexit6:                                       ; preds = %17, %0
   %21 = phi i32 [ 0, %0 ], [ %18, %17 ]
@@ -7015,7 +7015,7 @@ define internal fastcc void @report_lsm_order() unnamed_addr #0 section ".init.t
   %42 = getelementptr i8, ptr %26, i64 8
   %43 = load ptr, ptr %42, align 8
   %44 = icmp eq ptr %43, null
-  br i1 %44, label %.loopexit, label %.preheader, !llvm.loop !267
+  br i1 %44, label %.loopexit, label %.preheader, !llvm.loop !264
 
 .loopexit:                                        ; preds = %40, %.loopexit6
   %45 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.70) #16
@@ -7091,7 +7091,7 @@ define internal fastcc void @append_ordered_lsm(ptr noundef %0, ptr noundef %1) 
   %8 = icmp ne ptr %6, %0
   %9 = and i1 %8, %7
   %10 = getelementptr i8, ptr %5, i64 8
-  br i1 %9, label %4, label %11, !llvm.loop !268
+  br i1 %9, label %4, label %11, !llvm.loop !259
 
 11:                                               ; preds = %4
   br i1 %7, label %38, label %12
@@ -7101,15 +7101,15 @@ define internal fastcc void @append_ordered_lsm(ptr noundef %0, ptr noundef %1) 
   %14 = sext i32 %13 to i64
   %15 = sdiv exact i64 sub (i64 ptrtoint (ptr @__end_lsm_info to i64), i64 ptrtoint (ptr @__start_lsm_info to i64)), 48
   %16 = icmp eq i64 %15, %14
-  br i1 %16, label %17, label %18, !prof !17
+  br i1 %16, label %17, label %18, !prof !16
 
 17:                                               ; preds = %12
-  tail call void asm sideeffect "442: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 442b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 442) #17, !srcloc !269
+  tail call void asm sideeffect "442: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 442b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 442) #17, !srcloc !265
   tail call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str.65, ptr noundef %1) #17
-  tail call void asm sideeffect "443: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 443b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 443) #17, !srcloc !270
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.44, i32 174, i32 2313, i64 12) #17, !srcloc !271
-  tail call void asm sideeffect "444: nop\0A\09.pushsection .discard.instr_end\0A\09.long 444b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 444) #17, !srcloc !272
-  tail call void asm sideeffect "445: nop\0A\09.pushsection .discard.instr_end\0A\09.long 445b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 445) #17, !srcloc !273
+  tail call void asm sideeffect "443: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 443b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 443) #17, !srcloc !266
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.44, i32 174, i32 2313, i64 12) #17, !srcloc !267
+  tail call void asm sideeffect "444: nop\0A\09.pushsection .discard.instr_end\0A\09.long 444b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 444) #17, !srcloc !268
+  tail call void asm sideeffect "445: nop\0A\09.pushsection .discard.instr_end\0A\09.long 445b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 445) #17, !srcloc !269
   br label %38
 
 18:                                               ; preds = %12
@@ -7218,271 +7218,267 @@ attributes #20 = { cold noreturn nounwind }
 !3 = !{i32 4, !"function_return_thunk_extern", i32 1}
 !4 = !{i32 4, !"indirect_branch_cs_prefix", i32 1}
 !5 = !{i32 4, !"SkipRaxSetup", i32 1}
-!6 = distinct !{!6, !7, !8, !9}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
 !8 = !{!"llvm.loop.unroll.disable"}
-!9 = !{!"llvm.loop.estimated_trip_count"}
-!10 = !{!"branch_weights", i32 2000, i32 1}
-!11 = !{i64 2156676555, i64 2156676364, i64 2156676416, i64 2156676462, i64 2156676490}
-!12 = !{i64 2156677113, i64 2156676922, i64 2156676974, i64 2156677020, i64 2156677048}
-!13 = !{i64 2156677187, i64 2156677216, i64 2156677262, i64 2156677320, i64 2156677374, i64 2156677428, i64 2156677483, i64 2156677514, i64 2156677822, i64 2156677828, i64 2156677875, i64 2156677898, i64 2156677924}
-!14 = !{i64 2156678376, i64 2156678187, i64 2156678237, i64 2156678283, i64 2156678311}
-!15 = !{i64 2156678682, i64 2156678493, i64 2156678543, i64 2156678589, i64 2156678617}
-!16 = distinct !{!16, !7, !8, !9}
-!17 = !{!"branch_weights", i32 1, i32 2000}
-!18 = !{i64 2156756737, i64 2156756546, i64 2156756598, i64 2156756644, i64 2156756672}
-!19 = !{i64 2156756811, i64 2156756840, i64 2156756886, i64 2156756944, i64 2156756998, i64 2156757052, i64 2156757107, i64 2156757138, i64 2156757446, i64 2156757452, i64 2156757499, i64 2156757522, i64 2156757548}
-!20 = !{i64 2156758000, i64 2156757811, i64 2156757861, i64 2156757907, i64 2156757935}
-!21 = distinct !{!21, !7, !8, !9}
-!22 = !{i64 2149006915}
-!23 = distinct !{!23, !7, !8, !9}
-!24 = distinct !{!24, !7, !8, !9}
-!25 = !{i64 2152439729}
-!26 = !{i64 2152424687}
-!27 = distinct !{!27, !7, !8, !9}
-!28 = !{i64 2150243548, i64 2150243362, i64 2150243414, i64 2150243460, i64 2150243488}
-!29 = !{i64 2150243619, i64 2150243648, i64 2150243694, i64 2150243752, i64 2150243806, i64 2150243860, i64 2150243915, i64 2150243946, i64 2150244254, i64 2150244260, i64 2150244307, i64 2150244330, i64 2150244356}
-!30 = !{i64 2150244811, i64 2150244627, i64 2150244677, i64 2150244723, i64 2150244751}
-!31 = distinct !{!31, !7, !8, !9}
-!32 = distinct !{!32, !7, !8, !9}
-!33 = distinct !{!33, !7, !8, !9}
-!34 = distinct !{!34, !7, !8, !9}
-!35 = distinct !{!35, !7, !8, !9}
-!36 = distinct !{!36, !7, !8, !9}
-!37 = distinct !{!37, !7, !8, !9}
-!38 = distinct !{!38, !7, !8, !9}
-!39 = distinct !{!39, !7, !8, !9}
-!40 = distinct !{!40, !7, !8, !9}
-!41 = distinct !{!41, !7, !8, !9}
-!42 = distinct !{!42, !7, !8, !9}
-!43 = distinct !{!43, !7, !8, !9}
-!44 = distinct !{!44, !7, !8, !9}
-!45 = distinct !{!45, !7, !8, !9}
-!46 = distinct !{!46, !7, !8, !9}
-!47 = distinct !{!47, !7, !8, !9}
-!48 = distinct !{!48, !7, !8, !9}
-!49 = distinct !{!49, !7, !8, !9}
-!50 = distinct !{!50, !7, !8, !9}
-!51 = distinct !{!51, !7, !8, !9}
-!52 = distinct !{!52, !7, !8, !9}
-!53 = distinct !{!53, !7, !8, !9}
-!54 = distinct !{!54, !7, !8, !9}
-!55 = distinct !{!55, !7, !8, !9}
-!56 = distinct !{!56, !7, !8, !9}
-!57 = distinct !{!57, !7, !8, !9}
-!58 = distinct !{!58, !7, !8, !9}
-!59 = distinct !{!59, !7, !8, !9}
-!60 = distinct !{!60, !7, !8, !9}
-!61 = distinct !{!61, !7, !8, !9}
-!62 = distinct !{!62, !7, !8, !9}
-!63 = distinct !{!63, !7, !8, !9}
-!64 = distinct !{!64, !7, !8, !9}
-!65 = distinct !{!65, !7, !8, !9}
-!66 = distinct !{!66, !7, !8, !9}
+!9 = !{!"branch_weights", i32 2000, i32 1}
+!10 = !{i64 2156676555, i64 2156676364, i64 2156676416, i64 2156676462, i64 2156676490}
+!11 = !{i64 2156677113, i64 2156676922, i64 2156676974, i64 2156677020, i64 2156677048}
+!12 = !{i64 2156677187, i64 2156677216, i64 2156677262, i64 2156677320, i64 2156677374, i64 2156677428, i64 2156677483, i64 2156677514, i64 2156677822, i64 2156677828, i64 2156677875, i64 2156677898, i64 2156677924}
+!13 = !{i64 2156678376, i64 2156678187, i64 2156678237, i64 2156678283, i64 2156678311}
+!14 = !{i64 2156678682, i64 2156678493, i64 2156678543, i64 2156678589, i64 2156678617}
+!15 = distinct !{!15, !7, !8}
+!16 = !{!"branch_weights", i32 1, i32 2000}
+!17 = !{i64 2156756737, i64 2156756546, i64 2156756598, i64 2156756644, i64 2156756672}
+!18 = !{i64 2156756811, i64 2156756840, i64 2156756886, i64 2156756944, i64 2156756998, i64 2156757052, i64 2156757107, i64 2156757138, i64 2156757446, i64 2156757452, i64 2156757499, i64 2156757522, i64 2156757548}
+!19 = !{i64 2156758000, i64 2156757811, i64 2156757861, i64 2156757907, i64 2156757935}
+!20 = distinct !{!20, !7, !8}
+!21 = !{i64 2149006915}
+!22 = distinct !{!22, !7, !8}
+!23 = distinct !{!23, !7, !8}
+!24 = !{i64 2152439729}
+!25 = !{i64 2152424687}
+!26 = distinct !{!26, !7, !8}
+!27 = !{i64 2150243548, i64 2150243362, i64 2150243414, i64 2150243460, i64 2150243488}
+!28 = !{i64 2150243619, i64 2150243648, i64 2150243694, i64 2150243752, i64 2150243806, i64 2150243860, i64 2150243915, i64 2150243946, i64 2150244254, i64 2150244260, i64 2150244307, i64 2150244330, i64 2150244356}
+!29 = !{i64 2150244811, i64 2150244627, i64 2150244677, i64 2150244723, i64 2150244751}
+!30 = distinct !{!30, !7, !8}
+!31 = distinct !{!31, !7, !8}
+!32 = distinct !{!32, !7, !8}
+!33 = distinct !{!33, !7, !8}
+!34 = distinct !{!34, !7, !8}
+!35 = distinct !{!35, !7, !8}
+!36 = distinct !{!36, !7, !8}
+!37 = distinct !{!37, !7, !8}
+!38 = distinct !{!38, !7, !8}
+!39 = distinct !{!39, !7, !8}
+!40 = distinct !{!40, !7, !8}
+!41 = distinct !{!41, !7, !8}
+!42 = distinct !{!42, !7, !8}
+!43 = distinct !{!43, !7, !8}
+!44 = distinct !{!44, !7, !8}
+!45 = distinct !{!45, !7, !8}
+!46 = distinct !{!46, !7, !8}
+!47 = distinct !{!47, !7, !8}
+!48 = distinct !{!48, !7, !8}
+!49 = distinct !{!49, !7, !8}
+!50 = distinct !{!50, !7, !8}
+!51 = distinct !{!51, !7, !8}
+!52 = distinct !{!52, !7, !8}
+!53 = distinct !{!53, !7, !8}
+!54 = distinct !{!54, !7, !8}
+!55 = distinct !{!55, !7, !8}
+!56 = distinct !{!56, !7, !8}
+!57 = distinct !{!57, !7, !8}
+!58 = distinct !{!58, !7, !8}
+!59 = distinct !{!59, !7, !8}
+!60 = distinct !{!60, !7, !8}
+!61 = distinct !{!61, !7, !8}
+!62 = distinct !{!62, !7, !8}
+!63 = distinct !{!63, !7, !8}
+!64 = distinct !{!64, !7, !8}
+!65 = distinct !{!65, !7, !8}
+!66 = distinct !{!66, !7, !8}
 !67 = distinct !{!67, !7, !8}
-!68 = distinct !{!68, !7, !8, !9}
-!69 = distinct !{!69, !7, !8, !9}
-!70 = distinct !{!70, !7, !8, !9}
-!71 = distinct !{!71, !7, !8, !9}
-!72 = distinct !{!72, !7, !8, !9}
-!73 = distinct !{!73, !7, !8, !9}
-!74 = distinct !{!74, !7, !8, !9}
-!75 = distinct !{!75, !7, !8, !9}
-!76 = distinct !{!76, !7, !8, !9}
-!77 = distinct !{!77, !7, !8, !9}
-!78 = distinct !{!78, !7, !8, !9}
-!79 = distinct !{!79, !7, !8, !9}
-!80 = distinct !{!80, !7, !8, !9}
-!81 = distinct !{!81, !7, !8, !9}
-!82 = distinct !{!82, !7, !8, !9}
-!83 = distinct !{!83, !7, !8, !9}
-!84 = distinct !{!84, !7, !8, !9}
-!85 = distinct !{!85, !7, !8, !9}
-!86 = distinct !{!86, !7, !8, !9}
-!87 = distinct !{!87, !7, !8, !9}
-!88 = distinct !{!88, !7, !8, !9}
-!89 = distinct !{!89, !7, !8, !9}
-!90 = distinct !{!90, !7, !8, !9}
-!91 = distinct !{!91, !7, !8, !9}
-!92 = distinct !{!92, !7, !8, !9}
-!93 = distinct !{!93, !7, !8, !9}
-!94 = distinct !{!94, !7, !8, !9}
-!95 = distinct !{!95, !7, !8, !9}
-!96 = !{!"branch_weights", i32 2002, i32 2000}
-!97 = distinct !{!97, !7, !8, !9}
-!98 = distinct !{!98, !7, !8, !9}
-!99 = distinct !{!99, !7, !8, !9}
-!100 = distinct !{!100, !7, !8, !9}
-!101 = distinct !{!101, !7, !8, !9}
-!102 = distinct !{!102, !7, !8, !9}
-!103 = distinct !{!103, !7, !8, !9}
-!104 = distinct !{!104, !7, !8, !9}
-!105 = distinct !{!105, !7, !8, !9}
-!106 = distinct !{!106, !7, !8, !9}
-!107 = distinct !{!107, !7, !8, !9}
-!108 = distinct !{!108, !7, !8, !9}
-!109 = distinct !{!109, !7, !8, !9}
-!110 = distinct !{!110, !7, !8, !9}
-!111 = distinct !{!111, !7, !8, !9}
-!112 = distinct !{!112, !7, !8, !9}
-!113 = distinct !{!113, !7, !8, !9}
-!114 = distinct !{!114, !7, !8, !9}
-!115 = distinct !{!115, !7, !8, !9}
-!116 = distinct !{!116, !7, !8, !9}
-!117 = distinct !{!117, !7, !8, !9}
-!118 = distinct !{!118, !7, !8, !9}
-!119 = distinct !{!119, !7, !8, !9}
-!120 = distinct !{!120, !7, !8, !9}
-!121 = distinct !{!121, !7, !8, !9}
-!122 = distinct !{!122, !7, !8, !9}
-!123 = distinct !{!123, !7, !8, !9}
-!124 = distinct !{!124, !7, !8, !9}
-!125 = distinct !{!125, !7, !8, !9}
-!126 = distinct !{!126, !7, !8, !9}
-!127 = distinct !{!127, !7, !8, !9}
-!128 = distinct !{!128, !7, !8, !9}
-!129 = distinct !{!129, !7, !8, !9}
-!130 = distinct !{!130, !7, !8, !9}
-!131 = distinct !{!131, !7, !8, !9}
-!132 = distinct !{!132, !7, !8, !9}
-!133 = distinct !{!133, !7, !8, !9}
-!134 = distinct !{!134, !7, !8, !9}
-!135 = distinct !{!135, !7, !8, !9}
-!136 = distinct !{!136, !7, !8, !9}
-!137 = distinct !{!137, !7, !8, !9}
-!138 = distinct !{!138, !7, !8, !9}
-!139 = distinct !{!139, !7, !8, !9}
-!140 = distinct !{!140, !7, !8, !9}
-!141 = distinct !{!141, !7, !8, !9}
-!142 = distinct !{!142, !7, !8, !9}
-!143 = distinct !{!143, !7, !8, !9}
-!144 = distinct !{!144, !7, !8, !9}
-!145 = distinct !{!145, !7, !8, !9}
-!146 = distinct !{!146, !7, !8, !9}
-!147 = distinct !{!147, !7, !8, !9}
-!148 = distinct !{!148, !7, !8, !9}
-!149 = distinct !{!149, !7, !8, !9}
-!150 = distinct !{!150, !7, !8, !9}
-!151 = distinct !{!151, !7, !8, !9}
-!152 = distinct !{!152, !7, !8, !9}
-!153 = distinct !{!153, !7, !8, !9}
-!154 = distinct !{!154, !7, !8, !9}
-!155 = distinct !{!155, !7, !8, !9}
-!156 = distinct !{!156, !7, !8, !9}
-!157 = distinct !{!157, !7, !8, !9}
-!158 = distinct !{!158, !7, !8, !9}
-!159 = distinct !{!159, !7, !8, !9}
-!160 = distinct !{!160, !7, !8, !9}
-!161 = distinct !{!161, !7, !8, !9}
-!162 = distinct !{!162, !7, !8, !9}
-!163 = distinct !{!163, !7, !8, !9}
-!164 = distinct !{!164, !7, !8, !9}
-!165 = distinct !{!165, !7, !8, !9}
-!166 = distinct !{!166, !7, !8, !9}
-!167 = distinct !{!167, !7, !8, !9}
-!168 = distinct !{!168, !7, !8, !9}
-!169 = distinct !{!169, !7, !8, !9}
-!170 = distinct !{!170, !7, !8, !9}
-!171 = distinct !{!171, !7, !8, !9}
-!172 = distinct !{!172, !7, !8, !9}
-!173 = distinct !{!173, !7, !8, !9}
-!174 = distinct !{!174, !7, !8, !9}
-!175 = distinct !{!175, !7, !8, !9}
-!176 = distinct !{!176, !7, !8, !9}
-!177 = distinct !{!177, !7, !8, !9}
-!178 = distinct !{!178, !7, !8, !9}
-!179 = distinct !{!179, !7, !8, !9}
-!180 = !{i64 2157438843}
-!181 = !{!"auto-init"}
-!182 = distinct !{!182, !7, !8, !9, !183}
-!183 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!184 = distinct !{!184, !7, !8, !9}
-!185 = !{i64 2157443904}
-!186 = distinct !{!186, !7, !8, !9}
-!187 = distinct !{!187, !7, !8, !9}
-!188 = distinct !{!188, !7, !8, !9}
-!189 = distinct !{!189, !7, !8, !9}
-!190 = distinct !{!190, !7, !8, !9}
-!191 = distinct !{!191, !7, !8, !9}
-!192 = distinct !{!192, !7, !8, !9}
-!193 = distinct !{!193, !7, !8, !9}
-!194 = distinct !{!194, !7, !8, !9}
-!195 = distinct !{!195, !7, !8, !9}
-!196 = distinct !{!196, !7, !8, !9}
-!197 = distinct !{!197, !7, !8, !9}
-!198 = distinct !{!198, !7, !8, !9}
-!199 = distinct !{!199, !7, !8, !9}
-!200 = distinct !{!200, !7, !8, !9}
-!201 = distinct !{!201, !7, !8, !9}
-!202 = distinct !{!202, !7, !8, !9}
-!203 = distinct !{!203, !7, !8, !9}
-!204 = distinct !{!204, !7, !8, !9}
-!205 = distinct !{!205, !7, !8, !9}
-!206 = distinct !{!206, !7, !8, !9}
-!207 = distinct !{!207, !7, !8, !9}
-!208 = distinct !{!208, !7, !8, !9}
-!209 = distinct !{!209, !7, !8, !9}
-!210 = distinct !{!210, !7, !8, !9}
-!211 = distinct !{!211, !7, !8, !9}
-!212 = distinct !{!212, !7, !8, !9}
-!213 = distinct !{!213, !7, !8, !9}
-!214 = distinct !{!214, !7, !8, !9}
-!215 = distinct !{!215, !7, !8, !9}
-!216 = distinct !{!216, !7, !8, !9}
-!217 = distinct !{!217, !7, !8, !9}
-!218 = distinct !{!218, !7, !8, !9}
-!219 = distinct !{!219, !7, !8, !9}
-!220 = distinct !{!220, !7, !8, !9}
-!221 = distinct !{!221, !7, !8, !9}
-!222 = distinct !{!222, !7, !8, !9}
-!223 = distinct !{!223, !7, !8, !9}
-!224 = distinct !{!224, !7, !8, !9}
-!225 = distinct !{!225, !7, !8, !9}
-!226 = distinct !{!226, !7, !8, !9}
-!227 = distinct !{!227, !7, !8, !9}
-!228 = distinct !{!228, !7, !8, !9}
-!229 = distinct !{!229, !7, !8, !9}
-!230 = distinct !{!230, !7, !8, !9}
-!231 = distinct !{!231, !7, !8, !9}
-!232 = distinct !{!232, !7, !8, !9}
-!233 = distinct !{!233, !7, !8, !9}
-!234 = distinct !{!234, !7, !8, !9}
-!235 = distinct !{!235, !7, !8, !9}
-!236 = distinct !{!236, !7, !8, !9}
-!237 = distinct !{!237, !7, !8, !9}
-!238 = distinct !{!238, !7, !8, !9}
-!239 = distinct !{!239, !7, !8, !9}
-!240 = distinct !{!240, !7, !8, !9}
-!241 = distinct !{!241, !7, !8, !9}
-!242 = distinct !{!242, !7, !8, !9}
-!243 = distinct !{!243, !7, !8, !9}
-!244 = distinct !{!244, !7, !8, !9}
-!245 = distinct !{!245, !7, !8, !9}
-!246 = distinct !{!246, !7, !8, !9}
-!247 = distinct !{!247, !7, !8, !9}
-!248 = distinct !{!248, !7, !8, !9}
-!249 = distinct !{!249, !7, !8, !9}
-!250 = distinct !{!250, !7, !8, !9}
-!251 = distinct !{!251, !7, !8, !9}
-!252 = distinct !{!252, !7, !8, !9}
-!253 = distinct !{!253, !7, !8, !9}
-!254 = distinct !{!254, !7, !8, !9}
-!255 = distinct !{!255, !7, !8, !9}
-!256 = distinct !{!256, !7, !8, !9}
-!257 = distinct !{!257, !7, !8, !9}
-!258 = distinct !{!258, !7, !8, !9}
-!259 = distinct !{!259, !7, !8, !9}
-!260 = distinct !{!260, !7, !8, !9}
-!261 = distinct !{!261, !7, !8, !9}
-!262 = distinct !{!262, !7, !8, !9}
-!263 = distinct !{!263, !7, !8, !9}
-!264 = distinct !{!264, !7, !8, !9}
-!265 = distinct !{!265, !7, !8, !9}
-!266 = distinct !{!266, !7, !8, !9}
-!267 = distinct !{!267, !7, !8, !9}
-!268 = distinct !{!268, !7, !8, !9}
-!269 = !{i64 2156665897, i64 2156665706, i64 2156665758, i64 2156665804, i64 2156665832}
-!270 = !{i64 2156666455, i64 2156666264, i64 2156666316, i64 2156666362, i64 2156666390}
-!271 = !{i64 2156666529, i64 2156666558, i64 2156666604, i64 2156666662, i64 2156666716, i64 2156666770, i64 2156666825, i64 2156666856, i64 2156667164, i64 2156667170, i64 2156667217, i64 2156667240, i64 2156667266}
-!272 = !{i64 2156667718, i64 2156667529, i64 2156667579, i64 2156667625, i64 2156667653}
-!273 = !{i64 2156672085, i64 2156671896, i64 2156671946, i64 2156671992, i64 2156672020}
+!68 = distinct !{!68, !7, !8}
+!69 = distinct !{!69, !7, !8}
+!70 = distinct !{!70, !7, !8}
+!71 = distinct !{!71, !7, !8}
+!72 = distinct !{!72, !7, !8}
+!73 = distinct !{!73, !7, !8}
+!74 = distinct !{!74, !7, !8}
+!75 = distinct !{!75, !7, !8}
+!76 = distinct !{!76, !7, !8}
+!77 = distinct !{!77, !7, !8}
+!78 = distinct !{!78, !7, !8}
+!79 = distinct !{!79, !7, !8}
+!80 = distinct !{!80, !7, !8}
+!81 = distinct !{!81, !7, !8}
+!82 = distinct !{!82, !7, !8}
+!83 = distinct !{!83, !7, !8}
+!84 = distinct !{!84, !7, !8}
+!85 = distinct !{!85, !7, !8}
+!86 = distinct !{!86, !7, !8}
+!87 = distinct !{!87, !7, !8}
+!88 = distinct !{!88, !7, !8}
+!89 = distinct !{!89, !7, !8}
+!90 = distinct !{!90, !7, !8}
+!91 = distinct !{!91, !7, !8}
+!92 = distinct !{!92, !7, !8}
+!93 = distinct !{!93, !7, !8}
+!94 = !{!"branch_weights", i32 2002, i32 2000}
+!95 = distinct !{!95, !7, !8}
+!96 = distinct !{!96, !7, !8}
+!97 = distinct !{!97, !7, !8}
+!98 = distinct !{!98, !7, !8}
+!99 = distinct !{!99, !7, !8}
+!100 = distinct !{!100, !7, !8}
+!101 = distinct !{!101, !7, !8}
+!102 = distinct !{!102, !7, !8}
+!103 = distinct !{!103, !7, !8}
+!104 = distinct !{!104, !7, !8}
+!105 = distinct !{!105, !7, !8}
+!106 = distinct !{!106, !7, !8}
+!107 = distinct !{!107, !7, !8}
+!108 = distinct !{!108, !7, !8}
+!109 = distinct !{!109, !7, !8}
+!110 = distinct !{!110, !7, !8}
+!111 = distinct !{!111, !7, !8}
+!112 = distinct !{!112, !7, !8}
+!113 = distinct !{!113, !7, !8}
+!114 = distinct !{!114, !7, !8}
+!115 = distinct !{!115, !7, !8}
+!116 = distinct !{!116, !7, !8}
+!117 = distinct !{!117, !7, !8}
+!118 = distinct !{!118, !7, !8}
+!119 = distinct !{!119, !7, !8}
+!120 = distinct !{!120, !7, !8}
+!121 = distinct !{!121, !7, !8}
+!122 = distinct !{!122, !7, !8}
+!123 = distinct !{!123, !7, !8}
+!124 = distinct !{!124, !7, !8}
+!125 = distinct !{!125, !7, !8}
+!126 = distinct !{!126, !7, !8}
+!127 = distinct !{!127, !7, !8}
+!128 = distinct !{!128, !7, !8}
+!129 = distinct !{!129, !7, !8}
+!130 = distinct !{!130, !7, !8}
+!131 = distinct !{!131, !7, !8}
+!132 = distinct !{!132, !7, !8}
+!133 = distinct !{!133, !7, !8}
+!134 = distinct !{!134, !7, !8}
+!135 = distinct !{!135, !7, !8}
+!136 = distinct !{!136, !7, !8}
+!137 = distinct !{!137, !7, !8}
+!138 = distinct !{!138, !7, !8}
+!139 = distinct !{!139, !7, !8}
+!140 = distinct !{!140, !7, !8}
+!141 = distinct !{!141, !7, !8}
+!142 = distinct !{!142, !7, !8}
+!143 = distinct !{!143, !7, !8}
+!144 = distinct !{!144, !7, !8}
+!145 = distinct !{!145, !7, !8}
+!146 = distinct !{!146, !7, !8}
+!147 = distinct !{!147, !7, !8}
+!148 = distinct !{!148, !7, !8}
+!149 = distinct !{!149, !7, !8}
+!150 = distinct !{!150, !7, !8}
+!151 = distinct !{!151, !7, !8}
+!152 = distinct !{!152, !7, !8}
+!153 = distinct !{!153, !7, !8}
+!154 = distinct !{!154, !7, !8}
+!155 = distinct !{!155, !7, !8}
+!156 = distinct !{!156, !7, !8}
+!157 = distinct !{!157, !7, !8}
+!158 = distinct !{!158, !7, !8}
+!159 = distinct !{!159, !7, !8}
+!160 = distinct !{!160, !7, !8}
+!161 = distinct !{!161, !7, !8}
+!162 = distinct !{!162, !7, !8}
+!163 = distinct !{!163, !7, !8}
+!164 = distinct !{!164, !7, !8}
+!165 = distinct !{!165, !7, !8}
+!166 = distinct !{!166, !7, !8}
+!167 = distinct !{!167, !7, !8}
+!168 = distinct !{!168, !7, !8}
+!169 = distinct !{!169, !7, !8}
+!170 = distinct !{!170, !7, !8}
+!171 = distinct !{!171, !7, !8}
+!172 = distinct !{!172, !7, !8}
+!173 = distinct !{!173, !7, !8}
+!174 = distinct !{!174, !7, !8}
+!175 = distinct !{!175, !7, !8}
+!176 = distinct !{!176, !7, !8}
+!177 = distinct !{!177, !7, !8}
+!178 = !{i64 2157438843}
+!179 = !{!"auto-init"}
+!180 = distinct !{!180, !7, !8, !181}
+!181 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!182 = distinct !{!182, !7, !8}
+!183 = !{i64 2157443904}
+!184 = distinct !{!184, !7, !8}
+!185 = distinct !{!185, !7, !8}
+!186 = distinct !{!186, !7, !8}
+!187 = distinct !{!187, !7, !8}
+!188 = distinct !{!188, !7, !8}
+!189 = distinct !{!189, !7, !8}
+!190 = distinct !{!190, !7, !8}
+!191 = distinct !{!191, !7, !8}
+!192 = distinct !{!192, !7, !8}
+!193 = distinct !{!193, !7, !8}
+!194 = distinct !{!194, !7, !8}
+!195 = distinct !{!195, !7, !8}
+!196 = distinct !{!196, !7, !8}
+!197 = distinct !{!197, !7, !8}
+!198 = distinct !{!198, !7, !8}
+!199 = distinct !{!199, !7, !8}
+!200 = distinct !{!200, !7, !8}
+!201 = distinct !{!201, !7, !8}
+!202 = distinct !{!202, !7, !8}
+!203 = distinct !{!203, !7, !8}
+!204 = distinct !{!204, !7, !8}
+!205 = distinct !{!205, !7, !8}
+!206 = distinct !{!206, !7, !8}
+!207 = distinct !{!207, !7, !8}
+!208 = distinct !{!208, !7, !8}
+!209 = distinct !{!209, !7, !8}
+!210 = distinct !{!210, !7, !8}
+!211 = distinct !{!211, !7, !8}
+!212 = distinct !{!212, !7, !8}
+!213 = distinct !{!213, !7, !8}
+!214 = distinct !{!214, !7, !8}
+!215 = distinct !{!215, !7, !8}
+!216 = distinct !{!216, !7, !8}
+!217 = distinct !{!217, !7, !8}
+!218 = distinct !{!218, !7, !8}
+!219 = distinct !{!219, !7, !8}
+!220 = distinct !{!220, !7, !8}
+!221 = distinct !{!221, !7, !8}
+!222 = distinct !{!222, !7, !8}
+!223 = distinct !{!223, !7, !8}
+!224 = distinct !{!224, !7, !8}
+!225 = distinct !{!225, !7, !8}
+!226 = distinct !{!226, !7, !8}
+!227 = distinct !{!227, !7, !8}
+!228 = distinct !{!228, !7, !8}
+!229 = distinct !{!229, !7, !8}
+!230 = distinct !{!230, !7, !8}
+!231 = distinct !{!231, !7, !8}
+!232 = distinct !{!232, !7, !8}
+!233 = distinct !{!233, !7, !8}
+!234 = distinct !{!234, !7, !8}
+!235 = distinct !{!235, !7, !8}
+!236 = distinct !{!236, !7, !8}
+!237 = distinct !{!237, !7, !8}
+!238 = distinct !{!238, !7, !8}
+!239 = distinct !{!239, !7, !8}
+!240 = distinct !{!240, !7, !8}
+!241 = distinct !{!241, !7, !8}
+!242 = distinct !{!242, !7, !8}
+!243 = distinct !{!243, !7, !8}
+!244 = distinct !{!244, !7, !8}
+!245 = distinct !{!245, !7, !8}
+!246 = distinct !{!246, !7, !8}
+!247 = distinct !{!247, !7, !8}
+!248 = distinct !{!248, !7, !8}
+!249 = distinct !{!249, !7, !8}
+!250 = distinct !{!250, !7, !8}
+!251 = distinct !{!251, !7, !8}
+!252 = distinct !{!252, !7, !8}
+!253 = distinct !{!253, !7, !8}
+!254 = distinct !{!254, !7, !8}
+!255 = distinct !{!255, !7, !8}
+!256 = distinct !{!256, !7, !8}
+!257 = distinct !{!257, !7, !8}
+!258 = distinct !{!258, !7, !8}
+!259 = distinct !{!259, !7, !8}
+!260 = distinct !{!260, !7, !8}
+!261 = distinct !{!261, !7, !8}
+!262 = distinct !{!262, !7, !8}
+!263 = distinct !{!263, !7, !8}
+!264 = distinct !{!264, !7, !8}
+!265 = !{i64 2156665897, i64 2156665706, i64 2156665758, i64 2156665804, i64 2156665832}
+!266 = !{i64 2156666455, i64 2156666264, i64 2156666316, i64 2156666362, i64 2156666390}
+!267 = !{i64 2156666529, i64 2156666558, i64 2156666604, i64 2156666662, i64 2156666716, i64 2156666770, i64 2156666825, i64 2156666856, i64 2156667164, i64 2156667170, i64 2156667217, i64 2156667240, i64 2156667266}
+!268 = !{i64 2156667718, i64 2156667529, i64 2156667579, i64 2156667625, i64 2156667653}
+!269 = !{i64 2156672085, i64 2156671896, i64 2156671946, i64 2156671992, i64 2156672020}

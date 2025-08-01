@@ -251,7 +251,7 @@ define hidden noundef zeroext i1 @SDL_KMSDRM_LoadSymbols() local_unnamed_addr #0
   br label %10
 
 10:                                               ; preds = %.preheader, %8
-  br i1 %4, label %.preheader, label %11, !llvm.loop !6
+  br i1 %4, label %.preheader, label %11, !llvm.loop !5
 
 11:                                               ; preds = %10
   store i32 1, ptr @SDL_KMSDRM_HAVE_LIBDRM, align 4
@@ -272,7 +272,7 @@ define hidden noundef zeroext i1 @SDL_KMSDRM_LoadSymbols() local_unnamed_addr #0
   br i1 %.not15.i, label %18, label %KMSDRM_GetSym.exit
 
 18:                                               ; preds = %16, %12
-  br i1 %13, label %12, label %19, !llvm.loop !7
+  br i1 %13, label %12, label %19, !llvm.loop !6
 
 19:                                               ; preds = %18
   store i32 0, ptr @SDL_KMSDRM_HAVE_LIBDRM, align 4
@@ -297,7 +297,7 @@ KMSDRM_GetSym.exit:                               ; preds = %16, %19
   br i1 %.not15.i70, label %26, label %KMSDRM_GetSym.exit72
 
 26:                                               ; preds = %24, %20
-  br i1 %21, label %20, label %27, !llvm.loop !7
+  br i1 %21, label %20, label %27, !llvm.loop !6
 
 27:                                               ; preds = %26
   store i32 0, ptr @SDL_KMSDRM_HAVE_LIBDRM, align 4
@@ -322,7 +322,7 @@ KMSDRM_GetSym.exit72:                             ; preds = %24, %27
   br i1 %.not15.i75, label %34, label %KMSDRM_GetSym.exit77
 
 34:                                               ; preds = %32, %28
-  br i1 %29, label %28, label %35, !llvm.loop !7
+  br i1 %29, label %28, label %35, !llvm.loop !6
 
 35:                                               ; preds = %34
   store i32 0, ptr @SDL_KMSDRM_HAVE_LIBDRM, align 4
@@ -347,7 +347,7 @@ KMSDRM_GetSym.exit77:                             ; preds = %32, %35
   br i1 %.not15.i80, label %42, label %KMSDRM_GetSym.exit82
 
 42:                                               ; preds = %40, %36
-  br i1 %37, label %36, label %43, !llvm.loop !7
+  br i1 %37, label %36, label %43, !llvm.loop !6
 
 43:                                               ; preds = %42
   store i32 0, ptr @SDL_KMSDRM_HAVE_LIBDRM, align 4
@@ -372,7 +372,7 @@ KMSDRM_GetSym.exit82:                             ; preds = %40, %43
   br i1 %.not15.i85, label %50, label %KMSDRM_GetSym.exit87
 
 50:                                               ; preds = %48, %44
-  br i1 %45, label %44, label %51, !llvm.loop !7
+  br i1 %45, label %44, label %51, !llvm.loop !6
 
 51:                                               ; preds = %50
   store i32 0, ptr @SDL_KMSDRM_HAVE_LIBDRM, align 4
@@ -397,7 +397,7 @@ KMSDRM_GetSym.exit87:                             ; preds = %48, %51
   br i1 %.not15.i90, label %58, label %KMSDRM_GetSym.exit92
 
 58:                                               ; preds = %56, %52
-  br i1 %53, label %52, label %59, !llvm.loop !7
+  br i1 %53, label %52, label %59, !llvm.loop !6
 
 59:                                               ; preds = %58
   store i32 0, ptr @SDL_KMSDRM_HAVE_LIBDRM, align 4
@@ -422,7 +422,7 @@ KMSDRM_GetSym.exit92:                             ; preds = %56, %59
   br i1 %.not15.i95, label %66, label %KMSDRM_GetSym.exit97
 
 66:                                               ; preds = %64, %60
-  br i1 %61, label %60, label %67, !llvm.loop !7
+  br i1 %61, label %60, label %67, !llvm.loop !6
 
 67:                                               ; preds = %66
   store i32 0, ptr @SDL_KMSDRM_HAVE_LIBDRM, align 4
@@ -447,7 +447,7 @@ KMSDRM_GetSym.exit97:                             ; preds = %64, %67
   br i1 %.not15.i100, label %74, label %KMSDRM_GetSym.exit102
 
 74:                                               ; preds = %72, %68
-  br i1 %69, label %68, label %75, !llvm.loop !7
+  br i1 %69, label %68, label %75, !llvm.loop !6
 
 75:                                               ; preds = %74
   store i32 0, ptr @SDL_KMSDRM_HAVE_LIBDRM, align 4
@@ -472,7 +472,7 @@ KMSDRM_GetSym.exit102:                            ; preds = %72, %75
   br i1 %.not15.i105, label %82, label %KMSDRM_GetSym.exit107
 
 82:                                               ; preds = %80, %76
-  br i1 %77, label %76, label %83, !llvm.loop !7
+  br i1 %77, label %76, label %83, !llvm.loop !6
 
 83:                                               ; preds = %82
   store i32 0, ptr @SDL_KMSDRM_HAVE_LIBDRM, align 4
@@ -497,7 +497,7 @@ KMSDRM_GetSym.exit107:                            ; preds = %80, %83
   br i1 %.not15.i110, label %90, label %KMSDRM_GetSym.exit112
 
 90:                                               ; preds = %88, %84
-  br i1 %85, label %84, label %91, !llvm.loop !7
+  br i1 %85, label %84, label %91, !llvm.loop !6
 
 91:                                               ; preds = %90
   store i32 0, ptr @SDL_KMSDRM_HAVE_LIBDRM, align 4
@@ -522,7 +522,7 @@ KMSDRM_GetSym.exit112:                            ; preds = %88, %91
   br i1 %.not15.i115, label %98, label %KMSDRM_GetSym.exit117
 
 98:                                               ; preds = %96, %92
-  br i1 %93, label %92, label %99, !llvm.loop !7
+  br i1 %93, label %92, label %99, !llvm.loop !6
 
 99:                                               ; preds = %98
   store i32 0, ptr @SDL_KMSDRM_HAVE_LIBDRM, align 4
@@ -551,7 +551,7 @@ KMSDRM_GetSym.exit117:                            ; preds = %96, %99
   br i1 %100, label %.backedge386.backedge, label %KMSDRM_GetSym.exit122
 
 .backedge386.backedge:                            ; preds = %105, %103
-  br label %.backedge386, !llvm.loop !7
+  br label %.backedge386, !llvm.loop !6
 
 KMSDRM_GetSym.exit122:                            ; preds = %103, %105
   %.118.i121 = phi ptr [ %104, %103 ], [ null, %105 ]
@@ -576,7 +576,7 @@ KMSDRM_GetSym.exit122:                            ; preds = %103, %105
   br i1 %106, label %.backedge385.backedge, label %KMSDRM_GetSym.exit127
 
 .backedge385.backedge:                            ; preds = %111, %109
-  br label %.backedge385, !llvm.loop !7
+  br label %.backedge385, !llvm.loop !6
 
 KMSDRM_GetSym.exit127:                            ; preds = %109, %111
   %.118.i126 = phi ptr [ %110, %109 ], [ null, %111 ]
@@ -601,7 +601,7 @@ KMSDRM_GetSym.exit127:                            ; preds = %109, %111
   br i1 %112, label %.backedge384.backedge, label %KMSDRM_GetSym.exit132
 
 .backedge384.backedge:                            ; preds = %117, %115
-  br label %.backedge384, !llvm.loop !7
+  br label %.backedge384, !llvm.loop !6
 
 KMSDRM_GetSym.exit132:                            ; preds = %115, %117
   %.118.i131 = phi ptr [ %116, %115 ], [ null, %117 ]
@@ -622,7 +622,7 @@ KMSDRM_GetSym.exit132:                            ; preds = %115, %117
   br i1 %.not15.i135, label %124, label %KMSDRM_GetSym.exit137
 
 124:                                              ; preds = %122, %118
-  br i1 %119, label %118, label %125, !llvm.loop !7
+  br i1 %119, label %118, label %125, !llvm.loop !6
 
 125:                                              ; preds = %124
   store i32 0, ptr @SDL_KMSDRM_HAVE_LIBDRM, align 4
@@ -647,7 +647,7 @@ KMSDRM_GetSym.exit137:                            ; preds = %122, %125
   br i1 %.not15.i140, label %132, label %KMSDRM_GetSym.exit142
 
 132:                                              ; preds = %130, %126
-  br i1 %127, label %126, label %133, !llvm.loop !7
+  br i1 %127, label %126, label %133, !llvm.loop !6
 
 133:                                              ; preds = %132
   store i32 0, ptr @SDL_KMSDRM_HAVE_LIBDRM, align 4
@@ -672,7 +672,7 @@ KMSDRM_GetSym.exit142:                            ; preds = %130, %133
   br i1 %.not15.i145, label %140, label %KMSDRM_GetSym.exit147
 
 140:                                              ; preds = %138, %134
-  br i1 %135, label %134, label %141, !llvm.loop !7
+  br i1 %135, label %134, label %141, !llvm.loop !6
 
 141:                                              ; preds = %140
   store i32 0, ptr @SDL_KMSDRM_HAVE_LIBDRM, align 4
@@ -697,7 +697,7 @@ KMSDRM_GetSym.exit147:                            ; preds = %138, %141
   br i1 %.not15.i150, label %148, label %KMSDRM_GetSym.exit152
 
 148:                                              ; preds = %146, %142
-  br i1 %143, label %142, label %149, !llvm.loop !7
+  br i1 %143, label %142, label %149, !llvm.loop !6
 
 149:                                              ; preds = %148
   store i32 0, ptr @SDL_KMSDRM_HAVE_LIBDRM, align 4
@@ -722,7 +722,7 @@ KMSDRM_GetSym.exit152:                            ; preds = %146, %149
   br i1 %.not15.i155, label %156, label %KMSDRM_GetSym.exit157
 
 156:                                              ; preds = %154, %150
-  br i1 %151, label %150, label %157, !llvm.loop !7
+  br i1 %151, label %150, label %157, !llvm.loop !6
 
 157:                                              ; preds = %156
   store i32 0, ptr @SDL_KMSDRM_HAVE_LIBDRM, align 4
@@ -747,7 +747,7 @@ KMSDRM_GetSym.exit157:                            ; preds = %154, %157
   br i1 %.not15.i160, label %164, label %KMSDRM_GetSym.exit162
 
 164:                                              ; preds = %162, %158
-  br i1 %159, label %158, label %165, !llvm.loop !7
+  br i1 %159, label %158, label %165, !llvm.loop !6
 
 165:                                              ; preds = %164
   store i32 0, ptr @SDL_KMSDRM_HAVE_LIBDRM, align 4
@@ -772,7 +772,7 @@ KMSDRM_GetSym.exit162:                            ; preds = %162, %165
   br i1 %.not15.i165, label %172, label %KMSDRM_GetSym.exit167
 
 172:                                              ; preds = %170, %166
-  br i1 %167, label %166, label %173, !llvm.loop !7
+  br i1 %167, label %166, label %173, !llvm.loop !6
 
 173:                                              ; preds = %172
   store i32 0, ptr @SDL_KMSDRM_HAVE_LIBDRM, align 4
@@ -797,7 +797,7 @@ KMSDRM_GetSym.exit167:                            ; preds = %170, %173
   br i1 %.not15.i170, label %180, label %KMSDRM_GetSym.exit172
 
 180:                                              ; preds = %178, %174
-  br i1 %175, label %174, label %181, !llvm.loop !7
+  br i1 %175, label %174, label %181, !llvm.loop !6
 
 181:                                              ; preds = %180
   store i32 0, ptr @SDL_KMSDRM_HAVE_LIBDRM, align 4
@@ -822,7 +822,7 @@ KMSDRM_GetSym.exit172:                            ; preds = %178, %181
   br i1 %.not15.i175, label %188, label %KMSDRM_GetSym.exit177
 
 188:                                              ; preds = %186, %182
-  br i1 %183, label %182, label %189, !llvm.loop !7
+  br i1 %183, label %182, label %189, !llvm.loop !6
 
 189:                                              ; preds = %188
   store i32 0, ptr @SDL_KMSDRM_HAVE_LIBDRM, align 4
@@ -847,7 +847,7 @@ KMSDRM_GetSym.exit177:                            ; preds = %186, %189
   br i1 %.not15.i180, label %196, label %KMSDRM_GetSym.exit182
 
 196:                                              ; preds = %194, %190
-  br i1 %191, label %190, label %197, !llvm.loop !7
+  br i1 %191, label %190, label %197, !llvm.loop !6
 
 197:                                              ; preds = %196
   store i32 0, ptr @SDL_KMSDRM_HAVE_LIBDRM, align 4
@@ -872,7 +872,7 @@ KMSDRM_GetSym.exit182:                            ; preds = %194, %197
   br i1 %.not15.i185, label %204, label %KMSDRM_GetSym.exit187
 
 204:                                              ; preds = %202, %198
-  br i1 %199, label %198, label %205, !llvm.loop !7
+  br i1 %199, label %198, label %205, !llvm.loop !6
 
 205:                                              ; preds = %204
   store i32 0, ptr @SDL_KMSDRM_HAVE_LIBDRM, align 4
@@ -897,7 +897,7 @@ KMSDRM_GetSym.exit187:                            ; preds = %202, %205
   br i1 %.not15.i190, label %212, label %KMSDRM_GetSym.exit192
 
 212:                                              ; preds = %210, %206
-  br i1 %207, label %206, label %213, !llvm.loop !7
+  br i1 %207, label %206, label %213, !llvm.loop !6
 
 213:                                              ; preds = %212
   store i32 0, ptr @SDL_KMSDRM_HAVE_LIBDRM, align 4
@@ -922,7 +922,7 @@ KMSDRM_GetSym.exit192:                            ; preds = %210, %213
   br i1 %.not15.i195, label %220, label %KMSDRM_GetSym.exit197
 
 220:                                              ; preds = %218, %214
-  br i1 %215, label %214, label %221, !llvm.loop !7
+  br i1 %215, label %214, label %221, !llvm.loop !6
 
 221:                                              ; preds = %220
   store i32 0, ptr @SDL_KMSDRM_HAVE_LIBDRM, align 4
@@ -947,7 +947,7 @@ KMSDRM_GetSym.exit197:                            ; preds = %218, %221
   br i1 %.not15.i200, label %228, label %KMSDRM_GetSym.exit202
 
 228:                                              ; preds = %226, %222
-  br i1 %223, label %222, label %229, !llvm.loop !7
+  br i1 %223, label %222, label %229, !llvm.loop !6
 
 229:                                              ; preds = %228
   store i32 0, ptr @SDL_KMSDRM_HAVE_LIBDRM, align 4
@@ -972,7 +972,7 @@ KMSDRM_GetSym.exit202:                            ; preds = %226, %229
   br i1 %.not15.i205, label %236, label %KMSDRM_GetSym.exit207
 
 236:                                              ; preds = %234, %230
-  br i1 %231, label %230, label %237, !llvm.loop !7
+  br i1 %231, label %230, label %237, !llvm.loop !6
 
 237:                                              ; preds = %236
   store i32 0, ptr @SDL_KMSDRM_HAVE_LIBDRM, align 4
@@ -997,7 +997,7 @@ KMSDRM_GetSym.exit207:                            ; preds = %234, %237
   br i1 %.not15.i210, label %244, label %KMSDRM_GetSym.exit212
 
 244:                                              ; preds = %242, %238
-  br i1 %239, label %238, label %245, !llvm.loop !7
+  br i1 %239, label %238, label %245, !llvm.loop !6
 
 245:                                              ; preds = %244
   store i32 0, ptr @SDL_KMSDRM_HAVE_LIBDRM, align 4
@@ -1022,7 +1022,7 @@ KMSDRM_GetSym.exit212:                            ; preds = %242, %245
   br i1 %.not15.i215, label %252, label %KMSDRM_GetSym.exit217
 
 252:                                              ; preds = %250, %246
-  br i1 %247, label %246, label %253, !llvm.loop !7
+  br i1 %247, label %246, label %253, !llvm.loop !6
 
 253:                                              ; preds = %252
   store i32 0, ptr @SDL_KMSDRM_HAVE_LIBDRM, align 4
@@ -1047,7 +1047,7 @@ KMSDRM_GetSym.exit217:                            ; preds = %250, %253
   br i1 %.not15.i220, label %260, label %KMSDRM_GetSym.exit222
 
 260:                                              ; preds = %258, %254
-  br i1 %255, label %254, label %261, !llvm.loop !7
+  br i1 %255, label %254, label %261, !llvm.loop !6
 
 261:                                              ; preds = %260
   store i32 0, ptr @SDL_KMSDRM_HAVE_LIBDRM, align 4
@@ -1072,7 +1072,7 @@ KMSDRM_GetSym.exit222:                            ; preds = %258, %261
   br i1 %.not15.i225, label %268, label %KMSDRM_GetSym.exit227
 
 268:                                              ; preds = %266, %262
-  br i1 %263, label %262, label %269, !llvm.loop !7
+  br i1 %263, label %262, label %269, !llvm.loop !6
 
 269:                                              ; preds = %268
   store i32 0, ptr @SDL_KMSDRM_HAVE_LIBDRM, align 4
@@ -1097,7 +1097,7 @@ KMSDRM_GetSym.exit227:                            ; preds = %266, %269
   br i1 %.not15.i230, label %276, label %KMSDRM_GetSym.exit232
 
 276:                                              ; preds = %274, %270
-  br i1 %271, label %270, label %277, !llvm.loop !7
+  br i1 %271, label %270, label %277, !llvm.loop !6
 
 277:                                              ; preds = %276
   store i32 0, ptr @SDL_KMSDRM_HAVE_LIBDRM, align 4
@@ -1122,7 +1122,7 @@ KMSDRM_GetSym.exit232:                            ; preds = %274, %277
   br i1 %.not15.i235, label %284, label %KMSDRM_GetSym.exit237
 
 284:                                              ; preds = %282, %278
-  br i1 %279, label %278, label %285, !llvm.loop !7
+  br i1 %279, label %278, label %285, !llvm.loop !6
 
 285:                                              ; preds = %284
   store i32 0, ptr @SDL_KMSDRM_HAVE_LIBDRM, align 4
@@ -1147,7 +1147,7 @@ KMSDRM_GetSym.exit237:                            ; preds = %282, %285
   br i1 %.not15.i240, label %292, label %KMSDRM_GetSym.exit242
 
 292:                                              ; preds = %290, %286
-  br i1 %287, label %286, label %293, !llvm.loop !7
+  br i1 %287, label %286, label %293, !llvm.loop !6
 
 293:                                              ; preds = %292
   store i32 0, ptr @SDL_KMSDRM_HAVE_LIBDRM, align 4
@@ -1172,7 +1172,7 @@ KMSDRM_GetSym.exit242:                            ; preds = %290, %293
   br i1 %.not15.i245, label %300, label %KMSDRM_GetSym.exit247
 
 300:                                              ; preds = %298, %294
-  br i1 %295, label %294, label %301, !llvm.loop !7
+  br i1 %295, label %294, label %301, !llvm.loop !6
 
 301:                                              ; preds = %300
   store i32 0, ptr @SDL_KMSDRM_HAVE_GBM, align 4
@@ -1197,7 +1197,7 @@ KMSDRM_GetSym.exit247:                            ; preds = %298, %301
   br i1 %.not15.i250, label %308, label %KMSDRM_GetSym.exit252
 
 308:                                              ; preds = %306, %302
-  br i1 %303, label %302, label %309, !llvm.loop !7
+  br i1 %303, label %302, label %309, !llvm.loop !6
 
 309:                                              ; preds = %308
   store i32 0, ptr @SDL_KMSDRM_HAVE_GBM, align 4
@@ -1222,7 +1222,7 @@ KMSDRM_GetSym.exit252:                            ; preds = %306, %309
   br i1 %.not15.i255, label %316, label %KMSDRM_GetSym.exit257
 
 316:                                              ; preds = %314, %310
-  br i1 %311, label %310, label %317, !llvm.loop !7
+  br i1 %311, label %310, label %317, !llvm.loop !6
 
 317:                                              ; preds = %316
   store i32 0, ptr @SDL_KMSDRM_HAVE_GBM, align 4
@@ -1247,7 +1247,7 @@ KMSDRM_GetSym.exit257:                            ; preds = %314, %317
   br i1 %.not15.i260, label %324, label %KMSDRM_GetSym.exit262
 
 324:                                              ; preds = %322, %318
-  br i1 %319, label %318, label %325, !llvm.loop !7
+  br i1 %319, label %318, label %325, !llvm.loop !6
 
 325:                                              ; preds = %324
   store i32 0, ptr @SDL_KMSDRM_HAVE_GBM, align 4
@@ -1272,7 +1272,7 @@ KMSDRM_GetSym.exit262:                            ; preds = %322, %325
   br i1 %.not15.i265, label %332, label %KMSDRM_GetSym.exit267
 
 332:                                              ; preds = %330, %326
-  br i1 %327, label %326, label %333, !llvm.loop !7
+  br i1 %327, label %326, label %333, !llvm.loop !6
 
 333:                                              ; preds = %332
   store i32 0, ptr @SDL_KMSDRM_HAVE_GBM, align 4
@@ -1297,7 +1297,7 @@ KMSDRM_GetSym.exit267:                            ; preds = %330, %333
   br i1 %.not15.i270, label %340, label %KMSDRM_GetSym.exit272
 
 340:                                              ; preds = %338, %334
-  br i1 %335, label %334, label %341, !llvm.loop !7
+  br i1 %335, label %334, label %341, !llvm.loop !6
 
 341:                                              ; preds = %340
   store i32 0, ptr @SDL_KMSDRM_HAVE_GBM, align 4
@@ -1322,7 +1322,7 @@ KMSDRM_GetSym.exit272:                            ; preds = %338, %341
   br i1 %.not15.i275, label %348, label %KMSDRM_GetSym.exit277
 
 348:                                              ; preds = %346, %342
-  br i1 %343, label %342, label %349, !llvm.loop !7
+  br i1 %343, label %342, label %349, !llvm.loop !6
 
 349:                                              ; preds = %348
   store i32 0, ptr @SDL_KMSDRM_HAVE_GBM, align 4
@@ -1347,7 +1347,7 @@ KMSDRM_GetSym.exit277:                            ; preds = %346, %349
   br i1 %.not15.i280, label %356, label %KMSDRM_GetSym.exit282
 
 356:                                              ; preds = %354, %350
-  br i1 %351, label %350, label %357, !llvm.loop !7
+  br i1 %351, label %350, label %357, !llvm.loop !6
 
 357:                                              ; preds = %356
   store i32 0, ptr @SDL_KMSDRM_HAVE_GBM, align 4
@@ -1372,7 +1372,7 @@ KMSDRM_GetSym.exit282:                            ; preds = %354, %357
   br i1 %.not15.i285, label %364, label %KMSDRM_GetSym.exit287
 
 364:                                              ; preds = %362, %358
-  br i1 %359, label %358, label %365, !llvm.loop !7
+  br i1 %359, label %358, label %365, !llvm.loop !6
 
 365:                                              ; preds = %364
   store i32 0, ptr @SDL_KMSDRM_HAVE_GBM, align 4
@@ -1397,7 +1397,7 @@ KMSDRM_GetSym.exit287:                            ; preds = %362, %365
   br i1 %.not15.i290, label %372, label %KMSDRM_GetSym.exit292
 
 372:                                              ; preds = %370, %366
-  br i1 %367, label %366, label %373, !llvm.loop !7
+  br i1 %367, label %366, label %373, !llvm.loop !6
 
 373:                                              ; preds = %372
   store i32 0, ptr @SDL_KMSDRM_HAVE_GBM, align 4
@@ -1422,7 +1422,7 @@ KMSDRM_GetSym.exit292:                            ; preds = %370, %373
   br i1 %.not15.i295, label %380, label %KMSDRM_GetSym.exit297
 
 380:                                              ; preds = %378, %374
-  br i1 %375, label %374, label %381, !llvm.loop !7
+  br i1 %375, label %374, label %381, !llvm.loop !6
 
 381:                                              ; preds = %380
   store i32 0, ptr @SDL_KMSDRM_HAVE_GBM, align 4
@@ -1447,7 +1447,7 @@ KMSDRM_GetSym.exit297:                            ; preds = %378, %381
   br i1 %.not15.i300, label %388, label %KMSDRM_GetSym.exit302
 
 388:                                              ; preds = %386, %382
-  br i1 %383, label %382, label %389, !llvm.loop !7
+  br i1 %383, label %382, label %389, !llvm.loop !6
 
 389:                                              ; preds = %388
   store i32 0, ptr @SDL_KMSDRM_HAVE_GBM, align 4
@@ -1472,7 +1472,7 @@ KMSDRM_GetSym.exit302:                            ; preds = %386, %389
   br i1 %.not15.i305, label %396, label %KMSDRM_GetSym.exit307
 
 396:                                              ; preds = %394, %390
-  br i1 %391, label %390, label %397, !llvm.loop !7
+  br i1 %391, label %390, label %397, !llvm.loop !6
 
 397:                                              ; preds = %396
   store i32 0, ptr @SDL_KMSDRM_HAVE_GBM, align 4
@@ -1497,7 +1497,7 @@ KMSDRM_GetSym.exit307:                            ; preds = %394, %397
   br i1 %.not15.i310, label %404, label %KMSDRM_GetSym.exit312
 
 404:                                              ; preds = %402, %398
-  br i1 %399, label %398, label %405, !llvm.loop !7
+  br i1 %399, label %398, label %405, !llvm.loop !6
 
 405:                                              ; preds = %404
   store i32 0, ptr @SDL_KMSDRM_HAVE_GBM, align 4
@@ -1522,7 +1522,7 @@ KMSDRM_GetSym.exit312:                            ; preds = %402, %405
   br i1 %.not15.i315, label %412, label %KMSDRM_GetSym.exit317
 
 412:                                              ; preds = %410, %406
-  br i1 %407, label %406, label %413, !llvm.loop !7
+  br i1 %407, label %406, label %413, !llvm.loop !6
 
 413:                                              ; preds = %412
   store i32 0, ptr @SDL_KMSDRM_HAVE_GBM, align 4
@@ -1547,7 +1547,7 @@ KMSDRM_GetSym.exit317:                            ; preds = %410, %413
   br i1 %.not15.i320, label %420, label %KMSDRM_GetSym.exit322
 
 420:                                              ; preds = %418, %414
-  br i1 %415, label %414, label %421, !llvm.loop !7
+  br i1 %415, label %414, label %421, !llvm.loop !6
 
 421:                                              ; preds = %420
   store i32 0, ptr @SDL_KMSDRM_HAVE_GBM, align 4
@@ -1572,7 +1572,7 @@ KMSDRM_GetSym.exit322:                            ; preds = %418, %421
   br i1 %.not15.i325, label %428, label %KMSDRM_GetSym.exit327
 
 428:                                              ; preds = %426, %422
-  br i1 %423, label %422, label %429, !llvm.loop !7
+  br i1 %423, label %422, label %429, !llvm.loop !6
 
 429:                                              ; preds = %428
   store i32 0, ptr @SDL_KMSDRM_HAVE_GBM, align 4
@@ -1597,7 +1597,7 @@ KMSDRM_GetSym.exit327:                            ; preds = %426, %429
   br i1 %.not15.i330, label %436, label %KMSDRM_GetSym.exit332
 
 436:                                              ; preds = %434, %430
-  br i1 %431, label %430, label %437, !llvm.loop !7
+  br i1 %431, label %430, label %437, !llvm.loop !6
 
 437:                                              ; preds = %436
   store i32 0, ptr @SDL_KMSDRM_HAVE_GBM, align 4
@@ -1626,7 +1626,7 @@ KMSDRM_GetSym.exit332:                            ; preds = %434, %437
   br i1 %438, label %.backedge383.backedge, label %KMSDRM_GetSym.exit337
 
 .backedge383.backedge:                            ; preds = %443, %441
-  br label %.backedge383, !llvm.loop !7
+  br label %.backedge383, !llvm.loop !6
 
 KMSDRM_GetSym.exit337:                            ; preds = %441, %443
   %.118.i336 = phi ptr [ %442, %441 ], [ null, %443 ]
@@ -1651,7 +1651,7 @@ KMSDRM_GetSym.exit337:                            ; preds = %441, %443
   br i1 %444, label %.backedge382.backedge, label %KMSDRM_GetSym.exit342
 
 .backedge382.backedge:                            ; preds = %449, %447
-  br label %.backedge382, !llvm.loop !7
+  br label %.backedge382, !llvm.loop !6
 
 KMSDRM_GetSym.exit342:                            ; preds = %447, %449
   %.118.i341 = phi ptr [ %448, %447 ], [ null, %449 ]
@@ -1676,7 +1676,7 @@ KMSDRM_GetSym.exit342:                            ; preds = %447, %449
   br i1 %450, label %.backedge381.backedge, label %KMSDRM_GetSym.exit347
 
 .backedge381.backedge:                            ; preds = %455, %453
-  br label %.backedge381, !llvm.loop !7
+  br label %.backedge381, !llvm.loop !6
 
 KMSDRM_GetSym.exit347:                            ; preds = %453, %455
   %.118.i346 = phi ptr [ %454, %453 ], [ null, %455 ]
@@ -1701,7 +1701,7 @@ KMSDRM_GetSym.exit347:                            ; preds = %453, %455
   br i1 %456, label %.backedge380.backedge, label %KMSDRM_GetSym.exit352
 
 .backedge380.backedge:                            ; preds = %461, %459
-  br label %.backedge380, !llvm.loop !7
+  br label %.backedge380, !llvm.loop !6
 
 KMSDRM_GetSym.exit352:                            ; preds = %459, %461
   %.118.i351 = phi ptr [ %460, %459 ], [ null, %461 ]
@@ -1726,7 +1726,7 @@ KMSDRM_GetSym.exit352:                            ; preds = %459, %461
   br i1 %462, label %.backedge.backedge, label %KMSDRM_GetSym.exit357
 
 .backedge.backedge:                               ; preds = %467, %465
-  br label %.backedge, !llvm.loop !7
+  br label %.backedge, !llvm.loop !6
 
 KMSDRM_GetSym.exit357:                            ; preds = %465, %467
   %.118.i356 = phi ptr [ %466, %465 ], [ null, %467 ]
@@ -1766,8 +1766,7 @@ attributes #2 = { nounwind }
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = distinct !{!3, !4, !5}
+!3 = distinct !{!3, !4}
 !4 = !{!"llvm.loop.mustprogress"}
-!5 = !{!"llvm.loop.estimated_trip_count"}
-!6 = distinct !{!6, !4, !5}
-!7 = distinct !{!7, !4, !5}
+!5 = distinct !{!5, !4}
+!6 = distinct !{!6, !4}

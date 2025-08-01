@@ -342,14 +342,14 @@ define internal void @_ZN4ncnnL22innerproduct_fp16s_sseERKNS_3MatERS0_S2_S2_iS2_
   %170 = add nuw nsw i32 %.174311, 4
   %171 = or disjoint i32 %170, 3
   %172 = icmp slt i32 %171, %41
-  br i1 %172, label %.lr.ph314, label %.preheader, !llvm.loop !26
+  br i1 %172, label %.lr.ph314, label %.preheader, !llvm.loop !25
 
 .lr.ph326:                                        ; preds = %.preheader, %.lr.ph326
   %.2325 = phi ptr [ %182, %.lr.ph326 ], [ %.1.lcssa, %.preheader ]
   %.272324 = phi ptr [ %181, %.lr.ph326 ], [ %.171.lcssa, %.preheader ]
   %.275323 = phi i32 [ %183, %.lr.ph326 ], [ %.174.lcssa, %.preheader ]
   %.3322 = phi <8 x float> [ %180, %.lr.ph326 ], [ %.2270.lcssa, %.preheader ]
-  %173 = load float, ptr %.272324, align 4, !tbaa !27
+  %173 = load float, ptr %.272324, align 4, !tbaa !26
   %174 = insertelement <8 x float> poison, float %173, i64 0
   %175 = shufflevector <8 x float> %174, <8 x float> poison, <8 x i32> zeroinitializer
   %176 = call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.2325)
@@ -361,7 +361,7 @@ define internal void @_ZN4ncnnL22innerproduct_fp16s_sseERKNS_3MatERS0_S2_S2_iS2_
   %182 = getelementptr inbounds nuw i8, ptr %.2325, i64 16
   %183 = add nuw nsw i32 %.275323, 1
   %exitcond.not = icmp eq i32 %183, %41
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph326, !llvm.loop !29
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph326, !llvm.loop !28
 
 ._crit_edge:                                      ; preds = %.lr.ph326, %.preheader
   %.3.lcssa = phi <8 x float> [ %.2270.lcssa, %.preheader ], [ %180, %.lr.ph326 ]
@@ -388,7 +388,7 @@ define internal void @_ZN4ncnnL22innerproduct_fp16s_sseERKNS_3MatERS0_S2_S2_iS2_
 
 .noexc:                                           ; preds = %._crit_edge
   %194 = load ptr, ptr %8, align 8, !tbaa !15
-  %195 = load float, ptr %194, align 4, !tbaa !27
+  %195 = load float, ptr %194, align 4, !tbaa !26
   %196 = call fast noundef <8 x float> @llvm.x86.avx.max.ps.256(<8 x float> zeroinitializer, <8 x float> nofpclass(nan inf) %190)
   %197 = call fast noundef <8 x float> @llvm.x86.avx.min.ps.256(<8 x float> zeroinitializer, <8 x float> nofpclass(nan inf) %190)
   %198 = insertelement <8 x float> poison, float %195, i64 0
@@ -399,11 +399,11 @@ define internal void @_ZN4ncnnL22innerproduct_fp16s_sseERKNS_3MatERS0_S2_S2_iS2_
 
 202:                                              ; preds = %._crit_edge
   %203 = load ptr, ptr %8, align 8, !tbaa !15
-  %204 = load float, ptr %203, align 4, !tbaa !27
+  %204 = load float, ptr %203, align 4, !tbaa !26
   %205 = insertelement <8 x float> poison, float %204, i64 0
   %206 = shufflevector <8 x float> %205, <8 x float> poison, <8 x i32> zeroinitializer
   %207 = getelementptr inbounds nuw i8, ptr %203, i64 4
-  %208 = load float, ptr %207, align 4, !tbaa !27
+  %208 = load float, ptr %207, align 4, !tbaa !26
   %209 = insertelement <8 x float> poison, float %208, i64 0
   %210 = shufflevector <8 x float> %209, <8 x float> poison, <8 x i32> zeroinitializer
   %211 = call fast noundef <8 x float> @llvm.x86.avx.max.ps.256(<8 x float> nofpclass(nan inf) %190, <8 x float> nofpclass(nan inf) %206)
@@ -553,11 +553,11 @@ define internal void @_ZN4ncnnL22innerproduct_fp16s_sseERKNS_3MatERS0_S2_S2_iS2_
 
 .noexc80:                                         ; preds = %._crit_edge
   %342 = load ptr, ptr %8, align 8, !tbaa !15
-  %343 = load float, ptr %342, align 4, !tbaa !27
+  %343 = load float, ptr %342, align 4, !tbaa !26
   %344 = insertelement <8 x float> poison, float %343, i64 0
   %345 = shufflevector <8 x float> %344, <8 x float> poison, <8 x i32> zeroinitializer
   %346 = getelementptr inbounds nuw i8, ptr %342, i64 4
-  %347 = load float, ptr %346, align 4, !tbaa !27
+  %347 = load float, ptr %346, align 4, !tbaa !26
   %348 = insertelement <8 x float> poison, float %347, i64 0
   %349 = shufflevector <8 x float> %348, <8 x float> poison, <8 x i32> zeroinitializer
   %350 = fmul fast <8 x float> %345, %190
@@ -576,7 +576,7 @@ _ZL14activation_avxDv8_fiRKN4ncnn3MatE.exit:      ; preds = %.noexc80, %.noexc79
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
   %exitcond352.not = icmp eq i32 %26, %lftr.wideiv
-  br i1 %exitcond352.not, label %._crit_edge332, label %27, !llvm.loop !30
+  br i1 %exitcond352.not, label %._crit_edge332, label %27
 
 ._crit_edge332:                                   ; preds = %_ZL14activation_avxDv8_fiRKN4ncnn3MatE.exit, %17
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %19)
@@ -620,7 +620,7 @@ declare i32 @__kmpc_global_thread_num(ptr) local_unnamed_addr #3
 declare void @__kmpc_push_num_threads(ptr, i32, i32) local_unnamed_addr #3
 
 ; Function Attrs: nounwind
-declare !callback !31 void @__kmpc_fork_call(ptr, i32, ptr, ...) local_unnamed_addr #3
+declare !callback !29 void @__kmpc_fork_call(ptr, i32, ptr, ...) local_unnamed_addr #3
 
 ; Function Attrs: alwaysinline norecurse nounwind uwtable
 define internal void @_ZN4ncnnL22innerproduct_fp16s_sseERKNS_3MatERS0_S2_S2_iS2_RKNS_6OptionE.omp_outlined.1(ptr noalias noundef readonly captures(none) %0, ptr noalias readnone captures(none) %1, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %3, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %4, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %5, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %6, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %7, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %8, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %9) #2 personality ptr @__gxx_personality_v0 {
@@ -763,7 +763,7 @@ define internal void @_ZN4ncnnL22innerproduct_fp16s_sseERKNS_3MatERS0_S2_S2_iS2_
   %98 = add nuw nsw i32 %.076234, 8
   %99 = or disjoint i32 %98, 7
   %100 = icmp slt i32 %99, %41
-  br i1 %100, label %.lr.ph, label %.preheader229.loopexit, !llvm.loop !33
+  br i1 %100, label %.lr.ph, label %.preheader229.loopexit, !llvm.loop !31
 
 .preheader:                                       ; preds = %.lr.ph249, %.preheader229
   %.1223.lcssa = phi <8 x float> [ %.0222.lcssa, %.preheader229 ], [ %125, %.lr.ph249 ]
@@ -809,14 +809,14 @@ define internal void @_ZN4ncnnL22innerproduct_fp16s_sseERKNS_3MatERS0_S2_S2_iS2_
   %128 = add nuw nsw i32 %.177246, 4
   %129 = or disjoint i32 %128, 3
   %130 = icmp slt i32 %129, %41
-  br i1 %130, label %.lr.ph249, label %.preheader, !llvm.loop !34
+  br i1 %130, label %.lr.ph249, label %.preheader, !llvm.loop !32
 
 .lr.ph259:                                        ; preds = %.preheader, %.lr.ph259
   %.2258 = phi ptr [ %139, %.lr.ph259 ], [ %.1.lcssa, %.preheader ]
   %.275257 = phi ptr [ %138, %.lr.ph259 ], [ %.174.lcssa, %.preheader ]
   %.278256 = phi i32 [ %140, %.lr.ph259 ], [ %.177.lcssa, %.preheader ]
   %.1219255 = phi <4 x float> [ %137, %.lr.ph259 ], [ %.0218, %.preheader ]
-  %131 = load float, ptr %.275257, align 4, !tbaa !27
+  %131 = load float, ptr %.275257, align 4, !tbaa !26
   %132 = insertelement <4 x float> poison, float %131, i64 0
   %133 = shufflevector <4 x float> %132, <4 x float> poison, <4 x i32> zeroinitializer
   %134 = load <4 x half>, ptr %.2258, align 1, !tbaa !21
@@ -827,7 +827,7 @@ define internal void @_ZN4ncnnL22innerproduct_fp16s_sseERKNS_3MatERS0_S2_S2_iS2_
   %139 = getelementptr inbounds nuw i8, ptr %.2258, i64 8
   %140 = add nuw nsw i32 %.278256, 1
   %exitcond.not = icmp eq i32 %140, %41
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph259, !llvm.loop !35
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph259, !llvm.loop !33
 
 ._crit_edge:                                      ; preds = %.lr.ph259, %.preheader
   %.1219.lcssa = phi <4 x float> [ %.0218, %.preheader ], [ %137, %.lr.ph259 ]
@@ -854,7 +854,7 @@ define internal void @_ZN4ncnnL22innerproduct_fp16s_sseERKNS_3MatERS0_S2_S2_iS2_
 
 .noexc:                                           ; preds = %._crit_edge
   %151 = load ptr, ptr %8, align 8, !tbaa !15
-  %152 = load float, ptr %151, align 4, !tbaa !27
+  %152 = load float, ptr %151, align 4, !tbaa !26
   %153 = call fast noundef <4 x float> @llvm.x86.sse.max.ps(<4 x float> zeroinitializer, <4 x float> nofpclass(nan inf) %147)
   %154 = call fast noundef <4 x float> @llvm.x86.sse.min.ps(<4 x float> zeroinitializer, <4 x float> nofpclass(nan inf) %147)
   %155 = insertelement <4 x float> poison, float %152, i64 0
@@ -865,11 +865,11 @@ define internal void @_ZN4ncnnL22innerproduct_fp16s_sseERKNS_3MatERS0_S2_S2_iS2_
 
 159:                                              ; preds = %._crit_edge
   %160 = load ptr, ptr %8, align 8, !tbaa !15
-  %161 = load float, ptr %160, align 4, !tbaa !27
+  %161 = load float, ptr %160, align 4, !tbaa !26
   %162 = insertelement <4 x float> poison, float %161, i64 0
   %163 = shufflevector <4 x float> %162, <4 x float> poison, <4 x i32> zeroinitializer
   %164 = getelementptr inbounds nuw i8, ptr %160, i64 4
-  %165 = load float, ptr %164, align 4, !tbaa !27
+  %165 = load float, ptr %164, align 4, !tbaa !26
   %166 = insertelement <4 x float> poison, float %165, i64 0
   %167 = shufflevector <4 x float> %166, <4 x float> poison, <4 x i32> zeroinitializer
   %168 = call fast noundef <4 x float> @llvm.x86.sse.max.ps(<4 x float> nofpclass(nan inf) %147, <4 x float> nofpclass(nan inf) %163)
@@ -1022,11 +1022,11 @@ define internal void @_ZN4ncnnL22innerproduct_fp16s_sseERKNS_3MatERS0_S2_S2_iS2_
 
 304:                                              ; preds = %._crit_edge
   %305 = load ptr, ptr %8, align 8, !tbaa !15
-  %306 = load float, ptr %305, align 4, !tbaa !27
+  %306 = load float, ptr %305, align 4, !tbaa !26
   %307 = insertelement <4 x float> poison, float %306, i64 0
   %308 = shufflevector <4 x float> %307, <4 x float> poison, <4 x i32> zeroinitializer
   %309 = getelementptr inbounds nuw i8, ptr %305, i64 4
-  %310 = load float, ptr %309, align 4, !tbaa !27
+  %310 = load float, ptr %309, align 4, !tbaa !26
   %311 = insertelement <4 x float> poison, float %310, i64 0
   %312 = shufflevector <4 x float> %311, <4 x float> poison, <4 x i32> zeroinitializer
   %313 = fmul fast <4 x float> %308, %147
@@ -1045,7 +1045,7 @@ _ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit:      ; preds = %304, %.noexc82, %.n
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
   %exitcond279.not = icmp eq i32 %26, %lftr.wideiv
-  br i1 %exitcond279.not, label %._crit_edge265, label %27, !llvm.loop !36
+  br i1 %exitcond279.not, label %._crit_edge265, label %27
 
 ._crit_edge265:                                   ; preds = %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit, %17
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %19)
@@ -1103,28 +1103,28 @@ define internal void @_ZN4ncnnL22innerproduct_fp16s_sseERKNS_3MatERS0_S2_S2_iS2_
 
 29:                                               ; preds = %26
   %30 = getelementptr inbounds float, ptr %28, i64 %27
-  %31 = load float, ptr %30, align 4, !tbaa !27
+  %31 = load float, ptr %30, align 4, !tbaa !26
   %.sroa.0.0.vec.insert = insertelement <8 x float> poison, float %31, i64 0
   %32 = getelementptr i8, ptr %30, i64 4
-  %33 = load float, ptr %32, align 4, !tbaa !27
+  %33 = load float, ptr %32, align 4, !tbaa !26
   %.sroa.0.4.vec.insert = insertelement <8 x float> %.sroa.0.0.vec.insert, float %33, i64 1
   %34 = getelementptr i8, ptr %30, i64 8
-  %35 = load float, ptr %34, align 4, !tbaa !27
+  %35 = load float, ptr %34, align 4, !tbaa !26
   %.sroa.0.8.vec.insert = insertelement <8 x float> %.sroa.0.4.vec.insert, float %35, i64 2
   %36 = getelementptr i8, ptr %30, i64 12
-  %37 = load float, ptr %36, align 4, !tbaa !27
+  %37 = load float, ptr %36, align 4, !tbaa !26
   %.sroa.0.12.vec.insert = insertelement <8 x float> %.sroa.0.8.vec.insert, float %37, i64 3
   %38 = getelementptr i8, ptr %30, i64 16
-  %39 = load float, ptr %38, align 4, !tbaa !27
+  %39 = load float, ptr %38, align 4, !tbaa !26
   %.sroa.0.16.vec.insert = insertelement <8 x float> %.sroa.0.12.vec.insert, float %39, i64 4
   %40 = getelementptr i8, ptr %30, i64 20
-  %41 = load float, ptr %40, align 4, !tbaa !27
+  %41 = load float, ptr %40, align 4, !tbaa !26
   %.sroa.0.20.vec.insert = insertelement <8 x float> %.sroa.0.16.vec.insert, float %41, i64 5
   %42 = getelementptr i8, ptr %30, i64 24
-  %43 = load float, ptr %42, align 4, !tbaa !27
+  %43 = load float, ptr %42, align 4, !tbaa !26
   %.sroa.0.24.vec.insert = insertelement <8 x float> %.sroa.0.20.vec.insert, float %43, i64 6
   %44 = getelementptr i8, ptr %30, i64 28
-  %45 = load float, ptr %44, align 4, !tbaa !27
+  %45 = load float, ptr %44, align 4, !tbaa !26
   %.sroa.0.28.vec.insert = insertelement <8 x float> %.sroa.0.24.vec.insert, float %45, i64 7
   br label %46
 
@@ -1261,7 +1261,7 @@ define internal void @_ZN4ncnnL22innerproduct_fp16s_sseERKNS_3MatERS0_S2_S2_iS2_
   %130 = add nuw nsw i32 %.099341, 8
   %131 = or disjoint i32 %130, 7
   %132 = icmp slt i32 %131, %76
-  br i1 %132, label %.lr.ph, label %.preheader.loopexit, !llvm.loop !37
+  br i1 %132, label %.lr.ph, label %.preheader.loopexit, !llvm.loop !34
 
 .lr.ph371:                                        ; preds = %.preheader, %164
   %.1370 = phi ptr [ %182, %164 ], [ %.098.lcssa, %.preheader ]
@@ -1275,50 +1275,50 @@ define internal void @_ZN4ncnnL22innerproduct_fp16s_sseERKNS_3MatERS0_S2_S2_iS2_
   %.1114362 = phi ptr [ %184, %164 ], [ %.0113.lcssa, %.preheader ]
   %.1116361 = phi ptr [ %183, %164 ], [ %.0115.lcssa, %.preheader ]
   %.sroa.0.2360 = phi <8 x float> [ %.sroa.0.28.vec.insert210, %164 ], [ %.sroa.0.1, %.preheader ]
-  %133 = load float, ptr %.1102368, align 4, !tbaa !27
-  %134 = load i16, ptr %.1370, align 2, !tbaa !38
+  %133 = load float, ptr %.1102368, align 4, !tbaa !26
+  %134 = load i16, ptr %.1370, align 2, !tbaa !35
   %135 = invoke noundef nofpclass(nan inf) float @_ZN4ncnn18float16_to_float32Et(i16 noundef zeroext %134)
           to label %136 unwind label %372
 
 136:                                              ; preds = %.lr.ph371
-  %137 = load float, ptr %.1102368, align 4, !tbaa !27
-  %138 = load i16, ptr %.1116361, align 2, !tbaa !38
+  %137 = load float, ptr %.1102368, align 4, !tbaa !26
+  %138 = load i16, ptr %.1116361, align 2, !tbaa !35
   %139 = invoke noundef nofpclass(nan inf) float @_ZN4ncnn18float16_to_float32Et(i16 noundef zeroext %138)
           to label %140 unwind label %372
 
 140:                                              ; preds = %136
-  %141 = load float, ptr %.1102368, align 4, !tbaa !27
-  %142 = load i16, ptr %.1114362, align 2, !tbaa !38
+  %141 = load float, ptr %.1102368, align 4, !tbaa !26
+  %142 = load i16, ptr %.1114362, align 2, !tbaa !35
   %143 = invoke noundef nofpclass(nan inf) float @_ZN4ncnn18float16_to_float32Et(i16 noundef zeroext %142)
           to label %144 unwind label %372
 
 144:                                              ; preds = %140
-  %145 = load float, ptr %.1102368, align 4, !tbaa !27
-  %146 = load i16, ptr %.1112363, align 2, !tbaa !38
+  %145 = load float, ptr %.1102368, align 4, !tbaa !26
+  %146 = load i16, ptr %.1112363, align 2, !tbaa !35
   %147 = invoke noundef nofpclass(nan inf) float @_ZN4ncnn18float16_to_float32Et(i16 noundef zeroext %146)
           to label %148 unwind label %372
 
 148:                                              ; preds = %144
-  %149 = load float, ptr %.1102368, align 4, !tbaa !27
-  %150 = load i16, ptr %.1110364, align 2, !tbaa !38
+  %149 = load float, ptr %.1102368, align 4, !tbaa !26
+  %150 = load i16, ptr %.1110364, align 2, !tbaa !35
   %151 = invoke noundef nofpclass(nan inf) float @_ZN4ncnn18float16_to_float32Et(i16 noundef zeroext %150)
           to label %152 unwind label %372
 
 152:                                              ; preds = %148
-  %153 = load float, ptr %.1102368, align 4, !tbaa !27
-  %154 = load i16, ptr %.1108365, align 2, !tbaa !38
+  %153 = load float, ptr %.1102368, align 4, !tbaa !26
+  %154 = load i16, ptr %.1108365, align 2, !tbaa !35
   %155 = invoke noundef nofpclass(nan inf) float @_ZN4ncnn18float16_to_float32Et(i16 noundef zeroext %154)
           to label %156 unwind label %372
 
 156:                                              ; preds = %152
-  %157 = load float, ptr %.1102368, align 4, !tbaa !27
-  %158 = load i16, ptr %.1106366, align 2, !tbaa !38
+  %157 = load float, ptr %.1102368, align 4, !tbaa !26
+  %158 = load i16, ptr %.1106366, align 2, !tbaa !35
   %159 = invoke noundef nofpclass(nan inf) float @_ZN4ncnn18float16_to_float32Et(i16 noundef zeroext %158)
           to label %160 unwind label %372
 
 160:                                              ; preds = %156
-  %161 = load float, ptr %.1102368, align 4, !tbaa !27
-  %162 = load i16, ptr %.1104367, align 2, !tbaa !38
+  %161 = load float, ptr %.1102368, align 4, !tbaa !26
+  %162 = load i16, ptr %.1104367, align 2, !tbaa !35
   %163 = invoke noundef nofpclass(nan inf) float @_ZN4ncnn18float16_to_float32Et(i16 noundef zeroext %162)
           to label %164 unwind label %372
 
@@ -1367,7 +1367,7 @@ define internal void @_ZN4ncnnL22innerproduct_fp16s_sseERKNS_3MatERS0_S2_S2_iS2_
   %190 = add nuw nsw i32 %.1100369, 1
   %191 = load i32, ptr %6, align 4, !tbaa !4
   %192 = icmp slt i32 %190, %191
-  br i1 %192, label %.lr.ph371, label %._crit_edge, !llvm.loop !40
+  br i1 %192, label %.lr.ph371, label %._crit_edge, !llvm.loop !37
 
 ._crit_edge:                                      ; preds = %164, %.preheader
   %.sroa.0.2.lcssa = phi <8 x float> [ %.sroa.0.1, %.preheader ], [ %.sroa.0.28.vec.insert210, %164 ]
@@ -1397,7 +1397,7 @@ define internal void @_ZN4ncnnL22innerproduct_fp16s_sseERKNS_3MatERS0_S2_S2_iS2_
 
 .noexc:                                           ; preds = %._crit_edge
   %206 = load ptr, ptr %8, align 8, !tbaa !15
-  %207 = load float, ptr %206, align 4, !tbaa !27
+  %207 = load float, ptr %206, align 4, !tbaa !26
   %208 = call fast noundef <8 x float> @llvm.x86.avx.max.ps.256(<8 x float> zeroinitializer, <8 x float> nofpclass(nan inf) %202)
   %209 = call fast noundef <8 x float> @llvm.x86.avx.min.ps.256(<8 x float> zeroinitializer, <8 x float> nofpclass(nan inf) %202)
   %210 = insertelement <8 x float> poison, float %207, i64 0
@@ -1408,11 +1408,11 @@ define internal void @_ZN4ncnnL22innerproduct_fp16s_sseERKNS_3MatERS0_S2_S2_iS2_
 
 214:                                              ; preds = %._crit_edge
   %215 = load ptr, ptr %8, align 8, !tbaa !15
-  %216 = load float, ptr %215, align 4, !tbaa !27
+  %216 = load float, ptr %215, align 4, !tbaa !26
   %217 = insertelement <8 x float> poison, float %216, i64 0
   %218 = shufflevector <8 x float> %217, <8 x float> poison, <8 x i32> zeroinitializer
   %219 = getelementptr inbounds nuw i8, ptr %215, i64 4
-  %220 = load float, ptr %219, align 4, !tbaa !27
+  %220 = load float, ptr %219, align 4, !tbaa !26
   %221 = insertelement <8 x float> poison, float %220, i64 0
   %222 = shufflevector <8 x float> %221, <8 x float> poison, <8 x i32> zeroinitializer
   %223 = call fast noundef <8 x float> @llvm.x86.avx.max.ps.256(<8 x float> nofpclass(nan inf) %202, <8 x float> nofpclass(nan inf) %218)
@@ -1562,11 +1562,11 @@ define internal void @_ZN4ncnnL22innerproduct_fp16s_sseERKNS_3MatERS0_S2_S2_iS2_
 
 .noexc121:                                        ; preds = %._crit_edge
   %354 = load ptr, ptr %8, align 8, !tbaa !15
-  %355 = load float, ptr %354, align 4, !tbaa !27
+  %355 = load float, ptr %354, align 4, !tbaa !26
   %356 = insertelement <8 x float> poison, float %355, i64 0
   %357 = shufflevector <8 x float> %356, <8 x float> poison, <8 x i32> zeroinitializer
   %358 = getelementptr inbounds nuw i8, ptr %354, i64 4
-  %359 = load float, ptr %358, align 4, !tbaa !27
+  %359 = load float, ptr %358, align 4, !tbaa !26
   %360 = insertelement <8 x float> poison, float %359, i64 0
   %361 = shufflevector <8 x float> %360, <8 x float> poison, <8 x i32> zeroinitializer
   %362 = fmul fast <8 x float> %357, %202
@@ -1585,7 +1585,7 @@ _ZL14activation_avxDv8_fiRKN4ncnn3MatE.exit:      ; preds = %.noexc121, %.noexc1
   %369 = load i32, ptr %12, align 4, !tbaa !4
   %370 = sext i32 %369 to i64
   %.not.not = icmp slt i64 %indvars.iv, %370
-  br i1 %.not.not, label %26, label %._crit_edge377, !llvm.loop !41
+  br i1 %.not.not, label %26, label %._crit_edge377
 
 ._crit_edge377:                                   ; preds = %_ZL14activation_avxDv8_fiRKN4ncnn3MatE.exit, %17
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %19)
@@ -1654,16 +1654,16 @@ define internal void @_ZN4ncnnL22innerproduct_fp16s_sseERKNS_3MatERS0_S2_S2_iS2_
 
 31:                                               ; preds = %26
   %32 = getelementptr inbounds float, ptr %30, i64 %.pre
-  %33 = load float, ptr %32, align 4, !tbaa !27
+  %33 = load float, ptr %32, align 4, !tbaa !26
   %.sroa.0.0.vec.insert = insertelement <4 x float> poison, float %33, i64 0
   %34 = getelementptr i8, ptr %32, i64 4
-  %35 = load float, ptr %34, align 4, !tbaa !27
+  %35 = load float, ptr %34, align 4, !tbaa !26
   %.sroa.0.4.vec.insert = insertelement <4 x float> %.sroa.0.0.vec.insert, float %35, i64 1
   %36 = getelementptr i8, ptr %32, i64 8
-  %37 = load float, ptr %36, align 4, !tbaa !27
+  %37 = load float, ptr %36, align 4, !tbaa !26
   %.sroa.0.8.vec.insert = insertelement <4 x float> %.sroa.0.4.vec.insert, float %37, i64 2
   %38 = getelementptr i8, ptr %32, i64 12
-  %39 = load float, ptr %38, align 4, !tbaa !27
+  %39 = load float, ptr %38, align 4, !tbaa !26
   %.sroa.0.12.vec.insert = insertelement <4 x float> %.sroa.0.8.vec.insert, float %39, i64 3
   br label %._crit_edge356
 
@@ -1752,7 +1752,7 @@ define internal void @_ZN4ncnnL22innerproduct_fp16s_sseERKNS_3MatERS0_S2_S2_iS2_
   %91 = add nuw nsw i32 %.0100287, 8
   %92 = or disjoint i32 %91, 7
   %93 = icmp slt i32 %92, %60
-  br i1 %93, label %.lr.ph, label %.preheader280.loopexit, !llvm.loop !42
+  br i1 %93, label %.lr.ph, label %.preheader280.loopexit, !llvm.loop !38
 
 .preheader:                                       ; preds = %.lr.ph312, %.preheader280
   %.0272.lcssa = phi <4 x float> [ zeroinitializer, %.preheader280 ], [ %105, %.lr.ph312 ]
@@ -1804,7 +1804,7 @@ define internal void @_ZN4ncnnL22innerproduct_fp16s_sseERKNS_3MatERS0_S2_S2_iS2_
   %117 = add nuw nsw i32 %.1101307, 4
   %118 = or disjoint i32 %117, 3
   %119 = icmp slt i32 %118, %60
-  br i1 %119, label %.lr.ph312, label %.preheader, !llvm.loop !43
+  br i1 %119, label %.lr.ph312, label %.preheader, !llvm.loop !39
 
 .lr.ph330:                                        ; preds = %.preheader, %135
   %.2329 = phi ptr [ %145, %135 ], [ %.1.lcssa, %.preheader ]
@@ -1814,26 +1814,26 @@ define internal void @_ZN4ncnnL22innerproduct_fp16s_sseERKNS_3MatERS0_S2_S2_iS2_
   %.2102325 = phi i32 [ %149, %135 ], [ %.1101.lcssa, %.preheader ]
   %.2105324 = phi ptr [ %144, %135 ], [ %.1104.lcssa, %.preheader ]
   %.sroa.0.2323 = phi <4 x float> [ %.sroa.0.12.vec.insert169, %135 ], [ %.sroa.0.1, %.preheader ]
-  %120 = load float, ptr %.2105324, align 4, !tbaa !27
-  %121 = load i16, ptr %.2329, align 2, !tbaa !38
+  %120 = load float, ptr %.2105324, align 4, !tbaa !26
+  %121 = load i16, ptr %.2329, align 2, !tbaa !35
   %122 = invoke noundef nofpclass(nan inf) float @_ZN4ncnn18float16_to_float32Et(i16 noundef zeroext %121)
           to label %123 unwind label %346
 
 123:                                              ; preds = %.lr.ph330
-  %124 = load float, ptr %.2105324, align 4, !tbaa !27
-  %125 = load i16, ptr %.293328, align 2, !tbaa !38
+  %124 = load float, ptr %.2105324, align 4, !tbaa !26
+  %125 = load i16, ptr %.293328, align 2, !tbaa !35
   %126 = invoke noundef nofpclass(nan inf) float @_ZN4ncnn18float16_to_float32Et(i16 noundef zeroext %125)
           to label %127 unwind label %346
 
 127:                                              ; preds = %123
-  %128 = load float, ptr %.2105324, align 4, !tbaa !27
-  %129 = load i16, ptr %.296327, align 2, !tbaa !38
+  %128 = load float, ptr %.2105324, align 4, !tbaa !26
+  %129 = load i16, ptr %.296327, align 2, !tbaa !35
   %130 = invoke noundef nofpclass(nan inf) float @_ZN4ncnn18float16_to_float32Et(i16 noundef zeroext %129)
           to label %131 unwind label %346
 
 131:                                              ; preds = %127
-  %132 = load float, ptr %.2105324, align 4, !tbaa !27
-  %133 = load i16, ptr %.299326, align 2, !tbaa !38
+  %132 = load float, ptr %.2105324, align 4, !tbaa !26
+  %133 = load i16, ptr %.299326, align 2, !tbaa !35
   %134 = invoke noundef nofpclass(nan inf) float @_ZN4ncnn18float16_to_float32Et(i16 noundef zeroext %133)
           to label %135 unwind label %346
 
@@ -1862,7 +1862,7 @@ define internal void @_ZN4ncnnL22innerproduct_fp16s_sseERKNS_3MatERS0_S2_S2_iS2_
   %149 = add nuw nsw i32 %.2102325, 1
   %150 = load i32, ptr %7, align 4, !tbaa !4
   %151 = icmp slt i32 %149, %150
-  br i1 %151, label %.lr.ph330, label %._crit_edge, !llvm.loop !44
+  br i1 %151, label %.lr.ph330, label %._crit_edge, !llvm.loop !40
 
 ._crit_edge:                                      ; preds = %135, %.preheader
   %.sroa.0.2.lcssa = phi <4 x float> [ %.sroa.0.1, %.preheader ], [ %.sroa.0.12.vec.insert169, %135 ]
@@ -1901,7 +1901,7 @@ define internal void @_ZN4ncnnL22innerproduct_fp16s_sseERKNS_3MatERS0_S2_S2_iS2_
 
 .noexc:                                           ; preds = %._crit_edge
   %174 = load ptr, ptr %9, align 8, !tbaa !15
-  %175 = load float, ptr %174, align 4, !tbaa !27
+  %175 = load float, ptr %174, align 4, !tbaa !26
   %176 = call fast noundef <4 x float> @llvm.x86.sse.max.ps(<4 x float> zeroinitializer, <4 x float> nofpclass(nan inf) %170)
   %177 = call fast noundef <4 x float> @llvm.x86.sse.min.ps(<4 x float> zeroinitializer, <4 x float> nofpclass(nan inf) %170)
   %178 = insertelement <4 x float> poison, float %175, i64 0
@@ -1912,11 +1912,11 @@ define internal void @_ZN4ncnnL22innerproduct_fp16s_sseERKNS_3MatERS0_S2_S2_iS2_
 
 182:                                              ; preds = %._crit_edge
   %183 = load ptr, ptr %9, align 8, !tbaa !15
-  %184 = load float, ptr %183, align 4, !tbaa !27
+  %184 = load float, ptr %183, align 4, !tbaa !26
   %185 = insertelement <4 x float> poison, float %184, i64 0
   %186 = shufflevector <4 x float> %185, <4 x float> poison, <4 x i32> zeroinitializer
   %187 = getelementptr inbounds nuw i8, ptr %183, i64 4
-  %188 = load float, ptr %187, align 4, !tbaa !27
+  %188 = load float, ptr %187, align 4, !tbaa !26
   %189 = insertelement <4 x float> poison, float %188, i64 0
   %190 = shufflevector <4 x float> %189, <4 x float> poison, <4 x i32> zeroinitializer
   %191 = call fast noundef <4 x float> @llvm.x86.sse.max.ps(<4 x float> nofpclass(nan inf) %170, <4 x float> nofpclass(nan inf) %186)
@@ -2069,11 +2069,11 @@ define internal void @_ZN4ncnnL22innerproduct_fp16s_sseERKNS_3MatERS0_S2_S2_iS2_
 
 327:                                              ; preds = %._crit_edge
   %328 = load ptr, ptr %9, align 8, !tbaa !15
-  %329 = load float, ptr %328, align 4, !tbaa !27
+  %329 = load float, ptr %328, align 4, !tbaa !26
   %330 = insertelement <4 x float> poison, float %329, i64 0
   %331 = shufflevector <4 x float> %330, <4 x float> poison, <4 x i32> zeroinitializer
   %332 = getelementptr inbounds nuw i8, ptr %328, i64 4
-  %333 = load float, ptr %332, align 4, !tbaa !27
+  %333 = load float, ptr %332, align 4, !tbaa !26
   %334 = insertelement <4 x float> poison, float %333, i64 0
   %335 = shufflevector <4 x float> %334, <4 x float> poison, <4 x i32> zeroinitializer
   %336 = fmul fast <4 x float> %331, %170
@@ -2091,7 +2091,7 @@ _ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit:      ; preds = %327, %.noexc109, %.
   %343 = add nsw i32 %.0333, 1
   %344 = load i32, ptr %13, align 4, !tbaa !4
   %.not.not = icmp slt i32 %.0333, %344
-  br i1 %.not.not, label %26, label %._crit_edge336, !llvm.loop !45
+  br i1 %.not.not, label %26, label %._crit_edge336
 
 ._crit_edge336:                                   ; preds = %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit, %18
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %20)
@@ -2159,7 +2159,7 @@ define internal void @_ZN4ncnnL22innerproduct_fp16s_sseERKNS_3MatERS0_S2_S2_iS2_
 
 33:                                               ; preds = %30
   %34 = getelementptr inbounds float, ptr %32, i64 %.pre
-  %35 = load float, ptr %34, align 4, !tbaa !27
+  %35 = load float, ptr %34, align 4, !tbaa !26
   br label %._crit_edge123
 
 ._crit_edge123:                                   ; preds = %30, %33
@@ -2205,7 +2205,7 @@ define internal void @_ZN4ncnnL22innerproduct_fp16s_sseERKNS_3MatERS0_S2_S2_iS2_
   %57 = add nuw nsw i32 %.05291, 8
   %58 = or disjoint i32 %57, 7
   %59 = icmp slt i32 %58, %44
-  br i1 %59, label %.lr.ph, label %.preheader86.loopexit, !llvm.loop !46
+  br i1 %59, label %.lr.ph, label %.preheader86.loopexit, !llvm.loop !41
 
 .preheader:                                       ; preds = %.lr.ph100, %.preheader86
   %.085.lcssa = phi <4 x float> [ zeroinitializer, %.preheader86 ], [ %65, %.lr.ph100 ]
@@ -2230,15 +2230,15 @@ define internal void @_ZN4ncnnL22innerproduct_fp16s_sseERKNS_3MatERS0_S2_S2_iS2_
   %68 = add nuw nsw i32 %.199, 4
   %69 = or disjoint i32 %68, 3
   %70 = icmp slt i32 %69, %44
-  br i1 %70, label %.lr.ph100, label %.preheader, !llvm.loop !47
+  br i1 %70, label %.lr.ph100, label %.preheader, !llvm.loop !42
 
 .lr.ph109:                                        ; preds = %.preheader, %74
   %.2108 = phi i32 [ %79, %74 ], [ %.1.lcssa, %.preheader ]
   %.255107 = phi ptr [ %77, %74 ], [ %.154.lcssa, %.preheader ]
   %.258106 = phi ptr [ %78, %74 ], [ %.157.lcssa, %.preheader ]
   %.160105 = phi float [ %76, %74 ], [ %.059, %.preheader ]
-  %71 = load float, ptr %.255107, align 4, !tbaa !27
-  %72 = load i16, ptr %.258106, align 2, !tbaa !38
+  %71 = load float, ptr %.255107, align 4, !tbaa !26
+  %72 = load i16, ptr %.258106, align 2, !tbaa !35
   %73 = invoke noundef nofpclass(nan inf) float @_ZN4ncnn18float16_to_float32Et(i16 noundef zeroext %72)
           to label %74 unwind label %144
 
@@ -2250,7 +2250,7 @@ define internal void @_ZN4ncnnL22innerproduct_fp16s_sseERKNS_3MatERS0_S2_S2_iS2_
   %79 = add nuw nsw i32 %.2108, 1
   %80 = load i32, ptr %7, align 4, !tbaa !4
   %81 = icmp slt i32 %79, %80
-  br i1 %81, label %.lr.ph109, label %._crit_edge, !llvm.loop !48
+  br i1 %81, label %.lr.ph109, label %._crit_edge, !llvm.loop !43
 
 ._crit_edge:                                      ; preds = %74, %.preheader
   %.160.lcssa = phi float [ %.059, %.preheader ], [ %76, %74 ]
@@ -2280,7 +2280,7 @@ define internal void @_ZN4ncnnL22innerproduct_fp16s_sseERKNS_3MatERS0_S2_S2_iS2_
 
 94:                                               ; preds = %._crit_edge
   %95 = load ptr, ptr %9, align 8, !tbaa !15
-  %96 = load float, ptr %95, align 4, !tbaa !27
+  %96 = load float, ptr %95, align 4, !tbaa !26
   %97 = fcmp fast ogt float %90, 0.000000e+00
   %98 = select fast i1 %97, float 1.000000e+00, float %96
   %99 = fmul fast float %98, %90
@@ -2288,9 +2288,9 @@ define internal void @_ZN4ncnnL22innerproduct_fp16s_sseERKNS_3MatERS0_S2_S2_iS2_
 
 100:                                              ; preds = %._crit_edge
   %101 = load ptr, ptr %9, align 8, !tbaa !15
-  %102 = load float, ptr %101, align 4, !tbaa !27
+  %102 = load float, ptr %101, align 4, !tbaa !26
   %103 = getelementptr inbounds nuw i8, ptr %101, i64 4
-  %104 = load float, ptr %103, align 4, !tbaa !27
+  %104 = load float, ptr %103, align 4, !tbaa !26
   %105 = fcmp fast olt float %90, %102
   %.082 = select nsz i1 %105, float %102, float %90
   %106 = fcmp fast ogt float %.082, %104
@@ -2320,9 +2320,9 @@ define internal void @_ZN4ncnnL22innerproduct_fp16s_sseERKNS_3MatERS0_S2_S2_iS2_
 
 121:                                              ; preds = %._crit_edge
   %122 = load ptr, ptr %9, align 8, !tbaa !15
-  %123 = load float, ptr %122, align 4, !tbaa !27
+  %123 = load float, ptr %122, align 4, !tbaa !26
   %124 = getelementptr inbounds nuw i8, ptr %122, i64 4
-  %125 = load float, ptr %124, align 4, !tbaa !27
+  %125 = load float, ptr %124, align 4, !tbaa !26
   %126 = fneg fast float %125
   %127 = fdiv fast float %126, %123
   %128 = fcmp fast olt float %90, %127
@@ -2344,12 +2344,12 @@ _ZL13activation_ssfiRKN4ncnn3MatE.exit:           ; preds = %133, %129, %115, %1
   %.183 = phi nsz float [ %90, %._crit_edge ], [ %93, %92 ], [ %99, %94 ], [ %104, %107 ], [ %.082, %100 ], [ %114, %108 ], [ %120, %115 ], [ %90, %129 ], [ %136, %133 ], [ 0.000000e+00, %121 ]
   %137 = load ptr, ptr %10, align 8, !tbaa !15
   %138 = getelementptr inbounds float, ptr %137, i64 %.pre
-  store float %.183, ptr %138, align 4, !tbaa !27
+  store float %.183, ptr %138, align 4, !tbaa !26
   %139 = add nuw i32 %.0111, 1
   %140 = load i32, ptr %13, align 4, !tbaa !4
   %141 = add i32 %140, 1
   %142 = icmp ult i32 %139, %141
-  br i1 %142, label %30, label %._crit_edge114, !llvm.loop !49
+  br i1 %142, label %30, label %._crit_edge114
 
 ._crit_edge114:                                   ; preds = %_ZL13activation_ssfiRKN4ncnn3MatE.exit, %19
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %22)
@@ -2441,7 +2441,7 @@ define hidden void @_ZN4ncnn32innerproduct_gemm_fp16s_sse_f16cERKNS_3MatERS0_S2_
   store i32 %21, ptr %11, align 4, !tbaa !4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12) #3
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %23 = load i32, ptr %22, align 8, !tbaa !50
+  %23 = load i32, ptr %22, align 8, !tbaa !44
   store i32 %23, ptr %12, align 4, !tbaa !4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13) #3
   %24 = load ptr, ptr %3, align 8, !tbaa !15
@@ -2449,7 +2449,7 @@ define hidden void @_ZN4ncnn32innerproduct_gemm_fp16s_sse_f16cERKNS_3MatERS0_S2_
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %14) #3
   store i32 1, ptr %14, align 4, !tbaa !4
   %25 = getelementptr inbounds nuw i8, ptr %6, i64 39
-  %26 = load i8, ptr %25, align 1, !tbaa !51, !range !52, !noundef !53
+  %26 = load i8, ptr %25, align 1, !tbaa !45, !range !46, !noundef !47
   %27 = trunc nuw i8 %26 to i1
   br i1 %27, label %28, label %_ZN4ncnnL27innerproduct_gemm_fp16s_sseERKNS_3MatERS0_S2_S2_iS2_RKNS_6OptionE.exit
 
@@ -2606,7 +2606,7 @@ _ZL14activation_avxDv8_fiRKN4ncnn3MatE.exit526.thread: ; preds = %._crit_edge
 
 _ZL14activation_avxDv8_fiRKN4ncnn3MatE.exit526.thread4267: ; preds = %._crit_edge
   %78 = load ptr, ptr %12, align 8, !tbaa !15
-  %79 = load float, ptr %78, align 4, !tbaa !27
+  %79 = load float, ptr %78, align 4, !tbaa !26
   %80 = call fast noundef <8 x float> @llvm.x86.avx.max.ps.256(<8 x float> zeroinitializer, <8 x float> nofpclass(nan inf) %.14261.lcssa)
   %81 = call fast noundef <8 x float> @llvm.x86.avx.min.ps.256(<8 x float> zeroinitializer, <8 x float> nofpclass(nan inf) %.14261.lcssa)
   %82 = insertelement <8 x float> poison, float %79, i64 0
@@ -2645,11 +2645,11 @@ _ZL14activation_avxDv8_fiRKN4ncnn3MatE.exit526.thread4267: ; preds = %._crit_edg
 
 _ZL14activation_avxDv8_fiRKN4ncnn3MatE.exit526.thread4270: ; preds = %._crit_edge
   %114 = load ptr, ptr %12, align 8, !tbaa !15
-  %115 = load float, ptr %114, align 4, !tbaa !27
+  %115 = load float, ptr %114, align 4, !tbaa !26
   %116 = insertelement <8 x float> poison, float %115, i64 0
   %117 = shufflevector <8 x float> %116, <8 x float> poison, <8 x i32> zeroinitializer
   %118 = getelementptr inbounds nuw i8, ptr %114, i64 4
-  %119 = load float, ptr %118, align 4, !tbaa !27
+  %119 = load float, ptr %118, align 4, !tbaa !26
   %120 = insertelement <8 x float> poison, float %119, i64 0
   %121 = shufflevector <8 x float> %120, <8 x float> poison, <8 x i32> zeroinitializer
   %122 = call fast noundef <8 x float> @llvm.x86.avx.max.ps.256(<8 x float> nofpclass(nan inf) %.14261.lcssa, <8 x float> nofpclass(nan inf) %117)
@@ -3758,11 +3758,11 @@ _ZL14activation_avxDv8_fiRKN4ncnn3MatE.exit526.thread4276: ; preds = %._crit_edg
 
 _ZL14activation_avxDv8_fiRKN4ncnn3MatE.exit526.thread4279: ; preds = %._crit_edge
   %1170 = load ptr, ptr %12, align 8, !tbaa !15
-  %1171 = load float, ptr %1170, align 4, !tbaa !27
+  %1171 = load float, ptr %1170, align 4, !tbaa !26
   %1172 = insertelement <8 x float> poison, float %1171, i64 0
   %1173 = shufflevector <8 x float> %1172, <8 x float> poison, <8 x i32> zeroinitializer
   %1174 = getelementptr inbounds nuw i8, ptr %1170, i64 4
-  %1175 = load float, ptr %1174, align 4, !tbaa !27
+  %1175 = load float, ptr %1174, align 4, !tbaa !26
   %1176 = insertelement <8 x float> poison, float %1175, i64 0
   %1177 = shufflevector <8 x float> %1176, <8 x float> poison, <8 x i32> zeroinitializer
   %1178 = fmul fast <8 x float> %1173, %.14261.lcssa
@@ -3873,7 +3873,7 @@ _ZL14activation_avxDv8_fiRKN4ncnn3MatE.exit526.thread4279: ; preds = %._crit_edg
   %1269 = getelementptr inbounds nuw i8, ptr %.03505107, i64 16
   %1270 = add nuw nsw i32 %.03575105, 1
   %exitcond.not = icmp eq i32 %1270, %67
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !54
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !48
 
 _ZL14activation_avxDv8_fiRKN4ncnn3MatE.exit490:   ; preds = %._crit_edge, %_ZL14activation_avxDv8_fiRKN4ncnn3MatE.exit526.thread, %_ZL14activation_avxDv8_fiRKN4ncnn3MatE.exit526.thread4267, %_ZL14activation_avxDv8_fiRKN4ncnn3MatE.exit526.thread4270, %_ZL14activation_avxDv8_fiRKN4ncnn3MatE.exit526.thread4273, %_ZL14activation_avxDv8_fiRKN4ncnn3MatE.exit526.thread4276, %_ZL14activation_avxDv8_fiRKN4ncnn3MatE.exit526.thread4279
   %.0.i4854587 = phi <8 x float> [ %76, %_ZL14activation_avxDv8_fiRKN4ncnn3MatE.exit526.thread ], [ %109, %_ZL14activation_avxDv8_fiRKN4ncnn3MatE.exit526.thread4267 ], [ %135, %_ZL14activation_avxDv8_fiRKN4ncnn3MatE.exit526.thread4270 ], [ %361, %_ZL14activation_avxDv8_fiRKN4ncnn3MatE.exit526.thread4273 ], [ %1072, %_ZL14activation_avxDv8_fiRKN4ncnn3MatE.exit526.thread4276 ], [ %1212, %_ZL14activation_avxDv8_fiRKN4ncnn3MatE.exit526.thread4279 ], [ %.04254.lcssa, %._crit_edge ]
@@ -3930,7 +3930,7 @@ _ZL14activation_avxDv8_fiRKN4ncnn3MatE.exit490:   ; preds = %._crit_edge, %_ZL14
   %1305 = sdiv i32 %1303, %1304
   %1306 = sext i32 %1305 to i64
   %1307 = icmp slt i64 %indvars.iv.next, %1306
-  br i1 %1307, label %.lr.ph5118, label %.loopexit5092.loopexit, !llvm.loop !55
+  br i1 %1307, label %.lr.ph5118, label %.loopexit5092.loopexit, !llvm.loop !49
 
 .loopexit5092.loopexit:                           ; preds = %_ZL14activation_avxDv8_fiRKN4ncnn3MatE.exit490
   %.pre = load i32, ptr %3, align 4, !tbaa !4
@@ -4099,7 +4099,7 @@ _ZL14activation_avxDv8_fiRKN4ncnn3MatE.exit490:   ; preds = %._crit_edge, %_ZL14
   %1426 = add nuw nsw i32 %.03845123, 8
   %1427 = or disjoint i32 %1426, 7
   %1428 = icmp slt i32 %1427, %1341
-  br i1 %1428, label %.lr.ph5127, label %.preheader5083.loopexit, !llvm.loop !56
+  br i1 %1428, label %.lr.ph5127, label %.preheader5083.loopexit, !llvm.loop !50
 
 .preheader5082:                                   ; preds = %.lr.ph5143, %.preheader5083
   %.24252.lcssa = phi <8 x float> [ %.14251.lcssa, %.preheader5083 ], [ %1461, %.lr.ph5143 ]
@@ -4163,14 +4163,14 @@ _ZL14activation_avxDv8_fiRKN4ncnn3MatE.exit490:   ; preds = %._crit_edge, %_ZL14
   %1470 = add nuw nsw i32 %.13855140, 4
   %1471 = or disjoint i32 %1470, 3
   %1472 = icmp slt i32 %1471, %1341
-  br i1 %1472, label %.lr.ph5143, label %.preheader5082, !llvm.loop !57
+  br i1 %1472, label %.lr.ph5143, label %.preheader5082, !llvm.loop !51
 
 .lr.ph5155:                                       ; preds = %.preheader5082, %.lr.ph5155
   %.23805154 = phi ptr [ %1482, %.lr.ph5155 ], [ %.1379.lcssa, %.preheader5082 ]
   %.23835153 = phi ptr [ %1481, %.lr.ph5155 ], [ %.1382.lcssa, %.preheader5082 ]
   %.23865152 = phi i32 [ %1483, %.lr.ph5155 ], [ %.1385.lcssa, %.preheader5082 ]
   %.35151 = phi <8 x float> [ %1480, %.lr.ph5155 ], [ %.24252.lcssa, %.preheader5082 ]
-  %1473 = load float, ptr %.23835153, align 4, !tbaa !27
+  %1473 = load float, ptr %.23835153, align 4, !tbaa !26
   %1474 = insertelement <8 x float> poison, float %1473, i64 0
   %1475 = shufflevector <8 x float> %1474, <8 x float> poison, <8 x i32> zeroinitializer
   %1476 = call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.23805154)
@@ -4182,7 +4182,7 @@ _ZL14activation_avxDv8_fiRKN4ncnn3MatE.exit490:   ; preds = %._crit_edge, %_ZL14
   %1482 = getelementptr inbounds nuw i8, ptr %.23805154, i64 16
   %1483 = add nuw nsw i32 %.23865152, 1
   %exitcond5379.not = icmp eq i32 %1483, %1341
-  br i1 %exitcond5379.not, label %._crit_edge5156, label %.lr.ph5155, !llvm.loop !58
+  br i1 %exitcond5379.not, label %._crit_edge5156, label %.lr.ph5155, !llvm.loop !52
 
 ._crit_edge5156:                                  ; preds = %.lr.ph5155, %.preheader5082
   %.3.lcssa = phi <8 x float> [ %.24252.lcssa, %.preheader5082 ], [ %1480, %.lr.ph5155 ]
@@ -4205,7 +4205,7 @@ _ZL14activation_avxDv8_fiRKN4ncnn3MatE.exit490:   ; preds = %._crit_edge, %_ZL14
 
 .noexc474:                                        ; preds = %._crit_edge5156
   %1490 = load ptr, ptr %12, align 8, !tbaa !15
-  %1491 = load float, ptr %1490, align 4, !tbaa !27
+  %1491 = load float, ptr %1490, align 4, !tbaa !26
   %1492 = call fast noundef <8 x float> @llvm.x86.avx.max.ps.256(<8 x float> zeroinitializer, <8 x float> nofpclass(nan inf) %1486)
   %1493 = call fast noundef <8 x float> @llvm.x86.avx.min.ps.256(<8 x float> zeroinitializer, <8 x float> nofpclass(nan inf) %1486)
   %1494 = insertelement <8 x float> poison, float %1491, i64 0
@@ -4216,11 +4216,11 @@ _ZL14activation_avxDv8_fiRKN4ncnn3MatE.exit490:   ; preds = %._crit_edge, %_ZL14
 
 1498:                                             ; preds = %._crit_edge5156
   %1499 = load ptr, ptr %12, align 8, !tbaa !15
-  %1500 = load float, ptr %1499, align 4, !tbaa !27
+  %1500 = load float, ptr %1499, align 4, !tbaa !26
   %1501 = insertelement <8 x float> poison, float %1500, i64 0
   %1502 = shufflevector <8 x float> %1501, <8 x float> poison, <8 x i32> zeroinitializer
   %1503 = getelementptr inbounds nuw i8, ptr %1499, i64 4
-  %1504 = load float, ptr %1503, align 4, !tbaa !27
+  %1504 = load float, ptr %1503, align 4, !tbaa !26
   %1505 = insertelement <8 x float> poison, float %1504, i64 0
   %1506 = shufflevector <8 x float> %1505, <8 x float> poison, <8 x i32> zeroinitializer
   %1507 = call fast noundef <8 x float> @llvm.x86.avx.max.ps.256(<8 x float> nofpclass(nan inf) %1486, <8 x float> nofpclass(nan inf) %1502)
@@ -4370,11 +4370,11 @@ _ZL14activation_avxDv8_fiRKN4ncnn3MatE.exit490:   ; preds = %._crit_edge, %_ZL14
 
 .noexc477:                                        ; preds = %._crit_edge5156
   %1638 = load ptr, ptr %12, align 8, !tbaa !15
-  %1639 = load float, ptr %1638, align 4, !tbaa !27
+  %1639 = load float, ptr %1638, align 4, !tbaa !26
   %1640 = insertelement <8 x float> poison, float %1639, i64 0
   %1641 = shufflevector <8 x float> %1640, <8 x float> poison, <8 x i32> zeroinitializer
   %1642 = getelementptr inbounds nuw i8, ptr %1638, i64 4
-  %1643 = load float, ptr %1642, align 4, !tbaa !27
+  %1643 = load float, ptr %1642, align 4, !tbaa !26
   %1644 = insertelement <8 x float> poison, float %1643, i64 0
   %1645 = shufflevector <8 x float> %1644, <8 x float> poison, <8 x i32> zeroinitializer
   %1646 = fmul fast <8 x float> %1641, %1486
@@ -4394,7 +4394,7 @@ _ZL14activation_avxDv8_fiRKN4ncnn3MatE.exit478:   ; preds = %.noexc477, %.noexc4
   %1654 = sdiv i32 %1652, %1653
   %1655 = sext i32 %1654 to i64
   %1656 = icmp slt i64 %indvars.iv.next5381, %1655
-  br i1 %1656, label %.lr.ph5161, label %.loopexit5091.loopexit, !llvm.loop !59
+  br i1 %1656, label %.lr.ph5161, label %.loopexit5091.loopexit, !llvm.loop !53
 
 .loopexit5091.loopexit:                           ; preds = %_ZL14activation_avxDv8_fiRKN4ncnn3MatE.exit478
   %.pre5411 = load i32, ptr %3, align 4, !tbaa !4
@@ -4494,7 +4494,7 @@ _ZL14activation_avxDv8_fiRKN4ncnn3MatE.exit478:   ; preds = %.noexc477, %.noexc4
   %1719 = getelementptr inbounds nuw i8, ptr %.03755166, i64 16
   %1720 = add nuw nsw i32 %.03735168, 1
   %exitcond5383.not = icmp eq i32 %1720, %1690
-  br i1 %exitcond5383.not, label %._crit_edge5171, label %.lr.ph5170, !llvm.loop !60
+  br i1 %exitcond5383.not, label %._crit_edge5171, label %.lr.ph5170, !llvm.loop !54
 
 ._crit_edge5171:                                  ; preds = %.lr.ph5170, %1689
   %.14243.lcssa = phi <8 x float> [ %.04242, %1689 ], [ %1711, %.lr.ph5170 ]
@@ -4520,7 +4520,7 @@ _ZL14activation_avxDv8_fiRKN4ncnn3MatE.exit472.thread: ; preds = %._crit_edge517
 
 _ZL14activation_avxDv8_fiRKN4ncnn3MatE.exit472.thread4666: ; preds = %._crit_edge5171
   %1726 = load ptr, ptr %12, align 8, !tbaa !15
-  %1727 = load float, ptr %1726, align 4, !tbaa !27
+  %1727 = load float, ptr %1726, align 4, !tbaa !26
   %1728 = call fast noundef <8 x float> @llvm.x86.avx.max.ps.256(<8 x float> zeroinitializer, <8 x float> nofpclass(nan inf) %.14243.lcssa)
   %1729 = call fast noundef <8 x float> @llvm.x86.avx.min.ps.256(<8 x float> zeroinitializer, <8 x float> nofpclass(nan inf) %.14243.lcssa)
   %1730 = insertelement <8 x float> poison, float %1727, i64 0
@@ -4543,11 +4543,11 @@ _ZL14activation_avxDv8_fiRKN4ncnn3MatE.exit472.thread4666: ; preds = %._crit_edg
 
 _ZL14activation_avxDv8_fiRKN4ncnn3MatE.exit472.thread4669: ; preds = %._crit_edge5171
   %1746 = load ptr, ptr %12, align 8, !tbaa !15
-  %1747 = load float, ptr %1746, align 4, !tbaa !27
+  %1747 = load float, ptr %1746, align 4, !tbaa !26
   %1748 = insertelement <8 x float> poison, float %1747, i64 0
   %1749 = shufflevector <8 x float> %1748, <8 x float> poison, <8 x i32> zeroinitializer
   %1750 = getelementptr inbounds nuw i8, ptr %1746, i64 4
-  %1751 = load float, ptr %1750, align 4, !tbaa !27
+  %1751 = load float, ptr %1750, align 4, !tbaa !26
   %1752 = insertelement <8 x float> poison, float %1751, i64 0
   %1753 = shufflevector <8 x float> %1752, <8 x float> poison, <8 x i32> zeroinitializer
   %1754 = call fast noundef <8 x float> @llvm.x86.avx.max.ps.256(<8 x float> nofpclass(nan inf) %.14243.lcssa, <8 x float> nofpclass(nan inf) %1749)
@@ -5108,11 +5108,11 @@ _ZL14activation_avxDv8_fiRKN4ncnn3MatE.exit472.thread4675: ; preds = %._crit_edg
 
 _ZL14activation_avxDv8_fiRKN4ncnn3MatE.exit472.thread4678: ; preds = %._crit_edge5171
   %2278 = load ptr, ptr %12, align 8, !tbaa !15
-  %2279 = load float, ptr %2278, align 4, !tbaa !27
+  %2279 = load float, ptr %2278, align 4, !tbaa !26
   %2280 = insertelement <8 x float> poison, float %2279, i64 0
   %2281 = shufflevector <8 x float> %2280, <8 x float> poison, <8 x i32> zeroinitializer
   %2282 = getelementptr inbounds nuw i8, ptr %2278, i64 4
-  %2283 = load float, ptr %2282, align 4, !tbaa !27
+  %2283 = load float, ptr %2282, align 4, !tbaa !26
   %2284 = insertelement <8 x float> poison, float %2283, i64 0
   %2285 = shufflevector <8 x float> %2284, <8 x float> poison, <8 x i32> zeroinitializer
   %2286 = fmul fast <8 x float> %2281, %.14243.lcssa
@@ -5164,7 +5164,7 @@ _ZL14activation_avxDv8_fiRKN4ncnn3MatE.exit454:   ; preds = %._crit_edge5171, %_
   %2320 = sdiv i32 %2318, %2319
   %2321 = sext i32 %2320 to i64
   %2322 = icmp slt i64 %indvars.iv.next5385, %2321
-  br i1 %2322, label %.lr.ph5179, label %.loopexit5090.loopexit, !llvm.loop !61
+  br i1 %2322, label %.lr.ph5179, label %.loopexit5090.loopexit, !llvm.loop !55
 
 .loopexit5090.loopexit:                           ; preds = %_ZL14activation_avxDv8_fiRKN4ncnn3MatE.exit454
   %.pre5412 = load i32, ptr %3, align 4, !tbaa !4
@@ -5216,7 +5216,7 @@ _ZL14activation_avxDv8_fiRKN4ncnn3MatE.exit454:   ; preds = %._crit_edge5171, %_
 
 2352:                                             ; preds = %.lr.ph5206
   %2353 = getelementptr inbounds nuw float, ptr %2351, i64 %indvars.iv5387
-  %2354 = load float, ptr %2353, align 4, !tbaa !27
+  %2354 = load float, ptr %2353, align 4, !tbaa !26
   %2355 = insertelement <8 x float> poison, float %2354, i64 0
   %2356 = shufflevector <8 x float> %2355, <8 x float> poison, <8 x i32> zeroinitializer
   br label %2357
@@ -5276,7 +5276,7 @@ _ZL14activation_avxDv8_fiRKN4ncnn3MatE.exit454:   ; preds = %._crit_edge5171, %_
   %2385 = add nuw nsw i32 %.03655186, 4
   %2386 = or disjoint i32 %2385, 3
   %2387 = icmp slt i32 %2386, %2358
-  br i1 %2387, label %.lr.ph5188, label %.preheader5081.loopexit, !llvm.loop !62
+  br i1 %2387, label %.lr.ph5188, label %.preheader5081.loopexit, !llvm.loop !56
 
 .lr.ph5200:                                       ; preds = %.preheader5081, %2391
   %.13665199 = phi i32 [ %2398, %2391 ], [ %.0365.lcssa, %.preheader5081 ]
@@ -5284,7 +5284,7 @@ _ZL14activation_avxDv8_fiRKN4ncnn3MatE.exit454:   ; preds = %._crit_edge5171, %_
   %.13705197 = phi ptr [ %2397, %2391 ], [ %.0369.lcssa, %.preheader5081 ]
   %.242385196 = phi <8 x float> [ %2395, %2391 ], [ %.14237.lcssa, %.preheader5081 ]
   %2388 = load <8 x float>, ptr %.13685198, align 1, !tbaa !21
-  %2389 = load i16, ptr %.13705197, align 2, !tbaa !38
+  %2389 = load i16, ptr %.13705197, align 2, !tbaa !35
   %2390 = invoke noundef nofpclass(nan inf) float @_ZN4ncnn18float16_to_float32Et(i16 noundef zeroext %2389)
           to label %2391 unwind label %.loopexit.split-lp.loopexit.split-lp
 
@@ -5298,7 +5298,7 @@ _ZL14activation_avxDv8_fiRKN4ncnn3MatE.exit454:   ; preds = %._crit_edge5171, %_
   %2398 = add nuw nsw i32 %.13665199, 1
   %2399 = load i32, ptr %10, align 4, !tbaa !4
   %2400 = icmp slt i32 %2398, %2399
-  br i1 %2400, label %.lr.ph5200, label %._crit_edge5201, !llvm.loop !63
+  br i1 %2400, label %.lr.ph5200, label %._crit_edge5201, !llvm.loop !57
 
 ._crit_edge5201:                                  ; preds = %2391, %.preheader5081
   %.24238.lcssa = phi <8 x float> [ %.14237.lcssa, %.preheader5081 ], [ %2395, %2391 ]
@@ -5321,7 +5321,7 @@ _ZL14activation_avxDv8_fiRKN4ncnn3MatE.exit454:   ; preds = %._crit_edge5171, %_
 
 .noexc444:                                        ; preds = %._crit_edge5201
   %2407 = load ptr, ptr %12, align 8, !tbaa !15
-  %2408 = load float, ptr %2407, align 4, !tbaa !27
+  %2408 = load float, ptr %2407, align 4, !tbaa !26
   %2409 = call fast noundef <8 x float> @llvm.x86.avx.max.ps.256(<8 x float> zeroinitializer, <8 x float> nofpclass(nan inf) %2403)
   %2410 = call fast noundef <8 x float> @llvm.x86.avx.min.ps.256(<8 x float> zeroinitializer, <8 x float> nofpclass(nan inf) %2403)
   %2411 = insertelement <8 x float> poison, float %2408, i64 0
@@ -5332,11 +5332,11 @@ _ZL14activation_avxDv8_fiRKN4ncnn3MatE.exit454:   ; preds = %._crit_edge5171, %_
 
 2415:                                             ; preds = %._crit_edge5201
   %2416 = load ptr, ptr %12, align 8, !tbaa !15
-  %2417 = load float, ptr %2416, align 4, !tbaa !27
+  %2417 = load float, ptr %2416, align 4, !tbaa !26
   %2418 = insertelement <8 x float> poison, float %2417, i64 0
   %2419 = shufflevector <8 x float> %2418, <8 x float> poison, <8 x i32> zeroinitializer
   %2420 = getelementptr inbounds nuw i8, ptr %2416, i64 4
-  %2421 = load float, ptr %2420, align 4, !tbaa !27
+  %2421 = load float, ptr %2420, align 4, !tbaa !26
   %2422 = insertelement <8 x float> poison, float %2421, i64 0
   %2423 = shufflevector <8 x float> %2422, <8 x float> poison, <8 x i32> zeroinitializer
   %2424 = call fast noundef <8 x float> @llvm.x86.avx.max.ps.256(<8 x float> nofpclass(nan inf) %2403, <8 x float> nofpclass(nan inf) %2419)
@@ -5486,11 +5486,11 @@ _ZL14activation_avxDv8_fiRKN4ncnn3MatE.exit454:   ; preds = %._crit_edge5171, %_
 
 .noexc447:                                        ; preds = %._crit_edge5201
   %2555 = load ptr, ptr %12, align 8, !tbaa !15
-  %2556 = load float, ptr %2555, align 4, !tbaa !27
+  %2556 = load float, ptr %2555, align 4, !tbaa !26
   %2557 = insertelement <8 x float> poison, float %2556, i64 0
   %2558 = shufflevector <8 x float> %2557, <8 x float> poison, <8 x i32> zeroinitializer
   %2559 = getelementptr inbounds nuw i8, ptr %2555, i64 4
-  %2560 = load float, ptr %2559, align 4, !tbaa !27
+  %2560 = load float, ptr %2559, align 4, !tbaa !26
   %2561 = insertelement <8 x float> poison, float %2560, i64 0
   %2562 = shufflevector <8 x float> %2561, <8 x float> poison, <8 x i32> zeroinitializer
   %2563 = fmul fast <8 x float> %2558, %2403
@@ -5508,7 +5508,7 @@ _ZL14activation_avxDv8_fiRKN4ncnn3MatE.exit448:   ; preds = %.noexc447, %.noexc4
   %2569 = load i32, ptr %6, align 4, !tbaa !4
   %2570 = sext i32 %2569 to i64
   %2571 = icmp slt i64 %indvars.iv.next5388, %2570
-  br i1 %2571, label %.lr.ph5206, label %.loopexit5089.loopexit, !llvm.loop !64
+  br i1 %2571, label %.lr.ph5206, label %.loopexit5089.loopexit, !llvm.loop !58
 
 .loopexit5089.loopexit:                           ; preds = %_ZL14activation_avxDv8_fiRKN4ncnn3MatE.exit448
   %.pre5413 = load i32, ptr %3, align 4, !tbaa !4
@@ -5562,19 +5562,19 @@ _ZL14activation_avxDv8_fiRKN4ncnn3MatE.exit448:   ; preds = %.noexc447, %.noexc4
 2601:                                             ; preds = %.lr.ph5224
   %.idx5422 = shl nsw i64 %indvars.iv5391, 4
   %2602 = getelementptr inbounds nuw i8, ptr %2600, i64 %.idx5422
-  %2603 = load float, ptr %2602, align 4, !tbaa !27
+  %2603 = load float, ptr %2602, align 4, !tbaa !26
   %2604 = insertelement <8 x float> poison, float %2603, i64 0
   %2605 = shufflevector <8 x float> %2604, <8 x float> poison, <8 x i32> zeroinitializer
   %2606 = getelementptr inbounds nuw i8, ptr %2602, i64 4
-  %2607 = load float, ptr %2606, align 4, !tbaa !27
+  %2607 = load float, ptr %2606, align 4, !tbaa !26
   %2608 = insertelement <8 x float> poison, float %2607, i64 0
   %2609 = shufflevector <8 x float> %2608, <8 x float> poison, <8 x i32> zeroinitializer
   %2610 = getelementptr inbounds nuw i8, ptr %2602, i64 8
-  %2611 = load float, ptr %2610, align 4, !tbaa !27
+  %2611 = load float, ptr %2610, align 4, !tbaa !26
   %2612 = insertelement <8 x float> poison, float %2611, i64 0
   %2613 = shufflevector <8 x float> %2612, <8 x float> poison, <8 x i32> zeroinitializer
   %2614 = getelementptr inbounds nuw i8, ptr %2602, i64 12
-  %2615 = load float, ptr %2614, align 4, !tbaa !27
+  %2615 = load float, ptr %2614, align 4, !tbaa !26
   %2616 = insertelement <8 x float> poison, float %2615, i64 0
   %2617 = shufflevector <8 x float> %2616, <8 x float> poison, <8 x i32> zeroinitializer
   br label %2618
@@ -5615,7 +5615,7 @@ _ZL14activation_avxDv8_fiRKN4ncnn3MatE.exit448:   ; preds = %.noexc447, %.noexc4
   %2637 = getelementptr inbounds nuw i8, ptr %.03605211, i64 8
   %2638 = add nuw nsw i32 %.03585213, 1
   %exitcond5390.not = icmp eq i32 %2638, %2619
-  br i1 %exitcond5390.not, label %._crit_edge5216, label %.lr.ph5215, !llvm.loop !65
+  br i1 %exitcond5390.not, label %._crit_edge5216, label %.lr.ph5215, !llvm.loop !59
 
 ._crit_edge5216:                                  ; preds = %.lr.ph5215, %2618
   %.14232.lcssa = phi <8 x float> [ %.04231, %2618 ], [ %2629, %.lr.ph5215 ]
@@ -5641,7 +5641,7 @@ _ZL14activation_avxDv8_fiRKN4ncnn3MatE.exit442.thread: ; preds = %._crit_edge521
 
 _ZL14activation_avxDv8_fiRKN4ncnn3MatE.exit442.thread4759: ; preds = %._crit_edge5216
   %2644 = load ptr, ptr %12, align 8, !tbaa !15
-  %2645 = load float, ptr %2644, align 4, !tbaa !27
+  %2645 = load float, ptr %2644, align 4, !tbaa !26
   %2646 = call fast noundef <8 x float> @llvm.x86.avx.max.ps.256(<8 x float> zeroinitializer, <8 x float> nofpclass(nan inf) %.14232.lcssa)
   %2647 = call fast noundef <8 x float> @llvm.x86.avx.min.ps.256(<8 x float> zeroinitializer, <8 x float> nofpclass(nan inf) %.14232.lcssa)
   %2648 = insertelement <8 x float> poison, float %2645, i64 0
@@ -5664,11 +5664,11 @@ _ZL14activation_avxDv8_fiRKN4ncnn3MatE.exit442.thread4759: ; preds = %._crit_edg
 
 _ZL14activation_avxDv8_fiRKN4ncnn3MatE.exit442.thread4762: ; preds = %._crit_edge5216
   %2664 = load ptr, ptr %12, align 8, !tbaa !15
-  %2665 = load float, ptr %2664, align 4, !tbaa !27
+  %2665 = load float, ptr %2664, align 4, !tbaa !26
   %2666 = insertelement <8 x float> poison, float %2665, i64 0
   %2667 = shufflevector <8 x float> %2666, <8 x float> poison, <8 x i32> zeroinitializer
   %2668 = getelementptr inbounds nuw i8, ptr %2664, i64 4
-  %2669 = load float, ptr %2668, align 4, !tbaa !27
+  %2669 = load float, ptr %2668, align 4, !tbaa !26
   %2670 = insertelement <8 x float> poison, float %2669, i64 0
   %2671 = shufflevector <8 x float> %2670, <8 x float> poison, <8 x i32> zeroinitializer
   %2672 = call fast noundef <8 x float> @llvm.x86.avx.max.ps.256(<8 x float> nofpclass(nan inf) %.14232.lcssa, <8 x float> nofpclass(nan inf) %2667)
@@ -6229,11 +6229,11 @@ _ZL14activation_avxDv8_fiRKN4ncnn3MatE.exit442.thread4768: ; preds = %._crit_edg
 
 _ZL14activation_avxDv8_fiRKN4ncnn3MatE.exit442.thread4771: ; preds = %._crit_edge5216
   %3196 = load ptr, ptr %12, align 8, !tbaa !15
-  %3197 = load float, ptr %3196, align 4, !tbaa !27
+  %3197 = load float, ptr %3196, align 4, !tbaa !26
   %3198 = insertelement <8 x float> poison, float %3197, i64 0
   %3199 = shufflevector <8 x float> %3198, <8 x float> poison, <8 x i32> zeroinitializer
   %3200 = getelementptr inbounds nuw i8, ptr %3196, i64 4
-  %3201 = load float, ptr %3200, align 4, !tbaa !27
+  %3201 = load float, ptr %3200, align 4, !tbaa !26
   %3202 = insertelement <8 x float> poison, float %3201, i64 0
   %3203 = shufflevector <8 x float> %3202, <8 x float> poison, <8 x i32> zeroinitializer
   %3204 = fmul fast <8 x float> %3199, %.14232.lcssa
@@ -6277,7 +6277,7 @@ _ZL14activation_avxDv8_fiRKN4ncnn3MatE.exit:      ; preds = %._crit_edge5216, %_
   %3230 = sdiv i32 %3228, %3229
   %3231 = sext i32 %3230 to i64
   %3232 = icmp slt i64 %indvars.iv.next5392, %3231
-  br i1 %3232, label %.lr.ph5224, label %.loopexit5088.loopexit, !llvm.loop !66
+  br i1 %3232, label %.lr.ph5224, label %.loopexit5088.loopexit, !llvm.loop !60
 
 .loopexit5088.loopexit:                           ; preds = %_ZL14activation_avxDv8_fiRKN4ncnn3MatE.exit
   %.pre5415 = load i32, ptr %3, align 4, !tbaa !4
@@ -6347,19 +6347,19 @@ _ZL14activation_avxDv8_fiRKN4ncnn3MatE.exit:      ; preds = %._crit_edge5216, %_
   %.042215227 = phi <4 x float> [ %3290, %.lr.ph5233 ], [ %.04223, %3265 ]
   %.042225226 = phi <4 x float> [ %3288, %.lr.ph5233 ], [ %.04223, %3265 ]
   %.142245225 = phi <4 x float> [ %3286, %.lr.ph5233 ], [ %.04223, %3265 ]
-  %3268 = load float, ptr %.03525230, align 4, !tbaa !27
+  %3268 = load float, ptr %.03525230, align 4, !tbaa !26
   %3269 = insertelement <4 x float> poison, float %3268, i64 0
   %3270 = shufflevector <4 x float> %3269, <4 x float> poison, <4 x i32> zeroinitializer
   %3271 = getelementptr inbounds nuw i8, ptr %.03525230, i64 4
-  %3272 = load float, ptr %3271, align 4, !tbaa !27
+  %3272 = load float, ptr %3271, align 4, !tbaa !26
   %3273 = insertelement <4 x float> poison, float %3272, i64 0
   %3274 = shufflevector <4 x float> %3273, <4 x float> poison, <4 x i32> zeroinitializer
   %3275 = getelementptr inbounds nuw i8, ptr %.03525230, i64 8
-  %3276 = load float, ptr %3275, align 4, !tbaa !27
+  %3276 = load float, ptr %3275, align 4, !tbaa !26
   %3277 = insertelement <4 x float> poison, float %3276, i64 0
   %3278 = shufflevector <4 x float> %3277, <4 x float> poison, <4 x i32> zeroinitializer
   %3279 = getelementptr inbounds nuw i8, ptr %.03525230, i64 12
-  %3280 = load float, ptr %3279, align 4, !tbaa !27
+  %3280 = load float, ptr %3279, align 4, !tbaa !26
   %3281 = insertelement <4 x float> poison, float %3280, i64 0
   %3282 = shufflevector <4 x float> %3281, <4 x float> poison, <4 x i32> zeroinitializer
   %3283 = load <4 x half>, ptr %.03535229, align 1, !tbaa !21
@@ -6376,7 +6376,7 @@ _ZL14activation_avxDv8_fiRKN4ncnn3MatE.exit:      ; preds = %._crit_edge5216, %_
   %3294 = getelementptr inbounds nuw i8, ptr %.03535229, i64 8
   %3295 = add nuw nsw i32 %.03515231, 1
   %exitcond5394.not = icmp eq i32 %3295, %3266
-  br i1 %exitcond5394.not, label %._crit_edge5234, label %.lr.ph5233, !llvm.loop !67
+  br i1 %exitcond5394.not, label %._crit_edge5234, label %.lr.ph5233, !llvm.loop !61
 
 ._crit_edge5234:                                  ; preds = %.lr.ph5233, %3265
   %.14224.lcssa = phi <4 x float> [ %.04223, %3265 ], [ %3286, %.lr.ph5233 ]
@@ -6402,7 +6402,7 @@ _ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit555.thread: ; preds = %._crit_edge523
 
 _ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit555.thread4852: ; preds = %._crit_edge5234
   %3301 = load ptr, ptr %12, align 8, !tbaa !15
-  %3302 = load float, ptr %3301, align 4, !tbaa !27
+  %3302 = load float, ptr %3301, align 4, !tbaa !26
   %3303 = call fast noundef <4 x float> @llvm.x86.sse.max.ps(<4 x float> zeroinitializer, <4 x float> nofpclass(nan inf) %.14224.lcssa)
   %3304 = call fast noundef <4 x float> @llvm.x86.sse.min.ps(<4 x float> zeroinitializer, <4 x float> nofpclass(nan inf) %.14224.lcssa)
   %3305 = insertelement <4 x float> poison, float %3302, i64 0
@@ -6425,11 +6425,11 @@ _ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit555.thread4852: ; preds = %._crit_edg
 
 _ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit555.thread4855: ; preds = %._crit_edge5234
   %3321 = load ptr, ptr %12, align 8, !tbaa !15
-  %3322 = load float, ptr %3321, align 4, !tbaa !27
+  %3322 = load float, ptr %3321, align 4, !tbaa !26
   %3323 = insertelement <4 x float> poison, float %3322, i64 0
   %3324 = shufflevector <4 x float> %3323, <4 x float> poison, <4 x i32> zeroinitializer
   %3325 = getelementptr inbounds nuw i8, ptr %3321, i64 4
-  %3326 = load float, ptr %3325, align 4, !tbaa !27
+  %3326 = load float, ptr %3325, align 4, !tbaa !26
   %3327 = insertelement <4 x float> poison, float %3326, i64 0
   %3328 = shufflevector <4 x float> %3327, <4 x float> poison, <4 x i32> zeroinitializer
   %3329 = call fast noundef <4 x float> @llvm.x86.sse.max.ps(<4 x float> nofpclass(nan inf) %.14224.lcssa, <4 x float> nofpclass(nan inf) %3324)
@@ -7002,11 +7002,11 @@ _ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit555.thread4861: ; preds = %._crit_edg
 
 _ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit555.thread4864: ; preds = %._crit_edge5234
   %3873 = load ptr, ptr %12, align 8, !tbaa !15
-  %3874 = load float, ptr %3873, align 4, !tbaa !27
+  %3874 = load float, ptr %3873, align 4, !tbaa !26
   %3875 = insertelement <4 x float> poison, float %3874, i64 0
   %3876 = shufflevector <4 x float> %3875, <4 x float> poison, <4 x i32> zeroinitializer
   %3877 = getelementptr inbounds nuw i8, ptr %3873, i64 4
-  %3878 = load float, ptr %3877, align 4, !tbaa !27
+  %3878 = load float, ptr %3877, align 4, !tbaa !26
   %3879 = insertelement <4 x float> poison, float %3878, i64 0
   %3880 = shufflevector <4 x float> %3879, <4 x float> poison, <4 x i32> zeroinitializer
   %3881 = fmul fast <4 x float> %3876, %.14224.lcssa
@@ -7058,7 +7058,7 @@ _ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit540:   ; preds = %._crit_edge5234, %_
   %3915 = sdiv i32 %3913, %3914
   %3916 = sext i32 %3915 to i64
   %3917 = icmp slt i64 %indvars.iv.next5396, %3916
-  br i1 %3917, label %.lr.ph5242, label %.loopexit5087.loopexit, !llvm.loop !68
+  br i1 %3917, label %.lr.ph5242, label %.loopexit5087.loopexit, !llvm.loop !62
 
 .loopexit5087.loopexit:                           ; preds = %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit540
   %.pre5416 = load i32, ptr %3, align 4, !tbaa !4
@@ -7125,7 +7125,7 @@ _ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit540:   ; preds = %._crit_edge5234, %_
   %.03445245 = phi ptr [ %3960, %.lr.ph5248 ], [ %3945, %3950 ]
   %.03455244 = phi ptr [ %3961, %.lr.ph5248 ], [ %3938, %3950 ]
   %.142195243 = phi <4 x float> [ %3959, %.lr.ph5248 ], [ %.04218, %3950 ]
-  %3953 = load float, ptr %.03445245, align 4, !tbaa !27
+  %3953 = load float, ptr %.03445245, align 4, !tbaa !26
   %3954 = insertelement <4 x float> poison, float %3953, i64 0
   %3955 = shufflevector <4 x float> %3954, <4 x float> poison, <4 x i32> zeroinitializer
   %3956 = load <4 x half>, ptr %.03455244, align 1, !tbaa !21
@@ -7136,7 +7136,7 @@ _ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit540:   ; preds = %._crit_edge5234, %_
   %3961 = getelementptr inbounds nuw i8, ptr %.03455244, i64 8
   %3962 = add nuw nsw i32 %.03435246, 1
   %exitcond5398.not = icmp eq i32 %3962, %3951
-  br i1 %exitcond5398.not, label %._crit_edge5249, label %.lr.ph5248, !llvm.loop !69
+  br i1 %exitcond5398.not, label %._crit_edge5249, label %.lr.ph5248, !llvm.loop !63
 
 ._crit_edge5249:                                  ; preds = %.lr.ph5248, %3950
   %.14219.lcssa = phi <4 x float> [ %.04218, %3950 ], [ %3959, %.lr.ph5248 ]
@@ -7156,7 +7156,7 @@ _ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit540:   ; preds = %._crit_edge5234, %_
 
 .noexc532:                                        ; preds = %._crit_edge5249
   %3966 = load ptr, ptr %12, align 8, !tbaa !15
-  %3967 = load float, ptr %3966, align 4, !tbaa !27
+  %3967 = load float, ptr %3966, align 4, !tbaa !26
   %3968 = call fast noundef <4 x float> @llvm.x86.sse.max.ps(<4 x float> zeroinitializer, <4 x float> nofpclass(nan inf) %.14219.lcssa)
   %3969 = call fast noundef <4 x float> @llvm.x86.sse.min.ps(<4 x float> zeroinitializer, <4 x float> nofpclass(nan inf) %.14219.lcssa)
   %3970 = insertelement <4 x float> poison, float %3967, i64 0
@@ -7167,11 +7167,11 @@ _ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit540:   ; preds = %._crit_edge5234, %_
 
 3974:                                             ; preds = %._crit_edge5249
   %3975 = load ptr, ptr %12, align 8, !tbaa !15
-  %3976 = load float, ptr %3975, align 4, !tbaa !27
+  %3976 = load float, ptr %3975, align 4, !tbaa !26
   %3977 = insertelement <4 x float> poison, float %3976, i64 0
   %3978 = shufflevector <4 x float> %3977, <4 x float> poison, <4 x i32> zeroinitializer
   %3979 = getelementptr inbounds nuw i8, ptr %3975, i64 4
-  %3980 = load float, ptr %3979, align 4, !tbaa !27
+  %3980 = load float, ptr %3979, align 4, !tbaa !26
   %3981 = insertelement <4 x float> poison, float %3980, i64 0
   %3982 = shufflevector <4 x float> %3981, <4 x float> poison, <4 x i32> zeroinitializer
   %3983 = call fast noundef <4 x float> @llvm.x86.sse.max.ps(<4 x float> nofpclass(nan inf) %.14219.lcssa, <4 x float> nofpclass(nan inf) %3978)
@@ -7324,11 +7324,11 @@ _ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit540:   ; preds = %._crit_edge5234, %_
 
 4119:                                             ; preds = %._crit_edge5249
   %4120 = load ptr, ptr %12, align 8, !tbaa !15
-  %4121 = load float, ptr %4120, align 4, !tbaa !27
+  %4121 = load float, ptr %4120, align 4, !tbaa !26
   %4122 = insertelement <4 x float> poison, float %4121, i64 0
   %4123 = shufflevector <4 x float> %4122, <4 x float> poison, <4 x i32> zeroinitializer
   %4124 = getelementptr inbounds nuw i8, ptr %4120, i64 4
-  %4125 = load float, ptr %4124, align 4, !tbaa !27
+  %4125 = load float, ptr %4124, align 4, !tbaa !26
   %4126 = insertelement <4 x float> poison, float %4125, i64 0
   %4127 = shufflevector <4 x float> %4126, <4 x float> poison, <4 x i32> zeroinitializer
   %4128 = fmul fast <4 x float> %4123, %.14219.lcssa
@@ -7348,7 +7348,7 @@ _ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit535:   ; preds = %4119, %.noexc534, %
   %4136 = sdiv i32 %4134, %4135
   %4137 = sext i32 %4136 to i64
   %4138 = icmp slt i64 %indvars.iv.next5400, %4137
-  br i1 %4138, label %.lr.ph5254, label %.loopexit5086.loopexit, !llvm.loop !70
+  br i1 %4138, label %.lr.ph5254, label %.loopexit5086.loopexit, !llvm.loop !64
 
 .loopexit5086.loopexit:                           ; preds = %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit535
   %.pre5417 = load i32, ptr %3, align 4, !tbaa !4
@@ -7400,7 +7400,7 @@ _ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit535:   ; preds = %4119, %.noexc534, %
 
 4168:                                             ; preds = %.lr.ph5281
   %4169 = getelementptr inbounds nuw float, ptr %4167, i64 %indvars.iv5402
-  %4170 = load float, ptr %4169, align 4, !tbaa !27
+  %4170 = load float, ptr %4169, align 4, !tbaa !26
   %4171 = insertelement <4 x float> poison, float %4170, i64 0
   %4172 = shufflevector <4 x float> %4171, <4 x float> poison, <4 x i32> zeroinitializer
   br label %4173
@@ -7460,7 +7460,7 @@ _ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit535:   ; preds = %4119, %.noexc534, %
   %4201 = add nuw nsw i32 %.03355261, 4
   %4202 = or disjoint i32 %4201, 3
   %4203 = icmp slt i32 %4202, %4174
-  br i1 %4203, label %.lr.ph5263, label %.preheader5077.loopexit, !llvm.loop !71
+  br i1 %4203, label %.lr.ph5263, label %.preheader5077.loopexit, !llvm.loop !65
 
 .lr.ph5275:                                       ; preds = %.preheader5077, %4207
   %.13365274 = phi i32 [ %4214, %4207 ], [ %.0335.lcssa, %.preheader5077 ]
@@ -7468,7 +7468,7 @@ _ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit535:   ; preds = %4119, %.noexc534, %
   %.13405272 = phi ptr [ %4213, %4207 ], [ %.0339.lcssa, %.preheader5077 ]
   %.242175271 = phi <4 x float> [ %4211, %4207 ], [ %.14216.lcssa, %.preheader5077 ]
   %4204 = load <4 x float>, ptr %.13385273, align 1, !tbaa !21
-  %4205 = load i16, ptr %.13405272, align 2, !tbaa !38
+  %4205 = load i16, ptr %.13405272, align 2, !tbaa !35
   %4206 = invoke noundef nofpclass(nan inf) float @_ZN4ncnn18float16_to_float32Et(i16 noundef zeroext %4205)
           to label %4207 unwind label %.loopexit.split-lp.loopexit
 
@@ -7482,7 +7482,7 @@ _ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit535:   ; preds = %4119, %.noexc534, %
   %4214 = add nuw nsw i32 %.13365274, 1
   %4215 = load i32, ptr %10, align 4, !tbaa !4
   %4216 = icmp slt i32 %4214, %4215
-  br i1 %4216, label %.lr.ph5275, label %._crit_edge5276, !llvm.loop !72
+  br i1 %4216, label %.lr.ph5275, label %._crit_edge5276, !llvm.loop !66
 
 ._crit_edge5276:                                  ; preds = %4207, %.preheader5077
   %.24217.lcssa = phi <4 x float> [ %.14216.lcssa, %.preheader5077 ], [ %4211, %4207 ]
@@ -7505,7 +7505,7 @@ _ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit535:   ; preds = %4119, %.noexc534, %
 
 .noexc528:                                        ; preds = %._crit_edge5276
   %4223 = load ptr, ptr %12, align 8, !tbaa !15
-  %4224 = load float, ptr %4223, align 4, !tbaa !27
+  %4224 = load float, ptr %4223, align 4, !tbaa !26
   %4225 = call fast noundef <4 x float> @llvm.x86.sse.max.ps(<4 x float> zeroinitializer, <4 x float> nofpclass(nan inf) %4219)
   %4226 = call fast noundef <4 x float> @llvm.x86.sse.min.ps(<4 x float> zeroinitializer, <4 x float> nofpclass(nan inf) %4219)
   %4227 = insertelement <4 x float> poison, float %4224, i64 0
@@ -7516,11 +7516,11 @@ _ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit535:   ; preds = %4119, %.noexc534, %
 
 4231:                                             ; preds = %._crit_edge5276
   %4232 = load ptr, ptr %12, align 8, !tbaa !15
-  %4233 = load float, ptr %4232, align 4, !tbaa !27
+  %4233 = load float, ptr %4232, align 4, !tbaa !26
   %4234 = insertelement <4 x float> poison, float %4233, i64 0
   %4235 = shufflevector <4 x float> %4234, <4 x float> poison, <4 x i32> zeroinitializer
   %4236 = getelementptr inbounds nuw i8, ptr %4232, i64 4
-  %4237 = load float, ptr %4236, align 4, !tbaa !27
+  %4237 = load float, ptr %4236, align 4, !tbaa !26
   %4238 = insertelement <4 x float> poison, float %4237, i64 0
   %4239 = shufflevector <4 x float> %4238, <4 x float> poison, <4 x i32> zeroinitializer
   %4240 = call fast noundef <4 x float> @llvm.x86.sse.max.ps(<4 x float> nofpclass(nan inf) %4219, <4 x float> nofpclass(nan inf) %4235)
@@ -7673,11 +7673,11 @@ _ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit535:   ; preds = %4119, %.noexc534, %
 
 4376:                                             ; preds = %._crit_edge5276
   %4377 = load ptr, ptr %12, align 8, !tbaa !15
-  %4378 = load float, ptr %4377, align 4, !tbaa !27
+  %4378 = load float, ptr %4377, align 4, !tbaa !26
   %4379 = insertelement <4 x float> poison, float %4378, i64 0
   %4380 = shufflevector <4 x float> %4379, <4 x float> poison, <4 x i32> zeroinitializer
   %4381 = getelementptr inbounds nuw i8, ptr %4377, i64 4
-  %4382 = load float, ptr %4381, align 4, !tbaa !27
+  %4382 = load float, ptr %4381, align 4, !tbaa !26
   %4383 = insertelement <4 x float> poison, float %4382, i64 0
   %4384 = shufflevector <4 x float> %4383, <4 x float> poison, <4 x i32> zeroinitializer
   %4385 = fmul fast <4 x float> %4380, %4219
@@ -7695,7 +7695,7 @@ _ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit:      ; preds = %4376, %.noexc530, %
   %4391 = load i32, ptr %6, align 4, !tbaa !4
   %4392 = sext i32 %4391 to i64
   %4393 = icmp slt i64 %indvars.iv.next5403, %4392
-  br i1 %4393, label %.lr.ph5281, label %.loopexit5085.loopexit, !llvm.loop !73
+  br i1 %4393, label %.lr.ph5281, label %.loopexit5085.loopexit, !llvm.loop !67
 
 .loopexit5085.loopexit:                           ; preds = %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit
   %.pre5418 = load i32, ptr %3, align 4, !tbaa !4
@@ -7746,7 +7746,7 @@ _ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit:      ; preds = %4376, %.noexc530, %
 
 4422:                                             ; preds = %.lr.ph5312
   %4423 = getelementptr inbounds nuw float, ptr %4421, i64 %indvars.iv5405
-  %4424 = load float, ptr %4423, align 4, !tbaa !27
+  %4424 = load float, ptr %4423, align 4, !tbaa !26
   br label %4425
 
 4425:                                             ; preds = %4422, %.lr.ph5312
@@ -7784,7 +7784,7 @@ _ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit:      ; preds = %4376, %.noexc530, %
   %4439 = add nuw nsw i32 %.05285, 8
   %4440 = or disjoint i32 %4439, 7
   %4441 = icmp slt i32 %4440, %4426
-  br i1 %4441, label %.lr.ph5287, label %.preheader5076.loopexit, !llvm.loop !74
+  br i1 %4441, label %.lr.ph5287, label %.preheader5076.loopexit, !llvm.loop !68
 
 .preheader:                                       ; preds = %.lr.ph5297, %.preheader5076
   %.04210.lcssa = phi <4 x float> [ zeroinitializer, %.preheader5076 ], [ %4447, %.lr.ph5297 ]
@@ -7809,15 +7809,15 @@ _ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit:      ; preds = %4376, %.noexc530, %
   %4450 = add nuw nsw i32 %.15296, 4
   %4451 = or disjoint i32 %4450, 3
   %4452 = icmp slt i32 %4451, %4426
-  br i1 %4452, label %.lr.ph5297, label %.preheader, !llvm.loop !75
+  br i1 %4452, label %.lr.ph5297, label %.preheader, !llvm.loop !69
 
 .lr.ph5306:                                       ; preds = %.preheader, %4456
   %.25305 = phi i32 [ %4461, %4456 ], [ %.1.lcssa, %.preheader ]
   %.13255304 = phi float [ %4460, %4456 ], [ %.0324, %.preheader ]
   %.23285303 = phi ptr [ %4458, %4456 ], [ %.1327.lcssa, %.preheader ]
   %.23315302 = phi ptr [ %4457, %4456 ], [ %.1330.lcssa, %.preheader ]
-  %4453 = load float, ptr %.23285303, align 4, !tbaa !27
-  %4454 = load i16, ptr %.23315302, align 2, !tbaa !38
+  %4453 = load float, ptr %.23285303, align 4, !tbaa !26
+  %4454 = load i16, ptr %.23315302, align 2, !tbaa !35
   %4455 = invoke noundef nofpclass(nan inf) float @_ZN4ncnn18float16_to_float32Et(i16 noundef zeroext %4454)
           to label %4456 unwind label %.loopexit
 
@@ -7829,7 +7829,7 @@ _ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit:      ; preds = %4376, %.noexc530, %
   %4461 = add nuw nsw i32 %.25305, 1
   %4462 = load i32, ptr %10, align 4, !tbaa !4
   %4463 = icmp slt i32 %4461, %4462
-  br i1 %4463, label %.lr.ph5306, label %._crit_edge5307, !llvm.loop !76
+  br i1 %4463, label %.lr.ph5306, label %._crit_edge5307, !llvm.loop !70
 
 ._crit_edge5307:                                  ; preds = %4456, %.preheader
   %.1325.lcssa = phi float [ %.0324, %.preheader ], [ %4460, %4456 ]
@@ -7859,7 +7859,7 @@ _ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit:      ; preds = %4376, %.noexc530, %
 
 4476:                                             ; preds = %._crit_edge5307
   %4477 = load ptr, ptr %12, align 8, !tbaa !15
-  %4478 = load float, ptr %4477, align 4, !tbaa !27
+  %4478 = load float, ptr %4477, align 4, !tbaa !26
   %4479 = fcmp fast ogt float %4472, 0.000000e+00
   %4480 = select fast i1 %4479, float 1.000000e+00, float %4478
   %4481 = fmul fast float %4480, %4472
@@ -7867,9 +7867,9 @@ _ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit:      ; preds = %4376, %.noexc530, %
 
 4482:                                             ; preds = %._crit_edge5307
   %4483 = load ptr, ptr %12, align 8, !tbaa !15
-  %4484 = load float, ptr %4483, align 4, !tbaa !27
+  %4484 = load float, ptr %4483, align 4, !tbaa !26
   %4485 = getelementptr inbounds nuw i8, ptr %4483, i64 4
-  %4486 = load float, ptr %4485, align 4, !tbaa !27
+  %4486 = load float, ptr %4485, align 4, !tbaa !26
   %4487 = fcmp fast olt float %4472, %4484
   %.04262 = select nsz i1 %4487, float %4484, float %4472
   %4488 = fcmp fast ogt float %.04262, %4486
@@ -7899,9 +7899,9 @@ _ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit:      ; preds = %4376, %.noexc530, %
 
 4503:                                             ; preds = %._crit_edge5307
   %4504 = load ptr, ptr %12, align 8, !tbaa !15
-  %4505 = load float, ptr %4504, align 4, !tbaa !27
+  %4505 = load float, ptr %4504, align 4, !tbaa !26
   %4506 = getelementptr inbounds nuw i8, ptr %4504, i64 4
-  %4507 = load float, ptr %4506, align 4, !tbaa !27
+  %4507 = load float, ptr %4506, align 4, !tbaa !26
   %4508 = fneg fast float %4507
   %4509 = fdiv fast float %4508, %4505
   %4510 = fcmp fast olt float %4472, %4509
@@ -7921,20 +7921,20 @@ _ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit:      ; preds = %4376, %.noexc530, %
 
 _ZL13activation_ssfiRKN4ncnn3MatE.exit:           ; preds = %4515, %4511, %4497, %4490, %4489, %4482, %4476, %4474, %._crit_edge5307, %4503
   %.14263 = phi nsz float [ %4472, %._crit_edge5307 ], [ %4475, %4474 ], [ %4481, %4476 ], [ %4486, %4489 ], [ %.04262, %4482 ], [ %4496, %4490 ], [ %4502, %4497 ], [ %4472, %4511 ], [ %4518, %4515 ], [ 0.000000e+00, %4503 ]
-  store float %.14263, ptr %.03335309, align 4, !tbaa !27
+  store float %.14263, ptr %.03335309, align 4, !tbaa !26
   %4519 = getelementptr inbounds nuw i8, ptr %.03335309, i64 4
   %indvars.iv.next5406 = add nuw nsw i64 %indvars.iv5405, 1
   %4520 = load i32, ptr %6, align 4, !tbaa !4
   %4521 = sext i32 %4520 to i64
   %4522 = icmp slt i64 %indvars.iv.next5406, %4521
-  br i1 %4522, label %.lr.ph5312, label %.loopexit5084, !llvm.loop !77
+  br i1 %4522, label %.lr.ph5312, label %.loopexit5084, !llvm.loop !71
 
 .loopexit5084:                                    ; preds = %_ZL13activation_ssfiRKN4ncnn3MatE.exit, %1312, %38, %1661, %2327, %2576, %3237, %3922, %4143, %.loopexit5085
   %indvars.iv.next5409 = add nsw i64 %indvars.iv5408, 1
   %4523 = load i32, ptr %15, align 4, !tbaa !4
   %4524 = sext i32 %4523 to i64
   %.not.not = icmp slt i64 %indvars.iv5408, %4524
-  br i1 %.not.not, label %33, label %._crit_edge5317, !llvm.loop !78
+  br i1 %.not.not, label %33, label %._crit_edge5317
 
 ._crit_edge5317:                                  ; preds = %.loopexit5084, %20
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %22)
@@ -7975,7 +7975,7 @@ define hidden void @_ZN4ncnn44innerproduct_transform_kernel_fp16s_sse_f16cERKNS_
   %7 = alloca %"class.ncnn::Mat", align 8
   %8 = alloca %"class.ncnn::Mat", align 8
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 39
-  %10 = load i8, ptr %9, align 1, !tbaa !51, !range !52, !noundef !53
+  %10 = load i8, ptr %9, align 1, !tbaa !45, !range !46, !noundef !47
   %11 = trunc nuw i8 %10 to i1
   br i1 %11, label %12, label %.thread275.i
 
@@ -8011,7 +8011,7 @@ define hidden void @_ZN4ncnn44innerproduct_transform_kernel_fp16s_sse_f16cERKNS_
 
 ._crit_edge337.i:                                 ; preds = %._crit_edge334.i, %.preheader277.i
   %25 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %26 = load ptr, ptr %25, align 8, !tbaa !79
+  %26 = load ptr, ptr %25, align 8, !tbaa !72
   %.not.i211.i = icmp eq ptr %26, null
   br i1 %.not.i211.i, label %_ZN4ncnn3MatD2Ev.exit.i, label %27
 
@@ -8022,13 +8022,13 @@ define hidden void @_ZN4ncnn44innerproduct_transform_kernel_fp16s_sse_f16cERKNS_
 
 30:                                               ; preds = %27
   %31 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  %32 = load ptr, ptr %31, align 8, !tbaa !80
+  %32 = load ptr, ptr %31, align 8, !tbaa !73
   %.not3.i212.i = icmp eq ptr %32, null
   %33 = load ptr, ptr %6, align 8, !tbaa !15
   br i1 %.not3.i212.i, label %38, label %34
 
 34:                                               ; preds = %30
-  %35 = load ptr, ptr %32, align 8, !tbaa !81
+  %35 = load ptr, ptr %32, align 8, !tbaa !74
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 24
   %37 = load ptr, ptr %36, align 8
   invoke void %37(ptr noundef nonnull align 8 dereferenceable(8) %32, ptr noundef %33)
@@ -8206,7 +8206,7 @@ _ZN4ncnn3MatD2Ev.exit.i:                          ; preds = %39, %38, %34, %27, 
   %155 = add nuw nsw i32 %.0179302.i, 8
   %156 = or disjoint i32 %155, 7
   %157 = icmp slt i32 %156, %2
-  br i1 %157, label %.lr.ph312.i, label %.preheader.i, !llvm.loop !83
+  br i1 %157, label %.lr.ph312.i, label %.preheader.i, !llvm.loop !76
 
 .lr.ph333.i:                                      ; preds = %.preheader.i, %194
   %.1151332.i = phi ptr [ %197, %194 ], [ %.0150.lcssa.i, %.preheader.i ]
@@ -8220,72 +8220,72 @@ _ZN4ncnn3MatD2Ev.exit.i:                          ; preds = %39, %38, %34, %27, 
   %.1180324.i = phi i32 [ %198, %194 ], [ %.0179.lcssa.i, %.preheader.i ]
   %.1182323.i = phi ptr [ %195, %194 ], [ %.0181.lcssa.i, %.preheader.i ]
   %158 = getelementptr inbounds nuw i8, ptr %.1153331.i, i64 4
-  %159 = load float, ptr %.1153331.i, align 4, !tbaa !27
+  %159 = load float, ptr %.1153331.i, align 4, !tbaa !26
   %160 = invoke noundef zeroext i16 @_ZN4ncnn18float32_to_float16Ef(float noundef nofpclass(nan inf) %159)
           to label %161 unwind label %199
 
 161:                                              ; preds = %.lr.ph333.i
-  store i16 %160, ptr %.1151332.i, align 2, !tbaa !38
+  store i16 %160, ptr %.1151332.i, align 2, !tbaa !35
   %162 = getelementptr inbounds nuw i8, ptr %.1155330.i, i64 4
-  %163 = load float, ptr %.1155330.i, align 4, !tbaa !27
+  %163 = load float, ptr %.1155330.i, align 4, !tbaa !26
   %164 = invoke noundef zeroext i16 @_ZN4ncnn18float32_to_float16Ef(float noundef nofpclass(nan inf) %163)
           to label %165 unwind label %199
 
 165:                                              ; preds = %161
   %166 = getelementptr inbounds nuw i8, ptr %.1151332.i, i64 2
-  store i16 %164, ptr %166, align 2, !tbaa !38
+  store i16 %164, ptr %166, align 2, !tbaa !35
   %167 = getelementptr inbounds nuw i8, ptr %.1157329.i, i64 4
-  %168 = load float, ptr %.1157329.i, align 4, !tbaa !27
+  %168 = load float, ptr %.1157329.i, align 4, !tbaa !26
   %169 = invoke noundef zeroext i16 @_ZN4ncnn18float32_to_float16Ef(float noundef nofpclass(nan inf) %168)
           to label %170 unwind label %199
 
 170:                                              ; preds = %165
   %171 = getelementptr inbounds nuw i8, ptr %.1151332.i, i64 4
-  store i16 %169, ptr %171, align 2, !tbaa !38
+  store i16 %169, ptr %171, align 2, !tbaa !35
   %172 = getelementptr inbounds nuw i8, ptr %.1159328.i, i64 4
-  %173 = load float, ptr %.1159328.i, align 4, !tbaa !27
+  %173 = load float, ptr %.1159328.i, align 4, !tbaa !26
   %174 = invoke noundef zeroext i16 @_ZN4ncnn18float32_to_float16Ef(float noundef nofpclass(nan inf) %173)
           to label %175 unwind label %199
 
 175:                                              ; preds = %170
   %176 = getelementptr inbounds nuw i8, ptr %.1151332.i, i64 6
-  store i16 %174, ptr %176, align 2, !tbaa !38
+  store i16 %174, ptr %176, align 2, !tbaa !35
   %177 = getelementptr inbounds nuw i8, ptr %.1161327.i, i64 4
-  %178 = load float, ptr %.1161327.i, align 4, !tbaa !27
+  %178 = load float, ptr %.1161327.i, align 4, !tbaa !26
   %179 = invoke noundef zeroext i16 @_ZN4ncnn18float32_to_float16Ef(float noundef nofpclass(nan inf) %178)
           to label %180 unwind label %199
 
 180:                                              ; preds = %175
   %181 = getelementptr inbounds nuw i8, ptr %.1151332.i, i64 8
-  store i16 %179, ptr %181, align 2, !tbaa !38
+  store i16 %179, ptr %181, align 2, !tbaa !35
   %182 = getelementptr inbounds nuw i8, ptr %.1163326.i, i64 4
-  %183 = load float, ptr %.1163326.i, align 4, !tbaa !27
+  %183 = load float, ptr %.1163326.i, align 4, !tbaa !26
   %184 = invoke noundef zeroext i16 @_ZN4ncnn18float32_to_float16Ef(float noundef nofpclass(nan inf) %183)
           to label %185 unwind label %199
 
 185:                                              ; preds = %180
   %186 = getelementptr inbounds nuw i8, ptr %.1151332.i, i64 10
-  store i16 %184, ptr %186, align 2, !tbaa !38
+  store i16 %184, ptr %186, align 2, !tbaa !35
   %187 = getelementptr inbounds nuw i8, ptr %.1165325.i, i64 4
-  %188 = load float, ptr %.1165325.i, align 4, !tbaa !27
+  %188 = load float, ptr %.1165325.i, align 4, !tbaa !26
   %189 = invoke noundef zeroext i16 @_ZN4ncnn18float32_to_float16Ef(float noundef nofpclass(nan inf) %188)
           to label %190 unwind label %199
 
 190:                                              ; preds = %185
   %191 = getelementptr inbounds nuw i8, ptr %.1151332.i, i64 12
-  store i16 %189, ptr %191, align 2, !tbaa !38
-  %192 = load float, ptr %.1182323.i, align 4, !tbaa !27
+  store i16 %189, ptr %191, align 2, !tbaa !35
+  %192 = load float, ptr %.1182323.i, align 4, !tbaa !26
   %193 = invoke noundef zeroext i16 @_ZN4ncnn18float32_to_float16Ef(float noundef nofpclass(nan inf) %192)
           to label %194 unwind label %199
 
 194:                                              ; preds = %190
   %195 = getelementptr inbounds nuw i8, ptr %.1182323.i, i64 4
   %196 = getelementptr inbounds nuw i8, ptr %.1151332.i, i64 14
-  store i16 %193, ptr %196, align 2, !tbaa !38
+  store i16 %193, ptr %196, align 2, !tbaa !35
   %197 = getelementptr inbounds nuw i8, ptr %.1151332.i, i64 16
   %198 = add i32 %.1180324.i, 1
   %exitcond354.not.i = icmp eq i32 %198, %2
-  br i1 %exitcond354.not.i, label %._crit_edge334.i, label %.lr.ph333.i, !llvm.loop !84
+  br i1 %exitcond354.not.i, label %._crit_edge334.i, label %.lr.ph333.i, !llvm.loop !77
 
 199:                                              ; preds = %190, %185, %180, %175, %170, %165, %161, %.lr.ph333.i
   %200 = landingpad { ptr, i32 }
@@ -8297,12 +8297,12 @@ _ZN4ncnn3MatD2Ev.exit.i:                          ; preds = %39, %38, %34, %27, 
   %201 = trunc i64 %indvars.iv.next356.i to i32
   %202 = or disjoint i32 %201, 7
   %203 = icmp slt i32 %202, %3
-  br i1 %203, label %45, label %._crit_edge337.i, !llvm.loop !85
+  br i1 %203, label %45, label %._crit_edge337.i, !llvm.loop !78
 
 204:                                              ; preds = %199, %43
   %.pn186.pn.i = phi { ptr, i32 } [ %44, %43 ], [ %200, %199 ]
   %205 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %206 = load ptr, ptr %205, align 8, !tbaa !79
+  %206 = load ptr, ptr %205, align 8, !tbaa !72
   %.not.i207.i = icmp eq ptr %206, null
   br i1 %.not.i207.i, label %_ZN4ncnn3MatD2Ev.exit190.i, label %207
 
@@ -8313,13 +8313,13 @@ _ZN4ncnn3MatD2Ev.exit.i:                          ; preds = %39, %38, %34, %27, 
 
 210:                                              ; preds = %207
   %211 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  %212 = load ptr, ptr %211, align 8, !tbaa !80
+  %212 = load ptr, ptr %211, align 8, !tbaa !73
   %.not3.i208.i = icmp eq ptr %212, null
   %213 = load ptr, ptr %6, align 8, !tbaa !15
   br i1 %.not3.i208.i, label %218, label %214
 
 214:                                              ; preds = %210
-  %215 = load ptr, ptr %212, align 8, !tbaa !81
+  %215 = load ptr, ptr %212, align 8, !tbaa !74
   %216 = getelementptr inbounds nuw i8, ptr %215, i64 24
   %217 = load ptr, ptr %216, align 8
   invoke void %217(ptr noundef nonnull align 8 dereferenceable(8) %212, ptr noundef %213)
@@ -8366,7 +8366,7 @@ _ZN4ncnn3MatD2Ev.exit190.i:                       ; preds = %219, %218, %214, %2
 
 ._crit_edge300.i:                                 ; preds = %._crit_edge.i, %.preheader279.i
   %232 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %233 = load ptr, ptr %232, align 8, !tbaa !79
+  %233 = load ptr, ptr %232, align 8, !tbaa !72
   %.not.i203.i = icmp eq ptr %233, null
   br i1 %.not.i203.i, label %_ZN4ncnn3MatD2Ev.exit191.i, label %234
 
@@ -8377,13 +8377,13 @@ _ZN4ncnn3MatD2Ev.exit190.i:                       ; preds = %219, %218, %214, %2
 
 237:                                              ; preds = %234
   %238 = getelementptr inbounds nuw i8, ptr %7, i64 32
-  %239 = load ptr, ptr %238, align 8, !tbaa !80
+  %239 = load ptr, ptr %238, align 8, !tbaa !73
   %.not3.i204.i = icmp eq ptr %239, null
   %240 = load ptr, ptr %7, align 8, !tbaa !15
   br i1 %.not3.i204.i, label %245, label %241
 
 241:                                              ; preds = %237
-  %242 = load ptr, ptr %239, align 8, !tbaa !81
+  %242 = load ptr, ptr %239, align 8, !tbaa !74
   %243 = getelementptr inbounds nuw i8, ptr %242, i64 24
   %244 = load ptr, ptr %243, align 8
   invoke void %244(ptr noundef nonnull align 8 dereferenceable(8) %239, ptr noundef %240)
@@ -8481,7 +8481,7 @@ _ZN4ncnn3MatD2Ev.exit191.i:                       ; preds = %246, %245, %241, %2
   %296 = add nuw nsw i32 %.0166285.i, 4
   %297 = or disjoint i32 %296, 3
   %298 = icmp slt i32 %297, %2
-  br i1 %298, label %.lr.ph.i, label %.preheader278.i, !llvm.loop !86
+  br i1 %298, label %.lr.ph.i, label %.preheader278.i, !llvm.loop !79
 
 .lr.ph297.i:                                      ; preds = %.preheader278.i, %315
   %.1167296.i = phi i32 [ %319, %315 ], [ %.0166.lcssa.i, %.preheader278.i ]
@@ -8491,40 +8491,40 @@ _ZN4ncnn3MatD2Ev.exit191.i:                       ; preds = %246, %245, %241, %2
   %.1175292.i = phi ptr [ %299, %315 ], [ %.0174.lcssa.i, %.preheader278.i ]
   %.1177291.i = phi ptr [ %318, %315 ], [ %.0176.lcssa.i, %.preheader278.i ]
   %299 = getelementptr inbounds nuw i8, ptr %.1175292.i, i64 4
-  %300 = load float, ptr %.1175292.i, align 4, !tbaa !27
+  %300 = load float, ptr %.1175292.i, align 4, !tbaa !26
   %301 = invoke noundef zeroext i16 @_ZN4ncnn18float32_to_float16Ef(float noundef nofpclass(nan inf) %300)
           to label %302 unwind label %320
 
 302:                                              ; preds = %.lr.ph297.i
-  store i16 %301, ptr %.1177291.i, align 2, !tbaa !38
+  store i16 %301, ptr %.1177291.i, align 2, !tbaa !35
   %303 = getelementptr inbounds nuw i8, ptr %.1173293.i, i64 4
-  %304 = load float, ptr %.1173293.i, align 4, !tbaa !27
+  %304 = load float, ptr %.1173293.i, align 4, !tbaa !26
   %305 = invoke noundef zeroext i16 @_ZN4ncnn18float32_to_float16Ef(float noundef nofpclass(nan inf) %304)
           to label %306 unwind label %320
 
 306:                                              ; preds = %302
   %307 = getelementptr inbounds nuw i8, ptr %.1177291.i, i64 2
-  store i16 %305, ptr %307, align 2, !tbaa !38
+  store i16 %305, ptr %307, align 2, !tbaa !35
   %308 = getelementptr inbounds nuw i8, ptr %.1171294.i, i64 4
-  %309 = load float, ptr %.1171294.i, align 4, !tbaa !27
+  %309 = load float, ptr %.1171294.i, align 4, !tbaa !26
   %310 = invoke noundef zeroext i16 @_ZN4ncnn18float32_to_float16Ef(float noundef nofpclass(nan inf) %309)
           to label %311 unwind label %320
 
 311:                                              ; preds = %306
   %312 = getelementptr inbounds nuw i8, ptr %.1177291.i, i64 4
-  store i16 %310, ptr %312, align 2, !tbaa !38
-  %313 = load float, ptr %.1169295.i, align 4, !tbaa !27
+  store i16 %310, ptr %312, align 2, !tbaa !35
+  %313 = load float, ptr %.1169295.i, align 4, !tbaa !26
   %314 = invoke noundef zeroext i16 @_ZN4ncnn18float32_to_float16Ef(float noundef nofpclass(nan inf) %313)
           to label %315 unwind label %320
 
 315:                                              ; preds = %311
   %316 = getelementptr inbounds nuw i8, ptr %.1169295.i, i64 4
   %317 = getelementptr inbounds nuw i8, ptr %.1177291.i, i64 6
-  store i16 %314, ptr %317, align 2, !tbaa !38
+  store i16 %314, ptr %317, align 2, !tbaa !35
   %318 = getelementptr inbounds nuw i8, ptr %.1177291.i, i64 8
   %319 = add i32 %.1167296.i, 1
   %exitcond.not.i = icmp eq i32 %319, %2
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph297.i, !llvm.loop !87
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph297.i, !llvm.loop !80
 
 320:                                              ; preds = %311, %306, %302, %.lr.ph297.i
   %321 = landingpad { ptr, i32 }
@@ -8536,12 +8536,12 @@ _ZN4ncnn3MatD2Ev.exit191.i:                       ; preds = %246, %245, %241, %2
   %322 = trunc i64 %indvars.iv.next.i to i32
   %323 = or disjoint i32 %322, 3
   %324 = icmp slt i32 %323, %3
-  br i1 %324, label %252, label %._crit_edge300.i, !llvm.loop !88
+  br i1 %324, label %252, label %._crit_edge300.i, !llvm.loop !81
 
 325:                                              ; preds = %320, %250
   %.pn.i = phi { ptr, i32 } [ %321, %320 ], [ %251, %250 ]
   %326 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %327 = load ptr, ptr %326, align 8, !tbaa !79
+  %327 = load ptr, ptr %326, align 8, !tbaa !72
   %.not.i199.i = icmp eq ptr %327, null
   br i1 %.not.i199.i, label %_ZN4ncnn3MatD2Ev.exit192.i, label %328
 
@@ -8552,13 +8552,13 @@ _ZN4ncnn3MatD2Ev.exit191.i:                       ; preds = %246, %245, %241, %2
 
 331:                                              ; preds = %328
   %332 = getelementptr inbounds nuw i8, ptr %7, i64 32
-  %333 = load ptr, ptr %332, align 8, !tbaa !80
+  %333 = load ptr, ptr %332, align 8, !tbaa !73
   %.not3.i200.i = icmp eq ptr %333, null
   %334 = load ptr, ptr %7, align 8, !tbaa !15
   br i1 %.not3.i200.i, label %339, label %335
 
 335:                                              ; preds = %331
-  %336 = load ptr, ptr %333, align 8, !tbaa !81
+  %336 = load ptr, ptr %333, align 8, !tbaa !74
   %337 = getelementptr inbounds nuw i8, ptr %336, i64 24
   %338 = load ptr, ptr %337, align 8
   invoke void %338(ptr noundef nonnull align 8 dereferenceable(8) %333, ptr noundef %334)
@@ -8591,7 +8591,7 @@ _ZN4ncnn3MatD2Ev.exit192.i:                       ; preds = %340, %339, %335, %3
 
 344:                                              ; preds = %.thread275.i
   %345 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %346 = load ptr, ptr %345, align 8, !tbaa !79
+  %346 = load ptr, ptr %345, align 8, !tbaa !72
   %.not.i195.i = icmp eq ptr %346, null
   br i1 %.not.i195.i, label %_ZN4ncnn3MatD2Ev.exit193.i, label %347
 
@@ -8602,13 +8602,13 @@ _ZN4ncnn3MatD2Ev.exit192.i:                       ; preds = %340, %339, %335, %3
 
 350:                                              ; preds = %347
   %351 = getelementptr inbounds nuw i8, ptr %8, i64 32
-  %352 = load ptr, ptr %351, align 8, !tbaa !80
+  %352 = load ptr, ptr %351, align 8, !tbaa !73
   %.not3.i196.i = icmp eq ptr %352, null
   %353 = load ptr, ptr %8, align 8, !tbaa !15
   br i1 %.not3.i196.i, label %358, label %354
 
 354:                                              ; preds = %350
-  %355 = load ptr, ptr %352, align 8, !tbaa !81
+  %355 = load ptr, ptr %352, align 8, !tbaa !74
   %356 = getelementptr inbounds nuw i8, ptr %355, i64 24
   %357 = load ptr, ptr %356, align 8
   invoke void %357(ptr noundef nonnull align 8 dereferenceable(8) %352, ptr noundef %353)
@@ -8637,7 +8637,7 @@ _ZN4ncnn3MatD2Ev.exit193.i:                       ; preds = %359, %358, %354, %3
   %364 = landingpad { ptr, i32 }
           cleanup
   %365 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %366 = load ptr, ptr %365, align 8, !tbaa !79
+  %366 = load ptr, ptr %365, align 8, !tbaa !72
   %.not.i.i = icmp eq ptr %366, null
   br i1 %.not.i.i, label %_ZN4ncnn3MatD2Ev.exit194.i, label %367
 
@@ -8648,13 +8648,13 @@ _ZN4ncnn3MatD2Ev.exit193.i:                       ; preds = %359, %358, %354, %3
 
 370:                                              ; preds = %367
   %371 = getelementptr inbounds nuw i8, ptr %8, i64 32
-  %372 = load ptr, ptr %371, align 8, !tbaa !80
+  %372 = load ptr, ptr %371, align 8, !tbaa !73
   %.not3.i.i = icmp eq ptr %372, null
   %373 = load ptr, ptr %8, align 8, !tbaa !15
   br i1 %.not3.i.i, label %378, label %374
 
 374:                                              ; preds = %370
-  %375 = load ptr, ptr %372, align 8, !tbaa !81
+  %375 = load ptr, ptr %372, align 8, !tbaa !74
   %376 = getelementptr inbounds nuw i8, ptr %375, i64 24
   %377 = load ptr, ptr %376, align 8
   invoke void %377(ptr noundef nonnull align 8 dereferenceable(8) %372, ptr noundef %373)
@@ -8747,69 +8747,62 @@ attributes #13 = { noreturn nounwind }
 !20 = !{!"bool", !6, i64 0}
 !21 = !{!6, !6, i64 0}
 !22 = !{!9, !12, i64 16}
-!23 = distinct !{!23, !24, !25}
+!23 = distinct !{!23, !24}
 !24 = !{!"llvm.loop.mustprogress"}
-!25 = !{!"llvm.loop.estimated_trip_count"}
-!26 = distinct !{!26, !24, !25}
-!27 = !{!28, !28, i64 0}
-!28 = !{!"float", !6, i64 0}
-!29 = distinct !{!29, !24, !25}
-!30 = distinct !{!30, !25}
-!31 = !{!32}
-!32 = !{i64 2, i64 -1, i64 -1, i1 true}
-!33 = distinct !{!33, !24, !25}
-!34 = distinct !{!34, !24, !25}
-!35 = distinct !{!35, !24, !25}
-!36 = distinct !{!36, !25}
-!37 = distinct !{!37, !24, !25}
-!38 = !{!39, !39, i64 0}
-!39 = !{!"short", !6, i64 0}
-!40 = distinct !{!40, !24, !25}
-!41 = distinct !{!41, !25}
-!42 = distinct !{!42, !24, !25}
-!43 = distinct !{!43, !24, !25}
-!44 = distinct !{!44, !24, !25}
-!45 = distinct !{!45, !25}
-!46 = distinct !{!46, !24, !25}
-!47 = distinct !{!47, !24, !25}
-!48 = distinct !{!48, !24, !25}
-!49 = distinct !{!49, !25}
-!50 = !{!9, !5, i64 48}
-!51 = !{!19, !20, i64 39}
-!52 = !{i8 0, i8 2}
-!53 = !{}
-!54 = distinct !{!54, !24, !25}
-!55 = distinct !{!55, !24, !25}
-!56 = distinct !{!56, !24, !25}
-!57 = distinct !{!57, !24, !25}
-!58 = distinct !{!58, !24, !25}
-!59 = distinct !{!59, !24, !25}
-!60 = distinct !{!60, !24, !25}
-!61 = distinct !{!61, !24, !25}
-!62 = distinct !{!62, !24, !25}
-!63 = distinct !{!63, !24, !25}
-!64 = distinct !{!64, !24, !25}
-!65 = distinct !{!65, !24, !25}
-!66 = distinct !{!66, !24, !25}
-!67 = distinct !{!67, !24, !25}
-!68 = distinct !{!68, !24, !25}
-!69 = distinct !{!69, !24, !25}
-!70 = distinct !{!70, !24, !25}
-!71 = distinct !{!71, !24, !25}
-!72 = distinct !{!72, !24, !25}
-!73 = distinct !{!73, !24, !25}
-!74 = distinct !{!74, !24, !25}
-!75 = distinct !{!75, !24, !25}
-!76 = distinct !{!76, !24, !25}
-!77 = distinct !{!77, !24, !25}
-!78 = distinct !{!78, !25}
-!79 = !{!9, !11, i64 8}
-!80 = !{!9, !13, i64 32}
-!81 = !{!82, !82, i64 0}
-!82 = !{!"vtable pointer", !7, i64 0}
-!83 = distinct !{!83, !24, !25}
-!84 = distinct !{!84, !24, !25}
-!85 = distinct !{!85, !24, !25}
-!86 = distinct !{!86, !24, !25}
-!87 = distinct !{!87, !24, !25}
-!88 = distinct !{!88, !24, !25}
+!25 = distinct !{!25, !24}
+!26 = !{!27, !27, i64 0}
+!27 = !{!"float", !6, i64 0}
+!28 = distinct !{!28, !24}
+!29 = !{!30}
+!30 = !{i64 2, i64 -1, i64 -1, i1 true}
+!31 = distinct !{!31, !24}
+!32 = distinct !{!32, !24}
+!33 = distinct !{!33, !24}
+!34 = distinct !{!34, !24}
+!35 = !{!36, !36, i64 0}
+!36 = !{!"short", !6, i64 0}
+!37 = distinct !{!37, !24}
+!38 = distinct !{!38, !24}
+!39 = distinct !{!39, !24}
+!40 = distinct !{!40, !24}
+!41 = distinct !{!41, !24}
+!42 = distinct !{!42, !24}
+!43 = distinct !{!43, !24}
+!44 = !{!9, !5, i64 48}
+!45 = !{!19, !20, i64 39}
+!46 = !{i8 0, i8 2}
+!47 = !{}
+!48 = distinct !{!48, !24}
+!49 = distinct !{!49, !24}
+!50 = distinct !{!50, !24}
+!51 = distinct !{!51, !24}
+!52 = distinct !{!52, !24}
+!53 = distinct !{!53, !24}
+!54 = distinct !{!54, !24}
+!55 = distinct !{!55, !24}
+!56 = distinct !{!56, !24}
+!57 = distinct !{!57, !24}
+!58 = distinct !{!58, !24}
+!59 = distinct !{!59, !24}
+!60 = distinct !{!60, !24}
+!61 = distinct !{!61, !24}
+!62 = distinct !{!62, !24}
+!63 = distinct !{!63, !24}
+!64 = distinct !{!64, !24}
+!65 = distinct !{!65, !24}
+!66 = distinct !{!66, !24}
+!67 = distinct !{!67, !24}
+!68 = distinct !{!68, !24}
+!69 = distinct !{!69, !24}
+!70 = distinct !{!70, !24}
+!71 = distinct !{!71, !24}
+!72 = !{!9, !11, i64 8}
+!73 = !{!9, !13, i64 32}
+!74 = !{!75, !75, i64 0}
+!75 = !{!"vtable pointer", !7, i64 0}
+!76 = distinct !{!76, !24}
+!77 = distinct !{!77, !24}
+!78 = distinct !{!78, !24}
+!79 = distinct !{!79, !24}
+!80 = distinct !{!80, !24}
+!81 = distinct !{!81, !24}

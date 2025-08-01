@@ -366,7 +366,7 @@ define internal fastcc i32 @dissect_netlink_attributes_common(ptr noundef %0, i3
   %99 = sub i32 %.0121143, %89
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #6
   %100 = icmp ugt i32 %99, 3
-  br i1 %100, label %28, label %.loopexit, !llvm.loop !6
+  br i1 %100, label %28, label %.loopexit
 
 .loopexit:                                        ; preds = %96, %23, %.thread
   %.0142 = phi i32 [ %.0144, %.thread ], [ %24, %23 ], [ %98, %96 ]
@@ -675,7 +675,7 @@ define internal i32 @dissect_netlink(ptr noundef %0, ptr noundef %1, ptr noundef
 72:                                               ; preds = %54, %67, %68, %62
   %73 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %40)
   %74 = icmp sgt i32 %73, 15
-  br i1 %74, label %38, label %.loopexit, !llvm.loop !8
+  br i1 %74, label %38, label %.loopexit
 
 .loopexit:                                        ; preds = %72, %7, %.thread, %4
   %.0 = phi i32 [ 0, %4 ], [ %.099116, %.thread ], [ 16, %7 ], [ %40, %72 ]
@@ -762,6 +762,3 @@ attributes #6 = { nounwind }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7}
-!7 = !{!"llvm.loop.estimated_trip_count"}
-!8 = distinct !{!8, !7}

@@ -174,7 +174,7 @@ define internal void @tileview_event_cb(ptr noundef %0) #0 {
 
 8:                                                ; preds = %6
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %10 = load i32, ptr %9, align 8, !tbaa !21
+  %10 = load i32, ptr %9, align 8, !tbaa !20
   %11 = icmp eq i32 %10, 1
   br i1 %11, label %41, label %12
 
@@ -183,9 +183,9 @@ define internal void @tileview_event_cb(ptr noundef %0) #0 {
   %14 = tail call i32 @lv_obj_get_content_height(ptr noundef %4) #4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #4
   call void @lv_obj_get_scroll_end(ptr noundef %4, ptr noundef nonnull %2) #4
-  %15 = load i32, ptr %2, align 4, !tbaa !33
+  %15 = load i32, ptr %2, align 4, !tbaa !32
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  %17 = load i32, ptr %16, align 4, !tbaa !34
+  %17 = load i32, ptr %16, align 4, !tbaa !33
   %18 = sdiv i32 %13, 2
   %19 = add nsw i32 %15, %18
   %.fr = freeze i32 %19
@@ -204,7 +204,7 @@ define internal void @tileview_event_cb(ptr noundef %0) #0 {
   %28 = add nuw i32 %.03845, 1
   %29 = call i32 @lv_obj_get_child_count(ptr noundef %4) #4
   %30 = icmp ult i32 %28, %29
-  br i1 %30, label %.lr.ph, label %.critedge, !llvm.loop !35
+  br i1 %30, label %.lr.ph, label %.critedge, !llvm.loop !34
 
 .lr.ph:                                           ; preds = %12, %27
   %.03845 = phi i32 [ %28, %27 ], [ 0, %12 ]
@@ -276,21 +276,20 @@ attributes #4 = { nounwind }
 !15 = !{!"short", !8, i64 0}
 !16 = !{!17, !10, i64 64}
 !17 = !{!"_lv_tileview_t", !5, i64 0, !10, i64 64}
-!18 = distinct !{!18, !19, !20}
+!18 = distinct !{!18, !19}
 !19 = !{!"llvm.loop.mustprogress"}
-!20 = !{!"llvm.loop.estimated_trip_count"}
-!21 = !{!22, !14, i64 16}
-!22 = !{!"_lv_indev_t", !14, i64 0, !7, i64 8, !14, i64 16, !14, i64 20, !14, i64 24, !8, i64 28, !8, i64 28, !8, i64 28, !8, i64 28, !8, i64 28, !14, i64 32, !14, i64 36, !7, i64 40, !7, i64 48, !23, i64 56, !24, i64 64, !8, i64 72, !8, i64 73, !8, i64 74, !8, i64 75, !15, i64 76, !15, i64 78, !14, i64 80, !25, i64 88, !26, i64 232, !10, i64 240, !27, i64 248, !7, i64 256, !28, i64 264, !32, i64 296, !14, i64 304, !7, i64 312}
-!23 = !{!"p1 _ZTS13_lv_display_t", !7, i64 0}
-!24 = !{!"p1 _ZTS11_lv_timer_t", !7, i64 0}
-!25 = !{!"", !26, i64 0, !26, i64 8, !26, i64 16, !26, i64 24, !26, i64 32, !26, i64 40, !26, i64 48, !10, i64 56, !10, i64 64, !10, i64 72, !10, i64 80, !10, i64 88, !13, i64 96, !26, i64 112, !14, i64 120, !8, i64 124, !26, i64 128, !14, i64 136, !8, i64 140, !8, i64 140, !8, i64 141, !8, i64 141, !8, i64 141}
-!26 = !{!"", !14, i64 0, !14, i64 4}
-!27 = !{!"p1 _ZTS11_lv_group_t", !7, i64 0}
-!28 = !{!"", !29, i64 0, !8, i64 24, !8, i64 24}
-!29 = !{!"_lv_array_t", !30, i64 0, !14, i64 8, !14, i64 12, !14, i64 16, !31, i64 20}
-!30 = !{!"p1 omnipotent char", !7, i64 0}
-!31 = !{!"_Bool", !8, i64 0}
-!32 = !{!"p1 _ZTS10_lv_anim_t", !7, i64 0}
-!33 = !{!26, !14, i64 0}
-!34 = !{!26, !14, i64 4}
-!35 = distinct !{!35, !19, !20}
+!20 = !{!21, !14, i64 16}
+!21 = !{!"_lv_indev_t", !14, i64 0, !7, i64 8, !14, i64 16, !14, i64 20, !14, i64 24, !8, i64 28, !8, i64 28, !8, i64 28, !8, i64 28, !8, i64 28, !14, i64 32, !14, i64 36, !7, i64 40, !7, i64 48, !22, i64 56, !23, i64 64, !8, i64 72, !8, i64 73, !8, i64 74, !8, i64 75, !15, i64 76, !15, i64 78, !14, i64 80, !24, i64 88, !25, i64 232, !10, i64 240, !26, i64 248, !7, i64 256, !27, i64 264, !31, i64 296, !14, i64 304, !7, i64 312}
+!22 = !{!"p1 _ZTS13_lv_display_t", !7, i64 0}
+!23 = !{!"p1 _ZTS11_lv_timer_t", !7, i64 0}
+!24 = !{!"", !25, i64 0, !25, i64 8, !25, i64 16, !25, i64 24, !25, i64 32, !25, i64 40, !25, i64 48, !10, i64 56, !10, i64 64, !10, i64 72, !10, i64 80, !10, i64 88, !13, i64 96, !25, i64 112, !14, i64 120, !8, i64 124, !25, i64 128, !14, i64 136, !8, i64 140, !8, i64 140, !8, i64 141, !8, i64 141, !8, i64 141}
+!25 = !{!"", !14, i64 0, !14, i64 4}
+!26 = !{!"p1 _ZTS11_lv_group_t", !7, i64 0}
+!27 = !{!"", !28, i64 0, !8, i64 24, !8, i64 24}
+!28 = !{!"_lv_array_t", !29, i64 0, !14, i64 8, !14, i64 12, !14, i64 16, !30, i64 20}
+!29 = !{!"p1 omnipotent char", !7, i64 0}
+!30 = !{!"_Bool", !8, i64 0}
+!31 = !{!"p1 _ZTS10_lv_anim_t", !7, i64 0}
+!32 = !{!25, !14, i64 0}
+!33 = !{!25, !14, i64 4}
+!34 = distinct !{!34, !19}

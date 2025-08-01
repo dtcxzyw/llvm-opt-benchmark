@@ -325,7 +325,7 @@ define internal i32 @cpia_decode_frame(ptr noundef %0, ptr noundef %1, ptr nound
   %.1131 = phi ptr [ %161, %152 ], [ %151, %144 ]
   %163 = add nuw nsw i32 %.1175, %.sink198
   %164 = icmp slt i32 %163, %130
-  br i1 %164, label %.lr.ph176, label %.thread, !llvm.loop !49
+  br i1 %164, label %.lr.ph176, label %.thread, !llvm.loop !48
 
 .thread.sink.split:                               ; preds = %.lr.ph, %.lr.ph176
   store i32 1, ptr %67, align 8, !tbaa !43
@@ -339,7 +339,7 @@ define internal i32 @cpia_decode_frame(ptr noundef %0, ptr noundef %1, ptr nound
   %168 = sub nsw i32 %71, %72
   %169 = load i32, ptr %59, align 4, !tbaa !42
   %170 = icmp slt i32 %165, %169
-  br i1 %170, label %68, label %.loopexit, !llvm.loop !50
+  br i1 %170, label %68, label %.loopexit, !llvm.loop !49
 
 .loopexit:                                        ; preds = %.thread, %.preheader167, %80, %74
   store i32 1, ptr %2, align 4, !tbaa !45
@@ -430,8 +430,7 @@ attributes #3 = { nounwind }
 !43 = !{!37, !10, i64 320}
 !44 = !{!14, !14, i64 0}
 !45 = !{!10, !10, i64 0}
-!46 = distinct !{!46, !47, !48}
+!46 = distinct !{!46, !47}
 !47 = !{!"llvm.loop.mustprogress"}
-!48 = !{!"llvm.loop.estimated_trip_count"}
-!49 = distinct !{!49, !47, !48}
-!50 = distinct !{!50, !47, !48}
+!48 = distinct !{!48, !47}
+!49 = distinct !{!49, !47}

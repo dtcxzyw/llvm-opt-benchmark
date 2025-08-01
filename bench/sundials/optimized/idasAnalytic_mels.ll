@@ -212,7 +212,7 @@ check_retval.exit69:                              ; preds = %.lr.ph
   %85 = load double, ptr %4, align 8, !tbaa !4
   %86 = fsub double 1.000000e+00, %85
   %87 = fcmp ogt double %86, 1.000000e-15
-  br i1 %87, label %.lr.ph, label %._crit_edge, !llvm.loop !30
+  br i1 %87, label %.lr.ph, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %73
   %puts49 = call i32 @puts(ptr nonnull dereferenceable(1) @str.3)
@@ -277,17 +277,17 @@ check_retval.exit79:                              ; preds = %check_retval.exit77
 
 check_retval.exit81:                              ; preds = %check_retval.exit79, %115
   %puts50 = call i32 @puts(ptr nonnull dereferenceable(1) @str.4)
-  %118 = load i64, ptr %5, align 8, !tbaa !32
+  %118 = load i64, ptr %5, align 8, !tbaa !30
   %119 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.25, i64 noundef %118)
-  %120 = load i64, ptr %6, align 8, !tbaa !32
-  %121 = load i64, ptr %10, align 8, !tbaa !32
+  %120 = load i64, ptr %6, align 8, !tbaa !30
+  %121 = load i64, ptr %10, align 8, !tbaa !30
   %122 = add nsw i64 %121, %120
   %123 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.26, i64 noundef %122)
-  %124 = load i64, ptr %7, align 8, !tbaa !32
+  %124 = load i64, ptr %7, align 8, !tbaa !30
   %125 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.27, i64 noundef %124)
-  %126 = load i64, ptr %8, align 8, !tbaa !32
+  %126 = load i64, ptr %8, align 8, !tbaa !30
   %127 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.28, i64 noundef %126)
-  %128 = load i64, ptr %9, align 8, !tbaa !32
+  %128 = load i64, ptr %9, align 8, !tbaa !30
   %129 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.29, i64 noundef %128)
   %130 = load double, ptr %4, align 8, !tbaa !4
   %131 = call fastcc i32 @check_ans(ptr noundef nonnull %20, double noundef %130)
@@ -349,7 +349,7 @@ define dso_local noundef i32 @fres(double noundef %0, ptr noundef readonly captu
   %21 = tail call double @llvm.fmuladd.f64(double %19, double %10, double %20)
   %22 = fadd double %6, -1.000000e+00
   %23 = tail call double @llvm.fmuladd.f64(double %22, double %12, double %21)
-  %24 = tail call double @exp(double noundef %0) #9, !tbaa !33
+  %24 = tail call double @exp(double noundef %0) #9, !tbaa !31
   %25 = tail call double @llvm.fmuladd.f64(double %24, double 2.000000e+00, double %23)
   %26 = fsub double %25, %16
   %27 = load ptr, ptr %3, align 8, !tbaa !13
@@ -399,7 +399,7 @@ define internal fastcc range(i32 -1, 2) i32 @check_ans(ptr noundef %0, double no
   %.val.val = load ptr, ptr %6, align 8, !tbaa !16
   %7 = getelementptr i8, ptr %.val32, i64 16
   %.val32.val = load ptr, ptr %7, align 8, !tbaa !16
-  %8 = tail call double @exp(double noundef %1) #9, !tbaa !33
+  %8 = tail call double @exp(double noundef %1) #9, !tbaa !31
   store double %8, ptr %.val.val, align 8, !tbaa !4
   %9 = fadd double %1, -2.000000e+00
   %10 = fdiv double %8, %9
@@ -625,7 +625,5 @@ attributes #11 = { cold }
 !27 = !{!26, !10, i64 64}
 !28 = !{!26, !10, i64 112}
 !29 = !{!23, !10, i64 0}
-!30 = distinct !{!30, !31}
-!31 = !{!"llvm.loop.estimated_trip_count"}
-!32 = !{!18, !18, i64 0}
-!33 = !{!19, !19, i64 0}
+!30 = !{!18, !18, i64 0}
+!31 = !{!19, !19, i64 0}

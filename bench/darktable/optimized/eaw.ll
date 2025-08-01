@@ -183,7 +183,7 @@ dwt_interleave_rows.exit:                         ; preds = %81, %90, %95
 124:                                              ; preds = %174
   %125 = add nuw nsw i64 %.0199284, 1
   %exitcond321.not = icmp eq i64 %125, 5
-  br i1 %exitcond321.not, label %116, label %117, !llvm.loop !10
+  br i1 %exitcond321.not, label %116, label %117
 
 126:                                              ; preds = %117, %174
   %.1193283 = phi i64 [ %.0192285, %117 ], [ %175, %174 ]
@@ -209,7 +209,7 @@ dwt_interleave_rows.exit:                         ; preds = %81, %90, %95
   store float %135, ptr %136, align 4, !tbaa !6
   %137 = add nuw nsw i64 %.02527.i, 1
   %exitcond.not.i = icmp eq i64 %137, 4
-  br i1 %exitcond.not.i, label %.preheader26.i, label %130, !llvm.loop !12
+  br i1 %exitcond.not.i, label %.preheader26.i, label %130
 
 138:                                              ; preds = %.preheader26.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %28) #5
@@ -232,7 +232,7 @@ dwt_interleave_rows.exit:                         ; preds = %81, %90, %95
   store float %145, ptr %143, align 4, !tbaa !6
   %146 = add nuw nsw i64 %.02428.i, 1
   %exitcond31.not.i = icmp eq i64 %146, 4
-  br i1 %exitcond31.not.i, label %138, label %.preheader26.i, !llvm.loop !13
+  br i1 %exitcond31.not.i, label %138, label %.preheader26.i
 
 147:                                              ; preds = %148
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %30) #5
@@ -249,7 +249,7 @@ dwt_interleave_rows.exit:                         ; preds = %81, %90, %95
   store float %153, ptr %154, align 4, !tbaa !6
   %155 = add nuw nsw i64 %.02329.i, 1
   %exitcond32.not.i = icmp eq i64 %155, 4
-  br i1 %exitcond32.not.i, label %147, label %148, !llvm.loop !14
+  br i1 %exitcond32.not.i, label %147, label %148
 
 .preheader.i:                                     ; preds = %164, %.preheader.i
   %.09.i.i = phi i64 [ %163, %.preheader.i ], [ 0, %164 ]
@@ -263,7 +263,7 @@ dwt_interleave_rows.exit:                         ; preds = %81, %90, %95
   store i32 %161, ptr %162, align 4, !tbaa !6
   %163 = add nuw nsw i64 %.09.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %163, 4
-  br i1 %exitcond.not.i.i, label %weight.exit, label %.preheader.i, !llvm.loop !15
+  br i1 %exitcond.not.i.i, label %weight.exit, label %.preheader.i
 
 164:                                              ; preds = %164, %147
   %.030.i = phi i64 [ 0, %147 ], [ %171, %164 ]
@@ -276,7 +276,7 @@ dwt_interleave_rows.exit:                         ; preds = %81, %90, %95
   store float %169, ptr %170, align 4, !tbaa !6
   %171 = add nuw nsw i64 %.030.i, 1
   %exitcond33.not.i = icmp eq i64 %171, 4
-  br i1 %exitcond33.not.i, label %.preheader.i, label %164, !llvm.loop !16
+  br i1 %exitcond33.not.i, label %.preheader.i, label %164
 
 weight.exit:                                      ; preds = %.preheader.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %30) #5
@@ -292,7 +292,7 @@ weight.exit:                                      ; preds = %.preheader.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %34) #5
   %176 = add nuw nsw i64 %.0206282, 1
   %exitcond320.not = icmp eq i64 %176, 5
-  br i1 %exitcond320.not, label %124, label %126, !llvm.loop !17
+  br i1 %exitcond320.not, label %124, label %126
 
 177:                                              ; preds = %weight.exit, %177
   %.0205281 = phi i64 [ 0, %weight.exit ], [ %190, %177 ]
@@ -312,24 +312,24 @@ weight.exit:                                      ; preds = %.preheader.i
   store float %189, ptr %187, align 4, !tbaa !6
   %190 = add nuw nsw i64 %.0205281, 1
   %exitcond.not = icmp eq i64 %190, 4
-  br i1 %exitcond.not, label %174, label %177, !llvm.loop !18
+  br i1 %exitcond.not, label %174, label %177
 
 191:                                              ; preds = %226
   %192 = shl i64 %.0190287, 2
   %193 = getelementptr inbounds nuw float, ptr %108, i64 %192
-  %.val = load <4 x float>, ptr %32, align 16, !tbaa !19
-  store <4 x float> %.val, ptr %193, align 16, !tbaa !19, !alias.scope !20, !nontemporal !23
+  %.val = load <4 x float>, ptr %32, align 16, !tbaa !10
+  store <4 x float> %.val, ptr %193, align 16, !tbaa !10, !alias.scope !11, !nontemporal !14
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %24) #5
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %25) #5
   br label %197
 
 194:                                              ; preds = %197
-  %.val.i = load <4 x float>, ptr %24, align 16, !tbaa !19
+  %.val.i = load <4 x float>, ptr %24, align 16, !tbaa !10
   %195 = tail call reassoc nsz arcp contract afn <4 x float> @llvm.x86.sse.min.ps(<4 x float> %.val.i, <4 x float> zeroinitializer)
-  store <4 x float> %195, ptr %24, align 16, !tbaa !19
-  %.val25.i = load <4 x float>, ptr %25, align 16, !tbaa !19
+  store <4 x float> %195, ptr %24, align 16, !tbaa !10
+  %.val25.i = load <4 x float>, ptr %25, align 16, !tbaa !10
   %196 = tail call reassoc nsz arcp contract afn <4 x float> @llvm.x86.sse.max.ps(<4 x float> %.val25.i, <4 x float> zeroinitializer)
-  store <4 x float> %196, ptr %25, align 16, !tbaa !19
+  store <4 x float> %196, ptr %25, align 16, !tbaa !10
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %26) #5
   br label %207
 
@@ -347,7 +347,7 @@ weight.exit:                                      ; preds = %.preheader.i
   store float %204, ptr %205, align 4, !tbaa !6
   %206 = add nuw nsw i64 %.02426.i, 1
   %exitcond.not.i231 = icmp eq i64 %206, 4
-  br i1 %exitcond.not.i231, label %194, label %197, !llvm.loop !24
+  br i1 %exitcond.not.i231, label %194, label %197
 
 207:                                              ; preds = %207, %194
   %.02327.i = phi i64 [ 0, %194 ], [ %214, %207 ]
@@ -360,7 +360,7 @@ weight.exit:                                      ; preds = %.preheader.i
   store float %212, ptr %213, align 4, !tbaa !6
   %214 = add nuw nsw i64 %.02327.i, 1
   %exitcond29.not.i = icmp eq i64 %214, 4
-  br i1 %exitcond29.not.i, label %.preheader.i232.preheader, label %207, !llvm.loop !25
+  br i1 %exitcond29.not.i, label %.preheader.i232.preheader, label %207
 
 .preheader.i232.preheader:                        ; preds = %207
   %215 = getelementptr inbounds nuw float, ptr %107, i64 %192
@@ -379,7 +379,7 @@ weight.exit:                                      ; preds = %.preheader.i
   store float %223, ptr %221, align 4, !tbaa !6
   %224 = add nuw nsw i64 %.028.i, 1
   %exitcond30.not.i = icmp eq i64 %224, 4
-  br i1 %exitcond30.not.i, label %accumulate.exit, label %.preheader.i232, !llvm.loop !26
+  br i1 %exitcond30.not.i, label %accumulate.exit, label %.preheader.i232
 
 accumulate.exit:                                  ; preds = %.preheader.i232
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %26) #5
@@ -390,7 +390,7 @@ accumulate.exit:                                  ; preds = %.preheader.i232
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %32) #5
   %225 = add nuw i64 %.0190287, 1
   %exitcond323.not = icmp eq i64 %225, %110
-  br i1 %exitcond323.not, label %.preheader280, label %.lr.ph, !llvm.loop !27
+  br i1 %exitcond323.not, label %.preheader280, label %.lr.ph
 
 226:                                              ; preds = %116, %226
   %.0204286 = phi i64 [ 0, %116 ], [ %236, %226 ]
@@ -407,7 +407,7 @@ accumulate.exit:                                  ; preds = %.preheader.i232
   store float %234, ptr %235, align 4, !tbaa !6
   %236 = add nuw nsw i64 %.0204286, 1
   %exitcond322.not = icmp eq i64 %236, 4
-  br i1 %exitcond322.not, label %191, label %226, !llvm.loop !28
+  br i1 %exitcond322.not, label %191, label %226
 
 .preheader279:                                    ; preds = %accumulate.exit255, %.preheader280
   %.1191.lcssa = phi i64 [ %110, %.preheader280 ], [ %343, %accumulate.exit255 ]
@@ -442,7 +442,7 @@ accumulate.exit:                                  ; preds = %.preheader.i232
   %245 = getelementptr inbounds nuw float, ptr %294, i64 %73
   %246 = add nuw nsw i64 %.0201293, 1
   %exitcond326.not = icmp eq i64 %246, 5
-  br i1 %exitcond326.not, label %243, label %.preheader, !llvm.loop !29
+  br i1 %exitcond326.not, label %243, label %.preheader
 
 247:                                              ; preds = %.preheader, %292
   %.1291 = phi ptr [ %.0188294, %.preheader ], [ %294, %292 ]
@@ -462,7 +462,7 @@ accumulate.exit:                                  ; preds = %.preheader.i232
   store float %253, ptr %254, align 4, !tbaa !6
   %255 = add nuw nsw i64 %.02527.i233, 1
   %exitcond.not.i234 = icmp eq i64 %255, 4
-  br i1 %exitcond.not.i234, label %.preheader26.i235, label %248, !llvm.loop !12
+  br i1 %exitcond.not.i234, label %.preheader26.i235, label %248
 
 256:                                              ; preds = %.preheader26.i235
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %21) #5
@@ -485,7 +485,7 @@ accumulate.exit:                                  ; preds = %.preheader.i232
   store float %263, ptr %261, align 4, !tbaa !6
   %264 = add nuw nsw i64 %.02428.i236, 1
   %exitcond31.not.i237 = icmp eq i64 %264, 4
-  br i1 %exitcond31.not.i237, label %256, label %.preheader26.i235, !llvm.loop !13
+  br i1 %exitcond31.not.i237, label %256, label %.preheader26.i235
 
 265:                                              ; preds = %266
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %23) #5
@@ -502,7 +502,7 @@ accumulate.exit:                                  ; preds = %.preheader.i232
   store float %271, ptr %272, align 4, !tbaa !6
   %273 = add nuw nsw i64 %.02329.i238, 1
   %exitcond32.not.i239 = icmp eq i64 %273, 4
-  br i1 %exitcond32.not.i239, label %265, label %266, !llvm.loop !14
+  br i1 %exitcond32.not.i239, label %265, label %266
 
 .preheader.i242:                                  ; preds = %282, %.preheader.i242
   %.09.i.i243 = phi i64 [ %281, %.preheader.i242 ], [ 0, %282 ]
@@ -516,7 +516,7 @@ accumulate.exit:                                  ; preds = %.preheader.i232
   store i32 %279, ptr %280, align 4, !tbaa !6
   %281 = add nuw nsw i64 %.09.i.i243, 1
   %exitcond.not.i.i244 = icmp eq i64 %281, 4
-  br i1 %exitcond.not.i.i244, label %weight.exit245, label %.preheader.i242, !llvm.loop !15
+  br i1 %exitcond.not.i.i244, label %weight.exit245, label %.preheader.i242
 
 282:                                              ; preds = %282, %265
   %.030.i240 = phi i64 [ 0, %265 ], [ %289, %282 ]
@@ -529,7 +529,7 @@ accumulate.exit:                                  ; preds = %.preheader.i232
   store float %287, ptr %288, align 4, !tbaa !6
   %289 = add nuw nsw i64 %.030.i240, 1
   %exitcond33.not.i241 = icmp eq i64 %289, 4
-  br i1 %exitcond33.not.i241, label %.preheader.i242, label %282, !llvm.loop !16
+  br i1 %exitcond33.not.i241, label %.preheader.i242, label %282
 
 weight.exit245:                                   ; preds = %.preheader.i242
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %23) #5
@@ -545,7 +545,7 @@ weight.exit245:                                   ; preds = %.preheader.i242
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %38) #5
   %294 = getelementptr inbounds nuw i8, ptr %.1291, i64 %.idx224
   %exitcond325.not = icmp eq i64 %293, %242
-  br i1 %exitcond325.not, label %244, label %247, !llvm.loop !30
+  br i1 %exitcond325.not, label %244, label %247
 
 295:                                              ; preds = %weight.exit245, %295
   %.0198288 = phi i64 [ 0, %weight.exit245 ], [ %308, %295 ]
@@ -565,24 +565,24 @@ weight.exit245:                                   ; preds = %.preheader.i242
   store float %307, ptr %305, align 4, !tbaa !6
   %308 = add nuw nsw i64 %.0198288, 1
   %exitcond324.not = icmp eq i64 %308, 4
-  br i1 %exitcond324.not, label %292, label %295, !llvm.loop !31
+  br i1 %exitcond324.not, label %292, label %295
 
 309:                                              ; preds = %345
   %310 = shl i64 %.1191296, 2
   %311 = getelementptr inbounds nuw float, ptr %108, i64 %310
-  %.val229 = load <4 x float>, ptr %36, align 16, !tbaa !19
-  store <4 x float> %.val229, ptr %311, align 16, !tbaa !19, !alias.scope !32, !nontemporal !23
+  %.val229 = load <4 x float>, ptr %36, align 16, !tbaa !10
+  store <4 x float> %.val229, ptr %311, align 16, !tbaa !10, !alias.scope !15, !nontemporal !14
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %17) #5
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %18) #5
   br label %315
 
 312:                                              ; preds = %315
-  %.val.i248 = load <4 x float>, ptr %17, align 16, !tbaa !19
+  %.val.i248 = load <4 x float>, ptr %17, align 16, !tbaa !10
   %313 = tail call reassoc nsz arcp contract afn <4 x float> @llvm.x86.sse.min.ps(<4 x float> %.val.i248, <4 x float> zeroinitializer)
-  store <4 x float> %313, ptr %17, align 16, !tbaa !19
-  %.val25.i249 = load <4 x float>, ptr %18, align 16, !tbaa !19
+  store <4 x float> %313, ptr %17, align 16, !tbaa !10
+  %.val25.i249 = load <4 x float>, ptr %18, align 16, !tbaa !10
   %314 = tail call reassoc nsz arcp contract afn <4 x float> @llvm.x86.sse.max.ps(<4 x float> %.val25.i249, <4 x float> zeroinitializer)
-  store <4 x float> %314, ptr %18, align 16, !tbaa !19
+  store <4 x float> %314, ptr %18, align 16, !tbaa !10
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %19) #5
   br label %325
 
@@ -600,7 +600,7 @@ weight.exit245:                                   ; preds = %.preheader.i242
   store float %322, ptr %323, align 4, !tbaa !6
   %324 = add nuw nsw i64 %.02426.i246, 1
   %exitcond.not.i247 = icmp eq i64 %324, 4
-  br i1 %exitcond.not.i247, label %312, label %315, !llvm.loop !24
+  br i1 %exitcond.not.i247, label %312, label %315
 
 325:                                              ; preds = %325, %312
   %.02327.i250 = phi i64 [ 0, %312 ], [ %332, %325 ]
@@ -613,7 +613,7 @@ weight.exit245:                                   ; preds = %.preheader.i242
   store float %330, ptr %331, align 4, !tbaa !6
   %332 = add nuw nsw i64 %.02327.i250, 1
   %exitcond29.not.i251 = icmp eq i64 %332, 4
-  br i1 %exitcond29.not.i251, label %.preheader.i252.preheader, label %325, !llvm.loop !25
+  br i1 %exitcond29.not.i251, label %.preheader.i252.preheader, label %325
 
 .preheader.i252.preheader:                        ; preds = %325
   %333 = getelementptr inbounds nuw float, ptr %107, i64 %310
@@ -632,7 +632,7 @@ weight.exit245:                                   ; preds = %.preheader.i242
   store float %341, ptr %339, align 4, !tbaa !6
   %342 = add nuw nsw i64 %.028.i253, 1
   %exitcond30.not.i254 = icmp eq i64 %342, 4
-  br i1 %exitcond30.not.i254, label %accumulate.exit255, label %.preheader.i252, !llvm.loop !26
+  br i1 %exitcond30.not.i254, label %accumulate.exit255, label %.preheader.i252
 
 accumulate.exit255:                               ; preds = %.preheader.i252
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %19) #5
@@ -643,7 +643,7 @@ accumulate.exit255:                               ; preds = %.preheader.i252
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %36) #5
   %343 = add nuw i64 %.1191296, 1
   %344 = icmp ult i64 %343, %56
-  br i1 %344, label %238, label %.preheader279, !llvm.loop !35
+  br i1 %344, label %238, label %.preheader279
 
 345:                                              ; preds = %243, %345
   %.0197295 = phi i64 [ 0, %243 ], [ %355, %345 ]
@@ -660,7 +660,7 @@ accumulate.exit255:                               ; preds = %.preheader.i252
   store float %353, ptr %354, align 4, !tbaa !6
   %355 = add nuw nsw i64 %.0197295, 1
   %exitcond327.not = icmp eq i64 %355, 4
-  br i1 %exitcond327.not, label %309, label %345, !llvm.loop !36
+  br i1 %exitcond327.not, label %309, label %345
 
 .lr.ph308:                                        ; preds = %.preheader279, %accumulate.exit278
   %.2307 = phi i64 [ %468, %accumulate.exit278 ], [ %.1191.lcssa, %.preheader279 ]
@@ -692,7 +692,7 @@ accumulate.exit255:                               ; preds = %.preheader.i252
 365:                                              ; preds = %417
   %366 = add nuw nsw i64 %.0194305, 1
   %exitcond330.not = icmp eq i64 %366, 5
-  br i1 %exitcond330.not, label %357, label %358, !llvm.loop !37
+  br i1 %exitcond330.not, label %357, label %358
 
 367:                                              ; preds = %358, %417
   %.0189303 = phi i64 [ 0, %358 ], [ %419, %417 ]
@@ -720,7 +720,7 @@ accumulate.exit255:                               ; preds = %.preheader.i252
   store float %378, ptr %379, align 4, !tbaa !6
   %380 = add nuw nsw i64 %.02527.i256, 1
   %exitcond.not.i257 = icmp eq i64 %380, 4
-  br i1 %exitcond.not.i257, label %.preheader26.i258, label %373, !llvm.loop !12
+  br i1 %exitcond.not.i257, label %.preheader26.i258, label %373
 
 381:                                              ; preds = %.preheader26.i258
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %14) #5
@@ -743,7 +743,7 @@ accumulate.exit255:                               ; preds = %.preheader.i252
   store float %388, ptr %386, align 4, !tbaa !6
   %389 = add nuw nsw i64 %.02428.i259, 1
   %exitcond31.not.i260 = icmp eq i64 %389, 4
-  br i1 %exitcond31.not.i260, label %381, label %.preheader26.i258, !llvm.loop !13
+  br i1 %exitcond31.not.i260, label %381, label %.preheader26.i258
 
 390:                                              ; preds = %391
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %16) #5
@@ -760,7 +760,7 @@ accumulate.exit255:                               ; preds = %.preheader.i252
   store float %396, ptr %397, align 4, !tbaa !6
   %398 = add nuw nsw i64 %.02329.i261, 1
   %exitcond32.not.i262 = icmp eq i64 %398, 4
-  br i1 %exitcond32.not.i262, label %390, label %391, !llvm.loop !14
+  br i1 %exitcond32.not.i262, label %390, label %391
 
 .preheader.i265:                                  ; preds = %407, %.preheader.i265
   %.09.i.i266 = phi i64 [ %406, %.preheader.i265 ], [ 0, %407 ]
@@ -774,7 +774,7 @@ accumulate.exit255:                               ; preds = %.preheader.i252
   store i32 %404, ptr %405, align 4, !tbaa !6
   %406 = add nuw nsw i64 %.09.i.i266, 1
   %exitcond.not.i.i267 = icmp eq i64 %406, 4
-  br i1 %exitcond.not.i.i267, label %weight.exit268, label %.preheader.i265, !llvm.loop !15
+  br i1 %exitcond.not.i.i267, label %weight.exit268, label %.preheader.i265
 
 407:                                              ; preds = %407, %390
   %.030.i263 = phi i64 [ 0, %390 ], [ %414, %407 ]
@@ -787,7 +787,7 @@ accumulate.exit255:                               ; preds = %.preheader.i252
   store float %412, ptr %413, align 4, !tbaa !6
   %414 = add nuw nsw i64 %.030.i263, 1
   %exitcond33.not.i264 = icmp eq i64 %414, 4
-  br i1 %exitcond33.not.i264, label %.preheader.i265, label %407, !llvm.loop !16
+  br i1 %exitcond33.not.i264, label %.preheader.i265, label %407
 
 weight.exit268:                                   ; preds = %.preheader.i265
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %16) #5
@@ -803,7 +803,7 @@ weight.exit268:                                   ; preds = %.preheader.i265
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %42) #5
   %419 = add nuw nsw i64 %.0189303, 1
   %exitcond329.not = icmp eq i64 %419, 5
-  br i1 %exitcond329.not, label %365, label %367, !llvm.loop !38
+  br i1 %exitcond329.not, label %365, label %367
 
 420:                                              ; preds = %weight.exit268, %420
   %.0186299 = phi i64 [ 0, %weight.exit268 ], [ %433, %420 ]
@@ -823,24 +823,24 @@ weight.exit268:                                   ; preds = %.preheader.i265
   store float %432, ptr %430, align 4, !tbaa !6
   %433 = add nuw nsw i64 %.0186299, 1
   %exitcond328.not = icmp eq i64 %433, 4
-  br i1 %exitcond328.not, label %417, label %420, !llvm.loop !39
+  br i1 %exitcond328.not, label %417, label %420
 
 434:                                              ; preds = %469
   %435 = shl i64 %.2307, 2
   %436 = getelementptr inbounds nuw float, ptr %108, i64 %435
-  %.val230 = load <4 x float>, ptr %40, align 16, !tbaa !19
-  store <4 x float> %.val230, ptr %436, align 16, !tbaa !19, !alias.scope !40, !nontemporal !23
+  %.val230 = load <4 x float>, ptr %40, align 16, !tbaa !10
+  store <4 x float> %.val230, ptr %436, align 16, !tbaa !10, !alias.scope !18, !nontemporal !14
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10) #5
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11) #5
   br label %440
 
 437:                                              ; preds = %440
-  %.val.i271 = load <4 x float>, ptr %10, align 16, !tbaa !19
+  %.val.i271 = load <4 x float>, ptr %10, align 16, !tbaa !10
   %438 = tail call reassoc nsz arcp contract afn <4 x float> @llvm.x86.sse.min.ps(<4 x float> %.val.i271, <4 x float> zeroinitializer)
-  store <4 x float> %438, ptr %10, align 16, !tbaa !19
-  %.val25.i272 = load <4 x float>, ptr %11, align 16, !tbaa !19
+  store <4 x float> %438, ptr %10, align 16, !tbaa !10
+  %.val25.i272 = load <4 x float>, ptr %11, align 16, !tbaa !10
   %439 = tail call reassoc nsz arcp contract afn <4 x float> @llvm.x86.sse.max.ps(<4 x float> %.val25.i272, <4 x float> zeroinitializer)
-  store <4 x float> %439, ptr %11, align 16, !tbaa !19
+  store <4 x float> %439, ptr %11, align 16, !tbaa !10
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12) #5
   br label %450
 
@@ -858,7 +858,7 @@ weight.exit268:                                   ; preds = %.preheader.i265
   store float %447, ptr %448, align 4, !tbaa !6
   %449 = add nuw nsw i64 %.02426.i269, 1
   %exitcond.not.i270 = icmp eq i64 %449, 4
-  br i1 %exitcond.not.i270, label %437, label %440, !llvm.loop !24
+  br i1 %exitcond.not.i270, label %437, label %440
 
 450:                                              ; preds = %450, %437
   %.02327.i273 = phi i64 [ 0, %437 ], [ %457, %450 ]
@@ -871,7 +871,7 @@ weight.exit268:                                   ; preds = %.preheader.i265
   store float %455, ptr %456, align 4, !tbaa !6
   %457 = add nuw nsw i64 %.02327.i273, 1
   %exitcond29.not.i274 = icmp eq i64 %457, 4
-  br i1 %exitcond29.not.i274, label %.preheader.i275.preheader, label %450, !llvm.loop !25
+  br i1 %exitcond29.not.i274, label %.preheader.i275.preheader, label %450
 
 .preheader.i275.preheader:                        ; preds = %450
   %458 = getelementptr inbounds nuw float, ptr %107, i64 %435
@@ -890,7 +890,7 @@ weight.exit268:                                   ; preds = %.preheader.i265
   store float %466, ptr %464, align 4, !tbaa !6
   %467 = add nuw nsw i64 %.028.i276, 1
   %exitcond30.not.i277 = icmp eq i64 %467, 4
-  br i1 %exitcond30.not.i277, label %accumulate.exit278, label %.preheader.i275, !llvm.loop !26
+  br i1 %exitcond30.not.i277, label %accumulate.exit278, label %.preheader.i275
 
 accumulate.exit278:                               ; preds = %.preheader.i275
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12) #5
@@ -901,7 +901,7 @@ accumulate.exit278:                               ; preds = %.preheader.i275
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %40) #5
   %468 = add nuw i64 %.2307, 1
   %exitcond332.not = icmp eq i64 %468, %7
-  br i1 %exitcond332.not, label %._crit_edge, label %.lr.ph308, !llvm.loop !43
+  br i1 %exitcond332.not, label %._crit_edge, label %.lr.ph308
 
 469:                                              ; preds = %357, %469
   %.0306 = phi i64 [ 0, %357 ], [ %479, %469 ]
@@ -918,12 +918,12 @@ accumulate.exit278:                               ; preds = %.preheader.i275
   store float %477, ptr %478, align 4, !tbaa !6
   %479 = add nuw nsw i64 %.0306, 1
   %exitcond331.not = icmp eq i64 %479, 4
-  br i1 %exitcond331.not, label %434, label %469, !llvm.loop !44
+  br i1 %exitcond331.not, label %434, label %469
 
 ._crit_edge:                                      ; preds = %accumulate.exit278, %.preheader279
   %480 = add nuw i64 %.0187309, 1
   %exitcond333.not = icmp eq i64 %480, %8
-  br i1 %exitcond333.not, label %._crit_edge312, label %81, !llvm.loop !45
+  br i1 %exitcond333.not, label %._crit_edge312, label %81
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
@@ -993,12 +993,12 @@ define void @eaw_synthesize(ptr noundef captures(none) %0, ptr noundef readnone 
   br label %41
 
 38:                                               ; preds = %41
-  %.val.i = load <4 x float>, ptr %8, align 16, !tbaa !19
+  %.val.i = load <4 x float>, ptr %8, align 16, !tbaa !10
   %39 = tail call reassoc nsz arcp contract afn <4 x float> @llvm.x86.sse.min.ps(<4 x float> %.val.i, <4 x float> zeroinitializer)
-  store <4 x float> %39, ptr %8, align 16, !tbaa !19
-  %.val25.i = load <4 x float>, ptr %9, align 16, !tbaa !19
+  store <4 x float> %39, ptr %8, align 16, !tbaa !10
+  %.val25.i = load <4 x float>, ptr %9, align 16, !tbaa !10
   %40 = tail call reassoc nsz arcp contract afn <4 x float> @llvm.x86.sse.max.ps(<4 x float> %.val25.i, <4 x float> zeroinitializer)
-  store <4 x float> %40, ptr %9, align 16, !tbaa !19
+  store <4 x float> %40, ptr %9, align 16, !tbaa !10
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10) #5
   br label %51
 
@@ -1016,7 +1016,7 @@ define void @eaw_synthesize(ptr noundef captures(none) %0, ptr noundef readnone 
   store float %48, ptr %49, align 4, !tbaa !6
   %50 = add nuw nsw i64 %.02426.i, 1
   %exitcond.not.i = icmp eq i64 %50, 4
-  br i1 %exitcond.not.i, label %38, label %41, !llvm.loop !24
+  br i1 %exitcond.not.i, label %38, label %41
 
 51:                                               ; preds = %51, %38
   %.02327.i = phi i64 [ 0, %38 ], [ %58, %51 ]
@@ -1029,7 +1029,7 @@ define void @eaw_synthesize(ptr noundef captures(none) %0, ptr noundef readnone 
   store float %56, ptr %57, align 4, !tbaa !6
   %58 = add nuw nsw i64 %.02327.i, 1
   %exitcond29.not.i = icmp eq i64 %58, 4
-  br i1 %exitcond29.not.i, label %.preheader.i.preheader, label %51, !llvm.loop !25
+  br i1 %exitcond29.not.i, label %.preheader.i.preheader, label %51
 
 .preheader.i.preheader:                           ; preds = %51
   %59 = getelementptr inbounds nuw float, ptr %0, i64 %36
@@ -1048,7 +1048,7 @@ define void @eaw_synthesize(ptr noundef captures(none) %0, ptr noundef readnone 
   store float %67, ptr %65, align 4, !tbaa !6
   %68 = add nuw nsw i64 %.028.i, 1
   %exitcond30.not.i = icmp eq i64 %68, 4
-  br i1 %exitcond30.not.i, label %accumulate.exit, label %.preheader.i, !llvm.loop !26
+  br i1 %exitcond30.not.i, label %accumulate.exit, label %.preheader.i
 
 accumulate.exit:                                  ; preds = %.preheader.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #5
@@ -1056,7 +1056,7 @@ accumulate.exit:                                  ; preds = %.preheader.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #5
   %69 = add nuw i64 %.016, 1
   %exitcond.not = icmp eq i64 %69, %35
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !46
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
@@ -1205,7 +1205,7 @@ dwt_interleave_rows.exit:                         ; preds = %46, %54, %59
 89:                                               ; preds = %124
   %90 = add nuw nsw i32 %.0217252, 1
   %exitcond308.not = icmp eq i32 %90, 5
-  br i1 %exitcond308.not, label %80, label %81, !llvm.loop !47
+  br i1 %exitcond308.not, label %80, label %81
 
 91:                                               ; preds = %81, %124
   %.1216251 = phi i64 [ %.0215253, %81 ], [ %125, %124 ]
@@ -1234,7 +1234,7 @@ dwt_interleave_rows.exit:                         ; preds = %46, %54, %59
   store float %105, ptr %106, align 4, !tbaa !6
   %107 = add nuw nsw i64 %.011.i, 1
   %exitcond.not.i = icmp eq i64 %107, 4
-  br i1 %exitcond.not.i, label %dn_weight.exit, label %99, !llvm.loop !48
+  br i1 %exitcond.not.i, label %dn_weight.exit, label %99
 
 dn_weight.exit:                                   ; preds = %99
   %108 = load float, ptr %11, align 16, !tbaa !6
@@ -1260,7 +1260,7 @@ dn_weight.exit:                                   ; preds = %99
   %125 = add i64 %.1216251, 1
   %126 = add nuw nsw i32 %.0218250, 1
   %exitcond307.not = icmp eq i32 %126, 5
-  br i1 %exitcond307.not, label %89, label %91, !llvm.loop !49
+  br i1 %exitcond307.not, label %89, label %91
 
 127:                                              ; preds = %dn_weight.exit, %127
   %.0224249 = phi i64 [ 0, %dn_weight.exit ], [ %137, %127 ]
@@ -1277,11 +1277,11 @@ dn_weight.exit:                                   ; preds = %99
   store float %136, ptr %134, align 4, !tbaa !6
   %137 = add nuw nsw i64 %.0224249, 1
   %exitcond.not = icmp eq i64 %137, 4
-  br i1 %exitcond.not, label %124, label %127, !llvm.loop !50
+  br i1 %exitcond.not, label %124, label %127
 
 138:                                              ; preds = %143
-  %.val239 = load <4 x float>, ptr %15, align 16, !tbaa !19
-  store <4 x float> %.val239, ptr %.0200257, align 16, !tbaa !19, !alias.scope !51, !nontemporal !23
+  %.val239 = load <4 x float>, ptr %15, align 16, !tbaa !10
+  store <4 x float> %.val239, ptr %.0200257, align 16, !tbaa !10, !alias.scope !21, !nontemporal !14
   %139 = getelementptr inbounds nuw i8, ptr %.0197258, i64 16
   %140 = getelementptr inbounds nuw i8, ptr %.0200257, i64 16
   %141 = getelementptr inbounds nuw i8, ptr %.0204256, i64 16
@@ -1290,7 +1290,7 @@ dn_weight.exit:                                   ; preds = %99
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13) #5
   %142 = add nuw nsw i32 %.0207255, 1
   %exitcond310.not = icmp eq i32 %142, %74
-  br i1 %exitcond310.not, label %.preheader248, label %.lr.ph, !llvm.loop !54
+  br i1 %exitcond310.not, label %.preheader248, label %.lr.ph
 
 143:                                              ; preds = %80, %143
   %.0223254 = phi i64 [ 0, %80 ], [ %158, %143 ]
@@ -1314,7 +1314,7 @@ dn_weight.exit:                                   ; preds = %99
   store float %157, ptr %155, align 4, !tbaa !6
   %158 = add nuw nsw i64 %.0223254, 1
   %exitcond309.not = icmp eq i64 %158, 4
-  br i1 %exitcond309.not, label %138, label %143, !llvm.loop !55
+  br i1 %exitcond309.not, label %138, label %143
 
 .preheader247.loopexit:                           ; preds = %213
   %159 = trunc nsw i64 %indvars.iv.next to i32
@@ -1359,7 +1359,7 @@ dn_weight.exit:                                   ; preds = %99
   %169 = getelementptr inbounds nuw float, ptr %201, i64 %41
   %170 = add nuw nsw i32 %.0220267, 1
   %exitcond313.not = icmp eq i32 %170, 5
-  br i1 %exitcond313.not, label %167, label %.preheader246, !llvm.loop !56
+  br i1 %exitcond313.not, label %167, label %.preheader246
 
 171:                                              ; preds = %.preheader246, %199
   %.1199265 = phi ptr [ %.0198268, %.preheader246 ], [ %201, %199 ]
@@ -1381,7 +1381,7 @@ dn_weight.exit:                                   ; preds = %99
   store float %180, ptr %181, align 4, !tbaa !6
   %182 = add nuw nsw i64 %.011.i240, 1
   %exitcond.not.i241 = icmp eq i64 %182, 4
-  br i1 %exitcond.not.i241, label %dn_weight.exit242, label %174, !llvm.loop !48
+  br i1 %exitcond.not.i241, label %dn_weight.exit242, label %174
 
 dn_weight.exit242:                                ; preds = %174
   %183 = load float, ptr %10, align 16, !tbaa !6
@@ -1408,7 +1408,7 @@ dn_weight.exit242:                                ; preds = %174
   %201 = getelementptr inbounds nuw i8, ptr %.1199265, i64 %.idx236
   %lftr.wideiv = trunc i64 %200 to i32
   %exitcond312.not = icmp eq i32 %166, %lftr.wideiv
-  br i1 %exitcond312.not, label %168, label %171, !llvm.loop !57
+  br i1 %exitcond312.not, label %168, label %171
 
 202:                                              ; preds = %dn_weight.exit242, %202
   %.0214262 = phi i64 [ 0, %dn_weight.exit242 ], [ %212, %202 ]
@@ -1425,11 +1425,11 @@ dn_weight.exit242:                                ; preds = %174
   store float %211, ptr %209, align 4, !tbaa !6
   %212 = add nuw nsw i64 %.0214262, 1
   %exitcond311.not = icmp eq i64 %212, 4
-  br i1 %exitcond311.not, label %199, label %202, !llvm.loop !58
+  br i1 %exitcond311.not, label %199, label %202
 
 213:                                              ; preds = %218
-  %.val238 = load <4 x float>, ptr %18, align 16, !tbaa !19
-  store <4 x float> %.val238, ptr %.1201272, align 16, !tbaa !19, !alias.scope !59, !nontemporal !23
+  %.val238 = load <4 x float>, ptr %18, align 16, !tbaa !10
+  store <4 x float> %.val238, ptr %.1201272, align 16, !tbaa !10, !alias.scope !24, !nontemporal !14
   %214 = getelementptr inbounds nuw i8, ptr %.1273, i64 16
   %215 = getelementptr inbounds nuw i8, ptr %.1201272, i64 16
   %216 = getelementptr inbounds nuw i8, ptr %.1205271, i64 16
@@ -1438,7 +1438,7 @@ dn_weight.exit242:                                ; preds = %174
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %16) #5
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %217 = icmp slt i64 %indvars.iv.next, %45
-  br i1 %217, label %161, label %.preheader247.loopexit, !llvm.loop !62
+  br i1 %217, label %161, label %.preheader247.loopexit
 
 218:                                              ; preds = %167, %218
   %.0213269 = phi i64 [ 0, %167 ], [ %233, %218 ]
@@ -1462,7 +1462,7 @@ dn_weight.exit242:                                ; preds = %174
   store float %232, ptr %230, align 4, !tbaa !6
   %233 = add nuw nsw i64 %.0213269, 1
   %exitcond314.not = icmp eq i64 %233, 4
-  br i1 %exitcond314.not, label %213, label %218, !llvm.loop !63
+  br i1 %exitcond314.not, label %213, label %218
 
 .lr.ph291:                                        ; preds = %.preheader247, %294
   %.2290 = phi ptr [ %295, %294 ], [ %.1.lcssa, %.preheader247 ]
@@ -1496,7 +1496,7 @@ dn_weight.exit242:                                ; preds = %174
 243:                                              ; preds = %280
   %244 = add nuw nsw i32 %.0210285, 1
   %exitcond318.not = icmp eq i32 %244, 5
-  br i1 %exitcond318.not, label %234, label %235, !llvm.loop !64
+  br i1 %exitcond318.not, label %234, label %235
 
 245:                                              ; preds = %235, %280
   %.0203283 = phi i32 [ 0, %235 ], [ %282, %280 ]
@@ -1527,7 +1527,7 @@ dn_weight.exit242:                                ; preds = %174
   store float %261, ptr %262, align 4, !tbaa !6
   %263 = add nuw nsw i64 %.011.i243, 1
   %exitcond.not.i244 = icmp eq i64 %263, 4
-  br i1 %exitcond.not.i244, label %dn_weight.exit245, label %255, !llvm.loop !48
+  br i1 %exitcond.not.i244, label %dn_weight.exit245, label %255
 
 dn_weight.exit245:                                ; preds = %255
   %264 = load float, ptr %9, align 16, !tbaa !6
@@ -1553,7 +1553,7 @@ dn_weight.exit245:                                ; preds = %255
   %281 = add i64 %.1212282, 1
   %282 = add nuw nsw i32 %.0203283, 1
   %exitcond317.not = icmp eq i32 %282, 5
-  br i1 %exitcond317.not, label %243, label %245, !llvm.loop !65
+  br i1 %exitcond317.not, label %243, label %245
 
 283:                                              ; preds = %dn_weight.exit245, %283
   %.0195279 = phi i64 [ 0, %dn_weight.exit245 ], [ %293, %283 ]
@@ -1570,11 +1570,11 @@ dn_weight.exit245:                                ; preds = %255
   store float %292, ptr %290, align 4, !tbaa !6
   %293 = add nuw nsw i64 %.0195279, 1
   %exitcond316.not = icmp eq i64 %293, 4
-  br i1 %exitcond316.not, label %280, label %283, !llvm.loop !66
+  br i1 %exitcond316.not, label %280, label %283
 
 294:                                              ; preds = %299
-  %.val = load <4 x float>, ptr %21, align 16, !tbaa !19
-  store <4 x float> %.val, ptr %.2202289, align 16, !tbaa !19, !alias.scope !67, !nontemporal !23
+  %.val = load <4 x float>, ptr %21, align 16, !tbaa !10
+  store <4 x float> %.val, ptr %.2202289, align 16, !tbaa !10, !alias.scope !27, !nontemporal !14
   %295 = getelementptr inbounds nuw i8, ptr %.2290, i64 16
   %296 = getelementptr inbounds nuw i8, ptr %.2202289, i64 16
   %297 = getelementptr inbounds nuw i8, ptr %.2206288, i64 16
@@ -1583,7 +1583,7 @@ dn_weight.exit245:                                ; preds = %255
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %19) #5
   %298 = add nuw nsw i32 %.2209287, 1
   %exitcond320.not = icmp eq i32 %298, %6
-  br i1 %exitcond320.not, label %._crit_edge, label %.lr.ph291, !llvm.loop !70
+  br i1 %exitcond320.not, label %._crit_edge, label %.lr.ph291
 
 299:                                              ; preds = %234, %299
   %.0194286 = phi i64 [ 0, %234 ], [ %314, %299 ]
@@ -1607,12 +1607,12 @@ dn_weight.exit245:                                ; preds = %255
   store float %313, ptr %311, align 4, !tbaa !6
   %314 = add nuw nsw i64 %.0194286, 1
   %exitcond319.not = icmp eq i64 %314, 4
-  br i1 %exitcond319.not, label %294, label %299, !llvm.loop !71
+  br i1 %exitcond319.not, label %294, label %299
 
 ._crit_edge:                                      ; preds = %294, %.preheader247
   %315 = add nuw nsw i32 %.0196292, 1
   %exitcond321.not = icmp eq i32 %315, %7
-  br i1 %exitcond321.not, label %.preheader, label %46, !llvm.loop !72
+  br i1 %exitcond321.not, label %.preheader, label %46
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
@@ -1654,66 +1654,23 @@ attributes #7 = { nocallback nofree nounwind willreturn memory(argmem: readwrite
 !7 = !{!"float", !8, i64 0}
 !8 = !{!"omnipotent char", !9, i64 0}
 !9 = !{!"Simple C/C++ TBAA"}
-!10 = distinct !{!10, !11}
-!11 = !{!"llvm.loop.estimated_trip_count"}
-!12 = distinct !{!12, !11}
-!13 = distinct !{!13, !11}
-!14 = distinct !{!14, !11}
-!15 = distinct !{!15, !11}
-!16 = distinct !{!16, !11}
-!17 = distinct !{!17, !11}
-!18 = distinct !{!18, !11}
-!19 = !{!8, !8, i64 0}
-!20 = !{!21}
-!21 = distinct !{!21, !22, !"copy_pixel_nontemporal: argument 0"}
-!22 = distinct !{!22, !"copy_pixel_nontemporal"}
-!23 = !{i32 1}
-!24 = distinct !{!24, !11}
-!25 = distinct !{!25, !11}
-!26 = distinct !{!26, !11}
-!27 = distinct !{!27, !11}
-!28 = distinct !{!28, !11}
-!29 = distinct !{!29, !11}
-!30 = distinct !{!30, !11}
-!31 = distinct !{!31, !11}
-!32 = !{!33}
-!33 = distinct !{!33, !34, !"copy_pixel_nontemporal: argument 0"}
-!34 = distinct !{!34, !"copy_pixel_nontemporal"}
-!35 = distinct !{!35, !11}
-!36 = distinct !{!36, !11}
-!37 = distinct !{!37, !11}
-!38 = distinct !{!38, !11}
-!39 = distinct !{!39, !11}
-!40 = !{!41}
-!41 = distinct !{!41, !42, !"copy_pixel_nontemporal: argument 0"}
-!42 = distinct !{!42, !"copy_pixel_nontemporal"}
-!43 = distinct !{!43, !11}
-!44 = distinct !{!44, !11}
-!45 = distinct !{!45, !11}
-!46 = distinct !{!46, !11}
-!47 = distinct !{!47, !11}
-!48 = distinct !{!48, !11}
-!49 = distinct !{!49, !11}
-!50 = distinct !{!50, !11}
-!51 = !{!52}
-!52 = distinct !{!52, !53, !"copy_pixel_nontemporal: argument 0"}
-!53 = distinct !{!53, !"copy_pixel_nontemporal"}
-!54 = distinct !{!54, !11}
-!55 = distinct !{!55, !11}
-!56 = distinct !{!56, !11}
-!57 = distinct !{!57, !11}
-!58 = distinct !{!58, !11}
-!59 = !{!60}
-!60 = distinct !{!60, !61, !"copy_pixel_nontemporal: argument 0"}
-!61 = distinct !{!61, !"copy_pixel_nontemporal"}
-!62 = distinct !{!62, !11}
-!63 = distinct !{!63, !11}
-!64 = distinct !{!64, !11}
-!65 = distinct !{!65, !11}
-!66 = distinct !{!66, !11}
-!67 = !{!68}
-!68 = distinct !{!68, !69, !"copy_pixel_nontemporal: argument 0"}
-!69 = distinct !{!69, !"copy_pixel_nontemporal"}
-!70 = distinct !{!70, !11}
-!71 = distinct !{!71, !11}
-!72 = distinct !{!72, !11}
+!10 = !{!8, !8, i64 0}
+!11 = !{!12}
+!12 = distinct !{!12, !13, !"copy_pixel_nontemporal: argument 0"}
+!13 = distinct !{!13, !"copy_pixel_nontemporal"}
+!14 = !{i32 1}
+!15 = !{!16}
+!16 = distinct !{!16, !17, !"copy_pixel_nontemporal: argument 0"}
+!17 = distinct !{!17, !"copy_pixel_nontemporal"}
+!18 = !{!19}
+!19 = distinct !{!19, !20, !"copy_pixel_nontemporal: argument 0"}
+!20 = distinct !{!20, !"copy_pixel_nontemporal"}
+!21 = !{!22}
+!22 = distinct !{!22, !23, !"copy_pixel_nontemporal: argument 0"}
+!23 = distinct !{!23, !"copy_pixel_nontemporal"}
+!24 = !{!25}
+!25 = distinct !{!25, !26, !"copy_pixel_nontemporal: argument 0"}
+!26 = distinct !{!26, !"copy_pixel_nontemporal"}
+!27 = !{!28}
+!28 = distinct !{!28, !29, !"copy_pixel_nontemporal: argument 0"}
+!29 = distinct !{!29, !"copy_pixel_nontemporal"}

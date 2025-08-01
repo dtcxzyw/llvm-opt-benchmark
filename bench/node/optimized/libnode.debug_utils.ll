@@ -2867,7 +2867,7 @@ cleanup:                                          ; preds = %if.end819
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp823) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %wanted) #17
   %call = call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %debug_categories) #17
-  br i1 %call, label %while.end, label %while.body, !llvm.loop !6
+  br i1 %call, label %while.end, label %while.body
 
 while.end:                                        ; preds = %cleanup, %entry, %cleanup.thread
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %debug_categories) #17
@@ -2914,7 +2914,7 @@ for.body:                                         ; preds = %entry, %for.body
   %inc = add nuw i64 %i.09, 1
   %call1 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %in) #17
   %cmp = icmp ult i64 %inc, %call1
-  br i1 %cmp, label %for.body, label %nrvo.skipdtor, !llvm.loop !8
+  br i1 %cmp, label %for.body, label %nrvo.skipdtor, !llvm.loop !6
 
 nrvo.skipdtor:                                    ; preds = %for.body, %entry
   ret void
@@ -2962,12 +2962,12 @@ declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_st
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN4node28NativeSymbolDebuggingContext3NewEv(ptr noalias writeonly sret(%"class.std::unique_ptr") align 8 captures(none) initializes((0, 8)) %agg.result) local_unnamed_addr #3 align 2 {
 _ZNSt10unique_ptrIN4node27PosixSymbolDebuggingContextESt14default_deleteIS1_EED2Ev.exit:
-  %call.i = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #19, !noalias !10
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node27PosixSymbolDebuggingContextE, i64 16), ptr %call.i, align 8, !noalias !10
+  %call.i = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #19, !noalias !8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node27PosixSymbolDebuggingContextE, i64 16), ptr %call.i, align 8, !noalias !8
   %pagesize_.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 8
   %call.i.i = tail call i32 @getpagesize() #20
   %conv.i.i = sext i32 %call.i.i to i64
-  store i64 %conv.i.i, ptr %pagesize_.i.i, align 8, !noalias !10
+  store i64 %conv.i.i, ptr %pagesize_.i.i, align 8, !noalias !8
   store ptr %call.i, ptr %agg.result, align 8
   ret void
 }
@@ -3040,12 +3040,12 @@ entry:
   %s = alloca %"class.node::NativeSymbolDebuggingContext::SymbolInfo", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %0 = tail call i64 @fwrite(ptr nonnull @.str.79, i64 32, i64 1, ptr %fp)
-  %call.i.i = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #19, !noalias !13
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node27PosixSymbolDebuggingContextE, i64 16), ptr %call.i.i, align 8, !noalias !13
+  %call.i.i = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #19, !noalias !11
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node27PosixSymbolDebuggingContextE, i64 16), ptr %call.i.i, align 8, !noalias !11
   %pagesize_.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 8
   %call.i.i.i = tail call i32 @getpagesize() #20
   %conv.i.i.i = sext i32 %call.i.i.i to i64
-  store i64 %conv.i.i.i, ptr %pagesize_.i.i.i, align 8, !noalias !13
+  store i64 %conv.i.i.i, ptr %pagesize_.i.i.i, align 8, !noalias !11
   %call.i = call noundef i32 @backtrace(ptr noundef nonnull %frames, i32 noundef 256) #17
   %cmp8 = icmp sgt i32 %call.i, 1
   br i1 %cmp8, label %for.body.lr.ph, label %_ZNSt10unique_ptrIN4node28NativeSymbolDebuggingContextESt14default_deleteIS1_EED2Ev.exit
@@ -3072,7 +3072,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(80) %s) #17
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %_ZNSt10unique_ptrIN4node28NativeSymbolDebuggingContextESt14default_deleteIS1_EED2Ev.exit.loopexit, label %for.body, !llvm.loop !18
+  br i1 %exitcond.not, label %_ZNSt10unique_ptrIN4node28NativeSymbolDebuggingContextESt14default_deleteIS1_EED2Ev.exit.loopexit, label %for.body, !llvm.loop !16
 
 _ZNSt10unique_ptrIN4node28NativeSymbolDebuggingContextESt14default_deleteIS1_EED2Ev.exit.loopexit: ; preds = %for.body
   %vtable.i.i.pre = load ptr, ptr %call.i.i, align 8
@@ -3146,14 +3146,14 @@ declare i32 @uv_loop_close(ptr noundef) local_unnamed_addr #0
 define dso_local void @_ZN4node27PrintLibuvHandleInformationEP9uv_loop_sP8_IO_FILE(ptr noundef %loop, ptr noundef %stream) local_unnamed_addr #3 {
 entry:
   %info = alloca %struct.Info, align 8
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !19)
-  %call.i.i = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #19, !noalias !22
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node27PosixSymbolDebuggingContextE, i64 16), ptr %call.i.i, align 8, !noalias !22
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !17)
+  %call.i.i = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #19, !noalias !20
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node27PosixSymbolDebuggingContextE, i64 16), ptr %call.i.i, align 8, !noalias !20
   %pagesize_.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 8
   %call.i.i.i = tail call i32 @getpagesize() #20
   %conv.i.i.i = sext i32 %call.i.i.i to i64
-  store i64 %conv.i.i.i, ptr %pagesize_.i.i.i, align 8, !noalias !22
-  store ptr %call.i.i, ptr %info, align 8, !alias.scope !19
+  store i64 %conv.i.i.i, ptr %pagesize_.i.i.i, align 8, !noalias !20
+  store ptr %call.i.i, ptr %info, align 8, !alias.scope !17
   %stream1 = getelementptr inbounds nuw i8, ptr %info, i64 8
   store ptr %stream, ptr %stream1, align 8
   %num_handles = getelementptr inbounds nuw i8, ptr %info, i64 16
@@ -3471,7 +3471,7 @@ for.body.i.i.i:                                   ; preds = %_ZNSt16allocator_tr
   %incdec.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.06.i.i.i, i64 32
   %incdec.ptr1.i.i.i = getelementptr inbounds nuw i8, ptr %__cur.07.i.i.i, i64 32
   %cmp.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %__position.coerce
-  br i1 %cmp.not.i.i.i, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit, label %for.body.i.i.i, !llvm.loop !25
+  br i1 %cmp.not.i.i.i, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit, label %for.body.i.i.i, !llvm.loop !23
 
 _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit: ; preds = %for.body.i.i.i, %_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE9constructIS5_JRPKcEEEvRS6_PT_DpOT0_.exit
   %__cur.0.lcssa.i.i.i = phi ptr [ %cond.i10, %_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE9constructIS5_JRPKcEEEvRS6_PT_DpOT0_.exit ], [ %incdec.ptr1.i.i.i, %for.body.i.i.i ]
@@ -3487,7 +3487,7 @@ for.body.i.i.i12:                                 ; preds = %_ZNSt6vectorINSt7__
   %incdec.ptr.i.i.i15 = getelementptr inbounds nuw i8, ptr %__first.addr.06.i.i.i14, i64 32
   %incdec.ptr1.i.i.i16 = getelementptr inbounds nuw i8, ptr %__cur.07.i.i.i13, i64 32
   %cmp.not.i.i.i17 = icmp eq ptr %incdec.ptr.i.i.i15, %0
-  br i1 %cmp.not.i.i.i17, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit19, label %for.body.i.i.i12, !llvm.loop !25
+  br i1 %cmp.not.i.i.i17, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit19, label %for.body.i.i.i12, !llvm.loop !23
 
 _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit19: ; preds = %for.body.i.i.i12, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit
   %__cur.0.lcssa.i.i.i18 = phi ptr [ %incdec.ptr, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit ], [ %incdec.ptr1.i.i.i16, %for.body.i.i.i12 ]
@@ -3733,22 +3733,20 @@ attributes #21 = { builtin nounwind }
 !4 = !{i32 7, !"frame-pointer", i32 2}
 !5 = !{!"branch_weights", i32 1, i32 1048575}
 !6 = distinct !{!6, !7}
-!7 = !{!"llvm.loop.estimated_trip_count"}
-!8 = distinct !{!8, !9, !7}
-!9 = !{!"llvm.loop.mustprogress"}
-!10 = !{!11}
-!11 = distinct !{!11, !12, !"_ZSt11make_uniqueIN4node27PosixSymbolDebuggingContextEJEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: %agg.result"}
-!12 = distinct !{!12, !"_ZSt11make_uniqueIN4node27PosixSymbolDebuggingContextEJEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
-!13 = !{!14, !16}
-!14 = distinct !{!14, !15, !"_ZSt11make_uniqueIN4node27PosixSymbolDebuggingContextEJEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: %agg.result"}
-!15 = distinct !{!15, !"_ZSt11make_uniqueIN4node27PosixSymbolDebuggingContextEJEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
-!16 = distinct !{!16, !17, !"_ZN4node28NativeSymbolDebuggingContext3NewEv: %agg.result"}
-!17 = distinct !{!17, !"_ZN4node28NativeSymbolDebuggingContext3NewEv"}
-!18 = distinct !{!18, !9, !7}
-!19 = !{!20}
-!20 = distinct !{!20, !21, !"_ZN4node28NativeSymbolDebuggingContext3NewEv: %agg.result"}
-!21 = distinct !{!21, !"_ZN4node28NativeSymbolDebuggingContext3NewEv"}
-!22 = !{!23, !20}
-!23 = distinct !{!23, !24, !"_ZSt11make_uniqueIN4node27PosixSymbolDebuggingContextEJEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: %agg.result"}
-!24 = distinct !{!24, !"_ZSt11make_uniqueIN4node27PosixSymbolDebuggingContextEJEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
-!25 = distinct !{!25, !9, !7}
+!7 = !{!"llvm.loop.mustprogress"}
+!8 = !{!9}
+!9 = distinct !{!9, !10, !"_ZSt11make_uniqueIN4node27PosixSymbolDebuggingContextEJEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: %agg.result"}
+!10 = distinct !{!10, !"_ZSt11make_uniqueIN4node27PosixSymbolDebuggingContextEJEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
+!11 = !{!12, !14}
+!12 = distinct !{!12, !13, !"_ZSt11make_uniqueIN4node27PosixSymbolDebuggingContextEJEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: %agg.result"}
+!13 = distinct !{!13, !"_ZSt11make_uniqueIN4node27PosixSymbolDebuggingContextEJEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
+!14 = distinct !{!14, !15, !"_ZN4node28NativeSymbolDebuggingContext3NewEv: %agg.result"}
+!15 = distinct !{!15, !"_ZN4node28NativeSymbolDebuggingContext3NewEv"}
+!16 = distinct !{!16, !7}
+!17 = !{!18}
+!18 = distinct !{!18, !19, !"_ZN4node28NativeSymbolDebuggingContext3NewEv: %agg.result"}
+!19 = distinct !{!19, !"_ZN4node28NativeSymbolDebuggingContext3NewEv"}
+!20 = !{!21, !18}
+!21 = distinct !{!21, !22, !"_ZSt11make_uniqueIN4node27PosixSymbolDebuggingContextEJEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: %agg.result"}
+!22 = distinct !{!22, !"_ZSt11make_uniqueIN4node27PosixSymbolDebuggingContextEJEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
+!23 = distinct !{!23, !7}

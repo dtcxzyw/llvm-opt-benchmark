@@ -736,7 +736,7 @@ define internal range(i32 0, 2) i32 @is_valid_mbc_string(ptr noundef readonly ca
   %.sink = phi i64 [ 1, %.lr.ph ], [ 4, %21 ], [ 2, %24 ]
   %26 = getelementptr inbounds nuw i8, ptr %.02639, i64 %.sink
   %27 = icmp ult ptr %26, %1
-  br i1 %27, label %.lr.ph, label %._crit_edge, !llvm.loop !10
+  br i1 %27, label %.lr.ph, label %._crit_edge, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %6, %6, %7, %12, %14, %16, %19, %21, %24, %24, %25, %2
   %.0 = phi i32 [ 1, %2 ], [ 1, %25 ], [ 0, %24 ], [ 0, %24 ], [ 0, %21 ], [ 0, %19 ], [ 0, %16 ], [ 0, %14 ], [ 0, %12 ], [ 0, %7 ], [ 0, %6 ], [ 0, %6 ]
@@ -767,7 +767,6 @@ attributes #5 = { nounwind }
 !4 = !{!5, !5, i64 0}
 !5 = !{!"omnipotent char", !6, i64 0}
 !6 = !{!"Simple C/C++ TBAA"}
-!7 = distinct !{!7, !8, !9}
+!7 = distinct !{!7, !8}
 !8 = !{!"llvm.loop.mustprogress"}
-!9 = !{!"llvm.loop.estimated_trip_count"}
-!10 = distinct !{!10, !8, !9}
+!9 = distinct !{!9, !8}

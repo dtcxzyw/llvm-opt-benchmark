@@ -776,7 +776,7 @@ _ZN17duckdb_libpgqueryL12pg_utf_mblenEPKh.exit:   ; preds = %5, %8, %11, %14
   %19 = getelementptr inbounds nuw i8, ptr %.012, i64 %18
   %20 = add nuw nsw i32 %.0811, 1
   %21 = icmp sgt i32 %17, 0
-  br i1 %21, label %.lr.ph, label %.critedge, !llvm.loop !32
+  br i1 %21, label %.lr.ph, label %.critedge, !llvm.loop !31
 
 .critedge:                                        ; preds = %.lr.ph, %_ZN17duckdb_libpgqueryL12pg_utf_mblenEPKh.exit, %2
   %.08.lcssa = phi i32 [ 0, %2 ], [ %20, %_ZN17duckdb_libpgqueryL12pg_utf_mblenEPKh.exit ], [ %.0811, %.lr.ph ]
@@ -883,7 +883,7 @@ _ZN17duckdb_libpgquery11palloc0fastEm.exit:       ; preds = %2, %10
   %21 = load i64, ptr %6, align 8, !tbaa !3
   %22 = add i64 %21, %4
   store i64 %22, ptr %6, align 8, !tbaa !3
-  store i32 %1, ptr %20, align 4, !tbaa !33
+  store i32 %1, ptr %20, align 4, !tbaa !32
   ret ptr %20
 }
 
@@ -954,10 +954,9 @@ attributes #28 = { nounwind willreturn memory(read) }
 !26 = !{!21, !22, i64 0}
 !27 = !{!4, !5, i64 4}
 !28 = !{!21, !5, i64 48}
-!29 = distinct !{!29, !30, !31}
+!29 = distinct !{!29, !30}
 !30 = !{!"llvm.loop.mustprogress"}
-!31 = !{!"llvm.loop.estimated_trip_count"}
-!32 = distinct !{!32, !30, !31}
-!33 = !{!34, !35, i64 0}
-!34 = !{!"_ZTSN17duckdb_libpgquery6PGNodeE", !35, i64 0}
-!35 = !{!"_ZTSN17duckdb_libpgquery9PGNodeTagE", !6, i64 0}
+!31 = distinct !{!31, !30}
+!32 = !{!33, !34, i64 0}
+!33 = !{!"_ZTSN17duckdb_libpgquery6PGNodeE", !34, i64 0}
+!34 = !{!"_ZTSN17duckdb_libpgquery9PGNodeTagE", !6, i64 0}

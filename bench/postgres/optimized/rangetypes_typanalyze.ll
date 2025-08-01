@@ -299,7 +299,7 @@ define internal void @compute_range_stats(ptr noundef %0, ptr noundef readonly c
   %.1182 = sub i32 %133, %135
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond248.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond248.not, label %._crit_edge241, label %.lr.ph240, !llvm.loop !9
+  br i1 %exitcond248.not, label %._crit_edge241, label %.lr.ph240, !llvm.loop !8
 
 ._crit_edge241:                                   ; preds = %.lr.ph240, %114
   %136 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -349,7 +349,7 @@ define internal void @compute_range_stats(ptr noundef %0, ptr noundef readonly c
   %.3 = sub i32 %156, %158
   %indvars.iv.next250 = add nuw nsw i64 %indvars.iv249, 1
   %exitcond253.not = icmp eq i64 %indvars.iv.next250, %wide.trip.count252
-  br i1 %exitcond253.not, label %.loopexit, label %.lr.ph246, !llvm.loop !10
+  br i1 %exitcond253.not, label %.loopexit, label %.lr.ph246, !llvm.loop !9
 
 .thread:                                          ; preds = %96
   %159 = call ptr @palloc(i64 noundef 0) #5
@@ -506,8 +506,7 @@ attributes #5 = { nounwind }
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i8 0, i8 2}
 !5 = !{}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7, !8}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}

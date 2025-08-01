@@ -35,9 +35,9 @@ _get_long.exit:
   %.not130 = icmp eq i32 %5, 0
   br i1 %.not130, label %.thread, label %.lr.ph133
 
-.lr.ph133:                                        ; preds = %_get_long.exit, %88
-  %.063132 = phi i32 [ %89, %88 ], [ %5, %_get_long.exit ]
-  %.064131 = phi i32 [ %20, %88 ], [ 4, %_get_long.exit ]
+.lr.ph133:                                        ; preds = %_get_long.exit, %90
+  %.063132 = phi i32 [ %91, %90 ], [ %5, %_get_long.exit ]
+  %.064131 = phi i32 [ %20, %90 ], [ 4, %_get_long.exit ]
   %6 = zext i32 %.064131 to i64
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 %6
   %.val72 = load i32, ptr %7, align 1
@@ -71,7 +71,7 @@ _get_long.exit:
 
 25:                                               ; preds = %.lr.ph133
   %26 = icmp eq i32 %8, 9
-  br i1 %26, label %_get_long.exit98, label %82
+  br i1 %26, label %_get_long.exit98, label %84
 
 _get_long.exit98:                                 ; preds = %25
   %27 = add i32 %16, -76
@@ -152,7 +152,6 @@ _get_long.exit98:                                 ; preds = %25
   %73 = tail call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %.val85) #5, !srcloc !25
   %74 = getelementptr inbounds nuw i8, ptr %31, i64 72
   store i32 %73, ptr %74, align 8, !tbaa !60
-  %invariant.gep = getelementptr inbounds nuw i8, ptr %19, i64 76
   %.not134 = icmp ult i32 %27, 4
   br i1 %.not134, label %._crit_edge, label %.lr.ph
 
@@ -167,39 +166,40 @@ _get_long.exit98:                                 ; preds = %25
   %77 = load ptr, ptr %3, align 16, !tbaa !6
   %78 = tail call ptr @g_list_append(ptr noundef %77, ptr noundef nonnull %31) #4
   store ptr %78, ptr %3, align 16, !tbaa !6
-  br label %88
+  br label %90
 
 _get_float.exit:                                  ; preds = %_get_float.exit, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_get_float.exit ]
   %79 = shl nuw nsw i64 %indvars.iv, 2
-  %gep = getelementptr inbounds nuw i8, ptr %invariant.gep, i64 %79
-  %.val90 = load i32, ptr %gep, align 1
-  %80 = tail call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %.val90) #5, !srcloc !63
-  %81 = getelementptr inbounds nuw [0 x float], ptr %76, i64 0, i64 %indvars.iv
-  store i32 %80, ptr %81, align 4, !tbaa !64
+  %80 = getelementptr inbounds nuw i8, ptr %19, i64 %79
+  %81 = getelementptr inbounds nuw i8, ptr %80, i64 76
+  %.val90 = load i32, ptr %81, align 1
+  %82 = tail call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %.val90) #5, !srcloc !63
+  %83 = getelementptr inbounds nuw [0 x float], ptr %76, i64 0, i64 %indvars.iv
+  store i32 %82, ptr %83, align 4, !tbaa !64
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %_get_float.exit, !llvm.loop !65
+  br i1 %exitcond.not, label %._crit_edge, label %_get_float.exit
 
-82:                                               ; preds = %25
-  %83 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !26
-  %84 = and i32 %83, 262144
-  %.not68 = icmp eq i32 %84, 0
-  br i1 %.not68, label %88, label %85
+84:                                               ; preds = %25
+  %85 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !26
+  %86 = and i32 %85, 262144
+  %.not68 = icmp eq i32 %86, 0
+  br i1 %.not68, label %90, label %87
 
-85:                                               ; preds = %82
-  %86 = and i32 %12, 1
-  %.not69 = icmp eq i32 %86, 0
-  %87 = select i1 %.not69, ptr @.str.3, ptr @.str.2
-  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.1, ptr noundef nonnull %87, i32 noundef %8) #4
-  br label %88
+87:                                               ; preds = %84
+  %88 = and i32 %12, 1
+  %.not69 = icmp eq i32 %88, 0
+  %89 = select i1 %.not69, ptr @.str.3, ptr @.str.2
+  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.1, ptr noundef nonnull %89, i32 noundef %8) #4
+  br label %90
 
-88:                                               ; preds = %._crit_edge, %85, %82
-  %89 = add i32 %.063132, -1
-  %.not = icmp eq i32 %89, 0
-  br i1 %.not, label %.thread, label %.lr.ph133, !llvm.loop !67
+90:                                               ; preds = %._crit_edge, %87, %84
+  %91 = add i32 %.063132, -1
+  %.not = icmp eq i32 %91, 0
+  br i1 %.not, label %.thread, label %.lr.ph133
 
-.thread:                                          ; preds = %88, %_get_long.exit, %24, %21
+.thread:                                          ; preds = %90, %_get_long.exit, %24, %21
   ret void
 }
 
@@ -219,13 +219,13 @@ define void @dt_dng_opcode_process_opcode_list_3(ptr noundef readonly captures(n
 _get_long.exit:
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 564
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 676
-  store i32 0, ptr %4, align 4, !tbaa !68
+  store i32 0, ptr %4, align 4, !tbaa !65
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 680
-  store i32 0, ptr %5, align 4, !tbaa !68
+  store i32 0, ptr %5, align 4, !tbaa !65
   %.val84 = load i32, ptr %0, align 1
   %6 = tail call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %.val84) #5, !srcloc !25
-  %.not116 = icmp eq i32 %6, 0
-  br i1 %.not116, label %.critedge, label %.lr.ph
+  %.not112 = icmp eq i32 %6, 0
+  br i1 %.not112, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_get_long.exit
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 648
@@ -237,24 +237,24 @@ _get_long.exit:
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 644
   br label %_get_long.exit90
 
-_get_long.exit90:                                 ; preds = %79, %.lr.ph
-  %.070118 = phi i32 [ %6, %.lr.ph ], [ %80, %79 ]
-  %.073117 = phi i32 [ 4, %.lr.ph ], [ %28, %79 ]
-  %14 = zext i32 %.073117 to i64
+_get_long.exit90:                                 ; preds = %86, %.lr.ph
+  %.070114 = phi i32 [ %6, %.lr.ph ], [ %87, %86 ]
+  %.073113 = phi i32 [ 4, %.lr.ph ], [ %28, %86 ]
+  %14 = zext i32 %.073113 to i64
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 %14
   %.val83 = load i32, ptr %15, align 1
   %16 = tail call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %.val83) #5, !srcloc !25
-  %17 = add i32 %.073117, 8
+  %17 = add i32 %.073113, 8
   %18 = zext i32 %17 to i64
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 %18
   %.val82 = load i32, ptr %19, align 1
   %20 = tail call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %.val82) #5, !srcloc !25
-  %21 = add i32 %.073117, 12
+  %21 = add i32 %.073113, 12
   %22 = zext i32 %21 to i64
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 %22
   %.val81 = load i32, ptr %23, align 1
   %24 = tail call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %.val81) #5, !srcloc !25
-  %25 = add i32 %.073117, 16
+  %25 = add i32 %.073113, 16
   %26 = zext i32 %25 to i64
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 %26
   %28 = add i32 %24, %25
@@ -272,7 +272,7 @@ _get_long.exit90:                                 ; preds = %79, %.lr.ph
   br label %.critedge
 
 34:                                               ; preds = %_get_long.exit90
-  switch i32 %16, label %73 [
+  switch i32 %16, label %80 [
     i32 1, label %_get_long.exit96
     i32 3, label %.preheader106
   ]
@@ -282,7 +282,7 @@ _get_long.exit96:                                 ; preds = %34
   %35 = tail call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %.val) #5, !srcloc !25
   %36 = and i32 %35, -3
   %or.cond.not = icmp eq i32 %36, 1
-  br i1 %or.cond.not, label %.preheader.lr.ph, label %37
+  br i1 %or.cond.not, label %.preheader.preheader, label %37
 
 37:                                               ; preds = %_get_long.exit96
   %38 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !26
@@ -294,111 +294,111 @@ _get_long.exit96:                                 ; preds = %34
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.5, i32 noundef %35) #4
   br label %.critedge
 
-.preheader.lr.ph:                                 ; preds = %_get_long.exit96
-  store i32 %35, ptr %3, align 4, !tbaa !68
-  %invariant.gep109 = getelementptr inbounds nuw i8, ptr %27, i64 4
+.preheader.preheader:                             ; preds = %_get_long.exit96
+  store i32 %35, ptr %3, align 4, !tbaa !65
   %wide.trip.count = zext nneg i32 %35 to i64
   br label %.preheader
 
-.preheader104:                                    ; preds = %54
+.preheader104:                                    ; preds = %57
   %41 = mul nuw nsw i32 %35, 6
-  %invariant.gep113 = getelementptr inbounds nuw i8, ptr %27, i64 4
   %42 = zext nneg i32 %41 to i64
   %43 = shl nuw nsw i64 %42, 3
-  %gep114 = getelementptr inbounds nuw i8, ptr %invariant.gep113, i64 %43
-  %.val87 = load i64, ptr %gep114, align 1
-  %44 = tail call i64 asm "bswapq $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 %.val87) #5, !srcloc !61
-  %45 = bitcast i64 %44 to double
-  %46 = fptrunc reassoc nsz arcp contract afn double %45 to float
-  store float %46, ptr %11, align 4, !tbaa !68
-  %47 = shl nuw nsw i64 %42, 3
-  %48 = getelementptr inbounds nuw i8, ptr %invariant.gep113, i64 %47
-  %gep114.c = getelementptr inbounds nuw i8, ptr %48, i64 8
-  %.val87.c = load i64, ptr %gep114.c, align 1
-  %49 = tail call i64 asm "bswapq $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 %.val87.c) #5, !srcloc !61
-  %50 = bitcast i64 %49 to double
-  %51 = fptrunc reassoc nsz arcp contract afn double %50 to float
-  store float %51, ptr %13, align 4, !tbaa !68
-  store i32 3, ptr %9, align 16, !tbaa !69
-  store i32 1, ptr %4, align 4, !tbaa !68
-  br label %79
+  %44 = getelementptr inbounds nuw i8, ptr %27, i64 %43
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 4
+  %.val87 = load i64, ptr %45, align 1
+  %46 = tail call i64 asm "bswapq $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 %.val87) #5, !srcloc !61
+  %47 = bitcast i64 %46 to double
+  %48 = fptrunc reassoc nsz arcp contract afn double %47 to float
+  store float %48, ptr %11, align 4, !tbaa !65
+  %49 = shl nuw nsw i64 %42, 3
+  %50 = getelementptr inbounds nuw i8, ptr %27, i64 %49
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 12
+  %.val87.c = load i64, ptr %51, align 1
+  %52 = tail call i64 asm "bswapq $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 %.val87.c) #5, !srcloc !61
+  %53 = bitcast i64 %52 to double
+  %54 = fptrunc reassoc nsz arcp contract afn double %53 to float
+  store float %54, ptr %13, align 4, !tbaa !65
+  store i32 3, ptr %9, align 16, !tbaa !66
+  store i32 1, ptr %4, align 4, !tbaa !65
+  br label %86
 
-.preheader:                                       ; preds = %.preheader.lr.ph, %54
-  %indvars.iv127 = phi i64 [ 0, %.preheader.lr.ph ], [ %indvars.iv.next128, %54 ]
-  %52 = mul nuw nsw i64 %indvars.iv127, 6
-  %53 = getelementptr inbounds nuw [3 x [6 x float]], ptr %10, i64 0, i64 %indvars.iv127
+.preheader:                                       ; preds = %.preheader.preheader, %57
+  %indvars.iv123 = phi i64 [ 0, %.preheader.preheader ], [ %indvars.iv.next124, %57 ]
+  %55 = mul nuw nsw i64 %indvars.iv123, 6
+  %56 = getelementptr inbounds nuw [3 x [6 x float]], ptr %10, i64 0, i64 %indvars.iv123
   br label %_get_double.exit
 
-54:                                               ; preds = %_get_double.exit
-  %indvars.iv.next128 = add nuw nsw i64 %indvars.iv127, 1
-  %exitcond130.not = icmp eq i64 %indvars.iv.next128, %wide.trip.count
-  br i1 %exitcond130.not, label %.preheader104, label %.preheader, !llvm.loop !70
+57:                                               ; preds = %_get_double.exit
+  %indvars.iv.next124 = add nuw nsw i64 %indvars.iv123, 1
+  %exitcond126.not = icmp eq i64 %indvars.iv.next124, %wide.trip.count
+  br i1 %exitcond126.not, label %.preheader104, label %.preheader
 
 _get_double.exit:                                 ; preds = %_get_double.exit, %.preheader
-  %indvars.iv123 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next124, %_get_double.exit ]
-  %55 = add nuw nsw i64 %indvars.iv123, %52
-  %56 = shl nsw i64 %55, 3
-  %gep110 = getelementptr inbounds nuw i8, ptr %invariant.gep109, i64 %56
-  %.val88 = load i64, ptr %gep110, align 1
-  %57 = tail call i64 asm "bswapq $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 %.val88) #5, !srcloc !61
-  %58 = bitcast i64 %57 to double
-  %59 = fptrunc reassoc nsz arcp contract afn double %58 to float
-  %60 = getelementptr inbounds nuw [6 x float], ptr %53, i64 0, i64 %indvars.iv123
-  store float %59, ptr %60, align 4, !tbaa !68
-  %indvars.iv.next124 = add nuw nsw i64 %indvars.iv123, 1
-  %exitcond126.not = icmp eq i64 %indvars.iv.next124, 6
-  br i1 %exitcond126.not, label %54, label %_get_double.exit, !llvm.loop !71
-
-.preheader105:                                    ; preds = %.preheader106
-  %invariant.gep = getelementptr inbounds nuw i8, ptr %27, i64 40
-  %.val85 = load i64, ptr %invariant.gep, align 1
-  %61 = tail call i64 asm "bswapq $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 %.val85) #5, !srcloc !61
-  %62 = bitcast i64 %61 to double
-  %63 = fptrunc reassoc nsz arcp contract afn double %62 to float
-  store float %63, ptr %8, align 4, !tbaa !68
-  %gep.c = getelementptr inbounds nuw i8, ptr %27, i64 48
-  %.val85.c = load i64, ptr %gep.c, align 1
-  %64 = tail call i64 asm "bswapq $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 %.val85.c) #5, !srcloc !61
-  %65 = bitcast i64 %64 to double
-  %66 = fptrunc reassoc nsz arcp contract afn double %65 to float
-  store float %66, ptr %12, align 4, !tbaa !68
-  store i32 1, ptr %5, align 4, !tbaa !68
-  store i32 3, ptr %9, align 16, !tbaa !69
-  br label %79
+  %indvars.iv119 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next120, %_get_double.exit ]
+  %58 = add nuw nsw i64 %indvars.iv119, %55
+  %59 = shl nsw i64 %58, 3
+  %60 = getelementptr inbounds nuw i8, ptr %27, i64 %59
+  %61 = getelementptr inbounds nuw i8, ptr %60, i64 4
+  %.val88 = load i64, ptr %61, align 1
+  %62 = tail call i64 asm "bswapq $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 %.val88) #5, !srcloc !61
+  %63 = bitcast i64 %62 to double
+  %64 = fptrunc reassoc nsz arcp contract afn double %63 to float
+  %65 = getelementptr inbounds nuw [6 x float], ptr %56, i64 0, i64 %indvars.iv119
+  store float %64, ptr %65, align 4, !tbaa !65
+  %indvars.iv.next120 = add nuw nsw i64 %indvars.iv119, 1
+  %exitcond122.not = icmp eq i64 %indvars.iv.next120, 6
+  br i1 %exitcond122.not, label %57, label %_get_double.exit
 
 .preheader106:                                    ; preds = %34, %.preheader106
   %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader106 ], [ 0, %34 ]
-  %67 = shl nuw nsw i64 %indvars.iv, 3
-  %68 = getelementptr inbounds nuw i8, ptr %27, i64 %67
-  %.val86 = load i64, ptr %68, align 1
-  %69 = tail call i64 asm "bswapq $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 %.val86) #5, !srcloc !61
-  %70 = bitcast i64 %69 to double
-  %71 = fptrunc reassoc nsz arcp contract afn double %70 to float
-  %72 = getelementptr inbounds nuw [5 x float], ptr %7, i64 0, i64 %indvars.iv
-  store float %71, ptr %72, align 4, !tbaa !68
+  %66 = shl nuw nsw i64 %indvars.iv, 3
+  %67 = getelementptr inbounds nuw i8, ptr %27, i64 %66
+  %.val86 = load i64, ptr %67, align 1
+  %68 = tail call i64 asm "bswapq $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 %.val86) #5, !srcloc !61
+  %69 = bitcast i64 %68 to double
+  %70 = fptrunc reassoc nsz arcp contract afn double %69 to float
+  %71 = getelementptr inbounds nuw [5 x float], ptr %7, i64 0, i64 %indvars.iv
+  store float %70, ptr %71, align 4, !tbaa !65
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 5
-  br i1 %exitcond.not, label %.preheader105, label %.preheader106, !llvm.loop !72
+  br i1 %exitcond.not, label %.preheader105, label %.preheader106
 
-73:                                               ; preds = %34
-  %74 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !26
-  %75 = and i32 %74, 262144
-  %.not77 = icmp eq i32 %75, 0
-  br i1 %.not77, label %79, label %76
+.preheader105:                                    ; preds = %.preheader106
+  %72 = getelementptr inbounds nuw i8, ptr %27, i64 40
+  %.val85 = load i64, ptr %72, align 1
+  %73 = tail call i64 asm "bswapq $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 %.val85) #5, !srcloc !61
+  %74 = bitcast i64 %73 to double
+  %75 = fptrunc reassoc nsz arcp contract afn double %74 to float
+  store float %75, ptr %8, align 4, !tbaa !65
+  %76 = getelementptr inbounds nuw i8, ptr %27, i64 48
+  %.val85.c = load i64, ptr %76, align 1
+  %77 = tail call i64 asm "bswapq $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 %.val85.c) #5, !srcloc !61
+  %78 = bitcast i64 %77 to double
+  %79 = fptrunc reassoc nsz arcp contract afn double %78 to float
+  store float %79, ptr %12, align 4, !tbaa !65
+  store i32 1, ptr %5, align 4, !tbaa !65
+  store i32 3, ptr %9, align 16, !tbaa !66
+  br label %86
 
-76:                                               ; preds = %73
-  %77 = and i32 %20, 1
-  %.not78 = icmp eq i32 %77, 0
-  %78 = select i1 %.not78, ptr @.str.3, ptr @.str.2
-  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.6, ptr noundef nonnull %78, i32 noundef %16) #4
-  br label %79
+80:                                               ; preds = %34
+  %81 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !26
+  %82 = and i32 %81, 262144
+  %.not77 = icmp eq i32 %82, 0
+  br i1 %.not77, label %86, label %83
 
-79:                                               ; preds = %.preheader104, %.preheader105, %76, %73
-  %80 = add i32 %.070118, -1
-  %.not = icmp eq i32 %80, 0
-  br i1 %.not, label %.critedge, label %_get_long.exit90, !llvm.loop !73
+83:                                               ; preds = %80
+  %84 = and i32 %20, 1
+  %.not78 = icmp eq i32 %84, 0
+  %85 = select i1 %.not78, ptr @.str.3, ptr @.str.2
+  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.6, ptr noundef nonnull %85, i32 noundef %16) #4
+  br label %86
 
-.critedge:                                        ; preds = %79, %_get_long.exit, %40, %37, %33, %30
+86:                                               ; preds = %.preheader104, %.preheader105, %83, %80
+  %87 = add i32 %.070114, -1
+  %.not = icmp eq i32 %87, 0
+  br i1 %.not, label %.critedge, label %_get_long.exit90
+
+.critedge:                                        ; preds = %86, %_get_long.exit, %40, %37, %33, %30
   ret void
 }
 
@@ -480,12 +480,5 @@ attributes #6 = { nounwind allocsize(0) }
 !62 = !{!21, !21, i64 0}
 !63 = !{i64 2158328671}
 !64 = !{!11, !11, i64 0}
-!65 = distinct !{!65, !66}
-!66 = !{!"llvm.loop.estimated_trip_count"}
-!67 = distinct !{!67, !66}
-!68 = !{!9, !9, i64 0}
-!69 = !{!7, !8, i64 560}
-!70 = distinct !{!70, !66}
-!71 = distinct !{!71, !66}
-!72 = distinct !{!72, !66}
-!73 = distinct !{!73, !66}
+!65 = !{!9, !9, i64 0}
+!66 = !{!7, !8, i64 560}

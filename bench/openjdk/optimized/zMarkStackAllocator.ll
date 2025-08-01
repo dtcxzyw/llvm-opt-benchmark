@@ -329,8 +329,8 @@ _ZN15ZMarkStackSpace12expand_spaceEv.exit:        ; preds = %25, %27
   %30 = load volatile i64, ptr %6, align 8
   %31 = inttoptr i64 %30 to ptr
   tail call void @_ZN2os21commit_memory_or_exitEPcmbPKc(ptr noundef %31, i64 noundef 33554432, i1 noundef zeroext false, ptr noundef nonnull @.str.7) #10
-  %32 = tail call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %1, ptr nonnull %4) #10, !srcloc !10
-  %33 = tail call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 33554432, ptr nonnull %6) #10, !srcloc !10
+  %32 = tail call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %1, ptr nonnull %4) #10, !srcloc !9
+  %33 = tail call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 33554432, ptr nonnull %6) #10, !srcloc !9
   br label %_ZN7ZLockerI5ZLockED2Ev.exit
 
 _ZN7ZLockerI5ZLockED2Ev.exit:                     ; preds = %_ZN15ZMarkStackSpace11alloc_spaceEm.exit, %_ZN15ZMarkStackSpace12expand_spaceEv.exit
@@ -486,7 +486,7 @@ define hidden noundef ptr @_ZN19ZMarkStackAllocator26create_magazine_from_spaceE
 _ZN6ZStackIPS_I15ZMarkStackEntryLm254EELm15EE4pushES2_.exit: ; preds = %7, %11
   %14 = add i64 %.08, 2048
   %15 = icmp ult i64 %14, %2
-  br i1 %15, label %7, label %._crit_edge, !llvm.loop !11
+  br i1 %15, label %7, label %._crit_edge, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %_ZN6ZStackIPS_I15ZMarkStackEntryLm254EELm15EE4pushES2_.exit, %3
   ret ptr %4
@@ -527,7 +527,7 @@ define hidden noundef ptr @_ZN19ZMarkStackAllocator14alloc_magazineEv(ptr nounde
   %26 = inttoptr i64 %25 to ptr
   %27 = tail call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %26, ptr %.08.i, ptr nonnull %3) #10, !srcloc !6
   %28 = icmp eq ptr %27, %.08.i
-  br i1 %28, label %_ZN10ZStackListI6ZStackIPS0_I15ZMarkStackEntryLm254EELm15EEE3popEv.exit, label %5, !llvm.loop !12
+  br i1 %28, label %_ZN10ZStackListI6ZStackIPS0_I15ZMarkStackEntryLm254EELm15EEE3popEv.exit, label %5, !llvm.loop !11
 
 29:                                               ; preds = %5
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 256
@@ -536,7 +536,7 @@ define hidden noundef ptr @_ZN19ZMarkStackAllocator14alloc_magazineEv(ptr nounde
   br i1 %32, label %35, label %33
 
 33:                                               ; preds = %29
-  %34 = tail call i8 asm sideeffect "lock cmpxchgb $1,($3)", "={ax},q,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i1 true, i1 false, ptr nonnull %30) #10, !srcloc !13
+  %34 = tail call i8 asm sideeffect "lock cmpxchgb $1,($3)", "={ax},q,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i1 true, i1 false, ptr nonnull %30) #10, !srcloc !12
   br label %35
 
 35:                                               ; preds = %33, %29
@@ -593,7 +593,7 @@ _ZN15ZMarkStackSpace5allocEm.exit.thread:         ; preds = %_ZN15ZMarkStackSpac
 _ZN6ZStackIPS_I15ZMarkStackEntryLm254EELm15EE4pushES2_.exit.i: ; preds = %55, %51
   %58 = add nuw nsw i64 %.08.i8, 2048
   %59 = icmp samesign ult i64 %.08.i8, 30720
-  br i1 %59, label %51, label %_ZN10ZStackListI6ZStackIPS0_I15ZMarkStackEntryLm254EELm15EEE3popEv.exit, !llvm.loop !11
+  br i1 %59, label %51, label %_ZN10ZStackListI6ZStackIPS0_I15ZMarkStackEntryLm254EELm15EEE3popEv.exit, !llvm.loop !10
 
 _ZN10ZStackListI6ZStackIPS0_I15ZMarkStackEntryLm254EELm15EEE3popEv.exit: ; preds = %14, %_ZN6ZStackIPS_I15ZMarkStackEntryLm254EELm15EE4pushES2_.exit.i, %_ZN15ZMarkStackSpace5allocEm.exit
   %.0 = phi ptr [ null, %_ZN15ZMarkStackSpace5allocEm.exit ], [ %49, %_ZN6ZStackIPS_I15ZMarkStackEntryLm254EELm15EE4pushES2_.exit.i ], [ %15, %14 ]
@@ -608,7 +608,7 @@ define hidden noundef zeroext i1 @_ZN19ZMarkStackAllocator31clear_and_get_expand
   br i1 %4, label %5, label %8
 
 5:                                                ; preds = %1
-  %6 = tail call i8 asm sideeffect "lock cmpxchgb $1,($3)", "={ax},q,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i1 false, i1 true, ptr nonnull %2) #10, !srcloc !13
+  %6 = tail call i8 asm sideeffect "lock cmpxchgb $1,($3)", "={ax},q,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i1 false, i1 true, ptr nonnull %2) #10, !srcloc !12
   %7 = trunc i8 %6 to i1
   br label %8
 
@@ -643,7 +643,7 @@ define hidden void @_ZN19ZMarkStackAllocator13free_magazineEP6ZStackIPS0_I15ZMar
   %18 = inttoptr i64 %17 to ptr
   %19 = tail call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %18, ptr %.0.us.i, ptr nonnull %4) #10, !srcloc !6
   %20 = icmp eq ptr %19, %.0.us.i
-  br i1 %20, label %_ZN10ZStackListI6ZStackIPS0_I15ZMarkStackEntryLm254EELm15EEE4pushEPS4_.exit, label %.split.us.i, !llvm.loop !14
+  br i1 %20, label %_ZN10ZStackListI6ZStackIPS0_I15ZMarkStackEntryLm254EELm15EEE4pushEPS4_.exit, label %.split.us.i, !llvm.loop !13
 
 .split.i:                                         ; preds = %2, %.split.i
   %.0.i = phi ptr [ %36, %.split.i ], [ %5, %2 ]
@@ -666,7 +666,7 @@ define hidden void @_ZN19ZMarkStackAllocator13free_magazineEP6ZStackIPS0_I15ZMar
   %35 = inttoptr i64 %34 to ptr
   %36 = tail call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %35, ptr %.0.i, ptr nonnull %4) #10, !srcloc !6
   %37 = icmp eq ptr %36, %.0.i
-  br i1 %37, label %_ZN10ZStackListI6ZStackIPS0_I15ZMarkStackEntryLm254EELm15EEE4pushEPS4_.exit, label %.split.i, !llvm.loop !16
+  br i1 %37, label %_ZN10ZStackListI6ZStackIPS0_I15ZMarkStackEntryLm254EELm15EEE4pushEPS4_.exit, label %.split.i, !llvm.loop !15
 
 _ZN10ZStackListI6ZStackIPS0_I15ZMarkStackEntryLm254EELm15EEE4pushEPS4_.exit: ; preds = %.split.i, %.split.us.i
   ret void
@@ -784,13 +784,12 @@ attributes #11 = { noreturn nounwind }
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
 !6 = !{i64 2145412694}
-!7 = distinct !{!7, !8, !9}
+!7 = distinct !{!7, !8}
 !8 = !{!"llvm.loop.mustprogress"}
-!9 = !{!"llvm.loop.estimated_trip_count"}
-!10 = !{i64 2145411697}
-!11 = distinct !{!11, !8, !9}
-!12 = distinct !{!12, !8, !9}
-!13 = !{i64 2145410579}
-!14 = distinct !{!14, !8, !9, !15}
-!15 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!16 = distinct !{!16, !8, !9}
+!9 = !{i64 2145411697}
+!10 = distinct !{!10, !8}
+!11 = distinct !{!11, !8}
+!12 = !{i64 2145410579}
+!13 = distinct !{!13, !8, !14}
+!14 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!15 = distinct !{!15, !8}

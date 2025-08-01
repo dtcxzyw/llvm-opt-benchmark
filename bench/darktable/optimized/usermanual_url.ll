@@ -307,19 +307,19 @@ define ptr @dt_get_help_url(ptr noundef readonly captures(address_is_null) %0) l
 3:                                                ; preds = %.preheader
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond = icmp eq i64 %indvars.iv.next, 155
-  br i1 %exitcond, label %.loopexit, label %.preheader, !llvm.loop !6
+  br i1 %exitcond, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %1, %3
   %indvars.iv = phi i64 [ %indvars.iv.next, %3 ], [ 0, %1 ]
   %4 = getelementptr inbounds nuw [155 x %struct._help_url], ptr @urls_db, i64 0, i64 %indvars.iv
-  %5 = load ptr, ptr %4, align 16, !tbaa !8
+  %5 = load ptr, ptr %4, align 16, !tbaa !6
   %6 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(1) %0) #2
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %7, label %3
 
 7:                                                ; preds = %.preheader
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %9 = load ptr, ptr %8, align 8, !tbaa !14
+  %9 = load ptr, ptr %8, align 8, !tbaa !12
   br label %.loopexit
 
 .loopexit:                                        ; preds = %3, %7, %1
@@ -342,12 +342,10 @@ attributes #2 = { nounwind willreturn memory(read) }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"debug-info-assignment-tracking", i1 true}
-!6 = distinct !{!6, !7}
-!7 = !{!"llvm.loop.estimated_trip_count"}
-!8 = !{!9, !10, i64 0}
-!9 = !{!"_help_url", !10, i64 0, !10, i64 8}
-!10 = !{!"p1 omnipotent char", !11, i64 0}
-!11 = !{!"any pointer", !12, i64 0}
-!12 = !{!"omnipotent char", !13, i64 0}
-!13 = !{!"Simple C/C++ TBAA"}
-!14 = !{!9, !10, i64 8}
+!6 = !{!7, !8, i64 0}
+!7 = !{!"_help_url", !8, i64 0, !8, i64 8}
+!8 = !{!"p1 omnipotent char", !9, i64 0}
+!9 = !{!"any pointer", !10, i64 0}
+!10 = !{!"omnipotent char", !11, i64 0}
+!11 = !{!"Simple C/C++ TBAA"}
+!12 = !{!7, !8, i64 8}

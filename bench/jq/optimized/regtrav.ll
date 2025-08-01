@@ -51,9 +51,9 @@ define internal fastcc i32 @capture_tree_traverse(ptr noundef readonly captures(
 
 26:                                               ; preds = %.lr.ph, %22
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %22 ]
-  %27 = load ptr, ptr %20, align 8, !tbaa !21
+  %27 = load ptr, ptr %20, align 8, !tbaa !20
   %28 = getelementptr inbounds nuw ptr, ptr %27, i64 %indvars.iv
-  %29 = load ptr, ptr %28, align 8, !tbaa !22
+  %29 = load ptr, ptr %28, align 8, !tbaa !21
   %30 = tail call fastcc i32 @capture_tree_traverse(ptr noundef %29, i32 noundef %1, ptr noundef %2, i32 noundef %21, ptr noundef %4)
   %.not38 = icmp eq i32 %30, 0
   br i1 %.not38, label %22, label %.loopexit
@@ -104,8 +104,7 @@ attributes #1 = { nounwind }
 !15 = !{!13, !6, i64 4}
 !16 = !{!13, !6, i64 8}
 !17 = !{!13, !6, i64 16}
-!18 = distinct !{!18, !19, !20}
+!18 = distinct !{!18, !19}
 !19 = !{!"llvm.loop.mustprogress"}
-!20 = !{!"llvm.loop.estimated_trip_count"}
-!21 = !{!13, !14, i64 24}
-!22 = !{!11, !11, i64 0}
+!20 = !{!13, !14, i64 24}
+!21 = !{!11, !11, i64 0}

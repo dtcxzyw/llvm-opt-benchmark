@@ -223,7 +223,7 @@ define internal i32 @acpi_thermal_add(ptr noundef %0) #2 align 16 {
   %48 = add nuw nsw i32 %45, 1
   %49 = add nuw nsw i32 %44, 1
   %50 = icmp eq i32 %49, 10
-  br i1 %50, label %.thread, label %43, !llvm.loop !10
+  br i1 %50, label %.thread, label %43, !llvm.loop !9
 
 51:                                               ; preds = %43
   %52 = add nuw i32 %44, 1
@@ -241,7 +241,7 @@ define internal i32 @acpi_thermal_add(ptr noundef %0) #2 align 16 {
   store i64 -274000, ptr %59, align 8
   %60 = add nuw nsw i64 %58, 1
   %61 = icmp eq i64 %60, 10
-  br i1 %61, label %.thread, label %57, !llvm.loop !11
+  br i1 %61, label %.thread, label %57, !llvm.loop !10
 
 .thread:                                          ; preds = %47, %57, %51
   %62 = phi i32 [ %45, %51 ], [ %45, %57 ], [ %42, %47 ]
@@ -467,7 +467,7 @@ define internal i32 @acpi_thermal_add(ptr noundef %0) #2 align 16 {
   %197 = getelementptr i8, ptr %181, i64 24
   %198 = add nuw nsw i64 %180, 1
   %199 = icmp eq i64 %198, 10
-  br i1 %199, label %200, label %179, !llvm.loop !12
+  br i1 %199, label %200, label %179, !llvm.loop !11
 
 200:                                              ; preds = %194, %179
   %201 = load ptr, ptr %139, align 8
@@ -588,7 +588,7 @@ define internal i32 @acpi_thermal_add(ptr noundef %0) #2 align 16 {
   call void @acpi_handle_list_free(ptr noundef %270) #12
   %271 = add nuw nsw i64 %269, 1
   %272 = icmp eq i64 %271, 10
-  br i1 %272, label %273, label %268, !llvm.loop !13
+  br i1 %272, label %273, label %268, !llvm.loop !12
 
 273:                                              ; preds = %268
   call void @kfree(ptr noundef nonnull %11) #12
@@ -641,7 +641,7 @@ define internal void @acpi_thermal_remove(ptr noundef %0) #2 align 16 {
   tail call void @acpi_handle_list_free(ptr noundef %23) #12
   %24 = add nuw nsw i64 %22, 1
   %25 = icmp eq i64 %24, 10
-  br i1 %25, label %26, label %21, !llvm.loop !14
+  br i1 %25, label %26, label %21, !llvm.loop !12
 
 26:                                               ; preds = %21
   tail call void @kfree(ptr noundef nonnull %5) #12
@@ -678,15 +678,15 @@ define internal void @acpi_thermal_check_fn(ptr noundef %0) #2 align 16 {
   %6 = getelementptr i8, ptr %0, i64 -16
   %7 = load ptr, ptr %6, align 8
   tail call void @thermal_zone_device_update(ptr noundef %7, i32 noundef 0) #12
-  %8 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %2, i32 1, ptr elementtype(i32) %2) #12, !srcloc !15
+  %8 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %2, i32 1, ptr elementtype(i32) %2) #12, !srcloc !13
   %9 = icmp eq i32 %8, 0
-  br i1 %9, label %14, label %10, !prof !16
+  br i1 %9, label %14, label %10, !prof !14
 
 10:                                               ; preds = %4
   %11 = add i32 %8, 1
   %12 = or i32 %11, %8
   %13 = icmp sgt i32 %12, -1
-  br i1 %13, label %16, label %14, !prof !17
+  br i1 %13, label %16, label %14, !prof !15
 
 14:                                               ; preds = %10, %4
   %15 = phi i32 [ 2, %4 ], [ 1, %10 ]
@@ -1319,7 +1319,7 @@ define internal i32 @bind_unbind_cdev_cb(ptr noundef %0, ptr noundef readonly ca
   br i1 %25, label %26, label %.thread
 
 26:                                               ; preds = %18
-  %27 = load i8, ptr %17, align 8, !range !18, !noundef !19
+  %27 = load i8, ptr %17, align 8, !range !16, !noundef !17
   %28 = icmp eq i8 %27, 0
   br i1 %28, label %29, label %31
 
@@ -1336,7 +1336,7 @@ define internal i32 @bind_unbind_cdev_cb(ptr noundef %0, ptr noundef readonly ca
   %33 = add nuw i32 %19, 1
   %34 = load i32, ptr %12, align 8
   %35 = icmp ult i32 %33, %34
-  br i1 %35, label %18, label %.loopexit, !llvm.loop !20
+  br i1 %35, label %18, label %.loopexit, !llvm.loop !18
 
 .loopexit:                                        ; preds = %31, %.thread, %11, %2
   %36 = phi i32 [ 0, %2 ], [ 0, %11 ], [ %32, %31 ], [ 0, %.thread ]
@@ -1600,12 +1600,12 @@ define internal noundef range(i32 -22, 1) i32 @acpi_thermal_resume(ptr noundef r
   %28 = add nuw i32 %22, 1
   %29 = load i32, ptr %16, align 8
   %30 = icmp ult i32 %28, %29
-  br i1 %30, label %21, label %.loopexit, !llvm.loop !21
+  br i1 %30, label %21, label %.loopexit, !llvm.loop !19
 
 .loopexit:                                        ; preds = %21, %15
   %31 = add nuw nsw i64 %11, 1
   %32 = icmp eq i64 %31, 10
-  br i1 %32, label %33, label %10, !llvm.loop !22
+  br i1 %32, label %33, label %10, !llvm.loop !20
 
 33:                                               ; preds = %.loopexit, %10
   %34 = getelementptr inbounds nuw i8, ptr %6, i64 360
@@ -1728,20 +1728,18 @@ attributes #15 = { nounwind allocsize(0) }
 !3 = !{i32 4, !"indirect_branch_cs_prefix", i32 1}
 !4 = !{i32 4, !"SkipRaxSetup", i32 1}
 !5 = !{!"auto-init"}
-!6 = distinct !{!6, !7, !8, !9}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
 !8 = !{!"llvm.loop.unroll.disable"}
-!9 = !{!"llvm.loop.estimated_trip_count"}
-!10 = distinct !{!10, !7, !8, !9}
-!11 = distinct !{!11, !7, !8, !9}
-!12 = distinct !{!12, !7, !8, !9}
-!13 = distinct !{!13, !7, !8, !9}
-!14 = distinct !{!14, !7, !8, !9}
-!15 = !{i64 2148845633, i64 2148845672, i64 2148845693, i64 2148845730, i64 2148845753, i64 2148845762}
-!16 = !{!"branch_weights", i32 1, i32 2000}
-!17 = !{!"branch_weights", i32 2000, i32 1}
-!18 = !{i8 0, i8 2}
-!19 = !{}
-!20 = distinct !{!20, !7, !8, !9}
-!21 = distinct !{!21, !7, !8, !9}
-!22 = distinct !{!22, !7, !8, !9}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = distinct !{!11, !7, !8}
+!12 = distinct !{!12, !7, !8}
+!13 = !{i64 2148845633, i64 2148845672, i64 2148845693, i64 2148845730, i64 2148845753, i64 2148845762}
+!14 = !{!"branch_weights", i32 1, i32 2000}
+!15 = !{!"branch_weights", i32 2000, i32 1}
+!16 = !{i8 0, i8 2}
+!17 = !{}
+!18 = distinct !{!18, !7, !8}
+!19 = distinct !{!19, !7, !8}
+!20 = distinct !{!20, !7, !8}

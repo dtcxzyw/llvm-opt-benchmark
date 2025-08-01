@@ -59,14 +59,14 @@ define void @pmix_class_initialize(ptr noundef captures(none) %0) local_unnamed_
   br i1 %.not, label %23, label %12, !llvm.loop !16
 
 23:                                               ; preds = %12
-  store i32 %20, ptr %11, align 4, !tbaa !19
+  store i32 %20, ptr %11, align 4, !tbaa !18
   %24 = add nuw nsw i32 %spec.select, 2
   %25 = add nuw nsw i32 %24, %.1
   %26 = zext nneg i32 %25 to i64
   %27 = shl nuw nsw i64 %26, 3
   %28 = tail call noalias ptr @malloc(i64 noundef %27) #10
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store ptr %28, ptr %29, align 8, !tbaa !20
+  store ptr %28, ptr %29, align 8, !tbaa !19
   %30 = icmp eq ptr %28, null
   br i1 %30, label %31, label %32
 
@@ -80,8 +80,8 @@ define void @pmix_class_initialize(ptr noundef captures(none) %0) local_unnamed_
   %34 = getelementptr inbounds nuw ptr, ptr %28, i64 %33
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 8
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store ptr %35, ptr %36, align 8, !tbaa !21
-  store ptr null, ptr %34, align 8, !tbaa !22
+  store ptr %35, ptr %36, align 8, !tbaa !20
+  store ptr null, ptr %34, align 8, !tbaa !21
   br label %.lr.ph63
 
 .lr.ph63:                                         ; preds = %32, %46
@@ -96,7 +96,7 @@ define void @pmix_class_initialize(ptr noundef captures(none) %0) local_unnamed_
 
 39:                                               ; preds = %.lr.ph63
   %40 = getelementptr inbounds i8, ptr %.04259, i64 -8
-  store ptr %38, ptr %40, align 8, !tbaa !22
+  store ptr %38, ptr %40, align 8, !tbaa !21
   br label %41
 
 41:                                               ; preds = %39, %.lr.ph63
@@ -107,7 +107,7 @@ define void @pmix_class_initialize(ptr noundef captures(none) %0) local_unnamed_
   br i1 %.not50, label %46, label %44
 
 44:                                               ; preds = %41
-  store ptr %43, ptr %.04060, align 8, !tbaa !22
+  store ptr %43, ptr %.04060, align 8, !tbaa !21
   %45 = getelementptr inbounds nuw i8, ptr %.04060, i64 8
   br label %46
 
@@ -117,15 +117,15 @@ define void @pmix_class_initialize(ptr noundef captures(none) %0) local_unnamed_
   %48 = load ptr, ptr %47, align 8, !tbaa !15
   %49 = add nuw nsw i32 %.061, 1
   %exitcond.not = icmp eq i32 %.061, %13
-  br i1 %exitcond.not, label %._crit_edge64, label %.lr.ph63, !llvm.loop !23
+  br i1 %exitcond.not, label %._crit_edge64, label %.lr.ph63, !llvm.loop !22
 
 ._crit_edge64:                                    ; preds = %46
-  store ptr null, ptr %.141, align 8, !tbaa !22
+  store ptr null, ptr %.141, align 8, !tbaa !21
   store i32 %8, ptr %3, align 8, !tbaa !7
   %50 = load i32, ptr @num_classes, align 4, !tbaa !3
   %51 = load i32, ptr @max_classes, align 4, !tbaa !3
   %.not.i = icmp slt i32 %50, %51
-  %.pre.i = load ptr, ptr @classes, align 8, !tbaa !22
+  %.pre.i = load ptr, ptr @classes, align 8, !tbaa !21
   br i1 %.not.i, label %save_class.exit, label %52
 
 52:                                               ; preds = %._crit_edge64
@@ -146,7 +146,7 @@ define void @pmix_class_initialize(ptr noundef captures(none) %0) local_unnamed_
 
 61:                                               ; preds = %58, %56
   %storemerge.i.i = phi ptr [ %60, %58 ], [ %57, %56 ]
-  store ptr %storemerge.i.i, ptr @classes, align 8, !tbaa !22
+  store ptr %storemerge.i.i, ptr @classes, align 8, !tbaa !21
   %62 = icmp eq ptr %storemerge.i.i, null
   br i1 %62, label %63, label %64
 
@@ -168,15 +168,15 @@ define void @pmix_class_initialize(ptr noundef captures(none) %0) local_unnamed_
   %69 = zext i32 %68 to i64
   %70 = shl nuw nsw i64 %69, 3
   %71 = add nuw nsw i64 %70, 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %scevgep.i.i, i8 0, i64 %71, i1 false), !tbaa !22
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %scevgep.i.i, i8 0, i64 %71, i1 false), !tbaa !21
   br label %save_class.exit
 
 save_class.exit:                                  ; preds = %._crit_edge64, %64, %.lr.ph.preheader.i.i
   %72 = phi ptr [ %storemerge.i.i, %.lr.ph.preheader.i.i ], [ %storemerge.i.i, %64 ], [ %.pre.i, %._crit_edge64 ]
-  %73 = load ptr, ptr %29, align 8, !tbaa !20
+  %73 = load ptr, ptr %29, align 8, !tbaa !19
   %74 = sext i32 %50 to i64
   %75 = getelementptr inbounds ptr, ptr %72, i64 %74
-  store ptr %73, ptr %75, align 8, !tbaa !22
+  store ptr %73, ptr %75, align 8, !tbaa !21
   %76 = add nsw i32 %50, 1
   store i32 %76, ptr @num_classes, align 4, !tbaa !3
   br label %.sink.split
@@ -211,7 +211,7 @@ define noundef i32 @pmix_class_finalize() local_unnamed_addr #0 {
   %3 = add nsw i32 %1, 1
   %storemerge = select i1 %2, i32 1, i32 %3
   store i32 %storemerge, ptr @pmix_class_init_epoch, align 4, !tbaa !3
-  %4 = load ptr, ptr @classes, align 8, !tbaa !22
+  %4 = load ptr, ptr @classes, align 8, !tbaa !21
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %11, label %.preheader
 
@@ -227,7 +227,7 @@ define noundef i32 @pmix_class_finalize() local_unnamed_addr #0 {
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %10
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %10 ]
   %7 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv
-  %8 = load ptr, ptr %7, align 8, !tbaa !22
+  %8 = load ptr, ptr %7, align 8, !tbaa !21
   %.not6 = icmp eq ptr %8, null
   br i1 %.not6, label %10, label %9
 
@@ -238,11 +238,11 @@ define noundef i32 @pmix_class_finalize() local_unnamed_addr #0 {
 10:                                               ; preds = %.lr.ph, %9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !24
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !23
 
 ._crit_edge:                                      ; preds = %10, %.preheader
   tail call void @free(ptr noundef nonnull %4) #9
-  store ptr null, ptr @classes, align 8, !tbaa !22
+  store ptr null, ptr @classes, align 8, !tbaa !21
   store i32 0, ptr @num_classes, align 4, !tbaa !3
   store i32 0, ptr @max_classes, align 4, !tbaa !3
   br label %11
@@ -297,12 +297,11 @@ attributes #14 = { nounwind allocsize(1) }
 !13 = !{!8, !10, i64 16}
 !14 = !{!8, !10, i64 24}
 !15 = !{!8, !11, i64 8}
-!16 = distinct !{!16, !17, !18}
+!16 = distinct !{!16, !17}
 !17 = !{!"llvm.loop.mustprogress"}
-!18 = !{!"llvm.loop.estimated_trip_count"}
-!19 = !{!8, !4, i64 36}
-!20 = !{!8, !10, i64 40}
-!21 = !{!8, !10, i64 48}
-!22 = !{!10, !10, i64 0}
-!23 = distinct !{!23, !17, !18}
-!24 = distinct !{!24, !17, !18}
+!18 = !{!8, !4, i64 36}
+!19 = !{!8, !10, i64 40}
+!20 = !{!8, !10, i64 48}
+!21 = !{!10, !10, i64 0}
+!22 = distinct !{!22, !17}
+!23 = distinct !{!23, !17}

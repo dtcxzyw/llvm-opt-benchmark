@@ -391,7 +391,7 @@ define noundef range(i32 -2147483648, 2147483617) i32 @_ZN5arrow8internal13unpac
   %93 = getelementptr inbounds nuw i8, ptr %.2868.i, i64 8
   %indvars.iv.next1055.i = add nuw nsw i64 %indvars.iv1054.i, 1
   %exitcond1058.not.i = icmp eq i64 %indvars.iv.next1055.i, %wide.trip.count1057.i
-  br i1 %exitcond1058.not.i, label %_ZN5arrow8internalL20unpack32_specializedINS0_12_GLOBAL__N_113UnpackBits256ILNS0_13DispatchLevelE2EEEEEiPKjPjii.exit, label %.lr.ph870.i, !llvm.loop !9
+  br i1 %exitcond1058.not.i, label %_ZN5arrow8internalL20unpack32_specializedINS0_12_GLOBAL__N_113UnpackBits256ILNS0_13DispatchLevelE2EEEEEiPKjPjii.exit, label %.lr.ph870.i, !llvm.loop !8
 
 .lr.ph867.i:                                      ; preds = %.lr.ph867.i, %.lr.ph867.preheader.i
   %indvars.iv1049.i = phi i64 [ 0, %.lr.ph867.preheader.i ], [ %indvars.iv.next1050.i, %.lr.ph867.i ]
@@ -450,7 +450,7 @@ define noundef range(i32 -2147483648, 2147483617) i32 @_ZN5arrow8internal13unpac
   %134 = getelementptr inbounds nuw i8, ptr %.3865.i, i64 12
   %indvars.iv.next1050.i = add nuw nsw i64 %indvars.iv1049.i, 1
   %exitcond1053.not.i = icmp eq i64 %indvars.iv.next1050.i, %wide.trip.count1052.i
-  br i1 %exitcond1053.not.i, label %_ZN5arrow8internalL20unpack32_specializedINS0_12_GLOBAL__N_113UnpackBits256ILNS0_13DispatchLevelE2EEEEEiPKjPjii.exit, label %.lr.ph867.i, !llvm.loop !10
+  br i1 %exitcond1053.not.i, label %_ZN5arrow8internalL20unpack32_specializedINS0_12_GLOBAL__N_113UnpackBits256ILNS0_13DispatchLevelE2EEEEEiPKjPjii.exit, label %.lr.ph867.i, !llvm.loop !9
 
 .lr.ph864.i:                                      ; preds = %.lr.ph864.i, %.lr.ph864.preheader.i
   %indvars.iv1044.i = phi i64 [ 0, %.lr.ph864.preheader.i ], [ %indvars.iv.next1045.i, %.lr.ph864.i ]
@@ -494,7 +494,7 @@ define noundef range(i32 -2147483648, 2147483617) i32 @_ZN5arrow8internal13unpac
   %162 = getelementptr inbounds nuw i8, ptr %.4862.i, i64 16
   %indvars.iv.next1045.i = add nuw nsw i64 %indvars.iv1044.i, 1
   %exitcond1048.not.i = icmp eq i64 %indvars.iv.next1045.i, %wide.trip.count1047.i
-  br i1 %exitcond1048.not.i, label %_ZN5arrow8internalL20unpack32_specializedINS0_12_GLOBAL__N_113UnpackBits256ILNS0_13DispatchLevelE2EEEEEiPKjPjii.exit, label %.lr.ph864.i, !llvm.loop !11
+  br i1 %exitcond1048.not.i, label %_ZN5arrow8internalL20unpack32_specializedINS0_12_GLOBAL__N_113UnpackBits256ILNS0_13DispatchLevelE2EEEEEiPKjPjii.exit, label %.lr.ph864.i, !llvm.loop !10
 
 .lr.ph861.i:                                      ; preds = %.lr.ph861.i, %.lr.ph861.preheader.i
   %indvars.iv1039.i = phi i64 [ 0, %.lr.ph861.preheader.i ], [ %indvars.iv.next1040.i, %.lr.ph861.i ]
@@ -571,7 +571,7 @@ define noundef range(i32 -2147483648, 2147483617) i32 @_ZN5arrow8internal13unpac
   %219 = getelementptr inbounds nuw i8, ptr %.5859.i, i64 20
   %indvars.iv.next1040.i = add nuw nsw i64 %indvars.iv1039.i, 1
   %exitcond1043.not.i = icmp eq i64 %indvars.iv.next1040.i, %wide.trip.count1042.i
-  br i1 %exitcond1043.not.i, label %_ZN5arrow8internalL20unpack32_specializedINS0_12_GLOBAL__N_113UnpackBits256ILNS0_13DispatchLevelE2EEEEEiPKjPjii.exit, label %.lr.ph861.i, !llvm.loop !12
+  br i1 %exitcond1043.not.i, label %_ZN5arrow8internalL20unpack32_specializedINS0_12_GLOBAL__N_113UnpackBits256ILNS0_13DispatchLevelE2EEEEEiPKjPjii.exit, label %.lr.ph861.i, !llvm.loop !11
 
 .lr.ph858.i:                                      ; preds = %.lr.ph858.i, %.lr.ph858.preheader.i
   %indvars.iv1034.i = phi i64 [ 0, %.lr.ph858.preheader.i ], [ %indvars.iv.next1035.i, %.lr.ph858.i ]
@@ -649,7 +649,7 @@ define noundef range(i32 -2147483648, 2147483617) i32 @_ZN5arrow8internal13unpac
   %277 = getelementptr inbounds nuw i8, ptr %.6856.i, i64 24
   %indvars.iv.next1035.i = add nuw nsw i64 %indvars.iv1034.i, 1
   %exitcond1038.not.i = icmp eq i64 %indvars.iv.next1035.i, %wide.trip.count1037.i
-  br i1 %exitcond1038.not.i, label %_ZN5arrow8internalL20unpack32_specializedINS0_12_GLOBAL__N_113UnpackBits256ILNS0_13DispatchLevelE2EEEEEiPKjPjii.exit, label %.lr.ph858.i, !llvm.loop !13
+  br i1 %exitcond1038.not.i, label %_ZN5arrow8internalL20unpack32_specializedINS0_12_GLOBAL__N_113UnpackBits256ILNS0_13DispatchLevelE2EEEEEiPKjPjii.exit, label %.lr.ph858.i, !llvm.loop !12
 
 .lr.ph855.i:                                      ; preds = %.lr.ph855.i, %.lr.ph855.preheader.i
   %indvars.iv1029.i = phi i64 [ 0, %.lr.ph855.preheader.i ], [ %indvars.iv.next1030.i, %.lr.ph855.i ]
@@ -732,7 +732,7 @@ define noundef range(i32 -2147483648, 2147483617) i32 @_ZN5arrow8internal13unpac
   %338 = getelementptr inbounds nuw i8, ptr %.7853.i, i64 28
   %indvars.iv.next1030.i = add nuw nsw i64 %indvars.iv1029.i, 1
   %exitcond1033.not.i = icmp eq i64 %indvars.iv.next1030.i, %wide.trip.count1032.i
-  br i1 %exitcond1033.not.i, label %_ZN5arrow8internalL20unpack32_specializedINS0_12_GLOBAL__N_113UnpackBits256ILNS0_13DispatchLevelE2EEEEEiPKjPjii.exit, label %.lr.ph855.i, !llvm.loop !14
+  br i1 %exitcond1033.not.i, label %_ZN5arrow8internalL20unpack32_specializedINS0_12_GLOBAL__N_113UnpackBits256ILNS0_13DispatchLevelE2EEEEEiPKjPjii.exit, label %.lr.ph855.i, !llvm.loop !13
 
 .lr.ph852.i:                                      ; preds = %.lr.ph852.i, %.lr.ph852.preheader.i
   %indvars.iv1024.i = phi i64 [ 0, %.lr.ph852.preheader.i ], [ %indvars.iv.next1025.i, %.lr.ph852.i ]
@@ -808,7 +808,7 @@ define noundef range(i32 -2147483648, 2147483617) i32 @_ZN5arrow8internal13unpac
   %394 = getelementptr inbounds nuw i8, ptr %.8850.i, i64 32
   %indvars.iv.next1025.i = add nuw nsw i64 %indvars.iv1024.i, 1
   %exitcond1028.not.i = icmp eq i64 %indvars.iv.next1025.i, %wide.trip.count1027.i
-  br i1 %exitcond1028.not.i, label %_ZN5arrow8internalL20unpack32_specializedINS0_12_GLOBAL__N_113UnpackBits256ILNS0_13DispatchLevelE2EEEEEiPKjPjii.exit, label %.lr.ph852.i, !llvm.loop !15
+  br i1 %exitcond1028.not.i, label %_ZN5arrow8internalL20unpack32_specializedINS0_12_GLOBAL__N_113UnpackBits256ILNS0_13DispatchLevelE2EEEEEiPKjPjii.exit, label %.lr.ph852.i, !llvm.loop !14
 
 .lr.ph849.i:                                      ; preds = %.lr.ph849.i, %.lr.ph849.preheader.i
   %indvars.iv1019.i = phi i64 [ 0, %.lr.ph849.preheader.i ], [ %indvars.iv.next1020.i, %.lr.ph849.i ]
@@ -897,7 +897,7 @@ define noundef range(i32 -2147483648, 2147483617) i32 @_ZN5arrow8internal13unpac
   %459 = getelementptr inbounds nuw i8, ptr %.9847.i, i64 36
   %indvars.iv.next1020.i = add nuw nsw i64 %indvars.iv1019.i, 1
   %exitcond1023.not.i = icmp eq i64 %indvars.iv.next1020.i, %wide.trip.count1022.i
-  br i1 %exitcond1023.not.i, label %_ZN5arrow8internalL20unpack32_specializedINS0_12_GLOBAL__N_113UnpackBits256ILNS0_13DispatchLevelE2EEEEEiPKjPjii.exit, label %.lr.ph849.i, !llvm.loop !16
+  br i1 %exitcond1023.not.i, label %_ZN5arrow8internalL20unpack32_specializedINS0_12_GLOBAL__N_113UnpackBits256ILNS0_13DispatchLevelE2EEEEEiPKjPjii.exit, label %.lr.ph849.i, !llvm.loop !15
 
 .lr.ph846.i:                                      ; preds = %.lr.ph846.i, %.lr.ph846.preheader.i
   %indvars.iv1014.i = phi i64 [ 0, %.lr.ph846.preheader.i ], [ %indvars.iv.next1015.i, %.lr.ph846.i ]
@@ -987,7 +987,7 @@ define noundef range(i32 -2147483648, 2147483617) i32 @_ZN5arrow8internal13unpac
   %525 = getelementptr inbounds nuw i8, ptr %.10844.i, i64 40
   %indvars.iv.next1015.i = add nuw nsw i64 %indvars.iv1014.i, 1
   %exitcond1018.not.i = icmp eq i64 %indvars.iv.next1015.i, %wide.trip.count1017.i
-  br i1 %exitcond1018.not.i, label %_ZN5arrow8internalL20unpack32_specializedINS0_12_GLOBAL__N_113UnpackBits256ILNS0_13DispatchLevelE2EEEEEiPKjPjii.exit, label %.lr.ph846.i, !llvm.loop !17
+  br i1 %exitcond1018.not.i, label %_ZN5arrow8internalL20unpack32_specializedINS0_12_GLOBAL__N_113UnpackBits256ILNS0_13DispatchLevelE2EEEEEiPKjPjii.exit, label %.lr.ph846.i, !llvm.loop !16
 
 .lr.ph843.i:                                      ; preds = %.lr.ph843.i, %.lr.ph843.preheader.i
   %indvars.iv1009.i = phi i64 [ 0, %.lr.ph843.preheader.i ], [ %indvars.iv.next1010.i, %.lr.ph843.i ]
@@ -1082,7 +1082,7 @@ define noundef range(i32 -2147483648, 2147483617) i32 @_ZN5arrow8internal13unpac
   %594 = getelementptr inbounds nuw i8, ptr %.11841.i, i64 44
   %indvars.iv.next1010.i = add nuw nsw i64 %indvars.iv1009.i, 1
   %exitcond1013.not.i = icmp eq i64 %indvars.iv.next1010.i, %wide.trip.count1012.i
-  br i1 %exitcond1013.not.i, label %_ZN5arrow8internalL20unpack32_specializedINS0_12_GLOBAL__N_113UnpackBits256ILNS0_13DispatchLevelE2EEEEEiPKjPjii.exit, label %.lr.ph843.i, !llvm.loop !18
+  br i1 %exitcond1013.not.i, label %_ZN5arrow8internalL20unpack32_specializedINS0_12_GLOBAL__N_113UnpackBits256ILNS0_13DispatchLevelE2EEEEEiPKjPjii.exit, label %.lr.ph843.i, !llvm.loop !17
 
 .lr.ph840.i:                                      ; preds = %.lr.ph840.i, %.lr.ph840.preheader.i
   %indvars.iv1004.i = phi i64 [ 0, %.lr.ph840.preheader.i ], [ %indvars.iv.next1005.i, %.lr.ph840.i ]
@@ -1174,7 +1174,7 @@ define noundef range(i32 -2147483648, 2147483617) i32 @_ZN5arrow8internal13unpac
   %662 = getelementptr inbounds nuw i8, ptr %.12838.i, i64 48
   %indvars.iv.next1005.i = add nuw nsw i64 %indvars.iv1004.i, 1
   %exitcond1008.not.i = icmp eq i64 %indvars.iv.next1005.i, %wide.trip.count1007.i
-  br i1 %exitcond1008.not.i, label %_ZN5arrow8internalL20unpack32_specializedINS0_12_GLOBAL__N_113UnpackBits256ILNS0_13DispatchLevelE2EEEEEiPKjPjii.exit, label %.lr.ph840.i, !llvm.loop !19
+  br i1 %exitcond1008.not.i, label %_ZN5arrow8internalL20unpack32_specializedINS0_12_GLOBAL__N_113UnpackBits256ILNS0_13DispatchLevelE2EEEEEiPKjPjii.exit, label %.lr.ph840.i, !llvm.loop !18
 
 .lr.ph837.i:                                      ; preds = %.lr.ph837.i, %.lr.ph837.preheader.i
   %indvars.iv999.i = phi i64 [ 0, %.lr.ph837.preheader.i ], [ %indvars.iv.next1000.i, %.lr.ph837.i ]
@@ -1275,7 +1275,7 @@ define noundef range(i32 -2147483648, 2147483617) i32 @_ZN5arrow8internal13unpac
   %735 = getelementptr inbounds nuw i8, ptr %.13835.i, i64 52
   %indvars.iv.next1000.i = add nuw nsw i64 %indvars.iv999.i, 1
   %exitcond1003.not.i = icmp eq i64 %indvars.iv.next1000.i, %wide.trip.count1002.i
-  br i1 %exitcond1003.not.i, label %_ZN5arrow8internalL20unpack32_specializedINS0_12_GLOBAL__N_113UnpackBits256ILNS0_13DispatchLevelE2EEEEEiPKjPjii.exit, label %.lr.ph837.i, !llvm.loop !20
+  br i1 %exitcond1003.not.i, label %_ZN5arrow8internalL20unpack32_specializedINS0_12_GLOBAL__N_113UnpackBits256ILNS0_13DispatchLevelE2EEEEEiPKjPjii.exit, label %.lr.ph837.i, !llvm.loop !19
 
 .lr.ph834.i:                                      ; preds = %.lr.ph834.i, %.lr.ph834.preheader.i
   %indvars.iv994.i = phi i64 [ 0, %.lr.ph834.preheader.i ], [ %indvars.iv.next995.i, %.lr.ph834.i ]
@@ -1377,7 +1377,7 @@ define noundef range(i32 -2147483648, 2147483617) i32 @_ZN5arrow8internal13unpac
   %809 = getelementptr inbounds nuw i8, ptr %.14832.i, i64 56
   %indvars.iv.next995.i = add nuw nsw i64 %indvars.iv994.i, 1
   %exitcond998.not.i = icmp eq i64 %indvars.iv.next995.i, %wide.trip.count997.i
-  br i1 %exitcond998.not.i, label %_ZN5arrow8internalL20unpack32_specializedINS0_12_GLOBAL__N_113UnpackBits256ILNS0_13DispatchLevelE2EEEEEiPKjPjii.exit, label %.lr.ph834.i, !llvm.loop !21
+  br i1 %exitcond998.not.i, label %_ZN5arrow8internalL20unpack32_specializedINS0_12_GLOBAL__N_113UnpackBits256ILNS0_13DispatchLevelE2EEEEEiPKjPjii.exit, label %.lr.ph834.i, !llvm.loop !20
 
 .lr.ph831.i:                                      ; preds = %.lr.ph831.i, %.lr.ph831.preheader.i
   %indvars.iv989.i = phi i64 [ 0, %.lr.ph831.preheader.i ], [ %indvars.iv.next990.i, %.lr.ph831.i ]
@@ -1484,7 +1484,7 @@ define noundef range(i32 -2147483648, 2147483617) i32 @_ZN5arrow8internal13unpac
   %886 = getelementptr inbounds nuw i8, ptr %.15829.i, i64 60
   %indvars.iv.next990.i = add nuw nsw i64 %indvars.iv989.i, 1
   %exitcond993.not.i = icmp eq i64 %indvars.iv.next990.i, %wide.trip.count992.i
-  br i1 %exitcond993.not.i, label %_ZN5arrow8internalL20unpack32_specializedINS0_12_GLOBAL__N_113UnpackBits256ILNS0_13DispatchLevelE2EEEEEiPKjPjii.exit, label %.lr.ph831.i, !llvm.loop !22
+  br i1 %exitcond993.not.i, label %_ZN5arrow8internalL20unpack32_specializedINS0_12_GLOBAL__N_113UnpackBits256ILNS0_13DispatchLevelE2EEEEEiPKjPjii.exit, label %.lr.ph831.i, !llvm.loop !21
 
 .lr.ph828.i:                                      ; preds = %.lr.ph828.i, %.lr.ph828.preheader.i
   %indvars.iv984.i = phi i64 [ 0, %.lr.ph828.preheader.i ], [ %indvars.iv.next985.i, %.lr.ph828.i ]
@@ -1576,7 +1576,7 @@ define noundef range(i32 -2147483648, 2147483617) i32 @_ZN5arrow8internal13unpac
   %950 = getelementptr inbounds nuw i8, ptr %.16826.i, i64 64
   %indvars.iv.next985.i = add nuw nsw i64 %indvars.iv984.i, 1
   %exitcond988.not.i = icmp eq i64 %indvars.iv.next985.i, %wide.trip.count987.i
-  br i1 %exitcond988.not.i, label %_ZN5arrow8internalL20unpack32_specializedINS0_12_GLOBAL__N_113UnpackBits256ILNS0_13DispatchLevelE2EEEEEiPKjPjii.exit, label %.lr.ph828.i, !llvm.loop !23
+  br i1 %exitcond988.not.i, label %_ZN5arrow8internalL20unpack32_specializedINS0_12_GLOBAL__N_113UnpackBits256ILNS0_13DispatchLevelE2EEEEEiPKjPjii.exit, label %.lr.ph828.i, !llvm.loop !22
 
 .lr.ph825.i:                                      ; preds = %.lr.ph825.i, %.lr.ph825.preheader.i
   %indvars.iv979.i = phi i64 [ 0, %.lr.ph825.preheader.i ], [ %indvars.iv.next980.i, %.lr.ph825.i ]
@@ -1689,7 +1689,7 @@ define noundef range(i32 -2147483648, 2147483617) i32 @_ZN5arrow8internal13unpac
   %1031 = getelementptr inbounds nuw i8, ptr %.17823.i, i64 68
   %indvars.iv.next980.i = add nuw nsw i64 %indvars.iv979.i, 1
   %exitcond983.not.i = icmp eq i64 %indvars.iv.next980.i, %wide.trip.count982.i
-  br i1 %exitcond983.not.i, label %_ZN5arrow8internalL20unpack32_specializedINS0_12_GLOBAL__N_113UnpackBits256ILNS0_13DispatchLevelE2EEEEEiPKjPjii.exit, label %.lr.ph825.i, !llvm.loop !24
+  br i1 %exitcond983.not.i, label %_ZN5arrow8internalL20unpack32_specializedINS0_12_GLOBAL__N_113UnpackBits256ILNS0_13DispatchLevelE2EEEEEiPKjPjii.exit, label %.lr.ph825.i, !llvm.loop !23
 
 .lr.ph822.i:                                      ; preds = %.lr.ph822.i, %.lr.ph822.preheader.i
   %indvars.iv974.i = phi i64 [ 0, %.lr.ph822.preheader.i ], [ %indvars.iv.next975.i, %.lr.ph822.i ]
@@ -1803,7 +1803,7 @@ define noundef range(i32 -2147483648, 2147483617) i32 @_ZN5arrow8internal13unpac
   %1113 = getelementptr inbounds nuw i8, ptr %.18820.i, i64 72
   %indvars.iv.next975.i = add nuw nsw i64 %indvars.iv974.i, 1
   %exitcond978.not.i = icmp eq i64 %indvars.iv.next975.i, %wide.trip.count977.i
-  br i1 %exitcond978.not.i, label %_ZN5arrow8internalL20unpack32_specializedINS0_12_GLOBAL__N_113UnpackBits256ILNS0_13DispatchLevelE2EEEEEiPKjPjii.exit, label %.lr.ph822.i, !llvm.loop !25
+  br i1 %exitcond978.not.i, label %_ZN5arrow8internalL20unpack32_specializedINS0_12_GLOBAL__N_113UnpackBits256ILNS0_13DispatchLevelE2EEEEEiPKjPjii.exit, label %.lr.ph822.i, !llvm.loop !24
 
 .lr.ph819.i:                                      ; preds = %.lr.ph819.i, %.lr.ph819.preheader.i
   %indvars.iv969.i = phi i64 [ 0, %.lr.ph819.preheader.i ], [ %indvars.iv.next970.i, %.lr.ph819.i ]
@@ -1922,7 +1922,7 @@ define noundef range(i32 -2147483648, 2147483617) i32 @_ZN5arrow8internal13unpac
   %1198 = getelementptr inbounds nuw i8, ptr %.19817.i, i64 76
   %indvars.iv.next970.i = add nuw nsw i64 %indvars.iv969.i, 1
   %exitcond973.not.i = icmp eq i64 %indvars.iv.next970.i, %wide.trip.count972.i
-  br i1 %exitcond973.not.i, label %_ZN5arrow8internalL20unpack32_specializedINS0_12_GLOBAL__N_113UnpackBits256ILNS0_13DispatchLevelE2EEEEEiPKjPjii.exit, label %.lr.ph819.i, !llvm.loop !26
+  br i1 %exitcond973.not.i, label %_ZN5arrow8internalL20unpack32_specializedINS0_12_GLOBAL__N_113UnpackBits256ILNS0_13DispatchLevelE2EEEEEiPKjPjii.exit, label %.lr.ph819.i, !llvm.loop !25
 
 .lr.ph816.i:                                      ; preds = %.lr.ph816.i, %.lr.ph816.preheader.i
   %indvars.iv964.i = phi i64 [ 0, %.lr.ph816.preheader.i ], [ %indvars.iv.next965.i, %.lr.ph816.i ]
@@ -2038,7 +2038,7 @@ define noundef range(i32 -2147483648, 2147483617) i32 @_ZN5arrow8internal13unpac
   %1282 = getelementptr inbounds nuw i8, ptr %.20814.i, i64 80
   %indvars.iv.next965.i = add nuw nsw i64 %indvars.iv964.i, 1
   %exitcond968.not.i = icmp eq i64 %indvars.iv.next965.i, %wide.trip.count967.i
-  br i1 %exitcond968.not.i, label %_ZN5arrow8internalL20unpack32_specializedINS0_12_GLOBAL__N_113UnpackBits256ILNS0_13DispatchLevelE2EEEEEiPKjPjii.exit, label %.lr.ph816.i, !llvm.loop !27
+  br i1 %exitcond968.not.i, label %_ZN5arrow8internalL20unpack32_specializedINS0_12_GLOBAL__N_113UnpackBits256ILNS0_13DispatchLevelE2EEEEEiPKjPjii.exit, label %.lr.ph816.i, !llvm.loop !26
 
 .lr.ph813.i:                                      ; preds = %.lr.ph813.i, %.lr.ph813.preheader.i
   %indvars.iv959.i = phi i64 [ 0, %.lr.ph813.preheader.i ], [ %indvars.iv.next960.i, %.lr.ph813.i ]
@@ -2163,7 +2163,7 @@ define noundef range(i32 -2147483648, 2147483617) i32 @_ZN5arrow8internal13unpac
   %1371 = getelementptr inbounds nuw i8, ptr %.21811.i, i64 84
   %indvars.iv.next960.i = add nuw nsw i64 %indvars.iv959.i, 1
   %exitcond963.not.i = icmp eq i64 %indvars.iv.next960.i, %wide.trip.count962.i
-  br i1 %exitcond963.not.i, label %_ZN5arrow8internalL20unpack32_specializedINS0_12_GLOBAL__N_113UnpackBits256ILNS0_13DispatchLevelE2EEEEEiPKjPjii.exit, label %.lr.ph813.i, !llvm.loop !28
+  br i1 %exitcond963.not.i, label %_ZN5arrow8internalL20unpack32_specializedINS0_12_GLOBAL__N_113UnpackBits256ILNS0_13DispatchLevelE2EEEEEiPKjPjii.exit, label %.lr.ph813.i, !llvm.loop !27
 
 .lr.ph810.i:                                      ; preds = %.lr.ph810.i, %.lr.ph810.preheader.i
   %indvars.iv954.i = phi i64 [ 0, %.lr.ph810.preheader.i ], [ %indvars.iv.next955.i, %.lr.ph810.i ]
@@ -2289,7 +2289,7 @@ define noundef range(i32 -2147483648, 2147483617) i32 @_ZN5arrow8internal13unpac
   %1461 = getelementptr inbounds nuw i8, ptr %.22808.i, i64 88
   %indvars.iv.next955.i = add nuw nsw i64 %indvars.iv954.i, 1
   %exitcond958.not.i = icmp eq i64 %indvars.iv.next955.i, %wide.trip.count957.i
-  br i1 %exitcond958.not.i, label %_ZN5arrow8internalL20unpack32_specializedINS0_12_GLOBAL__N_113UnpackBits256ILNS0_13DispatchLevelE2EEEEEiPKjPjii.exit, label %.lr.ph810.i, !llvm.loop !29
+  br i1 %exitcond958.not.i, label %_ZN5arrow8internalL20unpack32_specializedINS0_12_GLOBAL__N_113UnpackBits256ILNS0_13DispatchLevelE2EEEEEiPKjPjii.exit, label %.lr.ph810.i, !llvm.loop !28
 
 .lr.ph807.i:                                      ; preds = %.lr.ph807.i, %.lr.ph807.preheader.i
   %indvars.iv949.i = phi i64 [ 0, %.lr.ph807.preheader.i ], [ %indvars.iv.next950.i, %.lr.ph807.i ]
@@ -2420,7 +2420,7 @@ define noundef range(i32 -2147483648, 2147483617) i32 @_ZN5arrow8internal13unpac
   %1554 = getelementptr inbounds nuw i8, ptr %.23805.i, i64 92
   %indvars.iv.next950.i = add nuw nsw i64 %indvars.iv949.i, 1
   %exitcond953.not.i = icmp eq i64 %indvars.iv.next950.i, %wide.trip.count952.i
-  br i1 %exitcond953.not.i, label %_ZN5arrow8internalL20unpack32_specializedINS0_12_GLOBAL__N_113UnpackBits256ILNS0_13DispatchLevelE2EEEEEiPKjPjii.exit, label %.lr.ph807.i, !llvm.loop !30
+  br i1 %exitcond953.not.i, label %_ZN5arrow8internalL20unpack32_specializedINS0_12_GLOBAL__N_113UnpackBits256ILNS0_13DispatchLevelE2EEEEEiPKjPjii.exit, label %.lr.ph807.i, !llvm.loop !29
 
 .lr.ph804.i:                                      ; preds = %.lr.ph804.i, %.lr.ph804.preheader.i
   %indvars.iv944.i = phi i64 [ 0, %.lr.ph804.preheader.i ], [ %indvars.iv.next945.i, %.lr.ph804.i ]
@@ -2544,7 +2544,7 @@ define noundef range(i32 -2147483648, 2147483617) i32 @_ZN5arrow8internal13unpac
   %1642 = getelementptr inbounds nuw i8, ptr %.24802.i, i64 96
   %indvars.iv.next945.i = add nuw nsw i64 %indvars.iv944.i, 1
   %exitcond948.not.i = icmp eq i64 %indvars.iv.next945.i, %wide.trip.count947.i
-  br i1 %exitcond948.not.i, label %_ZN5arrow8internalL20unpack32_specializedINS0_12_GLOBAL__N_113UnpackBits256ILNS0_13DispatchLevelE2EEEEEiPKjPjii.exit, label %.lr.ph804.i, !llvm.loop !31
+  br i1 %exitcond948.not.i, label %_ZN5arrow8internalL20unpack32_specializedINS0_12_GLOBAL__N_113UnpackBits256ILNS0_13DispatchLevelE2EEEEEiPKjPjii.exit, label %.lr.ph804.i, !llvm.loop !30
 
 .lr.ph801.i:                                      ; preds = %.lr.ph801.i, %.lr.ph801.preheader.i
   %indvars.iv939.i = phi i64 [ 0, %.lr.ph801.preheader.i ], [ %indvars.iv.next940.i, %.lr.ph801.i ]
@@ -2681,7 +2681,7 @@ define noundef range(i32 -2147483648, 2147483617) i32 @_ZN5arrow8internal13unpac
   %1739 = getelementptr inbounds nuw i8, ptr %.25799.i, i64 100
   %indvars.iv.next940.i = add nuw nsw i64 %indvars.iv939.i, 1
   %exitcond943.not.i = icmp eq i64 %indvars.iv.next940.i, %wide.trip.count942.i
-  br i1 %exitcond943.not.i, label %_ZN5arrow8internalL20unpack32_specializedINS0_12_GLOBAL__N_113UnpackBits256ILNS0_13DispatchLevelE2EEEEEiPKjPjii.exit, label %.lr.ph801.i, !llvm.loop !32
+  br i1 %exitcond943.not.i, label %_ZN5arrow8internalL20unpack32_specializedINS0_12_GLOBAL__N_113UnpackBits256ILNS0_13DispatchLevelE2EEEEEiPKjPjii.exit, label %.lr.ph801.i, !llvm.loop !31
 
 .lr.ph798.i:                                      ; preds = %.lr.ph798.i, %.lr.ph798.preheader.i
   %indvars.iv934.i = phi i64 [ 0, %.lr.ph798.preheader.i ], [ %indvars.iv.next935.i, %.lr.ph798.i ]
@@ -2819,7 +2819,7 @@ define noundef range(i32 -2147483648, 2147483617) i32 @_ZN5arrow8internal13unpac
   %1837 = getelementptr inbounds nuw i8, ptr %.26796.i, i64 104
   %indvars.iv.next935.i = add nuw nsw i64 %indvars.iv934.i, 1
   %exitcond938.not.i = icmp eq i64 %indvars.iv.next935.i, %wide.trip.count937.i
-  br i1 %exitcond938.not.i, label %_ZN5arrow8internalL20unpack32_specializedINS0_12_GLOBAL__N_113UnpackBits256ILNS0_13DispatchLevelE2EEEEEiPKjPjii.exit, label %.lr.ph798.i, !llvm.loop !33
+  br i1 %exitcond938.not.i, label %_ZN5arrow8internalL20unpack32_specializedINS0_12_GLOBAL__N_113UnpackBits256ILNS0_13DispatchLevelE2EEEEEiPKjPjii.exit, label %.lr.ph798.i, !llvm.loop !32
 
 .lr.ph795.i:                                      ; preds = %.lr.ph795.i, %.lr.ph795.preheader.i
   %indvars.iv929.i = phi i64 [ 0, %.lr.ph795.preheader.i ], [ %indvars.iv.next930.i, %.lr.ph795.i ]
@@ -2962,7 +2962,7 @@ define noundef range(i32 -2147483648, 2147483617) i32 @_ZN5arrow8internal13unpac
   %1938 = getelementptr inbounds nuw i8, ptr %.27793.i, i64 108
   %indvars.iv.next930.i = add nuw nsw i64 %indvars.iv929.i, 1
   %exitcond933.not.i = icmp eq i64 %indvars.iv.next930.i, %wide.trip.count932.i
-  br i1 %exitcond933.not.i, label %_ZN5arrow8internalL20unpack32_specializedINS0_12_GLOBAL__N_113UnpackBits256ILNS0_13DispatchLevelE2EEEEEiPKjPjii.exit, label %.lr.ph795.i, !llvm.loop !34
+  br i1 %exitcond933.not.i, label %_ZN5arrow8internalL20unpack32_specializedINS0_12_GLOBAL__N_113UnpackBits256ILNS0_13DispatchLevelE2EEEEEiPKjPjii.exit, label %.lr.ph795.i, !llvm.loop !33
 
 .lr.ph792.i:                                      ; preds = %.lr.ph792.i, %.lr.ph792.preheader.i
   %indvars.iv924.i = phi i64 [ 0, %.lr.ph792.preheader.i ], [ %indvars.iv.next925.i, %.lr.ph792.i ]
@@ -3102,7 +3102,7 @@ define noundef range(i32 -2147483648, 2147483617) i32 @_ZN5arrow8internal13unpac
   %2038 = getelementptr inbounds nuw i8, ptr %.28790.i, i64 112
   %indvars.iv.next925.i = add nuw nsw i64 %indvars.iv924.i, 1
   %exitcond928.not.i = icmp eq i64 %indvars.iv.next925.i, %wide.trip.count927.i
-  br i1 %exitcond928.not.i, label %_ZN5arrow8internalL20unpack32_specializedINS0_12_GLOBAL__N_113UnpackBits256ILNS0_13DispatchLevelE2EEEEEiPKjPjii.exit, label %.lr.ph792.i, !llvm.loop !35
+  br i1 %exitcond928.not.i, label %_ZN5arrow8internalL20unpack32_specializedINS0_12_GLOBAL__N_113UnpackBits256ILNS0_13DispatchLevelE2EEEEEiPKjPjii.exit, label %.lr.ph792.i, !llvm.loop !34
 
 .lr.ph789.i:                                      ; preds = %.lr.ph789.i, %.lr.ph789.preheader.i
   %indvars.iv919.i = phi i64 [ 0, %.lr.ph789.preheader.i ], [ %indvars.iv.next920.i, %.lr.ph789.i ]
@@ -3250,7 +3250,7 @@ define noundef range(i32 -2147483648, 2147483617) i32 @_ZN5arrow8internal13unpac
   %2142 = getelementptr inbounds nuw i8, ptr %.29787.i, i64 116
   %indvars.iv.next920.i = add nuw nsw i64 %indvars.iv919.i, 1
   %exitcond923.not.i = icmp eq i64 %indvars.iv.next920.i, %wide.trip.count922.i
-  br i1 %exitcond923.not.i, label %_ZN5arrow8internalL20unpack32_specializedINS0_12_GLOBAL__N_113UnpackBits256ILNS0_13DispatchLevelE2EEEEEiPKjPjii.exit, label %.lr.ph789.i, !llvm.loop !36
+  br i1 %exitcond923.not.i, label %_ZN5arrow8internalL20unpack32_specializedINS0_12_GLOBAL__N_113UnpackBits256ILNS0_13DispatchLevelE2EEEEEiPKjPjii.exit, label %.lr.ph789.i, !llvm.loop !35
 
 .lr.ph786.i:                                      ; preds = %.lr.ph786.i, %.lr.ph786.preheader.i
   %indvars.iv914.i = phi i64 [ 0, %.lr.ph786.preheader.i ], [ %indvars.iv.next915.i, %.lr.ph786.i ]
@@ -3398,7 +3398,7 @@ define noundef range(i32 -2147483648, 2147483617) i32 @_ZN5arrow8internal13unpac
   %2246 = getelementptr inbounds nuw i8, ptr %.30784.i, i64 120
   %indvars.iv.next915.i = add nuw nsw i64 %indvars.iv914.i, 1
   %exitcond918.not.i = icmp eq i64 %indvars.iv.next915.i, %wide.trip.count917.i
-  br i1 %exitcond918.not.i, label %_ZN5arrow8internalL20unpack32_specializedINS0_12_GLOBAL__N_113UnpackBits256ILNS0_13DispatchLevelE2EEEEEiPKjPjii.exit, label %.lr.ph786.i, !llvm.loop !37
+  br i1 %exitcond918.not.i, label %_ZN5arrow8internalL20unpack32_specializedINS0_12_GLOBAL__N_113UnpackBits256ILNS0_13DispatchLevelE2EEEEEiPKjPjii.exit, label %.lr.ph786.i, !llvm.loop !36
 
 .lr.ph783.i:                                      ; preds = %.lr.ph783.i, %.lr.ph783.preheader.i
   %indvars.iv909.i = phi i64 [ 0, %.lr.ph783.preheader.i ], [ %indvars.iv.next910.i, %.lr.ph783.i ]
@@ -3550,7 +3550,7 @@ define noundef range(i32 -2147483648, 2147483617) i32 @_ZN5arrow8internal13unpac
   %2352 = getelementptr inbounds nuw i8, ptr %.31781.i, i64 124
   %indvars.iv.next910.i = add nuw nsw i64 %indvars.iv909.i, 1
   %exitcond913.not.i = icmp eq i64 %indvars.iv.next910.i, %wide.trip.count912.i
-  br i1 %exitcond913.not.i, label %_ZN5arrow8internalL20unpack32_specializedINS0_12_GLOBAL__N_113UnpackBits256ILNS0_13DispatchLevelE2EEEEEiPKjPjii.exit, label %.lr.ph783.i, !llvm.loop !38
+  br i1 %exitcond913.not.i, label %_ZN5arrow8internalL20unpack32_specializedINS0_12_GLOBAL__N_113UnpackBits256ILNS0_13DispatchLevelE2EEEEEiPKjPjii.exit, label %.lr.ph783.i, !llvm.loop !37
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
@@ -3561,7 +3561,7 @@ define noundef range(i32 -2147483648, 2147483617) i32 @_ZN5arrow8internal13unpac
   %2354 = getelementptr inbounds nuw i8, ptr %.32779.i, i64 128
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %_ZN5arrow8internalL20unpack32_specializedINS0_12_GLOBAL__N_113UnpackBits256ILNS0_13DispatchLevelE2EEEEEiPKjPjii.exit, label %.lr.ph.i, !llvm.loop !39
+  br i1 %exitcond.not.i, label %_ZN5arrow8internalL20unpack32_specializedINS0_12_GLOBAL__N_113UnpackBits256ILNS0_13DispatchLevelE2EEEEEiPKjPjii.exit, label %.lr.ph.i, !llvm.loop !38
 
 _ZN5arrow8internalL20unpack32_specializedINS0_12_GLOBAL__N_113UnpackBits256ILNS0_13DispatchLevelE2EEEEEiPKjPjii.exit: ; preds = %.lr.ph.i, %.lr.ph783.i, %.lr.ph786.i, %.lr.ph789.i, %.lr.ph792.i, %.lr.ph795.i, %.lr.ph798.i, %.lr.ph801.i, %.lr.ph804.i, %.lr.ph807.i, %.lr.ph810.i, %.lr.ph813.i, %.lr.ph816.i, %.lr.ph819.i, %.lr.ph822.i, %.lr.ph825.i, %.lr.ph828.i, %.lr.ph831.i, %.lr.ph834.i, %.lr.ph837.i, %.lr.ph840.i, %.lr.ph843.i, %.lr.ph846.i, %.lr.ph849.i, %.lr.ph852.i, %.lr.ph855.i, %.lr.ph858.i, %.lr.ph861.i, %.lr.ph864.i, %.lr.ph867.i, %.lr.ph870.i, %.lr.ph873.i, %4, %.preheader777.i, %.preheader775.i, %.preheader773.i, %.preheader771.i, %.preheader769.i, %.preheader767.i, %.preheader765.i, %.preheader763.i, %.preheader761.i, %.preheader759.i, %.preheader757.i, %.preheader755.i, %.preheader753.i, %.preheader751.i, %.preheader749.i, %.preheader747.i, %.preheader745.i, %.preheader743.i, %.preheader741.i, %.preheader739.i, %.preheader737.i, %.preheader735.i, %.preheader733.i, %.preheader731.i, %.preheader729.i, %.preheader727.i, %.preheader725.i, %.preheader723.i, %.preheader721.i, %.preheader719.i, %.preheader717.i, %.preheader715.i, %.preheader.i, %.lr.ph875.preheader.i
   %2355 = shl nsw i32 %5, 5
@@ -3592,37 +3592,36 @@ attributes #3 = { nocallback nofree nosync nounwind speculatable willreturn memo
 !3 = !{!4, !4, i64 0}
 !4 = !{!"omnipotent char", !5, i64 0}
 !5 = !{!"Simple C++ TBAA"}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7, !8}
-!11 = distinct !{!11, !7, !8}
-!12 = distinct !{!12, !7, !8}
-!13 = distinct !{!13, !7, !8}
-!14 = distinct !{!14, !7, !8}
-!15 = distinct !{!15, !7, !8}
-!16 = distinct !{!16, !7, !8}
-!17 = distinct !{!17, !7, !8}
-!18 = distinct !{!18, !7, !8}
-!19 = distinct !{!19, !7, !8}
-!20 = distinct !{!20, !7, !8}
-!21 = distinct !{!21, !7, !8}
-!22 = distinct !{!22, !7, !8}
-!23 = distinct !{!23, !7, !8}
-!24 = distinct !{!24, !7, !8}
-!25 = distinct !{!25, !7, !8}
-!26 = distinct !{!26, !7, !8}
-!27 = distinct !{!27, !7, !8}
-!28 = distinct !{!28, !7, !8}
-!29 = distinct !{!29, !7, !8}
-!30 = distinct !{!30, !7, !8}
-!31 = distinct !{!31, !7, !8}
-!32 = distinct !{!32, !7, !8}
-!33 = distinct !{!33, !7, !8}
-!34 = distinct !{!34, !7, !8}
-!35 = distinct !{!35, !7, !8}
-!36 = distinct !{!36, !7, !8}
-!37 = distinct !{!37, !7, !8}
-!38 = distinct !{!38, !7, !8}
-!39 = distinct !{!39, !7, !8}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7}
+!12 = distinct !{!12, !7}
+!13 = distinct !{!13, !7}
+!14 = distinct !{!14, !7}
+!15 = distinct !{!15, !7}
+!16 = distinct !{!16, !7}
+!17 = distinct !{!17, !7}
+!18 = distinct !{!18, !7}
+!19 = distinct !{!19, !7}
+!20 = distinct !{!20, !7}
+!21 = distinct !{!21, !7}
+!22 = distinct !{!22, !7}
+!23 = distinct !{!23, !7}
+!24 = distinct !{!24, !7}
+!25 = distinct !{!25, !7}
+!26 = distinct !{!26, !7}
+!27 = distinct !{!27, !7}
+!28 = distinct !{!28, !7}
+!29 = distinct !{!29, !7}
+!30 = distinct !{!30, !7}
+!31 = distinct !{!31, !7}
+!32 = distinct !{!32, !7}
+!33 = distinct !{!33, !7}
+!34 = distinct !{!34, !7}
+!35 = distinct !{!35, !7}
+!36 = distinct !{!36, !7}
+!37 = distinct !{!37, !7}
+!38 = distinct !{!38, !7}

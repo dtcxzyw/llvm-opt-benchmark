@@ -88,16 +88,16 @@ define internal i32 @query_formats(ptr noundef %0, ptr noundef %1, ptr noundef %
 ; Function Attrs: nounwind uwtable
 define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 {
   %3 = alloca ptr, align 8
-  store ptr %1, ptr %3, align 8, !tbaa !18
+  store ptr %1, ptr %3, align 8, !tbaa !17
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %5 = load ptr, ptr %4, align 8, !tbaa !20
+  %5 = load ptr, ptr %4, align 8, !tbaa !19
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 72
-  %7 = load ptr, ptr %6, align 8, !tbaa !31
+  %7 = load ptr, ptr %6, align 8, !tbaa !30
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 56
-  %9 = load ptr, ptr %8, align 8, !tbaa !40
-  %10 = load ptr, ptr %9, align 8, !tbaa !41
+  %9 = load ptr, ptr %8, align 8, !tbaa !39
+  %10 = load ptr, ptr %9, align 8, !tbaa !40
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 276
-  %12 = load i32, ptr %11, align 4, !tbaa !43
+  %12 = load i32, ptr %11, align 4, !tbaa !42
   %13 = and i32 %12, 8
   %.not = icmp eq i32 %13, 0
   br i1 %.not, label %19, label %14
@@ -106,7 +106,7 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
   %15 = lshr i32 %12, 4
   %.lobit = and i32 %15, 1
   %16 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %17 = load i32, ptr %16, align 8, !tbaa !48
+  %17 = load i32, ptr %16, align 8, !tbaa !47
   %18 = icmp eq i32 %.lobit, %17
   br i1 %18, label %19, label %22
 
@@ -123,9 +123,9 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
 
 24:                                               ; preds = %22
   %25 = getelementptr inbounds nuw i8, ptr %10, i64 40
-  %26 = load i32, ptr %25, align 8, !tbaa !50
+  %26 = load i32, ptr %25, align 8, !tbaa !49
   %27 = getelementptr inbounds nuw i8, ptr %10, i64 44
-  %28 = load i32, ptr %27, align 4, !tbaa !51
+  %28 = load i32, ptr %27, align 4, !tbaa !50
   %29 = tail call ptr @ff_get_video_buffer(ptr noundef %10, i32 noundef %26, i32 noundef %28) #4
   %.not83 = icmp eq ptr %29, null
   br i1 %.not83, label %30, label %31
@@ -140,12 +140,12 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
 
 33:                                               ; preds = %22, %31
   %.0 = phi ptr [ %29, %31 ], [ %1, %22 ]
-  %34 = load i32, ptr %16, align 8, !tbaa !48
+  %34 = load i32, ptr %16, align 8, !tbaa !47
   %.not84 = icmp eq i32 %34, 0
   %35 = select i1 %.not84, ptr @.str.8, ptr @.str.7
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %5, i32 noundef 56, ptr noundef nonnull @.str.6, ptr noundef nonnull %35) #4
   %36 = getelementptr inbounds nuw i8, ptr %1, i64 108
-  %37 = load i32, ptr %36, align 4, !tbaa !52
+  %37 = load i32, ptr %36, align 4, !tbaa !51
   %.fr115 = freeze i32 %37
   %38 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %39 = getelementptr inbounds nuw i8, ptr %.0, i64 64
@@ -158,26 +158,26 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
 .split.us:                                        ; preds = %33, %.loopexit92.us
   %indvars.iv123 = phi i64 [ %indvars.iv.next124, %.loopexit92.us ], [ 0, %33 ]
   %44 = getelementptr inbounds nuw [8 x ptr], ptr %1, i64 0, i64 %indvars.iv123
-  %45 = load ptr, ptr %44, align 8, !tbaa !53
+  %45 = load ptr, ptr %44, align 8, !tbaa !52
   %.not85.us = icmp eq ptr %45, null
   br i1 %.not85.us, label %.critedge, label %46
 
 46:                                               ; preds = %.split.us
   %47 = getelementptr inbounds nuw [8 x i32], ptr %38, i64 0, i64 %indvars.iv123
-  %48 = load i32, ptr %47, align 4, !tbaa !54
+  %48 = load i32, ptr %47, align 4, !tbaa !53
   %.not86.us = icmp eq i32 %48, 0
   br i1 %.not86.us, label %.critedge, label %49
 
 49:                                               ; preds = %46
   %50 = getelementptr inbounds nuw [8 x i32], ptr %39, i64 0, i64 %indvars.iv123
-  %51 = load i32, ptr %50, align 4, !tbaa !54
+  %51 = load i32, ptr %50, align 4, !tbaa !53
   %52 = select i1 %40, i32 %51, i32 0
   %53 = select i1 %40, i32 %48, i32 0
   %54 = getelementptr inbounds nuw [4 x i32], ptr %41, i64 0, i64 %indvars.iv123
-  %55 = load i32, ptr %54, align 4, !tbaa !54
+  %55 = load i32, ptr %54, align 4, !tbaa !53
   %56 = getelementptr inbounds nuw [8 x ptr], ptr %.0, i64 0, i64 %indvars.iv123
-  %57 = load ptr, ptr %56, align 8, !tbaa !53
-  %58 = load i32, ptr %16, align 8, !tbaa !48
+  %57 = load ptr, ptr %56, align 8, !tbaa !52
+  %58 = load i32, ptr %16, align 8, !tbaa !47
   %.not89.us = icmp eq i32 %58, 0
   br i1 %.not89.us, label %.lr.ph99.us, label %.lr.ph.us
 
@@ -186,7 +186,7 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
   %.07394.us = phi ptr [ %57, %.lr.ph.us ], [ %64, %59 ]
   %.07593.us = phi i32 [ 0, %.lr.ph.us ], [ %60, %59 ]
   %60 = add nuw nsw i32 %.07593.us, 1
-  %61 = load i32, ptr %36, align 4, !tbaa !52
+  %61 = load i32, ptr %36, align 4, !tbaa !51
   %62 = icmp slt i32 %60, %61
   %. = select i1 %62, i64 %91, i64 %89
   %63 = getelementptr inbounds i8, ptr %.07295.us, i64 %.
@@ -194,7 +194,7 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
   %64 = getelementptr inbounds i8, ptr %.07394.us, i64 %92
   %65 = getelementptr inbounds i8, ptr %.07295.us, i64 %91
   %exitcond122.not = icmp eq i32 %60, %.fr115
-  br i1 %exitcond122.not, label %.loopexit92.us, label %59, !llvm.loop !55
+  br i1 %exitcond122.not, label %.loopexit92.us, label %59, !llvm.loop !54
 
 .lr.ph99.us:                                      ; preds = %49
   %66 = mul nsw i32 %52, %43
@@ -215,7 +215,7 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
 .loopexit92.us:                                   ; preds = %59, %81, %.thread
   %indvars.iv.next124 = add nuw nsw i64 %indvars.iv123, 1
   %exitcond126.not = icmp eq i64 %indvars.iv.next124, 4
-  br i1 %exitcond126.not, label %.critedge, label %.split.us, !llvm.loop !56
+  br i1 %exitcond126.not, label %.critedge, label %.split.us, !llvm.loop !55
 
 79:                                               ; preds = %.lr.ph99.us, %81
   %.198.us = phi ptr [ %71, %.lr.ph99.us ], [ %84, %81 ]
@@ -236,7 +236,7 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
   %84 = getelementptr inbounds i8, ptr %.198.us, i64 %73
   %85 = add nsw i32 %.17696.us, -1
   %86 = icmp sgt i32 %.17696.us, 0
-  br i1 %86, label %79, label %.loopexit92.us, !llvm.loop !58
+  br i1 %86, label %79, label %.loopexit92.us, !llvm.loop !57
 
 .lr.ph.us:                                        ; preds = %49
   %87 = shl nsw i32 %53, 1
@@ -248,14 +248,14 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
   br label %59
 
 .critedge:                                        ; preds = %.split.us, %46, %.loopexit92.us, %33
-  %93 = load i32, ptr %16, align 8, !tbaa !48
+  %93 = load i32, ptr %16, align 8, !tbaa !47
   %.not87 = icmp eq i32 %93, 0
   %94 = getelementptr inbounds nuw i8, ptr %.0, i64 276
-  %95 = load i32, ptr %94, align 4, !tbaa !43
+  %95 = load i32, ptr %94, align 4, !tbaa !42
   %96 = and i32 %95, -17
   %masksel = select i1 %.not87, i32 0, i32 16
   %.sink = or disjoint i32 %96, %masksel
-  store i32 %.sink, ptr %94, align 4, !tbaa !43
+  store i32 %.sink, ptr %94, align 4, !tbaa !42
   %.not88 = icmp eq ptr %1, %.0
   br i1 %.not88, label %98, label %97
 
@@ -275,14 +275,14 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
 ; Function Attrs: nounwind uwtable
 define internal i32 @config_input(ptr noundef readonly captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %3 = load ptr, ptr %2, align 8, !tbaa !20
+  %3 = load ptr, ptr %2, align 8, !tbaa !19
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 72
-  %5 = load ptr, ptr %4, align 8, !tbaa !31
+  %5 = load ptr, ptr %4, align 8, !tbaa !30
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 12
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 36
-  %8 = load i32, ptr %7, align 4, !tbaa !59
+  %8 = load i32, ptr %7, align 4, !tbaa !58
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %10 = load i32, ptr %9, align 8, !tbaa !50
+  %10 = load i32, ptr %9, align 8, !tbaa !49
   %11 = tail call i32 @av_image_fill_linesizes(ptr noundef nonnull %6, i32 noundef %8, i32 noundef %10) #4
   ret i32 %11
 }
@@ -343,48 +343,47 @@ attributes #4 = { nounwind }
 !12 = !{!"long", !7, i64 0}
 !13 = !{!10, !7, i64 8}
 !14 = !{!10, !7, i64 10}
-!15 = distinct !{!15, !16, !17}
+!15 = distinct !{!15, !16}
 !16 = !{!"llvm.loop.mustprogress"}
-!17 = !{!"llvm.loop.estimated_trip_count"}
-!18 = !{!19, !19, i64 0}
-!19 = !{!"p1 _ZTS7AVFrame", !6, i64 0}
-!20 = !{!21, !22, i64 16}
-!21 = !{!"AVFilterLink", !22, i64 0, !23, i64 8, !22, i64 16, !23, i64 24, !24, i64 32, !24, i64 36, !24, i64 40, !24, i64 44, !25, i64 48, !24, i64 56, !24, i64 60, !24, i64 64, !26, i64 72, !25, i64 96, !27, i64 104, !24, i64 112, !29, i64 120, !29, i64 160}
-!22 = !{!"p1 _ZTS15AVFilterContext", !6, i64 0}
-!23 = !{!"p1 _ZTS11AVFilterPad", !6, i64 0}
-!24 = !{!"int", !7, i64 0}
-!25 = !{!"AVRational", !24, i64 0, !24, i64 4}
-!26 = !{!"AVChannelLayout", !24, i64 0, !24, i64 4, !7, i64 8, !6, i64 16}
-!27 = !{!"p2 _ZTS15AVFrameSideData", !28, i64 0}
-!28 = !{!"any p2 pointer", !6, i64 0}
-!29 = !{!"AVFilterFormatsConfig", !5, i64 0, !5, i64 8, !30, i64 16, !5, i64 24, !5, i64 32}
-!30 = !{!"p1 _ZTS22AVFilterChannelLayouts", !6, i64 0}
-!31 = !{!32, !6, i64 72}
-!32 = !{!"AVFilterContext", !33, i64 0, !34, i64 8, !11, i64 16, !23, i64 24, !35, i64 32, !24, i64 40, !23, i64 48, !35, i64 56, !24, i64 64, !6, i64 72, !36, i64 80, !24, i64 88, !24, i64 92, !37, i64 96, !11, i64 104, !6, i64 112, !38, i64 120, !24, i64 128, !39, i64 136, !24, i64 144, !24, i64 148}
-!33 = !{!"p1 _ZTS7AVClass", !6, i64 0}
-!34 = !{!"p1 _ZTS8AVFilter", !6, i64 0}
-!35 = !{!"p2 _ZTS12AVFilterLink", !28, i64 0}
-!36 = !{!"p1 _ZTS13AVFilterGraph", !6, i64 0}
-!37 = !{!"p1 _ZTS15AVFilterCommand", !6, i64 0}
-!38 = !{!"p1 double", !6, i64 0}
-!39 = !{!"p1 _ZTS11AVBufferRef", !6, i64 0}
-!40 = !{!32, !35, i64 56}
-!41 = !{!42, !42, i64 0}
-!42 = !{!"p1 _ZTS12AVFilterLink", !6, i64 0}
-!43 = !{!44, !24, i64 276}
-!44 = !{!"AVFrame", !7, i64 0, !7, i64 64, !45, i64 96, !24, i64 104, !24, i64 108, !24, i64 112, !24, i64 116, !24, i64 120, !25, i64 124, !12, i64 136, !12, i64 144, !25, i64 152, !24, i64 160, !6, i64 168, !24, i64 176, !24, i64 180, !7, i64 184, !46, i64 248, !24, i64 256, !27, i64 264, !24, i64 272, !24, i64 276, !24, i64 280, !24, i64 284, !24, i64 288, !24, i64 292, !24, i64 296, !12, i64 304, !47, i64 312, !24, i64 320, !39, i64 328, !39, i64 336, !12, i64 344, !12, i64 352, !12, i64 360, !12, i64 368, !6, i64 376, !26, i64 384, !12, i64 408}
-!45 = !{!"p2 omnipotent char", !28, i64 0}
-!46 = !{!"p2 _ZTS11AVBufferRef", !28, i64 0}
-!47 = !{!"p1 _ZTS12AVDictionary", !6, i64 0}
-!48 = !{!49, !24, i64 8}
-!49 = !{!"FieldOrderContext", !33, i64 0, !24, i64 8, !7, i64 12}
-!50 = !{!21, !24, i64 40}
-!51 = !{!21, !24, i64 44}
-!52 = !{!44, !24, i64 108}
-!53 = !{!11, !11, i64 0}
-!54 = !{!24, !24, i64 0}
-!55 = distinct !{!55, !16, !17}
-!56 = distinct !{!56, !16, !17, !57}
-!57 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!58 = distinct !{!58, !16, !17}
-!59 = !{!21, !24, i64 36}
+!17 = !{!18, !18, i64 0}
+!18 = !{!"p1 _ZTS7AVFrame", !6, i64 0}
+!19 = !{!20, !21, i64 16}
+!20 = !{!"AVFilterLink", !21, i64 0, !22, i64 8, !21, i64 16, !22, i64 24, !23, i64 32, !23, i64 36, !23, i64 40, !23, i64 44, !24, i64 48, !23, i64 56, !23, i64 60, !23, i64 64, !25, i64 72, !24, i64 96, !26, i64 104, !23, i64 112, !28, i64 120, !28, i64 160}
+!21 = !{!"p1 _ZTS15AVFilterContext", !6, i64 0}
+!22 = !{!"p1 _ZTS11AVFilterPad", !6, i64 0}
+!23 = !{!"int", !7, i64 0}
+!24 = !{!"AVRational", !23, i64 0, !23, i64 4}
+!25 = !{!"AVChannelLayout", !23, i64 0, !23, i64 4, !7, i64 8, !6, i64 16}
+!26 = !{!"p2 _ZTS15AVFrameSideData", !27, i64 0}
+!27 = !{!"any p2 pointer", !6, i64 0}
+!28 = !{!"AVFilterFormatsConfig", !5, i64 0, !5, i64 8, !29, i64 16, !5, i64 24, !5, i64 32}
+!29 = !{!"p1 _ZTS22AVFilterChannelLayouts", !6, i64 0}
+!30 = !{!31, !6, i64 72}
+!31 = !{!"AVFilterContext", !32, i64 0, !33, i64 8, !11, i64 16, !22, i64 24, !34, i64 32, !23, i64 40, !22, i64 48, !34, i64 56, !23, i64 64, !6, i64 72, !35, i64 80, !23, i64 88, !23, i64 92, !36, i64 96, !11, i64 104, !6, i64 112, !37, i64 120, !23, i64 128, !38, i64 136, !23, i64 144, !23, i64 148}
+!32 = !{!"p1 _ZTS7AVClass", !6, i64 0}
+!33 = !{!"p1 _ZTS8AVFilter", !6, i64 0}
+!34 = !{!"p2 _ZTS12AVFilterLink", !27, i64 0}
+!35 = !{!"p1 _ZTS13AVFilterGraph", !6, i64 0}
+!36 = !{!"p1 _ZTS15AVFilterCommand", !6, i64 0}
+!37 = !{!"p1 double", !6, i64 0}
+!38 = !{!"p1 _ZTS11AVBufferRef", !6, i64 0}
+!39 = !{!31, !34, i64 56}
+!40 = !{!41, !41, i64 0}
+!41 = !{!"p1 _ZTS12AVFilterLink", !6, i64 0}
+!42 = !{!43, !23, i64 276}
+!43 = !{!"AVFrame", !7, i64 0, !7, i64 64, !44, i64 96, !23, i64 104, !23, i64 108, !23, i64 112, !23, i64 116, !23, i64 120, !24, i64 124, !12, i64 136, !12, i64 144, !24, i64 152, !23, i64 160, !6, i64 168, !23, i64 176, !23, i64 180, !7, i64 184, !45, i64 248, !23, i64 256, !26, i64 264, !23, i64 272, !23, i64 276, !23, i64 280, !23, i64 284, !23, i64 288, !23, i64 292, !23, i64 296, !12, i64 304, !46, i64 312, !23, i64 320, !38, i64 328, !38, i64 336, !12, i64 344, !12, i64 352, !12, i64 360, !12, i64 368, !6, i64 376, !25, i64 384, !12, i64 408}
+!44 = !{!"p2 omnipotent char", !27, i64 0}
+!45 = !{!"p2 _ZTS11AVBufferRef", !27, i64 0}
+!46 = !{!"p1 _ZTS12AVDictionary", !6, i64 0}
+!47 = !{!48, !23, i64 8}
+!48 = !{!"FieldOrderContext", !32, i64 0, !23, i64 8, !7, i64 12}
+!49 = !{!20, !23, i64 40}
+!50 = !{!20, !23, i64 44}
+!51 = !{!43, !23, i64 108}
+!52 = !{!11, !11, i64 0}
+!53 = !{!23, !23, i64 0}
+!54 = distinct !{!54, !16}
+!55 = distinct !{!55, !16, !56}
+!56 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!57 = distinct !{!57, !16}
+!58 = !{!20, !23, i64 36}

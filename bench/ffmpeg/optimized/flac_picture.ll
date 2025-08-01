@@ -178,7 +178,7 @@ define range(i32 -2147483648, 1) i32 @ff_flac_parse_picture(ptr noundef %0, ptr 
 
 84:                                               ; preds = %83
   %85 = getelementptr inbounds nuw i8, ptr %0, i64 272
-  %86 = load i32, ptr %85, align 8, !tbaa !31
+  %86 = load i32, ptr %85, align 8, !tbaa !30
   %87 = icmp slt i32 %86, 1
   %88 = and i32 %71, 16777215
   %89 = icmp eq i32 %88, %74
@@ -210,7 +210,7 @@ define range(i32 -2147483648, 1) i32 @ff_flac_parse_picture(ptr noundef %0, ptr 
   %100 = add nuw nsw i32 %2, 64
   %101 = zext nneg i32 %100 to i64
   %102 = tail call ptr @av_buffer_create(ptr noundef nonnull %7, i64 noundef %101, ptr noundef nonnull @av_buffer_default_free, ptr noundef null, i32 noundef 0) #7
-  store ptr %102, ptr %5, align 8, !tbaa !32
+  store ptr %102, ptr %5, align 8, !tbaa !31
   %.not112 = icmp eq ptr %102, null
   br i1 %.not112, label %166, label %103
 
@@ -219,15 +219,15 @@ define range(i32 -2147483648, 1) i32 @ff_flac_parse_picture(ptr noundef %0, ptr 
   %104 = ptrtoint ptr %7 to i64
   %105 = sub i64 %72, %104
   %106 = getelementptr inbounds nuw i8, ptr %102, i64 8
-  %107 = load ptr, ptr %106, align 8, !tbaa !34
+  %107 = load ptr, ptr %106, align 8, !tbaa !33
   %sext = shl i64 %105, 32
   %108 = ashr exact i64 %sext, 32
   %109 = getelementptr inbounds i8, ptr %107, i64 %108
-  store ptr %109, ptr %106, align 8, !tbaa !34
+  store ptr %109, ptr %106, align 8, !tbaa !33
   %110 = add i32 %71, 64
   %111 = zext i32 %110 to i64
   %112 = getelementptr inbounds nuw i8, ptr %102, i64 16
-  store i64 %111, ptr %112, align 8, !tbaa !37
+  store i64 %111, ptr %112, align 8, !tbaa !36
   %.pre = zext i32 %71 to i64
   br label %134
 
@@ -236,13 +236,13 @@ define range(i32 -2147483648, 1) i32 @ff_flac_parse_picture(ptr noundef %0, ptr 
   %114 = add i32 %71, 64
   %115 = zext i32 %114 to i64
   %116 = tail call ptr @av_buffer_alloc(i64 noundef %115) #7
-  store ptr %116, ptr %5, align 8, !tbaa !32
+  store ptr %116, ptr %5, align 8, !tbaa !31
   %.not111 = icmp eq ptr %116, null
   br i1 %.not111, label %166, label %117
 
 117:                                              ; preds = %113
   %118 = getelementptr inbounds nuw i8, ptr %116, i64 8
-  %119 = load ptr, ptr %118, align 8, !tbaa !34
+  %119 = load ptr, ptr %118, align 8, !tbaa !33
   br i1 %or.cond122, label %122, label %120
 
 120:                                              ; preds = %117
@@ -254,8 +254,8 @@ define range(i32 -2147483648, 1) i32 @ff_flac_parse_picture(ptr noundef %0, ptr 
   %123 = and i64 %73, 4294967295
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %119, ptr nonnull align 1 %69, i64 %123, i1 false)
   %124 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %125 = load ptr, ptr %124, align 8, !tbaa !38
-  %126 = load ptr, ptr %118, align 8, !tbaa !34
+  %125 = load ptr, ptr %124, align 8, !tbaa !37
+  %126 = load ptr, ptr %118, align 8, !tbaa !33
   %127 = zext i32 %71 to i64
   %128 = getelementptr inbounds nuw i8, ptr %126, i64 %127
   %129 = zext nneg i32 %.0152 to i64
@@ -269,10 +269,10 @@ define range(i32 -2147483648, 1) i32 @ff_flac_parse_picture(ptr noundef %0, ptr 
   %.pre-phi = phi i64 [ %121, %120 ], [ %127, %122 ], [ %.pre, %103 ]
   %135 = phi ptr [ %116, %120 ], [ %116, %122 ], [ %102, %103 ]
   %136 = getelementptr inbounds nuw i8, ptr %135, i64 8
-  %137 = load ptr, ptr %136, align 8, !tbaa !34
+  %137 = load ptr, ptr %136, align 8, !tbaa !33
   %138 = getelementptr inbounds nuw i8, ptr %137, i64 %.pre-phi
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(64) %138, i8 0, i64 64, i1 false)
-  %139 = load ptr, ptr %136, align 8, !tbaa !34
+  %139 = load ptr, ptr %136, align 8, !tbaa !33
   %140 = load i64, ptr %139, align 1, !tbaa !25
   %141 = call i32 @ff_add_attached_pic(ptr noundef %0, ptr noundef null, ptr noundef null, ptr noundef nonnull %5, i32 noundef 0) #7
   %142 = icmp slt i32 %141, 0
@@ -282,21 +282,21 @@ define range(i32 -2147483648, 1) i32 @ff_flac_parse_picture(ptr noundef %0, ptr 
   %144 = icmp eq i64 %140, 727905341920923785
   %spec.select = select i1 %144, i32 61, i32 %.lcssa
   %145 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %146 = load ptr, ptr %145, align 8, !tbaa !39
+  %146 = load ptr, ptr %145, align 8, !tbaa !38
   %147 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  %148 = load i32, ptr %147, align 4, !tbaa !40
+  %148 = load i32, ptr %147, align 4, !tbaa !39
   %149 = add i32 %148, -1
   %150 = zext i32 %149 to i64
   %151 = getelementptr inbounds nuw ptr, ptr %146, i64 %150
-  %152 = load ptr, ptr %151, align 8, !tbaa !41
+  %152 = load ptr, ptr %151, align 8, !tbaa !40
   %153 = getelementptr inbounds nuw i8, ptr %152, i64 16
-  %154 = load ptr, ptr %153, align 8, !tbaa !43
+  %154 = load ptr, ptr %153, align 8, !tbaa !42
   %155 = getelementptr inbounds nuw i8, ptr %154, i64 4
-  store i32 %spec.select, ptr %155, align 4, !tbaa !49
+  store i32 %spec.select, ptr %155, align 4, !tbaa !48
   %156 = getelementptr inbounds nuw i8, ptr %154, i64 72
-  store i32 %65, ptr %156, align 8, !tbaa !52
+  store i32 %65, ptr %156, align 8, !tbaa !51
   %157 = getelementptr inbounds nuw i8, ptr %154, i64 76
-  store i32 %67, ptr %157, align 4, !tbaa !53
+  store i32 %67, ptr %157, align 4, !tbaa !52
   %158 = getelementptr inbounds nuw i8, ptr %152, i64 80
   %159 = zext nneg i32 %.091 to i64
   %160 = getelementptr inbounds nuw [21 x ptr], ptr @ff_id3v2_picture_types, i64 0, i64 %159
@@ -394,29 +394,28 @@ attributes #8 = { nounwind willreturn memory(read) }
 !25 = !{!7, !7, i64 0}
 !26 = !{!27, !15, i64 32}
 !27 = !{!"CodecMime", !7, i64 0, !15, i64 32}
-!28 = distinct !{!28, !29, !30}
+!28 = distinct !{!28, !29}
 !29 = !{!"llvm.loop.mustprogress"}
-!30 = !{!"llvm.loop.estimated_trip_count"}
-!31 = !{!10, !15, i64 272}
-!32 = !{!33, !33, i64 0}
-!33 = !{!"p1 _ZTS11AVBufferRef", !6, i64 0}
-!34 = !{!35, !5, i64 8}
-!35 = !{!"AVBufferRef", !36, i64 0, !5, i64 8, !20, i64 16}
-!36 = !{!"p1 _ZTS8AVBuffer", !6, i64 0}
-!37 = !{!35, !20, i64 16}
-!38 = !{!10, !14, i64 32}
-!39 = !{!10, !16, i64 48}
-!40 = !{!10, !15, i64 44}
-!41 = !{!42, !42, i64 0}
-!42 = !{!"p1 _ZTS8AVStream", !6, i64 0}
-!43 = !{!44, !45, i64 16}
-!44 = !{!"AVStream", !11, i64 0, !15, i64 8, !15, i64 12, !45, i64 16, !6, i64 24, !46, i64 32, !20, i64 40, !20, i64 48, !20, i64 56, !15, i64 64, !15, i64 68, !46, i64 72, !22, i64 80, !46, i64 88, !47, i64 96, !15, i64 200, !46, i64 204, !15, i64 212}
-!45 = !{!"p1 _ZTS17AVCodecParameters", !6, i64 0}
-!46 = !{!"AVRational", !15, i64 0, !15, i64 4}
-!47 = !{!"AVPacket", !33, i64 0, !20, i64 8, !20, i64 16, !5, i64 24, !15, i64 32, !15, i64 36, !15, i64 40, !48, i64 48, !15, i64 56, !20, i64 64, !20, i64 72, !6, i64 80, !33, i64 88, !46, i64 96}
-!48 = !{!"p1 _ZTS16AVPacketSideData", !6, i64 0}
-!49 = !{!50, !15, i64 4}
-!50 = !{!"AVCodecParameters", !15, i64 0, !15, i64 4, !15, i64 8, !5, i64 16, !15, i64 24, !48, i64 32, !15, i64 40, !15, i64 44, !20, i64 48, !15, i64 56, !15, i64 60, !15, i64 64, !15, i64 68, !15, i64 72, !15, i64 76, !46, i64 80, !46, i64 88, !15, i64 96, !15, i64 100, !15, i64 104, !15, i64 108, !15, i64 112, !15, i64 116, !15, i64 120, !51, i64 128, !15, i64 152, !15, i64 156, !15, i64 160, !15, i64 164, !15, i64 168, !15, i64 172}
-!51 = !{!"AVChannelLayout", !15, i64 0, !15, i64 4, !7, i64 8, !6, i64 16}
-!52 = !{!50, !15, i64 72}
-!53 = !{!50, !15, i64 76}
+!30 = !{!10, !15, i64 272}
+!31 = !{!32, !32, i64 0}
+!32 = !{!"p1 _ZTS11AVBufferRef", !6, i64 0}
+!33 = !{!34, !5, i64 8}
+!34 = !{!"AVBufferRef", !35, i64 0, !5, i64 8, !20, i64 16}
+!35 = !{!"p1 _ZTS8AVBuffer", !6, i64 0}
+!36 = !{!34, !20, i64 16}
+!37 = !{!10, !14, i64 32}
+!38 = !{!10, !16, i64 48}
+!39 = !{!10, !15, i64 44}
+!40 = !{!41, !41, i64 0}
+!41 = !{!"p1 _ZTS8AVStream", !6, i64 0}
+!42 = !{!43, !44, i64 16}
+!43 = !{!"AVStream", !11, i64 0, !15, i64 8, !15, i64 12, !44, i64 16, !6, i64 24, !45, i64 32, !20, i64 40, !20, i64 48, !20, i64 56, !15, i64 64, !15, i64 68, !45, i64 72, !22, i64 80, !45, i64 88, !46, i64 96, !15, i64 200, !45, i64 204, !15, i64 212}
+!44 = !{!"p1 _ZTS17AVCodecParameters", !6, i64 0}
+!45 = !{!"AVRational", !15, i64 0, !15, i64 4}
+!46 = !{!"AVPacket", !32, i64 0, !20, i64 8, !20, i64 16, !5, i64 24, !15, i64 32, !15, i64 36, !15, i64 40, !47, i64 48, !15, i64 56, !20, i64 64, !20, i64 72, !6, i64 80, !32, i64 88, !45, i64 96}
+!47 = !{!"p1 _ZTS16AVPacketSideData", !6, i64 0}
+!48 = !{!49, !15, i64 4}
+!49 = !{!"AVCodecParameters", !15, i64 0, !15, i64 4, !15, i64 8, !5, i64 16, !15, i64 24, !47, i64 32, !15, i64 40, !15, i64 44, !20, i64 48, !15, i64 56, !15, i64 60, !15, i64 64, !15, i64 68, !15, i64 72, !15, i64 76, !45, i64 80, !45, i64 88, !15, i64 96, !15, i64 100, !15, i64 104, !15, i64 108, !15, i64 112, !15, i64 116, !15, i64 120, !50, i64 128, !15, i64 152, !15, i64 156, !15, i64 160, !15, i64 164, !15, i64 168, !15, i64 172}
+!50 = !{!"AVChannelLayout", !15, i64 0, !15, i64 4, !7, i64 8, !6, i64 16}
+!51 = !{!49, !15, i64 72}
+!52 = !{!49, !15, i64 76}

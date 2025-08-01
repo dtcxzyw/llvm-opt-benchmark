@@ -421,7 +421,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm9MCOperand21evaluateAsConstantImmE
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load i64, ptr %6, align 8, !tbaa !16
-  store i64 %7, ptr %1, align 8, !tbaa !51
+  store i64 %7, ptr %1, align 8, !tbaa !50
   br label %8
 
 8:                                                ; preds = %2, %5
@@ -432,7 +432,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm9MCOperand21evaluateAsConstantImmE
 define dso_local noundef zeroext i1 @_ZNK4llvm9MCOperand15isBareSymbolRefEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0) local_unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !16
-  %4 = load i8, ptr %3, align 8, !tbaa !53
+  %4 = load i8, ptr %3, align 8, !tbaa !52
   %5 = icmp eq i8 %4, 2
   br i1 %5, label %6, label %11
 
@@ -559,7 +559,7 @@ _ZN4llvm11raw_ostreamlsENS_9StringRefE.exit21.us: ; preds = %.lr.ph, %_ZN4llvm11
   tail call void @_ZNK4llvm9MCOperand5printERNS_11raw_ostreamEPKNS_14MCRegisterInfoE(ptr noundef nonnull align 8 dereferenceable(16) %49, ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef %6)
   %indvars.iv.next28 = add nuw nsw i64 %indvars.iv27, 1
   %.not.us = icmp eq i64 %indvars.iv.next28, %48
-  br i1 %.not.us, label %._crit_edge, label %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit21.us, !llvm.loop !56
+  br i1 %.not.us, label %._crit_edge, label %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit21.us, !llvm.loop !55
 
 ._crit_edge:                                      ; preds = %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit21, %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit21.us, %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit
   %50 = load ptr, ptr %8, align 8, !tbaa !3
@@ -608,7 +608,7 @@ _ZN4llvm11raw_ostreamlsENS_9StringRefE.exit21:    ; preds = %64, %66
   tail call void @_ZNK4llvm9MCOperand5printERNS_11raw_ostreamEPKNS_14MCRegisterInfoE(ptr noundef nonnull align 8 dereferenceable(16) %70, ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef %6)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.not = icmp eq i64 %indvars.iv.next, %48
-  br i1 %.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !58
+  br i1 %.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !57
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
@@ -683,14 +683,13 @@ attributes #6 = { nounwind }
 !45 = !{!"_ZTSN4llvm18SmallVectorStorageINS_9MCOperandELj6EEE", !6, i64 0}
 !46 = !{!44, !20, i64 8}
 !47 = !{!44, !9, i64 0}
-!48 = distinct !{!48, !49, !50}
+!48 = distinct !{!48, !49}
 !49 = !{!"llvm.loop.mustprogress"}
-!50 = !{!"llvm.loop.estimated_trip_count"}
-!51 = !{!52, !52, i64 0}
-!52 = !{!"long", !6, i64 0}
-!53 = !{!54, !55, i64 0}
-!54 = !{!"_ZTSN4llvm6MCExprE", !55, i64 0, !20, i64 1, !39, i64 8}
-!55 = !{!"_ZTSN4llvm6MCExpr8ExprKindE", !6, i64 0}
-!56 = distinct !{!56, !49, !50, !57}
-!57 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!58 = distinct !{!58, !49, !50}
+!50 = !{!51, !51, i64 0}
+!51 = !{!"long", !6, i64 0}
+!52 = !{!53, !54, i64 0}
+!53 = !{!"_ZTSN4llvm6MCExprE", !54, i64 0, !20, i64 1, !39, i64 8}
+!54 = !{!"_ZTSN4llvm6MCExpr8ExprKindE", !6, i64 0}
+!55 = distinct !{!55, !49, !56}
+!56 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!57 = distinct !{!57, !49}

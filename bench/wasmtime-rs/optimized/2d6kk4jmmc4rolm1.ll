@@ -135,7 +135,7 @@ define hidden void @"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..
   %70 = load i64, ptr %9, align 8, !noalias !6, !noundef !4
   %71 = call zeroext i1 @"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17h61fdbad3c6767d9fE"(ptr nonnull align 1 %69, i64 %70, i64 %.012.i), !noalias !6
   %72 = add i64 %.012.i, 1
-  br i1 %71, label %73, label %68, !llvm.loop !11
+  br i1 %71, label %73, label %68
 
 73:                                               ; preds = %68
   %74 = load i64, ptr %7, align 8, !noalias !6, !noundef !4
@@ -254,5 +254,3 @@ attributes #4 = { noreturn }
 !8 = distinct !{!8, !"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..Searcher$GT$4next17hba94781cb27bc56fE"}
 !9 = !{i64 1}
 !10 = !{i64 0, i64 3}
-!11 = distinct !{!11, !12}
-!12 = !{!"llvm.loop.estimated_trip_count"}

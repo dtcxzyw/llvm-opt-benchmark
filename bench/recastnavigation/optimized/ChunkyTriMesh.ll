@@ -97,7 +97,7 @@ define dso_local noundef zeroext i1 @_Z21rcCreateChunkyTriMeshPKfPKiiiP15rcChunk
   store float %67, ptr %45, align 4
   %indvars.iv.next99 = add nuw nsw i64 %indvars.iv98, 1
   %exitcond101.not = icmp eq i64 %indvars.iv.next99, %wide.trip.count
-  br i1 %exitcond101.not, label %._crit_edge, label %.lr.ph, !llvm.loop !8
+  br i1 %exitcond101.not, label %._crit_edge, label %.lr.ph, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %68, %5
   store i32 0, ptr %6, align 4
@@ -140,7 +140,7 @@ define dso_local noundef zeroext i1 @_Z21rcCreateChunkyTriMeshPKfPKiiiP15rcChunk
   %86 = phi i32 [ %75, %80 ], [ %82, %84 ], [ %75, %74 ]
   %indvars.iv.next103 = add nuw nsw i64 %indvars.iv102, 1
   %exitcond106.not = icmp eq i64 %indvars.iv.next103, %wide.trip.count105
-  br i1 %exitcond106.not, label %._crit_edge93, label %74, !llvm.loop !9
+  br i1 %exitcond106.not, label %._crit_edge93, label %74, !llvm.loop !8
 
 ._crit_edge93:                                    ; preds = %85, %._crit_edge
   ret i1 true
@@ -245,7 +245,7 @@ define internal fastcc void @_ZL9subdivideP10BoundsItemiiiiRiP19rcChunkyTriMeshN
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, 1
   %lftr.wideiv.i = trunc i64 %indvars.iv.next.i to i32
   %exitcond.not.i = icmp eq i32 %2, %lftr.wideiv.i
-  br i1 %exitcond.not.i, label %_ZL11calcExtendsPK10BoundsItemiiiPfS2_.exit, label %.lr.ph.i, !llvm.loop !10
+  br i1 %exitcond.not.i, label %_ZL11calcExtendsPK10BoundsItemiiiPfS2_.exit, label %.lr.ph.i, !llvm.loop !9
 
 _ZL11calcExtendsPK10BoundsItemiiiPfS2_.exit:      ; preds = %58, %30
   %60 = load i32, ptr %7, align 4
@@ -285,7 +285,7 @@ _ZL11calcExtendsPK10BoundsItemiiiPfS2_.exit:      ; preds = %58, %30
   store i32 %79, ptr %80, align 4
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %common.ret10, label %.lr.ph, !llvm.loop !11
+  br i1 %exitcond.not, label %common.ret10, label %.lr.ph, !llvm.loop !10
 
 81:                                               ; preds = %13
   br i1 %29, label %.lr.ph.preheader.i87, label %_ZL11calcExtendsPK10BoundsItemiiiPfS2_.exit93
@@ -347,7 +347,7 @@ _ZL11calcExtendsPK10BoundsItemiiiPfS2_.exit:      ; preds = %58, %30
   %indvars.iv.next.i90 = add nsw i64 %indvars.iv.i89, 1
   %lftr.wideiv.i91 = trunc i64 %indvars.iv.next.i90 to i32
   %exitcond.not.i92 = icmp eq i32 %2, %lftr.wideiv.i91
-  br i1 %exitcond.not.i92, label %_ZL11calcExtendsPK10BoundsItemiiiPfS2_.exit93, label %.lr.ph.i88, !llvm.loop !10
+  br i1 %exitcond.not.i92, label %_ZL11calcExtendsPK10BoundsItemiiiPfS2_.exit93, label %.lr.ph.i88, !llvm.loop !9
 
 common.ret10:                                     ; preds = %10, %_ZL11calcExtendsPK10BoundsItemiiiPfS2_.exit, %.lr.ph, %_ZL11calcExtendsPK10BoundsItemiiiPfS2_.exit93
   ret void
@@ -469,7 +469,7 @@ _Z16checkOverlapRectPKfS0_S0_S0_.exit:            ; preds = %30
   %.1 = phi i32 [ %50, %49 ], [ %53, %51 ]
   %55 = load i32, ptr %6, align 8
   %56 = icmp slt i32 %.1, %55
-  br i1 %56, label %11, label %._crit_edge, !llvm.loop !12
+  br i1 %56, label %11, label %._crit_edge, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %54, %5
   %.026.lcssa = phi i32 [ 0, %5 ], [ %.12735, %54 ]
@@ -554,7 +554,7 @@ define dso_local noundef i32 @_Z29rcGetChunksOverlappingSegmentPK15rcChunkyTriMe
 50:                                               ; preds = %34, %30
   %.245.i = phi float [ %.0431.i, %30 ], [ %.144.i, %34 ]
   %.2.i = phi float [ %.0413.i, %30 ], [ %.1.i, %34 ]
-  br i1 %.not.i, label %21, label %_ZL19checkOverlapSegmentPKfS0_S0_S0_.exit, !llvm.loop !13
+  br i1 %.not.i, label %21, label %_ZL19checkOverlapSegmentPKfS0_S0_S0_.exit, !llvm.loop !12
 
 _ZL19checkOverlapSegmentPKfS0_S0_S0_.exit:        ; preds = %50
   %51 = getelementptr inbounds nuw i8, ptr %15, i64 16
@@ -594,7 +594,7 @@ _ZL19checkOverlapSegmentPKfS0_S0_S0_.exit:        ; preds = %50
   %.12739 = phi i32 [ %.12740, %.thread ], [ %.02641, %64 ]
   %.1 = phi i32 [ %63, %.thread ], [ %65, %64 ]
   %68 = icmp slt i32 %.1, %67
-  br i1 %68, label %11, label %._crit_edge, !llvm.loop !14
+  br i1 %68, label %11, label %._crit_edge, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %66, %5
   %.026.lcssa = phi i32 [ 0, %5 ], [ %.12739, %66 ]
@@ -649,13 +649,12 @@ attributes #9 = { builtin nounwind }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6, !7}
+!5 = distinct !{!5, !6}
 !6 = !{!"llvm.loop.mustprogress"}
-!7 = !{!"llvm.loop.estimated_trip_count"}
-!8 = distinct !{!8, !6, !7}
-!9 = distinct !{!9, !6, !7}
-!10 = distinct !{!10, !6, !7}
-!11 = distinct !{!11, !6, !7}
-!12 = distinct !{!12, !6, !7}
-!13 = distinct !{!13, !6, !7}
-!14 = distinct !{!14, !6, !7}
+!7 = distinct !{!7, !6}
+!8 = distinct !{!8, !6}
+!9 = distinct !{!9, !6}
+!10 = distinct !{!10, !6}
+!11 = distinct !{!11, !6}
+!12 = distinct !{!12, !6}
+!13 = distinct !{!13, !6}

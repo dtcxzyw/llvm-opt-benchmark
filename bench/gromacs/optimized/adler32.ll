@@ -161,7 +161,7 @@ define i64 @adler32(i64 noundef %0, ptr noundef readonly captures(address_is_nul
   %116 = getelementptr inbounds nuw i8, ptr %.2179, i64 16
   %117 = add nsw i32 %.0, -1
   %.not197 = icmp eq i32 %117, 0
-  br i1 %.not197, label %118, label %36, !llvm.loop !9
+  br i1 %.not197, label %118, label %36, !llvm.loop !8
 
 118:                                              ; preds = %36
   %119 = add i32 %.1174207, -5552
@@ -169,7 +169,7 @@ define i64 @adler32(i64 noundef %0, ptr noundef readonly captures(address_is_nul
   %120 = urem i64 %114, 65521
   %121 = urem i64 %115, 65521
   %122 = icmp ugt i32 %119, 5551
-  br i1 %122, label %.lr.ph, label %._crit_edge, !llvm.loop !10
+  br i1 %122, label %.lr.ph, label %._crit_edge, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %118
   %.not = icmp eq i32 %119, 0
@@ -284,7 +284,7 @@ define i64 @adler32(i64 noundef %0, ptr noundef readonly captures(address_is_nul
   %203 = add i64 %198, %202
   %204 = getelementptr inbounds nuw i8, ptr %.3180213, i64 16
   %205 = icmp ugt i32 %124, 15
-  br i1 %205, label %.lr.ph216, label %.preheader200, !llvm.loop !11
+  br i1 %205, label %.lr.ph216, label %.preheader200, !llvm.loop !10
 
 .lr.ph226:                                        ; preds = %.lr.ph226.preheader, %.lr.ph226
   %.6225 = phi i64 [ %211, %.lr.ph226 ], [ %.6225.ph, %.lr.ph226.preheader ]
@@ -298,7 +298,7 @@ define i64 @adler32(i64 noundef %0, ptr noundef readonly captures(address_is_nul
   %210 = add i64 %.7222, %209
   %211 = add i64 %210, %.6225
   %.not196 = icmp eq i32 %206, 0
-  br i1 %.not196, label %._crit_edge227, label %.lr.ph226, !llvm.loop !12
+  br i1 %.not196, label %._crit_edge227, label %.lr.ph226, !llvm.loop !11
 
 ._crit_edge227:                                   ; preds = %.lr.ph226, %.preheader200
   %.7.lcssa = phi i64 [ %202, %.preheader200 ], [ %210, %.lr.ph226 ]
@@ -418,10 +418,9 @@ attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memor
 !3 = !{!4, !4, i64 0}
 !4 = !{!"omnipotent char", !5, i64 0}
 !5 = !{!"Simple C/C++ TBAA"}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7, !8}
-!11 = distinct !{!11, !7, !8}
-!12 = distinct !{!12, !7, !8}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7}

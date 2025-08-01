@@ -1512,6 +1512,5 @@ attributes #20 = { noreturn nounwind }
 !73 = !{!"_ZTSN5boost7archive13tracking_typeE", !17, i64 0}
 !74 = !{!6, !10, i64 24}
 !75 = !{!6, !10, i64 16}
-!76 = distinct !{!76, !77, !78}
+!76 = distinct !{!76, !77}
 !77 = !{!"llvm.loop.mustprogress"}
-!78 = !{!"llvm.loop.estimated_trip_count"}

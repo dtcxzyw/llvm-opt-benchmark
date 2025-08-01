@@ -205,7 +205,7 @@ define range(i32 0, 2) i32 @cuddInitInteract(ptr noundef captures(address) initi
   %indvars.iv.next25.i = add nuw nsw i64 %indvars.iv24.i, 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond29.not.i = icmp eq i64 %indvars.iv.next25.i, %wide.trip.count28.i
-  br i1 %exitcond29.not.i, label %ddUpdateInteract.exit, label %45, !llvm.loop !36
+  br i1 %exitcond29.not.i, label %ddUpdateInteract.exit, label %45, !llvm.loop !35
 
 ddUpdateInteract.exit:                            ; preds = %.loopexit.i, %._crit_edge67, %.lr.ph71
   %70 = phi i32 [ %41, %._crit_edge67 ], [ %36, %.lr.ph71 ], [ %41, %.loopexit.i ]
@@ -214,19 +214,19 @@ ddUpdateInteract.exit:                            ; preds = %.loopexit.i, %._cri
   %73 = and i64 %72, -2
   %74 = inttoptr i64 %73 to ptr
   %.not = icmp eq ptr %0, %74
-  br i1 %.not, label %._crit_edge72, label %.lr.ph71, !llvm.loop !37
+  br i1 %.not, label %._crit_edge72, label %.lr.ph71, !llvm.loop !36
 
 ._crit_edge72:                                    ; preds = %ddUpdateInteract.exit, %.lr.ph75
   %75 = phi i32 [ %33, %.lr.ph75 ], [ %70, %ddUpdateInteract.exit ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge76, label %.lr.ph75, !llvm.loop !38
+  br i1 %exitcond.not, label %._crit_edge76, label %.lr.ph75, !llvm.loop !37
 
 ._crit_edge76:                                    ; preds = %._crit_edge72, %25
   %76 = phi i32 [ %26, %25 ], [ %75, %._crit_edge72 ]
   %indvars.iv.next85 = add nuw nsw i64 %indvars.iv84, 1
   %exitcond88.not = icmp eq i64 %indvars.iv.next85, %21
-  br i1 %exitcond88.not, label %._crit_edge79, label %25, !llvm.loop !39
+  br i1 %exitcond88.not, label %._crit_edge79, label %25, !llvm.loop !38
 
 ._crit_edge79:                                    ; preds = %._crit_edge76
   %77 = icmp sgt i32 %76, 0
@@ -267,17 +267,17 @@ ddUpdateInteract.exit:                            ; preds = %.loopexit.i, %._cri
   %92 = inttoptr i64 %91 to ptr
   store ptr %92, ptr %88, align 8, !tbaa !31
   %.not.i = icmp eq ptr %0, %92
-  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i59, !llvm.loop !40
+  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i59, !llvm.loop !39
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i59, %.lr.ph23.i
   %indvars.iv.next.i60 = add nuw nsw i64 %indvars.iv.i58, 1
   %exitcond.not.i61 = icmp eq i64 %indvars.iv.next.i60, %wide.trip.count.i57
-  br i1 %exitcond.not.i61, label %._crit_edge24.i, label %.lr.ph23.i, !llvm.loop !41
+  br i1 %exitcond.not.i61, label %._crit_edge24.i, label %.lr.ph23.i, !llvm.loop !40
 
 ._crit_edge24.i:                                  ; preds = %._crit_edge.i, %80
   %indvars.iv.next31.i = add nuw nsw i64 %indvars.iv30.i, 1
   %exitcond34.not.i = icmp eq i64 %indvars.iv.next31.i, %wide.trip.count33.i
-  br i1 %exitcond34.not.i, label %ddClearGlobal.exit, label %80, !llvm.loop !42
+  br i1 %exitcond34.not.i, label %ddClearGlobal.exit, label %80, !llvm.loop !41
 
 ddClearGlobal.exit:                               ; preds = %._crit_edge24.i, %.preheader62, %._crit_edge79
   tail call void @free(ptr noundef %17) #9
@@ -296,13 +296,13 @@ declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define internal fastcc void @ddSuppInteract(ptr noundef captures(none) %0, ptr noundef nonnull %1) unnamed_addr #5 {
-  %3 = load i32, ptr %0, align 8, !tbaa !43
+  %3 = load i32, ptr %0, align 8, !tbaa !42
   %4 = icmp eq i32 %3, 2147483647
   br i1 %4, label %common.ret12, label %5
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %7 = load ptr, ptr %6, align 8, !tbaa !44
+  %7 = load ptr, ptr %6, align 8, !tbaa !43
   %8 = ptrtoint ptr %7 to i64
   %9 = and i64 %8, 1
   %.not = icmp eq i64 %9, 0
@@ -315,19 +315,19 @@ common.ret12:                                     ; preds = %2, %5, %10
   %11 = zext i32 %3 to i64
   %12 = getelementptr inbounds nuw i32, ptr %1, i64 %11
   store i32 1, ptr %12, align 4, !tbaa !32
-  %13 = load ptr, ptr %6, align 8, !tbaa !44
+  %13 = load ptr, ptr %6, align 8, !tbaa !43
   tail call fastcc void @ddSuppInteract(ptr noundef %13, ptr noundef %1)
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %15 = load ptr, ptr %14, align 8, !tbaa !44
+  %15 = load ptr, ptr %14, align 8, !tbaa !43
   %16 = ptrtoint ptr %15 to i64
   %17 = and i64 %16, -2
   %18 = inttoptr i64 %17 to ptr
   tail call fastcc void @ddSuppInteract(ptr noundef %18, ptr noundef %1)
-  %19 = load ptr, ptr %6, align 8, !tbaa !44
+  %19 = load ptr, ptr %6, align 8, !tbaa !43
   %20 = ptrtoint ptr %19 to i64
   %21 = or i64 %20, 1
   %22 = inttoptr i64 %21 to ptr
-  store ptr %22, ptr %6, align 8, !tbaa !44
+  store ptr %22, ptr %6, align 8, !tbaa !43
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %24 = load ptr, ptr %23, align 8, !tbaa !31
   %25 = ptrtoint ptr %24 to i64
@@ -339,14 +339,14 @@ common.ret12:                                     ; preds = %2, %5, %10
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define internal fastcc void @ddClearLocal(ptr noundef captures(none) %0) unnamed_addr #5 {
-  %2 = load i32, ptr %0, align 8, !tbaa !43
+  %2 = load i32, ptr %0, align 8, !tbaa !42
   %3 = icmp eq i32 %2, 2147483647
   br i1 %3, label %tailrecurse._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1, %tailrecurse
   %.tr6 = phi ptr [ %14, %tailrecurse ], [ %0, %1 ]
   %4 = getelementptr inbounds nuw i8, ptr %.tr6, i64 16
-  %5 = load ptr, ptr %4, align 8, !tbaa !44
+  %5 = load ptr, ptr %4, align 8, !tbaa !43
   %6 = ptrtoint ptr %5 to i64
   %7 = and i64 %6, 1
   %.not = icmp eq i64 %7, 0
@@ -355,14 +355,14 @@ define internal fastcc void @ddClearLocal(ptr noundef captures(none) %0) unnamed
 tailrecurse:                                      ; preds = %.lr.ph
   %8 = and i64 %6, -2
   %9 = inttoptr i64 %8 to ptr
-  store ptr %9, ptr %4, align 8, !tbaa !44
+  store ptr %9, ptr %4, align 8, !tbaa !43
   tail call fastcc void @ddClearLocal(ptr noundef %9)
   %10 = getelementptr inbounds nuw i8, ptr %.tr6, i64 24
-  %11 = load ptr, ptr %10, align 8, !tbaa !44
+  %11 = load ptr, ptr %10, align 8, !tbaa !43
   %12 = ptrtoint ptr %11 to i64
   %13 = and i64 %12, -2
   %14 = inttoptr i64 %13 to ptr
-  %15 = load i32, ptr %14, align 8, !tbaa !43
+  %15 = load i32, ptr %14, align 8, !tbaa !42
   %16 = icmp eq i32 %15, 2147483647
   br i1 %16, label %tailrecurse._crit_edge, label %.lr.ph
 
@@ -425,15 +425,14 @@ attributes #9 = { nounwind }
 !30 = !{!9, !9, i64 0}
 !31 = !{!5, !9, i64 8}
 !32 = !{!6, !6, i64 0}
-!33 = distinct !{!33, !34, !35}
+!33 = distinct !{!33, !34}
 !34 = !{!"llvm.loop.mustprogress"}
-!35 = !{!"llvm.loop.estimated_trip_count"}
-!36 = distinct !{!36, !34, !35}
-!37 = distinct !{!37, !34, !35}
-!38 = distinct !{!38, !34, !35}
-!39 = distinct !{!39, !34, !35}
-!40 = distinct !{!40, !34, !35}
-!41 = distinct !{!41, !34, !35}
-!42 = distinct !{!42, !34, !35}
-!43 = !{!5, !6, i64 0}
-!44 = !{!7, !7, i64 0}
+!35 = distinct !{!35, !34}
+!36 = distinct !{!36, !34}
+!37 = distinct !{!37, !34}
+!38 = distinct !{!38, !34}
+!39 = distinct !{!39, !34}
+!40 = distinct !{!40, !34}
+!41 = distinct !{!41, !34}
+!42 = !{!5, !6, i64 0}
+!43 = !{!7, !7, i64 0}

@@ -3123,6 +3123,5 @@ attributes #18 = { nounwind willreturn memory(read) }
 !147 = !{!148}
 !148 = distinct !{!148, !149, !"_ZN4llvm7hashing6detail10hash_state6createEPKcm: argument 0"}
 !149 = distinct !{!149, !"_ZN4llvm7hashing6detail10hash_state6createEPKcm"}
-!150 = distinct !{!150, !151, !152}
+!150 = distinct !{!150, !151}
 !151 = !{!"llvm.loop.mustprogress"}
-!152 = !{!"llvm.loop.estimated_trip_count"}

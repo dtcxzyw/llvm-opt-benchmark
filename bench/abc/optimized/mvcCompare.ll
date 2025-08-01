@@ -81,9 +81,9 @@ define range(i32 -1, 2) i32 @Mvc_CubeCompareInt(ptr noundef readonly captures(no
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
 define range(i32 -1, 2) i32 @Mvc_CubeCompareSizeAndInt(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readnone captures(none) %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %5 = load i32, ptr %4, align 4, !tbaa !10
+  %5 = load i32, ptr %4, align 4, !tbaa !9
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %7 = load i32, ptr %6, align 4, !tbaa !10
+  %7 = load i32, ptr %6, align 4, !tbaa !9
   %8 = icmp ult i32 %5, %7
   br i1 %8, label %.loopexit, label %9
 
@@ -144,7 +144,7 @@ define range(i32 -1, 2) i32 @Mvc_CubeCompareSizeAndInt(ptr noundef readonly capt
 39:                                               ; preds = %49
   %40 = add nsw i32 %.042, -1
   %41 = icmp sgt i32 %.042, 0
-  br i1 %41, label %42, label %.loopexit, !llvm.loop !14
+  br i1 %41, label %42, label %.loopexit, !llvm.loop !13
 
 42:                                               ; preds = %.preheader, %39
   %.042 = phi i32 [ %14, %.preheader ], [ %40, %39 ]
@@ -232,7 +232,7 @@ define range(i32 -1, 2) i32 @Mvc_CubeCompareIntUnderMask(ptr noundef readonly ca
 44:                                               ; preds = %58
   %45 = add nsw i32 %.052, -1
   %46 = icmp sgt i32 %.052, 0
-  br i1 %46, label %47, label %.loopexit, !llvm.loop !15
+  br i1 %46, label %47, label %.loopexit, !llvm.loop !14
 
 47:                                               ; preds = %.preheader, %44
   %.052 = phi i32 [ %6, %.preheader ], [ %45, %44 ]
@@ -324,7 +324,7 @@ define range(i32 -1, 2) i32 @Mvc_CubeCompareIntOutsideMask(ptr noundef readonly 
 44:                                               ; preds = %58
   %45 = add nsw i32 %.052, -1
   %46 = icmp sgt i32 %.052, 0
-  br i1 %46, label %47, label %.loopexit, !llvm.loop !16
+  br i1 %46, label %47, label %.loopexit, !llvm.loop !15
 
 47:                                               ; preds = %.preheader, %44
   %.052 = phi i32 [ %6, %.preheader ], [ %45, %44 ]
@@ -449,7 +449,7 @@ define range(i32 -1, 2) i32 @Mvc_CubeCompareIntOutsideAndUnderMask(ptr noundef r
 65:                                               ; preds = %80
   %66 = add nsw i32 %.0103, -1
   %67 = icmp sgt i32 %.0103, 0
-  br i1 %67, label %68, label %.preheader, !llvm.loop !17
+  br i1 %67, label %68, label %.preheader, !llvm.loop !16
 
 68:                                               ; preds = %.preheader100, %65
   %.0103 = phi i32 [ %6, %.preheader100 ], [ %66, %65 ]
@@ -473,7 +473,7 @@ define range(i32 -1, 2) i32 @Mvc_CubeCompareIntOutsideAndUnderMask(ptr noundef r
 82:                                               ; preds = %95
   %83 = add nsw i32 %.1104, -1
   %84 = icmp sgt i32 %.1104, 0
-  br i1 %84, label %.preheader, label %.loopexit, !llvm.loop !18
+  br i1 %84, label %.preheader, label %.loopexit, !llvm.loop !17
 
 .preheader:                                       ; preds = %65, %82
   %.1104 = phi i32 [ %83, %82 ], [ %6, %65 ]
@@ -509,15 +509,14 @@ attributes #0 = { nofree norecurse nosync nounwind memory(argmem: read) uwtable 
 !4 = !{!"int", !5, i64 0}
 !5 = !{!"omnipotent char", !6, i64 0}
 !6 = !{!"Simple C/C++ TBAA"}
-!7 = distinct !{!7, !8, !9}
+!7 = distinct !{!7, !8}
 !8 = !{!"llvm.loop.mustprogress"}
-!9 = !{!"llvm.loop.estimated_trip_count"}
-!10 = !{!11, !4, i64 12}
-!11 = !{!"MvcCubeStruct", !12, i64 0, !4, i64 8, !4, i64 11, !4, i64 11, !4, i64 11, !4, i64 12, !5, i64 16}
-!12 = !{!"p1 _ZTS13MvcCubeStruct", !13, i64 0}
-!13 = !{!"any pointer", !5, i64 0}
-!14 = distinct !{!14, !8, !9}
-!15 = distinct !{!15, !8, !9}
-!16 = distinct !{!16, !8, !9}
-!17 = distinct !{!17, !8, !9}
-!18 = distinct !{!18, !8, !9}
+!9 = !{!10, !4, i64 12}
+!10 = !{!"MvcCubeStruct", !11, i64 0, !4, i64 8, !4, i64 11, !4, i64 11, !4, i64 11, !4, i64 12, !5, i64 16}
+!11 = !{!"p1 _ZTS13MvcCubeStruct", !12, i64 0}
+!12 = !{!"any pointer", !5, i64 0}
+!13 = distinct !{!13, !8}
+!14 = distinct !{!14, !8}
+!15 = distinct !{!15, !8}
+!16 = distinct !{!16, !8}
+!17 = distinct !{!17, !8}

@@ -105,7 +105,7 @@ define dso_local i32 @nlm_lookup_file(ptr noundef %0, ptr noundef writeonly capt
 .critedge.backedge:                               ; preds = %32, %27
   %35 = load ptr, ptr %28, align 8
   %36 = icmp eq ptr %35, null
-  br i1 %36, label %.critedge._crit_edge, label %27, !llvm.loop !9
+  br i1 %36, label %.critedge._crit_edge, label %27, !llvm.loop !8
 
 37:                                               ; preds = %32
   %38 = getelementptr inbounds nuw i8, ptr %28, i64 200
@@ -244,7 +244,7 @@ define dso_local void @nlm_release_file(ptr noundef %0) local_unnamed_addr #1 al
   %16 = load ptr, ptr %15, align 8
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 352
   %18 = load volatile ptr, ptr %17, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !10
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !9
   %19 = load i32, ptr %2, align 4
   %20 = icmp eq i32 %19, 0
   br i1 %20, label %21, label %78
@@ -268,7 +268,7 @@ define dso_local void @nlm_release_file(ptr noundef %0) local_unnamed_addr #1 al
 31:                                               ; preds = %29
   %32 = getelementptr inbounds nuw i8, ptr %18, i64 24
   %33 = load volatile ptr, ptr %32, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !11
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !10
   %34 = icmp eq ptr %33, %32
   br i1 %34, label %35, label %39
 
@@ -292,7 +292,7 @@ define dso_local void @nlm_release_file(ptr noundef %0) local_unnamed_addr #1 al
   %45 = getelementptr i8, ptr %42, i64 168
   %46 = load ptr, ptr %45, align 8
   %47 = icmp eq ptr %46, @nlmsvc_lock_operations
-  br i1 %47, label %48, label %40, !llvm.loop !12
+  br i1 %47, label %48, label %40, !llvm.loop !11
 
 48:                                               ; preds = %44
   tail call void @_raw_spin_unlock(ptr noundef nonnull %18) #12
@@ -365,10 +365,10 @@ define dso_local void @nlm_release_file(ptr noundef %0) local_unnamed_addr #1 al
 define dso_local void @nlmsvc_mark_resources(ptr noundef %0) local_unnamed_addr #1 align 16 {
   %2 = alloca %struct.nlm_host, align 8
   call void @llvm.lifetime.start.p0(i64 608, ptr nonnull %2) #12
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(608) %2, i8 0, i64 608, i1 false), !annotation !13
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(608) %2, i8 0, i64 608, i1 false), !annotation !12
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 512
   store ptr %0, ptr %3, align 8
-  %4 = call fastcc i32 @nlm_traverse_files(ptr noundef nonnull %2, ptr noundef nonnull @nlmsvc_mark_host, ptr noundef null), !range !14
+  %4 = call fastcc i32 @nlm_traverse_files(ptr noundef nonnull %2, ptr noundef nonnull @nlmsvc_mark_host, ptr noundef null), !range !13
   call void @llvm.lifetime.end.p0(i64 608, ptr nonnull %2) #12
   ret void
 }
@@ -405,7 +405,7 @@ define internal fastcc range(i32 0, 2) i32 @nlm_traverse_files(ptr noundef %0, p
   br i1 %5, label %25, label %22
 
 22:                                               ; preds = %.preheader
-  %23 = call i32 %2(ptr noundef %0, ptr noundef nonnull %19) #12, !callees !15
+  %23 = call i32 %2(ptr noundef %0, ptr noundef nonnull %19) #12, !callees !14
   %24 = icmp eq i32 %23, 0
   br i1 %24, label %133, label %25
 
@@ -433,14 +433,14 @@ define internal fastcc range(i32 0, 2) i32 @nlm_traverse_files(ptr noundef %0, p
   %38 = load ptr, ptr %37, align 8
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 352
   %40 = load volatile ptr, ptr %39, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !10
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !9
   %41 = icmp eq ptr %40, null
   br i1 %41, label %93, label %42
 
 42:                                               ; preds = %35
   %43 = getelementptr inbounds nuw i8, ptr %40, i64 24
   %44 = load volatile ptr, ptr %43, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !11
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !10
   %45 = icmp eq ptr %44, %43
   br i1 %45, label %46, label %50
 
@@ -484,7 +484,7 @@ define internal fastcc range(i32 0, 2) i32 @nlm_traverse_files(ptr noundef %0, p
 70:                                               ; preds = %61
   call void @_raw_spin_unlock(ptr noundef nonnull %40) #12
   call void @llvm.lifetime.start.p0(i64 216, ptr nonnull %4) #12
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(216) %4, i8 0, i64 216, i1 false), !annotation !13
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(216) %4, i8 0, i64 216, i1 false), !annotation !12
   call void @locks_init_lock(ptr noundef nonnull %4) #12
   store i8 2, ptr %6, align 4
   store i64 0, ptr %7, align 8
@@ -536,7 +536,7 @@ define internal fastcc range(i32 0, 2) i32 @nlm_traverse_files(ptr noundef %0, p
 
 .backedge:                                        ; preds = %90, %87
   %.be = phi ptr [ %91, %90 ], [ %88, %87 ]
-  br label %56, !llvm.loop !16
+  br label %56, !llvm.loop !15
 
 .loopexit:                                        ; preds = %90, %87, %50
   call void @_raw_spin_unlock(ptr noundef nonnull %40) #12
@@ -614,13 +614,13 @@ define internal fastcc range(i32 0, 2) i32 @nlm_traverse_files(ptr noundef %0, p
 133:                                              ; preds = %132, %104, %100, %93, %22
   %134 = phi i32 [ %94, %100 ], [ %94, %104 ], [ %94, %132 ], [ %94, %93 ], [ %20, %22 ]
   %135 = icmp eq ptr %21, null
-  br i1 %135, label %.loopexit16, label %.preheader, !llvm.loop !17
+  br i1 %135, label %.loopexit16, label %.preheader, !llvm.loop !16
 
 .loopexit16:                                      ; preds = %133, %13
   %136 = phi i32 [ %15, %13 ], [ %134, %133 ]
   %137 = add nuw nsw i64 %14, 1
   %138 = icmp eq i64 %137, 128
-  br i1 %138, label %139, label %13, !llvm.loop !18
+  br i1 %138, label %139, label %13, !llvm.loop !17
 
 139:                                              ; preds = %.loopexit16
   call void @mutex_unlock(ptr noundef nonnull @nlm_file_mutex) #12
@@ -653,7 +653,7 @@ define internal noundef i32 @nlmsvc_mark_host(ptr noundef captures(none) %0, ptr
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @nlmsvc_free_host_resources(ptr noundef %0) local_unnamed_addr #1 align 16 {
-  %2 = tail call fastcc i32 @nlm_traverse_files(ptr noundef %0, ptr noundef nonnull @nlmsvc_same_host, ptr noundef null), !range !14
+  %2 = tail call fastcc i32 @nlm_traverse_files(ptr noundef %0, ptr noundef nonnull @nlmsvc_same_host, ptr noundef null), !range !13
   %3 = icmp eq i32 %2, 0
   br i1 %3, label %8, label %4
 
@@ -661,8 +661,8 @@ define dso_local void @nlmsvc_free_host_resources(ptr noundef %0) local_unnamed_
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 296
   %6 = load ptr, ptr %5, align 8
   %7 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.3, ptr noundef %6) #14
-  tail call void asm sideeffect "717: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 717b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 717) #12, !srcloc !19
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.4, i32 437, i32 0, i64 12) #12, !srcloc !20
+  tail call void asm sideeffect "717: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 717b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 717) #12, !srcloc !18
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.4, i32 437, i32 0, i64 12) #12, !srcloc !19
   unreachable
 
 8:                                                ; preds = %1
@@ -681,7 +681,7 @@ declare dso_local i32 @_printk(ptr noundef, ...) local_unnamed_addr #8
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @nlmsvc_invalidate_all() local_unnamed_addr #1 align 16 {
-  %1 = tail call fastcc i32 @nlm_traverse_files(ptr noundef null, ptr noundef nonnull @nlmsvc_is_client, ptr noundef null), !range !14
+  %1 = tail call fastcc i32 @nlm_traverse_files(ptr noundef null, ptr noundef nonnull @nlmsvc_is_client, ptr noundef null), !range !13
   ret void
 }
 
@@ -778,14 +778,14 @@ nlmsvc_match_sb.exit:                             ; preds = %.preheader.i, %22
   %42 = load ptr, ptr %41, align 8
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 352
   %44 = load volatile ptr, ptr %43, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !10
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !9
   %45 = icmp eq ptr %44, null
   br i1 %45, label %91, label %46
 
 46:                                               ; preds = %39
   %47 = getelementptr inbounds nuw i8, ptr %44, i64 24
   %48 = load volatile ptr, ptr %47, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !11
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !10
   %49 = icmp eq ptr %48, %47
   br i1 %49, label %50, label %54
 
@@ -821,7 +821,7 @@ nlmsvc_match_sb.exit:                             ; preds = %.preheader.i, %22
   %68 = getelementptr i8, ptr %61, i64 64
   call void @_raw_spin_unlock(ptr noundef nonnull %44) #12
   call void @llvm.lifetime.start.p0(i64 216, ptr nonnull %2) #12
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(216) %2, i8 0, i64 216, i1 false), !annotation !13
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(216) %2, i8 0, i64 216, i1 false), !annotation !12
   call void @locks_init_lock(ptr noundef nonnull %2) #12
   store i8 2, ptr %3, align 4
   store i64 0, ptr %4, align 8
@@ -873,7 +873,7 @@ nlmsvc_match_sb.exit:                             ; preds = %.preheader.i, %22
 
 .backedge:                                        ; preds = %88, %85
   %.be = phi ptr [ %89, %88 ], [ %86, %85 ]
-  br label %60, !llvm.loop !16
+  br label %60, !llvm.loop !15
 
 .loopexit.i:                                      ; preds = %88, %85, %54
   call void @_raw_spin_unlock(ptr noundef nonnull %44) #12
@@ -951,13 +951,13 @@ nlmsvc_match_sb.exit:                             ; preds = %.preheader.i, %22
 131:                                              ; preds = %130, %102, %98, %91, %nlmsvc_match_sb.exit
   %132 = phi i32 [ %92, %98 ], [ %92, %102 ], [ %92, %130 ], [ %92, %91 ], [ %17, %nlmsvc_match_sb.exit ]
   %133 = icmp eq ptr %18, null
-  br i1 %133, label %.loopexit16.i, label %.preheader.i, !llvm.loop !17
+  br i1 %133, label %.loopexit16.i, label %.preheader.i, !llvm.loop !16
 
 .loopexit16.i:                                    ; preds = %131, %10
   %134 = phi i32 [ %12, %10 ], [ %132, %131 ]
   %135 = add nuw nsw i64 %11, 1
   %136 = icmp eq i64 %135, 128
-  br i1 %136, label %nlm_traverse_files.exit, label %10, !llvm.loop !18
+  br i1 %136, label %nlm_traverse_files.exit, label %10, !llvm.loop !17
 
 nlm_traverse_files.exit:                          ; preds = %.loopexit16.i
   call void @mutex_unlock(ptr noundef nonnull @nlm_file_mutex) #12
@@ -973,7 +973,7 @@ define internal noundef i32 @nlmsvc_always_match(ptr readnone captures(none) %0,
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local range(i32 -5, 1) i32 @nlmsvc_unlock_all_by_ip(ptr noundef %0) #1 align 16 {
-  %2 = tail call fastcc i32 @nlm_traverse_files(ptr noundef %0, ptr noundef nonnull @nlmsvc_match_ip, ptr noundef null), !range !14
+  %2 = tail call fastcc i32 @nlm_traverse_files(ptr noundef %0, ptr noundef nonnull @nlmsvc_match_ip, ptr noundef null), !range !13
   %3 = icmp eq i32 %2, 0
   %4 = select i1 %3, i32 0, i32 -5
   ret i32 %4
@@ -1079,19 +1079,18 @@ attributes #14 = { cold nounwind }
 !2 = !{i32 4, !"function_return_thunk_extern", i32 1}
 !3 = !{i32 4, !"indirect_branch_cs_prefix", i32 1}
 !4 = !{i32 4, !"SkipRaxSetup", i32 1}
-!5 = distinct !{!5, !6, !7, !8}
+!5 = distinct !{!5, !6, !7}
 !6 = !{!"llvm.loop.mustprogress"}
 !7 = !{!"llvm.loop.unroll.disable"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !8}
-!10 = !{i64 2158320073}
-!11 = !{i64 2149674300}
-!12 = distinct !{!12, !6, !7, !8}
-!13 = !{!"auto-init"}
-!14 = !{i32 0, i32 2}
-!15 = distinct !{null}
-!16 = distinct !{!16, !6, !7, !8}
-!17 = distinct !{!17, !6, !7, !8}
-!18 = distinct !{!18, !6, !7, !8}
-!19 = !{i64 2158360792, i64 2158360601, i64 2158360653, i64 2158360699, i64 2158360727}
-!20 = !{i64 2158360866, i64 2158360895, i64 2158360941, i64 2158360999, i64 2158361053, i64 2158361107, i64 2158361162, i64 2158361193}
+!8 = distinct !{!8, !6, !7}
+!9 = !{i64 2158320073}
+!10 = !{i64 2149674300}
+!11 = distinct !{!11, !6, !7}
+!12 = !{!"auto-init"}
+!13 = !{i32 0, i32 2}
+!14 = distinct !{null}
+!15 = distinct !{!15, !6, !7}
+!16 = distinct !{!16, !6, !7}
+!17 = distinct !{!17, !6, !7}
+!18 = !{i64 2158360792, i64 2158360601, i64 2158360653, i64 2158360699, i64 2158360727}
+!19 = !{i64 2158360866, i64 2158360895, i64 2158360941, i64 2158360999, i64 2158361053, i64 2158361107, i64 2158361162, i64 2158361193}

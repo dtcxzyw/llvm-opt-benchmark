@@ -235,7 +235,7 @@ define internal fastcc noundef i32 @popenCommand(ptr noundef readonly captures(n
 35:                                               ; preds = %33, %32, %30
   %.151 = phi ptr [ %.155.ph, %33 ], [ %.050, %32 ], [ %.050, %30 ]
   %.1 = phi i32 [ %34, %33 ], [ 1, %32 ], [ %.047, %30 ]
-  br i1 %29, label %.loopexit, label %27, !llvm.loop !8
+  br i1 %29, label %.loopexit, label %27
 
 36:                                               ; preds = %27
   %37 = icmp eq ptr %.050, %.052.ph
@@ -271,7 +271,7 @@ define internal fastcc noundef i32 @popenCommand(ptr noundef readonly captures(n
   %53 = trunc i32 %28 to i8
   %54 = getelementptr inbounds nuw i8, ptr %.2, i64 1
   store i8 %53, ptr %.2, align 1
-  br label %.outer, !llvm.loop !8
+  br label %.outer
 
 .outer:                                           ; preds = %21, %52
   %.155.ph = phi ptr [ %.256, %52 ], [ null, %21 ]
@@ -477,5 +477,3 @@ attributes #18 = { nounwind allocsize(1) }
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i32 7, !"frame-pointer", i32 2}
 !7 = !{ptr @findLauncherLib, ptr @initDebPackage, ptr @initRpmPackage}
-!8 = distinct !{!8, !9}
-!9 = !{!"llvm.loop.estimated_trip_count"}

@@ -522,12 +522,12 @@ hasXCompositeOverlayExtension.exit:               ; preds = %60
   store i32 %161, ptr %164, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us, label %156, !llvm.loop !9
+  br i1 %exitcond.not, label %._crit_edge.us, label %156, !llvm.loop !8
 
 ._crit_edge.us:                                   ; preds = %156
   %165 = add nuw nsw i32 %.0135174.us, 1
   %exitcond178.not = icmp eq i32 %165, %125
-  br i1 %exitcond178.not, label %._crit_edge175, label %.preheader.us, !llvm.loop !10
+  br i1 %exitcond178.not, label %._crit_edge175, label %.preheader.us, !llvm.loop !9
 
 166:                                              ; preds = %.critedge
   %167 = getelementptr inbounds nuw i8, ptr %145, i64 96
@@ -1097,7 +1097,7 @@ define hidden void @mouseAction(ptr noundef %0, ptr readnone captures(none) %1, 
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %70 = sext i32 %68 to i64
   %71 = icmp slt i64 %indvars.iv.next, %70
-  br i1 %71, label %.lr.ph, label %.thread, !llvm.loop !12
+  br i1 %71, label %.lr.ph, label %.thread, !llvm.loop !11
 
 .thread:                                          ; preds = %67, %50, %54
   %72 = load ptr, ptr @awt_display, align 8
@@ -1221,7 +1221,7 @@ define void @Java_sun_awt_X11_XRobotPeer_mouseWheelImpl(ptr noundef %0, ptr noun
   %32 = tail call i32 @XTestFakeButtonEvent(ptr noundef %31, i32 noundef %5, i32 noundef 0, i64 noundef 0) #8
   %33 = add nuw i32 %.034, 1
   %exitcond.not = icmp eq i32 %33, %smax
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !13
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %.lr.ph, %28
   %34 = load ptr, ptr @awt_display, align 8
@@ -1390,11 +1390,10 @@ attributes #9 = { nounwind allocsize(0) }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7, !8, !11}
-!11 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!12 = distinct !{!12, !7, !8}
-!13 = distinct !{!13, !7, !8}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7, !10}
+!10 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!11 = distinct !{!11, !7}
+!12 = distinct !{!12, !7}

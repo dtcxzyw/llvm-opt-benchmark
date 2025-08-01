@@ -175,7 +175,7 @@ _ZN6google8protobuf7stringsL19CountSubstituteArgsEPKPKNS1_8internal13SubstituteA
   store ptr %68, ptr %18, align 8, !tbaa !3
   %69 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #11
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14) #11
-  store i64 %69, ptr %14, align 8, !tbaa !22
+  store i64 %69, ptr %14, align 8, !tbaa !21
   %70 = icmp ugt i64 %69, 15
   br i1 %70, label %.noexc.i, label %._crit_edge.i.i
 
@@ -185,7 +185,7 @@ _ZN6google8protobuf7stringsL19CountSubstituteArgsEPKPKNS1_8internal13SubstituteA
 
 .noexc101:                                        ; preds = %.noexc.i
   store ptr %71, ptr %18, align 8, !tbaa !13
-  %72 = load i64, ptr %14, align 8, !tbaa !22
+  %72 = load i64, ptr %14, align 8, !tbaa !21
   store i64 %72, ptr %68, align 8, !tbaa !12
   br label %._crit_edge.i.i
 
@@ -206,7 +206,7 @@ _ZN6google8protobuf7stringsL19CountSubstituteArgsEPKPKNS1_8internal13SubstituteA
   br label %77
 
 77:                                               ; preds = %76, %74, %._crit_edge.i.i
-  %78 = load i64, ptr %14, align 8, !tbaa !22
+  %78 = load i64, ptr %14, align 8, !tbaa !21
   %79 = getelementptr inbounds nuw i8, ptr %18, i64 8
   store i64 %78, ptr %79, align 8, !tbaa !9
   %80 = load ptr, ptr %18, align 8, !tbaa !13
@@ -366,7 +366,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit110: ; preds = %_Z
   store ptr %129, ptr %22, align 8, !tbaa !3
   %130 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #11
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13) #11
-  store i64 %130, ptr %13, align 8, !tbaa !22
+  store i64 %130, ptr %13, align 8, !tbaa !21
   %131 = icmp ugt i64 %130, 15
   br i1 %131, label %.noexc.i112, label %._crit_edge.i.i111
 
@@ -376,7 +376,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit110: ; preds = %_Z
 
 .noexc114:                                        ; preds = %.noexc.i112
   store ptr %132, ptr %22, align 8, !tbaa !13
-  %133 = load i64, ptr %13, align 8, !tbaa !22
+  %133 = load i64, ptr %13, align 8, !tbaa !21
   store i64 %133, ptr %129, align 8, !tbaa !12
   br label %._crit_edge.i.i111
 
@@ -397,7 +397,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit110: ; preds = %_Z
   br label %138
 
 138:                                              ; preds = %137, %135, %._crit_edge.i.i111
-  %139 = load i64, ptr %13, align 8, !tbaa !22
+  %139 = load i64, ptr %13, align 8, !tbaa !21
   %140 = getelementptr inbounds nuw i8, ptr %22, i64 8
   store i64 %139, ptr %140, align 8, !tbaa !9
   %141 = load ptr, ptr %22, align 8, !tbaa !13
@@ -544,7 +544,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit127: ; preds = %_Z
   %186 = getelementptr inbounds i8, ptr %1, i64 %185
   %187 = load i8, ptr %186, align 1, !tbaa !12
   %.not.not = icmp eq i8 %187, 0
-  br i1 %.not.not, label %.loopexit135, label %.lr.ph, !llvm.loop !23
+  br i1 %.not.not, label %.loopexit135, label %.lr.ph, !llvm.loop !22
 
 .loopexit135:                                     ; preds = %183
   %188 = icmp eq i32 %.3, 0
@@ -602,7 +602,7 @@ _ZN6google8protobuf15string_as_arrayEPNSt7__cxx1112basic_stringIcSt11char_traits
   %216 = zext nneg i8 %215 to i64
   %217 = getelementptr inbounds nuw [11 x ptr], ptr %15, i64 0, i64 %216
   %218 = load ptr, ptr %217, align 8, !tbaa !14
-  %219 = load ptr, ptr %218, align 8, !tbaa !24
+  %219 = load ptr, ptr %218, align 8, !tbaa !23
   %220 = getelementptr inbounds nuw i8, ptr %218, i64 8
   %221 = load i32, ptr %220, align 8, !tbaa !16
   %222 = sext i32 %221 to i64
@@ -630,7 +630,7 @@ _ZN6google8protobuf15string_as_arrayEPNSt7__cxx1112basic_stringIcSt11char_traits
   %.171 = phi ptr [ %225, %214 ], [ %229, %228 ], [ %.070, %226 ], [ %231, %230 ]
   %.169 = phi i32 [ %208, %214 ], [ %208, %228 ], [ %.068, %226 ], [ %.068, %230 ]
   %233 = add nsw i32 %.169, 1
-  br label %203, !llvm.loop !25
+  br label %203, !llvm.loop !24
 
 .loopexit:                                        ; preds = %203, %12, %121, %.thread131, %.loopexit135
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %15) #11
@@ -717,10 +717,9 @@ attributes #11 = { nounwind }
 !16 = !{!17, !18, i64 8}
 !17 = !{!"_ZTSN6google8protobuf7strings8internal13SubstituteArgE", !5, i64 0, !18, i64 8, !7, i64 12}
 !18 = !{!"int", !7, i64 0}
-!19 = distinct !{!19, !20, !21}
+!19 = distinct !{!19, !20}
 !20 = !{!"llvm.loop.mustprogress"}
-!21 = !{!"llvm.loop.estimated_trip_count"}
-!22 = !{!11, !11, i64 0}
-!23 = distinct !{!23, !20, !21}
-!24 = !{!17, !5, i64 0}
-!25 = distinct !{!25, !20, !21}
+!21 = !{!11, !11, i64 0}
+!22 = distinct !{!22, !20}
+!23 = !{!17, !5, i64 0}
+!24 = distinct !{!24, !20}

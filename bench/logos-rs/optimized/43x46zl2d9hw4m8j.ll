@@ -53,7 +53,7 @@ define void @"_ZN115_$LT$proc_macro2..imp..TokenStream$u20$as$u20$core..iter..tr
 
 21:                                               ; preds = %19
   invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h21e7598d527b5ca1E"(ptr nonnull align 8 %0, ptr nonnull align 4 %3)
-          to label %12 unwind label %13, !llvm.loop !3
+          to label %12 unwind label %13
 
 22:                                               ; preds = %13
   %23 = landingpad { ptr, i32 }
@@ -115,7 +115,7 @@ define void @"_ZN115_$LT$proc_macro2..imp..TokenStream$u20$as$u20$core..iter..tr
 
 21:                                               ; preds = %19
   invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h21e7598d527b5ca1E"(ptr nonnull align 8 %0, ptr nonnull align 4 %3)
-          to label %12 unwind label %13, !llvm.loop !5
+          to label %12 unwind label %13
 
 22:                                               ; preds = %13
   %23 = landingpad { ptr, i32 }
@@ -177,7 +177,7 @@ define void @"_ZN115_$LT$proc_macro2..imp..TokenStream$u20$as$u20$core..iter..tr
 
 21:                                               ; preds = %19
   invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h21e7598d527b5ca1E"(ptr nonnull align 8 %0, ptr nonnull align 4 %3)
-          to label %12 unwind label %13, !llvm.loop !6
+          to label %12 unwind label %13
 
 22:                                               ; preds = %13
   %23 = landingpad { ptr, i32 }
@@ -239,7 +239,7 @@ define void @"_ZN115_$LT$proc_macro2..imp..TokenStream$u20$as$u20$core..iter..tr
 
 21:                                               ; preds = %19
   invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h21e7598d527b5ca1E"(ptr nonnull align 8 %0, ptr nonnull align 4 %3)
-          to label %12 unwind label %13, !llvm.loop !7
+          to label %12 unwind label %13
 
 22:                                               ; preds = %13
   %23 = landingpad { ptr, i32 }
@@ -740,8 +740,3 @@ attributes #7 = { noreturn }
 !0 = !{i32 8, !"PIC Level", i32 2}
 !1 = !{i32 2, !"RtLibUseGOT", i32 1}
 !2 = !{!"rustc version 1.79.0 (129f3b996 2024-06-10)"}
-!3 = distinct !{!3, !4}
-!4 = !{!"llvm.loop.estimated_trip_count"}
-!5 = distinct !{!5, !4}
-!6 = distinct !{!6, !4}
-!7 = distinct !{!7, !4}

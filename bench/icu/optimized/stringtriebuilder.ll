@@ -476,7 +476,7 @@ define noundef ptr @_ZN6icu_7717StringTrieBuilder8makeNodeEiiiR10UErrorCode(ptr 
   %70 = load ptr, ptr %69, align 8
   tail call void %70(ptr noundef nonnull align 8 dereferenceable(16) %53) #16
   %71 = getelementptr inbounds nuw i8, ptr %66, i64 16
-  %72 = load ptr, ptr %71, align 8, !tbaa !20
+  %72 = load ptr, ptr %71, align 8, !tbaa !19
   br label %_ZN6icu_7717StringTrieBuilder12registerNodeEPNS0_4NodeER10UErrorCode.exit
 
 73:                                               ; preds = %64
@@ -496,7 +496,7 @@ define noundef ptr @_ZN6icu_7717StringTrieBuilder8makeNodeEiiiR10UErrorCode(ptr 
 _ZN6icu_7717StringTrieBuilder12registerNodeEPNS0_4NodeER10UErrorCode.exit: ; preds = %57, %58, %63, %67, %73, %78
   %.0.i = phi ptr [ null, %63 ], [ null, %58 ], [ null, %57 ], [ %72, %67 ], [ null, %78 ], [ %53, %73 ]
   %82 = icmp sgt i32 %49, %44
-  br i1 %82, label %47, label %._crit_edge, !llvm.loop !21
+  br i1 %82, label %47, label %._crit_edge, !llvm.loop !20
 
 ._crit_edge:                                      ; preds = %_ZN6icu_7717StringTrieBuilder12registerNodeEPNS0_4NodeER10UErrorCode.exit, %35
   %.072.lcssa = phi ptr [ %39, %35 ], [ %.0.i, %_ZN6icu_7717StringTrieBuilder12registerNodeEPNS0_4NodeER10UErrorCode.exit ]
@@ -533,16 +533,16 @@ _ZN6icu_7717StringTrieBuilder14BranchHeadNodeC2EiPNS0_4NodeE.exit: ; preds = %94
   %103 = getelementptr inbounds nuw i8, ptr %92, i64 8
   store i32 %102, ptr %103, align 8, !tbaa !14
   %104 = getelementptr inbounds nuw i8, ptr %92, i64 12
-  store i32 0, ptr %104, align 4, !tbaa !22
+  store i32 0, ptr %104, align 4, !tbaa !21
   %105 = getelementptr inbounds nuw i8, ptr %92, i64 16
-  store i8 0, ptr %105, align 8, !tbaa !23
+  store i8 0, ptr %105, align 8, !tbaa !22
   %106 = getelementptr inbounds nuw i8, ptr %92, i64 20
-  store i32 0, ptr %106, align 4, !tbaa !25
+  store i32 0, ptr %106, align 4, !tbaa !24
   store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN6icu_7717StringTrieBuilder14BranchHeadNodeE, i64 16), ptr %92, align 8, !tbaa !3
   %107 = getelementptr inbounds nuw i8, ptr %92, i64 24
-  store i32 %90, ptr %107, align 8, !tbaa !26
+  store i32 %90, ptr %107, align 8, !tbaa !25
   %108 = getelementptr inbounds nuw i8, ptr %92, i64 32
-  store ptr %91, ptr %108, align 8, !tbaa !29
+  store ptr %91, ptr %108, align 8, !tbaa !28
   br label %109
 
 109:                                              ; preds = %_ZN6icu_7717StringTrieBuilder14BranchHeadNodeC2EiPNS0_4NodeE.exit, %._crit_edge
@@ -561,9 +561,9 @@ _ZN6icu_7717StringTrieBuilder14BranchHeadNodeC2EiPNS0_4NodeE.exit: ; preds = %94
 
 116:                                              ; preds = %111
   %117 = getelementptr inbounds nuw i8, ptr %.074, i64 16
-  store i8 1, ptr %117, align 8, !tbaa !23
+  store i8 1, ptr %117, align 8, !tbaa !22
   %118 = getelementptr inbounds nuw i8, ptr %.074, i64 20
-  store i32 %.070, ptr %118, align 4, !tbaa !25
+  store i32 %.070, ptr %118, align 4, !tbaa !24
   %119 = getelementptr inbounds nuw i8, ptr %.074, i64 8
   %120 = load i32, ptr %119, align 8, !tbaa !14
   %121 = mul i32 %120, 37
@@ -621,7 +621,7 @@ _ZN6icu_7717StringTrieBuilder12registerNodeEPNS0_4NodeER10UErrorCode.exit85: ; p
   %148 = load ptr, ptr %147, align 8
   tail call void %148(ptr noundef nonnull align 8 dereferenceable(16) %.074) #16
   %149 = getelementptr inbounds nuw i8, ptr %136, i64 16
-  %150 = load ptr, ptr %149, align 8, !tbaa !20
+  %150 = load ptr, ptr %149, align 8, !tbaa !19
   %151 = icmp eq ptr %150, null
   br i1 %151, label %_ZN6icu_7717StringTrieBuilder21IntermediateValueNodeC2EiPNS0_4NodeE.exit, label %_ZN6icu_7717StringTrieBuilder12registerNodeEPNS0_4NodeER10UErrorCode.exit85.thread93
 
@@ -638,14 +638,14 @@ _ZN6icu_7717StringTrieBuilder21IntermediateValueNodeC2EiPNS0_4NodeE.exit: ; pred
   %156 = phi i32 [ %155, %_ZN6icu_7717StringTrieBuilder12registerNodeEPNS0_4NodeER10UErrorCode.exit85.thread93 ], [ -1232566318, %_ZN6icu_7717StringTrieBuilder12registerNodeEPNS0_4NodeER10UErrorCode.exit85 ], [ -1232566318, %129 ], [ -1232566318, %142 ]
   %157 = getelementptr inbounds nuw i8, ptr %124, i64 8
   %158 = getelementptr inbounds nuw i8, ptr %124, i64 12
-  store i32 0, ptr %158, align 4, !tbaa !22
+  store i32 0, ptr %158, align 4, !tbaa !21
   %159 = getelementptr inbounds nuw i8, ptr %124, i64 16
   %160 = getelementptr inbounds nuw i8, ptr %124, i64 20
   store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN6icu_7717StringTrieBuilder21IntermediateValueNodeE, i64 16), ptr %124, align 8, !tbaa !3
   %161 = getelementptr inbounds nuw i8, ptr %124, i64 24
-  store ptr %.0.i8292, ptr %161, align 8, !tbaa !30
-  store i8 1, ptr %159, align 8, !tbaa !23
-  store i32 %.070, ptr %160, align 4, !tbaa !25
+  store ptr %.0.i8292, ptr %161, align 8, !tbaa !29
+  store i8 1, ptr %159, align 8, !tbaa !22
+  store i32 %.070, ptr %160, align 4, !tbaa !24
   %162 = add i32 %156, %.070
   store i32 %162, ptr %157, align 8, !tbaa !14
   br label %.thread
@@ -693,7 +693,7 @@ _ZN6icu_7717StringTrieBuilder21IntermediateValueNodeC2EiPNS0_4NodeE.exit: ; pred
   %182 = load ptr, ptr %181, align 8
   tail call void %182(ptr noundef nonnull align 8 dereferenceable(16) %.175) #16
   %183 = getelementptr inbounds nuw i8, ptr %178, i64 16
-  %184 = load ptr, ptr %183, align 8, !tbaa !20
+  %184 = load ptr, ptr %183, align 8, !tbaa !19
   br label %_ZN6icu_7717StringTrieBuilder12registerNodeEPNS0_4NodeER10UErrorCode.exit88
 
 185:                                              ; preds = %175
@@ -748,10 +748,10 @@ define noundef i32 @_ZN6icu_7717StringTrieBuilder18writeBranchSubNodeEiiii(ptr n
   %23 = load ptr, ptr %22, align 8
   %24 = tail call noundef zeroext i16 %23(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %20, i32 noundef %3)
   %25 = getelementptr inbounds nuw [14 x i16], ptr %6, i64 0, i64 %indvars.iv
-  store i16 %24, ptr %25, align 2, !tbaa !32
+  store i16 %24, ptr %25, align 2, !tbaa !31
   %26 = tail call noundef i32 @_ZN6icu_7717StringTrieBuilder18writeBranchSubNodeEiiii(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %.06279, i32 noundef %20, i32 noundef %3, i32 noundef %16)
   %27 = getelementptr inbounds nuw [14 x i32], ptr %7, i64 0, i64 %indvars.iv
-  store i32 %26, ptr %27, align 4, !tbaa !34
+  store i32 %26, ptr %27, align 4, !tbaa !33
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %28 = sub nsw i32 %.06678, %16
   %29 = load ptr, ptr %0, align 8, !tbaa !3
@@ -759,7 +759,7 @@ define noundef i32 @_ZN6icu_7717StringTrieBuilder18writeBranchSubNodeEiiii(ptr n
   %31 = load ptr, ptr %30, align 8
   %32 = tail call noundef i32 %31(ptr noundef nonnull align 8 dereferenceable(16) %0)
   %33 = icmp sgt i32 %28, %32
-  br i1 %33, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !35
+  br i1 %33, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !34
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
   %34 = trunc nuw i64 %indvars.iv.next to i32
@@ -782,7 +782,7 @@ define noundef i32 @_ZN6icu_7717StringTrieBuilder18writeBranchSubNodeEiiii(ptr n
   %indvars.iv97 = phi i64 [ %indvars.iv.next98, %57 ], [ 0, %._crit_edge ]
   %.163 = phi i32 [ %47, %57 ], [ %.062.lcssa, %._crit_edge ]
   %38 = getelementptr inbounds nuw [5 x i32], ptr %8, i64 0, i64 %indvars.iv97
-  store i32 %.163, ptr %38, align 4, !tbaa !34
+  store i32 %.163, ptr %38, align 4, !tbaa !33
   %39 = add nsw i32 %.163, 1
   %40 = load ptr, ptr %0, align 8, !tbaa !3
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 32
@@ -808,15 +808,15 @@ define noundef i32 @_ZN6icu_7717StringTrieBuilder18writeBranchSubNodeEiiii(ptr n
 57:                                               ; preds = %50, %37
   %58 = phi i8 [ 0, %37 ], [ %56, %50 ]
   %59 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 0, i64 %indvars.iv97
-  store i8 %58, ptr %59, align 1, !tbaa !20
+  store i8 %58, ptr %59, align 1, !tbaa !19
   %indvars.iv.next98 = add nuw nsw i64 %indvars.iv97, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next98, %wide.trip.count
   %indvars.iv.next101 = add nuw nsw i64 %indvars.iv100, 1
-  br i1 %exitcond.not, label %60, label %37, !llvm.loop !36
+  br i1 %exitcond.not, label %60, label %37, !llvm.loop !35
 
 60:                                               ; preds = %57
   %61 = getelementptr inbounds nuw [5 x i32], ptr %8, i64 0, i64 %wide.trip.count
-  store i32 %47, ptr %61, align 4, !tbaa !34
+  store i32 %47, ptr %61, align 4, !tbaa !33
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10) #16
   br label %62
 
@@ -824,23 +824,23 @@ define noundef i32 @_ZN6icu_7717StringTrieBuilder18writeBranchSubNodeEiiii(ptr n
   %indvars.iv102 = phi i64 [ %indvars.iv.next103, %72 ], [ %indvars.iv100, %60 ]
   %indvars.iv.next103 = add nsw i64 %indvars.iv102, -1
   %63 = getelementptr inbounds [4 x i8], ptr %9, i64 0, i64 %indvars.iv.next103
-  %64 = load i8, ptr %63, align 1, !tbaa !20
+  %64 = load i8, ptr %63, align 1, !tbaa !19
   %.not = icmp eq i8 %64, 0
   br i1 %.not, label %65, label %72
 
 65:                                               ; preds = %62
   %66 = getelementptr inbounds [5 x i32], ptr %8, i64 0, i64 %indvars.iv.next103
-  %67 = load i32, ptr %66, align 4, !tbaa !34
+  %67 = load i32, ptr %66, align 4, !tbaa !33
   %68 = getelementptr inbounds [5 x i32], ptr %8, i64 0, i64 %indvars.iv102
-  %69 = load i32, ptr %68, align 4, !tbaa !34
+  %69 = load i32, ptr %68, align 4, !tbaa !33
   %70 = tail call noundef i32 @_ZN6icu_7717StringTrieBuilder9writeNodeEiii(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %67, i32 noundef %69, i32 noundef %35)
   %71 = getelementptr inbounds [4 x i32], ptr %10, i64 0, i64 %indvars.iv.next103
-  store i32 %70, ptr %71, align 4, !tbaa !34
+  store i32 %70, ptr %71, align 4, !tbaa !33
   br label %72
 
 72:                                               ; preds = %62, %65
   %73 = icmp sgt i64 %indvars.iv102, 1
-  br i1 %73, label %62, label %74, !llvm.loop !37
+  br i1 %73, label %62, label %74, !llvm.loop !36
 
 74:                                               ; preds = %72
   %75 = tail call noundef i32 @_ZN6icu_7717StringTrieBuilder9writeNodeEiii(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %47, i32 noundef %2, i32 noundef %35)
@@ -874,9 +874,9 @@ define noundef i32 @_ZN6icu_7717StringTrieBuilder18writeBranchSubNodeEiiii(ptr n
   %indvars.iv105 = phi i64 [ %87, %.lr.ph84.preheader ], [ %indvars.iv.next106, %103 ]
   %.06182 = phi i32 [ %84, %.lr.ph84.preheader ], [ %116, %103 ]
   %90 = getelementptr inbounds nuw [5 x i32], ptr %8, i64 0, i64 %indvars.iv105
-  %91 = load i32, ptr %90, align 4, !tbaa !34
+  %91 = load i32, ptr %90, align 4, !tbaa !33
   %92 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 0, i64 %indvars.iv105
-  %93 = load i8, ptr %92, align 1, !tbaa !20
+  %93 = load i8, ptr %92, align 1, !tbaa !19
   %.not74 = icmp eq i8 %93, 0
   br i1 %.not74, label %99, label %94
 
@@ -889,7 +889,7 @@ define noundef i32 @_ZN6icu_7717StringTrieBuilder18writeBranchSubNodeEiiii(ptr n
 
 99:                                               ; preds = %.lr.ph84
   %100 = getelementptr inbounds nuw [4 x i32], ptr %10, i64 0, i64 %indvars.iv105
-  %101 = load i32, ptr %100, align 4, !tbaa !34
+  %101 = load i32, ptr %100, align 4, !tbaa !33
   %102 = sub nsw i32 %.06182, %101
   br label %103
 
@@ -910,26 +910,26 @@ define noundef i32 @_ZN6icu_7717StringTrieBuilder18writeBranchSubNodeEiiii(ptr n
   %116 = tail call noundef i32 %115(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %112)
   %indvars.iv.next106 = add nsw i64 %indvars.iv105, -1
   %117 = icmp sgt i64 %indvars.iv105, 0
-  br i1 %117, label %.lr.ph84, label %.preheader, !llvm.loop !38
+  br i1 %117, label %.lr.ph84, label %.preheader, !llvm.loop !37
 
 .lr.ph87:                                         ; preds = %.lr.ph87.preheader, %.lr.ph87
   %indvars.iv108 = phi i64 [ %89, %.lr.ph87.preheader ], [ %indvars.iv.next109, %.lr.ph87 ]
   %indvars.iv.next109 = add nsw i64 %indvars.iv108, -1
   %118 = getelementptr inbounds nuw [14 x i32], ptr %7, i64 0, i64 %indvars.iv.next109
-  %119 = load i32, ptr %118, align 4, !tbaa !34
+  %119 = load i32, ptr %118, align 4, !tbaa !33
   %120 = load ptr, ptr %0, align 8, !tbaa !3
   %121 = getelementptr inbounds nuw i8, ptr %120, i64 152
   %122 = load ptr, ptr %121, align 8
   %123 = tail call noundef i32 %122(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %119)
   %124 = getelementptr inbounds nuw [14 x i16], ptr %6, i64 0, i64 %indvars.iv.next109
-  %125 = load i16, ptr %124, align 2, !tbaa !32
+  %125 = load i16, ptr %124, align 2, !tbaa !31
   %126 = zext i16 %125 to i32
   %127 = load ptr, ptr %0, align 8, !tbaa !3
   %128 = getelementptr inbounds nuw i8, ptr %127, i64 120
   %129 = load ptr, ptr %128, align 8
   %130 = tail call noundef i32 %129(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %126)
   %131 = icmp samesign ugt i64 %indvars.iv108, 1
-  br i1 %131, label %.lr.ph87, label %._crit_edge88, !llvm.loop !39
+  br i1 %131, label %.lr.ph87, label %._crit_edge88, !llvm.loop !38
 
 ._crit_edge88:                                    ; preds = %.lr.ph87, %.preheader
   %.1.lcssa = phi i32 [ %.061.lcssa, %.preheader ], [ %130, %.lr.ph87 ]
@@ -954,10 +954,10 @@ define noundef ptr @_ZN6icu_7717StringTrieBuilder18registerFinalValueEiR10UError
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 %8, ptr %9, align 8, !tbaa !14
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 12
-  store i32 0, ptr %10, align 4, !tbaa !22
+  store i32 0, ptr %10, align 4, !tbaa !21
   store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN6icu_7717StringTrieBuilder14FinalValueNodeE, i64 16), ptr %4, align 8, !tbaa !3
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store i32 %1, ptr %11, align 8, !tbaa !40
+  store i32 %1, ptr %11, align 8, !tbaa !39
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %13 = load ptr, ptr %12, align 8, !tbaa !6
   %14 = invoke ptr @uhash_find_77(ptr noundef %13, ptr noundef nonnull %4)
@@ -969,7 +969,7 @@ define noundef ptr @_ZN6icu_7717StringTrieBuilder18registerFinalValueEiR10UError
 
 16:                                               ; preds = %15
   %17 = getelementptr inbounds nuw i8, ptr %14, i64 16
-  %18 = load ptr, ptr %17, align 8, !tbaa !20
+  %18 = load ptr, ptr %17, align 8, !tbaa !19
   br label %40
 
 19:                                               ; preds = %7
@@ -990,10 +990,10 @@ define noundef ptr @_ZN6icu_7717StringTrieBuilder18registerFinalValueEiR10UError
   %26 = getelementptr inbounds nuw i8, ptr %22, i64 8
   store i32 %8, ptr %26, align 8, !tbaa !14
   %27 = getelementptr inbounds nuw i8, ptr %22, i64 12
-  store i32 0, ptr %27, align 4, !tbaa !22
+  store i32 0, ptr %27, align 4, !tbaa !21
   store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN6icu_7717StringTrieBuilder14FinalValueNodeE, i64 16), ptr %22, align 8, !tbaa !3
   %28 = getelementptr inbounds nuw i8, ptr %22, i64 16
-  store i32 %1, ptr %28, align 8, !tbaa !40
+  store i32 %1, ptr %28, align 8, !tbaa !39
   %29 = load ptr, ptr %12, align 8, !tbaa !6
   %30 = invoke i32 @uhash_puti_77(ptr noundef %29, ptr noundef nonnull %22, i32 noundef 1, ptr noundef nonnull %2)
           to label %31 unwind label %38
@@ -1069,7 +1069,7 @@ define noundef ptr @_ZN6icu_7717StringTrieBuilder12registerNodeEPNS0_4NodeER10UE
   %21 = load ptr, ptr %20, align 8
   tail call void %21(ptr noundef nonnull align 8 dereferenceable(16) %1) #16
   %22 = getelementptr inbounds nuw i8, ptr %17, i64 16
-  %23 = load ptr, ptr %22, align 8, !tbaa !20
+  %23 = load ptr, ptr %22, align 8, !tbaa !19
   br label %33
 
 24:                                               ; preds = %14
@@ -1123,10 +1123,10 @@ define noundef ptr @_ZN6icu_7717StringTrieBuilder17makeBranchSubNodeEiiiiR10UErr
   %24 = load ptr, ptr %23, align 8
   %25 = tail call noundef zeroext i16 %24(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %21, i32 noundef %3)
   %26 = getelementptr inbounds nuw [14 x i16], ptr %7, i64 0, i64 %indvars.iv
-  store i16 %25, ptr %26, align 2, !tbaa !32
+  store i16 %25, ptr %26, align 2, !tbaa !31
   %27 = tail call noundef ptr @_ZN6icu_7717StringTrieBuilder17makeBranchSubNodeEiiiiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %.07596, i32 noundef %21, i32 noundef %3, i32 noundef %17, ptr noundef nonnull align 4 dereferenceable(4) %5)
   %28 = getelementptr inbounds nuw [14 x ptr], ptr %8, i64 0, i64 %indvars.iv
-  store ptr %27, ptr %28, align 8, !tbaa !42
+  store ptr %27, ptr %28, align 8, !tbaa !41
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %29 = sub nsw i32 %.07795, %17
   %30 = load ptr, ptr %0, align 8, !tbaa !3
@@ -1134,7 +1134,7 @@ define noundef ptr @_ZN6icu_7717StringTrieBuilder17makeBranchSubNodeEiiiiR10UErr
   %32 = load ptr, ptr %31, align 8
   %33 = tail call noundef i32 %32(ptr noundef nonnull align 8 dereferenceable(16) %0)
   %34 = icmp sgt i32 %29, %33
-  br i1 %34, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !43
+  br i1 %34, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !42
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
   %35 = trunc nuw i64 %indvars.iv.next to i32
@@ -1157,10 +1157,10 @@ define noundef ptr @_ZN6icu_7717StringTrieBuilder17makeBranchSubNodeEiiiiR10UErr
   %42 = getelementptr inbounds nuw i8, ptr %39, i64 8
   store i32 4473924, ptr %42, align 8, !tbaa !14
   %43 = getelementptr inbounds nuw i8, ptr %39, i64 12
-  store i32 0, ptr %43, align 4, !tbaa !22
+  store i32 0, ptr %43, align 4, !tbaa !21
   store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN6icu_7717StringTrieBuilder14ListBranchNodeE, i64 16), ptr %39, align 8, !tbaa !3
   %44 = getelementptr inbounds nuw i8, ptr %39, i64 64
-  store i32 0, ptr %44, align 8, !tbaa !44
+  store i32 0, ptr %44, align 8, !tbaa !43
   %45 = add nsw i32 %3, 1
   %46 = getelementptr inbounds nuw i8, ptr %39, i64 88
   %47 = getelementptr inbounds nuw i8, ptr %39, i64 24
@@ -1203,17 +1203,17 @@ define noundef ptr @_ZN6icu_7717StringTrieBuilder17makeBranchSubNodeEiiiiR10UErr
   %72 = getelementptr inbounds nuw i8, ptr %71, i64 40
   %73 = load ptr, ptr %72, align 8
   %74 = tail call noundef i32 %73(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %.176)
-  %75 = load i32, ptr %44, align 8, !tbaa !44
+  %75 = load i32, ptr %44, align 8, !tbaa !43
   %76 = sext i32 %75 to i64
   %77 = getelementptr inbounds [5 x i16], ptr %46, i64 0, i64 %76
-  store i16 %56, ptr %77, align 2, !tbaa !32
+  store i16 %56, ptr %77, align 2, !tbaa !31
   %78 = getelementptr inbounds [5 x ptr], ptr %47, i64 0, i64 %76
-  store ptr null, ptr %78, align 8, !tbaa !42
+  store ptr null, ptr %78, align 8, !tbaa !41
   %79 = getelementptr inbounds [5 x i32], ptr %48, i64 0, i64 %76
-  store i32 %74, ptr %79, align 4, !tbaa !34
-  %80 = load i32, ptr %44, align 8, !tbaa !44
+  store i32 %74, ptr %79, align 4, !tbaa !33
+  %80 = load i32, ptr %44, align 8, !tbaa !43
   %81 = add nsw i32 %80, 1
-  store i32 %81, ptr %44, align 8, !tbaa !44
+  store i32 %81, ptr %44, align 8, !tbaa !43
   %82 = load i32, ptr %42, align 8, !tbaa !14
   %83 = mul i32 %82, 37
   %84 = add i32 %83, %70
@@ -1224,17 +1224,17 @@ define noundef ptr @_ZN6icu_7717StringTrieBuilder17makeBranchSubNodeEiiiiR10UErr
 87:                                               ; preds = %63, %51
   %88 = zext i16 %56 to i32
   %89 = tail call noundef ptr @_ZN6icu_7717StringTrieBuilder8makeNodeEiiiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %.176, i32 noundef %60, i32 noundef %45, ptr noundef nonnull align 4 dereferenceable(4) %5)
-  %90 = load i32, ptr %44, align 8, !tbaa !44
+  %90 = load i32, ptr %44, align 8, !tbaa !43
   %91 = sext i32 %90 to i64
   %92 = getelementptr inbounds [5 x i16], ptr %46, i64 0, i64 %91
-  store i16 %56, ptr %92, align 2, !tbaa !32
+  store i16 %56, ptr %92, align 2, !tbaa !31
   %93 = getelementptr inbounds [5 x ptr], ptr %47, i64 0, i64 %91
-  store ptr %89, ptr %93, align 8, !tbaa !42
+  store ptr %89, ptr %93, align 8, !tbaa !41
   %94 = getelementptr inbounds [5 x i32], ptr %48, i64 0, i64 %91
-  store i32 0, ptr %94, align 4, !tbaa !34
-  %95 = load i32, ptr %44, align 8, !tbaa !44
+  store i32 0, ptr %94, align 4, !tbaa !33
+  %95 = load i32, ptr %44, align 8, !tbaa !43
   %96 = add nsw i32 %95, 1
-  store i32 %96, ptr %44, align 8, !tbaa !44
+  store i32 %96, ptr %44, align 8, !tbaa !43
   %97 = load i32, ptr %42, align 8, !tbaa !14
   %98 = icmp eq ptr %89, null
   br i1 %98, label %_ZN6icu_7717StringTrieBuilder14ListBranchNode3addEiPNS0_4NodeE.exit, label %99
@@ -1257,7 +1257,7 @@ _ZN6icu_7717StringTrieBuilder14ListBranchNode3addEiPNS0_4NodeE.exit: ; preds = %
   store i32 %storemerge, ptr %42, align 8, !tbaa !14
   %108 = add nuw nsw i32 %.078, 1
   %exitcond.not = icmp eq i32 %108, %smax
-  br i1 %exitcond.not, label %109, label %51, !llvm.loop !47
+  br i1 %exitcond.not, label %109, label %51, !llvm.loop !46
 
 109:                                              ; preds = %107
   %110 = load ptr, ptr %0, align 8, !tbaa !3
@@ -1282,17 +1282,17 @@ _ZN6icu_7717StringTrieBuilder14ListBranchNode3addEiPNS0_4NodeE.exit: ; preds = %
   %125 = getelementptr inbounds nuw i8, ptr %124, i64 40
   %126 = load ptr, ptr %125, align 8
   %127 = tail call noundef i32 %126(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %60)
-  %128 = load i32, ptr %44, align 8, !tbaa !44
+  %128 = load i32, ptr %44, align 8, !tbaa !43
   %129 = sext i32 %128 to i64
   %130 = getelementptr inbounds [5 x i16], ptr %46, i64 0, i64 %129
-  store i16 %113, ptr %130, align 2, !tbaa !32
+  store i16 %113, ptr %130, align 2, !tbaa !31
   %131 = getelementptr inbounds [5 x ptr], ptr %47, i64 0, i64 %129
-  store ptr null, ptr %131, align 8, !tbaa !42
+  store ptr null, ptr %131, align 8, !tbaa !41
   %132 = getelementptr inbounds [5 x i32], ptr %48, i64 0, i64 %129
-  store i32 %127, ptr %132, align 4, !tbaa !34
-  %133 = load i32, ptr %44, align 8, !tbaa !44
+  store i32 %127, ptr %132, align 4, !tbaa !33
+  %133 = load i32, ptr %44, align 8, !tbaa !43
   %134 = add nsw i32 %133, 1
-  store i32 %134, ptr %44, align 8, !tbaa !44
+  store i32 %134, ptr %44, align 8, !tbaa !43
   %135 = load i32, ptr %42, align 8, !tbaa !14
   %136 = mul i32 %135, 37
   %137 = add i32 %136, %123
@@ -1303,17 +1303,17 @@ _ZN6icu_7717StringTrieBuilder14ListBranchNode3addEiPNS0_4NodeE.exit: ; preds = %
 140:                                              ; preds = %116, %109
   %141 = zext i16 %113 to i32
   %142 = tail call noundef ptr @_ZN6icu_7717StringTrieBuilder8makeNodeEiiiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %60, i32 noundef %2, i32 noundef %45, ptr noundef nonnull align 4 dereferenceable(4) %5)
-  %143 = load i32, ptr %44, align 8, !tbaa !44
+  %143 = load i32, ptr %44, align 8, !tbaa !43
   %144 = sext i32 %143 to i64
   %145 = getelementptr inbounds [5 x i16], ptr %46, i64 0, i64 %144
-  store i16 %113, ptr %145, align 2, !tbaa !32
+  store i16 %113, ptr %145, align 2, !tbaa !31
   %146 = getelementptr inbounds [5 x ptr], ptr %47, i64 0, i64 %144
-  store ptr %142, ptr %146, align 8, !tbaa !42
+  store ptr %142, ptr %146, align 8, !tbaa !41
   %147 = getelementptr inbounds [5 x i32], ptr %48, i64 0, i64 %144
-  store i32 0, ptr %147, align 4, !tbaa !34
-  %148 = load i32, ptr %44, align 8, !tbaa !44
+  store i32 0, ptr %147, align 4, !tbaa !33
+  %148 = load i32, ptr %44, align 8, !tbaa !43
   %149 = add nsw i32 %148, 1
-  store i32 %149, ptr %44, align 8, !tbaa !44
+  store i32 %149, ptr %44, align 8, !tbaa !43
   %150 = load i32, ptr %42, align 8, !tbaa !14
   %151 = icmp eq ptr %142, null
   br i1 %151, label %_ZN6icu_7717StringTrieBuilder14ListBranchNode3addEiPNS0_4NodeE.exit90, label %152
@@ -1358,7 +1358,7 @@ _ZN6icu_7717StringTrieBuilder14ListBranchNode3addEiPNS0_4NodeE.exit90: ; preds =
   %174 = load ptr, ptr %173, align 8
   tail call void %174(ptr noundef nonnull align 8 dereferenceable(16) %39) #16
   %175 = getelementptr inbounds nuw i8, ptr %170, i64 16
-  %176 = load ptr, ptr %175, align 8, !tbaa !20
+  %176 = load ptr, ptr %175, align 8, !tbaa !19
   br label %_ZN6icu_7717StringTrieBuilder12registerNodeEPNS0_4NodeER10UErrorCode.exit
 
 177:                                              ; preds = %167
@@ -1395,9 +1395,9 @@ _ZN6icu_7717StringTrieBuilder12registerNodeEPNS0_4NodeER10UErrorCode.exit: ; pre
 
 192:                                              ; preds = %189
   %193 = getelementptr inbounds nuw [14 x i16], ptr %7, i64 0, i64 %indvars.iv.next108
-  %194 = load i16, ptr %193, align 2, !tbaa !32
+  %194 = load i16, ptr %193, align 2, !tbaa !31
   %195 = getelementptr inbounds nuw [14 x ptr], ptr %8, i64 0, i64 %indvars.iv.next108
-  %196 = load ptr, ptr %195, align 8, !tbaa !42
+  %196 = load ptr, ptr %195, align 8, !tbaa !41
   %197 = icmp eq ptr %196, null
   br i1 %197, label %_ZN6icu_7717StringTrieBuilder4Node8hashCodeEPKS1_.exit.i, label %198
 
@@ -1432,14 +1432,14 @@ _ZN6icu_7717StringTrieBuilder4Node8hashCodeEPKS1_.exit.i: ; preds = %198, %192
   %216 = getelementptr inbounds nuw i8, ptr %190, i64 8
   store i32 %215, ptr %216, align 8, !tbaa !14
   %217 = getelementptr inbounds nuw i8, ptr %190, i64 12
-  store i32 0, ptr %217, align 4, !tbaa !22
+  store i32 0, ptr %217, align 4, !tbaa !21
   store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN6icu_7717StringTrieBuilder15SplitBranchNodeE, i64 16), ptr %190, align 8, !tbaa !3
   %218 = getelementptr inbounds nuw i8, ptr %190, i64 20
-  store i16 %194, ptr %218, align 4, !tbaa !48
+  store i16 %194, ptr %218, align 4, !tbaa !47
   %219 = getelementptr inbounds nuw i8, ptr %190, i64 24
-  store ptr %196, ptr %219, align 8, !tbaa !50
+  store ptr %196, ptr %219, align 8, !tbaa !49
   %220 = getelementptr inbounds nuw i8, ptr %190, i64 32
-  store ptr %.074100, ptr %220, align 8, !tbaa !51
+  store ptr %.074100, ptr %220, align 8, !tbaa !50
   %221 = load i32, ptr %5, align 4, !tbaa !12
   %222 = icmp slt i32 %221, 1
   br i1 %222, label %228, label %223
@@ -1467,7 +1467,7 @@ _ZN6icu_7717StringTrieBuilder4Node8hashCodeEPKS1_.exit.i: ; preds = %198, %192
   %234 = load ptr, ptr %233, align 8
   tail call void %234(ptr noundef nonnull align 8 dereferenceable(16) %190) #16
   %235 = getelementptr inbounds nuw i8, ptr %230, i64 16
-  %236 = load ptr, ptr %235, align 8, !tbaa !20
+  %236 = load ptr, ptr %235, align 8, !tbaa !19
   br label %_ZN6icu_7717StringTrieBuilder12registerNodeEPNS0_4NodeER10UErrorCode.exit93
 
 237:                                              ; preds = %228
@@ -1487,7 +1487,7 @@ _ZN6icu_7717StringTrieBuilder4Node8hashCodeEPKS1_.exit.i: ; preds = %198, %192
 _ZN6icu_7717StringTrieBuilder12registerNodeEPNS0_4NodeER10UErrorCode.exit93: ; preds = %206, %223, %227, %231, %237, %242
   %.0.i91 = phi ptr [ null, %227 ], [ null, %223 ], [ %236, %231 ], [ null, %242 ], [ %190, %237 ], [ null, %206 ]
   %246 = icmp samesign ugt i64 %indvars.iv107, 1
-  br i1 %246, label %189, label %.loopexit, !llvm.loop !52
+  br i1 %246, label %189, label %.loopexit, !llvm.loop !51
 
 .loopexit:                                        ; preds = %_ZN6icu_7717StringTrieBuilder12registerNodeEPNS0_4NodeER10UErrorCode.exit93, %_ZN6icu_7717StringTrieBuilder12registerNodeEPNS0_4NodeER10UErrorCode.exit, %50, %._crit_edge
   %.1 = phi ptr [ null, %._crit_edge ], [ null, %50 ], [ %.0.i, %_ZN6icu_7717StringTrieBuilder12registerNodeEPNS0_4NodeER10UErrorCode.exit ], [ %.0.i91, %_ZN6icu_7717StringTrieBuilder12registerNodeEPNS0_4NodeER10UErrorCode.exit93 ]
@@ -1540,19 +1540,19 @@ define noundef zeroext i1 @_ZNK6icu_7717StringTrieBuilder4NodeeqERKS1_(ptr nound
   %9 = getelementptr inbounds i8, ptr %8, i64 -8
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %12 = load ptr, ptr %11, align 8, !tbaa !53
+  %12 = load ptr, ptr %11, align 8, !tbaa !52
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %14 = load ptr, ptr %13, align 8, !tbaa !53
+  %14 = load ptr, ptr %13, align 8, !tbaa !52
   %15 = icmp eq ptr %12, %14
   br i1 %15, label %_ZNKSt9type_infoeqERKS_.exit.thread, label %16
 
 16:                                               ; preds = %4
-  %17 = load i8, ptr %12, align 1, !tbaa !20
+  %17 = load i8, ptr %12, align 1, !tbaa !19
   %.not.i = icmp eq i8 %17, 42
   br i1 %.not.i, label %_ZNKSt9type_infoeqERKS_.exit.thread6, label %_ZNKSt9type_infoeqERKS_.exit
 
 _ZNKSt9type_infoeqERKS_.exit:                     ; preds = %16
-  %18 = load i8, ptr %14, align 1, !tbaa !20
+  %18 = load i8, ptr %14, align 1, !tbaa !19
   %19 = icmp eq i8 %18, 42
   %.idx.i.i = zext i1 %19 to i64
   %20 = getelementptr inbounds nuw i8, ptr %14, i64 %.idx.i.i
@@ -1576,12 +1576,12 @@ _ZNKSt9type_infoeqERKS_.exit.thread6:             ; preds = %16, %_ZNKSt9type_in
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define noundef i32 @_ZN6icu_7717StringTrieBuilder4Node19markRightEdgesFirstEi(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %0, i32 noundef returned %1) unnamed_addr #12 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %4 = load i32, ptr %3, align 4, !tbaa !22
+  %4 = load i32, ptr %3, align 4, !tbaa !21
   %5 = icmp eq i32 %4, 0
   br i1 %5, label %6, label %7
 
 6:                                                ; preds = %2
-  store i32 %1, ptr %3, align 4, !tbaa !22
+  store i32 %1, ptr %3, align 4, !tbaa !21
   br label %7
 
 7:                                                ; preds = %6, %2
@@ -1601,19 +1601,19 @@ define noundef zeroext i1 @_ZNK6icu_7717StringTrieBuilder14FinalValueNodeeqERKNS
   %9 = getelementptr inbounds i8, ptr %8, i64 -8
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %12 = load ptr, ptr %11, align 8, !tbaa !53
+  %12 = load ptr, ptr %11, align 8, !tbaa !52
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %14 = load ptr, ptr %13, align 8, !tbaa !53
+  %14 = load ptr, ptr %13, align 8, !tbaa !52
   %15 = icmp eq ptr %12, %14
   br i1 %15, label %_ZNK6icu_7717StringTrieBuilder4NodeeqERKS1_.exit, label %16
 
 16:                                               ; preds = %4
-  %17 = load i8, ptr %12, align 1, !tbaa !20
+  %17 = load i8, ptr %12, align 1, !tbaa !19
   %.not.i.i = icmp eq i8 %17, 42
   br i1 %.not.i.i, label %_ZNK6icu_7717StringTrieBuilder4NodeeqERKS1_.exit.thread, label %_ZNKSt9type_infoeqERKS_.exit.i
 
 _ZNKSt9type_infoeqERKS_.exit.i:                   ; preds = %16
-  %18 = load i8, ptr %14, align 1, !tbaa !20
+  %18 = load i8, ptr %14, align 1, !tbaa !19
   %19 = icmp eq i8 %18, 42
   %.idx.i.i.i = zext i1 %19 to i64
   %20 = getelementptr inbounds nuw i8, ptr %14, i64 %.idx.i.i.i
@@ -1631,9 +1631,9 @@ _ZNK6icu_7717StringTrieBuilder4NodeeqERKS1_.exit: ; preds = %4, %_ZNKSt9type_inf
 
 28:                                               ; preds = %_ZNK6icu_7717StringTrieBuilder4NodeeqERKS1_.exit
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %30 = load i32, ptr %29, align 8, !tbaa !40
+  %30 = load i32, ptr %29, align 8, !tbaa !39
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %32 = load i32, ptr %31, align 8, !tbaa !40
+  %32 = load i32, ptr %31, align 8, !tbaa !39
   %33 = icmp eq i32 %30, %32
   br label %_ZNK6icu_7717StringTrieBuilder4NodeeqERKS1_.exit.thread
 
@@ -1645,13 +1645,13 @@ _ZNK6icu_7717StringTrieBuilder4NodeeqERKS1_.exit.thread: ; preds = %16, %_ZNKSt9
 ; Function Attrs: mustprogress uwtable
 define void @_ZN6icu_7717StringTrieBuilder14FinalValueNode5writeERS0_(ptr noundef nonnull align 8 captures(none) dereferenceable(20) initializes((12, 16)) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %4 = load i32, ptr %3, align 8, !tbaa !40
+  %4 = load i32, ptr %3, align 8, !tbaa !39
   %5 = load ptr, ptr %1, align 8, !tbaa !3
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 136
   %7 = load ptr, ptr %6, align 8
   %8 = tail call noundef i32 %7(ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %4, i8 noundef signext 1)
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store i32 %8, ptr %9, align 4, !tbaa !22
+  store i32 %8, ptr %9, align 4, !tbaa !21
   ret void
 }
 
@@ -1668,19 +1668,19 @@ define noundef zeroext i1 @_ZNK6icu_7717StringTrieBuilder9ValueNodeeqERKNS0_4Nod
   %9 = getelementptr inbounds i8, ptr %8, i64 -8
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %12 = load ptr, ptr %11, align 8, !tbaa !53
+  %12 = load ptr, ptr %11, align 8, !tbaa !52
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %14 = load ptr, ptr %13, align 8, !tbaa !53
+  %14 = load ptr, ptr %13, align 8, !tbaa !52
   %15 = icmp eq ptr %12, %14
   br i1 %15, label %_ZNK6icu_7717StringTrieBuilder4NodeeqERKS1_.exit, label %16
 
 16:                                               ; preds = %4
-  %17 = load i8, ptr %12, align 1, !tbaa !20
+  %17 = load i8, ptr %12, align 1, !tbaa !19
   %.not.i.i = icmp eq i8 %17, 42
   br i1 %.not.i.i, label %_ZNK6icu_7717StringTrieBuilder4NodeeqERKS1_.exit.thread, label %_ZNKSt9type_infoeqERKS_.exit.i
 
 _ZNKSt9type_infoeqERKS_.exit.i:                   ; preds = %16
-  %18 = load i8, ptr %14, align 1, !tbaa !20
+  %18 = load i8, ptr %14, align 1, !tbaa !19
   %19 = icmp eq i8 %18, 42
   %.idx.i.i.i = zext i1 %19 to i64
   %20 = getelementptr inbounds nuw i8, ptr %14, i64 %.idx.i.i.i
@@ -1698,9 +1698,9 @@ _ZNK6icu_7717StringTrieBuilder4NodeeqERKS1_.exit: ; preds = %4, %_ZNKSt9type_inf
 
 28:                                               ; preds = %_ZNK6icu_7717StringTrieBuilder4NodeeqERKS1_.exit
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %30 = load i8, ptr %29, align 8, !tbaa !23
+  %30 = load i8, ptr %29, align 8, !tbaa !22
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %32 = load i8, ptr %31, align 8, !tbaa !23
+  %32 = load i8, ptr %31, align 8, !tbaa !22
   %33 = icmp eq i8 %30, %32
   br i1 %33, label %34, label %_ZNK6icu_7717StringTrieBuilder4NodeeqERKS1_.exit.thread
 
@@ -1710,9 +1710,9 @@ _ZNK6icu_7717StringTrieBuilder4NodeeqERKS1_.exit: ; preds = %4, %_ZNKSt9type_inf
 
 35:                                               ; preds = %34
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %37 = load i32, ptr %36, align 4, !tbaa !25
+  %37 = load i32, ptr %36, align 4, !tbaa !24
   %38 = getelementptr inbounds nuw i8, ptr %1, i64 20
-  %39 = load i32, ptr %38, align 4, !tbaa !25
+  %39 = load i32, ptr %38, align 4, !tbaa !24
   %40 = icmp eq i32 %37, %39
   br label %_ZNK6icu_7717StringTrieBuilder4NodeeqERKS1_.exit.thread
 
@@ -1734,19 +1734,19 @@ define noundef zeroext i1 @_ZNK6icu_7717StringTrieBuilder21IntermediateValueNode
   %9 = getelementptr inbounds i8, ptr %8, i64 -8
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %12 = load ptr, ptr %11, align 8, !tbaa !53
+  %12 = load ptr, ptr %11, align 8, !tbaa !52
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %14 = load ptr, ptr %13, align 8, !tbaa !53
+  %14 = load ptr, ptr %13, align 8, !tbaa !52
   %15 = icmp eq ptr %12, %14
   br i1 %15, label %_ZNK6icu_7717StringTrieBuilder4NodeeqERKS1_.exit.i, label %16
 
 16:                                               ; preds = %4
-  %17 = load i8, ptr %12, align 1, !tbaa !20
+  %17 = load i8, ptr %12, align 1, !tbaa !19
   %.not.i.i.i = icmp eq i8 %17, 42
   br i1 %.not.i.i.i, label %_ZNK6icu_7717StringTrieBuilder9ValueNodeeqERKNS0_4NodeE.exit.thread, label %_ZNKSt9type_infoeqERKS_.exit.i.i
 
 _ZNKSt9type_infoeqERKS_.exit.i.i:                 ; preds = %16
-  %18 = load i8, ptr %14, align 1, !tbaa !20
+  %18 = load i8, ptr %14, align 1, !tbaa !19
   %19 = icmp eq i8 %18, 42
   %.idx.i.i.i.i = zext i1 %19 to i64
   %20 = getelementptr inbounds nuw i8, ptr %14, i64 %.idx.i.i.i.i
@@ -1764,9 +1764,9 @@ _ZNK6icu_7717StringTrieBuilder4NodeeqERKS1_.exit.i: ; preds = %_ZNKSt9type_infoe
 
 28:                                               ; preds = %_ZNK6icu_7717StringTrieBuilder4NodeeqERKS1_.exit.i
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %30 = load i8, ptr %29, align 8, !tbaa !23
+  %30 = load i8, ptr %29, align 8, !tbaa !22
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %32 = load i8, ptr %31, align 8, !tbaa !23
+  %32 = load i8, ptr %31, align 8, !tbaa !22
   %33 = icmp eq i8 %30, %32
   br i1 %33, label %34, label %_ZNK6icu_7717StringTrieBuilder9ValueNodeeqERKNS0_4NodeE.exit.thread
 
@@ -1776,17 +1776,17 @@ _ZNK6icu_7717StringTrieBuilder4NodeeqERKS1_.exit.i: ; preds = %_ZNKSt9type_infoe
 
 _ZNK6icu_7717StringTrieBuilder9ValueNodeeqERKNS0_4NodeE.exit: ; preds = %34
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %36 = load i32, ptr %35, align 4, !tbaa !25
+  %36 = load i32, ptr %35, align 4, !tbaa !24
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 20
-  %38 = load i32, ptr %37, align 4, !tbaa !25
+  %38 = load i32, ptr %37, align 4, !tbaa !24
   %39 = icmp eq i32 %36, %38
   br i1 %39, label %_ZNK6icu_7717StringTrieBuilder9ValueNodeeqERKNS0_4NodeE.exit.thread9, label %_ZNK6icu_7717StringTrieBuilder9ValueNodeeqERKNS0_4NodeE.exit.thread
 
 _ZNK6icu_7717StringTrieBuilder9ValueNodeeqERKNS0_4NodeE.exit.thread9: ; preds = %34, %_ZNK6icu_7717StringTrieBuilder9ValueNodeeqERKNS0_4NodeE.exit
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %41 = load ptr, ptr %40, align 8, !tbaa !30
+  %41 = load ptr, ptr %40, align 8, !tbaa !29
   %42 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %43 = load ptr, ptr %42, align 8, !tbaa !30
+  %43 = load ptr, ptr %42, align 8, !tbaa !29
   %44 = icmp eq ptr %41, %43
   br label %_ZNK6icu_7717StringTrieBuilder9ValueNodeeqERKNS0_4NodeE.exit.thread
 
@@ -1798,18 +1798,18 @@ _ZNK6icu_7717StringTrieBuilder9ValueNodeeqERKNS0_4NodeE.exit.thread: ; preds = %
 ; Function Attrs: mustprogress uwtable
 define noundef i32 @_ZN6icu_7717StringTrieBuilder21IntermediateValueNode19markRightEdgesFirstEi(ptr noundef nonnull align 8 captures(none) dereferenceable(32) %0, i32 noundef %1) unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %4 = load i32, ptr %3, align 4, !tbaa !22
+  %4 = load i32, ptr %3, align 4, !tbaa !21
   %5 = icmp eq i32 %4, 0
   br i1 %5, label %6, label %13
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %8 = load ptr, ptr %7, align 8, !tbaa !30
+  %8 = load ptr, ptr %7, align 8, !tbaa !29
   %9 = load ptr, ptr %8, align 8, !tbaa !3
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 32
   %11 = load ptr, ptr %10, align 8
   %12 = tail call noundef i32 %11(ptr noundef nonnull align 8 dereferenceable(16) %8, i32 noundef %1)
-  store i32 %12, ptr %3, align 4, !tbaa !22
+  store i32 %12, ptr %3, align 4, !tbaa !21
   br label %13
 
 13:                                               ; preds = %6, %2
@@ -1820,19 +1820,19 @@ define noundef i32 @_ZN6icu_7717StringTrieBuilder21IntermediateValueNode19markRi
 ; Function Attrs: mustprogress uwtable
 define void @_ZN6icu_7717StringTrieBuilder21IntermediateValueNode5writeERS0_(ptr noundef nonnull align 8 captures(none) dereferenceable(32) initializes((12, 16)) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %4 = load ptr, ptr %3, align 8, !tbaa !30
+  %4 = load ptr, ptr %3, align 8, !tbaa !29
   %5 = load ptr, ptr %4, align 8, !tbaa !3
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 40
   %7 = load ptr, ptr %6, align 8
   tail call void %7(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %1)
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %9 = load i32, ptr %8, align 4, !tbaa !25
+  %9 = load i32, ptr %8, align 4, !tbaa !24
   %10 = load ptr, ptr %1, align 8, !tbaa !3
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 136
   %12 = load ptr, ptr %11, align 8
   %13 = tail call noundef i32 %12(ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %9, i8 noundef signext 0)
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store i32 %13, ptr %14, align 4, !tbaa !22
+  store i32 %13, ptr %14, align 4, !tbaa !21
   ret void
 }
 
@@ -1849,19 +1849,19 @@ define noundef zeroext i1 @_ZNK6icu_7717StringTrieBuilder15LinearMatchNodeeqERKN
   %9 = getelementptr inbounds i8, ptr %8, i64 -8
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %12 = load ptr, ptr %11, align 8, !tbaa !53
+  %12 = load ptr, ptr %11, align 8, !tbaa !52
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %14 = load ptr, ptr %13, align 8, !tbaa !53
+  %14 = load ptr, ptr %13, align 8, !tbaa !52
   %15 = icmp eq ptr %12, %14
   br i1 %15, label %_ZNK6icu_7717StringTrieBuilder4NodeeqERKS1_.exit.i, label %16
 
 16:                                               ; preds = %4
-  %17 = load i8, ptr %12, align 1, !tbaa !20
+  %17 = load i8, ptr %12, align 1, !tbaa !19
   %.not.i.i.i = icmp eq i8 %17, 42
   br i1 %.not.i.i.i, label %_ZNK6icu_7717StringTrieBuilder9ValueNodeeqERKNS0_4NodeE.exit.thread, label %_ZNKSt9type_infoeqERKS_.exit.i.i
 
 _ZNKSt9type_infoeqERKS_.exit.i.i:                 ; preds = %16
-  %18 = load i8, ptr %14, align 1, !tbaa !20
+  %18 = load i8, ptr %14, align 1, !tbaa !19
   %19 = icmp eq i8 %18, 42
   %.idx.i.i.i.i = zext i1 %19 to i64
   %20 = getelementptr inbounds nuw i8, ptr %14, i64 %.idx.i.i.i.i
@@ -1879,9 +1879,9 @@ _ZNK6icu_7717StringTrieBuilder4NodeeqERKS1_.exit.i: ; preds = %_ZNKSt9type_infoe
 
 28:                                               ; preds = %_ZNK6icu_7717StringTrieBuilder4NodeeqERKS1_.exit.i
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %30 = load i8, ptr %29, align 8, !tbaa !23
+  %30 = load i8, ptr %29, align 8, !tbaa !22
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %32 = load i8, ptr %31, align 8, !tbaa !23
+  %32 = load i8, ptr %31, align 8, !tbaa !22
   %33 = icmp eq i8 %30, %32
   br i1 %33, label %34, label %_ZNK6icu_7717StringTrieBuilder9ValueNodeeqERKNS0_4NodeE.exit.thread
 
@@ -1891,25 +1891,25 @@ _ZNK6icu_7717StringTrieBuilder4NodeeqERKS1_.exit.i: ; preds = %_ZNKSt9type_infoe
 
 _ZNK6icu_7717StringTrieBuilder9ValueNodeeqERKNS0_4NodeE.exit: ; preds = %34
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %36 = load i32, ptr %35, align 4, !tbaa !25
+  %36 = load i32, ptr %35, align 4, !tbaa !24
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 20
-  %38 = load i32, ptr %37, align 4, !tbaa !25
+  %38 = load i32, ptr %37, align 4, !tbaa !24
   %39 = icmp eq i32 %36, %38
   br i1 %39, label %_ZNK6icu_7717StringTrieBuilder9ValueNodeeqERKNS0_4NodeE.exit.thread10, label %_ZNK6icu_7717StringTrieBuilder9ValueNodeeqERKNS0_4NodeE.exit.thread
 
 _ZNK6icu_7717StringTrieBuilder9ValueNodeeqERKNS0_4NodeE.exit.thread10: ; preds = %34, %_ZNK6icu_7717StringTrieBuilder9ValueNodeeqERKNS0_4NodeE.exit
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %41 = load i32, ptr %40, align 8, !tbaa !56
+  %41 = load i32, ptr %40, align 8, !tbaa !55
   %42 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %43 = load i32, ptr %42, align 8, !tbaa !56
+  %43 = load i32, ptr %42, align 8, !tbaa !55
   %44 = icmp eq i32 %41, %43
   br i1 %44, label %45, label %_ZNK6icu_7717StringTrieBuilder9ValueNodeeqERKNS0_4NodeE.exit.thread
 
 45:                                               ; preds = %_ZNK6icu_7717StringTrieBuilder9ValueNodeeqERKNS0_4NodeE.exit.thread10
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %47 = load ptr, ptr %46, align 8, !tbaa !58
+  %47 = load ptr, ptr %46, align 8, !tbaa !57
   %48 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %49 = load ptr, ptr %48, align 8, !tbaa !58
+  %49 = load ptr, ptr %48, align 8, !tbaa !57
   %50 = icmp eq ptr %47, %49
   br label %_ZNK6icu_7717StringTrieBuilder9ValueNodeeqERKNS0_4NodeE.exit.thread
 
@@ -1921,18 +1921,18 @@ _ZNK6icu_7717StringTrieBuilder9ValueNodeeqERKNS0_4NodeE.exit.thread: ; preds = %
 ; Function Attrs: mustprogress uwtable
 define noundef i32 @_ZN6icu_7717StringTrieBuilder15LinearMatchNode19markRightEdgesFirstEi(ptr noundef nonnull align 8 captures(none) dereferenceable(40) %0, i32 noundef %1) unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %4 = load i32, ptr %3, align 4, !tbaa !22
+  %4 = load i32, ptr %3, align 4, !tbaa !21
   %5 = icmp eq i32 %4, 0
   br i1 %5, label %6, label %13
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %8 = load ptr, ptr %7, align 8, !tbaa !58
+  %8 = load ptr, ptr %7, align 8, !tbaa !57
   %9 = load ptr, ptr %8, align 8, !tbaa !3
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 32
   %11 = load ptr, ptr %10, align 8
   %12 = tail call noundef i32 %11(ptr noundef nonnull align 8 dereferenceable(16) %8, i32 noundef %1)
-  store i32 %12, ptr %3, align 4, !tbaa !22
+  store i32 %12, ptr %3, align 4, !tbaa !21
   br label %13
 
 13:                                               ; preds = %6, %2
@@ -1953,19 +1953,19 @@ define noundef zeroext i1 @_ZNK6icu_7717StringTrieBuilder14ListBranchNodeeqERKNS
   %9 = getelementptr inbounds i8, ptr %8, i64 -8
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %12 = load ptr, ptr %11, align 8, !tbaa !53
+  %12 = load ptr, ptr %11, align 8, !tbaa !52
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %14 = load ptr, ptr %13, align 8, !tbaa !53
+  %14 = load ptr, ptr %13, align 8, !tbaa !52
   %15 = icmp eq ptr %12, %14
   br i1 %15, label %_ZNK6icu_7717StringTrieBuilder4NodeeqERKS1_.exit, label %16
 
 16:                                               ; preds = %4
-  %17 = load i8, ptr %12, align 1, !tbaa !20
+  %17 = load i8, ptr %12, align 1, !tbaa !19
   %.not.i.i = icmp eq i8 %17, 42
   br i1 %.not.i.i, label %.critedge, label %_ZNKSt9type_infoeqERKS_.exit.i
 
 _ZNKSt9type_infoeqERKS_.exit.i:                   ; preds = %16
-  %18 = load i8, ptr %14, align 1, !tbaa !20
+  %18 = load i8, ptr %14, align 1, !tbaa !19
   %19 = icmp eq i8 %18, 42
   %.idx.i.i.i = zext i1 %19 to i64
   %20 = getelementptr inbounds nuw i8, ptr %14, i64 %.idx.i.i.i
@@ -1986,7 +1986,7 @@ _ZNK6icu_7717StringTrieBuilder4NodeeqERKS1_.exit: ; preds = %4, %_ZNKSt9type_inf
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 68
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %32 = load i32, ptr %31, align 8, !tbaa !44
+  %32 = load i32, ptr %31, align 8, !tbaa !43
   %.not22.not23 = icmp sgt i32 %32, 0
   br i1 %.not22.not23, label %.lr.ph, label %.critedge
 
@@ -2000,30 +2000,30 @@ _ZNK6icu_7717StringTrieBuilder4NodeeqERKS1_.exit: ; preds = %4, %_ZNKSt9type_inf
 36:                                               ; preds = %47
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.critedge, label %37, !llvm.loop !59
+  br i1 %exitcond.not, label %.critedge, label %37, !llvm.loop !58
 
 37:                                               ; preds = %.lr.ph, %36
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %36 ]
   %38 = getelementptr inbounds nuw [5 x i16], ptr %28, i64 0, i64 %indvars.iv
-  %39 = load i16, ptr %38, align 2, !tbaa !32
+  %39 = load i16, ptr %38, align 2, !tbaa !31
   %40 = getelementptr inbounds nuw [5 x i16], ptr %33, i64 0, i64 %indvars.iv
-  %41 = load i16, ptr %40, align 2, !tbaa !32
+  %41 = load i16, ptr %40, align 2, !tbaa !31
   %.not = icmp eq i16 %39, %41
   br i1 %.not, label %42, label %.critedge
 
 42:                                               ; preds = %37
   %43 = getelementptr inbounds nuw [5 x i32], ptr %29, i64 0, i64 %indvars.iv
-  %44 = load i32, ptr %43, align 4, !tbaa !34
+  %44 = load i32, ptr %43, align 4, !tbaa !33
   %45 = getelementptr inbounds nuw [5 x i32], ptr %34, i64 0, i64 %indvars.iv
-  %46 = load i32, ptr %45, align 4, !tbaa !34
+  %46 = load i32, ptr %45, align 4, !tbaa !33
   %.not20 = icmp eq i32 %44, %46
   br i1 %.not20, label %47, label %.critedge
 
 47:                                               ; preds = %42
   %48 = getelementptr inbounds nuw [5 x ptr], ptr %30, i64 0, i64 %indvars.iv
-  %49 = load ptr, ptr %48, align 8, !tbaa !42
+  %49 = load ptr, ptr %48, align 8, !tbaa !41
   %50 = getelementptr inbounds nuw [5 x ptr], ptr %35, i64 0, i64 %indvars.iv
-  %51 = load ptr, ptr %50, align 8, !tbaa !42
+  %51 = load ptr, ptr %50, align 8, !tbaa !41
   %.not21 = icmp eq ptr %49, %51
   br i1 %.not21, label %36, label %.critedge
 
@@ -2035,15 +2035,15 @@ _ZNK6icu_7717StringTrieBuilder4NodeeqERKS1_.exit: ; preds = %4, %_ZNKSt9type_inf
 ; Function Attrs: mustprogress uwtable
 define noundef i32 @_ZN6icu_7717StringTrieBuilder14ListBranchNode19markRightEdgesFirstEi(ptr noundef nonnull align 8 captures(none) dereferenceable(98) %0, i32 noundef %1) unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %4 = load i32, ptr %3, align 4, !tbaa !22
+  %4 = load i32, ptr %3, align 4, !tbaa !21
   %5 = icmp eq i32 %4, 0
   br i1 %5, label %6, label %24
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i32 %1, ptr %7, align 8, !tbaa !60
+  store i32 %1, ptr %7, align 8, !tbaa !59
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %9 = load i32, ptr %8, align 8, !tbaa !44
+  %9 = load i32, ptr %8, align 8, !tbaa !43
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %11 = sext i32 %9 to i64
   br label %12
@@ -2054,7 +2054,7 @@ define noundef i32 @_ZN6icu_7717StringTrieBuilder14ListBranchNode19markRightEdge
   %.1 = phi i32 [ %.2, %21 ], [ %1, %6 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %13 = getelementptr inbounds [5 x ptr], ptr %10, i64 0, i64 %indvars.iv.next
-  %14 = load ptr, ptr %13, align 8, !tbaa !42
+  %14 = load ptr, ptr %13, align 8, !tbaa !41
   %.not = icmp eq ptr %14, null
   br i1 %.not, label %21, label %15
 
@@ -2069,10 +2069,10 @@ define noundef i32 @_ZN6icu_7717StringTrieBuilder14ListBranchNode19markRightEdge
 21:                                               ; preds = %15, %12
   %.2 = phi i32 [ %20, %15 ], [ %.1, %12 ]
   %22 = icmp sgt i64 %indvars.iv, 1
-  br i1 %22, label %12, label %23, !llvm.loop !61
+  br i1 %22, label %12, label %23, !llvm.loop !60
 
 23:                                               ; preds = %21
-  store i32 %.2, ptr %3, align 4, !tbaa !22
+  store i32 %.2, ptr %3, align 4, !tbaa !21
   br label %24
 
 24:                                               ; preds = %23, %2
@@ -2083,17 +2083,17 @@ define noundef i32 @_ZN6icu_7717StringTrieBuilder14ListBranchNode19markRightEdge
 ; Function Attrs: mustprogress uwtable
 define void @_ZN6icu_7717StringTrieBuilder14ListBranchNode5writeERS0_(ptr noundef nonnull align 8 captures(none) dereferenceable(98) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %4 = load i32, ptr %3, align 8, !tbaa !44
+  %4 = load i32, ptr %3, align 8, !tbaa !43
   %5 = add nsw i32 %4, -1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = sext i32 %5 to i64
   %8 = getelementptr inbounds [5 x ptr], ptr %6, i64 0, i64 %7
-  %9 = load ptr, ptr %8, align 8, !tbaa !42
+  %9 = load ptr, ptr %8, align 8, !tbaa !41
   %10 = icmp eq ptr %9, null
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 12
   %.in = select i1 %10, ptr %11, ptr %12
-  %13 = load i32, ptr %.in, align 4, !tbaa !34
+  %13 = load i32, ptr %.in, align 4, !tbaa !33
   %14 = sext i32 %4 to i64
   %15 = add nsw i64 %14, -1
   br label %16
@@ -2102,18 +2102,18 @@ define void @_ZN6icu_7717StringTrieBuilder14ListBranchNode5writeERS0_(ptr nounde
   %indvars.iv = phi i64 [ %indvars.iv.next, %_ZN6icu_7717StringTrieBuilder4Node26writeUnlessInsideRightEdgeEiiRS0_.exit ], [ %15, %2 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %17 = getelementptr inbounds [5 x ptr], ptr %6, i64 0, i64 %indvars.iv.next
-  %18 = load ptr, ptr %17, align 8, !tbaa !42
+  %18 = load ptr, ptr %17, align 8, !tbaa !41
   %.not = icmp eq ptr %18, null
   br i1 %.not, label %_ZN6icu_7717StringTrieBuilder4Node26writeUnlessInsideRightEdgeEiiRS0_.exit, label %19
 
 19:                                               ; preds = %16
   %20 = getelementptr inbounds nuw i8, ptr %18, i64 12
-  %21 = load i32, ptr %20, align 4, !tbaa !22
+  %21 = load i32, ptr %20, align 4, !tbaa !21
   %22 = icmp slt i32 %21, 0
   br i1 %22, label %23, label %_ZN6icu_7717StringTrieBuilder4Node26writeUnlessInsideRightEdgeEiiRS0_.exit
 
 23:                                               ; preds = %19
-  %24 = load i32, ptr %11, align 8, !tbaa !60
+  %24 = load i32, ptr %11, align 8, !tbaa !59
   %25 = icmp slt i32 %21, %13
   %26 = icmp slt i32 %24, %21
   %or.cond.i = or i1 %25, %26
@@ -2128,10 +2128,10 @@ define void @_ZN6icu_7717StringTrieBuilder14ListBranchNode5writeERS0_(ptr nounde
 
 _ZN6icu_7717StringTrieBuilder4Node26writeUnlessInsideRightEdgeEiiRS0_.exit: ; preds = %27, %23, %19, %16
   %31 = icmp sgt i64 %indvars.iv, 1
-  br i1 %31, label %16, label %32, !llvm.loop !62
+  br i1 %31, label %16, label %32, !llvm.loop !61
 
 32:                                               ; preds = %_ZN6icu_7717StringTrieBuilder4Node26writeUnlessInsideRightEdgeEiiRS0_.exit
-  %33 = load i32, ptr %3, align 8, !tbaa !44
+  %33 = load i32, ptr %3, align 8, !tbaa !43
   %34 = add nsw i32 %33, -1
   br i1 %10, label %35, label %44
 
@@ -2139,7 +2139,7 @@ _ZN6icu_7717StringTrieBuilder4Node26writeUnlessInsideRightEdgeEiiRS0_.exit: ; pr
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 68
   %37 = sext i32 %34 to i64
   %38 = getelementptr inbounds [5 x i32], ptr %36, i64 0, i64 %37
-  %39 = load i32, ptr %38, align 4, !tbaa !34
+  %39 = load i32, ptr %38, align 4, !tbaa !33
   %40 = load ptr, ptr %1, align 8, !tbaa !3
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 136
   %42 = load ptr, ptr %41, align 8
@@ -2158,14 +2158,14 @@ _ZN6icu_7717StringTrieBuilder4Node26writeUnlessInsideRightEdgeEiiRS0_.exit: ; pr
   %.pre-phi = phi i64 [ %.pre, %44 ], [ %37, %35 ]
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %50 = getelementptr inbounds [5 x i16], ptr %49, i64 0, i64 %.pre-phi
-  %51 = load i16, ptr %50, align 2, !tbaa !32
+  %51 = load i16, ptr %50, align 2, !tbaa !31
   %52 = zext i16 %51 to i32
   %53 = load ptr, ptr %1, align 8, !tbaa !3
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 120
   %55 = load ptr, ptr %54, align 8
   %56 = tail call noundef i32 %55(ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %52)
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store i32 %56, ptr %57, align 4, !tbaa !22
+  store i32 %56, ptr %57, align 4, !tbaa !21
   %58 = icmp sgt i32 %33, 1
   br i1 %58, label %.lr.ph, label %._crit_edge
 
@@ -2179,18 +2179,18 @@ _ZN6icu_7717StringTrieBuilder4Node26writeUnlessInsideRightEdgeEiiRS0_.exit: ; pr
   %indvars.iv35 = phi i64 [ %61, %.lr.ph ], [ %indvars.iv.next36, %73 ]
   %storemerge33 = phi i32 [ %56, %.lr.ph ], [ %84, %73 ]
   %63 = getelementptr inbounds nuw [5 x ptr], ptr %6, i64 0, i64 %indvars.iv35
-  %64 = load ptr, ptr %63, align 8, !tbaa !42
+  %64 = load ptr, ptr %63, align 8, !tbaa !41
   %65 = icmp eq ptr %64, null
   br i1 %65, label %66, label %69
 
 66:                                               ; preds = %62
   %67 = getelementptr inbounds nuw [5 x i32], ptr %60, i64 0, i64 %indvars.iv35
-  %68 = load i32, ptr %67, align 4, !tbaa !34
+  %68 = load i32, ptr %67, align 4, !tbaa !33
   br label %73
 
 69:                                               ; preds = %62
   %70 = getelementptr inbounds nuw i8, ptr %64, i64 12
-  %71 = load i32, ptr %70, align 4, !tbaa !22
+  %71 = load i32, ptr %70, align 4, !tbaa !21
   %72 = sub nsw i32 %storemerge33, %71
   br label %73
 
@@ -2202,16 +2202,16 @@ _ZN6icu_7717StringTrieBuilder4Node26writeUnlessInsideRightEdgeEiiRS0_.exit: ; pr
   %76 = load ptr, ptr %75, align 8
   %77 = tail call noundef i32 %76(ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %.025, i8 noundef signext %.0)
   %78 = getelementptr inbounds nuw [5 x i16], ptr %49, i64 0, i64 %indvars.iv35
-  %79 = load i16, ptr %78, align 2, !tbaa !32
+  %79 = load i16, ptr %78, align 2, !tbaa !31
   %80 = zext i16 %79 to i32
   %81 = load ptr, ptr %1, align 8, !tbaa !3
   %82 = getelementptr inbounds nuw i8, ptr %81, i64 120
   %83 = load ptr, ptr %82, align 8
   %84 = tail call noundef i32 %83(ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %80)
-  store i32 %84, ptr %57, align 4, !tbaa !22
+  store i32 %84, ptr %57, align 4, !tbaa !21
   %indvars.iv.next36 = add nsw i64 %indvars.iv35, -1
   %85 = icmp sgt i64 %indvars.iv35, 0
-  br i1 %85, label %62, label %._crit_edge, !llvm.loop !63
+  br i1 %85, label %62, label %._crit_edge, !llvm.loop !62
 
 ._crit_edge:                                      ; preds = %73, %48
   ret void
@@ -2230,19 +2230,19 @@ define noundef zeroext i1 @_ZNK6icu_7717StringTrieBuilder15SplitBranchNodeeqERKN
   %9 = getelementptr inbounds i8, ptr %8, i64 -8
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %12 = load ptr, ptr %11, align 8, !tbaa !53
+  %12 = load ptr, ptr %11, align 8, !tbaa !52
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %14 = load ptr, ptr %13, align 8, !tbaa !53
+  %14 = load ptr, ptr %13, align 8, !tbaa !52
   %15 = icmp eq ptr %12, %14
   br i1 %15, label %_ZNK6icu_7717StringTrieBuilder4NodeeqERKS1_.exit, label %16
 
 16:                                               ; preds = %4
-  %17 = load i8, ptr %12, align 1, !tbaa !20
+  %17 = load i8, ptr %12, align 1, !tbaa !19
   %.not.i.i = icmp eq i8 %17, 42
   br i1 %.not.i.i, label %_ZNK6icu_7717StringTrieBuilder4NodeeqERKS1_.exit.thread, label %_ZNKSt9type_infoeqERKS_.exit.i
 
 _ZNKSt9type_infoeqERKS_.exit.i:                   ; preds = %16
-  %18 = load i8, ptr %14, align 1, !tbaa !20
+  %18 = load i8, ptr %14, align 1, !tbaa !19
   %19 = icmp eq i8 %18, 42
   %.idx.i.i.i = zext i1 %19 to i64
   %20 = getelementptr inbounds nuw i8, ptr %14, i64 %.idx.i.i.i
@@ -2260,25 +2260,25 @@ _ZNK6icu_7717StringTrieBuilder4NodeeqERKS1_.exit: ; preds = %4, %_ZNKSt9type_inf
 
 28:                                               ; preds = %_ZNK6icu_7717StringTrieBuilder4NodeeqERKS1_.exit
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %30 = load i16, ptr %29, align 4, !tbaa !48
+  %30 = load i16, ptr %29, align 4, !tbaa !47
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 20
-  %32 = load i16, ptr %31, align 4, !tbaa !48
+  %32 = load i16, ptr %31, align 4, !tbaa !47
   %33 = icmp eq i16 %30, %32
   br i1 %33, label %34, label %_ZNK6icu_7717StringTrieBuilder4NodeeqERKS1_.exit.thread
 
 34:                                               ; preds = %28
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %36 = load ptr, ptr %35, align 8, !tbaa !50
+  %36 = load ptr, ptr %35, align 8, !tbaa !49
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %38 = load ptr, ptr %37, align 8, !tbaa !50
+  %38 = load ptr, ptr %37, align 8, !tbaa !49
   %39 = icmp eq ptr %36, %38
   br i1 %39, label %40, label %_ZNK6icu_7717StringTrieBuilder4NodeeqERKS1_.exit.thread
 
 40:                                               ; preds = %34
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %42 = load ptr, ptr %41, align 8, !tbaa !51
+  %42 = load ptr, ptr %41, align 8, !tbaa !50
   %43 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %44 = load ptr, ptr %43, align 8, !tbaa !51
+  %44 = load ptr, ptr %43, align 8, !tbaa !50
   %45 = icmp eq ptr %42, %44
   br label %_ZNK6icu_7717StringTrieBuilder4NodeeqERKS1_.exit.thread
 
@@ -2290,27 +2290,27 @@ _ZNK6icu_7717StringTrieBuilder4NodeeqERKS1_.exit.thread: ; preds = %16, %_ZNKSt9
 ; Function Attrs: mustprogress uwtable
 define noundef i32 @_ZN6icu_7717StringTrieBuilder15SplitBranchNode19markRightEdgesFirstEi(ptr noundef nonnull align 8 captures(none) dereferenceable(40) %0, i32 noundef %1) unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %4 = load i32, ptr %3, align 4, !tbaa !22
+  %4 = load i32, ptr %3, align 4, !tbaa !21
   %5 = icmp eq i32 %4, 0
   br i1 %5, label %6, label %21
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i32 %1, ptr %7, align 8, !tbaa !60
+  store i32 %1, ptr %7, align 8, !tbaa !59
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %9 = load ptr, ptr %8, align 8, !tbaa !51
+  %9 = load ptr, ptr %8, align 8, !tbaa !50
   %10 = load ptr, ptr %9, align 8, !tbaa !3
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 32
   %12 = load ptr, ptr %11, align 8
   %13 = tail call noundef i32 %12(ptr noundef nonnull align 8 dereferenceable(16) %9, i32 noundef %1)
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %15 = load ptr, ptr %14, align 8, !tbaa !50
+  %15 = load ptr, ptr %14, align 8, !tbaa !49
   %16 = add nsw i32 %13, -1
   %17 = load ptr, ptr %15, align 8, !tbaa !3
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 32
   %19 = load ptr, ptr %18, align 8
   %20 = tail call noundef i32 %19(ptr noundef nonnull align 8 dereferenceable(16) %15, i32 noundef %16)
-  store i32 %20, ptr %3, align 4, !tbaa !22
+  store i32 %20, ptr %3, align 4, !tbaa !21
   br label %21
 
 21:                                               ; preds = %6, %2
@@ -2321,19 +2321,19 @@ define noundef i32 @_ZN6icu_7717StringTrieBuilder15SplitBranchNode19markRightEdg
 ; Function Attrs: mustprogress uwtable
 define void @_ZN6icu_7717StringTrieBuilder15SplitBranchNode5writeERS0_(ptr noundef nonnull align 8 captures(none) dereferenceable(40) initializes((12, 16)) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %4 = load ptr, ptr %3, align 8, !tbaa !50
+  %4 = load ptr, ptr %3, align 8, !tbaa !49
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 12
-  %7 = load i32, ptr %6, align 4, !tbaa !22
+  %7 = load i32, ptr %6, align 4, !tbaa !21
   %8 = icmp slt i32 %7, 0
-  %.pre5 = load ptr, ptr %5, align 8, !tbaa !51
+  %.pre5 = load ptr, ptr %5, align 8, !tbaa !50
   br i1 %8, label %9, label %_ZN6icu_7717StringTrieBuilder4Node26writeUnlessInsideRightEdgeEiiRS0_.exit
 
 9:                                                ; preds = %2
   %10 = getelementptr inbounds nuw i8, ptr %.pre5, i64 12
-  %11 = load i32, ptr %10, align 4, !tbaa !22
+  %11 = load i32, ptr %10, align 4, !tbaa !21
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %13 = load i32, ptr %12, align 8, !tbaa !60
+  %13 = load i32, ptr %12, align 8, !tbaa !59
   %14 = icmp slt i32 %7, %11
   %15 = icmp slt i32 %13, %7
   %or.cond.i = or i1 %14, %15
@@ -2344,7 +2344,7 @@ define void @_ZN6icu_7717StringTrieBuilder15SplitBranchNode5writeERS0_(ptr nound
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 40
   %19 = load ptr, ptr %18, align 8
   tail call void %19(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %1)
-  %.pre = load ptr, ptr %5, align 8, !tbaa !51
+  %.pre = load ptr, ptr %5, align 8, !tbaa !50
   br label %_ZN6icu_7717StringTrieBuilder4Node26writeUnlessInsideRightEdgeEiiRS0_.exit
 
 _ZN6icu_7717StringTrieBuilder4Node26writeUnlessInsideRightEdgeEiiRS0_.exit: ; preds = %2, %9, %16
@@ -2353,22 +2353,22 @@ _ZN6icu_7717StringTrieBuilder4Node26writeUnlessInsideRightEdgeEiiRS0_.exit: ; pr
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 40
   %23 = load ptr, ptr %22, align 8
   tail call void %23(ptr noundef nonnull align 8 dereferenceable(16) %20, ptr noundef nonnull align 8 dereferenceable(16) %1)
-  %24 = load ptr, ptr %3, align 8, !tbaa !50
+  %24 = load ptr, ptr %3, align 8, !tbaa !49
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 12
-  %26 = load i32, ptr %25, align 4, !tbaa !22
+  %26 = load i32, ptr %25, align 4, !tbaa !21
   %27 = load ptr, ptr %1, align 8, !tbaa !3
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 152
   %29 = load ptr, ptr %28, align 8
   %30 = tail call noundef i32 %29(ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %26)
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %32 = load i16, ptr %31, align 4, !tbaa !48
+  %32 = load i16, ptr %31, align 4, !tbaa !47
   %33 = zext i16 %32 to i32
   %34 = load ptr, ptr %1, align 8, !tbaa !3
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 120
   %36 = load ptr, ptr %35, align 8
   %37 = tail call noundef i32 %36(ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %33)
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store i32 %37, ptr %38, align 4, !tbaa !22
+  store i32 %37, ptr %38, align 4, !tbaa !21
   ret void
 }
 
@@ -2385,19 +2385,19 @@ define noundef zeroext i1 @_ZNK6icu_7717StringTrieBuilder14BranchHeadNodeeqERKNS
   %9 = getelementptr inbounds i8, ptr %8, i64 -8
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %12 = load ptr, ptr %11, align 8, !tbaa !53
+  %12 = load ptr, ptr %11, align 8, !tbaa !52
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %14 = load ptr, ptr %13, align 8, !tbaa !53
+  %14 = load ptr, ptr %13, align 8, !tbaa !52
   %15 = icmp eq ptr %12, %14
   br i1 %15, label %_ZNK6icu_7717StringTrieBuilder4NodeeqERKS1_.exit.i, label %16
 
 16:                                               ; preds = %4
-  %17 = load i8, ptr %12, align 1, !tbaa !20
+  %17 = load i8, ptr %12, align 1, !tbaa !19
   %.not.i.i.i = icmp eq i8 %17, 42
   br i1 %.not.i.i.i, label %_ZNK6icu_7717StringTrieBuilder9ValueNodeeqERKNS0_4NodeE.exit.thread, label %_ZNKSt9type_infoeqERKS_.exit.i.i
 
 _ZNKSt9type_infoeqERKS_.exit.i.i:                 ; preds = %16
-  %18 = load i8, ptr %14, align 1, !tbaa !20
+  %18 = load i8, ptr %14, align 1, !tbaa !19
   %19 = icmp eq i8 %18, 42
   %.idx.i.i.i.i = zext i1 %19 to i64
   %20 = getelementptr inbounds nuw i8, ptr %14, i64 %.idx.i.i.i.i
@@ -2415,9 +2415,9 @@ _ZNK6icu_7717StringTrieBuilder4NodeeqERKS1_.exit.i: ; preds = %_ZNKSt9type_infoe
 
 28:                                               ; preds = %_ZNK6icu_7717StringTrieBuilder4NodeeqERKS1_.exit.i
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %30 = load i8, ptr %29, align 8, !tbaa !23
+  %30 = load i8, ptr %29, align 8, !tbaa !22
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %32 = load i8, ptr %31, align 8, !tbaa !23
+  %32 = load i8, ptr %31, align 8, !tbaa !22
   %33 = icmp eq i8 %30, %32
   br i1 %33, label %34, label %_ZNK6icu_7717StringTrieBuilder9ValueNodeeqERKNS0_4NodeE.exit.thread
 
@@ -2427,25 +2427,25 @@ _ZNK6icu_7717StringTrieBuilder4NodeeqERKS1_.exit.i: ; preds = %_ZNKSt9type_infoe
 
 _ZNK6icu_7717StringTrieBuilder9ValueNodeeqERKNS0_4NodeE.exit: ; preds = %34
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %36 = load i32, ptr %35, align 4, !tbaa !25
+  %36 = load i32, ptr %35, align 4, !tbaa !24
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 20
-  %38 = load i32, ptr %37, align 4, !tbaa !25
+  %38 = load i32, ptr %37, align 4, !tbaa !24
   %39 = icmp eq i32 %36, %38
   br i1 %39, label %_ZNK6icu_7717StringTrieBuilder9ValueNodeeqERKNS0_4NodeE.exit.thread10, label %_ZNK6icu_7717StringTrieBuilder9ValueNodeeqERKNS0_4NodeE.exit.thread
 
 _ZNK6icu_7717StringTrieBuilder9ValueNodeeqERKNS0_4NodeE.exit.thread10: ; preds = %34, %_ZNK6icu_7717StringTrieBuilder9ValueNodeeqERKNS0_4NodeE.exit
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %41 = load i32, ptr %40, align 8, !tbaa !26
+  %41 = load i32, ptr %40, align 8, !tbaa !25
   %42 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %43 = load i32, ptr %42, align 8, !tbaa !26
+  %43 = load i32, ptr %42, align 8, !tbaa !25
   %44 = icmp eq i32 %41, %43
   br i1 %44, label %45, label %_ZNK6icu_7717StringTrieBuilder9ValueNodeeqERKNS0_4NodeE.exit.thread
 
 45:                                               ; preds = %_ZNK6icu_7717StringTrieBuilder9ValueNodeeqERKNS0_4NodeE.exit.thread10
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %47 = load ptr, ptr %46, align 8, !tbaa !29
+  %47 = load ptr, ptr %46, align 8, !tbaa !28
   %48 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %49 = load ptr, ptr %48, align 8, !tbaa !29
+  %49 = load ptr, ptr %48, align 8, !tbaa !28
   %50 = icmp eq ptr %47, %49
   br label %_ZNK6icu_7717StringTrieBuilder9ValueNodeeqERKNS0_4NodeE.exit.thread
 
@@ -2457,18 +2457,18 @@ _ZNK6icu_7717StringTrieBuilder9ValueNodeeqERKNS0_4NodeE.exit.thread: ; preds = %
 ; Function Attrs: mustprogress uwtable
 define noundef i32 @_ZN6icu_7717StringTrieBuilder14BranchHeadNode19markRightEdgesFirstEi(ptr noundef nonnull align 8 captures(none) dereferenceable(40) %0, i32 noundef %1) unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %4 = load i32, ptr %3, align 4, !tbaa !22
+  %4 = load i32, ptr %3, align 4, !tbaa !21
   %5 = icmp eq i32 %4, 0
   br i1 %5, label %6, label %13
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %8 = load ptr, ptr %7, align 8, !tbaa !29
+  %8 = load ptr, ptr %7, align 8, !tbaa !28
   %9 = load ptr, ptr %8, align 8, !tbaa !3
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 32
   %11 = load ptr, ptr %10, align 8
   %12 = tail call noundef i32 %11(ptr noundef nonnull align 8 dereferenceable(16) %8, i32 noundef %1)
-  store i32 %12, ptr %3, align 4, !tbaa !22
+  store i32 %12, ptr %3, align 4, !tbaa !21
   br label %13
 
 13:                                               ; preds = %6, %2
@@ -2479,13 +2479,13 @@ define noundef i32 @_ZN6icu_7717StringTrieBuilder14BranchHeadNode19markRightEdge
 ; Function Attrs: mustprogress uwtable
 define void @_ZN6icu_7717StringTrieBuilder14BranchHeadNode5writeERS0_(ptr noundef nonnull align 8 captures(none) dereferenceable(40) initializes((12, 16)) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %4 = load ptr, ptr %3, align 8, !tbaa !29
+  %4 = load ptr, ptr %3, align 8, !tbaa !28
   %5 = load ptr, ptr %4, align 8, !tbaa !3
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 40
   %7 = load ptr, ptr %6, align 8
   tail call void %7(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %1)
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %9 = load i32, ptr %8, align 8, !tbaa !26
+  %9 = load i32, ptr %8, align 8, !tbaa !25
   %10 = load ptr, ptr %1, align 8, !tbaa !3
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 96
   %12 = load ptr, ptr %11, align 8
@@ -2495,10 +2495,10 @@ define void @_ZN6icu_7717StringTrieBuilder14BranchHeadNode5writeERS0_(ptr nounde
 
 14:                                               ; preds = %2
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %16 = load i8, ptr %15, align 8, !tbaa !23
+  %16 = load i8, ptr %15, align 8, !tbaa !22
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %18 = load i32, ptr %17, align 4, !tbaa !25
-  %19 = load i32, ptr %8, align 8, !tbaa !26
+  %18 = load i32, ptr %17, align 4, !tbaa !24
+  %19 = load i32, ptr %8, align 8, !tbaa !25
   %20 = add nsw i32 %19, -1
   %21 = load ptr, ptr %1, align 8, !tbaa !3
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 144
@@ -2507,16 +2507,16 @@ define void @_ZN6icu_7717StringTrieBuilder14BranchHeadNode5writeERS0_(ptr nounde
   br label %40
 
 25:                                               ; preds = %2
-  %26 = load i32, ptr %8, align 8, !tbaa !26
+  %26 = load i32, ptr %8, align 8, !tbaa !25
   %27 = add nsw i32 %26, -1
   %28 = load ptr, ptr %1, align 8, !tbaa !3
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 120
   %30 = load ptr, ptr %29, align 8
   %31 = tail call noundef i32 %30(ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %27)
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %33 = load i8, ptr %32, align 8, !tbaa !23
+  %33 = load i8, ptr %32, align 8, !tbaa !22
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %35 = load i32, ptr %34, align 4, !tbaa !25
+  %35 = load i32, ptr %34, align 4, !tbaa !24
   %36 = load ptr, ptr %1, align 8, !tbaa !3
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 144
   %38 = load ptr, ptr %37, align 8
@@ -2526,7 +2526,7 @@ define void @_ZN6icu_7717StringTrieBuilder14BranchHeadNode5writeERS0_(ptr nounde
 40:                                               ; preds = %25, %14
   %.sink = phi i32 [ %39, %25 ], [ %24, %14 ]
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store i32 %.sink, ptr %41, align 4, !tbaa !22
+  store i32 %.sink, ptr %41, align 4, !tbaa !21
   ret void
 }
 
@@ -2634,50 +2634,49 @@ attributes #17 = { noreturn nounwind }
 !14 = !{!15, !16, i64 8}
 !15 = !{!"_ZTSN6icu_7717StringTrieBuilder4NodeE", !8, i64 0, !16, i64 8, !16, i64 12}
 !16 = !{!"int", !11, i64 0}
-!17 = distinct !{!17, !18, !19}
+!17 = distinct !{!17, !18}
 !18 = !{!"llvm.loop.mustprogress"}
-!19 = !{!"llvm.loop.estimated_trip_count"}
-!20 = !{!11, !11, i64 0}
-!21 = distinct !{!21, !18, !19}
-!22 = !{!15, !16, i64 12}
-!23 = !{!24, !11, i64 16}
-!24 = !{!"_ZTSN6icu_7717StringTrieBuilder9ValueNodeE", !15, i64 0, !11, i64 16, !16, i64 20}
-!25 = !{!24, !16, i64 20}
-!26 = !{!27, !16, i64 24}
-!27 = !{!"_ZTSN6icu_7717StringTrieBuilder14BranchHeadNodeE", !24, i64 0, !16, i64 24, !28, i64 32}
-!28 = !{!"p1 _ZTSN6icu_7717StringTrieBuilder4NodeE", !10, i64 0}
-!29 = !{!27, !28, i64 32}
-!30 = !{!31, !28, i64 24}
-!31 = !{!"_ZTSN6icu_7717StringTrieBuilder21IntermediateValueNodeE", !24, i64 0, !28, i64 24}
-!32 = !{!33, !33, i64 0}
-!33 = !{!"char16_t", !11, i64 0}
-!34 = !{!16, !16, i64 0}
-!35 = distinct !{!35, !18, !19}
-!36 = distinct !{!36, !18, !19}
-!37 = distinct !{!37, !18, !19}
-!38 = distinct !{!38, !18, !19}
-!39 = distinct !{!39, !18, !19}
-!40 = !{!41, !16, i64 16}
-!41 = !{!"_ZTSN6icu_7717StringTrieBuilder14FinalValueNodeE", !15, i64 0, !16, i64 16}
-!42 = !{!28, !28, i64 0}
-!43 = distinct !{!43, !18, !19}
-!44 = !{!45, !16, i64 64}
-!45 = !{!"_ZTSN6icu_7717StringTrieBuilder14ListBranchNodeE", !46, i64 0, !11, i64 24, !16, i64 64, !11, i64 68, !11, i64 88}
-!46 = !{!"_ZTSN6icu_7717StringTrieBuilder10BranchNodeE", !15, i64 0, !16, i64 16}
-!47 = distinct !{!47, !18, !19}
-!48 = !{!49, !33, i64 20}
-!49 = !{!"_ZTSN6icu_7717StringTrieBuilder15SplitBranchNodeE", !46, i64 0, !33, i64 20, !28, i64 24, !28, i64 32}
-!50 = !{!49, !28, i64 24}
-!51 = !{!49, !28, i64 32}
-!52 = distinct !{!52, !18, !19}
-!53 = !{!54, !55, i64 8}
-!54 = !{!"_ZTSSt9type_info", !55, i64 8}
-!55 = !{!"p1 omnipotent char", !10, i64 0}
-!56 = !{!57, !16, i64 24}
-!57 = !{!"_ZTSN6icu_7717StringTrieBuilder15LinearMatchNodeE", !24, i64 0, !16, i64 24, !28, i64 32}
-!58 = !{!57, !28, i64 32}
-!59 = distinct !{!59, !18, !19}
-!60 = !{!46, !16, i64 16}
-!61 = distinct !{!61, !18, !19}
-!62 = distinct !{!62, !18, !19}
-!63 = distinct !{!63, !18, !19}
+!19 = !{!11, !11, i64 0}
+!20 = distinct !{!20, !18}
+!21 = !{!15, !16, i64 12}
+!22 = !{!23, !11, i64 16}
+!23 = !{!"_ZTSN6icu_7717StringTrieBuilder9ValueNodeE", !15, i64 0, !11, i64 16, !16, i64 20}
+!24 = !{!23, !16, i64 20}
+!25 = !{!26, !16, i64 24}
+!26 = !{!"_ZTSN6icu_7717StringTrieBuilder14BranchHeadNodeE", !23, i64 0, !16, i64 24, !27, i64 32}
+!27 = !{!"p1 _ZTSN6icu_7717StringTrieBuilder4NodeE", !10, i64 0}
+!28 = !{!26, !27, i64 32}
+!29 = !{!30, !27, i64 24}
+!30 = !{!"_ZTSN6icu_7717StringTrieBuilder21IntermediateValueNodeE", !23, i64 0, !27, i64 24}
+!31 = !{!32, !32, i64 0}
+!32 = !{!"char16_t", !11, i64 0}
+!33 = !{!16, !16, i64 0}
+!34 = distinct !{!34, !18}
+!35 = distinct !{!35, !18}
+!36 = distinct !{!36, !18}
+!37 = distinct !{!37, !18}
+!38 = distinct !{!38, !18}
+!39 = !{!40, !16, i64 16}
+!40 = !{!"_ZTSN6icu_7717StringTrieBuilder14FinalValueNodeE", !15, i64 0, !16, i64 16}
+!41 = !{!27, !27, i64 0}
+!42 = distinct !{!42, !18}
+!43 = !{!44, !16, i64 64}
+!44 = !{!"_ZTSN6icu_7717StringTrieBuilder14ListBranchNodeE", !45, i64 0, !11, i64 24, !16, i64 64, !11, i64 68, !11, i64 88}
+!45 = !{!"_ZTSN6icu_7717StringTrieBuilder10BranchNodeE", !15, i64 0, !16, i64 16}
+!46 = distinct !{!46, !18}
+!47 = !{!48, !32, i64 20}
+!48 = !{!"_ZTSN6icu_7717StringTrieBuilder15SplitBranchNodeE", !45, i64 0, !32, i64 20, !27, i64 24, !27, i64 32}
+!49 = !{!48, !27, i64 24}
+!50 = !{!48, !27, i64 32}
+!51 = distinct !{!51, !18}
+!52 = !{!53, !54, i64 8}
+!53 = !{!"_ZTSSt9type_info", !54, i64 8}
+!54 = !{!"p1 omnipotent char", !10, i64 0}
+!55 = !{!56, !16, i64 24}
+!56 = !{!"_ZTSN6icu_7717StringTrieBuilder15LinearMatchNodeE", !23, i64 0, !16, i64 24, !27, i64 32}
+!57 = !{!56, !27, i64 32}
+!58 = distinct !{!58, !18}
+!59 = !{!45, !16, i64 16}
+!60 = distinct !{!60, !18}
+!61 = distinct !{!61, !18}
+!62 = distinct !{!62, !18}

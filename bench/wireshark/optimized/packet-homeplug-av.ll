@@ -2808,7 +2808,7 @@ dissect_homeplug_av_st_iotecha_header.exit.i.i:   ; preds = %128, %107
   %225 = tail call i32 @ptvcursor_current_offset(ptr noundef %14)
   %226 = tail call zeroext i16 @tvb_get_uint16(ptr noundef %224, i32 noundef %225, i32 noundef -2147483648)
   %227 = icmp ult i16 %226, 1024
-  br i1 %227, label %check_tvb_length.exit, label %.lr.ph.i.i.i.i, !llvm.loop !6
+  br i1 %227, label %check_tvb_length.exit, label %.lr.ph.i.i.i.i
 
 228:                                              ; preds = %dissect_homeplug_av_st_iotecha_header.exit.i.i
   %229 = tail call ptr @ptvcursor_tree(ptr noundef %14)
@@ -2862,7 +2862,7 @@ dissect_homeplug_av_st_iotecha_status_standard.exit.i.i.i: ; preds = %237, %235
   %253 = tail call ptr @ptvcursor_add(ptr noundef %14, i32 noundef %252, i32 noundef 1, i32 noundef 0)
   %254 = add nuw i8 %.07.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i8 %254, %249
-  br i1 %exitcond.not.i.i.i, label %check_tvb_length.exit, label %.lr.ph.i.i.i, !llvm.loop !8
+  br i1 %exitcond.not.i.i.i, label %check_tvb_length.exit, label %.lr.ph.i.i.i, !llvm.loop !6
 
 255:                                              ; preds = %dissect_homeplug_av_st_iotecha_header.exit.i.i
   %256 = tail call ptr @ptvcursor_tree(ptr noundef %14)
@@ -2898,7 +2898,7 @@ dissect_homeplug_av_st_iotecha_status_standard.exit.i.i.i: ; preds = %237, %235
   %273 = tail call ptr @ptvcursor_add(ptr noundef %14, i32 noundef %272, i32 noundef 2, i32 noundef -2147483648)
   %274 = add nuw i8 %.09.i.i.i, 1
   %exitcond.not.i46.i.i = icmp eq i8 %274, %265
-  br i1 %exitcond.not.i46.i.i, label %check_tvb_length.exit, label %.lr.ph.i45.i.i, !llvm.loop !10
+  br i1 %exitcond.not.i46.i.i, label %check_tvb_length.exit, label %.lr.ph.i45.i.i, !llvm.loop !8
 
 275:                                              ; preds = %dissect_homeplug_av_st_iotecha_header.exit.i.i
   %276 = tail call ptr @ptvcursor_tree(ptr noundef %14)
@@ -2961,7 +2961,7 @@ dissect_homeplug_av_st_iotecha_status_standard.exit.i.i.i: ; preds = %237, %235
 
 308:                                              ; preds = %307, %303
   %.not25.i.i.i.i = icmp eq i8 %297, -1
-  br i1 %.not25.i.i.i.i, label %309, label %294, !llvm.loop !11
+  br i1 %.not25.i.i.i.i, label %309, label %294, !llvm.loop !9
 
 309:                                              ; preds = %308
   tail call void @ptvcursor_pop_subtree(ptr noundef %14)
@@ -2970,7 +2970,7 @@ dissect_homeplug_av_st_iotecha_status_standard.exit.i.i.i: ; preds = %237, %235
 310:                                              ; preds = %309, %.lr.ph.i.i50.i.i
   %311 = add nuw nsw i16 %.02327.i.i.i.i, 1
   %exitcond.not.i.i.i.i = icmp eq i16 %311, %284
-  br i1 %exitcond.not.i.i.i.i, label %check_tvb_length.exit, label %.lr.ph.i.i50.i.i, !llvm.loop !12
+  br i1 %exitcond.not.i.i.i.i, label %check_tvb_length.exit, label %.lr.ph.i.i50.i.i, !llvm.loop !10
 
 312:                                              ; preds = %dissect_homeplug_av_st_iotecha_header.exit.i.i
   %313 = tail call ptr @ptvcursor_tree(ptr noundef %14)
@@ -3043,7 +3043,7 @@ dissect_homeplug_av_st_iotecha_status_standard.exit.i.i.i: ; preds = %237, %235
   %362 = tail call ptr @ptvcursor_add(ptr noundef %14, i32 noundef %361, i32 noundef 1, i32 noundef 0)
   %363 = add nuw nsw i16 %.036.i.i.i, 1
   %exitcond.not.i55.i.i = icmp eq i16 %363, %358
-  br i1 %exitcond.not.i55.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i54.i.i, !llvm.loop !13
+  br i1 %exitcond.not.i55.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i54.i.i, !llvm.loop !11
 
 ._crit_edge.i.i.i:                                ; preds = %.lr.ph.i54.i.i, %328
   tail call void @ptvcursor_pop_subtree(ptr noundef %14)
@@ -3068,7 +3068,7 @@ dissect_homeplug_av_st_iotecha_status_standard.exit.i.i.i: ; preds = %237, %235
   tail call void @ptvcursor_advance(ptr noundef %14, i32 noundef 1)
   %377 = add nuw nsw i16 %.137.i.i.i, 1
   %exitcond39.not.i.i.i = icmp eq i16 %377, 577
-  br i1 %exitcond39.not.i.i.i, label %378, label %372, !llvm.loop !14
+  br i1 %exitcond39.not.i.i.i, label %378, label %372, !llvm.loop !12
 
 378:                                              ; preds = %372
   tail call void @ptvcursor_pop_subtree(ptr noundef %14)
@@ -3203,7 +3203,7 @@ dissect_homeplug_av_st_iotecha_status_standard.exit.i.i.i: ; preds = %237, %235
   %466 = tail call i32 @ptvcursor_current_offset(ptr noundef %14)
   %467 = tail call i32 @tvb_reported_length_remaining(ptr noundef %465, i32 noundef %466)
   %468 = icmp sgt i32 %467, 1
-  br i1 %468, label %.lr.ph.i62.i.i, label %check_tvb_length.exit, !llvm.loop !15
+  br i1 %468, label %.lr.ph.i62.i.i, label %check_tvb_length.exit, !llvm.loop !13
 
 469:                                              ; preds = %dissect_homeplug_av_st_iotecha_header.exit.i.i
   %470 = tail call ptr @ptvcursor_tree(ptr noundef %14)
@@ -3517,7 +3517,7 @@ define internal fastcc void @dissect_homeplug_av_mme_general(ptr noundef %0, i16
 dissect_homeplug_av_cc_sta_info.exit.i:           ; preds = %17, %.lr.ph.i
   %36 = add nuw i8 %.01820.i, 1
   %exitcond.not.i = icmp eq i8 %36, %13
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !16
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !14
 
 ._crit_edge.i:                                    ; preds = %dissect_homeplug_av_cc_sta_info.exit.i, %6
   %37 = tail call ptr @ptvcursor_tvbuff(ptr noundef %0)
@@ -3557,7 +3557,7 @@ dissect_homeplug_av_cc_sta_info.exit.i:           ; preds = %17, %.lr.ph.i
 dissect_homeplug_av_cc_net_info.exit.i:           ; preds = %43, %.lr.ph23.i
   %60 = add nuw i8 %.021.i, 1
   %exitcond27.not.i = icmp eq i8 %60, %39
-  br i1 %exitcond27.not.i, label %._crit_edge24.i, label %.lr.ph23.i, !llvm.loop !17
+  br i1 %exitcond27.not.i, label %._crit_edge24.i, label %.lr.ph23.i, !llvm.loop !15
 
 ._crit_edge24.i:                                  ; preds = %dissect_homeplug_av_cc_net_info.exit.i, %._crit_edge.i
   tail call void @ptvcursor_pop_subtree(ptr noundef %0)
@@ -3795,7 +3795,7 @@ dissect_homeplug_av_cc_net_info.exit.i:           ; preds = %43, %.lr.ph23.i
   %232 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %231, i32 noundef 6, i32 noundef 0)
   %233 = add nuw i8 %.017.i, 1
   %exitcond.not.i35 = icmp eq i8 %233, %228
-  br i1 %exitcond.not.i35, label %.loopexit.i, label %.lr.ph.i34, !llvm.loop !18
+  br i1 %exitcond.not.i35, label %.loopexit.i, label %.lr.ph.i34, !llvm.loop !16
 
 .loopexit.i:                                      ; preds = %.lr.ph.i34, %223, %213
   tail call void @ptvcursor_pop_subtree(ptr noundef %0)
@@ -3824,7 +3824,7 @@ dissect_homeplug_av_cc_net_info.exit.i:           ; preds = %43, %.lr.ph23.i
   tail call fastcc void @dissect_homeplug_av_nw_info_net(ptr noundef %0, i1 noundef zeroext false, i8 noundef zeroext 0)
   %246 = add nuw i8 %.011.i, 1
   %exitcond.not.i38 = icmp eq i8 %246, %243
-  br i1 %exitcond.not.i38, label %._crit_edge.i39, label %.lr.ph.i37, !llvm.loop !19
+  br i1 %exitcond.not.i38, label %._crit_edge.i39, label %.lr.ph.i37, !llvm.loop !17
 
 ._crit_edge.i39:                                  ; preds = %.lr.ph.i37, %236
   tail call void @ptvcursor_pop_subtree(ptr noundef %0)
@@ -3853,7 +3853,7 @@ dissect_homeplug_av_cc_net_info.exit.i:           ; preds = %43, %.lr.ph23.i
   tail call fastcc void @dissect_homeplug_av_nw_info_sta(ptr noundef %0, i1 noundef zeroext false, i32 noundef 0)
   %259 = add nuw i8 %.011.i43, 1
   %exitcond.not.i44 = icmp eq i8 %259, %256
-  br i1 %exitcond.not.i44, label %._crit_edge.i45, label %.lr.ph.i42, !llvm.loop !20
+  br i1 %exitcond.not.i44, label %._crit_edge.i45, label %.lr.ph.i42, !llvm.loop !18
 
 ._crit_edge.i45:                                  ; preds = %.lr.ph.i42, %249
   tail call void @ptvcursor_pop_subtree(ptr noundef %0)
@@ -3932,7 +3932,7 @@ dissect_homeplug_av_cc_net_info.exit.i:           ; preds = %43, %.lr.ph23.i
   %307 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %306, i32 noundef 1, i32 noundef 0)
   %308 = add nuw nsw i32 %.010.i, 1
   %exitcond.not.i51 = icmp eq i32 %308, %301
-  br i1 %exitcond.not.i51, label %dissect_homeplug_av_cc_disc_list_cnf.exit, label %.lr.ph.i50, !llvm.loop !21
+  br i1 %exitcond.not.i51, label %dissect_homeplug_av_cc_disc_list_cnf.exit, label %.lr.ph.i50, !llvm.loop !19
 
 309:                                              ; preds = %3
   %310 = tail call ptr @ptvcursor_tree(ptr noundef %0)
@@ -3968,7 +3968,7 @@ dissect_homeplug_av_cc_net_info.exit.i:           ; preds = %43, %.lr.ph23.i
   %330 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %329, i32 noundef 2, i32 noundef -2147483648)
   %331 = add nuw nsw i16 %.013.i, 1
   %exitcond.not.i56 = icmp eq i16 %331, %328
-  br i1 %exitcond.not.i56, label %dissect_homeplug_av_cc_disc_list_cnf.exit, label %.lr.ph.i55, !llvm.loop !22
+  br i1 %exitcond.not.i56, label %dissect_homeplug_av_cc_disc_list_cnf.exit, label %.lr.ph.i55, !llvm.loop !20
 
 332:                                              ; preds = %3
   %333 = tail call ptr @ptvcursor_tree(ptr noundef %0)
@@ -4027,7 +4027,7 @@ dissect_homeplug_av_cc_net_info.exit.i:           ; preds = %43, %.lr.ph23.i
   %370 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %369, i32 noundef 1, i32 noundef 0)
   %371 = add nuw nsw i16 %.09.i, 1
   %exitcond.not.i60 = icmp eq i16 %371, %368
-  br i1 %exitcond.not.i60, label %dissect_homeplug_av_cc_disc_list_cnf.exit, label %.lr.ph.i59, !llvm.loop !23
+  br i1 %exitcond.not.i60, label %dissect_homeplug_av_cc_disc_list_cnf.exit, label %.lr.ph.i59, !llvm.loop !21
 
 372:                                              ; preds = %3
   %373 = tail call ptr @ptvcursor_tree(ptr noundef %0)
@@ -4064,7 +4064,7 @@ dissect_homeplug_av_cc_net_info.exit.i:           ; preds = %43, %.lr.ph23.i
   tail call void @ptvcursor_advance(ptr noundef %0, i32 noundef 1)
   %388 = add nuw nsw i16 %.05358.i, 1
   %exitcond66.not.i = icmp eq i16 %388, %382
-  br i1 %exitcond66.not.i, label %._crit_edge62.i, label %.lr.ph61.i, !llvm.loop !24
+  br i1 %exitcond66.not.i, label %._crit_edge62.i, label %.lr.ph61.i, !llvm.loop !22
 
 ._crit_edge62.i:                                  ; preds = %.lr.ph61.i, %378
   %.0.lcssa.i = phi float [ 0.000000e+00, %378 ], [ %387, %.lr.ph61.i ]
@@ -4132,7 +4132,7 @@ dissect_homeplug_av_cc_net_info.exit.i:           ; preds = %43, %.lr.ph23.i
   %438 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %432, i32 noundef %433, ptr noundef %434, i32 noundef %435, i32 noundef 1, i32 noundef %436, ptr noundef nonnull @.str.1671, i32 noundef %437, i32 noundef %436)
   tail call void @ptvcursor_advance(ptr noundef %0, i32 noundef 1)
   %exitcond.not.i64 = icmp eq i32 %437, %422
-  br i1 %exitcond.not.i64, label %._crit_edge.i65, label %.lr.ph.i63, !llvm.loop !25
+  br i1 %exitcond.not.i64, label %._crit_edge.i65, label %.lr.ph.i63, !llvm.loop !23
 
 ._crit_edge.i65:                                  ; preds = %.lr.ph.i63, %407
   tail call void @ptvcursor_pop_subtree(ptr noundef %0)
@@ -4404,7 +4404,7 @@ dissect_homeplug_av_cc_net_info.exit.i:           ; preds = %43, %.lr.ph23.i
   %616 = tail call i32 @ptvcursor_current_offset(ptr noundef %0)
   %617 = tail call zeroext i16 @tvb_get_uint16(ptr noundef %615, i32 noundef %616, i32 noundef -2147483648)
   %618 = icmp eq i16 %617, 0
-  br i1 %618, label %dissect_homeplug_av_cc_disc_list_cnf.exit, label %.lr.ph.i85, !llvm.loop !26
+  br i1 %618, label %dissect_homeplug_av_cc_disc_list_cnf.exit, label %.lr.ph.i85
 
 dissect_homeplug_av_cc_disc_list_cnf.exit:        ; preds = %.lr.ph.i85, %.lr.ph.i59, %.lr.ph.i55, %.lr.ph.i50, %595, %593, %.sink.split.i82, %561, %.sink.split.i79, %535, %530, %524, %522, %517, %511, %509, %.sink.split.i72, %497, %483, %.sink.split.i68, %461, %.sink.split.i, %439, %._crit_edge.i65, %404, %._crit_edge62.i, %374, %360, %358, %355, %334, %332, %322, %311, %309, %293, %291, %286, %284, %273, %271, %262, %260, %._crit_edge.i45, %247, %._crit_edge.i39, %234, %.loopexit.i, %211, %186, %184, %183, %155, %136, %134, %109, %107, %96, %94, %93, %61, %._crit_edge24.i, %4, %3
   ret void
@@ -5230,7 +5230,7 @@ dissect_homeplug_av_beacon.exit.i:                ; preds = %dissect_homeplug_av
   tail call fastcc void @dissect_homeplug_av_nw_info_sta(ptr noundef %0, i1 noundef zeroext true, i32 noundef %510)
   %531 = add nuw i8 %.023.i, 1
   %exitcond.not.i = icmp eq i8 %531, %524
-  br i1 %exitcond.not.i, label %dissect_homeplug_av_get_sw_cnf.exit.sink.split, label %.lr.ph.i, !llvm.loop !27
+  br i1 %exitcond.not.i, label %dissect_homeplug_av_get_sw_cnf.exit.sink.split, label %.lr.ph.i, !llvm.loop !24
 
 532:                                              ; preds = %3
   %533 = tail call ptr @ptvcursor_tree(ptr noundef %0)
@@ -6058,7 +6058,7 @@ define internal fastcc void @dissect_homeplug_av_lnk_stats_rx(ptr noundef %0) un
 dissect_homeplug_av_lnk_stats_rx_interval.exit:   ; preds = %.lr.ph, %26
   %41 = add nuw i8 %.017, 1
   %exitcond.not = icmp eq i8 %41, %22
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !28
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !25
 
 ._crit_edge:                                      ; preds = %dissect_homeplug_av_lnk_stats_rx_interval.exit, %3
   tail call void @ptvcursor_pop_subtree(ptr noundef %0)
@@ -6185,7 +6185,7 @@ define internal fastcc void @dissect_homeplug_av_tone_map_carrier(ptr noundef %0
   %50 = add i16 %.066, %49
   %indvars.iv.next = add nuw nsw i32 %indvars.iv, 1
   %exitcond.not = icmp eq i32 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !29
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !26
 
 ._crit_edge:                                      ; preds = %.lr.ph
   %.not59 = icmp eq i16 %.2, 0
@@ -6260,26 +6260,23 @@ attributes #4 = { nocallback nofree nosync nounwind speculatable willreturn memo
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = distinct !{!6, !7}
-!7 = !{!"llvm.loop.estimated_trip_count"}
-!8 = distinct !{!8, !9, !7}
-!9 = !{!"llvm.loop.mustprogress"}
-!10 = distinct !{!10, !9, !7}
-!11 = distinct !{!11, !9, !7}
-!12 = distinct !{!12, !9, !7}
-!13 = distinct !{!13, !9, !7}
-!14 = distinct !{!14, !9, !7}
-!15 = distinct !{!15, !9, !7}
-!16 = distinct !{!16, !9, !7}
-!17 = distinct !{!17, !9, !7}
-!18 = distinct !{!18, !9, !7}
-!19 = distinct !{!19, !9, !7}
-!20 = distinct !{!20, !9, !7}
-!21 = distinct !{!21, !9, !7}
-!22 = distinct !{!22, !9, !7}
-!23 = distinct !{!23, !9, !7}
-!24 = distinct !{!24, !9, !7}
-!25 = distinct !{!25, !9, !7}
+!7 = !{!"llvm.loop.mustprogress"}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7}
+!12 = distinct !{!12, !7}
+!13 = distinct !{!13, !7}
+!14 = distinct !{!14, !7}
+!15 = distinct !{!15, !7}
+!16 = distinct !{!16, !7}
+!17 = distinct !{!17, !7}
+!18 = distinct !{!18, !7}
+!19 = distinct !{!19, !7}
+!20 = distinct !{!20, !7}
+!21 = distinct !{!21, !7}
+!22 = distinct !{!22, !7}
+!23 = distinct !{!23, !7}
+!24 = distinct !{!24, !7}
+!25 = distinct !{!25, !7}
 !26 = distinct !{!26, !7}
-!27 = distinct !{!27, !9, !7}
-!28 = distinct !{!28, !9, !7}
-!29 = distinct !{!29, !9, !7}

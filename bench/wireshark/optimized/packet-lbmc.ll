@@ -5058,7 +5058,7 @@ dissect_nhdr_apphdr_chain_msgprop_element.exit.i: ; preds = %492, %457
   %965 = add i8 %.03537.i, -8
   %966 = add nuw nsw i32 %.039.i, 8
   %967 = icmp ugt i8 %965, 7
-  br i1 %967, label %.lr.ph.i838, label %dissect_nhdr_tsni.exit, !llvm.loop !10
+  br i1 %967, label %.lr.ph.i838, label %dissect_nhdr_tsni.exit, !llvm.loop !9
 
 dissect_nhdr_tsni.exit:                           ; preds = %.lr.ph.i838, %937
   %.0.lcssa.i837 = phi i32 [ 4, %937 ], [ %966, %.lr.ph.i838 ]
@@ -5437,7 +5437,7 @@ dissect_nhdr_umq_reg_resp.exit:                   ; preds = %1111, %1118, %1132,
   %1254 = icmp samesign ult i8 %1253, %1239
   %1255 = icmp slt i32 %1252, %1238
   %1256 = select i1 %1254, i1 %1255, i1 false
-  br i1 %1256, label %.lr.ph.i843, label %._crit_edge.i841, !llvm.loop !11
+  br i1 %1256, label %.lr.ph.i843, label %._crit_edge.i841, !llvm.loop !10
 
 ._crit_edge.i841:                                 ; preds = %.lr.ph.i843, %1219
   %.064.lcssa.i = phi i32 [ 4, %1219 ], [ %1252, %.lr.ph.i843 ]
@@ -6717,7 +6717,7 @@ dissect_nhdr_umq_idx_cmd_resp.exit:               ; preds = %2086, %2099, %2108,
   %2285 = add nuw nsw i32 %.03.i, 4
   %2286 = add nuw nsw i32 %.0352.i, 1
   %exitcond.not.i = icmp eq i32 %2286, %2282
-  br i1 %exitcond.not.i, label %._crit_edge.loopexit.i, label %.lr.ph.i856, !llvm.loop !12
+  br i1 %exitcond.not.i, label %._crit_edge.loopexit.i, label %.lr.ph.i856, !llvm.loop !11
 
 ._crit_edge.loopexit.i:                           ; preds = %.lr.ph.i856
   %2287 = shl nuw nsw i32 %2282, 2
@@ -6764,7 +6764,7 @@ dissect_nhdr_topic_md_interest.exit:              ; preds = %2263, %._crit_edge.
   %2315 = add nuw nsw i32 %.03.i861, 4
   %2316 = add nuw nsw i32 %.0412.i, 1
   %exitcond.not.i862 = icmp eq i32 %2316, %2312
-  br i1 %exitcond.not.i862, label %._crit_edge.loopexit.i863, label %.lr.ph.i860, !llvm.loop !13
+  br i1 %exitcond.not.i862, label %._crit_edge.loopexit.i863, label %.lr.ph.i860, !llvm.loop !12
 
 ._crit_edge.loopexit.i863:                        ; preds = %.lr.ph.i860
   %2317 = shl nuw nsw i32 %2312, 2
@@ -6935,7 +6935,7 @@ dissect_nhdr_pattern_md_interest.exit:            ; preds = %2289, %._crit_edge.
   %2455 = add nuw nsw i32 %.0331.i.i, 16
   %2456 = add nuw i8 %.02.i.i, 1
   %exitcond.not.i.i = icmp eq i8 %2456, %2444
-  br i1 %exitcond.not.i.i, label %dissect_nhdr_umq_rcv_msg_retrieve.exit.i, label %.lr.ph.i.i, !llvm.loop !14
+  br i1 %exitcond.not.i.i, label %dissect_nhdr_umq_rcv_msg_retrieve.exit.i, label %.lr.ph.i.i, !llvm.loop !13
 
 dissect_nhdr_umq_rcv_msg_retrieve.exit.i:         ; preds = %.lr.ph.i.i, %2429
   %.033.lcssa.i.i = phi i32 [ 12, %2429 ], [ %2455, %.lr.ph.i.i ]
@@ -7547,7 +7547,7 @@ dissect_nhdr_auth_unknown.exit:                   ; preds = %2734, %2738
   %2935 = add nsw i32 %2918, -8
   %2936 = and i8 %2914, 32
   %2937 = icmp eq i8 %2936, 0
-  %2938 = load i8, ptr %308, align 4, !range !15, !noundef !16
+  %2938 = load i8, ptr %308, align 4, !range !14, !noundef !15
   %2939 = trunc nuw i8 %2938 to i1
   br i1 %2937, label %2940, label %3011
 
@@ -7764,7 +7764,7 @@ proto_item_set_generated.exit156.i:               ; preds = %2983, %2980, %proto
   %3049 = add i8 %316, -1
   %3050 = icmp ult i8 %3049, -2
   %or.cond35 = select i1 %3048, i1 %3050, i1 false
-  br i1 %or.cond35, label %.lr.ph, label %.critedge.loopexit, !llvm.loop !17
+  br i1 %or.cond35, label %.lr.ph, label %.critedge.loopexit, !llvm.loop !16
 
 .critedge.loopexit:                               ; preds = %3044
   %3051 = icmp eq i32 %.sroa.01051.2, 0
@@ -7909,9 +7909,9 @@ proto_item_set_generated.exit156.i:               ; preds = %2983, %2980, %proto
   br i1 %3102, label %3103, label %3566
 
 3103:                                             ; preds = %.thread1099
-  %3104 = load i8, ptr %39, align 4, !range !15, !noundef !16
+  %3104 = load i8, ptr %39, align 4, !range !14, !noundef !15
   %3105 = trunc nuw i8 %3104 to i1
-  %3106 = load i8, ptr %40, align 1, !range !15
+  %3106 = load i8, ptr %40, align 1, !range !14
   %3107 = trunc nuw i8 %3106 to i1
   %or.cond22 = select i1 %3105, i1 %3107, i1 false
   %or.cond22.not = xor i1 %or.cond22, true
@@ -8990,7 +8990,7 @@ proto_item_set_generated.exit913:                 ; preds = %proto_item_set_gene
   br label %proto_item_set_generated.exit926
 
 3578:                                             ; preds = %3568
-  %3579 = load i8, ptr @lbmc_reassemble_fragments, align 1, !range !15, !noundef !16
+  %3579 = load i8, ptr @lbmc_reassemble_fragments, align 1, !range !14, !noundef !15
   %3580 = trunc nuw i8 %3579 to i1
   br i1 %3580, label %3584, label %3581
 
@@ -9172,7 +9172,7 @@ proto_item_set_generated.exit913:                 ; preds = %proto_item_set_gene
   %3656 = getelementptr inbounds nuw i8, ptr %.0.i918, i64 8
   %3657 = load ptr, ptr %3656, align 8
   %3658 = icmp eq ptr %3657, null
-  br i1 %3658, label %.loopexit65.i, label %.preheader.i, !llvm.loop !18
+  br i1 %3658, label %.loopexit65.i, label %.preheader.i, !llvm.loop !17
 
 .loopexit65.i:                                    ; preds = %3655, %3653
   %.1.i919 = phi ptr [ %3654, %3653 ], [ %.0.i918, %3655 ]
@@ -9314,11 +9314,11 @@ lbmc_message_add_fragment.exit:                   ; preds = %.preheader.i, %3636
   %3734 = select i1 %3733, i64 0, i64 %3732
   %3735 = icmp ne i64 %3734, -1
   call void @llvm.assume(i1 %3735)
-  %3736 = call ptr @__memcpy_chk(ptr noundef %3726, ptr noundef %3728, i64 noundef range(i64 0, 4294967296) %3731, i64 noundef %3734) #12, !alias.scope !19
+  %3736 = call ptr @__memcpy_chk(ptr noundef %3726, ptr noundef %3728, i64 noundef range(i64 0, 4294967296) %3731, i64 noundef %3734) #12, !alias.scope !18
   %3737 = getelementptr inbounds nuw i8, ptr %.07181245, i64 8
   %.0718 = load ptr, ptr %3737, align 8
   %.not823 = icmp eq ptr %.0718, null
-  br i1 %.not823, label %._crit_edge, label %.lr.ph1246, !llvm.loop !23
+  br i1 %.not823, label %._crit_edge, label %.lr.ph1246, !llvm.loop !22
 
 ._crit_edge:                                      ; preds = %.lr.ph1246, %3717
   %3738 = load i32, ptr %3632, align 4
@@ -9386,7 +9386,7 @@ lbmc_message_add_fragment.exit:                   ; preds = %.preheader.i, %3636
   %3777 = phi ptr [ null, %3769 ], [ %3775, %3771 ], [ %3767, %3764 ]
   %3778 = phi ptr [ %3765, %3769 ], [ %.pre1288, %3771 ], [ %3765, %3764 ]
   %3779 = getelementptr inbounds nuw i8, ptr %.17271134, i64 56
-  %3780 = load i8, ptr %3779, align 8, !range !15, !noundef !16
+  %3780 = load i8, ptr %3779, align 8, !range !14, !noundef !15
   %3781 = load i32, ptr @hf_lbmc_reassembly, align 4
   %3782 = call i32 @tvb_reported_length_remaining(ptr noundef %3778, i32 noundef 0)
   %3783 = getelementptr inbounds nuw i8, ptr %.17271134, i64 40
@@ -9436,7 +9436,7 @@ proto_item_set_generated.exit923:                 ; preds = %.lr.ph1252, %3800, 
   %3809 = getelementptr inbounds nuw i8, ptr %.17191250, i64 8
   %.1719 = load ptr, ptr %3809, align 8
   %.not826 = icmp eq ptr %.1719, null
-  br i1 %.not826, label %._crit_edge1253, label %.lr.ph1252, !llvm.loop !24
+  br i1 %.not826, label %._crit_edge1253, label %.lr.ph1252, !llvm.loop !23
 
 ._crit_edge1253:                                  ; preds = %proto_item_set_generated.exit923, %3776
   %.not.i924 = icmp eq ptr %3786, null
@@ -9514,7 +9514,7 @@ proto_item_set_generated.exit926:                 ; preds = %3634, %3616, %3570,
   br i1 %.07281146, label %3841, label %3854
 
 3841:                                             ; preds = %3838
-  %3842 = load i8, ptr @lbmc_use_heuristic_subdissectors, align 1, !range !15, !noundef !16
+  %3842 = load i8, ptr @lbmc_use_heuristic_subdissectors, align 1, !range !14, !noundef !15
   %3843 = trunc nuw i8 %3842 to i1
   br i1 %3843, label %3844, label %.thread1147
 
@@ -9524,7 +9524,7 @@ proto_item_set_generated.exit926:                 ; preds = %3634, %3616, %3570,
   br i1 %3846, label %3856, label %.thread1147
 
 .thread1147:                                      ; preds = %3841, %3844
-  %3847 = load i8, ptr @lbmc_dissect_lbmpdm, align 1, !range !15, !noundef !16
+  %3847 = load i8, ptr @lbmc_dissect_lbmpdm, align 1, !range !14, !noundef !15
   %3848 = trunc nuw i8 %3847 to i1
   br i1 %3848, label %3849, label %.thread1150
 
@@ -9715,7 +9715,7 @@ proto_item_set_generated.exit926:                 ; preds = %3634, %3616, %3570,
   %3935 = add nuw nsw i32 %.0161174.i, 16
   %3936 = add nuw i16 %.0163173.i, 1
   %exitcond.not.i933 = icmp eq i16 %3936, %.0164.i
-  br i1 %exitcond.not.i933, label %dissect_msg_properties.exit, label %.lr.ph.i932, !llvm.loop !25
+  br i1 %exitcond.not.i933, label %dissect_msg_properties.exit, label %.lr.ph.i932, !llvm.loop !24
 
 dissect_msg_properties.exit:                      ; preds = %3932, %3885, %3878, %3856
   %3937 = icmp ne ptr %.0787, null
@@ -10296,7 +10296,7 @@ define internal fastcc noundef i32 @dissect_nhdr_umq_cmd_resp(ptr noundef %0, pt
   %94 = add i32 %.03.i.i.i, 4
   %95 = add nuw i16 %.0392.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i16 %95, %87
-  br i1 %exitcond.not.i.i.i, label %dissect_nhdr_umq_cmd_resp_ctx_topic_list_appset_entry.exit.i.i, label %90, !llvm.loop !26
+  br i1 %exitcond.not.i.i.i, label %dissect_nhdr_umq_cmd_resp_ctx_topic_list_appset_entry.exit.i.i, label %90, !llvm.loop !25
 
 dissect_nhdr_umq_cmd_resp_ctx_topic_list_appset_entry.exit.i.i: ; preds = %90, %65
   %.040.i.i.i = phi i32 [ %83, %65 ], [ %93, %90 ]
@@ -10305,7 +10305,7 @@ dissect_nhdr_umq_cmd_resp_ctx_topic_list_appset_entry.exit.i.i: ; preds = %90, %
   %97 = add i32 %.040.i.i.i, %.11.i.i
   %98 = add nuw i16 %.0422.i.i, 1
   %exitcond.not.i.i = icmp eq i16 %98, %62
-  br i1 %exitcond.not.i.i, label %dissect_nhdr_umq_cmd_resp_ctx_topic_list_topic_entry.exit.i, label %65, !llvm.loop !27
+  br i1 %exitcond.not.i.i, label %dissect_nhdr_umq_cmd_resp_ctx_topic_list_topic_entry.exit.i, label %65, !llvm.loop !26
 
 dissect_nhdr_umq_cmd_resp_ctx_topic_list_topic_entry.exit.i: ; preds = %dissect_nhdr_umq_cmd_resp_ctx_topic_list_appset_entry.exit.i.i, %.lr.ph.i
   %.043.i.i = phi i32 [ %58, %.lr.ph.i ], [ %97, %dissect_nhdr_umq_cmd_resp_ctx_topic_list_appset_entry.exit.i.i ]
@@ -10313,7 +10313,7 @@ dissect_nhdr_umq_cmd_resp_ctx_topic_list_topic_entry.exit.i: ; preds = %dissect_
   %99 = add i32 %.043.i.i, %.0212.i
   %100 = add nuw i32 %.03.i, 1
   %exitcond.not.i = icmp eq i32 %100, %39
-  br i1 %exitcond.not.i, label %dissect_nhdr_umq_cmd_resp_ctx_topic_list.exit, label %.lr.ph.i, !llvm.loop !28
+  br i1 %exitcond.not.i, label %dissect_nhdr_umq_cmd_resp_ctx_topic_list.exit, label %.lr.ph.i, !llvm.loop !27
 
 dissect_nhdr_umq_cmd_resp_ctx_topic_list.exit:    ; preds = %dissect_nhdr_umq_cmd_resp_ctx_topic_list_topic_entry.exit.i, %32
   %.021.lcssa.i = phi i32 [ 4, %32 ], [ %99, %dissect_nhdr_umq_cmd_resp_ctx_topic_list_topic_entry.exit.i ]
@@ -10366,7 +10366,7 @@ dissect_nhdr_umq_cmd_resp_ctx_topic_list.exit:    ; preds = %dissect_nhdr_umq_cm
   %136 = add nuw nsw i32 %.0462.i, 24
   %137 = add nuw nsw i32 %.03.i71, 1
   %exitcond.not.i72 = icmp eq i32 %137, %114
-  br i1 %exitcond.not.i72, label %._crit_edge.loopexit.i, label %.lr.ph.i70, !llvm.loop !29
+  br i1 %exitcond.not.i72, label %._crit_edge.loopexit.i, label %.lr.ph.i70, !llvm.loop !28
 
 ._crit_edge.loopexit.i:                           ; preds = %.lr.ph.i70
   %138 = mul nuw nsw i32 %114, 24
@@ -10418,7 +10418,7 @@ dissect_nhdr_umq_cmd_resp_rcv_xmsg_retrieve.exit: ; preds = %102, %._crit_edge.l
   %167 = add i32 %.0282.i, 16
   %168 = add nuw i64 %.03.i75, 1
   %exitcond.not.i76 = icmp eq i64 %168, %157
-  br i1 %exitcond.not.i76, label %._crit_edge.loopexit.i77, label %.lr.ph.i74, !llvm.loop !30
+  br i1 %exitcond.not.i76, label %._crit_edge.loopexit.i77, label %.lr.ph.i74, !llvm.loop !29
 
 ._crit_edge.loopexit.i77:                         ; preds = %.lr.ph.i74
   %169 = trunc i64 %157 to i32
@@ -10955,7 +10955,7 @@ define internal fastcc i32 @dissect_nhdr_extopt_cfgopt(ptr noundef %0, i32 nound
   %25 = add i32 %11, %.0371
   %26 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %24)
   %27 = icmp sgt i32 %26, 2
-  br i1 %27, label %.lr.ph, label %._crit_edge, !llvm.loop !31
+  br i1 %27, label %.lr.ph, label %._crit_edge, !llvm.loop !30
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   %.037.lcssa = phi i32 [ 0, %3 ], [ %25, %.lr.ph ]
@@ -11050,27 +11050,26 @@ attributes #16 = { allocsize(0) }
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7, !9}
-!9 = !{!"llvm.loop.estimated_trip_count"}
-!10 = distinct !{!10, !7, !9}
-!11 = distinct !{!11, !7, !9}
-!12 = distinct !{!12, !7, !9}
-!13 = distinct !{!13, !7, !9}
-!14 = distinct !{!14, !7, !9}
-!15 = !{i8 0, i8 2}
-!16 = !{}
-!17 = distinct !{!17, !7, !9}
-!18 = distinct !{!18, !7, !9}
-!19 = !{!20, !22}
-!20 = distinct !{!20, !21, !"memcpy.inline: argument 0"}
-!21 = distinct !{!21, !"memcpy.inline"}
-!22 = distinct !{!22, !21, !"memcpy.inline: argument 1"}
-!23 = distinct !{!23, !7, !9}
-!24 = distinct !{!24, !7, !9}
-!25 = distinct !{!25, !7, !9}
-!26 = distinct !{!26, !7, !9}
-!27 = distinct !{!27, !7, !9}
-!28 = distinct !{!28, !7, !9}
-!29 = distinct !{!29, !7, !9}
-!30 = distinct !{!30, !7, !9}
-!31 = distinct !{!31, !7, !9}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7}
+!12 = distinct !{!12, !7}
+!13 = distinct !{!13, !7}
+!14 = !{i8 0, i8 2}
+!15 = !{}
+!16 = distinct !{!16, !7}
+!17 = distinct !{!17, !7}
+!18 = !{!19, !21}
+!19 = distinct !{!19, !20, !"memcpy.inline: argument 0"}
+!20 = distinct !{!20, !"memcpy.inline"}
+!21 = distinct !{!21, !20, !"memcpy.inline: argument 1"}
+!22 = distinct !{!22, !7}
+!23 = distinct !{!23, !7}
+!24 = distinct !{!24, !7}
+!25 = distinct !{!25, !7}
+!26 = distinct !{!26, !7}
+!27 = distinct !{!27, !7}
+!28 = distinct !{!28, !7}
+!29 = distinct !{!29, !7}
+!30 = distinct !{!30, !7}

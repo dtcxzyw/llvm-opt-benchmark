@@ -287,7 +287,7 @@ define hidden void @dissect_zbee_zdp_req_match_desc(ptr noundef %0, ptr noundef 
   %53 = add nuw i32 %.164, 1
   %54 = load i32, ptr %9, align 4
   %55 = icmp ult i32 %53, %54
-  br i1 %55, label %.lr.ph66, label %._crit_edge67, !llvm.loop !9
+  br i1 %55, label %.lr.ph66, label %._crit_edge67, !llvm.loop !8
 
 ._crit_edge67:                                    ; preds = %.lr.ph66, %46
   %.154.lcssa = phi i32 [ %38, %46 ], [ %50, %.lr.ph66 ]
@@ -424,7 +424,7 @@ define hidden void @dissect_zbee_zdp_parent_annce(ptr noundef %0, ptr noundef %1
   %22 = add nuw i32 %.015, 1
   %23 = load i32, ptr %5, align 4
   %24 = icmp ult i32 %22, %23
-  br i1 %24, label %11, label %._crit_edge.loopexit, !llvm.loop !10
+  br i1 %24, label %11, label %._crit_edge.loopexit, !llvm.loop !9
 
 ._crit_edge.loopexit:                             ; preds = %21
   %.pre = load i32, ptr %4, align 4
@@ -484,7 +484,7 @@ define hidden void @dissect_zbee_zdp_rsp_parent_annce(ptr noundef %0, ptr nounde
   %27 = add nuw i32 %.020, 1
   %28 = load i32, ptr %5, align 4
   %29 = icmp ult i32 %27, %28
-  br i1 %29, label %16, label %._crit_edge, !llvm.loop !11
+  br i1 %29, label %16, label %._crit_edge, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %26, %3
   %30 = load i32, ptr %4, align 4
@@ -615,7 +615,7 @@ define hidden void @dissect_zbee_zdp_req_store_discovery(ptr noundef %0, ptr nou
   %36 = add nuw i32 %.024, 1
   %37 = load i32, ptr %5, align 4
   %38 = icmp ult i32 %36, %37
-  br i1 %38, label %.lr.ph, label %._crit_edge, !llvm.loop !12
+  br i1 %38, label %.lr.ph, label %._crit_edge, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   %39 = getelementptr inbounds nuw i8, ptr %1, i64 408
@@ -716,7 +716,7 @@ define hidden void @dissect_zbee_zdp_req_store_active_ep(ptr noundef %0, ptr nou
   %24 = add nuw i32 %.018, 1
   %25 = load i32, ptr %5, align 4
   %26 = icmp ult i32 %24, %25
-  br i1 %26, label %.lr.ph, label %._crit_edge, !llvm.loop !13
+  br i1 %26, label %.lr.ph, label %._crit_edge, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   %27 = getelementptr inbounds nuw i8, ptr %1, i64 408
@@ -902,7 +902,7 @@ define hidden void @dissect_zbee_zdp_rsp_nwk_addr(ptr noundef %0, ptr noundef %1
   %41 = add nuw i32 %.02931, 1
   %42 = load i32, ptr %6, align 4
   %43 = icmp ult i32 %41, %42
-  br i1 %43, label %.lr.ph, label %.loopexit, !llvm.loop !14
+  br i1 %43, label %.lr.ph, label %.loopexit, !llvm.loop !13
 
 .loopexit:                                        ; preds = %.lr.ph, %34, %3
   %44 = call ptr @zdp_status_name(i8 noundef zeroext %7)
@@ -998,7 +998,7 @@ define hidden void @dissect_zbee_zdp_rsp_ext_addr(ptr noundef %0, ptr noundef %1
   %41 = add nuw i32 %.02931, 1
   %42 = load i32, ptr %6, align 4
   %43 = icmp ult i32 %41, %42
-  br i1 %43, label %.lr.ph, label %.loopexit, !llvm.loop !15
+  br i1 %43, label %.lr.ph, label %.loopexit, !llvm.loop !14
 
 .loopexit:                                        ; preds = %.lr.ph, %34, %3
   %44 = call ptr @zdp_status_name(i8 noundef zeroext %7)
@@ -1186,7 +1186,7 @@ define hidden void @dissect_zbee_zdp_rsp_active_ep(ptr noundef %0, ptr noundef %
   %30 = add nuw i32 %.02124, 1
   %31 = load i32, ptr %6, align 4
   %32 = icmp ult i32 %30, %31
-  br i1 %32, label %.lr.ph, label %._crit_edge, !llvm.loop !16
+  br i1 %32, label %.lr.ph, label %._crit_edge, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %.lr.ph, %23
   %33 = load i32, ptr %5, align 4
@@ -1255,7 +1255,7 @@ define hidden void @dissect_zbee_zdp_rsp_match_desc(ptr noundef %0, ptr noundef 
   %30 = add nuw i32 %.02124, 1
   %31 = load i32, ptr %6, align 4
   %32 = icmp ult i32 %30, %31
-  br i1 %32, label %.lr.ph, label %._crit_edge, !llvm.loop !17
+  br i1 %32, label %.lr.ph, label %._crit_edge, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %.lr.ph, %23
   %33 = load i32, ptr %5, align 4
@@ -1732,7 +1732,7 @@ define hidden void @dissect_zbee_zdp_rsp_ext_simple_desc(ptr noundef %0, ptr nou
   %57 = add nuw i32 %.045, 1
   %58 = load i32, ptr %7, align 4
   %59 = icmp ult i32 %57, %58
-  br i1 %59, label %.lr.ph, label %.critedge, !llvm.loop !18
+  br i1 %59, label %.lr.ph, label %.critedge, !llvm.loop !17
 
 .critedge:                                        ; preds = %49, %.lr.ph..critedge.loopexit_crit_edge, %.critedge44
   %60 = phi i32 [ %45, %.critedge44 ], [ %.pre.pre, %.lr.ph..critedge.loopexit_crit_edge ], [ %58, %49 ]
@@ -1761,7 +1761,7 @@ define hidden void @dissect_zbee_zdp_rsp_ext_simple_desc(ptr noundef %0, ptr nou
   %74 = add nuw i32 %.148, 1
   %75 = load i32, ptr %8, align 4
   %76 = icmp ult i32 %74, %75
-  br i1 %76, label %.lr.ph49, label %.critedge2, !llvm.loop !19
+  br i1 %76, label %.lr.ph49, label %.critedge2, !llvm.loop !18
 
 .critedge2:                                       ; preds = %66, %.lr.ph49, %.critedge, %15, %12
   %77 = call ptr @zdp_status_name(i8 noundef zeroext %10)
@@ -1874,7 +1874,7 @@ define hidden void @dissect_zbee_zdp_rsp_ext_active_ep(ptr noundef %0, ptr nound
   %54 = add nuw i32 %.032, 1
   %55 = load i32, ptr %6, align 4
   %56 = icmp ult i32 %54, %55
-  br i1 %56, label %.lr.ph, label %.critedge, !llvm.loop !20
+  br i1 %56, label %.lr.ph, label %.critedge, !llvm.loop !19
 
 .critedge:                                        ; preds = %.lr.ph, %48, %40, %27, %.thread
   %57 = call ptr @zdp_status_name(i8 noundef zeroext %8)
@@ -1901,18 +1901,17 @@ attributes #3 = { nounwind }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7, !8}
-!11 = distinct !{!11, !7, !8}
-!12 = distinct !{!12, !7, !8}
-!13 = distinct !{!13, !7, !8}
-!14 = distinct !{!14, !7, !8}
-!15 = distinct !{!15, !7, !8}
-!16 = distinct !{!16, !7, !8}
-!17 = distinct !{!17, !7, !8}
-!18 = distinct !{!18, !7, !8}
-!19 = distinct !{!19, !7, !8}
-!20 = distinct !{!20, !7, !8}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7}
+!12 = distinct !{!12, !7}
+!13 = distinct !{!13, !7}
+!14 = distinct !{!14, !7}
+!15 = distinct !{!15, !7}
+!16 = distinct !{!16, !7}
+!17 = distinct !{!17, !7}
+!18 = distinct !{!18, !7}
+!19 = distinct !{!19, !7}

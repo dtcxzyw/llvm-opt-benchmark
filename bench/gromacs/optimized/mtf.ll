@@ -46,7 +46,7 @@ define void @Ptngc_comp_conv_to_mtf_partial(ptr noundef readonly captures(none) 
   %18 = trunc nuw nsw i64 %indvars.iv.next51.i.us to i32
   store i32 %18, ptr %17, align 4, !tbaa !3
   %exitcond53.not.i.us = icmp eq i64 %indvars.iv.next51.i.us, 255
-  br i1 %exitcond53.not.i.us, label %.lr.ph44.preheader.i.us, label %.preheader.i.us, !llvm.loop !10
+  br i1 %exitcond53.not.i.us, label %.lr.ph44.preheader.i.us, label %.preheader.i.us, !llvm.loop !9
 
 .lr.ph44.preheader.i.us:                          ; preds = %.preheader.i.us
   store i32 -1, ptr %13, align 4, !tbaa !3
@@ -56,7 +56,7 @@ define void @Ptngc_comp_conv_to_mtf_partial(ptr noundef readonly captures(none) 
   %indvars.iv54.i.us = phi i64 [ 0, %.lr.ph44.preheader.i.us ], [ %indvars.iv.next55.i.us, %39 ]
   %.03041.i.us = phi i32 [ 0, %.lr.ph44.preheader.i.us ], [ %.131.i.us, %39 ]
   %19 = getelementptr inbounds nuw i8, ptr %8, i64 %indvars.iv54.i.us
-  %20 = load i8, ptr %19, align 1, !tbaa !11
+  %20 = load i8, ptr %19, align 1, !tbaa !10
   %21 = zext i8 %20 to i32
   %22 = sext i32 %.03041.i.us to i64
   %23 = getelementptr inbounds [256 x i32], ptr %5, i64 0, i64 %22
@@ -75,11 +75,11 @@ define void @Ptngc_comp_conv_to_mtf_partial(ptr noundef readonly captures(none) 
   %30 = getelementptr inbounds [256 x i32], ptr %5, i64 0, i64 %29
   %31 = load i32, ptr %30, align 4, !tbaa !3
   %.not.i.us = icmp eq i32 %31, %21
-  br i1 %.not.i.us, label %._crit_edge.i.us, label %.lr.ph.i.us, !llvm.loop !12
+  br i1 %.not.i.us, label %._crit_edge.i.us, label %.lr.ph.i.us, !llvm.loop !11
 
 ._crit_edge.i.us:                                 ; preds = %.lr.ph.i.us
   %32 = getelementptr inbounds nuw i8, ptr %12, i64 %indvars.iv54.i.us
-  store i8 %28, ptr %32, align 1, !tbaa !11
+  store i8 %28, ptr %32, align 1, !tbaa !10
   %.not32.i.us = icmp eq i32 %.02836.i.us, -1
   br i1 %.not32.i.us, label %39, label %33
 
@@ -94,24 +94,24 @@ define void @Ptngc_comp_conv_to_mtf_partial(ptr noundef readonly captures(none) 
 
 ._crit_edge.thread.i.us:                          ; preds = %.lr.ph44.i.us
   %38 = getelementptr inbounds nuw i8, ptr %12, i64 %indvars.iv54.i.us
-  store i8 0, ptr %38, align 1, !tbaa !11
+  store i8 0, ptr %38, align 1, !tbaa !10
   br label %39
 
 39:                                               ; preds = %._crit_edge.thread.i.us, %33, %._crit_edge.i.us
   %.131.i.us = phi i32 [ %27, %33 ], [ %.03041.i.us, %._crit_edge.i.us ], [ %.03041.i.us, %._crit_edge.thread.i.us ]
   %indvars.iv.next55.i.us = add nuw nsw i64 %indvars.iv54.i.us, 1
   %exitcond57.not.i.us = icmp eq i64 %indvars.iv.next55.i.us, %wide.trip.count.i
-  br i1 %exitcond57.not.i.us, label %.lr.ph32.us, label %.lr.ph44.i.us, !llvm.loop !13
+  br i1 %exitcond57.not.i.us, label %.lr.ph32.us, label %.lr.ph44.i.us, !llvm.loop !12
 
 ._crit_edge33.us:                                 ; preds = %41
   %40 = add nuw nsw i32 %.034.us, 1
   %exitcond78.not = icmp eq i32 %40, 3
-  br i1 %exitcond78.not, label %.split36.us, label %.lr.ph.us, !llvm.loop !14
+  br i1 %exitcond78.not, label %.split36.us, label %.lr.ph.us, !llvm.loop !13
 
 41:                                               ; preds = %.lr.ph32.us, %41
   %indvars.iv73 = phi i64 [ 0, %.lr.ph32.us ], [ %indvars.iv.next74, %41 ]
   %gep = getelementptr inbounds nuw i8, ptr %invariant.gep, i64 %indvars.iv73
-  %42 = load i8, ptr %gep, align 1, !tbaa !11
+  %42 = load i8, ptr %gep, align 1, !tbaa !10
   %43 = zext i8 %42 to i32
   %44 = shl nuw nsw i32 %43, %55
   %45 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv73
@@ -120,7 +120,7 @@ define void @Ptngc_comp_conv_to_mtf_partial(ptr noundef readonly captures(none) 
   store i32 %47, ptr %45, align 4, !tbaa !3
   %indvars.iv.next74 = add nuw nsw i64 %indvars.iv73, 1
   %exitcond77.not = icmp eq i64 %indvars.iv.next74, %wide.trip.count.i
-  br i1 %exitcond77.not, label %._crit_edge33.us, label %41, !llvm.loop !16
+  br i1 %exitcond77.not, label %._crit_edge33.us, label %41, !llvm.loop !15
 
 48:                                               ; preds = %.lr.ph.us, %48
   %indvars.iv = phi i64 [ 0, %.lr.ph.us ], [ %indvars.iv.next, %48 ]
@@ -129,10 +129,10 @@ define void @Ptngc_comp_conv_to_mtf_partial(ptr noundef readonly captures(none) 
   %51 = lshr i32 %50, %54
   %52 = trunc i32 %51 to i8
   %53 = getelementptr inbounds nuw i8, ptr %8, i64 %indvars.iv
-  store i8 %52, ptr %53, align 1, !tbaa !11
+  store i8 %52, ptr %53, align 1, !tbaa !10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond72.not = icmp eq i64 %indvars.iv.next, %wide.trip.count.i
-  br i1 %exitcond72.not, label %._crit_edge.us, label %48, !llvm.loop !17
+  br i1 %exitcond72.not, label %._crit_edge.us, label %48, !llvm.loop !16
 
 .lr.ph.us:                                        ; preds = %._crit_edge33.us, %.preheader.us.preheader
   %.034.us = phi i32 [ %40, %._crit_edge33.us ], [ 0, %.preheader.us.preheader ]
@@ -167,14 +167,14 @@ define void @Ptngc_comp_conv_to_mtf_partial(ptr noundef readonly captures(none) 
   %60 = trunc nuw nsw i64 %indvars.iv.next51.i to i32
   store i32 %60, ptr %59, align 4, !tbaa !3
   %exitcond53.not.i = icmp eq i64 %indvars.iv.next51.i, 255
-  br i1 %exitcond53.not.i, label %comp_conv_to_mtf_byte.exit, label %.preheader.i, !llvm.loop !10
+  br i1 %exitcond53.not.i, label %comp_conv_to_mtf_byte.exit, label %.preheader.i, !llvm.loop !9
 
 comp_conv_to_mtf_byte.exit:                       ; preds = %.preheader.i
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %5) #5
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %4) #5
   %61 = add nuw nsw i32 %.034, 1
   %exitcond.not = icmp eq i32 %61, 3
-  br i1 %exitcond.not, label %.split36.us, label %.preheader, !llvm.loop !18
+  br i1 %exitcond.not, label %.split36.us, label %.preheader, !llvm.loop !17
 
 .split36.us:                                      ; preds = %comp_conv_to_mtf_byte.exit, %._crit_edge33.us
   tail call void @free(ptr noundef %8) #5
@@ -227,7 +227,7 @@ define void @Ptngc_comp_conv_to_mtf_partial3(ptr noundef readonly captures(none)
   %14 = trunc nuw nsw i64 %indvars.iv.next51.i.us to i32
   store i32 %14, ptr %13, align 4, !tbaa !3
   %exitcond53.not.i.us = icmp eq i64 %indvars.iv.next51.i.us, 255
-  br i1 %exitcond53.not.i.us, label %.lr.ph44.preheader.i.us, label %.preheader.i.us, !llvm.loop !10
+  br i1 %exitcond53.not.i.us, label %.lr.ph44.preheader.i.us, label %.preheader.i.us, !llvm.loop !9
 
 .lr.ph44.preheader.i.us:                          ; preds = %.preheader.i.us
   %15 = mul nuw nsw i64 %indvars.iv43, %wide.trip.count.i
@@ -239,7 +239,7 @@ define void @Ptngc_comp_conv_to_mtf_partial3(ptr noundef readonly captures(none)
   %indvars.iv54.i.us = phi i64 [ 0, %.lr.ph44.preheader.i.us ], [ %indvars.iv.next55.i.us, %37 ]
   %.03041.i.us = phi i32 [ 0, %.lr.ph44.preheader.i.us ], [ %.131.i.us, %37 ]
   %17 = getelementptr inbounds nuw i8, ptr %7, i64 %indvars.iv54.i.us
-  %18 = load i8, ptr %17, align 1, !tbaa !11
+  %18 = load i8, ptr %17, align 1, !tbaa !10
   %19 = zext i8 %18 to i32
   %20 = sext i32 %.03041.i.us to i64
   %21 = getelementptr inbounds [256 x i32], ptr %5, i64 0, i64 %20
@@ -258,11 +258,11 @@ define void @Ptngc_comp_conv_to_mtf_partial3(ptr noundef readonly captures(none)
   %28 = getelementptr inbounds [256 x i32], ptr %5, i64 0, i64 %27
   %29 = load i32, ptr %28, align 4, !tbaa !3
   %.not.i.us = icmp eq i32 %29, %19
-  br i1 %.not.i.us, label %._crit_edge.i.us, label %.lr.ph.i.us, !llvm.loop !12
+  br i1 %.not.i.us, label %._crit_edge.i.us, label %.lr.ph.i.us, !llvm.loop !11
 
 ._crit_edge.i.us:                                 ; preds = %.lr.ph.i.us
   %30 = getelementptr inbounds nuw i8, ptr %16, i64 %indvars.iv54.i.us
-  store i8 %26, ptr %30, align 1, !tbaa !11
+  store i8 %26, ptr %30, align 1, !tbaa !10
   %.not32.i.us = icmp eq i32 %.02836.i.us, -1
   br i1 %.not32.i.us, label %37, label %31
 
@@ -277,14 +277,14 @@ define void @Ptngc_comp_conv_to_mtf_partial3(ptr noundef readonly captures(none)
 
 ._crit_edge.thread.i.us:                          ; preds = %.lr.ph44.i.us
   %36 = getelementptr inbounds nuw i8, ptr %16, i64 %indvars.iv54.i.us
-  store i8 0, ptr %36, align 1, !tbaa !11
+  store i8 0, ptr %36, align 1, !tbaa !10
   br label %37
 
 37:                                               ; preds = %._crit_edge.thread.i.us, %31, %._crit_edge.i.us
   %.131.i.us = phi i32 [ %25, %31 ], [ %.03041.i.us, %._crit_edge.i.us ], [ %.03041.i.us, %._crit_edge.thread.i.us ]
   %indvars.iv.next55.i.us = add nuw nsw i64 %indvars.iv54.i.us, 1
   %exitcond57.not.i.us = icmp eq i64 %indvars.iv.next55.i.us, %wide.trip.count.i
-  br i1 %exitcond57.not.i.us, label %comp_conv_to_mtf_byte.exit.loopexit.us, label %.lr.ph44.i.us, !llvm.loop !13
+  br i1 %exitcond57.not.i.us, label %comp_conv_to_mtf_byte.exit.loopexit.us, label %.lr.ph44.i.us, !llvm.loop !12
 
 38:                                               ; preds = %.lr.ph.us, %38
   %indvars.iv = phi i64 [ 0, %.lr.ph.us ], [ %indvars.iv.next, %38 ]
@@ -293,17 +293,17 @@ define void @Ptngc_comp_conv_to_mtf_partial3(ptr noundef readonly captures(none)
   %41 = lshr i32 %40, %44
   %42 = trunc i32 %41 to i8
   %43 = getelementptr inbounds nuw i8, ptr %7, i64 %indvars.iv
-  store i8 %42, ptr %43, align 1, !tbaa !11
+  store i8 %42, ptr %43, align 1, !tbaa !10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond42.not = icmp eq i64 %indvars.iv.next, %wide.trip.count.i
-  br i1 %exitcond42.not, label %._crit_edge.us, label %38, !llvm.loop !19
+  br i1 %exitcond42.not, label %._crit_edge.us, label %38, !llvm.loop !18
 
 comp_conv_to_mtf_byte.exit.loopexit.us:           ; preds = %37
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %5) #5
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %4) #5
   %indvars.iv.next44 = add nuw nsw i64 %indvars.iv43, 1
   %exitcond46.not = icmp eq i64 %indvars.iv.next44, 3
-  br i1 %exitcond46.not, label %.split23.us, label %.lr.ph.us, !llvm.loop !20
+  br i1 %exitcond46.not, label %.split23.us, label %.lr.ph.us, !llvm.loop !19
 
 .lr.ph.us:                                        ; preds = %3, %comp_conv_to_mtf_byte.exit.loopexit.us
   %indvars.iv43 = phi i64 [ %indvars.iv.next44, %comp_conv_to_mtf_byte.exit.loopexit.us ], [ 0, %3 ]
@@ -333,14 +333,14 @@ comp_conv_to_mtf_byte.exit.loopexit.us:           ; preds = %37
   %49 = trunc nuw nsw i64 %indvars.iv.next51.i to i32
   store i32 %49, ptr %48, align 4, !tbaa !3
   %exitcond53.not.i = icmp eq i64 %indvars.iv.next51.i, 255
-  br i1 %exitcond53.not.i, label %comp_conv_to_mtf_byte.exit, label %.preheader.i, !llvm.loop !10
+  br i1 %exitcond53.not.i, label %comp_conv_to_mtf_byte.exit, label %.preheader.i, !llvm.loop !9
 
 comp_conv_to_mtf_byte.exit:                       ; preds = %.preheader.i
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %5) #5
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %4) #5
   %50 = add nuw nsw i32 %.021, 1
   %exitcond.not = icmp eq i32 %50, 3
-  br i1 %exitcond.not, label %.split23.us, label %.preheader, !llvm.loop !21
+  br i1 %exitcond.not, label %.split23.us, label %.preheader, !llvm.loop !20
 
 .split23.us:                                      ; preds = %comp_conv_to_mtf_byte.exit, %comp_conv_to_mtf_byte.exit.loopexit.us
   tail call void @free(ptr noundef %7) #5
@@ -379,7 +379,7 @@ define void @Ptngc_comp_conv_from_mtf_partial(ptr noundef readonly captures(none
   store i32 %16, ptr %15, align 4, !tbaa !3
   %indvars.iv.next.i.us = add nuw nsw i64 %indvars.iv.i.us, 1
   %exitcond.not.i.us = icmp eq i64 %indvars.iv.next.i.us, 256
-  br i1 %exitcond.not.i.us, label %.preheader.i.us, label %14, !llvm.loop !22
+  br i1 %exitcond.not.i.us, label %.preheader.i.us, label %14, !llvm.loop !21
 
 .preheader.i.us:                                  ; preds = %14, %.preheader.i.us
   %indvars.iv44.i.us = phi i64 [ %indvars.iv.next45.i.us, %.preheader.i.us ], [ 0, %14 ]
@@ -388,7 +388,7 @@ define void @Ptngc_comp_conv_from_mtf_partial(ptr noundef readonly captures(none
   %18 = trunc nuw nsw i64 %indvars.iv.next45.i.us to i32
   store i32 %18, ptr %17, align 4, !tbaa !3
   %exitcond47.not.i.us = icmp eq i64 %indvars.iv.next45.i.us, 255
-  br i1 %exitcond47.not.i.us, label %.lr.ph40.preheader.i.us, label %.preheader.i.us, !llvm.loop !23
+  br i1 %exitcond47.not.i.us, label %.lr.ph40.preheader.i.us, label %.preheader.i.us, !llvm.loop !22
 
 .lr.ph40.preheader.i.us:                          ; preds = %.preheader.i.us
   store i32 -1, ptr %13, align 4, !tbaa !3
@@ -398,7 +398,7 @@ define void @Ptngc_comp_conv_from_mtf_partial(ptr noundef readonly captures(none
   %indvars.iv49.i.us = phi i64 [ 0, %.lr.ph40.preheader.i.us ], [ %indvars.iv.next50.i.us, %40 ]
   %.03037.i.us = phi i32 [ 0, %.lr.ph40.preheader.i.us ], [ %.131.i.us, %40 ]
   %19 = getelementptr inbounds nuw i8, ptr %8, i64 %indvars.iv49.i.us
-  %20 = load i8, ptr %19, align 1, !tbaa !11
+  %20 = load i8, ptr %19, align 1, !tbaa !10
   %21 = zext i8 %20 to i32
   %.not42.i.us = icmp eq i8 %20, 0
   br i1 %.not42.i.us, label %._crit_edge.thread.i.us, label %.lr.ph.i.us
@@ -411,7 +411,7 @@ define void @Ptngc_comp_conv_from_mtf_partial(ptr noundef readonly captures(none
   %24 = load i32, ptr %23, align 4, !tbaa !3
   %25 = add nuw nsw i32 %.035.i.us, 1
   %exitcond48.not.i.us = icmp eq i32 %25, %21
-  br i1 %exitcond48.not.i.us, label %._crit_edge.i.us, label %.lr.ph.i.us, !llvm.loop !24
+  br i1 %exitcond48.not.i.us, label %._crit_edge.i.us, label %.lr.ph.i.us, !llvm.loop !23
 
 ._crit_edge.i.us:                                 ; preds = %.lr.ph.i.us
   %26 = sext i32 %24 to i64
@@ -419,7 +419,7 @@ define void @Ptngc_comp_conv_from_mtf_partial(ptr noundef readonly captures(none
   %28 = load i32, ptr %27, align 4, !tbaa !3
   %29 = trunc i32 %28 to i8
   %30 = getelementptr inbounds nuw i8, ptr %12, i64 %indvars.iv49.i.us
-  store i8 %29, ptr %30, align 1, !tbaa !11
+  store i8 %29, ptr %30, align 1, !tbaa !10
   %.not.i.us = icmp eq i32 %.02834.i.us, -1
   br i1 %.not.i.us, label %40, label %31
 
@@ -437,24 +437,24 @@ define void @Ptngc_comp_conv_from_mtf_partial(ptr noundef readonly captures(none
   %37 = load i32, ptr %36, align 4, !tbaa !3
   %38 = trunc i32 %37 to i8
   %39 = getelementptr inbounds nuw i8, ptr %12, i64 %indvars.iv49.i.us
-  store i8 %38, ptr %39, align 1, !tbaa !11
+  store i8 %38, ptr %39, align 1, !tbaa !10
   br label %40
 
 40:                                               ; preds = %._crit_edge.thread.i.us, %31, %._crit_edge.i.us
   %.131.i.us = phi i32 [ %24, %31 ], [ %.03037.i.us, %._crit_edge.i.us ], [ %.03037.i.us, %._crit_edge.thread.i.us ]
   %indvars.iv.next50.i.us = add nuw nsw i64 %indvars.iv49.i.us, 1
   %exitcond52.not.i.us = icmp eq i64 %indvars.iv.next50.i.us, %wide.trip.count.i
-  br i1 %exitcond52.not.i.us, label %.lr.ph32.us, label %.lr.ph40.i.us, !llvm.loop !25
+  br i1 %exitcond52.not.i.us, label %.lr.ph32.us, label %.lr.ph40.i.us, !llvm.loop !24
 
 ._crit_edge33.us:                                 ; preds = %42
   %41 = add nuw nsw i32 %.034.us, 1
   %exitcond77.not = icmp eq i32 %41, 3
-  br i1 %exitcond77.not, label %.split36.us, label %.lr.ph.us, !llvm.loop !26
+  br i1 %exitcond77.not, label %.split36.us, label %.lr.ph.us, !llvm.loop !25
 
 42:                                               ; preds = %.lr.ph32.us, %42
   %indvars.iv72 = phi i64 [ 0, %.lr.ph32.us ], [ %indvars.iv.next73, %42 ]
   %gep = getelementptr inbounds nuw i8, ptr %invariant.gep, i64 %indvars.iv72
-  %43 = load i8, ptr %gep, align 1, !tbaa !11
+  %43 = load i8, ptr %gep, align 1, !tbaa !10
   %44 = zext i8 %43 to i32
   %45 = shl nuw nsw i32 %44, %56
   %46 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv72
@@ -463,7 +463,7 @@ define void @Ptngc_comp_conv_from_mtf_partial(ptr noundef readonly captures(none
   store i32 %48, ptr %46, align 4, !tbaa !3
   %indvars.iv.next73 = add nuw nsw i64 %indvars.iv72, 1
   %exitcond76.not = icmp eq i64 %indvars.iv.next73, %wide.trip.count.i
-  br i1 %exitcond76.not, label %._crit_edge33.us, label %42, !llvm.loop !27
+  br i1 %exitcond76.not, label %._crit_edge33.us, label %42, !llvm.loop !26
 
 49:                                               ; preds = %.lr.ph.us, %49
   %indvars.iv = phi i64 [ 0, %.lr.ph.us ], [ %indvars.iv.next, %49 ]
@@ -472,10 +472,10 @@ define void @Ptngc_comp_conv_from_mtf_partial(ptr noundef readonly captures(none
   %52 = lshr i32 %51, %55
   %53 = trunc i32 %52 to i8
   %54 = getelementptr inbounds nuw i8, ptr %8, i64 %indvars.iv
-  store i8 %53, ptr %54, align 1, !tbaa !11
+  store i8 %53, ptr %54, align 1, !tbaa !10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond71.not = icmp eq i64 %indvars.iv.next, %wide.trip.count.i
-  br i1 %exitcond71.not, label %._crit_edge.us, label %49, !llvm.loop !28
+  br i1 %exitcond71.not, label %._crit_edge.us, label %49, !llvm.loop !27
 
 .lr.ph.us:                                        ; preds = %._crit_edge33.us, %.preheader.us.preheader
   %.034.us = phi i32 [ %41, %._crit_edge33.us ], [ 0, %.preheader.us.preheader ]
@@ -501,7 +501,7 @@ define void @Ptngc_comp_conv_from_mtf_partial(ptr noundef readonly captures(none
   store i32 %59, ptr %58, align 4, !tbaa !3
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 256
-  br i1 %exitcond.not.i, label %.preheader.i, label %57, !llvm.loop !22
+  br i1 %exitcond.not.i, label %.preheader.i, label %57, !llvm.loop !21
 
 .preheader.i:                                     ; preds = %57, %.preheader.i
   %indvars.iv44.i = phi i64 [ %indvars.iv.next45.i, %.preheader.i ], [ 0, %57 ]
@@ -510,14 +510,14 @@ define void @Ptngc_comp_conv_from_mtf_partial(ptr noundef readonly captures(none
   %61 = trunc nuw nsw i64 %indvars.iv.next45.i to i32
   store i32 %61, ptr %60, align 4, !tbaa !3
   %exitcond47.not.i = icmp eq i64 %indvars.iv.next45.i, 255
-  br i1 %exitcond47.not.i, label %comp_conv_from_mtf_byte.exit, label %.preheader.i, !llvm.loop !23
+  br i1 %exitcond47.not.i, label %comp_conv_from_mtf_byte.exit, label %.preheader.i, !llvm.loop !22
 
 comp_conv_from_mtf_byte.exit:                     ; preds = %.preheader.i
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %5) #5
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %4) #5
   %62 = add nuw nsw i32 %.034, 1
   %exitcond.not = icmp eq i32 %62, 3
-  br i1 %exitcond.not, label %.split36.us, label %.preheader, !llvm.loop !29
+  br i1 %exitcond.not, label %.split36.us, label %.preheader, !llvm.loop !28
 
 .split36.us:                                      ; preds = %comp_conv_from_mtf_byte.exit, %._crit_edge33.us
   tail call void @free(ptr noundef %8) #5
@@ -550,7 +550,7 @@ define void @Ptngc_comp_conv_from_mtf_partial3(ptr noundef readonly captures(non
   store i32 %13, ptr %12, align 4, !tbaa !3
   %indvars.iv.next.i.us = add nuw nsw i64 %indvars.iv.i.us, 1
   %exitcond.not.i.us = icmp eq i64 %indvars.iv.next.i.us, 256
-  br i1 %exitcond.not.i.us, label %.preheader.i.us, label %11, !llvm.loop !22
+  br i1 %exitcond.not.i.us, label %.preheader.i.us, label %11, !llvm.loop !21
 
 .preheader.i.us:                                  ; preds = %11, %.preheader.i.us
   %indvars.iv44.i.us = phi i64 [ %indvars.iv.next45.i.us, %.preheader.i.us ], [ 0, %11 ]
@@ -559,7 +559,7 @@ define void @Ptngc_comp_conv_from_mtf_partial3(ptr noundef readonly captures(non
   %15 = trunc nuw nsw i64 %indvars.iv.next45.i.us to i32
   store i32 %15, ptr %14, align 4, !tbaa !3
   %exitcond47.not.i.us = icmp eq i64 %indvars.iv.next45.i.us, 255
-  br i1 %exitcond47.not.i.us, label %.lr.ph40.preheader.i.us, label %.preheader.i.us, !llvm.loop !23
+  br i1 %exitcond47.not.i.us, label %.lr.ph40.preheader.i.us, label %.preheader.i.us, !llvm.loop !22
 
 .lr.ph40.preheader.i.us:                          ; preds = %.preheader.i.us
   %16 = mul nuw nsw i64 %indvars.iv42, %wide.trip.count.i
@@ -571,7 +571,7 @@ define void @Ptngc_comp_conv_from_mtf_partial3(ptr noundef readonly captures(non
   %indvars.iv49.i.us = phi i64 [ 0, %.lr.ph40.preheader.i.us ], [ %indvars.iv.next50.i.us, %39 ]
   %.03037.i.us = phi i32 [ 0, %.lr.ph40.preheader.i.us ], [ %.131.i.us, %39 ]
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 %indvars.iv49.i.us
-  %19 = load i8, ptr %18, align 1, !tbaa !11
+  %19 = load i8, ptr %18, align 1, !tbaa !10
   %20 = zext i8 %19 to i32
   %.not42.i.us = icmp eq i8 %19, 0
   br i1 %.not42.i.us, label %._crit_edge.thread.i.us, label %.lr.ph.i.us
@@ -584,7 +584,7 @@ define void @Ptngc_comp_conv_from_mtf_partial3(ptr noundef readonly captures(non
   %23 = load i32, ptr %22, align 4, !tbaa !3
   %24 = add nuw nsw i32 %.035.i.us, 1
   %exitcond48.not.i.us = icmp eq i32 %24, %20
-  br i1 %exitcond48.not.i.us, label %._crit_edge.i.us, label %.lr.ph.i.us, !llvm.loop !24
+  br i1 %exitcond48.not.i.us, label %._crit_edge.i.us, label %.lr.ph.i.us, !llvm.loop !23
 
 ._crit_edge.i.us:                                 ; preds = %.lr.ph.i.us
   %25 = sext i32 %23 to i64
@@ -592,7 +592,7 @@ define void @Ptngc_comp_conv_from_mtf_partial3(ptr noundef readonly captures(non
   %27 = load i32, ptr %26, align 4, !tbaa !3
   %28 = trunc i32 %27 to i8
   %29 = getelementptr inbounds nuw i8, ptr %7, i64 %indvars.iv49.i.us
-  store i8 %28, ptr %29, align 1, !tbaa !11
+  store i8 %28, ptr %29, align 1, !tbaa !10
   %.not.i.us = icmp eq i32 %.02834.i.us, -1
   br i1 %.not.i.us, label %39, label %30
 
@@ -610,24 +610,24 @@ define void @Ptngc_comp_conv_from_mtf_partial3(ptr noundef readonly captures(non
   %36 = load i32, ptr %35, align 4, !tbaa !3
   %37 = trunc i32 %36 to i8
   %38 = getelementptr inbounds nuw i8, ptr %7, i64 %indvars.iv49.i.us
-  store i8 %37, ptr %38, align 1, !tbaa !11
+  store i8 %37, ptr %38, align 1, !tbaa !10
   br label %39
 
 39:                                               ; preds = %._crit_edge.thread.i.us, %30, %._crit_edge.i.us
   %.131.i.us = phi i32 [ %23, %30 ], [ %.03037.i.us, %._crit_edge.i.us ], [ %.03037.i.us, %._crit_edge.thread.i.us ]
   %indvars.iv.next50.i.us = add nuw nsw i64 %indvars.iv49.i.us, 1
   %exitcond52.not.i.us = icmp eq i64 %indvars.iv.next50.i.us, %wide.trip.count.i
-  br i1 %exitcond52.not.i.us, label %.lr.ph.us, label %.lr.ph40.i.us, !llvm.loop !25
+  br i1 %exitcond52.not.i.us, label %.lr.ph.us, label %.lr.ph40.i.us, !llvm.loop !24
 
 ._crit_edge.us:                                   ; preds = %40
   %indvars.iv.next43 = add nuw nsw i64 %indvars.iv42, 1
   %exitcond45.not = icmp eq i64 %indvars.iv.next43, 3
-  br i1 %exitcond45.not, label %.split24.us, label %.split.us, !llvm.loop !30
+  br i1 %exitcond45.not, label %.split24.us, label %.split.us, !llvm.loop !29
 
 40:                                               ; preds = %.lr.ph.us, %40
   %indvars.iv = phi i64 [ 0, %.lr.ph.us ], [ %indvars.iv.next, %40 ]
   %41 = getelementptr inbounds nuw i8, ptr %7, i64 %indvars.iv
-  %42 = load i8, ptr %41, align 1, !tbaa !11
+  %42 = load i8, ptr %41, align 1, !tbaa !10
   %43 = zext i8 %42 to i32
   %44 = shl nuw nsw i32 %43, %48
   %45 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv
@@ -636,7 +636,7 @@ define void @Ptngc_comp_conv_from_mtf_partial3(ptr noundef readonly captures(non
   store i32 %47, ptr %45, align 4, !tbaa !3
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond41.not = icmp eq i64 %indvars.iv.next, %wide.trip.count.i
-  br i1 %exitcond41.not, label %._crit_edge.us, label %40, !llvm.loop !31
+  br i1 %exitcond41.not, label %._crit_edge.us, label %40, !llvm.loop !30
 
 .lr.ph.us:                                        ; preds = %39
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %5) #5
@@ -658,7 +658,7 @@ define void @Ptngc_comp_conv_from_mtf_partial3(ptr noundef readonly captures(non
   store i32 %51, ptr %50, align 4, !tbaa !3
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 256
-  br i1 %exitcond.not.i, label %.preheader.i, label %49, !llvm.loop !22
+  br i1 %exitcond.not.i, label %.preheader.i, label %49, !llvm.loop !21
 
 .preheader.i:                                     ; preds = %49, %.preheader.i
   %indvars.iv44.i = phi i64 [ %indvars.iv.next45.i, %.preheader.i ], [ 0, %49 ]
@@ -667,14 +667,14 @@ define void @Ptngc_comp_conv_from_mtf_partial3(ptr noundef readonly captures(non
   %53 = trunc nuw nsw i64 %indvars.iv.next45.i to i32
   store i32 %53, ptr %52, align 4, !tbaa !3
   %exitcond47.not.i = icmp eq i64 %indvars.iv.next45.i, 255
-  br i1 %exitcond47.not.i, label %comp_conv_from_mtf_byte.exit, label %.preheader.i, !llvm.loop !23
+  br i1 %exitcond47.not.i, label %comp_conv_from_mtf_byte.exit, label %.preheader.i, !llvm.loop !22
 
 comp_conv_from_mtf_byte.exit:                     ; preds = %.preheader.i
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %5) #5
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %4) #5
   %54 = add nuw nsw i32 %.022, 1
   %exitcond.not = icmp eq i32 %54, 3
-  br i1 %exitcond.not, label %.split24.us, label %.split.split, !llvm.loop !32
+  br i1 %exitcond.not, label %.split24.us, label %.split.split, !llvm.loop !31
 
 .split24.us:                                      ; preds = %comp_conv_from_mtf_byte.exit, %._crit_edge.us
   tail call void @free(ptr noundef %7) #5
@@ -701,7 +701,7 @@ define void @Ptngc_comp_conv_to_mtf(ptr noundef readonly captures(none) %0, i32 
   %12 = trunc nuw nsw i64 %indvars.iv.next to i32
   store i32 %12, ptr %11, align 4, !tbaa !3
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !33
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !32
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5
   %13 = sext i32 %9 to i64
@@ -741,7 +741,7 @@ define void @Ptngc_comp_conv_to_mtf(ptr noundef readonly captures(none) %0, i32 
   %27 = getelementptr inbounds i32, ptr %2, i64 %26
   %28 = load i32, ptr %27, align 4, !tbaa !3
   %.not = icmp eq i32 %28, %17
-  br i1 %.not, label %._crit_edge48, label %.lr.ph47, !llvm.loop !34
+  br i1 %.not, label %._crit_edge48, label %.lr.ph47, !llvm.loop !33
 
 ._crit_edge48:                                    ; preds = %.lr.ph47
   %29 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv62
@@ -762,7 +762,7 @@ define void @Ptngc_comp_conv_to_mtf(ptr noundef readonly captures(none) %0, i32 
   %.138 = phi i32 [ %24, %30 ], [ %.03753, %._crit_edge48 ], [ %.03753, %._crit_edge48.thread ]
   %indvars.iv.next63 = add nuw nsw i64 %indvars.iv62, 1
   %exitcond66.not = icmp eq i64 %indvars.iv.next63, %wide.trip.count65
-  br i1 %exitcond66.not, label %._crit_edge57, label %.lr.ph56, !llvm.loop !35
+  br i1 %exitcond66.not, label %._crit_edge57, label %.lr.ph56, !llvm.loop !34
 
 ._crit_edge57:                                    ; preds = %35, %._crit_edge
   tail call void @free(ptr noundef %8) #5
@@ -789,7 +789,7 @@ define void @Ptngc_comp_conv_from_mtf(ptr noundef readonly captures(none) %0, i3
   %12 = trunc nuw nsw i64 %indvars.iv.next to i32
   store i32 %12, ptr %11, align 4, !tbaa !3
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !36
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !35
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5
   %13 = sext i32 %9 to i64
@@ -826,7 +826,7 @@ define void @Ptngc_comp_conv_from_mtf(ptr noundef readonly captures(none) %0, i3
   %25 = load i32, ptr %24, align 4, !tbaa !3
   %26 = add nuw nsw i32 %.042, 1
   %exitcond54.not = icmp eq i32 %26, %17
-  br i1 %exitcond54.not, label %._crit_edge45, label %.lr.ph44, !llvm.loop !37
+  br i1 %exitcond54.not, label %._crit_edge45, label %.lr.ph44, !llvm.loop !36
 
 ._crit_edge45:                                    ; preds = %.lr.ph44
   %27 = sext i32 %25 to i64
@@ -850,7 +850,7 @@ define void @Ptngc_comp_conv_from_mtf(ptr noundef readonly captures(none) %0, i3
   %.138 = phi i32 [ %25, %31 ], [ %.03748, %._crit_edge45 ], [ %.03748, %._crit_edge45.thread ]
   %indvars.iv.next56 = add nuw nsw i64 %indvars.iv55, 1
   %exitcond59.not = icmp eq i64 %indvars.iv.next56, %wide.trip.count58
-  br i1 %exitcond59.not, label %._crit_edge52, label %.lr.ph51, !llvm.loop !38
+  br i1 %exitcond59.not, label %._crit_edge52, label %.lr.ph51, !llvm.loop !37
 
 ._crit_edge52:                                    ; preds = %36, %._crit_edge
   tail call void @free(ptr noundef %8) #5
@@ -873,35 +873,34 @@ attributes #5 = { nounwind }
 !4 = !{!"int", !5, i64 0}
 !5 = !{!"omnipotent char", !6, i64 0}
 !6 = !{!"Simple C/C++ TBAA"}
-!7 = distinct !{!7, !8, !9}
+!7 = distinct !{!7, !8}
 !8 = !{!"llvm.loop.mustprogress"}
-!9 = !{!"llvm.loop.estimated_trip_count"}
-!10 = distinct !{!10, !8, !9}
-!11 = !{!5, !5, i64 0}
-!12 = distinct !{!12, !8, !9}
-!13 = distinct !{!13, !8, !9}
-!14 = distinct !{!14, !8, !9, !15}
-!15 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!16 = distinct !{!16, !8, !9}
-!17 = distinct !{!17, !8, !9}
-!18 = distinct !{!18, !8, !9}
-!19 = distinct !{!19, !8, !9}
-!20 = distinct !{!20, !8, !9, !15}
-!21 = distinct !{!21, !8, !9}
-!22 = distinct !{!22, !8, !9}
-!23 = distinct !{!23, !8, !9}
-!24 = distinct !{!24, !8, !9}
-!25 = distinct !{!25, !8, !9}
-!26 = distinct !{!26, !8, !9, !15}
-!27 = distinct !{!27, !8, !9}
-!28 = distinct !{!28, !8, !9}
-!29 = distinct !{!29, !8, !9}
-!30 = distinct !{!30, !8, !9, !15}
-!31 = distinct !{!31, !8, !9}
-!32 = distinct !{!32, !8, !9}
-!33 = distinct !{!33, !8, !9}
-!34 = distinct !{!34, !8, !9}
-!35 = distinct !{!35, !8, !9}
-!36 = distinct !{!36, !8, !9}
-!37 = distinct !{!37, !8, !9}
-!38 = distinct !{!38, !8, !9}
+!9 = distinct !{!9, !8}
+!10 = !{!5, !5, i64 0}
+!11 = distinct !{!11, !8}
+!12 = distinct !{!12, !8}
+!13 = distinct !{!13, !8, !14}
+!14 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!15 = distinct !{!15, !8}
+!16 = distinct !{!16, !8}
+!17 = distinct !{!17, !8}
+!18 = distinct !{!18, !8}
+!19 = distinct !{!19, !8, !14}
+!20 = distinct !{!20, !8}
+!21 = distinct !{!21, !8}
+!22 = distinct !{!22, !8}
+!23 = distinct !{!23, !8}
+!24 = distinct !{!24, !8}
+!25 = distinct !{!25, !8, !14}
+!26 = distinct !{!26, !8}
+!27 = distinct !{!27, !8}
+!28 = distinct !{!28, !8}
+!29 = distinct !{!29, !8, !14}
+!30 = distinct !{!30, !8}
+!31 = distinct !{!31, !8}
+!32 = distinct !{!32, !8}
+!33 = distinct !{!33, !8}
+!34 = distinct !{!34, !8}
+!35 = distinct !{!35, !8}
+!36 = distinct !{!36, !8}
+!37 = distinct !{!37, !8}

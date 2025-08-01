@@ -87,7 +87,7 @@ define noundef i32 @ModifiedGS(ptr noundef readonly captures(none) %0, ptr nound
   %.1 = phi double [ %.07379, %36 ], [ %53, %48 ]
   %indvars.iv.next84 = add nuw nsw i64 %indvars.iv83, 1
   %exitcond87.not = icmp eq i64 %indvars.iv.next84, %wide.trip.count86
-  br i1 %exitcond87.not, label %._crit_edge81, label %36, !llvm.loop !15
+  br i1 %exitcond87.not, label %._crit_edge81, label %36, !llvm.loop !14
 
 ._crit_edge81:                                    ; preds = %54
   %55 = fcmp une double %.1, 0.000000e+00
@@ -159,7 +159,7 @@ define noundef i32 @ClassicalGS(ptr noundef readonly captures(none) %0, ptr noun
   store double %25, ptr %28, align 8, !tbaa !10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.lr.ph91, label %21, !llvm.loop !16
+  br i1 %exitcond.not, label %.lr.ph91, label %21, !llvm.loop !15
 
 29:                                               ; preds = %.lr.ph91, %29
   %indvars.iv101 = phi i64 [ %20, %.lr.ph91 ], [ %indvars.iv.next102, %29 ]
@@ -174,7 +174,7 @@ define noundef i32 @ClassicalGS(ptr noundef readonly captures(none) %0, ptr noun
   tail call void @N_VLinearSum(double noundef 1.000000e+00, ptr noundef %30, double noundef %35, ptr noundef %37, ptr noundef %30) #5
   %indvars.iv.next102 = add nuw nsw i64 %indvars.iv101, 1
   %exitcond105.not = icmp eq i64 %indvars.iv.next102, %wide.trip.count104
-  br i1 %exitcond105.not, label %._crit_edge, label %29, !llvm.loop !17
+  br i1 %exitcond105.not, label %._crit_edge, label %29, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %29, %7
   %38 = load ptr, ptr %10, align 8, !tbaa !3
@@ -203,7 +203,7 @@ define noundef i32 @ClassicalGS(ptr noundef readonly captures(none) %0, ptr noun
   store double %47, ptr %48, align 8, !tbaa !10
   %indvars.iv.next107 = add nuw nsw i64 %indvars.iv106, 1
   %exitcond110.not = icmp eq i64 %indvars.iv.next107, %wide.trip.count109
-  br i1 %exitcond110.not, label %49, label %.lr.ph93, !llvm.loop !18
+  br i1 %exitcond110.not, label %49, label %.lr.ph93, !llvm.loop !17
 
 49:                                               ; preds = %.lr.ph93
   %50 = zext nneg i32 %15 to i64
@@ -250,7 +250,7 @@ define noundef i32 @ClassicalGS(ptr noundef readonly captures(none) %0, ptr noun
   %indvars.iv.next112 = add nuw nsw i64 %indvars.iv111, 1
   %76 = trunc nuw i64 %indvars.iv.next112 to i32
   %77 = icmp sgt i32 %2, %76
-  br i1 %77, label %65, label %._crit_edge99, !llvm.loop !19
+  br i1 %77, label %65, label %._crit_edge99, !llvm.loop !18
 
 ._crit_edge99:                                    ; preds = %65, %._crit_edge94
   %78 = load ptr, ptr %10, align 8, !tbaa !3
@@ -317,7 +317,7 @@ define i32 @QRfact(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr n
   %23 = tail call double @llvm.fmuladd.f64(double %18, double %8, double %22)
   store double %23, ptr %13, align 8, !tbaa !10
   %exitcond158.not = icmp eq i64 %indvars.iv.next153, %wide.trip.count157
-  br i1 %exitcond158.not, label %._crit_edge148, label %7, !llvm.loop !20
+  br i1 %exitcond158.not, label %._crit_edge148, label %7, !llvm.loop !19
 
 ._crit_edge148:                                   ; preds = %7, %.preheader
   %24 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv159
@@ -375,7 +375,7 @@ define i32 @QRfact(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr n
   %.1 = select i1 %59, i32 %60, i32 %.0150
   %indvars.iv.next156 = add nsw i32 %indvars.iv155, 1
   %exitcond163.not = icmp eq i64 %indvars.iv.next160, %wide.trip.count162
-  br i1 %exitcond163.not, label %.loopexit, label %.preheader, !llvm.loop !21
+  br i1 %exitcond163.not, label %.loopexit, label %.preheader, !llvm.loop !20
 
 61:                                               ; preds = %4
   %62 = add i32 %0, -1
@@ -417,7 +417,7 @@ define i32 @QRfact(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr n
   %81 = tail call double @llvm.fmuladd.f64(double %76, double %66, double %80)
   store double %81, ptr %71, align 8, !tbaa !10
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %65, !llvm.loop !22
+  br i1 %exitcond.not, label %._crit_edge, label %65, !llvm.loop !21
 
 ._crit_edge:                                      ; preds = %65, %.._crit_edge_crit_edge
   %.pre-phi = phi i64 [ %.pre168, %.._crit_edge_crit_edge ], [ %64, %65 ]
@@ -530,7 +530,7 @@ define range(i32 0, -2147483648) i32 @QRsol(i32 noundef %0, ptr noundef readonly
   %26 = tail call double @llvm.fmuladd.f64(double %18, double %14, double %25)
   store double %26, ptr %20, align 8, !tbaa !10
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.lr.ph56.preheader, label %.lr.ph, !llvm.loop !23
+  br i1 %exitcond.not, label %.lr.ph56.preheader, label %.lr.ph, !llvm.loop !22
 
 .loopexit:                                        ; preds = %.lr.ph52
   %indvars.iv.next68 = add nsw i64 %indvars.iv6780, -1
@@ -540,7 +540,7 @@ define range(i32 0, -2147483648) i32 @QRsol(i32 noundef %0, ptr noundef readonly
   %29 = getelementptr inbounds nuw double, ptr %28, i64 %indvars.iv.next70
   %30 = load double, ptr %29, align 8, !tbaa !10
   %31 = fcmp oeq double %30, 0.000000e+00
-  br i1 %31, label %.lr.ph56.._crit_edge.loopexit.split.loop.exit75_crit_edge, label %32, !llvm.loop !24
+  br i1 %31, label %.lr.ph56.._crit_edge.loopexit.split.loop.exit75_crit_edge, label %32, !llvm.loop !23
 
 32:                                               ; preds = %.lr.ph82, %.loopexit
   %33 = phi double [ %10, %.lr.ph82 ], [ %30, %.loopexit ]
@@ -568,7 +568,7 @@ define range(i32 0, -2147483648) i32 @QRsol(i32 noundef %0, ptr noundef readonly
   store double %46, ptr %43, align 8, !tbaa !10
   %indvars.iv.next61 = add nuw nsw i64 %indvars.iv60, 1
   %exitcond66.not = icmp eq i64 %indvars.iv.next61, %indvars.iv6780
-  br i1 %exitcond66.not, label %.loopexit, label %.lr.ph52, !llvm.loop !25
+  br i1 %exitcond66.not, label %.loopexit, label %.lr.ph52, !llvm.loop !24
 
 .lr.ph56.._crit_edge.loopexit.split.loop.exit75_crit_edge: ; preds = %.loopexit
   %47 = trunc nuw nsw i64 %indvars.iv.next7081 to i32
@@ -603,17 +603,16 @@ attributes #5 = { nounwind }
 !9 = !{!"p1 double", !5, i64 0}
 !10 = !{!11, !11, i64 0}
 !11 = !{!"double", !6, i64 0}
-!12 = distinct !{!12, !13, !14}
+!12 = distinct !{!12, !13}
 !13 = !{!"llvm.loop.mustprogress"}
-!14 = !{!"llvm.loop.estimated_trip_count"}
-!15 = distinct !{!15, !13, !14}
-!16 = distinct !{!16, !13, !14}
-!17 = distinct !{!17, !13, !14}
-!18 = distinct !{!18, !13, !14}
-!19 = distinct !{!19, !13, !14}
-!20 = distinct !{!20, !13, !14}
-!21 = distinct !{!21, !13, !14}
-!22 = distinct !{!22, !13, !14}
-!23 = distinct !{!23, !13, !14}
-!24 = distinct !{!24, !13, !14}
-!25 = distinct !{!25, !13, !14}
+!14 = distinct !{!14, !13}
+!15 = distinct !{!15, !13}
+!16 = distinct !{!16, !13}
+!17 = distinct !{!17, !13}
+!18 = distinct !{!18, !13}
+!19 = distinct !{!19, !13}
+!20 = distinct !{!20, !13}
+!21 = distinct !{!21, !13}
+!22 = distinct !{!22, !13}
+!23 = distinct !{!23, !13}
+!24 = distinct !{!24, !13}

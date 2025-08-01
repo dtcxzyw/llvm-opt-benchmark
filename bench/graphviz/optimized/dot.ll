@@ -92,7 +92,7 @@ declare void @gvToggle(i32 noundef) #1
 
 ; Function Attrs: cold nofree noreturn nounwind uwtable
 define internal void @fperr(i32 noundef %0) #3 {
-  %2 = load ptr, ptr @stderr, align 8, !tbaa !16
+  %2 = load ptr, ptr @stderr, align 8, !tbaa !15
   %3 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str, i32 noundef %0) #10
   tail call fastcc void @graphviz_exit(i32 noundef 1) #9
   unreachable
@@ -159,8 +159,7 @@ attributes #11 = { noreturn nounwind }
 !10 = !{!"int", !7, i64 0}
 !11 = !{!12, !12, i64 0}
 !12 = !{!"p1 _ZTS8Agraph_s", !6, i64 0}
-!13 = distinct !{!13, !14, !15}
+!13 = distinct !{!13, !14}
 !14 = !{!"llvm.loop.mustprogress"}
-!15 = !{!"llvm.loop.estimated_trip_count"}
-!16 = !{!17, !17, i64 0}
-!17 = !{!"p1 _ZTS8_IO_FILE", !6, i64 0}
+!15 = !{!16, !16, i64 0}
+!16 = !{!"p1 _ZTS8_IO_FILE", !6, i64 0}

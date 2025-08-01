@@ -1020,7 +1020,7 @@ define hidden range(i32 0, 2) i32 @EVP_DecryptFinal_ex(ptr noundef %0, ptr nound
   store i8 %54, ptr %55, align 1, !tbaa !32
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond53.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond53.not, label %.loopexit, label %.lr.ph, !llvm.loop !36
+  br i1 %exitcond53.not, label %.loopexit, label %.lr.ph, !llvm.loop !35
 
 .loopexit:                                        ; preds = %.lr.ph, %50, %24
   %storemerge = phi i32 [ 0, %24 ], [ %51, %50 ], [ %51, %.lr.ph ]
@@ -1166,7 +1166,7 @@ define hidden ptr @EVP_CIPHER_CTX_cipher(ptr noundef readonly captures(none) %0)
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define hidden i32 @EVP_CIPHER_CTX_nid(ptr noundef readonly captures(none) %0) local_unnamed_addr #8 {
   %2 = load ptr, ptr %0, align 8, !tbaa !6
-  %3 = load i32, ptr %2, align 8, !tbaa !37
+  %3 = load i32, ptr %2, align 8, !tbaa !36
   ret i32 %3
 }
 
@@ -1188,14 +1188,14 @@ define hidden i32 @EVP_CIPHER_CTX_key_length(ptr noundef readonly captures(none)
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @EVP_CIPHER_CTX_get_app_data(ptr noundef readonly captures(none) %0) local_unnamed_addr #9 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load ptr, ptr %2, align 8, !tbaa !38
+  %3 = load ptr, ptr %2, align 8, !tbaa !37
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define hidden void @EVP_CIPHER_CTX_set_app_data(ptr noundef writeonly captures(none) initializes((8, 16)) %0, ptr noundef %1) local_unnamed_addr #2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %1, ptr %3, align 8, !tbaa !38
+  store ptr %1, ptr %3, align 8, !tbaa !37
   ret void
 }
 
@@ -1245,7 +1245,7 @@ define hidden range(i32 0, 2) i32 @EVP_CIPHER_CTX_set_key_length(ptr noundef cap
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden i32 @EVP_CIPHER_nid(ptr noundef readonly captures(none) %0) local_unnamed_addr #9 {
-  %2 = load i32, ptr %0, align 8, !tbaa !37
+  %2 = load i32, ptr %0, align 8, !tbaa !36
   ret i32 %2
 }
 
@@ -1496,9 +1496,8 @@ attributes #15 = { nounwind allocsize(0) }
 !30 = !{!14, !9, i64 40}
 !31 = !{!12, !12, i64 0}
 !32 = !{!10, !10, i64 0}
-!33 = distinct !{!33, !34, !35}
+!33 = distinct !{!33, !34}
 !34 = !{!"llvm.loop.mustprogress"}
-!35 = !{!"llvm.loop.estimated_trip_count"}
-!36 = distinct !{!36, !34, !35}
-!37 = !{!14, !12, i64 0}
-!38 = !{!7, !9, i64 8}
+!35 = distinct !{!35, !34}
+!36 = !{!14, !12, i64 0}
+!37 = !{!7, !9, i64 8}

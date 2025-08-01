@@ -309,7 +309,7 @@ _ZN10bit_vector6resizeEjb.exit:                   ; preds = %4, %33, %44
   store i32 %81, ptr %77, align 4, !tbaa !12
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %76, !llvm.loop !16
+  br i1 %exitcond.not, label %.loopexit, label %76, !llvm.loop !15
 
 .loopexit:                                        ; preds = %76, %68, %.loopexit40, %2
   ret void
@@ -354,7 +354,7 @@ define hidden noundef zeroext i1 @_ZNK10bit_vectoreqERKS_(ptr noundef nonnull re
 16:                                               ; preds = %11
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.loopexit, label %11, !llvm.loop !17
+  br i1 %exitcond.not, label %._crit_edge.loopexit, label %11, !llvm.loop !16
 
 ._crit_edge.loopexit:                             ; preds = %16
   %17 = zext i32 %10 to i64
@@ -506,7 +506,7 @@ _ZN10bit_vector6resizeEjb.exit:                   ; preds = %30, %41
   store i32 %63, ptr %61, align 4, !tbaa !12
   %indvars.iv.next31 = add nuw nsw i64 %indvars.iv30, 1
   %exitcond34.not = icmp eq i64 %indvars.iv.next31, %wide.trip.count33
-  br i1 %exitcond34.not, label %.loopexit, label %58, !llvm.loop !18
+  br i1 %exitcond34.not, label %.loopexit, label %58, !llvm.loop !17
 
 64:                                               ; preds = %.lr.ph, %64
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %64 ]
@@ -518,7 +518,7 @@ _ZN10bit_vector6resizeEjb.exit:                   ; preds = %30, %41
   store i32 %69, ptr %67, align 4, !tbaa !12
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.loopexit, label %64, !llvm.loop !19
+  br i1 %exitcond.not, label %._crit_edge.loopexit, label %64, !llvm.loop !18
 
 ._crit_edge.loopexit:                             ; preds = %64
   %70 = zext i32 %53 to i64
@@ -574,7 +574,7 @@ define hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN10bit_vectoraN
   store i32 %21, ptr %19, align 4, !tbaa !12
   %indvars.iv.next63 = add nuw nsw i64 %indvars.iv62, 1
   %exitcond66.not = icmp eq i64 %indvars.iv.next63, %wide.trip.count65
-  br i1 %exitcond66.not, label %.loopexit, label %16, !llvm.loop !20
+  br i1 %exitcond66.not, label %.loopexit, label %16, !llvm.loop !19
 
 22:                                               ; preds = %10
   %23 = and i32 %6, 31
@@ -616,7 +616,7 @@ define hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN10bit_vectoraN
   store i32 %35, ptr %33, align 4, !tbaa !12
   %indvars.iv.next56 = add nuw nsw i64 %indvars.iv55, 1
   %exitcond59.not = icmp eq i64 %indvars.iv.next56, %wide.trip.count58
-  br i1 %exitcond59.not, label %.loopexit41, label %30, !llvm.loop !21
+  br i1 %exitcond59.not, label %.loopexit41, label %30, !llvm.loop !20
 
 36:                                               ; preds = %.lr.ph, %36
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %36 ]
@@ -628,7 +628,7 @@ define hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN10bit_vectoraN
   store i32 %41, ptr %39, align 4, !tbaa !12
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.loopexit, label %36, !llvm.loop !22
+  br i1 %exitcond.not, label %._crit_edge.loopexit, label %36, !llvm.loop !21
 
 ._crit_edge.loopexit:                             ; preds = %36
   %42 = zext i32 %25 to i64
@@ -695,7 +695,7 @@ define hidden void @_ZNK10bit_vector7displayERSo(ptr noundef nonnull readonly al
   %.str.1..str = select i1 %.not5, ptr @.str.1, ptr @.str
   %15 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %.str.1..str, i64 noundef 1)
   %.not = icmp eq i32 %6, 0
-  br i1 %.not, label %._crit_edge, label %5, !llvm.loop !23
+  br i1 %.not, label %._crit_edge, label %5, !llvm.loop !22
 
 ._crit_edge:                                      ; preds = %5, %2
   ret void
@@ -732,7 +732,7 @@ define hidden noundef zeroext i1 @_ZNK10bit_vector8containsERKS_(ptr noundef non
 12:                                               ; preds = %13
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.critedge, label %13, !llvm.loop !24
+  br i1 %exitcond.not, label %.critedge, label %13, !llvm.loop !23
 
 13:                                               ; preds = %.lr.ph, %12
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %12 ]
@@ -804,14 +804,14 @@ define hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN10bit_vector3n
   store i32 %10, ptr %8, align 4, !tbaa !12
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %7, !llvm.loop !25
+  br i1 %exitcond.not, label %._crit_edge, label %7, !llvm.loop !24
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define hidden void @_ZN13fr_bit_vector5resetEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0) local_unnamed_addr #6 align 2 {
   %2 = load i32, ptr %0, align 8, !tbaa !11
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %4 = load ptr, ptr %3, align 8, !tbaa !26
+  %4 = load ptr, ptr %3, align 8, !tbaa !25
   %5 = icmp eq ptr %4, null
   br i1 %5, label %_ZN6vectorIjLb0EjE5resetEv.exit, label %_ZN6vectorIjLb0EjE3endEv.exit
 
@@ -850,7 +850,7 @@ _ZN6vectorIjLb0EjE3endEv.exit:                    ; preds = %1
 25:                                               ; preds = %16, %13
   %26 = getelementptr inbounds nuw i8, ptr %.09, i64 4
   %.not = icmp eq ptr %26, %10
-  br i1 %.not, label %._crit_edge.thread12, label %13, !llvm.loop !28
+  br i1 %.not, label %._crit_edge.thread12, label %13, !llvm.loop !27
 
 ._crit_edge.thread12:                             ; preds = %25, %_ZN6vectorIjLb0EjE3endEv.exit
   %27 = getelementptr inbounds i8, ptr %4, i64 -4
@@ -896,19 +896,18 @@ attributes #8 = { nounwind }
 !10 = !{!4, !5, i64 4}
 !11 = !{!4, !5, i64 0}
 !12 = !{!5, !5, i64 0}
-!13 = distinct !{!13, !14, !15}
+!13 = distinct !{!13, !14}
 !14 = !{!"llvm.loop.mustprogress"}
-!15 = !{!"llvm.loop.estimated_trip_count"}
-!16 = distinct !{!16, !14, !15}
-!17 = distinct !{!17, !14, !15}
-!18 = distinct !{!18, !14, !15}
-!19 = distinct !{!19, !14, !15}
-!20 = distinct !{!20, !14, !15}
-!21 = distinct !{!21, !14, !15}
-!22 = distinct !{!22, !14, !15}
-!23 = distinct !{!23, !14, !15}
-!24 = distinct !{!24, !14, !15}
-!25 = distinct !{!25, !14, !15}
-!26 = !{!27, !8, i64 0}
-!27 = !{!"_ZTS6vectorIjLb0EjE", !8, i64 0}
-!28 = distinct !{!28, !14, !15}
+!15 = distinct !{!15, !14}
+!16 = distinct !{!16, !14}
+!17 = distinct !{!17, !14}
+!18 = distinct !{!18, !14}
+!19 = distinct !{!19, !14}
+!20 = distinct !{!20, !14}
+!21 = distinct !{!21, !14}
+!22 = distinct !{!22, !14}
+!23 = distinct !{!23, !14}
+!24 = distinct !{!24, !14}
+!25 = !{!26, !8, i64 0}
+!26 = !{!"_ZTS6vectorIjLb0EjE", !8, i64 0}
+!27 = distinct !{!27, !14}

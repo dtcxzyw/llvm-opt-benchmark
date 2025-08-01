@@ -2762,13 +2762,13 @@ define internal range(i32 0, 2) i32 @prime_field_tests() #0 {
 
 793:                                              ; preds = %788
   call void (ptr, ...) @test_note(ptr noundef nonnull @.str.245) #7
-  store ptr %57, ptr %7, align 16, !tbaa !23
+  store ptr %57, ptr %7, align 16, !tbaa !22
   %794 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store ptr %57, ptr %794, align 8, !tbaa !23
+  store ptr %57, ptr %794, align 8, !tbaa !22
   %795 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  store ptr %57, ptr %795, align 16, !tbaa !23
+  store ptr %57, ptr %795, align 16, !tbaa !22
   %796 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  store ptr %57, ptr %796, align 8, !tbaa !23
+  store ptr %57, ptr %796, align 8, !tbaa !22
   %797 = load ptr, ptr %6, align 8, !tbaa !12
   %798 = call i32 @EC_GROUP_get_order(ptr noundef %40, ptr noundef %797, ptr noundef %10) #7
   %799 = icmp ne i32 %798, 0
@@ -3360,7 +3360,7 @@ define internal range(i32 0, 2) i32 @char2_field_tests() #0 {
 149:                                              ; preds = %144
   %150 = call i32 @EC_POINT_is_at_infinity(ptr noundef %37, ptr noundef %51) #7
   %.not114 = icmp eq i32 %150, 0
-  br i1 %.not114, label %123, label %151, !llvm.loop !25
+  br i1 %.not114, label %123, label %151, !llvm.loop !24
 
 151:                                              ; preds = %149
   %152 = call i32 @EC_POINT_add(ptr noundef %37, ptr noundef %51, ptr noundef %54, ptr noundef %57, ptr noundef %7) #7
@@ -3537,7 +3537,7 @@ define internal range(i32 0, 2) i32 @char2_curve_test(i32 noundef %0) #0 {
 
 36:                                               ; preds = %33
   %37 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  %38 = load ptr, ptr %37, align 8, !tbaa !26
+  %38 = load ptr, ptr %37, align 8, !tbaa !25
   %39 = call i32 @BN_hex2bn(ptr noundef nonnull %2, ptr noundef %38) #7
   %40 = icmp ne i32 %39, 0
   %41 = zext i1 %40 to i32
@@ -3547,7 +3547,7 @@ define internal range(i32 0, 2) i32 @char2_curve_test(i32 noundef %0) #0 {
 
 43:                                               ; preds = %36
   %44 = getelementptr inbounds nuw i8, ptr %12, i64 16
-  %45 = load ptr, ptr %44, align 16, !tbaa !28
+  %45 = load ptr, ptr %44, align 16, !tbaa !27
   %46 = call i32 @BN_hex2bn(ptr noundef nonnull %3, ptr noundef %45) #7
   %47 = icmp ne i32 %46, 0
   %48 = zext i1 %47 to i32
@@ -3557,7 +3557,7 @@ define internal range(i32 0, 2) i32 @char2_curve_test(i32 noundef %0) #0 {
 
 50:                                               ; preds = %43
   %51 = getelementptr inbounds nuw i8, ptr %12, i64 24
-  %52 = load ptr, ptr %51, align 8, !tbaa !29
+  %52 = load ptr, ptr %51, align 8, !tbaa !28
   %53 = call i32 @BN_hex2bn(ptr noundef nonnull %4, ptr noundef %52) #7
   %54 = icmp ne i32 %53, 0
   %55 = zext i1 %54 to i32
@@ -3596,7 +3596,7 @@ define internal range(i32 0, 2) i32 @char2_curve_test(i32 noundef %0) #0 {
 
 74:                                               ; preds = %71
   %75 = getelementptr inbounds nuw i8, ptr %12, i64 32
-  %76 = load ptr, ptr %75, align 16, !tbaa !30
+  %76 = load ptr, ptr %75, align 16, !tbaa !29
   %77 = call i32 @BN_hex2bn(ptr noundef nonnull %5, ptr noundef %76) #7
   %78 = icmp ne i32 %77, 0
   %79 = zext i1 %78 to i32
@@ -3606,7 +3606,7 @@ define internal range(i32 0, 2) i32 @char2_curve_test(i32 noundef %0) #0 {
 
 81:                                               ; preds = %74
   %82 = getelementptr inbounds nuw i8, ptr %12, i64 40
-  %83 = load ptr, ptr %82, align 8, !tbaa !31
+  %83 = load ptr, ptr %82, align 8, !tbaa !30
   %84 = call i32 @BN_hex2bn(ptr noundef nonnull %6, ptr noundef %83) #7
   %85 = icmp ne i32 %84, 0
   %86 = zext i1 %85 to i32
@@ -3651,7 +3651,7 @@ define internal range(i32 0, 2) i32 @char2_curve_test(i32 noundef %0) #0 {
 
 111:                                              ; preds = %108
   %112 = getelementptr inbounds nuw i8, ptr %12, i64 56
-  %113 = load ptr, ptr %112, align 8, !tbaa !32
+  %113 = load ptr, ptr %112, align 8, !tbaa !31
   %114 = call i32 @BN_hex2bn(ptr noundef nonnull %7, ptr noundef %113) #7
   %115 = icmp ne i32 %114, 0
   %116 = zext i1 %115 to i32
@@ -3661,7 +3661,7 @@ define internal range(i32 0, 2) i32 @char2_curve_test(i32 noundef %0) #0 {
 
 118:                                              ; preds = %111
   %119 = getelementptr inbounds nuw i8, ptr %12, i64 64
-  %120 = load ptr, ptr %119, align 16, !tbaa !33
+  %120 = load ptr, ptr %119, align 16, !tbaa !32
   %121 = call i32 @BN_hex2bn(ptr noundef nonnull %8, ptr noundef %120) #7
   %122 = icmp ne i32 %121, 0
   %123 = zext i1 %122 to i32
@@ -3680,7 +3680,7 @@ define internal range(i32 0, 2) i32 @char2_curve_test(i32 noundef %0) #0 {
   br i1 %.not121, label %292, label %132
 
 132:                                              ; preds = %125
-  %133 = load ptr, ptr %12, align 16, !tbaa !34
+  %133 = load ptr, ptr %12, align 16, !tbaa !33
   call void (ptr, i32, ptr, ...) @test_info(ptr noundef nonnull @.str, i32 noundef 848, ptr noundef nonnull @.str.317, ptr noundef %133) #7
   %134 = load ptr, ptr %5, align 8, !tbaa !12
   call void @test_output_bignum(ptr noundef nonnull @.str.126, ptr noundef %134) #7
@@ -3688,7 +3688,7 @@ define internal range(i32 0, 2) i32 @char2_curve_test(i32 noundef %0) #0 {
   call void @test_output_bignum(ptr noundef nonnull @.str.127, ptr noundef %135) #7
   %136 = call i32 @EC_GROUP_get_degree(ptr noundef %61) #7
   %137 = getelementptr inbounds nuw i8, ptr %12, i64 72
-  %138 = load i32, ptr %137, align 8, !tbaa !35
+  %138 = load i32, ptr %137, align 8, !tbaa !34
   %139 = call i32 @test_int_eq(ptr noundef nonnull @.str, i32 noundef 853, ptr noundef nonnull @.str.164, ptr noundef nonnull @.str.318, i32 noundef %136, i32 noundef %138) #7
   %.not122 = icmp eq i32 %139, 0
   br i1 %.not122, label %292, label %140
@@ -3784,11 +3784,11 @@ define internal range(i32 0, 2) i32 @char2_curve_test(i32 noundef %0) #0 {
 
 194:                                              ; preds = %189
   call void (ptr, ...) @test_note(ptr noundef nonnull @.str.245) #7
-  store ptr %69, ptr %9, align 16, !tbaa !23
+  store ptr %69, ptr %9, align 16, !tbaa !22
   %195 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  store ptr %69, ptr %195, align 8, !tbaa !23
+  store ptr %69, ptr %195, align 8, !tbaa !22
   %196 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  store ptr %69, ptr %196, align 16, !tbaa !23
+  store ptr %69, ptr %196, align 16, !tbaa !22
   %197 = load ptr, ptr %6, align 8, !tbaa !12
   %198 = load ptr, ptr %7, align 8, !tbaa !12
   %199 = call ptr @BN_value_one() #7
@@ -4005,7 +4005,7 @@ define internal range(i32 0, 2) i32 @nistp_single_test(i32 noundef %0) #0 {
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #7
   store ptr null, ptr %8, align 8, !tbaa !12
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 4
-  %12 = load i32, ptr %11, align 4, !tbaa !36
+  %12 = load i32, ptr %11, align 4, !tbaa !35
   tail call void (ptr, ...) @test_note(ptr noundef nonnull @.str.377, i32 noundef %12) #7
   %13 = tail call ptr @BN_CTX_new() #7
   %14 = tail call i32 @test_ptr(ptr noundef nonnull @.str, i32 noundef 1324, ptr noundef nonnull @.str.77, ptr noundef %13) #7
@@ -4074,7 +4074,7 @@ define internal range(i32 0, 2) i32 @nistp_single_test(i32 noundef %0) #0 {
   br i1 %.not148, label %271, label %42
 
 42:                                               ; preds = %39
-  %43 = load i32, ptr %10, align 16, !tbaa !38
+  %43 = load i32, ptr %10, align 16, !tbaa !37
   %44 = tail call ptr @EC_GROUP_new_by_curve_name(i32 noundef %43) #7
   %45 = tail call i32 @test_ptr(ptr noundef nonnull @.str, i32 noundef 1335, ptr noundef nonnull @.str.380, ptr noundef %44) #7
   %.not149 = icmp eq i32 %45, 0
@@ -4082,7 +4082,7 @@ define internal range(i32 0, 2) i32 @nistp_single_test(i32 noundef %0) #0 {
 
 46:                                               ; preds = %42
   %47 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %48 = load ptr, ptr %47, align 8, !tbaa !39
+  %48 = load ptr, ptr %47, align 8, !tbaa !38
   %49 = call i32 @BN_hex2bn(ptr noundef nonnull %2, ptr noundef %48) #7
   %50 = icmp ne i32 %49, 0
   %51 = zext i1 %50 to i32
@@ -4099,7 +4099,7 @@ define internal range(i32 0, 2) i32 @nistp_single_test(i32 noundef %0) #0 {
 
 57:                                               ; preds = %53
   %58 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  %59 = load ptr, ptr %58, align 16, !tbaa !40
+  %59 = load ptr, ptr %58, align 16, !tbaa !39
   %60 = call i32 @BN_hex2bn(ptr noundef nonnull %3, ptr noundef %59) #7
   %61 = icmp ne i32 %60, 0
   %62 = zext i1 %61 to i32
@@ -4109,7 +4109,7 @@ define internal range(i32 0, 2) i32 @nistp_single_test(i32 noundef %0) #0 {
 
 64:                                               ; preds = %57
   %65 = getelementptr inbounds nuw i8, ptr %10, i64 24
-  %66 = load ptr, ptr %65, align 8, !tbaa !41
+  %66 = load ptr, ptr %65, align 8, !tbaa !40
   %67 = call i32 @BN_hex2bn(ptr noundef nonnull %4, ptr noundef %66) #7
   %68 = icmp ne i32 %67, 0
   %69 = zext i1 %68 to i32
@@ -4154,7 +4154,7 @@ define internal range(i32 0, 2) i32 @nistp_single_test(i32 noundef %0) #0 {
 
 91:                                               ; preds = %88
   %92 = getelementptr inbounds nuw i8, ptr %10, i64 32
-  %93 = load ptr, ptr %92, align 16, !tbaa !42
+  %93 = load ptr, ptr %92, align 16, !tbaa !41
   %94 = call i32 @BN_hex2bn(ptr noundef nonnull %5, ptr noundef %93) #7
   %95 = icmp ne i32 %94, 0
   %96 = zext i1 %95 to i32
@@ -4164,7 +4164,7 @@ define internal range(i32 0, 2) i32 @nistp_single_test(i32 noundef %0) #0 {
 
 98:                                               ; preds = %91
   %99 = getelementptr inbounds nuw i8, ptr %10, i64 40
-  %100 = load ptr, ptr %99, align 8, !tbaa !43
+  %100 = load ptr, ptr %99, align 8, !tbaa !42
   %101 = call i32 @BN_hex2bn(ptr noundef nonnull %6, ptr noundef %100) #7
   %102 = icmp ne i32 %101, 0
   %103 = zext i1 %102 to i32
@@ -4203,7 +4203,7 @@ define internal range(i32 0, 2) i32 @nistp_single_test(i32 noundef %0) #0 {
 
 125:                                              ; preds = %118
   %126 = getelementptr inbounds nuw i8, ptr %10, i64 48
-  %127 = load ptr, ptr %126, align 16, !tbaa !44
+  %127 = load ptr, ptr %126, align 16, !tbaa !43
   %128 = call i32 @BN_hex2bn(ptr noundef nonnull %5, ptr noundef %127) #7
   %129 = icmp ne i32 %128, 0
   %130 = zext i1 %129 to i32
@@ -4213,7 +4213,7 @@ define internal range(i32 0, 2) i32 @nistp_single_test(i32 noundef %0) #0 {
 
 132:                                              ; preds = %125
   %133 = getelementptr inbounds nuw i8, ptr %10, i64 56
-  %134 = load ptr, ptr %133, align 8, !tbaa !45
+  %134 = load ptr, ptr %133, align 8, !tbaa !44
   %135 = call i32 @BN_hex2bn(ptr noundef nonnull %6, ptr noundef %134) #7
   %136 = icmp ne i32 %135, 0
   %137 = zext i1 %136 to i32
@@ -4233,7 +4233,7 @@ define internal range(i32 0, 2) i32 @nistp_single_test(i32 noundef %0) #0 {
 
 146:                                              ; preds = %139
   %147 = getelementptr inbounds nuw i8, ptr %10, i64 64
-  %148 = load ptr, ptr %147, align 16, !tbaa !46
+  %148 = load ptr, ptr %147, align 16, !tbaa !45
   %149 = call i32 @BN_hex2bn(ptr noundef nonnull %8, ptr noundef %148) #7
   %150 = icmp ne i32 %149, 0
   %151 = zext i1 %150 to i32
@@ -4260,7 +4260,7 @@ define internal range(i32 0, 2) i32 @nistp_single_test(i32 noundef %0) #0 {
 163:                                              ; preds = %160
   call void (ptr, ...) @test_note(ptr noundef nonnull @.str.396) #7
   %164 = getelementptr inbounds nuw i8, ptr %10, i64 72
-  %165 = load ptr, ptr %164, align 8, !tbaa !47
+  %165 = load ptr, ptr %164, align 8, !tbaa !46
   %166 = call i32 @BN_hex2bn(ptr noundef nonnull %7, ptr noundef %165) #7
   %167 = icmp ne i32 %166, 0
   %168 = zext i1 %167 to i32
@@ -5388,7 +5388,7 @@ define internal range(i32 0, 2) i32 @check_named_curve_from_ecparameters(i32 nou
 107:                                              ; preds = %103
   %108 = tail call ptr @EC_GROUP_get_ecparameters(ptr noundef %44, ptr noundef null) #7
   %109 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store ptr %108, ptr %3, align 16, !tbaa !48
+  store ptr %108, ptr %3, align 16, !tbaa !47
   %110 = tail call i32 @test_ptr(ptr noundef nonnull @.str, i32 noundef 1912, ptr noundef nonnull @.str.513, ptr noundef %108) #7
   %.not172 = icmp eq i32 %110, 0
   br i1 %.not172, label %124, label %111
@@ -5436,7 +5436,7 @@ define internal range(i32 0, 2) i32 @check_named_curve_from_ecparameters(i32 nou
 131:                                              ; preds = %127
   %132 = tail call ptr @EC_GROUP_get_ecparameters(ptr noundef %44, ptr noundef null) #7
   %133 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store ptr %132, ptr %109, align 8, !tbaa !48
+  store ptr %132, ptr %109, align 8, !tbaa !47
   %134 = tail call i32 @test_ptr(ptr noundef nonnull @.str, i32 noundef 1929, ptr noundef nonnull @.str.513, ptr noundef %132) #7
   %.not178 = icmp eq i32 %134, 0
   br i1 %.not178, label %148, label %135
@@ -5485,7 +5485,7 @@ define internal range(i32 0, 2) i32 @check_named_curve_from_ecparameters(i32 nou
 156:                                              ; preds = %151
   %157 = tail call ptr @EC_GROUP_get_ecparameters(ptr noundef %44, ptr noundef null) #7
   %158 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  store ptr %157, ptr %133, align 16, !tbaa !48
+  store ptr %157, ptr %133, align 16, !tbaa !47
   %159 = tail call i32 @test_ptr(ptr noundef nonnull @.str, i32 noundef 1948, ptr noundef nonnull @.str.513, ptr noundef %157) #7
   %.not184 = icmp eq i32 %159, 0
   br i1 %.not184, label %252, label %160
@@ -5515,7 +5515,7 @@ define internal range(i32 0, 2) i32 @check_named_curve_from_ecparameters(i32 nou
 172:                                              ; preds = %167
   %173 = tail call ptr @EC_GROUP_get_ecparameters(ptr noundef %44, ptr noundef null) #7
   %174 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  store ptr %173, ptr %158, align 8, !tbaa !48
+  store ptr %173, ptr %158, align 8, !tbaa !47
   %175 = tail call i32 @test_ptr(ptr noundef nonnull @.str, i32 noundef 1956, ptr noundef nonnull @.str.513, ptr noundef %173) #7
   %.not188 = icmp eq i32 %175, 0
   br i1 %.not188, label %252, label %176
@@ -5553,7 +5553,7 @@ define internal range(i32 0, 2) i32 @check_named_curve_from_ecparameters(i32 nou
 193:                                              ; preds = %188
   %194 = tail call ptr @EC_GROUP_get_ecparameters(ptr noundef %44, ptr noundef null) #7
   %195 = getelementptr inbounds nuw i8, ptr %3, i64 40
-  store ptr %194, ptr %174, align 16, !tbaa !48
+  store ptr %194, ptr %174, align 16, !tbaa !47
   %196 = tail call i32 @test_ptr(ptr noundef nonnull @.str, i32 noundef 1967, ptr noundef nonnull @.str.513, ptr noundef %194) #7
   %.not193 = icmp eq i32 %196, 0
   br i1 %.not193, label %252, label %197
@@ -5595,7 +5595,7 @@ define internal range(i32 0, 2) i32 @check_named_curve_from_ecparameters(i32 nou
 215:                                              ; preds = %210
   %216 = tail call ptr @EC_GROUP_get_ecparameters(ptr noundef %44, ptr noundef null) #7
   %217 = getelementptr inbounds nuw i8, ptr %3, i64 48
-  store ptr %216, ptr %195, align 8, !tbaa !48
+  store ptr %216, ptr %195, align 8, !tbaa !47
   %218 = tail call i32 @test_ptr(ptr noundef nonnull @.str, i32 noundef 1978, ptr noundef nonnull @.str.513, ptr noundef %216) #7
   %.not199 = icmp eq i32 %218, 0
   br i1 %.not199, label %252, label %219
@@ -5636,7 +5636,7 @@ define internal range(i32 0, 2) i32 @check_named_curve_from_ecparameters(i32 nou
 
 237:                                              ; preds = %232
   %238 = tail call ptr @EC_GROUP_get_ecparameters(ptr noundef %44, ptr noundef null) #7
-  store ptr %238, ptr %217, align 16, !tbaa !48
+  store ptr %238, ptr %217, align 16, !tbaa !47
   %239 = tail call i32 @test_ptr(ptr noundef nonnull @.str, i32 noundef 1989, ptr noundef nonnull @.str.513, ptr noundef %238) #7
   %.not205 = icmp eq i32 %239, 0
   br i1 %.not205, label %252, label %240
@@ -5682,16 +5682,16 @@ define internal range(i32 0, 2) i32 @check_named_curve_from_ecparameters(i32 nou
   tail call void @EC_GROUP_free(ptr noundef %254) #7
   %.0139.add = add nuw nsw i64 %.0139.idx210, 8
   %255 = icmp samesign ult i64 %.0139.idx210, 56
-  br i1 %255, label %253, label %.preheader, !llvm.loop !50
+  br i1 %255, label %253, label %.preheader, !llvm.loop !49
 
 .preheader:                                       ; preds = %253, %.preheader
   %.0.idx211 = phi i64 [ %.0.add, %.preheader ], [ 0, %253 ]
   %.0.ptr = getelementptr inbounds nuw i8, ptr %3, i64 %.0.idx211
-  %256 = load ptr, ptr %.0.ptr, align 8, !tbaa !48
+  %256 = load ptr, ptr %.0.ptr, align 8, !tbaa !47
   tail call void @ECPARAMETERS_free(ptr noundef %256) #7
   %.0.add = add nuw nsw i64 %.0.idx211, 8
   %257 = icmp samesign ult i64 %.0.idx211, 56
-  br i1 %257, label %.preheader, label %258, !llvm.loop !51
+  br i1 %257, label %.preheader, label %258, !llvm.loop !50
 
 258:                                              ; preds = %.preheader
   tail call void @ECPARAMETERS_free(ptr noundef %.0140) #7
@@ -5974,9 +5974,9 @@ define internal i32 @custom_params_test(i32 noundef %0) #0 {
   %4 = alloca i64, align 8
   %5 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #7
-  store ptr null, ptr %2, align 8, !tbaa !52
+  store ptr null, ptr %2, align 8, !tbaa !51
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #7
-  store ptr null, ptr %3, align 8, !tbaa !52
+  store ptr null, ptr %3, align 8, !tbaa !51
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #7
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #7
   %6 = load ptr, ptr @curves, align 8, !tbaa !8
@@ -6336,7 +6336,7 @@ define internal i32 @custom_params_test(i32 noundef %0) #0 {
 
 207:                                              ; preds = %203
   %208 = tail call ptr @EVP_PKEY_new() #7
-  store ptr %208, ptr %2, align 8, !tbaa !52
+  store ptr %208, ptr %2, align 8, !tbaa !51
   %209 = tail call i32 @test_ptr(ptr noundef nonnull @.str, i32 noundef 2976, ptr noundef nonnull @.str.660, ptr noundef %208) #7
   %.not263 = icmp eq i32 %209, 0
   br i1 %.not263, label %347, label %210
@@ -6349,7 +6349,7 @@ define internal i32 @custom_params_test(i32 noundef %0) #0 {
 
 213:                                              ; preds = %210
   %214 = tail call ptr @EVP_PKEY_new() #7
-  store ptr %214, ptr %3, align 8, !tbaa !52
+  store ptr %214, ptr %3, align 8, !tbaa !51
   %215 = tail call i32 @test_ptr(ptr noundef nonnull @.str, i32 noundef 2980, ptr noundef nonnull @.str.662, ptr noundef %214) #7
   %.not265 = icmp eq i32 %215, 0
   br i1 %.not265, label %347, label %216
@@ -6542,7 +6542,7 @@ define internal i32 @custom_params_test(i32 noundef %0) #0 {
 
 316:                                              ; preds = %313
   call void @EVP_PKEY_CTX_free(ptr noundef %220) #7
-  %317 = load ptr, ptr %2, align 8, !tbaa !52
+  %317 = load ptr, ptr %2, align 8, !tbaa !51
   %318 = call ptr @EVP_PKEY_CTX_new(ptr noundef %317, ptr noundef null) #7
   %319 = call i32 @test_ptr(ptr noundef nonnull @.str, i32 noundef 3043, ptr noundef nonnull @.str.664, ptr noundef %318) #7
   %.not294 = icmp eq i32 %319, 0
@@ -6555,7 +6555,7 @@ define internal i32 @custom_params_test(i32 noundef %0) #0 {
   br i1 %.not295, label %347, label %323
 
 323:                                              ; preds = %320
-  %324 = load ptr, ptr %3, align 8, !tbaa !52
+  %324 = load ptr, ptr %3, align 8, !tbaa !51
   %325 = call i32 @EVP_PKEY_derive_set_peer(ptr noundef %318, ptr noundef %324) #7
   %326 = call i32 @test_int_eq(ptr noundef nonnull @.str, i32 noundef 3045, ptr noundef nonnull @.str.666, ptr noundef nonnull @.str.103, i32 noundef %325, i32 noundef 1) #7
   %.not296 = icmp eq i32 %326, 0
@@ -6631,9 +6631,9 @@ define internal i32 @custom_params_test(i32 noundef %0) #0 {
   call void @CRYPTO_free(ptr noundef %.0200, ptr noundef nonnull @.str, i32 noundef 3070) #7
   call void @EC_KEY_free(ptr noundef %.0205) #7
   call void @EC_KEY_free(ptr noundef %.0204) #7
-  %348 = load ptr, ptr %2, align 8, !tbaa !52
+  %348 = load ptr, ptr %2, align 8, !tbaa !51
   call void @EVP_PKEY_free(ptr noundef %348) #7
-  %349 = load ptr, ptr %3, align 8, !tbaa !52
+  %349 = load ptr, ptr %3, align 8, !tbaa !51
   call void @EVP_PKEY_free(ptr noundef %349) #7
   call void @EVP_PKEY_CTX_free(ptr noundef %.0203) #7
   call void @EVP_PKEY_CTX_free(ptr noundef %.0202) #7
@@ -6662,7 +6662,7 @@ define internal range(i32 0, 2) i32 @ec_d2i_publickey_test() #0 {
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #7
   store ptr %1, ptr %3, align 8, !tbaa !10
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #7
-  store ptr null, ptr %4, align 8, !tbaa !52
+  store ptr null, ptr %4, align 8, !tbaa !51
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %5) #7
   %7 = call ptr (ptr, ptr, ptr, ...) @EVP_PKEY_Q_keygen(ptr noundef null, ptr noundef null, ptr noundef nonnull @.str.566, ptr noundef nonnull @.str.692) #7
   %8 = call i32 @test_ptr(ptr noundef nonnull @.str, i32 noundef 3091, ptr noundef nonnull @.str.691, ptr noundef %7) #7
@@ -6680,7 +6680,7 @@ define internal range(i32 0, 2) i32 @ec_d2i_publickey_test() #0 {
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 40
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6) #7
   call void @OSSL_PARAM_construct_end(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %6) #7
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %13, ptr noundef nonnull align 8 dereferenceable(40) %6, i64 40, i1 false), !tbaa.struct !54
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %13, ptr noundef nonnull align 8 dereferenceable(40) %6, i64 40, i1 false), !tbaa.struct !53
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6) #7
   %14 = call ptr @EVP_PKEY_CTX_new_from_name(ptr noundef null, ptr noundef nonnull @.str.566, ptr noundef null) #7
   %15 = call i32 @test_ptr(ptr noundef nonnull @.str, i32 noundef 3101, ptr noundef nonnull @.str.565, ptr noundef %14) #7
@@ -6704,7 +6704,7 @@ define internal range(i32 0, 2) i32 @ec_d2i_publickey_test() #0 {
   br i1 %.not11, label %39, label %26
 
 26:                                               ; preds = %21
-  %27 = load ptr, ptr %4, align 8, !tbaa !52
+  %27 = load ptr, ptr %4, align 8, !tbaa !51
   %28 = call i32 @test_ptr(ptr noundef nonnull @.str, i32 noundef 3106, ptr noundef nonnull @.str.696, ptr noundef %27) #7
   %.not12 = icmp eq i32 %28, 0
   br i1 %.not12, label %39, label %29
@@ -6712,13 +6712,13 @@ define internal range(i32 0, 2) i32 @ec_d2i_publickey_test() #0 {
 29:                                               ; preds = %26
   %30 = sext i32 %10 to i64
   %31 = call ptr @d2i_PublicKey(i32 noundef 408, ptr noundef nonnull %4, ptr noundef nonnull %3, i64 noundef %30) #7
-  store ptr %31, ptr %4, align 8, !tbaa !52
+  store ptr %31, ptr %4, align 8, !tbaa !51
   %32 = call i32 @test_ptr(ptr noundef nonnull @.str, i32 noundef 3108, ptr noundef nonnull @.str.697, ptr noundef %31) #7
   %.not13 = icmp eq i32 %32, 0
   br i1 %.not13, label %39, label %33
 
 33:                                               ; preds = %29
-  %34 = load ptr, ptr %4, align 8, !tbaa !52
+  %34 = load ptr, ptr %4, align 8, !tbaa !51
   %35 = call i32 @EVP_PKEY_eq(ptr noundef %7, ptr noundef %34) #7
   %36 = icmp ne i32 %35, 0
   %37 = zext i1 %36 to i32
@@ -6732,7 +6732,7 @@ define internal range(i32 0, 2) i32 @ec_d2i_publickey_test() #0 {
   %.0 = phi i32 [ 0, %29 ], [ 0, %26 ], [ 0, %21 ], [ 0, %16 ], [ 0, %12 ], [ 0, %9 ], [ 0, %0 ], [ %spec.select, %33 ]
   call void @EVP_PKEY_CTX_free(ptr noundef %.07) #7
   call void @EVP_PKEY_free(ptr noundef %7) #7
-  %40 = load ptr, ptr %4, align 8, !tbaa !52
+  %40 = load ptr, ptr %4, align 8, !tbaa !51
   call void @EVP_PKEY_free(ptr noundef %40) #7
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %5) #7
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #7
@@ -7226,8 +7226,8 @@ define internal fastcc range(i32 0, 2) i32 @group_order_tests(ptr noundef %0) un
   %187 = call ptr @BN_value_one() #7
   store ptr %187, ptr %96, align 8, !tbaa !12
   store ptr %187, ptr %2, align 16, !tbaa !12
-  store ptr %19, ptr %97, align 8, !tbaa !23
-  store ptr %19, ptr %3, align 16, !tbaa !23
+  store ptr %19, ptr %97, align 8, !tbaa !22
+  store ptr %19, ptr %3, align 16, !tbaa !22
   %188 = call i32 @EC_POINTs_mul(ptr noundef %0, ptr noundef %25, ptr noundef null, i64 noundef 2, ptr noundef nonnull %3, ptr noundef nonnull %2, ptr noundef %13) #7
   %189 = icmp ne i32 %188, 0
   %190 = zext i1 %189 to i32
@@ -7236,7 +7236,7 @@ define internal fastcc range(i32 0, 2) i32 @group_order_tests(ptr noundef %0) un
   br i1 %.not203, label %select.unfold, label %192
 
 192:                                              ; preds = %186
-  %193 = load ptr, ptr %3, align 16, !tbaa !23
+  %193 = load ptr, ptr %3, align 16, !tbaa !22
   %194 = call i32 @EC_POINT_dbl(ptr noundef %0, ptr noundef %28, ptr noundef %193, ptr noundef %13) #7
   %195 = icmp ne i32 %194, 0
   %196 = zext i1 %195 to i32
@@ -7252,17 +7252,17 @@ define internal fastcc range(i32 0, 2) i32 @group_order_tests(ptr noundef %0) un
 
 201:                                              ; preds = %198
   store ptr %4, ptr %2, align 16, !tbaa !12
-  store ptr %22, ptr %3, align 16, !tbaa !23
+  store ptr %22, ptr %3, align 16, !tbaa !22
   store ptr %7, ptr %96, align 8, !tbaa !12
-  store ptr %19, ptr %97, align 8, !tbaa !23
+  store ptr %19, ptr %97, align 8, !tbaa !22
   store ptr %4, ptr %98, align 16, !tbaa !12
-  store ptr %22, ptr %99, align 16, !tbaa !23
+  store ptr %22, ptr %99, align 16, !tbaa !22
   store ptr %7, ptr %100, align 8, !tbaa !12
-  store ptr %22, ptr %101, align 8, !tbaa !23
+  store ptr %22, ptr %101, align 8, !tbaa !22
   store ptr %4, ptr %102, align 16, !tbaa !12
-  store ptr %19, ptr %103, align 16, !tbaa !23
+  store ptr %19, ptr %103, align 16, !tbaa !22
   store ptr %7, ptr %104, align 8, !tbaa !12
-  store ptr %22, ptr %105, align 8, !tbaa !23
+  store ptr %22, ptr %105, align 8, !tbaa !22
   %202 = call i32 @EC_POINTs_mul(ptr noundef %0, ptr noundef %19, ptr noundef null, i64 noundef 6, ptr noundef nonnull %3, ptr noundef nonnull %2, ptr noundef %13) #7
   %203 = icmp ne i32 %202, 0
   %204 = zext i1 %203 to i32
@@ -7283,7 +7283,7 @@ define internal fastcc range(i32 0, 2) i32 @group_order_tests(ptr noundef %0) un
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %2) #7
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %.thread212, label %106, !llvm.loop !56
+  br i1 %exitcond.not, label %.thread212, label %106, !llvm.loop !55
 
 select.unfold:                                    ; preds = %206, %163, %158, %153, %150, %145, %139, %136, %131, %126, %121, %118, %111, %106, %181, %176, %171, %166, %198, %192, %186, %201
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3) #7
@@ -7573,7 +7573,7 @@ define internal fastcc range(i32 0, 2) i32 @do_test_custom_explicit_fromdata(ptr
   %18 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #7
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #7
-  store ptr null, ptr %6, align 8, !tbaa !52
+  store ptr null, ptr %6, align 8, !tbaa !51
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #7
   store ptr null, ptr %7, align 8, !tbaa !12
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #7
@@ -7589,11 +7589,11 @@ define internal fastcc range(i32 0, 2) i32 @do_test_custom_explicit_fromdata(ptr
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14) #7
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15) #7
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %16) #7
-  store i32 0, ptr %16, align 4, !tbaa !55
+  store i32 0, ptr %16, align 4, !tbaa !54
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %17) #7
-  store i32 0, ptr %17, align 4, !tbaa !55
+  store i32 0, ptr %17, align 4, !tbaa !54
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %18) #7
-  store i32 0, ptr %18, align 4, !tbaa !55
+  store i32 0, ptr %18, align 4, !tbaa !54
   %19 = tail call ptr @BN_CTX_get(ptr noundef %1) #7
   %20 = tail call ptr @BN_CTX_get(ptr noundef %1) #7
   %21 = tail call ptr @BN_CTX_get(ptr noundef %1) #7
@@ -7747,7 +7747,7 @@ define internal fastcc range(i32 0, 2) i32 @do_test_custom_explicit_fromdata(ptr
   br i1 %.not94, label %370, label %108
 
 108:                                              ; preds = %105
-  %109 = load ptr, ptr %6, align 8, !tbaa !52
+  %109 = load ptr, ptr %6, align 8, !tbaa !51
   %110 = call i32 @EVP_PKEY_get_utf8_string_param(ptr noundef %109, ptr noundef nonnull @.str.570, ptr noundef nonnull %12, i64 noundef 80, ptr noundef nonnull %15) #7
   %111 = icmp ne i32 %110, 0
   %112 = zext i1 %111 to i32
@@ -7756,7 +7756,7 @@ define internal fastcc range(i32 0, 2) i32 @do_test_custom_explicit_fromdata(ptr
   br i1 %.not95, label %370, label %114
 
 114:                                              ; preds = %108
-  %115 = load ptr, ptr %6, align 8, !tbaa !52
+  %115 = load ptr, ptr %6, align 8, !tbaa !51
   %116 = call i32 @EVP_PKEY_get_utf8_string_param(ptr noundef %115, ptr noundef nonnull @.str.572, ptr noundef nonnull %12, i64 noundef 80, ptr noundef nonnull %15) #7
   %117 = icmp ne i32 %116, 0
   %118 = zext i1 %117 to i32
@@ -7770,7 +7770,7 @@ define internal fastcc range(i32 0, 2) i32 @do_test_custom_explicit_fromdata(ptr
   br i1 %.not97, label %370, label %122
 
 122:                                              ; preds = %120
-  %123 = load ptr, ptr %6, align 8, !tbaa !52
+  %123 = load ptr, ptr %6, align 8, !tbaa !51
   %124 = call i32 @EVP_PKEY_get_utf8_string_param(ptr noundef %123, ptr noundef nonnull @.str.44, ptr noundef nonnull %12, i64 noundef 80, ptr noundef nonnull %15) #7
   %125 = icmp ne i32 %124, 0
   %126 = zext i1 %125 to i32
@@ -7784,7 +7784,7 @@ define internal fastcc range(i32 0, 2) i32 @do_test_custom_explicit_fromdata(ptr
   br i1 %.not99, label %370, label %130
 
 130:                                              ; preds = %128
-  %131 = load ptr, ptr %6, align 8, !tbaa !52
+  %131 = load ptr, ptr %6, align 8, !tbaa !51
   %132 = call i32 @EVP_PKEY_get_octet_string_param(ptr noundef %131, ptr noundef nonnull @.str.62, ptr noundef nonnull %13, i64 noundef 1024, ptr noundef nonnull %14) #7
   %133 = icmp ne i32 %132, 0
   %134 = zext i1 %133 to i32
@@ -7801,7 +7801,7 @@ define internal fastcc range(i32 0, 2) i32 @do_test_custom_explicit_fromdata(ptr
   br i1 %.not101, label %370, label %140
 
 140:                                              ; preds = %136
-  %141 = load ptr, ptr %6, align 8, !tbaa !52
+  %141 = load ptr, ptr %6, align 8, !tbaa !51
   %142 = call i32 @EVP_PKEY_get_bn_param(ptr noundef %141, ptr noundef nonnull @.str.47, ptr noundef nonnull %7) #7
   %143 = icmp ne i32 %142, 0
   %144 = zext i1 %143 to i32
@@ -7816,7 +7816,7 @@ define internal fastcc range(i32 0, 2) i32 @do_test_custom_explicit_fromdata(ptr
   br i1 %.not103, label %370, label %149
 
 149:                                              ; preds = %146
-  %150 = load ptr, ptr %6, align 8, !tbaa !52
+  %150 = load ptr, ptr %6, align 8, !tbaa !51
   %151 = call i32 @EVP_PKEY_get_bn_param(ptr noundef %150, ptr noundef nonnull @.str.49, ptr noundef nonnull %8) #7
   %152 = icmp ne i32 %151, 0
   %153 = zext i1 %152 to i32
@@ -7831,7 +7831,7 @@ define internal fastcc range(i32 0, 2) i32 @do_test_custom_explicit_fromdata(ptr
   br i1 %.not105, label %370, label %158
 
 158:                                              ; preds = %155
-  %159 = load ptr, ptr %6, align 8, !tbaa !52
+  %159 = load ptr, ptr %6, align 8, !tbaa !51
   %160 = call i32 @EVP_PKEY_get_bn_param(ptr noundef %159, ptr noundef nonnull @.str.51, ptr noundef nonnull %9) #7
   %161 = icmp ne i32 %160, 0
   %162 = zext i1 %161 to i32
@@ -7846,7 +7846,7 @@ define internal fastcc range(i32 0, 2) i32 @do_test_custom_explicit_fromdata(ptr
   br i1 %.not107, label %370, label %167
 
 167:                                              ; preds = %164
-  %168 = load ptr, ptr %6, align 8, !tbaa !52
+  %168 = load ptr, ptr %6, align 8, !tbaa !51
   %169 = call i32 @EVP_PKEY_get_bn_param(ptr noundef %168, ptr noundef nonnull @.str.64, ptr noundef nonnull %10) #7
   %170 = icmp ne i32 %169, 0
   %171 = zext i1 %170 to i32
@@ -7867,7 +7867,7 @@ define internal fastcc range(i32 0, 2) i32 @do_test_custom_explicit_fromdata(ptr
   br i1 %.not110, label %189, label %179
 
 179:                                              ; preds = %177
-  %180 = load ptr, ptr %6, align 8, !tbaa !52
+  %180 = load ptr, ptr %6, align 8, !tbaa !51
   %181 = call i32 @EVP_PKEY_get_bn_param(ptr noundef %180, ptr noundef nonnull @.str.55, ptr noundef nonnull %11) #7
   %182 = icmp ne i32 %181, 0
   %183 = zext i1 %182 to i32
@@ -7888,7 +7888,7 @@ define internal fastcc range(i32 0, 2) i32 @do_test_custom_explicit_fromdata(ptr
   br i1 %.not113, label %202, label %191
 
 191:                                              ; preds = %189
-  %192 = load ptr, ptr %6, align 8, !tbaa !52
+  %192 = load ptr, ptr %6, align 8, !tbaa !51
   %193 = call i32 @EVP_PKEY_get_octet_string_param(ptr noundef %192, ptr noundef nonnull @.str.53, ptr noundef nonnull %13, i64 noundef 1024, ptr noundef nonnull %14) #7
   %194 = icmp ne i32 %193, 0
   %195 = zext i1 %194 to i32
@@ -7907,7 +7907,7 @@ define internal fastcc range(i32 0, 2) i32 @do_test_custom_explicit_fromdata(ptr
 202:                                              ; preds = %197, %189
   %203 = call i32 @EC_GROUP_get_field_type(ptr noundef %0) #7
   %204 = icmp eq i32 %203, 406
-  %205 = load ptr, ptr %6, align 8, !tbaa !52
+  %205 = load ptr, ptr %6, align 8, !tbaa !51
   %206 = call i32 @EVP_PKEY_get_int_param(ptr noundef %205, ptr noundef nonnull @.str.594, ptr noundef nonnull %5) #7
   %207 = icmp ne i32 %206, 0
   %208 = zext i1 %207 to i32
@@ -7919,7 +7919,7 @@ define internal fastcc range(i32 0, 2) i32 @do_test_custom_explicit_fromdata(ptr
   br i1 %.not132, label %370, label %211
 
 211:                                              ; preds = %209
-  %212 = load ptr, ptr %6, align 8, !tbaa !52
+  %212 = load ptr, ptr %6, align 8, !tbaa !51
   %213 = call i32 @EVP_PKEY_get_int_param(ptr noundef %212, ptr noundef nonnull @.str.596, ptr noundef nonnull %5) #7
   %214 = icmp ne i32 %213, 0
   %215 = zext i1 %214 to i32
@@ -7928,7 +7928,7 @@ define internal fastcc range(i32 0, 2) i32 @do_test_custom_explicit_fromdata(ptr
   br i1 %.not133, label %370, label %217
 
 217:                                              ; preds = %211
-  %218 = load ptr, ptr %6, align 8, !tbaa !52
+  %218 = load ptr, ptr %6, align 8, !tbaa !51
   %219 = call i32 @EVP_PKEY_get_int_param(ptr noundef %218, ptr noundef nonnull @.str.598, ptr noundef nonnull %5) #7
   %220 = icmp ne i32 %219, 0
   %221 = zext i1 %220 to i32
@@ -7937,7 +7937,7 @@ define internal fastcc range(i32 0, 2) i32 @do_test_custom_explicit_fromdata(ptr
   br i1 %.not134, label %370, label %223
 
 223:                                              ; preds = %217
-  %224 = load ptr, ptr %6, align 8, !tbaa !52
+  %224 = load ptr, ptr %6, align 8, !tbaa !51
   %225 = call i32 @EVP_PKEY_get_int_param(ptr noundef %224, ptr noundef nonnull @.str.600, ptr noundef nonnull %5) #7
   %226 = icmp ne i32 %225, 0
   %227 = zext i1 %226 to i32
@@ -7946,7 +7946,7 @@ define internal fastcc range(i32 0, 2) i32 @do_test_custom_explicit_fromdata(ptr
   br i1 %.not135, label %370, label %229
 
 229:                                              ; preds = %223
-  %230 = load ptr, ptr %6, align 8, !tbaa !52
+  %230 = load ptr, ptr %6, align 8, !tbaa !51
   %231 = call i32 @EVP_PKEY_get_int_param(ptr noundef %230, ptr noundef nonnull @.str.602, ptr noundef nonnull %5) #7
   %232 = icmp ne i32 %231, 0
   %233 = zext i1 %232 to i32
@@ -7955,7 +7955,7 @@ define internal fastcc range(i32 0, 2) i32 @do_test_custom_explicit_fromdata(ptr
   br i1 %.not136, label %370, label %235
 
 235:                                              ; preds = %229
-  %236 = load ptr, ptr %6, align 8, !tbaa !52
+  %236 = load ptr, ptr %6, align 8, !tbaa !51
   %237 = call i32 @EVP_PKEY_get_utf8_string_param(ptr noundef %236, ptr noundef nonnull @.str.604, ptr noundef nonnull %12, i64 noundef 80, ptr noundef nonnull %15) #7
   %238 = icmp ne i32 %237, 0
   %239 = zext i1 %238 to i32
@@ -7970,13 +7970,13 @@ define internal fastcc range(i32 0, 2) i32 @do_test_custom_explicit_fromdata(ptr
 
 243:                                              ; preds = %241
   %244 = call i32 @EC_GROUP_get_degree(ptr noundef %0) #7
-  %245 = load i32, ptr %5, align 4, !tbaa !55
+  %245 = load i32, ptr %5, align 4, !tbaa !54
   %246 = call i32 @test_int_eq(ptr noundef nonnull @.str, i32 noundef 2651, ptr noundef nonnull @.str.164, ptr noundef nonnull @.str.605, i32 noundef %244, i32 noundef %245) #7
   %.not117 = icmp eq i32 %246, 0
   br i1 %.not117, label %370, label %247
 
 247:                                              ; preds = %243
-  %248 = load ptr, ptr %6, align 8, !tbaa !52
+  %248 = load ptr, ptr %6, align 8, !tbaa !51
   %249 = call i32 @EVP_PKEY_get_utf8_string_param(ptr noundef %248, ptr noundef nonnull @.str.604, ptr noundef nonnull %12, i64 noundef 80, ptr noundef nonnull %15) #7
   %250 = icmp ne i32 %249, 0
   %251 = zext i1 %250 to i32
@@ -7992,7 +7992,7 @@ define internal fastcc range(i32 0, 2) i32 @do_test_custom_explicit_fromdata(ptr
 255:                                              ; preds = %253
   %256 = call i32 @EC_GROUP_get_basis_type(ptr noundef %0) #7
   %257 = icmp eq i32 %256, 682
-  %258 = load ptr, ptr %6, align 8, !tbaa !52
+  %258 = load ptr, ptr %6, align 8, !tbaa !51
   %259 = call i32 @EVP_PKEY_get_int_param(ptr noundef %258, ptr noundef nonnull @.str.596, ptr noundef nonnull %5) #7
   %260 = icmp ne i32 %259, 0
   %261 = zext i1 %260 to i32
@@ -8004,14 +8004,14 @@ define internal fastcc range(i32 0, 2) i32 @do_test_custom_explicit_fromdata(ptr
   br i1 %.not127, label %370, label %264
 
 264:                                              ; preds = %262
-  %265 = load i32, ptr %16, align 4, !tbaa !55
-  %266 = load i32, ptr %5, align 4, !tbaa !55
+  %265 = load i32, ptr %16, align 4, !tbaa !54
+  %266 = load i32, ptr %5, align 4, !tbaa !54
   %267 = call i32 @test_int_eq(ptr noundef nonnull @.str, i32 noundef 2661, ptr noundef nonnull @.str.598, ptr noundef nonnull @.str.605, i32 noundef %265, i32 noundef %266) #7
   %.not128 = icmp eq i32 %267, 0
   br i1 %.not128, label %370, label %268
 
 268:                                              ; preds = %264
-  %269 = load ptr, ptr %6, align 8, !tbaa !52
+  %269 = load ptr, ptr %6, align 8, !tbaa !51
   %270 = call i32 @EVP_PKEY_get_int_param(ptr noundef %269, ptr noundef nonnull @.str.598, ptr noundef nonnull %5) #7
   %271 = icmp ne i32 %270, 0
   %272 = zext i1 %271 to i32
@@ -8020,7 +8020,7 @@ define internal fastcc range(i32 0, 2) i32 @do_test_custom_explicit_fromdata(ptr
   br i1 %.not129, label %370, label %274
 
 274:                                              ; preds = %268
-  %275 = load ptr, ptr %6, align 8, !tbaa !52
+  %275 = load ptr, ptr %6, align 8, !tbaa !51
   %276 = call i32 @EVP_PKEY_get_int_param(ptr noundef %275, ptr noundef nonnull @.str.600, ptr noundef nonnull %5) #7
   %277 = icmp ne i32 %276, 0
   %278 = zext i1 %277 to i32
@@ -8029,7 +8029,7 @@ define internal fastcc range(i32 0, 2) i32 @do_test_custom_explicit_fromdata(ptr
   br i1 %.not130, label %370, label %280
 
 280:                                              ; preds = %274
-  %281 = load ptr, ptr %6, align 8, !tbaa !52
+  %281 = load ptr, ptr %6, align 8, !tbaa !51
   %282 = call i32 @EVP_PKEY_get_int_param(ptr noundef %281, ptr noundef nonnull @.str.602, ptr noundef nonnull %5) #7
   %283 = icmp ne i32 %282, 0
   %284 = zext i1 %283 to i32
@@ -8043,7 +8043,7 @@ define internal fastcc range(i32 0, 2) i32 @do_test_custom_explicit_fromdata(ptr
   br i1 %.not120, label %370, label %288
 
 288:                                              ; preds = %286
-  %289 = load ptr, ptr %6, align 8, !tbaa !52
+  %289 = load ptr, ptr %6, align 8, !tbaa !51
   %290 = call i32 @EVP_PKEY_get_int_param(ptr noundef %289, ptr noundef nonnull @.str.598, ptr noundef nonnull %5) #7
   %291 = icmp ne i32 %290, 0
   %292 = zext i1 %291 to i32
@@ -8052,14 +8052,14 @@ define internal fastcc range(i32 0, 2) i32 @do_test_custom_explicit_fromdata(ptr
   br i1 %.not121, label %370, label %294
 
 294:                                              ; preds = %288
-  %295 = load i32, ptr %16, align 4, !tbaa !55
-  %296 = load i32, ptr %5, align 4, !tbaa !55
+  %295 = load i32, ptr %16, align 4, !tbaa !54
+  %296 = load i32, ptr %5, align 4, !tbaa !54
   %297 = call i32 @test_int_eq(ptr noundef nonnull @.str, i32 noundef 2674, ptr noundef nonnull @.str.598, ptr noundef nonnull @.str.605, i32 noundef %295, i32 noundef %296) #7
   %.not122 = icmp eq i32 %297, 0
   br i1 %.not122, label %370, label %298
 
 298:                                              ; preds = %294
-  %299 = load ptr, ptr %6, align 8, !tbaa !52
+  %299 = load ptr, ptr %6, align 8, !tbaa !51
   %300 = call i32 @EVP_PKEY_get_int_param(ptr noundef %299, ptr noundef nonnull @.str.600, ptr noundef nonnull %5) #7
   %301 = icmp ne i32 %300, 0
   %302 = zext i1 %301 to i32
@@ -8068,14 +8068,14 @@ define internal fastcc range(i32 0, 2) i32 @do_test_custom_explicit_fromdata(ptr
   br i1 %.not123, label %370, label %304
 
 304:                                              ; preds = %298
-  %305 = load i32, ptr %17, align 4, !tbaa !55
-  %306 = load i32, ptr %5, align 4, !tbaa !55
+  %305 = load i32, ptr %17, align 4, !tbaa !54
+  %306 = load i32, ptr %5, align 4, !tbaa !54
   %307 = call i32 @test_int_eq(ptr noundef nonnull @.str, i32 noundef 2677, ptr noundef nonnull @.str.600, ptr noundef nonnull @.str.605, i32 noundef %305, i32 noundef %306) #7
   %.not124 = icmp eq i32 %307, 0
   br i1 %.not124, label %370, label %308
 
 308:                                              ; preds = %304
-  %309 = load ptr, ptr %6, align 8, !tbaa !52
+  %309 = load ptr, ptr %6, align 8, !tbaa !51
   %310 = call i32 @EVP_PKEY_get_int_param(ptr noundef %309, ptr noundef nonnull @.str.602, ptr noundef nonnull %5) #7
   %311 = icmp ne i32 %310, 0
   %312 = zext i1 %311 to i32
@@ -8084,14 +8084,14 @@ define internal fastcc range(i32 0, 2) i32 @do_test_custom_explicit_fromdata(ptr
   br i1 %.not125, label %370, label %314
 
 314:                                              ; preds = %308
-  %315 = load i32, ptr %18, align 4, !tbaa !55
-  %316 = load i32, ptr %5, align 4, !tbaa !55
+  %315 = load i32, ptr %18, align 4, !tbaa !54
+  %316 = load i32, ptr %5, align 4, !tbaa !54
   %317 = call i32 @test_int_eq(ptr noundef nonnull @.str, i32 noundef 2680, ptr noundef nonnull @.str.602, ptr noundef nonnull @.str.605, i32 noundef %315, i32 noundef %316) #7
   %.not126 = icmp eq i32 %317, 0
   br i1 %.not126, label %370, label %318
 
 318:                                              ; preds = %280, %314, %235
-  %319 = load ptr, ptr %6, align 8, !tbaa !52
+  %319 = load ptr, ptr %6, align 8, !tbaa !51
   %320 = call ptr @EVP_PKEY_gettable_params(ptr noundef %319) #7
   %321 = call i32 @test_ptr(ptr noundef nonnull @.str, i32 noundef 2685, ptr noundef nonnull @.str.607, ptr noundef %320) #7
   %.not138 = icmp eq i32 %321, 0
@@ -8211,7 +8211,7 @@ define internal fastcc range(i32 0, 2) i32 @do_test_custom_explicit_fromdata(ptr
   call void @BN_free(ptr noundef %375) #7
   call void @OSSL_PARAM_free(ptr noundef %.076) #7
   call void @OSSL_PARAM_BLD_free(ptr noundef %.074) #7
-  %376 = load ptr, ptr %6, align 8, !tbaa !52
+  %376 = load ptr, ptr %6, align 8, !tbaa !51
   call void @EVP_PKEY_free(ptr noundef %376) #7
   call void @EVP_PKEY_CTX_free(ptr noundef %.073) #7
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %18) #7
@@ -8327,40 +8327,39 @@ attributes #7 = { nounwind }
 !17 = !{!"", !18, i64 0, !11, i64 8}
 !18 = !{!"int", !6, i64 0}
 !19 = !{!6, !6, i64 0}
-!20 = distinct !{!20, !21, !22}
+!20 = distinct !{!20, !21}
 !21 = !{!"llvm.loop.mustprogress"}
-!22 = !{!"llvm.loop.estimated_trip_count"}
-!23 = !{!24, !24, i64 0}
-!24 = !{!"p1 _ZTS11ec_point_st", !9, i64 0}
-!25 = distinct !{!25, !21, !22}
-!26 = !{!27, !11, i64 8}
-!27 = !{!"c2_curve_test", !11, i64 0, !11, i64 8, !11, i64 16, !11, i64 24, !11, i64 32, !11, i64 40, !18, i64 48, !11, i64 56, !11, i64 64, !18, i64 72}
-!28 = !{!27, !11, i64 16}
-!29 = !{!27, !11, i64 24}
-!30 = !{!27, !11, i64 32}
-!31 = !{!27, !11, i64 40}
-!32 = !{!27, !11, i64 56}
-!33 = !{!27, !11, i64 64}
-!34 = !{!27, !11, i64 0}
-!35 = !{!27, !18, i64 72}
-!36 = !{!37, !18, i64 4}
-!37 = !{!"nistp_test_params", !18, i64 0, !18, i64 4, !11, i64 8, !11, i64 16, !11, i64 24, !11, i64 32, !11, i64 40, !11, i64 48, !11, i64 56, !11, i64 64, !11, i64 72}
-!38 = !{!37, !18, i64 0}
-!39 = !{!37, !11, i64 8}
-!40 = !{!37, !11, i64 16}
-!41 = !{!37, !11, i64 24}
-!42 = !{!37, !11, i64 32}
-!43 = !{!37, !11, i64 40}
-!44 = !{!37, !11, i64 48}
-!45 = !{!37, !11, i64 56}
-!46 = !{!37, !11, i64 64}
-!47 = !{!37, !11, i64 72}
-!48 = !{!49, !49, i64 0}
-!49 = !{!"p1 _ZTS16ec_parameters_st", !9, i64 0}
-!50 = distinct !{!50, !21, !22}
-!51 = distinct !{!51, !21, !22}
-!52 = !{!53, !53, i64 0}
-!53 = !{!"p1 _ZTS11evp_pkey_st", !9, i64 0}
-!54 = !{i64 0, i64 8, !10, i64 8, i64 4, !55, i64 16, i64 8, !8, i64 24, i64 8, !4, i64 32, i64 8, !4}
-!55 = !{!18, !18, i64 0}
-!56 = distinct !{!56, !21, !22}
+!22 = !{!23, !23, i64 0}
+!23 = !{!"p1 _ZTS11ec_point_st", !9, i64 0}
+!24 = distinct !{!24, !21}
+!25 = !{!26, !11, i64 8}
+!26 = !{!"c2_curve_test", !11, i64 0, !11, i64 8, !11, i64 16, !11, i64 24, !11, i64 32, !11, i64 40, !18, i64 48, !11, i64 56, !11, i64 64, !18, i64 72}
+!27 = !{!26, !11, i64 16}
+!28 = !{!26, !11, i64 24}
+!29 = !{!26, !11, i64 32}
+!30 = !{!26, !11, i64 40}
+!31 = !{!26, !11, i64 56}
+!32 = !{!26, !11, i64 64}
+!33 = !{!26, !11, i64 0}
+!34 = !{!26, !18, i64 72}
+!35 = !{!36, !18, i64 4}
+!36 = !{!"nistp_test_params", !18, i64 0, !18, i64 4, !11, i64 8, !11, i64 16, !11, i64 24, !11, i64 32, !11, i64 40, !11, i64 48, !11, i64 56, !11, i64 64, !11, i64 72}
+!37 = !{!36, !18, i64 0}
+!38 = !{!36, !11, i64 8}
+!39 = !{!36, !11, i64 16}
+!40 = !{!36, !11, i64 24}
+!41 = !{!36, !11, i64 32}
+!42 = !{!36, !11, i64 40}
+!43 = !{!36, !11, i64 48}
+!44 = !{!36, !11, i64 56}
+!45 = !{!36, !11, i64 64}
+!46 = !{!36, !11, i64 72}
+!47 = !{!48, !48, i64 0}
+!48 = !{!"p1 _ZTS16ec_parameters_st", !9, i64 0}
+!49 = distinct !{!49, !21}
+!50 = distinct !{!50, !21}
+!51 = !{!52, !52, i64 0}
+!52 = !{!"p1 _ZTS11evp_pkey_st", !9, i64 0}
+!53 = !{i64 0, i64 8, !10, i64 8, i64 4, !54, i64 16, i64 8, !8, i64 24, i64 8, !4, i64 32, i64 8, !4}
+!54 = !{!18, !18, i64 0}
+!55 = distinct !{!55, !21}

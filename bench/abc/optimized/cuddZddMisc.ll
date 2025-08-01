@@ -103,12 +103,12 @@ define void @Cudd_zddPrintSubtable(ptr noundef readonly captures(none) %0) local
 11:                                               ; preds = %.lr.ph43, %.loopexit34
   %indvars.iv45 = phi i64 [ %9, %.lr.ph43 ], [ %indvars.iv.next46, %.loopexit34 ]
   %indvars.iv.next46 = add nsw i64 %indvars.iv45, -1
-  %12 = load ptr, ptr %7, align 8, !tbaa !30
+  %12 = load ptr, ptr %7, align 8, !tbaa !29
   %13 = getelementptr inbounds nuw %struct.DdSubtable, ptr %12, i64 %indvars.iv.next46
   %14 = trunc nuw nsw i64 %indvars.iv.next46 to i32
   %15 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, i32 noundef %14)
   %16 = getelementptr inbounds nuw i8, ptr %13, i64 12
-  %17 = load i32, ptr %16, align 4, !tbaa !31
+  %17 = load i32, ptr %16, align 4, !tbaa !30
   %.03238 = add i32 %17, -1
   %18 = icmp sgt i32 %.03238, -1
   br i1 %18, label %.lr.ph40.preheader, label %.loopexit34
@@ -120,24 +120,24 @@ define void @Cudd_zddPrintSubtable(ptr noundef readonly captures(none) %0) local
 .loopexit:                                        ; preds = %61, %.lr.ph40
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %20 = icmp sgt i64 %indvars.iv, 0
-  br i1 %20, label %.lr.ph40, label %.loopexit34, !llvm.loop !32
+  br i1 %20, label %.lr.ph40, label %.loopexit34, !llvm.loop !31
 
 .lr.ph40:                                         ; preds = %.lr.ph40.preheader, %.loopexit
   %indvars.iv = phi i64 [ %19, %.lr.ph40.preheader ], [ %indvars.iv.next, %.loopexit ]
-  %21 = load ptr, ptr %13, align 8, !tbaa !33
+  %21 = load ptr, ptr %13, align 8, !tbaa !32
   %22 = getelementptr inbounds nuw ptr, ptr %21, i64 %indvars.iv
-  %.03335 = load ptr, ptr %22, align 8, !tbaa !34
+  %.03335 = load ptr, ptr %22, align 8, !tbaa !33
   %.not36 = icmp eq ptr %.03335, null
   br i1 %.not36, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph40, %61
   %.03337 = phi ptr [ %.033, %61 ], [ %.03335, %.lr.ph40 ]
-  %23 = load ptr, ptr %8, align 8, !tbaa !35
+  %23 = load ptr, ptr %8, align 8, !tbaa !34
   %24 = ptrtoint ptr %.03337 to i64
   %25 = udiv i64 %24, 40
   %26 = load i32, ptr %.03337, align 8, !tbaa !3
   %27 = getelementptr inbounds nuw i8, ptr %.03337, i64 4
-  %28 = load i32, ptr %27, align 4, !tbaa !36
+  %28 = load i32, ptr %27, align 4, !tbaa !35
   %29 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %23, ptr noundef nonnull @.str.1, i64 noundef %25, i32 noundef %26, i32 noundef %28) #4
   %30 = getelementptr inbounds nuw i8, ptr %.03337, i64 16
   %31 = load ptr, ptr %30, align 8, !tbaa !11
@@ -146,7 +146,7 @@ define void @Cudd_zddPrintSubtable(ptr noundef readonly captures(none) %0) local
   %34 = inttoptr i64 %33 to ptr
   %35 = load i32, ptr %34, align 8, !tbaa !3
   %36 = icmp eq i32 %35, 2147483647
-  %37 = load ptr, ptr %8, align 8, !tbaa !35
+  %37 = load ptr, ptr %8, align 8, !tbaa !34
   br i1 %36, label %38, label %42
 
 38:                                               ; preds = %.lr.ph
@@ -168,7 +168,7 @@ define void @Cudd_zddPrintSubtable(ptr noundef readonly captures(none) %0) local
   %50 = inttoptr i64 %49 to ptr
   %51 = load i32, ptr %50, align 8, !tbaa !3
   %52 = icmp eq i32 %51, 2147483647
-  %53 = load ptr, ptr %8, align 8, !tbaa !35
+  %53 = load ptr, ptr %8, align 8, !tbaa !34
   br i1 %52, label %54, label %58
 
 54:                                               ; preds = %45
@@ -184,12 +184,12 @@ define void @Cudd_zddPrintSubtable(ptr noundef readonly captures(none) %0) local
 
 61:                                               ; preds = %58, %54
   %62 = getelementptr inbounds nuw i8, ptr %.03337, i64 8
-  %.033 = load ptr, ptr %62, align 8, !tbaa !34
+  %.033 = load ptr, ptr %62, align 8, !tbaa !33
   %.not = icmp eq ptr %.033, null
-  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !37
+  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !36
 
 ._crit_edge:                                      ; preds = %.loopexit34, %1
-  %63 = load ptr, ptr @stdout, align 8, !tbaa !38
+  %63 = load ptr, ptr @stdout, align 8, !tbaa !37
   %64 = tail call i32 @putc(i32 noundef 10, ptr noundef %63)
   ret void
 }
@@ -244,15 +244,14 @@ attributes #4 = { nounwind }
 !24 = !{!"p1 _ZTS6DdHook", !9, i64 0}
 !25 = !{!"p1 _ZTS8_IO_FILE", !9, i64 0}
 !26 = !{!13, !8, i64 40}
-!27 = distinct !{!27, !28, !29}
+!27 = distinct !{!27, !28}
 !28 = !{!"llvm.loop.mustprogress"}
-!29 = !{!"llvm.loop.estimated_trip_count"}
-!30 = !{!13, !16, i64 160}
-!31 = !{!17, !5, i64 12}
-!32 = distinct !{!32, !28, !29}
-!33 = !{!17, !18, i64 0}
-!34 = !{!8, !8, i64 0}
-!35 = !{!13, !25, i64 608}
-!36 = !{!4, !5, i64 4}
-!37 = distinct !{!37, !28, !29}
-!38 = !{!25, !25, i64 0}
+!29 = !{!13, !16, i64 160}
+!30 = !{!17, !5, i64 12}
+!31 = distinct !{!31, !28}
+!32 = !{!17, !18, i64 0}
+!33 = !{!8, !8, i64 0}
+!34 = !{!13, !25, i64 608}
+!35 = !{!4, !5, i64 4}
+!36 = distinct !{!36, !28}
+!37 = !{!25, !25, i64 0}

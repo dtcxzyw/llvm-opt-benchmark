@@ -287,22 +287,22 @@ define internal noundef i32 @_lib_ratings_draw_callback(ptr noundef %0, ptr noun
   call void @cairo_line_to(ptr noundef %35, double noundef %90, double noundef %93) #7
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 10
-  br i1 %exitcond.not.i, label %dt_draw_star.exit, label %82, !llvm.loop !69
+  br i1 %exitcond.not.i, label %dt_draw_star.exit, label %82
 
 dt_draw_star.exit:                                ; preds = %82
   call void @cairo_close_path(ptr noundef %35) #7
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5) #7
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #7
-  %94 = load i32, ptr %70, align 4, !tbaa !71
+  %94 = load i32, ptr %70, align 4, !tbaa !69
   %95 = icmp slt i32 %.03943, %94
   br i1 %95, label %96, label %107
 
 96:                                               ; preds = %dt_draw_star.exit
   call void @cairo_fill_preserve(ptr noundef %35) #7
-  %97 = load double, ptr %7, align 8, !tbaa !72
-  %98 = load double, ptr %71, align 8, !tbaa !74
-  %99 = load double, ptr %72, align 8, !tbaa !75
-  %100 = load double, ptr %73, align 8, !tbaa !76
+  %97 = load double, ptr %7, align 8, !tbaa !70
+  %98 = load double, ptr %71, align 8, !tbaa !72
+  %99 = load double, ptr %72, align 8, !tbaa !73
+  %100 = load double, ptr %73, align 8, !tbaa !74
   %101 = fmul reassoc nsz arcp contract afn double %100, 5.000000e-01
   call void @cairo_set_source_rgba(ptr noundef %35, double noundef %97, double noundef %98, double noundef %99, double noundef %101) #7
   call void @cairo_stroke(ptr noundef %35) #7
@@ -315,7 +315,7 @@ dt_draw_star.exit:                                ; preds = %82
   %104 = add nuw nsw i32 %.044, 1
   %105 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 88), align 8, !tbaa !18
   %106 = getelementptr inbounds nuw i8, ptr %105, i64 588
-  store i32 %104, ptr %106, align 4, !tbaa !77
+  store i32 %104, ptr %106, align 4, !tbaa !75
   store i32 %104, ptr %9, align 4, !tbaa !65
   br label %108
 
@@ -329,7 +329,7 @@ dt_draw_star.exit:                                ; preds = %82
   %111 = fptosi float %110 to i32
   %112 = add nuw nsw i32 %.044, 1
   %exitcond.not = icmp eq i32 %112, 5
-  br i1 %exitcond.not, label %75, label %76, !llvm.loop !90
+  br i1 %exitcond.not, label %75, label %76
 
 113:                                              ; preds = %3, %75
   ret i32 1
@@ -347,7 +347,7 @@ define internal noundef i32 @_lib_ratings_button_press_callback(ptr readnone cap
   %9 = tail call ptr @dt_act_on_get_images(i32 noundef 0, i32 noundef 1, i32 noundef 0) #7
   %10 = load i32, ptr %5, align 4, !tbaa !65
   tail call void @dt_ratings_apply_on_list(ptr noundef %9, i32 noundef %10, i32 noundef 1) #7
-  %11 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 160), align 8, !tbaa !91
+  %11 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 160), align 8, !tbaa !88
   tail call void @dt_collection_update_query(ptr noundef %11, i32 noundef 3, i32 noundef 33, ptr noundef %9) #7
   tail call void (...) @dt_control_queue_redraw_center() #7
   br label %12
@@ -366,15 +366,15 @@ define internal noundef i32 @_lib_ratings_motion_notify_callback(ptr readnone ca
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 280
   %5 = load ptr, ptr %4, align 8, !tbaa !6
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %7 = load double, ptr %6, align 8, !tbaa !92
+  %7 = load double, ptr %6, align 8, !tbaa !89
   %8 = fptosi double %7 to i32
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  store i32 %8, ptr %9, align 4, !tbaa !71
+  store i32 %8, ptr %9, align 4, !tbaa !69
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %11 = load double, ptr %10, align 8, !tbaa !98
+  %11 = load double, ptr %10, align 8, !tbaa !95
   %12 = fptosi double %11 to i32
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store i32 %12, ptr %13, align 4, !tbaa !99
+  store i32 %12, ptr %13, align 4, !tbaa !96
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 416
   %15 = load ptr, ptr %14, align 8, !tbaa !17
   tail call void @gtk_widget_queue_draw(ptr noundef %15) #7
@@ -386,9 +386,9 @@ define internal noundef i32 @_lib_ratings_leave_notify_callback(ptr readnone cap
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 280
   %5 = load ptr, ptr %4, align 8, !tbaa !6
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  store i32 0, ptr %6, align 4, !tbaa !71
+  store i32 0, ptr %6, align 4, !tbaa !69
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store i32 0, ptr %7, align 4, !tbaa !99
+  store i32 0, ptr %7, align 4, !tbaa !96
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 416
   %9 = load ptr, ptr %8, align 8, !tbaa !17
   tail call void @gtk_widget_queue_draw(ptr noundef %9) #7
@@ -554,34 +554,31 @@ attributes #9 = { nounwind willreturn memory(none) }
 !66 = !{!"dt_lib_ratings_t", !9, i64 0, !9, i64 4, !9, i64 8}
 !67 = !{!68, !68, i64 0}
 !68 = !{!"float", !10, i64 0}
-!69 = distinct !{!69, !70}
-!70 = !{!"llvm.loop.estimated_trip_count"}
-!71 = !{!66, !9, i64 4}
-!72 = !{!73, !47, i64 0}
-!73 = !{!"_GdkRGBA", !47, i64 0, !47, i64 8, !47, i64 16, !47, i64 24}
-!74 = !{!73, !47, i64 8}
-!75 = !{!73, !47, i64 16}
-!76 = !{!73, !47, i64 24}
-!77 = !{!78, !9, i64 588}
-!78 = !{!"dt_control_t", !9, i64 0, !14, i64 8, !8, i64 16, !8, i64 64, !8, i64 112, !8, i64 160, !8, i64 208, !8, i64 256, !8, i64 304, !8, i64 352, !8, i64 400, !8, i64 448, !8, i64 496, !14, i64 544, !79, i64 552, !80, i64 560, !9, i64 568, !16, i64 576, !9, i64 584, !9, i64 588, !81, i64 592, !82, i64 600, !10, i64 608, !9, i64 864, !47, i64 872, !9, i64 880, !9, i64 884, !51, i64 888, !9, i64 896, !9, i64 900, !9, i64 904, !47, i64 912, !47, i64 920, !9, i64 928, !9, i64 932, !9, i64 936, !9, i64 940, !9, i64 944, !9, i64 948, !10, i64 952, !9, i64 8952, !9, i64 8956, !45, i64 8960, !9, i64 9000, !9, i64 9004, !10, i64 9008, !9, i64 9608, !9, i64 9612, !45, i64 9616, !45, i64 9656, !45, i64 9696, !47, i64 9736, !10, i64 9744, !9, i64 9748, !9, i64 9752, !45, i64 9760, !45, i64 9800, !10, i64 9840, !9, i64 9888, !83, i64 9896, !51, i64 9904, !51, i64 9912, !84, i64 9920, !10, i64 9928, !10, i64 9968, !45, i64 10008, !10, i64 10048, !10, i64 10072, !10, i64 10080, !85, i64 10104, !88, i64 10224}
-!79 = !{!"p1 _ZTS11_GHashTable", !13, i64 0}
-!80 = !{!"p1 _ZTS10_GSequence", !13, i64 0}
-!81 = !{!"p1 _ZTS10_GPtrArray", !13, i64 0}
-!82 = !{!"p1 _ZTS7_GSList", !13, i64 0}
-!83 = !{!"p1 long", !13, i64 0}
-!84 = !{!"p2 _ZTS9_dt_job_t", !13, i64 0}
-!85 = !{!"", !21, i64 0, !51, i64 8, !51, i64 16, !47, i64 24, !45, i64 32, !86, i64 72}
-!86 = !{!"", !87, i64 0, !13, i64 8, !13, i64 16, !13, i64 24, !13, i64 32, !13, i64 40}
-!87 = !{!"p1 _ZTS15dt_lib_module_t", !13, i64 0}
-!88 = !{!"", !89, i64 0}
-!89 = !{!"", !87, i64 0, !13, i64 8}
-!90 = distinct !{!90, !70}
-!91 = !{!19, !36, i64 160}
-!92 = !{!93, !47, i64 24}
-!93 = !{!"_GdkEventMotion", !9, i64 0, !94, i64 8, !10, i64 16, !9, i64 20, !47, i64 24, !47, i64 32, !95, i64 40, !9, i64 48, !96, i64 52, !97, i64 56, !47, i64 64, !47, i64 72}
-!94 = !{!"p1 _ZTS10_GdkWindow", !13, i64 0}
-!95 = !{!"p1 double", !13, i64 0}
-!96 = !{!"short", !10, i64 0}
-!97 = !{!"p1 _ZTS10_GdkDevice", !13, i64 0}
-!98 = !{!93, !47, i64 32}
-!99 = !{!66, !9, i64 8}
+!69 = !{!66, !9, i64 4}
+!70 = !{!71, !47, i64 0}
+!71 = !{!"_GdkRGBA", !47, i64 0, !47, i64 8, !47, i64 16, !47, i64 24}
+!72 = !{!71, !47, i64 8}
+!73 = !{!71, !47, i64 16}
+!74 = !{!71, !47, i64 24}
+!75 = !{!76, !9, i64 588}
+!76 = !{!"dt_control_t", !9, i64 0, !14, i64 8, !8, i64 16, !8, i64 64, !8, i64 112, !8, i64 160, !8, i64 208, !8, i64 256, !8, i64 304, !8, i64 352, !8, i64 400, !8, i64 448, !8, i64 496, !14, i64 544, !77, i64 552, !78, i64 560, !9, i64 568, !16, i64 576, !9, i64 584, !9, i64 588, !79, i64 592, !80, i64 600, !10, i64 608, !9, i64 864, !47, i64 872, !9, i64 880, !9, i64 884, !51, i64 888, !9, i64 896, !9, i64 900, !9, i64 904, !47, i64 912, !47, i64 920, !9, i64 928, !9, i64 932, !9, i64 936, !9, i64 940, !9, i64 944, !9, i64 948, !10, i64 952, !9, i64 8952, !9, i64 8956, !45, i64 8960, !9, i64 9000, !9, i64 9004, !10, i64 9008, !9, i64 9608, !9, i64 9612, !45, i64 9616, !45, i64 9656, !45, i64 9696, !47, i64 9736, !10, i64 9744, !9, i64 9748, !9, i64 9752, !45, i64 9760, !45, i64 9800, !10, i64 9840, !9, i64 9888, !81, i64 9896, !51, i64 9904, !51, i64 9912, !82, i64 9920, !10, i64 9928, !10, i64 9968, !45, i64 10008, !10, i64 10048, !10, i64 10072, !10, i64 10080, !83, i64 10104, !86, i64 10224}
+!77 = !{!"p1 _ZTS11_GHashTable", !13, i64 0}
+!78 = !{!"p1 _ZTS10_GSequence", !13, i64 0}
+!79 = !{!"p1 _ZTS10_GPtrArray", !13, i64 0}
+!80 = !{!"p1 _ZTS7_GSList", !13, i64 0}
+!81 = !{!"p1 long", !13, i64 0}
+!82 = !{!"p2 _ZTS9_dt_job_t", !13, i64 0}
+!83 = !{!"", !21, i64 0, !51, i64 8, !51, i64 16, !47, i64 24, !45, i64 32, !84, i64 72}
+!84 = !{!"", !85, i64 0, !13, i64 8, !13, i64 16, !13, i64 24, !13, i64 32, !13, i64 40}
+!85 = !{!"p1 _ZTS15dt_lib_module_t", !13, i64 0}
+!86 = !{!"", !87, i64 0}
+!87 = !{!"", !85, i64 0, !13, i64 8}
+!88 = !{!19, !36, i64 160}
+!89 = !{!90, !47, i64 24}
+!90 = !{!"_GdkEventMotion", !9, i64 0, !91, i64 8, !10, i64 16, !9, i64 20, !47, i64 24, !47, i64 32, !92, i64 40, !9, i64 48, !93, i64 52, !94, i64 56, !47, i64 64, !47, i64 72}
+!91 = !{!"p1 _ZTS10_GdkWindow", !13, i64 0}
+!92 = !{!"p1 double", !13, i64 0}
+!93 = !{!"short", !10, i64 0}
+!94 = !{!"p1 _ZTS10_GdkDevice", !13, i64 0}
+!95 = !{!90, !47, i64 32}
+!96 = !{!66, !9, i64 8}

@@ -348,7 +348,7 @@ define internal noundef zeroext i8 @interfaces(ptr noundef %0, ptr noundef %1) #
   %21 = load i32, ptr %3, align 4
   %22 = sext i32 %21 to i64
   %23 = icmp slt i64 %indvars.iv.next, %22
-  br i1 %23, label %.lr.ph, label %._crit_edge, !llvm.loop !9
+  br i1 %23, label %.lr.ph, label %._crit_edge, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %.lr.ph, %12
   %24 = load ptr, ptr %4, align 8
@@ -541,7 +541,7 @@ define internal noundef zeroext i8 @instances(ptr noundef %0, ptr noundef %1) #0
   %34 = load i32, ptr %18, align 8
   %35 = sext i32 %34 to i64
   %36 = icmp slt i64 %indvars.iv.next, %35
-  br i1 %36, label %.lr.ph, label %.loopexit, !llvm.loop !10
+  br i1 %36, label %.lr.ph, label %.loopexit, !llvm.loop !9
 
 .loopexit:                                        ; preds = %.lr.ph, %23, %17
   %37 = load ptr, ptr %3, align 8
@@ -890,7 +890,7 @@ writeFieldInfo.exit:                              ; preds = %41, %45, %49, %64, 
   %71 = load i32, ptr %9, align 4
   %72 = sext i32 %71 to i64
   %73 = icmp slt i64 %indvars.iv.next, %72
-  br i1 %73, label %34, label %.critedge, !llvm.loop !11
+  br i1 %73, label %34, label %.critedge, !llvm.loop !10
 
 .critedge:                                        ; preds = %34, %writeFieldInfo.exit, %29
   %74 = load ptr, ptr %10, align 8
@@ -1070,7 +1070,7 @@ writeMethodInfo.exit:                             ; preds = %41, %45, %49, %64, 
   %71 = load i32, ptr %9, align 4
   %72 = sext i32 %71 to i64
   %73 = icmp slt i64 %indvars.iv.next, %72
-  br i1 %73, label %34, label %.critedge, !llvm.loop !12
+  br i1 %73, label %34, label %.critedge, !llvm.loop !11
 
 .critedge:                                        ; preds = %34, %writeMethodInfo.exit, %29
   %74 = load ptr, ptr %10, align 8
@@ -1140,10 +1140,9 @@ attributes #3 = { nounwind }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7, !8}
-!11 = distinct !{!11, !7, !8}
-!12 = distinct !{!12, !7, !8}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7}

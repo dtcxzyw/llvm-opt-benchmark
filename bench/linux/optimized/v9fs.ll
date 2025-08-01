@@ -661,7 +661,7 @@ define dso_local ptr @v9fs_session_init(ptr noundef initializes((16, 24)) %0, pt
   %.ph24 = phi i32 [ -22, %170 ], [ %168, %167 ], [ %74, %73 ], [ %67, %66 ], [ %55, %53 ], [ %154, %161 ], [ %55, %173 ], [ %166, %165 ], [ %131, %130 ], [ %55, %100 ], [ %55, %97 ], [ %55, %94 ], [ %55, %93 ], [ %55, %89 ], [ %55, %85 ], [ %55, %83 ], [ %55, %63 ], [ %61, %60 ], [ %72, %69 ], [ %79, %76 ], [ %81, %80 ], [ %55, %58 ]
   %177 = call ptr @strsep(ptr noundef nonnull %5, ptr noundef nonnull @.str.19) #7
   %178 = icmp eq ptr %177, null
-  br i1 %178, label %179, label %53, !llvm.loop !9
+  br i1 %178, label %179, label %53, !llvm.loop !6
 
 .thread29:                                        ; preds = %85, %89, %103, %132
   call void @kfree(ptr noundef nonnull %46) #7
@@ -893,7 +893,7 @@ define internal range(i32 -2147483648, 1) i32 @init_v9fs() #4 section ".init.tex
   br label %21
 
 6:                                                ; preds = %0
-  %7 = tail call fastcc i32 @v9fs_sysfs_init() #9, !range !11
+  %7 = tail call fastcc i32 @v9fs_sysfs_init() #9, !range !9
   %8 = icmp slt i32 %7, 0
   br i1 %8, label %9, label %11
 
@@ -1036,6 +1036,4 @@ attributes #9 = { cold }
 !6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
 !8 = !{!"llvm.loop.unroll.disable"}
-!9 = distinct !{!9, !7, !8, !10}
-!10 = !{!"llvm.loop.estimated_trip_count"}
-!11 = !{i32 -12, i32 1}
+!9 = !{i32 -12, i32 1}

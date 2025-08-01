@@ -486,7 +486,7 @@ _ZN13GrowableArrayIiED2Ev.exit:                   ; preds = %14, %18
   %33 = getelementptr inbounds nuw i8, ptr %.011.i.i, i64 8
   %34 = getelementptr inbounds nuw ptr, ptr %32, i64 %27
   %35 = icmp ult ptr %33, %34
-  br i1 %35, label %.lr.ph13.i.i, label %_ZN27ResizeableResourceHashtableIiP13InstanceKlassLN6AnyObj15allocation_typeE2EL8MEMFLAGS13EXadL_Z14primitive_hashIiEjRKT_EEXadL_Z16primitive_equalsIiEbS8_S8_EEED2Ev.exit, !llvm.loop !9
+  br i1 %35, label %.lr.ph13.i.i, label %_ZN27ResizeableResourceHashtableIiP13InstanceKlassLN6AnyObj15allocation_typeE2EL8MEMFLAGS13EXadL_Z14primitive_hashIiEjRKT_EEXadL_Z16primitive_equalsIiEbS8_S8_EEED2Ev.exit, !llvm.loop !8
 
 _ZN27ResizeableResourceHashtableIiP13InstanceKlassLN6AnyObj15allocation_typeE2EL8MEMFLAGS13EXadL_Z14primitive_hashIiEjRKT_EEXadL_Z16primitive_equalsIiEbS8_S8_EEED2Ev.exit: ; preds = %._crit_edge.i.i, %19
   %.lcssa.i.i = phi ptr [ %25, %19 ], [ %32, %._crit_edge.i.i ]
@@ -584,7 +584,7 @@ _ZNK11inputStream12current_lineEv.exit:           ; preds = %24, %27
 44:                                               ; preds = %43, %.lr.ph.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %.lr.ph18.i, label %.lr.ph.i, !llvm.loop !10
+  br i1 %exitcond.not.i, label %.lr.ph18.i, label %.lr.ph.i, !llvm.loop !9
 
 .lr.ph18.i:                                       ; preds = %44, %51
   %.01317.i = phi i32 [ %52, %51 ], [ %38, %44 ]
@@ -600,11 +600,11 @@ _ZNK11inputStream12current_lineEv.exit:           ; preds = %24, %27
   store i8 0, ptr %48, align 1
   %52 = add nsw i32 %.01317.i, -1
   %53 = icmp sgt i32 %.01317.i, 1
-  br i1 %53, label %.lr.ph18.i, label %._ZN15ClassListParser19clean_up_input_lineEv.exit.loopexit_crit_edge, !llvm.loop !11
+  br i1 %53, label %.lr.ph18.i, label %._ZN15ClassListParser19clean_up_input_lineEv.exit.loopexit_crit_edge, !llvm.loop !10
 
 ._ZN15ClassListParser19clean_up_input_lineEv.exit.loopexit_crit_edge: ; preds = %51
   %.pre8.pre = load ptr, ptr %9, align 8
-  br label %_ZN15ClassListParser19clean_up_input_lineEv.exit, !llvm.loop !11
+  br label %_ZN15ClassListParser19clean_up_input_lineEv.exit, !llvm.loop !10
 
 _ZN15ClassListParser19clean_up_input_lineEv.exit: ; preds = %.lr.ph18.i, %._ZN15ClassListParser19clean_up_input_lineEv.exit.loopexit_crit_edge, %_ZNK11inputStream12current_lineEv.exit
   %54 = phi ptr [ %.0.i, %_ZNK11inputStream12current_lineEv.exit ], [ %.pre8.pre, %._ZN15ClassListParser19clean_up_input_lineEv.exit.loopexit_crit_edge ], [ %45, %.lr.ph18.i ]
@@ -630,7 +630,7 @@ _ZN15ClassListParser19clean_up_input_lineEv.exit: ; preds = %.lr.ph18.i, %._ZN15
 
 60:                                               ; preds = %_ZN15ClassListParser19clean_up_input_lineEv.exit, %58, %56
   %61 = tail call noundef zeroext i1 @_ZN11inputStream4nextEv(ptr noundef nonnull align 8 dereferenceable(320) %3) #19
-  br label %12, !llvm.loop !12
+  br label %12, !llvm.loop !11
 
 62:                                               ; preds = %58, %56, %_ZNK11inputStream4doneEv.exit
   ret void
@@ -668,7 +668,7 @@ define hidden void @_ZN15ClassListParser19clean_up_input_lineEv(ptr noundef nonn
 11:                                               ; preds = %.lr.ph, %10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.lr.ph18, label %.lr.ph, !llvm.loop !10
+  br i1 %exitcond.not, label %.lr.ph18, label %.lr.ph, !llvm.loop !9
 
 .lr.ph18:                                         ; preds = %11, %18
   %.01317 = phi i32 [ %19, %18 ], [ %5, %11 ]
@@ -684,7 +684,7 @@ define hidden void @_ZN15ClassListParser19clean_up_input_lineEv(ptr noundef nonn
   store i8 0, ptr %15, align 1
   %19 = add nsw i32 %.01317, -1
   %20 = icmp sgt i32 %.01317, 1
-  br i1 %20, label %.lr.ph18, label %._crit_edge, !llvm.loop !11
+  br i1 %20, label %.lr.ph18, label %._crit_edge, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %18, %.lr.ph18, %1
   %.013.lcssa = phi i32 [ %5, %1 ], [ %.01317, %.lr.ph18 ], [ 0, %18 ]
@@ -736,7 +736,7 @@ _ZN15ClassListParser6linenoEv.exit.i:             ; preds = %14, %8
   ]
 
 .critedge.i.backedge:                             ; preds = %.critedge.i, %.critedge.i
-  br label %.critedge.i, !llvm.loop !13
+  br label %.critedge.i, !llvm.loop !12
 
 21:                                               ; preds = %.critedge.i
   %22 = load ptr, ptr %3, align 8
@@ -780,7 +780,7 @@ _ZN15ClassListParser22split_at_tag_from_lineEv.exit: ; preds = %_ZN15ClassListPa
 
 .critedge.i4:                                     ; preds = %39, %39
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, 1
-  br label %39, !llvm.loop !14
+  br label %39, !llvm.loop !13
 
 .preheader.i:                                     ; preds = %39, %43
   %42 = phi i8 [ %.pre.i, %43 ], [ %41, %39 ]
@@ -795,7 +795,7 @@ _ZN15ClassListParser22split_at_tag_from_lineEv.exit: ; preds = %_ZN15ClassListPa
   %indvars.iv.next41.i = add nsw i64 %indvars.iv40.i, 1
   %.phi.trans.insert.i = getelementptr inbounds i8, ptr %37, i64 %indvars.iv.next41.i
   %.pre.i = load i8, ptr %.phi.trans.insert.i, align 1
-  br label %.preheader.i, !llvm.loop !15
+  br label %.preheader.i, !llvm.loop !14
 
 44:                                               ; preds = %.preheader.i, %.preheader.i
   %45 = getelementptr inbounds i8, ptr %37, i64 %indvars.iv40.i
@@ -836,7 +836,7 @@ _ZN26GrowableArrayWithAllocatorIPKc13GrowableArrayIS1_EE6appendERKS1_.exit.i: ; 
   %64 = getelementptr inbounds ptr, ptr %62, i64 %63
   store ptr %48, ptr %64, align 8
   %65 = add nsw i32 %47, 1
-  br i1 %.1.i, label %_ZN15ClassListParser26split_tokens_by_whitespaceEiP13GrowableArrayIPKcE.exit, label %.preheader25.i, !llvm.loop !16
+  br i1 %.1.i, label %_ZN15ClassListParser26split_tokens_by_whitespaceEiP13GrowableArrayIPKcE.exit, label %.preheader25.i, !llvm.loop !15
 
 _ZN15ClassListParser26split_tokens_by_whitespaceEiP13GrowableArrayIPKcE.exit: ; preds = %_ZN26GrowableArrayWithAllocatorIPKc13GrowableArrayIS1_EE6appendERKS1_.exit.i
   %66 = load ptr, ptr %32, align 8
@@ -1328,7 +1328,7 @@ define hidden void @_ZN15ClassListParser30read_class_name_and_attributesEv(ptr n
 .preheader.backedge:                              ; preds = %.critedge.i, %.backedge
   %.be23 = phi i8 [ %.pr, %.critedge.i ], [ %49, %.backedge ]
   %.be24 = phi ptr [ %24, %.critedge.i ], [ %48, %.backedge ]
-  br label %.preheader, !llvm.loop !17
+  br label %.preheader, !llvm.loop !16
 
 _ZN15ClassListParser16skip_whitespacesEv.exit:    ; preds = %.preheader
   %25 = call noundef zeroext i1 @_ZN15ClassListParser17parse_uint_optionEPKcPi(ptr noundef nonnull align 8 dereferenceable(520) %0, ptr noundef nonnull @.str.14, ptr noundef nonnull %6)
@@ -1367,7 +1367,7 @@ _ZN15ClassListParser16skip_whitespacesEv.exit:    ; preds = %.preheader
   %46 = getelementptr inbounds nuw i8, ptr %38, i64 16
   %47 = load ptr, ptr %46, align 8
   %.not.i.i.i.i.i = icmp eq ptr %47, null
-  br i1 %.not.i.i.i.i.i, label %.loopexit.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !18
+  br i1 %.not.i.i.i.i.i, label %.loopexit.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !17
 
 .loopexit.i:                                      ; preds = %45, %28
   call void (ptr, ptr, ...) @_ZN15ClassListParser5errorEPKcz(ptr noundef nonnull align 8 dereferenceable(520) %0, ptr noundef nonnull @.str.77, ptr noundef nonnull @.str.16, i32 noundef %29)
@@ -1405,7 +1405,7 @@ _ZN15ClassListParser10skip_tokenEPKc.exit:        ; preds = %50
 
 .backedge22:                                      ; preds = %.critedge.i.i, %_ZN26GrowableArrayWithAllocatorIi13GrowableArrayIiEE6appendERKi.exit
   %.be = phi ptr [ %58, %.critedge.i.i ], [ %.promoted.i.i.pre, %_ZN26GrowableArrayWithAllocatorIi13GrowableArrayIiEE6appendERKi.exit ]
-  br label %55, !llvm.loop !19
+  br label %55, !llvm.loop !18
 
 _ZN15ClassListParser16skip_whitespacesEv.exit.i:  ; preds = %55
   %59 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %56, ptr noundef nonnull @.str.24, ptr noundef nonnull %2) #19
@@ -1428,7 +1428,7 @@ _ZN15ClassListParser16skip_whitespacesEv.exit.i:  ; preds = %55
 65:                                               ; preds = %62
   %66 = getelementptr inbounds nuw i8, ptr %63, i64 1
   store ptr %66, ptr %14, align 8
-  br label %62, !llvm.loop !20
+  br label %62, !llvm.loop !19
 
 _ZN15ClassListParser14try_parse_uintEPi.exit:     ; preds = %62, %62, %62
   %67 = load i32, ptr %2, align 4
@@ -1459,7 +1459,7 @@ _ZN15ClassListParser14try_parse_uintEPi.exit:     ; preds = %62, %62, %62
   %84 = getelementptr inbounds nuw i8, ptr %76, i64 16
   %85 = load ptr, ptr %84, align 8
   %.not.i.i.i.i.i7 = icmp eq ptr %85, null
-  br i1 %.not.i.i.i.i.i7, label %.loopexit.i8, label %.lr.ph.i.i.i.i.i6, !llvm.loop !18
+  br i1 %.not.i.i.i.i.i7, label %.loopexit.i8, label %.lr.ph.i.i.i.i.i6, !llvm.loop !17
 
 .loopexit.i8:                                     ; preds = %83, %_ZN15ClassListParser14try_parse_uintEPi.exit
   call void (ptr, ptr, ...) @_ZN15ClassListParser5errorEPKcz(ptr noundef nonnull align 8 dereferenceable(520) %0, ptr noundef nonnull @.str.77, ptr noundef nonnull @.str.18, i32 noundef %67)
@@ -1520,7 +1520,7 @@ _ZN26GrowableArrayWithAllocatorIi13GrowableArrayIiEE6appendERKi.exit: ; preds = 
 
 .critedge.i12:                                    ; preds = %111, %111
   %114 = getelementptr inbounds nuw i8, ptr %112, i64 1
-  br label %111, !llvm.loop !21
+  br label %111, !llvm.loop !20
 
 _ZN15ClassListParser16skip_whitespacesEv.exit13:  ; preds = %111
   store ptr %112, ptr %10, align 8
@@ -1736,7 +1736,7 @@ _ZN6HandleC2EP6ThreadP7oopDesc.exit:              ; preds = %31, %_ZN10HandleAre
   %82 = getelementptr inbounds nuw i8, ptr %.pr.i, i64 16
   %83 = load ptr, ptr %82, align 8
   %.not.i.i = icmp eq ptr %83, null
-  br i1 %.not.i.i, label %_ZN21ResourceHashtableBaseI34ResizeableResourceHashtableStorageIiP13InstanceKlassLN6AnyObj15allocation_typeE2EL8MEMFLAGS13EEiS2_LS4_2ELS5_13EXadL_Z14primitive_hashIiEjRKT_EEXadL_Z16primitive_equalsIiEbSA_SA_EEE11lookup_nodeEjRKi.exit.thread.i.loopexit, label %.lr.ph.i.i, !llvm.loop !18
+  br i1 %.not.i.i, label %_ZN21ResourceHashtableBaseI34ResizeableResourceHashtableStorageIiP13InstanceKlassLN6AnyObj15allocation_typeE2EL8MEMFLAGS13EEiS2_LS4_2ELS5_13EXadL_Z14primitive_hashIiEjRKT_EEXadL_Z16primitive_equalsIiEbSA_SA_EEE11lookup_nodeEjRKi.exit.thread.i.loopexit, label %.lr.ph.i.i, !llvm.loop !17
 
 _ZN21ResourceHashtableBaseI34ResizeableResourceHashtableStorageIiP13InstanceKlassLN6AnyObj15allocation_typeE2EL8MEMFLAGS13EEiS2_LS4_2ELS5_13EXadL_Z14primitive_hashIiEjRKT_EEXadL_Z16primitive_equalsIiEbSA_SA_EEE11lookup_nodeEjRKi.exit.thread.i.loopexit: ; preds = %81
   %84 = getelementptr inbounds nuw i8, ptr %.pr.i, i64 16
@@ -1793,7 +1793,7 @@ _ZN21ResourceHashtableBaseI34ResizeableResourceHashtableStorageIiP13InstanceKlas
 108:                                              ; preds = %109
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 18
-  br i1 %exitcond.not.i.i, label %_ZNK27ResizeableResourceHashtableIiP13InstanceKlassLN6AnyObj15allocation_typeE2EL8MEMFLAGS13EXadL_Z14primitive_hashIiEjRKT_EEXadL_Z16primitive_equalsIiEbS8_S8_EEE16calculate_resizeEb.exit.i, label %109, !llvm.loop !22
+  br i1 %exitcond.not.i.i, label %_ZNK27ResizeableResourceHashtableIiP13InstanceKlassLN6AnyObj15allocation_typeE2EL8MEMFLAGS13EXadL_Z14primitive_hashIiEjRKT_EEXadL_Z16primitive_equalsIiEbS8_S8_EEE16calculate_resizeEb.exit.i, label %109, !llvm.loop !21
 
 109:                                              ; preds = %108, %106
   %indvars.iv.i.i = phi i64 [ 0, %106 ], [ %indvars.iv.next.i.i, %108 ]
@@ -1833,7 +1833,7 @@ _ZNK27ResizeableResourceHashtableIiP13InstanceKlassLN6AnyObj15allocation_typeE2E
   store ptr %126, ptr %120, align 8
   store ptr %.02123.i.i, ptr %125, align 8
   %.not.i7.i = icmp eq ptr %121, null
-  br i1 %.not.i7.i, label %._crit_edge.loopexit.i.i, label %.lr.ph.i.i20, !llvm.loop !23
+  br i1 %.not.i7.i, label %._crit_edge.loopexit.i.i, label %.lr.ph.i.i20, !llvm.loop !22
 
 ._crit_edge.loopexit.i.i:                         ; preds = %.lr.ph.i.i20
   %.pre.i.i = load i32, ptr %65, align 8
@@ -1845,7 +1845,7 @@ _ZNK27ResizeableResourceHashtableIiP13InstanceKlassLN6AnyObj15allocation_typeE2E
   %129 = zext i32 %127 to i64
   %130 = getelementptr inbounds nuw ptr, ptr %113, i64 %129
   %131 = icmp ult ptr %128, %130
-  br i1 %131, label %.lr.ph26.i.i, label %.loopexit, !llvm.loop !24
+  br i1 %131, label %.lr.ph26.i.i, label %.loopexit, !llvm.loop !23
 
 .loopexit:                                        ; preds = %._crit_edge.i.i, %_ZNK27ResizeableResourceHashtableIiP13InstanceKlassLN6AnyObj15allocation_typeE2EL8MEMFLAGS13EXadL_Z14primitive_hashIiEjRKT_EEXadL_Z16primitive_equalsIiEbS8_S8_EEE16calculate_resizeEb.exit.i
   call void @_Z8FreeHeapPv(ptr noundef %113) #19
@@ -1915,7 +1915,7 @@ define hidden void @_ZN15ClassListParser16skip_whitespacesEv(ptr noundef nonnull
 .critedge:                                        ; preds = %3, %3
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 1
   store ptr %6, ptr %2, align 8
-  br label %3, !llvm.loop !21
+  br label %3, !llvm.loop !20
 
 7:                                                ; preds = %3
   ret void
@@ -1952,7 +1952,7 @@ define hidden noundef zeroext i1 @_ZN15ClassListParser17parse_uint_optionEPKcPi(
 .critedge.i.i.i:                                  ; preds = %.preheader, %.preheader
   %15 = getelementptr inbounds nuw i8, ptr %13, i64 1
   store ptr %15, ptr %5, align 8
-  br label %.preheader, !llvm.loop !21
+  br label %.preheader, !llvm.loop !20
 
 _ZN15ClassListParser16skip_whitespacesEv.exit.i.i: ; preds = %.preheader
   %16 = tail call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %13, ptr noundef nonnull @.str.24, ptr noundef nonnull %2) #19
@@ -1975,7 +1975,7 @@ _ZN15ClassListParser16skip_whitespacesEv.exit.i.i: ; preds = %.preheader
 22:                                               ; preds = %19
   %23 = getelementptr inbounds nuw i8, ptr %20, i64 1
   store ptr %23, ptr %5, align 8
-  br label %19, !llvm.loop !20
+  br label %19, !llvm.loop !19
 
 24:                                               ; preds = %_ZN15ClassListParser16skip_whitespacesEv.exit.i.i
   tail call void (ptr, ptr, ...) @_ZN15ClassListParser5errorEPKcz(ptr noundef nonnull align 8 dereferenceable(520) %0, ptr noundef nonnull @.str.25)
@@ -2030,7 +2030,7 @@ define hidden noundef zeroext i1 @_ZN15ClassListParser14try_parse_uintEPi(ptr no
 .critedge.i:                                      ; preds = %4, %4
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 1
   store ptr %7, ptr %3, align 8
-  br label %4, !llvm.loop !21
+  br label %4, !llvm.loop !20
 
 _ZN15ClassListParser16skip_whitespacesEv.exit:    ; preds = %4
   %8 = tail call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %5, ptr noundef nonnull @.str.24, ptr noundef %1) #19
@@ -2053,7 +2053,7 @@ _ZN15ClassListParser16skip_whitespacesEv.exit:    ; preds = %4
 14:                                               ; preds = %11
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 1
   store ptr %15, ptr %3, align 8
-  br label %11, !llvm.loop !20
+  br label %11, !llvm.loop !19
 
 _ZN15ClassListParser20skip_non_whitespacesEv.exit: ; preds = %11, %11, %11, %_ZN15ClassListParser16skip_whitespacesEv.exit
   ret i1 %9
@@ -2106,7 +2106,7 @@ define hidden void @_ZN15ClassListParser26split_tokens_by_whitespaceEiP13Growabl
 
 .critedge:                                        ; preds = %9, %9
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
-  br label %9, !llvm.loop !14
+  br label %9, !llvm.loop !13
 
 .preheader:                                       ; preds = %9, %13
   %12 = phi i8 [ %.pre, %13 ], [ %11, %9 ]
@@ -2121,7 +2121,7 @@ define hidden void @_ZN15ClassListParser26split_tokens_by_whitespaceEiP13Growabl
   %indvars.iv.next41 = add nsw i64 %indvars.iv40, 1
   %.phi.trans.insert = getelementptr inbounds i8, ptr %7, i64 %indvars.iv.next41
   %.pre = load i8, ptr %.phi.trans.insert, align 1
-  br label %.preheader, !llvm.loop !15
+  br label %.preheader, !llvm.loop !14
 
 14:                                               ; preds = %.preheader, %.preheader
   %15 = getelementptr inbounds i8, ptr %7, i64 %indvars.iv40
@@ -2162,7 +2162,7 @@ _ZN26GrowableArrayWithAllocatorIPKc13GrowableArrayIS1_EE6appendERKS1_.exit: ; pr
   %34 = getelementptr inbounds ptr, ptr %32, i64 %33
   store ptr %18, ptr %34, align 8
   %35 = add nsw i32 %17, 1
-  br i1 %.1, label %36, label %.preheader25, !llvm.loop !16
+  br i1 %.1, label %36, label %.preheader25, !llvm.loop !15
 
 36:                                               ; preds = %_ZN26GrowableArrayWithAllocatorIPKc13GrowableArrayIS1_EE6appendERKS1_.exit
   ret void
@@ -2211,7 +2211,7 @@ _ZN15ClassListParser6linenoEv.exit:               ; preds = %7, %13
   ]
 
 .critedge.backedge:                               ; preds = %.critedge, %.critedge
-  br label %.critedge, !llvm.loop !13
+  br label %.critedge, !llvm.loop !12
 
 20:                                               ; preds = %.critedge
   %21 = load ptr, ptr %2, align 8
@@ -2354,7 +2354,7 @@ define hidden void @_ZN15ClassListParser23parse_constant_pool_tagEv(ptr noundef 
 .critedge.i:                                      ; preds = %13, %13
   %16 = getelementptr inbounds nuw i8, ptr %14, i64 1
   store ptr %16, ptr %12, align 8
-  br label %13, !llvm.loop !21
+  br label %13, !llvm.loop !20
 
 _ZN15ClassListParser16skip_whitespacesEv.exit:    ; preds = %13, %19
   %17 = phi i8 [ %.pre, %19 ], [ %15, %13 ]
@@ -2369,7 +2369,7 @@ _ZN15ClassListParser16skip_whitespacesEv.exit:    ; preds = %13, %19
   %20 = getelementptr inbounds nuw i8, ptr %18, i64 1
   store ptr %20, ptr %12, align 8
   %.pre = load i8, ptr %20, align 1
-  br label %_ZN15ClassListParser16skip_whitespacesEv.exit, !llvm.loop !20
+  br label %_ZN15ClassListParser16skip_whitespacesEv.exit, !llvm.loop !19
 
 _ZN15ClassListParser20skip_non_whitespacesEv.exit: ; preds = %_ZN15ClassListParser16skip_whitespacesEv.exit, %_ZN15ClassListParser16skip_whitespacesEv.exit, %_ZN15ClassListParser16skip_whitespacesEv.exit
   store i8 0, ptr %18, align 1
@@ -2496,7 +2496,7 @@ _ZN13GrowableArrayIbEC2EiiRKb.exit:               ; preds = %.lr.ph.preheader.i.
   %79 = getelementptr inbounds nuw i8, ptr %.promoted.i.i.i, i64 1
   store ptr %79, ptr %12, align 8
   %.pr = load i8, ptr %79, align 1
-  br label %77, !llvm.loop !21
+  br label %77, !llvm.loop !20
 
 _ZN15ClassListParser16skip_whitespacesEv.exit27:  ; preds = %77, %.critedge.i.i.i
   %80 = phi i8 [ %.pre49, %.critedge.i.i.i ], [ %78, %77 ]
@@ -2510,7 +2510,7 @@ _ZN15ClassListParser16skip_whitespacesEv.exit27:  ; preds = %77, %.critedge.i.i.
   %82 = getelementptr inbounds nuw i8, ptr %81, i64 1
   store ptr %82, ptr %12, align 8
   %.pre49 = load i8, ptr %82, align 1
-  br label %_ZN15ClassListParser16skip_whitespacesEv.exit27, !llvm.loop !21
+  br label %_ZN15ClassListParser16skip_whitespacesEv.exit27, !llvm.loop !20
 
 _ZN15ClassListParser16skip_whitespacesEv.exit.i.i: ; preds = %_ZN15ClassListParser16skip_whitespacesEv.exit27
   %83 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %81, ptr noundef nonnull @.str.24, ptr noundef nonnull %4) #19
@@ -2533,7 +2533,7 @@ _ZN15ClassListParser16skip_whitespacesEv.exit.i.i: ; preds = %_ZN15ClassListPars
 89:                                               ; preds = %86
   %90 = getelementptr inbounds nuw i8, ptr %87, i64 1
   store ptr %90, ptr %12, align 8
-  br label %86, !llvm.loop !20
+  br label %86, !llvm.loop !19
 
 91:                                               ; preds = %_ZN15ClassListParser16skip_whitespacesEv.exit.i.i
   call void (ptr, ptr, ...) @_ZN15ClassListParser5errorEPKcz(ptr noundef nonnull align 8 dereferenceable(520) %0, ptr noundef nonnull @.str.25)
@@ -2573,7 +2573,7 @@ _ZN15ClassListParser10parse_uintEPi.exit:         ; preds = %_ZN15ClassListParse
   %106 = sext i32 %103 to i64
   %107 = getelementptr inbounds i8, ptr %105, i64 %106
   %108 = load volatile i8, ptr %107, align 1
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !25
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !24
   store i8 %108, ptr %5, align 1
   switch i8 %108, label %111 [
     i8 100, label %109
@@ -2604,7 +2604,7 @@ _ZN15ClassListParser10parse_uintEPi.exit:         ; preds = %_ZN15ClassListParse
   %117 = load ptr, ptr %12, align 8
   %118 = load i8, ptr %117, align 1
   %.not = icmp eq i8 %118, 0
-  br i1 %.not, label %._crit_edge, label %.preheader, !llvm.loop !26
+  br i1 %.not, label %._crit_edge, label %.preheader, !llvm.loop !25
 
 ._crit_edge:                                      ; preds = %116
   br i1 %.1, label %119, label %120
@@ -2690,7 +2690,7 @@ define hidden void @_ZN15ClassListParser20skip_non_whitespacesEv(ptr noundef non
 6:                                                ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 1
   store ptr %7, ptr %2, align 8
-  br label %3, !llvm.loop !20
+  br label %3, !llvm.loop !19
 
 .critedge:                                        ; preds = %3, %3, %3
   ret void
@@ -2713,7 +2713,7 @@ define hidden void @_ZN15ClassListParser9parse_intEPi(ptr noundef nonnull align 
 .critedge.i:                                      ; preds = %4, %4
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 1
   store ptr %7, ptr %3, align 8
-  br label %4, !llvm.loop !21
+  br label %4, !llvm.loop !20
 
 _ZN15ClassListParser16skip_whitespacesEv.exit:    ; preds = %4
   %8 = tail call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %5, ptr noundef nonnull @.str.24, ptr noundef %1) #19
@@ -2736,7 +2736,7 @@ _ZN15ClassListParser16skip_whitespacesEv.exit:    ; preds = %4
 14:                                               ; preds = %11
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 1
   store ptr %15, ptr %3, align 8
-  br label %11, !llvm.loop !20
+  br label %11, !llvm.loop !19
 
 16:                                               ; preds = %_ZN15ClassListParser16skip_whitespacesEv.exit
   tail call void (ptr, ptr, ...) @_ZN15ClassListParser5errorEPKcz(ptr noundef nonnull align 8 dereferenceable(520) %0, ptr noundef nonnull @.str.25)
@@ -2766,7 +2766,7 @@ define hidden void @_ZN15ClassListParser10parse_uintEPi(ptr noundef nonnull alig
 .critedge.i.i:                                    ; preds = %4, %4
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 1
   store ptr %7, ptr %3, align 8
-  br label %4, !llvm.loop !21
+  br label %4, !llvm.loop !20
 
 _ZN15ClassListParser16skip_whitespacesEv.exit.i:  ; preds = %4
   %8 = tail call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %5, ptr noundef nonnull @.str.24, ptr noundef %1) #19
@@ -2789,7 +2789,7 @@ _ZN15ClassListParser16skip_whitespacesEv.exit.i:  ; preds = %4
 14:                                               ; preds = %11
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 1
   store ptr %15, ptr %3, align 8
-  br label %11, !llvm.loop !20
+  br label %11, !llvm.loop !19
 
 16:                                               ; preds = %_ZN15ClassListParser16skip_whitespacesEv.exit.i
   tail call void (ptr, ptr, ...) @_ZN15ClassListParser5errorEPKcz(ptr noundef nonnull align 8 dereferenceable(520) %0, ptr noundef nonnull @.str.25)
@@ -2842,7 +2842,7 @@ define hidden noundef zeroext i1 @_ZN15ClassListParser16parse_int_optionEPKcPi(p
 .critedge.i.i:                                    ; preds = %.preheader, %.preheader
   %15 = getelementptr inbounds nuw i8, ptr %13, i64 1
   store ptr %15, ptr %5, align 8
-  br label %.preheader, !llvm.loop !21
+  br label %.preheader, !llvm.loop !20
 
 _ZN15ClassListParser16skip_whitespacesEv.exit.i:  ; preds = %.preheader
   %16 = tail call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %13, ptr noundef nonnull @.str.24, ptr noundef nonnull %2) #19
@@ -2865,7 +2865,7 @@ _ZN15ClassListParser16skip_whitespacesEv.exit.i:  ; preds = %.preheader
 22:                                               ; preds = %19
   %23 = getelementptr inbounds nuw i8, ptr %20, i64 1
   store ptr %23, ptr %5, align 8
-  br label %19, !llvm.loop !20
+  br label %19, !llvm.loop !19
 
 24:                                               ; preds = %_ZN15ClassListParser16skip_whitespacesEv.exit.i
   tail call void (ptr, ptr, ...) @_ZN15ClassListParser5errorEPKcz(ptr noundef nonnull align 8 dereferenceable(520) %0, ptr noundef nonnull @.str.25)
@@ -2930,7 +2930,7 @@ define hidden void @_ZN15ClassListParser26print_specified_interfacesEv(ptr nound
   %36 = getelementptr inbounds nuw i8, ptr %28, i64 16
   %37 = load ptr, ptr %36, align 8
   %.not.i.i.i.i = icmp eq ptr %37, null
-  br i1 %.not.i.i.i.i, label %.loopexit.i, label %.lr.ph.i.i.i.i, !llvm.loop !18
+  br i1 %.not.i.i.i.i, label %.loopexit.i, label %.lr.ph.i.i.i.i, !llvm.loop !17
 
 .loopexit.i:                                      ; preds = %14, %35
   tail call void (ptr, ptr, ...) @_ZN15ClassListParser5errorEPKcz(ptr noundef nonnull align 8 dereferenceable(520) %0, ptr noundef nonnull @.str.59, i32 noundef %19)
@@ -2950,7 +2950,7 @@ _ZN15ClassListParser18lookup_class_by_idEi.exit:  ; preds = %31
   %48 = tail call i32 (ptr, ptr, ...) @jio_fprintf(ptr noundef %44, ptr noundef nonnull @.str.29, i32 noundef %19, ptr noundef %47) #19
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %14, !llvm.loop !27
+  br i1 %exitcond.not, label %._crit_edge, label %14, !llvm.loop !26
 
 ._crit_edge:                                      ; preds = %_ZN15ClassListParser18lookup_class_by_idEi.exit, %1
   %49 = load i8, ptr @DisplayVMOutputToStdout, align 1
@@ -2995,7 +2995,7 @@ define hidden noundef ptr @_ZN15ClassListParser18lookup_class_by_idEi(ptr nounde
   %21 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %22 = load ptr, ptr %21, align 8
   %.not.i.i.i = icmp eq ptr %22, null
-  br i1 %.not.i.i.i, label %.loopexit, label %.lr.ph.i.i.i, !llvm.loop !18
+  br i1 %.not.i.i.i, label %.loopexit, label %.lr.ph.i.i.i, !llvm.loop !17
 
 _ZNK21ResourceHashtableBaseI34ResizeableResourceHashtableStorageIiP13InstanceKlassLN6AnyObj15allocation_typeE2EL8MEMFLAGS13EEiS2_LS4_2ELS5_13EXadL_Z14primitive_hashIiEjRKT_EEXadL_Z16primitive_equalsIiEbSA_SA_EEE3getERKi.exit: ; preds = %16
   %23 = getelementptr inbounds nuw i8, ptr %13, i64 8
@@ -3044,7 +3044,7 @@ define hidden void @_ZN15ClassListParser23print_actual_interfacesEP13InstanceKla
   %25 = tail call i32 (ptr, ptr, ...) @jio_fprintf(ptr noundef %21, ptr noundef nonnull @.str.32, ptr noundef %24) #19
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !28
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !27
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   %26 = load i8, ptr @DisplayVMOutputToStdout, align 1
@@ -3144,7 +3144,7 @@ _ZN15ClassListParser6linenoEv.exit:               ; preds = %4, %27
   %53 = load i32, ptr %13, align 8
   %54 = sext i32 %53 to i64
   %55 = icmp slt i64 %indvars.iv.next, %54
-  br i1 %55, label %.lr.ph, label %._crit_edge, !llvm.loop !29
+  br i1 %55, label %.lr.ph, label %._crit_edge, !llvm.loop !28
 
 ._crit_edge:                                      ; preds = %52, %42
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.34) #19
@@ -3156,7 +3156,7 @@ _ZN15ClassListParser6linenoEv.exit:               ; preds = %4, %27
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.36, ptr noundef nonnull @.str.37) #19
   %57 = add nuw nsw i32 %.026, 1
   %exitcond.not = icmp eq i32 %57, %spec.select
-  br i1 %exitcond.not, label %._crit_edge29, label %.lr.ph28, !llvm.loop !30
+  br i1 %exitcond.not, label %._crit_edge29, label %.lr.ph28, !llvm.loop !29
 
 ._crit_edge29:                                    ; preds = %.lr.ph28, %._crit_edge, %_ZN15ClassListParser6linenoEv.exit
   %.str.39.sink = phi ptr [ @.str.34, %_ZN15ClassListParser6linenoEv.exit ], [ @.str.39, %._crit_edge ], [ @.str.39, %.lr.ph28 ]
@@ -3300,7 +3300,7 @@ define hidden noundef ptr @_ZN15ClassListParser22load_class_from_sourceEP6Symbol
   %58 = tail call i32 (ptr, ptr, ...) @jio_fprintf(ptr noundef %54, ptr noundef nonnull @.str.32, ptr noundef %57) #19
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %_ZN15ClassListParser23print_actual_interfacesEP13InstanceKlass.exit, label %.lr.ph.i, !llvm.loop !28
+  br i1 %exitcond.not.i, label %_ZN15ClassListParser23print_actual_interfacesEP13InstanceKlass.exit, label %.lr.ph.i, !llvm.loop !27
 
 _ZN15ClassListParser23print_actual_interfacesEP13InstanceKlass.exit: ; preds = %.lr.ph.i, %36
   %59 = load i8, ptr @DisplayVMOutputToStdout, align 1
@@ -3509,7 +3509,7 @@ _ZN11CDSIndyInfo8add_itemEPKc.exit49:             ; preds = %63, %69
   %124 = zext i16 %120 to i64
   %125 = getelementptr inbounds nuw i8, ptr %123, i64 %124
   %126 = load volatile i8, ptr %125, align 1
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !25
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !24
   switch i8 %126, label %283 [
     i8 16, label %127
     i8 15, label %150
@@ -3793,7 +3793,7 @@ _ZN11CDSIndyInfo8add_itemEPKc.exit53:             ; preds = %_ZN11CDSIndyInfo8ad
   store ptr %.sink, ptr %296, align 8
   %297 = add nuw nsw i32 %.067, 1
   %exitcond.not = icmp eq i32 %297, %99
-  br i1 %exitcond.not, label %.loopexit, label %103, !llvm.loop !31
+  br i1 %exitcond.not, label %.loopexit, label %103, !llvm.loop !30
 
 .loopexit:                                        ; preds = %_ZN11CDSIndyInfo8add_itemEPKc.exit53, %_ZN12ConstantPool8klass_atEiP10JavaThread.exit, %_ZN11CDSIndyInfo8add_itemEPKc.exit49
   ret void
@@ -3983,7 +3983,7 @@ define hidden noundef zeroext i1 @_ZN15ClassListParser20is_matching_cp_entryERK1
   %34 = load ptr, ptr %33, align 8
   %35 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %31, ptr noundef nonnull dereferenceable(1) %34) #20
   %.not16 = icmp eq i32 %35, 0
-  br i1 %.not16, label %27, label %.loopexit, !llvm.loop !32
+  br i1 %.not16, label %27, label %.loopexit, !llvm.loop !31
 
 .loopexit:                                        ; preds = %27, %28, %18, %4
   %.015 = phi i1 [ false, %4 ], [ false, %18 ], [ %exitcond.not, %28 ], [ %exitcond.not, %27 ]
@@ -4096,8 +4096,8 @@ _ZN6HandleC2EP6ThreadP7oopDesc.exit:              ; preds = %3, %_ZN10HandleArea
   %52 = phi ptr [ %41, %.lr.ph ], [ %99, %98 ]
   %.066 = phi i1 [ false, %.lr.ph ], [ %.255, %98 ]
   %.idx = shl nuw nsw i64 %indvars.iv, 4
-  %53 = getelementptr i8, ptr %52, i64 18
-  %54 = getelementptr i8, ptr %53, i64 %.idx
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 18
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 %.idx
   %55 = load i16, ptr %54, align 2
   %56 = zext i16 %55 to i32
   store ptr %37, ptr %4, align 8
@@ -4222,7 +4222,7 @@ _ZN26GrowableArrayWithAllocatorIP8Metadata13GrowableArrayIS1_EE4pushERKS1_.exit.
   %100 = load i32, ptr %99, align 8
   %101 = sext i32 %100 to i64
   %102 = icmp slt i64 %indvars.iv.next, %101
-  br i1 %102, label %51, label %._crit_edge, !llvm.loop !33
+  br i1 %102, label %51, label %._crit_edge, !llvm.loop !32
 
 ._crit_edge:                                      ; preds = %98, %97
   %.1 = phi i1 [ %.2, %97 ], [ %.255, %98 ]
@@ -4369,7 +4369,7 @@ define hidden noundef ptr @_ZN15ClassListParser30lookup_super_for_current_classE
   %26 = getelementptr inbounds nuw i8, ptr %18, i64 16
   %27 = load ptr, ptr %26, align 8
   %.not.i.i.i.i = icmp eq ptr %27, null
-  br i1 %.not.i.i.i.i, label %.loopexit.i, label %.lr.ph.i.i.i.i, !llvm.loop !18
+  br i1 %.not.i.i.i.i, label %.loopexit.i, label %.lr.ph.i.i.i.i, !llvm.loop !17
 
 .loopexit.i:                                      ; preds = %25, %5
   tail call void (ptr, ptr, ...) @_ZN15ClassListParser5errorEPKcz(ptr noundef nonnull align 8 dereferenceable(520) %0, ptr noundef nonnull @.str.59, i32 noundef %7)
@@ -4436,7 +4436,7 @@ define hidden noundef ptr @_ZN15ClassListParser34lookup_interface_for_current_cl
 22:                                               ; preds = %_ZN15ClassListParser18lookup_class_by_idEi.exit
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %23, !llvm.loop !34
+  br i1 %exitcond.not, label %._crit_edge, label %23, !llvm.loop !33
 
 23:                                               ; preds = %.lr.ph, %22
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %22 ]
@@ -4467,7 +4467,7 @@ define hidden noundef ptr @_ZN15ClassListParser34lookup_interface_for_current_cl
   %40 = getelementptr inbounds nuw i8, ptr %32, i64 16
   %41 = load ptr, ptr %40, align 8
   %.not.i.i.i.i = icmp eq ptr %41, null
-  br i1 %.not.i.i.i.i, label %.loopexit.i, label %.lr.ph.i.i.i.i, !llvm.loop !18
+  br i1 %.not.i.i.i.i, label %.loopexit.i, label %.lr.ph.i.i.i.i, !llvm.loop !17
 
 .loopexit.i:                                      ; preds = %23, %39
   tail call void (ptr, ptr, ...) @_ZN15ClassListParser5errorEPKcz(ptr noundef nonnull align 8 dereferenceable(520) %0, ptr noundef nonnull @.str.59, i32 noundef %25)
@@ -4965,7 +4965,7 @@ _ZN13GrowableArrayIP8MetadataE8allocateEv.exit:   ; preds = %7, %11, %15
   %30 = load i32, ptr %0, align 8
   %31 = sext i32 %30 to i64
   %32 = icmp slt i64 %indvars.iv.next, %31
-  br i1 %32, label %25, label %.preheader16.loopexit, !llvm.loop !35
+  br i1 %32, label %25, label %.preheader16.loopexit, !llvm.loop !34
 
 .preheader:                                       ; preds = %.lr.ph19, %.preheader16
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -4981,7 +4981,7 @@ _ZN13GrowableArrayIP8MetadataE8allocateEv.exit:   ; preds = %7, %11, %15
   %36 = load i32, ptr %3, align 4
   %37 = trunc nuw i64 %indvars.iv.next22 to i32
   %38 = icmp sgt i32 %36, %37
-  br i1 %38, label %.lr.ph19, label %.preheader, !llvm.loop !36
+  br i1 %38, label %.lr.ph19, label %.preheader, !llvm.loop !35
 
 39:                                               ; preds = %.preheader
   %40 = load i64, ptr %4, align 8
@@ -5078,7 +5078,7 @@ _ZN13GrowableArrayIPKcE8allocateEv.exit:          ; preds = %7, %11, %15
   %30 = load i32, ptr %0, align 8
   %31 = sext i32 %30 to i64
   %32 = icmp slt i64 %indvars.iv.next, %31
-  br i1 %32, label %25, label %.preheader16.loopexit, !llvm.loop !37
+  br i1 %32, label %25, label %.preheader16.loopexit, !llvm.loop !36
 
 .preheader:                                       ; preds = %.lr.ph19, %.preheader16
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -5094,7 +5094,7 @@ _ZN13GrowableArrayIPKcE8allocateEv.exit:          ; preds = %7, %11, %15
   %36 = load i32, ptr %3, align 4
   %37 = trunc nuw i64 %indvars.iv.next22 to i32
   %38 = icmp sgt i32 %36, %37
-  br i1 %38, label %.lr.ph19, label %.preheader, !llvm.loop !38
+  br i1 %38, label %.lr.ph19, label %.preheader, !llvm.loop !37
 
 39:                                               ; preds = %.preheader
   %40 = load i64, ptr %4, align 8
@@ -5174,7 +5174,7 @@ define linkonce_odr hidden void @_ZN26GrowableArrayWithAllocatorIPKc13GrowableAr
   store ptr %27, ptr %25, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit.thread, label %.lr.ph, !llvm.loop !39
+  br i1 %exitcond.not, label %.loopexit.thread, label %.lr.ph, !llvm.loop !38
 
 .loopexit:                                        ; preds = %6
   %.not = icmp eq ptr %8, null
@@ -5255,7 +5255,7 @@ define linkonce_odr hidden void @_ZN26GrowableArrayWithAllocatorIi13GrowableArra
   store i32 %27, ptr %25, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit.thread, label %.lr.ph, !llvm.loop !40
+  br i1 %exitcond.not, label %.loopexit.thread, label %.lr.ph, !llvm.loop !39
 
 .loopexit:                                        ; preds = %6
   %.not = icmp eq ptr %8, null
@@ -5350,7 +5350,7 @@ _ZN13GrowableArrayIiE8allocateEv.exit:            ; preds = %7, %11, %15
   %30 = load i32, ptr %0, align 8
   %31 = sext i32 %30 to i64
   %32 = icmp slt i64 %indvars.iv.next, %31
-  br i1 %32, label %25, label %.preheader16.loopexit, !llvm.loop !41
+  br i1 %32, label %25, label %.preheader16.loopexit, !llvm.loop !40
 
 .preheader:                                       ; preds = %.lr.ph19, %.preheader16
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -5366,7 +5366,7 @@ _ZN13GrowableArrayIiE8allocateEv.exit:            ; preds = %7, %11, %15
   %36 = load i32, ptr %3, align 4
   %37 = trunc nuw i64 %indvars.iv.next22 to i32
   %38 = icmp sgt i32 %36, %37
-  br i1 %38, label %.lr.ph19, label %.preheader, !llvm.loop !42
+  br i1 %38, label %.lr.ph19, label %.preheader, !llvm.loop !41
 
 39:                                               ; preds = %.preheader
   %40 = load i64, ptr %4, align 8
@@ -5473,40 +5473,39 @@ attributes #21 = { noreturn nounwind }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7, !8}
-!11 = distinct !{!11, !7, !8}
-!12 = distinct !{!12, !7, !8}
-!13 = distinct !{!13, !7, !8}
-!14 = distinct !{!14, !7, !8}
-!15 = distinct !{!15, !7, !8}
-!16 = distinct !{!16, !7, !8}
-!17 = distinct !{!17, !7, !8}
-!18 = distinct !{!18, !7, !8}
-!19 = distinct !{!19, !7, !8}
-!20 = distinct !{!20, !7, !8}
-!21 = distinct !{!21, !7, !8}
-!22 = distinct !{!22, !7, !8}
-!23 = distinct !{!23, !7, !8}
-!24 = distinct !{!24, !7, !8}
-!25 = !{i64 2145392468}
-!26 = distinct !{!26, !7, !8}
-!27 = distinct !{!27, !7, !8}
-!28 = distinct !{!28, !7, !8}
-!29 = distinct !{!29, !7, !8}
-!30 = distinct !{!30, !7, !8}
-!31 = distinct !{!31, !7, !8}
-!32 = distinct !{!32, !7, !8}
-!33 = distinct !{!33, !7, !8}
-!34 = distinct !{!34, !7, !8}
-!35 = distinct !{!35, !7, !8}
-!36 = distinct !{!36, !7, !8}
-!37 = distinct !{!37, !7, !8}
-!38 = distinct !{!38, !7, !8}
-!39 = distinct !{!39, !7, !8}
-!40 = distinct !{!40, !7, !8}
-!41 = distinct !{!41, !7, !8}
-!42 = distinct !{!42, !7, !8}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7}
+!12 = distinct !{!12, !7}
+!13 = distinct !{!13, !7}
+!14 = distinct !{!14, !7}
+!15 = distinct !{!15, !7}
+!16 = distinct !{!16, !7}
+!17 = distinct !{!17, !7}
+!18 = distinct !{!18, !7}
+!19 = distinct !{!19, !7}
+!20 = distinct !{!20, !7}
+!21 = distinct !{!21, !7}
+!22 = distinct !{!22, !7}
+!23 = distinct !{!23, !7}
+!24 = !{i64 2145392468}
+!25 = distinct !{!25, !7}
+!26 = distinct !{!26, !7}
+!27 = distinct !{!27, !7}
+!28 = distinct !{!28, !7}
+!29 = distinct !{!29, !7}
+!30 = distinct !{!30, !7}
+!31 = distinct !{!31, !7}
+!32 = distinct !{!32, !7}
+!33 = distinct !{!33, !7}
+!34 = distinct !{!34, !7}
+!35 = distinct !{!35, !7}
+!36 = distinct !{!36, !7}
+!37 = distinct !{!37, !7}
+!38 = distinct !{!38, !7}
+!39 = distinct !{!39, !7}
+!40 = distinct !{!40, !7}
+!41 = distinct !{!41, !7}

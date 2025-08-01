@@ -208,21 +208,21 @@ define internal noundef i32 @exposure_slice(ptr noundef readonly captures(none) 
 45:                                               ; preds = %45, %.preheader.us.us
   %indvars.iv = phi i64 [ %indvars.iv.next, %45 ], [ 0, %.preheader.us.us ]
   %46 = getelementptr inbounds nuw float, ptr %.07178.us.us, i64 %indvars.iv
-  %47 = load float, ptr %46, align 4, !tbaa !58
+  %47 = load float, ptr %46, align 4, !tbaa !57
   %48 = fsub nsz float %47, %18
   %49 = fmul nsz float %20, %48
   %50 = getelementptr inbounds nuw float, ptr %.07079.us.us, i64 %indvars.iv
-  store float %49, ptr %50, align 4, !tbaa !58
+  store float %49, ptr %50, align 4, !tbaa !57
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us.us, label %45, !llvm.loop !59
+  br i1 %exitcond.not, label %._crit_edge.us.us, label %45, !llvm.loop !58
 
 ._crit_edge.us.us:                                ; preds = %45
   %51 = getelementptr inbounds float, ptr %.07079.us.us, i64 %33
   %52 = getelementptr inbounds float, ptr %.07178.us.us, i64 %34
   %53 = add nsw i32 %.06980.us.us, 1
   %exitcond97.not = icmp eq i32 %53, %16
-  br i1 %exitcond97.not, label %._crit_edge81.us, label %.preheader.us.us, !llvm.loop !60
+  br i1 %exitcond97.not, label %._crit_edge81.us, label %.preheader.us.us, !llvm.loop !59
 
 .split90.us:                                      ; preds = %._crit_edge81.us, %4
   %54 = getelementptr inbounds nuw i8, ptr %22, i64 24
@@ -267,7 +267,7 @@ define internal noundef i32 @exposure_slice(ptr noundef readonly captures(none) 
   %77 = getelementptr inbounds float, ptr %.06691, i64 %74
   %78 = add nsw i32 %.093, 1
   %exitcond102.not = icmp eq i32 %78, %16
-  br i1 %exitcond102.not, label %.loopexit, label %75, !llvm.loop !61
+  br i1 %exitcond102.not, label %.loopexit, label %75, !llvm.loop !60
 
 .loopexit:                                        ; preds = %75, %56, %.split90.us
   ret i32 0
@@ -349,11 +349,10 @@ attributes #10 = { nounwind willreturn memory(read) }
 !51 = !{!46, !13, i64 104}
 !52 = !{!13, !13, i64 0}
 !53 = !{!25, !25, i64 0}
-!54 = distinct !{!54, !55, !56, !57}
+!54 = distinct !{!54, !55, !56}
 !55 = !{!"llvm.loop.mustprogress"}
-!56 = !{!"llvm.loop.estimated_trip_count"}
-!57 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!58 = !{!36, !36, i64 0}
+!56 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!57 = !{!36, !36, i64 0}
+!58 = distinct !{!58, !55}
 !59 = distinct !{!59, !55, !56}
-!60 = distinct !{!60, !55, !56, !57}
-!61 = distinct !{!61, !55, !56}
+!60 = distinct !{!60, !55}

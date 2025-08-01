@@ -195,16 +195,16 @@ define i32 @Java_sun_awt_X11_XWindow_getAWTKeyCodeForKeySym(ptr noundef readnone
   %12 = getelementptr inbounds nuw [264 x %struct.KEYMAP_ENTRY], ptr @keymapTable, i64 0, i64 %indvars.iv.next.i
   %13 = load i32, ptr %12, align 8
   %.not16.i = icmp eq i32 %13, 0
-  br i1 %.not16.i, label %.keysymToAWTKeyCode.exit.loopexit_crit_edge, label %.lr.ph.i, !llvm.loop !9
+  br i1 %.not16.i, label %.keysymToAWTKeyCode.exit.loopexit_crit_edge, label %.lr.ph.i, !llvm.loop !8
 
 .lr.ph.i:                                         ; preds = %.lr.ph
   %14 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %15 = load i64, ptr %14, align 8
   %16 = icmp eq i64 %15, %4
-  br i1 %16, label %keysymToAWTKeyCode.exit, label %.lr.ph, !llvm.loop !9
+  br i1 %16, label %keysymToAWTKeyCode.exit, label %.lr.ph, !llvm.loop !8
 
 .keysymToAWTKeyCode.exit.loopexit_crit_edge:      ; preds = %.lr.ph
-  br label %keysymToAWTKeyCode.exit, !llvm.loop !9
+  br label %keysymToAWTKeyCode.exit, !llvm.loop !8
 
 keysymToAWTKeyCode.exit:                          ; preds = %.lr.ph.i, %.lr.ph.i.preheader, %.keysymToAWTKeyCode.exit.loopexit_crit_edge, %8, %6
   %.0 = phi i32 [ 262, %6 ], [ 0, %8 ], [ 0, %.keysymToAWTKeyCode.exit.loopexit_crit_edge ], [ %9, %.lr.ph.i.preheader ], [ %13, %.lr.ph.i ]
@@ -262,7 +262,7 @@ define hidden void @syncTopLevelPos(ptr noundef %0, i64 noundef %1, ptr noundef 
   %11 = tail call i32 @XSync(ptr noundef %0, i32 noundef 0) #6
   %12 = add nuw nsw i32 %.0, 1
   %exitcond.not = icmp eq i32 %12, 51
-  br i1 %exitcond.not, label %13, label %5, !llvm.loop !10
+  br i1 %exitcond.not, label %13, label %5, !llvm.loop !9
 
 13:                                               ; preds = %5, %8, %10
   ret void
@@ -456,7 +456,7 @@ define internal fastcc signext range(i8 0, 2) i8 @keyboardHasKanaLockKey() unnam
   %spec.select = add nuw nsw i32 %.014, %26
   %27 = add nuw nsw i32 %.0813, 1
   %exitcond.not = icmp eq i32 %27, %20
-  br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !11
+  br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !10
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
   %28 = icmp samesign ugt i32 %spec.select, 10
@@ -492,9 +492,8 @@ attributes #7 = { nounwind willreturn memory(read) }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7, !8}
-!11 = distinct !{!11, !7, !8}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}

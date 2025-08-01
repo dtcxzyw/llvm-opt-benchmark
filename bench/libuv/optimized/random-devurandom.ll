@@ -63,7 +63,7 @@ define hidden i32 @uv__random_readpath(ptr noundef %0, ptr noundef captures(none
   %26 = tail call ptr @__errno_location() #7
   %27 = load i32, ptr %26, align 4
   %28 = icmp eq i32 %27, 4
-  br i1 %28, label %23, label %.critedge, !llvm.loop !4
+  br i1 %28, label %23, label %.critedge
 
 .critedge:                                        ; preds = %25
   %29 = tail call i32 @uv__close(i32 noundef %5) #6
@@ -78,7 +78,7 @@ define hidden i32 @uv__random_readpath(ptr noundef %0, ptr noundef captures(none
 34:                                               ; preds = %23
   %35 = add i64 %24, %.02131
   %.not24 = icmp eq i64 %35, %2
-  br i1 %.not24, label %._crit_edge, label %.preheader, !llvm.loop !6
+  br i1 %.not24, label %._crit_edge, label %.preheader
 
 ._crit_edge:                                      ; preds = %34, %.preheader26
   %36 = tail call i32 @uv__close(i32 noundef %5) #6
@@ -152,6 +152,3 @@ attributes #7 = { nounwind willreturn memory(none) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.estimated_trip_count"}
-!6 = distinct !{!6, !5}

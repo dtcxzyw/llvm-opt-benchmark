@@ -788,7 +788,7 @@ proto_item_set_hidden.exit:                       ; preds = %29, %26, %19, %7
   %47 = getelementptr %struct._oer_sequence_t, ptr %6, i64 %46
   %48 = load ptr, ptr %47, align 8
   %.not = icmp eq ptr %48, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !11
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %44
   %49 = icmp ugt i32 %.1143, 128
@@ -869,7 +869,7 @@ proto_item_set_hidden.exit:                       ; preds = %29, %26, %19, %7
   %84 = getelementptr %struct._oer_sequence_t, ptr %6, i64 %83
   %85 = load ptr, ptr %84, align 8
   %.not.i166 = icmp eq ptr %85, null
-  br i1 %.not.i166, label %index_get_optional_name.exit, label %.lr.ph.i, !llvm.loop !12
+  br i1 %.not.i166, label %index_get_optional_name.exit, label %.lr.ph.i, !llvm.loop !11
 
 index_get_optional_name.exit:                     ; preds = %81, %62, %74, %77
   %.0.i = phi ptr [ %78, %77 ], [ @.str.44, %74 ], [ @.str.45, %62 ], [ @.str.45, %81 ]
@@ -921,7 +921,7 @@ proto_item_set_hidden.exit169:                    ; preds = %96, %93, %91, %88
 109:                                              ; preds = %proto_item_set_hidden.exit169, %101
   %110 = add nuw i32 %.1128215, 1
   %exitcond.not = icmp eq i32 %110, %.1143
-  br i1 %exitcond.not, label %._crit_edge219.loopexit, label %58, !llvm.loop !13
+  br i1 %exitcond.not, label %._crit_edge219.loopexit, label %58, !llvm.loop !12
 
 ._crit_edge219.loopexit:                          ; preds = %109
   %.pre = load ptr, ptr %6, align 8
@@ -1017,7 +1017,7 @@ index_get_field_name.exit:                        ; preds = %140, %148
   %156 = getelementptr %struct._oer_sequence_t, ptr %6, i64 %155
   %157 = load ptr, ptr %156, align 8
   %.not151 = icmp eq ptr %157, null
-  br i1 %.not151, label %._crit_edge228, label %.lr.ph227, !llvm.loop !14
+  br i1 %.not151, label %._crit_edge228, label %.lr.ph227, !llvm.loop !13
 
 ._crit_edge228:                                   ; preds = %.thread, %._crit_edge219.thread, %._crit_edge219
   %.0.lcssa = phi i32 [ %113, %._crit_edge219 ], [ %35, %._crit_edge219.thread ], [ %.1, %.thread ]
@@ -1100,7 +1100,7 @@ index_get_field_name.exit:                        ; preds = %140, %148
 193:                                              ; preds = %189, %186
   %194 = add i32 %.21.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %179
-  br i1 %exitcond.not.i, label %dissect_oer_bit_string_unconstr.exit, label %186, !llvm.loop !15
+  br i1 %exitcond.not.i, label %dissect_oer_bit_string_unconstr.exit, label %186, !llvm.loop !14
 
 dissect_oer_bit_string_unconstr.exit:             ; preds = %193, %.preheader.i.thread, %.preheader.i
   %195 = phi i32 [ 0, %.preheader.i ], [ %161, %.preheader.i.thread ], [ %174, %193 ]
@@ -1124,7 +1124,7 @@ dissect_oer_bit_string_unconstr.exit:             ; preds = %193, %.preheader.i.
   %204 = getelementptr %struct._oer_sequence_t, ptr %6, i64 %203
   %205 = load ptr, ptr %204, align 8
   %.not153 = icmp eq ptr %205, null
-  br i1 %.not153, label %._crit_edge233, label %.lr.ph232, !llvm.loop !16
+  br i1 %.not153, label %._crit_edge233, label %.lr.ph232, !llvm.loop !15
 
 ._crit_edge233:                                   ; preds = %201, %.lr.ph232, %dissect_oer_bit_string_unconstr.exit
   %.0131.lcssa = phi i32 [ 0, %dissect_oer_bit_string_unconstr.exit ], [ %.0131231, %.lr.ph232 ], [ %202, %201 ]
@@ -1154,7 +1154,7 @@ dissect_oer_bit_string_unconstr.exit:             ; preds = %193, %.preheader.i.
 213:                                              ; preds = %._crit_edge256
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond255.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond255.not, label %._crit_edge245, label %209, !llvm.loop !17
+  br i1 %exitcond255.not, label %._crit_edge245, label %209, !llvm.loop !16
 
 214:                                              ; preds = %209, %._crit_edge256
   %.4239 = phi i32 [ %.3242, %209 ], [ %.5, %._crit_edge256 ]
@@ -1367,7 +1367,7 @@ dissect_oer_length_determinant.exit188:           ; preds = %proto_item_set_hidd
   %spec.select164 = add i32 %.2133237, %315
   %316 = add nuw nsw i32 %.0126238, 1
   %exitcond253.not = icmp eq i32 %316, 8
-  br i1 %exitcond253.not, label %213, label %214, !llvm.loop !18
+  br i1 %exitcond253.not, label %213, label %214, !llvm.loop !17
 
 317:                                              ; preds = %._crit_edge245, %._crit_edge228
   %.2 = phi i32 [ %.3.lcssa, %._crit_edge245 ], [ %.0.lcssa, %._crit_edge228 ]
@@ -1483,7 +1483,7 @@ define i32 @dissect_oer_sequence_of(ptr noundef %0, i32 noundef %1, ptr noundef 
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #8
   %50 = add nuw i32 %.01617.i, 1
   %exitcond.not.i = icmp eq i32 %50, %.054
-  br i1 %exitcond.not.i, label %dissect_oer_sequence_of_helper.exit, label %.lr.ph.i, !llvm.loop !19
+  br i1 %exitcond.not.i, label %dissect_oer_sequence_of_helper.exit, label %.lr.ph.i, !llvm.loop !18
 
 dissect_oer_sequence_of_helper.exit:              ; preds = %.lr.ph.i, %39
   %.0.lcssa.i = phi i32 [ %29, %39 ], [ %47, %.lr.ph.i ]
@@ -1666,7 +1666,7 @@ proto_item_set_hidden.exit74:                     ; preds = %proto_item_set_hidd
   %84 = getelementptr i8, ptr %.06685, i64 56
   %85 = load ptr, ptr %84, align 8
   %.not71 = icmp eq ptr %85, null
-  br i1 %.not71, label %._crit_edge, label %61, !llvm.loop !20
+  br i1 %.not71, label %._crit_edge, label %61, !llvm.loop !19
 
 ._crit_edge:                                      ; preds = %82, %57
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #8
@@ -1944,16 +1944,15 @@ attributes #9 = { noreturn }
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i8 0, i8 2}
 !7 = !{}
-!8 = distinct !{!8, !9, !10}
+!8 = distinct !{!8, !9}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = !{!"llvm.loop.estimated_trip_count"}
-!11 = distinct !{!11, !9, !10}
-!12 = distinct !{!12, !9, !10}
-!13 = distinct !{!13, !9, !10}
-!14 = distinct !{!14, !9, !10}
-!15 = distinct !{!15, !9, !10}
-!16 = distinct !{!16, !9, !10}
-!17 = distinct !{!17, !9, !10}
-!18 = distinct !{!18, !9, !10}
-!19 = distinct !{!19, !9, !10}
-!20 = distinct !{!20, !9, !10}
+!10 = distinct !{!10, !9}
+!11 = distinct !{!11, !9}
+!12 = distinct !{!12, !9}
+!13 = distinct !{!13, !9}
+!14 = distinct !{!14, !9}
+!15 = distinct !{!15, !9}
+!16 = distinct !{!16, !9}
+!17 = distinct !{!17, !9}
+!18 = distinct !{!18, !9}
+!19 = distinct !{!19, !9}

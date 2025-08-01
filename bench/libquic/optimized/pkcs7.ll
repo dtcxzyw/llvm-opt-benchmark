@@ -78,7 +78,7 @@ define hidden range(i32 0, 2) i32 @PKCS7_get_certificates(ptr noundef %0, ptr no
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #4
   %27 = call i64 @CBS_len(ptr noundef nonnull %4) #4
   %.not18 = icmp eq i64 %27, 0
-  br i1 %.not18, label %.loopexit28, label %.lr.ph, !llvm.loop !11
+  br i1 %.not18, label %.loopexit28, label %.lr.ph
 
 .loopexit28:                                      ; preds = %26, %.preheader27, %.thread, %13
   %.not22 = phi i1 [ true, %13 ], [ true, %.thread ], [ false, %.preheader27 ], [ false, %26 ]
@@ -104,7 +104,7 @@ define hidden range(i32 0, 2) i32 @PKCS7_get_certificates(ptr noundef %0, ptr no
   call void @X509_free(ptr noundef %32) #4
   %33 = call i64 @sk_num(ptr noundef %0) #4
   %.not23 = icmp eq i64 %33, %8
-  br i1 %.not23, label %.loopexit, label %.lr.ph31, !llvm.loop !13
+  br i1 %.not23, label %.loopexit, label %.lr.ph31, !llvm.loop !11
 
 .loopexit:                                        ; preds = %.lr.ph31, %.preheader, %30, %2
   %.0 = phi i32 [ 0, %2 ], [ %.013, %30 ], [ %.013, %.preheader ], [ %.013, %.lr.ph31 ]
@@ -146,7 +146,7 @@ define internal fastcc range(i32 0, 2) i32 @pkcs7_parse_header(ptr noundef nonnu
   br i1 %.not13, label %16, label %14
 
 14:                                               ; preds = %12
-  %15 = load i64, ptr %4, align 8, !tbaa !15
+  %15 = load i64, ptr %4, align 8, !tbaa !13
   call void @CBS_init(ptr noundef nonnull %5, ptr noundef nonnull %13, i64 noundef %15) #4
   br label %19
 
@@ -201,7 +201,7 @@ define internal fastcc range(i32 0, 2) i32 @pkcs7_parse_header(ptr noundef nonnu
   br i1 %.not21, label %43, label %36
 
 36:                                               ; preds = %34
-  %37 = load i64, ptr %10, align 8, !tbaa !15
+  %37 = load i64, ptr %10, align 8, !tbaa !13
   %38 = icmp eq i64 %37, 0
   br i1 %38, label %39, label %40
 
@@ -340,7 +340,7 @@ define hidden range(i32 0, 2) i32 @PKCS7_get_CRLs(ptr noundef %0, ptr noundef %1
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #4
   %31 = call i64 @CBS_len(ptr noundef nonnull %4) #4
   %.not19 = icmp eq i64 %31, 0
-  br i1 %.not19, label %.loopexit29, label %.lr.ph, !llvm.loop !17
+  br i1 %.not19, label %.loopexit29, label %.lr.ph
 
 .loopexit29:                                      ; preds = %30, %.preheader28, %.thread, %12, %17
   %.not23 = phi i1 [ true, %17 ], [ true, %12 ], [ true, %.thread ], [ false, %.preheader28 ], [ false, %30 ]
@@ -366,7 +366,7 @@ define hidden range(i32 0, 2) i32 @PKCS7_get_CRLs(ptr noundef %0, ptr noundef %1
   call void @X509_CRL_free(ptr noundef %36) #4
   %37 = call i64 @sk_num(ptr noundef %0) #4
   %.not24 = icmp eq i64 %37, %8
-  br i1 %.not24, label %.loopexit, label %.lr.ph32, !llvm.loop !18
+  br i1 %.not24, label %.loopexit, label %.lr.ph32, !llvm.loop !15
 
 .loopexit:                                        ; preds = %.lr.ph32, %.preheader, %34, %2
   %.0 = phi i32 [ 0, %2 ], [ %.013, %34 ], [ %.013, %.preheader ], [ %.013, %.lr.ph32 ]
@@ -396,7 +396,7 @@ define hidden range(i32 0, 2) i32 @PKCS7_get_PEM_certificates(ptr noundef %0, pt
 7:                                                ; preds = %2
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #4
   %8 = load ptr, ptr %3, align 8, !tbaa !6
-  %9 = load i64, ptr %4, align 8, !tbaa !15
+  %9 = load i64, ptr %4, align 8, !tbaa !13
   call void @CBS_init(ptr noundef nonnull %5, ptr noundef %8, i64 noundef %9) #4
   %10 = call i32 @PKCS7_get_certificates(ptr noundef %0, ptr noundef nonnull %5)
   %11 = load ptr, ptr %3, align 8, !tbaa !6
@@ -429,7 +429,7 @@ define hidden range(i32 0, 2) i32 @PKCS7_get_PEM_CRLs(ptr noundef %0, ptr nounde
 7:                                                ; preds = %2
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #4
   %8 = load ptr, ptr %3, align 8, !tbaa !6
-  %9 = load i64, ptr %4, align 8, !tbaa !15
+  %9 = load i64, ptr %4, align 8, !tbaa !13
   call void @CBS_init(ptr noundef nonnull %5, ptr noundef %8, i64 noundef %9) #4
   %10 = call i32 @PKCS7_get_CRLs(ptr noundef %0, ptr noundef nonnull %5)
   %11 = load ptr, ptr %3, align 8, !tbaa !6
@@ -509,7 +509,7 @@ define internal fastcc i32 @pkcs7_bundle(ptr noundef %0, ptr noundef readonly ca
   br i1 %.not11, label %31, label %27
 
 27:                                               ; preds = %25
-  %28 = call i32 %1(ptr noundef nonnull %6, ptr noundef %2) #4, !callees !19
+  %28 = call i32 %1(ptr noundef nonnull %6, ptr noundef %2) #4, !callees !16
   %.not12 = icmp eq i32 %28, 0
   br i1 %.not12, label %31, label %29
 
@@ -566,7 +566,7 @@ define internal i32 @pkcs7_bundle_certificates_cb(ptr noundef %0, ptr noundef %1
   %16 = add nuw i64 %.01317, 1
   %17 = call i64 @sk_num(ptr noundef %1) #4
   %18 = icmp ult i64 %16, %17
-  br i1 %18, label %.lr.ph, label %._crit_edge, !llvm.loop !20
+  br i1 %18, label %.lr.ph, label %._crit_edge, !llvm.loop !17
 
 19:                                               ; preds = %.lr.ph, %10, %13
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #4
@@ -626,7 +626,7 @@ define internal i32 @pkcs7_bundle_crls_cb(ptr noundef %0, ptr noundef %1) #0 {
   %16 = add nuw i64 %.01317, 1
   %17 = call i64 @sk_num(ptr noundef %1) #4
   %18 = icmp ult i64 %16, %17
-  br i1 %18, label %.lr.ph, label %._crit_edge, !llvm.loop !21
+  br i1 %18, label %.lr.ph, label %._crit_edge, !llvm.loop !18
 
 19:                                               ; preds = %.lr.ph, %10, %13
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #4
@@ -684,13 +684,10 @@ attributes #4 = { nounwind }
 !9 = !{!"omnipotent char", !10, i64 0}
 !10 = !{!"Simple C/C++ TBAA"}
 !11 = distinct !{!11, !12}
-!12 = !{!"llvm.loop.estimated_trip_count"}
-!13 = distinct !{!13, !14, !12}
-!14 = !{!"llvm.loop.mustprogress"}
-!15 = !{!16, !16, i64 0}
-!16 = !{!"long", !9, i64 0}
+!12 = !{!"llvm.loop.mustprogress"}
+!13 = !{!14, !14, i64 0}
+!14 = !{!"long", !9, i64 0}
+!15 = distinct !{!15, !12}
+!16 = !{ptr @pkcs7_bundle_certificates_cb, ptr @pkcs7_bundle_crls_cb}
 !17 = distinct !{!17, !12}
-!18 = distinct !{!18, !14, !12}
-!19 = !{ptr @pkcs7_bundle_certificates_cb, ptr @pkcs7_bundle_crls_cb}
-!20 = distinct !{!20, !14, !12}
-!21 = distinct !{!21, !14, !12}
+!18 = distinct !{!18, !12}

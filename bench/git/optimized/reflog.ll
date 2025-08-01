@@ -562,7 +562,7 @@ _.exit:                                           ; preds = %132, %134
 
 ._crit_edge:                                      ; preds = %159, %145
   call void @free_worktrees(ptr noundef nonnull %148) #13
-  %162 = load ptr, ptr %146, align 8, !tbaa !48
+  %162 = load ptr, ptr %146, align 8, !tbaa !47
   %.not4268 = icmp eq ptr %162, null
   br i1 %.not4268, label %.critedge, label %.lr.ph72
 
@@ -575,8 +575,8 @@ _.exit:                                           ; preds = %132, %134
   %168 = getelementptr inbounds nuw i8, ptr %14, i64 28
   %169 = getelementptr inbounds nuw i8, ptr %14, i64 32
   %170 = getelementptr inbounds nuw i8, ptr %14, i64 40
-  %171 = load ptr, ptr %146, align 8, !tbaa !48
-  %172 = load i64, ptr %163, align 8, !tbaa !49
+  %171 = load ptr, ptr %146, align 8, !tbaa !47
+  %172 = load i64, ptr %163, align 8, !tbaa !48
   %173 = getelementptr inbounds nuw %struct.string_list_item, ptr %171, i64 %172
   %174 = icmp ult ptr %162, %173
   br i1 %174, label %.lr.ph90, label %.critedge
@@ -586,21 +586,21 @@ _.exit:                                           ; preds = %132, %134
   %.0327088 = phi ptr [ %216, %set_reflog_expiry_param.exit ], [ %162, %.lr.ph72 ]
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %14) #13
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %14, i8 0, i64 24, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %164, ptr noundef nonnull align 8 dereferenceable(32) %6, i64 32, i1 false), !tbaa.struct !50
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %164, ptr noundef nonnull align 8 dereferenceable(32) %6, i64 32, i1 false), !tbaa.struct !49
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %165, i8 0, i64 16, i1 false)
   %175 = load i32, ptr %9, align 4, !tbaa !19
   %176 = trunc i32 %175 to i8
   %177 = and i8 %176, 1
   store i8 %177, ptr %166, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %167, i8 0, i64 7, i1 false)
-  %178 = load ptr, ptr %.0327088, align 8, !tbaa !51
+  %178 = load ptr, ptr %.0327088, align 8, !tbaa !50
   %179 = load i32, ptr %168, align 4, !tbaa !29
   %180 = icmp eq i32 %179, 3
   br i1 %180, label %set_reflog_expiry_param.exit, label %.preheader.i
 
 .preheader.i:                                     ; preds = %.lr.ph90, %181
   %.0.in.i = phi ptr [ %.0.i46, %181 ], [ @reflog_expire_cfg, %.lr.ph90 ]
-  %.0.i46 = load ptr, ptr %.0.in.i, align 8, !tbaa !53
+  %.0.i46 = load ptr, ptr %.0.in.i, align 8, !tbaa !52
   %.not.i = icmp eq ptr %.0.i46, null
   br i1 %.not.i, label %195, label %181
 
@@ -608,7 +608,7 @@ _.exit:                                           ; preds = %132, %134
   %182 = getelementptr inbounds nuw i8, ptr %.0.i46, i64 24
   %183 = call i32 @wildmatch(ptr noundef nonnull %182, ptr noundef %178, i32 noundef 0) #13
   %.not25.i = icmp eq i32 %183, 0
-  br i1 %.not25.i, label %184, label %.preheader.i, !llvm.loop !55
+  br i1 %.not25.i, label %184, label %.preheader.i, !llvm.loop !54
 
 184:                                              ; preds = %181
   %185 = load i32, ptr %168, align 4, !tbaa !29
@@ -677,14 +677,14 @@ _.exit:                                           ; preds = %132, %134
 set_reflog_expiry_param.exit:                     ; preds = %.lr.ph90, %190, %201, %206, %.sink.split.i
   %210 = load ptr, ptr @the_repository, align 8, !tbaa !17
   %211 = call ptr @get_main_ref_store(ptr noundef %210) #13
-  %212 = load ptr, ptr %.0327088, align 8, !tbaa !51
+  %212 = load ptr, ptr %.0327088, align 8, !tbaa !50
   %213 = load i32, ptr %9, align 4, !tbaa !19
   %214 = call i32 @refs_reflog_expire(ptr noundef %211, ptr noundef %212, i32 noundef %213, ptr noundef nonnull @reflog_expiry_prepare, ptr noundef nonnull %spec.select, ptr noundef nonnull @reflog_expiry_cleanup, ptr noundef nonnull %14) #13
   %215 = or i32 %214, %.16989
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %14) #13
   %216 = getelementptr inbounds nuw i8, ptr %.0327088, i64 16
-  %217 = load ptr, ptr %146, align 8, !tbaa !48
-  %218 = load i64, ptr %163, align 8, !tbaa !49
+  %217 = load ptr, ptr %146, align 8, !tbaa !47
+  %218 = load i64, ptr %163, align 8, !tbaa !48
   %219 = getelementptr inbounds nuw %struct.string_list_item, ptr %217, i64 %218
   %220 = icmp ult ptr %216, %219
   br i1 %220, label %.lr.ph90, label %.critedge
@@ -715,7 +715,7 @@ set_reflog_expiry_param.exit:                     ; preds = %.lr.ph90, %190, %20
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15) #13
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %16) #13
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %16, i8 0, i64 24, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %223, ptr noundef nonnull align 8 dereferenceable(32) %6, i64 32, i1 false), !tbaa.struct !50
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %223, ptr noundef nonnull align 8 dereferenceable(32) %6, i64 32, i1 false), !tbaa.struct !49
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %224, i8 0, i64 24, i1 false)
   %229 = load ptr, ptr @the_repository, align 8, !tbaa !17
   %230 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
@@ -749,7 +749,7 @@ _.exit49:                                         ; preds = %235, %237
 
 .preheader.i50:                                   ; preds = %241, %245
   %.0.in.i51 = phi ptr [ %.0.i52, %245 ], [ @reflog_expire_cfg, %241 ]
-  %.0.i52 = load ptr, ptr %.0.in.i51, align 8, !tbaa !53
+  %.0.i52 = load ptr, ptr %.0.in.i51, align 8, !tbaa !52
   %.not.i53 = icmp eq ptr %.0.i52, null
   br i1 %.not.i53, label %259, label %245
 
@@ -757,7 +757,7 @@ _.exit49:                                         ; preds = %235, %237
   %246 = getelementptr inbounds nuw i8, ptr %.0.i52, i64 24
   %247 = call i32 @wildmatch(ptr noundef nonnull %246, ptr noundef %242, i32 noundef 0) #13
   %.not25.i54 = icmp eq i32 %247, 0
-  br i1 %.not25.i54, label %248, label %.preheader.i50, !llvm.loop !55
+  br i1 %.not25.i54, label %248, label %.preheader.i50, !llvm.loop !54
 
 248:                                              ; preds = %245
   %249 = load i32, ptr %225, align 4, !tbaa !29
@@ -840,7 +840,7 @@ set_reflog_expiry_param.exit63:                   ; preds = %241, %254, %265, %2
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15) #13
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge79, label %228, !llvm.loop !56
+  br i1 %exitcond.not, label %._crit_edge79, label %228, !llvm.loop !55
 
 ._crit_edge79:                                    ; preds = %281, %221
   %.2.lcssa = phi i32 [ %.034, %221 ], [ %.3, %281 ]
@@ -983,7 +983,7 @@ _.exit:                                           ; preds = %53, %55
   %63 = or i32 %62, %.015
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %.preheader, !llvm.loop !57
+  br i1 %exitcond.not, label %.loopexit, label %.preheader, !llvm.loop !56
 
 .loopexit:                                        ; preds = %.preheader, %_.exit
   %.012 = phi i32 [ -1, %_.exit ], [ %63, %.preheader ]
@@ -1038,7 +1038,7 @@ declare i32 @error(ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: inlinehint nounwind uwtable
 define internal fastcc ptr @_(ptr noundef %0) unnamed_addr #4 {
-  %2 = load i8, ptr %0, align 1, !tbaa !58
+  %2 = load i8, ptr %0, align 1, !tbaa !57
   %.not = icmp eq i8 %2, 0
   br i1 %.not, label %7, label %3
 
@@ -1204,12 +1204,12 @@ define internal i32 @reflog_expire_config(ptr noundef %0, ptr noundef %1, ptr no
 31:                                               ; preds = %.thread, %24
   %32 = phi ptr [ %26, %.thread ], [ %25, %24 ]
   %33 = load i64, ptr %7, align 8, !tbaa !28
-  %34 = load ptr, ptr @reflog_expire_cfg_tail, align 8, !tbaa !59
+  %34 = load ptr, ptr @reflog_expire_cfg_tail, align 8, !tbaa !58
   %.not.i = icmp eq ptr %34, null
   br i1 %.not.i, label %35, label %.preheader
 
 35:                                               ; preds = %31
-  store ptr @reflog_expire_cfg, ptr @reflog_expire_cfg_tail, align 8, !tbaa !59
+  store ptr @reflog_expire_cfg, ptr @reflog_expire_cfg_tail, align 8, !tbaa !58
   br label %.preheader
 
 .preheader:                                       ; preds = %35, %31
@@ -1217,7 +1217,7 @@ define internal i32 @reflog_expire_config(ptr noundef %0, ptr noundef %1, ptr no
 
 36:                                               ; preds = %.preheader, %37
   %.014.in.i = phi ptr [ %.014.i, %37 ], [ @reflog_expire_cfg, %.preheader ]
-  %.014.i = load ptr, ptr %.014.in.i, align 8, !tbaa !53
+  %.014.i = load ptr, ptr %.014.in.i, align 8, !tbaa !52
   %.not15.i = icmp eq ptr %.014.i, null
   br i1 %.not15.i, label %40, label %37
 
@@ -1225,7 +1225,7 @@ define internal i32 @reflog_expire_config(ptr noundef %0, ptr noundef %1, ptr no
   %38 = getelementptr inbounds nuw i8, ptr %.014.i, i64 24
   %39 = call i32 @xstrncmpz(ptr noundef nonnull %38, ptr noundef nonnull %32, i64 noundef %33) #13
   %.not16.i = icmp eq i32 %39, 0
-  br i1 %.not16.i, label %find_cfg_ent.exit.thread, label %36, !llvm.loop !61
+  br i1 %.not16.i, label %find_cfg_ent.exit.thread, label %36, !llvm.loop !60
 
 40:                                               ; preds = %36
   %41 = icmp ugt i64 %33, -25
@@ -1248,9 +1248,9 @@ find_cfg_ent.exit:                                ; preds = %st_add.exit.i
   %46 = call ptr @xcalloc(i64 noundef 1, i64 noundef %45) #13
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %47, ptr nonnull align 1 %32, i64 %33, i1 false)
-  %48 = load ptr, ptr @reflog_expire_cfg_tail, align 8, !tbaa !59
-  store ptr %46, ptr %48, align 8, !tbaa !53
-  store ptr %46, ptr @reflog_expire_cfg_tail, align 8, !tbaa !59
+  %48 = load ptr, ptr @reflog_expire_cfg_tail, align 8, !tbaa !58
+  store ptr %46, ptr %48, align 8, !tbaa !52
+  store ptr %46, ptr @reflog_expire_cfg_tail, align 8, !tbaa !58
   %.not25 = icmp eq ptr %46, null
   br i1 %.not25, label %54, label %find_cfg_ent.exit.thread
 
@@ -1454,20 +1454,19 @@ attributes #15 = { noreturn nounwind }
 !42 = !{!"worktree_reflogs", !37, i64 0, !43, i64 8}
 !43 = !{!"string_list", !44, i64 0, !12, i64 8, !12, i64 16, !10, i64 24, !5, i64 32}
 !44 = !{!"p1 _ZTS16string_list_item", !5, i64 0}
-!45 = distinct !{!45, !46, !47}
+!45 = distinct !{!45, !46}
 !46 = !{!"llvm.loop.mustprogress"}
-!47 = !{!"llvm.loop.estimated_trip_count"}
-!48 = !{!42, !44, i64 8}
-!49 = !{!42, !12, i64 16}
-!50 = !{i64 0, i64 4, !19, i64 4, i64 4, !19, i64 8, i64 8, !28, i64 16, i64 8, !28, i64 24, i64 4, !19}
-!51 = !{!52, !11, i64 0}
-!52 = !{!"string_list_item", !11, i64 0, !5, i64 8}
-!53 = !{!54, !54, i64 0}
-!54 = !{!"p1 _ZTS17reflog_expire_cfg", !5, i64 0}
-!55 = distinct !{!55, !46, !47}
-!56 = distinct !{!56, !46, !47}
-!57 = distinct !{!57, !46, !47}
-!58 = !{!6, !6, i64 0}
-!59 = !{!60, !60, i64 0}
-!60 = !{!"p2 _ZTS17reflog_expire_cfg", !5, i64 0}
-!61 = distinct !{!61, !46, !47}
+!47 = !{!42, !44, i64 8}
+!48 = !{!42, !12, i64 16}
+!49 = !{i64 0, i64 4, !19, i64 4, i64 4, !19, i64 8, i64 8, !28, i64 16, i64 8, !28, i64 24, i64 4, !19}
+!50 = !{!51, !11, i64 0}
+!51 = !{!"string_list_item", !11, i64 0, !5, i64 8}
+!52 = !{!53, !53, i64 0}
+!53 = !{!"p1 _ZTS17reflog_expire_cfg", !5, i64 0}
+!54 = distinct !{!54, !46}
+!55 = distinct !{!55, !46}
+!56 = distinct !{!56, !46}
+!57 = !{!6, !6, i64 0}
+!58 = !{!59, !59, i64 0}
+!59 = !{!"p2 _ZTS17reflog_expire_cfg", !5, i64 0}
+!60 = distinct !{!60, !46}

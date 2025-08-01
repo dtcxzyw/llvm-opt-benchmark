@@ -78,7 +78,7 @@ _ZNSt5arrayIiLm8EE4fillERKi.exit.i:               ; preds = %._ZNSt5arrayIiLm8EE
   store i32 %24, ptr %22, align 4, !tbaa !6, !alias.scope !3
   %25 = add nuw nsw i32 %.01825.i, 1
   %exitcond.not.i = icmp eq i32 %25, 17
-  br i1 %exitcond.not.i, label %.preheader.i.i.preheader, label %8, !llvm.loop !13
+  br i1 %exitcond.not.i, label %.preheader.i.i.preheader, label %8, !llvm.loop !12
 
 .preheader.i.i.preheader:                         ; preds = %19, %_ZNSt5arrayIiLm8EE4fillERKi.exit.i
   br label %.preheader.i.i
@@ -100,7 +100,7 @@ _ZNSt5arrayIiLm8EE4fillERKi.exit.i:               ; preds = %._ZNSt5arrayIiLm8EE
   %.1.lcssa.i.i = phi i32 [ %.0912.i.i, %.preheader.i.i ], [ %35, %32 ]
   %31 = add nuw nsw i64 %.0713.i.i, 1
   %exitcond14.not.i.i = icmp eq i64 %31, 8
-  br i1 %exitcond14.not.i.i, label %_ZN5ZXing6Pdf417L11GetBitValueERKSt5arrayIiLm8EE.exit.i, label %.preheader.i.i, !llvm.loop !14
+  br i1 %exitcond14.not.i.i, label %_ZN5ZXing6Pdf417L11GetBitValueERKSt5arrayIiLm8EE.exit.i, label %.preheader.i.i, !llvm.loop !13
 
 32:                                               ; preds = %32, %.lr.ph.i.i
   %.011.i.i = phi i32 [ 0, %.lr.ph.i.i ], [ %36, %32 ]
@@ -110,7 +110,7 @@ _ZNSt5arrayIiLm8EE4fillERKi.exit.i:               ; preds = %._ZNSt5arrayIiLm8EE
   %35 = xor i32 %34, 1
   %36 = add nuw nsw i32 %.011.i.i, 1
   %exitcond.not.i.i = icmp eq i32 %36, %27
-  br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %32, !llvm.loop !15
+  br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %32, !llvm.loop !14
 
 _ZN5ZXing6Pdf417L11GetBitValueERKSt5arrayIiLm8EE.exit.i: ; preds = %._crit_edge.i.i
   %37 = and i32 %.1.lcssa.i.i, -65536
@@ -126,7 +126,7 @@ _ZSt7advanceIPKtlEvRT_T0_.exit.i.i.i.i:           ; preds = %_ZSt7advanceIPKtlEv
   %.01116.i.i.i.i = phi i64 [ 2787, %38 ], [ %.112.i.i.i.i, %_ZSt7advanceIPKtlEvRT_T0_.exit.i.i.i.i ]
   %40 = lshr i64 %.01116.i.i.i.i, 1
   %41 = getelementptr inbounds nuw i16, ptr %.017.i.i.i.i, i64 %40
-  %42 = load i16, ptr %41, align 2, !tbaa !16
+  %42 = load i16, ptr %41, align 2, !tbaa !15
   %43 = zext i16 %42 to i32
   %44 = icmp samesign ugt i32 %39, %43
   %45 = getelementptr inbounds nuw i8, ptr %41, i64 2
@@ -135,14 +135,14 @@ _ZSt7advanceIPKtlEvRT_T0_.exit.i.i.i.i:           ; preds = %_ZSt7advanceIPKtlEv
   %.112.i.i.i.i = select i1 %44, i64 %47, i64 %40
   %.1.i.i.i.i = select i1 %44, ptr %45, ptr %.017.i.i.i.i
   %48 = icmp sgt i64 %.112.i.i.i.i, 0
-  br i1 %48, label %_ZSt7advanceIPKtlEvRT_T0_.exit.i.i.i.i, label %_ZSt11lower_boundIPKtiET_S2_S2_RKT0_.exit.i.i, !llvm.loop !18
+  br i1 %48, label %_ZSt7advanceIPKtlEvRT_T0_.exit.i.i.i.i, label %_ZSt11lower_boundIPKtiET_S2_S2_RKT0_.exit.i.i, !llvm.loop !17
 
 _ZSt11lower_boundIPKtiET_S2_S2_RKT0_.exit.i.i:    ; preds = %_ZSt7advanceIPKtlEvRT_T0_.exit.i.i.i.i
   %.not4.i.i = icmp eq ptr %.1.i.i.i.i, getelementptr inbounds nuw (i8, ptr @_ZN5ZXing6Pdf417L12SYMBOL_TABLEE, i64 5574)
   br i1 %.not4.i.i, label %62, label %49
 
 49:                                               ; preds = %_ZSt11lower_boundIPKtiET_S2_S2_RKT0_.exit.i.i
-  %50 = load i16, ptr %.1.i.i.i.i, align 2, !tbaa !16
+  %50 = load i16, ptr %.1.i.i.i.i, align 2, !tbaa !15
   %51 = trunc i32 %.1.lcssa.i.i to i16
   %52 = icmp eq i16 %50, %51
   br i1 %52, label %_ZN5ZXing6Pdf41715CodewordDecoder11GetCodewordEi.exit.i, label %62
@@ -152,7 +152,7 @@ _ZN5ZXing6Pdf41715CodewordDecoder11GetCodewordEi.exit.i: ; preds = %49
   %54 = sub i64 %53, ptrtoint (ptr @_ZN5ZXing6Pdf417L12SYMBOL_TABLEE to i64)
   %55 = ashr exact i64 %54, 1
   %56 = getelementptr inbounds nuw [2787 x i16], ptr @_ZN5ZXing6Pdf417L14CODEWORD_TABLEE, i64 0, i64 %55
-  %57 = load i16, ptr %56, align 2, !tbaa !16
+  %57 = load i16, ptr %56, align 2, !tbaa !15
   %.fr5.i = freeze i16 %57
   %58 = zext i16 %.fr5.i to i32
   %59 = add nsw i32 %58, -1
@@ -168,7 +168,7 @@ _ZN5ZXing6Pdf417L23GetDecodedCodewordValueERKSt5arrayIiLm8EE.exit: ; preds = %_Z
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #12
   %63 = load atomic i8, ptr @_ZGVZN5ZXing6Pdf417L22GetClosestDecodedValueERKSt5arrayIiLm8EEE10ratioTable acquire, align 8
   %64 = icmp eq i8 %63, 0
-  br i1 %64, label %65, label %.lr.ph.i.i.i.i5.preheader, !prof !19
+  br i1 %64, label %65, label %.lr.ph.i.i.i.i5.preheader, !prof !18
 
 65:                                               ; preds = %62
   %66 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5ZXing6Pdf417L22GetClosestDecodedValueERKSt5arrayIiLm8EEE10ratioTable) #12
@@ -220,14 +220,14 @@ _ZN5ZXing6ReduceISt5arrayIiLm8EEiSt4plusIiEEET0_RKT_S5_T1_.exit.i11: ; preds = %
   %79 = sitofp i32 %78 to float
   %80 = fdiv float %79, %73
   %81 = getelementptr inbounds nuw [8 x float], ptr %2, i64 0, i64 %indvars.iv.i
-  store float %80, ptr %81, align 4, !tbaa !20
+  store float %80, ptr %81, align 4, !tbaa !19
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i13 = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i13, label %.loopexit.i, label %76, !llvm.loop !22
+  br i1 %exitcond.not.i13, label %.loopexit.i, label %76, !llvm.loop !21
 
 .loopexit.i:                                      ; preds = %76, %_ZN5ZXing6ReduceISt5arrayIiLm8EEiSt4plusIiEEET0_RKT_S5_T1_.exit.i11
-  %82 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6Pdf417L22GetClosestDecodedValueERKSt5arrayIiLm8EEE10ratioTable, i64 8), align 8, !tbaa !23
-  %83 = load ptr, ptr @_ZZN5ZXing6Pdf417L22GetClosestDecodedValueERKSt5arrayIiLm8EEE10ratioTable, align 8, !tbaa !27
+  %82 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6Pdf417L22GetClosestDecodedValueERKSt5arrayIiLm8EEE10ratioTable, i64 8), align 8, !tbaa !22
+  %83 = load ptr, ptr @_ZZN5ZXing6Pdf417L22GetClosestDecodedValueERKSt5arrayIiLm8EEE10ratioTable, align 8, !tbaa !26
   %.not43.i = icmp eq ptr %82, %83
   br i1 %.not43.i, label %_ZN5ZXing6Pdf417L22GetClosestDecodedValueERKSt5arrayIiLm8EE.exit, label %.lr.ph.preheader.i
 
@@ -249,16 +249,16 @@ _ZN5ZXing6ReduceISt5arrayIiLm8EEiSt4plusIiEEET0_RKT_S5_T1_.exit.i11: ; preds = %
   %indvars.iv46.i = phi i64 [ %indvars.iv.next47.i, %89 ], [ 0, %.lr.ph.i ]
   %.03038.i = phi float [ %95, %89 ], [ 0.000000e+00, %.lr.ph.i ]
   %90 = getelementptr inbounds nuw [8 x float], ptr %88, i64 0, i64 %indvars.iv46.i
-  %91 = load float, ptr %90, align 4, !tbaa !20
+  %91 = load float, ptr %90, align 4, !tbaa !19
   %92 = getelementptr inbounds nuw [8 x float], ptr %2, i64 0, i64 %indvars.iv46.i
-  %93 = load float, ptr %92, align 4, !tbaa !20
+  %93 = load float, ptr %92, align 4, !tbaa !19
   %94 = fsub float %91, %93
   %95 = tail call float @llvm.fmuladd.f32(float %94, float %94, float %.03038.i)
   %96 = fcmp ult float %95, %.02942.i
   %indvars.iv.next47.i = add nuw nsw i64 %indvars.iv46.i, 1
   %97 = icmp samesign ult i64 %indvars.iv46.i, 7
   %or.cond.i = select i1 %96, i1 %97, i1 false
-  br i1 %or.cond.i, label %89, label %98, !llvm.loop !28
+  br i1 %or.cond.i, label %89, label %98, !llvm.loop !27
 
 98:                                               ; preds = %89
   %99 = fcmp olt float %95, %.02942.i
@@ -268,7 +268,7 @@ _ZN5ZXing6ReduceISt5arrayIiLm8EEiSt4plusIiEEET0_RKT_S5_T1_.exit.i11: ; preds = %
   %sext.i = shl i64 %.03341.i, 32
   %101 = ashr exact i64 %sext.i, 32
   %102 = getelementptr inbounds nuw [2787 x i16], ptr @_ZN5ZXing6Pdf417L12SYMBOL_TABLEE, i64 0, i64 %101
-  %103 = load i16, ptr %102, align 2, !tbaa !16
+  %103 = load i16, ptr %102, align 2, !tbaa !15
   %104 = zext i16 %103 to i32
   %105 = or disjoint i32 %104, 65536
   br label %106
@@ -278,7 +278,7 @@ _ZN5ZXing6ReduceISt5arrayIiLm8EEiSt4plusIiEEET0_RKT_S5_T1_.exit.i11: ; preds = %
   %.1.i12 = phi float [ %95, %100 ], [ %.02942.i, %98 ]
   %107 = add nuw i64 %.03341.i, 1
   %exitcond49.not.i = icmp eq i64 %107, %87
-  br i1 %exitcond49.not.i, label %_ZN5ZXing6Pdf417L22GetClosestDecodedValueERKSt5arrayIiLm8EE.exit, label %.lr.ph.i, !llvm.loop !29
+  br i1 %exitcond49.not.i, label %_ZN5ZXing6Pdf417L22GetClosestDecodedValueERKSt5arrayIiLm8EE.exit, label %.lr.ph.i, !llvm.loop !28
 
 _ZN5ZXing6Pdf417L22GetClosestDecodedValueERKSt5arrayIiLm8EE.exit: ; preds = %106, %.loopexit.i
   %.034.lcssa.i = phi i32 [ -1, %.loopexit.i ], [ %.135.i, %106 ]
@@ -311,7 +311,7 @@ _ZSt7advanceIPKtlEvRT_T0_.exit.i.i:               ; preds = %_ZSt7advanceIPKtlEv
   %.01116.i.i = phi i64 [ 2787, %3 ], [ %.112.i.i, %_ZSt7advanceIPKtlEvRT_T0_.exit.i.i ]
   %5 = lshr i64 %.01116.i.i, 1
   %6 = getelementptr inbounds nuw i16, ptr %.017.i.i, i64 %5
-  %7 = load i16, ptr %6, align 2, !tbaa !16
+  %7 = load i16, ptr %6, align 2, !tbaa !15
   %8 = zext i16 %7 to i32
   %9 = icmp samesign ugt i32 %4, %8
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 2
@@ -320,14 +320,14 @@ _ZSt7advanceIPKtlEvRT_T0_.exit.i.i:               ; preds = %_ZSt7advanceIPKtlEv
   %.112.i.i = select i1 %9, i64 %12, i64 %5
   %.1.i.i = select i1 %9, ptr %10, ptr %.017.i.i
   %13 = icmp sgt i64 %.112.i.i, 0
-  br i1 %13, label %_ZSt7advanceIPKtlEvRT_T0_.exit.i.i, label %_ZSt11lower_boundIPKtiET_S2_S2_RKT0_.exit, !llvm.loop !18
+  br i1 %13, label %_ZSt7advanceIPKtlEvRT_T0_.exit.i.i, label %_ZSt11lower_boundIPKtiET_S2_S2_RKT0_.exit, !llvm.loop !17
 
 _ZSt11lower_boundIPKtiET_S2_S2_RKT0_.exit:        ; preds = %_ZSt7advanceIPKtlEvRT_T0_.exit.i.i
   %.not4 = icmp eq ptr %.1.i.i, getelementptr inbounds nuw (i8, ptr @_ZN5ZXing6Pdf417L12SYMBOL_TABLEE, i64 5574)
   br i1 %.not4, label %27, label %14
 
 14:                                               ; preds = %_ZSt11lower_boundIPKtiET_S2_S2_RKT0_.exit
-  %15 = load i16, ptr %.1.i.i, align 2, !tbaa !16
+  %15 = load i16, ptr %.1.i.i, align 2, !tbaa !15
   %16 = trunc i32 %0 to i16
   %17 = icmp eq i16 %15, %16
   br i1 %17, label %18, label %27
@@ -337,7 +337,7 @@ _ZSt11lower_boundIPKtiET_S2_S2_RKT0_.exit:        ; preds = %_ZSt7advanceIPKtlEv
   %20 = sub i64 %19, ptrtoint (ptr @_ZN5ZXing6Pdf417L12SYMBOL_TABLEE to i64)
   %21 = ashr exact i64 %20, 1
   %22 = getelementptr inbounds nuw [2787 x i16], ptr @_ZN5ZXing6Pdf417L14CODEWORD_TABLEE, i64 0, i64 %21
-  %23 = load i16, ptr %22, align 2, !tbaa !16
+  %23 = load i16, ptr %22, align 2, !tbaa !15
   %24 = zext i16 %23 to i32
   %25 = add nsw i32 %24, -1
   %26 = srem i32 %25, 929
@@ -356,28 +356,28 @@ define internal fastcc void @"_ZZN5ZXing6Pdf417L22GetClosestDecodedValueERKSt5ar
 .noexc:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) @_ZZN5ZXing6Pdf417L22GetClosestDecodedValueERKSt5arrayIiLm8EEE10ratioTable, i8 0, i64 24, i1 false)
   %0 = tail call noalias noundef nonnull dereferenceable(89184) ptr @_Znwm(i64 noundef 89184) #13
-  store ptr %0, ptr @_ZZN5ZXing6Pdf417L22GetClosestDecodedValueERKSt5arrayIiLm8EEE10ratioTable, align 8, !tbaa !27
+  store ptr %0, ptr @_ZZN5ZXing6Pdf417L22GetClosestDecodedValueERKSt5arrayIiLm8EEE10ratioTable, align 8, !tbaa !26
   %1 = getelementptr inbounds nuw i8, ptr %0, i64 89184
-  store ptr %1, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6Pdf417L22GetClosestDecodedValueERKSt5arrayIiLm8EEE10ratioTable, i64 16), align 8, !tbaa !30
+  store ptr %1, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6Pdf417L22GetClosestDecodedValueERKSt5arrayIiLm8EEE10ratioTable, i64 16), align 8, !tbaa !29
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %0, i8 0, i64 32, i1 false)
   br label %.lr.ph.i.i.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i.i.i:                         ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i, %.noexc
   %.06.i.i.i.i.i.i.i.i.i.idx = phi i64 [ %.06.i.i.i.i.i.i.i.i.i.add, %.lr.ph.i.i.i.i.i.i.i.i.i ], [ 32, %.noexc ]
   %.06.i.i.i.i.i.i.i.i.i.ptr = getelementptr inbounds nuw i8, ptr %0, i64 %.06.i.i.i.i.i.i.i.i.i.idx
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %.06.i.i.i.i.i.i.i.i.i.ptr, ptr noundef nonnull align 4 dereferenceable(32) %0, i64 32, i1 false), !tbaa.struct !31
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %.06.i.i.i.i.i.i.i.i.i.ptr, ptr noundef nonnull align 4 dereferenceable(32) %0, i64 32, i1 false), !tbaa.struct !30
   %.06.i.i.i.i.i.i.i.i.i.add = add nuw nsw i64 %.06.i.i.i.i.i.i.i.i.i.idx, 32
   %.not.i.i.i.i.i.i.i.i.i = icmp eq i64 %.06.i.i.i.i.i.i.i.i.i.add, 89184
-  br i1 %.not.i.i.i.i.i.i.i.i.i, label %2, label %.lr.ph.i.i.i.i.i.i.i.i.i, !llvm.loop !33
+  br i1 %.not.i.i.i.i.i.i.i.i.i, label %2, label %.lr.ph.i.i.i.i.i.i.i.i.i, !llvm.loop !32
 
 2:                                                ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i
-  store ptr %1, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6Pdf417L22GetClosestDecodedValueERKSt5arrayIiLm8EEE10ratioTable, i64 8), align 8, !tbaa !23
+  store ptr %1, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6Pdf417L22GetClosestDecodedValueERKSt5arrayIiLm8EEE10ratioTable, i64 8), align 8, !tbaa !22
   br label %3
 
 3:                                                ; preds = %2, %12
   %indvars.iv14 = phi i64 [ 0, %2 ], [ %indvars.iv.next15, %12 ]
   %4 = getelementptr inbounds nuw [2787 x i16], ptr @_ZN5ZXing6Pdf417L12SYMBOL_TABLEE, i64 0, i64 %indvars.iv14
-  %5 = load i16, ptr %4, align 2, !tbaa !16
+  %5 = load i16, ptr %4, align 2, !tbaa !15
   %6 = zext i16 %5 to i32
   %7 = or disjoint i32 %6, 65536
   %8 = and i32 %6, 1
@@ -395,7 +395,7 @@ define internal fastcc void @"_ZZN5ZXing6Pdf417L22GetClosestDecodedValueERKSt5ar
 12:                                               ; preds = %._crit_edge
   %indvars.iv.next15 = add nuw nsw i64 %indvars.iv14, 1
   %exitcond17.not = icmp eq i64 %indvars.iv.next15, 2787
-  br i1 %exitcond17.not, label %21, label %3, !llvm.loop !34
+  br i1 %exitcond17.not, label %21, label %3, !llvm.loop !33
 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %.03 = phi i8 [ %13, %.lr.ph ], [ 0, %.preheader ]
@@ -404,7 +404,7 @@ define internal fastcc void @"_ZZN5ZXing6Pdf417L22GetClosestDecodedValueERKSt5ar
   %14 = ashr i32 %.12, 1
   %15 = and i32 %14, 1
   %16 = icmp eq i32 %15, %.0177
-  br i1 %16, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !35
+  br i1 %16, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !34
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
   %17 = sitofp i8 %13 to float
@@ -417,10 +417,10 @@ define internal fastcc void @"_ZZN5ZXing6Pdf417L22GetClosestDecodedValueERKSt5ar
   %18 = fdiv float %.0.lcssa, 1.700000e+01
   %19 = sub nuw nsw i64 7, %indvars.iv
   %20 = getelementptr inbounds nuw [8 x float], ptr %9, i64 0, i64 %19
-  store float %18, ptr %20, align 4, !tbaa !20
+  store float %18, ptr %20, align 4, !tbaa !19
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond.not, label %12, label %.preheader, !llvm.loop !36
+  br i1 %exitcond.not, label %12, label %.preheader, !llvm.loop !35
 
 21:                                               ; preds = %12
   ret void
@@ -430,13 +430,13 @@ declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt6vectorISt5arrayIfLm8EESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !27
+  %2 = load ptr, ptr %0, align 8, !tbaa !26
   %.not.i.i = icmp eq ptr %2, null
   br i1 %.not.i.i, label %_ZNSt12_Vector_baseISt5arrayIfLm8EESaIS1_EED2Ev.exit, label %3
 
 3:                                                ; preds = %1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %5 = load ptr, ptr %4, align 8, !tbaa !30
+  %5 = load ptr, ptr %4, align 8, !tbaa !29
   %6 = ptrtoint ptr %5 to i64
   %7 = ptrtoint ptr %2 to i64
   %8 = sub i64 %6, %7
@@ -503,30 +503,29 @@ attributes #14 = { builtin nounwind }
 !7 = !{!"int", !8, i64 0}
 !8 = !{!"omnipotent char", !9, i64 0}
 !9 = !{!"Simple C++ TBAA"}
-!10 = distinct !{!10, !11, !12}
+!10 = distinct !{!10, !11}
 !11 = !{!"llvm.loop.mustprogress"}
-!12 = !{!"llvm.loop.estimated_trip_count"}
-!13 = distinct !{!13, !11, !12}
-!14 = distinct !{!14, !11, !12}
-!15 = distinct !{!15, !11, !12}
-!16 = !{!17, !17, i64 0}
-!17 = !{!"short", !8, i64 0}
-!18 = distinct !{!18, !11, !12}
-!19 = !{!"branch_weights", i32 1, i32 1048575}
-!20 = !{!21, !21, i64 0}
-!21 = !{!"float", !8, i64 0}
-!22 = distinct !{!22, !11, !12}
-!23 = !{!24, !25, i64 8}
-!24 = !{!"_ZTSNSt12_Vector_baseISt5arrayIfLm8EESaIS1_EE17_Vector_impl_dataE", !25, i64 0, !25, i64 8, !25, i64 16}
-!25 = !{!"p1 _ZTSSt5arrayIfLm8EE", !26, i64 0}
-!26 = !{!"any pointer", !8, i64 0}
-!27 = !{!24, !25, i64 0}
-!28 = distinct !{!28, !11, !12}
-!29 = distinct !{!29, !11, !12}
-!30 = !{!24, !25, i64 16}
-!31 = !{i64 0, i64 32, !32}
-!32 = !{!8, !8, i64 0}
-!33 = distinct !{!33, !11, !12}
-!34 = distinct !{!34, !11, !12}
-!35 = distinct !{!35, !11, !12}
-!36 = distinct !{!36, !11, !12}
+!12 = distinct !{!12, !11}
+!13 = distinct !{!13, !11}
+!14 = distinct !{!14, !11}
+!15 = !{!16, !16, i64 0}
+!16 = !{!"short", !8, i64 0}
+!17 = distinct !{!17, !11}
+!18 = !{!"branch_weights", i32 1, i32 1048575}
+!19 = !{!20, !20, i64 0}
+!20 = !{!"float", !8, i64 0}
+!21 = distinct !{!21, !11}
+!22 = !{!23, !24, i64 8}
+!23 = !{!"_ZTSNSt12_Vector_baseISt5arrayIfLm8EESaIS1_EE17_Vector_impl_dataE", !24, i64 0, !24, i64 8, !24, i64 16}
+!24 = !{!"p1 _ZTSSt5arrayIfLm8EE", !25, i64 0}
+!25 = !{!"any pointer", !8, i64 0}
+!26 = !{!23, !24, i64 0}
+!27 = distinct !{!27, !11}
+!28 = distinct !{!28, !11}
+!29 = !{!23, !24, i64 16}
+!30 = !{i64 0, i64 32, !31}
+!31 = !{!8, !8, i64 0}
+!32 = distinct !{!32, !11}
+!33 = distinct !{!33, !11}
+!34 = distinct !{!34, !11}
+!35 = distinct !{!35, !11}

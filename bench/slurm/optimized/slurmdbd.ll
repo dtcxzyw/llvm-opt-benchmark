@@ -1114,7 +1114,7 @@ split:                                            ; preds = %339, %._crit_edge16
 
 .thread138:                                       ; preds = %332, %360, %399, %379
   %401 = phi i1 [ false, %332 ], [ false, %360 ], [ %400, %399 ], [ false, %379 ]
-  %402 = load i8, ptr @primary_resumed, align 1, !range !12
+  %402 = load i8, ptr @primary_resumed, align 1, !range !11
   %403 = trunc nuw i8 %402 to i1
   %or.cond3 = select i1 %401, i1 true, i1 %403
   br i1 %or.cond3, label %404, label %412
@@ -1130,7 +1130,7 @@ split:                                            ; preds = %339, %._crit_edge16
   br label %408
 
 408:                                              ; preds = %407, %404
-  %409 = load i8, ptr @backup, align 1, !range !12, !noundef !13
+  %409 = load i8, ptr @backup, align 1, !range !11, !noundef !12
   %410 = trunc nuw i8 %409 to i1
   br i1 %410, label %411, label %412
 
@@ -1217,7 +1217,7 @@ _send_slurmctld_register_req.exit.i:              ; preds = %426
 .backedge.i:                                      ; preds = %443, %_send_slurmctld_register_req.exit.i, %.lr.ph.i
   %445 = call ptr @list_next(ptr noundef %417) #14
   %.not13.i = icmp eq ptr %445, null
-  br i1 %.not13.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !14
+  br i1 %.not13.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !13
 
 ._crit_edge.i:                                    ; preds = %.backedge.i, %416
   call void @list_iterator_destroy(ptr noundef %417) #14
@@ -1259,9 +1259,9 @@ _request_registrations.exit:                      ; preds = %412, %._crit_edge.i
   br label %.thread143
 
 .thread143:                                       ; preds = %.thread140, %456, %454
-  %458 = load i8, ptr @backup, align 1, !range !12, !noundef !13
+  %458 = load i8, ptr @backup, align 1, !range !11, !noundef !12
   %459 = trunc nuw i8 %458 to i1
-  %460 = load i8, ptr @primary_resumed, align 1, !range !12
+  %460 = load i8, ptr @primary_resumed, align 1, !range !11
   %461 = trunc nuw i8 %460 to i1
   %or.cond5 = select i1 %459, i1 %461, i1 false
   %or.cond5.not = xor i1 %or.cond5, true
@@ -1282,7 +1282,7 @@ _request_registrations.exit:                      ; preds = %412, %._crit_edge.i
 466:                                              ; preds = %462, %465, %.thread143
   %467 = load i64, ptr @shutdown_time, align 8
   %.not122 = icmp eq i64 %467, 0
-  br i1 %.not122, label %312, label %.loopexit, !llvm.loop !15
+  br i1 %.not122, label %312, label %.loopexit, !llvm.loop !14
 
 .loopexit:                                        ; preds = %466, %298
   %468 = load i64, ptr @commit_handler_thread, align 8
@@ -1338,7 +1338,7 @@ _request_registrations.exit:                      ; preds = %412, %._crit_edge.i
 
 492:                                              ; preds = %491, %489
   store ptr null, ptr @registered_clusters, align 8
-  %493 = load i8, ptr @backup, align 1, !range !12, !noundef !13
+  %493 = load i8, ptr @backup, align 1, !range !11, !noundef !12
   %494 = trunc nuw i8 %493 to i1
   %.b81127 = load i1, ptr @restart_backup, align 1
   %or.cond9 = select i1 %494, i1 %.b81127, i1 false
@@ -1666,7 +1666,7 @@ define internal noalias noundef ptr @_commit_handler(ptr readnone captures(none)
   %26 = tail call i32 @acct_storage_g_commit(ptr noundef %25, i1 noundef zeroext true) #14
   %27 = tail call ptr @list_next(ptr noundef %14) #14
   %.not12 = icmp eq ptr %27, null
-  br i1 %.not12, label %._crit_edge, label %.lr.ph, !llvm.loop !16
+  br i1 %.not12, label %._crit_edge, label %.lr.ph, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %23, %12
   tail call void @list_iterator_destroy(ptr noundef %14) #14
@@ -1697,7 +1697,7 @@ define internal noalias noundef ptr @_commit_handler(ptr readnone captures(none)
   %34 = tail call i32 @sleep(i32 noundef %spec.select) #14
   %35 = load i64, ptr @shutdown_time, align 8
   %.not = icmp eq i64 %35, 0
-  br i1 %.not, label %.lr.ph20, label %._crit_edge21, !llvm.loop !17
+  br i1 %.not, label %.lr.ph20, label %._crit_edge21, !llvm.loop !16
 
 ._crit_edge21:                                    ; preds = %32, %1
   ret ptr null
@@ -1855,7 +1855,7 @@ define internal noalias noundef ptr @_rollup_handler(ptr noundef %0) #0 {
 51:                                               ; preds = %48, %43, %43, %41
   %52 = call i32 @pthread_mutex_unlock(ptr noundef nonnull @rollup_lock) #14
   %.not21 = icmp eq i32 %52, 0
-  br i1 %.not21, label %.split, label %53, !llvm.loop !18
+  br i1 %.not21, label %.split, label %53, !llvm.loop !17
 
 53:                                               ; preds = %51
   %54 = tail call ptr @__errno_location() #18
@@ -2016,7 +2016,7 @@ define dso_local void @handle_rollup_stats(ptr noundef %0, i64 noundef %1, i32 n
 .backedge:                                        ; preds = %68, %45
   %48 = tail call ptr @list_next(ptr noundef %33) #14
   %.not72 = icmp eq ptr %48, null
-  br i1 %.not72, label %._crit_edge, label %.lr.ph, !llvm.loop !19
+  br i1 %.not72, label %._crit_edge, label %.lr.ph, !llvm.loop !18
 
 49:                                               ; preds = %.preheader, %68
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %68 ]
@@ -2051,7 +2051,7 @@ define dso_local void @handle_rollup_stats(ptr noundef %0, i64 noundef %1, i32 n
 68:                                               ; preds = %49, %53
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %.backedge, label %49, !llvm.loop !20
+  br i1 %exitcond.not, label %.backedge, label %49, !llvm.loop !19
 
 ._crit_edge:                                      ; preds = %.backedge, %32
   tail call void @list_iterator_destroy(ptr noundef %33) #14
@@ -2201,9 +2201,9 @@ define dso_local void @shutdown_threads() local_unnamed_addr #0 {
   br i1 %42, label %43, label %59
 
 43:                                               ; preds = %40
-  %44 = load i8, ptr @backup, align 1, !range !12, !noundef !13
+  %44 = load i8, ptr @backup, align 1, !range !11, !noundef !12
   %45 = trunc nuw i8 %44 to i1
-  %46 = load i8, ptr @primary_resumed, align 1, !range !12
+  %46 = load i8, ptr @primary_resumed, align 1, !range !11
   %47 = trunc nuw i8 %46 to i1
   %or.cond = select i1 %45, i1 %47, i1 false
   %48 = tail call i32 @get_log_level() #14
@@ -2240,9 +2240,9 @@ define dso_local void @shutdown_threads() local_unnamed_addr #0 {
   unreachable
 
 59:                                               ; preds = %55, %52, %40
-  %60 = load i8, ptr @backup, align 1, !range !12, !noundef !13
+  %60 = load i8, ptr @backup, align 1, !range !11, !noundef !12
   %61 = trunc nuw i8 %60 to i1
-  %62 = load i8, ptr @primary_resumed, align 1, !range !12
+  %62 = load i8, ptr @primary_resumed, align 1, !range !11
   %63 = trunc nuw i8 %62 to i1
   %or.cond3 = select i1 %61, i1 %63, i1 false
   br i1 %or.cond3, label %64, label %67
@@ -2702,16 +2702,15 @@ attributes #20 = { cold }
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i32 7, !"frame-pointer", i32 2}
 !7 = !{i32 7, !"debug-info-assignment-tracking", i1 true}
-!8 = distinct !{!8, !9, !10, !11}
+!8 = distinct !{!8, !9, !10}
 !9 = !{!"llvm.loop.mustprogress"}
 !10 = !{!"llvm.loop.unroll.disable"}
-!11 = !{!"llvm.loop.estimated_trip_count"}
-!12 = !{i8 0, i8 2}
-!13 = !{}
-!14 = distinct !{!14, !9, !10, !11}
-!15 = distinct !{!15, !10, !11}
-!16 = distinct !{!16, !9, !10, !11}
-!17 = distinct !{!17, !9, !10, !11}
-!18 = distinct !{!18, !9, !10, !11}
-!19 = distinct !{!19, !9, !10, !11}
-!20 = distinct !{!20, !9, !10, !11}
+!11 = !{i8 0, i8 2}
+!12 = !{}
+!13 = distinct !{!13, !9, !10}
+!14 = distinct !{!14, !10}
+!15 = distinct !{!15, !9, !10}
+!16 = distinct !{!16, !9, !10}
+!17 = distinct !{!17, !9, !10}
+!18 = distinct !{!18, !9, !10}
+!19 = distinct !{!19, !9, !10}

@@ -104,7 +104,7 @@ define internal void @connUnixAcceptHandler(ptr noundef %0, i32 noundef %1, ptr 
 define internal i32 @connUnixAddr(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, i32 noundef %4) #0 {
   %6 = tail call ptr @connectionTypeTcp() #8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 48
-  %8 = load ptr, ptr %7, align 8, !tbaa !53
+  %8 = load ptr, ptr %7, align 8, !tbaa !52
   %9 = tail call i32 %8(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, i32 noundef %4) #8
   ret i32 %9
 }
@@ -117,9 +117,9 @@ define internal noundef i32 @connUnixIsLocal(ptr readnone captures(none) %0) #2 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @connUnixListen(ptr noundef captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %3 = load ptr, ptr %2, align 8, !tbaa !54
+  %3 = load ptr, ptr %2, align 8, !tbaa !53
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %5 = load i32, ptr %4, align 8, !tbaa !55
+  %5 = load i32, ptr %4, align 8, !tbaa !54
   %6 = icmp sgt i32 %5, 0
   br i1 %6, label %.lr.ph, label %.loopexit
 
@@ -130,12 +130,12 @@ define internal noundef i32 @connUnixListen(ptr noundef captures(none) %0) #0 {
 
 9:                                                ; preds = %.lr.ph, %23
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %23 ]
-  %10 = load ptr, ptr %7, align 8, !tbaa !56
+  %10 = load ptr, ptr %7, align 8, !tbaa !55
   %11 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv
-  %12 = load ptr, ptr %11, align 8, !tbaa !57
+  %12 = load ptr, ptr %11, align 8, !tbaa !56
   %13 = tail call i32 @unlink(ptr noundef %12) #8
   %14 = load i32, ptr %3, align 4, !tbaa !40
-  %15 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 324), align 4, !tbaa !58
+  %15 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 324), align 4, !tbaa !57
   %16 = tail call i32 @anetUnixServer(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @server, i64 1592), ptr noundef %12, i32 noundef %14, i32 noundef %15) #8
   %17 = icmp eq i32 %16, -1
   br i1 %17, label %18, label %23
@@ -156,17 +156,17 @@ define internal noundef i32 @connUnixListen(ptr noundef captures(none) %0) #0 {
 23:                                               ; preds = %9
   %24 = tail call i32 @anetNonBlock(ptr noundef null, i32 noundef %16) #8
   %25 = tail call i32 @anetCloexec(i32 noundef %16) #8
-  %26 = load i32, ptr %8, align 8, !tbaa !59
+  %26 = load i32, ptr %8, align 8, !tbaa !58
   %27 = add nsw i32 %26, 1
-  store i32 %27, ptr %8, align 8, !tbaa !59
+  store i32 %27, ptr %8, align 8, !tbaa !58
   %28 = sext i32 %26 to i64
   %29 = getelementptr inbounds [16 x i32], ptr %0, i64 0, i64 %28
   store i32 %16, ptr %29, align 4, !tbaa !40
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %30 = load i32, ptr %4, align 8, !tbaa !55
+  %30 = load i32, ptr %4, align 8, !tbaa !54
   %31 = sext i32 %30 to i64
   %32 = icmp slt i64 %indvars.iv.next, %31
-  br i1 %32, label %9, label %.loopexit, !llvm.loop !60
+  br i1 %32, label %9, label %.loopexit, !llvm.loop !59
 
 .loopexit:                                        ; preds = %23, %1
   ret i32 0
@@ -204,7 +204,7 @@ define internal noalias noundef ptr @connCreateAcceptedUnix(ptr noundef %0, i32 
 define internal void @connUnixShutdown(ptr noundef %0) #0 {
   %2 = tail call ptr @connectionTypeTcp() #8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 88
-  %4 = load ptr, ptr %3, align 8, !tbaa !61
+  %4 = load ptr, ptr %3, align 8, !tbaa !60
   tail call void %4(ptr noundef %0) #8
   ret void
 }
@@ -213,7 +213,7 @@ define internal void @connUnixShutdown(ptr noundef %0) #0 {
 define internal void @connUnixClose(ptr noundef %0) #0 {
   %2 = tail call ptr @connectionTypeTcp() #8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 96
-  %4 = load ptr, ptr %3, align 8, !tbaa !62
+  %4 = load ptr, ptr %3, align 8, !tbaa !61
   tail call void %4(ptr noundef %0) #8
   ret void
 }
@@ -222,7 +222,7 @@ define internal void @connUnixClose(ptr noundef %0) #0 {
 define internal i32 @connUnixAccept(ptr noundef %0, ptr noundef %1) #0 {
   %3 = tail call ptr @connectionTypeTcp() #8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 120
-  %5 = load ptr, ptr %4, align 8, !tbaa !63
+  %5 = load ptr, ptr %4, align 8, !tbaa !62
   %6 = tail call i32 %5(ptr noundef %0, ptr noundef %1) #8
   ret i32 %6
 }
@@ -231,7 +231,7 @@ define internal i32 @connUnixAccept(ptr noundef %0, ptr noundef %1) #0 {
 define internal i32 @connUnixWrite(ptr noundef %0, ptr noundef %1, i64 noundef %2) #0 {
   %4 = tail call ptr @connectionTypeTcp() #8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 128
-  %6 = load ptr, ptr %5, align 8, !tbaa !64
+  %6 = load ptr, ptr %5, align 8, !tbaa !63
   %7 = tail call i32 %6(ptr noundef %0, ptr noundef %1, i64 noundef %2) #8
   ret i32 %7
 }
@@ -240,7 +240,7 @@ define internal i32 @connUnixWrite(ptr noundef %0, ptr noundef %1, i64 noundef %
 define internal i32 @connUnixWritev(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 {
   %4 = tail call ptr @connectionTypeTcp() #8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 136
-  %6 = load ptr, ptr %5, align 8, !tbaa !65
+  %6 = load ptr, ptr %5, align 8, !tbaa !64
   %7 = tail call i32 %6(ptr noundef %0, ptr noundef %1, i32 noundef %2) #8
   ret i32 %7
 }
@@ -249,7 +249,7 @@ define internal i32 @connUnixWritev(ptr noundef %0, ptr noundef %1, i32 noundef 
 define internal i32 @connUnixRead(ptr noundef %0, ptr noundef %1, i64 noundef %2) #0 {
   %4 = tail call ptr @connectionTypeTcp() #8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 144
-  %6 = load ptr, ptr %5, align 8, !tbaa !66
+  %6 = load ptr, ptr %5, align 8, !tbaa !65
   %7 = tail call i32 %6(ptr noundef %0, ptr noundef %1, i64 noundef %2) #8
   ret i32 %7
 }
@@ -258,7 +258,7 @@ define internal i32 @connUnixRead(ptr noundef %0, ptr noundef %1, i64 noundef %2
 define internal i32 @connUnixSetWriteHandler(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 {
   %4 = tail call ptr @connectionTypeTcp() #8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 152
-  %6 = load ptr, ptr %5, align 8, !tbaa !67
+  %6 = load ptr, ptr %5, align 8, !tbaa !66
   %7 = tail call i32 %6(ptr noundef %0, ptr noundef %1, i32 noundef %2) #8
   ret i32 %7
 }
@@ -267,7 +267,7 @@ define internal i32 @connUnixSetWriteHandler(ptr noundef %0, ptr noundef %1, i32
 define internal i32 @connUnixSetReadHandler(ptr noundef %0, ptr noundef %1) #0 {
   %3 = tail call ptr @connectionTypeTcp() #8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 160
-  %5 = load ptr, ptr %4, align 8, !tbaa !68
+  %5 = load ptr, ptr %4, align 8, !tbaa !67
   %6 = tail call i32 %5(ptr noundef %0, ptr noundef %1) #8
   ret i32 %6
 }
@@ -275,7 +275,7 @@ define internal i32 @connUnixSetReadHandler(ptr noundef %0, ptr noundef %1) #0 {
 ; Function Attrs: nounwind uwtable
 define internal ptr @connUnixGetLastError(ptr noundef readonly captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %3 = load i32, ptr %2, align 4, !tbaa !69
+  %3 = load i32, ptr %2, align 4, !tbaa !68
   %4 = tail call ptr @strerror(i32 noundef %3) #8
   ret ptr %4
 }
@@ -308,7 +308,7 @@ define internal i64 @connUnixSyncReadLine(ptr noundef readonly captures(none) %0
 define internal i32 @connUnixRebindEventLoop(ptr noundef %0, ptr noundef %1) #0 {
   %3 = tail call ptr @connectionTypeTcp() #8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 208
-  %5 = load ptr, ptr %4, align 8, !tbaa !70
+  %5 = load ptr, ptr %4, align 8, !tbaa !69
   %6 = tail call i32 %5(ptr noundef %0, ptr noundef %1) #8
   ret i32 %6
 }
@@ -413,24 +413,23 @@ attributes #11 = { cold noreturn nounwind }
 !47 = !{!44, !18, i64 40}
 !48 = !{!44, !12, i64 16}
 !49 = !{!44, !12, i64 8}
-!50 = distinct !{!50, !51, !52}
+!50 = distinct !{!50, !51}
 !51 = !{!"llvm.loop.mustprogress"}
-!52 = !{!"llvm.loop.estimated_trip_count"}
-!53 = !{!6, !7, i64 48}
-!54 = !{!22, !7, i64 96}
-!55 = !{!22, !12, i64 80}
-!56 = !{!22, !15, i64 72}
-!57 = !{!14, !14, i64 0}
-!58 = !{!11, !12, i64 324}
-!59 = !{!22, !12, i64 64}
-!60 = distinct !{!60, !51, !52}
-!61 = !{!6, !7, i64 88}
-!62 = !{!6, !7, i64 96}
-!63 = !{!6, !7, i64 120}
-!64 = !{!6, !7, i64 128}
-!65 = !{!6, !7, i64 136}
-!66 = !{!6, !7, i64 144}
-!67 = !{!6, !7, i64 152}
-!68 = !{!6, !7, i64 160}
-!69 = !{!44, !12, i64 12}
-!70 = !{!6, !7, i64 208}
+!52 = !{!6, !7, i64 48}
+!53 = !{!22, !7, i64 96}
+!54 = !{!22, !12, i64 80}
+!55 = !{!22, !15, i64 72}
+!56 = !{!14, !14, i64 0}
+!57 = !{!11, !12, i64 324}
+!58 = !{!22, !12, i64 64}
+!59 = distinct !{!59, !51}
+!60 = !{!6, !7, i64 88}
+!61 = !{!6, !7, i64 96}
+!62 = !{!6, !7, i64 120}
+!63 = !{!6, !7, i64 128}
+!64 = !{!6, !7, i64 136}
+!65 = !{!6, !7, i64 144}
+!66 = !{!6, !7, i64 152}
+!67 = !{!6, !7, i64 160}
+!68 = !{!44, !12, i64 12}
+!69 = !{!6, !7, i64 208}

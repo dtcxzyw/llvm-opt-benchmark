@@ -643,8 +643,8 @@ define internal { double, double } @_ZL18mod_ster_e_inverse5PJ_XYP8PJconsts(doub
   %16 = extractvalue { double, double } %14, 1
   %17 = fsub double %15, %0
   %18 = fsub double %16, %1
-  %19 = load double, ptr %4, align 8, !tbaa !57
-  %20 = load double, ptr %8, align 8, !tbaa !59
+  %19 = load double, ptr %4, align 8, !tbaa !56
+  %20 = load double, ptr %8, align 8, !tbaa !58
   %21 = fmul double %20, %20
   %22 = call double @llvm.fmuladd.f64(double %19, double %19, double %21)
   %23 = fmul double %18, %20
@@ -681,7 +681,7 @@ define internal { double, double } @_ZL18mod_ster_e_inverse5PJ_XYP8PJconsts(doub
   br label %.thread72
 
 50:                                               ; preds = %38
-  %51 = load ptr, ptr %2, align 8, !tbaa !60
+  %51 = load ptr, ptr %2, align 8, !tbaa !59
   %52 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %53 = load double, ptr %52, align 8, !tbaa !42
   %54 = fmul double %33, %43
@@ -701,7 +701,7 @@ define internal { double, double } @_ZL18mod_ster_e_inverse5PJ_XYP8PJconsts(doub
 66:                                               ; preds = %68
   %67 = add nsw i32 %.287, -1
   %.not66 = icmp eq i32 %67, 0
-  br i1 %.not66, label %.thread72, label %68, !llvm.loop !61
+  br i1 %.not66, label %.thread72, label %68, !llvm.loop !60
 
 68:                                               ; preds = %50, %66
   %.287 = phi i32 [ 20, %50 ], [ %67, %66 ]
@@ -887,11 +887,10 @@ attributes #7 = { nounwind }
 !51 = !{!4, !14, i64 168}
 !52 = !{!4, !14, i64 208}
 !53 = !{!13, !13, i64 0}
-!54 = distinct !{!54, !55, !56}
+!54 = distinct !{!54, !55}
 !55 = !{!"llvm.loop.mustprogress"}
-!56 = !{!"llvm.loop.estimated_trip_count"}
-!57 = !{!58, !14, i64 0}
-!58 = !{!"_ZTS7COMPLEX", !14, i64 0, !14, i64 8}
-!59 = !{!58, !14, i64 8}
-!60 = !{!4, !5, i64 0}
-!61 = distinct !{!61, !55, !56}
+!56 = !{!57, !14, i64 0}
+!57 = !{!"_ZTS7COMPLEX", !14, i64 0, !14, i64 8}
+!58 = !{!57, !14, i64 8}
+!59 = !{!4, !5, i64 0}
+!60 = distinct !{!60, !55}

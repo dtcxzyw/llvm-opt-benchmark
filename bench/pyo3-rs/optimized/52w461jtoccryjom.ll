@@ -425,7 +425,7 @@ define void @_ZN4core4iter6traits8iterator8Iterator8try_fold17hb6aa2347cf20c681E
   call void @"_ZN95_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..ops..try_trait..Try$GT$6branch17hc8d3f530e90fa53cE"(ptr nonnull sret([32 x i8]) align 8 %7, ptr nonnull align 8 %6)
   %17 = load i64, ptr %7, align 8
   %18 = icmp eq i64 %17, -9223372036854775807
-  br i1 %18, label %11, label %19, !llvm.loop !3
+  br i1 %18, label %11, label %19
 
 19:                                               ; preds = %16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %7, i64 32, i1 false)
@@ -485,7 +485,7 @@ define noundef zeroext i1 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u2
 
 6:                                                ; preds = %4
   %7 = call zeroext i1 @"_ZN19pyo3_macros_backend7pyclass17PyClassSimpleEnum3new15is_numeric_type28_$u7b$$u7b$closure$u7d$$u7d$17hca5e53aa28822b8fE"(ptr nonnull align 8 %3, ptr nonnull align 8 %5)
-  br i1 %7, label %8, label %4, !llvm.loop !5
+  br i1 %7, label %8, label %4
 
 8:                                                ; preds = %6, %4
   ret i1 %.not.not.not.not.not.not
@@ -511,7 +511,7 @@ define noundef zeroext i1 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u2
 
 9:                                                ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7e25de5c7d7ac730E.exit"
   %10 = call zeroext i1 @"_ZN19pyo3_macros_backend12deprecations33deprecate_trailing_option_default28_$u7b$$u7b$closure$u7d$$u7d$17h884c71e9239ae656E"(ptr nonnull align 1 %2, ptr nonnull align 8 %6)
-  br i1 %10, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7e25de5c7d7ac730E.exit.thread", label %4, !llvm.loop !6
+  br i1 %10, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7e25de5c7d7ac730E.exit.thread", label %4
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7e25de5c7d7ac730E.exit.thread": ; preds = %4, %9, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7e25de5c7d7ac730E.exit"
   %.not7 = phi i1 [ true, %9 ], [ false, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7e25de5c7d7ac730E.exit" ], [ false, %4 ]
@@ -533,7 +533,7 @@ define noundef zeroext i1 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u2
 
 8:                                                ; preds = %6
   %9 = call zeroext i1 @"_ZN19pyo3_macros_backend6module13has_attribute28_$u7b$$u7b$closure$u7d$$u7d$17h4ea454053a62a893E"(ptr nonnull align 8 %4, ptr nonnull align 8 %7)
-  br i1 %9, label %10, label %6, !llvm.loop !7
+  br i1 %9, label %10, label %6
 
 10:                                               ; preds = %8, %6
   ret i1 %.not.not.not.not.not.not
@@ -554,7 +554,7 @@ define align 8 ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core.
 7:                                                ; preds = %5
   store ptr %6, ptr %3, align 8
   %8 = call zeroext i1 @"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h9fbbda338f5547eaE"(ptr nonnull align 8 %4, ptr nonnull align 8 %3)
-  br i1 %8, label %9, label %5, !llvm.loop !8
+  br i1 %8, label %9, label %5
 
 9:                                                ; preds = %7
   %10 = load ptr, ptr %3, align 8
@@ -579,7 +579,7 @@ define align 8 ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core.
 6:                                                ; preds = %4
   store ptr %5, ptr %3, align 8
   %7 = call zeroext i1 @"_ZN19pyo3_macros_backend7pyclass17PyClassSimpleEnum3new28_$u7b$$u7b$closure$u7d$$u7d$17hd2dd3c5afa0266e7E"(ptr nonnull align 1 %2, ptr nonnull align 8 %3)
-  br i1 %7, label %8, label %4, !llvm.loop !9
+  br i1 %7, label %8, label %4
 
 8:                                                ; preds = %6
   %9 = load ptr, ptr %3, align 8
@@ -613,7 +613,7 @@ define align 8 ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core.
 11:                                               ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7e25de5c7d7ac730E.exit"
   store ptr %8, ptr %3, align 8
   %12 = call zeroext i1 @"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h23b33f6af2d597bcE"(ptr nonnull align 8 %4, ptr nonnull align 8 %3)
-  br i1 %12, label %13, label %6, !llvm.loop !10
+  br i1 %12, label %13, label %6
 
 13:                                               ; preds = %11
   %14 = load ptr, ptr %3, align 8
@@ -647,7 +647,7 @@ define align 8 ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core.
 11:                                               ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7e25de5c7d7ac730E.exit"
   store ptr %8, ptr %3, align 8
   %12 = call zeroext i1 @"_ZN19pyo3_macros_backend10pyfunction9signature17FunctionSignature27default_value_for_parameter28_$u7b$$u7b$closure$u7d$$u7d$17h36f1378c5ca647c8E"(ptr nonnull align 8 %4, ptr nonnull align 8 %3)
-  br i1 %12, label %13, label %6, !llvm.loop !11
+  br i1 %12, label %13, label %6
 
 13:                                               ; preds = %11
   %14 = load ptr, ptr %3, align 8
@@ -673,7 +673,7 @@ define align 8 ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core.
 7:                                                ; preds = %5
   store ptr %6, ptr %3, align 8
   %8 = call zeroext i1 @"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h74a351cd7da29c5eE"(ptr nonnull align 8 %4, ptr nonnull align 8 %3)
-  br i1 %8, label %9, label %5, !llvm.loop !12
+  br i1 %8, label %9, label %5
 
 9:                                                ; preds = %7
   %10 = load ptr, ptr %3, align 8
@@ -699,7 +699,7 @@ define align 8 ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core.
 7:                                                ; preds = %5
   store ptr %6, ptr %3, align 8
   %8 = call zeroext i1 @"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17hb6c785b183174eb1E"(ptr nonnull align 8 %4, ptr nonnull align 8 %3)
-  br i1 %8, label %9, label %5, !llvm.loop !13
+  br i1 %8, label %9, label %5
 
 9:                                                ; preds = %7
   %10 = load ptr, ptr %3, align 8
@@ -725,7 +725,7 @@ define align 8 ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core.
 7:                                                ; preds = %5
   store ptr %6, ptr %3, align 8
   %8 = call zeroext i1 @"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h59d4ad1477e64c99E"(ptr nonnull align 8 %4, ptr nonnull align 8 %3)
-  br i1 %8, label %9, label %5, !llvm.loop !14
+  br i1 %8, label %9, label %5
 
 9:                                                ; preds = %7
   %10 = load ptr, ptr %3, align 8
@@ -769,7 +769,7 @@ define void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..
 9:                                                ; preds = %.preheader
   %10 = add nuw i64 %.sroa.06.0, 1
   %11 = icmp eq i64 %10, %6
-  br i1 %11, label %.loopexit18, label %.preheader, !llvm.loop !15
+  br i1 %11, label %.loopexit18, label %.preheader
 
 .loopexit18:                                      ; preds = %9, %3
   tail call void @"_ZN4core3ptr701drop_in_place$LT$core..iter..adapters..map..map_fold$LT$$RF$pyo3_macros_backend..pymethod..Ty$C$proc_macro2..TokenStream$C$$LP$$RP$$C$pyo3_macros_backend..pymethod..SlotFragmentDef..generate_pyproto_fragment..$u7b$$u7b$closure$u7d$$u7d$$C$core..iter..traits..iterator..Iterator..for_each..call$LT$proc_macro2..TokenStream$C$alloc..vec..Vec$LT$proc_macro2..TokenStream$GT$..extend_trusted$LT$core..iter..adapters..map..Map$LT$core..slice..iter..Iter$LT$pyo3_macros_backend..pymethod..Ty$GT$$C$pyo3_macros_backend..pymethod..SlotFragmentDef..generate_pyproto_fragment..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h9162e47686695638E"(ptr align 8 %2)
@@ -818,7 +818,7 @@ define void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..
 9:                                                ; preds = %.preheader
   %10 = add nuw i64 %.sroa.06.0, 1
   %11 = icmp eq i64 %10, %6
-  br i1 %11, label %.loopexit18, label %.preheader, !llvm.loop !16
+  br i1 %11, label %.loopexit18, label %.preheader
 
 .loopexit18:                                      ; preds = %9, %3
   tail call void @"_ZN4core3ptr926drop_in_place$LT$$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$..fold..enumerate$LT$$RF$pyo3_macros_backend..method..FnArg$C$$LP$$RP$$C$core..iter..adapters..map..map_fold$LT$$LP$usize$C$$RF$pyo3_macros_backend..method..FnArg$RP$$C$proc_macro2..TokenStream$C$$LP$$RP$$C$pyo3_macros_backend..params..impl_arg_params..$u7b$$u7b$closure$u7d$$u7d$$C$core..iter..traits..iterator..Iterator..for_each..call$LT$proc_macro2..TokenStream$C$alloc..vec..Vec$LT$proc_macro2..TokenStream$GT$..extend_trusted$LT$core..iter..adapters..map..Map$LT$core..iter..adapters..enumerate..Enumerate$LT$core..slice..iter..Iter$LT$pyo3_macros_backend..method..FnArg$GT$$GT$$C$pyo3_macros_backend..params..impl_arg_params..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h84dc72e71cd5bdf5E"(ptr align 8 %2)
@@ -867,7 +867,7 @@ define void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..
 9:                                                ; preds = %.preheader
   %10 = add nuw i64 %.sroa.06.0, 1
   %11 = icmp eq i64 %10, %6
-  br i1 %11, label %.loopexit18, label %.preheader, !llvm.loop !17
+  br i1 %11, label %.loopexit18, label %.preheader
 
 .loopexit18:                                      ; preds = %9, %3
   tail call void @"_ZN4core3ptr679drop_in_place$LT$core..iter..adapters..map..map_fold$LT$$RF$pyo3_macros_backend..pyclass..PyClassEnumVariant$C$proc_macro2..TokenStream$C$$LP$$RP$$C$pyo3_macros_backend..pyclass..impl_complex_enum..$u7b$$u7b$closure$u7d$$u7d$$C$core..iter..traits..iterator..Iterator..for_each..call$LT$proc_macro2..TokenStream$C$alloc..vec..Vec$LT$proc_macro2..TokenStream$GT$..extend_trusted$LT$core..iter..adapters..map..Map$LT$core..slice..iter..Iter$LT$pyo3_macros_backend..pyclass..PyClassEnumVariant$GT$$C$pyo3_macros_backend..pyclass..impl_complex_enum..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h25c813f542435e72E"(ptr align 8 %2)
@@ -902,7 +902,7 @@ define void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..
   call void @"_ZN4core4iter8adapters10filter_map15filter_map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h2ecda79e1745beb1E"(ptr nonnull align 8 %5, ptr align 8 %11)
   %12 = add nuw i64 %.sroa.06.0, 1
   %13 = icmp eq i64 %12, %9
-  br i1 %13, label %.loopexit, label %10, !llvm.loop !18
+  br i1 %13, label %.loopexit, label %10
 
 .loopexit:                                        ; preds = %10, %4
   ret void
@@ -941,7 +941,7 @@ define void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..
 9:                                                ; preds = %.preheader
   %10 = add nuw i64 %.sroa.06.0, 1
   %11 = icmp eq i64 %10, %6
-  br i1 %11, label %.loopexit18, label %.preheader, !llvm.loop !19
+  br i1 %11, label %.loopexit18, label %.preheader
 
 .loopexit18:                                      ; preds = %9, %3
   tail call void @"_ZN4core3ptr1633drop_in_place$LT$core..iter..adapters..map..map_fold$LT$$RF$pyo3_macros_backend..pyclass..PyClassEnumUnitVariant$C$$LP$$RF$proc_macro2..Ident$C$alloc..borrow..Cow$LT$proc_macro2..Ident$GT$$RP$$C$$LP$$RP$$C$pyo3_macros_backend..pyclass..impl_simple_enum..$u7b$$u7b$closure$u7d$$u7d$$C$core..iter..adapters..map..map_fold$LT$$LP$$RF$proc_macro2..Ident$C$alloc..borrow..Cow$LT$proc_macro2..Ident$GT$$RP$$C$pyo3_macros_backend..pymethod..MethodAndMethodDef$C$$LP$$RP$$C$pyo3_macros_backend..pyclass..simple_enum_default_methods$LT$core..iter..adapters..map..Map$LT$core..slice..iter..Iter$LT$pyo3_macros_backend..pyclass..PyClassEnumUnitVariant$GT$$C$pyo3_macros_backend..pyclass..impl_simple_enum..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$core..iter..traits..iterator..Iterator..for_each..call$LT$pyo3_macros_backend..pymethod..MethodAndMethodDef$C$alloc..vec..Vec$LT$pyo3_macros_backend..pymethod..MethodAndMethodDef$GT$..extend_trusted$LT$core..iter..adapters..map..Map$LT$core..iter..adapters..map..Map$LT$core..slice..iter..Iter$LT$pyo3_macros_backend..pyclass..PyClassEnumUnitVariant$GT$$C$pyo3_macros_backend..pyclass..impl_simple_enum..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$pyo3_macros_backend..pyclass..simple_enum_default_methods$LT$core..iter..adapters..map..Map$LT$core..slice..iter..Iter$LT$pyo3_macros_backend..pyclass..PyClassEnumUnitVariant$GT$$C$pyo3_macros_backend..pyclass..impl_simple_enum..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h89a2da7c44f1bc01E"(ptr align 8 %2)
@@ -974,7 +974,7 @@ define i32 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..t
   %10 = call i32 @"_ZN19pyo3_macros_backend6method6FnSpec13parse_fn_type28_$u7b$$u7b$closure$u7d$$u7d$17h686460aaefc26847E"(ptr nonnull align 1 %4, i32 %.sroa.07.0, ptr align 8 %9)
   %11 = add nuw i64 %.sroa.09.0, 1
   %12 = icmp eq i64 %11, %7
-  br i1 %12, label %.loopexit, label %8, !llvm.loop !20
+  br i1 %12, label %.loopexit, label %8
 
 .loopexit:                                        ; preds = %8, %3
   %.sroa.04.0 = phi i32 [ %2, %3 ], [ %10, %8 ]
@@ -996,7 +996,7 @@ define void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..
   tail call void @"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h3e78fc10e6fc7dc7E"(ptr align 8 %2, ptr align 8 %8)
   %9 = add nuw i64 %.sroa.06.0, 1
   %10 = icmp eq i64 %9, %6
-  br i1 %10, label %.loopexit, label %7, !llvm.loop !21
+  br i1 %10, label %.loopexit, label %7
 
 .loopexit:                                        ; preds = %7, %3
   ret void
@@ -1035,7 +1035,7 @@ define void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..
 9:                                                ; preds = %.preheader
   %10 = add nuw i64 %.sroa.06.0, 1
   %11 = icmp eq i64 %10, %6
-  br i1 %11, label %.loopexit18, label %.preheader, !llvm.loop !22
+  br i1 %11, label %.loopexit18, label %.preheader
 
 .loopexit18:                                      ; preds = %9, %3
   tail call void @"_ZN4core3ptr671drop_in_place$LT$core..iter..adapters..map..map_fold$LT$$RF$pyo3_macros_backend..method..FnArg$C$proc_macro2..TokenStream$C$$LP$$RP$$C$pyo3_macros_backend..method..FnSpec..get_wrapper_function..$u7b$$u7b$closure$u7d$$u7d$$C$core..iter..traits..iterator..Iterator..for_each..call$LT$proc_macro2..TokenStream$C$alloc..vec..Vec$LT$proc_macro2..TokenStream$GT$..extend_trusted$LT$core..iter..adapters..map..Map$LT$core..slice..iter..Iter$LT$pyo3_macros_backend..method..FnArg$GT$$C$pyo3_macros_backend..method..FnSpec..get_wrapper_function..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hbfa8c8719e626118E"(ptr align 8 %2)
@@ -1084,7 +1084,7 @@ define void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..
 9:                                                ; preds = %.preheader
   %10 = add nuw i64 %.sroa.06.0, 1
   %11 = icmp eq i64 %10, %6
-  br i1 %11, label %.loopexit18, label %.preheader, !llvm.loop !23
+  br i1 %11, label %.loopexit18, label %.preheader
 
 .loopexit18:                                      ; preds = %9, %3
   tail call void @"_ZN4core3ptr1623drop_in_place$LT$core..iter..adapters..map..map_fold$LT$$RF$pyo3_macros_backend..pyclass..PyClassEnumVariant$C$$LP$$RF$proc_macro2..Ident$C$alloc..borrow..Cow$LT$proc_macro2..Ident$GT$$RP$$C$$LP$$RP$$C$pyo3_macros_backend..pyclass..impl_complex_enum..$u7b$$u7b$closure$u7d$$u7d$$C$core..iter..adapters..map..map_fold$LT$$LP$$RF$proc_macro2..Ident$C$alloc..borrow..Cow$LT$proc_macro2..Ident$GT$$RP$$C$pyo3_macros_backend..pymethod..MethodAndMethodDef$C$$LP$$RP$$C$pyo3_macros_backend..pyclass..complex_enum_default_methods$LT$core..iter..adapters..map..Map$LT$core..slice..iter..Iter$LT$pyo3_macros_backend..pyclass..PyClassEnumVariant$GT$$C$pyo3_macros_backend..pyclass..impl_complex_enum..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$core..iter..traits..iterator..Iterator..for_each..call$LT$pyo3_macros_backend..pymethod..MethodAndMethodDef$C$alloc..vec..Vec$LT$pyo3_macros_backend..pymethod..MethodAndMethodDef$GT$..extend_trusted$LT$core..iter..adapters..map..Map$LT$core..iter..adapters..map..Map$LT$core..slice..iter..Iter$LT$pyo3_macros_backend..pyclass..PyClassEnumVariant$GT$$C$pyo3_macros_backend..pyclass..impl_complex_enum..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$pyo3_macros_backend..pyclass..complex_enum_default_methods$LT$core..iter..adapters..map..Map$LT$core..slice..iter..Iter$LT$pyo3_macros_backend..pyclass..PyClassEnumVariant$GT$$C$pyo3_macros_backend..pyclass..impl_complex_enum..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h13b431ccf5dbab64E"(ptr align 8 %2)
@@ -1119,7 +1119,7 @@ define void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..
   call void @"_ZN4core4iter8adapters10filter_map15filter_map_fold28_$u7b$$u7b$closure$u7d$$u7d$17ha2a6a0207ad394b0E"(ptr nonnull align 8 %5, ptr align 8 %11)
   %12 = add nuw i64 %.sroa.06.0, 1
   %13 = icmp eq i64 %12, %9
-  br i1 %13, label %.loopexit, label %10, !llvm.loop !24
+  br i1 %13, label %.loopexit, label %10
 
 .loopexit:                                        ; preds = %10, %4
   ret void
@@ -1158,7 +1158,7 @@ define void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..
 9:                                                ; preds = %.preheader
   %10 = add nuw i64 %.sroa.06.0, 1
   %11 = icmp eq i64 %10, %6
-  br i1 %11, label %.loopexit18, label %.preheader, !llvm.loop !25
+  br i1 %11, label %.loopexit18, label %.preheader
 
 .loopexit18:                                      ; preds = %9, %3
   tail call void @"_ZN4core3ptr671drop_in_place$LT$core..iter..adapters..map..map_fold$LT$$RF$pyo3_macros_backend..pymethod..Ty$C$proc_macro2..TokenStream$C$$LP$$RP$$C$pyo3_macros_backend..pymethod..SlotDef..generate_type_slot..$u7b$$u7b$closure$u7d$$u7d$$C$core..iter..traits..iterator..Iterator..for_each..call$LT$proc_macro2..TokenStream$C$alloc..vec..Vec$LT$proc_macro2..TokenStream$GT$..extend_trusted$LT$core..iter..adapters..map..Map$LT$core..slice..iter..Iter$LT$pyo3_macros_backend..pymethod..Ty$GT$$C$pyo3_macros_backend..pymethod..SlotDef..generate_type_slot..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hc33c59ef8fbf31d1E"(ptr align 8 %2)
@@ -1207,7 +1207,7 @@ define void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..
 9:                                                ; preds = %.preheader
   %10 = add nuw i64 %.sroa.06.0, 1
   %11 = icmp eq i64 %10, %6
-  br i1 %11, label %.loopexit18, label %.preheader, !llvm.loop !26
+  br i1 %11, label %.loopexit18, label %.preheader
 
 .loopexit18:                                      ; preds = %9, %3
   tail call void @"_ZN4core3ptr926drop_in_place$LT$$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$..fold..enumerate$LT$$RF$pyo3_macros_backend..method..FnArg$C$$LP$$RP$$C$core..iter..adapters..map..map_fold$LT$$LP$usize$C$$RF$pyo3_macros_backend..method..FnArg$RP$$C$proc_macro2..TokenStream$C$$LP$$RP$$C$pyo3_macros_backend..params..impl_arg_params..$u7b$$u7b$closure$u7d$$u7d$$C$core..iter..traits..iterator..Iterator..for_each..call$LT$proc_macro2..TokenStream$C$alloc..vec..Vec$LT$proc_macro2..TokenStream$GT$..extend_trusted$LT$core..iter..adapters..map..Map$LT$core..iter..adapters..enumerate..Enumerate$LT$core..slice..iter..Iter$LT$pyo3_macros_backend..method..FnArg$GT$$GT$$C$pyo3_macros_backend..params..impl_arg_params..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h2cd919ef3a40e54bE"(ptr align 8 %2)
@@ -1240,7 +1240,7 @@ define void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..
   call void @"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h6b255619999094f1E"(ptr nonnull align 8 %4, ptr align 8 %9)
   %10 = add nuw i64 %.sroa.06.0, 1
   %11 = icmp eq i64 %10, %7
-  br i1 %11, label %.loopexit, label %8, !llvm.loop !27
+  br i1 %11, label %.loopexit, label %8
 
 .loopexit:                                        ; preds = %8, %3
   ret void
@@ -1715,7 +1715,7 @@ define void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..
   %16 = load ptr, ptr %6, align 8
   %17 = load ptr, ptr %1, align 8
   %18 = icmp eq ptr %17, %16
-  br i1 %18, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1364bb4557c30541E.exit.thread", label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1364bb4557c30541E.exit", !llvm.loop !28
+  br i1 %18, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1364bb4557c30541E.exit.thread", label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1364bb4557c30541E.exit"
 
 19:                                               ; preds = %14, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1364bb4557c30541E.exit.thread"
   ret void
@@ -1758,7 +1758,7 @@ define void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..
   %16 = load ptr, ptr %6, align 8
   %17 = load ptr, ptr %1, align 8
   %18 = icmp eq ptr %17, %16
-  br i1 %18, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h038b82ec00550704E.exit.thread", label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h038b82ec00550704E.exit", !llvm.loop !29
+  br i1 %18, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h038b82ec00550704E.exit.thread", label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h038b82ec00550704E.exit"
 
 19:                                               ; preds = %14, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h038b82ec00550704E.exit.thread"
   ret void
@@ -1778,7 +1778,7 @@ define void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..
   %6 = getelementptr inbounds nuw i8, ptr %.sroa.0.09, i64 328
   call void @"_ZN19pyo3_macros_backend12deprecations33deprecate_trailing_option_default28_$u7b$$u7b$closure$u7d$$u7d$17hefeeafd224a46530E"(ptr nonnull align 8 %4, ptr nonnull align 8 %.sroa.0.09)
   %7 = icmp eq ptr %6, %1
-  br i1 %7, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7e25de5c7d7ac730E.exit.thread", label %.lr.ph, !llvm.loop !30
+  br i1 %7, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7e25de5c7d7ac730E.exit.thread", label %.lr.ph
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7e25de5c7d7ac730E.exit.thread": ; preds = %.lr.ph, %3
   ret void
@@ -1932,7 +1932,7 @@ define align 8 ptr @"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$co
 10:                                               ; preds = %"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6b75bfb33f196942E.exit"
   store ptr %7, ptr %3, align 8
   %11 = call zeroext i1 @"_ZN19pyo3_macros_backend10pyfunction9signature17FunctionSignature28from_arguments_and_attribute28_$u7b$$u7b$closure$u7d$$u7d$17h08ce9d7b62fae412E"(ptr nonnull align 1 %2, ptr nonnull align 8 %3)
-  br i1 %11, label %12, label %5, !llvm.loop !31
+  br i1 %11, label %12, label %5
 
 12:                                               ; preds = %10
   %13 = load ptr, ptr %3, align 8
@@ -2237,32 +2237,3 @@ attributes #7 = { cold noreturn nounwind }
 !0 = !{i32 8, !"PIC Level", i32 2}
 !1 = !{i32 2, !"RtLibUseGOT", i32 1}
 !2 = !{!"rustc version 1.79.0 (129f3b996 2024-06-10)"}
-!3 = distinct !{!3, !4}
-!4 = !{!"llvm.loop.estimated_trip_count"}
-!5 = distinct !{!5, !4}
-!6 = distinct !{!6, !4}
-!7 = distinct !{!7, !4}
-!8 = distinct !{!8, !4}
-!9 = distinct !{!9, !4}
-!10 = distinct !{!10, !4}
-!11 = distinct !{!11, !4}
-!12 = distinct !{!12, !4}
-!13 = distinct !{!13, !4}
-!14 = distinct !{!14, !4}
-!15 = distinct !{!15, !4}
-!16 = distinct !{!16, !4}
-!17 = distinct !{!17, !4}
-!18 = distinct !{!18, !4}
-!19 = distinct !{!19, !4}
-!20 = distinct !{!20, !4}
-!21 = distinct !{!21, !4}
-!22 = distinct !{!22, !4}
-!23 = distinct !{!23, !4}
-!24 = distinct !{!24, !4}
-!25 = distinct !{!25, !4}
-!26 = distinct !{!26, !4}
-!27 = distinct !{!27, !4}
-!28 = distinct !{!28, !4}
-!29 = distinct !{!29, !4}
-!30 = distinct !{!30, !4}
-!31 = distinct !{!31, !4}

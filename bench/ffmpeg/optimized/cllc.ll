@@ -348,7 +348,7 @@ read_yuv_component_line.exit.thread:              ; preds = %43
   %60 = and i32 %.05055.i, 7
   %61 = shl i32 %59, %60
   %62 = lshr i32 %61, 25
-  %63 = load ptr, ptr %34, align 8, !tbaa !53
+  %63 = load ptr, ptr %34, align 8, !tbaa !52
   %64 = zext nneg i32 %62 to i64
   %65 = getelementptr inbounds nuw %struct.VLCElem, ptr %63, i64 %64
   %66 = load i16, ptr %65, align 2, !tbaa !36
@@ -397,7 +397,7 @@ read_yuv_component_line.exit.thread:              ; preds = %43
   %100 = load i32, ptr %99, align 8, !tbaa !45
   %101 = sext i32 %100 to i64
   %102 = icmp slt i64 %indvars.iv.next.i, %101
-  br i1 %102, label %.lr.ph.i, label %read_yuv_component_line.exit, !llvm.loop !56
+  br i1 %102, label %.lr.ph.i, label %read_yuv_component_line.exit, !llvm.loop !55
 
 read_yuv_component_line.exit:                     ; preds = %92
   %.pre92 = load i32, ptr %16, align 8, !tbaa !41
@@ -421,7 +421,7 @@ read_yuv_component_line.exit:                     ; preds = %92
   %113 = and i32 %.05055.i46, 7
   %114 = shl i32 %112, %113
   %115 = lshr i32 %114, 25
-  %116 = load ptr, ptr %35, align 16, !tbaa !53
+  %116 = load ptr, ptr %35, align 16, !tbaa !52
   %117 = zext nneg i32 %115 to i64
   %118 = getelementptr inbounds nuw %struct.VLCElem, ptr %116, i64 %117
   %119 = load i16, ptr %118, align 2, !tbaa !36
@@ -471,7 +471,7 @@ read_yuv_component_line.exit:                     ; preds = %92
   %154 = ashr i32 %153, 1
   %155 = sext i32 %154 to i64
   %156 = icmp slt i64 %indvars.iv.next.i50, %155
-  br i1 %156, label %.lr.ph.i43, label %read_yuv_component_line.exit51, !llvm.loop !56
+  br i1 %156, label %.lr.ph.i43, label %read_yuv_component_line.exit51, !llvm.loop !55
 
 read_yuv_component_line.exit51.thread:            ; preds = %read_yuv_component_line.exit.thread, %read_yuv_component_line.exit
   %.ph = phi ptr [ %106, %read_yuv_component_line.exit ], [ %53, %read_yuv_component_line.exit.thread ]
@@ -504,7 +504,7 @@ read_yuv_component_line.exit51:                   ; preds = %145
   %168 = and i32 %.05055.i56, 7
   %169 = shl i32 %167, %168
   %170 = lshr i32 %169, 25
-  %171 = load ptr, ptr %35, align 16, !tbaa !53
+  %171 = load ptr, ptr %35, align 16, !tbaa !52
   %172 = zext nneg i32 %170 to i64
   %173 = getelementptr inbounds nuw %struct.VLCElem, ptr %171, i64 %172
   %174 = load i16, ptr %173, align 2, !tbaa !36
@@ -554,7 +554,7 @@ read_yuv_component_line.exit51:                   ; preds = %145
   %209 = ashr i32 %208, 1
   %210 = sext i32 %209 to i64
   %211 = icmp slt i64 %indvars.iv.next.i60, %210
-  br i1 %211, label %.lr.ph.i53, label %read_yuv_component_line.exit61, !llvm.loop !56
+  br i1 %211, label %.lr.ph.i53, label %read_yuv_component_line.exit61, !llvm.loop !55
 
 read_yuv_component_line.exit61:                   ; preds = %200, %read_yuv_component_line.exit51.thread, %read_yuv_component_line.exit51
   %212 = phi ptr [ %161, %read_yuv_component_line.exit51 ], [ %158, %read_yuv_component_line.exit51.thread ], [ %161, %200 ]
@@ -578,14 +578,14 @@ read_yuv_component_line.exit61:                   ; preds = %200, %read_yuv_comp
   store ptr %223, ptr %220, align 8, !tbaa !49
   %indvars.iv.next86 = add nuw nsw i64 %indvars.iv85, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next86, 3
-  br i1 %exitcond.not, label %224, label %217, !llvm.loop !57
+  br i1 %exitcond.not, label %224, label %217, !llvm.loop !56
 
 224:                                              ; preds = %217
   %225 = zext i8 %216 to i32
   %226 = add nuw nsw i32 %.13974, 1
   %227 = load i32, ptr %31, align 4, !tbaa !44
   %228 = icmp slt i32 %226, %227
-  br i1 %228, label %43, label %.preheader62, !llvm.loop !58
+  br i1 %228, label %43, label %.preheader62, !llvm.loop !57
 
 .preheader62:                                     ; preds = %224, %.preheader63
   call void @ff_vlc_free(ptr noundef nonnull %5) #5
@@ -655,7 +655,7 @@ read_rgb24_component_line.exit.us.us:             ; preds = %read_rgb24_componen
   store i32 %27, ptr %24, align 4, !tbaa !48
   %indvars.iv.next55 = add nuw nsw i64 %indvars.iv54, 1
   %exitcond57.not = icmp eq i64 %indvars.iv.next55, 3
-  br i1 %exitcond57.not, label %.split.us.us, label %read_rgb24_component_line.exit.us.us, !llvm.loop !59
+  br i1 %exitcond57.not, label %.split.us.us, label %read_rgb24_component_line.exit.us.us, !llvm.loop !58
 
 .split.us.us:                                     ; preds = %read_rgb24_component_line.exit.us.us
   %28 = load i32, ptr %19, align 8, !tbaa !48
@@ -663,7 +663,7 @@ read_rgb24_component_line.exit.us.us:             ; preds = %read_rgb24_componen
   %30 = getelementptr inbounds i8, ptr %.03544.us, i64 %29
   %31 = add nuw nsw i32 %.13345.us, 1
   %exitcond58.not = icmp eq i32 %31, %17
-  br i1 %exitcond58.not, label %.preheader37.preheader, label %.preheader38.us, !llvm.loop !61
+  br i1 %exitcond58.not, label %.preheader37.preheader, label %.preheader38.us, !llvm.loop !60
 
 32:                                               ; preds = %3, %39
   %indvars.iv74 = phi i32 [ 0, %3 ], [ %indvars.iv.next75, %39 ]
@@ -688,7 +688,7 @@ read_rgb24_component_line.exit.us.us:             ; preds = %read_rgb24_componen
   call void @ff_vlc_free(ptr noundef nonnull %37) #5
   %indvars.iv.next72 = add nuw nsw i64 %indvars.iv71, 1
   %exitcond77.not = icmp eq i64 %indvars.iv.next72, %wide.trip.count
-  br i1 %exitcond77.not, label %._crit_edge, label %.lr.ph, !llvm.loop !62
+  br i1 %exitcond77.not, label %._crit_edge, label %.lr.ph, !llvm.loop !61
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
   %38 = load ptr, ptr %0, align 8, !tbaa !27
@@ -699,7 +699,7 @@ read_rgb24_component_line.exit.us.us:             ; preds = %read_rgb24_componen
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
   %indvars.iv.next75 = add nuw nsw i32 %indvars.iv74, 1
-  br i1 %exitcond.not, label %.preheader39, label %32, !llvm.loop !63
+  br i1 %exitcond.not, label %.preheader39, label %32, !llvm.loop !62
 
 .preheader38:                                     ; preds = %.preheader38.lr.ph, %.split.us
   %40 = phi i32 [ %112, %.split.us ], [ %17, %.preheader38.lr.ph ]
@@ -723,7 +723,7 @@ read_rgb24_component_line.exit.us:                ; preds = %.preheader38, %read
   store i32 %49, ptr %46, align 4, !tbaa !48
   %indvars.iv.next60 = add nuw nsw i64 %indvars.iv59, 1
   %exitcond62.not = icmp eq i64 %indvars.iv.next60, 3
-  br i1 %exitcond62.not, label %.split.us, label %read_rgb24_component_line.exit.us, !llvm.loop !59
+  br i1 %exitcond62.not, label %.split.us, label %read_rgb24_component_line.exit.us, !llvm.loop !58
 
 .preheader38.split:                               ; preds = %.preheader38, %read_rgb24_component_line.exit
   %50 = phi ptr [ %109, %read_rgb24_component_line.exit ], [ %41, %.preheader38 ]
@@ -740,7 +740,7 @@ read_rgb24_component_line.exit.us:                ; preds = %.preheader38, %read
 .lr.ph.i:                                         ; preds = %.preheader38.split
   %58 = load i32, ptr %52, align 4, !tbaa !48
   %59 = getelementptr inbounds nuw [3 x %struct.VLC], ptr %5, i64 0, i64 %indvars.iv63, i32 1
-  %.pre79 = load ptr, ptr %59, align 8, !tbaa !53
+  %.pre79 = load ptr, ptr %59, align 8, !tbaa !52
   br label %60
 
 60:                                               ; preds = %98, %.lr.ph.i
@@ -804,7 +804,7 @@ read_rgb24_component_line.exit.us:                ; preds = %.preheader38, %read
   %106 = getelementptr inbounds nuw i8, ptr %105, i64 112
   %107 = load i32, ptr %106, align 8, !tbaa !45
   %108 = icmp slt i32 %104, %107
-  br i1 %108, label %60, label %read_rgb24_component_line.exit, !llvm.loop !64
+  br i1 %108, label %60, label %read_rgb24_component_line.exit, !llvm.loop !63
 
 read_rgb24_component_line.exit:                   ; preds = %98, %.preheader38.split
   %109 = phi ptr [ %50, %.preheader38.split ], [ %105, %98 ]
@@ -815,7 +815,7 @@ read_rgb24_component_line.exit:                   ; preds = %98, %.preheader38.s
   store i32 %111, ptr %52, align 4, !tbaa !48
   %indvars.iv.next64 = add nuw nsw i64 %indvars.iv63, 1
   %exitcond66.not = icmp eq i64 %indvars.iv.next64, 3
-  br i1 %exitcond66.not, label %.split.us.loopexit, label %.preheader38.split, !llvm.loop !65
+  br i1 %exitcond66.not, label %.split.us.loopexit, label %.preheader38.split, !llvm.loop !64
 
 .split.us.loopexit:                               ; preds = %read_rgb24_component_line.exit
   %.pre80 = load i32, ptr %16, align 4, !tbaa !44
@@ -830,7 +830,7 @@ read_rgb24_component_line.exit:                   ; preds = %98, %.preheader38.s
   %117 = getelementptr inbounds i8, ptr %.03544, i64 %116
   %118 = add nuw nsw i32 %.13345, 1
   %119 = icmp slt i32 %118, %112
-  br i1 %119, label %.preheader38, label %.preheader37.preheader, !llvm.loop !67
+  br i1 %119, label %.preheader38, label %.preheader37.preheader, !llvm.loop !66
 
 .preheader37.preheader:                           ; preds = %.split.us.us, %.split.us, %.preheader39
   br label %.preheader37
@@ -841,7 +841,7 @@ read_rgb24_component_line.exit:                   ; preds = %98, %.preheader38.s
   call void @ff_vlc_free(ptr noundef nonnull %120) #5
   %indvars.iv.next68 = add nuw nsw i64 %indvars.iv67, 1
   %exitcond70.not = icmp eq i64 %indvars.iv.next68, 3
-  br i1 %exitcond70.not, label %.loopexit, label %.preheader37, !llvm.loop !68
+  br i1 %exitcond70.not, label %.loopexit, label %.preheader37, !llvm.loop !67
 
 .loopexit:                                        ; preds = %.preheader37, %._crit_edge
   %.034 = phi i32 [ %34, %._crit_edge ], [ 0, %.preheader37 ]
@@ -910,7 +910,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @decode_argb_frame(ptr noun
   call void @ff_vlc_free(ptr noundef nonnull %30) #5
   %indvars.iv.next53 = add nuw nsw i64 %indvars.iv52, 1
   %exitcond58.not = icmp eq i64 %indvars.iv.next53, %wide.trip.count
-  br i1 %exitcond58.not, label %._crit_edge, label %.lr.ph43, !llvm.loop !69
+  br i1 %exitcond58.not, label %._crit_edge, label %.lr.ph43, !llvm.loop !68
 
 ._crit_edge:                                      ; preds = %.lr.ph43, %.preheader
   %31 = load ptr, ptr %0, align 8, !tbaa !27
@@ -921,7 +921,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @decode_argb_frame(ptr noun
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
   %indvars.iv.next56 = add nuw nsw i32 %indvars.iv55, 1
-  br i1 %exitcond.not, label %.preheader32, label %25, !llvm.loop !70
+  br i1 %exitcond.not, label %.preheader32, label %25, !llvm.loop !69
 
 .lr.ph.split:                                     ; preds = %.lr.ph.split.preheader, %read_argb_line.exit
   %33 = phi ptr [ %224, %read_argb_line.exit ], [ %21, %.lr.ph.split.preheader ]
@@ -939,7 +939,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @decode_argb_frame(ptr noun
   br i1 %38, label %.lr.ph.i.preheader, label %._crit_edge.i
 
 .lr.ph.i.preheader:                               ; preds = %.lr.ph.split
-  %.pre59 = load ptr, ptr %16, align 8, !tbaa !53
+  %.pre59 = load ptr, ptr %16, align 8, !tbaa !52
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %216
@@ -1013,7 +1013,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @decode_argb_frame(ptr noun
   %88 = and i32 %78, 7
   %89 = shl i32 %87, %88
   %90 = lshr i32 %89, 25
-  %91 = load ptr, ptr %17, align 16, !tbaa !53
+  %91 = load ptr, ptr %17, align 16, !tbaa !52
   %92 = zext nneg i32 %90 to i64
   %93 = getelementptr inbounds nuw %struct.VLCElem, ptr %91, i64 %92
   %94 = load i16, ptr %93, align 2, !tbaa !36
@@ -1065,7 +1065,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @decode_argb_frame(ptr noun
   %132 = and i32 %122, 7
   %133 = shl i32 %131, %132
   %134 = lshr i32 %133, 25
-  %135 = load ptr, ptr %18, align 8, !tbaa !53
+  %135 = load ptr, ptr %18, align 8, !tbaa !52
   %136 = zext nneg i32 %134 to i64
   %137 = getelementptr inbounds nuw %struct.VLCElem, ptr %135, i64 %136
   %138 = load i16, ptr %137, align 2, !tbaa !36
@@ -1117,7 +1117,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @decode_argb_frame(ptr noun
   %176 = and i32 %166, 7
   %177 = shl i32 %175, %176
   %178 = lshr i32 %177, 25
-  %179 = load ptr, ptr %19, align 16, !tbaa !53
+  %179 = load ptr, ptr %19, align 16, !tbaa !52
   %180 = zext nneg i32 %178 to i64
   %181 = getelementptr inbounds nuw %struct.VLCElem, ptr %179, i64 %180
   %182 = load i16, ptr %181, align 2, !tbaa !36
@@ -1181,7 +1181,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @decode_argb_frame(ptr noun
   %221 = getelementptr inbounds nuw i8, ptr %220, i64 112
   %222 = load i32, ptr %221, align 8, !tbaa !45
   %223 = icmp slt i32 %219, %222
-  br i1 %223, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !71
+  br i1 %223, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !70
 
 ._crit_edge.i:                                    ; preds = %216, %.lr.ph.split
   %224 = phi ptr [ %33, %.lr.ph.split ], [ %220, %216 ]
@@ -1214,7 +1214,7 @@ read_argb_line.exit:                              ; preds = %._crit_edge.i, %227
   %240 = add nuw nsw i32 %.140, 1
   %241 = load i32, ptr %13, align 4, !tbaa !44
   %242 = icmp slt i32 %240, %241
-  br i1 %242, label %.lr.ph.split, label %.preheader31.preheader, !llvm.loop !72
+  br i1 %242, label %.lr.ph.split, label %.preheader31.preheader, !llvm.loop !71
 
 .preheader31.preheader:                           ; preds = %read_argb_line.exit, %.lr.ph, %.preheader32
   br label %.preheader31
@@ -1225,7 +1225,7 @@ read_argb_line.exit:                              ; preds = %._crit_edge.i, %227
   call void @ff_vlc_free(ptr noundef nonnull %243) #5
   %indvars.iv.next49 = add nuw nsw i64 %indvars.iv48, 1
   %exitcond51.not = icmp eq i64 %indvars.iv.next49, 4
-  br i1 %exitcond51.not, label %.loopexit, label %.preheader31, !llvm.loop !73
+  br i1 %exitcond51.not, label %.loopexit, label %.preheader31, !llvm.loop !72
 
 .loopexit:                                        ; preds = %.preheader31, %._crit_edge
   %.028 = phi i32 [ %27, %._crit_edge ], [ 0, %.preheader31 ]
@@ -1327,7 +1327,7 @@ define internal fastcc i32 @read_code_table(ptr noundef readonly captures(none) 
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %56 = add nuw nsw i32 %.02434, 1
   %exitcond.not = icmp eq i32 %56, %31
-  br i1 %exitcond.not, label %._crit_edge.loopexit, label %41, !llvm.loop !74
+  br i1 %exitcond.not, label %._crit_edge.loopexit, label %41, !llvm.loop !73
 
 ._crit_edge.loopexit:                             ; preds = %41
   %57 = trunc nsw i64 %indvars.iv.next to i32
@@ -1338,7 +1338,7 @@ define internal fastcc i32 @read_code_table(ptr noundef readonly captures(none) 
   %.1.lcssa = phi i32 [ %.038, %.preheader ], [ %57, %._crit_edge.loopexit ]
   %58 = add nuw nsw i32 %.02537, 1
   %exitcond51.not = icmp eq i32 %58, %18
-  br i1 %exitcond51.not, label %._crit_edge40, label %.lr.ph39, !llvm.loop !75
+  br i1 %exitcond51.not, label %._crit_edge40, label %.lr.ph39, !llvm.loop !74
 
 ._crit_edge40:                                    ; preds = %._crit_edge, %.preheader32
   %.0.lcssa = phi i32 [ 0, %.preheader32 ], [ %.1.lcssa, %._crit_edge ]
@@ -1424,29 +1424,28 @@ attributes #5 = { nounwind }
 !47 = !{!5, !10, i64 652}
 !48 = !{!10, !10, i64 0}
 !49 = !{!14, !14, i64 0}
-!50 = distinct !{!50, !51, !52}
+!50 = distinct !{!50, !51}
 !51 = !{!"llvm.loop.mustprogress"}
-!52 = !{!"llvm.loop.estimated_trip_count"}
-!53 = !{!54, !55, i64 8}
-!54 = !{!"VLC", !10, i64 0, !55, i64 8, !10, i64 16, !10, i64 20}
-!55 = !{!"p1 _ZTS7VLCElem", !7, i64 0}
-!56 = distinct !{!56, !51, !52}
-!57 = distinct !{!57, !51, !52}
-!58 = distinct !{!58, !51, !52}
-!59 = distinct !{!59, !51, !52, !60}
-!60 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!61 = distinct !{!61, !51, !52, !60}
-!62 = distinct !{!62, !51, !52}
-!63 = distinct !{!63, !51, !52}
-!64 = distinct !{!64, !51, !52}
-!65 = distinct !{!65, !51, !52, !66}
-!66 = !{!"llvm.loop.unswitch.partial.disable"}
-!67 = distinct !{!67, !51, !52, !66}
-!68 = distinct !{!68, !51, !52}
-!69 = distinct !{!69, !51, !52}
-!70 = distinct !{!70, !51, !52}
-!71 = distinct !{!71, !51, !52}
-!72 = distinct !{!72, !51, !52, !66}
-!73 = distinct !{!73, !51, !52}
-!74 = distinct !{!74, !51, !52}
-!75 = distinct !{!75, !51, !52}
+!52 = !{!53, !54, i64 8}
+!53 = !{!"VLC", !10, i64 0, !54, i64 8, !10, i64 16, !10, i64 20}
+!54 = !{!"p1 _ZTS7VLCElem", !7, i64 0}
+!55 = distinct !{!55, !51}
+!56 = distinct !{!56, !51}
+!57 = distinct !{!57, !51}
+!58 = distinct !{!58, !51, !59}
+!59 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!60 = distinct !{!60, !51, !59}
+!61 = distinct !{!61, !51}
+!62 = distinct !{!62, !51}
+!63 = distinct !{!63, !51}
+!64 = distinct !{!64, !51, !65}
+!65 = !{!"llvm.loop.unswitch.partial.disable"}
+!66 = distinct !{!66, !51, !65}
+!67 = distinct !{!67, !51}
+!68 = distinct !{!68, !51}
+!69 = distinct !{!69, !51}
+!70 = distinct !{!70, !51}
+!71 = distinct !{!71, !51, !65}
+!72 = distinct !{!72, !51}
+!73 = distinct !{!73, !51}
+!74 = distinct !{!74, !51}

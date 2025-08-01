@@ -183,7 +183,7 @@ define i64 @dsnowball_init(ptr noundef readonly captures(none) %0) local_unnamed
   %62 = getelementptr inbounds nuw i8, ptr %.128.i, i64 40
   %63 = load ptr, ptr %62, align 8
   %.not24.i = icmp eq ptr %63, null
-  br i1 %.not24.i, label %64, label %.preheader.i, !llvm.loop !6
+  br i1 %.not24.i, label %64, label %.preheader.i, !llvm.loop !5
 
 64:                                               ; preds = %61
   %65 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
@@ -300,7 +300,7 @@ define i64 @dsnowball_lexize(ptr noundef readonly captures(none) %0) local_unnam
 
 24:                                               ; preds = %20
   %25 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  %26 = load i8, ptr %25, align 8, !range !7, !noundef !8
+  %26 = load i8, ptr %25, align 8, !range !6, !noundef !7
   %27 = trunc nuw i8 %26 to i1
   br i1 %27, label %28, label %33
 
@@ -361,7 +361,7 @@ define i64 @dsnowball_lexize(ptr noundef readonly captures(none) %0) local_unnam
 
 64:                                               ; preds = %50, %47, %33
   %.2 = phi ptr [ %53, %50 ], [ %.0, %47 ], [ %.0, %33 ]
-  %65 = load i8, ptr %25, align 8, !range !7, !noundef !8
+  %65 = load i8, ptr %25, align 8, !range !6, !noundef !7
   %66 = trunc nuw i8 %65 to i1
   br i1 %66, label %67, label %72
 
@@ -718,9 +718,8 @@ attributes #9 = { cold nounwind }
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = distinct !{!3, !4, !5}
+!3 = distinct !{!3, !4}
 !4 = !{!"llvm.loop.mustprogress"}
-!5 = !{!"llvm.loop.estimated_trip_count"}
-!6 = distinct !{!6, !4, !5}
-!7 = !{i8 0, i8 2}
-!8 = !{}
+!5 = distinct !{!5, !4}
+!6 = !{i8 0, i8 2}
+!7 = !{}

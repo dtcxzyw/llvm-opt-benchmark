@@ -230,10 +230,10 @@ put_bits.exit:                                    ; preds = %46, %54, %36
   store i32 %55, ptr %15, align 4, !tbaa !12
   %indvars.iv.next58 = add nuw nsw i64 %indvars.iv57, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next58, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph54, !llvm.loop !18
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph54, !llvm.loop !17
 
 thread-pre-split:                                 ; preds = %23
-  %56 = load ptr, ptr %24, align 8, !tbaa !19
+  %56 = load ptr, ptr %24, align 8, !tbaa !18
   %57 = ptrtoint ptr %56 to i64
   %58 = sub i64 %13, %57
   %.tr.i3747 = trunc i64 %58 to i32
@@ -293,7 +293,7 @@ thread-pre-split:                                 ; preds = %23
 88:                                               ; preds = %87, %79
   %.pre60 = phi ptr [ %.pre60.pre, %87 ], [ %86, %79 ]
   %89 = add nsw i32 %65, 24
-  %.pre61 = load ptr, ptr %24, align 8, !tbaa !19
+  %.pre61 = load ptr, ptr %24, align 8, !tbaa !18
   br label %put_bits.exit42
 
 put_bits.exit42:                                  ; preds = %70, %88
@@ -312,7 +312,7 @@ put_bits.exit42:                                  ; preds = %70, %88
   %reass.sub.i38 = sub i32 %95, %.0.i.i41
   %96 = and i32 %reass.sub.i38, 31
   %.not34 = icmp eq i32 %96, 0
-  br i1 %.not34, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !20
+  br i1 %.not34, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !19
 
 ._crit_edge.loopexit:                             ; preds = %put_bits.exit42
   %97 = trunc nuw i64 %indvars.iv.next to i32
@@ -356,7 +356,7 @@ put_bits.exit42:                                  ; preds = %70, %88
   %114 = add nsw i32 %113, 8
   store i32 %114, ptr %15, align 4, !tbaa !12
   %115 = icmp slt i32 %113, 24
-  br i1 %115, label %101, label %flush_put_bits.exit.loopexit, !llvm.loop !21
+  br i1 %115, label %101, label %flush_put_bits.exit.loopexit, !llvm.loop !20
 
 flush_put_bits.exit.loopexit:                     ; preds = %107
   %.val.pre = load ptr, ptr %10, align 8, !tbaa !14
@@ -492,10 +492,9 @@ attributes #6 = { noreturn nounwind }
 !12 = !{!8, !9, i64 4}
 !13 = !{!8, !10, i64 24}
 !14 = !{!8, !10, i64 16}
-!15 = distinct !{!15, !16, !17}
+!15 = distinct !{!15, !16}
 !16 = !{!"llvm.loop.mustprogress"}
-!17 = !{!"llvm.loop.estimated_trip_count"}
-!18 = distinct !{!18, !16, !17}
-!19 = !{!8, !10, i64 8}
-!20 = distinct !{!20, !16, !17}
-!21 = distinct !{!21, !16, !17}
+!17 = distinct !{!17, !16}
+!18 = !{!8, !10, i64 8}
+!19 = distinct !{!19, !16}
+!20 = distinct !{!20, !16}

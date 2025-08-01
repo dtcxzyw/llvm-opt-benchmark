@@ -139,7 +139,7 @@ define internal i32 @msrle_encode_frame(ptr noundef %0, ptr noundef %1, ptr noun
   store ptr %65, ptr %5, align 8, !tbaa !33
   %66 = add nsw i32 %.01.i.i, -255
   %67 = icmp samesign ugt i32 %66, 254
-  br i1 %67, label %.lr.ph.i.i, label %._crit_edge.i.i, !llvm.loop !42
+  br i1 %67, label %.lr.ph.i.i, label %._crit_edge.i.i, !llvm.loop !41
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i
   %.not.i.i = icmp eq i32 %66, 0
@@ -262,7 +262,7 @@ define internal i32 @msrle_encode_frame(ptr noundef %0, ptr noundef %1, ptr noun
   store ptr %129, ptr %5, align 8, !tbaa !33
   %130 = add nsw i32 %.01.i81.i, -255
   %131 = icmp samesign ugt i32 %130, 254
-  br i1 %131, label %.lr.ph.i80.i, label %._crit_edge.i82.i, !llvm.loop !42
+  br i1 %131, label %.lr.ph.i80.i, label %._crit_edge.i82.i, !llvm.loop !41
 
 ._crit_edge.i82.i:                                ; preds = %.lr.ph.i80.i
   %.not.i83.i = icmp eq i32 %130, 0
@@ -345,7 +345,7 @@ write_yskip.exit84.i:                             ; preds = %142, %110
   store ptr %167, ptr %5, align 8, !tbaa !33
   %168 = add nsw i32 %.01.i88.i, -255
   %169 = icmp samesign ugt i32 %168, 254
-  br i1 %169, label %.lr.ph.i87.i, label %._crit_edge.i89.i, !llvm.loop !42
+  br i1 %169, label %.lr.ph.i87.i, label %._crit_edge.i89.i, !llvm.loop !41
 
 ._crit_edge.i89.i:                                ; preds = %.lr.ph.i87.i
   %.not.i90.i = icmp eq i32 %168, 0
@@ -407,7 +407,7 @@ write_yskip.exit91.i:                             ; preds = %180, %150
   store ptr %193, ptr %5, align 8, !tbaa !33
   %194 = add nsw i32 %.01.i95.i, -255
   %195 = icmp samesign ugt i32 %194, 254
-  br i1 %195, label %.lr.ph.i94.i, label %._crit_edge.i96.i, !llvm.loop !43
+  br i1 %195, label %.lr.ph.i94.i, label %._crit_edge.i96.i, !llvm.loop !42
 
 ._crit_edge.i96.i:                                ; preds = %.lr.ph.i94.i
   %.not.i97.i = icmp eq i32 %194, 0
@@ -443,7 +443,7 @@ write_yskip.exit91.i:                             ; preds = %180, %150
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %208 = sext i32 %207 to i64
   %209 = icmp slt i64 %indvars.iv.next.i, %208
-  br i1 %209, label %.lr.ph124.i, label %._crit_edge.i, !llvm.loop !44
+  br i1 %209, label %.lr.ph124.i, label %._crit_edge.i, !llvm.loop !43
 
 .thread154.i:                                     ; preds = %._crit_edge.i96.i, %._crit_edge.thread.i92.i, %148
   %.4 = phi i32 [ %.3.ph, %148 ], [ 0, %._crit_edge.thread.i92.i ], [ 0, %._crit_edge.i96.i ]
@@ -456,7 +456,7 @@ write_yskip.exit91.i:                             ; preds = %180, %150
   %212 = load i32, ptr %8, align 8, !tbaa !31
   %213 = sext i32 %212 to i64
   %214 = icmp slt i64 %indvars.iv.next159.i, %213
-  br i1 %214, label %.lr.ph124.i.outer, label %._crit_edge.thread164.i, !llvm.loop !44
+  br i1 %214, label %.lr.ph124.i.outer, label %._crit_edge.thread164.i, !llvm.loop !43
 
 .lr.ph124.i.outer:                                ; preds = %.backedge, %.thread154.i
   %.ph117 = phi i32 [ %212, %.thread154.i ], [ %94, %.backedge ]
@@ -507,7 +507,7 @@ write_yskip.exit91.i:                             ; preds = %180, %150
   store ptr %233, ptr %5, align 8, !tbaa !33
   %234 = add nsw i32 %.01.i101.i, -255
   %235 = icmp samesign ugt i32 %234, 254
-  br i1 %235, label %.lr.ph.i100.i, label %._crit_edge.i102.i, !llvm.loop !42
+  br i1 %235, label %.lr.ph.i100.i, label %._crit_edge.i102.i, !llvm.loop !41
 
 ._crit_edge.i102.i:                               ; preds = %.lr.ph.i100.i
   %.not.i103.i = icmp eq i32 %234, 0
@@ -559,7 +559,7 @@ write_yskip.exit91.i:                             ; preds = %180, %150
 .backedge.backedge:                               ; preds = %250, %.thread
   %.033.be = phi i32 [ 0, %250 ], [ %.1, %.thread ]
   %.068129.i.be = phi i32 [ %spec.select108.i, %250 ], [ 0, %.thread ]
-  br label %.backedge, !llvm.loop !45
+  br label %.backedge, !llvm.loop !44
 
 .thread:                                          ; preds = %._crit_edge.thread164.i, %246
   %257 = phi i32 [ %.pre145.i, %246 ], [ %215, %._crit_edge.thread164.i ]
@@ -590,7 +590,7 @@ encode.exit.thread:                               ; preds = %encode.exit.thread.
   %271 = sub i64 %269, %270
   %272 = trunc i64 %271 to i32
   %273 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  store i32 %272, ptr %273, align 8, !tbaa !46
+  store i32 %272, ptr %273, align 8, !tbaa !45
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #6
   br label %291
 
@@ -605,7 +605,7 @@ encode.exit.thread41:                             ; preds = %._crit_edge133.i, %
   %279 = sub i64 %277, %278
   %280 = trunc i64 %279 to i32
   %281 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  store i32 %280, ptr %281, align 8, !tbaa !46
+  store i32 %280, ptr %281, align 8, !tbaa !45
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #6
   br label %295
 
@@ -620,16 +620,16 @@ encode.exit:                                      ; preds = %.thread
   %288 = sub i64 %286, %287
   %289 = trunc i64 %288 to i32
   %290 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  store i32 %289, ptr %290, align 8, !tbaa !46
+  store i32 %289, ptr %290, align 8, !tbaa !45
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #6
   %.not31 = icmp eq i32 %.1, 0
   br i1 %.not31, label %295, label %291
 
 291:                                              ; preds = %encode.exit.thread, %encode.exit
   %292 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %293 = load i32, ptr %292, align 8, !tbaa !47
+  %293 = load i32, ptr %292, align 8, !tbaa !46
   %294 = or i32 %293, 1
-  store i32 %294, ptr %292, align 8, !tbaa !47
+  store i32 %294, ptr %292, align 8, !tbaa !46
   store i32 0, ptr %7, align 8, !tbaa !34
   br label %295
 
@@ -637,7 +637,7 @@ encode.exit:                                      ; preds = %.thread
   %296 = load i32, ptr %7, align 8, !tbaa !34
   %297 = add nsw i32 %296, 1
   %298 = getelementptr inbounds nuw i8, ptr %0, i64 332
-  %299 = load i32, ptr %298, align 4, !tbaa !48
+  %299 = load i32, ptr %298, align 4, !tbaa !47
   %.not32 = icmp slt i32 %297, %299
   %spec.store.select = select i1 %.not32, i32 %297, i32 0
   store i32 %spec.store.select, ptr %7, align 8
@@ -743,7 +743,7 @@ define internal fastcc void @encode_line(ptr noundef nonnull captures(none) %0, 
   %28 = getelementptr inbounds nuw i8, ptr %.0261.i, i64 254
   %29 = add nsw i32 %.02.i, -254
   %30 = icmp samesign ugt i32 %.02.i, 507
-  br i1 %30, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !49
+  br i1 %30, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !48
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %14
   %.026.lcssa.i = phi ptr [ %16, %14 ], [ %28, %.lr.ph.i ]
@@ -835,7 +835,7 @@ define internal fastcc void @encode_line(ptr noundef nonnull captures(none) %0, 
   store ptr %71, ptr %0, align 8, !tbaa !33
   %72 = add nsw i32 %.01.i, -255
   %73 = icmp samesign ugt i32 %72, 254
-  br i1 %73, label %.lr.ph.i40, label %._crit_edge.i42, !llvm.loop !50
+  br i1 %73, label %.lr.ph.i40, label %._crit_edge.i42, !llvm.loop !49
 
 ._crit_edge.i42:                                  ; preds = %.lr.ph.i40
   %.not.i43 = icmp eq i32 %72, 0
@@ -867,7 +867,7 @@ write_absolute.exit:                              ; preds = %write_absolute.exit
   %81 = zext i8 %80 to i32
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !51
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !50
 
 82:                                               ; preds = %._crit_edge
   %83 = icmp samesign ugt i32 %.136, 254
@@ -887,7 +887,7 @@ write_absolute.exit:                              ; preds = %write_absolute.exit
   store ptr %88, ptr %0, align 8, !tbaa !33
   %89 = add nsw i32 %.01.i48, -255
   %90 = icmp samesign ugt i32 %89, 254
-  br i1 %90, label %.lr.ph.i46, label %._crit_edge.i49, !llvm.loop !50
+  br i1 %90, label %.lr.ph.i46, label %._crit_edge.i49, !llvm.loop !49
 
 ._crit_edge.i49:                                  ; preds = %.lr.ph.i46
   %.not.i50 = icmp eq i32 %89, 0
@@ -935,7 +935,7 @@ write_absolute.exit:                              ; preds = %write_absolute.exit
   %106 = getelementptr inbounds nuw i8, ptr %.0261.i61, i64 254
   %107 = add nsw i32 %.02.i60, -254
   %108 = icmp samesign ugt i32 %.02.i60, 507
-  br i1 %108, label %.lr.ph.i59, label %._crit_edge.i52, !llvm.loop !49
+  br i1 %108, label %.lr.ph.i59, label %._crit_edge.i52, !llvm.loop !48
 
 ._crit_edge.i52:                                  ; preds = %.lr.ph.i59, %._crit_edge.thread
   %.026.lcssa.i53 = phi ptr [ %96, %._crit_edge.thread ], [ %106, %.lr.ph.i59 ]
@@ -1064,16 +1064,15 @@ attributes #6 = { nounwind }
 !36 = !{!"AVPacket", !21, i64 0, !13, i64 8, !13, i64 16, !14, i64 24, !10, i64 32, !10, i64 36, !10, i64 40, !23, i64 48, !10, i64 56, !13, i64 64, !13, i64 72, !7, i64 80, !21, i64 88, !15, i64 96}
 !37 = !{!10, !10, i64 0}
 !38 = !{!8, !8, i64 0}
-!39 = distinct !{!39, !40, !41}
+!39 = distinct !{!39, !40}
 !40 = !{!"llvm.loop.mustprogress"}
-!41 = !{!"llvm.loop.estimated_trip_count"}
-!42 = distinct !{!42, !40, !41}
-!43 = distinct !{!43, !40, !41}
-!44 = distinct !{!44, !40, !41}
-!45 = distinct !{!45, !40, !41}
-!46 = !{!36, !10, i64 32}
-!47 = !{!36, !10, i64 40}
-!48 = !{!5, !10, i64 332}
-!49 = distinct !{!49, !40, !41}
-!50 = distinct !{!50, !40, !41}
-!51 = distinct !{!51, !40, !41}
+!41 = distinct !{!41, !40}
+!42 = distinct !{!42, !40}
+!43 = distinct !{!43, !40}
+!44 = distinct !{!44, !40}
+!45 = !{!36, !10, i64 32}
+!46 = !{!36, !10, i64 40}
+!47 = !{!5, !10, i64 332}
+!48 = distinct !{!48, !40}
+!49 = distinct !{!49, !40}
+!50 = distinct !{!50, !40}

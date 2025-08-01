@@ -71,7 +71,7 @@ define void @ossl_rcu_read_lock(ptr noundef %0) local_unnamed_addr #0 {
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %34 = load atomic i32, ptr %32 acquire, align 4
-  %35 = load ptr, ptr %33, align 8, !tbaa !21
+  %35 = load ptr, ptr %33, align 8, !tbaa !20
   %36 = zext i32 %34 to i64
   %37 = getelementptr inbounds nuw %struct.rcu_qp, ptr %35, i64 %36
   %38 = atomicrmw add ptr %37, i64 1 acquire, align 8
@@ -81,21 +81,21 @@ define void @ossl_rcu_read_lock(ptr noundef %0) local_unnamed_addr #0 {
 
 .lr.ph.i:                                         ; preds = %31, %.lr.ph.i
   %41 = phi i64 [ %47, %.lr.ph.i ], [ %36, %31 ]
-  %42 = load ptr, ptr %33, align 8, !tbaa !21
+  %42 = load ptr, ptr %33, align 8, !tbaa !20
   %43 = getelementptr inbounds nuw %struct.rcu_qp, ptr %42, i64 %41
   %44 = atomicrmw sub ptr %43, i64 1 monotonic, align 8
   %45 = load atomic i32, ptr %32 acquire, align 4
-  %46 = load ptr, ptr %33, align 8, !tbaa !21
+  %46 = load ptr, ptr %33, align 8, !tbaa !20
   %47 = zext i32 %45 to i64
   %48 = getelementptr inbounds nuw %struct.rcu_qp, ptr %46, i64 %47
   %49 = atomicrmw add ptr %48, i64 1 acquire, align 8
   %50 = load atomic i32, ptr %32 monotonic, align 4
   %51 = icmp eq i32 %45, %50
-  br i1 %51, label %get_hold_current_qp.exit, label %.lr.ph.i, !llvm.loop !22
+  br i1 %51, label %get_hold_current_qp.exit, label %.lr.ph.i
 
 get_hold_current_qp.exit:                         ; preds = %.lr.ph.i, %31
   %.lcssa.i = phi i64 [ %36, %31 ], [ %47, %.lr.ph.i ]
-  %52 = load ptr, ptr %33, align 8, !tbaa !21
+  %52 = load ptr, ptr %33, align 8, !tbaa !20
   %53 = getelementptr inbounds nuw %struct.rcu_qp, ptr %52, i64 %.lcssa.i
   %54 = sext i32 %spec.select to i64
   %55 = getelementptr inbounds [10 x %struct.thread_qp], ptr %.0, i64 0, i64 %54
@@ -158,7 +158,7 @@ define void @ossl_rcu_read_unlock(ptr noundef readonly captures(address) %0) loc
 7:                                                ; preds = %8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 10
-  br i1 %exitcond.not, label %.loopexit, label %8, !llvm.loop !23
+  br i1 %exitcond.not, label %.loopexit, label %8, !llvm.loop !21
 
 8:                                                ; preds = %1, %7
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %7 ]
@@ -220,15 +220,15 @@ declare i32 @pthread_mutex_unlock(ptr noundef) local_unnamed_addr #3
 define void @ossl_synchronize_rcu(ptr noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %2) #9
-  %4 = load ptr, ptr %0, align 8, !tbaa !24
-  store ptr null, ptr %0, align 8, !tbaa !24
+  %4 = load ptr, ptr %0, align 8, !tbaa !22
+  store ptr null, ptr %0, align 8, !tbaa !22
   %5 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %2) #9
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %7 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %6) #9
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %10 = load i32, ptr %8, align 8, !tbaa !25
-  %11 = load i32, ptr %9, align 8, !tbaa !26
+  %10 = load i32, ptr %8, align 8, !tbaa !23
+  %11 = load i32, ptr %9, align 8, !tbaa !24
   %12 = sub i32 %10, %11
   %13 = icmp ult i32 %12, 2
   br i1 %13, label %.lr.ph.i, label %update_qp.exit
@@ -239,39 +239,39 @@ define void @ossl_synchronize_rcu(ptr noundef %0) local_unnamed_addr #0 {
 
 15:                                               ; preds = %15, %.lr.ph.i
   %16 = tail call i32 @pthread_cond_wait(ptr noundef nonnull %14, ptr noundef nonnull %6) #9
-  %17 = load i32, ptr %8, align 8, !tbaa !25
-  %18 = load i32, ptr %9, align 8, !tbaa !26
+  %17 = load i32, ptr %8, align 8, !tbaa !23
+  %18 = load i32, ptr %9, align 8, !tbaa !24
   %19 = sub i32 %17, %18
   %20 = icmp ult i32 %19, 2
-  br i1 %20, label %15, label %update_qp.exit, !llvm.loop !27
+  br i1 %20, label %15, label %update_qp.exit, !llvm.loop !25
 
 update_qp.exit:                                   ; preds = %15, %1
   %.lcssa20.i = phi i32 [ %10, %1 ], [ %17, %15 ]
   %.lcssa.i = phi i32 [ %11, %1 ], [ %18, %15 ]
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  %22 = load i32, ptr %21, align 4, !tbaa !28
+  %22 = load i32, ptr %21, align 4, !tbaa !26
   %23 = add i32 %.lcssa.i, 1
-  store i32 %23, ptr %9, align 8, !tbaa !26
+  store i32 %23, ptr %9, align 8, !tbaa !24
   %24 = add i32 %22, 1
   %25 = urem i32 %24, %.lcssa20.i
-  store i32 %25, ptr %21, align 4, !tbaa !28
+  store i32 %25, ptr %21, align 4, !tbaa !26
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %27 = load i32, ptr %26, align 8, !tbaa !29
+  %27 = load i32, ptr %26, align 8, !tbaa !27
   %28 = add i32 %27, 1
-  store i32 %28, ptr %26, align 8, !tbaa !29
+  store i32 %28, ptr %26, align 8, !tbaa !27
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 36
   store atomic i32 %25, ptr %29 monotonic, align 4
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %31 = tail call i32 @pthread_cond_signal(ptr noundef nonnull %30) #9
   %32 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %6) #9
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %34 = load ptr, ptr %33, align 8, !tbaa !21
+  %34 = load ptr, ptr %33, align 8, !tbaa !20
   %35 = zext i32 %22 to i64
   %36 = getelementptr inbounds nuw %struct.rcu_qp, ptr %34, i64 %35
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %38 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %37) #9
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %40 = load i32, ptr %39, align 8, !tbaa !30
+  %40 = load i32, ptr %39, align 8, !tbaa !28
   %.not28 = icmp eq i32 %40, %27
   br i1 %.not28, label %._crit_edge, label %.lr.ph
 
@@ -281,12 +281,12 @@ update_qp.exit:                                   ; preds = %15, %1
 
 42:                                               ; preds = %.lr.ph, %42
   %43 = tail call i32 @pthread_cond_wait(ptr noundef nonnull %41, ptr noundef nonnull %37) #9
-  %44 = load i32, ptr %39, align 8, !tbaa !30
+  %44 = load i32, ptr %39, align 8, !tbaa !28
   %.not = icmp eq i32 %44, %27
-  br i1 %.not, label %._crit_edge, label %42, !llvm.loop !31
+  br i1 %.not, label %._crit_edge, label %42, !llvm.loop !29
 
 ._crit_edge:                                      ; preds = %42, %update_qp.exit
-  store i32 %28, ptr %39, align 8, !tbaa !30
+  store i32 %28, ptr %39, align 8, !tbaa !28
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %46 = tail call i32 @pthread_cond_broadcast(ptr noundef nonnull %45) #9
   %47 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %37) #9
@@ -295,13 +295,13 @@ update_qp.exit:                                   ; preds = %15, %1
 48:                                               ; preds = %48, %._crit_edge
   %49 = load atomic i64, ptr %36 acquire, align 8
   %.not23 = icmp eq i64 %49, 0
-  br i1 %.not23, label %50, label %48, !llvm.loop !32
+  br i1 %.not23, label %50, label %48, !llvm.loop !30
 
 50:                                               ; preds = %48
   %51 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %6) #9
-  %52 = load i32, ptr %9, align 8, !tbaa !26
+  %52 = load i32, ptr %9, align 8, !tbaa !24
   %53 = add i32 %52, -1
-  store i32 %53, ptr %9, align 8, !tbaa !26
+  store i32 %53, ptr %9, align 8, !tbaa !24
   %54 = tail call i32 @pthread_cond_signal(ptr noundef nonnull %30) #9
   %55 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %6) #9
   %.not2429 = icmp eq ptr %4, null
@@ -310,14 +310,14 @@ update_qp.exit:                                   ; preds = %15, %1
 .lr.ph32:                                         ; preds = %50, %.lr.ph32
   %.030 = phi ptr [ %57, %.lr.ph32 ], [ %4, %50 ]
   %56 = getelementptr inbounds nuw i8, ptr %.030, i64 16
-  %57 = load ptr, ptr %56, align 8, !tbaa !33
-  %58 = load ptr, ptr %.030, align 8, !tbaa !35
+  %57 = load ptr, ptr %56, align 8, !tbaa !31
+  %58 = load ptr, ptr %.030, align 8, !tbaa !33
   %59 = getelementptr inbounds nuw i8, ptr %.030, i64 8
-  %60 = load ptr, ptr %59, align 8, !tbaa !36
+  %60 = load ptr, ptr %59, align 8, !tbaa !34
   tail call void %58(ptr noundef %60) #9
   tail call void @CRYPTO_free(ptr noundef nonnull %.030, ptr noundef nonnull @.str, i32 noundef 580) #9
   %.not24 = icmp eq ptr %57, null
-  br i1 %.not24, label %._crit_edge33, label %.lr.ph32, !llvm.loop !37
+  br i1 %.not24, label %._crit_edge33, label %.lr.ph32, !llvm.loop !35
 
 ._crit_edge33:                                    ; preds = %.lr.ph32, %50
   ret void
@@ -338,12 +338,12 @@ define range(i32 0, 2) i32 @ossl_rcu_call(ptr noundef captures(none) %0, ptr nou
 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store ptr %2, ptr %7, align 8, !tbaa !36
-  store ptr %1, ptr %4, align 8, !tbaa !35
-  %8 = load ptr, ptr %0, align 8, !tbaa !24
+  store ptr %2, ptr %7, align 8, !tbaa !34
+  store ptr %1, ptr %4, align 8, !tbaa !33
+  %8 = load ptr, ptr %0, align 8, !tbaa !22
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store ptr %8, ptr %9, align 8, !tbaa !33
-  store ptr %4, ptr %0, align 8, !tbaa !24
+  store ptr %8, ptr %9, align 8, !tbaa !31
+  store ptr %4, ptr %0, align 8, !tbaa !22
   br label %10
 
 10:                                               ; preds = %3, %6
@@ -391,14 +391,14 @@ define ptr @ossl_rcu_lock_new(i32 noundef %0, ptr noundef %1) local_unnamed_addr
   %18 = getelementptr inbounds nuw i8, ptr %6, i64 136
   %19 = tail call i32 @pthread_cond_init(ptr noundef nonnull %18, ptr noundef null) #9
   %20 = getelementptr inbounds nuw i8, ptr %6, i64 48
-  store i32 1, ptr %20, align 8, !tbaa !26
+  store i32 1, ptr %20, align 8, !tbaa !24
   %21 = zext nneg i32 %spec.store.select to i64
   %22 = shl nuw nsw i64 %21, 3
   %23 = tail call noalias ptr @CRYPTO_zalloc(i64 noundef %22, ptr noundef nonnull @.str, i32 noundef 522) #9
   %24 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  store i32 %spec.store.select, ptr %24, align 8, !tbaa !25
+  store i32 %spec.store.select, ptr %24, align 8, !tbaa !23
   %25 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  store ptr %23, ptr %25, align 8, !tbaa !21
+  store ptr %23, ptr %25, align 8, !tbaa !20
   %26 = icmp eq ptr %23, null
   br i1 %26, label %27, label %28
 
@@ -427,7 +427,7 @@ define void @ossl_rcu_lock_free(ptr noundef %0) local_unnamed_addr #0 {
 3:                                                ; preds = %1
   tail call void @ossl_synchronize_rcu(ptr noundef nonnull %0)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %5 = load ptr, ptr %4, align 8, !tbaa !21
+  %5 = load ptr, ptr %4, align 8, !tbaa !20
   tail call void @CRYPTO_free(ptr noundef %5, ptr noundef nonnull @.str, i32 noundef 661) #9
   tail call void @CRYPTO_free(ptr noundef nonnull %0, ptr noundef nonnull @.str, i32 noundef 663) #9
   br label %6
@@ -576,7 +576,7 @@ define noundef i32 @CRYPTO_atomic_add(ptr noundef captures(none) %0, i32 noundef
 define noundef i32 @CRYPTO_atomic_add64(ptr noundef captures(none) %0, i64 noundef %1, ptr noundef writeonly captures(none) initializes((0, 8)) %2, ptr noundef readnone captures(none) %3) local_unnamed_addr #4 {
   %5 = atomicrmw add ptr %0, i64 %1 acq_rel, align 8
   %6 = add i64 %5, %1
-  store i64 %6, ptr %2, align 8, !tbaa !38
+  store i64 %6, ptr %2, align 8, !tbaa !36
   ret i32 1
 }
 
@@ -584,7 +584,7 @@ define noundef i32 @CRYPTO_atomic_add64(ptr noundef captures(none) %0, i64 nound
 define noundef i32 @CRYPTO_atomic_and(ptr noundef captures(none) %0, i64 noundef %1, ptr noundef writeonly captures(none) initializes((0, 8)) %2, ptr noundef readnone captures(none) %3) local_unnamed_addr #4 {
   %5 = atomicrmw and ptr %0, i64 %1 acq_rel, align 8
   %6 = and i64 %5, %1
-  store i64 %6, ptr %2, align 8, !tbaa !38
+  store i64 %6, ptr %2, align 8, !tbaa !36
   ret i32 1
 }
 
@@ -592,7 +592,7 @@ define noundef i32 @CRYPTO_atomic_and(ptr noundef captures(none) %0, i64 noundef
 define noundef i32 @CRYPTO_atomic_or(ptr noundef captures(none) %0, i64 noundef %1, ptr noundef writeonly captures(none) initializes((0, 8)) %2, ptr noundef readnone captures(none) %3) local_unnamed_addr #4 {
   %5 = atomicrmw or ptr %0, i64 %1 acq_rel, align 8
   %6 = or i64 %5, %1
-  store i64 %6, ptr %2, align 8, !tbaa !38
+  store i64 %6, ptr %2, align 8, !tbaa !36
   ret i32 1
 }
 
@@ -669,25 +669,23 @@ attributes #11 = { nounwind willreturn memory(none) }
 !15 = !{!"p1 _ZTS11rcu_lock_st", !6, i64 0}
 !16 = !{!14, !10, i64 8}
 !17 = !{!14, !11, i64 0}
-!18 = distinct !{!18, !19, !20}
+!18 = distinct !{!18, !19}
 !19 = !{!"llvm.loop.mustprogress"}
-!20 = !{!"llvm.loop.estimated_trip_count"}
-!21 = !{!4, !11, i64 24}
-!22 = distinct !{!22, !20}
-!23 = distinct !{!23, !19, !20}
-!24 = !{!4, !5, i64 0}
-!25 = !{!4, !10, i64 32}
-!26 = !{!4, !10, i64 48}
-!27 = distinct !{!27, !19, !20}
-!28 = !{!4, !10, i64 44}
-!29 = !{!4, !10, i64 16}
-!30 = !{!4, !10, i64 40}
-!31 = distinct !{!31, !19, !20}
-!32 = distinct !{!32, !19, !20}
-!33 = !{!34, !5, i64 16}
-!34 = !{!"rcu_cb_item", !6, i64 0, !6, i64 8, !5, i64 16}
-!35 = !{!34, !6, i64 0}
-!36 = !{!34, !6, i64 8}
-!37 = distinct !{!37, !19, !20}
-!38 = !{!39, !39, i64 0}
-!39 = !{!"long", !7, i64 0}
+!20 = !{!4, !11, i64 24}
+!21 = distinct !{!21, !19}
+!22 = !{!4, !5, i64 0}
+!23 = !{!4, !10, i64 32}
+!24 = !{!4, !10, i64 48}
+!25 = distinct !{!25, !19}
+!26 = !{!4, !10, i64 44}
+!27 = !{!4, !10, i64 16}
+!28 = !{!4, !10, i64 40}
+!29 = distinct !{!29, !19}
+!30 = distinct !{!30, !19}
+!31 = !{!32, !5, i64 16}
+!32 = !{!"rcu_cb_item", !6, i64 0, !6, i64 8, !5, i64 16}
+!33 = !{!32, !6, i64 0}
+!34 = !{!32, !6, i64 8}
+!35 = distinct !{!35, !19}
+!36 = !{!37, !37, i64 0}
+!37 = !{!"long", !7, i64 0}

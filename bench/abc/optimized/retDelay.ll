@@ -396,7 +396,7 @@ Abc_NodeSetTravIdCurrent.exit.i:                  ; preds = %._crit_edge.i.i.i.i
 .critedge2.preheader.i:                           ; preds = %.critedge4.i, %.preheader282.i, %.critedge.thread.i
   %.val152372381.i = phi i32 [ %150, %.preheader282.i ], [ 0, %.critedge.thread.i ], [ %150, %.critedge4.i ]
   %.0.lcssa.i = phi i32 [ 0, %.preheader282.i ], [ 0, %.critedge.thread.i ], [ %.1.lcssa.i, %.critedge4.i ]
-  %.val178298.i = load ptr, ptr %26, align 8, !tbaa !42
+  %.val178298.i = load ptr, ptr %26, align 8, !tbaa !41
   %156 = getelementptr i8, ptr %.val178298.i, i64 4
   %.val178.val299.i = load i32, ptr %156, align 4, !tbaa !7
   %157 = icmp sgt i32 %.val178.val299.i, 0
@@ -408,7 +408,7 @@ Abc_NodeSetTravIdCurrent.exit.i:                  ; preds = %._crit_edge.i.i.i.i
   %159 = getelementptr inbounds nuw ptr, ptr %.val153.i, i64 %indvars.iv333.i
   %160 = load ptr, ptr %159, align 8, !tbaa !34
   %161 = getelementptr i8, ptr %160, i64 44
-  %.val166285.i = load i32, ptr %161, align 4, !tbaa !43
+  %.val166285.i = load i32, ptr %161, align 4, !tbaa !42
   %162 = icmp sgt i32 %.val166285.i, 0
   br i1 %162, label %.lr.ph288.i, label %.critedge4.i
 
@@ -420,7 +420,7 @@ Abc_NodeSetTravIdCurrent.exit.i:                  ; preds = %._crit_edge.i.i.i.i
   %indvars.iv330.i = phi i64 [ 0, %.lr.ph288.i ], [ %indvars.iv.next331.i, %164 ]
   %.1287.i = phi i32 [ %.0290.i, %.lr.ph288.i ], [ %spec.select.i, %164 ]
   %.val169.i = load ptr, ptr %160, align 8, !tbaa !35
-  %.val170.i = load ptr, ptr %163, align 8, !tbaa !44
+  %.val170.i = load ptr, ptr %163, align 8, !tbaa !43
   %165 = getelementptr i8, ptr %.val169.i, i64 32
   %.val169.val.i = load ptr, ptr %165, align 8, !tbaa !29
   %166 = getelementptr i8, ptr %.val169.val.i, i64 8
@@ -433,16 +433,16 @@ Abc_NodeSetTravIdCurrent.exit.i:                  ; preds = %._crit_edge.i.i.i.i
   %172 = tail call fastcc i32 @Abc_NtkRetimeTiming_rec(ptr noundef %171, i32 noundef %2)
   %spec.select.i = tail call i32 @llvm.umax.i32(i32 %.1287.i, i32 %172)
   %indvars.iv.next331.i = add nuw nsw i64 %indvars.iv330.i, 1
-  %.val166.i = load i32, ptr %161, align 4, !tbaa !43
+  %.val166.i = load i32, ptr %161, align 4, !tbaa !42
   %173 = sext i32 %.val166.i to i64
   %174 = icmp slt i64 %indvars.iv.next331.i, %173
-  br i1 %174, label %164, label %.critedge4.i, !llvm.loop !45
+  br i1 %174, label %164, label %.critedge4.i, !llvm.loop !44
 
 .critedge4.i:                                     ; preds = %164, %158
   %.1.lcssa.i = phi i32 [ %.0290.i, %158 ], [ %spec.select.i, %164 ]
   %indvars.iv.next334.i = add nuw nsw i64 %indvars.iv333.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next334.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %.critedge2.preheader.i, label %158, !llvm.loop !46
+  br i1 %exitcond.not.i, label %.critedge2.preheader.i, label %158, !llvm.loop !45
 
 .lr.ph303.i:                                      ; preds = %.critedge2.preheader.i, %.critedge8.i
   %.val178368.i = phi ptr [ %.val178.i, %.critedge8.i ], [ %.val178298.i, %.critedge2.preheader.i ]
@@ -453,7 +453,7 @@ Abc_NodeSetTravIdCurrent.exit.i:                  ; preds = %._crit_edge.i.i.i.i
   %176 = getelementptr inbounds nuw ptr, ptr %.val179.val.i, i64 %indvars.iv339.i
   %177 = load ptr, ptr %176, align 8, !tbaa !34
   %178 = getelementptr i8, ptr %177, i64 44
-  %.val167293.i = load i32, ptr %178, align 4, !tbaa !43
+  %.val167293.i = load i32, ptr %178, align 4, !tbaa !42
   %179 = icmp sgt i32 %.val167293.i, 0
   br i1 %179, label %.lr.ph296.i, label %.critedge8.i
 
@@ -465,7 +465,7 @@ Abc_NodeSetTravIdCurrent.exit.i:                  ; preds = %._crit_edge.i.i.i.i
   %indvars.iv336.i = phi i64 [ 0, %.lr.ph296.i ], [ %indvars.iv.next337.i, %181 ]
   %.4295.i = phi i32 [ %.3301.i, %.lr.ph296.i ], [ %spec.select145.i, %181 ]
   %.val171.i = load ptr, ptr %177, align 8, !tbaa !35
-  %.val172.i = load ptr, ptr %180, align 8, !tbaa !44
+  %.val172.i = load ptr, ptr %180, align 8, !tbaa !43
   %182 = getelementptr i8, ptr %.val171.i, i64 32
   %.val171.val.i = load ptr, ptr %182, align 8, !tbaa !29
   %183 = getelementptr i8, ptr %.val171.val.i, i64 8
@@ -478,13 +478,13 @@ Abc_NodeSetTravIdCurrent.exit.i:                  ; preds = %._crit_edge.i.i.i.i
   %189 = tail call fastcc i32 @Abc_NtkRetimeTiming_rec(ptr noundef %188, i32 noundef %2)
   %spec.select145.i = tail call i32 @llvm.smax.i32(i32 %.4295.i, i32 %189)
   %indvars.iv.next337.i = add nuw nsw i64 %indvars.iv336.i, 1
-  %.val167.i = load i32, ptr %178, align 4, !tbaa !43
+  %.val167.i = load i32, ptr %178, align 4, !tbaa !42
   %190 = sext i32 %.val167.i to i64
   %191 = icmp slt i64 %indvars.iv.next337.i, %190
-  br i1 %191, label %181, label %.critedge8.loopexit.i, !llvm.loop !47
+  br i1 %191, label %181, label %.critedge8.loopexit.i, !llvm.loop !46
 
 .critedge8.loopexit.i:                            ; preds = %181
-  %.val178.pre.i = load ptr, ptr %26, align 8, !tbaa !42
+  %.val178.pre.i = load ptr, ptr %26, align 8, !tbaa !41
   br label %.critedge8.i
 
 .critedge8.i:                                     ; preds = %.critedge8.loopexit.i, %.lr.ph303.i
@@ -495,12 +495,12 @@ Abc_NodeSetTravIdCurrent.exit.i:                  ; preds = %._crit_edge.i.i.i.i
   %.val178.val.i = load i32, ptr %192, align 4, !tbaa !7
   %193 = sext i32 %.val178.val.i to i64
   %194 = icmp slt i64 %indvars.iv.next340.i, %193
-  br i1 %194, label %.lr.ph303.i, label %.critedge6.i, !llvm.loop !48
+  br i1 %194, label %.lr.ph303.i, label %.critedge6.i, !llvm.loop !47
 
 .critedge10.preheader.i:                          ; preds = %197, %.preheader280.i, %.critedge.thread.i
   %.val152373385.i = phi i32 [ %150, %.preheader280.i ], [ 0, %.critedge.thread.i ], [ %150, %197 ]
   %.7.lcssa.i = phi i32 [ 0, %.preheader280.i ], [ 0, %.critedge.thread.i ], [ %spec.select146.i, %197 ]
-  %.val184309.i = load ptr, ptr %27, align 8, !tbaa !49
+  %.val184309.i = load ptr, ptr %27, align 8, !tbaa !48
   %195 = getelementptr i8, ptr %.val184309.i, i64 4
   %.val184.val310.i = load i32, ptr %195, align 4, !tbaa !7
   %196 = icmp sgt i32 %.val184.val310.i, 0
@@ -513,7 +513,7 @@ Abc_NodeSetTravIdCurrent.exit.i:                  ; preds = %._crit_edge.i.i.i.i
   %199 = load ptr, ptr %198, align 8, !tbaa !34
   %.val180.i = load ptr, ptr %199, align 8, !tbaa !35
   %200 = getelementptr i8, ptr %199, i64 32
-  %.val181.i = load ptr, ptr %200, align 8, !tbaa !50
+  %.val181.i = load ptr, ptr %200, align 8, !tbaa !49
   %201 = getelementptr i8, ptr %.val180.i, i64 32
   %.val180.val.i = load ptr, ptr %201, align 8, !tbaa !29
   %.val181.val.i = load i32, ptr %.val181.i, align 4, !tbaa !3
@@ -526,7 +526,7 @@ Abc_NodeSetTravIdCurrent.exit.i:                  ; preds = %._crit_edge.i.i.i.i
   %spec.select146.i = tail call i32 @llvm.umax.i32(i32 %.7306.i, i32 %206)
   %indvars.iv.next343.i = add nuw nsw i64 %indvars.iv342.i, 1
   %exitcond346.not.i = icmp eq i64 %indvars.iv.next343.i, %wide.trip.count345.i
-  br i1 %exitcond346.not.i, label %.critedge10.preheader.i, label %197, !llvm.loop !51
+  br i1 %exitcond346.not.i, label %.critedge10.preheader.i, label %197, !llvm.loop !50
 
 .critedge10.i:                                    ; preds = %.critedge10.preheader.i, %.critedge10.i
   %indvars.iv347.i = phi i64 [ %indvars.iv.next348.i, %.critedge10.i ], [ 0, %.critedge10.preheader.i ]
@@ -538,7 +538,7 @@ Abc_NodeSetTravIdCurrent.exit.i:                  ; preds = %._crit_edge.i.i.i.i
   %209 = load ptr, ptr %208, align 8, !tbaa !34
   %.val182.i = load ptr, ptr %209, align 8, !tbaa !35
   %210 = getelementptr i8, ptr %209, i64 32
-  %.val183.i = load ptr, ptr %210, align 8, !tbaa !50
+  %.val183.i = load ptr, ptr %210, align 8, !tbaa !49
   %211 = getelementptr i8, ptr %.val182.i, i64 32
   %.val182.val.i = load ptr, ptr %211, align 8, !tbaa !29
   %.val183.val.i = load i32, ptr %.val183.i, align 4, !tbaa !3
@@ -550,12 +550,12 @@ Abc_NodeSetTravIdCurrent.exit.i:                  ; preds = %._crit_edge.i.i.i.i
   %216 = tail call fastcc i32 @Abc_NtkRetimeTiming_rec(ptr noundef %215, i32 noundef 0)
   %spec.select147.i = tail call i32 @llvm.smax.i32(i32 %.9312.i, i32 %216)
   %indvars.iv.next348.i = add nuw nsw i64 %indvars.iv347.i, 1
-  %.val184.i = load ptr, ptr %27, align 8, !tbaa !49
+  %.val184.i = load ptr, ptr %27, align 8, !tbaa !48
   %217 = getelementptr i8, ptr %.val184.i, i64 4
   %.val184.val.i = load i32, ptr %217, align 4, !tbaa !7
   %218 = sext i32 %.val184.val.i to i64
   %219 = icmp slt i64 %indvars.iv.next348.i, %218
-  br i1 %219, label %.critedge10.i, label %.critedge6.i, !llvm.loop !52
+  br i1 %219, label %.critedge10.i, label %.critedge6.i, !llvm.loop !51
 
 .critedge6.i:                                     ; preds = %.critedge8.i, %.critedge10.i, %.critedge10.preheader.i, %.critedge2.preheader.i
   %.not375.i = phi i1 [ true, %.critedge10.preheader.i ], [ false, %.critedge2.preheader.i ], [ true, %.critedge10.i ], [ false, %.critedge8.i ]
@@ -628,7 +628,7 @@ Abc_NtkIncrementTravId.exit195.i:                 ; preds = %Vec_IntFill.exit.i1
   %240 = getelementptr inbounds nuw ptr, ptr %.val155.i, i64 %indvars.iv353.i
   %241 = load ptr, ptr %240, align 8, !tbaa !34
   %242 = getelementptr i8, ptr %241, i64 44
-  %.val168316.i = load i32, ptr %242, align 4, !tbaa !43
+  %.val168316.i = load i32, ptr %242, align 4, !tbaa !42
   %243 = icmp sgt i32 %.val168316.i, 0
   br i1 %243, label %.lr.ph318.i, label %.critedge16.i
 
@@ -642,7 +642,7 @@ Abc_NtkIncrementTravId.exit195.i:                 ; preds = %Vec_IntFill.exit.i1
   %248 = phi i32 [ %239, %.lr.ph318.i ], [ %383, %380 ]
   %indvars.iv350.i = phi i64 [ 0, %.lr.ph318.i ], [ %indvars.iv.next351.i, %380 ]
   %.val173.i = load ptr, ptr %241, align 8, !tbaa !35
-  %.val174.i = load ptr, ptr %244, align 8, !tbaa !44
+  %.val174.i = load ptr, ptr %244, align 8, !tbaa !43
   %249 = getelementptr i8, ptr %.val173.i, i64 32
   %.val173.val.i = load ptr, ptr %249, align 8, !tbaa !29
   %250 = getelementptr i8, ptr %.val173.val.i, i64 8
@@ -934,10 +934,10 @@ Abc_NodeSetTravIdCurrent.exit231.i:               ; preds = %._crit_edge.i.i.i.i
   %382 = phi i32 [ %330, %Abc_NodeSetTravIdCurrent.exit231.i ], [ %247, %303 ], [ %247, %Abc_NodeIsTravIdCurrent.exit.i ]
   %383 = phi i32 [ %332, %Abc_NodeSetTravIdCurrent.exit231.i ], [ %248, %303 ], [ %248, %Abc_NodeIsTravIdCurrent.exit.i ]
   %indvars.iv.next351.i = add nuw nsw i64 %indvars.iv350.i, 1
-  %.val168.i = load i32, ptr %242, align 4, !tbaa !43
+  %.val168.i = load i32, ptr %242, align 4, !tbaa !42
   %384 = sext i32 %.val168.i to i64
   %385 = icmp slt i64 %indvars.iv.next351.i, %384
-  br i1 %385, label %245, label %.critedge16.i, !llvm.loop !53
+  br i1 %385, label %245, label %.critedge16.i, !llvm.loop !52
 
 .critedge16.i:                                    ; preds = %380, %236
   %386 = phi i32 [ %237, %236 ], [ %381, %380 ]
@@ -945,7 +945,7 @@ Abc_NodeSetTravIdCurrent.exit231.i:               ; preds = %._crit_edge.i.i.i.i
   %388 = phi i32 [ %239, %236 ], [ %383, %380 ]
   %indvars.iv.next354.i = add nuw nsw i64 %indvars.iv353.i, 1
   %exitcond357.not.i = icmp eq i64 %indvars.iv.next354.i, %wide.trip.count356.i
-  br i1 %exitcond357.not.i, label %.critedge14.i, label %236, !llvm.loop !54
+  br i1 %exitcond357.not.i, label %.critedge14.i, label %236, !llvm.loop !53
 
 389:                                              ; preds = %.critedge20.i, %.lr.ph325.i
   %390 = phi i32 [ %31, %.lr.ph325.i ], [ %538, %.critedge20.i ]
@@ -956,7 +956,7 @@ Abc_NodeSetTravIdCurrent.exit231.i:               ; preds = %._crit_edge.i.i.i.i
   %393 = getelementptr inbounds nuw ptr, ptr %.val156.i, i64 %indvars.iv361.i
   %394 = load ptr, ptr %393, align 8, !tbaa !34
   %395 = getelementptr i8, ptr %394, i64 28
-  %.val175321.i = load i32, ptr %395, align 4, !tbaa !55
+  %.val175321.i = load i32, ptr %395, align 4, !tbaa !54
   %396 = icmp sgt i32 %.val175321.i, 0
   br i1 %396, label %.lr.ph323.i, label %.critedge20.i
 
@@ -970,7 +970,7 @@ Abc_NodeSetTravIdCurrent.exit231.i:               ; preds = %._crit_edge.i.i.i.i
   %401 = phi i32 [ %392, %.lr.ph323.i ], [ %535, %532 ]
   %indvars.iv358.i = phi i64 [ 0, %.lr.ph323.i ], [ %indvars.iv.next359.i, %532 ]
   %.val176.i = load ptr, ptr %394, align 8, !tbaa !35
-  %.val177.i = load ptr, ptr %397, align 8, !tbaa !50
+  %.val177.i = load ptr, ptr %397, align 8, !tbaa !49
   %402 = getelementptr i8, ptr %.val176.i, i64 32
   %.val176.val.i = load ptr, ptr %402, align 8, !tbaa !29
   %403 = getelementptr i8, ptr %.val176.val.i, i64 8
@@ -1261,10 +1261,10 @@ Abc_NodeSetTravIdCurrent.exit272.i:               ; preds = %._crit_edge.i.i.i.i
   %534 = phi i32 [ %484, %Abc_NodeSetTravIdCurrent.exit272.i ], [ %400, %456 ], [ %400, %Abc_NodeIsTravIdCurrent.exit250.i ]
   %535 = phi i32 [ %482, %Abc_NodeSetTravIdCurrent.exit272.i ], [ %401, %456 ], [ %401, %Abc_NodeIsTravIdCurrent.exit250.i ]
   %indvars.iv.next359.i = add nuw nsw i64 %indvars.iv358.i, 1
-  %.val175.i = load i32, ptr %395, align 4, !tbaa !55
+  %.val175.i = load i32, ptr %395, align 4, !tbaa !54
   %536 = sext i32 %.val175.i to i64
   %537 = icmp slt i64 %indvars.iv.next359.i, %536
-  br i1 %537, label %398, label %.critedge20.i, !llvm.loop !56
+  br i1 %537, label %398, label %.critedge20.i, !llvm.loop !55
 
 .critedge20.i:                                    ; preds = %532, %389
   %538 = phi i32 [ %390, %389 ], [ %533, %532 ]
@@ -1272,7 +1272,7 @@ Abc_NodeSetTravIdCurrent.exit272.i:               ; preds = %._crit_edge.i.i.i.i
   %540 = phi i32 [ %392, %389 ], [ %535, %532 ]
   %indvars.iv.next362.i = add nuw nsw i64 %indvars.iv361.i, 1
   %exitcond365.not.i = icmp eq i64 %indvars.iv.next362.i, %wide.trip.count364.i
-  br i1 %exitcond365.not.i, label %.critedge14.i, label %389, !llvm.loop !57
+  br i1 %exitcond365.not.i, label %.critedge14.i, label %389, !llvm.loop !56
 
 .critedge14.i:                                    ; preds = %.critedge16.i, %.critedge20.i, %.preheader.i, %.preheader278.i
   %.val105 = phi i32 [ 0, %.preheader.i ], [ 0, %.preheader278.i ], [ %539, %.critedge20.i ], [ %388, %.critedge16.i ]
@@ -1348,7 +1348,7 @@ Abc_NtkRetimeTiming.exit:                         ; preds = %.critedge14.i, %544
 569:                                              ; preds = %564, %568
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.critedge, label %564, !llvm.loop !58
+  br i1 %exitcond.not, label %.critedge, label %564, !llvm.loop !57
 
 .critedge:                                        ; preds = %569, %.preheader
   br i1 %.not371.i, label %570, label %571
@@ -1359,7 +1359,7 @@ Abc_NtkRetimeTiming.exit:                         ; preds = %.critedge14.i, %544
 
 571:                                              ; preds = %.critedge, %570
   %572 = add nuw nsw i32 %.087, 1
-  br label %30, !llvm.loop !59
+  br label %30
 
 573:                                              ; preds = %559
   %574 = load ptr, ptr %20, align 8, !tbaa !11
@@ -1557,7 +1557,7 @@ Abc_NodeSetTravIdCurrent.exit:                    ; preds = %7, %._crit_edge.i.i
 
 .preheader45:                                     ; preds = %Abc_NodeSetTravIdCurrent.exit
   %54 = getelementptr i8, ptr %0, i64 44
-  %.val3947 = load i32, ptr %54, align 4, !tbaa !43
+  %.val3947 = load i32, ptr %54, align 4, !tbaa !42
   %55 = icmp sgt i32 %.val3947, 0
   br i1 %55, label %.lr.ph, label %.critedge
 
@@ -1567,7 +1567,7 @@ Abc_NodeSetTravIdCurrent.exit:                    ; preds = %7, %._crit_edge.i.i
 
 .preheader:                                       ; preds = %Abc_NodeSetTravIdCurrent.exit
   %57 = getelementptr i8, ptr %0, i64 28
-  %.val4250 = load i32, ptr %57, align 4, !tbaa !55
+  %.val4250 = load i32, ptr %57, align 4, !tbaa !54
   %58 = icmp sgt i32 %.val4250, 0
   br i1 %58, label %.lr.ph53, label %.critedge
 
@@ -1579,7 +1579,7 @@ Abc_NodeSetTravIdCurrent.exit:                    ; preds = %7, %._crit_edge.i.i
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %60 ]
   %.049 = phi i32 [ 0, %.lr.ph ], [ %spec.select, %60 ]
   %.val40 = load ptr, ptr %0, align 8, !tbaa !35
-  %.val41 = load ptr, ptr %56, align 8, !tbaa !44
+  %.val41 = load ptr, ptr %56, align 8, !tbaa !43
   %61 = getelementptr i8, ptr %.val40, i64 32
   %.val40.val = load ptr, ptr %61, align 8, !tbaa !29
   %62 = getelementptr i8, ptr %.val40.val, i64 8
@@ -1592,16 +1592,16 @@ Abc_NodeSetTravIdCurrent.exit:                    ; preds = %7, %._crit_edge.i.i
   %68 = tail call fastcc i32 @Abc_NtkRetimeTiming_rec(ptr noundef %67, i32 noundef %1)
   %spec.select = tail call i32 @llvm.umax.i32(i32 %.049, i32 %68)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %.val39 = load i32, ptr %54, align 4, !tbaa !43
+  %.val39 = load i32, ptr %54, align 4, !tbaa !42
   %69 = sext i32 %.val39 to i64
   %70 = icmp slt i64 %indvars.iv.next, %69
-  br i1 %70, label %60, label %.critedge, !llvm.loop !60
+  br i1 %70, label %60, label %.critedge, !llvm.loop !58
 
 71:                                               ; preds = %.lr.ph53, %71
   %indvars.iv57 = phi i64 [ 0, %.lr.ph53 ], [ %indvars.iv.next58, %71 ]
   %.352 = phi i32 [ 0, %.lr.ph53 ], [ %spec.select37, %71 ]
   %.val43 = load ptr, ptr %0, align 8, !tbaa !35
-  %.val44 = load ptr, ptr %59, align 8, !tbaa !50
+  %.val44 = load ptr, ptr %59, align 8, !tbaa !49
   %72 = getelementptr i8, ptr %.val43, i64 32
   %.val43.val = load ptr, ptr %72, align 8, !tbaa !29
   %73 = getelementptr i8, ptr %.val43.val, i64 8
@@ -1614,10 +1614,10 @@ Abc_NodeSetTravIdCurrent.exit:                    ; preds = %7, %._crit_edge.i.i
   %79 = tail call fastcc i32 @Abc_NtkRetimeTiming_rec(ptr noundef %78, i32 noundef 0)
   %spec.select37 = tail call i32 @llvm.umax.i32(i32 %.352, i32 %79)
   %indvars.iv.next58 = add nuw nsw i64 %indvars.iv57, 1
-  %.val42 = load i32, ptr %57, align 4, !tbaa !55
+  %.val42 = load i32, ptr %57, align 4, !tbaa !54
   %80 = sext i32 %.val42 to i64
   %81 = icmp slt i64 %indvars.iv.next58, %80
-  br i1 %81, label %71, label %.critedge, !llvm.loop !61
+  br i1 %81, label %71, label %.critedge, !llvm.loop !59
 
 .critedge:                                        ; preds = %60, %71, %.preheader45, %.preheader
   %.2 = phi i32 [ 0, %.preheader ], [ 0, %.preheader45 ], [ %spec.select37, %71 ], [ %spec.select, %60 ]
@@ -1820,26 +1820,24 @@ attributes #13 = { nounwind allocsize(1) }
 !36 = !{!"Abc_Obj_t_", !17, i64 0, !37, i64 8, !4, i64 16, !4, i64 20, !4, i64 20, !4, i64 20, !4, i64 20, !4, i64 20, !4, i64 21, !4, i64 21, !4, i64 21, !4, i64 21, !4, i64 21, !20, i64 24, !20, i64 40, !5, i64 56, !5, i64 64}
 !37 = !{!"p1 _ZTS10Abc_Obj_t_", !9, i64 0}
 !38 = !{!36, !4, i64 16}
-!39 = distinct !{!39, !40, !41}
+!39 = distinct !{!39, !40}
 !40 = !{!"llvm.loop.mustprogress"}
-!41 = !{!"llvm.loop.estimated_trip_count"}
-!42 = !{!13, !16, i64 40}
-!43 = !{!36, !4, i64 44}
-!44 = !{!36, !21, i64 48}
-!45 = distinct !{!45, !40, !41}
-!46 = distinct !{!46, !40, !41}
-!47 = distinct !{!47, !40, !41}
-!48 = distinct !{!48, !40, !41}
-!49 = !{!13, !16, i64 48}
-!50 = !{!36, !21, i64 32}
-!51 = distinct !{!51, !40, !41}
-!52 = distinct !{!52, !40, !41}
-!53 = distinct !{!53, !40, !41}
-!54 = distinct !{!54, !40, !41}
-!55 = !{!36, !4, i64 28}
-!56 = distinct !{!56, !40, !41}
-!57 = distinct !{!57, !40, !41}
-!58 = distinct !{!58, !40, !41}
-!59 = distinct !{!59, !41}
-!60 = distinct !{!60, !40, !41}
-!61 = distinct !{!61, !40, !41}
+!41 = !{!13, !16, i64 40}
+!42 = !{!36, !4, i64 44}
+!43 = !{!36, !21, i64 48}
+!44 = distinct !{!44, !40}
+!45 = distinct !{!45, !40}
+!46 = distinct !{!46, !40}
+!47 = distinct !{!47, !40}
+!48 = !{!13, !16, i64 48}
+!49 = !{!36, !21, i64 32}
+!50 = distinct !{!50, !40}
+!51 = distinct !{!51, !40}
+!52 = distinct !{!52, !40}
+!53 = distinct !{!53, !40}
+!54 = !{!36, !4, i64 28}
+!55 = distinct !{!55, !40}
+!56 = distinct !{!56, !40}
+!57 = distinct !{!57, !40}
+!58 = distinct !{!58, !40}
+!59 = distinct !{!59, !40}

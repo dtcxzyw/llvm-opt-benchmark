@@ -319,7 +319,7 @@ opus_duration.exit127.thread:                     ; preds = %opus_duration.exit1
   %122 = zext nneg i32 %.098.lcssa to i64
   %123 = sub nsw i64 %23, %122
   %124 = getelementptr inbounds nuw i8, ptr %7, i64 64
-  store i64 %123, ptr %124, align 8, !tbaa !49
+  store i64 %123, ptr %124, align 8, !tbaa !48
   store i64 %123, ptr %36, align 8, !tbaa !41
   br label %125
 
@@ -377,33 +377,33 @@ opus_duration.exit130:                            ; preds = %144, %148, %153
   %.015.i128 = phi i32 [ %152, %148 ], [ 2, %153 ], [ 1, %144 ]
   %154 = mul nuw nsw i32 %.015.i128, %145
   %155 = getelementptr inbounds nuw i8, ptr %7, i64 28
-  store i32 %154, ptr %155, align 4, !tbaa !50
+  store i32 %154, ptr %155, align 4, !tbaa !49
   %.not122 = icmp eq i64 %126, -9223372036854775808
   br i1 %.not122, label %opus_duration.exit130._crit_edge, label %156
 
 opus_duration.exit130._crit_edge:                 ; preds = %opus_duration.exit130
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %13, i64 8
-  %.pre = load i64, ptr %.phi.trans.insert, align 8, !tbaa !51
+  %.pre = load i64, ptr %.phi.trans.insert, align 8, !tbaa !50
   br label %167
 
 156:                                              ; preds = %opus_duration.exit130
   %157 = getelementptr inbounds nuw i8, ptr %11, i64 40
-  %158 = load i64, ptr %157, align 8, !tbaa !52
+  %158 = load i64, ptr %157, align 8, !tbaa !51
   %159 = icmp eq i64 %158, -9223372036854775808
   br i1 %159, label %160, label %161
 
 160:                                              ; preds = %156
-  store i64 %126, ptr %157, align 8, !tbaa !52
+  store i64 %126, ptr %157, align 8, !tbaa !51
   br label %161
 
 161:                                              ; preds = %160, %156
   %162 = getelementptr inbounds nuw i8, ptr %13, i64 4
-  %163 = load i32, ptr %162, align 4, !tbaa !59
+  %163 = load i32, ptr %162, align 4, !tbaa !58
   %164 = zext i32 %163 to i64
   %165 = sub nsw i64 %126, %164
   store i64 %165, ptr %36, align 8, !tbaa !41
   %166 = getelementptr inbounds nuw i8, ptr %7, i64 64
-  store i64 %165, ptr %166, align 8, !tbaa !49
+  store i64 %165, ptr %166, align 8, !tbaa !48
   br label %167
 
 167:                                              ; preds = %opus_duration.exit130._crit_edge, %161
@@ -411,7 +411,7 @@ opus_duration.exit130._crit_edge:                 ; preds = %opus_duration.exit1
   %169 = zext nneg i32 %154 to i64
   %170 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %171 = add nsw i64 %168, %169
-  store i64 %171, ptr %170, align 8, !tbaa !51
+  store i64 %171, ptr %170, align 8, !tbaa !50
   %172 = getelementptr inbounds nuw i8, ptr %7, i64 88
   %173 = load i32, ptr %172, align 8, !tbaa !36
   %174 = and i32 %173, 4
@@ -421,7 +421,7 @@ opus_duration.exit130._crit_edge:                 ; preds = %opus_duration.exit1
 175:                                              ; preds = %167
   %176 = sub i64 %171, %23
   %177 = getelementptr inbounds nuw i8, ptr %13, i64 4
-  %178 = load i32, ptr %177, align 4, !tbaa !59
+  %178 = load i32, ptr %177, align 4, !tbaa !58
   %179 = zext i32 %178 to i64
   %180 = add i64 %176, %179
   %.124 = tail call i64 @llvm.smin.i64(i64 %180, i64 %169)
@@ -433,9 +433,9 @@ opus_duration.exit130._crit_edge:                 ; preds = %opus_duration.exit1
   %184 = trunc nuw nsw i64 %.124 to i32
   %185 = sub nsw i32 %154, %184
   %186 = select i1 %183, i32 %185, i32 1
-  store i32 %186, ptr %155, align 4, !tbaa !50
+  store i32 %186, ptr %155, align 4, !tbaa !49
   %187 = getelementptr inbounds nuw i8, ptr %7, i64 400
-  store i32 %184, ptr %187, align 8, !tbaa !60
+  store i32 %184, ptr %187, align 8, !tbaa !59
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 48, ptr noundef nonnull @.str.5, i32 noundef %186) #6
   br label %opus_duration.exit130.thread
 
@@ -459,15 +459,15 @@ define internal fastcc range(i32 -2147483648, 2) i32 @parse_opus_header(ptr noun
 
 11:                                               ; preds = %8
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %13 = load ptr, ptr %12, align 8, !tbaa !61
-  store i32 1, ptr %13, align 8, !tbaa !62
+  %13 = load ptr, ptr %12, align 8, !tbaa !60
+  store i32 1, ptr %13, align 8, !tbaa !61
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 4
-  store i32 86076, ptr %14, align 4, !tbaa !65
+  store i32 86076, ptr %14, align 4, !tbaa !64
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 9
   %16 = load i8, ptr %15, align 1, !tbaa !43
   %17 = zext i8 %16 to i32
   %18 = getelementptr inbounds nuw i8, ptr %13, i64 132
-  %19 = load i32, ptr %18, align 4, !tbaa !66
+  %19 = load i32, ptr %18, align 4, !tbaa !65
   %.not31 = icmp eq i32 %19, 0
   %.not32 = icmp eq i32 %19, %17
   %or.cond = select i1 %.not31, i1 true, i1 %.not32
@@ -478,16 +478,16 @@ define internal fastcc range(i32 -2147483648, 2) i32 @parse_opus_header(ptr noun
   br label %43
 
 21:                                               ; preds = %11
-  store i32 %17, ptr %18, align 4, !tbaa !66
+  store i32 %17, ptr %18, align 4, !tbaa !65
   %22 = getelementptr inbounds nuw i8, ptr %4, i64 10
   %23 = load i16, ptr %22, align 1, !tbaa !43
   %24 = zext i16 %23 to i32
   %25 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  store i32 %24, ptr %25, align 4, !tbaa !59
+  store i32 %24, ptr %25, align 4, !tbaa !58
   %26 = getelementptr inbounds nuw i8, ptr %13, i64 164
-  store i32 %24, ptr %26, align 4, !tbaa !67
+  store i32 %24, ptr %26, align 4, !tbaa !66
   %27 = getelementptr inbounds nuw i8, ptr %2, i64 396
-  store i32 %24, ptr %27, align 4, !tbaa !68
+  store i32 %24, ptr %27, align 4, !tbaa !67
   %28 = getelementptr inbounds nuw i8, ptr %2, i64 20
   %29 = load i32, ptr %28, align 4, !tbaa !37
   %30 = tail call i32 @ff_alloc_extradata(ptr noundef nonnull %13, i32 noundef %29) #6
@@ -495,19 +495,19 @@ define internal fastcc range(i32 -2147483648, 2) i32 @parse_opus_header(ptr noun
   br i1 %31, label %43, label %32
 
 32:                                               ; preds = %21
-  %33 = load ptr, ptr %12, align 8, !tbaa !61
+  %33 = load ptr, ptr %12, align 8, !tbaa !60
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 16
-  %35 = load ptr, ptr %34, align 8, !tbaa !69
+  %35 = load ptr, ptr %34, align 8, !tbaa !68
   %36 = load i32, ptr %28, align 4, !tbaa !37
   %37 = zext i32 %36 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %35, ptr nonnull align 1 %4, i64 %37, i1 false)
-  %38 = load ptr, ptr %12, align 8, !tbaa !61
+  %38 = load ptr, ptr %12, align 8, !tbaa !60
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 152
-  store i32 48000, ptr %39, align 8, !tbaa !70
+  store i32 48000, ptr %39, align 8, !tbaa !69
   %40 = tail call i64 @av_rescale(i64 noundef 80, i64 noundef 48000, i64 noundef 1000) #7
   %41 = trunc i64 %40 to i32
   %42 = getelementptr inbounds nuw i8, ptr %38, i64 172
-  store i32 %41, ptr %42, align 4, !tbaa !71
+  store i32 %41, ptr %42, align 4, !tbaa !70
   tail call void @avpriv_set_pts_info(ptr noundef nonnull %1, i32 noundef 64, i32 noundef 1, i32 noundef 48000) #6
   store i32 1, ptr %3, align 8, !tbaa !38
   br label %43
@@ -597,29 +597,28 @@ attributes #7 = { nounwind willreturn memory(none) }
 !43 = !{!8, !8, i64 0}
 !44 = !{!32, !13, i64 24}
 !45 = !{!32, !13, i64 108}
-!46 = distinct !{!46, !47, !48}
+!46 = distinct !{!46, !47}
 !47 = !{!"llvm.loop.mustprogress"}
-!48 = !{!"llvm.loop.estimated_trip_count"}
-!49 = !{!32, !19, i64 64}
-!50 = !{!32, !13, i64 28}
-!51 = !{!39, !19, i64 8}
-!52 = !{!53, !19, i64 40}
-!53 = !{!"AVStream", !6, i64 0, !13, i64 8, !13, i64 12, !54, i64 16, !7, i64 24, !55, i64 32, !19, i64 40, !19, i64 48, !19, i64 56, !13, i64 64, !13, i64 68, !55, i64 72, !21, i64 80, !55, i64 88, !56, i64 96, !13, i64 200, !55, i64 204, !13, i64 212}
-!54 = !{!"p1 _ZTS17AVCodecParameters", !7, i64 0}
-!55 = !{!"AVRational", !13, i64 0, !13, i64 4}
-!56 = !{!"AVPacket", !57, i64 0, !19, i64 8, !19, i64 16, !18, i64 24, !13, i64 32, !13, i64 36, !13, i64 40, !58, i64 48, !13, i64 56, !19, i64 64, !19, i64 72, !7, i64 80, !57, i64 88, !55, i64 96}
-!57 = !{!"p1 _ZTS11AVBufferRef", !7, i64 0}
-!58 = !{!"p1 _ZTS16AVPacketSideData", !7, i64 0}
-!59 = !{!39, !13, i64 4}
-!60 = !{!32, !13, i64 400}
-!61 = !{!53, !54, i64 16}
-!62 = !{!63, !13, i64 0}
-!63 = !{!"AVCodecParameters", !13, i64 0, !13, i64 4, !13, i64 8, !18, i64 16, !13, i64 24, !58, i64 32, !13, i64 40, !13, i64 44, !19, i64 48, !13, i64 56, !13, i64 60, !13, i64 64, !13, i64 68, !13, i64 72, !13, i64 76, !55, i64 80, !55, i64 88, !13, i64 96, !13, i64 100, !13, i64 104, !13, i64 108, !13, i64 112, !13, i64 116, !13, i64 120, !64, i64 128, !13, i64 152, !13, i64 156, !13, i64 160, !13, i64 164, !13, i64 168, !13, i64 172}
-!64 = !{!"AVChannelLayout", !13, i64 0, !13, i64 4, !8, i64 8, !7, i64 16}
-!65 = !{!63, !13, i64 4}
-!66 = !{!63, !13, i64 132}
-!67 = !{!63, !13, i64 164}
-!68 = !{!32, !13, i64 396}
-!69 = !{!63, !18, i64 16}
-!70 = !{!63, !13, i64 152}
-!71 = !{!63, !13, i64 172}
+!48 = !{!32, !19, i64 64}
+!49 = !{!32, !13, i64 28}
+!50 = !{!39, !19, i64 8}
+!51 = !{!52, !19, i64 40}
+!52 = !{!"AVStream", !6, i64 0, !13, i64 8, !13, i64 12, !53, i64 16, !7, i64 24, !54, i64 32, !19, i64 40, !19, i64 48, !19, i64 56, !13, i64 64, !13, i64 68, !54, i64 72, !21, i64 80, !54, i64 88, !55, i64 96, !13, i64 200, !54, i64 204, !13, i64 212}
+!53 = !{!"p1 _ZTS17AVCodecParameters", !7, i64 0}
+!54 = !{!"AVRational", !13, i64 0, !13, i64 4}
+!55 = !{!"AVPacket", !56, i64 0, !19, i64 8, !19, i64 16, !18, i64 24, !13, i64 32, !13, i64 36, !13, i64 40, !57, i64 48, !13, i64 56, !19, i64 64, !19, i64 72, !7, i64 80, !56, i64 88, !54, i64 96}
+!56 = !{!"p1 _ZTS11AVBufferRef", !7, i64 0}
+!57 = !{!"p1 _ZTS16AVPacketSideData", !7, i64 0}
+!58 = !{!39, !13, i64 4}
+!59 = !{!32, !13, i64 400}
+!60 = !{!52, !53, i64 16}
+!61 = !{!62, !13, i64 0}
+!62 = !{!"AVCodecParameters", !13, i64 0, !13, i64 4, !13, i64 8, !18, i64 16, !13, i64 24, !57, i64 32, !13, i64 40, !13, i64 44, !19, i64 48, !13, i64 56, !13, i64 60, !13, i64 64, !13, i64 68, !13, i64 72, !13, i64 76, !54, i64 80, !54, i64 88, !13, i64 96, !13, i64 100, !13, i64 104, !13, i64 108, !13, i64 112, !13, i64 116, !13, i64 120, !63, i64 128, !13, i64 152, !13, i64 156, !13, i64 160, !13, i64 164, !13, i64 168, !13, i64 172}
+!63 = !{!"AVChannelLayout", !13, i64 0, !13, i64 4, !8, i64 8, !7, i64 16}
+!64 = !{!62, !13, i64 4}
+!65 = !{!62, !13, i64 132}
+!66 = !{!62, !13, i64 164}
+!67 = !{!32, !13, i64 396}
+!68 = !{!62, !18, i64 16}
+!69 = !{!62, !13, i64 152}
+!70 = !{!62, !13, i64 172}

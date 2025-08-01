@@ -1191,7 +1191,7 @@ define internal i32 @dissect_kafka(ptr noundef %0, ptr noundef %1, ptr noundef %
 34:                                               ; preds = %.preheader.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.i.i = icmp eq i64 %indvars.iv.next.i.i, 50
-  br i1 %exitcond.i.i, label %kafka_is_api_version_flexible.exit, label %.preheader.i.i, !llvm.loop !9
+  br i1 %exitcond.i.i, label %kafka_is_api_version_flexible.exit, label %.preheader.i.i, !llvm.loop !8
 
 .preheader.i.i:                                   ; preds = %20, %34
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %34 ], [ 0, %20 ]
@@ -1257,7 +1257,7 @@ proto_item_set_hidden.exit:                       ; preds = %kafka_is_api_versio
 69:                                               ; preds = %.preheader.i.i639
   %indvars.iv.next.i.i641 = add nuw nsw i64 %indvars.iv.i.i640, 1
   %exitcond.i.i642 = icmp eq i64 %indvars.iv.next.i.i641, 50
-  br i1 %exitcond.i.i642, label %kafka_get_api_info.exit.thread.i, label %.preheader.i.i639, !llvm.loop !9
+  br i1 %exitcond.i.i642, label %kafka_get_api_info.exit.thread.i, label %.preheader.i.i639, !llvm.loop !8
 
 .preheader.i.i639:                                ; preds = %proto_item_set_hidden.exit, %69
   %indvars.iv.i.i640 = phi i64 [ %indvars.iv.next.i.i641, %69 ], [ 0, %proto_item_set_hidden.exit ]
@@ -1320,7 +1320,7 @@ proto_item_set_hidden.exit646:                    ; preds = %kafka_check_support
 
 101:                                              ; preds = %95, %98
   %.0635 = phi i32 [ 12, %95 ], [ %100, %98 ]
-  %102 = load i8, ptr %45, align 1, !range !10, !noundef !11
+  %102 = load i8, ptr %45, align 1, !range !9, !noundef !10
   %103 = trunc nuw i8 %102 to i1
   br i1 %103, label %104, label %106
 
@@ -1768,7 +1768,7 @@ proto_item_set_generated.exit660:                 ; preds = %proto_item_set_hidd
 308:                                              ; preds = %.preheader.i.i661
   %indvars.iv.next.i.i663 = add nuw nsw i64 %indvars.iv.i.i662, 1
   %exitcond.i.i664 = icmp eq i64 %indvars.iv.next.i.i663, 50
-  br i1 %exitcond.i.i664, label %kafka_get_api_info.exit.thread.i665, label %.preheader.i.i661, !llvm.loop !9
+  br i1 %exitcond.i.i664, label %kafka_get_api_info.exit.thread.i665, label %.preheader.i.i661, !llvm.loop !8
 
 .preheader.i.i661:                                ; preds = %proto_item_set_generated.exit660, %308
   %indvars.iv.i.i662 = phi i64 [ %indvars.iv.next.i.i663, %308 ], [ 0, %proto_item_set_generated.exit660 ]
@@ -1819,7 +1819,7 @@ proto_item_set_generated.exit670:                 ; preds = %kafka_check_support
 
 332:                                              ; preds = %proto_item_set_generated.exit670
   %333 = getelementptr inbounds nuw i8, ptr %251, i64 17
-  %334 = load i8, ptr %333, align 1, !range !10, !noundef !11
+  %334 = load i8, ptr %333, align 1, !range !9, !noundef !10
   %335 = trunc nuw i8 %334 to i1
   br i1 %335, label %336, label %338
 
@@ -2144,7 +2144,7 @@ define internal fastcc signext i16 @kafka_check_supported_api_version(ptr nounde
 8:                                                ; preds = %.preheader.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.i = icmp eq i64 %indvars.iv.next.i, 50
-  br i1 %exitcond.i, label %kafka_get_api_info.exit.thread, label %.preheader.i, !llvm.loop !9
+  br i1 %exitcond.i, label %kafka_get_api_info.exit.thread, label %.preheader.i, !llvm.loop !8
 
 .preheader.i:                                     ; preds = %3, %8
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %8 ], [ 0, %3 ]
@@ -2347,7 +2347,7 @@ define internal fastcc i32 @dissect_kafka_tagged_fields(ptr noundef %0, ptr noun
 24:                                               ; preds = %dissect_kafka_tagged_field.exit
   %25 = add nuw nsw i32 %.02127.i, 1
   %exitcond.not.i = icmp eq i32 %25, %20
-  br i1 %exitcond.not.i, label %dissect_kafka_array_elements.exit, label %.lr.ph.i, !llvm.loop !12
+  br i1 %exitcond.not.i, label %dissect_kafka_array_elements.exit, label %.lr.ph.i, !llvm.loop !11
 
 .lr.ph.i:                                         ; preds = %.preheader.i, %24
   %.02127.i = phi i32 [ %25, %24 ], [ 0, %.preheader.i ]
@@ -5055,7 +5055,7 @@ dissect_kafka_error.exit:                         ; preds = %4, %9
 24:                                               ; preds = %.lr.ph.i.i20.i
   %25 = add nuw nsw i32 %.02127.i.i21.i, 1
   %exitcond.not.i.i23.i = icmp eq i32 %25, %17
-  br i1 %exitcond.not.i.i23.i, label %dissect_kafka_array.exit, label %.lr.ph.i.i20.i, !llvm.loop !12
+  br i1 %exitcond.not.i.i23.i, label %dissect_kafka_array.exit, label %.lr.ph.i.i20.i, !llvm.loop !11
 
 .lr.ph.i.i20.i:                                   ; preds = %.preheader.i.i15.i, %24
   %.02127.i.i21.i = phi i32 [ %25, %24 ], [ 0, %.preheader.i.i15.i ]
@@ -6240,7 +6240,7 @@ define internal fastcc i32 @dissect_kafka_array(ptr noundef %0, ptr noundef %1, 
 31:                                               ; preds = %.lr.ph.i.i
   %32 = add nuw nsw i32 %.02127.i.i, 1
   %exitcond.not.i.i = icmp eq i32 %32, %27
-  br i1 %exitcond.not.i.i, label %dissect_kafka_array_elements.exit.i, label %.lr.ph.i.i, !llvm.loop !12
+  br i1 %exitcond.not.i.i, label %dissect_kafka_array_elements.exit.i, label %.lr.ph.i.i, !llvm.loop !11
 
 .lr.ph.i.i:                                       ; preds = %.preheader.i.i, %31
   %.02127.i.i = phi i32 [ %32, %31 ], [ 0, %.preheader.i.i ]
@@ -6296,7 +6296,7 @@ dissect_kafka_compact_array.exit:                 ; preds = %13, %20, %dissect_k
 52:                                               ; preds = %.lr.ph.i.i20
   %53 = add nuw nsw i32 %.02127.i.i21, 1
   %exitcond.not.i.i23 = icmp eq i32 %53, %42
-  br i1 %exitcond.not.i.i23, label %dissect_kafka_array_elements.exit.i16, label %.lr.ph.i.i20, !llvm.loop !12
+  br i1 %exitcond.not.i.i23, label %dissect_kafka_array_elements.exit.i16, label %.lr.ph.i.i20, !llvm.loop !11
 
 .lr.ph.i.i20:                                     ; preds = %.preheader.i.i15, %52
   %.02127.i.i21 = phi i32 [ %53, %52 ], [ 0, %.preheader.i.i15 ]
@@ -6850,14 +6850,14 @@ dissect_kafka_offset_delta.exit.i.i:              ; preds = %257, %254
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17) #9
   %259 = load i32, ptr @hf_kafka_message_key, align 4
   %260 = call fastcc i32 @dissect_kafka_bytes_new(ptr noundef %210, ptr noundef %1, ptr noundef %212, i32 noundef %259, i32 noundef %.0.i52.i.i, ptr noundef nonnull %22)
-  %261 = load i8, ptr %22, align 1, !range !10, !noundef !11
+  %261 = load i8, ptr %22, align 1, !range !9, !noundef !10
   %262 = trunc nuw i8 %261 to i1
   br i1 %262, label %dissect_kafka_record.exit.i, label %263
 
 263:                                              ; preds = %dissect_kafka_offset_delta.exit.i.i
   %264 = load i32, ptr @hf_kafka_message_value, align 4
   %265 = call fastcc i32 @dissect_kafka_bytes_new(ptr noundef %210, ptr noundef %1, ptr noundef %212, i32 noundef %264, i32 noundef %260, ptr noundef nonnull %22)
-  %266 = load i8, ptr %22, align 1, !range !10, !noundef !11
+  %266 = load i8, ptr %22, align 1, !range !9, !noundef !10
   %267 = trunc nuw i8 %266 to i1
   br i1 %267, label %dissect_kafka_record.exit.i, label %268
 
@@ -6971,10 +6971,10 @@ dissect_kafka_record_headers_header.exit.i.i.i:   ; preds = %312, %292
   %322 = sext i32 %321 to i64
   %323 = load i64, ptr %15, align 8
   %324 = icmp sle i64 %323, %322
-  %325 = load i8, ptr %16, align 1, !range !10
+  %325 = load i8, ptr %16, align 1, !range !9
   %326 = trunc nuw i8 %325 to i1
   %.not23.i.i.i = select i1 %324, i1 true, i1 %326
-  br i1 %.not23.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i, !llvm.loop !13
+  br i1 %.not23.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i, !llvm.loop !12
 
 ._crit_edge.i.i.i:                                ; preds = %dissect_kafka_record_headers_header.exit.i.i.i, %283
   %.021.lcssa.i.i.i = phi i32 [ %285, %283 ], [ %317, %dissect_kafka_record_headers_header.exit.i.i.i ]
@@ -7008,7 +7008,7 @@ dissect_kafka_record.exit.i:                      ; preds = %331, %263, %dissect
   store i32 %.0.i.i, ptr %25, align 4
   %333 = add nuw i32 %.094104.i, 1
   %exitcond.not.i = icmp eq i32 %333, %184
-  br i1 %exitcond.not.i, label %dissect_kafka_message_new.exit, label %208, !llvm.loop !14
+  br i1 %exitcond.not.i, label %dissect_kafka_message_new.exit, label %208, !llvm.loop !13
 
 334:                                              ; preds = %148
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %132, ptr noundef nonnull @.str.649)
@@ -7025,7 +7025,7 @@ dissect_kafka_message.exit:                       ; preds = %dissect_kafka_messa
   %.0.i = phi i32 [ %.0.i24, %dissect_kafka_message_old.exit ], [ %.0.i23, %dissect_kafka_message_new.exit ]
   call void @decrement_dissection_depth(ptr noundef %1)
   %335 = icmp slt i32 %.0.i, %27
-  br i1 %335, label %37, label %._crit_edge, !llvm.loop !15
+  br i1 %335, label %37, label %._crit_edge, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %dissect_kafka_message.exit, %33
   %.0.lcssa = phi i32 [ %3, %33 ], [ %.0.i, %dissect_kafka_message.exit ]
@@ -7204,7 +7204,7 @@ define internal fastcc noundef zeroext i1 @decompress(ptr noundef %0, ptr nounde
   %45 = add nuw nsw i32 %.04898.i, 1
   %46 = add nuw nsw i32 %30, %31
   %47 = icmp ult i32 %46, %3
-  br i1 %47, label %26, label %.thread78.i, !llvm.loop !16
+  br i1 %47, label %26, label %.thread78.i, !llvm.loop !15
 
 48:                                               ; preds = %21
   %49 = tail call ptr @tvb_child_uncompress_snappy(ptr noundef %0, ptr noundef %0, i32 noundef %2, i32 noundef range(i32 1, 4194305) %3)
@@ -7291,7 +7291,7 @@ define internal fastcc noundef zeroext i1 @decompress(ptr noundef %0, ptr nounde
   %79 = mul i32 %78, 668265263
   %80 = getelementptr i8, ptr %74, i64 4
   %.not.i.i.i = icmp ugt ptr %80, %70
-  br i1 %.not.i.i.i, label %.preheader.i.i.i, label %.lr.ph.i.i.i, !llvm.loop !17
+  br i1 %.not.i.i.i, label %.preheader.i.i.i, label %.lr.ph.i.i.i, !llvm.loop !16
 
 .lr.ph82.i.i.i:                                   ; preds = %.preheader.i.i.i, %.lr.ph82.i.i.i
   %.381.i.i.i = phi ptr [ %87, %.lr.ph82.i.i.i ], [ %.2.lcssa.i.i.i, %.preheader.i.i.i ]
@@ -7304,7 +7304,7 @@ define internal fastcc noundef zeroext i1 @decompress(ptr noundef %0, ptr nounde
   %86 = mul i32 %85, -1640531535
   %87 = getelementptr i8, ptr %.381.i.i.i, i64 1
   %88 = icmp ult ptr %87, %70
-  br i1 %88, label %.lr.ph82.i.i.i, label %XXH32.exit.i, !llvm.loop !18
+  br i1 %88, label %.lr.ph82.i.i.i, label %XXH32.exit.i, !llvm.loop !17
 
 XXH32.exit.i:                                     ; preds = %.lr.ph82.i.i.i, %.preheader.i.i.i
   %.272.lcssa.i.i.i = phi i32 [ %.171.lcssa.i.i.i, %.preheader.i.i.i ], [ %86, %.lr.ph82.i.i.i ]
@@ -7362,7 +7362,7 @@ switch.lookup:                                    ; preds = %107
   %119 = sub i64 %59, %145
   store i64 %119, ptr %11, align 8
   %120 = icmp eq i64 %145, %59
-  br i1 %120, label %.critedge.i38, label %.lr.ph.i37, !llvm.loop !19
+  br i1 %120, label %.critedge.i38, label %.lr.ph.i37
 
 .lr.ph.i37:                                       ; preds = %switch.lookup, %117
   %.073.i = phi i32 [ %118, %117 ], [ 0, %switch.lookup ]
@@ -9486,7 +9486,7 @@ define internal noundef i32 @dissect_kafka_add_partitions_to_txn_request_topic(p
   %25 = add i32 %.02226.i.i22.i, 4
   %26 = add nuw nsw i32 %.02127.i.i21.i, 1
   %exitcond.not.i.i23.i = icmp eq i32 %26, %16
-  br i1 %exitcond.not.i.i23.i, label %dissect_kafka_array.exit, label %.preheader, !llvm.loop !12
+  br i1 %exitcond.not.i.i23.i, label %dissect_kafka_array.exit, label %.preheader, !llvm.loop !11
 
 dissect_kafka_array.exit.sink.split:              ; preds = %19, %5
   %27 = call ptr @proto_tree_get_parent(ptr noundef %15)
@@ -9586,7 +9586,7 @@ define internal noundef i32 @dissect_kafka_write_txn_markers_request_topic(ptr n
   %25 = add i32 %.02226.i.i22.i, 4
   %26 = add nuw nsw i32 %.02127.i.i21.i, 1
   %exitcond.not.i.i23.i = icmp eq i32 %26, %16
-  br i1 %exitcond.not.i.i23.i, label %dissect_kafka_array.exit, label %.preheader, !llvm.loop !12
+  br i1 %exitcond.not.i.i23.i, label %dissect_kafka_array.exit, label %.preheader, !llvm.loop !11
 
 dissect_kafka_array.exit.sink.split:              ; preds = %19, %5
   %27 = call ptr @proto_tree_get_parent(ptr noundef %15)
@@ -9938,7 +9938,7 @@ define internal noundef i32 @dissect_kafka_alter_replica_log_dirs_request_topic(
   %25 = add i32 %.02226.i.i22.i, 4
   %26 = add nuw nsw i32 %.02127.i.i21.i, 1
   %exitcond.not.i.i23.i = icmp eq i32 %26, %16
-  br i1 %exitcond.not.i.i23.i, label %dissect_kafka_array.exit, label %.preheader, !llvm.loop !12
+  br i1 %exitcond.not.i.i23.i, label %dissect_kafka_array.exit, label %.preheader, !llvm.loop !11
 
 dissect_kafka_array.exit.sink.split:              ; preds = %19, %5
   %27 = call ptr @proto_tree_get_parent(ptr noundef %15)
@@ -10001,7 +10001,7 @@ define internal noundef i32 @dissect_kafka_describe_log_dirs_request_topic(ptr n
   %25 = add i32 %.02226.i.i22.i, 4
   %26 = add nuw nsw i32 %.02127.i.i21.i, 1
   %exitcond.not.i.i23.i = icmp eq i32 %26, %16
-  br i1 %exitcond.not.i.i23.i, label %dissect_kafka_array.exit, label %.preheader, !llvm.loop !12
+  br i1 %exitcond.not.i.i23.i, label %dissect_kafka_array.exit, label %.preheader, !llvm.loop !11
 
 dissect_kafka_array.exit.sink.split:              ; preds = %19, %5
   %27 = call ptr @proto_tree_get_parent(ptr noundef %15)
@@ -10301,7 +10301,7 @@ define internal noundef i32 @dissect_kafka_alter_partition_reassignments_request
   %25 = add i32 %.02226.i.i22.i, 4
   %26 = add nuw nsw i32 %.02127.i.i21.i, 1
   %exitcond.not.i.i23.i = icmp eq i32 %26, %16
-  br i1 %exitcond.not.i.i23.i, label %dissect_kafka_array.exit, label %.preheader, !llvm.loop !12
+  br i1 %exitcond.not.i.i23.i, label %dissect_kafka_array.exit, label %.preheader, !llvm.loop !11
 
 dissect_kafka_array.exit.sink.split:              ; preds = %19, %5
   %27 = call ptr @proto_tree_get_parent(ptr noundef %15)
@@ -10382,7 +10382,7 @@ define internal noundef i32 @dissect_kafka_offset_delete_request_topic(ptr nound
   %23 = add i32 %.02226.i.i22.i, 4
   %24 = add nuw nsw i32 %.02127.i.i21.i, 1
   %exitcond.not.i.i23.i = icmp eq i32 %24, %14
-  br i1 %exitcond.not.i.i23.i, label %dissect_kafka_array.exit, label %.preheader, !llvm.loop !12
+  br i1 %exitcond.not.i.i23.i, label %dissect_kafka_array.exit, label %.preheader, !llvm.loop !11
 
 dissect_kafka_array.exit.sink.split:              ; preds = %17, %5
   %25 = call ptr @proto_tree_get_parent(ptr noundef %13)
@@ -10835,7 +10835,7 @@ dissect_kafka_error.exit:                         ; preds = %5, %16
   %36 = add i32 %.02226.i.i22.i, 8
   %37 = add nuw nsw i32 %.02127.i.i21.i, 1
   %exitcond.not.i.i23.i = icmp eq i32 %37, %24
-  br i1 %exitcond.not.i.i23.i, label %.thread, label %.preheader, !llvm.loop !12
+  br i1 %exitcond.not.i.i23.i, label %.thread, label %.preheader, !llvm.loop !11
 
 .loopexit.sink.split.i.i24.i:                     ; preds = %30
   %38 = call ptr @proto_tree_get_parent(ptr noundef %8)
@@ -12071,7 +12071,7 @@ define internal i32 @dissect_kafka_api_versions_response_api_version(ptr noundef
 32:                                               ; preds = %.preheader.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.i = icmp eq i64 %indvars.iv.next.i, 50
-  br i1 %exitcond.i, label %kafka_get_api_info.exit.thread, label %.preheader.i, !llvm.loop !9
+  br i1 %exitcond.i, label %kafka_get_api_info.exit.thread, label %.preheader.i, !llvm.loop !8
 
 .preheader.i:                                     ; preds = %30, %32
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %32 ], [ 0, %30 ]
@@ -13914,17 +13914,15 @@ attributes #11 = { allocsize(2) }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = !{i8 0, i8 2}
-!11 = !{}
-!12 = distinct !{!12, !7, !8}
-!13 = distinct !{!13, !7, !8}
-!14 = distinct !{!14, !7, !8}
-!15 = distinct !{!15, !7, !8}
-!16 = distinct !{!16, !7, !8}
-!17 = distinct !{!17, !7, !8}
-!18 = distinct !{!18, !7, !8}
-!19 = distinct !{!19, !8}
+!8 = distinct !{!8, !7}
+!9 = !{i8 0, i8 2}
+!10 = !{}
+!11 = distinct !{!11, !7}
+!12 = distinct !{!12, !7}
+!13 = distinct !{!13, !7}
+!14 = distinct !{!14, !7}
+!15 = distinct !{!15, !7}
+!16 = distinct !{!16, !7}
+!17 = distinct !{!17, !7}

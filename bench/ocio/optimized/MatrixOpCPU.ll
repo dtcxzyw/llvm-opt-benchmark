@@ -700,7 +700,7 @@ define internal void @_ZNK19OpenColorIO_v2_5dev12_GLOBAL__N_113ScaleRenderer5app
   %30 = getelementptr inbounds nuw i8, ptr %.01518, i64 16
   %31 = add nuw nsw i64 %.019, 1
   %exitcond.not = icmp eq i64 %31, %3
-  br i1 %exitcond.not, label %._crit_edge, label %10, !llvm.loop !76
+  br i1 %exitcond.not, label %._crit_edge, label %10, !llvm.loop !75
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -857,7 +857,7 @@ define internal void @_ZNK19OpenColorIO_v2_5dev12_GLOBAL__N_124MatrixWithOffsetR
   %85 = getelementptr inbounds nuw i8, ptr %.02730, i64 16
   %86 = add nuw nsw i64 %.02829, 1
   %exitcond.not = icmp eq i64 %86, %3
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !77
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !76
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -1012,7 +1012,7 @@ define internal void @_ZNK19OpenColorIO_v2_5dev12_GLOBAL__N_114MatrixRenderer5ap
   %73 = getelementptr inbounds nuw i8, ptr %.02528, i64 16
   %74 = add nuw nsw i64 %.02627, 1
   %exitcond.not = icmp eq i64 %74, %3
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !78
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !77
 }
 
 ; Function Attrs: uwtable
@@ -1117,9 +1117,8 @@ attributes #18 = { builtin nounwind }
 !70 = !{!71, !20, i64 8}
 !71 = !{!"_ZTSSt9type_info", !20, i64 8}
 !72 = !{!7, !7, i64 0}
-!73 = distinct !{!73, !74, !75}
+!73 = distinct !{!73, !74}
 !74 = !{!"llvm.loop.mustprogress"}
-!75 = !{!"llvm.loop.estimated_trip_count"}
-!76 = distinct !{!76, !74, !75}
-!77 = distinct !{!77, !74, !75}
-!78 = distinct !{!78, !74, !75}
+!75 = distinct !{!75, !74}
+!76 = distinct !{!76, !74}
+!77 = distinct !{!77, !74}

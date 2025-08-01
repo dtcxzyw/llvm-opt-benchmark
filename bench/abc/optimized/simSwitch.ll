@@ -140,7 +140,7 @@ Vec_IntStart.exit:                                ; preds = %Vec_IntAlloc.exit.t
   %.val = load i32, ptr %54, align 4, !tbaa !24
   %79 = sext i32 %.val to i64
   %80 = icmp slt i64 %indvars.iv.next55, %79
-  br i1 %80, label %60, label %.critedge2, !llvm.loop !39
+  br i1 %80, label %60, label %.critedge2, !llvm.loop !38
 
 .critedge2:                                       ; preds = %60, %.critedge
   %81 = getelementptr inbounds nuw i8, ptr %53, i64 8
@@ -225,7 +225,6 @@ attributes #6 = { nounwind allocsize(0) }
 !33 = !{!"Abc_Obj_t_", !12, i64 0, !34, i64 8, !5, i64 16, !5, i64 20, !5, i64 20, !5, i64 20, !5, i64 20, !5, i64 20, !5, i64 21, !5, i64 21, !5, i64 21, !5, i64 21, !5, i64 21, !15, i64 24, !15, i64 40, !6, i64 56, !6, i64 64}
 !34 = !{!"p1 _ZTS10Abc_Obj_t_", !9, i64 0}
 !35 = !{!20, !20, i64 0}
-!36 = distinct !{!36, !37, !38}
+!36 = distinct !{!36, !37}
 !37 = !{!"llvm.loop.mustprogress"}
-!38 = !{!"llvm.loop.estimated_trip_count"}
-!39 = distinct !{!39, !37, !38}
+!38 = distinct !{!38, !37}

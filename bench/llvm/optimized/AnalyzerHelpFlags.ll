@@ -6203,7 +6203,7 @@ _ZN4llvm4sortIRA73_St4pairINS_9StringRefENSt7__cxx1112basic_stringIcSt11char_tra
 2275:                                             ; preds = %_ZN4llvm4sortIRA73_St4pairINS_9StringRefENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENS_10less_firstEEEvOT_T0_.exit.preheader, %_ZN4llvm11raw_ostreamlsEPKc.exit4264
   %.0.idx4962 = phi i64 [ 0, %_ZN4llvm4sortIRA73_St4pairINS_9StringRefENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENS_10less_firstEEEvOT_T0_.exit.preheader ], [ %.0.add, %_ZN4llvm11raw_ostreamlsEPKc.exit4264 ]
   %.0.ptr = getelementptr inbounds nuw i8, ptr %2, i64 %.0.idx4962
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %222, ptr noundef nonnull align 16 dereferenceable(48) %.0.ptr, i64 16, i1 false), !tbaa.struct !912
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %222, ptr noundef nonnull align 16 dereferenceable(48) %.0.ptr, i64 16, i1 false), !tbaa.struct !911
   %2276 = getelementptr inbounds nuw i8, ptr %.0.ptr, i64 16
   %2277 = load ptr, ptr %2276, align 16, !tbaa !67
   store ptr %2277, ptr %2273, align 8, !tbaa !61
@@ -6233,7 +6233,7 @@ _ZN4llvm4sortIRA73_St4pairINS_9StringRefENSt7__cxx1112basic_stringIcSt11char_tra
 _ZN4llvm11raw_ostreamlsEPKc.exit4264:             ; preds = %2286, %2288
   %.0.add = add nuw nsw i64 %.0.idx4962, 48
   %.not = icmp eq i64 %.0.add, 3504
-  br i1 %.not, label %.preheader, label %2275, !llvm.loop !915
+  br i1 %.not, label %.preheader, label %2275
 
 .preheader:                                       ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit4264, %_ZNSt4pairIN4llvm9StringRefENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit
   %2291 = phi ptr [ %2292, %_ZNSt4pairIN4llvm9StringRefENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit ], [ %2272, %_ZN4llvm11raw_ostreamlsEPKc.exit4264 ]
@@ -6259,7 +6259,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
 
 _ZNSt4pairIN4llvm9StringRefENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   %2302 = icmp eq ptr %2292, %2
-  br i1 %2302, label %2303, label %.preheader, !llvm.loop !916
+  br i1 %2302, label %2303, label %.preheader
 
 2303:                                             ; preds = %_ZNSt4pairIN4llvm9StringRefENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit
   call void @llvm.lifetime.end.p0(i64 3504, ptr nonnull %2) #12
@@ -6324,7 +6324,7 @@ define linkonce_odr void @_ZSt16__introsort_loopIPSt4pairIN4llvm9StringRefENSt7_
   %16 = ptrtoint ptr %15 to i64
   %17 = sub i64 %16, %6
   %18 = icmp sgt i64 %17, 48
-  br i1 %18, label %.lr.ph.i5.i, label %_ZSt14__partial_sortIPSt4pairIN4llvm9StringRefENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_10less_firstEEEEvT_SG_SG_T0_.exit, !llvm.loop !917
+  br i1 %18, label %.lr.ph.i5.i, label %_ZSt14__partial_sortIPSt4pairIN4llvm9StringRefENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_10less_firstEEEEvT_SG_SG_T0_.exit, !llvm.loop !914
 
 _ZSt14__partial_sortIPSt4pairIN4llvm9StringRefENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_10less_firstEEEEvT_SG_SG_T0_.exit: ; preds = %.lr.ph.i5.i
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5)
@@ -6341,7 +6341,7 @@ _ZSt14__partial_sortIPSt4pairIN4llvm9StringRefENSt7__cxx1112basic_stringIcSt11ch
   %25 = ptrtoint ptr %24 to i64
   %26 = sub i64 %25, %6
   %27 = icmp sgt i64 %26, 768
-  br i1 %27, label %11, label %.loopexit, !llvm.loop !918
+  br i1 %27, label %11, label %.loopexit, !llvm.loop !915
 
 .loopexit:                                        ; preds = %19, %3, %_ZSt14__partial_sortIPSt4pairIN4llvm9StringRefENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_10less_firstEEEEvT_SG_SG_T0_.exit
   ret void
@@ -6373,7 +6373,7 @@ define linkonce_odr void @_ZSt11__make_heapIPSt4pairIN4llvm9StringRefENSt7__cxx1
   %.013 = phi i64 [ %13, %11 ], [ %46, %_ZNSt4pairIN4llvm9StringRefENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit19 ]
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4) #12
   %21 = getelementptr inbounds nuw %"struct.std::pair", ptr %0, i64 %.013
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %4, ptr noundef nonnull align 8 dereferenceable(48) %21, i64 16, i1 false), !tbaa.struct !912
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %4, ptr noundef nonnull align 8 dereferenceable(48) %21, i64 16, i1 false), !tbaa.struct !911
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %23 = load ptr, ptr %22, align 8, !tbaa !67
   %24 = getelementptr inbounds nuw i8, ptr %21, i64 32
@@ -6465,7 +6465,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
 
 _ZNSt4pairIN4llvm9StringRefENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit19: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i18, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i17
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4) #12
-  br i1 %.not, label %.loopexit, label %20, !llvm.loop !919
+  br i1 %.not, label %.loopexit, label %20, !llvm.loop !916
 
 .loopexit:                                        ; preds = %_ZNSt4pairIN4llvm9StringRefENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit19, %3
   ret void
@@ -6476,7 +6476,7 @@ define linkonce_odr void @_ZSt10__pop_heapIPSt4pairIN4llvm9StringRefENSt7__cxx11
   %5 = alloca %"struct.std::pair", align 8
   %6 = alloca %"struct.std::pair", align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5) #12
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %5, ptr noundef nonnull align 8 dereferenceable(48) %2, i64 16, i1 false), !tbaa.struct !912
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %5, ptr noundef nonnull align 8 dereferenceable(48) %2, i64 16, i1 false), !tbaa.struct !911
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 32
@@ -6511,7 +6511,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i7:
   store ptr %11, ptr %8, align 8, !tbaa !67
   store i64 0, ptr %20, align 8, !tbaa !69
   store i8 0, ptr %11, align 1, !tbaa !70
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %2, ptr noundef nonnull align 8 dereferenceable(48) %0, i64 16, i1 false), !tbaa.struct !912
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %2, ptr noundef nonnull align 8 dereferenceable(48) %0, i64 16, i1 false), !tbaa.struct !911
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %23 = load ptr, ptr %22, align 8, !tbaa !67
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -6524,7 +6524,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i7:
   %29 = icmp ult i64 %28, 16
   call void @llvm.assume(i1 %29)
   %.not22.i.i = icmp eq ptr %0, %2
-  br i1 %.not22.i.i, label %_ZNSt4pairIN4llvm9StringRefENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEaSEOS8_.exit, label %30, !prof !920
+  br i1 %.not22.i.i, label %_ZNSt4pairIN4llvm9StringRefENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEaSEOS8_.exit, label %30, !prof !917
 
 30:                                               ; preds = %26
   switch i64 %28, label %33 [
@@ -6568,7 +6568,7 @@ _ZNSt4pairIN4llvm9StringRefENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE
   %43 = ptrtoint ptr %0 to i64
   %44 = sub i64 %42, %43
   %45 = sdiv exact i64 %44, 48
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr noundef nonnull align 8 dereferenceable(48) %5, i64 16, i1 false), !tbaa.struct !912
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr noundef nonnull align 8 dereferenceable(48) %5, i64 16, i1 false), !tbaa.struct !911
   %46 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %47 = getelementptr inbounds nuw i8, ptr %6, i64 32
   store ptr %47, ptr %46, align 8, !tbaa !65
@@ -6653,17 +6653,17 @@ define linkonce_odr void @_ZSt13__adjust_heapIPSt4pairIN4llvm9StringRefENSt7__cx
   %12 = getelementptr inbounds %"struct.std::pair", ptr %0, i64 %11
   %13 = getelementptr %"struct.std::pair", ptr %0, i64 %10
   %.sroa.22.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %12, i64 8
-  %.sroa.22.0.copyload.i.i.i.i = load i64, ptr %.sroa.22.0..sroa_idx.i.i.i.i, align 8, !tbaa !914
+  %.sroa.22.0.copyload.i.i.i.i = load i64, ptr %.sroa.22.0..sroa_idx.i.i.i.i, align 8, !tbaa !913
   %.sroa.2.0..sroa_idx.i.i.i.i = getelementptr i8, ptr %13, i64 56
-  %.sroa.2.0.copyload.i.i.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i.i.i, align 8, !tbaa !914
+  %.sroa.2.0.copyload.i.i.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i.i.i, align 8, !tbaa !913
   %.sroa.speculated.i.i.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %.sroa.2.0.copyload.i.i.i.i, i64 %.sroa.22.0.copyload.i.i.i.i)
   %14 = icmp eq i64 %.sroa.speculated.i.i.i.i.i.i, 0
   br i1 %14, label %.thread.i.i.i.i.i.i, label %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i.i
 
 _ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i.i: ; preds = %.lr.ph
   %15 = getelementptr i8, ptr %13, i64 48
-  %.sroa.0.0.copyload.i.i.i.i = load ptr, ptr %15, align 8, !tbaa !913
-  %.sroa.01.0.copyload.i.i.i.i = load ptr, ptr %12, align 8, !tbaa !913
+  %.sroa.0.0.copyload.i.i.i.i = load ptr, ptr %15, align 8, !tbaa !912
+  %.sroa.01.0.copyload.i.i.i.i = load ptr, ptr %12, align 8, !tbaa !912
   %16 = tail call i32 @memcmp(ptr noundef %.sroa.01.0.copyload.i.i.i.i, ptr noundef %.sroa.0.0.copyload.i.i.i.i, i64 noundef %.sroa.speculated.i.i.i.i.i.i) #15
   %.fr.i.i.i.i.i.i = freeze i32 %16
   %.not.not.i.i.i.i.i.i = icmp eq i32 %.fr.i.i.i.i.i.i, 0
@@ -6683,7 +6683,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4llvm10less_firstEEclIPSt4pairINS2_9String
   %spec.select43 = select i1 %.sink, i64 %19, i64 %11
   %20 = getelementptr inbounds %"struct.std::pair", ptr %0, i64 %spec.select43
   %21 = getelementptr inbounds %"struct.std::pair", ptr %0, i64 %.044
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %21, ptr noundef nonnull align 8 dereferenceable(48) %20, i64 16, i1 false), !tbaa.struct !912
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %21, ptr noundef nonnull align 8 dereferenceable(48) %20, i64 16, i1 false), !tbaa.struct !911
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 16
   %23 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %24 = load ptr, ptr %23, align 8, !tbaa !67
@@ -6714,7 +6714,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   %40 = icmp ult i64 %39, 16
   tail call void @llvm.assume(i1 %40)
   %.not22.i.i = icmp eq i64 %spec.select43, %.044
-  br i1 %.not22.i.i, label %_ZNSt4pairIN4llvm9StringRefENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEaSEOS8_.exit, label %41, !prof !920
+  br i1 %.not22.i.i, label %_ZNSt4pairIN4llvm9StringRefENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEaSEOS8_.exit, label %41, !prof !917
 
 41:                                               ; preds = %36
   switch i64 %39, label %44 [
@@ -6778,7 +6778,7 @@ _ZNSt4pairIN4llvm9StringRefENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE
   store i64 0, ptr %61, align 8, !tbaa !69
   store i8 0, ptr %60, align 1, !tbaa !70
   %62 = icmp slt i64 %spec.select43, %8
-  br i1 %62, label %.lr.ph, label %._crit_edge, !llvm.loop !921
+  br i1 %62, label %.lr.ph, label %._crit_edge, !llvm.loop !918
 
 ._crit_edge:                                      ; preds = %_ZNSt4pairIN4llvm9StringRefENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEaSEOS8_.exit, %4
   %.0.lcssa = phi i64 [ %1, %4 ], [ %spec.select43, %_ZNSt4pairIN4llvm9StringRefENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEaSEOS8_.exit ]
@@ -6797,7 +6797,7 @@ _ZNSt4pairIN4llvm9StringRefENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE
   %71 = or disjoint i64 %70, 1
   %72 = getelementptr inbounds %"struct.std::pair", ptr %0, i64 %71
   %73 = getelementptr inbounds %"struct.std::pair", ptr %0, i64 %.0.lcssa
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %73, ptr noundef nonnull align 8 dereferenceable(48) %72, i64 16, i1 false), !tbaa.struct !912
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %73, ptr noundef nonnull align 8 dereferenceable(48) %72, i64 16, i1 false), !tbaa.struct !911
   %74 = getelementptr inbounds nuw i8, ptr %72, i64 16
   %75 = getelementptr inbounds nuw i8, ptr %73, i64 16
   %76 = load ptr, ptr %75, align 8, !tbaa !67
@@ -6828,7 +6828,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   %92 = icmp ult i64 %91, 16
   tail call void @llvm.assume(i1 %92)
   %.not22.i.i31 = icmp eq i64 %71, %.0.lcssa
-  br i1 %.not22.i.i31, label %_ZNSt4pairIN4llvm9StringRefENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEaSEOS8_.exit36, label %93, !prof !920
+  br i1 %.not22.i.i31, label %_ZNSt4pairIN4llvm9StringRefENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEaSEOS8_.exit36, label %93, !prof !917
 
 93:                                               ; preds = %88
   switch i64 %91, label %96 [
@@ -6896,7 +6896,7 @@ _ZNSt4pairIN4llvm9StringRefENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE
 114:                                              ; preds = %_ZNSt4pairIN4llvm9StringRefENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEaSEOS8_.exit36, %65, %._crit_edge
   %.127 = phi i64 [ %71, %_ZNSt4pairIN4llvm9StringRefENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEaSEOS8_.exit36 ], [ %.0.lcssa, %65 ], [ %.0.lcssa, %._crit_edge ]
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #12
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr noundef nonnull align 8 dereferenceable(48) %3, i64 16, i1 false), !tbaa.struct !912
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr noundef nonnull align 8 dereferenceable(48) %3, i64 16, i1 false), !tbaa.struct !911
   %115 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %116 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %117 = getelementptr inbounds nuw i8, ptr %6, i64 32
@@ -6968,15 +6968,15 @@ define linkonce_odr void @_ZSt11__push_heapIPSt4pairIN4llvm9StringRefENSt7__cxx1
   %.029 = sdiv i64 %.029.in, 2
   %8 = getelementptr inbounds %"struct.std::pair", ptr %0, i64 %.029
   %.sroa.22.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %.sroa.22.0.copyload.i.i.i.i = load i64, ptr %.sroa.22.0..sroa_idx.i.i.i.i, align 8, !tbaa !914
-  %.sroa.2.0.copyload.i.i.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i.i.i, align 8, !tbaa !914
+  %.sroa.22.0.copyload.i.i.i.i = load i64, ptr %.sroa.22.0..sroa_idx.i.i.i.i, align 8, !tbaa !913
+  %.sroa.2.0.copyload.i.i.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i.i.i, align 8, !tbaa !913
   %.sroa.speculated.i.i.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %.sroa.2.0.copyload.i.i.i.i, i64 %.sroa.22.0.copyload.i.i.i.i)
   %9 = icmp eq i64 %.sroa.speculated.i.i.i.i.i.i, 0
   br i1 %9, label %.thread.i.i.i.i.i.i, label %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i.i
 
 _ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i.i: ; preds = %7
-  %.sroa.0.0.copyload.i.i.i.i = load ptr, ptr %3, align 8, !tbaa !913
-  %.sroa.01.0.copyload.i.i.i.i = load ptr, ptr %8, align 8, !tbaa !913
+  %.sroa.0.0.copyload.i.i.i.i = load ptr, ptr %3, align 8, !tbaa !912
+  %.sroa.01.0.copyload.i.i.i.i = load ptr, ptr %8, align 8, !tbaa !912
   %10 = tail call i32 @memcmp(ptr noundef %.sroa.01.0.copyload.i.i.i.i, ptr noundef %.sroa.0.0.copyload.i.i.i.i, i64 noundef %.sroa.speculated.i.i.i.i.i.i) #15
   %.fr.i.i.i.i.i.i = freeze i32 %10
   %.not.not.i.i.i.i.i.i = icmp eq i32 %.fr.i.i.i.i.i.i, 0
@@ -6992,7 +6992,7 @@ _ZN9__gnu_cxx5__ops14_Iter_comp_valIN4llvm10less_firstEEclIPSt4pairINS2_9StringR
 
 _ZN9__gnu_cxx5__ops14_Iter_comp_valIN4llvm10less_firstEEclIPSt4pairINS2_9StringRefENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESE_EEbT_RT0_.exit.thread24: ; preds = %.thread.i.i.i.i.i.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN4llvm10less_firstEEclIPSt4pairINS2_9StringRefENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESE_EEbT_RT0_.exit
   %13 = getelementptr inbounds %"struct.std::pair", ptr %0, i64 %.01328
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %13, ptr noundef nonnull align 8 dereferenceable(48) %8, i64 16, i1 false), !tbaa.struct !912
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %13, ptr noundef nonnull align 8 dereferenceable(48) %8, i64 16, i1 false), !tbaa.struct !911
   %14 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %15 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %16 = load ptr, ptr %15, align 8, !tbaa !67
@@ -7023,7 +7023,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   %32 = icmp ult i64 %31, 16
   tail call void @llvm.assume(i1 %32)
   %.not22.i.i = icmp eq i64 %.029, %.01328
-  br i1 %.not22.i.i, label %_ZNSt4pairIN4llvm9StringRefENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEaSEOS8_.exit, label %33, !prof !920
+  br i1 %.not22.i.i, label %_ZNSt4pairIN4llvm9StringRefENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEaSEOS8_.exit, label %33, !prof !917
 
 33:                                               ; preds = %28
   switch i64 %31, label %36 [
@@ -7087,12 +7087,12 @@ _ZNSt4pairIN4llvm9StringRefENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE
   store i64 0, ptr %53, align 8, !tbaa !69
   store i8 0, ptr %52, align 1, !tbaa !70
   %54 = icmp sgt i64 %.029, %2
-  br i1 %54, label %7, label %.critedge, !llvm.loop !922
+  br i1 %54, label %7, label %.critedge, !llvm.loop !919
 
 .critedge:                                        ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN4llvm10less_firstEEclIPSt4pairINS2_9StringRefENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESE_EEbT_RT0_.exit, %_ZNSt4pairIN4llvm9StringRefENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEaSEOS8_.exit, %.thread.i.i.i.i.i.i, %5
   %.013.lcssa = phi i64 [ %1, %5 ], [ %.01328, %.thread.i.i.i.i.i.i ], [ %.029, %_ZNSt4pairIN4llvm9StringRefENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEaSEOS8_.exit ], [ %.01328, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN4llvm10less_firstEEclIPSt4pairINS2_9StringRefENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESE_EEbT_RT0_.exit ]
   %55 = getelementptr inbounds %"struct.std::pair", ptr %0, i64 %.013.lcssa
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %55, ptr noundef nonnull align 8 dereferenceable(48) %3, i64 16, i1 false), !tbaa.struct !912
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %55, ptr noundef nonnull align 8 dereferenceable(48) %3, i64 16, i1 false), !tbaa.struct !911
   %56 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %57 = getelementptr inbounds nuw i8, ptr %55, i64 16
   %58 = load ptr, ptr %57, align 8, !tbaa !67
@@ -7123,7 +7123,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   %74 = icmp ult i64 %73, 16
   tail call void @llvm.assume(i1 %74)
   %.not22.i.i17 = icmp eq ptr %3, %55
-  br i1 %.not22.i.i17, label %_ZNSt4pairIN4llvm9StringRefENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEaSEOS8_.exit22, label %75, !prof !920
+  br i1 %.not22.i.i17, label %_ZNSt4pairIN4llvm9StringRefENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEaSEOS8_.exit22, label %75, !prof !917
 
 75:                                               ; preds = %70
   switch i64 %73, label %78 [
@@ -7198,16 +7198,16 @@ define linkonce_odr void @_ZSt22__move_median_to_firstIPSt4pairIN4llvm9StringRef
   %9 = alloca %"class.llvm::StringRef", align 8
   %10 = alloca %"class.llvm::StringRef", align 8
   %.sroa.22.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %.sroa.22.0.copyload.i.i.i.i = load i64, ptr %.sroa.22.0..sroa_idx.i.i.i.i, align 8, !tbaa !914
+  %.sroa.22.0.copyload.i.i.i.i = load i64, ptr %.sroa.22.0..sroa_idx.i.i.i.i, align 8, !tbaa !913
   %.sroa.2.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %.sroa.2.0.copyload.i.i.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i.i.i, align 8, !tbaa !914
+  %.sroa.2.0.copyload.i.i.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i.i.i, align 8, !tbaa !913
   %.sroa.speculated.i.i.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %.sroa.2.0.copyload.i.i.i.i, i64 %.sroa.22.0.copyload.i.i.i.i)
   %11 = icmp eq i64 %.sroa.speculated.i.i.i.i.i.i, 0
   br i1 %11, label %.thread.i.i.i.i.i.i, label %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i.i
 
 _ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i.i: ; preds = %4
-  %.sroa.0.0.copyload.i.i.i.i = load ptr, ptr %2, align 8, !tbaa !913
-  %.sroa.01.0.copyload.i.i.i.i = load ptr, ptr %1, align 8, !tbaa !913
+  %.sroa.0.0.copyload.i.i.i.i = load ptr, ptr %2, align 8, !tbaa !912
+  %.sroa.01.0.copyload.i.i.i.i = load ptr, ptr %1, align 8, !tbaa !912
   %12 = tail call i32 @memcmp(ptr noundef %.sroa.01.0.copyload.i.i.i.i, ptr noundef %.sroa.0.0.copyload.i.i.i.i, i64 noundef %.sroa.speculated.i.i.i.i.i.i) #15
   %.fr.i.i.i.i.i.i = freeze i32 %12
   %.not.not.i.i.i.i.i.i = icmp eq i32 %.fr.i.i.i.i.i.i, 0
@@ -7223,14 +7223,14 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4llvm10less_firstEEclIPSt4pairINS2_9String
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4llvm10less_firstEEclIPSt4pairINS2_9StringRefENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESF_EEbT_T0_.exit.thread83: ; preds = %.thread.i.i.i.i.i.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4llvm10less_firstEEclIPSt4pairINS2_9StringRefENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESF_EEbT_T0_.exit
   %.sroa.2.0..sroa_idx.i.i.i.i24 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %.sroa.2.0.copyload.i.i.i.i25 = load i64, ptr %.sroa.2.0..sroa_idx.i.i.i.i24, align 8, !tbaa !914
+  %.sroa.2.0.copyload.i.i.i.i25 = load i64, ptr %.sroa.2.0..sroa_idx.i.i.i.i24, align 8, !tbaa !913
   %.sroa.speculated.i.i.i.i.i.i26 = tail call i64 @llvm.umin.i64(i64 %.sroa.2.0.copyload.i.i.i.i25, i64 %.sroa.2.0.copyload.i.i.i.i)
   %15 = icmp eq i64 %.sroa.speculated.i.i.i.i.i.i26, 0
   br i1 %15, label %.thread.i.i.i.i.i.i35, label %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i.i27
 
 _ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i.i27: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4llvm10less_firstEEclIPSt4pairINS2_9StringRefENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESF_EEbT_T0_.exit.thread83
-  %.sroa.0.0.copyload.i.i.i.i28 = load ptr, ptr %3, align 8, !tbaa !913
-  %.sroa.01.0.copyload.i.i.i.i29 = load ptr, ptr %2, align 8, !tbaa !913
+  %.sroa.0.0.copyload.i.i.i.i28 = load ptr, ptr %3, align 8, !tbaa !912
+  %.sroa.01.0.copyload.i.i.i.i29 = load ptr, ptr %2, align 8, !tbaa !912
   %16 = tail call i32 @memcmp(ptr noundef %.sroa.01.0.copyload.i.i.i.i29, ptr noundef %.sroa.0.0.copyload.i.i.i.i28, i64 noundef %.sroa.speculated.i.i.i.i.i.i26) #15
   %.fr.i.i.i.i.i.i30 = freeze i32 %16
   %.not.not.i.i.i.i.i.i31 = icmp eq i32 %.fr.i.i.i.i.i.i30, 0
@@ -7246,9 +7246,9 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4llvm10less_firstEEclIPSt4pairINS2_9String
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4llvm10less_firstEEclIPSt4pairINS2_9StringRefENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESF_EEbT_T0_.exit36.thread87: ; preds = %.thread.i.i.i.i.i.i35, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4llvm10less_firstEEclIPSt4pairINS2_9StringRefENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESF_EEbT_T0_.exit36
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull align 8 dereferenceable(48) %0, i64 16, i1 false), !tbaa.struct !912
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(48) %2, i64 16, i1 false), !tbaa.struct !912
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %2, ptr noundef nonnull align 8 dereferenceable(16) %10, i64 16, i1 false), !tbaa.struct !912
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull align 8 dereferenceable(48) %0, i64 16, i1 false), !tbaa.struct !911
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(48) %2, i64 16, i1 false), !tbaa.struct !911
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %2, ptr noundef nonnull align 8 dereferenceable(16) %10, i64 16, i1 false), !tbaa.struct !911
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10)
   br label %31
 
@@ -7258,8 +7258,8 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4llvm10less_firstEEclIPSt4pairINS2_9String
   br i1 %19, label %.thread.i.i.i.i.i.i50, label %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i.i42
 
 _ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i.i42: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4llvm10less_firstEEclIPSt4pairINS2_9StringRefENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESF_EEbT_T0_.exit36.thread
-  %.sroa.0.0.copyload.i.i.i.i43 = load ptr, ptr %3, align 8, !tbaa !913
-  %.sroa.01.0.copyload.i.i.i.i44 = load ptr, ptr %1, align 8, !tbaa !913
+  %.sroa.0.0.copyload.i.i.i.i43 = load ptr, ptr %3, align 8, !tbaa !912
+  %.sroa.01.0.copyload.i.i.i.i44 = load ptr, ptr %1, align 8, !tbaa !912
   %20 = tail call i32 @memcmp(ptr noundef %.sroa.01.0.copyload.i.i.i.i44, ptr noundef %.sroa.0.0.copyload.i.i.i.i43, i64 noundef %.sroa.speculated.i.i.i.i.i.i41) #15
   %.fr.i.i.i.i.i.i45 = freeze i32 %20
   %.not.not.i.i.i.i.i.i46 = icmp eq i32 %.fr.i.i.i.i.i.i45, 0
@@ -7275,30 +7275,30 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4llvm10less_firstEEclIPSt4pairINS2_9String
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4llvm10less_firstEEclIPSt4pairINS2_9StringRefENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESF_EEbT_T0_.exit51.thread91: ; preds = %.thread.i.i.i.i.i.i50, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4llvm10less_firstEEclIPSt4pairINS2_9StringRefENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESF_EEbT_T0_.exit51
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(48) %0, i64 16, i1 false), !tbaa.struct !912
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(48) %3, i64 16, i1 false), !tbaa.struct !912
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %3, ptr noundef nonnull align 8 dereferenceable(16) %9, i64 16, i1 false), !tbaa.struct !912
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(48) %0, i64 16, i1 false), !tbaa.struct !911
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(48) %3, i64 16, i1 false), !tbaa.struct !911
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %3, ptr noundef nonnull align 8 dereferenceable(16) %9, i64 16, i1 false), !tbaa.struct !911
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9)
   br label %31
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4llvm10less_firstEEclIPSt4pairINS2_9StringRefENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESF_EEbT_T0_.exit51.thread: ; preds = %.thread.i.i.i.i.i.i50, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4llvm10less_firstEEclIPSt4pairINS2_9StringRefENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESF_EEbT_T0_.exit51
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(48) %0, i64 16, i1 false), !tbaa.struct !912
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(48) %1, i64 16, i1 false), !tbaa.struct !912
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull align 8 dereferenceable(16) %8, i64 16, i1 false), !tbaa.struct !912
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(48) %0, i64 16, i1 false), !tbaa.struct !911
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(48) %1, i64 16, i1 false), !tbaa.struct !911
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull align 8 dereferenceable(16) %8, i64 16, i1 false), !tbaa.struct !911
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
   br label %31
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4llvm10less_firstEEclIPSt4pairINS2_9StringRefENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESF_EEbT_T0_.exit.thread: ; preds = %.thread.i.i.i.i.i.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4llvm10less_firstEEclIPSt4pairINS2_9StringRefENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESF_EEbT_T0_.exit
   %.sroa.2.0..sroa_idx.i.i.i.i54 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %.sroa.2.0.copyload.i.i.i.i55 = load i64, ptr %.sroa.2.0..sroa_idx.i.i.i.i54, align 8, !tbaa !914
+  %.sroa.2.0.copyload.i.i.i.i55 = load i64, ptr %.sroa.2.0..sroa_idx.i.i.i.i54, align 8, !tbaa !913
   %.sroa.speculated.i.i.i.i.i.i56 = tail call i64 @llvm.umin.i64(i64 %.sroa.2.0.copyload.i.i.i.i55, i64 %.sroa.22.0.copyload.i.i.i.i)
   %23 = icmp eq i64 %.sroa.speculated.i.i.i.i.i.i56, 0
   br i1 %23, label %.thread.i.i.i.i.i.i65, label %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i.i57
 
 _ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i.i57: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4llvm10less_firstEEclIPSt4pairINS2_9StringRefENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESF_EEbT_T0_.exit.thread
-  %.sroa.0.0.copyload.i.i.i.i58 = load ptr, ptr %3, align 8, !tbaa !913
-  %.sroa.01.0.copyload.i.i.i.i59 = load ptr, ptr %1, align 8, !tbaa !913
+  %.sroa.0.0.copyload.i.i.i.i58 = load ptr, ptr %3, align 8, !tbaa !912
+  %.sroa.01.0.copyload.i.i.i.i59 = load ptr, ptr %1, align 8, !tbaa !912
   %24 = tail call i32 @memcmp(ptr noundef %.sroa.01.0.copyload.i.i.i.i59, ptr noundef %.sroa.0.0.copyload.i.i.i.i58, i64 noundef %.sroa.speculated.i.i.i.i.i.i56) #15
   %.fr.i.i.i.i.i.i60 = freeze i32 %24
   %.not.not.i.i.i.i.i.i61 = icmp eq i32 %.fr.i.i.i.i.i.i60, 0
@@ -7314,9 +7314,9 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4llvm10less_firstEEclIPSt4pairINS2_9String
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4llvm10less_firstEEclIPSt4pairINS2_9StringRefENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESF_EEbT_T0_.exit66.thread95: ; preds = %.thread.i.i.i.i.i.i65, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4llvm10less_firstEEclIPSt4pairINS2_9StringRefENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESF_EEbT_T0_.exit66
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(48) %0, i64 16, i1 false), !tbaa.struct !912
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(48) %1, i64 16, i1 false), !tbaa.struct !912
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull align 8 dereferenceable(16) %7, i64 16, i1 false), !tbaa.struct !912
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(48) %0, i64 16, i1 false), !tbaa.struct !911
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(48) %1, i64 16, i1 false), !tbaa.struct !911
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull align 8 dereferenceable(16) %7, i64 16, i1 false), !tbaa.struct !911
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
   br label %31
 
@@ -7326,8 +7326,8 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4llvm10less_firstEEclIPSt4pairINS2_9String
   br i1 %27, label %.thread.i.i.i.i.i.i80, label %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i.i72
 
 _ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i.i72: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4llvm10less_firstEEclIPSt4pairINS2_9StringRefENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESF_EEbT_T0_.exit66.thread
-  %.sroa.0.0.copyload.i.i.i.i73 = load ptr, ptr %3, align 8, !tbaa !913
-  %.sroa.01.0.copyload.i.i.i.i74 = load ptr, ptr %2, align 8, !tbaa !913
+  %.sroa.0.0.copyload.i.i.i.i73 = load ptr, ptr %3, align 8, !tbaa !912
+  %.sroa.01.0.copyload.i.i.i.i74 = load ptr, ptr %2, align 8, !tbaa !912
   %28 = tail call i32 @memcmp(ptr noundef %.sroa.01.0.copyload.i.i.i.i74, ptr noundef %.sroa.0.0.copyload.i.i.i.i73, i64 noundef %.sroa.speculated.i.i.i.i.i.i71) #15
   %.fr.i.i.i.i.i.i75 = freeze i32 %28
   %.not.not.i.i.i.i.i.i76 = icmp eq i32 %.fr.i.i.i.i.i.i75, 0
@@ -7343,17 +7343,17 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4llvm10less_firstEEclIPSt4pairINS2_9String
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4llvm10less_firstEEclIPSt4pairINS2_9StringRefENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESF_EEbT_T0_.exit81.thread99: ; preds = %.thread.i.i.i.i.i.i80, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4llvm10less_firstEEclIPSt4pairINS2_9StringRefENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESF_EEbT_T0_.exit81
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(48) %0, i64 16, i1 false), !tbaa.struct !912
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(48) %3, i64 16, i1 false), !tbaa.struct !912
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %3, ptr noundef nonnull align 8 dereferenceable(16) %6, i64 16, i1 false), !tbaa.struct !912
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(48) %0, i64 16, i1 false), !tbaa.struct !911
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(48) %3, i64 16, i1 false), !tbaa.struct !911
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %3, ptr noundef nonnull align 8 dereferenceable(16) %6, i64 16, i1 false), !tbaa.struct !911
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
   br label %31
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4llvm10less_firstEEclIPSt4pairINS2_9StringRefENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESF_EEbT_T0_.exit81.thread: ; preds = %.thread.i.i.i.i.i.i80, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4llvm10less_firstEEclIPSt4pairINS2_9StringRefENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESF_EEbT_T0_.exit81
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(48) %0, i64 16, i1 false), !tbaa.struct !912
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(48) %2, i64 16, i1 false), !tbaa.struct !912
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %2, ptr noundef nonnull align 8 dereferenceable(16) %5, i64 16, i1 false), !tbaa.struct !912
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(48) %0, i64 16, i1 false), !tbaa.struct !911
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(48) %2, i64 16, i1 false), !tbaa.struct !911
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %2, ptr noundef nonnull align 8 dereferenceable(16) %5, i64 16, i1 false), !tbaa.struct !911
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
   br label %31
 
@@ -7374,20 +7374,20 @@ define linkonce_odr noundef ptr @_ZSt21__unguarded_partitionIPSt4pairIN4llvm9Str
 5:                                                ; preds = %18, %3
   %.013 = phi ptr [ %1, %3 ], [ %.114, %18 ]
   %.0 = phi ptr [ %0, %3 ], [ %21, %18 ]
-  %.sroa.2.0.copyload.i.i.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i.i.i, align 8, !tbaa !914
+  %.sroa.2.0.copyload.i.i.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i.i.i, align 8, !tbaa !913
   br label %6
 
 6:                                                ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4llvm10less_firstEEclIPSt4pairINS2_9StringRefENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESF_EEbT_T0_.exit.thread, %5
   %.1 = phi ptr [ %.0, %5 ], [ %11, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4llvm10less_firstEEclIPSt4pairINS2_9StringRefENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESF_EEbT_T0_.exit.thread ]
   %.sroa.22.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %.1, i64 8
-  %.sroa.22.0.copyload.i.i.i.i = load i64, ptr %.sroa.22.0..sroa_idx.i.i.i.i, align 8, !tbaa !914
+  %.sroa.22.0.copyload.i.i.i.i = load i64, ptr %.sroa.22.0..sroa_idx.i.i.i.i, align 8, !tbaa !913
   %.sroa.speculated.i.i.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %.sroa.2.0.copyload.i.i.i.i, i64 %.sroa.22.0.copyload.i.i.i.i)
   %7 = icmp eq i64 %.sroa.speculated.i.i.i.i.i.i, 0
   br i1 %7, label %.thread.i.i.i.i.i.i, label %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i.i
 
 _ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i.i: ; preds = %6
-  %.sroa.0.0.copyload.i.i.i.i = load ptr, ptr %2, align 8, !tbaa !913
-  %.sroa.01.0.copyload.i.i.i.i = load ptr, ptr %.1, align 8, !tbaa !913
+  %.sroa.0.0.copyload.i.i.i.i = load ptr, ptr %2, align 8, !tbaa !912
+  %.sroa.01.0.copyload.i.i.i.i = load ptr, ptr %.1, align 8, !tbaa !912
   %8 = tail call i32 @memcmp(ptr noundef %.sroa.01.0.copyload.i.i.i.i, ptr noundef %.sroa.0.0.copyload.i.i.i.i, i64 noundef %.sroa.speculated.i.i.i.i.i.i) #15
   %.fr.i.i.i.i.i.i = freeze i32 %8
   %.not.not.i.i.i.i.i.i = icmp eq i32 %.fr.i.i.i.i.i.i, 0
@@ -7406,20 +7406,20 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4llvm10less_firstEEclIPSt4pairINS2_9String
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4llvm10less_firstEEclIPSt4pairINS2_9StringRefENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESF_EEbT_T0_.exit.thread: ; preds = %.thread.i.i.i.i.i.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4llvm10less_firstEEclIPSt4pairINS2_9StringRefENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESF_EEbT_T0_.exit
   %11 = getelementptr inbounds nuw i8, ptr %.1, i64 48
-  br label %6, !llvm.loop !923
+  br label %6, !llvm.loop !920
 
 .preheader:                                       ; preds = %.preheader.preheader, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4llvm10less_firstEEclIPSt4pairINS2_9StringRefENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESF_EEbT_T0_.exit29
   %.013.pn = phi ptr [ %.114, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4llvm10less_firstEEclIPSt4pairINS2_9StringRefENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESF_EEbT_T0_.exit29 ], [ %.013, %.preheader.preheader ]
   %.114 = getelementptr inbounds i8, ptr %.013.pn, i64 -48
   %.sroa.2.0..sroa_idx.i.i.i.i17 = getelementptr inbounds i8, ptr %.013.pn, i64 -40
-  %.sroa.2.0.copyload.i.i.i.i18 = load i64, ptr %.sroa.2.0..sroa_idx.i.i.i.i17, align 8, !tbaa !914
+  %.sroa.2.0.copyload.i.i.i.i18 = load i64, ptr %.sroa.2.0..sroa_idx.i.i.i.i17, align 8, !tbaa !913
   %.sroa.speculated.i.i.i.i.i.i19 = tail call i64 @llvm.umin.i64(i64 %.sroa.2.0.copyload.i.i.i.i18, i64 %.sroa.2.0.copyload.i.i.i.i)
   %12 = icmp eq i64 %.sroa.speculated.i.i.i.i.i.i19, 0
   br i1 %12, label %.thread.i.i.i.i.i.i28, label %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i.i20
 
 _ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i.i20: ; preds = %.preheader
-  %.sroa.0.0.copyload.i.i.i.i21 = load ptr, ptr %.114, align 8, !tbaa !913
-  %.sroa.01.0.copyload.i.i.i.i22 = load ptr, ptr %2, align 8, !tbaa !913
+  %.sroa.0.0.copyload.i.i.i.i21 = load ptr, ptr %.114, align 8, !tbaa !912
+  %.sroa.01.0.copyload.i.i.i.i22 = load ptr, ptr %2, align 8, !tbaa !912
   %13 = tail call i32 @memcmp(ptr noundef %.sroa.01.0.copyload.i.i.i.i22, ptr noundef %.sroa.0.0.copyload.i.i.i.i21, i64 noundef %.sroa.speculated.i.i.i.i.i.i19) #15
   %.fr.i.i.i.i.i.i23 = freeze i32 %13
   %.not.not.i.i.i.i.i.i24 = icmp eq i32 %.fr.i.i.i.i.i.i23, 0
@@ -7434,7 +7434,7 @@ _ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i.i20: ; preds = %.prehea
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4llvm10less_firstEEclIPSt4pairINS2_9StringRefENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESF_EEbT_T0_.exit29: ; preds = %.thread.i.i.i.i.i.i28, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i.i20
   %.1.i.i.i.i.i.i27 = phi i32 [ %spec.select.i.i.i.i.i.i26, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i.i20 ], [ -1, %.thread.i.i.i.i.i.i28 ]
   %15 = icmp slt i32 %.1.i.i.i.i.i.i27, 0
-  br i1 %15, label %.preheader, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4llvm10less_firstEEclIPSt4pairINS2_9StringRefENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESF_EEbT_T0_.exit29.thread, !llvm.loop !924
+  br i1 %15, label %.preheader, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4llvm10less_firstEEclIPSt4pairINS2_9StringRefENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESF_EEbT_T0_.exit29.thread, !llvm.loop !921
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4llvm10less_firstEEclIPSt4pairINS2_9StringRefENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESF_EEbT_T0_.exit29.thread: ; preds = %.thread.i.i.i.i.i.i28, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4llvm10less_firstEEclIPSt4pairINS2_9StringRefENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESF_EEbT_T0_.exit29
   %16 = icmp ult ptr %.1, %.114
@@ -7445,15 +7445,15 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4llvm10less_firstEEclIPSt4pairINS2_9String
 
 18:                                               ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4llvm10less_firstEEclIPSt4pairINS2_9StringRefENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESF_EEbT_T0_.exit29.thread
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(48) %.1, i64 16, i1 false), !tbaa.struct !912
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.1, ptr noundef nonnull align 8 dereferenceable(48) %.114, i64 16, i1 false), !tbaa.struct !912
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.114, ptr noundef nonnull align 8 dereferenceable(16) %4, i64 16, i1 false), !tbaa.struct !912
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(48) %.1, i64 16, i1 false), !tbaa.struct !911
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.1, ptr noundef nonnull align 8 dereferenceable(48) %.114, i64 16, i1 false), !tbaa.struct !911
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.114, ptr noundef nonnull align 8 dereferenceable(16) %4, i64 16, i1 false), !tbaa.struct !911
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   %19 = getelementptr inbounds nuw i8, ptr %.1, i64 16
   %20 = getelementptr inbounds i8, ptr %.013.pn, i64 -32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4swapERS4_(ptr noundef nonnull align 8 dereferenceable(32) %19, ptr noundef nonnull align 8 dereferenceable(32) %20) #12
   %21 = getelementptr inbounds nuw i8, ptr %.1, i64 48
-  br label %5, !llvm.loop !925
+  br label %5, !llvm.loop !922
 }
 
 ; Function Attrs: nounwind
@@ -7486,15 +7486,15 @@ define linkonce_odr void @_ZSt16__insertion_sortIPSt4pairIN4llvm9StringRefENSt7_
   %.023 = phi ptr [ %.020, %.lr.ph ], [ %.0, %108 ]
   %.pn22 = phi ptr [ %0, %.lr.ph ], [ %.023, %108 ]
   %.sroa.22.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %.pn22, i64 56
-  %.sroa.22.0.copyload.i.i.i.i = load i64, ptr %.sroa.22.0..sroa_idx.i.i.i.i, align 8, !tbaa !914
-  %.sroa.2.0.copyload.i.i.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i.i.i, align 8, !tbaa !914
+  %.sroa.22.0.copyload.i.i.i.i = load i64, ptr %.sroa.22.0..sroa_idx.i.i.i.i, align 8, !tbaa !913
+  %.sroa.2.0.copyload.i.i.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i.i.i, align 8, !tbaa !913
   %.sroa.speculated.i.i.i.i.i.i = call i64 @llvm.umin.i64(i64 %.sroa.2.0.copyload.i.i.i.i, i64 %.sroa.22.0.copyload.i.i.i.i)
   %13 = icmp eq i64 %.sroa.speculated.i.i.i.i.i.i, 0
   br i1 %13, label %.thread.i.i.i.i.i.i, label %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i.i
 
 _ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i.i: ; preds = %12
-  %.sroa.0.0.copyload.i.i.i.i = load ptr, ptr %0, align 8, !tbaa !913
-  %.sroa.01.0.copyload.i.i.i.i = load ptr, ptr %.023, align 8, !tbaa !913
+  %.sroa.0.0.copyload.i.i.i.i = load ptr, ptr %0, align 8, !tbaa !912
+  %.sroa.01.0.copyload.i.i.i.i = load ptr, ptr %.023, align 8, !tbaa !912
   %14 = call i32 @memcmp(ptr noundef %.sroa.01.0.copyload.i.i.i.i, ptr noundef %.sroa.0.0.copyload.i.i.i.i, i64 noundef %.sroa.speculated.i.i.i.i.i.i) #15
   %.fr.i.i.i.i.i.i = freeze i32 %14
   %.not.not.i.i.i.i.i.i = icmp eq i32 %.fr.i.i.i.i.i.i, 0
@@ -7510,7 +7510,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4llvm10less_firstEEclIPSt4pairINS2_9String
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4llvm10less_firstEEclIPSt4pairINS2_9StringRefENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESF_EEbT_T0_.exit.thread18: ; preds = %.thread.i.i.i.i.i.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4llvm10less_firstEEclIPSt4pairINS2_9StringRefENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESF_EEbT_T0_.exit
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3) #12
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %3, ptr noundef nonnull align 8 dereferenceable(48) %.023, i64 16, i1 false), !tbaa.struct !912
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %3, ptr noundef nonnull align 8 dereferenceable(48) %.023, i64 16, i1 false), !tbaa.struct !911
   %17 = getelementptr inbounds nuw i8, ptr %.pn22, i64 64
   store ptr %6, ptr %5, align 8, !tbaa !65
   %18 = load ptr, ptr %17, align 8, !tbaa !67
@@ -7556,7 +7556,7 @@ _ZNSt4pairIN4llvm9StringRefENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE
   %.078.i.i.i.i.i = phi ptr [ %34, %_ZNSt4pairIN4llvm9StringRefENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEaSEOS8_.exit.i.i.i.i.i ], [ %.023, %.lr.ph.preheader.i.i.i.i.i ]
   %34 = getelementptr inbounds i8, ptr %.078.i.i.i.i.i, i64 -48
   %35 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i, i64 -48
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %35, ptr noundef nonnull align 8 dereferenceable(48) %34, i64 16, i1 false), !tbaa.struct !912
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %35, ptr noundef nonnull align 8 dereferenceable(48) %34, i64 16, i1 false), !tbaa.struct !911
   %36 = getelementptr inbounds i8, ptr %.078.i.i.i.i.i, i64 -32
   %37 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i, i64 -32
   %38 = load ptr, ptr %37, align 8, !tbaa !67
@@ -7648,10 +7648,10 @@ _ZNSt4pairIN4llvm9StringRefENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE
   store i8 0, ptr %73, align 1, !tbaa !70
   %75 = add nsw i64 %.010.i.i.i.i.i, -1
   %76 = icmp sgt i64 %.010.i.i.i.i.i, 1
-  br i1 %76, label %.lr.ph.i.i.i.i.i, label %_ZSt13move_backwardIPSt4pairIN4llvm9StringRefENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESA_ET0_T_SC_SB_.exit, !llvm.loop !926
+  br i1 %76, label %.lr.ph.i.i.i.i.i, label %_ZSt13move_backwardIPSt4pairIN4llvm9StringRefENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESA_ET0_T_SC_SB_.exit, !llvm.loop !923
 
 _ZSt13move_backwardIPSt4pairIN4llvm9StringRefENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESA_ET0_T_SC_SB_.exit: ; preds = %_ZNSt4pairIN4llvm9StringRefENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEaSEOS8_.exit.i.i.i.i.i, %_ZNSt4pairIN4llvm9StringRefENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2EOS8_.exit
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(48) %3, i64 16, i1 false), !tbaa.struct !912
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(48) %3, i64 16, i1 false), !tbaa.struct !911
   %77 = load ptr, ptr %9, align 8, !tbaa !67
   %78 = icmp eq ptr %77, %10
   br i1 %78, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i16, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread29.i.i
@@ -7676,7 +7676,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   %87 = phi ptr [ %83, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread29.i.i ], [ %81, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i16 ]
   %88 = icmp ult i64 %86, 16
   call void @llvm.assume(i1 %88)
-  br i1 %.not22.i.i, label %_ZNSt4pairIN4llvm9StringRefENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEaSEOS8_.exit, label %89, !prof !920
+  br i1 %.not22.i.i, label %_ZNSt4pairIN4llvm9StringRefENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEaSEOS8_.exit, label %89, !prof !917
 
 89:                                               ; preds = %85
   switch i64 %86, label %92 [
@@ -7758,7 +7758,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4llvm10less_firstEEclIPSt4pairINS2_9String
 108:                                              ; preds = %_ZNSt4pairIN4llvm9StringRefENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4llvm10less_firstEEclIPSt4pairINS2_9StringRefENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESF_EEbT_T0_.exit.thread
   %.0 = getelementptr inbounds nuw i8, ptr %.023, i64 48
   %.not = icmp eq ptr %.0, %1
-  br i1 %.not, label %.loopexit, label %12, !llvm.loop !927
+  br i1 %.not, label %.loopexit, label %12, !llvm.loop !924
 
 .loopexit:                                        ; preds = %108, %.preheader, %2
   ret void
@@ -7768,7 +7768,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4llvm10less_firstEEclIPSt4pairINS2_9String
 define linkonce_odr void @_ZSt25__unguarded_linear_insertIPSt4pairIN4llvm9StringRefENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEN9__gnu_cxx5__ops14_Val_comp_iterINS1_10less_firstEEEEvT_T0_(ptr noundef %0) local_unnamed_addr #0 comdat {
   %2 = alloca %"struct.std::pair", align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %2) #12
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %2, ptr noundef nonnull align 8 dereferenceable(48) %0, i64 16, i1 false), !tbaa.struct !912
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %2, ptr noundef nonnull align 8 dereferenceable(48) %0, i64 16, i1 false), !tbaa.struct !911
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 32
@@ -7809,16 +7809,16 @@ _ZNSt4pairIN4llvm9StringRefENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE
 18:                                               ; preds = %_ZNSt4pairIN4llvm9StringRefENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEaSEOS8_.exit, %_ZNSt4pairIN4llvm9StringRefENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2EOS8_.exit
   %.09 = phi ptr [ %0, %_ZNSt4pairIN4llvm9StringRefENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2EOS8_.exit ], [ %.0, %_ZNSt4pairIN4llvm9StringRefENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEaSEOS8_.exit ]
   %.0 = getelementptr inbounds i8, ptr %.09, i64 -48
-  %.sroa.22.0.copyload.i.i.i.i = load i64, ptr %.sroa.22.0..sroa_idx.i.i.i.i, align 8, !tbaa !914
+  %.sroa.22.0.copyload.i.i.i.i = load i64, ptr %.sroa.22.0..sroa_idx.i.i.i.i, align 8, !tbaa !913
   %.sroa.2.0..sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %.09, i64 -40
-  %.sroa.2.0.copyload.i.i.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i.i.i, align 8, !tbaa !914
+  %.sroa.2.0.copyload.i.i.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i.i.i, align 8, !tbaa !913
   %.sroa.speculated.i.i.i.i.i.i = call i64 @llvm.umin.i64(i64 %.sroa.2.0.copyload.i.i.i.i, i64 %.sroa.22.0.copyload.i.i.i.i)
   %19 = icmp eq i64 %.sroa.speculated.i.i.i.i.i.i, 0
   br i1 %19, label %.thread.i.i.i.i.i.i, label %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i.i
 
 _ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i.i: ; preds = %18
-  %.sroa.0.0.copyload.i.i.i.i = load ptr, ptr %.0, align 8, !tbaa !913
-  %.sroa.01.0.copyload.i.i.i.i = load ptr, ptr %2, align 8, !tbaa !913
+  %.sroa.0.0.copyload.i.i.i.i = load ptr, ptr %.0, align 8, !tbaa !912
+  %.sroa.01.0.copyload.i.i.i.i = load ptr, ptr %2, align 8, !tbaa !912
   %20 = call i32 @memcmp(ptr noundef %.sroa.01.0.copyload.i.i.i.i, ptr noundef %.sroa.0.0.copyload.i.i.i.i, i64 noundef %.sroa.speculated.i.i.i.i.i.i) #15
   %.fr.i.i.i.i.i.i = freeze i32 %20
   %.not.not.i.i.i.i.i.i = icmp eq i32 %.fr.i.i.i.i.i.i, 0
@@ -7833,7 +7833,7 @@ _ZN9__gnu_cxx5__ops14_Val_comp_iterIN4llvm10less_firstEEclISt4pairINS2_9StringRe
   br i1 %22, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN4llvm10less_firstEEclISt4pairINS2_9StringRefENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEPSE_EEbRT_T0_.exit.thread20, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN4llvm10less_firstEEclISt4pairINS2_9StringRefENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEPSE_EEbRT_T0_.exit.thread
 
 _ZN9__gnu_cxx5__ops14_Val_comp_iterIN4llvm10less_firstEEclISt4pairINS2_9StringRefENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEPSE_EEbRT_T0_.exit.thread20: ; preds = %.thread.i.i.i.i.i.i, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN4llvm10less_firstEEclISt4pairINS2_9StringRefENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEPSE_EEbRT_T0_.exit
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.09, ptr noundef nonnull align 8 dereferenceable(48) %.0, i64 16, i1 false), !tbaa.struct !912
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.09, ptr noundef nonnull align 8 dereferenceable(48) %.0, i64 16, i1 false), !tbaa.struct !911
   %23 = getelementptr inbounds i8, ptr %.09, i64 -32
   %24 = getelementptr inbounds nuw i8, ptr %.09, i64 16
   %25 = load ptr, ptr %24, align 8, !tbaa !67
@@ -7923,10 +7923,10 @@ _ZNSt4pairIN4llvm9StringRefENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE
   %61 = getelementptr inbounds i8, ptr %.09, i64 -24
   store i64 0, ptr %61, align 8, !tbaa !69
   store i8 0, ptr %60, align 1, !tbaa !70
-  br label %18, !llvm.loop !928
+  br label %18, !llvm.loop !925
 
 _ZN9__gnu_cxx5__ops14_Val_comp_iterIN4llvm10less_firstEEclISt4pairINS2_9StringRefENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEPSE_EEbRT_T0_.exit.thread: ; preds = %.thread.i.i.i.i.i.i, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN4llvm10less_firstEEclISt4pairINS2_9StringRefENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEPSE_EEbRT_T0_.exit
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.09, ptr noundef nonnull align 8 dereferenceable(48) %2, i64 16, i1 false), !tbaa.struct !912
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.09, ptr noundef nonnull align 8 dereferenceable(48) %2, i64 16, i1 false), !tbaa.struct !911
   %62 = getelementptr inbounds nuw i8, ptr %.09, i64 16
   %63 = load ptr, ptr %62, align 8, !tbaa !67
   %64 = getelementptr inbounds nuw i8, ptr %.09, i64 32
@@ -7955,7 +7955,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   %76 = icmp ult i64 %74, 16
   call void @llvm.assume(i1 %76)
   %.not22.i.i = icmp eq ptr %2, %.09
-  br i1 %.not22.i.i, label %_ZNSt4pairIN4llvm9StringRefENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEaSEOS8_.exit18, label %77, !prof !920
+  br i1 %.not22.i.i, label %_ZNSt4pairIN4llvm9StringRefENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEaSEOS8_.exit18, label %77, !prof !917
 
 77:                                               ; preds = %73
   switch i64 %74, label %80 [
@@ -8970,23 +8970,20 @@ attributes #15 = { nounwind willreturn memory(read) }
 !906 = distinct !{!906, !"_ZNK4llvm5Twine6concatERKS0_"}
 !907 = distinct !{!907, !908, !"_ZN4llvmplERKNS_5TwineES2_: argument 0"}
 !908 = distinct !{!908, !"_ZN4llvmplERKNS_5TwineES2_"}
-!909 = distinct !{!909, !910, !911}
+!909 = distinct !{!909, !910}
 !910 = !{!"llvm.loop.mustprogress"}
-!911 = !{!"llvm.loop.estimated_trip_count"}
-!912 = !{i64 0, i64 8, !913, i64 8, i64 8, !914}
-!913 = !{!8, !8, i64 0}
-!914 = !{!63, !63, i64 0}
-!915 = distinct !{!915, !911}
-!916 = distinct !{!916, !911}
-!917 = distinct !{!917, !910, !911}
-!918 = distinct !{!918, !910, !911}
-!919 = distinct !{!919, !910, !911}
-!920 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!921 = distinct !{!921, !910, !911}
-!922 = distinct !{!922, !910, !911}
-!923 = distinct !{!923, !910, !911}
-!924 = distinct !{!924, !910, !911}
-!925 = distinct !{!925, !910, !911}
-!926 = distinct !{!926, !910, !911}
-!927 = distinct !{!927, !910, !911}
-!928 = distinct !{!928, !910, !911}
+!911 = !{i64 0, i64 8, !912, i64 8, i64 8, !913}
+!912 = !{!8, !8, i64 0}
+!913 = !{!63, !63, i64 0}
+!914 = distinct !{!914, !910}
+!915 = distinct !{!915, !910}
+!916 = distinct !{!916, !910}
+!917 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!918 = distinct !{!918, !910}
+!919 = distinct !{!919, !910}
+!920 = distinct !{!920, !910}
+!921 = distinct !{!921, !910}
+!922 = distinct !{!922, !910}
+!923 = distinct !{!923, !910}
+!924 = distinct !{!924, !910}
+!925 = distinct !{!925, !910}

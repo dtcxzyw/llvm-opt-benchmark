@@ -310,11 +310,11 @@ define internal void @start_pass_upsample(ptr noundef readonly captures(none) %0
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 412
   %5 = load i32, ptr %4, align 4, !tbaa !59
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 200
-  store i32 %5, ptr %6, align 8, !tbaa !69
+  store i32 %5, ptr %6, align 8, !tbaa !68
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 140
-  %8 = load i32, ptr %7, align 4, !tbaa !70
+  %8 = load i32, ptr %7, align 4, !tbaa !69
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 204
-  store i32 %8, ptr %9, align 4, !tbaa !71
+  store i32 %8, ptr %9, align 4, !tbaa !70
   ret void
 }
 
@@ -323,7 +323,7 @@ define internal void @sep_upsample(ptr noundef %0, ptr noundef readonly captures
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 608
   %9 = load ptr, ptr %8, align 8, !tbaa !43
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 200
-  %11 = load i32, ptr %10, align 8, !tbaa !69
+  %11 = load i32, ptr %10, align 8, !tbaa !68
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 412
   %13 = load i32, ptr %12, align 4, !tbaa !59
   %.not = icmp slt i32 %11, %13
@@ -349,7 +349,7 @@ define internal void @sep_upsample(ptr noundef %0, ptr noundef readonly captures
   %24 = getelementptr inbounds nuw [10 x ptr], ptr %20, i64 0, i64 %indvars.iv
   %25 = load ptr, ptr %24, align 8, !tbaa !63
   %26 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
-  %27 = load ptr, ptr %26, align 8, !tbaa !72
+  %27 = load ptr, ptr %26, align 8, !tbaa !71
   %28 = load i32, ptr %2, align 4, !tbaa !60
   %29 = getelementptr inbounds nuw [10 x i32], ptr %21, i64 0, i64 %indvars.iv
   %30 = load i32, ptr %29, align 4, !tbaa !60
@@ -363,7 +363,7 @@ define internal void @sep_upsample(ptr noundef %0, ptr noundef readonly captures
   %36 = load i32, ptr %15, align 8, !tbaa !52
   %37 = sext i32 %36 to i64
   %38 = icmp slt i64 %indvars.iv.next, %37
-  br i1 %38, label %23, label %._crit_edge.loopexit, !llvm.loop !73
+  br i1 %38, label %23, label %._crit_edge.loopexit, !llvm.loop !72
 
 ._crit_edge.loopexit:                             ; preds = %23
   %.pre.pre = load i32, ptr %12, align 4, !tbaa !59
@@ -371,7 +371,7 @@ define internal void @sep_upsample(ptr noundef %0, ptr noundef readonly captures
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %14
   %.pre = phi i32 [ %.pre.pre, %._crit_edge.loopexit ], [ %13, %14 ]
-  store i32 0, ptr %10, align 8, !tbaa !69
+  store i32 0, ptr %10, align 8, !tbaa !68
   br label %39
 
 39:                                               ; preds = %._crit_edge, %7
@@ -379,15 +379,15 @@ define internal void @sep_upsample(ptr noundef %0, ptr noundef readonly captures
   %41 = phi i32 [ %.pre, %._crit_edge ], [ %13, %7 ]
   %42 = sub nsw i32 %41, %40
   %43 = getelementptr inbounds nuw i8, ptr %9, i64 204
-  %44 = load i32, ptr %43, align 4, !tbaa !71
+  %44 = load i32, ptr %43, align 4, !tbaa !70
   %spec.select = tail call i32 @llvm.umin.i32(i32 %42, i32 %44)
   %45 = load i32, ptr %5, align 4, !tbaa !60
   %46 = sub i32 %6, %45
   %.1 = tail call i32 @llvm.umin.i32(i32 %spec.select, i32 %46)
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 616
-  %48 = load ptr, ptr %47, align 8, !tbaa !74
+  %48 = load ptr, ptr %47, align 8, !tbaa !73
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 8
-  %50 = load ptr, ptr %49, align 8, !tbaa !75
+  %50 = load ptr, ptr %49, align 8, !tbaa !74
   %51 = getelementptr inbounds nuw i8, ptr %9, i64 40
   %52 = zext i32 %45 to i64
   %53 = getelementptr inbounds nuw ptr, ptr %4, i64 %52
@@ -395,12 +395,12 @@ define internal void @sep_upsample(ptr noundef %0, ptr noundef readonly captures
   %54 = load i32, ptr %5, align 4, !tbaa !60
   %55 = add i32 %54, %.1
   store i32 %55, ptr %5, align 4, !tbaa !60
-  %56 = load i32, ptr %43, align 4, !tbaa !71
+  %56 = load i32, ptr %43, align 4, !tbaa !70
   %57 = sub i32 %56, %.1
-  store i32 %57, ptr %43, align 4, !tbaa !71
-  %58 = load i32, ptr %10, align 8, !tbaa !69
+  store i32 %57, ptr %43, align 4, !tbaa !70
+  %58 = load i32, ptr %10, align 8, !tbaa !68
   %59 = add i32 %58, %.1
-  store i32 %59, ptr %10, align 8, !tbaa !69
+  store i32 %59, ptr %10, align 8, !tbaa !68
   %60 = load i32, ptr %12, align 4, !tbaa !59
   %.not50 = icmp slt i32 %59, %60
   br i1 %.not50, label %64, label %61
@@ -417,13 +417,13 @@ define internal void @sep_upsample(ptr noundef %0, ptr noundef readonly captures
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal void @noop_upsample(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2, ptr noundef writeonly captures(none) initializes((0, 8)) %3) #2 {
-  store ptr null, ptr %3, align 8, !tbaa !72
+  store ptr null, ptr %3, align 8, !tbaa !71
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal void @fullsize_upsample(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr noundef %2, ptr noundef writeonly captures(none) initializes((0, 8)) %3) #2 {
-  store ptr %2, ptr %3, align 8, !tbaa !72
+  store ptr %2, ptr %3, align 8, !tbaa !71
   ret void
 }
 
@@ -433,7 +433,7 @@ declare void @jsimd_h2v1_fancy_upsample(ptr noundef, ptr noundef, ptr noundef, p
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define internal void @h2v1_fancy_upsample(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3) #4 {
-  %5 = load ptr, ptr %3, align 8, !tbaa !72
+  %5 = load ptr, ptr %3, align 8, !tbaa !71
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 412
   %7 = load i32, ptr %6, align 4, !tbaa !59
   %8 = icmp sgt i32 %7, 0
@@ -446,9 +446,9 @@ define internal void @h2v1_fancy_upsample(ptr noundef readonly captures(none) %0
 10:                                               ; preds = %.lr.ph42, %._crit_edge
   %indvars.iv = phi i64 [ 0, %.lr.ph42 ], [ %indvars.iv.next, %._crit_edge ]
   %11 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv
-  %12 = load ptr, ptr %11, align 8, !tbaa !77
+  %12 = load ptr, ptr %11, align 8, !tbaa !76
   %13 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv
-  %14 = load ptr, ptr %13, align 8, !tbaa !77
+  %14 = load ptr, ptr %13, align 8, !tbaa !76
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 1
   %16 = load i8, ptr %12, align 1, !tbaa !37
   %17 = zext i8 %16 to i16
@@ -496,7 +496,7 @@ define internal void @h2v1_fancy_upsample(ptr noundef readonly captures(none) %0
   %46 = add i32 %.02936, -1
   %.030 = getelementptr inbounds nuw i8, ptr %.03037, i64 2
   %.not = icmp eq i32 %46, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !78
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !77
 
 ._crit_edge:                                      ; preds = %.lr.ph, %10
   %.031.lcssa = phi ptr [ %15, %10 ], [ %28, %.lr.ph ]
@@ -519,7 +519,7 @@ define internal void @h2v1_fancy_upsample(ptr noundef readonly captures(none) %0
   %58 = load i32, ptr %6, align 4, !tbaa !59
   %59 = sext i32 %58 to i64
   %60 = icmp slt i64 %indvars.iv.next, %59
-  br i1 %60, label %10, label %._crit_edge43, !llvm.loop !79
+  br i1 %60, label %10, label %._crit_edge43, !llvm.loop !78
 
 ._crit_edge43:                                    ; preds = %._crit_edge, %4
   ret void
@@ -531,7 +531,7 @@ declare void @jsimd_h2v1_upsample(ptr noundef, ptr noundef, ptr noundef, ptr nou
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define internal void @h2v1_upsample(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3) #4 {
-  %5 = load ptr, ptr %3, align 8, !tbaa !72
+  %5 = load ptr, ptr %3, align 8, !tbaa !71
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 412
   %7 = load i32, ptr %6, align 4, !tbaa !59
   %8 = icmp sgt i32 %7, 0
@@ -545,7 +545,7 @@ define internal void @h2v1_upsample(ptr noundef readonly captures(none) %0, ptr 
   %11 = phi i32 [ %7, %.lr.ph22 ], [ %24, %._crit_edge ]
   %indvars.iv = phi i64 [ 0, %.lr.ph22 ], [ %indvars.iv.next, %._crit_edge ]
   %12 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv
-  %13 = load ptr, ptr %12, align 8, !tbaa !77
+  %13 = load ptr, ptr %12, align 8, !tbaa !76
   %14 = load i32, ptr %9, align 8, !tbaa !65
   %15 = zext i32 %14 to i64
   %16 = getelementptr inbounds nuw i8, ptr %13, i64 %15
@@ -554,7 +554,7 @@ define internal void @h2v1_upsample(ptr noundef readonly captures(none) %0, ptr 
 
 .lr.ph.preheader:                                 ; preds = %10
   %17 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv
-  %18 = load ptr, ptr %17, align 8, !tbaa !77
+  %18 = load ptr, ptr %17, align 8, !tbaa !76
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
@@ -567,7 +567,7 @@ define internal void @h2v1_upsample(ptr noundef readonly captures(none) %0, ptr 
   %22 = getelementptr inbounds nuw i8, ptr %.01718, i64 2
   store i8 %20, ptr %21, align 1, !tbaa !37
   %23 = icmp ult ptr %22, %16
-  br i1 %23, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !80
+  br i1 %23, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !79
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
   %.pre = load i32, ptr %6, align 4, !tbaa !59
@@ -578,7 +578,7 @@ define internal void @h2v1_upsample(ptr noundef readonly captures(none) %0, ptr 
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %25 = sext i32 %24 to i64
   %26 = icmp slt i64 %indvars.iv.next, %25
-  br i1 %26, label %10, label %._crit_edge23, !llvm.loop !81
+  br i1 %26, label %10, label %._crit_edge23, !llvm.loop !80
 
 ._crit_edge23:                                    ; preds = %._crit_edge, %4
   ret void
@@ -586,7 +586,7 @@ define internal void @h2v1_upsample(ptr noundef readonly captures(none) %0, ptr 
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define internal void @h1v2_fancy_upsample(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3) #4 {
-  %5 = load ptr, ptr %3, align 8, !tbaa !72
+  %5 = load ptr, ptr %3, align 8, !tbaa !71
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 412
   %7 = load i32, ptr %6, align 4, !tbaa !59
   %8 = icmp sgt i32 %7, 0
@@ -627,11 +627,11 @@ define internal void @h1v2_fancy_upsample(ptr noundef readonly captures(none) %0
 
 .lr.ph.preheader:                                 ; preds = %.preheader.split
   %19 = getelementptr inbounds ptr, ptr %5, i64 %indvars.iv
-  %20 = load ptr, ptr %19, align 8, !tbaa !77
+  %20 = load ptr, ptr %19, align 8, !tbaa !76
   %.028.in.v = select i1 %18, i64 -8, i64 8
   %.028.in = getelementptr i8, ptr %14, i64 %.028.in.v
-  %.028 = load ptr, ptr %.028.in, align 8, !tbaa !77
-  %21 = load ptr, ptr %14, align 8, !tbaa !77
+  %.028 = load ptr, ptr %.028.in, align 8, !tbaa !76
+  %21 = load ptr, ptr %14, align 8, !tbaa !76
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
@@ -655,11 +655,11 @@ define internal void @h1v2_fancy_upsample(ptr noundef readonly captures(none) %0
   %34 = add nuw i32 %.02433, 1
   %35 = load i32, ptr %9, align 8, !tbaa !62
   %36 = icmp ult i32 %34, %35
-  br i1 %36, label %.lr.ph, label %._crit_edge, !llvm.loop !82
+  br i1 %36, label %.lr.ph, label %._crit_edge, !llvm.loop !81
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader.split
   %37 = phi i32 [ 0, %.preheader.split ], [ %35, %.lr.ph ]
-  br i1 %18, label %.preheader.split, label %.split.us.loopexit41, !llvm.loop !83
+  br i1 %18, label %.preheader.split, label %.split.us.loopexit41, !llvm.loop !82
 
 .split.us.loopexit41:                             ; preds = %._crit_edge
   %38 = trunc nsw i64 %indvars.iv.next to i32
@@ -673,7 +673,7 @@ define internal void @h1v2_fancy_upsample(ptr noundef readonly captures(none) %0
   %.us-phi = phi i32 [ %16, %.preheader.split.us.preheader ], [ %38, %.split.us.loopexit41 ]
   %indvars.iv.next47 = add nuw nsw i64 %indvars.iv46, 1
   %42 = icmp slt i32 %.us-phi, %39
-  br i1 %42, label %.preheader, label %._crit_edge38, !llvm.loop !85
+  br i1 %42, label %.preheader, label %._crit_edge38, !llvm.loop !84
 
 ._crit_edge38:                                    ; preds = %.split.us, %.preheader.lr.ph, %4
   ret void
@@ -685,7 +685,7 @@ declare void @jsimd_h2v2_fancy_upsample(ptr noundef, ptr noundef, ptr noundef, p
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define internal void @h2v2_fancy_upsample(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3) #4 {
-  %5 = load ptr, ptr %3, align 8, !tbaa !72
+  %5 = load ptr, ptr %3, align 8, !tbaa !71
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 412
   %7 = load i32, ptr %6, align 4, !tbaa !59
   %8 = icmp sgt i32 %7, 0
@@ -706,13 +706,13 @@ define internal void @h2v2_fancy_upsample(ptr noundef readonly captures(none) %0
 12:                                               ; preds = %.preheader, %._crit_edge
   %indvars.iv = phi i64 [ %11, %.preheader ], [ %indvars.iv.next, %._crit_edge ]
   %13 = phi i1 [ true, %.preheader ], [ false, %._crit_edge ]
-  %14 = load ptr, ptr %10, align 8, !tbaa !77
+  %14 = load ptr, ptr %10, align 8, !tbaa !76
   %.049.in.v = select i1 %13, i64 -8, i64 8
   %.049.in = getelementptr i8, ptr %10, i64 %.049.in.v
-  %.049 = load ptr, ptr %.049.in, align 8, !tbaa !77
+  %.049 = load ptr, ptr %.049.in, align 8, !tbaa !76
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %15 = getelementptr inbounds ptr, ptr %5, i64 %indvars.iv
-  %16 = load ptr, ptr %15, align 8, !tbaa !77
+  %16 = load ptr, ptr %15, align 8, !tbaa !76
   %17 = getelementptr inbounds nuw i8, ptr %14, i64 1
   %18 = load i8, ptr %14, align 1, !tbaa !37
   %19 = zext i8 %18 to i32
@@ -781,7 +781,7 @@ define internal void @h2v2_fancy_upsample(ptr noundef readonly captures(none) %0
   %63 = add i32 %.04559, -1
   %.048 = getelementptr inbounds nuw i8, ptr %.04860, i64 2
   %.not = icmp eq i32 %63, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !86
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !85
 
 ._crit_edge:                                      ; preds = %.lr.ph, %12
   %.pn.lcssa = phi ptr [ %16, %12 ], [ %.04860, %.lr.ph ]
@@ -800,14 +800,14 @@ define internal void @h2v2_fancy_upsample(ptr noundef readonly captures(none) %0
   %72 = lshr i32 %71, 4
   %73 = trunc nuw i32 %72 to i8
   store i8 %73, ptr %69, align 1, !tbaa !37
-  br i1 %13, label %12, label %74, !llvm.loop !87
+  br i1 %13, label %12, label %74, !llvm.loop !86
 
 74:                                               ; preds = %._crit_edge
   %75 = trunc nsw i64 %indvars.iv.next to i32
   %indvars.iv.next73 = add nuw nsw i64 %indvars.iv72, 1
   %76 = load i32, ptr %6, align 4, !tbaa !59
   %77 = icmp sgt i32 %76, %75
-  br i1 %77, label %.preheader, label %._crit_edge68, !llvm.loop !88
+  br i1 %77, label %.preheader, label %._crit_edge68, !llvm.loop !87
 
 ._crit_edge68:                                    ; preds = %74, %4
   ret void
@@ -819,7 +819,7 @@ declare void @jsimd_h2v2_upsample(ptr noundef, ptr noundef, ptr noundef, ptr nou
 
 ; Function Attrs: nounwind uwtable
 define internal void @h2v2_upsample(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3) #0 {
-  %5 = load ptr, ptr %3, align 8, !tbaa !72
+  %5 = load ptr, ptr %3, align 8, !tbaa !71
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 412
   %7 = load i32, ptr %6, align 4, !tbaa !59
   %8 = icmp sgt i32 %7, 0
@@ -834,7 +834,7 @@ define internal void @h2v2_upsample(ptr noundef readonly captures(none) %0, ptr 
   %indvars.iv = phi i64 [ 0, %.lr.ph30 ], [ %indvars.iv.next, %._crit_edge ]
   %indvars34 = trunc i64 %indvars.iv to i32
   %11 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv
-  %12 = load ptr, ptr %11, align 8, !tbaa !77
+  %12 = load ptr, ptr %11, align 8, !tbaa !76
   %13 = load i32, ptr %9, align 8, !tbaa !65
   %14 = zext i32 %13 to i64
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 %14
@@ -843,7 +843,7 @@ define internal void @h2v2_upsample(ptr noundef readonly captures(none) %0, ptr 
 
 .lr.ph.preheader:                                 ; preds = %10
   %16 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv32
-  %17 = load ptr, ptr %16, align 8, !tbaa !77
+  %17 = load ptr, ptr %16, align 8, !tbaa !76
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
@@ -856,7 +856,7 @@ define internal void @h2v2_upsample(ptr noundef readonly captures(none) %0, ptr 
   %21 = getelementptr inbounds nuw i8, ptr %.02425, i64 2
   store i8 %19, ptr %20, align 1, !tbaa !37
   %22 = icmp ult ptr %21, %15
-  br i1 %22, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !89
+  br i1 %22, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !88
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
   %.pre = load i32, ptr %9, align 8, !tbaa !65
@@ -871,7 +871,7 @@ define internal void @h2v2_upsample(ptr noundef readonly captures(none) %0, ptr 
   %25 = load i32, ptr %6, align 4, !tbaa !59
   %26 = trunc nuw i64 %indvars.iv.next to i32
   %27 = icmp sgt i32 %25, %26
-  br i1 %27, label %10, label %._crit_edge31, !llvm.loop !90
+  br i1 %27, label %10, label %._crit_edge31, !llvm.loop !89
 
 ._crit_edge31:                                    ; preds = %._crit_edge, %4
   ret void
@@ -881,10 +881,10 @@ define internal void @h2v2_upsample(ptr noundef readonly captures(none) %0, ptr 
 define internal void @int_upsample(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3) #0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 608
   %6 = load ptr, ptr %5, align 8, !tbaa !43
-  %7 = load ptr, ptr %3, align 8, !tbaa !72
+  %7 = load ptr, ptr %3, align 8, !tbaa !71
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 248
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %10 = load i32, ptr %9, align 4, !tbaa !91
+  %10 = load i32, ptr %9, align 4, !tbaa !90
   %11 = sext i32 %10 to i64
   %12 = getelementptr inbounds [10 x i8], ptr %8, i64 0, i64 %11
   %13 = load i8, ptr %12, align 1, !tbaa !37
@@ -919,7 +919,7 @@ define internal void @int_upsample(ptr noundef readonly captures(none) %0, ptr n
   %indvars.iv = phi i64 [ 0, %.lr.ph.split.us.preheader ], [ %indvars.iv.next, %39 ]
   %indvars58 = trunc i64 %indvars.iv to i32
   %29 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv
-  %30 = load ptr, ptr %29, align 8, !tbaa !77
+  %30 = load ptr, ptr %29, align 8, !tbaa !76
   %31 = load i32, ptr %22, align 8, !tbaa !65
   %32 = zext i32 %31 to i64
   %33 = getelementptr inbounds nuw i8, ptr %30, i64 %32
@@ -928,7 +928,7 @@ define internal void @int_upsample(ptr noundef readonly captures(none) %0, ptr n
 
 .lr.ph.us.us.preheader:                           ; preds = %.lr.ph.split.us
   %34 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv56
-  %35 = load ptr, ptr %34, align 8, !tbaa !77
+  %35 = load ptr, ptr %34, align 8, !tbaa !76
   br label %.lr.ph.us.us
 
 ._crit_edge.split.us.us:                          ; preds = %.lr.ph.us.us, %.lr.ph.split.us
@@ -946,7 +946,7 @@ define internal void @int_upsample(ptr noundef readonly captures(none) %0, ptr n
   %40 = load i32, ptr %19, align 4, !tbaa !59
   %41 = trunc nuw i64 %indvars.iv.next to i32
   %42 = icmp sgt i32 %40, %41
-  br i1 %42, label %.lr.ph.split.us, label %._crit_edge44, !llvm.loop !92
+  br i1 %42, label %.lr.ph.split.us, label %._crit_edge44, !llvm.loop !91
 
 .lr.ph.us.us:                                     ; preds = %.lr.ph.us.us.preheader, %.lr.ph.us.us
   %.03239.us.us = phi ptr [ %44, %.lr.ph.us.us ], [ %35, %.lr.ph.us.us.preheader ]
@@ -957,7 +957,7 @@ define internal void @int_upsample(ptr noundef readonly captures(none) %0, ptr n
   %45 = getelementptr i8, ptr %.03338.us.us, i64 %27
   %scevgep = getelementptr i8, ptr %45, i64 1
   %46 = icmp ult ptr %scevgep, %33
-  br i1 %46, label %.lr.ph.us.us, label %._crit_edge.split.us.us, !llvm.loop !94
+  br i1 %46, label %.lr.ph.us.us, label %._crit_edge.split.us.us, !llvm.loop !93
 
 .lr.ph.split:                                     ; preds = %.lr.ph
   br i1 %23, label %.lr.ph.split.split.us, label %.lr.ph.split.split
@@ -974,7 +974,7 @@ define internal void @int_upsample(ptr noundef readonly captures(none) %0, ptr n
   %50 = add nuw nsw i32 %.042.us45, %18
   %51 = load i32, ptr %19, align 4, !tbaa !59
   %52 = icmp slt i32 %50, %51
-  br i1 %52, label %.lr.ph.split.split.us, label %._crit_edge44, !llvm.loop !95
+  br i1 %52, label %.lr.ph.split.split.us, label %._crit_edge44, !llvm.loop !94
 
 .lr.ph.split.split:                               ; preds = %.lr.ph.split
   %53 = load i32, ptr %22, align 8, !tbaa !65
@@ -994,7 +994,7 @@ define internal void @int_upsample(ptr noundef readonly captures(none) %0, ptr n
 55:                                               ; preds = %54
   %56 = add nuw nsw i32 %.042, %18
   %57 = icmp slt i32 %56, %20
-  br i1 %57, label %54, label %._crit_edge44, !llvm.loop !96
+  br i1 %57, label %54, label %._crit_edge44, !llvm.loop !95
 
 ._crit_edge44:                                    ; preds = %39, %55, %48, %4
   ret void
@@ -1087,34 +1087,33 @@ attributes #7 = { nounwind }
 !63 = !{!6, !6, i64 0}
 !64 = !{!42, !6, i64 16}
 !65 = !{!4, !11, i64 136}
-!66 = distinct !{!66, !67, !68}
+!66 = distinct !{!66, !67}
 !67 = !{!"llvm.loop.mustprogress"}
-!68 = !{!"llvm.loop.estimated_trip_count"}
-!69 = !{!45, !11, i64 200}
-!70 = !{!4, !11, i64 140}
-!71 = !{!45, !11, i64 204}
-!72 = !{!14, !14, i64 0}
-!73 = distinct !{!73, !67, !68}
-!74 = !{!4, !28, i64 616}
-!75 = !{!76, !6, i64 8}
-!76 = !{!"jpeg_color_deconverter", !6, i64 0, !6, i64 8, !6, i64 16, !6, i64 24}
-!77 = !{!18, !18, i64 0}
-!78 = distinct !{!78, !67, !68}
-!79 = distinct !{!79, !67, !68}
-!80 = distinct !{!80, !67, !68}
-!81 = distinct !{!81, !67, !68}
-!82 = distinct !{!82, !67, !68}
-!83 = distinct !{!83, !67, !68, !84}
-!84 = !{!"llvm.loop.unswitch.partial.disable"}
-!85 = distinct !{!85, !67, !68, !84}
-!86 = distinct !{!86, !67, !68}
-!87 = distinct !{!87, !67, !68}
-!88 = distinct !{!88, !67, !68}
-!89 = distinct !{!89, !67, !68}
-!90 = distinct !{!90, !67, !68}
-!91 = !{!55, !11, i64 4}
-!92 = distinct !{!92, !67, !68, !93}
-!93 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!94 = distinct !{!94, !67, !68, !93}
-!95 = distinct !{!95, !67, !68, !93}
-!96 = distinct !{!96, !67, !68}
+!68 = !{!45, !11, i64 200}
+!69 = !{!4, !11, i64 140}
+!70 = !{!45, !11, i64 204}
+!71 = !{!14, !14, i64 0}
+!72 = distinct !{!72, !67}
+!73 = !{!4, !28, i64 616}
+!74 = !{!75, !6, i64 8}
+!75 = !{!"jpeg_color_deconverter", !6, i64 0, !6, i64 8, !6, i64 16, !6, i64 24}
+!76 = !{!18, !18, i64 0}
+!77 = distinct !{!77, !67}
+!78 = distinct !{!78, !67}
+!79 = distinct !{!79, !67}
+!80 = distinct !{!80, !67}
+!81 = distinct !{!81, !67}
+!82 = distinct !{!82, !67, !83}
+!83 = !{!"llvm.loop.unswitch.partial.disable"}
+!84 = distinct !{!84, !67, !83}
+!85 = distinct !{!85, !67}
+!86 = distinct !{!86, !67}
+!87 = distinct !{!87, !67}
+!88 = distinct !{!88, !67}
+!89 = distinct !{!89, !67}
+!90 = !{!55, !11, i64 4}
+!91 = distinct !{!91, !67, !92}
+!92 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!93 = distinct !{!93, !67, !92}
+!94 = distinct !{!94, !67, !92}
+!95 = distinct !{!95, !67}

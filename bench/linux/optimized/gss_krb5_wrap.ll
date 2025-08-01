@@ -181,7 +181,7 @@ define dso_local noundef range(i32 0, 851969) i32 @gss_krb5_unwrap_v2(ptr nounde
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #7
   %72 = add i32 %54, %52
   %73 = icmp ult i32 %72, %50
-  br i1 %73, label %.preheader3.i, label %rotate_left.exit, !llvm.loop !11
+  br i1 %73, label %.preheader3.i, label %rotate_left.exit, !llvm.loop !10
 
 rotate_left.exit:                                 ; preds = %.loopexit.i, %40
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %9) #7
@@ -230,11 +230,11 @@ rotate_left.exit:                                 ; preds = %.loopexit.i, %40
   %104 = call i32 @llvm.umin.i32(i32 %103, i32 %2)
   %105 = zext i32 %104 to i64
   %106 = icmp ult i64 %102, %105
-  br i1 %106, label %107, label %108, !prof !12
+  br i1 %106, label %107, label %108, !prof !11
 
 107:                                              ; preds = %100
-  call void asm sideeffect "464: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 464b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 464) #7, !srcloc !13
-  call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 226, i32 0, i64 12) #7, !srcloc !14
+  call void asm sideeffect "464: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 464b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 464) #7, !srcloc !12
+  call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 226, i32 0, i64 12) #7, !srcloc !13
   unreachable
 
 108:                                              ; preds = %100
@@ -325,11 +325,10 @@ attributes #7 = { nounwind }
 !4 = !{i32 4, !"SkipRaxSetup", i32 1}
 !5 = !{i64 2147841696, i64 2147841735, i64 2147841756, i64 2147841793, i64 2147841816, i64 2147841825}
 !6 = !{!"auto-init"}
-!7 = distinct !{!7, !8, !9, !10}
+!7 = distinct !{!7, !8, !9}
 !8 = !{!"llvm.loop.mustprogress"}
 !9 = !{!"llvm.loop.unroll.disable"}
-!10 = !{!"llvm.loop.estimated_trip_count"}
-!11 = distinct !{!11, !8, !9, !10}
-!12 = !{!"branch_weights", i32 1, i32 2000}
-!13 = !{i64 2155919773, i64 2155919582, i64 2155919634, i64 2155919680, i64 2155919708}
-!14 = !{i64 2155919847, i64 2155919876, i64 2155919922, i64 2155919980, i64 2155920034, i64 2155920088, i64 2155920143, i64 2155920174}
+!10 = distinct !{!10, !8, !9}
+!11 = !{!"branch_weights", i32 1, i32 2000}
+!12 = !{i64 2155919773, i64 2155919582, i64 2155919634, i64 2155919680, i64 2155919708}
+!13 = !{i64 2155919847, i64 2155919876, i64 2155919922, i64 2155919980, i64 2155920034, i64 2155920088, i64 2155920143, i64 2155920174}

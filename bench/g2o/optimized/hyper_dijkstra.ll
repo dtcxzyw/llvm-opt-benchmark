@@ -217,22 +217,22 @@ define void @_ZN3g2o13HyperDijkstraC2EPNS_10HyperGraphE(ptr noundef nonnull alig
   br i1 %.not.i.i.i.i.i.i.i.i.i, label %_ZNSt8_Rb_treeIPN3g2o10HyperGraph6VertexES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE10_S_minimumEPSt18_Rb_tree_node_base.exit.i.i.i.i.i.i.i, label %.noexc.i.i.i.i.i, !llvm.loop !51
 
 _ZNSt8_Rb_treeIPN3g2o10HyperGraph6VertexES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE10_S_minimumEPSt18_Rb_tree_node_base.exit.i.i.i.i.i.i.i: ; preds = %.noexc.i.i.i.i.i
-  store ptr %.0.i.i.i.i.i.i.i.i.i, ptr %21, align 8, !tbaa !54, !alias.scope !43
+  store ptr %.0.i.i.i.i.i.i.i.i.i, ptr %21, align 8, !tbaa !53, !alias.scope !43
   br label %38
 
 38:                                               ; preds = %38, %_ZNSt8_Rb_treeIPN3g2o10HyperGraph6VertexES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE10_S_minimumEPSt18_Rb_tree_node_base.exit.i.i.i.i.i.i.i
   %.0.i.i7.i.i.i.i.i.i.i = phi ptr [ %35, %_ZNSt8_Rb_treeIPN3g2o10HyperGraph6VertexES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE10_S_minimumEPSt18_Rb_tree_node_base.exit.i.i.i.i.i.i.i ], [ %40, %38 ]
   %39 = getelementptr inbounds nuw i8, ptr %.0.i.i7.i.i.i.i.i.i.i, i64 24
-  %40 = load ptr, ptr %39, align 8, !tbaa !55
+  %40 = load ptr, ptr %39, align 8, !tbaa !54
   %.not.i.i8.i.i.i.i.i.i.i = icmp eq ptr %40, null
-  br i1 %.not.i.i8.i.i.i.i.i.i.i, label %41, label %38, !llvm.loop !56
+  br i1 %.not.i.i8.i.i.i.i.i.i.i, label %41, label %38, !llvm.loop !55
 
 41:                                               ; preds = %38
-  store ptr %.0.i.i7.i.i.i.i.i.i.i, ptr %22, align 8, !tbaa !54, !alias.scope !43
+  store ptr %.0.i.i7.i.i.i.i.i.i.i, ptr %22, align 8, !tbaa !53, !alias.scope !43
   %42 = load i64, ptr %26, align 8, !tbaa !30, !noalias !43
   store i64 %42, ptr %23, align 8, !tbaa !30, !alias.scope !43
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #20, !noalias !43
-  store ptr %35, ptr %20, align 8, !tbaa !54, !alias.scope !43
+  store ptr %35, ptr %20, align 8, !tbaa !53, !alias.scope !43
   br label %_ZSt9make_pairIPN3g2o10HyperGraph6VertexERNS0_13HyperDijkstra17AdjacencyMapEntryEESt4pairINSt25__strip_reference_wrapperINSt5decayIT_E4typeEE6__typeENS8_INS9_IT0_E4typeEE6__typeEEOSA_OSF_.exit
 
 _ZSt9make_pairIPN3g2o10HyperGraph6VertexERNS0_13HyperDijkstra17AdjacencyMapEntryEESt4pairINSt25__strip_reference_wrapperINSt5decayIT_E4typeEE6__typeENS8_INS9_IT0_E4typeEE6__typeEEOSA_OSF_.exit: ; preds = %41, %31
@@ -242,21 +242,21 @@ _ZSt9make_pairIPN3g2o10HyperGraph6VertexERNS0_13HyperDijkstra17AdjacencyMapEntry
   br i1 %.not10.i.i.i.i, label %.critedge.i, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZSt9make_pairIPN3g2o10HyperGraph6VertexERNS0_13HyperDijkstra17AdjacencyMapEntryEESt4pairINSt25__strip_reference_wrapperINSt5decayIT_E4typeEE6__typeENS8_INS9_IT0_E4typeEE6__typeEEOSA_OSF_.exit
-  %45 = load ptr, ptr %5, align 8, !tbaa !57
+  %45 = load ptr, ptr %5, align 8, !tbaa !56
   br label %46
 
 46:                                               ; preds = %46, %.lr.ph.i.i.i.i
   %.012.i.i.i.i = phi ptr [ %44, %.lr.ph.i.i.i.i ], [ %.1.i.i.i.i, %46 ]
   %.0811.i.i.i.i = phi ptr [ %6, %.lr.ph.i.i.i.i ], [ %.19.i.i.i.i, %46 ]
   %47 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i, i64 32
-  %48 = load ptr, ptr %47, align 8, !tbaa !57
+  %48 = load ptr, ptr %47, align 8, !tbaa !56
   %49 = icmp ult ptr %48, %45
   %.19.i.i.i.i = select i1 %49, ptr %.0811.i.i.i.i, ptr %.012.i.i.i.i
   %.1.in.v.i.i.i.i = select i1 %49, i64 24, i64 16
   %.1.in.i.i.i.i = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i, i64 %.1.in.v.i.i.i.i
-  %.1.i.i.i.i = load ptr, ptr %.1.in.i.i.i.i, align 8, !tbaa !54
+  %.1.i.i.i.i = load ptr, ptr %.1.in.i.i.i.i, align 8, !tbaa !53
   %.not.i.i.i.i = icmp eq ptr %.1.i.i.i.i, null
-  br i1 %.not.i.i.i.i, label %_ZNSt3mapIPN3g2o10HyperGraph6VertexENS0_13HyperDijkstra17AdjacencyMapEntryESt4lessIS3_ESaISt4pairIKS3_S5_EEE11lower_boundERS9_.exit.i, label %46, !llvm.loop !58
+  br i1 %.not.i.i.i.i, label %_ZNSt3mapIPN3g2o10HyperGraph6VertexENS0_13HyperDijkstra17AdjacencyMapEntryESt4lessIS3_ESaISt4pairIKS3_S5_EEE11lower_boundERS9_.exit.i, label %46, !llvm.loop !57
 
 _ZNSt3mapIPN3g2o10HyperGraph6VertexENS0_13HyperDijkstra17AdjacencyMapEntryESt4lessIS3_ESaISt4pairIKS3_S5_EEE11lower_boundERS9_.exit.i: ; preds = %46
   %50 = icmp eq ptr %.19.i.i.i.i, %6
@@ -264,7 +264,7 @@ _ZNSt3mapIPN3g2o10HyperGraph6VertexENS0_13HyperDijkstra17AdjacencyMapEntryESt4le
 
 51:                                               ; preds = %_ZNSt3mapIPN3g2o10HyperGraph6VertexENS0_13HyperDijkstra17AdjacencyMapEntryESt4lessIS3_ESaISt4pairIKS3_S5_EEE11lower_boundERS9_.exit.i
   %52 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i, i64 32
-  %53 = load ptr, ptr %52, align 8, !tbaa !59
+  %53 = load ptr, ptr %52, align 8, !tbaa !58
   %54 = icmp ult ptr %45, %53
   br i1 %54, label %.critedge.i, label %56
 
@@ -306,7 +306,7 @@ _ZN3g2o13HyperDijkstra17AdjacencyMapEntryD2Ev.exit: ; preds = %_ZNSt4pairIPN3g2o
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %4) #20
   %.sroa.09.0 = load ptr, ptr %.sroa.09.014, align 8, !tbaa !37
   %.not = icmp eq ptr %.sroa.09.0, null
-  br i1 %.not, label %._crit_edge, label %28, !llvm.loop !61
+  br i1 %.not, label %._crit_edge, label %28, !llvm.loop !60
 
 65:                                               ; preds = %28
   %66 = landingpad { ptr, i32 }
@@ -472,21 +472,21 @@ _ZNSt3setIPN3g2o10HyperGraph6VertexESt4lessIS3_ESaIS3_EE5clearEv.exit: ; preds =
 
 .lr.ph.i.i.i:                                     ; preds = %22
   %24 = getelementptr inbounds nuw i8, ptr %.sroa.03.09, i64 32
-  %25 = load ptr, ptr %24, align 8, !tbaa !57
+  %25 = load ptr, ptr %24, align 8, !tbaa !56
   br label %26
 
 26:                                               ; preds = %26, %.lr.ph.i.i.i
   %.012.i.i.i = phi ptr [ %23, %.lr.ph.i.i.i ], [ %.1.i.i.i, %26 ]
   %.0811.i.i.i = phi ptr [ %8, %.lr.ph.i.i.i ], [ %.19.i.i.i, %26 ]
   %27 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 32
-  %28 = load ptr, ptr %27, align 8, !tbaa !57
+  %28 = load ptr, ptr %27, align 8, !tbaa !56
   %29 = icmp ult ptr %28, %25
   %.19.i.i.i = select i1 %29, ptr %.0811.i.i.i, ptr %.012.i.i.i
   %.1.in.v.i.i.i = select i1 %29, i64 24, i64 16
   %.1.in.i.i.i = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 %.1.in.v.i.i.i
-  %.1.i.i.i = load ptr, ptr %.1.in.i.i.i, align 8, !tbaa !54
+  %.1.i.i.i = load ptr, ptr %.1.in.i.i.i, align 8, !tbaa !53
   %.not.i.i.i = icmp eq ptr %.1.i.i.i, null
-  br i1 %.not.i.i.i, label %_ZNSt8_Rb_treeIPN3g2o10HyperGraph6VertexESt4pairIKS3_NS0_13HyperDijkstra17AdjacencyMapEntryEESt10_Select1stIS8_ESt4lessIS3_ESaIS8_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS8_EPSt18_Rb_tree_node_baseRS5_.exit.i.i, label %26, !llvm.loop !58
+  br i1 %.not.i.i.i, label %_ZNSt8_Rb_treeIPN3g2o10HyperGraph6VertexESt4pairIKS3_NS0_13HyperDijkstra17AdjacencyMapEntryEESt10_Select1stIS8_ESt4lessIS3_ESaIS8_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS8_EPSt18_Rb_tree_node_baseRS5_.exit.i.i, label %26, !llvm.loop !57
 
 _ZNSt8_Rb_treeIPN3g2o10HyperGraph6VertexESt4pairIKS3_NS0_13HyperDijkstra17AdjacencyMapEntryEESt10_Select1stIS8_ESt4lessIS3_ESaIS8_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS8_EPSt18_Rb_tree_node_baseRS5_.exit.i.i: ; preds = %26
   %30 = icmp eq ptr %.19.i.i.i, %8
@@ -494,7 +494,7 @@ _ZNSt8_Rb_treeIPN3g2o10HyperGraph6VertexESt4pairIKS3_NS0_13HyperDijkstra17Adjace
 
 31:                                               ; preds = %_ZNSt8_Rb_treeIPN3g2o10HyperGraph6VertexESt4pairIKS3_NS0_13HyperDijkstra17AdjacencyMapEntryEESt10_Select1stIS8_ESt4lessIS3_ESaIS8_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS8_EPSt18_Rb_tree_node_baseRS5_.exit.i.i
   %32 = getelementptr inbounds nuw i8, ptr %.19.i.i.i, i64 32
-  %33 = load ptr, ptr %32, align 8, !tbaa !57
+  %33 = load ptr, ptr %32, align 8, !tbaa !56
   %34 = icmp ult ptr %25, %33
   %spec.select.i.i = select i1 %34, ptr %8, ptr %.19.i.i.i
   br label %_ZNSt3mapIPN3g2o10HyperGraph6VertexENS0_13HyperDijkstra17AdjacencyMapEntryESt4lessIS3_ESaISt4pairIKS3_S5_EEE4findERS9_.exit
@@ -503,7 +503,7 @@ _ZNSt3mapIPN3g2o10HyperGraph6VertexENS0_13HyperDijkstra17AdjacencyMapEntryESt4le
   %.sroa.0.0.i.i = phi ptr [ %8, %_ZNSt8_Rb_treeIPN3g2o10HyperGraph6VertexESt4pairIKS3_NS0_13HyperDijkstra17AdjacencyMapEntryEESt10_Select1stIS8_ESt4lessIS3_ESaIS8_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS8_EPSt18_Rb_tree_node_baseRS5_.exit.i.i ], [ %8, %22 ], [ %spec.select.i.i, %31 ]
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %2) #20
   %35 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i, i64 32
-  %36 = load ptr, ptr %35, align 8, !tbaa !59
+  %36 = load ptr, ptr %35, align 8, !tbaa !58
   call void @_ZN3g2o13HyperDijkstra17AdjacencyMapEntryC1EPNS_10HyperGraph6VertexES4_PNS2_4EdgeEd(ptr noundef nonnull align 8 dereferenceable(80) %2, ptr noundef %36, ptr noundef null, ptr noundef null, double noundef 0x7FEFFFFFFFFFFFFF)
   %37 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %37, ptr noundef nonnull align 8 dereferenceable(80) %2, i64 32, i1 false)
@@ -529,7 +529,7 @@ _ZNSt8_Rb_treeIPN3g2o10HyperGraph6VertexES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_E
   store ptr %44, ptr %46, align 8, !tbaa !29
   %47 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i, i64 112
   store i64 0, ptr %47, align 8, !tbaa !30
-  %48 = load ptr, ptr %9, align 8, !tbaa !54
+  %48 = load ptr, ptr %9, align 8, !tbaa !53
   %.not.i.i.i.i = icmp eq ptr %48, null
   br i1 %.not.i.i.i.i, label %_ZN3g2o13HyperDijkstra17AdjacencyMapEntryaSEOS1_.exit, label %49
 
@@ -542,7 +542,7 @@ _ZNSt8_Rb_treeIPN3g2o10HyperGraph6VertexES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_E
   %52 = load ptr, ptr %12, align 8, !tbaa !29
   store ptr %52, ptr %46, align 8, !tbaa !29
   %53 = getelementptr inbounds nuw i8, ptr %48, i64 8
-  store ptr %44, ptr %53, align 8, !tbaa !62
+  store ptr %44, ptr %53, align 8, !tbaa !61
   %54 = load i64, ptr %13, align 8, !tbaa !30
   store i64 %54, ptr %47, align 8, !tbaa !30
   store ptr null, ptr %9, align 8, !tbaa !27
@@ -566,7 +566,7 @@ _ZN3g2o13HyperDijkstra17AdjacencyMapEntryD2Ev.exit: ; preds = %_ZN3g2o13HyperDij
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %2) #20
   %58 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.03.09) #22
   %.not = icmp eq ptr %58, %6
-  br i1 %.not, label %._crit_edge, label %22, !llvm.loop !63
+  br i1 %.not, label %._crit_edge, label %22, !llvm.loop !62
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
@@ -606,8 +606,8 @@ define void @_ZN3g2o13HyperDijkstra13shortestPathsERSt3setIPNS_10HyperGraph6Vert
   br label %51
 
 .preheader:                                       ; preds = %_ZNSt14priority_queueIN3g2o13HyperDijkstra17AdjacencyMapEntryESt6vectorIS2_SaIS2_EESt4lessIS2_EE4pushERKS2_.exit
-  %.pre = load ptr, ptr %14, align 8, !tbaa !64
-  %.pre175 = load ptr, ptr %21, align 8, !tbaa !64
+  %.pre = load ptr, ptr %14, align 8, !tbaa !63
+  %.pre175 = load ptr, ptr %21, align 8, !tbaa !63
   %23 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %24 = icmp eq ptr %.pre, %.pre175
   br i1 %24, label %_ZSt8_DestroyIPN3g2o13HyperDijkstra17AdjacencyMapEntryES2_EvT_S4_RSaIT0_E.exit.i.i, label %.lr.ph171
@@ -644,7 +644,7 @@ define void @_ZN3g2o13HyperDijkstra13shortestPathsERSt3setIPNS_10HyperGraph6Vert
 51:                                               ; preds = %.lr.ph, %_ZNSt14priority_queueIN3g2o13HyperDijkstra17AdjacencyMapEntryESt6vectorIS2_SaIS2_EESt4lessIS2_EE4pushERKS2_.exit
   %.sroa.0131.0165 = phi ptr [ %17, %.lr.ph ], [ %94, %_ZNSt14priority_queueIN3g2o13HyperDijkstra17AdjacencyMapEntryESt6vectorIS2_SaIS2_EESt4lessIS2_EE4pushERKS2_.exit ]
   %52 = getelementptr inbounds nuw i8, ptr %.sroa.0131.0165, i64 32
-  %53 = load ptr, ptr %52, align 8, !tbaa !57
+  %53 = load ptr, ptr %52, align 8, !tbaa !56
   %54 = load ptr, ptr %19, align 8, !tbaa !27
   %.not10.i.i.i = icmp eq ptr %54, null
   br i1 %.not10.i.i.i, label %_ZNSt3mapIPN3g2o10HyperGraph6VertexENS0_13HyperDijkstra17AdjacencyMapEntryESt4lessIS3_ESaISt4pairIKS3_S5_EEE4findERS9_.exit, label %.lr.ph.i.i.i
@@ -653,14 +653,14 @@ define void @_ZN3g2o13HyperDijkstra13shortestPathsERSt3setIPNS_10HyperGraph6Vert
   %.012.i.i.i = phi ptr [ %.1.i.i.i, %.lr.ph.i.i.i ], [ %54, %51 ]
   %.0811.i.i.i = phi ptr [ %.19.i.i.i, %.lr.ph.i.i.i ], [ %20, %51 ]
   %55 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 32
-  %56 = load ptr, ptr %55, align 8, !tbaa !57
+  %56 = load ptr, ptr %55, align 8, !tbaa !56
   %57 = icmp ult ptr %56, %53
   %.19.i.i.i = select i1 %57, ptr %.0811.i.i.i, ptr %.012.i.i.i
   %.1.in.v.i.i.i = select i1 %57, i64 24, i64 16
   %.1.in.i.i.i = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 %.1.in.v.i.i.i
-  %.1.i.i.i = load ptr, ptr %.1.in.i.i.i, align 8, !tbaa !54
+  %.1.i.i.i = load ptr, ptr %.1.in.i.i.i, align 8, !tbaa !53
   %.not.i.i.i = icmp eq ptr %.1.i.i.i, null
-  br i1 %.not.i.i.i, label %_ZNSt8_Rb_treeIPN3g2o10HyperGraph6VertexESt4pairIKS3_NS0_13HyperDijkstra17AdjacencyMapEntryEESt10_Select1stIS8_ESt4lessIS3_ESaIS8_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS8_EPSt18_Rb_tree_node_baseRS5_.exit.i.i, label %.lr.ph.i.i.i, !llvm.loop !58
+  br i1 %.not.i.i.i, label %_ZNSt8_Rb_treeIPN3g2o10HyperGraph6VertexESt4pairIKS3_NS0_13HyperDijkstra17AdjacencyMapEntryEESt10_Select1stIS8_ESt4lessIS3_ESaIS8_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS8_EPSt18_Rb_tree_node_baseRS5_.exit.i.i, label %.lr.ph.i.i.i, !llvm.loop !57
 
 _ZNSt8_Rb_treeIPN3g2o10HyperGraph6VertexESt4pairIKS3_NS0_13HyperDijkstra17AdjacencyMapEntryEESt10_Select1stIS8_ESt4lessIS3_ESaIS8_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS8_EPSt18_Rb_tree_node_baseRS5_.exit.i.i: ; preds = %.lr.ph.i.i.i
   %58 = icmp eq ptr %.19.i.i.i, %20
@@ -668,7 +668,7 @@ _ZNSt8_Rb_treeIPN3g2o10HyperGraph6VertexESt4pairIKS3_NS0_13HyperDijkstra17Adjace
 
 59:                                               ; preds = %_ZNSt8_Rb_treeIPN3g2o10HyperGraph6VertexESt4pairIKS3_NS0_13HyperDijkstra17AdjacencyMapEntryEESt10_Select1stIS8_ESt4lessIS3_ESaIS8_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS8_EPSt18_Rb_tree_node_baseRS5_.exit.i.i
   %60 = getelementptr inbounds nuw i8, ptr %.19.i.i.i, i64 32
-  %61 = load ptr, ptr %60, align 8, !tbaa !57
+  %61 = load ptr, ptr %60, align 8, !tbaa !56
   %62 = icmp ult ptr %53, %61
   %spec.select.i.i = select i1 %62, ptr %20, ptr %.19.i.i.i
   br label %_ZNSt3mapIPN3g2o10HyperGraph6VertexENS0_13HyperDijkstra17AdjacencyMapEntryESt4lessIS3_ESaISt4pairIKS3_S5_EEE4findERS9_.exit
@@ -676,12 +676,12 @@ _ZNSt8_Rb_treeIPN3g2o10HyperGraph6VertexESt4pairIKS3_NS0_13HyperDijkstra17Adjace
 _ZNSt3mapIPN3g2o10HyperGraph6VertexENS0_13HyperDijkstra17AdjacencyMapEntryESt4lessIS3_ESaISt4pairIKS3_S5_EEE4findERS9_.exit: ; preds = %59, %_ZNSt8_Rb_treeIPN3g2o10HyperGraph6VertexESt4pairIKS3_NS0_13HyperDijkstra17AdjacencyMapEntryEESt10_Select1stIS8_ESt4lessIS3_ESaIS8_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS8_EPSt18_Rb_tree_node_baseRS5_.exit.i.i, %51
   %.sroa.0.0.i.i = phi ptr [ %20, %_ZNSt8_Rb_treeIPN3g2o10HyperGraph6VertexESt4pairIKS3_NS0_13HyperDijkstra17AdjacencyMapEntryEESt10_Select1stIS8_ESt4lessIS3_ESaIS8_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS8_EPSt18_Rb_tree_node_baseRS5_.exit.i.i ], [ %20, %51 ], [ %spec.select.i.i, %59 ]
   %63 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i, i64 64
-  store double 0.000000e+00, ptr %63, align 8, !tbaa !66
+  store double 0.000000e+00, ptr %63, align 8, !tbaa !65
   %64 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i, i64 48
-  store ptr null, ptr %64, align 8, !tbaa !67
+  store ptr null, ptr %64, align 8, !tbaa !66
   %65 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i, i64 40
-  %66 = load ptr, ptr %21, align 8, !tbaa !68
-  %67 = load ptr, ptr %22, align 8, !tbaa !70
+  %66 = load ptr, ptr %21, align 8, !tbaa !67
+  %67 = load ptr, ptr %22, align 8, !tbaa !69
   %.not.i.i = icmp eq ptr %66, %67
   br i1 %.not.i.i, label %89, label %68
 
@@ -717,29 +717,29 @@ _ZNSt3mapIPN3g2o10HyperGraph6VertexENS0_13HyperDijkstra17AdjacencyMapEntryESt4le
   br i1 %.not.i.i.i.i.i.i.i.i.i.i.i, label %_ZNSt8_Rb_treeIPN3g2o10HyperGraph6VertexES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE10_S_minimumEPSt18_Rb_tree_node_base.exit.i.i.i.i.i.i.i.i.i, label %.noexc.i.i.i.i.i.i.i, !llvm.loop !51
 
 _ZNSt8_Rb_treeIPN3g2o10HyperGraph6VertexES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE10_S_minimumEPSt18_Rb_tree_node_base.exit.i.i.i.i.i.i.i.i.i: ; preds = %.noexc.i.i.i.i.i.i.i
-  store ptr %.0.i.i.i.i.i.i.i.i.i.i.i, ptr %71, align 8, !tbaa !54
+  store ptr %.0.i.i.i.i.i.i.i.i.i.i.i, ptr %71, align 8, !tbaa !53
   br label %81
 
 81:                                               ; preds = %81, %_ZNSt8_Rb_treeIPN3g2o10HyperGraph6VertexES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE10_S_minimumEPSt18_Rb_tree_node_base.exit.i.i.i.i.i.i.i.i.i
   %.0.i.i7.i.i.i.i.i.i.i.i.i = phi ptr [ %78, %_ZNSt8_Rb_treeIPN3g2o10HyperGraph6VertexES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE10_S_minimumEPSt18_Rb_tree_node_base.exit.i.i.i.i.i.i.i.i.i ], [ %83, %81 ]
   %82 = getelementptr inbounds nuw i8, ptr %.0.i.i7.i.i.i.i.i.i.i.i.i, i64 24
-  %83 = load ptr, ptr %82, align 8, !tbaa !55
+  %83 = load ptr, ptr %82, align 8, !tbaa !54
   %.not.i.i8.i.i.i.i.i.i.i.i.i = icmp eq ptr %83, null
-  br i1 %.not.i.i8.i.i.i.i.i.i.i.i.i, label %84, label %81, !llvm.loop !56
+  br i1 %.not.i.i8.i.i.i.i.i.i.i.i.i, label %84, label %81, !llvm.loop !55
 
 84:                                               ; preds = %81
-  store ptr %.0.i.i7.i.i.i.i.i.i.i.i.i, ptr %72, align 8, !tbaa !54
+  store ptr %.0.i.i7.i.i.i.i.i.i.i.i.i, ptr %72, align 8, !tbaa !53
   %85 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i, i64 112
   %86 = load i64, ptr %85, align 8, !tbaa !30
   store i64 %86, ptr %73, align 8, !tbaa !30
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #20
-  store ptr %78, ptr %70, align 8, !tbaa !54
+  store ptr %78, ptr %70, align 8, !tbaa !53
   br label %_ZNSt16allocator_traitsISaIN3g2o13HyperDijkstra17AdjacencyMapEntryEEE9constructIS2_JRKS2_EEEvRS3_PT_DpOT0_.exit.i.i
 
 _ZNSt16allocator_traitsISaIN3g2o13HyperDijkstra17AdjacencyMapEntryEEE9constructIS2_JRKS2_EEEvRS3_PT_DpOT0_.exit.i.i: ; preds = %84, %68
-  %87 = load ptr, ptr %21, align 8, !tbaa !68
+  %87 = load ptr, ptr %21, align 8, !tbaa !67
   %88 = getelementptr inbounds nuw i8, ptr %87, i64 80
-  store ptr %88, ptr %21, align 8, !tbaa !68
+  store ptr %88, ptr %21, align 8, !tbaa !67
   br label %_ZNSt6vectorIN3g2o13HyperDijkstra17AdjacencyMapEntryESaIS2_EE9push_backERKS2_.exit.i
 
 89:                                               ; preds = %_ZNSt3mapIPN3g2o10HyperGraph6VertexENS0_13HyperDijkstra17AdjacencyMapEntryESt4lessIS3_ESaISt4pairIKS3_S5_EEE4findERS9_.exit
@@ -747,12 +747,12 @@ _ZNSt16allocator_traitsISaIN3g2o13HyperDijkstra17AdjacencyMapEntryEEE9constructI
           to label %.noexc44 unwind label %92
 
 .noexc44:                                         ; preds = %89
-  %.pre.i = load ptr, ptr %21, align 8, !tbaa !64
+  %.pre.i = load ptr, ptr %21, align 8, !tbaa !63
   br label %_ZNSt6vectorIN3g2o13HyperDijkstra17AdjacencyMapEntryESaIS2_EE9push_backERKS2_.exit.i
 
 _ZNSt6vectorIN3g2o13HyperDijkstra17AdjacencyMapEntryESaIS2_EE9push_backERKS2_.exit.i: ; preds = %.noexc44, %_ZNSt16allocator_traitsISaIN3g2o13HyperDijkstra17AdjacencyMapEntryEEE9constructIS2_JRKS2_EEEvRS3_PT_DpOT0_.exit.i.i
   %90 = phi ptr [ %88, %_ZNSt16allocator_traitsISaIN3g2o13HyperDijkstra17AdjacencyMapEntryEEE9constructIS2_JRKS2_EEEvRS3_PT_DpOT0_.exit.i.i ], [ %.pre.i, %.noexc44 ]
-  %91 = load ptr, ptr %14, align 8, !tbaa !64
+  %91 = load ptr, ptr %14, align 8, !tbaa !63
   invoke void @_ZSt9push_heapIN9__gnu_cxx17__normal_iteratorIPN3g2o13HyperDijkstra17AdjacencyMapEntryESt6vectorIS4_SaIS4_EEEESt4lessIS4_EEvT_SC_T0_(ptr %91, ptr %90)
           to label %_ZNSt14priority_queueIN3g2o13HyperDijkstra17AdjacencyMapEntryESt6vectorIS2_SaIS2_EESt4lessIS2_EE4pushERKS2_.exit unwind label %92
 
@@ -764,7 +764,7 @@ _ZNSt6vectorIN3g2o13HyperDijkstra17AdjacencyMapEntryESaIS2_EE9push_backERKS2_.ex
 _ZNSt14priority_queueIN3g2o13HyperDijkstra17AdjacencyMapEntryESt6vectorIS2_SaIS2_EESt4lessIS2_EE4pushERKS2_.exit: ; preds = %_ZNSt6vectorIN3g2o13HyperDijkstra17AdjacencyMapEntryESaIS2_EE9push_backERKS2_.exit.i
   %94 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.0131.0165) #22
   %.not136 = icmp eq ptr %94, %18
-  br i1 %.not136, label %.preheader, label %51, !llvm.loop !71
+  br i1 %.not136, label %.preheader, label %51, !llvm.loop !70
 
 95:                                               ; preds = %.lr.ph171, %_ZN3g2o13HyperDijkstra17AdjacencyMapEntryD2Ev.exit
   %96 = phi ptr [ %.pre175, %.lr.ph171 ], [ %333, %_ZN3g2o13HyperDijkstra17AdjacencyMapEntryD2Ev.exit ]
@@ -795,25 +795,25 @@ _ZNSt14priority_queueIN3g2o13HyperDijkstra17AdjacencyMapEntryESt6vectorIS2_SaIS2
   br i1 %.not.i.i.i.i.i.i.i47, label %_ZNSt8_Rb_treeIPN3g2o10HyperGraph6VertexES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE10_S_minimumEPSt18_Rb_tree_node_base.exit.i.i.i.i.i, label %.noexc.i.i.i, !llvm.loop !51
 
 _ZNSt8_Rb_treeIPN3g2o10HyperGraph6VertexES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE10_S_minimumEPSt18_Rb_tree_node_base.exit.i.i.i.i.i: ; preds = %.noexc.i.i.i
-  store ptr %.0.i.i.i.i.i.i.i, ptr %27, align 8, !tbaa !54
+  store ptr %.0.i.i.i.i.i.i.i, ptr %27, align 8, !tbaa !53
   br label %104
 
 104:                                              ; preds = %104, %_ZNSt8_Rb_treeIPN3g2o10HyperGraph6VertexES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE10_S_minimumEPSt18_Rb_tree_node_base.exit.i.i.i.i.i
   %.0.i.i7.i.i.i.i.i = phi ptr [ %101, %_ZNSt8_Rb_treeIPN3g2o10HyperGraph6VertexES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE10_S_minimumEPSt18_Rb_tree_node_base.exit.i.i.i.i.i ], [ %106, %104 ]
   %105 = getelementptr inbounds nuw i8, ptr %.0.i.i7.i.i.i.i.i, i64 24
-  %106 = load ptr, ptr %105, align 8, !tbaa !55
+  %106 = load ptr, ptr %105, align 8, !tbaa !54
   %.not.i.i8.i.i.i.i.i = icmp eq ptr %106, null
-  br i1 %.not.i.i8.i.i.i.i.i, label %107, label %104, !llvm.loop !56
+  br i1 %.not.i.i8.i.i.i.i.i, label %107, label %104, !llvm.loop !55
 
 107:                                              ; preds = %104
-  store ptr %.0.i.i7.i.i.i.i.i, ptr %28, align 8, !tbaa !54
+  store ptr %.0.i.i7.i.i.i.i.i, ptr %28, align 8, !tbaa !53
   %108 = getelementptr inbounds nuw i8, ptr %97, i64 72
   %109 = load i64, ptr %108, align 8, !tbaa !30
   store i64 %109, ptr %29, align 8, !tbaa !30
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #20
-  store ptr %101, ptr %26, align 8, !tbaa !54
-  %.pre176 = load ptr, ptr %14, align 8, !tbaa !64
-  %.pre179 = load ptr, ptr %23, align 8, !tbaa !64
+  store ptr %101, ptr %26, align 8, !tbaa !53
+  %.pre176 = load ptr, ptr %14, align 8, !tbaa !63
+  %.pre179 = load ptr, ptr %23, align 8, !tbaa !63
   br label %_ZN3g2o13HyperDijkstra17AdjacencyMapEntryC2ERKS1_.exit
 
 _ZN3g2o13HyperDijkstra17AdjacencyMapEntryC2ERKS1_.exit: ; preds = %107, %95
@@ -833,13 +833,13 @@ _ZN3g2o13HyperDijkstra17AdjacencyMapEntryC2ERKS1_.exit: ; preds = %107, %95
 
 .noexc50:                                         ; preds = %116
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %11) #20
-  %.pre.i49 = load ptr, ptr %23, align 8, !tbaa !68
+  %.pre.i49 = load ptr, ptr %23, align 8, !tbaa !67
   br label %_ZSt8pop_heapIN9__gnu_cxx17__normal_iteratorIPN3g2o13HyperDijkstra17AdjacencyMapEntryESt6vectorIS4_SaIS4_EEEESt4lessIS4_EEvT_SC_T0_.exit.i
 
 _ZSt8pop_heapIN9__gnu_cxx17__normal_iteratorIPN3g2o13HyperDijkstra17AdjacencyMapEntryESt6vectorIS4_SaIS4_EEEESt4lessIS4_EEvT_SC_T0_.exit.i: ; preds = %.noexc50, %_ZN3g2o13HyperDijkstra17AdjacencyMapEntryC2ERKS1_.exit
   %118 = phi ptr [ %110, %_ZN3g2o13HyperDijkstra17AdjacencyMapEntryC2ERKS1_.exit ], [ %.pre.i49, %.noexc50 ]
   %119 = getelementptr inbounds i8, ptr %118, i64 -80
-  store ptr %119, ptr %23, align 8, !tbaa !68
+  store ptr %119, ptr %23, align 8, !tbaa !67
   %120 = getelementptr inbounds i8, ptr %118, i64 -48
   %121 = getelementptr inbounds i8, ptr %118, i64 -32
   %122 = load ptr, ptr %121, align 8, !tbaa !27
@@ -863,14 +863,14 @@ _ZNSt14priority_queueIN3g2o13HyperDijkstra17AdjacencyMapEntryESt6vectorIS2_SaIS2
   %.012.i.i.i53 = phi ptr [ %.1.i.i.i58, %.lr.ph.i.i.i52 ], [ %127, %_ZNSt14priority_queueIN3g2o13HyperDijkstra17AdjacencyMapEntryESt6vectorIS2_SaIS2_EESt4lessIS2_EE3popEv.exit ]
   %.0811.i.i.i54 = phi ptr [ %.19.i.i.i55, %.lr.ph.i.i.i52 ], [ %32, %_ZNSt14priority_queueIN3g2o13HyperDijkstra17AdjacencyMapEntryESt6vectorIS2_SaIS2_EESt4lessIS2_EE3popEv.exit ]
   %128 = getelementptr inbounds nuw i8, ptr %.012.i.i.i53, i64 32
-  %129 = load ptr, ptr %128, align 8, !tbaa !57
+  %129 = load ptr, ptr %128, align 8, !tbaa !56
   %130 = icmp ult ptr %129, %126
   %.19.i.i.i55 = select i1 %130, ptr %.0811.i.i.i54, ptr %.012.i.i.i53
   %.1.in.v.i.i.i56 = select i1 %130, i64 24, i64 16
   %.1.in.i.i.i57 = getelementptr inbounds nuw i8, ptr %.012.i.i.i53, i64 %.1.in.v.i.i.i56
-  %.1.i.i.i58 = load ptr, ptr %.1.in.i.i.i57, align 8, !tbaa !54
+  %.1.i.i.i58 = load ptr, ptr %.1.in.i.i.i57, align 8, !tbaa !53
   %.not.i.i.i59 = icmp eq ptr %.1.i.i.i58, null
-  br i1 %.not.i.i.i59, label %_ZNSt8_Rb_treeIPN3g2o10HyperGraph6VertexESt4pairIKS3_NS0_13HyperDijkstra17AdjacencyMapEntryEESt10_Select1stIS8_ESt4lessIS3_ESaIS8_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS8_EPSt18_Rb_tree_node_baseRS5_.exit.i.i60, label %.lr.ph.i.i.i52, !llvm.loop !58
+  br i1 %.not.i.i.i59, label %_ZNSt8_Rb_treeIPN3g2o10HyperGraph6VertexESt4pairIKS3_NS0_13HyperDijkstra17AdjacencyMapEntryEESt10_Select1stIS8_ESt4lessIS3_ESaIS8_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS8_EPSt18_Rb_tree_node_baseRS5_.exit.i.i60, label %.lr.ph.i.i.i52, !llvm.loop !57
 
 _ZNSt8_Rb_treeIPN3g2o10HyperGraph6VertexESt4pairIKS3_NS0_13HyperDijkstra17AdjacencyMapEntryEESt10_Select1stIS8_ESt4lessIS3_ESaIS8_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS8_EPSt18_Rb_tree_node_baseRS5_.exit.i.i60: ; preds = %.lr.ph.i.i.i52
   %131 = icmp eq ptr %.19.i.i.i55, %32
@@ -878,7 +878,7 @@ _ZNSt8_Rb_treeIPN3g2o10HyperGraph6VertexESt4pairIKS3_NS0_13HyperDijkstra17Adjace
 
 132:                                              ; preds = %_ZNSt8_Rb_treeIPN3g2o10HyperGraph6VertexESt4pairIKS3_NS0_13HyperDijkstra17AdjacencyMapEntryEESt10_Select1stIS8_ESt4lessIS3_ESaIS8_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS8_EPSt18_Rb_tree_node_baseRS5_.exit.i.i60
   %133 = getelementptr inbounds nuw i8, ptr %.19.i.i.i55, i64 32
-  %134 = load ptr, ptr %133, align 8, !tbaa !57
+  %134 = load ptr, ptr %133, align 8, !tbaa !56
   %135 = icmp ult ptr %126, %134
   %spec.select.i.i61 = select i1 %135, ptr %32, ptr %.19.i.i.i55
   br label %_ZNSt3mapIPN3g2o10HyperGraph6VertexENS0_13HyperDijkstra17AdjacencyMapEntryESt4lessIS3_ESaISt4pairIKS3_S5_EEE4findERS9_.exit63
@@ -887,20 +887,20 @@ _ZNSt3mapIPN3g2o10HyperGraph6VertexENS0_13HyperDijkstra17AdjacencyMapEntryESt4le
   %.sroa.0.0.i.i62 = phi ptr [ %32, %_ZNSt8_Rb_treeIPN3g2o10HyperGraph6VertexESt4pairIKS3_NS0_13HyperDijkstra17AdjacencyMapEntryEESt10_Select1stIS8_ESt4lessIS3_ESaIS8_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS8_EPSt18_Rb_tree_node_baseRS5_.exit.i.i60 ], [ %32, %_ZNSt14priority_queueIN3g2o13HyperDijkstra17AdjacencyMapEntryESt6vectorIS2_SaIS2_EESt4lessIS2_EE3popEv.exit ], [ %spec.select.i.i61, %132 ]
   %136 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i62, i64 64
   %137 = load double, ptr %136, align 8, !tbaa !25
-  %.02022.i.i.i = load ptr, ptr %33, align 8, !tbaa !54
+  %.02022.i.i.i = load ptr, ptr %33, align 8, !tbaa !53
   %.not23.i.i.i = icmp eq ptr %.02022.i.i.i, null
   br i1 %.not23.i.i.i, label %._crit_edge.thread.i.i.i, label %.lr.ph.i.i.i64
 
 .lr.ph.i.i.i64:                                   ; preds = %_ZNSt3mapIPN3g2o10HyperGraph6VertexENS0_13HyperDijkstra17AdjacencyMapEntryESt4lessIS3_ESaISt4pairIKS3_S5_EEE4findERS9_.exit63, %.lr.ph.i.i.i64
   %.02024.i.i.i = phi ptr [ %.020.i.i.i, %.lr.ph.i.i.i64 ], [ %.02022.i.i.i, %_ZNSt3mapIPN3g2o10HyperGraph6VertexENS0_13HyperDijkstra17AdjacencyMapEntryESt4lessIS3_ESaISt4pairIKS3_S5_EEE4findERS9_.exit63 ]
   %138 = getelementptr inbounds nuw i8, ptr %.02024.i.i.i, i64 32
-  %139 = load ptr, ptr %138, align 8, !tbaa !57
+  %139 = load ptr, ptr %138, align 8, !tbaa !56
   %140 = icmp ult ptr %126, %139
   %.in.v.i.i.i = select i1 %140, i64 16, i64 24
   %.in.i.i.i = getelementptr inbounds nuw i8, ptr %.02024.i.i.i, i64 %.in.v.i.i.i
-  %.020.i.i.i = load ptr, ptr %.in.i.i.i, align 8, !tbaa !54
+  %.020.i.i.i = load ptr, ptr %.in.i.i.i, align 8, !tbaa !53
   %.not.i.i.i65 = icmp eq ptr %.020.i.i.i, null
-  br i1 %.not.i.i.i65, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i64, !llvm.loop !72
+  br i1 %.not.i.i.i65, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i64, !llvm.loop !71
 
 ._crit_edge.i.i.i:                                ; preds = %.lr.ph.i.i.i64
   br i1 %140, label %._crit_edge.thread.i.i.i, label %145
@@ -914,7 +914,7 @@ _ZNSt3mapIPN3g2o10HyperGraph6VertexENS0_13HyperDijkstra17AdjacencyMapEntryESt4le
 143:                                              ; preds = %._crit_edge.thread.i.i.i
   %144 = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.019.lcssa28.i.i.i) #22
   %.phi.trans.insert.i.i = getelementptr inbounds nuw i8, ptr %144, i64 32
-  %.pre.i.i = load ptr, ptr %.phi.trans.insert.i.i, align 8, !tbaa !57
+  %.pre.i.i = load ptr, ptr %.phi.trans.insert.i.i, align 8, !tbaa !56
   br label %145
 
 145:                                              ; preds = %143, %._crit_edge.i.i.i
@@ -930,7 +930,7 @@ select.unfold.i.i:                                ; preds = %145, %._crit_edge.t
 
 149:                                              ; preds = %select.unfold.i.i
   %150 = getelementptr inbounds nuw i8, ptr %.sroa.4.0.i.ph.i.i, i64 32
-  %151 = load ptr, ptr %150, align 8, !tbaa !57
+  %151 = load ptr, ptr %150, align 8, !tbaa !56
   %152 = icmp ult ptr %126, %151
   br label %_ZNSt8_Rb_treeIPN3g2o10HyperGraph6VertexES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE10_M_insert_IRKS3_NS9_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS3_EPSt18_Rb_tree_node_baseSH_OT_RT0_.exit.i.i
 
@@ -941,7 +941,7 @@ _ZNSt8_Rb_treeIPN3g2o10HyperGraph6VertexES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_E
 
 .noexc66:                                         ; preds = %_ZNSt8_Rb_treeIPN3g2o10HyperGraph6VertexES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE10_M_insert_IRKS3_NS9_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS3_EPSt18_Rb_tree_node_baseSH_OT_RT0_.exit.i.i
   %155 = getelementptr inbounds nuw i8, ptr %154, i64 32
-  store ptr %126, ptr %155, align 8, !tbaa !57
+  store ptr %126, ptr %155, align 8, !tbaa !56
   call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %153, ptr noundef nonnull %154, ptr noundef nonnull %.sroa.4.0.i.ph.i.i, ptr noundef nonnull align 8 dereferenceable(32) %34) #20
   %156 = load i64, ptr %36, align 8, !tbaa !30
   %157 = add i64 %156, 1
@@ -968,16 +968,16 @@ _ZNSt8_Rb_treeIPN3g2o10HyperGraph6VertexES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_E
 .lr.ph170:                                        ; preds = %162, %.loopexit
   %.sroa.0112.0169 = phi ptr [ %168, %.loopexit ], [ %164, %162 ]
   %166 = getelementptr inbounds nuw i8, ptr %.sroa.0112.0169, i64 32
-  %167 = load ptr, ptr %166, align 8, !tbaa !73
+  %167 = load ptr, ptr %166, align 8, !tbaa !72
   %168 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.0112.0169) #22
   %169 = getelementptr inbounds nuw i8, ptr %167, i64 8
-  %170 = load ptr, ptr %169, align 8, !tbaa !74
+  %170 = load ptr, ptr %169, align 8, !tbaa !73
   br i1 %5, label %171, label %.lr.ph170._crit_edge
 
 171:                                              ; preds = %.lr.ph170
-  %172 = load ptr, ptr %170, align 8, !tbaa !57
+  %172 = load ptr, ptr %170, align 8, !tbaa !56
   %.not = icmp eq ptr %172, %126
-  br i1 %.not, label %.lr.ph170._crit_edge, label %.loopexit, !llvm.loop !77
+  br i1 %.not, label %.lr.ph170._crit_edge, label %.loopexit, !llvm.loop !76
 
 173:                                              ; preds = %_ZNSt8_Rb_treeIPN3g2o10HyperGraph6VertexES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE10_M_insert_IRKS3_NS9_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS3_EPSt18_Rb_tree_node_baseSH_OT_RT0_.exit.i.i
   %174 = landingpad { ptr, i32 }
@@ -987,7 +987,7 @@ _ZNSt8_Rb_treeIPN3g2o10HyperGraph6VertexES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_E
 .lr.ph170._crit_edge:                             ; preds = %.lr.ph170, %171
   %175 = getelementptr inbounds nuw i8, ptr %167, i64 8
   %176 = getelementptr inbounds nuw i8, ptr %167, i64 16
-  %177 = load ptr, ptr %176, align 8, !tbaa !78
+  %177 = load ptr, ptr %176, align 8, !tbaa !77
   %.not172 = icmp eq ptr %177, %170
   br i1 %.not172, label %.loopexit, label %.lr.ph167
 
@@ -995,7 +995,7 @@ _ZNSt8_Rb_treeIPN3g2o10HyperGraph6VertexES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_E
   %178 = phi ptr [ %322, %319 ], [ %170, %.lr.ph170._crit_edge ]
   %.031166 = phi i64 [ %320, %319 ], [ 0, %.lr.ph170._crit_edge ]
   %179 = getelementptr inbounds nuw ptr, ptr %178, i64 %.031166
-  %180 = load ptr, ptr %179, align 8, !tbaa !57
+  %180 = load ptr, ptr %179, align 8, !tbaa !56
   %181 = icmp eq ptr %180, %126
   br i1 %181, label %319, label %182
 
@@ -1026,14 +1026,14 @@ _ZNSt8_Rb_treeIPN3g2o10HyperGraph6VertexES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_E
   %.012.i.i.i69 = phi ptr [ %.1.i.i.i74, %.lr.ph.i.i.i68 ], [ %193, %191 ]
   %.0811.i.i.i70 = phi ptr [ %.19.i.i.i71, %.lr.ph.i.i.i68 ], [ %32, %191 ]
   %194 = getelementptr inbounds nuw i8, ptr %.012.i.i.i69, i64 32
-  %195 = load ptr, ptr %194, align 8, !tbaa !57
+  %195 = load ptr, ptr %194, align 8, !tbaa !56
   %196 = icmp ult ptr %195, %180
   %.19.i.i.i71 = select i1 %196, ptr %.0811.i.i.i70, ptr %.012.i.i.i69
   %.1.in.v.i.i.i72 = select i1 %196, i64 24, i64 16
   %.1.in.i.i.i73 = getelementptr inbounds nuw i8, ptr %.012.i.i.i69, i64 %.1.in.v.i.i.i72
-  %.1.i.i.i74 = load ptr, ptr %.1.in.i.i.i73, align 8, !tbaa !54
+  %.1.i.i.i74 = load ptr, ptr %.1.in.i.i.i73, align 8, !tbaa !53
   %.not.i.i.i75 = icmp eq ptr %.1.i.i.i74, null
-  br i1 %.not.i.i.i75, label %_ZNSt8_Rb_treeIPN3g2o10HyperGraph6VertexESt4pairIKS3_NS0_13HyperDijkstra17AdjacencyMapEntryEESt10_Select1stIS8_ESt4lessIS3_ESaIS8_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS8_EPSt18_Rb_tree_node_baseRS5_.exit.i.i76, label %.lr.ph.i.i.i68, !llvm.loop !58
+  br i1 %.not.i.i.i75, label %_ZNSt8_Rb_treeIPN3g2o10HyperGraph6VertexESt4pairIKS3_NS0_13HyperDijkstra17AdjacencyMapEntryEESt10_Select1stIS8_ESt4lessIS3_ESaIS8_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS8_EPSt18_Rb_tree_node_baseRS5_.exit.i.i76, label %.lr.ph.i.i.i68, !llvm.loop !57
 
 _ZNSt8_Rb_treeIPN3g2o10HyperGraph6VertexESt4pairIKS3_NS0_13HyperDijkstra17AdjacencyMapEntryEESt10_Select1stIS8_ESt4lessIS3_ESaIS8_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS8_EPSt18_Rb_tree_node_baseRS5_.exit.i.i76: ; preds = %.lr.ph.i.i.i68
   %197 = icmp eq ptr %.19.i.i.i71, %32
@@ -1041,7 +1041,7 @@ _ZNSt8_Rb_treeIPN3g2o10HyperGraph6VertexESt4pairIKS3_NS0_13HyperDijkstra17Adjace
 
 198:                                              ; preds = %_ZNSt8_Rb_treeIPN3g2o10HyperGraph6VertexESt4pairIKS3_NS0_13HyperDijkstra17AdjacencyMapEntryEESt10_Select1stIS8_ESt4lessIS3_ESaIS8_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS8_EPSt18_Rb_tree_node_baseRS5_.exit.i.i76
   %199 = getelementptr inbounds nuw i8, ptr %.19.i.i.i71, i64 32
-  %200 = load ptr, ptr %199, align 8, !tbaa !57
+  %200 = load ptr, ptr %199, align 8, !tbaa !56
   %201 = icmp ult ptr %180, %200
   %spec.select.i.i77 = select i1 %201, ptr %32, ptr %.19.i.i.i71
   br label %_ZNSt3mapIPN3g2o10HyperGraph6VertexENS0_13HyperDijkstra17AdjacencyMapEntryESt4lessIS3_ESaISt4pairIKS3_S5_EEE4findERS9_.exit79
@@ -1058,13 +1058,13 @@ _ZNSt3mapIPN3g2o10HyperGraph6VertexENS0_13HyperDijkstra17AdjacencyMapEntryESt4le
   br i1 %or.cond43, label %208, label %319
 
 208:                                              ; preds = %_ZNSt3mapIPN3g2o10HyperGraph6VertexENS0_13HyperDijkstra17AdjacencyMapEntryESt4lessIS3_ESaISt4pairIKS3_S5_EEE4findERS9_.exit79
-  store double %192, ptr %204, align 8, !tbaa !66
+  store double %192, ptr %204, align 8, !tbaa !65
   %209 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i78, i64 48
-  store ptr %126, ptr %209, align 8, !tbaa !67
+  store ptr %126, ptr %209, align 8, !tbaa !66
   %210 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i78, i64 56
-  store ptr %167, ptr %210, align 8, !tbaa !79
-  %211 = load ptr, ptr %23, align 8, !tbaa !68
-  %212 = load ptr, ptr %37, align 8, !tbaa !70
+  store ptr %167, ptr %210, align 8, !tbaa !78
+  %211 = load ptr, ptr %23, align 8, !tbaa !67
+  %212 = load ptr, ptr %37, align 8, !tbaa !69
   %.not.i.i80 = icmp eq ptr %211, %212
   br i1 %.not.i.i80, label %234, label %213
 
@@ -1100,29 +1100,29 @@ _ZNSt3mapIPN3g2o10HyperGraph6VertexENS0_13HyperDijkstra17AdjacencyMapEntryESt4le
   br i1 %.not.i.i.i.i.i.i.i.i.i.i.i84, label %_ZNSt8_Rb_treeIPN3g2o10HyperGraph6VertexES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE10_S_minimumEPSt18_Rb_tree_node_base.exit.i.i.i.i.i.i.i.i.i85, label %.noexc.i.i.i.i.i.i.i82, !llvm.loop !51
 
 _ZNSt8_Rb_treeIPN3g2o10HyperGraph6VertexES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE10_S_minimumEPSt18_Rb_tree_node_base.exit.i.i.i.i.i.i.i.i.i85: ; preds = %.noexc.i.i.i.i.i.i.i82
-  store ptr %.0.i.i.i.i.i.i.i.i.i.i.i83, ptr %216, align 8, !tbaa !54
+  store ptr %.0.i.i.i.i.i.i.i.i.i.i.i83, ptr %216, align 8, !tbaa !53
   br label %226
 
 226:                                              ; preds = %226, %_ZNSt8_Rb_treeIPN3g2o10HyperGraph6VertexES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE10_S_minimumEPSt18_Rb_tree_node_base.exit.i.i.i.i.i.i.i.i.i85
   %.0.i.i7.i.i.i.i.i.i.i.i.i86 = phi ptr [ %223, %_ZNSt8_Rb_treeIPN3g2o10HyperGraph6VertexES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE10_S_minimumEPSt18_Rb_tree_node_base.exit.i.i.i.i.i.i.i.i.i85 ], [ %228, %226 ]
   %227 = getelementptr inbounds nuw i8, ptr %.0.i.i7.i.i.i.i.i.i.i.i.i86, i64 24
-  %228 = load ptr, ptr %227, align 8, !tbaa !55
+  %228 = load ptr, ptr %227, align 8, !tbaa !54
   %.not.i.i8.i.i.i.i.i.i.i.i.i87 = icmp eq ptr %228, null
-  br i1 %.not.i.i8.i.i.i.i.i.i.i.i.i87, label %229, label %226, !llvm.loop !56
+  br i1 %.not.i.i8.i.i.i.i.i.i.i.i.i87, label %229, label %226, !llvm.loop !55
 
 229:                                              ; preds = %226
-  store ptr %.0.i.i7.i.i.i.i.i.i.i.i.i86, ptr %217, align 8, !tbaa !54
+  store ptr %.0.i.i7.i.i.i.i.i.i.i.i.i86, ptr %217, align 8, !tbaa !53
   %230 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i78, i64 112
   %231 = load i64, ptr %230, align 8, !tbaa !30
   store i64 %231, ptr %218, align 8, !tbaa !30
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #20
-  store ptr %223, ptr %215, align 8, !tbaa !54
+  store ptr %223, ptr %215, align 8, !tbaa !53
   br label %_ZNSt16allocator_traitsISaIN3g2o13HyperDijkstra17AdjacencyMapEntryEEE9constructIS2_JRKS2_EEEvRS3_PT_DpOT0_.exit.i.i88
 
 _ZNSt16allocator_traitsISaIN3g2o13HyperDijkstra17AdjacencyMapEntryEEE9constructIS2_JRKS2_EEEvRS3_PT_DpOT0_.exit.i.i88: ; preds = %229, %213
-  %232 = load ptr, ptr %23, align 8, !tbaa !68
+  %232 = load ptr, ptr %23, align 8, !tbaa !67
   %233 = getelementptr inbounds nuw i8, ptr %232, i64 80
-  store ptr %233, ptr %23, align 8, !tbaa !68
+  store ptr %233, ptr %23, align 8, !tbaa !67
   br label %_ZNSt6vectorIN3g2o13HyperDijkstra17AdjacencyMapEntryESaIS2_EE9push_backERKS2_.exit.i89
 
 234:                                              ; preds = %208
@@ -1130,12 +1130,12 @@ _ZNSt16allocator_traitsISaIN3g2o13HyperDijkstra17AdjacencyMapEntryEEE9constructI
           to label %.noexc92 unwind label %317
 
 .noexc92:                                         ; preds = %234
-  %.pre.i90 = load ptr, ptr %23, align 8, !tbaa !64
+  %.pre.i90 = load ptr, ptr %23, align 8, !tbaa !63
   br label %_ZNSt6vectorIN3g2o13HyperDijkstra17AdjacencyMapEntryESaIS2_EE9push_backERKS2_.exit.i89
 
 _ZNSt6vectorIN3g2o13HyperDijkstra17AdjacencyMapEntryESaIS2_EE9push_backERKS2_.exit.i89: ; preds = %.noexc92, %_ZNSt16allocator_traitsISaIN3g2o13HyperDijkstra17AdjacencyMapEntryEEE9constructIS2_JRKS2_EEEvRS3_PT_DpOT0_.exit.i.i88
   %235 = phi ptr [ %233, %_ZNSt16allocator_traitsISaIN3g2o13HyperDijkstra17AdjacencyMapEntryEEE9constructIS2_JRKS2_EEEvRS3_PT_DpOT0_.exit.i.i88 ], [ %.pre.i90, %.noexc92 ]
-  %236 = load ptr, ptr %14, align 8, !tbaa !64
+  %236 = load ptr, ptr %14, align 8, !tbaa !63
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %9)
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %8) #20
   %237 = getelementptr inbounds i8, ptr %235, i64 -80
@@ -1154,7 +1154,7 @@ _ZNSt6vectorIN3g2o13HyperDijkstra17AdjacencyMapEntryESaIS2_EE9push_backERKS2_.ex
   %245 = getelementptr inbounds i8, ptr %235, i64 -16
   %246 = load ptr, ptr %245, align 8, !tbaa !29
   %247 = getelementptr inbounds nuw i8, ptr %239, i64 8
-  store ptr %38, ptr %247, align 8, !tbaa !62
+  store ptr %38, ptr %247, align 8, !tbaa !61
   %248 = getelementptr inbounds i8, ptr %235, i64 -8
   %249 = load i64, ptr %248, align 8, !tbaa !30
   store ptr null, ptr %238, align 8, !tbaa !27
@@ -1187,7 +1187,7 @@ _ZN3g2o13HyperDijkstra17AdjacencyMapEntryC2EOS1_.exit.i: ; preds = %250, %240
 259:                                              ; preds = %_ZN3g2o13HyperDijkstra17AdjacencyMapEntryC2EOS1_.exit.i
   store ptr %239, ptr %44, align 8, !tbaa !27
   %260 = getelementptr inbounds nuw i8, ptr %239, i64 8
-  store ptr %43, ptr %260, align 8, !tbaa !62
+  store ptr %43, ptr %260, align 8, !tbaa !61
   store ptr null, ptr %39, align 8, !tbaa !27
   store ptr %38, ptr %40, align 8, !tbaa !28
   store ptr %38, ptr %41, align 8, !tbaa !29
@@ -1247,7 +1247,7 @@ _ZNSt8_Rb_treeIPN3g2o10HyperGraph6VertexES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_E
   %279 = getelementptr inbounds nuw i8, ptr %269, i64 72
   store i64 0, ptr %279, align 8, !tbaa !30
   %280 = getelementptr inbounds nuw i8, ptr %263, i64 48
-  %281 = load ptr, ptr %280, align 8, !tbaa !54
+  %281 = load ptr, ptr %280, align 8, !tbaa !53
   %.not.i.i.i.i.i106 = icmp eq ptr %281, null
   br i1 %.not.i.i.i.i.i106, label %_ZN3g2o13HyperDijkstra17AdjacencyMapEntryaSEOS1_.exit.i, label %282
 
@@ -1263,7 +1263,7 @@ _ZNSt8_Rb_treeIPN3g2o10HyperGraph6VertexES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_E
   %288 = load ptr, ptr %287, align 8, !tbaa !29
   store ptr %288, ptr %278, align 8, !tbaa !29
   %289 = getelementptr inbounds nuw i8, ptr %281, i64 8
-  store ptr %276, ptr %289, align 8, !tbaa !62
+  store ptr %276, ptr %289, align 8, !tbaa !61
   %290 = getelementptr inbounds nuw i8, ptr %263, i64 72
   %291 = load i64, ptr %290, align 8, !tbaa !30
   store i64 %291, ptr %279, align 8, !tbaa !30
@@ -1275,7 +1275,7 @@ _ZNSt8_Rb_treeIPN3g2o10HyperGraph6VertexES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_E
 
 _ZN3g2o13HyperDijkstra17AdjacencyMapEntryaSEOS1_.exit.i: ; preds = %282, %_ZNSt8_Rb_treeIPN3g2o10HyperGraph6VertexES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE5clearEv.exit.i.i.i.i.i
   %.not139 = icmp ult i64 %.0923.in.i, 2
-  br i1 %.not139, label %.critedge.i, label %.lr.ph.i, !llvm.loop !80
+  br i1 %.not139, label %.critedge.i, label %.lr.ph.i, !llvm.loop !79
 
 .critedge.i:                                      ; preds = %_ZN3g2o13HyperDijkstra17AdjacencyMapEntryaSEOS1_.exit.i, %.lr.ph.i, %_ZN3g2o13HyperDijkstra17AdjacencyMapEntryC2EOS1_.exit3.i
   %.0.lcssa.i = phi i64 [ %258, %_ZN3g2o13HyperDijkstra17AdjacencyMapEntryC2EOS1_.exit3.i ], [ %.022.i, %.lr.ph.i ], [ 0, %_ZN3g2o13HyperDijkstra17AdjacencyMapEntryaSEOS1_.exit.i ]
@@ -1303,7 +1303,7 @@ _ZNSt8_Rb_treeIPN3g2o10HyperGraph6VertexES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_E
   store ptr %299, ptr %301, align 8, !tbaa !29
   %302 = getelementptr inbounds nuw i8, ptr %292, i64 72
   store i64 0, ptr %302, align 8, !tbaa !30
-  %303 = load ptr, ptr %44, align 8, !tbaa !54
+  %303 = load ptr, ptr %44, align 8, !tbaa !53
   %.not.i.i.i.i11.i = icmp eq ptr %303, null
   br i1 %.not.i.i.i.i11.i, label %_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPN3g2o13HyperDijkstra17AdjacencyMapEntryESt6vectorIS4_SaIS4_EEEElS4_NS0_5__ops14_Iter_comp_valISt4lessIS4_EEEEvT_T0_SG_T1_RT2_.exit, label %304
 
@@ -1316,7 +1316,7 @@ _ZNSt8_Rb_treeIPN3g2o10HyperGraph6VertexES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_E
   %307 = load ptr, ptr %46, align 8, !tbaa !29
   store ptr %307, ptr %301, align 8, !tbaa !29
   %308 = getelementptr inbounds nuw i8, ptr %303, i64 8
-  store ptr %299, ptr %308, align 8, !tbaa !62
+  store ptr %299, ptr %308, align 8, !tbaa !61
   %309 = load i64, ptr %47, align 8, !tbaa !30
   store i64 %309, ptr %302, align 8, !tbaa !30
   store ptr null, ptr %44, align 8, !tbaa !27
@@ -1360,18 +1360,18 @@ _ZNSt14priority_queueIN3g2o13HyperDijkstra17AdjacencyMapEntryESt6vectorIS2_SaIS2
 
 319:                                              ; preds = %_ZNSt3mapIPN3g2o10HyperGraph6VertexENS0_13HyperDijkstra17AdjacencyMapEntryESt4lessIS3_ESaISt4pairIKS3_S5_EEE4findERS9_.exit79, %_ZNSt14priority_queueIN3g2o13HyperDijkstra17AdjacencyMapEntryESt6vectorIS2_SaIS2_EESt4lessIS2_EE4pushERKS2_.exit94, %186, %.lr.ph167
   %320 = add nuw i64 %.031166, 1
-  %321 = load ptr, ptr %176, align 8, !tbaa !78
-  %322 = load ptr, ptr %175, align 8, !tbaa !74
+  %321 = load ptr, ptr %176, align 8, !tbaa !77
+  %322 = load ptr, ptr %175, align 8, !tbaa !73
   %323 = ptrtoint ptr %321 to i64
   %324 = ptrtoint ptr %322 to i64
   %325 = sub i64 %323, %324
   %326 = ashr exact i64 %325, 3
   %327 = icmp ult i64 %320, %326
-  br i1 %327, label %.lr.ph167, label %.loopexit, !llvm.loop !81
+  br i1 %327, label %.lr.ph167, label %.loopexit, !llvm.loop !80
 
 .loopexit:                                        ; preds = %319, %.lr.ph170._crit_edge, %171
   %.not137 = icmp eq ptr %168, %165
-  br i1 %.not137, label %._crit_edge, label %.lr.ph170, !llvm.loop !82
+  br i1 %.not137, label %._crit_edge, label %.lr.ph170
 
 ._crit_edge:                                      ; preds = %.loopexit, %162
   %328 = load ptr, ptr %26, align 8, !tbaa !27
@@ -1387,10 +1387,10 @@ _ZNSt14priority_queueIN3g2o13HyperDijkstra17AdjacencyMapEntryESt6vectorIS2_SaIS2
 
 _ZN3g2o13HyperDijkstra17AdjacencyMapEntryD2Ev.exit: ; preds = %._crit_edge
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %15) #20
-  %332 = load ptr, ptr %14, align 8, !tbaa !64
-  %333 = load ptr, ptr %23, align 8, !tbaa !64
+  %332 = load ptr, ptr %14, align 8, !tbaa !63
+  %333 = load ptr, ptr %23, align 8, !tbaa !63
   %334 = icmp eq ptr %332, %333
-  br i1 %334, label %_ZSt8_DestroyIPN3g2o13HyperDijkstra17AdjacencyMapEntryES2_EvT_S4_RSaIT0_E.exit.i.i, label %95, !llvm.loop !83
+  br i1 %334, label %_ZSt8_DestroyIPN3g2o13HyperDijkstra17AdjacencyMapEntryES2_EvT_S4_RSaIT0_E.exit.i.i, label %95, !llvm.loop !81
 
 .body:                                            ; preds = %173, %317, %189, %160
   %.pn.pn.pn.pn = phi { ptr, i32 } [ %161, %160 ], [ %174, %173 ], [ %190, %189 ], [ %318, %317 ]
@@ -1417,7 +1417,7 @@ _ZSt8_DestroyIPN3g2o13HyperDijkstra17AdjacencyMapEntryES2_EvT_S4_RSaIT0_E.exit.i
 
 339:                                              ; preds = %_ZSt8_DestroyIPN3g2o13HyperDijkstra17AdjacencyMapEntryES2_EvT_S4_RSaIT0_E.exit.i.i
   %340 = getelementptr inbounds nuw i8, ptr %14, i64 16
-  %341 = load ptr, ptr %340, align 8, !tbaa !70
+  %341 = load ptr, ptr %340, align 8, !tbaa !69
   %342 = ptrtoint ptr %341 to i64
   %343 = ptrtoint ptr %.lcssa141 to i64
   %344 = sub i64 %342, %343
@@ -1430,9 +1430,9 @@ _ZNSt14priority_queueIN3g2o13HyperDijkstra17AdjacencyMapEntryESt6vectorIS2_SaIS2
 
 345:                                              ; preds = %_ZN3g2o13HyperDijkstra17AdjacencyMapEntryD2Ev.exit95, %92
   %.pn41 = phi { ptr, i32 } [ %93, %92 ], [ %.pn.pn.pn.pn.pn, %_ZN3g2o13HyperDijkstra17AdjacencyMapEntryD2Ev.exit95 ]
-  %346 = load ptr, ptr %14, align 8, !tbaa !84
+  %346 = load ptr, ptr %14, align 8, !tbaa !82
   %347 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %348 = load ptr, ptr %347, align 8, !tbaa !68
+  %348 = load ptr, ptr %347, align 8, !tbaa !67
   %.not4.i.i.i.i.i96 = icmp eq ptr %346, %348
   br i1 %.not4.i.i.i.i.i96, label %_ZSt8_DestroyIPN3g2o13HyperDijkstra17AdjacencyMapEntryES2_EvT_S4_RSaIT0_E.exit.i.i103, label %.lr.ph.i.i.i.i.i97
 
@@ -1454,10 +1454,10 @@ _ZNSt14priority_queueIN3g2o13HyperDijkstra17AdjacencyMapEntryESt6vectorIS2_SaIS2
 _ZSt8_DestroyIN3g2o13HyperDijkstra17AdjacencyMapEntryEEvPT_.exit.i.i.i.i.i99: ; preds = %.lr.ph.i.i.i.i.i97
   %355 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i98, i64 80
   %.not.i.i.i.i.i100 = icmp eq ptr %355, %348
-  br i1 %.not.i.i.i.i.i100, label %_ZSt8_DestroyIPN3g2o13HyperDijkstra17AdjacencyMapEntryES2_EvT_S4_RSaIT0_E.exitthread-pre-split.i.i101, label %.lr.ph.i.i.i.i.i97, !llvm.loop !85
+  br i1 %.not.i.i.i.i.i100, label %_ZSt8_DestroyIPN3g2o13HyperDijkstra17AdjacencyMapEntryES2_EvT_S4_RSaIT0_E.exitthread-pre-split.i.i101, label %.lr.ph.i.i.i.i.i97, !llvm.loop !83
 
 _ZSt8_DestroyIPN3g2o13HyperDijkstra17AdjacencyMapEntryES2_EvT_S4_RSaIT0_E.exitthread-pre-split.i.i101: ; preds = %_ZSt8_DestroyIN3g2o13HyperDijkstra17AdjacencyMapEntryEEvPT_.exit.i.i.i.i.i99
-  %.pr.i.i102 = load ptr, ptr %14, align 8, !tbaa !84
+  %.pr.i.i102 = load ptr, ptr %14, align 8, !tbaa !82
   br label %_ZSt8_DestroyIPN3g2o13HyperDijkstra17AdjacencyMapEntryES2_EvT_S4_RSaIT0_E.exit.i.i103
 
 _ZSt8_DestroyIPN3g2o13HyperDijkstra17AdjacencyMapEntryES2_EvT_S4_RSaIT0_E.exit.i.i103: ; preds = %_ZSt8_DestroyIPN3g2o13HyperDijkstra17AdjacencyMapEntryES2_EvT_S4_RSaIT0_E.exitthread-pre-split.i.i101, %345
@@ -1467,7 +1467,7 @@ _ZSt8_DestroyIPN3g2o13HyperDijkstra17AdjacencyMapEntryES2_EvT_S4_RSaIT0_E.exit.i
 
 357:                                              ; preds = %_ZSt8_DestroyIPN3g2o13HyperDijkstra17AdjacencyMapEntryES2_EvT_S4_RSaIT0_E.exit.i.i103
   %358 = getelementptr inbounds nuw i8, ptr %14, i64 16
-  %359 = load ptr, ptr %358, align 8, !tbaa !70
+  %359 = load ptr, ptr %358, align 8, !tbaa !69
   %360 = ptrtoint ptr %359 to i64
   %361 = ptrtoint ptr %356 to i64
   %362 = sub i64 %360, %361
@@ -1502,7 +1502,7 @@ define void @_ZN3g2o13HyperDijkstra13shortestPathsEPNS_10HyperGraph6VertexEPNS0_
 
 .noexc:                                           ; preds = %._crit_edge.thread.i.i.i
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 32
-  store ptr %1, ptr %14, align 8, !tbaa !57
+  store ptr %1, ptr %14, align 8, !tbaa !56
   call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext true, ptr noundef nonnull %13, ptr noundef nonnull %8, ptr noundef nonnull align 8 dereferenceable(32) %8) #20
   %15 = load i64, ptr %12, align 8, !tbaa !30
   %16 = add i64 %15, 1
@@ -1581,7 +1581,7 @@ _ZNSt3setIPN3g2o10HyperGraph6VertexESt4lessIS3_ESaIS3_EE5clearEv.exit: ; preds =
   store i64 0, ptr %16, align 8, !tbaa !30
   %17 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.015.024) #22
   %.not18 = icmp eq ptr %17, %4
-  br i1 %.not18, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !86
+  br i1 %.not18, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !84
 
 ._crit_edge29:                                    ; preds = %_ZNSt3setIPN3g2o10HyperGraph6VertexESt4lessIS3_ESaIS3_EE6insertERKS3_.exit, %._crit_edge
   ret void
@@ -1604,14 +1604,14 @@ _ZNSt3setIPN3g2o10HyperGraph6VertexESt4lessIS3_ESaIS3_EE5clearEv.exit: ; preds =
   %.012.i.i.i = phi ptr [ %.1.i.i.i, %.lr.ph.i.i.i ], [ %24, %21 ]
   %.0811.i.i.i = phi ptr [ %.19.i.i.i, %.lr.ph.i.i.i ], [ %4, %21 ]
   %25 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 32
-  %26 = load ptr, ptr %25, align 8, !tbaa !57
+  %26 = load ptr, ptr %25, align 8, !tbaa !56
   %27 = icmp ult ptr %26, %20
   %.19.i.i.i = select i1 %27, ptr %.0811.i.i.i, ptr %.012.i.i.i
   %.1.in.v.i.i.i = select i1 %27, i64 24, i64 16
   %.1.in.i.i.i = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 %.1.in.v.i.i.i
-  %.1.i.i.i = load ptr, ptr %.1.in.i.i.i, align 8, !tbaa !54
+  %.1.i.i.i = load ptr, ptr %.1.in.i.i.i, align 8, !tbaa !53
   %.not.i.i.i = icmp eq ptr %.1.i.i.i, null
-  br i1 %.not.i.i.i, label %_ZNSt8_Rb_treeIPN3g2o10HyperGraph6VertexESt4pairIKS3_NS0_13HyperDijkstra17AdjacencyMapEntryEESt10_Select1stIS8_ESt4lessIS3_ESaIS8_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS8_EPSt18_Rb_tree_node_baseRS5_.exit.i.i, label %.lr.ph.i.i.i, !llvm.loop !58
+  br i1 %.not.i.i.i, label %_ZNSt8_Rb_treeIPN3g2o10HyperGraph6VertexESt4pairIKS3_NS0_13HyperDijkstra17AdjacencyMapEntryEESt10_Select1stIS8_ESt4lessIS3_ESaIS8_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS8_EPSt18_Rb_tree_node_baseRS5_.exit.i.i, label %.lr.ph.i.i.i, !llvm.loop !57
 
 _ZNSt8_Rb_treeIPN3g2o10HyperGraph6VertexESt4pairIKS3_NS0_13HyperDijkstra17AdjacencyMapEntryEESt10_Select1stIS8_ESt4lessIS3_ESaIS8_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS8_EPSt18_Rb_tree_node_baseRS5_.exit.i.i: ; preds = %.lr.ph.i.i.i
   %28 = icmp eq ptr %.19.i.i.i, %4
@@ -1619,7 +1619,7 @@ _ZNSt8_Rb_treeIPN3g2o10HyperGraph6VertexESt4pairIKS3_NS0_13HyperDijkstra17Adjace
 
 29:                                               ; preds = %_ZNSt8_Rb_treeIPN3g2o10HyperGraph6VertexESt4pairIKS3_NS0_13HyperDijkstra17AdjacencyMapEntryEESt10_Select1stIS8_ESt4lessIS3_ESaIS8_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS8_EPSt18_Rb_tree_node_baseRS5_.exit.i.i
   %30 = getelementptr inbounds nuw i8, ptr %.19.i.i.i, i64 32
-  %31 = load ptr, ptr %30, align 8, !tbaa !57
+  %31 = load ptr, ptr %30, align 8, !tbaa !56
   %32 = icmp ult ptr %20, %31
   %spec.select.i.i = select i1 %32, ptr %4, ptr %.19.i.i.i
   br label %_ZNSt3mapIPN3g2o10HyperGraph6VertexENS0_13HyperDijkstra17AdjacencyMapEntryESt4lessIS3_ESaISt4pairIKS3_S5_EEE4findERS9_.exit
@@ -1628,20 +1628,20 @@ _ZNSt3mapIPN3g2o10HyperGraph6VertexENS0_13HyperDijkstra17AdjacencyMapEntryESt4le
   %.sroa.0.0.i.i = phi ptr [ %4, %_ZNSt8_Rb_treeIPN3g2o10HyperGraph6VertexESt4pairIKS3_NS0_13HyperDijkstra17AdjacencyMapEntryEESt10_Select1stIS8_ESt4lessIS3_ESaIS8_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS8_EPSt18_Rb_tree_node_baseRS5_.exit.i.i ], [ %4, %21 ], [ %spec.select.i.i, %29 ]
   %33 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i, i64 88
   %34 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i, i64 80
-  %.02022.i.i.i = load ptr, ptr %33, align 8, !tbaa !54
+  %.02022.i.i.i = load ptr, ptr %33, align 8, !tbaa !53
   %.not23.i.i.i = icmp eq ptr %.02022.i.i.i, null
   br i1 %.not23.i.i.i, label %._crit_edge.thread.i.i.i, label %.lr.ph.i.i.i8
 
 .lr.ph.i.i.i8:                                    ; preds = %_ZNSt3mapIPN3g2o10HyperGraph6VertexENS0_13HyperDijkstra17AdjacencyMapEntryESt4lessIS3_ESaISt4pairIKS3_S5_EEE4findERS9_.exit, %.lr.ph.i.i.i8
   %.02024.i.i.i = phi ptr [ %.020.i.i.i, %.lr.ph.i.i.i8 ], [ %.02022.i.i.i, %_ZNSt3mapIPN3g2o10HyperGraph6VertexENS0_13HyperDijkstra17AdjacencyMapEntryESt4lessIS3_ESaISt4pairIKS3_S5_EEE4findERS9_.exit ]
   %35 = getelementptr inbounds nuw i8, ptr %.02024.i.i.i, i64 32
-  %36 = load ptr, ptr %35, align 8, !tbaa !57
+  %36 = load ptr, ptr %35, align 8, !tbaa !56
   %37 = icmp ult ptr %23, %36
   %.in.v.i.i.i = select i1 %37, i64 16, i64 24
   %.in.i.i.i = getelementptr inbounds nuw i8, ptr %.02024.i.i.i, i64 %.in.v.i.i.i
-  %.020.i.i.i = load ptr, ptr %.in.i.i.i, align 8, !tbaa !54
+  %.020.i.i.i = load ptr, ptr %.in.i.i.i, align 8, !tbaa !53
   %.not.i.i.i9 = icmp eq ptr %.020.i.i.i, null
-  br i1 %.not.i.i.i9, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i8, !llvm.loop !72
+  br i1 %.not.i.i.i9, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i8, !llvm.loop !71
 
 ._crit_edge.i.i.i:                                ; preds = %.lr.ph.i.i.i8
   br i1 %37, label %._crit_edge.thread.i.i.i, label %43
@@ -1656,7 +1656,7 @@ _ZNSt3mapIPN3g2o10HyperGraph6VertexENS0_13HyperDijkstra17AdjacencyMapEntryESt4le
 41:                                               ; preds = %._crit_edge.thread.i.i.i
   %42 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.019.lcssa28.i.i.i) #22
   %.phi.trans.insert.i.i = getelementptr inbounds nuw i8, ptr %42, i64 32
-  %.pre.i.i = load ptr, ptr %.phi.trans.insert.i.i, align 8, !tbaa !57
+  %.pre.i.i = load ptr, ptr %.phi.trans.insert.i.i, align 8, !tbaa !56
   br label %43
 
 43:                                               ; preds = %41, %._crit_edge.i.i.i
@@ -1672,7 +1672,7 @@ select.unfold.i.i:                                ; preds = %43, %._crit_edge.th
 
 47:                                               ; preds = %select.unfold.i.i
   %48 = getelementptr inbounds nuw i8, ptr %.sroa.4.0.i.ph.i.i, i64 32
-  %49 = load ptr, ptr %48, align 8, !tbaa !57
+  %49 = load ptr, ptr %48, align 8, !tbaa !56
   %50 = icmp ult ptr %23, %49
   br label %_ZNSt8_Rb_treeIPN3g2o10HyperGraph6VertexES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE10_M_insert_IRKS3_NS9_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS3_EPSt18_Rb_tree_node_baseSH_OT_RT0_.exit.i.i
 
@@ -1680,7 +1680,7 @@ _ZNSt8_Rb_treeIPN3g2o10HyperGraph6VertexES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_E
   %51 = phi i1 [ true, %select.unfold.i.i ], [ %50, %47 ]
   %52 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #23
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 32
-  store ptr %23, ptr %53, align 8, !tbaa !57
+  store ptr %23, ptr %53, align 8, !tbaa !56
   tail call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %51, ptr noundef nonnull %52, ptr noundef nonnull %.sroa.4.0.i.ph.i.i, ptr noundef nonnull align 8 dereferenceable(32) %34) #20
   %54 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i, i64 112
   %55 = load i64, ptr %54, align 8, !tbaa !30
@@ -1691,7 +1691,7 @@ _ZNSt8_Rb_treeIPN3g2o10HyperGraph6VertexES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_E
 _ZNSt3setIPN3g2o10HyperGraph6VertexESt4lessIS3_ESaIS3_EE6insertERKS3_.exit: ; preds = %_ZNSt8_Rb_treeIPN3g2o10HyperGraph6VertexES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE10_M_insert_IRKS3_NS9_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS3_EPSt18_Rb_tree_node_baseSH_OT_RT0_.exit.i.i, %43, %18
   %57 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.011.026) #22
   %.not19 = icmp eq ptr %57, %4
-  br i1 %.not19, label %._crit_edge29, label %18, !llvm.loop !87
+  br i1 %.not19, label %._crit_edge29, label %18, !llvm.loop !85
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -1714,8 +1714,8 @@ define void @_ZN3g2o13HyperDijkstra17visitAdjacencyMapERSt3mapIPNS_10HyperGraph6
 .preheader:                                       ; preds = %_ZNSt5dequeIPN3g2o10HyperGraph6VertexESaIS3_EE9push_backERKS3_.exit, %3
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 48
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %12 = load ptr, ptr %10, align 8, !tbaa !88
-  %13 = load ptr, ptr %11, align 8, !tbaa !88
+  %12 = load ptr, ptr %10, align 8, !tbaa !86
+  %13 = load ptr, ptr %11, align 8, !tbaa !86
   %14 = icmp eq ptr %12, %13
   br i1 %14, label %._crit_edge, label %.lr.ph77
 
@@ -1739,24 +1739,24 @@ define void @_ZN3g2o13HyperDijkstra17visitAdjacencyMapERSt3mapIPNS_10HyperGraph6
   br i1 %.not, label %27, label %_ZNSt5dequeIPN3g2o10HyperGraph6VertexESaIS3_EE9push_backERKS3_.exit
 
 27:                                               ; preds = %23
-  %28 = load ptr, ptr %24, align 8, !tbaa !59
+  %28 = load ptr, ptr %24, align 8, !tbaa !58
   %29 = load ptr, ptr %1, align 8, !tbaa !3
   %30 = load ptr, ptr %29, align 8
   %31 = invoke noundef double %30(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %28, ptr noundef null, ptr noundef null)
           to label %32 unwind label %40
 
 32:                                               ; preds = %27
-  %33 = load ptr, ptr %8, align 8, !tbaa !91
-  %34 = load ptr, ptr %9, align 8, !tbaa !93
+  %33 = load ptr, ptr %8, align 8, !tbaa !89
+  %34 = load ptr, ptr %9, align 8, !tbaa !91
   %35 = getelementptr inbounds i8, ptr %34, i64 -8
   %.not.i = icmp eq ptr %33, %35
   br i1 %.not.i, label %39, label %36
 
 36:                                               ; preds = %32
-  %37 = load ptr, ptr %24, align 8, !tbaa !57
-  store ptr %37, ptr %33, align 8, !tbaa !57
+  %37 = load ptr, ptr %24, align 8, !tbaa !56
+  store ptr %37, ptr %33, align 8, !tbaa !56
   %38 = getelementptr inbounds nuw i8, ptr %33, i64 8
-  store ptr %38, ptr %8, align 8, !tbaa !91
+  store ptr %38, ptr %8, align 8, !tbaa !89
   br label %_ZNSt5dequeIPN3g2o10HyperGraph6VertexESaIS3_EE9push_backERKS3_.exit
 
 39:                                               ; preds = %32
@@ -1771,12 +1771,12 @@ define void @_ZN3g2o13HyperDijkstra17visitAdjacencyMapERSt3mapIPNS_10HyperGraph6
 _ZNSt5dequeIPN3g2o10HyperGraph6VertexESaIS3_EE9push_backERKS3_.exit: ; preds = %36, %39, %23
   %42 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.062.073) #22
   %.not68 = icmp eq ptr %42, %7
-  br i1 %.not68, label %.preheader, label %23, !llvm.loop !94
+  br i1 %.not68, label %.preheader, label %23, !llvm.loop !92
 
 43:                                               ; preds = %.lr.ph77, %_ZNSt3mapIPN3g2o10HyperGraph6VertexENS0_13HyperDijkstra17AdjacencyMapEntryESt4lessIS3_ESaISt4pairIKS3_S5_EEE4findERS9_.exit.thread
   %44 = phi ptr [ %13, %.lr.ph77 ], [ %182, %_ZNSt3mapIPN3g2o10HyperGraph6VertexENS0_13HyperDijkstra17AdjacencyMapEntryESt4lessIS3_ESaISt4pairIKS3_S5_EEE4findERS9_.exit.thread ]
-  %45 = load ptr, ptr %44, align 8, !tbaa !57
-  %46 = load ptr, ptr %15, align 8, !tbaa !95
+  %45 = load ptr, ptr %44, align 8, !tbaa !56
+  %46 = load ptr, ptr %15, align 8, !tbaa !93
   %47 = getelementptr inbounds i8, ptr %46, i64 -8
   %.not.i22 = icmp eq ptr %44, %47
   br i1 %.not.i22, label %50, label %48
@@ -1786,20 +1786,20 @@ _ZNSt5dequeIPN3g2o10HyperGraph6VertexESaIS3_EE9push_backERKS3_.exit: ; preds = %
   br label %_ZNSt5dequeIPN3g2o10HyperGraph6VertexESaIS3_EE9pop_frontEv.exit
 
 50:                                               ; preds = %43
-  %51 = load ptr, ptr %16, align 8, !tbaa !96
+  %51 = load ptr, ptr %16, align 8, !tbaa !94
   call void @_ZdlPvm(ptr noundef %51, i64 noundef 512) #24
-  %52 = load ptr, ptr %17, align 8, !tbaa !97
+  %52 = load ptr, ptr %17, align 8, !tbaa !95
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 8
-  store ptr %53, ptr %17, align 8, !tbaa !98
-  %54 = load ptr, ptr %53, align 8, !tbaa !99
-  store ptr %54, ptr %16, align 8, !tbaa !100
+  store ptr %53, ptr %17, align 8, !tbaa !96
+  %54 = load ptr, ptr %53, align 8, !tbaa !97
+  store ptr %54, ptr %16, align 8, !tbaa !98
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 512
-  store ptr %55, ptr %15, align 8, !tbaa !101
+  store ptr %55, ptr %15, align 8, !tbaa !99
   br label %_ZNSt5dequeIPN3g2o10HyperGraph6VertexESaIS3_EE9pop_frontEv.exit
 
 _ZNSt5dequeIPN3g2o10HyperGraph6VertexESaIS3_EE9pop_frontEv.exit: ; preds = %48, %50
   %storemerge.i = phi ptr [ %49, %48 ], [ %54, %50 ]
-  store ptr %storemerge.i, ptr %11, align 8, !tbaa !102
+  store ptr %storemerge.i, ptr %11, align 8, !tbaa !100
   %56 = load ptr, ptr %18, align 8, !tbaa !27
   %.not10.i.i.i = icmp eq ptr %56, null
   br i1 %.not10.i.i.i, label %_ZNSt3mapIPN3g2o10HyperGraph6VertexENS0_13HyperDijkstra17AdjacencyMapEntryESt4lessIS3_ESaISt4pairIKS3_S5_EEE4findERS9_.exit.thread, label %.lr.ph.i.i.i
@@ -1808,14 +1808,14 @@ _ZNSt5dequeIPN3g2o10HyperGraph6VertexESaIS3_EE9pop_frontEv.exit: ; preds = %48, 
   %.012.i.i.i = phi ptr [ %.1.i.i.i, %.lr.ph.i.i.i ], [ %56, %_ZNSt5dequeIPN3g2o10HyperGraph6VertexESaIS3_EE9pop_frontEv.exit ]
   %.0811.i.i.i = phi ptr [ %.19.i.i.i, %.lr.ph.i.i.i ], [ %7, %_ZNSt5dequeIPN3g2o10HyperGraph6VertexESaIS3_EE9pop_frontEv.exit ]
   %57 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 32
-  %58 = load ptr, ptr %57, align 8, !tbaa !57
+  %58 = load ptr, ptr %57, align 8, !tbaa !56
   %59 = icmp ult ptr %58, %45
   %.19.i.i.i = select i1 %59, ptr %.0811.i.i.i, ptr %.012.i.i.i
   %.1.in.v.i.i.i = select i1 %59, i64 24, i64 16
   %.1.in.i.i.i = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 %.1.in.v.i.i.i
-  %.1.i.i.i = load ptr, ptr %.1.in.i.i.i, align 8, !tbaa !54
+  %.1.i.i.i = load ptr, ptr %.1.in.i.i.i, align 8, !tbaa !53
   %.not.i.i.i = icmp eq ptr %.1.i.i.i, null
-  br i1 %.not.i.i.i, label %_ZNSt8_Rb_treeIPN3g2o10HyperGraph6VertexESt4pairIKS3_NS0_13HyperDijkstra17AdjacencyMapEntryEESt10_Select1stIS8_ESt4lessIS3_ESaIS8_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS8_EPSt18_Rb_tree_node_baseRS5_.exit.i.i, label %.lr.ph.i.i.i, !llvm.loop !58
+  br i1 %.not.i.i.i, label %_ZNSt8_Rb_treeIPN3g2o10HyperGraph6VertexESt4pairIKS3_NS0_13HyperDijkstra17AdjacencyMapEntryEESt10_Select1stIS8_ESt4lessIS3_ESaIS8_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS8_EPSt18_Rb_tree_node_baseRS5_.exit.i.i, label %.lr.ph.i.i.i, !llvm.loop !57
 
 _ZNSt8_Rb_treeIPN3g2o10HyperGraph6VertexESt4pairIKS3_NS0_13HyperDijkstra17AdjacencyMapEntryEESt10_Select1stIS8_ESt4lessIS3_ESaIS8_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS8_EPSt18_Rb_tree_node_baseRS5_.exit.i.i: ; preds = %.lr.ph.i.i.i
   %60 = icmp eq ptr %.19.i.i.i, %7
@@ -1823,9 +1823,9 @@ _ZNSt8_Rb_treeIPN3g2o10HyperGraph6VertexESt4pairIKS3_NS0_13HyperDijkstra17Adjace
 
 _ZNSt3mapIPN3g2o10HyperGraph6VertexENS0_13HyperDijkstra17AdjacencyMapEntryESt4lessIS3_ESaISt4pairIKS3_S5_EEE4findERS9_.exit: ; preds = %_ZNSt8_Rb_treeIPN3g2o10HyperGraph6VertexESt4pairIKS3_NS0_13HyperDijkstra17AdjacencyMapEntryEESt10_Select1stIS8_ESt4lessIS3_ESaIS8_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS8_EPSt18_Rb_tree_node_baseRS5_.exit.i.i
   %61 = getelementptr inbounds nuw i8, ptr %.19.i.i.i, i64 32
-  %62 = load ptr, ptr %61, align 8, !tbaa !57
+  %62 = load ptr, ptr %61, align 8, !tbaa !56
   %63 = icmp ult ptr %45, %62
-  br i1 %63, label %_ZNSt3mapIPN3g2o10HyperGraph6VertexENS0_13HyperDijkstra17AdjacencyMapEntryESt4lessIS3_ESaISt4pairIKS3_S5_EEE4findERS9_.exit.thread, label %64, !llvm.loop !103
+  br i1 %63, label %_ZNSt3mapIPN3g2o10HyperGraph6VertexENS0_13HyperDijkstra17AdjacencyMapEntryESt4lessIS3_ESaISt4pairIKS3_S5_EEE4findERS9_.exit.thread, label %64, !llvm.loop !101
 
 64:                                               ; preds = %_ZNSt3mapIPN3g2o10HyperGraph6VertexENS0_13HyperDijkstra17AdjacencyMapEntryESt4lessIS3_ESaISt4pairIKS3_S5_EEE4findERS9_.exit
   %65 = getelementptr inbounds nuw i8, ptr %.19.i.i.i, i64 96
@@ -1837,7 +1837,7 @@ _ZNSt3mapIPN3g2o10HyperGraph6VertexENS0_13HyperDijkstra17AdjacencyMapEntryESt4le
 .lr.ph76:                                         ; preds = %64, %_ZNSt5dequeIPN3g2o10HyperGraph6VertexESaIS3_EE9push_backERKS3_.exit38
   %.sroa.052.075 = phi ptr [ %181, %_ZNSt5dequeIPN3g2o10HyperGraph6VertexESaIS3_EE9push_backERKS3_.exit38 ], [ %66, %64 ]
   %68 = getelementptr inbounds nuw i8, ptr %.sroa.052.075, i64 32
-  %69 = load ptr, ptr %68, align 8, !tbaa !57
+  %69 = load ptr, ptr %68, align 8, !tbaa !56
   %70 = load ptr, ptr %18, align 8, !tbaa !27
   %.not10.i.i.i23 = icmp eq ptr %70, null
   br i1 %.not10.i.i.i23, label %_ZNSt3mapIPN3g2o10HyperGraph6VertexENS0_13HyperDijkstra17AdjacencyMapEntryESt4lessIS3_ESaISt4pairIKS3_S5_EEE4findERS9_.exit35, label %.lr.ph.i.i.i24
@@ -1846,14 +1846,14 @@ _ZNSt3mapIPN3g2o10HyperGraph6VertexENS0_13HyperDijkstra17AdjacencyMapEntryESt4le
   %.012.i.i.i25 = phi ptr [ %.1.i.i.i30, %.lr.ph.i.i.i24 ], [ %70, %.lr.ph76 ]
   %.0811.i.i.i26 = phi ptr [ %.19.i.i.i27, %.lr.ph.i.i.i24 ], [ %7, %.lr.ph76 ]
   %71 = getelementptr inbounds nuw i8, ptr %.012.i.i.i25, i64 32
-  %72 = load ptr, ptr %71, align 8, !tbaa !57
+  %72 = load ptr, ptr %71, align 8, !tbaa !56
   %73 = icmp ult ptr %72, %69
   %.19.i.i.i27 = select i1 %73, ptr %.0811.i.i.i26, ptr %.012.i.i.i25
   %.1.in.v.i.i.i28 = select i1 %73, i64 24, i64 16
   %.1.in.i.i.i29 = getelementptr inbounds nuw i8, ptr %.012.i.i.i25, i64 %.1.in.v.i.i.i28
-  %.1.i.i.i30 = load ptr, ptr %.1.in.i.i.i29, align 8, !tbaa !54
+  %.1.i.i.i30 = load ptr, ptr %.1.in.i.i.i29, align 8, !tbaa !53
   %.not.i.i.i31 = icmp eq ptr %.1.i.i.i30, null
-  br i1 %.not.i.i.i31, label %_ZNSt8_Rb_treeIPN3g2o10HyperGraph6VertexESt4pairIKS3_NS0_13HyperDijkstra17AdjacencyMapEntryEESt10_Select1stIS8_ESt4lessIS3_ESaIS8_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS8_EPSt18_Rb_tree_node_baseRS5_.exit.i.i32, label %.lr.ph.i.i.i24, !llvm.loop !58
+  br i1 %.not.i.i.i31, label %_ZNSt8_Rb_treeIPN3g2o10HyperGraph6VertexESt4pairIKS3_NS0_13HyperDijkstra17AdjacencyMapEntryEESt10_Select1stIS8_ESt4lessIS3_ESaIS8_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS8_EPSt18_Rb_tree_node_baseRS5_.exit.i.i32, label %.lr.ph.i.i.i24, !llvm.loop !57
 
 _ZNSt8_Rb_treeIPN3g2o10HyperGraph6VertexESt4pairIKS3_NS0_13HyperDijkstra17AdjacencyMapEntryEESt10_Select1stIS8_ESt4lessIS3_ESaIS8_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS8_EPSt18_Rb_tree_node_baseRS5_.exit.i.i32: ; preds = %.lr.ph.i.i.i24
   %74 = icmp eq ptr %.19.i.i.i27, %7
@@ -1861,7 +1861,7 @@ _ZNSt8_Rb_treeIPN3g2o10HyperGraph6VertexESt4pairIKS3_NS0_13HyperDijkstra17Adjace
 
 75:                                               ; preds = %_ZNSt8_Rb_treeIPN3g2o10HyperGraph6VertexESt4pairIKS3_NS0_13HyperDijkstra17AdjacencyMapEntryEESt10_Select1stIS8_ESt4lessIS3_ESaIS8_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS8_EPSt18_Rb_tree_node_baseRS5_.exit.i.i32
   %76 = getelementptr inbounds nuw i8, ptr %.19.i.i.i27, i64 32
-  %77 = load ptr, ptr %76, align 8, !tbaa !57
+  %77 = load ptr, ptr %76, align 8, !tbaa !56
   %78 = icmp ult ptr %69, %77
   %spec.select.i.i33 = select i1 %78, ptr %7, ptr %.19.i.i.i27
   br label %_ZNSt3mapIPN3g2o10HyperGraph6VertexENS0_13HyperDijkstra17AdjacencyMapEntryESt4lessIS3_ESaISt4pairIKS3_S5_EEE4findERS9_.exit35
@@ -1898,20 +1898,20 @@ _ZNSt3mapIPN3g2o10HyperGraph6VertexENS0_13HyperDijkstra17AdjacencyMapEntryESt4le
           to label %92 unwind label %.loopexit
 
 92:                                               ; preds = %85, %81
-  %93 = load ptr, ptr %10, align 8, !tbaa !91
-  %94 = load ptr, ptr %19, align 8, !tbaa !93
+  %93 = load ptr, ptr %10, align 8, !tbaa !89
+  %94 = load ptr, ptr %19, align 8, !tbaa !91
   %95 = getelementptr inbounds i8, ptr %94, i64 -8
   %.not.i36 = icmp eq ptr %93, %95
   br i1 %.not.i36, label %98, label %96
 
 96:                                               ; preds = %92
-  store ptr %69, ptr %93, align 8, !tbaa !57
+  store ptr %69, ptr %93, align 8, !tbaa !56
   %97 = getelementptr inbounds nuw i8, ptr %93, i64 8
   br label %_ZNSt5dequeIPN3g2o10HyperGraph6VertexESaIS3_EE9push_backERKS3_.exit38
 
 98:                                               ; preds = %92
-  %99 = load ptr, ptr %20, align 8, !tbaa !98
-  %100 = load ptr, ptr %17, align 8, !tbaa !98
+  %99 = load ptr, ptr %20, align 8, !tbaa !96
+  %100 = load ptr, ptr %17, align 8, !tbaa !96
   %101 = ptrtoint ptr %99 to i64
   %102 = ptrtoint ptr %100 to i64
   %103 = sub i64 %101, %102
@@ -1920,14 +1920,14 @@ _ZNSt3mapIPN3g2o10HyperGraph6VertexENS0_13HyperDijkstra17AdjacencyMapEntryESt4le
   %.neg.i.i.i = sext i1 %105 to i64
   %106 = add nsw i64 %104, %.neg.i.i.i
   %107 = shl nsw i64 %106, 6
-  %108 = load ptr, ptr %21, align 8, !tbaa !100
+  %108 = load ptr, ptr %21, align 8, !tbaa !98
   %109 = ptrtoint ptr %93 to i64
   %110 = ptrtoint ptr %108 to i64
   %111 = sub i64 %109, %110
   %112 = ashr exact i64 %111, 3
   %113 = add nsw i64 %107, %112
-  %114 = load ptr, ptr %15, align 8, !tbaa !101
-  %115 = load ptr, ptr %11, align 8, !tbaa !88
+  %114 = load ptr, ptr %15, align 8, !tbaa !99
+  %115 = load ptr, ptr %11, align 8, !tbaa !86
   %116 = ptrtoint ptr %114 to i64
   %117 = ptrtoint ptr %115 to i64
   %118 = sub i64 %116, %117
@@ -1944,8 +1944,8 @@ _ZNSt3mapIPN3g2o10HyperGraph6VertexENS0_13HyperDijkstra17AdjacencyMapEntryESt4le
   unreachable
 
 123:                                              ; preds = %98
-  %124 = load i64, ptr %22, align 8, !tbaa !104
-  %125 = load ptr, ptr %4, align 8, !tbaa !105
+  %124 = load i64, ptr %22, align 8, !tbaa !102
+  %125 = load ptr, ptr %4, align 8, !tbaa !103
   %126 = ptrtoint ptr %125 to i64
   %127 = sub i64 %101, %126
   %128 = ashr exact i64 %127, 3
@@ -1996,7 +1996,7 @@ _ZNSt3mapIPN3g2o10HyperGraph6VertexENS0_13HyperDijkstra17AdjacencyMapEntryESt4le
   %155 = add i64 %124, 2
   %156 = add i64 %155, %.sroa.speculated.i
   %157 = icmp ugt i64 %156, 1152921504606846975
-  br i1 %157, label %158, label %_ZNSt11_Deque_baseIPN3g2o10HyperGraph6VertexESaIS3_EE15_M_allocate_mapEm.exit.i, !prof !106
+  br i1 %157, label %158, label %_ZNSt11_Deque_baseIPN3g2o10HyperGraph6VertexESaIS3_EE15_M_allocate_mapEm.exit.i, !prof !104
 
 158:                                              ; preds = %154
   %159 = icmp ugt i64 %156, 2305843009213693951
@@ -2038,24 +2038,24 @@ _ZNSt11_Deque_baseIPN3g2o10HyperGraph6VertexESaIS3_EE15_M_allocate_mapEm.exit.i:
 _ZSt4copyIPPPN3g2o10HyperGraph6VertexES5_ET0_T_S7_S6_.exit26.i: ; preds = %166, %.noexc45
   %169 = shl i64 %124, 3
   call void @_ZdlPvm(ptr noundef %125, i64 noundef %169) #24
-  store ptr %161, ptr %4, align 8, !tbaa !105
-  store i64 %156, ptr %22, align 8, !tbaa !104
+  store ptr %161, ptr %4, align 8, !tbaa !103
+  store i64 %156, ptr %22, align 8, !tbaa !102
   br label %.noexc41
 
 .noexc41:                                         ; preds = %_ZSt4copyIPPPN3g2o10HyperGraph6VertexES5_ET0_T_S7_S6_.exit26.i, %147, %146, %143, %142
   %.0.i = phi ptr [ %164, %_ZSt4copyIPPPN3g2o10HyperGraph6VertexES5_ET0_T_S7_S6_.exit26.i ], [ %139, %142 ], [ %139, %143 ], [ %139, %146 ], [ %139, %147 ]
-  store ptr %.0.i, ptr %17, align 8, !tbaa !98
-  %170 = load ptr, ptr %.0.i, align 8, !tbaa !99
-  store ptr %170, ptr %16, align 8, !tbaa !100
+  store ptr %.0.i, ptr %17, align 8, !tbaa !96
+  %170 = load ptr, ptr %.0.i, align 8, !tbaa !97
+  store ptr %170, ptr %16, align 8, !tbaa !98
   %171 = getelementptr inbounds nuw i8, ptr %170, i64 512
-  store ptr %171, ptr %15, align 8, !tbaa !101
+  store ptr %171, ptr %15, align 8, !tbaa !99
   %172 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %132
   %173 = getelementptr inbounds i8, ptr %172, i64 -8
-  store ptr %173, ptr %20, align 8, !tbaa !98
-  %174 = load ptr, ptr %173, align 8, !tbaa !99
-  store ptr %174, ptr %21, align 8, !tbaa !100
+  store ptr %173, ptr %20, align 8, !tbaa !96
+  %174 = load ptr, ptr %173, align 8, !tbaa !97
+  store ptr %174, ptr %21, align 8, !tbaa !98
   %175 = getelementptr inbounds nuw i8, ptr %174, i64 512
-  store ptr %175, ptr %19, align 8, !tbaa !101
+  store ptr %175, ptr %19, align 8, !tbaa !99
   br label %_ZNSt5dequeIPN3g2o10HyperGraph6VertexESaIS3_EE22_M_reserve_map_at_backEm.exit.i
 
 _ZNSt5dequeIPN3g2o10HyperGraph6VertexESaIS3_EE22_M_reserve_map_at_backEm.exit.i: ; preds = %.noexc41, %123
@@ -2065,62 +2065,62 @@ _ZNSt5dequeIPN3g2o10HyperGraph6VertexESaIS3_EE22_M_reserve_map_at_backEm.exit.i:
 
 .noexc37:                                         ; preds = %_ZNSt5dequeIPN3g2o10HyperGraph6VertexESaIS3_EE22_M_reserve_map_at_backEm.exit.i
   %178 = getelementptr inbounds nuw i8, ptr %176, i64 8
-  store ptr %177, ptr %178, align 8, !tbaa !99
-  %179 = load ptr, ptr %10, align 8, !tbaa !91
-  store ptr %69, ptr %179, align 8, !tbaa !57
-  store ptr %178, ptr %20, align 8, !tbaa !98
-  store ptr %177, ptr %21, align 8, !tbaa !100
+  store ptr %177, ptr %178, align 8, !tbaa !97
+  %179 = load ptr, ptr %10, align 8, !tbaa !89
+  store ptr %69, ptr %179, align 8, !tbaa !56
+  store ptr %178, ptr %20, align 8, !tbaa !96
+  store ptr %177, ptr %21, align 8, !tbaa !98
   %180 = getelementptr inbounds nuw i8, ptr %177, i64 512
-  store ptr %180, ptr %19, align 8, !tbaa !101
+  store ptr %180, ptr %19, align 8, !tbaa !99
   br label %_ZNSt5dequeIPN3g2o10HyperGraph6VertexESaIS3_EE9push_backERKS3_.exit38
 
 _ZNSt5dequeIPN3g2o10HyperGraph6VertexESaIS3_EE9push_backERKS3_.exit38: ; preds = %.noexc37, %96
   %storemerge = phi ptr [ %97, %96 ], [ %177, %.noexc37 ]
-  store ptr %storemerge, ptr %10, align 8, !tbaa !91
+  store ptr %storemerge, ptr %10, align 8, !tbaa !89
   %181 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.052.075) #22
   %.not69 = icmp eq ptr %181, %67
-  br i1 %.not69, label %_ZNSt3mapIPN3g2o10HyperGraph6VertexENS0_13HyperDijkstra17AdjacencyMapEntryESt4lessIS3_ESaISt4pairIKS3_S5_EEE4findERS9_.exit.thread.loopexit, label %.lr.ph76, !llvm.loop !107
+  br i1 %.not69, label %_ZNSt3mapIPN3g2o10HyperGraph6VertexENS0_13HyperDijkstra17AdjacencyMapEntryESt4lessIS3_ESaISt4pairIKS3_S5_EEE4findERS9_.exit.thread.loopexit, label %.lr.ph76, !llvm.loop !105
 
 _ZNSt3mapIPN3g2o10HyperGraph6VertexENS0_13HyperDijkstra17AdjacencyMapEntryESt4lessIS3_ESaISt4pairIKS3_S5_EEE4findERS9_.exit.thread.loopexit: ; preds = %_ZNSt5dequeIPN3g2o10HyperGraph6VertexESaIS3_EE9push_backERKS3_.exit38
-  %.pre = load ptr, ptr %11, align 8, !tbaa !88
+  %.pre = load ptr, ptr %11, align 8, !tbaa !86
   br label %_ZNSt3mapIPN3g2o10HyperGraph6VertexENS0_13HyperDijkstra17AdjacencyMapEntryESt4lessIS3_ESaISt4pairIKS3_S5_EEE4findERS9_.exit.thread
 
 _ZNSt3mapIPN3g2o10HyperGraph6VertexENS0_13HyperDijkstra17AdjacencyMapEntryESt4lessIS3_ESaISt4pairIKS3_S5_EEE4findERS9_.exit.thread: ; preds = %_ZNSt3mapIPN3g2o10HyperGraph6VertexENS0_13HyperDijkstra17AdjacencyMapEntryESt4lessIS3_ESaISt4pairIKS3_S5_EEE4findERS9_.exit.thread.loopexit, %64, %_ZNSt5dequeIPN3g2o10HyperGraph6VertexESaIS3_EE9pop_frontEv.exit, %_ZNSt8_Rb_treeIPN3g2o10HyperGraph6VertexESt4pairIKS3_NS0_13HyperDijkstra17AdjacencyMapEntryEESt10_Select1stIS8_ESt4lessIS3_ESaIS8_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS8_EPSt18_Rb_tree_node_baseRS5_.exit.i.i, %_ZNSt3mapIPN3g2o10HyperGraph6VertexENS0_13HyperDijkstra17AdjacencyMapEntryESt4lessIS3_ESaISt4pairIKS3_S5_EEE4findERS9_.exit
   %182 = phi ptr [ %.pre, %_ZNSt3mapIPN3g2o10HyperGraph6VertexENS0_13HyperDijkstra17AdjacencyMapEntryESt4lessIS3_ESaISt4pairIKS3_S5_EEE4findERS9_.exit.thread.loopexit ], [ %storemerge.i, %64 ], [ %storemerge.i, %_ZNSt5dequeIPN3g2o10HyperGraph6VertexESaIS3_EE9pop_frontEv.exit ], [ %storemerge.i, %_ZNSt8_Rb_treeIPN3g2o10HyperGraph6VertexESt4pairIKS3_NS0_13HyperDijkstra17AdjacencyMapEntryEESt10_Select1stIS8_ESt4lessIS3_ESaIS8_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS8_EPSt18_Rb_tree_node_baseRS5_.exit.i.i ], [ %storemerge.i, %_ZNSt3mapIPN3g2o10HyperGraph6VertexENS0_13HyperDijkstra17AdjacencyMapEntryESt4lessIS3_ESaISt4pairIKS3_S5_EEE4findERS9_.exit ]
-  %183 = load ptr, ptr %10, align 8, !tbaa !88
+  %183 = load ptr, ptr %10, align 8, !tbaa !86
   %184 = icmp eq ptr %183, %182
-  br i1 %184, label %._crit_edge, label %43, !llvm.loop !108
+  br i1 %184, label %._crit_edge, label %43
 
 ._crit_edge:                                      ; preds = %_ZNSt3mapIPN3g2o10HyperGraph6VertexENS0_13HyperDijkstra17AdjacencyMapEntryESt4lessIS3_ESaISt4pairIKS3_S5_EEE4findERS9_.exit.thread, %.preheader
-  %185 = load ptr, ptr %4, align 8, !tbaa !105
+  %185 = load ptr, ptr %4, align 8, !tbaa !103
   %.not.i.i = icmp eq ptr %185, null
   br i1 %.not.i.i, label %_ZNSt5dequeIPN3g2o10HyperGraph6VertexESaIS3_EED2Ev.exit, label %186
 
 186:                                              ; preds = %._crit_edge
   %187 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %188 = getelementptr inbounds nuw i8, ptr %4, i64 40
-  %189 = load ptr, ptr %188, align 8, !tbaa !97
-  %190 = load ptr, ptr %187, align 8, !tbaa !109
+  %189 = load ptr, ptr %188, align 8, !tbaa !95
+  %190 = load ptr, ptr %187, align 8, !tbaa !106
   %191 = getelementptr inbounds nuw i8, ptr %190, i64 8
   %192 = icmp ult ptr %189, %191
   br i1 %192, label %.lr.ph.i.i.i39, label %_ZNSt11_Deque_baseIPN3g2o10HyperGraph6VertexESaIS3_EE16_M_destroy_nodesEPPS3_S7_.exit.i.i
 
 .lr.ph.i.i.i39:                                   ; preds = %186, %.lr.ph.i.i.i39
   %.06.i.i.i = phi ptr [ %194, %.lr.ph.i.i.i39 ], [ %189, %186 ]
-  %193 = load ptr, ptr %.06.i.i.i, align 8, !tbaa !99
+  %193 = load ptr, ptr %.06.i.i.i, align 8, !tbaa !97
   call void @_ZdlPvm(ptr noundef %193, i64 noundef 512) #24
   %194 = getelementptr inbounds nuw i8, ptr %.06.i.i.i, i64 8
   %195 = icmp ult ptr %.06.i.i.i, %190
-  br i1 %195, label %.lr.ph.i.i.i39, label %_ZNSt11_Deque_baseIPN3g2o10HyperGraph6VertexESaIS3_EE16_M_destroy_nodesEPPS3_S7_.exit.loopexit.i.i, !llvm.loop !110
+  br i1 %195, label %.lr.ph.i.i.i39, label %_ZNSt11_Deque_baseIPN3g2o10HyperGraph6VertexESaIS3_EE16_M_destroy_nodesEPPS3_S7_.exit.loopexit.i.i, !llvm.loop !107
 
 _ZNSt11_Deque_baseIPN3g2o10HyperGraph6VertexESaIS3_EE16_M_destroy_nodesEPPS3_S7_.exit.loopexit.i.i: ; preds = %.lr.ph.i.i.i39
-  %.pre.i.i = load ptr, ptr %4, align 8, !tbaa !105
+  %.pre.i.i = load ptr, ptr %4, align 8, !tbaa !103
   br label %_ZNSt11_Deque_baseIPN3g2o10HyperGraph6VertexESaIS3_EE16_M_destroy_nodesEPPS3_S7_.exit.i.i
 
 _ZNSt11_Deque_baseIPN3g2o10HyperGraph6VertexESaIS3_EE16_M_destroy_nodesEPPS3_S7_.exit.i.i: ; preds = %_ZNSt11_Deque_baseIPN3g2o10HyperGraph6VertexESaIS3_EE16_M_destroy_nodesEPPS3_S7_.exit.loopexit.i.i, %186
   %196 = phi ptr [ %.pre.i.i, %_ZNSt11_Deque_baseIPN3g2o10HyperGraph6VertexESaIS3_EE16_M_destroy_nodesEPPS3_S7_.exit.loopexit.i.i ], [ %185, %186 ]
   %197 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %198 = load i64, ptr %197, align 8, !tbaa !104
+  %198 = load i64, ptr %197, align 8, !tbaa !102
   %199 = shl i64 %198, 3
   call void @_ZdlPvm(ptr noundef %196, i64 noundef %199) #24
   br label %_ZNSt5dequeIPN3g2o10HyperGraph6VertexESaIS3_EED2Ev.exit
@@ -2138,35 +2138,35 @@ _ZNSt5dequeIPN3g2o10HyperGraph6VertexESaIS3_EED2Ev.exit: ; preds = %._crit_edge,
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt5dequeIPN3g2o10HyperGraph6VertexESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !105
+  %2 = load ptr, ptr %0, align 8, !tbaa !103
   %.not.i = icmp eq ptr %2, null
   br i1 %.not.i, label %_ZNSt11_Deque_baseIPN3g2o10HyperGraph6VertexESaIS3_EED2Ev.exit, label %3
 
 3:                                                ; preds = %1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %6 = load ptr, ptr %5, align 8, !tbaa !97
-  %7 = load ptr, ptr %4, align 8, !tbaa !109
+  %6 = load ptr, ptr %5, align 8, !tbaa !95
+  %7 = load ptr, ptr %4, align 8, !tbaa !106
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %9 = icmp ult ptr %6, %8
   br i1 %9, label %.lr.ph.i.i, label %_ZNSt11_Deque_baseIPN3g2o10HyperGraph6VertexESaIS3_EE16_M_destroy_nodesEPPS3_S7_.exit.i
 
 .lr.ph.i.i:                                       ; preds = %3, %.lr.ph.i.i
   %.06.i.i = phi ptr [ %11, %.lr.ph.i.i ], [ %6, %3 ]
-  %10 = load ptr, ptr %.06.i.i, align 8, !tbaa !99
+  %10 = load ptr, ptr %.06.i.i, align 8, !tbaa !97
   tail call void @_ZdlPvm(ptr noundef %10, i64 noundef 512) #24
   %11 = getelementptr inbounds nuw i8, ptr %.06.i.i, i64 8
   %12 = icmp ult ptr %.06.i.i, %7
-  br i1 %12, label %.lr.ph.i.i, label %_ZNSt11_Deque_baseIPN3g2o10HyperGraph6VertexESaIS3_EE16_M_destroy_nodesEPPS3_S7_.exit.loopexit.i, !llvm.loop !110
+  br i1 %12, label %.lr.ph.i.i, label %_ZNSt11_Deque_baseIPN3g2o10HyperGraph6VertexESaIS3_EE16_M_destroy_nodesEPPS3_S7_.exit.loopexit.i, !llvm.loop !107
 
 _ZNSt11_Deque_baseIPN3g2o10HyperGraph6VertexESaIS3_EE16_M_destroy_nodesEPPS3_S7_.exit.loopexit.i: ; preds = %.lr.ph.i.i
-  %.pre.i = load ptr, ptr %0, align 8, !tbaa !105
+  %.pre.i = load ptr, ptr %0, align 8, !tbaa !103
   br label %_ZNSt11_Deque_baseIPN3g2o10HyperGraph6VertexESaIS3_EE16_M_destroy_nodesEPPS3_S7_.exit.i
 
 _ZNSt11_Deque_baseIPN3g2o10HyperGraph6VertexESaIS3_EE16_M_destroy_nodesEPPS3_S7_.exit.i: ; preds = %_ZNSt11_Deque_baseIPN3g2o10HyperGraph6VertexESaIS3_EE16_M_destroy_nodesEPPS3_S7_.exit.loopexit.i, %3
   %13 = phi ptr [ %.pre.i, %_ZNSt11_Deque_baseIPN3g2o10HyperGraph6VertexESaIS3_EE16_M_destroy_nodesEPPS3_S7_.exit.loopexit.i ], [ %2, %3 ]
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %15 = load i64, ptr %14, align 8, !tbaa !104
+  %15 = load i64, ptr %14, align 8, !tbaa !102
   %16 = shl i64 %15, 3
   tail call void @_ZdlPvm(ptr noundef %13, i64 noundef %16) #24
   br label %_ZNSt11_Deque_baseIPN3g2o10HyperGraph6VertexESaIS3_EED2Ev.exit
@@ -2211,13 +2211,13 @@ define linkonce_odr void @_ZNSt8_Rb_treeIPN3g2o10HyperGraph6VertexES3_St9_Identi
 .lr.ph:                                           ; preds = %2, %.lr.ph
   %.07 = phi ptr [ %6, %.lr.ph ], [ %1, %2 ]
   %3 = getelementptr inbounds nuw i8, ptr %.07, i64 24
-  %4 = load ptr, ptr %3, align 8, !tbaa !55
+  %4 = load ptr, ptr %3, align 8, !tbaa !54
   tail call void @_ZNSt8_Rb_treeIPN3g2o10HyperGraph6VertexES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE8_M_eraseEPSt13_Rb_tree_nodeIS3_E(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %4)
   %5 = getelementptr inbounds nuw i8, ptr %.07, i64 16
   %6 = load ptr, ptr %5, align 8, !tbaa !50
   tail call void @_ZdlPvm(ptr noundef nonnull %.07, i64 noundef 40) #24
   %.not = icmp eq ptr %6, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !111
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !108
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   ret void
@@ -2234,7 +2234,7 @@ define linkonce_odr void @_ZNSt8_Rb_treeIPN3g2o10HyperGraph6VertexESt4pairIKS3_N
 .lr.ph:                                           ; preds = %2, %_ZNSt8_Rb_treeIPN3g2o10HyperGraph6VertexESt4pairIKS3_NS0_13HyperDijkstra17AdjacencyMapEntryEESt10_Select1stIS8_ESt4lessIS3_ESaIS8_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS8_E.exit
   %.07 = phi ptr [ %6, %_ZNSt8_Rb_treeIPN3g2o10HyperGraph6VertexESt4pairIKS3_NS0_13HyperDijkstra17AdjacencyMapEntryEESt10_Select1stIS8_ESt4lessIS3_ESaIS8_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS8_E.exit ], [ %1, %2 ]
   %3 = getelementptr inbounds nuw i8, ptr %.07, i64 24
-  %4 = load ptr, ptr %3, align 8, !tbaa !55
+  %4 = load ptr, ptr %3, align 8, !tbaa !54
   tail call void @_ZNSt8_Rb_treeIPN3g2o10HyperGraph6VertexESt4pairIKS3_NS0_13HyperDijkstra17AdjacencyMapEntryEESt10_Select1stIS8_ESt4lessIS3_ESaIS8_EE8_M_eraseEPSt13_Rb_tree_nodeIS8_E(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %4)
   %5 = getelementptr inbounds nuw i8, ptr %.07, i64 16
   %6 = load ptr, ptr %5, align 8, !tbaa !50
@@ -2254,7 +2254,7 @@ define linkonce_odr void @_ZNSt8_Rb_treeIPN3g2o10HyperGraph6VertexESt4pairIKS3_N
 _ZNSt8_Rb_treeIPN3g2o10HyperGraph6VertexESt4pairIKS3_NS0_13HyperDijkstra17AdjacencyMapEntryEESt10_Select1stIS8_ESt4lessIS3_ESaIS8_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS8_E.exit: ; preds = %.lr.ph
   tail call void @_ZdlPvm(ptr noundef nonnull %.07, i64 noundef 120) #24
   %.not = icmp eq ptr %6, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !112
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !109
 
 ._crit_edge:                                      ; preds = %_ZNSt8_Rb_treeIPN3g2o10HyperGraph6VertexESt4pairIKS3_NS0_13HyperDijkstra17AdjacencyMapEntryEESt10_Select1stIS8_ESt4lessIS3_ESaIS8_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS8_E.exit, %2
   ret void
@@ -2265,16 +2265,16 @@ define linkonce_odr noundef ptr @_ZNSt8_Rb_treeIPN3g2o10HyperGraph6VertexES3_St9
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %6 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #23
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  %8 = load ptr, ptr %5, align 8, !tbaa !57
-  store ptr %8, ptr %7, align 8, !tbaa !57
-  %9 = load i32, ptr %1, align 8, !tbaa !113
-  store i32 %9, ptr %6, align 8, !tbaa !113
+  %8 = load ptr, ptr %5, align 8, !tbaa !56
+  store ptr %8, ptr %7, align 8, !tbaa !56
+  %9 = load i32, ptr %1, align 8, !tbaa !110
+  store i32 %9, ptr %6, align 8, !tbaa !110
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %10, i8 0, i64 16, i1 false)
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store ptr %2, ptr %11, align 8, !tbaa !62
+  store ptr %2, ptr %11, align 8, !tbaa !61
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %13 = load ptr, ptr %12, align 8, !tbaa !55
+  %13 = load ptr, ptr %12, align 8, !tbaa !54
   %.not = icmp eq ptr %13, null
   br i1 %.not, label %20, label %14
 
@@ -2284,7 +2284,7 @@ define linkonce_odr noundef ptr @_ZNSt8_Rb_treeIPN3g2o10HyperGraph6VertexES3_St9
 
 16:                                               ; preds = %14
   %17 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  store ptr %15, ptr %17, align 8, !tbaa !55
+  store ptr %15, ptr %17, align 8, !tbaa !54
   br label %20
 
 18:                                               ; preds = %14
@@ -2307,18 +2307,18 @@ define linkonce_odr noundef ptr @_ZNSt8_Rb_treeIPN3g2o10HyperGraph6VertexES3_St9
 22:                                               ; preds = %.lr.ph
   %23 = getelementptr inbounds nuw i8, ptr %.039, i64 32
   %24 = getelementptr inbounds nuw i8, ptr %21, i64 32
-  %25 = load ptr, ptr %23, align 8, !tbaa !57
-  store ptr %25, ptr %24, align 8, !tbaa !57
-  %26 = load i32, ptr %.039, align 8, !tbaa !113
-  store i32 %26, ptr %21, align 8, !tbaa !113
+  %25 = load ptr, ptr %23, align 8, !tbaa !56
+  store ptr %25, ptr %24, align 8, !tbaa !56
+  %26 = load i32, ptr %.039, align 8, !tbaa !110
+  store i32 %26, ptr %21, align 8, !tbaa !110
   %27 = getelementptr inbounds nuw i8, ptr %21, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %27, i8 0, i64 16, i1 false)
   %28 = getelementptr inbounds nuw i8, ptr %.03138, i64 16
   store ptr %21, ptr %28, align 8, !tbaa !50
   %29 = getelementptr inbounds nuw i8, ptr %21, i64 8
-  store ptr %.03138, ptr %29, align 8, !tbaa !62
+  store ptr %.03138, ptr %29, align 8, !tbaa !61
   %30 = getelementptr inbounds nuw i8, ptr %.039, i64 24
-  %31 = load ptr, ptr %30, align 8, !tbaa !55
+  %31 = load ptr, ptr %30, align 8, !tbaa !54
   %.not33 = icmp eq ptr %31, null
   br i1 %.not33, label %41, label %32
 
@@ -2328,7 +2328,7 @@ define linkonce_odr noundef ptr @_ZNSt8_Rb_treeIPN3g2o10HyperGraph6VertexES3_St9
 
 34:                                               ; preds = %32
   %35 = getelementptr inbounds nuw i8, ptr %21, i64 24
-  store ptr %33, ptr %35, align 8, !tbaa !55
+  store ptr %33, ptr %35, align 8, !tbaa !54
   br label %41
 
 36:                                               ; preds = %.lr.ph, %32
@@ -2351,7 +2351,7 @@ define linkonce_odr noundef ptr @_ZNSt8_Rb_treeIPN3g2o10HyperGraph6VertexES3_St9
   %.0.in = getelementptr inbounds nuw i8, ptr %.039, i64 16
   %.0 = load ptr, ptr %.0.in, align 8, !tbaa !50
   %.not32 = icmp eq ptr %.0, null
-  br i1 %.not32, label %._crit_edge, label %.lr.ph, !llvm.loop !114
+  br i1 %.not32, label %._crit_edge, label %.lr.ph, !llvm.loop !111
 
 42:                                               ; preds = %40, %38
   %43 = landingpad { ptr, i32 }
@@ -2397,10 +2397,10 @@ _ZNSt11_Deque_baseIPN3g2o10HyperGraph6VertexESaIS3_EE15_M_allocate_mapEm.exit:
   %4 = tail call i64 @llvm.umax.i64(i64 %2, i64 5)
   %.sroa.speculated = add nuw nsw i64 %4, 3
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %.sroa.speculated, ptr %5, align 8, !tbaa !104
+  store i64 %.sroa.speculated, ptr %5, align 8, !tbaa !102
   %6 = shl nuw nsw i64 %.sroa.speculated, 3
   %7 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %6) #23
-  store ptr %7, ptr %0, align 8, !tbaa !105
+  store ptr %7, ptr %0, align 8, !tbaa !103
   %8 = sub nsw i64 %.sroa.speculated, %3
   %9 = lshr i64 %8, 1
   %10 = getelementptr inbounds nuw ptr, ptr %7, i64 %9
@@ -2414,10 +2414,10 @@ _ZNSt11_Deque_baseIPN3g2o10HyperGraph6VertexESaIS3_EE15_M_allocate_mapEm.exit:
           to label %_ZNSt11_Deque_baseIPN3g2o10HyperGraph6VertexESaIS3_EE16_M_allocate_nodeEv.exit.i unwind label %15
 
 _ZNSt11_Deque_baseIPN3g2o10HyperGraph6VertexESaIS3_EE16_M_allocate_nodeEv.exit.i: ; preds = %.lr.ph.i
-  store ptr %12, ptr %.011.i, align 8, !tbaa !99
+  store ptr %12, ptr %.011.i, align 8, !tbaa !97
   %13 = getelementptr inbounds nuw i8, ptr %.011.i, i64 8
   %14 = icmp ult ptr %13, %11
-  br i1 %14, label %.lr.ph.i, label %_ZNSt11_Deque_baseIPN3g2o10HyperGraph6VertexESaIS3_EE15_M_create_nodesEPPS3_S7_.exit, !llvm.loop !115
+  br i1 %14, label %.lr.ph.i, label %_ZNSt11_Deque_baseIPN3g2o10HyperGraph6VertexESaIS3_EE15_M_create_nodesEPPS3_S7_.exit, !llvm.loop !112
 
 15:                                               ; preds = %.lr.ph.i
   %16 = landingpad { ptr, i32 }
@@ -2429,11 +2429,11 @@ _ZNSt11_Deque_baseIPN3g2o10HyperGraph6VertexESaIS3_EE16_M_allocate_nodeEv.exit.i
 
 .lr.ph.i.i:                                       ; preds = %15, %.lr.ph.i.i
   %.06.i.i = phi ptr [ %21, %.lr.ph.i.i ], [ %10, %15 ]
-  %20 = load ptr, ptr %.06.i.i, align 8, !tbaa !99
+  %20 = load ptr, ptr %.06.i.i, align 8, !tbaa !97
   tail call void @_ZdlPvm(ptr noundef %20, i64 noundef 512) #24
   %21 = getelementptr inbounds nuw i8, ptr %.06.i.i, i64 8
   %22 = icmp ult ptr %21, %.011.i
-  br i1 %22, label %.lr.ph.i.i, label %_ZNSt11_Deque_baseIPN3g2o10HyperGraph6VertexESaIS3_EE16_M_destroy_nodesEPPS3_S7_.exit.i, !llvm.loop !110
+  br i1 %22, label %.lr.ph.i.i, label %_ZNSt11_Deque_baseIPN3g2o10HyperGraph6VertexESaIS3_EE16_M_destroy_nodesEPPS3_S7_.exit.i, !llvm.loop !107
 
 _ZNSt11_Deque_baseIPN3g2o10HyperGraph6VertexESaIS3_EE16_M_destroy_nodesEPPS3_S7_.exit.i: ; preds = %.lr.ph.i.i, %15
   invoke void @__cxa_rethrow() #25
@@ -2458,8 +2458,8 @@ _ZNSt11_Deque_baseIPN3g2o10HyperGraph6VertexESaIS3_EE16_M_destroy_nodesEPPS3_S7_
 .body:                                            ; preds = %23
   %29 = extractvalue { ptr, i32 } %24, 0
   %30 = tail call ptr @__cxa_begin_catch(ptr %29) #20
-  %31 = load ptr, ptr %0, align 8, !tbaa !105
-  %32 = load i64, ptr %5, align 8, !tbaa !104
+  %31 = load ptr, ptr %0, align 8, !tbaa !103
+  %32 = load i64, ptr %5, align 8, !tbaa !102
   %33 = shl i64 %32, 3
   tail call void @_ZdlPvm(ptr noundef %31, i64 noundef %33) #24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
@@ -2478,27 +2478,27 @@ _ZNSt11_Deque_baseIPN3g2o10HyperGraph6VertexESaIS3_EE16_M_destroy_nodesEPPS3_S7_
 _ZNSt11_Deque_baseIPN3g2o10HyperGraph6VertexESaIS3_EE15_M_create_nodesEPPS3_S7_.exit: ; preds = %_ZNSt11_Deque_baseIPN3g2o10HyperGraph6VertexESaIS3_EE16_M_allocate_nodeEv.exit.i
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store ptr %10, ptr %38, align 8, !tbaa !98
-  %39 = load ptr, ptr %10, align 8, !tbaa !99
+  store ptr %10, ptr %38, align 8, !tbaa !96
+  %39 = load ptr, ptr %10, align 8, !tbaa !97
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr %39, ptr %40, align 8, !tbaa !100
+  store ptr %39, ptr %40, align 8, !tbaa !98
   %41 = getelementptr inbounds nuw i8, ptr %39, i64 512
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr %41, ptr %42, align 8, !tbaa !101
+  store ptr %41, ptr %42, align 8, !tbaa !99
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %44 = getelementptr inbounds i8, ptr %11, i64 -8
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  store ptr %44, ptr %45, align 8, !tbaa !98
-  %46 = load ptr, ptr %44, align 8, !tbaa !99
+  store ptr %44, ptr %45, align 8, !tbaa !96
+  %46 = load ptr, ptr %44, align 8, !tbaa !97
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store ptr %46, ptr %47, align 8, !tbaa !100
+  store ptr %46, ptr %47, align 8, !tbaa !98
   %48 = getelementptr inbounds nuw i8, ptr %46, i64 512
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  store ptr %48, ptr %49, align 8, !tbaa !101
-  store ptr %39, ptr %37, align 8, !tbaa !102
+  store ptr %48, ptr %49, align 8, !tbaa !99
+  store ptr %39, ptr %37, align 8, !tbaa !100
   %50 = and i64 %1, 63
   %51 = getelementptr inbounds nuw ptr, ptr %46, i64 %50
-  store ptr %51, ptr %43, align 8, !tbaa !91
+  store ptr %51, ptr %43, align 8, !tbaa !89
   ret void
 
 52:                                               ; preds = %34
@@ -2516,11 +2516,11 @@ _ZNSt11_Deque_baseIPN3g2o10HyperGraph6VertexESaIS3_EE15_M_create_nodesEPPS3_S7_.
 define linkonce_odr ptr @_ZNSt8_Rb_treeIPN3g2o10HyperGraph6VertexESt4pairIKS3_NS0_13HyperDijkstra17AdjacencyMapEntryEESt10_Select1stIS8_ESt4lessIS3_ESaIS8_EE22_M_emplace_hint_uniqueIJS4_IS3_S7_EEEESt17_Rb_tree_iteratorIS8_ESt23_Rb_tree_const_iteratorIS8_EDpOT_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %1, ptr noundef nonnull align 8 dereferenceable(88) %2) local_unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"struct.std::_Rb_tree<g2o::HyperGraph::Vertex *, std::pair<g2o::HyperGraph::Vertex *const, g2o::HyperDijkstra::AdjacencyMapEntry>, std::_Select1st<std::pair<g2o::HyperGraph::Vertex *const, g2o::HyperDijkstra::AdjacencyMapEntry>>, std::less<g2o::HyperGraph::Vertex *>>::_Auto_node", align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #20
-  store ptr %0, ptr %4, align 8, !tbaa !116
+  store ptr %0, ptr %4, align 8, !tbaa !113
   %5 = tail call noalias noundef nonnull dereferenceable(120) ptr @_Znwm(i64 noundef 120) #23
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  %7 = load ptr, ptr %2, align 8, !tbaa !57
-  store ptr %7, ptr %6, align 8, !tbaa !59
+  %7 = load ptr, ptr %2, align 8, !tbaa !56
+  store ptr %7, ptr %6, align 8, !tbaa !58
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 40
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %8, ptr noundef nonnull align 8 dereferenceable(80) %9, i64 32, i1 false)
@@ -2540,7 +2540,7 @@ define linkonce_odr ptr @_ZNSt8_Rb_treeIPN3g2o10HyperGraph6VertexESt4pairIKS3_NS
   %19 = getelementptr inbounds nuw i8, ptr %2, i64 72
   %20 = load ptr, ptr %19, align 8, !tbaa !29
   %21 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  store ptr %10, ptr %21, align 8, !tbaa !62
+  store ptr %10, ptr %21, align 8, !tbaa !61
   %22 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %23 = load i64, ptr %22, align 8, !tbaa !30
   store ptr null, ptr %11, align 8, !tbaa !27
@@ -2567,7 +2567,7 @@ define linkonce_odr ptr @_ZNSt8_Rb_treeIPN3g2o10HyperGraph6VertexESt4pairIKS3_NS
   %30 = getelementptr inbounds nuw i8, ptr %5, i64 112
   store i64 %.sink.i.i, ptr %30, align 8, !tbaa !30
   store i32 %.sink.i.i.i.i.i.i.i.i.i.i.i, ptr %10, align 8, !tbaa !26
-  store ptr %5, ptr %27, align 8, !tbaa !118
+  store ptr %5, ptr %27, align 8, !tbaa !115
   %31 = invoke { ptr, ptr } @_ZNSt8_Rb_treeIPN3g2o10HyperGraph6VertexESt4pairIKS3_NS0_13HyperDijkstra17AdjacencyMapEntryEESt10_Select1stIS8_ESt4lessIS3_ESaIS8_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS8_ERS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %1, ptr noundef nonnull align 8 dereferenceable(8) %6)
           to label %32 unwind label %47
 
@@ -2585,9 +2585,9 @@ define linkonce_odr ptr @_ZNSt8_Rb_treeIPN3g2o10HyperGraph6VertexESt4pairIKS3_NS
   br i1 %or.cond.i.i, label %.thread, label %38
 
 38:                                               ; preds = %35
-  %39 = load ptr, ptr %6, align 8, !tbaa !57
+  %39 = load ptr, ptr %6, align 8, !tbaa !56
   %40 = getelementptr inbounds nuw i8, ptr %34, i64 32
-  %41 = load ptr, ptr %40, align 8, !tbaa !57
+  %41 = load ptr, ptr %40, align 8, !tbaa !56
   %42 = icmp ult ptr %39, %41
   br label %.thread
 
@@ -2645,33 +2645,33 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeIPN3g2o10HyperGraph6VertexESt4pa
 
 9:                                                ; preds = %6
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %11 = load ptr, ptr %10, align 8, !tbaa !54
+  %11 = load ptr, ptr %10, align 8, !tbaa !53
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 32
-  %13 = load ptr, ptr %12, align 8, !tbaa !57
-  %14 = load ptr, ptr %2, align 8, !tbaa !57
+  %13 = load ptr, ptr %12, align 8, !tbaa !56
+  %14 = load ptr, ptr %2, align 8, !tbaa !56
   %15 = icmp ult ptr %13, %14
   br i1 %15, label %_ZNSt8_Rb_treeIPN3g2o10HyperGraph6VertexESt4pairIKS3_NS0_13HyperDijkstra17AdjacencyMapEntryEESt10_Select1stIS8_ESt4lessIS3_ESaIS8_EE24_M_get_insert_unique_posERS5_.exit, label %16
 
 16:                                               ; preds = %9, %6
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %.02022.i = load ptr, ptr %17, align 8, !tbaa !54
+  %.02022.i = load ptr, ptr %17, align 8, !tbaa !53
   %.not23.i = icmp eq ptr %.02022.i, null
   br i1 %.not23.i, label %._crit_edge.thread.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %16
-  %18 = load ptr, ptr %2, align 8, !tbaa !57
+  %18 = load ptr, ptr %2, align 8, !tbaa !56
   br label %19
 
 19:                                               ; preds = %19, %.lr.ph.i
   %.02024.i = phi ptr [ %.02022.i, %.lr.ph.i ], [ %.020.i, %19 ]
   %20 = getelementptr inbounds nuw i8, ptr %.02024.i, i64 32
-  %21 = load ptr, ptr %20, align 8, !tbaa !57
+  %21 = load ptr, ptr %20, align 8, !tbaa !56
   %22 = icmp ult ptr %18, %21
   %.in.v.i = select i1 %22, i64 16, i64 24
   %.in.i = getelementptr inbounds nuw i8, ptr %.02024.i, i64 %.in.v.i
-  %.020.i = load ptr, ptr %.in.i, align 8, !tbaa !54
+  %.020.i = load ptr, ptr %.in.i, align 8, !tbaa !53
   %.not.i = icmp eq ptr %.020.i, null
-  br i1 %.not.i, label %._crit_edge.i, label %19, !llvm.loop !121
+  br i1 %.not.i, label %._crit_edge.i, label %19, !llvm.loop !118
 
 ._crit_edge.i:                                    ; preds = %19
   br i1 %22, label %._crit_edge.thread.i, label %28
@@ -2686,8 +2686,8 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeIPN3g2o10HyperGraph6VertexESt4pa
 26:                                               ; preds = %._crit_edge.thread.i
   %27 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.019.lcssa28.i) #22
   %.phi.trans.insert80 = getelementptr inbounds nuw i8, ptr %27, i64 32
-  %.pre81 = load ptr, ptr %.phi.trans.insert80, align 8, !tbaa !57
-  %.pre82 = load ptr, ptr %2, align 8, !tbaa !57
+  %.pre81 = load ptr, ptr %.phi.trans.insert80, align 8, !tbaa !56
+  %.pre82 = load ptr, ptr %2, align 8, !tbaa !56
   br label %28
 
 28:                                               ; preds = %26, %._crit_edge.i
@@ -2701,28 +2701,28 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeIPN3g2o10HyperGraph6VertexESt4pa
   br label %_ZNSt8_Rb_treeIPN3g2o10HyperGraph6VertexESt4pairIKS3_NS0_13HyperDijkstra17AdjacencyMapEntryEESt10_Select1stIS8_ESt4lessIS3_ESaIS8_EE24_M_get_insert_unique_posERS5_.exit
 
 32:                                               ; preds = %3
-  %33 = load ptr, ptr %2, align 8, !tbaa !57
+  %33 = load ptr, ptr %2, align 8, !tbaa !56
   %34 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %35 = load ptr, ptr %34, align 8, !tbaa !57
+  %35 = load ptr, ptr %34, align 8, !tbaa !56
   %36 = icmp ult ptr %33, %35
   br i1 %36, label %37, label %61
 
 37:                                               ; preds = %32
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %39 = load ptr, ptr %38, align 8, !tbaa !54
+  %39 = load ptr, ptr %38, align 8, !tbaa !53
   %40 = icmp eq ptr %39, %1
   br i1 %40, label %_ZNSt8_Rb_treeIPN3g2o10HyperGraph6VertexESt4pairIKS3_NS0_13HyperDijkstra17AdjacencyMapEntryEESt10_Select1stIS8_ESt4lessIS3_ESaIS8_EE24_M_get_insert_unique_posERS5_.exit, label %41
 
 41:                                               ; preds = %37
   %42 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %1) #22
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 32
-  %44 = load ptr, ptr %43, align 8, !tbaa !57
+  %44 = load ptr, ptr %43, align 8, !tbaa !56
   %45 = icmp ult ptr %44, %33
   br i1 %45, label %46, label %50
 
 46:                                               ; preds = %41
   %47 = getelementptr inbounds nuw i8, ptr %42, i64 24
-  %48 = load ptr, ptr %47, align 8, !tbaa !55
+  %48 = load ptr, ptr %47, align 8, !tbaa !54
   %49 = icmp eq ptr %48, null
   %spec.select = select i1 %49, ptr null, ptr %1
   %spec.select71 = select i1 %49, ptr %42, ptr %1
@@ -2730,20 +2730,20 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeIPN3g2o10HyperGraph6VertexESt4pa
 
 50:                                               ; preds = %41
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %.02022.i10 = load ptr, ptr %51, align 8, !tbaa !54
+  %.02022.i10 = load ptr, ptr %51, align 8, !tbaa !53
   %.not23.i11 = icmp eq ptr %.02022.i10, null
   br i1 %.not23.i11, label %._crit_edge.thread.i27, label %.lr.ph.i12
 
 .lr.ph.i12:                                       ; preds = %50, %.lr.ph.i12
   %.02024.i13 = phi ptr [ %.020.i16, %.lr.ph.i12 ], [ %.02022.i10, %50 ]
   %52 = getelementptr inbounds nuw i8, ptr %.02024.i13, i64 32
-  %53 = load ptr, ptr %52, align 8, !tbaa !57
+  %53 = load ptr, ptr %52, align 8, !tbaa !56
   %54 = icmp ult ptr %33, %53
   %.in.v.i14 = select i1 %54, i64 16, i64 24
   %.in.i15 = getelementptr inbounds nuw i8, ptr %.02024.i13, i64 %.in.v.i14
-  %.020.i16 = load ptr, ptr %.in.i15, align 8, !tbaa !54
+  %.020.i16 = load ptr, ptr %.in.i15, align 8, !tbaa !53
   %.not.i17 = icmp eq ptr %.020.i16, null
-  br i1 %.not.i17, label %._crit_edge.i18, label %.lr.ph.i12, !llvm.loop !121
+  br i1 %.not.i17, label %._crit_edge.i18, label %.lr.ph.i12, !llvm.loop !118
 
 ._crit_edge.i18:                                  ; preds = %.lr.ph.i12
   br i1 %54, label %._crit_edge.thread.i27, label %58
@@ -2756,7 +2756,7 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeIPN3g2o10HyperGraph6VertexESt4pa
 56:                                               ; preds = %._crit_edge.thread.i27
   %57 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.019.lcssa28.i28) #22
   %.phi.trans.insert78 = getelementptr inbounds nuw i8, ptr %57, i64 32
-  %.pre79 = load ptr, ptr %.phi.trans.insert78, align 8, !tbaa !57
+  %.pre79 = load ptr, ptr %.phi.trans.insert78, align 8, !tbaa !56
   br label %58
 
 58:                                               ; preds = %56, %._crit_edge.i18
@@ -2774,20 +2774,20 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeIPN3g2o10HyperGraph6VertexESt4pa
 
 63:                                               ; preds = %61
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %65 = load ptr, ptr %64, align 8, !tbaa !54
+  %65 = load ptr, ptr %64, align 8, !tbaa !53
   %66 = icmp eq ptr %65, %1
   br i1 %66, label %_ZNSt8_Rb_treeIPN3g2o10HyperGraph6VertexESt4pairIKS3_NS0_13HyperDijkstra17AdjacencyMapEntryEESt10_Select1stIS8_ESt4lessIS3_ESaIS8_EE24_M_get_insert_unique_posERS5_.exit, label %67
 
 67:                                               ; preds = %63
   %68 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %1) #22
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 32
-  %70 = load ptr, ptr %69, align 8, !tbaa !57
+  %70 = load ptr, ptr %69, align 8, !tbaa !56
   %71 = icmp ult ptr %33, %70
   br i1 %71, label %72, label %76
 
 72:                                               ; preds = %67
   %73 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %74 = load ptr, ptr %73, align 8, !tbaa !55
+  %74 = load ptr, ptr %73, align 8, !tbaa !54
   %75 = icmp eq ptr %74, null
   %spec.select72 = select i1 %75, ptr null, ptr %68
   %spec.select73 = select i1 %75, ptr %1, ptr %68
@@ -2795,20 +2795,20 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeIPN3g2o10HyperGraph6VertexESt4pa
 
 76:                                               ; preds = %67
   %77 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %.02022.i30 = load ptr, ptr %77, align 8, !tbaa !54
+  %.02022.i30 = load ptr, ptr %77, align 8, !tbaa !53
   %.not23.i31 = icmp eq ptr %.02022.i30, null
   br i1 %.not23.i31, label %._crit_edge.thread.i47, label %.lr.ph.i32
 
 .lr.ph.i32:                                       ; preds = %76, %.lr.ph.i32
   %.02024.i33 = phi ptr [ %.020.i36, %.lr.ph.i32 ], [ %.02022.i30, %76 ]
   %78 = getelementptr inbounds nuw i8, ptr %.02024.i33, i64 32
-  %79 = load ptr, ptr %78, align 8, !tbaa !57
+  %79 = load ptr, ptr %78, align 8, !tbaa !56
   %80 = icmp ult ptr %33, %79
   %.in.v.i34 = select i1 %80, i64 16, i64 24
   %.in.i35 = getelementptr inbounds nuw i8, ptr %.02024.i33, i64 %.in.v.i34
-  %.020.i36 = load ptr, ptr %.in.i35, align 8, !tbaa !54
+  %.020.i36 = load ptr, ptr %.in.i35, align 8, !tbaa !53
   %.not.i37 = icmp eq ptr %.020.i36, null
-  br i1 %.not.i37, label %._crit_edge.i38, label %.lr.ph.i32, !llvm.loop !121
+  br i1 %.not.i37, label %._crit_edge.i38, label %.lr.ph.i32, !llvm.loop !118
 
 ._crit_edge.i38:                                  ; preds = %.lr.ph.i32
   br i1 %80, label %._crit_edge.thread.i47, label %86
@@ -2823,7 +2823,7 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeIPN3g2o10HyperGraph6VertexESt4pa
 84:                                               ; preds = %._crit_edge.thread.i47
   %85 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.019.lcssa28.i48) #22
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %85, i64 32
-  %.pre = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !57
+  %.pre = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !56
   br label %86
 
 86:                                               ; preds = %84, %._crit_edge.i38
@@ -2846,7 +2846,7 @@ _ZNSt8_Rb_treeIPN3g2o10HyperGraph6VertexESt4pairIKS3_NS0_13HyperDijkstra17Adjace
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt8_Rb_treeIPN3g2o10HyperGraph6VertexESt4pairIKS3_NS0_13HyperDijkstra17AdjacencyMapEntryEESt10_Select1stIS8_ESt4lessIS3_ESaIS8_EE10_Auto_nodeD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load ptr, ptr %2, align 8, !tbaa !118
+  %3 = load ptr, ptr %2, align 8, !tbaa !115
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %11, label %4
 
@@ -2909,7 +2909,7 @@ define linkonce_odr void @_ZSt9push_heapIN9__gnu_cxx17__normal_iteratorIPN3g2o13
   %16 = getelementptr inbounds i8, ptr %1, i64 -16
   %17 = load ptr, ptr %16, align 8, !tbaa !29
   %18 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  store ptr %7, ptr %18, align 8, !tbaa !62
+  store ptr %7, ptr %18, align 8, !tbaa !61
   %19 = getelementptr inbounds i8, ptr %1, i64 -8
   %20 = load i64, ptr %19, align 8, !tbaa !30
   store ptr null, ptr %8, align 8, !tbaa !27
@@ -2950,7 +2950,7 @@ _ZN3g2o13HyperDijkstra17AdjacencyMapEntryC2EOS1_.exit: ; preds = %10, %21
 37:                                               ; preds = %_ZN3g2o13HyperDijkstra17AdjacencyMapEntryC2EOS1_.exit
   store ptr %9, ptr %36, align 8, !tbaa !27
   %38 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  store ptr %34, ptr %38, align 8, !tbaa !62
+  store ptr %34, ptr %38, align 8, !tbaa !61
   store ptr null, ptr %35, align 8, !tbaa !27
   store ptr %7, ptr %26, align 8, !tbaa !28
   store ptr %7, ptr %27, align 8, !tbaa !29
@@ -3022,8 +3022,8 @@ _ZN3g2o13HyperDijkstra17AdjacencyMapEntryD2Ev.exit4: ; preds = %_ZN3g2o13HyperDi
 define linkonce_odr void @_ZNSt6vectorIN3g2o13HyperDijkstra17AdjacencyMapEntryESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %1, ptr noundef nonnull align 8 dereferenceable(80) %2) local_unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"struct.std::_Rb_tree<g2o::HyperGraph::Vertex *, g2o::HyperGraph::Vertex *, std::_Identity<g2o::HyperGraph::Vertex *>, std::less<g2o::HyperGraph::Vertex *>>::_Alloc_node", align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %6 = load ptr, ptr %5, align 8, !tbaa !68
-  %7 = load ptr, ptr %0, align 8, !tbaa !84
+  %6 = load ptr, ptr %5, align 8, !tbaa !67
+  %7 = load ptr, ptr %0, align 8, !tbaa !82
   %8 = ptrtoint ptr %6 to i64
   %9 = ptrtoint ptr %7 to i64
   %10 = sub i64 %8, %9
@@ -3079,23 +3079,23 @@ _ZNKSt6vectorIN3g2o13HyperDijkstra17AdjacencyMapEntryESaIS2_EE12_M_check_lenEmPK
   br i1 %.not.i.i.i.i.i.i.i.i.i, label %_ZNSt8_Rb_treeIPN3g2o10HyperGraph6VertexES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE10_S_minimumEPSt18_Rb_tree_node_base.exit.i.i.i.i.i.i.i, label %.noexc.i.i.i.i.i, !llvm.loop !51
 
 _ZNSt8_Rb_treeIPN3g2o10HyperGraph6VertexES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE10_S_minimumEPSt18_Rb_tree_node_base.exit.i.i.i.i.i.i.i: ; preds = %.noexc.i.i.i.i.i
-  store ptr %.0.i.i.i.i.i.i.i.i.i, ptr %25, align 8, !tbaa !54
+  store ptr %.0.i.i.i.i.i.i.i.i.i, ptr %25, align 8, !tbaa !53
   br label %35
 
 35:                                               ; preds = %35, %_ZNSt8_Rb_treeIPN3g2o10HyperGraph6VertexES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE10_S_minimumEPSt18_Rb_tree_node_base.exit.i.i.i.i.i.i.i
   %.0.i.i7.i.i.i.i.i.i.i = phi ptr [ %32, %_ZNSt8_Rb_treeIPN3g2o10HyperGraph6VertexES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE10_S_minimumEPSt18_Rb_tree_node_base.exit.i.i.i.i.i.i.i ], [ %37, %35 ]
   %36 = getelementptr inbounds nuw i8, ptr %.0.i.i7.i.i.i.i.i.i.i, i64 24
-  %37 = load ptr, ptr %36, align 8, !tbaa !55
+  %37 = load ptr, ptr %36, align 8, !tbaa !54
   %.not.i.i8.i.i.i.i.i.i.i = icmp eq ptr %37, null
-  br i1 %.not.i.i8.i.i.i.i.i.i.i, label %38, label %35, !llvm.loop !56
+  br i1 %.not.i.i8.i.i.i.i.i.i.i, label %38, label %35, !llvm.loop !55
 
 38:                                               ; preds = %35
-  store ptr %.0.i.i7.i.i.i.i.i.i.i, ptr %26, align 8, !tbaa !54
+  store ptr %.0.i.i7.i.i.i.i.i.i.i, ptr %26, align 8, !tbaa !53
   %39 = getelementptr inbounds nuw i8, ptr %2, i64 72
   %40 = load i64, ptr %39, align 8, !tbaa !30
   store i64 %40, ptr %27, align 8, !tbaa !30
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #20
-  store ptr %32, ptr %24, align 8, !tbaa !54
+  store ptr %32, ptr %24, align 8, !tbaa !53
   br label %_ZNSt16allocator_traitsISaIN3g2o13HyperDijkstra17AdjacencyMapEntryEEE9constructIS2_JRKS2_EEEvRS3_PT_DpOT0_.exit
 
 _ZNSt16allocator_traitsISaIN3g2o13HyperDijkstra17AdjacencyMapEntryEEE9constructIS2_JRKS2_EEEvRS3_PT_DpOT0_.exit: ; preds = %38, %_ZNKSt6vectorIN3g2o13HyperDijkstra17AdjacencyMapEntryESaIS2_EE12_M_check_lenEmPKc.exit
@@ -3105,30 +3105,30 @@ _ZNSt16allocator_traitsISaIN3g2o13HyperDijkstra17AdjacencyMapEntryEEE9constructI
 .lr.ph.i.i.i:                                     ; preds = %_ZNSt16allocator_traitsISaIN3g2o13HyperDijkstra17AdjacencyMapEntryEEE9constructIS2_JRKS2_EEEvRS3_PT_DpOT0_.exit, %_ZSt19__relocate_object_aIN3g2o13HyperDijkstra17AdjacencyMapEntryES2_SaIS2_EEvPT_PT0_RT1_.exit.i.i.i
   %.012.i.i.i = phi ptr [ %59, %_ZSt19__relocate_object_aIN3g2o13HyperDijkstra17AdjacencyMapEntryES2_SaIS2_EEvPT_PT0_RT1_.exit.i.i.i ], [ %21, %_ZNSt16allocator_traitsISaIN3g2o13HyperDijkstra17AdjacencyMapEntryEEE9constructIS2_JRKS2_EEEvRS3_PT_DpOT0_.exit ]
   %.0911.i.i.i = phi ptr [ %58, %_ZSt19__relocate_object_aIN3g2o13HyperDijkstra17AdjacencyMapEntryES2_SaIS2_EEvPT_PT0_RT1_.exit.i.i.i ], [ %7, %_ZNSt16allocator_traitsISaIN3g2o13HyperDijkstra17AdjacencyMapEntryEEE9constructIS2_JRKS2_EEEvRS3_PT_DpOT0_.exit ]
+  call void @llvm.experimental.noalias.scope.decl(metadata !119)
   call void @llvm.experimental.noalias.scope.decl(metadata !122)
-  call void @llvm.experimental.noalias.scope.decl(metadata !125)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %.012.i.i.i, ptr noundef nonnull align 8 dereferenceable(80) %.0911.i.i.i, i64 32, i1 false), !alias.scope !127
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %.012.i.i.i, ptr noundef nonnull align 8 dereferenceable(80) %.0911.i.i.i, i64 32, i1 false), !alias.scope !124
   %41 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 40
   %42 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 48
-  %43 = load ptr, ptr %42, align 8, !tbaa !27, !alias.scope !125, !noalias !122
+  %43 = load ptr, ptr %42, align 8, !tbaa !27, !alias.scope !122, !noalias !119
   %.not.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %43, null
   br i1 %.not.i.i.i.i.i.i.i.i.i.i.i, label %_ZSt19__relocate_object_aIN3g2o13HyperDijkstra17AdjacencyMapEntryES2_SaIS2_EEvPT_PT0_RT1_.exit.i.i.i, label %44
 
 44:                                               ; preds = %.lr.ph.i.i.i
   %45 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 40
-  %46 = load i32, ptr %45, align 8, !tbaa !26, !alias.scope !125, !noalias !122
+  %46 = load i32, ptr %45, align 8, !tbaa !26, !alias.scope !122, !noalias !119
   %47 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 56
-  %48 = load ptr, ptr %47, align 8, !tbaa !28, !alias.scope !125, !noalias !122
+  %48 = load ptr, ptr %47, align 8, !tbaa !28, !alias.scope !122, !noalias !119
   %49 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 64
-  %50 = load ptr, ptr %49, align 8, !tbaa !29, !alias.scope !125, !noalias !122
+  %50 = load ptr, ptr %49, align 8, !tbaa !29, !alias.scope !122, !noalias !119
   %51 = getelementptr inbounds nuw i8, ptr %43, i64 8
-  store ptr %41, ptr %51, align 8, !tbaa !62, !noalias !127
+  store ptr %41, ptr %51, align 8, !tbaa !61, !noalias !124
   %52 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 72
-  %53 = load i64, ptr %52, align 8, !tbaa !30, !alias.scope !125, !noalias !122
-  store ptr null, ptr %42, align 8, !tbaa !27, !alias.scope !125, !noalias !122
-  store ptr %45, ptr %47, align 8, !tbaa !28, !alias.scope !125, !noalias !122
-  store ptr %45, ptr %49, align 8, !tbaa !29, !alias.scope !125, !noalias !122
-  store i64 0, ptr %52, align 8, !tbaa !30, !alias.scope !125, !noalias !122
+  %53 = load i64, ptr %52, align 8, !tbaa !30, !alias.scope !122, !noalias !119
+  store ptr null, ptr %42, align 8, !tbaa !27, !alias.scope !122, !noalias !119
+  store ptr %45, ptr %47, align 8, !tbaa !28, !alias.scope !122, !noalias !119
+  store ptr %45, ptr %49, align 8, !tbaa !29, !alias.scope !122, !noalias !119
+  store i64 0, ptr %52, align 8, !tbaa !30, !alias.scope !122, !noalias !119
   br label %_ZSt19__relocate_object_aIN3g2o13HyperDijkstra17AdjacencyMapEntryES2_SaIS2_EEvPT_PT0_RT1_.exit.i.i.i
 
 _ZSt19__relocate_object_aIN3g2o13HyperDijkstra17AdjacencyMapEntryES2_SaIS2_EEvPT_PT0_RT1_.exit.i.i.i: ; preds = %44, %.lr.ph.i.i.i
@@ -3137,18 +3137,18 @@ _ZSt19__relocate_object_aIN3g2o13HyperDijkstra17AdjacencyMapEntryES2_SaIS2_EEvPT
   %.sink.i.i.i.i = phi i64 [ %53, %44 ], [ 0, %.lr.ph.i.i.i ]
   %.sink.i.i.i.i.i.i.i.i.i.i.i = phi i32 [ %46, %44 ], [ 0, %.lr.ph.i.i.i ]
   %54 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 48
-  store ptr %43, ptr %54, align 8, !tbaa !27, !alias.scope !122, !noalias !125
+  store ptr %43, ptr %54, align 8, !tbaa !27, !alias.scope !119, !noalias !122
   %55 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 56
-  store ptr %.sink6.i.i.i.i, ptr %55, align 8, !tbaa !28, !alias.scope !122, !noalias !125
+  store ptr %.sink6.i.i.i.i, ptr %55, align 8, !tbaa !28, !alias.scope !119, !noalias !122
   %56 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 64
-  store ptr %.sink5.i.i.i.i, ptr %56, align 8, !tbaa !29, !alias.scope !122, !noalias !125
+  store ptr %.sink5.i.i.i.i, ptr %56, align 8, !tbaa !29, !alias.scope !119, !noalias !122
   %57 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 72
-  store i64 %.sink.i.i.i.i, ptr %57, align 8, !tbaa !30, !alias.scope !122, !noalias !125
-  store i32 %.sink.i.i.i.i.i.i.i.i.i.i.i, ptr %41, align 8, !tbaa !26, !alias.scope !122, !noalias !125
+  store i64 %.sink.i.i.i.i, ptr %57, align 8, !tbaa !30, !alias.scope !119, !noalias !122
+  store i32 %.sink.i.i.i.i.i.i.i.i.i.i.i, ptr %41, align 8, !tbaa !26, !alias.scope !119, !noalias !122
   %58 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 80
   %59 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 80
   %.not.i.i.i = icmp eq ptr %58, %1
-  br i1 %.not.i.i.i, label %_ZNSt6vectorIN3g2o13HyperDijkstra17AdjacencyMapEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit, label %.lr.ph.i.i.i, !llvm.loop !128
+  br i1 %.not.i.i.i, label %_ZNSt6vectorIN3g2o13HyperDijkstra17AdjacencyMapEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit, label %.lr.ph.i.i.i, !llvm.loop !125
 
 _ZNSt6vectorIN3g2o13HyperDijkstra17AdjacencyMapEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit: ; preds = %_ZSt19__relocate_object_aIN3g2o13HyperDijkstra17AdjacencyMapEntryES2_SaIS2_EEvPT_PT0_RT1_.exit.i.i.i, %_ZNSt16allocator_traitsISaIN3g2o13HyperDijkstra17AdjacencyMapEntryEEE9constructIS2_JRKS2_EEEvRS3_PT_DpOT0_.exit
   %.0.lcssa.i.i.i = phi ptr [ %21, %_ZNSt16allocator_traitsISaIN3g2o13HyperDijkstra17AdjacencyMapEntryEEE9constructIS2_JRKS2_EEEvRS3_PT_DpOT0_.exit ], [ %59, %_ZSt19__relocate_object_aIN3g2o13HyperDijkstra17AdjacencyMapEntryES2_SaIS2_EEvPT_PT0_RT1_.exit.i.i.i ]
@@ -3159,30 +3159,30 @@ _ZNSt6vectorIN3g2o13HyperDijkstra17AdjacencyMapEntryESaIS2_EE11_S_relocateEPS2_S
 .lr.ph.i.i.i27:                                   ; preds = %_ZNSt6vectorIN3g2o13HyperDijkstra17AdjacencyMapEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit, %_ZSt19__relocate_object_aIN3g2o13HyperDijkstra17AdjacencyMapEntryES2_SaIS2_EEvPT_PT0_RT1_.exit.i.i.i31
   %.012.i.i.i28 = phi ptr [ %79, %_ZSt19__relocate_object_aIN3g2o13HyperDijkstra17AdjacencyMapEntryES2_SaIS2_EEvPT_PT0_RT1_.exit.i.i.i31 ], [ %60, %_ZNSt6vectorIN3g2o13HyperDijkstra17AdjacencyMapEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit ]
   %.0911.i.i.i29 = phi ptr [ %78, %_ZSt19__relocate_object_aIN3g2o13HyperDijkstra17AdjacencyMapEntryES2_SaIS2_EEvPT_PT0_RT1_.exit.i.i.i31 ], [ %1, %_ZNSt6vectorIN3g2o13HyperDijkstra17AdjacencyMapEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit ]
+  call void @llvm.experimental.noalias.scope.decl(metadata !126)
   call void @llvm.experimental.noalias.scope.decl(metadata !129)
-  call void @llvm.experimental.noalias.scope.decl(metadata !132)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %.012.i.i.i28, ptr noundef nonnull align 8 dereferenceable(80) %.0911.i.i.i29, i64 32, i1 false), !alias.scope !134
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %.012.i.i.i28, ptr noundef nonnull align 8 dereferenceable(80) %.0911.i.i.i29, i64 32, i1 false), !alias.scope !131
   %61 = getelementptr inbounds nuw i8, ptr %.012.i.i.i28, i64 40
   %62 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i29, i64 48
-  %63 = load ptr, ptr %62, align 8, !tbaa !27, !alias.scope !132, !noalias !129
+  %63 = load ptr, ptr %62, align 8, !tbaa !27, !alias.scope !129, !noalias !126
   %.not.i.i.i.i.i.i.i.i.i.i.i30 = icmp eq ptr %63, null
   br i1 %.not.i.i.i.i.i.i.i.i.i.i.i30, label %_ZSt19__relocate_object_aIN3g2o13HyperDijkstra17AdjacencyMapEntryES2_SaIS2_EEvPT_PT0_RT1_.exit.i.i.i31, label %64
 
 64:                                               ; preds = %.lr.ph.i.i.i27
   %65 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i29, i64 40
-  %66 = load i32, ptr %65, align 8, !tbaa !26, !alias.scope !132, !noalias !129
+  %66 = load i32, ptr %65, align 8, !tbaa !26, !alias.scope !129, !noalias !126
   %67 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i29, i64 56
-  %68 = load ptr, ptr %67, align 8, !tbaa !28, !alias.scope !132, !noalias !129
+  %68 = load ptr, ptr %67, align 8, !tbaa !28, !alias.scope !129, !noalias !126
   %69 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i29, i64 64
-  %70 = load ptr, ptr %69, align 8, !tbaa !29, !alias.scope !132, !noalias !129
+  %70 = load ptr, ptr %69, align 8, !tbaa !29, !alias.scope !129, !noalias !126
   %71 = getelementptr inbounds nuw i8, ptr %63, i64 8
-  store ptr %61, ptr %71, align 8, !tbaa !62, !noalias !134
+  store ptr %61, ptr %71, align 8, !tbaa !61, !noalias !131
   %72 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i29, i64 72
-  %73 = load i64, ptr %72, align 8, !tbaa !30, !alias.scope !132, !noalias !129
-  store ptr null, ptr %62, align 8, !tbaa !27, !alias.scope !132, !noalias !129
-  store ptr %65, ptr %67, align 8, !tbaa !28, !alias.scope !132, !noalias !129
-  store ptr %65, ptr %69, align 8, !tbaa !29, !alias.scope !132, !noalias !129
-  store i64 0, ptr %72, align 8, !tbaa !30, !alias.scope !132, !noalias !129
+  %73 = load i64, ptr %72, align 8, !tbaa !30, !alias.scope !129, !noalias !126
+  store ptr null, ptr %62, align 8, !tbaa !27, !alias.scope !129, !noalias !126
+  store ptr %65, ptr %67, align 8, !tbaa !28, !alias.scope !129, !noalias !126
+  store ptr %65, ptr %69, align 8, !tbaa !29, !alias.scope !129, !noalias !126
+  store i64 0, ptr %72, align 8, !tbaa !30, !alias.scope !129, !noalias !126
   br label %_ZSt19__relocate_object_aIN3g2o13HyperDijkstra17AdjacencyMapEntryES2_SaIS2_EEvPT_PT0_RT1_.exit.i.i.i31
 
 _ZSt19__relocate_object_aIN3g2o13HyperDijkstra17AdjacencyMapEntryES2_SaIS2_EEvPT_PT0_RT1_.exit.i.i.i31: ; preds = %64, %.lr.ph.i.i.i27
@@ -3191,18 +3191,18 @@ _ZSt19__relocate_object_aIN3g2o13HyperDijkstra17AdjacencyMapEntryES2_SaIS2_EEvPT
   %.sink.i.i.i.i34 = phi i64 [ %73, %64 ], [ 0, %.lr.ph.i.i.i27 ]
   %.sink.i.i.i.i.i.i.i.i.i.i.i35 = phi i32 [ %66, %64 ], [ 0, %.lr.ph.i.i.i27 ]
   %74 = getelementptr inbounds nuw i8, ptr %.012.i.i.i28, i64 48
-  store ptr %63, ptr %74, align 8, !tbaa !27, !alias.scope !129, !noalias !132
+  store ptr %63, ptr %74, align 8, !tbaa !27, !alias.scope !126, !noalias !129
   %75 = getelementptr inbounds nuw i8, ptr %.012.i.i.i28, i64 56
-  store ptr %.sink6.i.i.i.i32, ptr %75, align 8, !tbaa !28, !alias.scope !129, !noalias !132
+  store ptr %.sink6.i.i.i.i32, ptr %75, align 8, !tbaa !28, !alias.scope !126, !noalias !129
   %76 = getelementptr inbounds nuw i8, ptr %.012.i.i.i28, i64 64
-  store ptr %.sink5.i.i.i.i33, ptr %76, align 8, !tbaa !29, !alias.scope !129, !noalias !132
+  store ptr %.sink5.i.i.i.i33, ptr %76, align 8, !tbaa !29, !alias.scope !126, !noalias !129
   %77 = getelementptr inbounds nuw i8, ptr %.012.i.i.i28, i64 72
-  store i64 %.sink.i.i.i.i34, ptr %77, align 8, !tbaa !30, !alias.scope !129, !noalias !132
-  store i32 %.sink.i.i.i.i.i.i.i.i.i.i.i35, ptr %61, align 8, !tbaa !26, !alias.scope !129, !noalias !132
+  store i64 %.sink.i.i.i.i34, ptr %77, align 8, !tbaa !30, !alias.scope !126, !noalias !129
+  store i32 %.sink.i.i.i.i.i.i.i.i.i.i.i35, ptr %61, align 8, !tbaa !26, !alias.scope !126, !noalias !129
   %78 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i29, i64 80
   %79 = getelementptr inbounds nuw i8, ptr %.012.i.i.i28, i64 80
   %.not.i.i.i36 = icmp eq ptr %78, %6
-  br i1 %.not.i.i.i36, label %_ZNSt6vectorIN3g2o13HyperDijkstra17AdjacencyMapEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit38, label %.lr.ph.i.i.i27, !llvm.loop !128
+  br i1 %.not.i.i.i36, label %_ZNSt6vectorIN3g2o13HyperDijkstra17AdjacencyMapEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit38, label %.lr.ph.i.i.i27, !llvm.loop !125
 
 _ZNSt6vectorIN3g2o13HyperDijkstra17AdjacencyMapEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit38: ; preds = %_ZSt19__relocate_object_aIN3g2o13HyperDijkstra17AdjacencyMapEntryES2_SaIS2_EEvPT_PT0_RT1_.exit.i.i.i31, %_ZNSt6vectorIN3g2o13HyperDijkstra17AdjacencyMapEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit
   %.0.lcssa.i.i.i37 = phi ptr [ %60, %_ZNSt6vectorIN3g2o13HyperDijkstra17AdjacencyMapEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit ], [ %79, %_ZSt19__relocate_object_aIN3g2o13HyperDijkstra17AdjacencyMapEntryES2_SaIS2_EEvPT_PT0_RT1_.exit.i.i.i31 ]
@@ -3211,17 +3211,17 @@ _ZNSt6vectorIN3g2o13HyperDijkstra17AdjacencyMapEntryESaIS2_EE11_S_relocateEPS2_S
   br i1 %.not.i39, label %_ZNSt12_Vector_baseIN3g2o13HyperDijkstra17AdjacencyMapEntryESaIS2_EE13_M_deallocateEPS2_m.exit, label %81
 
 81:                                               ; preds = %_ZNSt6vectorIN3g2o13HyperDijkstra17AdjacencyMapEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit38
-  %82 = load ptr, ptr %80, align 8, !tbaa !70
+  %82 = load ptr, ptr %80, align 8, !tbaa !69
   %83 = ptrtoint ptr %82 to i64
   %84 = sub i64 %83, %9
   call void @_ZdlPvm(ptr noundef nonnull %7, i64 noundef %84) #24
   br label %_ZNSt12_Vector_baseIN3g2o13HyperDijkstra17AdjacencyMapEntryESaIS2_EE13_M_deallocateEPS2_m.exit
 
 _ZNSt12_Vector_baseIN3g2o13HyperDijkstra17AdjacencyMapEntryESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds = %_ZNSt6vectorIN3g2o13HyperDijkstra17AdjacencyMapEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit38, %81
-  store ptr %21, ptr %0, align 8, !tbaa !84
-  store ptr %.0.lcssa.i.i.i37, ptr %5, align 8, !tbaa !68
+  store ptr %21, ptr %0, align 8, !tbaa !82
+  store ptr %.0.lcssa.i.i.i37, ptr %5, align 8, !tbaa !67
   %85 = getelementptr inbounds nuw %"struct.g2o::HyperDijkstra::AdjacencyMapEntry", ptr %21, i64 %17
-  store ptr %85, ptr %80, align 8, !tbaa !70
+  store ptr %85, ptr %80, align 8, !tbaa !69
   ret void
 
 86:                                               ; preds = %88
@@ -3302,7 +3302,7 @@ _ZNSt8_Rb_treeIPN3g2o10HyperGraph6VertexES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_E
   %25 = getelementptr inbounds nuw i8, ptr %15, i64 72
   store i64 0, ptr %25, align 8, !tbaa !30
   %26 = getelementptr inbounds nuw i8, ptr %9, i64 48
-  %27 = load ptr, ptr %26, align 8, !tbaa !54
+  %27 = load ptr, ptr %26, align 8, !tbaa !53
   %.not.i.i.i.i = icmp eq ptr %27, null
   br i1 %.not.i.i.i.i, label %_ZN3g2o13HyperDijkstra17AdjacencyMapEntryaSEOS1_.exit, label %28
 
@@ -3318,7 +3318,7 @@ _ZNSt8_Rb_treeIPN3g2o10HyperGraph6VertexES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_E
   %34 = load ptr, ptr %33, align 8, !tbaa !29
   store ptr %34, ptr %24, align 8, !tbaa !29
   %35 = getelementptr inbounds nuw i8, ptr %27, i64 8
-  store ptr %22, ptr %35, align 8, !tbaa !62
+  store ptr %22, ptr %35, align 8, !tbaa !61
   %36 = getelementptr inbounds nuw i8, ptr %9, i64 72
   %37 = load i64, ptr %36, align 8, !tbaa !30
   store i64 %37, ptr %25, align 8, !tbaa !30
@@ -3330,7 +3330,7 @@ _ZNSt8_Rb_treeIPN3g2o10HyperGraph6VertexES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_E
 
 _ZN3g2o13HyperDijkstra17AdjacencyMapEntryaSEOS1_.exit: ; preds = %_ZNSt8_Rb_treeIPN3g2o10HyperGraph6VertexES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE5clearEv.exit.i.i.i.i, %28
   %38 = icmp sgt i64 %.0923, %2
-  br i1 %38, label %8, label %.critedge, !llvm.loop !80
+  br i1 %38, label %8, label %.critedge, !llvm.loop !79
 
 .critedge:                                        ; preds = %8, %_ZN3g2o13HyperDijkstra17AdjacencyMapEntryaSEOS1_.exit, %5
   %.0.lcssa = phi i64 [ %1, %5 ], [ %.0923, %_ZN3g2o13HyperDijkstra17AdjacencyMapEntryaSEOS1_.exit ], [ %.022, %8 ]
@@ -3359,7 +3359,7 @@ _ZNSt8_Rb_treeIPN3g2o10HyperGraph6VertexES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_E
   %49 = getelementptr inbounds nuw i8, ptr %39, i64 72
   store i64 0, ptr %49, align 8, !tbaa !30
   %50 = getelementptr inbounds nuw i8, ptr %3, i64 48
-  %51 = load ptr, ptr %50, align 8, !tbaa !54
+  %51 = load ptr, ptr %50, align 8, !tbaa !53
   %.not.i.i.i.i11 = icmp eq ptr %51, null
   br i1 %.not.i.i.i.i11, label %_ZN3g2o13HyperDijkstra17AdjacencyMapEntryaSEOS1_.exit12, label %52
 
@@ -3375,7 +3375,7 @@ _ZNSt8_Rb_treeIPN3g2o10HyperGraph6VertexES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_E
   %58 = load ptr, ptr %57, align 8, !tbaa !29
   store ptr %58, ptr %48, align 8, !tbaa !29
   %59 = getelementptr inbounds nuw i8, ptr %51, i64 8
-  store ptr %46, ptr %59, align 8, !tbaa !62
+  store ptr %46, ptr %59, align 8, !tbaa !61
   %60 = getelementptr inbounds nuw i8, ptr %3, i64 72
   %61 = load i64, ptr %60, align 8, !tbaa !30
   store i64 %61, ptr %49, align 8, !tbaa !30
@@ -3411,7 +3411,7 @@ define linkonce_odr void @_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN3g2o
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 64
   %17 = load ptr, ptr %16, align 8, !tbaa !29
   %18 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  store ptr %7, ptr %18, align 8, !tbaa !62
+  store ptr %7, ptr %18, align 8, !tbaa !61
   %19 = getelementptr inbounds nuw i8, ptr %2, i64 72
   %20 = load i64, ptr %19, align 8, !tbaa !30
   store ptr null, ptr %8, align 8, !tbaa !27
@@ -3459,7 +3459,7 @@ _ZNSt8_Rb_treeIPN3g2o10HyperGraph6VertexES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_E
   %33 = getelementptr inbounds nuw i8, ptr %2, i64 72
   store i64 0, ptr %33, align 8, !tbaa !30
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %35 = load ptr, ptr %34, align 8, !tbaa !54
+  %35 = load ptr, ptr %34, align 8, !tbaa !53
   %.not.i.i.i.i = icmp eq ptr %35, null
   br i1 %.not.i.i.i.i, label %_ZN3g2o13HyperDijkstra17AdjacencyMapEntryaSEOS1_.exit, label %36
 
@@ -3475,7 +3475,7 @@ _ZNSt8_Rb_treeIPN3g2o10HyperGraph6VertexES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_E
   %42 = load ptr, ptr %41, align 8, !tbaa !29
   store ptr %42, ptr %32, align 8, !tbaa !29
   %43 = getelementptr inbounds nuw i8, ptr %35, i64 8
-  store ptr %30, ptr %43, align 8, !tbaa !62
+  store ptr %30, ptr %43, align 8, !tbaa !61
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %45 = load i64, ptr %44, align 8, !tbaa !30
   store i64 %45, ptr %33, align 8, !tbaa !30
@@ -3504,7 +3504,7 @@ _ZN3g2o13HyperDijkstra17AdjacencyMapEntryaSEOS1_.exit: ; preds = %_ZNSt8_Rb_tree
   %56 = load ptr, ptr %23, align 8, !tbaa !28
   %57 = load ptr, ptr %24, align 8, !tbaa !29
   %58 = getelementptr inbounds nuw i8, ptr %52, i64 8
-  store ptr %50, ptr %58, align 8, !tbaa !62
+  store ptr %50, ptr %58, align 8, !tbaa !61
   %59 = load i64, ptr %25, align 8, !tbaa !30
   store ptr null, ptr %51, align 8, !tbaa !27
   store ptr %7, ptr %23, align 8, !tbaa !28
@@ -3623,7 +3623,7 @@ _ZNSt8_Rb_treeIPN3g2o10HyperGraph6VertexES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_E
   %29 = getelementptr inbounds nuw i8, ptr %20, i64 72
   store i64 0, ptr %29, align 8, !tbaa !30
   %30 = getelementptr inbounds nuw i8, ptr %19, i64 48
-  %31 = load ptr, ptr %30, align 8, !tbaa !54
+  %31 = load ptr, ptr %30, align 8, !tbaa !53
   %.not.i.i.i.i = icmp eq ptr %31, null
   br i1 %.not.i.i.i.i, label %_ZN3g2o13HyperDijkstra17AdjacencyMapEntryaSEOS1_.exit, label %32
 
@@ -3639,7 +3639,7 @@ _ZNSt8_Rb_treeIPN3g2o10HyperGraph6VertexES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_E
   %38 = load ptr, ptr %37, align 8, !tbaa !29
   store ptr %38, ptr %28, align 8, !tbaa !29
   %39 = getelementptr inbounds nuw i8, ptr %31, i64 8
-  store ptr %26, ptr %39, align 8, !tbaa !62
+  store ptr %26, ptr %39, align 8, !tbaa !61
   %40 = getelementptr inbounds nuw i8, ptr %19, i64 72
   %41 = load i64, ptr %40, align 8, !tbaa !30
   store i64 %41, ptr %29, align 8, !tbaa !30
@@ -3651,7 +3651,7 @@ _ZNSt8_Rb_treeIPN3g2o10HyperGraph6VertexES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_E
 
 _ZN3g2o13HyperDijkstra17AdjacencyMapEntryaSEOS1_.exit: ; preds = %_ZNSt8_Rb_treeIPN3g2o10HyperGraph6VertexES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE5clearEv.exit.i.i.i.i, %32
   %42 = icmp slt i64 %spec.select, %8
-  br i1 %42, label %.lr.ph, label %._crit_edge, !llvm.loop !135
+  br i1 %42, label %.lr.ph, label %._crit_edge, !llvm.loop !132
 
 ._crit_edge:                                      ; preds = %_ZN3g2o13HyperDijkstra17AdjacencyMapEntryaSEOS1_.exit, %4
   %.0.lcssa = phi i64 [ %1, %4 ], [ %spec.select, %_ZN3g2o13HyperDijkstra17AdjacencyMapEntryaSEOS1_.exit ]
@@ -3694,7 +3694,7 @@ _ZNSt8_Rb_treeIPN3g2o10HyperGraph6VertexES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_E
   %63 = getelementptr inbounds nuw i8, ptr %53, i64 72
   store i64 0, ptr %63, align 8, !tbaa !30
   %64 = getelementptr inbounds nuw i8, ptr %52, i64 48
-  %65 = load ptr, ptr %64, align 8, !tbaa !54
+  %65 = load ptr, ptr %64, align 8, !tbaa !53
   %.not.i.i.i.i26 = icmp eq ptr %65, null
   br i1 %.not.i.i.i.i26, label %_ZN3g2o13HyperDijkstra17AdjacencyMapEntryaSEOS1_.exit27, label %66
 
@@ -3710,7 +3710,7 @@ _ZNSt8_Rb_treeIPN3g2o10HyperGraph6VertexES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_E
   %72 = load ptr, ptr %71, align 8, !tbaa !29
   store ptr %72, ptr %62, align 8, !tbaa !29
   %73 = getelementptr inbounds nuw i8, ptr %65, i64 8
-  store ptr %60, ptr %73, align 8, !tbaa !62
+  store ptr %60, ptr %73, align 8, !tbaa !61
   %74 = getelementptr inbounds nuw i8, ptr %52, i64 72
   %75 = load i64, ptr %74, align 8, !tbaa !30
   store i64 %75, ptr %63, align 8, !tbaa !30
@@ -3740,7 +3740,7 @@ _ZN3g2o13HyperDijkstra17AdjacencyMapEntryaSEOS1_.exit27: ; preds = %66, %_ZNSt8_
   %85 = getelementptr inbounds nuw i8, ptr %3, i64 64
   %86 = load ptr, ptr %85, align 8, !tbaa !29
   %87 = getelementptr inbounds nuw i8, ptr %78, i64 8
-  store ptr %76, ptr %87, align 8, !tbaa !62
+  store ptr %76, ptr %87, align 8, !tbaa !61
   %88 = getelementptr inbounds nuw i8, ptr %3, i64 72
   %89 = load i64, ptr %88, align 8, !tbaa !30
   store ptr null, ptr %77, align 8, !tbaa !27
@@ -3803,9 +3803,9 @@ define linkonce_odr void @_ZNSt5dequeIPN3g2o10HyperGraph6VertexESaIS3_EE16_M_pus
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %6 = load ptr, ptr %5, align 8, !tbaa !98
+  %6 = load ptr, ptr %5, align 8, !tbaa !96
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %8 = load ptr, ptr %7, align 8, !tbaa !98
+  %8 = load ptr, ptr %7, align 8, !tbaa !96
   %9 = ptrtoint ptr %6 to i64
   %10 = ptrtoint ptr %8 to i64
   %11 = sub i64 %9, %10
@@ -3814,17 +3814,17 @@ define linkonce_odr void @_ZNSt5dequeIPN3g2o10HyperGraph6VertexESaIS3_EE16_M_pus
   %.neg.i.i = sext i1 %13 to i64
   %14 = add nsw i64 %12, %.neg.i.i
   %15 = shl nsw i64 %14, 6
-  %16 = load ptr, ptr %3, align 8, !tbaa !88
+  %16 = load ptr, ptr %3, align 8, !tbaa !86
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %18 = load ptr, ptr %17, align 8, !tbaa !100
+  %18 = load ptr, ptr %17, align 8, !tbaa !98
   %19 = ptrtoint ptr %16 to i64
   %20 = ptrtoint ptr %18 to i64
   %21 = sub i64 %19, %20
   %22 = ashr exact i64 %21, 3
   %23 = add nsw i64 %15, %22
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %25 = load ptr, ptr %24, align 8, !tbaa !101
-  %26 = load ptr, ptr %4, align 8, !tbaa !88
+  %25 = load ptr, ptr %24, align 8, !tbaa !99
+  %26 = load ptr, ptr %4, align 8, !tbaa !86
   %27 = ptrtoint ptr %25 to i64
   %28 = ptrtoint ptr %26 to i64
   %29 = sub i64 %27, %28
@@ -3839,8 +3839,8 @@ define linkonce_odr void @_ZNSt5dequeIPN3g2o10HyperGraph6VertexESaIS3_EE16_M_pus
 
 34:                                               ; preds = %2
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %36 = load i64, ptr %35, align 8, !tbaa !104
-  %37 = load ptr, ptr %0, align 8, !tbaa !105
+  %36 = load i64, ptr %35, align 8, !tbaa !102
+  %37 = load ptr, ptr %0, align 8, !tbaa !103
   %38 = ptrtoint ptr %37 to i64
   %39 = sub i64 %9, %38
   %40 = ashr exact i64 %39, 3
@@ -3850,32 +3850,32 @@ define linkonce_odr void @_ZNSt5dequeIPN3g2o10HyperGraph6VertexESaIS3_EE16_M_pus
 
 43:                                               ; preds = %34
   tail call void @_ZNSt5dequeIPN3g2o10HyperGraph6VertexESaIS3_EE17_M_reallocate_mapEmb(ptr noundef nonnull align 8 dereferenceable(80) %0, i64 noundef 1, i1 noundef zeroext false)
-  %.pre = load ptr, ptr %5, align 8, !tbaa !109
+  %.pre = load ptr, ptr %5, align 8, !tbaa !106
   br label %_ZNSt5dequeIPN3g2o10HyperGraph6VertexESaIS3_EE22_M_reserve_map_at_backEm.exit
 
 _ZNSt5dequeIPN3g2o10HyperGraph6VertexESaIS3_EE22_M_reserve_map_at_backEm.exit: ; preds = %34, %43
   %44 = phi ptr [ %6, %34 ], [ %.pre, %43 ]
   %45 = tail call noalias noundef nonnull dereferenceable(512) ptr @_Znwm(i64 noundef 512) #23
   %46 = getelementptr inbounds nuw i8, ptr %44, i64 8
-  store ptr %45, ptr %46, align 8, !tbaa !99
-  %47 = load ptr, ptr %3, align 8, !tbaa !91
-  %48 = load ptr, ptr %1, align 8, !tbaa !57
-  store ptr %48, ptr %47, align 8, !tbaa !57
-  store ptr %46, ptr %5, align 8, !tbaa !98
-  store ptr %45, ptr %17, align 8, !tbaa !100
+  store ptr %45, ptr %46, align 8, !tbaa !97
+  %47 = load ptr, ptr %3, align 8, !tbaa !89
+  %48 = load ptr, ptr %1, align 8, !tbaa !56
+  store ptr %48, ptr %47, align 8, !tbaa !56
+  store ptr %46, ptr %5, align 8, !tbaa !96
+  store ptr %45, ptr %17, align 8, !tbaa !98
   %49 = getelementptr inbounds nuw i8, ptr %45, i64 512
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  store ptr %49, ptr %50, align 8, !tbaa !101
-  store ptr %45, ptr %3, align 8, !tbaa !91
+  store ptr %49, ptr %50, align 8, !tbaa !99
+  store ptr %45, ptr %3, align 8, !tbaa !89
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt5dequeIPN3g2o10HyperGraph6VertexESaIS3_EE17_M_reallocate_mapEmb(ptr noundef nonnull align 8 dereferenceable(80) %0, i64 noundef %1, i1 noundef zeroext %2) local_unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %5 = load ptr, ptr %4, align 8, !tbaa !109
+  %5 = load ptr, ptr %4, align 8, !tbaa !106
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %7 = load ptr, ptr %6, align 8, !tbaa !97
+  %7 = load ptr, ptr %6, align 8, !tbaa !95
   %8 = ptrtoint ptr %5 to i64
   %9 = ptrtoint ptr %7 to i64
   %10 = sub i64 %8, %9
@@ -3883,13 +3883,13 @@ define linkonce_odr void @_ZNSt5dequeIPN3g2o10HyperGraph6VertexESaIS3_EE17_M_rea
   %12 = add nsw i64 %11, 1
   %13 = add i64 %12, %1
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %15 = load i64, ptr %14, align 8, !tbaa !104
+  %15 = load i64, ptr %14, align 8, !tbaa !102
   %16 = shl i64 %13, 1
   %17 = icmp ugt i64 %15, %16
   br i1 %17, label %18, label %39
 
 18:                                               ; preds = %3
-  %19 = load ptr, ptr %0, align 8, !tbaa !105
+  %19 = load ptr, ptr %0, align 8, !tbaa !103
   %20 = sub i64 %15, %13
   %21 = lshr i64 %20, 1
   %22 = getelementptr inbounds nuw ptr, ptr %19, i64 %21
@@ -3927,7 +3927,7 @@ define linkonce_odr void @_ZNSt5dequeIPN3g2o10HyperGraph6VertexESaIS3_EE17_M_rea
   %40 = add i64 %15, 2
   %41 = add i64 %40, %.sroa.speculated
   %42 = icmp ugt i64 %41, 1152921504606846975
-  br i1 %42, label %43, label %_ZNSt11_Deque_baseIPN3g2o10HyperGraph6VertexESaIS3_EE15_M_allocate_mapEm.exit, !prof !106
+  br i1 %42, label %43, label %_ZNSt11_Deque_baseIPN3g2o10HyperGraph6VertexESaIS3_EE15_M_allocate_mapEm.exit, !prof !104
 
 43:                                               ; preds = %39
   %44 = icmp ugt i64 %41, 2305843009213693951
@@ -3960,31 +3960,31 @@ _ZNSt11_Deque_baseIPN3g2o10HyperGraph6VertexESaIS3_EE15_M_allocate_mapEm.exit: ;
   br label %_ZSt4copyIPPPN3g2o10HyperGraph6VertexES5_ET0_T_S7_S6_.exit26
 
 _ZSt4copyIPPPN3g2o10HyperGraph6VertexES5_ET0_T_S7_S6_.exit26: ; preds = %_ZNSt11_Deque_baseIPN3g2o10HyperGraph6VertexESaIS3_EE15_M_allocate_mapEm.exit, %53
-  %56 = load ptr, ptr %0, align 8, !tbaa !105
+  %56 = load ptr, ptr %0, align 8, !tbaa !103
   %57 = shl i64 %15, 3
   tail call void @_ZdlPvm(ptr noundef %56, i64 noundef %57) #24
-  store ptr %46, ptr %0, align 8, !tbaa !105
-  store i64 %41, ptr %14, align 8, !tbaa !104
+  store ptr %46, ptr %0, align 8, !tbaa !103
+  store i64 %41, ptr %14, align 8, !tbaa !102
   br label %_ZSt4copyIPPPN3g2o10HyperGraph6VertexES5_ET0_T_S7_S6_.exit
 
 _ZSt4copyIPPPN3g2o10HyperGraph6VertexES5_ET0_T_S7_S6_.exit: ; preds = %32, %31, %28, %27, %_ZSt4copyIPPPN3g2o10HyperGraph6VertexES5_ET0_T_S7_S6_.exit26
   %.0 = phi ptr [ %51, %_ZSt4copyIPPPN3g2o10HyperGraph6VertexES5_ET0_T_S7_S6_.exit26 ], [ %24, %27 ], [ %24, %28 ], [ %24, %31 ], [ %24, %32 ]
-  store ptr %.0, ptr %6, align 8, !tbaa !98
-  %58 = load ptr, ptr %.0, align 8, !tbaa !99
+  store ptr %.0, ptr %6, align 8, !tbaa !96
+  %58 = load ptr, ptr %.0, align 8, !tbaa !97
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr %58, ptr %59, align 8, !tbaa !100
+  store ptr %58, ptr %59, align 8, !tbaa !98
   %60 = getelementptr inbounds nuw i8, ptr %58, i64 512
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr %60, ptr %61, align 8, !tbaa !101
+  store ptr %60, ptr %61, align 8, !tbaa !99
   %62 = getelementptr inbounds nuw ptr, ptr %.0, i64 %12
   %63 = getelementptr inbounds i8, ptr %62, i64 -8
-  store ptr %63, ptr %4, align 8, !tbaa !98
-  %64 = load ptr, ptr %63, align 8, !tbaa !99
+  store ptr %63, ptr %4, align 8, !tbaa !96
+  %64 = load ptr, ptr %63, align 8, !tbaa !97
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store ptr %64, ptr %65, align 8, !tbaa !100
+  store ptr %64, ptr %65, align 8, !tbaa !98
   %66 = getelementptr inbounds nuw i8, ptr %64, i64 512
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  store ptr %66, ptr %67, align 8, !tbaa !101
+  store ptr %66, ptr %67, align 8, !tbaa !99
   ret void
 }
 
@@ -4083,88 +4083,85 @@ attributes #25 = { noreturn }
 !48 = !{!49, !49, i64 0}
 !49 = !{!"p1 _ZTSSt8_Rb_treeIPN3g2o10HyperGraph6VertexES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE", !9, i64 0}
 !50 = !{!19, !21, i64 16}
-!51 = distinct !{!51, !52, !53}
+!51 = distinct !{!51, !52}
 !52 = !{!"llvm.loop.mustprogress"}
-!53 = !{!"llvm.loop.estimated_trip_count"}
-!54 = !{!21, !21, i64 0}
-!55 = !{!19, !21, i64 24}
-!56 = distinct !{!56, !52, !53}
-!57 = !{!8, !8, i64 0}
-!58 = distinct !{!58, !52, !53}
-!59 = !{!60, !8, i64 0}
-!60 = !{!"_ZTSSt4pairIKPN3g2o10HyperGraph6VertexENS0_13HyperDijkstra17AdjacencyMapEntryEE", !8, i64 0, !7, i64 8}
-!61 = distinct !{!61, !52, !53}
-!62 = !{!19, !21, i64 8}
-!63 = distinct !{!63, !52, !53}
-!64 = !{!65, !65, i64 0}
-!65 = !{!"p1 _ZTSN3g2o13HyperDijkstra17AdjacencyMapEntryE", !9, i64 0}
-!66 = !{!60, !12, i64 32}
-!67 = !{!60, !8, i64 16}
-!68 = !{!69, !65, i64 8}
-!69 = !{!"_ZTSNSt12_Vector_baseIN3g2o13HyperDijkstra17AdjacencyMapEntryESaIS2_EE17_Vector_impl_dataE", !65, i64 0, !65, i64 8, !65, i64 16}
-!70 = !{!69, !65, i64 16}
-!71 = distinct !{!71, !52, !53}
-!72 = distinct !{!72, !52, !53}
-!73 = !{!11, !11, i64 0}
-!74 = !{!75, !76, i64 0}
-!75 = !{!"_ZTSNSt12_Vector_baseIPN3g2o10HyperGraph6VertexESaIS3_EE17_Vector_impl_dataE", !76, i64 0, !76, i64 8, !76, i64 16}
-!76 = !{!"p2 _ZTSN3g2o10HyperGraph6VertexE", !9, i64 0}
-!77 = distinct !{!77, !52}
-!78 = !{!75, !76, i64 8}
-!79 = !{!60, !11, i64 24}
-!80 = distinct !{!80, !52, !53}
-!81 = distinct !{!81, !52, !53}
-!82 = distinct !{!82, !53}
-!83 = distinct !{!83, !52, !53}
-!84 = !{!69, !65, i64 0}
-!85 = distinct !{!85, !52, !53}
-!86 = distinct !{!86, !52, !53}
-!87 = distinct !{!87, !52, !53}
-!88 = !{!89, !76, i64 0}
-!89 = !{!"_ZTSSt15_Deque_iteratorIPN3g2o10HyperGraph6VertexERS3_PS3_E", !76, i64 0, !76, i64 8, !76, i64 16, !90, i64 24}
-!90 = !{!"p3 _ZTSN3g2o10HyperGraph6VertexE", !9, i64 0}
-!91 = !{!92, !76, i64 48}
-!92 = !{!"_ZTSNSt11_Deque_baseIPN3g2o10HyperGraph6VertexESaIS3_EE16_Deque_impl_dataE", !90, i64 0, !22, i64 8, !89, i64 16, !89, i64 48}
-!93 = !{!92, !76, i64 64}
-!94 = distinct !{!94, !52, !53}
-!95 = !{!92, !76, i64 32}
-!96 = !{!92, !76, i64 24}
-!97 = !{!92, !90, i64 40}
-!98 = !{!89, !90, i64 24}
-!99 = !{!76, !76, i64 0}
-!100 = !{!89, !76, i64 8}
-!101 = !{!89, !76, i64 16}
-!102 = !{!92, !76, i64 16}
-!103 = distinct !{!103, !52}
-!104 = !{!92, !22, i64 8}
-!105 = !{!92, !90, i64 0}
-!106 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!107 = distinct !{!107, !52, !53}
-!108 = distinct !{!108, !53}
-!109 = !{!92, !90, i64 72}
-!110 = distinct !{!110, !52, !53}
-!111 = distinct !{!111, !52, !53}
-!112 = distinct !{!112, !52, !53}
-!113 = !{!19, !20, i64 0}
-!114 = distinct !{!114, !52, !53}
-!115 = distinct !{!115, !52, !53}
-!116 = !{!117, !117, i64 0}
-!117 = !{!"p1 _ZTSSt8_Rb_treeIPN3g2o10HyperGraph6VertexESt4pairIKS3_NS0_13HyperDijkstra17AdjacencyMapEntryEESt10_Select1stIS8_ESt4lessIS3_ESaIS8_EE", !9, i64 0}
-!118 = !{!119, !120, i64 8}
-!119 = !{!"_ZTSNSt8_Rb_treeIPN3g2o10HyperGraph6VertexESt4pairIKS3_NS0_13HyperDijkstra17AdjacencyMapEntryEESt10_Select1stIS8_ESt4lessIS3_ESaIS8_EE10_Auto_nodeE", !117, i64 0, !120, i64 8}
-!120 = !{!"p1 _ZTSSt13_Rb_tree_nodeISt4pairIKPN3g2o10HyperGraph6VertexENS1_13HyperDijkstra17AdjacencyMapEntryEEE", !9, i64 0}
-!121 = distinct !{!121, !52, !53}
+!53 = !{!21, !21, i64 0}
+!54 = !{!19, !21, i64 24}
+!55 = distinct !{!55, !52}
+!56 = !{!8, !8, i64 0}
+!57 = distinct !{!57, !52}
+!58 = !{!59, !8, i64 0}
+!59 = !{!"_ZTSSt4pairIKPN3g2o10HyperGraph6VertexENS0_13HyperDijkstra17AdjacencyMapEntryEE", !8, i64 0, !7, i64 8}
+!60 = distinct !{!60, !52}
+!61 = !{!19, !21, i64 8}
+!62 = distinct !{!62, !52}
+!63 = !{!64, !64, i64 0}
+!64 = !{!"p1 _ZTSN3g2o13HyperDijkstra17AdjacencyMapEntryE", !9, i64 0}
+!65 = !{!59, !12, i64 32}
+!66 = !{!59, !8, i64 16}
+!67 = !{!68, !64, i64 8}
+!68 = !{!"_ZTSNSt12_Vector_baseIN3g2o13HyperDijkstra17AdjacencyMapEntryESaIS2_EE17_Vector_impl_dataE", !64, i64 0, !64, i64 8, !64, i64 16}
+!69 = !{!68, !64, i64 16}
+!70 = distinct !{!70, !52}
+!71 = distinct !{!71, !52}
+!72 = !{!11, !11, i64 0}
+!73 = !{!74, !75, i64 0}
+!74 = !{!"_ZTSNSt12_Vector_baseIPN3g2o10HyperGraph6VertexESaIS3_EE17_Vector_impl_dataE", !75, i64 0, !75, i64 8, !75, i64 16}
+!75 = !{!"p2 _ZTSN3g2o10HyperGraph6VertexE", !9, i64 0}
+!76 = distinct !{!76, !52}
+!77 = !{!74, !75, i64 8}
+!78 = !{!59, !11, i64 24}
+!79 = distinct !{!79, !52}
+!80 = distinct !{!80, !52}
+!81 = distinct !{!81, !52}
+!82 = !{!68, !64, i64 0}
+!83 = distinct !{!83, !52}
+!84 = distinct !{!84, !52}
+!85 = distinct !{!85, !52}
+!86 = !{!87, !75, i64 0}
+!87 = !{!"_ZTSSt15_Deque_iteratorIPN3g2o10HyperGraph6VertexERS3_PS3_E", !75, i64 0, !75, i64 8, !75, i64 16, !88, i64 24}
+!88 = !{!"p3 _ZTSN3g2o10HyperGraph6VertexE", !9, i64 0}
+!89 = !{!90, !75, i64 48}
+!90 = !{!"_ZTSNSt11_Deque_baseIPN3g2o10HyperGraph6VertexESaIS3_EE16_Deque_impl_dataE", !88, i64 0, !22, i64 8, !87, i64 16, !87, i64 48}
+!91 = !{!90, !75, i64 64}
+!92 = distinct !{!92, !52}
+!93 = !{!90, !75, i64 32}
+!94 = !{!90, !75, i64 24}
+!95 = !{!90, !88, i64 40}
+!96 = !{!87, !88, i64 24}
+!97 = !{!75, !75, i64 0}
+!98 = !{!87, !75, i64 8}
+!99 = !{!87, !75, i64 16}
+!100 = !{!90, !75, i64 16}
+!101 = distinct !{!101, !52}
+!102 = !{!90, !22, i64 8}
+!103 = !{!90, !88, i64 0}
+!104 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!105 = distinct !{!105, !52}
+!106 = !{!90, !88, i64 72}
+!107 = distinct !{!107, !52}
+!108 = distinct !{!108, !52}
+!109 = distinct !{!109, !52}
+!110 = !{!19, !20, i64 0}
+!111 = distinct !{!111, !52}
+!112 = distinct !{!112, !52}
+!113 = !{!114, !114, i64 0}
+!114 = !{!"p1 _ZTSSt8_Rb_treeIPN3g2o10HyperGraph6VertexESt4pairIKS3_NS0_13HyperDijkstra17AdjacencyMapEntryEESt10_Select1stIS8_ESt4lessIS3_ESaIS8_EE", !9, i64 0}
+!115 = !{!116, !117, i64 8}
+!116 = !{!"_ZTSNSt8_Rb_treeIPN3g2o10HyperGraph6VertexESt4pairIKS3_NS0_13HyperDijkstra17AdjacencyMapEntryEESt10_Select1stIS8_ESt4lessIS3_ESaIS8_EE10_Auto_nodeE", !114, i64 0, !117, i64 8}
+!117 = !{!"p1 _ZTSSt13_Rb_tree_nodeISt4pairIKPN3g2o10HyperGraph6VertexENS1_13HyperDijkstra17AdjacencyMapEntryEEE", !9, i64 0}
+!118 = distinct !{!118, !52}
+!119 = !{!120}
+!120 = distinct !{!120, !121, !"_ZSt19__relocate_object_aIN3g2o13HyperDijkstra17AdjacencyMapEntryES2_SaIS2_EEvPT_PT0_RT1_: argument 0"}
+!121 = distinct !{!121, !"_ZSt19__relocate_object_aIN3g2o13HyperDijkstra17AdjacencyMapEntryES2_SaIS2_EEvPT_PT0_RT1_"}
 !122 = !{!123}
-!123 = distinct !{!123, !124, !"_ZSt19__relocate_object_aIN3g2o13HyperDijkstra17AdjacencyMapEntryES2_SaIS2_EEvPT_PT0_RT1_: argument 0"}
-!124 = distinct !{!124, !"_ZSt19__relocate_object_aIN3g2o13HyperDijkstra17AdjacencyMapEntryES2_SaIS2_EEvPT_PT0_RT1_"}
-!125 = !{!126}
-!126 = distinct !{!126, !124, !"_ZSt19__relocate_object_aIN3g2o13HyperDijkstra17AdjacencyMapEntryES2_SaIS2_EEvPT_PT0_RT1_: argument 1"}
-!127 = !{!123, !126}
-!128 = distinct !{!128, !52, !53}
+!123 = distinct !{!123, !121, !"_ZSt19__relocate_object_aIN3g2o13HyperDijkstra17AdjacencyMapEntryES2_SaIS2_EEvPT_PT0_RT1_: argument 1"}
+!124 = !{!120, !123}
+!125 = distinct !{!125, !52}
+!126 = !{!127}
+!127 = distinct !{!127, !128, !"_ZSt19__relocate_object_aIN3g2o13HyperDijkstra17AdjacencyMapEntryES2_SaIS2_EEvPT_PT0_RT1_: argument 0"}
+!128 = distinct !{!128, !"_ZSt19__relocate_object_aIN3g2o13HyperDijkstra17AdjacencyMapEntryES2_SaIS2_EEvPT_PT0_RT1_"}
 !129 = !{!130}
-!130 = distinct !{!130, !131, !"_ZSt19__relocate_object_aIN3g2o13HyperDijkstra17AdjacencyMapEntryES2_SaIS2_EEvPT_PT0_RT1_: argument 0"}
-!131 = distinct !{!131, !"_ZSt19__relocate_object_aIN3g2o13HyperDijkstra17AdjacencyMapEntryES2_SaIS2_EEvPT_PT0_RT1_"}
-!132 = !{!133}
-!133 = distinct !{!133, !131, !"_ZSt19__relocate_object_aIN3g2o13HyperDijkstra17AdjacencyMapEntryES2_SaIS2_EEvPT_PT0_RT1_: argument 1"}
-!134 = !{!130, !133}
-!135 = distinct !{!135, !52, !53}
+!130 = distinct !{!130, !128, !"_ZSt19__relocate_object_aIN3g2o13HyperDijkstra17AdjacencyMapEntryES2_SaIS2_EEvPT_PT0_RT1_: argument 1"}
+!131 = !{!127, !130}
+!132 = distinct !{!132, !52}

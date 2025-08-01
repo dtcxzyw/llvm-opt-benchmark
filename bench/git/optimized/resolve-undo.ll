@@ -161,14 +161,14 @@ strbuf_addch.exit:                                ; preds = %strbuf_avail.exit.i
 
 33:                                               ; preds = %30
   %34 = getelementptr inbounds nuw [3 x %struct.object_id], ptr %26, i64 0, i64 %indvars.iv33
-  %35 = load i64, ptr %8, align 8, !tbaa !43
+  %35 = load i64, ptr %8, align 8, !tbaa !42
   tail call void @strbuf_add(ptr noundef nonnull %0, ptr noundef nonnull %34, i64 noundef %35) #8
   br label %36
 
 36:                                               ; preds = %30, %33
   %indvars.iv.next34 = add nuw nsw i64 %indvars.iv33, 1
   %exitcond36.not = icmp eq i64 %indvars.iv.next34, 3
-  br i1 %exitcond36.not, label %.loopexit, label %30, !llvm.loop !47
+  br i1 %exitcond36.not, label %.loopexit, label %30, !llvm.loop !46
 
 .loopexit:                                        ; preds = %36, %.lr.ph38
   %37 = getelementptr inbounds nuw i8, ptr %.0233037, i64 16
@@ -191,7 +191,7 @@ define dso_local ptr @resolve_undo_read(ptr noundef %0, i64 noundef %1, ptr noun
   %4 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #8
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %6 = load i64, ptr %5, align 8, !tbaa !43
+  %6 = load i64, ptr %5, align 8, !tbaa !42
   %7 = tail call ptr @xcalloc(i64 noundef 1, i64 noundef 40) #8
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %9 = load i8, ptr %8, align 8
@@ -206,7 +206,7 @@ define dso_local ptr @resolve_undo_read(ptr noundef %0, i64 noundef %1, ptr noun
 
 .loopexit:                                        ; preds = %63
   %.not = icmp eq i64 %.451, 0
-  br i1 %.not, label %.loopexit71, label %12, !llvm.loop !48
+  br i1 %.not, label %.loopexit71, label %12
 
 12:                                               ; preds = %.lr.ph, %.loopexit
   %.04686 = phi ptr [ %0, %.lr.ph ], [ %.4, %.loopexit ]
@@ -246,7 +246,7 @@ define dso_local ptr @resolve_undo_read(ptr noundef %0, i64 noundef %1, ptr noun
   %28 = trunc i64 %27 to i32
   %29 = getelementptr inbounds nuw [3 x i32], ptr %22, i64 0, i64 %indvars.iv
   store i32 %28, ptr %29, align 4, !tbaa !4
-  %30 = load ptr, ptr %4, align 8, !tbaa !49
+  %30 = load ptr, ptr %4, align 8, !tbaa !47
   %.not61 = icmp eq ptr %30, null
   %31 = icmp eq ptr %30, %.280
   %or.cond = or i1 %.not61, %31
@@ -270,7 +270,7 @@ define dso_local ptr @resolve_undo_read(ptr noundef %0, i64 noundef %1, ptr noun
   %41 = getelementptr inbounds nuw i8, ptr %.280, i64 %38
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %.preheader, label %26, !llvm.loop !50
+  br i1 %exitcond.not, label %.preheader, label %26, !llvm.loop !48
 
 42:                                               ; preds = %.preheader, %63
   %indvars.iv92 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next93, %63 ]
@@ -287,9 +287,9 @@ define dso_local ptr @resolve_undo_read(ptr noundef %0, i64 noundef %1, ptr noun
 
 47:                                               ; preds = %45
   %48 = getelementptr inbounds nuw [3 x %struct.object_id], ptr %25, i64 0, i64 %indvars.iv92
-  %49 = load i64, ptr %5, align 8, !tbaa !43
+  %49 = load i64, ptr %5, align 8, !tbaa !42
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %48, ptr readonly align 1 %.383, i64 %49, i1 false)
-  %50 = load i64, ptr %5, align 8, !tbaa !43
+  %50 = load i64, ptr %5, align 8, !tbaa !42
   %51 = icmp ult i64 %50, 32
   br i1 %51, label %52, label %.preheader104
 
@@ -311,7 +311,7 @@ define dso_local ptr @resolve_undo_read(ptr noundef %0, i64 noundef %1, ptr noun
 57:                                               ; preds = %55
   %58 = add nuw nsw i64 %.0811.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %58, 3
-  br i1 %exitcond.not.i.i, label %oidread.exit, label %55, !llvm.loop !51
+  br i1 %exitcond.not.i.i, label %oidread.exit, label %55, !llvm.loop !49
 
 .split.loop.exit9.i.i:                            ; preds = %55
   %59 = trunc nuw nsw i64 %.0811.i.i to i32
@@ -330,7 +330,7 @@ oidread.exit:                                     ; preds = %57, %.split.loop.ex
   %.4 = phi ptr [ %62, %oidread.exit ], [ %.383, %42 ]
   %indvars.iv.next93 = add nuw nsw i64 %indvars.iv92, 1
   %exitcond95.not = icmp eq i64 %indvars.iv.next93, 3
-  br i1 %exitcond95.not, label %.loopexit, label %42, !llvm.loop !52
+  br i1 %exitcond95.not, label %.loopexit, label %42, !llvm.loop !50
 
 .loopexit69:                                      ; preds = %12, %32, %26, %34, %45
   tail call void @string_list_clear(ptr noundef %7, i32 noundef 1) #8
@@ -365,9 +365,9 @@ define dso_local void @resolve_undo_clear_index(ptr noundef captures(none) %0) l
   tail call void @free(ptr noundef nonnull %3) #8
   store ptr null, ptr %2, align 8, !tbaa !8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %6 = load i32, ptr %5, align 4, !tbaa !53
+  %6 = load i32, ptr %5, align 4, !tbaa !51
   %7 = or i32 %6, 16
-  store i32 %7, ptr %5, align 4, !tbaa !53
+  store i32 %7, ptr %5, align 4, !tbaa !51
   br label %8
 
 8:                                                ; preds = %1, %4
@@ -388,15 +388,15 @@ define dso_local range(i32 -1, 1) i32 @unmerge_index_entry(ptr noundef %0, ptr n
 9:                                                ; preds = %4
   %10 = xor i32 %7, -1
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %12 = load i32, ptr %11, align 4, !tbaa !54
+  %12 = load i32, ptr %11, align 4, !tbaa !52
   %13 = icmp ugt i32 %12, %10
   br i1 %13, label %14, label %23
 
 14:                                               ; preds = %9
-  %15 = load ptr, ptr %0, align 8, !tbaa !55
+  %15 = load ptr, ptr %0, align 8, !tbaa !53
   %16 = zext nneg i32 %10 to i64
   %17 = getelementptr inbounds nuw ptr, ptr %15, i64 %16
-  %18 = load ptr, ptr %17, align 8, !tbaa !56
+  %18 = load ptr, ptr %17, align 8, !tbaa !54
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 108
   %20 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %19, ptr noundef nonnull dereferenceable(1) %1) #9
   %.not = icmp eq i32 %20, 0
@@ -441,7 +441,7 @@ define dso_local range(i32 -1, 1) i32 @unmerge_index_entry(ptr noundef %0, ptr n
 39:                                               ; preds = %._crit_edge, %28
   %indvars.iv.next.pre-phi = phi i64 [ %.pre, %._crit_edge ], [ %30, %28 ]
   %exitcond.not = icmp eq i64 %indvars.iv.next.pre-phi, 3
-  br i1 %exitcond.not, label %.loopexit, label %25, !llvm.loop !58
+  br i1 %exitcond.not, label %.loopexit, label %25, !llvm.loop !56
 
 .loopexit:                                        ; preds = %39, %37, %14
   %.0 = phi i32 [ -1, %37 ], [ 0, %14 ], [ 0, %39 ]
@@ -582,22 +582,20 @@ attributes #9 = { nounwind willreturn memory(read) }
 !37 = !{!36, !32, i64 8}
 !38 = !{!36, !20, i64 16}
 !39 = !{!6, !6, i64 0}
-!40 = distinct !{!40, !41, !42}
+!40 = distinct !{!40, !41}
 !41 = !{!"llvm.loop.mustprogress"}
-!42 = !{!"llvm.loop.estimated_trip_count"}
-!43 = !{!44, !32, i64 16}
-!44 = !{!"git_hash_algo", !20, i64 0, !5, i64 8, !32, i64 16, !32, i64 24, !32, i64 32, !11, i64 40, !11, i64 48, !11, i64 56, !11, i64 64, !11, i64 72, !45, i64 80, !45, i64 88, !45, i64 96, !46, i64 104}
-!45 = !{!"p1 _ZTS9object_id", !11, i64 0}
-!46 = !{!"p1 _ZTS13git_hash_algo", !11, i64 0}
-!47 = distinct !{!47, !41, !42}
-!48 = distinct !{!48, !42}
-!49 = !{!20, !20, i64 0}
-!50 = distinct !{!50, !41, !42}
-!51 = distinct !{!51, !41, !42}
-!52 = distinct !{!52, !41, !42}
-!53 = !{!9, !5, i64 20}
-!54 = !{!9, !5, i64 12}
-!55 = !{!9, !10, i64 0}
-!56 = !{!57, !57, i64 0}
-!57 = !{!"p1 _ZTS11cache_entry", !11, i64 0}
-!58 = distinct !{!58, !41, !42}
+!42 = !{!43, !32, i64 16}
+!43 = !{!"git_hash_algo", !20, i64 0, !5, i64 8, !32, i64 16, !32, i64 24, !32, i64 32, !11, i64 40, !11, i64 48, !11, i64 56, !11, i64 64, !11, i64 72, !44, i64 80, !44, i64 88, !44, i64 96, !45, i64 104}
+!44 = !{!"p1 _ZTS9object_id", !11, i64 0}
+!45 = !{!"p1 _ZTS13git_hash_algo", !11, i64 0}
+!46 = distinct !{!46, !41}
+!47 = !{!20, !20, i64 0}
+!48 = distinct !{!48, !41}
+!49 = distinct !{!49, !41}
+!50 = distinct !{!50, !41}
+!51 = !{!9, !5, i64 20}
+!52 = !{!9, !5, i64 12}
+!53 = !{!9, !10, i64 0}
+!54 = !{!55, !55, i64 0}
+!55 = !{!"p1 _ZTS11cache_entry", !11, i64 0}
+!56 = distinct !{!56, !41}

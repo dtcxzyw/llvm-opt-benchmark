@@ -128,11 +128,11 @@ define dso_local ptr @seg6_get_srh(ptr noundef %0, i32 noundef %1) local_unnamed
   %13 = load i32, ptr %12, align 4
   %14 = sub i32 %11, %13
   %15 = icmp ult i32 %14, %9
-  br i1 %15, label %16, label %22, !prof !9
+  br i1 %15, label %16, label %22, !prof !8
 
 16:                                               ; preds = %7
   %17 = icmp ult i32 %11, %9
-  br i1 %17, label %.critedge, label %18, !prof !9
+  br i1 %17, label %.critedge, label %18, !prof !8
 
 18:                                               ; preds = %16
   %19 = sub i32 %9, %14
@@ -163,11 +163,11 @@ define dso_local ptr @seg6_get_srh(ptr noundef %0, i32 noundef %1) local_unnamed
   %32 = shl nuw nsw i32 %31, 3
   %33 = add i32 %.pre-phi, %32
   %34 = icmp ult i32 %.pre-phi16, %33
-  br i1 %34, label %35, label %41, !prof !9
+  br i1 %34, label %35, label %41, !prof !8
 
 35:                                               ; preds = %22
   %36 = icmp ult i32 %23, %33
-  br i1 %36, label %.critedge, label %37, !prof !9
+  br i1 %36, label %.critedge, label %37, !prof !8
 
 37:                                               ; preds = %35
   %38 = sub i32 %33, %.pre-phi16
@@ -240,7 +240,7 @@ define dso_local ptr @seg6_get_srh(ptr noundef %0, i32 noundef %1) local_unnamed
   %77 = icmp sgt i32 %76, -1
   %78 = select i1 %77, i32 %75, i32 0
   %79 = add i32 %78, %68
-  br i1 %77, label %.preheader, label %.critedge, !llvm.loop !10
+  br i1 %77, label %.preheader, label %.critedge, !llvm.loop !5
 
 .critedge.loopexit20:                             ; preds = %.preheader
   br label %.critedge
@@ -438,7 +438,7 @@ define internal noundef range(i32 -22, 1) i32 @seg6_genl_set_tunsrc(ptr readnone
   tail call void @mutex_lock(ptr noundef %6) #10
   %17 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %18 = load ptr, ptr %17, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !11
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !9
   store volatile ptr %14, ptr %17, align 8
   tail call void @mutex_unlock(ptr noundef %6) #10
   tail call void @synchronize_net() #10
@@ -565,10 +565,8 @@ attributes #13 = { nounwind allocsize(1) }
 !2 = !{i32 4, !"function_return_thunk_extern", i32 1}
 !3 = !{i32 4, !"indirect_branch_cs_prefix", i32 1}
 !4 = !{i32 4, !"SkipRaxSetup", i32 1}
-!5 = distinct !{!5, !6, !7, !8}
+!5 = distinct !{!5, !6, !7}
 !6 = !{!"llvm.loop.mustprogress"}
 !7 = !{!"llvm.loop.unroll.disable"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = !{!"branch_weights", i32 1, i32 2000}
-!10 = distinct !{!10, !6, !7, !8}
-!11 = !{i64 2158326172}
+!8 = !{!"branch_weights", i32 1, i32 2000}
+!9 = !{i64 2158326172}

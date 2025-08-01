@@ -315,7 +315,7 @@ define hidden noundef i32 @_ZN8IndexSet9lrg_unionEjjjPK8PhaseIFGRK7RegMask(ptr n
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %49 = zext i32 %48 to i64
   %50 = icmp samesign ult i64 %indvars.iv.next.i, %49
-  br i1 %50, label %26, label %_ZN8IndexSet5clearEv.exit, !llvm.loop !9
+  br i1 %50, label %26, label %_ZN8IndexSet5clearEv.exit, !llvm.loop !8
 
 _ZN8IndexSet5clearEv.exit:                        ; preds = %47, %6
   store i32 0, ptr %22, align 4
@@ -412,7 +412,7 @@ _ZN16IndexSetIterator4nextEv.exit:                ; preds = %68, %82
   %103 = or i64 %102, %.01113.i
   %104 = add i32 %.014.i, 1
   %.not.i58 = icmp ugt i32 %104, %92
-  br i1 %.not.i58, label %_ZNK7RegMask7overlapERKS_.exit, label %.lr.ph.i57, !llvm.loop !10
+  br i1 %.not.i58, label %_ZNK7RegMask7overlapERKS_.exit, label %.lr.ph.i57, !llvm.loop !9
 
 _ZNK7RegMask7overlapERKS_.exit:                   ; preds = %.lr.ph.i57
   %.not77 = icmp eq i64 %103, 0
@@ -434,7 +434,7 @@ _ZNK7RegMask7overlapERKS_.exit:                   ; preds = %.lr.ph.i57
 _ZNK7RegMask7overlapERKS_.exit.thread:            ; preds = %84, %110, %105, %_ZNK7RegMask7overlapERKS_.exit
   %.2 = phi i32 [ %.1, %105 ], [ %112, %110 ], [ %.1, %_ZNK7RegMask7overlapERKS_.exit ], [ %.1, %84 ]
   %.pre = load i64, ptr %7, align 8
-  br label %66, !llvm.loop !11
+  br label %66, !llvm.loop !10
 
 _ZN16IndexSetIterator4nextEv.exit.thread:         ; preds = %78, %_ZN16IndexSetIterator4nextEv.exit, %_ZN8IndexSet5clearEv.exit
   %.044 = phi i32 [ 0, %_ZN8IndexSet5clearEv.exit ], [ %.1, %_ZN16IndexSetIterator4nextEv.exit ], [ %.1, %78 ]
@@ -531,7 +531,7 @@ _ZN16IndexSetIterator4nextEv.exit62:              ; preds = %130, %144
   %165 = or i64 %164, %.01113.i66
   %166 = add i32 %.014.i65, 1
   %.not.i67 = icmp ugt i32 %166, %154
-  br i1 %.not.i67, label %_ZNK7RegMask7overlapERKS_.exit70, label %.lr.ph.i64, !llvm.loop !10
+  br i1 %.not.i67, label %_ZNK7RegMask7overlapERKS_.exit70, label %.lr.ph.i64, !llvm.loop !9
 
 _ZNK7RegMask7overlapERKS_.exit70:                 ; preds = %.lr.ph.i64
   %.not78 = icmp eq i64 %165, 0
@@ -556,7 +556,7 @@ _ZNK7RegMask7overlapERKS_.exit70:                 ; preds = %.lr.ph.i64
 _ZNK7RegMask7overlapERKS_.exit70.thread:          ; preds = %146, %167, %169, %173, %_ZNK7RegMask7overlapERKS_.exit70
   %.5 = phi i32 [ %.4, %169 ], [ %175, %173 ], [ %.4, %167 ], [ %.4, %_ZNK7RegMask7overlapERKS_.exit70 ], [ %.4, %146 ]
   %.pre87 = load i64, ptr %8, align 8
-  br label %128, !llvm.loop !12
+  br label %128, !llvm.loop !11
 
 _ZN16IndexSetIterator4nextEv.exit62.thread:       ; preds = %110, %140, %_ZN16IndexSetIterator4nextEv.exit62, %173, %_ZN16IndexSetIterator4nextEv.exit.thread
   %.0 = phi i32 [ %.044, %_ZN16IndexSetIterator4nextEv.exit.thread ], [ %.4, %140 ], [ %.4, %_ZN16IndexSetIterator4nextEv.exit62 ], [ %175, %173 ], [ %112, %110 ]
@@ -833,7 +833,7 @@ _ZN8IndexSet11alloc_blockEv.exit:                 ; preds = %47, %_ZN8IndexSet18
   %80 = load i32, ptr %9, align 8
   %81 = zext i32 %80 to i64
   %82 = icmp samesign ult i64 %indvars.iv.next, %81
-  br i1 %82, label %42, label %._crit_edge, !llvm.loop !13
+  br i1 %82, label %42, label %._crit_edge, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %77, %37
   ret void
@@ -915,7 +915,7 @@ _ZN5Arena12AmallocWordsEmN17AllocFailStrategy13AllocFailEnumE.exit: ; preds = %2
   %40 = load i32, ptr %6, align 8
   %41 = zext i32 %40 to i64
   %42 = icmp samesign ult i64 %indvars.iv.next, %41
-  br i1 %42, label %37, label %._crit_edge, !llvm.loop !14
+  br i1 %42, label %37, label %._crit_edge, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %37, %34
   ret void
@@ -986,7 +986,7 @@ _ZN5Arena12AmallocWordsEmN17AllocFailStrategy13AllocFailEnumE.exit: ; preds = %2
   %33 = load i32, ptr %7, align 8
   %34 = zext i32 %33 to i64
   %35 = icmp samesign ult i64 %indvars.iv.next, %34
-  br i1 %35, label %30, label %._crit_edge, !llvm.loop !15
+  br i1 %35, label %30, label %._crit_edge, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %30, %27
   ret void
@@ -1022,7 +1022,7 @@ define hidden void @_ZN8IndexSet4swapEPS_(ptr noundef nonnull align 8 captures(n
   store ptr %13, ptr %18, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %10, !llvm.loop !16
+  br i1 %exitcond.not, label %._crit_edge, label %10, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %10, %2
   %19 = load i32, ptr %0, align 8
@@ -1082,7 +1082,7 @@ define hidden noundef i32 @_ZN16IndexSetIterator16advance_and_nextEv(ptr noundef
 28:                                               ; preds = %8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %._crit_edge, label %8, !llvm.loop !17
+  br i1 %exitcond.not, label %._crit_edge, label %8, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %28, %1
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -1146,7 +1146,7 @@ define hidden noundef i32 @_ZN16IndexSetIterator16advance_and_nextEv(ptr noundef
 64:                                               ; preds = %45
   %indvars.iv.next51 = add nuw nsw i64 %indvars.iv50, 1
   %exitcond53.not = icmp eq i64 %indvars.iv.next51, 4
-  br i1 %exitcond53.not, label %65, label %45, !llvm.loop !18
+  br i1 %exitcond53.not, label %65, label %45, !llvm.loop !17
 
 65:                                               ; preds = %64
   %66 = load ptr, ptr %36, align 8
@@ -1184,7 +1184,7 @@ define hidden noundef i32 @_ZN16IndexSetIterator16advance_and_nextEv(ptr noundef
   %indvars.iv.next55 = add nuw nsw i64 %indvars.iv54, 1
   %89 = zext i32 %88 to i64
   %90 = icmp samesign ult i64 %indvars.iv.next55, %89
-  br i1 %90, label %39, label %.loopexit, !llvm.loop !19
+  br i1 %90, label %39, label %.loopexit, !llvm.loop !18
 
 .loopexit:                                        ; preds = %87, %._crit_edge, %48, %11
   %.022 = phi i32 [ %27, %11 ], [ %63, %48 ], [ 0, %._crit_edge ], [ 0, %87 ]
@@ -1226,17 +1226,16 @@ attributes #8 = { nounwind }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7, !8}
-!11 = distinct !{!11, !7, !8}
-!12 = distinct !{!12, !7, !8}
-!13 = distinct !{!13, !7, !8}
-!14 = distinct !{!14, !7, !8}
-!15 = distinct !{!15, !7, !8}
-!16 = distinct !{!16, !7, !8}
-!17 = distinct !{!17, !7, !8}
-!18 = distinct !{!18, !7, !8}
-!19 = distinct !{!19, !7, !8}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7}
+!12 = distinct !{!12, !7}
+!13 = distinct !{!13, !7}
+!14 = distinct !{!14, !7}
+!15 = distinct !{!15, !7}
+!16 = distinct !{!16, !7}
+!17 = distinct !{!17, !7}
+!18 = distinct !{!18, !7}

@@ -148,7 +148,7 @@ define hidden range(i32 0, 2) i32 @mlib_AffineEdges(ptr noundef captures(none) %
   %91 = getelementptr inbounds i8, ptr %.08651094, i64 %85
   %indvars.iv.next1144 = add nuw nsw i64 %indvars.iv1143, 1
   %exitcond1147.not = icmp eq i64 %indvars.iv.next1144, %wide.trip.count1146
-  br i1 %exitcond1147.not, label %.preheader1090, label %89, !llvm.loop !9
+  br i1 %exitcond1147.not, label %.preheader1090, label %89, !llvm.loop !8
 
 .lr.ph1101:                                       ; preds = %.lr.ph1101.preheader, %.lr.ph1101
   %indvars.iv1148 = phi i64 [ %88, %.lr.ph1101.preheader ], [ %indvars.iv.next1149, %.lr.ph1101 ]
@@ -157,7 +157,7 @@ define hidden range(i32 0, 2) i32 @mlib_AffineEdges(ptr noundef captures(none) %
   %indvars.iv.next1149 = add nsw i64 %indvars.iv1148, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next1149 to i32
   %exitcond1152.not = icmp eq i32 %smax1151, %lftr.wideiv
-  br i1 %exitcond1152.not, label %.loopexit1091, label %.lr.ph1101, !llvm.loop !10
+  br i1 %exitcond1152.not, label %.loopexit1091, label %.lr.ph1101, !llvm.loop !9
 
 .loopexit1091:                                    ; preds = %.lr.ph1101, %.preheader1090, %71
   %.0790 = phi ptr [ %16, %71 ], [ %82, %.preheader1090 ], [ %82, %.lr.ph1101 ]
@@ -319,7 +319,7 @@ define hidden range(i32 0, 2) i32 @mlib_AffineEdges(ptr noundef captures(none) %
   %.1846 = select i1 %190, i32 %191, i32 %.08451103
   %indvars.iv.next1154 = add nuw nsw i64 %indvars.iv1153, 1
   %exitcond1156.not = icmp eq i64 %indvars.iv.next1154, 4
-  br i1 %exitcond1156.not, label %192, label %184, !llvm.loop !11
+  br i1 %exitcond1156.not, label %192, label %184, !llvm.loop !10
 
 192:                                              ; preds = %184
   %193 = zext nneg i32 %.1846 to i64
@@ -497,10 +497,10 @@ define hidden range(i32 0, 2) i32 @mlib_AffineEdges(ptr noundef captures(none) %
   %indvars.iv.next1158 = add nsw i64 %indvars.iv1157, 1
   %lftr.wideiv1160 = trunc i64 %indvars.iv.next1158 to i32
   %exitcond1161.not = icmp eq i32 %280, %lftr.wideiv1160
-  br i1 %exitcond1161.not, label %.loopexit1089, label %.lr.ph1108, !llvm.loop !12
+  br i1 %exitcond1161.not, label %.loopexit1089, label %.lr.ph1108, !llvm.loop !11
 
 .loopexit1089:                                    ; preds = %.lr.ph1108, %274, %263, %247
-  br i1 %248, label %247, label %.preheader1088, !llvm.loop !13
+  br i1 %248, label %247, label %.preheader1088, !llvm.loop !12
 
 289:                                              ; preds = %.preheader1088, %.loopexit1087
   %.08411116 = phi i32 [ -1, %.preheader1088 ], [ %.1842, %.loopexit1087 ]
@@ -575,11 +575,11 @@ define hidden range(i32 0, 2) i32 @mlib_AffineEdges(ptr noundef captures(none) %
   %indvars.iv.next1163 = add nsw i64 %indvars.iv1162, 1
   %lftr.wideiv1165 = trunc i64 %indvars.iv.next1163 to i32
   %exitcond1166.not = icmp eq i32 %321, %lftr.wideiv1165
-  br i1 %exitcond1166.not, label %.loopexit1087, label %.lr.ph1114, !llvm.loop !14
+  br i1 %exitcond1166.not, label %.loopexit1087, label %.lr.ph1114, !llvm.loop !13
 
 .loopexit1087:                                    ; preds = %.lr.ph1114, %315, %304, %289
   %.1842 = phi i32 [ %.08411116, %289 ], [ %.08411116, %304 ], [ %.0836, %315 ], [ %.0836, %.lr.ph1114 ]
-  br i1 %290, label %289, label %325, !llvm.loop !15
+  br i1 %290, label %289, label %325, !llvm.loop !14
 
 325:                                              ; preds = %.loopexit1087
   %326 = fmul double %54, %.0801
@@ -818,7 +818,7 @@ define hidden range(i32 0, 2) i32 @mlib_AffineEdges(ptr noundef captures(none) %
   %indvars.iv.next1174 = add nsw i64 %indvars.iv1173, 1
   %lftr.wideiv1177 = trunc i64 %indvars.iv.next1174 to i32
   %exitcond1178.not = icmp eq i32 %372, %lftr.wideiv1177
-  br i1 %exitcond1178.not, label %.loopexit1084, label %373, !llvm.loop !16
+  br i1 %exitcond1178.not, label %.loopexit1084, label %373, !llvm.loop !15
 
 458:                                              ; preds = %.lr.ph1122, %._crit_edge1188
   %indvars.iv1167 = phi i64 [ %362, %.lr.ph1122 ], [ %indvars.iv.next1168, %._crit_edge1188 ]
@@ -982,7 +982,7 @@ define hidden range(i32 0, 2) i32 @mlib_AffineEdges(ptr noundef captures(none) %
   %indvars.iv.next1168 = add nsw i64 %indvars.iv1167, 1
   %lftr.wideiv1171 = trunc i64 %indvars.iv.next1168 to i32
   %exitcond1172.not = icmp eq i32 %363, %lftr.wideiv1171
-  br i1 %exitcond1172.not, label %.loopexit1084, label %458, !llvm.loop !17
+  br i1 %exitcond1172.not, label %.loopexit1084, label %458, !llvm.loop !16
 
 .loopexit1084:                                    ; preds = %._crit_edge1188, %._crit_edge1189, %.preheader1085, %.preheader1083
   %.2849 = phi i32 [ 0, %.preheader1083 ], [ 0, %.preheader1085 ], [ %spec.select972, %._crit_edge1189 ], [ %spec.select989, %._crit_edge1188 ]
@@ -1002,7 +1002,7 @@ define hidden range(i32 0, 2) i32 @mlib_AffineEdges(ptr noundef captures(none) %
   %551 = icmp sle i64 %indvars.iv1179, %544
   %552 = select i1 %550, i1 %551, i1 false
   %indvars.iv.next1180 = add nsw i64 %indvars.iv1179, 1
-  br i1 %552, label %545, label %553, !llvm.loop !18
+  br i1 %552, label %545, label %553, !llvm.loop !17
 
 553:                                              ; preds = %545
   %554 = trunc nsw i64 %indvars.iv1179 to i32
@@ -1017,7 +1017,7 @@ define hidden range(i32 0, 2) i32 @mlib_AffineEdges(ptr noundef captures(none) %
   %559 = load i32, ptr %558, align 4
   %560 = icmp sgt i32 %557, %559
   %indvars.iv.next1183 = add nsw i64 %indvars.iv1182, -1
-  br i1 %560, label %.preheader, label %.loopexit.loopexit, !llvm.loop !19
+  br i1 %560, label %.preheader, label %.loopexit.loopexit, !llvm.loop !18
 
 .loopexit.loopexit:                               ; preds = %.preheader
   %561 = trunc nsw i64 %indvars.iv1182 to i32
@@ -1072,17 +1072,16 @@ attributes #4 = { nounwind }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7, !8}
-!11 = distinct !{!11, !7, !8}
-!12 = distinct !{!12, !7, !8}
-!13 = distinct !{!13, !7, !8}
-!14 = distinct !{!14, !7, !8}
-!15 = distinct !{!15, !7, !8}
-!16 = distinct !{!16, !7, !8}
-!17 = distinct !{!17, !7, !8}
-!18 = distinct !{!18, !7, !8}
-!19 = distinct !{!19, !7, !8}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7}
+!12 = distinct !{!12, !7}
+!13 = distinct !{!13, !7}
+!14 = distinct !{!14, !7}
+!15 = distinct !{!15, !7}
+!16 = distinct !{!16, !7}
+!17 = distinct !{!17, !7}
+!18 = distinct !{!18, !7}

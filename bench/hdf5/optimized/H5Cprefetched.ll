@@ -263,18 +263,18 @@ define internal range(i32 -1, 1) i32 @H5C__prefetched_entry_free_icr(ptr noundef
 
 8:                                                ; preds = %1
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %10 = load ptr, ptr %9, align 8, !tbaa !29
+  %10 = load ptr, ptr %9, align 8, !tbaa !28
   %.not = icmp eq ptr %10, null
   br i1 %.not, label %13, label %11
 
 11:                                               ; preds = %8
   %12 = tail call ptr @H5MM_xfree(ptr noundef nonnull %10) #2
-  store ptr %12, ptr %9, align 8, !tbaa !29
+  store ptr %12, ptr %9, align 8, !tbaa !28
   br label %13
 
 13:                                               ; preds = %8, %11
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %15 = load ptr, ptr %14, align 8, !tbaa !30
+  %15 = load ptr, ptr %14, align 8, !tbaa !29
   %.not8 = icmp eq ptr %15, null
   br i1 %.not8, label %20, label %16
 
@@ -353,8 +353,7 @@ attributes #2 = { nounwind }
 !23 = !{!19, !19, i64 0}
 !24 = !{!13, !4, i64 204}
 !25 = !{!13, !11, i64 184}
-!26 = distinct !{!26, !27, !28}
+!26 = distinct !{!26, !27}
 !27 = !{!"llvm.loop.mustprogress"}
-!28 = !{!"llvm.loop.estimated_trip_count"}
-!29 = !{!13, !20, i64 176}
-!30 = !{!13, !15, i64 24}
+!28 = !{!13, !20, i64 176}
+!29 = !{!13, !15, i64 24}

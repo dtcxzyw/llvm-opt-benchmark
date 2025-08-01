@@ -1948,7 +1948,7 @@ dissect_dvb_s2_gse.exit.i:                        ; preds = %502, %501, %303
   %512 = sub nuw i16 %.137318.i, %.0204.i.i
   %513 = icmp ult i16 %512, 2
   %or.cond44.i = select i1 %or.cond4.not47.i, i1 true, i1 %513
-  br i1 %or.cond44.i, label %dissect_dvb_s2_bb.exit, label %282, !llvm.loop !11
+  br i1 %or.cond44.i, label %dissect_dvb_s2_bb.exit, label %282, !llvm.loop !10
 
 514:                                              ; preds = %260
   %515 = load i32, ptr @hf_dvb_s2_bb_df, align 4
@@ -2315,7 +2315,7 @@ compute_crc8.exit462.i:                           ; preds = %.lr.ph.i457.i, %660
   %679 = add i32 %.412.i, %574
   %680 = sub i32 %646, %679
   %.not447.i = icmp ult i32 %680, %574
-  br i1 %.not447.i, label %._crit_edge.i, label %653, !llvm.loop !12
+  br i1 %.not447.i, label %._crit_edge.i, label %653, !llvm.loop !11
 
 ._crit_edge.i:                                    ; preds = %678, %645
   %.2390.lcssa.i = phi i1 [ %.0388.i, %645 ], [ true, %678 ]
@@ -2810,8 +2810,7 @@ attributes #12 = { noreturn }
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i8 0, i8 2}
 !7 = !{}
-!8 = distinct !{!8, !9, !10}
+!8 = distinct !{!8, !9}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = !{!"llvm.loop.estimated_trip_count"}
-!11 = distinct !{!11, !9, !10}
-!12 = distinct !{!12, !9, !10}
+!10 = distinct !{!10, !9}
+!11 = distinct !{!11, !9}

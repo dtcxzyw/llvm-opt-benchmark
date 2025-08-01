@@ -195,7 +195,7 @@ _ZN10OpenSubdiv6v3_6_03Vtr8internal11StackBufferINS0_3Bfr10FaceVertexELj4ELb0EE8
   %59 = load i32, ptr %3, align 8
   %60 = zext i32 %59 to i64
   %61 = icmp samesign ult i64 %indvars.iv.next.i7, %60
-  br i1 %61, label %.lr.ph.i5, label %_ZN10OpenSubdiv6v3_6_03Vtr8internal11StackBufferINS0_3Bfr10FaceVertexELj4ELb0EE9constructEv.exit, !llvm.loop !8
+  br i1 %61, label %.lr.ph.i5, label %_ZN10OpenSubdiv6v3_6_03Vtr8internal11StackBufferINS0_3Bfr10FaceVertexELj4ELb0EE9constructEv.exit, !llvm.loop !7
 
 _ZN10OpenSubdiv6v3_6_03Vtr8internal11StackBufferINS0_3Bfr10FaceVertexELj4ELb0EE9constructEv.exit: ; preds = %.lr.ph.i5, %.thread
   ret void
@@ -230,7 +230,7 @@ define void @_ZN10OpenSubdiv6v3_6_03Bfr12FaceTopology8FinalizeEv(ptr noundef non
   %11 = phi i16 [ %.promoted, %.lr.ph ], [ %15, %9 ]
   %12 = getelementptr inbounds nuw %"class.OpenSubdiv::v3_6_0::Bfr::FaceVertex", ptr %6, i64 %indvars.iv
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 152
-  %14 = load i16, ptr %13, align 8, !noalias !9
+  %14 = load i16, ptr %13, align 8, !noalias !8
   %15 = or i16 %11, %14
   store i16 %15, ptr %7, align 4
   %16 = getelementptr inbounds nuw i8, ptr %12, i64 160
@@ -239,7 +239,7 @@ define void @_ZN10OpenSubdiv6v3_6_03Bfr12FaceTopology8FinalizeEv(ptr noundef non
   store i32 %18, ptr %8, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %9, !llvm.loop !12
+  br i1 %exitcond.not, label %._crit_edge, label %9, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %9, %1
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 22
@@ -270,14 +270,14 @@ define void @_ZN10OpenSubdiv6v3_6_03Bfr12FaceTopology23ResolveUnOrderedCornersEP
   %10 = load ptr, ptr %7, align 8
   %11 = getelementptr inbounds nuw %"class.OpenSubdiv::v3_6_0::Bfr::FaceVertex", ptr %10, i64 %indvars.iv
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 152
-  %13 = load i16, ptr %12, align 8, !noalias !13
+  %13 = load i16, ptr %12, align 8, !noalias !12
   %14 = and i16 %13, 256
   %.not = icmp eq i16 %14, 0
   br i1 %.not, label %16, label %15
 
 15:                                               ; preds = %8
   tail call void @_ZN10OpenSubdiv6v3_6_03Bfr10FaceVertex21ConnectUnOrderedFacesEPKi(ptr noundef nonnull align 8 dereferenceable(224) %11, ptr noundef %.014)
-  %.pre = load i16, ptr %12, align 8, !noalias !16
+  %.pre = load i16, ptr %12, align 8, !noalias !15
   %.0.copyload.i.i.pre = load i16, ptr %3, align 4
   %.pre18 = load i32, ptr %4, align 8
   br label %16
@@ -295,7 +295,7 @@ define void @_ZN10OpenSubdiv6v3_6_03Bfr12FaceTopology23ResolveUnOrderedCornersEP
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %24 = sext i32 %17 to i64
   %25 = icmp slt i64 %indvars.iv.next, %24
-  br i1 %25, label %8, label %._crit_edge, !llvm.loop !19
+  br i1 %25, label %8, label %._crit_edge, !llvm.loop !18
 
 ._crit_edge:                                      ; preds = %16, %2
   ret void
@@ -375,7 +375,7 @@ define void @_ZNK10OpenSubdiv6v3_6_03Bfr12FaceTopology5printEPKi(ptr noundef non
   %51 = load i16, ptr %50, align 2
   %52 = sext i16 %51 to i32
   %53 = getelementptr inbounds nuw i8, ptr %49, i64 152
-  %54 = load i16, ptr %53, align 8, !noalias !20
+  %54 = load i16, ptr %53, align 8, !noalias !19
   %55 = and i16 %54, 1
   %56 = zext nneg i16 %55 to i32
   %57 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.13, i32 noundef %52, i32 noundef %56)
@@ -429,7 +429,7 @@ _ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex11GetFaceSizeEi.exit: ; preds = %66, %68
   %81 = add nuw nsw i32 %.045, 1
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i32 %81, %75
-  br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !23
+  br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !22
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
   %82 = trunc nsw i64 %indvars.iv.next to i32
@@ -442,7 +442,7 @@ _ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex11GetFaceSizeEi.exit: ; preds = %66, %68
   %83 = load i16, ptr %50, align 2
   %84 = sext i16 %83 to i64
   %85 = icmp slt i64 %indvars.iv.next57, %84
-  br i1 %85, label %62, label %._crit_edge50, !llvm.loop !24
+  br i1 %85, label %62, label %._crit_edge50, !llvm.loop !23
 
 ._crit_edge50:                                    ; preds = %._crit_edge, %45
   %86 = getelementptr inbounds nuw i8, ptr %49, i64 160
@@ -453,7 +453,7 @@ _ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex11GetFaceSizeEi.exit: ; preds = %66, %68
   %90 = load i32, ptr %4, align 8
   %91 = sext i32 %90 to i64
   %92 = icmp slt i64 %indvars.iv.next60, %91
-  br i1 %92, label %45, label %.loopexit, !llvm.loop !25
+  br i1 %92, label %45, label %.loopexit, !llvm.loop !24
 
 .loopexit:                                        ; preds = %._crit_edge50, %2
   ret void
@@ -486,24 +486,23 @@ attributes #9 = { allocsize(0) }
 !2 = !{i32 8, !"PIC Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6, !7}
+!5 = distinct !{!5, !6}
 !6 = !{!"llvm.loop.mustprogress"}
-!7 = !{!"llvm.loop.estimated_trip_count"}
-!8 = distinct !{!8, !6, !7}
-!9 = !{!10}
-!10 = distinct !{!10, !11, !"_ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex6GetTagEv: argument 0"}
-!11 = distinct !{!11, !"_ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex6GetTagEv"}
-!12 = distinct !{!12, !6, !7}
-!13 = !{!14}
-!14 = distinct !{!14, !15, !"_ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex6GetTagEv: argument 0"}
-!15 = distinct !{!15, !"_ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex6GetTagEv"}
-!16 = !{!17}
-!17 = distinct !{!17, !18, !"_ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex6GetTagEv: argument 0"}
-!18 = distinct !{!18, !"_ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex6GetTagEv"}
-!19 = distinct !{!19, !6, !7}
-!20 = !{!21}
-!21 = distinct !{!21, !22, !"_ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex6GetTagEv: argument 0"}
-!22 = distinct !{!22, !"_ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex6GetTagEv"}
-!23 = distinct !{!23, !6, !7}
-!24 = distinct !{!24, !6, !7}
-!25 = distinct !{!25, !6, !7}
+!7 = distinct !{!7, !6}
+!8 = !{!9}
+!9 = distinct !{!9, !10, !"_ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex6GetTagEv: argument 0"}
+!10 = distinct !{!10, !"_ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex6GetTagEv"}
+!11 = distinct !{!11, !6}
+!12 = !{!13}
+!13 = distinct !{!13, !14, !"_ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex6GetTagEv: argument 0"}
+!14 = distinct !{!14, !"_ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex6GetTagEv"}
+!15 = !{!16}
+!16 = distinct !{!16, !17, !"_ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex6GetTagEv: argument 0"}
+!17 = distinct !{!17, !"_ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex6GetTagEv"}
+!18 = distinct !{!18, !6}
+!19 = !{!20}
+!20 = distinct !{!20, !21, !"_ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex6GetTagEv: argument 0"}
+!21 = distinct !{!21, !"_ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex6GetTagEv"}
+!22 = distinct !{!22, !6}
+!23 = distinct !{!23, !6}
+!24 = distinct !{!24, !6}

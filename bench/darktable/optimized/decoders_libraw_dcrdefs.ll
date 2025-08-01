@@ -229,7 +229,7 @@ _ZNSt6vectorItSaItEE6resizeEm.exit:               ; preds = %31, %.noexc
 
 .loopexit59:                                      ; preds = %89, %..loopexit59_crit_edge, %.preheader
   %97 = phi i32 [ %.pre82, %..loopexit59_crit_edge ], [ %84, %.preheader ], [ %92, %89 ]
-  store ptr %.sroa.0.1, ptr %2, align 8, !tbaa !87
+  store ptr %.sroa.0.1, ptr %2, align 8, !tbaa !86
   %.not79 = icmp eq i32 %97, 0
   br i1 %.not79, label %._crit_edge, label %.lr.ph67
 
@@ -243,13 +243,13 @@ _ZNSt6vectorItSaItEE6resizeEm.exit:               ; preds = %31, %.noexc
   %100 = add nuw i32 %.13566, 1
   %101 = load i32, ptr %17, align 8, !tbaa !73
   %102 = icmp ult i32 %100, %101
-  br i1 %102, label %.lr.ph67, label %._crit_edge, !llvm.loop !88
+  br i1 %102, label %.lr.ph67, label %._crit_edge, !llvm.loop !87
 
 ._crit_edge:                                      ; preds = %99, %.loopexit59
   %103 = add nuw nsw i32 %.068, 1
   %104 = load i32, ptr %44, align 4, !tbaa !82
   %105 = icmp ult i32 %103, %104
-  br i1 %105, label %.lr.ph70, label %.critedge, !llvm.loop !89
+  br i1 %105, label %.lr.ph70, label %.critedge, !llvm.loop !88
 
 .critedge:                                        ; preds = %.lr.ph70, %._crit_edge, %69
   %106 = load ptr, ptr %5, align 8, !tbaa !79
@@ -273,7 +273,7 @@ _ZNSt6vectorItSaItEE6resizeEm.exit:               ; preds = %31, %.noexc
   %119 = load i16, ptr %13, align 8, !tbaa !78
   %120 = zext i16 %119 to i32
   %121 = icmp ult i32 %.131, %120
-  br i1 %121, label %48, label %._crit_edge75, !llvm.loop !90
+  br i1 %121, label %48, label %._crit_edge75, !llvm.loop !89
 
 ._crit_edge75:                                    ; preds = %112, %_ZNSt6vectorItSaItEE6resizeEm.exit
   store i32 %4, ptr %3, align 4, !tbaa !6
@@ -409,7 +409,7 @@ define void @_ZN6LibRaw19sony_ljpeg_load_rawEv(ptr noundef nonnull align 8 deref
   br i1 %.not, label %._crit_edge, label %.preheader55
 
 .preheader55:                                     ; preds = %28
-  %30 = load i32, ptr %7, align 8, !tbaa !91
+  %30 = load i32, ptr %7, align 8, !tbaa !90
   %.not68 = icmp eq i32 %30, 0
   br i1 %.not68, label %.critedge, label %.lr.ph61
 
@@ -432,7 +432,7 @@ define void @_ZN6LibRaw19sony_ljpeg_load_rawEv(ptr noundef nonnull align 8 deref
           to label %.preheader unwind label %83
 
 .preheader:                                       ; preds = %37
-  %39 = load i32, ptr %8, align 4, !tbaa !93
+  %39 = load i32, ptr %8, align 4, !tbaa !92
   %.not69 = icmp eq i32 %39, 0
   br i1 %.not69, label %.critedge2, label %.lr.ph
 
@@ -491,7 +491,7 @@ define void @_ZN6LibRaw19sony_ljpeg_load_rawEv(ptr noundef nonnull align 8 deref
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %80 = add i32 %.04757, 2
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.critedge2, label %42, !llvm.loop !94
+  br i1 %exitcond.not, label %.critedge2, label %42, !llvm.loop !93
 
 81:                                               ; preds = %36
   %82 = landingpad { ptr, i32 }
@@ -517,9 +517,9 @@ define void @_ZN6LibRaw19sony_ljpeg_load_rawEv(ptr noundef nonnull align 8 deref
 .critedge2:                                       ; preds = %42, %48, %.preheader
   %88 = add nuw i32 %.05059, 1
   %89 = add i32 %.04860, 2
-  %90 = load i32, ptr %7, align 8, !tbaa !91
+  %90 = load i32, ptr %7, align 8, !tbaa !90
   %91 = icmp ult i32 %88, %90
-  br i1 %91, label %.lr.ph61, label %.critedge, !llvm.loop !95
+  br i1 %91, label %.lr.ph61, label %.critedge, !llvm.loop !94
 
 92:                                               ; preds = %87, %85
   %93 = landingpad { ptr, i32 }
@@ -551,7 +551,7 @@ define void @_ZN6LibRaw19sony_ljpeg_load_rawEv(ptr noundef nonnull align 8 deref
   %107 = load i16, ptr %3, align 8, !tbaa !78
   %108 = zext i16 %107 to i32
   %109 = icmp ult i32 %.1, %108
-  br i1 %109, label %12, label %._crit_edge, !llvm.loop !96
+  br i1 %109, label %12, label %._crit_edge, !llvm.loop !95
 
 ._crit_edge:                                      ; preds = %.critedge, %28, %1
   call void @llvm.lifetime.end.p0(i64 640, ptr nonnull %2) #11
@@ -586,7 +586,7 @@ define void @_ZN6LibRaw29nikon_he_load_raw_placeholderEv(ptr noundef nonnull rea
 define void @_ZN6LibRaw23nikon_coolscan_load_rawEv(ptr noundef nonnull align 8 dereferenceable(767680) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 540
-  %4 = load i32, ptr %3, align 4, !tbaa !97
+  %4 = load i32, ptr %3, align 4, !tbaa !96
   %.not90 = icmp eq i32 %4, 3
   %5 = select i1 %.not90, i32 3, i32 1
   %6 = load ptr, ptr %2, align 8
@@ -620,7 +620,7 @@ define void @_ZN6LibRaw23nikon_coolscan_load_rawEv(ptr noundef nonnull align 8 d
   %18 = icmp ugt i32 %17, 8
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 22
-  %21 = load i16, ptr %20, align 2, !tbaa !98
+  %21 = load i16, ptr %20, align 2, !tbaa !97
   %22 = zext i16 %21 to i32
   %23 = mul nuw nsw i32 %5, %22
   %24 = zext i1 %18 to i32
@@ -630,14 +630,14 @@ define void @_ZN6LibRaw23nikon_coolscan_load_rawEv(ptr noundef nonnull align 8 d
   %28 = load i32, ptr %16, align 8, !tbaa !83
   %29 = icmp ult i32 %28, 9
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 5476
-  %31 = load float, ptr %30, align 4, !tbaa !99
+  %31 = load float, ptr %30, align 4, !tbaa !98
   %32 = fpext reassoc nsz arcp contract afn float %31 to double
   %33 = fdiv reassoc nsz arcp contract afn double 1.000000e+00, %32
   %. = select i1 %29, i32 255, i32 65535
   tail call void @_ZN6LibRaw11gamma_curveEddii(ptr noundef nonnull align 8 dereferenceable(767680) %0, double noundef %33, double noundef 0.000000e+00, i32 noundef 1, i32 noundef %.)
   %34 = load ptr, ptr %15, align 8, !tbaa !79
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 381584
-  %36 = load i64, ptr %35, align 8, !tbaa !100
+  %36 = load i64, ptr %35, align 8, !tbaa !99
   %37 = load ptr, ptr %34, align 8, !tbaa !80
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 32
   %39 = load ptr, ptr %38, align 8
@@ -671,26 +671,26 @@ define void @_ZN6LibRaw23nikon_coolscan_load_rawEv(ptr noundef nonnull align 8 d
   br label %58
 
 54:                                               ; preds = %45
-  %55 = load i16, ptr %20, align 2, !tbaa !98
+  %55 = load i16, ptr %20, align 2, !tbaa !97
   %56 = zext i16 %55 to i32
   %57 = mul nuw nsw i32 %5, %56
   tail call void @_ZN6LibRaw11read_shortsEPtj(ptr noundef nonnull align 8 dereferenceable(767680) %0, ptr noundef %27, i32 noundef %57)
   br label %58
 
 58:                                               ; preds = %54, %48
-  %59 = load ptr, ptr %2, align 8, !tbaa !101
-  %60 = load i16, ptr %20, align 2, !tbaa !98
+  %59 = load ptr, ptr %2, align 8, !tbaa !100
+  %60 = load i16, ptr %20, align 2, !tbaa !97
   %61 = zext i16 %60 to i32
   %62 = mul nuw nsw i32 %.089115, %61
   %63 = zext nneg i32 %62 to i64
   %64 = getelementptr inbounds nuw [4 x i16], ptr %59, i64 %63
-  %65 = load ptr, ptr %10, align 8, !tbaa !102
+  %65 = load ptr, ptr %10, align 8, !tbaa !101
   %66 = load i16, ptr %42, align 2, !tbaa !72
   %67 = zext i16 %66 to i32
   %68 = mul nuw nsw i32 %.089115, %67
   %69 = zext nneg i32 %68 to i64
   %70 = getelementptr inbounds nuw i16, ptr %65, i64 %69
-  %71 = load i32, ptr %43, align 8, !tbaa !103
+  %71 = load i32, ptr %43, align 8, !tbaa !102
   %72 = icmp eq i32 %71, 2
   br i1 %72, label %73, label %118
 
@@ -708,7 +708,7 @@ define void @_ZN6LibRaw23nikon_coolscan_load_rawEv(ptr noundef nonnull align 8 d
   %indvars.iv142 = phi i64 [ %indvars.iv.next143, %.lr.ph114 ], [ 0, %.preheader ]
   %74 = mul nuw nsw i64 %indvars.iv142, 3
   %75 = getelementptr inbounds nuw i8, ptr %27, i64 %74
-  %76 = load i8, ptr %75, align 1, !tbaa !104
+  %76 = load i8, ptr %75, align 1, !tbaa !103
   %77 = zext i8 %76 to i64
   %78 = getelementptr inbounds nuw [65536 x i16], ptr %44, i64 0, i64 %77
   %79 = load i16, ptr %78, align 2, !tbaa !77
@@ -718,7 +718,7 @@ define void @_ZN6LibRaw23nikon_coolscan_load_rawEv(ptr noundef nonnull align 8 d
   %83 = getelementptr inbounds nuw [4 x i16], ptr %64, i64 %indvars.iv142
   store i16 %82, ptr %83, align 2, !tbaa !77
   %84 = getelementptr inbounds nuw i8, ptr %75, i64 1
-  %85 = load i8, ptr %84, align 1, !tbaa !104
+  %85 = load i8, ptr %84, align 1, !tbaa !103
   %86 = zext i8 %85 to i64
   %87 = getelementptr inbounds nuw [65536 x i16], ptr %44, i64 0, i64 %86
   %88 = load i16, ptr %87, align 2, !tbaa !77
@@ -728,7 +728,7 @@ define void @_ZN6LibRaw23nikon_coolscan_load_rawEv(ptr noundef nonnull align 8 d
   %92 = getelementptr inbounds nuw i8, ptr %83, i64 2
   store i16 %91, ptr %92, align 2, !tbaa !77
   %93 = getelementptr inbounds nuw i8, ptr %75, i64 2
-  %94 = load i8, ptr %93, align 1, !tbaa !104
+  %94 = load i8, ptr %93, align 1, !tbaa !103
   %95 = zext i8 %94 to i64
   %96 = getelementptr inbounds nuw [65536 x i16], ptr %44, i64 0, i64 %95
   %97 = load i16, ptr %96, align 2, !tbaa !77
@@ -740,15 +740,15 @@ define void @_ZN6LibRaw23nikon_coolscan_load_rawEv(ptr noundef nonnull align 8 d
   %102 = getelementptr inbounds nuw i8, ptr %83, i64 6
   store i16 0, ptr %102, align 2, !tbaa !77
   %indvars.iv.next143 = add nuw nsw i64 %indvars.iv142, 1
-  %103 = load i16, ptr %20, align 2, !tbaa !98
+  %103 = load i16, ptr %20, align 2, !tbaa !97
   %104 = zext i16 %103 to i64
   %105 = icmp samesign ult i64 %indvars.iv.next143, %104
-  br i1 %105, label %.lr.ph114, label %.loopexit, !llvm.loop !105
+  br i1 %105, label %.lr.ph114, label %.loopexit, !llvm.loop !104
 
 .lr.ph112:                                        ; preds = %.preheader94, %.lr.ph112
   %indvars.iv139 = phi i64 [ %indvars.iv.next140, %.lr.ph112 ], [ 0, %.preheader94 ]
   %106 = getelementptr inbounds nuw i8, ptr %27, i64 %indvars.iv139
-  %107 = load i8, ptr %106, align 1, !tbaa !104
+  %107 = load i8, ptr %106, align 1, !tbaa !103
   %108 = zext i8 %107 to i64
   %109 = getelementptr inbounds nuw [65536 x i16], ptr %44, i64 0, i64 %108
   %110 = load i16, ptr %109, align 2, !tbaa !77
@@ -758,10 +758,10 @@ define void @_ZN6LibRaw23nikon_coolscan_load_rawEv(ptr noundef nonnull align 8 d
   %114 = getelementptr inbounds nuw i16, ptr %70, i64 %indvars.iv139
   store i16 %113, ptr %114, align 2, !tbaa !77
   %indvars.iv.next140 = add nuw nsw i64 %indvars.iv139, 1
-  %115 = load i16, ptr %20, align 2, !tbaa !98
+  %115 = load i16, ptr %20, align 2, !tbaa !97
   %116 = zext i16 %115 to i64
   %117 = icmp samesign ult i64 %indvars.iv.next140, %116
-  br i1 %117, label %.lr.ph112, label %.loopexit, !llvm.loop !106
+  br i1 %117, label %.lr.ph112, label %.loopexit, !llvm.loop !105
 
 118:                                              ; preds = %58
   %119 = load i32, ptr %16, align 8, !tbaa !83
@@ -782,21 +782,21 @@ define void @_ZN6LibRaw23nikon_coolscan_load_rawEv(ptr noundef nonnull align 8 d
   %indvars.iv136 = phi i64 [ %indvars.iv.next137, %.lr.ph110 ], [ 0, %.preheader96 ]
   %122 = mul nuw nsw i64 %indvars.iv136, 3
   %123 = getelementptr inbounds nuw i8, ptr %27, i64 %122
-  %124 = load i8, ptr %123, align 1, !tbaa !104
+  %124 = load i8, ptr %123, align 1, !tbaa !103
   %125 = zext i8 %124 to i64
   %126 = getelementptr inbounds nuw [65536 x i16], ptr %44, i64 0, i64 %125
   %127 = load i16, ptr %126, align 2, !tbaa !77
   %128 = getelementptr inbounds nuw [4 x i16], ptr %64, i64 %indvars.iv136
   store i16 %127, ptr %128, align 2, !tbaa !77
   %129 = getelementptr inbounds nuw i8, ptr %123, i64 1
-  %130 = load i8, ptr %129, align 1, !tbaa !104
+  %130 = load i8, ptr %129, align 1, !tbaa !103
   %131 = zext i8 %130 to i64
   %132 = getelementptr inbounds nuw [65536 x i16], ptr %44, i64 0, i64 %131
   %133 = load i16, ptr %132, align 2, !tbaa !77
   %134 = getelementptr inbounds nuw i8, ptr %128, i64 2
   store i16 %133, ptr %134, align 2, !tbaa !77
   %135 = getelementptr inbounds nuw i8, ptr %123, i64 2
-  %136 = load i8, ptr %135, align 1, !tbaa !104
+  %136 = load i8, ptr %135, align 1, !tbaa !103
   %137 = zext i8 %136 to i64
   %138 = getelementptr inbounds nuw [65536 x i16], ptr %44, i64 0, i64 %137
   %139 = load i16, ptr %138, align 2, !tbaa !77
@@ -805,25 +805,25 @@ define void @_ZN6LibRaw23nikon_coolscan_load_rawEv(ptr noundef nonnull align 8 d
   %141 = getelementptr inbounds nuw i8, ptr %128, i64 6
   store i16 0, ptr %141, align 2, !tbaa !77
   %indvars.iv.next137 = add nuw nsw i64 %indvars.iv136, 1
-  %142 = load i16, ptr %20, align 2, !tbaa !98
+  %142 = load i16, ptr %20, align 2, !tbaa !97
   %143 = zext i16 %142 to i64
   %144 = icmp samesign ult i64 %indvars.iv.next137, %143
-  br i1 %144, label %.lr.ph110, label %.loopexit, !llvm.loop !107
+  br i1 %144, label %.lr.ph110, label %.loopexit, !llvm.loop !106
 
 .lr.ph108:                                        ; preds = %.preheader98, %.lr.ph108
   %indvars.iv133 = phi i64 [ %indvars.iv.next134, %.lr.ph108 ], [ 0, %.preheader98 ]
   %145 = getelementptr inbounds nuw i8, ptr %27, i64 %indvars.iv133
-  %146 = load i8, ptr %145, align 1, !tbaa !104
+  %146 = load i8, ptr %145, align 1, !tbaa !103
   %147 = zext i8 %146 to i64
   %148 = getelementptr inbounds nuw [65536 x i16], ptr %44, i64 0, i64 %147
   %149 = load i16, ptr %148, align 2, !tbaa !77
   %150 = getelementptr inbounds nuw i16, ptr %70, i64 %indvars.iv133
   store i16 %149, ptr %150, align 2, !tbaa !77
   %indvars.iv.next134 = add nuw nsw i64 %indvars.iv133, 1
-  %151 = load i16, ptr %20, align 2, !tbaa !98
+  %151 = load i16, ptr %20, align 2, !tbaa !97
   %152 = zext i16 %151 to i64
   %153 = icmp samesign ult i64 %indvars.iv.next134, %152
-  br i1 %153, label %.lr.ph108, label %.loopexit, !llvm.loop !108
+  br i1 %153, label %.lr.ph108, label %.loopexit, !llvm.loop !107
 
 154:                                              ; preds = %118
   br i1 %.not90, label %.preheader100, label %.preheader102
@@ -861,10 +861,10 @@ define void @_ZN6LibRaw23nikon_coolscan_load_rawEv(ptr noundef nonnull align 8 d
   %173 = getelementptr inbounds nuw i8, ptr %160, i64 6
   store i16 0, ptr %173, align 2, !tbaa !77
   %indvars.iv.next131 = add nuw nsw i64 %indvars.iv130, 1
-  %174 = load i16, ptr %20, align 2, !tbaa !98
+  %174 = load i16, ptr %20, align 2, !tbaa !97
   %175 = zext i16 %174 to i64
   %176 = icmp samesign ult i64 %indvars.iv.next131, %175
-  br i1 %176, label %.lr.ph106, label %.loopexit, !llvm.loop !109
+  br i1 %176, label %.lr.ph106, label %.loopexit, !llvm.loop !108
 
 .lr.ph:                                           ; preds = %.preheader102, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.preheader102 ]
@@ -876,17 +876,17 @@ define void @_ZN6LibRaw23nikon_coolscan_load_rawEv(ptr noundef nonnull align 8 d
   %182 = getelementptr inbounds nuw i16, ptr %70, i64 %indvars.iv
   store i16 %181, ptr %182, align 2, !tbaa !77
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %183 = load i16, ptr %20, align 2, !tbaa !98
+  %183 = load i16, ptr %20, align 2, !tbaa !97
   %184 = zext i16 %183 to i64
   %185 = icmp samesign ult i64 %indvars.iv.next, %184
-  br i1 %185, label %.lr.ph, label %.loopexit, !llvm.loop !110
+  br i1 %185, label %.lr.ph, label %.loopexit, !llvm.loop !109
 
 .loopexit:                                        ; preds = %.lr.ph, %.lr.ph106, %.lr.ph108, %.lr.ph110, %.lr.ph112, %.lr.ph114, %.preheader102, %.preheader100, %.preheader98, %.preheader96, %.preheader94, %.preheader
   %186 = add nuw nsw i32 %.089115, 1
   %187 = load i16, ptr %19, align 8, !tbaa !78
   %188 = zext i16 %187 to i32
   %189 = icmp samesign ult i32 %186, %188
-  br i1 %189, label %45, label %._crit_edge, !llvm.loop !111
+  br i1 %189, label %45, label %._crit_edge, !llvm.loop !110
 }
 
 declare noundef ptr @_ZN6LibRaw6callocEmm(ptr noundef nonnull align 8 dereferenceable(767680), i64 noundef, i64 noundef) local_unnamed_addr #5
@@ -899,11 +899,11 @@ declare void @_ZN6LibRaw4freeEPv(ptr noundef nonnull align 8 dereferenceable(767
 define void @_ZN6LibRaw17broadcom_load_rawEv(ptr noundef nonnull align 8 dereferenceable(767680) %0) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 381416
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 381552
-  %4 = load i16, ptr %3, align 8, !tbaa !112
+  %4 = load i16, ptr %3, align 8, !tbaa !111
   %5 = icmp eq i16 %4, 18761
   %6 = select i1 %5, i32 3, i32 0
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 384160
-  %8 = load i16, ptr %7, align 8, !tbaa !113
+  %8 = load i16, ptr %7, align 8, !tbaa !112
   %.not.i.i.i.i = icmp eq i16 %8, 0
   br i1 %.not.i.i.i.i, label %_ZNSt6vectorIhSaIhEEC2EmRKS0_.exit, label %.noexc
 
@@ -912,7 +912,7 @@ define void @_ZN6LibRaw17broadcom_load_rawEv(ptr noundef nonnull align 8 derefer
   %10 = shl nuw nsw i64 %9, 1
   %11 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %10) #13
   %12 = getelementptr i8, ptr %11, i64 %10
-  store i8 0, ptr %11, align 1, !tbaa !104
+  store i8 0, ptr %11, align 1, !tbaa !103
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 1
   %14 = add nsw i64 %10, -1
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %13, i8 0, i64 %14, i1 false)
@@ -935,7 +935,7 @@ _ZNSt6vectorIhSaIhEEC2EmRKS0_.exit:               ; preds = %.noexc, %1
 20:                                               ; preds = %.lr.ph46, %._crit_edge
   %.02445 = phi i32 [ 0, %.lr.ph46 ], [ %73, %._crit_edge ]
   %21 = load ptr, ptr %2, align 8, !tbaa !79
-  %22 = load i16, ptr %7, align 8, !tbaa !113
+  %22 = load i16, ptr %7, align 8, !tbaa !112
   %23 = zext i16 %22 to i64
   %24 = getelementptr inbounds nuw i8, ptr %.sroa.030.0, i64 %23
   %25 = load ptr, ptr %21, align 8, !tbaa !80
@@ -945,7 +945,7 @@ _ZNSt6vectorIhSaIhEEC2EmRKS0_.exit:               ; preds = %.noexc, %1
           to label %29 unwind label %34
 
 29:                                               ; preds = %20
-  %30 = load i16, ptr %7, align 8, !tbaa !113
+  %30 = load i16, ptr %7, align 8, !tbaa !112
   %31 = zext i16 %30 to i32
   %32 = icmp slt i32 %28, %31
   br i1 %32, label %33, label %39
@@ -955,7 +955,7 @@ _ZNSt6vectorIhSaIhEEC2EmRKS0_.exit:               ; preds = %.noexc, %1
           to label %._crit_edge58 unwind label %34
 
 ._crit_edge58:                                    ; preds = %33
-  %.pre = load i16, ptr %7, align 8, !tbaa !113
+  %.pre = load i16, ptr %7, align 8, !tbaa !112
   %.pre59 = zext i16 %.pre to i32
   br label %39
 
@@ -987,7 +987,7 @@ _ZNSt6vectorIhSaIhEEC2EmRKS0_.exit:               ; preds = %.noexc, %1
   br i1 %.not49, label %._crit_edge, label %.preheader.lr.ph
 
 .preheader.lr.ph:                                 ; preds = %.preheader40
-  %42 = load ptr, ptr %19, align 8, !tbaa !102
+  %42 = load ptr, ptr %19, align 8, !tbaa !101
   br label %.preheader
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
@@ -997,12 +997,12 @@ _ZNSt6vectorIhSaIhEEC2EmRKS0_.exit:               ; preds = %.noexc, %1
   %45 = add nuw nsw i32 %44, %.pre-phi
   %46 = zext nneg i32 %45 to i64
   %47 = getelementptr inbounds nuw i8, ptr %.sroa.030.0, i64 %46
-  %48 = load i8, ptr %47, align 1, !tbaa !104
+  %48 = load i8, ptr %47, align 1, !tbaa !103
   %49 = getelementptr inbounds nuw i8, ptr %.sroa.030.0, i64 %indvars.iv
-  store i8 %48, ptr %49, align 1, !tbaa !104
+  store i8 %48, ptr %49, align 1, !tbaa !103
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.preheader40, label %.lr.ph, !llvm.loop !114
+  br i1 %exitcond.not, label %.preheader40, label %.lr.ph, !llvm.loop !113
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %68
   %indvars.iv55 = phi i64 [ 0, %.preheader.lr.ph ], [ %indvars.iv.next56, %68 ]
@@ -1014,10 +1014,10 @@ _ZNSt6vectorIhSaIhEEC2EmRKS0_.exit:               ; preds = %.noexc, %1
 51:                                               ; preds = %.preheader, %51
   %indvars.iv51 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next52, %51 ]
   %52 = getelementptr inbounds nuw i8, ptr %.02543, i64 %indvars.iv51
-  %53 = load i8, ptr %52, align 1, !tbaa !104
+  %53 = load i8, ptr %52, align 1, !tbaa !103
   %54 = zext i8 %53 to i32
   %55 = shl nuw nsw i32 %54, 2
-  %56 = load i8, ptr %50, align 1, !tbaa !104
+  %56 = load i8, ptr %50, align 1, !tbaa !103
   %57 = zext i8 %56 to i32
   %indvars.iv51.tr = trunc i64 %indvars.iv51 to i32
   %58 = shl i32 %indvars.iv51.tr, 1
@@ -1034,7 +1034,7 @@ _ZNSt6vectorIhSaIhEEC2EmRKS0_.exit:               ; preds = %.noexc, %1
   store i16 %62, ptr %67, align 2, !tbaa !77
   %indvars.iv.next52 = add nuw nsw i64 %indvars.iv51, 1
   %exitcond54.not = icmp eq i64 %indvars.iv.next52, 4
-  br i1 %exitcond54.not, label %68, label %51, !llvm.loop !115
+  br i1 %exitcond54.not, label %68, label %51, !llvm.loop !114
 
 68:                                               ; preds = %51
   %69 = getelementptr inbounds nuw i8, ptr %.02543, i64 5
@@ -1042,14 +1042,14 @@ _ZNSt6vectorIhSaIhEEC2EmRKS0_.exit:               ; preds = %.noexc, %1
   %70 = load i16, ptr %18, align 2, !tbaa !72
   %71 = zext i16 %70 to i64
   %72 = icmp samesign ult i64 %indvars.iv.next56, %71
-  br i1 %72, label %.preheader, label %._crit_edge, !llvm.loop !116
+  br i1 %72, label %.preheader, label %._crit_edge, !llvm.loop !115
 
 ._crit_edge:                                      ; preds = %68, %.preheader40
   %73 = add nuw nsw i32 %.02445, 1
   %74 = load i16, ptr %16, align 8, !tbaa !78
   %75 = zext i16 %74 to i32
   %76 = icmp samesign ult i32 %73, %75
-  br i1 %76, label %20, label %._crit_edge47, !llvm.loop !117
+  br i1 %76, label %20, label %._crit_edge47, !llvm.loop !116
 
 ._crit_edge47:                                    ; preds = %._crit_edge, %_ZNSt6vectorIhSaIhEEC2EmRKS0_.exit
   %.not.i.i.i28 = icmp eq ptr %.sroa.030.0, null
@@ -1111,7 +1111,7 @@ define void @_ZN6LibRaw22android_tight_load_rawEv(ptr noundef nonnull align 8 de
   br i1 %.not29, label %._crit_edge, label %.preheader.lr.ph
 
 .preheader.lr.ph:                                 ; preds = %23
-  %25 = load ptr, ptr %14, align 8, !tbaa !102
+  %25 = load ptr, ptr %14, align 8, !tbaa !101
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %44
@@ -1124,10 +1124,10 @@ define void @_ZN6LibRaw22android_tight_load_rawEv(ptr noundef nonnull align 8 de
 27:                                               ; preds = %.preheader, %27
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %27 ]
   %28 = getelementptr inbounds nuw i8, ptr %.02224, i64 %indvars.iv
-  %29 = load i8, ptr %28, align 1, !tbaa !104
+  %29 = load i8, ptr %28, align 1, !tbaa !103
   %30 = zext i8 %29 to i32
   %31 = shl nuw nsw i32 %30, 2
-  %32 = load i8, ptr %26, align 1, !tbaa !104
+  %32 = load i8, ptr %26, align 1, !tbaa !103
   %33 = zext i8 %32 to i32
   %indvars.iv.tr = trunc i64 %indvars.iv to i32
   %34 = shl i32 %indvars.iv.tr, 1
@@ -1144,7 +1144,7 @@ define void @_ZN6LibRaw22android_tight_load_rawEv(ptr noundef nonnull align 8 de
   store i16 %38, ptr %43, align 2, !tbaa !77
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %44, label %27, !llvm.loop !118
+  br i1 %exitcond.not, label %44, label %27, !llvm.loop !117
 
 44:                                               ; preds = %27
   %45 = getelementptr inbounds nuw i8, ptr %.02224, i64 5
@@ -1152,14 +1152,14 @@ define void @_ZN6LibRaw22android_tight_load_rawEv(ptr noundef nonnull align 8 de
   %46 = load i16, ptr %3, align 2, !tbaa !72
   %47 = zext i16 %46 to i64
   %48 = icmp samesign ult i64 %indvars.iv.next32, %47
-  br i1 %48, label %.preheader, label %._crit_edge, !llvm.loop !119
+  br i1 %48, label %.preheader, label %._crit_edge, !llvm.loop !118
 
 ._crit_edge:                                      ; preds = %44, %23
   %49 = add nuw nsw i32 %.02126, 1
   %50 = load i16, ptr %2, align 8, !tbaa !78
   %51 = zext i16 %50 to i32
   %52 = icmp samesign ult i32 %49, %51
-  br i1 %52, label %15, label %._crit_edge28, !llvm.loop !120
+  br i1 %52, label %15, label %._crit_edge28, !llvm.loop !119
 
 ._crit_edge28:                                    ; preds = %._crit_edge, %1
   tail call void @_ZN6LibRaw4freeEPv(ptr noundef nonnull align 8 dereferenceable(767680) %0, ptr noundef %11)
@@ -1207,7 +1207,7 @@ define void @_ZN6LibRaw22android_loose_load_rawEv(ptr noundef nonnull align 8 de
   br i1 %.not39, label %._crit_edge, label %.preheader28.lr.ph
 
 .preheader28.lr.ph:                               ; preds = %22
-  %24 = load ptr, ptr %13, align 8, !tbaa !102
+  %24 = load ptr, ptr %13, align 8, !tbaa !101
   br label %.preheader28
 
 .preheader28:                                     ; preds = %.preheader28.lr.ph, %44
@@ -1227,12 +1227,12 @@ define void @_ZN6LibRaw22android_loose_load_rawEv(ptr noundef nonnull align 8 de
   %27 = xor i32 %.02329, 7
   %28 = zext nneg i32 %27 to i64
   %29 = getelementptr inbounds nuw i8, ptr %.02732, i64 %28
-  %30 = load i8, ptr %29, align 1, !tbaa !104
+  %30 = load i8, ptr %29, align 1, !tbaa !103
   %31 = zext i8 %30 to i64
   %32 = or disjoint i64 %26, %31
   %33 = add nuw nsw i32 %.02329, 1
   %exitcond.not = icmp eq i32 %33, 8
-  br i1 %exitcond.not, label %.preheader, label %25, !llvm.loop !121
+  br i1 %exitcond.not, label %.preheader, label %25, !llvm.loop !120
 
 34:                                               ; preds = %.preheader, %34
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %34 ]
@@ -1249,7 +1249,7 @@ define void @_ZN6LibRaw22android_loose_load_rawEv(ptr noundef nonnull align 8 de
   store i16 %38, ptr %43, align 2, !tbaa !77
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond41.not = icmp eq i64 %indvars.iv.next, 6
-  br i1 %exitcond41.not, label %44, label %34, !llvm.loop !122
+  br i1 %exitcond41.not, label %44, label %34, !llvm.loop !121
 
 44:                                               ; preds = %34
   %45 = getelementptr inbounds nuw i8, ptr %.02732, i64 8
@@ -1257,7 +1257,7 @@ define void @_ZN6LibRaw22android_loose_load_rawEv(ptr noundef nonnull align 8 de
   %46 = load i16, ptr %3, align 2, !tbaa !72
   %47 = zext i16 %46 to i64
   %48 = icmp samesign ult i64 %indvars.iv.next43, %47
-  br i1 %48, label %.preheader28, label %._crit_edge, !llvm.loop !123
+  br i1 %48, label %.preheader28, label %._crit_edge, !llvm.loop !122
 
 ._crit_edge:                                      ; preds = %44, %22
   %.1.lcssa = phi i64 [ %.036, %22 ], [ %32, %44 ]
@@ -1265,7 +1265,7 @@ define void @_ZN6LibRaw22android_loose_load_rawEv(ptr noundef nonnull align 8 de
   %50 = load i16, ptr %2, align 8, !tbaa !78
   %51 = zext i16 %50 to i32
   %52 = icmp samesign ult i32 %49, %51
-  br i1 %52, label %14, label %._crit_edge38, !llvm.loop !124
+  br i1 %52, label %14, label %._crit_edge38, !llvm.loop !123
 
 ._crit_edge38:                                    ; preds = %._crit_edge, %1
   tail call void @_ZN6LibRaw4freeEPv(ptr noundef nonnull align 8 dereferenceable(767680) %0, ptr noundef %10)
@@ -1275,7 +1275,7 @@ define void @_ZN6LibRaw22android_loose_load_rawEv(ptr noundef nonnull align 8 de
 ; Function Attrs: mustprogress uwtable
 define void @_ZN6LibRaw26unpacked_load_raw_reversedEv(ptr noundef nonnull align 8 dereferenceable(767680) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 153000
-  %3 = load i32, ptr %2, align 8, !tbaa !125
+  %3 = load i32, ptr %2, align 8, !tbaa !124
   br label %4
 
 4:                                                ; preds = %4, %1
@@ -1283,7 +1283,7 @@ define void @_ZN6LibRaw26unpacked_load_raw_reversedEv(ptr noundef nonnull align 
   %5 = add nuw nsw i32 %.0, 1
   %6 = shl nuw i32 2, %.0
   %7 = icmp slt i32 %6, %3
-  br i1 %7, label %4, label %8, !llvm.loop !126
+  br i1 %7, label %4, label %8, !llvm.loop !125
 
 8:                                                ; preds = %4
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -1304,13 +1304,13 @@ define void @_ZN6LibRaw26unpacked_load_raw_reversedEv(ptr noundef nonnull align 
 
 .loopexit:                                        ; preds = %56, %20
   %19 = icmp sgt i32 %.01216.in, 1
-  br i1 %19, label %20, label %._crit_edge, !llvm.loop !127
+  br i1 %19, label %20, label %._crit_edge, !llvm.loop !126
 
 20:                                               ; preds = %.lr.ph17, %.loopexit
   %.01216.in = phi i32 [ %11, %.lr.ph17 ], [ %.01216, %.loopexit ]
   %.01216 = add nsw i32 %.01216.in, -1
   tail call void @_ZN6LibRaw11checkCancelEv(ptr noundef nonnull align 8 dereferenceable(767680) %0)
-  %21 = load ptr, ptr %12, align 8, !tbaa !102
+  %21 = load ptr, ptr %12, align 8, !tbaa !101
   %22 = load i16, ptr %13, align 2, !tbaa !72
   %23 = zext i16 %22 to i32
   %24 = mul nuw nsw i32 %.01216, %23
@@ -1328,8 +1328,8 @@ define void @_ZN6LibRaw26unpacked_load_raw_reversedEv(ptr noundef nonnull align 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %56
   %29 = phi i32 [ %59, %56 ], [ %28, %.lr.ph.preheader ]
   %.01114 = phi i32 [ %57, %56 ], [ 0, %.lr.ph.preheader ]
-  %30 = load i32, ptr %14, align 8, !tbaa !128
-  %31 = load ptr, ptr %12, align 8, !tbaa !102
+  %30 = load i32, ptr %14, align 8, !tbaa !127
+  %31 = load ptr, ptr %12, align 8, !tbaa !101
   %32 = mul nuw nsw i32 %29, %.01216
   %33 = add nsw i32 %32, %.01114
   %34 = sext i32 %33 to i64
@@ -1344,19 +1344,19 @@ define void @_ZN6LibRaw26unpacked_load_raw_reversedEv(ptr noundef nonnull align 
   br i1 %.not, label %56, label %41
 
 41:                                               ; preds = %.lr.ph
-  %42 = load i16, ptr %15, align 8, !tbaa !129
+  %42 = load i16, ptr %15, align 8, !tbaa !128
   %43 = zext i16 %42 to i32
   %44 = sub nsw i32 %.01216, %43
-  %45 = load i16, ptr %16, align 4, !tbaa !130
+  %45 = load i16, ptr %16, align 4, !tbaa !129
   %46 = zext i16 %45 to i32
   %47 = icmp ult i32 %44, %46
   br i1 %47, label %48, label %56
 
 48:                                               ; preds = %41
-  %49 = load i16, ptr %17, align 2, !tbaa !131
+  %49 = load i16, ptr %17, align 2, !tbaa !130
   %50 = zext i16 %49 to i32
   %51 = sub nsw i32 %.01114, %50
-  %52 = load i16, ptr %18, align 2, !tbaa !98
+  %52 = load i16, ptr %18, align 2, !tbaa !97
   %53 = zext i16 %52 to i32
   %54 = icmp ult i32 %51, %53
   br i1 %54, label %55, label %56
@@ -1370,7 +1370,7 @@ define void @_ZN6LibRaw26unpacked_load_raw_reversedEv(ptr noundef nonnull align 
   %58 = load i16, ptr %13, align 2, !tbaa !72
   %59 = zext i16 %58 to i32
   %60 = icmp samesign ult i32 %57, %59
-  br i1 %60, label %.lr.ph, label %.loopexit, !llvm.loop !132
+  br i1 %60, label %.lr.ph, label %.loopexit, !llvm.loop !131
 
 ._crit_edge:                                      ; preds = %.loopexit, %8
   ret void
@@ -1494,52 +1494,51 @@ attributes #15 = { noreturn nounwind }
 !81 = !{!"vtable pointer", !12, i64 0}
 !82 = !{!7, !15, i64 381676}
 !83 = !{!7, !15, i64 381656}
-!84 = distinct !{!84, !85, !86}
+!84 = distinct !{!84, !85}
 !85 = !{!"llvm.loop.mustprogress"}
-!86 = !{!"llvm.loop.estimated_trip_count"}
-!87 = !{!9, !9, i64 0}
-!88 = distinct !{!88, !85, !86}
-!89 = distinct !{!89, !85, !86}
-!90 = distinct !{!90, !85, !86}
-!91 = !{!92, !15, i64 8}
-!92 = !{!"_ZTS5jhead", !15, i64 0, !15, i64 4, !15, i64 8, !15, i64 12, !15, i64 16, !15, i64 20, !15, i64 24, !15, i64 28, !11, i64 32, !11, i64 56, !11, i64 184, !11, i64 312, !11, i64 472, !9, i64 632}
-!93 = !{!92, !15, i64 12}
-!94 = distinct !{!94, !85, !86}
-!95 = distinct !{!95, !85, !86}
-!96 = distinct !{!96, !85, !86}
-!97 = !{!7, !15, i64 540}
-!98 = !{!7, !14, i64 22}
-!99 = !{!7, !20, i64 5476}
-!100 = !{!7, !24, i64 381584}
-!101 = !{!7, !9, i64 8}
-!102 = !{!7, !9, i64 193648}
-!103 = !{!7, !15, i64 384056}
-!104 = !{!11, !11, i64 0}
-!105 = distinct !{!105, !85, !86}
-!106 = distinct !{!106, !85, !86}
-!107 = distinct !{!107, !85, !86}
-!108 = distinct !{!108, !85, !86}
-!109 = distinct !{!109, !85, !86}
-!110 = distinct !{!110, !85, !86}
-!111 = distinct !{!111, !85, !86}
-!112 = !{!7, !14, i64 381552}
-!113 = !{!7, !14, i64 384160}
-!114 = distinct !{!114, !85, !86}
-!115 = distinct !{!115, !85, !86}
-!116 = distinct !{!116, !85, !86}
-!117 = distinct !{!117, !85, !86}
-!118 = distinct !{!118, !85, !86}
-!119 = distinct !{!119, !85, !86}
-!120 = distinct !{!120, !85, !86}
-!121 = distinct !{!121, !85, !86}
-!122 = distinct !{!122, !85, !86}
-!123 = distinct !{!123, !85, !86}
-!124 = distinct !{!124, !85, !86}
-!125 = !{!7, !15, i64 153000}
-!126 = distinct !{!126, !85, !86}
-!127 = distinct !{!127, !85, !86}
-!128 = !{!7, !15, i64 381680}
-!129 = !{!7, !14, i64 24}
-!130 = !{!7, !14, i64 20}
-!131 = !{!7, !14, i64 26}
-!132 = distinct !{!132, !85, !86}
+!86 = !{!9, !9, i64 0}
+!87 = distinct !{!87, !85}
+!88 = distinct !{!88, !85}
+!89 = distinct !{!89, !85}
+!90 = !{!91, !15, i64 8}
+!91 = !{!"_ZTS5jhead", !15, i64 0, !15, i64 4, !15, i64 8, !15, i64 12, !15, i64 16, !15, i64 20, !15, i64 24, !15, i64 28, !11, i64 32, !11, i64 56, !11, i64 184, !11, i64 312, !11, i64 472, !9, i64 632}
+!92 = !{!91, !15, i64 12}
+!93 = distinct !{!93, !85}
+!94 = distinct !{!94, !85}
+!95 = distinct !{!95, !85}
+!96 = !{!7, !15, i64 540}
+!97 = !{!7, !14, i64 22}
+!98 = !{!7, !20, i64 5476}
+!99 = !{!7, !24, i64 381584}
+!100 = !{!7, !9, i64 8}
+!101 = !{!7, !9, i64 193648}
+!102 = !{!7, !15, i64 384056}
+!103 = !{!11, !11, i64 0}
+!104 = distinct !{!104, !85}
+!105 = distinct !{!105, !85}
+!106 = distinct !{!106, !85}
+!107 = distinct !{!107, !85}
+!108 = distinct !{!108, !85}
+!109 = distinct !{!109, !85}
+!110 = distinct !{!110, !85}
+!111 = !{!7, !14, i64 381552}
+!112 = !{!7, !14, i64 384160}
+!113 = distinct !{!113, !85}
+!114 = distinct !{!114, !85}
+!115 = distinct !{!115, !85}
+!116 = distinct !{!116, !85}
+!117 = distinct !{!117, !85}
+!118 = distinct !{!118, !85}
+!119 = distinct !{!119, !85}
+!120 = distinct !{!120, !85}
+!121 = distinct !{!121, !85}
+!122 = distinct !{!122, !85}
+!123 = distinct !{!123, !85}
+!124 = !{!7, !15, i64 153000}
+!125 = distinct !{!125, !85}
+!126 = distinct !{!126, !85}
+!127 = !{!7, !15, i64 381680}
+!128 = !{!7, !14, i64 24}
+!129 = !{!7, !14, i64 20}
+!130 = !{!7, !14, i64 26}
+!131 = distinct !{!131, !85}

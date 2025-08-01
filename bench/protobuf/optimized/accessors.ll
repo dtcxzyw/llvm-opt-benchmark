@@ -1212,6 +1212,5 @@ attributes #18 = { builtin nounwind }
 !17 = !{!18}
 !18 = distinct !{!18, !19, !"_ZSt11make_uniqueIN6google8protobuf8compiler4rust15SingularMessageEJEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: %agg.result"}
 !19 = distinct !{!19, !"_ZSt11make_uniqueIN6google8protobuf8compiler4rust15SingularMessageEJEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
-!20 = distinct !{!20, !21, !22}
+!20 = distinct !{!20, !21}
 !21 = !{!"llvm.loop.mustprogress"}
-!22 = !{!"llvm.loop.estimated_trip_count"}

@@ -366,7 +366,7 @@ define dso_local i32 @virtio_gpu_execbuffer_ioctl(ptr noundef %0, ptr noundef %1
 
 .thread74:                                        ; preds = %207, %209, %210
   %211 = icmp eq i64 %200, 0
-  br i1 %211, label %.loopexit100, label %198, !llvm.loop !19
+  br i1 %211, label %.loopexit100, label %198, !llvm.loop !18
 
 .loopexit100:                                     ; preds = %.thread74, %.loopexit101
   call void @kvfree(ptr noundef nonnull %157) #7
@@ -389,7 +389,7 @@ define dso_local i32 @virtio_gpu_execbuffer_ioctl(ptr noundef %0, ptr noundef %1
   %.pre-phi = phi i64 [ %.pre116, %212 ], [ %152, %.thread67 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #7
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #7
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false), !annotation !20
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false), !annotation !19
   %217 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %218 = load i32, ptr %217, align 8
   %219 = icmp eq i32 %218, 0
@@ -417,7 +417,7 @@ define dso_local i32 @virtio_gpu_execbuffer_ioctl(ptr noundef %0, ptr noundef %1
   %235 = load i64, ptr %226, align 8
   %236 = sext i32 %234 to i64
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #7
-  store ptr null, ptr %6, align 8, !annotation !20
+  store ptr null, ptr %6, align 8, !annotation !19
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false)
   %237 = mul nsw i64 %.pre-phi, %236
   %238 = add i64 %237, %235
@@ -441,7 +441,7 @@ define dso_local i32 @virtio_gpu_execbuffer_ioctl(ptr noundef %0, ptr noundef %1
 250:                                              ; preds = %245
   %251 = load ptr, ptr %6, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #7
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false), !annotation !20
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false), !annotation !19
   %252 = call ptr @dma_fence_unwrap_first(ptr noundef %251, ptr noundef nonnull %4) #7
   %253 = icmp eq ptr %252, null
   br i1 %253, label %.loopexit98, label %.preheader
@@ -461,7 +461,7 @@ define dso_local i32 @virtio_gpu_execbuffer_ioctl(ptr noundef %0, ptr noundef %1
 .thread77:                                        ; preds = %.preheader, %256
   %261 = call ptr @dma_fence_unwrap_next(ptr noundef nonnull %4) #7
   %262 = icmp eq ptr %261, null
-  br i1 %262, label %.loopexit98, label %.preheader, !llvm.loop !21
+  br i1 %262, label %.loopexit98, label %.preheader, !llvm.loop !20
 
 .loopexit98:                                      ; preds = %.thread77, %256, %250
   %263 = phi i32 [ 0, %250 ], [ 0, %.thread77 ], [ %259, %256 ]
@@ -511,7 +511,7 @@ define dso_local i32 @virtio_gpu_execbuffer_ioctl(ptr noundef %0, ptr noundef %1
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #7
   %285 = add nuw i32 %234, 1
   %286 = icmp eq i32 %285, %218
-  br i1 %286, label %305, label %233, !llvm.loop !22
+  br i1 %286, label %305, label %233, !llvm.loop !21
 
 287:                                              ; preds = %279, %.thread79, %245, %242, %233
   %.ph81 = phi i32 [ -22, %279 ], [ %263, %.thread79 ], [ %248, %245 ], [ -22, %242 ], [ -14, %233 ]
@@ -551,7 +551,7 @@ define dso_local i32 @virtio_gpu_execbuffer_ioctl(ptr noundef %0, ptr noundef %1
 
 .thread85:                                        ; preds = %300, %302, %303, %291
   %304 = icmp eq i64 %293, 0
-  br i1 %304, label %.loopexit97, label %291, !llvm.loop !23
+  br i1 %304, label %.loopexit97, label %291, !llvm.loop !22
 
 .loopexit97:                                      ; preds = %.thread85, %287
   call void @kvfree(ptr noundef nonnull %223) #7
@@ -641,7 +641,7 @@ define dso_local i32 @virtio_gpu_execbuffer_ioctl(ptr noundef %0, ptr noundef %1
 342:                                              ; preds = %341, %336
   %343 = add nuw nsw i64 %337, 1
   %344 = icmp eq i64 %343, %335
-  br i1 %344, label %345, label %336, !llvm.loop !24
+  br i1 %344, label %345, label %336, !llvm.loop !23
 
 345:                                              ; preds = %342
   %.pr = load i32, ptr %331, align 8
@@ -681,7 +681,7 @@ define dso_local i32 @virtio_gpu_execbuffer_ioctl(ptr noundef %0, ptr noundef %1
 
 .thread91:                                        ; preds = %359, %361, %362, %350
   %363 = icmp eq i64 %352, 0
-  br i1 %363, label %.loopexit96, label %350, !llvm.loop !25
+  br i1 %363, label %.loopexit96, label %350, !llvm.loop !22
 
 .loopexit96:                                      ; preds = %.thread91, %.thread66, %345
   %364 = phi ptr [ %346, %345 ], [ %330, %.thread66 ], [ %346, %.thread91 ]
@@ -723,7 +723,7 @@ define dso_local i32 @virtio_gpu_execbuffer_ioctl(ptr noundef %0, ptr noundef %1
 
 .thread93:                                        ; preds = %380, %382, %383
   %384 = icmp eq i64 %373, 0
-  br i1 %384, label %.loopexit, label %371, !llvm.loop !26
+  br i1 %384, label %.loopexit, label %371, !llvm.loop !18
 
 .loopexit:                                        ; preds = %.thread93, %.loopexit96
   call void @kvfree(ptr noundef %365) #7
@@ -826,7 +826,7 @@ define internal fastcc i32 @virtio_gpu_wait_in_fence(ptr noundef readonly captur
 
 13:                                               ; preds = %8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2) #7
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, i8 0, i64 24, i1 false), !annotation !20
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, i8 0, i64 24, i1 false), !annotation !19
   %14 = call ptr @dma_fence_unwrap_first(ptr noundef nonnull %11, ptr noundef nonnull %2) #7
   %15 = icmp eq ptr %14, null
   br i1 %15, label %.loopexit, label %16
@@ -856,7 +856,7 @@ define internal fastcc i32 @virtio_gpu_wait_in_fence(ptr noundef readonly captur
 .thread:                                          ; preds = %19, %27
   %32 = call ptr @dma_fence_unwrap_next(ptr noundef nonnull %2) #7
   %33 = icmp eq ptr %32, null
-  br i1 %33, label %.loopexit, label %19, !llvm.loop !27
+  br i1 %33, label %.loopexit, label %19, !llvm.loop !20
 
 .loopexit:                                        ; preds = %.thread, %27, %13
   %34 = phi i32 [ 0, %13 ], [ 0, %.thread ], [ %30, %27 ]
@@ -946,7 +946,7 @@ define internal fastcc void @virtio_gpu_process_post_deps(ptr noundef readonly c
   %22 = load i32, ptr %7, align 8
   %23 = zext i32 %22 to i64
   %24 = icmp samesign ult i64 %21, %23
-  br i1 %24, label %.preheader, label %.loopexit, !llvm.loop !28
+  br i1 %24, label %.preheader, label %.loopexit, !llvm.loop !24
 
 .loopexit:                                        ; preds = %20, %4, %1
   ret void
@@ -1079,17 +1079,13 @@ attributes #9 = { nounwind allocsize(0) }
 !12 = !{i64 2149650798, i64 2149650612, i64 2149650664, i64 2149650710, i64 2149650738}
 !13 = !{i64 2149650869, i64 2149650898, i64 2149650944, i64 2149651002, i64 2149651056, i64 2149651110, i64 2149651165, i64 2149651196, i64 2149651504, i64 2149651510, i64 2149651557, i64 2149651580, i64 2149651606}
 !14 = !{i64 2149652061, i64 2149651877, i64 2149651927, i64 2149651973, i64 2149652001}
-!15 = distinct !{!15, !16, !17, !18}
+!15 = distinct !{!15, !16, !17}
 !16 = !{!"llvm.loop.mustprogress"}
 !17 = !{!"llvm.loop.unroll.disable"}
-!18 = !{!"llvm.loop.estimated_trip_count"}
-!19 = distinct !{!19, !16, !17, !18}
-!20 = !{!"auto-init"}
-!21 = distinct !{!21, !16, !17, !18}
-!22 = distinct !{!22, !16, !17, !18}
-!23 = distinct !{!23, !16, !17, !18}
-!24 = distinct !{!24, !16, !17, !18}
-!25 = distinct !{!25, !16, !17, !18}
-!26 = distinct !{!26, !16, !17, !18}
-!27 = distinct !{!27, !16, !17, !18}
-!28 = distinct !{!28, !16, !17, !18}
+!18 = distinct !{!18, !16, !17}
+!19 = !{!"auto-init"}
+!20 = distinct !{!20, !16, !17}
+!21 = distinct !{!21, !16, !17}
+!22 = distinct !{!22, !16, !17}
+!23 = distinct !{!23, !16, !17}
+!24 = distinct !{!24, !16, !17}

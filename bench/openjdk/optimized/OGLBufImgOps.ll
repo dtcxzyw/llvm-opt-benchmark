@@ -228,7 +228,7 @@ OGLBufImgOps_CreateConvolveProgram.exit:          ; preds = %44
 ._crit_edge:                                      ; preds = %94
   %105 = add i32 %.06886, 1
   %exitcond94.not = icmp eq i32 %.06886, %59
-  br i1 %exitcond94.not, label %._crit_edge90, label %.lr.ph, !llvm.loop !9
+  br i1 %exitcond94.not, label %._crit_edge90, label %.lr.ph, !llvm.loop !8
 
 ._crit_edge90:                                    ; preds = %._crit_edge, %.lr.ph89, %83
   %106 = load ptr, ptr @j2d_glUniform3fvARB, align 8
@@ -473,7 +473,7 @@ OGLBufImgOps_CreateLookupProgram.exit:            ; preds = %24
   store ptr %7, ptr %61, align 8
   %indvars.iv.next76 = add nuw nsw i64 %indvars.iv75, 1
   %exitcond78.not = icmp eq i64 %indvars.iv.next76, 3
-  br i1 %exitcond78.not, label %.loopexit.sink.split, label %.preheader, !llvm.loop !10
+  br i1 %exitcond78.not, label %.loopexit.sink.split, label %.preheader, !llvm.loop !9
 
 62:                                               ; preds = %.preheader62, %62
   %indvars.iv71 = phi i64 [ 0, %.preheader62 ], [ %indvars.iv.next72, %62 ]
@@ -487,7 +487,7 @@ OGLBufImgOps_CreateLookupProgram.exit:            ; preds = %24
   store ptr %68, ptr %69, align 8
   %indvars.iv.next72 = add nuw nsw i64 %indvars.iv71, 1
   %exitcond74.not = icmp eq i64 %indvars.iv.next72, 3
-  br i1 %exitcond74.not, label %.loopexit.sink.split, label %62, !llvm.loop !11
+  br i1 %exitcond74.not, label %.loopexit.sink.split, label %62, !llvm.loop !10
 
 70:                                               ; preds = %.preheader63, %70
   %indvars.iv = phi i64 [ 0, %.preheader63 ], [ %indvars.iv.next, %70 ]
@@ -501,7 +501,7 @@ OGLBufImgOps_CreateLookupProgram.exit:            ; preds = %24
   store ptr %76, ptr %77, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %.loopexit, label %70, !llvm.loop !12
+  br i1 %exitcond.not, label %.loopexit, label %70, !llvm.loop !11
 
 .loopexit.sink.split:                             ; preds = %62, %.preheader
   %78 = getelementptr inbounds nuw i8, ptr %10, i64 24
@@ -528,7 +528,7 @@ OGLBufImgOps_CreateLookupProgram.exit:            ; preds = %24
 87:                                               ; preds = %80, %84
   %indvars.iv.next80 = add nuw nsw i64 %indvars.iv79, 1
   %exitcond82.not = icmp eq i64 %indvars.iv.next80, 4
-  br i1 %exitcond82.not, label %88, label %80, !llvm.loop !13
+  br i1 %exitcond82.not, label %88, label %80, !llvm.loop !12
 
 88:                                               ; preds = %87
   %89 = load ptr, ptr @j2d_glActiveTextureARB, align 8
@@ -596,11 +596,10 @@ attributes #6 = { nounwind }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7, !8}
-!11 = distinct !{!11, !7, !8}
-!12 = distinct !{!12, !7, !8}
-!13 = distinct !{!13, !7, !8}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7}
+!12 = distinct !{!12, !7}

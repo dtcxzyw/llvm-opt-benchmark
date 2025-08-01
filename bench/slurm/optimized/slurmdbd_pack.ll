@@ -5309,7 +5309,7 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_acct_coord_msg(ptr noundef 
   %18 = add nuw nsw i32 %.01519, 1
   %19 = load i32, ptr %5, align 4
   %20 = icmp ult i32 %18, %19
-  br i1 %20, label %.lr.ph, label %.loopexit, !llvm.loop !14
+  br i1 %20, label %.lr.ph, label %.loopexit, !llvm.loop !13
 
 .loopexit:                                        ; preds = %15, %11, %9
   %21 = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -6380,8 +6380,7 @@ attributes #7 = { nounwind willreturn memory(read) }
 !7 = !{i32 7, !"debug-info-assignment-tracking", i1 true}
 !8 = !{ptr @slurmdb_pack_assoc_rec, ptr @slurmdb_pack_cluster_rec, ptr @slurmdb_pack_wckey_rec}
 !9 = !{ptr @slurmdb_unpack_assoc_rec, ptr @slurmdb_unpack_cluster_rec, ptr @slurmdb_unpack_wckey_rec}
-!10 = distinct !{!10, !11, !12, !13}
+!10 = distinct !{!10, !11, !12}
 !11 = !{!"llvm.loop.mustprogress"}
 !12 = !{!"llvm.loop.unroll.disable"}
-!13 = !{!"llvm.loop.estimated_trip_count"}
-!14 = distinct !{!14, !11, !12, !13}
+!13 = distinct !{!13, !11, !12}

@@ -207,7 +207,7 @@ define noundef i64 @_ZNK6marisa8grimoire6vector9BitVector7select0Em(ptr noundef 
   %..067 = select i1 %36, i64 %30, i64 %.06784
   %37 = add nuw nsw i64 %.2., 1
   %38 = icmp samesign ult i64 %37, %..067
-  br i1 %38, label %.preheader, label %.loopexit, !llvm.loop !29
+  br i1 %38, label %.preheader, label %.loopexit, !llvm.loop !28
 
 .loopexit:                                        ; preds = %.preheader81, %.preheader
   %.169 = phi i64 [ %.2., %.preheader ], [ %.068, %.preheader81 ]
@@ -351,7 +351,7 @@ define noundef i64 @_ZNK6marisa8grimoire6vector9BitVector7select0Em(ptr noundef 
   %135 = getelementptr inbounds nuw [8 x [256 x i8]], ptr @_ZN6marisa8grimoire6vector12_GLOBAL__N_112SELECT_TABLEE, i64 0, i64 %134
   %136 = and i64 %130, 255
   %137 = getelementptr inbounds nuw [256 x i8], ptr %135, i64 0, i64 %136
-  %138 = load i8, ptr %137, align 1, !tbaa !30
+  %138 = load i8, ptr %137, align 1, !tbaa !29
   %139 = zext i8 %138 to i64
   %140 = add i64 %108, %139
   %141 = add i64 %140, %129
@@ -398,7 +398,7 @@ define noundef i64 @_ZNK6marisa8grimoire6vector9BitVector7select1Em(ptr noundef 
   %25 = load i32, ptr %24, align 4, !tbaa !13
   %26 = zext i32 %25 to i64
   %.not69 = icmp ult i64 %1, %26
-  br i1 %.not69, label %.loopexit, label %.preheader71, !llvm.loop !31
+  br i1 %.not69, label %.loopexit, label %.preheader71, !llvm.loop !30
 
 .preheader:                                       ; preds = %12, %.preheader
   %.06474 = phi i64 [ %..064, %.preheader ], [ %19, %12 ]
@@ -413,7 +413,7 @@ define noundef i64 @_ZNK6marisa8grimoire6vector9BitVector7select1Em(ptr noundef 
   %..064 = select i1 %32, i64 %28, i64 %.06474
   %33 = add nuw nsw i64 %.2., 1
   %34 = icmp samesign ult i64 %33, %..064
-  br i1 %34, label %.preheader, label %.loopexit, !llvm.loop !32
+  br i1 %34, label %.preheader, label %.loopexit, !llvm.loop !31
 
 .loopexit:                                        ; preds = %.preheader71, %.preheader
   %.166 = phi i64 [ %.2., %.preheader ], [ %.065, %.preheader71 ]
@@ -540,7 +540,7 @@ define noundef i64 @_ZNK6marisa8grimoire6vector9BitVector7select1Em(ptr noundef 
   %122 = getelementptr inbounds nuw [8 x [256 x i8]], ptr @_ZN6marisa8grimoire6vector12_GLOBAL__N_112SELECT_TABLEE, i64 0, i64 %121
   %123 = and i64 %117, 255
   %124 = getelementptr inbounds nuw [256 x i8], ptr %122, i64 0, i64 %123
-  %125 = load i8, ptr %124, align 1, !tbaa !30
+  %125 = load i8, ptr %124, align 1, !tbaa !29
   %126 = zext i8 %125 to i64
   %127 = add i64 %96, %126
   %128 = add i64 %127, %116
@@ -555,7 +555,7 @@ define noundef i64 @_ZNK6marisa8grimoire6vector9BitVector7select1Em(ptr noundef 
 define void @_ZN6marisa8grimoire6vector9BitVector11build_indexERKS2_bb(ptr noundef nonnull align 8 dereferenceable(208) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(208) %1, i1 noundef zeroext %2, i1 noundef zeroext %3) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %7 = load i64, ptr %6, align 8, !tbaa !33
+  %7 = load i64, ptr %6, align 8, !tbaa !32
   %8 = lshr i64 %7, 9
   %9 = and i64 %7, 511
   %.not = icmp ne i64 %9, 0
@@ -563,7 +563,7 @@ define void @_ZN6marisa8grimoire6vector9BitVector11build_indexERKS2_bb(ptr nound
   %11 = add nuw nsw i64 %8, %10
   %12 = add nuw nsw i64 %11, 1
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %14 = load i64, ptr %13, align 8, !tbaa !35
+  %14 = load i64, ptr %13, align 8, !tbaa !34
   %.not.i.i.not = icmp ult i64 %11, %14
   br i1 %.not.i.i.not, label %_ZN6marisa8grimoire6vector6VectorINS1_9RankIndexEE7reserveEm.exit.i, label %15
 
@@ -575,23 +575,23 @@ define void @_ZN6marisa8grimoire6vector9BitVector11build_indexERKS2_bb(ptr nound
   %19 = mul nuw nsw i64 %.0.i.i, 12
   %20 = tail call noalias noundef ptr @_ZnamRKSt9nothrow_t(i64 noundef %19, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #13
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %22 = load i64, ptr %21, align 8, !tbaa !36
+  %22 = load i64, ptr %21, align 8, !tbaa !35
   %.not.i.i.i = icmp eq i64 %22, 0
   br i1 %.not.i.i.i, label %.preheader.i.i.i, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %15
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %24 = load ptr, ptr %23, align 8, !tbaa !37
+  %24 = load ptr, ptr %23, align 8, !tbaa !36
   br label %29
 
 .preheader.i.i.i:                                 ; preds = %29, %15
-  %25 = load ptr, ptr %5, align 8, !tbaa !38
-  store ptr %20, ptr %5, align 8, !tbaa !38
+  %25 = load ptr, ptr %5, align 8, !tbaa !37
+  store ptr %20, ptr %5, align 8, !tbaa !37
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  store ptr %20, ptr %26, align 8, !tbaa !37
+  store ptr %20, ptr %26, align 8, !tbaa !36
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store ptr %20, ptr %27, align 8, !tbaa !3
-  store i64 %.0.i.i, ptr %13, align 8, !tbaa !35
+  store i64 %.0.i.i, ptr %13, align 8, !tbaa !34
   %28 = icmp eq ptr %25, null
   br i1 %28, label %_ZN6marisa8grimoire6vector6VectorINS1_9RankIndexEE7reserveEm.exit.i, label %33
 
@@ -599,10 +599,10 @@ define void @_ZN6marisa8grimoire6vector9BitVector11build_indexERKS2_bb(ptr nound
   %.01114.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %32, %29 ]
   %30 = getelementptr inbounds nuw %"class.marisa::grimoire::vector::RankIndex", ptr %20, i64 %.01114.i.i.i
   %31 = getelementptr inbounds nuw %"class.marisa::grimoire::vector::RankIndex", ptr %24, i64 %.01114.i.i.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %30, ptr noundef nonnull align 4 dereferenceable(12) %31, i64 12, i1 false), !tbaa.struct !39
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %30, ptr noundef nonnull align 4 dereferenceable(12) %31, i64 12, i1 false), !tbaa.struct !38
   %32 = add nuw i64 %.01114.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %32, %22
-  br i1 %exitcond.not.i.i.i, label %.preheader.i.i.i, label %29, !llvm.loop !40
+  br i1 %exitcond.not.i.i.i, label %.preheader.i.i.i, label %29, !llvm.loop !39
 
 33:                                               ; preds = %.preheader.i.i.i
   tail call void @_ZdaPv(ptr noundef nonnull %25) #14
@@ -610,13 +610,13 @@ define void @_ZN6marisa8grimoire6vector9BitVector11build_indexERKS2_bb(ptr nound
 
 _ZN6marisa8grimoire6vector6VectorINS1_9RankIndexEE7reserveEm.exit.i: ; preds = %33, %.preheader.i.i.i, %4
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %35 = load i64, ptr %34, align 8, !tbaa !36
+  %35 = load i64, ptr %34, align 8, !tbaa !35
   %.not136 = icmp ugt i64 %35, %11
   br i1 %.not136, label %_ZN6marisa8grimoire6vector6VectorINS1_9RankIndexEE6resizeEm.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %_ZN6marisa8grimoire6vector6VectorINS1_9RankIndexEE7reserveEm.exit.i
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %37 = load ptr, ptr %36, align 8, !tbaa !37
+  %37 = load ptr, ptr %36, align 8, !tbaa !36
   %38 = mul nuw nsw i64 %35, 12
   %scevgep.i = getelementptr nuw i8, ptr %37, i64 %38
   %39 = sub nuw nsw i64 %12, %35
@@ -625,8 +625,8 @@ _ZN6marisa8grimoire6vector6VectorINS1_9RankIndexEE7reserveEm.exit.i: ; preds = %
   br label %_ZN6marisa8grimoire6vector6VectorINS1_9RankIndexEE6resizeEm.exit
 
 _ZN6marisa8grimoire6vector6VectorINS1_9RankIndexEE6resizeEm.exit: ; preds = %_ZN6marisa8grimoire6vector6VectorINS1_9RankIndexEE7reserveEm.exit.i, %.lr.ph.i
-  store i64 %12, ptr %34, align 8, !tbaa !36
-  %41 = load i64, ptr %6, align 8, !tbaa !33
+  store i64 %12, ptr %34, align 8, !tbaa !35
+  %41 = load i64, ptr %6, align 8, !tbaa !32
   %.not145 = icmp eq i64 %41, 0
   br i1 %.not145, label %._crit_edge.thread, label %.lr.ph
 
@@ -667,7 +667,7 @@ _ZN6marisa8grimoire6vector6VectorINS1_9RankIndexEE6resizeEm.exit: ; preds = %_ZN
   %60 = lshr i64 %.075140, 9
   %61 = lshr exact i64 %.075140, 6
   %62 = and i64 %61, 7
-  %63 = load ptr, ptr %42, align 8, !tbaa !37
+  %63 = load ptr, ptr %42, align 8, !tbaa !36
   %64 = getelementptr inbounds nuw %"class.marisa::grimoire::vector::RankIndex", ptr %63, i64 %60
   switch i64 %62, label %.unreachabledefault [
     i64 0, label %65
@@ -797,9 +797,9 @@ default.unreachable206:                           ; preds = %197
 
 138:                                              ; preds = %135
   %139 = trunc i64 %.075140 to i32
-  %140 = load i64, ptr %45, align 8, !tbaa !41
+  %140 = load i64, ptr %45, align 8, !tbaa !40
   %141 = add i64 %140, 1
-  %142 = load i64, ptr %46, align 8, !tbaa !42
+  %142 = load i64, ptr %46, align 8, !tbaa !41
   %.not.i.i84 = icmp ugt i64 %141, %142
   br i1 %.not.i.i84, label %143, label %_ZN6marisa8grimoire6vector6VectorIjE9push_backERKj.exit
 
@@ -816,15 +816,15 @@ default.unreachable206:                           ; preds = %197
   br i1 %.not.i.i.i87, label %.preheader.i.i.i91, label %.lr.ph.i.i.i88
 
 .lr.ph.i.i.i88:                                   ; preds = %143
-  %150 = load ptr, ptr %47, align 8, !tbaa !43
+  %150 = load ptr, ptr %47, align 8, !tbaa !42
   br label %153
 
 .preheader.i.i.i91:                               ; preds = %153, %143
-  %151 = load ptr, ptr %44, align 8, !tbaa !38
-  store ptr %149, ptr %44, align 8, !tbaa !38
-  store ptr %149, ptr %47, align 8, !tbaa !43
+  %151 = load ptr, ptr %44, align 8, !tbaa !37
+  store ptr %149, ptr %44, align 8, !tbaa !37
+  store ptr %149, ptr %47, align 8, !tbaa !42
   store ptr %149, ptr %48, align 8, !tbaa !22
-  store i64 %.0.i.i86, ptr %46, align 8, !tbaa !42
+  store i64 %.0.i.i86, ptr %46, align 8, !tbaa !41
   %152 = icmp eq ptr %151, null
   br i1 %152, label %_ZN6marisa8grimoire6vector6VectorIjE9push_backERKj.exit, label %158
 
@@ -836,21 +836,21 @@ default.unreachable206:                           ; preds = %197
   store i32 %156, ptr %154, align 4, !tbaa !25
   %157 = add nuw i64 %.01114.i.i.i89, 1
   %exitcond.not.i.i.i90 = icmp eq i64 %157, %140
-  br i1 %exitcond.not.i.i.i90, label %.preheader.i.i.i91, label %153, !llvm.loop !44
+  br i1 %exitcond.not.i.i.i90, label %.preheader.i.i.i91, label %153, !llvm.loop !43
 
 158:                                              ; preds = %.preheader.i.i.i91
   tail call void @_ZdaPv(ptr noundef nonnull %151) #14
-  %.pre.i = load i64, ptr %45, align 8, !tbaa !41
+  %.pre.i = load i64, ptr %45, align 8, !tbaa !40
   %.pre2.i = add i64 %.pre.i, 1
   br label %_ZN6marisa8grimoire6vector6VectorIjE9push_backERKj.exit
 
 _ZN6marisa8grimoire6vector6VectorIjE9push_backERKj.exit: ; preds = %138, %.preheader.i.i.i91, %158
   %.pre-phi.i = phi i64 [ %141, %138 ], [ %141, %.preheader.i.i.i91 ], [ %.pre2.i, %158 ]
   %159 = phi i64 [ %140, %138 ], [ %140, %.preheader.i.i.i91 ], [ %.pre.i, %158 ]
-  %160 = load ptr, ptr %47, align 8, !tbaa !43
+  %160 = load ptr, ptr %47, align 8, !tbaa !42
   %161 = getelementptr inbounds nuw i32, ptr %160, i64 %159
   store i32 %139, ptr %161, align 4, !tbaa !25
-  store i64 %.pre-phi.i, ptr %45, align 8, !tbaa !41
+  store i64 %.pre-phi.i, ptr %45, align 8, !tbaa !40
   br label %162
 
 162:                                              ; preds = %_ZN6marisa8grimoire6vector6VectorIjE9push_backERKj.exit, %135
@@ -865,9 +865,9 @@ _ZN6marisa8grimoire6vector6VectorIjE9push_backERKj.exit: ; preds = %138, %.prehe
 
 167:                                              ; preds = %164
   %168 = trunc i64 %.075140 to i32
-  %169 = load i64, ptr %50, align 8, !tbaa !41
+  %169 = load i64, ptr %50, align 8, !tbaa !40
   %170 = add i64 %169, 1
-  %171 = load i64, ptr %51, align 8, !tbaa !42
+  %171 = load i64, ptr %51, align 8, !tbaa !41
   %.not.i.i92 = icmp ugt i64 %170, %171
   br i1 %.not.i.i92, label %172, label %_ZN6marisa8grimoire6vector6VectorIjE9push_backERKj.exit103
 
@@ -884,15 +884,15 @@ _ZN6marisa8grimoire6vector6VectorIjE9push_backERKj.exit: ; preds = %138, %.prehe
   br i1 %.not.i.i.i96, label %.preheader.i.i.i100, label %.lr.ph.i.i.i97
 
 .lr.ph.i.i.i97:                                   ; preds = %172
-  %179 = load ptr, ptr %52, align 8, !tbaa !43
+  %179 = load ptr, ptr %52, align 8, !tbaa !42
   br label %182
 
 .preheader.i.i.i100:                              ; preds = %182, %172
-  %180 = load ptr, ptr %49, align 8, !tbaa !38
-  store ptr %178, ptr %49, align 8, !tbaa !38
-  store ptr %178, ptr %52, align 8, !tbaa !43
+  %180 = load ptr, ptr %49, align 8, !tbaa !37
+  store ptr %178, ptr %49, align 8, !tbaa !37
+  store ptr %178, ptr %52, align 8, !tbaa !42
   store ptr %178, ptr %53, align 8, !tbaa !22
-  store i64 %.0.i.i95, ptr %51, align 8, !tbaa !42
+  store i64 %.0.i.i95, ptr %51, align 8, !tbaa !41
   %181 = icmp eq ptr %180, null
   br i1 %181, label %_ZN6marisa8grimoire6vector6VectorIjE9push_backERKj.exit103, label %187
 
@@ -904,21 +904,21 @@ _ZN6marisa8grimoire6vector6VectorIjE9push_backERKj.exit: ; preds = %138, %.prehe
   store i32 %185, ptr %183, align 4, !tbaa !25
   %186 = add nuw i64 %.01114.i.i.i98, 1
   %exitcond.not.i.i.i99 = icmp eq i64 %186, %169
-  br i1 %exitcond.not.i.i.i99, label %.preheader.i.i.i100, label %182, !llvm.loop !44
+  br i1 %exitcond.not.i.i.i99, label %.preheader.i.i.i100, label %182, !llvm.loop !43
 
 187:                                              ; preds = %.preheader.i.i.i100
   tail call void @_ZdaPv(ptr noundef nonnull %180) #14
-  %.pre.i101 = load i64, ptr %50, align 8, !tbaa !41
+  %.pre.i101 = load i64, ptr %50, align 8, !tbaa !40
   %.pre2.i102 = add i64 %.pre.i101, 1
   br label %_ZN6marisa8grimoire6vector6VectorIjE9push_backERKj.exit103
 
 _ZN6marisa8grimoire6vector6VectorIjE9push_backERKj.exit103: ; preds = %167, %.preheader.i.i.i100, %187
   %.pre-phi.i93 = phi i64 [ %170, %167 ], [ %170, %.preheader.i.i.i100 ], [ %.pre2.i102, %187 ]
   %188 = phi i64 [ %169, %167 ], [ %169, %.preheader.i.i.i100 ], [ %.pre.i101, %187 ]
-  %189 = load ptr, ptr %52, align 8, !tbaa !43
+  %189 = load ptr, ptr %52, align 8, !tbaa !42
   %190 = getelementptr inbounds nuw i32, ptr %189, i64 %188
   store i32 %168, ptr %190, align 4, !tbaa !25
-  store i64 %.pre-phi.i93, ptr %50, align 8, !tbaa !41
+  store i64 %.pre-phi.i93, ptr %50, align 8, !tbaa !40
   br label %191
 
 191:                                              ; preds = %_ZN6marisa8grimoire6vector6VectorIjE9push_backERKj.exit103, %164
@@ -929,9 +929,9 @@ _ZN6marisa8grimoire6vector6VectorIjE9push_backERKj.exit103: ; preds = %167, %.pr
   %.174 = phi i64 [ %163, %162 ], [ %.073142, %191 ]
   %.1 = phi i64 [ %.0143, %162 ], [ %192, %191 ]
   %194 = add nuw i64 %.075140, 1
-  %195 = load i64, ptr %6, align 8, !tbaa !33
+  %195 = load i64, ptr %6, align 8, !tbaa !32
   %196 = icmp ult i64 %194, %195
-  br i1 %196, label %56, label %._crit_edge, !llvm.loop !45
+  br i1 %196, label %56, label %._crit_edge, !llvm.loop !44
 
 197:                                              ; preds = %._crit_edge
   %198 = add i64 %195, -1
@@ -952,7 +952,7 @@ _ZN6marisa8grimoire6vector6VectorIjE9push_backERKj.exit103: ; preds = %167, %.pr
 
 ._crit_edge178:                                   ; preds = %197
   %.phi.trans.insert179 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %.pre180 = load ptr, ptr %.phi.trans.insert179, align 8, !tbaa !37
+  %.pre180 = load ptr, ptr %.phi.trans.insert179, align 8, !tbaa !36
   %.phi.trans.insert181 = getelementptr inbounds nuw %"class.marisa::grimoire::vector::RankIndex", ptr %.pre180, i64 %199
   %.pre182 = load i32, ptr %.phi.trans.insert181, align 4, !tbaa !13
   %.phi.trans.insert183 = getelementptr inbounds nuw i8, ptr %.phi.trans.insert181, i64 8
@@ -962,7 +962,7 @@ _ZN6marisa8grimoire6vector6VectorIjE9push_backERKj.exit103: ; preds = %167, %.pr
 
 ._crit_edge171:                                   ; preds = %197
   %.phi.trans.insert172 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %.pre173 = load ptr, ptr %.phi.trans.insert172, align 8, !tbaa !37
+  %.pre173 = load ptr, ptr %.phi.trans.insert172, align 8, !tbaa !36
   %.phi.trans.insert174 = getelementptr inbounds nuw %"class.marisa::grimoire::vector::RankIndex", ptr %.pre173, i64 %199
   %.pre175 = load i32, ptr %.phi.trans.insert174, align 4, !tbaa !13
   %.phi.trans.insert176 = getelementptr inbounds nuw i8, ptr %.phi.trans.insert174, i64 8
@@ -972,7 +972,7 @@ _ZN6marisa8grimoire6vector6VectorIjE9push_backERKj.exit103: ; preds = %167, %.pr
 
 ._crit_edge166:                                   ; preds = %197
   %.phi.trans.insert167 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %.pre168 = load ptr, ptr %.phi.trans.insert167, align 8, !tbaa !37
+  %.pre168 = load ptr, ptr %.phi.trans.insert167, align 8, !tbaa !36
   %.phi.trans.insert169 = getelementptr inbounds nuw %"class.marisa::grimoire::vector::RankIndex", ptr %.pre168, i64 %199
   %.pre170 = load i32, ptr %.phi.trans.insert169, align 4, !tbaa !13
   %.pre195 = sub i32 %54, %.pre170
@@ -980,7 +980,7 @@ _ZN6marisa8grimoire6vector6VectorIjE9push_backERKj.exit103: ; preds = %167, %.pr
 
 ._crit_edge159:                                   ; preds = %197
   %.phi.trans.insert160 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %.pre161 = load ptr, ptr %.phi.trans.insert160, align 8, !tbaa !37
+  %.pre161 = load ptr, ptr %.phi.trans.insert160, align 8, !tbaa !36
   %.phi.trans.insert162 = getelementptr inbounds nuw %"class.marisa::grimoire::vector::RankIndex", ptr %.pre161, i64 %199
   %.pre163 = load i32, ptr %.phi.trans.insert162, align 4, !tbaa !13
   %.phi.trans.insert164 = getelementptr inbounds nuw i8, ptr %.phi.trans.insert162, i64 4
@@ -990,7 +990,7 @@ _ZN6marisa8grimoire6vector6VectorIjE9push_backERKj.exit103: ; preds = %167, %.pr
 
 ._crit_edge152:                                   ; preds = %197
   %.phi.trans.insert153 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %.pre154 = load ptr, ptr %.phi.trans.insert153, align 8, !tbaa !37
+  %.pre154 = load ptr, ptr %.phi.trans.insert153, align 8, !tbaa !36
   %.phi.trans.insert155 = getelementptr inbounds nuw %"class.marisa::grimoire::vector::RankIndex", ptr %.pre154, i64 %199
   %.pre156 = load i32, ptr %.phi.trans.insert155, align 4, !tbaa !13
   %.phi.trans.insert157 = getelementptr inbounds nuw i8, ptr %.phi.trans.insert155, i64 4
@@ -1000,7 +1000,7 @@ _ZN6marisa8grimoire6vector6VectorIjE9push_backERKj.exit103: ; preds = %167, %.pr
 
 ._crit_edge147:                                   ; preds = %197
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %.pre = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !37
+  %.pre = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !36
   %.phi.trans.insert148 = getelementptr inbounds nuw %"class.marisa::grimoire::vector::RankIndex", ptr %.pre, i64 %199
   %.pre149 = load i32, ptr %.phi.trans.insert148, align 4, !tbaa !13
   %.phi.trans.insert150 = getelementptr inbounds nuw i8, ptr %.phi.trans.insert148, i64 4
@@ -1010,7 +1010,7 @@ _ZN6marisa8grimoire6vector6VectorIjE9push_backERKj.exit103: ; preds = %167, %.pr
 
 203:                                              ; preds = %197
   %204 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %205 = load ptr, ptr %204, align 8, !tbaa !37
+  %205 = load ptr, ptr %204, align 8, !tbaa !36
   %206 = getelementptr inbounds nuw %"class.marisa::grimoire::vector::RankIndex", ptr %205, i64 %199
   %207 = load i32, ptr %206, align 4, !tbaa !13
   %208 = getelementptr inbounds nuw i8, ptr %206, i64 4
@@ -1096,14 +1096,14 @@ _ZN6marisa8grimoire6vector6VectorIjE9push_backERKj.exit103: ; preds = %167, %.pr
   %.lcssa216 = phi i64 [ %195, %252 ], [ %195, %197 ], [ %195, %._crit_edge ], [ 0, %_ZN6marisa8grimoire6vector6VectorINS1_9RankIndexEE6resizeEm.exit ]
   %.073.lcssa210 = phi i32 [ %54, %252 ], [ %54, %197 ], [ %54, %._crit_edge ], [ 0, %_ZN6marisa8grimoire6vector6VectorINS1_9RankIndexEE6resizeEm.exit ]
   %260 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store i64 %.lcssa216, ptr %260, align 8, !tbaa !33
+  store i64 %.lcssa216, ptr %260, align 8, !tbaa !32
   %261 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %262 = load i64, ptr %261, align 8, !tbaa !46
+  %262 = load i64, ptr %261, align 8, !tbaa !45
   %263 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store i64 %262, ptr %263, align 8, !tbaa !46
+  store i64 %262, ptr %263, align 8, !tbaa !45
   %264 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %265 = load ptr, ptr %264, align 8, !tbaa !37
-  %266 = load i64, ptr %34, align 8, !tbaa !36
+  %265 = load ptr, ptr %264, align 8, !tbaa !36
+  %266 = load i64, ptr %34, align 8, !tbaa !35
   %267 = getelementptr %"class.marisa::grimoire::vector::RankIndex", ptr %265, i64 %266
   %268 = getelementptr i8, ptr %267, i64 -12
   store i32 %.073.lcssa210, ptr %268, align 4, !tbaa !13
@@ -1111,13 +1111,13 @@ _ZN6marisa8grimoire6vector6VectorIjE9push_backERKj.exit103: ; preds = %167, %.pr
 
 269:                                              ; preds = %._crit_edge.thread
   %270 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %271 = load i64, ptr %6, align 8, !tbaa !33
+  %271 = load i64, ptr %6, align 8, !tbaa !32
   %272 = trunc i64 %271 to i32
   %273 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  %274 = load i64, ptr %273, align 8, !tbaa !41
+  %274 = load i64, ptr %273, align 8, !tbaa !40
   %275 = add i64 %274, 1
   %276 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  %277 = load i64, ptr %276, align 8, !tbaa !42
+  %277 = load i64, ptr %276, align 8, !tbaa !41
   %.not.i.i109 = icmp ugt i64 %275, %277
   br i1 %.not.i.i109, label %278, label %_ZN6marisa8grimoire6vector6VectorIjE9push_backERKj.exit120
 
@@ -1135,17 +1135,17 @@ _ZN6marisa8grimoire6vector6VectorIjE9push_backERKj.exit103: ; preds = %167, %.pr
 
 .lr.ph.i.i.i114:                                  ; preds = %278
   %285 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  %286 = load ptr, ptr %285, align 8, !tbaa !43
+  %286 = load ptr, ptr %285, align 8, !tbaa !42
   br label %291
 
 .preheader.i.i.i117:                              ; preds = %291, %278
-  %287 = load ptr, ptr %270, align 8, !tbaa !38
-  store ptr %284, ptr %270, align 8, !tbaa !38
+  %287 = load ptr, ptr %270, align 8, !tbaa !37
+  store ptr %284, ptr %270, align 8, !tbaa !37
   %288 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  store ptr %284, ptr %288, align 8, !tbaa !43
+  store ptr %284, ptr %288, align 8, !tbaa !42
   %289 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store ptr %284, ptr %289, align 8, !tbaa !22
-  store i64 %.0.i.i112, ptr %276, align 8, !tbaa !42
+  store i64 %.0.i.i112, ptr %276, align 8, !tbaa !41
   %290 = icmp eq ptr %287, null
   br i1 %290, label %_ZN6marisa8grimoire6vector6VectorIjE9push_backERKj.exit120, label %296
 
@@ -1157,11 +1157,11 @@ _ZN6marisa8grimoire6vector6VectorIjE9push_backERKj.exit103: ; preds = %167, %.pr
   store i32 %294, ptr %292, align 4, !tbaa !25
   %295 = add nuw i64 %.01114.i.i.i115, 1
   %exitcond.not.i.i.i116 = icmp eq i64 %295, %274
-  br i1 %exitcond.not.i.i.i116, label %.preheader.i.i.i117, label %291, !llvm.loop !44
+  br i1 %exitcond.not.i.i.i116, label %.preheader.i.i.i117, label %291, !llvm.loop !43
 
 296:                                              ; preds = %.preheader.i.i.i117
   tail call void @_ZdaPv(ptr noundef nonnull %287) #14
-  %.pre.i118 = load i64, ptr %273, align 8, !tbaa !41
+  %.pre.i118 = load i64, ptr %273, align 8, !tbaa !40
   %.pre2.i119 = add i64 %.pre.i118, 1
   br label %_ZN6marisa8grimoire6vector6VectorIjE9push_backERKj.exit120
 
@@ -1169,10 +1169,10 @@ _ZN6marisa8grimoire6vector6VectorIjE9push_backERKj.exit120: ; preds = %269, %.pr
   %.pre-phi.i110 = phi i64 [ %275, %269 ], [ %275, %.preheader.i.i.i117 ], [ %.pre2.i119, %296 ]
   %297 = phi i64 [ %274, %269 ], [ %274, %.preheader.i.i.i117 ], [ %.pre.i118, %296 ]
   %298 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  %299 = load ptr, ptr %298, align 8, !tbaa !43
+  %299 = load ptr, ptr %298, align 8, !tbaa !42
   %300 = getelementptr inbounds nuw i32, ptr %299, i64 %297
   store i32 %272, ptr %300, align 4, !tbaa !25
-  store i64 %.pre-phi.i110, ptr %273, align 8, !tbaa !41
+  store i64 %.pre-phi.i110, ptr %273, align 8, !tbaa !40
   tail call void @_ZN6marisa8grimoire6vector6VectorIjE6shrinkEv(ptr noundef nonnull align 8 dereferenceable(41) %270)
   br label %301
 
@@ -1181,13 +1181,13 @@ _ZN6marisa8grimoire6vector6VectorIjE9push_backERKj.exit120: ; preds = %269, %.pr
 
 302:                                              ; preds = %301
   %303 = getelementptr inbounds nuw i8, ptr %0, i64 160
-  %304 = load i64, ptr %6, align 8, !tbaa !33
+  %304 = load i64, ptr %6, align 8, !tbaa !32
   %305 = trunc i64 %304 to i32
   %306 = getelementptr inbounds nuw i8, ptr %0, i64 184
-  %307 = load i64, ptr %306, align 8, !tbaa !41
+  %307 = load i64, ptr %306, align 8, !tbaa !40
   %308 = add i64 %307, 1
   %309 = getelementptr inbounds nuw i8, ptr %0, i64 192
-  %310 = load i64, ptr %309, align 8, !tbaa !42
+  %310 = load i64, ptr %309, align 8, !tbaa !41
   %.not.i.i121 = icmp ugt i64 %308, %310
   br i1 %.not.i.i121, label %311, label %_ZN6marisa8grimoire6vector6VectorIjE9push_backERKj.exit132
 
@@ -1205,17 +1205,17 @@ _ZN6marisa8grimoire6vector6VectorIjE9push_backERKj.exit120: ; preds = %269, %.pr
 
 .lr.ph.i.i.i126:                                  ; preds = %311
   %318 = getelementptr inbounds nuw i8, ptr %0, i64 168
-  %319 = load ptr, ptr %318, align 8, !tbaa !43
+  %319 = load ptr, ptr %318, align 8, !tbaa !42
   br label %324
 
 .preheader.i.i.i129:                              ; preds = %324, %311
-  %320 = load ptr, ptr %303, align 8, !tbaa !38
-  store ptr %317, ptr %303, align 8, !tbaa !38
+  %320 = load ptr, ptr %303, align 8, !tbaa !37
+  store ptr %317, ptr %303, align 8, !tbaa !37
   %321 = getelementptr inbounds nuw i8, ptr %0, i64 168
-  store ptr %317, ptr %321, align 8, !tbaa !43
+  store ptr %317, ptr %321, align 8, !tbaa !42
   %322 = getelementptr inbounds nuw i8, ptr %0, i64 176
   store ptr %317, ptr %322, align 8, !tbaa !22
-  store i64 %.0.i.i124, ptr %309, align 8, !tbaa !42
+  store i64 %.0.i.i124, ptr %309, align 8, !tbaa !41
   %323 = icmp eq ptr %320, null
   br i1 %323, label %_ZN6marisa8grimoire6vector6VectorIjE9push_backERKj.exit132, label %329
 
@@ -1227,11 +1227,11 @@ _ZN6marisa8grimoire6vector6VectorIjE9push_backERKj.exit120: ; preds = %269, %.pr
   store i32 %327, ptr %325, align 4, !tbaa !25
   %328 = add nuw i64 %.01114.i.i.i127, 1
   %exitcond.not.i.i.i128 = icmp eq i64 %328, %307
-  br i1 %exitcond.not.i.i.i128, label %.preheader.i.i.i129, label %324, !llvm.loop !44
+  br i1 %exitcond.not.i.i.i128, label %.preheader.i.i.i129, label %324, !llvm.loop !43
 
 329:                                              ; preds = %.preheader.i.i.i129
   tail call void @_ZdaPv(ptr noundef nonnull %320) #14
-  %.pre.i130 = load i64, ptr %306, align 8, !tbaa !41
+  %.pre.i130 = load i64, ptr %306, align 8, !tbaa !40
   %.pre2.i131 = add i64 %.pre.i130, 1
   br label %_ZN6marisa8grimoire6vector6VectorIjE9push_backERKj.exit132
 
@@ -1239,10 +1239,10 @@ _ZN6marisa8grimoire6vector6VectorIjE9push_backERKj.exit132: ; preds = %302, %.pr
   %.pre-phi.i122 = phi i64 [ %308, %302 ], [ %308, %.preheader.i.i.i129 ], [ %.pre2.i131, %329 ]
   %330 = phi i64 [ %307, %302 ], [ %307, %.preheader.i.i.i129 ], [ %.pre.i130, %329 ]
   %331 = getelementptr inbounds nuw i8, ptr %0, i64 168
-  %332 = load ptr, ptr %331, align 8, !tbaa !43
+  %332 = load ptr, ptr %331, align 8, !tbaa !42
   %333 = getelementptr inbounds nuw i32, ptr %332, i64 %330
   store i32 %305, ptr %333, align 4, !tbaa !25
-  store i64 %.pre-phi.i122, ptr %306, align 8, !tbaa !41
+  store i64 %.pre-phi.i122, ptr %306, align 8, !tbaa !40
   tail call void @_ZN6marisa8grimoire6vector6VectorIjE6shrinkEv(ptr noundef nonnull align 8 dereferenceable(41) %303)
   br label %334
 
@@ -1253,29 +1253,29 @@ _ZN6marisa8grimoire6vector6VectorIjE9push_backERKj.exit132: ; preds = %302, %.pr
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN6marisa8grimoire6vector6VectorIjE6shrinkEv(ptr noundef nonnull align 8 dereferenceable(41) %0) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %3 = load i8, ptr %2, align 8, !tbaa !47, !range !48, !noundef !49
+  %3 = load i8, ptr %2, align 8, !tbaa !46, !range !47, !noundef !48
   %4 = trunc nuw i8 %3 to i1
   br i1 %4, label %5, label %11
 
 5:                                                ; preds = %1
   %6 = tail call ptr @__cxa_allocate_exception(i64 32) #15
-  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN6marisa9ExceptionE, i64 16), ptr %6, align 8, !tbaa !50
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN6marisa9ExceptionE, i64 16), ptr %6, align 8, !tbaa !49
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store ptr @.str, ptr %7, align 8, !tbaa !52
+  store ptr @.str, ptr %7, align 8, !tbaa !51
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  store i32 100, ptr %8, align 8, !tbaa !56
+  store i32 100, ptr %8, align 8, !tbaa !55
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 20
-  store i32 1, ptr %9, align 4, !tbaa !57
+  store i32 1, ptr %9, align 4, !tbaa !56
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  store ptr @.str.1, ptr %10, align 8, !tbaa !58
+  store ptr @.str.1, ptr %10, align 8, !tbaa !57
   tail call void @__cxa_throw(ptr nonnull %6, ptr nonnull @_ZTIN6marisa9ExceptionE, ptr nonnull @_ZNSt9exceptionD2Ev) #16
   unreachable
 
 11:                                               ; preds = %1
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %13 = load i64, ptr %12, align 8, !tbaa !41
+  %13 = load i64, ptr %12, align 8, !tbaa !40
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %15 = load i64, ptr %14, align 8, !tbaa !42
+  %15 = load i64, ptr %14, align 8, !tbaa !41
   %.not = icmp eq i64 %13, %15
   br i1 %.not, label %_ZN6marisa8grimoire6vector6VectorIjE7reallocEm.exit, label %16
 
@@ -1287,17 +1287,17 @@ define linkonce_odr void @_ZN6marisa8grimoire6vector6VectorIjE6shrinkEv(ptr noun
 
 .lr.ph.i:                                         ; preds = %16
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %20 = load ptr, ptr %19, align 8, !tbaa !43
+  %20 = load ptr, ptr %19, align 8, !tbaa !42
   br label %25
 
 .preheader.i:                                     ; preds = %25, %16
-  %21 = load ptr, ptr %0, align 8, !tbaa !38
-  store ptr %18, ptr %0, align 8, !tbaa !38
+  %21 = load ptr, ptr %0, align 8, !tbaa !37
+  store ptr %18, ptr %0, align 8, !tbaa !37
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %18, ptr %22, align 8, !tbaa !43
+  store ptr %18, ptr %22, align 8, !tbaa !42
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %18, ptr %23, align 8, !tbaa !22
-  store i64 %13, ptr %14, align 8, !tbaa !42
+  store i64 %13, ptr %14, align 8, !tbaa !41
   %24 = icmp eq ptr %21, null
   br i1 %24, label %_ZN6marisa8grimoire6vector6VectorIjE7reallocEm.exit, label %30
 
@@ -1309,7 +1309,7 @@ define linkonce_odr void @_ZN6marisa8grimoire6vector6VectorIjE6shrinkEv(ptr noun
   store i32 %28, ptr %26, align 4, !tbaa !25
   %29 = add nuw i64 %.01114.i, 1
   %exitcond.not.i = icmp eq i64 %29, %13
-  br i1 %exitcond.not.i, label %.preheader.i, label %25, !llvm.loop !44
+  br i1 %exitcond.not.i, label %.preheader.i, label %25, !llvm.loop !43
 
 30:                                               ; preds = %.preheader.i
   tail call void @_ZdaPv(ptr noundef nonnull %21) #14
@@ -1351,7 +1351,7 @@ define linkonce_odr void @_ZN6marisa9ExceptionD0Ev(ptr noundef nonnull align 8 d
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef ptr @_ZNK6marisa9Exception4whatEv(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #10 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %3 = load ptr, ptr %2, align 8, !tbaa !58
+  %3 = load ptr, ptr %2, align 8, !tbaa !57
   ret ptr %3
 }
 
@@ -1414,36 +1414,35 @@ attributes #16 = { noreturn }
 !23 = !{!"_ZTSN6marisa8grimoire6vector6VectorIjEE", !5, i64 0, !24, i64 8, !24, i64 16, !11, i64 24, !11, i64 32, !12, i64 40}
 !24 = !{!"p1 int", !7, i64 0}
 !25 = !{!15, !15, i64 0}
-!26 = distinct !{!26, !27, !28}
+!26 = distinct !{!26, !27}
 !27 = !{!"llvm.loop.mustprogress"}
-!28 = !{!"llvm.loop.estimated_trip_count"}
-!29 = distinct !{!29, !27, !28}
-!30 = !{!8, !8, i64 0}
-!31 = distinct !{!31, !27, !28}
-!32 = distinct !{!32, !27, !28}
-!33 = !{!34, !11, i64 48}
-!34 = !{!"_ZTSN6marisa8grimoire6vector9BitVectorE", !19, i64 0, !11, i64 48, !11, i64 56, !4, i64 64, !23, i64 112, !23, i64 160}
-!35 = !{!4, !11, i64 32}
-!36 = !{!4, !11, i64 24}
-!37 = !{!4, !10, i64 8}
-!38 = !{!6, !6, i64 0}
-!39 = !{i64 0, i64 4, !25, i64 4, i64 4, !25, i64 8, i64 4, !25}
-!40 = distinct !{!40, !27, !28}
-!41 = !{!23, !11, i64 24}
-!42 = !{!23, !11, i64 32}
-!43 = !{!23, !24, i64 8}
-!44 = distinct !{!44, !27, !28}
-!45 = distinct !{!45, !27, !28}
-!46 = !{!34, !11, i64 56}
-!47 = !{!23, !12, i64 40}
-!48 = !{i8 0, i8 2}
-!49 = !{}
-!50 = !{!51, !51, i64 0}
-!51 = !{!"vtable pointer", !9, i64 0}
-!52 = !{!53, !6, i64 8}
-!53 = !{!"_ZTSN6marisa9ExceptionE", !54, i64 0, !6, i64 8, !15, i64 16, !55, i64 20, !6, i64 24}
-!54 = !{!"_ZTSSt9exception"}
-!55 = !{!"_ZTS18marisa_error_code_", !8, i64 0}
-!56 = !{!53, !15, i64 16}
-!57 = !{!53, !55, i64 20}
-!58 = !{!53, !6, i64 24}
+!28 = distinct !{!28, !27}
+!29 = !{!8, !8, i64 0}
+!30 = distinct !{!30, !27}
+!31 = distinct !{!31, !27}
+!32 = !{!33, !11, i64 48}
+!33 = !{!"_ZTSN6marisa8grimoire6vector9BitVectorE", !19, i64 0, !11, i64 48, !11, i64 56, !4, i64 64, !23, i64 112, !23, i64 160}
+!34 = !{!4, !11, i64 32}
+!35 = !{!4, !11, i64 24}
+!36 = !{!4, !10, i64 8}
+!37 = !{!6, !6, i64 0}
+!38 = !{i64 0, i64 4, !25, i64 4, i64 4, !25, i64 8, i64 4, !25}
+!39 = distinct !{!39, !27}
+!40 = !{!23, !11, i64 24}
+!41 = !{!23, !11, i64 32}
+!42 = !{!23, !24, i64 8}
+!43 = distinct !{!43, !27}
+!44 = distinct !{!44, !27}
+!45 = !{!33, !11, i64 56}
+!46 = !{!23, !12, i64 40}
+!47 = !{i8 0, i8 2}
+!48 = !{}
+!49 = !{!50, !50, i64 0}
+!50 = !{!"vtable pointer", !9, i64 0}
+!51 = !{!52, !6, i64 8}
+!52 = !{!"_ZTSN6marisa9ExceptionE", !53, i64 0, !6, i64 8, !15, i64 16, !54, i64 20, !6, i64 24}
+!53 = !{!"_ZTSSt9exception"}
+!54 = !{!"_ZTS18marisa_error_code_", !8, i64 0}
+!55 = !{!52, !15, i64 16}
+!56 = !{!52, !54, i64 20}
+!57 = !{!52, !6, i64 24}

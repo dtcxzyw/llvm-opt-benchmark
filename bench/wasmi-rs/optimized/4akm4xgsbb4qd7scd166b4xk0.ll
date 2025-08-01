@@ -2832,7 +2832,7 @@ _ZN4core4hash3sip9u8to64_le17hdbc674c1681e6e6fE.exit18: ; preds = %91, %93
   %124 = xor i64 %118, %.sroa.08.0.copyload
   %125 = add nuw i64 %.sroa.04.019, 8
   %126 = icmp ult i64 %125, %44
-  br i1 %126, label %103, label %._crit_edge, !llvm.loop !355
+  br i1 %126, label %103, label %._crit_edge
 
 127:                                              ; preds = %_ZN4core4hash3sip9u8to64_le17hdbc674c1681e6e6fE.exit18, %73
   %storemerge = phi i64 [ %74, %73 ], [ %43, %_ZN4core4hash3sip9u8to64_le17hdbc674c1681e6e6fE.exit18 ]
@@ -2842,7 +2842,7 @@ _ZN4core4hash3sip9u8to64_le17hdbc674c1681e6e6fE.exit18: ; preds = %91, %93
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 define internal noundef zeroext i1 @"_ZN85_$LT$wasmparser..binary_reader..BinaryReaderErrorKind$u20$as$u20$core..fmt..Debug$GT$3fmt17h5fa07faf4a179448E"(ptr noalias noundef readonly align 1 captures(none) dereferenceable(1) %0, ptr noalias noundef align 8 dereferenceable(24) %1) unnamed_addr #1 {
-  %3 = load i8, ptr %0, align 1, !range !357, !noundef !9
+  %3 = load i8, ptr %0, align 1, !range !355, !noundef !9
   %4 = trunc nuw i8 %3 to i1
   %. = select i1 %4, i64 7, i64 6
   %anon.2fbac11ef9355f1bf3c11994d10f5948.180.anon.2fbac11ef9355f1bf3c11994d10f5948.25 = select i1 %4, ptr @anon.2fbac11ef9355f1bf3c11994d10f5948.180, ptr @anon.2fbac11ef9355f1bf3c11994d10f5948.25
@@ -3655,6 +3655,4 @@ attributes #19 = { noreturn }
 !352 = !{!353}
 !353 = distinct !{!353, !354, !"_ZN4core4hash3sip9u8to64_le17hdbc674c1681e6e6fE: argument 0"}
 !354 = distinct !{!354, !"_ZN4core4hash3sip9u8to64_le17hdbc674c1681e6e6fE"}
-!355 = distinct !{!355, !356}
-!356 = !{!"llvm.loop.estimated_trip_count"}
-!357 = !{i8 0, i8 2}
+!355 = !{i8 0, i8 2}

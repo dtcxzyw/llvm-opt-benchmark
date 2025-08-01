@@ -886,7 +886,7 @@ define internal i32 @dissect_modbus(ptr noundef %0, ptr noundef %1, ptr noundef 
   %223 = add nuw nsw i32 %.0246257.i, 7
   %224 = add nuw nsw i32 %.0247256.i, 1
   %exitcond.not.i = icmp eq i32 %224, %.zext.i
-  br i1 %exitcond.not.i, label %.loopexit.i, label %.lr.ph258.i, !llvm.loop !11
+  br i1 %exitcond.not.i, label %.loopexit.i, label %.lr.ph258.i, !llvm.loop !10
 
 225:                                              ; preds = %135
   %226 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 1)
@@ -925,7 +925,7 @@ define internal i32 @dissect_modbus(ptr noundef %0, ptr noundef %1, ptr noundef 
   %249 = sub nsw i32 %.0245255.i, %236
   %250 = add i32 %.1248253.i, 1
   %251 = icmp sgt i32 %249, 0
-  br i1 %251, label %231, label %.loopexit.i, !llvm.loop !12
+  br i1 %251, label %231, label %.loopexit.i, !llvm.loop !11
 
 252:                                              ; preds = %135
   %253 = load i32, ptr @hf_modbus_reference, align 4
@@ -1335,7 +1335,7 @@ proto_item_set_generated.exit472.i:               ; preds = %324, %321, %proto_i
 488:                                              ; preds = %486, %470, %455, %451, %448
   %489 = add nuw nsw i32 %.0454486.i, 1
   %exitcond495.not.i = icmp eq i32 %489, %442
-  br i1 %exitcond495.not.i, label %.loopexit.i131, label %.lr.ph488.i, !llvm.loop !13
+  br i1 %exitcond495.not.i, label %.loopexit.i131, label %.lr.ph488.i, !llvm.loop !12
 
 490:                                              ; preds = %proto_item_set_generated.exit472.i
   %491 = load i32, ptr @hf_modbus_reference, align 4
@@ -1387,7 +1387,7 @@ proto_item_set_generated.exit472.i:               ; preds = %324, %321, %proto_i
   %523 = sub nsw i32 %.1484.i, %510
   %524 = add i32 %.0455482.i, 1
   %525 = icmp sgt i32 %523, 0
-  br i1 %525, label %507, label %.loopexit.i131, !llvm.loop !14
+  br i1 %525, label %507, label %.loopexit.i131, !llvm.loop !13
 
 526:                                              ; preds = %proto_item_set_generated.exit472.i
   %527 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 1)
@@ -1428,7 +1428,7 @@ proto_item_set_generated.exit472.i:               ; preds = %324, %321, %proto_i
   %552 = sub nsw i32 %.2480.i, %538
   %553 = add i32 %.1456478.i, 1
   %554 = icmp sgt i32 %552, 0
-  br i1 %554, label %533, label %.loopexit.i131, !llvm.loop !15
+  br i1 %554, label %533, label %.loopexit.i131, !llvm.loop !14
 
 555:                                              ; preds = %proto_item_set_generated.exit472.i
   %556 = load i32, ptr @hf_modbus_reference, align 4
@@ -1525,7 +1525,7 @@ proto_item_set_generated.exit472.i:               ; preds = %324, %321, %proto_i
 621:                                              ; preds = %.sink.split.i, %617
   %622 = add i32 %608, %.0458476.i
   %exitcond.not.i134 = icmp eq i32 %610, %597
-  br i1 %exitcond.not.i134, label %.loopexit.i131, label %.lr.ph.i133, !llvm.loop !16
+  br i1 %exitcond.not.i134, label %.loopexit.i131, label %.lr.ph.i133, !llvm.loop !15
 
 623:                                              ; preds = %583
   %624 = icmp sgt i32 %132, 1
@@ -1984,12 +1984,12 @@ proto_item_set_generated.exit:                    ; preds = %38, %46, %49
   %indvars.iv.next = add nuw nsw i32 %indvars.iv, 1
   %58 = icmp samesign ult i32 %indvars.iv, 7
   %or.cond249 = select i1 %.not193, i1 %58, i1 false
-  br i1 %or.cond249, label %38, label %59, !llvm.loop !17
+  br i1 %or.cond249, label %38, label %59, !llvm.loop !16
 
 59:                                               ; preds = %proto_item_set_generated.exit
   %60 = add nuw nsw i32 %.0247, 1
   %exitcond.not = icmp eq i32 %60, %5
-  br i1 %exitcond.not, label %.loopexit, label %33, !llvm.loop !18
+  br i1 %exitcond.not, label %.loopexit, label %33, !llvm.loop !17
 
 61:                                               ; preds = %27, %27, %27, %27
   %62 = icmp sgt i32 %5, 0
@@ -2037,7 +2037,7 @@ proto_item_set_generated.exit200.us:              ; preds = %73, %70, %.lr.ph.sp
   %79 = add i32 %.1218.us, 2
   %80 = add i16 %.3217.us, 1
   %81 = icmp slt i32 %79, %5
-  br i1 %81, label %.lr.ph.split.us, label %.loopexit, !llvm.loop !19
+  br i1 %81, label %.lr.ph.split.us, label %.loopexit, !llvm.loop !18
 
 .lr.ph.split.us219:                               ; preds = %.lr.ph, %proto_item_set_generated.exit203.us
   %.1218.us220 = phi i32 [ %98, %proto_item_set_generated.exit203.us ], [ 0, %.lr.ph ]
@@ -2071,7 +2071,7 @@ proto_item_set_generated.exit203.us:              ; preds = %92, %89, %.lr.ph.sp
   %98 = add i32 %.1218.us220, 2
   %99 = add i16 %.3217.us221, 1
   %100 = icmp slt i32 %98, %5
-  br i1 %100, label %.lr.ph.split.us219, label %.loopexit, !llvm.loop !21
+  br i1 %100, label %.lr.ph.split.us219, label %.loopexit, !llvm.loop !20
 
 .lr.ph.split.us224:                               ; preds = %.lr.ph, %proto_item_set_generated.exit206.us
   %.1218.us225 = phi i32 [ %116, %proto_item_set_generated.exit206.us ], [ 0, %.lr.ph ]
@@ -2104,7 +2104,7 @@ proto_item_set_generated.exit206.us:              ; preds = %110, %107, %.lr.ph.
   %116 = add i32 %.1218.us225, 4
   %117 = add i16 %.3217.us226, 2
   %118 = icmp slt i32 %116, %5
-  br i1 %118, label %.lr.ph.split.us224, label %.loopexit, !llvm.loop !22
+  br i1 %118, label %.lr.ph.split.us224, label %.loopexit, !llvm.loop !21
 
 .lr.ph.split.us229:                               ; preds = %.lr.ph, %proto_item_set_generated.exit209.us
   %.1218.us230 = phi i32 [ %134, %proto_item_set_generated.exit209.us ], [ 0, %.lr.ph ]
@@ -2137,7 +2137,7 @@ proto_item_set_generated.exit209.us:              ; preds = %128, %125, %.lr.ph.
   %134 = add i32 %.1218.us230, 4
   %135 = add i16 %.3217.us231, 2
   %136 = icmp slt i32 %134, %5
-  br i1 %136, label %.lr.ph.split.us229, label %.loopexit, !llvm.loop !23
+  br i1 %136, label %.lr.ph.split.us229, label %.loopexit, !llvm.loop !22
 
 .lr.ph.split.us234:                               ; preds = %.lr.ph, %proto_item_set_generated.exit212.us
   %.1218.us235 = phi i32 [ %153, %proto_item_set_generated.exit212.us ], [ 0, %.lr.ph ]
@@ -2171,7 +2171,7 @@ proto_item_set_generated.exit212.us:              ; preds = %147, %144, %.lr.ph.
   %153 = add i32 %.1218.us235, 4
   %154 = add i16 %.3217.us236, 2
   %155 = icmp slt i32 %153, %5
-  br i1 %155, label %.lr.ph.split.us234, label %.loopexit, !llvm.loop !24
+  br i1 %155, label %.lr.ph.split.us234, label %.loopexit, !llvm.loop !23
 
 .lr.ph.split.us239:                               ; preds = %.lr.ph, %proto_item_set_generated.exit215.us
   %.1218.us240 = phi i32 [ %179, %proto_item_set_generated.exit215.us ], [ 0, %.lr.ph ]
@@ -2212,7 +2212,7 @@ proto_item_set_generated.exit215.us:              ; preds = %173, %170, %.lr.ph.
   %179 = add i32 %.1218.us240, 4
   %180 = add i16 %.3217.us241, 2
   %181 = icmp slt i32 %179, %5
-  br i1 %181, label %.lr.ph.split.us239, label %.loopexit, !llvm.loop !25
+  br i1 %181, label %.lr.ph.split.us239, label %.loopexit, !llvm.loop !24
 
 182:                                              ; preds = %27
   %183 = load ptr, ptr @modbus_data_dissector_table, align 8
@@ -2813,21 +2813,20 @@ attributes #7 = { nounwind }
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i8 0, i8 2}
 !7 = !{}
-!8 = distinct !{!8, !9, !10}
+!8 = distinct !{!8, !9}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = !{!"llvm.loop.estimated_trip_count"}
-!11 = distinct !{!11, !9, !10}
-!12 = distinct !{!12, !9, !10}
-!13 = distinct !{!13, !9, !10}
-!14 = distinct !{!14, !9, !10}
-!15 = distinct !{!15, !9, !10}
-!16 = distinct !{!16, !9, !10}
-!17 = distinct !{!17, !9, !10}
-!18 = distinct !{!18, !9, !10}
-!19 = distinct !{!19, !9, !10, !20}
-!20 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!21 = distinct !{!21, !9, !10, !20}
-!22 = distinct !{!22, !9, !10, !20}
-!23 = distinct !{!23, !9, !10, !20}
-!24 = distinct !{!24, !9, !10, !20}
-!25 = distinct !{!25, !9, !10, !20}
+!10 = distinct !{!10, !9}
+!11 = distinct !{!11, !9}
+!12 = distinct !{!12, !9}
+!13 = distinct !{!13, !9}
+!14 = distinct !{!14, !9}
+!15 = distinct !{!15, !9}
+!16 = distinct !{!16, !9}
+!17 = distinct !{!17, !9}
+!18 = distinct !{!18, !9, !19}
+!19 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!20 = distinct !{!20, !9, !19}
+!21 = distinct !{!21, !9, !19}
+!22 = distinct !{!22, !9, !19}
+!23 = distinct !{!23, !9, !19}
+!24 = distinct !{!24, !9, !19}

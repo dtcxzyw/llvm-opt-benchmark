@@ -130,7 +130,7 @@ define internal range(i32 0, 2) i32 @test_rng_generate(ptr noundef captures(none
 
 26:                                               ; preds = %11
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %28 = load i64, ptr %27, align 8, !tbaa !24
+  %28 = load i64, ptr %27, align 8, !tbaa !23
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %30 = load i64, ptr %29, align 8, !tbaa !17
   %31 = sub i64 %28, %30
@@ -193,7 +193,7 @@ define internal i64 @test_rng_nonce(ptr noundef captures(none) %0, ptr noundef w
   store i8 %21, ptr %22, align 1, !tbaa !20
   %23 = add nuw i64 %.022, 1
   %exitcond.not = icmp eq i64 %23, %3
-  br i1 %exitcond.not, label %.loopexit, label %13, !llvm.loop !25
+  br i1 %exitcond.not, label %.loopexit, label %13, !llvm.loop !24
 
 24:                                               ; preds = %9
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -207,13 +207,13 @@ define internal i64 @test_rng_nonce(ptr noundef captures(none) %0, ptr noundef w
 
 29:                                               ; preds = %28
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %31 = load i64, ptr %30, align 8, !tbaa !26
+  %31 = load i64, ptr %30, align 8, !tbaa !25
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %1, ptr nonnull align 1 %26, i64 %31, i1 false)
   br label %32
 
 32:                                               ; preds = %29, %28
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %34 = load i64, ptr %33, align 8, !tbaa !26
+  %34 = load i64, ptr %33, align 8, !tbaa !25
   br label %.loopexit
 
 .loopexit:                                        ; preds = %13, %.preheader, %24, %5, %32
@@ -298,14 +298,14 @@ define internal range(i32 0, 2) i32 @test_rng_set_ctx_params(ptr noundef %0, ptr
   %3 = alloca ptr, align 8
   %4 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #9
-  store ptr null, ptr %3, align 8, !tbaa !27
+  store ptr null, ptr %3, align 8, !tbaa !26
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #9
-  store i64 0, ptr %4, align 8, !tbaa !28
+  store i64 0, ptr %4, align 8, !tbaa !27
   %5 = icmp eq ptr %1, null
   br i1 %5, label %ossl_param_is_empty.exit.thread, label %ossl_param_is_empty.exit
 
 ossl_param_is_empty.exit:                         ; preds = %2
-  %6 = load ptr, ptr %1, align 8, !tbaa !29
+  %6 = load ptr, ptr %1, align 8, !tbaa !28
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %ossl_param_is_empty.exit.thread, label %7
 
@@ -334,14 +334,14 @@ ossl_param_is_empty.exit:                         ; preds = %2
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %18 = load ptr, ptr %17, align 8, !tbaa !13
   call void @CRYPTO_free(ptr noundef %18, ptr noundef nonnull @.str, i32 noundef 243) #9
-  %19 = load ptr, ptr %3, align 8, !tbaa !27
+  %19 = load ptr, ptr %3, align 8, !tbaa !26
   store ptr %19, ptr %17, align 8, !tbaa !13
-  %20 = load i64, ptr %4, align 8, !tbaa !28
+  %20 = load i64, ptr %4, align 8, !tbaa !27
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store i64 %20, ptr %21, align 8, !tbaa !24
+  store i64 %20, ptr %21, align 8, !tbaa !23
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i64 0, ptr %22, align 8, !tbaa !17
-  store ptr null, ptr %3, align 8, !tbaa !27
+  store ptr null, ptr %3, align 8, !tbaa !26
   br label %23
 
 23:                                               ; preds = %16, %12
@@ -358,11 +358,11 @@ ossl_param_is_empty.exit:                         ; preds = %2
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %29 = load ptr, ptr %28, align 8, !tbaa !14
   call void @CRYPTO_free(ptr noundef %29, ptr noundef nonnull @.str, i32 noundef 254) #9
-  %30 = load ptr, ptr %3, align 8, !tbaa !27
+  %30 = load ptr, ptr %3, align 8, !tbaa !26
   store ptr %30, ptr %28, align 8, !tbaa !14
-  %31 = load i64, ptr %4, align 8, !tbaa !28
+  %31 = load i64, ptr %4, align 8, !tbaa !27
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  store i64 %31, ptr %32, align 8, !tbaa !26
+  store i64 %31, ptr %32, align 8, !tbaa !25
   br label %33
 
 33:                                               ; preds = %27, %23
@@ -468,9 +468,9 @@ define internal noundef i32 @test_rng_verify_zeroization(ptr readnone captures(n
 define internal i64 @test_rng_get_seed(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1, i32 %2, i64 %3, i64 noundef %4, i32 %5, ptr readnone captures(none) %6, i64 %7) #4 {
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %10 = load ptr, ptr %9, align 8, !tbaa !13
-  store ptr %10, ptr %1, align 8, !tbaa !31
+  store ptr %10, ptr %1, align 8, !tbaa !30
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %12 = load i64, ptr %11, align 8, !tbaa !24
+  %12 = load i64, ptr %11, align 8, !tbaa !23
   %. = tail call i64 @llvm.umin.i64(i64 %12, i64 %4)
   ret i64 %.
 }
@@ -555,14 +555,13 @@ attributes #9 = { nounwind }
 !18 = !{!4, !8, i64 80}
 !19 = !{!4, !8, i64 8}
 !20 = !{!6, !6, i64 0}
-!21 = distinct !{!21, !22, !23}
+!21 = distinct !{!21, !22}
 !22 = !{!"llvm.loop.mustprogress"}
-!23 = !{!"llvm.loop.estimated_trip_count"}
-!24 = !{!4, !9, i64 48}
-!25 = distinct !{!25, !22, !23}
-!26 = !{!4, !9, i64 64}
-!27 = !{!5, !5, i64 0}
-!28 = !{!9, !9, i64 0}
-!29 = !{!30, !10, i64 0}
-!30 = !{!"ossl_param_st", !10, i64 0, !8, i64 8, !5, i64 16, !9, i64 24, !9, i64 32}
-!31 = !{!10, !10, i64 0}
+!23 = !{!4, !9, i64 48}
+!24 = distinct !{!24, !22}
+!25 = !{!4, !9, i64 64}
+!26 = !{!5, !5, i64 0}
+!27 = !{!9, !9, i64 0}
+!28 = !{!29, !10, i64 0}
+!29 = !{!"ossl_param_st", !10, i64 0, !8, i64 8, !5, i64 16, !9, i64 24, !9, i64 32}
+!30 = !{!10, !10, i64 0}

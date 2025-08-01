@@ -109,7 +109,7 @@ declare i32 @pthread_mutex_destroy(ptr noundef) local_unnamed_addr #3
 define dso_local noundef ptr @cache_alloc(ptr noundef %0) local_unnamed_addr #0 {
   %2 = tail call i32 @pthread_mutex_lock(ptr noundef %0) #9
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %4 = load i32, ptr %3, align 8, !tbaa !25
+  %4 = load i32, ptr %3, align 8, !tbaa !24
   %5 = icmp sgt i32 %4, 0
   br i1 %5, label %6, label %15
 
@@ -128,7 +128,7 @@ define dso_local noundef ptr @cache_alloc(ptr noundef %0) local_unnamed_addr #0 
 
 13:                                               ; preds = %11, %6
   %14 = add nsw i32 %4, -1
-  store i32 %14, ptr %3, align 8, !tbaa !25
+  store i32 %14, ptr %3, align 8, !tbaa !24
   br label %do_cache_alloc.exit
 
 15:                                               ; preds = %1
@@ -139,7 +139,7 @@ define dso_local noundef ptr @cache_alloc(ptr noundef %0) local_unnamed_addr #0 
 
 19:                                               ; preds = %15
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 76
-  %21 = load i32, ptr %20, align 4, !tbaa !26
+  %21 = load i32, ptr %20, align 4, !tbaa !25
   %22 = icmp slt i32 %21, %17
   br i1 %22, label %23, label %do_cache_alloc.exit
 
@@ -152,9 +152,9 @@ define dso_local noundef ptr @cache_alloc(ptr noundef %0) local_unnamed_addr #0 
 
 27:                                               ; preds = %23
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 76
-  %29 = load i32, ptr %28, align 4, !tbaa !26
+  %29 = load i32, ptr %28, align 4, !tbaa !25
   %30 = add nsw i32 %29, 1
-  store i32 %30, ptr %28, align 4, !tbaa !26
+  store i32 %30, ptr %28, align 4, !tbaa !25
   br label %do_cache_alloc.exit
 
 do_cache_alloc.exit:                              ; preds = %13, %19, %23, %27
@@ -166,7 +166,7 @@ do_cache_alloc.exit:                              ; preds = %13, %19, %23, %27
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define dso_local noundef ptr @do_cache_alloc(ptr noundef %0) local_unnamed_addr #5 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %3 = load i32, ptr %2, align 8, !tbaa !25
+  %3 = load i32, ptr %2, align 8, !tbaa !24
   %4 = icmp sgt i32 %3, 0
   br i1 %4, label %5, label %14
 
@@ -185,7 +185,7 @@ define dso_local noundef ptr @do_cache_alloc(ptr noundef %0) local_unnamed_addr 
 
 12:                                               ; preds = %10, %5
   %13 = add nsw i32 %3, -1
-  store i32 %13, ptr %2, align 8, !tbaa !25
+  store i32 %13, ptr %2, align 8, !tbaa !24
   br label %30
 
 14:                                               ; preds = %1
@@ -196,7 +196,7 @@ define dso_local noundef ptr @do_cache_alloc(ptr noundef %0) local_unnamed_addr 
 
 18:                                               ; preds = %14
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 76
-  %20 = load i32, ptr %19, align 4, !tbaa !26
+  %20 = load i32, ptr %19, align 4, !tbaa !25
   %21 = icmp slt i32 %20, %16
   br i1 %21, label %22, label %30
 
@@ -209,9 +209,9 @@ define dso_local noundef ptr @do_cache_alloc(ptr noundef %0) local_unnamed_addr 
 
 26:                                               ; preds = %22
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 76
-  %28 = load i32, ptr %27, align 4, !tbaa !26
+  %28 = load i32, ptr %27, align 4, !tbaa !25
   %29 = add nsw i32 %28, 1
-  store i32 %29, ptr %27, align 4, !tbaa !26
+  store i32 %29, ptr %27, align 4, !tbaa !25
   br label %30
 
 30:                                               ; preds = %18, %26, %22, %12
@@ -232,15 +232,15 @@ define dso_local void @cache_free(ptr noundef %0, ptr noundef %1) local_unnamed_
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 76
-  %8 = load i32, ptr %7, align 4, !tbaa !26
+  %8 = load i32, ptr %7, align 4, !tbaa !25
   %9 = icmp slt i32 %5, %8
   br i1 %9, label %10, label %13
 
 10:                                               ; preds = %6
   tail call void @free(ptr noundef %1) #9
-  %11 = load i32, ptr %7, align 4, !tbaa !26
+  %11 = load i32, ptr %7, align 4, !tbaa !25
   %12 = add nsw i32 %11, -1
-  store i32 %12, ptr %7, align 4, !tbaa !26
+  store i32 %12, ptr %7, align 4, !tbaa !25
   br label %do_cache_free.exit
 
 13:                                               ; preds = %6, %2
@@ -258,9 +258,9 @@ define dso_local void @cache_free(ptr noundef %0, ptr noundef %1) local_unnamed_
 19:                                               ; preds = %17, %13
   store ptr %1, ptr %14, align 8, !tbaa !15
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %21 = load i32, ptr %20, align 8, !tbaa !25
+  %21 = load i32, ptr %20, align 8, !tbaa !24
   %22 = add nsw i32 %21, 1
-  store i32 %22, ptr %20, align 8, !tbaa !25
+  store i32 %22, ptr %20, align 8, !tbaa !24
   br label %do_cache_free.exit
 
 do_cache_free.exit:                               ; preds = %10, %19
@@ -277,15 +277,15 @@ define dso_local void @do_cache_free(ptr noundef captures(none) %0, ptr noundef 
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 76
-  %7 = load i32, ptr %6, align 4, !tbaa !26
+  %7 = load i32, ptr %6, align 4, !tbaa !25
   %8 = icmp slt i32 %4, %7
   br i1 %8, label %9, label %12
 
 9:                                                ; preds = %5
   tail call void @free(ptr noundef %1) #9
-  %10 = load i32, ptr %6, align 4, !tbaa !26
+  %10 = load i32, ptr %6, align 4, !tbaa !25
   %11 = add nsw i32 %10, -1
-  store i32 %11, ptr %6, align 4, !tbaa !26
+  store i32 %11, ptr %6, align 4, !tbaa !25
   br label %22
 
 12:                                               ; preds = %2, %5
@@ -303,9 +303,9 @@ define dso_local void @do_cache_free(ptr noundef captures(none) %0, ptr noundef 
 18:                                               ; preds = %16, %12
   store ptr %1, ptr %13, align 8, !tbaa !15
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %20 = load i32, ptr %19, align 8, !tbaa !25
+  %20 = load i32, ptr %19, align 8, !tbaa !24
   %21 = add nsw i32 %20, 1
-  store i32 %21, ptr %19, align 8, !tbaa !25
+  store i32 %21, ptr %19, align 8, !tbaa !24
   br label %22
 
 22:                                               ; preds = %18, %9
@@ -348,8 +348,7 @@ attributes #10 = { nounwind allocsize(0) }
 !19 = !{!20, !11, i64 0}
 !20 = !{!"cache_free_s", !21, i64 0}
 !21 = !{!"", !11, i64 0}
-!22 = distinct !{!22, !23, !24}
+!22 = distinct !{!22, !23}
 !23 = !{!"llvm.loop.mustprogress"}
-!24 = !{!"llvm.loop.estimated_trip_count"}
-!25 = !{!5, !14, i64 80}
-!26 = !{!5, !14, i64 76}
+!24 = !{!5, !14, i64 80}
+!25 = !{!5, !14, i64 76}

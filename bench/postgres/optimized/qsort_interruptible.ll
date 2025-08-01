@@ -64,12 +64,12 @@ define dso_local void @qsort_interruptible(ptr noundef %0, i64 noundef %1, i64 n
 
 qsort_interruptible_swapn.exit.loopexit:          ; preds = %.lr.ph.i
   %25 = icmp ugt ptr %17, %.0186.ph
-  br i1 %25, label %.lr.ph298, label %.critedge, !llvm.loop !8
+  br i1 %25, label %.lr.ph298, label %.critedge, !llvm.loop !7
 
 .critedge:                                        ; preds = %qsort_interruptible_swapn.exit.loopexit, %.lr.ph298, %.preheader
   %.0188 = getelementptr inbounds nuw i8, ptr %.0188301, i64 %2
   %26 = icmp ult ptr %.0188, %15
-  br i1 %26, label %.preheader, label %.critedge223, !llvm.loop !9
+  br i1 %26, label %.preheader, label %.critedge223, !llvm.loop !8
 
 27:                                               ; preds = %12
   br i1 %.not366, label %.lr.ph, label %.critedge223
@@ -93,7 +93,7 @@ qsort_interruptible_swapn.exit.loopexit:          ; preds = %.lr.ph.i
 34:                                               ; preds = %30
   %35 = getelementptr inbounds nuw i8, ptr %.1273, i64 %2
   %36 = icmp ult ptr %35, %15
-  br i1 %36, label %.lr.ph, label %.critedge223, !llvm.loop !10
+  br i1 %36, label %.lr.ph, label %.critedge223, !llvm.loop !9
 
 37:                                               ; preds = %30
   %38 = lshr i64 %.0, 1
@@ -206,7 +206,7 @@ qsort_interruptible_swapn.exit233:                ; preds = %.lr.ph.i230, %77
 
 88:                                               ; preds = %87, %84
   %.not217 = icmp ugt ptr %85, %.0194
-  br i1 %.not217, label %.critedge2, label %.lr.ph279, !llvm.loop !11
+  br i1 %.not217, label %.critedge2, label %.lr.ph279, !llvm.loop !10
 
 .critedge2:                                       ; preds = %.lr.ph279, %88, %72
   %.1199.lcssa = phi ptr [ %.0198, %72 ], [ %.2200, %88 ], [ %.1199276, %.lr.ph279 ]
@@ -257,7 +257,7 @@ qsort_interruptible_swapn.exit238:                ; preds = %.lr.ph.i235, %93
 
 104:                                              ; preds = %103, %100
   %.not218 = icmp ugt ptr %.1197.lcssa, %101
-  br i1 %.not218, label %.critedge2._crit_edge, label %.lr.ph288, !llvm.loop !12
+  br i1 %.not218, label %.critedge2._crit_edge, label %.lr.ph288, !llvm.loop !11
 
 .critedge4:                                       ; preds = %.lr.ph288
   br i1 %.not.i224, label %qsort_interruptible_swapn.exit243, label %.lr.ph.i240
@@ -277,7 +277,7 @@ qsort_interruptible_swapn.exit238:                ; preds = %.lr.ph.i235, %93
 qsort_interruptible_swapn.exit243:                ; preds = %.lr.ph.i240, %.critedge4
   %110 = getelementptr inbounds nuw i8, ptr %.1197.lcssa, i64 %2
   %111 = getelementptr inbounds i8, ptr %.1195285, i64 %6
-  br label %72, !llvm.loop !13
+  br label %72
 
 .critedge2._crit_edge:                            ; preds = %.critedge2, %104
   %.1195.lcssa = phi ptr [ %101, %104 ], [ %.0194, %.critedge2 ]
@@ -350,7 +350,7 @@ qsort_interruptible_swapn.exit253:                ; preds = %.lr.ph.i250, %qsort
   %144 = sub i64 0, %125
   %145 = getelementptr inbounds i8, ptr %15, i64 %144
   %146 = udiv i64 %125, %2
-  br label %.outer, !llvm.loop !14
+  br label %.outer
 
 147:                                              ; preds = %qsort_interruptible_swapn.exit253
   %148 = icmp ugt i64 %125, %2
@@ -369,7 +369,7 @@ qsort_interruptible_swapn.exit253:                ; preds = %.lr.ph.i250, %qsort
 
 155:                                              ; preds = %153
   %156 = udiv i64 %115, %2
-  br label %9, !llvm.loop !14
+  br label %9
 
 .critedge223:                                     ; preds = %141, %153, %27, %34, %.critedge, %.preheader255
   ret void
@@ -428,13 +428,10 @@ attributes #4 = { nounwind }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{!"branch_weights", !"expected", i32 2000, i32 1}
-!5 = distinct !{!5, !6, !7}
+!5 = distinct !{!5, !6}
 !6 = !{!"llvm.loop.mustprogress"}
-!7 = !{!"llvm.loop.estimated_trip_count"}
-!8 = distinct !{!8, !6, !7}
-!9 = distinct !{!9, !6, !7}
-!10 = distinct !{!10, !6, !7}
-!11 = distinct !{!11, !6, !7}
-!12 = distinct !{!12, !6, !7}
-!13 = distinct !{!13, !7}
-!14 = distinct !{!14, !7}
+!7 = distinct !{!7, !6}
+!8 = distinct !{!8, !6}
+!9 = distinct !{!9, !6}
+!10 = distinct !{!10, !6}
+!11 = distinct !{!11, !6}

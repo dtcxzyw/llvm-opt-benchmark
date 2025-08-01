@@ -164,7 +164,7 @@ define dso_local void @sysrq_timer_list_show() local_unnamed_addr #0 align 16 {
   %35 = add nuw nsw i64 %29, 1
   %36 = and i64 %35, 127
   %37 = icmp samesign ugt i64 %36, 63
-  br i1 %37, label %.thread10, label %22, !prof !6, !llvm.loop !11
+  br i1 %37, label %.thread10, label %22, !prof !6, !llvm.loop !10
 
 .thread10:                                        ; preds = %22, %32, %28
   ret void
@@ -228,7 +228,7 @@ define internal fastcc void @print_cpu(ptr noundef %0, i32 noundef %1, i64 nound
   %36 = icmp ne ptr %34, null
   %37 = icmp ult i64 %35, %25
   %38 = select i1 %36, i1 %37, i1 false
-  br i1 %38, label %.preheader, label %.loopexit.loopexit, !llvm.loop !12
+  br i1 %38, label %.preheader, label %.loopexit.loopexit, !llvm.loop !11
 
 .loopexit.loopexit:                               ; preds = %.preheader
   %39 = trunc i64 %35 to i32
@@ -258,14 +258,14 @@ define internal fastcc void @print_cpu(ptr noundef %0, i32 noundef %1, i64 nound
   %54 = sub i64 %44, %22
   tail call void (ptr, ptr, ...) @SEQ_printf(ptr noundef %0, ptr noundef nonnull @.str.37, i64 noundef %46, i64 noundef %44, i64 noundef %53, i64 noundef %54)
   %55 = add i64 %25, 1
-  br label %24, !llvm.loop !13
+  br label %24
 
 56:                                               ; preds = %.loopexit.loopexit, %.loopexit
   %57 = load ptr, ptr %13, align 64
   tail call void @_raw_spin_unlock_irqrestore(ptr noundef %57, i64 noundef %27) #8
   %58 = add nuw nsw i64 %11, 1
   %59 = icmp eq i64 %58, 8
-  br i1 %59, label %60, label %10, !llvm.loop !14
+  br i1 %59, label %60, label %10, !llvm.loop !12
 
 60:                                               ; preds = %56
   %61 = getelementptr inbounds nuw i8, ptr %8, i64 32
@@ -486,7 +486,7 @@ define internal range(i32 -12, 1) i32 @init_timer_list_procfs() #3 section ".ini
 define internal void @SEQ_printf(ptr noundef %0, ptr noundef %1, ...) unnamed_addr #0 align 16 {
   %3 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %3, i8 0, i64 24, i1 false), !annotation !15
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %3, i8 0, i64 24, i1 false), !annotation !13
   call void @llvm.va_start.p0(ptr nonnull %3)
   %4 = icmp eq ptr %0, null
   br i1 %4, label %6, label %5
@@ -569,7 +569,7 @@ define internal ptr @timer_list_start(ptr noundef readonly captures(none) %0, pt
   %16 = phi i64 [ %38, %35 ], [ %12, %10 ]
   %17 = add i32 %15, 1
   %18 = icmp ugt i32 %17, 63
-  br i1 %18, label %28, label %19, !prof !16
+  br i1 %18, label %28, label %19, !prof !14
 
 19:                                               ; preds = %.preheader
   %20 = load i64, ptr @__cpu_online_mask, align 8
@@ -605,7 +605,7 @@ define internal ptr @timer_list_start(ptr noundef readonly captures(none) %0, pt
   %37 = phi i32 [ -1, %34 ], [ %29, %28 ]
   %38 = add i64 %16, -1
   %39 = icmp eq i64 %38, 0
-  br i1 %39, label %.loopexit, label %.preheader, !llvm.loop !17
+  br i1 %39, label %.loopexit, label %.preheader, !llvm.loop !15
 
 .loopexit:                                        ; preds = %35, %32, %10
   %40 = phi ptr [ %4, %10 ], [ %4, %35 ], [ null, %32 ]
@@ -628,7 +628,7 @@ define internal noundef ptr @timer_list_next(ptr noundef readonly captures(none)
   %9 = load i32, ptr %5, align 8
   %10 = add i32 %9, 1
   %11 = icmp ugt i32 %10, 63
-  br i1 %11, label %21, label %12, !prof !16
+  br i1 %11, label %21, label %12, !prof !14
 
 12:                                               ; preds = %3
   %13 = load i64, ptr @__cpu_online_mask, align 8
@@ -651,7 +651,7 @@ define internal noundef ptr @timer_list_next(ptr noundef readonly captures(none)
   br i1 %24, label %29, label %25
 
 25:                                               ; preds = %21
-  %26 = load i8, ptr %8, align 4, !range !18, !noundef !19
+  %26 = load i8, ptr %8, align 4, !range !16, !noundef !17
   %27 = icmp eq i8 %26, 0
   br i1 %27, label %28, label %29
 
@@ -670,7 +670,7 @@ define internal noundef i32 @timer_list_show(ptr noundef %0, ptr noundef readonl
   %3 = load i32, ptr %1, align 8
   %4 = icmp eq i32 %3, -1
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %6 = load i8, ptr %5, align 4, !range !18, !noundef !19
+  %6 = load i8, ptr %5, align 4, !range !16, !noundef !17
   %7 = icmp eq i8 %6, 0
   br i1 %4, label %8, label %.thread
 
@@ -749,16 +749,14 @@ attributes #9 = { nounwind memory(read) }
 !4 = !{i32 4, !"SkipRaxSetup", i32 1}
 !5 = !{i64 1074166}
 !6 = !{!"branch_weights", i32 1, i32 1999}
-!7 = distinct !{!7, !8, !9, !10}
+!7 = distinct !{!7, !8, !9}
 !8 = !{!"llvm.loop.mustprogress"}
 !9 = !{!"llvm.loop.unroll.disable"}
-!10 = !{!"llvm.loop.estimated_trip_count"}
-!11 = distinct !{!11, !8, !9, !10}
-!12 = distinct !{!12, !8, !9, !10}
-!13 = distinct !{!13, !10}
-!14 = distinct !{!14, !8, !9, !10}
-!15 = !{!"auto-init"}
-!16 = !{!"branch_weights", i32 1, i32 2000}
-!17 = distinct !{!17, !8, !9, !10}
-!18 = !{i8 0, i8 2}
-!19 = !{}
+!10 = distinct !{!10, !8, !9}
+!11 = distinct !{!11, !8, !9}
+!12 = distinct !{!12, !8, !9}
+!13 = !{!"auto-init"}
+!14 = !{!"branch_weights", i32 1, i32 2000}
+!15 = distinct !{!15, !8, !9}
+!16 = !{i8 0, i8 2}
+!17 = !{}

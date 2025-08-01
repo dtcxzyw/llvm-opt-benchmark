@@ -1245,7 +1245,7 @@ dissect_batadv_elp_v15.exit.sink.split.i.i:       ; preds = %283, %281, %277
 dissect_batadv_ogm2_v15.exit.i.i:                 ; preds = %375, %308
   %.0.i.i46.i = phi i32 [ %378, %375 ], [ %365, %308 ]
   %.not.i47.i = icmp eq i32 %.0.i.i46.i, -1
-  br i1 %.not.i47.i, label %dissect_batadv_v15.exit, label %299, !llvm.loop !9
+  br i1 %.not.i47.i, label %dissect_batadv_v15.exit, label %299, !llvm.loop !8
 
 379:                                              ; preds = %287
   %380 = zext i8 %289 to i32
@@ -1721,12 +1721,12 @@ dissect_batadv_gwflags.exit.i.i:                  ; preds = %104, %49
   %151 = load i8, ptr %79, align 8
   %152 = zext i8 %151 to i32
   %153 = icmp samesign ult i32 %150, %152
-  br i1 %153, label %.lr.ph.i.i, label %dissect_batadv_batman_v5.exit.i, !llvm.loop !10
+  br i1 %153, label %.lr.ph.i.i, label %dissect_batadv_batman_v5.exit.i, !llvm.loop !9
 
 dissect_batadv_batman_v5.exit.i:                  ; preds = %141, %dissect_batadv_gwflags.exit.i.i
   %.0.i.i = phi i32 [ %133, %dissect_batadv_gwflags.exit.i.i ], [ %149, %141 ]
   %.not63.i = icmp eq i32 %.0.i.i, -1
-  br i1 %.not63.i, label %dissect_batadv_batman.exit, label %37, !llvm.loop !11
+  br i1 %.not63.i, label %dissect_batadv_batman.exit, label %37, !llvm.loop !10
 
 154:                                              ; preds = %5, %5
   %155 = getelementptr inbounds nuw i8, ptr %1, i64 408
@@ -1870,12 +1870,12 @@ dissect_batadv_batman_v5.exit.i:                  ; preds = %141, %dissect_batad
   %249 = load i8, ptr %203, align 1
   %250 = zext i8 %249 to i32
   %251 = icmp samesign ult i32 %248, %250
-  br i1 %251, label %.lr.ph.i66.i, label %dissect_batadv_batman_v7.exit.i, !llvm.loop !12
+  br i1 %251, label %.lr.ph.i66.i, label %dissect_batadv_batman_v7.exit.i, !llvm.loop !11
 
 dissect_batadv_batman_v7.exit.i:                  ; preds = %239, %176
   %.0.i68.i = phi i32 [ %231, %176 ], [ %247, %239 ]
   %.not62.i = icmp eq i32 %.0.i68.i, -1
-  br i1 %.not62.i, label %dissect_batadv_batman.exit, label %164, !llvm.loop !13
+  br i1 %.not62.i, label %dissect_batadv_batman.exit, label %164, !llvm.loop !12
 
 252:                                              ; preds = %dissect_batadv_batman_v9.exit.i, %.preheader.i
   %.2119.i = phi i32 [ 0, %.preheader.i ], [ %.0.i77.i, %dissect_batadv_batman_v9.exit.i ]
@@ -2042,12 +2042,12 @@ dissect_batadv_gwflags.exit.i71.i:                ; preds = %326, %264
   %363 = load i8, ptr %291, align 1
   %364 = zext i8 %363 to i32
   %365 = icmp samesign ult i32 %362, %364
-  br i1 %365, label %.lr.ph.i75.i, label %dissect_batadv_batman_v9.exit.i, !llvm.loop !14
+  br i1 %365, label %.lr.ph.i75.i, label %dissect_batadv_batman_v9.exit.i, !llvm.loop !13
 
 dissect_batadv_batman_v9.exit.i:                  ; preds = %353, %dissect_batadv_gwflags.exit.i71.i
   %.0.i77.i = phi i32 [ %345, %dissect_batadv_gwflags.exit.i71.i ], [ %361, %353 ]
   %.not61.i = icmp eq i32 %.0.i77.i, -1
-  br i1 %.not61.i, label %dissect_batadv_batman.exit, label %252, !llvm.loop !15
+  br i1 %.not61.i, label %dissect_batadv_batman.exit, label %252, !llvm.loop !14
 
 366:                                              ; preds = %5, %5
   %367 = getelementptr inbounds nuw i8, ptr %1, i64 408
@@ -2190,12 +2190,12 @@ dissect_batadv_batman_v9.exit.i:                  ; preds = %353, %dissect_batad
   %460 = load i8, ptr %415, align 1
   %461 = zext i8 %460 to i32
   %462 = icmp samesign ult i32 %459, %461
-  br i1 %462, label %.lr.ph.i80.i, label %dissect_batadv_batman_v11.exit.i, !llvm.loop !16
+  br i1 %462, label %.lr.ph.i80.i, label %dissect_batadv_batman_v11.exit.i, !llvm.loop !15
 
 dissect_batadv_batman_v11.exit.i:                 ; preds = %450, %388
   %.0.i84.i = phi i32 [ %442, %388 ], [ %458, %450 ]
   %.not60.i = icmp eq i32 %.0.i84.i, -1
-  br i1 %.not60.i, label %dissect_batadv_batman.exit, label %376, !llvm.loop !17
+  br i1 %.not60.i, label %dissect_batadv_batman.exit, label %376, !llvm.loop !16
 
 463:                                              ; preds = %5, %5
   %464 = getelementptr inbounds nuw i8, ptr %1, i64 408
@@ -2373,12 +2373,12 @@ dissect_batadv_gwflags.exit.i87.i:                ; preds = %546, %485
   %583 = load i8, ptr %512, align 1
   %584 = zext i8 %583 to i32
   %585 = icmp samesign ult i32 %582, %584
-  br i1 %585, label %.lr.ph.i91.i, label %dissect_batadv_batman_v10.exit.i, !llvm.loop !18
+  br i1 %585, label %.lr.ph.i91.i, label %dissect_batadv_batman_v10.exit.i, !llvm.loop !17
 
 dissect_batadv_batman_v10.exit.i:                 ; preds = %573, %dissect_batadv_gwflags.exit.i87.i
   %.0.i95.i = phi i32 [ %565, %dissect_batadv_gwflags.exit.i87.i ], [ %581, %573 ]
   %.not59.i = icmp eq i32 %.0.i95.i, -1
-  br i1 %.not59.i, label %dissect_batadv_batman.exit, label %473, !llvm.loop !19
+  br i1 %.not59.i, label %dissect_batadv_batman.exit, label %473, !llvm.loop !18
 
 586:                                              ; preds = %dissect_batadv_batman_v14.exit.i, %.preheader109.i
   %.5116.i = phi i32 [ 0, %.preheader109.i ], [ %.0127.lcssa.i.i, %dissect_batadv_batman_v14.exit.i ]
@@ -2559,7 +2559,7 @@ dissect_batadv_gwflags.exit.i98.i:                ; preds = %661, %598
   %709 = load i8, ptr %628, align 2
   %710 = zext i8 %709 to i32
   %711 = icmp samesign ult i32 %708, %710
-  br i1 %711, label %.lr.ph.i102.i, label %._crit_edge.i.i, !llvm.loop !20
+  br i1 %711, label %.lr.ph.i102.i, label %._crit_edge.i.i, !llvm.loop !19
 
 ._crit_edge.i.i:                                  ; preds = %696, %dissect_batadv_gwflags.exit.i98.i
   %.0127.lcssa.i.i = phi i32 [ %688, %dissect_batadv_gwflags.exit.i98.i ], [ %707, %696 ]
@@ -2574,7 +2574,7 @@ dissect_batadv_gwflags.exit.i98.i:                ; preds = %661, %598
 
 dissect_batadv_batman_v14.exit.i:                 ; preds = %714, %._crit_edge.i.i
   %.not.i = icmp eq i32 %.0127.lcssa.i.i, -1
-  br i1 %.not.i, label %dissect_batadv_batman.exit, label %586, !llvm.loop !21
+  br i1 %.not.i, label %dissect_batadv_batman.exit, label %586, !llvm.loop !20
 
 717:                                              ; preds = %5
   %718 = zext i8 %8 to i32
@@ -2756,7 +2756,7 @@ dissect_batadv_batman_v14.exit.i:                 ; preds = %714, %._crit_edge.i
   %814 = load i8, ptr %740, align 4
   %815 = zext i8 %814 to i32
   %816 = icmp samesign ult i32 %813, %815
-  br i1 %816, label %.lr.ph.split.us.i.i, label %._crit_edge.i.i39, !llvm.loop !22
+  br i1 %816, label %.lr.ph.split.us.i.i, label %._crit_edge.i.i39, !llvm.loop !21
 
 .lr.ph.split.i.i:                                 ; preds = %.lr.ph.i.i36, %846
   %.0106.i.i = phi i32 [ %848, %846 ], [ 0, %.lr.ph.i.i36 ]
@@ -2809,7 +2809,7 @@ dissect_batadv_batman_v14.exit.i:                 ; preds = %714, %._crit_edge.i
   %849 = load i8, ptr %740, align 4
   %850 = zext i8 %849 to i32
   %851 = icmp samesign ult i32 %848, %850
-  br i1 %851, label %.lr.ph.split.i.i, label %._crit_edge.i.i39, !llvm.loop !24
+  br i1 %851, label %.lr.ph.split.i.i, label %._crit_edge.i.i39, !llvm.loop !23
 
 ._crit_edge.i.i39:                                ; preds = %846, %811, %729
   %.099.lcssa.i.i = phi i32 [ 24, %729 ], [ %812, %811 ], [ %847, %846 ]
@@ -2971,7 +2971,7 @@ dissect_batadv_batman_v14.exit.i:                 ; preds = %714, %._crit_edge.i
   %953 = load i8, ptr %869, align 1
   %954 = zext i8 %953 to i32
   %955 = icmp samesign ult i32 %952, %954
-  br i1 %955, label %.lr.ph.i17.i, label %._crit_edge.i19.i, !llvm.loop !25
+  br i1 %955, label %.lr.ph.i17.i, label %._crit_edge.i19.i, !llvm.loop !24
 
 ._crit_edge.i19.i:                                ; preds = %939, %860
   %.091.lcssa.i.i = phi i32 [ 27, %860 ], [ %951, %939 ]
@@ -3136,7 +3136,7 @@ dissect_batadv_batman_v14.exit.i:                 ; preds = %714, %._crit_edge.i
   %1059 = load i8, ptr %977, align 8
   %1060 = zext i8 %1059 to i32
   %1061 = icmp samesign ult i32 %1058, %1060
-  br i1 %1061, label %.lr.ph.i21.i, label %._crit_edge.i23.i, !llvm.loop !26
+  br i1 %1061, label %.lr.ph.i21.i, label %._crit_edge.i23.i, !llvm.loop !25
 
 ._crit_edge.i23.i:                                ; preds = %1045, %964
   %.094.lcssa.i.i = phi i32 [ 28, %964 ], [ %1057, %1045 ]
@@ -3343,7 +3343,7 @@ dissect_batadv_vis_v6.exit.sink.split.i:          ; preds = %1070, %1068, %1064,
   %1177 = load i16, ptr %1117, align 2
   %1178 = zext i16 %1177 to i32
   %1179 = icmp samesign ult i32 %1176, %1178
-  br i1 %1179, label %.lr.ph.i.i42, label %.loopexit.i.i, !llvm.loop !27
+  br i1 %1179, label %.lr.ph.i.i42, label %.loopexit.i.i, !llvm.loop !26
 
 .loopexit.i.i:                                    ; preds = %1164, %1154, %.thread.i.i
   %.095.i.i = phi i32 [ 19, %.thread.i.i ], [ 19, %1154 ], [ %1175, %1164 ]
@@ -4179,7 +4179,7 @@ dissect_batadv_icmp_tp_v15.exit.i:                ; preds = %330, %244
   %427 = add nuw nsw i32 %.01819.i.i.i, 6
   %428 = add nuw nsw i32 %.020.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i32 %428, 16
-  br i1 %exitcond.not.i.i.i, label %dissect_batadv_icmp_rr_v15.exit.i.i, label %416, !llvm.loop !28
+  br i1 %exitcond.not.i.i.i, label %dissect_batadv_icmp_rr_v15.exit.i.i, label %416, !llvm.loop !27
 
 dissect_batadv_icmp_rr_v15.exit.i.i:              ; preds = %422, %333
   %.0.i.i = phi i32 [ 20, %333 ], [ 116, %422 ]
@@ -4475,7 +4475,7 @@ define internal fastcc void @dissect_batadv_unicast_frag(ptr noundef %0, ptr nou
   %44 = getelementptr inbounds nuw i8, ptr %10, i64 64
   store i16 %43, ptr %44, align 8
   %45 = getelementptr inbounds nuw i8, ptr %1, i64 272
-  %46 = load i8, ptr %45, align 8, !range !29, !noundef !30
+  %46 = load i8, ptr %45, align 8, !range !28, !noundef !29
   store i8 1, ptr %45, align 8
   %47 = load ptr, ptr %4, align 8
   tail call void @col_clear(ptr noundef %47, i32 noundef 25)
@@ -4609,7 +4609,7 @@ dissect_batadv_unicast_frag_v12.exit:             ; preds = %7, %86
   %130 = getelementptr inbounds nuw i8, ptr %92, i64 64
   store i16 %129, ptr %130, align 8
   %131 = getelementptr inbounds nuw i8, ptr %1, i64 272
-  %132 = load i8, ptr %131, align 8, !range !29, !noundef !30
+  %132 = load i8, ptr %131, align 8, !range !28, !noundef !29
   store i8 1, ptr %131, align 8
   %133 = load ptr, ptr %4, align 8
   tail call void @col_clear(ptr noundef %133, i32 noundef 25)
@@ -4677,7 +4677,7 @@ dissect_batadv_unicast_frag_v14.exit:             ; preds = %89, %174
   %179 = load ptr, ptr %178, align 8
   %180 = tail call noalias dereferenceable_or_null(64) ptr @wmem_alloc(ptr noundef %179, i64 noundef 64) #5
   %181 = getelementptr inbounds nuw i8, ptr %1, i64 272
-  %182 = load i8, ptr %181, align 8, !range !29, !noundef !30
+  %182 = load i8, ptr %181, align 8, !range !28, !noundef !29
   store i8 1, ptr %181, align 8
   %183 = load ptr, ptr %4, align 8
   tail call void @col_clear(ptr noundef %183, i32 noundef 25)
@@ -5334,7 +5334,7 @@ define internal fastcc void @dissect_batadv_icmp_rr(ptr noundef readonly capture
   %27 = add nuw nsw i32 %.02729, 6
   %28 = add nuw nsw i32 %.030, 1
   %exitcond.not = icmp eq i32 %28, 16
-  br i1 %exitcond.not, label %.loopexit, label %16, !llvm.loop !31
+  br i1 %exitcond.not, label %.loopexit, label %16, !llvm.loop !30
 
 .loopexit:                                        ; preds = %22, %4
   ret void
@@ -5541,7 +5541,7 @@ define internal fastcc void @dissect_batadv_tvlv_v15(ptr noundef %0, ptr noundef
   %95 = add i32 %.043.i.i.us.i, 12
   %96 = tail call i32 @tvb_reported_length_remaining(ptr noundef %16, i32 noundef %95)
   %97 = icmp sgt i32 %96, 11
-  br i1 %97, label %.lr.ph.i.i.us.i, label %._crit_edge.i.i.us.i, !llvm.loop !32
+  br i1 %97, label %.lr.ph.i.i.us.i, label %._crit_edge.i.i.us.i, !llvm.loop !31
 
 ._crit_edge.i.i.us.i:                             ; preds = %94
   %98 = icmp eq i32 %.1.i.i.us.i, 0
@@ -5561,7 +5561,7 @@ dissect_batadv_tvlv_v15_tt_vlan.exit.us.i:        ; preds = %102, %._crit_edge.i
   %107 = add nuw nsw i32 %.045.us.i, 8
   %108 = add nuw nsw i32 %.04144.us.i, 1
   %exitcond53.not.i = icmp eq i32 %108, %67
-  br i1 %exitcond53.not.i, label %._crit_edge.i, label %.lr.ph.split.us.i, !llvm.loop !33
+  br i1 %exitcond53.not.i, label %._crit_edge.i, label %.lr.ph.split.us.i, !llvm.loop !32
 
 dissect_batadv_tvlv_v15_tt_vlan.exit.i:           ; preds = %.lr.ph.i, %dissect_batadv_tvlv_v15_tt_vlan.exit.i
   %.045.i = phi i32 [ %121, %dissect_batadv_tvlv_v15_tt_vlan.exit.i ], [ 8, %.lr.ph.i ]
@@ -5581,7 +5581,7 @@ dissect_batadv_tvlv_v15_tt_vlan.exit.i:           ; preds = %.lr.ph.i, %dissect_
   %121 = add nuw nsw i32 %.045.i, 8
   %122 = add nuw nsw i32 %.04144.i, 1
   %exitcond.not.i = icmp eq i32 %122, %67
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %dissect_batadv_tvlv_v15_tt_vlan.exit.i, !llvm.loop !34
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %dissect_batadv_tvlv_v15_tt_vlan.exit.i, !llvm.loop !33
 
 ._crit_edge.i:                                    ; preds = %dissect_batadv_tvlv_v15_tt_vlan.exit.i, %dissect_batadv_tvlv_v15_tt_vlan.exit.us.i, %58
   %.0.lcssa.i = phi i32 [ 8, %58 ], [ %107, %dissect_batadv_tvlv_v15_tt_vlan.exit.us.i ], [ %121, %dissect_batadv_tvlv_v15_tt_vlan.exit.i ]
@@ -5610,7 +5610,7 @@ dissect_batadv_tvlv_v15_tt_vlan.exit.i:           ; preds = %.lr.ph.i, %dissect_
   %140 = add i32 %.147.i, 12
   %141 = tail call i32 @tvb_reported_length_remaining(ptr noundef %16, i32 noundef %140)
   %142 = icmp sgt i32 %141, 0
-  br i1 %142, label %.lr.ph49.i, label %dissect_batadv_tvlv_v15_gw.exit, !llvm.loop !35
+  br i1 %142, label %.lr.ph49.i, label %dissect_batadv_tvlv_v15_gw.exit, !llvm.loop !34
 
 143:                                              ; preds = %8
   %.not.i53 = icmp eq i8 %11, 1
@@ -5652,7 +5652,7 @@ dissect_batadv_tvlv_v15_tt_vlan.exit.i:           ; preds = %.lr.ph.i, %dissect_
 dissect_batadv_tvlv_v15_gw.exit:                  ; preds = %.lr.ph49.i, %158, %155, %147, %144, %._crit_edge.i, %55, %50, %49, %46, %45, %34, %31, %162
   %164 = add i32 %.056, %15
   %.not = icmp eq i32 %164, -1
-  br i1 %.not, label %.critedge, label %5, !llvm.loop !36
+  br i1 %.not, label %.critedge, label %5, !llvm.loop !35
 
 .critedge:                                        ; preds = %dissect_batadv_tvlv_v15_gw.exit, %5
   ret void
@@ -5692,34 +5692,33 @@ attributes #6 = { nounwind }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7, !8}
-!11 = distinct !{!11, !7, !8}
-!12 = distinct !{!12, !7, !8}
-!13 = distinct !{!13, !7, !8}
-!14 = distinct !{!14, !7, !8}
-!15 = distinct !{!15, !7, !8}
-!16 = distinct !{!16, !7, !8}
-!17 = distinct !{!17, !7, !8}
-!18 = distinct !{!18, !7, !8}
-!19 = distinct !{!19, !7, !8}
-!20 = distinct !{!20, !7, !8}
-!21 = distinct !{!21, !7, !8}
-!22 = distinct !{!22, !7, !8, !23}
-!23 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!24 = distinct !{!24, !7, !8}
-!25 = distinct !{!25, !7, !8}
-!26 = distinct !{!26, !7, !8}
-!27 = distinct !{!27, !7, !8}
-!28 = distinct !{!28, !7, !8}
-!29 = !{i8 0, i8 2}
-!30 = !{}
-!31 = distinct !{!31, !7, !8}
-!32 = distinct !{!32, !7, !8}
-!33 = distinct !{!33, !7, !8, !23}
-!34 = distinct !{!34, !7, !8}
-!35 = distinct !{!35, !7, !8}
-!36 = distinct !{!36, !7, !8}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7}
+!12 = distinct !{!12, !7}
+!13 = distinct !{!13, !7}
+!14 = distinct !{!14, !7}
+!15 = distinct !{!15, !7}
+!16 = distinct !{!16, !7}
+!17 = distinct !{!17, !7}
+!18 = distinct !{!18, !7}
+!19 = distinct !{!19, !7}
+!20 = distinct !{!20, !7}
+!21 = distinct !{!21, !7, !22}
+!22 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!23 = distinct !{!23, !7}
+!24 = distinct !{!24, !7}
+!25 = distinct !{!25, !7}
+!26 = distinct !{!26, !7}
+!27 = distinct !{!27, !7}
+!28 = !{i8 0, i8 2}
+!29 = !{}
+!30 = distinct !{!30, !7}
+!31 = distinct !{!31, !7}
+!32 = distinct !{!32, !7, !22}
+!33 = distinct !{!33, !7}
+!34 = distinct !{!34, !7}
+!35 = distinct !{!35, !7}

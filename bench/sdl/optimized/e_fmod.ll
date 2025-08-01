@@ -87,7 +87,7 @@ define hidden double @SDL_uclibc_fmod(double noundef %0, double noundef %1) loca
   %40 = add nsw i32 %.1161192, -1
   %41 = shl nuw i32 %.1152193, 1
   %42 = icmp sgt i32 %41, 0
-  br i1 %42, label %.lr.ph, label %.loopexit188, !llvm.loop !7
+  br i1 %42, label %.lr.ph, label %.loopexit188, !llvm.loop !6
 
 43:                                               ; preds = %29
   %44 = lshr i32 %6, 20
@@ -113,7 +113,7 @@ define hidden double @SDL_uclibc_fmod(double noundef %0, double noundef %1) loca
   %50 = add nsw i32 %.0156200, -1
   %51 = shl nuw i32 %.2153201, 1
   %52 = icmp sgt i32 %51, 0
-  br i1 %52, label %.lr.ph202, label %.loopexit, !llvm.loop !8
+  br i1 %52, label %.lr.ph202, label %.loopexit, !llvm.loop !7
 
 53:                                               ; preds = %47
   %54 = shl nuw nsw i32 %7, 11
@@ -125,7 +125,7 @@ define hidden double @SDL_uclibc_fmod(double noundef %0, double noundef %1) loca
   %56 = add nsw i32 %.1157198, -1
   %57 = shl nuw i32 %.3154199, 1
   %58 = icmp sgt i32 %57, 0
-  br i1 %58, label %55, label %.loopexit, !llvm.loop !9
+  br i1 %58, label %55, label %.loopexit, !llvm.loop !8
 
 59:                                               ; preds = %.loopexit188
   %60 = lshr i32 %7, 20
@@ -237,7 +237,7 @@ define hidden double @SDL_uclibc_fmod(double noundef %0, double noundef %1) loca
   %.2 = shl i32 %.2.in, 1
   %116 = add nsw i32 %98, -1
   %.not182 = icmp eq i32 %98, 0
-  br i1 %.not182, label %._crit_edge, label %.lr.ph207, !llvm.loop !10
+  br i1 %.not182, label %._crit_edge, label %.lr.ph207, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %115, %95
   %.1167.lcssa = phi i32 [ %.0166, %95 ], [ %.2168, %115 ]
@@ -272,7 +272,7 @@ define hidden double @SDL_uclibc_fmod(double noundef %0, double noundef %1) loca
   %130 = shl i32 %.4212, 1
   %131 = add nsw i32 %.3159211, -1
   %132 = icmp slt i32 %129, 1048576
-  br i1 %132, label %.lr.ph213, label %._crit_edge214, !llvm.loop !11
+  br i1 %132, label %.lr.ph213, label %._crit_edge214, !llvm.loop !10
 
 ._crit_edge214:                                   ; preds = %.lr.ph213, %.preheader
   %.4170.lcssa = phi i32 [ %.3169, %.preheader ], [ %129, %.lr.ph213 ]
@@ -345,11 +345,10 @@ attributes #1 = { nocallback nofree nosync nounwind speculatable willreturn memo
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = distinct !{!4, !5, !6}
+!4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{!"llvm.loop.estimated_trip_count"}
-!7 = distinct !{!7, !5, !6}
-!8 = distinct !{!8, !5, !6}
-!9 = distinct !{!9, !5, !6}
-!10 = distinct !{!10, !5, !6}
-!11 = distinct !{!11, !5, !6}
+!6 = distinct !{!6, !5}
+!7 = distinct !{!7, !5}
+!8 = distinct !{!8, !5}
+!9 = distinct !{!9, !5}
+!10 = distinct !{!10, !5}

@@ -92,7 +92,7 @@ define internal i32 @h263_parse(ptr noundef readonly captures(none) %0, ptr read
   %43 = or disjoint i32 %39, %42
   %indvars.iv.next57.i = add nuw nsw i64 %indvars.iv56.i, 1
   %exitcond60.not.i = icmp eq i64 %indvars.iv.next57.i, %wide.trip.count59.i
-  br i1 %exitcond60.not.i, label %.thread.i, label %.lr.ph48.i, !llvm.loop !23
+  br i1 %exitcond60.not.i, label %.thread.i, label %.lr.ph48.i, !llvm.loop !22
 
 .thread.i:                                        ; preds = %29, %38, %30, %.preheader.i
   %.02938.i = phi i32 [ %.029.i, %30 ], [ 0, %.preheader.i ], [ %.029.i, %38 ], [ 0, %29 ]
@@ -161,7 +161,6 @@ attributes #2 = { nounwind }
 !17 = !{!"ParseContext", !5, i64 0, !10, i64 8, !10, i64 12, !10, i64 16, !10, i64 20, !10, i64 24, !10, i64 28, !10, i64 32, !14, i64 40}
 !18 = !{!17, !10, i64 20}
 !19 = !{!7, !7, i64 0}
-!20 = distinct !{!20, !21, !22}
+!20 = distinct !{!20, !21}
 !21 = !{!"llvm.loop.mustprogress"}
-!22 = !{!"llvm.loop.estimated_trip_count"}
-!23 = distinct !{!23, !21, !22}
+!22 = distinct !{!22, !21}

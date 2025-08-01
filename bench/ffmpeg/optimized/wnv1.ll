@@ -330,21 +330,21 @@ wnv1_get_code.exit81:                             ; preds = %173, %184
   %.158.lcssa = phi i32 [ %.057105, %.preheader ], [ %.0.i76, %._crit_edge.loopexit ]
   %.156.lcssa = phi i32 [ %.055106, %.preheader ], [ %.0.i73, %._crit_edge.loopexit ]
   %.1.lcssa = phi i32 [ %.0107, %.preheader ], [ %.0.i79, %._crit_edge.loopexit ]
-  %196 = load i32, ptr %49, align 8, !tbaa !37
+  %196 = load i32, ptr %49, align 8, !tbaa !36
   %197 = sext i32 %196 to i64
   %198 = getelementptr inbounds i8, ptr %.065101, i64 %197
-  %199 = load i32, ptr %50, align 4, !tbaa !37
+  %199 = load i32, ptr %50, align 4, !tbaa !36
   %200 = sext i32 %199 to i64
   %201 = getelementptr inbounds i8, ptr %.064102, i64 %200
-  %202 = load i32, ptr %51, align 8, !tbaa !37
+  %202 = load i32, ptr %51, align 8, !tbaa !36
   %203 = sext i32 %202 to i64
   %204 = getelementptr inbounds i8, ptr %.063103, i64 %203
   %205 = add nuw nsw i32 %.061104, 1
   %206 = icmp slt i32 %205, %194
-  br i1 %206, label %.preheader, label %._crit_edge108, !llvm.loop !38
+  br i1 %206, label %.preheader, label %._crit_edge108, !llvm.loop !37
 
 ._crit_edge108:                                   ; preds = %._crit_edge, %40
-  store i32 1, ptr %2, align 4, !tbaa !37
+  store i32 1, ptr %2, align 4, !tbaa !36
   br label %207
 
 207:                                              ; preds = %22, %19, %._crit_edge108, %18
@@ -413,8 +413,7 @@ attributes #4 = { nounwind }
 !31 = !{!5, !10, i64 116}
 !32 = !{!8, !8, i64 0}
 !33 = !{!14, !14, i64 0}
-!34 = distinct !{!34, !35, !36}
+!34 = distinct !{!34, !35}
 !35 = !{!"llvm.loop.mustprogress"}
-!36 = !{!"llvm.loop.estimated_trip_count"}
-!37 = !{!10, !10, i64 0}
-!38 = distinct !{!38, !35, !36}
+!36 = !{!10, !10, i64 0}
+!37 = distinct !{!37, !35}

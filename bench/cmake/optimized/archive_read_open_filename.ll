@@ -170,7 +170,7 @@ define internal range(i32 -30, 1) i32 @file_open(ptr noundef %0, ptr noundef %1)
 
 10:                                               ; preds = %6
   %11 = tail call ptr @__errno_location() #17
-  %12 = load i32, ptr %11, align 4, !tbaa !22
+  %12 = load i32, ptr %11, align 4, !tbaa !21
   tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef %12, ptr noundef nonnull @.str.5, ptr noundef nonnull %7) #14
   br label %57
 
@@ -187,13 +187,13 @@ define internal range(i32 -30, 1) i32 @file_open(ptr noundef %0, ptr noundef %1)
 
 15:                                               ; preds = %13
   %16 = tail call ptr @__errno_location() #17
-  %17 = load i32, ptr %16, align 4, !tbaa !22
+  %17 = load i32, ptr %16, align 4, !tbaa !21
   tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef %17, ptr noundef nonnull @.str.7, ptr noundef nonnull %.042) #14
   br label %53
 
 18:                                               ; preds = %13
   %19 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %20 = load i32, ptr %19, align 8, !tbaa !23
+  %20 = load i32, ptr %19, align 8, !tbaa !22
   %21 = trunc i32 %20 to i16
   %trunc = and i16 %21, -4096
   switch i16 %trunc, label %.thread [
@@ -202,9 +202,9 @@ define internal range(i32 -30, 1) i32 @file_open(ptr noundef %0, ptr noundef %1)
   ]
 
 22:                                               ; preds = %18
-  %23 = load i64, ptr %3, align 8, !tbaa !26
+  %23 = load i64, ptr %3, align 8, !tbaa !25
   %24 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %25 = load i64, ptr %24, align 8, !tbaa !27
+  %25 = load i64, ptr %24, align 8, !tbaa !26
   tail call void @archive_read_extract_set_skip_file(ptr noundef %0, i64 noundef %23, i64 noundef %25) #14
   br label %.preheader
 
@@ -238,7 +238,7 @@ define internal range(i32 -30, 1) i32 @file_open(ptr noundef %0, ptr noundef %1)
   %.0 = phi i64 [ %41, %39 ], [ 65536, %.preheader ]
   %40 = icmp ult i64 %.0, %invariant.umin
   %41 = shl nuw nsw i64 %.0, 1
-  br i1 %40, label %39, label %42, !llvm.loop !28
+  br i1 %40, label %39, label %42, !llvm.loop !27
 
 42:                                               ; preds = %39
   store i64 %.0, ptr %37, align 8, !tbaa !9
@@ -290,7 +290,7 @@ declare i32 @archive_read_set_read_callback(ptr noundef, ptr noundef) local_unna
 define internal noundef i64 @file_read(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(none) initializes((0, 8)) %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = load ptr, ptr %4, align 8, !tbaa !14
-  store ptr %5, ptr %2, align 8, !tbaa !29
+  store ptr %5, ptr %2, align 8, !tbaa !28
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   br label %7
 
@@ -304,9 +304,9 @@ define internal noundef i64 @file_read(ptr noundef %0, ptr noundef %1, ptr nound
 
 13:                                               ; preds = %7
   %14 = tail call ptr @__errno_location() #17
-  %15 = load i32, ptr %14, align 4, !tbaa !22
+  %15 = load i32, ptr %14, align 4, !tbaa !21
   %16 = icmp eq i32 %15, 4
-  br i1 %16, label %7, label %17, !llvm.loop !30
+  br i1 %16, label %7, label %17
 
 17:                                               ; preds = %13
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -362,7 +362,7 @@ define internal range(i64 -9223372036854775807, -9223372036854775808) i64 @file_
 16:                                               ; preds = %10, %6
   store i8 0, ptr %4, align 4, !tbaa !15
   %17 = tail call ptr @__errno_location() #17
-  %18 = load i32, ptr %17, align 4, !tbaa !22
+  %18 = load i32, ptr %17, align 4, !tbaa !21
   %19 = icmp eq i32 %18, 29
   br i1 %19, label %file_skip_lseek.exit, label %20
 
@@ -423,7 +423,7 @@ define internal noundef i32 @file_close(ptr readnone captures(none) %0, ptr noun
   %14 = load i64, ptr %10, align 8, !tbaa !9
   %15 = tail call i64 @read(i32 noundef %12, ptr noundef %13, i64 noundef %14) #14
   %16 = icmp sgt i64 %15, 0
-  br i1 %16, label %11, label %.loopexit.i, !llvm.loop !31
+  br i1 %16, label %11, label %.loopexit.i, !llvm.loop !29
 
 .loopexit.i:                                      ; preds = %11, %5, %5, %5
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -474,7 +474,7 @@ define internal range(i32 -30, 1) i32 @file_switch(ptr noundef %0, ptr noundef c
   %15 = load i64, ptr %11, align 8, !tbaa !9
   %16 = tail call i64 @read(i32 noundef %13, ptr noundef %14, i64 noundef %15) #14
   %17 = icmp sgt i64 %16, 0
-  br i1 %17, label %12, label %.loopexit.i, !llvm.loop !31
+  br i1 %17, label %12, label %.loopexit.i, !llvm.loop !29
 
 .loopexit.i:                                      ; preds = %12, %6, %6, %6
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -510,7 +510,7 @@ define internal range(i64 -30, -9223372036854775808) i64 @file_seek(ptr noundef 
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %10 = load i32, ptr %9, align 8, !tbaa !18
   %11 = tail call ptr @__errno_location() #17
-  %12 = load i32, ptr %11, align 4, !tbaa !22
+  %12 = load i32, ptr %11, align 4, !tbaa !21
   switch i32 %10, label %16 [
     i32 0, label %13
     i32 1, label %14
@@ -545,7 +545,7 @@ define dso_local i32 @archive_read_open_filename_w(ptr noundef %0, ptr noundef %
   %5 = alloca [2 x ptr], align 16
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #14
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store ptr null, ptr %6, align 8, !tbaa !32
+  store ptr null, ptr %6, align 8, !tbaa !30
   tail call void @archive_clear_error(ptr noundef %0) #14
   br label %7
 
@@ -566,7 +566,7 @@ define dso_local i32 @archive_read_open_filename_w(ptr noundef %0, ptr noundef %
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store i64 %2, ptr %15, align 8, !tbaa !9
   store i32 -1, ptr %12, align 8, !tbaa !13
-  %16 = load i32, ptr %spec.store.select.i, align 4, !tbaa !22
+  %16 = load i32, ptr %spec.store.select.i, align 4, !tbaa !21
   %17 = icmp eq i32 %16, 0
   br i1 %17, label %18, label %20
 
@@ -585,7 +585,7 @@ define dso_local i32 @archive_read_open_filename_w(ptr noundef %0, ptr noundef %
 
 23:                                               ; preds = %20
   %24 = tail call ptr @__errno_location() #17
-  %25 = load i32, ptr %24, align 4, !tbaa !22
+  %25 = load i32, ptr %24, align 4, !tbaa !21
   %26 = icmp eq i32 %25, 12
   br i1 %26, label %27, label %28
 
@@ -601,7 +601,7 @@ define dso_local i32 @archive_read_open_filename_w(ptr noundef %0, ptr noundef %
   %29 = getelementptr inbounds nuw i8, ptr %12, i64 32
   store i32 1, ptr %29, align 8, !tbaa !18
   %30 = getelementptr inbounds nuw i8, ptr %12, i64 36
-  %31 = load ptr, ptr %4, align 8, !tbaa !34
+  %31 = load ptr, ptr %4, align 8, !tbaa !32
   %32 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %30, ptr noundef nonnull dereferenceable(1) %31) #14
   call void @archive_string_free(ptr noundef nonnull %4) #14
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #14
@@ -619,14 +619,14 @@ define dso_local i32 @archive_read_open_filename_w(ptr noundef %0, ptr noundef %
   br i1 %.not44.i, label %36, label %archive_read_open_filenames_w.exit
 
 36:                                               ; preds = %34
-  %37 = load ptr, ptr %.138.i, align 8, !tbaa !32
+  %37 = load ptr, ptr %.138.i, align 8, !tbaa !30
   %.not45.i = icmp eq ptr %37, null
   br i1 %.not45.i, label %.critedge.i, label %38
 
 38:                                               ; preds = %36
-  %39 = load i32, ptr %37, align 4, !tbaa !22
+  %39 = load i32, ptr %37, align 4, !tbaa !21
   %.not46.i = icmp eq i32 %39, 0
-  br i1 %.not46.i, label %.critedge.i, label %7, !llvm.loop !36
+  br i1 %.not46.i, label %.critedge.i, label %7, !llvm.loop !34
 
 .critedge.i:                                      ; preds = %38, %36
   %40 = call i32 @archive_read_set_open_callback(ptr noundef %0, ptr noundef nonnull @file_open) #14
@@ -729,21 +729,19 @@ attributes #18 = { nounwind allocsize(0) }
 !16 = !{!10, !11, i64 24}
 !17 = !{!7, !7, i64 0}
 !18 = !{!10, !11, i64 32}
-!19 = distinct !{!19, !20, !21}
+!19 = distinct !{!19, !20}
 !20 = !{!"llvm.loop.mustprogress"}
-!21 = !{!"llvm.loop.estimated_trip_count"}
-!22 = !{!11, !11, i64 0}
-!23 = !{!24, !11, i64 24}
-!24 = !{!"stat", !12, i64 0, !12, i64 8, !12, i64 16, !11, i64 24, !11, i64 28, !11, i64 32, !11, i64 36, !12, i64 40, !12, i64 48, !12, i64 56, !12, i64 64, !25, i64 72, !25, i64 88, !25, i64 104, !7, i64 120}
-!25 = !{!"timespec", !12, i64 0, !12, i64 8}
-!26 = !{!24, !12, i64 0}
-!27 = !{!24, !12, i64 8}
-!28 = distinct !{!28, !20, !21}
-!29 = !{!6, !6, i64 0}
-!30 = distinct !{!30, !21}
-!31 = distinct !{!31, !20, !21}
-!32 = !{!33, !33, i64 0}
-!33 = !{!"p1 int", !6, i64 0}
-!34 = !{!35, !5, i64 0}
-!35 = !{!"archive_string", !5, i64 0, !12, i64 8, !12, i64 16}
-!36 = distinct !{!36, !20, !21}
+!21 = !{!11, !11, i64 0}
+!22 = !{!23, !11, i64 24}
+!23 = !{!"stat", !12, i64 0, !12, i64 8, !12, i64 16, !11, i64 24, !11, i64 28, !11, i64 32, !11, i64 36, !12, i64 40, !12, i64 48, !12, i64 56, !12, i64 64, !24, i64 72, !24, i64 88, !24, i64 104, !7, i64 120}
+!24 = !{!"timespec", !12, i64 0, !12, i64 8}
+!25 = !{!23, !12, i64 0}
+!26 = !{!23, !12, i64 8}
+!27 = distinct !{!27, !20}
+!28 = !{!6, !6, i64 0}
+!29 = distinct !{!29, !20}
+!30 = !{!31, !31, i64 0}
+!31 = !{!"p1 int", !6, i64 0}
+!32 = !{!33, !5, i64 0}
+!33 = !{!"archive_string", !5, i64 0, !12, i64 8, !12, i64 16}
+!34 = distinct !{!34, !20}

@@ -1346,7 +1346,7 @@ while.body41:                                     ; preds = %land.rhs35
   %mul42 = fmul double %upper.0191, 2.000000e+00
   %div33 = fdiv double %mul42, %mul25
   %cmp34 = fcmp olt double %div33, 6.553500e+04
-  br i1 %cmp34, label %land.rhs35, label %if.then, !llvm.loop !36
+  br i1 %cmp34, label %land.rhs35, label %if.then, !llvm.loop !35
 
 do.body:                                          ; preds = %land.rhs35
   br i1 %cmp.lcssa, label %if.then, label %do.end
@@ -1793,10 +1793,10 @@ invoke.cont221.i:                                 ; preds = %invoke.cont217.i
   %vbase.offset.i.i = load i64, ptr %vbase.offset.ptr.i.i, align 8
   %add.ptr.i.i = getelementptr inbounds i8, ptr %call.i153154.i, i64 %vbase.offset.i.i
   %_M_flags.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i, i64 24
-  %90 = load i32, ptr %_M_flags.i.i.i, align 8, !tbaa !37
+  %90 = load i32, ptr %_M_flags.i.i.i, align 8, !tbaa !36
   %and.i.i.i.i.i = and i32 %90, -261
   %or.i.i.i.i.i = or disjoint i32 %and.i.i.i.i.i, 256
-  store i32 %or.i.i.i.i.i, ptr %_M_flags.i.i.i, align 4, !tbaa !43
+  store i32 %or.i.i.i.i.i, ptr %_M_flags.i.i.i, align 4, !tbaa !42
   %call.i163164.i = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIdEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %call.i153154.i, double noundef %sub.i.i89)
           to label %invoke.cont224.i unwind label %lpad208.i
 
@@ -2493,7 +2493,7 @@ if.end122.i.i:                                    ; preds = %if.else118.i.i, %if
   %sub.i66.i.i = fsub double %call.i65.i.i, %q
   %inc126.i.i = add nuw nsw i64 %ref.tmp97.sroa.56.0, 1
   %exitcond = icmp eq i64 %inc126.i.i, 101
-  br i1 %exitcond, label %do.body.i.i, label %while.body.i.i, !llvm.loop !44
+  br i1 %exitcond, label %do.body.i.i, label %while.body.i.i, !llvm.loop !43
 
 do.body.i.i:                                      ; preds = %if.end122.i.i
   call void @llvm.lifetime.start.p0(i64 376, ptr nonnull %_ql_msg_stream.i.i) #19
@@ -2875,15 +2875,14 @@ attributes #22 = { builtin nounwind }
 !30 = !{!"_ZTSN5boost10shared_ptrIN8QuantLib6HandleINS1_18YieldTermStructureEE4LinkEEE", !5, i64 0, !17, i64 8}
 !31 = !{!32, !32, i64 0}
 !32 = !{!"double", !6, i64 0}
-!33 = distinct !{!33, !34, !35}
+!33 = distinct !{!33, !34}
 !34 = !{!"llvm.loop.mustprogress"}
-!35 = !{!"llvm.loop.estimated_trip_count"}
-!36 = distinct !{!36, !34, !35}
-!37 = !{!38, !39, i64 24}
-!38 = !{!"_ZTSSt8ios_base", !9, i64 8, !9, i64 16, !39, i64 24, !40, i64 28, !40, i64 32, !5, i64 40, !41, i64 48, !6, i64 64, !28, i64 192, !5, i64 200, !42, i64 208}
-!39 = !{!"_ZTSSt13_Ios_Fmtflags", !6, i64 0}
-!40 = !{!"_ZTSSt12_Ios_Iostate", !6, i64 0}
-!41 = !{!"_ZTSNSt8ios_base6_WordsE", !5, i64 0, !9, i64 8}
-!42 = !{!"_ZTSSt6locale", !5, i64 0}
-!43 = !{!39, !39, i64 0}
-!44 = distinct !{!44, !34, !35}
+!35 = distinct !{!35, !34}
+!36 = !{!37, !38, i64 24}
+!37 = !{!"_ZTSSt8ios_base", !9, i64 8, !9, i64 16, !38, i64 24, !39, i64 28, !39, i64 32, !5, i64 40, !40, i64 48, !6, i64 64, !28, i64 192, !5, i64 200, !41, i64 208}
+!38 = !{!"_ZTSSt13_Ios_Fmtflags", !6, i64 0}
+!39 = !{!"_ZTSSt12_Ios_Iostate", !6, i64 0}
+!40 = !{!"_ZTSNSt8ios_base6_WordsE", !5, i64 0, !9, i64 8}
+!41 = !{!"_ZTSSt6locale", !5, i64 0}
+!42 = !{!38, !38, i64 0}
+!43 = distinct !{!43, !34}

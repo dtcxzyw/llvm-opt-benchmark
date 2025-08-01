@@ -2229,7 +2229,7 @@ add_wps_wfa_ext.exit:                             ; preds = %16, %26, %34, %37, 
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #3
   %65 = add i32 %14, 2
   %66 = icmp slt i32 %65, %6
-  br i1 %66, label %.lr.ph, label %._crit_edge, !llvm.loop !9
+  br i1 %66, label %.lr.ph, label %._crit_edge, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %add_wps_wfa_ext.exit, %.lr.ph, %4
   ret void
@@ -2269,7 +2269,6 @@ attributes #3 = { nounwind }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
+!8 = distinct !{!8, !7}

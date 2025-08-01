@@ -101,7 +101,7 @@ define void @_ZN4core4iter6traits8iterator8Iterator4fold17hea471c1face4dd27E(ptr
 8:                                                ; preds = %6
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false)
   invoke void @"_ZN4core4iter6traits8iterator8Iterator8for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17hcd6604f6e31ee15eE"(ptr align 8 %1, ptr nonnull align 8 %3)
-          to label %6 unwind label %.loopexit, !llvm.loop !9
+          to label %6 unwind label %.loopexit
 
 9:                                                ; preds = %6
   invoke void @"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h0a6b8eabed84243cE"(ptr nonnull align 8 %4)
@@ -223,7 +223,7 @@ define i48 @"_ZN4core6option15Option$LT$T$GT$6filter17h63526039e81cfa11E"(i48 %0
 define void @"_ZN4core6option15Option$LT$T$GT$6filter17h7798d0b234d79069E"(ptr writeonly sret({ [8 x i16], i16, [3 x i16] }) align 8 captures(none) initializes((16, 18)) %0, ptr readonly align 8 captures(none) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca { { i64, i8, [7 x i8] }, { { i16, [2 x i16] } }, [1 x i16] }, align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %5 = load i16, ptr %4, align 8, !range !11, !noundef !3
+  %5 = load i16, ptr %4, align 8, !range !9, !noundef !3
   %.not = icmp eq i16 %5, 3
   br i1 %.not, label %8, label %6
 
@@ -402,7 +402,7 @@ define range(i8 -1, 3) i8 @"_ZN71_$LT$core..option..Option$LT$T$GT$$u20$as$u20$c
   br label %12
 
 10:                                               ; preds = %2
-  %11 = tail call i8 @"_ZN4core3cmp5impls70_$LT$impl$u20$core..cmp..PartialOrd$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$11partial_cmp17ha809df55f457b5c6E"(ptr nonnull align 8 %0, ptr nonnull align 8 %1), !range !12
+  %11 = tail call i8 @"_ZN4core3cmp5impls70_$LT$impl$u20$core..cmp..PartialOrd$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$11partial_cmp17ha809df55f457b5c6E"(ptr nonnull align 8 %0, ptr nonnull align 8 %1), !range !10
   br label %12
 
 12:                                               ; preds = %7, %10
@@ -428,7 +428,7 @@ define range(i8 -1, 3) i8 @"_ZN71_$LT$core..option..Option$LT$T$GT$$u20$as$u20$c
   br label %12
 
 10:                                               ; preds = %2
-  %11 = tail call i8 @"_ZN4core3cmp5impls70_$LT$impl$u20$core..cmp..PartialOrd$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$11partial_cmp17h2455b986d4157410E"(ptr nonnull align 8 %0, ptr nonnull align 8 %1), !range !12
+  %11 = tail call i8 @"_ZN4core3cmp5impls70_$LT$impl$u20$core..cmp..PartialOrd$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$11partial_cmp17h2455b986d4157410E"(ptr nonnull align 8 %0, ptr nonnull align 8 %1), !range !10
   br label %12
 
 12:                                               ; preds = %7, %10
@@ -460,7 +460,7 @@ define { i64, i64 } @"_ZN75_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..o
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
 define void @"_ZN75_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..ops..try_trait..Try$GT$6branch17hae4b1c48307597d9E"(ptr writeonly sret({ i64, [15 x i64] }) align 16 captures(none) initializes((0, 8)) %0, ptr readonly align 16 captures(none) %1) unnamed_addr #4 {
-  %3 = load i64, ptr %1, align 16, !range !13, !noundef !3
+  %3 = load i64, ptr %1, align 16, !range !11, !noundef !3
   %4 = icmp eq i64 %3, 8
   br i1 %4, label %5, label %6
 
@@ -634,8 +634,6 @@ attributes #11 = { cold noreturn nounwind }
 !6 = !{i64 8}
 !7 = !{i64 0, i64 2}
 !8 = !{i64 0, i64 -9223372036854775807}
-!9 = distinct !{!9, !10}
-!10 = !{!"llvm.loop.estimated_trip_count"}
-!11 = !{i16 0, i16 4}
-!12 = !{i8 -1, i8 3}
-!13 = !{i64 0, i64 9}
+!9 = !{i16 0, i16 4}
+!10 = !{i8 -1, i8 3}
+!11 = !{i64 0, i64 9}

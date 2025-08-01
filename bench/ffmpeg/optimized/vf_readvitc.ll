@@ -173,7 +173,7 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
 57:                                               ; preds = %41
   %indvars.iv.next.i.us = add nsw i64 %indvars.iv.i.us, 1
   %58 = icmp slt i64 %indvars.iv.next.i.us, %33
-  br i1 %58, label %41, label %.critedge2.i.us, !llvm.loop !49
+  br i1 %58, label %41, label %.critedge2.i.us, !llvm.loop !48
 
 .critedge2.i.us:                                  ; preds = %57, %56, %.critedge2.loopexit.split.loop.exit108.i.us, %.critedge.i.us
   %.2.lcssa.i.us = phi i32 [ %46, %.critedge.i.us ], [ %55, %.critedge2.loopexit.split.loop.exit108.i.us ], [ %11, %56 ], [ %smax.i.us, %57 ]
@@ -260,14 +260,14 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
 123:                                              ; preds = %118, %98
   %124 = add nuw nsw i32 %.06677.i.us, 1
   %exitcond98.not.i.us = icmp eq i32 %124, 8
-  br i1 %exitcond98.not.i.us, label %125, label %98, !llvm.loop !50
+  br i1 %exitcond98.not.i.us, label %125, label %98, !llvm.loop !49
 
 125:                                              ; preds = %123
   %indvars.iv.next100.i.us = add nuw nsw i64 %indvars.iv99.i.us, 1
   %126 = icmp slt i32 %102, %11
   %127 = icmp samesign ult i64 %indvars.iv99.i.us, 8
   %128 = select i1 %126, i1 %127, i1 false
-  br i1 %128, label %.preheader72.i.us, label %._crit_edge.i.us, !llvm.loop !51
+  br i1 %128, label %.preheader72.i.us, label %._crit_edge.i.us, !llvm.loop !50
 
 ._crit_edge.i.us:                                 ; preds = %125, %78, %62, %.critedge2.i.us
   %.067.lcssa.ph.in.i.us = phi i64 [ %indvars.iv.next100.i.us, %125 ], [ %indvars.iv99.i.us, %.critedge2.i.us ], [ %indvars.iv99.i.us, %62 ], [ %indvars.iv99.i.us, %78 ]
@@ -325,7 +325,7 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
   %175 = getelementptr inbounds i8, ptr %.06586.i.us, i64 %32
   %176 = add nuw nsw i32 %.06387.i.us, 1
   %exitcond102.not.i.us = icmp eq i32 %176, %.068.i
-  br i1 %exitcond102.not.i.us, label %read_vitc_line.exit.thread, label %.preheader72.lr.ph.i.us, !llvm.loop !52
+  br i1 %exitcond102.not.i.us, label %read_vitc_line.exit.thread, label %.preheader72.lr.ph.i.us, !llvm.loop !51
 
 .lr.ph89.i.split:                                 ; preds = %.lr.ph89.i
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(9) %20, i8 0, i64 9, i1 false)
@@ -487,11 +487,10 @@ attributes #6 = { nounwind }
 !43 = !{!11, !11, i64 0}
 !44 = !{!21, !15, i64 44}
 !45 = !{!8, !8, i64 0}
-!46 = distinct !{!46, !47, !48}
+!46 = distinct !{!46, !47}
 !47 = !{!"llvm.loop.mustprogress"}
-!48 = !{!"llvm.loop.estimated_trip_count"}
-!49 = distinct !{!49, !47, !48}
-!50 = distinct !{!50, !47, !48}
-!51 = distinct !{!51, !47, !48}
-!52 = distinct !{!52, !47, !48, !53}
-!53 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!48 = distinct !{!48, !47}
+!49 = distinct !{!49, !47}
+!50 = distinct !{!50, !47}
+!51 = distinct !{!51, !47, !52}
+!52 = !{!"llvm.loop.unswitch.nontrivial.disable"}

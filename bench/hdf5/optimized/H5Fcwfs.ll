@@ -218,7 +218,7 @@ define range(i32 -1, 1) i32 @H5F_cwfs_find_free_heap(ptr noundef %0, i64 noundef
   %33 = load i32, ptr %32, align 8, !tbaa !43
   %34 = zext i32 %33 to i64
   %35 = icmp samesign ult i64 %indvars.iv.next, %34
-  br i1 %35, label %.lr.ph, label %.preheader, !llvm.loop !47
+  br i1 %35, label %.lr.ph, label %.preheader, !llvm.loop !46
 
 .lr.ph100:                                        ; preds = %.preheader, %.thread79
   %indvars.iv114 = phi i64 [ %indvars.iv.next115, %.thread79 ], [ 0, %.preheader ]
@@ -310,7 +310,7 @@ define range(i32 -1, 1) i32 @H5F_cwfs_find_free_heap(ptr noundef %0, i64 noundef
   %103 = load i32, ptr %102, align 8, !tbaa !43
   %104 = zext i32 %103 to i64
   %105 = icmp samesign ult i64 %indvars.iv.next115, %104
-  br i1 %105, label %.lr.ph100, label %.thread84.thread, !llvm.loop !48
+  br i1 %105, label %.lr.ph100, label %.thread84.thread, !llvm.loop !47
 
 .thread84:                                        ; preds = %.lr.ph, %88
   %indvars.iv114.lcssa125.sink134 = phi i64 [ %indvars.iv114, %88 ], [ %indvars.iv, %.lr.ph ]
@@ -426,7 +426,7 @@ define range(i32 -1, 1) i32 @H5F_cwfs_advance_heap(ptr noundef readonly captures
 37:                                               ; preds = %25
   %38 = add nuw i32 %.02442, 1
   %exitcond.not = icmp eq i32 %38, %22
-  br i1 %exitcond.not, label %.thread, label %25, !llvm.loop !49
+  br i1 %exitcond.not, label %.thread, label %25, !llvm.loop !48
 
 .thread:                                          ; preds = %37, %.preheader
   br i1 %2, label %.thread29, label %45
@@ -518,7 +518,7 @@ define range(i32 -1, 1) i32 @H5F_cwfs_remove_heap(ptr noundef captures(none) %0,
 34:                                               ; preds = %22
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %22, !llvm.loop !50
+  br i1 %exitcond.not, label %.loopexit, label %22, !llvm.loop !49
 
 .loopexit:                                        ; preds = %34, %.preheader, %11, %26, %15
   %.0 = phi i32 [ -1, %11 ], [ 0, %26 ], [ 0, %15 ], [ 0, %.preheader ], [ 0, %34 ]
@@ -582,10 +582,9 @@ attributes #6 = { nounwind allocsize(0) }
 !41 = !{!42, !42, i64 0}
 !42 = !{!"p1 _ZTS11H5HG_heap_t", !15, i64 0}
 !43 = !{!22, !18, i64 1440}
-!44 = distinct !{!44, !45, !46}
+!44 = distinct !{!44, !45}
 !45 = !{!"llvm.loop.mustprogress"}
-!46 = !{!"llvm.loop.estimated_trip_count"}
-!47 = distinct !{!47, !45, !46}
-!48 = distinct !{!48, !45, !46}
-!49 = distinct !{!49, !45, !46}
-!50 = distinct !{!50, !45, !46}
+!46 = distinct !{!46, !45}
+!47 = distinct !{!47, !45}
+!48 = distinct !{!48, !45}
+!49 = distinct !{!49, !45}

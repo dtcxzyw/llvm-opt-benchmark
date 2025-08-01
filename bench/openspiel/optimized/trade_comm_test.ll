@@ -1558,7 +1558,7 @@ _ZNSt10unique_ptrIN10open_spiel5StateESt14default_deleteIS1_EED2Ev.exit.i37: ; p
   store ptr null, ptr %10, align 8
   %.sroa.026.0.add.i = add nuw nsw i64 %.sroa.026.0.idx35.i, 16
   %.not.i = icmp eq i64 %.sroa.026.0.add.i, 64
-  br i1 %.not.i, label %_ZNSt6vectorISt5arrayIiLm4EESaIS1_EED2Ev.exit.i, label %501, !llvm.loop !5
+  br i1 %.not.i, label %_ZNSt6vectorISt5arrayIiLm4EESaIS1_EED2Ev.exit.i, label %501
 
 595:                                              ; preds = %588, %575, %562, %560, %.loopexit.split-lp.i, %.loopexit.i
   %.pn9.i = phi { ptr, i32 } [ %563, %562 ], [ %589, %588 ], [ %576, %575 ], [ %561, %560 ], [ %lpad.loopexit.i, %.loopexit.i ], [ %lpad.loopexit.split-lp.i, %.loopexit.split-lp.i ]
@@ -2040,5 +2040,3 @@ attributes #19 = { builtin nounwind }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.estimated_trip_count"}

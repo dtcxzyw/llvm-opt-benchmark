@@ -248,7 +248,7 @@ define dso_local i32 @intel_hdcp_gsc_init(ptr noundef %0) local_unnamed_addr #1 
 99:                                               ; preds = %.thread, %96
   %100 = call i32 @i915_gem_ww_ctx_backoff(ptr noundef nonnull %2) #8
   %101 = icmp eq i32 %100, 0
-  br i1 %101, label %56, label %.thread16, !llvm.loop !11
+  br i1 %101, label %56, label %.thread16
 
 .thread16:                                        ; preds = %99
   call void @i915_gem_ww_ctx_fini(ptr noundef nonnull %2) #8
@@ -275,12 +275,12 @@ define dso_local i32 @intel_hdcp_gsc_init(ptr noundef %0) local_unnamed_addr #1 
 108:                                              ; preds = %.thread16, %102, %47
   %109 = phi i32 [ %49, %47 ], [ %97, %102 ], [ %100, %.thread16 ]
   %110 = getelementptr inbounds nuw i8, ptr %19, i64 672
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %110, ptr nonnull elementtype(i32) %110) #8, !srcloc !13
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %110, ptr nonnull elementtype(i32) %110) #8, !srcloc !11
   br label %111
 
 111:                                              ; preds = %108, %37
   %112 = phi i32 [ %40, %37 ], [ %109, %108 ]
-  %113 = call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %19, i32 -1, ptr elementtype(i32) %19) #8, !srcloc !14
+  %113 = call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %19, i32 -1, ptr elementtype(i32) %19) #8, !srcloc !12
   %114 = icmp eq i32 %113, 1
   br i1 %114, label %118, label %115
 
@@ -293,7 +293,7 @@ define dso_local i32 @intel_hdcp_gsc_init(ptr noundef %0) local_unnamed_addr #1 
   br label %.thread17
 
 118:                                              ; preds = %111
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !15
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !13
   call void @drm_gem_object_free(ptr noundef %19) #8
   br label %.thread17
 
@@ -444,7 +444,7 @@ define dso_local noundef range(i64 -2147483648, 2147483648) i64 @intel_hdcp_gsc_
   call void @msleep(i32 noundef 50) #8
   %67 = add nuw nsw i32 %48, 1
   %68 = icmp eq i32 %67, 20
-  br i1 %68, label %.thread, label %.split.us, !llvm.loop !16
+  br i1 %68, label %.thread, label %.split.us, !llvm.loop !14
 
 .split:                                           ; preds = %16, %96
   %69 = phi i32 [ %97, %96 ], [ 0, %16 ]
@@ -511,7 +511,7 @@ define dso_local noundef range(i64 -2147483648, 2147483648) i64 @intel_hdcp_gsc_
   call void @msleep(i32 noundef 50) #8
   %97 = add nuw nsw i32 %69, 1
   %98 = icmp eq i32 %97, 20
-  br i1 %98, label %.thread, label %.split, !llvm.loop !20
+  br i1 %98, label %.thread, label %.split, !llvm.loop !18
 
 .thread8:                                         ; preds = %91, %61
   %99 = getelementptr inbounds nuw i8, ptr %25, i64 24
@@ -690,13 +690,11 @@ attributes #10 = { cold nounwind }
 !8 = !{i64 2148493611, i64 2148493650, i64 2148493671, i64 2148493708, i64 2148493731, i64 2148493740}
 !9 = !{!"branch_weights", i32 1, i32 2000}
 !10 = !{!"branch_weights", i32 2000, i32 1}
-!11 = distinct !{!11, !12}
-!12 = !{!"llvm.loop.estimated_trip_count"}
-!13 = !{i64 2148483486, i64 2148483525, i64 2148483546, i64 2148483583, i64 2148483606, i64 2148483476}
-!14 = !{i64 2148495796, i64 2148495835, i64 2148495856, i64 2148495893, i64 2148495916, i64 2148495925}
-!15 = !{i64 2150724859}
-!16 = distinct !{!16, !17, !18, !12, !19}
-!17 = !{!"llvm.loop.mustprogress"}
-!18 = !{!"llvm.loop.unroll.disable"}
-!19 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!20 = distinct !{!20, !17, !18, !12}
+!11 = !{i64 2148483486, i64 2148483525, i64 2148483546, i64 2148483583, i64 2148483606, i64 2148483476}
+!12 = !{i64 2148495796, i64 2148495835, i64 2148495856, i64 2148495893, i64 2148495916, i64 2148495925}
+!13 = !{i64 2150724859}
+!14 = distinct !{!14, !15, !16, !17}
+!15 = !{!"llvm.loop.mustprogress"}
+!16 = !{!"llvm.loop.unroll.disable"}
+!17 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!18 = distinct !{!18, !15, !16}

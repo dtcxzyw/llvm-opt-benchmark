@@ -195,7 +195,7 @@ pmix_obj_update.exit:                             ; preds = %12
 
 pmix_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %29
   %38 = getelementptr inbounds nuw i8, ptr %.025, i64 96
-  %39 = load ptr, ptr %38, align 8, !tbaa !39
+  %39 = load ptr, ptr %38, align 8, !tbaa !38
   %.not20 = icmp eq ptr %39, null
   br i1 %.not20, label %42, label %40
 
@@ -210,7 +210,7 @@ pmix_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %29
 
 43:                                               ; preds = %pmix_obj_update.exit, %42, %40, %8
   %.not = icmp eq ptr %.01827, %4
-  br i1 %.not, label %._crit_edge, label %8, !llvm.loop !40
+  br i1 %.not, label %._crit_edge, label %8, !llvm.loop !39
 
 ._crit_edge:                                      ; preds = %43, %3
   ret i32 0
@@ -284,8 +284,7 @@ attributes #10 = { noreturn nounwind }
 !33 = !{!34, !10, i64 48}
 !34 = !{!"pmix_class_t", !9, i64 0, !18, i64 8, !10, i64 16, !10, i64 24, !8, i64 32, !8, i64 36, !10, i64 40, !10, i64 48, !22, i64 56}
 !35 = !{!10, !10, i64 0}
-!36 = distinct !{!36, !37, !38}
+!36 = distinct !{!36, !37}
 !37 = !{!"llvm.loop.mustprogress"}
-!38 = !{!"llvm.loop.estimated_trip_count"}
-!39 = !{!17, !10, i64 96}
-!40 = distinct !{!40, !37, !38}
+!38 = !{!17, !10, i64 96}
+!39 = distinct !{!39, !37}

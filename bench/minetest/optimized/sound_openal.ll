@@ -556,7 +556,7 @@ define linkonce_odr dso_local void @_ZN13ISoundManagerD2Ev(ptr noundef nonnull a
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTV13ISoundManager, i64 16), ptr %this, align 8, !tbaa !13
   %m_removed_sounds = getelementptr inbounds nuw i8, ptr %this, i64 72
-  %0 = load ptr, ptr %m_removed_sounds, align 8, !tbaa !56
+  %0 = load ptr, ptr %m_removed_sounds, align 8, !tbaa !55
   %tobool.not.i.i.i = icmp eq ptr %0, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIiSaIiEED2Ev.exit, label %if.then.i.i.i
 
@@ -567,7 +567,7 @@ if.then.i.i.i:                                    ; preds = %entry
 _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %if.then.i.i.i, %entry
   %m_occupied_ids = getelementptr inbounds nuw i8, ptr %this, i64 8
   %_M_before_begin.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
-  %1 = load ptr, ptr %_M_before_begin.i.i.i.i, align 8, !tbaa !57
+  %1 = load ptr, ptr %_M_before_begin.i.i.i.i, align 8, !tbaa !56
   %tobool.not4.i.i.i.i = icmp eq ptr %1, null
   br i1 %tobool.not4.i.i.i.i, label %_ZNSt10_HashtableIiSt4pairIKijESaIS2_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i.i, label %while.body.i.i.i.i
 
@@ -576,7 +576,7 @@ while.body.i.i.i.i:                               ; preds = %_ZNSt6vectorIiSaIiE
   %2 = load ptr, ptr %__n.addr.05.i.i.i.i, align 8, !tbaa !48
   tail call void @_ZdlPv(ptr noundef nonnull %__n.addr.05.i.i.i.i) #17
   %tobool.not.i.i.i.i = icmp eq ptr %2, null
-  br i1 %tobool.not.i.i.i.i, label %_ZNSt10_HashtableIiSt4pairIKijESaIS2_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i.i, label %while.body.i.i.i.i, !llvm.loop !58
+  br i1 %tobool.not.i.i.i.i, label %_ZNSt10_HashtableIiSt4pairIKijESaIS2_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i.i, label %while.body.i.i.i.i, !llvm.loop !57
 
 _ZNSt10_HashtableIiSt4pairIKijESaIS2_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i.i: ; preds = %while.body.i.i.i.i, %_ZNSt6vectorIiSaIiEED2Ev.exit
   %3 = load ptr, ptr %m_occupied_ids, align 8, !tbaa !29
@@ -695,9 +695,8 @@ attributes #18 = { noreturn nounwind }
 !50 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE", !51, i64 0, !31, i64 8, !10, i64 16}
 !51 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderE", !17, i64 0}
 !52 = !{!50, !31, i64 8}
-!53 = distinct !{!53, !54, !55}
+!53 = distinct !{!53, !54}
 !54 = !{!"llvm.loop.mustprogress"}
-!55 = !{!"llvm.loop.estimated_trip_count"}
-!56 = !{!43, !17, i64 0}
-!57 = !{!30, !17, i64 16}
-!58 = distinct !{!58, !54, !55}
+!55 = !{!43, !17, i64 0}
+!56 = !{!30, !17, i64 16}
+!57 = distinct !{!57, !54}

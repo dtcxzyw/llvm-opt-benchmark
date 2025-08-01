@@ -760,7 +760,7 @@ define dso_local void @run_health_check() local_unnamed_addr #0 {
   store i32 %76, ptr @run_health_check.base_node_loc, align 4
   %77 = tail call ptr @next_node(ptr noundef nonnull @run_health_check.base_node_loc) #7
   %.not43.us = icmp eq ptr %77, null
-  br i1 %.not43.us, label %.critedge67, label %.lr.ph.split.us, !llvm.loop !14
+  br i1 %.not43.us, label %.critedge67, label %.lr.ph.split.us, !llvm.loop !13
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %133
   %78 = phi ptr [ %136, %133 ], [ %34, %.lr.ph ]
@@ -883,7 +883,7 @@ define dso_local void @run_health_check() local_unnamed_addr #0 {
   store i32 %135, ptr @run_health_check.base_node_loc, align 4
   %136 = call ptr @next_node(ptr noundef nonnull @run_health_check.base_node_loc) #7
   %.not43 = icmp eq ptr %136, null
-  br i1 %.not43, label %.critedge67, label %.lr.ph.split, !llvm.loop !16
+  br i1 %.not43, label %.critedge67, label %.lr.ph.split, !llvm.loop !15
 
 .critedge67:                                      ; preds = %133, %74, %26
   store i32 0, ptr @run_health_check.base_node_loc, align 4
@@ -1016,7 +1016,7 @@ define dso_local void @update_nodes_acct_gather_data() local_unnamed_addr #0 {
   store i32 %45, ptr %1, align 4
   %46 = call ptr @next_node(ptr noundef nonnull %1) #7
   %.not = icmp eq ptr %46, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !17
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %43, %0
   %47 = load i32, ptr %4, align 8
@@ -1094,11 +1094,10 @@ attributes #9 = { noreturn nounwind }
 !7 = !{i32 7, !"debug-info-assignment-tracking", i1 true}
 !8 = !{i8 0, i8 2}
 !9 = !{}
-!10 = distinct !{!10, !11, !12, !13}
+!10 = distinct !{!10, !11, !12}
 !11 = !{!"llvm.loop.mustprogress"}
 !12 = !{!"llvm.loop.unroll.disable"}
-!13 = !{!"llvm.loop.estimated_trip_count"}
-!14 = distinct !{!14, !11, !12, !13, !15}
-!15 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!16 = distinct !{!16, !11, !12, !13}
-!17 = distinct !{!17, !11, !12, !13}
+!13 = distinct !{!13, !11, !12, !14}
+!14 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!15 = distinct !{!15, !11, !12}
+!16 = distinct !{!16, !11, !12}

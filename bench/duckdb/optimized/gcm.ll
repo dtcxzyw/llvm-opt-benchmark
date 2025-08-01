@@ -175,12 +175,12 @@ define hidden i32 @mbedtls_gcm_setkey(ptr noundef %0, i32 noundef %1, ptr nounde
   store i64 %119, ptr %120, align 8, !tbaa !13
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %108
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !19
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !18
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i
   %121 = shl nuw nsw i32 %.156.i, 1
   %122 = icmp ult i32 %.156.i, 5
-  br i1 %122, label %.lr.ph.preheader.i, label %_ZL13gcm_gen_tableP19mbedtls_gcm_context.exit, !llvm.loop !20
+  br i1 %122, label %.lr.ph.preheader.i, label %_ZL13gcm_gen_tableP19mbedtls_gcm_context.exit, !llvm.loop !19
 
 _ZL13gcm_gen_tableP19mbedtls_gcm_context.exit:    ; preds = %._crit_edge.i, %16
   %.0.i = phi i32 [ %17, %16 ], [ 0, %._crit_edge.i ]
@@ -222,7 +222,7 @@ define hidden i32 @mbedtls_gcm_starts(ptr noundef %0, i32 noundef %1, ptr nounde
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 360
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 392
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %9, i8 0, i64 32, i1 false)
-  store i32 %1, ptr %10, align 8, !tbaa !21
+  store i32 %1, ptr %10, align 8, !tbaa !20
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 328
   %12 = icmp eq i64 %3, 12
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %11, i8 0, i64 16, i1 false)
@@ -286,14 +286,14 @@ define hidden i32 @mbedtls_gcm_starts(ptr noundef %0, i32 noundef %1, ptr nounde
   store i8 %44, ptr %42, align 1, !tbaa !15
   %45 = add nuw nsw i64 %.05460, 1
   %exitcond.not = icmp eq i64 %45, %38
-  br i1 %exitcond.not, label %46, label %39, !llvm.loop !26
+  br i1 %exitcond.not, label %46, label %39, !llvm.loop !25
 
 46:                                               ; preds = %39
   tail call fastcc void @_ZL8gcm_multP19mbedtls_gcm_contextPKhPh(ptr noundef nonnull %0, ptr noundef nonnull %9, ptr noundef nonnull %9)
   %47 = sub i64 %.05263, %38
   %48 = getelementptr inbounds nuw i8, ptr %.05362, i64 %38
   %.not58 = icmp eq i64 %47, 0
-  br i1 %.not58, label %.preheader, label %.lr.ph, !llvm.loop !27
+  br i1 %.not58, label %.preheader, label %.lr.ph, !llvm.loop !26
 
 .preheader:                                       ; preds = %46, %.preheader
   %.164 = phi i64 [ %54, %.preheader ], [ 0, %46 ]
@@ -305,7 +305,7 @@ define hidden i32 @mbedtls_gcm_starts(ptr noundef %0, i32 noundef %1, ptr nounde
   store i8 %53, ptr %51, align 1, !tbaa !15
   %54 = add nuw nsw i64 %.164, 1
   %exitcond65.not = icmp eq i64 %54, 16
-  br i1 %exitcond65.not, label %55, label %.preheader, !llvm.loop !28
+  br i1 %exitcond65.not, label %55, label %.preheader, !llvm.loop !27
 
 55:                                               ; preds = %.preheader
   tail call fastcc void @_ZL8gcm_multP19mbedtls_gcm_contextPKhPh(ptr noundef nonnull %0, ptr noundef nonnull %9, ptr noundef nonnull %9)
@@ -387,7 +387,7 @@ define internal fastcc void @_ZL8gcm_multP19mbedtls_gcm_contextPKhPh(ptr noundef
   %48 = xor i64 %47, %36
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %.not75 = icmp eq i64 %indvars.iv, 0
-  br i1 %.not75, label %49, label %14, !llvm.loop !29
+  br i1 %.not75, label %49, label %14, !llvm.loop !28
 
 49:                                               ; preds = %34
   %50 = lshr i64 %45, 32
@@ -463,7 +463,7 @@ define hidden range(i32 -20, 1) i32 @mbedtls_gcm_update_ad(ptr noundef captures(
 
 4:                                                ; preds = %3
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 336
-  %6 = load i64, ptr %5, align 8, !tbaa !30
+  %6 = load i64, ptr %5, align 8, !tbaa !29
   %7 = and i64 %6, 15
   %.not58 = icmp eq i64 %7, 0
   br i1 %.not58, label %28, label %8
@@ -489,7 +489,7 @@ define hidden range(i32 -20, 1) i32 @mbedtls_gcm_update_ad(ptr noundef captures(
   store i8 %17, ptr %15, align 1, !tbaa !15
   %18 = add nuw nsw i64 %.04961, 1
   %exitcond.not = icmp eq i64 %18, %spec.select
-  br i1 %exitcond.not, label %._crit_edge, label %11, !llvm.loop !31
+  br i1 %exitcond.not, label %._crit_edge, label %11, !llvm.loop !30
 
 ._crit_edge:                                      ; preds = %11, %8
   %19 = add nuw nsw i64 %spec.select, %7
@@ -499,7 +499,7 @@ define hidden range(i32 -20, 1) i32 @mbedtls_gcm_update_ad(ptr noundef captures(
 21:                                               ; preds = %._crit_edge
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 376
   tail call fastcc void @_ZL8gcm_multP19mbedtls_gcm_contextPKhPh(ptr noundef nonnull %0, ptr noundef nonnull %22, ptr noundef nonnull %22)
-  %.pre = load i64, ptr %5, align 8, !tbaa !30
+  %.pre = load i64, ptr %5, align 8, !tbaa !29
   br label %23
 
 23:                                               ; preds = %21, %._crit_edge
@@ -514,7 +514,7 @@ define hidden range(i32 -20, 1) i32 @mbedtls_gcm_update_ad(ptr noundef captures(
   %.053 = phi i64 [ %26, %23 ], [ %2, %4 ]
   %.051 = phi ptr [ %27, %23 ], [ %1, %4 ]
   %30 = add i64 %29, %.053
-  store i64 %30, ptr %5, align 8, !tbaa !30
+  store i64 %30, ptr %5, align 8, !tbaa !29
   %31 = icmp ugt i64 %.053, 15
   br i1 %31, label %.preheader60.lr.ph, label %._crit_edge65
 
@@ -537,14 +537,14 @@ define hidden range(i32 -20, 1) i32 @mbedtls_gcm_update_ad(ptr noundef captures(
   store i8 %38, ptr %36, align 1, !tbaa !15
   %39 = add nuw nsw i64 %.162, 1
   %exitcond70.not = icmp eq i64 %39, 16
-  br i1 %exitcond70.not, label %40, label %33, !llvm.loop !32
+  br i1 %exitcond70.not, label %40, label %33, !llvm.loop !31
 
 40:                                               ; preds = %33
   tail call fastcc void @_ZL8gcm_multP19mbedtls_gcm_contextPKhPh(ptr noundef nonnull %0, ptr noundef nonnull %32, ptr noundef nonnull %32)
   %41 = add i64 %.15463, -16
   %42 = getelementptr inbounds nuw i8, ptr %.15264, i64 16
   %43 = icmp ugt i64 %41, 15
-  br i1 %43, label %.preheader60, label %._crit_edge65, !llvm.loop !33
+  br i1 %43, label %.preheader60, label %._crit_edge65, !llvm.loop !32
 
 ._crit_edge65:                                    ; preds = %40, %28
   %.154.lcssa = phi i64 [ %.053, %28 ], [ %41, %40 ]
@@ -566,7 +566,7 @@ define hidden range(i32 -20, 1) i32 @mbedtls_gcm_update_ad(ptr noundef captures(
   store i8 %50, ptr %48, align 1, !tbaa !15
   %51 = add nuw nsw i64 %.267, 1
   %exitcond71.not = icmp eq i64 %51, %.154.lcssa
-  br i1 %exitcond71.not, label %.loopexit, label %45, !llvm.loop !34
+  br i1 %exitcond71.not, label %.loopexit, label %45, !llvm.loop !33
 
 .loopexit:                                        ; preds = %45, %._crit_edge65, %3
   %.0 = phi i32 [ -20, %3 ], [ 0, %._crit_edge65 ], [ 0, %45 ]
@@ -598,7 +598,7 @@ define hidden i32 @mbedtls_gcm_update(ptr noundef %0, ptr noundef %1, i64 nounde
 
 19:                                               ; preds = %13
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 328
-  %21 = load i64, ptr %20, align 8, !tbaa !35
+  %21 = load i64, ptr %20, align 8, !tbaa !34
   %22 = add i64 %21, %2
   %23 = icmp ult i64 %22, %21
   %24 = icmp ugt i64 %22, 68719476704
@@ -611,7 +611,7 @@ define hidden i32 @mbedtls_gcm_update(ptr noundef %0, ptr noundef %1, i64 nounde
 
 27:                                               ; preds = %25
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 336
-  %29 = load i64, ptr %28, align 8, !tbaa !30
+  %29 = load i64, ptr %28, align 8, !tbaa !29
   %30 = and i64 %29, 15
   %.not = icmp eq i64 %30, 0
   br i1 %.not, label %.thread, label %31
@@ -619,7 +619,7 @@ define hidden i32 @mbedtls_gcm_update(ptr noundef %0, ptr noundef %1, i64 nounde
 31:                                               ; preds = %27
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 376
   tail call fastcc void @_ZL8gcm_multP19mbedtls_gcm_contextPKhPh(ptr noundef nonnull %0, ptr noundef nonnull %32, ptr noundef nonnull %32)
-  %.pre = load i64, ptr %20, align 8, !tbaa !35
+  %.pre = load i64, ptr %20, align 8, !tbaa !34
   br label %33
 
 33:                                               ; preds = %31, %25
@@ -645,7 +645,7 @@ define hidden i32 @mbedtls_gcm_update(ptr noundef %0, ptr noundef %1, i64 nounde
 
 42:                                               ; preds = %65, %.preheader.i
   %.029.i = phi i64 [ 0, %.preheader.i ], [ %66, %65 ]
-  %43 = load i32, ptr %40, align 8, !tbaa !21
+  %43 = load i32, ptr %40, align 8, !tbaa !20
   %44 = icmp eq i32 %43, 0
   br i1 %44, label %45, label %._crit_edge.i
 
@@ -672,7 +672,7 @@ define hidden i32 @mbedtls_gcm_update(ptr noundef %0, ptr noundef %1, i64 nounde
   %57 = xor i8 %56, %54
   %58 = getelementptr inbounds nuw i8, ptr %3, i64 %.029.i
   store i8 %57, ptr %58, align 1, !tbaa !15
-  %59 = load i32, ptr %40, align 8, !tbaa !21
+  %59 = load i32, ptr %40, align 8, !tbaa !20
   %60 = icmp eq i32 %59, 1
   br i1 %60, label %61, label %65
 
@@ -686,7 +686,7 @@ define hidden i32 @mbedtls_gcm_update(ptr noundef %0, ptr noundef %1, i64 nounde
 65:                                               ; preds = %61, %52
   %66 = add nuw nsw i64 %.029.i, 1
   %exitcond.not.i = icmp eq i64 %66, %spec.select
-  br i1 %exitcond.not.i, label %67, label %42, !llvm.loop !36
+  br i1 %exitcond.not.i, label %67, label %42, !llvm.loop !35
 
 _ZL8gcm_maskP19mbedtls_gcm_contextPhmmPKhS1_.exit: ; preds = %36
   call void @mbedtls_platform_zeroize(ptr noundef nonnull %9, i64 noundef 16)
@@ -704,7 +704,7 @@ _ZL8gcm_maskP19mbedtls_gcm_contextPhmmPKhS1_.exit: ; preds = %36
   br label %71
 
 71:                                               ; preds = %70, %67
-  %72 = load i64, ptr %20, align 8, !tbaa !35
+  %72 = load i64, ptr %20, align 8, !tbaa !34
   %73 = add i64 %72, %spec.select
   %74 = sub i64 %2, %spec.select
   %75 = getelementptr inbounds nuw i8, ptr %1, i64 %spec.select
@@ -717,129 +717,130 @@ _ZL8gcm_maskP19mbedtls_gcm_contextPhmmPKhS1_.exit: ; preds = %36
   %.073 = phi ptr [ %75, %71 ], [ %1, %33 ], [ %1, %27 ]
   %.071 = phi ptr [ %76, %71 ], [ %3, %33 ], [ %3, %27 ]
   %78 = add i64 %77, %.076
-  store i64 %78, ptr %20, align 8, !tbaa !35
+  store i64 %78, ptr %20, align 8, !tbaa !34
   %79 = icmp ugt i64 %.076, 15
   br i1 %79, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.thread
   %80 = getelementptr inbounds nuw i8, ptr %0, i64 360
-  %invariant.gep.i = getelementptr i8, ptr %0, i64 359
   %81 = getelementptr inbounds nuw i8, ptr %0, i64 392
   %82 = getelementptr inbounds nuw i8, ptr %0, i64 376
   br label %83
 
-83:                                               ; preds = %.lr.ph, %112
-  %.2123 = phi ptr [ %.071, %.lr.ph ], [ %115, %112 ]
-  %.275122 = phi ptr [ %.073, %.lr.ph ], [ %114, %112 ]
-  %.278121 = phi i64 [ %.076, %.lr.ph ], [ %113, %112 ]
+83:                                               ; preds = %.lr.ph, %114
+  %.2121 = phi ptr [ %.071, %.lr.ph ], [ %117, %114 ]
+  %.275120 = phi ptr [ %.073, %.lr.ph ], [ %116, %114 ]
+  %.278119 = phi i64 [ %.076, %.lr.ph ], [ %115, %114 ]
   br label %84
 
 84:                                               ; preds = %84, %83
-  %.03.i = phi i64 [ 16, %83 ], [ %87, %84 ]
-  %gep.i = getelementptr i8, ptr %invariant.gep.i, i64 %.03.i
-  %85 = load i8, ptr %gep.i, align 1, !tbaa !15
-  %86 = add i8 %85, 1
-  store i8 %86, ptr %gep.i, align 1, !tbaa !15
-  %.not.i97 = icmp eq i8 %86, 0
-  %87 = add nsw i64 %.03.i, -1
-  %88 = icmp ugt i64 %87, 12
-  %or.cond.i = select i1 %.not.i97, i1 %88, i1 false
-  br i1 %or.cond.i, label %84, label %_ZL8gcm_incrPh.exit, !llvm.loop !37
+  %.03.i = phi i64 [ 16, %83 ], [ %89, %84 ]
+  %85 = getelementptr i8, ptr %80, i64 %.03.i
+  %86 = getelementptr i8, ptr %85, i64 -1
+  %87 = load i8, ptr %86, align 1, !tbaa !15
+  %88 = add i8 %87, 1
+  store i8 %88, ptr %86, align 1, !tbaa !15
+  %.not.i97 = icmp eq i8 %88, 0
+  %89 = add nsw i64 %.03.i, -1
+  %90 = icmp ugt i64 %89, 12
+  %or.cond.i = select i1 %.not.i97, i1 %90, i1 false
+  br i1 %or.cond.i, label %84, label %_ZL8gcm_incrPh.exit, !llvm.loop !36
 
 _ZL8gcm_incrPh.exit:                              ; preds = %84
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #8
   store i64 0, ptr %7, align 8, !tbaa !13
-  %89 = call i32 @mbedtls_cipher_update(ptr noundef nonnull %0, ptr noundef nonnull %80, i64 noundef 16, ptr noundef nonnull %9, ptr noundef nonnull %7)
-  %.not.i98 = icmp eq i32 %89, 0
+  %91 = call i32 @mbedtls_cipher_update(ptr noundef nonnull %0, ptr noundef nonnull %80, i64 noundef 16, ptr noundef nonnull %9, ptr noundef nonnull %7)
+  %.not.i98 = icmp eq i32 %91, 0
   br i1 %.not.i98, label %.preheader.i100, label %_ZL8gcm_maskP19mbedtls_gcm_contextPhmmPKhS1_.exit106
 
-.preheader.i100:                                  ; preds = %_ZL8gcm_incrPh.exit, %110
-  %.029.i101 = phi i64 [ %111, %110 ], [ 0, %_ZL8gcm_incrPh.exit ]
-  %90 = load i32, ptr %81, align 8, !tbaa !21
-  %91 = icmp eq i32 %90, 0
-  br i1 %91, label %92, label %._crit_edge.i102
+.preheader.i100:                                  ; preds = %_ZL8gcm_incrPh.exit, %112
+  %.029.i101 = phi i64 [ %113, %112 ], [ 0, %_ZL8gcm_incrPh.exit ]
+  %92 = load i32, ptr %81, align 8, !tbaa !20
+  %93 = icmp eq i32 %92, 0
+  br i1 %93, label %94, label %._crit_edge.i102
 
-92:                                               ; preds = %.preheader.i100
-  %93 = getelementptr inbounds nuw i8, ptr %.275122, i64 %.029.i101
-  %94 = load i8, ptr %93, align 1, !tbaa !15
-  %95 = getelementptr inbounds nuw [16 x i8], ptr %82, i64 0, i64 %.029.i101
+94:                                               ; preds = %.preheader.i100
+  %95 = getelementptr inbounds nuw i8, ptr %.275120, i64 %.029.i101
   %96 = load i8, ptr %95, align 1, !tbaa !15
-  %97 = xor i8 %96, %94
-  store i8 %97, ptr %95, align 1, !tbaa !15
+  %97 = getelementptr inbounds nuw [16 x i8], ptr %82, i64 0, i64 %.029.i101
+  %98 = load i8, ptr %97, align 1, !tbaa !15
+  %99 = xor i8 %98, %96
+  store i8 %99, ptr %97, align 1, !tbaa !15
   br label %._crit_edge.i102
 
-._crit_edge.i102:                                 ; preds = %.preheader.i100, %92
-  %98 = getelementptr inbounds nuw i8, ptr %9, i64 %.029.i101
-  %99 = load i8, ptr %98, align 1, !tbaa !15
-  %100 = getelementptr inbounds nuw i8, ptr %.275122, i64 %.029.i101
+._crit_edge.i102:                                 ; preds = %.preheader.i100, %94
+  %100 = getelementptr inbounds nuw i8, ptr %9, i64 %.029.i101
   %101 = load i8, ptr %100, align 1, !tbaa !15
-  %102 = xor i8 %101, %99
-  %103 = getelementptr inbounds nuw i8, ptr %.2123, i64 %.029.i101
-  store i8 %102, ptr %103, align 1, !tbaa !15
-  %104 = load i32, ptr %81, align 8, !tbaa !21
-  %105 = icmp eq i32 %104, 1
-  br i1 %105, label %106, label %110
+  %102 = getelementptr inbounds nuw i8, ptr %.275120, i64 %.029.i101
+  %103 = load i8, ptr %102, align 1, !tbaa !15
+  %104 = xor i8 %103, %101
+  %105 = getelementptr inbounds nuw i8, ptr %.2121, i64 %.029.i101
+  store i8 %104, ptr %105, align 1, !tbaa !15
+  %106 = load i32, ptr %81, align 8, !tbaa !20
+  %107 = icmp eq i32 %106, 1
+  br i1 %107, label %108, label %112
 
-106:                                              ; preds = %._crit_edge.i102
-  %107 = getelementptr inbounds nuw [16 x i8], ptr %82, i64 0, i64 %.029.i101
-  %108 = load i8, ptr %107, align 1, !tbaa !15
-  %109 = xor i8 %108, %102
-  store i8 %109, ptr %107, align 1, !tbaa !15
-  br label %110
+108:                                              ; preds = %._crit_edge.i102
+  %109 = getelementptr inbounds nuw [16 x i8], ptr %82, i64 0, i64 %.029.i101
+  %110 = load i8, ptr %109, align 1, !tbaa !15
+  %111 = xor i8 %110, %104
+  store i8 %111, ptr %109, align 1, !tbaa !15
+  br label %112
 
-110:                                              ; preds = %106, %._crit_edge.i102
-  %111 = add nuw nsw i64 %.029.i101, 1
-  %exitcond.not.i105 = icmp eq i64 %111, 16
-  br i1 %exitcond.not.i105, label %112, label %.preheader.i100, !llvm.loop !36
+112:                                              ; preds = %108, %._crit_edge.i102
+  %113 = add nuw nsw i64 %.029.i101, 1
+  %exitcond.not.i105 = icmp eq i64 %113, 16
+  br i1 %exitcond.not.i105, label %114, label %.preheader.i100, !llvm.loop !35
 
 _ZL8gcm_maskP19mbedtls_gcm_contextPhmmPKhS1_.exit106: ; preds = %_ZL8gcm_incrPh.exit
   call void @mbedtls_platform_zeroize(ptr noundef nonnull %9, i64 noundef 16)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #8
   br label %.critedge
 
-112:                                              ; preds = %110
+114:                                              ; preds = %112
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #8
   call fastcc void @_ZL8gcm_multP19mbedtls_gcm_contextPKhPh(ptr noundef nonnull %0, ptr noundef nonnull %82, ptr noundef nonnull %82)
-  %113 = add i64 %.278121, -16
-  %114 = getelementptr inbounds nuw i8, ptr %.275122, i64 16
-  %115 = getelementptr inbounds nuw i8, ptr %.2123, i64 16
-  %116 = icmp ugt i64 %113, 15
-  br i1 %116, label %83, label %._crit_edge, !llvm.loop !38
+  %115 = add i64 %.278119, -16
+  %116 = getelementptr inbounds nuw i8, ptr %.275120, i64 16
+  %117 = getelementptr inbounds nuw i8, ptr %.2121, i64 16
+  %118 = icmp ugt i64 %115, 15
+  br i1 %118, label %83, label %._crit_edge, !llvm.loop !37
 
-._crit_edge:                                      ; preds = %112, %.thread
-  %.278.lcssa = phi i64 [ %.076, %.thread ], [ %113, %112 ]
-  %.275.lcssa = phi ptr [ %.073, %.thread ], [ %114, %112 ]
-  %.2.lcssa = phi ptr [ %.071, %.thread ], [ %115, %112 ]
+._crit_edge:                                      ; preds = %114, %.thread
+  %.278.lcssa = phi i64 [ %.076, %.thread ], [ %115, %114 ]
+  %.275.lcssa = phi ptr [ %.073, %.thread ], [ %116, %114 ]
+  %.2.lcssa = phi ptr [ %.071, %.thread ], [ %117, %114 ]
   %.not90 = icmp eq i64 %.278.lcssa, 0
-  br i1 %.not90, label %124, label %117
+  br i1 %.not90, label %129, label %119
 
-117:                                              ; preds = %._crit_edge
-  %invariant.gep.i107 = getelementptr i8, ptr %0, i64 359
-  br label %118
+119:                                              ; preds = %._crit_edge
+  %120 = getelementptr inbounds nuw i8, ptr %0, i64 360
+  br label %121
 
-118:                                              ; preds = %118, %117
-  %.03.i108 = phi i64 [ 16, %117 ], [ %121, %118 ]
-  %gep.i109 = getelementptr i8, ptr %invariant.gep.i107, i64 %.03.i108
-  %119 = load i8, ptr %gep.i109, align 1, !tbaa !15
-  %120 = add i8 %119, 1
-  store i8 %120, ptr %gep.i109, align 1, !tbaa !15
-  %.not.i110 = icmp eq i8 %120, 0
-  %121 = add nsw i64 %.03.i108, -1
-  %122 = icmp ugt i64 %121, 12
-  %or.cond.i111 = select i1 %.not.i110, i1 %122, i1 false
-  br i1 %or.cond.i111, label %118, label %_ZL8gcm_incrPh.exit112, !llvm.loop !37
+121:                                              ; preds = %121, %119
+  %.03.i107 = phi i64 [ 16, %119 ], [ %126, %121 ]
+  %122 = getelementptr i8, ptr %120, i64 %.03.i107
+  %123 = getelementptr i8, ptr %122, i64 -1
+  %124 = load i8, ptr %123, align 1, !tbaa !15
+  %125 = add i8 %124, 1
+  store i8 %125, ptr %123, align 1, !tbaa !15
+  %.not.i108 = icmp eq i8 %125, 0
+  %126 = add nsw i64 %.03.i107, -1
+  %127 = icmp ugt i64 %126, 12
+  %or.cond.i109 = select i1 %.not.i108, i1 %127, i1 false
+  br i1 %or.cond.i109, label %121, label %_ZL8gcm_incrPh.exit110, !llvm.loop !36
 
-_ZL8gcm_incrPh.exit112:                           ; preds = %118
-  %123 = call fastcc noundef i32 @_ZL8gcm_maskP19mbedtls_gcm_contextPhmmPKhS1_(ptr noundef nonnull %0, ptr noundef %9, i64 noundef 0, i64 noundef %.278.lcssa, ptr noundef %.275.lcssa, ptr noundef %.2.lcssa)
-  %.not91 = icmp eq i32 %123, 0
-  br i1 %.not91, label %124, label %.critedge
+_ZL8gcm_incrPh.exit110:                           ; preds = %121
+  %128 = call fastcc noundef i32 @_ZL8gcm_maskP19mbedtls_gcm_contextPhmmPKhS1_(ptr noundef nonnull %0, ptr noundef %9, i64 noundef 0, i64 noundef %.278.lcssa, ptr noundef %.275.lcssa, ptr noundef %.2.lcssa)
+  %.not91 = icmp eq i32 %128, 0
+  br i1 %.not91, label %129, label %.critedge
 
-124:                                              ; preds = %_ZL8gcm_incrPh.exit112, %._crit_edge
+129:                                              ; preds = %_ZL8gcm_incrPh.exit110, %._crit_edge
   call void @mbedtls_platform_zeroize(ptr noundef nonnull %9, i64 noundef 16)
   br label %.critedge
 
-.critedge:                                        ; preds = %_ZL8gcm_maskP19mbedtls_gcm_contextPhmmPKhS1_.exit106, %_ZL8gcm_maskP19mbedtls_gcm_contextPhmmPKhS1_.exit, %_ZL8gcm_incrPh.exit112, %19, %13, %11, %6, %124
-  %.070 = phi i32 [ 0, %124 ], [ -22, %6 ], [ 0, %11 ], [ -20, %13 ], [ -20, %19 ], [ %89, %_ZL8gcm_maskP19mbedtls_gcm_contextPhmmPKhS1_.exit106 ], [ %123, %_ZL8gcm_incrPh.exit112 ], [ %39, %_ZL8gcm_maskP19mbedtls_gcm_contextPhmmPKhS1_.exit ]
+.critedge:                                        ; preds = %_ZL8gcm_maskP19mbedtls_gcm_contextPhmmPKhS1_.exit106, %_ZL8gcm_maskP19mbedtls_gcm_contextPhmmPKhS1_.exit, %_ZL8gcm_incrPh.exit110, %19, %13, %11, %6, %129
+  %.070 = phi i32 [ 0, %129 ], [ -22, %6 ], [ 0, %11 ], [ -20, %13 ], [ -20, %19 ], [ %91, %_ZL8gcm_maskP19mbedtls_gcm_contextPhmmPKhS1_.exit106 ], [ %128, %_ZL8gcm_incrPh.exit110 ], [ %39, %_ZL8gcm_maskP19mbedtls_gcm_contextPhmmPKhS1_.exit ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #8
   ret i32 %.070
 }
@@ -865,7 +866,7 @@ define internal fastcc noundef i32 @_ZL8gcm_maskP19mbedtls_gcm_contextPhmmPKhS1_
 
 13:                                               ; preds = %.preheader, %36
   %.029 = phi i64 [ 0, %.preheader ], [ %37, %36 ]
-  %14 = load i32, ptr %10, align 8, !tbaa !21
+  %14 = load i32, ptr %10, align 8, !tbaa !20
   %15 = icmp eq i32 %14, 0
   br i1 %15, label %16, label %._crit_edge
 
@@ -892,7 +893,7 @@ define internal fastcc noundef i32 @_ZL8gcm_maskP19mbedtls_gcm_contextPhmmPKhS1_
   %28 = xor i8 %27, %25
   %29 = getelementptr inbounds nuw i8, ptr %5, i64 %.029
   store i8 %28, ptr %29, align 1, !tbaa !15
-  %30 = load i32, ptr %10, align 8, !tbaa !21
+  %30 = load i32, ptr %10, align 8, !tbaa !20
   %31 = icmp eq i32 %30, 1
   br i1 %31, label %32, label %36
 
@@ -906,7 +907,7 @@ define internal fastcc noundef i32 @_ZL8gcm_maskP19mbedtls_gcm_contextPhmmPKhS1_
 36:                                               ; preds = %23, %32
   %37 = add nuw nsw i64 %.029, 1
   %exitcond.not = icmp eq i64 %37, %3
-  br i1 %exitcond.not, label %.loopexit, label %13, !llvm.loop !36
+  br i1 %exitcond.not, label %.loopexit, label %13, !llvm.loop !35
 
 .loopexit:                                        ; preds = %36, %12
   %.027 = phi i32 [ %9, %12 ], [ 0, %36 ]
@@ -922,10 +923,10 @@ define hidden range(i32 -20, 1) i32 @mbedtls_gcm_finish(ptr noundef captures(non
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #8
   store i64 0, ptr %3, align 8, !tbaa !13
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 328
-  %9 = load i64, ptr %8, align 8, !tbaa !35
+  %9 = load i64, ptr %8, align 8, !tbaa !34
   %10 = shl i64 %9, 3
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 336
-  %12 = load i64, ptr %11, align 8, !tbaa !30
+  %12 = load i64, ptr %11, align 8, !tbaa !29
   %13 = shl i64 %12, 3
   %14 = icmp ne i64 %9, 0
   %15 = and i64 %12, 15
@@ -944,7 +945,7 @@ define hidden range(i32 -20, 1) i32 @mbedtls_gcm_finish(ptr noundef captures(non
   br i1 %or.cond, label %.loopexit, label %20
 
 20:                                               ; preds = %18
-  %21 = load i64, ptr %8, align 8, !tbaa !35
+  %21 = load i64, ptr %8, align 8, !tbaa !34
   %22 = and i64 %21, 15
   %.not55 = icmp eq i64 %22, 0
   br i1 %.not55, label %25, label %23
@@ -1037,7 +1038,7 @@ define hidden range(i32 -20, 1) i32 @mbedtls_gcm_finish(ptr noundef captures(non
   store i8 %81, ptr %79, align 1, !tbaa !15
   %82 = add nuw nsw i64 %.05357, 1
   %exitcond.not = icmp eq i64 %82, 16
-  br i1 %exitcond.not, label %.lr.ph.preheader, label %76, !llvm.loop !39
+  br i1 %exitcond.not, label %.lr.ph.preheader, label %76, !llvm.loop !38
 
 .lr.ph.preheader:                                 ; preds = %76
   tail call fastcc void @_ZL8gcm_multP19mbedtls_gcm_contextPKhPh(ptr noundef nonnull %0, ptr noundef nonnull %75, ptr noundef nonnull %75)
@@ -1053,7 +1054,7 @@ define hidden range(i32 -20, 1) i32 @mbedtls_gcm_finish(ptr noundef captures(non
   store i8 %87, ptr %85, align 1, !tbaa !15
   %88 = add nuw nsw i64 %.158, 1
   %exitcond60.not = icmp eq i64 %88, %5
-  br i1 %exitcond60.not, label %.loopexit, label %.lr.ph, !llvm.loop !40
+  br i1 %exitcond60.not, label %.loopexit, label %.lr.ph, !llvm.loop !39
 
 .loopexit:                                        ; preds = %.lr.ph, %25, %18
   %.0 = phi i32 [ -20, %18 ], [ 0, %25 ], [ 0, %.lr.ph ]
@@ -1136,7 +1137,7 @@ mbedtls_gcm_crypt_and_tag.exit:                   ; preds = %16
   %25 = or i32 %.027, %24
   %26 = add nuw i64 %.02026, 1
   %exitcond.not = icmp eq i64 %26, %7
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !41
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !40
 
 ._crit_edge:                                      ; preds = %.lr.ph
   %27 = icmp eq i32 %25, 0
@@ -1200,29 +1201,28 @@ attributes #8 = { nounwind }
 !13 = !{!14, !14, i64 0}
 !14 = !{!"long", !6, i64 0}
 !15 = !{!6, !6, i64 0}
-!16 = distinct !{!16, !17, !18}
+!16 = distinct !{!16, !17}
 !17 = !{!"llvm.loop.mustprogress"}
-!18 = !{!"llvm.loop.estimated_trip_count"}
-!19 = distinct !{!19, !17, !18}
-!20 = distinct !{!20, !17, !18}
-!21 = !{!22, !9, i64 392}
-!22 = !{!"_ZTS19mbedtls_gcm_context", !23, i64 0, !6, i64 72, !6, i64 200, !14, i64 328, !14, i64 336, !6, i64 344, !6, i64 360, !6, i64 376, !9, i64 392}
-!23 = !{!"_ZTS24mbedtls_cipher_context_t", !24, i64 0, !9, i64 8, !25, i64 12, !6, i64 16, !14, i64 32, !6, i64 40, !14, i64 56, !11, i64 64}
-!24 = !{!"p1 _ZTS21mbedtls_cipher_info_t", !11, i64 0}
-!25 = !{!"_ZTS19mbedtls_operation_t", !6, i64 0}
-!26 = distinct !{!26, !17, !18}
-!27 = distinct !{!27, !17, !18}
-!28 = distinct !{!28, !17, !18}
-!29 = distinct !{!29, !17, !18}
-!30 = !{!22, !14, i64 336}
-!31 = distinct !{!31, !17, !18}
-!32 = distinct !{!32, !17, !18}
-!33 = distinct !{!33, !17, !18}
-!34 = distinct !{!34, !17, !18}
-!35 = !{!22, !14, i64 328}
-!36 = distinct !{!36, !17, !18}
-!37 = distinct !{!37, !17, !18}
-!38 = distinct !{!38, !17, !18}
-!39 = distinct !{!39, !17, !18}
-!40 = distinct !{!40, !17, !18}
-!41 = distinct !{!41, !17, !18}
+!18 = distinct !{!18, !17}
+!19 = distinct !{!19, !17}
+!20 = !{!21, !9, i64 392}
+!21 = !{!"_ZTS19mbedtls_gcm_context", !22, i64 0, !6, i64 72, !6, i64 200, !14, i64 328, !14, i64 336, !6, i64 344, !6, i64 360, !6, i64 376, !9, i64 392}
+!22 = !{!"_ZTS24mbedtls_cipher_context_t", !23, i64 0, !9, i64 8, !24, i64 12, !6, i64 16, !14, i64 32, !6, i64 40, !14, i64 56, !11, i64 64}
+!23 = !{!"p1 _ZTS21mbedtls_cipher_info_t", !11, i64 0}
+!24 = !{!"_ZTS19mbedtls_operation_t", !6, i64 0}
+!25 = distinct !{!25, !17}
+!26 = distinct !{!26, !17}
+!27 = distinct !{!27, !17}
+!28 = distinct !{!28, !17}
+!29 = !{!21, !14, i64 336}
+!30 = distinct !{!30, !17}
+!31 = distinct !{!31, !17}
+!32 = distinct !{!32, !17}
+!33 = distinct !{!33, !17}
+!34 = !{!21, !14, i64 328}
+!35 = distinct !{!35, !17}
+!36 = distinct !{!36, !17}
+!37 = distinct !{!37, !17}
+!38 = distinct !{!38, !17}
+!39 = distinct !{!39, !17}
+!40 = distinct !{!40, !17}

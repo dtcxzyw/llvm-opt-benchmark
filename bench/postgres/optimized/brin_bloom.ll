@@ -397,7 +397,7 @@ bloom_get_procinfo.exit:                          ; preds = %32, %46, %53, %57
 70:                                               ; preds = %71
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %bloom_contains_value.exit, label %71, !llvm.loop !9
+  br i1 %exitcond.not.i, label %bloom_contains_value.exit, label %71, !llvm.loop !8
 
 71:                                               ; preds = %70, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %70 ]
@@ -418,7 +418,7 @@ bloom_get_procinfo.exit:                          ; preds = %32, %46, %53, %57
 bloom_contains_value.exit:                        ; preds = %70, %bloom_get_procinfo.exit
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %bloom_contains_value.exit.thread, label %27, !llvm.loop !10
+  br i1 %exitcond.not, label %bloom_contains_value.exit.thread, label %27, !llvm.loop !9
 
 83:                                               ; preds = %27
   %84 = getelementptr inbounds nuw i8, ptr %29, i64 6
@@ -482,7 +482,7 @@ define dso_local noundef i64 @brin_bloom_union(ptr noundef readonly captures(non
   store i8 %28, ptr %26, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %23, !llvm.loop !11
+  br i1 %exitcond.not, label %._crit_edge, label %23, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %23
   %29 = getelementptr inbounds nuw i8, ptr %12, i64 16
@@ -502,7 +502,7 @@ define dso_local noundef i64 @brin_bloom_union(ptr noundef readonly captures(non
   %37 = zext i8 %36 to i64
   %38 = add i64 %.015.i, %37
   %.not.i = icmp eq i32 %31, 0
-  br i1 %.not.i, label %pg_popcount.exit, label %.lr.ph.i, !llvm.loop !12
+  br i1 %.not.i, label %pg_popcount.exit, label %.lr.ph.i, !llvm.loop !11
 
 39:                                               ; preds = %._crit_edge
   %40 = load ptr, ptr @pg_popcount_optimized, align 8
@@ -634,10 +634,9 @@ attributes #9 = { cold nounwind }
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i8 0, i8 2}
 !5 = !{}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7, !8}
-!11 = distinct !{!11, !7, !8}
-!12 = distinct !{!12, !7, !8}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7}

@@ -372,7 +372,7 @@ define dso_local range(i32 -2147483648, 1) i32 @snd_hdac_device_init(ptr noundef
   %161 = getelementptr i8, ptr %154, i64 16
   %162 = load i32, ptr %161, align 8
   %163 = icmp eq i32 %162, 0
-  br i1 %163, label %164, label %152, !llvm.loop !11
+  br i1 %163, label %164, label %152, !llvm.loop !10
 
 164:                                              ; preds = %160
   %165 = call noalias ptr (i32, ptr, ...) @kasprintf(i32 noundef 3264, ptr noundef nonnull @.str.12, i32 noundef %151) #9
@@ -415,22 +415,22 @@ define internal void @default_release(ptr noundef %0) #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 432
   %3 = load volatile i32, ptr %2, align 4
   %4 = icmp eq i32 %3, 0
-  br i1 %4, label %.critedge, label %.lr.ph, !prof !12
+  br i1 %4, label %.critedge, label %.lr.ph, !prof !11
 
 .lr.ph:                                           ; preds = %1, %11
   %5 = phi i32 [ %12, %11 ], [ %3, %1 ]
   %6 = add i32 %5, -1
-  %7 = tail call { i8, i32 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %2, i32 %6, ptr nonnull elementtype(i32) %2, i32 %5) #9, !srcloc !13
+  %7 = tail call { i8, i32 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %2, i32 %6, ptr nonnull elementtype(i32) %2, i32 %5) #9, !srcloc !12
   %8 = extractvalue { i8, i32 } %7, 0
   %9 = icmp ult i8 %8, 2
   tail call void @llvm.assume(i1 %9)
   %10 = icmp eq i8 %8, 0
-  br i1 %10, label %11, label %.critedge, !prof !14
+  br i1 %10, label %11, label %.critedge, !prof !13
 
 11:                                               ; preds = %.lr.ph
   %12 = extractvalue { i8, i32 } %7, 1
   %13 = icmp eq i32 %12, 0
-  br i1 %13, label %.critedge, label %.lr.ph, !prof !15, !llvm.loop !16
+  br i1 %13, label %.critedge, label %.lr.ph, !prof !14, !llvm.loop !15
 
 .critedge:                                        ; preds = %11, %.lr.ph, %1
   %14 = tail call i32 @__pm_runtime_set_status(ptr noundef %0, i32 noundef 2) #9
@@ -583,22 +583,22 @@ define dso_local void @snd_hdac_device_exit(ptr noundef %0) #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 432
   %3 = load volatile i32, ptr %2, align 4
   %4 = icmp eq i32 %3, 0
-  br i1 %4, label %.critedge, label %.lr.ph, !prof !12
+  br i1 %4, label %.critedge, label %.lr.ph, !prof !11
 
 .lr.ph:                                           ; preds = %1, %11
   %5 = phi i32 [ %12, %11 ], [ %3, %1 ]
   %6 = add i32 %5, -1
-  %7 = tail call { i8, i32 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %2, i32 %6, ptr nonnull elementtype(i32) %2, i32 %5) #9, !srcloc !13
+  %7 = tail call { i8, i32 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %2, i32 %6, ptr nonnull elementtype(i32) %2, i32 %5) #9, !srcloc !12
   %8 = extractvalue { i8, i32 } %7, 0
   %9 = icmp ult i8 %8, 2
   tail call void @llvm.assume(i1 %9)
   %10 = icmp eq i8 %8, 0
-  br i1 %10, label %11, label %.critedge, !prof !14
+  br i1 %10, label %11, label %.critedge, !prof !13
 
 11:                                               ; preds = %.lr.ph
   %12 = extractvalue { i8, i32 } %7, 1
   %13 = icmp eq i32 %12, 0
-  br i1 %13, label %.critedge, label %.lr.ph, !prof !15, !llvm.loop !17
+  br i1 %13, label %.critedge, label %.lr.ph, !prof !14, !llvm.loop !15
 
 .critedge:                                        ; preds = %11, %.lr.ph, %1
   %14 = tail call i32 @__pm_runtime_set_status(ptr noundef %0, i32 noundef 2) #9
@@ -1045,7 +1045,7 @@ define dso_local i32 @snd_hdac_get_connections(ptr noundef %0, i16 noundef zeroe
   %128 = add i16 %125, 1
   %129 = zext i16 %128 to i32
   %130 = icmp ult i32 %110, %129
-  br i1 %130, label %.loopexit, label %.preheader.split.us, !llvm.loop !18
+  br i1 %130, label %.loopexit, label %.preheader.split.us, !llvm.loop !16
 
 131:                                              ; preds = %118
   call void (ptr, ptr, ...) @_dev_warn(ptr noundef %0, ptr noundef nonnull @.str.8, i32 noundef %120, i32 noundef %110) #10
@@ -1064,7 +1064,7 @@ define dso_local i32 @snd_hdac_get_connections(ptr noundef %0, i16 noundef zeroe
   %135 = add i16 %132, 1
   %136 = zext i16 %135 to i32
   %137 = icmp ult i32 %110, %136
-  br i1 %137, label %.loopexit.loopexit20, label %.preheader.split, !llvm.loop !20
+  br i1 %137, label %.loopexit.loopexit20, label %.preheader.split, !llvm.loop !18
 
 138:                                              ; preds = %115
   br i1 %43, label %144, label %139
@@ -1092,7 +1092,7 @@ define dso_local i32 @snd_hdac_get_connections(ptr noundef %0, i16 noundef zeroe
   %148 = phi i16 [ %78, %131 ], [ %111, %144 ], [ %111, %.loopexit.loopexit20 ], [ %111, %.preheader.split.us ]
   %149 = add nuw nsw i32 %80, 1
   %150 = icmp eq i32 %149, %34
-  br i1 %150, label %.thread18, label %76, !llvm.loop !21
+  br i1 %150, label %.thread18, label %76, !llvm.loop !19
 
 .thread18:                                        ; preds = %139, %113, %103, %.loopexit, %.preheader.split, %20, %4, %72, %70, %67, %29, %27
   %151 = phi i32 [ 0, %27 ], [ %34, %29 ], [ %68, %67 ], [ 1, %72 ], [ 1, %70 ], [ 0, %4 ], [ 0, %20 ], [ -28, %.preheader.split ], [ -5, %103 ], [ 0, %113 ], [ -28, %139 ], [ %147, %.loopexit ]
@@ -1123,22 +1123,22 @@ define dso_local i32 @snd_hdac_power_up_pm(ptr noundef %0) #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 832
   %3 = load volatile i32, ptr %2, align 4
   %4 = icmp eq i32 %3, 0
-  br i1 %4, label %._crit_edge, label %.lr.ph, !prof !12
+  br i1 %4, label %._crit_edge, label %.lr.ph, !prof !11
 
 .lr.ph:                                           ; preds = %1, %11
   %5 = phi i32 [ %12, %11 ], [ %3, %1 ]
   %6 = add i32 %5, 1
-  %7 = tail call { i8, i32 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %2, i32 %6, ptr nonnull elementtype(i32) %2, i32 %5) #9, !srcloc !13
+  %7 = tail call { i8, i32 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %2, i32 %6, ptr nonnull elementtype(i32) %2, i32 %5) #9, !srcloc !12
   %8 = extractvalue { i8, i32 } %7, 0
   %9 = icmp ult i8 %8, 2
   tail call void @llvm.assume(i1 %9)
   %10 = icmp eq i8 %8, 0
-  br i1 %10, label %11, label %.loopexit, !prof !14
+  br i1 %10, label %11, label %.loopexit, !prof !13
 
 11:                                               ; preds = %.lr.ph
   %12 = extractvalue { i8, i32 } %7, 1
   %13 = icmp eq i32 %12, 0
-  br i1 %13, label %._crit_edge, label %.lr.ph, !prof !15, !llvm.loop !22
+  br i1 %13, label %._crit_edge, label %.lr.ph, !prof !14, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %11, %1
   %14 = tail call i32 @__pm_runtime_resume(ptr noundef %0, i32 noundef 4) #9
@@ -1154,22 +1154,22 @@ define dso_local range(i32 -1, 2) i32 @snd_hdac_keep_power_up(ptr noundef %0) lo
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 832
   %3 = load volatile i32, ptr %2, align 4
   %4 = icmp eq i32 %3, 0
-  br i1 %4, label %._crit_edge, label %.lr.ph, !prof !12
+  br i1 %4, label %._crit_edge, label %.lr.ph, !prof !11
 
 .lr.ph:                                           ; preds = %1, %11
   %5 = phi i32 [ %12, %11 ], [ %3, %1 ]
   %6 = add i32 %5, 1
-  %7 = tail call { i8, i32 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %2, i32 %6, ptr nonnull elementtype(i32) %2, i32 %5) #9, !srcloc !13
+  %7 = tail call { i8, i32 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %2, i32 %6, ptr nonnull elementtype(i32) %2, i32 %5) #9, !srcloc !12
   %8 = extractvalue { i8, i32 } %7, 0
   %9 = icmp ult i8 %8, 2
   tail call void @llvm.assume(i1 %9)
   %10 = icmp eq i8 %8, 0
-  br i1 %10, label %11, label %.loopexit, !prof !14
+  br i1 %10, label %11, label %.loopexit, !prof !13
 
 11:                                               ; preds = %.lr.ph
   %12 = extractvalue { i8, i32 } %7, 1
   %13 = icmp eq i32 %12, 0
-  br i1 %13, label %._crit_edge, label %.lr.ph, !prof !15, !llvm.loop !23
+  br i1 %13, label %._crit_edge, label %.lr.ph, !prof !14, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %11, %1
   %14 = tail call i32 @pm_runtime_get_if_active(ptr noundef %0, i1 noundef zeroext true) #9
@@ -1195,23 +1195,23 @@ define dso_local i32 @snd_hdac_power_down_pm(ptr noundef %0) #0 align 16 {
   %3 = load volatile i32, ptr %2, align 4
   %4 = add i32 %3, -1
   %5 = icmp slt i32 %4, 0
-  br i1 %5, label %._crit_edge, label %.lr.ph, !prof !12
+  br i1 %5, label %._crit_edge, label %.lr.ph, !prof !11
 
 .lr.ph:                                           ; preds = %1, %12
   %6 = phi i32 [ %14, %12 ], [ %4, %1 ]
   %7 = phi i32 [ %13, %12 ], [ %3, %1 ]
-  %8 = tail call { i8, i32 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %2, i32 %6, ptr nonnull elementtype(i32) %2, i32 %7) #9, !srcloc !13
+  %8 = tail call { i8, i32 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %2, i32 %6, ptr nonnull elementtype(i32) %2, i32 %7) #9, !srcloc !12
   %9 = extractvalue { i8, i32 } %8, 0
   %10 = icmp ult i8 %9, 2
   tail call void @llvm.assume(i1 %10)
   %11 = icmp eq i8 %9, 0
-  br i1 %11, label %12, label %.critedge, !prof !14
+  br i1 %11, label %12, label %.critedge, !prof !13
 
 12:                                               ; preds = %.lr.ph
   %13 = extractvalue { i8, i32 } %8, 1
   %14 = add i32 %13, -1
   %15 = icmp slt i32 %14, 0
-  br i1 %15, label %._crit_edge, label %.lr.ph, !prof !15, !llvm.loop !24
+  br i1 %15, label %._crit_edge, label %.lr.ph, !prof !14, !llvm.loop !20
 
 ._crit_edge:                                      ; preds = %12, %1
   %16 = tail call i64 @ktime_get_mono_fast_ns() #9
@@ -1298,11 +1298,11 @@ define dso_local i32 @snd_hdac_stream_format(i32 noundef %0, i32 noundef %1, i32
   %7 = getelementptr [13 x %struct.hda_rate_tbl], ptr @rate_bits, i64 0, i64 %6
   %8 = load i32, ptr %7, align 4
   %9 = icmp eq i64 %6, 12
-  br i1 %9, label %19, label %10, !llvm.loop !25
+  br i1 %9, label %19, label %10, !llvm.loop !21
 
 10:                                               ; preds = %.preheader
   %11 = icmp eq i32 %8, %2
-  br i1 %11, label %12, label %.preheader, !llvm.loop !26
+  br i1 %11, label %12, label %.preheader, !llvm.loop !21
 
 12:                                               ; preds = %10
   %13 = icmp eq i32 %2, 0
@@ -1375,11 +1375,11 @@ define dso_local i32 @snd_hdac_spdif_stream_format(i32 noundef %0, i32 noundef %
   %8 = getelementptr [13 x %struct.hda_rate_tbl], ptr @rate_bits, i64 0, i64 %7
   %9 = load i32, ptr %8, align 4
   %10 = icmp eq i64 %7, 12
-  br i1 %10, label %20, label %11, !llvm.loop !25
+  br i1 %10, label %20, label %11, !llvm.loop !21
 
 11:                                               ; preds = %.preheader
   %12 = icmp eq i32 %9, %2
-  br i1 %12, label %13, label %.preheader, !llvm.loop !27
+  br i1 %12, label %13, label %.preheader, !llvm.loop !21
 
 13:                                               ; preds = %11
   %14 = icmp eq i32 %2, 0
@@ -1467,7 +1467,7 @@ define dso_local noundef range(i32 -5, 1) i32 @snd_hdac_query_supported_pcm(ptr 
   %15 = icmp sgt i32 %13, -1
   %16 = select i1 %15, i32 %14, i32 -1
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #9
-  %17 = call fastcc i32 @query_pcm_param(ptr noundef %0, i16 noundef zeroext %1), !range !28
+  %17 = call fastcc i32 @query_pcm_param(ptr noundef %0, i16 noundef zeroext %1), !range !22
   %18 = icmp eq ptr %2, null
   br i1 %18, label %38, label %.preheader
 
@@ -1490,7 +1490,7 @@ define dso_local noundef range(i32 -5, 1) i32 @snd_hdac_query_supported_pcm(ptr 
   %30 = phi i32 [ %28, %25 ], [ %20, %.preheader ]
   %31 = add nuw nsw i64 %19, 1
   %32 = icmp eq i64 %31, 11
-  br i1 %32, label %33, label %.preheader, !llvm.loop !29
+  br i1 %32, label %33, label %.preheader, !llvm.loop !23
 
 33:                                               ; preds = %29
   %34 = icmp eq i32 %30, 0
@@ -1696,7 +1696,7 @@ define internal fastcc i32 @query_pcm_param(ptr noundef %0, i16 noundef zeroext 
 define dso_local noundef zeroext i1 @snd_hdac_is_supported_format(ptr noundef %0, i16 noundef zeroext %1, i32 noundef %2) #0 align 16 {
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
-  %6 = tail call fastcc i32 @query_pcm_param(ptr noundef %0, i16 noundef zeroext %1), !range !28
+  %6 = tail call fastcc i32 @query_pcm_param(ptr noundef %0, i16 noundef zeroext %1), !range !22
   %7 = icmp eq i32 %6, 0
   br i1 %7, label %.loopexit, label %8
 
@@ -1721,7 +1721,7 @@ define dso_local noundef zeroext i1 @snd_hdac_is_supported_format(ptr noundef %0
 20:                                               ; preds = %10
   %21 = add nuw nsw i64 %11, 1
   %22 = icmp eq i64 %21, 11
-  br i1 %22, label %.loopexit, label %10, !llvm.loop !30
+  br i1 %22, label %.loopexit, label %10, !llvm.loop !24
 
 23:                                               ; preds = %15
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #9
@@ -2035,7 +2035,7 @@ define dso_local i32 @snd_hdac_sync_power_state(ptr noundef %0, i16 noundef zero
   call void @msleep(i32 noundef 1) #9
   %39 = add nuw nsw i32 %13, 1
   %40 = icmp eq i32 %39, 500
-  br i1 %40, label %.loopexit, label %.split.us, !llvm.loop !31
+  br i1 %40, label %.loopexit, label %.split.us, !llvm.loop !25
 
 .split:                                           ; preds = %3, %72
   %41 = phi i32 [ %73, %72 ], [ 0, %3 ]
@@ -2101,7 +2101,7 @@ define dso_local i32 @snd_hdac_sync_power_state(ptr noundef %0, i16 noundef zero
   call void @msleep(i32 noundef 1) #9
   %73 = add nuw nsw i32 %41, 1
   %74 = icmp eq i32 %73, 500
-  br i1 %74, label %.loopexit, label %.split, !llvm.loop !32
+  br i1 %74, label %.loopexit, label %.split, !llvm.loop !26
 
 .loopexit:                                        ; preds = %38, %34, %30, %64, %68, %72, %.split5.us
   %75 = phi i32 [ %.us-phi, %.split5.us ], [ %60, %72 ], [ %60, %68 ], [ %60, %64 ], [ %26, %30 ], [ %26, %34 ], [ %26, %38 ]
@@ -2156,29 +2156,23 @@ attributes #10 = { cold nounwind }
 !4 = !{i32 4, !"SkipRaxSetup", i32 1}
 !5 = !{i64 2148713309, i64 2148713348, i64 2148713369, i64 2148713406, i64 2148713429, i64 2148713299}
 !6 = !{!"auto-init"}
-!7 = distinct !{!7, !8, !9, !10}
+!7 = distinct !{!7, !8, !9}
 !8 = !{!"llvm.loop.mustprogress"}
 !9 = !{!"llvm.loop.unroll.disable"}
-!10 = !{!"llvm.loop.estimated_trip_count"}
-!11 = distinct !{!11, !8, !9, !10}
-!12 = !{!"branch_weights", i32 1, i32 127}
-!13 = !{i64 2148731689, i64 2148731728, i64 2148731749, i64 2148731786, i64 2148731809, i64 2148731818, i64 2148732116}
-!14 = !{!"branch_weights", i32 1, i32 2000}
-!15 = !{!"branch_weights", i32 127, i32 255873}
-!16 = distinct !{!16, !8, !9, !10}
-!17 = distinct !{!17, !8, !9, !10}
-!18 = distinct !{!18, !8, !9, !10, !19}
-!19 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!20 = distinct !{!20, !8, !9, !10}
-!21 = distinct !{!21, !8, !9, !10}
-!22 = distinct !{!22, !8, !9, !10}
-!23 = distinct !{!23, !8, !9, !10}
-!24 = distinct !{!24, !8, !9, !10}
-!25 = distinct !{!25, !8, !9}
-!26 = distinct !{!26, !8, !9, !10}
-!27 = distinct !{!27, !8, !9, !10}
-!28 = !{i32 0, i32 -1}
-!29 = distinct !{!29, !8, !9, !10}
-!30 = distinct !{!30, !8, !9, !10}
-!31 = distinct !{!31, !8, !9, !10, !19}
-!32 = distinct !{!32, !8, !9, !10}
+!10 = distinct !{!10, !8, !9}
+!11 = !{!"branch_weights", i32 1, i32 127}
+!12 = !{i64 2148731689, i64 2148731728, i64 2148731749, i64 2148731786, i64 2148731809, i64 2148731818, i64 2148732116}
+!13 = !{!"branch_weights", i32 1, i32 2000}
+!14 = !{!"branch_weights", i32 127, i32 255873}
+!15 = distinct !{!15, !8, !9}
+!16 = distinct !{!16, !8, !9, !17}
+!17 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!18 = distinct !{!18, !8, !9}
+!19 = distinct !{!19, !8, !9}
+!20 = distinct !{!20, !8, !9}
+!21 = distinct !{!21, !8, !9}
+!22 = !{i32 0, i32 -1}
+!23 = distinct !{!23, !8, !9}
+!24 = distinct !{!24, !8, !9}
+!25 = distinct !{!25, !8, !9, !17}
+!26 = distinct !{!26, !8, !9}

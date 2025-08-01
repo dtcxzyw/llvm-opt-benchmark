@@ -151,12 +151,12 @@ define void @ff_bgmc_decode(ptr noundef captures(none) %0, i32 noundef %1, ptr n
   %34 = getelementptr inbounds nuw i8, ptr %.119.i.i, i64 1
   store i8 %33, ptr %.119.i.i, align 1, !tbaa !18
   %exitcond.not.i.i = icmp eq i32 %23, 64
-  br i1 %exitcond.not.i.i, label %35, label %22, !llvm.loop !26
+  br i1 %exitcond.not.i.i, label %35, label %22, !llvm.loop !25
 
 35:                                               ; preds = %31
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond23.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 16
-  br i1 %exitcond23.not.i.i, label %bgmc_lut_fillp.exit.i, label %.preheader.i.i, !llvm.loop !27
+  br i1 %exitcond23.not.i.i, label %bgmc_lut_fillp.exit.i, label %.preheader.i.i, !llvm.loop !26
 
 bgmc_lut_fillp.exit.i:                            ; preds = %35
   store i32 %3, ptr %16, align 4, !tbaa !15
@@ -214,7 +214,7 @@ bgmc_lut_getp.exit:                               ; preds = %10, %bgmc_lut_fillp
   %69 = load i16, ptr %68, align 2, !tbaa !21
   %70 = zext i16 %69 to i32
   %71 = icmp samesign ult i32 %54, %70
-  br i1 %71, label %.lr.ph, label %._crit_edge, !llvm.loop !28
+  br i1 %71, label %.lr.ph, label %._crit_edge, !llvm.loop !27
 
 ._crit_edge:                                      ; preds = %.lr.ph, %48
   %.0.lcssa = phi i32 [ %60, %48 ], [ %66, %.lr.ph ]
@@ -293,14 +293,14 @@ bgmc_lut_getp.exit:                               ; preds = %10, %bgmc_lut_fillp
   store i32 %spec.select.i, ptr %46, align 8, !tbaa !11
   %124 = and i32 %123, 1
   %125 = or disjoint i32 %124, %110
-  br label %91, !llvm.loop !29
+  br label %91
 
 126:                                              ; preds = %99
   %127 = getelementptr inbounds nuw i8, ptr %.05874, i64 4
   store i32 %73, ptr %.05874, align 4, !tbaa !15
   %128 = add nuw i32 %.05973, 1
   %exitcond.not = icmp eq i32 %128, %1
-  br i1 %exitcond.not, label %._crit_edge76, label %48, !llvm.loop !30
+  br i1 %exitcond.not, label %._crit_edge76, label %48, !llvm.loop !28
 
 ._crit_edge76:                                    ; preds = %126, %bgmc_lut_getp.exit
   %.064.lcssa = phi i32 [ %36, %bgmc_lut_getp.exit ], [ %.165, %126 ]
@@ -358,11 +358,9 @@ attributes #7 = { nounwind }
 !20 = !{!"p1 short", !6, i64 0}
 !21 = !{!22, !22, i64 0}
 !22 = !{!"short", !7, i64 0}
-!23 = distinct !{!23, !24, !25}
+!23 = distinct !{!23, !24}
 !24 = !{!"llvm.loop.mustprogress"}
-!25 = !{!"llvm.loop.estimated_trip_count"}
-!26 = distinct !{!26, !24, !25}
-!27 = distinct !{!27, !24, !25}
-!28 = distinct !{!28, !24, !25}
-!29 = distinct !{!29, !25}
-!30 = distinct !{!30, !24, !25}
+!25 = distinct !{!25, !24}
+!26 = distinct !{!26, !24}
+!27 = distinct !{!27, !24}
+!28 = distinct !{!28, !24}

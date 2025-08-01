@@ -406,7 +406,7 @@ define dso_local i64 @pg_lock_status(ptr noundef %0) local_unnamed_addr #0 {
   %204 = getelementptr inbounds nuw i8, ptr %6, i64 104
   store i64 %203, ptr %204, align 8
   %205 = getelementptr inbounds nuw i8, ptr %43, i64 48
-  %206 = load i8, ptr %205, align 8, !range !7, !noundef !8
+  %206 = load i8, ptr %205, align 8, !range !6, !noundef !7
   %207 = zext nneg i8 %206 to i64
   %208 = getelementptr inbounds nuw i8, ptr %6, i64 112
   store i64 %207, ptr %208, align 16
@@ -703,7 +703,7 @@ define dso_local i64 @pg_blocking_pids(ptr noundef readonly captures(none) %0) l
   %spec.select = select i1 %37, ptr %34, ptr %.05561
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %33, !llvm.loop !9
+  br i1 %exitcond.not, label %._crit_edge, label %33, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %33, %16
   %.055.lcssa = phi ptr [ null, %16 ], [ %spec.select, %33 ]
@@ -772,7 +772,7 @@ define dso_local i64 @pg_blocking_pids(ptr noundef readonly captures(none) %0) l
 73:                                               ; preds = %74
   %indvars.iv.next79 = add nuw nsw i64 %indvars.iv78, 1
   %exitcond82.not = icmp eq i64 %indvars.iv.next79, %wide.trip.count81
-  br i1 %exitcond82.not, label %.critedge, label %74, !llvm.loop !10
+  br i1 %exitcond82.not, label %.critedge, label %74, !llvm.loop !9
 
 74:                                               ; preds = %.lr.ph64, %73
   %indvars.iv78 = phi i64 [ 0, %.lr.ph64 ], [ %indvars.iv.next79, %73 ]
@@ -796,7 +796,7 @@ define dso_local i64 @pg_blocking_pids(ptr noundef readonly captures(none) %0) l
   %indvars.iv.next84 = add nuw nsw i64 %indvars.iv83, 1
   %83 = sext i32 %82 to i64
   %84 = icmp slt i64 %indvars.iv.next84, %83
-  br i1 %84, label %50, label %._crit_edge69, !llvm.loop !11
+  br i1 %84, label %50, label %._crit_edge69, !llvm.loop !10
 
 ._crit_edge69:                                    ; preds = %.critedge, %._crit_edge
   %.1.lcssa = phi i32 [ %.05172, %._crit_edge ], [ %.2, %.critedge ]
@@ -804,7 +804,7 @@ define dso_local i64 @pg_blocking_pids(ptr noundef readonly captures(none) %0) l
   %85 = load i32, ptr %11, align 8
   %86 = sext i32 %85 to i64
   %87 = icmp slt i64 %indvars.iv.next87, %86
-  br i1 %87, label %16, label %._crit_edge75, !llvm.loop !12
+  br i1 %87, label %16, label %._crit_edge75, !llvm.loop !11
 
 ._crit_edge75:                                    ; preds = %._crit_edge69, %1
   %.051.lcssa = phi i32 [ 0, %1 ], [ %.1.lcssa, %._crit_edge69 ]
@@ -848,7 +848,7 @@ define dso_local i64 @pg_safe_snapshot_blocking_pids(ptr noundef readonly captur
   store i64 %19, ptr %20, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %13
-  br i1 %exitcond.not, label %.loopexit, label %16, !llvm.loop !13
+  br i1 %exitcond.not, label %.loopexit, label %16, !llvm.loop !12
 
 .loopexit:                                        ; preds = %16, %1
   %.013 = phi ptr [ null, %1 ], [ %15, %16 ]
@@ -1435,13 +1435,12 @@ attributes #4 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = distinct !{!4, !5, !6}
+!4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{!"llvm.loop.estimated_trip_count"}
-!7 = !{i8 0, i8 2}
-!8 = !{}
-!9 = distinct !{!9, !5, !6}
-!10 = distinct !{!10, !5, !6}
-!11 = distinct !{!11, !5, !6}
-!12 = distinct !{!12, !5, !6}
-!13 = distinct !{!13, !5, !6}
+!6 = !{i8 0, i8 2}
+!7 = !{}
+!8 = distinct !{!8, !5}
+!9 = distinct !{!9, !5}
+!10 = distinct !{!10, !5}
+!11 = distinct !{!11, !5}
+!12 = distinct !{!12, !5}

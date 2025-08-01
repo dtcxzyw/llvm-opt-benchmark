@@ -592,13 +592,13 @@ entry:
 while.body:                                       ; preds = %entry, %while.body
   %__x.addr.05 = phi ptr [ %1, %while.body ], [ %__x, %entry ]
   %_M_right.i = getelementptr inbounds nuw i8, ptr %__x.addr.05, i64 24
-  %0 = load ptr, ptr %_M_right.i, align 8, !tbaa !53
+  %0 = load ptr, ptr %_M_right.i, align 8, !tbaa !52
   tail call void @_ZNSt8_Rb_treeIPN8QuantLib8ObserverES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE8_M_eraseEPSt13_Rb_tree_nodeIS2_E(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef %0)
   %_M_left.i = getelementptr inbounds nuw i8, ptr %__x.addr.05, i64 16
-  %1 = load ptr, ptr %_M_left.i, align 8, !tbaa !54
+  %1 = load ptr, ptr %_M_left.i, align 8, !tbaa !53
   tail call void @_ZdlPvm(ptr noundef nonnull %__x.addr.05, i64 noundef 40) #15
   %cmp.not = icmp eq ptr %1, null
-  br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !55
+  br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !54
 
 while.end:                                        ; preds = %while.body, %entry
   ret void
@@ -727,9 +727,8 @@ attributes #15 = { builtin nounwind }
 !47 = !{!"_ZTSSt10_Head_baseILm0EPdLb0EE", !9, i64 0}
 !48 = !{!9, !9, i64 0}
 !49 = !{!31, !31, i64 0}
-!50 = distinct !{!50, !51, !52}
+!50 = distinct !{!50, !51}
 !51 = !{!"llvm.loop.mustprogress"}
-!52 = !{!"llvm.loop.estimated_trip_count"}
-!53 = !{!5, !9, i64 24}
-!54 = !{!5, !9, i64 16}
-!55 = distinct !{!55, !51, !52}
+!52 = !{!5, !9, i64 24}
+!53 = !{!5, !9, i64 16}
+!54 = distinct !{!54, !51}

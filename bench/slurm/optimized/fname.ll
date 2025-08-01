@@ -172,7 +172,7 @@ _remove_path_slashes.exit:                        ; preds = %49
   %61 = load ptr, ptr %5, align 8
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 1
   store ptr %62, ptr %5, align 8
-  br label %53, !llvm.loop !12
+  br label %53, !llvm.loop !11
 
 63:                                               ; preds = %56
   %64 = tail call ptr @__ctype_b_loc() #10
@@ -223,7 +223,7 @@ _remove_path_slashes.exit:                        ; preds = %49
 .outer.backedge:                                  ; preds = %77, %150
   %.be = phi ptr [ %152, %150 ], [ %79, %77 ]
   %.076.ph.be = phi ptr [ %.076, %150 ], [ %.278, %77 ]
-  br label %.outer, !llvm.loop !12
+  br label %.outer, !llvm.loop !11
 
 80:                                               ; preds = %77
   %81 = call ptr @getenv(ptr noundef nonnull @.str.6) #8
@@ -424,7 +424,7 @@ _remove_path_slashes.exit:                        ; preds = %49
   %.375.ph = phi i32 [ %.072.ph.ph, %85 ], [ %.072.ph.ph, %94 ], [ %.274, %104 ], [ %.072.ph.ph, %117 ], [ %.072.ph.ph, %119 ], [ %.072.ph.ph, %131 ], [ %.072.ph.ph, %134 ], [ %.072.ph.ph, %159 ], [ %.072.ph.ph, %157 ]
   %.4.ph = phi i32 [ %.171, %85 ], [ %.3, %94 ], [ %.070.ph.ph, %104 ], [ %.070.ph.ph, %117 ], [ %.070.ph.ph, %119 ], [ %.070.ph.ph, %131 ], [ %.070.ph.ph, %134 ], [ %.070.ph.ph, %159 ], [ %.070.ph.ph, %157 ]
   store ptr %.sink, ptr %5, align 8
-  br label %.outer.outer, !llvm.loop !12
+  br label %.outer.outer, !llvm.loop !11
 
 .loopexit:                                        ; preds = %53
   %.not99 = icmp eq ptr %.076, %54
@@ -552,8 +552,7 @@ attributes #10 = { nounwind willreturn memory(none) }
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i32 7, !"frame-pointer", i32 2}
 !7 = !{i32 7, !"debug-info-assignment-tracking", i1 true}
-!8 = distinct !{!8, !9, !10, !11}
+!8 = distinct !{!8, !9, !10}
 !9 = !{!"llvm.loop.mustprogress"}
 !10 = !{!"llvm.loop.unroll.disable"}
-!11 = !{!"llvm.loop.estimated_trip_count"}
-!12 = distinct !{!12, !9, !10, !11}
+!11 = distinct !{!11, !9, !10}

@@ -229,7 +229,7 @@ unwind_phase1.exit.thread14:                      ; preds = %81
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %2) #8
   %95 = call i32 @__unw_step(ptr noundef nonnull %8)
   %96 = icmp eq i32 %95, 0
-  br i1 %96, label %._crit_edge.i, label %31, !llvm.loop !20
+  br i1 %96, label %._crit_edge.i, label %31
 
 unwind_phase1.exit.thread11:                      ; preds = %44, %92
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #8
@@ -489,7 +489,7 @@ define internal fastcc range(i32 2, 6) i32 @unwind_phase2(ptr noundef nonnull %0
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #8
   %125 = call i32 @__unw_step_stage2(ptr noundef nonnull %1)
   %126 = icmp eq i32 %125, 0
-  br i1 %126, label %._crit_edge, label %29, !llvm.loop !22
+  br i1 %126, label %._crit_edge, label %29
 
 .thread:                                          ; preds = %32, %34, %._crit_edge, %24, %.thread49
   %.147 = phi i32 [ 2, %.thread49 ], [ 2, %32 ], [ 2, %34 ], [ 5, %._crit_edge ], [ 5, %24 ]
@@ -518,7 +518,7 @@ define dso_local void @_Unwind_Resume(ptr noundef %0) local_unnamed_addr #4 {
   call void @llvm.lifetime.start.p0(i64 264, ptr nonnull %3) #8
   %11 = call i32 @__unw_getcontext(ptr noundef nonnull %2)
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %13 = load i64, ptr %12, align 16, !tbaa !23
+  %13 = load i64, ptr %12, align 16, !tbaa !20
   %.not = icmp eq i64 %13, 0
   br i1 %.not, label %19, label %14
 
@@ -703,7 +703,7 @@ define internal fastcc void @unwind_phase2_forced(ptr noundef nonnull %0, ptr no
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %6) #8
   %90 = call i32 @__unw_step_stage2(ptr noundef nonnull %1)
   %91 = icmp sgt i32 %90, 0
-  br i1 %91, label %15, label %._crit_edge, !llvm.loop !24
+  br i1 %91, label %15, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.critedge, %5
   %92 = call zeroext i1 @logUnwinding()
@@ -757,7 +757,7 @@ define dso_local noundef i32 @_Unwind_ForcedUnwind(ptr noundef %0, ptr noundef %
   %13 = call i32 @__unw_getcontext(ptr noundef nonnull %4)
   %14 = ptrtoint ptr %1 to i64
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %14, ptr %15, align 16, !tbaa !23
+  store i64 %14, ptr %15, align 16, !tbaa !20
   %16 = ptrtoint ptr %2 to i64
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 %16, ptr %17, align 8, !tbaa !19
@@ -792,7 +792,7 @@ define dso_local i64 @_Unwind_GetLanguageSpecificData(ptr noundef %0) local_unna
 
 14:                                               ; preds = %13
   %15 = inttoptr i64 %.0 to ptr
-  %16 = load i8, ptr %15, align 1, !tbaa !25
+  %16 = load i8, ptr %15, align 1, !tbaa !21
   %.not7 = icmp eq i8 %16, -1
   br i1 %.not7, label %22, label %17
 
@@ -847,7 +847,7 @@ define dso_local void @_Unwind_DeleteException(ptr noundef %0) local_unnamed_add
 
 8:                                                ; preds = %1, %3
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %10 = load ptr, ptr %9, align 8, !tbaa !26
+  %10 = load ptr, ptr %9, align 8, !tbaa !22
   %.not = icmp eq ptr %10, null
   br i1 %.not, label %12, label %11
 
@@ -989,10 +989,6 @@ attributes #9 = { noreturn nounwind }
 !17 = !{!18, !11, i64 0}
 !18 = !{!"_Unwind_Exception", !11, i64 0, !6, i64 8, !11, i64 16, !11, i64 24}
 !19 = !{!18, !11, i64 24}
-!20 = distinct !{!20, !21}
-!21 = !{!"llvm.loop.estimated_trip_count"}
-!22 = distinct !{!22, !21}
-!23 = !{!18, !11, i64 16}
-!24 = distinct !{!24, !21}
-!25 = !{!7, !7, i64 0}
-!26 = !{!18, !6, i64 8}
+!20 = !{!18, !11, i64 16}
+!21 = !{!7, !7, i64 0}
+!22 = !{!18, !6, i64 8}

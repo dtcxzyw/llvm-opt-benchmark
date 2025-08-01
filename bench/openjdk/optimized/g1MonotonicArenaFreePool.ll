@@ -174,7 +174,7 @@ define hidden noundef zeroext i1 @_ZN24G1MonotonicArenaFreePool23G1ReturnMemoryP
 7:                                                ; preds = %.lr.ph
   %8 = load i64, ptr %5, align 8
   %.not = icmp eq i64 %8, 0
-  br i1 %.not, label %.critedge, label %.lr.ph, !llvm.loop !9
+  br i1 %.not, label %.critedge, label %.lr.ph, !llvm.loop !8
 
 .lr.ph:                                           ; preds = %.preheader, %7
   %9 = phi i64 [ %8, %7 ], [ %6, %.preheader ]
@@ -198,10 +198,10 @@ define hidden noundef zeroext i1 @_ZN24G1MonotonicArenaFreePool23G1ReturnMemoryP
   %23 = icmp sle i64 %22, %1
   %24 = icmp ne ptr %21, null
   %or.cond = and i1 %24, %23
-  br i1 %or.cond, label %7, label %..critedge.loopexit_crit_edge36, !llvm.loop !9
+  br i1 %or.cond, label %7, label %..critedge.loopexit_crit_edge36, !llvm.loop !8
 
 ..critedge.loopexit_crit_edge36:                  ; preds = %.lr.ph
-  br label %.critedge, !llvm.loop !9
+  br label %.critedge, !llvm.loop !8
 
 .critedge:                                        ; preds = %7, %.preheader, %..critedge.loopexit_crit_edge36, %2
   %.122 = phi i64 [ 0, %2 ], [ %19, %..critedge.loopexit_crit_edge36 ], [ 0, %.preheader ], [ %19, %7 ]
@@ -290,7 +290,7 @@ define hidden noundef zeroext i1 @_ZN24G1MonotonicArenaFreePool23G1ReturnMemoryP
   store ptr %8, ptr %3, align 8
   %18 = tail call noundef i64 @_ZN2os15elapsed_counterEv() #8
   %19 = icmp sgt i64 %18, %1
-  br i1 %19, label %20, label %4, !llvm.loop !10
+  br i1 %19, label %20, label %4, !llvm.loop !9
 
 20:                                               ; preds = %6, %4
   %.17 = phi i64 [ %17, %6 ], [ %.06, %4 ]
@@ -336,7 +336,7 @@ define hidden void @_ZN24G1MonotonicArenaFreePoolC2Ej(ptr noundef nonnull align 
   %12 = load i32, ptr %0, align 8
   %13 = zext i32 %12 to i64
   %14 = icmp samesign ult i64 %indvars.iv.next, %13
-  br i1 %14, label %.lr.ph, label %._crit_edge, !llvm.loop !11
+  br i1 %14, label %.lr.ph, label %._crit_edge, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   ret void
@@ -363,7 +363,7 @@ define hidden void @_ZN24G1MonotonicArenaFreePoolD2Ev(ptr noundef nonnull readon
   %7 = load i32, ptr %0, align 8
   %8 = zext i32 %7 to i64
   %9 = icmp samesign ult i64 %indvars.iv.next, %8
-  br i1 %9, label %4, label %._crit_edge, !llvm.loop !12
+  br i1 %9, label %4, label %._crit_edge, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %4, %1
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -401,7 +401,7 @@ define hidden void @_ZNK24G1MonotonicArenaFreePool12memory_sizesEv(ptr dead_on_u
   store i64 %13, ptr %14, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %7, !llvm.loop !13
+  br i1 %exitcond.not, label %._crit_edge, label %7, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %7, %2
   ret void
@@ -427,7 +427,7 @@ define hidden noundef i64 @_ZNK24G1MonotonicArenaFreePool8mem_sizeEv(ptr noundef
   %8 = add i64 %7, %.056
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %5, !llvm.loop !14
+  br i1 %exitcond.not, label %._crit_edge, label %5, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %5, %1
   %.05.lcssa = phi i64 [ 0, %1 ], [ %8, %5 ]
@@ -455,7 +455,7 @@ define hidden void @_ZNK24G1MonotonicArenaFreePool8print_onEP12outputStream(ptr 
   %10 = add i64 %9, %.056.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %_ZNK24G1MonotonicArenaFreePool8mem_sizeEv.exit, label %7, !llvm.loop !14
+  br i1 %exitcond.not.i, label %_ZNK24G1MonotonicArenaFreePool8mem_sizeEv.exit, label %7, !llvm.loop !13
 
 _ZNK24G1MonotonicArenaFreePool8mem_sizeEv.exit:   ; preds = %7, %2
   %.05.lcssa.i = phi i64 [ 0, %2 ], [ %10, %7 ]
@@ -481,7 +481,7 @@ _ZNK24G1MonotonicArenaFreePool8mem_sizeEv.exit:   ; preds = %7, %2
   %19 = load i32, ptr %0, align 8
   %20 = zext i32 %19 to i64
   %21 = icmp samesign ult i64 %indvars.iv.next, %20
-  br i1 %21, label %13, label %._crit_edge, !llvm.loop !15
+  br i1 %21, label %13, label %._crit_edge, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %13, %_ZNK24G1MonotonicArenaFreePool8mem_sizeEv.exit
   ret void
@@ -566,13 +566,12 @@ attributes #8 = { nounwind }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7, !8}
-!11 = distinct !{!11, !7, !8}
-!12 = distinct !{!12, !7, !8}
-!13 = distinct !{!13, !7, !8}
-!14 = distinct !{!14, !7, !8}
-!15 = distinct !{!15, !7, !8}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7}
+!12 = distinct !{!12, !7}
+!13 = distinct !{!13, !7}
+!14 = distinct !{!14, !7}

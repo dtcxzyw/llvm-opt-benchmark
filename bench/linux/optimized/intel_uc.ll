@@ -1549,7 +1549,7 @@ define internal noundef range(i32 -5, 1) i32 @__uc_init_hw(ptr noundef %0) #0 al
 276:                                              ; preds = %272
   %277 = getelementptr inbounds nuw i8, ptr %270, i64 184
   %278 = load ptr, ptr %277, align 8
-  %279 = call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %278, i32 1, ptr elementtype(i32) %278) #5, !srcloc !20
+  %279 = call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %278, i32 1, ptr elementtype(i32) %278) #5, !srcloc !19
   %280 = icmp eq i32 %279, 0
   br i1 %280, label %285, label %281, !prof !10
 
@@ -1742,8 +1742,7 @@ attributes #6 = { cold nounwind }
 !13 = !{i64 2158220711, i64 2158220740, i64 2158220786, i64 2158220844, i64 2158220898, i64 2158220952, i64 2158221007, i64 2158221038, i64 2158221346, i64 2158221352, i64 2158221399, i64 2158221422, i64 2158221448}
 !14 = !{i64 2158221917, i64 2158221728, i64 2158221778, i64 2158221824, i64 2158221852}
 !15 = !{i64 2158222223, i64 2158222034, i64 2158222084, i64 2158222130, i64 2158222158}
-!16 = distinct !{!16, !17, !18, !19}
+!16 = distinct !{!16, !17, !18}
 !17 = !{!"llvm.loop.mustprogress"}
 !18 = !{!"llvm.loop.unroll.disable"}
-!19 = !{!"llvm.loop.estimated_trip_count"}
-!20 = !{i64 2148414331, i64 2148414370, i64 2148414391, i64 2148414428, i64 2148414451, i64 2148414460}
+!19 = !{i64 2148414331, i64 2148414370, i64 2148414391, i64 2148414428, i64 2148414451, i64 2148414460}

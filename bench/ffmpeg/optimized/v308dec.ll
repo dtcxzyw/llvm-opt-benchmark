@@ -116,21 +116,21 @@ define internal i32 @v308_decode_frame(ptr noundef %0, ptr noundef %1, ptr nound
   %48 = phi i32 [ %33, %.preheader ], [ %.pre, %._crit_edge.loopexit ]
   %49 = phi i32 [ %34, %.preheader ], [ %45, %._crit_edge.loopexit ]
   %.1.lcssa = phi ptr [ %.03943, %.preheader ], [ %42, %._crit_edge.loopexit ]
-  %50 = load i32, ptr %23, align 8, !tbaa !37
+  %50 = load i32, ptr %23, align 8, !tbaa !36
   %51 = sext i32 %50 to i64
   %52 = getelementptr inbounds i8, ptr %.03844, i64 %51
-  %53 = load i32, ptr %24, align 4, !tbaa !37
+  %53 = load i32, ptr %24, align 4, !tbaa !36
   %54 = sext i32 %53 to i64
   %55 = getelementptr inbounds i8, ptr %.03745, i64 %54
-  %56 = load i32, ptr %25, align 8, !tbaa !37
+  %56 = load i32, ptr %25, align 8, !tbaa !36
   %57 = sext i32 %56 to i64
   %58 = getelementptr inbounds i8, ptr %.03646, i64 %57
   %59 = add nuw nsw i32 %.03547, 1
   %60 = icmp slt i32 %59, %48
-  br i1 %60, label %.preheader, label %._crit_edge48, !llvm.loop !38
+  br i1 %60, label %.preheader, label %._crit_edge48, !llvm.loop !37
 
 ._crit_edge48:                                    ; preds = %._crit_edge, %.preheader.lr.ph, %20
-  store i32 1, ptr %2, align 4, !tbaa !37
+  store i32 1, ptr %2, align 4, !tbaa !36
   %61 = load i32, ptr %7, align 8, !tbaa !30
   br label %62
 
@@ -184,9 +184,8 @@ attributes #3 = { nounwind }
 !31 = !{!5, !10, i64 116}
 !32 = !{!14, !14, i64 0}
 !33 = !{!8, !8, i64 0}
-!34 = distinct !{!34, !35, !36}
+!34 = distinct !{!34, !35}
 !35 = !{!"llvm.loop.mustprogress"}
-!36 = !{!"llvm.loop.estimated_trip_count"}
-!37 = !{!10, !10, i64 0}
-!38 = distinct !{!38, !35, !36, !39}
-!39 = !{!"llvm.loop.unswitch.partial.disable"}
+!36 = !{!10, !10, i64 0}
+!37 = distinct !{!37, !35, !38}
+!38 = !{!"llvm.loop.unswitch.partial.disable"}

@@ -1080,7 +1080,7 @@ _Z19libraw_sget4_staticsPh.exit46:                ; preds = %169, %171
   store i8 %194, ptr %198, align 1, !tbaa !71
   %199 = add nuw nsw i32 %.02949, 1
   %exitcond.not = icmp eq i32 %199, 8
-  br i1 %exitcond.not, label %200, label %195, !llvm.loop !78
+  br i1 %exitcond.not, label %200, label %195, !llvm.loop !77
 
 200:                                              ; preds = %195
   %201 = load double, ptr %4, align 8, !tbaa !71
@@ -1218,7 +1218,6 @@ attributes #5 = { nounwind }
 !72 = !{!7, !60, i64 381416}
 !73 = !{!74, !74, i64 0}
 !74 = !{!"vtable pointer", !12, i64 0}
-!75 = distinct !{!75, !76, !77}
+!75 = distinct !{!75, !76}
 !76 = !{!"llvm.loop.mustprogress"}
-!77 = !{!"llvm.loop.estimated_trip_count"}
-!78 = distinct !{!78, !76, !77}
+!77 = distinct !{!77, !76}

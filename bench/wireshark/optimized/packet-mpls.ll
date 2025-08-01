@@ -460,7 +460,7 @@ define internal i32 @dissect_mpls(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %44 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %2, i32 noundef %43, ptr noundef %0, i32 noundef %.086115, i32 noundef 4, i32 noundef 0)
   %45 = load i32, ptr @ett_mpls, align 4
   %46 = tail call ptr @proto_item_add_subtree(ptr noundef %44, i32 noundef %45)
-  %47 = load i8, ptr @mpls_bos_flowlabel, align 1, !range !9, !noundef !10
+  %47 = load i8, ptr @mpls_bos_flowlabel, align 1, !range !8, !noundef !9
   %48 = trunc nuw i8 %47 to i1
   %49 = icmp ne i8 %35, 0
   %or.cond = select i1 %48, i1 %49, i1 false
@@ -560,7 +560,7 @@ define internal i32 @dissect_mpls(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br label %133
 
 98:                                               ; preds = %84
-  %99 = load i8, ptr @mpls_try_heuristic_first, align 1, !range !9, !noundef !10
+  %99 = load i8, ptr @mpls_try_heuristic_first, align 1, !range !8, !noundef !9
   %100 = trunc nuw i8 %99 to i1
   br i1 %100, label %101, label %106
 
@@ -601,7 +601,7 @@ define internal i32 @dissect_mpls(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br label %133
 
 122:                                              ; preds = %106
-  %123 = load i8, ptr @mpls_try_heuristic_first, align 1, !range !9, !noundef !10
+  %123 = load i8, ptr @mpls_try_heuristic_first, align 1, !range !8, !noundef !9
   %124 = trunc nuw i8 %123 to i1
   br i1 %124, label %130, label %125
 
@@ -961,8 +961,7 @@ attributes #4 = { nounwind }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = !{i8 0, i8 2}
-!10 = !{}
+!8 = !{i8 0, i8 2}
+!9 = !{}

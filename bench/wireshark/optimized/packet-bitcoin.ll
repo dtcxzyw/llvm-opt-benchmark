@@ -1072,7 +1072,7 @@ get_varint.exit67:                                ; preds = %61, %65, %68, %71
   tail call void @proto_item_set_end(ptr noundef %31, ptr noundef %0, i32 noundef %92)
   %93 = add i64 %.082100, -1
   %.not = icmp eq i64 %93, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !11
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %88, %add_varint_item.exit
   %.0.lcssa = phi i32 [ %.08186, %add_varint_item.exit ], [ %92, %88 ]
@@ -1140,7 +1140,7 @@ add_varint_item.exit:                             ; preds = %12, %16, %21, %26
   %37 = add i32 %.044, 36
   %38 = add i64 %.02443, -1
   %.not = icmp eq i64 %38, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !12
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %.lr.ph, %add_varint_item.exit
   %.0.lcssa = phi i32 [ %.02529, %add_varint_item.exit ], [ %37, %.lr.ph ]
@@ -1208,7 +1208,7 @@ add_varint_item.exit:                             ; preds = %12, %16, %21, %26
   %37 = add i32 %.044, 36
   %38 = add i64 %.02443, -1
   %.not = icmp eq i64 %38, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !13
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %.lr.ph, %add_varint_item.exit
   %.0.lcssa = phi i32 [ %.02529, %add_varint_item.exit ], [ %37, %.lr.ph ]
@@ -1273,7 +1273,7 @@ add_varint_item.exit:                             ; preds = %14, %18, %23, %28
   %34 = add i32 %.045, 32
   %35 = add i64 %.02544, -1
   %.not = icmp eq i64 %35, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !14
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %.lr.ph, %add_varint_item.exit
   %.0.lcssa = phi i32 [ %.02630, %add_varint_item.exit ], [ %34, %.lr.ph ]
@@ -1341,7 +1341,7 @@ add_varint_item.exit:                             ; preds = %14, %18, %23, %28
   %34 = add i32 %.045, 32
   %35 = add i64 %.02544, -1
   %.not = icmp eq i64 %35, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !15
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %.lr.ph, %add_varint_item.exit
   %.0.lcssa = phi i32 [ %.02630, %add_varint_item.exit ], [ %34, %.lr.ph ]
@@ -1427,7 +1427,7 @@ add_varint_item.exit:                             ; preds = %24, %28, %33, %38
   %45 = icmp ne i64 %44, 0
   %46 = icmp ult i32 %43, 2147483647
   %47 = and i1 %45, %46
-  br i1 %47, label %.lr.ph, label %._crit_edge, !llvm.loop !16
+  br i1 %47, label %.lr.ph, label %._crit_edge, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %.lr.ph, %add_varint_item.exit
   %.0.lcssa = phi i32 [ %.04650, %add_varint_item.exit ], [ %43, %.lr.ph ]
@@ -1517,7 +1517,7 @@ add_varint_item.exit:                             ; preds = %12, %16, %21, %26
   %37 = add i32 %.044, 36
   %38 = add i64 %.02443, -1
   %.not = icmp eq i64 %38, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !17
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %.lr.ph, %add_varint_item.exit
   %.0.lcssa = phi i32 [ %.02529, %add_varint_item.exit ], [ %37, %.lr.ph ]
@@ -1665,7 +1665,7 @@ get_varint.exit45:                                ; preds = %.lr.ph, %54, %56, %
   tail call void @proto_item_set_len(ptr noundef %31, i32 noundef %65)
   %66 = add i64 %.05270, -1
   %.not = icmp eq i64 %66, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !18
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %get_varint.exit45, %add_varint_item.exit
   %.0.lcssa = phi i32 [ %.05156, %add_varint_item.exit ], [ %64, %get_varint.exit45 ]
@@ -1803,7 +1803,7 @@ add_varint_item.exit:                             ; preds = %26, %32, %39, %46
   %55 = add i32 %.087, 32
   %56 = add i64 %.06786, -1
   %.not = icmp eq i64 %56, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !19
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !18
 
 ._crit_edge:                                      ; preds = %.lr.ph, %add_varint_item.exit
   %.0.lcssa = phi i32 [ %.06872, %add_varint_item.exit ], [ %55, %.lr.ph ]
@@ -2248,7 +2248,7 @@ get_varint.exit150:                               ; preds = %47, %51, %54, %57
   %90 = add i32 %87, 4
   %91 = add nuw i64 %.0142206, 1
   %exitcond.not = icmp eq i64 %91, %.sink.i
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !20
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !19
 
 ._crit_edge:                                      ; preds = %84, %get_varint.exit
   %.1136.lcssa = phi i32 [ %43, %get_varint.exit ], [ %90, %84 ]
@@ -2359,7 +2359,7 @@ get_varint.exit154:                               ; preds = %114, %118, %121, %1
   %148 = add i32 %139, %128
   %149 = add i64 %.0194209, -1
   %.not147 = icmp eq i64 %149, 0
-  br i1 %.not147, label %._crit_edge212, label %.lr.ph211, !llvm.loop !21
+  br i1 %.not147, label %._crit_edge212, label %.lr.ph211, !llvm.loop !20
 
 ._crit_edge212:                                   ; preds = %145, %get_varint.exit152
   %.4139.lcssa = phi i32 [ %110, %get_varint.exit152 ], [ %148, %145 ]
@@ -2488,14 +2488,14 @@ add_varint_item.exit:                             ; preds = %178, %187, %198, %2
   %224 = add i32 %221, %220
   %225 = add i64 %.0191215, -1
   %.not148 = icmp eq i64 %225, 0
-  br i1 %.not148, label %._crit_edge218, label %.lr.ph217, !llvm.loop !22
+  br i1 %.not148, label %._crit_edge218, label %.lr.ph217, !llvm.loop !21
 
 ._crit_edge218:                                   ; preds = %add_varint_item.exit, %get_varint.exit156
   %.8.lcssa = phi i32 [ %173, %get_varint.exit156 ], [ %224, %add_varint_item.exit ]
   tail call void @proto_item_set_end(ptr noundef %152, ptr noundef %0, i32 noundef %.8.lcssa)
   %226 = add i64 %.0193, -1
   %.old3.not = icmp eq i64 %226, 0
-  br i1 %.old3.not, label %.loopexit, label %.preheader, !llvm.loop !23
+  br i1 %.old3.not, label %.loopexit, label %.preheader
 
 .loopexit:                                        ; preds = %._crit_edge218, %._crit_edge212
   %.6 = phi i32 [ %.4139.lcssa, %._crit_edge212 ], [ %.8.lcssa, %._crit_edge218 ]
@@ -2588,19 +2588,17 @@ attributes #5 = { nounwind }
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i8 0, i8 2}
 !7 = !{}
-!8 = distinct !{!8, !9, !10}
+!8 = distinct !{!8, !9}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = !{!"llvm.loop.estimated_trip_count"}
-!11 = distinct !{!11, !9, !10}
-!12 = distinct !{!12, !9, !10}
-!13 = distinct !{!13, !9, !10}
-!14 = distinct !{!14, !9, !10}
-!15 = distinct !{!15, !9, !10}
-!16 = distinct !{!16, !9, !10}
-!17 = distinct !{!17, !9, !10}
-!18 = distinct !{!18, !9, !10}
-!19 = distinct !{!19, !9, !10}
-!20 = distinct !{!20, !9, !10}
-!21 = distinct !{!21, !9, !10}
-!22 = distinct !{!22, !9, !10}
-!23 = distinct !{!23, !10}
+!10 = distinct !{!10, !9}
+!11 = distinct !{!11, !9}
+!12 = distinct !{!12, !9}
+!13 = distinct !{!13, !9}
+!14 = distinct !{!14, !9}
+!15 = distinct !{!15, !9}
+!16 = distinct !{!16, !9}
+!17 = distinct !{!17, !9}
+!18 = distinct !{!18, !9}
+!19 = distinct !{!19, !9}
+!20 = distinct !{!20, !9}
+!21 = distinct !{!21, !9}

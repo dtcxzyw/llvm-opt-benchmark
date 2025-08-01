@@ -1117,7 +1117,7 @@ define hidden void @_ZN14TypeArrayKlass21oop_print_elements_onEP16typeArrayOopDe
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull @.str.32, i32 noundef %42, i32 noundef %39, i32 noundef %41) #10
   %indvars.iv.next.i33 = add nuw nsw i64 %indvars.iv.i32, 1
   %exitcond.not.i34 = icmp eq i64 %indvars.iv.next.i33, %wide.trip.count.i31
-  br i1 %exitcond.not.i34, label %_ZL19print_boolean_arrayP16typeArrayOopDesciP12outputStream.exit, label %31, !llvm.loop !9
+  br i1 %exitcond.not.i34, label %_ZL19print_boolean_arrayP16typeArrayOopDesciP12outputStream.exit, label %31, !llvm.loop !8
 
 43:                                               ; preds = %3
   %44 = icmp sgt i32 %8, 0
@@ -1142,7 +1142,7 @@ define hidden void @_ZN14TypeArrayKlass21oop_print_elements_onEP16typeArrayOopDe
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull @.str.33, i32 noundef %55, double noundef %54) #10
   %indvars.iv.next.i38 = add nuw nsw i64 %indvars.iv.i37, 1
   %exitcond.not.i39 = icmp eq i64 %indvars.iv.next.i38, %wide.trip.count.i36
-  br i1 %exitcond.not.i39, label %_ZL19print_boolean_arrayP16typeArrayOopDesciP12outputStream.exit, label %46, !llvm.loop !10
+  br i1 %exitcond.not.i39, label %_ZL19print_boolean_arrayP16typeArrayOopDesciP12outputStream.exit, label %46, !llvm.loop !9
 
 56:                                               ; preds = %3
   %57 = icmp sgt i32 %8, 0
@@ -1166,7 +1166,7 @@ define hidden void @_ZN14TypeArrayKlass21oop_print_elements_onEP16typeArrayOopDe
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull @.str.33, i32 noundef %67, double noundef %66) #10
   %indvars.iv.next.i43 = add nuw nsw i64 %indvars.iv.i42, 1
   %exitcond.not.i44 = icmp eq i64 %indvars.iv.next.i43, %wide.trip.count.i41
-  br i1 %exitcond.not.i44, label %_ZL19print_boolean_arrayP16typeArrayOopDesciP12outputStream.exit, label %59, !llvm.loop !11
+  br i1 %exitcond.not.i44, label %_ZL19print_boolean_arrayP16typeArrayOopDesciP12outputStream.exit, label %59, !llvm.loop !10
 
 68:                                               ; preds = %3
   %69 = icmp sgt i32 %8, 0
@@ -1194,7 +1194,7 @@ define hidden void @_ZN14TypeArrayKlass21oop_print_elements_onEP16typeArrayOopDe
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull @.str.32, i32 noundef %82, i32 noundef %79, i32 noundef %81) #10
   %indvars.iv.next.i49 = add nuw nsw i64 %indvars.iv.i47, 1
   %exitcond.not.i50 = icmp eq i64 %indvars.iv.next.i49, %wide.trip.count.i46
-  br i1 %exitcond.not.i50, label %_ZL19print_boolean_arrayP16typeArrayOopDesciP12outputStream.exit, label %71, !llvm.loop !12
+  br i1 %exitcond.not.i50, label %_ZL19print_boolean_arrayP16typeArrayOopDesciP12outputStream.exit, label %71, !llvm.loop !11
 
 83:                                               ; preds = %3
   %84 = icmp sgt i32 %8, 0
@@ -1219,7 +1219,7 @@ define hidden void @_ZN14TypeArrayKlass21oop_print_elements_onEP16typeArrayOopDe
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull @.str.34, i32 noundef %95, i32 noundef %94, i32 noundef %94) #10
   %indvars.iv.next.i54 = add nuw nsw i64 %indvars.iv.i53, 1
   %exitcond.not.i55 = icmp eq i64 %indvars.iv.next.i54, %wide.trip.count.i52
-  br i1 %exitcond.not.i55, label %_ZL19print_boolean_arrayP16typeArrayOopDesciP12outputStream.exit, label %86, !llvm.loop !13
+  br i1 %exitcond.not.i55, label %_ZL19print_boolean_arrayP16typeArrayOopDesciP12outputStream.exit, label %86, !llvm.loop !12
 
 96:                                               ; preds = %3
   %97 = icmp sgt i32 %8, 0
@@ -1243,7 +1243,7 @@ define hidden void @_ZN14TypeArrayKlass21oop_print_elements_onEP16typeArrayOopDe
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull @.str.35, i32 noundef %107, i32 noundef %106, i32 noundef %106) #10
   %indvars.iv.next.i59 = add nuw nsw i64 %indvars.iv.i58, 1
   %exitcond.not.i60 = icmp eq i64 %indvars.iv.next.i59, %wide.trip.count.i57
-  br i1 %exitcond.not.i60, label %_ZL19print_boolean_arrayP16typeArrayOopDesciP12outputStream.exit, label %99, !llvm.loop !14
+  br i1 %exitcond.not.i60, label %_ZL19print_boolean_arrayP16typeArrayOopDesciP12outputStream.exit, label %99, !llvm.loop !13
 
 108:                                              ; preds = %3
   %109 = icmp sgt i32 %8, 0
@@ -1270,7 +1270,7 @@ define hidden void @_ZN14TypeArrayKlass21oop_print_elements_onEP16typeArrayOopDe
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull @.str.36, i32 noundef %122, i32 noundef %120, i32 noundef %121) #10
   %indvars.iv.next.i64 = add nuw nsw i64 %indvars.iv.i63, 1
   %exitcond.not.i65 = icmp eq i64 %indvars.iv.next.i64, %wide.trip.count.i62
-  br i1 %exitcond.not.i65, label %_ZL19print_boolean_arrayP16typeArrayOopDesciP12outputStream.exit, label %111, !llvm.loop !15
+  br i1 %exitcond.not.i65, label %_ZL19print_boolean_arrayP16typeArrayOopDesciP12outputStream.exit, label %111, !llvm.loop !14
 
 123:                                              ; preds = %3
   %124 = load ptr, ptr @g_assert_poison, align 8
@@ -1535,13 +1535,12 @@ attributes #12 = { nounwind willreturn memory(read) }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7, !8}
-!11 = distinct !{!11, !7, !8}
-!12 = distinct !{!12, !7, !8}
-!13 = distinct !{!13, !7, !8}
-!14 = distinct !{!14, !7, !8}
-!15 = distinct !{!15, !7, !8}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7}
+!12 = distinct !{!12, !7}
+!13 = distinct !{!13, !7}
+!14 = distinct !{!14, !7}

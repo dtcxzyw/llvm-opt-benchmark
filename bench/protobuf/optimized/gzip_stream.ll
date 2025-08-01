@@ -582,7 +582,7 @@ do.body.i:                                        ; preds = %do.body.i.preheader
 call.i.noexc:                                     ; preds = %do.body.i
   store i32 %call.i1, ptr %zerror_.i, align 8
   %cmp6.i = icmp eq i32 %call.i1, 0
-  br i1 %cmp6.i, label %do.body.i, label %do.end.i, !llvm.loop !7
+  br i1 %cmp6.i, label %do.body.i, label %do.end.i, !llvm.loop !6
 
 do.end.i:                                         ; preds = %call.i.noexc
   %zcontext_.i = getelementptr inbounds nuw i8, ptr %this, i64 32
@@ -633,7 +633,7 @@ do.body:                                          ; preds = %do.body.preheader, 
   %call = tail call noundef i32 @_ZN6google8protobuf2io16GzipOutputStream7DeflateEi(ptr noundef nonnull align 8 dereferenceable(168) %this, i32 noundef 4)
   store i32 %call, ptr %zerror_, align 8
   %cmp6 = icmp eq i32 %call, 0
-  br i1 %cmp6, label %do.body, label %do.end, !llvm.loop !7
+  br i1 %cmp6, label %do.body, label %do.end, !llvm.loop !6
 
 do.end:                                           ; preds = %do.body
   %zcontext_ = getelementptr inbounds nuw i8, ptr %this, i64 32
@@ -711,7 +711,7 @@ if.end19:                                         ; preds = %do.body, %while.end
   %8 = load i32, ptr %avail_out, align 8
   %cmp25 = icmp eq i32 %8, 0
   %or.cond6 = select i1 %cmp22, i1 %cmp25, i1 false
-  br i1 %or.cond6, label %do.body, label %do.end, !llvm.loop !8
+  br i1 %or.cond6, label %do.body, label %do.end, !llvm.loop !7
 
 do.end:                                           ; preds = %if.end19
   %9 = add i32 %flush, -3
@@ -915,8 +915,7 @@ attributes #20 = { cold }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5, !6}
+!4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{!"llvm.loop.estimated_trip_count"}
-!7 = distinct !{!7, !5, !6}
-!8 = distinct !{!8, !5, !6}
+!6 = distinct !{!6, !5}
+!7 = distinct !{!7, !5}

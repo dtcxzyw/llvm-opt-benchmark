@@ -329,7 +329,7 @@ define hidden void @PMurHash128x86_Process(ptr noundef captures(none) %0, ptr no
   %.2216 = phi i32 [ %.1215281, %.preheader ], [ %.1215281, %23 ], [ %.1215281, %29 ], [ %.1215281, %35 ], [ %.1215281, %41 ], [ %61, %47 ]
   %.2213 = phi i32 [ %.1212282, %.preheader ], [ %28, %23 ], [ %34, %29 ], [ %40, %35 ], [ %46, %41 ], [ 0, %47 ]
   %.not271 = icmp eq i32 %22, 0
-  br i1 %.not271, label %.loopexit.loopexit, label %.preheader, !llvm.loop !9
+  br i1 %.not271, label %.loopexit.loopexit, label %.preheader
 
 .loopexit.loopexit:                               ; preds = %92
   %93 = sub i32 %3, %21
@@ -408,7 +408,7 @@ define hidden void @PMurHash128x86_Process(ptr noundef captures(none) %0, ptr no
   %144 = add i32 %143, 850148119
   %145 = getelementptr inbounds nuw i8, ptr %.3222287, i64 16
   %146 = icmp ult ptr %145, %96
-  br i1 %146, label %.lr.ph, label %._crit_edge, !llvm.loop !11
+  br i1 %146, label %.lr.ph, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.loopexit
   %.3264.lcssa = phi i32 [ %.0261, %.loopexit ], [ %124, %.lr.ph ]
@@ -547,7 +547,7 @@ define hidden void @PMurHash128x86_Process(ptr noundef captures(none) %0, ptr no
   %.5 = phi i32 [ %.4218306, %.lr.ph309 ], [ %.4218306, %149 ], [ %.4218306, %155 ], [ %.4218306, %161 ], [ %.4218306, %167 ], [ %187, %173 ]
   %.4 = phi i32 [ %.3307, %.lr.ph309 ], [ %154, %149 ], [ %160, %155 ], [ %166, %161 ], [ %172, %167 ], [ 0, %173 ]
   %.not272 = icmp eq i32 %148, 0
-  br i1 %.not272, label %._crit_edge310, label %.lr.ph309, !llvm.loop !12
+  br i1 %.not272, label %._crit_edge310, label %.lr.ph309
 
 ._crit_edge310:                                   ; preds = %218, %._crit_edge
   %.4265.lcssa = phi i32 [ %.3264.lcssa, %._crit_edge ], [ %.5266, %218 ]
@@ -598,18 +598,18 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define hidden void @PMurHash128x64_Result(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, ptr noundef writeonly captures(none) initializes((0, 16)) %3) local_unnamed_addr #0 {
-  %5 = load i64, ptr %0, align 8, !tbaa !13
+  %5 = load i64, ptr %0, align 8, !tbaa !9
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %7 = load i64, ptr %6, align 8, !tbaa !13
+  %7 = load i64, ptr %6, align 8, !tbaa !9
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %9 = load i64, ptr %8, align 8, !tbaa !13
+  %9 = load i64, ptr %8, align 8, !tbaa !9
   %10 = trunc i64 %9 to i32
   %11 = and i32 %10, 15
   %.not = icmp eq i32 %11, 0
   br i1 %.not, label %37, label %12
 
 12:                                               ; preds = %4
-  %13 = load i64, ptr %1, align 8, !tbaa !13
+  %13 = load i64, ptr %1, align 8, !tbaa !9
   %14 = icmp samesign ugt i32 %11, 8
   %15 = shl nuw nsw i32 %11, 3
   br i1 %14, label %16, label %26
@@ -669,20 +669,20 @@ define hidden void @PMurHash128x64_Result(ptr noundef readonly captures(none) %0
   %58 = xor i64 %57, %56
   %59 = add i64 %58, %50
   %60 = add i64 %59, %58
-  store i64 %59, ptr %3, align 8, !tbaa !13
+  store i64 %59, ptr %3, align 8, !tbaa !9
   %61 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store i64 %60, ptr %61, align 8, !tbaa !13
+  store i64 %60, ptr %61, align 8, !tbaa !9
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define hidden void @PMurHash128x64_Process(ptr noundef captures(none) %0, ptr noundef captures(none) %1, ptr noundef readonly captures(address) %2, i32 noundef %3) local_unnamed_addr #2 {
-  %5 = load i64, ptr %0, align 8, !tbaa !13
+  %5 = load i64, ptr %0, align 8, !tbaa !9
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %7 = load i64, ptr %6, align 8, !tbaa !13
-  %8 = load i64, ptr %1, align 8, !tbaa !13
+  %7 = load i64, ptr %6, align 8, !tbaa !9
+  %8 = load i64, ptr %1, align 8, !tbaa !9
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %10 = load i64, ptr %9, align 8, !tbaa !13
+  %10 = load i64, ptr %9, align 8, !tbaa !9
   %11 = trunc i64 %10 to i32
   %12 = and i32 %11, 15
   %13 = sub i32 0, %11
@@ -771,7 +771,7 @@ define hidden void @PMurHash128x64_Process(ptr noundef captures(none) %0, ptr no
   %.2124 = phi i64 [ %.1123161, %.preheader ], [ %.1123161, %16 ], [ %.1123161, %22 ], [ %42, %28 ]
   %.2121 = phi i32 [ %.1120162, %.preheader ], [ %21, %16 ], [ %27, %22 ], [ 0, %28 ]
   %.not155 = icmp eq i32 %15, 0
-  br i1 %.not155, label %.loopexit.loopexit, label %.preheader, !llvm.loop !15
+  br i1 %.not155, label %.loopexit.loopexit, label %.preheader
 
 .loopexit.loopexit:                               ; preds = %53
   %54 = sub i32 %3, %14
@@ -795,9 +795,9 @@ define hidden void @PMurHash128x64_Process(ptr noundef captures(none) %0, ptr no
   %.3125166 = phi i64 [ %71, %.lr.ph ], [ %.0122, %.loopexit ]
   %.3130165 = phi ptr [ %82, %.lr.ph ], [ %.0127, %.loopexit ]
   %.3148164 = phi i64 [ %81, %.lr.ph ], [ %.0145, %.loopexit ]
-  %59 = load i64, ptr %.3130165, align 8, !tbaa !13
+  %59 = load i64, ptr %.3130165, align 8, !tbaa !9
   %60 = getelementptr inbounds nuw i8, ptr %.3130165, i64 8
-  %61 = load i64, ptr %60, align 8, !tbaa !13
+  %61 = load i64, ptr %60, align 8, !tbaa !9
   %62 = mul i64 %59, -8663945395140668459
   %63 = mul i64 %59, -8601547726154366976
   %64 = lshr i64 %62, 33
@@ -820,7 +820,7 @@ define hidden void @PMurHash128x64_Process(ptr noundef captures(none) %0, ptr no
   %81 = add i64 %80, 944331445
   %82 = getelementptr inbounds nuw i8, ptr %.3130165, i64 16
   %83 = icmp ult ptr %82, %57
-  br i1 %83, label %.lr.ph, label %._crit_edge, !llvm.loop !16
+  br i1 %83, label %.lr.ph, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.loopexit
   %.3148.lcssa = phi i64 [ %.0145, %.loopexit ], [ %81, %.lr.ph ]
@@ -911,7 +911,7 @@ define hidden void @PMurHash128x64_Process(ptr noundef captures(none) %0, ptr no
   %.5 = phi i64 [ %.4126176, %.lr.ph179 ], [ %.4126176, %86 ], [ %.4126176, %92 ], [ %112, %98 ]
   %.4 = phi i32 [ %.3177, %.lr.ph179 ], [ %91, %86 ], [ %97, %92 ], [ 0, %98 ]
   %.not156 = icmp eq i32 %85, 0
-  br i1 %.not156, label %._crit_edge180, label %.lr.ph179, !llvm.loop !17
+  br i1 %.not156, label %._crit_edge180, label %.lr.ph179
 
 ._crit_edge180:                                   ; preds = %123, %._crit_edge
   %.4149.lcssa = phi i64 [ %.3148.lcssa, %._crit_edge ], [ %.5150, %123 ]
@@ -919,13 +919,13 @@ define hidden void @PMurHash128x64_Process(ptr noundef captures(none) %0, ptr no
   %.4137.lcssa = phi i64 [ %.3136.lcssa, %._crit_edge ], [ %.5138, %123 ]
   %.4126.lcssa = phi i64 [ %.3125.lcssa, %._crit_edge ], [ %.5, %123 ]
   %.3.lcssa = phi i32 [ %.0119, %._crit_edge ], [ %.4, %123 ]
-  store i64 %.4126.lcssa, ptr %0, align 8, !tbaa !13
-  store i64 %.4149.lcssa, ptr %6, align 8, !tbaa !13
-  store i64 %.4143.lcssa, ptr %1, align 8, !tbaa !13
+  store i64 %.4126.lcssa, ptr %0, align 8, !tbaa !9
+  store i64 %.4149.lcssa, ptr %6, align 8, !tbaa !9
+  store i64 %.4143.lcssa, ptr %1, align 8, !tbaa !9
   %124 = and i64 %.4137.lcssa, -256
   %125 = sext i32 %.3.lcssa to i64
   %126 = or i64 %124, %125
-  store i64 %126, ptr %9, align 8, !tbaa !13
+  store i64 %126, ptr %9, align 8, !tbaa !9
   ret void
 }
 
@@ -937,21 +937,21 @@ define hidden void @PMurHash128x64(ptr noundef readonly captures(address) %0, i3
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %5, i8 0, i64 16, i1 false)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #5
   %7 = zext i32 %2 to i64
-  store i64 %7, ptr %6, align 16, !tbaa !13
+  store i64 %7, ptr %6, align 16, !tbaa !9
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store i64 %7, ptr %8, align 8, !tbaa !13
+  store i64 %7, ptr %8, align 8, !tbaa !9
   call void @PMurHash128x64_Process(ptr noundef nonnull %6, ptr noundef nonnull %5, ptr noundef %0, i32 noundef %1)
-  %9 = load i64, ptr %6, align 16, !tbaa !13
-  %10 = load i64, ptr %8, align 8, !tbaa !13
+  %9 = load i64, ptr %6, align 16, !tbaa !9
+  %10 = load i64, ptr %8, align 8, !tbaa !9
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %12 = load i64, ptr %11, align 8, !tbaa !13
+  %12 = load i64, ptr %11, align 8, !tbaa !9
   %13 = trunc i64 %12 to i32
   %14 = and i32 %13, 15
   %.not.i = icmp eq i32 %14, 0
   br i1 %.not.i, label %PMurHash128x64_Result.exit, label %15
 
 15:                                               ; preds = %4
-  %16 = load i64, ptr %5, align 16, !tbaa !13
+  %16 = load i64, ptr %5, align 16, !tbaa !9
   %17 = icmp samesign ugt i32 %14, 8
   %18 = shl nuw nsw i32 %14, 3
   br i1 %17, label %19, label %29
@@ -1011,9 +1011,9 @@ PMurHash128x64_Result.exit:                       ; preds = %4, %33
   %60 = xor i64 %59, %58
   %61 = add i64 %60, %52
   %62 = add i64 %61, %60
-  store i64 %61, ptr %3, align 8, !tbaa !13
+  store i64 %61, ptr %3, align 8, !tbaa !9
   %63 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store i64 %62, ptr %63, align 8, !tbaa !13
+  store i64 %62, ptr %63, align 8, !tbaa !9
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #5
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #5
   ret void
@@ -1043,12 +1043,5 @@ attributes #5 = { nounwind }
 !6 = !{!"omnipotent char", !7, i64 0}
 !7 = !{!"Simple C/C++ TBAA"}
 !8 = !{!6, !6, i64 0}
-!9 = distinct !{!9, !10}
-!10 = !{!"llvm.loop.estimated_trip_count"}
-!11 = distinct !{!11, !10}
-!12 = distinct !{!12, !10}
-!13 = !{!14, !14, i64 0}
-!14 = !{!"long", !6, i64 0}
-!15 = distinct !{!15, !10}
-!16 = distinct !{!16, !10}
-!17 = distinct !{!17, !10}
+!9 = !{!10, !10, i64 0}
+!10 = !{!"long", !6, i64 0}

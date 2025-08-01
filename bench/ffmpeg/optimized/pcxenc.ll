@@ -203,7 +203,7 @@ define internal range(i32 -2147483648, 1) i32 @pcx_encode_frame(ptr noundef %0, 
   %106 = ptrtoint ptr %104 to i64
   %107 = sub i64 %105, %106
   %108 = icmp slt i64 %107, 128
-  br i1 %108, label %.lr.ph, label %._crit_edge, !llvm.loop !40
+  br i1 %108, label %.lr.ph, label %._crit_edge, !llvm.loop !39
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.split116.us
   %.1109.lcssa = phi ptr [ %97, %.split116.us ], [ %103, %.lr.ph ]
@@ -266,7 +266,7 @@ define internal range(i32 -2147483648, 1) i32 @pcx_encode_frame(ptr noundef %0, 
 
 132:                                              ; preds = %128
   %133 = add nuw nsw i32 %.043.i, 1
-  br label %126, !llvm.loop !41
+  br label %126
 
 134:                                              ; preds = %128, %126
   %135 = icmp ne i32 %.043.i, 1
@@ -286,12 +286,12 @@ define internal range(i32 -2147483648, 1) i32 @pcx_encode_frame(ptr noundef %0, 
   %142 = getelementptr inbounds nuw i8, ptr %.2.i, i64 1
   store i8 %.0.i.ph, ptr %.2.i, align 1, !tbaa !36
   %143 = icmp eq ptr %.042.i, %125
-  br i1 %143, label %144, label %.outer, !llvm.loop !41
+  br i1 %143, label %144, label %.outer
 
 144:                                              ; preds = %141
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %113
-  br i1 %exitcond.not.i, label %pcx_rle_encode.exit, label %.preheader.i, !llvm.loop !42
+  br i1 %exitcond.not.i, label %pcx_rle_encode.exit, label %.preheader.i, !llvm.loop !40
 
 pcx_rle_encode.exit:                              ; preds = %144
   %145 = ptrtoint ptr %142 to i64
@@ -313,7 +313,7 @@ pcx_rle_encode.exit.thread.split:                 ; preds = %pcx_rle_encode.exit
   %154 = add nuw nsw i32 %.064119, 1
   %155 = load i32, ptr %12, align 4, !tbaa !27
   %156 = icmp slt i32 %154, %155
-  br i1 %156, label %.lr.ph122.split, label %._crit_edge123, !llvm.loop !43
+  br i1 %156, label %.lr.ph122.split, label %._crit_edge123, !llvm.loop !41
 
 ._crit_edge123:                                   ; preds = %148, %._crit_edge
   %.2.lcssa = phi ptr [ %.1109.lcssa, %._crit_edge ], [ %150, %148 ]
@@ -354,7 +354,7 @@ pcx_rle_encode.exit.thread.split:                 ; preds = %pcx_rle_encode.exit
   %175 = getelementptr inbounds nuw i8, ptr %.4125, i64 3
   %indvars.iv.next137 = add nuw nsw i64 %indvars.iv136, 1
   %exitcond139.not = icmp eq i64 %indvars.iv.next137, 256
-  br i1 %exitcond139.not, label %.loopexit, label %165, !llvm.loop !44
+  br i1 %exitcond139.not, label %.loopexit, label %165, !llvm.loop !42
 
 .loopexit:                                        ; preds = %165, %._crit_edge123
   %.3 = phi ptr [ %.2.lcssa, %._crit_edge123 ], [ %175, %165 ]
@@ -437,11 +437,9 @@ attributes #4 = { nounwind }
 !34 = !{!10, !10, i64 0}
 !35 = !{!5, !10, i64 132}
 !36 = !{!8, !8, i64 0}
-!37 = distinct !{!37, !38, !39}
+!37 = distinct !{!37, !38}
 !38 = !{!"llvm.loop.mustprogress"}
-!39 = !{!"llvm.loop.estimated_trip_count"}
-!40 = distinct !{!40, !38, !39}
-!41 = distinct !{!41, !39}
-!42 = distinct !{!42, !38, !39}
-!43 = distinct !{!43, !38, !39}
-!44 = distinct !{!44, !38, !39}
+!39 = distinct !{!39, !38}
+!40 = distinct !{!40, !38}
+!41 = distinct !{!41, !38}
+!42 = distinct !{!42, !38}

@@ -327,20 +327,20 @@ define range(i32 -101, 1) i32 @IDADenseB(ptr noundef %0, i32 noundef %1, i64 nou
 
 25:                                               ; preds = %._crit_edge
   %26 = getelementptr inbounds nuw i8, ptr %.026.lcssa, i64 16
-  %27 = load ptr, ptr %26, align 8, !tbaa !60
+  %27 = load ptr, ptr %26, align 8, !tbaa !59
   tail call void (ptr, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef %27, i32 noundef -4, ptr noundef nonnull @.str, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.4) #7
   br label %36
 
 28:                                               ; preds = %._crit_edge
-  store i32 1, ptr %23, align 8, !tbaa !61
+  store i32 1, ptr %23, align 8, !tbaa !60
   %29 = getelementptr inbounds nuw i8, ptr %23, i64 24
-  store ptr null, ptr %29, align 8, !tbaa !63
+  store ptr null, ptr %29, align 8, !tbaa !62
   %30 = getelementptr inbounds nuw i8, ptr %.026.lcssa, i64 72
-  store ptr %23, ptr %30, align 8, !tbaa !64
+  store ptr %23, ptr %30, align 8, !tbaa !63
   %31 = getelementptr inbounds nuw i8, ptr %.026.lcssa, i64 80
-  store ptr @IDADenseFreeB, ptr %31, align 8, !tbaa !65
+  store ptr @IDADenseFreeB, ptr %31, align 8, !tbaa !64
   %32 = getelementptr inbounds nuw i8, ptr %.026.lcssa, i64 16
-  %33 = load ptr, ptr %32, align 8, !tbaa !60
+  %33 = load ptr, ptr %32, align 8, !tbaa !59
   %34 = tail call i32 @IDADense(ptr noundef %33, i64 noundef %2)
   %.not31 = icmp eq i32 %34, 0
   br i1 %.not31, label %36, label %35
@@ -357,7 +357,7 @@ define range(i32 -101, 1) i32 @IDADenseB(ptr noundef %0, i32 noundef %1, i64 nou
 ; Function Attrs: mustprogress nounwind willreturn uwtable
 define internal void @IDADenseFreeB(ptr noundef readonly captures(none) %0) #5 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %3 = load ptr, ptr %2, align 8, !tbaa !64
+  %3 = load ptr, ptr %2, align 8, !tbaa !63
   tail call void @free(ptr noundef %3) #7
   ret void
 }
@@ -448,12 +448,11 @@ attributes #8 = { nounwind allocsize(0) }
 !54 = !{!55, !9, i64 0}
 !55 = !{!"IDABMemRec", !9, i64 0, !5, i64 8, !56, i64 16, !9, i64 24, !9, i64 28, !8, i64 32, !8, i64 40, !8, i64 48, !8, i64 56, !8, i64 64, !8, i64 72, !8, i64 80, !8, i64 88, !8, i64 96, !5, i64 104, !10, i64 112, !10, i64 120, !50, i64 128}
 !56 = !{!"p1 _ZTS9IDAMemRec", !8, i64 0}
-!57 = distinct !{!57, !58, !59}
+!57 = distinct !{!57, !58}
 !58 = !{!"llvm.loop.mustprogress"}
-!59 = !{!"llvm.loop.estimated_trip_count"}
-!60 = !{!55, !56, i64 16}
-!61 = !{!62, !9, i64 0}
-!62 = !{!"IDADlsMemRecB", !9, i64 0, !8, i64 8, !8, i64 16, !8, i64 24, !8, i64 32}
-!63 = !{!62, !8, i64 24}
-!64 = !{!55, !8, i64 72}
-!65 = !{!55, !8, i64 80}
+!59 = !{!55, !56, i64 16}
+!60 = !{!61, !9, i64 0}
+!61 = !{!"IDADlsMemRecB", !9, i64 0, !8, i64 8, !8, i64 16, !8, i64 24, !8, i64 32}
+!62 = !{!61, !8, i64 24}
+!63 = !{!55, !8, i64 72}
+!64 = !{!55, !8, i64 80}

@@ -224,17 +224,17 @@ uv__stream_connect.exit:                          ; preds = %23, %42, %uv__strea
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %5) #12
   call void @llvm.lifetime.start.p0(i64 272, ptr nonnull %6) #12
   %66 = getelementptr inbounds i8, ptr %1, i64 -48
-  %67 = load i32, ptr %66, align 8, !tbaa !49
+  %67 = load i32, ptr %66, align 8, !tbaa !48
   %68 = and i32 %67, -1025
-  store i32 %68, ptr %66, align 8, !tbaa !49
+  store i32 %68, ptr %66, align 8, !tbaa !48
   %69 = getelementptr inbounds i8, ptr %1, i64 -120
-  %70 = load i32, ptr %69, align 8, !tbaa !50
+  %70 = load i32, ptr %69, align 8, !tbaa !49
   %71 = icmp eq i32 %70, 7
   br i1 %71, label %72, label %76
 
 72:                                               ; preds = %65
   %73 = getelementptr inbounds nuw i8, ptr %1, i64 112
-  %74 = load i32, ptr %73, align 8, !tbaa !51
+  %74 = load i32, ptr %73, align 8, !tbaa !50
   %75 = icmp ne i32 %74, 0
   br label %76
 
@@ -257,12 +257,12 @@ uv__stream_connect.exit:                          ; preds = %23, %42, %uv__strea
 
 89:                                               ; preds = %uv__stream_recv_cmsg.exit.thread.i, %76
   %.055.i = phi i32 [ 32, %76 ], [ %95, %uv__stream_recv_cmsg.exit.thread.i ]
-  %90 = load ptr, ptr %78, align 8, !tbaa !54
+  %90 = load ptr, ptr %78, align 8, !tbaa !53
   %.not.i25 = icmp eq ptr %90, null
   br i1 %.not.i25, label %uv__read.exit, label %91
 
 91:                                               ; preds = %89
-  %92 = load i32, ptr %66, align 8, !tbaa !49
+  %92 = load i32, ptr %66, align 8, !tbaa !48
   %93 = and i32 %92, 4096
   %.not60.i = icmp eq i32 %93, 0
   br i1 %.not60.i, label %uv__read.exit, label %94
@@ -276,11 +276,11 @@ uv__stream_connect.exit:                          ; preds = %23, %42, %uv__strea
   %97 = call { ptr, i64 } @uv_buf_init(ptr noundef null, i32 noundef 0) #12
   %98 = extractvalue { ptr, i64 } %97, 0
   %99 = extractvalue { ptr, i64 } %97, 1
-  store ptr %98, ptr %4, align 8, !tbaa !55
-  store i64 %99, ptr %.sroa.4.0..sroa_idx.i, align 8, !tbaa !56
-  %100 = load ptr, ptr %79, align 8, !tbaa !57
+  store ptr %98, ptr %4, align 8, !tbaa !54
+  store i64 %99, ptr %.sroa.4.0..sroa_idx.i, align 8, !tbaa !55
+  %100 = load ptr, ptr %79, align 8, !tbaa !56
   call void %100(ptr noundef nonnull %10, i64 noundef 65536, ptr noundef nonnull %4) #12
-  %101 = load ptr, ptr %4, align 8, !tbaa !58
+  %101 = load ptr, ptr %4, align 8, !tbaa !57
   %102 = icmp eq ptr %101, null
   %103 = load i64, ptr %.sroa.4.0..sroa_idx.i, align 8
   %104 = icmp eq i64 %103, 0
@@ -288,7 +288,7 @@ uv__stream_connect.exit:                          ; preds = %23, %42, %uv__strea
   br i1 %or.cond.i26, label %105, label %107
 
 105:                                              ; preds = %96
-  %106 = load ptr, ptr %78, align 8, !tbaa !54
+  %106 = load ptr, ptr %78, align 8, !tbaa !53
   call void %106(ptr noundef nonnull %10, i64 noundef -105, ptr noundef nonnull %4) #12
   br label %uv__read.exit
 
@@ -297,8 +297,8 @@ uv__stream_connect.exit:                          ; preds = %23, %42, %uv__strea
 
 .preheader.i:                                     ; preds = %107, %113
   %108 = load i32, ptr %80, align 8, !tbaa !37
-  %109 = load ptr, ptr %4, align 8, !tbaa !58
-  %110 = load i64, ptr %.sroa.4.0..sroa_idx.i, align 8, !tbaa !60
+  %109 = load ptr, ptr %4, align 8, !tbaa !57
+  %110 = load i64, ptr %.sroa.4.0..sroa_idx.i, align 8, !tbaa !59
   %111 = call i64 @read(i32 noundef %108, ptr noundef %109, i64 noundef %110) #12
   %112 = icmp slt i64 %111, 0
   br i1 %112, label %113, label %.critedge4.i
@@ -307,16 +307,16 @@ uv__stream_connect.exit:                          ; preds = %23, %42, %uv__strea
   %114 = tail call ptr @__errno_location() #13
   %115 = load i32, ptr %114, align 4, !tbaa !36
   %116 = icmp eq i32 %115, 4
-  br i1 %116, label %.preheader.i, label %.loopexit.i, !llvm.loop !61
+  br i1 %116, label %.preheader.i, label %.loopexit.i, !llvm.loop !60
 
 117:                                              ; preds = %107
-  store i32 0, ptr %81, align 8, !tbaa !62
-  store ptr %4, ptr %82, align 8, !tbaa !65
-  store i64 1, ptr %83, align 8, !tbaa !66
-  store ptr null, ptr %5, align 8, !tbaa !67
-  store i32 0, ptr %84, align 8, !tbaa !68
-  store i64 272, ptr %85, align 8, !tbaa !69
-  store ptr %6, ptr %86, align 8, !tbaa !70
+  store i32 0, ptr %81, align 8, !tbaa !61
+  store ptr %4, ptr %82, align 8, !tbaa !64
+  store i64 1, ptr %83, align 8, !tbaa !65
+  store ptr null, ptr %5, align 8, !tbaa !66
+  store i32 0, ptr %84, align 8, !tbaa !67
+  store i64 272, ptr %85, align 8, !tbaa !68
+  store ptr %6, ptr %86, align 8, !tbaa !69
   br label %118
 
 118:                                              ; preds = %122, %117
@@ -329,13 +329,13 @@ uv__stream_connect.exit:                          ; preds = %23, %42, %uv__strea
   %123 = tail call ptr @__errno_location() #13
   %124 = load i32, ptr %123, align 4, !tbaa !36
   %125 = icmp eq i32 %124, 4
-  br i1 %125, label %118, label %.loopexit.i, !llvm.loop !71
+  br i1 %125, label %118, label %.loopexit.i, !llvm.loop !70
 
 .loopexit.i:                                      ; preds = %113, %122
   %126 = phi i32 [ %124, %122 ], [ %115, %113 ]
   %.pre-phi.i = phi ptr [ %123, %122 ], [ %114, %113 ]
   %127 = icmp eq i32 %126, 11
-  %128 = load i32, ptr %66, align 8, !tbaa !49
+  %128 = load i32, ptr %66, align 8, !tbaa !48
   br i1 %127, label %129, label %136
 
 129:                                              ; preds = %.loopexit.i
@@ -350,37 +350,37 @@ uv__stream_connect.exit:                          ; preds = %23, %42, %uv__strea
   br label %134
 
 134:                                              ; preds = %131, %129
-  %135 = load ptr, ptr %78, align 8, !tbaa !54
+  %135 = load ptr, ptr %78, align 8, !tbaa !53
   call void %135(ptr noundef nonnull %10, i64 noundef 0, ptr noundef nonnull %4) #12
   br label %uv__read.exit
 
 136:                                              ; preds = %.loopexit.i
   %137 = and i32 %128, -49153
-  store i32 %137, ptr %66, align 8, !tbaa !49
-  %138 = load ptr, ptr %78, align 8, !tbaa !54
+  store i32 %137, ptr %66, align 8, !tbaa !48
+  %138 = load ptr, ptr %78, align 8, !tbaa !53
   %139 = load i32, ptr %.pre-phi.i, align 4, !tbaa !36
   %140 = sub nsw i32 0, %139
   %141 = sext i32 %140 to i64
   call void %138(ptr noundef nonnull %10, i64 noundef %141, ptr noundef nonnull %4) #12
-  %142 = load i32, ptr %66, align 8, !tbaa !49
+  %142 = load i32, ptr %66, align 8, !tbaa !48
   %143 = and i32 %142, 4096
   %.not62.i = icmp eq i32 %143, 0
   br i1 %.not62.i, label %uv__read.exit, label %144
 
 144:                                              ; preds = %136
   %145 = and i32 %142, -4097
-  store i32 %145, ptr %66, align 8, !tbaa !49
+  store i32 %145, ptr %66, align 8, !tbaa !48
   %146 = getelementptr inbounds i8, ptr %1, i64 -128
   %147 = load ptr, ptr %146, align 8, !tbaa !38
   call void @uv__io_stop(ptr noundef %147, ptr noundef nonnull %1, i32 noundef 1) #12
-  %148 = load i32, ptr %66, align 8, !tbaa !49
+  %148 = load i32, ptr %66, align 8, !tbaa !48
   %149 = and i32 %148, 4
   %150 = icmp eq i32 %149, 0
   br i1 %150, label %uv__read.exit, label %151
 
 151:                                              ; preds = %144
   %152 = and i32 %148, -5
-  store i32 %152, ptr %66, align 8, !tbaa !49
+  store i32 %152, ptr %66, align 8, !tbaa !48
   %153 = and i32 %148, 8
   %.not63.i = icmp eq i32 %153, 0
   br i1 %.not63.i, label %uv__read.exit, label %154
@@ -388,9 +388,9 @@ uv__stream_connect.exit:                          ; preds = %23, %42, %uv__strea
 154:                                              ; preds = %151
   %155 = load ptr, ptr %146, align 8, !tbaa !38
   %156 = getelementptr inbounds nuw i8, ptr %155, i64 8
-  %157 = load i32, ptr %156, align 8, !tbaa !72
+  %157 = load i32, ptr %156, align 8, !tbaa !71
   %158 = add i32 %157, -1
-  store i32 %158, ptr %156, align 8, !tbaa !72
+  store i32 %158, ptr %156, align 8, !tbaa !71
   br label %uv__read.exit
 
 .critedge4.i:                                     ; preds = %.preheader.i, %118
@@ -399,21 +399,21 @@ uv__stream_connect.exit:                          ; preds = %23, %42, %uv__strea
   br i1 %159, label %160, label %178
 
 160:                                              ; preds = %.critedge4.i
-  %161 = load i32, ptr %66, align 8, !tbaa !49
+  %161 = load i32, ptr %66, align 8, !tbaa !48
   %162 = and i32 %161, -6145
   %163 = or disjoint i32 %162, 2048
-  store i32 %163, ptr %66, align 8, !tbaa !49
+  store i32 %163, ptr %66, align 8, !tbaa !48
   %164 = getelementptr inbounds i8, ptr %1, i64 -128
   %165 = load ptr, ptr %164, align 8, !tbaa !38
   call void @uv__io_stop(ptr noundef %165, ptr noundef nonnull %1, i32 noundef 1) #12
-  %166 = load i32, ptr %66, align 8, !tbaa !49
+  %166 = load i32, ptr %66, align 8, !tbaa !48
   %167 = and i32 %166, 4
   %168 = icmp eq i32 %167, 0
   br i1 %168, label %uv__stream_eof.exit.i, label %169
 
 169:                                              ; preds = %160
   %170 = and i32 %166, -5
-  store i32 %170, ptr %66, align 8, !tbaa !49
+  store i32 %170, ptr %66, align 8, !tbaa !48
   %171 = and i32 %166, 8
   %.not.i.i28 = icmp eq i32 %171, 0
   br i1 %.not.i.i28, label %uv__stream_eof.exit.i, label %172
@@ -421,18 +421,18 @@ uv__stream_connect.exit:                          ; preds = %23, %42, %uv__strea
 172:                                              ; preds = %169
   %173 = load ptr, ptr %164, align 8, !tbaa !38
   %174 = getelementptr inbounds nuw i8, ptr %173, i64 8
-  %175 = load i32, ptr %174, align 8, !tbaa !72
+  %175 = load i32, ptr %174, align 8, !tbaa !71
   %176 = add i32 %175, -1
-  store i32 %176, ptr %174, align 8, !tbaa !72
+  store i32 %176, ptr %174, align 8, !tbaa !71
   br label %uv__stream_eof.exit.i
 
 uv__stream_eof.exit.i:                            ; preds = %172, %169, %160
-  %177 = load ptr, ptr %78, align 8, !tbaa !54
+  %177 = load ptr, ptr %78, align 8, !tbaa !53
   call void %177(ptr noundef nonnull %10, i64 noundef -4095, ptr noundef nonnull %4) #12
   br label %uv__read.exit
 
 178:                                              ; preds = %.critedge4.i
-  %179 = load i64, ptr %.sroa.4.0..sroa_idx.i, align 8, !tbaa !60
+  %179 = load i64, ptr %.sroa.4.0..sroa_idx.i, align 8, !tbaa !59
   %180 = load i64, ptr %85, align 8
   %181 = icmp ult i64 %180, 16
   %or.cond86.i = select i1 %not..i, i1 true, i1 %181
@@ -449,12 +449,12 @@ __cmsg_nxthdr.exit.i.i:                           ; preds = %178, %246
   br i1 %.not40.i.i, label %188, label %185
 
 185:                                              ; preds = %__cmsg_nxthdr.exit.i.i
-  %186 = load ptr, ptr @stderr, align 8, !tbaa !73
+  %186 = load ptr, ptr @stderr, align 8, !tbaa !72
   %187 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %186, ptr noundef nonnull @.str.2, i32 noundef %184) #14
   br label %.loopexit49.i.i
 
 188:                                              ; preds = %__cmsg_nxthdr.exit.i.i
-  %189 = load i64, ptr %.03855.i.i, align 8, !tbaa !56
+  %189 = load i64, ptr %.03855.i.i, align 8, !tbaa !55
   br label %190
 
 190:                                              ; preds = %190, %188
@@ -464,7 +464,7 @@ __cmsg_nxthdr.exit.i.i:                           ; preds = %178, %246
   %193 = add nuw nsw i64 %192, 16
   %194 = icmp samesign ult i64 %193, %189
   %195 = add i32 %.034.i.i, 1
-  br i1 %194, label %190, label %.preheader.i.i, !llvm.loop !75
+  br i1 %194, label %190, label %.preheader.i.i, !llvm.loop !74
 
 .preheader.i.i:                                   ; preds = %190
   %196 = getelementptr inbounds nuw i8, ptr %.03855.i.i, i64 16
@@ -490,16 +490,16 @@ __cmsg_nxthdr.exit.i.i:                           ; preds = %178, %246
   br i1 %205, label %uv__stream_queue_fd.exit.i.i, label %206
 
 206:                                              ; preds = %203
-  store i32 8, ptr %204, align 4, !tbaa !76
+  store i32 8, ptr %204, align 4, !tbaa !75
   %207 = getelementptr inbounds nuw i8, ptr %204, i64 4
-  store i32 0, ptr %207, align 4, !tbaa !78
+  store i32 0, ptr %207, align 4, !tbaa !77
   store ptr %204, ptr %88, align 8, !tbaa !24
   br label %uv__stream_queue_fd.exit.thread.i.i
 
 208:                                              ; preds = %200
-  %209 = load i32, ptr %201, align 4, !tbaa !76
+  %209 = load i32, ptr %201, align 4, !tbaa !75
   %210 = getelementptr inbounds nuw i8, ptr %201, i64 4
-  %211 = load i32, ptr %210, align 4, !tbaa !78
+  %211 = load i32, ptr %210, align 4, !tbaa !77
   %212 = icmp eq i32 %209, %211
   br i1 %212, label %213, label %uv__stream_queue_fd.exit.thread.i.i
 
@@ -514,10 +514,10 @@ __cmsg_nxthdr.exit.i.i:                           ; preds = %178, %246
 
 220:                                              ; preds = %213
   %221 = add i32 %209, 8
-  store i32 %221, ptr %218, align 4, !tbaa !76
+  store i32 %221, ptr %218, align 4, !tbaa !75
   store ptr %218, ptr %88, align 8, !tbaa !24
   %.phi.trans.insert.i.i.i = getelementptr inbounds nuw i8, ptr %218, i64 4
-  %.pre.i.i.i = load i32, ptr %.phi.trans.insert.i.i.i, align 4, !tbaa !78
+  %.pre.i.i.i = load i32, ptr %.phi.trans.insert.i.i.i, align 4, !tbaa !77
   br label %uv__stream_queue_fd.exit.thread.i.i
 
 uv__stream_queue_fd.exit.thread.i.i:              ; preds = %220, %208, %206
@@ -526,7 +526,7 @@ uv__stream_queue_fd.exit.thread.i.i:              ; preds = %220, %208, %206
   %223 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 8
   %224 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 4
   %225 = add i32 %222, 1
-  store i32 %225, ptr %224, align 4, !tbaa !78
+  store i32 %225, ptr %224, align 4, !tbaa !77
   %226 = zext i32 %222 to i64
   %227 = getelementptr inbounds nuw [1 x i32], ptr %223, i64 0, i64 %226
   store i32 %199, ptr %227, align 4, !tbaa !36
@@ -545,7 +545,7 @@ uv__stream_queue_fd.exit.i.i:                     ; preds = %213, %203
   %indvars.iv.next66.i.i = add nuw nsw i64 %indvars.iv65.i.i, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next66.i.i to i32
   %exitcond = icmp eq i32 %.034.i.i, %lftr.wideiv
-  br i1 %exitcond, label %uv__stream_recv_cmsg.exit.i, label %.lr.ph58.i.i, !llvm.loop !79
+  br i1 %exitcond, label %uv__stream_recv_cmsg.exit.i, label %.lr.ph58.i.i, !llvm.loop !78
 
 233:                                              ; preds = %.lr.ph.i.i27
   store i32 %199, ptr %87, align 4, !tbaa !23
@@ -554,10 +554,10 @@ uv__stream_queue_fd.exit.i.i:                     ; preds = %213, %203
 234:                                              ; preds = %233, %uv__stream_queue_fd.exit.thread.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %191
-  br i1 %exitcond.not.i.i, label %.loopexit49.i.i, label %.lr.ph.i.i27, !llvm.loop !80
+  br i1 %exitcond.not.i.i, label %.loopexit49.i.i, label %.lr.ph.i.i27, !llvm.loop !79
 
 .loopexit49.i.i:                                  ; preds = %234, %.preheader.i.i, %185
-  %235 = load i64, ptr %.03855.i.i, align 8, !tbaa !56
+  %235 = load i64, ptr %.03855.i.i, align 8, !tbaa !55
   %236 = icmp ult i64 %235, 16
   br i1 %236, label %uv__stream_recv_cmsg.exit.thread.i, label %237
 
@@ -566,35 +566,35 @@ uv__stream_queue_fd.exit.i.i:                     ; preds = %213, %203
   %239 = and i64 %238, -8
   %240 = getelementptr inbounds nuw i8, ptr %.03855.i.i, i64 %239
   %241 = getelementptr inbounds nuw i8, ptr %240, i64 16
-  %242 = load ptr, ptr %86, align 8, !tbaa !70
-  %243 = load i64, ptr %85, align 8, !tbaa !69
+  %242 = load ptr, ptr %86, align 8, !tbaa !69
+  %243 = load i64, ptr %85, align 8, !tbaa !68
   %244 = getelementptr inbounds nuw i8, ptr %242, i64 %243
   %245 = icmp ugt ptr %241, %244
   br i1 %245, label %uv__stream_recv_cmsg.exit.thread.i, label %246
 
 246:                                              ; preds = %237
-  %247 = load i64, ptr %240, align 8, !tbaa !56
+  %247 = load i64, ptr %240, align 8, !tbaa !55
   %248 = add i64 %247, 7
   %249 = and i64 %248, -8
   %250 = getelementptr inbounds nuw i8, ptr %240, i64 %249
   %251 = icmp ugt ptr %250, %244
-  br i1 %251, label %uv__stream_recv_cmsg.exit.thread.i, label %__cmsg_nxthdr.exit.i.i, !llvm.loop !81
+  br i1 %251, label %uv__stream_recv_cmsg.exit.thread.i, label %__cmsg_nxthdr.exit.i.i, !llvm.loop !80
 
 uv__stream_recv_cmsg.exit.i:                      ; preds = %.lr.ph58.i.i, %uv__stream_queue_fd.exit.i.i
-  %252 = load ptr, ptr %78, align 8, !tbaa !54
+  %252 = load ptr, ptr %78, align 8, !tbaa !53
   call void %252(ptr noundef nonnull %10, i64 noundef -12, ptr noundef nonnull %4) #12
   br label %uv__read.exit
 
 uv__stream_recv_cmsg.exit.thread.i:               ; preds = %246, %237, %.loopexit49.i.i, %178
-  %253 = load ptr, ptr %78, align 8, !tbaa !54
+  %253 = load ptr, ptr %78, align 8, !tbaa !53
   call void %253(ptr noundef nonnull %10, i64 noundef %.0.i, ptr noundef nonnull %4) #12
   %254 = icmp slt i64 %.0.i, %179
-  br i1 %254, label %255, label %89, !llvm.loop !82
+  br i1 %254, label %255, label %89, !llvm.loop !81
 
 255:                                              ; preds = %uv__stream_recv_cmsg.exit.thread.i
-  %256 = load i32, ptr %66, align 8, !tbaa !49
+  %256 = load i32, ptr %66, align 8, !tbaa !48
   %257 = or i32 %256, 1024
-  store i32 %257, ptr %66, align 8, !tbaa !49
+  store i32 %257, ptr %66, align 8, !tbaa !48
   br label %uv__read.exit
 
 uv__read.exit:                                    ; preds = %89, %91, %94, %105, %134, %136, %144, %151, %154, %uv__stream_eof.exit.i, %uv__stream_recv_cmsg.exit.i, %255
@@ -616,7 +616,7 @@ uv__read.exit:                                    ; preds = %89, %91, %94, %105,
 
 264:                                              ; preds = %262
   %265 = getelementptr inbounds i8, ptr %1, i64 -48
-  %266 = load i32, ptr %265, align 8, !tbaa !49
+  %266 = load i32, ptr %265, align 8, !tbaa !48
   %267 = and i32 %266, 7168
   %or.cond23 = icmp eq i32 %267, 5120
   br i1 %or.cond23, label %268, label %287
@@ -626,18 +626,18 @@ uv__read.exit:                                    ; preds = %89, %91, %94, %105,
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, i8 0, i64 16, i1 false)
   %269 = and i32 %266, -6145
   %270 = or disjoint i32 %269, 2048
-  store i32 %270, ptr %265, align 8, !tbaa !49
+  store i32 %270, ptr %265, align 8, !tbaa !48
   %271 = getelementptr inbounds i8, ptr %1, i64 -128
   %272 = load ptr, ptr %271, align 8, !tbaa !38
   call void @uv__io_stop(ptr noundef %272, ptr noundef nonnull %1, i32 noundef 1) #12
-  %273 = load i32, ptr %265, align 8, !tbaa !49
+  %273 = load i32, ptr %265, align 8, !tbaa !48
   %274 = and i32 %273, 4
   %275 = icmp eq i32 %274, 0
   br i1 %275, label %uv__stream_eof.exit, label %276
 
 276:                                              ; preds = %268
   %277 = and i32 %273, -5
-  store i32 %277, ptr %265, align 8, !tbaa !49
+  store i32 %277, ptr %265, align 8, !tbaa !48
   %278 = and i32 %273, 8
   %.not.i29 = icmp eq i32 %278, 0
   br i1 %.not.i29, label %uv__stream_eof.exit, label %279
@@ -645,14 +645,14 @@ uv__read.exit:                                    ; preds = %89, %91, %94, %105,
 279:                                              ; preds = %276
   %280 = load ptr, ptr %271, align 8, !tbaa !38
   %281 = getelementptr inbounds nuw i8, ptr %280, i64 8
-  %282 = load i32, ptr %281, align 8, !tbaa !72
+  %282 = load i32, ptr %281, align 8, !tbaa !71
   %283 = add i32 %282, -1
-  store i32 %283, ptr %281, align 8, !tbaa !72
+  store i32 %283, ptr %281, align 8, !tbaa !71
   br label %uv__stream_eof.exit
 
 uv__stream_eof.exit:                              ; preds = %268, %276, %279
   %284 = getelementptr inbounds i8, ptr %1, i64 -24
-  %285 = load ptr, ptr %284, align 8, !tbaa !54
+  %285 = load ptr, ptr %284, align 8, !tbaa !53
   call void %285(ptr noundef nonnull %10, i64 noundef -4095, ptr noundef nonnull %9) #12
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #12
   %.pre = load i32, ptr %259, align 8, !tbaa !37
@@ -696,11 +696,11 @@ define dso_local range(i32 -2147483647, -2147483648) i32 @uv__stream_open(ptr no
 
 8:                                                ; preds = %3
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %10 = load i32, ptr %9, align 8, !tbaa !49
+  %10 = load i32, ptr %9, align 8, !tbaa !48
   %11 = or i32 %10, %2
-  store i32 %11, ptr %9, align 8, !tbaa !49
+  store i32 %11, ptr %9, align 8, !tbaa !48
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %13 = load i32, ptr %12, align 8, !tbaa !50
+  %13 = load i32, ptr %12, align 8, !tbaa !49
   %14 = icmp eq i32 %13, 12
   br i1 %14, label %15, label %32
 
@@ -715,7 +715,7 @@ define dso_local range(i32 -2147483647, -2147483648) i32 @uv__stream_open(ptr no
   br i1 %.not13, label %._crit_edge, label %19
 
 ._crit_edge:                                      ; preds = %17
-  %.pre = load i32, ptr %9, align 8, !tbaa !49
+  %.pre = load i32, ptr %9, align 8, !tbaa !48
   br label %23
 
 19:                                               ; preds = %17
@@ -897,23 +897,23 @@ define internal fastcc void @uv__write_callbacks(ptr noundef %0) unnamed_addr #0
   %26 = add i32 %25, -1
   store i32 %26, ptr %24, align 8, !tbaa !39
   %27 = getelementptr inbounds nuw i8, ptr %16, i64 24
-  %28 = load ptr, ptr %27, align 8, !tbaa !83
+  %28 = load ptr, ptr %27, align 8, !tbaa !82
   %.not32 = icmp eq ptr %28, null
   br i1 %.not32, label %44, label %29
 
 29:                                               ; preds = %15
   %30 = getelementptr inbounds nuw i8, ptr %16, i64 16
-  %31 = load i32, ptr %30, align 8, !tbaa !84
+  %31 = load i32, ptr %30, align 8, !tbaa !83
   %32 = zext i32 %31 to i64
   %33 = getelementptr inbounds nuw %struct.uv_buf_t, ptr %28, i64 %32
   %34 = getelementptr inbounds nuw i8, ptr %16, i64 32
-  %35 = load i32, ptr %34, align 8, !tbaa !85
+  %35 = load i32, ptr %34, align 8, !tbaa !84
   %36 = sub i32 %35, %31
   %37 = call i64 @uv__count_bufs(ptr noundef nonnull %33, i32 noundef %36) #12
   %38 = load i64, ptr %14, align 8, !tbaa !26
   %39 = sub i64 %38, %37
   store i64 %39, ptr %14, align 8, !tbaa !26
-  %40 = load ptr, ptr %27, align 8, !tbaa !83
+  %40 = load ptr, ptr %27, align 8, !tbaa !82
   %41 = getelementptr inbounds nuw i8, ptr %16, i64 40
   %.not33 = icmp eq ptr %40, %41
   br i1 %.not33, label %43, label %42
@@ -923,12 +923,12 @@ define internal fastcc void @uv__write_callbacks(ptr noundef %0) unnamed_addr #0
   br label %43
 
 43:                                               ; preds = %42, %29
-  store ptr null, ptr %27, align 8, !tbaa !83
+  store ptr null, ptr %27, align 8, !tbaa !82
   br label %44
 
 44:                                               ; preds = %43, %15
   %45 = getelementptr inbounds i8, ptr %16, i64 -24
-  %46 = load ptr, ptr %45, align 8, !tbaa !86
+  %46 = load ptr, ptr %45, align 8, !tbaa !85
   %.not34 = icmp eq ptr %46, null
   br i1 %.not34, label %50, label %47
 
@@ -941,7 +941,7 @@ define internal fastcc void @uv__write_callbacks(ptr noundef %0) unnamed_addr #0
 50:                                               ; preds = %47, %44
   %51 = load ptr, ptr %2, align 16, !tbaa !14
   %.not = icmp eq ptr %2, %51
-  br i1 %.not, label %.loopexit, label %15, !llvm.loop !87
+  br i1 %.not, label %.loopexit, label %15, !llvm.loop !86
 
 .loopexit:                                        ; preds = %50, %6, %1
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #12
@@ -951,7 +951,7 @@ define internal fastcc void @uv__write_callbacks(ptr noundef %0) unnamed_addr #0
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @uv__drain(ptr noundef %0) unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %3 = load i32, ptr %2, align 8, !tbaa !49
+  %3 = load i32, ptr %2, align 8, !tbaa !48
   %4 = and i32 %3, 1
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %5, label %9
@@ -961,7 +961,7 @@ define internal fastcc void @uv__drain(ptr noundef %0) unnamed_addr #0 {
   %7 = load ptr, ptr %6, align 8, !tbaa !38
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 136
   tail call void @uv__io_stop(ptr noundef %7, ptr noundef nonnull %8, i32 noundef 4) #12
-  %.pre = load i32, ptr %2, align 8, !tbaa !49
+  %.pre = load i32, ptr %2, align 8, !tbaa !48
   br label %9
 
 9:                                                ; preds = %5, %1
@@ -972,22 +972,22 @@ define internal fastcc void @uv__drain(ptr noundef %0) unnamed_addr #0 {
 
 12:                                               ; preds = %9
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %14 = load ptr, ptr %13, align 8, !tbaa !88
+  %14 = load ptr, ptr %13, align 8, !tbaa !87
   %15 = and i32 %10, 513
   %or.cond.not = icmp eq i32 %15, 512
   br i1 %or.cond.not, label %40, label %16
 
 16:                                               ; preds = %12
-  store ptr null, ptr %13, align 8, !tbaa !88
+  store ptr null, ptr %13, align 8, !tbaa !87
   %17 = and i32 %10, -257
-  store i32 %17, ptr %2, align 8, !tbaa !49
+  store i32 %17, ptr %2, align 8, !tbaa !48
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %19 = load ptr, ptr %18, align 8, !tbaa !38
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 32
   %21 = load i32, ptr %20, align 8, !tbaa !39
   %22 = add i32 %21, -1
   store i32 %22, ptr %20, align 8, !tbaa !39
-  %23 = load i32, ptr %2, align 8, !tbaa !49
+  %23 = load i32, ptr %2, align 8, !tbaa !48
   %24 = and i32 %23, 1
   %.not21 = icmp eq i32 %24, 0
   br i1 %.not21, label %25, label %36
@@ -1006,15 +1006,15 @@ define internal fastcc void @uv__drain(ptr noundef %0) unnamed_addr #0 {
   br label %36
 
 33:                                               ; preds = %25
-  %34 = load i32, ptr %2, align 8, !tbaa !49
+  %34 = load i32, ptr %2, align 8, !tbaa !48
   %35 = or i32 %34, 512
-  store i32 %35, ptr %2, align 8, !tbaa !49
+  store i32 %35, ptr %2, align 8, !tbaa !48
   br label %36
 
 36:                                               ; preds = %16, %29, %33
   %.0 = phi i32 [ %32, %29 ], [ 0, %33 ], [ -125, %16 ]
   %37 = getelementptr inbounds nuw i8, ptr %14, i64 72
-  %38 = load ptr, ptr %37, align 8, !tbaa !89
+  %38 = load ptr, ptr %37, align 8, !tbaa !88
   %.not23 = icmp eq ptr %38, null
   br i1 %.not23, label %40, label %39
 
@@ -1086,7 +1086,7 @@ define dso_local void @uv__server_io(ptr noundef %0, ptr noundef %1, i32 noundef
 33:                                               ; preds = %31, %28
   %34 = icmp eq i32 %29, -4
   %35 = or i1 %30, %34
-  br i1 %35, label %28, label %36, !llvm.loop !91
+  br i1 %35, label %28, label %36, !llvm.loop !90
 
 36:                                               ; preds = %33
   %37 = call i32 @uv__open_cloexec(ptr noundef nonnull @.str.1, i32 noundef 0) #12
@@ -1110,7 +1110,7 @@ uv__emfile_trick.exit.thread:                     ; preds = %22, %uv__emfile_tri
 .backedge:                                        ; preds = %47, %50, %53, %uv__emfile_trick.exit.thread, %19
   %42 = load i32, ptr %8, align 8, !tbaa !37
   %.not = icmp eq i32 %42, -1
-  br i1 %.not, label %.loopexit, label %15, !llvm.loop !92
+  br i1 %.not, label %.loopexit, label %15, !llvm.loop !91
 
 43:                                               ; preds = %15
   store i32 %17, ptr %10, align 4, !tbaa !23
@@ -1125,12 +1125,12 @@ uv__emfile_trick.exit.thread:                     ; preds = %22, %uv__emfile_tri
   br label %.loopexit
 
 47:                                               ; preds = %43
-  %48 = load i32, ptr %12, align 8, !tbaa !50
+  %48 = load i32, ptr %12, align 8, !tbaa !49
   %49 = icmp eq i32 %48, 12
   br i1 %49, label %50, label %.backedge
 
 50:                                               ; preds = %47
-  %51 = load i32, ptr %13, align 8, !tbaa !49
+  %51 = load i32, ptr %13, align 8, !tbaa !48
   %52 = and i32 %51, 67108864
   %.not35 = icmp eq i32 %52, 0
   br i1 %.not35, label %.backedge, label %53
@@ -1166,7 +1166,7 @@ define dso_local i32 @uv_accept(ptr noundef %0, ptr noundef %1) local_unnamed_ad
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %8 = load i32, ptr %7, align 8, !tbaa !50
+  %8 = load i32, ptr %7, align 8, !tbaa !49
   switch i32 %8, label %58 [
     i32 7, label %9
     i32 12, label %9
@@ -1183,9 +1183,9 @@ define dso_local i32 @uv_accept(ptr noundef %0, ptr noundef %1) local_unnamed_ad
 
 14:                                               ; preds = %9
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 88
-  %16 = load i32, ptr %15, align 8, !tbaa !49
+  %16 = load i32, ptr %15, align 8, !tbaa !48
   %17 = or i32 %16, 49152
-  store i32 %17, ptr %15, align 8, !tbaa !49
+  store i32 %17, ptr %15, align 8, !tbaa !48
   %18 = icmp eq i32 %8, 12
   br i1 %18, label %19, label %uv__stream_open.exit.thread
 
@@ -1200,7 +1200,7 @@ define dso_local i32 @uv_accept(ptr noundef %0, ptr noundef %1) local_unnamed_ad
   br i1 %.not13.i, label %._crit_edge.i, label %uv__stream_open.exit
 
 ._crit_edge.i:                                    ; preds = %21
-  %.pre.i = load i32, ptr %15, align 8, !tbaa !49
+  %.pre.i = load i32, ptr %15, align 8, !tbaa !48
   br label %23
 
 23:                                               ; preds = %._crit_edge.i, %19
@@ -1249,9 +1249,9 @@ uv__stream_open.exit.thread38:                    ; preds = %uv__stream_open.exi
 
 .thread:                                          ; preds = %uv__stream_open.exit, %29, %uv__stream_open.exit.thread
   %34 = getelementptr inbounds nuw i8, ptr %1, i64 88
-  %35 = load i32, ptr %34, align 8, !tbaa !49
+  %35 = load i32, ptr %34, align 8, !tbaa !48
   %36 = or i32 %35, 8192
-  store i32 %36, ptr %34, align 8, !tbaa !49
+  store i32 %36, ptr %34, align 8, !tbaa !48
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 240
   %38 = load ptr, ptr %37, align 8, !tbaa !24
   %.not3543 = icmp eq ptr %38, null
@@ -1265,9 +1265,9 @@ uv__stream_open.exit.thread38:                    ; preds = %uv__stream_open.exi
   %43 = load i32, ptr %42, align 4, !tbaa !36
   store i32 %43, ptr %3, align 4, !tbaa !23
   %44 = getelementptr inbounds nuw i8, ptr %40, i64 4
-  %45 = load i32, ptr %44, align 4, !tbaa !78
+  %45 = load i32, ptr %44, align 4, !tbaa !77
   %46 = add i32 %45, -1
-  store i32 %46, ptr %44, align 4, !tbaa !78
+  store i32 %46, ptr %44, align 4, !tbaa !77
   %47 = icmp eq i32 %46, 0
   br i1 %47, label %48, label %49
 
@@ -1312,14 +1312,14 @@ declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly 
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @uv_listen(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %5 = load i32, ptr %4, align 8, !tbaa !49
+  %5 = load i32, ptr %4, align 8, !tbaa !48
   %6 = and i32 %5, 3
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %7, label %.thread
 
 7:                                                ; preds = %3
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %9 = load i32, ptr %8, align 8, !tbaa !50
+  %9 = load i32, ptr %8, align 8, !tbaa !49
   switch i32 %9, label %.thread [
     i32 12, label %10
     i32 7, label %12
@@ -1339,14 +1339,14 @@ define dso_local i32 @uv_listen(ptr noundef %0, i32 noundef %1, ptr noundef %2) 
   br i1 %15, label %16, label %.thread
 
 16:                                               ; preds = %14
-  %17 = load i32, ptr %4, align 8, !tbaa !49
+  %17 = load i32, ptr %4, align 8, !tbaa !48
   %18 = and i32 %17, 4
   %.not15 = icmp eq i32 %18, 0
   br i1 %.not15, label %19, label %.thread
 
 19:                                               ; preds = %16
   %20 = or disjoint i32 %17, 4
-  store i32 %20, ptr %4, align 8, !tbaa !49
+  store i32 %20, ptr %4, align 8, !tbaa !48
   %21 = and i32 %17, 8
   %.not16 = icmp eq i32 %21, 0
   br i1 %.not16, label %.thread, label %22
@@ -1355,9 +1355,9 @@ define dso_local i32 @uv_listen(ptr noundef %0, i32 noundef %1, ptr noundef %2) 
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %24 = load ptr, ptr %23, align 8, !tbaa !38
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 8
-  %26 = load i32, ptr %25, align 8, !tbaa !72
+  %26 = load i32, ptr %25, align 8, !tbaa !71
   %27 = add i32 %26, 1
-  store i32 %27, ptr %25, align 8, !tbaa !72
+  store i32 %27, ptr %25, align 8, !tbaa !71
   br label %.thread
 
 .thread:                                          ; preds = %7, %14, %22, %19, %16, %3
@@ -1372,14 +1372,14 @@ declare i32 @uv__pipe_listen(ptr noundef, i32 noundef, ptr noundef) local_unname
 ; Function Attrs: nounwind uwtable
 define dso_local range(i32 -107, 1) i32 @uv_shutdown(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 88
-  %5 = load i32, ptr %4, align 8, !tbaa !49
+  %5 = load i32, ptr %4, align 8, !tbaa !48
   %6 = and i32 %5, 33539
   %or.cond22 = icmp eq i32 %6, 32768
   br i1 %or.cond22, label %7, label %26
 
 7:                                                ; preds = %3
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 4, ptr %8, align 8, !tbaa !93
+  store i32 4, ptr %8, align 8, !tbaa !92
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %10 = load ptr, ptr %9, align 8, !tbaa !38
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 32
@@ -1387,15 +1387,15 @@ define dso_local range(i32 -107, 1) i32 @uv_shutdown(ptr noundef %0, ptr noundef
   %13 = add i32 %12, 1
   store i32 %13, ptr %11, align 8, !tbaa !39
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  store ptr %1, ptr %14, align 8, !tbaa !94
+  store ptr %1, ptr %14, align 8, !tbaa !93
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  store ptr %2, ptr %15, align 8, !tbaa !89
+  store ptr %2, ptr %15, align 8, !tbaa !88
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 128
-  store ptr %0, ptr %16, align 8, !tbaa !88
-  %17 = load i32, ptr %4, align 8, !tbaa !49
+  store ptr %0, ptr %16, align 8, !tbaa !87
+  %17 = load i32, ptr %4, align 8, !tbaa !48
   %18 = and i32 %17, -33025
   %19 = or disjoint i32 %18, 256
-  store i32 %19, ptr %4, align 8, !tbaa !49
+  store i32 %19, ptr %4, align 8, !tbaa !48
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 192
   %21 = load ptr, ptr %20, align 8, !tbaa !14
   %22 = icmp eq ptr %20, %21
@@ -1423,7 +1423,7 @@ define dso_local range(i32 -32, 1) i32 @uv_write2(ptr noundef %0, ptr noundef %1
 
 10:                                               ; preds = %6
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 88
-  %12 = load i32, ptr %11, align 8, !tbaa !49
+  %12 = load i32, ptr %11, align 8, !tbaa !48
   %13 = and i32 %12, 32768
   %.not.i = icmp eq i32 %13, 0
   br i1 %.not.i, label %uv__check_before_write.exit.thread, label %14
@@ -1434,13 +1434,13 @@ define dso_local range(i32 -32, 1) i32 @uv_write2(ptr noundef %0, ptr noundef %1
 
 15:                                               ; preds = %14
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %17 = load i32, ptr %16, align 8, !tbaa !50
+  %17 = load i32, ptr %16, align 8, !tbaa !49
   %.not8.i = icmp eq i32 %17, 7
   br i1 %.not8.i, label %18, label %uv__check_before_write.exit.thread
 
 18:                                               ; preds = %15
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 248
-  %20 = load i32, ptr %19, align 8, !tbaa !51
+  %20 = load i32, ptr %19, align 8, !tbaa !50
   %.not9.i = icmp eq i32 %20, 0
   br i1 %.not9.i, label %uv__check_before_write.exit.thread, label %21
 
@@ -1468,7 +1468,7 @@ uv__check_before_write.exit:                      ; preds = %uv__handle_fd.exit.
   %29 = load i64, ptr %28, align 8, !tbaa !26
   %30 = icmp eq i64 %29, 0
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 3, ptr %31, align 8, !tbaa !95
+  store i32 3, ptr %31, align 8, !tbaa !94
   %32 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %33 = load ptr, ptr %32, align 8, !tbaa !38
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 32
@@ -1476,20 +1476,20 @@ uv__check_before_write.exit:                      ; preds = %uv__handle_fd.exit.
   %36 = add i32 %35, 1
   store i32 %36, ptr %34, align 8, !tbaa !39
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  store ptr %5, ptr %37, align 8, !tbaa !86
+  store ptr %5, ptr %37, align 8, !tbaa !85
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  store ptr %1, ptr %38, align 8, !tbaa !96
+  store ptr %1, ptr %38, align 8, !tbaa !95
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 124
   store i32 0, ptr %39, align 4, !tbaa !43
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  store ptr %4, ptr %40, align 8, !tbaa !97
+  store ptr %4, ptr %40, align 8, !tbaa !96
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 88
   store ptr %41, ptr %41, align 8, !tbaa !14
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store ptr %41, ptr %42, align 8, !tbaa !14
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  store ptr %43, ptr %44, align 8, !tbaa !83
+  store ptr %43, ptr %44, align 8, !tbaa !82
   %45 = zext i32 %3 to i64
   %46 = icmp ugt i32 %3, 4
   %47 = shl nuw nsw i64 %45, 4
@@ -1497,7 +1497,7 @@ uv__check_before_write.exit:                      ; preds = %uv__handle_fd.exit.
 
 48:                                               ; preds = %uv__check_before_write.exit
   %49 = tail call ptr @uv__malloc(i64 noundef %47) #12
-  store ptr %49, ptr %44, align 8, !tbaa !83
+  store ptr %49, ptr %44, align 8, !tbaa !82
   %50 = icmp eq ptr %49, null
   br i1 %50, label %uv__check_before_write.exit.thread, label %.thread
 
@@ -1505,9 +1505,9 @@ uv__check_before_write.exit:                      ; preds = %uv__handle_fd.exit.
   %51 = phi ptr [ %49, %48 ], [ %43, %uv__check_before_write.exit ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %51, ptr align 8 %2, i64 %47, i1 false)
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  store i32 %3, ptr %52, align 8, !tbaa !85
+  store i32 %3, ptr %52, align 8, !tbaa !84
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  store i32 0, ptr %53, align 8, !tbaa !84
+  store i32 0, ptr %53, align 8, !tbaa !83
   %54 = tail call i64 @uv__count_bufs(ptr noundef %2, i32 noundef %3) #12
   %55 = load i64, ptr %28, align 8, !tbaa !26
   %56 = add i64 %55, %54
@@ -1560,28 +1560,28 @@ define internal fastcc void @uv__write(ptr noundef %0) unnamed_addr #0 {
 
 8:                                                ; preds = %5
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  %10 = load ptr, ptr %9, align 8, !tbaa !83
+  %10 = load ptr, ptr %9, align 8, !tbaa !82
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %12 = load i32, ptr %11, align 8, !tbaa !84
+  %12 = load i32, ptr %11, align 8, !tbaa !83
   %13 = zext i32 %12 to i64
   %14 = getelementptr inbounds nuw %struct.uv_buf_t, ptr %10, i64 %13
   %15 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  %16 = load i32, ptr %15, align 8, !tbaa !85
+  %16 = load i32, ptr %15, align 8, !tbaa !84
   %17 = sub i32 %16, %12
   %18 = getelementptr inbounds i8, ptr %6, i64 -16
-  %19 = load ptr, ptr %18, align 8, !tbaa !97
+  %19 = load ptr, ptr %18, align 8, !tbaa !96
   %20 = tail call fastcc i32 @uv__try_write(ptr noundef nonnull %0, ptr noundef %14, i32 noundef %17, ptr noundef %19)
   %21 = icmp sgt i32 %20, -1
   br i1 %21, label %22, label %68
 
 22:                                               ; preds = %8
   %23 = zext nneg i32 %20 to i64
-  store ptr null, ptr %18, align 8, !tbaa !97
+  store ptr null, ptr %18, align 8, !tbaa !96
   %24 = load i64, ptr %3, align 8, !tbaa !26
   %25 = sub i64 %24, %23
   store i64 %25, ptr %3, align 8, !tbaa !26
-  %26 = load ptr, ptr %9, align 8, !tbaa !83
-  %27 = load i32, ptr %11, align 8, !tbaa !84
+  %26 = load ptr, ptr %9, align 8, !tbaa !82
+  %27 = load i32, ptr %11, align 8, !tbaa !83
   %28 = zext i32 %27 to i64
   %29 = getelementptr inbounds nuw %struct.uv_buf_t, ptr %26, i64 %28
   br label %30
@@ -1590,19 +1590,19 @@ define internal fastcc void @uv__write(ptr noundef %0) unnamed_addr #0 {
   %.021.i = phi ptr [ %29, %22 ], [ %38, %30 ]
   %.0.i = phi i64 [ %23, %22 ], [ %39, %30 ]
   %31 = getelementptr inbounds nuw i8, ptr %.021.i, i64 8
-  %32 = load i64, ptr %31, align 8, !tbaa !60
+  %32 = load i64, ptr %31, align 8, !tbaa !59
   %.0..i = tail call i64 @llvm.umin.i64(i64 %.0.i, i64 %32)
-  %33 = load ptr, ptr %.021.i, align 8, !tbaa !58
+  %33 = load ptr, ptr %.021.i, align 8, !tbaa !57
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 %.0..i
-  store ptr %34, ptr %.021.i, align 8, !tbaa !58
+  store ptr %34, ptr %.021.i, align 8, !tbaa !57
   %35 = sub i64 %32, %.0..i
-  store i64 %35, ptr %31, align 8, !tbaa !60
+  store i64 %35, ptr %31, align 8, !tbaa !59
   %36 = icmp ule i64 %32, %.0.i
   %37 = zext i1 %36 to i64
   %38 = getelementptr inbounds nuw %struct.uv_buf_t, ptr %.021.i, i64 %37
   %39 = sub i64 %.0.i, %.0..i
   %.not.i = icmp eq i64 %39, 0
-  br i1 %.not.i, label %uv__write_req_update.exit, label %30, !llvm.loop !98
+  br i1 %.not.i, label %uv__write_req_update.exit, label %30, !llvm.loop !97
 
 uv__write_req_update.exit:                        ; preds = %30
   %40 = ptrtoint ptr %38 to i64
@@ -1610,14 +1610,14 @@ uv__write_req_update.exit:                        ; preds = %30
   %42 = sub i64 %40, %41
   %43 = lshr exact i64 %42, 4
   %44 = trunc i64 %43 to i32
-  store i32 %44, ptr %11, align 8, !tbaa !84
-  %45 = load i32, ptr %15, align 8, !tbaa !85
+  store i32 %44, ptr %11, align 8, !tbaa !83
+  %45 = load i32, ptr %15, align 8, !tbaa !84
   %.not32 = icmp eq i32 %45, %44
   br i1 %.not32, label %46, label %69
 
 46:                                               ; preds = %uv__write_req_update.exit
   %47 = getelementptr inbounds i8, ptr %6, i64 -8
-  %48 = load ptr, ptr %47, align 8, !tbaa !96
+  %48 = load ptr, ptr %47, align 8, !tbaa !95
   %49 = load ptr, ptr %6, align 8, !tbaa !14
   %50 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %51 = load ptr, ptr %50, align 8, !tbaa !14
@@ -1631,7 +1631,7 @@ uv__write_req_update.exit:                        ; preds = %30
   br i1 %56, label %57, label %uv__write_req_finish.exit
 
 57:                                               ; preds = %46
-  %58 = load ptr, ptr %9, align 8, !tbaa !83
+  %58 = load ptr, ptr %9, align 8, !tbaa !82
   %59 = getelementptr inbounds nuw i8, ptr %6, i64 40
   %.not.i29 = icmp eq ptr %58, %59
   br i1 %.not.i29, label %61, label %60
@@ -1641,7 +1641,7 @@ uv__write_req_update.exit:                        ; preds = %30
   br label %61
 
 61:                                               ; preds = %60, %57
-  store ptr null, ptr %9, align 8, !tbaa !83
+  store ptr null, ptr %9, align 8, !tbaa !82
   br label %uv__write_req_finish.exit
 
 uv__write_req_finish.exit:                        ; preds = %46, %61
@@ -1663,10 +1663,10 @@ uv__write_req_finish.exit:                        ; preds = %46, %61
   br i1 %.not, label %69, label %uv__write_req_finish.exit31
 
 69:                                               ; preds = %68, %uv__write_req_update.exit
-  %70 = load i32, ptr %4, align 8, !tbaa !49
+  %70 = load i32, ptr %4, align 8, !tbaa !48
   %71 = and i32 %70, 1048576
   %.not28 = icmp eq i32 %71, 0
-  br i1 %.not28, label %72, label %5, !llvm.loop !99
+  br i1 %.not28, label %72, label %5
 
 72:                                               ; preds = %69
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1679,7 +1679,7 @@ uv__write_req_finish.exit31:                      ; preds = %68
   %76 = getelementptr inbounds nuw i8, ptr %6, i64 36
   store i32 %20, ptr %76, align 4, !tbaa !43
   %77 = getelementptr inbounds i8, ptr %6, i64 -8
-  %78 = load ptr, ptr %77, align 8, !tbaa !96
+  %78 = load ptr, ptr %77, align 8, !tbaa !95
   %79 = load ptr, ptr %6, align 8, !tbaa !14
   %80 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %81 = load ptr, ptr %80, align 8, !tbaa !14
@@ -1735,7 +1735,7 @@ define dso_local i32 @uv_try_write(ptr noundef readonly captures(none) %0, ptr n
 
 13:                                               ; preds = %9
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %15 = load i32, ptr %14, align 8, !tbaa !49
+  %15 = load i32, ptr %14, align 8, !tbaa !48
   %16 = and i32 %15, 32768
   %.not.i.i = icmp eq i32 %16, 0
   br i1 %.not.i.i, label %uv_try_write2.exit, label %uv__check_before_write.exit.i
@@ -1770,7 +1770,7 @@ define dso_local i32 @uv_try_write2(ptr noundef readonly captures(none) %0, ptr 
 
 14:                                               ; preds = %10
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %16 = load i32, ptr %15, align 8, !tbaa !49
+  %16 = load i32, ptr %15, align 8, !tbaa !48
   %17 = and i32 %16, 32768
   %.not.i = icmp eq i32 %17, 0
   br i1 %.not.i, label %uv__check_before_write.exit.thread, label %uv__check_before_write.exit
@@ -1801,8 +1801,8 @@ define internal fastcc i32 @uv__try_write(ptr noundef readonly captures(none) %0
 
 uv__writev.exit.us:                               ; preds = %.preheader, %16
   %11 = load i32, ptr %8, align 8, !tbaa !37
-  %12 = load ptr, ptr %1, align 8, !tbaa !100
-  %13 = load i64, ptr %10, align 8, !tbaa !102
+  %12 = load ptr, ptr %1, align 8, !tbaa !98
+  %13 = load i64, ptr %10, align 8, !tbaa !100
   %14 = tail call i64 @write(i32 noundef %11, ptr noundef %12, i64 noundef %13) #12
   %15 = icmp eq i64 %14, -1
   br i1 %15, label %16, label %.critedge2
@@ -1811,13 +1811,13 @@ uv__writev.exit.us:                               ; preds = %.preheader, %16
   %17 = tail call ptr @__errno_location() #13
   %18 = load i32, ptr %17, align 4, !tbaa !36
   %19 = icmp eq i32 %18, 4
-  br i1 %19, label %uv__writev.exit.us, label %.critedge2.thread, !llvm.loop !103
+  br i1 %19, label %uv__writev.exit.us, label %.critedge2.thread, !llvm.loop !101
 
 20:                                               ; preds = %4
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %5) #12
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %6) #12
   %21 = getelementptr inbounds nuw i8, ptr %3, i64 88
-  %22 = load i32, ptr %21, align 8, !tbaa !49
+  %22 = load i32, ptr %21, align 8, !tbaa !48
   %23 = and i32 %22, 3
   %.not37 = icmp eq i32 %23, 0
   br i1 %.not37, label %24, label %.critedge38
@@ -1844,25 +1844,25 @@ uv__handle_fd.exit:                               ; preds = %24, %.sink.split.i
   %.0.i = phi i32 [ -1, %24 ], [ %29, %.sink.split.i ]
   %30 = getelementptr inbounds nuw i8, ptr %6, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %30, i8 0, i64 48, i1 false)
-  store ptr null, ptr %5, align 8, !tbaa !67
+  store ptr null, ptr %5, align 8, !tbaa !66
   %31 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store i32 0, ptr %31, align 8, !tbaa !68
+  store i32 0, ptr %31, align 8, !tbaa !67
   %32 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store ptr %1, ptr %32, align 8, !tbaa !65
+  store ptr %1, ptr %32, align 8, !tbaa !64
   %33 = sext i32 %spec.select to i64
   %34 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  store i64 %33, ptr %34, align 8, !tbaa !66
+  store i64 %33, ptr %34, align 8, !tbaa !65
   %35 = getelementptr inbounds nuw i8, ptr %5, i64 48
-  store i32 0, ptr %35, align 8, !tbaa !62
+  store i32 0, ptr %35, align 8, !tbaa !61
   %36 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  store ptr %6, ptr %36, align 8, !tbaa !70
+  store ptr %6, ptr %36, align 8, !tbaa !69
   %37 = getelementptr inbounds nuw i8, ptr %5, i64 40
-  store i64 24, ptr %37, align 8, !tbaa !69
+  store i64 24, ptr %37, align 8, !tbaa !68
   %38 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i32 1, ptr %38, align 8, !tbaa !36
   %39 = getelementptr inbounds nuw i8, ptr %6, i64 12
   store i32 1, ptr %39, align 4, !tbaa !36
-  store i64 20, ptr %6, align 8, !tbaa !56
+  store i64 20, ptr %6, align 8, !tbaa !55
   %40 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i32 %.0.i, ptr %40, align 8, !tbaa !36
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 184
@@ -1878,7 +1878,7 @@ uv__handle_fd.exit:                               ; preds = %24, %.sink.split.i
   %47 = tail call ptr @__errno_location() #13
   %48 = load i32, ptr %47, align 4, !tbaa !36
   %49 = icmp eq i32 %48, 4
-  br i1 %49, label %42, label %.critedge, !llvm.loop !105
+  br i1 %49, label %42, label %.critedge, !llvm.loop !103
 
 .critedge:                                        ; preds = %46, %42
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6) #12
@@ -1895,7 +1895,7 @@ uv__writev.exit:                                  ; preds = %.preheader, %53
   %54 = tail call ptr @__errno_location() #13
   %55 = load i32, ptr %54, align 4, !tbaa !36
   %56 = icmp eq i32 %55, 4
-  br i1 %56, label %uv__writev.exit, label %.critedge2.thread, !llvm.loop !106
+  br i1 %56, label %uv__writev.exit, label %.critedge2.thread, !llvm.loop !104
 
 .critedge2:                                       ; preds = %uv__writev.exit, %uv__writev.exit.us, %.critedge
   %.131 = phi i64 [ %44, %.critedge ], [ %14, %uv__writev.exit.us ], [ %51, %uv__writev.exit ]
@@ -1935,26 +1935,26 @@ uv__writev.exit:                                  ; preds = %.preheader, %53
 ; Function Attrs: nounwind uwtable
 define dso_local noundef i32 @uv__read_start(ptr noundef initializes((104, 120)) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %5 = load i32, ptr %4, align 8, !tbaa !49
+  %5 = load i32, ptr %4, align 8, !tbaa !48
   %6 = and i32 %5, -6145
   %7 = or disjoint i32 %6, 4096
-  store i32 %7, ptr %4, align 8, !tbaa !49
+  store i32 %7, ptr %4, align 8, !tbaa !48
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  store ptr %2, ptr %8, align 8, !tbaa !54
+  store ptr %2, ptr %8, align 8, !tbaa !53
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  store ptr %1, ptr %9, align 8, !tbaa !57
+  store ptr %1, ptr %9, align 8, !tbaa !56
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load ptr, ptr %10, align 8, !tbaa !38
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 136
   tail call void @uv__io_start(ptr noundef %11, ptr noundef nonnull %12, i32 noundef 1) #12
-  %13 = load i32, ptr %4, align 8, !tbaa !49
+  %13 = load i32, ptr %4, align 8, !tbaa !48
   %14 = and i32 %13, 4
   %.not = icmp eq i32 %14, 0
   br i1 %.not, label %15, label %23
 
 15:                                               ; preds = %3
   %16 = or disjoint i32 %13, 4
-  store i32 %16, ptr %4, align 8, !tbaa !49
+  store i32 %16, ptr %4, align 8, !tbaa !48
   %17 = and i32 %13, 8
   %.not13 = icmp eq i32 %17, 0
   br i1 %.not13, label %23, label %18
@@ -1962,9 +1962,9 @@ define dso_local noundef i32 @uv__read_start(ptr noundef initializes((104, 120))
 18:                                               ; preds = %15
   %19 = load ptr, ptr %10, align 8, !tbaa !38
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  %21 = load i32, ptr %20, align 8, !tbaa !72
+  %21 = load i32, ptr %20, align 8, !tbaa !71
   %22 = add i32 %21, 1
-  store i32 %22, ptr %20, align 8, !tbaa !72
+  store i32 %22, ptr %20, align 8, !tbaa !71
   br label %23
 
 23:                                               ; preds = %15, %18, %3
@@ -1974,26 +1974,26 @@ define dso_local noundef i32 @uv__read_start(ptr noundef initializes((104, 120))
 ; Function Attrs: nounwind uwtable
 define dso_local noundef i32 @uv_read_stop(ptr noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %3 = load i32, ptr %2, align 8, !tbaa !49
+  %3 = load i32, ptr %2, align 8, !tbaa !48
   %4 = and i32 %3, 4096
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %23, label %5
 
 5:                                                ; preds = %1
   %6 = and i32 %3, -4097
-  store i32 %6, ptr %2, align 8, !tbaa !49
+  store i32 %6, ptr %2, align 8, !tbaa !48
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8, !tbaa !38
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 136
   tail call void @uv__io_stop(ptr noundef %8, ptr noundef nonnull %9, i32 noundef 1) #12
-  %10 = load i32, ptr %2, align 8, !tbaa !49
+  %10 = load i32, ptr %2, align 8, !tbaa !48
   %11 = and i32 %10, 4
   %12 = icmp eq i32 %11, 0
   br i1 %12, label %21, label %13
 
 13:                                               ; preds = %5
   %14 = and i32 %10, -5
-  store i32 %14, ptr %2, align 8, !tbaa !49
+  store i32 %14, ptr %2, align 8, !tbaa !48
   %15 = and i32 %10, 8
   %.not11 = icmp eq i32 %15, 0
   br i1 %.not11, label %21, label %16
@@ -2001,9 +2001,9 @@ define dso_local noundef i32 @uv_read_stop(ptr noundef %0) local_unnamed_addr #0
 16:                                               ; preds = %13
   %17 = load ptr, ptr %7, align 8, !tbaa !38
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
-  %19 = load i32, ptr %18, align 8, !tbaa !72
+  %19 = load i32, ptr %18, align 8, !tbaa !71
   %20 = add i32 %19, -1
-  store i32 %20, ptr %18, align 8, !tbaa !72
+  store i32 %20, ptr %18, align 8, !tbaa !71
   br label %21
 
 21:                                               ; preds = %13, %16, %5
@@ -2018,7 +2018,7 @@ define dso_local noundef i32 @uv_read_stop(ptr noundef %0) local_unnamed_addr #0
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local range(i32 0, 2) i32 @uv_is_readable(ptr noundef readonly captures(none) %0) local_unnamed_addr #6 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %3 = load i32, ptr %2, align 8, !tbaa !49
+  %3 = load i32, ptr %2, align 8, !tbaa !48
   %4 = lshr i32 %3, 14
   %.lobit = and i32 %4, 1
   ret i32 %.lobit
@@ -2027,7 +2027,7 @@ define dso_local range(i32 0, 2) i32 @uv_is_readable(ptr noundef readonly captur
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local range(i32 0, 2) i32 @uv_is_writable(ptr noundef readonly captures(none) %0) local_unnamed_addr #6 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %3 = load i32, ptr %2, align 8, !tbaa !49
+  %3 = load i32, ptr %2, align 8, !tbaa !48
   %4 = lshr i32 %3, 15
   %.lobit = and i32 %4, 1
   ret i32 %.lobit
@@ -2040,17 +2040,17 @@ define dso_local void @uv__stream_close(ptr noundef %0) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 136
   tail call void @uv__io_close(ptr noundef %3, ptr noundef nonnull %4) #12
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %6 = load i32, ptr %5, align 8, !tbaa !49
+  %6 = load i32, ptr %5, align 8, !tbaa !48
   %7 = and i32 %6, 4096
   %.not.i = icmp eq i32 %7, 0
   br i1 %.not.i, label %uv_read_stop.exit, label %8
 
 8:                                                ; preds = %1
   %9 = and i32 %6, -4097
-  store i32 %9, ptr %5, align 8, !tbaa !49
+  store i32 %9, ptr %5, align 8, !tbaa !48
   %10 = load ptr, ptr %2, align 8, !tbaa !38
   tail call void @uv__io_stop(ptr noundef %10, ptr noundef nonnull %4, i32 noundef 1) #12
-  %11 = load i32, ptr %5, align 8, !tbaa !49
+  %11 = load i32, ptr %5, align 8, !tbaa !48
   %12 = and i32 %11, 4
   %13 = icmp eq i32 %12, 0
   br i1 %13, label %22, label %14
@@ -2064,9 +2064,9 @@ define dso_local void @uv__stream_close(ptr noundef %0) local_unnamed_addr #0 {
 17:                                               ; preds = %14
   %18 = load ptr, ptr %2, align 8, !tbaa !38
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 8
-  %20 = load i32, ptr %19, align 8, !tbaa !72
+  %20 = load i32, ptr %19, align 8, !tbaa !71
   %21 = add i32 %20, -1
-  store i32 %21, ptr %19, align 8, !tbaa !72
+  store i32 %21, ptr %19, align 8, !tbaa !71
   br label %22
 
 22:                                               ; preds = %17, %14, %8
@@ -2090,15 +2090,15 @@ uv_read_stop.exit:                                ; preds = %1, %22
 31:                                               ; preds = %28
   %32 = load ptr, ptr %2, align 8, !tbaa !38
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 8
-  %34 = load i32, ptr %33, align 8, !tbaa !72
+  %34 = load i32, ptr %33, align 8, !tbaa !71
   %35 = add i32 %34, -1
-  store i32 %35, ptr %33, align 8, !tbaa !72
+  store i32 %35, ptr %33, align 8, !tbaa !71
   br label %36
 
 36:                                               ; preds = %31, %28, %uv_read_stop.exit
   %37 = phi i32 [ %29, %31 ], [ %29, %28 ], [ %25, %uv_read_stop.exit ]
   %38 = and i32 %37, -49153
-  store i32 %38, ptr %5, align 8, !tbaa !49
+  store i32 %38, ptr %5, align 8, !tbaa !48
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %40 = load i32, ptr %39, align 8, !tbaa !37
   %.not26 = icmp eq i32 %40, -1
@@ -2135,7 +2135,7 @@ uv_read_stop.exit:                                ; preds = %1, %22
 
 .preheader:                                       ; preds = %51
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 4
-  %55 = load i32, ptr %54, align 4, !tbaa !78
+  %55 = load i32, ptr %54, align 4, !tbaa !77
   %.not30 = icmp eq i32 %55, 0
   br i1 %.not30, label %._crit_edge, label %.lr.ph
 
@@ -2149,10 +2149,10 @@ uv_read_stop.exit:                                ; preds = %1, %22
   %59 = load i32, ptr %58, align 4, !tbaa !36
   %60 = tail call i32 @uv__close(i32 noundef %59) #12
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %61 = load i32, ptr %54, align 4, !tbaa !78
+  %61 = load i32, ptr %54, align 4, !tbaa !77
   %62 = zext i32 %61 to i64
   %63 = icmp samesign ult i64 %indvars.iv.next, %62
-  br i1 %63, label %57, label %._crit_edge.loopexit, !llvm.loop !107
+  br i1 %63, label %57, label %._crit_edge.loopexit, !llvm.loop !105
 
 ._crit_edge.loopexit:                             ; preds = %57
   %.pre = load ptr, ptr %52, align 8, !tbaa !24
@@ -2282,65 +2282,63 @@ attributes #14 = { cold nounwind }
 !43 = !{!44, !10, i64 124}
 !44 = !{!"uv_write_s", !6, i64 0, !10, i64 8, !7, i64 16, !6, i64 64, !42, i64 72, !42, i64 80, !7, i64 88, !10, i64 104, !45, i64 112, !10, i64 120, !10, i64 124, !7, i64 128}
 !45 = !{!"p1 _ZTS8uv_buf_t", !6, i64 0}
-!46 = distinct !{!46, !47, !48}
+!46 = distinct !{!46, !47}
 !47 = !{!"llvm.loop.mustprogress"}
-!48 = !{!"llvm.loop.estimated_trip_count"}
-!49 = !{!17, !10, i64 88}
-!50 = !{!17, !10, i64 16}
-!51 = !{!52, !10, i64 248}
-!52 = !{!"uv_pipe_s", !6, i64 0, !9, i64 8, !10, i64 16, !6, i64 24, !7, i64 32, !7, i64 48, !11, i64 80, !10, i64 88, !18, i64 96, !6, i64 104, !6, i64 112, !19, i64 120, !20, i64 128, !21, i64 136, !7, i64 192, !7, i64 208, !6, i64 224, !10, i64 232, !10, i64 236, !6, i64 240, !10, i64 248, !53, i64 256}
-!53 = !{!"p1 omnipotent char", !6, i64 0}
-!54 = !{!17, !6, i64 112}
-!55 = !{!53, !53, i64 0}
-!56 = !{!18, !18, i64 0}
-!57 = !{!17, !6, i64 104}
-!58 = !{!59, !53, i64 0}
-!59 = !{!"uv_buf_t", !53, i64 0, !18, i64 8}
-!60 = !{!59, !18, i64 8}
-!61 = distinct !{!61, !47, !48}
-!62 = !{!63, !10, i64 48}
-!63 = !{!"msghdr", !6, i64 0, !10, i64 8, !64, i64 16, !18, i64 24, !6, i64 32, !18, i64 40, !10, i64 48}
-!64 = !{!"p1 _ZTS5iovec", !6, i64 0}
-!65 = !{!63, !64, i64 16}
-!66 = !{!63, !18, i64 24}
-!67 = !{!63, !6, i64 0}
-!68 = !{!63, !10, i64 8}
-!69 = !{!63, !18, i64 40}
-!70 = !{!63, !6, i64 32}
-!71 = distinct !{!71, !47, !48}
-!72 = !{!28, !10, i64 8}
-!73 = !{!74, !74, i64 0}
-!74 = !{!"p1 _ZTS8_IO_FILE", !6, i64 0}
-!75 = distinct !{!75, !47, !48}
-!76 = !{!77, !10, i64 0}
-!77 = !{!"uv__stream_queued_fds_s", !10, i64 0, !10, i64 4, !7, i64 8}
-!78 = !{!77, !10, i64 4}
-!79 = distinct !{!79, !47, !48}
-!80 = distinct !{!80, !47, !48}
-!81 = distinct !{!81, !47, !48}
-!82 = distinct !{!82, !47, !48}
-!83 = !{!44, !45, i64 112}
-!84 = !{!44, !10, i64 104}
-!85 = !{!44, !10, i64 120}
-!86 = !{!44, !6, i64 64}
-!87 = distinct !{!87, !47, !48}
-!88 = !{!17, !20, i64 128}
-!89 = !{!90, !6, i64 72}
-!90 = !{!"uv_shutdown_s", !6, i64 0, !10, i64 8, !7, i64 16, !42, i64 64, !6, i64 72}
-!91 = distinct !{!91, !47, !48}
-!92 = distinct !{!92, !48}
-!93 = !{!90, !10, i64 8}
-!94 = !{!90, !42, i64 64}
-!95 = !{!44, !10, i64 8}
-!96 = !{!44, !42, i64 80}
-!97 = !{!44, !42, i64 72}
-!98 = distinct !{!98, !47, !48}
-!99 = distinct !{!99, !48}
-!100 = !{!101, !6, i64 0}
-!101 = !{!"iovec", !6, i64 0, !18, i64 8}
-!102 = !{!101, !18, i64 8}
-!103 = distinct !{!103, !47, !48, !104}
-!104 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!105 = distinct !{!105, !47, !48}
-!106 = distinct !{!106, !47, !48}
-!107 = distinct !{!107, !47, !48}
+!48 = !{!17, !10, i64 88}
+!49 = !{!17, !10, i64 16}
+!50 = !{!51, !10, i64 248}
+!51 = !{!"uv_pipe_s", !6, i64 0, !9, i64 8, !10, i64 16, !6, i64 24, !7, i64 32, !7, i64 48, !11, i64 80, !10, i64 88, !18, i64 96, !6, i64 104, !6, i64 112, !19, i64 120, !20, i64 128, !21, i64 136, !7, i64 192, !7, i64 208, !6, i64 224, !10, i64 232, !10, i64 236, !6, i64 240, !10, i64 248, !52, i64 256}
+!52 = !{!"p1 omnipotent char", !6, i64 0}
+!53 = !{!17, !6, i64 112}
+!54 = !{!52, !52, i64 0}
+!55 = !{!18, !18, i64 0}
+!56 = !{!17, !6, i64 104}
+!57 = !{!58, !52, i64 0}
+!58 = !{!"uv_buf_t", !52, i64 0, !18, i64 8}
+!59 = !{!58, !18, i64 8}
+!60 = distinct !{!60, !47}
+!61 = !{!62, !10, i64 48}
+!62 = !{!"msghdr", !6, i64 0, !10, i64 8, !63, i64 16, !18, i64 24, !6, i64 32, !18, i64 40, !10, i64 48}
+!63 = !{!"p1 _ZTS5iovec", !6, i64 0}
+!64 = !{!62, !63, i64 16}
+!65 = !{!62, !18, i64 24}
+!66 = !{!62, !6, i64 0}
+!67 = !{!62, !10, i64 8}
+!68 = !{!62, !18, i64 40}
+!69 = !{!62, !6, i64 32}
+!70 = distinct !{!70, !47}
+!71 = !{!28, !10, i64 8}
+!72 = !{!73, !73, i64 0}
+!73 = !{!"p1 _ZTS8_IO_FILE", !6, i64 0}
+!74 = distinct !{!74, !47}
+!75 = !{!76, !10, i64 0}
+!76 = !{!"uv__stream_queued_fds_s", !10, i64 0, !10, i64 4, !7, i64 8}
+!77 = !{!76, !10, i64 4}
+!78 = distinct !{!78, !47}
+!79 = distinct !{!79, !47}
+!80 = distinct !{!80, !47}
+!81 = distinct !{!81, !47}
+!82 = !{!44, !45, i64 112}
+!83 = !{!44, !10, i64 104}
+!84 = !{!44, !10, i64 120}
+!85 = !{!44, !6, i64 64}
+!86 = distinct !{!86, !47}
+!87 = !{!17, !20, i64 128}
+!88 = !{!89, !6, i64 72}
+!89 = !{!"uv_shutdown_s", !6, i64 0, !10, i64 8, !7, i64 16, !42, i64 64, !6, i64 72}
+!90 = distinct !{!90, !47}
+!91 = distinct !{!91, !47}
+!92 = !{!89, !10, i64 8}
+!93 = !{!89, !42, i64 64}
+!94 = !{!44, !10, i64 8}
+!95 = !{!44, !42, i64 80}
+!96 = !{!44, !42, i64 72}
+!97 = distinct !{!97, !47}
+!98 = !{!99, !6, i64 0}
+!99 = !{!"iovec", !6, i64 0, !18, i64 8}
+!100 = !{!99, !18, i64 8}
+!101 = distinct !{!101, !47, !102}
+!102 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!103 = distinct !{!103, !47}
+!104 = distinct !{!104, !47}
+!105 = distinct !{!105, !47}

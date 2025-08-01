@@ -129,7 +129,7 @@ define noundef ptr @Msat_MmFixedEntryFetch(ptr noundef captures(none) %0) local_
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8, !tbaa !17
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %5 = load i32, ptr %4, align 4, !tbaa !23
+  %5 = load i32, ptr %4, align 4, !tbaa !22
   %6 = icmp eq i32 %3, %5
   br i1 %6, label %7, label %49
 
@@ -172,7 +172,7 @@ define noundef ptr @Msat_MmFixedEntryFetch(ptr noundef captures(none) %0) local_
   %30 = sext i32 %29 to i64
   %31 = tail call noalias ptr @malloc(i64 noundef %30) #13
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %31, ptr %32, align 8, !tbaa !24
+  store ptr %31, ptr %32, align 8, !tbaa !23
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %34 = load i32, ptr %33, align 4, !tbaa !15
   %35 = add nsw i32 %34, %29
@@ -191,7 +191,7 @@ define noundef ptr @Msat_MmFixedEntryFetch(ptr noundef captures(none) %0) local_
   store ptr %39, ptr %.03944, align 8, !tbaa !19
   %40 = add nuw nsw i32 %.045, 1
   %exitcond.not = icmp eq i32 %40, %28
-  br i1 %exitcond.not, label %._crit_edge, label %38, !llvm.loop !25
+  br i1 %exitcond.not, label %._crit_edge, label %38, !llvm.loop !24
 
 ._crit_edge:                                      ; preds = %38, %25
   %.039.lcssa = phi ptr [ %31, %25 ], [ %39, %38 ]
@@ -204,9 +204,9 @@ define noundef ptr @Msat_MmFixedEntryFetch(ptr noundef captures(none) %0) local_
   %45 = sext i32 %43 to i64
   %46 = getelementptr inbounds ptr, ptr %42, i64 %45
   store ptr %31, ptr %46, align 8, !tbaa !19
-  %47 = load i32, ptr %4, align 4, !tbaa !23
+  %47 = load i32, ptr %4, align 4, !tbaa !22
   %48 = add nsw i32 %47, %28
-  store i32 %48, ptr %4, align 4, !tbaa !23
+  store i32 %48, ptr %4, align 4, !tbaa !22
   %.pre = load i32, ptr %2, align 8, !tbaa !17
   br label %49
 
@@ -225,9 +225,9 @@ define noundef ptr @Msat_MmFixedEntryFetch(ptr noundef captures(none) %0) local_
 
 55:                                               ; preds = %54, %49
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %57 = load ptr, ptr %56, align 8, !tbaa !24
+  %57 = load ptr, ptr %56, align 8, !tbaa !23
   %58 = load ptr, ptr %57, align 8, !tbaa !19
-  store ptr %58, ptr %56, align 8, !tbaa !24
+  store ptr %58, ptr %56, align 8, !tbaa !23
   ret ptr %57
 }
 
@@ -241,9 +241,9 @@ define void @Msat_MmFixedEntryRecycle(ptr noundef captures(none) %0, ptr noundef
   %5 = add nsw i32 %4, -1
   store i32 %5, ptr %3, align 8, !tbaa !17
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %7 = load ptr, ptr %6, align 8, !tbaa !24
+  %7 = load ptr, ptr %6, align 8, !tbaa !23
   store ptr %7, ptr %1, align 8, !tbaa !19
-  store ptr %1, ptr %6, align 8, !tbaa !24
+  store ptr %1, ptr %6, align 8, !tbaa !23
   ret void
 }
 
@@ -279,7 +279,7 @@ define void @Msat_MmFixedRestart(ptr noundef captures(none) %0) local_unnamed_ad
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %16 = sext i32 %14 to i64
   %17 = icmp slt i64 %indvars.iv.next, %16
-  br i1 %17, label %.lr.ph, label %._crit_edge, !llvm.loop !26
+  br i1 %17, label %.lr.ph, label %._crit_edge, !llvm.loop !25
 
 ._crit_edge:                                      ; preds = %13, %1
   %18 = phi ptr [ %.pre, %1 ], [ %15, %13 ]
@@ -302,21 +302,21 @@ define void @Msat_MmFixedRestart(ptr noundef captures(none) %0) local_unnamed_ad
   store ptr %25, ptr %.033, align 8, !tbaa !19
   %26 = add nuw nsw i32 %.132, 1
   %exitcond.not = icmp eq i32 %26, %21
-  br i1 %exitcond.not, label %._crit_edge36, label %24, !llvm.loop !27
+  br i1 %exitcond.not, label %._crit_edge36, label %24, !llvm.loop !26
 
 ._crit_edge36:                                    ; preds = %24, %._crit_edge
   %.0.lcssa = phi ptr [ %19, %._crit_edge ], [ %25, %24 ]
   store ptr null, ptr %.0.lcssa, align 8, !tbaa !19
   %27 = load ptr, ptr %18, align 8, !tbaa !19
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %27, ptr %28, align 8, !tbaa !24
+  store ptr %27, ptr %28, align 8, !tbaa !23
   %29 = mul nsw i32 %.pre41, %21
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 52
   store i32 %29, ptr %30, align 4, !tbaa !15
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i32 0, ptr %31, align 8, !tbaa !14
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 %21, ptr %32, align 4, !tbaa !23
+  store i32 %21, ptr %32, align 4, !tbaa !22
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 0, ptr %33, align 8, !tbaa !17
   ret void
@@ -333,12 +333,12 @@ define i32 @Msat_MmFixedReadMemUsage(ptr noundef readonly captures(none) %0) loc
 define noalias noundef ptr @Msat_MmFlexStart() local_unnamed_addr #0 {
   %calloc = tail call dereferenceable_or_null(56) ptr @calloc(i64 1, i64 56)
   %1 = getelementptr inbounds nuw i8, ptr %calloc, i64 24
-  store i32 4096, ptr %1, align 8, !tbaa !28
+  store i32 4096, ptr %1, align 8, !tbaa !27
   %2 = getelementptr inbounds nuw i8, ptr %calloc, i64 28
-  store i32 64, ptr %2, align 4, !tbaa !30
+  store i32 64, ptr %2, align 4, !tbaa !29
   %3 = tail call noalias dereferenceable_or_null(512) ptr @malloc(i64 noundef 512) #13
   %4 = getelementptr inbounds nuw i8, ptr %calloc, i64 40
-  store ptr %3, ptr %4, align 8, !tbaa !31
+  store ptr %3, ptr %4, align 8, !tbaa !30
   ret ptr %calloc
 }
 
@@ -353,24 +353,24 @@ define void @Msat_MmFlexStop(ptr noundef captures(address_is_null) %0, i32 nound
 
 5:                                                ; preds = %4
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %7 = load i32, ptr %6, align 8, !tbaa !28
+  %7 = load i32, ptr %6, align 8, !tbaa !27
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %9 = load i32, ptr %8, align 8, !tbaa !32
+  %9 = load i32, ptr %8, align 8, !tbaa !31
   %10 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.2, i32 noundef %7, i32 noundef %9)
-  %11 = load i32, ptr %0, align 8, !tbaa !33
+  %11 = load i32, ptr %0, align 8, !tbaa !32
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %13 = load i32, ptr %12, align 8, !tbaa !34
+  %13 = load i32, ptr %12, align 8, !tbaa !33
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 52
-  %15 = load i32, ptr %14, align 4, !tbaa !35
+  %15 = load i32, ptr %14, align 4, !tbaa !34
   %16 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.3, i32 noundef %11, i32 noundef %13, i32 noundef %15)
   br label %17
 
 17:                                               ; preds = %5, %4
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %19 = load i32, ptr %18, align 8, !tbaa !32
+  %19 = load i32, ptr %18, align 8, !tbaa !31
   %20 = icmp sgt i32 %19, 0
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %.pre = load ptr, ptr %21, align 8, !tbaa !31
+  %.pre = load ptr, ptr %21, align 8, !tbaa !30
   br i1 %20, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %17, %29
@@ -384,10 +384,10 @@ define void @Msat_MmFlexStop(ptr noundef captures(address_is_null) %0, i32 nound
 
 26:                                               ; preds = %.lr.ph
   tail call void @free(ptr noundef nonnull %25) #14
-  %27 = load ptr, ptr %21, align 8, !tbaa !31
+  %27 = load ptr, ptr %21, align 8, !tbaa !30
   %28 = getelementptr inbounds nuw ptr, ptr %27, i64 %indvars.iv
   store ptr null, ptr %28, align 8, !tbaa !19
-  %.pre27 = load i32, ptr %18, align 8, !tbaa !32
+  %.pre27 = load i32, ptr %18, align 8, !tbaa !31
   br label %29
 
 29:                                               ; preds = %26, %.lr.ph
@@ -396,7 +396,7 @@ define void @Msat_MmFlexStop(ptr noundef captures(address_is_null) %0, i32 nound
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %32 = sext i32 %30 to i64
   %33 = icmp slt i64 %indvars.iv.next, %32
-  br i1 %33, label %.lr.ph, label %._crit_edge.thread, !llvm.loop !36
+  br i1 %33, label %.lr.ph, label %._crit_edge.thread, !llvm.loop !35
 
 ._crit_edge:                                      ; preds = %17
   %.not23 = icmp eq ptr %.pre, null
@@ -418,7 +418,7 @@ define void @Msat_MmFlexStop(ptr noundef captures(address_is_null) %0, i32 nound
 ; Function Attrs: mustprogress nounwind willreturn uwtable
 define ptr @Msat_MmFlexEntryFetch(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #8 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !tbaa !37
+  %4 = load ptr, ptr %3, align 8, !tbaa !36
   %5 = icmp eq ptr %4, null
   br i1 %5, label %12, label %6
 
@@ -426,23 +426,23 @@ define ptr @Msat_MmFlexEntryFetch(ptr noundef captures(none) %0, i32 noundef %1)
   %7 = sext i32 %1 to i64
   %8 = getelementptr inbounds i8, ptr %4, i64 %7
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %10 = load ptr, ptr %9, align 8, !tbaa !38
+  %10 = load ptr, ptr %9, align 8, !tbaa !37
   %11 = icmp ugt ptr %8, %10
   br i1 %11, label %12, label %51
 
 12:                                               ; preds = %6, %2
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %14 = load i32, ptr %13, align 8, !tbaa !32
+  %14 = load i32, ptr %13, align 8, !tbaa !31
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %16 = load i32, ptr %15, align 4, !tbaa !30
+  %16 = load i32, ptr %15, align 4, !tbaa !29
   %17 = icmp eq i32 %14, %16
   br i1 %17, label %18, label %30
 
 18:                                               ; preds = %12
   %19 = shl nsw i32 %14, 1
-  store i32 %19, ptr %15, align 4, !tbaa !30
+  store i32 %19, ptr %15, align 4, !tbaa !29
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %21 = load ptr, ptr %20, align 8, !tbaa !31
+  %21 = load ptr, ptr %20, align 8, !tbaa !30
   %.not = icmp eq ptr %21, null
   %22 = sext i32 %19 to i64
   %23 = shl nsw i64 %22, 3
@@ -458,75 +458,75 @@ define ptr @Msat_MmFlexEntryFetch(ptr noundef captures(none) %0, i32 noundef %1)
 
 28:                                               ; preds = %26, %24
   %29 = phi ptr [ %25, %24 ], [ %27, %26 ]
-  store ptr %29, ptr %20, align 8, !tbaa !31
+  store ptr %29, ptr %20, align 8, !tbaa !30
   br label %30
 
 30:                                               ; preds = %28, %12
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %32 = load i32, ptr %31, align 8, !tbaa !28
+  %32 = load i32, ptr %31, align 8, !tbaa !27
   %33 = icmp sgt i32 %1, %32
   br i1 %33, label %34, label %36
 
 34:                                               ; preds = %30
   %35 = shl nsw i32 %1, 1
-  store i32 %35, ptr %31, align 8, !tbaa !28
+  store i32 %35, ptr %31, align 8, !tbaa !27
   br label %36
 
 36:                                               ; preds = %34, %30
   %37 = phi i32 [ %35, %34 ], [ %32, %30 ]
   %38 = sext i32 %37 to i64
   %39 = tail call noalias ptr @malloc(i64 noundef %38) #13
-  store ptr %39, ptr %3, align 8, !tbaa !37
+  store ptr %39, ptr %3, align 8, !tbaa !36
   %40 = getelementptr inbounds i8, ptr %39, i64 %38
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %40, ptr %41, align 8, !tbaa !38
+  store ptr %40, ptr %41, align 8, !tbaa !37
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 52
-  %43 = load i32, ptr %42, align 4, !tbaa !35
+  %43 = load i32, ptr %42, align 4, !tbaa !34
   %44 = add nsw i32 %43, %37
-  store i32 %44, ptr %42, align 4, !tbaa !35
+  store i32 %44, ptr %42, align 4, !tbaa !34
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %46 = load ptr, ptr %45, align 8, !tbaa !31
-  %47 = load i32, ptr %13, align 8, !tbaa !32
+  %46 = load ptr, ptr %45, align 8, !tbaa !30
+  %47 = load i32, ptr %13, align 8, !tbaa !31
   %48 = add nsw i32 %47, 1
-  store i32 %48, ptr %13, align 8, !tbaa !32
+  store i32 %48, ptr %13, align 8, !tbaa !31
   %49 = sext i32 %47 to i64
   %50 = getelementptr inbounds ptr, ptr %46, i64 %49
   store ptr %39, ptr %50, align 8, !tbaa !19
-  %.pre = load ptr, ptr %3, align 8, !tbaa !37
+  %.pre = load ptr, ptr %3, align 8, !tbaa !36
   %.pre35 = sext i32 %1 to i64
   br label %51
 
 51:                                               ; preds = %36, %6
   %.pre-phi = phi i64 [ %.pre35, %36 ], [ %7, %6 ]
   %52 = phi ptr [ %.pre, %36 ], [ %4, %6 ]
-  %53 = load i32, ptr %0, align 8, !tbaa !33
+  %53 = load i32, ptr %0, align 8, !tbaa !32
   %54 = add nsw i32 %53, 1
-  store i32 %54, ptr %0, align 8, !tbaa !33
+  store i32 %54, ptr %0, align 8, !tbaa !32
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %56 = load i32, ptr %55, align 8, !tbaa !34
+  %56 = load i32, ptr %55, align 8, !tbaa !33
   %57 = add nsw i32 %56, %1
-  store i32 %57, ptr %55, align 8, !tbaa !34
+  store i32 %57, ptr %55, align 8, !tbaa !33
   %58 = getelementptr inbounds i8, ptr %52, i64 %.pre-phi
-  store ptr %58, ptr %3, align 8, !tbaa !37
+  store ptr %58, ptr %3, align 8, !tbaa !36
   ret ptr %52
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define i32 @Msat_MmFlexReadMemUsage(ptr noundef readonly captures(none) %0) local_unnamed_addr #7 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 52
-  %3 = load i32, ptr %2, align 4, !tbaa !35
+  %3 = load i32, ptr %2, align 4, !tbaa !34
   ret i32 %3
 }
 
 ; Function Attrs: nofree nounwind memory(readwrite, argmem: none) uwtable
 define noalias noundef ptr @Msat_MmStepStart(i32 noundef %0) local_unnamed_addr #9 {
   %2 = tail call noalias dereferenceable_or_null(32) ptr @malloc(i64 noundef 32) #13
-  store i32 %0, ptr %2, align 8, !tbaa !39
+  store i32 %0, ptr %2, align 8, !tbaa !38
   %3 = sext i32 %0 to i64
   %4 = shl nsw i64 %3, 3
   %5 = tail call noalias ptr @malloc(i64 noundef %4) #13
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store ptr %5, ptr %6, align 8, !tbaa !42
+  store ptr %5, ptr %6, align 8, !tbaa !41
   %7 = icmp sgt i32 %0, 0
   br i1 %7, label %Msat_MmFixedStart.exit.preheader, label %._crit_edge
 
@@ -558,27 +558,27 @@ Msat_MmFixedStart.exit:                           ; preds = %Msat_MmFixedStart.e
   %19 = getelementptr inbounds nuw i8, ptr %calloc.i, i64 52
   store i32 0, ptr %19, align 4, !tbaa !15
   %20 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv
-  store ptr %calloc.i, ptr %20, align 8, !tbaa !43
+  store ptr %calloc.i, ptr %20, align 8, !tbaa !42
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.loopexit, label %Msat_MmFixedStart.exit, !llvm.loop !45
+  br i1 %exitcond.not, label %._crit_edge.loopexit, label %Msat_MmFixedStart.exit, !llvm.loop !44
 
 ._crit_edge.loopexit:                             ; preds = %Msat_MmFixedStart.exit
-  %.pre = load ptr, ptr %5, align 8, !tbaa !43
+  %.pre = load ptr, ptr %5, align 8, !tbaa !42
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %1
   %21 = phi ptr [ %.pre, %._crit_edge.loopexit ], [ undef, %1 ]
   %22 = shl i32 4, %0
   %23 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store i32 %22, ptr %23, align 8, !tbaa !46
+  store i32 %22, ptr %23, align 8, !tbaa !45
   %24 = or disjoint i32 %22, 1
   %25 = sext i32 %24 to i64
   %26 = shl nsw i64 %25, 3
   %27 = tail call noalias ptr @malloc(i64 noundef %26) #13
   %28 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  store ptr %27, ptr %28, align 8, !tbaa !47
-  store ptr null, ptr %27, align 8, !tbaa !43
+  store ptr %27, ptr %28, align 8, !tbaa !46
+  store ptr null, ptr %27, align 8, !tbaa !42
   br label %29
 
 .preheader:                                       ; preds = %29
@@ -591,10 +591,10 @@ Msat_MmFixedStart.exit:                           ; preds = %Msat_MmFixedStart.e
 29:                                               ; preds = %._crit_edge, %29
   %indvars.iv44 = phi i64 [ 1, %._crit_edge ], [ %indvars.iv.next45, %29 ]
   %30 = getelementptr inbounds nuw ptr, ptr %27, i64 %indvars.iv44
-  store ptr %21, ptr %30, align 8, !tbaa !43
+  store ptr %21, ptr %30, align 8, !tbaa !42
   %indvars.iv.next45 = add nuw nsw i64 %indvars.iv44, 1
   %exitcond47.not = icmp eq i64 %indvars.iv.next45, 5
-  br i1 %exitcond47.not, label %.preheader, label %29, !llvm.loop !48
+  br i1 %exitcond47.not, label %.preheader, label %29, !llvm.loop !47
 
 .lr.ph41:                                         ; preds = %.lr.ph41.preheader, %._crit_edge39
   %indvars.iv52 = phi i64 [ 0, %.lr.ph41.preheader ], [ %indvars.iv.next53, %._crit_edge39 ]
@@ -606,7 +606,7 @@ Msat_MmFixedStart.exit:                           ; preds = %Msat_MmFixedStart.e
 
 .lr.ph:                                           ; preds = %.lr.ph41
   %34 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv52
-  %35 = load ptr, ptr %34, align 8, !tbaa !43
+  %35 = load ptr, ptr %34, align 8, !tbaa !42
   %36 = or disjoint i32 %32, 1
   %37 = sext i32 %36 to i64
   %38 = or disjoint i32 %33, 1
@@ -615,16 +615,16 @@ Msat_MmFixedStart.exit:                           ; preds = %Msat_MmFixedStart.e
 39:                                               ; preds = %.lr.ph, %39
   %indvars.iv48 = phi i64 [ %37, %.lr.ph ], [ %indvars.iv.next49, %39 ]
   %40 = getelementptr inbounds ptr, ptr %27, i64 %indvars.iv48
-  store ptr %35, ptr %40, align 8, !tbaa !43
+  store ptr %35, ptr %40, align 8, !tbaa !42
   %indvars.iv.next49 = add nsw i64 %indvars.iv48, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next49 to i32
   %exitcond51.not = icmp eq i32 %38, %lftr.wideiv
-  br i1 %exitcond51.not, label %._crit_edge39, label %39, !llvm.loop !49
+  br i1 %exitcond51.not, label %._crit_edge39, label %39, !llvm.loop !48
 
 ._crit_edge39:                                    ; preds = %39, %.lr.ph41
   %indvars.iv.next53 = add nuw nsw i64 %indvars.iv52, 1
   %exitcond56.not = icmp eq i64 %indvars.iv.next53, %wide.trip.count55
-  br i1 %exitcond56.not, label %._crit_edge42, label %.lr.ph41, !llvm.loop !50
+  br i1 %exitcond56.not, label %._crit_edge42, label %.lr.ph41, !llvm.loop !49
 
 ._crit_edge42:                                    ; preds = %._crit_edge39, %.preheader
   ret ptr %2
@@ -632,7 +632,7 @@ Msat_MmFixedStart.exit:                           ; preds = %Msat_MmFixedStart.e
 
 ; Function Attrs: nounwind uwtable
 define void @Msat_MmStepStop(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #2 {
-  %3 = load i32, ptr %0, align 8, !tbaa !39
+  %3 = load i32, ptr %0, align 8, !tbaa !38
   %4 = icmp sgt i32 %3, 0
   br i1 %4, label %.lr.ph, label %._crit_edge
 
@@ -642,30 +642,30 @@ define void @Msat_MmStepStop(ptr noundef captures(none) %0, i32 noundef %1) loca
 
 6:                                                ; preds = %.lr.ph, %6
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %6 ]
-  %7 = load ptr, ptr %5, align 8, !tbaa !42
+  %7 = load ptr, ptr %5, align 8, !tbaa !41
   %8 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv
-  %9 = load ptr, ptr %8, align 8, !tbaa !43
+  %9 = load ptr, ptr %8, align 8, !tbaa !42
   tail call void @Msat_MmFixedStop(ptr noundef %9, i32 noundef %1)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %10 = load i32, ptr %0, align 8, !tbaa !39
+  %10 = load i32, ptr %0, align 8, !tbaa !38
   %11 = sext i32 %10 to i64
   %12 = icmp slt i64 %indvars.iv.next, %11
-  br i1 %12, label %6, label %._crit_edge, !llvm.loop !51
+  br i1 %12, label %6, label %._crit_edge, !llvm.loop !50
 
 ._crit_edge:                                      ; preds = %6, %2
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %14 = load ptr, ptr %13, align 8, !tbaa !42
+  %14 = load ptr, ptr %13, align 8, !tbaa !41
   %.not = icmp eq ptr %14, null
   br i1 %.not, label %16, label %15
 
 15:                                               ; preds = %._crit_edge
   tail call void @free(ptr noundef nonnull %14) #14
-  store ptr null, ptr %13, align 8, !tbaa !42
+  store ptr null, ptr %13, align 8, !tbaa !41
   br label %16
 
 16:                                               ; preds = %._crit_edge, %15
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %18 = load ptr, ptr %17, align 8, !tbaa !47
+  %18 = load ptr, ptr %17, align 8, !tbaa !46
   %.not15 = icmp eq ptr %18, null
   br i1 %.not15, label %20, label %19
 
@@ -685,7 +685,7 @@ define noundef ptr @Msat_MmStepEntryFetch(ptr noundef readonly captures(none) %0
 
 4:                                                ; preds = %2
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %6 = load i32, ptr %5, align 8, !tbaa !46
+  %6 = load i32, ptr %5, align 8, !tbaa !45
   %7 = icmp sgt i32 %1, %6
   br i1 %7, label %8, label %11
 
@@ -696,10 +696,10 @@ define noundef ptr @Msat_MmStepEntryFetch(ptr noundef readonly captures(none) %0
 
 11:                                               ; preds = %4
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %13 = load ptr, ptr %12, align 8, !tbaa !47
+  %13 = load ptr, ptr %12, align 8, !tbaa !46
   %14 = sext i32 %1 to i64
   %15 = getelementptr inbounds ptr, ptr %13, i64 %14
-  %16 = load ptr, ptr %15, align 8, !tbaa !43
+  %16 = load ptr, ptr %15, align 8, !tbaa !42
   %17 = tail call ptr @Msat_MmFixedEntryFetch(ptr noundef %16)
   br label %18
 
@@ -715,7 +715,7 @@ define void @Msat_MmStepEntryRecycle(ptr noundef readonly captures(none) %0, ptr
 
 5:                                                ; preds = %3
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %7 = load i32, ptr %6, align 8, !tbaa !46
+  %7 = load i32, ptr %6, align 8, !tbaa !45
   %8 = icmp sgt i32 %2, %7
   br i1 %8, label %9, label %11
 
@@ -729,18 +729,18 @@ define void @Msat_MmStepEntryRecycle(ptr noundef readonly captures(none) %0, ptr
 
 11:                                               ; preds = %5
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %13 = load ptr, ptr %12, align 8, !tbaa !47
+  %13 = load ptr, ptr %12, align 8, !tbaa !46
   %14 = sext i32 %2 to i64
   %15 = getelementptr inbounds ptr, ptr %13, i64 %14
-  %16 = load ptr, ptr %15, align 8, !tbaa !43
+  %16 = load ptr, ptr %15, align 8, !tbaa !42
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %18 = load i32, ptr %17, align 8, !tbaa !17
   %19 = add nsw i32 %18, -1
   store i32 %19, ptr %17, align 8, !tbaa !17
   %20 = getelementptr inbounds nuw i8, ptr %16, i64 16
-  %21 = load ptr, ptr %20, align 8, !tbaa !24
+  %21 = load ptr, ptr %20, align 8, !tbaa !23
   store ptr %21, ptr %1, align 8, !tbaa !19
-  store ptr %1, ptr %20, align 8, !tbaa !24
+  store ptr %1, ptr %20, align 8, !tbaa !23
   br label %22
 
 22:                                               ; preds = %10, %9, %3, %11
@@ -749,13 +749,13 @@ define void @Msat_MmStepEntryRecycle(ptr noundef readonly captures(none) %0, ptr
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
 define i32 @Msat_MmStepReadMemUsage(ptr noundef readonly captures(none) %0) local_unnamed_addr #10 {
-  %2 = load i32, ptr %0, align 8, !tbaa !39
+  %2 = load i32, ptr %0, align 8, !tbaa !38
   %3 = icmp sgt i32 %2, 0
   br i1 %3, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = load ptr, ptr %4, align 8, !tbaa !42
+  %5 = load ptr, ptr %4, align 8, !tbaa !41
   %wide.trip.count = zext nneg i32 %2 to i64
   br label %6
 
@@ -763,13 +763,13 @@ define i32 @Msat_MmStepReadMemUsage(ptr noundef readonly captures(none) %0) loca
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %6 ]
   %.08 = phi i32 [ 0, %.lr.ph ], [ %11, %6 ]
   %7 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv
-  %8 = load ptr, ptr %7, align 8, !tbaa !43
+  %8 = load ptr, ptr %7, align 8, !tbaa !42
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 52
   %10 = load i32, ptr %9, align 4, !tbaa !15
   %11 = add nsw i32 %10, %.08
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %6, !llvm.loop !52
+  br i1 %exitcond.not, label %._crit_edge, label %6, !llvm.loop !51
 
 ._crit_edge:                                      ; preds = %6, %1
   %.0.lcssa = phi i32 [ 0, %1 ], [ %11, %6 ]
@@ -821,36 +821,35 @@ attributes #15 = { nounwind allocsize(1) }
 !17 = !{!4, !5, i64 8}
 !18 = !{!4, !5, i64 12}
 !19 = !{!8, !8, i64 0}
-!20 = distinct !{!20, !21, !22}
+!20 = distinct !{!20, !21}
 !21 = !{!"llvm.loop.mustprogress"}
-!22 = !{!"llvm.loop.estimated_trip_count"}
-!23 = !{!4, !5, i64 4}
-!24 = !{!4, !8, i64 16}
-!25 = distinct !{!25, !21, !22}
-!26 = distinct !{!26, !21, !22}
-!27 = distinct !{!27, !21, !22}
-!28 = !{!29, !5, i64 24}
-!29 = !{!"Msat_MmFlex_t_", !5, i64 0, !8, i64 8, !8, i64 16, !5, i64 24, !5, i64 28, !5, i64 32, !10, i64 40, !5, i64 48, !5, i64 52}
-!30 = !{!29, !5, i64 28}
-!31 = !{!29, !10, i64 40}
-!32 = !{!29, !5, i64 32}
-!33 = !{!29, !5, i64 0}
-!34 = !{!29, !5, i64 48}
-!35 = !{!29, !5, i64 52}
-!36 = distinct !{!36, !21, !22}
-!37 = !{!29, !8, i64 8}
-!38 = !{!29, !8, i64 16}
-!39 = !{!40, !5, i64 0}
-!40 = !{!"Msat_MmStep_t_", !5, i64 0, !41, i64 8, !5, i64 16, !41, i64 24}
-!41 = !{!"p2 _ZTS15Msat_MmFixed_t_", !9, i64 0}
-!42 = !{!40, !41, i64 8}
-!43 = !{!44, !44, i64 0}
-!44 = !{!"p1 _ZTS15Msat_MmFixed_t_", !9, i64 0}
-!45 = distinct !{!45, !21, !22}
-!46 = !{!40, !5, i64 16}
-!47 = !{!40, !41, i64 24}
-!48 = distinct !{!48, !21, !22}
-!49 = distinct !{!49, !21, !22}
-!50 = distinct !{!50, !21, !22}
-!51 = distinct !{!51, !21, !22}
-!52 = distinct !{!52, !21, !22}
+!22 = !{!4, !5, i64 4}
+!23 = !{!4, !8, i64 16}
+!24 = distinct !{!24, !21}
+!25 = distinct !{!25, !21}
+!26 = distinct !{!26, !21}
+!27 = !{!28, !5, i64 24}
+!28 = !{!"Msat_MmFlex_t_", !5, i64 0, !8, i64 8, !8, i64 16, !5, i64 24, !5, i64 28, !5, i64 32, !10, i64 40, !5, i64 48, !5, i64 52}
+!29 = !{!28, !5, i64 28}
+!30 = !{!28, !10, i64 40}
+!31 = !{!28, !5, i64 32}
+!32 = !{!28, !5, i64 0}
+!33 = !{!28, !5, i64 48}
+!34 = !{!28, !5, i64 52}
+!35 = distinct !{!35, !21}
+!36 = !{!28, !8, i64 8}
+!37 = !{!28, !8, i64 16}
+!38 = !{!39, !5, i64 0}
+!39 = !{!"Msat_MmStep_t_", !5, i64 0, !40, i64 8, !5, i64 16, !40, i64 24}
+!40 = !{!"p2 _ZTS15Msat_MmFixed_t_", !9, i64 0}
+!41 = !{!39, !40, i64 8}
+!42 = !{!43, !43, i64 0}
+!43 = !{!"p1 _ZTS15Msat_MmFixed_t_", !9, i64 0}
+!44 = distinct !{!44, !21}
+!45 = !{!39, !5, i64 16}
+!46 = !{!39, !40, i64 24}
+!47 = distinct !{!47, !21}
+!48 = distinct !{!48, !21}
+!49 = distinct !{!49, !21}
+!50 = distinct !{!50, !21}
+!51 = distinct !{!51, !21}

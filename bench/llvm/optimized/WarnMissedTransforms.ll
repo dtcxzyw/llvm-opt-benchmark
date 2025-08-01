@@ -216,7 +216,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_30DiagnosticInfoOptimizationBase8ArgumentEL
   br label %_ZN4llvm30DiagnosticInfoOptimizationBaseD2Ev.exit.i.i
 
 _ZN4llvm30DiagnosticInfoOptimizationBaseD2Ev.exit.i.i: ; preds = %83, %_ZN4llvm23SmallVectorTemplateBaseINS_30DiagnosticInfoOptimizationBase8ArgumentELb0EE13destroy_rangeEPS2_S4_.exit.i.i.i.i
-  %84 = load ptr, ptr %7, align 8, !tbaa !29
+  %84 = load ptr, ptr %7, align 8, !tbaa !28
   %.not.i.i.i.i.i.i = icmp eq ptr %84, null
   br i1 %.not.i.i.i.i.i.i, label %_ZN4llvm8DebugLocD2Ev.exit.i.i, label %85
 
@@ -318,7 +318,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_30DiagnosticInfoOptimizationBase8ArgumentEL
   br label %_ZN4llvm30DiagnosticInfoOptimizationBaseD2Ev.exit36.i.i
 
 _ZN4llvm30DiagnosticInfoOptimizationBaseD2Ev.exit36.i.i: ; preds = %117, %_ZN4llvm23SmallVectorTemplateBaseINS_30DiagnosticInfoOptimizationBase8ArgumentELb0EE13destroy_rangeEPS2_S4_.exit.i.i33.i.i
-  %118 = load ptr, ptr %10, align 8, !tbaa !29
+  %118 = load ptr, ptr %10, align 8, !tbaa !28
   %.not.i.i.i.i37.i.i = icmp eq ptr %118, null
   br i1 %.not.i.i.i.i37.i.i, label %_ZN4llvm8DebugLocD2Ev.exit38.i.i, label %119
 
@@ -438,7 +438,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_30DiagnosticInfoOptimizationBase8ArgumentEL
   br label %_ZN4llvm30DiagnosticInfoOptimizationBaseD2Ev.exit54.i.i
 
 _ZN4llvm30DiagnosticInfoOptimizationBaseD2Ev.exit54.i.i: ; preds = %159, %_ZN4llvm23SmallVectorTemplateBaseINS_30DiagnosticInfoOptimizationBase8ArgumentELb0EE13destroy_rangeEPS2_S4_.exit.i.i51.i.i
-  %160 = load ptr, ptr %13, align 8, !tbaa !29
+  %160 = load ptr, ptr %13, align 8, !tbaa !28
   %.not.i.i.i.i55.i.i = icmp eq ptr %160, null
   br i1 %.not.i.i.i.i55.i.i, label %_ZN4llvm8DebugLocD2Ev.exit56.i.i, label %161
 
@@ -540,7 +540,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_30DiagnosticInfoOptimizationBase8ArgumentEL
   br label %_ZN4llvm30DiagnosticInfoOptimizationBaseD2Ev.exit72.i.i
 
 _ZN4llvm30DiagnosticInfoOptimizationBaseD2Ev.exit72.i.i: ; preds = %192, %_ZN4llvm23SmallVectorTemplateBaseINS_30DiagnosticInfoOptimizationBase8ArgumentELb0EE13destroy_rangeEPS2_S4_.exit.i.i69.i.i
-  %193 = load ptr, ptr %16, align 8, !tbaa !29
+  %193 = load ptr, ptr %16, align 8, !tbaa !28
   %.not.i.i.i.i73.i.i = icmp eq ptr %193, null
   br i1 %.not.i.i.i.i73.i.i, label %_ZN4llvm8DebugLocD2Ev.exit74.i.i, label %194
 
@@ -642,7 +642,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_30DiagnosticInfoOptimizationBase8ArgumentEL
   br label %_ZN4llvm30DiagnosticInfoOptimizationBaseD2Ev.exit90.i.i
 
 _ZN4llvm30DiagnosticInfoOptimizationBaseD2Ev.exit90.i.i: ; preds = %226, %_ZN4llvm23SmallVectorTemplateBaseINS_30DiagnosticInfoOptimizationBase8ArgumentELb0EE13destroy_rangeEPS2_S4_.exit.i.i87.i.i
-  %227 = load ptr, ptr %19, align 8, !tbaa !29
+  %227 = load ptr, ptr %19, align 8, !tbaa !28
   %.not.i.i.i.i91.i.i = icmp eq ptr %227, null
   br i1 %.not.i.i.i.i91.i.i, label %_ZN4llvm8DebugLocD2Ev.exit92.i.i, label %228
 
@@ -659,7 +659,7 @@ _ZN4llvm8DebugLocD2Ev.exit92.i.i:                 ; preds = %228, %_ZN4llvm30Dia
 _ZL32warnAboutLeftoverTransformationsPN4llvm4LoopEPNS_25OptimizationRemarkEmitterE.exit.i: ; preds = %_ZN4llvm8DebugLocD2Ev.exit92.i.i, %195
   %229 = getelementptr inbounds nuw i8, ptr %.02.i, i64 8
   %.not.i = icmp eq ptr %229, %31
-  br i1 %.not.i, label %._crit_edge.loopexit.i, label %51, !llvm.loop !32
+  br i1 %.not.i, label %._crit_edge.loopexit.i, label %51
 
 _ZL32warnAboutLeftoverTransformationsPN4llvm8FunctionEPNS_8LoopInfoEPNS_25OptimizationRemarkEmitterE.exit: ; preds = %._crit_edge.i, %50
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %20) #6
@@ -667,27 +667,27 @@ _ZL32warnAboutLeftoverTransformationsPN4llvm8FunctionEPNS_8LoopInfoEPNS_25Optimi
 
 230:                                              ; preds = %4, %_ZL32warnAboutLeftoverTransformationsPN4llvm8FunctionEPNS_8LoopInfoEPNS_25OptimizationRemarkEmitterE.exit
   %.ptr1.i8 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr %.ptr1.i8, ptr %0, align 8, !tbaa !33
+  store ptr %.ptr1.i8, ptr %0, align 8, !tbaa !31
   %231 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 2, ptr %231, align 8, !tbaa !36
+  store i32 2, ptr %231, align 8, !tbaa !34
   %232 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %233 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i32 0, ptr %233, align 8, !tbaa !37
+  store i32 0, ptr %233, align 8, !tbaa !35
   %234 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  store i8 1, ptr %234, align 4, !tbaa !38
+  store i8 1, ptr %234, align 4, !tbaa !36
   %235 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %236 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  store ptr %236, ptr %235, align 8, !tbaa !33
+  store ptr %236, ptr %235, align 8, !tbaa !31
   %237 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store i32 2, ptr %237, align 8, !tbaa !36
+  store i32 2, ptr %237, align 8, !tbaa !34
   %238 = getelementptr inbounds nuw i8, ptr %0, i64 52
-  store i32 0, ptr %238, align 4, !tbaa !39
+  store i32 0, ptr %238, align 4, !tbaa !37
   %239 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store i32 0, ptr %239, align 8, !tbaa !37
+  store i32 0, ptr %239, align 8, !tbaa !35
   %240 = getelementptr inbounds nuw i8, ptr %0, i64 60
-  store i8 1, ptr %240, align 4, !tbaa !38
-  store i32 1, ptr %232, align 4, !tbaa !39, !noalias !40
-  store ptr @_ZN4llvm17PreservedAnalyses14AllAnalysesKeyE, ptr %.ptr1.i8, align 8, !tbaa !41, !noalias !40
+  store i8 1, ptr %240, align 4, !tbaa !36
+  store i32 1, ptr %232, align 4, !tbaa !37, !noalias !38
+  store ptr @_ZN4llvm17PreservedAnalyses14AllAnalysesKeyE, ptr %.ptr1.i8, align 8, !tbaa !39, !noalias !38
   ret void
 }
 
@@ -773,19 +773,17 @@ attributes #7 = { builtin nounwind }
 !23 = !{!"long", !6, i64 0}
 !24 = !{!20, !23, i64 8}
 !25 = !{!6, !6, i64 0}
-!26 = distinct !{!26, !27, !28}
+!26 = distinct !{!26, !27}
 !27 = !{!"llvm.loop.mustprogress"}
-!28 = !{!"llvm.loop.estimated_trip_count"}
-!29 = !{!30, !31, i64 0}
-!30 = !{!"_ZTSN4llvm13TrackingMDRefE", !31, i64 0}
-!31 = !{!"p1 _ZTSN4llvm8MetadataE", !5, i64 0}
-!32 = distinct !{!32, !28}
-!33 = !{!34, !5, i64 0}
-!34 = !{!"_ZTSN4llvm19SmallPtrSetImplBaseE", !5, i64 0, !8, i64 8, !8, i64 12, !8, i64 16, !35, i64 20}
-!35 = !{!"bool", !6, i64 0}
-!36 = !{!34, !8, i64 8}
-!37 = !{!34, !8, i64 16}
-!38 = !{!34, !35, i64 20}
-!39 = !{!34, !8, i64 12}
-!40 = !{}
-!41 = !{!5, !5, i64 0}
+!28 = !{!29, !30, i64 0}
+!29 = !{!"_ZTSN4llvm13TrackingMDRefE", !30, i64 0}
+!30 = !{!"p1 _ZTSN4llvm8MetadataE", !5, i64 0}
+!31 = !{!32, !5, i64 0}
+!32 = !{!"_ZTSN4llvm19SmallPtrSetImplBaseE", !5, i64 0, !8, i64 8, !8, i64 12, !8, i64 16, !33, i64 20}
+!33 = !{!"bool", !6, i64 0}
+!34 = !{!32, !8, i64 8}
+!35 = !{!32, !8, i64 16}
+!36 = !{!32, !33, i64 20}
+!37 = !{!32, !8, i64 12}
+!38 = !{}
+!39 = !{!5, !5, i64 0}

@@ -247,7 +247,7 @@ tally_frame_data.exit:                            ; preds = %tally_frame_data.ex
   %126 = getelementptr inbounds nuw i8, ptr %1, i64 264
   store i32 %125, ptr %126, align 8
   %127 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %128 = load i8, ptr %127, align 8, !range !9, !noundef !10
+  %128 = load i8, ptr %127, align 8, !range !8, !noundef !9
   %129 = getelementptr inbounds nuw i8, ptr %1, i64 304
   store i8 %128, ptr %129, align 8
   %130 = getelementptr inbounds nuw i8, ptr %0, i64 60
@@ -270,7 +270,7 @@ tally_frame_data.exit:                            ; preds = %tally_frame_data.ex
   %143 = getelementptr inbounds nuw i8, ptr %1, i64 68
   store i32 %142, ptr %143, align 4
   %144 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %145 = load i8, ptr %144, align 8, !range !9, !noundef !10
+  %145 = load i8, ptr %144, align 8, !range !8, !noundef !9
   %146 = getelementptr inbounds nuw i8, ptr %1, i64 284
   store i8 %145, ptr %146, align 4
   %147 = getelementptr inbounds nuw i8, ptr %0, i64 108
@@ -397,7 +397,7 @@ tally_frame_data.exit:                            ; preds = %tally_frame_data.ex
   %219 = load i32, ptr %218, align 8
   %220 = zext i32 %219 to i64
   %221 = icmp samesign ult i64 %indvars.iv.next, %220
-  br i1 %221, label %170, label %._crit_edge, !llvm.loop !11
+  br i1 %221, label %170, label %._crit_edge, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %214, %.loopexit
   call void @g_free(ptr noundef %158)
@@ -437,7 +437,7 @@ fread.inline.exit:                                ; preds = %fread.inline.exit.p
   call void @gcry_md_write(ptr noundef %240, ptr noundef nonnull %231, i64 noundef %239)
   %241 = call i64 @fread(ptr noundef nonnull %231, i64 noundef 1, i64 noundef 1048576, ptr noundef nonnull %233)
   %.not95 = icmp eq i64 %241, 0
-  br i1 %.not95, label %fread.inline.exit._crit_edge, label %fread.inline.exit, !llvm.loop !12
+  br i1 %.not95, label %fread.inline.exit._crit_edge, label %fread.inline.exit, !llvm.loop !11
 
 fread.inline.exit._crit_edge:                     ; preds = %fread.inline.exit, %fread.inline.exit.preheader
   %242 = load ptr, ptr %7, align 8
@@ -456,7 +456,7 @@ fread.inline.exit._crit_edge:                     ; preds = %fread.inline.exit, 
   %252 = call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %248, i64 noundef 3, i32 noundef 2, i64 noundef -1, ptr noundef nonnull @.str.2, i32 noundef %251)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 32
-  br i1 %exitcond.not.i, label %hash_to_str.exit, label %246, !llvm.loop !13
+  br i1 %exitcond.not.i, label %hash_to_str.exit, label %246, !llvm.loop !12
 
 hash_to_str.exit:                                 ; preds = %246
   %253 = load ptr, ptr %7, align 8
@@ -473,7 +473,7 @@ hash_to_str.exit:                                 ; preds = %246
   %261 = call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %257, i64 noundef 3, i32 noundef 2, i64 noundef -1, ptr noundef nonnull @.str.2, i32 noundef %260)
   %indvars.iv.next.i99 = add nuw nsw i64 %indvars.iv.i98, 1
   %exitcond.not.i100 = icmp eq i64 %indvars.iv.next.i99, 20
-  br i1 %exitcond.not.i100, label %hash_to_str.exit101.thread, label %255, !llvm.loop !13
+  br i1 %exitcond.not.i100, label %hash_to_str.exit101.thread, label %255, !llvm.loop !12
 
 hash_to_str.exit101:                              ; preds = %230
   br i1 %234, label %hash_to_str.exit101.thread, label %263
@@ -594,11 +594,10 @@ attributes #9 = { allocsize(0) }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = !{i8 0, i8 2}
-!10 = !{}
-!11 = distinct !{!11, !7, !8}
-!12 = distinct !{!12, !7, !8}
-!13 = distinct !{!13, !7, !8}
+!8 = !{i8 0, i8 2}
+!9 = !{}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7}
+!12 = distinct !{!12, !7}

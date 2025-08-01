@@ -1944,7 +1944,7 @@ define internal fastcc noundef ptr @_ZL12CertsToStackRKSt6vectorIP7x509_stSaIS1_
 15:                                               ; preds = %13
   %16 = getelementptr inbounds nuw i8, ptr %.sroa.013.021, i64 8
   %.not19 = icmp eq ptr %16, %7
-  br i1 %.not19, label %_ZNSt10unique_ptrI13stack_st_X50919OpenSSLStackDeleterIS0_7x509_stXadL_Z9X509_freeEEEED2Ev.exit, label %.lr.ph, !llvm.loop !62
+  br i1 %.not19, label %_ZNSt10unique_ptrI13stack_st_X50919OpenSSLStackDeleterIS0_7x509_stXadL_Z9X509_freeEEEED2Ev.exit, label %.lr.ph
 
 .critedge:                                        ; preds = %10
   invoke void @sk_pop_free(ptr noundef nonnull %3, ptr noundef nonnull @X509_free)
@@ -2080,27 +2080,27 @@ define internal fastcc noundef zeroext i1 @_ZL19SignatureRoundTripsP13env_md_ctx
   %3 = alloca %"class.std::unique_ptr.2", align 8
   %4 = alloca %"class.std::unique_ptr", align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #11
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !64)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #11, !noalias !64
-  %5 = tail call ptr @BIO_new_mem_buf(ptr noundef nonnull @_ZL8kLeafPEM, i32 noundef 883), !noalias !64
-  store ptr %5, ptr %3, align 8, !tbaa !9, !noalias !64
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !62)
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #11, !noalias !62
+  %5 = tail call ptr @BIO_new_mem_buf(ptr noundef nonnull @_ZL8kLeafPEM, i32 noundef 883), !noalias !62
+  store ptr %5, ptr %3, align 8, !tbaa !9, !noalias !62
   %6 = invoke ptr @PEM_read_bio_X509(ptr noundef %5, ptr noundef null, ptr noundef null, ptr noundef null)
-          to label %7 unwind label %12, !noalias !64
+          to label %7 unwind label %12, !noalias !62
 
 7:                                                ; preds = %2
-  store ptr %6, ptr %4, align 8, !tbaa !14, !alias.scope !64
+  store ptr %6, ptr %4, align 8, !tbaa !14, !alias.scope !62
   %.not.i.i = icmp eq ptr %5, null
   br i1 %.not.i.i, label %_ZL11CertFromPEMPKc.exit, label %8
 
 8:                                                ; preds = %7
   invoke void @BIO_vfree(ptr noundef nonnull %5)
-          to label %_ZL11CertFromPEMPKc.exit unwind label %9, !noalias !64
+          to label %_ZL11CertFromPEMPKc.exit unwind label %9, !noalias !62
 
 9:                                                ; preds = %8
   %10 = landingpad { ptr, i32 }
           catch ptr null
   %11 = extractvalue { ptr, i32 } %10, 0
-  tail call void @__clang_call_terminate(ptr %11) #12, !noalias !64
+  tail call void @__clang_call_terminate(ptr %11) #12, !noalias !62
   unreachable
 
 common.resume:                                    ; preds = %17, %12
@@ -2110,12 +2110,12 @@ common.resume:                                    ; preds = %17, %12
 12:                                               ; preds = %2
   %13 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt10unique_ptrI6bio_st14OpenSSLDeleterIS0_XadL_Z9BIO_vfreeEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #11, !noalias !64
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #11, !noalias !64
+  call void @_ZNSt10unique_ptrI6bio_st14OpenSSLDeleterIS0_XadL_Z9BIO_vfreeEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #11, !noalias !62
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #11, !noalias !62
   br label %common.resume
 
 _ZL11CertFromPEMPKc.exit:                         ; preds = %8, %7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #11, !noalias !64
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #11, !noalias !62
   %.not4 = icmp eq ptr %6, null
   br i1 %.not4, label %_ZNSt10unique_ptrI7x509_st14OpenSSLDeleterIS0_XadL_Z9X509_freeEEEED2Ev.exit, label %14
 
@@ -2267,8 +2267,6 @@ attributes #15 = { builtin nounwind }
 !59 = !{!60, !60, i64 0}
 !60 = !{!"p1 _ZTS17x509_store_ctx_st", !11, i64 0}
 !61 = !{!41, !41, i64 0}
-!62 = distinct !{!62, !63}
-!63 = !{!"llvm.loop.estimated_trip_count"}
-!64 = !{!65}
-!65 = distinct !{!65, !66, !"_ZL11CertFromPEMPKc: argument 0"}
-!66 = distinct !{!66, !"_ZL11CertFromPEMPKc"}
+!62 = !{!63}
+!63 = distinct !{!63, !64, !"_ZL11CertFromPEMPKc: argument 0"}
+!64 = distinct !{!64, !"_ZL11CertFromPEMPKc"}

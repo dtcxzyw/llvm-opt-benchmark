@@ -185,7 +185,7 @@ define internal noundef i32 @tls_refresh(ptr noundef readonly captures(none) %0)
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 160
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 72
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %6, i32 2, ptr nonnull elementtype(i8) %6) #8, !srcloc !13
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %6, i32 2, ptr nonnull elementtype(i8) %6) #8, !srcloc !12
   ret i32 0
 }
 
@@ -217,7 +217,7 @@ define internal range(i32 -93, 1) i32 @tls_validate(ptr readnone captures(none) 
   %18 = icmp ne ptr %17, null
   %19 = icmp eq i32 %12, 134217728
   %or.cond = and i1 %19, %18
-  br i1 %or.cond, label %20, label %.critedge1, !prof !14
+  br i1 %or.cond, label %20, label %.critedge1, !prof !13
 
 20:                                               ; preds = %14
   %21 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(8) %17, ptr noundef nonnull dereferenceable(8) @.str.2, i64 8)
@@ -306,9 +306,8 @@ attributes #8 = { nounwind }
 !6 = !{!"branch_weights", i32 1, i32 2000}
 !7 = !{!"branch_weights", i32 2000, i32 1}
 !8 = !{i64 2148833068, i64 2148833107, i64 2148833128, i64 2148833165, i64 2148833188, i64 2148833197, i64 2148833495}
-!9 = distinct !{!9, !10, !11, !12}
+!9 = distinct !{!9, !10, !11}
 !10 = !{!"llvm.loop.mustprogress"}
 !11 = !{!"llvm.loop.unroll.disable"}
-!12 = !{!"llvm.loop.estimated_trip_count"}
-!13 = !{i64 2148459369, i64 2148459408, i64 2148459429, i64 2148459466, i64 2148459489, i64 2148459359}
-!14 = !{!"branch_weights", i32 4000000, i32 4008002}
+!12 = !{i64 2148459369, i64 2148459408, i64 2148459429, i64 2148459466, i64 2148459489, i64 2148459359}
+!13 = !{!"branch_weights", i32 4000000, i32 4008002}

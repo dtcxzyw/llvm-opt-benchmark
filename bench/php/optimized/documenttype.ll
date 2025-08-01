@@ -343,7 +343,7 @@ smart_str_alloc.exit:                             ; preds = %22, %27
   %36 = getelementptr inbounds nuw i8, ptr %.02138, i64 48
   %.021 = load ptr, ptr %36, align 8, !tbaa !35
   %.not27 = icmp eq ptr %.021, null
-  br i1 %.not27, label %._crit_edge, label %15, !llvm.loop !40
+  br i1 %.not27, label %._crit_edge, label %15
 
 ._crit_edge:                                      ; preds = %35
   %.pre40 = load ptr, ptr %3, align 8, !tbaa !36
@@ -537,5 +537,3 @@ attributes #13 = { nounwind allocsize(1) }
 !37 = !{!"", !32, i64 0, !19, i64 8}
 !38 = !{!37, !19, i64 8}
 !39 = !{!"branch_weights", !"expected", i32 2000, i32 1}
-!40 = distinct !{!40, !41}
-!41 = !{!"llvm.loop.estimated_trip_count"}

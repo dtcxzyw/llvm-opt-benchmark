@@ -123,7 +123,7 @@ define ptr @ws_iana_ipv6_special_block_lookup(ptr noundef readonly captures(none
 19:                                               ; preds = %.lr.ph.i2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv, %13
-  br i1 %exitcond.not.i, label %._crit_edge.loopexit.i, label %.lr.ph.i2, !llvm.loop !9
+  br i1 %exitcond.not.i, label %._crit_edge.loopexit.i, label %.lr.ph.i2, !llvm.loop !8
 
 ._crit_edge.loopexit.i:                           ; preds = %19
   %20 = zext nneg i32 %12 to i64
@@ -173,7 +173,6 @@ attributes #1 = { nofree norecurse nosync nounwind null_pointer_is_valid sspstro
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
+!8 = distinct !{!8, !7}

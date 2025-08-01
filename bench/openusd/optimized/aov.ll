@@ -53,7 +53,7 @@ define noundef nonnull align 8 dereferenceable(8) ptr @_ZN32pxrInternal_v0_24__p
   %23 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %22, ptr noundef nonnull @.str.1)
   %.sroa.013.0 = load ptr, ptr %.sroa.013.018, align 8
   %.not = icmp eq ptr %.sroa.013.0, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !4
+  br i1 %.not, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   %24 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull @.str.4)
@@ -220,12 +220,12 @@ _ZSteqIKN32pxrInternal_v0_24__pxrReserved__7TfTokenENS0_7VtValueEEbRKSt4pairIT_T
   %93 = load i64, ptr %92, align 8
   %94 = urem i64 %93, %91
   %.not20.i.i.i = icmp eq i64 %94, %54
-  br i1 %.not20.i.i.i, label %62, label %_ZN32pxrInternal_v0_24__pxrReserved__eqINS_7TfTokenENS_7VtValueENS1_11HashFunctorESt8equal_toIS1_ESaISt4pairIKS1_S2_EEEEbRKNS_9TfHashMapIT_T0_T1_T2_T3_EESI_.exit, !llvm.loop !6
+  br i1 %.not20.i.i.i, label %62, label %_ZN32pxrInternal_v0_24__pxrReserved__eqINS_7TfTokenENS_7VtValueENS1_11HashFunctorESt8equal_toIS1_ESaISt4pairIKS1_S2_EEEEbRKNS_9TfHashMapIT_T0_T1_T2_T3_EESI_.exit, !llvm.loop !4
 
 95:                                               ; preds = %_ZSteqIKN32pxrInternal_v0_24__pxrReserved__7TfTokenENS0_7VtValueEEbRKSt4pairIT_T0_ES9_.exit.i.i.i, %81, %77
   %.sroa.021.0.i.i.i = load ptr, ptr %.sroa.021.029.i.i.i, align 8
   %.not25.i.i.i = icmp eq ptr %.sroa.021.0.i.i.i, null
-  br i1 %.not25.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__eqINS_7TfTokenENS_7VtValueENS1_11HashFunctorESt8equal_toIS1_ESaISt4pairIKS1_S2_EEEEbRKNS_9TfHashMapIT_T0_T1_T2_T3_EESI_.exit, label %49, !llvm.loop !8
+  br i1 %.not25.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__eqINS_7TfTokenENS_7VtValueENS1_11HashFunctorESt8equal_toIS1_ESaISt4pairIKS1_S2_EEEEbRKNS_9TfHashMapIT_T0_T1_T2_T3_EESI_.exit, label %49, !llvm.loop !6
 
 _ZN32pxrInternal_v0_24__pxrReserved__eqINS_7TfTokenENS_7VtValueENS1_11HashFunctorESt8equal_toIS1_ESaISt4pairIKS1_S2_EEEEbRKNS_9TfHashMapIT_T0_T1_T2_T3_EESI_.exit: ; preds = %95, %49, %90, %_ZSteqIKN32pxrInternal_v0_24__pxrReserved__7TfTokenENS0_7VtValueEEbRKSt4pairIT_T0_ES9_.exit.thread.i.i.i, %46, %40, %32, %28, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValueeqERKS0_.exit, %15, %9, %2
   %96 = phi i1 [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValueeqERKS0_.exit ], [ false, %15 ], [ false, %9 ], [ false, %2 ], [ false, %28 ], [ false, %32 ], [ false, %40 ], [ true, %46 ], [ false, %_ZSteqIKN32pxrInternal_v0_24__pxrReserved__7TfTokenENS0_7VtValueEEbRKSt4pairIT_T0_ES9_.exit.thread.i.i.i ], [ false, %90 ], [ %.not18.not.i.not.i.not.i.not.not, %49 ], [ %.not18.not.i.not.i.not.i.not.not, %95 ]
@@ -1021,7 +1021,5 @@ attributes #12 = { nounwind willreturn memory(read) }
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
 !4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.estimated_trip_count"}
-!6 = distinct !{!6, !7, !5}
-!7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7, !5}
+!5 = !{!"llvm.loop.mustprogress"}
+!6 = distinct !{!6, !5}

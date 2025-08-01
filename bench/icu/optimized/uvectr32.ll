@@ -474,7 +474,7 @@ define noundef zeroext i1 @_ZNK6icu_779UVector32eqERKS0_(ptr noundef nonnull rea
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp ne i64 %indvars.iv.next, %wide.trip.count
   %or.cond.not = select i1 %.not8, i1 %exitcond.not, i1 false
-  br i1 %or.cond.not, label %12, label %.loopexit, !llvm.loop !22
+  br i1 %or.cond.not, label %12, label %.loopexit, !llvm.loop !21
 
 .loopexit:                                        ; preds = %12, %.preheader, %2
   %.07 = phi i1 [ false, %2 ], [ true, %.preheader ], [ %.not8, %12 ]
@@ -584,7 +584,6 @@ _ZN6icu_779UVector3214ensureCapacityEiR10UErrorCode.exit: ; preds = %38, %9
   br i1 %40, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %_ZN6icu_779UVector3214ensureCapacityEiR10UErrorCode.exit
-  %invariant.gep = getelementptr i8, ptr %42, i64 -4
   %43 = zext nneg i32 %39 to i64
   %44 = zext nneg i32 %2 to i64
   br label %49
@@ -600,13 +599,13 @@ _ZN6icu_779UVector3214ensureCapacityEiR10UErrorCode.exit: ; preds = %38, %9
 
 49:                                               ; preds = %.lr.ph, %49
   %indvars.iv = phi i64 [ %43, %.lr.ph ], [ %indvars.iv.next, %49 ]
-  %gep = getelementptr i32, ptr %invariant.gep, i64 %indvars.iv
-  %50 = load i32, ptr %gep, align 4, !tbaa !18
-  %51 = getelementptr inbounds nuw i32, ptr %42, i64 %indvars.iv
-  store i32 %50, ptr %51, align 4, !tbaa !18
+  %50 = getelementptr i32, ptr %42, i64 %indvars.iv
+  %51 = getelementptr i8, ptr %50, i64 -4
+  %52 = load i32, ptr %51, align 4, !tbaa !18
+  store i32 %52, ptr %50, align 4, !tbaa !18
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %52 = icmp samesign ugt i64 %indvars.iv.next, %44
-  br i1 %52, label %49, label %._crit_edge, !llvm.loop !23
+  %53 = icmp samesign ugt i64 %indvars.iv.next, %44
+  br i1 %53, label %49, label %._crit_edge, !llvm.loop !22
 
 _ZN6icu_779UVector3214ensureCapacityEiR10UErrorCode.exit.thread: ; preds = %37, %29, %13, %24, %21, %._crit_edge, %6, %4
   ret void
@@ -650,12 +649,12 @@ define noundef signext range(i8 0, 2) i8 @_ZNK6icu_779UVector3211containsAllERKS
 19:                                               ; preds = %15
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %20 = icmp eq i64 %indvars.iv.next.i, %zext
-  br i1 %20, label %_ZNK6icu_779UVector327indexOfEii.exit.thread, label %15, !llvm.loop !24
+  br i1 %20, label %_ZNK6icu_779UVector327indexOfEii.exit.thread, label %15, !llvm.loop !23
 
 _ZNK6icu_779UVector327indexOfEii.exit:            ; preds = %15
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %_ZNK6icu_779UVector327indexOfEii.exit.thread, label %.lr.ph.i, !llvm.loop !25
+  br i1 %exitcond.not, label %_ZNK6icu_779UVector327indexOfEii.exit.thread, label %.lr.ph.i, !llvm.loop !24
 
 _ZNK6icu_779UVector327indexOfEii.exit.thread:     ; preds = %_ZNK6icu_779UVector327indexOfEii.exit, %19, %2, %.lr.ph
   %switch = phi i8 [ 1, %2 ], [ 0, %.lr.ph ], [ 0, %19 ], [ 1, %_ZNK6icu_779UVector327indexOfEii.exit ]
@@ -686,7 +685,7 @@ define noundef range(i32 -2147483648, 2147483647) i32 @_ZNK6icu_779UVector327ind
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
   %exitcond.not = icmp eq i32 %5, %lftr.wideiv
-  br i1 %exitcond.not, label %._crit_edge, label %10, !llvm.loop !24
+  br i1 %exitcond.not, label %._crit_edge, label %10, !llvm.loop !23
 
 ._crit_edge.loopexit.split.loop.exit12:           ; preds = %10
   %15 = trunc nsw i64 %indvars.iv to i32
@@ -735,12 +734,12 @@ define noundef signext range(i8 0, 2) i8 @_ZNK6icu_779UVector3212containsNoneERK
 18:                                               ; preds = %14
   %indvars.iv.next.i.us = add nuw nsw i64 %indvars.iv.i.us, 1
   %19 = icmp eq i64 %indvars.iv.next.i.us, %zext
-  br i1 %19, label %_ZNK6icu_779UVector327indexOfEii.exit.thread.loopexit.us, label %14, !llvm.loop !24
+  br i1 %19, label %_ZNK6icu_779UVector327indexOfEii.exit.thread.loopexit.us, label %14, !llvm.loop !23
 
 _ZNK6icu_779UVector327indexOfEii.exit.thread.loopexit.us: ; preds = %18
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %_ZNK6icu_779UVector327indexOfEii.exit, label %.lr.ph.i.us, !llvm.loop !26
+  br i1 %exitcond.not, label %_ZNK6icu_779UVector327indexOfEii.exit, label %.lr.ph.i.us, !llvm.loop !25
 
 _ZNK6icu_779UVector327indexOfEii.exit:            ; preds = %_ZNK6icu_779UVector327indexOfEii.exit.thread.loopexit.us, %14, %.lr.ph, %2
   %.not12 = phi i8 [ 1, %2 ], [ 1, %.lr.ph ], [ 0, %14 ], [ 1, %_ZNK6icu_779UVector327indexOfEii.exit.thread.loopexit.us ]
@@ -792,7 +791,7 @@ define noundef signext range(i8 0, 2) i8 @_ZN6icu_779UVector329removeAllERKS0_(p
 21:                                               ; preds = %.lr.ph.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %22 = icmp eq i64 %indvars.iv.next.i, %zext
-  br i1 %22, label %_ZNK6icu_779UVector327indexOfEii.exit.thread, label %.lr.ph.i, !llvm.loop !24
+  br i1 %22, label %_ZNK6icu_779UVector327indexOfEii.exit.thread, label %.lr.ph.i, !llvm.loop !23
 
 .preheader.i:                                     ; preds = %.lr.ph.i
   %23 = trunc nsw i64 %indvars.iv.i to i32
@@ -815,7 +814,7 @@ define noundef signext range(i8 0, 2) i8 @_ZN6icu_779UVector329removeAllERKS0_(p
   %32 = add nsw i32 %31, -1
   %33 = trunc nuw i64 %indvars.iv.next.i12 to i32
   %34 = icmp sgt i32 %32, %33
-  br i1 %34, label %27, label %_ZN6icu_779UVector3215removeElementAtEi.exit, !llvm.loop !28
+  br i1 %34, label %27, label %_ZN6icu_779UVector3215removeElementAtEi.exit, !llvm.loop !27
 
 _ZN6icu_779UVector3215removeElementAtEi.exit:     ; preds = %27, %.preheader.i
   %.lcssa.i = phi i32 [ %24, %.preheader.i ], [ %32, %27 ]
@@ -830,7 +829,7 @@ _ZNK6icu_779UVector327indexOfEii.exit.thread:     ; preds = %21, %.lr.ph.split, 
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %37 = sext i32 %35 to i64
   %38 = icmp slt i64 %indvars.iv.next, %37
-  br i1 %38, label %.lr.ph.split, label %._crit_edge, !llvm.loop !29
+  br i1 %38, label %.lr.ph.split, label %._crit_edge, !llvm.loop !28
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
@@ -867,7 +866,7 @@ define void @_ZN6icu_779UVector3215removeElementAtEi(ptr noundef nonnull align 8
   %16 = add nsw i32 %15, -1
   %17 = trunc nuw i64 %indvars.iv.next to i32
   %18 = icmp sgt i32 %16, %17
-  br i1 %18, label %11, label %._crit_edge, !llvm.loop !28
+  br i1 %18, label %11, label %._crit_edge, !llvm.loop !27
 
 19:                                               ; preds = %._crit_edge, %2
   ret void
@@ -918,7 +917,7 @@ define noundef signext range(i8 0, 2) i8 @_ZN6icu_779UVector329retainAllERKS0_(p
 21:                                               ; preds = %.lr.ph.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %22 = icmp eq i64 %indvars.iv.next.i, %zext
-  br i1 %22, label %.preheader.i, label %.lr.ph.i, !llvm.loop !24
+  br i1 %22, label %.preheader.i, label %.lr.ph.i, !llvm.loop !23
 
 .preheader.i:                                     ; preds = %21, %12
   %23 = add nsw i32 %13, -1
@@ -942,13 +941,13 @@ define noundef signext range(i8 0, 2) i8 @_ZN6icu_779UVector329retainAllERKS0_(p
   %30 = add nsw i32 %29, -1
   %31 = trunc nuw i64 %indvars.iv.next.i10 to i32
   %32 = icmp sgt i32 %30, %31
-  br i1 %32, label %.lr.ph.i8, label %._crit_edge.i, !llvm.loop !28
+  br i1 %32, label %.lr.ph.i8, label %._crit_edge.i, !llvm.loop !27
 
 _ZN6icu_779UVector3215removeElementAtEi.exit:     ; preds = %.lr.ph.i, %._crit_edge.i
   %33 = phi i32 [ %.lcssa.i, %._crit_edge.i ], [ %13, %.lr.ph.i ]
   %.1 = phi i8 [ 1, %._crit_edge.i ], [ %.014, %.lr.ph.i ]
   %34 = icmp sgt i64 %indvars.iv, 1
-  br i1 %34, label %12, label %._crit_edge, !llvm.loop !31
+  br i1 %34, label %12, label %._crit_edge, !llvm.loop !30
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
@@ -982,7 +981,7 @@ define noundef signext range(i8 0, 2) i8 @_ZNK6icu_779UVector326equalsERKS0_(ptr
 12:                                               ; preds = %13
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %13, !llvm.loop !32
+  br i1 %exitcond.not, label %.loopexit, label %13, !llvm.loop !31
 
 13:                                               ; preds = %.lr.ph, %12
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %12 ]
@@ -1143,7 +1142,7 @@ define void @_ZN6icu_779UVector3212sortedInsertEiR10UErrorCode(ptr noundef nonnu
   %.118 = select i1 %14, i32 %10, i32 %.01723
   %.1 = select i1 %14, i32 %.01624, i32 %15
   %.not = icmp eq i32 %.1, %.118
-  br i1 %.not, label %._crit_edge, label %8, !llvm.loop !33
+  br i1 %.not, label %._crit_edge, label %8, !llvm.loop !32
 
 ._crit_edge:                                      ; preds = %8, %3
   %.016.lcssa = phi i32 [ 0, %3 ], [ %.118, %8 ]
@@ -1254,7 +1253,7 @@ _ZN6icu_779UVector3214ensureCapacityEiR10UErrorCode.exit.._crit_edge27_crit_edge
   store i32 %61, ptr %59, align 4, !tbaa !18
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %62 = icmp sgt i64 %indvars.iv.next, %54
-  br i1 %62, label %58, label %._crit_edge27, !llvm.loop !34
+  br i1 %62, label %58, label %._crit_edge27, !llvm.loop !33
 
 _ZN6icu_779UVector3214ensureCapacityEiR10UErrorCode.exit.thread: ; preds = %47, %39, %20, %34, %31, %24, %._crit_edge27
   ret void
@@ -1310,19 +1309,18 @@ attributes #18 = { allocsize(1) }
 !16 = !{!17, !17, i64 0}
 !17 = !{!"_ZTS10UErrorCode", !10, i64 0}
 !18 = !{!9, !9, i64 0}
-!19 = distinct !{!19, !20, !21}
+!19 = distinct !{!19, !20}
 !20 = !{!"llvm.loop.mustprogress"}
-!21 = !{!"llvm.loop.estimated_trip_count"}
-!22 = distinct !{!22, !20, !21}
-!23 = distinct !{!23, !20, !21}
-!24 = distinct !{!24, !20, !21}
-!25 = distinct !{!25, !20, !21}
-!26 = distinct !{!26, !20, !21, !27}
-!27 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!28 = distinct !{!28, !20, !21}
-!29 = distinct !{!29, !20, !21, !30}
-!30 = !{!"llvm.loop.unswitch.partial.disable"}
-!31 = distinct !{!31, !20, !21}
-!32 = distinct !{!32, !20, !21}
-!33 = distinct !{!33, !20, !21}
-!34 = distinct !{!34, !20, !21}
+!21 = distinct !{!21, !20}
+!22 = distinct !{!22, !20}
+!23 = distinct !{!23, !20}
+!24 = distinct !{!24, !20}
+!25 = distinct !{!25, !20, !26}
+!26 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!27 = distinct !{!27, !20}
+!28 = distinct !{!28, !20, !29}
+!29 = !{!"llvm.loop.unswitch.partial.disable"}
+!30 = distinct !{!30, !20}
+!31 = distinct !{!31, !20}
+!32 = distinct !{!32, !20}
+!33 = distinct !{!33, !20}

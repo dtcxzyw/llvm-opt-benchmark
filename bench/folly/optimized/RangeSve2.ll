@@ -60,7 +60,7 @@ define noundef i64 @_ZN5folly6detail24qfind_first_byte_of_sve2ENS0_15StringPiece
 ._crit_edge.i.i.i:                                ; preds = %25
   %30 = getelementptr inbounds nuw i8, ptr %.01427.i.i.i, i64 1
   %.not.i.i.i = icmp eq ptr %30, %1
-  br i1 %.not.i.i.i, label %_ZN5folly6detail26qfind_first_byte_of_nosimdENS0_15StringPieceLiteES1_.exit, label %.preheader.i.i.i, !llvm.loop !14
+  br i1 %.not.i.i.i, label %_ZN5folly6detail26qfind_first_byte_of_nosimdENS0_15StringPieceLiteES1_.exit, label %.preheader.i.i.i, !llvm.loop !13
 
 _ZSt13find_first_ofIPKcS1_ZN5folly6detail23qfind_first_byte_of_stdENS3_15StringPieceLiteES4_EUlccE_ET_S6_S6_T0_S7_T1_.exit.i.i: ; preds = %27
   %31 = icmp eq ptr %.01427.i.i.i, %1
@@ -95,7 +95,6 @@ attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "t
 !8 = !{!9, !9, i64 0}
 !9 = !{!"omnipotent char", !10, i64 0}
 !10 = !{!"Simple C++ TBAA"}
-!11 = distinct !{!11, !12, !13}
+!11 = distinct !{!11, !12}
 !12 = !{!"llvm.loop.mustprogress"}
-!13 = !{!"llvm.loop.estimated_trip_count"}
-!14 = distinct !{!14, !12, !13}
+!13 = distinct !{!13, !12}

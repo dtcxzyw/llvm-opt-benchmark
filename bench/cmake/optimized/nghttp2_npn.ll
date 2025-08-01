@@ -56,7 +56,7 @@ select_next_protocol.exit14.thread.sink.split:    ; preds = %.lr.ph.i, %.lr.ph.i
   %23 = add i32 %.019.i10.lcssa.sink, 1
   %24 = zext i32 %23 to i64
   %25 = getelementptr inbounds nuw i8, ptr %2, i64 %24
-  store ptr %25, ptr %0, align 8, !tbaa !10
+  store ptr %25, ptr %0, align 8, !tbaa !9
   %26 = load i8, ptr %.lcssa.sink, align 1, !tbaa !4
   store i8 %26, ptr %1, align 1, !tbaa !4
   br label %select_next_protocol.exit14.thread
@@ -81,9 +81,8 @@ attributes #1 = { nocallback nofree nounwind willreturn memory(argmem: read) }
 !4 = !{!5, !5, i64 0}
 !5 = !{!"omnipotent char", !6, i64 0}
 !6 = !{!"Simple C/C++ TBAA"}
-!7 = distinct !{!7, !8, !9}
+!7 = distinct !{!7, !8}
 !8 = !{!"llvm.loop.mustprogress"}
-!9 = !{!"llvm.loop.estimated_trip_count"}
-!10 = !{!11, !11, i64 0}
-!11 = !{!"p1 omnipotent char", !12, i64 0}
-!12 = !{!"any pointer", !5, i64 0}
+!9 = !{!10, !10, i64 0}
+!10 = !{!"p1 omnipotent char", !11, i64 0}
+!11 = !{!"any pointer", !5, i64 0}

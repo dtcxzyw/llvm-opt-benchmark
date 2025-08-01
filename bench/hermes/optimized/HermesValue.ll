@@ -953,6 +953,5 @@ attributes #8 = { nounwind willreturn memory(read) }
 !13 = !{!14}
 !14 = distinct !{!14, !15, !"_ZN4llvh10format_hexEmjb: %agg.result"}
 !15 = distinct !{!15, !"_ZN4llvh10format_hexEmjb"}
-!16 = distinct !{!16, !17, !18}
+!16 = distinct !{!16, !17}
 !17 = !{!"llvm.loop.mustprogress"}
-!18 = !{!"llvm.loop.estimated_trip_count"}

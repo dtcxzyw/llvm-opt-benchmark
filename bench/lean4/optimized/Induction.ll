@@ -26525,7 +26525,7 @@ lean_dec.exit39:                                  ; preds = %58, %57, %55, %lean
 
 lean_dec.exit40.backedge:                         ; preds = %61, %65, %67, %68, %24, %30, %32, %33, %lean_alloc_ctor.exit, %34
   %.034.be = phi ptr [ %.0, %34 ], [ %70, %lean_alloc_ctor.exit ], [ %.034, %33 ], [ %.034, %32 ], [ %.034, %30 ], [ %.034, %24 ], [ %.034, %68 ], [ %.034, %67 ], [ %.034, %65 ], [ %.034, %61 ]
-  br label %lean_dec.exit40, !llvm.loop !19
+  br label %lean_dec.exit40
 
 62:                                               ; preds = %61
   %63 = load i32, ptr %18, align 4, !tbaa !4
@@ -28483,7 +28483,7 @@ lean_dec.exit291:                                 ; preds = %185, %184, %182, %l
   br label %lean_array_get.exit441
 
 lean_array_uget.exit.i433:                        ; preds = %lean_dec.exit291
-  %198 = load i8, ptr @l_Lean_Elab_instInhabitedPartialFixpointType, align 1, !tbaa !21
+  %198 = load i8, ptr @l_Lean_Elab_instInhabitedPartialFixpointType, align 1, !tbaa !19
   %199 = zext i8 %198 to i64
   %200 = shl nuw nsw i64 %199, 1
   %201 = or disjoint i64 %200, 1
@@ -79788,7 +79788,7 @@ lean_dec.exit39:                                  ; preds = %58, %57, %55, %lean
 
 lean_dec.exit40.backedge:                         ; preds = %61, %65, %67, %68, %24, %30, %32, %33, %lean_alloc_ctor.exit, %34
   %.034.be = phi ptr [ %.0, %34 ], [ %70, %lean_alloc_ctor.exit ], [ %.034, %33 ], [ %.034, %32 ], [ %.034, %30 ], [ %.034, %24 ], [ %.034, %68 ], [ %.034, %67 ], [ %.034, %65 ], [ %.034, %61 ]
-  br label %lean_dec.exit40, !llvm.loop !22
+  br label %lean_dec.exit40
 
 62:                                               ; preds = %61
   %63 = load i32, ptr %18, align 4, !tbaa !4
@@ -96998,27 +96998,27 @@ lean_alloc_ctor.exit:                             ; preds = %0
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 13
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %6, i8 0, i64 5, i1 false)
-  store i8 1, ptr %7, align 1, !tbaa !21
+  store i8 1, ptr %7, align 1, !tbaa !19
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 14
-  store i8 1, ptr %8, align 1, !tbaa !21
+  store i8 1, ptr %8, align 1, !tbaa !19
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 15
-  store i8 0, ptr %9, align 1, !tbaa !21
+  store i8 0, ptr %9, align 1, !tbaa !19
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  store i8 1, ptr %10, align 1, !tbaa !21
+  store i8 1, ptr %10, align 1, !tbaa !19
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 17
-  store i8 1, ptr %11, align 1, !tbaa !21
+  store i8 1, ptr %11, align 1, !tbaa !19
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 18
-  store i8 0, ptr %12, align 1, !tbaa !21
+  store i8 0, ptr %12, align 1, !tbaa !19
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 19
-  store i8 1, ptr %13, align 1, !tbaa !21
+  store i8 1, ptr %13, align 1, !tbaa !19
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 20
-  store i8 1, ptr %14, align 1, !tbaa !21
+  store i8 1, ptr %14, align 1, !tbaa !19
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 21
-  store i8 1, ptr %15, align 1, !tbaa !21
+  store i8 1, ptr %15, align 1, !tbaa !19
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 22
-  store i8 2, ptr %16, align 1, !tbaa !21
+  store i8 2, ptr %16, align 1, !tbaa !19
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 23
-  store i8 1, ptr %17, align 1, !tbaa !21
+  store i8 1, ptr %17, align 1, !tbaa !19
   ret ptr %1
 }
 
@@ -97567,7 +97567,4 @@ attributes #7 = { noreturn nounwind }
 !16 = !{!"short", !7, i64 0}
 !17 = !{!"branch_weights", !"expected", i32 2146812770, i32 670878}
 !18 = !{!"branch_weights", !"expected", i32 1430940, i32 2146052708}
-!19 = distinct !{!19, !20}
-!20 = !{!"llvm.loop.estimated_trip_count"}
-!21 = !{!7, !7, i64 0}
-!22 = distinct !{!22, !20}
+!19 = !{!7, !7, i64 0}

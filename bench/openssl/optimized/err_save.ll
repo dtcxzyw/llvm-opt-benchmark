@@ -148,21 +148,21 @@ err_clear.exit:                                   ; preds = %14, %19
   store ptr null, ptr %28, align 8, !tbaa !7
   %30 = add nuw nsw i64 %.0108, 1
   %exitcond111.not = icmp eq i64 %30, 16
-  br i1 %exitcond111.not, label %31, label %14, !llvm.loop !15
+  br i1 %exitcond111.not, label %31, label %14, !llvm.loop !14
 
 31:                                               ; preds = %err_clear.exit
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 900
-  store i32 0, ptr %32, align 4, !tbaa !16
+  store i32 0, ptr %32, align 4, !tbaa !15
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 896
-  store i32 0, ptr %33, align 8, !tbaa !18
+  store i32 0, ptr %33, align 8, !tbaa !17
   br label %.loopexit
 
 34:                                               ; preds = %3
   %35 = getelementptr inbounds nuw i8, ptr %4, i64 896
-  %36 = load i32, ptr %35, align 8, !tbaa !18
+  %36 = load i32, ptr %35, align 8, !tbaa !17
   %37 = getelementptr inbounds nuw i8, ptr %4, i64 64
   %38 = getelementptr inbounds nuw i8, ptr %4, i64 900
-  %39 = load i32, ptr %38, align 4, !tbaa !16
+  %39 = load i32, ptr %38, align 4, !tbaa !15
   %.not94 = icmp eq i32 %39, %36
   br i1 %.not94, label %.thread, label %.lr.ph
 
@@ -181,7 +181,7 @@ err_clear.exit:                                   ; preds = %14, %19
   %47 = select i1 %45, i32 %46, i32 15
   %48 = add i64 %.08595, 1
   %.not = icmp eq i32 %39, %47
-  br i1 %.not, label %.critedge, label %.lr.ph, !llvm.loop !19
+  br i1 %.not, label %.critedge, label %.lr.ph, !llvm.loop !18
 
 .critedge:                                        ; preds = %.lr.ph, %44
   %.085.lcssa = phi i64 [ %.08595, %.lr.ph ], [ %48, %44 ]
@@ -283,23 +283,23 @@ err_clear.exit91:                                 ; preds = %65, %72
   store ptr null, ptr %99, align 8, !tbaa !7
   %101 = add nuw i64 %.1102, 1
   %exitcond.not = icmp eq i64 %101, %.085.lcssa
-  br i1 %exitcond.not, label %104, label %65, !llvm.loop !20
+  br i1 %exitcond.not, label %104, label %65, !llvm.loop !19
 
 .thread:                                          ; preds = %.critedge, %34
   %102 = getelementptr inbounds nuw i8, ptr %0, i64 900
-  store i32 0, ptr %102, align 4, !tbaa !16
+  store i32 0, ptr %102, align 4, !tbaa !15
   %103 = getelementptr inbounds nuw i8, ptr %0, i64 896
-  store i32 0, ptr %103, align 8, !tbaa !18
+  store i32 0, ptr %103, align 8, !tbaa !17
   br label %.lr.ph107
 
 104:                                              ; preds = %err_clear.exit91
-  store i32 %.084.lcssa, ptr %35, align 8, !tbaa !18
+  store i32 %.084.lcssa, ptr %35, align 8, !tbaa !17
   %105 = trunc i64 %.085.lcssa to i32
   %106 = add i32 %105, -1
   %107 = getelementptr inbounds nuw i8, ptr %0, i64 900
-  store i32 15, ptr %107, align 4, !tbaa !16
+  store i32 15, ptr %107, align 4, !tbaa !15
   %108 = getelementptr inbounds nuw i8, ptr %0, i64 896
-  store i32 %106, ptr %108, align 8, !tbaa !18
+  store i32 %106, ptr %108, align 8, !tbaa !17
   %109 = icmp ult i64 %.085.lcssa, 16
   br i1 %109, label %.lr.ph107, label %.loopexit
 
@@ -352,7 +352,7 @@ err_clear.exit93:                                 ; preds = %118, %123
   store ptr null, ptr %132, align 8, !tbaa !7
   %134 = add i64 %.2105, 1
   %exitcond110.not = icmp eq i64 %134, 16
-  br i1 %exitcond110.not, label %.loopexit, label %118, !llvm.loop !21
+  br i1 %exitcond110.not, label %.loopexit, label %118, !llvm.loop !20
 
 .loopexit:                                        ; preds = %err_clear.exit93, %104, %1, %31
   ret void
@@ -365,9 +365,9 @@ define void @OSSL_ERR_STATE_restore(ptr noundef readonly captures(address_is_nul
 
 3:                                                ; preds = %1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 900
-  %5 = load i32, ptr %4, align 4, !tbaa !16
+  %5 = load i32, ptr %4, align 4, !tbaa !15
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 896
-  %7 = load i32, ptr %6, align 8, !tbaa !18
+  %7 = load i32, ptr %6, align 8, !tbaa !17
   %8 = icmp eq i32 %5, %7
   br i1 %8, label %.loopexit, label %9
 
@@ -377,8 +377,8 @@ define void @OSSL_ERR_STATE_restore(ptr noundef readonly captures(address_is_nul
   br i1 %11, label %.loopexit, label %12
 
 12:                                               ; preds = %9
-  %13 = load i32, ptr %4, align 4, !tbaa !16
-  %14 = load i32, ptr %6, align 8, !tbaa !18
+  %13 = load i32, ptr %4, align 4, !tbaa !15
+  %14 = load i32, ptr %6, align 8, !tbaa !17
   %.not59 = icmp eq i32 %13, %14
   br i1 %.not59, label %.loopexit, label %.lr.ph
 
@@ -411,14 +411,14 @@ define void @OSSL_ERR_STATE_restore(ptr noundef readonly captures(address_is_nul
   %37 = load i32, ptr %36, align 4, !tbaa !3
   %38 = and i32 %37, 2
   %.not53 = icmp eq i32 %38, 0
-  br i1 %.not53, label %39, label %err_clear_data.exit, !llvm.loop !22
+  br i1 %.not53, label %39, label %err_clear_data.exit, !llvm.loop !21
 
 39:                                               ; preds = %33
-  %40 = load i32, ptr %16, align 8, !tbaa !18
+  %40 = load i32, ptr %16, align 8, !tbaa !17
   %41 = add nsw i32 %40, 1
   %42 = srem i32 %41, 16
-  store i32 %42, ptr %16, align 8, !tbaa !18
-  %43 = load i32, ptr %17, align 4, !tbaa !16
+  store i32 %42, ptr %16, align 8, !tbaa !17
+  %43 = load i32, ptr %17, align 4, !tbaa !15
   %44 = icmp eq i32 %42, %43
   br i1 %44, label %45, label %err_get_slot.exit
 
@@ -427,7 +427,7 @@ define void @OSSL_ERR_STATE_restore(ptr noundef readonly captures(address_is_nul
   %.lhs.trunc.i = add nsw i8 %46, 1
   %47 = srem i8 %.lhs.trunc.i, 16
   %.sext.i = sext i8 %47 to i32
-  store i32 %.sext.i, ptr %17, align 4, !tbaa !16
+  store i32 %.sext.i, ptr %17, align 4, !tbaa !15
   br label %err_get_slot.exit
 
 err_get_slot.exit:                                ; preds = %39, %45
@@ -445,7 +445,7 @@ err_get_slot.exit:                                ; preds = %39, %45
   br i1 %.not23.i.i, label %err_clear.exit, label %55
 
 55:                                               ; preds = %53
-  store i8 0, ptr %54, align 1, !tbaa !23
+  store i8 0, ptr %54, align 1, !tbaa !22
   br label %.sink.split.i.i
 
 56:                                               ; preds = %err_get_slot.exit
@@ -493,7 +493,7 @@ err_clear.exit:                                   ; preds = %53, %.sink.split.i.
   br i1 %76, label %80, label %77
 
 77:                                               ; preds = %err_clear.exit
-  %78 = load i8, ptr %70, align 1, !tbaa !23
+  %78 = load i8, ptr %70, align 1, !tbaa !22
   %79 = icmp eq i8 %78, 0
   br i1 %79, label %80, label %81
 
@@ -521,7 +521,7 @@ err_clear.exit:                                   ; preds = %53, %.sink.split.i.
   br i1 %89, label %93, label %90
 
 90:                                               ; preds = %87
-  %91 = load i8, ptr %74, align 1, !tbaa !23
+  %91 = load i8, ptr %74, align 1, !tbaa !22
   %92 = icmp eq i8 %91, 0
   br i1 %92, label %93, label %94
 
@@ -595,7 +595,7 @@ err_set_data.exit:                                ; preds = %107, %114
   br i1 %.not23.i, label %err_clear_data.exit, label %125
 
 125:                                              ; preds = %123
-  store i8 0, ptr %124, align 1, !tbaa !23
+  store i8 0, ptr %124, align 1, !tbaa !22
   br label %err_clear_data.exit.sink.split
 
 126:                                              ; preds = %119
@@ -610,10 +610,10 @@ err_clear_data.exit.sink.split:                   ; preds = %125, %126, %err_set
   br label %err_clear_data.exit
 
 err_clear_data.exit:                              ; preds = %err_clear_data.exit.sink.split, %123, %105, %33
-  %128 = load i32, ptr %6, align 8, !tbaa !18
+  %128 = load i32, ptr %6, align 8, !tbaa !17
   %129 = sext i32 %128 to i64
   %.not = icmp eq i64 %35, %129
-  br i1 %.not, label %.loopexit, label %33, !llvm.loop !24
+  br i1 %.not, label %.loopexit, label %33
 
 .loopexit:                                        ; preds = %err_clear_data.exit, %12, %9, %1, %3
   ret void
@@ -652,16 +652,14 @@ attributes #7 = { nounwind willreturn memory(read) }
 !9 = !{!"any pointer", !5, i64 0}
 !10 = !{!11, !11, i64 0}
 !11 = !{!"long", !5, i64 0}
-!12 = distinct !{!12, !13, !14}
+!12 = distinct !{!12, !13}
 !13 = !{!"llvm.loop.mustprogress"}
-!14 = !{!"llvm.loop.estimated_trip_count"}
-!15 = distinct !{!15, !13, !14}
-!16 = !{!17, !4, i64 900}
-!17 = !{!"err_state_st", !5, i64 0, !5, i64 64, !5, i64 128, !5, i64 256, !5, i64 384, !5, i64 512, !5, i64 576, !5, i64 704, !5, i64 768, !4, i64 896, !4, i64 900}
-!18 = !{!17, !4, i64 896}
-!19 = distinct !{!19, !13, !14}
-!20 = distinct !{!20, !13, !14}
-!21 = distinct !{!21, !13, !14}
-!22 = distinct !{!22, !13}
-!23 = !{!5, !5, i64 0}
-!24 = distinct !{!24, !14}
+!14 = distinct !{!14, !13}
+!15 = !{!16, !4, i64 900}
+!16 = !{!"err_state_st", !5, i64 0, !5, i64 64, !5, i64 128, !5, i64 256, !5, i64 384, !5, i64 512, !5, i64 576, !5, i64 704, !5, i64 768, !4, i64 896, !4, i64 900}
+!17 = !{!16, !4, i64 896}
+!18 = distinct !{!18, !13}
+!19 = distinct !{!19, !13}
+!20 = distinct !{!20, !13}
+!21 = distinct !{!21, !13}
+!22 = !{!5, !5, i64 0}

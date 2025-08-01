@@ -1346,7 +1346,7 @@ define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7717GregorianCalendar11bounds
 define noundef double @_ZN6icu_7717GregorianCalendar11getEpochDayER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(222) %0, ptr noundef nonnull align 4 dereferenceable(4) %1) unnamed_addr #1 align 2 {
   tail call void @_ZN6icu_778Calendar8completeER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr noundef nonnull align 4 dereferenceable(4) %1)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  %4 = load double, ptr %3, align 8, !tbaa !37
+  %4 = load double, ptr %3, align 8, !tbaa !36
   %5 = fdiv double %4, 1.000000e+03
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 68
   %7 = load i32, ptr %6, align 4, !tbaa !32
@@ -1489,7 +1489,7 @@ define void @_ZN6icu_7717GregorianCalendar4rollE19UCalendarDateFieldsiR10UErrorC
 
 26:                                               ; preds = %15
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  %28 = load double, ptr %27, align 8, !tbaa !37
+  %28 = load double, ptr %27, align 8, !tbaa !36
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %30 = load i32, ptr %29, align 4, !tbaa !32
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 192
@@ -1647,7 +1647,7 @@ define void @_ZN6icu_7717GregorianCalendar4rollE19UCalendarDateFieldsiR10UErrorC
   %119 = sitofp i32 %.0103 to double
   %120 = fmul double %119, 8.640000e+07
   %121 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  %122 = load double, ptr %121, align 8, !tbaa !37
+  %122 = load double, ptr %121, align 8, !tbaa !36
   %123 = fsub double %122, %.0108
   %124 = sitofp i32 %2 to double
   %125 = tail call double @llvm.fmuladd.f64(double %124, double 8.640000e+07, double %123)
@@ -1813,7 +1813,7 @@ define noundef i32 @_ZNK6icu_7717GregorianCalendar16getActualMaximumE19UCalendar
   %.132 = phi i32 [ %18, %24 ], [ %.03140, %21 ]
   %26 = add nuw nsw i32 %.134, 1
   %27 = icmp samesign ult i32 %26, %.132
-  br i1 %27, label %16, label %28, !llvm.loop !38
+  br i1 %27, label %16, label %28, !llvm.loop !37
 
 28:                                               ; preds = %25
   %29 = load ptr, ptr %11, align 8, !tbaa !3
@@ -1980,7 +1980,7 @@ define noundef double @_ZNK6icu_7717GregorianCalendar19defaultCenturyStartEv(ptr
   br label %_ZN6icu_7713umtx_initOnceERNS_9UInitOnceEPFvvE.exit
 
 _ZN6icu_7713umtx_initOnceERNS_9UInitOnceEPFvvE.exit: ; preds = %1, %4, %6
-  %7 = load double, ptr @_ZN6icu_7712_GLOBAL__N_126gSystemDefaultCenturyStartE, align 8, !tbaa !39
+  %7 = load double, ptr @_ZN6icu_7712_GLOBAL__N_126gSystemDefaultCenturyStartE, align 8, !tbaa !38
   ret double %7
 }
 
@@ -2028,7 +2028,7 @@ _ZN6icu_778Calendar7setTimeEdR10UErrorCode.exit:  ; preds = %11
           to label %_ZNK6icu_778Calendar7getTimeER10UErrorCode.exit unwind label %17
 
 _ZNK6icu_778Calendar7getTimeER10UErrorCode.exit:  ; preds = %12
-  store double %13, ptr @_ZN6icu_7712_GLOBAL__N_126gSystemDefaultCenturyStartE, align 8, !tbaa !39
+  store double %13, ptr @_ZN6icu_7712_GLOBAL__N_126gSystemDefaultCenturyStartE, align 8, !tbaa !38
   %14 = invoke noundef i32 @_ZNK6icu_778Calendar3getE19UCalendarDateFieldsR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(192) %2, i32 noundef 1, ptr noundef nonnull align 4 dereferenceable(4) %1)
           to label %15 unwind label %17
 
@@ -2222,9 +2222,8 @@ attributes #9 = { nounwind }
 !31 = !{!18, !18, i64 0}
 !32 = !{!17, !17, i64 0}
 !33 = !{!10, !10, i64 0}
-!34 = distinct !{!34, !35, !36}
+!34 = distinct !{!34, !35}
 !35 = !{!"llvm.loop.mustprogress"}
-!36 = !{!"llvm.loop.estimated_trip_count"}
-!37 = !{!8, !11, i64 136}
-!38 = distinct !{!38, !35, !36}
-!39 = !{!11, !11, i64 0}
+!36 = !{!8, !11, i64 136}
+!37 = distinct !{!37, !35}
+!38 = !{!11, !11, i64 0}

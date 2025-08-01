@@ -317,7 +317,7 @@ define dso_local noundef i32 @FuzzerTestOneInput(ptr noundef %0, i64 noundef %1)
   %.not87 = icmp eq i32 %114, 1
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #5
   call void @llvm.lifetime.end.p0(i64 16384, ptr nonnull %4) #5
-  br i1 %.not87, label %.preheader, label %.loopexit, !llvm.loop !14
+  br i1 %.not87, label %.preheader, label %.loopexit
 
 .loopexit:                                        ; preds = %.preheader, %112
   %115 = call i32 @SSL_do_handshake(ptr noundef %98) #5
@@ -331,7 +331,7 @@ define dso_local noundef i32 @FuzzerTestOneInput(ptr noundef %0, i64 noundef %1)
 118:                                              ; preds = %118, %117
   %119 = call i32 @SSL_read(ptr noundef %98, ptr noundef nonnull %6, i32 noundef 1024) #5
   %120 = icmp slt i32 %119, 1
-  br i1 %120, label %121, label %118, !llvm.loop !16
+  br i1 %120, label %121, label %118
 
 121:                                              ; preds = %118
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %6) #5
@@ -439,6 +439,3 @@ attributes #6 = { noreturn nounwind }
 !11 = !{!12, !12, i64 0}
 !12 = !{!"p1 _ZTS8_IO_FILE", !10, i64 0}
 !13 = !{!6, !6, i64 0}
-!14 = distinct !{!14, !15}
-!15 = !{!"llvm.loop.estimated_trip_count"}
-!16 = distinct !{!16, !15}

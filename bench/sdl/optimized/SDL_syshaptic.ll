@@ -126,7 +126,7 @@ define internal fastcc void @MaybeAddDevice(ptr noundef nonnull %0) unnamed_addr
   %12 = getelementptr inbounds nuw i8, ptr %.034, i64 32
   %.0 = load ptr, ptr %12, align 8
   %.not27 = icmp eq ptr %.0, null
-  br i1 %.not27, label %._crit_edge, label %13, !llvm.loop !6
+  br i1 %.not27, label %._crit_edge, label %13, !llvm.loop !5
 
 13:                                               ; preds = %.lr.ph, %11
   %.034 = phi ptr [ %.032, %.lr.ph ], [ %.0, %11 ]
@@ -234,7 +234,7 @@ define internal void @haptic_udev_callback(i32 noundef %0, i32 noundef %1, ptr n
   %13 = load ptr, ptr %12, align 8
   %14 = tail call i32 @SDL_strcmp_REAL(ptr noundef nonnull %2, ptr noundef %13) #13
   %15 = icmp eq i32 %14, 0
-  br i1 %15, label %16, label %.lr.ph, !llvm.loop !7
+  br i1 %15, label %16, label %.lr.ph, !llvm.loop !6
 
 16:                                               ; preds = %.lr.ph.i
   %17 = getelementptr inbounds nuw i8, ptr %.017.i, i64 32
@@ -275,7 +275,7 @@ define internal void @haptic_udev_callback(i32 noundef %0, i32 noundef %1, ptr n
   %32 = getelementptr inbounds nuw i8, ptr %.01725.i9, i64 32
   %.017.i = load ptr, ptr %32, align 8
   %.not.i = icmp eq ptr %.017.i, null
-  br i1 %.not.i, label %MaybeRemoveDevice.exit, label %.lr.ph.i, !llvm.loop !7
+  br i1 %.not.i, label %MaybeRemoveDevice.exit, label %.lr.ph.i, !llvm.loop !6
 
 MaybeRemoveDevice.exit:                           ; preds = %.lr.ph, %28, %7, %5, %3, %6
   ret void
@@ -314,7 +314,7 @@ define hidden i32 @SDL_SYS_HapticInstanceID(i32 noundef %0) local_unnamed_addr #
   %5 = getelementptr inbounds nuw i8, ptr %.011.i, i64 32
   %.0.i = load ptr, ptr %5, align 8
   %6 = icmp samesign ugt i32 %.0610.i, 1
-  br i1 %6, label %.lr.ph.i, label %HapticByDevIndex.exit, !llvm.loop !8
+  br i1 %6, label %.lr.ph.i, label %HapticByDevIndex.exit, !llvm.loop !7
 
 HapticByDevIndex.exit:                            ; preds = %.lr.ph.i, %.preheader.i
   %.07.i = phi ptr [ %.09.i, %.preheader.i ], [ %.0.i, %.lr.ph.i ]
@@ -350,7 +350,7 @@ define hidden ptr @SDL_SYS_HapticName(i32 noundef %0) local_unnamed_addr #0 {
   %5 = getelementptr inbounds nuw i8, ptr %.011.i, i64 32
   %.0.i = load ptr, ptr %5, align 8
   %6 = icmp samesign ugt i32 %.0610.i, 1
-  br i1 %6, label %.lr.ph.i, label %HapticByDevIndex.exit, !llvm.loop !8
+  br i1 %6, label %.lr.ph.i, label %HapticByDevIndex.exit, !llvm.loop !7
 
 HapticByDevIndex.exit:                            ; preds = %.lr.ph.i, %.preheader.i
   %.07.i = phi ptr [ %.09.i, %.preheader.i ], [ %.0.i, %.lr.ph.i ]
@@ -395,7 +395,7 @@ define hidden zeroext i1 @SDL_SYS_HapticOpen(ptr noundef %0) local_unnamed_addr 
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %1
   %.08.i.in = phi ptr [ %5, %.lr.ph.i ], [ @SDL_hapticlist, %1 ]
-  %.08.i = load ptr, ptr %.08.i.in, align 8, !nonnull !9, !noundef !9
+  %.08.i = load ptr, ptr %.08.i.in, align 8, !nonnull !8, !noundef !8
   %3 = load i32, ptr %.08.i, align 8
   %4 = icmp eq i32 %2, %3
   %5 = getelementptr inbounds nuw i8, ptr %.08.i, i64 32
@@ -543,7 +543,7 @@ define hidden i32 @SDL_SYS_HapticMouse() local_unnamed_addr #0 {
   %20 = getelementptr inbounds nuw i8, ptr %.021, i64 32
   %.0 = load ptr, ptr %20, align 8
   %.not = icmp eq ptr %.0, null
-  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !10
+  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !9
 
 .loopexit:                                        ; preds = %18, %14, %0, %6
   %.011 = phi i32 [ %13, %6 ], [ -1, %0 ], [ -1, %18 ], [ %.01020, %14 ]
@@ -698,7 +698,7 @@ define hidden zeroext i1 @SDL_SYS_HapticOpenFromJoystick(ptr noundef %0, ptr nou
   %17 = getelementptr inbounds nuw i8, ptr %.01826, i64 32
   %.018 = load ptr, ptr %17, align 8
   %.not21 = icmp eq ptr %.018, null
-  br i1 %.not21, label %.loopexit, label %6, !llvm.loop !11
+  br i1 %.not21, label %.loopexit, label %6, !llvm.loop !10
 
 .loopexit:                                        ; preds = %16, %.preheader, %14
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 328
@@ -797,7 +797,7 @@ define hidden void @SDL_SYS_HapticQuit() local_unnamed_addr #0 {
   tail call void @SDL_free_REAL(ptr noundef %5) #13
   tail call void @SDL_free_REAL(ptr noundef nonnull %.06) #13
   %.not = icmp eq ptr %3, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !12
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %.lr.ph, %0
   tail call void @SDL_UDEV_DelCallback(ptr noundef nonnull @haptic_udev_callback) #13
@@ -1519,7 +1519,7 @@ SDL_SYS_HapticStopEffect.exit:                    ; preds = %16, %23
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %30 = sext i32 %29 to i64
   %31 = icmp slt i64 %indvars.iv.next, %30
-  br i1 %31, label %11, label %._crit_edge, !llvm.loop !13
+  br i1 %31, label %11, label %._crit_edge, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %28, %1
   ret i1 true
@@ -1652,14 +1652,13 @@ attributes #15 = { nounwind willreturn memory(none) }
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = distinct !{!3, !4, !5}
+!3 = distinct !{!3, !4}
 !4 = !{!"llvm.loop.mustprogress"}
-!5 = !{!"llvm.loop.estimated_trip_count"}
-!6 = distinct !{!6, !4, !5}
-!7 = distinct !{!7, !4, !5}
-!8 = distinct !{!8, !4, !5}
-!9 = !{}
-!10 = distinct !{!10, !4, !5}
-!11 = distinct !{!11, !4, !5}
-!12 = distinct !{!12, !4, !5}
-!13 = distinct !{!13, !4, !5}
+!5 = distinct !{!5, !4}
+!6 = distinct !{!6, !4}
+!7 = distinct !{!7, !4}
+!8 = !{}
+!9 = distinct !{!9, !4}
+!10 = distinct !{!10, !4}
+!11 = distinct !{!11, !4}
+!12 = distinct !{!12, !4}

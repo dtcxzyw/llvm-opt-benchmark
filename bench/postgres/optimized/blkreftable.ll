@@ -141,7 +141,7 @@ define dso_local void @BlockRefTableSetLimitBlock(ptr noundef readonly captures(
   store i16 %47, ptr %43, align 2
   %48 = add nuw nsw i32 %.03853.i, 1
   %exitcond.not.i = icmp eq i32 %48, 65536
-  br i1 %exitcond.not.i, label %BlockRefTableEntrySetLimitBlock.exit, label %.preheader.i, !llvm.loop !9
+  br i1 %exitcond.not.i, label %BlockRefTableEntrySetLimitBlock.exit, label %.preheader.i, !llvm.loop !8
 
 .lr.ph50.i:                                       ; preds = %._crit_edge.i, %58
   %49 = phi ptr [ %59, %58 ], [ %36, %._crit_edge.i ]
@@ -169,7 +169,7 @@ define dso_local void @BlockRefTableSetLimitBlock(ptr noundef readonly captures(
   %61 = load i16, ptr %60, align 2
   %62 = zext i16 %61 to i64
   %63 = icmp samesign ult i64 %indvars.iv.next56.i, %62
-  br i1 %63, label %.lr.ph50.i, label %._crit_edge51.loopexit.i, !llvm.loop !10
+  br i1 %63, label %.lr.ph50.i, label %._crit_edge51.loopexit.i, !llvm.loop !9
 
 ._crit_edge51.loopexit.i:                         ; preds = %58
   %64 = trunc i32 %.1.i to i16
@@ -215,7 +215,7 @@ define internal fastcc noundef ptr @blockreftable_insert(ptr noundef captures(no
   %.pre = load i32, ptr %11, align 8
   %.pre76 = load i32, ptr %12, align 8
   %15 = icmp ult i32 %.pre, %.pre76
-  br i1 %15, label %24, label %16, !prof !11
+  br i1 %15, label %24, label %16, !prof !10
 
 .loopexit.loopexit.i:                             ; preds = %76, %54
   store i32 0, ptr %12, align 8
@@ -224,7 +224,7 @@ define internal fastcc noundef ptr @blockreftable_insert(ptr noundef captures(no
 16:                                               ; preds = %.loopexit.loopexit.i, %.loopexit.i
   %17 = load i64, ptr %0, align 8
   %18 = icmp eq i64 %17, 4294967296
-  br i1 %18, label %19, label %22, !prof !12
+  br i1 %18, label %19, label %22, !prof !11
 
 19:                                               ; preds = %16
   %20 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
@@ -301,7 +301,7 @@ blockreftable_distance.exit.i:                    ; preds = %40, %37
   %.070.i30 = phi i32 [ %52, %.preheader103.i ], [ 0, %.preheader103.i.preheader ]
   %52 = add i32 %.070.i30, 1
   %53 = icmp sgt i32 %52, 150
-  br i1 %53, label %54, label %.preheader103.i, !prof !12
+  br i1 %53, label %54, label %.preheader103.i, !prof !11
 
 54:                                               ; preds = %.lr.ph31
   %55 = load i32, ptr %11, align 8
@@ -339,7 +339,7 @@ blockreftable_distance.exit.i:                    ; preds = %40, %37
   %70 = getelementptr inbounds nuw %struct.BlockRefTableEntry, ptr %25, i64 %69
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %.276128.i, ptr noundef nonnull align 8 dereferenceable(56) %70, i64 56, i1 false)
   %.not85.i = icmp eq i32 %68, %.068.i24
-  br i1 %.not85.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !13
+  br i1 %.not85.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !12
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %.preheader.i
   %71 = load i32, ptr %11, align 8
@@ -352,7 +352,7 @@ blockreftable_distance.exit.i:                    ; preds = %40, %37
 73:                                               ; preds = %blockreftable_distance.exit.i
   %74 = add i32 %.080.i23, 1
   %75 = icmp ugt i32 %74, 25
-  br i1 %75, label %76, label %83, !prof !12
+  br i1 %75, label %76, label %83, !prof !11
 
 76:                                               ; preds = %73
   %77 = load i32, ptr %11, align 8
@@ -447,7 +447,7 @@ define dso_local void @BlockRefTableEntrySetLimitBlock(ptr noundef captures(none
   store i16 %37, ptr %33, align 2
   %38 = add nuw nsw i32 %.03853, 1
   %exitcond.not = icmp eq i32 %38, 65536
-  br i1 %exitcond.not, label %.loopexit, label %.preheader, !llvm.loop !9
+  br i1 %exitcond.not, label %.loopexit, label %.preheader, !llvm.loop !8
 
 .lr.ph50:                                         ; preds = %._crit_edge, %48
   %39 = phi ptr [ %49, %48 ], [ %26, %._crit_edge ]
@@ -475,7 +475,7 @@ define dso_local void @BlockRefTableEntrySetLimitBlock(ptr noundef captures(none
   %51 = load i16, ptr %50, align 2
   %52 = zext i16 %51 to i64
   %53 = icmp samesign ult i64 %indvars.iv.next56, %52
-  br i1 %53, label %.lr.ph50, label %._crit_edge51.loopexit, !llvm.loop !10
+  br i1 %53, label %.lr.ph50, label %._crit_edge51.loopexit, !llvm.loop !9
 
 ._crit_edge51.loopexit:                           ; preds = %48
   %54 = trunc i32 %.1 to i16
@@ -546,7 +546,7 @@ define dso_local void @BlockRefTableEntryMarkBlockModified(ptr noundef captures(
   %.0108 = phi i32 [ %spec.select, %8 ], [ %10, %9 ]
   %.not114 = icmp ugt i32 %.0108, %4
   %10 = shl nuw nsw i32 %.0108, 1
-  br i1 %.not114, label %11, label %9, !llvm.loop !14
+  br i1 %.not114, label %11, label %9, !llvm.loop !13
 
 11:                                               ; preds = %9
   %12 = icmp eq i32 %7, 0
@@ -672,7 +672,7 @@ define dso_local void @BlockRefTableEntryMarkBlockModified(ptr noundef captures(
 94:                                               ; preds = %95
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %95, !llvm.loop !15
+  br i1 %exitcond.not, label %._crit_edge, label %95, !llvm.loop !14
 
 95:                                               ; preds = %.lr.ph, %94
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %94 ]
@@ -718,7 +718,7 @@ define dso_local void @BlockRefTableEntryMarkBlockModified(ptr noundef captures(
   %121 = load i16, ptr %120, align 2
   %122 = zext i16 %121 to i64
   %123 = icmp samesign ult i64 %indvars.iv.next124, %122
-  br i1 %123, label %106, label %._crit_edge119, !llvm.loop !16
+  br i1 %123, label %106, label %._crit_edge119, !llvm.loop !15
 
 ._crit_edge119:                                   ; preds = %106, %100
   %124 = and i32 %2, 15
@@ -834,7 +834,7 @@ define dso_local noundef ptr @BlockRefTableGetEntry(ptr noundef readonly capture
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 20
   %26 = load i8, ptr %25, align 4
   %27 = icmp eq i8 %26, 0
-  br i1 %27, label %blockreftable_lookup.exit.thread, label %.lr.ph.i.i, !llvm.loop !17
+  br i1 %27, label %blockreftable_lookup.exit.thread, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %4, %21
   %28 = phi ptr [ %24, %21 ], [ %17, %4 ]
@@ -945,7 +945,7 @@ define dso_local i32 @BlockRefTableEntryGetBlocks(ptr noundef readonly captures(
   %.384111 = phi i32 [ %44, %42 ], [ %.182148, %.lr.ph150 ]
   %47 = add i32 %.092147, 1
   %exitcond162.not = icmp eq i32 %47, %.093
-  br i1 %exitcond162.not, label %.loopexit, label %.lr.ph150, !llvm.loop !18
+  br i1 %exitcond162.not, label %.loopexit, label %.lr.ph150, !llvm.loop !16
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.thread116
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.thread116 ]
@@ -971,13 +971,13 @@ define dso_local i32 @BlockRefTableEntryGetBlocks(ptr noundef readonly captures(
   %.990120 = phi i32 [ %54, %52 ], [ %.788142, %.lr.ph ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !19
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !17
 
 .loopexit:                                        ; preds = %.thread, %.thread116, %23, %.preheader
   %.586.ph = phi i32 [ %.081153, %.preheader ], [ %.081153, %23 ], [ %.990120, %.thread116 ], [ %.384111, %.thread ]
   %indvars.iv.next164 = add nuw nsw i64 %indvars.iv163, 1
   %exitcond166.not = icmp eq i64 %indvars.iv.next164, %wide.trip.count165
-  br i1 %exitcond166.not, label %.thread113, label %23, !llvm.loop !20
+  br i1 %exitcond166.not, label %.thread113, label %23, !llvm.loop !18
 
 .thread113:                                       ; preds = %.loopexit, %42, %52, %5
   %.13 = phi i32 [ 0, %5 ], [ %54, %52 ], [ %44, %42 ], [ %.586.ph, %.loopexit ]
@@ -1040,7 +1040,7 @@ BlockRefTableWrite.exit:
   %29 = add i32 %.01315.i, 1
   %30 = zext i32 %29 to i64
   %31 = icmp ugt i64 %21, %30
-  br i1 %31, label %24, label %blockreftable_start_iterate.exit, !llvm.loop !21
+  br i1 %31, label %24, label %blockreftable_start_iterate.exit, !llvm.loop !19
 
 blockreftable_start_iterate.exit:                 ; preds = %24, %28, %16
   %.1.i = phi i32 [ -1, %16 ], [ %.01315.i, %24 ], [ -1, %28 ]
@@ -1075,7 +1075,7 @@ blockreftable_start_iterate.exit:                 ; preds = %24, %28, %16
   %48 = getelementptr inbounds nuw i8, ptr %41, i64 20
   %49 = load i8, ptr %48, align 4
   %.not.i50 = icmp eq i8 %49, 1
-  br i1 %.not.i50, label %blockreftable_iterate.exit, label %36, !llvm.loop !22
+  br i1 %.not.i50, label %blockreftable_iterate.exit, label %36
 
 blockreftable_iterate.exit:                       ; preds = %38
   %50 = add i32 %.043, 1
@@ -1110,11 +1110,11 @@ blockreftable_iterate.exit:                       ; preds = %38
   %69 = getelementptr inbounds nuw i16, ptr %67, i64 %68
   %70 = load i16, ptr %69, align 2
   %71 = icmp eq i16 %70, 0
-  br i1 %71, label %64, label %.critedge, !llvm.loop !23
+  br i1 %71, label %64, label %.critedge, !llvm.loop !20
 
 .critedge:                                        ; preds = %64, %66
   %.pre75 = load ptr, ptr %0, align 8
-  br label %32, !llvm.loop !24
+  br label %32, !llvm.loop !21
 
 72:                                               ; preds = %36
   %73 = zext i32 %.043 to i64
@@ -1190,7 +1190,7 @@ BlockRefTableWrite.exit51:                        ; preds = %79, %87
   %112 = getelementptr inbounds nuw i8, ptr %111, i64 20
   %113 = load i8, ptr %112, align 4
   %114 = icmp eq i8 %113, 0
-  br i1 %114, label %blockreftable_lookup.exit, label %.lr.ph.i.i, !llvm.loop !17
+  br i1 %114, label %blockreftable_lookup.exit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %BlockRefTableWrite.exit51, %108
   %115 = phi ptr [ %111, %108 ], [ %104, %BlockRefTableWrite.exit51 ]
@@ -1316,7 +1316,7 @@ BlockRefTableWrite.exit53:                        ; preds = %179, %175, %150
   %184 = load i32, ptr %146, align 8
   %185 = zext i32 %184 to i64
   %186 = icmp samesign ult i64 %indvars.iv.next69, %185
-  br i1 %186, label %150, label %._crit_edge, !llvm.loop !25
+  br i1 %186, label %150, label %._crit_edge, !llvm.loop !22
 
 ._crit_edge:                                      ; preds = %BlockRefTableWrite.exit53, %BlockRefTableWrite.exit52
   %indvars.iv.next72 = add nuw nsw i64 %indvars.iv71, 1
@@ -1325,7 +1325,7 @@ BlockRefTableWrite.exit53:                        ; preds = %179, %175, %150
   %189 = load i32, ptr %188, align 8
   %190 = zext i32 %189 to i64
   %191 = icmp samesign ult i64 %indvars.iv.next72, %190
-  br i1 %191, label %79, label %.loopexit, !llvm.loop !26
+  br i1 %191, label %79, label %.loopexit, !llvm.loop !23
 
 .loopexit:                                        ; preds = %._crit_edge, %72, %BlockRefTableWrite.exit
   call fastcc void @BlockRefTableFileTerminate(ptr noundef nonnull %5)
@@ -1583,7 +1583,7 @@ define internal fastcc void @BlockRefTableRead(ptr noundef %0, ptr noundef %1, i
   %.151 = phi i32 [ %31, %17 ], [ %.05055, %52 ], [ %.05055, %49 ], [ %43, %45 ], [ %43, %36 ]
   %.1 = phi ptr [ %30, %17 ], [ %.056, %52 ], [ %.056, %49 ], [ %42, %45 ], [ %42, %36 ]
   %57 = icmp sgt i32 %.151, 0
-  br i1 %57, label %13, label %._crit_edge, !llvm.loop !27
+  br i1 %57, label %13, label %._crit_edge, !llvm.loop !24
 
 ._crit_edge:                                      ; preds = %56, %3
   ret void
@@ -1749,7 +1749,7 @@ define dso_local i32 @BlockRefTableReaderGetBlocks(ptr noundef %0, ptr noundef w
   %49 = icmp ult i32 %48, 65536
   %50 = icmp ult i32 %.3, %2
   %51 = select i1 %49, i1 %50, i1 false
-  br i1 %51, label %31, label %.loopexit, !llvm.loop !28
+  br i1 %51, label %31, label %.loopexit, !llvm.loop !25
 
 52:                                               ; preds = %.lr.ph, %52
   %indvars.iv = phi i64 [ %25, %.lr.ph ], [ %indvars.iv.next, %52 ]
@@ -1768,7 +1768,7 @@ define dso_local i32 @BlockRefTableReaderGetBlocks(ptr noundef %0, ptr noundef w
   %62 = icmp ult i32 %61, %19
   %63 = icmp samesign ult i64 %indvars.iv.next, %9
   %64 = select i1 %62, i1 %63, i1 false
-  br i1 %64, label %52, label %.loopexit.loopexit57, !llvm.loop !29
+  br i1 %64, label %52, label %.loopexit.loopexit57, !llvm.loop !26
 
 .loopexit.loopexit57:                             ; preds = %52
   %65 = trunc nuw i64 %indvars.iv.next to i32
@@ -1805,7 +1805,7 @@ define dso_local i32 @BlockRefTableReaderGetBlocks(ptr noundef %0, ptr noundef w
   %80 = add i32 %79, 1
   store i32 %80, ptr %4, align 4
   store i32 0, ptr %6, align 8
-  br label %10, !llvm.loop !30
+  br label %10
 
 81:                                               ; preds = %.loopexit, %66
   ret i32 %.1
@@ -1903,7 +1903,7 @@ define dso_local void @BlockRefTableWriteEntry(ptr noundef %0, ptr noundef reado
   %20 = getelementptr inbounds nuw i16, ptr %18, i64 %19
   %21 = load i16, ptr %20, align 2
   %22 = icmp eq i16 %21, 0
-  br i1 %22, label %15, label %.critedge, !llvm.loop !31
+  br i1 %22, label %15, label %.critedge, !llvm.loop !27
 
 .critedge:                                        ; preds = %15, %17
   %23 = load ptr, ptr @pg_comp_crc32c, align 8
@@ -2047,7 +2047,7 @@ BlockRefTableWrite.exit21:                        ; preds = %104, %100, %75
   %109 = load i32, ptr %10, align 8
   %110 = zext i32 %109 to i64
   %111 = icmp samesign ult i64 %indvars.iv.next26, %110
-  br i1 %111, label %75, label %._crit_edge, !llvm.loop !32
+  br i1 %111, label %75, label %._crit_edge, !llvm.loop !28
 
 ._crit_edge:                                      ; preds = %BlockRefTableWrite.exit21, %BlockRefTableWrite.exit20
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #14
@@ -2145,7 +2145,7 @@ define internal fastcc void @blockreftable_grow(ptr noundef captures(none) %0, i
   %.0.i.i = select i1 %8, i64 %6, i64 %11
   %12 = mul i64 %.0.i.i, 56
   %13 = icmp ugt i64 %12, 9223372036854775806
-  br i1 %13, label %14, label %blockreftable_compute_size.exit, !prof !12
+  br i1 %13, label %14, label %blockreftable_compute_size.exit, !prof !11
 
 14:                                               ; preds = %2
   %15 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
@@ -2167,7 +2167,7 @@ blockreftable_compute_size.exit:                  ; preds = %2
   %.0.i.i.i = select i1 %20, i64 %.0.i.i, i64 %23
   %24 = mul i64 %.0.i.i.i, 56
   %25 = icmp ugt i64 %24, 9223372036854775806
-  br i1 %25, label %26, label %blockreftable_update_parameters.exit, !prof !12
+  br i1 %25, label %26, label %blockreftable_update_parameters.exit, !prof !11
 
 26:                                               ; preds = %blockreftable_compute_size.exit
   %27 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
@@ -2212,7 +2212,7 @@ blockreftable_update_parameters.exit:             ; preds = %blockreftable_compu
   %46 = add i32 %.062, 1
   %47 = zext i32 %46 to i64
   %48 = icmp ugt i64 %3, %47
-  br i1 %48, label %.lr.ph, label %.lr.ph69.preheader, !llvm.loop !33
+  br i1 %48, label %.lr.ph, label %.lr.ph69.preheader, !llvm.loop !29
 
 .lr.ph69.preheader:                               ; preds = %45, %.lr.ph, %41
   %.05167.ph = phi i32 [ %.062, %41 ], [ %.062, %.lr.ph ], [ 0, %45 ]
@@ -2242,7 +2242,7 @@ blockreftable_update_parameters.exit:             ; preds = %blockreftable_compu
   %60 = load i8, ptr %59, align 4
   %61 = icmp eq i8 %60, 0
   %62 = add i32 %.048, 1
-  br i1 %61, label %63, label %56, !llvm.loop !34
+  br i1 %61, label %63, label %56
 
 63:                                               ; preds = %56
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %58, ptr noundef nonnull align 8 dereferenceable(56) %50, i64 56, i1 false)
@@ -2256,7 +2256,7 @@ blockreftable_update_parameters.exit:             ; preds = %blockreftable_compu
   %67 = add i32 %.168, 1
   %68 = zext i32 %67 to i64
   %69 = icmp ugt i64 %3, %68
-  br i1 %69, label %.lr.ph69, label %._crit_edge, !llvm.loop !35
+  br i1 %69, label %.lr.ph69, label %._crit_edge, !llvm.loop !30
 
 ._crit_edge:                                      ; preds = %64, %blockreftable_update_parameters.exit
   tail call void @pfree(ptr noundef %5) #14
@@ -2309,33 +2309,28 @@ attributes #15 = { cold nounwind }
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i8 0, i8 2}
 !5 = !{}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7, !8}
-!11 = !{!"branch_weights", !"expected", i32 2000, i32 1}
-!12 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!13 = distinct !{!13, !7, !8}
-!14 = distinct !{!14, !7, !8}
-!15 = distinct !{!15, !7, !8}
-!16 = distinct !{!16, !7, !8}
-!17 = distinct !{!17, !8}
-!18 = distinct !{!18, !7, !8}
-!19 = distinct !{!19, !7, !8}
-!20 = distinct !{!20, !7, !8}
-!21 = distinct !{!21, !7, !8}
-!22 = distinct !{!22, !8}
-!23 = distinct !{!23, !7, !8}
-!24 = distinct !{!24, !7, !8}
-!25 = distinct !{!25, !7, !8}
-!26 = distinct !{!26, !7, !8}
-!27 = distinct !{!27, !7, !8}
-!28 = distinct !{!28, !7, !8}
-!29 = distinct !{!29, !7, !8}
-!30 = distinct !{!30, !8}
-!31 = distinct !{!31, !7, !8}
-!32 = distinct !{!32, !7, !8}
-!33 = distinct !{!33, !7, !8}
-!34 = distinct !{!34, !8}
-!35 = distinct !{!35, !7, !8}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!11 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!12 = distinct !{!12, !7}
+!13 = distinct !{!13, !7}
+!14 = distinct !{!14, !7}
+!15 = distinct !{!15, !7}
+!16 = distinct !{!16, !7}
+!17 = distinct !{!17, !7}
+!18 = distinct !{!18, !7}
+!19 = distinct !{!19, !7}
+!20 = distinct !{!20, !7}
+!21 = distinct !{!21, !7}
+!22 = distinct !{!22, !7}
+!23 = distinct !{!23, !7}
+!24 = distinct !{!24, !7}
+!25 = distinct !{!25, !7}
+!26 = distinct !{!26, !7}
+!27 = distinct !{!27, !7}
+!28 = distinct !{!28, !7}
+!29 = distinct !{!29, !7}
+!30 = distinct !{!30, !7}

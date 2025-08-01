@@ -600,7 +600,7 @@ _ZN6icu_7715SimpleFormatterC2ERKS0_.exit:         ; preds = %15, %12, %8
   store ptr %storemerge, ptr %4, align 8, !tbaa !15
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond.not, label %.loopexit, label %.preheader, !llvm.loop !20
+  br i1 %exitcond.not, label %.loopexit, label %.preheader, !llvm.loop !19
 
 .loopexit:                                        ; preds = %_ZN6icu_7715SimpleFormatterC2ERKS0_.exit, %2
   ret ptr %0
@@ -631,7 +631,7 @@ define void @_ZN6icu_7717QuantityFormatterD2Ev(ptr noundef nonnull readonly alig
 8:                                                ; preds = %3, %7
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond.not, label %2, label %3, !llvm.loop !21
+  br i1 %exitcond.not, label %2, label %3, !llvm.loop !20
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -657,7 +657,7 @@ define void @_ZN6icu_7717QuantityFormatter5resetEv(ptr noundef nonnull align 8 c
   store ptr null, ptr %4, align 8, !tbaa !15
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond.not, label %2, label %3, !llvm.loop !22
+  br i1 %exitcond.not, label %2, label %3, !llvm.loop !21
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -681,9 +681,9 @@ define noundef signext range(i8 0, 2) i8 @_ZN6icu_7717QuantityFormatter11addIfAb
 
 15:                                               ; preds = %12
   %16 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN6icu_7713UnicodeStringE, i64 16), ptr %16, align 8, !tbaa !23
+  store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN6icu_7713UnicodeStringE, i64 16), ptr %16, align 8, !tbaa !22
   %17 = getelementptr inbounds nuw i8, ptr %13, i64 16
-  store i16 2, ptr %17, align 8, !tbaa !25
+  store i16 2, ptr %17, align 8, !tbaa !24
   %18 = invoke noundef signext i8 @_ZN6icu_7715SimpleFormatter27applyPatternMinMaxArgumentsERKNS_13UnicodeStringEiiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(72) %13, ptr noundef nonnull align 8 dereferenceable(64) %2, i32 noundef 0, i32 noundef 1, ptr noundef nonnull align 4 dereferenceable(4) %3)
           to label %_ZN6icu_7715SimpleFormatterC2ERKNS_13UnicodeStringEiiR10UErrorCode.exit unwind label %.body
 
@@ -749,9 +749,9 @@ define noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_7717QuantityFor
   %9 = alloca i32, align 4
   %10 = alloca %"class.icu_77::UnicodeString", align 8
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %10) #16
-  store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN6icu_7713UnicodeStringE, i64 16), ptr %10, align 8, !tbaa !23
+  store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN6icu_7713UnicodeStringE, i64 16), ptr %10, align 8, !tbaa !22
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  store i16 2, ptr %11, align 8, !tbaa !25
+  store i16 2, ptr %11, align 8, !tbaa !24
   %12 = invoke noundef i32 @_ZN6icu_7717QuantityFormatter12selectPluralERKNS_11FormattableERKNS_12NumberFormatERKNS_11PluralRulesERNS_13UnicodeStringERNS_13FieldPositionER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(112) %1, ptr noundef nonnull align 8 dereferenceable(60) %2, ptr noundef nonnull align 8 dereferenceable(28) %3, ptr noundef nonnull align 8 dereferenceable(64) %10, ptr noundef nonnull align 8 dereferenceable(20) %5, ptr noundef nonnull align 4 dereferenceable(4) %6)
           to label %13 unwind label %16
 
@@ -785,14 +785,14 @@ define noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_7717QuantityFor
 28:                                               ; preds = %18, %23
   %.0 = phi ptr [ %25, %23 ], [ %21, %18 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #16
-  store ptr %10, ptr %8, align 8, !tbaa !26
+  store ptr %10, ptr %8, align 8, !tbaa !25
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #16
   %29 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_7715SimpleFormatter15formatAndAppendEPKPKNS_13UnicodeStringEiRS1_PiiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(72) %.0, ptr noundef nonnull %8, i32 noundef 1, ptr noundef nonnull align 8 dereferenceable(64) %4, ptr noundef nonnull %9, i32 noundef 1, ptr noundef nonnull align 4 dereferenceable(4) %6)
           to label %.noexc unwind label %39
 
 .noexc:                                           ; preds = %28
   %30 = getelementptr inbounds nuw i8, ptr %5, i64 12
-  %31 = load i32, ptr %30, align 4, !tbaa !28
+  %31 = load i32, ptr %30, align 4, !tbaa !27
   %.not16.i = icmp eq i32 %31, 0
   %32 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %33 = load i32, ptr %32, align 8
@@ -807,8 +807,8 @@ define noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_7717QuantityFor
   %37 = add nsw i32 %34, %33
   %.sink = select i1 %35, i32 %36, i32 0
   %.sink.i = select i1 %35, i32 %37, i32 0
-  store i32 %.sink, ptr %30, align 4, !tbaa !28
-  store i32 %.sink.i, ptr %32, align 8, !tbaa !31
+  store i32 %.sink, ptr %30, align 4, !tbaa !27
+  store i32 %.sink.i, ptr %32, align 8, !tbaa !30
   br label %38
 
 38:                                               ; preds = %.sink.split.i, %.noexc
@@ -847,9 +847,9 @@ define noundef range(i32 0, -2147483648) i32 @_ZN6icu_7717QuantityFormatter12sel
 
 15:                                               ; preds = %6
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %7) #16
-  store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN6icu_7713UnicodeStringE, i64 16), ptr %7, align 8, !tbaa !23
+  store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN6icu_7713UnicodeStringE, i64 16), ptr %7, align 8, !tbaa !22
   %16 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store i16 2, ptr %16, align 8, !tbaa !25
+  store i16 2, ptr %16, align 8, !tbaa !24
   %17 = tail call ptr @__dynamic_cast(ptr nonnull %1, ptr nonnull @_ZTIN6icu_7712NumberFormatE, ptr nonnull @_ZTIN6icu_7713DecimalFormatE, i64 0) #16
   %.not39 = icmp eq ptr %17, null
   br i1 %.not39, label %39, label %18
@@ -887,7 +887,7 @@ define noundef range(i32 0, -2147483648) i32 @_ZN6icu_7717QuantityFormatter12sel
   %29 = call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeStringaSEOS0_(ptr noundef nonnull align 8 dereferenceable(64) %7, ptr noundef nonnull align 8 dereferenceable(64) %9) #16
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %9) #16
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %9) #16
-  %30 = load ptr, ptr %17, align 8, !tbaa !23
+  %30 = load ptr, ptr %17, align 8, !tbaa !22
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 40
   %32 = load ptr, ptr %31, align 8
   %33 = invoke noundef nonnull align 8 dereferenceable(64) ptr %32(ptr noundef nonnull align 8 dereferenceable(60) %17, ptr noundef nonnull align 8 dereferenceable(112) %0, ptr noundef nonnull align 8 dereferenceable(64) %3, ptr noundef nonnull align 8 dereferenceable(20) %4, ptr noundef nonnull align 4 dereferenceable(4) %5)
@@ -925,7 +925,7 @@ define noundef range(i32 0, -2147483648) i32 @_ZN6icu_7717QuantityFormatter12sel
 43:                                               ; preds = %41
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %10) #16
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %45 = load double, ptr %44, align 8, !tbaa !25
+  %45 = load double, ptr %44, align 8, !tbaa !24
   invoke void @_ZNK6icu_7711PluralRules6selectEd(ptr dead_on_unwind nonnull writable sret(%"class.icu_77::UnicodeString") align 8 %10, ptr noundef nonnull align 8 dereferenceable(28) %2, double noundef %45)
           to label %46 unwind label %50
 
@@ -957,7 +957,7 @@ define noundef range(i32 0, -2147483648) i32 @_ZN6icu_7717QuantityFormatter12sel
 56:                                               ; preds = %54
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %11) #16
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %58 = load i64, ptr %57, align 8, !tbaa !25
+  %58 = load i64, ptr %57, align 8, !tbaa !24
   %59 = trunc i64 %58 to i32
   invoke void @_ZNK6icu_7711PluralRules6selectEi(ptr dead_on_unwind nonnull writable sret(%"class.icu_77::UnicodeString") align 8 %11, ptr noundef nonnull align 8 dereferenceable(28) %2, i32 noundef %59)
           to label %60 unwind label %62
@@ -985,7 +985,7 @@ define noundef range(i32 0, -2147483648) i32 @_ZN6icu_7717QuantityFormatter12sel
 68:                                               ; preds = %66
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %12) #16
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %70 = load i64, ptr %69, align 8, !tbaa !25
+  %70 = load i64, ptr %69, align 8, !tbaa !24
   %71 = sitofp i64 %70 to double
   invoke void @_ZNK6icu_7711PluralRules6selectEd(ptr dead_on_unwind nonnull writable sret(%"class.icu_77::UnicodeString") align 8 %12, ptr noundef nonnull align 8 dereferenceable(28) %2, double noundef %71)
           to label %72 unwind label %74
@@ -1007,7 +1007,7 @@ define noundef range(i32 0, -2147483648) i32 @_ZN6icu_7717QuantityFormatter12sel
   br label %86
 
 77:                                               ; preds = %60, %72, %46
-  %78 = load ptr, ptr %1, align 8, !tbaa !23
+  %78 = load ptr, ptr %1, align 8, !tbaa !22
   %79 = getelementptr inbounds nuw i8, ptr %78, i64 40
   %80 = load ptr, ptr %79, align 8
   %81 = invoke noundef nonnull align 8 dereferenceable(64) ptr %80(ptr noundef nonnull align 8 dereferenceable(60) %1, ptr noundef nonnull align 8 dereferenceable(112) %0, ptr noundef nonnull align 8 dereferenceable(64) %3, ptr noundef nonnull align 8 dereferenceable(20) %4, ptr noundef nonnull align 4 dereferenceable(4) %5)
@@ -1054,11 +1054,11 @@ define noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7717QuantityForm
 
 10:                                               ; preds = %5
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #16
-  store ptr %1, ptr %6, align 8, !tbaa !26
+  store ptr %1, ptr %6, align 8, !tbaa !25
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #16
   %11 = call noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_7715SimpleFormatter15formatAndAppendEPKPKNS_13UnicodeStringEiRS1_PiiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull %6, i32 noundef 1, ptr noundef nonnull align 8 dereferenceable(64) %2, ptr noundef nonnull %7, i32 noundef 1, ptr noundef nonnull align 4 dereferenceable(4) %4)
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 12
-  %13 = load i32, ptr %12, align 4, !tbaa !28
+  %13 = load i32, ptr %12, align 4, !tbaa !27
   %.not16 = icmp eq i32 %13, 0
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %15 = load i32, ptr %14, align 8
@@ -1073,17 +1073,17 @@ define noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7717QuantityForm
 
 19:                                               ; preds = %16
   %20 = add nsw i32 %17, %13
-  store i32 %20, ptr %12, align 4, !tbaa !28
+  store i32 %20, ptr %12, align 4, !tbaa !27
   %21 = add nsw i32 %15, %17
   br label %.sink.split
 
 22:                                               ; preds = %16
-  store i32 0, ptr %12, align 4, !tbaa !28
+  store i32 0, ptr %12, align 4, !tbaa !27
   br label %.sink.split
 
 .sink.split:                                      ; preds = %22, %19
   %.sink = phi i32 [ %21, %19 ], [ 0, %22 ]
-  store i32 %.sink, ptr %14, align 8, !tbaa !31
+  store i32 %.sink, ptr %14, align 8, !tbaa !30
   br label %23
 
 23:                                               ; preds = %.sink.split, %10
@@ -1128,9 +1128,9 @@ define void @_ZN6icu_7717QuantityFormatter15formatAndSelectEdRKNS_12NumberFormat
   %11 = alloca %"class.icu_77::Formattable", align 8
   %12 = alloca %"class.icu_77::UnicodeString", align 8
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %7) #16
-  store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN6icu_7713UnicodeStringE, i64 16), ptr %7, align 8, !tbaa !23
+  store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN6icu_7713UnicodeStringE, i64 16), ptr %7, align 8, !tbaa !22
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store i16 2, ptr %13, align 8, !tbaa !25
+  store i16 2, ptr %13, align 8, !tbaa !24
   %14 = tail call ptr @__dynamic_cast(ptr nonnull %1, ptr nonnull @_ZTIN6icu_7712NumberFormatE, ptr nonnull @_ZTIN6icu_7713DecimalFormatE, i64 0) #16
   %.not = icmp eq ptr %14, null
   br i1 %.not, label %51, label %15
@@ -1141,7 +1141,7 @@ define void @_ZN6icu_7717QuantityFormatter15formatAndSelectEdRKNS_12NumberFormat
           to label %.noexc unwind label %32
 
 .noexc:                                           ; preds = %15
-  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN6icu_776number4impl20UFormattedNumberDataE, i64 16), ptr %8, align 8, !tbaa !23
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN6icu_776number4impl20UFormattedNumberDataE, i64 16), ptr %8, align 8, !tbaa !22
   %16 = getelementptr inbounds nuw i8, ptr %8, i64 304
   invoke void @_ZN6icu_776number4impl15DecimalQuantityC1Ev(ptr noundef nonnull align 8 dereferenceable(66) %16)
           to label %17 unwind label %19
@@ -1169,7 +1169,7 @@ define void @_ZN6icu_7717QuantityFormatter15formatAndSelectEdRKNS_12NumberFormat
 
 24:                                               ; preds = %17
   %25 = getelementptr inbounds nuw i8, ptr %8, i64 400
-  store ptr @.str, ptr %25, align 8, !tbaa !32
+  store ptr @.str, ptr %25, align 8, !tbaa !31
   %26 = invoke noundef nonnull align 8 dereferenceable(66) ptr @_ZN6icu_776number4impl15DecimalQuantity11setToDoubleEd(ptr noundef nonnull align 8 dereferenceable(66) %16, double noundef %0)
           to label %27 unwind label %34
 
@@ -1247,9 +1247,9 @@ define void @_ZN6icu_7717QuantityFormatter15formatAndSelectEdRKNS_12NumberFormat
 
 51:                                               ; preds = %6
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %10) #16
-  store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN6icu_7713UnicodeStringE, i64 16), ptr %10, align 8, !tbaa !23
+  store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN6icu_7713UnicodeStringE, i64 16), ptr %10, align 8, !tbaa !22
   %52 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  store i16 2, ptr %52, align 8, !tbaa !25
+  store i16 2, ptr %52, align 8, !tbaa !24
   call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %11) #16
   invoke void @_ZN6icu_7711FormattableC1Ed(ptr noundef nonnull align 8 dereferenceable(112) %11, double noundef %0)
           to label %53 unwind label %58
@@ -1288,7 +1288,7 @@ define void @_ZN6icu_7717QuantityFormatter15formatAndSelectEdRKNS_12NumberFormat
 
 65:                                               ; preds = %55
   %66 = getelementptr inbounds nuw i8, ptr %3, i64 132
-  %67 = load i32, ptr %66, align 4, !tbaa !47
+  %67 = load i32, ptr %66, align 4, !tbaa !46
   %68 = invoke noundef i32 @_ZN6icu_7722FormattedStringBuilder6insertEiRKNS_13UnicodeStringENS0_5FieldER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(136) %3, i32 noundef %67, ptr noundef nonnull align 8 dereferenceable(64) %10, i8 1, ptr noundef nonnull align 4 dereferenceable(4) %5)
           to label %_ZN6icu_7722FormattedStringBuilder6appendERKNS_13UnicodeStringENS0_5FieldER10UErrorCode.exit unwind label %63
 
@@ -1334,7 +1334,7 @@ _ZN6icu_7722FormattedStringBuilder6appendERKNS_13UnicodeStringENS0_5FieldER10UEr
 79:                                               ; preds = %77
   %80 = icmp sgt i32 %78, -1
   %81 = select i1 %80, i32 %78, i32 5
-  store i32 %81, ptr %4, align 4, !tbaa !48
+  store i32 %81, ptr %4, align 4, !tbaa !47
   br label %82
 
 82:                                               ; preds = %73, %47, %79
@@ -1436,36 +1436,35 @@ attributes #18 = { noreturn nounwind }
 !14 = !{!"_ZTS10UErrorCode", !7, i64 0}
 !15 = !{!16, !16, i64 0}
 !16 = !{!"p1 _ZTSN6icu_7715SimpleFormatterE", !6, i64 0}
-!17 = distinct !{!17, !18, !19}
+!17 = distinct !{!17, !18}
 !18 = !{!"llvm.loop.mustprogress"}
-!19 = !{!"llvm.loop.estimated_trip_count"}
-!20 = distinct !{!20, !18, !19}
-!21 = distinct !{!21, !18, !19}
-!22 = distinct !{!22, !18, !19}
-!23 = !{!24, !24, i64 0}
-!24 = !{!"vtable pointer", !8, i64 0}
-!25 = !{!7, !7, i64 0}
-!26 = !{!27, !27, i64 0}
-!27 = !{!"p1 _ZTSN6icu_7713UnicodeStringE", !6, i64 0}
-!28 = !{!29, !9, i64 12}
-!29 = !{!"_ZTSN6icu_7713FieldPositionE", !30, i64 0, !9, i64 8, !9, i64 12, !9, i64 16}
-!30 = !{!"_ZTSN6icu_777UObjectE"}
-!31 = !{!29, !9, i64 16}
-!32 = !{!33, !5, i64 400}
-!33 = !{!"_ZTSN6icu_776number4impl20UFormattedNumberDataE", !34, i64 0, !41, i64 304, !44, i64 376, !5, i64 400}
-!34 = !{!"_ZTSN6icu_7731FormattedValueStringBuilderImplE", !35, i64 0, !36, i64 8, !38, i64 144, !39, i64 152, !9, i64 296}
-!35 = !{!"_ZTSN6icu_7714FormattedValueE"}
-!36 = !{!"_ZTSN6icu_7722FormattedStringBuilderE", !37, i64 0, !7, i64 8, !7, i64 88, !9, i64 128, !9, i64 132}
-!37 = !{!"bool", !7, i64 0}
-!38 = !{!"_ZTSN6icu_7722FormattedStringBuilder5FieldE", !7, i64 0}
-!39 = !{!"_ZTSN6icu_7715MaybeStackArrayINS_8SpanInfoELi8EEE", !40, i64 0, !9, i64 8, !7, i64 12, !7, i64 16}
-!40 = !{!"p1 _ZTSN6icu_778SpanInfoE", !6, i64 0}
-!41 = !{!"_ZTSN6icu_776number4impl15DecimalQuantityE", !42, i64 0, !37, i64 8, !9, i64 12, !9, i64 16, !7, i64 20, !7, i64 21, !43, i64 24, !9, i64 32, !9, i64 36, !9, i64 40, !9, i64 44, !7, i64 48, !37, i64 64, !37, i64 65}
-!42 = !{!"_ZTSN6icu_7713IFixedDecimalE"}
-!43 = !{!"double", !7, i64 0}
-!44 = !{!"_ZTSN6icu_7711MeasureUnitE", !30, i64 0, !45, i64 8, !46, i64 16, !7, i64 18}
-!45 = !{!"p1 _ZTSN6icu_7715MeasureUnitImplE", !6, i64 0}
-!46 = !{!"short", !7, i64 0}
-!47 = !{!36, !9, i64 132}
-!48 = !{!49, !49, i64 0}
-!49 = !{!"_ZTSN6icu_7714StandardPlural4FormE", !7, i64 0}
+!19 = distinct !{!19, !18}
+!20 = distinct !{!20, !18}
+!21 = distinct !{!21, !18}
+!22 = !{!23, !23, i64 0}
+!23 = !{!"vtable pointer", !8, i64 0}
+!24 = !{!7, !7, i64 0}
+!25 = !{!26, !26, i64 0}
+!26 = !{!"p1 _ZTSN6icu_7713UnicodeStringE", !6, i64 0}
+!27 = !{!28, !9, i64 12}
+!28 = !{!"_ZTSN6icu_7713FieldPositionE", !29, i64 0, !9, i64 8, !9, i64 12, !9, i64 16}
+!29 = !{!"_ZTSN6icu_777UObjectE"}
+!30 = !{!28, !9, i64 16}
+!31 = !{!32, !5, i64 400}
+!32 = !{!"_ZTSN6icu_776number4impl20UFormattedNumberDataE", !33, i64 0, !40, i64 304, !43, i64 376, !5, i64 400}
+!33 = !{!"_ZTSN6icu_7731FormattedValueStringBuilderImplE", !34, i64 0, !35, i64 8, !37, i64 144, !38, i64 152, !9, i64 296}
+!34 = !{!"_ZTSN6icu_7714FormattedValueE"}
+!35 = !{!"_ZTSN6icu_7722FormattedStringBuilderE", !36, i64 0, !7, i64 8, !7, i64 88, !9, i64 128, !9, i64 132}
+!36 = !{!"bool", !7, i64 0}
+!37 = !{!"_ZTSN6icu_7722FormattedStringBuilder5FieldE", !7, i64 0}
+!38 = !{!"_ZTSN6icu_7715MaybeStackArrayINS_8SpanInfoELi8EEE", !39, i64 0, !9, i64 8, !7, i64 12, !7, i64 16}
+!39 = !{!"p1 _ZTSN6icu_778SpanInfoE", !6, i64 0}
+!40 = !{!"_ZTSN6icu_776number4impl15DecimalQuantityE", !41, i64 0, !36, i64 8, !9, i64 12, !9, i64 16, !7, i64 20, !7, i64 21, !42, i64 24, !9, i64 32, !9, i64 36, !9, i64 40, !9, i64 44, !7, i64 48, !36, i64 64, !36, i64 65}
+!41 = !{!"_ZTSN6icu_7713IFixedDecimalE"}
+!42 = !{!"double", !7, i64 0}
+!43 = !{!"_ZTSN6icu_7711MeasureUnitE", !29, i64 0, !44, i64 8, !45, i64 16, !7, i64 18}
+!44 = !{!"p1 _ZTSN6icu_7715MeasureUnitImplE", !6, i64 0}
+!45 = !{!"short", !7, i64 0}
+!46 = !{!35, !9, i64 132}
+!47 = !{!48, !48, i64 0}
+!48 = !{!"_ZTSN6icu_7714StandardPlural4FormE", !7, i64 0}

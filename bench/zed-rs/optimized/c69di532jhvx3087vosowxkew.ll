@@ -2041,15 +2041,15 @@ define hidden void @_ZN15live_kit_server5proto17auto_track_egress6Output6encode1
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7), !noalias !211
   %19 = lshr i64 %.sroa.0.04.i, 7
   %20 = icmp ult i64 %.sroa.0.04.i, 16384
-  br i1 %20, label %_ZN5prost8encoding7message6encode17h9203a2d4f1e63af3E.exit, label %.lr.ph.i, !llvm.loop !214
+  br i1 %20, label %_ZN5prost8encoding7message6encode17h9203a2d4f1e63af3E.exit, label %.lr.ph.i
 
 _ZN5prost8encoding7message6encode17h9203a2d4f1e63af3E.exit: ; preds = %.lr.ph.i, %14
   %.sroa.0.0.lcssa.i = phi i64 [ %15, %14 ], [ %19, %.lr.ph.i ]
   %21 = trunc nuw nsw i64 %.sroa.0.0.lcssa.i to i8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6), !noalias !216
-  store i8 %21, ptr %6, align 1, !noalias !216
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6), !noalias !214
+  store i8 %21, ptr %6, align 1, !noalias !214
   call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$15append_elements17hf36ac597b5e9d725E.llvm.12860031636858333160"(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull readonly align 1 %6, i64 noundef 1)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6), !noalias !216
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6), !noalias !214
   call void @"_ZN76_$LT$live_kit_server..proto..S3Upload$u20$as$u20$prost..message..Message$GT$10encode_raw17h95068078e7cd0fc5E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %0, ptr noalias noundef nonnull align 8 dereferenceable(24) %1)
   br label %33
 
@@ -2060,10 +2060,10 @@ _ZN5prost8encoding7message6encode17h9203a2d4f1e63af3E.exit: ; preds = %.lr.ph.i,
 
 24:                                               ; preds = %2
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5), !noalias !219
-  store i8 34, ptr %5, align 1, !noalias !219
-  call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$15append_elements17hf36ac597b5e9d725E.llvm.12860031636858333160"(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull readonly align 1 %5, i64 noundef 1), !noalias !227
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5), !noalias !219
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5), !noalias !217
+  store i8 34, ptr %5, align 1, !noalias !217
+  call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$15append_elements17hf36ac597b5e9d725E.llvm.12860031636858333160"(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull readonly align 1 %5, i64 noundef 1), !noalias !225
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5), !noalias !217
   %26 = call noundef i64 @"_ZN83_$LT$live_kit_server..proto..AzureBlobUpload$u20$as$u20$prost..message..Message$GT$11encoded_len17hd30f3470c9407e42E.llvm.11538535937534900153"(ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %25)
   %27 = icmp ult i64 %26, 128
   br i1 %27, label %_ZN5prost8encoding7message6encode17h1a1e719a12732f36E.exit, label %.lr.ph.i1
@@ -2072,21 +2072,21 @@ _ZN5prost8encoding7message6encode17h9203a2d4f1e63af3E.exit: ; preds = %.lr.ph.i,
   %.sroa.0.04.i2 = phi i64 [ %30, %.lr.ph.i1 ], [ %26, %24 ]
   %28 = trunc i64 %.sroa.0.04.i2 to i8
   %29 = or i8 %28, -128
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4), !noalias !228
-  store i8 %29, ptr %4, align 1, !noalias !228
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4), !noalias !226
+  store i8 %29, ptr %4, align 1, !noalias !226
   call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$15append_elements17hf36ac597b5e9d725E.llvm.12860031636858333160"(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull readonly align 1 %4, i64 noundef 1)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4), !noalias !228
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4), !noalias !226
   %30 = lshr i64 %.sroa.0.04.i2, 7
   %31 = icmp ult i64 %.sroa.0.04.i2, 16384
-  br i1 %31, label %_ZN5prost8encoding7message6encode17h1a1e719a12732f36E.exit, label %.lr.ph.i1, !llvm.loop !231
+  br i1 %31, label %_ZN5prost8encoding7message6encode17h1a1e719a12732f36E.exit, label %.lr.ph.i1
 
 _ZN5prost8encoding7message6encode17h1a1e719a12732f36E.exit: ; preds = %.lr.ph.i1, %24
   %.sroa.0.0.lcssa.i3 = phi i64 [ %26, %24 ], [ %30, %.lr.ph.i1 ]
   %32 = trunc nuw nsw i64 %.sroa.0.0.lcssa.i3 to i8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3), !noalias !232
-  store i8 %32, ptr %3, align 1, !noalias !232
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3), !noalias !229
+  store i8 %32, ptr %3, align 1, !noalias !229
   call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$15append_elements17hf36ac597b5e9d725E.llvm.12860031636858333160"(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull readonly align 1 %3, i64 noundef 1)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3), !noalias !232
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3), !noalias !229
   call void @"_ZN83_$LT$live_kit_server..proto..AzureBlobUpload$u20$as$u20$prost..message..Message$GT$10encode_raw17h639bd9cdb79cade5E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %25, ptr noalias noundef nonnull align 8 dereferenceable(24) %1)
   br label %33
 
@@ -2389,24 +2389,21 @@ attributes #19 = { noreturn }
 !211 = !{!212, !207, !209}
 !212 = distinct !{!212, !213, !"_ZN5bytes3buf7buf_mut6BufMut6put_u817h449591d55c4de30eE.llvm.11538535937534900153: argument 0"}
 !213 = distinct !{!213, !"_ZN5bytes3buf7buf_mut6BufMut6put_u817h449591d55c4de30eE.llvm.11538535937534900153"}
-!214 = distinct !{!214, !215}
-!215 = !{!"llvm.loop.estimated_trip_count"}
-!216 = !{!217, !207, !209}
-!217 = distinct !{!217, !218, !"_ZN5bytes3buf7buf_mut6BufMut6put_u817h449591d55c4de30eE.llvm.11538535937534900153: argument 0"}
-!218 = distinct !{!218, !"_ZN5bytes3buf7buf_mut6BufMut6put_u817h449591d55c4de30eE.llvm.11538535937534900153"}
-!219 = !{!220, !222, !224, !226}
-!220 = distinct !{!220, !221, !"_ZN5bytes3buf7buf_mut6BufMut6put_u817h449591d55c4de30eE.llvm.11538535937534900153: argument 0"}
-!221 = distinct !{!221, !"_ZN5bytes3buf7buf_mut6BufMut6put_u817h449591d55c4de30eE.llvm.11538535937534900153"}
-!222 = distinct !{!222, !223, !"_ZN5prost8encoding10encode_key17hacdf2caeca094154E.llvm.11538535937534900153: argument 0"}
-!223 = distinct !{!223, !"_ZN5prost8encoding10encode_key17hacdf2caeca094154E.llvm.11538535937534900153"}
-!224 = distinct !{!224, !225, !"_ZN5prost8encoding7message6encode17h1a1e719a12732f36E: argument 0"}
-!225 = distinct !{!225, !"_ZN5prost8encoding7message6encode17h1a1e719a12732f36E"}
-!226 = distinct !{!226, !225, !"_ZN5prost8encoding7message6encode17h1a1e719a12732f36E: argument 1"}
-!227 = !{!224}
-!228 = !{!229, !224, !226}
-!229 = distinct !{!229, !230, !"_ZN5bytes3buf7buf_mut6BufMut6put_u817h449591d55c4de30eE.llvm.11538535937534900153: argument 0"}
-!230 = distinct !{!230, !"_ZN5bytes3buf7buf_mut6BufMut6put_u817h449591d55c4de30eE.llvm.11538535937534900153"}
-!231 = distinct !{!231, !215}
-!232 = !{!233, !224, !226}
-!233 = distinct !{!233, !234, !"_ZN5bytes3buf7buf_mut6BufMut6put_u817h449591d55c4de30eE.llvm.11538535937534900153: argument 0"}
-!234 = distinct !{!234, !"_ZN5bytes3buf7buf_mut6BufMut6put_u817h449591d55c4de30eE.llvm.11538535937534900153"}
+!214 = !{!215, !207, !209}
+!215 = distinct !{!215, !216, !"_ZN5bytes3buf7buf_mut6BufMut6put_u817h449591d55c4de30eE.llvm.11538535937534900153: argument 0"}
+!216 = distinct !{!216, !"_ZN5bytes3buf7buf_mut6BufMut6put_u817h449591d55c4de30eE.llvm.11538535937534900153"}
+!217 = !{!218, !220, !222, !224}
+!218 = distinct !{!218, !219, !"_ZN5bytes3buf7buf_mut6BufMut6put_u817h449591d55c4de30eE.llvm.11538535937534900153: argument 0"}
+!219 = distinct !{!219, !"_ZN5bytes3buf7buf_mut6BufMut6put_u817h449591d55c4de30eE.llvm.11538535937534900153"}
+!220 = distinct !{!220, !221, !"_ZN5prost8encoding10encode_key17hacdf2caeca094154E.llvm.11538535937534900153: argument 0"}
+!221 = distinct !{!221, !"_ZN5prost8encoding10encode_key17hacdf2caeca094154E.llvm.11538535937534900153"}
+!222 = distinct !{!222, !223, !"_ZN5prost8encoding7message6encode17h1a1e719a12732f36E: argument 0"}
+!223 = distinct !{!223, !"_ZN5prost8encoding7message6encode17h1a1e719a12732f36E"}
+!224 = distinct !{!224, !223, !"_ZN5prost8encoding7message6encode17h1a1e719a12732f36E: argument 1"}
+!225 = !{!222}
+!226 = !{!227, !222, !224}
+!227 = distinct !{!227, !228, !"_ZN5bytes3buf7buf_mut6BufMut6put_u817h449591d55c4de30eE.llvm.11538535937534900153: argument 0"}
+!228 = distinct !{!228, !"_ZN5bytes3buf7buf_mut6BufMut6put_u817h449591d55c4de30eE.llvm.11538535937534900153"}
+!229 = !{!230, !222, !224}
+!230 = distinct !{!230, !231, !"_ZN5bytes3buf7buf_mut6BufMut6put_u817h449591d55c4de30eE.llvm.11538535937534900153: argument 0"}
+!231 = distinct !{!231, !"_ZN5bytes3buf7buf_mut6BufMut6put_u817h449591d55c4de30eE.llvm.11538535937534900153"}

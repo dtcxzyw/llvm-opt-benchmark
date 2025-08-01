@@ -172,18 +172,18 @@ land.rhs.i.i:                                     ; preds = %if.then17.i.i, %whi
 while.body26.i.i:                                 ; preds = %land.rhs.i.i
   %inc.i.i = add nuw nsw i64 %skip.239.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %inc.i.i, 3
-  br i1 %exitcond.not.i.i, label %if.end28.i.i, label %land.rhs.i.i, !llvm.loop !8
+  br i1 %exitcond.not.i.i, label %if.end28.i.i, label %land.rhs.i.i, !llvm.loop !7
 
 if.end28.i.i:                                     ; preds = %while.body26.i.i, %land.rhs.i.i, %if.then17.i.i
   %skip.1.i.i = phi i64 [ %skip.042.i.i, %if.then17.i.i ], [ 3, %while.body26.i.i ], [ %skip.239.i.i, %land.rhs.i.i ]
   %add.ptr29.i.i = getelementptr inbounds nuw i8, ptr %i.1.i.i, i64 %skip.1.i.i
   %cmp7.i.i = icmp ult ptr %add.ptr29.i.i, %add.ptr.i1.i
-  br i1 %cmp7.i.i, label %while.cond8.preheader.i.i, label %sw.epilog, !llvm.loop !9
+  br i1 %cmp7.i.i, label %while.cond8.preheader.i.i, label %sw.epilog, !llvm.loop !8
 
 if.end30.i.i:                                     ; preds = %for.cond.i.i
   %inc31.i.i = add nuw nsw i64 %j.0.i.i, 1
   %cmp32.i.i = icmp eq i64 %inc31.i.i, 3
-  br i1 %cmp32.i.i, label %_ZNK5folly5RangeIPKcE4findES2_.exit, label %for.cond.i.i, !llvm.loop !10
+  br i1 %cmp32.i.i, label %_ZNK5folly5RangeIPKcE4findES2_.exit, label %for.cond.i.i, !llvm.loop !9
 
 _ZNK5folly5RangeIPKcE4findES2_.exit:              ; preds = %if.end30.i.i
   %sub.ptr.lhs.cast.i.i12 = ptrtoint ptr %i.1.i.i to i64
@@ -252,9 +252,8 @@ attributes #12 = { builtin nounwind }
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
 !4 = !{!"branch_weights", i32 1, i32 1048575}
-!5 = distinct !{!5, !6, !7}
+!5 = distinct !{!5, !6}
 !6 = !{!"llvm.loop.mustprogress"}
-!7 = !{!"llvm.loop.estimated_trip_count"}
-!8 = distinct !{!8, !6, !7}
-!9 = distinct !{!9, !6, !7}
-!10 = distinct !{!10, !6, !7}
+!7 = distinct !{!7, !6}
+!8 = distinct !{!8, !6}
+!9 = distinct !{!9, !6}

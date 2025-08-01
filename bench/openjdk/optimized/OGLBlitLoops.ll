@@ -502,14 +502,14 @@ define internal fastcc void @OGLBlitToSurfaceViaTexture(ptr noundef %0, ptr noun
   %128 = load ptr, ptr @j2d_glEnd, align 8
   tail call void %128() #6
   %129 = icmp slt i64 %indvars.iv.next, %65
-  br i1 %129, label %.lr.ph158.split.us165, label %..loopexit153_crit_edge.us, !llvm.loop !9
+  br i1 %129, label %.lr.ph158.split.us165, label %..loopexit153_crit_edge.us, !llvm.loop !8
 
 .preheader.us:                                    ; preds = %.lr.ph158.split.us165
   br i1 %78, label %.lr.ph.us, label %.loopexit.us
 
 ..loopexit153_crit_edge.us:                       ; preds = %.loopexit.us, %.lr.ph158.split.us.us
   %130 = icmp slt i64 %indvars.iv.next170, %67
-  br i1 %130, label %.lr.ph158.us, label %._crit_edge, !llvm.loop !10
+  br i1 %130, label %.lr.ph158.us, label %._crit_edge, !llvm.loop !9
 
 .lr.ph158.split.us.us:                            ; preds = %.lr.ph158.us, %.lr.ph158.split.us.us
   %.0157.us.us = phi double [ %135, %.lr.ph158.split.us.us ], [ %10, %.lr.ph158.us ]
@@ -554,7 +554,7 @@ define internal fastcc void @OGLBlitToSurfaceViaTexture(ptr noundef %0, ptr noun
   %158 = load ptr, ptr @j2d_glEnd, align 8
   tail call void %158() #6
   %159 = icmp slt i32 %131, %8
-  br i1 %159, label %.lr.ph158.split.us.us, label %..loopexit153_crit_edge.us, !llvm.loop !12
+  br i1 %159, label %.lr.ph158.split.us.us, label %..loopexit153_crit_edge.us, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %..loopexit153_crit_edge.us, %.lr.ph161, %51
   br i1 %.not149, label %163, label %160
@@ -930,7 +930,7 @@ define internal fastcc void @OGLBlitSwToTexture(ptr noundef nonnull readonly cap
   %41 = inttoptr i64 %40 to ptr
   %42 = add nsw i32 %.03437, -1
   %43 = icmp samesign ugt i32 %.03437, 1
-  br i1 %43, label %31, label %.loopexit, !llvm.loop !13
+  br i1 %43, label %31, label %.loopexit, !llvm.loop !12
 
 44:                                               ; preds = %18
   %45 = load ptr, ptr @j2d_glTexSubImage2D, align 8
@@ -1049,7 +1049,7 @@ define internal fastcc void @OGLBlitSwToSurface(ptr noundef readonly captures(no
   %69 = inttoptr i64 %68 to ptr
   %70 = add nsw i32 %.049, -1
   %71 = icmp samesign ugt i32 %.049, 1
-  br i1 %71, label %60, label %.loopexit, !llvm.loop !14
+  br i1 %71, label %60, label %.loopexit, !llvm.loop !13
 
 72:                                               ; preds = %32
   %73 = load ptr, ptr @j2d_glDrawPixels, align 8
@@ -1150,12 +1150,12 @@ define hidden void @flip(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 nou
   store i32 %32, ptr %33, align 4
   %indvars.iv.next148 = add nuw nsw i64 %indvars.iv147, 1
   %exitcond151.not = icmp eq i64 %indvars.iv.next148, %wide.trip.count150
-  br i1 %exitcond151.not, label %.loopexit131.us, label %.lr.ph.split.us137, !llvm.loop !15
+  br i1 %exitcond151.not, label %.loopexit131.us, label %.lr.ph.split.us137, !llvm.loop !14
 
 .loopexit131.us:                                  ; preds = %.lr.ph.split.us137, %98, %.preheader.us
   %indvars.iv.next158 = add nuw nsw i64 %indvars.iv157, 1
   %exitcond161.not = icmp eq i64 %indvars.iv.next158, %wide.trip.count160
-  br i1 %exitcond161.not, label %._crit_edge.loopexit, label %.preheader.us, !llvm.loop !16
+  br i1 %exitcond161.not, label %._crit_edge.loopexit, label %.preheader.us, !llvm.loop !15
 
 .lr.ph.us:                                        ; preds = %.preheader.us
   br i1 %9, label %.lr.ph.split.us.us, label %.lr.ph.split.us137
@@ -1242,7 +1242,7 @@ define hidden void @flip(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 nou
   store i32 %storemerge, ptr %37, align 4
   %indvars.iv.next153 = add nuw nsw i64 %indvars.iv152, 1
   %exitcond156.not = icmp eq i64 %indvars.iv.next153, %wide.trip.count155
-  br i1 %exitcond156.not, label %.loopexit131.us, label %.lr.ph.split.us.us, !llvm.loop !17
+  br i1 %exitcond156.not, label %.loopexit131.us, label %.lr.ph.split.us.us, !llvm.loop !16
 
 .lr.ph134.split:                                  ; preds = %.lr.ph134.split.preheader, %.lr.ph134.split
   %indvars.iv = phi i64 [ 0, %.lr.ph134.split.preheader ], [ %indvars.iv.next, %.lr.ph134.split ]
@@ -1261,7 +1261,7 @@ define hidden void @flip(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 nou
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %108, ptr nonnull align 1 %14, i64 %7, i1 false)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit.thread, label %.lr.ph134.split, !llvm.loop !18
+  br i1 %exitcond.not, label %.loopexit.thread, label %.lr.ph134.split, !llvm.loop !17
 
 ._crit_edge.loopexit:                             ; preds = %.loopexit131.us
   %109 = zext nneg i32 %20 to i64
@@ -1330,7 +1330,7 @@ define hidden void @flip(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 nou
 148:                                              ; preds = %.lr.ph, %122
   %indvars.iv.next163 = add nuw nsw i64 %indvars.iv162, 1
   %exitcond166.not = icmp eq i64 %indvars.iv.next163, %wide.trip.count165
-  br i1 %exitcond166.not, label %.loopexit, label %.lr.ph, !llvm.loop !19
+  br i1 %exitcond166.not, label %.loopexit, label %.lr.ph, !llvm.loop !18
 
 .loopexit.thread:                                 ; preds = %.lr.ph134.split
   tail call void @free(ptr noundef nonnull %14) #6
@@ -1601,17 +1601,16 @@ attributes #7 = { nounwind allocsize(0) }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7, !8, !11}
-!11 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!12 = distinct !{!12, !7, !8, !11}
-!13 = distinct !{!13, !7, !8}
-!14 = distinct !{!14, !7, !8}
-!15 = distinct !{!15, !7, !8}
-!16 = distinct !{!16, !7, !8, !11}
-!17 = distinct !{!17, !7, !8, !11}
-!18 = distinct !{!18, !7, !8}
-!19 = distinct !{!19, !7, !8}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7, !10}
+!10 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!11 = distinct !{!11, !7, !10}
+!12 = distinct !{!12, !7}
+!13 = distinct !{!13, !7}
+!14 = distinct !{!14, !7}
+!15 = distinct !{!15, !7, !10}
+!16 = distinct !{!16, !7, !10}
+!17 = distinct !{!17, !7}
+!18 = distinct !{!18, !7}

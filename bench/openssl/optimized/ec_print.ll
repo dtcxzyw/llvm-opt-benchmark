@@ -66,7 +66,7 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 define ptr @EC_POINT_hex2point(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #4
-  store i64 0, ptr %5, align 8, !tbaa !12
+  store i64 0, ptr %5, align 8, !tbaa !11
   %6 = icmp eq ptr %0, null
   %7 = icmp eq ptr %1, null
   %or.cond = or i1 %6, %7
@@ -92,7 +92,7 @@ define ptr @EC_POINT_hex2point(ptr noundef %0, ptr noundef %1, ptr noundef %2, p
 18:                                               ; preds = %13
   %19 = call i32 @OPENSSL_hexstr2buf_ex(ptr noundef nonnull %16, i64 noundef %15, ptr noundef nonnull %5, ptr noundef nonnull %1, i8 noundef signext 0) #4
   %.not = icmp eq i32 %19, 0
-  %.pre = load i64, ptr %5, align 8, !tbaa !12
+  %.pre = load i64, ptr %5, align 8, !tbaa !11
   br i1 %.not, label %.thread, label %21
 
 .thread:                                          ; preds = %10, %13, %18
@@ -105,7 +105,7 @@ define ptr @EC_POINT_hex2point(ptr noundef %0, ptr noundef %1, ptr noundef %2, p
 21:                                               ; preds = %18
   %22 = call i32 @EC_POINT_oct2point(ptr noundef nonnull %0, ptr noundef nonnull %.1, ptr noundef nonnull %16, i64 noundef %.pre, ptr noundef %3) #4
   %.not33 = icmp eq i32 %22, 0
-  %23 = load i64, ptr %5, align 8, !tbaa !12
+  %23 = load i64, ptr %5, align 8, !tbaa !11
   call void @CRYPTO_clear_free(ptr noundef nonnull %16, i64 noundef %23, ptr noundef nonnull @.str, i32 noundef 72) #4
   br i1 %.not33, label %24, label %26
 
@@ -155,8 +155,7 @@ attributes #5 = { nounwind willreturn memory(read) }
 !6 = !{!"omnipotent char", !7, i64 0}
 !7 = !{!"Simple C/C++ TBAA"}
 !8 = !{!6, !6, i64 0}
-!9 = distinct !{!9, !10, !11}
+!9 = distinct !{!9, !10}
 !10 = !{!"llvm.loop.mustprogress"}
-!11 = !{!"llvm.loop.estimated_trip_count"}
-!12 = !{!13, !13, i64 0}
-!13 = !{!"long", !6, i64 0}
+!11 = !{!12, !12, i64 0}
+!12 = !{!"long", !6, i64 0}

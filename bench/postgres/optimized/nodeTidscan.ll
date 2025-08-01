@@ -613,7 +613,7 @@ itemptr_comparator.exit.thread.i.i:               ; preds = %155
   %.1.i.i = phi i64 [ %173, %174 ], [ %.0235.i.i, %itemptr_comparator.exit.thread.i.i ], [ %.06.i.i, %155 ]
   %178 = add nuw nsw i64 %.0235.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %178, %154
-  br i1 %exitcond.not.i.i, label %qunique.exit.i, label %155, !llvm.loop !9
+  br i1 %exitcond.not.i.i, label %qunique.exit.i, label %155, !llvm.loop !8
 
 qunique.exit.i:                                   ; preds = %177
   %179 = trunc i64 %.1.i.i to i32
@@ -691,7 +691,7 @@ TidListEval.exit:                                 ; preds = %.lr.ph101.i, %list_
   %214 = load i8, ptr @bsysscan, align 1, !range !4
   %215 = trunc nuw i8 %214 to i1
   %.not5.i.us = select i1 %213, i1 true, i1 %215
-  br i1 %.not5.i.us, label %table_tuple_fetch_row_version.exit.us, label %.split.us, !prof !10
+  br i1 %.not5.i.us, label %table_tuple_fetch_row_version.exit.us, label %.split.us, !prof !9
 
 table_tuple_fetch_row_version.exit.us:            ; preds = %211
   %216 = load ptr, ptr %204, align 8
@@ -706,7 +706,7 @@ table_tuple_fetch_row_version.exit.us:            ; preds = %211
   store i32 %222, ptr %200, align 8
   %223 = load volatile i32, ptr @InterruptPending, align 4
   %.not.us = icmp eq i32 %223, 0
-  br i1 %.not.us, label %225, label %224, !prof !10
+  br i1 %.not.us, label %225, label %224, !prof !9
 
 224:                                              ; preds = %220
   call void @ProcessInterrupts() #9
@@ -719,7 +719,7 @@ table_tuple_fetch_row_version.exit.us:            ; preds = %211
   %227 = icmp sgt i32 %226, -1
   %228 = icmp slt i32 %226, %184
   %or.cond.us = select i1 %227, i1 %228, i1 false
-  br i1 %or.cond.us, label %.lr.ph46.split.us, label %.critedge, !llvm.loop !11
+  br i1 %or.cond.us, label %.lr.ph46.split.us, label %.critedge, !llvm.loop !10
 
 .lr.ph46.split:                                   ; preds = %.lr.ph46, %251
   %229 = phi i32 [ %252, %251 ], [ %.sink, %.lr.ph46 ]
@@ -741,7 +741,7 @@ table_tuple_fetch_row_version.exit.us:            ; preds = %211
   %238 = load i8, ptr @bsysscan, align 1, !range !4
   %239 = trunc nuw i8 %238 to i1
   %.not5.i = select i1 %237, i1 true, i1 %239
-  br i1 %.not5.i, label %table_tuple_fetch_row_version.exit, label %.split.us, !prof !10
+  br i1 %.not5.i, label %table_tuple_fetch_row_version.exit, label %.split.us, !prof !9
 
 .split.us:                                        ; preds = %235, %211
   %240 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
@@ -767,7 +767,7 @@ table_tuple_fetch_row_version.exit:               ; preds = %235
   store i32 %248, ptr %200, align 8
   %249 = load volatile i32, ptr @InterruptPending, align 4
   %.not = icmp eq i32 %249, 0
-  br i1 %.not, label %251, label %250, !prof !10
+  br i1 %.not, label %251, label %250, !prof !9
 
 250:                                              ; preds = %246
   call void @ProcessInterrupts() #9
@@ -896,10 +896,9 @@ attributes #10 = { cold nounwind }
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i8 0, i8 2}
 !5 = !{}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = !{!"branch_weights", !"expected", i32 2000, i32 1}
-!11 = distinct !{!11, !12}
-!12 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!8 = distinct !{!8, !7}
+!9 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!10 = distinct !{!10, !11}
+!11 = !{!"llvm.loop.unswitch.nontrivial.disable"}

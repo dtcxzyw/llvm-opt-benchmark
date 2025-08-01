@@ -280,7 +280,7 @@ define hidden noundef i64 @_Z3lcmmm(i64 noundef %0, i64 noundef %1) local_unname
   %.0 = phi i64 [ %3, %2 ], [ %.012, %5 ]
   %6 = urem i64 %.0, %.012
   %.not = icmp eq i64 %6, 0
-  br i1 %.not, label %7, label %5, !llvm.loop !9
+  br i1 %.not, label %7, label %5, !llvm.loop !8
 
 7:                                                ; preds = %5
   %8 = mul i64 %1, %0
@@ -341,7 +341,6 @@ attributes #10 = { nounwind willreturn memory(read) }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
+!8 = distinct !{!8, !7}

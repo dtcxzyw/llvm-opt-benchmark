@@ -263,7 +263,7 @@ insert_loose_map.exit40.i:                        ; preds = %109, %101
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #15
   %111 = call i32 @strbuf_getline_lf(ptr noundef nonnull %2, ptr noundef nonnull %78) #15
   %.not28.i = icmp eq i32 %111, 0
-  br i1 %.not28.i, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !54
+  br i1 %.not28.i, label %.lr.ph.i, label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %insert_loose_map.exit40.i, %.preheader.i
   call void @strbuf_release(ptr noundef nonnull %2) #15
@@ -277,7 +277,7 @@ insert_loose_map.exit40.i:                        ; preds = %109, %101
 .backedge:                                        ; preds = %._crit_edge.i, %.critedge
   %.0 = load ptr, ptr %.015, align 8, !tbaa !36
   %.not8 = icmp eq ptr %.0, null
-  br i1 %.not8, label %should_use_loose_object_map.exit.thread, label %17, !llvm.loop !56
+  br i1 %.not8, label %should_use_loose_object_map.exit.thread, label %17, !llvm.loop !54
 
 load_one_loose_object_map.exit.thread:            ; preds = %79, %82, %insert_loose_map.exit40.thread.i
   call void @strbuf_release(ptr noundef nonnull %2) #15
@@ -300,7 +300,7 @@ define dso_local range(i32 -1, 1) i32 @repo_write_loose_object_map(ptr noundef %
   %4 = alloca %struct.strbuf, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load ptr, ptr %5, align 8, !tbaa !35
-  %7 = load ptr, ptr %6, align 8, !tbaa !58
+  %7 = load ptr, ptr %6, align 8, !tbaa !56
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 48
   %9 = load ptr, ptr %8, align 8, !tbaa !38
   %10 = load ptr, ptr %9, align 8, !tbaa !4
@@ -329,7 +329,7 @@ should_use_loose_object_map.exit:                 ; preds = %1
   br i1 %19, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %14
-  %20 = load i32, ptr %10, align 8, !tbaa !70
+  %20 = load i32, ptr %10, align 8, !tbaa !68
   %.not2234 = icmp eq i32 %20, 0
   br i1 %.not2234, label %._crit_edge, label %.lr.ph
 
@@ -344,7 +344,7 @@ should_use_loose_object_map.exit:                 ; preds = %1
 
 27:                                               ; preds = %.lr.ph, %strbuf_setlen.exit
   %.035 = phi i32 [ 0, %.lr.ph ], [ %60, %strbuf_setlen.exit ]
-  %28 = load ptr, ptr %21, align 8, !tbaa !73
+  %28 = load ptr, ptr %21, align 8, !tbaa !71
   %29 = lshr i32 %.035, 4
   %30 = zext nneg i32 %29 to i64
   %31 = getelementptr inbounds nuw i32, ptr %28, i64 %30
@@ -357,7 +357,7 @@ should_use_loose_object_map.exit:                 ; preds = %1
   br i1 %.not23, label %37, label %strbuf_setlen.exit
 
 37:                                               ; preds = %27
-  %38 = load ptr, ptr %22, align 8, !tbaa !74
+  %38 = load ptr, ptr %22, align 8, !tbaa !72
   %39 = zext i32 %.035 to i64
   %40 = getelementptr inbounds nuw %struct.object_id, ptr %38, i64 %39
   %41 = load ptr, ptr %23, align 8, !tbaa !42
@@ -376,9 +376,9 @@ should_use_loose_object_map.exit:                 ; preds = %1
 
 47:                                               ; preds = %44
   %48 = call ptr @oid_to_hex(ptr noundef nonnull %40) #15
-  %49 = load ptr, ptr %24, align 8, !tbaa !75
+  %49 = load ptr, ptr %24, align 8, !tbaa !73
   %50 = getelementptr inbounds nuw ptr, ptr %49, i64 %39
-  %51 = load ptr, ptr %50, align 8, !tbaa !76
+  %51 = load ptr, ptr %50, align 8, !tbaa !74
   %52 = call ptr @oid_to_hex(ptr noundef %51) #15
   call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %3, ptr noundef nonnull @.str.1, ptr noundef %48, ptr noundef %52) #15
   %53 = load ptr, ptr %25, align 8, !tbaa !48
@@ -399,9 +399,9 @@ should_use_loose_object_map.exit:                 ; preds = %1
 
 strbuf_setlen.exit:                               ; preds = %59, %57, %27, %37, %44
   %60 = add i32 %.035, 1
-  %61 = load i32, ptr %10, align 8, !tbaa !70
+  %61 = load i32, ptr %10, align 8, !tbaa !68
   %.not22 = icmp eq i32 %60, %61
-  br i1 %.not22, label %._crit_edge, label %27, !llvm.loop !77
+  br i1 %.not22, label %._crit_edge, label %27, !llvm.loop !75
 
 ._crit_edge:                                      ; preds = %strbuf_setlen.exit, %.preheader
   call void @strbuf_release(ptr noundef nonnull %3) #15
@@ -481,7 +481,7 @@ should_use_loose_object_map.exit:                 ; preds = %3
 11:                                               ; preds = %should_use_loose_object_map.exit
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %13 = load ptr, ptr %12, align 8, !tbaa !35
-  %14 = load ptr, ptr %13, align 8, !tbaa !58
+  %14 = load ptr, ptr %13, align 8, !tbaa !56
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 48
   %16 = load ptr, ptr %15, align 8, !tbaa !38
   %17 = load ptr, ptr %16, align 8, !tbaa !4
@@ -519,7 +519,7 @@ should_use_loose_object_map.exit:                 ; preds = %3
 
 35:                                               ; preds = %32
   %36 = getelementptr inbounds nuw i8, ptr %5, i64 48
-  %37 = load i64, ptr %36, align 8, !tbaa !78
+  %37 = load i64, ptr %36, align 8, !tbaa !76
   %.not.i10 = icmp eq i64 %37, 0
   br i1 %.not.i10, label %38, label %41
 
@@ -608,10 +608,10 @@ define dso_local range(i32 -1, 1) i32 @repo_loose_object_map_oid(ptr noundef rea
   %15 = icmp eq ptr %2, %14
   %.in.idx = select i1 %15, i64 0, i64 8
   %.in = getelementptr inbounds nuw i8, ptr %12, i64 %.in.idx
-  %16 = load ptr, ptr %.in, align 8, !tbaa !81
+  %16 = load ptr, ptr %.in, align 8, !tbaa !79
   call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %6, ptr noundef nonnull align 4 dereferenceable(36) %1, i64 36, i1 false)
-  %17 = load i32, ptr %16, align 8, !tbaa !70
+  %17 = load i32, ptr %16, align 8, !tbaa !68
   %.not.i = icmp eq i32 %17, 0
   br i1 %.not.i, label %kh_get_oid_map.exit, label %18
 
@@ -620,7 +620,7 @@ define dso_local range(i32 -1, 1) i32 @repo_loose_object_map_oid(ptr noundef rea
   %.val.i = load i32, ptr %6, align 8
   %20 = and i32 %.val.i, %19
   %21 = getelementptr inbounds nuw i8, ptr %16, i64 16
-  %22 = load ptr, ptr %21, align 8, !tbaa !73
+  %22 = load ptr, ptr %21, align 8, !tbaa !71
   %23 = getelementptr inbounds nuw i8, ptr %16, i64 24
   br label %24
 
@@ -644,11 +644,11 @@ define dso_local range(i32 -1, 1) i32 @repo_loose_object_map_oid(ptr noundef rea
   br i1 %.not31.i, label %35, label %.critedge2.i
 
 35:                                               ; preds = %33
-  %36 = load ptr, ptr %23, align 8, !tbaa !74
+  %36 = load ptr, ptr %23, align 8, !tbaa !72
   %37 = zext i32 %.027.i to i64
   %38 = getelementptr inbounds nuw %struct.object_id, ptr %36, i64 %37
   call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %5) #15
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %5, ptr noundef nonnull align 4 dereferenceable(36) %38, i64 36, i1 false), !tbaa.struct !82
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %5, ptr noundef nonnull align 4 dereferenceable(36) %38, i64 36, i1 false), !tbaa.struct !80
   %bcmp.i.i.i = call i32 @bcmp(ptr noundef nonnull readonly align 8 dereferenceable(32) %5, ptr noundef nonnull readonly align 8 dereferenceable(32) %6, i64 32)
   %.not.i.i.not.i = icmp eq i32 %bcmp.i.i.i, 0
   call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %5) #15
@@ -659,7 +659,7 @@ define dso_local range(i32 -1, 1) i32 @repo_loose_object_map_oid(ptr noundef rea
   %40 = add i32 %39, %.027.i
   %41 = and i32 %40, %19
   %42 = icmp eq i32 %41, %20
-  br i1 %42, label %kh_get_oid_map.exit.thread, label %24, !llvm.loop !83
+  br i1 %42, label %kh_get_oid_map.exit.thread, label %24, !llvm.loop !81
 
 kh_get_oid_map.exit.thread:                       ; preds = %.critedge2.i
   call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %6)
@@ -680,21 +680,21 @@ kh_get_oid_map.exit:                              ; preds = %13, %.critedge.i
 
 46:                                               ; preds = %kh_get_oid_map.exit
   %47 = getelementptr inbounds nuw i8, ptr %16, i64 32
-  %48 = load ptr, ptr %47, align 8, !tbaa !75
+  %48 = load ptr, ptr %47, align 8, !tbaa !73
   %49 = zext i32 %.1.i to i64
   %50 = getelementptr inbounds nuw ptr, ptr %48, i64 %49
-  %51 = load ptr, ptr %50, align 8, !tbaa !76
+  %51 = load ptr, ptr %50, align 8, !tbaa !74
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %3, ptr noundef nonnull readonly align 4 dereferenceable(32) %51, i64 32, i1 false)
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 32
-  %53 = load i32, ptr %52, align 4, !tbaa !84
+  %53 = load i32, ptr %52, align 4, !tbaa !82
   %54 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  store i32 %53, ptr %54, align 4, !tbaa !84
+  store i32 %53, ptr %54, align 4, !tbaa !82
   br label %.loopexit
 
 55:                                               ; preds = %10, %kh_get_oid_map.exit, %kh_get_oid_map.exit.thread
   %.018 = load ptr, ptr %.01831, align 8, !tbaa !36
   %.not = icmp eq ptr %.018, null
-  br i1 %.not, label %.loopexit, label %10, !llvm.loop !86
+  br i1 %.not, label %.loopexit, label %10, !llvm.loop !84
 
 .loopexit:                                        ; preds = %55, %4, %46
   %.2 = phi i32 [ 0, %46 ], [ -1, %4 ], [ -1, %55 ]
@@ -709,7 +709,7 @@ define dso_local void @loose_object_map_clear(ptr noundef captures(none) %0) loc
 
 .preheader31:                                     ; preds = %1
   %3 = load ptr, ptr %2, align 8, !tbaa !4
-  %4 = load i32, ptr %3, align 8, !tbaa !70
+  %4 = load i32, ptr %3, align 8, !tbaa !68
   %.not2532 = icmp eq i32 %4, 0
   br i1 %.not2532, label %.preheader, label %.lr.ph
 
@@ -717,7 +717,7 @@ define dso_local void @loose_object_map_clear(ptr noundef captures(none) %0) loc
   %5 = phi ptr [ %3, %.preheader31 ], [ %29, %27 ]
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %7 = load ptr, ptr %6, align 8, !tbaa !10
-  %8 = load i32, ptr %7, align 8, !tbaa !70
+  %8 = load i32, ptr %7, align 8, !tbaa !68
   %.not2634 = icmp eq i32 %8, 0
   br i1 %.not2634, label %kh_destroy_oid_map.exit, label %.lr.ph36
 
@@ -726,7 +726,7 @@ define dso_local void @loose_object_map_clear(ptr noundef captures(none) %0) loc
   %10 = phi ptr [ %29, %27 ], [ %3, %.preheader31 ]
   %.02333 = phi i32 [ %30, %27 ], [ 0, %.preheader31 ]
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  %12 = load ptr, ptr %11, align 8, !tbaa !73
+  %12 = load ptr, ptr %11, align 8, !tbaa !71
   %13 = lshr i32 %.02333, 4
   %14 = zext nneg i32 %13 to i64
   %15 = getelementptr inbounds nuw i32, ptr %12, i64 %14
@@ -740,13 +740,13 @@ define dso_local void @loose_object_map_clear(ptr noundef captures(none) %0) loc
 
 21:                                               ; preds = %.lr.ph
   %22 = getelementptr inbounds nuw i8, ptr %10, i64 32
-  %23 = load ptr, ptr %22, align 8, !tbaa !75
+  %23 = load ptr, ptr %22, align 8, !tbaa !73
   %24 = zext i32 %.02333 to i64
   %25 = getelementptr inbounds nuw ptr, ptr %23, i64 %24
-  %26 = load ptr, ptr %25, align 8, !tbaa !76
+  %26 = load ptr, ptr %25, align 8, !tbaa !74
   tail call void @free(ptr noundef %26) #15
   %.pre = load ptr, ptr %2, align 8, !tbaa !4
-  %.pre37 = load i32, ptr %.pre, align 8, !tbaa !70
+  %.pre37 = load i32, ptr %.pre, align 8, !tbaa !68
   br label %27
 
 27:                                               ; preds = %.lr.ph, %21
@@ -754,14 +754,14 @@ define dso_local void @loose_object_map_clear(ptr noundef captures(none) %0) loc
   %29 = phi ptr [ %10, %.lr.ph ], [ %.pre, %21 ]
   %30 = add i32 %.02333, 1
   %.not25 = icmp eq i32 %30, %28
-  br i1 %.not25, label %.preheader, label %.lr.ph, !llvm.loop !87
+  br i1 %.not25, label %.preheader, label %.lr.ph, !llvm.loop !85
 
 .lr.ph36:                                         ; preds = %.preheader, %49
   %31 = phi i32 [ %50, %49 ], [ %8, %.preheader ]
   %32 = phi ptr [ %51, %49 ], [ %7, %.preheader ]
   %.035 = phi i32 [ %52, %49 ], [ 0, %.preheader ]
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 16
-  %34 = load ptr, ptr %33, align 8, !tbaa !73
+  %34 = load ptr, ptr %33, align 8, !tbaa !71
   %35 = lshr i32 %.035, 4
   %36 = zext nneg i32 %35 to i64
   %37 = getelementptr inbounds nuw i32, ptr %34, i64 %36
@@ -775,13 +775,13 @@ define dso_local void @loose_object_map_clear(ptr noundef captures(none) %0) loc
 
 43:                                               ; preds = %.lr.ph36
   %44 = getelementptr inbounds nuw i8, ptr %32, i64 32
-  %45 = load ptr, ptr %44, align 8, !tbaa !75
+  %45 = load ptr, ptr %44, align 8, !tbaa !73
   %46 = zext i32 %.035 to i64
   %47 = getelementptr inbounds nuw ptr, ptr %45, i64 %46
-  %48 = load ptr, ptr %47, align 8, !tbaa !76
+  %48 = load ptr, ptr %47, align 8, !tbaa !74
   tail call void @free(ptr noundef %48) #15
   %.pre38 = load ptr, ptr %6, align 8, !tbaa !10
-  %.pre39 = load i32, ptr %.pre38, align 8, !tbaa !70
+  %.pre39 = load i32, ptr %.pre38, align 8, !tbaa !68
   br label %49
 
 49:                                               ; preds = %.lr.ph36, %43
@@ -789,7 +789,7 @@ define dso_local void @loose_object_map_clear(ptr noundef captures(none) %0) loc
   %51 = phi ptr [ %32, %.lr.ph36 ], [ %.pre38, %43 ]
   %52 = add i32 %.035, 1
   %.not26 = icmp eq i32 %52, %50
-  br i1 %.not26, label %._crit_edge, label %.lr.ph36, !llvm.loop !88
+  br i1 %.not26, label %._crit_edge, label %.lr.ph36, !llvm.loop !86
 
 ._crit_edge:                                      ; preds = %49
   %.pre40 = load ptr, ptr %2, align 8, !tbaa !4
@@ -799,13 +799,13 @@ define dso_local void @loose_object_map_clear(ptr noundef captures(none) %0) loc
 kh_destroy_oid_map.exit:                          ; preds = %.preheader, %._crit_edge
   %53 = phi ptr [ %.pre40, %._crit_edge ], [ %5, %.preheader ]
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 16
-  %55 = load ptr, ptr %54, align 8, !tbaa !73
+  %55 = load ptr, ptr %54, align 8, !tbaa !71
   tail call void @free(ptr noundef %55) #15
   %56 = getelementptr inbounds nuw i8, ptr %53, i64 24
-  %57 = load ptr, ptr %56, align 8, !tbaa !74
+  %57 = load ptr, ptr %56, align 8, !tbaa !72
   tail call void @free(ptr noundef %57) #15
   %58 = getelementptr inbounds nuw i8, ptr %53, i64 32
-  %59 = load ptr, ptr %58, align 8, !tbaa !75
+  %59 = load ptr, ptr %58, align 8, !tbaa !73
   tail call void @free(ptr noundef %59) #15
   tail call void @free(ptr noundef nonnull %53) #15
   %.pre41 = load ptr, ptr %6, align 8, !tbaa !10
@@ -815,13 +815,13 @@ kh_destroy_oid_map.exit:                          ; preds = %.preheader, %._crit
 kh_destroy_oid_map.exit.thread:                   ; preds = %._crit_edge, %kh_destroy_oid_map.exit
   %60 = phi ptr [ %.pre41, %kh_destroy_oid_map.exit ], [ %51, %._crit_edge ]
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 16
-  %62 = load ptr, ptr %61, align 8, !tbaa !73
+  %62 = load ptr, ptr %61, align 8, !tbaa !71
   tail call void @free(ptr noundef %62) #15
   %63 = getelementptr inbounds nuw i8, ptr %60, i64 24
-  %64 = load ptr, ptr %63, align 8, !tbaa !74
+  %64 = load ptr, ptr %63, align 8, !tbaa !72
   tail call void @free(ptr noundef %64) #15
   %65 = getelementptr inbounds nuw i8, ptr %60, i64 32
-  %66 = load ptr, ptr %65, align 8, !tbaa !75
+  %66 = load ptr, ptr %65, align 8, !tbaa !73
   tail call void @free(ptr noundef %66) #15
   tail call void @free(ptr noundef nonnull %60) #15
   br label %kh_destroy_oid_map.exit30
@@ -872,16 +872,16 @@ define internal fastcc range(i32 0, 2) i32 @insert_oid_pair(ptr noundef captures
   call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %5, ptr noundef nonnull align 4 dereferenceable(36) %1, i64 36, i1 false)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %7 = load i32, ptr %6, align 8, !tbaa !89
+  %7 = load i32, ptr %6, align 8, !tbaa !87
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %9 = load i32, ptr %8, align 4, !tbaa !90
+  %9 = load i32, ptr %8, align 4, !tbaa !88
   %.not.i = icmp ult i32 %7, %9
-  %.pre = load i32, ptr %0, align 8, !tbaa !70
+  %.pre = load i32, ptr %0, align 8, !tbaa !68
   br i1 %.not.i, label %kh_resize_oid_map.exit, label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %3
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %11 = load i32, ptr %10, align 4, !tbaa !91
+  %11 = load i32, ptr %10, align 4, !tbaa !89
   %12 = shl i32 %11, 1
   %13 = icmp ugt i32 %.pre, %12
   %..i = select i1 %13, i32 -1, i32 1
@@ -913,23 +913,23 @@ define internal fastcc range(i32 0, 2) i32 @insert_oid_pair(ptr noundef captures
   %35 = zext nneg i32 %34 to i64
   %36 = tail call ptr @xmalloc(i64 noundef %35) #15
   tail call void @llvm.memset.p0.i64(ptr align 4 %36, i8 -86, i64 %35, i1 false)
-  %37 = load i32, ptr %0, align 8, !tbaa !70
+  %37 = load i32, ptr %0, align 8, !tbaa !68
   %38 = icmp ult i32 %37, %spec.store.select.i
   br i1 %38, label %39, label %.lr.ph132.i
 
 39:                                               ; preds = %30
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %41 = load ptr, ptr %40, align 8, !tbaa !74
+  %41 = load ptr, ptr %40, align 8, !tbaa !72
   %42 = zext i32 %spec.store.select.i to i64
   %43 = mul nuw nsw i64 %42, 36
   %44 = tail call ptr @xrealloc(ptr noundef %41, i64 noundef %43) #15
-  store ptr %44, ptr %40, align 8, !tbaa !74
+  store ptr %44, ptr %40, align 8, !tbaa !72
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %46 = load ptr, ptr %45, align 8, !tbaa !75
+  %46 = load ptr, ptr %45, align 8, !tbaa !73
   %47 = shl nuw nsw i64 %42, 3
   %48 = tail call ptr @xrealloc(ptr noundef %46, i64 noundef %47) #15
-  store ptr %48, ptr %45, align 8, !tbaa !75
-  %.pre.i9 = load i32, ptr %0, align 8, !tbaa !70
+  store ptr %48, ptr %45, align 8, !tbaa !73
+  %.pre.i9 = load i32, ptr %0, align 8, !tbaa !68
   %.not129.i = icmp eq i32 %.pre.i9, 0
   br i1 %.not129.i, label %._crit_edge133.thread.i, label %.lr.ph132.i
 
@@ -944,7 +944,7 @@ define internal fastcc range(i32 0, 2) i32 @insert_oid_pair(ptr noundef captures
 54:                                               ; preds = %122, %.lr.ph132.i
   %55 = phi i32 [ %49, %.lr.ph132.i ], [ %123, %122 ]
   %.1130.i = phi i32 [ 0, %.lr.ph132.i ], [ %124, %122 ]
-  %56 = load ptr, ptr %50, align 8, !tbaa !73
+  %56 = load ptr, ptr %50, align 8, !tbaa !71
   %57 = lshr i32 %.1130.i, 4
   %58 = zext nneg i32 %57 to i64
   %59 = getelementptr inbounds nuw i32, ptr %56, i64 %58
@@ -958,15 +958,15 @@ define internal fastcc range(i32 0, 2) i32 @insert_oid_pair(ptr noundef captures
 
 66:                                               ; preds = %54
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %.sroa.7.i)
-  %67 = load ptr, ptr %51, align 8, !tbaa !74
+  %67 = load ptr, ptr %51, align 8, !tbaa !72
   %68 = zext i32 %.1130.i to i64
   %69 = getelementptr inbounds nuw %struct.object_id, ptr %67, i64 %68
   %.sroa.0.0.copyload.i = load i32, ptr %69, align 4
   %.sroa.7.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %69, i64 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %.sroa.7.i, ptr noundef nonnull align 4 dereferenceable(32) %.sroa.7.0..sroa_idx.i, i64 32, i1 false), !tbaa.struct !92
-  %70 = load ptr, ptr %53, align 8, !tbaa !75
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %.sroa.7.i, ptr noundef nonnull align 4 dereferenceable(32) %.sroa.7.0..sroa_idx.i, i64 32, i1 false), !tbaa.struct !90
+  %70 = load ptr, ptr %53, align 8, !tbaa !73
   %71 = getelementptr inbounds nuw ptr, ptr %70, i64 %68
-  %72 = load ptr, ptr %71, align 8, !tbaa !76
+  %72 = load ptr, ptr %71, align 8, !tbaa !74
   %73 = shl nuw nsw i32 1, %62
   %74 = or i32 %73, %60
   store i32 %74, ptr %59, align 4, !tbaa !50
@@ -1003,7 +1003,7 @@ define internal fastcc range(i32 0, 2) i32 @insert_oid_pair(ptr noundef captures
   %93 = shl nuw i32 2, %92
   %94 = and i32 %93, %90
   %.not102.i = icmp eq i32 %94, 0
-  br i1 %.not102.i, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !93
+  br i1 %.not102.i, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !91
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %75
   %.lcssa119.i = phi i64 [ %78, %75 ], [ %88, %.lr.ph.i ]
@@ -1015,12 +1015,12 @@ define internal fastcc range(i32 0, 2) i32 @insert_oid_pair(ptr noundef captures
   %96 = xor i32 %.lcssa.i, -1
   %97 = and i32 %.lcssa115.i, %96
   store i32 %97, ptr %95, align 4, !tbaa !50
-  %98 = load i32, ptr %0, align 8, !tbaa !70
+  %98 = load i32, ptr %0, align 8, !tbaa !68
   %99 = icmp ult i32 %.095.lcssa.i, %98
   br i1 %99, label %100, label %._crit_edge._crit_edge.i
 
 ._crit_edge._crit_edge.i:                         ; preds = %._crit_edge.i
-  %.pre141.i = load ptr, ptr %51, align 8, !tbaa !74
+  %.pre141.i = load ptr, ptr %51, align 8, !tbaa !72
   br label %split.i
 
 100:                                              ; preds = %._crit_edge.i
@@ -1029,7 +1029,7 @@ define internal fastcc range(i32 0, 2) i32 @insert_oid_pair(ptr noundef captures
   %103 = shl nuw i32 3, %.lcssa114.i
   %104 = and i32 %102, %103
   %105 = icmp eq i32 %104, 0
-  %.pre142.i = load ptr, ptr %51, align 8, !tbaa !74
+  %.pre142.i = load ptr, ptr %51, align 8, !tbaa !72
   br i1 %105, label %106, label %split.i
 
 106:                                              ; preds = %100
@@ -1038,22 +1038,22 @@ define internal fastcc range(i32 0, 2) i32 @insert_oid_pair(ptr noundef captures
   %108 = getelementptr inbounds nuw %struct.object_id, ptr %.pre142.i, i64 %107
   %.sroa.0109.0.copyload.i = load i32, ptr %108, align 4
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %108, i64 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %.sroa.4.i, ptr noundef nonnull align 4 dereferenceable(32) %.sroa.4.0..sroa_idx.i, i64 32, i1 false), !tbaa.struct !92
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %.sroa.4.i, ptr noundef nonnull align 4 dereferenceable(32) %.sroa.4.0..sroa_idx.i, i64 32, i1 false), !tbaa.struct !90
   store i32 %.sroa.0.0.i, ptr %108, align 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %.sroa.4.0..sroa_idx.i, ptr noundef nonnull align 4 dereferenceable(32) %.sroa.7.i, i64 32, i1 false), !tbaa.struct !92
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %.sroa.7.i, ptr noundef nonnull align 4 dereferenceable(32) %.sroa.4.i, i64 32, i1 false), !tbaa.struct !92
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %.sroa.4.0..sroa_idx.i, ptr noundef nonnull align 4 dereferenceable(32) %.sroa.7.i, i64 32, i1 false), !tbaa.struct !90
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %.sroa.7.i, ptr noundef nonnull align 4 dereferenceable(32) %.sroa.4.i, i64 32, i1 false), !tbaa.struct !90
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.4.i)
-  %109 = load ptr, ptr %53, align 8, !tbaa !75
+  %109 = load ptr, ptr %53, align 8, !tbaa !73
   %110 = getelementptr inbounds nuw ptr, ptr %109, i64 %107
-  %111 = load ptr, ptr %110, align 8, !tbaa !76
-  store ptr %.098.i, ptr %110, align 8, !tbaa !76
+  %111 = load ptr, ptr %110, align 8, !tbaa !74
+  store ptr %.098.i, ptr %110, align 8, !tbaa !74
   %112 = shl nuw nsw i32 1, %.lcssa114.i
-  %113 = load ptr, ptr %50, align 8, !tbaa !73
+  %113 = load ptr, ptr %50, align 8, !tbaa !71
   %114 = getelementptr inbounds nuw i32, ptr %113, i64 %.lcssa119.i
   %115 = load i32, ptr %114, align 4, !tbaa !50
   %116 = or i32 %115, %112
   store i32 %116, ptr %114, align 4, !tbaa !50
-  br label %75, !llvm.loop !94
+  br label %75
 
 split.i:                                          ; preds = %100, %._crit_edge._crit_edge.i
   %117 = phi ptr [ %.pre141.i, %._crit_edge._crit_edge.i ], [ %.pre142.i, %100 ]
@@ -1061,45 +1061,45 @@ split.i:                                          ; preds = %100, %._crit_edge._
   %119 = getelementptr inbounds nuw %struct.object_id, ptr %117, i64 %118
   store i32 %.sroa.0.0.i, ptr %119, align 4
   %.sroa.7.0..sroa_idx108.i = getelementptr inbounds nuw i8, ptr %119, i64 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %.sroa.7.0..sroa_idx108.i, ptr noundef nonnull align 4 dereferenceable(32) %.sroa.7.i, i64 32, i1 false), !tbaa.struct !92
-  %120 = load ptr, ptr %53, align 8, !tbaa !75
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %.sroa.7.0..sroa_idx108.i, ptr noundef nonnull align 4 dereferenceable(32) %.sroa.7.i, i64 32, i1 false), !tbaa.struct !90
+  %120 = load ptr, ptr %53, align 8, !tbaa !73
   %121 = getelementptr inbounds nuw ptr, ptr %120, i64 %118
-  store ptr %.098.i, ptr %121, align 8, !tbaa !76
+  store ptr %.098.i, ptr %121, align 8, !tbaa !74
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.7.i)
-  %.pre143.i = load i32, ptr %0, align 8, !tbaa !70
+  %.pre143.i = load i32, ptr %0, align 8, !tbaa !68
   br label %122
 
 122:                                              ; preds = %split.i, %54
   %123 = phi i32 [ %55, %54 ], [ %.pre143.i, %split.i ]
   %124 = add i32 %.1130.i, 1
   %.not.i8 = icmp eq i32 %124, %123
-  br i1 %.not.i8, label %._crit_edge133.i, label %54, !llvm.loop !95
+  br i1 %.not.i8, label %._crit_edge133.i, label %54, !llvm.loop !92
 
 ._crit_edge133.i:                                 ; preds = %122
   %125 = icmp ugt i32 %123, %spec.store.select.i
   br i1 %125, label %126, label %._crit_edge133.thread.i
 
 126:                                              ; preds = %._crit_edge133.i
-  %127 = load ptr, ptr %51, align 8, !tbaa !74
+  %127 = load ptr, ptr %51, align 8, !tbaa !72
   %128 = zext i32 %spec.store.select.i to i64
   %129 = mul nuw nsw i64 %128, 36
   %130 = tail call ptr @xrealloc(ptr noundef %127, i64 noundef %129) #15
-  store ptr %130, ptr %51, align 8, !tbaa !74
-  %131 = load ptr, ptr %53, align 8, !tbaa !75
+  store ptr %130, ptr %51, align 8, !tbaa !72
+  %131 = load ptr, ptr %53, align 8, !tbaa !73
   %132 = shl nuw nsw i64 %128, 3
   %133 = tail call ptr @xrealloc(ptr noundef %131, i64 noundef %132) #15
-  store ptr %133, ptr %53, align 8, !tbaa !75
+  store ptr %133, ptr %53, align 8, !tbaa !73
   br label %._crit_edge133.thread.i
 
 ._crit_edge133.thread.i:                          ; preds = %126, %._crit_edge133.i, %39
   %134 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %135 = load ptr, ptr %134, align 8, !tbaa !73
+  %135 = load ptr, ptr %134, align 8, !tbaa !71
   tail call void @free(ptr noundef %135) #15
-  store ptr %36, ptr %134, align 8, !tbaa !73
-  store i32 %spec.store.select.i, ptr %0, align 8, !tbaa !70
-  %136 = load i32, ptr %10, align 4, !tbaa !91
-  store i32 %136, ptr %6, align 8, !tbaa !89
-  store i32 %29, ptr %8, align 4, !tbaa !90
+  store ptr %36, ptr %134, align 8, !tbaa !71
+  store i32 %spec.store.select.i, ptr %0, align 8, !tbaa !68
+  %136 = load i32, ptr %10, align 4, !tbaa !89
+  store i32 %136, ptr %6, align 8, !tbaa !87
+  store i32 %29, ptr %8, align 4, !tbaa !88
   br label %kh_resize_oid_map.exit
 
 kh_resize_oid_map.exit:                           ; preds = %._crit_edge133.thread.i, %.sink.split.i, %3
@@ -1108,7 +1108,7 @@ kh_resize_oid_map.exit:                           ; preds = %._crit_edge133.thre
   %.val.i = load i32, ptr %5, align 8
   %139 = and i32 %.val.i, %138
   %140 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %141 = load ptr, ptr %140, align 8, !tbaa !73
+  %141 = load ptr, ptr %140, align 8, !tbaa !71
   %142 = lshr i32 %139, 4
   %143 = zext nneg i32 %142 to i64
   %144 = getelementptr inbounds nuw i32, ptr %141, i64 %143
@@ -1145,11 +1145,11 @@ kh_resize_oid_map.exit:                           ; preds = %._crit_edge133.thre
   br i1 %.not80.i, label %162, label %.critedge2.i
 
 162:                                              ; preds = %160
-  %163 = load ptr, ptr %150, align 8, !tbaa !74
+  %163 = load ptr, ptr %150, align 8, !tbaa !72
   %164 = zext i32 %.069.i to i64
   %165 = getelementptr inbounds nuw %struct.object_id, ptr %163, i64 %164
   call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %4) #15
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %4, ptr noundef nonnull align 4 dereferenceable(36) %165, i64 36, i1 false), !tbaa.struct !82
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %4, ptr noundef nonnull align 4 dereferenceable(36) %165, i64 36, i1 false), !tbaa.struct !80
   %bcmp.i.i.i = call i32 @bcmp(ptr noundef nonnull readonly align 8 dereferenceable(32) %4, ptr noundef nonnull readonly align 8 dereferenceable(32) %5, i64 32)
   %.not.i.i.not.i = icmp eq i32 %bcmp.i.i.i, 0
   call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %4) #15
@@ -1164,7 +1164,7 @@ kh_resize_oid_map.exit:                           ; preds = %._crit_edge133.thre
   %169 = add i32 %168, %.069.i
   %170 = and i32 %169, %138
   %171 = icmp eq i32 %170, %139
-  br i1 %171, label %.critedge.i, label %151, !llvm.loop !96
+  br i1 %171, label %.critedge.i, label %151, !llvm.loop !93
 
 .critedge.i:                                      ; preds = %.critedge2.i
   %172 = icmp eq i32 %spec.select.i, %137
@@ -1200,24 +1200,24 @@ kh_resize_oid_map.exit:                           ; preds = %._crit_edge133.thre
 
 183:                                              ; preds = %174
   %184 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %185 = load ptr, ptr %184, align 8, !tbaa !74
+  %185 = load ptr, ptr %184, align 8, !tbaa !72
   %186 = zext i32 %.068.i to i64
   %187 = getelementptr inbounds nuw %struct.object_id, ptr %185, i64 %186
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %187, ptr noundef nonnull readonly align 8 dereferenceable(36) %5, i64 36, i1 false), !tbaa.struct !82
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %187, ptr noundef nonnull readonly align 8 dereferenceable(36) %5, i64 36, i1 false), !tbaa.struct !80
   %188 = shl nuw i32 3, %180
   %189 = xor i32 %188, -1
-  %190 = load ptr, ptr %140, align 8, !tbaa !73
+  %190 = load ptr, ptr %140, align 8, !tbaa !71
   %191 = getelementptr inbounds nuw i32, ptr %190, i64 %176
   %192 = load i32, ptr %191, align 4, !tbaa !50
   %193 = and i32 %192, %189
   store i32 %193, ptr %191, align 4, !tbaa !50
   %194 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %195 = load i32, ptr %194, align 4, !tbaa !91
+  %195 = load i32, ptr %194, align 4, !tbaa !89
   %196 = add i32 %195, 1
-  store i32 %196, ptr %194, align 4, !tbaa !91
-  %197 = load i32, ptr %6, align 8, !tbaa !89
+  store i32 %196, ptr %194, align 4, !tbaa !89
+  %197 = load i32, ptr %6, align 8, !tbaa !87
   %198 = add i32 %197, 1
-  store i32 %198, ptr %6, align 8, !tbaa !89
+  store i32 %198, ptr %6, align 8, !tbaa !87
   br label %215
 
 199:                                              ; preds = %174
@@ -1227,21 +1227,21 @@ kh_resize_oid_map.exit:                           ; preds = %._crit_edge133.thre
 
 201:                                              ; preds = %199
   %202 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %203 = load ptr, ptr %202, align 8, !tbaa !74
+  %203 = load ptr, ptr %202, align 8, !tbaa !72
   %204 = zext i32 %.068.i to i64
   %205 = getelementptr inbounds nuw %struct.object_id, ptr %203, i64 %204
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %205, ptr noundef nonnull readonly align 8 dereferenceable(36) %5, i64 36, i1 false), !tbaa.struct !82
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %205, ptr noundef nonnull readonly align 8 dereferenceable(36) %5, i64 36, i1 false), !tbaa.struct !80
   %206 = shl nuw i32 3, %180
   %207 = xor i32 %206, -1
-  %208 = load ptr, ptr %140, align 8, !tbaa !73
+  %208 = load ptr, ptr %140, align 8, !tbaa !71
   %209 = getelementptr inbounds nuw i32, ptr %208, i64 %176
   %210 = load i32, ptr %209, align 4, !tbaa !50
   %211 = and i32 %210, %207
   store i32 %211, ptr %209, align 4, !tbaa !50
   %212 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %213 = load i32, ptr %212, align 4, !tbaa !91
+  %213 = load i32, ptr %212, align 4, !tbaa !89
   %214 = add i32 %213, 1
-  store i32 %214, ptr %212, align 4, !tbaa !91
+  store i32 %214, ptr %212, align 4, !tbaa !89
   br label %215
 
 kh_put_oid_map.exit:                              ; preds = %199
@@ -1254,13 +1254,13 @@ kh_put_oid_map.exit:                              ; preds = %199
   %216 = tail call ptr @xmalloc(i64 noundef 36) #15
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %216, ptr noundef nonnull readonly align 4 dereferenceable(32) %2, i64 32, i1 false)
   %217 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %218 = load i32, ptr %217, align 4, !tbaa !84
+  %218 = load i32, ptr %217, align 4, !tbaa !82
   %219 = getelementptr inbounds nuw i8, ptr %216, i64 32
-  store i32 %218, ptr %219, align 4, !tbaa !84
+  store i32 %218, ptr %219, align 4, !tbaa !82
   %220 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %221 = load ptr, ptr %220, align 8, !tbaa !75
+  %221 = load ptr, ptr %220, align 8, !tbaa !73
   %222 = getelementptr inbounds nuw ptr, ptr %221, i64 %.pre-phi
-  store ptr %216, ptr %222, align 8, !tbaa !76
+  store ptr %216, ptr %222, align 8, !tbaa !74
   br label %223
 
 223:                                              ; preds = %kh_put_oid_map.exit, %215
@@ -1370,45 +1370,42 @@ attributes #17 = { nounwind willreturn memory(read) }
 !52 = !{!8, !8, i64 0}
 !53 = !{!49, !27, i64 8}
 !54 = distinct !{!54, !55}
-!55 = !{!"llvm.loop.estimated_trip_count"}
-!56 = distinct !{!56, !57, !55}
-!57 = !{!"llvm.loop.mustprogress"}
-!58 = !{!59, !37, i64 0}
-!59 = !{!"raw_object_store", !37, i64 0, !60, i64 8, !61, i64 16, !22, i64 24, !15, i64 32, !62, i64 40, !22, i64 48, !8, i64 56, !63, i64 96, !22, i64 104, !64, i64 112, !65, i64 120, !66, i64 128, !68, i64 144, !20, i64 160, !27, i64 208, !22, i64 216, !22, i64 216}
-!60 = !{!"p2 _ZTS16object_directory", !7, i64 0}
-!61 = !{!"p1 _ZTS15kh_odb_path_map", !7, i64 0}
-!62 = !{!"p1 _ZTS6oidmap", !7, i64 0}
-!63 = !{!"p1 _ZTS12commit_graph", !7, i64 0}
-!64 = !{!"p1 _ZTS16multi_pack_index", !7, i64 0}
-!65 = !{!"p1 _ZTS10packed_git", !7, i64 0}
-!66 = !{!"list_head", !67, i64 0, !67, i64 8}
-!67 = !{!"p1 _ZTS9list_head", !7, i64 0}
-!68 = !{!"", !69, i64 0, !22, i64 8}
-!69 = !{!"p2 _ZTS10packed_git", !7, i64 0}
-!70 = !{!71, !22, i64 0}
-!71 = !{!"kh_oid_map", !22, i64 0, !22, i64 4, !22, i64 8, !22, i64 12, !72, i64 16, !45, i64 24, !7, i64 32}
-!72 = !{!"p1 int", !7, i64 0}
-!73 = !{!71, !72, i64 16}
-!74 = !{!71, !45, i64 24}
-!75 = !{!71, !7, i64 32}
-!76 = !{!7, !7, i64 0}
-!77 = distinct !{!77, !57, !55}
-!78 = !{!79, !27, i64 48}
-!79 = !{!"stat", !27, i64 0, !27, i64 8, !27, i64 16, !22, i64 24, !22, i64 28, !22, i64 32, !22, i64 36, !27, i64 40, !27, i64 48, !27, i64 56, !27, i64 64, !80, i64 72, !80, i64 88, !80, i64 104, !8, i64 120}
-!80 = !{!"timespec", !27, i64 0, !27, i64 8}
-!81 = !{!6, !6, i64 0}
-!82 = !{i64 0, i64 32, !52, i64 32, i64 4, !50}
-!83 = distinct !{!83, !57, !55}
-!84 = !{!85, !22, i64 32}
-!85 = !{!"object_id", !8, i64 0, !22, i64 32}
-!86 = distinct !{!86, !57, !55}
-!87 = distinct !{!87, !57, !55}
-!88 = distinct !{!88, !57, !55}
-!89 = !{!71, !22, i64 8}
-!90 = !{!71, !22, i64 12}
-!91 = !{!71, !22, i64 4}
-!92 = !{i64 0, i64 28, !52, i64 28, i64 4, !50}
-!93 = distinct !{!93, !57, !55}
-!94 = distinct !{!94, !55}
-!95 = distinct !{!95, !57, !55}
-!96 = distinct !{!96, !57, !55}
+!55 = !{!"llvm.loop.mustprogress"}
+!56 = !{!57, !37, i64 0}
+!57 = !{!"raw_object_store", !37, i64 0, !58, i64 8, !59, i64 16, !22, i64 24, !15, i64 32, !60, i64 40, !22, i64 48, !8, i64 56, !61, i64 96, !22, i64 104, !62, i64 112, !63, i64 120, !64, i64 128, !66, i64 144, !20, i64 160, !27, i64 208, !22, i64 216, !22, i64 216}
+!58 = !{!"p2 _ZTS16object_directory", !7, i64 0}
+!59 = !{!"p1 _ZTS15kh_odb_path_map", !7, i64 0}
+!60 = !{!"p1 _ZTS6oidmap", !7, i64 0}
+!61 = !{!"p1 _ZTS12commit_graph", !7, i64 0}
+!62 = !{!"p1 _ZTS16multi_pack_index", !7, i64 0}
+!63 = !{!"p1 _ZTS10packed_git", !7, i64 0}
+!64 = !{!"list_head", !65, i64 0, !65, i64 8}
+!65 = !{!"p1 _ZTS9list_head", !7, i64 0}
+!66 = !{!"", !67, i64 0, !22, i64 8}
+!67 = !{!"p2 _ZTS10packed_git", !7, i64 0}
+!68 = !{!69, !22, i64 0}
+!69 = !{!"kh_oid_map", !22, i64 0, !22, i64 4, !22, i64 8, !22, i64 12, !70, i64 16, !45, i64 24, !7, i64 32}
+!70 = !{!"p1 int", !7, i64 0}
+!71 = !{!69, !70, i64 16}
+!72 = !{!69, !45, i64 24}
+!73 = !{!69, !7, i64 32}
+!74 = !{!7, !7, i64 0}
+!75 = distinct !{!75, !55}
+!76 = !{!77, !27, i64 48}
+!77 = !{!"stat", !27, i64 0, !27, i64 8, !27, i64 16, !22, i64 24, !22, i64 28, !22, i64 32, !22, i64 36, !27, i64 40, !27, i64 48, !27, i64 56, !27, i64 64, !78, i64 72, !78, i64 88, !78, i64 104, !8, i64 120}
+!78 = !{!"timespec", !27, i64 0, !27, i64 8}
+!79 = !{!6, !6, i64 0}
+!80 = !{i64 0, i64 32, !52, i64 32, i64 4, !50}
+!81 = distinct !{!81, !55}
+!82 = !{!83, !22, i64 32}
+!83 = !{!"object_id", !8, i64 0, !22, i64 32}
+!84 = distinct !{!84, !55}
+!85 = distinct !{!85, !55}
+!86 = distinct !{!86, !55}
+!87 = !{!69, !22, i64 8}
+!88 = !{!69, !22, i64 12}
+!89 = !{!69, !22, i64 4}
+!90 = !{i64 0, i64 28, !52, i64 28, i64 4, !50}
+!91 = distinct !{!91, !55}
+!92 = distinct !{!92, !55}
+!93 = distinct !{!93, !55}

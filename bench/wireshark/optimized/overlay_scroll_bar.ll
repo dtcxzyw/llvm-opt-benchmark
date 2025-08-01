@@ -1940,7 +1940,7 @@ define linkonce_odr void @_ZN9QtPrivate11QSlotObjectIM16OverlayScrollBarFviiENS_
   %14 = load ptr, ptr %11, align 8
   %15 = getelementptr i8, ptr %14, i64 %.unpack12
   %16 = getelementptr i8, ptr %15, i64 -1
-  %17 = load ptr, ptr %16, align 8, !nosanitize !24
+  %17 = load ptr, ptr %16, align 8, !nosanitize !23
   br label %_ZN9QtPrivate15FunctionPointerIM16OverlayScrollBarFviiEE4callINS_4ListIJiiEEEvEEvS3_PS1_PPv.exit
 
 18:                                               ; preds = %9
@@ -2009,7 +2009,7 @@ define linkonce_odr void @_ZN9QtPrivate11QSlotObjectIM15QAbstractSliderFviENS_4L
   %14 = load ptr, ptr %11, align 8
   %15 = getelementptr i8, ptr %14, i64 %.unpack12
   %16 = getelementptr i8, ptr %15, i64 -1
-  %17 = load ptr, ptr %16, align 8, !nosanitize !24
+  %17 = load ptr, ptr %16, align 8, !nosanitize !23
   br label %_ZN9QtPrivate15FunctionPointerIM15QAbstractSliderFviEE4callINS_4ListIJiEEEvEEvS3_PS1_PPv.exit
 
 18:                                               ; preds = %9
@@ -2083,7 +2083,6 @@ attributes #13 = { builtin nounwind }
 !18 = !{!19}
 !19 = distinct !{!19, !20, !"_ZN9QtPrivate21qMakeForeachContainerIR5QListIiEEENS_17QForeachContainerINSt5decayIT_E4typeEEEOS6_: argument 0"}
 !20 = distinct !{!20, !"_ZN9QtPrivate21qMakeForeachContainerIR5QListIiEEENS_17QForeachContainerINSt5decayIT_E4typeEEEOS6_"}
-!21 = distinct !{!21, !22, !23}
+!21 = distinct !{!21, !22}
 !22 = !{!"llvm.loop.mustprogress"}
-!23 = !{!"llvm.loop.estimated_trip_count"}
-!24 = !{}
+!23 = !{}

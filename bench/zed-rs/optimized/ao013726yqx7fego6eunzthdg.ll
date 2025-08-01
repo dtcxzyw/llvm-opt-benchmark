@@ -152,12 +152,12 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
   %71 = extractvalue { ptr, ptr } %68, 1
   %72 = icmp eq ptr %71, null
   %73 = select i1 %70, i1 true, i1 %72
-  br i1 %73, label %"_ZN97_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$T$C$I$GT$$GT$11spec_extend17h408476aa53d4a8a7E.exit", label %51, !llvm.loop !40
+  br i1 %73, label %"_ZN97_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$T$C$I$GT$$GT$11spec_extend17h408476aa53d4a8a7E.exit", label %51
 
 74:                                               ; preds = %79
   %75 = landingpad { ptr, i32 }
           cleanup
-  %76 = atomicrmw sub ptr %53, i64 1 release, align 8, !noalias !42
+  %76 = atomicrmw sub ptr %53, i64 1 release, align 8, !noalias !40
   %77 = icmp eq i64 %76, 1
   br i1 %77, label %78, label %.body
 
@@ -167,7 +167,7 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
           to label %.body unwind label %82
 
 79:                                               ; preds = %57
-  %80 = load i64, ptr %50, align 8, !alias.scope !47, !noalias !52, !noundef !7
+  %80 = load i64, ptr %50, align 8, !alias.scope !45, !noalias !50, !noundef !7
   %81 = call i64 @llvm.uadd.sat.i64(i64 %80, i64 1)
   invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$7reserve21do_reserve_and_handle17h428fe8ef056ac4edE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %7, i64 noundef %60, i64 noundef %81)
           to label %63 unwind label %74
@@ -326,18 +326,16 @@ attributes #13 = { cold }
 !37 = !{!30, !33, !25, !28}
 !38 = !{!30, !25}
 !39 = !{!33, !28}
-!40 = distinct !{!40, !41}
-!41 = !{!"llvm.loop.estimated_trip_count"}
-!42 = !{!43, !45}
-!43 = distinct !{!43, !44, !"_ZN71_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h582bc97fea9f7e92E: argument 0"}
-!44 = distinct !{!44, !"_ZN71_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h582bc97fea9f7e92E"}
-!45 = distinct !{!45, !46, !"_ZN4core3ptr73drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$assistant_tool..Tool$GT$$GT$17hcffbd8678bfbe3b5E: argument 0"}
-!46 = distinct !{!46, !"_ZN4core3ptr73drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$assistant_tool..Tool$GT$$GT$17hcffbd8678bfbe3b5E"}
-!47 = !{!48, !50, !33, !28}
-!48 = distinct !{!48, !49, !"_ZN107_$LT$std..collections..hash..map..Values$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h761ac27b874f1649E.llvm.727630497929647778: argument 1"}
-!49 = distinct !{!49, !"_ZN107_$LT$std..collections..hash..map..Values$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h761ac27b874f1649E.llvm.727630497929647778"}
-!50 = distinct !{!50, !51, !"_ZN104_$LT$core..iter..adapters..cloned..Cloned$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h5ce2ad9e0cdf861cE: argument 1"}
-!51 = distinct !{!51, !"_ZN104_$LT$core..iter..adapters..cloned..Cloned$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h5ce2ad9e0cdf861cE"}
-!52 = !{!53, !54, !30, !25}
-!53 = distinct !{!53, !49, !"_ZN107_$LT$std..collections..hash..map..Values$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h761ac27b874f1649E.llvm.727630497929647778: argument 0"}
-!54 = distinct !{!54, !51, !"_ZN104_$LT$core..iter..adapters..cloned..Cloned$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h5ce2ad9e0cdf861cE: argument 0"}
+!40 = !{!41, !43}
+!41 = distinct !{!41, !42, !"_ZN71_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h582bc97fea9f7e92E: argument 0"}
+!42 = distinct !{!42, !"_ZN71_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h582bc97fea9f7e92E"}
+!43 = distinct !{!43, !44, !"_ZN4core3ptr73drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$assistant_tool..Tool$GT$$GT$17hcffbd8678bfbe3b5E: argument 0"}
+!44 = distinct !{!44, !"_ZN4core3ptr73drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$assistant_tool..Tool$GT$$GT$17hcffbd8678bfbe3b5E"}
+!45 = !{!46, !48, !33, !28}
+!46 = distinct !{!46, !47, !"_ZN107_$LT$std..collections..hash..map..Values$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h761ac27b874f1649E.llvm.727630497929647778: argument 1"}
+!47 = distinct !{!47, !"_ZN107_$LT$std..collections..hash..map..Values$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h761ac27b874f1649E.llvm.727630497929647778"}
+!48 = distinct !{!48, !49, !"_ZN104_$LT$core..iter..adapters..cloned..Cloned$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h5ce2ad9e0cdf861cE: argument 1"}
+!49 = distinct !{!49, !"_ZN104_$LT$core..iter..adapters..cloned..Cloned$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h5ce2ad9e0cdf861cE"}
+!50 = !{!51, !52, !30, !25}
+!51 = distinct !{!51, !47, !"_ZN107_$LT$std..collections..hash..map..Values$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h761ac27b874f1649E.llvm.727630497929647778: argument 0"}
+!52 = distinct !{!52, !49, !"_ZN104_$LT$core..iter..adapters..cloned..Cloned$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h5ce2ad9e0cdf861cE: argument 0"}

@@ -68,7 +68,7 @@ define void @furtherest_point(i32 noundef %0, i32 noundef %1, ptr noundef readon
   %24 = tail call double @llvm.fmuladd.f64(double %23, double %23, double %.014.i44.us.i)
   %indvars.iv.next.i45.us.i = add nuw nsw i64 %indvars.iv.i43.us.i, 1
   %exitcond.not.i46.us.i = icmp eq i64 %indvars.iv.next.i45.us.i, %wide.trip.count.i41.i
-  br i1 %exitcond.not.i46.us.i, label %dist.exit47.loopexit.us.i, label %.lr.ph.i42.us.i, !llvm.loop !10
+  br i1 %exitcond.not.i46.us.i, label %dist.exit47.loopexit.us.i, label %.lr.ph.i42.us.i, !llvm.loop !9
 
 25:                                               ; preds = %dist.exit47.loopexit.us.i
   %26 = getelementptr inbounds nuw double, ptr %2, i64 %indvars.iv63.i
@@ -87,10 +87,10 @@ define void @furtherest_point(i32 noundef %0, i32 noundef %1, ptr noundef readon
   %.4.us.i = phi double [ %32, %30 ], [ %.3..us.i, %25 ]
   %indvars.iv.next64.i = add nuw nsw i64 %indvars.iv63.i, 1
   %exitcond67.not.i = icmp eq i64 %indvars.iv.next64.i, %wide.trip.count66.i
-  br i1 %exitcond67.not.i, label %distance_to_group.exit, label %.lr.ph.preheader.i40.us.i, !llvm.loop !11
+  br i1 %exitcond67.not.i, label %distance_to_group.exit, label %.lr.ph.preheader.i40.us.i, !llvm.loop !10
 
 dist.exit47.loopexit.us.i:                        ; preds = %.lr.ph.i42.us.i
-  %34 = tail call double @sqrt(double noundef %24) #16, !tbaa !13
+  %34 = tail call double @sqrt(double noundef %24) #16, !tbaa !12
   %35 = icmp eq i64 %indvars.iv63.i, 0
   br i1 %35, label %30, label %25
 
@@ -126,17 +126,17 @@ dist.exit47.loopexit.us.i:                        ; preds = %.lr.ph.i42.us.i
   %46 = tail call double @llvm.fmuladd.f64(double %45, double %45, double %.014.i.us.i)
   %indvars.iv.next.i.us.i = add nuw nsw i64 %indvars.iv.i.us.i, 1
   %exitcond.not.i.us.i = icmp eq i64 %indvars.iv.next.i.us.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.us.i, label %dist.exit.loopexit.us.i, label %.lr.ph.i.us.i, !llvm.loop !10
+  br i1 %exitcond.not.i.us.i, label %dist.exit.loopexit.us.i, label %.lr.ph.i.us.i, !llvm.loop !9
 
 dist.exit.loopexit.us.i:                          ; preds = %.lr.ph.i.us.i
-  %47 = tail call double @sqrt(double noundef %46) #16, !tbaa !13
+  %47 = tail call double @sqrt(double noundef %46) #16, !tbaa !12
   %48 = icmp eq i64 %indvars.iv69.i, 0
   %49 = fcmp olt double %.054.us.i, %47
   %50 = select i1 %49, double %.054.us.i, double %47
   %.1.us.i = select i1 %48, double %47, double %50
   %indvars.iv.next70.i = add nuw nsw i64 %indvars.iv69.i, 1
   %exitcond73.not.i = icmp eq i64 %indvars.iv.next70.i, %wide.trip.count72.i
-  br i1 %exitcond73.not.i, label %distance_to_group.exit, label %.lr.ph.preheader.i.us.i, !llvm.loop !15
+  br i1 %exitcond73.not.i, label %distance_to_group.exit, label %.lr.ph.preheader.i.us.i, !llvm.loop !14
 
 dist.exit47.i:                                    ; preds = %.lr.ph.i, %60
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %60 ], [ 0, %.lr.ph.i ]
@@ -161,7 +161,7 @@ dist.exit47.i:                                    ; preds = %.lr.ph.i, %60
   %.4.i = phi double [ %54, %52 ], [ %.3..i, %55 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count66.i
-  br i1 %exitcond.not.i, label %distance_to_group.exit, label %dist.exit47.i, !llvm.loop !16
+  br i1 %exitcond.not.i, label %distance_to_group.exit, label %dist.exit47.i, !llvm.loop !15
 
 distance_to_group.exit:                           ; preds = %60, %33, %dist.exit.loopexit.us.i, %.lr.ph55.i, %.preheader48.i, %.preheader.i
   %61 = phi i1 [ false, %.preheader.i ], [ false, %.preheader48.i ], [ true, %.lr.ph55.i ], [ true, %dist.exit.loopexit.us.i ], [ true, %33 ], [ true, %60 ]
@@ -170,8 +170,8 @@ distance_to_group.exit:                           ; preds = %60, %33, %dist.exit
   %.2.i = phi double [ 0.000000e+00, %.preheader.i ], [ 0.000000e+00, %.preheader48.i ], [ 0.000000e+00, %.lr.ph55.i ], [ %.1.us.i, %dist.exit.loopexit.us.i ], [ %.4.us.i, %33 ], [ %.4.i, %60 ]
   store double %.2.i, ptr %7, align 8, !tbaa !3
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 8
-  store double %.2.i, ptr %63, align 8, !tbaa !17
-  %64 = load ptr, ptr %8, align 8, !tbaa !23
+  store double %.2.i, ptr %63, align 8, !tbaa !16
+  %64 = load ptr, ptr %8, align 8, !tbaa !22
   %.not103 = icmp eq ptr %64, null
   %65 = sext i32 %1 to i64
   br i1 %.not103, label %66, label %distance_to_group.exit._crit_edge
@@ -181,7 +181,7 @@ distance_to_group.exit:                           ; preds = %60, %33, %dist.exit
   br i1 %mul.ov.i, label %67, label %70
 
 67:                                               ; preds = %66
-  %68 = load ptr, ptr @stderr, align 8, !tbaa !24
+  %68 = load ptr, ptr @stderr, align 8, !tbaa !23
   %69 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %68, ptr noundef nonnull @.str.6, i64 noundef %65, i64 noundef 8) #17
   tail call fastcc void @graphviz_exit() #18
   unreachable
@@ -194,14 +194,14 @@ distance_to_group.exit:                           ; preds = %60, %33, %dist.exit
   br i1 %or.cond3.i, label %74, label %gv_calloc.exit
 
 74:                                               ; preds = %70
-  %75 = load ptr, ptr @stderr, align 8, !tbaa !24
+  %75 = load ptr, ptr @stderr, align 8, !tbaa !23
   %76 = shl nuw nsw i64 %65, 3
   %77 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %75, ptr noundef nonnull @.str.7, i64 noundef %76) #17
   tail call fastcc void @graphviz_exit() #18
   unreachable
 
 gv_calloc.exit:                                   ; preds = %70
-  store ptr %72, ptr %8, align 8, !tbaa !23
+  store ptr %72, ptr %8, align 8, !tbaa !22
   br label %distance_to_group.exit._crit_edge
 
 distance_to_group.exit._crit_edge:                ; preds = %distance_to_group.exit, %gv_calloc.exit
@@ -213,14 +213,14 @@ distance_to_group.exit._crit_edge:                ; preds = %distance_to_group.e
   br i1 %80, label %81, label %qt_list_append.exit
 
 81:                                               ; preds = %distance_to_group.exit._crit_edge
-  %82 = load ptr, ptr @stderr, align 8, !tbaa !24
+  %82 = load ptr, ptr @stderr, align 8, !tbaa !23
   %83 = tail call ptr @strerror(i32 noundef 12) #16
   %84 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %82, ptr noundef nonnull @.str.8, ptr noundef %83) #17
   tail call fastcc void @graphviz_exit() #18
   unreachable
 
 qt_list_append.exit:                              ; preds = %distance_to_group.exit._crit_edge
-  store ptr %62, ptr %malloc, align 8, !tbaa !26
+  store ptr %62, ptr %malloc, align 8, !tbaa !25
   %85 = icmp sgt i32 %6, 0
   br i1 %85, label %.lr.ph291, label %._crit_edge292
 
@@ -247,12 +247,12 @@ qt_list_append.exit:                              ; preds = %distance_to_group.e
   %.sroa.0.0289.us = phi ptr [ %.sroa.0185.0288.us, %.loopexit214.us ], [ null, %.lr.ph291 ]
   %.sroa.0185.0288.us = phi ptr [ %.sroa.0.0289.us, %.loopexit214.us ], [ %malloc, %.lr.ph291 ]
   %92 = phi i1 [ false, %.loopexit214.us ], [ true, %.lr.ph291 ]
-  %93 = load i8, ptr @Verbose, align 1, !tbaa !28
+  %93 = load i8, ptr @Verbose, align 1, !tbaa !27
   %94 = icmp ugt i8 %93, 10
   br i1 %94, label %95, label %98
 
 95:                                               ; preds = %.lr.ph291.split.us
-  %96 = load ptr, ptr @stderr, align 8, !tbaa !24
+  %96 = load ptr, ptr @stderr, align 8, !tbaa !23
   %97 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %96, ptr noundef nonnull @.str, i32 noundef %91) #17
   br label %98
 
@@ -260,37 +260,37 @@ qt_list_append.exit:                              ; preds = %distance_to_group.e
   br i1 %92, label %.lr.ph273.us.preheader, label %.loopexit214.us
 
 .lr.ph273.us.preheader:                           ; preds = %98
-  %99 = load ptr, ptr %.sroa.0185.0288.us, align 8, !tbaa !26
-  %100 = load i8, ptr @Verbose, align 1, !tbaa !28
+  %99 = load ptr, ptr %.sroa.0185.0288.us, align 8, !tbaa !25
+  %100 = load i8, ptr @Verbose, align 1, !tbaa !27
   %101 = icmp ugt i8 %100, 10
   br i1 %101, label %103, label %112
 
 .loopexit214.us:                                  ; preds = %112, %98
   %102 = add nuw i32 %91, 1
   %exitcond337.not = icmp eq i32 %91, %6
-  br i1 %exitcond337.not, label %._crit_edge292, label %.lr.ph291.split.us, !llvm.loop !29
+  br i1 %exitcond337.not, label %._crit_edge292, label %.lr.ph291.split.us, !llvm.loop !28
 
 103:                                              ; preds = %.lr.ph273.us.preheader
-  %104 = load ptr, ptr @stderr, align 8, !tbaa !24
+  %104 = load ptr, ptr @stderr, align 8, !tbaa !23
   %105 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %104, ptr noundef nonnull @.str.1, i64 noundef 0) #17
   br i1 %86, label %.lr.ph252.us.us, label %._crit_edge.us.us
 
 ._crit_edge.us.us:                                ; preds = %122, %103
-  %106 = load ptr, ptr @stderr, align 8, !tbaa !24
+  %106 = load ptr, ptr @stderr, align 8, !tbaa !23
   %107 = getelementptr inbounds nuw i8, ptr %99, i64 32
-  %108 = load double, ptr %107, align 8, !tbaa !30
+  %108 = load double, ptr %107, align 8, !tbaa !29
   %109 = getelementptr inbounds nuw i8, ptr %99, i64 8
-  %110 = load double, ptr %109, align 8, !tbaa !17
+  %110 = load double, ptr %109, align 8, !tbaa !16
   %111 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %106, ptr noundef nonnull @.str.3, double noundef %108, double noundef %110) #17
   br label %112
 
 112:                                              ; preds = %._crit_edge.us.us, %.lr.ph273.us.preheader
   %113 = getelementptr inbounds nuw i8, ptr %99, i64 8
-  %114 = load double, ptr %113, align 8, !tbaa !17
-  %115 = tail call double @sqrt(double noundef %87) #16, !tbaa !13
+  %114 = load double, ptr %113, align 8, !tbaa !16
+  %115 = tail call double @sqrt(double noundef %87) #16, !tbaa !12
   %116 = fmul double %.1207, %115
   %117 = getelementptr inbounds nuw i8, ptr %99, i64 32
-  %118 = load double, ptr %117, align 8, !tbaa !30
+  %118 = load double, ptr %117, align 8, !tbaa !29
   %119 = tail call double @llvm.fmuladd.f64(double %116, double %118, double %114)
   %120 = load double, ptr %7, align 8, !tbaa !3
   %121 = fcmp olt double %119, %120
@@ -298,14 +298,14 @@ qt_list_append.exit:                              ; preds = %distance_to_group.e
 
 122:                                              ; preds = %.lr.ph252.us.us, %122
   %indvars.iv332 = phi i64 [ 0, %.lr.ph252.us.us ], [ %indvars.iv.next333, %122 ]
-  %123 = load ptr, ptr @stderr, align 8, !tbaa !24
-  %124 = load ptr, ptr %128, align 8, !tbaa !31
+  %123 = load ptr, ptr @stderr, align 8, !tbaa !23
+  %124 = load ptr, ptr %128, align 8, !tbaa !30
   %125 = getelementptr inbounds nuw double, ptr %124, i64 %indvars.iv332
   %126 = load double, ptr %125, align 8, !tbaa !3
   %127 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %123, ptr noundef nonnull @.str.2, double noundef %126) #17
   %indvars.iv.next333 = add nuw nsw i64 %indvars.iv332, 1
   %exitcond336.not = icmp eq i64 %indvars.iv.next333, %88
-  br i1 %exitcond336.not, label %._crit_edge.us.us, label %122, !llvm.loop !32
+  br i1 %exitcond336.not, label %._crit_edge.us.us, label %122, !llvm.loop !31
 
 .lr.ph252.us.us:                                  ; preds = %103
   %128 = getelementptr inbounds nuw i8, ptr %99, i64 24
@@ -318,7 +318,7 @@ qt_list_append.exit:                              ; preds = %distance_to_group.e
   %.sroa.18.1.lcssa = phi i64 [ %.sroa.18.0290, %136 ], [ %.sroa.18.2, %.loopexit ]
   %129 = add nuw i32 %130, 1
   %exitcond331.not = icmp eq i32 %130, %6
-  br i1 %exitcond331.not, label %._crit_edge292, label %.lr.ph291.split, !llvm.loop !33
+  br i1 %exitcond331.not, label %._crit_edge292, label %.lr.ph291.split, !llvm.loop !32
 
 .lr.ph291.split:                                  ; preds = %.lr.ph291.split.preheader, %.loopexit214
   %130 = phi i32 [ %129, %.loopexit214 ], [ 1, %.lr.ph291.split.preheader ]
@@ -328,12 +328,12 @@ qt_list_append.exit:                              ; preds = %distance_to_group.e
   %.sroa.11.0287 = phi i64 [ %.sroa.10.1.lcssa, %.loopexit214 ], [ 0, %.lr.ph291.split.preheader ]
   %.sroa.18189.0286 = phi i64 [ %.sroa.15.1.lcssa, %.loopexit214 ], [ 1, %.lr.ph291.split.preheader ]
   %.sroa.24.0285 = phi i64 [ %.sroa.18.1.lcssa, %.loopexit214 ], [ 1, %.lr.ph291.split.preheader ]
-  %131 = load i8, ptr @Verbose, align 1, !tbaa !28
+  %131 = load i8, ptr @Verbose, align 1, !tbaa !27
   %132 = icmp ugt i8 %131, 10
   br i1 %132, label %133, label %136
 
 133:                                              ; preds = %.lr.ph291.split
-  %134 = load ptr, ptr @stderr, align 8, !tbaa !24
+  %134 = load ptr, ptr @stderr, align 8, !tbaa !23
   %135 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %134, ptr noundef nonnull @.str, i32 noundef %130) #17
   br label %136
 
@@ -350,13 +350,13 @@ qt_list_append.exit:                              ; preds = %distance_to_group.e
   %137 = add i64 %.091271, %.sroa.11.0287
   %138 = urem i64 %137, %.sroa.24.0285
   %139 = getelementptr inbounds nuw ptr, ptr %.sroa.0185.0288, i64 %138
-  %140 = load ptr, ptr %139, align 8, !tbaa !26
-  %141 = load i8, ptr @Verbose, align 1, !tbaa !28
+  %140 = load ptr, ptr %139, align 8, !tbaa !25
+  %141 = load i8, ptr @Verbose, align 1, !tbaa !27
   %142 = icmp ugt i8 %141, 10
   br i1 %142, label %143, label %159
 
 143:                                              ; preds = %.lr.ph273
-  %144 = load ptr, ptr @stderr, align 8, !tbaa !24
+  %144 = load ptr, ptr @stderr, align 8, !tbaa !23
   %145 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %144, ptr noundef nonnull @.str.1, i64 noundef %.091271) #17
   br i1 %86, label %.lr.ph252, label %._crit_edge
 
@@ -366,31 +366,31 @@ qt_list_append.exit:                              ; preds = %distance_to_group.e
 
 147:                                              ; preds = %.lr.ph252, %147
   %indvars.iv315 = phi i64 [ 0, %.lr.ph252 ], [ %indvars.iv.next316, %147 ]
-  %148 = load ptr, ptr @stderr, align 8, !tbaa !24
-  %149 = load ptr, ptr %146, align 8, !tbaa !31
+  %148 = load ptr, ptr @stderr, align 8, !tbaa !23
+  %149 = load ptr, ptr %146, align 8, !tbaa !30
   %150 = getelementptr inbounds nuw double, ptr %149, i64 %indvars.iv315
   %151 = load double, ptr %150, align 8, !tbaa !3
   %152 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %148, ptr noundef nonnull @.str.2, double noundef %151) #17
   %indvars.iv.next316 = add nuw nsw i64 %indvars.iv315, 1
   %exitcond319.not = icmp eq i64 %indvars.iv.next316, %88
-  br i1 %exitcond319.not, label %._crit_edge, label %147, !llvm.loop !32
+  br i1 %exitcond319.not, label %._crit_edge, label %147, !llvm.loop !31
 
 ._crit_edge:                                      ; preds = %147, %143
-  %153 = load ptr, ptr @stderr, align 8, !tbaa !24
+  %153 = load ptr, ptr @stderr, align 8, !tbaa !23
   %154 = getelementptr inbounds nuw i8, ptr %140, i64 32
-  %155 = load double, ptr %154, align 8, !tbaa !30
+  %155 = load double, ptr %154, align 8, !tbaa !29
   %156 = getelementptr inbounds nuw i8, ptr %140, i64 8
-  %157 = load double, ptr %156, align 8, !tbaa !17
+  %157 = load double, ptr %156, align 8, !tbaa !16
   %158 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %153, ptr noundef nonnull @.str.3, double noundef %155, double noundef %157) #17
   br label %159
 
 159:                                              ; preds = %._crit_edge, %.lr.ph273
   %160 = getelementptr inbounds nuw i8, ptr %140, i64 8
-  %161 = load double, ptr %160, align 8, !tbaa !17
-  %162 = tail call double @sqrt(double noundef %87) #16, !tbaa !13
+  %161 = load double, ptr %160, align 8, !tbaa !16
+  %162 = tail call double @sqrt(double noundef %87) #16, !tbaa !12
   %163 = fmul double %.1207, %162
   %164 = getelementptr inbounds nuw i8, ptr %140, i64 32
-  %165 = load double, ptr %164, align 8, !tbaa !30
+  %165 = load double, ptr %164, align 8, !tbaa !29
   %166 = tail call double @llvm.fmuladd.f64(double %163, double %165, double %161)
   %167 = load double, ptr %7, align 8, !tbaa !3
   %168 = fcmp olt double %166, %167
@@ -402,13 +402,13 @@ qt_list_append.exit:                              ; preds = %distance_to_group.e
   br i1 %171, label %174, label %gv_calloc.exit106
 
 .split.us:                                        ; preds = %112
-  %172 = load ptr, ptr @stderr, align 8, !tbaa !24
+  %172 = load ptr, ptr @stderr, align 8, !tbaa !23
   %173 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %172, ptr noundef nonnull @.str.6, i64 noundef %89, i64 noundef 8) #17
   tail call fastcc void @graphviz_exit() #18
   unreachable
 
 174:                                              ; preds = %169
-  %175 = load ptr, ptr @stderr, align 8, !tbaa !24
+  %175 = load ptr, ptr @stderr, align 8, !tbaa !23
   %176 = shl nuw i64 8, %88
   %177 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %175, ptr noundef nonnull @.str.7, i64 noundef %176) #17
   tail call fastcc void @graphviz_exit() #18
@@ -416,7 +416,7 @@ qt_list_append.exit:                              ; preds = %distance_to_group.e
 
 gv_calloc.exit106:                                ; preds = %169
   %178 = getelementptr inbounds nuw i8, ptr %140, i64 48
-  store ptr %170, ptr %178, align 8, !tbaa !34
+  store ptr %170, ptr %178, align 8, !tbaa !33
   br i1 %.not298, label %.loopexit, label %.lr.ph262
 
 .lr.ph262:                                        ; preds = %gv_calloc.exit106
@@ -430,17 +430,17 @@ gv_calloc.exit106:                                ; preds = %169
   %.sroa.15.3259 = phi i64 [ %.sroa.15.1269, %.lr.ph262 ], [ %.sroa.15.4, %293 ]
   %.sroa.10.3258 = phi i64 [ %.sroa.10.1268, %.lr.ph262 ], [ %.sroa.10.4, %293 ]
   %.sroa.0.3257 = phi ptr [ %.sroa.0.1267, %.lr.ph262 ], [ %.sroa.0.4, %293 ]
-  %182 = load i32, ptr %179, align 8, !tbaa !35
-  %183 = load ptr, ptr %180, align 8, !tbaa !31
-  %184 = load double, ptr %164, align 8, !tbaa !30
+  %182 = load i32, ptr %179, align 8, !tbaa !34
+  %183 = load ptr, ptr %180, align 8, !tbaa !30
+  %184 = load double, ptr %164, align 8, !tbaa !29
   %185 = fmul double %184, 5.000000e-01
   %186 = trunc nuw nsw i64 %indvars.iv325 to i32
   %187 = tail call ptr @QuadTree_new_in_quadrant(i32 noundef %182, ptr noundef %183, double noundef %185, i32 noundef %6, i32 noundef %186) #16
-  %188 = load ptr, ptr %178, align 8, !tbaa !34
+  %188 = load ptr, ptr %178, align 8, !tbaa !33
   %189 = getelementptr inbounds nuw ptr, ptr %188, i64 %indvars.iv325
-  store ptr %187, ptr %189, align 8, !tbaa !26
+  store ptr %187, ptr %189, align 8, !tbaa !25
   %190 = getelementptr inbounds nuw i8, ptr %187, i64 24
-  %191 = load ptr, ptr %190, align 8, !tbaa !31
+  %191 = load ptr, ptr %190, align 8, !tbaa !30
   br i1 %.not, label %.preheader.i133, label %.preheader48.i108
 
 .preheader48.i108:                                ; preds = %181
@@ -467,7 +467,7 @@ gv_calloc.exit106:                                ; preds = %169
   %199 = tail call double @llvm.fmuladd.f64(double %198, double %198, double %.014.i44.us.i125)
   %indvars.iv.next.i45.us.i126 = add nuw nsw i64 %indvars.iv.i43.us.i124, 1
   %exitcond.not.i46.us.i127 = icmp eq i64 %indvars.iv.next.i45.us.i126, %88
-  br i1 %exitcond.not.i46.us.i127, label %dist.exit47.loopexit.us.i128, label %.lr.ph.i42.us.i123, !llvm.loop !10
+  br i1 %exitcond.not.i46.us.i127, label %dist.exit47.loopexit.us.i128, label %.lr.ph.i42.us.i123, !llvm.loop !9
 
 200:                                              ; preds = %dist.exit47.loopexit.us.i128
   %201 = getelementptr inbounds nuw double, ptr %2, i64 %indvars.iv63.i121
@@ -486,10 +486,10 @@ gv_calloc.exit106:                                ; preds = %169
   %.4.us.i130 = phi double [ %207, %205 ], [ %.3..us.i129, %200 ]
   %indvars.iv.next64.i131 = add nuw nsw i64 %indvars.iv63.i121, 1
   %exitcond67.not.i132 = icmp eq i64 %indvars.iv.next64.i131, %wide.trip.count66.i112
-  br i1 %exitcond67.not.i132, label %distance_to_group.exit153, label %.lr.ph.preheader.i40.us.i120, !llvm.loop !11
+  br i1 %exitcond67.not.i132, label %distance_to_group.exit153, label %.lr.ph.preheader.i40.us.i120, !llvm.loop !10
 
 dist.exit47.loopexit.us.i128:                     ; preds = %.lr.ph.i42.us.i123
-  %209 = tail call double @sqrt(double noundef %199) #16, !tbaa !13
+  %209 = tail call double @sqrt(double noundef %199) #16, !tbaa !12
   %210 = icmp eq i64 %indvars.iv63.i121, 0
   br i1 %210, label %205, label %200
 
@@ -514,17 +514,17 @@ dist.exit47.loopexit.us.i128:                     ; preds = %.lr.ph.i42.us.i123
   %218 = tail call double @llvm.fmuladd.f64(double %217, double %217, double %.014.i.us.i146)
   %indvars.iv.next.i.us.i147 = add nuw nsw i64 %indvars.iv.i.us.i145, 1
   %exitcond.not.i.us.i148 = icmp eq i64 %indvars.iv.next.i.us.i147, %88
-  br i1 %exitcond.not.i.us.i148, label %dist.exit.loopexit.us.i149, label %.lr.ph.i.us.i144, !llvm.loop !10
+  br i1 %exitcond.not.i.us.i148, label %dist.exit.loopexit.us.i149, label %.lr.ph.i.us.i144, !llvm.loop !9
 
 dist.exit.loopexit.us.i149:                       ; preds = %.lr.ph.i.us.i144
-  %219 = tail call double @sqrt(double noundef %218) #16, !tbaa !13
+  %219 = tail call double @sqrt(double noundef %218) #16, !tbaa !12
   %220 = icmp eq i64 %indvars.iv69.i142, 0
   %221 = fcmp olt double %.054.us.i143, %219
   %222 = select i1 %221, double %.054.us.i143, double %219
   %.1.us.i150 = select i1 %220, double %219, double %222
   %indvars.iv.next70.i151 = add nuw nsw i64 %indvars.iv69.i142, 1
   %exitcond73.not.i152 = icmp eq i64 %indvars.iv.next70.i151, %wide.trip.count66.i112
-  br i1 %exitcond73.not.i152, label %distance_to_group.exit153, label %.lr.ph.preheader.i.us.i141, !llvm.loop !15
+  br i1 %exitcond73.not.i152, label %distance_to_group.exit153, label %.lr.ph.preheader.i.us.i141, !llvm.loop !14
 
 dist.exit47.i113:                                 ; preds = %.lr.ph.i110, %232
   %indvars.iv.i114 = phi i64 [ %indvars.iv.next.i118, %232 ], [ 0, %.lr.ph.i110 ]
@@ -549,65 +549,65 @@ dist.exit47.i113:                                 ; preds = %.lr.ph.i110, %232
   %.4.i117 = phi double [ %226, %224 ], [ %.3..i116, %227 ]
   %indvars.iv.next.i118 = add nuw nsw i64 %indvars.iv.i114, 1
   %exitcond.not.i119 = icmp eq i64 %indvars.iv.next.i118, %wide.trip.count66.i112
-  br i1 %exitcond.not.i119, label %distance_to_group.exit153, label %dist.exit47.i113, !llvm.loop !16
+  br i1 %exitcond.not.i119, label %distance_to_group.exit153, label %dist.exit47.i113, !llvm.loop !15
 
 distance_to_group.exit153:                        ; preds = %232, %208, %dist.exit.loopexit.us.i149, %.preheader.i133, %.preheader48.i108
   %.2.i109 = phi double [ 0.000000e+00, %.preheader.i133 ], [ 0.000000e+00, %.preheader48.i108 ], [ %.1.us.i150, %dist.exit.loopexit.us.i149 ], [ %.4.us.i130, %208 ], [ %.4.i117, %232 ]
   %233 = getelementptr inbounds nuw i8, ptr %187, i64 8
-  store double %.2.i109, ptr %233, align 8, !tbaa !17
+  store double %.2.i109, ptr %233, align 8, !tbaa !16
   %234 = load double, ptr %7, align 8, !tbaa !3
   %235 = fcmp ogt double %.2.i109, %234
   br i1 %235, label %236, label %256
 
 236:                                              ; preds = %distance_to_group.exit153
   store double %.2.i109, ptr %7, align 8, !tbaa !3
-  %237 = load i8, ptr @Verbose, align 1, !tbaa !28
+  %237 = load i8, ptr @Verbose, align 1, !tbaa !27
   %238 = icmp ugt i8 %237, 10
   br i1 %238, label %239, label %253
 
 239:                                              ; preds = %236
-  %240 = load ptr, ptr @stderr, align 8, !tbaa !24
+  %240 = load ptr, ptr @stderr, align 8, !tbaa !23
   %241 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %240, ptr noundef nonnull @.str.4, double noundef %.2.i109) #17
   br i1 %86, label %.lr.ph255, label %._crit_edge256
 
 .lr.ph255:                                        ; preds = %239, %.lr.ph255
   %indvars.iv320 = phi i64 [ %indvars.iv.next321, %.lr.ph255 ], [ 0, %239 ]
-  %242 = load ptr, ptr @stderr, align 8, !tbaa !24
-  %243 = load ptr, ptr %178, align 8, !tbaa !34
+  %242 = load ptr, ptr @stderr, align 8, !tbaa !23
+  %243 = load ptr, ptr %178, align 8, !tbaa !33
   %244 = getelementptr inbounds nuw ptr, ptr %243, i64 %indvars.iv325
-  %245 = load ptr, ptr %244, align 8, !tbaa !26
+  %245 = load ptr, ptr %244, align 8, !tbaa !25
   %246 = getelementptr inbounds nuw i8, ptr %245, i64 24
-  %247 = load ptr, ptr %246, align 8, !tbaa !31
+  %247 = load ptr, ptr %246, align 8, !tbaa !30
   %248 = getelementptr inbounds nuw double, ptr %247, i64 %indvars.iv320
   %249 = load double, ptr %248, align 8, !tbaa !3
   %250 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %242, ptr noundef nonnull @.str.2, double noundef %249) #17
   %indvars.iv.next321 = add nuw nsw i64 %indvars.iv320, 1
   %exitcond324.not = icmp eq i64 %indvars.iv.next321, %88
-  br i1 %exitcond324.not, label %._crit_edge256, label %.lr.ph255, !llvm.loop !36
+  br i1 %exitcond324.not, label %._crit_edge256, label %.lr.ph255, !llvm.loop !35
 
 ._crit_edge256:                                   ; preds = %.lr.ph255, %239
-  %251 = load ptr, ptr @stderr, align 8, !tbaa !24
+  %251 = load ptr, ptr @stderr, align 8, !tbaa !23
   %252 = tail call i64 @fwrite(ptr nonnull @.str.5, i64 2, i64 1, ptr %251) #20
-  %.pre = load ptr, ptr %178, align 8, !tbaa !34
+  %.pre = load ptr, ptr %178, align 8, !tbaa !33
   %.phi.trans.insert = getelementptr inbounds nuw ptr, ptr %.pre, i64 %indvars.iv325
-  %.pre338 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !26
+  %.pre338 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !25
   %.phi.trans.insert339 = getelementptr inbounds nuw i8, ptr %.pre338, i64 24
-  %.pre340 = load ptr, ptr %.phi.trans.insert339, align 8, !tbaa !31
+  %.pre340 = load ptr, ptr %.phi.trans.insert339, align 8, !tbaa !30
   br label %253
 
 253:                                              ; preds = %._crit_edge256, %236
   %254 = phi ptr [ %.pre340, %._crit_edge256 ], [ %191, %236 ]
-  %255 = load ptr, ptr %8, align 8, !tbaa !23
+  %255 = load ptr, ptr %8, align 8, !tbaa !22
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %255, ptr align 8 %254, i64 %79, i1 false)
-  %.pre341 = load ptr, ptr %178, align 8, !tbaa !34
+  %.pre341 = load ptr, ptr %178, align 8, !tbaa !33
   %.phi.trans.insert342 = getelementptr inbounds nuw ptr, ptr %.pre341, i64 %indvars.iv325
-  %.pre343 = load ptr, ptr %.phi.trans.insert342, align 8, !tbaa !26
+  %.pre343 = load ptr, ptr %.phi.trans.insert342, align 8, !tbaa !25
   br label %.critedge
 
 256:                                              ; preds = %distance_to_group.exit153
-  %257 = tail call double @sqrt(double noundef %87) #16, !tbaa !13
+  %257 = tail call double @sqrt(double noundef %87) #16, !tbaa !12
   %258 = fmul double %.1207, %257
-  %259 = load double, ptr %164, align 8, !tbaa !30
+  %259 = load double, ptr %164, align 8, !tbaa !29
   %260 = fmul double %258, %259
   %261 = fmul double %260, 5.000000e-01
   %262 = fadd double %.2.i109, %261
@@ -652,7 +652,7 @@ distance_to_group.exit153:                        ; preds = %232, %208, %dist.ex
 
 285:                                              ; preds = %269, %266
   %.2.i.ph.i160 = phi i32 [ 34, %266 ], [ 12, %269 ]
-  %286 = load ptr, ptr @stderr, align 8, !tbaa !24
+  %286 = load ptr, ptr @stderr, align 8, !tbaa !23
   %287 = tail call ptr @strerror(i32 noundef %.2.i.ph.i160) #16
   %288 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %286, ptr noundef nonnull @.str.8, ptr noundef %287) #17
   tail call fastcc void @graphviz_exit() #18
@@ -665,7 +665,7 @@ qt_list_append.exit161:                           ; preds = %273, %279, %.crited
   %289 = add i64 %.sroa.10.6, %.sroa.15.3259
   %290 = urem i64 %289, %.sroa.18.5
   %291 = getelementptr inbounds nuw ptr, ptr %.sroa.0.5, i64 %290
-  store ptr %264, ptr %291, align 8, !tbaa !26
+  store ptr %264, ptr %291, align 8, !tbaa !25
   %292 = add i64 %.sroa.15.3259, 1
   br label %293
 
@@ -676,7 +676,7 @@ qt_list_append.exit161:                           ; preds = %273, %279, %.crited
   %.sroa.18.4 = phi i64 [ %.sroa.18.5, %qt_list_append.exit161 ], [ %.sroa.18.3260, %256 ]
   %indvars.iv.next326 = add nuw nsw i64 %indvars.iv325, 1
   %exitcond329.not = icmp eq i64 %indvars.iv.next326, %wide.trip.count328
-  br i1 %exitcond329.not, label %.loopexit, label %181, !llvm.loop !37
+  br i1 %exitcond329.not, label %.loopexit, label %181, !llvm.loop !36
 
 .loopexit:                                        ; preds = %293, %gv_calloc.exit106, %159
   %.sroa.0.2 = phi ptr [ %.sroa.0.1267, %159 ], [ %.sroa.0.1267, %gv_calloc.exit106 ], [ %.sroa.0.4, %293 ]
@@ -685,7 +685,7 @@ qt_list_append.exit161:                           ; preds = %273, %279, %.crited
   %.sroa.18.2 = phi i64 [ %.sroa.18.1270, %159 ], [ %.sroa.18.1270, %gv_calloc.exit106 ], [ %.sroa.18.4, %293 ]
   %294 = add nuw i64 %.091271, 1
   %exitcond330.not = icmp eq i64 %294, %.sroa.18189.0286
-  br i1 %exitcond330.not, label %.loopexit214, label %.lr.ph273, !llvm.loop !38
+  br i1 %exitcond330.not, label %.loopexit214, label %.lr.ph273, !llvm.loop !37
 
 ._crit_edge292:                                   ; preds = %.loopexit214, %.loopexit214.us, %qt_list_append.exit
   %.sroa.0185.0.lcssa = phi ptr [ %malloc, %qt_list_append.exit ], [ %.sroa.0.0289.us, %.loopexit214.us ], [ %.sroa.0.1.lcssa, %.loopexit214 ]
@@ -732,12 +732,12 @@ define void @furtherest_point_in_list(i32 noundef %0, i32 noundef %1, ptr nounde
 
 .preheader48.i:                                   ; preds = %.preheader228
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 40
-  %11 = load ptr, ptr %10, align 8, !tbaa !39
+  %11 = load ptr, ptr %10, align 8, !tbaa !38
   br label %distance_to_group.exit
 
 .lr.ph.i:                                         ; preds = %.lr.ph
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 40
-  %13 = load ptr, ptr %12, align 8, !tbaa !39
+  %13 = load ptr, ptr %12, align 8, !tbaa !38
   %14 = icmp sgt i32 %1, 0
   %wide.trip.count.i41.i = zext i32 %1 to i64
   %wide.trip.count66.i = zext nneg i32 %0 to i64
@@ -761,7 +761,7 @@ define void @furtherest_point_in_list(i32 noundef %0, i32 noundef %1, ptr nounde
   %22 = tail call double @llvm.fmuladd.f64(double %21, double %21, double %.014.i44.us.i)
   %indvars.iv.next.i45.us.i = add nuw nsw i64 %indvars.iv.i43.us.i, 1
   %exitcond.not.i46.us.i = icmp eq i64 %indvars.iv.next.i45.us.i, %wide.trip.count.i41.i
-  br i1 %exitcond.not.i46.us.i, label %dist.exit47.loopexit.us.i, label %.lr.ph.i42.us.i, !llvm.loop !10
+  br i1 %exitcond.not.i46.us.i, label %dist.exit47.loopexit.us.i, label %.lr.ph.i42.us.i, !llvm.loop !9
 
 23:                                               ; preds = %dist.exit47.loopexit.us.i
   %24 = getelementptr inbounds nuw double, ptr %2, i64 %indvars.iv63.i
@@ -780,10 +780,10 @@ define void @furtherest_point_in_list(i32 noundef %0, i32 noundef %1, ptr nounde
   %.4.us.i = phi double [ %30, %28 ], [ %.3..us.i, %23 ]
   %indvars.iv.next64.i = add nuw nsw i64 %indvars.iv63.i, 1
   %exitcond67.not.i = icmp eq i64 %indvars.iv.next64.i, %wide.trip.count66.i
-  br i1 %exitcond67.not.i, label %distance_to_group.exit, label %.lr.ph.preheader.i40.us.i, !llvm.loop !11
+  br i1 %exitcond67.not.i, label %distance_to_group.exit, label %.lr.ph.preheader.i40.us.i, !llvm.loop !10
 
 dist.exit47.loopexit.us.i:                        ; preds = %.lr.ph.i42.us.i
-  %32 = tail call double @sqrt(double noundef %22) #16, !tbaa !13
+  %32 = tail call double @sqrt(double noundef %22) #16, !tbaa !12
   %33 = icmp eq i64 %indvars.iv63.i, 0
   br i1 %33, label %28, label %23
 
@@ -810,7 +810,7 @@ dist.exit47.i:                                    ; preds = %.lr.ph.i, %43
   %.4.i = phi double [ %37, %35 ], [ %.3..i, %38 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count66.i
-  br i1 %exitcond.not.i, label %distance_to_group.exit, label %dist.exit47.i, !llvm.loop !16
+  br i1 %exitcond.not.i, label %distance_to_group.exit, label %dist.exit47.i, !llvm.loop !15
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
@@ -821,11 +821,11 @@ dist.exit47.i:                                    ; preds = %.lr.ph.i, %43
   %..084 = select i1 %46, double %45, double %.084242
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.lr.ph.i, label %.lr.ph, !llvm.loop !40
+  br i1 %exitcond.not, label %.lr.ph.i, label %.lr.ph, !llvm.loop !39
 
 .split90:                                         ; preds = %8
   %47 = getelementptr inbounds nuw i8, ptr %4, i64 40
-  %48 = load ptr, ptr %47, align 8, !tbaa !39
+  %48 = load ptr, ptr %47, align 8, !tbaa !38
   %49 = icmp sgt i32 %0, 0
   br i1 %49, label %.lr.ph55.i102, label %distance_to_group.exit
 
@@ -856,17 +856,17 @@ dist.exit47.i:                                    ; preds = %.lr.ph.i, %43
   %58 = tail call double @llvm.fmuladd.f64(double %57, double %57, double %.014.i.us.i114)
   %indvars.iv.next.i.us.i115 = add nuw nsw i64 %indvars.iv.i.us.i113, 1
   %exitcond.not.i.us.i116 = icmp eq i64 %indvars.iv.next.i.us.i115, %wide.trip.count.i.i103
-  br i1 %exitcond.not.i.us.i116, label %dist.exit.loopexit.us.i117, label %.lr.ph.i.us.i112, !llvm.loop !10
+  br i1 %exitcond.not.i.us.i116, label %dist.exit.loopexit.us.i117, label %.lr.ph.i.us.i112, !llvm.loop !9
 
 dist.exit.loopexit.us.i117:                       ; preds = %.lr.ph.i.us.i112
-  %59 = tail call double @sqrt(double noundef %58) #16, !tbaa !13
+  %59 = tail call double @sqrt(double noundef %58) #16, !tbaa !12
   %60 = icmp eq i64 %indvars.iv69.i110, 0
   %61 = fcmp olt double %.054.us.i111, %59
   %62 = select i1 %61, double %.054.us.i111, double %59
   %.1.us.i118 = select i1 %60, double %59, double %62
   %indvars.iv.next70.i119 = add nuw nsw i64 %indvars.iv69.i110, 1
   %exitcond73.not.i120 = icmp eq i64 %indvars.iv.next70.i119, %wide.trip.count72.i108
-  br i1 %exitcond73.not.i120, label %distance_to_group.exit, label %.lr.ph.preheader.i.us.i109, !llvm.loop !15
+  br i1 %exitcond73.not.i120, label %distance_to_group.exit, label %.lr.ph.preheader.i.us.i109, !llvm.loop !14
 
 distance_to_group.exit:                           ; preds = %43, %31, %dist.exit.loopexit.us.i117, %.lr.ph55.i102, %.preheader48.i, %.split90
   %63 = phi ptr [ %11, %.preheader48.i ], [ %48, %.split90 ], [ %48, %.lr.ph55.i102 ], [ %48, %dist.exit.loopexit.us.i117 ], [ %13, %31 ], [ %13, %43 ]
@@ -874,8 +874,8 @@ distance_to_group.exit:                           ; preds = %43, %31, %dist.exit
   %.1 = phi double [ 0.000000e+00, %.preheader48.i ], [ 1.000000e+00, %.split90 ], [ 1.000000e+00, %.lr.ph55.i102 ], [ 1.000000e+00, %dist.exit.loopexit.us.i117 ], [ %..084, %31 ], [ %..084, %43 ]
   store double %phi.call, ptr %6, align 8, !tbaa !3
   %64 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store double %phi.call, ptr %64, align 8, !tbaa !17
-  %65 = load ptr, ptr %7, align 8, !tbaa !23
+  store double %phi.call, ptr %64, align 8, !tbaa !16
+  %65 = load ptr, ptr %7, align 8, !tbaa !22
   %.not97 = icmp eq ptr %65, null
   %66 = sext i32 %1 to i64
   br i1 %.not97, label %67, label %distance_to_group.exit._crit_edge
@@ -885,7 +885,7 @@ distance_to_group.exit:                           ; preds = %43, %31, %dist.exit
   br i1 %mul.ov.i, label %68, label %71
 
 68:                                               ; preds = %67
-  %69 = load ptr, ptr @stderr, align 8, !tbaa !24
+  %69 = load ptr, ptr @stderr, align 8, !tbaa !23
   %70 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %69, ptr noundef nonnull @.str.6, i64 noundef %66, i64 noundef 8) #17
   tail call fastcc void @graphviz_exit() #18
   unreachable
@@ -898,14 +898,14 @@ distance_to_group.exit:                           ; preds = %43, %31, %dist.exit
   br i1 %or.cond3.i, label %75, label %gv_calloc.exit
 
 75:                                               ; preds = %71
-  %76 = load ptr, ptr @stderr, align 8, !tbaa !24
+  %76 = load ptr, ptr @stderr, align 8, !tbaa !23
   %77 = shl nuw nsw i64 %66, 3
   %78 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %76, ptr noundef nonnull @.str.7, i64 noundef %77) #17
   tail call fastcc void @graphviz_exit() #18
   unreachable
 
 gv_calloc.exit:                                   ; preds = %71
-  store ptr %73, ptr %7, align 8, !tbaa !23
+  store ptr %73, ptr %7, align 8, !tbaa !22
   br label %distance_to_group.exit._crit_edge
 
 distance_to_group.exit._crit_edge:                ; preds = %distance_to_group.exit, %gv_calloc.exit
@@ -917,14 +917,14 @@ distance_to_group.exit._crit_edge:                ; preds = %distance_to_group.e
   br i1 %81, label %82, label %qt_list_append.exit
 
 82:                                               ; preds = %distance_to_group.exit._crit_edge
-  %83 = load ptr, ptr @stderr, align 8, !tbaa !24
+  %83 = load ptr, ptr @stderr, align 8, !tbaa !23
   %84 = tail call ptr @strerror(i32 noundef 12) #16
   %85 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %83, ptr noundef nonnull @.str.8, ptr noundef %84) #17
   tail call fastcc void @graphviz_exit() #18
   unreachable
 
 qt_list_append.exit:                              ; preds = %distance_to_group.exit._crit_edge
-  store ptr %4, ptr %malloc, align 8, !tbaa !26
+  store ptr %4, ptr %malloc, align 8, !tbaa !25
   %86 = icmp sgt i32 %5, 0
   br i1 %86, label %.lr.ph277, label %._crit_edge278
 
@@ -949,7 +949,7 @@ qt_list_append.exit:                              ; preds = %distance_to_group.e
   %.sroa.18.1.lcssa = phi i64 [ %.sroa.18.0276, %100 ], [ %.sroa.18.2, %.loopexit ]
   %92 = add nuw i32 %94, 1
   %exitcond310.not = icmp eq i32 %94, %5
-  br i1 %exitcond310.not, label %._crit_edge278, label %93, !llvm.loop !41
+  br i1 %exitcond310.not, label %._crit_edge278, label %93, !llvm.loop !40
 
 93:                                               ; preds = %.lr.ph277, %.loopexit224
   %94 = phi i32 [ 1, %.lr.ph277 ], [ %92, %.loopexit224 ]
@@ -959,12 +959,12 @@ qt_list_append.exit:                              ; preds = %distance_to_group.e
   %.sroa.11.0273 = phi i64 [ 0, %.lr.ph277 ], [ %.sroa.10.1.lcssa, %.loopexit224 ]
   %.sroa.18204.0272 = phi i64 [ 1, %.lr.ph277 ], [ %.sroa.15.1.lcssa, %.loopexit224 ]
   %.sroa.24.0271 = phi i64 [ 1, %.lr.ph277 ], [ %.sroa.18.1.lcssa, %.loopexit224 ]
-  %95 = load i8, ptr @Verbose, align 1, !tbaa !28
+  %95 = load i8, ptr @Verbose, align 1, !tbaa !27
   %96 = icmp ugt i8 %95, 10
   br i1 %96, label %97, label %100
 
 97:                                               ; preds = %93
-  %98 = load ptr, ptr @stderr, align 8, !tbaa !24
+  %98 = load ptr, ptr @stderr, align 8, !tbaa !23
   %99 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %98, ptr noundef nonnull @.str, i32 noundef %94) #17
   br label %100
 
@@ -981,13 +981,13 @@ qt_list_append.exit:                              ; preds = %distance_to_group.e
   %101 = add i64 %.082264, %.sroa.11.0273
   %102 = urem i64 %101, %.sroa.24.0271
   %103 = getelementptr inbounds nuw ptr, ptr %.sroa.0200.0274, i64 %102
-  %104 = load ptr, ptr %103, align 8, !tbaa !26
-  %105 = load i8, ptr @Verbose, align 1, !tbaa !28
+  %104 = load ptr, ptr %103, align 8, !tbaa !25
+  %105 = load i8, ptr @Verbose, align 1, !tbaa !27
   %106 = icmp ugt i8 %105, 10
   br i1 %106, label %107, label %123
 
 107:                                              ; preds = %.lr.ph266
-  %108 = load ptr, ptr @stderr, align 8, !tbaa !24
+  %108 = load ptr, ptr @stderr, align 8, !tbaa !23
   %109 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %108, ptr noundef nonnull @.str.1, i64 noundef %.082264) #17
   br i1 %87, label %._crit_edge, label %.lr.ph245
 
@@ -997,36 +997,36 @@ qt_list_append.exit:                              ; preds = %distance_to_group.e
 
 111:                                              ; preds = %.lr.ph245, %111
   %indvars.iv294 = phi i64 [ 0, %.lr.ph245 ], [ %indvars.iv.next295, %111 ]
-  %112 = load ptr, ptr @stderr, align 8, !tbaa !24
-  %113 = load ptr, ptr %110, align 8, !tbaa !31
+  %112 = load ptr, ptr @stderr, align 8, !tbaa !23
+  %113 = load ptr, ptr %110, align 8, !tbaa !30
   %114 = getelementptr inbounds nuw double, ptr %113, i64 %indvars.iv294
   %115 = load double, ptr %114, align 8, !tbaa !3
   %116 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %112, ptr noundef nonnull @.str.2, double noundef %115) #17
   %indvars.iv.next295 = add nuw nsw i64 %indvars.iv294, 1
   %exitcond298.not = icmp eq i64 %indvars.iv.next295, %wide.trip.count.i41.i126
-  br i1 %exitcond298.not, label %._crit_edge, label %111, !llvm.loop !42
+  br i1 %exitcond298.not, label %._crit_edge, label %111, !llvm.loop !41
 
 ._crit_edge:                                      ; preds = %111, %107
-  %117 = load ptr, ptr @stderr, align 8, !tbaa !24
+  %117 = load ptr, ptr @stderr, align 8, !tbaa !23
   %118 = getelementptr inbounds nuw i8, ptr %104, i64 32
-  %119 = load double, ptr %118, align 8, !tbaa !30
+  %119 = load double, ptr %118, align 8, !tbaa !29
   %120 = getelementptr inbounds nuw i8, ptr %104, i64 8
-  %121 = load double, ptr %120, align 8, !tbaa !17
+  %121 = load double, ptr %120, align 8, !tbaa !16
   %122 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %117, ptr noundef nonnull @.str.3, double noundef %119, double noundef %121) #17
   br label %123
 
 123:                                              ; preds = %._crit_edge, %.lr.ph266
-  %124 = load i32, ptr %104, align 8, !tbaa !43
+  %124 = load i32, ptr %104, align 8, !tbaa !42
   %125 = icmp eq i32 %124, 1
   br i1 %125, label %.loopexit, label %126
 
 126:                                              ; preds = %123
   %127 = getelementptr inbounds nuw i8, ptr %104, i64 8
-  %128 = load double, ptr %127, align 8, !tbaa !17
-  %129 = tail call double @sqrt(double noundef %89) #16, !tbaa !13
+  %128 = load double, ptr %127, align 8, !tbaa !16
+  %129 = tail call double @sqrt(double noundef %89) #16, !tbaa !12
   %130 = fmul double %88, %129
   %131 = getelementptr inbounds nuw i8, ptr %104, i64 32
-  %132 = load double, ptr %131, align 8, !tbaa !30
+  %132 = load double, ptr %131, align 8, !tbaa !29
   %133 = tail call double @llvm.fmuladd.f64(double %130, double %132, double %128)
   %134 = load double, ptr %6, align 8, !tbaa !3
   %135 = fcmp olt double %133, %134
@@ -1034,7 +1034,7 @@ qt_list_append.exit:                              ; preds = %distance_to_group.e
 
 136:                                              ; preds = %126
   %137 = getelementptr inbounds nuw i8, ptr %104, i64 48
-  %138 = load ptr, ptr %137, align 8, !tbaa !34
+  %138 = load ptr, ptr %137, align 8, !tbaa !33
   %.not98 = icmp eq ptr %138, null
   br i1 %.not98, label %.loopexit, label %.preheader
 
@@ -1047,15 +1047,15 @@ qt_list_append.exit:                              ; preds = %distance_to_group.e
   %.sroa.15.3252 = phi i64 [ %.sroa.15.4, %244 ], [ %.sroa.15.1262, %.preheader ]
   %.sroa.10.3251 = phi i64 [ %.sroa.10.4, %244 ], [ %.sroa.10.1261, %.preheader ]
   %.sroa.0.3250 = phi ptr [ %.sroa.0.4, %244 ], [ %.sroa.0.1260, %.preheader ]
-  %139 = load ptr, ptr %137, align 8, !tbaa !34
+  %139 = load ptr, ptr %137, align 8, !tbaa !33
   %140 = getelementptr inbounds nuw ptr, ptr %139, i64 %indvars.iv304
-  %141 = load ptr, ptr %140, align 8, !tbaa !26
+  %141 = load ptr, ptr %140, align 8, !tbaa !25
   %.not99 = icmp eq ptr %141, null
   br i1 %.not99, label %244, label %142
 
 142:                                              ; preds = %.lr.ph255
   %143 = getelementptr inbounds nuw i8, ptr %141, i64 40
-  %144 = load ptr, ptr %143, align 8, !tbaa !39
+  %144 = load ptr, ptr %143, align 8, !tbaa !38
   br i1 %.not, label %.preheader.i148, label %.preheader48.i123
 
 .preheader48.i123:                                ; preds = %142
@@ -1082,7 +1082,7 @@ qt_list_append.exit:                              ; preds = %distance_to_group.e
   %152 = tail call double @llvm.fmuladd.f64(double %151, double %151, double %.014.i44.us.i140)
   %indvars.iv.next.i45.us.i141 = add nuw nsw i64 %indvars.iv.i43.us.i139, 1
   %exitcond.not.i46.us.i142 = icmp eq i64 %indvars.iv.next.i45.us.i141, %wide.trip.count.i41.i126
-  br i1 %exitcond.not.i46.us.i142, label %dist.exit47.loopexit.us.i143, label %.lr.ph.i42.us.i138, !llvm.loop !10
+  br i1 %exitcond.not.i46.us.i142, label %dist.exit47.loopexit.us.i143, label %.lr.ph.i42.us.i138, !llvm.loop !9
 
 153:                                              ; preds = %dist.exit47.loopexit.us.i143
   %154 = getelementptr inbounds nuw double, ptr %2, i64 %indvars.iv63.i136
@@ -1101,10 +1101,10 @@ qt_list_append.exit:                              ; preds = %distance_to_group.e
   %.4.us.i145 = phi double [ %160, %158 ], [ %.3..us.i144, %153 ]
   %indvars.iv.next64.i146 = add nuw nsw i64 %indvars.iv63.i136, 1
   %exitcond67.not.i147 = icmp eq i64 %indvars.iv.next64.i146, %wide.trip.count66.i127
-  br i1 %exitcond67.not.i147, label %distance_to_group.exit168, label %.lr.ph.preheader.i40.us.i135, !llvm.loop !11
+  br i1 %exitcond67.not.i147, label %distance_to_group.exit168, label %.lr.ph.preheader.i40.us.i135, !llvm.loop !10
 
 dist.exit47.loopexit.us.i143:                     ; preds = %.lr.ph.i42.us.i138
-  %162 = tail call double @sqrt(double noundef %152) #16, !tbaa !13
+  %162 = tail call double @sqrt(double noundef %152) #16, !tbaa !12
   %163 = icmp eq i64 %indvars.iv63.i136, 0
   br i1 %163, label %158, label %153
 
@@ -1129,17 +1129,17 @@ dist.exit47.loopexit.us.i143:                     ; preds = %.lr.ph.i42.us.i138
   %171 = tail call double @llvm.fmuladd.f64(double %170, double %170, double %.014.i.us.i161)
   %indvars.iv.next.i.us.i162 = add nuw nsw i64 %indvars.iv.i.us.i160, 1
   %exitcond.not.i.us.i163 = icmp eq i64 %indvars.iv.next.i.us.i162, %wide.trip.count.i41.i126
-  br i1 %exitcond.not.i.us.i163, label %dist.exit.loopexit.us.i164, label %.lr.ph.i.us.i159, !llvm.loop !10
+  br i1 %exitcond.not.i.us.i163, label %dist.exit.loopexit.us.i164, label %.lr.ph.i.us.i159, !llvm.loop !9
 
 dist.exit.loopexit.us.i164:                       ; preds = %.lr.ph.i.us.i159
-  %172 = tail call double @sqrt(double noundef %171) #16, !tbaa !13
+  %172 = tail call double @sqrt(double noundef %171) #16, !tbaa !12
   %173 = icmp eq i64 %indvars.iv69.i157, 0
   %174 = fcmp olt double %.054.us.i158, %172
   %175 = select i1 %174, double %.054.us.i158, double %172
   %.1.us.i165 = select i1 %173, double %172, double %175
   %indvars.iv.next70.i166 = add nuw nsw i64 %indvars.iv69.i157, 1
   %exitcond73.not.i167 = icmp eq i64 %indvars.iv.next70.i166, %wide.trip.count66.i127
-  br i1 %exitcond73.not.i167, label %distance_to_group.exit168, label %.lr.ph.preheader.i.us.i156, !llvm.loop !15
+  br i1 %exitcond73.not.i167, label %distance_to_group.exit168, label %.lr.ph.preheader.i.us.i156, !llvm.loop !14
 
 dist.exit47.i128:                                 ; preds = %.lr.ph.i125, %185
   %indvars.iv.i129 = phi i64 [ %indvars.iv.next.i133, %185 ], [ 0, %.lr.ph.i125 ]
@@ -1164,65 +1164,65 @@ dist.exit47.i128:                                 ; preds = %.lr.ph.i125, %185
   %.4.i132 = phi double [ %179, %177 ], [ %.3..i131, %180 ]
   %indvars.iv.next.i133 = add nuw nsw i64 %indvars.iv.i129, 1
   %exitcond.not.i134 = icmp eq i64 %indvars.iv.next.i133, %wide.trip.count66.i127
-  br i1 %exitcond.not.i134, label %distance_to_group.exit168, label %dist.exit47.i128, !llvm.loop !16
+  br i1 %exitcond.not.i134, label %distance_to_group.exit168, label %dist.exit47.i128, !llvm.loop !15
 
 distance_to_group.exit168:                        ; preds = %161, %185, %dist.exit.loopexit.us.i164, %.preheader.i148, %.preheader48.i123
   %.2.i124 = phi double [ 0.000000e+00, %.preheader.i148 ], [ 0.000000e+00, %.preheader48.i123 ], [ %.1.us.i165, %dist.exit.loopexit.us.i164 ], [ %.4.i132, %185 ], [ %.4.us.i145, %161 ]
   %186 = getelementptr inbounds nuw i8, ptr %141, i64 8
-  store double %.2.i124, ptr %186, align 8, !tbaa !17
+  store double %.2.i124, ptr %186, align 8, !tbaa !16
   %187 = load double, ptr %6, align 8, !tbaa !3
   %188 = fcmp ogt double %.2.i124, %187
   br i1 %188, label %189, label %209
 
 189:                                              ; preds = %distance_to_group.exit168
   store double %.2.i124, ptr %6, align 8, !tbaa !3
-  %190 = load i8, ptr @Verbose, align 1, !tbaa !28
+  %190 = load i8, ptr @Verbose, align 1, !tbaa !27
   %191 = icmp ugt i8 %190, 10
   br i1 %191, label %192, label %206
 
 192:                                              ; preds = %189
-  %193 = load ptr, ptr @stderr, align 8, !tbaa !24
+  %193 = load ptr, ptr @stderr, align 8, !tbaa !23
   %194 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %193, ptr noundef nonnull @.str.4, double noundef %.2.i124) #17
   br i1 %87, label %._crit_edge249, label %.lr.ph248
 
 .lr.ph248:                                        ; preds = %192, %.lr.ph248
   %indvars.iv299 = phi i64 [ %indvars.iv.next300, %.lr.ph248 ], [ 0, %192 ]
-  %195 = load ptr, ptr @stderr, align 8, !tbaa !24
-  %196 = load ptr, ptr %137, align 8, !tbaa !34
+  %195 = load ptr, ptr @stderr, align 8, !tbaa !23
+  %196 = load ptr, ptr %137, align 8, !tbaa !33
   %197 = getelementptr inbounds nuw ptr, ptr %196, i64 %indvars.iv304
-  %198 = load ptr, ptr %197, align 8, !tbaa !26
+  %198 = load ptr, ptr %197, align 8, !tbaa !25
   %199 = getelementptr inbounds nuw i8, ptr %198, i64 40
-  %200 = load ptr, ptr %199, align 8, !tbaa !39
+  %200 = load ptr, ptr %199, align 8, !tbaa !38
   %201 = getelementptr inbounds nuw double, ptr %200, i64 %indvars.iv299
   %202 = load double, ptr %201, align 8, !tbaa !3
   %203 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %195, ptr noundef nonnull @.str.2, double noundef %202) #17
   %indvars.iv.next300 = add nuw nsw i64 %indvars.iv299, 1
   %exitcond303.not = icmp eq i64 %indvars.iv.next300, %wide.trip.count.i41.i126
-  br i1 %exitcond303.not, label %._crit_edge249, label %.lr.ph248, !llvm.loop !44
+  br i1 %exitcond303.not, label %._crit_edge249, label %.lr.ph248, !llvm.loop !43
 
 ._crit_edge249:                                   ; preds = %.lr.ph248, %192
-  %204 = load ptr, ptr @stderr, align 8, !tbaa !24
+  %204 = load ptr, ptr @stderr, align 8, !tbaa !23
   %205 = tail call i64 @fwrite(ptr nonnull @.str.5, i64 2, i64 1, ptr %204) #20
-  %.pre = load ptr, ptr %137, align 8, !tbaa !34
+  %.pre = load ptr, ptr %137, align 8, !tbaa !33
   %.phi.trans.insert = getelementptr inbounds nuw ptr, ptr %.pre, i64 %indvars.iv304
-  %.pre311 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !26
+  %.pre311 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !25
   %.phi.trans.insert312 = getelementptr inbounds nuw i8, ptr %.pre311, i64 40
-  %.pre313 = load ptr, ptr %.phi.trans.insert312, align 8, !tbaa !39
+  %.pre313 = load ptr, ptr %.phi.trans.insert312, align 8, !tbaa !38
   br label %206
 
 206:                                              ; preds = %._crit_edge249, %189
   %207 = phi ptr [ %.pre313, %._crit_edge249 ], [ %144, %189 ]
-  %208 = load ptr, ptr %7, align 8, !tbaa !23
+  %208 = load ptr, ptr %7, align 8, !tbaa !22
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %208, ptr align 8 %207, i64 %80, i1 false)
-  %.pre314 = load ptr, ptr %137, align 8, !tbaa !34
+  %.pre314 = load ptr, ptr %137, align 8, !tbaa !33
   %.phi.trans.insert315 = getelementptr inbounds nuw ptr, ptr %.pre314, i64 %indvars.iv304
-  %.pre316 = load ptr, ptr %.phi.trans.insert315, align 8, !tbaa !26
+  %.pre316 = load ptr, ptr %.phi.trans.insert315, align 8, !tbaa !25
   br label %.critedge
 
 209:                                              ; preds = %distance_to_group.exit168
-  %210 = tail call double @sqrt(double noundef %89) #16, !tbaa !13
+  %210 = tail call double @sqrt(double noundef %89) #16, !tbaa !12
   %211 = fmul double %.1, %210
-  %212 = load double, ptr %131, align 8, !tbaa !30
+  %212 = load double, ptr %131, align 8, !tbaa !29
   %213 = tail call double @llvm.fmuladd.f64(double %211, double %212, double %.2.i124)
   %214 = fcmp olt double %213, %187
   br i1 %214, label %244, label %.critedge
@@ -1265,7 +1265,7 @@ distance_to_group.exit168:                        ; preds = %161, %185, %dist.ex
 
 236:                                              ; preds = %220, %217
   %.2.i.ph.i175 = phi i32 [ 34, %217 ], [ 12, %220 ]
-  %237 = load ptr, ptr @stderr, align 8, !tbaa !24
+  %237 = load ptr, ptr @stderr, align 8, !tbaa !23
   %238 = tail call ptr @strerror(i32 noundef %.2.i.ph.i175) #16
   %239 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %237, ptr noundef nonnull @.str.8, ptr noundef %238) #17
   tail call fastcc void @graphviz_exit() #18
@@ -1278,7 +1278,7 @@ qt_list_append.exit176:                           ; preds = %224, %230, %.crited
   %240 = add i64 %.sroa.10.6, %.sroa.15.3252
   %241 = urem i64 %240, %.sroa.18.5
   %242 = getelementptr inbounds nuw ptr, ptr %.sroa.0.5, i64 %241
-  store ptr %215, ptr %242, align 8, !tbaa !26
+  store ptr %215, ptr %242, align 8, !tbaa !25
   %243 = add i64 %.sroa.15.3252, 1
   br label %244
 
@@ -1289,7 +1289,7 @@ qt_list_append.exit176:                           ; preds = %224, %230, %.crited
   %.sroa.18.4 = phi i64 [ %.sroa.18.3253, %.lr.ph255 ], [ %.sroa.18.5, %qt_list_append.exit176 ], [ %.sroa.18.3253, %209 ]
   %indvars.iv.next305 = add nuw nsw i64 %indvars.iv304, 1
   %exitcond308.not = icmp eq i64 %indvars.iv.next305, %wide.trip.count307
-  br i1 %exitcond308.not, label %.loopexit, label %.lr.ph255, !llvm.loop !45
+  br i1 %exitcond308.not, label %.loopexit, label %.lr.ph255, !llvm.loop !44
 
 .loopexit:                                        ; preds = %244, %.preheader, %136, %123, %126
   %.sroa.0.2 = phi ptr [ %.sroa.0.1260, %123 ], [ %.sroa.0.1260, %126 ], [ %.sroa.0.1260, %136 ], [ %.sroa.0.1260, %.preheader ], [ %.sroa.0.4, %244 ]
@@ -1298,7 +1298,7 @@ qt_list_append.exit176:                           ; preds = %224, %230, %.crited
   %.sroa.18.2 = phi i64 [ %.sroa.18.1263, %123 ], [ %.sroa.18.1263, %126 ], [ %.sroa.18.1263, %136 ], [ %.sroa.18.1263, %.preheader ], [ %.sroa.18.4, %244 ]
   %245 = add nuw i64 %.082264, 1
   %exitcond309.not = icmp eq i64 %245, %.sroa.18204.0272
-  br i1 %exitcond309.not, label %.loopexit224, label %.lr.ph266, !llvm.loop !46
+  br i1 %exitcond309.not, label %.loopexit224, label %.lr.ph266, !llvm.loop !45
 
 ._crit_edge278:                                   ; preds = %.loopexit224, %qt_list_append.exit
   %.sroa.0200.0.lcssa = phi ptr [ %malloc, %qt_list_append.exit ], [ %.sroa.0.1.lcssa, %.loopexit224 ]
@@ -1374,43 +1374,42 @@ attributes #22 = { cold noreturn nounwind }
 !4 = !{!"double", !5, i64 0}
 !5 = !{!"omnipotent char", !6, i64 0}
 !6 = !{!"Simple C/C++ TBAA"}
-!7 = distinct !{!7, !8, !9}
+!7 = distinct !{!7, !8}
 !8 = !{!"llvm.loop.mustprogress"}
-!9 = !{!"llvm.loop.estimated_trip_count"}
-!10 = distinct !{!10, !8, !9}
-!11 = distinct !{!11, !8, !9, !12}
-!12 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!13 = !{!14, !14, i64 0}
-!14 = !{!"int", !5, i64 0}
-!15 = distinct !{!15, !8, !9, !12}
-!16 = distinct !{!16, !8, !9}
-!17 = !{!18, !4, i64 8}
-!18 = !{!"QuadTree_struct", !14, i64 0, !4, i64 8, !14, i64 16, !19, i64 24, !4, i64 32, !19, i64 40, !21, i64 48, !22, i64 56, !14, i64 64, !20, i64 72}
-!19 = !{!"p1 double", !20, i64 0}
-!20 = !{!"any pointer", !5, i64 0}
-!21 = !{!"p2 _ZTS15QuadTree_struct", !20, i64 0}
-!22 = !{!"p1 _ZTS16node_data_struct", !20, i64 0}
-!23 = !{!19, !19, i64 0}
-!24 = !{!25, !25, i64 0}
-!25 = !{!"p1 _ZTS8_IO_FILE", !20, i64 0}
-!26 = !{!27, !27, i64 0}
-!27 = !{!"p1 _ZTS15QuadTree_struct", !20, i64 0}
-!28 = !{!5, !5, i64 0}
-!29 = distinct !{!29, !8, !9, !12}
-!30 = !{!18, !4, i64 32}
-!31 = !{!18, !19, i64 24}
-!32 = distinct !{!32, !8, !9}
-!33 = distinct !{!33, !8, !9}
-!34 = !{!18, !21, i64 48}
-!35 = !{!18, !14, i64 16}
-!36 = distinct !{!36, !8, !9}
-!37 = distinct !{!37, !8, !9}
-!38 = distinct !{!38, !8, !9}
-!39 = !{!18, !19, i64 40}
-!40 = distinct !{!40, !8, !9}
-!41 = distinct !{!41, !8, !9}
-!42 = distinct !{!42, !8, !9}
-!43 = !{!18, !14, i64 0}
-!44 = distinct !{!44, !8, !9}
-!45 = distinct !{!45, !8, !9}
-!46 = distinct !{!46, !8, !9}
+!9 = distinct !{!9, !8}
+!10 = distinct !{!10, !8, !11}
+!11 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!12 = !{!13, !13, i64 0}
+!13 = !{!"int", !5, i64 0}
+!14 = distinct !{!14, !8, !11}
+!15 = distinct !{!15, !8}
+!16 = !{!17, !4, i64 8}
+!17 = !{!"QuadTree_struct", !13, i64 0, !4, i64 8, !13, i64 16, !18, i64 24, !4, i64 32, !18, i64 40, !20, i64 48, !21, i64 56, !13, i64 64, !19, i64 72}
+!18 = !{!"p1 double", !19, i64 0}
+!19 = !{!"any pointer", !5, i64 0}
+!20 = !{!"p2 _ZTS15QuadTree_struct", !19, i64 0}
+!21 = !{!"p1 _ZTS16node_data_struct", !19, i64 0}
+!22 = !{!18, !18, i64 0}
+!23 = !{!24, !24, i64 0}
+!24 = !{!"p1 _ZTS8_IO_FILE", !19, i64 0}
+!25 = !{!26, !26, i64 0}
+!26 = !{!"p1 _ZTS15QuadTree_struct", !19, i64 0}
+!27 = !{!5, !5, i64 0}
+!28 = distinct !{!28, !8, !11}
+!29 = !{!17, !4, i64 32}
+!30 = !{!17, !18, i64 24}
+!31 = distinct !{!31, !8}
+!32 = distinct !{!32, !8}
+!33 = !{!17, !20, i64 48}
+!34 = !{!17, !13, i64 16}
+!35 = distinct !{!35, !8}
+!36 = distinct !{!36, !8}
+!37 = distinct !{!37, !8}
+!38 = !{!17, !18, i64 40}
+!39 = distinct !{!39, !8}
+!40 = distinct !{!40, !8}
+!41 = distinct !{!41, !8}
+!42 = !{!17, !13, i64 0}
+!43 = distinct !{!43, !8}
+!44 = distinct !{!44, !8}
+!45 = distinct !{!45, !8}

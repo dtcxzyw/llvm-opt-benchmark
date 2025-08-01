@@ -102,18 +102,18 @@ define internal range(i32 -47, 1) i32 @create_cred(ptr noundef readonly captures
 
 14:                                               ; preds = %.preheader
   %15 = getelementptr inbounds nuw i8, ptr %11, i64 528
-  %16 = load ptr, ptr %15, align 8, !tbaa !24
+  %16 = load ptr, ptr %15, align 8, !tbaa !23
   %17 = tail call ptr @PMIx_Argv_split(ptr noundef %16, i32 noundef 44) #7
-  %18 = load ptr, ptr %17, align 8, !tbaa !25
+  %18 = load ptr, ptr %17, align 8, !tbaa !24
   %.not.not47 = icmp eq ptr %18, null
   br i1 %.not.not47, label %._crit_edge, label %.lr.ph
 
 19:                                               ; preds = %.lr.ph
   %20 = add i64 %.03548, 1
   %21 = getelementptr inbounds nuw ptr, ptr %17, i64 %20
-  %22 = load ptr, ptr %21, align 8, !tbaa !25
+  %22 = load ptr, ptr %21, align 8, !tbaa !24
   %.not.not = icmp eq ptr %22, null
-  br i1 %.not.not, label %._crit_edge, label %.lr.ph, !llvm.loop !26
+  br i1 %.not.not, label %._crit_edge, label %.lr.ph, !llvm.loop !25
 
 .lr.ph:                                           ; preds = %14, %19
   %23 = phi ptr [ %22, %19 ], [ %18, %14 ]
@@ -134,7 +134,7 @@ define internal range(i32 -47, 1) i32 @create_cred(ptr noundef readonly captures
 
 .critedge:                                        ; preds = %9, %26, %6
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  %29 = load i16, ptr %28, align 8, !tbaa !27
+  %29 = load i16, ptr %28, align 8, !tbaa !26
   switch i16 %29, label %38 [
     i16 1, label %40
     i16 2, label %30
@@ -151,9 +151,9 @@ define internal range(i32 -47, 1) i32 @create_cred(ptr noundef readonly captures
   %35 = getelementptr inbounds nuw i8, ptr %31, i64 4
   %36 = tail call i32 @getegid() #7
   store i32 %36, ptr %35, align 1
-  store ptr %31, ptr %5, align 8, !tbaa !40
+  store ptr %31, ptr %5, align 8, !tbaa !39
   %37 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store i64 8, ptr %37, align 8, !tbaa !42
+  store i64 8, ptr %37, align 8, !tbaa !41
   br label %40
 
 38:                                               ; preds = %.critedge
@@ -167,12 +167,12 @@ define internal range(i32 -47, 1) i32 @create_cred(ptr noundef readonly captures
 
 41:                                               ; preds = %40
   %42 = tail call ptr @PMIx_Info_create(i64 noundef 1) #7
-  store ptr %42, ptr %3, align 8, !tbaa !43
+  store ptr %42, ptr %3, align 8, !tbaa !42
   %43 = icmp eq ptr %42, null
   br i1 %43, label %46, label %44
 
 44:                                               ; preds = %41
-  store i64 1, ptr %4, align 8, !tbaa !45
+  store i64 1, ptr %4, align 8, !tbaa !44
   %45 = tail call i32 @PMIx_Info_load(ptr noundef nonnull %42, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str, i16 noundef zeroext 3) #7
   br label %46
 
@@ -188,7 +188,7 @@ define internal range(i32 -47, 1) i32 @validate_cred(ptr noundef readonly captur
   %9 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %7) #7
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #7
-  store i32 12, ptr %8, align 4, !tbaa !46
+  store i32 12, ptr %8, align 4, !tbaa !45
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #7
   %10 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pmix_psec_base_framework, i64 76), align 4, !tbaa !3
   %or.cond = icmp ult i32 %10, 64
@@ -209,7 +209,7 @@ define internal range(i32 -47, 1) i32 @validate_cred(ptr noundef readonly captur
 
 19:                                               ; preds = %16, %11, %6
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  %21 = load i16, ptr %20, align 8, !tbaa !27
+  %21 = load i16, ptr %20, align 8, !tbaa !26
   switch i16 %21, label %119 [
     i16 1, label %22
     i16 2, label %53
@@ -230,13 +230,13 @@ define internal range(i32 -47, 1) i32 @validate_cred(ptr noundef readonly captur
 
 29:                                               ; preds = %24
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 156
-  %31 = load i32, ptr %30, align 4, !tbaa !47
+  %31 = load i32, ptr %30, align 4, !tbaa !46
   tail call void (i32, ptr, ...) @pmix_output(i32 noundef %23, ptr noundef nonnull @.str.9, i32 noundef %31) #7
   br label %32
 
 32:                                               ; preds = %29, %24, %22
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 156
-  %34 = load i32, ptr %33, align 4, !tbaa !47
+  %34 = load i32, ptr %33, align 4, !tbaa !46
   %35 = call i32 @getsockopt(i32 noundef %34, i32 noundef 1, i32 noundef 17, ptr noundef nonnull %7, ptr noundef nonnull %8) #7
   %36 = icmp slt i32 %35, 0
   br i1 %36, label %37, label %48
@@ -255,16 +255,16 @@ define internal range(i32 -47, 1) i32 @validate_cred(ptr noundef readonly captur
 
 44:                                               ; preds = %39
   %45 = tail call ptr @__errno_location() #10
-  %46 = load i32, ptr %45, align 4, !tbaa !46
+  %46 = load i32, ptr %45, align 4, !tbaa !45
   %47 = call ptr @strerror(i32 noundef %46) #7
   call void (i32, ptr, ...) @pmix_output(i32 noundef %38, ptr noundef nonnull @.str.10, ptr noundef %47) #7
   br label %119
 
 48:                                               ; preds = %32
   %49 = getelementptr inbounds nuw i8, ptr %7, i64 4
-  %50 = load i32, ptr %49, align 4, !tbaa !48
+  %50 = load i32, ptr %49, align 4, !tbaa !47
   %51 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %52 = load i32, ptr %51, align 4, !tbaa !50
+  %52 = load i32, ptr %51, align 4, !tbaa !49
   br label %63
 
 53:                                               ; preds = %19
@@ -273,7 +273,7 @@ define internal range(i32 -47, 1) i32 @validate_cred(ptr noundef readonly captur
 
 55:                                               ; preds = %53
   %56 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %57 = load i64, ptr %56, align 8, !tbaa !42
+  %57 = load i64, ptr %56, align 8, !tbaa !41
   %58 = icmp ult i64 %57, 4
   %59 = and i64 %57, -4
   %.not75 = icmp eq i64 %59, 4
@@ -281,7 +281,7 @@ define internal range(i32 -47, 1) i32 @validate_cred(ptr noundef readonly captur
   br i1 %or.cond80, label %119, label %60
 
 60:                                               ; preds = %55
-  %61 = load ptr, ptr %5, align 8, !tbaa !40
+  %61 = load ptr, ptr %5, align 8, !tbaa !39
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 4
   %.0.copyload28 = load i32, ptr %61, align 1
   %.0.copyload = load i32, ptr %62, align 1
@@ -304,18 +304,18 @@ define internal range(i32 -47, 1) i32 @validate_cred(ptr noundef readonly captur
 
 69:                                               ; preds = %.preheader
   %70 = getelementptr inbounds nuw i8, ptr %66, i64 528
-  %71 = load ptr, ptr %70, align 8, !tbaa !24
+  %71 = load ptr, ptr %70, align 8, !tbaa !23
   %72 = call ptr @PMIx_Argv_split(ptr noundef %71, i32 noundef 44) #7
-  %73 = load ptr, ptr %72, align 8, !tbaa !25
+  %73 = load ptr, ptr %72, align 8, !tbaa !24
   %.not79.not81 = icmp eq ptr %73, null
   br i1 %.not79.not81, label %.critedge, label %.lr.ph
 
 74:                                               ; preds = %.lr.ph
   %75 = add i64 %.082, 1
   %76 = getelementptr inbounds nuw ptr, ptr %72, i64 %75
-  %77 = load ptr, ptr %76, align 8, !tbaa !25
+  %77 = load ptr, ptr %76, align 8, !tbaa !24
   %.not79.not = icmp eq ptr %77, null
-  br i1 %.not79.not, label %.critedge, label %.lr.ph, !llvm.loop !51
+  br i1 %.not79.not, label %.critedge, label %.lr.ph, !llvm.loop !50
 
 .lr.ph:                                           ; preds = %69, %74
   %78 = phi ptr [ %77, %74 ], [ %73, %69 ]
@@ -335,13 +335,13 @@ define internal range(i32 -47, 1) i32 @validate_cred(ptr noundef readonly captur
 82:                                               ; preds = %81, %.preheader
   %83 = add nuw i64 %.05885, 1
   %exitcond.not = icmp eq i64 %83, %2
-  br i1 %exitcond.not, label %.loopexit, label %.preheader, !llvm.loop !52
+  br i1 %exitcond.not, label %.loopexit, label %.preheader, !llvm.loop !51
 
 .loopexit:                                        ; preds = %82, %63
   %84 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %85 = load ptr, ptr %84, align 8, !tbaa !53
+  %85 = load ptr, ptr %84, align 8, !tbaa !52
   %86 = getelementptr inbounds nuw i8, ptr %85, i64 168
-  %87 = load i32, ptr %86, align 8, !tbaa !54
+  %87 = load i32, ptr %86, align 8, !tbaa !53
   %.not76 = icmp eq i32 %.061, %87
   br i1 %.not76, label %96, label %88
 
@@ -363,7 +363,7 @@ define internal range(i32 -47, 1) i32 @validate_cred(ptr noundef readonly captur
 
 96:                                               ; preds = %.loopexit
   %97 = getelementptr inbounds nuw i8, ptr %85, i64 172
-  %98 = load i32, ptr %97, align 4, !tbaa !57
+  %98 = load i32, ptr %97, align 4, !tbaa !56
   %.not77 = icmp eq i32 %.062, %98
   br i1 %.not77, label %107, label %99
 
@@ -389,20 +389,20 @@ define internal range(i32 -47, 1) i32 @validate_cred(ptr noundef readonly captur
 
 108:                                              ; preds = %107
   %109 = call ptr @PMIx_Info_create(i64 noundef 3) #7
-  store ptr %109, ptr %3, align 8, !tbaa !43
+  store ptr %109, ptr %3, align 8, !tbaa !42
   %110 = icmp eq ptr %109, null
   br i1 %110, label %119, label %111
 
 111:                                              ; preds = %108
-  store i64 3, ptr %4, align 8, !tbaa !45
+  store i64 3, ptr %4, align 8, !tbaa !44
   %112 = call i32 @PMIx_Info_load(ptr noundef nonnull %109, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str, i16 noundef zeroext 3) #7
-  store i32 %.061, ptr %9, align 4, !tbaa !46
+  store i32 %.061, ptr %9, align 4, !tbaa !45
   %113 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %114 = load ptr, ptr %113, align 8, !tbaa !43
+  %114 = load ptr, ptr %113, align 8, !tbaa !42
   %115 = call i32 @PMIx_Info_load(ptr noundef %114, ptr noundef nonnull @.str.13, ptr noundef nonnull %9, i16 noundef zeroext 14) #7
-  store i32 %.062, ptr %9, align 4, !tbaa !46
+  store i32 %.062, ptr %9, align 4, !tbaa !45
   %116 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %117 = load ptr, ptr %116, align 8, !tbaa !43
+  %117 = load ptr, ptr %116, align 8, !tbaa !42
   %118 = call i32 @PMIx_Info_load(ptr noundef %117, ptr noundef nonnull @.str.14, ptr noundef nonnull %9, i16 noundef zeroext 14) #7
   br label %119
 
@@ -493,40 +493,39 @@ attributes #10 = { nounwind willreturn memory(none) }
 !18 = !{!19, !9, i64 4}
 !19 = !{!"", !20, i64 0, !20, i64 1, !9, i64 4, !20, i64 8, !9, i64 12, !5, i64 16, !5, i64 24, !9, i64 32, !5, i64 40, !9, i64 48, !20, i64 52, !20, i64 53, !20, i64 54, !20, i64 55, !5, i64 56, !9, i64 64, !9, i64 68}
 !20 = !{!"_Bool", !7, i64 0}
-!21 = distinct !{!21, !22, !23}
+!21 = distinct !{!21, !22}
 !22 = !{!"llvm.loop.mustprogress"}
-!23 = !{!"llvm.loop.estimated_trip_count"}
-!24 = !{!7, !7, i64 0}
-!25 = !{!5, !5, i64 0}
-!26 = distinct !{!26, !22, !23}
-!27 = !{!28, !31, i64 144}
-!28 = !{!"pmix_peer_t", !12, i64 0, !6, i64 120, !29, i64 128, !30, i64 136, !31, i64 144, !9, i64 148, !9, i64 152, !9, i64 156, !20, i64 160, !32, i64 168, !20, i64 296, !32, i64 304, !20, i64 432, !11, i64 440, !6, i64 712, !6, i64 720, !9, i64 728, !39, i64 736}
-!29 = !{!"p1 _ZTS16pmix_rank_info_t", !6, i64 0}
-!30 = !{!"", !9, i64 0, !7, i64 4, !7, i64 5, !7, i64 6, !7, i64 7}
-!31 = !{!"short", !7, i64 0}
-!32 = !{!"event", !33, i64 0, !7, i64 40, !9, i64 56, !37, i64 64, !7, i64 72, !31, i64 104, !31, i64 106, !38, i64 112}
-!33 = !{!"event_callback", !34, i64 0, !31, i64 16, !7, i64 18, !7, i64 19, !7, i64 24, !6, i64 32}
-!34 = !{!"", !35, i64 0, !36, i64 8}
-!35 = !{!"p1 _ZTS14event_callback", !6, i64 0}
-!36 = !{!"p2 _ZTS14event_callback", !6, i64 0}
-!37 = !{!"p1 _ZTS10event_base", !6, i64 0}
-!38 = !{!"timeval", !17, i64 0, !17, i64 8}
-!39 = !{!"pmix_epilog_t", !9, i64 0, !9, i64 4, !11, i64 8, !11, i64 280, !11, i64 552}
-!40 = !{!41, !5, i64 0}
-!41 = !{!"pmix_byte_object", !5, i64 0, !17, i64 8}
-!42 = !{!41, !17, i64 8}
-!43 = !{!44, !44, i64 0}
-!44 = !{!"p1 _ZTS9pmix_info", !6, i64 0}
-!45 = !{!17, !17, i64 0}
-!46 = !{!9, !9, i64 0}
-!47 = !{!28, !9, i64 156}
-!48 = !{!49, !9, i64 4}
-!49 = !{!"ucred", !9, i64 0, !9, i64 4, !9, i64 8}
-!50 = !{!49, !9, i64 8}
-!51 = distinct !{!51, !22, !23}
-!52 = distinct !{!52, !22, !23}
-!53 = !{!28, !29, i64 128}
-!54 = !{!55, !9, i64 168}
-!55 = !{!"pmix_rank_info_t", !15, i64 0, !9, i64 144, !56, i64 152, !9, i64 168, !9, i64 172, !20, i64 176, !9, i64 180, !6, i64 184}
-!56 = !{!"", !5, i64 0, !9, i64 8}
-!57 = !{!55, !9, i64 172}
+!23 = !{!7, !7, i64 0}
+!24 = !{!5, !5, i64 0}
+!25 = distinct !{!25, !22}
+!26 = !{!27, !30, i64 144}
+!27 = !{!"pmix_peer_t", !12, i64 0, !6, i64 120, !28, i64 128, !29, i64 136, !30, i64 144, !9, i64 148, !9, i64 152, !9, i64 156, !20, i64 160, !31, i64 168, !20, i64 296, !31, i64 304, !20, i64 432, !11, i64 440, !6, i64 712, !6, i64 720, !9, i64 728, !38, i64 736}
+!28 = !{!"p1 _ZTS16pmix_rank_info_t", !6, i64 0}
+!29 = !{!"", !9, i64 0, !7, i64 4, !7, i64 5, !7, i64 6, !7, i64 7}
+!30 = !{!"short", !7, i64 0}
+!31 = !{!"event", !32, i64 0, !7, i64 40, !9, i64 56, !36, i64 64, !7, i64 72, !30, i64 104, !30, i64 106, !37, i64 112}
+!32 = !{!"event_callback", !33, i64 0, !30, i64 16, !7, i64 18, !7, i64 19, !7, i64 24, !6, i64 32}
+!33 = !{!"", !34, i64 0, !35, i64 8}
+!34 = !{!"p1 _ZTS14event_callback", !6, i64 0}
+!35 = !{!"p2 _ZTS14event_callback", !6, i64 0}
+!36 = !{!"p1 _ZTS10event_base", !6, i64 0}
+!37 = !{!"timeval", !17, i64 0, !17, i64 8}
+!38 = !{!"pmix_epilog_t", !9, i64 0, !9, i64 4, !11, i64 8, !11, i64 280, !11, i64 552}
+!39 = !{!40, !5, i64 0}
+!40 = !{!"pmix_byte_object", !5, i64 0, !17, i64 8}
+!41 = !{!40, !17, i64 8}
+!42 = !{!43, !43, i64 0}
+!43 = !{!"p1 _ZTS9pmix_info", !6, i64 0}
+!44 = !{!17, !17, i64 0}
+!45 = !{!9, !9, i64 0}
+!46 = !{!27, !9, i64 156}
+!47 = !{!48, !9, i64 4}
+!48 = !{!"ucred", !9, i64 0, !9, i64 4, !9, i64 8}
+!49 = !{!48, !9, i64 8}
+!50 = distinct !{!50, !22}
+!51 = distinct !{!51, !22}
+!52 = !{!27, !28, i64 128}
+!53 = !{!54, !9, i64 168}
+!54 = !{!"pmix_rank_info_t", !15, i64 0, !9, i64 144, !55, i64 152, !9, i64 168, !9, i64 172, !20, i64 176, !9, i64 180, !6, i64 184}
+!55 = !{!"", !5, i64 0, !9, i64 8}
+!56 = !{!54, !9, i64 172}

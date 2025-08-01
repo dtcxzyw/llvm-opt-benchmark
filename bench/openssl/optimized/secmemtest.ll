@@ -252,7 +252,7 @@ define internal range(i32 0, 2) i32 @test_sec_mem_clear() #0 {
 .preheader23:                                     ; preds = %5, %8
   %indvars.iv = phi i64 [ %indvars.iv.next, %8 ], [ 0, %5 ]
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 %indvars.iv
-  %10 = load i8, ptr %9, align 1, !tbaa !7
+  %10 = load i8, ptr %9, align 1, !tbaa !6
   %11 = tail call i32 @test_uchar_eq(ptr noundef nonnull @.str.2, i32 noundef 148, ptr noundef nonnull @.str.24, ptr noundef nonnull @.str.18, i8 noundef zeroext %10, i8 noundef zeroext 0) #2
   %.not21 = icmp eq i32 %11, 0
   br i1 %.not21, label %.loopexit, label %8
@@ -262,10 +262,10 @@ define internal range(i32 0, 2) i32 @test_sec_mem_clear() #0 {
   %12 = trunc i64 %indvars.iv30 to i8
   %13 = add nuw nsw i8 %12, 33
   %14 = getelementptr inbounds nuw i8, ptr %6, i64 %indvars.iv30
-  store i8 %13, ptr %14, align 1, !tbaa !7
+  store i8 %13, ptr %14, align 1, !tbaa !6
   %indvars.iv.next31 = add nuw nsw i64 %indvars.iv30, 1
   %exitcond33.not = icmp eq i64 %indvars.iv.next31, 64
-  br i1 %exitcond33.not, label %15, label %.preheader, !llvm.loop !10
+  br i1 %exitcond33.not, label %15, label %.preheader, !llvm.loop !9
 
 15:                                               ; preds = %.preheader
   tail call void @CRYPTO_secure_free(ptr noundef nonnull %6, ptr noundef nonnull @.str.2, i32 noundef 154) #2
@@ -274,12 +274,12 @@ define internal range(i32 0, 2) i32 @test_sec_mem_clear() #0 {
 16:                                               ; preds = %17
   %indvars.iv.next35 = add nuw nsw i64 %indvars.iv34, 1
   %exitcond37.not = icmp eq i64 %indvars.iv.next35, 64
-  br i1 %exitcond37.not, label %.loopexit, label %17, !llvm.loop !11
+  br i1 %exitcond37.not, label %.loopexit, label %17, !llvm.loop !10
 
 17:                                               ; preds = %15, %16
   %indvars.iv34 = phi i64 [ 16, %15 ], [ %indvars.iv.next35, %16 ]
   %18 = getelementptr inbounds nuw i8, ptr %6, i64 %indvars.iv34
-  %19 = load i8, ptr %18, align 1, !tbaa !7
+  %19 = load i8, ptr %18, align 1, !tbaa !6
   %20 = tail call i32 @test_uchar_eq(ptr noundef nonnull @.str.2, i32 noundef 164, ptr noundef nonnull @.str.24, ptr noundef nonnull @.str.18, i8 noundef zeroext %19, i8 noundef zeroext 0) #2
   %.not20 = icmp eq i32 %20, 0
   br i1 %.not20, label %.loopexit22, label %16
@@ -340,11 +340,10 @@ attributes #2 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = distinct !{!4, !5, !6}
+!4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{!"llvm.loop.estimated_trip_count"}
-!7 = !{!8, !8, i64 0}
-!8 = !{!"omnipotent char", !9, i64 0}
-!9 = !{!"Simple C/C++ TBAA"}
-!10 = distinct !{!10, !5, !6}
-!11 = distinct !{!11, !5, !6}
+!6 = !{!7, !7, i64 0}
+!7 = !{!"omnipotent char", !8, i64 0}
+!8 = !{!"Simple C/C++ TBAA"}
+!9 = distinct !{!9, !5}
+!10 = distinct !{!10, !5}

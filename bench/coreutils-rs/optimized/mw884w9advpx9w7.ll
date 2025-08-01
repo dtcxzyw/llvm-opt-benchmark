@@ -512,7 +512,7 @@ define hidden void @"_ZN69_$LT$$RF$$u5b$u8$u5d$$u20$as$u20$nom..traits..InputTak
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 1
   %12 = add nuw i64 %.010.i, 1
   %13 = icmp eq ptr %11, %7
-  br i1 %13, label %19, label %.lr.ph.i, !llvm.loop !51
+  br i1 %13, label %19, label %.lr.ph.i
 
 14:                                               ; preds = %.lr.ph.i
   %15 = icmp ult i64 %.010.i, %6
@@ -765,5 +765,3 @@ attributes #21 = { cold noreturn nounwind }
 !48 = !{!49}
 !49 = distinct !{!49, !50, !"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h42be71b675d5faa8E: argument 0"}
 !50 = distinct !{!50, !"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h42be71b675d5faa8E"}
-!51 = distinct !{!51, !52}
-!52 = !{!"llvm.loop.estimated_trip_count"}

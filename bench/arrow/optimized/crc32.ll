@@ -164,13 +164,13 @@ define noundef i32 @_ZN5arrow8internal5crc32EjPKvm(i32 noundef %0, ptr noundef %
   %125 = xor i32 %120, %124
   %126 = add nuw nsw i64 %.07584, 1
   %exitcond.not = icmp eq i64 %126, 4
-  br i1 %exitcond.not, label %127, label %29, !llvm.loop !11
+  br i1 %exitcond.not, label %127, label %29, !llvm.loop !10
 
 127:                                              ; preds = %29
   %scevgep = getelementptr i8, ptr %.07187, i64 64
   %128 = add i64 %.189, -64
   %129 = icmp ugt i64 %128, 63
-  br i1 %129, label %.preheader76, label %.preheader, !llvm.loop !12
+  br i1 %129, label %.preheader76, label %.preheader, !llvm.loop !11
 
 .lr.ph96:                                         ; preds = %.preheader, %.lr.ph96
   %.295 = phi i64 [ %178, %.lr.ph96 ], [ %.1.lcssa, %.preheader ]
@@ -226,7 +226,7 @@ define noundef i32 @_ZN5arrow8internal5crc32EjPKvm(i32 noundef %0, ptr noundef %
   %177 = xor i32 %172, %176
   %178 = add nsw i64 %.295, -8
   %179 = icmp ugt i64 %178, 7
-  br i1 %179, label %.lr.ph96, label %._crit_edge, !llvm.loop !13
+  br i1 %179, label %.lr.ph96, label %._crit_edge, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %.lr.ph96, %.preheader
   %.273.lcssa = phi ptr [ %.071.lcssa, %.preheader ], [ %133, %.lr.ph96 ]
@@ -286,7 +286,7 @@ define noundef i32 @_ZN5arrow8internal5crc32EjPKvm(i32 noundef %0, ptr noundef %
   %217 = load i32, ptr %216, align 4, !tbaa !6
   %218 = xor i32 %217, %209
   %.not = icmp eq i64 %208, 0
-  br i1 %.not, label %._crit_edge106, label %.lr.ph105, !llvm.loop !14
+  br i1 %.not, label %._crit_edge106, label %.lr.ph105, !llvm.loop !13
 
 ._crit_edge106:                                   ; preds = %.lr.ph105, %207
   %.5.lcssa = phi i32 [ %.467, %207 ], [ %218, %.lr.ph105 ]
@@ -306,10 +306,9 @@ attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memor
 !5 = !{!"Simple C++ TBAA"}
 !6 = !{!7, !7, i64 0}
 !7 = !{!"int", !4, i64 0}
-!8 = distinct !{!8, !9, !10}
+!8 = distinct !{!8, !9}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = !{!"llvm.loop.estimated_trip_count"}
-!11 = distinct !{!11, !9, !10}
-!12 = distinct !{!12, !9, !10}
-!13 = distinct !{!13, !9, !10}
-!14 = distinct !{!14, !9, !10}
+!10 = distinct !{!10, !9}
+!11 = distinct !{!11, !9}
+!12 = distinct !{!12, !9}
+!13 = distinct !{!13, !9}

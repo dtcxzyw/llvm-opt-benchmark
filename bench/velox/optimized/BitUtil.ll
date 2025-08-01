@@ -155,7 +155,7 @@ if.then.i.i36:                                    ; preds = %_ZN8facebook5velox4
 _ZN8facebook5velox4bits6detail9storeBitsIjEEvPmmmh.exit.i: ; preds = %if.then.i.i36, %_ZN8facebook5velox4bits6detail8loadBitsIjEET_PKmmh.exit.i
   %sub3.i39 = add nsw i64 %remaining.2, -32
   %cmp.i40 = icmp sgt i64 %remaining.2, 63
-  br i1 %cmp.i40, label %for.body.i17, label %_ZN8facebook5velox4bits12_GLOBAL__N_120copyBitsBackwardImplIjEEvPmmmRl.exit, !llvm.loop !7
+  br i1 %cmp.i40, label %for.body.i17, label %_ZN8facebook5velox4bits12_GLOBAL__N_120copyBitsBackwardImplIjEEvPmmmRl.exit, !llvm.loop !6
 
 _ZN8facebook5velox4bits12_GLOBAL__N_120copyBitsBackwardImplIjEEvPmmmRl.exit: ; preds = %_ZN8facebook5velox4bits6detail9storeBitsIjEEvPmmmh.exit.i, %_ZN8facebook5velox4bits12_GLOBAL__N_120copyBitsBackwardImplImEEvPmmmRl.exit
   %remaining.3 = phi i64 [ %remaining.1, %_ZN8facebook5velox4bits12_GLOBAL__N_120copyBitsBackwardImplImEEvPmmmRl.exit ], [ %sub3.i39, %_ZN8facebook5velox4bits6detail9storeBitsIjEEvPmmmh.exit.i ]
@@ -230,7 +230,7 @@ if.then.i.i69:                                    ; preds = %_ZN8facebook5velox4
 _ZN8facebook5velox4bits6detail9storeBitsItEEvPmmmh.exit.i: ; preds = %if.then.i.i69, %_ZN8facebook5velox4bits6detail8loadBitsItEET_PKmmh.exit.i
   %sub3.i81 = add nsw i64 %remaining.4, -16
   %cmp.i82 = icmp sgt i64 %remaining.4, 31
-  br i1 %cmp.i82, label %for.body.i46, label %_ZN8facebook5velox4bits12_GLOBAL__N_120copyBitsBackwardImplItEEvPmmmRl.exit, !llvm.loop !8
+  br i1 %cmp.i82, label %for.body.i46, label %_ZN8facebook5velox4bits12_GLOBAL__N_120copyBitsBackwardImplItEEvPmmmRl.exit, !llvm.loop !7
 
 _ZN8facebook5velox4bits12_GLOBAL__N_120copyBitsBackwardImplItEEvPmmmRl.exit: ; preds = %_ZN8facebook5velox4bits6detail9storeBitsItEEvPmmmh.exit.i, %_ZN8facebook5velox4bits12_GLOBAL__N_120copyBitsBackwardImplIjEEvPmmmRl.exit
   %remaining.5 = phi i64 [ %remaining.3, %_ZN8facebook5velox4bits12_GLOBAL__N_120copyBitsBackwardImplIjEEvPmmmRl.exit ], [ %sub3.i81, %_ZN8facebook5velox4bits6detail9storeBitsItEEvPmmmh.exit.i ]
@@ -305,7 +305,7 @@ if.then.i.i109:                                   ; preds = %_ZN8facebook5velox4
 _ZN8facebook5velox4bits6detail9storeBitsIhEEvPmmmh.exit.i: ; preds = %if.then.i.i109, %_ZN8facebook5velox4bits6detail8loadBitsIhEET_PKmmh.exit.i
   %sub3.i121 = add nsw i64 %remaining.6, -8
   %cmp.i122 = icmp sgt i64 %remaining.6, 15
-  br i1 %cmp.i122, label %for.body.i86, label %_ZN8facebook5velox4bits12_GLOBAL__N_120copyBitsBackwardImplIhEEvPmmmRl.exit, !llvm.loop !9
+  br i1 %cmp.i122, label %for.body.i86, label %_ZN8facebook5velox4bits12_GLOBAL__N_120copyBitsBackwardImplIhEEvPmmmRl.exit, !llvm.loop !8
 
 _ZN8facebook5velox4bits12_GLOBAL__N_120copyBitsBackwardImplIhEEvPmmmRl.exit: ; preds = %_ZN8facebook5velox4bits6detail9storeBitsIhEEvPmmmh.exit.i, %_ZN8facebook5velox4bits12_GLOBAL__N_120copyBitsBackwardImplItEEvPmmmRl.exit
   %remaining.7 = phi i64 [ %remaining.5, %_ZN8facebook5velox4bits12_GLOBAL__N_120copyBitsBackwardImplItEEvPmmmRl.exit ], [ %sub3.i121, %_ZN8facebook5velox4bits6detail9storeBitsIhEEvPmmmh.exit.i ]
@@ -414,7 +414,7 @@ for.body:                                         ; preds = %for.body.preheader,
   store i8 %conv2, ptr %arrayidx, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !10
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !9
 
 for.end:                                          ; preds = %for.body, %entry
   ret void
@@ -471,7 +471,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   store i8 %conv2.i, ptr %arrayidx.i, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %nrvo.skipdtor, label %for.body.i, !llvm.loop !10
+  br i1 %exitcond.not.i, label %nrvo.skipdtor, label %for.body.i, !llvm.loop !9
 
 lpad:                                             ; preds = %call.i.noexc, %entry
   %5 = landingpad { ptr, i32 }
@@ -582,7 +582,7 @@ _ZN8facebook5velox4bits6setBitIcEEvPT_jb.exit.i:  ; preds = %cond.false.i.i, %co
   %sub9.i = add i64 %from.017.i, %conv8.neg.i
   %dec.i = add nsw i64 %to.016.i, -1
   %cmp.i = icmp sgt i64 %to.016.i, 0
-  br i1 %cmp.i, label %for.body.i, label %for.end, !llvm.loop !11
+  br i1 %cmp.i, label %for.body.i, label %for.end, !llvm.loop !10
 
 if.end:                                           ; preds = %entry
   %div = sdiv i32 %numTarget, 8
@@ -711,7 +711,7 @@ if.end25:                                         ; preds = %if.end23
   store i32 0, ptr %ref.tmp28, align 4
   %cmp.i52 = icmp slt i32 %lowByte.0, 8
   %__b.__a.i53 = select i1 %cmp.i52, ptr %ref.tmp28, ptr %ref.tmp26
-  br label %for.cond, !llvm.loop !12
+  br label %for.cond, !llvm.loop !11
 
 for.end:                                          ; preds = %_ZN8facebook5velox4bits6setBitIcEEvPT_jb.exit.i, %if.end23, %if.then
   ret void
@@ -812,7 +812,7 @@ while.body:                                       ; preds = %if.end, %while.body
   %add.ptr = getelementptr inbounds nuw i8, ptr %words.0129, i64 24
   %sub = add nsw i32 %toGo.0128, -24
   %cmp11 = icmp samesign ugt i32 %toGo.0128, 47
-  br i1 %cmp11, label %while.body, label %while.end, !llvm.loop !13
+  br i1 %cmp11, label %while.body, label %while.end, !llvm.loop !12
 
 while.end:                                        ; preds = %while.body, %if.end
   %a0.0.lcssa = phi i64 [ %seed, %if.end ], [ %7, %while.body ]
@@ -1079,13 +1079,12 @@ attributes #10 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5, !6}
+!4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{!"llvm.loop.estimated_trip_count"}
-!7 = distinct !{!7, !5, !6}
-!8 = distinct !{!8, !5, !6}
-!9 = distinct !{!9, !5, !6}
-!10 = distinct !{!10, !5, !6}
-!11 = distinct !{!11, !5, !6}
-!12 = distinct !{!12, !5, !6}
-!13 = distinct !{!13, !5, !6}
+!6 = distinct !{!6, !5}
+!7 = distinct !{!7, !5}
+!8 = distinct !{!8, !5}
+!9 = distinct !{!9, !5}
+!10 = distinct !{!10, !5}
+!11 = distinct !{!11, !5}
+!12 = distinct !{!12, !5}

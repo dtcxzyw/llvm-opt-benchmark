@@ -132,18 +132,18 @@ bytestream2_get_byte.exit:                        ; preds = %48, %52
 
 69:                                               ; preds = %64
   %70 = getelementptr inbounds nuw [8 x i32], ptr %47, i64 0, i64 %indvars.iv
-  store i32 %58, ptr %70, align 4, !tbaa !28
+  store i32 %58, ptr %70, align 4, !tbaa !27
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond170.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond170.not, label %.thread147, label %.preheader, !llvm.loop !29
+  br i1 %exitcond170.not, label %.thread147, label %.preheader, !llvm.loop !28
 
 .thread147:                                       ; preds = %69
   %71 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store i32 %30, ptr %71, align 8, !tbaa !30
+  store i32 %30, ptr %71, align 8, !tbaa !29
   %72 = getelementptr inbounds nuw i8, ptr %4, i64 12
-  store i32 0, ptr %72, align 4, !tbaa !31
+  store i32 0, ptr %72, align 4, !tbaa !30
   %73 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store i64 0, ptr %73, align 8, !tbaa !32
+  store i64 0, ptr %73, align 8, !tbaa !31
   br label %75
 
 74:                                               ; preds = %64, %60
@@ -158,26 +158,26 @@ bytestream2_get_byte.exit:                        ; preds = %48, %52
 
 79:                                               ; preds = %75
   %80 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %81 = load i64, ptr %80, align 8, !tbaa !32
+  %81 = load i64, ptr %80, align 8, !tbaa !31
   %82 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %83 = load ptr, ptr %82, align 8, !tbaa !18
   %84 = getelementptr inbounds nuw i8, ptr %83, i64 %81
   store ptr %84, ptr %82, align 8, !tbaa !18
   %85 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %86 = getelementptr inbounds nuw i8, ptr %4, i64 12
-  %87 = load i32, ptr %86, align 4, !tbaa !31
+  %87 = load i32, ptr %86, align 4, !tbaa !30
   %88 = sext i32 %87 to i64
   %89 = getelementptr inbounds [8 x i32], ptr %85, i64 0, i64 %88
-  %90 = load i32, ptr %89, align 4, !tbaa !28
+  %90 = load i32, ptr %89, align 4, !tbaa !27
   %91 = getelementptr inbounds nuw i8, ptr %1, i64 32
   store i32 %90, ptr %91, align 8, !tbaa !23
   %92 = sext i32 %90 to i64
   %93 = add i64 %81, %92
-  store i64 %93, ptr %80, align 8, !tbaa !32
+  store i64 %93, ptr %80, align 8, !tbaa !31
   %94 = add nsw i32 %87, 1
-  store i32 %94, ptr %86, align 4, !tbaa !31
+  store i32 %94, ptr %86, align 4, !tbaa !30
   %95 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %96 = load i32, ptr %95, align 8, !tbaa !30
+  %96 = load i32, ptr %95, align 8, !tbaa !29
   %.not109 = icmp slt i32 %94, %96
   br i1 %.not109, label %99, label %97
 
@@ -222,7 +222,7 @@ bytestream2_get_byte.exit:                        ; preds = %48, %52
 
 120:                                              ; preds = %115
   %121 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i64 -9223372036854775808, ptr %121, align 8, !tbaa !33
+  store i64 -9223372036854775808, ptr %121, align 8, !tbaa !32
   br label %.critedge.thread
 
 .thread153:                                       ; preds = %25, %33, %15, %11
@@ -303,12 +303,11 @@ attributes #2 = { nounwind }
 !22 = !{!"p1 _ZTS16AVPacketSideData", !7, i64 0}
 !23 = !{!19, !13, i64 32}
 !24 = !{!8, !8, i64 0}
-!25 = distinct !{!25, !26, !27}
+!25 = distinct !{!25, !26}
 !26 = !{!"llvm.loop.mustprogress"}
-!27 = !{!"llvm.loop.estimated_trip_count"}
-!28 = !{!13, !13, i64 0}
-!29 = distinct !{!29, !26, !27}
-!30 = !{!15, !13, i64 8}
-!31 = !{!15, !13, i64 12}
-!32 = !{!15, !17, i64 16}
-!33 = !{!19, !17, i64 8}
+!27 = !{!13, !13, i64 0}
+!28 = distinct !{!28, !26}
+!29 = !{!15, !13, i64 8}
+!30 = !{!15, !13, i64 12}
+!31 = !{!15, !17, i64 16}
+!32 = !{!19, !17, i64 8}

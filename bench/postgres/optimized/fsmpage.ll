@@ -102,7 +102,7 @@ define dso_local noundef zeroext i1 @fsm_set_avail(ptr noundef captures(none) %0
 49:                                               ; preds = %48, %.thread.i
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
   %.not30.i = icmp eq i64 %indvars.iv.i, 0
-  br i1 %.not30.i, label %fsm_rebuild_page.exit, label %.preheader, !llvm.loop !7
+  br i1 %.not30.i, label %fsm_rebuild_page.exit, label %.preheader, !llvm.loop !6
 
 fsm_rebuild_page.exit:                            ; preds = %49, %.thread, %10
   %.0 = phi i1 [ false, %10 ], [ true, %.thread ], [ true, %49 ]
@@ -156,7 +156,7 @@ define dso_local zeroext i1 @fsm_rebuild_page(ptr noundef captures(none) %0) loc
   %.122 = phi i1 [ true, %16 ], [ %.02129, %.thread ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %.not30 = icmp eq i64 %indvars.iv, 0
-  br i1 %.not30, label %18, label %3, !llvm.loop !7
+  br i1 %.not30, label %18, label %3, !llvm.loop !6
 
 18:                                               ; preds = %17
   ret i1 %.122
@@ -223,7 +223,7 @@ BufferGetPage.exit:                               ; preds = %9, %15
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %5) #6
   %27 = load i8, ptr %22, align 4
   %28 = icmp ult i8 %27, %1
-  br i1 %28, label %.loopexit51, label %29, !llvm.loop !8
+  br i1 %28, label %.loopexit51, label %29
 
 29:                                               ; preds = %.lr.ph56, %.loopexit
   %.04255 = phi i1 [ %3, %.lr.ph56 ], [ true, %.loopexit ]
@@ -252,7 +252,7 @@ select.unfold:                                    ; preds = %.lr.ph
   %43 = select i1 %40, i32 %42, i32 %.04353
   %44 = sdiv i32 %43, 2
   %45 = icmp sgt i32 %43, 1
-  br i1 %45, label %.lr.ph, label %._crit_edge, !llvm.loop !9
+  br i1 %45, label %.lr.ph, label %._crit_edge, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %select.unfold, %.lr.ph, %29
   %.043.lcssa = phi i32 [ %32, %29 ], [ %.04353, %.lr.ph ], [ %44, %select.unfold ]
@@ -271,7 +271,7 @@ select.unfold:                                    ; preds = %.lr.ph
   %52 = getelementptr inbounds nuw [0 x i8], ptr %22, i64 0, i64 %51
   %53 = load i8, ptr %52, align 1
   %.not49 = icmp ult i8 %53, %1
-  br i1 %.not49, label %54, label %86, !llvm.loop !10
+  br i1 %.not49, label %54, label %86, !llvm.loop !8
 
 54:                                               ; preds = %49, %.lr.ph65
   %55 = add i32 %47, 2
@@ -347,12 +347,12 @@ select.unfold:                                    ; preds = %.lr.ph
 85:                                               ; preds = %84, %.thread.i
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
   %.not30.i = icmp eq i64 %indvars.iv.i, 0
-  br i1 %.not30.i, label %.loopexit, label %71, !llvm.loop !7
+  br i1 %.not30.i, label %.loopexit, label %71, !llvm.loop !6
 
 86:                                               ; preds = %57, %49
   %.245 = phi i32 [ %50, %49 ], [ %55, %57 ]
   %87 = icmp slt i32 %.245, 4095
-  br i1 %87, label %.lr.ph65, label %._crit_edge._crit_edge, !llvm.loop !8
+  br i1 %87, label %.lr.ph65, label %._crit_edge._crit_edge
 
 ._crit_edge._crit_edge:                           ; preds = %._crit_edge, %86
   %.144.lcssa = phi i32 [ %.245, %86 ], [ %.043.lcssa, %._crit_edge ]
@@ -402,7 +402,7 @@ define dso_local noundef zeroext i1 @fsm_truncate_avail(ptr noundef captures(non
   store i8 0, ptr %.010.ptr, align 1
   %.010.add = add nsw i64 %.010.idx13, 1
   %exitcond.not = icmp eq i64 %.010.add, 8168
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !11
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %.lr.ph
   br i1 %spec.select, label %8, label %fsm_rebuild_page.exit
@@ -445,7 +445,7 @@ define dso_local noundef zeroext i1 @fsm_truncate_avail(ptr noundef captures(non
 24:                                               ; preds = %23, %.thread.i
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
   %.not30.i = icmp eq i64 %indvars.iv.i, 0
-  br i1 %.not30.i, label %fsm_rebuild_page.exit, label %10, !llvm.loop !7
+  br i1 %.not30.i, label %fsm_rebuild_page.exit, label %10, !llvm.loop !6
 
 fsm_rebuild_page.exit:                            ; preds = %24, %2, %._crit_edge
   %.0.lcssa16 = phi i1 [ false, %._crit_edge ], [ false, %2 ], [ true, %24 ]
@@ -469,11 +469,9 @@ attributes #6 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = distinct !{!4, !5, !6}
+!4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{!"llvm.loop.estimated_trip_count"}
-!7 = distinct !{!7, !5, !6}
-!8 = distinct !{!8, !6}
-!9 = distinct !{!9, !5, !6}
-!10 = distinct !{!10, !5}
-!11 = distinct !{!11, !5, !6}
+!6 = distinct !{!6, !5}
+!7 = distinct !{!7, !5}
+!8 = distinct !{!8, !5}
+!9 = distinct !{!9, !5}

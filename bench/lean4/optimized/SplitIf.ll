@@ -12045,7 +12045,7 @@ lean_array_set.exit.thread:                       ; preds = %lean_ensure_exclusi
 lean_dec.exit95.backedge:                         ; preds = %71, %73, %83, %82, %80
   %.082.be = phi ptr [ %75, %73 ], [ %77, %80 ], [ %77, %82 ], [ %77, %83 ], [ inttoptr (i64 1 to ptr), %71 ]
   %.081.be = phi ptr [ %.1.i143178, %73 ], [ %76, %80 ], [ %76, %82 ], [ %76, %83 ], [ %.1.i143178, %71 ]
-  br label %lean_dec.exit95, !llvm.loop !20
+  br label %lean_dec.exit95
 
 73:                                               ; preds = %71
   %74 = add i64 %48, -2
@@ -68684,5 +68684,3 @@ attributes #9 = { "function-inline-cost-multiplier"="2" }
 !17 = !{!"long", !7, i64 0}
 !18 = !{!7, !7, i64 0}
 !19 = !{!"branch_weights", i32 4000000, i32 4001}
-!20 = distinct !{!20, !21}
-!21 = !{!"llvm.loop.estimated_trip_count"}

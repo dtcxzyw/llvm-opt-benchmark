@@ -182,7 +182,7 @@ define linkonce_odr noundef ptr @_ZN5folly6detail13base64_detail21base64URLEncod
   %38 = ptrtoint ptr %36 to i64
   %39 = sub i64 %4, %38
   %40 = icmp sgt i64 %39, 2
-  br i1 %40, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !19
+  br i1 %40, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !18
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %3
   %.023.lcssa.i = phi ptr [ %2, %3 ], [ %37, %.lr.ph.i ]
@@ -268,7 +268,6 @@ attributes #2 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-siz
 !13 = !{!8, !9, i64 16}
 !14 = !{!8, !9, i64 24}
 !15 = !{!10, !10, i64 0}
-!16 = distinct !{!16, !17, !18}
+!16 = distinct !{!16, !17}
 !17 = !{!"llvm.loop.mustprogress"}
-!18 = !{!"llvm.loop.estimated_trip_count"}
-!19 = distinct !{!19, !17, !18}
+!18 = distinct !{!18, !17}

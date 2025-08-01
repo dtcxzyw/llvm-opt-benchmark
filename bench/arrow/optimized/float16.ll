@@ -179,7 +179,7 @@ define noundef double @_ZNK5arrow4util7Float168ToDoubleEv(ptr noundef nonnull re
   %21 = shl i64 %.023.i, 1
   %22 = and i64 %.023.i, 512
   %23 = icmp eq i64 %22, 0
-  br i1 %23, label %.lr.ph.i, label %._crit_edge.loopexit.i, !llvm.loop !11
+  br i1 %23, label %.lr.ph.i, label %._crit_edge.loopexit.i, !llvm.loop !10
 
 ._crit_edge.loopexit.i:                           ; preds = %.lr.ph.i
   %24 = shl i64 %20, 52
@@ -368,7 +368,6 @@ attributes #4 = { nocallback nofree nosync nounwind speculatable willreturn memo
 !5 = !{!"short", !6, i64 0}
 !6 = !{!"omnipotent char", !7, i64 0}
 !7 = !{!"Simple C++ TBAA"}
-!8 = distinct !{!8, !9, !10}
+!8 = distinct !{!8, !9}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = !{!"llvm.loop.estimated_trip_count"}
-!11 = distinct !{!11, !9, !10}
+!10 = distinct !{!10, !9}

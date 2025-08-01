@@ -83,7 +83,7 @@ define hidden void @zif_ctype_alnum(ptr noundef %0, ptr noundef writeonly captur
   %27 = load i16, ptr %26, align 2, !tbaa !16
   %28 = and i16 %27, 8
   %.not48 = icmp eq i16 %28, 0
-  br i1 %.not48, label %29, label %.preheader, !llvm.loop !18
+  br i1 %.not48, label %29, label %.preheader
 
 29:                                               ; preds = %20
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -222,7 +222,7 @@ define hidden void @zif_ctype_alpha(ptr noundef %0, ptr noundef writeonly captur
   %27 = load i16, ptr %26, align 2, !tbaa !16
   %28 = and i16 %27, 1024
   %.not48 = icmp eq i16 %28, 0
-  br i1 %.not48, label %29, label %.preheader, !llvm.loop !20
+  br i1 %.not48, label %29, label %.preheader
 
 29:                                               ; preds = %20
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -293,7 +293,7 @@ define hidden void @zif_ctype_cntrl(ptr noundef %0, ptr noundef writeonly captur
   %27 = load i16, ptr %26, align 2, !tbaa !16
   %28 = and i16 %27, 2
   %.not48 = icmp eq i16 %28, 0
-  br i1 %.not48, label %29, label %.preheader, !llvm.loop !21
+  br i1 %.not48, label %29, label %.preheader
 
 29:                                               ; preds = %20
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -364,7 +364,7 @@ define hidden void @zif_ctype_digit(ptr noundef %0, ptr noundef writeonly captur
   %27 = load i16, ptr %26, align 2, !tbaa !16
   %28 = and i16 %27, 2048
   %.not48 = icmp eq i16 %28, 0
-  br i1 %.not48, label %29, label %.preheader, !llvm.loop !22
+  br i1 %.not48, label %29, label %.preheader
 
 29:                                               ; preds = %20
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -435,7 +435,7 @@ define hidden void @zif_ctype_lower(ptr noundef %0, ptr noundef writeonly captur
   %27 = load i16, ptr %26, align 2, !tbaa !16
   %28 = and i16 %27, 512
   %.not48 = icmp eq i16 %28, 0
-  br i1 %.not48, label %29, label %.preheader, !llvm.loop !23
+  br i1 %.not48, label %29, label %.preheader
 
 29:                                               ; preds = %20
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -505,7 +505,7 @@ define hidden void @zif_ctype_graph(ptr noundef %0, ptr noundef writeonly captur
   %26 = getelementptr inbounds nuw i16, ptr %22, i64 %25
   %27 = load i16, ptr %26, align 2, !tbaa !16
   %.not48 = icmp sgt i16 %27, -1
-  br i1 %.not48, label %28, label %.preheader, !llvm.loop !24
+  br i1 %.not48, label %28, label %.preheader
 
 28:                                               ; preds = %20
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -576,7 +576,7 @@ define hidden void @zif_ctype_print(ptr noundef %0, ptr noundef writeonly captur
   %27 = load i16, ptr %26, align 2, !tbaa !16
   %28 = and i16 %27, 16384
   %.not48 = icmp eq i16 %28, 0
-  br i1 %.not48, label %29, label %.preheader, !llvm.loop !25
+  br i1 %.not48, label %29, label %.preheader
 
 29:                                               ; preds = %20
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -647,7 +647,7 @@ define hidden void @zif_ctype_punct(ptr noundef %0, ptr noundef writeonly captur
   %27 = load i16, ptr %26, align 2, !tbaa !16
   %28 = and i16 %27, 4
   %.not48 = icmp eq i16 %28, 0
-  br i1 %.not48, label %29, label %.preheader, !llvm.loop !26
+  br i1 %.not48, label %29, label %.preheader
 
 29:                                               ; preds = %20
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -718,7 +718,7 @@ define hidden void @zif_ctype_space(ptr noundef %0, ptr noundef writeonly captur
   %27 = load i16, ptr %26, align 2, !tbaa !16
   %28 = and i16 %27, 8192
   %.not48 = icmp eq i16 %28, 0
-  br i1 %.not48, label %29, label %.preheader, !llvm.loop !27
+  br i1 %.not48, label %29, label %.preheader
 
 29:                                               ; preds = %20
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -789,7 +789,7 @@ define hidden void @zif_ctype_upper(ptr noundef %0, ptr noundef writeonly captur
   %27 = load i16, ptr %26, align 2, !tbaa !16
   %28 = and i16 %27, 256
   %.not48 = icmp eq i16 %28, 0
-  br i1 %.not48, label %29, label %.preheader, !llvm.loop !28
+  br i1 %.not48, label %29, label %.preheader
 
 29:                                               ; preds = %20
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -860,7 +860,7 @@ define hidden void @zif_ctype_xdigit(ptr noundef %0, ptr noundef writeonly captu
   %27 = load i16, ptr %26, align 2, !tbaa !16
   %28 = and i16 %27, 4096
   %.not48 = icmp eq i16 %28, 0
-  br i1 %.not48, label %29, label %.preheader, !llvm.loop !29
+  br i1 %.not48, label %29, label %.preheader
 
 29:                                               ; preds = %20
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -922,15 +922,3 @@ attributes #7 = { nounwind willreturn memory(none) }
 !15 = !{!"any pointer", !5, i64 0}
 !16 = !{!17, !17, i64 0}
 !17 = !{!"short", !5, i64 0}
-!18 = distinct !{!18, !19}
-!19 = !{!"llvm.loop.estimated_trip_count"}
-!20 = distinct !{!20, !19}
-!21 = distinct !{!21, !19}
-!22 = distinct !{!22, !19}
-!23 = distinct !{!23, !19}
-!24 = distinct !{!24, !19}
-!25 = distinct !{!25, !19}
-!26 = distinct !{!26, !19}
-!27 = distinct !{!27, !19}
-!28 = distinct !{!28, !19}
-!29 = distinct !{!29, !19}

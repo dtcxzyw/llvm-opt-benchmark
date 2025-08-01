@@ -100,7 +100,7 @@ _ZNSt6vectorISt5arrayIfLm2EESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i: ; preds =
   store float %42, ptr %43, align 4
   %44 = add nuw i64 %.04172, 1
   %exitcond.not = icmp eq i64 %44, %21
-  br i1 %exitcond.not, label %._crit_edge.loopexit, label %34, !llvm.loop !7
+  br i1 %exitcond.not, label %._crit_edge.loopexit, label %34, !llvm.loop !6
 
 .loopexit:                                        ; preds = %99
   %lpad.loopexit = landingpad { ptr, i32 }
@@ -150,7 +150,7 @@ _ZNSt6vectorISt5arrayIfLm2EESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i: ; preds =
   %58 = load ptr, ptr %55, align 8
   %59 = getelementptr i8, ptr %58, i64 %.unpack.i
   %60 = getelementptr i8, ptr %59, i64 -1
-  %61 = load ptr, ptr %60, align 8, !nosanitize !8
+  %61 = load ptr, ptr %60, align 8, !nosanitize !7
   br label %64
 
 62:                                               ; preds = %._crit_edge
@@ -191,7 +191,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__25GeomUtilMeshGeneratorBase12_PointWriterI
   %77 = load ptr, ptr %74, align 8
   %78 = getelementptr i8, ptr %77, i64 %.unpack.i47.us
   %79 = getelementptr i8, ptr %78, i64 -1
-  %80 = load ptr, ptr %79, align 8, !nosanitize !8
+  %80 = load ptr, ptr %79, align 8, !nosanitize !7
   br label %83
 
 81:                                               ; preds = %69
@@ -206,10 +206,10 @@ _ZNK32pxrInternal_v0_24__pxrReserved__25GeomUtilMeshGeneratorBase12_PointWriterI
 _ZNK32pxrInternal_v0_24__pxrReserved__25GeomUtilMeshGeneratorBase12_PointWriterINS_7GfVec3fEE5WriteERKS2_.exit52.us: ; preds = %83
   %85 = add nuw i64 %.03773.us, 1
   %exitcond83.not = icmp eq i64 %85, %21
-  br i1 %exitcond83.not, label %._crit_edge75.us, label %69, !llvm.loop !9
+  br i1 %exitcond83.not, label %._crit_edge75.us, label %69, !llvm.loop !8
 
 ._crit_edge75.us:                                 ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__25GeomUtilMeshGeneratorBase12_PointWriterINS_7GfVec3fEE5WriteERKS2_.exit52.us
-  br i1 %68, label %.preheader71.us, label %.lr.ph78, !llvm.loop !10
+  br i1 %68, label %.preheader71.us, label %.lr.ph78, !llvm.loop !9
 
 .thread.split.us:                                 ; preds = %83
   %86 = landingpad { ptr, i32 }
@@ -237,7 +237,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__25GeomUtilMeshGeneratorBase12_PointWriterI
   %93 = load ptr, ptr %90, align 8
   %94 = getelementptr i8, ptr %93, i64 %.unpack.i53
   %95 = getelementptr i8, ptr %94, i64 -1
-  %96 = load ptr, ptr %95, align 8, !nosanitize !8
+  %96 = load ptr, ptr %95, align 8, !nosanitize !7
   br label %99
 
 97:                                               ; preds = %89
@@ -252,7 +252,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__25GeomUtilMeshGeneratorBase12_PointWriterI
 _ZNK32pxrInternal_v0_24__pxrReserved__25GeomUtilMeshGeneratorBase12_PointWriterINS_7GfVec3fEE5WriteERKS2_.exit58: ; preds = %99
   %101 = add nuw i64 %.077, 1
   %exitcond84.not = icmp eq i64 %101, %21
-  br i1 %exitcond84.not, label %._crit_edge79, label %89, !llvm.loop !12
+  br i1 %exitcond84.not, label %._crit_edge79, label %89, !llvm.loop !11
 
 ._crit_edge79:                                    ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__25GeomUtilMeshGeneratorBase12_PointWriterINS_7GfVec3fEE5WriteERKS2_.exit58, %_ZNK32pxrInternal_v0_24__pxrReserved__25GeomUtilMeshGeneratorBase12_PointWriterINS_7GfVec3fEE5WriteERKS2_.exit.preheader
   %.not.i.i.i59 = icmp eq ptr %.sroa.0.088, null
@@ -326,7 +326,7 @@ _ZNSt6vectorISt5arrayIdLm2EESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i: ; preds =
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.06.i.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %21, i64 16, i1 false)
   %28 = getelementptr inbounds nuw i8, ptr %.06.i.i.i.i.i.i.i.i.i, i64 16
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %28, %27
-  br i1 %.not.i.i.i.i.i.i.i.i.i, label %.lr.ph, label %.lr.ph.i.i.i.i.i.i.i.i.i, !llvm.loop !13
+  br i1 %.not.i.i.i.i.i.i.i.i.i, label %.lr.ph, label %.lr.ph.i.i.i.i.i.i.i.i.i, !llvm.loop !12
 
 .lr.ph:                                           ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i, %.noexc45
   %29 = uitofp i64 %0 to double
@@ -347,7 +347,7 @@ _ZNSt6vectorISt5arrayIdLm2EESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i: ; preds =
   store double %38, ptr %39, align 8
   %40 = add nuw i64 %.04172, 1
   %exitcond.not = icmp eq i64 %40, %18
-  br i1 %exitcond.not, label %._crit_edge.loopexit, label %30, !llvm.loop !14
+  br i1 %exitcond.not, label %._crit_edge.loopexit, label %30, !llvm.loop !13
 
 ._crit_edge.loopexit:                             ; preds = %30
   %41 = ptrtoint ptr %22 to i64
@@ -373,7 +373,7 @@ _ZNSt6vectorISt5arrayIdLm2EESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i: ; preds =
   %48 = load ptr, ptr %45, align 8
   %49 = getelementptr i8, ptr %48, i64 %.unpack.i
   %50 = getelementptr i8, ptr %49, i64 -1
-  %51 = load ptr, ptr %50, align 8, !nosanitize !8
+  %51 = load ptr, ptr %50, align 8, !nosanitize !7
   br label %54
 
 52:                                               ; preds = %._crit_edge
@@ -414,7 +414,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__25GeomUtilMeshGeneratorBase12_PointWriterI
   %67 = load ptr, ptr %64, align 8
   %68 = getelementptr i8, ptr %67, i64 %.unpack.i47.us
   %69 = getelementptr i8, ptr %68, i64 -1
-  %70 = load ptr, ptr %69, align 8, !nosanitize !8
+  %70 = load ptr, ptr %69, align 8, !nosanitize !7
   br label %73
 
 71:                                               ; preds = %59
@@ -429,10 +429,10 @@ _ZNK32pxrInternal_v0_24__pxrReserved__25GeomUtilMeshGeneratorBase12_PointWriterI
 _ZNK32pxrInternal_v0_24__pxrReserved__25GeomUtilMeshGeneratorBase12_PointWriterINS_7GfVec3dEE5WriteERKS2_.exit52.us: ; preds = %73
   %75 = add nuw i64 %.03773.us, 1
   %exitcond83.not = icmp eq i64 %75, %18
-  br i1 %exitcond83.not, label %._crit_edge75.us, label %59, !llvm.loop !15
+  br i1 %exitcond83.not, label %._crit_edge75.us, label %59, !llvm.loop !14
 
 ._crit_edge75.us:                                 ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__25GeomUtilMeshGeneratorBase12_PointWriterINS_7GfVec3dEE5WriteERKS2_.exit52.us
-  br i1 %58, label %.preheader71.us, label %.lr.ph78, !llvm.loop !16
+  br i1 %58, label %.preheader71.us, label %.lr.ph78, !llvm.loop !15
 
 .thread.split.us:                                 ; preds = %73
   %76 = landingpad { ptr, i32 }
@@ -480,7 +480,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__25GeomUtilMeshGeneratorBase12_PointWriterI
   %87 = load ptr, ptr %84, align 8
   %88 = getelementptr i8, ptr %87, i64 %.unpack.i53
   %89 = getelementptr i8, ptr %88, i64 -1
-  %90 = load ptr, ptr %89, align 8, !nosanitize !8
+  %90 = load ptr, ptr %89, align 8, !nosanitize !7
   br label %93
 
 91:                                               ; preds = %83
@@ -495,7 +495,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__25GeomUtilMeshGeneratorBase12_PointWriterI
 _ZNK32pxrInternal_v0_24__pxrReserved__25GeomUtilMeshGeneratorBase12_PointWriterINS_7GfVec3dEE5WriteERKS2_.exit58: ; preds = %93
   %95 = add nuw i64 %.077, 1
   %exitcond84.not = icmp eq i64 %95, %18
-  br i1 %exitcond84.not, label %._crit_edge79, label %83, !llvm.loop !17
+  br i1 %exitcond84.not, label %._crit_edge79, label %83, !llvm.loop !16
 
 ._crit_edge79:                                    ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__25GeomUtilMeshGeneratorBase12_PointWriterINS_7GfVec3dEE5WriteERKS2_.exit58, %_ZNK32pxrInternal_v0_24__pxrReserved__25GeomUtilMeshGeneratorBase12_PointWriterINS_7GfVec3dEE5WriteERKS2_.exit.preheader
   %.not.i.i.i59 = icmp eq ptr %.sroa.0.088, null
@@ -605,17 +605,16 @@ attributes #12 = { builtin nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5, !6}
+!4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{!"llvm.loop.estimated_trip_count"}
-!7 = distinct !{!7, !5, !6}
-!8 = !{}
-!9 = distinct !{!9, !5, !6}
-!10 = distinct !{!10, !5, !6, !11}
-!11 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!12 = distinct !{!12, !5, !6}
-!13 = distinct !{!13, !5, !6}
-!14 = distinct !{!14, !5, !6}
-!15 = distinct !{!15, !5, !6}
-!16 = distinct !{!16, !5, !6, !11}
-!17 = distinct !{!17, !5, !6}
+!6 = distinct !{!6, !5}
+!7 = !{}
+!8 = distinct !{!8, !5}
+!9 = distinct !{!9, !5, !10}
+!10 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!11 = distinct !{!11, !5}
+!12 = distinct !{!12, !5}
+!13 = distinct !{!13, !5}
+!14 = distinct !{!14, !5}
+!15 = distinct !{!15, !5, !10}
+!16 = distinct !{!16, !5}

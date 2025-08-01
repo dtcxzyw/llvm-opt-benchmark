@@ -52,7 +52,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__25TfUnicodeXidStartFlagDataC2E
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   %.09.add = add nuw nsw i64 %.09.idx13, 8
   %.not = icmp eq i64 %.09.add, 5944
-  br i1 %.not, label %14, label %2, !llvm.loop !7
+  br i1 %.not, label %14, label %2
 
 14:                                               ; preds = %._crit_edge
   ret void
@@ -84,12 +84,12 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__28TfUnicodeXidContinueFlagData
   store i64 %12, ptr %8, align 8
   %13 = add i32 %.012, 1
   %.not10 = icmp ugt i32 %13, %5
-  br i1 %.not10, label %._crit_edge, label %.lr.ph, !llvm.loop !8
+  br i1 %.not10, label %._crit_edge, label %.lr.ph, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   %.09.add = add nuw nsw i64 %.09.idx13, 8
   %.not = icmp eq i64 %.09.add, 10784
-  br i1 %.not, label %14, label %2, !llvm.loop !9
+  br i1 %.not, label %14, label %2
 
 14:                                               ; preds = %._crit_edge
   ret void
@@ -190,9 +190,6 @@ attributes #6 = { builtin nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5, !6}
+!4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{!"llvm.loop.estimated_trip_count"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !5, !6}
-!9 = distinct !{!9, !6}
+!6 = distinct !{!6, !5}

@@ -40,7 +40,7 @@ _ZN5Eigen8internal31generic_dense_assignment_kernelINS0_9evaluatorINS_6MatrixIfL
   store float %11, ptr %8, align 4, !tbaa !12
   %13 = add nuw nsw i64 %.05.i.i.i.i.i.i.i, 1
   %exitcond7.not.i.i.i.i.i.i.i = icmp eq i64 %13, %5
-  br i1 %exitcond7.not.i.i.i.i.i.i.i, label %_ZN5Eigen10MatrixBaseINS_6MatrixIfLi1ELin1ELi1ELi1ELin1EEEEaSINS_12CwiseUnaryOpIZN3igl13increment_ulpIS2_EEvRNS0_IT_EEiEUlfE_KS2_EEEERS2_RKNS_9DenseBaseIS8_EE.exit, label %.lr.ph.i.i.i.i.i.i.i.i.i.i.preheader, !llvm.loop !19
+  br i1 %exitcond7.not.i.i.i.i.i.i.i, label %_ZN5Eigen10MatrixBaseINS_6MatrixIfLi1ELin1ELi1ELi1ELin1EEEEaSINS_12CwiseUnaryOpIZN3igl13increment_ulpIS2_EEvRNS0_IT_EEiEUlfE_KS2_EEEERS2_RKNS_9DenseBaseIS8_EE.exit, label %.lr.ph.i.i.i.i.i.i.i.i.i.i.preheader, !llvm.loop !18
 
 _ZN5Eigen10MatrixBaseINS_6MatrixIfLi1ELin1ELi1ELi1ELin1EEEEaSINS_12CwiseUnaryOpIZN3igl13increment_ulpIS2_EEvRNS0_IT_EEiEUlfE_KS2_EEEERS2_RKNS_9DenseBaseIS8_EE.exit: ; preds = %_ZN5Eigen8internal31generic_dense_assignment_kernelINS0_9evaluatorINS_6MatrixIfLi1ELin1ELi1ELi1ELin1EEEEENS2_INS_12CwiseUnaryOpIZN3igl13increment_ulpIS4_EEvRNS_10MatrixBaseIT_EEiEUlfE_KS4_EEEENS0_9assign_opIffEELi0EE11assignCoeffEl.exit.i.i.i.i.i.i.i, %2
   ret void
@@ -62,7 +62,7 @@ define weak_odr dso_local void @_ZN3igl13increment_ulpIN5Eigen6MatrixIfLi1ELi3EL
   %6 = tail call noundef float @nextafterf(float noundef %.056.i.i.i.i.i.i.i.i.i.i.i, float noundef %5) #3, !tbaa !14
   %7 = add nuw nsw i32 %.07.i.i.i.i.i.i.i.i.i.i.i, 1
   %exitcond.not = icmp eq i32 %7, %1
-  br i1 %exitcond.not, label %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i.preheader, label %.lr.ph.i.i.i.i.i.i.i.i.i.i.i, !llvm.loop !21
+  br i1 %exitcond.not, label %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i.preheader, label %.lr.ph.i.i.i.i.i.i.i.i.i.i.i, !llvm.loop !20
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i.i.preheader:         ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i.i.i
   store float %6, ptr %0, align 4, !tbaa !12
@@ -82,7 +82,7 @@ _ZN5Eigen8internal31generic_dense_assignment_kernelINS0_9evaluatorINS_6MatrixIfL
   %13 = tail call noundef float @nextafterf(float noundef %.056.i.i.i.i.i.i.i.i.i.i.i.i, float noundef %12) #3, !tbaa !14
   %14 = add nuw nsw i32 %.07.i.i.i.i.i.i.i.i.i.i.i.i, 1
   %exitcond10.not = icmp eq i32 %14, %1
-  br i1 %exitcond10.not, label %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i.i.preheader, label %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i, !llvm.loop !21
+  br i1 %exitcond10.not, label %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i.i.preheader, label %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i, !llvm.loop !20
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i.i.i.preheader:       ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i
   store float %13, ptr %8, align 4, !tbaa !12
@@ -97,7 +97,7 @@ _ZN5Eigen8internal31generic_dense_assignment_kernelINS0_9evaluatorINS_6MatrixIfL
   %18 = tail call noundef float @nextafterf(float noundef %.056.i.i.i.i.i.i.i.i.i.i.i.i.i, float noundef %17) #3, !tbaa !14
   %19 = add nuw nsw i32 %.07.i.i.i.i.i.i.i.i.i.i.i.i.i, 1
   %exitcond12.not = icmp eq i32 %19, %1
-  br i1 %exitcond12.not, label %_ZN5Eigen10MatrixBaseINS_6MatrixIfLi1ELi3ELi1ELi1ELi3EEEEaSINS_12CwiseUnaryOpIZN3igl13increment_ulpIS2_EEvRNS0_IT_EEiEUlfE_KS2_EEEERS2_RKNS_9DenseBaseIS8_EE.exit, label %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i.i, !llvm.loop !21
+  br i1 %exitcond12.not, label %_ZN5Eigen10MatrixBaseINS_6MatrixIfLi1ELi3ELi1ELi1ELi3EEEEaSINS_12CwiseUnaryOpIZN3igl13increment_ulpIS2_EEvRNS0_IT_EEiEUlfE_KS2_EEEERS2_RKNS_9DenseBaseIS8_EE.exit, label %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i.i, !llvm.loop !20
 
 _ZN5Eigen10MatrixBaseINS_6MatrixIfLi1ELi3ELi1ELi1ELi3EEEEaSINS_12CwiseUnaryOpIZN3igl13increment_ulpIS2_EEvRNS0_IT_EEiEUlfE_KS2_EEEERS2_RKNS_9DenseBaseIS8_EE.exit: ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i.i, %_ZN5Eigen8internal31generic_dense_assignment_kernelINS0_9evaluatorINS_6MatrixIfLi1ELi3ELi1ELi1ELi3EEEEENS2_INS_12CwiseUnaryOpIZN3igl13increment_ulpIS4_EEvRNS_10MatrixBaseIT_EEiEUlfE_KS4_EEEENS0_9assign_opIffEELi0EE11assignCoeffEl.exit.thread.i.i.i.i.i.i.i.i.i
   %.05.lcssa.i.i.i.i.i.i.i.i.i.i.i.i.i = phi float [ %11, %_ZN5Eigen8internal31generic_dense_assignment_kernelINS0_9evaluatorINS_6MatrixIfLi1ELi3ELi1ELi1ELi3EEEEENS2_INS_12CwiseUnaryOpIZN3igl13increment_ulpIS4_EEvRNS_10MatrixBaseIT_EEiEUlfE_KS4_EEEENS0_9assign_opIffEELi0EE11assignCoeffEl.exit.thread.i.i.i.i.i.i.i.i.i ], [ %18, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i.i ]
@@ -112,7 +112,7 @@ define weak_odr dso_local void @_ZN3igl13increment_ulpIN5Eigen6MatrixIdLi1ELi3EL
   br i1 %3, label %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.preheader, label %_ZN5Eigen8internal31generic_dense_assignment_kernelINS0_9evaluatorINS_6MatrixIdLi1ELi3ELi1ELi1ELi3EEEEENS2_INS_12CwiseUnaryOpIZN3igl13increment_ulpIS4_EEvRNS_10MatrixBaseIT_EEiEUldE_KS4_EEEENS0_9assign_opIddEELi0EE11assignCoeffEl.exit.thread.i.i.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i.preheader:           ; preds = %2
-  %4 = load double, ptr %0, align 8, !tbaa !22
+  %4 = load double, ptr %0, align 8, !tbaa !21
   br label %.lr.ph.i.i.i.i.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i:                     ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.preheader, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i
@@ -122,17 +122,17 @@ define weak_odr dso_local void @_ZN3igl13increment_ulpIN5Eigen6MatrixIdLi1ELi3EL
   %6 = tail call double @nextafter(double noundef %.056.i.i.i.i.i.i.i.i.i.i.i, double noundef %5) #3, !tbaa !14
   %7 = add nuw nsw i32 %.07.i.i.i.i.i.i.i.i.i.i.i, 1
   %exitcond.not = icmp eq i32 %7, %1
-  br i1 %exitcond.not, label %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i.preheader, label %.lr.ph.i.i.i.i.i.i.i.i.i.i.i, !llvm.loop !24
+  br i1 %exitcond.not, label %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i.preheader, label %.lr.ph.i.i.i.i.i.i.i.i.i.i.i, !llvm.loop !23
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i.i.preheader:         ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i.i.i
-  store double %6, ptr %0, align 8, !tbaa !22
+  store double %6, ptr %0, align 8, !tbaa !21
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %9 = load double, ptr %8, align 8, !tbaa !22
+  %9 = load double, ptr %8, align 8, !tbaa !21
   br label %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i
 
 _ZN5Eigen8internal31generic_dense_assignment_kernelINS0_9evaluatorINS_6MatrixIdLi1ELi3ELi1ELi1ELi3EEEEENS2_INS_12CwiseUnaryOpIZN3igl13increment_ulpIS4_EEvRNS_10MatrixBaseIT_EEiEUldE_KS4_EEEENS0_9assign_opIddEELi0EE11assignCoeffEl.exit.thread.i.i.i.i.i.i.i.i.i: ; preds = %2
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %11 = load double, ptr %10, align 8, !tbaa !22
+  %11 = load double, ptr %10, align 8, !tbaa !21
   br label %_ZN5Eigen10MatrixBaseINS_6MatrixIdLi1ELi3ELi1ELi1ELi3EEEEaSINS_12CwiseUnaryOpIZN3igl13increment_ulpIS2_EEvRNS0_IT_EEiEUldE_KS2_EEEERS2_RKNS_9DenseBaseIS8_EE.exit
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i.i:                   ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i.preheader, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i
@@ -142,12 +142,12 @@ _ZN5Eigen8internal31generic_dense_assignment_kernelINS0_9evaluatorINS_6MatrixIdL
   %13 = tail call double @nextafter(double noundef %.056.i.i.i.i.i.i.i.i.i.i.i.i, double noundef %12) #3, !tbaa !14
   %14 = add nuw nsw i32 %.07.i.i.i.i.i.i.i.i.i.i.i.i, 1
   %exitcond10.not = icmp eq i32 %14, %1
-  br i1 %exitcond10.not, label %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i.i.preheader, label %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i, !llvm.loop !24
+  br i1 %exitcond10.not, label %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i.i.preheader, label %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i, !llvm.loop !23
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i.i.i.preheader:       ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i
-  store double %13, ptr %8, align 8, !tbaa !22
+  store double %13, ptr %8, align 8, !tbaa !21
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %16 = load double, ptr %15, align 8, !tbaa !22
+  %16 = load double, ptr %15, align 8, !tbaa !21
   br label %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i.i.i:                 ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i.i.preheader, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i.i
@@ -157,12 +157,12 @@ _ZN5Eigen8internal31generic_dense_assignment_kernelINS0_9evaluatorINS_6MatrixIdL
   %18 = tail call double @nextafter(double noundef %.056.i.i.i.i.i.i.i.i.i.i.i.i.i, double noundef %17) #3, !tbaa !14
   %19 = add nuw nsw i32 %.07.i.i.i.i.i.i.i.i.i.i.i.i.i, 1
   %exitcond12.not = icmp eq i32 %19, %1
-  br i1 %exitcond12.not, label %_ZN5Eigen10MatrixBaseINS_6MatrixIdLi1ELi3ELi1ELi1ELi3EEEEaSINS_12CwiseUnaryOpIZN3igl13increment_ulpIS2_EEvRNS0_IT_EEiEUldE_KS2_EEEERS2_RKNS_9DenseBaseIS8_EE.exit, label %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i.i, !llvm.loop !24
+  br i1 %exitcond12.not, label %_ZN5Eigen10MatrixBaseINS_6MatrixIdLi1ELi3ELi1ELi1ELi3EEEEaSINS_12CwiseUnaryOpIZN3igl13increment_ulpIS2_EEvRNS0_IT_EEiEUldE_KS2_EEEERS2_RKNS_9DenseBaseIS8_EE.exit, label %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i.i, !llvm.loop !23
 
 _ZN5Eigen10MatrixBaseINS_6MatrixIdLi1ELi3ELi1ELi1ELi3EEEEaSINS_12CwiseUnaryOpIZN3igl13increment_ulpIS2_EEvRNS0_IT_EEiEUldE_KS2_EEEERS2_RKNS_9DenseBaseIS8_EE.exit: ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i.i, %_ZN5Eigen8internal31generic_dense_assignment_kernelINS0_9evaluatorINS_6MatrixIdLi1ELi3ELi1ELi1ELi3EEEEENS2_INS_12CwiseUnaryOpIZN3igl13increment_ulpIS4_EEvRNS_10MatrixBaseIT_EEiEUldE_KS4_EEEENS0_9assign_opIddEELi0EE11assignCoeffEl.exit.thread.i.i.i.i.i.i.i.i.i
   %.05.lcssa.i.i.i.i.i.i.i.i.i.i.i.i.i = phi double [ %11, %_ZN5Eigen8internal31generic_dense_assignment_kernelINS0_9evaluatorINS_6MatrixIdLi1ELi3ELi1ELi1ELi3EEEEENS2_INS_12CwiseUnaryOpIZN3igl13increment_ulpIS4_EEvRNS_10MatrixBaseIT_EEiEUldE_KS4_EEEENS0_9assign_opIddEELi0EE11assignCoeffEl.exit.thread.i.i.i.i.i.i.i.i.i ], [ %18, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i.i ]
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store double %.05.lcssa.i.i.i.i.i.i.i.i.i.i.i.i.i, ptr %20, align 8, !tbaa !22
+  store double %.05.lcssa.i.i.i.i.i.i.i.i.i.i.i.i.i, ptr %20, align 8, !tbaa !21
   ret void
 }
 
@@ -203,12 +203,11 @@ attributes #3 = { nounwind }
 !13 = !{!"float", !8, i64 0}
 !14 = !{!15, !15, i64 0}
 !15 = !{!"int", !8, i64 0}
-!16 = distinct !{!16, !17, !18}
+!16 = distinct !{!16, !17}
 !17 = !{!"llvm.loop.mustprogress"}
-!18 = !{!"llvm.loop.estimated_trip_count"}
-!19 = distinct !{!19, !17, !18, !20}
-!20 = !{!"llvm.loop.unswitch.partial.disable"}
-!21 = distinct !{!21, !17, !18}
-!22 = !{!23, !23, i64 0}
-!23 = !{!"double", !8, i64 0}
-!24 = distinct !{!24, !17, !18}
+!18 = distinct !{!18, !17, !19}
+!19 = !{!"llvm.loop.unswitch.partial.disable"}
+!20 = distinct !{!20, !17}
+!21 = !{!22, !22, i64 0}
+!22 = !{!"double", !8, i64 0}
+!23 = distinct !{!23, !17}

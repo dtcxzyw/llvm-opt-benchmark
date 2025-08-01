@@ -537,7 +537,7 @@ define dso_local ptr @uid_to_string_cached(i32 noundef %0) local_unnamed_addr #0
   %.118.i = phi i64 [ %.01720.i, %19 ], [ %13, %.lr.ph.i ]
   %.1.i = phi i64 [ %20, %19 ], [ %.01621.i, %.lr.ph.i ]
   %22 = icmp ult i64 %.1.i, %.118.i
-  br i1 %22, label %.lr.ph.i, label %.loopexit, !llvm.loop !14
+  br i1 %22, label %.lr.ph.i, label %.loopexit, !llvm.loop !13
 
 .loopexit:                                        ; preds = %21, %8
   %23 = call ptr @uid_to_string(i32 noundef %0)
@@ -768,7 +768,7 @@ define dso_local range(i32 -1, 1) i32 @gid_from_string(ptr noundef %0, ptr nound
 19:                                               ; preds = %.lr.ph
   %20 = shl i64 %.072118, 1
   %21 = call ptr @slurm_xrecalloc(ptr noundef nonnull %10, i64 noundef 1, i64 noundef %20, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str, i32 noundef 328, ptr noundef nonnull @__func__.gid_from_string) #10
-  br label %30, !llvm.loop !15
+  br label %30, !llvm.loop !14
 
 22:                                               ; preds = %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph
   %23 = call i32 @get_log_level() #10
@@ -868,7 +868,7 @@ define dso_local range(i32 -1, 1) i32 @gid_from_string(ptr noundef %0, ptr nound
 62:                                               ; preds = %.lr.ph124
   %63 = shl i64 %.274122, 1
   %64 = call ptr @slurm_xrecalloc(ptr noundef nonnull %10, i64 noundef 1, i64 noundef %63, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str, i32 noundef 372, ptr noundef nonnull @__func__.gid_from_string) #10
-  br label %73, !llvm.loop !16
+  br label %73, !llvm.loop !15
 
 65:                                               ; preds = %.lr.ph124, %.lr.ph124, %.lr.ph124, %.lr.ph124, %.lr.ph124
   %66 = call i32 @get_log_level() #10
@@ -989,7 +989,7 @@ define dso_local ptr @gid_to_string_or_null(i32 noundef %0) local_unnamed_addr #
 16:                                               ; preds = %.lr.ph
   %17 = shl i64 %.02641, 1
   %18 = call ptr @slurm_xrecalloc(ptr noundef nonnull %9, i64 noundef 1, i64 noundef %17, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str, i32 noundef 432, ptr noundef nonnull @__func__.gid_to_string_or_null) #10
-  br label %27, !llvm.loop !17
+  br label %27, !llvm.loop !16
 
 19:                                               ; preds = %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph
   %20 = call i32 @get_log_level() #10
@@ -1072,10 +1072,9 @@ attributes #12 = { noreturn nounwind }
 !8 = distinct !{!8, !9}
 !9 = !{!"llvm.loop.unroll.disable"}
 !10 = distinct !{!10, !9}
-!11 = distinct !{!11, !12, !9, !13}
+!11 = distinct !{!11, !12, !9}
 !12 = !{!"llvm.loop.mustprogress"}
-!13 = !{!"llvm.loop.estimated_trip_count"}
-!14 = distinct !{!14, !12, !9, !13}
+!13 = distinct !{!13, !12, !9}
+!14 = distinct !{!14, !9}
 !15 = distinct !{!15, !9}
 !16 = distinct !{!16, !9}
-!17 = distinct !{!17, !9}

@@ -62,7 +62,7 @@ define internal void @doAttribute(ptr noundef readonly captures(none) %0, ptr no
   %9 = load i8, ptr %.0, align 1
   %10 = icmp eq i8 %9, 32
   %11 = getelementptr inbounds nuw i8, ptr %.0, i64 1
-  br i1 %10, label %.preheader, label %12, !llvm.loop !9
+  br i1 %10, label %.preheader, label %12, !llvm.loop !8
 
 12:                                               ; preds = %.preheader
   %13 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0) #12
@@ -78,7 +78,7 @@ define internal void @doAttribute(ptr noundef readonly captures(none) %0, ptr no
   %18 = getelementptr inbounds i8, ptr %.038, i64 -1
   %19 = load i8, ptr %18, align 1
   %20 = icmp eq i8 %19, 32
-  br i1 %20, label %15, label %.critedge, !llvm.loop !10
+  br i1 %20, label %15, label %.critedge, !llvm.loop !9
 
 .critedge:                                        ; preds = %15, %17
   %21 = icmp eq ptr %.0, %.038
@@ -181,7 +181,7 @@ define hidden ptr @getAttribute(ptr noundef readonly captures(address_is_null) %
   %10 = getelementptr inbounds nuw i8, ptr %.069, i64 16
   %11 = load ptr, ptr %10, align 8
   %.not = icmp eq ptr %11, null
-  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !11
+  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !10
 
 .loopexit:                                        ; preds = %9, %2, %6
   %.0 = phi ptr [ %8, %6 ], [ null, %2 ], [ null, %9 ]
@@ -225,9 +225,8 @@ attributes #12 = { nounwind willreturn memory(read) }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7, !8}
-!11 = distinct !{!11, !7, !8}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}

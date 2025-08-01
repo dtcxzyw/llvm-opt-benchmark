@@ -79,7 +79,7 @@ define i32 @__dtoa_engine(double noundef %0, ptr noundef writeonly captures(none
   %.5 = add nsw i32 %33, %.495
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %.not117 = icmp eq i64 %indvars.iv, 0
-  br i1 %.not117, label %.loopexit91, label %.preheader92, !llvm.loop !9
+  br i1 %.not117, label %.loopexit91, label %.preheader92, !llvm.loop !8
 
 .loopexit91:                                      ; preds = %.preheader92, %.preheader
   %.376 = phi double [ %.275, %.preheader ], [ %.578, %.preheader92 ]
@@ -127,7 +127,7 @@ define i32 @__dtoa_engine(double noundef %0, ptr noundef writeonly captures(none
   %55 = udiv i64 %.0102, 10
   %indvars.iv.next112 = add nuw nsw i64 %indvars.iv111, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next112, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %49, !llvm.loop !10
+  br i1 %exitcond.not, label %.loopexit, label %49, !llvm.loop !9
 
 .loopexit:                                        ; preds = %49, %.lr.ph104, %38, %7, %14, %17
   %.080 = phi i32 [ %2, %14 ], [ %2, %17 ], [ %2, %7 ], [ %.181, %38 ], [ %2, %.lr.ph104 ], [ %.181, %49 ]
@@ -167,8 +167,7 @@ attributes #2 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7, !8}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}

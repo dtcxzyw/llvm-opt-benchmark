@@ -174,7 +174,7 @@ define dso_local range(i32 -1, 1) i32 @plugrack_read_dir(ptr noundef readonly ca
   %.116 = phi ptr [ %20, %15 ], [ %.015, %8 ]
   %.3 = phi i32 [ %spec.select21, %15 ], [ %.0, %8 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  br label %8, !llvm.loop !12
+  br label %8, !llvm.loop !11
 
 23:                                               ; preds = %2, %12
   %.017 = phi i32 [ %spec.select, %12 ], [ -1, %2 ]
@@ -192,72 +192,69 @@ define dso_local ptr @plugrack_use_by_type(ptr noundef readonly captures(address
 5:                                                ; preds = %2
   %6 = load ptr, ptr %0, align 8
   %7 = tail call ptr @list_iterator_create(ptr noundef %6) #11
-  %8 = tail call ptr @list_next(ptr noundef %7) #11
-  %.not32 = icmp eq ptr %8, null
-  br i1 %.not32, label %._crit_edge, label %.lr.ph
+  br label %8
 
-9:                                                ; preds = %.lr.ph
-  %10 = tail call ptr @list_next(ptr noundef %7) #11
-  %.not = icmp eq ptr %10, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !13
+8:                                                ; preds = %10, %5
+  %9 = tail call ptr @list_next(ptr noundef %7) #11
+  %.not = icmp eq ptr %9, null
+  br i1 %.not, label %35, label %10
 
-.lr.ph:                                           ; preds = %5, %9
-  %11 = phi ptr [ %10, %9 ], [ %8, %5 ]
-  %12 = load ptr, ptr %11, align 8
-  %13 = tail call i32 @xstrcmp(ptr noundef nonnull %1, ptr noundef %12) #11
-  %.not25.not = icmp eq i32 %13, 0
-  br i1 %.not25.not, label %14, label %9, !llvm.loop !14
+10:                                               ; preds = %8
+  %11 = load ptr, ptr %9, align 8
+  %12 = tail call i32 @xstrcmp(ptr noundef nonnull %1, ptr noundef %11) #11
+  %.not25.not = icmp eq i32 %12, 0
+  br i1 %.not25.not, label %13, label %8, !llvm.loop !12
 
-14:                                               ; preds = %.lr.ph
-  %15 = getelementptr inbounds nuw i8, ptr %11, i64 16
-  %16 = load ptr, ptr %15, align 8
-  %17 = icmp eq ptr %16, null
-  br i1 %17, label %18, label %.thread
+13:                                               ; preds = %10
+  %14 = getelementptr inbounds nuw i8, ptr %9, i64 16
+  %15 = load ptr, ptr %14, align 8
+  %16 = icmp eq ptr %15, null
+  br i1 %16, label %17, label %.thread
 
-18:                                               ; preds = %14
-  %19 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  %20 = load ptr, ptr %19, align 8
-  %21 = tail call i32 @plugin_load_from_file(ptr noundef nonnull %15, ptr noundef %20) #11
-  %.not26 = icmp eq i32 %21, 0
-  br i1 %.not26, label %26, label %22
+17:                                               ; preds = %13
+  %18 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %19 = load ptr, ptr %18, align 8
+  %20 = tail call i32 @plugin_load_from_file(ptr noundef nonnull %14, ptr noundef %19) #11
+  %.not26 = icmp eq i32 %20, 0
+  br i1 %.not26, label %25, label %21
 
-22:                                               ; preds = %18
-  %23 = load ptr, ptr %19, align 8
-  %24 = tail call ptr @slurm_strerror(i32 noundef %21) #11
-  %25 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.2, ptr noundef %23, ptr noundef %24) #11
-  br label %26
+21:                                               ; preds = %17
+  %22 = load ptr, ptr %18, align 8
+  %23 = tail call ptr @slurm_strerror(i32 noundef %20) #11
+  %24 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.2, ptr noundef %22, ptr noundef %23) #11
+  br label %25
 
-26:                                               ; preds = %22, %18
-  %.pr = load ptr, ptr %15, align 8
+25:                                               ; preds = %21, %17
+  %.pr = load ptr, ptr %14, align 8
   %.not27 = icmp eq ptr %.pr, null
   br i1 %.not27, label %.thread29, label %.thread
 
-.thread:                                          ; preds = %14, %26
-  %27 = getelementptr inbounds nuw i8, ptr %11, i64 24
-  %28 = load i32, ptr %27, align 8
-  %29 = add nsw i32 %28, 1
-  store i32 %29, ptr %27, align 8
-  %30 = tail call i32 @get_log_level() #11
-  %31 = icmp sgt i32 %30, 6
-  br i1 %31, label %32, label %.thread29
+.thread:                                          ; preds = %13, %25
+  %26 = getelementptr inbounds nuw i8, ptr %9, i64 24
+  %27 = load i32, ptr %26, align 8
+  %28 = add nsw i32 %27, 1
+  store i32 %28, ptr %26, align 8
+  %29 = tail call i32 @get_log_level() #11
+  %30 = icmp sgt i32 %29, 6
+  br i1 %30, label %31, label %.thread29
 
-32:                                               ; preds = %.thread
-  %33 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  %34 = load ptr, ptr %33, align 8
-  tail call void (i32, ptr, ...) @log_var(i32 noundef 7, ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__.plugrack_use_by_type, ptr noundef %34, ptr noundef nonnull %1) #11
+31:                                               ; preds = %.thread
+  %32 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %33 = load ptr, ptr %32, align 8
+  tail call void (i32, ptr, ...) @log_var(i32 noundef 7, ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__.plugrack_use_by_type, ptr noundef %33, ptr noundef nonnull %1) #11
   br label %.thread29
 
-.thread29:                                        ; preds = %26, %32, %.thread
+.thread29:                                        ; preds = %25, %31, %.thread
   tail call void @list_iterator_destroy(ptr noundef %7) #11
-  %35 = load ptr, ptr %15, align 8
+  %34 = load ptr, ptr %14, align 8
   br label %36
 
-._crit_edge:                                      ; preds = %9, %5
+35:                                               ; preds = %8
   tail call void @list_iterator_destroy(ptr noundef %7) #11
   br label %36
 
-36:                                               ; preds = %.thread29, %2, %._crit_edge
-  %.0 = phi ptr [ null, %._crit_edge ], [ null, %2 ], [ %35, %.thread29 ]
+36:                                               ; preds = %.thread29, %2, %35
+  %.0 = phi ptr [ null, %35 ], [ null, %2 ], [ %34, %.thread29 ]
   ret ptr %.0
 }
 
@@ -391,7 +388,7 @@ define internal fastcc range(i32 -1, 1) i32 @_plugrack_read_single_dir(ptr nound
 .backedge:                                        ; preds = %.lr.ph.i._crit_edge, %84, %82, %48, %32, %38, %42, %69, %74, %79
   %46 = call ptr @readdir(ptr noundef nonnull %24) #11
   %47 = icmp eq ptr %46, null
-  br i1 %47, label %._crit_edge, label %32, !llvm.loop !15
+  br i1 %47, label %._crit_edge, label %32, !llvm.loop !13
 
 48:                                               ; preds = %42
   %49 = load i8, ptr %34, align 1
@@ -428,7 +425,7 @@ define internal fastcc range(i32 -1, 1) i32 @_plugrack_read_single_dir(ptr nound
   %65 = getelementptr inbounds nuw i8, ptr %34, i64 %indvars.iv.next.i
   %66 = load i8, ptr %65, align 1
   %.not.not.i = icmp eq i8 %66, 0
-  br i1 %.not.not.i, label %.backedge, label %.lr.ph.i, !llvm.loop !16
+  br i1 %.not.not.i, label %.backedge, label %.lr.ph.i, !llvm.loop !14
 
 67:                                               ; preds = %61
   %68 = load ptr, ptr %29, align 8
@@ -620,7 +617,7 @@ define dso_local noundef i32 @plugrack_print_mpi_plugins(ptr noundef readonly ca
   call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %3, ptr noundef nonnull @.str.11, ptr noundef nonnull %.0.ph26, ptr noundef nonnull %2) #11
   %24 = call ptr @list_next(ptr noundef %5) #11
   %.not24 = icmp eq ptr %24, null
-  br i1 %.not24, label %.outer._crit_edge, label %.lr.ph, !llvm.loop !17
+  br i1 %.not24, label %.outer._crit_edge, label %.lr.ph, !llvm.loop !15
 
 25:                                               ; preds = %9
   %26 = load ptr, ptr %10, align 8
@@ -631,7 +628,7 @@ define dso_local noundef i32 @plugrack_print_mpi_plugins(ptr noundef readonly ca
   %28 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.13, ptr noundef %.014)
   %29 = call ptr @list_next(ptr noundef %5) #11
   %.not = icmp eq ptr %29, null
-  br i1 %.not, label %.outer._crit_edge, label %9, !llvm.loop !17
+  br i1 %.not, label %.outer._crit_edge, label %9, !llvm.loop !15
 
 .outer._crit_edge:                                ; preds = %.outer, %27, %1
   call void @list_iterator_destroy(ptr noundef %5) #11
@@ -760,7 +757,7 @@ define dso_local range(i32 -1, 8004) i32 @load_plugins(ptr noundef captures(none
   %.116.i = phi ptr [ %38, %33 ], [ %.015.i, %26 ]
   %.3.i = phi i32 [ %spec.select21.i, %33 ], [ %.0.i, %26 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  br label %26, !llvm.loop !12
+  br label %26, !llvm.loop !11
 
 plugrack_read_dir.exit.thread:                    ; preds = %15, %30
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #11
@@ -859,7 +856,7 @@ plugrack_read_dir.exit:                           ; preds = %30
   %75 = call ptr @strtok_r(ptr noundef null, ptr noundef nonnull @.str.12, ptr noundef nonnull %10) #11
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #11
   %.not89 = icmp eq ptr %75, null
-  br i1 %.not89, label %._crit_edge, label %.lr.ph, !llvm.loop !18
+  br i1 %.not89, label %._crit_edge, label %.lr.ph, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %.lr.ph, %67
   call void @slurm_xfree(ptr noundef nonnull %11) #11
@@ -923,7 +920,7 @@ plugrack_read_dir.exit:                           ; preds = %30
   %107 = phi ptr [ %84, %82 ], [ %96, %._crit_edge131 ]
   %108 = add nuw i64 %.070123, 1
   %109 = icmp ult i64 %108, %106
-  br i1 %109, label %82, label %.loopexit, !llvm.loop !19
+  br i1 %109, label %82, label %.loopexit, !llvm.loop !17
 
 .loopexit:                                        ; preds = %105, %76, %100
   %110 = phi i64 [ %.pre133, %100 ], [ 0, %76 ], [ %106, %105 ]
@@ -983,7 +980,7 @@ plugrack_read_dir.exit:                           ; preds = %30
   %142 = phi i64 [ %.pre135, %._crit_edge134 ], [ %120, %119 ]
   %143 = add nuw i64 %.0126, 1
   %144 = icmp ult i64 %143, %142
-  br i1 %144, label %119, label %.thread101, !llvm.loop !20
+  br i1 %144, label %119, label %.thread101, !llvm.loop !18
 
 145:                                              ; preds = %.loopexit
   br i1 %111, label %.thread109, label %.thread101
@@ -1020,7 +1017,7 @@ define internal void @_plugrack_foreach(ptr noundef %0, ptr noundef %1, ptr noun
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %10 = load i64, ptr %5, align 8
   %.not11.i = icmp ugt i64 %10, %indvars.iv.next.i
-  br i1 %.not11.i, label %.lr.ph.i, label %.loopexit.loopexit, !llvm.loop !21
+  br i1 %.not11.i, label %.lr.ph.i, label %.loopexit.loopexit, !llvm.loop !19
 
 .lr.ph.i:                                         ; preds = %9, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %9 ]
@@ -1137,7 +1134,7 @@ define dso_local void @unload_plugins(ptr noundef %0) local_unnamed_addr #0 {
   %18 = add nuw i64 %.0715, 1
   %19 = load i64, ptr %6, align 8
   %20 = icmp ult i64 %18, %19
-  br i1 %20, label %11, label %._crit_edge.loopexit, !llvm.loop !22
+  br i1 %20, label %11, label %._crit_edge.loopexit, !llvm.loop !20
 
 21:                                               ; preds = %._crit_edge, %3
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -1185,7 +1182,7 @@ define dso_local void @unload_plugins(ptr noundef %0) local_unnamed_addr #0 {
   %38 = add nuw i64 %.016, 1
   %39 = load i64, ptr %22, align 8
   %40 = icmp ult i64 %38, %39
-  br i1 %40, label %29, label %._crit_edge19, !llvm.loop !23
+  br i1 %40, label %29, label %._crit_edge19, !llvm.loop !21
 
 41:                                               ; preds = %1, %._crit_edge19
   ret void
@@ -1254,19 +1251,17 @@ attributes #13 = { noreturn nounwind }
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i32 7, !"frame-pointer", i32 2}
 !7 = !{i32 7, !"debug-info-assignment-tracking", i1 true}
-!8 = distinct !{!8, !9, !10, !11}
+!8 = distinct !{!8, !9, !10}
 !9 = !{!"llvm.loop.mustprogress"}
 !10 = !{!"llvm.loop.unroll.disable"}
-!11 = !{!"llvm.loop.estimated_trip_count"}
-!12 = distinct !{!12, !10, !11}
-!13 = distinct !{!13, !11}
+!11 = distinct !{!11, !10}
+!12 = distinct !{!12, !9, !10}
+!13 = distinct !{!13, !10}
 !14 = distinct !{!14, !9, !10}
-!15 = distinct !{!15, !10, !11}
-!16 = distinct !{!16, !9, !10, !11}
-!17 = distinct !{!17, !9, !10, !11}
-!18 = distinct !{!18, !9, !10, !11}
-!19 = distinct !{!19, !9, !10, !11}
-!20 = distinct !{!20, !9, !10, !11}
-!21 = distinct !{!21, !9, !10, !11}
-!22 = distinct !{!22, !9, !10, !11}
-!23 = distinct !{!23, !9, !10, !11}
+!15 = distinct !{!15, !9, !10}
+!16 = distinct !{!16, !9, !10}
+!17 = distinct !{!17, !9, !10}
+!18 = distinct !{!18, !9, !10}
+!19 = distinct !{!19, !9, !10}
+!20 = distinct !{!20, !9, !10}
+!21 = distinct !{!21, !9, !10}

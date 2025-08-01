@@ -166,7 +166,7 @@ _ZNSt11_Deque_baseIN4YAML19GraphBuilderAdapter14ContainerFrameESaIS2_EE15_M_allo
   %4 = tail call i64 @llvm.umax.i64(i64 %2, i64 5)
   %.sroa.speculated = add nuw nsw i64 %4, 3
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %.sroa.speculated, ptr %5, align 8, !tbaa !25
+  store i64 %.sroa.speculated, ptr %5, align 8, !tbaa !24
   %6 = shl nuw nsw i64 %.sroa.speculated, 3
   %7 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %6) #12
   store ptr %7, ptr %0, align 8, !tbaa !13
@@ -186,7 +186,7 @@ _ZNSt11_Deque_baseIN4YAML19GraphBuilderAdapter14ContainerFrameESaIS2_EE16_M_allo
   store ptr %12, ptr %.011.i, align 8, !tbaa !21
   %13 = getelementptr inbounds nuw i8, ptr %.011.i, i64 8
   %14 = icmp ult ptr %13, %11
-  br i1 %14, label %.lr.ph.i, label %_ZNSt11_Deque_baseIN4YAML19GraphBuilderAdapter14ContainerFrameESaIS2_EE15_M_create_nodesEPPS2_S6_.exit, !llvm.loop !26
+  br i1 %14, label %.lr.ph.i, label %_ZNSt11_Deque_baseIN4YAML19GraphBuilderAdapter14ContainerFrameESaIS2_EE15_M_create_nodesEPPS2_S6_.exit, !llvm.loop !25
 
 15:                                               ; preds = %.lr.ph.i
   %16 = landingpad { ptr, i32 }
@@ -245,27 +245,27 @@ _ZNSt11_Deque_baseIN4YAML19GraphBuilderAdapter14ContainerFrameESaIS2_EE16_M_dest
 _ZNSt11_Deque_baseIN4YAML19GraphBuilderAdapter14ContainerFrameESaIS2_EE15_M_create_nodesEPPS2_S6_.exit: ; preds = %_ZNSt11_Deque_baseIN4YAML19GraphBuilderAdapter14ContainerFrameESaIS2_EE16_M_allocate_nodeEv.exit.i
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store ptr %10, ptr %36, align 8, !tbaa !27
+  store ptr %10, ptr %36, align 8, !tbaa !26
   %37 = load ptr, ptr %10, align 8, !tbaa !21
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr %37, ptr %38, align 8, !tbaa !28
+  store ptr %37, ptr %38, align 8, !tbaa !27
   %39 = getelementptr inbounds nuw i8, ptr %37, i64 512
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr %39, ptr %40, align 8, !tbaa !29
+  store ptr %39, ptr %40, align 8, !tbaa !28
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %42 = getelementptr inbounds i8, ptr %11, i64 -8
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  store ptr %42, ptr %43, align 8, !tbaa !27
+  store ptr %42, ptr %43, align 8, !tbaa !26
   %44 = load ptr, ptr %42, align 8, !tbaa !21
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store ptr %44, ptr %45, align 8, !tbaa !28
+  store ptr %44, ptr %45, align 8, !tbaa !27
   %46 = getelementptr inbounds nuw i8, ptr %44, i64 512
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  store ptr %46, ptr %47, align 8, !tbaa !29
-  store ptr %37, ptr %35, align 8, !tbaa !30
+  store ptr %46, ptr %47, align 8, !tbaa !28
+  store ptr %37, ptr %35, align 8, !tbaa !29
   %48 = and i64 %1, 31
   %49 = getelementptr inbounds nuw %"struct.YAML::GraphBuilderAdapter::ContainerFrame", ptr %44, i64 %48
-  store ptr %49, ptr %41, align 8, !tbaa !31
+  store ptr %49, ptr %41, align 8, !tbaa !30
   ret void
 
 50:                                               ; preds = %32
@@ -344,13 +344,12 @@ attributes #14 = { noreturn nounwind }
 !19 = !{!14, !15, i64 40}
 !20 = !{!14, !15, i64 72}
 !21 = !{!18, !18, i64 0}
-!22 = distinct !{!22, !23, !24}
+!22 = distinct !{!22, !23}
 !23 = !{!"llvm.loop.mustprogress"}
-!24 = !{!"llvm.loop.estimated_trip_count"}
-!25 = !{!14, !16, i64 8}
-!26 = distinct !{!26, !23, !24}
-!27 = !{!17, !15, i64 24}
-!28 = !{!17, !18, i64 8}
-!29 = !{!17, !18, i64 16}
-!30 = !{!14, !18, i64 16}
-!31 = !{!14, !18, i64 48}
+!24 = !{!14, !16, i64 8}
+!25 = distinct !{!25, !23}
+!26 = !{!17, !15, i64 24}
+!27 = !{!17, !18, i64 8}
+!28 = !{!17, !18, i64 16}
+!29 = !{!14, !18, i64 16}
+!30 = !{!14, !18, i64 48}

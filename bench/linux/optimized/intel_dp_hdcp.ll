@@ -727,7 +727,7 @@ define internal i32 @intel_dp_hdcp2_write_msg(ptr noundef readonly captures(none
 5:                                                ; preds = %8
   %6 = add nuw nsw i64 %9, 1
   %7 = icmp eq i64 %6, 14
-  br i1 %7, label %.thread, label %8, !llvm.loop !10
+  br i1 %7, label %.thread, label %8, !llvm.loop !9
 
 8:                                                ; preds = %5, %3
   %9 = phi i64 [ 0, %3 ], [ %6, %5 ]
@@ -798,7 +798,7 @@ define internal i32 @intel_dp_hdcp2_write_msg(ptr noundef readonly captures(none
   %46 = trunc i64 %39 to i32
   %47 = add i32 %37, %46
   %48 = icmp eq i64 %44, 0
-  br i1 %48, label %.loopexit, label %34, !llvm.loop !11
+  br i1 %48, label %.loopexit, label %34, !llvm.loop !10
 
 .loopexit:                                        ; preds = %43, %28
   %49 = trunc i64 %2 to i32
@@ -841,7 +841,7 @@ define internal i32 @intel_dp_hdcp2_read_msg(ptr noundef %0, i8 noundef zeroext 
 18:                                               ; preds = %21
   %19 = add nuw nsw i64 %22, 1
   %20 = icmp eq i64 %19, 14
-  br i1 %20, label %.thread, label %21, !llvm.loop !12
+  br i1 %20, label %.thread, label %21, !llvm.loop !9
 
 21:                                               ; preds = %18, %15
   %22 = phi i64 [ 0, %15 ], [ %19, %18 ]
@@ -887,7 +887,7 @@ define internal i32 @intel_dp_hdcp2_read_msg(ptr noundef %0, i8 noundef zeroext 
 
 41:                                               ; preds = %37
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 2668
-  %43 = load i8, ptr %42, align 4, !range !13, !noundef !14
+  %43 = load i8, ptr %42, align 4, !range !11, !noundef !12
   %44 = icmp eq i8 %43, 0
   br i1 %44, label %46, label %45
 
@@ -899,7 +899,7 @@ define internal i32 @intel_dp_hdcp2_read_msg(ptr noundef %0, i8 noundef zeroext 
   %48 = getelementptr inbounds nuw i8, ptr %23, i64 %47
   %49 = load i32, ptr %48, align 4
   %50 = getelementptr inbounds nuw i8, ptr %23, i64 8
-  %51 = load i8, ptr %50, align 4, !range !13, !noundef !14
+  %51 = load i8, ptr %50, align 4, !range !11, !noundef !12
   %52 = icmp eq i8 %51, 0
   br i1 %52, label %53, label %61
 
@@ -916,7 +916,7 @@ define internal i32 @intel_dp_hdcp2_read_msg(ptr noundef %0, i8 noundef zeroext 
   %59 = add i64 %58, -1
   tail call void @__const_udelay(i64 noundef 4295000) #7
   %60 = icmp eq i64 %59, 0
-  br i1 %60, label %.loopexit41, label %57, !llvm.loop !15
+  br i1 %60, label %.loopexit41, label %57, !llvm.loop !13
 
 61:                                               ; preds = %46
   %62 = tail call i64 @__msecs_to_jiffies(i32 noundef %49) #7
@@ -1235,7 +1235,7 @@ select.unfold37:                                  ; preds = %164
   %238 = trunc i64 %225 to i32
   %239 = add i32 %197, %238
   %240 = icmp eq i64 %236, 0
-  br i1 %240, label %.loopexit, label %193, !llvm.loop !16
+  br i1 %240, label %.loopexit, label %193, !llvm.loop !14
 
 .loopexit:                                        ; preds = %235, %184
   %241 = phi i64 [ 0, %184 ], [ %224, %235 ]
@@ -1333,7 +1333,7 @@ define internal range(i32 -2147483648, 1) i32 @intel_dp_hdcp2_config_stream_type
   %32 = trunc i64 %24 to i32
   %33 = add i32 %22, %32
   %34 = icmp eq i64 %30, 0
-  br i1 %34, label %.loopexit, label %19, !llvm.loop !17
+  br i1 %34, label %.loopexit, label %19, !llvm.loop !10
 
 .loopexit:                                        ; preds = %29, %26, %3
   %35 = phi i32 [ 0, %3 ], [ %28, %26 ], [ 0, %29 ]
@@ -1391,10 +1391,10 @@ define internal i32 @intel_dp_mst_hdcp2_stream_encryption(ptr noundef readonly c
   %34 = load i8, ptr %33, align 1
   %35 = zext i8 %34 to i32
   %36 = icmp eq i32 %30, %35
-  br i1 %36, label %49, label %37, !prof !18
+  br i1 %36, label %49, label %37, !prof !15
 
 37:                                               ; preds = %17
-  tail call void asm sideeffect "899: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 899b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 899) #7, !srcloc !19
+  tail call void asm sideeffect "899: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 899b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 899) #7, !srcloc !16
   %38 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %39 = load ptr, ptr %38, align 8
   %40 = tail call ptr @dev_driver_string(ptr noundef %39) #7
@@ -1411,10 +1411,10 @@ define internal i32 @intel_dp_mst_hdcp2_stream_encryption(ptr noundef readonly c
 47:                                               ; preds = %45, %37
   %48 = phi ptr [ %46, %45 ], [ %43, %37 ]
   tail call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str.27, ptr noundef %40, ptr noundef %48, ptr noundef nonnull @.str.28) #7
-  tail call void asm sideeffect "900: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 900b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 900) #7, !srcloc !20
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.29, i32 761, i32 2313, i64 12) #7, !srcloc !21
-  tail call void asm sideeffect "901: nop\0A\09.pushsection .discard.instr_end\0A\09.long 901b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 901) #7, !srcloc !22
-  tail call void asm sideeffect "902: nop\0A\09.pushsection .discard.instr_end\0A\09.long 902b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 902) #7, !srcloc !23
+  tail call void asm sideeffect "900: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 900b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 900) #7, !srcloc !17
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.29, i32 761, i32 2313, i64 12) #7, !srcloc !18
+  tail call void asm sideeffect "901: nop\0A\09.pushsection .discard.instr_end\0A\09.long 901b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 901) #7, !srcloc !19
+  tail call void asm sideeffect "902: nop\0A\09.pushsection .discard.instr_end\0A\09.long 902b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 902) #7, !srcloc !20
   br label %49
 
 49:                                               ; preds = %47, %17, %12
@@ -1549,7 +1549,7 @@ define internal i32 @intel_dp_mst_hdcp2_stream_encryption(ptr noundef readonly c
 define internal i32 @intel_dp_mst_hdcp2_check_link(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1) #0 align 16 {
   %3 = alloca i8, align 1
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 2669
-  %5 = load i8, ptr %4, align 1, !range !13, !noundef !14
+  %5 = load i8, ptr %4, align 1, !range !11, !noundef !12
   %6 = icmp eq i8 %5, 0
   br i1 %6, label %43, label %7
 
@@ -1802,21 +1802,18 @@ attributes #8 = { cold nounwind }
 !3 = !{i32 4, !"indirect_branch_cs_prefix", i32 1}
 !4 = !{i32 4, !"SkipRaxSetup", i32 1}
 !5 = !{!"auto-init"}
-!6 = distinct !{!6, !7, !8, !9}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
 !8 = !{!"llvm.loop.unroll.disable"}
-!9 = !{!"llvm.loop.estimated_trip_count"}
-!10 = distinct !{!10, !7, !8, !9}
-!11 = distinct !{!11, !7, !8, !9}
-!12 = distinct !{!12, !7, !8, !9}
-!13 = !{i8 0, i8 2}
-!14 = !{}
-!15 = distinct !{!15, !7, !8, !9}
-!16 = distinct !{!16, !7, !8, !9}
-!17 = distinct !{!17, !7, !8, !9}
-!18 = !{!"branch_weights", i32 2000, i32 1}
-!19 = !{i64 2161848220, i64 2161848029, i64 2161848081, i64 2161848127, i64 2161848155}
-!20 = !{i64 2161848778, i64 2161848587, i64 2161848639, i64 2161848685, i64 2161848713}
-!21 = !{i64 2161848852, i64 2161848881, i64 2161848927, i64 2161848985, i64 2161849039, i64 2161849093, i64 2161849148, i64 2161849179, i64 2161849487, i64 2161849493, i64 2161849540, i64 2161849563, i64 2161849589}
-!22 = !{i64 2161850066, i64 2161849877, i64 2161849927, i64 2161849973, i64 2161850001}
-!23 = !{i64 2161850372, i64 2161850183, i64 2161850233, i64 2161850279, i64 2161850307}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = !{i8 0, i8 2}
+!12 = !{}
+!13 = distinct !{!13, !7, !8}
+!14 = distinct !{!14, !7, !8}
+!15 = !{!"branch_weights", i32 2000, i32 1}
+!16 = !{i64 2161848220, i64 2161848029, i64 2161848081, i64 2161848127, i64 2161848155}
+!17 = !{i64 2161848778, i64 2161848587, i64 2161848639, i64 2161848685, i64 2161848713}
+!18 = !{i64 2161848852, i64 2161848881, i64 2161848927, i64 2161848985, i64 2161849039, i64 2161849093, i64 2161849148, i64 2161849179, i64 2161849487, i64 2161849493, i64 2161849540, i64 2161849563, i64 2161849589}
+!19 = !{i64 2161850066, i64 2161849877, i64 2161849927, i64 2161849973, i64 2161850001}
+!20 = !{i64 2161850372, i64 2161850183, i64 2161850233, i64 2161850279, i64 2161850307}

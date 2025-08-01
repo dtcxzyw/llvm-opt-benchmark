@@ -1197,7 +1197,7 @@ dissect_routing_context_parameter.exit:           ; preds = %.lr.ph.i48, %217
   %332 = add nuw nsw i32 %.014.i44, 1
   %lftr.wideiv92 = trunc i32 %332 to i16
   %exitcond93 = icmp eq i16 %328, %lftr.wideiv92
-  br i1 %exitcond93, label %dissect_service_indicators_parameter.exit, label %.lr.ph.i43, !llvm.loop !11
+  br i1 %exitcond93, label %dissect_service_indicators_parameter.exit, label %.lr.ph.i43, !llvm.loop !10
 
 dissect_service_indicators_parameter.exit:        ; preds = %.lr.ph.i43, %326
   %333 = zext i16 %329 to i32
@@ -1220,7 +1220,7 @@ dissect_service_indicators_parameter.exit:        ; preds = %.lr.ph.i43, %326
   %342 = add nuw nsw i32 %.014.i, 1
   %lftr.wideiv90 = trunc i32 %342 to i16
   %exitcond91 = icmp eq i16 %338, %lftr.wideiv90
-  br i1 %exitcond91, label %dissect_subsystem_numbers_parameter.exit, label %.lr.ph.i, !llvm.loop !12
+  br i1 %exitcond91, label %dissect_subsystem_numbers_parameter.exit, label %.lr.ph.i, !llvm.loop !11
 
 dissect_subsystem_numbers_parameter.exit:         ; preds = %.lr.ph.i, %336
   %343 = zext i16 %339 to i32
@@ -1566,7 +1566,7 @@ dissect_routing_context_parameter.exit68:         ; preds = %.lr.ph.i63, %432
   %547 = add nuw nsw i32 %.014.i58, 1
   %lftr.wideiv88 = trunc i32 %547 to i16
   %exitcond89 = icmp eq i16 %543, %lftr.wideiv88
-  br i1 %exitcond89, label %dissect_service_indicators_parameter.exit61, label %.lr.ph.i57, !llvm.loop !11
+  br i1 %exitcond89, label %dissect_service_indicators_parameter.exit61, label %.lr.ph.i57, !llvm.loop !10
 
 dissect_service_indicators_parameter.exit61:      ; preds = %.lr.ph.i57, %541
   %548 = zext i16 %544 to i32
@@ -1589,7 +1589,7 @@ dissect_service_indicators_parameter.exit61:      ; preds = %.lr.ph.i57, %541
   %557 = add nuw nsw i32 %.014.i52, 1
   %lftr.wideiv86 = trunc i32 %557 to i16
   %exitcond87 = icmp eq i16 %553, %lftr.wideiv86
-  br i1 %exitcond87, label %dissect_subsystem_numbers_parameter.exit55, label %.lr.ph.i51, !llvm.loop !12
+  br i1 %exitcond87, label %dissect_subsystem_numbers_parameter.exit55, label %.lr.ph.i51, !llvm.loop !11
 
 dissect_subsystem_numbers_parameter.exit55:       ; preds = %.lr.ph.i51, %551
   %558 = zext i16 %554 to i32
@@ -1902,7 +1902,7 @@ dissect_routing_context_parameter.exit83:         ; preds = %.lr.ph.i78, %617
   %736 = add nuw nsw i32 %.014.i73, 1
   %lftr.wideiv = trunc i32 %736 to i16
   %exitcond = icmp eq i16 %732, %lftr.wideiv
-  br i1 %exitcond, label %dissect_service_indicators_parameter.exit76, label %.lr.ph.i72, !llvm.loop !11
+  br i1 %exitcond, label %dissect_service_indicators_parameter.exit76, label %.lr.ph.i72, !llvm.loop !10
 
 dissect_service_indicators_parameter.exit76:      ; preds = %.lr.ph.i72, %730
   %737 = zext i16 %733 to i32
@@ -2338,7 +2338,7 @@ dissect_parameter.exit:                           ; preds = %591, %951, %952
   %957 = add i32 %.033, %.085
   %958 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %957)
   %.not = icmp eq i32 %958, 0
-  br i1 %.not, label %._crit_edge, label %22, !llvm.loop !13
+  br i1 %.not, label %._crit_edge, label %22, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %956, %4
   ret void
@@ -2405,7 +2405,7 @@ define internal fastcc void @dissect_affected_destinations_parameter(ptr noundef
   %19 = add nuw nsw i32 %.01618, 4
   %indvars.iv.next = add nuw nsw i32 %indvars.iv, 1
   %exitcond.not = icmp eq i32 %indvars.iv.next, %8
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !14
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %18, %3
   %20 = icmp eq i32 %8, 1
@@ -2513,7 +2513,7 @@ define internal fastcc void @dissect_originating_point_code_list_parameter(ptr n
   %19 = add nuw nsw i32 %.01719, 4
   %indvars.iv.next = add nuw nsw i32 %indvars.iv, 1
   %exitcond.not = icmp eq i32 %indvars.iv.next, %8
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !15
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %18, %3
   %20 = icmp eq i32 %8, 1
@@ -2568,7 +2568,7 @@ define internal fastcc void @dissect_circuit_range_parameter(ptr noundef %0, ptr
   %32 = add nuw nsw i32 %.03537, 8
   %indvars.iv.next = add nuw nsw i32 %indvars.iv, 1
   %exitcond.not = icmp eq i32 %indvars.iv.next, %8
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !16
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %20, %3
   %33 = add i16 %5, -12
@@ -2642,12 +2642,11 @@ attributes #7 = { allocsize(1) }
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i8 0, i8 2}
 !7 = !{}
-!8 = distinct !{!8, !9, !10}
+!8 = distinct !{!8, !9}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = !{!"llvm.loop.estimated_trip_count"}
-!11 = distinct !{!11, !9, !10}
-!12 = distinct !{!12, !9, !10}
-!13 = distinct !{!13, !9, !10}
-!14 = distinct !{!14, !9, !10}
-!15 = distinct !{!15, !9, !10}
-!16 = distinct !{!16, !9, !10}
+!10 = distinct !{!10, !9}
+!11 = distinct !{!11, !9}
+!12 = distinct !{!12, !9}
+!13 = distinct !{!13, !9}
+!14 = distinct !{!14, !9}
+!15 = distinct !{!15, !9}

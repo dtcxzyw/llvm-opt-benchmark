@@ -742,7 +742,7 @@ pa_process_spooled_messages_if_required.exit.thread.i: ; preds = %150, %pa_proce
   store ptr %56, ptr @CurrentMemoryContext, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #10
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #10
-  br label %64, !llvm.loop !13
+  br label %64
 }
 
 declare void @pqsignal_be(i32 noundef, ptr noundef) local_unnamed_addr #3
@@ -992,7 +992,7 @@ declare void @pfree(ptr noundef) local_unnamed_addr #3
 define dso_local noundef zeroext i1 @pa_send_data(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = load i32, ptr @debug_logical_replication_streaming, align 4
   %5 = icmp eq i32 %4, 1
-  br i1 %5, label %.loopexit, label %.preheader.outer, !prof !15
+  br i1 %5, label %.loopexit, label %.preheader.outer, !prof !13
 
 .preheader.outer:                                 ; preds = %21, %3
   %.0.ph = phi i64 [ 0, %3 ], [ %22, %21 ]
@@ -1035,11 +1035,11 @@ define dso_local noundef zeroext i1 @pa_send_data(ptr noundef readonly captures(
 
 21:                                               ; preds = %17, %20, %13
   %22 = tail call i64 @GetCurrentTimestamp() #10
-  br i1 %6, label %.preheader.outer, label %23, !llvm.loop !16
+  br i1 %6, label %.preheader.outer, label %23
 
 23:                                               ; preds = %21
   %24 = tail call zeroext i1 @TimestampDifferenceExceeds(i64 noundef %.0.ph, i64 noundef %22, i32 noundef 9000) #10
-  br i1 %24, label %.loopexit, label %.preheader, !llvm.loop !16
+  br i1 %24, label %.loopexit, label %.preheader
 
 .loopexit:                                        ; preds = %23, %.preheader, %3
   %.08 = phi i1 [ false, %3 ], [ false, %23 ], [ true, %.preheader ]
@@ -1164,7 +1164,7 @@ define dso_local void @pa_set_xact_state(ptr noundef %0, i32 noundef %1) local_u
 6:                                                ; preds = %2, %4
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %1, ptr %7, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !17
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !14
   store i8 0, ptr %0, align 8
   ret void
 }
@@ -1279,7 +1279,7 @@ define dso_local void @pa_stream_abort(ptr noundef readonly captures(none) %0) l
 pa_set_xact_state.exit:                           ; preds = %11, %14
   %16 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store i32 2, ptr %16, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !17
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !14
   store i8 0, ptr %12, align 8
   %17 = load ptr, ptr @MyLogicalRepWorker, align 8
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 40
@@ -1341,7 +1341,7 @@ list_length.exit:                                 ; preds = %31, %33
   %43 = getelementptr inbounds nuw %union.ListCell, ptr %.val, i64 %42
   %44 = load i32, ptr %43, align 8
   %45 = icmp eq i32 %44, %5
-  br i1 %45, label %.thread, label %39, !llvm.loop !18
+  br i1 %45, label %.thread, label %39, !llvm.loop !15
 
 .thread:                                          ; preds = %41
   call void @RollbackToSavepoint(ptr noundef nonnull %2) #10
@@ -1486,7 +1486,7 @@ define dso_local void @pa_xact_finish(ptr noundef %0, i64 noundef %1) local_unna
 pa_get_xact_state.exit.i.i:                       ; preds = %13, %10
   %15 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %16 = load i32, ptr %15, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !20
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !17
   store i8 0, ptr %11, align 8
   %.not.i.i = icmp eq i32 %16, 0
   br i1 %.not.i.i, label %17, label %pa_wait_for_xact_state.exit.i
@@ -1505,7 +1505,7 @@ pa_get_xact_state.exit.i.i:                       ; preds = %13, %10
   br label %.backedge
 
 .backedge:                                        ; preds = %22, %17
-  br label %10, !llvm.loop !21
+  br label %10
 
 pa_wait_for_xact_state.exit.i:                    ; preds = %pa_get_xact_state.exit.i.i
   %23 = load ptr, ptr %3, align 8
@@ -1534,7 +1534,7 @@ pa_wait_for_xact_state.exit.i:                    ; preds = %pa_get_xact_state.e
 pa_get_xact_state.exit.i:                         ; preds = %37, %pa_wait_for_xact_state.exit.i
   %39 = getelementptr inbounds nuw i8, ptr %35, i64 8
   %40 = load i32, ptr %39, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !20
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !17
   store i8 0, ptr %35, align 8
   %.not.i = icmp eq i32 %40, 2
   br i1 %.not.i, label %pa_wait_for_xact_finish.exit, label %41
@@ -1761,12 +1761,8 @@ attributes #12 = { noreturn nounwind }
 !10 = !{!"branch_weights", !"expected", i32 2000, i32 1}
 !11 = !{i64 2151083267}
 !12 = !{i64 2151082909}
-!13 = distinct !{!13, !14}
-!14 = !{!"llvm.loop.estimated_trip_count"}
-!15 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!16 = distinct !{!16, !14}
-!17 = !{i64 2151080398}
-!18 = distinct !{!18, !19, !14}
-!19 = !{!"llvm.loop.mustprogress"}
-!20 = !{i64 2151080696}
-!21 = distinct !{!21, !14}
+!13 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!14 = !{i64 2151080398}
+!15 = distinct !{!15, !16}
+!16 = !{!"llvm.loop.mustprogress"}
+!17 = !{i64 2151080696}

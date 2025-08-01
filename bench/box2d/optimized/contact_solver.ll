@@ -192,17 +192,17 @@ define hidden void @b2PrepareOverflowContacts(ptr noundef readonly captures(none
   %92 = getelementptr inbounds nuw %struct.b2ManifoldPoint, ptr %88, i64 %indvars.iv
   %93 = getelementptr inbounds nuw %struct.b2ContactConstraintPoint, ptr %89, i64 %indvars.iv
   %94 = getelementptr inbounds nuw i8, ptr %92, i64 28
-  %95 = load float, ptr %94, align 4, !tbaa !120
+  %95 = load float, ptr %94, align 4, !tbaa !119
   %96 = fmul float %21, %95
   %97 = getelementptr inbounds nuw i8, ptr %93, i64 24
-  store float %96, ptr %97, align 4, !tbaa !122
+  store float %96, ptr %97, align 4, !tbaa !121
   %98 = getelementptr inbounds nuw i8, ptr %92, i64 32
-  %99 = load float, ptr %98, align 4, !tbaa !124
+  %99 = load float, ptr %98, align 4, !tbaa !123
   %100 = fmul float %21, %99
   %101 = getelementptr inbounds nuw i8, ptr %93, i64 28
-  store float %100, ptr %101, align 4, !tbaa !125
+  store float %100, ptr %101, align 4, !tbaa !124
   %102 = getelementptr inbounds nuw i8, ptr %93, i64 32
-  store float 0.000000e+00, ptr %102, align 4, !tbaa !126
+  store float 0.000000e+00, ptr %102, align 4, !tbaa !125
   %103 = getelementptr inbounds nuw i8, ptr %92, i64 8
   %.sroa.023.0.copyload = load <2 x float>, ptr %103, align 4
   %104 = getelementptr inbounds nuw i8, ptr %92, i64 16
@@ -211,7 +211,7 @@ define hidden void @b2PrepareOverflowContacts(ptr noundef readonly captures(none
   %105 = getelementptr inbounds nuw i8, ptr %93, i64 8
   store <2 x float> %.sroa.018.0.copyload, ptr %105, align 4
   %106 = getelementptr inbounds nuw i8, ptr %92, i64 24
-  %107 = load float, ptr %106, align 4, !tbaa !127
+  %107 = load float, ptr %106, align 4, !tbaa !126
   %.sroa.01.0.vec.extract.i = extractelement <2 x float> %.sroa.018.0.copyload, i64 0
   %.sroa.0.0.vec.extract.i147 = extractelement <2 x float> %.sroa.023.0.copyload, i64 0
   %108 = fsub <2 x float> %.sroa.018.0.copyload, %.sroa.023.0.copyload
@@ -224,7 +224,7 @@ define hidden void @b2PrepareOverflowContacts(ptr noundef readonly captures(none
   %113 = fadd float %111, %112
   %114 = fsub float %107, %113
   %115 = getelementptr inbounds nuw i8, ptr %93, i64 16
-  store float %114, ptr %115, align 4, !tbaa !128
+  store float %114, ptr %115, align 4, !tbaa !127
   %116 = fmul float %.sroa.0.4.vec.extract.i, %.sroa.0.0.vec.extract.i147
   %117 = fmul float %.sroa.0.0.vec.extract.i, %.sroa.0.4.vec.extract.i148
   %118 = fsub float %116, %117
@@ -241,7 +241,7 @@ define hidden void @b2PrepareOverflowContacts(ptr noundef readonly captures(none
   %129 = fdiv float 1.000000e+00, %127
   %130 = select i1 %128, float %129, float 0.000000e+00
   %131 = getelementptr inbounds nuw i8, ptr %93, i64 36
-  store float %130, ptr %131, align 4, !tbaa !129
+  store float %130, ptr %131, align 4, !tbaa !128
   %132 = fmul float %.sroa.0.0.vec.extract.i147, %86
   %133 = fmul float %.sroa.0.4.vec.extract.i, %.sroa.0.4.vec.extract.i148
   %134 = fsub float %132, %133
@@ -258,7 +258,7 @@ define hidden void @b2PrepareOverflowContacts(ptr noundef readonly captures(none
   %145 = fdiv float 1.000000e+00, %143
   %146 = select i1 %144, float %145, float 0.000000e+00
   %147 = getelementptr inbounds nuw i8, ptr %93, i64 40
-  store float %146, ptr %147, align 4, !tbaa !130
+  store float %146, ptr %147, align 4, !tbaa !129
   %148 = fmul float %.0141221, %.sroa.0.0.vec.extract.i147
   %149 = fmul float %.0141221, %.sroa.0.4.vec.extract.i148
   %150 = fsub float %.sroa.01.0.vec.extract.i173, %149
@@ -273,10 +273,10 @@ define hidden void @b2PrepareOverflowContacts(ptr noundef readonly captures(none
   %159 = fmul float %.sroa.0.4.vec.extract.i, %157
   %160 = fadd float %158, %159
   %161 = getelementptr inbounds nuw i8, ptr %93, i64 20
-  store float %160, ptr %161, align 4, !tbaa !131
+  store float %160, ptr %161, align 4, !tbaa !130
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %91, !llvm.loop !132
+  br i1 %exitcond.not, label %._crit_edge, label %91, !llvm.loop !131
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
@@ -300,9 +300,9 @@ define hidden void @b2WarmStartOverflowContacts(ptr noundef readonly captures(no
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %9 = load ptr, ptr %8, align 8, !tbaa !3
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 1072
-  %.val = load ptr, ptr %10, align 8, !tbaa !133
+  %.val = load ptr, ptr %10, align 8, !tbaa !132
   %11 = getelementptr inbounds nuw i8, ptr %.val, i64 192
-  %12 = load ptr, ptr %11, align 8, !tbaa !134
+  %12 = load ptr, ptr %11, align 8, !tbaa !133
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %.sroa.0)
   store i64 0, ptr %.sroa.0, align 8
   %13 = icmp sgt i32 %7, 0
@@ -404,7 +404,7 @@ define hidden void @b2WarmStartOverflowContacts(ptr noundef readonly captures(no
   %.sroa.5.1 = phi float [ %.sroa.5.2, %.else ], [ %46, %.cont105 ]
   %indvars.iv.next128 = add nuw nsw i64 %indvars.iv127, 1
   %exitcond131.not = icmp eq i64 %indvars.iv.next128, %wide.trip.count130
-  br i1 %exitcond131.not, label %._crit_edge124, label %.lr.ph123, !llvm.loop !140
+  br i1 %exitcond131.not, label %._crit_edge124, label %.lr.ph123, !llvm.loop !139
 
 47:                                               ; preds = %.lr.ph, %47
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %47 ]
@@ -417,11 +417,11 @@ define hidden void @b2WarmStartOverflowContacts(ptr noundef readonly captures(no
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 8
   %.sroa.08.0.copyload = load <2 x float>, ptr %49, align 4
   %50 = getelementptr inbounds nuw i8, ptr %48, i64 24
-  %51 = load float, ptr %50, align 4, !tbaa !122
+  %51 = load float, ptr %50, align 4, !tbaa !121
   %52 = fmul float %.sroa.0.0.vec.extract.i, %51
   %53 = fmul float %.sroa.0.4.vec.extract.i, %51
   %54 = getelementptr inbounds nuw i8, ptr %48, i64 28
-  %55 = load float, ptr %54, align 4, !tbaa !125
+  %55 = load float, ptr %54, align 4, !tbaa !124
   %56 = fmul float %.sroa.0.4.vec.extract.i, %55
   %57 = fadd float %52, %56
   %58 = fmul float %.sroa.0.0.vec.extract.i, %55
@@ -458,7 +458,7 @@ define hidden void @b2WarmStartOverflowContacts(ptr noundef readonly captures(no
   %.sroa.03.4.vec.insert.i98 = insertelement <2 x float> %.sroa.03.0.vec.insert.i95, float %77, i64 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %47, !llvm.loop !141
+  br i1 %exitcond.not, label %._crit_edge, label %47, !llvm.loop !140
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
@@ -475,13 +475,13 @@ define hidden void @b2SolveOverflowContacts(ptr noundef readonly captures(none) 
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %10 = load ptr, ptr %9, align 8, !tbaa !3
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 1072
-  %.val = load ptr, ptr %11, align 8, !tbaa !133
+  %.val = load ptr, ptr %11, align 8, !tbaa !132
   %12 = getelementptr inbounds nuw i8, ptr %.val, i64 192
-  %13 = load ptr, ptr %12, align 8, !tbaa !134
+  %13 = load ptr, ptr %12, align 8, !tbaa !133
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %15 = load float, ptr %14, align 4, !tbaa !142
+  %15 = load float, ptr %14, align 4, !tbaa !141
   %16 = getelementptr inbounds nuw i8, ptr %10, i64 1552
-  %17 = load float, ptr %16, align 8, !tbaa !143
+  %17 = load float, ptr %16, align 8, !tbaa !142
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %.sroa.0)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %.sroa.7345)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %.sroa.9)
@@ -632,7 +632,7 @@ define hidden void @b2SolveOverflowContacts(ptr noundef readonly captures(none) 
   %85 = fmul float %.sroa.0.4.vec.extract.i198, %83
   %86 = fadd float %84, %85
   %87 = getelementptr inbounds nuw i8, ptr %62, i64 16
-  %88 = load float, ptr %87, align 4, !tbaa !128
+  %88 = load float, ptr %87, align 4, !tbaa !127
   %89 = fadd float %88, %86
   %90 = fcmp ogt float %89, 0.000000e+00
   br i1 %90, label %91, label %93
@@ -672,25 +672,25 @@ define hidden void @b2SolveOverflowContacts(ptr noundef readonly captures(none) 
   %110 = fmul float %.sroa.0.4.vec.extract.i198, %108
   %111 = fadd float %109, %110
   %112 = getelementptr inbounds nuw i8, ptr %62, i64 36
-  %113 = load float, ptr %112, align 4, !tbaa !129
+  %113 = load float, ptr %112, align 4, !tbaa !128
   %114 = fneg float %113
   %115 = fmul float %.0190, %114
   %116 = fadd float %111, %.0189
   %117 = fmul float %116, %115
   %118 = getelementptr inbounds nuw i8, ptr %62, i64 24
-  %119 = load float, ptr %118, align 4, !tbaa !122
+  %119 = load float, ptr %118, align 4, !tbaa !121
   %120 = fmul float %.0191, %119
   %121 = fsub float %117, %120
   %122 = fadd float %119, %121
   %123 = fcmp ogt float %122, 0.000000e+00
   %124 = select i1 %123, float %122, float 0.000000e+00
   %125 = fsub float %124, %119
-  store float %124, ptr %118, align 4, !tbaa !122
+  store float %124, ptr %118, align 4, !tbaa !121
   %126 = getelementptr inbounds nuw i8, ptr %62, i64 32
-  %127 = load float, ptr %126, align 4, !tbaa !126
+  %127 = load float, ptr %126, align 4, !tbaa !125
   %128 = fcmp ogt float %127, %125
   %129 = select i1 %128, float %127, float %125
-  store float %129, ptr %126, align 4, !tbaa !126
+  store float %129, ptr %126, align 4, !tbaa !125
   %130 = fadd float %.0187356, %124
   %131 = fmul float %.sroa.0.0.vec.extract.i199, %125
   %132 = fmul float %.sroa.0.4.vec.extract.i198, %125
@@ -718,7 +718,7 @@ define hidden void @b2SolveOverflowContacts(ptr noundef readonly captures(none) 
   %150 = fadd float %.0185357, %149
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.lr.ph370, label %61, !llvm.loop !144
+  br i1 %exitcond.not, label %.lr.ph370, label %61, !llvm.loop !143
 
 ._crit_edge:                                      ; preds = %171, %.cont346
   %.0187.lcssa400 = phi float [ 0.000000e+00, %.cont346 ], [ %130, %171 ]
@@ -767,7 +767,7 @@ define hidden void @b2SolveOverflowContacts(ptr noundef readonly captures(none) 
   %.sroa.5.1 = phi float [ %.sroa.5.2, %.else ], [ %170, %.cont348 ]
   %indvars.iv.next391 = add nuw nsw i64 %indvars.iv390, 1
   %exitcond394.not = icmp eq i64 %indvars.iv.next391, %wide.trip.count393
-  br i1 %exitcond394.not, label %._crit_edge379, label %20, !llvm.loop !145
+  br i1 %exitcond394.not, label %._crit_edge379, label %20, !llvm.loop !144
 
 171:                                              ; preds = %.lr.ph370, %171
   %indvars.iv385 = phi i64 [ 0, %.lr.ph370 ], [ %indvars.iv.next386, %171 ]
@@ -802,12 +802,12 @@ define hidden void @b2SolveOverflowContacts(ptr noundef readonly captures(none) 
   %186 = fsub float %184, %185
   %187 = fsub float %186, %60
   %188 = getelementptr inbounds nuw i8, ptr %172, i64 40
-  %189 = load float, ptr %188, align 4, !tbaa !130
+  %189 = load float, ptr %188, align 4, !tbaa !129
   %190 = getelementptr inbounds nuw i8, ptr %172, i64 24
-  %191 = load float, ptr %190, align 4, !tbaa !122
+  %191 = load float, ptr %190, align 4, !tbaa !121
   %192 = fmul float %52, %191
   %193 = getelementptr inbounds nuw i8, ptr %172, i64 28
-  %194 = load float, ptr %193, align 4, !tbaa !125
+  %194 = load float, ptr %193, align 4, !tbaa !124
   %195 = fmul float %189, %187
   %196 = fsub float %194, %195
   %197 = fneg float %192
@@ -816,7 +816,7 @@ define hidden void @b2SolveOverflowContacts(ptr noundef readonly captures(none) 
   %200 = select i1 %199, float %192, float %196
   %201 = select i1 %198, float %197, float %200
   %202 = fsub float %201, %194
-  store float %201, ptr %193, align 4, !tbaa !125
+  store float %201, ptr %193, align 4, !tbaa !124
   %203 = fmul float %.sroa.0.4.vec.extract.i198, %202
   %204 = fmul float %202, %50
   %205 = fmul float %23, %203
@@ -843,7 +843,7 @@ define hidden void @b2SolveOverflowContacts(ptr noundef readonly captures(none) 
   %222 = fadd float %.1186366, %221
   %indvars.iv.next386 = add nuw nsw i64 %indvars.iv385, 1
   %exitcond389.not = icmp eq i64 %indvars.iv.next386, %wide.trip.count388
-  br i1 %exitcond389.not, label %._crit_edge, label %171, !llvm.loop !146
+  br i1 %exitcond389.not, label %._crit_edge, label %171, !llvm.loop !145
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
@@ -858,11 +858,11 @@ define hidden void @b2ApplyOverflowRestitution(ptr noundef readonly captures(non
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %9 = load ptr, ptr %8, align 8, !tbaa !3
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 1072
-  %.val = load ptr, ptr %10, align 8, !tbaa !133
+  %.val = load ptr, ptr %10, align 8, !tbaa !132
   %11 = getelementptr inbounds nuw i8, ptr %.val, i64 192
-  %12 = load ptr, ptr %11, align 8, !tbaa !134
+  %12 = load ptr, ptr %11, align 8, !tbaa !133
   %13 = getelementptr inbounds nuw i8, ptr %9, i64 1544
-  %14 = load float, ptr %13, align 8, !tbaa !147
+  %14 = load float, ptr %13, align 8, !tbaa !146
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %.sroa.0)
   store i64 0, ptr %.sroa.0, align 8
   %15 = icmp sgt i32 %7, 0
@@ -969,13 +969,13 @@ define hidden void @b2ApplyOverflowRestitution(ptr noundef readonly captures(non
   %.091155 = phi float [ %43, %.lr.ph ], [ %.192, %106 ]
   %50 = getelementptr inbounds nuw %struct.b2ContactConstraintPoint, ptr %48, i64 %indvars.iv
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 20
-  %52 = load float, ptr %51, align 4, !tbaa !131
+  %52 = load float, ptr %51, align 4, !tbaa !130
   %53 = fcmp ogt float %52, %16
   br i1 %53, label %106, label %54
 
 54:                                               ; preds = %49
   %55 = getelementptr inbounds nuw i8, ptr %50, i64 32
-  %56 = load float, ptr %55, align 4, !tbaa !126
+  %56 = load float, ptr %55, align 4, !tbaa !125
   %57 = fcmp oeq float %56, 0.000000e+00
   br i1 %57, label %106, label %58
 
@@ -1005,20 +1005,20 @@ define hidden void @b2ApplyOverflowRestitution(ptr noundef readonly captures(non
   %71 = fmul float %.sroa.0.4.vec.extract.i120, %69
   %72 = fadd float %70, %71
   %73 = getelementptr inbounds nuw i8, ptr %50, i64 36
-  %74 = load float, ptr %73, align 4, !tbaa !129
+  %74 = load float, ptr %73, align 4, !tbaa !128
   %75 = fmul float %20, %52
   %76 = fadd float %75, %72
   %77 = getelementptr inbounds nuw i8, ptr %50, i64 24
-  %78 = load float, ptr %77, align 4, !tbaa !122
+  %78 = load float, ptr %77, align 4, !tbaa !121
   %79 = fmul float %74, %76
   %80 = fsub float %78, %79
   %81 = fcmp ogt float %80, 0.000000e+00
   %82 = select i1 %81, float %80, float 0.000000e+00
   %83 = fsub float %82, %78
-  store float %82, ptr %77, align 4, !tbaa !122
+  store float %82, ptr %77, align 4, !tbaa !121
   %84 = fcmp ogt float %56, %83
   %85 = select i1 %84, float %56, float %83
-  store float %85, ptr %55, align 4, !tbaa !126
+  store float %85, ptr %55, align 4, !tbaa !125
   %86 = fmul float %.sroa.0.0.vec.extract.i118, %83
   %87 = fmul float %.sroa.0.4.vec.extract.i120, %83
   %88 = fmul float %24, %86
@@ -1052,13 +1052,13 @@ define hidden void @b2ApplyOverflowRestitution(ptr noundef readonly captures(non
   %.sroa.049.1 = phi <2 x float> [ %.sroa.03.4.vec.insert.i, %58 ], [ %.sroa.049.0158, %54 ], [ %.sroa.049.0158, %49 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %49, !llvm.loop !148
+  br i1 %exitcond.not, label %._crit_edge, label %49, !llvm.loop !147
 
 .cont:                                            ; preds = %.else, %.cont147, %17
   %.sroa.5.1 = phi float [ %.sroa.5.0162, %17 ], [ %.sroa.5.3, %.else ], [ %.091.lcssa, %.cont147 ]
   %indvars.iv.next169 = add nuw nsw i64 %indvars.iv168, 1
   %exitcond172.not = icmp eq i64 %indvars.iv.next169, %wide.trip.count171
-  br i1 %exitcond172.not, label %._crit_edge166, label %17, !llvm.loop !149
+  br i1 %exitcond172.not, label %._crit_edge166, label %17, !llvm.loop !148
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
@@ -1103,31 +1103,31 @@ define hidden void @b2StoreOverflowImpulses(ptr noundef readonly captures(none) 
   store float %19, ptr %20, align 4, !tbaa !100
   %indvars.iv.next42 = add nuw nsw i64 %indvars.iv41, 1
   %exitcond45.not = icmp eq i64 %indvars.iv.next42, %wide.trip.count44
-  br i1 %exitcond45.not, label %._crit_edge39, label %.lr.ph38, !llvm.loop !150
+  br i1 %exitcond45.not, label %._crit_edge39, label %.lr.ph38, !llvm.loop !149
 
 21:                                               ; preds = %.lr.ph, %21
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %21 ]
   %22 = getelementptr inbounds nuw [2 x %struct.b2ContactConstraintPoint], ptr %16, i64 0, i64 %indvars.iv
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 24
-  %24 = load float, ptr %23, align 4, !tbaa !122
+  %24 = load float, ptr %23, align 4, !tbaa !121
   %25 = getelementptr inbounds nuw [2 x %struct.b2ManifoldPoint], ptr %17, i64 0, i64 %indvars.iv
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 28
-  store float %24, ptr %26, align 4, !tbaa !120
+  store float %24, ptr %26, align 4, !tbaa !119
   %27 = getelementptr inbounds nuw i8, ptr %22, i64 28
-  %28 = load float, ptr %27, align 4, !tbaa !125
+  %28 = load float, ptr %27, align 4, !tbaa !124
   %29 = getelementptr inbounds nuw i8, ptr %25, i64 32
-  store float %28, ptr %29, align 4, !tbaa !124
+  store float %28, ptr %29, align 4, !tbaa !123
   %30 = getelementptr inbounds nuw i8, ptr %22, i64 32
-  %31 = load float, ptr %30, align 4, !tbaa !126
+  %31 = load float, ptr %30, align 4, !tbaa !125
   %32 = getelementptr inbounds nuw i8, ptr %25, i64 36
-  store float %31, ptr %32, align 4, !tbaa !151
+  store float %31, ptr %32, align 4, !tbaa !150
   %33 = getelementptr inbounds nuw i8, ptr %22, i64 20
-  %34 = load float, ptr %33, align 4, !tbaa !131
+  %34 = load float, ptr %33, align 4, !tbaa !130
   %35 = getelementptr inbounds nuw i8, ptr %25, i64 40
-  store float %34, ptr %35, align 4, !tbaa !152
+  store float %34, ptr %35, align 4, !tbaa !151
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %21, !llvm.loop !153
+  br i1 %exitcond.not, label %._crit_edge, label %21, !llvm.loop !152
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
@@ -1140,9 +1140,9 @@ define hidden void @b2PrepareContactsTask(i32 noundef %0, i32 noundef %1, ptr no
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 64
   %5 = load ptr, ptr %4, align 8, !tbaa !3
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 136
-  %7 = load ptr, ptr %6, align 8, !tbaa !154
+  %7 = load ptr, ptr %6, align 8, !tbaa !153
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 144
-  %9 = load ptr, ptr %8, align 8, !tbaa !155
+  %9 = load ptr, ptr %8, align 8, !tbaa !154
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %11 = load ptr, ptr %10, align 8, !tbaa !34
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 32
@@ -1220,12 +1220,12 @@ define hidden void @b2PrepareContactsTask(i32 noundef %0, i32 noundef %1, ptr no
 59:                                               ; preds = %316
   %indvars.iv.next475 = add nsw i64 %indvars.iv474, 1
   %exitcond477.not = icmp eq i64 %indvars.iv.next475, %wide.trip.count
-  br i1 %exitcond477.not, label %._crit_edge, label %.lr.ph, !llvm.loop !156
+  br i1 %exitcond477.not, label %._crit_edge, label %.lr.ph, !llvm.loop !155
 
 60:                                               ; preds = %.lr.ph, %316
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %316 ]
   %gep = getelementptr ptr, ptr %invariant.gep, i64 %indvars.iv
-  %61 = load ptr, ptr %gep, align 8, !tbaa !157
+  %61 = load ptr, ptr %gep, align 8, !tbaa !156
   %.not = icmp eq ptr %61, null
   br i1 %.not, label %277, label %62
 
@@ -1236,9 +1236,9 @@ define hidden void @b2PrepareContactsTask(i32 noundef %0, i32 noundef %1, ptr no
   %66 = getelementptr inbounds nuw i8, ptr %61, i64 8
   %67 = load i32, ptr %66, align 4, !tbaa !90
   %68 = getelementptr inbounds nuw [4 x i32], ptr %20, i64 0, i64 %indvars.iv
-  store i32 %65, ptr %68, align 4, !tbaa !158
+  store i32 %65, ptr %68, align 4, !tbaa !157
   %69 = getelementptr inbounds nuw [4 x i32], ptr %21, i64 0, i64 %indvars.iv
-  store i32 %67, ptr %69, align 4, !tbaa !158
+  store i32 %67, ptr %69, align 4, !tbaa !157
   %70 = getelementptr inbounds nuw i8, ptr %61, i64 20
   %71 = load float, ptr %70, align 4, !tbaa !105
   %72 = getelementptr inbounds nuw i8, ptr %61, i64 24
@@ -1345,7 +1345,7 @@ define hidden void @b2PrepareContactsTask(i32 noundef %0, i32 noundef %1, ptr no
   %126 = getelementptr inbounds nuw float, ptr %40, i64 %indvars.iv
   store float %.sroa.051.4.vec.extract, ptr %126, align 4, !tbaa !24
   %127 = getelementptr inbounds nuw i8, ptr %61, i64 72
-  %128 = load float, ptr %127, align 4, !tbaa !127
+  %128 = load float, ptr %127, align 4, !tbaa !126
   %129 = fsub <2 x float> %.sroa.051.0.copyload, %.sroa.056.0.copyload
   %130 = fsub float %.sroa.051.4.vec.extract, %.sroa.056.4.vec.extract
   %131 = fmul <2 x float> %.sroa.070.0.copyload, %129
@@ -1356,12 +1356,12 @@ define hidden void @b2PrepareContactsTask(i32 noundef %0, i32 noundef %1, ptr no
   %136 = getelementptr inbounds nuw float, ptr %41, i64 %indvars.iv
   store float %135, ptr %136, align 4, !tbaa !24
   %137 = getelementptr inbounds nuw i8, ptr %61, i64 76
-  %138 = load float, ptr %137, align 4, !tbaa !120
+  %138 = load float, ptr %137, align 4, !tbaa !119
   %139 = fmul float %17, %138
   %140 = getelementptr inbounds nuw float, ptr %42, i64 %indvars.iv
   store float %139, ptr %140, align 4, !tbaa !24
   %141 = getelementptr inbounds nuw i8, ptr %61, i64 80
-  %142 = load float, ptr %141, align 4, !tbaa !124
+  %142 = load float, ptr %141, align 4, !tbaa !123
   %143 = fmul float %17, %142
   %144 = getelementptr inbounds nuw float, ptr %43, i64 %indvars.iv
   store float %143, ptr %144, align 4, !tbaa !24
@@ -1444,7 +1444,7 @@ define hidden void @b2PrepareContactsTask(i32 noundef %0, i32 noundef %1, ptr no
   %.sroa.018.4.vec.extract = extractelement <2 x float> %.sroa.018.0.copyload, i64 1
   store float %.sroa.018.4.vec.extract, ptr %196, align 4, !tbaa !24
   %203 = getelementptr inbounds nuw i8, ptr %61, i64 120
-  %204 = load float, ptr %203, align 4, !tbaa !127
+  %204 = load float, ptr %203, align 4, !tbaa !126
   %205 = fsub <2 x float> %.sroa.018.0.copyload, %.sroa.023.0.copyload
   %206 = fsub float %.sroa.018.4.vec.extract, %.sroa.023.4.vec.extract
   %207 = fmul <2 x float> %.sroa.070.0.copyload, %205
@@ -1455,12 +1455,12 @@ define hidden void @b2PrepareContactsTask(i32 noundef %0, i32 noundef %1, ptr no
   %212 = getelementptr inbounds nuw float, ptr %48, i64 %indvars.iv
   store float %211, ptr %212, align 4, !tbaa !24
   %213 = getelementptr inbounds nuw i8, ptr %61, i64 124
-  %214 = load float, ptr %213, align 4, !tbaa !120
+  %214 = load float, ptr %213, align 4, !tbaa !119
   %215 = fmul float %17, %214
   %216 = getelementptr inbounds nuw float, ptr %49, i64 %indvars.iv
   store float %215, ptr %216, align 4, !tbaa !24
   %217 = getelementptr inbounds nuw i8, ptr %61, i64 128
-  %218 = load float, ptr %217, align 4, !tbaa !124
+  %218 = load float, ptr %217, align 4, !tbaa !123
   %219 = fmul float %17, %218
   %220 = getelementptr inbounds nuw float, ptr %50, i64 %indvars.iv
   store float %219, ptr %220, align 4, !tbaa !24
@@ -1539,9 +1539,9 @@ define hidden void @b2PrepareContactsTask(i32 noundef %0, i32 noundef %1, ptr no
 
 277:                                              ; preds = %60
   %278 = getelementptr inbounds nuw [4 x i32], ptr %20, i64 0, i64 %indvars.iv
-  store i32 -1, ptr %278, align 4, !tbaa !158
+  store i32 -1, ptr %278, align 4, !tbaa !157
   %279 = getelementptr inbounds nuw [4 x i32], ptr %21, i64 0, i64 %indvars.iv
-  store i32 -1, ptr %279, align 4, !tbaa !158
+  store i32 -1, ptr %279, align 4, !tbaa !157
   %280 = getelementptr inbounds nuw float, ptr %22, i64 %indvars.iv
   store float 0.000000e+00, ptr %280, align 4, !tbaa !24
   %281 = getelementptr inbounds nuw float, ptr %23, i64 %indvars.iv
@@ -1622,7 +1622,7 @@ define hidden void @b2PrepareContactsTask(i32 noundef %0, i32 noundef %1, ptr no
   store float %.sink, ptr %317, align 4, !tbaa !24
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %59, label %60, !llvm.loop !159
+  br i1 %exitcond.not, label %59, label %60, !llvm.loop !158
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind uwtable
@@ -1648,55 +1648,55 @@ define hidden void @b2WarmStartContactsTask(i32 noundef %0, i32 noundef %1, ptr 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %b2ScatterBodies.exit85
   %indvars.iv = phi i64 [ %13, %.lr.ph.preheader ], [ %indvars.iv.next, %b2ScatterBodies.exit85 ]
   %14 = getelementptr inbounds %struct.b2ContactConstraintSIMD, ptr %11, i64 %indvars.iv
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !160)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !163)
-  %15 = load i32, ptr %14, align 4, !tbaa !158, !alias.scope !163, !noalias !165
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !159)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !162)
+  %15 = load i32, ptr %14, align 4, !tbaa !157, !alias.scope !162, !noalias !164
   %16 = icmp eq i32 %15, -1
   br i1 %16, label %.thread.i, label %17
 
 17:                                               ; preds = %.lr.ph
   %18 = sext i32 %15 to i64
   %19 = getelementptr inbounds %struct.b2BodyState, ptr %6, i64 %18
-  %.val.i = load <4 x float>, ptr %19, align 16, !tbaa !24, !alias.scope !160, !noalias !167
+  %.val.i = load <4 x float>, ptr %19, align 16, !tbaa !24, !alias.scope !159, !noalias !166
   br label %.thread.i
 
 .thread.i:                                        ; preds = %17, %.lr.ph
   %20 = phi <4 x float> [ %.val.i, %17 ], [ zeroinitializer, %.lr.ph ]
   %21 = getelementptr inbounds nuw i8, ptr %14, i64 4
-  %22 = load i32, ptr %21, align 4, !tbaa !158, !alias.scope !163, !noalias !165
+  %22 = load i32, ptr %21, align 4, !tbaa !157, !alias.scope !162, !noalias !164
   %23 = icmp eq i32 %22, -1
   br i1 %23, label %.thread77.i, label %24
 
 24:                                               ; preds = %.thread.i
   %25 = sext i32 %22 to i64
   %26 = getelementptr inbounds %struct.b2BodyState, ptr %6, i64 %25
-  %.val71.i = load <4 x float>, ptr %26, align 16, !tbaa !24, !alias.scope !160, !noalias !167
+  %.val71.i = load <4 x float>, ptr %26, align 16, !tbaa !24, !alias.scope !159, !noalias !166
   br label %.thread77.i
 
 .thread77.i:                                      ; preds = %24, %.thread.i
   %27 = phi <4 x float> [ %.val71.i, %24 ], [ zeroinitializer, %.thread.i ]
   %28 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %29 = load i32, ptr %28, align 4, !tbaa !158, !alias.scope !163, !noalias !165
+  %29 = load i32, ptr %28, align 4, !tbaa !157, !alias.scope !162, !noalias !164
   %30 = icmp eq i32 %29, -1
   br i1 %30, label %.thread78.i, label %31
 
 31:                                               ; preds = %.thread77.i
   %32 = sext i32 %29 to i64
   %33 = getelementptr inbounds %struct.b2BodyState, ptr %6, i64 %32
-  %.val73.i = load <4 x float>, ptr %33, align 16, !tbaa !24, !alias.scope !160, !noalias !167
+  %.val73.i = load <4 x float>, ptr %33, align 16, !tbaa !24, !alias.scope !159, !noalias !166
   br label %.thread78.i
 
 .thread78.i:                                      ; preds = %31, %.thread77.i
   %34 = phi <4 x float> [ %.val73.i, %31 ], [ zeroinitializer, %.thread77.i ]
   %35 = getelementptr inbounds nuw i8, ptr %14, i64 12
-  %36 = load i32, ptr %35, align 4, !tbaa !158, !alias.scope !163, !noalias !165
+  %36 = load i32, ptr %35, align 4, !tbaa !157, !alias.scope !162, !noalias !164
   %37 = icmp eq i32 %36, -1
   br i1 %37, label %b2GatherBodies.exit, label %38
 
 38:                                               ; preds = %.thread78.i
   %39 = sext i32 %36 to i64
   %40 = getelementptr inbounds %struct.b2BodyState, ptr %6, i64 %39
-  %.val75.i = load <4 x float>, ptr %40, align 16, !tbaa !24, !alias.scope !160, !noalias !167
+  %.val75.i = load <4 x float>, ptr %40, align 16, !tbaa !24, !alias.scope !159, !noalias !166
   br label %b2GatherBodies.exit
 
 b2GatherBodies.exit:                              ; preds = %.thread78.i, %38
@@ -1710,55 +1710,55 @@ b2GatherBodies.exit:                              ; preds = %.thread78.i, %38
   %48 = shufflevector <4 x float> %44, <4 x float> %45, <4 x i32> <i32 0, i32 4, i32 1, i32 5>
   %49 = shufflevector <4 x float> %44, <4 x float> %45, <4 x i32> <i32 2, i32 6, i32 3, i32 7>
   %50 = getelementptr inbounds nuw i8, ptr %14, i64 16
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !168)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !171)
-  %51 = load i32, ptr %50, align 4, !tbaa !158, !alias.scope !171, !noalias !173
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !167)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !170)
+  %51 = load i32, ptr %50, align 4, !tbaa !157, !alias.scope !170, !noalias !172
   %52 = icmp eq i32 %51, -1
   br i1 %52, label %.thread.i71, label %53
 
 53:                                               ; preds = %b2GatherBodies.exit
   %54 = sext i32 %51 to i64
   %55 = getelementptr inbounds %struct.b2BodyState, ptr %6, i64 %54
-  %.val.i69 = load <4 x float>, ptr %55, align 16, !tbaa !24, !alias.scope !168, !noalias !175
+  %.val.i69 = load <4 x float>, ptr %55, align 16, !tbaa !24, !alias.scope !167, !noalias !174
   br label %.thread.i71
 
 .thread.i71:                                      ; preds = %53, %b2GatherBodies.exit
   %56 = phi <4 x float> [ %.val.i69, %53 ], [ zeroinitializer, %b2GatherBodies.exit ]
   %57 = getelementptr inbounds nuw i8, ptr %14, i64 20
-  %58 = load i32, ptr %57, align 4, !tbaa !158, !alias.scope !171, !noalias !173
+  %58 = load i32, ptr %57, align 4, !tbaa !157, !alias.scope !170, !noalias !172
   %59 = icmp eq i32 %58, -1
   br i1 %59, label %.thread77.i74, label %60
 
 60:                                               ; preds = %.thread.i71
   %61 = sext i32 %58 to i64
   %62 = getelementptr inbounds %struct.b2BodyState, ptr %6, i64 %61
-  %.val71.i72 = load <4 x float>, ptr %62, align 16, !tbaa !24, !alias.scope !168, !noalias !175
+  %.val71.i72 = load <4 x float>, ptr %62, align 16, !tbaa !24, !alias.scope !167, !noalias !174
   br label %.thread77.i74
 
 .thread77.i74:                                    ; preds = %60, %.thread.i71
   %63 = phi <4 x float> [ %.val71.i72, %60 ], [ zeroinitializer, %.thread.i71 ]
   %64 = getelementptr inbounds nuw i8, ptr %14, i64 24
-  %65 = load i32, ptr %64, align 4, !tbaa !158, !alias.scope !171, !noalias !173
+  %65 = load i32, ptr %64, align 4, !tbaa !157, !alias.scope !170, !noalias !172
   %66 = icmp eq i32 %65, -1
   br i1 %66, label %.thread78.i77, label %67
 
 67:                                               ; preds = %.thread77.i74
   %68 = sext i32 %65 to i64
   %69 = getelementptr inbounds %struct.b2BodyState, ptr %6, i64 %68
-  %.val73.i75 = load <4 x float>, ptr %69, align 16, !tbaa !24, !alias.scope !168, !noalias !175
+  %.val73.i75 = load <4 x float>, ptr %69, align 16, !tbaa !24, !alias.scope !167, !noalias !174
   br label %.thread78.i77
 
 .thread78.i77:                                    ; preds = %67, %.thread77.i74
   %70 = phi <4 x float> [ %.val73.i75, %67 ], [ zeroinitializer, %.thread77.i74 ]
   %71 = getelementptr inbounds nuw i8, ptr %14, i64 28
-  %72 = load i32, ptr %71, align 4, !tbaa !158, !alias.scope !171, !noalias !173
+  %72 = load i32, ptr %71, align 4, !tbaa !157, !alias.scope !170, !noalias !172
   %73 = icmp eq i32 %72, -1
   br i1 %73, label %b2GatherBodies.exit80, label %74
 
 74:                                               ; preds = %.thread78.i77
   %75 = sext i32 %72 to i64
   %76 = getelementptr inbounds %struct.b2BodyState, ptr %6, i64 %75
-  %.val75.i78 = load <4 x float>, ptr %76, align 16, !tbaa !24, !alias.scope !168, !noalias !175
+  %.val75.i78 = load <4 x float>, ptr %76, align 16, !tbaa !24, !alias.scope !167, !noalias !174
   br label %b2GatherBodies.exit80
 
 b2GatherBodies.exit80:                            ; preds = %.thread78.i77, %74
@@ -1872,7 +1872,7 @@ b2GatherBodies.exit80:                            ; preds = %.thread78.i77, %74
   %170 = sext i32 %15 to i64
   %171 = getelementptr inbounds %struct.b2BodyState, ptr %6, i64 %170
   %172 = shufflevector <4 x float> %165, <4 x float> %167, <4 x i32> <i32 0, i32 1, i32 4, i32 5>
-  store <4 x float> %172, ptr %171, align 16, !tbaa !24, !alias.scope !176, !noalias !179
+  store <4 x float> %172, ptr %171, align 16, !tbaa !24, !alias.scope !175, !noalias !178
   br label %173
 
 173:                                              ; preds = %169, %b2GatherBodies.exit80
@@ -1882,7 +1882,7 @@ b2GatherBodies.exit80:                            ; preds = %.thread78.i77, %74
   %175 = sext i32 %22 to i64
   %176 = getelementptr inbounds %struct.b2BodyState, ptr %6, i64 %175
   %177 = shufflevector <4 x float> %165, <4 x float> %167, <4 x i32> <i32 2, i32 3, i32 6, i32 7>
-  store <4 x float> %177, ptr %176, align 16, !tbaa !24, !alias.scope !176, !noalias !179
+  store <4 x float> %177, ptr %176, align 16, !tbaa !24, !alias.scope !175, !noalias !178
   br label %178
 
 178:                                              ; preds = %174, %173
@@ -1892,7 +1892,7 @@ b2GatherBodies.exit80:                            ; preds = %.thread78.i77, %74
   %180 = sext i32 %29 to i64
   %181 = getelementptr inbounds %struct.b2BodyState, ptr %6, i64 %180
   %182 = shufflevector <4 x float> %166, <4 x float> %168, <4 x i32> <i32 0, i32 1, i32 4, i32 5>
-  store <4 x float> %182, ptr %181, align 16, !tbaa !24, !alias.scope !176, !noalias !179
+  store <4 x float> %182, ptr %181, align 16, !tbaa !24, !alias.scope !175, !noalias !178
   br label %183
 
 183:                                              ; preds = %179, %178
@@ -1902,17 +1902,17 @@ b2GatherBodies.exit80:                            ; preds = %.thread78.i77, %74
   %185 = sext i32 %36 to i64
   %186 = getelementptr inbounds %struct.b2BodyState, ptr %6, i64 %185
   %187 = shufflevector <4 x float> %166, <4 x float> %168, <4 x i32> <i32 2, i32 3, i32 6, i32 7>
-  store <4 x float> %187, ptr %186, align 16, !tbaa !24, !alias.scope !176, !noalias !179
+  store <4 x float> %187, ptr %186, align 16, !tbaa !24, !alias.scope !175, !noalias !178
   br label %b2ScatterBodies.exit
 
 b2ScatterBodies.exit:                             ; preds = %183, %184
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !182)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !185)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !181)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !184)
   %188 = shufflevector <4 x float> %156, <4 x float> %158, <4 x i32> <i32 0, i32 4, i32 1, i32 5>
   %189 = shufflevector <4 x float> %156, <4 x float> %158, <4 x i32> <i32 2, i32 6, i32 3, i32 7>
   %190 = shufflevector <4 x float> %164, <4 x float> %85, <4 x i32> <i32 0, i32 4, i32 1, i32 5>
   %191 = shufflevector <4 x float> %164, <4 x float> %85, <4 x i32> <i32 2, i32 6, i32 3, i32 7>
-  %192 = load i32, ptr %50, align 4, !tbaa !158, !alias.scope !185, !noalias !187
+  %192 = load i32, ptr %50, align 4, !tbaa !157, !alias.scope !184, !noalias !186
   %.not.i81 = icmp eq i32 %192, -1
   br i1 %.not.i81, label %197, label %193
 
@@ -1920,11 +1920,11 @@ b2ScatterBodies.exit:                             ; preds = %183, %184
   %194 = sext i32 %192 to i64
   %195 = getelementptr inbounds %struct.b2BodyState, ptr %6, i64 %194
   %196 = shufflevector <4 x float> %188, <4 x float> %190, <4 x i32> <i32 0, i32 1, i32 4, i32 5>
-  store <4 x float> %196, ptr %195, align 16, !tbaa !24, !alias.scope !182, !noalias !189
+  store <4 x float> %196, ptr %195, align 16, !tbaa !24, !alias.scope !181, !noalias !188
   br label %197
 
 197:                                              ; preds = %193, %b2ScatterBodies.exit
-  %198 = load i32, ptr %57, align 4, !tbaa !158, !alias.scope !185, !noalias !187
+  %198 = load i32, ptr %57, align 4, !tbaa !157, !alias.scope !184, !noalias !186
   %.not30.i82 = icmp eq i32 %198, -1
   br i1 %.not30.i82, label %203, label %199
 
@@ -1932,11 +1932,11 @@ b2ScatterBodies.exit:                             ; preds = %183, %184
   %200 = sext i32 %198 to i64
   %201 = getelementptr inbounds %struct.b2BodyState, ptr %6, i64 %200
   %202 = shufflevector <4 x float> %188, <4 x float> %190, <4 x i32> <i32 2, i32 3, i32 6, i32 7>
-  store <4 x float> %202, ptr %201, align 16, !tbaa !24, !alias.scope !182, !noalias !189
+  store <4 x float> %202, ptr %201, align 16, !tbaa !24, !alias.scope !181, !noalias !188
   br label %203
 
 203:                                              ; preds = %199, %197
-  %204 = load i32, ptr %64, align 4, !tbaa !158, !alias.scope !185, !noalias !187
+  %204 = load i32, ptr %64, align 4, !tbaa !157, !alias.scope !184, !noalias !186
   %.not31.i83 = icmp eq i32 %204, -1
   br i1 %.not31.i83, label %209, label %205
 
@@ -1944,11 +1944,11 @@ b2ScatterBodies.exit:                             ; preds = %183, %184
   %206 = sext i32 %204 to i64
   %207 = getelementptr inbounds %struct.b2BodyState, ptr %6, i64 %206
   %208 = shufflevector <4 x float> %189, <4 x float> %191, <4 x i32> <i32 0, i32 1, i32 4, i32 5>
-  store <4 x float> %208, ptr %207, align 16, !tbaa !24, !alias.scope !182, !noalias !189
+  store <4 x float> %208, ptr %207, align 16, !tbaa !24, !alias.scope !181, !noalias !188
   br label %209
 
 209:                                              ; preds = %205, %203
-  %210 = load i32, ptr %71, align 4, !tbaa !158, !alias.scope !185, !noalias !187
+  %210 = load i32, ptr %71, align 4, !tbaa !157, !alias.scope !184, !noalias !186
   %.not32.i84 = icmp eq i32 %210, -1
   br i1 %.not32.i84, label %b2ScatterBodies.exit85, label %211
 
@@ -1956,13 +1956,13 @@ b2ScatterBodies.exit:                             ; preds = %183, %184
   %212 = sext i32 %210 to i64
   %213 = getelementptr inbounds %struct.b2BodyState, ptr %6, i64 %212
   %214 = shufflevector <4 x float> %189, <4 x float> %191, <4 x i32> <i32 2, i32 3, i32 6, i32 7>
-  store <4 x float> %214, ptr %213, align 16, !tbaa !24, !alias.scope !182, !noalias !189
+  store <4 x float> %214, ptr %213, align 16, !tbaa !24, !alias.scope !181, !noalias !188
   br label %b2ScatterBodies.exit85
 
 b2ScatterBodies.exit85:                           ; preds = %209, %211
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !190
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !189
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind uwtable
@@ -1975,13 +1975,13 @@ define hidden void @b2SolveContactsTask(i32 noundef %0, i32 noundef %1, ptr noun
   %11 = getelementptr inbounds [12 x %struct.b2GraphColor], ptr %9, i64 0, i64 %10, i32 3
   %12 = load ptr, ptr %11, align 8, !tbaa !24
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 12
-  %14 = load float, ptr %13, align 4, !tbaa !142
+  %14 = load float, ptr %13, align 4, !tbaa !141
   %15 = insertelement <4 x float> poison, float %14, i64 0
   %16 = shufflevector <4 x float> %15, <4 x float> poison, <4 x i32> zeroinitializer
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 64
   %18 = load ptr, ptr %17, align 8, !tbaa !3
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 1552
-  %20 = load float, ptr %19, align 8, !tbaa !143
+  %20 = load float, ptr %19, align 8, !tbaa !142
   %21 = fneg float %20
   %22 = insertelement <4 x float> poison, float %21, i64 0
   %23 = shufflevector <4 x float> %22, <4 x float> poison, <4 x i32> zeroinitializer
@@ -1999,66 +1999,66 @@ define hidden void @b2SolveContactsTask(i32 noundef %0, i32 noundef %1, ptr noun
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %b2ScatterBodies.exit300
   %indvars.iv = phi i64 [ %25, %.lr.ph.preheader ], [ %indvars.iv.next, %b2ScatterBodies.exit300 ]
   %26 = getelementptr inbounds %struct.b2ContactConstraintSIMD, ptr %12, i64 %indvars.iv
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !191)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !194)
-  %27 = load i32, ptr %26, align 4, !tbaa !158, !alias.scope !194, !noalias !196
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !190)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !193)
+  %27 = load i32, ptr %26, align 4, !tbaa !157, !alias.scope !193, !noalias !195
   %28 = icmp eq i32 %27, -1
   br i1 %28, label %.thread.i, label %29
 
 29:                                               ; preds = %.lr.ph
   %30 = sext i32 %27 to i64
   %31 = getelementptr inbounds %struct.b2BodyState, ptr %7, i64 %30
-  %.val.i = load <4 x float>, ptr %31, align 16, !tbaa !24, !alias.scope !191, !noalias !198
+  %.val.i = load <4 x float>, ptr %31, align 16, !tbaa !24, !alias.scope !190, !noalias !197
   %32 = getelementptr inbounds %struct.b2BodyState, ptr %7, i64 %30, i32 3
-  %.val70.i = load <4 x float>, ptr %32, align 16, !tbaa !24, !alias.scope !191, !noalias !198
+  %.val70.i = load <4 x float>, ptr %32, align 16, !tbaa !24, !alias.scope !190, !noalias !197
   br label %.thread.i
 
 .thread.i:                                        ; preds = %29, %.lr.ph
   %33 = phi <4 x float> [ %.val.i, %29 ], [ zeroinitializer, %.lr.ph ]
   %34 = phi <4 x float> [ %.val70.i, %29 ], [ <float 0.000000e+00, float 0.000000e+00, float 1.000000e+00, float 0.000000e+00>, %.lr.ph ]
   %35 = getelementptr inbounds nuw i8, ptr %26, i64 4
-  %36 = load i32, ptr %35, align 4, !tbaa !158, !alias.scope !194, !noalias !196
+  %36 = load i32, ptr %35, align 4, !tbaa !157, !alias.scope !193, !noalias !195
   %37 = icmp eq i32 %36, -1
   br i1 %37, label %.thread77.i, label %38
 
 38:                                               ; preds = %.thread.i
   %39 = sext i32 %36 to i64
   %40 = getelementptr inbounds %struct.b2BodyState, ptr %7, i64 %39
-  %.val71.i = load <4 x float>, ptr %40, align 16, !tbaa !24, !alias.scope !191, !noalias !198
+  %.val71.i = load <4 x float>, ptr %40, align 16, !tbaa !24, !alias.scope !190, !noalias !197
   %41 = getelementptr inbounds %struct.b2BodyState, ptr %7, i64 %39, i32 3
-  %.val72.i = load <4 x float>, ptr %41, align 16, !tbaa !24, !alias.scope !191, !noalias !198
+  %.val72.i = load <4 x float>, ptr %41, align 16, !tbaa !24, !alias.scope !190, !noalias !197
   br label %.thread77.i
 
 .thread77.i:                                      ; preds = %38, %.thread.i
   %42 = phi <4 x float> [ %.val71.i, %38 ], [ zeroinitializer, %.thread.i ]
   %43 = phi <4 x float> [ %.val72.i, %38 ], [ <float 0.000000e+00, float 0.000000e+00, float 1.000000e+00, float 0.000000e+00>, %.thread.i ]
   %44 = getelementptr inbounds nuw i8, ptr %26, i64 8
-  %45 = load i32, ptr %44, align 4, !tbaa !158, !alias.scope !194, !noalias !196
+  %45 = load i32, ptr %44, align 4, !tbaa !157, !alias.scope !193, !noalias !195
   %46 = icmp eq i32 %45, -1
   br i1 %46, label %.thread78.i, label %47
 
 47:                                               ; preds = %.thread77.i
   %48 = sext i32 %45 to i64
   %49 = getelementptr inbounds %struct.b2BodyState, ptr %7, i64 %48
-  %.val73.i = load <4 x float>, ptr %49, align 16, !tbaa !24, !alias.scope !191, !noalias !198
+  %.val73.i = load <4 x float>, ptr %49, align 16, !tbaa !24, !alias.scope !190, !noalias !197
   %50 = getelementptr inbounds %struct.b2BodyState, ptr %7, i64 %48, i32 3
-  %.val74.i = load <4 x float>, ptr %50, align 16, !tbaa !24, !alias.scope !191, !noalias !198
+  %.val74.i = load <4 x float>, ptr %50, align 16, !tbaa !24, !alias.scope !190, !noalias !197
   br label %.thread78.i
 
 .thread78.i:                                      ; preds = %47, %.thread77.i
   %51 = phi <4 x float> [ %.val73.i, %47 ], [ zeroinitializer, %.thread77.i ]
   %52 = phi <4 x float> [ %.val74.i, %47 ], [ <float 0.000000e+00, float 0.000000e+00, float 1.000000e+00, float 0.000000e+00>, %.thread77.i ]
   %53 = getelementptr inbounds nuw i8, ptr %26, i64 12
-  %54 = load i32, ptr %53, align 4, !tbaa !158, !alias.scope !194, !noalias !196
+  %54 = load i32, ptr %53, align 4, !tbaa !157, !alias.scope !193, !noalias !195
   %55 = icmp eq i32 %54, -1
   br i1 %55, label %b2GatherBodies.exit, label %56
 
 56:                                               ; preds = %.thread78.i
   %57 = sext i32 %54 to i64
   %58 = getelementptr inbounds %struct.b2BodyState, ptr %7, i64 %57
-  %.val75.i = load <4 x float>, ptr %58, align 16, !tbaa !24, !alias.scope !191, !noalias !198
+  %.val75.i = load <4 x float>, ptr %58, align 16, !tbaa !24, !alias.scope !190, !noalias !197
   %59 = getelementptr inbounds %struct.b2BodyState, ptr %7, i64 %57, i32 3
-  %.val76.i = load <4 x float>, ptr %59, align 16, !tbaa !24, !alias.scope !191, !noalias !198
+  %.val76.i = load <4 x float>, ptr %59, align 16, !tbaa !24, !alias.scope !190, !noalias !197
   br label %b2GatherBodies.exit
 
 b2GatherBodies.exit:                              ; preds = %.thread78.i, %56
@@ -2081,66 +2081,66 @@ b2GatherBodies.exit:                              ; preds = %.thread78.i, %56
   %76 = shufflevector <4 x float> %72, <4 x float> %73, <4 x i32> <i32 0, i32 4, i32 1, i32 5>
   %77 = shufflevector <4 x float> %72, <4 x float> %73, <4 x i32> <i32 2, i32 6, i32 3, i32 7>
   %78 = getelementptr inbounds nuw i8, ptr %26, i64 16
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !199)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !202)
-  %79 = load i32, ptr %78, align 4, !tbaa !158, !alias.scope !202, !noalias !204
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !198)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !201)
+  %79 = load i32, ptr %78, align 4, !tbaa !157, !alias.scope !201, !noalias !203
   %80 = icmp eq i32 %79, -1
   br i1 %80, label %.thread.i286, label %81
 
 81:                                               ; preds = %b2GatherBodies.exit
   %82 = sext i32 %79 to i64
   %83 = getelementptr inbounds %struct.b2BodyState, ptr %7, i64 %82
-  %.val.i284 = load <4 x float>, ptr %83, align 16, !tbaa !24, !alias.scope !199, !noalias !206
+  %.val.i284 = load <4 x float>, ptr %83, align 16, !tbaa !24, !alias.scope !198, !noalias !205
   %84 = getelementptr inbounds %struct.b2BodyState, ptr %7, i64 %82, i32 3
-  %.val70.i285 = load <4 x float>, ptr %84, align 16, !tbaa !24, !alias.scope !199, !noalias !206
+  %.val70.i285 = load <4 x float>, ptr %84, align 16, !tbaa !24, !alias.scope !198, !noalias !205
   br label %.thread.i286
 
 .thread.i286:                                     ; preds = %81, %b2GatherBodies.exit
   %85 = phi <4 x float> [ %.val.i284, %81 ], [ zeroinitializer, %b2GatherBodies.exit ]
   %86 = phi <4 x float> [ %.val70.i285, %81 ], [ <float 0.000000e+00, float 0.000000e+00, float 1.000000e+00, float 0.000000e+00>, %b2GatherBodies.exit ]
   %87 = getelementptr inbounds nuw i8, ptr %26, i64 20
-  %88 = load i32, ptr %87, align 4, !tbaa !158, !alias.scope !202, !noalias !204
+  %88 = load i32, ptr %87, align 4, !tbaa !157, !alias.scope !201, !noalias !203
   %89 = icmp eq i32 %88, -1
   br i1 %89, label %.thread77.i289, label %90
 
 90:                                               ; preds = %.thread.i286
   %91 = sext i32 %88 to i64
   %92 = getelementptr inbounds %struct.b2BodyState, ptr %7, i64 %91
-  %.val71.i287 = load <4 x float>, ptr %92, align 16, !tbaa !24, !alias.scope !199, !noalias !206
+  %.val71.i287 = load <4 x float>, ptr %92, align 16, !tbaa !24, !alias.scope !198, !noalias !205
   %93 = getelementptr inbounds %struct.b2BodyState, ptr %7, i64 %91, i32 3
-  %.val72.i288 = load <4 x float>, ptr %93, align 16, !tbaa !24, !alias.scope !199, !noalias !206
+  %.val72.i288 = load <4 x float>, ptr %93, align 16, !tbaa !24, !alias.scope !198, !noalias !205
   br label %.thread77.i289
 
 .thread77.i289:                                   ; preds = %90, %.thread.i286
   %94 = phi <4 x float> [ %.val71.i287, %90 ], [ zeroinitializer, %.thread.i286 ]
   %95 = phi <4 x float> [ %.val72.i288, %90 ], [ <float 0.000000e+00, float 0.000000e+00, float 1.000000e+00, float 0.000000e+00>, %.thread.i286 ]
   %96 = getelementptr inbounds nuw i8, ptr %26, i64 24
-  %97 = load i32, ptr %96, align 4, !tbaa !158, !alias.scope !202, !noalias !204
+  %97 = load i32, ptr %96, align 4, !tbaa !157, !alias.scope !201, !noalias !203
   %98 = icmp eq i32 %97, -1
   br i1 %98, label %.thread78.i292, label %99
 
 99:                                               ; preds = %.thread77.i289
   %100 = sext i32 %97 to i64
   %101 = getelementptr inbounds %struct.b2BodyState, ptr %7, i64 %100
-  %.val73.i290 = load <4 x float>, ptr %101, align 16, !tbaa !24, !alias.scope !199, !noalias !206
+  %.val73.i290 = load <4 x float>, ptr %101, align 16, !tbaa !24, !alias.scope !198, !noalias !205
   %102 = getelementptr inbounds %struct.b2BodyState, ptr %7, i64 %100, i32 3
-  %.val74.i291 = load <4 x float>, ptr %102, align 16, !tbaa !24, !alias.scope !199, !noalias !206
+  %.val74.i291 = load <4 x float>, ptr %102, align 16, !tbaa !24, !alias.scope !198, !noalias !205
   br label %.thread78.i292
 
 .thread78.i292:                                   ; preds = %99, %.thread77.i289
   %103 = phi <4 x float> [ %.val73.i290, %99 ], [ zeroinitializer, %.thread77.i289 ]
   %104 = phi <4 x float> [ %.val74.i291, %99 ], [ <float 0.000000e+00, float 0.000000e+00, float 1.000000e+00, float 0.000000e+00>, %.thread77.i289 ]
   %105 = getelementptr inbounds nuw i8, ptr %26, i64 28
-  %106 = load i32, ptr %105, align 4, !tbaa !158, !alias.scope !202, !noalias !204
+  %106 = load i32, ptr %105, align 4, !tbaa !157, !alias.scope !201, !noalias !203
   %107 = icmp eq i32 %106, -1
   br i1 %107, label %b2GatherBodies.exit295, label %108
 
 108:                                              ; preds = %.thread78.i292
   %109 = sext i32 %106 to i64
   %110 = getelementptr inbounds %struct.b2BodyState, ptr %7, i64 %109
-  %.val75.i293 = load <4 x float>, ptr %110, align 16, !tbaa !24, !alias.scope !199, !noalias !206
+  %.val75.i293 = load <4 x float>, ptr %110, align 16, !tbaa !24, !alias.scope !198, !noalias !205
   %111 = getelementptr inbounds %struct.b2BodyState, ptr %7, i64 %109, i32 3
-  %.val76.i294 = load <4 x float>, ptr %111, align 16, !tbaa !24, !alias.scope !199, !noalias !206
+  %.val76.i294 = load <4 x float>, ptr %111, align 16, !tbaa !24, !alias.scope !198, !noalias !205
   br label %b2GatherBodies.exit295
 
 b2GatherBodies.exit295:                           ; preds = %.thread78.i292, %108
@@ -2479,8 +2479,8 @@ b2GatherBodies.exit295:                           ; preds = %.thread78.i292, %10
   %418 = fsub <4 x float> %393, %417
   %419 = fmul <4 x float> %223, %416
   %420 = fadd <4 x float> %402, %419
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !207)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !210)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !206)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !209)
   %421 = shufflevector <4 x float> %386, <4 x float> %388, <4 x i32> <i32 0, i32 4, i32 1, i32 5>
   %422 = shufflevector <4 x float> %386, <4 x float> %388, <4 x i32> <i32 2, i32 6, i32 3, i32 7>
   %423 = shufflevector <4 x float> %418, <4 x float> %69, <4 x i32> <i32 0, i32 4, i32 1, i32 5>
@@ -2491,11 +2491,11 @@ b2GatherBodies.exit295:                           ; preds = %.thread78.i292, %10
   %426 = sext i32 %27 to i64
   %427 = getelementptr inbounds %struct.b2BodyState, ptr %7, i64 %426
   %428 = shufflevector <4 x float> %421, <4 x float> %423, <4 x i32> <i32 0, i32 1, i32 4, i32 5>
-  store <4 x float> %428, ptr %427, align 16, !tbaa !24, !alias.scope !207, !noalias !212
+  store <4 x float> %428, ptr %427, align 16, !tbaa !24, !alias.scope !206, !noalias !211
   br label %429
 
 429:                                              ; preds = %425, %137
-  %430 = load i32, ptr %35, align 4, !tbaa !158, !alias.scope !210, !noalias !214
+  %430 = load i32, ptr %35, align 4, !tbaa !157, !alias.scope !209, !noalias !213
   %.not30.i = icmp eq i32 %430, -1
   br i1 %.not30.i, label %435, label %431
 
@@ -2503,11 +2503,11 @@ b2GatherBodies.exit295:                           ; preds = %.thread78.i292, %10
   %432 = sext i32 %430 to i64
   %433 = getelementptr inbounds %struct.b2BodyState, ptr %7, i64 %432
   %434 = shufflevector <4 x float> %421, <4 x float> %423, <4 x i32> <i32 2, i32 3, i32 6, i32 7>
-  store <4 x float> %434, ptr %433, align 16, !tbaa !24, !alias.scope !207, !noalias !212
+  store <4 x float> %434, ptr %433, align 16, !tbaa !24, !alias.scope !206, !noalias !211
   br label %435
 
 435:                                              ; preds = %431, %429
-  %436 = load i32, ptr %44, align 4, !tbaa !158, !alias.scope !210, !noalias !214
+  %436 = load i32, ptr %44, align 4, !tbaa !157, !alias.scope !209, !noalias !213
   %.not31.i = icmp eq i32 %436, -1
   br i1 %.not31.i, label %441, label %437
 
@@ -2515,11 +2515,11 @@ b2GatherBodies.exit295:                           ; preds = %.thread78.i292, %10
   %438 = sext i32 %436 to i64
   %439 = getelementptr inbounds %struct.b2BodyState, ptr %7, i64 %438
   %440 = shufflevector <4 x float> %422, <4 x float> %424, <4 x i32> <i32 0, i32 1, i32 4, i32 5>
-  store <4 x float> %440, ptr %439, align 16, !tbaa !24, !alias.scope !207, !noalias !212
+  store <4 x float> %440, ptr %439, align 16, !tbaa !24, !alias.scope !206, !noalias !211
   br label %441
 
 441:                                              ; preds = %437, %435
-  %442 = load i32, ptr %53, align 4, !tbaa !158, !alias.scope !210, !noalias !214
+  %442 = load i32, ptr %53, align 4, !tbaa !157, !alias.scope !209, !noalias !213
   %.not32.i = icmp eq i32 %442, -1
   br i1 %.not32.i, label %b2ScatterBodies.exit, label %443
 
@@ -2527,17 +2527,17 @@ b2GatherBodies.exit295:                           ; preds = %.thread78.i292, %10
   %444 = sext i32 %442 to i64
   %445 = getelementptr inbounds %struct.b2BodyState, ptr %7, i64 %444
   %446 = shufflevector <4 x float> %422, <4 x float> %424, <4 x i32> <i32 2, i32 3, i32 6, i32 7>
-  store <4 x float> %446, ptr %445, align 16, !tbaa !24, !alias.scope !207, !noalias !212
+  store <4 x float> %446, ptr %445, align 16, !tbaa !24, !alias.scope !206, !noalias !211
   br label %b2ScatterBodies.exit
 
 b2ScatterBodies.exit:                             ; preds = %441, %443
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !215)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !218)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !214)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !217)
   %447 = shufflevector <4 x float> %395, <4 x float> %397, <4 x i32> <i32 0, i32 4, i32 1, i32 5>
   %448 = shufflevector <4 x float> %395, <4 x float> %397, <4 x i32> <i32 2, i32 6, i32 3, i32 7>
   %449 = shufflevector <4 x float> %420, <4 x float> %121, <4 x i32> <i32 0, i32 4, i32 1, i32 5>
   %450 = shufflevector <4 x float> %420, <4 x float> %121, <4 x i32> <i32 2, i32 6, i32 3, i32 7>
-  %451 = load i32, ptr %78, align 4, !tbaa !158, !alias.scope !218, !noalias !220
+  %451 = load i32, ptr %78, align 4, !tbaa !157, !alias.scope !217, !noalias !219
   %.not.i296 = icmp eq i32 %451, -1
   br i1 %.not.i296, label %456, label %452
 
@@ -2545,11 +2545,11 @@ b2ScatterBodies.exit:                             ; preds = %441, %443
   %453 = sext i32 %451 to i64
   %454 = getelementptr inbounds %struct.b2BodyState, ptr %7, i64 %453
   %455 = shufflevector <4 x float> %447, <4 x float> %449, <4 x i32> <i32 0, i32 1, i32 4, i32 5>
-  store <4 x float> %455, ptr %454, align 16, !tbaa !24, !alias.scope !215, !noalias !222
+  store <4 x float> %455, ptr %454, align 16, !tbaa !24, !alias.scope !214, !noalias !221
   br label %456
 
 456:                                              ; preds = %452, %b2ScatterBodies.exit
-  %457 = load i32, ptr %87, align 4, !tbaa !158, !alias.scope !218, !noalias !220
+  %457 = load i32, ptr %87, align 4, !tbaa !157, !alias.scope !217, !noalias !219
   %.not30.i297 = icmp eq i32 %457, -1
   br i1 %.not30.i297, label %462, label %458
 
@@ -2557,11 +2557,11 @@ b2ScatterBodies.exit:                             ; preds = %441, %443
   %459 = sext i32 %457 to i64
   %460 = getelementptr inbounds %struct.b2BodyState, ptr %7, i64 %459
   %461 = shufflevector <4 x float> %447, <4 x float> %449, <4 x i32> <i32 2, i32 3, i32 6, i32 7>
-  store <4 x float> %461, ptr %460, align 16, !tbaa !24, !alias.scope !215, !noalias !222
+  store <4 x float> %461, ptr %460, align 16, !tbaa !24, !alias.scope !214, !noalias !221
   br label %462
 
 462:                                              ; preds = %458, %456
-  %463 = load i32, ptr %96, align 4, !tbaa !158, !alias.scope !218, !noalias !220
+  %463 = load i32, ptr %96, align 4, !tbaa !157, !alias.scope !217, !noalias !219
   %.not31.i298 = icmp eq i32 %463, -1
   br i1 %.not31.i298, label %468, label %464
 
@@ -2569,11 +2569,11 @@ b2ScatterBodies.exit:                             ; preds = %441, %443
   %465 = sext i32 %463 to i64
   %466 = getelementptr inbounds %struct.b2BodyState, ptr %7, i64 %465
   %467 = shufflevector <4 x float> %448, <4 x float> %450, <4 x i32> <i32 0, i32 1, i32 4, i32 5>
-  store <4 x float> %467, ptr %466, align 16, !tbaa !24, !alias.scope !215, !noalias !222
+  store <4 x float> %467, ptr %466, align 16, !tbaa !24, !alias.scope !214, !noalias !221
   br label %468
 
 468:                                              ; preds = %464, %462
-  %469 = load i32, ptr %105, align 4, !tbaa !158, !alias.scope !218, !noalias !220
+  %469 = load i32, ptr %105, align 4, !tbaa !157, !alias.scope !217, !noalias !219
   %.not32.i299 = icmp eq i32 %469, -1
   br i1 %.not32.i299, label %b2ScatterBodies.exit300, label %470
 
@@ -2581,13 +2581,13 @@ b2ScatterBodies.exit:                             ; preds = %441, %443
   %471 = sext i32 %469 to i64
   %472 = getelementptr inbounds %struct.b2BodyState, ptr %7, i64 %471
   %473 = shufflevector <4 x float> %448, <4 x float> %450, <4 x i32> <i32 2, i32 3, i32 6, i32 7>
-  store <4 x float> %473, ptr %472, align 16, !tbaa !24, !alias.scope !215, !noalias !222
+  store <4 x float> %473, ptr %472, align 16, !tbaa !24, !alias.scope !214, !noalias !221
   br label %b2ScatterBodies.exit300
 
 b2ScatterBodies.exit300:                          ; preds = %468, %470
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !223
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !222
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind uwtable
@@ -2602,7 +2602,7 @@ define hidden void @b2ApplyRestitutionTask(i32 noundef %0, i32 noundef %1, ptr n
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 64
   %13 = load ptr, ptr %12, align 8, !tbaa !3
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 1544
-  %15 = load float, ptr %14, align 8, !tbaa !147
+  %15 = load float, ptr %14, align 8, !tbaa !146
   %16 = insertelement <4 x float> poison, float %15, i64 0
   %17 = shufflevector <4 x float> %16, <4 x float> poison, <4 x i32> zeroinitializer
   %18 = icmp slt i32 %0, %1
@@ -2619,55 +2619,55 @@ define hidden void @b2ApplyRestitutionTask(i32 noundef %0, i32 noundef %1, ptr n
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %b2ScatterBodies.exit135
   %indvars.iv = phi i64 [ %19, %.lr.ph.preheader ], [ %indvars.iv.next, %b2ScatterBodies.exit135 ]
   %20 = getelementptr inbounds %struct.b2ContactConstraintSIMD, ptr %11, i64 %indvars.iv
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !224)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !227)
-  %21 = load i32, ptr %20, align 4, !tbaa !158, !alias.scope !227, !noalias !229
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !223)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !226)
+  %21 = load i32, ptr %20, align 4, !tbaa !157, !alias.scope !226, !noalias !228
   %22 = icmp eq i32 %21, -1
   br i1 %22, label %.thread.i, label %23
 
 23:                                               ; preds = %.lr.ph
   %24 = sext i32 %21 to i64
   %25 = getelementptr inbounds %struct.b2BodyState, ptr %6, i64 %24
-  %.val.i = load <4 x float>, ptr %25, align 16, !tbaa !24, !alias.scope !224, !noalias !231
+  %.val.i = load <4 x float>, ptr %25, align 16, !tbaa !24, !alias.scope !223, !noalias !230
   br label %.thread.i
 
 .thread.i:                                        ; preds = %23, %.lr.ph
   %26 = phi <4 x float> [ %.val.i, %23 ], [ zeroinitializer, %.lr.ph ]
   %27 = getelementptr inbounds nuw i8, ptr %20, i64 4
-  %28 = load i32, ptr %27, align 4, !tbaa !158, !alias.scope !227, !noalias !229
+  %28 = load i32, ptr %27, align 4, !tbaa !157, !alias.scope !226, !noalias !228
   %29 = icmp eq i32 %28, -1
   br i1 %29, label %.thread77.i, label %30
 
 30:                                               ; preds = %.thread.i
   %31 = sext i32 %28 to i64
   %32 = getelementptr inbounds %struct.b2BodyState, ptr %6, i64 %31
-  %.val71.i = load <4 x float>, ptr %32, align 16, !tbaa !24, !alias.scope !224, !noalias !231
+  %.val71.i = load <4 x float>, ptr %32, align 16, !tbaa !24, !alias.scope !223, !noalias !230
   br label %.thread77.i
 
 .thread77.i:                                      ; preds = %30, %.thread.i
   %33 = phi <4 x float> [ %.val71.i, %30 ], [ zeroinitializer, %.thread.i ]
   %34 = getelementptr inbounds nuw i8, ptr %20, i64 8
-  %35 = load i32, ptr %34, align 4, !tbaa !158, !alias.scope !227, !noalias !229
+  %35 = load i32, ptr %34, align 4, !tbaa !157, !alias.scope !226, !noalias !228
   %36 = icmp eq i32 %35, -1
   br i1 %36, label %.thread78.i, label %37
 
 37:                                               ; preds = %.thread77.i
   %38 = sext i32 %35 to i64
   %39 = getelementptr inbounds %struct.b2BodyState, ptr %6, i64 %38
-  %.val73.i = load <4 x float>, ptr %39, align 16, !tbaa !24, !alias.scope !224, !noalias !231
+  %.val73.i = load <4 x float>, ptr %39, align 16, !tbaa !24, !alias.scope !223, !noalias !230
   br label %.thread78.i
 
 .thread78.i:                                      ; preds = %37, %.thread77.i
   %40 = phi <4 x float> [ %.val73.i, %37 ], [ zeroinitializer, %.thread77.i ]
   %41 = getelementptr inbounds nuw i8, ptr %20, i64 12
-  %42 = load i32, ptr %41, align 4, !tbaa !158, !alias.scope !227, !noalias !229
+  %42 = load i32, ptr %41, align 4, !tbaa !157, !alias.scope !226, !noalias !228
   %43 = icmp eq i32 %42, -1
   br i1 %43, label %b2GatherBodies.exit, label %44
 
 44:                                               ; preds = %.thread78.i
   %45 = sext i32 %42 to i64
   %46 = getelementptr inbounds %struct.b2BodyState, ptr %6, i64 %45
-  %.val75.i = load <4 x float>, ptr %46, align 16, !tbaa !24, !alias.scope !224, !noalias !231
+  %.val75.i = load <4 x float>, ptr %46, align 16, !tbaa !24, !alias.scope !223, !noalias !230
   br label %b2GatherBodies.exit
 
 b2GatherBodies.exit:                              ; preds = %.thread78.i, %44
@@ -2681,55 +2681,55 @@ b2GatherBodies.exit:                              ; preds = %.thread78.i, %44
   %54 = shufflevector <4 x float> %50, <4 x float> %51, <4 x i32> <i32 0, i32 4, i32 1, i32 5>
   %55 = shufflevector <4 x float> %50, <4 x float> %51, <4 x i32> <i32 2, i32 6, i32 3, i32 7>
   %56 = getelementptr inbounds nuw i8, ptr %20, i64 16
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !232)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !235)
-  %57 = load i32, ptr %56, align 4, !tbaa !158, !alias.scope !235, !noalias !237
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !231)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !234)
+  %57 = load i32, ptr %56, align 4, !tbaa !157, !alias.scope !234, !noalias !236
   %58 = icmp eq i32 %57, -1
   br i1 %58, label %.thread.i121, label %59
 
 59:                                               ; preds = %b2GatherBodies.exit
   %60 = sext i32 %57 to i64
   %61 = getelementptr inbounds %struct.b2BodyState, ptr %6, i64 %60
-  %.val.i119 = load <4 x float>, ptr %61, align 16, !tbaa !24, !alias.scope !232, !noalias !239
+  %.val.i119 = load <4 x float>, ptr %61, align 16, !tbaa !24, !alias.scope !231, !noalias !238
   br label %.thread.i121
 
 .thread.i121:                                     ; preds = %59, %b2GatherBodies.exit
   %62 = phi <4 x float> [ %.val.i119, %59 ], [ zeroinitializer, %b2GatherBodies.exit ]
   %63 = getelementptr inbounds nuw i8, ptr %20, i64 20
-  %64 = load i32, ptr %63, align 4, !tbaa !158, !alias.scope !235, !noalias !237
+  %64 = load i32, ptr %63, align 4, !tbaa !157, !alias.scope !234, !noalias !236
   %65 = icmp eq i32 %64, -1
   br i1 %65, label %.thread77.i124, label %66
 
 66:                                               ; preds = %.thread.i121
   %67 = sext i32 %64 to i64
   %68 = getelementptr inbounds %struct.b2BodyState, ptr %6, i64 %67
-  %.val71.i122 = load <4 x float>, ptr %68, align 16, !tbaa !24, !alias.scope !232, !noalias !239
+  %.val71.i122 = load <4 x float>, ptr %68, align 16, !tbaa !24, !alias.scope !231, !noalias !238
   br label %.thread77.i124
 
 .thread77.i124:                                   ; preds = %66, %.thread.i121
   %69 = phi <4 x float> [ %.val71.i122, %66 ], [ zeroinitializer, %.thread.i121 ]
   %70 = getelementptr inbounds nuw i8, ptr %20, i64 24
-  %71 = load i32, ptr %70, align 4, !tbaa !158, !alias.scope !235, !noalias !237
+  %71 = load i32, ptr %70, align 4, !tbaa !157, !alias.scope !234, !noalias !236
   %72 = icmp eq i32 %71, -1
   br i1 %72, label %.thread78.i127, label %73
 
 73:                                               ; preds = %.thread77.i124
   %74 = sext i32 %71 to i64
   %75 = getelementptr inbounds %struct.b2BodyState, ptr %6, i64 %74
-  %.val73.i125 = load <4 x float>, ptr %75, align 16, !tbaa !24, !alias.scope !232, !noalias !239
+  %.val73.i125 = load <4 x float>, ptr %75, align 16, !tbaa !24, !alias.scope !231, !noalias !238
   br label %.thread78.i127
 
 .thread78.i127:                                   ; preds = %73, %.thread77.i124
   %76 = phi <4 x float> [ %.val73.i125, %73 ], [ zeroinitializer, %.thread77.i124 ]
   %77 = getelementptr inbounds nuw i8, ptr %20, i64 28
-  %78 = load i32, ptr %77, align 4, !tbaa !158, !alias.scope !235, !noalias !237
+  %78 = load i32, ptr %77, align 4, !tbaa !157, !alias.scope !234, !noalias !236
   %79 = icmp eq i32 %78, -1
   br i1 %79, label %b2GatherBodies.exit130, label %80
 
 80:                                               ; preds = %.thread78.i127
   %81 = sext i32 %78 to i64
   %82 = getelementptr inbounds %struct.b2BodyState, ptr %6, i64 %81
-  %.val75.i128 = load <4 x float>, ptr %82, align 16, !tbaa !24, !alias.scope !232, !noalias !239
+  %.val75.i128 = load <4 x float>, ptr %82, align 16, !tbaa !24, !alias.scope !231, !noalias !238
   br label %b2GatherBodies.exit130
 
 b2GatherBodies.exit130:                           ; preds = %.thread78.i127, %80
@@ -2878,8 +2878,8 @@ b2GatherBodies.exit130:                           ; preds = %.thread78.i127, %80
   %211 = fsub <4 x float> %209, %210
   %212 = fmul <4 x float> %154, %211
   %213 = fadd <4 x float> %159, %212
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !240)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !243)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !239)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !242)
   %214 = shufflevector <4 x float> %197, <4 x float> %199, <4 x i32> <i32 0, i32 4, i32 1, i32 5>
   %215 = shufflevector <4 x float> %197, <4 x float> %199, <4 x i32> <i32 2, i32 6, i32 3, i32 7>
   %216 = shufflevector <4 x float> %204, <4 x float> %55, <4 x i32> <i32 0, i32 4, i32 1, i32 5>
@@ -2890,11 +2890,11 @@ b2GatherBodies.exit130:                           ; preds = %.thread78.i127, %80
   %219 = sext i32 %21 to i64
   %220 = getelementptr inbounds %struct.b2BodyState, ptr %6, i64 %219
   %221 = shufflevector <4 x float> %214, <4 x float> %216, <4 x i32> <i32 0, i32 1, i32 4, i32 5>
-  store <4 x float> %221, ptr %220, align 16, !tbaa !24, !alias.scope !240, !noalias !245
+  store <4 x float> %221, ptr %220, align 16, !tbaa !24, !alias.scope !239, !noalias !244
   br label %222
 
 222:                                              ; preds = %218, %b2GatherBodies.exit130
-  %223 = load i32, ptr %27, align 4, !tbaa !158, !alias.scope !243, !noalias !247
+  %223 = load i32, ptr %27, align 4, !tbaa !157, !alias.scope !242, !noalias !246
   %.not30.i = icmp eq i32 %223, -1
   br i1 %.not30.i, label %228, label %224
 
@@ -2902,11 +2902,11 @@ b2GatherBodies.exit130:                           ; preds = %.thread78.i127, %80
   %225 = sext i32 %223 to i64
   %226 = getelementptr inbounds %struct.b2BodyState, ptr %6, i64 %225
   %227 = shufflevector <4 x float> %214, <4 x float> %216, <4 x i32> <i32 2, i32 3, i32 6, i32 7>
-  store <4 x float> %227, ptr %226, align 16, !tbaa !24, !alias.scope !240, !noalias !245
+  store <4 x float> %227, ptr %226, align 16, !tbaa !24, !alias.scope !239, !noalias !244
   br label %228
 
 228:                                              ; preds = %224, %222
-  %229 = load i32, ptr %34, align 4, !tbaa !158, !alias.scope !243, !noalias !247
+  %229 = load i32, ptr %34, align 4, !tbaa !157, !alias.scope !242, !noalias !246
   %.not31.i = icmp eq i32 %229, -1
   br i1 %.not31.i, label %234, label %230
 
@@ -2914,11 +2914,11 @@ b2GatherBodies.exit130:                           ; preds = %.thread78.i127, %80
   %231 = sext i32 %229 to i64
   %232 = getelementptr inbounds %struct.b2BodyState, ptr %6, i64 %231
   %233 = shufflevector <4 x float> %215, <4 x float> %217, <4 x i32> <i32 0, i32 1, i32 4, i32 5>
-  store <4 x float> %233, ptr %232, align 16, !tbaa !24, !alias.scope !240, !noalias !245
+  store <4 x float> %233, ptr %232, align 16, !tbaa !24, !alias.scope !239, !noalias !244
   br label %234
 
 234:                                              ; preds = %230, %228
-  %235 = load i32, ptr %41, align 4, !tbaa !158, !alias.scope !243, !noalias !247
+  %235 = load i32, ptr %41, align 4, !tbaa !157, !alias.scope !242, !noalias !246
   %.not32.i = icmp eq i32 %235, -1
   br i1 %.not32.i, label %b2ScatterBodies.exit, label %236
 
@@ -2926,17 +2926,17 @@ b2GatherBodies.exit130:                           ; preds = %.thread78.i127, %80
   %237 = sext i32 %235 to i64
   %238 = getelementptr inbounds %struct.b2BodyState, ptr %6, i64 %237
   %239 = shufflevector <4 x float> %215, <4 x float> %217, <4 x i32> <i32 2, i32 3, i32 6, i32 7>
-  store <4 x float> %239, ptr %238, align 16, !tbaa !24, !alias.scope !240, !noalias !245
+  store <4 x float> %239, ptr %238, align 16, !tbaa !24, !alias.scope !239, !noalias !244
   br label %b2ScatterBodies.exit
 
 b2ScatterBodies.exit:                             ; preds = %234, %236
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !248)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !251)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !247)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !250)
   %240 = shufflevector <4 x float> %206, <4 x float> %208, <4 x i32> <i32 0, i32 4, i32 1, i32 5>
   %241 = shufflevector <4 x float> %206, <4 x float> %208, <4 x i32> <i32 2, i32 6, i32 3, i32 7>
   %242 = shufflevector <4 x float> %213, <4 x float> %91, <4 x i32> <i32 0, i32 4, i32 1, i32 5>
   %243 = shufflevector <4 x float> %213, <4 x float> %91, <4 x i32> <i32 2, i32 6, i32 3, i32 7>
-  %244 = load i32, ptr %56, align 4, !tbaa !158, !alias.scope !251, !noalias !253
+  %244 = load i32, ptr %56, align 4, !tbaa !157, !alias.scope !250, !noalias !252
   %.not.i131 = icmp eq i32 %244, -1
   br i1 %.not.i131, label %249, label %245
 
@@ -2944,11 +2944,11 @@ b2ScatterBodies.exit:                             ; preds = %234, %236
   %246 = sext i32 %244 to i64
   %247 = getelementptr inbounds %struct.b2BodyState, ptr %6, i64 %246
   %248 = shufflevector <4 x float> %240, <4 x float> %242, <4 x i32> <i32 0, i32 1, i32 4, i32 5>
-  store <4 x float> %248, ptr %247, align 16, !tbaa !24, !alias.scope !248, !noalias !255
+  store <4 x float> %248, ptr %247, align 16, !tbaa !24, !alias.scope !247, !noalias !254
   br label %249
 
 249:                                              ; preds = %245, %b2ScatterBodies.exit
-  %250 = load i32, ptr %63, align 4, !tbaa !158, !alias.scope !251, !noalias !253
+  %250 = load i32, ptr %63, align 4, !tbaa !157, !alias.scope !250, !noalias !252
   %.not30.i132 = icmp eq i32 %250, -1
   br i1 %.not30.i132, label %255, label %251
 
@@ -2956,11 +2956,11 @@ b2ScatterBodies.exit:                             ; preds = %234, %236
   %252 = sext i32 %250 to i64
   %253 = getelementptr inbounds %struct.b2BodyState, ptr %6, i64 %252
   %254 = shufflevector <4 x float> %240, <4 x float> %242, <4 x i32> <i32 2, i32 3, i32 6, i32 7>
-  store <4 x float> %254, ptr %253, align 16, !tbaa !24, !alias.scope !248, !noalias !255
+  store <4 x float> %254, ptr %253, align 16, !tbaa !24, !alias.scope !247, !noalias !254
   br label %255
 
 255:                                              ; preds = %251, %249
-  %256 = load i32, ptr %70, align 4, !tbaa !158, !alias.scope !251, !noalias !253
+  %256 = load i32, ptr %70, align 4, !tbaa !157, !alias.scope !250, !noalias !252
   %.not31.i133 = icmp eq i32 %256, -1
   br i1 %.not31.i133, label %261, label %257
 
@@ -2968,11 +2968,11 @@ b2ScatterBodies.exit:                             ; preds = %234, %236
   %258 = sext i32 %256 to i64
   %259 = getelementptr inbounds %struct.b2BodyState, ptr %6, i64 %258
   %260 = shufflevector <4 x float> %241, <4 x float> %243, <4 x i32> <i32 0, i32 1, i32 4, i32 5>
-  store <4 x float> %260, ptr %259, align 16, !tbaa !24, !alias.scope !248, !noalias !255
+  store <4 x float> %260, ptr %259, align 16, !tbaa !24, !alias.scope !247, !noalias !254
   br label %261
 
 261:                                              ; preds = %257, %255
-  %262 = load i32, ptr %77, align 4, !tbaa !158, !alias.scope !251, !noalias !253
+  %262 = load i32, ptr %77, align 4, !tbaa !157, !alias.scope !250, !noalias !252
   %.not32.i134 = icmp eq i32 %262, -1
   br i1 %.not32.i134, label %b2ScatterBodies.exit135, label %263
 
@@ -2980,21 +2980,21 @@ b2ScatterBodies.exit:                             ; preds = %234, %236
   %264 = sext i32 %262 to i64
   %265 = getelementptr inbounds %struct.b2BodyState, ptr %6, i64 %264
   %266 = shufflevector <4 x float> %241, <4 x float> %243, <4 x i32> <i32 2, i32 3, i32 6, i32 7>
-  store <4 x float> %266, ptr %265, align 16, !tbaa !24, !alias.scope !248, !noalias !255
+  store <4 x float> %266, ptr %265, align 16, !tbaa !24, !alias.scope !247, !noalias !254
   br label %b2ScatterBodies.exit135
 
 b2ScatterBodies.exit135:                          ; preds = %261, %263
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !256
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !255
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define hidden void @b2StoreImpulsesTask(i32 noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #3 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 136
-  %5 = load ptr, ptr %4, align 8, !tbaa !154
+  %5 = load ptr, ptr %4, align 8, !tbaa !153
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 144
-  %7 = load ptr, ptr %6, align 8, !tbaa !155
+  %7 = load ptr, ptr %6, align 8, !tbaa !154
   %8 = icmp slt i32 %0, %1
   br i1 %8, label %.lr.ph.preheader, label %._crit_edge
 
@@ -3025,12 +3025,12 @@ define hidden void @b2StoreImpulsesTask(i32 noundef %0, i32 noundef %1, ptr noun
 20:                                               ; preds = %.cont
   %indvars.iv.next117 = add nsw i64 %indvars.iv116, 1
   %exitcond119.not = icmp eq i64 %indvars.iv.next117, %wide.trip.count
-  br i1 %exitcond119.not, label %._crit_edge, label %.lr.ph, !llvm.loop !257
+  br i1 %exitcond119.not, label %._crit_edge, label %.lr.ph, !llvm.loop !256
 
 21:                                               ; preds = %.lr.ph, %.cont
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %.cont ]
   %gep = getelementptr ptr, ptr %invariant.gep, i64 %indvars.iv
-  %22 = load ptr, ptr %gep, align 8, !tbaa !157
+  %22 = load ptr, ptr %gep, align 8, !tbaa !156
   %23 = icmp eq ptr %22, null
   br i1 %23, label %.cont, label %.else
 
@@ -3042,41 +3042,41 @@ define hidden void @b2StoreImpulsesTask(i32 noundef %0, i32 noundef %1, ptr noun
   %26 = getelementptr inbounds nuw float, ptr %12, i64 %indvars.iv
   %27 = load float, ptr %26, align 4, !tbaa !36
   %.sroa.gep74 = getelementptr inbounds nuw i8, ptr %22, i64 76
-  store float %27, ptr %.sroa.gep74, align 4, !tbaa !120
+  store float %27, ptr %.sroa.gep74, align 4, !tbaa !119
   %28 = getelementptr inbounds nuw float, ptr %14, i64 %indvars.iv
   %29 = load float, ptr %28, align 4, !tbaa !36
   %.sroa.gep71 = getelementptr inbounds nuw i8, ptr %22, i64 80
-  store float %29, ptr %.sroa.gep71, align 4, !tbaa !124
+  store float %29, ptr %.sroa.gep71, align 4, !tbaa !123
   %30 = getelementptr inbounds nuw float, ptr %16, i64 %indvars.iv
   %31 = load float, ptr %30, align 4, !tbaa !36
   %.sroa.gep68 = getelementptr inbounds nuw i8, ptr %22, i64 84
-  store float %31, ptr %.sroa.gep68, align 4, !tbaa !151
+  store float %31, ptr %.sroa.gep68, align 4, !tbaa !150
   %32 = getelementptr inbounds nuw float, ptr %18, i64 %indvars.iv
   %33 = load float, ptr %32, align 4, !tbaa !36
   %.sroa.gep65 = getelementptr inbounds nuw i8, ptr %22, i64 88
-  store float %33, ptr %.sroa.gep65, align 4, !tbaa !152
+  store float %33, ptr %.sroa.gep65, align 4, !tbaa !151
   %34 = getelementptr inbounds nuw float, ptr %13, i64 %indvars.iv
   %35 = load float, ptr %34, align 4, !tbaa !36
   %.sroa.gep62 = getelementptr inbounds nuw i8, ptr %22, i64 124
-  store float %35, ptr %.sroa.gep62, align 4, !tbaa !120
+  store float %35, ptr %.sroa.gep62, align 4, !tbaa !119
   %36 = getelementptr inbounds nuw float, ptr %15, i64 %indvars.iv
   %37 = load float, ptr %36, align 4, !tbaa !36
   %.sroa.gep59 = getelementptr inbounds nuw i8, ptr %22, i64 128
-  store float %37, ptr %.sroa.gep59, align 4, !tbaa !124
+  store float %37, ptr %.sroa.gep59, align 4, !tbaa !123
   %38 = getelementptr inbounds nuw float, ptr %17, i64 %indvars.iv
   %39 = load float, ptr %38, align 4, !tbaa !36
   %.sroa.gep56 = getelementptr inbounds nuw i8, ptr %22, i64 132
-  store float %39, ptr %.sroa.gep56, align 4, !tbaa !151
+  store float %39, ptr %.sroa.gep56, align 4, !tbaa !150
   %40 = getelementptr inbounds nuw float, ptr %19, i64 %indvars.iv
   %41 = load float, ptr %40, align 4, !tbaa !36
   %.sroa.gep54 = getelementptr inbounds nuw i8, ptr %22, i64 136
-  store float %41, ptr %.sroa.gep54, align 4, !tbaa !152
+  store float %41, ptr %.sroa.gep54, align 4, !tbaa !151
   br label %.cont
 
 .cont:                                            ; preds = %21, %.else
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %20, label %21, !llvm.loop !258
+  br i1 %exitcond.not, label %20, label %21, !llvm.loop !257
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
@@ -3216,145 +3216,144 @@ attributes #7 = { nocallback nofree nosync nounwind willreturn memory(inaccessib
 !114 = !{!92, !5, i64 108}
 !115 = !{!92, !5, i64 116}
 !116 = !{!92, !5, i64 136}
-!117 = distinct !{!117, !118, !119}
+!117 = distinct !{!117, !118}
 !118 = !{!"llvm.loop.mustprogress"}
-!119 = !{!"llvm.loop.estimated_trip_count"}
-!120 = !{!121, !5, i64 28}
-!121 = !{!"b2ManifoldPoint", !80, i64 0, !80, i64 8, !80, i64 16, !5, i64 24, !5, i64 28, !5, i64 32, !5, i64 36, !5, i64 40, !81, i64 44, !21, i64 46}
-!122 = !{!123, !5, i64 24}
-!123 = !{!"b2ContactConstraintPoint", !80, i64 0, !80, i64 8, !5, i64 16, !5, i64 20, !5, i64 24, !5, i64 28, !5, i64 32, !5, i64 36, !5, i64 40}
-!124 = !{!121, !5, i64 32}
-!125 = !{!123, !5, i64 28}
-!126 = !{!123, !5, i64 32}
-!127 = !{!121, !5, i64 24}
-!128 = !{!123, !5, i64 16}
-!129 = !{!123, !5, i64 36}
-!130 = !{!123, !5, i64 40}
-!131 = !{!123, !5, i64 20}
-!132 = distinct !{!132, !118, !119}
-!133 = !{!53, !54, i64 0}
-!134 = !{!135, !13, i64 16}
-!135 = !{!"b2SolverSet", !136, i64 0, !137, i64 16, !31, i64 32, !29, i64 48, !138, i64 64, !8, i64 80}
-!136 = !{!"", !14, i64 0, !8, i64 8, !8, i64 12}
-!137 = !{!"", !13, i64 0, !8, i64 8, !8, i64 12}
-!138 = !{!"", !139, i64 0, !8, i64 8, !8, i64 12}
-!139 = !{!"p1 _ZTS11b2IslandSim", !11, i64 0}
-!140 = distinct !{!140, !118, !119}
-!141 = distinct !{!141, !118, !119}
-!142 = !{!4, !5, i64 12}
-!143 = !{!38, !5, i64 1552}
-!144 = distinct !{!144, !118, !119}
-!145 = distinct !{!145, !118, !119}
-!146 = distinct !{!146, !118, !119}
-!147 = !{!38, !5, i64 1544}
-!148 = distinct !{!148, !118, !119}
-!149 = distinct !{!149, !118, !119}
-!150 = distinct !{!150, !118, !119}
-!151 = !{!121, !5, i64 36}
-!152 = !{!121, !5, i64 40}
-!153 = distinct !{!153, !118, !119}
-!154 = !{!4, !18, i64 136}
-!155 = !{!4, !19, i64 144}
-!156 = distinct !{!156, !118, !119}
-!157 = !{!30, !30, i64 0}
-!158 = !{!8, !8, i64 0}
-!159 = distinct !{!159, !118, !119}
-!160 = !{!161}
-!161 = distinct !{!161, !162, !"b2GatherBodies: argument 1"}
-!162 = distinct !{!162, !"b2GatherBodies"}
-!163 = !{!164}
-!164 = distinct !{!164, !162, !"b2GatherBodies: argument 2"}
-!165 = !{!166, !161}
-!166 = distinct !{!166, !162, !"b2GatherBodies: argument 0"}
-!167 = !{!166, !164}
-!168 = !{!169}
-!169 = distinct !{!169, !170, !"b2GatherBodies: argument 1"}
-!170 = distinct !{!170, !"b2GatherBodies"}
-!171 = !{!172}
-!172 = distinct !{!172, !170, !"b2GatherBodies: argument 2"}
-!173 = !{!174, !169}
-!174 = distinct !{!174, !170, !"b2GatherBodies: argument 0"}
-!175 = !{!174, !172}
-!176 = !{!177}
-!177 = distinct !{!177, !178, !"b2ScatterBodies: argument 0"}
-!178 = distinct !{!178, !"b2ScatterBodies"}
-!179 = !{!180, !181}
-!180 = distinct !{!180, !178, !"b2ScatterBodies: argument 1"}
-!181 = distinct !{!181, !178, !"b2ScatterBodies: argument 2"}
-!182 = !{!183}
-!183 = distinct !{!183, !184, !"b2ScatterBodies: argument 0"}
-!184 = distinct !{!184, !"b2ScatterBodies"}
-!185 = !{!186}
-!186 = distinct !{!186, !184, !"b2ScatterBodies: argument 1"}
-!187 = !{!183, !188}
-!188 = distinct !{!188, !184, !"b2ScatterBodies: argument 2"}
-!189 = !{!186, !188}
-!190 = distinct !{!190, !118, !119}
-!191 = !{!192}
-!192 = distinct !{!192, !193, !"b2GatherBodies: argument 1"}
-!193 = distinct !{!193, !"b2GatherBodies"}
-!194 = !{!195}
-!195 = distinct !{!195, !193, !"b2GatherBodies: argument 2"}
-!196 = !{!197, !192}
-!197 = distinct !{!197, !193, !"b2GatherBodies: argument 0"}
-!198 = !{!197, !195}
-!199 = !{!200}
-!200 = distinct !{!200, !201, !"b2GatherBodies: argument 1"}
-!201 = distinct !{!201, !"b2GatherBodies"}
-!202 = !{!203}
-!203 = distinct !{!203, !201, !"b2GatherBodies: argument 2"}
-!204 = !{!205, !200}
-!205 = distinct !{!205, !201, !"b2GatherBodies: argument 0"}
-!206 = !{!205, !203}
-!207 = !{!208}
-!208 = distinct !{!208, !209, !"b2ScatterBodies: argument 0"}
-!209 = distinct !{!209, !"b2ScatterBodies"}
-!210 = !{!211}
-!211 = distinct !{!211, !209, !"b2ScatterBodies: argument 1"}
-!212 = !{!211, !213}
-!213 = distinct !{!213, !209, !"b2ScatterBodies: argument 2"}
-!214 = !{!208, !213}
-!215 = !{!216}
-!216 = distinct !{!216, !217, !"b2ScatterBodies: argument 0"}
-!217 = distinct !{!217, !"b2ScatterBodies"}
-!218 = !{!219}
-!219 = distinct !{!219, !217, !"b2ScatterBodies: argument 1"}
-!220 = !{!216, !221}
-!221 = distinct !{!221, !217, !"b2ScatterBodies: argument 2"}
-!222 = !{!219, !221}
-!223 = distinct !{!223, !118, !119}
-!224 = !{!225}
-!225 = distinct !{!225, !226, !"b2GatherBodies: argument 1"}
-!226 = distinct !{!226, !"b2GatherBodies"}
-!227 = !{!228}
-!228 = distinct !{!228, !226, !"b2GatherBodies: argument 2"}
-!229 = !{!230, !225}
-!230 = distinct !{!230, !226, !"b2GatherBodies: argument 0"}
-!231 = !{!230, !228}
-!232 = !{!233}
-!233 = distinct !{!233, !234, !"b2GatherBodies: argument 1"}
-!234 = distinct !{!234, !"b2GatherBodies"}
-!235 = !{!236}
-!236 = distinct !{!236, !234, !"b2GatherBodies: argument 2"}
-!237 = !{!238, !233}
-!238 = distinct !{!238, !234, !"b2GatherBodies: argument 0"}
-!239 = !{!238, !236}
-!240 = !{!241}
-!241 = distinct !{!241, !242, !"b2ScatterBodies: argument 0"}
-!242 = distinct !{!242, !"b2ScatterBodies"}
-!243 = !{!244}
-!244 = distinct !{!244, !242, !"b2ScatterBodies: argument 1"}
-!245 = !{!244, !246}
-!246 = distinct !{!246, !242, !"b2ScatterBodies: argument 2"}
-!247 = !{!241, !246}
-!248 = !{!249}
-!249 = distinct !{!249, !250, !"b2ScatterBodies: argument 0"}
-!250 = distinct !{!250, !"b2ScatterBodies"}
-!251 = !{!252}
-!252 = distinct !{!252, !250, !"b2ScatterBodies: argument 1"}
-!253 = !{!249, !254}
-!254 = distinct !{!254, !250, !"b2ScatterBodies: argument 2"}
-!255 = !{!252, !254}
-!256 = distinct !{!256, !118, !119}
-!257 = distinct !{!257, !118, !119}
-!258 = distinct !{!258, !118, !119}
+!119 = !{!120, !5, i64 28}
+!120 = !{!"b2ManifoldPoint", !80, i64 0, !80, i64 8, !80, i64 16, !5, i64 24, !5, i64 28, !5, i64 32, !5, i64 36, !5, i64 40, !81, i64 44, !21, i64 46}
+!121 = !{!122, !5, i64 24}
+!122 = !{!"b2ContactConstraintPoint", !80, i64 0, !80, i64 8, !5, i64 16, !5, i64 20, !5, i64 24, !5, i64 28, !5, i64 32, !5, i64 36, !5, i64 40}
+!123 = !{!120, !5, i64 32}
+!124 = !{!122, !5, i64 28}
+!125 = !{!122, !5, i64 32}
+!126 = !{!120, !5, i64 24}
+!127 = !{!122, !5, i64 16}
+!128 = !{!122, !5, i64 36}
+!129 = !{!122, !5, i64 40}
+!130 = !{!122, !5, i64 20}
+!131 = distinct !{!131, !118}
+!132 = !{!53, !54, i64 0}
+!133 = !{!134, !13, i64 16}
+!134 = !{!"b2SolverSet", !135, i64 0, !136, i64 16, !31, i64 32, !29, i64 48, !137, i64 64, !8, i64 80}
+!135 = !{!"", !14, i64 0, !8, i64 8, !8, i64 12}
+!136 = !{!"", !13, i64 0, !8, i64 8, !8, i64 12}
+!137 = !{!"", !138, i64 0, !8, i64 8, !8, i64 12}
+!138 = !{!"p1 _ZTS11b2IslandSim", !11, i64 0}
+!139 = distinct !{!139, !118}
+!140 = distinct !{!140, !118}
+!141 = !{!4, !5, i64 12}
+!142 = !{!38, !5, i64 1552}
+!143 = distinct !{!143, !118}
+!144 = distinct !{!144, !118}
+!145 = distinct !{!145, !118}
+!146 = !{!38, !5, i64 1544}
+!147 = distinct !{!147, !118}
+!148 = distinct !{!148, !118}
+!149 = distinct !{!149, !118}
+!150 = !{!120, !5, i64 36}
+!151 = !{!120, !5, i64 40}
+!152 = distinct !{!152, !118}
+!153 = !{!4, !18, i64 136}
+!154 = !{!4, !19, i64 144}
+!155 = distinct !{!155, !118}
+!156 = !{!30, !30, i64 0}
+!157 = !{!8, !8, i64 0}
+!158 = distinct !{!158, !118}
+!159 = !{!160}
+!160 = distinct !{!160, !161, !"b2GatherBodies: argument 1"}
+!161 = distinct !{!161, !"b2GatherBodies"}
+!162 = !{!163}
+!163 = distinct !{!163, !161, !"b2GatherBodies: argument 2"}
+!164 = !{!165, !160}
+!165 = distinct !{!165, !161, !"b2GatherBodies: argument 0"}
+!166 = !{!165, !163}
+!167 = !{!168}
+!168 = distinct !{!168, !169, !"b2GatherBodies: argument 1"}
+!169 = distinct !{!169, !"b2GatherBodies"}
+!170 = !{!171}
+!171 = distinct !{!171, !169, !"b2GatherBodies: argument 2"}
+!172 = !{!173, !168}
+!173 = distinct !{!173, !169, !"b2GatherBodies: argument 0"}
+!174 = !{!173, !171}
+!175 = !{!176}
+!176 = distinct !{!176, !177, !"b2ScatterBodies: argument 0"}
+!177 = distinct !{!177, !"b2ScatterBodies"}
+!178 = !{!179, !180}
+!179 = distinct !{!179, !177, !"b2ScatterBodies: argument 1"}
+!180 = distinct !{!180, !177, !"b2ScatterBodies: argument 2"}
+!181 = !{!182}
+!182 = distinct !{!182, !183, !"b2ScatterBodies: argument 0"}
+!183 = distinct !{!183, !"b2ScatterBodies"}
+!184 = !{!185}
+!185 = distinct !{!185, !183, !"b2ScatterBodies: argument 1"}
+!186 = !{!182, !187}
+!187 = distinct !{!187, !183, !"b2ScatterBodies: argument 2"}
+!188 = !{!185, !187}
+!189 = distinct !{!189, !118}
+!190 = !{!191}
+!191 = distinct !{!191, !192, !"b2GatherBodies: argument 1"}
+!192 = distinct !{!192, !"b2GatherBodies"}
+!193 = !{!194}
+!194 = distinct !{!194, !192, !"b2GatherBodies: argument 2"}
+!195 = !{!196, !191}
+!196 = distinct !{!196, !192, !"b2GatherBodies: argument 0"}
+!197 = !{!196, !194}
+!198 = !{!199}
+!199 = distinct !{!199, !200, !"b2GatherBodies: argument 1"}
+!200 = distinct !{!200, !"b2GatherBodies"}
+!201 = !{!202}
+!202 = distinct !{!202, !200, !"b2GatherBodies: argument 2"}
+!203 = !{!204, !199}
+!204 = distinct !{!204, !200, !"b2GatherBodies: argument 0"}
+!205 = !{!204, !202}
+!206 = !{!207}
+!207 = distinct !{!207, !208, !"b2ScatterBodies: argument 0"}
+!208 = distinct !{!208, !"b2ScatterBodies"}
+!209 = !{!210}
+!210 = distinct !{!210, !208, !"b2ScatterBodies: argument 1"}
+!211 = !{!210, !212}
+!212 = distinct !{!212, !208, !"b2ScatterBodies: argument 2"}
+!213 = !{!207, !212}
+!214 = !{!215}
+!215 = distinct !{!215, !216, !"b2ScatterBodies: argument 0"}
+!216 = distinct !{!216, !"b2ScatterBodies"}
+!217 = !{!218}
+!218 = distinct !{!218, !216, !"b2ScatterBodies: argument 1"}
+!219 = !{!215, !220}
+!220 = distinct !{!220, !216, !"b2ScatterBodies: argument 2"}
+!221 = !{!218, !220}
+!222 = distinct !{!222, !118}
+!223 = !{!224}
+!224 = distinct !{!224, !225, !"b2GatherBodies: argument 1"}
+!225 = distinct !{!225, !"b2GatherBodies"}
+!226 = !{!227}
+!227 = distinct !{!227, !225, !"b2GatherBodies: argument 2"}
+!228 = !{!229, !224}
+!229 = distinct !{!229, !225, !"b2GatherBodies: argument 0"}
+!230 = !{!229, !227}
+!231 = !{!232}
+!232 = distinct !{!232, !233, !"b2GatherBodies: argument 1"}
+!233 = distinct !{!233, !"b2GatherBodies"}
+!234 = !{!235}
+!235 = distinct !{!235, !233, !"b2GatherBodies: argument 2"}
+!236 = !{!237, !232}
+!237 = distinct !{!237, !233, !"b2GatherBodies: argument 0"}
+!238 = !{!237, !235}
+!239 = !{!240}
+!240 = distinct !{!240, !241, !"b2ScatterBodies: argument 0"}
+!241 = distinct !{!241, !"b2ScatterBodies"}
+!242 = !{!243}
+!243 = distinct !{!243, !241, !"b2ScatterBodies: argument 1"}
+!244 = !{!243, !245}
+!245 = distinct !{!245, !241, !"b2ScatterBodies: argument 2"}
+!246 = !{!240, !245}
+!247 = !{!248}
+!248 = distinct !{!248, !249, !"b2ScatterBodies: argument 0"}
+!249 = distinct !{!249, !"b2ScatterBodies"}
+!250 = !{!251}
+!251 = distinct !{!251, !249, !"b2ScatterBodies: argument 1"}
+!252 = !{!248, !253}
+!253 = distinct !{!253, !249, !"b2ScatterBodies: argument 2"}
+!254 = !{!251, !253}
+!255 = distinct !{!255, !118}
+!256 = distinct !{!256, !118}
+!257 = distinct !{!257, !118}

@@ -298,7 +298,7 @@ define dso_local noundef i32 @__traceiter_remove_device_from_group(ptr readnone 
   %10 = getelementptr i8, ptr %6, i64 24
   %11 = load ptr, ptr %10, align 8
   %12 = icmp eq ptr %11, null
-  br i1 %12, label %.loopexit, label %.preheader, !llvm.loop !9
+  br i1 %12, label %.loopexit, label %.preheader, !llvm.loop !8
 
 .loopexit:                                        ; preds = %.preheader, %3
   ret i32 0
@@ -327,7 +327,7 @@ define dso_local noundef i32 @__traceiter_attach_device_to_domain(ptr readnone c
   %9 = getelementptr i8, ptr %5, i64 24
   %10 = load ptr, ptr %9, align 8
   %11 = icmp eq ptr %10, null
-  br i1 %11, label %.loopexit, label %.preheader, !llvm.loop !10
+  br i1 %11, label %.loopexit, label %.preheader, !llvm.loop !9
 
 .loopexit:                                        ; preds = %.preheader, %2
   ret i32 0
@@ -356,7 +356,7 @@ define dso_local noundef i32 @__traceiter_map(ptr readnone captures(none) %0, i6
   %11 = getelementptr i8, ptr %7, i64 24
   %12 = load ptr, ptr %11, align 8
   %13 = icmp eq ptr %12, null
-  br i1 %13, label %.loopexit, label %.preheader, !llvm.loop !11
+  br i1 %13, label %.loopexit, label %.preheader, !llvm.loop !10
 
 .loopexit:                                        ; preds = %.preheader, %4
   ret i32 0
@@ -385,7 +385,7 @@ define dso_local noundef i32 @__traceiter_unmap(ptr readnone captures(none) %0, 
   %11 = getelementptr i8, ptr %7, i64 24
   %12 = load ptr, ptr %11, align 8
   %13 = icmp eq ptr %12, null
-  br i1 %13, label %.loopexit, label %.preheader, !llvm.loop !12
+  br i1 %13, label %.loopexit, label %.preheader, !llvm.loop !11
 
 .loopexit:                                        ; preds = %.preheader, %4
   ret i32 0
@@ -414,7 +414,7 @@ define dso_local noundef i32 @__traceiter_io_page_fault(ptr readnone captures(no
   %11 = getelementptr i8, ptr %7, i64 24
   %12 = load ptr, ptr %11, align 8
   %13 = icmp eq ptr %12, null
-  br i1 %13, label %.loopexit, label %.preheader, !llvm.loop !13
+  br i1 %13, label %.loopexit, label %.preheader, !llvm.loop !12
 
 .loopexit:                                        ; preds = %.preheader, %4
   ret i32 0
@@ -433,12 +433,12 @@ define internal void @trace_event_raw_event_iommu_group_event(ptr noundef %0, i3
   %6 = load i64, ptr %5, align 8
   %7 = and i64 %6, 704
   %8 = icmp eq i64 %7, 0
-  br i1 %8, label %14, label %9, !prof !14
+  br i1 %8, label %14, label %9, !prof !13
 
 9:                                                ; preds = %3
   %10 = and i64 %6, 256
   %11 = icmp eq i64 %10, 0
-  br i1 %11, label %12, label %14, !prof !15
+  br i1 %11, label %12, label %14, !prof !14
 
 12:                                               ; preds = %9
   %13 = tail call zeroext i1 @__trace_trigger_soft_disabled(ptr noundef %0) #8
@@ -458,7 +458,7 @@ define internal void @trace_event_raw_event_iommu_group_event(ptr noundef %0, i3
 
 .thread2:                                         ; preds = %17, %14
   %20 = phi ptr [ %16, %14 ], [ %spec.select, %17 ]
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %4, i8 0, i64 48, i1 false), !annotation !16
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %4, i8 0, i64 48, i1 false), !annotation !15
   %21 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %20) #8
   %22 = trunc i64 %21 to i32
   %23 = add i32 %22, 1
@@ -516,14 +516,14 @@ define internal void @perf_trace_iommu_group_event(ptr noundef %0, i32 noundef %
 
 .thread2:                                         ; preds = %8, %3
   %11 = phi ptr [ %7, %3 ], [ %spec.select, %8 ]
-  store ptr null, ptr %4, align 8, !annotation !16
+  store ptr null, ptr %4, align 8, !annotation !15
   %12 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %11) #8
   %13 = trunc i64 %12 to i32
   %14 = shl i32 %13, 16
   %15 = add i32 %14, 65552
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %17 = load ptr, ptr %16, align 8
-  %18 = tail call i64 asm "add %gs:$1, $0", "=r,*m,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @this_cpu_off, ptr %17) #9, !srcloc !17
+  %18 = tail call i64 asm "add %gs:$1, $0", "=r,*m,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @this_cpu_off, ptr %17) #9, !srcloc !16
   %19 = inttoptr i64 %18 to ptr
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %21 = load volatile ptr, ptr %20, align 8
@@ -536,7 +536,7 @@ define internal void @perf_trace_iommu_group_event(ptr noundef %0, i32 noundef %
   br i1 %25, label %53, label %26
 
 26:                                               ; preds = %23, %.thread2
-  store i32 0, ptr %5, align 4, !annotation !16
+  store i32 0, ptr %5, align 4, !annotation !15
   %27 = add i32 %13, 28
   %28 = and i32 %27, -8
   %29 = add i32 %28, -4
@@ -601,12 +601,12 @@ define internal void @trace_event_raw_event_iommu_device_event(ptr noundef %0, p
   %5 = load i64, ptr %4, align 8
   %6 = and i64 %5, 704
   %7 = icmp eq i64 %6, 0
-  br i1 %7, label %13, label %8, !prof !14
+  br i1 %7, label %13, label %8, !prof !13
 
 8:                                                ; preds = %2
   %9 = and i64 %5, 256
   %10 = icmp eq i64 %9, 0
-  br i1 %10, label %11, label %13, !prof !15
+  br i1 %10, label %11, label %13, !prof !14
 
 11:                                               ; preds = %8
   %12 = tail call zeroext i1 @__trace_trigger_soft_disabled(ptr noundef %0) #8
@@ -626,7 +626,7 @@ define internal void @trace_event_raw_event_iommu_device_event(ptr noundef %0, p
 
 .thread2:                                         ; preds = %16, %13
   %19 = phi ptr [ %15, %13 ], [ %spec.select, %16 ]
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %3, i8 0, i64 48, i1 false), !annotation !16
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %3, i8 0, i64 48, i1 false), !annotation !15
   %20 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %19) #8
   %21 = trunc i64 %20 to i32
   %22 = add i32 %21, 1
@@ -682,14 +682,14 @@ define internal void @perf_trace_iommu_device_event(ptr noundef %0, ptr noundef 
 
 .thread2:                                         ; preds = %7, %2
   %10 = phi ptr [ %6, %2 ], [ %spec.select, %7 ]
-  store ptr null, ptr %3, align 8, !annotation !16
+  store ptr null, ptr %3, align 8, !annotation !15
   %11 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %10) #8
   %12 = trunc i64 %11 to i32
   %13 = shl i32 %12, 16
   %14 = add i32 %13, 65548
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %16 = load ptr, ptr %15, align 8
-  %17 = tail call i64 asm "add %gs:$1, $0", "=r,*m,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @this_cpu_off, ptr %16) #9, !srcloc !18
+  %17 = tail call i64 asm "add %gs:$1, $0", "=r,*m,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @this_cpu_off, ptr %16) #9, !srcloc !17
   %18 = inttoptr i64 %17 to ptr
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %20 = load volatile ptr, ptr %19, align 8
@@ -702,7 +702,7 @@ define internal void @perf_trace_iommu_device_event(ptr noundef %0, ptr noundef 
   br i1 %24, label %50, label %25
 
 25:                                               ; preds = %22, %.thread2
-  store i32 0, ptr %4, align 4, !annotation !16
+  store i32 0, ptr %4, align 4, !annotation !15
   %26 = and i32 %12, -8
   %27 = add i32 %26, 20
   %28 = call ptr @perf_trace_buf_alloc(i32 noundef %27, ptr noundef nonnull %3, ptr noundef nonnull %4) #8
@@ -758,19 +758,19 @@ define internal void @trace_event_raw_event_map(ptr noundef %0, i64 noundef %1, 
   %7 = load i64, ptr %6, align 8
   %8 = and i64 %7, 704
   %9 = icmp eq i64 %8, 0
-  br i1 %9, label %15, label %10, !prof !14
+  br i1 %9, label %15, label %10, !prof !13
 
 10:                                               ; preds = %4
   %11 = and i64 %7, 256
   %12 = icmp eq i64 %11, 0
-  br i1 %12, label %13, label %15, !prof !15
+  br i1 %12, label %13, label %15, !prof !14
 
 13:                                               ; preds = %10
   %14 = tail call zeroext i1 @__trace_trigger_soft_disabled(ptr noundef %0) #8
   br i1 %14, label %22, label %15
 
 15:                                               ; preds = %13, %10, %4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %5, i8 0, i64 48, i1 false), !annotation !16
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %5, i8 0, i64 48, i1 false), !annotation !15
   %16 = call ptr @trace_event_buffer_reserve(ptr noundef nonnull %5, ptr noundef %0, i64 noundef 32) #8
   %17 = icmp eq ptr %16, null
   br i1 %17, label %22, label %18
@@ -795,11 +795,11 @@ define internal void @perf_trace_map(ptr noundef %0, i64 noundef %1, i64 noundef
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #8
-  store ptr null, ptr %5, align 8, !annotation !16
+  store ptr null, ptr %5, align 8, !annotation !15
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %8 = load ptr, ptr %7, align 8
-  %9 = tail call i64 asm "add %gs:$1, $0", "=r,*m,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @this_cpu_off, ptr %8) #9, !srcloc !19
+  %9 = tail call i64 asm "add %gs:$1, $0", "=r,*m,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @this_cpu_off, ptr %8) #9, !srcloc !18
   %10 = inttoptr i64 %9 to ptr
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %12 = load volatile ptr, ptr %11, align 8
@@ -812,7 +812,7 @@ define internal void @perf_trace_map(ptr noundef %0, i64 noundef %1, i64 noundef
   br i1 %16, label %34, label %17
 
 17:                                               ; preds = %14, %4
-  store i32 0, ptr %6, align 4, !annotation !16
+  store i32 0, ptr %6, align 4, !annotation !15
   %18 = call ptr @perf_trace_buf_alloc(i32 noundef 36, ptr noundef nonnull %5, ptr noundef nonnull %6) #8
   %19 = icmp eq ptr %18, null
   br i1 %19, label %34, label %20
@@ -855,19 +855,19 @@ define internal void @trace_event_raw_event_unmap(ptr noundef %0, i64 noundef %1
   %7 = load i64, ptr %6, align 8
   %8 = and i64 %7, 704
   %9 = icmp eq i64 %8, 0
-  br i1 %9, label %15, label %10, !prof !14
+  br i1 %9, label %15, label %10, !prof !13
 
 10:                                               ; preds = %4
   %11 = and i64 %7, 256
   %12 = icmp eq i64 %11, 0
-  br i1 %12, label %13, label %15, !prof !15
+  br i1 %12, label %13, label %15, !prof !14
 
 13:                                               ; preds = %10
   %14 = tail call zeroext i1 @__trace_trigger_soft_disabled(ptr noundef %0) #8
   br i1 %14, label %22, label %15
 
 15:                                               ; preds = %13, %10, %4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %5, i8 0, i64 48, i1 false), !annotation !16
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %5, i8 0, i64 48, i1 false), !annotation !15
   %16 = call ptr @trace_event_buffer_reserve(ptr noundef nonnull %5, ptr noundef %0, i64 noundef 32) #8
   %17 = icmp eq ptr %16, null
   br i1 %17, label %22, label %18
@@ -892,11 +892,11 @@ define internal void @perf_trace_unmap(ptr noundef %0, i64 noundef %1, i64 nound
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #8
-  store ptr null, ptr %5, align 8, !annotation !16
+  store ptr null, ptr %5, align 8, !annotation !15
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %8 = load ptr, ptr %7, align 8
-  %9 = tail call i64 asm "add %gs:$1, $0", "=r,*m,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @this_cpu_off, ptr %8) #9, !srcloc !20
+  %9 = tail call i64 asm "add %gs:$1, $0", "=r,*m,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @this_cpu_off, ptr %8) #9, !srcloc !19
   %10 = inttoptr i64 %9 to ptr
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %12 = load volatile ptr, ptr %11, align 8
@@ -909,7 +909,7 @@ define internal void @perf_trace_unmap(ptr noundef %0, i64 noundef %1, i64 nound
   br i1 %16, label %34, label %17
 
 17:                                               ; preds = %14, %4
-  store i32 0, ptr %6, align 4, !annotation !16
+  store i32 0, ptr %6, align 4, !annotation !15
   %18 = call ptr @perf_trace_buf_alloc(i32 noundef 36, ptr noundef nonnull %5, ptr noundef nonnull %6) #8
   %19 = icmp eq ptr %18, null
   br i1 %19, label %34, label %20
@@ -952,12 +952,12 @@ define internal void @trace_event_raw_event_iommu_error(ptr noundef %0, ptr noun
   %7 = load i64, ptr %6, align 8
   %8 = and i64 %7, 704
   %9 = icmp eq i64 %8, 0
-  br i1 %9, label %15, label %10, !prof !14
+  br i1 %9, label %15, label %10, !prof !13
 
 10:                                               ; preds = %4
   %11 = and i64 %7, 256
   %12 = icmp eq i64 %11, 0
-  br i1 %12, label %13, label %15, !prof !15
+  br i1 %12, label %13, label %15, !prof !14
 
 13:                                               ; preds = %10
   %14 = tail call zeroext i1 @__trace_trigger_soft_disabled(ptr noundef %0) #8
@@ -992,7 +992,7 @@ define internal void @trace_event_raw_event_iommu_error(ptr noundef %0, ptr noun
 
 31:                                               ; preds = %29, %.thread2
   %32 = phi ptr [ %30, %29 ], [ @.str, %.thread2 ]
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %5, i8 0, i64 48, i1 false), !annotation !16
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %5, i8 0, i64 48, i1 false), !annotation !15
   %33 = tail call i64 @strlen(ptr noundef %32) #8
   %34 = trunc i64 %33 to i32
   %35 = add i32 %34, 1
@@ -1084,7 +1084,7 @@ define internal void @perf_trace_iommu_error(ptr noundef %0, ptr noundef %1, i64
 
 21:                                               ; preds = %19, %.thread2
   %22 = phi ptr [ %20, %19 ], [ @.str, %.thread2 ]
-  store ptr null, ptr %5, align 8, !annotation !16
+  store ptr null, ptr %5, align 8, !annotation !15
   %23 = tail call i64 @strlen(ptr noundef %22) #8
   %24 = trunc i64 %23 to i32
   %25 = add i32 %24, 1
@@ -1093,7 +1093,7 @@ define internal void @perf_trace_iommu_error(ptr noundef %0, ptr noundef %1, i64
   %28 = or i32 %27, %26
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %30 = load ptr, ptr %29, align 8
-  %31 = tail call i64 asm "add %gs:$1, $0", "=r,*m,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @this_cpu_off, ptr %30) #9, !srcloc !21
+  %31 = tail call i64 asm "add %gs:$1, $0", "=r,*m,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @this_cpu_off, ptr %30) #9, !srcloc !20
   %32 = inttoptr i64 %31 to ptr
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %34 = load volatile ptr, ptr %33, align 8
@@ -1106,7 +1106,7 @@ define internal void @perf_trace_iommu_error(ptr noundef %0, ptr noundef %1, i64
   br i1 %38, label %79, label %39
 
 39:                                               ; preds = %36, %21
-  store i32 0, ptr %6, align 4, !annotation !16
+  store i32 0, ptr %6, align 4, !annotation !15
   %40 = add i32 %14, 44
   %41 = add i32 %40, %25
   %42 = and i32 %41, -8
@@ -1371,20 +1371,19 @@ attributes #9 = { nounwind memory(read) }
 !2 = !{i32 4, !"function_return_thunk_extern", i32 1}
 !3 = !{i32 4, !"indirect_branch_cs_prefix", i32 1}
 !4 = !{i32 4, !"SkipRaxSetup", i32 1}
-!5 = distinct !{!5, !6, !7, !8}
+!5 = distinct !{!5, !6, !7}
 !6 = !{!"llvm.loop.mustprogress"}
 !7 = !{!"llvm.loop.unroll.disable"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !6, !7, !8}
-!10 = distinct !{!10, !6, !7, !8}
-!11 = distinct !{!11, !6, !7, !8}
-!12 = distinct !{!12, !6, !7, !8}
-!13 = distinct !{!13, !6, !7, !8}
-!14 = !{!"branch_weights", i32 2000, i32 1}
-!15 = !{!"branch_weights", i32 1, i32 2000}
-!16 = !{!"auto-init"}
-!17 = !{i64 2156323953}
-!18 = !{i64 2156328463}
-!19 = !{i64 2156332805}
-!20 = !{i64 2156337198}
-!21 = !{i64 2156342099}
+!8 = distinct !{!8, !6, !7}
+!9 = distinct !{!9, !6, !7}
+!10 = distinct !{!10, !6, !7}
+!11 = distinct !{!11, !6, !7}
+!12 = distinct !{!12, !6, !7}
+!13 = !{!"branch_weights", i32 2000, i32 1}
+!14 = !{!"branch_weights", i32 1, i32 2000}
+!15 = !{!"auto-init"}
+!16 = !{i64 2156323953}
+!17 = !{i64 2156328463}
+!18 = !{i64 2156332805}
+!19 = !{i64 2156337198}
+!20 = !{i64 2156342099}

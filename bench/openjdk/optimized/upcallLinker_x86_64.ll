@@ -254,7 +254,7 @@ _ZN13GrowableArrayI9VMStorageEC2Ev.exit:          ; preds = %.lr.ph.i.i.i
   %105 = select i1 %104, i32 32, i32 16
   %106 = icmp samesign ult i32 %102, %105
   %107 = select i1 %spec.select.i.i.i, i1 %106, i1 false
-  br i1 %107, label %90, label %.preheader.i, !llvm.loop !9
+  br i1 %107, label %90, label %.preheader.i, !llvm.loop !8
 
 .preheader.i:                                     ; preds = %96, %120
   %108 = phi i32 [ %126, %120 ], [ 0, %96 ]
@@ -299,7 +299,7 @@ _ZN13GrowableArrayI9VMStorageEC2Ev.exit:          ; preds = %.lr.ph.i.i.i
   %128 = select i1 %127, i32 32, i32 16
   %129 = icmp samesign ult i32 %126, %128
   %130 = select i1 %spec.select.i.i18.i, i1 %129, i1 false
-  br i1 %130, label %.preheader.i, label %_ZL26compute_reg_save_area_sizeRK13ABIDescriptor.exit, !llvm.loop !10
+  br i1 %130, label %.preheader.i, label %_ZL26compute_reg_save_area_sizeRK13ABIDescriptor.exit, !llvm.loop !9
 
 _ZL26compute_reg_save_area_sizeRK13ABIDescriptor.exit: ; preds = %120
   %131 = mul i32 %89, %88
@@ -452,7 +452,7 @@ _ZL26compute_reg_save_area_sizeRK13ABIDescriptor.exit: ; preds = %120
   %208 = select i1 %207, i32 32, i32 16
   %209 = icmp samesign ult i32 %205, %208
   %210 = select i1 %spec.select.i.i.i135, i1 %209, i1 false
-  br i1 %210, label %192, label %.preheader.i136, !llvm.loop !11
+  br i1 %210, label %192, label %.preheader.i136, !llvm.loop !10
 
 211:                                              ; preds = %225, %.preheader.i136
   %212 = phi i32 [ 0, %.preheader.i136 ], [ %231, %225 ]
@@ -532,7 +532,7 @@ _ZL26compute_reg_save_area_sizeRK13ABIDescriptor.exit: ; preds = %120
   %234 = select i1 %233, i32 32, i32 16
   %235 = icmp samesign ult i32 %231, %234
   %236 = select i1 %spec.select.i.i49.i, i1 %235, i1 false
-  br i1 %236, label %211, label %_ZL31preserve_callee_saved_registersP14MacroAssemblerRK13ABIDescriptori.exit, !llvm.loop !12
+  br i1 %236, label %211, label %_ZL31preserve_callee_saved_registersP14MacroAssemblerRK13ABIDescriptori.exit, !llvm.loop !11
 
 _ZL31preserve_callee_saved_registersP14MacroAssemblerRK13ABIDescriptori.exit: ; preds = %225
   store i32 4, ptr %28, align 8
@@ -836,7 +836,7 @@ _ZL31preserve_callee_saved_registersP14MacroAssemblerRK13ABIDescriptori.exit: ; 
   %347 = load i32, ptr %138, align 8
   %348 = sext i32 %347 to i64
   %349 = icmp slt i64 %indvars.iv.next, %348
-  br i1 %349, label %337, label %.loopexit, !llvm.loop !13
+  br i1 %349, label %337, label %.loopexit, !llvm.loop !12
 
 .loopexit:                                        ; preds = %345, %308, %288
   call void @_ZNK10RegSpiller8generateEP14MacroAssemblerib(ptr noundef nonnull align 8 dereferenceable(28) %40, ptr noundef nonnull %152, i32 noundef %spec.store.select, i1 noundef zeroext true) #9
@@ -963,7 +963,7 @@ _ZL31preserve_callee_saved_registersP14MacroAssemblerRK13ABIDescriptori.exit: ; 
   %413 = select i1 %412, i32 32, i32 16
   %414 = icmp samesign ult i32 %410, %413
   %415 = select i1 %spec.select.i.i.i149, i1 %414, i1 false
-  br i1 %415, label %397, label %.preheader.i150, !llvm.loop !14
+  br i1 %415, label %397, label %.preheader.i150, !llvm.loop !13
 
 416:                                              ; preds = %430, %.preheader.i150
   %417 = phi i32 [ 0, %.preheader.i150 ], [ %436, %430 ]
@@ -1043,7 +1043,7 @@ _ZL31preserve_callee_saved_registersP14MacroAssemblerRK13ABIDescriptori.exit: ; 
   %439 = select i1 %438, i32 32, i32 16
   %440 = icmp samesign ult i32 %436, %439
   %441 = select i1 %spec.select.i.i38.i, i1 %440, i1 false
-  br i1 %441, label %416, label %_ZL30restore_callee_saved_registersP14MacroAssemblerRK13ABIDescriptori.exit, !llvm.loop !15
+  br i1 %441, label %416, label %_ZL30restore_callee_saved_registersP14MacroAssemblerRK13ABIDescriptori.exit, !llvm.loop !14
 
 _ZL30restore_callee_saved_registersP14MacroAssemblerRK13ABIDescriptori.exit: ; preds = %430
   store i32 4, ptr %16, align 8
@@ -1695,7 +1695,7 @@ define linkonce_odr hidden void @_ZN26GrowableArrayWithAllocatorI11XMMRegister13
   store i32 %27, ptr %25, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit.thread, label %.lr.ph, !llvm.loop !16
+  br i1 %exitcond.not, label %.loopexit.thread, label %.lr.ph, !llvm.loop !15
 
 .loopexit:                                        ; preds = %6
   %.not = icmp eq ptr %8, null
@@ -1776,7 +1776,7 @@ define linkonce_odr hidden void @_ZN26GrowableArrayWithAllocatorI8Register13Grow
   store i32 %27, ptr %25, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit.thread, label %.lr.ph, !llvm.loop !17
+  br i1 %exitcond.not, label %.loopexit.thread, label %.lr.ph, !llvm.loop !16
 
 .loopexit:                                        ; preds = %6
   %.not = icmp eq ptr %8, null
@@ -1837,15 +1837,14 @@ attributes #10 = { noreturn nounwind }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7, !8}
-!11 = distinct !{!11, !7, !8}
-!12 = distinct !{!12, !7, !8}
-!13 = distinct !{!13, !7, !8}
-!14 = distinct !{!14, !7, !8}
-!15 = distinct !{!15, !7, !8}
-!16 = distinct !{!16, !7, !8}
-!17 = distinct !{!17, !7, !8}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7}
+!12 = distinct !{!12, !7}
+!13 = distinct !{!13, !7}
+!14 = distinct !{!14, !7}
+!15 = distinct !{!15, !7}
+!16 = distinct !{!16, !7}

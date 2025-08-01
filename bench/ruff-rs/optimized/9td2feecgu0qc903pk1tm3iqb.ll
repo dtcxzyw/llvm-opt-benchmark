@@ -51,7 +51,7 @@ define hidden noundef i64 @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15parti
   %11 = select i1 %.not.i, i64 %6, i64 %.sroa.05.026.i, !unpredictable !3
   %12 = sub i64 %.sroa.01.027.i, %5
   %13 = icmp ugt i64 %12, 1
-  br i1 %13, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !11
+  br i1 %13, label %.lr.ph.i, label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %.._crit_edge.i_crit_edge
   %14 = phi i32 [ %.pre, %.._crit_edge.i_crit_edge ], [ %4, %.lr.ph.i ]
@@ -82,7 +82,7 @@ define hidden noundef i64 @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15parti
 
 .._crit_edge.i_crit_edge:                         ; preds = %3
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %2, i64 4
-  %.pre = load i32, ptr %.phi.trans.insert, align 4, !noalias !13
+  %.pre = load i32, ptr %.phi.trans.insert, align 4, !noalias !11
   br label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %3
@@ -98,13 +98,13 @@ define hidden noundef i64 @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15parti
   %9 = icmp ult i64 %8, %1
   tail call void @llvm.assume(i1 %9)
   %10 = getelementptr inbounds nuw { i32, i32 }, ptr %0, i64 %8
-  %11 = tail call { i32, i32 } @"_ZN83_$LT$ruff_text_size..range..TextRange$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17hdd35f970b7d73e86E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %10), !noalias !18
+  %11 = tail call { i32, i32 } @"_ZN83_$LT$ruff_text_size..range..TextRange$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17hdd35f970b7d73e86E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %10), !noalias !16
   %12 = extractvalue { i32, i32 } %11, 0
   %.not.i25.i = icmp ugt i32 %12, %5
   %13 = select i1 %.not.i25.i, i64 %.sroa.05.027.i, i64 %8, !unpredictable !3
   %14 = sub i64 %.sroa.01.028.i, %7
   %15 = icmp ugt i64 %14, 1
-  br i1 %15, label %6, label %._crit_edge.i, !llvm.loop !19
+  br i1 %15, label %6, label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %6, %.._crit_edge.i_crit_edge
   %16 = phi i32 [ %.pre, %.._crit_edge.i_crit_edge ], [ %5, %6 ]
@@ -112,7 +112,7 @@ define hidden noundef i64 @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15parti
   %17 = icmp ult i64 %.sroa.05.0.lcssa.i, %1
   tail call void @llvm.assume(i1 %17)
   %18 = getelementptr inbounds nuw { i32, i32 }, ptr %0, i64 %.sroa.05.0.lcssa.i
-  %19 = tail call { i32, i32 } @"_ZN83_$LT$ruff_text_size..range..TextRange$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17hdd35f970b7d73e86E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %18), !noalias !18
+  %19 = tail call { i32, i32 } @"_ZN83_$LT$ruff_text_size..range..TextRange$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17hdd35f970b7d73e86E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %18), !noalias !16
   %20 = extractvalue { i32, i32 } %19, 0
   %.not.i.i = icmp ule i32 %20, %16
   %21 = zext i1 %.not.i.i to i64
@@ -172,12 +172,9 @@ attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memo
 !8 = distinct !{!8, !9, !"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16binary_search_by17h248e20d1dc3a22c5E: argument 1"}
 !9 = distinct !{!9, !"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16binary_search_by17h248e20d1dc3a22c5E"}
 !10 = !{!8}
-!11 = distinct !{!11, !12}
-!12 = !{!"llvm.loop.estimated_trip_count"}
-!13 = !{!14, !16}
-!14 = distinct !{!14, !15, !"_ZN18ruff_python_trivia9tokenizer18BackwardsTokenizer3new28_$u7b$$u7b$closure$u7d$$u7d$17h49d48d1077a16276E: argument 0"}
-!15 = distinct !{!15, !"_ZN18ruff_python_trivia9tokenizer18BackwardsTokenizer3new28_$u7b$$u7b$closure$u7d$$u7d$17h49d48d1077a16276E"}
-!16 = distinct !{!16, !17, !"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16binary_search_by17hb736f0b59c0f922fE: argument 1"}
-!17 = distinct !{!17, !"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16binary_search_by17hb736f0b59c0f922fE"}
-!18 = !{!16}
-!19 = distinct !{!19, !12}
+!11 = !{!12, !14}
+!12 = distinct !{!12, !13, !"_ZN18ruff_python_trivia9tokenizer18BackwardsTokenizer3new28_$u7b$$u7b$closure$u7d$$u7d$17h49d48d1077a16276E: argument 0"}
+!13 = distinct !{!13, !"_ZN18ruff_python_trivia9tokenizer18BackwardsTokenizer3new28_$u7b$$u7b$closure$u7d$$u7d$17h49d48d1077a16276E"}
+!14 = distinct !{!14, !15, !"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16binary_search_by17hb736f0b59c0f922fE: argument 1"}
+!15 = distinct !{!15, !"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16binary_search_by17hb736f0b59c0f922fE"}
+!16 = !{!14}

@@ -145,7 +145,7 @@ _ZN5boost3log11v2_mt_posix3aux14lazy_singletonINS1_7sources3aux21severity_level_
   %22 = load ptr, ptr %1, align 8, !tbaa !13
   %23 = load i8, ptr %22, align 1, !tbaa !10
   %.not.i2 = icmp eq i8 %23, 2
-  br i1 %.not.i2, label %_ZN5boost3log11v2_mt_posix3aux17once_block_sentryD2Ev.exit3, label %24, !prof !20
+  br i1 %.not.i2, label %_ZN5boost3log11v2_mt_posix3aux17once_block_sentryD2Ev.exit3, label %24, !prof !19
 
 24:                                               ; preds = %20
   call void @_ZN5boost3log11v2_mt_posix3aux17once_block_sentry8rollbackEv(ptr noundef nonnull align 8 dereferenceable(8) %1) #11
@@ -162,7 +162,7 @@ declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #2
 ; Function Attrs: mustprogress uwtable
 define internal fastcc void @"_ZN5boost11this_thread14at_thread_exitIZNS_3log11v2_mt_posix7sources3aux18get_severity_levelEvE3$_0EEvT_"(ptr %0) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #9
-  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @"_ZTVN5boost6detail20thread_exit_functionIZNS_3log11v2_mt_posix7sources3aux18get_severity_levelEvE3$_0EE", i64 16), ptr %2, align 8, !tbaa !21
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @"_ZTVN5boost6detail20thread_exit_functionIZNS_3log11v2_mt_posix7sources3aux18get_severity_levelEvE3$_0EE", i64 16), ptr %2, align 8, !tbaa !20
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %0, ptr %3, align 8, !tbaa !8
   tail call void @_ZN5boost6detail24add_thread_exit_functionEPNS0_25thread_exit_function_baseE(ptr noundef nonnull %2)
@@ -248,7 +248,7 @@ define internal void @"_ZN5boost6detail20thread_exit_functionIZNS_3log11v2_mt_po
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @"_ZN5boost6detail20thread_exit_functionIZNS_3log11v2_mt_posix7sources3aux18get_severity_levelEvE3$_0EclEv"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #7 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %.val = load ptr, ptr %2, align 8, !tbaa !23
+  %.val = load ptr, ptr %2, align 8, !tbaa !22
   %3 = icmp eq ptr %.val, null
   br i1 %3, label %"_ZZN5boost3log11v2_mt_posix7sources3aux18get_severity_levelEvENK3$_0clEv.exit", label %4
 
@@ -292,11 +292,10 @@ attributes #11 = { nounwind }
 !14 = !{!"_ZTSN5boost3log11v2_mt_posix3aux17once_block_sentryE", !9, i64 0}
 !15 = !{!"branch_weights", !"expected", i32 2145337172, i32 2146476}
 !16 = !{!"branch_weights", i32 1, i32 1048575}
-!17 = distinct !{!17, !18, !19}
+!17 = distinct !{!17, !18}
 !18 = !{!"llvm.loop.mustprogress"}
-!19 = !{!"llvm.loop.estimated_trip_count"}
-!20 = !{!"branch_weights", !"expected", i32 2000, i32 1}
-!21 = !{!22, !22, i64 0}
-!22 = !{!"vtable pointer", !7, i64 0}
-!23 = !{!24, !9, i64 0}
-!24 = !{!"_ZTSZN5boost3log11v2_mt_posix7sources3aux18get_severity_levelEvE3$_0", !9, i64 0}
+!19 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!20 = !{!21, !21, i64 0}
+!21 = !{!"vtable pointer", !7, i64 0}
+!22 = !{!23, !9, i64 0}
+!23 = !{!"_ZTSZN5boost3log11v2_mt_posix7sources3aux18get_severity_levelEvE3$_0", !9, i64 0}

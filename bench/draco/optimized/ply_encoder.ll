@@ -1888,16 +1888,16 @@ _ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit280.us: ; preds = %739, %.critedge.
   %indvars.iv549 = phi i64 [ %indvars.iv.next550, %_ZN5draco13EncoderBuffer6EncodeEPKvm.exit284.us ], [ 0, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit280.us ]
   %757 = load ptr, ptr %0, align 8, !tbaa !14
   %758 = getelementptr inbounds nuw [3 x %"class.draco::IndexType"], ptr %717, i64 0, i64 %indvars.iv549
-  %.sroa.0.0.copyload.us = load i32, ptr %758, align 4, !tbaa !111
-  %759 = load i8, ptr %752, align 4, !tbaa !112, !range !133, !noundef !134
+  %.sroa.0.0.copyload.us = load i32, ptr %758, align 4, !tbaa !110
+  %759 = load i8, ptr %752, align 4, !tbaa !111, !range !132, !noundef !133
   %760 = trunc nuw i8 %759 to i1
   br i1 %760, label %766, label %761
 
 761:                                              ; preds = %756
   %762 = zext i32 %.sroa.0.0.copyload.us to i64
-  %763 = load ptr, ptr %753, align 8, !tbaa !135
+  %763 = load ptr, ptr %753, align 8, !tbaa !134
   %764 = getelementptr inbounds nuw %"class.draco::IndexType.60", ptr %763, i64 %762
-  %765 = load i32, ptr %764, align 4, !tbaa !111
+  %765 = load i32, ptr %764, align 4, !tbaa !110
   br label %766
 
 766:                                              ; preds = %761, %756
@@ -1908,13 +1908,13 @@ _ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit280.us: ; preds = %739, %.critedge.
   br i1 %769, label %770, label %_ZN5draco13EncoderBuffer6EncodeEPKvm.exit284.us
 
 770:                                              ; preds = %766
-  %771 = load ptr, ptr %751, align 8, !tbaa !136
-  %772 = load ptr, ptr %771, align 8, !tbaa !137
-  %773 = load i64, ptr %754, align 8, !tbaa !139
+  %771 = load ptr, ptr %751, align 8, !tbaa !135
+  %772 = load ptr, ptr %771, align 8, !tbaa !136
+  %773 = load i64, ptr %754, align 8, !tbaa !138
   %774 = zext i32 %.sroa.02.0.i281.us to i64
   %775 = mul nsw i64 %773, %774
   %776 = getelementptr i8, ptr %772, i64 %775
-  %777 = load i64, ptr %755, align 8, !tbaa !140
+  %777 = load i64, ptr %755, align 8, !tbaa !139
   %778 = getelementptr i8, ptr %776, i64 %777
   %779 = getelementptr inbounds nuw i8, ptr %757, i64 8
   %780 = load ptr, ptr %779, align 8, !tbaa !105
@@ -1930,7 +1930,7 @@ _ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit280.us: ; preds = %739, %.critedge.
 _ZN5draco13EncoderBuffer6EncodeEPKvm.exit284.us:  ; preds = %770, %766
   %indvars.iv.next550 = add nuw nsw i64 %indvars.iv549, 1
   %exitcond552.not = icmp eq i64 %indvars.iv.next550, 3
-  br i1 %exitcond552.not, label %.thread.loopexit.us, label %756, !llvm.loop !141
+  br i1 %exitcond552.not, label %.thread.loopexit.us, label %756, !llvm.loop !140
 
 .thread.loopexit.us:                              ; preds = %_ZN5draco13EncoderBuffer6EncodeEPKvm.exit284.us
   %indvars.iv.next554 = add nuw nsw i64 %indvars.iv553, 1
@@ -1945,7 +1945,7 @@ _ZN5draco13EncoderBuffer6EncodeEPKvm.exit284.us:  ; preds = %770, %766
   %795 = sdiv exact i64 %794, 12
   %796 = and i64 %795, 4294967295
   %797 = icmp samesign ult i64 %indvars.iv.next554, %796
-  br i1 %797, label %.lr.ph522.split.us, label %.critedge119, !llvm.loop !142
+  br i1 %797, label %.lr.ph522.split.us, label %.critedge119, !llvm.loop !141
 
 .split.us:                                        ; preds = %706
   %798 = landingpad { ptr, i32 }
@@ -1982,16 +1982,16 @@ _ZN5draco13EncoderBuffer6EncodeEPKvm.exit284.us:  ; preds = %770, %766
   %809 = load ptr, ptr %808, align 8, !tbaa !65
   %810 = load ptr, ptr %0, align 8, !tbaa !14
   %811 = getelementptr inbounds nuw i8, ptr %809, i64 100
-  %812 = load i8, ptr %811, align 4, !tbaa !112, !range !133, !noundef !134
+  %812 = load i8, ptr %811, align 4, !tbaa !111, !range !132, !noundef !133
   %813 = trunc nuw i8 %812 to i1
   %814 = trunc nuw i64 %indvars.iv to i32
   br i1 %813, label %820, label %815
 
 815:                                              ; preds = %804
   %816 = getelementptr inbounds nuw i8, ptr %809, i64 72
-  %817 = load ptr, ptr %816, align 8, !tbaa !135
+  %817 = load ptr, ptr %816, align 8, !tbaa !134
   %818 = getelementptr inbounds nuw %"class.draco::IndexType.60", ptr %817, i64 %indvars.iv
-  %819 = load i32, ptr %818, align 4, !tbaa !111
+  %819 = load i32, ptr %818, align 4, !tbaa !110
   br label %820
 
 820:                                              ; preds = %804, %815
@@ -2002,15 +2002,15 @@ _ZN5draco13EncoderBuffer6EncodeEPKvm.exit284.us:  ; preds = %770, %766
   br i1 %823, label %824, label %_ZN5draco13EncoderBuffer6EncodeEPKvm.exit268
 
 824:                                              ; preds = %820
-  %825 = load ptr, ptr %809, align 8, !tbaa !136
-  %826 = load ptr, ptr %825, align 8, !tbaa !137
+  %825 = load ptr, ptr %809, align 8, !tbaa !135
+  %826 = load ptr, ptr %825, align 8, !tbaa !136
   %827 = getelementptr inbounds nuw i8, ptr %809, i64 40
-  %828 = load i64, ptr %827, align 8, !tbaa !139
+  %828 = load i64, ptr %827, align 8, !tbaa !138
   %829 = zext i32 %.sroa.02.0.i to i64
   %830 = mul nsw i64 %828, %829
   %831 = getelementptr i8, ptr %826, i64 %830
   %832 = getelementptr inbounds nuw i8, ptr %809, i64 48
-  %833 = load i64, ptr %832, align 8, !tbaa !140
+  %833 = load i64, ptr %832, align 8, !tbaa !139
   %834 = getelementptr i8, ptr %831, i64 %833
   %835 = getelementptr inbounds nuw i8, ptr %810, i64 8
   %836 = load ptr, ptr %835, align 8, !tbaa !105
@@ -2034,15 +2034,15 @@ _ZN5draco13EncoderBuffer6EncodeEPKvm.exit268:     ; preds = %820, %824
   %848 = load ptr, ptr %847, align 8, !tbaa !65
   %849 = load ptr, ptr %0, align 8, !tbaa !14
   %850 = getelementptr inbounds nuw i8, ptr %848, i64 100
-  %851 = load i8, ptr %850, align 4, !tbaa !112, !range !133, !noundef !134
+  %851 = load i8, ptr %850, align 4, !tbaa !111, !range !132, !noundef !133
   %852 = trunc nuw i8 %851 to i1
   br i1 %852, label %858, label %853
 
 853:                                              ; preds = %843
   %854 = getelementptr inbounds nuw i8, ptr %848, i64 72
-  %855 = load ptr, ptr %854, align 8, !tbaa !135
+  %855 = load ptr, ptr %854, align 8, !tbaa !134
   %856 = getelementptr inbounds nuw %"class.draco::IndexType.60", ptr %855, i64 %indvars.iv
-  %857 = load i32, ptr %856, align 4, !tbaa !111
+  %857 = load i32, ptr %856, align 4, !tbaa !110
   br label %858
 
 858:                                              ; preds = %843, %853
@@ -2053,15 +2053,15 @@ _ZN5draco13EncoderBuffer6EncodeEPKvm.exit268:     ; preds = %820, %824
   br i1 %861, label %862, label %_ZN5draco13EncoderBuffer6EncodeEPKvm.exit272
 
 862:                                              ; preds = %858
-  %863 = load ptr, ptr %848, align 8, !tbaa !136
-  %864 = load ptr, ptr %863, align 8, !tbaa !137
+  %863 = load ptr, ptr %848, align 8, !tbaa !135
+  %864 = load ptr, ptr %863, align 8, !tbaa !136
   %865 = getelementptr inbounds nuw i8, ptr %848, i64 40
-  %866 = load i64, ptr %865, align 8, !tbaa !139
+  %866 = load i64, ptr %865, align 8, !tbaa !138
   %867 = zext i32 %.sroa.02.0.i269 to i64
   %868 = mul nsw i64 %866, %867
   %869 = getelementptr i8, ptr %864, i64 %868
   %870 = getelementptr inbounds nuw i8, ptr %848, i64 48
-  %871 = load i64, ptr %870, align 8, !tbaa !140
+  %871 = load i64, ptr %870, align 8, !tbaa !139
   %872 = getelementptr i8, ptr %869, i64 %871
   %873 = getelementptr inbounds nuw i8, ptr %849, i64 8
   %874 = load ptr, ptr %873, align 8, !tbaa !105
@@ -2095,15 +2095,15 @@ _ZN5draco13EncoderBuffer6EncodeEPKvm.exit272:     ; preds = %858, %862, %_ZN5dra
   %890 = load ptr, ptr %889, align 8, !tbaa !65
   %891 = load ptr, ptr %0, align 8, !tbaa !14
   %892 = getelementptr inbounds nuw i8, ptr %890, i64 100
-  %893 = load i8, ptr %892, align 4, !tbaa !112, !range !133, !noundef !134
+  %893 = load i8, ptr %892, align 4, !tbaa !111, !range !132, !noundef !133
   %894 = trunc nuw i8 %893 to i1
   br i1 %894, label %900, label %895
 
 895:                                              ; preds = %885
   %896 = getelementptr inbounds nuw i8, ptr %890, i64 72
-  %897 = load ptr, ptr %896, align 8, !tbaa !135
+  %897 = load ptr, ptr %896, align 8, !tbaa !134
   %898 = getelementptr inbounds nuw %"class.draco::IndexType.60", ptr %897, i64 %indvars.iv
-  %899 = load i32, ptr %898, align 4, !tbaa !111
+  %899 = load i32, ptr %898, align 4, !tbaa !110
   br label %900
 
 900:                                              ; preds = %885, %895
@@ -2114,15 +2114,15 @@ _ZN5draco13EncoderBuffer6EncodeEPKvm.exit272:     ; preds = %858, %862, %_ZN5dra
   br i1 %903, label %904, label %_ZN5draco13EncoderBuffer6EncodeEPKvm.exit276
 
 904:                                              ; preds = %900
-  %905 = load ptr, ptr %890, align 8, !tbaa !136
-  %906 = load ptr, ptr %905, align 8, !tbaa !137
+  %905 = load ptr, ptr %890, align 8, !tbaa !135
+  %906 = load ptr, ptr %905, align 8, !tbaa !136
   %907 = getelementptr inbounds nuw i8, ptr %890, i64 40
-  %908 = load i64, ptr %907, align 8, !tbaa !139
+  %908 = load i64, ptr %907, align 8, !tbaa !138
   %909 = zext i32 %.sroa.02.0.i273 to i64
   %910 = mul nsw i64 %908, %909
   %911 = getelementptr i8, ptr %906, i64 %910
   %912 = getelementptr inbounds nuw i8, ptr %890, i64 48
-  %913 = load i64, ptr %912, align 8, !tbaa !140
+  %913 = load i64, ptr %912, align 8, !tbaa !139
   %914 = getelementptr i8, ptr %911, i64 %913
   %915 = getelementptr inbounds nuw i8, ptr %891, i64 8
   %916 = load ptr, ptr %915, align 8, !tbaa !105
@@ -2143,7 +2143,7 @@ _ZN5draco13EncoderBuffer6EncodeEPKvm.exit272:     ; preds = %858, %862, %_ZN5dra
 _ZN5draco13EncoderBuffer6EncodeEPKvm.exit276:     ; preds = %900, %904, %_ZN5draco13EncoderBuffer6EncodeEPKvm.exit272
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %804, !llvm.loop !144
+  br i1 %exitcond.not, label %._crit_edge, label %804, !llvm.loop !143
 
 .lr.ph522.split:                                  ; preds = %.lr.ph522, %.critedge
   %925 = phi ptr [ %962, %.critedge ], [ %687, %.lr.ph522 ]
@@ -2238,7 +2238,7 @@ _ZN5draco13EncoderBuffer6EncodeINS_9IndexTypeIjNS_20PointIndex_tag_type_EEEEEbRK
   %970 = sdiv exact i64 %969, 12
   %971 = and i64 %970, 4294967295
   %972 = icmp samesign ult i64 %indvars.iv.next543, %971
-  br i1 %972, label %.lr.ph522.split, label %.critedge119, !llvm.loop !145
+  br i1 %972, label %.lr.ph522.split, label %.critedge119, !llvm.loop !144
 
 .critedge119:                                     ; preds = %.critedge, %944, %.thread.loopexit.us, %718, %.preheader, %._crit_edge
   %.4 = phi i1 [ true, %._crit_edge ], [ true, %.preheader ], [ false, %718 ], [ true, %.thread.loopexit.us ], [ false, %944 ], [ true, %.critedge ]
@@ -2329,7 +2329,7 @@ _ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit: ; preds = 
   %1008 = getelementptr inbounds i8, ptr %2, i64 %1007
   store ptr %1005, ptr %1008, align 8, !tbaa !19
   %1009 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store i64 0, ptr %1009, align 8, !tbaa !146
+  store i64 0, ptr %1009, align 8, !tbaa !145
   %1010 = getelementptr inbounds nuw i8, ptr %2, i64 128
   call void @_ZNSt8ios_baseD2Ev(ptr noundef nonnull align 8 dereferenceable(264) %1010) #19
   call void @llvm.lifetime.end.p0(i64 392, ptr nonnull %2) #19
@@ -2462,7 +2462,7 @@ _ZSt13move_backwardIPcS0_ET0_T_S2_S1_.exit:       ; preds = %_ZSt22__uninitializ
   %32 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i, i64 1
   %33 = add nsw i64 %.012.i.i.i.i.i, -1
   %34 = icmp samesign ugt i64 %.012.i.i.i.i.i, 1
-  br i1 %34, label %.lr.ph.i.i.i.i.i, label %_ZSt4copyIPKhN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEEET0_T_SA_S9_.exit, !llvm.loop !148
+  br i1 %34, label %.lr.ph.i.i.i.i.i, label %_ZSt4copyIPKhN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEEET0_T_SA_S9_.exit, !llvm.loop !147
 
 _ZSt7advanceIPKhmEvRT_T0_.exit:                   ; preds = %16
   %35 = getelementptr inbounds i8, ptr %2, i64 %18
@@ -2481,7 +2481,7 @@ _ZSt7advanceIPKhmEvRT_T0_.exit:                   ; preds = %16
   %41 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i.i.i.i, i64 1
   %42 = add nsw i64 %.012.i.i.i.i.i.i.i.i, -1
   %43 = icmp samesign ugt i64 %.012.i.i.i.i.i.i.i.i, 1
-  br i1 %43, label %.lr.ph.i.i.i.i.i.i.i.i, label %_ZSt22__uninitialized_copy_aIPKhPccET0_T_S4_S3_RSaIT1_E.exit.loopexit, !llvm.loop !148
+  br i1 %43, label %.lr.ph.i.i.i.i.i.i.i.i, label %_ZSt22__uninitialized_copy_aIPKhPccET0_T_S4_S3_RSaIT1_E.exit.loopexit, !llvm.loop !147
 
 _ZSt22__uninitialized_copy_aIPKhPccET0_T_S4_S3_RSaIT1_E.exit.loopexit: ; preds = %.lr.ph.i.i.i.i.i.i.i.i
   %.pre = load ptr, ptr %11, align 8, !tbaa !18
@@ -2517,7 +2517,7 @@ _ZSt22__uninitialized_move_aIPcS0_SaIcEET0_T_S3_S2_RT1_.exit56: ; preds = %_ZSt2
   %53 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i60, i64 1
   %54 = add nsw i64 %.012.i.i.i.i.i59, -1
   %55 = icmp samesign ugt i64 %.012.i.i.i.i.i59, 1
-  br i1 %55, label %.lr.ph.i.i.i.i.i58, label %_ZSt4copyIPKhN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEEET0_T_SA_S9_.exit, !llvm.loop !148
+  br i1 %55, label %.lr.ph.i.i.i.i.i58, label %_ZSt4copyIPKhN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEEET0_T_SA_S9_.exit, !llvm.loop !147
 
 56:                                               ; preds = %5
   %57 = load ptr, ptr %0, align 8, !tbaa !15
@@ -2792,44 +2792,43 @@ attributes #22 = { builtin allocsize(0) }
 !105 = !{!17, !17, i64 0}
 !106 = !{!107, !33, i64 0}
 !107 = !{!"_ZTSN5draco9IndexTypeIjNS_20PointIndex_tag_type_EEE", !33, i64 0}
-!108 = distinct !{!108, !109, !110}
+!108 = distinct !{!108, !109}
 !109 = !{!"llvm.loop.mustprogress"}
-!110 = !{!"llvm.loop.estimated_trip_count"}
-!111 = !{!33, !33, i64 0}
-!112 = !{!113, !38, i64 100}
-!113 = !{!"_ZTSN5draco14PointAttributeE", !68, i64 0, !114, i64 64, !120, i64 72, !33, i64 96, !38, i64 100, !126, i64 104}
-!114 = !{!"_ZTSSt10unique_ptrIN5draco10DataBufferESt14default_deleteIS1_EE", !115, i64 0}
-!115 = !{!"_ZTSSt15__uniq_ptr_dataIN5draco10DataBufferESt14default_deleteIS1_ELb1ELb1EE", !116, i64 0}
-!116 = !{!"_ZTSSt15__uniq_ptr_implIN5draco10DataBufferESt14default_deleteIS1_EE", !117, i64 0}
-!117 = !{!"_ZTSSt5tupleIJPN5draco10DataBufferESt14default_deleteIS1_EEE", !118, i64 0}
-!118 = !{!"_ZTSSt11_Tuple_implILm0EJPN5draco10DataBufferESt14default_deleteIS1_EEE", !119, i64 0}
-!119 = !{!"_ZTSSt10_Head_baseILm0EPN5draco10DataBufferELb0EE", !69, i64 0}
-!120 = !{!"_ZTSN5draco15IndexTypeVectorINS_9IndexTypeIjNS_20PointIndex_tag_type_EEENS1_IjNS_29AttributeValueIndex_tag_type_EEEEE", !121, i64 0}
-!121 = !{!"_ZTSSt6vectorIN5draco9IndexTypeIjNS0_29AttributeValueIndex_tag_type_EEESaIS3_EE", !122, i64 0}
-!122 = !{!"_ZTSSt12_Vector_baseIN5draco9IndexTypeIjNS0_29AttributeValueIndex_tag_type_EEESaIS3_EE", !123, i64 0}
-!123 = !{!"_ZTSNSt12_Vector_baseIN5draco9IndexTypeIjNS0_29AttributeValueIndex_tag_type_EEESaIS3_EE12_Vector_implE", !124, i64 0}
-!124 = !{!"_ZTSNSt12_Vector_baseIN5draco9IndexTypeIjNS0_29AttributeValueIndex_tag_type_EEESaIS3_EE17_Vector_impl_dataE", !125, i64 0, !125, i64 8, !125, i64 16}
-!125 = !{!"p1 _ZTSN5draco9IndexTypeIjNS_29AttributeValueIndex_tag_type_EEE", !6, i64 0}
-!126 = !{!"_ZTSSt10unique_ptrIN5draco22AttributeTransformDataESt14default_deleteIS1_EE", !127, i64 0}
-!127 = !{!"_ZTSSt15__uniq_ptr_dataIN5draco22AttributeTransformDataESt14default_deleteIS1_ELb1ELb1EE", !128, i64 0}
-!128 = !{!"_ZTSSt15__uniq_ptr_implIN5draco22AttributeTransformDataESt14default_deleteIS1_EE", !129, i64 0}
-!129 = !{!"_ZTSSt5tupleIJPN5draco22AttributeTransformDataESt14default_deleteIS1_EEE", !130, i64 0}
-!130 = !{!"_ZTSSt11_Tuple_implILm0EJPN5draco22AttributeTransformDataESt14default_deleteIS1_EEE", !131, i64 0}
-!131 = !{!"_ZTSSt10_Head_baseILm0EPN5draco22AttributeTransformDataELb0EE", !132, i64 0}
-!132 = !{!"p1 _ZTSN5draco22AttributeTransformDataE", !6, i64 0}
-!133 = !{i8 0, i8 2}
-!134 = !{}
-!135 = !{!124, !125, i64 0}
-!136 = !{!68, !69, i64 0}
-!137 = !{!138, !17, i64 0}
-!138 = !{!"_ZTSNSt12_Vector_baseIhSaIhEE17_Vector_impl_dataE", !17, i64 0, !17, i64 8, !17, i64 16}
-!139 = !{!68, !28, i64 40}
-!140 = !{!68, !28, i64 48}
-!141 = distinct !{!141, !109, !110}
-!142 = distinct !{!142, !109, !110, !143}
-!143 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!144 = distinct !{!144, !109, !110}
-!145 = distinct !{!145, !109, !110}
-!146 = !{!147, !28, i64 8}
-!147 = !{!"_ZTSSi", !28, i64 8}
-!148 = distinct !{!148, !109, !110}
+!110 = !{!33, !33, i64 0}
+!111 = !{!112, !38, i64 100}
+!112 = !{!"_ZTSN5draco14PointAttributeE", !68, i64 0, !113, i64 64, !119, i64 72, !33, i64 96, !38, i64 100, !125, i64 104}
+!113 = !{!"_ZTSSt10unique_ptrIN5draco10DataBufferESt14default_deleteIS1_EE", !114, i64 0}
+!114 = !{!"_ZTSSt15__uniq_ptr_dataIN5draco10DataBufferESt14default_deleteIS1_ELb1ELb1EE", !115, i64 0}
+!115 = !{!"_ZTSSt15__uniq_ptr_implIN5draco10DataBufferESt14default_deleteIS1_EE", !116, i64 0}
+!116 = !{!"_ZTSSt5tupleIJPN5draco10DataBufferESt14default_deleteIS1_EEE", !117, i64 0}
+!117 = !{!"_ZTSSt11_Tuple_implILm0EJPN5draco10DataBufferESt14default_deleteIS1_EEE", !118, i64 0}
+!118 = !{!"_ZTSSt10_Head_baseILm0EPN5draco10DataBufferELb0EE", !69, i64 0}
+!119 = !{!"_ZTSN5draco15IndexTypeVectorINS_9IndexTypeIjNS_20PointIndex_tag_type_EEENS1_IjNS_29AttributeValueIndex_tag_type_EEEEE", !120, i64 0}
+!120 = !{!"_ZTSSt6vectorIN5draco9IndexTypeIjNS0_29AttributeValueIndex_tag_type_EEESaIS3_EE", !121, i64 0}
+!121 = !{!"_ZTSSt12_Vector_baseIN5draco9IndexTypeIjNS0_29AttributeValueIndex_tag_type_EEESaIS3_EE", !122, i64 0}
+!122 = !{!"_ZTSNSt12_Vector_baseIN5draco9IndexTypeIjNS0_29AttributeValueIndex_tag_type_EEESaIS3_EE12_Vector_implE", !123, i64 0}
+!123 = !{!"_ZTSNSt12_Vector_baseIN5draco9IndexTypeIjNS0_29AttributeValueIndex_tag_type_EEESaIS3_EE17_Vector_impl_dataE", !124, i64 0, !124, i64 8, !124, i64 16}
+!124 = !{!"p1 _ZTSN5draco9IndexTypeIjNS_29AttributeValueIndex_tag_type_EEE", !6, i64 0}
+!125 = !{!"_ZTSSt10unique_ptrIN5draco22AttributeTransformDataESt14default_deleteIS1_EE", !126, i64 0}
+!126 = !{!"_ZTSSt15__uniq_ptr_dataIN5draco22AttributeTransformDataESt14default_deleteIS1_ELb1ELb1EE", !127, i64 0}
+!127 = !{!"_ZTSSt15__uniq_ptr_implIN5draco22AttributeTransformDataESt14default_deleteIS1_EE", !128, i64 0}
+!128 = !{!"_ZTSSt5tupleIJPN5draco22AttributeTransformDataESt14default_deleteIS1_EEE", !129, i64 0}
+!129 = !{!"_ZTSSt11_Tuple_implILm0EJPN5draco22AttributeTransformDataESt14default_deleteIS1_EEE", !130, i64 0}
+!130 = !{!"_ZTSSt10_Head_baseILm0EPN5draco22AttributeTransformDataELb0EE", !131, i64 0}
+!131 = !{!"p1 _ZTSN5draco22AttributeTransformDataE", !6, i64 0}
+!132 = !{i8 0, i8 2}
+!133 = !{}
+!134 = !{!123, !124, i64 0}
+!135 = !{!68, !69, i64 0}
+!136 = !{!137, !17, i64 0}
+!137 = !{!"_ZTSNSt12_Vector_baseIhSaIhEE17_Vector_impl_dataE", !17, i64 0, !17, i64 8, !17, i64 16}
+!138 = !{!68, !28, i64 40}
+!139 = !{!68, !28, i64 48}
+!140 = distinct !{!140, !109}
+!141 = distinct !{!141, !109, !142}
+!142 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!143 = distinct !{!143, !109}
+!144 = distinct !{!144, !109}
+!145 = !{!146, !28, i64 8}
+!146 = !{!"_ZTSSi", !28, i64 8}
+!147 = distinct !{!147, !109}

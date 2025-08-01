@@ -216,7 +216,7 @@ define internal range(i32 0, 2) i32 @gmac_final(ptr noundef readonly captures(no
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %5) #5
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(80) %5, i8 0, i64 80, i1 false)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #5
-  store i32 0, ptr %6, align 4, !tbaa !16
+  store i32 0, ptr %6, align 4, !tbaa !15
   %7 = tail call i32 @ossl_prov_is_running() #5
   %.not = icmp eq i32 %7, 0
   br i1 %.not, label %18, label %8
@@ -229,7 +229,7 @@ define internal range(i32 0, 2) i32 @gmac_final(ptr noundef readonly captures(no
   br i1 %.not6, label %18, label %12
 
 12:                                               ; preds = %8
-  store i32 16, ptr %6, align 4, !tbaa !16
+  store i32 16, ptr %6, align 4, !tbaa !15
   call void @OSSL_PARAM_construct_octet_string(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %5, ptr noundef nonnull @.str.1, ptr noundef %1, i64 noundef 16) #5
   %13 = load ptr, ptr %9, align 8, !tbaa !3
   %14 = call i32 @EVP_CIPHER_CTX_get_params(ptr noundef %13, ptr noundef nonnull %5) #5
@@ -237,9 +237,9 @@ define internal range(i32 0, 2) i32 @gmac_final(ptr noundef readonly captures(no
   br i1 %.not7, label %18, label %15
 
 15:                                               ; preds = %12
-  %16 = load i32, ptr %6, align 4, !tbaa !16
+  %16 = load i32, ptr %6, align 4, !tbaa !15
   %17 = sext i32 %16 to i64
-  store i64 %17, ptr %2, align 8, !tbaa !18
+  store i64 %17, ptr %2, align 8, !tbaa !17
   br label %18
 
 18:                                               ; preds = %12, %8, %4, %15
@@ -284,7 +284,7 @@ define internal range(i32 0, 2) i32 @gmac_set_ctx_params(ptr noundef %0, ptr nou
   br i1 %7, label %ossl_param_is_empty.exit.thread, label %ossl_param_is_empty.exit
 
 ossl_param_is_empty.exit:                         ; preds = %2
-  %8 = load ptr, ptr %1, align 8, !tbaa !20
+  %8 = load ptr, ptr %1, align 8, !tbaa !19
   %.not = icmp eq ptr %8, null
   br i1 %.not, label %ossl_param_is_empty.exit.thread, label %9
 
@@ -329,15 +329,15 @@ ossl_param_is_empty.exit:                         ; preds = %2
 
 26:                                               ; preds = %24
   %27 = getelementptr inbounds nuw i8, ptr %25, i64 8
-  %28 = load i32, ptr %27, align 8, !tbaa !23
+  %28 = load i32, ptr %27, align 8, !tbaa !22
   %.not32 = icmp eq i32 %28, 5
   br i1 %.not32, label %29, label %ossl_param_is_empty.exit.thread
 
 29:                                               ; preds = %26
   %30 = getelementptr inbounds nuw i8, ptr %25, i64 16
-  %31 = load ptr, ptr %30, align 8, !tbaa !24
+  %31 = load ptr, ptr %30, align 8, !tbaa !23
   %32 = getelementptr inbounds nuw i8, ptr %25, i64 24
-  %33 = load i64, ptr %32, align 8, !tbaa !25
+  %33 = load i64, ptr %32, align 8, !tbaa !24
   %.val = load ptr, ptr %3, align 8, !tbaa !3
   %34 = tail call i32 @EVP_CIPHER_CTX_get_key_length(ptr noundef %.val) #5
   %35 = sext i32 %34 to i64
@@ -362,13 +362,13 @@ gmac_setkey.exit:                                 ; preds = %29
 
 39:                                               ; preds = %37
   %40 = getelementptr inbounds nuw i8, ptr %38, i64 8
-  %41 = load i32, ptr %40, align 8, !tbaa !23
+  %41 = load i32, ptr %40, align 8, !tbaa !22
   %.not35 = icmp eq i32 %41, 5
   br i1 %.not35, label %42, label %ossl_param_is_empty.exit.thread
 
 42:                                               ; preds = %39
   %43 = getelementptr inbounds nuw i8, ptr %38, i64 24
-  %44 = load i64, ptr %43, align 8, !tbaa !25
+  %44 = load i64, ptr %43, align 8, !tbaa !24
   %45 = trunc i64 %44 to i32
   %46 = tail call i32 @EVP_CIPHER_CTX_ctrl(ptr noundef nonnull %4, i32 noundef 9, i32 noundef %45, ptr noundef null) #5
   %47 = icmp slt i32 %46, 1
@@ -376,7 +376,7 @@ gmac_setkey.exit:                                 ; preds = %29
 
 48:                                               ; preds = %42
   %49 = getelementptr inbounds nuw i8, ptr %38, i64 16
-  %50 = load ptr, ptr %49, align 8, !tbaa !24
+  %50 = load ptr, ptr %49, align 8, !tbaa !23
   %51 = tail call i32 @EVP_EncryptInit_ex(ptr noundef nonnull %4, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef %50) #5
   %.not36 = icmp eq i32 %51, 0
   br i1 %.not36, label %ossl_param_is_empty.exit.thread, label %52
@@ -472,16 +472,15 @@ attributes #5 = { nounwind }
 !10 = !{!"p1 _ZTS13evp_cipher_st", !5, i64 0}
 !11 = !{!"p1 _ZTS9engine_st", !5, i64 0}
 !12 = !{!4, !5, i64 0}
-!13 = distinct !{!13, !14, !15}
+!13 = distinct !{!13, !14}
 !14 = !{!"llvm.loop.mustprogress"}
-!15 = !{!"llvm.loop.estimated_trip_count"}
-!16 = !{!17, !17, i64 0}
-!17 = !{!"int", !6, i64 0}
-!18 = !{!19, !19, i64 0}
-!19 = !{!"long", !6, i64 0}
-!20 = !{!21, !22, i64 0}
-!21 = !{!"ossl_param_st", !22, i64 0, !17, i64 8, !5, i64 16, !19, i64 24, !19, i64 32}
-!22 = !{!"p1 omnipotent char", !5, i64 0}
-!23 = !{!21, !17, i64 8}
-!24 = !{!21, !5, i64 16}
-!25 = !{!21, !19, i64 24}
+!15 = !{!16, !16, i64 0}
+!16 = !{!"int", !6, i64 0}
+!17 = !{!18, !18, i64 0}
+!18 = !{!"long", !6, i64 0}
+!19 = !{!20, !21, i64 0}
+!20 = !{!"ossl_param_st", !21, i64 0, !16, i64 8, !5, i64 16, !18, i64 24, !18, i64 32}
+!21 = !{!"p1 omnipotent char", !5, i64 0}
+!22 = !{!20, !16, i64 8}
+!23 = !{!20, !5, i64 16}
+!24 = !{!20, !18, i64 24}

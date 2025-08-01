@@ -598,9 +598,9 @@ define dso_local void @ieee80211_mod_tpt_led_trig(ptr noundef %0, i32 noundef %1
   br i1 %7, label %9, label %8, !prof !7
 
 8:                                                ; preds = %3
-  tail call void asm sideeffect "804: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 804b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 804) #5, !srcloc !17
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.4, i32 356, i32 2305, i64 12) #5, !srcloc !18
-  tail call void asm sideeffect "805: nop\0A\09.pushsection .discard.instr_end\0A\09.long 805b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 805) #5, !srcloc !19
+  tail call void asm sideeffect "804: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 804b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 804) #5, !srcloc !16
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.4, i32 356, i32 2305, i64 12) #5, !srcloc !17
+  tail call void asm sideeffect "805: nop\0A\09.pushsection .discard.instr_end\0A\09.long 805b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 805) #5, !srcloc !18
   br label %9
 
 9:                                                ; preds = %8, %3
@@ -757,10 +757,9 @@ attributes #6 = { nounwind allocsize(2) }
 !10 = !{i64 2159601521, i64 2159601332, i64 2159601382, i64 2159601428, i64 2159601456}
 !11 = !{i8 0, i8 2}
 !12 = !{}
-!13 = distinct !{!13, !14, !15, !16}
+!13 = distinct !{!13, !14, !15}
 !14 = !{!"llvm.loop.mustprogress"}
 !15 = !{!"llvm.loop.unroll.disable"}
-!16 = !{!"llvm.loop.estimated_trip_count"}
-!17 = !{i64 2159604996, i64 2159604805, i64 2159604857, i64 2159604903, i64 2159604931}
-!18 = !{i64 2159605070, i64 2159605099, i64 2159605145, i64 2159605203, i64 2159605257, i64 2159605311, i64 2159605366, i64 2159605397, i64 2159605705, i64 2159605711, i64 2159605758, i64 2159605781, i64 2159605807}
-!19 = !{i64 2159606258, i64 2159606069, i64 2159606119, i64 2159606165, i64 2159606193}
+!16 = !{i64 2159604996, i64 2159604805, i64 2159604857, i64 2159604903, i64 2159604931}
+!17 = !{i64 2159605070, i64 2159605099, i64 2159605145, i64 2159605203, i64 2159605257, i64 2159605311, i64 2159605366, i64 2159605397, i64 2159605705, i64 2159605711, i64 2159605758, i64 2159605781, i64 2159605807}
+!18 = !{i64 2159606258, i64 2159606069, i64 2159606119, i64 2159606165, i64 2159606193}

@@ -75,7 +75,7 @@ define hidden void @jICCoefC(ptr noundef %0, i32 noundef %1) local_unnamed_addr 
   store ptr %49, ptr %50, align 8
   %indvars.iv.next35 = add nuw nsw i64 %indvars.iv34, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next35, 10
-  br i1 %exitcond.not, label %51, label %48, !llvm.loop !9
+  br i1 %exitcond.not, label %51, label %48, !llvm.loop !8
 
 51:                                               ; preds = %48
   %52 = getelementptr inbounds nuw i8, ptr %6, i64 112
@@ -346,7 +346,7 @@ define internal range(i32 0, 2) i32 @compress_data(ptr noundef %0, ptr noundef r
   %84 = load i32, ptr %34, align 4
   %85 = sext i32 %84 to i64
   %86 = icmp slt i64 %indvars.iv.next121, %85
-  br i1 %86, label %.lr.ph99, label %.loopexit, !llvm.loop !10
+  br i1 %86, label %.lr.ph99, label %.loopexit, !llvm.loop !9
 
 87:                                               ; preds = %49
   %88 = sext i32 %.1101 to i64
@@ -378,7 +378,7 @@ define internal range(i32 0, 2) i32 @compress_data(ptr noundef %0, ptr noundef r
   %105 = load i32, ptr %34, align 4
   %106 = sext i32 %105 to i64
   %107 = icmp slt i64 %indvars.iv.next, %106
-  br i1 %107, label %99, label %.loopexit, !llvm.loop !11
+  br i1 %107, label %99, label %.loopexit, !llvm.loop !10
 
 .loopexit:                                        ; preds = %99, %.lr.ph99, %87, %66, %53
   %108 = phi i32 [ %94, %87 ], [ %74, %66 ], [ %64, %53 ], [ %84, %.lr.ph99 ], [ %105, %99 ]
@@ -387,7 +387,7 @@ define internal range(i32 0, 2) i32 @compress_data(ptr noundef %0, ptr noundef r
   %111 = add nuw nsw i32 %.086100, 1
   %112 = load i32, ptr %40, align 8
   %113 = icmp slt i32 %111, %112
-  br i1 %113, label %46, label %._crit_edge.loopexit, !llvm.loop !12
+  br i1 %113, label %46, label %._crit_edge.loopexit, !llvm.loop !11
 
 ._crit_edge.loopexit:                             ; preds = %.loopexit
   %.pre126 = load i32, ptr %17, align 4
@@ -399,7 +399,7 @@ define internal range(i32 0, 2) i32 @compress_data(ptr noundef %0, ptr noundef r
   %indvars.iv.next124 = add nuw nsw i64 %indvars.iv123, 1
   %115 = sext i32 %114 to i64
   %116 = icmp slt i64 %indvars.iv.next124, %115
-  br i1 %116, label %30, label %._crit_edge108, !llvm.loop !13
+  br i1 %116, label %30, label %._crit_edge108, !llvm.loop !12
 
 ._crit_edge108:                                   ; preds = %._crit_edge, %.preheader
   %117 = load ptr, ptr %22, align 8
@@ -417,7 +417,7 @@ define internal range(i32 0, 2) i32 @compress_data(ptr noundef %0, ptr noundef r
 122:                                              ; preds = %._crit_edge108
   %123 = add i32 %.082110, 1
   %.not = icmp ugt i32 %123, %7
-  br i1 %.not, label %._crit_edge111.loopexit, label %.preheader, !llvm.loop !14
+  br i1 %.not, label %._crit_edge111.loopexit, label %.preheader, !llvm.loop !13
 
 ._crit_edge111.loopexit:                          ; preds = %122
   %.pre127 = load i32, ptr %13, align 4
@@ -428,7 +428,7 @@ define internal range(i32 0, 2) i32 @compress_data(ptr noundef %0, ptr noundef r
   store i32 0, ptr %16, align 4
   %125 = add nsw i32 %.085112, 1
   %126 = icmp slt i32 %125, %124
-  br i1 %126, label %23, label %._crit_edge115, !llvm.loop !15
+  br i1 %126, label %23, label %._crit_edge115, !llvm.loop !14
 
 ._crit_edge115:                                   ; preds = %._crit_edge111, %2
   %127 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -578,12 +578,12 @@ define internal range(i32 0, 2) i32 @compress_first_pass(ptr noundef %0, ptr nou
   store i16 %61, ptr %63, align 2
   %indvars.iv.next132 = add nuw nsw i64 %indvars.iv131, 1
   %exitcond135.not = icmp eq i64 %indvars.iv.next132, %50
-  br i1 %exitcond135.not, label %.loopexit.us, label %62, !llvm.loop !16
+  br i1 %exitcond135.not, label %.loopexit.us, label %62, !llvm.loop !15
 
 .loopexit.us:                                     ; preds = %62
   %indvars.iv.next137 = add nuw nsw i64 %indvars.iv136, 1
   %exitcond140.not = icmp eq i64 %indvars.iv.next137, %wide.trip.count139
-  br i1 %exitcond140.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !17
+  br i1 %exitcond140.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !16
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.split
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph.split ], [ 0, %.lr.ph ]
@@ -598,7 +598,7 @@ define internal range(i32 0, 2) i32 @compress_first_pass(ptr noundef %0, ptr nou
   tail call void %68(ptr noundef nonnull %0, ptr noundef nonnull %.086122, ptr noundef %69, ptr noundef %65, i32 noundef %70, i32 noundef 0, i32 noundef %40) #2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count139
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !19
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !18
 
 ._crit_edge:                                      ; preds = %.lr.ph.split, %.loopexit.us, %38
   %71 = load i32, ptr %15, align 8
@@ -640,7 +640,7 @@ define internal range(i32 0, 2) i32 @compress_first_pass(ptr noundef %0, ptr nou
   %88 = load i32, ptr %24, align 4
   %89 = sext i32 %88 to i64
   %90 = icmp slt i64 %indvars.iv.next150, %89
-  br i1 %90, label %.lr.ph110.us, label %.loopexit99, !llvm.loop !20
+  br i1 %90, label %.lr.ph110.us, label %.loopexit99, !llvm.loop !19
 
 .lr.ph104.us.us:                                  ; preds = %.lr.ph110.us, %._crit_edge105.us.us
   %.0108.us.us = phi ptr [ %91, %._crit_edge105.us.us ], [ %87, %.lr.ph110.us ]
@@ -657,13 +657,13 @@ define internal range(i32 0, 2) i32 @compress_first_pass(ptr noundef %0, ptr nou
   store i16 %93, ptr %95, align 2
   %indvars.iv.next145 = add nuw nsw i64 %indvars.iv144, 1
   %exitcond148.not = icmp eq i64 %indvars.iv.next145, %wide.trip.count147
-  br i1 %exitcond148.not, label %._crit_edge105.us.us, label %94, !llvm.loop !21
+  br i1 %exitcond148.not, label %._crit_edge105.us.us, label %94, !llvm.loop !20
 
 ._crit_edge105.us.us:                             ; preds = %94
   %96 = getelementptr inbounds nuw [64 x i16], ptr %.085107.us.us, i64 %81
   %97 = add nuw i32 %.090106.us.us, 1
   %98 = icmp ult i32 %97, %75
-  br i1 %98, label %.lr.ph104.us.us, label %._crit_edge111.us, !llvm.loop !22
+  br i1 %98, label %.lr.ph104.us.us, label %._crit_edge111.us, !llvm.loop !21
 
 .lr.ph114.split:                                  ; preds = %.lr.ph114, %.lr.ph114.split
   %indvars.iv141 = phi i64 [ %indvars.iv.next142, %.lr.ph114.split ], [ %83, %.lr.ph114 ]
@@ -674,7 +674,7 @@ define internal range(i32 0, 2) i32 @compress_first_pass(ptr noundef %0, ptr nou
   %101 = load i32, ptr %24, align 4
   %102 = sext i32 %101 to i64
   %103 = icmp slt i64 %indvars.iv.next142, %102
-  br i1 %103, label %.lr.ph114.split, label %.loopexit99, !llvm.loop !23
+  br i1 %103, label %.lr.ph114.split, label %.loopexit99, !llvm.loop !22
 
 .loopexit99:                                      ; preds = %.lr.ph114.split, %._crit_edge111.us, %73, %._crit_edge
   %indvars.iv.next153 = add nuw nsw i64 %indvars.iv152, 1
@@ -682,7 +682,7 @@ define internal range(i32 0, 2) i32 @compress_first_pass(ptr noundef %0, ptr nou
   %105 = load i32, ptr %6, align 4
   %106 = sext i32 %105 to i64
   %107 = icmp slt i64 %indvars.iv.next153, %106
-  br i1 %107, label %17, label %._crit_edge126, !llvm.loop !24
+  br i1 %107, label %17, label %._crit_edge126, !llvm.loop !23
 
 ._crit_edge126:                                   ; preds = %.loopexit99, %2
   %108 = tail call i32 @compress_output(ptr noundef nonnull %0, ptr poison)
@@ -729,7 +729,7 @@ define internal range(i32 0, 2) i32 @compress_output(ptr noundef %0, ptr readnon
   %30 = load i32, ptr %6, align 4
   %31 = sext i32 %30 to i64
   %32 = icmp slt i64 %indvars.iv.next, %31
-  br i1 %32, label %13, label %._crit_edge, !llvm.loop !25
+  br i1 %32, label %13, label %._crit_edge, !llvm.loop !24
 
 ._crit_edge:                                      ; preds = %13, %2
   %33 = getelementptr inbounds nuw i8, ptr %5, i64 24
@@ -814,7 +814,7 @@ define internal range(i32 0, 2) i32 @compress_output(ptr noundef %0, ptr readnon
   %72 = add nuw nsw i32 %.05565, 1
   %73 = load i32, ptr %54, align 4
   %74 = icmp slt i32 %72, %73
-  br i1 %74, label %.lr.ph68, label %._crit_edge69.loopexit, !llvm.loop !26
+  br i1 %74, label %.lr.ph68, label %._crit_edge69.loopexit, !llvm.loop !25
 
 ._crit_edge69.loopexit:                           ; preds = %.lr.ph68
   %75 = trunc nsw i64 %indvars.iv.next91 to i32
@@ -828,7 +828,7 @@ define internal range(i32 0, 2) i32 @compress_output(ptr noundef %0, ptr readnon
   %indvars.iv.next94 = add nuw nsw i64 %indvars.iv93, 1
   %78 = sext i32 %76 to i64
   %79 = icmp slt i64 %indvars.iv.next94, %78
-  br i1 %79, label %.lr.ph73.split, label %._crit_edge74.loopexit, !llvm.loop !27
+  br i1 %79, label %.lr.ph73.split, label %._crit_edge74.loopexit, !llvm.loop !26
 
 ._crit_edge74.loopexit:                           ; preds = %._crit_edge69
   %.pre103 = load i32, ptr %6, align 4
@@ -840,7 +840,7 @@ define internal range(i32 0, 2) i32 @compress_output(ptr noundef %0, ptr readnon
   %indvars.iv.next97 = add nuw nsw i64 %indvars.iv96, 1
   %81 = sext i32 %80 to i64
   %82 = icmp slt i64 %indvars.iv.next97, %81
-  br i1 %82, label %.lr.ph78, label %._crit_edge79, !llvm.loop !29
+  br i1 %82, label %.lr.ph78, label %._crit_edge79, !llvm.loop !28
 
 ._crit_edge79:                                    ; preds = %._crit_edge74, %.preheader
   %83 = load ptr, ptr %42, align 8
@@ -860,7 +860,7 @@ define internal range(i32 0, 2) i32 @compress_output(ptr noundef %0, ptr readnon
   %90 = add nuw i32 %.05980, 1
   %91 = load i32, ptr %39, align 8
   %92 = icmp ult i32 %90, %91
-  br i1 %92, label %.preheader, label %._crit_edge81.loopexit, !llvm.loop !30
+  br i1 %92, label %.preheader, label %._crit_edge81.loopexit, !llvm.loop !29
 
 ._crit_edge81.loopexit:                           ; preds = %89
   %.pre104 = load i32, ptr %35, align 4
@@ -872,7 +872,7 @@ define internal range(i32 0, 2) i32 @compress_output(ptr noundef %0, ptr readnon
   %indvars.iv.next100 = add nsw i64 %indvars.iv99, 1
   %94 = sext i32 %93 to i64
   %95 = icmp slt i64 %indvars.iv.next100, %94
-  br i1 %95, label %44, label %._crit_edge85, !llvm.loop !31
+  br i1 %95, label %44, label %._crit_edge85, !llvm.loop !30
 
 ._crit_edge85:                                    ; preds = %._crit_edge81, %._crit_edge
   %96 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -939,29 +939,28 @@ attributes #2 = { nounwind }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7, !8}
-!11 = distinct !{!11, !7, !8}
-!12 = distinct !{!12, !7, !8}
-!13 = distinct !{!13, !7, !8}
-!14 = distinct !{!14, !7, !8}
-!15 = distinct !{!15, !7, !8}
-!16 = distinct !{!16, !7, !8}
-!17 = distinct !{!17, !7, !8, !18}
-!18 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!19 = distinct !{!19, !7, !8}
-!20 = distinct !{!20, !7, !8, !18}
-!21 = distinct !{!21, !7, !8}
-!22 = distinct !{!22, !7, !8, !18}
-!23 = distinct !{!23, !7, !8}
-!24 = distinct !{!24, !7, !8}
-!25 = distinct !{!25, !7, !8}
-!26 = distinct !{!26, !7, !8}
-!27 = distinct !{!27, !7, !8, !28}
-!28 = !{!"llvm.loop.unswitch.partial.disable"}
-!29 = distinct !{!29, !7, !8}
-!30 = distinct !{!30, !7, !8}
-!31 = distinct !{!31, !7, !8}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7}
+!12 = distinct !{!12, !7}
+!13 = distinct !{!13, !7}
+!14 = distinct !{!14, !7}
+!15 = distinct !{!15, !7}
+!16 = distinct !{!16, !7, !17}
+!17 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!18 = distinct !{!18, !7}
+!19 = distinct !{!19, !7, !17}
+!20 = distinct !{!20, !7}
+!21 = distinct !{!21, !7, !17}
+!22 = distinct !{!22, !7}
+!23 = distinct !{!23, !7}
+!24 = distinct !{!24, !7}
+!25 = distinct !{!25, !7}
+!26 = distinct !{!26, !7, !27}
+!27 = !{!"llvm.loop.unswitch.partial.disable"}
+!28 = distinct !{!28, !7}
+!29 = distinct !{!29, !7}
+!30 = distinct !{!30, !7}

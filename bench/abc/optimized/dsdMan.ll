@@ -60,18 +60,18 @@ define noalias noundef ptr @Dsd_ManagerStart(ptr noundef %0, i32 noundef %1, i32
 ._crit_edge:                                      ; preds = %17, %3
   %32 = tail call ptr @Dsd_TreeNodeCreate(i32 noundef 1, i32 noundef 0, i32 noundef 0) #7
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %34 = load ptr, ptr %33, align 8, !tbaa !45
+  %34 = load ptr, ptr %33, align 8, !tbaa !44
   %35 = getelementptr inbounds nuw i8, ptr %32, i64 8
   store ptr %34, ptr %35, align 8, !tbaa !37
   tail call void @Cudd_Ref(ptr noundef %34) #7
-  %36 = load ptr, ptr %33, align 8, !tbaa !45
+  %36 = load ptr, ptr %33, align 8, !tbaa !44
   %37 = getelementptr inbounds nuw i8, ptr %32, i64 16
   store ptr %36, ptr %37, align 8, !tbaa !40
   tail call void @Cudd_Ref(ptr noundef %36) #7
-  %38 = load ptr, ptr %33, align 8, !tbaa !45
+  %38 = load ptr, ptr %33, align 8, !tbaa !44
   %39 = tail call i32 @st__insert(ptr noundef %13, ptr noundef %38, ptr noundef %32) #7
   %40 = getelementptr inbounds nuw i8, ptr %calloc, i64 48
-  store ptr %32, ptr %40, align 8, !tbaa !46
+  store ptr %32, ptr %40, align 8, !tbaa !45
   tail call void @Dsd_CheckCacheAllocate(i32 noundef 5000) #7
   ret ptr %calloc
 }
@@ -130,7 +130,7 @@ define void @Dsd_ManagerStop(ptr noundef captures(none) %0) local_unnamed_addr #
   call void @Dsd_TreeNodeDelete(ptr noundef %11, ptr noundef %15) #7
   %16 = call i32 @st__gen(ptr noundef %6, ptr noundef nonnull %3, ptr noundef nonnull %2) #7
   %.not = icmp eq i32 %16, 0
-  br i1 %.not, label %._crit_edge, label %.critedge, !llvm.loop !47
+  br i1 %.not, label %._crit_edge, label %.critedge, !llvm.loop !46
 
 17:                                               ; preds = %._crit_edge
   call void @free(ptr noundef nonnull %10) #7
@@ -226,9 +226,8 @@ attributes #7 = { nounwind }
 !39 = !{!"short", !7, i64 0}
 !40 = !{!38, !22, i64 16}
 !41 = !{!12, !12, i64 0}
-!42 = distinct !{!42, !43, !44}
+!42 = distinct !{!42, !43}
 !43 = !{!"llvm.loop.mustprogress"}
-!44 = !{!"llvm.loop.estimated_trip_count"}
-!45 = !{!20, !22, i64 40}
-!46 = !{!4, !12, i64 48}
-!47 = distinct !{!47, !43, !44}
+!44 = !{!20, !22, i64 40}
+!45 = !{!4, !12, i64 48}
+!46 = distinct !{!46, !43}

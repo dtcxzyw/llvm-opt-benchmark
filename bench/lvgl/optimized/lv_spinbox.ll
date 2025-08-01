@@ -192,7 +192,7 @@ lv_spinbox_step_next.exit74:                      ; preds = %34
   %84 = tail call ptr @lv_indev_active() #7
   %85 = tail call i32 @lv_indev_get_type(ptr noundef %84) #7
   %86 = tail call ptr @lv_event_get_param(ptr noundef %1) #7
-  %87 = load i32, ptr %86, align 4, !tbaa !27
+  %87 = load i32, ptr %86, align 4, !tbaa !26
   switch i32 %87, label %146 [
     i32 19, label %88
     i32 20, label %97
@@ -213,7 +213,7 @@ lv_spinbox_step_next.exit74:                      ; preds = %34
   br i1 %.not.i75, label %.preheader.i76, label %lv_spinbox_step_next.exit77
 
 .preheader.i76:                                   ; preds = %91, %.preheader.i76
-  br label %.preheader.i76, !llvm.loop !28
+  br label %.preheader.i76
 
 lv_spinbox_step_next.exit77:                      ; preds = %91
   %92 = getelementptr inbounds nuw i8, ptr %6, i64 172
@@ -242,7 +242,7 @@ lv_spinbox_step_next.exit77:                      ; preds = %91
   br i1 %.not.i78, label %.preheader.i79, label %._crit_edge.i
 
 .preheader.i79:                                   ; preds = %101, %.preheader.i79
-  br label %.preheader.i79, !llvm.loop !29
+  br label %.preheader.i79
 
 ._crit_edge.i:                                    ; preds = %101
   %102 = getelementptr inbounds nuw i8, ptr %6, i64 160
@@ -290,7 +290,7 @@ lv_spinbox_step_next.exit77:                      ; preds = %91
   br i1 %.not.i80, label %.preheader.i87, label %._crit_edge.i81
 
 .preheader.i87:                                   ; preds = %124, %.preheader.i87
-  br label %.preheader.i87, !llvm.loop !30
+  br label %.preheader.i87
 
 ._crit_edge.i81:                                  ; preds = %124
   %125 = getelementptr inbounds nuw i8, ptr %6, i64 160
@@ -363,7 +363,7 @@ define void @lv_spinbox_set_value(ptr noundef %0, i32 noundef %1) local_unnamed_
   br i1 %.not, label %.preheader, label %3
 
 .preheader:                                       ; preds = %2, %.preheader
-  br label %.preheader, !llvm.loop !31
+  br label %.preheader
 
 3:                                                ; preds = %2
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 164
@@ -443,7 +443,7 @@ define internal fastcc void @lv_spinbox_updatevalue(ptr noundef %0) unnamed_addr
   store i8 %30, ptr %32, align 1, !tbaa !23
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %.not106 = icmp eq i64 %indvars.iv, 0
-  br i1 %.not106, label %.preheader, label %.lr.ph, !llvm.loop !32
+  br i1 %.not106, label %.preheader, label %.lr.ph, !llvm.loop !27
 
 .loopexit:                                        ; preds = %.lr.ph72.preheader, %.preheader, %._crit_edge102
   %33 = lshr i16 %17, 4
@@ -471,7 +471,7 @@ define internal fastcc void @lv_spinbox_updatevalue(ptr noundef %0) unnamed_addr
   %40 = getelementptr inbounds nuw i8, ptr %.15874, i64 1
   %indvars.iv.next95 = add nuw nsw i64 %indvars.iv94, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next95, %wide.trip.count
-  br i1 %exitcond.not, label %.critedge, label %.lr.ph75, !llvm.loop !33
+  br i1 %exitcond.not, label %.critedge, label %.lr.ph75, !llvm.loop !28
 
 .critedge.loopexit.split.loop.exit103:            ; preds = %.lr.ph75
   %41 = trunc nuw nsw i64 %indvars.iv94 to i32
@@ -508,7 +508,7 @@ define internal fastcc void @lv_spinbox_updatevalue(ptr noundef %0) unnamed_addr
   store i8 %48, ptr %.282, align 1, !tbaa !23
   %indvars.iv.next98 = add nuw nsw i64 %indvars.iv97, 1
   %exitcond101.not = icmp eq i64 %indvars.iv.next98, %wide.trip.count100
-  br i1 %exitcond101.not, label %.critedge2, label %.lr.ph83, !llvm.loop !34
+  br i1 %exitcond101.not, label %.critedge2, label %.lr.ph83, !llvm.loop !29
 
 .critedge2:                                       ; preds = %49, %.lr.ph83, %43, %.critedge
   call void @lv_textarea_set_text(ptr noundef %0, ptr noundef nonnull %2) #7
@@ -526,7 +526,7 @@ define internal fastcc void @lv_spinbox_updatevalue(ptr noundef %0) unnamed_addr
   %56 = udiv i32 %.05685, 10
   %57 = add i32 %.086, -1
   %58 = icmp samesign ugt i32 %.05685, 99
-  br i1 %58, label %.lr.ph87, label %._crit_edge, !llvm.loop !35
+  br i1 %58, label %.lr.ph87, label %._crit_edge, !llvm.loop !30
 
 ._crit_edge:                                      ; preds = %.lr.ph87, %.critedge2
   %.0.lcssa = phi i32 [ %54, %.critedge2 ], [ %57, %.lr.ph87 ]
@@ -546,7 +546,7 @@ define void @lv_spinbox_set_rollover(ptr noundef captures(address_is_null) %0, i
   br i1 %.not, label %.preheader, label %3
 
 .preheader:                                       ; preds = %2, %.preheader
-  br label %.preheader, !llvm.loop !36
+  br label %.preheader
 
 3:                                                ; preds = %2
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 176
@@ -564,7 +564,7 @@ define void @lv_spinbox_set_digit_format(ptr noundef %0, i32 noundef %1, i32 nou
   br i1 %.not, label %.preheader, label %4
 
 .preheader:                                       ; preds = %3, %.preheader
-  br label %.preheader, !llvm.loop !37
+  br label %.preheader
 
 4:                                                ; preds = %3
   %spec.store.select = tail call i32 @llvm.umin.i32(i32 %1, i32 10)
@@ -624,7 +624,7 @@ define void @lv_spinbox_set_step(ptr noundef %0, i32 noundef %1) local_unnamed_a
   br i1 %.not, label %.preheader, label %3
 
 .preheader:                                       ; preds = %2, %.preheader
-  br label %.preheader, !llvm.loop !38
+  br label %.preheader
 
 3:                                                ; preds = %2
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 172
@@ -639,7 +639,7 @@ define void @lv_spinbox_set_range(ptr noundef %0, i32 noundef %1, i32 noundef %2
   br i1 %.not, label %.preheader, label %4
 
 .preheader:                                       ; preds = %3, %.preheader
-  br label %.preheader, !llvm.loop !39
+  br label %.preheader
 
 4:                                                ; preds = %3
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 164
@@ -670,7 +670,7 @@ define void @lv_spinbox_set_cursor_pos(ptr noundef %0, i32 noundef %1) local_unn
   br i1 %.not, label %.preheader, label %3
 
 .preheader:                                       ; preds = %2, %.preheader
-  br label %.preheader, !llvm.loop !40
+  br label %.preheader
 
 3:                                                ; preds = %2
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 164
@@ -706,7 +706,7 @@ define void @lv_spinbox_set_digit_step_direction(ptr noundef %0, i32 noundef %1)
   br i1 %.not, label %.preheader, label %3
 
 .preheader:                                       ; preds = %2, %.preheader
-  br label %.preheader, !llvm.loop !41
+  br label %.preheader
 
 3:                                                ; preds = %2
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 176
@@ -727,7 +727,7 @@ define i32 @lv_spinbox_get_value(ptr noundef readonly captures(address_is_null) 
   br i1 %.not, label %.preheader, label %2
 
 .preheader:                                       ; preds = %1, %.preheader
-  br label %.preheader, !llvm.loop !42
+  br label %.preheader
 
 2:                                                ; preds = %1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 160
@@ -741,7 +741,7 @@ define i32 @lv_spinbox_get_step(ptr noundef readonly captures(address_is_null) %
   br i1 %.not, label %.preheader, label %2
 
 .preheader:                                       ; preds = %1, %.preheader
-  br label %.preheader, !llvm.loop !43
+  br label %.preheader
 
 2:                                                ; preds = %1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 172
@@ -755,7 +755,7 @@ define void @lv_spinbox_step_next(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not, label %.preheader, label %2
 
 .preheader:                                       ; preds = %1, %.preheader
-  br label %.preheader, !llvm.loop !28
+  br label %.preheader
 
 2:                                                ; preds = %1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 172
@@ -774,7 +774,7 @@ define void @lv_spinbox_step_prev(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not, label %.preheader, label %2
 
 .preheader:                                       ; preds = %1, %.preheader
-  br label %.preheader, !llvm.loop !44
+  br label %.preheader
 
 2:                                                ; preds = %1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 164
@@ -804,7 +804,7 @@ define zeroext i1 @lv_spinbox_get_rollover(ptr noundef readonly captures(address
   br i1 %.not, label %.preheader, label %2
 
 .preheader:                                       ; preds = %1, %.preheader
-  br label %.preheader, !llvm.loop !45
+  br label %.preheader
 
 2:                                                ; preds = %1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 176
@@ -820,7 +820,7 @@ define void @lv_spinbox_increment(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not, label %.preheader, label %._crit_edge
 
 .preheader:                                       ; preds = %1, %.preheader
-  br label %.preheader, !llvm.loop !29
+  br label %.preheader
 
 ._crit_edge:                                      ; preds = %1
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 160
@@ -873,7 +873,7 @@ define void @lv_spinbox_decrement(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not, label %.preheader, label %._crit_edge
 
 .preheader:                                       ; preds = %1, %.preheader
-  br label %.preheader, !llvm.loop !30
+  br label %.preheader
 
 ._crit_edge:                                      ; preds = %1
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 160
@@ -1003,25 +1003,10 @@ attributes #7 = { nounwind }
 !21 = !{!4, !15, i64 168}
 !22 = !{!4, !15, i64 116}
 !23 = !{!9, !9, i64 0}
-!24 = distinct !{!24, !25, !26}
+!24 = distinct !{!24, !25}
 !25 = !{!"llvm.loop.mustprogress"}
-!26 = !{!"llvm.loop.estimated_trip_count"}
-!27 = !{!15, !15, i64 0}
-!28 = distinct !{!28, !26}
-!29 = distinct !{!29, !26}
-!30 = distinct !{!30, !26}
-!31 = distinct !{!31, !26}
-!32 = distinct !{!32, !25, !26}
-!33 = distinct !{!33, !25, !26}
-!34 = distinct !{!34, !25, !26}
-!35 = distinct !{!35, !25, !26}
-!36 = distinct !{!36, !26}
-!37 = distinct !{!37, !26}
-!38 = distinct !{!38, !26}
-!39 = distinct !{!39, !26}
-!40 = distinct !{!40, !26}
-!41 = distinct !{!41, !26}
-!42 = distinct !{!42, !26}
-!43 = distinct !{!43, !26}
-!44 = distinct !{!44, !26}
-!45 = distinct !{!45, !26}
+!26 = !{!15, !15, i64 0}
+!27 = distinct !{!27, !25}
+!28 = distinct !{!28, !25}
+!29 = distinct !{!29, !25}
+!30 = distinct !{!30, !25}

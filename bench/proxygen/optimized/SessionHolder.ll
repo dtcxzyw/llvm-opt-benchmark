@@ -1703,7 +1703,7 @@ if.end.i.i:                                       ; preds = %dynamic_cast.notnul
   %3 = load ptr, ptr %vfn.i.i, align 8
   %call.i.i = tail call noundef ptr %3(ptr noundef nonnull align 8 dereferenceable(48) %current.04.i.i)
   %tobool.not.i.i = icmp eq ptr %call.i.i, null
-  br i1 %tobool.not.i.i, label %if.else42, label %dynamic_cast.notnull.i.i, !llvm.loop !7
+  br i1 %tobool.not.i.i, label %if.else42, label %dynamic_cast.notnull.i.i, !llvm.loop !6
 
 if.then5:                                         ; preds = %dynamic_cast.notnull.i.i
   %call6 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef nonnull @.str.15)
@@ -2081,7 +2081,6 @@ attributes #25 = { noreturn }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5, !6}
+!4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{!"llvm.loop.estimated_trip_count"}
-!7 = distinct !{!7, !5, !6}
+!6 = distinct !{!6, !5}

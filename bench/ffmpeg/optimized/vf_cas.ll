@@ -337,7 +337,7 @@ define internal noundef i32 @cas_slice8(ptr noundef readonly captures(none) %0, 
 ._crit_edge.us:                                   ; preds = %65
   %142 = getelementptr inbounds i8, ptr %.0302364.us, i64 %50
   %exitcond373.not = icmp eq i64 %indvars.iv.next370, %wide.trip.count372
-  br i1 %exitcond373.not, label %.loopexit, label %.lr.ph.us, !llvm.loop !63
+  br i1 %exitcond373.not, label %.loopexit, label %.lr.ph.us, !llvm.loop !62
 
 143:                                              ; preds = %22
   %144 = mul nsw i32 %32, %26
@@ -352,7 +352,7 @@ define internal noundef i32 @cas_slice8(ptr noundef readonly captures(none) %0, 
   %148 = load i32, ptr %13, align 8, !tbaa !55
   %149 = sext i32 %148 to i64
   %150 = icmp slt i64 %indvars.iv.next375, %149
-  br i1 %150, label %22, label %._crit_edge, !llvm.loop !65
+  br i1 %150, label %22, label %._crit_edge, !llvm.loop !64
 }
 
 ; Function Attrs: nounwind uwtable
@@ -469,38 +469,38 @@ define internal noundef i32 @cas_slice16(ptr noundef readonly captures(none) %0,
   %79 = add nsw i32 %76, %66
   %80 = sext i32 %79 to i64
   %81 = getelementptr inbounds i16, ptr %49, i64 %80
-  %82 = load i16, ptr %81, align 2, !tbaa !66
+  %82 = load i16, ptr %81, align 2, !tbaa !65
   %83 = zext i16 %82 to i32
   %gep = getelementptr i16, ptr %invariant.gep, i64 %indvars.iv
-  %84 = load i16, ptr %gep, align 2, !tbaa !66
+  %84 = load i16, ptr %gep, align 2, !tbaa !65
   %85 = zext i16 %84 to i32
   %86 = add nsw i32 %78, %66
   %87 = sext i32 %86 to i64
   %88 = getelementptr inbounds i16, ptr %49, i64 %87
-  %89 = load i16, ptr %88, align 2, !tbaa !66
+  %89 = load i16, ptr %88, align 2, !tbaa !65
   %90 = zext i16 %89 to i32
   %91 = zext nneg i32 %76 to i64
   %92 = getelementptr i16, ptr %71, i64 %91
-  %93 = load i16, ptr %92, align 2, !tbaa !66
+  %93 = load i16, ptr %92, align 2, !tbaa !65
   %94 = zext i16 %93 to i32
   %gep382 = getelementptr i16, ptr %invariant.gep381, i64 %indvars.iv
-  %95 = load i16, ptr %gep382, align 2, !tbaa !66
+  %95 = load i16, ptr %gep382, align 2, !tbaa !65
   %96 = sext i32 %78 to i64
   %97 = getelementptr i16, ptr %72, i64 %96
-  %98 = load i16, ptr %97, align 2, !tbaa !66
+  %98 = load i16, ptr %97, align 2, !tbaa !65
   %99 = zext i16 %98 to i32
   %100 = add nsw i32 %76, %68
   %101 = sext i32 %100 to i64
   %102 = getelementptr inbounds i16, ptr %49, i64 %101
-  %103 = load i16, ptr %102, align 2, !tbaa !66
+  %103 = load i16, ptr %102, align 2, !tbaa !65
   %104 = zext i16 %103 to i32
   %gep384 = getelementptr i16, ptr %invariant.gep383, i64 %indvars.iv
-  %105 = load i16, ptr %gep384, align 2, !tbaa !66
+  %105 = load i16, ptr %gep384, align 2, !tbaa !65
   %106 = zext i16 %105 to i32
   %107 = add nsw i32 %78, %68
   %108 = sext i32 %107 to i64
   %109 = getelementptr inbounds i16, ptr %49, i64 %108
-  %110 = load i16, ptr %109, align 2, !tbaa !66
+  %110 = load i16, ptr %109, align 2, !tbaa !65
   %111 = zext i16 %110 to i32
   %112 = tail call i16 @llvm.umin.i16(i16 %93, i16 %95)
   %.364.us = tail call i16 @llvm.umin.i16(i16 %112, i16 %98)
@@ -550,14 +550,14 @@ define internal noundef i32 @cas_slice16(ptr noundef readonly captures(none) %0,
   %.0.i.us = select i1 %.not.i.us, i32 %147, i32 %149
   %150 = trunc i32 %.0.i.us to i16
   %151 = getelementptr inbounds nuw i16, ptr %.0306368.us, i64 %indvars.iv
-  store i16 %150, ptr %151, align 2, !tbaa !66
+  store i16 %150, ptr %151, align 2, !tbaa !65
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us, label %73, !llvm.loop !68
+  br i1 %exitcond.not, label %._crit_edge.us, label %73, !llvm.loop !67
 
 ._crit_edge.us:                                   ; preds = %73
   %152 = getelementptr inbounds i16, ptr %.0306368.us, i64 %56
   %exitcond377.not = icmp eq i64 %indvars.iv.next374, %wide.trip.count376
-  br i1 %exitcond377.not, label %.loopexit, label %.lr.ph.us, !llvm.loop !69
+  br i1 %exitcond377.not, label %.loopexit, label %.lr.ph.us, !llvm.loop !68
 
 153:                                              ; preds = %25
   %154 = shl nsw i32 %35, 1
@@ -576,7 +576,7 @@ define internal noundef i32 @cas_slice16(ptr noundef readonly captures(none) %0,
   %indvars.iv.next379 = add nuw nsw i64 %indvars.iv378, 1
   %162 = sext i32 %161 to i64
   %163 = icmp slt i64 %indvars.iv.next379, %162
-  br i1 %163, label %25, label %._crit_edge, !llvm.loop !70
+  br i1 %163, label %25, label %._crit_edge, !llvm.loop !69
 }
 
 declare void @av_image_copy_plane(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #0
@@ -684,14 +684,13 @@ attributes #7 = { nounwind willreturn memory(read) }
 !57 = !{!25, !25, i64 0}
 !58 = !{!37, !13, i64 12}
 !59 = !{!7, !7, i64 0}
-!60 = distinct !{!60, !61, !62}
+!60 = distinct !{!60, !61}
 !61 = !{!"llvm.loop.mustprogress"}
-!62 = !{!"llvm.loop.estimated_trip_count"}
-!63 = distinct !{!63, !61, !62, !64}
-!64 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!65 = distinct !{!65, !61, !62}
-!66 = !{!67, !67, i64 0}
-!67 = !{!"short", !7, i64 0}
-!68 = distinct !{!68, !61, !62}
-!69 = distinct !{!69, !61, !62, !64}
-!70 = distinct !{!70, !61, !62}
+!62 = distinct !{!62, !61, !63}
+!63 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!64 = distinct !{!64, !61}
+!65 = !{!66, !66, i64 0}
+!66 = !{!"short", !7, i64 0}
+!67 = distinct !{!67, !61}
+!68 = distinct !{!68, !61, !63}
+!69 = distinct !{!69, !61}

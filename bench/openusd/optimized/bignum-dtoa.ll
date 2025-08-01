@@ -251,7 +251,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL15FixupMultiply10Ei
   br label %.split.us.i.backedge
 
 .split.us.i.backedge:                             ; preds = %108, %107
-  br label %.split.us.i, !llvm.loop !7
+  br label %.split.us.i, !llvm.loop !6
 
 .split.i:                                         ; preds = %93
   br i1 %95, label %.split.split.us.i, label %.split.split.i
@@ -276,7 +276,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL15FixupMultiply10Ei
 120:                                              ; preds = %.split.split.us.i
   call void @_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum16MultiplyByUInt32Ej(ptr noundef nonnull align 4 dereferenceable(516) %8, i32 noundef 10)
   call void @_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum16MultiplyByUInt32Ej(ptr noundef nonnull align 4 dereferenceable(516) %10, i32 noundef 10)
-  br label %.split.split.us.i, !llvm.loop !9
+  br label %.split.split.us.i, !llvm.loop !8
 
 .split.split.i:                                   ; preds = %.split.i, %132
   %121 = call noundef zeroext i16 @_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum21DivideModuloIntBignumERKS1_(ptr noundef nonnull align 4 dereferenceable(516) %8, ptr noundef nonnull align 4 dereferenceable(516) %9)
@@ -299,7 +299,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL15FixupMultiply10Ei
   call void @_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum16MultiplyByUInt32Ej(ptr noundef nonnull align 4 dereferenceable(516) %8, i32 noundef 10)
   call void @_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum16MultiplyByUInt32Ej(ptr noundef nonnull align 4 dereferenceable(516) %10, i32 noundef 10)
   call void @_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum16MultiplyByUInt32Ej(ptr noundef nonnull align 4 dereferenceable(516) %spec.select.i, i32 noundef 10)
-  br label %.split.split.i, !llvm.loop !10
+  br label %.split.split.i, !llvm.loop !9
 
 .split5.us.i:                                     ; preds = %.split.split.i, %.split.split.us.i, %.split.us.i
   %.us-phi.i = phi i1 [ %104, %.split.us.i ], [ %117, %.split.split.us.i ], [ %129, %.split.split.i ]
@@ -427,7 +427,7 @@ define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_c
   tail call void @_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum16MultiplyByUInt32Ej(ptr noundef nonnull align 4 dereferenceable(516) %2, i32 noundef 10)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !11
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %.lr.ph
   %13 = tail call noundef zeroext i16 @_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum21DivideModuloIntBignumERKS1_(ptr noundef nonnull align 4 dereferenceable(516) %2, ptr noundef nonnull align 4 dereferenceable(516) %3)
@@ -462,7 +462,7 @@ define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_c
   %29 = add i8 %28, 1
   store i8 %29, ptr %27, align 1
   %30 = icmp sgt i32 %.034, 1
-  br i1 %30, label %.lr.ph36, label %._crit_edge37, !llvm.loop !12
+  br i1 %30, label %.lr.ph36, label %._crit_edge37, !llvm.loop !11
 
 ._crit_edge37.critedge:                           ; preds = %6
   %31 = tail call noundef zeroext i16 @_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum21DivideModuloIntBignumERKS1_(ptr noundef nonnull align 4 dereferenceable(516) %2, ptr noundef nonnull align 4 dereferenceable(516) %3)
@@ -535,12 +535,11 @@ attributes #4 = { noreturn nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5, !6}
+!4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{!"llvm.loop.estimated_trip_count"}
-!7 = distinct !{!7, !5, !6, !8}
-!8 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!9 = distinct !{!9, !5, !6, !8}
-!10 = distinct !{!10, !5, !6}
-!11 = distinct !{!11, !5, !6}
-!12 = distinct !{!12, !5, !6}
+!6 = distinct !{!6, !5, !7}
+!7 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!8 = distinct !{!8, !5, !7}
+!9 = distinct !{!9, !5}
+!10 = distinct !{!10, !5}
+!11 = distinct !{!11, !5}

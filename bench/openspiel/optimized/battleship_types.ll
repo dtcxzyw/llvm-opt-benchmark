@@ -306,11 +306,11 @@ _ZNKSt6vectorIN10open_spiel10battleship13ShipPlacementESaIS2_EE12_M_check_lenEmP
 .lr.ph.i.i.i.i.i.i:                               ; preds = %_ZNKSt6vectorIN10open_spiel10battleship13ShipPlacementESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i, %.lr.ph.i.i.i.i.i.i
   %.012.i.i.i.i.i.i = phi ptr [ %113, %.lr.ph.i.i.i.i.i.i ], [ %110, %_ZNKSt6vectorIN10open_spiel10battleship13ShipPlacementESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i ]
   %.0911.i.i.i.i.i.i = phi ptr [ %112, %.lr.ph.i.i.i.i.i.i ], [ %98, %_ZNKSt6vectorIN10open_spiel10battleship13ShipPlacementESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.012.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %.0911.i.i.i.i.i.i, i64 32, i1 false), !alias.scope !7
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.012.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %.0911.i.i.i.i.i.i, i64 32, i1 false), !alias.scope !6
   %112 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i.i.i, i64 32
   %113 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i.i.i, i64 32
   %.not.i.i.i.i.i.i = icmp eq ptr %112, %92
-  br i1 %.not.i.i.i.i.i.i, label %_ZNSt6vectorIN10open_spiel10battleship13ShipPlacementESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i.i, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !11
+  br i1 %.not.i.i.i.i.i.i, label %_ZNSt6vectorIN10open_spiel10battleship13ShipPlacementESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i.i, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !10
 
 _ZNSt6vectorIN10open_spiel10battleship13ShipPlacementESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i, %_ZNKSt6vectorIN10open_spiel10battleship13ShipPlacementESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i
   %.0.lcssa.i.i.i.i.i.i = phi ptr [ %110, %_ZNKSt6vectorIN10open_spiel10battleship13ShipPlacementESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i ], [ %113, %.lr.ph.i.i.i.i.i.i ]
@@ -346,7 +346,7 @@ _ZNSt6vectorIN10open_spiel10battleship13ShipPlacementESaIS2_EE9push_backEOS2_.ex
   %125 = load i32, ptr %79, align 4
   %126 = sub nsw i32 %124, %125
   %.not57.not = icmp slt i32 %.050100, %126
-  br i1 %.not57.not, label %.lr.ph, label %._crit_edge101.loopexit, !llvm.loop !12
+  br i1 %.not57.not, label %.lr.ph, label %._crit_edge101.loopexit, !llvm.loop !11
 
 ._crit_edge101.loopexit:                          ; preds = %120
   %.pre122 = load i32, ptr %76, align 4
@@ -358,7 +358,7 @@ _ZNSt6vectorIN10open_spiel10battleship13ShipPlacementESaIS2_EE9push_backEOS2_.ex
   %129 = phi i32 [ %124, %._crit_edge101.loopexit ], [ %84, %.preheader78 ]
   %130 = add nuw nsw i32 %.051102, 1
   %131 = icmp slt i32 %130, %127
-  br i1 %131, label %.preheader78, label %.preheader77, !llvm.loop !13
+  br i1 %131, label %.preheader78, label %.preheader77, !llvm.loop !12
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %._crit_edge105
   %132 = phi i32 [ %170, %._crit_edge105 ], [ %85, %.preheader.lr.ph ]
@@ -416,11 +416,11 @@ _ZNKSt6vectorIN10open_spiel10battleship13ShipPlacementESaIS2_EE12_M_check_lenEmP
 .lr.ph.i.i.i.i.i.i68:                             ; preds = %_ZNKSt6vectorIN10open_spiel10battleship13ShipPlacementESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i64, %.lr.ph.i.i.i.i.i.i68
   %.012.i.i.i.i.i.i69 = phi ptr [ %157, %.lr.ph.i.i.i.i.i.i68 ], [ %154, %_ZNKSt6vectorIN10open_spiel10battleship13ShipPlacementESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i64 ]
   %.0911.i.i.i.i.i.i70 = phi ptr [ %156, %.lr.ph.i.i.i.i.i.i68 ], [ %142, %_ZNKSt6vectorIN10open_spiel10battleship13ShipPlacementESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i64 ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.012.i.i.i.i.i.i69, ptr noundef nonnull align 8 dereferenceable(32) %.0911.i.i.i.i.i.i70, i64 32, i1 false), !alias.scope !14
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.012.i.i.i.i.i.i69, ptr noundef nonnull align 8 dereferenceable(32) %.0911.i.i.i.i.i.i70, i64 32, i1 false), !alias.scope !13
   %156 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i.i.i70, i64 32
   %157 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i.i.i69, i64 32
   %.not.i.i.i.i.i.i71 = icmp eq ptr %156, %136
-  br i1 %.not.i.i.i.i.i.i71, label %_ZNSt6vectorIN10open_spiel10battleship13ShipPlacementESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i.i72, label %.lr.ph.i.i.i.i.i.i68, !llvm.loop !11
+  br i1 %.not.i.i.i.i.i.i71, label %_ZNSt6vectorIN10open_spiel10battleship13ShipPlacementESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i.i72, label %.lr.ph.i.i.i.i.i.i68, !llvm.loop !10
 
 _ZNSt6vectorIN10open_spiel10battleship13ShipPlacementESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i.i72: ; preds = %.lr.ph.i.i.i.i.i.i68, %_ZNKSt6vectorIN10open_spiel10battleship13ShipPlacementESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i64
   %.0.lcssa.i.i.i.i.i.i73 = phi ptr [ %154, %_ZNKSt6vectorIN10open_spiel10battleship13ShipPlacementESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i64 ], [ %157, %.lr.ph.i.i.i.i.i.i68 ]
@@ -454,7 +454,7 @@ _ZNSt6vectorIN10open_spiel10battleship13ShipPlacementESaIS2_EE9push_backEOS2_.ex
   %167 = add nuw nsw i32 %.0103, 1
   %168 = load i32, ptr %0, align 8
   %169 = icmp slt i32 %167, %168
-  br i1 %169, label %.lr.ph104, label %._crit_edge105.loopexit, !llvm.loop !18
+  br i1 %169, label %.lr.ph104, label %._crit_edge105.loopexit, !llvm.loop !17
 
 ._crit_edge105.loopexit:                          ; preds = %164
   %.pre124 = load i32, ptr %76, align 4
@@ -468,7 +468,7 @@ _ZNSt6vectorIN10open_spiel10battleship13ShipPlacementESaIS2_EE9push_backEOS2_.ex
   %173 = add nuw nsw i32 %.049107, 1
   %174 = sub nsw i32 %171, %170
   %.not.not = icmp slt i32 %.049107, %174
-  br i1 %.not.not, label %.preheader, label %.loopexit, !llvm.loop !19
+  br i1 %.not.not, label %.preheader, label %.loopexit, !llvm.loop !18
 
 .loopexit.sink.split:                             ; preds = %118, %162
   %175 = load ptr, ptr %13, align 8
@@ -712,7 +712,7 @@ _ZNK10open_spiel10battleship13ShipPlacement12OverlapsWithERKS1_.exit: ; preds = 
 _ZNK10open_spiel10battleship13ShipPlacement12OverlapsWithERKS1_.exit.thread: ; preds = %25, %21, %_ZNKSt6vectorIN10open_spiel10battleship13ShipPlacementESaIS2_EE2atEm.exit, %_ZNK10open_spiel10battleship13ShipPlacement12OverlapsWithERKS1_.exit
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %indvars.iv38
-  br i1 %exitcond.not, label %29, label %8, !llvm.loop !21
+  br i1 %exitcond.not, label %29, label %8, !llvm.loop !20
 
 29:                                               ; preds = %_ZNK10open_spiel10battleship13ShipPlacement12OverlapsWithERKS1_.exit.thread
   %indvars.iv.next39 = add nuw nsw i64 %indvars.iv38, 1
@@ -723,7 +723,7 @@ _ZNK10open_spiel10battleship13ShipPlacement12OverlapsWithERKS1_.exit.thread: ; p
   %34 = sub i64 %32, %33
   %35 = ashr exact i64 %34, 5
   %36 = icmp ugt i64 %35, %indvars.iv.next39
-  br i1 %36, label %.preheader, label %.loopexit, !llvm.loop !22
+  br i1 %36, label %.preheader, label %.loopexit, !llvm.loop !21
 
 .loopexit:                                        ; preds = %29, %_ZNK10open_spiel10battleship13ShipPlacement12OverlapsWithERKS1_.exit, %.split
   %37 = phi i1 [ false, %.split ], [ true, %_ZNK10open_spiel10battleship13ShipPlacement12OverlapsWithERKS1_.exit ], [ false, %29 ]
@@ -1214,23 +1214,23 @@ _ZN4absl7debian219str_format_internal18FormatSpecTemplateIJLNS0_23FormatConversi
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %2)
   %7 = select i1 %4, ptr inttoptr (i64 104 to ptr), ptr inttoptr (i64 118 to ptr)
-  store ptr %7, ptr %2, align 8, !noalias !23
+  store ptr %7, ptr %2, align 8, !noalias !22
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store ptr @_ZN4absl7debian219str_format_internal13FormatArgImpl8DispatchIcEEbNS2_4DataENS1_24FormatConversionSpecImplEPv, ptr %8, align 8, !noalias !23
+  store ptr @_ZN4absl7debian219str_format_internal13FormatArgImpl8DispatchIcEEbNS2_4DataENS1_24FormatConversionSpecImplEPv, ptr %8, align 8, !noalias !22
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %.sroa.0.0.copyload.i.i.i6.i = load i32, ptr %5, align 4, !noalias !23
+  %.sroa.0.0.copyload.i.i.i6.i = load i32, ptr %5, align 4, !noalias !22
   %.sroa.0.0.insert.ext.i.i.i7.i = zext i32 %.sroa.0.0.copyload.i.i.i6.i to i64
   %10 = inttoptr i64 %.sroa.0.0.insert.ext.i.i.i7.i to ptr
-  store ptr %10, ptr %9, align 8, !noalias !23
+  store ptr %10, ptr %9, align 8, !noalias !22
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  store ptr @_ZN4absl7debian219str_format_internal13FormatArgImpl8DispatchIiEEbNS2_4DataENS1_24FormatConversionSpecImplEPv, ptr %11, align 8, !noalias !23
+  store ptr @_ZN4absl7debian219str_format_internal13FormatArgImpl8DispatchIiEEbNS2_4DataENS1_24FormatConversionSpecImplEPv, ptr %11, align 8, !noalias !22
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %.sroa.0.0.copyload.i.i.i8.i = load i32, ptr %6, align 8, !noalias !23
+  %.sroa.0.0.copyload.i.i.i8.i = load i32, ptr %6, align 8, !noalias !22
   %.sroa.0.0.insert.ext.i.i.i9.i = zext i32 %.sroa.0.0.copyload.i.i.i8.i to i64
   %13 = inttoptr i64 %.sroa.0.0.insert.ext.i.i.i9.i to ptr
-  store ptr %13, ptr %12, align 8, !noalias !23
+  store ptr %13, ptr %12, align 8, !noalias !22
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 40
-  store ptr @_ZN4absl7debian219str_format_internal13FormatArgImpl8DispatchIiEEbNS2_4DataENS1_24FormatConversionSpecImplEPv, ptr %14, align 8, !noalias !23
+  store ptr @_ZN4absl7debian219str_format_internal13FormatArgImpl8DispatchIiEEbNS2_4DataENS1_24FormatConversionSpecImplEPv, ptr %14, align 8, !noalias !22
   call void @_ZN4absl7debian219str_format_internal10FormatPackB5cxx11ENS1_21UntypedFormatSpecImplENS0_4SpanIKNS1_13FormatArgImplEEE(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nonnull @.str.21, i64 8, ptr nonnull %2, i64 3)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %2)
   ret void
@@ -1310,25 +1310,24 @@ attributes #15 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5, !6}
+!4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{!"llvm.loop.estimated_trip_count"}
-!7 = !{!8, !10}
-!8 = distinct !{!8, !9, !"_ZSt19__relocate_object_aIN10open_spiel10battleship13ShipPlacementES2_SaIS2_EEvPT_PT0_RT1_: argument 0"}
-!9 = distinct !{!9, !"_ZSt19__relocate_object_aIN10open_spiel10battleship13ShipPlacementES2_SaIS2_EEvPT_PT0_RT1_"}
-!10 = distinct !{!10, !9, !"_ZSt19__relocate_object_aIN10open_spiel10battleship13ShipPlacementES2_SaIS2_EEvPT_PT0_RT1_: argument 1"}
-!11 = distinct !{!11, !5, !6}
-!12 = distinct !{!12, !5, !6}
-!13 = distinct !{!13, !5, !6}
-!14 = !{!15, !17}
-!15 = distinct !{!15, !16, !"_ZSt19__relocate_object_aIN10open_spiel10battleship13ShipPlacementES2_SaIS2_EEvPT_PT0_RT1_: argument 0"}
-!16 = distinct !{!16, !"_ZSt19__relocate_object_aIN10open_spiel10battleship13ShipPlacementES2_SaIS2_EEvPT_PT0_RT1_"}
-!17 = distinct !{!17, !16, !"_ZSt19__relocate_object_aIN10open_spiel10battleship13ShipPlacementES2_SaIS2_EEvPT_PT0_RT1_: argument 1"}
-!18 = distinct !{!18, !5, !6}
-!19 = distinct !{!19, !5, !6, !20}
-!20 = !{!"llvm.loop.unswitch.partial.disable"}
-!21 = distinct !{!21, !5, !6}
-!22 = distinct !{!22, !5, !6}
-!23 = !{!24}
-!24 = distinct !{!24, !25, !"_ZN4absl7debian29StrFormatIJciiEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_19str_format_internal18FormatSpecTemplateIJXspclsr19str_format_internalE14ArgumentToConvIT_EEEEEEDpRKSA_: argument 0"}
-!25 = distinct !{!25, !"_ZN4absl7debian29StrFormatIJciiEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_19str_format_internal18FormatSpecTemplateIJXspclsr19str_format_internalE14ArgumentToConvIT_EEEEEEDpRKSA_"}
+!6 = !{!7, !9}
+!7 = distinct !{!7, !8, !"_ZSt19__relocate_object_aIN10open_spiel10battleship13ShipPlacementES2_SaIS2_EEvPT_PT0_RT1_: argument 0"}
+!8 = distinct !{!8, !"_ZSt19__relocate_object_aIN10open_spiel10battleship13ShipPlacementES2_SaIS2_EEvPT_PT0_RT1_"}
+!9 = distinct !{!9, !8, !"_ZSt19__relocate_object_aIN10open_spiel10battleship13ShipPlacementES2_SaIS2_EEvPT_PT0_RT1_: argument 1"}
+!10 = distinct !{!10, !5}
+!11 = distinct !{!11, !5}
+!12 = distinct !{!12, !5}
+!13 = !{!14, !16}
+!14 = distinct !{!14, !15, !"_ZSt19__relocate_object_aIN10open_spiel10battleship13ShipPlacementES2_SaIS2_EEvPT_PT0_RT1_: argument 0"}
+!15 = distinct !{!15, !"_ZSt19__relocate_object_aIN10open_spiel10battleship13ShipPlacementES2_SaIS2_EEvPT_PT0_RT1_"}
+!16 = distinct !{!16, !15, !"_ZSt19__relocate_object_aIN10open_spiel10battleship13ShipPlacementES2_SaIS2_EEvPT_PT0_RT1_: argument 1"}
+!17 = distinct !{!17, !5}
+!18 = distinct !{!18, !5, !19}
+!19 = !{!"llvm.loop.unswitch.partial.disable"}
+!20 = distinct !{!20, !5}
+!21 = distinct !{!21, !5}
+!22 = !{!23}
+!23 = distinct !{!23, !24, !"_ZN4absl7debian29StrFormatIJciiEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_19str_format_internal18FormatSpecTemplateIJXspclsr19str_format_internalE14ArgumentToConvIT_EEEEEEDpRKSA_: argument 0"}
+!24 = distinct !{!24, !"_ZN4absl7debian29StrFormatIJciiEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_19str_format_internal18FormatSpecTemplateIJXspclsr19str_format_internalE14ArgumentToConvIT_EEEEEEDpRKSA_"}

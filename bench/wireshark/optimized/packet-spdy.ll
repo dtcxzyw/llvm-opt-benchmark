@@ -779,12 +779,12 @@ spdy_get_stream_info.exit.i156.i:                 ; preds = %163
   %199 = select i1 %198, i64 0, i64 %197
   %200 = icmp ne i64 %199, -1
   tail call void @llvm.assume(i1 %200)
-  %201 = tail call ptr @__memcpy_chk(ptr noundef %192, ptr noundef %193, i64 noundef range(i64 0, 4294967296) %196, i64 noundef %199) #10, !alias.scope !11
+  %201 = tail call ptr @__memcpy_chk(ptr noundef %192, ptr noundef %193, i64 noundef range(i64 0, 4294967296) %196, i64 noundef %199) #10, !alias.scope !10
   %202 = load i32, ptr %194, align 8
   %203 = add i32 %202, %.0336.i.i
   %204 = tail call ptr @wmem_list_frame_next(ptr noundef nonnull %.17.i.i)
   %.not40.i.i = icmp eq ptr %204, null
-  br i1 %.not40.i.i, label %._crit_edge10.i.i, label %.lr.ph9.i.i, !llvm.loop !15
+  br i1 %.not40.i.i, label %._crit_edge10.i.i, label %.lr.ph9.i.i, !llvm.loop !14
 
 ._crit_edge10.i.i:                                ; preds = %.lr.ph9.i.i, %183
   %205 = tail call ptr @tvb_new_real_data(ptr noundef %186, i32 noundef %181, i32 noundef %181)
@@ -891,7 +891,7 @@ thread-pre-split.i:                               ; preds = %._crit_edge.i.i, %1
   %.1123.i = phi i32 [ %255, %254 ], [ %.012219.i, %.lr.ph.i ]
   %257 = call ptr @wmem_list_frame_next(ptr noundef nonnull %.012518.i)
   %.not144.i = icmp eq ptr %257, null
-  br i1 %.not144.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !16
+  br i1 %.not144.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !15
 
 ._crit_edge.i:                                    ; preds = %256, %243
   %258 = call i32 @tvb_reported_length(ptr noundef nonnull %.0132.i)
@@ -1137,7 +1137,7 @@ dissect_spdy_stream_id_field.exit.i:              ; preds = %328, %320
 370:                                              ; preds = %366, %.lr.ph.i.i107
   %371 = tail call ptr @wmem_list_frame_next(ptr noundef nonnull %.0105.i.i)
   %.not.i.i108 = icmp eq ptr %371, null
-  br i1 %.not.i.i108, label %spdy_find_saved_header_block.exit.thread.i, label %.lr.ph.i.i107, !llvm.loop !17
+  br i1 %.not.i.i108, label %spdy_find_saved_header_block.exit.thread.i, label %.lr.ph.i.i107, !llvm.loop !16
 
 spdy_find_saved_header_block.exit.i:              ; preds = %366
   %372 = icmp eq ptr %363, null
@@ -1392,7 +1392,7 @@ spdy_decompress_header_block.exit.i:              ; preds = %404
   %.2184.i = phi ptr [ %.0182303.i, %492 ], [ %.0182303.i, %498 ], [ %.0182303.i, %495 ], [ %.0182303.i, %471 ], [ %459, %474 ], [ %.0182303.i, %477 ], [ %.0182303.i, %480 ], [ %.0182303.i, %483 ], [ %.0182303.i, %486 ]
   %.2180.i = phi ptr [ %.0178304.i, %492 ], [ %.0178304.i, %498 ], [ %.0178304.i, %495 ], [ %459, %471 ], [ %.0178304.i, %474 ], [ %.0178304.i, %477 ], [ %.0178304.i, %480 ], [ %.0178304.i, %483 ], [ %.0178304.i, %486 ]
   %.not223.i = icmp eq i32 %438, 0
-  br i1 %.not223.i, label %.thread241.i, label %437, !llvm.loop !18
+  br i1 %.not223.i, label %.thread241.i, label %437
 
 .thread241.sink.split.i:                          ; preds = %452, %446, %441, %437
   %.str.160.sink.i = phi ptr [ @.str.157, %437 ], [ @.str.158, %441 ], [ @.str.159, %446 ], [ @.str.160, %452 ]
@@ -1461,7 +1461,7 @@ spdy_decompress_header_block.exit.i:              ; preds = %404
   %524 = tail call signext i8 @g_ascii_tolower(i8 noundef signext %517) #14
   store i8 %524, ptr %.0.i231.i, align 1
   %525 = getelementptr i8, ptr %.0.i231.i, i64 1
-  br label %516, !llvm.loop !19
+  br label %516, !llvm.loop !17
 
 .critedge.i.i:                                    ; preds = %518, %516, %516
   %526 = icmp eq i8 %517, 0
@@ -1489,7 +1489,7 @@ spdy_decompress_header_block.exit.i:              ; preds = %404
   br i1 %.not25.i.i, label %535, label %.critedge2.i.i.backedge
 
 .critedge2.i.i.backedge:                          ; preds = %530, %.critedge2.i.i
-  br label %.critedge2.i.i, !llvm.loop !20
+  br label %.critedge2.i.i, !llvm.loop !18
 
 535:                                              ; preds = %530
   %.not26.i.i = icmp eq i8 %528, 0
@@ -1708,7 +1708,7 @@ define internal fastcc void @dissect_spdy_settings_payload(ptr noundef %0, ptr n
   %43 = add i32 %.05157, 8
   %44 = add i32 %.05256, -1
   %.not = icmp eq i32 %44, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !21
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !19
 
 ._crit_edge:                                      ; preds = %33, %17, %15, %8
   ret void
@@ -1960,17 +1960,15 @@ attributes #14 = { nounwind willreturn memory(none) }
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i8 0, i8 2}
 !7 = !{}
-!8 = distinct !{!8, !9, !10}
+!8 = distinct !{!8, !9}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = !{!"llvm.loop.estimated_trip_count"}
-!11 = !{!12, !14}
-!12 = distinct !{!12, !13, !"memcpy.inline: argument 0"}
-!13 = distinct !{!13, !"memcpy.inline"}
-!14 = distinct !{!14, !13, !"memcpy.inline: argument 1"}
-!15 = distinct !{!15, !9, !10}
-!16 = distinct !{!16, !9, !10}
-!17 = distinct !{!17, !9, !10}
-!18 = distinct !{!18, !10}
-!19 = distinct !{!19, !9, !10}
-!20 = distinct !{!20, !9, !10}
-!21 = distinct !{!21, !9, !10}
+!10 = !{!11, !13}
+!11 = distinct !{!11, !12, !"memcpy.inline: argument 0"}
+!12 = distinct !{!12, !"memcpy.inline"}
+!13 = distinct !{!13, !12, !"memcpy.inline: argument 1"}
+!14 = distinct !{!14, !9}
+!15 = distinct !{!15, !9}
+!16 = distinct !{!16, !9}
+!17 = distinct !{!17, !9}
+!18 = distinct !{!18, !9}
+!19 = distinct !{!19, !9}

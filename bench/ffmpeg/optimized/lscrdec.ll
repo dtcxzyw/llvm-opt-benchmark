@@ -493,12 +493,12 @@ bytestream2_get_le32.exit162:                     ; preds = %bytestream2_get_be3
   store ptr %240, ptr %7, align 8, !tbaa !44
   %241 = load i32, ptr %237, align 1, !tbaa !45
   %.not147 = icmp eq i32 %241, 1413563465
-  br i1 %.not147, label %.lr.ph, label %.thread182, !llvm.loop !71
+  br i1 %.not147, label %.lr.ph, label %.thread182, !llvm.loop !70
 
 decode_idat.exit:                                 ; preds = %.loopexit, %154
   %242 = add nuw nsw i32 %.0129197, 1
   %exitcond.not = icmp eq i32 %242, %23
-  br i1 %exitcond.not, label %.thread, label %54, !llvm.loop !72
+  br i1 %exitcond.not, label %.thread, label %54, !llvm.loop !71
 
 .thread:                                          ; preds = %decode_idat.exit, %.preheader
   %243 = getelementptr inbounds nuw i8, ptr %9, i64 276
@@ -507,7 +507,7 @@ decode_idat.exit:                                 ; preds = %.loopexit, %154
   %.not149 = icmp eq i32 %245, 0
   %246 = select i1 %.not149, i32 2, i32 1
   %247 = getelementptr inbounds nuw i8, ptr %9, i64 120
-  store i32 %246, ptr %247, align 8, !tbaa !73
+  store i32 %246, ptr %247, align 8, !tbaa !72
   %248 = tail call i32 @av_frame_ref(ptr noundef %1, ptr noundef %9) #4
   %249 = icmp slt i32 %248, 0
   br i1 %249, label %.thread182, label %250
@@ -660,9 +660,8 @@ attributes #4 = { nounwind }
 !65 = !{!30, !10, i64 112}
 !66 = !{!36, !10, i64 8}
 !67 = !{!36, !14, i64 0}
-!68 = distinct !{!68, !69, !70}
+!68 = distinct !{!68, !69}
 !69 = !{!"llvm.loop.mustprogress"}
-!70 = !{!"llvm.loop.estimated_trip_count"}
-!71 = distinct !{!71, !69, !70}
-!72 = distinct !{!72, !69, !70}
-!73 = !{!51, !10, i64 120}
+!70 = distinct !{!70, !69}
+!71 = distinct !{!71, !69}
+!72 = !{!51, !10, i64 120}

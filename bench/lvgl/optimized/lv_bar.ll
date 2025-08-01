@@ -665,7 +665,7 @@ define void @lv_bar_set_value(ptr noundef %0, i32 noundef %1, i1 noundef zeroext
   br i1 %.not, label %.preheader, label %4
 
 .preheader:                                       ; preds = %3, %.preheader
-  br label %.preheader, !llvm.loop !74
+  br label %.preheader
 
 4:                                                ; preds = %3
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -764,7 +764,7 @@ define void @lv_bar_set_start_value(ptr noundef %0, i32 noundef %1, i1 noundef z
   br i1 %.not, label %.preheader, label %4
 
 .preheader:                                       ; preds = %3, %.preheader
-  br label %.preheader, !llvm.loop !76
+  br label %.preheader
 
 4:                                                ; preds = %3
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 152
@@ -803,7 +803,7 @@ define void @lv_bar_set_range(ptr noundef %0, i32 noundef %1, i32 noundef %2) lo
   br i1 %.not, label %.preheader, label %4
 
 .preheader:                                       ; preds = %3, %.preheader
-  br label %.preheader, !llvm.loop !77
+  br label %.preheader
 
 4:                                                ; preds = %3
   %5 = icmp sgt i32 %1, %2
@@ -867,7 +867,7 @@ define range(i32 0, 8) i32 @lv_bar_get_mode(ptr noundef readonly captures(addres
   br i1 %.not, label %.preheader, label %2
 
 .preheader:                                       ; preds = %1, %.preheader
-  br label %.preheader, !llvm.loop !78
+  br label %.preheader
 
 2:                                                ; preds = %1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 152
@@ -885,7 +885,7 @@ define void @lv_bar_set_mode(ptr noundef %0, i32 noundef %1) local_unnamed_addr 
   br i1 %.not, label %.preheader, label %3
 
 .preheader:                                       ; preds = %2, %.preheader
-  br label %.preheader, !llvm.loop !79
+  br label %.preheader
 
 3:                                                ; preds = %2
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 152
@@ -917,7 +917,7 @@ define void @lv_bar_set_orientation(ptr noundef %0, i32 noundef %1) local_unname
   br i1 %.not, label %.preheader, label %3
 
 .preheader:                                       ; preds = %2, %.preheader
-  br label %.preheader, !llvm.loop !80
+  br label %.preheader
 
 3:                                                ; preds = %2
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 152
@@ -938,7 +938,7 @@ define i32 @lv_bar_get_value(ptr noundef readonly captures(address_is_null) %0) 
   br i1 %.not, label %.preheader, label %2
 
 .preheader:                                       ; preds = %1, %.preheader
-  br label %.preheader, !llvm.loop !81
+  br label %.preheader
 
 2:                                                ; preds = %1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
@@ -956,7 +956,7 @@ define i32 @lv_bar_get_start_value(ptr noundef readonly captures(address_is_null
   br i1 %.not, label %.preheader, label %2
 
 .preheader:                                       ; preds = %1, %.preheader
-  br label %.preheader, !llvm.loop !82
+  br label %.preheader
 
 2:                                                ; preds = %1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 152
@@ -985,7 +985,7 @@ define i32 @lv_bar_get_min_value(ptr noundef readonly captures(address_is_null) 
   br i1 %.not, label %.preheader, label %2
 
 .preheader:                                       ; preds = %1, %.preheader
-  br label %.preheader, !llvm.loop !83
+  br label %.preheader
 
 2:                                                ; preds = %1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 96
@@ -1003,7 +1003,7 @@ define i32 @lv_bar_get_max_value(ptr noundef readonly captures(address_is_null) 
   br i1 %.not, label %.preheader, label %2
 
 .preheader:                                       ; preds = %1, %.preheader
-  br label %.preheader, !llvm.loop !84
+  br label %.preheader
 
 2:                                                ; preds = %1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 96
@@ -1021,7 +1021,7 @@ define range(i32 0, 8) i32 @lv_bar_get_orientation(ptr noundef readonly captures
   br i1 %.not, label %.preheader, label %2
 
 .preheader:                                       ; preds = %1, %.preheader
-  br label %.preheader, !llvm.loop !85
+  br label %.preheader
 
 2:                                                ; preds = %1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 152
@@ -1038,7 +1038,7 @@ define zeroext i1 @lv_bar_is_symmetrical(ptr noundef readonly captures(address_i
   br i1 %.not, label %.preheader, label %2
 
 .preheader:                                       ; preds = %1, %.preheader
-  br label %.preheader, !llvm.loop !86
+  br label %.preheader
 
 2:                                                ; preds = %1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 152
@@ -1142,7 +1142,7 @@ declare void @lv_anim_set_completed_cb(ptr noundef, ptr noundef) local_unnamed_a
 
 ; Function Attrs: nounwind uwtable
 define internal void @lv_bar_anim_completed(ptr noundef readonly captures(none) %0) #0 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !87
+  %2 = load ptr, ptr %0, align 8, !tbaa !74
   %3 = load ptr, ptr %2, align 8, !tbaa !21
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i32 -1, ptr %4, align 8, !tbaa !24
@@ -1272,18 +1272,5 @@ attributes #7 = { nounwind }
 !71 = !{!"", !14, i64 0, !14, i64 1, !14, i64 2, !14, i64 4, !14, i64 6, !14, i64 8, !14, i64 10}
 !72 = !{!"", !14, i64 0, !14, i64 4}
 !73 = !{!"p1 _ZTS20_lv_draw_image_sup_t", !7, i64 0}
-!74 = distinct !{!74, !75}
-!75 = !{!"llvm.loop.estimated_trip_count"}
-!76 = distinct !{!76, !75}
-!77 = distinct !{!77, !75}
-!78 = distinct !{!78, !75}
-!79 = distinct !{!79, !75}
-!80 = distinct !{!80, !75}
-!81 = distinct !{!81, !75}
-!82 = distinct !{!82, !75}
-!83 = distinct !{!83, !75}
-!84 = distinct !{!84, !75}
-!85 = distinct !{!85, !75}
-!86 = distinct !{!86, !75}
-!87 = !{!88, !7, i64 0}
-!88 = !{!"_lv_anim_t", !7, i64 0, !7, i64 8, !7, i64 16, !7, i64 24, !7, i64 32, !7, i64 40, !7, i64 48, !7, i64 56, !7, i64 64, !14, i64 72, !14, i64 76, !14, i64 80, !14, i64 84, !14, i64 88, !14, i64 92, !14, i64 96, !14, i64 100, !14, i64 104, !8, i64 108, !14, i64 116, !14, i64 120, !14, i64 124, !8, i64 128, !8, i64 128, !8, i64 128, !8, i64 128, !8, i64 128}
+!74 = !{!75, !7, i64 0}
+!75 = !{!"_lv_anim_t", !7, i64 0, !7, i64 8, !7, i64 16, !7, i64 24, !7, i64 32, !7, i64 40, !7, i64 48, !7, i64 56, !7, i64 64, !14, i64 72, !14, i64 76, !14, i64 80, !14, i64 84, !14, i64 88, !14, i64 92, !14, i64 96, !14, i64 100, !14, i64 104, !8, i64 108, !14, i64 116, !14, i64 120, !14, i64 124, !8, i64 128, !8, i64 128, !8, i64 128, !8, i64 128, !8, i64 128}

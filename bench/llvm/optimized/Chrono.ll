@@ -353,10 +353,10 @@ define dso_local void @_ZN4llvm15format_providerINSt6chrono10time_pointINS1_3_V2
   %.neg.i.i = mul nsw i64 %13, -1000000000
   %14 = add i64 %.neg.i.i, %.sroa.0.0.copyload.i.i
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %12) #10
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #10, !noalias !54
-  store i64 %13, ptr %11, align 8, !tbaa !6, !noalias !54
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #10, !noalias !53
+  store i64 %13, ptr %11, align 8, !tbaa !6, !noalias !53
   %15 = call ptr @localtime_r(ptr noundef nonnull %11, ptr noundef nonnull align 8 %12) #10
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #10, !noalias !54
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #10, !noalias !53
   %16 = icmp eq i64 %3, 0
   %spec.select.i = select i1 %16, ptr @.str.2, ptr %2
   %spec.select11.i = select i1 %16, i64 20, i64 %3
@@ -479,27 +479,27 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
 
 74:                                               ; preds = %71
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #10
-  store ptr @.str.3, ptr %32, align 8, !tbaa !19, !alias.scope !57
-  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN4llvm13format_objectIJlEEE, i64 16), ptr %7, align 8, !tbaa !24, !alias.scope !57
-  store i64 %31, ptr %33, align 8, !tbaa !26, !alias.scope !57
+  store ptr @.str.3, ptr %32, align 8, !tbaa !19, !alias.scope !56
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN4llvm13format_objectIJlEEE, i64 16), ptr %7, align 8, !tbaa !24, !alias.scope !56
+  store i64 %31, ptr %33, align 8, !tbaa !26, !alias.scope !56
   %75 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsERKNS_18format_object_baseE(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr noundef nonnull align 8 dereferenceable(16) %7) #10
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #10
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit19.i
 
 76:                                               ; preds = %71
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8) #10
-  store ptr @.str.4, ptr %29, align 8, !tbaa !19, !alias.scope !60
-  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN4llvm13format_objectIJlEEE, i64 16), ptr %8, align 8, !tbaa !24, !alias.scope !60
-  store i64 %28, ptr %30, align 8, !tbaa !26, !alias.scope !60
+  store ptr @.str.4, ptr %29, align 8, !tbaa !19, !alias.scope !59
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN4llvm13format_objectIJlEEE, i64 16), ptr %8, align 8, !tbaa !24, !alias.scope !59
+  store i64 %28, ptr %30, align 8, !tbaa !26, !alias.scope !59
   %77 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsERKNS_18format_object_baseE(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr noundef nonnull align 8 dereferenceable(16) %8) #10
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8) #10
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit19.i
 
 78:                                               ; preds = %71
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9) #10
-  store ptr @.str.1, ptr %26, align 8, !tbaa !19, !alias.scope !63
-  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN4llvm13format_objectIJlEEE, i64 16), ptr %9, align 8, !tbaa !24, !alias.scope !63
-  store i64 %14, ptr %27, align 8, !tbaa !26, !alias.scope !63
+  store ptr @.str.1, ptr %26, align 8, !tbaa !19, !alias.scope !62
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN4llvm13format_objectIJlEEE, i64 16), ptr %9, align 8, !tbaa !24, !alias.scope !62
+  store i64 %14, ptr %27, align 8, !tbaa !26, !alias.scope !62
   %79 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsERKNS_18format_object_baseE(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr noundef nonnull align 8 dereferenceable(16) %9) #10
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9) #10
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit19.i
@@ -545,7 +545,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit19.i:             ; preds = %97, %95, %89, %87, 
   %99 = add i32 %.1.i, 1
   %100 = zext i32 %99 to i64
   %101 = icmp ugt i64 %spec.select11.i, %100
-  br i1 %101, label %62, label %34, !llvm.loop !66
+  br i1 %101, label %62, label %34, !llvm.loop !65
 
 _ZN4llvmL6formatINSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEEEEvRKT_R2tmRNS_11raw_ostreamENS_9StringRefE.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #10
@@ -664,19 +664,18 @@ attributes #11 = { builtin nounwind }
 !48 = !{!49}
 !49 = distinct !{!49, !50, !"_ZN4llvm6formatIJlEEENS_13format_objectIJDpT_EEEPKcDpRKS2_: argument 0"}
 !50 = distinct !{!50, !"_ZN4llvm6formatIJlEEENS_13format_objectIJDpT_EEEPKcDpRKS2_"}
-!51 = distinct !{!51, !52, !53}
+!51 = distinct !{!51, !52}
 !52 = !{!"llvm.loop.mustprogress"}
-!53 = !{!"llvm.loop.estimated_trip_count"}
-!54 = !{!55}
-!55 = distinct !{!55, !56, !"_ZN4llvmL11getStructTMENSt6chrono10time_pointINS0_3_V212system_clockENS0_8durationIlSt5ratioILl1ELl1000000000EEEEEE: argument 0"}
-!56 = distinct !{!56, !"_ZN4llvmL11getStructTMENSt6chrono10time_pointINS0_3_V212system_clockENS0_8durationIlSt5ratioILl1ELl1000000000EEEEEE"}
-!57 = !{!58}
-!58 = distinct !{!58, !59, !"_ZN4llvm6formatIJlEEENS_13format_objectIJDpT_EEEPKcDpRKS2_: argument 0"}
-!59 = distinct !{!59, !"_ZN4llvm6formatIJlEEENS_13format_objectIJDpT_EEEPKcDpRKS2_"}
-!60 = !{!61}
-!61 = distinct !{!61, !62, !"_ZN4llvm6formatIJlEEENS_13format_objectIJDpT_EEEPKcDpRKS2_: argument 0"}
-!62 = distinct !{!62, !"_ZN4llvm6formatIJlEEENS_13format_objectIJDpT_EEEPKcDpRKS2_"}
-!63 = !{!64}
-!64 = distinct !{!64, !65, !"_ZN4llvm6formatIJlEEENS_13format_objectIJDpT_EEEPKcDpRKS2_: argument 0"}
-!65 = distinct !{!65, !"_ZN4llvm6formatIJlEEENS_13format_objectIJDpT_EEEPKcDpRKS2_"}
-!66 = distinct !{!66, !52, !53}
+!53 = !{!54}
+!54 = distinct !{!54, !55, !"_ZN4llvmL11getStructTMENSt6chrono10time_pointINS0_3_V212system_clockENS0_8durationIlSt5ratioILl1ELl1000000000EEEEEE: argument 0"}
+!55 = distinct !{!55, !"_ZN4llvmL11getStructTMENSt6chrono10time_pointINS0_3_V212system_clockENS0_8durationIlSt5ratioILl1ELl1000000000EEEEEE"}
+!56 = !{!57}
+!57 = distinct !{!57, !58, !"_ZN4llvm6formatIJlEEENS_13format_objectIJDpT_EEEPKcDpRKS2_: argument 0"}
+!58 = distinct !{!58, !"_ZN4llvm6formatIJlEEENS_13format_objectIJDpT_EEEPKcDpRKS2_"}
+!59 = !{!60}
+!60 = distinct !{!60, !61, !"_ZN4llvm6formatIJlEEENS_13format_objectIJDpT_EEEPKcDpRKS2_: argument 0"}
+!61 = distinct !{!61, !"_ZN4llvm6formatIJlEEENS_13format_objectIJDpT_EEEPKcDpRKS2_"}
+!62 = !{!63}
+!63 = distinct !{!63, !64, !"_ZN4llvm6formatIJlEEENS_13format_objectIJDpT_EEEPKcDpRKS2_: argument 0"}
+!64 = distinct !{!64, !"_ZN4llvm6formatIJlEEENS_13format_objectIJDpT_EEEPKcDpRKS2_"}
+!65 = distinct !{!65, !52}

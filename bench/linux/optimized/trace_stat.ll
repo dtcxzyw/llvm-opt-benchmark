@@ -136,7 +136,7 @@ define dso_local range(i32 -22, 1) i32 @register_stat_tracer(ptr noundef %0) loc
 63:                                               ; preds = %60, %.preheader
   tail call void @kfree(ptr noundef nonnull %54) #6
   %64 = icmp eq ptr %55, null
-  br i1 %64, label %.loopexit, label %.preheader, !llvm.loop !9
+  br i1 %64, label %.loopexit, label %.preheader, !llvm.loop !8
 
 .loopexit:                                        ; preds = %63, %.thread
   store ptr null, ptr %51, align 8
@@ -186,7 +186,7 @@ define dso_local void @unregister_stat_tracer(ptr noundef readnone captures(addr
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %9 = load ptr, ptr %8, align 8
   %10 = icmp eq ptr %9, %0
-  br i1 %10, label %11, label %3, !llvm.loop !10
+  br i1 %10, label %11, label %3, !llvm.loop !9
 
 11:                                               ; preds = %6
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -223,7 +223,7 @@ define dso_local void @unregister_stat_tracer(ptr noundef readnone captures(addr
 30:                                               ; preds = %27, %.preheader
   tail call void @kfree(ptr noundef nonnull %21) #6
   %31 = icmp eq ptr %22, null
-  br i1 %31, label %.loopexit, label %.preheader, !llvm.loop !11
+  br i1 %31, label %.loopexit, label %.preheader, !llvm.loop !8
 
 .loopexit:                                        ; preds = %30, %11
   store ptr null, ptr %18, align 8
@@ -292,7 +292,7 @@ define internal i32 @tracing_stat_open(ptr noundef readonly captures(none) %0, p
 23:                                               ; preds = %20, %.preheader27
   tail call void @kfree(ptr noundef nonnull %14) #6
   %24 = icmp eq ptr %15, null
-  br i1 %24, label %.loopexit28, label %.preheader27, !llvm.loop !12
+  br i1 %24, label %.loopexit28, label %.preheader27, !llvm.loop !8
 
 .loopexit28:                                      ; preds = %23, %7
   store ptr null, ptr %10, align 8
@@ -338,7 +338,7 @@ define internal i32 @tracing_stat_open(ptr noundef readonly captures(none) %0, p
   %51 = getelementptr inbounds nuw i8, ptr %48, i64 %50
   %52 = load ptr, ptr %51, align 8
   %53 = icmp eq ptr %52, null
-  br i1 %53, label %54, label %.preheader26, !llvm.loop !13
+  br i1 %53, label %54, label %.preheader26, !llvm.loop !10
 
 54:                                               ; preds = %.preheader26
   %55 = ptrtoint ptr %48 to i64
@@ -370,7 +370,7 @@ define internal i32 @tracing_stat_open(ptr noundef readonly captures(none) %0, p
   %69 = load ptr, ptr %60, align 8
   %70 = tail call ptr %69(ptr noundef nonnull %72, i32 noundef %68) #6
   %71 = icmp eq ptr %70, null
-  br i1 %71, label %.loopexit25, label %.preheader24, !llvm.loop !14
+  br i1 %71, label %.loopexit25, label %.preheader24, !llvm.loop !11
 
 .preheader24:                                     ; preds = %56, %64
   %72 = phi ptr [ %70, %64 ], [ %62, %56 ]
@@ -401,7 +401,7 @@ define internal i32 @tracing_stat_open(ptr noundef readonly captures(none) %0, p
   %91 = getelementptr inbounds nuw i8, ptr %88, i64 %90
   %92 = load ptr, ptr %91, align 8
   %93 = icmp eq ptr %92, null
-  br i1 %93, label %94, label %.preheader23, !llvm.loop !15
+  br i1 %93, label %94, label %.preheader23, !llvm.loop !10
 
 94:                                               ; preds = %.preheader23
   %95 = ptrtoint ptr %88 to i64
@@ -430,7 +430,7 @@ define internal i32 @tracing_stat_open(ptr noundef readonly captures(none) %0, p
 108:                                              ; preds = %105, %.preheader21
   tail call void @kfree(ptr noundef nonnull %99) #6
   %109 = icmp eq ptr %100, null
-  br i1 %109, label %.loopexit22, label %.preheader21, !llvm.loop !16
+  br i1 %109, label %.loopexit22, label %.preheader21, !llvm.loop !8
 
 .loopexit22:                                      ; preds = %108, %96
   store ptr null, ptr %10, align 8
@@ -470,7 +470,7 @@ define internal i32 @tracing_stat_open(ptr noundef readonly captures(none) %0, p
 124:                                              ; preds = %121, %.preheader
   tail call void @kfree(ptr noundef nonnull %115) #6
   %125 = icmp eq ptr %116, null
-  br i1 %125, label %.loopexit, label %.preheader, !llvm.loop !17
+  br i1 %125, label %.loopexit, label %.preheader, !llvm.loop !8
 
 .loopexit:                                        ; preds = %124, %112
   store ptr null, ptr %10, align 8
@@ -522,7 +522,7 @@ define internal i32 @tracing_stat_release(ptr noundef %0, ptr noundef %1) #0 ali
 21:                                               ; preds = %18, %11
   tail call void @kfree(ptr noundef nonnull %12) #6
   %22 = icmp eq ptr %13, null
-  br i1 %22, label %.loopexit, label %11, !llvm.loop !18
+  br i1 %22, label %.loopexit, label %11, !llvm.loop !8
 
 .loopexit:                                        ; preds = %21, %2
   store ptr null, ptr %6, align 8
@@ -594,7 +594,7 @@ define internal ptr @stat_seq_start(ptr noundef readonly captures(none) %0, ptr 
   %28 = icmp ne ptr %26, null
   %29 = icmp slt i32 %27, %18
   %30 = select i1 %28, i1 %29, i1 false
-  br i1 %30, label %.preheader, label %.loopexit, !llvm.loop !19
+  br i1 %30, label %.preheader, label %.loopexit, !llvm.loop !12
 
 .loopexit:                                        ; preds = %.preheader, %17, %13
   %31 = phi ptr [ inttoptr (i64 1 to ptr), %13 ], [ %20, %17 ], [ %26, %.preheader ]
@@ -694,18 +694,11 @@ attributes #8 = { cold nounwind }
 !2 = !{i32 4, !"function_return_thunk_extern", i32 1}
 !3 = !{i32 4, !"indirect_branch_cs_prefix", i32 1}
 !4 = !{i32 4, !"SkipRaxSetup", i32 1}
-!5 = distinct !{!5, !6, !7, !8}
+!5 = distinct !{!5, !6, !7}
 !6 = !{!"llvm.loop.mustprogress"}
 !7 = !{!"llvm.loop.unroll.disable"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !6, !7, !8}
-!10 = distinct !{!10, !6, !7, !8}
-!11 = distinct !{!11, !6, !7, !8}
-!12 = distinct !{!12, !6, !7, !8}
-!13 = distinct !{!13, !6, !7, !8}
-!14 = distinct !{!14, !7, !8}
-!15 = distinct !{!15, !6, !7, !8}
-!16 = distinct !{!16, !6, !7, !8}
-!17 = distinct !{!17, !6, !7, !8}
-!18 = distinct !{!18, !6, !7, !8}
-!19 = distinct !{!19, !6, !7, !8}
+!8 = distinct !{!8, !6, !7}
+!9 = distinct !{!9, !6, !7}
+!10 = distinct !{!10, !6, !7}
+!11 = distinct !{!11, !7}
+!12 = distinct !{!12, !6, !7}

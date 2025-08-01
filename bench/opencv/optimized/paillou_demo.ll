@@ -1338,7 +1338,7 @@ define internal fastcc void @_ZL12DisplayImageN2cv3MatENSt7__cxx1112basic_string
   %sext = shl i64 %55, 32
   %56 = ashr exact i64 %sext, 32
   %57 = icmp slt i64 %indvars.iv.next, %56
-  br i1 %57, label %42, label %.lr.ph.preheader.i.i.loopexit, !llvm.loop !58
+  br i1 %57, label %42, label %.lr.ph.preheader.i.i.loopexit, !llvm.loop !57
 
 58:                                               ; preds = %46, %42
   %59 = landingpad { ptr, i32 }
@@ -1363,7 +1363,7 @@ define internal fastcc void @_ZL12DisplayImageN2cv3MatENSt7__cxx1112basic_string
   %spec.select.i.i40 = select i1 %63, ptr %.ptr72, ptr %.sroa.02.110.i.i39
   %.add71 = add nuw nsw i64 %.idx70, 8
   %.not.i.i41 = icmp eq i64 %.add71, 24
-  br i1 %.not.i.i41, label %65, label %.lr.ph.i.i38, !llvm.loop !59
+  br i1 %.not.i.i41, label %65, label %.lr.ph.i.i38, !llvm.loop !58
 
 65:                                               ; preds = %.lr.ph.i.i38
   %66 = load double, ptr %spec.select.i.i40, align 8, !tbaa !53
@@ -1414,7 +1414,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit44:                  ; preds = %75
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %.05.i.i.i.i) #17
   %81 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i, i64 96
   %.not.i.i.i.i = icmp eq ptr %81, %80
-  br i1 %.not.i.i.i.i, label %_ZSt8_DestroyIPN2cv3MatES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i, !llvm.loop !60
+  br i1 %.not.i.i.i.i, label %_ZSt8_DestroyIPN2cv3MatES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i, !llvm.loop !59
 
 _ZSt8_DestroyIPN2cv3MatES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i: ; preds = %.lr.ph.i.i.i.i
   %.pr.i = load ptr, ptr %3, align 8, !tbaa !52
@@ -1508,7 +1508,7 @@ define linkonce_odr hidden void @_ZNSt6vectorIN2cv3MatESaIS1_EED2Ev(ptr noundef 
   tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %.05.i.i.i) #17
   %5 = getelementptr inbounds nuw i8, ptr %.05.i.i.i, i64 96
   %.not.i.i.i = icmp eq ptr %5, %4
-  br i1 %.not.i.i.i, label %_ZSt8_DestroyIPN2cv3MatES1_EvT_S3_RSaIT0_E.exitthread-pre-split, label %.lr.ph.i.i.i, !llvm.loop !60
+  br i1 %.not.i.i.i, label %_ZSt8_DestroyIPN2cv3MatES1_EvT_S3_RSaIT0_E.exitthread-pre-split, label %.lr.ph.i.i.i, !llvm.loop !59
 
 _ZSt8_DestroyIPN2cv3MatES1_EvT_S3_RSaIT0_E.exitthread-pre-split: ; preds = %.lr.ph.i.i.i
   %.pr = load ptr, ptr %0, align 8, !tbaa !52
@@ -1646,9 +1646,8 @@ attributes #19 = { builtin allocsize(0) }
 !52 = !{!50, !51, i64 0}
 !53 = !{!54, !54, i64 0}
 !54 = !{!"double", !11, i64 0}
-!55 = distinct !{!55, !56, !57}
+!55 = distinct !{!55, !56}
 !56 = !{!"llvm.loop.mustprogress"}
-!57 = !{!"llvm.loop.estimated_trip_count"}
-!58 = distinct !{!58, !56, !57}
-!59 = distinct !{!59, !56, !57}
-!60 = distinct !{!60, !56, !57}
+!57 = distinct !{!57, !56}
+!58 = distinct !{!58, !56}
+!59 = distinct !{!59, !56}

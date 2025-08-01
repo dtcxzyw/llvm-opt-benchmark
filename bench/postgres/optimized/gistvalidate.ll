@@ -328,7 +328,7 @@ define dso_local zeroext i1 @gistvalidate(i32 noundef %0) local_unnamed_addr #0 
   %178 = load i32, ptr %28, align 8
   %179 = sext i32 %178 to i64
   %180 = icmp slt i64 %indvars.iv.next163, %179
-  br i1 %180, label %112, label %._crit_edge, !llvm.loop !7
+  br i1 %180, label %112, label %._crit_edge, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %177, %.preheader
   %.4.lcssa = phi i1 [ %.0.lcssa, %.preheader ], [ %.8, %177 ]
@@ -415,7 +415,7 @@ switch.early.test:                                ; preds = %203
   %.10 = phi i1 [ %.9161, %199 ], [ %.9161, %switch.early.test ], [ false, %209 ], [ false, %207 ], [ %.9161, %203 ], [ %.9161, %switch.early.test ], [ %.9161, %switch.early.test ]
   %indvars.iv.next168 = add nuw nsw i64 %indvars.iv167, 1
   %exitcond169.not = icmp eq i64 %indvars.iv.next168, 13
-  br i1 %exitcond169.not, label %213, label %198, !llvm.loop !8
+  br i1 %exitcond169.not, label %213, label %198, !llvm.loop !7
 
 213:                                              ; preds = %212
   tail call void @ReleaseCatCacheList(ptr noundef %23) #4
@@ -578,8 +578,7 @@ attributes #5 = { cold nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = distinct !{!4, !5, !6}
+!4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{!"llvm.loop.estimated_trip_count"}
-!7 = distinct !{!7, !5, !6}
-!8 = distinct !{!8, !5, !6}
+!6 = distinct !{!6, !5}
+!7 = distinct !{!7, !5}

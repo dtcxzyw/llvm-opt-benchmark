@@ -863,12 +863,12 @@ get_ue_golomb_long.exit106.i:                     ; preds = %505, %503
   %587 = load i16, ptr %567, align 2, !tbaa !12
   %588 = zext i16 %587 to i64
   %589 = icmp samesign ult i64 %indvars.iv.next.i, %588
-  br i1 %589, label %581, label %.loopexit85.i, !llvm.loop !38
+  br i1 %589, label %581, label %.loopexit85.i, !llvm.loop !37
 
 .loopexit85.i:                                    ; preds = %581, %570, %565
   %indvars.iv.next96.i = add nuw nsw i64 %indvars.iv95.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next96.i, 4
-  br i1 %exitcond.not.i, label %561, label %565, !llvm.loop !39
+  br i1 %exitcond.not.i, label %561, label %565, !llvm.loop !38
 
 590:                                              ; preds = %561
   %591 = load i8, ptr %5, align 8, !tbaa !7
@@ -959,12 +959,12 @@ get_ue_golomb_long.exit106.i:                     ; preds = %505, %503
   %648 = load i16, ptr %620, align 2, !tbaa !12
   %649 = zext i16 %648 to i64
   %650 = icmp samesign ult i64 %indvars.iv.next99.i, %649
-  br i1 %650, label %636, label %.loopexit.i, !llvm.loop !40
+  br i1 %650, label %636, label %.loopexit.i, !llvm.loop !39
 
 .loopexit.i:                                      ; preds = %636, %622, %618
   %indvars.iv.next102.i = add nuw nsw i64 %indvars.iv101.i, 1
   %exitcond104.not.i = icmp eq i64 %indvars.iv.next102.i, 4
-  br i1 %exitcond104.not.i, label %evcc_write.exit, label %618, !llvm.loop !41
+  br i1 %exitcond104.not.i, label %evcc_write.exit, label %618, !llvm.loop !40
 
 evcc_write.exit:                                  ; preds = %get_ue_golomb_long.exit106.i, %80, %get_ue_golomb_long.exit38.i, %get_ue_golomb_long.exit.i, %74, %52, %switch.lookup, %32, %34, %evc_get_nalu_type.exit, %.loopexit.i, %get_ue_golomb_long.exit106.i.thread, %get_ue_golomb_long.exit38.thread.i, %561
   %.0 = phi i32 [ -1094995529, %561 ], [ -1094995529, %get_ue_golomb_long.exit38.thread.i ], [ -1094995529, %get_ue_golomb_long.exit106.i.thread ], [ 0, %.loopexit.i ], [ -1094995529, %get_ue_golomb_long.exit106.i ], [ -1094995529, %80 ], [ -1094995529, %get_ue_golomb_long.exit38.i ], [ -1094995529, %get_ue_golomb_long.exit.i ], [ -1094995529, %74 ], [ %50, %switch.lookup ], [ %54, %52 ], [ -1094995529, %32 ], [ -1094995529, %34 ], [ -1094995529, %evc_get_nalu_type.exit ]
@@ -982,7 +982,7 @@ evcc_write.exit:                                  ; preds = %get_ue_golomb_long.
   call void @av_freep(ptr noundef nonnull %656) #5
   %indvars.iv.next.i62 = add nuw nsw i64 %indvars.iv.i61, 1
   %exitcond.not.i63 = icmp eq i64 %indvars.iv.next.i62, 4
-  br i1 %exitcond.not.i63, label %evcc_close.exit, label %652, !llvm.loop !42
+  br i1 %exitcond.not.i63, label %evcc_close.exit, label %652, !llvm.loop !41
 
 evcc_close.exit:                                  ; preds = %652, %4, %10
   %.048 = phi i32 [ 0, %10 ], [ -1094995529, %4 ], [ %.0, %652 ]
@@ -1066,11 +1066,10 @@ attributes #5 = { nounwind }
 !32 = !{!8, !10, i64 18}
 !33 = !{!8, !5, i64 13}
 !34 = !{!8, !5, i64 14}
-!35 = distinct !{!35, !36, !37}
+!35 = distinct !{!35, !36}
 !36 = !{!"llvm.loop.mustprogress"}
-!37 = !{!"llvm.loop.estimated_trip_count"}
-!38 = distinct !{!38, !36, !37}
-!39 = distinct !{!39, !36, !37}
-!40 = distinct !{!40, !36, !37}
-!41 = distinct !{!41, !36, !37}
-!42 = distinct !{!42, !36, !37}
+!37 = distinct !{!37, !36}
+!38 = distinct !{!38, !36}
+!39 = distinct !{!39, !36}
+!40 = distinct !{!40, !36}
+!41 = distinct !{!41, !36}

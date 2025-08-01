@@ -232,7 +232,7 @@ entry:
 while.cond:                                       ; preds = %entry, %while.cond
   %2 = load atomic i64, ptr @_ZN6hermes2vm17sampling_profiler12_GLOBAL__N_112SamplerPosix15profilerForSig_E.0 acquire, align 8
   %cmp.not = icmp eq i64 %2, 0
-  br i1 %cmp.not, label %return, label %while.cond, !llvm.loop !8
+  br i1 %cmp.not, label %return, label %while.cond, !llvm.loop !7
 
 return:                                           ; preds = %while.cond, %entry
   ret i1 %call2
@@ -246,12 +246,12 @@ declare noundef zeroext i1 @_ZN6hermes9Semaphore4waitEv(ptr noundef nonnull alig
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN6hermes2vm16SamplingProfiler6createERNS0_7RuntimeE(ptr noalias writeonly sret(%"class.std::unique_ptr") align 8 captures(none) initializes((0, 8)) %agg.result, ptr noundef nonnull align 8 dereferenceable(9832) %rt) local_unnamed_addr #0 align 2 {
 _ZNSt10unique_ptrIN6hermes2vm17sampling_profiler12_GLOBAL__N_121SamplingProfilerPosixESt14default_deleteIS4_EED2Ev.exit:
-  %call.i = tail call noalias noundef nonnull dereferenceable(264) ptr @_Znwm(i64 noundef 264) #15, !noalias !9
-  tail call void @_ZN6hermes2vm16SamplingProfilerC2ERNS0_7RuntimeE(ptr noundef nonnull align 8 dereferenceable(264) %call.i, ptr noundef nonnull align 8 dereferenceable(9832) %rt) #14, !noalias !9
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6hermes2vm17sampling_profiler12_GLOBAL__N_121SamplingProfilerPosixE, i64 16), ptr %call.i, align 8, !noalias !9
+  %call.i = tail call noalias noundef nonnull dereferenceable(264) ptr @_Znwm(i64 noundef 264) #15, !noalias !8
+  tail call void @_ZN6hermes2vm16SamplingProfilerC2ERNS0_7RuntimeE(ptr noundef nonnull align 8 dereferenceable(264) %call.i, ptr noundef nonnull align 8 dereferenceable(9832) %rt) #14, !noalias !8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6hermes2vm17sampling_profiler12_GLOBAL__N_121SamplingProfilerPosixE, i64 16), ptr %call.i, align 8, !noalias !8
   %currentThread_.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 256
   %call.i.i = tail call i64 @pthread_self() #17
-  store i64 %call.i.i, ptr %currentThread_.i.i, align 8, !noalias !9
+  store i64 %call.i.i, ptr %currentThread_.i.i, align 8, !noalias !8
   store ptr %call.i, ptr %agg.result, align 8
   ret void
 }
@@ -307,7 +307,7 @@ entry:
 while.cond:                                       ; preds = %while.cond, %entry
   %0 = load atomic i64, ptr @_ZN6hermes2vm17sampling_profiler12_GLOBAL__N_112SamplerPosix15profilerForSig_E.0 acquire, align 8
   %tobool.not = icmp eq i64 %0, 0
-  br i1 %tobool.not, label %while.cond, label %while.end, !llvm.loop !12
+  br i1 %tobool.not, label %while.cond, label %while.end, !llvm.loop !11
 
 while.end:                                        ; preds = %while.cond
   %atomic-temp.i.0.i = inttoptr i64 %0 to ptr
@@ -445,7 +445,7 @@ while.body.i.i.i.i:                               ; preds = %_ZNSt6vectorIPN6her
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i.i.i.i) #14
   tail call void @_ZdlPv(ptr noundef nonnull %__n.addr.04.i.i.i.i) #18
   %tobool.not.i.i.i.i = icmp eq ptr %3, null
-  br i1 %tobool.not.i.i.i.i, label %_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_SaIS5_ENSt8__detail9_IdentityESt8equal_toIS5_ESt4hashIS5_ENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb1ELb1ELb1EEEE5clearEv.exit.i.i, label %while.body.i.i.i.i, !llvm.loop !13
+  br i1 %tobool.not.i.i.i.i, label %_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_SaIS5_ENSt8__detail9_IdentityESt8equal_toIS5_ESt4hashIS5_ENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb1ELb1ELb1EEEE5clearEv.exit.i.i, label %while.body.i.i.i.i, !llvm.loop !12
 
 _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_SaIS5_ENSt8__detail9_IdentityESt8equal_toIS5_ESt4hashIS5_ENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb1ELb1ELb1EEEE5clearEv.exit.i.i: ; preds = %while.body.i.i.i.i, %_ZNSt6vectorIPN6hermes2vm6DomainESaIS3_EED2Ev.exit
   %4 = load ptr, ptr %suspendEventExtraInfoSet_, align 8
@@ -491,7 +491,7 @@ if.then11.i.i:                                    ; preds = %for.body.i.i
 if.end13.i.i:                                     ; preds = %if.then11.i.i, %for.body.i.i
   %incdec.ptr.i.i = getelementptr inbounds nuw i8, ptr %P.08.i.i, i64 40
   %cmp6.not.i.i = icmp eq ptr %incdec.ptr.i.i, %add.ptr.i.i.i
-  br i1 %cmp6.not.i.i, label %_ZN4llvh12DenseMapBaseINS_8DenseMapImNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_12DenseMapInfoImEENS_6detail12DenseMapPairImS7_EEEEmS7_S9_SC_E10destroyAllEv.exit.loopexit.i, label %for.body.i.i, !llvm.loop !14
+  br i1 %cmp6.not.i.i, label %_ZN4llvh12DenseMapBaseINS_8DenseMapImNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_12DenseMapInfoImEENS_6detail12DenseMapPairImS7_EEEEmS7_S9_SC_E10destroyAllEv.exit.loopexit.i, label %for.body.i.i, !llvm.loop !13
 
 _ZN4llvh12DenseMapBaseINS_8DenseMapImNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_12DenseMapInfoImEENS_6detail12DenseMapPairImS7_EEEEmS7_S9_SC_E10destroyAllEv.exit.loopexit.i: ; preds = %if.end13.i.i
   %.pre.i = load ptr, ptr %threadNames_, align 8
@@ -531,7 +531,7 @@ if.then.i.i.i.i.i.i.i.i.i:                        ; preds = %for.body.i.i.i.i
 _ZSt8_DestroyIN6hermes2vm16SamplingProfiler10StackTraceEEvPT_.exit.i.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i.i.i, %for.body.i.i.i.i
   %incdec.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.04.i.i.i.i, i64 40
   %cmp.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %12
-  br i1 %cmp.not.i.i.i.i, label %_ZSt8_DestroyIPN6hermes2vm16SamplingProfiler10StackTraceES3_EvT_S5_RSaIT0_E.exitthread-pre-split.i, label %for.body.i.i.i.i, !llvm.loop !15
+  br i1 %cmp.not.i.i.i.i, label %_ZSt8_DestroyIPN6hermes2vm16SamplingProfiler10StackTraceES3_EvT_S5_RSaIT0_E.exitthread-pre-split.i, label %for.body.i.i.i.i, !llvm.loop !14
 
 _ZSt8_DestroyIPN6hermes2vm16SamplingProfiler10StackTraceES3_EvT_S5_RSaIT0_E.exitthread-pre-split.i: ; preds = %_ZSt8_DestroyIN6hermes2vm16SamplingProfiler10StackTraceEEvPT_.exit.i.i.i.i
   %.pr.i = load ptr, ptr %sampledStacks_, align 8
@@ -595,14 +595,13 @@ attributes #19 = { noreturn nounwind }
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
 !4 = !{!"branch_weights", i32 1, i32 1048575}
-!5 = distinct !{!5, !6, !7}
+!5 = distinct !{!5, !6}
 !6 = !{!"llvm.loop.mustprogress"}
-!7 = !{!"llvm.loop.estimated_trip_count"}
-!8 = distinct !{!8, !6, !7}
-!9 = !{!10}
-!10 = distinct !{!10, !11, !"_ZSt11make_uniqueIN6hermes2vm17sampling_profiler12_GLOBAL__N_121SamplingProfilerPosixEJRNS1_7RuntimeEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: %agg.result"}
-!11 = distinct !{!11, !"_ZSt11make_uniqueIN6hermes2vm17sampling_profiler12_GLOBAL__N_121SamplingProfilerPosixEJRNS1_7RuntimeEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
-!12 = distinct !{!12, !6, !7}
-!13 = distinct !{!13, !6, !7}
-!14 = distinct !{!14, !6, !7}
-!15 = distinct !{!15, !6, !7}
+!7 = distinct !{!7, !6}
+!8 = !{!9}
+!9 = distinct !{!9, !10, !"_ZSt11make_uniqueIN6hermes2vm17sampling_profiler12_GLOBAL__N_121SamplingProfilerPosixEJRNS1_7RuntimeEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: %agg.result"}
+!10 = distinct !{!10, !"_ZSt11make_uniqueIN6hermes2vm17sampling_profiler12_GLOBAL__N_121SamplingProfilerPosixEJRNS1_7RuntimeEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
+!11 = distinct !{!11, !6}
+!12 = distinct !{!12, !6}
+!13 = distinct !{!13, !6}
+!14 = distinct !{!14, !6}

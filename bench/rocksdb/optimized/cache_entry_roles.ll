@@ -159,7 +159,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: 
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
   %14 = icmp eq ptr %5, %0
-  br i1 %14, label %15, label %3, !llvm.loop !16
+  br i1 %14, label %15, label %3
 
 15:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
   ret void
@@ -180,7 +180,7 @@ define noundef nonnull align 8 dereferenceable(32) ptr @_ZN7rocksdb27BlockCacheE
   %1 = alloca %"class.std::allocator", align 1
   %2 = load atomic i8, ptr @_ZGVZN7rocksdb27BlockCacheEntryStatsMapKeys7CacheIdB5cxx11EvE8kCacheIdB5cxx11 acquire, align 8
   %3 = icmp eq i8 %2, 0
-  br i1 %3, label %4, label %9, !prof !18
+  br i1 %3, label %4, label %9, !prof !16
 
 4:                                                ; preds = %0
   %5 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN7rocksdb27BlockCacheEntryStatsMapKeys7CacheIdB5cxx11EvE8kCacheIdB5cxx11) #14
@@ -223,7 +223,7 @@ define noundef nonnull align 8 dereferenceable(32) ptr @_ZN7rocksdb27BlockCacheE
   %1 = alloca %"class.std::allocator", align 1
   %2 = load atomic i8, ptr @_ZGVZN7rocksdb27BlockCacheEntryStatsMapKeys18CacheCapacityBytesB5cxx11EvE19kCacheCapacityBytesB5cxx11 acquire, align 8
   %3 = icmp eq i8 %2, 0
-  br i1 %3, label %4, label %9, !prof !18
+  br i1 %3, label %4, label %9, !prof !16
 
 4:                                                ; preds = %0
   %5 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN7rocksdb27BlockCacheEntryStatsMapKeys18CacheCapacityBytesB5cxx11EvE19kCacheCapacityBytesB5cxx11) #14
@@ -257,7 +257,7 @@ define noundef nonnull align 8 dereferenceable(32) ptr @_ZN7rocksdb27BlockCacheE
   %1 = alloca %"class.std::allocator", align 1
   %2 = load atomic i8, ptr @_ZGVZN7rocksdb27BlockCacheEntryStatsMapKeys29LastCollectionDurationSecondsB5cxx11EvE30kLastCollectionDurationSecondsB5cxx11 acquire, align 8
   %3 = icmp eq i8 %2, 0
-  br i1 %3, label %4, label %9, !prof !18
+  br i1 %3, label %4, label %9, !prof !16
 
 4:                                                ; preds = %0
   %5 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN7rocksdb27BlockCacheEntryStatsMapKeys29LastCollectionDurationSecondsB5cxx11EvE30kLastCollectionDurationSecondsB5cxx11) #14
@@ -291,7 +291,7 @@ define noundef nonnull align 8 dereferenceable(32) ptr @_ZN7rocksdb27BlockCacheE
   %1 = alloca %"class.std::allocator", align 1
   %2 = load atomic i8, ptr @_ZGVZN7rocksdb27BlockCacheEntryStatsMapKeys24LastCollectionAgeSecondsB5cxx11EvE25kLastCollectionAgeSecondsB5cxx11 acquire, align 8
   %3 = icmp eq i8 %2, 0
-  br i1 %3, label %4, label %9, !prof !18
+  br i1 %3, label %4, label %9, !prof !16
 
 4:                                                ; preds = %0
   %5 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN7rocksdb27BlockCacheEntryStatsMapKeys24LastCollectionAgeSecondsB5cxx11EvE25kLastCollectionAgeSecondsB5cxx11) #14
@@ -325,7 +325,7 @@ define void @_ZN7rocksdb27BlockCacheEntryStatsMapKeys10EntryCountB5cxx11ENS_14Ca
   %3 = alloca %"class.std::allocator", align 1
   %4 = load atomic i8, ptr @_ZGVZN7rocksdb27BlockCacheEntryStatsMapKeys10EntryCountB5cxx11ENS_14CacheEntryRoleEE7kPrefixB5cxx11 acquire, align 8
   %5 = icmp eq i8 %4, 0
-  br i1 %5, label %6, label %11, !prof !18
+  br i1 %5, label %6, label %11, !prof !16
 
 6:                                                ; preds = %2
   %7 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN7rocksdb27BlockCacheEntryStatsMapKeys10EntryCountB5cxx11ENS_14CacheEntryRoleEE7kPrefixB5cxx11) #14
@@ -434,7 +434,7 @@ define void @_ZN7rocksdb27BlockCacheEntryStatsMapKeys9UsedBytesB5cxx11ENS_14Cach
   %3 = alloca %"class.std::allocator", align 1
   %4 = load atomic i8, ptr @_ZGVZN7rocksdb27BlockCacheEntryStatsMapKeys9UsedBytesB5cxx11ENS_14CacheEntryRoleEE7kPrefixB5cxx11 acquire, align 8
   %5 = icmp eq i8 %4, 0
-  br i1 %5, label %6, label %11, !prof !18
+  br i1 %5, label %6, label %11, !prof !16
 
 6:                                                ; preds = %2
   %7 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN7rocksdb27BlockCacheEntryStatsMapKeys9UsedBytesB5cxx11ENS_14CacheEntryRoleEE7kPrefixB5cxx11) #14
@@ -469,7 +469,7 @@ define void @_ZN7rocksdb27BlockCacheEntryStatsMapKeys11UsedPercentB5cxx11ENS_14C
   %3 = alloca %"class.std::allocator", align 1
   %4 = load atomic i8, ptr @_ZGVZN7rocksdb27BlockCacheEntryStatsMapKeys11UsedPercentB5cxx11ENS_14CacheEntryRoleEE7kPrefixB5cxx11 acquire, align 8
   %5 = icmp eq i8 %4, 0
-  br i1 %5, label %6, label %11, !prof !18
+  br i1 %5, label %6, label %11, !prof !16
 
 6:                                                ; preds = %2
   %7 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN7rocksdb27BlockCacheEntryStatsMapKeys11UsedPercentB5cxx11ENS_14CacheEntryRoleEE7kPrefixB5cxx11) #14
@@ -657,7 +657,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i
   %43 = icmp eq ptr %34, @_ZN7rocksdb28kCacheEntryRoleToCamelStringB5cxx11E
-  br i1 %43, label %common.resume, label %32, !llvm.loop !19
+  br i1 %43, label %common.resume, label %32
 
 common.resume:                                    ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i4
   %common.resume.op = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i2, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i4 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i ]
@@ -833,7 +833,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i4: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i3, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i5
   %87 = icmp eq ptr %78, @_ZN7rocksdb29kCacheEntryRoleToHyphenStringB5cxx11E
-  br i1 %87, label %common.resume, label %76, !llvm.loop !20
+  br i1 %87, label %common.resume, label %76
 
 __cxx_global_var_init.14.exit:                    ; preds = %.noexc73.i8
   store ptr %64, ptr getelementptr inbounds nuw (i8, ptr @_ZN7rocksdb29kCacheEntryRoleToHyphenStringB5cxx11E, i64 288), align 8, !tbaa !12
@@ -903,8 +903,4 @@ attributes #15 = { builtin nounwind }
 !13 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE", !5, i64 0, !11, i64 8, !8, i64 16}
 !14 = !{!8, !8, i64 0}
 !15 = !{!13, !11, i64 8}
-!16 = distinct !{!16, !17}
-!17 = !{!"llvm.loop.estimated_trip_count"}
-!18 = !{!"branch_weights", i32 1, i32 1048575}
-!19 = distinct !{!19, !17}
-!20 = distinct !{!20, !17}
+!16 = !{!"branch_weights", i32 1, i32 1048575}

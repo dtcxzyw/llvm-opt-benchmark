@@ -420,7 +420,7 @@ define internal fastcc noundef i32 @dissect_tlvs(ptr noundef %0, ptr noundef %1,
 
 .backedge.backedge:                               ; preds = %13, %27, %31, %35, %39, %43, %47, %51, %55, %59, %63, %67, %71, %80, %83, %82, %9
   %.0.be = phi i32 [ %12, %9 ], [ %86, %83 ], [ %26, %82 ], [ %26, %13 ], [ %30, %27 ], [ %34, %31 ], [ %38, %35 ], [ %42, %39 ], [ %46, %43 ], [ %50, %47 ], [ %54, %51 ], [ %58, %55 ], [ %62, %59 ], [ %66, %63 ], [ %70, %67 ], [ %74, %71 ], [ %81, %80 ]
-  br label %.backedge, !llvm.loop !6
+  br label %.backedge
 
 27:                                               ; preds = %13
   %28 = load i32, ptr @hf_njack_tlv_countermode, align 4
@@ -541,5 +541,3 @@ attributes #1 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protect
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7}
-!7 = !{!"llvm.loop.estimated_trip_count"}

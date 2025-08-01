@@ -144,7 +144,7 @@ define dso_local i32 @acpi_install_notify_handler(ptr noundef %0, i32 noundef %1
   %62 = getelementptr [2 x ptr], ptr %61, i64 0, i64 %51
   %63 = load ptr, ptr %62, align 8
   %64 = icmp eq ptr %63, null
-  br i1 %64, label %.loopexit11, label %.preheader9, !llvm.loop !9
+  br i1 %64, label %.loopexit11, label %.preheader9, !llvm.loop !8
 
 .preheader9:                                      ; preds = %56, %60
   %65 = phi ptr [ %63, %60 ], [ %58, %56 ]
@@ -154,7 +154,7 @@ define dso_local i32 @acpi_install_notify_handler(ptr noundef %0, i32 noundef %1
   br i1 %68, label %.loopexit, label %60
 
 .loopexit11:                                      ; preds = %60, %56, %49
-  br i1 %50, label %49, label %69, !llvm.loop !10
+  br i1 %50, label %49, label %69, !llvm.loop !9
 
 69:                                               ; preds = %.loopexit11
   %70 = tail call ptr @acpi_ut_create_internal_object_dbg(ptr noundef nonnull @_acpi_module_name, i32 noundef 159, i32 noundef 4, i32 noundef 23) #5
@@ -191,7 +191,7 @@ define dso_local i32 @acpi_install_notify_handler(ptr noundef %0, i32 noundef %1
   br label %89
 
 89:                                               ; preds = %85, %78
-  br i1 %79, label %78, label %90, !llvm.loop !11
+  br i1 %79, label %78, label %90, !llvm.loop !10
 
 90:                                               ; preds = %89
   %91 = icmp eq i32 %1, 3
@@ -282,7 +282,7 @@ define dso_local i32 @acpi_remove_notify_handler(ptr noundef %0, i32 noundef %1,
   br label %27
 
 27:                                               ; preds = %25, %.preheader
-  br i1 %12, label %.preheader, label %.loopexit, !llvm.loop !12
+  br i1 %12, label %.preheader, label %.loopexit, !llvm.loop !11
 
 28:                                               ; preds = %10
   %29 = tail call zeroext i8 @acpi_ev_is_notify_object(ptr noundef nonnull %0) #5
@@ -328,7 +328,7 @@ define dso_local i32 @acpi_remove_notify_handler(ptr noundef %0, i32 noundef %1,
   %55 = getelementptr inbounds nuw i8, ptr %61, i64 32
   %56 = load ptr, ptr %55, align 8
   %57 = icmp eq ptr %56, %2
-  br i1 %57, label %.loopexit10, label %.preheader8, !llvm.loop !13
+  br i1 %57, label %.loopexit10, label %.preheader8, !llvm.loop !12
 
 .preheader8:                                      ; preds = %50, %54
   %58 = phi ptr [ %61, %54 ], [ %48, %50 ]
@@ -336,7 +336,7 @@ define dso_local i32 @acpi_remove_notify_handler(ptr noundef %0, i32 noundef %1,
   %60 = getelementptr [2 x ptr], ptr %59, i64 0, i64 %38
   %61 = load ptr, ptr %60, align 8
   %62 = icmp eq ptr %61, null
-  br i1 %62, label %.loopexit7, label %54, !llvm.loop !14
+  br i1 %62, label %.loopexit7, label %54, !llvm.loop !12
 
 .loopexit10:                                      ; preds = %54, %50
   %63 = phi ptr [ %48, %50 ], [ %61, %54 ]
@@ -355,7 +355,7 @@ define dso_local i32 @acpi_remove_notify_handler(ptr noundef %0, i32 noundef %1,
   br label %73
 
 73:                                               ; preds = %.loopexit10, %36
-  br i1 %37, label %36, label %.loopexit, !llvm.loop !15
+  br i1 %37, label %36, label %.loopexit, !llvm.loop !13
 
 .loopexit7:                                       ; preds = %46, %.preheader8, %21
   %74 = tail call i32 @acpi_ut_release_mutex(i32 noundef 1) #5
@@ -377,8 +377,8 @@ define dso_local i32 @acpi_install_sci_handler(ptr noundef %0, ptr noundef %1) #
 
 5:                                                ; preds = %2
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #5
-  store i64 0, ptr %3, align 8, !annotation !16
-  call void asm sideeffect "# __raw_save_flags\0A\09pushf ; pop $0", "=*rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %3) #5, !srcloc !17
+  store i64 0, ptr %3, align 8, !annotation !14
+  call void asm sideeffect "# __raw_save_flags\0A\09pushf ; pop $0", "=*rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %3) #5, !srcloc !15
   %6 = load i64, ptr %3, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #5
   %7 = and i64 %6, 512
@@ -413,7 +413,7 @@ define dso_local i32 @acpi_install_sci_handler(ptr noundef %0, ptr noundef %1) #
   %26 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %27 = load ptr, ptr %26, align 8
   %28 = icmp eq ptr %27, %0
-  br i1 %28, label %.loopexit, label %21, !llvm.loop !18
+  br i1 %28, label %.loopexit, label %21, !llvm.loop !16
 
 29:                                               ; preds = %21
   %30 = load ptr, ptr @acpi_gbl_sci_handler_list, align 8
@@ -470,7 +470,7 @@ define dso_local i32 @acpi_remove_sci_handler(ptr noundef readnone captures(addr
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %16 = load ptr, ptr %15, align 8
   %17 = icmp eq ptr %16, %0
-  br i1 %17, label %18, label %9, !llvm.loop !19
+  br i1 %17, label %18, label %9, !llvm.loop !17
 
 18:                                               ; preds = %14
   %19 = icmp eq ptr %10, null
@@ -643,8 +643,8 @@ define internal fastcc i32 @acpi_ev_install_gpe_handler(ptr noundef %0, i32 noun
 
 15:                                               ; preds = %12
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #5
-  store i64 0, ptr %7, align 8, !annotation !16
-  call void asm sideeffect "# __raw_save_flags\0A\09pushf ; pop $0", "=*rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %7) #5, !srcloc !17
+  store i64 0, ptr %7, align 8, !annotation !14
+  call void asm sideeffect "# __raw_save_flags\0A\09pushf ; pop $0", "=*rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %7) #5, !srcloc !15
   %16 = load i64, ptr %7, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #5
   %17 = and i64 %16, 512
@@ -860,7 +860,7 @@ define dso_local i32 @acpi_acquire_global_lock(i16 noundef zeroext %0, ptr nound
 4:                                                ; preds = %2
   tail call void @acpi_ex_enter_interpreter() #5
   %5 = load ptr, ptr @acpi_gbl_global_lock_mutex, align 8
-  %6 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #7, !srcloc !20
+  %6 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #7, !srcloc !18
   %7 = tail call i32 @acpi_ex_acquire_mutex_object(i16 noundef zeroext %0, ptr noundef %5, i64 noundef %6) #5
   %8 = icmp eq i32 %7, 0
   br i1 %8, label %9, label %12
@@ -939,19 +939,17 @@ attributes #7 = { nounwind memory(none) }
 !2 = !{i32 4, !"function_return_thunk_extern", i32 1}
 !3 = !{i32 4, !"indirect_branch_cs_prefix", i32 1}
 !4 = !{i32 4, !"SkipRaxSetup", i32 1}
-!5 = distinct !{!5, !6, !7, !8}
+!5 = distinct !{!5, !6, !7}
 !6 = !{!"llvm.loop.mustprogress"}
 !7 = !{!"llvm.loop.unroll.disable"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !6, !7, !8}
-!10 = distinct !{!10, !6, !7, !8}
-!11 = distinct !{!11, !6, !7, !8}
-!12 = distinct !{!12, !6, !7, !8}
-!13 = distinct !{!13, !6, !7, !8}
-!14 = distinct !{!14, !6, !7}
-!15 = distinct !{!15, !6, !7, !8}
-!16 = !{!"auto-init"}
-!17 = !{i64 1827727, i64 1827748}
-!18 = distinct !{!18, !6, !7, !8}
-!19 = distinct !{!19, !6, !7, !8}
-!20 = !{i64 2148303461}
+!8 = distinct !{!8, !6, !7}
+!9 = distinct !{!9, !6, !7}
+!10 = distinct !{!10, !6, !7}
+!11 = distinct !{!11, !6, !7}
+!12 = distinct !{!12, !6, !7}
+!13 = distinct !{!13, !6, !7}
+!14 = !{!"auto-init"}
+!15 = !{i64 1827727, i64 1827748}
+!16 = distinct !{!16, !6, !7}
+!17 = distinct !{!17, !6, !7}
+!18 = !{i64 2148303461}

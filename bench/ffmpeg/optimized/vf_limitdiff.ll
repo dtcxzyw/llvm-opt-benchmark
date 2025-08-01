@@ -504,7 +504,7 @@ define internal noundef i32 @limitdiff_slice(ptr noundef readonly captures(none)
   %87 = load i32, ptr %9, align 8, !tbaa !70
   %88 = sext i32 %87 to i64
   %89 = icmp slt i64 %indvars.iv.next, %88
-  br i1 %89, label %23, label %._crit_edge, !llvm.loop !79
+  br i1 %89, label %23, label %._crit_edge, !llvm.loop !78
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
@@ -522,18 +522,18 @@ declare ptr @av_default_item_name(ptr noundef) #1
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -2147483648, 1) i32 @config_input(ptr noundef readonly captures(none) %0) #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %3 = load ptr, ptr %2, align 8, !tbaa !80
+  %3 = load ptr, ptr %2, align 8, !tbaa !79
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 72
   %5 = load ptr, ptr %4, align 8, !tbaa !4
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 36
-  %7 = load i32, ptr %6, align 4, !tbaa !81
+  %7 = load i32, ptr %6, align 4, !tbaa !80
   %8 = tail call ptr @av_pix_fmt_desc_get(i32 noundef %7) #9
-  %9 = load i32, ptr %6, align 4, !tbaa !81
+  %9 = load i32, ptr %6, align 4, !tbaa !80
   %10 = tail call i32 @av_pix_fmt_count_planes(i32 noundef %9) #9
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 80
   store i32 %10, ptr %11, align 8, !tbaa !70
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  %13 = load i32, ptr %6, align 4, !tbaa !81
+  %13 = load i32, ptr %6, align 4, !tbaa !80
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %15 = load i32, ptr %14, align 8, !tbaa !41
   %16 = tail call i32 @av_image_fill_linesizes(ptr noundef nonnull %12, i32 noundef %13, i32 noundef %15) #9
@@ -542,13 +542,13 @@ define internal range(i32 -2147483648, 1) i32 @config_input(ptr noundef readonly
 
 .sink.split:                                      ; preds = %1
   %18 = getelementptr inbounds nuw i8, ptr %8, i64 9
-  %19 = load i8, ptr %18, align 1, !tbaa !82
+  %19 = load i8, ptr %18, align 1, !tbaa !81
   %20 = zext nneg i8 %19 to i32
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %22 = load i32, ptr %21, align 4, !tbaa !42
   %23 = sub nsw i32 0, %22
   %24 = getelementptr inbounds nuw i8, ptr %8, i64 10
-  %25 = load i8, ptr %24, align 2, !tbaa !84
+  %25 = load i8, ptr %24, align 2, !tbaa !83
   %26 = zext nneg i8 %25 to i32
   %27 = ashr i32 %23, %26
   %28 = sub nsw i32 0, %27
@@ -576,11 +576,11 @@ define internal range(i32 -2147483648, 1) i32 @config_input(ptr noundef readonly
   store i32 %42, ptr %43, align 4, !tbaa !62
   store i32 %42, ptr %39, align 8, !tbaa !62
   %44 = getelementptr inbounds nuw i8, ptr %8, i64 40
-  %45 = load i32, ptr %44, align 8, !tbaa !85
+  %45 = load i32, ptr %44, align 8, !tbaa !84
   %46 = getelementptr inbounds nuw i8, ptr %5, i64 84
   store i32 %45, ptr %46, align 4, !tbaa !69
   %47 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %48 = load float, ptr %47, align 8, !tbaa !87
+  %48 = load float, ptr %47, align 8, !tbaa !86
   %notmask = shl nsw i32 -1, %45
   %49 = xor i32 %notmask, -1
   %50 = uitofp nneg i32 %49 to float
@@ -590,7 +590,7 @@ define internal range(i32 -2147483648, 1) i32 @config_input(ptr noundef readonly
   store i32 %52, ptr %53, align 8, !tbaa !71
   %54 = sitofp i32 %52 to float
   %55 = getelementptr inbounds nuw i8, ptr %5, i64 12
-  %56 = load float, ptr %55, align 4, !tbaa !88
+  %56 = load float, ptr %55, align 4, !tbaa !87
   %57 = fmul nsz float %56, %54
   %58 = fptosi float %57 to i32
   %59 = getelementptr inbounds nuw i8, ptr %5, i64 28
@@ -630,14 +630,14 @@ define internal void @limitdiff8(ptr noundef readonly captures(none) %0, ptr nou
 11:                                               ; preds = %.lr.ph, %32
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %32 ]
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv
-  %13 = load i8, ptr %12, align 1, !tbaa !89
+  %13 = load i8, ptr %12, align 1, !tbaa !88
   %14 = zext i8 %13 to i32
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv
-  %16 = load i8, ptr %15, align 1, !tbaa !89
+  %16 = load i8, ptr %15, align 1, !tbaa !88
   %17 = zext i8 %16 to i32
   %18 = sub nsw i32 %14, %17
   %19 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv
-  %20 = load i8, ptr %19, align 1, !tbaa !89
+  %20 = load i8, ptr %19, align 1, !tbaa !88
   %21 = zext i8 %20 to i32
   %22 = sub nsw i32 %14, %21
   %23 = tail call i32 @llvm.abs.i32(i32 %22, i1 true)
@@ -663,10 +663,10 @@ define internal void @limitdiff8(ptr noundef readonly captures(none) %0, ptr nou
 32:                                               ; preds = %24, %11, %25
   %.sink = phi i8 [ %.0.i, %25 ], [ %13, %11 ], [ %16, %24 ]
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv
-  store i8 %.sink, ptr %33, align 1, !tbaa !89
+  store i8 %.sink, ptr %33, align 1, !tbaa !88
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %11, !llvm.loop !90
+  br i1 %exitcond.not, label %._crit_edge, label %11, !llvm.loop !89
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
@@ -687,14 +687,14 @@ define internal void @limitdiff16(ptr noundef readonly captures(none) %0, ptr no
 12:                                               ; preds = %.lr.ph, %34
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %34 ]
   %13 = getelementptr inbounds nuw i16, ptr %0, i64 %indvars.iv
-  %14 = load i16, ptr %13, align 2, !tbaa !91
+  %14 = load i16, ptr %13, align 2, !tbaa !90
   %15 = zext i16 %14 to i32
   %16 = getelementptr inbounds nuw i16, ptr %2, i64 %indvars.iv
-  %17 = load i16, ptr %16, align 2, !tbaa !91
+  %17 = load i16, ptr %16, align 2, !tbaa !90
   %18 = zext i16 %17 to i32
   %19 = sub nsw i32 %15, %18
   %20 = getelementptr inbounds nuw i16, ptr %3, i64 %indvars.iv
-  %21 = load i16, ptr %20, align 2, !tbaa !91
+  %21 = load i16, ptr %20, align 2, !tbaa !90
   %22 = zext i16 %21 to i32
   %23 = sub nsw i32 %15, %22
   %24 = tail call i32 @llvm.abs.i32(i32 %23, i1 true)
@@ -721,10 +721,10 @@ define internal void @limitdiff16(ptr noundef readonly captures(none) %0, ptr no
 34:                                               ; preds = %25, %12, %26
   %.sink = phi i16 [ %33, %26 ], [ %14, %12 ], [ %17, %25 ]
   %35 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv
-  store i16 %.sink, ptr %35, align 2, !tbaa !91
+  store i16 %.sink, ptr %35, align 2, !tbaa !90
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %12, !llvm.loop !93
+  br i1 %exitcond.not, label %._crit_edge, label %12, !llvm.loop !92
 }
 
 declare void @ff_framesync_uninit(ptr noundef) local_unnamed_addr #1
@@ -828,21 +828,20 @@ attributes #11 = { nounwind willreturn memory(none) }
 !73 = !{!11, !11, i64 0}
 !74 = !{!24, !15, i64 20}
 !75 = !{!24, !7, i64 184}
-!76 = distinct !{!76, !77, !78}
+!76 = distinct !{!76, !77}
 !77 = !{!"llvm.loop.mustprogress"}
-!78 = !{!"llvm.loop.estimated_trip_count"}
-!79 = distinct !{!79, !77, !78}
-!80 = !{!32, !27, i64 16}
-!81 = !{!32, !15, i64 36}
-!82 = !{!83, !8, i64 9}
-!83 = !{!"AVPixFmtDescriptor", !11, i64 0, !8, i64 8, !8, i64 9, !8, i64 10, !29, i64 16, !8, i64 24, !11, i64 104}
-!84 = !{!83, !8, i64 10}
-!85 = !{!86, !15, i64 16}
-!86 = !{!"AVComponentDescriptor", !15, i64 0, !15, i64 4, !15, i64 8, !15, i64 12, !15, i64 16}
-!87 = !{!24, !25, i64 8}
-!88 = !{!24, !25, i64 12}
-!89 = !{!8, !8, i64 0}
-!90 = distinct !{!90, !77, !78}
-!91 = !{!92, !92, i64 0}
-!92 = !{!"short", !8, i64 0}
-!93 = distinct !{!93, !77, !78}
+!78 = distinct !{!78, !77}
+!79 = !{!32, !27, i64 16}
+!80 = !{!32, !15, i64 36}
+!81 = !{!82, !8, i64 9}
+!82 = !{!"AVPixFmtDescriptor", !11, i64 0, !8, i64 8, !8, i64 9, !8, i64 10, !29, i64 16, !8, i64 24, !11, i64 104}
+!83 = !{!82, !8, i64 10}
+!84 = !{!85, !15, i64 16}
+!85 = !{!"AVComponentDescriptor", !15, i64 0, !15, i64 4, !15, i64 8, !15, i64 12, !15, i64 16}
+!86 = !{!24, !25, i64 8}
+!87 = !{!24, !25, i64 12}
+!88 = !{!8, !8, i64 0}
+!89 = distinct !{!89, !77}
+!90 = !{!91, !91, i64 0}
+!91 = !{!"short", !8, i64 0}
+!92 = distinct !{!92, !77}

@@ -78,7 +78,7 @@ define void @"_ZN71_$LT$core..hash..sip..Hasher$LT$S$GT$$u20$as$u20$core..hash..
   store i64 %44, ptr %0, align 8
   %45 = add nuw i64 %.0913, 8
   %46 = icmp ult i64 %45, %25
-  br i1 %46, label %39, label %._crit_edge, !llvm.loop !4
+  br i1 %46, label %39, label %._crit_edge
 
 47:                                               ; preds = %._crit_edge, %35
   %storemerge = phi i64 [ %36, %35 ], [ %24, %._crit_edge ]
@@ -145,5 +145,3 @@ attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argm
 !1 = !{i32 2, !"RtLibUseGOT", i32 1}
 !2 = !{!"rustc version 1.77.2 (25ef9e3d8 2024-04-09)"}
 !3 = !{}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.estimated_trip_count"}

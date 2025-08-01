@@ -440,7 +440,7 @@ SDL_RectsEqual.exit.thread:                       ; preds = %23, %28, %33, %SDL_
   %56 = getelementptr inbounds nuw i8, ptr %.pn25, i64 8
   %.pn = load ptr, ptr %56, align 8
   %.not21 = icmp eq ptr %.pn, %8
-  br i1 %.not21, label %.loopexit, label %15, !llvm.loop !8
+  br i1 %.not21, label %.loopexit, label %15, !llvm.loop !7
 
 57:                                               ; preds = %2
   tail call void @SDL_IME_UpdateTextInputArea(ptr noundef %1) #5
@@ -468,7 +468,7 @@ define hidden zeroext i1 @Wayland_HasScreenKeyboardSupport(ptr noundef readonly 
   %9 = getelementptr inbounds nuw i8, ptr %.pn13, i64 8
   %.pn = load ptr, ptr %9, align 8
   %.not.not = icmp eq ptr %.pn, %6
-  br i1 %.not.not, label %._crit_edge, label %.lr.ph, !llvm.loop !9
+  br i1 %.not.not, label %._crit_edge, label %.lr.ph, !llvm.loop !8
 
 .lr.ph:                                           ; preds = %1, %8
   %.pn13 = phi ptr [ %.pn, %8 ], [ %.pn11, %1 ]
@@ -498,8 +498,7 @@ attributes #5 = { nounwind }
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i8 0, i8 2}
 !4 = !{}
-!5 = distinct !{!5, !6, !7}
+!5 = distinct !{!5, !6}
 !6 = !{!"llvm.loop.mustprogress"}
-!7 = !{!"llvm.loop.estimated_trip_count"}
-!8 = distinct !{!8, !6, !7}
-!9 = distinct !{!9, !6, !7}
+!7 = distinct !{!7, !6}
+!8 = distinct !{!8, !6}

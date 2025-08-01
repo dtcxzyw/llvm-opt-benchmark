@@ -102,7 +102,7 @@ define hidden void @SDL_BlitCopy(ptr noundef readonly captures(none) %0) local_u
   %58 = getelementptr inbounds i8, ptr %.175, i64 %53
   %59 = getelementptr inbounds i8, ptr %.15473, i64 %55
   %.not63 = icmp eq i32 %57, 0
-  br i1 %.not63, label %.loopexit, label %56, !llvm.loop !6
+  br i1 %.not63, label %.loopexit, label %56, !llvm.loop !5
 
 60:                                               ; preds = %.lr.ph, %60
   %.271 = phi ptr [ %13, %.lr.ph ], [ %62, %60 ]
@@ -113,7 +113,7 @@ define hidden void @SDL_BlitCopy(ptr noundef readonly captures(none) %0) local_u
   %62 = getelementptr inbounds i8, ptr %.271, i64 %27
   %63 = getelementptr inbounds i8, ptr %.25569, i64 %28
   %.not = icmp eq i32 %61, 0
-  br i1 %.not, label %.loopexit, label %60, !llvm.loop !7
+  br i1 %.not, label %.loopexit, label %60, !llvm.loop !6
 
 .loopexit:                                        ; preds = %60, %56, %39, %.preheader66, %43, %.preheader
   ret void
@@ -133,8 +133,7 @@ attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argm
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = distinct !{!3, !4, !5}
+!3 = distinct !{!3, !4}
 !4 = !{!"llvm.loop.mustprogress"}
-!5 = !{!"llvm.loop.estimated_trip_count"}
-!6 = distinct !{!6, !4, !5}
-!7 = distinct !{!7, !4, !5}
+!5 = distinct !{!5, !4}
+!6 = distinct !{!6, !4}

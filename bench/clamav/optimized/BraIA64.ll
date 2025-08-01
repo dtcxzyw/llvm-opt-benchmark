@@ -56,7 +56,7 @@ define range(i64 16, 1) i64 @IA64_Convert(ptr noundef captures(none) %0, i64 nou
   %32 = add i64 %31, %.05968
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 6
-  br i1 %exitcond.not, label %33, label %27, !llvm.loop !6
+  br i1 %exitcond.not, label %33, label %27
 
 33:                                               ; preds = %27
   %34 = and i64 %indvars.iv82, 7
@@ -101,18 +101,18 @@ define range(i64 16, 1) i64 @IA64_Convert(ptr noundef captures(none) %0, i64 nou
   store i8 %62, ptr %gep71, align 1, !tbaa !3
   %indvars.iv.next79 = add nuw nsw i64 %indvars.iv78, 1
   %exitcond81.not = icmp eq i64 %indvars.iv.next79, 6
-  br i1 %exitcond81.not, label %.loopexit, label %59, !llvm.loop !8
+  br i1 %exitcond81.not, label %.loopexit, label %59
 
 .loopexit:                                        ; preds = %59, %33, %20
   %63 = add nuw nsw i32 %.06174, 1
   %indvars.iv.next83 = add nuw nsw i64 %indvars.iv82, 41
   %exitcond85.not = icmp eq i32 %63, 3
-  br i1 %exitcond85.not, label %64, label %20, !llvm.loop !9
+  br i1 %exitcond85.not, label %64, label %20
 
 64:                                               ; preds = %.loopexit
   %65 = add nuw i64 %.06375, 16
   %.not = icmp ugt i64 %65, %7
-  br i1 %.not, label %.loopexit67, label %8, !llvm.loop !10
+  br i1 %.not, label %.loopexit67, label %8
 
 .loopexit67:                                      ; preds = %64, %4
   %.060 = phi i64 [ 0, %4 ], [ %65, %64 ]
@@ -129,8 +129,3 @@ attributes #0 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwt
 !3 = !{!4, !4, i64 0}
 !4 = !{!"omnipotent char", !5, i64 0}
 !5 = !{!"Simple C/C++ TBAA"}
-!6 = distinct !{!6, !7}
-!7 = !{!"llvm.loop.estimated_trip_count"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}

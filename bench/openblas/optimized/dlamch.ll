@@ -94,7 +94,7 @@ define double @dlamch_(ptr noundef %0) local_unnamed_addr #0 {
   %24 = fmul double %spec.select24.i, %22
   %spec.select.i = select i1 %.not17.i, double %spec.select24.i, double %24
   %.not18.i = icmp samesign ult i64 %.023.i, 4
-  br i1 %.not18.i, label %dpow_ui.exit, label %.lr.ph.i, !llvm.loop !9
+  br i1 %.not18.i, label %dpow_ui.exit, label %.lr.ph.i
 
 dpow_ui.exit:                                     ; preds = %.lr.ph.i, %14, %15
   %.011.i = phi double [ 1.000000e+00, %14 ], [ %spec.select20.i, %15 ], [ %spec.select.i, %.lr.ph.i ]
@@ -129,7 +129,7 @@ dpow_ui.exit:                                     ; preds = %.lr.ph.i, %14, %15
   %36 = fmul double %spec.select24.i33, %34
   %spec.select.i37 = select i1 %.not17.i36, double %spec.select24.i33, double %36
   %.not18.i38 = icmp samesign ult i64 %.023.i34, 4
-  br i1 %.not18.i38, label %dpow_ui.exit40, label %.lr.ph.i32, !llvm.loop !9
+  br i1 %.not18.i38, label %dpow_ui.exit40, label %.lr.ph.i32
 
 dpow_ui.exit40:                                   ; preds = %.lr.ph.i32, %27, %26, %dpow_ui.exit
   %storemerge = phi double [ %25, %dpow_ui.exit ], [ 1.000000e+00, %26 ], [ %spec.select20.i30, %27 ], [ %spec.select.i37, %.lr.ph.i32 ]
@@ -278,7 +278,7 @@ define noundef i32 @dlamc2_(ptr noundef writeonly captures(none) %0, ptr noundef
   %11 = fadd double %10, 1.000000e+00
   %12 = fsub double %11, %10
   %13 = fcmp oeq double %12, 1.000000e+00
-  br i1 %13, label %.preheader.i, label %14, !llvm.loop !11
+  br i1 %13, label %.preheader.i, label %14
 
 14:                                               ; preds = %.preheader.i
   %15 = fcmp oeq double %11, %10
@@ -289,7 +289,7 @@ define noundef i32 @dlamc2_(ptr noundef writeonly captures(none) %0, ptr noundef
   %16 = fmul double %.05860.i, 2.000000e+00
   %17 = fadd double %10, %16
   %18 = fcmp oeq double %17, %10
-  br i1 %18, label %.lr.ph.i, label %._crit_edge.loopexit.i, !llvm.loop !12
+  br i1 %18, label %.lr.ph.i, label %._crit_edge.loopexit.i
 
 ._crit_edge.loopexit.i:                           ; preds = %.lr.ph.i
   %.pre68.i = fsub double %17, %10
@@ -330,7 +330,7 @@ define noundef i32 @dlamc2_(ptr noundef writeonly captures(none) %0, ptr noundef
   %39 = fadd double %38, 1.000000e+00
   %40 = fsub double %39, %38
   %41 = fcmp oeq double %40, 1.000000e+00
-  br i1 %41, label %35, label %dlamc1_.exit.thread, !llvm.loop !13
+  br i1 %41, label %35, label %dlamc1_.exit.thread
 
 dlamc1_.exit.thread:                              ; preds = %35
   store i32 %37, ptr @dlamc1_.lt, align 4, !tbaa !3
@@ -382,7 +382,7 @@ dlamc1_.exit:                                     ; preds = %9
   %57 = fmul double %spec.select24.i, %55
   %spec.select.i = select i1 %.not17.i, double %spec.select24.i, double %57
   %.not18.i = icmp samesign ult i64 %.023.i, 4
-  br i1 %.not18.i, label %dpow_ui.exit, label %.lr.ph.i44, !llvm.loop !9
+  br i1 %.not18.i, label %dpow_ui.exit, label %.lr.ph.i44
 
 dpow_ui.exit:                                     ; preds = %.lr.ph.i44, %45
   %.011.i = phi double [ %spec.select20.i, %45 ], [ %spec.select.i, %.lr.ph.i44 ]
@@ -411,7 +411,7 @@ dpow_ui.exit:                                     ; preds = %.lr.ph.i44, %45
   %69 = fcmp ogt double %.1183220, %68
   %70 = fcmp ogt double %68, 0.000000e+00
   %or.cond = and i1 %70, %69
-  br i1 %or.cond, label %.lr.ph, label %._crit_edge, !llvm.loop !14
+  br i1 %or.cond, label %.lr.ph, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph
   store double %.1183220, ptr @dlamc2_.leps, align 8, !tbaa !7
@@ -449,7 +449,7 @@ dpow_ui.exit:                                     ; preds = %.lr.ph.i44, %45
   %82 = fadd double %81, 0.000000e+00
   %83 = add nuw nsw i32 %.0222, 1
   %exitcond.not = icmp eq i32 %83, 4
-  br i1 %exitcond.not, label %.lr.ph75.preheader.i, label %80, !llvm.loop !15
+  br i1 %exitcond.not, label %.lr.ph75.preheader.i, label %80, !llvm.loop !9
 
 .lr.ph75.preheader.i:                             ; preds = %80
   %84 = fadd double %79, 0.000000e+00
@@ -468,7 +468,7 @@ dpow_ui.exit:                                     ; preds = %.lr.ph.i44, %45
   %or.cond48.i = select i1 %or.cond.i, i1 %88, i1 false
   %89 = fcmp oeq double %.1.lcssa.i, %.04473.i
   %or.cond49.i = select i1 %or.cond48.i, i1 %89, i1 false
-  br i1 %or.cond49.i, label %.lr.ph75.i, label %.lr.ph75.preheader.i48, !llvm.loop !17
+  br i1 %or.cond49.i, label %.lr.ph75.i, label %.lr.ph75.preheader.i48
 
 .lr.ph75.i:                                       ; preds = %.loopexit.i47, %.lr.ph75.preheader.i
   %90 = phi i32 [ %91, %.loopexit.i47 ], [ 1, %.lr.ph75.preheader.i ]
@@ -490,7 +490,7 @@ dpow_ui.exit:                                     ; preds = %.lr.ph.i44, %45
   %97 = fadd double %93, %.14063.i
   %98 = add nuw i32 %.04562.i, 1
   %exitcond.not.i = icmp eq i32 %.04562.i, %75
-  br i1 %exitcond.not.i, label %.lr.ph68.preheader.i, label %.lr.ph.i46, !llvm.loop !18
+  br i1 %exitcond.not.i, label %.lr.ph68.preheader.i, label %.lr.ph.i46, !llvm.loop !11
 
 .lr.ph68.preheader.i:                             ; preds = %.lr.ph.i46
   %99 = fmul double %79, %.04473.i
@@ -503,7 +503,7 @@ dpow_ui.exit:                                     ; preds = %.lr.ph.i44, %45
   %101 = fadd double %100, %.166.i
   %102 = add nuw i32 %.14665.i, 1
   %exitcond78.not.i = icmp eq i32 %.14665.i, %75
-  br i1 %exitcond78.not.i, label %.loopexit.i47, label %.lr.ph68.i, !llvm.loop !19
+  br i1 %exitcond78.not.i, label %.loopexit.i47, label %.lr.ph68.i, !llvm.loop !12
 
 .lr.ph75.preheader.i48:                           ; preds = %.loopexit.i47
   %103 = fsub double 0.000000e+00, %79
@@ -521,7 +521,7 @@ dpow_ui.exit:                                     ; preds = %.lr.ph.i44, %45
   %or.cond48.i66 = select i1 %or.cond.i65, i1 %107, i1 false
   %108 = fcmp oeq double %.1.lcssa.i64, %.04473.i50
   %or.cond49.i67 = select i1 %or.cond48.i66, i1 %108, i1 false
-  br i1 %or.cond49.i67, label %.lr.ph75.i49, label %dlamc4_.exit69, !llvm.loop !17
+  br i1 %or.cond49.i67, label %.lr.ph75.i49, label %dlamc4_.exit69
 
 .lr.ph75.i49:                                     ; preds = %.loopexit.i61, %.lr.ph75.preheader.i48
   %109 = phi i32 [ %110, %.loopexit.i61 ], [ 1, %.lr.ph75.preheader.i48 ]
@@ -543,7 +543,7 @@ dpow_ui.exit:                                     ; preds = %.lr.ph.i44, %45
   %116 = fadd double %112, %.14063.i53
   %117 = add nuw i32 %.04562.i54, 1
   %exitcond.not.i55 = icmp eq i32 %.04562.i54, %75
-  br i1 %exitcond.not.i55, label %.lr.ph68.preheader.i56, label %.lr.ph.i52, !llvm.loop !18
+  br i1 %exitcond.not.i55, label %.lr.ph68.preheader.i56, label %.lr.ph.i52, !llvm.loop !11
 
 .lr.ph68.preheader.i56:                           ; preds = %.lr.ph.i52
   %118 = fmul double %79, %.04473.i50
@@ -556,7 +556,7 @@ dpow_ui.exit:                                     ; preds = %.lr.ph.i44, %45
   %120 = fadd double %119, %.166.i58
   %121 = add nuw i32 %.14665.i59, 1
   %exitcond78.not.i60 = icmp eq i32 %.14665.i59, %75
-  br i1 %exitcond78.not.i60, label %.loopexit.i61, label %.lr.ph68.i57, !llvm.loop !19
+  br i1 %exitcond78.not.i60, label %.loopexit.i61, label %.lr.ph68.i57, !llvm.loop !12
 
 dlamc4_.exit69:                                   ; preds = %.loopexit.i61
   %122 = fadd double %82, 1.000000e+00
@@ -580,7 +580,7 @@ dlamc4_.exit69:                                   ; preds = %.loopexit.i61
   %or.cond48.i88 = select i1 %or.cond.i87, i1 %129, i1 false
   %130 = fcmp oeq double %.1.lcssa.i86, %.04473.i72
   %or.cond49.i89 = select i1 %or.cond48.i88, i1 %130, i1 false
-  br i1 %or.cond49.i89, label %.lr.ph75.i71, label %.lr.ph75.preheader.i92, !llvm.loop !17
+  br i1 %or.cond49.i89, label %.lr.ph75.i71, label %.lr.ph75.preheader.i92
 
 .lr.ph75.i71:                                     ; preds = %.loopexit.i83, %.lr.ph75.preheader.i70
   %131 = phi i32 [ %132, %.loopexit.i83 ], [ 1, %.lr.ph75.preheader.i70 ]
@@ -602,7 +602,7 @@ dlamc4_.exit69:                                   ; preds = %.loopexit.i61
   %138 = fadd double %134, %.14063.i75
   %139 = add nuw i32 %.04562.i76, 1
   %exitcond.not.i77 = icmp eq i32 %.04562.i76, %75
-  br i1 %exitcond.not.i77, label %.lr.ph68.preheader.i78, label %.lr.ph.i74, !llvm.loop !18
+  br i1 %exitcond.not.i77, label %.lr.ph68.preheader.i78, label %.lr.ph.i74, !llvm.loop !11
 
 .lr.ph68.preheader.i78:                           ; preds = %.lr.ph.i74
   %140 = fmul double %79, %.04473.i72
@@ -615,7 +615,7 @@ dlamc4_.exit69:                                   ; preds = %.loopexit.i61
   %142 = fadd double %141, %.166.i80
   %143 = add nuw i32 %.14665.i81, 1
   %exitcond78.not.i82 = icmp eq i32 %.14665.i81, %75
-  br i1 %exitcond78.not.i82, label %.loopexit.i83, label %.lr.ph68.i79, !llvm.loop !19
+  br i1 %exitcond78.not.i82, label %.loopexit.i83, label %.lr.ph68.i79, !llvm.loop !12
 
 .lr.ph75.preheader.i92:                           ; preds = %.loopexit.i83
   %144 = fmul double %79, %122
@@ -634,7 +634,7 @@ dlamc4_.exit69:                                   ; preds = %.loopexit.i61
   %or.cond48.i110 = select i1 %or.cond.i109, i1 %149, i1 false
   %150 = fcmp oeq double %.1.lcssa.i108, %.04473.i94
   %or.cond49.i111 = select i1 %or.cond48.i110, i1 %150, i1 false
-  br i1 %or.cond49.i111, label %.lr.ph75.i93, label %dlamc4_.exit113, !llvm.loop !17
+  br i1 %or.cond49.i111, label %.lr.ph75.i93, label %dlamc4_.exit113
 
 .lr.ph75.i93:                                     ; preds = %.loopexit.i105, %.lr.ph75.preheader.i92
   %151 = phi i32 [ %152, %.loopexit.i105 ], [ 1, %.lr.ph75.preheader.i92 ]
@@ -656,7 +656,7 @@ dlamc4_.exit69:                                   ; preds = %.loopexit.i61
   %158 = fadd double %154, %.14063.i97
   %159 = add nuw i32 %.04562.i98, 1
   %exitcond.not.i99 = icmp eq i32 %.04562.i98, %75
-  br i1 %exitcond.not.i99, label %.lr.ph68.preheader.i100, label %.lr.ph.i96, !llvm.loop !18
+  br i1 %exitcond.not.i99, label %.lr.ph68.preheader.i100, label %.lr.ph.i96, !llvm.loop !11
 
 .lr.ph68.preheader.i100:                          ; preds = %.lr.ph.i96
   %160 = fmul double %79, %.04473.i94
@@ -669,7 +669,7 @@ dlamc4_.exit69:                                   ; preds = %.loopexit.i61
   %162 = fadd double %161, %.166.i102
   %163 = add nuw i32 %.14665.i103, 1
   %exitcond78.not.i104 = icmp eq i32 %.14665.i103, %75
-  br i1 %exitcond78.not.i104, label %.loopexit.i105, label %.lr.ph68.i101, !llvm.loop !19
+  br i1 %exitcond78.not.i104, label %.loopexit.i105, label %.lr.ph68.i101, !llvm.loop !12
 
 dlamc4_.exit113:                                  ; preds = %.loopexit.i105, %dlamc4_.exit69
   %.0179281 = phi i32 [ 1, %dlamc4_.exit69 ], [ %132, %.loopexit.i105 ]
@@ -758,7 +758,7 @@ dlamc4_.exit113:                                  ; preds = %.loopexit.i105, %dl
   %203 = fadd double %202, 0.000000e+00
   %204 = add nuw i32 %.1224, 1
   %exitcond253.not = icmp eq i32 %.1224, %smax
-  br i1 %exitcond253.not, label %._crit_edge227, label %.lr.ph226, !llvm.loop !20
+  br i1 %exitcond253.not, label %._crit_edge227, label %.lr.ph226, !llvm.loop !13
 
 ._crit_edge227:                                   ; preds = %.lr.ph226
   store double %203, ptr @dlamc2_.lrmin, align 8, !tbaa !7
@@ -775,7 +775,7 @@ dlamc4_.exit113:                                  ; preds = %.loopexit.i105, %dl
   %209 = shl i32 %.040.i, 1
   %.not.i114 = icmp sgt i32 %209, %207
   %210 = add nuw i32 %.039.i, 1
-  br i1 %.not.i114, label %211, label %208, !llvm.loop !21
+  br i1 %.not.i114, label %211, label %208
 
 211:                                              ; preds = %208
   %212 = icmp ne i32 %.040.i, %207
@@ -820,7 +820,7 @@ dlamc4_.exit113:                                  ; preds = %.loopexit.i105, %dl
   %234 = fadd double %.06166.i, %232
   %235 = add nuw i32 %.04368.i, 1
   %exitcond.not.i116 = icmp eq i32 %.04368.i, %76
-  br i1 %exitcond.not.i116, label %._crit_edge.i117, label %.lr.ph.i115, !llvm.loop !22
+  br i1 %exitcond.not.i116, label %._crit_edge.i117, label %.lr.ph.i115, !llvm.loop !14
 
 ._crit_edge.i117:                                 ; preds = %.lr.ph.i115, %211
   %.061.lcssa.i = phi double [ 0.000000e+00, %211 ], [ %234, %.lr.ph.i115 ]
@@ -837,7 +837,7 @@ dlamc4_.exit113:                                  ; preds = %.loopexit.i105, %dl
   %238 = fadd double %237, 0.000000e+00
   %239 = add nuw i32 %.14473.i, 1
   %exitcond80.not.i = icmp eq i32 %.14473.i, %229
-  br i1 %exitcond80.not.i, label %dlamc5_.exit, label %.lr.ph75.i118, !llvm.loop !23
+  br i1 %exitcond80.not.i, label %dlamc5_.exit, label %.lr.ph75.i118, !llvm.loop !15
 
 dlamc5_.exit:                                     ; preds = %.lr.ph75.i118, %._crit_edge.i117
   %.2.lcssa.i = phi double [ %.162.i, %._crit_edge.i117 ], [ %238, %.lr.ph75.i118 ]
@@ -887,7 +887,7 @@ define noundef i32 @dlamc1_(ptr noundef writeonly captures(none) %0, ptr noundef
   %6 = fadd double %5, 1.000000e+00
   %7 = fsub double %6, %5
   %8 = fcmp oeq double %7, 1.000000e+00
-  br i1 %8, label %.preheader, label %9, !llvm.loop !11
+  br i1 %8, label %.preheader, label %9
 
 9:                                                ; preds = %.preheader
   %10 = fcmp oeq double %6, %5
@@ -898,7 +898,7 @@ define noundef i32 @dlamc1_(ptr noundef writeonly captures(none) %0, ptr noundef
   %11 = fmul double %.05860, 2.000000e+00
   %12 = fadd double %5, %11
   %13 = fcmp oeq double %12, %5
-  br i1 %13, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !12
+  br i1 %13, label %.lr.ph, label %._crit_edge.loopexit
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
   %.pre68 = fsub double %12, %5
@@ -939,7 +939,7 @@ define noundef i32 @dlamc1_(ptr noundef writeonly captures(none) %0, ptr noundef
   %34 = fadd double %33, 1.000000e+00
   %35 = fsub double %34, %33
   %36 = fcmp oeq double %35, 1.000000e+00
-  br i1 %36, label %30, label %.loopexit, !llvm.loop !13
+  br i1 %36, label %30, label %.loopexit
 
 .loopexit:                                        ; preds = %30
   store i32 %32, ptr @dlamc1_.lt, align 4, !tbaa !3
@@ -994,7 +994,7 @@ define noundef i32 @dlamc4_(ptr noundef writeonly captures(none) initializes((0,
   %or.cond48 = select i1 %or.cond, i1 %14, i1 false
   %15 = fcmp oeq double %.1.lcssa, %.04473
   %or.cond49 = select i1 %or.cond48, i1 %15, i1 false
-  br i1 %or.cond49, label %.lr.ph75, label %._crit_edge76, !llvm.loop !17
+  br i1 %or.cond49, label %.lr.ph75, label %._crit_edge76
 
 .lr.ph75:                                         ; preds = %.lr.ph75.preheader, %.loopexit
   %16 = phi i32 [ %17, %.loopexit ], [ 1, %.lr.ph75.preheader ]
@@ -1020,7 +1020,7 @@ define noundef i32 @dlamc4_(ptr noundef writeonly captures(none) initializes((0,
   %25 = fadd double %21, %.14063
   %26 = add nuw i32 %.04562, 1
   %exitcond.not = icmp eq i32 %.04562, %18
-  br i1 %exitcond.not, label %.lr.ph68.preheader, label %.lr.ph, !llvm.loop !18
+  br i1 %exitcond.not, label %.lr.ph68.preheader, label %.lr.ph, !llvm.loop !11
 
 .lr.ph68.preheader:                               ; preds = %.lr.ph
   %27 = fmul double %7, %.04473
@@ -1033,7 +1033,7 @@ define noundef i32 @dlamc4_(ptr noundef writeonly captures(none) initializes((0,
   %29 = fadd double %28, %.166
   %30 = add nuw i32 %.14665, 1
   %exitcond78.not = icmp eq i32 %.14665, %18
-  br i1 %exitcond78.not, label %.loopexit, label %.lr.ph68, !llvm.loop !19
+  br i1 %exitcond78.not, label %.loopexit, label %.lr.ph68, !llvm.loop !12
 
 ._crit_edge76:                                    ; preds = %.loopexit, %3
   ret i32 0
@@ -1051,7 +1051,7 @@ define noundef i32 @dlamc5_(ptr noundef readonly captures(none) %0, ptr noundef 
   %10 = shl i32 %.040, 1
   %.not = icmp sgt i32 %10, %8
   %11 = add nuw i32 %.039, 1
-  br i1 %.not, label %12, label %9, !llvm.loop !21
+  br i1 %.not, label %12, label %9
 
 12:                                               ; preds = %9
   %13 = icmp ne i32 %.040, %8
@@ -1118,7 +1118,7 @@ define noundef i32 @dlamc5_(ptr noundef readonly captures(none) %0, ptr noundef 
   %46 = fadd double %.06166, %44
   %47 = add nuw i32 %.04368, 1
   %exitcond.not = icmp eq i32 %.04368, %42
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !22
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %.lr.ph, %37
   %.061.lcssa = phi double [ 0.000000e+00, %37 ], [ %46, %.lr.ph ]
@@ -1135,7 +1135,7 @@ define noundef i32 @dlamc5_(ptr noundef readonly captures(none) %0, ptr noundef 
   %50 = fadd double %49, 0.000000e+00
   %51 = add nuw i32 %.14473, 1
   %exitcond80.not = icmp eq i32 %.14473, %38
-  br i1 %exitcond80.not, label %._crit_edge76, label %.lr.ph75, !llvm.loop !23
+  br i1 %exitcond80.not, label %._crit_edge76, label %.lr.ph75, !llvm.loop !15
 
 ._crit_edge76:                                    ; preds = %.lr.ph75, %._crit_edge
   %.2.lcssa = phi double [ %.162, %._crit_edge ], [ %50, %.lr.ph75 ]
@@ -1174,17 +1174,9 @@ attributes #8 = { nounwind }
 !7 = !{!8, !8, i64 0}
 !8 = !{!"double", !5, i64 0}
 !9 = distinct !{!9, !10}
-!10 = !{!"llvm.loop.estimated_trip_count"}
+!10 = !{!"llvm.loop.mustprogress"}
 !11 = distinct !{!11, !10}
 !12 = distinct !{!12, !10}
 !13 = distinct !{!13, !10}
 !14 = distinct !{!14, !10}
-!15 = distinct !{!15, !16, !10}
-!16 = !{!"llvm.loop.mustprogress"}
-!17 = distinct !{!17, !10}
-!18 = distinct !{!18, !16, !10}
-!19 = distinct !{!19, !16, !10}
-!20 = distinct !{!20, !16, !10}
-!21 = distinct !{!21, !10}
-!22 = distinct !{!22, !16, !10}
-!23 = distinct !{!23, !16, !10}
+!15 = distinct !{!15, !10}

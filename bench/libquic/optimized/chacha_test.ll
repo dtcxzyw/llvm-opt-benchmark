@@ -43,13 +43,13 @@ define hidden noundef range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef read
 12:                                               ; preds = %.critedge.i
   %.023.add.i = add nuw nsw i64 %.023.idx47.i, 8
   %.not27.i = icmp eq i64 %.023.add.i, 176
-  br i1 %.not27.i, label %24, label %.preheader.i, !llvm.loop !11
+  br i1 %.not27.i, label %24, label %.preheader.i
 
 .preheader.i:                                     ; preds = %5, %12
   %.023.idx47.i = phi i64 [ %.023.add.i, %12 ], [ 0, %5 ]
   %.sroa.0.246.i = phi ptr [ %15, %12 ], [ %4, %5 ]
   %.023.ptr.i = getelementptr inbounds nuw i8, ptr @_ZZL12TestChaCha20mE8kOffsets, i64 %.023.idx47.i
-  %13 = load i64, ptr %.023.ptr.i, align 8, !tbaa !13
+  %13 = load i64, ptr %.023.ptr.i, align 8, !tbaa !11
   %14 = add i64 %13, %.0525
   %15 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %14) #8
           to label %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EE5resetIPhvEEvT_.exit.i unwind label %22
@@ -89,7 +89,7 @@ _ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit33.i: ; preds = %22, %10
   tail call void @_ZdaPv(ptr noundef nonnull %15) #10
   %25 = add nuw nsw i64 %.0525, 1
   %exitcond.not = icmp eq i64 %25, 1025
-  br i1 %exitcond.not, label %27, label %3, !llvm.loop !15
+  br i1 %exitcond.not, label %27, label %3, !llvm.loop !13
 
 26:                                               ; preds = %6, %17
   %.sroa.0.0.i.ph = phi ptr [ %15, %17 ], [ %4, %6 ]
@@ -154,9 +154,7 @@ attributes #10 = { builtin nounwind }
 !8 = !{!"any pointer", !9, i64 0}
 !9 = !{!"omnipotent char", !10, i64 0}
 !10 = !{!"Simple C++ TBAA"}
-!11 = distinct !{!11, !12}
-!12 = !{!"llvm.loop.estimated_trip_count"}
-!13 = !{!14, !14, i64 0}
-!14 = !{!"long", !9, i64 0}
-!15 = distinct !{!15, !16, !12}
-!16 = !{!"llvm.loop.mustprogress"}
+!11 = !{!12, !12, i64 0}
+!12 = !{!"long", !9, i64 0}
+!13 = distinct !{!13, !14}
+!14 = !{!"llvm.loop.mustprogress"}

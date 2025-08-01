@@ -20791,7 +20791,7 @@ lean_array_uset.exit140:                          ; preds = %lean_ensure_exclusi
 .backedge:                                        ; preds = %lean_array_uset.exit140, %lean_array_uset.exit
   %.079.be = phi ptr [ %30, %lean_array_uset.exit ], [ %94, %lean_array_uset.exit140 ]
   %.0.be = phi ptr [ %.0.i.i, %lean_array_uset.exit ], [ %.0.i.i137, %lean_array_uset.exit140 ]
-  br label %6, !llvm.loop !19
+  br label %6
 }
 
 declare ptr @lean_apply_1(ptr noundef, ptr noundef) local_unnamed_addr #2
@@ -21114,7 +21114,7 @@ lean_array_uset.exit108:                          ; preds = %lean_ensure_exclusi
 .backedge:                                        ; preds = %lean_array_uset.exit108, %lean_array_uset.exit
   %.070.be = phi ptr [ %19, %lean_array_uset.exit ], [ %59, %lean_array_uset.exit108 ]
   %.0.be = phi ptr [ %.0.i.i, %lean_array_uset.exit ], [ %.0.i.i105, %lean_array_uset.exit108 ]
-  br label %3, !llvm.loop !21
+  br label %3
 }
 
 ; Function Attrs: nounwind uwtable
@@ -23522,7 +23522,7 @@ lean_dec.exit904:                                 ; preds = %721, %724, %726, %7
 742:                                              ; preds = %738, %741
   %.val.i1264 = phi i32 [ %739, %738 ], [ %.val.i1264.pr, %741 ]
   %743 = icmp sgt i32 %.val.i1264, 0
-  br i1 %743, label %744, label %746, !prof !22
+  br i1 %743, label %744, label %746, !prof !19
 
 744:                                              ; preds = %742
   %745 = add nuw i32 %.val.i1264, 1
@@ -25267,7 +25267,7 @@ lean_dec.exit876:                                 ; preds = %lean_ctor_release.e
 1414:                                             ; preds = %1410, %1413
   %.val.i1369 = phi i32 [ %1411, %1410 ], [ %.val.i1369.pr, %1413 ]
   %1415 = icmp sgt i32 %.val.i1369, 0
-  br i1 %1415, label %1416, label %1418, !prof !22
+  br i1 %1415, label %1416, label %1418, !prof !19
 
 1416:                                             ; preds = %1414
   %1417 = add nuw i32 %.val.i1369, 1
@@ -34501,7 +34501,7 @@ lean_dec.exit2395:                                ; preds = %2825, %2828, %2830,
 2846:                                             ; preds = %2842, %2845
   %.val.i3747 = phi i32 [ %2843, %2842 ], [ %.val.i3747.pr, %2845 ]
   %2847 = icmp sgt i32 %.val.i3747, 0
-  br i1 %2847, label %2848, label %2850, !prof !22
+  br i1 %2847, label %2848, label %2850, !prof !19
 
 2848:                                             ; preds = %2846
   %2849 = add nuw i32 %.val.i3747, 1
@@ -41793,7 +41793,7 @@ lean_dec.exit2258:                                ; preds = %lean_ctor_release.e
 5467:                                             ; preds = %5463, %5466
   %.val.i4211 = phi i32 [ %5464, %5463 ], [ %.val.i4211.pr, %5466 ]
   %5468 = icmp sgt i32 %.val.i4211, 0
-  br i1 %5468, label %5469, label %5471, !prof !22
+  br i1 %5468, label %5469, label %5471, !prof !19
 
 5469:                                             ; preds = %5467
   %5470 = add nuw i32 %.val.i4211, 1
@@ -42974,7 +42974,7 @@ lean_dec.exit362:                                 ; preds = %93, %92, %90, %83
 
 96:                                               ; preds = %lean_dec.exit362
   %97 = load ptr, ptr %95, align 8, !tbaa !11
-  %98 = load double, ptr @l_Lean_addTrace___at_Lean_Meta_Grind_Arith_CommRing_PolyDerivation_toPreNullCert___spec__2___closed__1, align 8, !tbaa !23
+  %98 = load double, ptr @l_Lean_addTrace___at_Lean_Meta_Grind_Arith_CommRing_PolyDerivation_toPreNullCert___spec__2___closed__1, align 8, !tbaa !20
   %99 = load ptr, ptr @l_Lean_Meta_Grind_Arith_CommRing_throwNoNatZeroDivisors___rarg___closed__3, align 8, !tbaa !11
   tail call void @lean_inc_heartbeat() #6
   %100 = tail call noalias ptr @mi_malloc_small(i64 noundef 48) #6
@@ -42996,9 +42996,9 @@ lean_alloc_ctor.exit:                             ; preds = %96
   %106 = getelementptr inbounds nuw i8, ptr %100, i64 16
   store ptr %99, ptr %106, align 8, !tbaa !11
   %107 = getelementptr inbounds nuw i8, ptr %100, i64 24
-  store double %98, ptr %107, align 8, !tbaa !23
+  store double %98, ptr %107, align 8, !tbaa !20
   %108 = getelementptr inbounds nuw i8, ptr %100, i64 32
-  store double %98, ptr %108, align 8, !tbaa !23
+  store double %98, ptr %108, align 8, !tbaa !20
   %109 = load ptr, ptr @l_Lean_Meta_Grind_Arith_CommRing_Null_PreNullCert_zero___closed__1, align 8, !tbaa !11
   tail call void @lean_inc_heartbeat() #6
   %110 = tail call noalias ptr @mi_malloc_small(i64 noundef 32) #6
@@ -43201,7 +43201,7 @@ lean_inc.exit351:                                 ; preds = %177, %176, %174, %1
   br label %lean_dec.exit359
 
 lean_dec.exit359:                                 ; preds = %184, %183, %181, %lean_inc.exit351
-  %185 = load double, ptr @l_Lean_addTrace___at_Lean_Meta_Grind_Arith_CommRing_PolyDerivation_toPreNullCert___spec__2___closed__1, align 8, !tbaa !23
+  %185 = load double, ptr @l_Lean_addTrace___at_Lean_Meta_Grind_Arith_CommRing_PolyDerivation_toPreNullCert___spec__2___closed__1, align 8, !tbaa !20
   %186 = load ptr, ptr @l_Lean_Meta_Grind_Arith_CommRing_throwNoNatZeroDivisors___rarg___closed__3, align 8, !tbaa !11
   tail call void @lean_inc_heartbeat() #6
   %187 = tail call noalias ptr @mi_malloc_small(i64 noundef 48) #6
@@ -43223,9 +43223,9 @@ lean_alloc_ctor.exit422:                          ; preds = %lean_dec.exit359
   %193 = getelementptr inbounds nuw i8, ptr %187, i64 16
   store ptr %186, ptr %193, align 8, !tbaa !11
   %194 = getelementptr inbounds nuw i8, ptr %187, i64 24
-  store double %185, ptr %194, align 8, !tbaa !23
+  store double %185, ptr %194, align 8, !tbaa !20
   %195 = getelementptr inbounds nuw i8, ptr %187, i64 32
-  store double %185, ptr %195, align 8, !tbaa !23
+  store double %185, ptr %195, align 8, !tbaa !20
   %196 = load ptr, ptr @l_Lean_Meta_Grind_Arith_CommRing_Null_PreNullCert_zero___closed__1, align 8, !tbaa !11
   tail call void @lean_inc_heartbeat() #6
   %197 = tail call noalias ptr @mi_malloc_small(i64 noundef 32) #6
@@ -43735,7 +43735,7 @@ lean_ctor_release.exit465:                        ; preds = %369, %376, %378, %3
 
 lean_dec_ref.exit388:                             ; preds = %385, %384, %382, %lean_ctor_release.exit465
   %.0321 = phi ptr [ %59, %lean_ctor_release.exit465 ], [ inttoptr (i64 1 to ptr), %382 ], [ inttoptr (i64 1 to ptr), %384 ], [ inttoptr (i64 1 to ptr), %385 ]
-  %386 = load double, ptr @l_Lean_addTrace___at_Lean_Meta_Grind_Arith_CommRing_PolyDerivation_toPreNullCert___spec__2___closed__1, align 8, !tbaa !23
+  %386 = load double, ptr @l_Lean_addTrace___at_Lean_Meta_Grind_Arith_CommRing_PolyDerivation_toPreNullCert___spec__2___closed__1, align 8, !tbaa !20
   %387 = load ptr, ptr @l_Lean_Meta_Grind_Arith_CommRing_throwNoNatZeroDivisors___rarg___closed__3, align 8, !tbaa !11
   tail call void @lean_inc_heartbeat() #6
   %388 = tail call noalias ptr @mi_malloc_small(i64 noundef 48) #6
@@ -43757,9 +43757,9 @@ lean_alloc_ctor.exit467:                          ; preds = %lean_dec_ref.exit38
   %394 = getelementptr inbounds nuw i8, ptr %388, i64 16
   store ptr %387, ptr %394, align 8, !tbaa !11
   %395 = getelementptr inbounds nuw i8, ptr %388, i64 24
-  store double %386, ptr %395, align 8, !tbaa !23
+  store double %386, ptr %395, align 8, !tbaa !20
   %396 = getelementptr inbounds nuw i8, ptr %388, i64 32
-  store double %386, ptr %396, align 8, !tbaa !23
+  store double %386, ptr %396, align 8, !tbaa !20
   %397 = load ptr, ptr @l_Lean_Meta_Grind_Arith_CommRing_Null_PreNullCert_zero___closed__1, align 8, !tbaa !11
   tail call void @lean_inc_heartbeat() #6
   %398 = tail call noalias ptr @mi_malloc_small(i64 noundef 32) #6
@@ -44596,7 +44596,7 @@ lean_ctor_release.exit543:                        ; preds = %695, %702, %704, %7
 
 lean_dec_ref.exit382:                             ; preds = %711, %710, %708, %lean_ctor_release.exit543
   %.0326 = phi ptr [ %59, %lean_ctor_release.exit543 ], [ inttoptr (i64 1 to ptr), %708 ], [ inttoptr (i64 1 to ptr), %710 ], [ inttoptr (i64 1 to ptr), %711 ]
-  %712 = load double, ptr @l_Lean_addTrace___at_Lean_Meta_Grind_Arith_CommRing_PolyDerivation_toPreNullCert___spec__2___closed__1, align 8, !tbaa !23
+  %712 = load double, ptr @l_Lean_addTrace___at_Lean_Meta_Grind_Arith_CommRing_PolyDerivation_toPreNullCert___spec__2___closed__1, align 8, !tbaa !20
   %713 = load ptr, ptr @l_Lean_Meta_Grind_Arith_CommRing_throwNoNatZeroDivisors___rarg___closed__3, align 8, !tbaa !11
   tail call void @lean_inc_heartbeat() #6
   %714 = tail call noalias ptr @mi_malloc_small(i64 noundef 48) #6
@@ -44618,9 +44618,9 @@ lean_alloc_ctor.exit545:                          ; preds = %lean_dec_ref.exit38
   %720 = getelementptr inbounds nuw i8, ptr %714, i64 16
   store ptr %713, ptr %720, align 8, !tbaa !11
   %721 = getelementptr inbounds nuw i8, ptr %714, i64 24
-  store double %712, ptr %721, align 8, !tbaa !23
+  store double %712, ptr %721, align 8, !tbaa !20
   %722 = getelementptr inbounds nuw i8, ptr %714, i64 32
-  store double %712, ptr %722, align 8, !tbaa !23
+  store double %712, ptr %722, align 8, !tbaa !20
   %723 = load ptr, ptr @l_Lean_Meta_Grind_Arith_CommRing_Null_PreNullCert_zero___closed__1, align 8, !tbaa !11
   tail call void @lean_inc_heartbeat() #6
   %724 = tail call noalias ptr @mi_malloc_small(i64 noundef 32) #6
@@ -50626,7 +50626,7 @@ lean_int_mul.exit.thread19:                       ; preds = %21
 
 lean_dec.exit.backedge:                           ; preds = %36, %31, %46, %45, %43, %lean_int_mul.exit
   %.09.be = phi ptr [ %40, %46 ], [ %40, %45 ], [ %40, %43 ], [ %38, %lean_int_mul.exit ], [ %37, %36 ], [ %35, %31 ]
-  br label %lean_dec.exit, !llvm.loop !25
+  br label %lean_dec.exit
 
 lean_int_mul.exit:                                ; preds = %13
   %38 = tail call ptr @lean_int_big_mul(ptr noundef %15, ptr noundef %.09) #6
@@ -61168,7 +61168,7 @@ lean_dec.exit362:                                 ; preds = %92, %91, %89, %82
 
 95:                                               ; preds = %lean_dec.exit362
   %96 = load ptr, ptr %94, align 8, !tbaa !11
-  %97 = load double, ptr @l_Lean_addTrace___at_Lean_Meta_Grind_Arith_CommRing_PolyDerivation_toPreNullCert___spec__2___closed__1, align 8, !tbaa !23
+  %97 = load double, ptr @l_Lean_addTrace___at_Lean_Meta_Grind_Arith_CommRing_PolyDerivation_toPreNullCert___spec__2___closed__1, align 8, !tbaa !20
   %98 = load ptr, ptr @l_Lean_Meta_Grind_Arith_CommRing_throwNoNatZeroDivisors___rarg___closed__3, align 8, !tbaa !11
   tail call void @lean_inc_heartbeat() #6
   %99 = tail call noalias ptr @mi_malloc_small(i64 noundef 48) #6
@@ -61190,9 +61190,9 @@ lean_alloc_ctor.exit:                             ; preds = %95
   %105 = getelementptr inbounds nuw i8, ptr %99, i64 16
   store ptr %98, ptr %105, align 8, !tbaa !11
   %106 = getelementptr inbounds nuw i8, ptr %99, i64 24
-  store double %97, ptr %106, align 8, !tbaa !23
+  store double %97, ptr %106, align 8, !tbaa !20
   %107 = getelementptr inbounds nuw i8, ptr %99, i64 32
-  store double %97, ptr %107, align 8, !tbaa !23
+  store double %97, ptr %107, align 8, !tbaa !20
   %108 = load ptr, ptr @l_Lean_Meta_Grind_Arith_CommRing_Null_PreNullCert_zero___closed__1, align 8, !tbaa !11
   tail call void @lean_inc_heartbeat() #6
   %109 = tail call noalias ptr @mi_malloc_small(i64 noundef 32) #6
@@ -61395,7 +61395,7 @@ lean_inc.exit351:                                 ; preds = %176, %175, %173, %1
   br label %lean_dec.exit359
 
 lean_dec.exit359:                                 ; preds = %183, %182, %180, %lean_inc.exit351
-  %184 = load double, ptr @l_Lean_addTrace___at_Lean_Meta_Grind_Arith_CommRing_PolyDerivation_toPreNullCert___spec__2___closed__1, align 8, !tbaa !23
+  %184 = load double, ptr @l_Lean_addTrace___at_Lean_Meta_Grind_Arith_CommRing_PolyDerivation_toPreNullCert___spec__2___closed__1, align 8, !tbaa !20
   %185 = load ptr, ptr @l_Lean_Meta_Grind_Arith_CommRing_throwNoNatZeroDivisors___rarg___closed__3, align 8, !tbaa !11
   tail call void @lean_inc_heartbeat() #6
   %186 = tail call noalias ptr @mi_malloc_small(i64 noundef 48) #6
@@ -61417,9 +61417,9 @@ lean_alloc_ctor.exit422:                          ; preds = %lean_dec.exit359
   %192 = getelementptr inbounds nuw i8, ptr %186, i64 16
   store ptr %185, ptr %192, align 8, !tbaa !11
   %193 = getelementptr inbounds nuw i8, ptr %186, i64 24
-  store double %184, ptr %193, align 8, !tbaa !23
+  store double %184, ptr %193, align 8, !tbaa !20
   %194 = getelementptr inbounds nuw i8, ptr %186, i64 32
-  store double %184, ptr %194, align 8, !tbaa !23
+  store double %184, ptr %194, align 8, !tbaa !20
   %195 = load ptr, ptr @l_Lean_Meta_Grind_Arith_CommRing_Null_PreNullCert_zero___closed__1, align 8, !tbaa !11
   tail call void @lean_inc_heartbeat() #6
   %196 = tail call noalias ptr @mi_malloc_small(i64 noundef 32) #6
@@ -61929,7 +61929,7 @@ lean_ctor_release.exit465:                        ; preds = %368, %375, %377, %3
 
 lean_dec_ref.exit388:                             ; preds = %384, %383, %381, %lean_ctor_release.exit465
   %.0321 = phi ptr [ %58, %lean_ctor_release.exit465 ], [ inttoptr (i64 1 to ptr), %381 ], [ inttoptr (i64 1 to ptr), %383 ], [ inttoptr (i64 1 to ptr), %384 ]
-  %385 = load double, ptr @l_Lean_addTrace___at_Lean_Meta_Grind_Arith_CommRing_PolyDerivation_toPreNullCert___spec__2___closed__1, align 8, !tbaa !23
+  %385 = load double, ptr @l_Lean_addTrace___at_Lean_Meta_Grind_Arith_CommRing_PolyDerivation_toPreNullCert___spec__2___closed__1, align 8, !tbaa !20
   %386 = load ptr, ptr @l_Lean_Meta_Grind_Arith_CommRing_throwNoNatZeroDivisors___rarg___closed__3, align 8, !tbaa !11
   tail call void @lean_inc_heartbeat() #6
   %387 = tail call noalias ptr @mi_malloc_small(i64 noundef 48) #6
@@ -61951,9 +61951,9 @@ lean_alloc_ctor.exit467:                          ; preds = %lean_dec_ref.exit38
   %393 = getelementptr inbounds nuw i8, ptr %387, i64 16
   store ptr %386, ptr %393, align 8, !tbaa !11
   %394 = getelementptr inbounds nuw i8, ptr %387, i64 24
-  store double %385, ptr %394, align 8, !tbaa !23
+  store double %385, ptr %394, align 8, !tbaa !20
   %395 = getelementptr inbounds nuw i8, ptr %387, i64 32
-  store double %385, ptr %395, align 8, !tbaa !23
+  store double %385, ptr %395, align 8, !tbaa !20
   %396 = load ptr, ptr @l_Lean_Meta_Grind_Arith_CommRing_Null_PreNullCert_zero___closed__1, align 8, !tbaa !11
   tail call void @lean_inc_heartbeat() #6
   %397 = tail call noalias ptr @mi_malloc_small(i64 noundef 32) #6
@@ -62790,7 +62790,7 @@ lean_ctor_release.exit543:                        ; preds = %694, %701, %703, %7
 
 lean_dec_ref.exit382:                             ; preds = %710, %709, %707, %lean_ctor_release.exit543
   %.0326 = phi ptr [ %58, %lean_ctor_release.exit543 ], [ inttoptr (i64 1 to ptr), %707 ], [ inttoptr (i64 1 to ptr), %709 ], [ inttoptr (i64 1 to ptr), %710 ]
-  %711 = load double, ptr @l_Lean_addTrace___at_Lean_Meta_Grind_Arith_CommRing_PolyDerivation_toPreNullCert___spec__2___closed__1, align 8, !tbaa !23
+  %711 = load double, ptr @l_Lean_addTrace___at_Lean_Meta_Grind_Arith_CommRing_PolyDerivation_toPreNullCert___spec__2___closed__1, align 8, !tbaa !20
   %712 = load ptr, ptr @l_Lean_Meta_Grind_Arith_CommRing_throwNoNatZeroDivisors___rarg___closed__3, align 8, !tbaa !11
   tail call void @lean_inc_heartbeat() #6
   %713 = tail call noalias ptr @mi_malloc_small(i64 noundef 48) #6
@@ -62812,9 +62812,9 @@ lean_alloc_ctor.exit545:                          ; preds = %lean_dec_ref.exit38
   %719 = getelementptr inbounds nuw i8, ptr %713, i64 16
   store ptr %712, ptr %719, align 8, !tbaa !11
   %720 = getelementptr inbounds nuw i8, ptr %713, i64 24
-  store double %711, ptr %720, align 8, !tbaa !23
+  store double %711, ptr %720, align 8, !tbaa !20
   %721 = getelementptr inbounds nuw i8, ptr %713, i64 32
-  store double %711, ptr %721, align 8, !tbaa !23
+  store double %711, ptr %721, align 8, !tbaa !20
   %722 = load ptr, ptr @l_Lean_Meta_Grind_Arith_CommRing_Null_PreNullCert_zero___closed__1, align 8, !tbaa !11
   tail call void @lean_inc_heartbeat() #6
   %723 = tail call noalias ptr @mi_malloc_small(i64 noundef 32) #6
@@ -67091,7 +67091,7 @@ define ptr @l_Lean_Meta_Grind_Arith_CommRing_Null_setEqUnsat___lambda__2(ptr nou
 24:                                               ; preds = %23, %20
   %.val.i1459 = phi i32 [ %.val.i1459.pr, %23 ], [ %21, %20 ]
   %25 = icmp sgt i32 %.val.i1459, 0
-  br i1 %25, label %26, label %28, !prof !22
+  br i1 %25, label %26, label %28, !prof !19
 
 26:                                               ; preds = %24
   %27 = add nuw i32 %.val.i1459, 1
@@ -98237,7 +98237,7 @@ lean_array_uset.exit140:                          ; preds = %lean_ensure_exclusi
 .backedge:                                        ; preds = %lean_array_uset.exit140, %lean_array_uset.exit
   %.079.be = phi ptr [ %30, %lean_array_uset.exit ], [ %94, %lean_array_uset.exit140 ]
   %.0.be = phi ptr [ %.0.i.i, %lean_array_uset.exit ], [ %.0.i.i137, %lean_array_uset.exit140 ]
-  br label %6, !llvm.loop !26
+  br label %6
 }
 
 ; Function Attrs: nounwind uwtable
@@ -98558,7 +98558,7 @@ lean_array_uset.exit108:                          ; preds = %lean_ensure_exclusi
 .backedge:                                        ; preds = %lean_array_uset.exit108, %lean_array_uset.exit
   %.070.be = phi ptr [ %19, %lean_array_uset.exit ], [ %59, %lean_array_uset.exit108 ]
   %.0.be = phi ptr [ %.0.i.i, %lean_array_uset.exit ], [ %.0.i.i105, %lean_array_uset.exit108 ]
-  br label %3, !llvm.loop !27
+  br label %3
 }
 
 ; Function Attrs: nounwind uwtable
@@ -101018,7 +101018,7 @@ lean_dec.exit948:                                 ; preds = %742, %745, %747, %7
 763:                                              ; preds = %759, %762
   %.val.i1318 = phi i32 [ %760, %759 ], [ %.val.i1318.pr, %762 ]
   %764 = icmp sgt i32 %.val.i1318, 0
-  br i1 %764, label %765, label %767, !prof !22
+  br i1 %764, label %765, label %767, !prof !19
 
 765:                                              ; preds = %763
   %766 = add nuw i32 %.val.i1318, 1
@@ -102903,7 +102903,7 @@ lean_dec.exit919:                                 ; preds = %lean_ctor_release.e
 1490:                                             ; preds = %1486, %1489
   %.val.i1435 = phi i32 [ %1487, %1486 ], [ %.val.i1435.pr, %1489 ]
   %1491 = icmp sgt i32 %.val.i1435, 0
-  br i1 %1491, label %1492, label %1494, !prof !22
+  br i1 %1491, label %1492, label %1494, !prof !19
 
 1492:                                             ; preds = %1490
   %1493 = add nuw i32 %.val.i1435, 1
@@ -106350,7 +106350,7 @@ lean_obj_tag.exit:                                ; preds = %6, %9
   %17 = load ptr, ptr %16, align 8, !tbaa !11
   %18 = tail call zeroext i8 @l_Lean_Grind_CommRing_beqPoly____x40_Init_Grind_CommRing_Poly___hyg_3502_(ptr noundef %15, ptr noundef %0) #6
   %19 = icmp eq i8 %18, 0
-  br i1 %19, label %3, label %20, !llvm.loop !28
+  br i1 %19, label %3, label %20
 
 20:                                               ; preds = %13, %lean_obj_tag.exit
   %.1 = phi i8 [ 1, %13 ], [ 0, %lean_obj_tag.exit ]
@@ -106673,7 +106673,7 @@ lean_array_uset.exit103:                          ; preds = %lean_ensure_exclusi
 .backedge:                                        ; preds = %lean_array_uset.exit103, %lean_array_uset.exit
   %.068.be = phi ptr [ %19, %lean_array_uset.exit ], [ %59, %lean_array_uset.exit103 ]
   %.0.be = phi ptr [ %.0.i.i, %lean_array_uset.exit ], [ %.0.i.i100, %lean_array_uset.exit103 ]
-  br label %3, !llvm.loop !29
+  br label %3
 }
 
 declare i64 @l___private_Init_Grind_CommRing_Poly_0__Lean_Grind_CommRing_hashPoly____x40_Init_Grind_CommRing_Poly___hyg_3752_(ptr noundef) local_unnamed_addr #2
@@ -107606,7 +107606,7 @@ lean_obj_tag.exit.i:                              ; preds = %129, %126
   %137 = load ptr, ptr %136, align 8, !tbaa !11
   %138 = tail call zeroext i8 @l_Lean_Grind_CommRing_beqPoly____x40_Init_Grind_CommRing_Poly___hyg_3502_(ptr noundef %135, ptr noundef %0) #6
   %139 = icmp eq i8 %138, 0
-  br i1 %139, label %lean_array_uget.exit, label %l_Std_DHashMap_Internal_AssocList_contains___at_Lean_Meta_Grind_Arith_CommRing_Stepwise_mkPolyDecl___spec__3.exit, !llvm.loop !28
+  br i1 %139, label %lean_array_uget.exit, label %l_Std_DHashMap_Internal_AssocList_contains___at_Lean_Meta_Grind_Arith_CommRing_Stepwise_mkPolyDecl___spec__3.exit
 
 140:                                              ; preds = %lean_obj_tag.exit.i
   %141 = ptrtoint ptr %101 to i64
@@ -108412,7 +108412,7 @@ lean_obj_tag.exit.i696:                           ; preds = %456, %453
   %464 = load ptr, ptr %463, align 8, !tbaa !11
   %465 = tail call zeroext i8 @l_Lean_Grind_CommRing_beqPoly____x40_Init_Grind_CommRing_Poly___hyg_3502_(ptr noundef %462, ptr noundef %0) #6
   %466 = icmp eq i8 %465, 0
-  br i1 %466, label %lean_array_uget.exit693, label %l_Std_DHashMap_Internal_AssocList_contains___at_Lean_Meta_Grind_Arith_CommRing_Stepwise_mkPolyDecl___spec__3.exit700, !llvm.loop !28
+  br i1 %466, label %lean_array_uget.exit693, label %l_Std_DHashMap_Internal_AssocList_contains___at_Lean_Meta_Grind_Arith_CommRing_Stepwise_mkPolyDecl___spec__3.exit700
 
 467:                                              ; preds = %lean_obj_tag.exit.i696
   br i1 %.not909, label %478, label %468, !prof !4
@@ -109462,7 +109462,7 @@ lean_obj_tag.exit.i789:                           ; preds = %869, %866
   %877 = load ptr, ptr %876, align 8, !tbaa !11
   %878 = tail call zeroext i8 @l_Lean_Grind_CommRing_beqPoly____x40_Init_Grind_CommRing_Poly___hyg_3502_(ptr noundef %875, ptr noundef %0) #6
   %879 = icmp eq i8 %878, 0
-  br i1 %879, label %lean_array_uget.exit786, label %l_Std_DHashMap_Internal_AssocList_contains___at_Lean_Meta_Grind_Arith_CommRing_Stepwise_mkPolyDecl___spec__3.exit793, !llvm.loop !28
+  br i1 %879, label %lean_array_uget.exit786, label %l_Std_DHashMap_Internal_AssocList_contains___at_Lean_Meta_Grind_Arith_CommRing_Stepwise_mkPolyDecl___spec__3.exit793
 
 880:                                              ; preds = %lean_obj_tag.exit.i789
   br i1 %.not892, label %891, label %881, !prof !4
@@ -111575,7 +111575,7 @@ lean_obj_tag.exit.i:                              ; preds = %9, %6
   %17 = load ptr, ptr %16, align 8, !tbaa !11
   %18 = tail call zeroext i8 @l_Lean_Grind_CommRing_beqPoly____x40_Init_Grind_CommRing_Poly___hyg_3502_(ptr noundef %15, ptr noundef %0) #6
   %19 = icmp eq i8 %18, 0
-  br i1 %19, label %3, label %l_Std_DHashMap_Internal_AssocList_contains___at_Lean_Meta_Grind_Arith_CommRing_Stepwise_mkPolyDecl___spec__3.exit, !llvm.loop !28
+  br i1 %19, label %3, label %l_Std_DHashMap_Internal_AssocList_contains___at_Lean_Meta_Grind_Arith_CommRing_Stepwise_mkPolyDecl___spec__3.exit
 
 l_Std_DHashMap_Internal_AssocList_contains___at_Lean_Meta_Grind_Arith_CommRing_Stepwise_mkPolyDecl___spec__3.exit: ; preds = %lean_obj_tag.exit.i, %13
   %.1.i = phi i64 [ 3, %13 ], [ 1, %lean_obj_tag.exit.i ]
@@ -112283,7 +112283,7 @@ lean_obj_tag.exit:                                ; preds = %6, %9
   %17 = load ptr, ptr %16, align 8, !tbaa !11
   %18 = tail call zeroext i8 @l_Lean_Grind_CommRing_beqExpr____x40_Init_Grind_CommRing_Poly___hyg_116_(ptr noundef %15, ptr noundef %0) #6
   %19 = icmp eq i8 %18, 0
-  br i1 %19, label %3, label %20, !llvm.loop !30
+  br i1 %19, label %3, label %20
 
 20:                                               ; preds = %13, %lean_obj_tag.exit
   %.1 = phi i8 [ 1, %13 ], [ 0, %lean_obj_tag.exit ]
@@ -112608,7 +112608,7 @@ lean_array_uset.exit103:                          ; preds = %lean_ensure_exclusi
 .backedge:                                        ; preds = %lean_array_uset.exit103, %lean_array_uset.exit
   %.068.be = phi ptr [ %19, %lean_array_uset.exit ], [ %59, %lean_array_uset.exit103 ]
   %.0.be = phi ptr [ %.0.i.i, %lean_array_uset.exit ], [ %.0.i.i100, %lean_array_uset.exit103 ]
-  br label %3, !llvm.loop !31
+  br label %3
 }
 
 declare i64 @l___private_Init_Grind_CommRing_Poly_0__Lean_Grind_CommRing_hashExpr____x40_Init_Grind_CommRing_Poly___hyg_411_(ptr noundef) local_unnamed_addr #2
@@ -113541,7 +113541,7 @@ lean_obj_tag.exit.i:                              ; preds = %129, %126
   %137 = load ptr, ptr %136, align 8, !tbaa !11
   %138 = tail call zeroext i8 @l_Lean_Grind_CommRing_beqExpr____x40_Init_Grind_CommRing_Poly___hyg_116_(ptr noundef %135, ptr noundef %0) #6
   %139 = icmp eq i8 %138, 0
-  br i1 %139, label %lean_array_uget.exit, label %l_Std_DHashMap_Internal_AssocList_contains___at_Lean_Meta_Grind_Arith_CommRing_Stepwise_mkExprDecl___spec__1.exit, !llvm.loop !30
+  br i1 %139, label %lean_array_uget.exit, label %l_Std_DHashMap_Internal_AssocList_contains___at_Lean_Meta_Grind_Arith_CommRing_Stepwise_mkExprDecl___spec__1.exit
 
 140:                                              ; preds = %lean_obj_tag.exit.i
   %141 = ptrtoint ptr %101 to i64
@@ -114347,7 +114347,7 @@ lean_obj_tag.exit.i696:                           ; preds = %456, %453
   %464 = load ptr, ptr %463, align 8, !tbaa !11
   %465 = tail call zeroext i8 @l_Lean_Grind_CommRing_beqExpr____x40_Init_Grind_CommRing_Poly___hyg_116_(ptr noundef %462, ptr noundef %0) #6
   %466 = icmp eq i8 %465, 0
-  br i1 %466, label %lean_array_uget.exit693, label %l_Std_DHashMap_Internal_AssocList_contains___at_Lean_Meta_Grind_Arith_CommRing_Stepwise_mkExprDecl___spec__1.exit700, !llvm.loop !30
+  br i1 %466, label %lean_array_uget.exit693, label %l_Std_DHashMap_Internal_AssocList_contains___at_Lean_Meta_Grind_Arith_CommRing_Stepwise_mkExprDecl___spec__1.exit700
 
 467:                                              ; preds = %lean_obj_tag.exit.i696
   br i1 %.not909, label %478, label %468, !prof !4
@@ -115397,7 +115397,7 @@ lean_obj_tag.exit.i789:                           ; preds = %869, %866
   %877 = load ptr, ptr %876, align 8, !tbaa !11
   %878 = tail call zeroext i8 @l_Lean_Grind_CommRing_beqExpr____x40_Init_Grind_CommRing_Poly___hyg_116_(ptr noundef %875, ptr noundef %0) #6
   %879 = icmp eq i8 %878, 0
-  br i1 %879, label %lean_array_uget.exit786, label %l_Std_DHashMap_Internal_AssocList_contains___at_Lean_Meta_Grind_Arith_CommRing_Stepwise_mkExprDecl___spec__1.exit793, !llvm.loop !30
+  br i1 %879, label %lean_array_uget.exit786, label %l_Std_DHashMap_Internal_AssocList_contains___at_Lean_Meta_Grind_Arith_CommRing_Stepwise_mkExprDecl___spec__1.exit793
 
 880:                                              ; preds = %lean_obj_tag.exit.i789
   br i1 %.not892, label %891, label %881, !prof !4
@@ -116974,7 +116974,7 @@ lean_obj_tag.exit.i:                              ; preds = %9, %6
   %17 = load ptr, ptr %16, align 8, !tbaa !11
   %18 = tail call zeroext i8 @l_Lean_Grind_CommRing_beqExpr____x40_Init_Grind_CommRing_Poly___hyg_116_(ptr noundef %15, ptr noundef %0) #6
   %19 = icmp eq i8 %18, 0
-  br i1 %19, label %3, label %l_Std_DHashMap_Internal_AssocList_contains___at_Lean_Meta_Grind_Arith_CommRing_Stepwise_mkExprDecl___spec__1.exit, !llvm.loop !30
+  br i1 %19, label %3, label %l_Std_DHashMap_Internal_AssocList_contains___at_Lean_Meta_Grind_Arith_CommRing_Stepwise_mkExprDecl___spec__1.exit
 
 l_Std_DHashMap_Internal_AssocList_contains___at_Lean_Meta_Grind_Arith_CommRing_Stepwise_mkExprDecl___spec__1.exit: ; preds = %lean_obj_tag.exit.i, %13
   %.1.i = phi i64 [ 3, %13 ], [ 1, %lean_obj_tag.exit.i ]
@@ -117682,7 +117682,7 @@ lean_obj_tag.exit:                                ; preds = %6, %9
   %17 = load ptr, ptr %16, align 8, !tbaa !11
   %18 = tail call zeroext i8 @l_Lean_Grind_CommRing_beqMon____x40_Init_Grind_CommRing_Poly___hyg_1147_(ptr noundef %15, ptr noundef %0) #6
   %19 = icmp eq i8 %18, 0
-  br i1 %19, label %3, label %20, !llvm.loop !32
+  br i1 %19, label %3, label %20
 
 20:                                               ; preds = %13, %lean_obj_tag.exit
   %.1 = phi i8 [ 1, %13 ], [ 0, %lean_obj_tag.exit ]
@@ -118007,7 +118007,7 @@ lean_array_uset.exit103:                          ; preds = %lean_ensure_exclusi
 .backedge:                                        ; preds = %lean_array_uset.exit103, %lean_array_uset.exit
   %.068.be = phi ptr [ %19, %lean_array_uset.exit ], [ %59, %lean_array_uset.exit103 ]
   %.0.be = phi ptr [ %.0.i.i, %lean_array_uset.exit ], [ %.0.i.i100, %lean_array_uset.exit103 ]
-  br label %3, !llvm.loop !33
+  br label %3
 }
 
 declare i64 @l___private_Init_Grind_CommRing_Poly_0__Lean_Grind_CommRing_hashMon____x40_Init_Grind_CommRing_Poly___hyg_1349_(ptr noundef) local_unnamed_addr #2
@@ -118940,7 +118940,7 @@ lean_obj_tag.exit.i:                              ; preds = %129, %126
   %137 = load ptr, ptr %136, align 8, !tbaa !11
   %138 = tail call zeroext i8 @l_Lean_Grind_CommRing_beqMon____x40_Init_Grind_CommRing_Poly___hyg_1147_(ptr noundef %135, ptr noundef %0) #6
   %139 = icmp eq i8 %138, 0
-  br i1 %139, label %lean_array_uget.exit, label %l_Std_DHashMap_Internal_AssocList_contains___at_Lean_Meta_Grind_Arith_CommRing_Stepwise_mkMonDecl___spec__1.exit, !llvm.loop !32
+  br i1 %139, label %lean_array_uget.exit, label %l_Std_DHashMap_Internal_AssocList_contains___at_Lean_Meta_Grind_Arith_CommRing_Stepwise_mkMonDecl___spec__1.exit
 
 140:                                              ; preds = %lean_obj_tag.exit.i
   %141 = ptrtoint ptr %101 to i64
@@ -119746,7 +119746,7 @@ lean_obj_tag.exit.i696:                           ; preds = %456, %453
   %464 = load ptr, ptr %463, align 8, !tbaa !11
   %465 = tail call zeroext i8 @l_Lean_Grind_CommRing_beqMon____x40_Init_Grind_CommRing_Poly___hyg_1147_(ptr noundef %462, ptr noundef %0) #6
   %466 = icmp eq i8 %465, 0
-  br i1 %466, label %lean_array_uget.exit693, label %l_Std_DHashMap_Internal_AssocList_contains___at_Lean_Meta_Grind_Arith_CommRing_Stepwise_mkMonDecl___spec__1.exit700, !llvm.loop !32
+  br i1 %466, label %lean_array_uget.exit693, label %l_Std_DHashMap_Internal_AssocList_contains___at_Lean_Meta_Grind_Arith_CommRing_Stepwise_mkMonDecl___spec__1.exit700
 
 467:                                              ; preds = %lean_obj_tag.exit.i696
   br i1 %.not909, label %478, label %468, !prof !4
@@ -120796,7 +120796,7 @@ lean_obj_tag.exit.i789:                           ; preds = %869, %866
   %877 = load ptr, ptr %876, align 8, !tbaa !11
   %878 = tail call zeroext i8 @l_Lean_Grind_CommRing_beqMon____x40_Init_Grind_CommRing_Poly___hyg_1147_(ptr noundef %875, ptr noundef %0) #6
   %879 = icmp eq i8 %878, 0
-  br i1 %879, label %lean_array_uget.exit786, label %l_Std_DHashMap_Internal_AssocList_contains___at_Lean_Meta_Grind_Arith_CommRing_Stepwise_mkMonDecl___spec__1.exit793, !llvm.loop !32
+  br i1 %879, label %lean_array_uget.exit786, label %l_Std_DHashMap_Internal_AssocList_contains___at_Lean_Meta_Grind_Arith_CommRing_Stepwise_mkMonDecl___spec__1.exit793
 
 880:                                              ; preds = %lean_obj_tag.exit.i789
   br i1 %.not892, label %891, label %881, !prof !4
@@ -122373,7 +122373,7 @@ lean_obj_tag.exit.i:                              ; preds = %9, %6
   %17 = load ptr, ptr %16, align 8, !tbaa !11
   %18 = tail call zeroext i8 @l_Lean_Grind_CommRing_beqMon____x40_Init_Grind_CommRing_Poly___hyg_1147_(ptr noundef %15, ptr noundef %0) #6
   %19 = icmp eq i8 %18, 0
-  br i1 %19, label %3, label %l_Std_DHashMap_Internal_AssocList_contains___at_Lean_Meta_Grind_Arith_CommRing_Stepwise_mkMonDecl___spec__1.exit, !llvm.loop !32
+  br i1 %19, label %3, label %l_Std_DHashMap_Internal_AssocList_contains___at_Lean_Meta_Grind_Arith_CommRing_Stepwise_mkMonDecl___spec__1.exit
 
 l_Std_DHashMap_Internal_AssocList_contains___at_Lean_Meta_Grind_Arith_CommRing_Stepwise_mkMonDecl___spec__1.exit: ; preds = %lean_obj_tag.exit.i, %13
   %.1.i = phi i64 [ 3, %13 ], [ 1, %lean_obj_tag.exit.i ]
@@ -141463,7 +141463,7 @@ lean_dec.exit4423:                                ; preds = %lean_dec.exit4424
 4390:                                             ; preds = %4386, %4389
   %.val.i6702 = phi i32 [ %4387, %4386 ], [ %.val.i6702.pr, %4389 ]
   %4391 = icmp sgt i32 %.val.i6702, 0
-  br i1 %4391, label %4392, label %4394, !prof !22
+  br i1 %4391, label %4392, label %4394, !prof !19
 
 4392:                                             ; preds = %4390
   %4393 = add nuw i32 %.val.i6702, 1
@@ -142152,7 +142152,7 @@ lean_dec.exit4408:                                ; preds = %lean_inc.exit3901, 
 4667:                                             ; preds = %4663, %4666
   %.val.i6734 = phi i32 [ %4664, %4663 ], [ %.val.i6734.pr, %4666 ]
   %4668 = icmp sgt i32 %.val.i6734, 0
-  br i1 %4668, label %4669, label %4671, !prof !22
+  br i1 %4668, label %4669, label %4671, !prof !19
 
 4669:                                             ; preds = %4667
   %4670 = add nuw i32 %.val.i6734, 1
@@ -142948,7 +142948,7 @@ lean_dec.exit4399:                                ; preds = %lean_ctor_release.e
 4980:                                             ; preds = %4976, %4979
   %.val.i6783 = phi i32 [ %4977, %4976 ], [ %.val.i6783.pr, %4979 ]
   %4981 = icmp sgt i32 %.val.i6783, 0
-  br i1 %4981, label %4982, label %4984, !prof !22
+  br i1 %4981, label %4982, label %4984, !prof !19
 
 4982:                                             ; preds = %4980
   %4983 = add nuw i32 %.val.i6783, 1
@@ -156084,7 +156084,7 @@ lean_dec.exit4122:                                ; preds = %lean_ctor_release.e
 9744:                                             ; preds = %9740, %9743
   %.val.i7539 = phi i32 [ %9741, %9740 ], [ %.val.i7539.pr, %9743 ]
   %9745 = icmp sgt i32 %.val.i7539, 0
-  br i1 %9745, label %9746, label %9748, !prof !22
+  br i1 %9745, label %9746, label %9748, !prof !19
 
 9746:                                             ; preds = %9744
   %9747 = add nuw i32 %.val.i7539, 1
@@ -171181,7 +171181,7 @@ lean_alloc_ctor.exit:                             ; preds = %lean_inc.exit
   %42 = getelementptr inbounds nuw i8, ptr %37, i64 16
   store ptr %18, ptr %42, align 8, !tbaa !11
   %43 = tail call ptr @lean_array_push(ptr noundef %.0, ptr noundef nonnull %37) #6
-  br label %3, !llvm.loop !34
+  br label %3
 }
 
 ; Function Attrs: nounwind uwtable
@@ -172708,7 +172708,7 @@ lean_alloc_ctor.exit:                             ; preds = %lean_inc.exit
   %42 = getelementptr inbounds nuw i8, ptr %37, i64 16
   store ptr %18, ptr %42, align 8, !tbaa !11
   %43 = tail call ptr @lean_array_push(ptr noundef %.0, ptr noundef nonnull %37) #6
-  br label %3, !llvm.loop !35
+  br label %3
 }
 
 ; Function Attrs: nounwind uwtable
@@ -174227,7 +174227,7 @@ lean_alloc_ctor.exit:                             ; preds = %lean_inc.exit
   %42 = getelementptr inbounds nuw i8, ptr %37, i64 16
   store ptr %18, ptr %42, align 8, !tbaa !11
   %43 = tail call ptr @lean_array_push(ptr noundef %.0, ptr noundef nonnull %37) #6
-  br label %3, !llvm.loop !36
+  br label %3
 }
 
 ; Function Attrs: nounwind uwtable
@@ -183810,7 +183810,7 @@ define ptr @l_Lean_Meta_Grind_Arith_CommRing_Stepwise_setEqUnsat___lambda__1(ptr
 27:                                               ; preds = %26, %23
   %.val.i454 = phi i32 [ %.val.i454.pr, %26 ], [ %24, %23 ]
   %28 = icmp sgt i32 %.val.i454, 0
-  br i1 %28, label %29, label %31, !prof !22
+  br i1 %28, label %29, label %31, !prof !19
 
 29:                                               ; preds = %27
   %30 = add nuw i32 %.val.i454, 1
@@ -199628,7 +199628,7 @@ define ptr @l_Lean_Meta_Grind_Arith_CommRing_EqCnstr_setUnsat(ptr noundef %0, pt
 
 .thread63:                                        ; preds = %21
   %22 = getelementptr i8, ptr %14, i64 82
-  %.val5760 = load i8, ptr %22, align 1, !tbaa !37
+  %.val5760 = load i8, ptr %22, align 1, !tbaa !22
   br label %lean_dec.exit45
 
 23:                                               ; preds = %21
@@ -199638,15 +199638,15 @@ define ptr @l_Lean_Meta_Grind_Arith_CommRing_EqCnstr_setUnsat(ptr noundef %0, pt
 
 lean_inc.exit43:                                  ; preds = %11
   %24 = getelementptr i8, ptr %14, i64 82
-  %.val = load i8, ptr %24, align 1, !tbaa !37
+  %.val = load i8, ptr %24, align 1, !tbaa !22
   br label %lean_dec.exit45
 
 25:                                               ; preds = %23, %19
   %26 = phi i32 [ %.pr, %23 ], [ %20, %19 ]
   %27 = getelementptr i8, ptr %14, i64 82
-  %.val57 = load i8, ptr %27, align 1, !tbaa !37
+  %.val57 = load i8, ptr %27, align 1, !tbaa !22
   %28 = icmp sgt i32 %26, 1
-  br i1 %28, label %29, label %31, !prof !22
+  br i1 %28, label %29, label %31, !prof !19
 
 29:                                               ; preds = %25
   %30 = add nsw i32 %26, -1
@@ -199802,7 +199802,7 @@ define ptr @l_Lean_Meta_Grind_Arith_CommRing_DiseqCnstr_setUnsat(ptr noundef %0,
 
 .thread63:                                        ; preds = %21
   %22 = getelementptr i8, ptr %14, i64 82
-  %.val5760 = load i8, ptr %22, align 1, !tbaa !37
+  %.val5760 = load i8, ptr %22, align 1, !tbaa !22
   br label %lean_dec.exit45
 
 23:                                               ; preds = %21
@@ -199812,15 +199812,15 @@ define ptr @l_Lean_Meta_Grind_Arith_CommRing_DiseqCnstr_setUnsat(ptr noundef %0,
 
 lean_inc.exit43:                                  ; preds = %11
   %24 = getelementptr i8, ptr %14, i64 82
-  %.val = load i8, ptr %24, align 1, !tbaa !37
+  %.val = load i8, ptr %24, align 1, !tbaa !22
   br label %lean_dec.exit45
 
 25:                                               ; preds = %23, %19
   %26 = phi i32 [ %.pr, %23 ], [ %20, %19 ]
   %27 = getelementptr i8, ptr %14, i64 82
-  %.val57 = load i8, ptr %27, align 1, !tbaa !37
+  %.val57 = load i8, ptr %27, align 1, !tbaa !22
   %28 = icmp sgt i32 %26, 1
-  br i1 %28, label %29, label %31, !prof !22
+  br i1 %28, label %29, label %31, !prof !19
 
 29:                                               ; preds = %25
   %30 = add nsw i32 %26, -1
@@ -199974,7 +199974,7 @@ define ptr @l_Lean_Meta_Grind_Arith_CommRing_propagateEq(ptr noundef %0, ptr nou
 
 .thread71:                                        ; preds = %25
   %26 = getelementptr i8, ptr %18, i64 82
-  %.val6568 = load i8, ptr %26, align 1, !tbaa !37
+  %.val6568 = load i8, ptr %26, align 1, !tbaa !22
   br label %lean_dec.exit53
 
 27:                                               ; preds = %25
@@ -199984,15 +199984,15 @@ define ptr @l_Lean_Meta_Grind_Arith_CommRing_propagateEq(ptr noundef %0, ptr nou
 
 lean_inc.exit51:                                  ; preds = %15
   %28 = getelementptr i8, ptr %18, i64 82
-  %.val = load i8, ptr %28, align 1, !tbaa !37
+  %.val = load i8, ptr %28, align 1, !tbaa !22
   br label %lean_dec.exit53
 
 29:                                               ; preds = %27, %23
   %30 = phi i32 [ %.pr, %27 ], [ %24, %23 ]
   %31 = getelementptr i8, ptr %18, i64 82
-  %.val65 = load i8, ptr %31, align 1, !tbaa !37
+  %.val65 = load i8, ptr %31, align 1, !tbaa !22
   %32 = icmp sgt i32 %30, 1
-  br i1 %32, label %33, label %35, !prof !22
+  br i1 %32, label %33, label %35, !prof !19
 
 33:                                               ; preds = %29
   %34 = add nsw i32 %30, -1
@@ -200368,7 +200368,7 @@ lean_dec_ref.exit:                                ; preds = %57, %59, %60
   store ptr %97, ptr @l_Lean_Meta_Grind_Arith_CommRing_Null_PreNullCert_unit___closed__2, align 8, !tbaa !11
   tail call void @lean_mark_persistent(ptr noundef nonnull %97) #6
   %98 = tail call double @l_Float_ofScientific(ptr noundef nonnull inttoptr (i64 1 to ptr), i8 noundef zeroext 0, ptr noundef nonnull inttoptr (i64 1 to ptr)) #6
-  store double %98, ptr @l_Lean_addTrace___at_Lean_Meta_Grind_Arith_CommRing_PolyDerivation_toPreNullCert___spec__2___closed__1, align 8, !tbaa !23
+  store double %98, ptr @l_Lean_addTrace___at_Lean_Meta_Grind_Arith_CommRing_PolyDerivation_toPreNullCert___spec__2___closed__1, align 8, !tbaa !20
   %99 = tail call ptr @lean_mk_string_unchecked(ptr noundef nonnull @.str.8, i64 noundef 5, i64 noundef 5) #6
   store ptr %99, ptr @l_Lean_Meta_Grind_Arith_CommRing_PolyDerivation_toPreNullCert___closed__1, align 8, !tbaa !11
   tail call void @lean_mark_persistent(ptr noundef %99) #6
@@ -201757,22 +201757,7 @@ attributes #7 = { noreturn nounwind }
 !16 = !{!"long", !9, i64 0}
 !17 = !{!"branch_weights", i32 4001, i32 4000000}
 !18 = !{!"branch_weights", !"expected", i32 1073205, i32 2146410443}
-!19 = distinct !{!19, !20}
-!20 = !{!"llvm.loop.estimated_trip_count"}
-!21 = distinct !{!21, !20}
-!22 = !{!"branch_weights", !"expected", i32 2146812770, i32 670878}
-!23 = !{!24, !24, i64 0}
-!24 = !{!"double", !9, i64 0}
-!25 = distinct !{!25, !20}
-!26 = distinct !{!26, !20}
-!27 = distinct !{!27, !20}
-!28 = distinct !{!28, !20}
-!29 = distinct !{!29, !20}
-!30 = distinct !{!30, !20}
-!31 = distinct !{!31, !20}
-!32 = distinct !{!32, !20}
-!33 = distinct !{!33, !20}
-!34 = distinct !{!34, !20}
-!35 = distinct !{!35, !20}
-!36 = distinct !{!36, !20}
-!37 = !{!9, !9, i64 0}
+!19 = !{!"branch_weights", !"expected", i32 2146812770, i32 670878}
+!20 = !{!21, !21, i64 0}
+!21 = !{!"double", !9, i64 0}
+!22 = !{!9, !9, i64 0}

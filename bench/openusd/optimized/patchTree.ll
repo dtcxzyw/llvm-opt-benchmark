@@ -425,7 +425,7 @@ _ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_110addToArrayIdfEEvPT0_iS4_PKT_.exit126: 
 _ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_110addToArrayIdfEEvPT0_iS4_PKT_.exit133: ; preds = %190, %_ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_110addToArrayIdfEEvPT0_iS4_PKT_.exit, %73, %_ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_110addToArrayIdfEEvPT0_iS4_PKT_.exit126, %91, %80, %_ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_110addToArrayIdfEEvPT0_iS4_PKT_.exit112
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %68, !llvm.loop !8
+  br i1 %exitcond.not, label %._crit_edge, label %68, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %_ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_110addToArrayIdfEEvPT0_iS4_PKT_.exit133, %.thread
   %198 = load i32, ptr %45, align 4
@@ -603,7 +603,7 @@ define linkonce_odr noundef i32 @_ZNK10OpenSubdiv6v3_6_03Bfr9PatchTree20evalSubP
   store float %121, ptr %119, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %_ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_110addToArrayIffEEvPT0_iS4_PKT_.exit, label %.lr.ph.i, !llvm.loop !9
+  br i1 %exitcond.not.i, label %_ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_110addToArrayIffEEvPT0_iS4_PKT_.exit, label %.lr.ph.i, !llvm.loop !8
 
 _ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_110addToArrayIffEEvPT0_iS4_PKT_.exit: ; preds = %.lr.ph.i, %107
   br i1 %23, label %122, label %_ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_110addToArrayIffEEvPT0_iS4_PKT_.exit138
@@ -631,7 +631,7 @@ _ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_110addToArrayIffEEvPT0_iS4_PKT_.exit: ; p
   store float %132, ptr %130, align 4
   %indvars.iv.next.i104 = add nuw nsw i64 %indvars.iv.i103, 1
   %exitcond.not.i105 = icmp eq i64 %indvars.iv.next.i104, %wide.trip.count.i101
-  br i1 %exitcond.not.i105, label %_ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_110addToArrayIffEEvPT0_iS4_PKT_.exit106.loopexit, label %.lr.ph.i102, !llvm.loop !9
+  br i1 %exitcond.not.i105, label %_ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_110addToArrayIffEEvPT0_iS4_PKT_.exit106.loopexit, label %.lr.ph.i102, !llvm.loop !8
 
 _ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_110addToArrayIffEEvPT0_iS4_PKT_.exit106.loopexit: ; preds = %.lr.ph.i102
   %.pre = load i32, ptr %45, align 4
@@ -660,7 +660,7 @@ _ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_110addToArrayIffEEvPT0_iS4_PKT_.exit106: 
   store float %142, ptr %140, align 4
   %indvars.iv.next.i112 = add nuw nsw i64 %indvars.iv.i111, 1
   %exitcond.not.i113 = icmp eq i64 %indvars.iv.next.i112, %wide.trip.count.i109
-  br i1 %exitcond.not.i113, label %_ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_110addToArrayIffEEvPT0_iS4_PKT_.exit114, label %.lr.ph.i110, !llvm.loop !9
+  br i1 %exitcond.not.i113, label %_ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_110addToArrayIffEEvPT0_iS4_PKT_.exit114, label %.lr.ph.i110, !llvm.loop !8
 
 _ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_110addToArrayIffEEvPT0_iS4_PKT_.exit114: ; preds = %.lr.ph.i110, %_ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_110addToArrayIffEEvPT0_iS4_PKT_.exit106
   br i1 %spec.select98, label %143, label %_ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_110addToArrayIffEEvPT0_iS4_PKT_.exit138
@@ -688,7 +688,7 @@ _ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_110addToArrayIffEEvPT0_iS4_PKT_.exit114: 
   store float %153, ptr %151, align 4
   %indvars.iv.next.i120 = add nuw nsw i64 %indvars.iv.i119, 1
   %exitcond.not.i121 = icmp eq i64 %indvars.iv.next.i120, %wide.trip.count.i117
-  br i1 %exitcond.not.i121, label %_ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_110addToArrayIffEEvPT0_iS4_PKT_.exit122.loopexit, label %.lr.ph.i118, !llvm.loop !9
+  br i1 %exitcond.not.i121, label %_ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_110addToArrayIffEEvPT0_iS4_PKT_.exit122.loopexit, label %.lr.ph.i118, !llvm.loop !8
 
 _ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_110addToArrayIffEEvPT0_iS4_PKT_.exit122.loopexit: ; preds = %.lr.ph.i118
   %.pre141 = load i32, ptr %45, align 4
@@ -717,7 +717,7 @@ _ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_110addToArrayIffEEvPT0_iS4_PKT_.exit122: 
   store float %163, ptr %161, align 4
   %indvars.iv.next.i128 = add nuw nsw i64 %indvars.iv.i127, 1
   %exitcond.not.i129 = icmp eq i64 %indvars.iv.next.i128, %wide.trip.count.i125
-  br i1 %exitcond.not.i129, label %_ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_110addToArrayIffEEvPT0_iS4_PKT_.exit130.loopexit, label %.lr.ph.i126, !llvm.loop !9
+  br i1 %exitcond.not.i129, label %_ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_110addToArrayIffEEvPT0_iS4_PKT_.exit130.loopexit, label %.lr.ph.i126, !llvm.loop !8
 
 _ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_110addToArrayIffEEvPT0_iS4_PKT_.exit130.loopexit: ; preds = %.lr.ph.i126
   %.pre142 = load i32, ptr %45, align 4
@@ -746,12 +746,12 @@ _ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_110addToArrayIffEEvPT0_iS4_PKT_.exit130: 
   store float %173, ptr %171, align 4
   %indvars.iv.next.i136 = add nuw nsw i64 %indvars.iv.i135, 1
   %exitcond.not.i137 = icmp eq i64 %indvars.iv.next.i136, %wide.trip.count.i133
-  br i1 %exitcond.not.i137, label %_ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_110addToArrayIffEEvPT0_iS4_PKT_.exit138, label %.lr.ph.i134, !llvm.loop !9
+  br i1 %exitcond.not.i137, label %_ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_110addToArrayIffEEvPT0_iS4_PKT_.exit138, label %.lr.ph.i134, !llvm.loop !8
 
 _ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_110addToArrayIffEEvPT0_iS4_PKT_.exit138: ; preds = %.lr.ph.i134, %_ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_110addToArrayIffEEvPT0_iS4_PKT_.exit, %73, %_ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_110addToArrayIffEEvPT0_iS4_PKT_.exit130, %91, %80, %_ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_110addToArrayIffEEvPT0_iS4_PKT_.exit114
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %68, !llvm.loop !10
+  br i1 %exitcond.not, label %._crit_edge, label %68, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %_ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_110addToArrayIffEEvPT0_iS4_PKT_.exit138, %.thread
   %174 = load i32, ptr %45, align 4
@@ -1016,7 +1016,7 @@ define linkonce_odr noundef i32 @_ZNK10OpenSubdiv6v3_6_03Bfr9PatchTree20evalSubP
   store double %121, ptr %119, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %_ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_110addToArrayIddEEvPT0_iS4_PKT_.exit, label %.lr.ph.i, !llvm.loop !11
+  br i1 %exitcond.not.i, label %_ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_110addToArrayIddEEvPT0_iS4_PKT_.exit, label %.lr.ph.i, !llvm.loop !10
 
 _ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_110addToArrayIddEEvPT0_iS4_PKT_.exit: ; preds = %.lr.ph.i, %107
   br i1 %23, label %122, label %_ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_110addToArrayIddEEvPT0_iS4_PKT_.exit138
@@ -1044,7 +1044,7 @@ _ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_110addToArrayIddEEvPT0_iS4_PKT_.exit: ; p
   store double %132, ptr %130, align 8
   %indvars.iv.next.i104 = add nuw nsw i64 %indvars.iv.i103, 1
   %exitcond.not.i105 = icmp eq i64 %indvars.iv.next.i104, %wide.trip.count.i101
-  br i1 %exitcond.not.i105, label %_ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_110addToArrayIddEEvPT0_iS4_PKT_.exit106.loopexit, label %.lr.ph.i102, !llvm.loop !11
+  br i1 %exitcond.not.i105, label %_ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_110addToArrayIddEEvPT0_iS4_PKT_.exit106.loopexit, label %.lr.ph.i102, !llvm.loop !10
 
 _ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_110addToArrayIddEEvPT0_iS4_PKT_.exit106.loopexit: ; preds = %.lr.ph.i102
   %.pre = load i32, ptr %45, align 4
@@ -1073,7 +1073,7 @@ _ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_110addToArrayIddEEvPT0_iS4_PKT_.exit106: 
   store double %142, ptr %140, align 8
   %indvars.iv.next.i112 = add nuw nsw i64 %indvars.iv.i111, 1
   %exitcond.not.i113 = icmp eq i64 %indvars.iv.next.i112, %wide.trip.count.i109
-  br i1 %exitcond.not.i113, label %_ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_110addToArrayIddEEvPT0_iS4_PKT_.exit114, label %.lr.ph.i110, !llvm.loop !11
+  br i1 %exitcond.not.i113, label %_ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_110addToArrayIddEEvPT0_iS4_PKT_.exit114, label %.lr.ph.i110, !llvm.loop !10
 
 _ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_110addToArrayIddEEvPT0_iS4_PKT_.exit114: ; preds = %.lr.ph.i110, %_ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_110addToArrayIddEEvPT0_iS4_PKT_.exit106
   br i1 %spec.select98, label %143, label %_ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_110addToArrayIddEEvPT0_iS4_PKT_.exit138
@@ -1101,7 +1101,7 @@ _ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_110addToArrayIddEEvPT0_iS4_PKT_.exit114: 
   store double %153, ptr %151, align 8
   %indvars.iv.next.i120 = add nuw nsw i64 %indvars.iv.i119, 1
   %exitcond.not.i121 = icmp eq i64 %indvars.iv.next.i120, %wide.trip.count.i117
-  br i1 %exitcond.not.i121, label %_ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_110addToArrayIddEEvPT0_iS4_PKT_.exit122.loopexit, label %.lr.ph.i118, !llvm.loop !11
+  br i1 %exitcond.not.i121, label %_ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_110addToArrayIddEEvPT0_iS4_PKT_.exit122.loopexit, label %.lr.ph.i118, !llvm.loop !10
 
 _ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_110addToArrayIddEEvPT0_iS4_PKT_.exit122.loopexit: ; preds = %.lr.ph.i118
   %.pre141 = load i32, ptr %45, align 4
@@ -1130,7 +1130,7 @@ _ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_110addToArrayIddEEvPT0_iS4_PKT_.exit122: 
   store double %163, ptr %161, align 8
   %indvars.iv.next.i128 = add nuw nsw i64 %indvars.iv.i127, 1
   %exitcond.not.i129 = icmp eq i64 %indvars.iv.next.i128, %wide.trip.count.i125
-  br i1 %exitcond.not.i129, label %_ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_110addToArrayIddEEvPT0_iS4_PKT_.exit130.loopexit, label %.lr.ph.i126, !llvm.loop !11
+  br i1 %exitcond.not.i129, label %_ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_110addToArrayIddEEvPT0_iS4_PKT_.exit130.loopexit, label %.lr.ph.i126, !llvm.loop !10
 
 _ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_110addToArrayIddEEvPT0_iS4_PKT_.exit130.loopexit: ; preds = %.lr.ph.i126
   %.pre142 = load i32, ptr %45, align 4
@@ -1159,12 +1159,12 @@ _ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_110addToArrayIddEEvPT0_iS4_PKT_.exit130: 
   store double %173, ptr %171, align 8
   %indvars.iv.next.i136 = add nuw nsw i64 %indvars.iv.i135, 1
   %exitcond.not.i137 = icmp eq i64 %indvars.iv.next.i136, %wide.trip.count.i133
-  br i1 %exitcond.not.i137, label %_ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_110addToArrayIddEEvPT0_iS4_PKT_.exit138, label %.lr.ph.i134, !llvm.loop !11
+  br i1 %exitcond.not.i137, label %_ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_110addToArrayIddEEvPT0_iS4_PKT_.exit138, label %.lr.ph.i134, !llvm.loop !10
 
 _ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_110addToArrayIddEEvPT0_iS4_PKT_.exit138: ; preds = %.lr.ph.i134, %_ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_110addToArrayIddEEvPT0_iS4_PKT_.exit, %73, %_ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_110addToArrayIddEEvPT0_iS4_PKT_.exit130, %91, %80, %_ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_110addToArrayIddEEvPT0_iS4_PKT_.exit114
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %68, !llvm.loop !12
+  br i1 %exitcond.not, label %._crit_edge, label %68, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %_ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_110addToArrayIddEEvPT0_iS4_PKT_.exit138, %.thread
   %174 = load i32, ptr %45, align 4
@@ -1343,7 +1343,7 @@ define linkonce_odr noundef i32 @_ZNK10OpenSubdiv6v3_6_03Bfr9PatchTree20evalSubP
   store double %122, ptr %120, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %_ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_110addToArrayIfdEEvPT0_iS4_PKT_.exit, label %.lr.ph.i, !llvm.loop !13
+  br i1 %exitcond.not.i, label %_ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_110addToArrayIfdEEvPT0_iS4_PKT_.exit, label %.lr.ph.i, !llvm.loop !12
 
 _ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_110addToArrayIfdEEvPT0_iS4_PKT_.exit: ; preds = %.lr.ph.i, %107
   br i1 %23, label %123, label %_ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_110addToArrayIfdEEvPT0_iS4_PKT_.exit138
@@ -1372,7 +1372,7 @@ _ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_110addToArrayIfdEEvPT0_iS4_PKT_.exit: ; p
   store double %134, ptr %132, align 8
   %indvars.iv.next.i104 = add nuw nsw i64 %indvars.iv.i103, 1
   %exitcond.not.i105 = icmp eq i64 %indvars.iv.next.i104, %wide.trip.count.i101
-  br i1 %exitcond.not.i105, label %_ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_110addToArrayIfdEEvPT0_iS4_PKT_.exit106.loopexit, label %.lr.ph.i102, !llvm.loop !13
+  br i1 %exitcond.not.i105, label %_ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_110addToArrayIfdEEvPT0_iS4_PKT_.exit106.loopexit, label %.lr.ph.i102, !llvm.loop !12
 
 _ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_110addToArrayIfdEEvPT0_iS4_PKT_.exit106.loopexit: ; preds = %.lr.ph.i102
   %.pre = load i32, ptr %45, align 4
@@ -1402,7 +1402,7 @@ _ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_110addToArrayIfdEEvPT0_iS4_PKT_.exit106: 
   store double %145, ptr %143, align 8
   %indvars.iv.next.i112 = add nuw nsw i64 %indvars.iv.i111, 1
   %exitcond.not.i113 = icmp eq i64 %indvars.iv.next.i112, %wide.trip.count.i109
-  br i1 %exitcond.not.i113, label %_ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_110addToArrayIfdEEvPT0_iS4_PKT_.exit114, label %.lr.ph.i110, !llvm.loop !13
+  br i1 %exitcond.not.i113, label %_ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_110addToArrayIfdEEvPT0_iS4_PKT_.exit114, label %.lr.ph.i110, !llvm.loop !12
 
 _ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_110addToArrayIfdEEvPT0_iS4_PKT_.exit114: ; preds = %.lr.ph.i110, %_ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_110addToArrayIfdEEvPT0_iS4_PKT_.exit106
   br i1 %spec.select98, label %146, label %_ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_110addToArrayIfdEEvPT0_iS4_PKT_.exit138
@@ -1431,7 +1431,7 @@ _ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_110addToArrayIfdEEvPT0_iS4_PKT_.exit114: 
   store double %157, ptr %155, align 8
   %indvars.iv.next.i120 = add nuw nsw i64 %indvars.iv.i119, 1
   %exitcond.not.i121 = icmp eq i64 %indvars.iv.next.i120, %wide.trip.count.i117
-  br i1 %exitcond.not.i121, label %_ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_110addToArrayIfdEEvPT0_iS4_PKT_.exit122.loopexit, label %.lr.ph.i118, !llvm.loop !13
+  br i1 %exitcond.not.i121, label %_ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_110addToArrayIfdEEvPT0_iS4_PKT_.exit122.loopexit, label %.lr.ph.i118, !llvm.loop !12
 
 _ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_110addToArrayIfdEEvPT0_iS4_PKT_.exit122.loopexit: ; preds = %.lr.ph.i118
   %.pre141 = load i32, ptr %45, align 4
@@ -1461,7 +1461,7 @@ _ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_110addToArrayIfdEEvPT0_iS4_PKT_.exit122: 
   store double %168, ptr %166, align 8
   %indvars.iv.next.i128 = add nuw nsw i64 %indvars.iv.i127, 1
   %exitcond.not.i129 = icmp eq i64 %indvars.iv.next.i128, %wide.trip.count.i125
-  br i1 %exitcond.not.i129, label %_ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_110addToArrayIfdEEvPT0_iS4_PKT_.exit130.loopexit, label %.lr.ph.i126, !llvm.loop !13
+  br i1 %exitcond.not.i129, label %_ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_110addToArrayIfdEEvPT0_iS4_PKT_.exit130.loopexit, label %.lr.ph.i126, !llvm.loop !12
 
 _ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_110addToArrayIfdEEvPT0_iS4_PKT_.exit130.loopexit: ; preds = %.lr.ph.i126
   %.pre142 = load i32, ptr %45, align 4
@@ -1491,12 +1491,12 @@ _ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_110addToArrayIfdEEvPT0_iS4_PKT_.exit130: 
   store double %179, ptr %177, align 8
   %indvars.iv.next.i136 = add nuw nsw i64 %indvars.iv.i135, 1
   %exitcond.not.i137 = icmp eq i64 %indvars.iv.next.i136, %wide.trip.count.i133
-  br i1 %exitcond.not.i137, label %_ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_110addToArrayIfdEEvPT0_iS4_PKT_.exit138, label %.lr.ph.i134, !llvm.loop !13
+  br i1 %exitcond.not.i137, label %_ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_110addToArrayIfdEEvPT0_iS4_PKT_.exit138, label %.lr.ph.i134, !llvm.loop !12
 
 _ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_110addToArrayIfdEEvPT0_iS4_PKT_.exit138: ; preds = %.lr.ph.i134, %_ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_110addToArrayIfdEEvPT0_iS4_PKT_.exit, %73, %_ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_110addToArrayIfdEEvPT0_iS4_PKT_.exit130, %91, %80, %_ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_110addToArrayIfdEEvPT0_iS4_PKT_.exit114
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %68, !llvm.loop !14
+  br i1 %exitcond.not, label %._crit_edge, label %68, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %_ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_110addToArrayIfdEEvPT0_iS4_PKT_.exit138, %.thread
   %180 = load i32, ptr %45, align 4
@@ -1652,11 +1652,11 @@ _ZNSt12_Vector_baseIN10OpenSubdiv6v3_6_03Bfr9PatchTree8TreeNodeESaIS4_EE11_M_all
 .lr.ph.i.i.i.i.i:                                 ; preds = %_ZNSt12_Vector_baseIN10OpenSubdiv6v3_6_03Bfr9PatchTree8TreeNodeESaIS4_EE11_M_allocateEm.exit.i, %.lr.ph.i.i.i.i.i
   %.012.i.i.i.i.i = phi ptr [ %31, %.lr.ph.i.i.i.i.i ], [ %29, %_ZNSt12_Vector_baseIN10OpenSubdiv6v3_6_03Bfr9PatchTree8TreeNodeESaIS4_EE11_M_allocateEm.exit.i ]
   %.0911.i.i.i.i.i = phi ptr [ %30, %.lr.ph.i.i.i.i.i ], [ %18, %_ZNSt12_Vector_baseIN10OpenSubdiv6v3_6_03Bfr9PatchTree8TreeNodeESaIS4_EE11_M_allocateEm.exit.i ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %.012.i.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(20) %.0911.i.i.i.i.i, i64 20, i1 false), !alias.scope !15
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %.012.i.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(20) %.0911.i.i.i.i.i, i64 20, i1 false), !alias.scope !14
   %30 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i.i, i64 20
   %31 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i.i, i64 20
   %.not.i.i.i.i.i = icmp eq ptr %30, %25
-  br i1 %.not.i.i.i.i.i, label %_ZNSt6vectorIN10OpenSubdiv6v3_6_03Bfr9PatchTree8TreeNodeESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !19
+  br i1 %.not.i.i.i.i.i, label %_ZNSt6vectorIN10OpenSubdiv6v3_6_03Bfr9PatchTree8TreeNodeESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !18
 
 _ZNSt6vectorIN10OpenSubdiv6v3_6_03Bfr9PatchTree8TreeNodeESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit.i: ; preds = %.lr.ph.i.i.i.i.i, %_ZNSt12_Vector_baseIN10OpenSubdiv6v3_6_03Bfr9PatchTree8TreeNodeESaIS4_EE11_M_allocateEm.exit.i
   %.not.i8.i = icmp eq ptr %18, null
@@ -1779,7 +1779,7 @@ _ZNSt6vectorIN10OpenSubdiv6v3_6_03Bfr9PatchTree8TreeNodeESaIS4_EE6resizeEm.exit:
   %86 = tail call noundef ptr @_ZN10OpenSubdiv6v3_6_03Bfr9PatchTree21assignLeafOrChildNodeEPNS2_8TreeNodeEbii(ptr noundef nonnull align 8 dereferenceable(176) %0, ptr noundef %.03685, i1 noundef zeroext %85, i32 noundef %84, i32 noundef %77)
   %87 = add nuw nsw i32 %.03784, 1
   %exitcond90.not = icmp eq i32 %.03784, %58
-  br i1 %exitcond90.not, label %.loopexit, label %.lr.ph86, !llvm.loop !20
+  br i1 %exitcond90.not, label %.loopexit, label %.lr.ph86, !llvm.loop !19
 
 88:                                               ; preds = %68
   %89 = add nuw nsw i32 %74, %72
@@ -1896,12 +1896,12 @@ _ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_124transformUVToTriQuadrantIdEEiRKT_RS4_S
   %144 = add nuw nsw i32 %.03582, 1
   %145 = fmul double %.07079, 5.000000e-01
   %exitcond.not = icmp eq i32 %.03582, %58
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !21
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !20
 
 .loopexit:                                        ; preds = %_ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_124transformUVToTriQuadrantIdEEiRKT_RS4_S7_Rb.exit, %.lr.ph86, %_ZNK10OpenSubdiv6v3_6_03Far10PatchParam19UnnormalizeTriangleIdEEvRT_S5_.exit, %75, %66
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond92.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond92.not, label %._crit_edge, label %.lr.ph88, !llvm.loop !22
+  br i1 %exitcond92.not, label %._crit_edge, label %.lr.ph88, !llvm.loop !21
 
 ._crit_edge:                                      ; preds = %.loopexit, %_ZNSt6vectorIN10OpenSubdiv6v3_6_03Bfr9PatchTree8TreeNodeESaIS4_EE6resizeEm.exit
   ret void
@@ -1981,11 +1981,11 @@ _ZNKSt6vectorIN10OpenSubdiv6v3_6_03Bfr9PatchTree8TreeNodeESaIS4_EE12_M_check_len
 .lr.ph.i.i.i.i.i.i.i:                             ; preds = %_ZNKSt6vectorIN10OpenSubdiv6v3_6_03Bfr9PatchTree8TreeNodeESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i, %.lr.ph.i.i.i.i.i.i.i
   %.012.i.i.i.i.i.i.i = phi ptr [ %44, %.lr.ph.i.i.i.i.i.i.i ], [ %41, %_ZNKSt6vectorIN10OpenSubdiv6v3_6_03Bfr9PatchTree8TreeNodeESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i ]
   %.0911.i.i.i.i.i.i.i = phi ptr [ %43, %.lr.ph.i.i.i.i.i.i.i ], [ %22, %_ZNKSt6vectorIN10OpenSubdiv6v3_6_03Bfr9PatchTree8TreeNodeESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %.012.i.i.i.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(20) %.0911.i.i.i.i.i.i.i, i64 20, i1 false), !alias.scope !23
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %.012.i.i.i.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(20) %.0911.i.i.i.i.i.i.i, i64 20, i1 false), !alias.scope !22
   %43 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i.i.i.i, i64 20
   %44 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i.i.i.i, i64 20
   %.not.i.i.i.i.i.i.i = icmp eq ptr %43, %21
-  br i1 %.not.i.i.i.i.i.i.i, label %_ZNSt6vectorIN10OpenSubdiv6v3_6_03Bfr9PatchTree8TreeNodeESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit22.i.i.i, label %.lr.ph.i.i.i.i.i.i.i, !llvm.loop !19
+  br i1 %.not.i.i.i.i.i.i.i, label %_ZNSt6vectorIN10OpenSubdiv6v3_6_03Bfr9PatchTree8TreeNodeESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit22.i.i.i, label %.lr.ph.i.i.i.i.i.i.i, !llvm.loop !18
 
 _ZNSt6vectorIN10OpenSubdiv6v3_6_03Bfr9PatchTree8TreeNodeESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit22.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i, %_ZNKSt6vectorIN10OpenSubdiv6v3_6_03Bfr9PatchTree8TreeNodeESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i
   %.0.lcssa.i.i.i.i.i.i.i = phi ptr [ %41, %_ZNKSt6vectorIN10OpenSubdiv6v3_6_03Bfr9PatchTree8TreeNodeESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i ], [ %44, %.lr.ph.i.i.i.i.i.i.i ]
@@ -2077,11 +2077,11 @@ _ZNKSt6vectorIN10OpenSubdiv6v3_6_03Bfr9PatchTree8TreeNodeESaIS4_EE12_M_check_len
 .lr.ph.i.i.i.i.i.i.i39:                           ; preds = %_ZNKSt6vectorIN10OpenSubdiv6v3_6_03Bfr9PatchTree8TreeNodeESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i35, %.lr.ph.i.i.i.i.i.i.i39
   %.012.i.i.i.i.i.i.i40 = phi ptr [ %85, %.lr.ph.i.i.i.i.i.i.i39 ], [ %82, %_ZNKSt6vectorIN10OpenSubdiv6v3_6_03Bfr9PatchTree8TreeNodeESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i35 ]
   %.0911.i.i.i.i.i.i.i41 = phi ptr [ %84, %.lr.ph.i.i.i.i.i.i.i39 ], [ %63, %_ZNKSt6vectorIN10OpenSubdiv6v3_6_03Bfr9PatchTree8TreeNodeESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i35 ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %.012.i.i.i.i.i.i.i40, ptr noundef nonnull align 4 dereferenceable(20) %.0911.i.i.i.i.i.i.i41, i64 20, i1 false), !alias.scope !27
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %.012.i.i.i.i.i.i.i40, ptr noundef nonnull align 4 dereferenceable(20) %.0911.i.i.i.i.i.i.i41, i64 20, i1 false), !alias.scope !26
   %84 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i.i.i.i41, i64 20
   %85 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i.i.i.i40, i64 20
   %.not.i.i.i.i.i.i.i42 = icmp eq ptr %84, %62
-  br i1 %.not.i.i.i.i.i.i.i42, label %_ZNSt6vectorIN10OpenSubdiv6v3_6_03Bfr9PatchTree8TreeNodeESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit22.i.i.i43, label %.lr.ph.i.i.i.i.i.i.i39, !llvm.loop !19
+  br i1 %.not.i.i.i.i.i.i.i42, label %_ZNSt6vectorIN10OpenSubdiv6v3_6_03Bfr9PatchTree8TreeNodeESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit22.i.i.i43, label %.lr.ph.i.i.i.i.i.i.i39, !llvm.loop !18
 
 _ZNSt6vectorIN10OpenSubdiv6v3_6_03Bfr9PatchTree8TreeNodeESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit22.i.i.i43: ; preds = %.lr.ph.i.i.i.i.i.i.i39, %_ZNKSt6vectorIN10OpenSubdiv6v3_6_03Bfr9PatchTree8TreeNodeESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i35
   %.0.lcssa.i.i.i.i.i.i.i44 = phi ptr [ %82, %_ZNKSt6vectorIN10OpenSubdiv6v3_6_03Bfr9PatchTree8TreeNodeESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i35 ], [ %85, %.lr.ph.i.i.i.i.i.i.i39 ]
@@ -2183,7 +2183,7 @@ define linkonce_odr void @_ZNSt6vectorIN10OpenSubdiv6v3_6_03Bfr9PatchTree8TreeNo
   %20 = add i64 %.01012.i.i.i, -1
   %21 = getelementptr inbounds nuw i8, ptr %.013.i.i.i, i64 20
   %.not.i.i.i = icmp eq i64 %20, 0
-  br i1 %.not.i.i.i, label %_ZSt27__uninitialized_default_n_aIPN10OpenSubdiv6v3_6_03Bfr9PatchTree8TreeNodeEmS4_ET_S6_T0_RSaIT1_E.exit, label %.lr.ph.i.i.i, !llvm.loop !31
+  br i1 %.not.i.i.i, label %_ZSt27__uninitialized_default_n_aIPN10OpenSubdiv6v3_6_03Bfr9PatchTree8TreeNodeEmS4_ET_S6_T0_RSaIT1_E.exit, label %.lr.ph.i.i.i, !llvm.loop !30
 
 _ZSt27__uninitialized_default_n_aIPN10OpenSubdiv6v3_6_03Bfr9PatchTree8TreeNodeEmS4_ET_S6_T0_RSaIT1_E.exit: ; preds = %.lr.ph.i.i.i
   store ptr %21, ptr %4, align 8
@@ -2215,7 +2215,7 @@ _ZNKSt6vectorIN10OpenSubdiv6v3_6_03Bfr9PatchTree8TreeNodeESaIS4_EE12_M_check_len
   %31 = add i64 %.01012.i.i.i32, -1
   %32 = getelementptr inbounds nuw i8, ptr %.013.i.i.i31, i64 20
   %.not.i.i.i33 = icmp eq i64 %31, 0
-  br i1 %.not.i.i.i33, label %_ZSt27__uninitialized_default_n_aIPN10OpenSubdiv6v3_6_03Bfr9PatchTree8TreeNodeEmS4_ET_S6_T0_RSaIT1_E.exit35, label %.lr.ph.i.i.i30, !llvm.loop !31
+  br i1 %.not.i.i.i33, label %_ZSt27__uninitialized_default_n_aIPN10OpenSubdiv6v3_6_03Bfr9PatchTree8TreeNodeEmS4_ET_S6_T0_RSaIT1_E.exit35, label %.lr.ph.i.i.i30, !llvm.loop !30
 
 _ZSt27__uninitialized_default_n_aIPN10OpenSubdiv6v3_6_03Bfr9PatchTree8TreeNodeEmS4_ET_S6_T0_RSaIT1_E.exit35: ; preds = %.lr.ph.i.i.i30
   %.not10.i.i.i.i = icmp eq ptr %6, %5
@@ -2224,11 +2224,11 @@ _ZSt27__uninitialized_default_n_aIPN10OpenSubdiv6v3_6_03Bfr9PatchTree8TreeNodeEm
 .lr.ph.i.i.i.i:                                   ; preds = %_ZSt27__uninitialized_default_n_aIPN10OpenSubdiv6v3_6_03Bfr9PatchTree8TreeNodeEmS4_ET_S6_T0_RSaIT1_E.exit35, %.lr.ph.i.i.i.i
   %.012.i.i.i.i = phi ptr [ %34, %.lr.ph.i.i.i.i ], [ %28, %_ZSt27__uninitialized_default_n_aIPN10OpenSubdiv6v3_6_03Bfr9PatchTree8TreeNodeEmS4_ET_S6_T0_RSaIT1_E.exit35 ]
   %.0911.i.i.i.i = phi ptr [ %33, %.lr.ph.i.i.i.i ], [ %6, %_ZSt27__uninitialized_default_n_aIPN10OpenSubdiv6v3_6_03Bfr9PatchTree8TreeNodeEmS4_ET_S6_T0_RSaIT1_E.exit35 ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %.012.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(20) %.0911.i.i.i.i, i64 20, i1 false), !alias.scope !32
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %.012.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(20) %.0911.i.i.i.i, i64 20, i1 false), !alias.scope !31
   %33 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i, i64 20
   %34 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i, i64 20
   %.not.i.i.i.i = icmp eq ptr %33, %5
-  br i1 %.not.i.i.i.i, label %_ZNSt6vectorIN10OpenSubdiv6v3_6_03Bfr9PatchTree8TreeNodeESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit, label %.lr.ph.i.i.i.i, !llvm.loop !19
+  br i1 %.not.i.i.i.i, label %_ZNSt6vectorIN10OpenSubdiv6v3_6_03Bfr9PatchTree8TreeNodeESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit, label %.lr.ph.i.i.i.i, !llvm.loop !18
 
 _ZNSt6vectorIN10OpenSubdiv6v3_6_03Bfr9PatchTree8TreeNodeESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit: ; preds = %.lr.ph.i.i.i.i, %_ZSt27__uninitialized_default_n_aIPN10OpenSubdiv6v3_6_03Bfr9PatchTree8TreeNodeEmS4_ET_S6_T0_RSaIT1_E.exit35
   %.not.i37 = icmp eq ptr %6, null
@@ -2337,7 +2337,7 @@ _ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_125transformUVToQuadQuadrantIdEEiRKT_RS4_
   %51 = add nuw i32 %.02057.us, 1
   %52 = fmul double %.04254.us, 5.000000e-01
   %exitcond64.not = icmp eq i32 %.02057.us, %.02167
-  br i1 %exitcond64.not, label %._crit_edge, label %_ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_125transformUVToQuadQuadrantIdEEiRKT_RS4_S7_.exit.us, !llvm.loop !36
+  br i1 %exitcond64.not, label %._crit_edge, label %_ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_125transformUVToQuadQuadrantIdEEiRKT_RS4_S7_.exit.us, !llvm.loop !35
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %84
   %.02057 = phi i32 [ %90, %84 ], [ 1, %.lr.ph ]
@@ -2423,7 +2423,7 @@ _ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_124transformUVToTriQuadrantIdEEiRKT_RS4_S
   %90 = add nuw i32 %.02057, 1
   %91 = fmul double %.04254, 5.000000e-01
   %exitcond.not = icmp eq i32 %.02057, %.02167
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !38
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !37
 
 ._crit_edge:                                      ; preds = %84, %43, %31
   %.022.lcssa = phi ptr [ %9, %31 ], [ %.1.us, %43 ], [ %.1, %84 ]
@@ -2474,37 +2474,36 @@ attributes #15 = { builtin allocsize(0) }
 !2 = !{i32 8, !"PIC Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6, !7}
+!5 = distinct !{!5, !6}
 !6 = !{!"llvm.loop.mustprogress"}
-!7 = !{!"llvm.loop.estimated_trip_count"}
-!8 = distinct !{!8, !6, !7}
-!9 = distinct !{!9, !6, !7}
-!10 = distinct !{!10, !6, !7}
-!11 = distinct !{!11, !6, !7}
-!12 = distinct !{!12, !6, !7}
-!13 = distinct !{!13, !6, !7}
-!14 = distinct !{!14, !6, !7}
-!15 = !{!16, !18}
-!16 = distinct !{!16, !17, !"_ZSt19__relocate_object_aIN10OpenSubdiv6v3_6_03Bfr9PatchTree8TreeNodeES4_SaIS4_EEvPT_PT0_RT1_: argument 0"}
-!17 = distinct !{!17, !"_ZSt19__relocate_object_aIN10OpenSubdiv6v3_6_03Bfr9PatchTree8TreeNodeES4_SaIS4_EEvPT_PT0_RT1_"}
-!18 = distinct !{!18, !17, !"_ZSt19__relocate_object_aIN10OpenSubdiv6v3_6_03Bfr9PatchTree8TreeNodeES4_SaIS4_EEvPT_PT0_RT1_: argument 1"}
-!19 = distinct !{!19, !6, !7}
-!20 = distinct !{!20, !6, !7}
-!21 = distinct !{!21, !6, !7}
-!22 = distinct !{!22, !6, !7}
-!23 = !{!24, !26}
-!24 = distinct !{!24, !25, !"_ZSt19__relocate_object_aIN10OpenSubdiv6v3_6_03Bfr9PatchTree8TreeNodeES4_SaIS4_EEvPT_PT0_RT1_: argument 0"}
-!25 = distinct !{!25, !"_ZSt19__relocate_object_aIN10OpenSubdiv6v3_6_03Bfr9PatchTree8TreeNodeES4_SaIS4_EEvPT_PT0_RT1_"}
-!26 = distinct !{!26, !25, !"_ZSt19__relocate_object_aIN10OpenSubdiv6v3_6_03Bfr9PatchTree8TreeNodeES4_SaIS4_EEvPT_PT0_RT1_: argument 1"}
-!27 = !{!28, !30}
-!28 = distinct !{!28, !29, !"_ZSt19__relocate_object_aIN10OpenSubdiv6v3_6_03Bfr9PatchTree8TreeNodeES4_SaIS4_EEvPT_PT0_RT1_: argument 0"}
-!29 = distinct !{!29, !"_ZSt19__relocate_object_aIN10OpenSubdiv6v3_6_03Bfr9PatchTree8TreeNodeES4_SaIS4_EEvPT_PT0_RT1_"}
-!30 = distinct !{!30, !29, !"_ZSt19__relocate_object_aIN10OpenSubdiv6v3_6_03Bfr9PatchTree8TreeNodeES4_SaIS4_EEvPT_PT0_RT1_: argument 1"}
-!31 = distinct !{!31, !6, !7}
-!32 = !{!33, !35}
-!33 = distinct !{!33, !34, !"_ZSt19__relocate_object_aIN10OpenSubdiv6v3_6_03Bfr9PatchTree8TreeNodeES4_SaIS4_EEvPT_PT0_RT1_: argument 0"}
-!34 = distinct !{!34, !"_ZSt19__relocate_object_aIN10OpenSubdiv6v3_6_03Bfr9PatchTree8TreeNodeES4_SaIS4_EEvPT_PT0_RT1_"}
-!35 = distinct !{!35, !34, !"_ZSt19__relocate_object_aIN10OpenSubdiv6v3_6_03Bfr9PatchTree8TreeNodeES4_SaIS4_EEvPT_PT0_RT1_: argument 1"}
-!36 = distinct !{!36, !6, !7, !37}
-!37 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!38 = distinct !{!38, !6, !7}
+!7 = distinct !{!7, !6}
+!8 = distinct !{!8, !6}
+!9 = distinct !{!9, !6}
+!10 = distinct !{!10, !6}
+!11 = distinct !{!11, !6}
+!12 = distinct !{!12, !6}
+!13 = distinct !{!13, !6}
+!14 = !{!15, !17}
+!15 = distinct !{!15, !16, !"_ZSt19__relocate_object_aIN10OpenSubdiv6v3_6_03Bfr9PatchTree8TreeNodeES4_SaIS4_EEvPT_PT0_RT1_: argument 0"}
+!16 = distinct !{!16, !"_ZSt19__relocate_object_aIN10OpenSubdiv6v3_6_03Bfr9PatchTree8TreeNodeES4_SaIS4_EEvPT_PT0_RT1_"}
+!17 = distinct !{!17, !16, !"_ZSt19__relocate_object_aIN10OpenSubdiv6v3_6_03Bfr9PatchTree8TreeNodeES4_SaIS4_EEvPT_PT0_RT1_: argument 1"}
+!18 = distinct !{!18, !6}
+!19 = distinct !{!19, !6}
+!20 = distinct !{!20, !6}
+!21 = distinct !{!21, !6}
+!22 = !{!23, !25}
+!23 = distinct !{!23, !24, !"_ZSt19__relocate_object_aIN10OpenSubdiv6v3_6_03Bfr9PatchTree8TreeNodeES4_SaIS4_EEvPT_PT0_RT1_: argument 0"}
+!24 = distinct !{!24, !"_ZSt19__relocate_object_aIN10OpenSubdiv6v3_6_03Bfr9PatchTree8TreeNodeES4_SaIS4_EEvPT_PT0_RT1_"}
+!25 = distinct !{!25, !24, !"_ZSt19__relocate_object_aIN10OpenSubdiv6v3_6_03Bfr9PatchTree8TreeNodeES4_SaIS4_EEvPT_PT0_RT1_: argument 1"}
+!26 = !{!27, !29}
+!27 = distinct !{!27, !28, !"_ZSt19__relocate_object_aIN10OpenSubdiv6v3_6_03Bfr9PatchTree8TreeNodeES4_SaIS4_EEvPT_PT0_RT1_: argument 0"}
+!28 = distinct !{!28, !"_ZSt19__relocate_object_aIN10OpenSubdiv6v3_6_03Bfr9PatchTree8TreeNodeES4_SaIS4_EEvPT_PT0_RT1_"}
+!29 = distinct !{!29, !28, !"_ZSt19__relocate_object_aIN10OpenSubdiv6v3_6_03Bfr9PatchTree8TreeNodeES4_SaIS4_EEvPT_PT0_RT1_: argument 1"}
+!30 = distinct !{!30, !6}
+!31 = !{!32, !34}
+!32 = distinct !{!32, !33, !"_ZSt19__relocate_object_aIN10OpenSubdiv6v3_6_03Bfr9PatchTree8TreeNodeES4_SaIS4_EEvPT_PT0_RT1_: argument 0"}
+!33 = distinct !{!33, !"_ZSt19__relocate_object_aIN10OpenSubdiv6v3_6_03Bfr9PatchTree8TreeNodeES4_SaIS4_EEvPT_PT0_RT1_"}
+!34 = distinct !{!34, !33, !"_ZSt19__relocate_object_aIN10OpenSubdiv6v3_6_03Bfr9PatchTree8TreeNodeES4_SaIS4_EEvPT_PT0_RT1_: argument 1"}
+!35 = distinct !{!35, !6, !36}
+!36 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!37 = distinct !{!37, !6}

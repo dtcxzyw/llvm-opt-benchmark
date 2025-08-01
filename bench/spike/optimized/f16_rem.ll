@@ -122,7 +122,7 @@ define i16 @f16_rem(i16 %0, i16 %1) local_unnamed_addr #0 {
   %66 = mul nuw nsw i64 %52, %65
   %67 = lshr i64 %66, 16
   %68 = icmp samesign ult i8 %.095121, 29
-  br i1 %68, label %._crit_edge, label %.lr.ph, !llvm.loop !3
+  br i1 %68, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %49
   %.095.lcssa = phi i8 [ %54, %49 ], [ %64, %.lr.ph ]
@@ -155,7 +155,7 @@ define i16 @f16_rem(i16 %0, i16 %1) local_unnamed_addr #0 {
   %84 = add i64 %.194, 1
   %85 = sub i16 %.2, %82
   %.not112 = icmp sgt i16 %85, -1
-  br i1 %.not112, label %83, label %86, !llvm.loop !5
+  br i1 %.not112, label %83, label %86, !llvm.loop !3
 
 86:                                               ; preds = %83
   %87 = add i16 %85, %.2
@@ -218,6 +218,4 @@ attributes #3 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = distinct !{!3, !4}
-!4 = !{!"llvm.loop.estimated_trip_count"}
-!5 = distinct !{!5, !6, !4}
-!6 = !{!"llvm.loop.mustprogress"}
+!4 = !{!"llvm.loop.mustprogress"}

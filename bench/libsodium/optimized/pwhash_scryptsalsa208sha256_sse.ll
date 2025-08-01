@@ -163,7 +163,7 @@ define hidden range(i32 -1, 1) i32 @_sodium_escrypt_kdf_sse(ptr noundef %0, ptr 
 94:                                               ; preds = %85
   %95 = add nuw nsw i64 %.07485.i, 1
   %exitcond95.not.i = icmp eq i64 %95, %70
-  br i1 %exitcond95.not.i, label %.preheader81.i, label %.preheader82.i, !llvm.loop !7
+  br i1 %exitcond95.not.i, label %.preheader81.i, label %.preheader82.i, !llvm.loop !6
 
 .lr.ph.i:                                         ; preds = %.preheader81.i, %.lr.ph.i
   %.087.i = phi ptr [ %102, %.lr.ph.i ], [ %68, %.preheader81.i ]
@@ -179,7 +179,7 @@ define hidden range(i32 -1, 1) i32 @_sodium_escrypt_kdf_sse(ptr noundef %0, ptr 
   tail call fastcc void @blockmix_salsa8(ptr noundef %98, ptr noundef %102, i64 noundef range(i64 1, 4294967296) %11)
   %103 = add nuw nsw i64 %.17786.i, 2
   %104 = icmp ult i64 %103, %71
-  br i1 %104, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !8
+  br i1 %104, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !7
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %.preheader81.i
   %.177.lcssa.i = phi i64 [ 1, %.preheader81.i ], [ %103, %.lr.ph.i ]
@@ -215,7 +215,7 @@ define hidden range(i32 -1, 1) i32 @_sodium_escrypt_kdf_sse(ptr noundef %0, ptr 
   %126 = zext i32 %125 to i64
   %127 = add nuw nsw i64 %.290.i, 2
   %128 = icmp samesign ult i64 %127, %5
-  br i1 %128, label %115, label %.preheader.i, !llvm.loop !9
+  br i1 %128, label %115, label %.preheader.i, !llvm.loop !8
 
 .preheader.i:                                     ; preds = %115, %140
   %.193.i = phi i64 [ %141, %140 ], [ 0, %115 ]
@@ -235,17 +235,17 @@ define hidden range(i32 -1, 1) i32 @_sodium_escrypt_kdf_sse(ptr noundef %0, ptr 
   store i32 %138, ptr %136, align 1
   %139 = add nuw nsw i64 %.392.i, 1
   %exitcond96.not.i = icmp eq i64 %139, 16
-  br i1 %exitcond96.not.i, label %140, label %131, !llvm.loop !10
+  br i1 %exitcond96.not.i, label %140, label %131, !llvm.loop !9
 
 140:                                              ; preds = %131
   %141 = add nuw nsw i64 %.193.i, 1
   %exitcond97.not.i = icmp eq i64 %141, %70
-  br i1 %exitcond97.not.i, label %smix.exit, label %.preheader.i, !llvm.loop !11
+  br i1 %exitcond97.not.i, label %smix.exit, label %.preheader.i, !llvm.loop !10
 
 smix.exit:                                        ; preds = %140
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %12
-  br i1 %exitcond.not, label %._crit_edge, label %80, !llvm.loop !12
+  br i1 %exitcond.not, label %._crit_edge, label %80, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %smix.exit
   tail call void @_sodium_escrypt_PBKDF2_SHA256(ptr noundef %1, i64 noundef %2, ptr noundef nonnull %67, i64 noundef %46, i64 noundef 1, ptr noundef %8, i64 noundef %9) #6
@@ -867,7 +867,7 @@ define internal fastcc void @blockmix_salsa8(ptr noundef readonly captures(none)
   %.0987 = bitcast <4 x i32> %563 to <2 x i64>
   %.0 = bitcast <4 x i32> %561 to <2 x i64>
   %exitcond.not = icmp eq i64 %386, %196
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !13
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   %.0989.lcssa = phi <2 x i64> [ %.0989998, %3 ], [ %.0989, %.lr.ph ]
@@ -1722,7 +1722,7 @@ define internal fastcc i32 @blockmix_salsa8_xor(ptr noundef readonly captures(no
   %.01040 = bitcast <4 x i32> %617 to <2 x i64>
   %.0 = bitcast <4 x i32> %615 to <2 x i64>
   %exitcond.not = icmp eq i64 %424, %221
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !14
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %.lr.ph, %4
   %.01042.lcssa = phi <2 x i64> [ %.010421047, %4 ], [ %.01042, %.lr.ph ]
@@ -1958,14 +1958,13 @@ attributes #6 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = distinct !{!4, !5, !6}
+!4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{!"llvm.loop.estimated_trip_count"}
-!7 = distinct !{!7, !5, !6}
-!8 = distinct !{!8, !5, !6}
-!9 = distinct !{!9, !5, !6}
-!10 = distinct !{!10, !5, !6}
-!11 = distinct !{!11, !5, !6}
-!12 = distinct !{!12, !5, !6}
-!13 = distinct !{!13, !5, !6}
-!14 = distinct !{!14, !5, !6}
+!6 = distinct !{!6, !5}
+!7 = distinct !{!7, !5}
+!8 = distinct !{!8, !5}
+!9 = distinct !{!9, !5}
+!10 = distinct !{!10, !5}
+!11 = distinct !{!11, !5}
+!12 = distinct !{!12, !5}
+!13 = distinct !{!13, !5}

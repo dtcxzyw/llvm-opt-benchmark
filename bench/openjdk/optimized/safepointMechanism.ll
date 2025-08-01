@@ -373,7 +373,7 @@ define hidden void @_ZN18SafepointMechanism7processEP10JavaThreadbb(ptr noundef 
 
 17:                                               ; preds = %15
   %18 = tail call noundef zeroext i1 @_ZN14HandshakeState15process_by_selfEbb(ptr noundef nonnull align 8 dereferenceable(131) %6, i1 noundef zeroext %1, i1 noundef zeroext %2) #9
-  br i1 %18, label %7, label %.critedge, !llvm.loop !13
+  br i1 %18, label %7, label %.critedge, !llvm.loop !12
 
 .critedge:                                        ; preds = %15, %17
   tail call void @_ZN18SafepointMechanism18update_poll_valuesEP10JavaThread(ptr noundef nonnull %0)
@@ -582,7 +582,6 @@ attributes #10 = { noreturn nounwind }
 !7 = !{i64 2145393269, i64 2145393294}
 !8 = !{i64 2145393381}
 !9 = !{i64 2145392998}
-!10 = distinct !{!10, !11, !12}
+!10 = distinct !{!10, !11}
 !11 = !{!"llvm.loop.mustprogress"}
-!12 = !{!"llvm.loop.estimated_trip_count"}
-!13 = distinct !{!13, !11, !12}
+!12 = distinct !{!12, !11}

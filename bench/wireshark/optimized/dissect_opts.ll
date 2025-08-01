@@ -374,7 +374,7 @@ define hidden zeroext i1 @setup_enabled_and_disabled_protocols() local_unnamed_a
   br i1 %4, label %5, label %.preheader.i
 
 5:                                                ; preds = %.lr.ph.i
-  %6 = tail call zeroext i1 @proto_disable_proto_by_name(ptr noundef %2), !callees !9
+  %6 = tail call zeroext i1 @proto_disable_proto_by_name(ptr noundef %2), !callees !8
   br i1 %6, label %.loopexit.i, label %.loopexit.i.thread
 
 .preheader.i:                                     ; preds = %.lr.ph.i, %13
@@ -392,7 +392,7 @@ define hidden zeroext i1 @setup_enabled_and_disabled_protocols() local_unnamed_a
 
 9:                                                ; preds = %7, %.preheader.i
   %.2.i = phi i8 [ %8, %7 ], [ %.1.i, %.preheader.i ]
-  %10 = tail call zeroext i1 @proto_disable_proto_by_name(ptr noundef %.026.i), !callees !9
+  %10 = tail call zeroext i1 @proto_disable_proto_by_name(ptr noundef %.026.i), !callees !8
   br i1 %10, label %12, label %11
 
 11:                                               ; preds = %9
@@ -409,7 +409,7 @@ define hidden zeroext i1 @setup_enabled_and_disabled_protocols() local_unnamed_a
   %.idx.i = zext i1 %14 to i64
   %15 = getelementptr i8, ptr %.031.i, i64 %.idx.i
   %16 = tail call ptr @strchr(ptr noundef %15, i32 noundef 44) #6
-  br label %.preheader.i, !llvm.loop !10
+  br label %.preheader.i
 
 .loopexit.i:                                      ; preds = %5, %12
   %.330.i = phi i1 [ %.229.i, %12 ], [ %.02737.i, %5 ]
@@ -417,14 +417,14 @@ define hidden zeroext i1 @setup_enabled_and_disabled_protocols() local_unnamed_a
   %17 = getelementptr inbounds nuw i8, ptr %.03236.i, i64 8
   %18 = load ptr, ptr %17, align 8
   %.not.i = icmp eq ptr %18, null
-  br i1 %.not.i, label %process_enable_disable_list.exit, label %.lr.ph.i.outer, !llvm.loop !11
+  br i1 %.not.i, label %process_enable_disable_list.exit, label %.lr.ph.i.outer, !llvm.loop !9
 
 .loopexit.i.thread:                               ; preds = %5
   tail call void (ptr, ...) @cmdarg_err(ptr noundef nonnull @.str.23, ptr noundef %2)
   %19 = getelementptr inbounds nuw i8, ptr %.03236.i, i64 8
   %20 = load ptr, ptr %19, align 8
   %.not.i71 = icmp eq ptr %20, null
-  br i1 %.not.i71, label %.critedge5, label %.lr.ph.i, !llvm.loop !11
+  br i1 %.not.i71, label %.critedge5, label %.lr.ph.i, !llvm.loop !9
 
 process_enable_disable_list.exit:                 ; preds = %.loopexit.i
   br i1 %.330.i, label %process_enable_disable_list.exit.thread, label %.critedge5
@@ -449,7 +449,7 @@ process_enable_disable_list.exit.thread:          ; preds = %0, %process_enable_
   br i1 %24, label %25, label %.preheader.i11
 
 25:                                               ; preds = %.lr.ph.i7
-  %26 = tail call zeroext i1 @proto_enable_proto_by_name(ptr noundef %22), !callees !9
+  %26 = tail call zeroext i1 @proto_enable_proto_by_name(ptr noundef %22), !callees !8
   br i1 %26, label %.loopexit.i20, label %.loopexit.i20.thread
 
 .preheader.i11:                                   ; preds = %.lr.ph.i7, %33
@@ -467,7 +467,7 @@ process_enable_disable_list.exit.thread:          ; preds = %0, %process_enable_
 
 29:                                               ; preds = %27, %.preheader.i11
   %.2.i17 = phi i8 [ %28, %27 ], [ %.1.i15, %.preheader.i11 ]
-  %30 = tail call zeroext i1 @proto_enable_proto_by_name(ptr noundef %.026.i14), !callees !9
+  %30 = tail call zeroext i1 @proto_enable_proto_by_name(ptr noundef %.026.i14), !callees !8
   br i1 %30, label %32, label %31
 
 31:                                               ; preds = %29
@@ -484,7 +484,7 @@ process_enable_disable_list.exit.thread:          ; preds = %0, %process_enable_
   %.idx.i19 = zext i1 %34 to i64
   %35 = getelementptr i8, ptr %.031.i12, i64 %.idx.i19
   %36 = tail call ptr @strchr(ptr noundef %35, i32 noundef 44) #6
-  br label %.preheader.i11, !llvm.loop !10
+  br label %.preheader.i11
 
 .loopexit.i20:                                    ; preds = %25, %32
   %.330.i21 = phi i1 [ %.229.i18, %32 ], [ %.02737.i9, %25 ]
@@ -492,14 +492,14 @@ process_enable_disable_list.exit.thread:          ; preds = %0, %process_enable_
   %37 = getelementptr inbounds nuw i8, ptr %.03236.i10, i64 8
   %38 = load ptr, ptr %37, align 8
   %.not.i23 = icmp eq ptr %38, null
-  br i1 %.not.i23, label %process_enable_disable_list.exit25, label %.lr.ph.i7.outer, !llvm.loop !11
+  br i1 %.not.i23, label %process_enable_disable_list.exit25, label %.lr.ph.i7.outer, !llvm.loop !9
 
 .loopexit.i20.thread:                             ; preds = %25
   tail call void (ptr, ...) @cmdarg_err(ptr noundef nonnull @.str.23, ptr noundef %22)
   %39 = getelementptr inbounds nuw i8, ptr %.03236.i10, i64 8
   %40 = load ptr, ptr %39, align 8
   %.not.i2377 = icmp eq ptr %40, null
-  br i1 %.not.i2377, label %.critedge5, label %.lr.ph.i7, !llvm.loop !11
+  br i1 %.not.i2377, label %.critedge5, label %.lr.ph.i7, !llvm.loop !9
 
 process_enable_disable_list.exit25:               ; preds = %.loopexit.i20
   br i1 %.330.i21, label %.critedge, label %.critedge5
@@ -524,7 +524,7 @@ process_enable_disable_list.exit25:               ; preds = %.loopexit.i20
   br i1 %44, label %45, label %.preheader.i31
 
 45:                                               ; preds = %.lr.ph.i27
-  %46 = tail call zeroext i1 @proto_enable_heuristic_by_name(ptr noundef %42), !callees !9
+  %46 = tail call zeroext i1 @proto_enable_heuristic_by_name(ptr noundef %42), !callees !8
   br i1 %46, label %.loopexit.i40, label %.loopexit.i40.thread
 
 .preheader.i31:                                   ; preds = %.lr.ph.i27, %53
@@ -542,7 +542,7 @@ process_enable_disable_list.exit25:               ; preds = %.loopexit.i20
 
 49:                                               ; preds = %47, %.preheader.i31
   %.2.i37 = phi i8 [ %48, %47 ], [ %.1.i35, %.preheader.i31 ]
-  %50 = tail call zeroext i1 @proto_enable_heuristic_by_name(ptr noundef %.026.i34), !callees !9
+  %50 = tail call zeroext i1 @proto_enable_heuristic_by_name(ptr noundef %.026.i34), !callees !8
   br i1 %50, label %52, label %51
 
 51:                                               ; preds = %49
@@ -559,7 +559,7 @@ process_enable_disable_list.exit25:               ; preds = %.loopexit.i20
   %.idx.i39 = zext i1 %54 to i64
   %55 = getelementptr i8, ptr %.031.i32, i64 %.idx.i39
   %56 = tail call ptr @strchr(ptr noundef %55, i32 noundef 44) #6
-  br label %.preheader.i31, !llvm.loop !10
+  br label %.preheader.i31
 
 .loopexit.i40:                                    ; preds = %45, %52
   %.330.i41 = phi i1 [ %.229.i38, %52 ], [ %.02737.i29, %45 ]
@@ -567,14 +567,14 @@ process_enable_disable_list.exit25:               ; preds = %.loopexit.i20
   %57 = getelementptr inbounds nuw i8, ptr %.03236.i30, i64 8
   %58 = load ptr, ptr %57, align 8
   %.not.i43 = icmp eq ptr %58, null
-  br i1 %.not.i43, label %process_enable_disable_list.exit45, label %.lr.ph.i27.outer, !llvm.loop !11
+  br i1 %.not.i43, label %process_enable_disable_list.exit45, label %.lr.ph.i27.outer, !llvm.loop !9
 
 .loopexit.i40.thread:                             ; preds = %45
   tail call void (ptr, ...) @cmdarg_err(ptr noundef nonnull @.str.23, ptr noundef %42)
   %59 = getelementptr inbounds nuw i8, ptr %.03236.i30, i64 8
   %60 = load ptr, ptr %59, align 8
   %.not.i4382 = icmp eq ptr %60, null
-  br i1 %.not.i4382, label %.critedge5, label %.lr.ph.i27, !llvm.loop !11
+  br i1 %.not.i4382, label %.critedge5, label %.lr.ph.i27, !llvm.loop !9
 
 process_enable_disable_list.exit45:               ; preds = %.loopexit.i40
   br i1 %.330.i41, label %process_enable_disable_list.exit45.thread, label %.critedge5
@@ -594,7 +594,7 @@ process_enable_disable_list.exit45.thread:        ; preds = %.critedge, %process
   br i1 %64, label %65, label %.preheader.i51
 
 65:                                               ; preds = %.lr.ph.i47
-  %66 = tail call zeroext i1 @proto_disable_heuristic_by_name(ptr noundef %62), !callees !9
+  %66 = tail call zeroext i1 @proto_disable_heuristic_by_name(ptr noundef %62), !callees !8
   br i1 %66, label %.loopexit.i60, label %67
 
 67:                                               ; preds = %65
@@ -616,7 +616,7 @@ process_enable_disable_list.exit45.thread:        ; preds = %.critedge, %process
 
 70:                                               ; preds = %68, %.preheader.i51
   %.2.i57 = phi i8 [ %69, %68 ], [ %.1.i55, %.preheader.i51 ]
-  %71 = tail call zeroext i1 @proto_disable_heuristic_by_name(ptr noundef %.026.i54), !callees !9
+  %71 = tail call zeroext i1 @proto_disable_heuristic_by_name(ptr noundef %.026.i54), !callees !8
   br i1 %71, label %73, label %72
 
 72:                                               ; preds = %70
@@ -633,7 +633,7 @@ process_enable_disable_list.exit45.thread:        ; preds = %.critedge, %process
   %.idx.i59 = zext i1 %75 to i64
   %76 = getelementptr i8, ptr %.031.i52, i64 %.idx.i59
   %77 = tail call ptr @strchr(ptr noundef %76, i32 noundef 44) #6
-  br label %.preheader.i51, !llvm.loop !10
+  br label %.preheader.i51
 
 .loopexit.i60:                                    ; preds = %73, %67, %65
   %.330.i61 = phi i1 [ %.02737.i49, %65 ], [ false, %67 ], [ %.229.i58, %73 ]
@@ -641,7 +641,7 @@ process_enable_disable_list.exit45.thread:        ; preds = %.critedge, %process
   %78 = getelementptr inbounds nuw i8, ptr %.03236.i50, i64 8
   %79 = load ptr, ptr %78, align 8
   %.not.i63 = icmp eq ptr %79, null
-  br i1 %.not.i63, label %.critedge5, label %.lr.ph.i47, !llvm.loop !11
+  br i1 %.not.i63, label %.critedge5, label %.lr.ph.i47, !llvm.loop !9
 
 .critedge5:                                       ; preds = %.loopexit.i.thread, %.loopexit.i20.thread, %.loopexit.i40.thread, %.loopexit.i60, %process_enable_disable_list.exit45.thread, %process_enable_disable_list.exit25, %process_enable_disable_list.exit, %process_enable_disable_list.exit45
   %80 = phi i1 [ false, %process_enable_disable_list.exit45 ], [ false, %process_enable_disable_list.exit ], [ false, %process_enable_disable_list.exit25 ], [ true, %process_enable_disable_list.exit45.thread ], [ %.330.i61, %.loopexit.i60 ], [ false, %.loopexit.i40.thread ], [ false, %.loopexit.i20.thread ], [ false, %.loopexit.i.thread ]
@@ -678,9 +678,7 @@ attributes #8 = { noreturn }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = !{ptr @proto_disable_heuristic_by_name, ptr @proto_disable_proto_by_name, ptr @proto_enable_heuristic_by_name, ptr @proto_enable_proto_by_name}
-!10 = distinct !{!10, !8}
-!11 = distinct !{!11, !7, !8}
+!8 = !{ptr @proto_disable_heuristic_by_name, ptr @proto_disable_proto_by_name, ptr @proto_enable_heuristic_by_name, ptr @proto_enable_proto_by_name}
+!9 = distinct !{!9, !7}

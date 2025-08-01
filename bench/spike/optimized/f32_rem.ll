@@ -123,7 +123,7 @@ define i32 @f32_rem(i32 %0, i32 %1) local_unnamed_addr #0 {
   %65 = lshr i64 %64, 32
   %66 = trunc nuw i64 %65 to i32
   %67 = icmp samesign ult i64 %.092115, 29
-  br i1 %67, label %._crit_edge, label %.lr.ph, !llvm.loop !3
+  br i1 %67, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %47
   %.092.lcssa = phi i64 [ %52, %47 ], [ %62, %.lr.ph ]
@@ -151,7 +151,7 @@ define i32 @f32_rem(i32 %0, i32 %1) local_unnamed_addr #0 {
   %78 = add i32 %.191, 1
   %79 = sub i32 %.2, %76
   %.not106 = icmp sgt i32 %79, -1
-  br i1 %.not106, label %77, label %80, !llvm.loop !5
+  br i1 %.not106, label %77, label %80, !llvm.loop !3
 
 80:                                               ; preds = %77
   %81 = add i32 %79, %.2
@@ -213,6 +213,4 @@ attributes #3 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = distinct !{!3, !4}
-!4 = !{!"llvm.loop.estimated_trip_count"}
-!5 = distinct !{!5, !6, !4}
-!6 = !{!"llvm.loop.mustprogress"}
+!4 = !{!"llvm.loop.mustprogress"}

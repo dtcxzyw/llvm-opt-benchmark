@@ -100,6 +100,5 @@ attributes #0 = { nofree norecurse nosync nounwind memory(none) uwtable "min-leg
 !14 = !{!10, !10, i64 0}
 !15 = !{!5, !8, i64 60}
 !16 = !{!5, !8, i64 64}
-!17 = distinct !{!17, !18, !19}
+!17 = distinct !{!17, !18}
 !18 = !{!"llvm.loop.mustprogress"}
-!19 = !{!"llvm.loop.estimated_trip_count"}

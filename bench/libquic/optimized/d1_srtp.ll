@@ -74,10 +74,10 @@ define internal fastcc range(i32 0, 2) i32 @ssl_ctx_make_profiles(ptr noundef %0
 24:                                               ; preds = %19
   %25 = tail call i64 @sk_push(ptr noundef nonnull %3, ptr noundef nonnull %.014.i) #5
   %26 = getelementptr inbounds nuw i8, ptr %6, i64 1
-  br i1 %.not, label %27, label %.preheader, !llvm.loop !16
+  br i1 %.not, label %27, label %.preheader, !llvm.loop !15
 
 27:                                               ; preds = %24
-  store ptr %3, ptr %1, align 8, !tbaa !17
+  store ptr %3, ptr %1, align 8, !tbaa !16
   br label %28
 
 28:                                               ; preds = %.thread, %27, %5
@@ -99,15 +99,15 @@ define hidden ptr @SSL_get_srtp_profiles(ptr noundef readonly captures(address_i
 
 3:                                                ; preds = %1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 328
-  %5 = load ptr, ptr %4, align 8, !tbaa !19
+  %5 = load ptr, ptr %4, align 8, !tbaa !18
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %6, label %11
 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 232
-  %8 = load ptr, ptr %7, align 8, !tbaa !42
+  %8 = load ptr, ptr %7, align 8, !tbaa !41
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 568
-  %10 = load ptr, ptr %9, align 8, !tbaa !43
+  %10 = load ptr, ptr %9, align 8, !tbaa !42
   br label %11
 
 11:                                               ; preds = %6, %3, %1
@@ -118,7 +118,7 @@ define hidden ptr @SSL_get_srtp_profiles(ptr noundef readonly captures(address_i
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @SSL_get_selected_srtp_profile(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 336
-  %3 = load ptr, ptr %2, align 8, !tbaa !49
+  %3 = load ptr, ptr %2, align 8, !tbaa !48
   ret ptr %3
 }
 
@@ -176,40 +176,39 @@ attributes #6 = { nounwind willreturn memory(read) }
 !10 = !{!"omnipotent char", !11, i64 0}
 !11 = !{!"Simple C/C++ TBAA"}
 !12 = !{!"long", !10, i64 0}
-!13 = distinct !{!13, !14, !15}
+!13 = distinct !{!13, !14}
 !14 = !{!"llvm.loop.mustprogress"}
-!15 = !{!"llvm.loop.estimated_trip_count"}
-!16 = distinct !{!16, !14, !15}
-!17 = !{!18, !18, i64 0}
-!18 = !{!"p1 _ZTS32stack_st_SRTP_PROTECTION_PROFILE", !9, i64 0}
-!19 = !{!20, !18, i64 328}
-!20 = !{!"ssl_st", !21, i64 0, !22, i64 4, !22, i64 6, !23, i64 8, !24, i64 16, !24, i64 24, !24, i64 32, !9, i64 40, !21, i64 48, !21, i64 52, !25, i64 56, !8, i64 64, !21, i64 72, !21, i64 76, !26, i64 80, !27, i64 88, !9, i64 96, !9, i64 104, !28, i64 112, !29, i64 120, !30, i64 128, !31, i64 136, !21, i64 144, !21, i64 148, !10, i64 152, !32, i64 184, !9, i64 192, !9, i64 200, !8, i64 208, !9, i64 216, !9, i64 224, !33, i64 232, !12, i64 240, !34, i64 248, !36, i64 256, !21, i64 264, !21, i64 268, !21, i64 272, !21, i64 276, !22, i64 280, !8, i64 288, !21, i64 296, !12, i64 304, !37, i64 312, !33, i64 320, !18, i64 328, !38, i64 336, !39, i64 344, !8, i64 352, !21, i64 360, !21, i64 364, !40, i64 368, !41, i64 376, !10, i64 384, !21, i64 385, !21, i64 385, !21, i64 385, !21, i64 385, !21, i64 385, !21, i64 385, !21, i64 388}
-!21 = !{!"int", !10, i64 0}
-!22 = !{!"short", !10, i64 0}
-!23 = !{!"p1 _ZTS22ssl_protocol_method_st", !9, i64 0}
-!24 = !{!"p1 _ZTS6bio_st", !9, i64 0}
-!25 = !{!"p1 _ZTS10buf_mem_st", !9, i64 0}
-!26 = !{!"p1 _ZTS13ssl3_state_st", !9, i64 0}
-!27 = !{!"p1 _ZTS14dtls1_state_st", !9, i64 0}
-!28 = !{!"p1 _ZTS20X509_VERIFY_PARAM_st", !9, i64 0}
-!29 = !{!"p1 _ZTS29ssl_cipher_preference_list_st", !9, i64 0}
-!30 = !{!"p1 _ZTS19stack_st_SSL_CIPHER", !9, i64 0}
-!31 = !{!"p1 _ZTS7cert_st", !9, i64 0}
-!32 = !{!"p1 _ZTS14ssl_session_st", !9, i64 0}
-!33 = !{!"p1 _ZTS10ssl_ctx_st", !9, i64 0}
-!34 = !{!"crypto_ex_data_st", !35, i64 0}
-!35 = !{!"p1 _ZTS13stack_st_void", !9, i64 0}
-!36 = !{!"p1 _ZTS18stack_st_X509_NAME", !9, i64 0}
-!37 = !{!"p1 short", !9, i64 0}
-!38 = !{!"p1 _ZTS26srtp_protection_profile_st", !9, i64 0}
-!39 = !{!"p1 _ZTS11evp_pkey_st", !9, i64 0}
-!40 = !{!"p1 _ZTS17evp_cipher_ctx_st", !9, i64 0}
-!41 = !{!"p1 _ZTS13env_md_ctx_st", !9, i64 0}
-!42 = !{!20, !33, i64 232}
-!43 = !{!44, !18, i64 568}
-!44 = !{!"ssl_ctx_st", !23, i64 0, !10, i64 8, !22, i64 64, !22, i64 66, !29, i64 72, !30, i64 80, !29, i64 88, !29, i64 96, !45, i64 104, !46, i64 112, !12, i64 120, !32, i64 128, !32, i64 136, !21, i64 144, !21, i64 148, !12, i64 152, !9, i64 160, !9, i64 168, !9, i64 176, !21, i64 184, !9, i64 192, !9, i64 200, !9, i64 208, !9, i64 216, !9, i64 224, !9, i64 232, !34, i64 240, !47, i64 248, !47, i64 256, !9, i64 264, !36, i64 272, !21, i64 280, !21, i64 284, !21, i64 288, !31, i64 296, !9, i64 304, !9, i64 312, !21, i64 320, !21, i64 324, !10, i64 328, !9, i64 360, !28, i64 368, !9, i64 376, !9, i64 384, !22, i64 392, !9, i64 400, !9, i64 408, !10, i64 416, !10, i64 432, !10, i64 448, !9, i64 464, !8, i64 472, !9, i64 480, !9, i64 488, !10, i64 496, !9, i64 504, !9, i64 512, !9, i64 520, !9, i64 528, !9, i64 536, !9, i64 544, !8, i64 552, !21, i64 560, !18, i64 568, !12, i64 576, !37, i64 584, !39, i64 592, !8, i64 600, !12, i64 608, !8, i64 616, !12, i64 624, !9, i64 632, !9, i64 640, !21, i64 648, !21, i64 648, !21, i64 648, !21, i64 648, !48, i64 656, !21, i64 664}
-!45 = !{!"p1 _ZTS13x509_store_st", !9, i64 0}
-!46 = !{!"p1 _ZTS20lhash_st_SSL_SESSION", !9, i64 0}
-!47 = !{!"p1 _ZTS29stack_st_SSL_CUSTOM_EXTENSION", !9, i64 0}
-!48 = !{!"p1 _ZTS13stack_st_X509", !9, i64 0}
-!49 = !{!20, !38, i64 336}
+!15 = distinct !{!15, !14}
+!16 = !{!17, !17, i64 0}
+!17 = !{!"p1 _ZTS32stack_st_SRTP_PROTECTION_PROFILE", !9, i64 0}
+!18 = !{!19, !17, i64 328}
+!19 = !{!"ssl_st", !20, i64 0, !21, i64 4, !21, i64 6, !22, i64 8, !23, i64 16, !23, i64 24, !23, i64 32, !9, i64 40, !20, i64 48, !20, i64 52, !24, i64 56, !8, i64 64, !20, i64 72, !20, i64 76, !25, i64 80, !26, i64 88, !9, i64 96, !9, i64 104, !27, i64 112, !28, i64 120, !29, i64 128, !30, i64 136, !20, i64 144, !20, i64 148, !10, i64 152, !31, i64 184, !9, i64 192, !9, i64 200, !8, i64 208, !9, i64 216, !9, i64 224, !32, i64 232, !12, i64 240, !33, i64 248, !35, i64 256, !20, i64 264, !20, i64 268, !20, i64 272, !20, i64 276, !21, i64 280, !8, i64 288, !20, i64 296, !12, i64 304, !36, i64 312, !32, i64 320, !17, i64 328, !37, i64 336, !38, i64 344, !8, i64 352, !20, i64 360, !20, i64 364, !39, i64 368, !40, i64 376, !10, i64 384, !20, i64 385, !20, i64 385, !20, i64 385, !20, i64 385, !20, i64 385, !20, i64 385, !20, i64 388}
+!20 = !{!"int", !10, i64 0}
+!21 = !{!"short", !10, i64 0}
+!22 = !{!"p1 _ZTS22ssl_protocol_method_st", !9, i64 0}
+!23 = !{!"p1 _ZTS6bio_st", !9, i64 0}
+!24 = !{!"p1 _ZTS10buf_mem_st", !9, i64 0}
+!25 = !{!"p1 _ZTS13ssl3_state_st", !9, i64 0}
+!26 = !{!"p1 _ZTS14dtls1_state_st", !9, i64 0}
+!27 = !{!"p1 _ZTS20X509_VERIFY_PARAM_st", !9, i64 0}
+!28 = !{!"p1 _ZTS29ssl_cipher_preference_list_st", !9, i64 0}
+!29 = !{!"p1 _ZTS19stack_st_SSL_CIPHER", !9, i64 0}
+!30 = !{!"p1 _ZTS7cert_st", !9, i64 0}
+!31 = !{!"p1 _ZTS14ssl_session_st", !9, i64 0}
+!32 = !{!"p1 _ZTS10ssl_ctx_st", !9, i64 0}
+!33 = !{!"crypto_ex_data_st", !34, i64 0}
+!34 = !{!"p1 _ZTS13stack_st_void", !9, i64 0}
+!35 = !{!"p1 _ZTS18stack_st_X509_NAME", !9, i64 0}
+!36 = !{!"p1 short", !9, i64 0}
+!37 = !{!"p1 _ZTS26srtp_protection_profile_st", !9, i64 0}
+!38 = !{!"p1 _ZTS11evp_pkey_st", !9, i64 0}
+!39 = !{!"p1 _ZTS17evp_cipher_ctx_st", !9, i64 0}
+!40 = !{!"p1 _ZTS13env_md_ctx_st", !9, i64 0}
+!41 = !{!19, !32, i64 232}
+!42 = !{!43, !17, i64 568}
+!43 = !{!"ssl_ctx_st", !22, i64 0, !10, i64 8, !21, i64 64, !21, i64 66, !28, i64 72, !29, i64 80, !28, i64 88, !28, i64 96, !44, i64 104, !45, i64 112, !12, i64 120, !31, i64 128, !31, i64 136, !20, i64 144, !20, i64 148, !12, i64 152, !9, i64 160, !9, i64 168, !9, i64 176, !20, i64 184, !9, i64 192, !9, i64 200, !9, i64 208, !9, i64 216, !9, i64 224, !9, i64 232, !33, i64 240, !46, i64 248, !46, i64 256, !9, i64 264, !35, i64 272, !20, i64 280, !20, i64 284, !20, i64 288, !30, i64 296, !9, i64 304, !9, i64 312, !20, i64 320, !20, i64 324, !10, i64 328, !9, i64 360, !27, i64 368, !9, i64 376, !9, i64 384, !21, i64 392, !9, i64 400, !9, i64 408, !10, i64 416, !10, i64 432, !10, i64 448, !9, i64 464, !8, i64 472, !9, i64 480, !9, i64 488, !10, i64 496, !9, i64 504, !9, i64 512, !9, i64 520, !9, i64 528, !9, i64 536, !9, i64 544, !8, i64 552, !20, i64 560, !17, i64 568, !12, i64 576, !36, i64 584, !38, i64 592, !8, i64 600, !12, i64 608, !8, i64 616, !12, i64 624, !9, i64 632, !9, i64 640, !20, i64 648, !20, i64 648, !20, i64 648, !20, i64 648, !47, i64 656, !20, i64 664}
+!44 = !{!"p1 _ZTS13x509_store_st", !9, i64 0}
+!45 = !{!"p1 _ZTS20lhash_st_SSL_SESSION", !9, i64 0}
+!46 = !{!"p1 _ZTS29stack_st_SSL_CUSTOM_EXTENSION", !9, i64 0}
+!47 = !{!"p1 _ZTS13stack_st_X509", !9, i64 0}
+!48 = !{!19, !37, i64 336}

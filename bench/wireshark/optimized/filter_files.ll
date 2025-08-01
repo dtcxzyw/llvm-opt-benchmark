@@ -159,7 +159,7 @@ skip_whitespace.exit:                             ; preds = %32
 .preheader:                                       ; preds = %skip_whitespace.exit, %.preheader
   %38 = tail call i32 @getc(ptr noundef nonnull %.0155)
   %.not174 = icmp eq i32 %38, 10
-  br i1 %.not174, label %.loopexit, label %.preheader, !llvm.loop !9
+  br i1 %.not174, label %.loopexit, label %.preheader, !llvm.loop !8
 
 .lr.ph:                                           ; preds = %skip_whitespace.exit
   tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef nonnull @.str.6, i32 noundef 5, ptr noundef nonnull @.str.7, i64 noundef 208, ptr noundef nonnull @__func__.ws_filter_list_read, ptr noundef nonnull @.str.11, ptr noundef %.0126, i32 noundef %.0127)
@@ -168,7 +168,7 @@ skip_whitespace.exit:                             ; preds = %32
 39:                                               ; preds = %.lr.ph, %39
   %40 = tail call i32 @getc(ptr noundef nonnull %.0155)
   %.not173 = icmp eq i32 %40, 10
-  br i1 %.not173, label %.loopexit, label %39, !llvm.loop !10
+  br i1 %.not173, label %.loopexit, label %39, !llvm.loop !9
 
 .preheader194:                                    ; preds = %skip_whitespace.exit, %65
   %.3145 = phi ptr [ %.6, %65 ], [ %.0142, %skip_whitespace.exit ]
@@ -257,7 +257,7 @@ getc_crlf.exit178:                                ; preds = %53, %56, %56
   %68 = getelementptr i8, ptr %.6, i64 %67
   store i8 %66, ptr %68, align 1
   %69 = add i32 %.0129, 1
-  br label %.preheader194, !llvm.loop !11
+  br label %.preheader194
 
 70:                                               ; preds = %getc_crlf.exit178, %getc_crlf.exit178, %getc_crlf.exit, %getc_crlf.exit
   %.2150 = phi i32 [ %.0.i, %getc_crlf.exit ], [ %.0.i177, %getc_crlf.exit178 ], [ %.0.i, %getc_crlf.exit ], [ %.0.i177, %getc_crlf.exit178 ]
@@ -345,7 +345,7 @@ getc_crlf.exit182:                                ; preds = %88, %95, %95, %97
   switch i32 %.0.i181, label %.preheader191 [
     i32 -1, label %99
     i32 10, label %101
-  ], !llvm.loop !12
+  ]
 
 99:                                               ; preds = %getc_crlf.exit182
   %100 = tail call i32 @ferror(ptr noundef nonnull %.0155) #11
@@ -385,7 +385,7 @@ getc_crlf.exit182:                                ; preds = %88, %95, %95, %97
   %.1132 = phi i32 [ %.2133, %73 ], [ %.4135, %.loopexit193 ], [ %.4135, %107 ], [ %.0131, %skip_whitespace.exit ], [ %.0131, %39 ], [ %.0131, %.preheader ], [ %.0131, %30 ]
   %.1 = phi i32 [ %.0130, %73 ], [ %.0130, %.loopexit193 ], [ %.4, %107 ], [ %.0130, %skip_whitespace.exit ], [ %.0130, %39 ], [ %.0130, %.preheader ], [ %.0130, %30 ]
   %115 = add i32 %.0127, 1
-  br label %29, !llvm.loop !13
+  br label %29
 
 .loopexit195.sink.split:                          ; preds = %99, %.loopexit192, %71
   %.sink333 = phi i64 [ 250, %71 ], [ 269, %.loopexit192 ], [ 304, %99 ]
@@ -601,7 +601,7 @@ switch.lookup:                                    ; preds = %1
 37:                                               ; preds = %32, %35
   %38 = call i32 @putc(i32 noundef %34, ptr noundef nonnull %21)
   %39 = getelementptr i8, ptr %.050, i64 1
-  br label %32, !llvm.loop !14
+  br label %32, !llvm.loop !10
 
 40:                                               ; preds = %32
   %41 = call i32 @putc(i32 noundef 34, ptr noundef nonnull %21)
@@ -627,7 +627,7 @@ switch.lookup:                                    ; preds = %1
   %54 = getelementptr inbounds nuw i8, ptr %.05258, i64 8
   %55 = load ptr, ptr %54, align 8
   %.not = icmp eq ptr %55, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !15
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %53, %27
   %56 = call i32 @fclose(ptr noundef nonnull %21)
@@ -728,13 +728,9 @@ attributes #11 = { nounwind }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7, !8}
-!11 = distinct !{!11, !8}
-!12 = distinct !{!12, !8}
-!13 = distinct !{!13, !8}
-!14 = distinct !{!14, !7, !8}
-!15 = distinct !{!15, !7, !8}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7}

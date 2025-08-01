@@ -148,7 +148,7 @@ define hidden range(i32 0, 2) i32 @ReadPNM(ptr noundef %0, i64 noundef %1, ptr n
   %54 = icmp samesign ult i64 %.021.i.i.i, 1023
   %55 = icmp ult i64 %47, %45
   %56 = select i1 %54, i1 %55, i1 false
-  br i1 %56, label %.lr.ph.i.i.i, label %._crit_edge.i.i.i, !llvm.loop !23
+  br i1 %56, label %.lr.ph.i.i.i, label %._crit_edge.i.i.i, !llvm.loop !21
 
 ._crit_edge.i.i.i:                                ; preds = %52, %.lr.ph.i.i.i
   %.0.lcssa.i.i.i = phi i64 [ %53, %52 ], [ %.021.i.i.i, %.lr.ph.i.i.i ]
@@ -160,7 +160,7 @@ define hidden range(i32 0, 2) i32 @ReadPNM(ptr noundef %0, i64 noundef %1, ptr n
   %60 = load i8, ptr %6, align 16
   %61 = icmp eq i8 %60, 35
   %or.cond.i.i = select i1 %59, i1 true, i1 %61
-  br i1 %or.cond.i.i, label %.backedge.i.i.i, label %62, !llvm.loop !21
+  br i1 %or.cond.i.i, label %.backedge.i.i.i, label %62
 
 62:                                               ; preds = %58, %._crit_edge.i.i.i, %.backedge.i.i.i
   %.231.i.i.i = phi i64 [ %47, %._crit_edge.i.i.i ], [ %.019.i.i.i, %.backedge.i.i.i ], [ %47, %58 ]
@@ -178,14 +178,14 @@ define hidden range(i32 0, 2) i32 @ReadPNM(ptr noundef %0, i64 noundef %1, ptr n
   br i1 %.not55.i.i, label %72, label %69
 
 69:                                               ; preds = %66
-  %70 = load ptr, ptr @stderr, align 8, !tbaa !25
+  %70 = load ptr, ptr @stderr, align 8, !tbaa !23
   %71 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %70, ptr noundef nonnull @.str.28, ptr noundef nonnull @.str.8) #13
   br label %ReadPAMFields.exit.i
 
 72:                                               ; preds = %66
   %73 = or disjoint i32 %67, 1
   store i32 %73, ptr %17, align 8, !tbaa !16
-  %74 = load i32, ptr %7, align 4, !tbaa !27
+  %74 = load i32, ptr %7, align 4, !tbaa !25
   store i32 %74, ptr %15, align 8, !tbaa !14
   br label %.backedge
 
@@ -201,14 +201,14 @@ define hidden range(i32 0, 2) i32 @ReadPNM(ptr noundef %0, i64 noundef %1, ptr n
   br i1 %.not54.i.i, label %84, label %81
 
 81:                                               ; preds = %78
-  %82 = load ptr, ptr @stderr, align 8, !tbaa !25
+  %82 = load ptr, ptr @stderr, align 8, !tbaa !23
   %83 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %82, ptr noundef nonnull @.str.28, ptr noundef nonnull @.str.10) #13
   br label %ReadPAMFields.exit.i
 
 84:                                               ; preds = %78
   %85 = or disjoint i32 %79, 2
   store i32 %85, ptr %17, align 8, !tbaa !16
-  %86 = load i32, ptr %7, align 4, !tbaa !27
+  %86 = load i32, ptr %7, align 4, !tbaa !25
   store i32 %86, ptr %14, align 4, !tbaa !13
   br label %.backedge
 
@@ -224,14 +224,14 @@ define hidden range(i32 0, 2) i32 @ReadPNM(ptr noundef %0, i64 noundef %1, ptr n
   br i1 %.not53.i.i, label %96, label %93
 
 93:                                               ; preds = %90
-  %94 = load ptr, ptr @stderr, align 8, !tbaa !25
+  %94 = load ptr, ptr @stderr, align 8, !tbaa !23
   %95 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %94, ptr noundef nonnull @.str.28, ptr noundef nonnull @.str.12) #13
   br label %ReadPAMFields.exit.i
 
 96:                                               ; preds = %90
   %97 = or disjoint i32 %91, 4
   store i32 %97, ptr %17, align 8, !tbaa !16
-  %98 = load i32, ptr %7, align 4, !tbaa !27
+  %98 = load i32, ptr %7, align 4, !tbaa !25
   store i32 %98, ptr %19, align 4, !tbaa !18
   br label %.backedge
 
@@ -247,14 +247,14 @@ define hidden range(i32 0, 2) i32 @ReadPNM(ptr noundef %0, i64 noundef %1, ptr n
   br i1 %.not52.i.i, label %108, label %105
 
 105:                                              ; preds = %102
-  %106 = load ptr, ptr @stderr, align 8, !tbaa !25
+  %106 = load ptr, ptr @stderr, align 8, !tbaa !23
   %107 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %106, ptr noundef nonnull @.str.28, ptr noundef nonnull @.str.14) #13
   br label %ReadPAMFields.exit.i
 
 108:                                              ; preds = %102
   %109 = or disjoint i32 %103, 8
   store i32 %109, ptr %17, align 8, !tbaa !16
-  %110 = load i32, ptr %7, align 4, !tbaa !27
+  %110 = load i32, ptr %7, align 4, !tbaa !25
   store i32 %110, ptr %20, align 8, !tbaa !19
   br label %.backedge
 
@@ -304,7 +304,7 @@ define hidden range(i32 0, 2) i32 @ReadPNM(ptr noundef %0, i64 noundef %1, ptr n
 
 .backedge:                                        ; preds = %124, %120, %116, %112, %108, %96, %84, %72
   %.036.i.i.be = phi i32 [ 1, %124 ], [ 2, %120 ], [ 3, %116 ], [ 4, %112 ], [ %.036.i.i, %108 ], [ %.036.i.i, %96 ], [ %.036.i.i, %84 ], [ %.036.i.i, %72 ]
-  br label %43, !llvm.loop !28
+  br label %43
 
 127:                                              ; preds = %123
   %bcmp46.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(7) %6, ptr noundef nonnull dereferenceable(7) @.str.19, i64 7)
@@ -328,7 +328,7 @@ define hidden range(i32 0, 2) i32 @ReadPNM(ptr noundef %0, i64 noundef %1, ptr n
 
 .lr.ph.i56.i:                                     ; preds = %132
   %136 = tail call ptr @__ctype_b_loc() #15
-  %.pre.i.i = load ptr, ptr %136, align 8, !tbaa !29
+  %.pre.i.i = load ptr, ptr %136, align 8, !tbaa !26
   br label %137
 
 137:                                              ; preds = %145, %.lr.ph.i56.i
@@ -337,7 +337,7 @@ define hidden range(i32 0, 2) i32 @ReadPNM(ptr noundef %0, i64 noundef %1, ptr n
   %139 = load i8, ptr %138, align 1, !tbaa !20
   %140 = sext i8 %139 to i64
   %141 = getelementptr inbounds i16, ptr %.pre.i.i, i64 %140
-  %142 = load i16, ptr %141, align 2, !tbaa !31
+  %142 = load i16, ptr %141, align 2, !tbaa !28
   %143 = and i16 %142, 16384
   %.not51.i.i = icmp eq i16 %143, 0
   br i1 %.not51.i.i, label %144, label %145
@@ -352,10 +352,10 @@ define hidden range(i32 0, 2) i32 @ReadPNM(ptr noundef %0, i64 noundef %1, ptr n
   %sext.i.i = shl i64 %146, 32
   %147 = ashr exact i64 %sext.i.i, 32
   %148 = icmp slt i64 %indvars.iv.next.i.i, %147
-  br i1 %148, label %137, label %._crit_edge.i55.i, !llvm.loop !33
+  br i1 %148, label %137, label %._crit_edge.i55.i, !llvm.loop !30
 
 ._crit_edge.i55.i:                                ; preds = %145, %132
-  %149 = load ptr, ptr @stderr, align 8, !tbaa !25
+  %149 = load ptr, ptr @stderr, align 8, !tbaa !23
   %150 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %149, ptr noundef nonnull @.str.20, ptr noundef nonnull %6) #13
   br label %ReadPAMFields.exit.i
 
@@ -366,7 +366,7 @@ define hidden range(i32 0, 2) i32 @ReadPNM(ptr noundef %0, i64 noundef %1, ptr n
   br i1 %.not48.i.i, label %154, label %157
 
 154:                                              ; preds = %151
-  %155 = load ptr, ptr @stderr, align 8, !tbaa !25
+  %155 = load ptr, ptr @stderr, align 8, !tbaa !23
   %156 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %155, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.23, ptr noundef nonnull @.str.24, ptr noundef nonnull @.str.25, ptr noundef nonnull @.str.26) #13
   br label %ReadPAMFields.exit.i
 
@@ -380,7 +380,7 @@ define hidden range(i32 0, 2) i32 @ReadPNM(ptr noundef %0, i64 noundef %1, ptr n
   br i1 %.not50.i.i, label %ReadPAMFields.exit.i, label %160
 
 160:                                              ; preds = %158
-  %161 = load ptr, ptr @stderr, align 8, !tbaa !25
+  %161 = load ptr, ptr @stderr, align 8, !tbaa !23
   %162 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %161, ptr noundef nonnull @.str.27, i32 noundef %.036.i.i, i32 noundef %159) #13
   br label %ReadPAMFields.exit.i
 
@@ -416,7 +416,7 @@ ReadPAMFields.exit.i:                             ; preds = %160, %158, %157, %1
   %174 = icmp samesign ult i64 %.021.i61.i, 1023
   %175 = icmp ult i64 %167, %165
   %176 = select i1 %174, i1 %175, i1 false
-  br i1 %176, label %.lr.ph.i60.i, label %._crit_edge.i63.i, !llvm.loop !23
+  br i1 %176, label %.lr.ph.i60.i, label %._crit_edge.i63.i, !llvm.loop !21
 
 ._crit_edge.i63.i:                                ; preds = %172, %.lr.ph.i60.i
   %.0.lcssa.i64.i = phi i64 [ %173, %172 ], [ %.021.i61.i, %.lr.ph.i60.i ]
@@ -428,7 +428,7 @@ ReadPAMFields.exit.i:                             ; preds = %160, %158, %157, %1
   %180 = load i8, ptr %8, align 16
   %181 = icmp eq i8 %180, 35
   %or.cond70.i = select i1 %179, i1 true, i1 %181
-  br i1 %or.cond70.i, label %.backedge.i65.i, label %182, !llvm.loop !21
+  br i1 %or.cond70.i, label %.backedge.i65.i, label %182
 
 182:                                              ; preds = %178, %._crit_edge.i63.i, %.backedge.i65.i
   %.231.i58.i = phi i64 [ %167, %._crit_edge.i63.i ], [ %.019.i57.i, %.backedge.i65.i ], [ %167, %178 ]
@@ -465,7 +465,7 @@ ReadPAMFields.exit.i:                             ; preds = %160, %158, %157, %1
   %196 = icmp samesign ult i64 %.021.i, 1023
   %197 = icmp ult i64 %189, %187
   %198 = select i1 %196, i1 %197, i1 false
-  br i1 %198, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !23
+  br i1 %198, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !21
 
 ._crit_edge.i:                                    ; preds = %194, %.lr.ph.i
   %.0.lcssa.i = phi i64 [ %195, %194 ], [ %.021.i, %.lr.ph.i ]
@@ -477,7 +477,7 @@ ReadPAMFields.exit.i:                             ; preds = %160, %158, %157, %1
   %202 = load i8, ptr %8, align 16
   %203 = icmp eq i8 %202, 35
   %or.cond131 = select i1 %201, i1 true, i1 %203
-  br i1 %or.cond131, label %.backedge.i, label %204, !llvm.loop !21
+  br i1 %or.cond131, label %.backedge.i, label %204
 
 204:                                              ; preds = %200, %._crit_edge.i, %.backedge.i
   %.231.i = phi i64 [ %189, %._crit_edge.i ], [ %.019.i, %.backedge.i ], [ %189, %200 ]
@@ -536,7 +536,7 @@ ReadHeader.exit:                                  ; preds = %222
   br i1 %228, label %229, label %232
 
 229:                                              ; preds = %ReadHeader.exit.thread, %ReadHeader.exit
-  %230 = load ptr, ptr @stderr, align 8, !tbaa !25
+  %230 = load ptr, ptr @stderr, align 8, !tbaa !23
   %231 = call i64 @fwrite(ptr nonnull @.str, i64 26, i64 1, ptr %230) #16
   br label %382
 
@@ -546,7 +546,7 @@ ReadHeader.exit:                                  ; preds = %222
   br i1 %or.cond, label %234, label %237
 
 234:                                              ; preds = %232
-  %235 = load ptr, ptr @stderr, align 8, !tbaa !25
+  %235 = load ptr, ptr @stderr, align 8, !tbaa !23
   %236 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %235, ptr noundef nonnull @.str.1, i32 noundef %217) #13
   br label %382
 
@@ -561,7 +561,7 @@ ReadHeader.exit:                                  ; preds = %222
   br i1 %or.cond5, label %242, label %245
 
 242:                                              ; preds = %239
-  %243 = load ptr, ptr @stderr, align 8, !tbaa !25
+  %243 = load ptr, ptr @stderr, align 8, !tbaa !23
   %244 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %243, ptr noundef nonnull @.str.2, i32 noundef %212, i32 noundef %214) #13
   br label %382
 
@@ -576,7 +576,7 @@ ReadHeader.exit:                                  ; preds = %222
   br i1 %252, label %253, label %256
 
 253:                                              ; preds = %245
-  %254 = load ptr, ptr @stderr, align 8, !tbaa !25
+  %254 = load ptr, ptr @stderr, align 8, !tbaa !23
   %255 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %254, ptr noundef nonnull @.str.3, i32 noundef %217) #13
   br label %382
 
@@ -658,7 +658,7 @@ ReadHeader.exit:                                  ; preds = %222
   store i8 %297, ptr %298, align 1, !tbaa !20
   %indvars.iv.next197 = add nuw nsw i64 %indvars.iv196, 1
   %exitcond200.not = icmp eq i64 %indvars.iv.next197, %wide.trip.count199
-  br i1 %exitcond200.not, label %.loopexit.us, label %.lr.ph154.us, !llvm.loop !34
+  br i1 %exitcond200.not, label %.loopexit.us, label %.lr.ph154.us, !llvm.loop !31
 
 299:                                              ; preds = %.lr.ph160.split.us
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.0107156.us, ptr align 1 %286, i64 %285, i1 false)
@@ -668,7 +668,7 @@ ReadHeader.exit:                                  ; preds = %222
   %300 = getelementptr inbounds nuw i8, ptr %.0107156.us, i64 %261
   %301 = add nuw nsw i32 %.0109155.us, 1
   %exitcond201.not = icmp eq i32 %301, %264
-  br i1 %exitcond201.not, label %._crit_edge, label %.lr.ph160.split.us, !llvm.loop !35
+  br i1 %exitcond201.not, label %._crit_edge, label %.lr.ph160.split.us, !llvm.loop !32
 
 .preheader.us:                                    ; preds = %.lr.ph160.split.us
   br i1 %284, label %.lr.ph154.us, label %.loopexit.us
@@ -758,13 +758,13 @@ ReadHeader.exit:                                  ; preds = %222
   %.1.us168 = phi i32 [ %340, %334 ], [ %333, %329 ], [ %.0102152.us164, %328 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %..loopexit134_crit_edge.us, label %.lr.ph.split.us170, !llvm.loop !37
+  br i1 %exitcond.not, label %..loopexit134_crit_edge.us, label %.lr.ph.split.us170, !llvm.loop !34
 
 ..loopexit134_crit_edge.us:                       ; preds = %341, %372
   %342 = getelementptr inbounds nuw i8, ptr %.0107156.us162, i64 %261
   %343 = add nuw nsw i32 %.0109155.us163, 1
   %exitcond195.not = icmp eq i32 %343, %264
-  br i1 %exitcond195.not, label %._crit_edge, label %.lr.ph.us, !llvm.loop !38
+  br i1 %exitcond195.not, label %._crit_edge, label %.lr.ph.us, !llvm.loop !35
 
 .lr.ph.split.us.us:                               ; preds = %.lr.ph.us, %372
   %indvars.iv190 = phi i64 [ %indvars.iv.next191, %372 ], [ 0, %.lr.ph.us ]
@@ -819,13 +819,13 @@ ReadHeader.exit:                                  ; preds = %222
   %.1.us.us = phi i32 [ %371, %367 ], [ %.0102152.us.us, %364 ]
   %indvars.iv.next191 = add nuw nsw i64 %indvars.iv190, 1
   %exitcond194.not = icmp eq i64 %indvars.iv.next191, %wide.trip.count193
-  br i1 %exitcond194.not, label %..loopexit134_crit_edge.us, label %.lr.ph.split.us.us, !llvm.loop !39
+  br i1 %exitcond194.not, label %..loopexit134_crit_edge.us, label %.lr.ph.split.us.us, !llvm.loop !36
 
 ._crit_edge:                                      ; preds = %..loopexit134_crit_edge.us, %.loopexit.us, %.lr.ph160.split, %.preheader135
   %373 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store i32 %.pre, ptr %373, align 8, !tbaa !40
+  store i32 %.pre, ptr %373, align 8, !tbaa !37
   %374 = getelementptr inbounds nuw i8, ptr %2, i64 12
-  store i32 %264, ptr %374, align 4, !tbaa !44
+  store i32 %264, ptr %374, align 4, !tbaa !41
   %375 = trunc nuw i64 %261 to i32
   br i1 %.not, label %376, label %378
 
@@ -936,26 +936,23 @@ attributes #17 = { nounwind allocsize(0) }
 !19 = !{!5, !11, i64 32}
 !20 = !{!8, !8, i64 0}
 !21 = distinct !{!21, !22}
-!22 = !{!"llvm.loop.estimated_trip_count"}
-!23 = distinct !{!23, !24, !22}
-!24 = !{!"llvm.loop.mustprogress"}
-!25 = !{!26, !26, i64 0}
-!26 = !{!"p1 _ZTS8_IO_FILE", !7, i64 0}
-!27 = !{!11, !11, i64 0}
-!28 = distinct !{!28, !22}
-!29 = !{!30, !30, i64 0}
-!30 = !{!"p1 short", !7, i64 0}
-!31 = !{!32, !32, i64 0}
-!32 = !{!"short", !8, i64 0}
-!33 = distinct !{!33, !24, !22}
-!34 = distinct !{!34, !24, !22}
-!35 = distinct !{!35, !24, !22, !36}
-!36 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!37 = distinct !{!37, !24, !22}
-!38 = distinct !{!38, !24, !22, !36}
-!39 = distinct !{!39, !24, !22, !36}
-!40 = !{!41, !11, i64 8}
-!41 = !{!"WebPPicture", !11, i64 0, !11, i64 4, !11, i64 8, !11, i64 12, !6, i64 16, !6, i64 24, !6, i64 32, !11, i64 40, !11, i64 44, !6, i64 48, !11, i64 56, !8, i64 60, !42, i64 72, !11, i64 80, !8, i64 84, !7, i64 96, !7, i64 104, !11, i64 112, !6, i64 120, !43, i64 128, !11, i64 136, !7, i64 144, !7, i64 152, !8, i64 160, !6, i64 176, !6, i64 184, !8, i64 192, !7, i64 224, !7, i64 232, !8, i64 240}
-!42 = !{!"p1 int", !7, i64 0}
-!43 = !{!"p1 _ZTS12WebPAuxStats", !7, i64 0}
-!44 = !{!41, !11, i64 12}
+!22 = !{!"llvm.loop.mustprogress"}
+!23 = !{!24, !24, i64 0}
+!24 = !{!"p1 _ZTS8_IO_FILE", !7, i64 0}
+!25 = !{!11, !11, i64 0}
+!26 = !{!27, !27, i64 0}
+!27 = !{!"p1 short", !7, i64 0}
+!28 = !{!29, !29, i64 0}
+!29 = !{!"short", !8, i64 0}
+!30 = distinct !{!30, !22}
+!31 = distinct !{!31, !22}
+!32 = distinct !{!32, !22, !33}
+!33 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!34 = distinct !{!34, !22}
+!35 = distinct !{!35, !22, !33}
+!36 = distinct !{!36, !22, !33}
+!37 = !{!38, !11, i64 8}
+!38 = !{!"WebPPicture", !11, i64 0, !11, i64 4, !11, i64 8, !11, i64 12, !6, i64 16, !6, i64 24, !6, i64 32, !11, i64 40, !11, i64 44, !6, i64 48, !11, i64 56, !8, i64 60, !39, i64 72, !11, i64 80, !8, i64 84, !7, i64 96, !7, i64 104, !11, i64 112, !6, i64 120, !40, i64 128, !11, i64 136, !7, i64 144, !7, i64 152, !8, i64 160, !6, i64 176, !6, i64 184, !8, i64 192, !7, i64 224, !7, i64 232, !8, i64 240}
+!39 = !{!"p1 int", !7, i64 0}
+!40 = !{!"p1 _ZTS12WebPAuxStats", !7, i64 0}
+!41 = !{!38, !11, i64 12}

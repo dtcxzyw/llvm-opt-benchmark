@@ -147,14 +147,14 @@ _ZSt4findISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112ba
   %78 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %78, ptr %0, align 8, !tbaa !12
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #6
-  store i64 %9, ptr %6, align 8, !tbaa !28
+  store i64 %9, ptr %6, align 8, !tbaa !27
   %79 = icmp ugt i64 %9, 15
   br i1 %79, label %.noexc.i27, label %._crit_edge.i.i26
 
 .noexc.i27:                                       ; preds = %77
   %80 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(8) %6, i64 noundef 0)
   store ptr %80, ptr %0, align 8, !tbaa !14
-  %81 = load i64, ptr %6, align 8, !tbaa !28
+  %81 = load i64, ptr %6, align 8, !tbaa !27
   store i64 %81, ptr %78, align 8, !tbaa !13
   br label %._crit_edge.i.i26
 
@@ -175,7 +175,7 @@ _ZSt4findISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112ba
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit: ; preds = %._crit_edge.i.i26, %83, %85
-  %86 = load i64, ptr %6, align 8, !tbaa !28
+  %86 = load i64, ptr %6, align 8, !tbaa !27
   %87 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %86, ptr %87, align 8, !tbaa !4
   %88 = load ptr, ptr %0, align 8, !tbaa !14
@@ -197,14 +197,14 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit: ; preds = %.
   store i64 0, ptr %96, align 8, !tbaa !4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #6
   %gepdiff = add nsw i64 %9, -1
-  store i64 %gepdiff, ptr %5, align 8, !tbaa !28
+  store i64 %gepdiff, ptr %5, align 8, !tbaa !27
   %97 = icmp ugt i64 %gepdiff, 15
   br i1 %97, label %.noexc.i29, label %._crit_edge.i.i28
 
 .noexc.i29:                                       ; preds = %93
   %98 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(8) %5, i64 noundef 0)
   store ptr %98, ptr %0, align 8, !tbaa !14
-  %99 = load i64, ptr %5, align 8, !tbaa !28
+  %99 = load i64, ptr %5, align 8, !tbaa !27
   store i64 %99, ptr %95, align 8, !tbaa !13
   br label %._crit_edge.i.i28
 
@@ -225,7 +225,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit: ; preds = %.
   br label %104
 
 104:                                              ; preds = %103, %101, %._crit_edge.i.i28
-  %105 = load i64, ptr %5, align 8, !tbaa !28
+  %105 = load i64, ptr %5, align 8, !tbaa !27
   store i64 %105, ptr %96, align 8, !tbaa !4
   %106 = load ptr, ptr %0, align 8, !tbaa !14
   %107 = getelementptr inbounds nuw i8, ptr %106, i64 %105
@@ -245,14 +245,14 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit: ; preds = %.
   store i64 0, ptr %112, align 8, !tbaa !4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #6
   %113 = add nsw i64 %9, -1
-  store i64 %113, ptr %4, align 8, !tbaa !28
+  store i64 %113, ptr %4, align 8, !tbaa !27
   %114 = icmp ugt i64 %113, 15
   br i1 %114, label %.noexc.i33, label %._crit_edge.i.i32
 
 .noexc.i33:                                       ; preds = %110
   %115 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(8) %4, i64 noundef 0)
   store ptr %115, ptr %7, align 8, !tbaa !14
-  %116 = load i64, ptr %4, align 8, !tbaa !28
+  %116 = load i64, ptr %4, align 8, !tbaa !27
   store i64 %116, ptr %111, align 8, !tbaa !13
   br label %._crit_edge.i.i32
 
@@ -273,7 +273,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit: ; preds = %.
   br label %121
 
 121:                                              ; preds = %120, %118, %._crit_edge.i.i32
-  %122 = load i64, ptr %4, align 8, !tbaa !28
+  %122 = load i64, ptr %4, align 8, !tbaa !27
   store i64 %122, ptr %112, align 8, !tbaa !4
   %123 = load ptr, ptr %7, align 8, !tbaa !14
   %124 = getelementptr inbounds nuw i8, ptr %123, i64 %122
@@ -333,14 +333,14 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit38: ; preds = %_ZN
   store i64 0, ptr %142, align 8, !tbaa !4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #6
   %143 = sub i64 %15, %.sink.i.i.i
-  store i64 %143, ptr %3, align 8, !tbaa !28
+  store i64 %143, ptr %3, align 8, !tbaa !27
   %144 = icmp ugt i64 %143, 15
   br i1 %144, label %.noexc.i41, label %._crit_edge.i.i40
 
 .noexc.i41:                                       ; preds = %140
   %145 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(8) %3, i64 noundef 0)
   store ptr %145, ptr %0, align 8, !tbaa !14
-  %146 = load i64, ptr %3, align 8, !tbaa !28
+  %146 = load i64, ptr %3, align 8, !tbaa !27
   store i64 %146, ptr %141, align 8, !tbaa !13
   br label %._crit_edge.i.i40
 
@@ -361,7 +361,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit38: ; preds = %_ZN
   br label %151
 
 151:                                              ; preds = %150, %148, %._crit_edge.i.i40
-  %152 = load i64, ptr %3, align 8, !tbaa !28
+  %152 = load i64, ptr %3, align 8, !tbaa !27
   store i64 %152, ptr %142, align 8, !tbaa !4
   %153 = load ptr, ptr %0, align 8, !tbaa !14
   %154 = getelementptr inbounds nuw i8, ptr %153, i64 %152
@@ -428,7 +428,6 @@ attributes #7 = { builtin nounwind }
 !22 = distinct !{!22, !"_ZSt9__find_ifISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEENS1_5__ops16_Iter_equals_valIS3_EEET_SG_SG_T0_"}
 !23 = distinct !{!23, !24, !"_ZSt4findISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEcET_SD_SD_RKT0_: argument 0"}
 !24 = distinct !{!24, !"_ZSt4findISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEcET_SD_SD_RKT0_"}
-!25 = distinct !{!25, !26, !27}
+!25 = distinct !{!25, !26}
 !26 = !{!"llvm.loop.mustprogress"}
-!27 = !{!"llvm.loop.estimated_trip_count"}
-!28 = !{!11, !11, i64 0}
+!27 = !{!11, !11, i64 0}

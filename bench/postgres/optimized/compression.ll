@@ -185,7 +185,7 @@ define void @parse_compress_specification(i32 noundef %0, ptr noundef %1, ptr no
 
 44:                                               ; preds = %42
   %45 = getelementptr inbounds nuw i8, ptr %.179, i64 1
-  br label %42, !llvm.loop !6
+  br label %42, !llvm.loop !5
 
 .critedge2:                                       ; preds = %42, %42
   %46 = ptrtoint ptr %.179 to i64
@@ -402,7 +402,7 @@ expect_boolean_value.exit:                        ; preds = %.thread118, %99, %1
 135:                                              ; preds = %129, %132
   %.v = phi ptr [ %.078, %132 ], [ %.081, %129 ]
   %136 = getelementptr inbounds nuw i8, ptr %.v, i64 1
-  br label %32, !llvm.loop !7
+  br label %32
 
 .thread125:                                       ; preds = %125, %129, %132, %53, %17, %26
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #9
@@ -620,8 +620,6 @@ attributes #9 = { nounwind }
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = distinct !{!3, !4, !5}
+!3 = distinct !{!3, !4}
 !4 = !{!"llvm.loop.mustprogress"}
-!5 = !{!"llvm.loop.estimated_trip_count"}
-!6 = distinct !{!6, !4, !5}
-!7 = distinct !{!7, !5}
+!5 = distinct !{!5, !4}

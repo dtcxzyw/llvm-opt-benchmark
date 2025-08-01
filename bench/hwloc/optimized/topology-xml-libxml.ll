@@ -834,7 +834,7 @@ define internal range(i32 -1, 1) i32 @hwloc__libxml_import_next_attr(ptr noundef
   %51 = getelementptr inbounds nuw i8, ptr %.139, i64 48
   %.1 = load ptr, ptr %51, align 8, !tbaa !43
   %.not28 = icmp eq ptr %.1, null
-  br i1 %.not28, label %.loopexit, label %14, !llvm.loop !53
+  br i1 %.not28, label %.loopexit, label %14, !llvm.loop !52
 
 .loopexit:                                        ; preds = %.critedge, %12, %26
   %.2 = phi i32 [ 0, %26 ], [ -1, %12 ], [ -1, %.critedge ]
@@ -865,7 +865,7 @@ define internal range(i32 0, 2) i32 @hwloc__libxml_import_find_child(ptr noundef
 
 13:                                               ; preds = %10
   %14 = getelementptr inbounds nuw i8, ptr %9, i64 48
-  %15 = load ptr, ptr %14, align 8, !tbaa !54
+  %15 = load ptr, ptr %14, align 8, !tbaa !53
   store ptr %15, ptr %8, align 8, !tbaa !39
   store ptr %9, ptr %4, align 8, !tbaa !39
   %16 = getelementptr inbounds nuw i8, ptr %9, i64 24
@@ -1026,15 +1026,15 @@ hwloc_libxml2_init_once.exit:                     ; preds = %3, %14
   %20 = tail call ptr @xmlDocSetRootElement(ptr noundef %15, ptr noundef %16) #11
   %21 = tail call ptr @xmlCreateIntSubset(ptr noundef %15, ptr noundef nonnull @.str.8, ptr noundef null, ptr noundef nonnull @.str.5) #11
   %22 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store ptr @hwloc__libxml_export_new_child, ptr %22, align 8, !tbaa !55
+  store ptr @hwloc__libxml_export_new_child, ptr %22, align 8, !tbaa !54
   %23 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store ptr @hwloc__libxml_export_new_prop, ptr %23, align 8, !tbaa !59
+  store ptr @hwloc__libxml_export_new_prop, ptr %23, align 8, !tbaa !58
   %24 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  store ptr @hwloc__libxml_export_add_content, ptr %24, align 8, !tbaa !60
+  store ptr @hwloc__libxml_export_add_content, ptr %24, align 8, !tbaa !59
   %25 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  store ptr @hwloc__libxml_export_end_object, ptr %25, align 8, !tbaa !61
+  store ptr @hwloc__libxml_export_end_object, ptr %25, align 8, !tbaa !60
   %26 = getelementptr inbounds nuw i8, ptr %4, i64 40
-  store ptr %1, ptr %26, align 8, !tbaa !62
+  store ptr %1, ptr %26, align 8, !tbaa !61
   store ptr %16, ptr %19, align 8, !tbaa !39
   call void @hwloc__xml_export_topology(ptr noundef nonnull %4, ptr noundef %0, i64 noundef %2) #11
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %4) #11
@@ -1057,27 +1057,27 @@ declare ptr @xmlCreateIntSubset(ptr noundef, ptr noundef, ptr noundef, ptr nound
 define internal void @hwloc__libxml_export_new_child(ptr noundef %0, ptr noundef writeonly captures(none) initializes((0, 56)) %1, ptr noundef %2) #1 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  store ptr %0, ptr %1, align 8, !tbaa !63
+  store ptr %0, ptr %1, align 8, !tbaa !62
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %7 = load ptr, ptr %6, align 8, !tbaa !55
+  %7 = load ptr, ptr %6, align 8, !tbaa !54
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store ptr %7, ptr %8, align 8, !tbaa !55
+  store ptr %7, ptr %8, align 8, !tbaa !54
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %10 = load ptr, ptr %9, align 8, !tbaa !59
+  %10 = load ptr, ptr %9, align 8, !tbaa !58
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  store ptr %10, ptr %11, align 8, !tbaa !59
+  store ptr %10, ptr %11, align 8, !tbaa !58
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %13 = load ptr, ptr %12, align 8, !tbaa !60
+  %13 = load ptr, ptr %12, align 8, !tbaa !59
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  store ptr %13, ptr %14, align 8, !tbaa !60
+  store ptr %13, ptr %14, align 8, !tbaa !59
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %16 = load ptr, ptr %15, align 8, !tbaa !61
+  %16 = load ptr, ptr %15, align 8, !tbaa !60
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  store ptr %16, ptr %17, align 8, !tbaa !61
+  store ptr %16, ptr %17, align 8, !tbaa !60
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %19 = load ptr, ptr %18, align 8, !tbaa !62
+  %19 = load ptr, ptr %18, align 8, !tbaa !61
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  store ptr %19, ptr %20, align 8, !tbaa !62
+  store ptr %19, ptr %20, align 8, !tbaa !61
   %21 = load ptr, ptr %4, align 8, !tbaa !39
   %22 = tail call ptr @xmlNewChild(ptr noundef %21, ptr noundef null, ptr noundef %2, ptr noundef null) #11
   store ptr %22, ptr %5, align 8, !tbaa !39
@@ -1170,15 +1170,15 @@ hwloc_libxml2_init_once.exit:                     ; preds = %2, %13
   %20 = tail call ptr @xmlDocSetRootElement(ptr noundef %14, ptr noundef %15) #11
   %21 = tail call ptr @xmlCreateIntSubset(ptr noundef %14, ptr noundef nonnull @.str.23, ptr noundef null, ptr noundef nonnull @.str.21) #11
   %22 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store ptr @hwloc__libxml_export_new_child, ptr %22, align 8, !tbaa !55
+  store ptr @hwloc__libxml_export_new_child, ptr %22, align 8, !tbaa !54
   %23 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store ptr @hwloc__libxml_export_new_prop, ptr %23, align 8, !tbaa !59
+  store ptr @hwloc__libxml_export_new_prop, ptr %23, align 8, !tbaa !58
   %24 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  store ptr @hwloc__libxml_export_add_content, ptr %24, align 8, !tbaa !60
+  store ptr @hwloc__libxml_export_add_content, ptr %24, align 8, !tbaa !59
   %25 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  store ptr @hwloc__libxml_export_end_object, ptr %25, align 8, !tbaa !61
+  store ptr @hwloc__libxml_export_end_object, ptr %25, align 8, !tbaa !60
   %26 = getelementptr inbounds nuw i8, ptr %3, i64 40
-  store ptr null, ptr %26, align 8, !tbaa !62
+  store ptr null, ptr %26, align 8, !tbaa !61
   store ptr %15, ptr %19, align 8, !tbaa !39
   call void @hwloc__xml_export_diff(ptr noundef nonnull %3, ptr noundef %0) #11
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %3) #11
@@ -1255,17 +1255,16 @@ attributes #14 = { nounwind willreturn memory(read) }
 !47 = !{!28, !8, i64 8}
 !48 = !{!28, !11, i64 80}
 !49 = !{!45, !11, i64 16}
-!50 = distinct !{!50, !51, !52}
+!50 = distinct !{!50, !51}
 !51 = !{!"llvm.loop.mustprogress"}
-!52 = !{!"llvm.loop.estimated_trip_count"}
-!53 = distinct !{!53, !51, !52}
-!54 = !{!28, !25, i64 48}
-!55 = !{!56, !4, i64 8}
-!56 = !{!"hwloc__xml_export_state_s", !57, i64 0, !4, i64 8, !4, i64 16, !4, i64 24, !4, i64 32, !58, i64 40, !5, i64 48}
-!57 = !{!"p1 _ZTS25hwloc__xml_export_state_s", !4, i64 0}
-!58 = !{!"p1 _ZTS24hwloc__xml_export_data_s", !4, i64 0}
-!59 = !{!56, !4, i64 16}
-!60 = !{!56, !4, i64 24}
-!61 = !{!56, !4, i64 32}
-!62 = !{!56, !58, i64 40}
-!63 = !{!56, !57, i64 0}
+!52 = distinct !{!52, !51}
+!53 = !{!28, !25, i64 48}
+!54 = !{!55, !4, i64 8}
+!55 = !{!"hwloc__xml_export_state_s", !56, i64 0, !4, i64 8, !4, i64 16, !4, i64 24, !4, i64 32, !57, i64 40, !5, i64 48}
+!56 = !{!"p1 _ZTS25hwloc__xml_export_state_s", !4, i64 0}
+!57 = !{!"p1 _ZTS24hwloc__xml_export_data_s", !4, i64 0}
+!58 = !{!55, !4, i64 16}
+!59 = !{!55, !4, i64 24}
+!60 = !{!55, !4, i64 32}
+!61 = !{!55, !57, i64 40}
+!62 = !{!55, !56, i64 0}

@@ -374,10 +374,10 @@ define ptr @Lpk_MuxSplit(ptr noundef readnone captures(none) %0, ptr noundef %1,
 33:                                               ; preds = %30
   %34 = add nuw nsw i32 %.07.i, 1
   %exitcond.not.i = icmp eq i32 %34, 32
-  br i1 %exitcond.not.i, label %.Kit_WordFindFirstBit.exit_crit_edge, label %30, !llvm.loop !22
+  br i1 %exitcond.not.i, label %.Kit_WordFindFirstBit.exit_crit_edge, label %30, !llvm.loop !21
 
 .Kit_WordFindFirstBit.exit_crit_edge:             ; preds = %33
-  br label %Kit_WordFindFirstBit.exit, !llvm.loop !22
+  br label %Kit_WordFindFirstBit.exit, !llvm.loop !21
 
 Kit_WordFindFirstBit.exit:                        ; preds = %30, %.Kit_WordFindFirstBit.exit_crit_edge
   %.06.i = phi i32 [ -1, %.Kit_WordFindFirstBit.exit_crit_edge ], [ %.07.i, %30 ]
@@ -413,7 +413,7 @@ Kit_WordFindFirstBit.exit:                        ; preds = %30, %.Kit_WordFindF
   store i32 %49, ptr %51, align 4, !tbaa !12
   %indvars.iv.next26.i = add nuw nsw i64 %indvars.iv25.i, 1
   %exitcond30.not.i = icmp eq i64 %indvars.iv.next26.i, %wide.trip.count29.i
-  br i1 %exitcond30.not.i, label %Kit_TruthIthVar.exit, label %50, !llvm.loop !23
+  br i1 %exitcond30.not.i, label %Kit_TruthIthVar.exit, label %50, !llvm.loop !22
 
 52:                                               ; preds = %52, %.preheader19.i
   %indvars.iv.i = phi i64 [ 0, %.preheader19.i ], [ %indvars.iv.next.i, %52 ]
@@ -425,7 +425,7 @@ Kit_WordFindFirstBit.exit:                        ; preds = %30, %.Kit_WordFindF
   store i32 %spec.select.i, ptr %55, align 4, !tbaa !12
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i80 = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i80, label %Kit_TruthIthVar.exit, label %52, !llvm.loop !24
+  br i1 %exitcond.not.i80, label %Kit_TruthIthVar.exit, label %52, !llvm.loop !23
 
 Kit_TruthIthVar.exit:                             ; preds = %52, %50
   br i1 %.not, label %57, label %56
@@ -446,7 +446,7 @@ Kit_TruthIthVar.exit:                             ; preds = %52, %50
   %63 = getelementptr inbounds nuw i8, ptr %1, i64 212
   %64 = sext i32 %.06.i to i64
   %65 = getelementptr inbounds [16 x i8], ptr %63, i64 0, i64 %64
-  store i8 %62, ptr %65, align 1, !tbaa !25
+  store i8 %62, ptr %65, align 1, !tbaa !24
   %66 = getelementptr inbounds nuw i8, ptr %1, i64 144
   %67 = load i32, ptr %66, align 8, !tbaa !13
   %68 = add i32 %67, -1
@@ -608,10 +608,9 @@ attributes #4 = { nounwind }
 !16 = !{!4, !5, i64 20}
 !17 = !{!4, !5, i64 36}
 !18 = !{!4, !5, i64 24}
-!19 = distinct !{!19, !20, !21}
+!19 = distinct !{!19, !20}
 !20 = !{!"llvm.loop.mustprogress"}
-!21 = !{!"llvm.loop.estimated_trip_count"}
-!22 = distinct !{!22, !20, !21}
-!23 = distinct !{!23, !20, !21}
-!24 = distinct !{!24, !20, !21}
-!25 = !{!6, !6, i64 0}
+!21 = distinct !{!21, !20}
+!22 = distinct !{!22, !20}
+!23 = distinct !{!23, !20}
+!24 = !{!6, !6, i64 0}

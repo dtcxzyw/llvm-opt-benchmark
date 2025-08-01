@@ -201,7 +201,7 @@ define internal i32 @test_PEM_X509_INFO_read_bio() #1 {
 ._crit_edge:                                      ; preds = %.lr.ph, %4
   %.0.lcssa = phi i32 [ 0, %4 ], [ %.3, %.lr.ph ]
   tail call void @OPENSSL_sk_pop_free(ptr noundef %5, ptr noundef nonnull @X509_INFO_free) #5
-  %21 = load i32, ptr @expected, align 4, !tbaa !22
+  %21 = load i32, ptr @expected, align 4, !tbaa !21
   %22 = tail call i32 @test_int_eq(ptr noundef nonnull @.str.20, i32 noundef 133, ptr noundef nonnull @.str.36, ptr noundef nonnull @.str.37, i32 noundef %.0.lcssa, i32 noundef %21) #5
   br label %23
 
@@ -391,7 +391,6 @@ attributes #6 = { nounwind willreturn memory(read) }
 !16 = !{!"int", !7, i64 0}
 !17 = !{!10, !12, i64 8}
 !18 = !{!10, !13, i64 16}
-!19 = distinct !{!19, !20, !21}
+!19 = distinct !{!19, !20}
 !20 = !{!"llvm.loop.mustprogress"}
-!21 = !{!"llvm.loop.estimated_trip_count"}
-!22 = !{!16, !16, i64 0}
+!21 = !{!16, !16, i64 0}

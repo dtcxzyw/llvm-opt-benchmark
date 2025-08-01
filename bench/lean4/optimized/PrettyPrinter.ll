@@ -22961,7 +22961,7 @@ lean_inc.exit148:                                 ; preds = %20, %19, %17, %10
   br label %lean_dec.exit136.backedge
 
 lean_dec.exit136.backedge:                        ; preds = %27, %26, %24, %lean_inc.exit148
-  br label %lean_dec.exit136, !llvm.loop !17
+  br label %lean_dec.exit136
 
 28:                                               ; preds = %lean_obj_tag.exit
   %.0130.val165 = load i32, ptr %.0130, align 4, !tbaa !4
@@ -28650,7 +28650,7 @@ define internal fastcc ptr @_init_l_Lean_PPContext_runCoreM___rarg___closed__6()
   %2 = ptrtoint ptr %1 to i64
   %3 = and i64 %2, 1
   %.not = icmp eq i64 %3, 0
-  br i1 %.not, label %.critedge.i, label %4, !prof !19
+  br i1 %.not, label %.critedge.i, label %4, !prof !17
 
 4:                                                ; preds = %0
   %5 = lshr i64 %2, 1
@@ -29766,6 +29766,4 @@ attributes #7 = { noreturn nounwind }
 !14 = !{!"long", !7, i64 0}
 !15 = !{!16, !16, i64 0}
 !16 = !{!"short", !7, i64 0}
-!17 = distinct !{!17, !18}
-!18 = !{!"llvm.loop.estimated_trip_count"}
-!19 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!17 = !{!"branch_weights", !"expected", i32 1, i32 2000}

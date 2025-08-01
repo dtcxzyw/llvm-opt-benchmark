@@ -132,7 +132,7 @@ define hidden range(i32 -82, 1) i32 @mbedtls_net_bind(ptr noundef captures(none)
   br i1 %14, label %15, label %16
 
 15:                                               ; preds = %4
-  store i32 1, ptr %6, align 8, !tbaa !22
+  store i32 1, ptr %6, align 8, !tbaa !21
   br label %16
 
 16:                                               ; preds = %15, %4
@@ -163,7 +163,7 @@ define hidden range(i32 -82, 1) i32 @mbedtls_net_bind(ptr noundef captures(none)
   br i1 %26, label %42, label %27
 
 27:                                               ; preds = %.lr.ph.split.us
-  store i32 1, ptr %5, align 4, !tbaa !23
+  store i32 1, ptr %5, align 4, !tbaa !22
   %28 = call i32 @setsockopt(i32 noundef %25, i32 noundef 1, i32 noundef 2, ptr noundef nonnull %5, i32 noundef 4) #9
   %.not27.us = icmp eq i32 %28, 0
   %29 = load i32, ptr %0, align 4, !tbaa !3
@@ -199,7 +199,7 @@ define hidden range(i32 -82, 1) i32 @mbedtls_net_bind(ptr noundef captures(none)
   %43 = getelementptr inbounds nuw i8, ptr %.032.us, i64 40
   %.0.us = load ptr, ptr %43, align 8, !tbaa !15
   %.not26.us = icmp eq ptr %.0.us, null
-  br i1 %.not26.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !24
+  br i1 %.not26.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !23
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %64
   %.032 = phi ptr [ %.0, %64 ], [ %.030, %.lr.ph ]
@@ -215,7 +215,7 @@ define hidden range(i32 -82, 1) i32 @mbedtls_net_bind(ptr noundef captures(none)
   br i1 %51, label %64, label %52
 
 52:                                               ; preds = %.lr.ph.split
-  store i32 1, ptr %5, align 4, !tbaa !23
+  store i32 1, ptr %5, align 4, !tbaa !22
   %53 = call i32 @setsockopt(i32 noundef %50, i32 noundef 1, i32 noundef 2, ptr noundef nonnull %5, i32 noundef 4) #9
   %.not27 = icmp eq i32 %53, 0
   %54 = load i32, ptr %0, align 4, !tbaa !3
@@ -245,7 +245,7 @@ define hidden range(i32 -82, 1) i32 @mbedtls_net_bind(ptr noundef captures(none)
   %65 = getelementptr inbounds nuw i8, ptr %.032, i64 40
   %.0 = load ptr, ptr %65, align 8, !tbaa !15
   %.not26 = icmp eq ptr %.0, null
-  br i1 %.not26, label %._crit_edge, label %.lr.ph.split, !llvm.loop !26
+  br i1 %.not26, label %._crit_edge, label %.lr.ph.split, !llvm.loop !25
 
 ._crit_edge:                                      ; preds = %64, %55, %42, %37, %.preheader
   %.1 = phi i32 [ -82, %.preheader ], [ 0, %37 ], [ %.2.us, %42 ], [ 0, %55 ], [ %.2, %64 ]
@@ -282,16 +282,16 @@ define hidden range(i32 -26880, 1) i32 @mbedtls_net_accept(ptr noundef captures(
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #9
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %7) #9
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #9
-  store i32 128, ptr %8, align 4, !tbaa !23
+  store i32 128, ptr %8, align 4, !tbaa !22
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #9
-  store i32 4, ptr %9, align 4, !tbaa !23
+  store i32 4, ptr %9, align 4, !tbaa !22
   %13 = load i32, ptr %0, align 4, !tbaa !3
   %14 = call i32 @getsockopt(i32 noundef %13, i32 noundef 1, i32 noundef 3, ptr noundef nonnull %6, ptr noundef nonnull %9) #9
   %.not = icmp eq i32 %14, 0
   br i1 %.not, label %15, label %66
 
 15:                                               ; preds = %5
-  %16 = load i32, ptr %6, align 4, !tbaa !23
+  %16 = load i32, ptr %6, align 4, !tbaa !22
   %17 = add i32 %16, -3
   %or.cond = icmp ult i32 %17, -2
   br i1 %or.cond, label %66, label %18
@@ -323,27 +323,27 @@ define hidden range(i32 -26880, 1) i32 @mbedtls_net_accept(ptr noundef captures(
 29:                                               ; preds = %27
   %.val = load i32, ptr %0, align 4, !tbaa !3
   %30 = tail call ptr @__errno_location() #10
-  %31 = load i32, ptr %30, align 4, !tbaa !23
+  %31 = load i32, ptr %30, align 4, !tbaa !22
   %32 = call i32 (i32, i32, ...) @fcntl(i32 noundef %.val, i32 noundef 3) #9
   %33 = and i32 %32, 2048
   %.not.not.i = icmp eq i32 %33, 0
   %cond.i = icmp ne i32 %31, 11
   %narrow.i.not = select i1 %.not.not.i, i1 true, i1 %cond.i
-  store i32 %31, ptr %30, align 4, !tbaa !23
+  store i32 %31, ptr %30, align 4, !tbaa !22
   %. = select i1 %narrow.i.not, i32 -74, i32 -26880
   br label %66
 
 34:                                               ; preds = %27
-  %35 = load i32, ptr %6, align 4, !tbaa !23
+  %35 = load i32, ptr %6, align 4, !tbaa !22
   %.not39 = icmp eq i32 %35, 1
   br i1 %.not39, label %55, label %36
 
 36:                                               ; preds = %34
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %11) #9
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12) #9
-  store i32 1, ptr %12, align 4, !tbaa !23
+  store i32 1, ptr %12, align 4, !tbaa !22
   %37 = load i32, ptr %0, align 4, !tbaa !3
-  %38 = load i32, ptr %8, align 4, !tbaa !23
+  %38 = load i32, ptr %8, align 4, !tbaa !22
   %39 = call i32 @connect(i32 noundef %37, ptr noundef nonnull %7, i32 noundef %38) #9
   %.not40 = icmp eq i32 %39, 0
   br i1 %.not40, label %40, label %.thread
@@ -352,14 +352,14 @@ define hidden range(i32 -26880, 1) i32 @mbedtls_net_accept(ptr noundef captures(
   %41 = load i32, ptr %0, align 4, !tbaa !3
   store i32 %41, ptr %1, align 4, !tbaa !3
   store i32 -1, ptr %0, align 4, !tbaa !3
-  store i32 128, ptr %8, align 4, !tbaa !23
+  store i32 128, ptr %8, align 4, !tbaa !22
   %42 = load i32, ptr %1, align 4, !tbaa !3
   %43 = call i32 @getsockname(i32 noundef %42, ptr noundef nonnull %11, ptr noundef nonnull %8) #9
   %.not41 = icmp eq i32 %43, 0
   br i1 %.not41, label %44, label %.thread
 
 44:                                               ; preds = %40
-  %45 = load i16, ptr %11, align 8, !tbaa !27
+  %45 = load i16, ptr %11, align 8, !tbaa !26
   %46 = zext i16 %45 to i32
   %47 = call i32 @socket(i32 noundef %46, i32 noundef 2, i32 noundef 17) #9
   store i32 %47, ptr %0, align 4, !tbaa !3
@@ -379,7 +379,7 @@ define hidden range(i32 -26880, 1) i32 @mbedtls_net_accept(ptr noundef captures(
 
 51:                                               ; preds = %49
   %52 = load i32, ptr %0, align 4, !tbaa !3
-  %53 = load i32, ptr %8, align 4, !tbaa !23
+  %53 = load i32, ptr %8, align 4, !tbaa !22
   %54 = call i32 @bind(i32 noundef %52, ptr noundef nonnull %11, i32 noundef %53) #9
   %.not43 = icmp eq i32 %54, 0
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #9
@@ -391,12 +391,12 @@ define hidden range(i32 -26880, 1) i32 @mbedtls_net_accept(ptr noundef captures(
   br i1 %.not44, label %66, label %56
 
 56:                                               ; preds = %55
-  %57 = load i16, ptr %7, align 8, !tbaa !27
+  %57 = load i16, ptr %7, align 8, !tbaa !26
   %58 = icmp eq i16 %57, 2
   br i1 %58, label %59, label %63
 
 59:                                               ; preds = %56
-  store i64 4, ptr %4, align 8, !tbaa !31
+  store i64 4, ptr %4, align 8, !tbaa !30
   %60 = icmp ugt i64 %3, 3
   br i1 %60, label %.thread50, label %66
 
@@ -407,7 +407,7 @@ define hidden range(i32 -26880, 1) i32 @mbedtls_net_accept(ptr noundef captures(
   br label %66
 
 63:                                               ; preds = %56
-  store i64 16, ptr %4, align 8, !tbaa !31
+  store i64 16, ptr %4, align 8, !tbaa !30
   %64 = icmp ugt i64 %3, 15
   br i1 %64, label %.thread52, label %66
 
@@ -475,7 +475,7 @@ define hidden range(i32 -73, 4) i32 @mbedtls_net_poll(ptr noundef readonly captu
   br i1 %.not, label %.preheader.preheader, label %62
 
 .preheader.preheader:                             ; preds = %3
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %5, i8 0, i64 128, i1 false), !tbaa !31
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %5, i8 0, i64 128, i1 false), !tbaa !30
   %10 = and i32 %1, 1
   %.not43 = icmp eq i32 %10, 0
   br i1 %.not43, label %21, label %11
@@ -488,14 +488,14 @@ define hidden range(i32 -73, 4) i32 @mbedtls_net_poll(ptr noundef readonly captu
   %16 = sdiv i32 %7, 64
   %17 = sext i32 %16 to i64
   %18 = getelementptr inbounds [16 x i64], ptr %5, i64 0, i64 %17
-  %19 = load i64, ptr %18, align 8, !tbaa !31
+  %19 = load i64, ptr %18, align 8, !tbaa !30
   %20 = or i64 %19, %15
-  store i64 %20, ptr %18, align 8, !tbaa !31
+  store i64 %20, ptr %18, align 8, !tbaa !30
   br label %21
 
 21:                                               ; preds = %.preheader.preheader, %11
   %.035 = phi i32 [ %12, %11 ], [ %1, %.preheader.preheader ]
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %6, i8 0, i64 128, i1 false), !tbaa !31
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %6, i8 0, i64 128, i1 false), !tbaa !30
   %22 = and i32 %.035, 2
   %.not44 = icmp eq i32 %22, 0
   br i1 %.not44, label %33, label %23
@@ -508,9 +508,9 @@ define hidden range(i32 -73, 4) i32 @mbedtls_net_poll(ptr noundef readonly captu
   %28 = sdiv i32 %7, 64
   %29 = sext i32 %28 to i64
   %30 = getelementptr inbounds [16 x i64], ptr %6, i64 0, i64 %29
-  %31 = load i64, ptr %30, align 8, !tbaa !31
+  %31 = load i64, ptr %30, align 8, !tbaa !30
   %32 = or i64 %31, %27
-  store i64 %32, ptr %30, align 8, !tbaa !31
+  store i64 %32, ptr %30, align 8, !tbaa !30
   br label %33
 
 33:                                               ; preds = %23, %21
@@ -521,12 +521,12 @@ define hidden range(i32 -73, 4) i32 @mbedtls_net_poll(ptr noundef readonly captu
 34:                                               ; preds = %33
   %35 = udiv i32 %2, 1000
   %36 = zext nneg i32 %35 to i64
-  store i64 %36, ptr %4, align 8, !tbaa !32
+  store i64 %36, ptr %4, align 8, !tbaa !31
   %37 = urem i32 %2, 1000
   %38 = mul nuw nsw i32 %37, 1000
   %39 = zext nneg i32 %38 to i64
   %40 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store i64 %39, ptr %40, align 8, !tbaa !34
+  store i64 %39, ptr %40, align 8, !tbaa !33
   %41 = add nsw i32 %7, 1
   %42 = icmp eq i32 %2, -1
   %. = select i1 %42, ptr null, ptr %4
@@ -535,7 +535,7 @@ define hidden range(i32 -73, 4) i32 @mbedtls_net_poll(ptr noundef readonly captu
 43:                                               ; preds = %43, %34
   %44 = call i32 @select(i32 noundef %41, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef null, ptr noundef %.) #9
   %45 = icmp eq i32 %44, 4
-  br i1 %45, label %43, label %46, !llvm.loop !35
+  br i1 %45, label %43, label %46, !llvm.loop !34
 
 46:                                               ; preds = %43
   %47 = icmp slt i32 %44, 0
@@ -545,7 +545,7 @@ define hidden range(i32 -73, 4) i32 @mbedtls_net_poll(ptr noundef readonly captu
   %49 = sdiv i32 %7, 64
   %50 = sext i32 %49 to i64
   %51 = getelementptr inbounds [16 x i64], ptr %5, i64 0, i64 %50
-  %52 = load i64, ptr %51, align 8, !tbaa !31
+  %52 = load i64, ptr %51, align 8, !tbaa !30
   %53 = srem i32 %7, 64
   %54 = zext nneg i32 %53 to i64
   %55 = shl nuw i64 1, %54
@@ -553,7 +553,7 @@ define hidden range(i32 -73, 4) i32 @mbedtls_net_poll(ptr noundef readonly captu
   %57 = trunc i64 %56 to i32
   %spec.select = and i32 %57, 1
   %58 = getelementptr inbounds [16 x i64], ptr %6, i64 0, i64 %50
-  %59 = load i64, ptr %58, align 8, !tbaa !31
+  %59 = load i64, ptr %58, align 8, !tbaa !30
   %60 = and i64 %59, %55
   %.not47 = icmp eq i64 %60, 0
   %61 = or disjoint i32 %spec.select, 2
@@ -575,10 +575,10 @@ define hidden void @mbedtls_net_usleep(i64 noundef %0) local_unnamed_addr #1 {
   %2 = alloca %struct.timeval, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #9
   %3 = udiv i64 %0, 1000000
-  store i64 %3, ptr %2, align 8, !tbaa !32
+  store i64 %3, ptr %2, align 8, !tbaa !31
   %4 = srem i64 %0, 1000000
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store i64 %4, ptr %5, align 8, !tbaa !34
+  store i64 %4, ptr %5, align 8, !tbaa !33
   %6 = call i32 @select(i32 noundef 0, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef nonnull %2) #9
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #9
   ret void
@@ -599,13 +599,13 @@ define hidden range(i32 -26880, -2147483648) i32 @mbedtls_net_recv(ptr noundef r
 10:                                               ; preds = %6
   %.val = load i32, ptr %0, align 4, !tbaa !3
   %11 = tail call ptr @__errno_location() #10
-  %12 = load i32, ptr %11, align 4, !tbaa !23
+  %12 = load i32, ptr %11, align 4, !tbaa !22
   %13 = tail call i32 (i32, i32, ...) @fcntl(i32 noundef %.val, i32 noundef 3) #9
   %14 = and i32 %13, 2048
   %.not.not.i = icmp eq i32 %14, 0
   %cond.i = icmp ne i32 %12, 11
   %narrow.i.not = select i1 %.not.not.i, i1 true, i1 %cond.i
-  store i32 %12, ptr %11, align 4, !tbaa !23
+  store i32 %12, ptr %11, align 4, !tbaa !22
   br i1 %narrow.i.not, label %15, label %18
 
 15:                                               ; preds = %10
@@ -647,24 +647,24 @@ define hidden range(i32 -26880, -2147483648) i32 @mbedtls_net_recv_timeout(ptr n
   br i1 %.not, label %.preheader.preheader, label %mbedtls_net_recv.exit
 
 .preheader.preheader:                             ; preds = %4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %6, i8 0, i64 128, i1 false), !tbaa !31
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %6, i8 0, i64 128, i1 false), !tbaa !30
   %10 = srem i32 %7, 64
   %11 = zext nneg i32 %10 to i64
   %12 = shl nuw i64 1, %11
   %13 = sdiv i32 %7, 64
   %14 = sext i32 %13 to i64
   %15 = getelementptr inbounds [16 x i64], ptr %6, i64 0, i64 %14
-  %16 = load i64, ptr %15, align 8, !tbaa !31
+  %16 = load i64, ptr %15, align 8, !tbaa !30
   %17 = or i64 %16, %12
-  store i64 %17, ptr %15, align 8, !tbaa !31
+  store i64 %17, ptr %15, align 8, !tbaa !30
   %18 = udiv i32 %3, 1000
   %19 = zext nneg i32 %18 to i64
-  store i64 %19, ptr %5, align 8, !tbaa !32
+  store i64 %19, ptr %5, align 8, !tbaa !31
   %20 = urem i32 %3, 1000
   %21 = mul nuw nsw i32 %20, 1000
   %22 = zext nneg i32 %21 to i64
   %23 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store i64 %22, ptr %23, align 8, !tbaa !34
+  store i64 %22, ptr %23, align 8, !tbaa !33
   %24 = add nsw i32 %7, 1
   %25 = icmp eq i32 %3, 0
   %26 = select i1 %25, ptr null, ptr %5
@@ -678,7 +678,7 @@ define hidden range(i32 -26880, -2147483648) i32 @mbedtls_net_recv_timeout(ptr n
 
 31:                                               ; preds = %29
   %32 = tail call ptr @__errno_location() #10
-  %33 = load i32, ptr %32, align 4, !tbaa !23
+  %33 = load i32, ptr %32, align 4, !tbaa !22
   %34 = icmp eq i32 %33, 4
   %. = select i1 %34, i32 -26880, i32 -76
   br label %mbedtls_net_recv.exit
@@ -697,13 +697,13 @@ define hidden range(i32 -26880, -2147483648) i32 @mbedtls_net_recv_timeout(ptr n
 42:                                               ; preds = %38
   %.val.i = load i32, ptr %0, align 4, !tbaa !3
   %43 = tail call ptr @__errno_location() #10
-  %44 = load i32, ptr %43, align 4, !tbaa !23
+  %44 = load i32, ptr %43, align 4, !tbaa !22
   %45 = call i32 (i32, i32, ...) @fcntl(i32 noundef %.val.i, i32 noundef 3) #9
   %46 = and i32 %45, 2048
   %.not.not.i.i = icmp eq i32 %46, 0
   %cond.i.i = icmp ne i32 %44, 11
   %narrow.i.not.i = select i1 %.not.not.i.i, i1 true, i1 %cond.i.i
-  store i32 %44, ptr %43, align 4, !tbaa !23
+  store i32 %44, ptr %43, align 4, !tbaa !22
   br i1 %narrow.i.not.i, label %47, label %mbedtls_net_recv.exit
 
 47:                                               ; preds = %42
@@ -741,13 +741,13 @@ define hidden range(i32 -26752, -2147483648) i32 @mbedtls_net_send(ptr noundef r
 10:                                               ; preds = %6
   %.val = load i32, ptr %0, align 4, !tbaa !3
   %11 = tail call ptr @__errno_location() #10
-  %12 = load i32, ptr %11, align 4, !tbaa !23
+  %12 = load i32, ptr %11, align 4, !tbaa !22
   %13 = tail call i32 (i32, i32, ...) @fcntl(i32 noundef %.val, i32 noundef 3) #9
   %14 = and i32 %13, 2048
   %.not.not.i = icmp eq i32 %14, 0
   %cond.i = icmp ne i32 %12, 11
   %narrow.i.not = select i1 %.not.not.i, i1 true, i1 %cond.i
-  store i32 %12, ptr %11, align 4, !tbaa !23
+  store i32 %12, ptr %11, align 4, !tbaa !22
   br i1 %narrow.i.not, label %15, label %18
 
 15:                                               ; preds = %10
@@ -846,20 +846,19 @@ attributes #10 = { nounwind willreturn memory(none) }
 !16 = !{!9, !5, i64 4}
 !17 = !{!9, !10, i64 24}
 !18 = !{!9, !5, i64 16}
-!19 = distinct !{!19, !20, !21}
+!19 = distinct !{!19, !20}
 !20 = !{!"llvm.loop.mustprogress"}
-!21 = !{!"llvm.loop.estimated_trip_count"}
-!22 = !{!9, !5, i64 0}
-!23 = !{!5, !5, i64 0}
-!24 = distinct !{!24, !20, !21, !25}
-!25 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!26 = distinct !{!26, !20, !21}
-!27 = !{!28, !29, i64 0}
-!28 = !{!"sockaddr_storage", !29, i64 0, !6, i64 2, !30, i64 120}
-!29 = !{!"short", !6, i64 0}
-!30 = !{!"long", !6, i64 0}
-!31 = !{!30, !30, i64 0}
-!32 = !{!33, !30, i64 0}
-!33 = !{!"timeval", !30, i64 0, !30, i64 8}
-!34 = !{!33, !30, i64 8}
-!35 = distinct !{!35, !20, !21}
+!21 = !{!9, !5, i64 0}
+!22 = !{!5, !5, i64 0}
+!23 = distinct !{!23, !20, !24}
+!24 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!25 = distinct !{!25, !20}
+!26 = !{!27, !28, i64 0}
+!27 = !{!"sockaddr_storage", !28, i64 0, !6, i64 2, !29, i64 120}
+!28 = !{!"short", !6, i64 0}
+!29 = !{!"long", !6, i64 0}
+!30 = !{!29, !29, i64 0}
+!31 = !{!32, !29, i64 0}
+!32 = !{!"timeval", !29, i64 0, !29, i64 8}
+!33 = !{!32, !29, i64 8}
+!34 = distinct !{!34, !20}

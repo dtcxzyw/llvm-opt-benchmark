@@ -3646,7 +3646,7 @@ define void @DES_ncbc_encrypt(ptr noundef readonly captures(none) %0, ptr nounde
 
 29:                                               ; preds = %26
   %30 = getelementptr i8, ptr %27, i64 7
-  %31 = load i8, ptr %30, align 1, !tbaa !82
+  %31 = load i8, ptr %30, align 1, !tbaa !81
   %32 = zext i8 %31 to i32
   %33 = shl nuw nsw i32 %32, 16
   br label %34
@@ -3656,7 +3656,7 @@ define void @DES_ncbc_encrypt(ptr noundef readonly captures(none) %0, ptr nounde
   %.2 = phi i32 [ %33, %29 ], [ 0, %26 ]
   %36 = getelementptr i8, ptr %27, i64 %35
   %37 = getelementptr inbounds i8, ptr %36, i64 -1
-  %38 = load i8, ptr %37, align 1, !tbaa !82
+  %38 = load i8, ptr %37, align 1, !tbaa !81
   %39 = zext i8 %38 to i32
   %40 = shl nuw nsw i32 %39, 8
   %41 = or disjoint i32 %40, %.2
@@ -3666,7 +3666,7 @@ define void @DES_ncbc_encrypt(ptr noundef readonly captures(none) %0, ptr nounde
   %.3243 = phi ptr [ %37, %34 ], [ %28, %26 ]
   %.3 = phi i32 [ %41, %34 ], [ 0, %26 ]
   %43 = getelementptr inbounds i8, ptr %.3243, i64 -1
-  %44 = load i8, ptr %43, align 1, !tbaa !82
+  %44 = load i8, ptr %43, align 1, !tbaa !81
   %45 = zext i8 %44 to i32
   %46 = or i32 %.3, %45
   br label %47
@@ -3675,7 +3675,7 @@ define void @DES_ncbc_encrypt(ptr noundef readonly captures(none) %0, ptr nounde
   %.4244 = phi ptr [ %43, %42 ], [ %28, %26 ]
   %.4 = phi i32 [ %46, %42 ], [ 0, %26 ]
   %48 = getelementptr inbounds i8, ptr %.4244, i64 -1
-  %49 = load i8, ptr %48, align 1, !tbaa !82
+  %49 = load i8, ptr %48, align 1, !tbaa !81
   %50 = zext i8 %49 to i32
   %51 = shl nuw i32 %50, 24
   br label %52
@@ -3685,7 +3685,7 @@ define void @DES_ncbc_encrypt(ptr noundef readonly captures(none) %0, ptr nounde
   %.1237 = phi i32 [ %51, %47 ], [ 0, %26 ]
   %.5 = phi i32 [ %.4, %47 ], [ 0, %26 ]
   %53 = getelementptr inbounds i8, ptr %.5245, i64 -1
-  %54 = load i8, ptr %53, align 1, !tbaa !82
+  %54 = load i8, ptr %53, align 1, !tbaa !81
   %55 = zext i8 %54 to i32
   %56 = shl nuw nsw i32 %55, 16
   %57 = or disjoint i32 %56, %.1237
@@ -3696,7 +3696,7 @@ define void @DES_ncbc_encrypt(ptr noundef readonly captures(none) %0, ptr nounde
   %.2238 = phi i32 [ %57, %52 ], [ 0, %26 ]
   %.6 = phi i32 [ %.5, %52 ], [ 0, %26 ]
   %59 = getelementptr inbounds i8, ptr %.6246, i64 -1
-  %60 = load i8, ptr %59, align 1, !tbaa !82
+  %60 = load i8, ptr %59, align 1, !tbaa !81
   %61 = zext i8 %60 to i32
   %62 = shl nuw nsw i32 %61, 8
   %63 = or i32 %62, %.2238
@@ -3707,7 +3707,7 @@ define void @DES_ncbc_encrypt(ptr noundef readonly captures(none) %0, ptr nounde
   %.3239 = phi i32 [ %63, %58 ], [ 0, %26 ]
   %.7 = phi i32 [ %.6, %58 ], [ 0, %26 ]
   %65 = getelementptr inbounds i8, ptr %.7247, i64 -1
-  %66 = load i8, ptr %65, align 1, !tbaa !82
+  %66 = load i8, ptr %65, align 1, !tbaa !81
   %67 = zext i8 %66 to i32
   %68 = or i32 %.3239, %67
   br label %69
@@ -3745,12 +3745,12 @@ define void @DES_ncbc_encrypt(ptr noundef readonly captures(none) %0, ptr nounde
   %80 = zext i16 %79 to i32
   %81 = getelementptr inbounds nuw i8, ptr %.8272, i64 2
   %82 = getelementptr inbounds nuw i8, ptr %.8272, i64 3
-  %83 = load i8, ptr %81, align 1, !tbaa !82
+  %83 = load i8, ptr %81, align 1, !tbaa !81
   %84 = zext i8 %83 to i32
   %85 = shl nuw nsw i32 %84, 16
   %86 = or disjoint i32 %85, %80
   %87 = getelementptr inbounds nuw i8, ptr %.8272, i64 4
-  %88 = load i8, ptr %82, align 1, !tbaa !82
+  %88 = load i8, ptr %82, align 1, !tbaa !81
   %89 = zext i8 %88 to i32
   %90 = shl nuw i32 %89, 24
   %91 = or disjoint i32 %86, %90
@@ -3759,12 +3759,12 @@ define void @DES_ncbc_encrypt(ptr noundef readonly captures(none) %0, ptr nounde
   %93 = zext i16 %92 to i32
   %94 = getelementptr inbounds nuw i8, ptr %.8272, i64 6
   %95 = getelementptr inbounds nuw i8, ptr %.8272, i64 7
-  %96 = load i8, ptr %94, align 1, !tbaa !82
+  %96 = load i8, ptr %94, align 1, !tbaa !81
   %97 = zext i8 %96 to i32
   %98 = shl nuw nsw i32 %97, 16
   %99 = or disjoint i32 %98, %93
   %100 = getelementptr inbounds nuw i8, ptr %.8272, i64 8
-  %101 = load i8, ptr %95, align 1, !tbaa !82
+  %101 = load i8, ptr %95, align 1, !tbaa !81
   %102 = zext i8 %101 to i32
   %103 = shl nuw i32 %102, 24
   %104 = or disjoint i32 %99, %103
@@ -3780,7 +3780,7 @@ define void @DES_ncbc_encrypt(ptr noundef readonly captures(none) %0, ptr nounde
   %110 = getelementptr inbounds nuw i8, ptr %.1249271, i64 8
   %.1 = add nsw i64 %.1275, -8
   %111 = icmp samesign ugt i64 %.1275, 7
-  br i1 %111, label %78, label %._crit_edge278, !llvm.loop !83
+  br i1 %111, label %78, label %._crit_edge278, !llvm.loop !82
 
 ._crit_edge278:                                   ; preds = %78, %76
   %.1249.lcssa = phi ptr [ %1, %76 ], [ %110, %78 ]
@@ -3797,12 +3797,12 @@ define void @DES_ncbc_encrypt(ptr noundef readonly captures(none) %0, ptr nounde
   %114 = zext i16 %113 to i32
   %115 = getelementptr inbounds nuw i8, ptr %.8.lcssa, i64 2
   %116 = getelementptr inbounds nuw i8, ptr %.8.lcssa, i64 3
-  %117 = load i8, ptr %115, align 1, !tbaa !82
+  %117 = load i8, ptr %115, align 1, !tbaa !81
   %118 = zext i8 %117 to i32
   %119 = shl nuw nsw i32 %118, 16
   %120 = or disjoint i32 %119, %114
   %121 = getelementptr inbounds nuw i8, ptr %.8.lcssa, i64 4
-  %122 = load i8, ptr %116, align 1, !tbaa !82
+  %122 = load i8, ptr %116, align 1, !tbaa !81
   %123 = zext i8 %122 to i32
   %124 = shl nuw i32 %123, 24
   %125 = or disjoint i32 %120, %124
@@ -3811,11 +3811,11 @@ define void @DES_ncbc_encrypt(ptr noundef readonly captures(none) %0, ptr nounde
   %127 = zext i16 %126 to i32
   %128 = getelementptr inbounds nuw i8, ptr %.8.lcssa, i64 6
   %129 = getelementptr inbounds nuw i8, ptr %.8.lcssa, i64 7
-  %130 = load i8, ptr %128, align 1, !tbaa !82
+  %130 = load i8, ptr %128, align 1, !tbaa !81
   %131 = zext i8 %130 to i32
   %132 = shl nuw nsw i32 %131, 16
   %133 = or disjoint i32 %132, %127
-  %134 = load i8, ptr %129, align 1, !tbaa !82
+  %134 = load i8, ptr %129, align 1, !tbaa !81
   %135 = zext i8 %134 to i32
   %136 = shl nuw i32 %135, 24
   %137 = or disjoint i32 %133, %136
@@ -3842,7 +3842,7 @@ define void @DES_ncbc_encrypt(ptr noundef readonly captures(none) %0, ptr nounde
   %146 = lshr i32 %142, 16
   %147 = trunc i32 %146 to i8
   %148 = getelementptr i8, ptr %143, i64 7
-  store i8 %147, ptr %148, align 1, !tbaa !82
+  store i8 %147, ptr %148, align 1, !tbaa !81
   br label %149
 
 149:                                              ; preds = %145, %112
@@ -3851,14 +3851,14 @@ define void @DES_ncbc_encrypt(ptr noundef readonly captures(none) %0, ptr nounde
   %152 = lshr i32 %142, 8
   %153 = trunc i32 %152 to i8
   %154 = getelementptr inbounds i8, ptr %151, i64 -1
-  store i8 %153, ptr %154, align 1, !tbaa !82
+  store i8 %153, ptr %154, align 1, !tbaa !81
   br label %155
 
 155:                                              ; preds = %149, %112
   %.4252 = phi ptr [ %154, %149 ], [ %144, %112 ]
   %156 = trunc i32 %142 to i8
   %157 = getelementptr inbounds i8, ptr %.4252, i64 -1
-  store i8 %156, ptr %157, align 1, !tbaa !82
+  store i8 %156, ptr %157, align 1, !tbaa !81
   br label %158
 
 158:                                              ; preds = %155, %112
@@ -3866,7 +3866,7 @@ define void @DES_ncbc_encrypt(ptr noundef readonly captures(none) %0, ptr nounde
   %159 = lshr i32 %140, 24
   %160 = trunc nuw i32 %159 to i8
   %161 = getelementptr inbounds i8, ptr %.5253, i64 -1
-  store i8 %160, ptr %161, align 1, !tbaa !82
+  store i8 %160, ptr %161, align 1, !tbaa !81
   br label %162
 
 162:                                              ; preds = %158, %112
@@ -3874,7 +3874,7 @@ define void @DES_ncbc_encrypt(ptr noundef readonly captures(none) %0, ptr nounde
   %163 = lshr i32 %140, 16
   %164 = trunc i32 %163 to i8
   %165 = getelementptr inbounds i8, ptr %.6254, i64 -1
-  store i8 %164, ptr %165, align 1, !tbaa !82
+  store i8 %164, ptr %165, align 1, !tbaa !81
   br label %166
 
 166:                                              ; preds = %162, %112
@@ -3882,14 +3882,14 @@ define void @DES_ncbc_encrypt(ptr noundef readonly captures(none) %0, ptr nounde
   %167 = lshr i32 %140, 8
   %168 = trunc i32 %167 to i8
   %169 = getelementptr inbounds i8, ptr %.7255, i64 -1
-  store i8 %168, ptr %169, align 1, !tbaa !82
+  store i8 %168, ptr %169, align 1, !tbaa !81
   br label %170
 
 170:                                              ; preds = %112, %166
   %.8256 = phi ptr [ %169, %166 ], [ %144, %112 ]
   %171 = trunc i32 %140 to i8
   %172 = getelementptr inbounds i8, ptr %.8256, i64 -1
-  store i8 %171, ptr %172, align 1, !tbaa !82
+  store i8 %171, ptr %172, align 1, !tbaa !81
   br label %173
 
 173:                                              ; preds = %._crit_edge278, %170, %112, %._crit_edge, %69
@@ -3943,7 +3943,7 @@ define void @DES_ede3_cbc_encrypt(ptr noundef readonly captures(none) %0, ptr no
   %26 = getelementptr inbounds nuw i8, ptr %.0244281, i64 8
   %.0 = add nsw i64 %.0282, -8
   %27 = icmp samesign ugt i64 %.0282, 7
-  br i1 %27, label %16, label %._crit_edge, !llvm.loop !84
+  br i1 %27, label %16, label %._crit_edge, !llvm.loop !83
 
 ._crit_edge:                                      ; preds = %16, %14
   %.0261.lcssa = phi i32 [ %10, %14 ], [ %23, %16 ]
@@ -3970,7 +3970,7 @@ define void @DES_ede3_cbc_encrypt(ptr noundef readonly captures(none) %0, ptr no
 
 31:                                               ; preds = %28
   %32 = getelementptr i8, ptr %29, i64 7
-  %33 = load i8, ptr %32, align 1, !tbaa !82
+  %33 = load i8, ptr %32, align 1, !tbaa !81
   %34 = zext i8 %33 to i32
   %35 = shl nuw nsw i32 %34, 16
   br label %36
@@ -3980,7 +3980,7 @@ define void @DES_ede3_cbc_encrypt(ptr noundef readonly captures(none) %0, ptr no
   %37 = phi i64 [ 7, %31 ], [ 8, %28 ]
   %38 = getelementptr i8, ptr %29, i64 %37
   %39 = getelementptr inbounds i8, ptr %38, i64 -1
-  %40 = load i8, ptr %39, align 1, !tbaa !82
+  %40 = load i8, ptr %39, align 1, !tbaa !81
   %41 = zext i8 %40 to i32
   %42 = shl nuw nsw i32 %41, 8
   %43 = or disjoint i32 %42, %.2265
@@ -3990,7 +3990,7 @@ define void @DES_ede3_cbc_encrypt(ptr noundef readonly captures(none) %0, ptr no
   %.3266 = phi i32 [ %43, %36 ], [ 0, %28 ]
   %.3249 = phi ptr [ %39, %36 ], [ %30, %28 ]
   %45 = getelementptr inbounds i8, ptr %.3249, i64 -1
-  %46 = load i8, ptr %45, align 1, !tbaa !82
+  %46 = load i8, ptr %45, align 1, !tbaa !81
   %47 = zext i8 %46 to i32
   %48 = or i32 %.3266, %47
   br label %49
@@ -3999,7 +3999,7 @@ define void @DES_ede3_cbc_encrypt(ptr noundef readonly captures(none) %0, ptr no
   %.4267 = phi i32 [ %48, %44 ], [ 0, %28 ]
   %.4250 = phi ptr [ %45, %44 ], [ %30, %28 ]
   %50 = getelementptr inbounds i8, ptr %.4250, i64 -1
-  %51 = load i8, ptr %50, align 1, !tbaa !82
+  %51 = load i8, ptr %50, align 1, !tbaa !81
   %52 = zext i8 %51 to i32
   %53 = shl nuw i32 %52, 24
   br label %54
@@ -4009,7 +4009,7 @@ define void @DES_ede3_cbc_encrypt(ptr noundef readonly captures(none) %0, ptr no
   %.5268 = phi i32 [ %.4267, %49 ], [ 0, %28 ]
   %.5251 = phi ptr [ %50, %49 ], [ %30, %28 ]
   %55 = getelementptr inbounds i8, ptr %.5251, i64 -1
-  %56 = load i8, ptr %55, align 1, !tbaa !82
+  %56 = load i8, ptr %55, align 1, !tbaa !81
   %57 = zext i8 %56 to i32
   %58 = shl nuw nsw i32 %57, 16
   %59 = or disjoint i32 %58, %.1272
@@ -4020,7 +4020,7 @@ define void @DES_ede3_cbc_encrypt(ptr noundef readonly captures(none) %0, ptr no
   %.6269 = phi i32 [ %.5268, %54 ], [ 0, %28 ]
   %.6252 = phi ptr [ %55, %54 ], [ %30, %28 ]
   %61 = getelementptr inbounds i8, ptr %.6252, i64 -1
-  %62 = load i8, ptr %61, align 1, !tbaa !82
+  %62 = load i8, ptr %61, align 1, !tbaa !81
   %63 = zext i8 %62 to i32
   %64 = shl nuw nsw i32 %63, 8
   %65 = or i32 %64, %.2273
@@ -4031,7 +4031,7 @@ define void @DES_ede3_cbc_encrypt(ptr noundef readonly captures(none) %0, ptr no
   %.7270 = phi i32 [ %.6269, %60 ], [ 0, %28 ]
   %.7253 = phi ptr [ %61, %60 ], [ %30, %28 ]
   %67 = getelementptr inbounds i8, ptr %.7253, i64 -1
-  %68 = load i8, ptr %67, align 1, !tbaa !82
+  %68 = load i8, ptr %67, align 1, !tbaa !81
   %69 = zext i8 %68 to i32
   %70 = or i32 %.3274, %69
   br label %71
@@ -4069,12 +4069,12 @@ define void @DES_ede3_cbc_encrypt(ptr noundef readonly captures(none) %0, ptr no
   %82 = zext i16 %81 to i32
   %83 = getelementptr inbounds nuw i8, ptr %.8254291, i64 2
   %84 = getelementptr inbounds nuw i8, ptr %.8254291, i64 3
-  %85 = load i8, ptr %83, align 1, !tbaa !82
+  %85 = load i8, ptr %83, align 1, !tbaa !81
   %86 = zext i8 %85 to i32
   %87 = shl nuw nsw i32 %86, 16
   %88 = or disjoint i32 %87, %82
   %89 = getelementptr inbounds nuw i8, ptr %.8254291, i64 4
-  %90 = load i8, ptr %84, align 1, !tbaa !82
+  %90 = load i8, ptr %84, align 1, !tbaa !81
   %91 = zext i8 %90 to i32
   %92 = shl nuw i32 %91, 24
   %93 = or disjoint i32 %88, %92
@@ -4082,12 +4082,12 @@ define void @DES_ede3_cbc_encrypt(ptr noundef readonly captures(none) %0, ptr no
   %95 = zext i16 %94 to i32
   %96 = getelementptr inbounds nuw i8, ptr %.8254291, i64 6
   %97 = getelementptr inbounds nuw i8, ptr %.8254291, i64 7
-  %98 = load i8, ptr %96, align 1, !tbaa !82
+  %98 = load i8, ptr %96, align 1, !tbaa !81
   %99 = zext i8 %98 to i32
   %100 = shl nuw nsw i32 %99, 16
   %101 = or disjoint i32 %100, %95
   %102 = getelementptr inbounds nuw i8, ptr %.8254291, i64 8
-  %103 = load i8, ptr %97, align 1, !tbaa !82
+  %103 = load i8, ptr %97, align 1, !tbaa !81
   %104 = zext i8 %103 to i32
   %105 = shl nuw i32 %104, 24
   %106 = or disjoint i32 %101, %105
@@ -4104,7 +4104,7 @@ define void @DES_ede3_cbc_encrypt(ptr noundef readonly captures(none) %0, ptr no
   %112 = getelementptr inbounds nuw i8, ptr %.1245292, i64 8
   %.1 = add nsw i64 %.1293, -8
   %113 = icmp samesign ugt i64 %.1293, 7
-  br i1 %113, label %80, label %._crit_edge296, !llvm.loop !85
+  br i1 %113, label %80, label %._crit_edge296, !llvm.loop !84
 
 ._crit_edge296:                                   ; preds = %80, %78
   %.0257.lcssa = phi i32 [ %10, %78 ], [ %93, %80 ]
@@ -4121,12 +4121,12 @@ define void @DES_ede3_cbc_encrypt(ptr noundef readonly captures(none) %0, ptr no
   %116 = zext i16 %115 to i32
   %117 = getelementptr inbounds nuw i8, ptr %.8254.lcssa, i64 2
   %118 = getelementptr inbounds nuw i8, ptr %.8254.lcssa, i64 3
-  %119 = load i8, ptr %117, align 1, !tbaa !82
+  %119 = load i8, ptr %117, align 1, !tbaa !81
   %120 = zext i8 %119 to i32
   %121 = shl nuw nsw i32 %120, 16
   %122 = or disjoint i32 %121, %116
   %123 = getelementptr inbounds nuw i8, ptr %.8254.lcssa, i64 4
-  %124 = load i8, ptr %118, align 1, !tbaa !82
+  %124 = load i8, ptr %118, align 1, !tbaa !81
   %125 = zext i8 %124 to i32
   %126 = shl nuw i32 %125, 24
   %127 = or disjoint i32 %122, %126
@@ -4134,11 +4134,11 @@ define void @DES_ede3_cbc_encrypt(ptr noundef readonly captures(none) %0, ptr no
   %129 = zext i16 %128 to i32
   %130 = getelementptr inbounds nuw i8, ptr %.8254.lcssa, i64 6
   %131 = getelementptr inbounds nuw i8, ptr %.8254.lcssa, i64 7
-  %132 = load i8, ptr %130, align 1, !tbaa !82
+  %132 = load i8, ptr %130, align 1, !tbaa !81
   %133 = zext i8 %132 to i32
   %134 = shl nuw nsw i32 %133, 16
   %135 = or disjoint i32 %134, %129
-  %136 = load i8, ptr %131, align 1, !tbaa !82
+  %136 = load i8, ptr %131, align 1, !tbaa !81
   %137 = zext i8 %136 to i32
   %138 = shl nuw i32 %137, 24
   %139 = or disjoint i32 %135, %138
@@ -4166,7 +4166,7 @@ define void @DES_ede3_cbc_encrypt(ptr noundef readonly captures(none) %0, ptr no
   %148 = lshr i32 %144, 16
   %149 = trunc i32 %148 to i8
   %150 = getelementptr i8, ptr %145, i64 7
-  store i8 %149, ptr %150, align 1, !tbaa !82
+  store i8 %149, ptr %150, align 1, !tbaa !81
   br label %151
 
 151:                                              ; preds = %147, %114
@@ -4175,14 +4175,14 @@ define void @DES_ede3_cbc_encrypt(ptr noundef readonly captures(none) %0, ptr no
   %154 = lshr i32 %144, 8
   %155 = trunc i32 %154 to i8
   %156 = getelementptr inbounds i8, ptr %153, i64 -1
-  store i8 %155, ptr %156, align 1, !tbaa !82
+  store i8 %155, ptr %156, align 1, !tbaa !81
   br label %157
 
 157:                                              ; preds = %151, %114
   %.4 = phi ptr [ %156, %151 ], [ %146, %114 ]
   %158 = trunc i32 %144 to i8
   %159 = getelementptr inbounds i8, ptr %.4, i64 -1
-  store i8 %158, ptr %159, align 1, !tbaa !82
+  store i8 %158, ptr %159, align 1, !tbaa !81
   br label %160
 
 160:                                              ; preds = %157, %114
@@ -4190,7 +4190,7 @@ define void @DES_ede3_cbc_encrypt(ptr noundef readonly captures(none) %0, ptr no
   %161 = lshr i32 %143, 24
   %162 = trunc nuw i32 %161 to i8
   %163 = getelementptr inbounds i8, ptr %.5, i64 -1
-  store i8 %162, ptr %163, align 1, !tbaa !82
+  store i8 %162, ptr %163, align 1, !tbaa !81
   br label %164
 
 164:                                              ; preds = %160, %114
@@ -4198,7 +4198,7 @@ define void @DES_ede3_cbc_encrypt(ptr noundef readonly captures(none) %0, ptr no
   %165 = lshr i32 %143, 16
   %166 = trunc i32 %165 to i8
   %167 = getelementptr inbounds i8, ptr %.6, i64 -1
-  store i8 %166, ptr %167, align 1, !tbaa !82
+  store i8 %166, ptr %167, align 1, !tbaa !81
   br label %168
 
 168:                                              ; preds = %164, %114
@@ -4206,14 +4206,14 @@ define void @DES_ede3_cbc_encrypt(ptr noundef readonly captures(none) %0, ptr no
   %169 = lshr i32 %143, 8
   %170 = trunc i32 %169 to i8
   %171 = getelementptr inbounds i8, ptr %.7, i64 -1
-  store i8 %170, ptr %171, align 1, !tbaa !82
+  store i8 %170, ptr %171, align 1, !tbaa !81
   br label %172
 
 172:                                              ; preds = %114, %168
   %.8 = phi ptr [ %171, %168 ], [ %146, %114 ]
   %173 = trunc i32 %143 to i8
   %174 = getelementptr inbounds i8, ptr %.8, i64 -1
-  store i8 %173, ptr %174, align 1, !tbaa !82
+  store i8 %173, ptr %174, align 1, !tbaa !81
   br label %175
 
 175:                                              ; preds = %._crit_edge296, %172, %114, %._crit_edge, %71
@@ -4312,10 +4312,9 @@ attributes #4 = { nounwind }
 !76 = !{i64 2148328504}
 !77 = !{i64 2148328859}
 !78 = !{i64 2148329214}
-!79 = distinct !{!79, !80, !81}
+!79 = distinct !{!79, !80}
 !80 = !{!"llvm.loop.mustprogress"}
-!81 = !{!"llvm.loop.estimated_trip_count"}
-!82 = !{!5, !5, i64 0}
-!83 = distinct !{!83, !80, !81}
-!84 = distinct !{!84, !80, !81}
-!85 = distinct !{!85, !80, !81}
+!81 = !{!5, !5, i64 0}
+!82 = distinct !{!82, !80}
+!83 = distinct !{!83, !80}
+!84 = distinct !{!84, !80}

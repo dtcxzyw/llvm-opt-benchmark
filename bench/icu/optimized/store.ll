@@ -235,7 +235,7 @@ define dso_local void @storeMapping(i32 noundef %0, ptr noundef readonly capture
   %62 = add i16 %.06380, 1
   %63 = sext i16 %.06380 to i64
   %64 = getelementptr inbounds i16, ptr %51, i64 %63
-  store i16 %61, ptr %64, align 2, !tbaa !19
+  store i16 %61, ptr %64, align 2, !tbaa !18
   %65 = trunc i32 %54 to i16
   %66 = and i16 %65, 1023
   %67 = or disjoint i16 %66, -9216
@@ -248,19 +248,19 @@ define dso_local void @storeMapping(i32 noundef %0, ptr noundef readonly capture
   %69 = add i16 %.06380, %.sink87
   %70 = sext i16 %.06380.sink to i64
   %71 = getelementptr inbounds i16, ptr %51, i64 %70
-  store i16 %.sink, ptr %71, align 2, !tbaa !19
+  store i16 %.sink, ptr %71, align 2, !tbaa !18
   %72 = add i16 %.16579, 1
   %73 = sext i16 %72 to i32
   %74 = icmp sgt i32 %2, %73
-  br i1 %74, label %.lr.ph82, label %._crit_edge83, !llvm.loop !21
+  br i1 %74, label %.lr.ph82, label %._crit_edge83, !llvm.loop !20
 
 ._crit_edge83:                                    ; preds = %68
   %75 = tail call noalias dereferenceable_or_null(16) ptr @uprv_malloc_77(i64 noundef 16) #18
-  store ptr %51, ptr %75, align 8, !tbaa !22
+  store ptr %51, ptr %75, align 8, !tbaa !21
   %76 = getelementptr inbounds nuw i8, ptr %75, i64 12
-  store i32 %3, ptr %76, align 4, !tbaa !25
+  store i32 %3, ptr %76, align 4, !tbaa !24
   %77 = getelementptr inbounds nuw i8, ptr %75, i64 8
-  store i16 %24, ptr %77, align 8, !tbaa !26
+  store i16 %24, ptr %77, align 8, !tbaa !25
   %78 = icmp sgt i16 %24, 3
   br i1 %78, label %79, label %82
 
@@ -325,7 +325,7 @@ declare ptr @uhash_setValueDeleter_77(ptr noundef, ptr noundef) local_unnamed_ad
 
 ; Function Attrs: nounwind uwtable
 define internal void @valueDeleter(ptr noundef %0) #0 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !22
+  %2 = load ptr, ptr %0, align 8, !tbaa !21
   tail call void @uprv_free_77(ptr noundef %2) #13
   tail call void @uprv_free_77(ptr noundef nonnull %0) #13
   ret void
@@ -460,7 +460,7 @@ define dso_local void @generateData(ptr noundef %0, ptr noundef %1) local_unname
   %12 = load i32, ptr @mappingDataCapacity, align 4, !tbaa !7
   %13 = sext i32 %12 to i64
   %14 = tail call noalias ptr @uprv_calloc_77(i64 noundef %13, i64 noundef 2) #14
-  store ptr %14, ptr @mappingData, align 8, !tbaa !27
+  store ptr %14, ptr @mappingData, align 8, !tbaa !26
   %15 = icmp sgt i32 %11, 0
   br i1 %15, label %.preheader.i, label %._crit_edge90.thread.i
 
@@ -511,13 +511,13 @@ define dso_local void @generateData(ptr noundef %0, ptr noundef %1) local_unname
   %.237.i = phi i32 [ %.13682.i, %24 ], [ %22, %31 ], [ %22, %33 ]
   %.2.i = phi i32 [ %.183.i, %24 ], [ %.183.i, %31 ], [ %35, %33 ]
   %36 = getelementptr inbounds nuw i8, ptr %29, i64 8
-  %37 = load i16, ptr %36, align 8, !tbaa !26
+  %37 = load i16, ptr %36, align 8, !tbaa !25
   %38 = sext i16 %37 to i64
   %39 = icmp eq i64 %indvars.iv.i, %38
   br i1 %39, label %40, label %94
 
 40:                                               ; preds = %._crit_edge115.i
-  %41 = load i16, ptr @currentIndex, align 2, !tbaa !19
+  %41 = load i16, ptr @currentIndex, align 2, !tbaa !18
   %42 = shl i16 %41, 2
   %43 = icmp ugt i16 %42, -17
   br i1 %43, label %44, label %47
@@ -563,9 +563,9 @@ define dso_local void @generateData(ptr noundef %0, ptr noundef %1) local_unname
 
 63:                                               ; preds = %56
   %64 = add nsw i32 %.14081.i, 1
-  %65 = load i16, ptr @currentIndex, align 2, !tbaa !19
+  %65 = load i16, ptr @currentIndex, align 2, !tbaa !18
   %66 = sext i16 %65 to i32
-  %67 = load i16, ptr %36, align 8, !tbaa !26
+  %67 = load i16, ptr %36, align 8, !tbaa !25
   %68 = sext i16 %67 to i32
   %69 = add nsw i32 %68, %66
   %70 = icmp sgt i32 %69, 16318
@@ -578,16 +578,16 @@ define dso_local void @generateData(ptr noundef %0, ptr noundef %1) local_unname
   unreachable
 
 74:                                               ; preds = %63
-  %.pre112.i = load ptr, ptr @mappingData, align 8, !tbaa !27
+  %.pre112.i = load ptr, ptr @mappingData, align 8, !tbaa !26
   br i1 %21, label %75, label %79
 
 75:                                               ; preds = %74
   %76 = add i16 %65, 1
-  store i16 %76, ptr @currentIndex, align 2, !tbaa !19
+  store i16 %76, ptr @currentIndex, align 2, !tbaa !18
   %77 = sext i16 %65 to i64
   %78 = getelementptr inbounds i16, ptr %.pre112.i, i64 %77
-  store i16 %23, ptr %78, align 2, !tbaa !19
-  %.pre113.i = load i16, ptr %36, align 8, !tbaa !26
+  store i16 %23, ptr %78, align 2, !tbaa !18
+  %.pre113.i = load i16, ptr %36, align 8, !tbaa !25
   %.pre114.i = sext i16 %.pre113.i to i32
   br label %79
 
@@ -596,12 +596,12 @@ define dso_local void @generateData(ptr noundef %0, ptr noundef %1) local_unname
   %80 = phi i16 [ %76, %75 ], [ %65, %74 ]
   %81 = sext i16 %80 to i64
   %82 = getelementptr inbounds i16, ptr %.pre112.i, i64 %81
-  %83 = load ptr, ptr %29, align 8, !tbaa !22
+  %83 = load ptr, ptr %29, align 8, !tbaa !21
   %84 = call ptr @u_memmove_77(ptr noundef %82, ptr noundef %83, i32 noundef %.pre-phi.i) #13
-  %85 = load i16, ptr %36, align 8, !tbaa !26
-  %86 = load i16, ptr @currentIndex, align 2, !tbaa !19
+  %85 = load i16, ptr %36, align 8, !tbaa !25
+  %86 = load i16, ptr @currentIndex, align 2, !tbaa !18
   %87 = add i16 %86, %85
-  store i16 %87, ptr @currentIndex, align 2, !tbaa !19
+  store i16 %87, ptr @currentIndex, align 2, !tbaa !18
   %88 = sext i16 %87 to i32
   %89 = load i32, ptr @mappingDataCapacity, align 4, !tbaa !7
   %90 = icmp slt i32 %89, %88
@@ -618,7 +618,7 @@ define dso_local void @generateData(ptr noundef %0, ptr noundef %1) local_unname
   %95 = load ptr, ptr @hashTable, align 8, !tbaa !14
   %96 = call ptr @uhash_nextElement_77(ptr noundef %95, ptr noundef nonnull %3) #13
   %.not.i = icmp eq ptr %96, null
-  br i1 %.not.i, label %._crit_edge.i, label %24, !llvm.loop !28
+  br i1 %.not.i, label %._crit_edge.i, label %24, !llvm.loop !27
 
 ._crit_edge.i:                                    ; preds = %94, %.preheader.i
   %.140.lcssa.i = phi i32 [ %.03986.i, %.preheader.i ], [ %.241.i, %94 ]
@@ -627,7 +627,7 @@ define dso_local void @generateData(ptr noundef %0, ptr noundef %1) local_unname
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   store i32 -1, ptr %3, align 4, !tbaa !7
   %97 = icmp slt i32 %.140.lcssa.i, %11
-  br i1 %97, label %.preheader.i, label %._crit_edge90.i, !llvm.loop !29
+  br i1 %97, label %.preheader.i, label %._crit_edge90.i, !llvm.loop !28
 
 ._crit_edge90.i:                                  ; preds = %._crit_edge.i
   %98 = icmp samesign ult i64 %indvars.iv.i, 3
@@ -635,7 +635,7 @@ define dso_local void @generateData(ptr noundef %0, ptr noundef %1) local_unname
 
 ._crit_edge90.thread.i:                           ; preds = %._crit_edge90.i, %10
   %.038.lcssa120.i = phi i64 [ %indvars.iv.next.i, %._crit_edge90.i ], [ 1, %10 ]
-  %99 = load i16, ptr @currentIndex, align 2, !tbaa !19
+  %99 = load i16, ptr @currentIndex, align 2, !tbaa !18
   %100 = sext i16 %99 to i32
   %101 = add nsw i32 %100, 1
   %102 = add nuw nsw i64 %.038.lcssa120.i, 2
@@ -679,7 +679,7 @@ storeMappingData.exit:                            ; preds = %2, %._crit_edge90.t
   %124 = load i32, ptr @mappingDataCapacity, align 4, !tbaa !7
   %125 = shl nsw i32 %124, 1
   %126 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.13, i32 noundef %125)
-  %127 = load i16, ptr @currentIndex, align 2, !tbaa !19
+  %127 = load i16, ptr @currentIndex, align 2, !tbaa !18
   %128 = sext i16 %127 to i32
   %129 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.14, i32 noundef %128)
   %130 = load i32, ptr @maxLength, align 4, !tbaa !7
@@ -711,7 +711,7 @@ storeMappingData.exit:                            ; preds = %2, %._crit_edge90.t
   store i32 %145, ptr getelementptr inbounds nuw (i8, ptr @indexes, i64 4), align 4, !tbaa !7
   call void @udata_writeBlock(ptr noundef %136, ptr noundef nonnull @indexes, i32 noundef 64) #13
   call void @udata_writeBlock(ptr noundef %136, ptr noundef nonnull @generateData.sprepTrieBlock, i32 noundef %106) #13
-  %146 = load ptr, ptr @mappingData, align 8, !tbaa !27
+  %146 = load ptr, ptr @mappingData, align 8, !tbaa !26
   %147 = load i32, ptr getelementptr inbounds nuw (i8, ptr @indexes, i64 4), align 4, !tbaa !7
   call void @udata_writeBlock(ptr noundef %136, ptr noundef %146, i32 noundef %147) #13
   %148 = call i32 @udata_finish(ptr noundef %136, ptr noundef nonnull %4) #13
@@ -780,7 +780,7 @@ define internal noundef i32 @getFoldedValue(ptr noundef %0, i32 noundef %1, i32 
   %.sink = phi i32 [ 32, %6 ], [ 1, %9 ]
   %11 = add nsw i32 %.0911, %.sink
   %12 = icmp slt i32 %11, %5
-  br i1 %12, label %6, label %13, !llvm.loop !30
+  br i1 %12, label %6, label %13, !llvm.loop !29
 
 13:                                               ; preds = %10, %9
   %.0 = phi i32 [ %2, %9 ], [ 0, %10 ]
@@ -806,7 +806,7 @@ declare void @uprv_free_77(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @cleanUpData() local_unnamed_addr #0 {
-  %1 = load ptr, ptr @mappingData, align 8, !tbaa !27
+  %1 = load ptr, ptr @mappingData, align 8, !tbaa !26
   tail call void @uprv_free_77(ptr noundef %1) #13
   %2 = load ptr, ptr @sprepTrie, align 8, !tbaa !9
   tail call void @utrie_close_77(ptr noundef %2) #13
@@ -866,18 +866,17 @@ attributes #20 = { nounwind willreturn memory(read) }
 !13 = !{!"p1 _ZTS8_IO_FILE", !11, i64 0}
 !14 = !{!15, !15, i64 0}
 !15 = !{!"p1 _ZTS10UHashtable", !11, i64 0}
-!16 = distinct !{!16, !17, !18}
+!16 = distinct !{!16, !17}
 !17 = !{!"llvm.loop.mustprogress"}
-!18 = !{!"llvm.loop.estimated_trip_count"}
-!19 = !{!20, !20, i64 0}
-!20 = !{!"short", !5, i64 0}
-!21 = distinct !{!21, !17, !18}
-!22 = !{!23, !24, i64 0}
-!23 = !{!"ValueStruct", !24, i64 0, !20, i64 8, !8, i64 12}
-!24 = !{!"p1 short", !11, i64 0}
-!25 = !{!23, !8, i64 12}
-!26 = !{!23, !20, i64 8}
-!27 = !{!24, !24, i64 0}
-!28 = distinct !{!28, !17, !18}
-!29 = distinct !{!29, !17, !18}
-!30 = distinct !{!30, !17, !18}
+!18 = !{!19, !19, i64 0}
+!19 = !{!"short", !5, i64 0}
+!20 = distinct !{!20, !17}
+!21 = !{!22, !23, i64 0}
+!22 = !{!"ValueStruct", !23, i64 0, !19, i64 8, !8, i64 12}
+!23 = !{!"p1 short", !11, i64 0}
+!24 = !{!22, !8, i64 12}
+!25 = !{!22, !19, i64 8}
+!26 = !{!23, !23, i64 0}
+!27 = distinct !{!27, !17}
+!28 = distinct !{!28, !17}
+!29 = distinct !{!29, !17}

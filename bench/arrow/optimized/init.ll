@@ -209,19 +209,19 @@ mi_thread_data_alloc.exit.thread.i:               ; preds = %mi_thread_data_allo
   %42 = tail call i64 @_mi_heap_random_next(ptr noundef nonnull %.1.i33.i) #12
   %43 = getelementptr inbounds nuw i8, ptr %.1.i33.i, i64 2872
   store i64 %42, ptr %43, align 8, !tbaa !16
-  store ptr %32, ptr %.1.i33.i, align 8, !tbaa !22
+  store ptr %32, ptr %.1.i33.i, align 8, !tbaa !21
   %44 = getelementptr inbounds nuw i8, ptr %.1.i33.i, i64 3072
-  store ptr %.1.i33.i, ptr %44, align 8, !tbaa !23
+  store ptr %.1.i33.i, ptr %44, align 8, !tbaa !22
   %45 = getelementptr inbounds nuw i8, ptr %.1.i33.i, i64 3080
-  store ptr %.1.i33.i, ptr %45, align 8, !tbaa !33
+  store ptr %.1.i33.i, ptr %45, align 8, !tbaa !32
   %46 = getelementptr inbounds nuw i8, ptr %.1.i33.i, i64 4016
   %47 = getelementptr inbounds nuw i8, ptr %.1.i33.i, i64 3984
-  store ptr %46, ptr %47, align 8, !tbaa !34
+  store ptr %46, ptr %47, align 8, !tbaa !33
   %48 = getelementptr inbounds nuw i8, ptr %.1.i33.i, i64 4000
   %49 = getelementptr inbounds nuw i8, ptr %.1.i33.i, i64 3992
-  store ptr %48, ptr %49, align 8, !tbaa !35
+  store ptr %48, ptr %49, align 8, !tbaa !34
   %50 = getelementptr inbounds nuw i8, ptr %.1.i33.i, i64 4008
-  store ptr %46, ptr %50, align 8, !tbaa !36
+  store ptr %46, ptr %50, align 8, !tbaa !35
   store ptr %.1.i33.i, ptr %1, align 8, !tbaa !17
   %51 = load i32, ptr @_mi_heap_default_key, align 4, !tbaa !18
   %.not.i30.i = icmp eq i32 %51, -1
@@ -242,7 +242,7 @@ _mi_heap_init.exit.thread1:                       ; preds = %0, %_mi_heap_init.e
 
 ; Function Attrs: nounwind uwtable
 define hidden void @mi_process_init() local_unnamed_addr #0 {
-  %1 = load i8, ptr @_mi_process_is_initialized, align 1, !tbaa !37, !range !38, !noundef !39
+  %1 = load i8, ptr @_mi_process_is_initialized, align 1, !tbaa !36, !range !37, !noundef !38
   %2 = trunc nuw i8 %1 to i1
   br i1 %2, label %39, label %3
 
@@ -250,7 +250,7 @@ define hidden void @mi_process_init() local_unnamed_addr #0 {
   %4 = tail call ptr asm "movq %fs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(ptr) null) #11, !srcloc !14
   %5 = ptrtoint ptr %4 to i64
   tail call void (ptr, ...) @_mi_verbose_message(ptr noundef nonnull @.str, i64 noundef %5) #12
-  store i8 1, ptr @_mi_process_is_initialized, align 1, !tbaa !37
+  store i8 1, ptr @_mi_process_is_initialized, align 1, !tbaa !36
   %.b1.i = load i1, ptr @mi_process_setup_auto_thread_done.tls_initialized, align 1
   br i1 %.b1.i, label %mi_process_setup_auto_thread_done.exit, label %6
 
@@ -377,23 +377,23 @@ _mi_is_main_thread.exit.thread.i:                 ; preds = %_mi_is_main_thread.
   br label %_mi_heap_set_default_direct.exit.i
 
 _mi_heap_set_default_direct.exit.i:               ; preds = %15, %11
-  %17 = load ptr, ptr %0, align 8, !tbaa !22
+  %17 = load ptr, ptr %0, align 8, !tbaa !21
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 16
-  %19 = load ptr, ptr %18, align 8, !tbaa !23
+  %19 = load ptr, ptr %18, align 8, !tbaa !22
   %.not26.i = icmp eq ptr %19, @_mi_heap_empty
   br i1 %.not26.i, label %_mi_heap_done.exit, label %20
 
 20:                                               ; preds = %_mi_heap_set_default_direct.exit.i
-  %21 = load ptr, ptr %19, align 8, !tbaa !22
+  %21 = load ptr, ptr %19, align 8, !tbaa !21
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 24
-  %23 = load ptr, ptr %22, align 8, !tbaa !33
+  %23 = load ptr, ptr %22, align 8, !tbaa !32
   %.not28.i = icmp eq ptr %23, null
   br i1 %.not28.i, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %20, %27
   %.01629.i = phi ptr [ %25, %27 ], [ %23, %20 ]
   %24 = getelementptr inbounds nuw i8, ptr %.01629.i, i64 3040
-  %25 = load ptr, ptr %24, align 8, !tbaa !40
+  %25 = load ptr, ptr %24, align 8, !tbaa !39
   %.not19.i = icmp eq ptr %.01629.i, %19
   br i1 %.not19.i, label %27, label %26
 
@@ -403,7 +403,7 @@ _mi_heap_set_default_direct.exit.i:               ; preds = %15, %11
 
 27:                                               ; preds = %26, %.lr.ph.i
   %.not.i = icmp eq ptr %25, null
-  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !41
+  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !40
 
 ._crit_edge.i:                                    ; preds = %27, %20
   %.not18.i = icmp eq ptr %19, @_mi_heap_main
@@ -411,7 +411,7 @@ _mi_heap_set_default_direct.exit.i:               ; preds = %15, %11
 
 28:                                               ; preds = %._crit_edge.i
   tail call void @_mi_heap_collect_abandon(ptr noundef nonnull %19) #12
-  %29 = load ptr, ptr %19, align 8, !tbaa !22
+  %29 = load ptr, ptr %19, align 8, !tbaa !21
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 960
   tail call void @_mi_stats_done(ptr noundef nonnull %30) #12
   %31 = ptrtoint ptr %19 to i64
@@ -432,14 +432,14 @@ _mi_heap_set_default_direct.exit.i:               ; preds = %15, %11
 .critedge.i.i:                                    ; preds = %36, %32
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 8
-  br i1 %exitcond.not.i.i, label %39, label %32, !llvm.loop !42
+  br i1 %exitcond.not.i.i, label %39, label %32, !llvm.loop !41
 
 39:                                               ; preds = %.critedge.i.i
   tail call void @_mi_os_free(ptr noundef nonnull %19, i64 noundef 4592, ptr noundef nonnull @_mi_stats_main) #12
   br label %_mi_heap_done.exit
 
 .critedge.i:                                      ; preds = %._crit_edge.i
-  %40 = load ptr, ptr @_mi_heap_main, align 8, !tbaa !22
+  %40 = load ptr, ptr @_mi_heap_main, align 8, !tbaa !21
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 960
   tail call void @_mi_stats_done(ptr noundef nonnull %41) #12
   br label %42
@@ -464,7 +464,7 @@ _mi_heap_set_default_direct.exit.i:               ; preds = %15, %11
 49:                                               ; preds = %47, %45, %42
   %indvars.iv.next.i22.i = add nuw nsw i64 %indvars.iv.i20.i, 1
   %exitcond.not.i23.i = icmp eq i64 %indvars.iv.next.i22.i, 8
-  br i1 %exitcond.not.i23.i, label %_mi_heap_done.exit, label %42, !llvm.loop !43
+  br i1 %exitcond.not.i23.i, label %_mi_heap_done.exit, label %42, !llvm.loop !42
 
 _mi_heap_done.exit:                               ; preds = %36, %49, %39, %_mi_heap_set_default_direct.exit.i, %1
   ret void
@@ -596,7 +596,7 @@ declare i32 @atexit(ptr noundef) local_unnamed_addr #10
 
 ; Function Attrs: nounwind uwtable
 define internal void @mi_process_done() #0 {
-  %1 = load i8, ptr @_mi_process_is_initialized, align 1, !tbaa !37, !range !38, !noundef !39
+  %1 = load i8, ptr @_mi_process_is_initialized, align 1, !tbaa !36, !range !37, !noundef !38
   %2 = trunc nuw i8 %1 to i1
   %.not = xor i1 %2, true
   %.b2 = load i1, ptr @mi_process_done.process_done, align 1
@@ -668,28 +668,27 @@ attributes #12 = { nounwind }
 !16 = !{!9, !9, i64 0}
 !17 = !{!12, !12, i64 0}
 !18 = !{!11, !11, i64 0}
-!19 = distinct !{!19, !20, !21}
+!19 = distinct !{!19, !20}
 !20 = !{!"llvm.loop.mustprogress"}
-!21 = !{!"llvm.loop.estimated_trip_count"}
-!22 = !{!4, !5, i64 0}
-!23 = !{!24, !12, i64 16}
-!24 = !{!"mi_tld_s", !25, i64 0, !13, i64 8, !12, i64 16, !12, i64 24, !26, i64 32, !29, i64 944, !30, i64 960}
-!25 = !{!"long long", !7, i64 0}
-!26 = !{!"mi_segments_tld_s", !7, i64 0, !9, i64 864, !9, i64 872, !9, i64 880, !9, i64 888, !27, i64 896, !28, i64 904}
-!27 = !{!"p1 _ZTS10mi_stats_s", !6, i64 0}
-!28 = !{!"p1 _ZTS11mi_os_tld_s", !6, i64 0}
-!29 = !{!"mi_os_tld_s", !9, i64 0, !27, i64 8}
-!30 = !{!"mi_stats_s", !31, i64 0, !31, i64 32, !31, i64 64, !31, i64 96, !31, i64 128, !31, i64 160, !31, i64 192, !31, i64 224, !31, i64 256, !31, i64 288, !31, i64 320, !31, i64 352, !31, i64 384, !31, i64 416, !32, i64 448, !32, i64 464, !32, i64 480, !32, i64 496, !32, i64 512, !32, i64 528, !32, i64 544, !32, i64 560}
-!31 = !{!"mi_stat_count_s", !9, i64 0, !9, i64 8, !9, i64 16, !9, i64 24}
-!32 = !{!"mi_stat_counter_s", !9, i64 0, !9, i64 8}
-!33 = !{!24, !12, i64 24}
-!34 = !{!24, !27, i64 928}
-!35 = !{!24, !28, i64 936}
-!36 = !{!24, !27, i64 952}
-!37 = !{!13, !13, i64 0}
-!38 = !{i8 0, i8 2}
-!39 = !{}
-!40 = !{!4, !12, i64 3040}
-!41 = distinct !{!41, !20, !21}
-!42 = distinct !{!42, !20, !21}
-!43 = distinct !{!43, !20, !21}
+!21 = !{!4, !5, i64 0}
+!22 = !{!23, !12, i64 16}
+!23 = !{!"mi_tld_s", !24, i64 0, !13, i64 8, !12, i64 16, !12, i64 24, !25, i64 32, !28, i64 944, !29, i64 960}
+!24 = !{!"long long", !7, i64 0}
+!25 = !{!"mi_segments_tld_s", !7, i64 0, !9, i64 864, !9, i64 872, !9, i64 880, !9, i64 888, !26, i64 896, !27, i64 904}
+!26 = !{!"p1 _ZTS10mi_stats_s", !6, i64 0}
+!27 = !{!"p1 _ZTS11mi_os_tld_s", !6, i64 0}
+!28 = !{!"mi_os_tld_s", !9, i64 0, !26, i64 8}
+!29 = !{!"mi_stats_s", !30, i64 0, !30, i64 32, !30, i64 64, !30, i64 96, !30, i64 128, !30, i64 160, !30, i64 192, !30, i64 224, !30, i64 256, !30, i64 288, !30, i64 320, !30, i64 352, !30, i64 384, !30, i64 416, !31, i64 448, !31, i64 464, !31, i64 480, !31, i64 496, !31, i64 512, !31, i64 528, !31, i64 544, !31, i64 560}
+!30 = !{!"mi_stat_count_s", !9, i64 0, !9, i64 8, !9, i64 16, !9, i64 24}
+!31 = !{!"mi_stat_counter_s", !9, i64 0, !9, i64 8}
+!32 = !{!23, !12, i64 24}
+!33 = !{!23, !26, i64 928}
+!34 = !{!23, !27, i64 936}
+!35 = !{!23, !26, i64 952}
+!36 = !{!13, !13, i64 0}
+!37 = !{i8 0, i8 2}
+!38 = !{}
+!39 = !{!4, !12, i64 3040}
+!40 = distinct !{!40, !20}
+!41 = distinct !{!41, !20}
+!42 = distinct !{!42, !20}

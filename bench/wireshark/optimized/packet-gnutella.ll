@@ -442,7 +442,7 @@ define internal i32 @dissect_gnutella_pdu(ptr noundef %0, ptr noundef readonly c
   %112 = add i32 %.290.i, 1
   %113 = add i32 %.08089.i, 1
   %exitcond106.not.i = icmp eq i32 %113, %108
-  br i1 %exitcond106.not.i, label %._crit_edge93.i, label %.lr.ph92.i, !llvm.loop !9
+  br i1 %exitcond106.not.i, label %._crit_edge93.i, label %.lr.ph92.i, !llvm.loop !8
 
 ._crit_edge93.i:                                  ; preds = %111, %.lr.ph92.i, %._crit_edge.i
   %.080.lcssa.i = phi i32 [ 0, %._crit_edge.i ], [ %108, %111 ], [ %.08089.i, %.lr.ph92.i ]
@@ -471,7 +471,7 @@ define internal i32 @dissect_gnutella_pdu(ptr noundef %0, ptr noundef readonly c
 130:                                              ; preds = %127, %._crit_edge93.i
   %131 = add nuw nsw i32 %.0100.i, 1
   %exitcond107.not.i = icmp eq i32 %131, %84
-  br i1 %exitcond107.not.i, label %._crit_edge103.i, label %.lr.ph102.i, !llvm.loop !10
+  br i1 %exitcond107.not.i, label %._crit_edge103.i, label %.lr.ph102.i, !llvm.loop !9
 
 ._crit_edge103.i:                                 ; preds = %130, %78
   %.078.lcssa.i = phi i32 [ 34, %78 ], [ %114, %130 ]
@@ -528,8 +528,7 @@ attributes #2 = { nocallback nofree nosync nounwind speculatable willreturn memo
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7, !8}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}

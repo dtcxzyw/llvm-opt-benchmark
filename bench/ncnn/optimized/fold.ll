@@ -688,7 +688,7 @@ _ZN4ncnn3Mat4fillEf.exit._ZN4ncnn3MatD2Ev.exit_crit_edge.us: ; preds = %._crit_e
   %.us-phi74.us.us = phi ptr [ %.03975.us.us, %.preheader52.us.us ], [ %.us-phi.us.us.us, %._crit_edge63.us.us.us ]
   %indvars.iv.next111 = add nuw nsw i64 %indvars.iv110, 1
   %exitcond114.not = icmp eq i64 %indvars.iv.next111, %wide.trip.count113
-  br i1 %exitcond114.not, label %_ZN4ncnn3Mat4fillEf.exit._ZN4ncnn3MatD2Ev.exit_crit_edge.us, label %.preheader52.us.us, !llvm.loop !68
+  br i1 %exitcond114.not, label %_ZN4ncnn3Mat4fillEf.exit._ZN4ncnn3MatD2Ev.exit_crit_edge.us, label %.preheader52.us.us, !llvm.loop !67
 
 .preheader.lr.ph.us.us.us:                        ; preds = %.preheader52.us.us, %._crit_edge63.us.us.us
   %indvars.iv = phi i64 [ %indvars.iv.next, %._crit_edge63.us.us.us ], [ 0, %.preheader52.us.us ]
@@ -699,7 +699,7 @@ _ZN4ncnn3Mat4fillEf.exit._ZN4ncnn3MatD2Ev.exit_crit_edge.us: ; preds = %._crit_e
   %.us-phi.us.us.us = phi ptr [ %.14065.us.us.us, %.preheader.lr.ph.us.us.us ], [ %94, %._crit_edge.us.us.us.us ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond109.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond109.not, label %._crit_edge.us.us, label %.preheader.lr.ph.us.us.us, !llvm.loop !70
+  br i1 %exitcond109.not, label %._crit_edge.us.us, label %.preheader.lr.ph.us.us.us, !llvm.loop !69
 
 .preheader.lr.ph.split.us.us.us.us:               ; preds = %.preheader.lr.ph.us.us.us
   %85 = mul nsw i64 %indvars.iv, %78
@@ -726,13 +726,13 @@ _ZN4ncnn3Mat4fillEf.exit._ZN4ncnn3MatD2Ev.exit_crit_edge.us: ; preds = %._crit_e
   %94 = getelementptr inbounds nuw i8, ptr %.355.us.us.us.us, i64 4
   %95 = add nuw nsw i32 %.057.us.us.us.us, 1
   %exitcond106.not = icmp eq i32 %95, %81
-  br i1 %exitcond106.not, label %._crit_edge.us.us.us.us, label %89, !llvm.loop !71
+  br i1 %exitcond106.not, label %._crit_edge.us.us.us.us, label %89, !llvm.loop !70
 
 ._crit_edge.us.us.us.us:                          ; preds = %89
   %96 = getelementptr inbounds float, ptr %93, i64 %84
   %97 = add nuw nsw i32 %.03562.us.us.us.us, 1
   %exitcond107.not = icmp eq i32 %97, %74
-  br i1 %exitcond107.not, label %._crit_edge63.us.us.us, label %.preheader.us.us.us.us, !llvm.loop !72
+  br i1 %exitcond107.not, label %._crit_edge63.us.us.us, label %.preheader.us.us.us.us, !llvm.loop !71
 
 .noexc.lr.ph.split:                               ; preds = %.noexc.lr.ph
   br i1 %47, label %.noexc.us88.preheader, label %._crit_edge
@@ -754,7 +754,7 @@ _ZN4ncnn3Mat4fillEf.exit._ZN4ncnn3MatD2Ev.exit_crit_edge.us: ; preds = %._crit_e
   %indvar.next = add nuw nsw i64 %indvar, 1
   %lftr.wideiv = trunc i64 %indvar.next to i32
   %exitcond.not = icmp eq i32 %102, %lftr.wideiv
-  br i1 %exitcond.not, label %._crit_edge, label %.noexc.us88, !llvm.loop !73
+  br i1 %exitcond.not, label %._crit_edge, label %.noexc.us88, !llvm.loop !72
 
 ._crit_edge:                                      ; preds = %.noexc.us88, %_ZN4ncnn3Mat4fillEf.exit._ZN4ncnn3MatD2Ev.exit_crit_edge.us, %.noexc.lr.ph.split, %17
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %19)
@@ -796,7 +796,7 @@ declare i32 @__kmpc_global_thread_num(ptr) local_unnamed_addr #6
 declare void @__kmpc_push_num_threads(ptr, i32, i32) local_unnamed_addr #6
 
 ; Function Attrs: nounwind
-declare !callback !74 void @__kmpc_fork_call(ptr, i32, ptr, ...) local_unnamed_addr #6
+declare !callback !73 void @__kmpc_fork_call(ptr, i32, ptr, ...) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #9
@@ -899,14 +899,13 @@ attributes #15 = { noreturn nounwind }
 !62 = distinct !{!62, !"_ZN4ncnn3Mat7channelEi"}
 !63 = !{!64, !64, i64 0}
 !64 = !{!"float", !8, i64 0}
-!65 = distinct !{!65, !66, !67}
-!66 = !{!"llvm.loop.estimated_trip_count"}
-!67 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!68 = distinct !{!68, !69, !66, !67}
-!69 = !{!"llvm.loop.mustprogress"}
-!70 = distinct !{!70, !69, !66, !67}
-!71 = distinct !{!71, !69, !66}
-!72 = distinct !{!72, !69, !66, !67}
-!73 = distinct !{!73, !66, !67}
-!74 = !{!75}
-!75 = !{i64 2, i64 -1, i64 -1, i1 true}
+!65 = distinct !{!65, !66}
+!66 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!67 = distinct !{!67, !68, !66}
+!68 = !{!"llvm.loop.mustprogress"}
+!69 = distinct !{!69, !68, !66}
+!70 = distinct !{!70, !68}
+!71 = distinct !{!71, !68, !66}
+!72 = distinct !{!72, !66}
+!73 = !{!74}
+!74 = !{i64 2, i64 -1, i64 -1, i1 true}

@@ -911,7 +911,7 @@ define hidden void @_ZN5XHeap21select_relocation_setEv(ptr noundef nonnull align
 
 16:                                               ; preds = %.lr.ph.i
   %.not11.i = icmp eq ptr %15, %10
-  br i1 %.not11.i, label %.loopexit, label %.lr.ph.i, !llvm.loop !9
+  br i1 %.not11.i, label %.loopexit, label %.lr.ph.i, !llvm.loop !8
 
 _ZN18XPageTableIterator4nextEPP5XPage.exit:       ; preds = %.lr.ph.i
   %17 = getelementptr inbounds nuw i8, ptr %14, i64 4
@@ -923,7 +923,7 @@ _ZN18XPageTableIterator4nextEPP5XPage.exit:       ; preds = %.lr.ph.i
 21:                                               ; preds = %_ZN18XPageTableIterator4nextEPP5XPage.exit
   %22 = getelementptr inbounds nuw i8, ptr %14, i64 32
   %23 = load volatile i32, ptr %22, align 4
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !10
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !9
   %24 = load i32, ptr @XGlobalSeqNum, align 4
   %25 = icmp eq i32 %23, %24
   br i1 %25, label %26, label %27
@@ -1013,7 +1013,7 @@ _ZN22XRelocationSetSelector19register_empty_pageEP5XPage.exit: ; preds = %27, %3
   %64 = load i32, ptr %11, align 8
   %65 = sext i32 %64 to i64
   %66 = icmp slt i64 %indvars.iv.next.i.i.i, %65
-  br i1 %66, label %.lr.ph.i.i.i, label %.preheader15.loopexit.i.i.i, !llvm.loop !11
+  br i1 %66, label %.lr.ph.i.i.i, label %.preheader15.loopexit.i.i.i, !llvm.loop !10
 
 .preheader.i.i.i:                                 ; preds = %.lr.ph18.i.i.i, %.preheader15.i.i.i
   %67 = load ptr, ptr %.phi.trans.insert.i, align 8
@@ -1028,7 +1028,7 @@ _ZN22XRelocationSetSelector19register_empty_pageEP5XPage.exit: ; preds = %27, %3
   %69 = load i32, ptr %12, align 4
   %70 = trunc nuw i64 %indvars.iv.next21.i.i.i to i32
   %71 = icmp sgt i32 %69, %70
-  br i1 %71, label %.lr.ph18.i.i.i, label %.preheader.i.i.i, !llvm.loop !12
+  br i1 %71, label %.lr.ph18.i.i.i, label %.preheader.i.i.i, !llvm.loop !11
 
 72:                                               ; preds = %.preheader.i.i.i
   call void @_ZN27GrowableArrayCHeapAllocator10deallocateEPv(ptr noundef nonnull %67) #12
@@ -1073,7 +1073,7 @@ _ZN5XHeap10free_pagesEPK18GrowableArrayCHeapIP5XPageL8MEMFLAGS5EEb.exit.i: ; pre
 
 .backedge:                                        ; preds = %26, %_ZN26GrowableArrayWithAllocatorIP5XPage18GrowableArrayCHeapIS1_L8MEMFLAGS5EEE6appendERKS1_.exit, %_ZN5XHeap10free_pagesEPK18GrowableArrayCHeapIP5XPageL8MEMFLAGS5EEb.exit.i, %_ZN18XPageTableIterator4nextEPP5XPage.exit
   %.not10.i = icmp eq ptr %15, %10
-  br i1 %.not10.i, label %.loopexit, label %.lr.ph.i.preheader, !llvm.loop !13
+  br i1 %.not10.i, label %.loopexit, label %.lr.ph.i.preheader, !llvm.loop !12
 
 .loopexit:                                        ; preds = %.backedge, %16, %1
   %85 = getelementptr inbounds nuw i8, ptr %2, i64 336
@@ -1141,11 +1141,11 @@ _ZN5XHeap16free_empty_pagesEP22XRelocationSetSelectori.exit7: ; preds = %.loopex
   store ptr %102, ptr %112, align 8
   %113 = add nuw nsw i64 %.09.i.i, 1
   %114 = icmp samesign ult i64 %113, %110
-  br i1 %114, label %.lr.ph.i.i9, label %_ZN16XForwardingTable6insertEP11XForwarding.exit, !llvm.loop !14
+  br i1 %114, label %.lr.ph.i.i9, label %_ZN16XForwardingTable6insertEP11XForwarding.exit, !llvm.loop !13
 
 _ZN16XForwardingTable6insertEP11XForwarding.exit: ; preds = %.lr.ph.i.i9, %101
   %.not = icmp eq ptr %103, %99
-  br i1 %.not, label %_ZN18XArrayIteratorImplIP11XForwardingLb0EE4nextEPS1_.exit, label %101, !llvm.loop !15
+  br i1 %.not, label %_ZN18XArrayIteratorImplIP11XForwardingLb0EE4nextEPS1_.exit, label %101, !llvm.loop !14
 
 _ZN18XArrayIteratorImplIP11XForwardingLb0EE4nextEPS1_.exit: ; preds = %_ZN16XForwardingTable6insertEP11XForwarding.exit, %_ZN5XHeap16free_empty_pagesEP22XRelocationSetSelectori.exit7
   call void @_ZNK22XRelocationSetSelector5statsEv(ptr dead_on_unwind nonnull writable sret(%class.XRelocationSetSelectorStats) align 8 %3, ptr noundef nonnull align 8 dereferenceable(352) %2) #12
@@ -1414,11 +1414,11 @@ define hidden void @_ZN5XHeap20reset_relocation_setEv(ptr noundef nonnull align 
   store ptr null, ptr %19, align 8
   %20 = add nuw nsw i64 %.09.i.i, 1
   %21 = icmp samesign ult i64 %20, %17
-  br i1 %21, label %.lr.ph.i.i, label %_ZN16XForwardingTable6removeEP11XForwarding.exit, !llvm.loop !14
+  br i1 %21, label %.lr.ph.i.i, label %_ZN16XForwardingTable6removeEP11XForwarding.exit, !llvm.loop !13
 
 _ZN16XForwardingTable6removeEP11XForwarding.exit: ; preds = %.lr.ph.i.i, %8
   %.not = icmp eq ptr %10, %6
-  br i1 %.not, label %_ZN18XArrayIteratorImplIP11XForwardingLb0EE4nextEPS1_.exit, label %8, !llvm.loop !16
+  br i1 %.not, label %_ZN18XArrayIteratorImplIP11XForwardingLb0EE4nextEPS1_.exit, label %8, !llvm.loop !15
 
 _ZN18XArrayIteratorImplIP11XForwardingLb0EE4nextEPS1_.exit: ; preds = %_ZN16XForwardingTable6removeEP11XForwarding.exit, %1
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 3416
@@ -1536,14 +1536,14 @@ define hidden void @_ZN5XHeap8pages_doEP12XPageClosure(ptr noundef nonnull align
 
 11:                                               ; preds = %.lr.ph.i
   %.not11.i = icmp eq ptr %10, %7
-  br i1 %.not11.i, label %.loopexit, label %.lr.ph.i, !llvm.loop !9
+  br i1 %.not11.i, label %.loopexit, label %.lr.ph.i, !llvm.loop !8
 
 _ZN18XPageTableIterator4nextEPP5XPage.exit:       ; preds = %.lr.ph.i
   %12 = load ptr, ptr %1, align 8
   %13 = load ptr, ptr %12, align 8
   tail call void %13(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %9) #12
   %.not10.i = icmp eq ptr %10, %7
-  br i1 %.not10.i, label %.loopexit, label %.lr.ph.i.preheader, !llvm.loop !17
+  br i1 %.not10.i, label %.loopexit, label %.lr.ph.i.preheader, !llvm.loop !16
 
 .loopexit:                                        ; preds = %_ZN18XPageTableIterator4nextEPP5XPage.exit, %11, %2
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 176
@@ -1655,12 +1655,12 @@ define hidden void @_ZNK5XHeap17print_extended_onEP12outputStream(ptr noundef no
 
 18:                                               ; preds = %.lr.ph.i
   %.not11.i = icmp eq ptr %17, %14
-  br i1 %.not11.i, label %.loopexit, label %.lr.ph.i, !llvm.loop !9
+  br i1 %.not11.i, label %.loopexit, label %.lr.ph.i, !llvm.loop !8
 
 _ZN18XPageTableIterator4nextEPP5XPage.exit:       ; preds = %.lr.ph.i
   tail call void @_ZNK5XPage8print_onEP12outputStream(ptr noundef nonnull align 8 dereferenceable(136) %16, ptr noundef nonnull %1) #12
   %.not10.i = icmp eq ptr %17, %14
-  br i1 %.not10.i, label %.loopexit, label %.lr.ph.i.preheader, !llvm.loop !18
+  br i1 %.not10.i, label %.loopexit, label %.lr.ph.i.preheader, !llvm.loop !17
 
 .loopexit:                                        ; preds = %_ZN18XPageTableIterator4nextEPP5XPage.exit, %18, %2
   tail call void @_ZNK14XPageAllocator23disable_deferred_deleteEv(ptr noundef nonnull align 8 dereferenceable(609) %3) #12
@@ -1912,7 +1912,7 @@ define linkonce_odr hidden noundef i32 @_ZN26GrowableArrayWithAllocatorIP5XPage1
   %28 = load i32, ptr %0, align 8
   %29 = sext i32 %28 to i64
   %30 = icmp slt i64 %indvars.iv.next.i.i, %29
-  br i1 %30, label %23, label %.preheader15.loopexit.i.i, !llvm.loop !11
+  br i1 %30, label %23, label %.preheader15.loopexit.i.i, !llvm.loop !10
 
 .preheader.i.i:                                   ; preds = %.lr.ph18.i.i, %.preheader15.i.i
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1928,7 +1928,7 @@ define linkonce_odr hidden noundef i32 @_ZN26GrowableArrayWithAllocatorIP5XPage1
   %34 = load i32, ptr %4, align 4
   %35 = trunc nuw i64 %indvars.iv.next21.i.i to i32
   %36 = icmp sgt i32 %34, %35
-  br i1 %36, label %.lr.ph18.i.i, label %.preheader.i.i, !llvm.loop !12
+  br i1 %36, label %.lr.ph18.i.i, label %.preheader.i.i, !llvm.loop !11
 
 37:                                               ; preds = %.preheader.i.i
   tail call void @_ZN27GrowableArrayCHeapAllocator10deallocateEPv(ptr noundef nonnull %32) #12
@@ -2015,16 +2015,15 @@ attributes #13 = { noreturn nounwind }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = !{i64 2145392468}
-!11 = distinct !{!11, !7, !8}
-!12 = distinct !{!12, !7, !8}
-!13 = distinct !{!13, !7, !8}
-!14 = distinct !{!14, !7, !8}
-!15 = distinct !{!15, !7, !8}
-!16 = distinct !{!16, !7, !8}
-!17 = distinct !{!17, !7, !8}
-!18 = distinct !{!18, !7, !8}
+!8 = distinct !{!8, !7}
+!9 = !{i64 2145392468}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7}
+!12 = distinct !{!12, !7}
+!13 = distinct !{!13, !7}
+!14 = distinct !{!14, !7}
+!15 = distinct !{!15, !7}
+!16 = distinct !{!16, !7}
+!17 = distinct !{!17, !7}

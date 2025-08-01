@@ -166,13 +166,13 @@ add_client_id.exit.i:                             ; preds = %31
 
 54:                                               ; preds = %47
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 4864
-  %56 = load ptr, ptr %55, align 8, !tbaa !83
+  %56 = load ptr, ptr %55, align 8, !tbaa !82
   %.not84.i = icmp eq ptr %56, null
   br i1 %.not84.i, label %61, label %57
 
 57:                                               ; preds = %54
   %58 = getelementptr inbounds nuw i8, ptr %56, i64 8
-  %59 = load i32, ptr %58, align 8, !tbaa !84
+  %59 = load i32, ptr %58, align 8, !tbaa !83
   %60 = icmp sgt i32 %59, 0
   br i1 %60, label %61, label %62
 
@@ -250,9 +250,9 @@ add_passwd.exit.i:                                ; preds = %78
   br i1 %.not.i8, label %93, label %mqtt_send.exit
 
 93:                                               ; preds = %89
-  %94 = load i64, ptr %3, align 8, !tbaa !86
+  %94 = load i64, ptr %3, align 8, !tbaa !85
   call void @Curl_debug(ptr noundef nonnull %0, i32 noundef 2, ptr noundef nonnull %30, i64 noundef %94) #8
-  %95 = load i64, ptr %3, align 8, !tbaa !86
+  %95 = load i64, ptr %3, align 8, !tbaa !85
   %.not26.i = icmp eq i64 %26, %95
   br i1 %.not26.i, label %102, label %96
 
@@ -264,9 +264,9 @@ add_passwd.exit.i:                                ; preds = %78
   br i1 %.not27.not.i, label %mqtt_send.exit, label %100
 
 100:                                              ; preds = %96
-  store ptr %99, ptr %91, align 8, !tbaa !87
+  store ptr %99, ptr %91, align 8, !tbaa !86
   %101 = getelementptr inbounds nuw i8, ptr %91, i64 8
-  store i64 %97, ptr %101, align 8, !tbaa !89
+  store i64 %97, ptr %101, align 8, !tbaa !88
   br label %mqtt_send.exit
 
 102:                                              ; preds = %93
@@ -308,11 +308,11 @@ mqtt_connect.exit:                                ; preds = %add_client_id.exit.
 
 109:                                              ; preds = %mqtt_connect.exit
   %110 = getelementptr i8, ptr %0, i64 24
-  %.val = load ptr, ptr %110, align 8, !tbaa !90
+  %.val = load ptr, ptr %110, align 8, !tbaa !89
   %111 = getelementptr inbounds nuw i8, ptr %.val, i64 1088
-  store i32 0, ptr %111, align 4, !tbaa !91
+  store i32 0, ptr %111, align 4, !tbaa !90
   %112 = getelementptr inbounds nuw i8, ptr %.val, i64 1092
-  store i32 2, ptr %112, align 4, !tbaa !93
+  store i32 2, ptr %112, align 4, !tbaa !92
   br label %113
 
 113:                                              ; preds = %109, %108
@@ -325,9 +325,9 @@ define internal noundef i32 @mqtt_done(ptr noundef readonly captures(none) %0, i
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 440
   %5 = load ptr, ptr %4, align 8, !tbaa !7
   %6 = load ptr, ptr @Curl_cfree, align 8, !tbaa !3
-  %7 = load ptr, ptr %5, align 8, !tbaa !87
+  %7 = load ptr, ptr %5, align 8, !tbaa !86
   tail call void %6(ptr noundef %7) #8
-  store ptr null, ptr %5, align 8, !tbaa !87
+  store ptr null, ptr %5, align 8, !tbaa !86
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 40
   tail call void @Curl_dyn_free(ptr noundef nonnull %8) #8
   ret i32 0
@@ -345,7 +345,7 @@ define internal i32 @mqtt_doing(ptr noundef %0, ptr noundef writeonly captures(n
   %10 = alloca i64, align 8
   %11 = alloca i8, align 1
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %13 = load ptr, ptr %12, align 8, !tbaa !90
+  %13 = load ptr, ptr %12, align 8, !tbaa !89
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 1088
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 440
   %16 = load ptr, ptr %15, align 8, !tbaa !7
@@ -353,12 +353,12 @@ define internal i32 @mqtt_doing(ptr noundef %0, ptr noundef writeonly captures(n
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %11) #8
   store i8 0, ptr %1, align 1, !tbaa !8
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  %18 = load i64, ptr %17, align 8, !tbaa !89
+  %18 = load i64, ptr %17, align 8, !tbaa !88
   %.not = icmp eq i64 %18, 0
   br i1 %.not, label %35, label %19
 
 19:                                               ; preds = %2
-  %20 = load ptr, ptr %16, align 8, !tbaa !87
+  %20 = load ptr, ptr %16, align 8, !tbaa !86
   %21 = load ptr, ptr %15, align 8, !tbaa !7
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #8
   %22 = call i32 @Curl_xfer_send(ptr noundef nonnull %0, ptr noundef %20, i64 noundef %18, i1 noundef zeroext false, ptr noundef nonnull %9) #8
@@ -366,9 +366,9 @@ define internal i32 @mqtt_doing(ptr noundef %0, ptr noundef writeonly captures(n
   br i1 %.not.i, label %23, label %mqtt_send.exit
 
 23:                                               ; preds = %19
-  %24 = load i64, ptr %9, align 8, !tbaa !86
+  %24 = load i64, ptr %9, align 8, !tbaa !85
   call void @Curl_debug(ptr noundef nonnull %0, i32 noundef 2, ptr noundef %20, i64 noundef %24) #8
-  %25 = load i64, ptr %9, align 8, !tbaa !86
+  %25 = load i64, ptr %9, align 8, !tbaa !85
   %.not26.i = icmp eq i64 %18, %25
   br i1 %.not26.i, label %32, label %26
 
@@ -380,9 +380,9 @@ define internal i32 @mqtt_doing(ptr noundef %0, ptr noundef writeonly captures(n
   br i1 %.not27.not.i, label %mqtt_send.exit, label %30
 
 30:                                               ; preds = %26
-  store ptr %29, ptr %21, align 8, !tbaa !87
+  store ptr %29, ptr %21, align 8, !tbaa !86
   %31 = getelementptr inbounds nuw i8, ptr %21, i64 8
-  store i64 %27, ptr %31, align 8, !tbaa !89
+  store i64 %27, ptr %31, align 8, !tbaa !88
   br label %mqtt_send.exit.thread
 
 32:                                               ; preds = %23
@@ -411,23 +411,23 @@ mqtt_send.exit:                                   ; preds = %19, %26
 
 39:                                               ; preds = %35
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 4864
-  %41 = load ptr, ptr %40, align 8, !tbaa !83
+  %41 = load ptr, ptr %40, align 8, !tbaa !82
   %.not89 = icmp eq ptr %41, null
   br i1 %.not89, label %46, label %42
 
 42:                                               ; preds = %39
   %43 = getelementptr inbounds nuw i8, ptr %41, i64 8
-  %44 = load i32, ptr %43, align 8, !tbaa !84
+  %44 = load i32, ptr %43, align 8, !tbaa !83
   %45 = icmp sgt i32 %44, 0
   br i1 %45, label %46, label %48
 
 46:                                               ; preds = %42, %39
-  %47 = load i32, ptr %14, align 4, !tbaa !91
+  %47 = load i32, ptr %14, align 4, !tbaa !90
   call void (ptr, ptr, ...) @Curl_infof(ptr noundef nonnull %0, ptr noundef nonnull @.str.7, i32 noundef %47) #8
   br label %48
 
 48:                                               ; preds = %46, %42, %35
-  %49 = load i32, ptr %14, align 4, !tbaa !91
+  %49 = load i32, ptr %14, align 4, !tbaa !90
   switch i32 %49, label %278 [
     i32 0, label %50
     i32 1, label %59
@@ -444,7 +444,7 @@ mqtt_send.exit:                                   ; preds = %19, %26
   br i1 %.not93, label %53, label %mqstate.exit
 
 53:                                               ; preds = %50
-  %54 = load i64, ptr %10, align 8, !tbaa !86
+  %54 = load i64, ptr %10, align 8, !tbaa !85
   %.not94 = icmp eq i64 %54, 0
   br i1 %.not94, label %55, label %56
 
@@ -456,10 +456,10 @@ mqtt_send.exit:                                   ; preds = %19, %26
 56:                                               ; preds = %53
   call void @Curl_debug(ptr noundef nonnull %0, i32 noundef 1, ptr noundef nonnull %51, i64 noundef 1) #8
   %57 = getelementptr inbounds nuw i8, ptr %16, i64 16
-  store i64 0, ptr %57, align 8, !tbaa !94
-  %.val = load ptr, ptr %12, align 8, !tbaa !90
+  store i64 0, ptr %57, align 8, !tbaa !93
+  %.val = load ptr, ptr %12, align 8, !tbaa !89
   %58 = getelementptr inbounds nuw i8, ptr %.val, i64 1088
-  store i32 1, ptr %58, align 4, !tbaa !91
+  store i32 1, ptr %58, align 4, !tbaa !90
   br label %59
 
 59:                                               ; preds = %56, %48
@@ -478,19 +478,19 @@ mqtt_send.exit:                                   ; preds = %19, %26
 67:                                               ; preds = %62
   call void @Curl_debug(ptr noundef %0, i32 noundef 1, ptr noundef nonnull %11, i64 noundef 1) #8
   %68 = load i8, ptr %11, align 1, !tbaa !7
-  %69 = load i64, ptr %61, align 8, !tbaa !94
+  %69 = load i64, ptr %61, align 8, !tbaa !93
   %70 = add i64 %69, 1
-  store i64 %70, ptr %61, align 8, !tbaa !94
+  store i64 %70, ptr %61, align 8, !tbaa !93
   %71 = getelementptr inbounds nuw [4 x i8], ptr %60, i64 0, i64 %69
   store i8 %68, ptr %71, align 1, !tbaa !7
   %.not95 = icmp slt i8 %68, 0
   %72 = icmp ult i64 %70, 4
   %or.cond122 = and i1 %72, %.not95
-  br i1 %or.cond122, label %62, label %..critedge_crit_edge, !llvm.loop !95
+  br i1 %or.cond122, label %62, label %..critedge_crit_edge, !llvm.loop !94
 
 ..critedge_crit_edge:                             ; preds = %67
   %.pre = load i64, ptr %10, align 8
-  br label %.critedge, !llvm.loop !95
+  br label %.critedge, !llvm.loop !94
 
 .critedgesplit:                                   ; preds = %62
   %.pre127 = load i8, ptr %11, align 1
@@ -509,13 +509,13 @@ mqtt_send.exit:                                   ; preds = %19, %26
   br i1 %.not97, label %76, label %mqstate.exit
 
 76:                                               ; preds = %.critedge
-  %77 = load i64, ptr %61, align 8, !tbaa !94
+  %77 = load i64, ptr %61, align 8, !tbaa !93
   %.not.i104 = icmp eq i64 %77, 0
   br i1 %.not.i104, label %mqtt_decode_len.exit.thread, label %.lr.ph.i
 
 mqtt_decode_len.exit.thread:                      ; preds = %76
   %78 = getelementptr inbounds nuw i8, ptr %16, i64 32
-  store i64 0, ptr %78, align 8, !tbaa !96
+  store i64 0, ptr %78, align 8, !tbaa !95
   br label %98
 
 .lr.ph.i:                                         ; preds = %76, %.lr.ph.i
@@ -533,37 +533,37 @@ mqtt_decode_len.exit.thread:                      ; preds = %76
   %87 = icmp ult i64 %86, %77
   %88 = icmp slt i8 %80, 0
   %89 = select i1 %87, i1 %88, i1 false
-  br i1 %89, label %.lr.ph.i, label %mqtt_decode_len.exit, !llvm.loop !97
+  br i1 %89, label %.lr.ph.i, label %mqtt_decode_len.exit, !llvm.loop !96
 
 mqtt_decode_len.exit:                             ; preds = %.lr.ph.i
   %90 = getelementptr inbounds nuw i8, ptr %16, i64 32
-  store i64 %84, ptr %90, align 8, !tbaa !96
-  store i64 0, ptr %61, align 8, !tbaa !94
+  store i64 %84, ptr %90, align 8, !tbaa !95
+  store i64 0, ptr %61, align 8, !tbaa !93
   %.not98 = icmp eq i64 %84, 0
   br i1 %.not98, label %98, label %91
 
 91:                                               ; preds = %mqtt_decode_len.exit
   %92 = getelementptr inbounds nuw i8, ptr %13, i64 1092
-  %93 = load i32, ptr %92, align 4, !tbaa !93
-  %.val101 = load ptr, ptr %12, align 8, !tbaa !90
+  %93 = load i32, ptr %92, align 4, !tbaa !92
+  %.val101 = load ptr, ptr %12, align 8, !tbaa !89
   %94 = getelementptr inbounds nuw i8, ptr %.val101, i64 1088
-  store i32 %93, ptr %94, align 4, !tbaa !91
+  store i32 %93, ptr %94, align 4, !tbaa !90
   %95 = icmp eq i32 %93, 0
   br i1 %95, label %96, label %mqstate.exit.thread
 
 96:                                               ; preds = %91
   %97 = getelementptr inbounds nuw i8, ptr %.val101, i64 1092
-  store i32 7, ptr %97, align 4, !tbaa !93
+  store i32 7, ptr %97, align 4, !tbaa !92
   br label %mqstate.exit.thread
 
 98:                                               ; preds = %mqtt_decode_len.exit.thread, %mqtt_decode_len.exit
-  %.val102 = load ptr, ptr %12, align 8, !tbaa !90
+  %.val102 = load ptr, ptr %12, align 8, !tbaa !89
   %99 = getelementptr inbounds nuw i8, ptr %.val102, i64 1088
-  store i32 0, ptr %99, align 4, !tbaa !91
+  store i32 0, ptr %99, align 4, !tbaa !90
   %100 = getelementptr inbounds nuw i8, ptr %.val102, i64 1092
-  store i32 0, ptr %100, align 4, !tbaa !93
+  store i32 0, ptr %100, align 4, !tbaa !92
   %101 = getelementptr inbounds nuw i8, ptr %16, i64 24
-  %102 = load i8, ptr %101, align 8, !tbaa !98
+  %102 = load i8, ptr %101, align 8, !tbaa !97
   %103 = icmp eq i8 %102, -32
   br i1 %103, label %104, label %mqstate.exit.thread
 
@@ -575,13 +575,13 @@ mqtt_decode_len.exit:                             ; preds = %.lr.ph.i
 
 107:                                              ; preds = %104
   %108 = getelementptr inbounds nuw i8, ptr %0, i64 4864
-  %109 = load ptr, ptr %108, align 8, !tbaa !83
+  %109 = load ptr, ptr %108, align 8, !tbaa !82
   %.not100 = icmp eq ptr %109, null
   br i1 %.not100, label %114, label %110
 
 110:                                              ; preds = %107
   %111 = getelementptr inbounds nuw i8, ptr %109, i64 8
-  %112 = load i32, ptr %111, align 8, !tbaa !84
+  %112 = load i32, ptr %111, align 8, !tbaa !83
   %113 = icmp sgt i32 %112, 0
   br i1 %113, label %114, label %115
 
@@ -609,7 +609,7 @@ mqtt_decode_len.exit:                             ; preds = %.lr.ph.i
   br i1 %.not.i.i, label %124, label %.thread.i.i
 
 124:                                              ; preds = %121
-  %125 = load i64, ptr %8, align 8, !tbaa !86
+  %125 = load i64, ptr %8, align 8, !tbaa !85
   %126 = call i32 @Curl_dyn_addn(ptr noundef nonnull %118, ptr noundef nonnull %7, i64 noundef %125) #8
   %.not21.i.i = icmp eq i32 %126, 0
   br i1 %.not21.i.i, label %127, label %.thread.i.i
@@ -663,7 +663,7 @@ mqstate.exit.thread119:                           ; preds = %130
 
 mqtt_verify_connack.exit:                         ; preds = %141, %140
   %144 = getelementptr inbounds nuw i8, ptr %0, i64 5034
-  %145 = load i8, ptr %144, align 2, !tbaa !99
+  %145 = load i8, ptr %144, align 2, !tbaa !98
   %146 = icmp eq i8 %145, 1
   br i1 %146, label %147, label %153
 
@@ -680,7 +680,7 @@ mqtt_verify_connack.exit:                         ; preds = %141, %140
 151:                                              ; preds = %149, %147
   %.3 = phi i32 [ %148, %147 ], [ %150, %149 ]
   %152 = getelementptr inbounds nuw i8, ptr %13, i64 1092
-  store i32 0, ptr %152, align 4, !tbaa !93
+  store i32 0, ptr %152, align 4, !tbaa !92
   br label %mqstate.exit
 
 153:                                              ; preds = %mqtt_verify_connack.exit
@@ -689,20 +689,20 @@ mqtt_verify_connack.exit:                         ; preds = %141, %140
   br i1 %.not91, label %155, label %mqstate.exit
 
 155:                                              ; preds = %153
-  %.val103 = load ptr, ptr %12, align 8, !tbaa !90
+  %.val103 = load ptr, ptr %12, align 8, !tbaa !89
   %156 = getelementptr inbounds nuw i8, ptr %.val103, i64 1088
-  store i32 0, ptr %156, align 4, !tbaa !91
+  store i32 0, ptr %156, align 4, !tbaa !90
   %157 = getelementptr inbounds nuw i8, ptr %.val103, i64 1092
-  store i32 3, ptr %157, align 4, !tbaa !93
+  store i32 3, ptr %157, align 4, !tbaa !92
   br label %mqstate.exit.thread
 
 158:                                              ; preds = %48, %48, %48
-  %159 = load ptr, ptr %12, align 8, !tbaa !90
+  %159 = load ptr, ptr %12, align 8, !tbaa !89
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #8
   %160 = getelementptr inbounds nuw i8, ptr %159, i64 1088
   %161 = getelementptr inbounds nuw i8, ptr %0, i64 240
   %162 = load ptr, ptr %15, align 8, !tbaa !7
-  %163 = load i32, ptr %160, align 4, !tbaa !91
+  %163 = load i32, ptr %160, align 4, !tbaa !90
   switch i32 %163, label %mqtt_read_publish.exit [
     i32 4, label %164
     i32 3, label %202
@@ -712,7 +712,7 @@ mqtt_verify_connack.exit:                         ; preds = %141, %140
 
 ._crit_edge.i106:                                 ; preds = %158
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %162, i64 16
-  %.pre.i = load i64, ptr %.phi.trans.insert.i, align 8, !tbaa !94
+  %.pre.i = load i64, ptr %.phi.trans.insert.i, align 8, !tbaa !93
   br label %240
 
 164:                                              ; preds = %206, %158
@@ -731,7 +731,7 @@ mqtt_verify_connack.exit:                         ; preds = %141, %140
   br i1 %.not.i.i.i, label %172, label %.thread.i.i.i
 
 172:                                              ; preds = %169
-  %173 = load i64, ptr %4, align 8, !tbaa !86
+  %173 = load i64, ptr %4, align 8, !tbaa !85
   %174 = call i32 @Curl_dyn_addn(ptr noundef nonnull %166, ptr noundef nonnull %3, i64 noundef %173) #8
   %.not21.i.i.i = icmp eq i32 %174, 0
   br i1 %.not21.i.i.i, label %175, label %.thread.i.i.i
@@ -754,7 +754,7 @@ mqtt_verify_connack.exit:                         ; preds = %141, %140
   call void @Curl_debug(ptr noundef nonnull %0, i32 noundef 1, ptr noundef %179, i64 noundef 3) #8
   %180 = load i8, ptr %179, align 1, !tbaa !7
   %181 = getelementptr inbounds nuw i8, ptr %159, i64 1096
-  %182 = load i32, ptr %181, align 4, !tbaa !100
+  %182 = load i32, ptr %181, align 4, !tbaa !99
   %183 = lshr i32 %182, 8
   %184 = trunc i32 %183 to i8
   %.not16.i.i = icmp eq i8 %180, %184
@@ -794,16 +794,16 @@ mqtt_verify_connack.exit:                         ; preds = %141, %140
   br label %mqtt_verify_suback.exit.i
 
 mqtt_verify_suback.exit.i:                        ; preds = %197, %196
-  %.val96.i = load ptr, ptr %12, align 8, !tbaa !90
+  %.val96.i = load ptr, ptr %12, align 8, !tbaa !89
   %200 = getelementptr inbounds nuw i8, ptr %.val96.i, i64 1088
-  store i32 0, ptr %200, align 4, !tbaa !91
+  store i32 0, ptr %200, align 4, !tbaa !90
   %201 = getelementptr inbounds nuw i8, ptr %.val96.i, i64 1092
-  store i32 5, ptr %201, align 4, !tbaa !93
+  store i32 5, ptr %201, align 4, !tbaa !92
   br label %mqtt_read_publish.exit
 
 202:                                              ; preds = %158, %158
   %203 = getelementptr inbounds nuw i8, ptr %162, i64 24
-  %204 = load i8, ptr %203, align 8, !tbaa !98
+  %204 = load i8, ptr %203, align 8, !tbaa !97
   %205 = and i8 %204, -16
   switch i8 %205, label %mqtt_read_publish.exit [
     i8 48, label %219
@@ -812,7 +812,7 @@ mqtt_verify_suback.exit.i:                        ; preds = %197, %196
   ]
 
 206:                                              ; preds = %202
-  store i32 4, ptr %160, align 4, !tbaa !91
+  store i32 4, ptr %160, align 4, !tbaa !90
   %.pre99.i = load ptr, ptr %15, align 8, !tbaa !7
   br label %164
 
@@ -824,13 +824,13 @@ mqtt_verify_suback.exit.i:                        ; preds = %197, %196
 
 210:                                              ; preds = %207
   %211 = getelementptr inbounds nuw i8, ptr %0, i64 4864
-  %212 = load ptr, ptr %211, align 8, !tbaa !83
+  %212 = load ptr, ptr %211, align 8, !tbaa !82
   %.not78.i = icmp eq ptr %212, null
   br i1 %.not78.i, label %217, label %213
 
 213:                                              ; preds = %210
   %214 = getelementptr inbounds nuw i8, ptr %212, i64 8
-  %215 = load i32, ptr %214, align 8, !tbaa !84
+  %215 = load i32, ptr %214, align 8, !tbaa !83
   %216 = icmp sgt i32 %215, 0
   br i1 %216, label %217, label %218
 
@@ -843,9 +843,9 @@ mqtt_verify_suback.exit.i:                        ; preds = %197, %196
   br label %mqtt_read_publish.exit
 
 219:                                              ; preds = %202
-  store i32 6, ptr %160, align 4, !tbaa !91
+  store i32 6, ptr %160, align 4, !tbaa !90
   %220 = getelementptr inbounds nuw i8, ptr %162, i64 32
-  %221 = load i64, ptr %220, align 8, !tbaa !96
+  %221 = load i64, ptr %220, align 8, !tbaa !95
   %222 = load i64, ptr %36, align 2
   %223 = and i64 %222, 2147483648
   %.not80.i = icmp eq i64 %223, 0
@@ -853,13 +853,13 @@ mqtt_verify_suback.exit.i:                        ; preds = %197, %196
 
 224:                                              ; preds = %219
   %225 = getelementptr inbounds nuw i8, ptr %0, i64 4864
-  %226 = load ptr, ptr %225, align 8, !tbaa !83
+  %226 = load ptr, ptr %225, align 8, !tbaa !82
   %.not81.i = icmp eq ptr %226, null
   br i1 %.not81.i, label %231, label %227
 
 227:                                              ; preds = %224
   %228 = getelementptr inbounds nuw i8, ptr %226, i64 8
-  %229 = load i32, ptr %228, align 8, !tbaa !84
+  %229 = load i32, ptr %228, align 8, !tbaa !83
   %230 = icmp sgt i32 %229, 0
   br i1 %230, label %231, label %232
 
@@ -869,7 +869,7 @@ mqtt_verify_suback.exit.i:                        ; preds = %197, %196
 
 232:                                              ; preds = %231, %227, %219
   %233 = getelementptr inbounds nuw i8, ptr %0, i64 1752
-  %234 = load i64, ptr %233, align 8, !tbaa !101
+  %234 = load i64, ptr %233, align 8, !tbaa !100
   %.not82.i = icmp ne i64 %234, 0
   %235 = icmp sgt i64 %221, %234
   %or.cond93.i = select i1 %.not82.i, i1 %235, i1 false
@@ -882,10 +882,10 @@ mqtt_verify_suback.exit.i:                        ; preds = %197, %196
 237:                                              ; preds = %232
   call void @Curl_pgrsSetDownloadSize(ptr noundef nonnull %0, i64 noundef %221) #8
   %238 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  store i64 0, ptr %238, align 8, !tbaa !102
-  store i64 %221, ptr %161, align 8, !tbaa !103
+  store i64 0, ptr %238, align 8, !tbaa !101
+  store i64 %221, ptr %161, align 8, !tbaa !102
   %239 = getelementptr inbounds nuw i8, ptr %162, i64 16
-  store i64 %221, ptr %239, align 8, !tbaa !94
+  store i64 %221, ptr %239, align 8, !tbaa !93
   br label %240
 
 240:                                              ; preds = %237, %._crit_edge.i106
@@ -907,13 +907,13 @@ mqtt_verify_suback.exit.i:                        ; preds = %197, %196
 
 247:                                              ; preds = %244
   %248 = getelementptr inbounds nuw i8, ptr %0, i64 4864
-  %249 = load ptr, ptr %248, align 8, !tbaa !83
+  %249 = load ptr, ptr %248, align 8, !tbaa !82
   %.not91.i = icmp eq ptr %249, null
   br i1 %.not91.i, label %254, label %250
 
 250:                                              ; preds = %247
   %251 = getelementptr inbounds nuw i8, ptr %249, i64 8
-  %252 = load i32, ptr %251, align 8, !tbaa !84
+  %252 = load i32, ptr %251, align 8, !tbaa !83
   %253 = icmp sgt i32 %252, 0
   br i1 %253, label %254, label %277
 
@@ -922,7 +922,7 @@ mqtt_verify_suback.exit.i:                        ; preds = %197, %196
   br label %277
 
 255:                                              ; preds = %240
-  %256 = load i64, ptr %5, align 8, !tbaa !86
+  %256 = load i64, ptr %5, align 8, !tbaa !85
   %.not84.i = icmp eq i64 %256, 0
   br i1 %.not84.i, label %257, label %268
 
@@ -934,13 +934,13 @@ mqtt_verify_suback.exit.i:                        ; preds = %197, %196
 
 260:                                              ; preds = %257
   %261 = getelementptr inbounds nuw i8, ptr %0, i64 4864
-  %262 = load ptr, ptr %261, align 8, !tbaa !83
+  %262 = load ptr, ptr %261, align 8, !tbaa !82
   %.not87.i = icmp eq ptr %262, null
   br i1 %.not87.i, label %267, label %263
 
 263:                                              ; preds = %260
   %264 = getelementptr inbounds nuw i8, ptr %262, i64 8
-  %265 = load i32, ptr %264, align 8, !tbaa !84
+  %265 = load i32, ptr %264, align 8, !tbaa !83
   %266 = icmp sgt i32 %265, 0
   br i1 %266, label %267, label %277
 
@@ -954,19 +954,19 @@ mqtt_verify_suback.exit.i:                        ; preds = %197, %196
   br i1 %.not88.i, label %270, label %277
 
 270:                                              ; preds = %268
-  %271 = load i64, ptr %5, align 8, !tbaa !86
-  %272 = load i64, ptr %242, align 8, !tbaa !94
+  %271 = load i64, ptr %5, align 8, !tbaa !85
+  %272 = load i64, ptr %242, align 8, !tbaa !93
   %273 = sub i64 %272, %271
-  store i64 %273, ptr %242, align 8, !tbaa !94
+  store i64 %273, ptr %242, align 8, !tbaa !93
   %.not89.i = icmp eq i64 %272, %271
   br i1 %.not89.i, label %274, label %277
 
 274:                                              ; preds = %270
-  %.val.i107 = load ptr, ptr %12, align 8, !tbaa !90
+  %.val.i107 = load ptr, ptr %12, align 8, !tbaa !89
   %275 = getelementptr inbounds nuw i8, ptr %.val.i107, i64 1088
-  store i32 0, ptr %275, align 4, !tbaa !91
+  store i32 0, ptr %275, align 4, !tbaa !90
   %276 = getelementptr inbounds nuw i8, ptr %.val.i107, i64 1092
-  store i32 5, ptr %276, align 4, !tbaa !93
+  store i32 5, ptr %276, align 4, !tbaa !92
   br label %277
 
 277:                                              ; preds = %274, %270, %268, %267, %263, %257, %254, %250, %244, %240
@@ -1003,8 +1003,8 @@ mqstate.exit.thread:                              ; preds = %mqstate.exit.thread
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal noundef i32 @mqtt_getsock(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) initializes((0, 4)) %2) #1 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 568
-  %5 = load i32, ptr %4, align 8, !tbaa !104
-  store i32 %5, ptr %2, align 4, !tbaa !104
+  %5 = load i32, ptr %4, align 8, !tbaa !103
+  store i32 %5, ptr %2, align 4, !tbaa !103
   ret i32 1
 }
 
@@ -1048,9 +1048,9 @@ define internal fastcc i32 @mqtt_publish(ptr noundef %0) unnamed_addr #0 {
   %4 = alloca i64, align 8
   %5 = alloca [4 x i8], align 1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 536
-  %7 = load ptr, ptr %6, align 8, !tbaa !105
+  %7 = load ptr, ptr %6, align 8, !tbaa !104
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #8
-  store ptr null, ptr %3, align 8, !tbaa !106
+  store ptr null, ptr %3, align 8, !tbaa !105
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #8
   %.not = icmp eq ptr %7, null
@@ -1058,7 +1058,7 @@ define internal fastcc i32 @mqtt_publish(ptr noundef %0) unnamed_addr #0 {
 
 8:                                                ; preds = %1
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 552
-  %10 = load i64, ptr %9, align 8, !tbaa !107
+  %10 = load i64, ptr %9, align 8, !tbaa !106
   %11 = icmp slt i64 %10, 0
   br i1 %11, label %12, label %14
 
@@ -1069,7 +1069,7 @@ define internal fastcc i32 @mqtt_publish(ptr noundef %0) unnamed_addr #0 {
 14:                                               ; preds = %8, %12
   %.039 = phi i64 [ %13, %12 ], [ %10, %8 ]
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 4616
-  %16 = load ptr, ptr %15, align 8, !tbaa !108
+  %16 = load ptr, ptr %15, align 8, !tbaa !107
   %17 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %16) #9
   %18 = icmp ugt i64 %17, 1
   br i1 %18, label %19, label %.sink.split.i
@@ -1081,7 +1081,7 @@ define internal fastcc i32 @mqtt_publish(ptr noundef %0) unnamed_addr #0 {
   br i1 %.not.i, label %22, label %mqtt_get_topic.exit.thread
 
 22:                                               ; preds = %19
-  %23 = load i64, ptr %4, align 8, !tbaa !86
+  %23 = load i64, ptr %4, align 8, !tbaa !85
   %24 = icmp ugt i64 %23, 65535
   br i1 %24, label %.sink.split.i, label %mqtt_get_topic.exit
 
@@ -1126,22 +1126,22 @@ mqtt_encode_len.exit:                             ; preds = %.lr.ph.i, %mqtt_get
   store i8 48, ptr %37, align 1, !tbaa !7
   %39 = getelementptr inbounds nuw i8, ptr %37, i64 1
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %39, ptr nonnull align 1 %5, i64 %.010.lcssa.i, i1 false)
-  %40 = load i64, ptr %4, align 8, !tbaa !86
+  %40 = load i64, ptr %4, align 8, !tbaa !85
   %41 = lshr i64 %40, 8
   %42 = trunc i64 %41 to i8
   %43 = getelementptr i8, ptr %37, i64 %.010.lcssa.i
   %44 = getelementptr i8, ptr %43, i64 1
   store i8 %42, ptr %44, align 1, !tbaa !7
-  %45 = load i64, ptr %4, align 8, !tbaa !86
+  %45 = load i64, ptr %4, align 8, !tbaa !85
   %46 = trunc i64 %45 to i8
   %47 = add nuw nsw i64 %.010.lcssa.i, 3
   %48 = getelementptr i8, ptr %43, i64 2
   store i8 %46, ptr %48, align 1, !tbaa !7
   %49 = getelementptr inbounds nuw i8, ptr %37, i64 %47
-  %50 = load ptr, ptr %3, align 8, !tbaa !106
-  %51 = load i64, ptr %4, align 8, !tbaa !86
+  %50 = load ptr, ptr %3, align 8, !tbaa !105
+  %51 = load i64, ptr %4, align 8, !tbaa !85
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %49, ptr align 1 %50, i64 %51, i1 false)
-  %52 = load i64, ptr %4, align 8, !tbaa !86
+  %52 = load i64, ptr %4, align 8, !tbaa !85
   %53 = add i64 %52, %47
   %54 = getelementptr inbounds nuw i8, ptr %37, i64 %53
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %54, ptr nonnull align 1 %7, i64 %.039, i1 false)
@@ -1154,9 +1154,9 @@ mqtt_encode_len.exit:                             ; preds = %.lr.ph.i, %mqtt_get
   br i1 %.not.i49, label %59, label %mqtt_send.exit
 
 59:                                               ; preds = %38
-  %60 = load i64, ptr %2, align 8, !tbaa !86
+  %60 = load i64, ptr %2, align 8, !tbaa !85
   call void @Curl_debug(ptr noundef nonnull %0, i32 noundef 2, ptr noundef nonnull %37, i64 noundef %60) #8
-  %61 = load i64, ptr %2, align 8, !tbaa !86
+  %61 = load i64, ptr %2, align 8, !tbaa !85
   %.not26.i = icmp eq i64 %55, %61
   br i1 %.not26.i, label %68, label %62
 
@@ -1168,9 +1168,9 @@ mqtt_encode_len.exit:                             ; preds = %.lr.ph.i, %mqtt_get
   br i1 %.not27.not.i, label %mqtt_send.exit, label %66
 
 66:                                               ; preds = %62
-  store ptr %65, ptr %57, align 8, !tbaa !87
+  store ptr %65, ptr %57, align 8, !tbaa !86
   %67 = getelementptr inbounds nuw i8, ptr %57, i64 8
-  store i64 %63, ptr %67, align 8, !tbaa !89
+  store i64 %63, ptr %67, align 8, !tbaa !88
   br label %mqtt_send.exit
 
 68:                                               ; preds = %59
@@ -1188,7 +1188,7 @@ mqtt_get_topic.exit.thread:                       ; preds = %.sink.split.i, %19,
   %69 = load ptr, ptr @Curl_cfree, align 8, !tbaa !3
   call void %69(ptr noundef %.040) #8
   %70 = load ptr, ptr @Curl_cfree, align 8, !tbaa !3
-  %71 = load ptr, ptr %3, align 8, !tbaa !106
+  %71 = load ptr, ptr %3, align 8, !tbaa !105
   call void %70(ptr noundef %71) #8
   br label %72
 
@@ -1211,9 +1211,9 @@ define internal fastcc i32 @mqtt_disconnect(ptr noundef %0) unnamed_addr #0 {
   br i1 %.not.i, label %6, label %mqtt_send.exit
 
 6:                                                ; preds = %1
-  %7 = load i64, ptr %2, align 8, !tbaa !86
+  %7 = load i64, ptr %2, align 8, !tbaa !85
   call void @Curl_debug(ptr noundef nonnull %0, i32 noundef 2, ptr noundef nonnull @.str.14, i64 noundef %7) #8
-  %8 = load i64, ptr %2, align 8, !tbaa !86
+  %8 = load i64, ptr %2, align 8, !tbaa !85
   %.not26.i = icmp eq i64 %8, 2
   br i1 %.not26.i, label %15, label %9
 
@@ -1225,9 +1225,9 @@ define internal fastcc i32 @mqtt_disconnect(ptr noundef %0) unnamed_addr #0 {
   br i1 %.not27.not.i, label %mqtt_send.exit, label %13
 
 13:                                               ; preds = %9
-  store ptr %12, ptr %4, align 8, !tbaa !87
+  store ptr %12, ptr %4, align 8, !tbaa !86
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store i64 %10, ptr %14, align 8, !tbaa !89
+  store i64 %10, ptr %14, align 8, !tbaa !88
   br label %mqtt_send.exit
 
 15:                                               ; preds = %6
@@ -1238,9 +1238,9 @@ mqtt_send.exit:                                   ; preds = %1, %9, %13, %15
   %.0.i = phi i32 [ %5, %1 ], [ 27, %9 ], [ 0, %13 ], [ 0, %15 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #8
   %16 = load ptr, ptr @Curl_cfree, align 8, !tbaa !3
-  %17 = load ptr, ptr %4, align 8, !tbaa !87
+  %17 = load ptr, ptr %4, align 8, !tbaa !86
   call void %16(ptr noundef %17) #8
-  store ptr null, ptr %4, align 8, !tbaa !87
+  store ptr null, ptr %4, align 8, !tbaa !86
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 40
   call void @Curl_dyn_free(ptr noundef nonnull %18) #8
   ret i32 %.0.i
@@ -1253,13 +1253,13 @@ define internal fastcc i32 @mqtt_subscribe(ptr noundef %0) unnamed_addr #0 {
   %4 = alloca i64, align 8
   %5 = alloca [4 x i8], align 1
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #8
-  store ptr null, ptr %3, align 8, !tbaa !106
+  store ptr null, ptr %3, align 8, !tbaa !105
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %7 = load ptr, ptr %6, align 8, !tbaa !90
+  %7 = load ptr, ptr %6, align 8, !tbaa !89
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 4616
-  %9 = load ptr, ptr %8, align 8, !tbaa !108
+  %9 = load ptr, ptr %8, align 8, !tbaa !107
   %10 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %9) #9
   %11 = icmp ugt i64 %10, 1
   br i1 %11, label %12, label %.sink.split.i
@@ -1271,7 +1271,7 @@ define internal fastcc i32 @mqtt_subscribe(ptr noundef %0) unnamed_addr #0 {
   br i1 %.not.i, label %15, label %mqtt_get_topic.exit.thread
 
 15:                                               ; preds = %12
-  %16 = load i64, ptr %4, align 8, !tbaa !86
+  %16 = load i64, ptr %4, align 8, !tbaa !85
   %17 = icmp ugt i64 %16, 65535
   br i1 %17, label %.sink.split.i, label %.lr.ph.i.preheader
 
@@ -1327,20 +1327,20 @@ mqtt_encode_len.exit:                             ; preds = %.lr.ph.i
   %41 = getelementptr i8, ptr %32, i64 %indvars.iv.next.i
   %42 = getelementptr i8, ptr %41, i64 2
   store i8 %40, ptr %42, align 1, !tbaa !7
-  %43 = load i64, ptr %4, align 8, !tbaa !86
+  %43 = load i64, ptr %4, align 8, !tbaa !85
   %44 = lshr i64 %43, 8
   %45 = trunc i64 %44 to i8
   %46 = getelementptr i8, ptr %41, i64 3
   store i8 %45, ptr %46, align 1, !tbaa !7
-  %47 = load i64, ptr %4, align 8, !tbaa !86
+  %47 = load i64, ptr %4, align 8, !tbaa !85
   %48 = trunc i64 %47 to i8
   %49 = getelementptr i8, ptr %41, i64 4
   store i8 %48, ptr %49, align 1, !tbaa !7
   %50 = getelementptr i8, ptr %41, i64 5
-  %51 = load ptr, ptr %3, align 8, !tbaa !106
-  %52 = load i64, ptr %4, align 8, !tbaa !86
+  %51 = load ptr, ptr %3, align 8, !tbaa !105
+  %52 = load i64, ptr %4, align 8, !tbaa !85
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %50, ptr align 1 %51, i64 %52, i1 false)
-  %53 = load i64, ptr %4, align 8, !tbaa !86
+  %53 = load i64, ptr %4, align 8, !tbaa !85
   %54 = getelementptr i8, ptr %50, i64 %53
   store i8 0, ptr %54, align 1, !tbaa !7
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 440
@@ -1351,9 +1351,9 @@ mqtt_encode_len.exit:                             ; preds = %.lr.ph.i
   br i1 %.not.i36, label %58, label %mqtt_send.exit
 
 58:                                               ; preds = %33
-  %59 = load i64, ptr %2, align 8, !tbaa !86
+  %59 = load i64, ptr %2, align 8, !tbaa !85
   call void @Curl_debug(ptr noundef nonnull %0, i32 noundef 2, ptr noundef nonnull %32, i64 noundef %59) #8
-  %60 = load i64, ptr %2, align 8, !tbaa !86
+  %60 = load i64, ptr %2, align 8, !tbaa !85
   %.not26.i = icmp eq i64 %30, %60
   br i1 %.not26.i, label %67, label %61
 
@@ -1365,9 +1365,9 @@ mqtt_encode_len.exit:                             ; preds = %.lr.ph.i
   br i1 %.not27.not.i, label %mqtt_send.exit, label %65
 
 65:                                               ; preds = %61
-  store ptr %64, ptr %56, align 8, !tbaa !87
+  store ptr %64, ptr %56, align 8, !tbaa !86
   %66 = getelementptr inbounds nuw i8, ptr %56, i64 8
-  store i64 %62, ptr %66, align 8, !tbaa !89
+  store i64 %62, ptr %66, align 8, !tbaa !88
   br label %mqtt_send.exit
 
 67:                                               ; preds = %58
@@ -1383,7 +1383,7 @@ mqtt_get_topic.exit.thread:                       ; preds = %.sink.split.i, %12,
   %.030 = phi ptr [ %32, %mqtt_send.exit ], [ null, %mqtt_encode_len.exit ], [ null, %12 ], [ null, %.sink.split.i ]
   %.0 = phi i32 [ %.0.i37, %mqtt_send.exit ], [ 27, %mqtt_encode_len.exit ], [ %14, %12 ], [ 3, %.sink.split.i ]
   %68 = load ptr, ptr @Curl_cfree, align 8, !tbaa !3
-  %69 = load ptr, ptr %3, align 8, !tbaa !106
+  %69 = load ptr, ptr %3, align 8, !tbaa !105
   call void %68(ptr noundef %69) #8
   %70 = load ptr, ptr @Curl_cfree, align 8, !tbaa !3
   call void %70(ptr noundef %.030) #8
@@ -1505,32 +1505,31 @@ attributes #9 = { nounwind willreturn memory(read) }
 !77 = !{!"p2 _ZTS10curl_slist", !4, i64 0}
 !78 = !{!"curl_tlssessioninfo", !12, i64 0, !4, i64 8}
 !79 = !{!11, !33, i64 5000}
-!80 = distinct !{!80, !81, !82}
+!80 = distinct !{!80, !81}
 !81 = !{!"llvm.loop.mustprogress"}
-!82 = !{!"llvm.loop.estimated_trip_count"}
-!83 = !{!11, !70, i64 4864}
-!84 = !{!85, !12, i64 8}
-!85 = !{!"curl_trc_feat", !33, i64 0, !12, i64 8}
-!86 = !{!13, !13, i64 0}
-!87 = !{!88, !33, i64 0}
-!88 = !{!"MQTT", !33, i64 0, !13, i64 8, !13, i64 16, !5, i64 24, !13, i64 32, !58, i64 40, !5, i64 72}
-!89 = !{!88, !13, i64 8}
-!90 = !{!11, !14, i64 24}
-!91 = !{!92, !12, i64 0}
-!92 = !{!"mqtt_conn", !12, i64 0, !12, i64 4, !12, i64 8}
-!93 = !{!92, !12, i64 4}
-!94 = !{!88, !13, i64 16}
-!95 = distinct !{!95, !81, !82}
-!96 = !{!88, !13, i64 32}
-!97 = distinct !{!97, !81, !82}
-!98 = !{!88, !5, i64 24}
-!99 = !{!11, !5, i64 5034}
-!100 = !{!92, !12, i64 8}
-!101 = !{!11, !13, i64 1752}
-!102 = !{!11, !13, i64 256}
-!103 = !{!11, !13, i64 240}
-!104 = !{!12, !12, i64 0}
-!105 = !{!11, !4, i64 536}
-!106 = !{!33, !33, i64 0}
-!107 = !{!11, !13, i64 552}
-!108 = !{!11, !33, i64 4616}
+!82 = !{!11, !70, i64 4864}
+!83 = !{!84, !12, i64 8}
+!84 = !{!"curl_trc_feat", !33, i64 0, !12, i64 8}
+!85 = !{!13, !13, i64 0}
+!86 = !{!87, !33, i64 0}
+!87 = !{!"MQTT", !33, i64 0, !13, i64 8, !13, i64 16, !5, i64 24, !13, i64 32, !58, i64 40, !5, i64 72}
+!88 = !{!87, !13, i64 8}
+!89 = !{!11, !14, i64 24}
+!90 = !{!91, !12, i64 0}
+!91 = !{!"mqtt_conn", !12, i64 0, !12, i64 4, !12, i64 8}
+!92 = !{!91, !12, i64 4}
+!93 = !{!87, !13, i64 16}
+!94 = distinct !{!94, !81}
+!95 = !{!87, !13, i64 32}
+!96 = distinct !{!96, !81}
+!97 = !{!87, !5, i64 24}
+!98 = !{!11, !5, i64 5034}
+!99 = !{!91, !12, i64 8}
+!100 = !{!11, !13, i64 1752}
+!101 = !{!11, !13, i64 256}
+!102 = !{!11, !13, i64 240}
+!103 = !{!12, !12, i64 0}
+!104 = !{!11, !4, i64 536}
+!105 = !{!33, !33, i64 0}
+!106 = !{!11, !13, i64 552}
+!107 = !{!11, !33, i64 4616}

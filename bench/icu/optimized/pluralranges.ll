@@ -992,9 +992,9 @@ define internal void @_ZN6icu_7712_GLOBAL__N_120PluralRangesDataSink3putEPKcRNS_
 
 22:                                               ; preds = %5
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %24 = load ptr, ptr %23, align 8, !tbaa !43
+  %24 = load ptr, ptr %23, align 8, !tbaa !42
   %25 = getelementptr inbounds nuw i8, ptr %12, i64 16
-  %26 = load i32, ptr %25, align 8, !tbaa !47
+  %26 = load i32, ptr %25, align 8, !tbaa !46
   %27 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %28 = load i32, ptr %27, align 8, !tbaa !18
   %29 = icmp sgt i32 %26, %28
@@ -1055,7 +1055,7 @@ _ZN6icu_7720StandardPluralRanges11setCapacityEiR10UErrorCode.exit: ; preds = %36
   br i1 %49, label %50, label %.critedge
 
 50:                                               ; preds = %44
-  %51 = load i32, ptr %43, align 8, !tbaa !47
+  %51 = load i32, ptr %43, align 8, !tbaa !46
   %.not43 = icmp eq i32 %51, 3
   br i1 %.not43, label %53, label %52
 
@@ -1067,14 +1067,14 @@ _ZN6icu_7720StandardPluralRanges11setCapacityEiR10UErrorCode.exit: ; preds = %36
   %54 = call noundef signext i8 @_ZNK6icu_7713ResourceArray8getValueEiRNS_13ResourceValueE(ptr noundef nonnull align 8 dereferenceable(21) %13, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(8) %2)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %14) #14
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #14, !noalias !52
-  store i32 0, ptr %10, align 4, !tbaa !12, !noalias !52
-  %55 = load ptr, ptr %2, align 8, !tbaa !28, !noalias !52
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #14, !noalias !51
+  store i32 0, ptr %10, align 4, !tbaa !12, !noalias !51
+  %55 = load ptr, ptr %2, align 8, !tbaa !28, !noalias !51
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 32
-  %57 = load ptr, ptr %56, align 8, !noalias !52
-  %58 = call noundef ptr %57(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 4 dereferenceable(4) %10, ptr noundef nonnull align 4 dereferenceable(4) %4), !noalias !52
-  store ptr %58, ptr %11, align 8, !tbaa !55, !noalias !52
-  %59 = load i32, ptr %10, align 4, !tbaa !12, !noalias !52
+  %57 = load ptr, ptr %56, align 8, !noalias !51
+  %58 = call noundef ptr %57(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 4 dereferenceable(4) %10, ptr noundef nonnull align 4 dereferenceable(4) %4), !noalias !51
+  store ptr %58, ptr %11, align 8, !tbaa !54, !noalias !51
+  %59 = load i32, ptr %10, align 4, !tbaa !12, !noalias !51
   invoke void @_ZN6icu_7713UnicodeStringC1EaNS_14ConstChar16PtrEi(ptr noundef nonnull align 8 dereferenceable(64) %14, i8 noundef signext 1, ptr noundef nonnull %11, i32 noundef %59)
           to label %_ZNK6icu_7713ResourceValue16getUnicodeStringER10UErrorCode.exit unwind label %60
 
@@ -1085,15 +1085,15 @@ common.resume:                                    ; preds = %111, %92, %76, %60
 60:                                               ; preds = %53
   %61 = landingpad { ptr, i32 }
           cleanup
-  %62 = load ptr, ptr %11, align 8, !tbaa !55, !noalias !52
-  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %62) #14, !srcloc !58
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #14, !noalias !52
+  %62 = load ptr, ptr %11, align 8, !tbaa !54, !noalias !51
+  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %62) #14, !srcloc !57
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #14, !noalias !51
   br label %common.resume
 
 _ZNK6icu_7713ResourceValue16getUnicodeStringER10UErrorCode.exit: ; preds = %53
-  %63 = load ptr, ptr %11, align 8, !tbaa !55, !noalias !52
-  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %63) #14, !srcloc !58
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #14, !noalias !52
+  %63 = load ptr, ptr %11, align 8, !tbaa !54, !noalias !51
+  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %63) #14, !srcloc !57
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #14, !noalias !51
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11)
   %64 = invoke noundef i32 @_ZN6icu_7714StandardPlural15indexFromStringERKNS_13UnicodeStringER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(64) %14, ptr noundef nonnull align 4 dereferenceable(4) %4)
           to label %_ZN6icu_7714StandardPlural10fromStringERKNS_13UnicodeStringER10UErrorCode.exit unwind label %67
@@ -1116,29 +1116,29 @@ _ZN6icu_7714StandardPlural10fromStringERKNS_13UnicodeStringER10UErrorCode.exit: 
   %70 = call noundef signext i8 @_ZNK6icu_7713ResourceArray8getValueEiRNS_13ResourceValueE(ptr noundef nonnull align 8 dereferenceable(21) %13, i32 noundef 1, ptr noundef nonnull align 8 dereferenceable(8) %2)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %15) #14
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #14, !noalias !59
-  store i32 0, ptr %8, align 4, !tbaa !12, !noalias !59
-  %71 = load ptr, ptr %2, align 8, !tbaa !28, !noalias !59
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #14, !noalias !58
+  store i32 0, ptr %8, align 4, !tbaa !12, !noalias !58
+  %71 = load ptr, ptr %2, align 8, !tbaa !28, !noalias !58
   %72 = getelementptr inbounds nuw i8, ptr %71, i64 32
-  %73 = load ptr, ptr %72, align 8, !noalias !59
-  %74 = call noundef ptr %73(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 4 dereferenceable(4) %8, ptr noundef nonnull align 4 dereferenceable(4) %4), !noalias !59
-  store ptr %74, ptr %9, align 8, !tbaa !55, !noalias !59
-  %75 = load i32, ptr %8, align 4, !tbaa !12, !noalias !59
+  %73 = load ptr, ptr %72, align 8, !noalias !58
+  %74 = call noundef ptr %73(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 4 dereferenceable(4) %8, ptr noundef nonnull align 4 dereferenceable(4) %4), !noalias !58
+  store ptr %74, ptr %9, align 8, !tbaa !54, !noalias !58
+  %75 = load i32, ptr %8, align 4, !tbaa !12, !noalias !58
   invoke void @_ZN6icu_7713UnicodeStringC1EaNS_14ConstChar16PtrEi(ptr noundef nonnull align 8 dereferenceable(64) %15, i8 noundef signext 1, ptr noundef nonnull %9, i32 noundef %75)
           to label %_ZNK6icu_7713ResourceValue16getUnicodeStringER10UErrorCode.exit51 unwind label %76
 
 76:                                               ; preds = %69
   %77 = landingpad { ptr, i32 }
           cleanup
-  %78 = load ptr, ptr %9, align 8, !tbaa !55, !noalias !59
-  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %78) #14, !srcloc !58
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #14, !noalias !59
+  %78 = load ptr, ptr %9, align 8, !tbaa !54, !noalias !58
+  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %78) #14, !srcloc !57
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #14, !noalias !58
   br label %common.resume
 
 _ZNK6icu_7713ResourceValue16getUnicodeStringER10UErrorCode.exit51: ; preds = %69
-  %79 = load ptr, ptr %9, align 8, !tbaa !55, !noalias !59
-  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %79) #14, !srcloc !58
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #14, !noalias !59
+  %79 = load ptr, ptr %9, align 8, !tbaa !54, !noalias !58
+  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %79) #14, !srcloc !57
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #14, !noalias !58
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
   %80 = invoke noundef i32 @_ZN6icu_7714StandardPlural15indexFromStringERKNS_13UnicodeStringER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(64) %15, ptr noundef nonnull align 4 dereferenceable(4) %4)
           to label %_ZN6icu_7714StandardPlural10fromStringERKNS_13UnicodeStringER10UErrorCode.exit52 unwind label %83
@@ -1161,29 +1161,29 @@ _ZN6icu_7714StandardPlural10fromStringERKNS_13UnicodeStringER10UErrorCode.exit52
   %86 = call noundef signext i8 @_ZNK6icu_7713ResourceArray8getValueEiRNS_13ResourceValueE(ptr noundef nonnull align 8 dereferenceable(21) %13, i32 noundef 2, ptr noundef nonnull align 8 dereferenceable(8) %2)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %16) #14
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #14, !noalias !62
-  store i32 0, ptr %6, align 4, !tbaa !12, !noalias !62
-  %87 = load ptr, ptr %2, align 8, !tbaa !28, !noalias !62
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #14, !noalias !61
+  store i32 0, ptr %6, align 4, !tbaa !12, !noalias !61
+  %87 = load ptr, ptr %2, align 8, !tbaa !28, !noalias !61
   %88 = getelementptr inbounds nuw i8, ptr %87, i64 32
-  %89 = load ptr, ptr %88, align 8, !noalias !62
-  %90 = call noundef ptr %89(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 4 dereferenceable(4) %6, ptr noundef nonnull align 4 dereferenceable(4) %4), !noalias !62
-  store ptr %90, ptr %7, align 8, !tbaa !55, !noalias !62
-  %91 = load i32, ptr %6, align 4, !tbaa !12, !noalias !62
+  %89 = load ptr, ptr %88, align 8, !noalias !61
+  %90 = call noundef ptr %89(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 4 dereferenceable(4) %6, ptr noundef nonnull align 4 dereferenceable(4) %4), !noalias !61
+  store ptr %90, ptr %7, align 8, !tbaa !54, !noalias !61
+  %91 = load i32, ptr %6, align 4, !tbaa !12, !noalias !61
   invoke void @_ZN6icu_7713UnicodeStringC1EaNS_14ConstChar16PtrEi(ptr noundef nonnull align 8 dereferenceable(64) %16, i8 noundef signext 1, ptr noundef nonnull %7, i32 noundef %91)
           to label %_ZNK6icu_7713ResourceValue16getUnicodeStringER10UErrorCode.exit53 unwind label %92
 
 92:                                               ; preds = %85
   %93 = landingpad { ptr, i32 }
           cleanup
-  %94 = load ptr, ptr %7, align 8, !tbaa !55, !noalias !62
-  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %94) #14, !srcloc !58
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #14, !noalias !62
+  %94 = load ptr, ptr %7, align 8, !tbaa !54, !noalias !61
+  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %94) #14, !srcloc !57
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #14, !noalias !61
   br label %common.resume
 
 _ZNK6icu_7713ResourceValue16getUnicodeStringER10UErrorCode.exit53: ; preds = %85
-  %95 = load ptr, ptr %7, align 8, !tbaa !55, !noalias !62
-  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %95) #14, !srcloc !58
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #14, !noalias !62
+  %95 = load ptr, ptr %7, align 8, !tbaa !54, !noalias !61
+  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %95) #14, !srcloc !57
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #14, !noalias !61
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   %96 = invoke noundef i32 @_ZN6icu_7714StandardPlural15indexFromStringERKNS_13UnicodeStringER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(64) %16, ptr noundef nonnull align 4 dereferenceable(4) %4)
           to label %_ZN6icu_7714StandardPlural10fromStringERKNS_13UnicodeStringER10UErrorCode.exit54 unwind label %99
@@ -1203,7 +1203,7 @@ _ZN6icu_7714StandardPlural10fromStringERKNS_13UnicodeStringER10UErrorCode.exit54
   br label %111
 
 101:                                              ; preds = %_ZN6icu_7714StandardPlural10fromStringERKNS_13UnicodeStringER10UErrorCode.exit54
-  %102 = load ptr, ptr %23, align 8, !tbaa !43
+  %102 = load ptr, ptr %23, align 8, !tbaa !42
   %103 = getelementptr inbounds nuw i8, ptr %102, i64 56
   %104 = load i32, ptr %103, align 8, !tbaa !20
   %105 = sext i32 %104 to i64
@@ -1220,7 +1220,7 @@ _ZN6icu_7714StandardPlural10fromStringERKNS_13UnicodeStringER10UErrorCode.exit54
   %109 = add nuw nsw i32 %.03556, 1
   %110 = call noundef signext i8 @_ZNK6icu_7713ResourceArray8getValueEiRNS_13ResourceValueE(ptr noundef nonnull align 8 dereferenceable(21) %12, i32 noundef %109, ptr noundef nonnull align 8 dereferenceable(8) %2)
   %.not41 = icmp eq i8 %110, 0
-  br i1 %.not41, label %.loopexit, label %44, !llvm.loop !65
+  br i1 %.not41, label %.loopexit, label %44, !llvm.loop !64
 
 111:                                              ; preds = %83, %99, %67
   %.pn.pn = phi { ptr, i32 } [ %68, %67 ], [ %100, %99 ], [ %84, %83 ]
@@ -1318,29 +1318,28 @@ attributes #16 = { noreturn nounwind }
 !37 = !{!"_ZTSN6icu_7720StandardPluralRanges25StandardPluralRangeTripleE", !35, i64 0, !35, i64 4, !35, i64 8}
 !38 = !{!37, !35, i64 4}
 !39 = !{!37, !35, i64 8}
-!40 = distinct !{!40, !41, !42}
+!40 = distinct !{!40, !41}
 !41 = !{!"llvm.loop.mustprogress"}
-!42 = !{!"llvm.loop.estimated_trip_count"}
-!43 = !{!44, !31, i64 8}
-!44 = !{!"_ZTSN6icu_7712_GLOBAL__N_120PluralRangesDataSinkE", !45, i64 0, !31, i64 8}
-!45 = !{!"_ZTSN6icu_7712ResourceSinkE", !46, i64 0}
-!46 = !{!"_ZTSN6icu_777UObjectE"}
-!47 = !{!48, !9, i64 16}
-!48 = !{!"_ZTSN6icu_7713ResourceArrayE", !49, i64 0, !50, i64 8, !9, i64 16, !51, i64 20}
-!49 = !{!"p1 short", !6, i64 0}
-!50 = !{!"p1 int", !6, i64 0}
-!51 = !{!"_ZTSN6icu_7714ResourceTracerE"}
-!52 = !{!53}
-!53 = distinct !{!53, !54, !"_ZNK6icu_7713ResourceValue16getUnicodeStringER10UErrorCode: argument 0"}
-!54 = distinct !{!54, !"_ZNK6icu_7713ResourceValue16getUnicodeStringER10UErrorCode"}
-!55 = !{!56, !57, i64 0}
-!56 = !{!"_ZTSN6icu_7714ConstChar16PtrE", !57, i64 0}
-!57 = !{!"p1 char16_t", !6, i64 0}
-!58 = !{i64 2149016245}
-!59 = !{!60}
-!60 = distinct !{!60, !61, !"_ZNK6icu_7713ResourceValue16getUnicodeStringER10UErrorCode: argument 0"}
-!61 = distinct !{!61, !"_ZNK6icu_7713ResourceValue16getUnicodeStringER10UErrorCode"}
-!62 = !{!63}
-!63 = distinct !{!63, !64, !"_ZNK6icu_7713ResourceValue16getUnicodeStringER10UErrorCode: argument 0"}
-!64 = distinct !{!64, !"_ZNK6icu_7713ResourceValue16getUnicodeStringER10UErrorCode"}
-!65 = distinct !{!65, !41, !42}
+!42 = !{!43, !31, i64 8}
+!43 = !{!"_ZTSN6icu_7712_GLOBAL__N_120PluralRangesDataSinkE", !44, i64 0, !31, i64 8}
+!44 = !{!"_ZTSN6icu_7712ResourceSinkE", !45, i64 0}
+!45 = !{!"_ZTSN6icu_777UObjectE"}
+!46 = !{!47, !9, i64 16}
+!47 = !{!"_ZTSN6icu_7713ResourceArrayE", !48, i64 0, !49, i64 8, !9, i64 16, !50, i64 20}
+!48 = !{!"p1 short", !6, i64 0}
+!49 = !{!"p1 int", !6, i64 0}
+!50 = !{!"_ZTSN6icu_7714ResourceTracerE"}
+!51 = !{!52}
+!52 = distinct !{!52, !53, !"_ZNK6icu_7713ResourceValue16getUnicodeStringER10UErrorCode: argument 0"}
+!53 = distinct !{!53, !"_ZNK6icu_7713ResourceValue16getUnicodeStringER10UErrorCode"}
+!54 = !{!55, !56, i64 0}
+!55 = !{!"_ZTSN6icu_7714ConstChar16PtrE", !56, i64 0}
+!56 = !{!"p1 char16_t", !6, i64 0}
+!57 = !{i64 2149016245}
+!58 = !{!59}
+!59 = distinct !{!59, !60, !"_ZNK6icu_7713ResourceValue16getUnicodeStringER10UErrorCode: argument 0"}
+!60 = distinct !{!60, !"_ZNK6icu_7713ResourceValue16getUnicodeStringER10UErrorCode"}
+!61 = !{!62}
+!62 = distinct !{!62, !63, !"_ZNK6icu_7713ResourceValue16getUnicodeStringER10UErrorCode: argument 0"}
+!63 = distinct !{!63, !"_ZNK6icu_7713ResourceValue16getUnicodeStringER10UErrorCode"}
+!64 = distinct !{!64, !41}

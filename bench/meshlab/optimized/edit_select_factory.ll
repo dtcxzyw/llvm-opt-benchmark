@@ -260,7 +260,7 @@ _ZNSt8_Rb_treeIN3vcg8ColorMapESt4pairIKS1_St6vectorINS0_6Color4IhEESaIS6_EEESt10
   %.pr = phi i64 [ %.pr20, %28 ], [ %41, %.noexc7 ]
   %42 = getelementptr inbounds nuw i8, ptr %.08.i, i64 32
   %.not.i = icmp eq ptr %42, %11
-  br i1 %.not.i, label %_ZNSt8_Rb_treeIN3vcg8ColorMapESt4pairIKS1_St6vectorINS0_6Color4IhEESaIS6_EEESt10_Select1stIS9_ESt4lessIS1_ESaIS9_EE22_M_insert_range_uniqueIPKS9_EENSt9enable_ifIXsr17__same_value_typeIT_EE5valueEvE4typeESK_SK_.exit, label %.lr.ph.i, !llvm.loop !8
+  br i1 %.not.i, label %_ZNSt8_Rb_treeIN3vcg8ColorMapESt4pairIKS1_St6vectorINS0_6Color4IhEESaIS6_EEESt10_Select1stIS9_ESt4lessIS1_ESaIS9_EE22_M_insert_range_uniqueIPKS9_EENSt9enable_ifIXsr17__same_value_typeIT_EE5valueEvE4typeESK_SK_.exit, label %.lr.ph.i, !llvm.loop !7
 
 _ZNSt8_Rb_treeIN3vcg8ColorMapESt4pairIKS1_St6vectorINS0_6Color4IhEESaIS6_EEESt10_Select1stIS9_ESt4lessIS1_ESaIS9_EE22_M_insert_range_uniqueIPKS9_EENSt9enable_ifIXsr17__same_value_typeIT_EE5valueEvE4typeESK_SK_.exit: ; preds = %_ZNSt8_Rb_treeIN3vcg8ColorMapESt4pairIKS1_St6vectorINS0_6Color4IhEESaIS6_EEESt10_Select1stIS9_ESt4lessIS1_ESaIS9_EE17_M_insert_unique_IRKS9_NSF_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS9_ESt23_Rb_tree_const_iteratorIS9_EOT_RT0_.exit.i, %5
   ret void
@@ -374,7 +374,7 @@ _ZNSt16allocator_traitsISaIN3vcg6Color4IhEEEE8allocateERS3_m.exit.i.i.i.i.i.i.i:
   %24 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i.i.i.i.i, i64 4
   %25 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i.i.i.i, i64 4
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %24, %22
-  br i1 %.not.i.i.i.i.i.i.i.i, label %.loopexit, label %.lr.ph.i.i.i.i.i.i.i.i, !llvm.loop !9
+  br i1 %.not.i.i.i.i.i.i.i.i, label %.loopexit, label %.lr.ph.i.i.i.i.i.i.i.i, !llvm.loop !8
 
 26:                                               ; preds = %_ZNSt16allocator_traitsISaIN3vcg6Color4IhEEEE8allocateERS3_m.exit.i.i.i.i.i.i.i, %.noexc.i.i.i.i.i
   %27 = landingpad { ptr, i32 }
@@ -434,7 +434,7 @@ define linkonce_odr void @_ZNSt8_Rb_treeIN3vcg8ColorMapESt4pairIKS1_St6vectorINS
 _ZNSt8_Rb_treeIN3vcg8ColorMapESt4pairIKS1_St6vectorINS0_6Color4IhEESaIS6_EEESt10_Select1stIS9_ESt4lessIS1_ESaIS9_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS9_E.exit: ; preds = %.lr.ph, %9
   tail call void @_ZdlPv(ptr noundef nonnull %.07) #17
   %.not = icmp eq ptr %6, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !10
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %_ZNSt8_Rb_treeIN3vcg8ColorMapESt4pairIKS1_St6vectorINS0_6Color4IhEESaIS6_EEESt10_Select1stIS9_ESt4lessIS1_ESaIS9_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS9_E.exit, %2
   ret void
@@ -793,13 +793,13 @@ _ZN7QStringD2Ev.exit88:                           ; preds = %_ZN7QStringD2Ev.exi
   %112 = load i64, ptr %21, align 8
   %113 = add i64 %112, 1
   store i64 %113, ptr %21, align 8
-  call void @llvm.experimental.noalias.scope.decl(metadata !11)
+  call void @llvm.experimental.noalias.scope.decl(metadata !10)
   %114 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  store ptr %14, ptr %114, align 8, !alias.scope !11
-  store ptr %14, ptr %14, align 8, !alias.scope !11
+  store ptr %14, ptr %114, align 8, !alias.scope !10
+  store ptr %14, ptr %14, align 8, !alias.scope !10
   %115 = getelementptr inbounds nuw i8, ptr %14, i64 16
-  store i64 0, ptr %115, align 8, !alias.scope !11
-  %116 = load ptr, ptr %19, align 8, !noalias !11
+  store i64 0, ptr %115, align 8, !alias.scope !10
+  %116 = load ptr, ptr %19, align 8, !noalias !10
   %.not4.i.i.i.i = icmp eq ptr %116, %19
   br i1 %.not4.i.i.i.i, label %_ZN9QtPrivate17QForeachContainerINSt7__cxx114listIP7QActionSaIS4_EEEED2Ev.exit, label %.lr.ph.i.i.i.i
 
@@ -814,17 +814,17 @@ _ZN7QStringD2Ev.exit88:                           ; preds = %_ZN7QStringD2Ev.exi
   %120 = load ptr, ptr %118, align 8
   store ptr %120, ptr %119, align 8
   call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %117, ptr noundef nonnull align 8 dereferenceable(44) %14) #18
-  %121 = load i64, ptr %115, align 8, !alias.scope !11
+  %121 = load i64, ptr %115, align 8, !alias.scope !10
   %122 = add i64 %121, 1
-  store i64 %122, ptr %115, align 8, !alias.scope !11
+  store i64 %122, ptr %115, align 8, !alias.scope !10
   %123 = load ptr, ptr %.sroa.01.05.i.i.i.i, align 8
   %.not.i.i.i.i = icmp eq ptr %123, %19
-  br i1 %.not.i.i.i.i, label %_ZN9QtPrivate21qMakeForeachContainerIRNSt7__cxx114listIP7QActionSaIS4_EEEEENS_17QForeachContainerINSt5decayIT_E4typeEEEOSA_.exit, label %.lr.ph.i.i.i.i, !llvm.loop !14
+  br i1 %.not.i.i.i.i, label %_ZN9QtPrivate21qMakeForeachContainerIRNSt7__cxx114listIP7QActionSaIS4_EEEEENS_17QForeachContainerINSt5decayIT_E4typeEEEOSA_.exit, label %.lr.ph.i.i.i.i, !llvm.loop !13
 
 124:                                              ; preds = %.lr.ph.i.i.i.i
   %125 = landingpad { ptr, i32 }
           cleanup
-  %126 = load ptr, ptr %14, align 8, !alias.scope !11
+  %126 = load ptr, ptr %14, align 8, !alias.scope !10
   %.not8.i.i.i.i.i = icmp eq ptr %126, %14
   br i1 %.not8.i.i.i.i.i, label %.body, label %.lr.ph.i.i.i.i.i
 
@@ -833,14 +833,14 @@ _ZN7QStringD2Ev.exit88:                           ; preds = %_ZN7QStringD2Ev.exi
   %127 = load ptr, ptr %.09.i.i.i.i.i, align 8
   call void @_ZdlPv(ptr noundef nonnull %.09.i.i.i.i.i) #17
   %.not.i.i.i.i.i = icmp eq ptr %127, %14
-  br i1 %.not.i.i.i.i.i, label %.body, label %.lr.ph.i.i.i.i.i, !llvm.loop !15
+  br i1 %.not.i.i.i.i.i, label %.body, label %.lr.ph.i.i.i.i.i, !llvm.loop !14
 
 _ZN9QtPrivate21qMakeForeachContainerIRNSt7__cxx114listIP7QActionSaIS4_EEEEENS_17QForeachContainerINSt5decayIT_E4typeEEEOSA_.exit: ; preds = %.noexc.i.i.i
-  %.pre.i.i = load ptr, ptr %14, align 8, !alias.scope !11
+  %.pre.i.i = load ptr, ptr %14, align 8, !alias.scope !10
   %128 = getelementptr inbounds nuw i8, ptr %14, i64 24
-  store ptr %.pre.i.i, ptr %128, align 8, !alias.scope !11
+  store ptr %.pre.i.i, ptr %128, align 8, !alias.scope !10
   %129 = getelementptr inbounds nuw i8, ptr %14, i64 32
-  store ptr %14, ptr %129, align 8, !alias.scope !11
+  store ptr %14, ptr %129, align 8, !alias.scope !10
   %130 = getelementptr inbounds nuw i8, ptr %14, i64 40
   store i32 1, ptr %130, align 8
   %.not102 = icmp eq ptr %.pre.i.i, %14
@@ -860,7 +860,7 @@ _ZN9QtPrivate21qMakeForeachContainerIRNSt7__cxx114listIP7QActionSaIS4_EEEEENS_17
   %132 = load ptr, ptr %.09.i.i.i.i, align 8
   call void @_ZdlPv(ptr noundef nonnull %.09.i.i.i.i) #17
   %.not.i.i.i.i93 = icmp eq ptr %132, %14
-  br i1 %.not.i.i.i.i93, label %_ZN9QtPrivate17QForeachContainerINSt7__cxx114listIP7QActionSaIS4_EEEED2Ev.exit, label %.lr.ph.i.i.i.i92, !llvm.loop !15
+  br i1 %.not.i.i.i.i93, label %_ZN9QtPrivate17QForeachContainerINSt7__cxx114listIP7QActionSaIS4_EEEED2Ev.exit, label %.lr.ph.i.i.i.i92, !llvm.loop !14
 
 _ZN9QtPrivate17QForeachContainerINSt7__cxx114listIP7QActionSaIS4_EEEED2Ev.exit: ; preds = %.lr.ph.i.i.i.i92, %109, %.critedge
   ret void
@@ -1038,7 +1038,7 @@ _ZN9QtPrivate17QForeachContainerINSt7__cxx114listIP7QActionSaIS4_EEEED2Ev.exit: 
   %187 = load ptr, ptr %.09.i.i.i.i96, align 8
   call void @_ZdlPv(ptr noundef nonnull %.09.i.i.i.i96) #17
   %.not.i.i.i.i97 = icmp eq ptr %187, %14
-  br i1 %.not.i.i.i.i97, label %.body, label %.lr.ph.i.i.i.i95, !llvm.loop !15
+  br i1 %.not.i.i.i.i97, label %.body, label %.lr.ph.i.i.i.i95, !llvm.loop !14
 
 188:                                              ; preds = %.lr.ph.preheader
   store i32 0, ptr %130, align 8
@@ -1048,7 +1048,7 @@ _ZN9QtPrivate17QForeachContainerINSt7__cxx114listIP7QActionSaIS4_EEEED2Ev.exit: 
   store ptr %189, ptr %128, align 8
   store i32 1, ptr %130, align 8
   %.not = icmp eq ptr %189, %.pre104
-  br i1 %.not, label %.critedge.loopexit, label %.lr.ph.preheader, !llvm.loop !16
+  br i1 %.not, label %.critedge.loopexit, label %.lr.ph.preheader, !llvm.loop !15
 
 .body:                                            ; preds = %.lr.ph.i.i.i.i.i, %.lr.ph.i.i.i.i95, %184, %135, %124, %180, %169, %158, %147
   %.pn37 = phi { ptr, i32 } [ %.pn32.pn.pn, %180 ], [ %.pn28.pn.pn, %169 ], [ %.pn24.pn.pn, %158 ], [ %.pn.pn.pn, %147 ], [ %136, %135 ], [ %125, %124 ], [ %185, %184 ], [ %185, %.lr.ph.i.i.i.i95 ], [ %125, %.lr.ph.i.i.i.i.i ]
@@ -1115,7 +1115,7 @@ define linkonce_odr void @_ZN10EditPluginD2Ev(ptr noundef nonnull align 8 derefe
   %4 = load ptr, ptr %.09.i.i.i, align 8
   tail call void @_ZdlPv(ptr noundef nonnull %.09.i.i.i) #17
   %.not.i.i.i = icmp eq ptr %4, %2
-  br i1 %.not.i.i.i, label %_ZNSt7__cxx114listIP7QActionSaIS2_EED2Ev.exit, label %.lr.ph.i.i.i, !llvm.loop !15
+  br i1 %.not.i.i.i, label %_ZNSt7__cxx114listIP7QActionSaIS2_EED2Ev.exit, label %.lr.ph.i.i.i, !llvm.loop !14
 
 _ZNSt7__cxx114listIP7QActionSaIS2_EED2Ev.exit:    ; preds = %.lr.ph.i.i.i, %1
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTV13MeshLabPlugin, i64 16), ptr %0, align 8
@@ -1167,7 +1167,7 @@ define linkonce_odr void @_ZNK10EditPlugin7actionsB5cxx11Ev(ptr dead_on_unwind n
   store i64 %12, ptr %5, align 8
   %13 = load ptr, ptr %.sroa.01.05.i.i, align 8
   %.not.i.i = icmp eq ptr %13, %3
-  br i1 %.not.i.i, label %_ZNSt7__cxx114listIP7QActionSaIS2_EEC2ERKS4_.exit, label %.lr.ph.i.i, !llvm.loop !14
+  br i1 %.not.i.i, label %_ZNSt7__cxx114listIP7QActionSaIS2_EEC2ERKS4_.exit, label %.lr.ph.i.i, !llvm.loop !13
 
 14:                                               ; preds = %.lr.ph.i.i
   %15 = landingpad { ptr, i32 }
@@ -1181,7 +1181,7 @@ define linkonce_odr void @_ZNK10EditPlugin7actionsB5cxx11Ev(ptr dead_on_unwind n
   %17 = load ptr, ptr %.09.i.i.i, align 8
   tail call void @_ZdlPv(ptr noundef nonnull %.09.i.i.i) #17
   %.not.i.i.i = icmp eq ptr %17, %0
-  br i1 %.not.i.i.i, label %_ZNSt7__cxx1110_List_baseIP7QActionSaIS2_EED2Ev.exit.i, label %.lr.ph.i.i.i, !llvm.loop !15
+  br i1 %.not.i.i.i, label %_ZNSt7__cxx1110_List_baseIP7QActionSaIS2_EED2Ev.exit.i, label %.lr.ph.i.i.i, !llvm.loop !14
 
 _ZNSt7__cxx1110_List_baseIP7QActionSaIS2_EED2Ev.exit.i: ; preds = %.lr.ph.i.i.i, %14
   resume { ptr, i32 } %15
@@ -1226,9 +1226,9 @@ define void @_ZNK17EditSelectFactory10pluginNameEv(ptr dead_on_unwind noalias wr
 
 ; Function Attrs: uwtable
 define void @_ZThn16_NK17EditSelectFactory10pluginNameEv(ptr dead_on_unwind noalias writable writeonly sret(%class.QString) align 8 captures(none) initializes((0, 8)) %0, ptr noundef readnone captures(none) %1) unnamed_addr #13 align 2 {
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !17)
-  %3 = tail call noundef ptr @_ZN7QString16fromAscii_helperEPKci(ptr noundef nonnull @.str.15, i32 noundef 10), !noalias !17
-  store ptr %3, ptr %0, align 8, !alias.scope !17
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !16)
+  %3 = tail call noundef ptr @_ZN7QString16fromAscii_helperEPKci(ptr noundef nonnull @.str.15, i32 noundef 10), !noalias !16
+  store ptr %3, ptr %0, align 8, !alias.scope !16
   ret void
 }
 
@@ -2771,7 +2771,7 @@ _ZNSt16allocator_traitsISaIN3vcg6Color4IhEEEE8allocateERS3_m.exit.i.i.i.i.i120.i
 
 _ZNSt4pairIKN3vcg8ColorMapESt6vectorINS0_6Color4IhEESaIS5_EEED2Ev.exit.i: ; preds = %53, %48
   %54 = icmp eq ptr %50, %1
-  br i1 %54, label %__cxx_global_var_init.5.exit, label %48, !llvm.loop !20
+  br i1 %54, label %__cxx_global_var_init.5.exit, label %48
 
 .body.thread724.i:                                ; preds = %0
   %55 = landingpad { ptr, i32 }
@@ -2819,7 +2819,7 @@ _ZNSt4pairIKN3vcg8ColorMapESt6vectorINS0_6Color4IhEESaIS5_EEED2Ev.exit.i: ; pred
 
 _ZNSt4pairIKN3vcg8ColorMapESt6vectorINS0_6Color4IhEESaIS5_EEED2Ev.exit145.i: ; preds = %72, %67
   %73 = icmp eq ptr %69, %1
-  br i1 %73, label %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit148.i, label %67, !llvm.loop !21
+  br i1 %73, label %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit148.i, label %67
 
 _ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit148.i: ; preds = %_ZNSt4pairIKN3vcg8ColorMapESt6vectorINS0_6Color4IhEESaIS5_EEED2Ev.exit145.i, %62
   %.pn.i = phi { ptr, i32 } [ %63, %62 ], [ %65, %_ZNSt4pairIKN3vcg8ColorMapESt6vectorINS0_6Color4IhEESaIS5_EEED2Ev.exit145.i ]
@@ -2871,7 +2871,7 @@ _ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit157.i: ; preds = %_ZNSt6vectorIN3v
 
 _ZNSt4pairIKN3vcg8ColorMapESt6vectorINS0_6Color4IhEESaIS5_EEED2Ev.exit162.i: ; preds = %80, %.preheader.i
   %81 = icmp eq ptr %77, %1
-  br i1 %81, label %.body.thread.i, label %.preheader.i, !llvm.loop !22
+  br i1 %81, label %.body.thread.i, label %.preheader.i
 
 .body.thread.i:                                   ; preds = %_ZNSt4pairIKN3vcg8ColorMapESt6vectorINS0_6Color4IhEESaIS5_EEED2Ev.exit162.i, %.body.i, %.body.thread724.i
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn723.i = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.i, %.body.i ], [ %55, %.body.thread724.i ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.i, %_ZNSt4pairIKN3vcg8ColorMapESt6vectorINS0_6Color4IhEESaIS5_EEED2Ev.exit162.i ]
@@ -2933,21 +2933,17 @@ attributes #22 = { noreturn }
 !2 = !{i32 8, !"PIC Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6, !7}
+!5 = distinct !{!5, !6}
 !6 = !{!"llvm.loop.mustprogress"}
-!7 = !{!"llvm.loop.estimated_trip_count"}
-!8 = distinct !{!8, !6, !7}
-!9 = distinct !{!9, !6, !7}
-!10 = distinct !{!10, !6, !7}
-!11 = !{!12}
-!12 = distinct !{!12, !13, !"_ZN9QtPrivate21qMakeForeachContainerIRNSt7__cxx114listIP7QActionSaIS4_EEEEENS_17QForeachContainerINSt5decayIT_E4typeEEEOSA_: argument 0"}
-!13 = distinct !{!13, !"_ZN9QtPrivate21qMakeForeachContainerIRNSt7__cxx114listIP7QActionSaIS4_EEEEENS_17QForeachContainerINSt5decayIT_E4typeEEEOSA_"}
-!14 = distinct !{!14, !6, !7}
-!15 = distinct !{!15, !6, !7}
-!16 = distinct !{!16, !6, !7}
-!17 = !{!18}
-!18 = distinct !{!18, !19, !"_ZNK17EditSelectFactory10pluginNameEv: argument 0"}
-!19 = distinct !{!19, !"_ZNK17EditSelectFactory10pluginNameEv"}
-!20 = distinct !{!20, !7}
-!21 = distinct !{!21, !7}
-!22 = distinct !{!22, !7}
+!7 = distinct !{!7, !6}
+!8 = distinct !{!8, !6}
+!9 = distinct !{!9, !6}
+!10 = !{!11}
+!11 = distinct !{!11, !12, !"_ZN9QtPrivate21qMakeForeachContainerIRNSt7__cxx114listIP7QActionSaIS4_EEEEENS_17QForeachContainerINSt5decayIT_E4typeEEEOSA_: argument 0"}
+!12 = distinct !{!12, !"_ZN9QtPrivate21qMakeForeachContainerIRNSt7__cxx114listIP7QActionSaIS4_EEEEENS_17QForeachContainerINSt5decayIT_E4typeEEEOSA_"}
+!13 = distinct !{!13, !6}
+!14 = distinct !{!14, !6}
+!15 = distinct !{!15, !6}
+!16 = !{!17}
+!17 = distinct !{!17, !18, !"_ZNK17EditSelectFactory10pluginNameEv: argument 0"}
+!18 = distinct !{!18, !"_ZNK17EditSelectFactory10pluginNameEv"}

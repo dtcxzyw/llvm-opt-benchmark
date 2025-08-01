@@ -2004,7 +2004,7 @@ aim_get_family.exit.i:                            ; preds = %.lr.ph.i.i55, %46, 
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 8
   %65 = load ptr, ptr %64, align 8
   %.not21.i.i = icmp eq ptr %65, null
-  br i1 %.not21.i.i, label %.thread.i.i, label %.lr.ph.i125.i, !llvm.loop !11
+  br i1 %.not21.i.i, label %.thread.i.i, label %.lr.ph.i125.i, !llvm.loop !10
 
 .lr.ph.i125.i:                                    ; preds = %.preheader.i.i, %60
   %66 = phi ptr [ %63, %60 ], [ %57, %.preheader.i.i ]
@@ -2017,7 +2017,7 @@ aim_get_family.exit.i:                            ; preds = %.lr.ph.i.i55, %46, 
   %69 = getelementptr inbounds nuw i8, ptr %.01933.i.i, i64 8
   %.019.i.i = load ptr, ptr %69, align 8
   %.not.i124.i = icmp eq ptr %.019.i.i, null
-  br i1 %.not.i124.i, label %aim_get_subtype.exit.i, label %.lr.ph34.i.i, !llvm.loop !12
+  br i1 %.not.i124.i, label %aim_get_subtype.exit.i, label %.lr.ph34.i.i, !llvm.loop !11
 
 aim_get_subtype.exit.i:                           ; preds = %.thread.i.i, %.lr.ph.i125.i, %aim_get_family.exit.i
   %.4.i.i = phi ptr [ null, %aim_get_family.exit.i ], [ %66, %.lr.ph.i125.i ], [ null, %.thread.i.i ]
@@ -2085,7 +2085,7 @@ aim_get_subtype.exit.i:                           ; preds = %.thread.i.i, %.lr.p
   %.2133.i = phi i32 [ %108, %.lr.ph.i ], [ 18, %104 ]
   %108 = tail call fastcc i32 @dissect_aim_tlv(ptr noundef %0, ptr noundef %1, i32 noundef %.2133.i, ptr noundef %.0, ptr noundef nonnull @aim_fnac_tlvs)
   %109 = icmp slt i32 %108, %107
-  br i1 %109, label %.lr.ph.i, label %.loopexit.i, !llvm.loop !13
+  br i1 %109, label %.lr.ph.i, label %.loopexit.i, !llvm.loop !12
 
 .loopexit.i:                                      ; preds = %.lr.ph.i, %104, %103
   %.1.i = phi i32 [ 16, %103 ], [ 18, %104 ], [ %108, %.lr.ph.i ]
@@ -2258,7 +2258,7 @@ define internal fastcc i32 @dissect_aim_tlv(ptr noundef %0, ptr noundef %1, i32 
   %12 = icmp eq i16 %11, %7
   %or.cond = select i1 %.not, i1 true, i1 %12
   %13 = add i32 %.047, 1
-  br i1 %or.cond, label %14, label %8, !llvm.loop !14
+  br i1 %or.cond, label %14, label %8, !llvm.loop !13
 
 14:                                               ; preds = %8
   %15 = add i32 %2, 2
@@ -2467,7 +2467,7 @@ define internal i32 @dissect_aim_admin_accnt_info_repl(ptr noundef %0, ptr nound
   %9 = tail call fastcc i32 @dissect_aim_tlv(ptr noundef %0, ptr noundef %1, i32 noundef %.016.i, ptr noundef %2, ptr noundef nonnull @aim_client_tlvs)
   %10 = add nuw i16 %.01415.i, 1
   %exitcond.not.i = icmp eq i16 %10, %6
-  br i1 %exitcond.not.i, label %dissect_aim_tlv_list.exit, label %.lr.ph.i, !llvm.loop !15
+  br i1 %exitcond.not.i, label %dissect_aim_tlv_list.exit, label %.lr.ph.i, !llvm.loop !14
 
 dissect_aim_tlv_list.exit:                        ; preds = %.lr.ph.i, %3
   %.0.lcssa.i = phi i32 [ 4, %3 ], [ %9, %.lr.ph.i ]
@@ -2559,7 +2559,7 @@ define internal noundef i32 @dissect_aim_bos_buddyname(ptr noundef %0, ptr nound
   %6 = tail call fastcc i32 @dissect_aim_buddyname(ptr noundef %0, ptr noundef %1, i32 noundef %.06, ptr noundef %2)
   %7 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %6)
   %8 = icmp sgt i32 %7, 0
-  br i1 %8, label %.lr.ph, label %._crit_edge, !llvm.loop !16
+  br i1 %8, label %.lr.ph, label %._crit_edge, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   %.0.lcssa = phi i32 [ 0, %3 ], [ %6, %.lr.ph ]
@@ -2624,7 +2624,7 @@ define internal noundef i32 @dissect_aim_buddylist_buddylist(ptr noundef %0, ptr
   %6 = tail call fastcc i32 @dissect_aim_buddyname(ptr noundef %0, ptr noundef %1, i32 noundef %.06, ptr noundef %2)
   %7 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %6)
   %8 = icmp sgt i32 %7, 0
-  br i1 %8, label %.lr.ph, label %._crit_edge, !llvm.loop !17
+  br i1 %8, label %.lr.ph, label %._crit_edge, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   %.0.lcssa = phi i32 [ 0, %3 ], [ %6, %.lr.ph ]
@@ -2669,7 +2669,7 @@ define internal i32 @dissect_aim_buddylist_oncoming(ptr noundef %0, ptr noundef 
   %23 = tail call fastcc i32 @dissect_aim_tlv(ptr noundef %0, ptr noundef %1, i32 noundef %.016.i, ptr noundef %2, ptr noundef nonnull @aim_onlinebuddy_tlvs)
   %24 = add nuw i16 %.01415.i, 1
   %exitcond.not.i = icmp eq i16 %24, %19
-  br i1 %exitcond.not.i, label %dissect_aim_tlv_list.exit, label %.lr.ph.i, !llvm.loop !15
+  br i1 %exitcond.not.i, label %dissect_aim_tlv_list.exit, label %.lr.ph.i, !llvm.loop !14
 
 dissect_aim_tlv_list.exit:                        ; preds = %.lr.ph.i, %3
   %.0.lcssa.i = phi i32 [ %22, %3 ], [ %23, %.lr.ph.i ]
@@ -2708,7 +2708,7 @@ define internal i32 @dissect_aim_buddylist_offgoing(ptr noundef %0, ptr noundef 
   %23 = tail call fastcc i32 @dissect_aim_tlv(ptr noundef %0, ptr noundef %1, i32 noundef %.016.i, ptr noundef %2, ptr noundef nonnull @aim_onlinebuddy_tlvs)
   %24 = add nuw i16 %.01415.i, 1
   %exitcond.not.i = icmp eq i16 %24, %19
-  br i1 %exitcond.not.i, label %dissect_aim_tlv_list.exit, label %.lr.ph.i, !llvm.loop !15
+  br i1 %exitcond.not.i, label %dissect_aim_tlv_list.exit, label %.lr.ph.i, !llvm.loop !14
 
 dissect_aim_tlv_list.exit:                        ; preds = %.lr.ph.i, %3
   %.0.lcssa.i = phi i32 [ %22, %3 ], [ %23, %.lr.ph.i ]
@@ -2779,7 +2779,7 @@ define internal i32 @dissect_aim_tlv_value_client_capabilities(ptr noundef %0, i
   %9 = tail call fastcc i32 @dissect_aim_capability(ptr noundef %6, ptr noundef %2, i32 noundef %.07)
   %10 = tail call i32 @tvb_reported_length_remaining(ptr noundef %2, i32 noundef %9)
   %11 = icmp sgt i32 %10, 0
-  br i1 %11, label %.lr.ph, label %._crit_edge, !llvm.loop !18
+  br i1 %11, label %.lr.ph, label %._crit_edge, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %.lr.ph, %4
   %12 = tail call i32 @tvb_reported_length(ptr noundef %2)
@@ -2814,7 +2814,7 @@ define internal i32 @dissect_aim_tlv_value_client_short_capabilities(ptr noundef
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %15 = getelementptr [34 x %struct._aim_client_capability], ptr @known_client_caps, i64 0, i64 %indvars.iv.next.i.i.i
   %exitcond.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, 33
-  br i1 %exitcond.i.i.i, label %aim_find_short_capability.exit.thread.i, label %17, !llvm.loop !19
+  br i1 %exitcond.i.i.i, label %aim_find_short_capability.exit.thread.i, label %17, !llvm.loop !18
 
 aim_find_short_capability.exit.thread.i:          ; preds = %14
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
@@ -2847,7 +2847,7 @@ dissect_aim_short_capability.exit:                ; preds = %aim_find_short_capa
   %27 = add i32 %.08, 2
   %28 = tail call i32 @tvb_reported_length_remaining(ptr noundef %2, i32 noundef %27)
   %29 = icmp sgt i32 %28, 0
-  br i1 %29, label %11, label %._crit_edge, !llvm.loop !20
+  br i1 %29, label %11, label %._crit_edge, !llvm.loop !19
 
 ._crit_edge:                                      ; preds = %dissect_aim_short_capability.exit, %4
   %30 = tail call i32 @tvb_reported_length(ptr noundef %2)
@@ -2876,7 +2876,7 @@ define internal fastcc noundef i32 @dissect_aim_capability(ptr noundef %0, ptr n
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %11 = getelementptr [34 x %struct._aim_client_capability], ptr @known_client_caps, i64 0, i64 %indvars.iv.next.i
   %exitcond.i = icmp eq i64 %indvars.iv.next.i, 33
-  br i1 %exitcond.i, label %aim_find_capability.exit.thread, label %13, !llvm.loop !19
+  br i1 %exitcond.i, label %aim_find_capability.exit.thread, label %13, !llvm.loop !18
 
 aim_find_capability.exit.thread:                  ; preds = %10
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
@@ -2957,7 +2957,7 @@ define internal noundef i32 @dissect_aim_chat_userinfo_list(ptr noundef %0, ptr 
   %6 = tail call fastcc i32 @dissect_aim_userinfo(ptr noundef %0, ptr noundef %1, i32 noundef %.06, ptr noundef %2)
   %7 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %6)
   %8 = icmp sgt i32 %7, 0
-  br i1 %8, label %.lr.ph, label %._crit_edge, !llvm.loop !21
+  br i1 %8, label %.lr.ph, label %._crit_edge, !llvm.loop !20
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   %.0.lcssa = phi i32 [ 0, %3 ], [ %6, %.lr.ph ]
@@ -3029,7 +3029,7 @@ define internal fastcc i32 @dissect_aim_userinfo(ptr noundef %0, ptr noundef %1,
   %13 = tail call fastcc i32 @dissect_aim_tlv(ptr noundef %0, ptr noundef %1, i32 noundef %.016.i, ptr noundef %3, ptr noundef nonnull @aim_onlinebuddy_tlvs)
   %14 = add nuw i16 %.01415.i, 1
   %exitcond.not.i = icmp eq i16 %14, %9
-  br i1 %exitcond.not.i, label %dissect_aim_tlv_list.exit, label %.lr.ph.i, !llvm.loop !15
+  br i1 %exitcond.not.i, label %dissect_aim_tlv_list.exit, label %.lr.ph.i, !llvm.loop !14
 
 dissect_aim_tlv_list.exit:                        ; preds = %.lr.ph.i, %4
   %.0.lcssa.i = phi i32 [ %12, %4 ], [ %13, %.lr.ph.i ]
@@ -3101,7 +3101,7 @@ define internal fastcc void @aim_get_message(ptr noundef %0, ptr noundef %1, i32
   %28 = icmp slt i32 %.1, 6
   %29 = icmp sgt i32 %.0138, 6
   %30 = select i1 %28, i1 %29, i1 false
-  br i1 %30, label %.lr.ph, label %._crit_edge, !llvm.loop !22
+  br i1 %30, label %.lr.ph, label %._crit_edge, !llvm.loop !21
 
 ._crit_edge:                                      ; preds = %25, %6
   %.0115.lcssa = phi i32 [ %2, %6 ], [ %26, %25 ]
@@ -3198,7 +3198,7 @@ define internal fastcc void @aim_get_message(ptr noundef %0, ptr noundef %1, i32
   %75 = icmp slt i32 %74, %31
   %76 = icmp slt i32 %.3, 7
   %77 = select i1 %75, i1 %76, i1 false
-  br i1 %77, label %34, label %.loopexit, !llvm.loop !23
+  br i1 %77, label %34, label %.loopexit, !llvm.loop !22
 
 .loopexit:                                        ; preds = %73, %._crit_edge, %4
   ret void
@@ -3218,7 +3218,7 @@ define internal noundef i32 @dissect_aim_directory_user_repl(ptr noundef %0, ptr
   %6 = tail call fastcc i32 @dissect_aim_tlv(ptr noundef %0, ptr noundef %1, i32 noundef %.06, ptr noundef %2, ptr noundef nonnull @aim_client_tlvs)
   %7 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %6)
   %8 = icmp sgt i32 %7, 0
-  br i1 %8, label %.lr.ph, label %._crit_edge, !llvm.loop !24
+  br i1 %8, label %.lr.ph, label %._crit_edge, !llvm.loop !23
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   %.0.lcssa = phi i32 [ 0, %3 ], [ %6, %.lr.ph ]
@@ -3249,7 +3249,7 @@ define internal noundef i32 @dissect_aim_generic_clientready(ptr noundef %0, ptr
   tail call void @proto_item_set_len(ptr noundef %9, i32 noundef 8)
   %19 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %18)
   %20 = icmp sgt i32 %19, 0
-  br i1 %20, label %.lr.ph, label %._crit_edge, !llvm.loop !25
+  br i1 %20, label %.lr.ph, label %._crit_edge, !llvm.loop !24
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   %.0.lcssa = phi i32 [ 0, %3 ], [ %18, %.lr.ph ]
@@ -3271,7 +3271,7 @@ define internal noundef i32 @dissect_aim_generic_serverready(ptr noundef %0, ptr
   %10 = add i32 %.09, 2
   %11 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %10)
   %12 = icmp sgt i32 %11, 0
-  br i1 %12, label %.lr.ph, label %._crit_edge, !llvm.loop !26
+  br i1 %12, label %.lr.ph, label %._crit_edge, !llvm.loop !25
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   %.0.lcssa = phi i32 [ 0, %3 ], [ %10, %.lr.ph ]
@@ -3379,7 +3379,7 @@ define internal noundef i32 @dissect_generic_rateinfo(ptr noundef %0, ptr readno
   %19 = tail call fastcc i32 @dissect_rate_class(ptr noundef %0, i32 noundef %.092, ptr noundef %18)
   %20 = add nuw i16 %.06991, 1
   %exitcond.not = icmp eq i16 %20, %4
-  br i1 %exitcond.not, label %.lr.ph104.preheader, label %.lr.ph, !llvm.loop !27
+  br i1 %exitcond.not, label %.lr.ph104.preheader, label %.lr.ph, !llvm.loop !26
 
 .lr.ph104.preheader:                              ; preds = %.lr.ph
   %21 = load i32, ptr @ett_generic_rateinfo_groups, align 4
@@ -3462,7 +3462,7 @@ aim_get_family.exit:                              ; preds = %40, %.lr.ph.i
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 8
   %58 = load ptr, ptr %57, align 8
   %.not21.i = icmp eq ptr %58, null
-  br i1 %.not21.i, label %.thread.i, label %.lr.ph.i80, !llvm.loop !11
+  br i1 %.not21.i, label %.thread.i, label %.lr.ph.i80, !llvm.loop !10
 
 .lr.ph.i80:                                       ; preds = %.preheader.i, %53
   %59 = phi ptr [ %56, %53 ], [ %50, %.preheader.i ]
@@ -3475,7 +3475,7 @@ aim_get_family.exit:                              ; preds = %40, %.lr.ph.i
   %62 = getelementptr inbounds nuw i8, ptr %.01933.i, i64 8
   %.019.i = load ptr, ptr %62, align 8
   %.not.i79 = icmp eq ptr %.019.i, null
-  br i1 %.not.i79, label %aim_get_subtype.exit, label %.lr.ph34.i, !llvm.loop !12
+  br i1 %.not.i79, label %aim_get_subtype.exit, label %.lr.ph34.i, !llvm.loop !11
 
 aim_get_subtype.exit:                             ; preds = %.thread.i, %.lr.ph.i80
   %.4.i = phi ptr [ %59, %.lr.ph.i80 ], [ null, %.thread.i ]
@@ -3508,13 +3508,13 @@ aim_get_subtype.exit:                             ; preds = %.thread.i, %.lr.ph.
   %79 = add nuw i16 %.07294, 1
   %.2 = add i32 %.296, 4
   %exitcond114.not = icmp eq i16 %79, %25
-  br i1 %exitcond114.not, label %._crit_edge99, label %.lr.ph98, !llvm.loop !28
+  br i1 %exitcond114.not, label %._crit_edge99, label %.lr.ph98, !llvm.loop !27
 
 ._crit_edge99:                                    ; preds = %72, %.lr.ph104
   %.2.lcssa = phi i32 [ %.293, %.lr.ph104 ], [ %.2, %72 ]
   %80 = add nuw i16 %.170101, 1
   %exitcond115.not = icmp eq i16 %80, %4
-  br i1 %exitcond115.not, label %._crit_edge105, label %.lr.ph104, !llvm.loop !29
+  br i1 %exitcond115.not, label %._crit_edge105, label %.lr.ph104, !llvm.loop !28
 
 ._crit_edge105:                                   ; preds = %._crit_edge99, %._crit_edge.thread
   %.1.lcssa = phi i32 [ 2, %._crit_edge.thread ], [ %.2.lcssa, %._crit_edge99 ]
@@ -3534,7 +3534,7 @@ define internal noundef i32 @dissect_aim_generic_rateinfoack(ptr noundef %0, ptr
   %8 = add i32 %.06, 2
   %9 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %8)
   %10 = icmp sgt i32 %9, 0
-  br i1 %10, label %.lr.ph, label %._crit_edge, !llvm.loop !30
+  br i1 %10, label %.lr.ph, label %._crit_edge, !llvm.loop !29
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   %.0.lcssa = phi i32 [ 0, %3 ], [ %8, %.lr.ph ]
@@ -3562,7 +3562,7 @@ define internal noundef i32 @dissect_aim_generic_clientpauseack(ptr noundef %0, 
   %8 = add i32 %.06, 2
   %9 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %8)
   %10 = icmp sgt i32 %9, 0
-  br i1 %10, label %.lr.ph, label %._crit_edge, !llvm.loop !31
+  br i1 %10, label %.lr.ph, label %._crit_edge, !llvm.loop !30
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   %.0.lcssa = phi i32 [ 0, %3 ], [ %8, %.lr.ph ]
@@ -3588,7 +3588,7 @@ define internal i32 @dissect_aim_generic_selfinfo_repl(ptr noundef %0, ptr nound
   %12 = tail call fastcc i32 @dissect_aim_tlv(ptr noundef %0, ptr noundef %1, i32 noundef %.016.i, ptr noundef %2, ptr noundef nonnull @aim_onlinebuddy_tlvs)
   %13 = add nuw i16 %.01415.i, 1
   %exitcond.not.i = icmp eq i16 %13, %8
-  br i1 %exitcond.not.i, label %dissect_aim_tlv_list.exit, label %.lr.ph.i, !llvm.loop !15
+  br i1 %exitcond.not.i, label %dissect_aim_tlv_list.exit, label %.lr.ph.i, !llvm.loop !14
 
 dissect_aim_tlv_list.exit:                        ; preds = %.lr.ph.i, %3
   %.0.lcssa.i = phi i32 [ %11, %3 ], [ %12, %.lr.ph.i ]
@@ -3608,7 +3608,7 @@ define internal noundef i32 @dissect_aim_generic_evil(ptr noundef %0, ptr nounde
   %8 = tail call fastcc i32 @dissect_aim_userinfo(ptr noundef %0, ptr noundef %1, i32 noundef %.09, ptr noundef %2)
   %9 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %8)
   %10 = icmp sgt i32 %9, 0
-  br i1 %10, label %.lr.ph, label %._crit_edge, !llvm.loop !32
+  br i1 %10, label %.lr.ph, label %._crit_edge, !llvm.loop !31
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   %.0.lcssa = phi i32 [ 0, %3 ], [ %8, %.lr.ph ]
@@ -3642,7 +3642,7 @@ define internal noundef i32 @dissect_aim_generic_migration_req(ptr noundef %0, p
   %13 = add nuw nsw i32 %.023, 2
   %14 = add nuw nsw i32 %.02122, 1
   %exitcond.not = icmp eq i32 %14, %5
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !33
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !32
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   %.0.lcssa = phi i32 [ 2, %3 ], [ %13, %.lr.ph ]
@@ -3708,7 +3708,7 @@ define internal noundef i32 @dissect_aim_generic_capabilities(ptr noundef %0, pt
   %13 = add i32 %.013, 4
   %14 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %13)
   %15 = icmp sgt i32 %14, 0
-  br i1 %15, label %.lr.ph, label %._crit_edge, !llvm.loop !34
+  br i1 %15, label %.lr.ph, label %._crit_edge, !llvm.loop !33
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   %.0.lcssa = phi i32 [ 0, %3 ], [ %13, %.lr.ph ]
@@ -3733,7 +3733,7 @@ define internal noundef i32 @dissect_aim_generic_capack(ptr noundef %0, ptr read
   %13 = add i32 %.013, 4
   %14 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %13)
   %15 = icmp sgt i32 %14, 0
-  br i1 %15, label %.lr.ph, label %._crit_edge, !llvm.loop !35
+  br i1 %15, label %.lr.ph, label %._crit_edge, !llvm.loop !34
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   %.0.lcssa = phi i32 [ 0, %3 ], [ %13, %.lr.ph ]
@@ -3868,13 +3868,13 @@ define internal i32 @dissect_aim_tlv_value_icq(ptr noundef %0, i16 zeroext %1, p
   %indvars.iv59 = phi i64 [ %indvars.iv.next, %24 ], [ 0, %19 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv59, 1
   %exitcond = icmp eq i64 %indvars.iv.next, 51
-  br i1 %exitcond, label %._crit_edge62, label %24, !llvm.loop !36
+  br i1 %exitcond, label %._crit_edge62, label %24, !llvm.loop !35
 
 24:                                               ; preds = %.lr.ph
   %25 = getelementptr [52 x %struct.anon.0], ptr @icq_calls, i64 0, i64 %indvars.iv.next
   %26 = load i16, ptr %25, align 8
   %27 = icmp eq i16 %26, %20
-  br i1 %27, label %._crit_edge, label %.lr.ph, !llvm.loop !36
+  br i1 %27, label %._crit_edge, label %.lr.ph, !llvm.loop !35
 
 ._crit_edge:                                      ; preds = %24
   %28 = getelementptr inbounds nuw i8, ptr %25, i64 8
@@ -3882,7 +3882,7 @@ define internal i32 @dissect_aim_tlv_value_icq(ptr noundef %0, i16 zeroext %1, p
   br label %30
 
 ._crit_edge62:                                    ; preds = %.lr.ph
-  br label %30, !llvm.loop !36
+  br label %30, !llvm.loop !35
 
 30:                                               ; preds = %._crit_edge62, %._crit_edge, %19
   %.lcssa = phi ptr [ %25, %._crit_edge ], [ getelementptr inbounds nuw (i8, ptr @icq_calls, i64 1224), %._crit_edge62 ], [ @icq_calls, %19 ]
@@ -4003,7 +4003,7 @@ define internal noundef i32 @dissect_aim_snac_location_user_information(ptr noun
   %18 = tail call fastcc i32 @dissect_aim_tlv(ptr noundef %0, ptr noundef %1, i32 noundef %.016.i, ptr noundef %2, ptr noundef nonnull @aim_onlinebuddy_tlvs)
   %19 = add nuw i16 %.01415.i, 1
   %exitcond.not.i = icmp eq i16 %19, %14
-  br i1 %exitcond.not.i, label %dissect_aim_tlv_list.exit, label %.lr.ph.i, !llvm.loop !15
+  br i1 %exitcond.not.i, label %dissect_aim_tlv_list.exit, label %.lr.ph.i, !llvm.loop !14
 
 dissect_aim_tlv_list.exit:                        ; preds = %.lr.ph.i, %3
   %.0.lcssa.i = phi i32 [ %17, %3 ], [ %18, %.lr.ph.i ]
@@ -4034,7 +4034,7 @@ define internal noundef i32 @dissect_aim_location_watcher_notification(ptr nound
   %6 = tail call fastcc i32 @dissect_aim_buddyname(ptr noundef %0, ptr noundef %1, i32 noundef %.06, ptr noundef %2)
   %7 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %6)
   %8 = icmp sgt i32 %7, 0
-  br i1 %8, label %.lr.ph, label %._crit_edge, !llvm.loop !37
+  br i1 %8, label %.lr.ph, label %._crit_edge, !llvm.loop !36
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   %.0.lcssa = phi i32 [ 0, %3 ], [ %6, %.lr.ph ]
@@ -4244,7 +4244,7 @@ define internal noundef i32 @dissect_aim_msg_client_err(ptr noundef %0, ptr noun
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %47 = getelementptr [3 x %struct._aim_client_plugin], ptr @known_client_plugins, i64 0, i64 %indvars.iv.next.i.i.i
   %exitcond.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, 2
-  br i1 %exitcond.i.i.i, label %aim_find_plugin.exit.thread.i.i, label %50, !llvm.loop !38
+  br i1 %exitcond.i.i.i, label %aim_find_plugin.exit.thread.i.i, label %50, !llvm.loop !37
 
 aim_find_plugin.exit.thread.i.i:                  ; preds = %46
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
@@ -4428,7 +4428,7 @@ define internal noundef i32 @dissect_aim_tlv_value_messageblock(ptr noundef %0, 
   %52 = add i32 %31, %51
   %53 = call i32 @tvb_reported_length_remaining(ptr noundef %2, i32 noundef %52)
   %54 = icmp sgt i32 %53, 0
-  br i1 %54, label %20, label %.loopexit, !llvm.loop !39
+  br i1 %54, label %20, label %.loopexit, !llvm.loop !38
 
 .loopexit:                                        ; preds = %30, %4, %28
   %.1 = phi i32 [ %23, %28 ], [ %16, %4 ], [ %52, %30 ]
@@ -4485,7 +4485,7 @@ define internal noundef i32 @dissect_aim_tlv_value_string08_array(ptr noundef %0
   %14 = add i32 %13, %12
   %15 = tail call i32 @tvb_reported_length_remaining(ptr noundef %2, i32 noundef %14)
   %16 = icmp sgt i32 %15, 1
-  br i1 %16, label %.lr.ph, label %._crit_edge, !llvm.loop !40
+  br i1 %16, label %.lr.ph, label %._crit_edge, !llvm.loop !39
 
 ._crit_edge:                                      ; preds = %.lr.ph, %4
   %.0.lcssa = phi i32 [ 0, %4 ], [ %14, %.lr.ph ]
@@ -4512,7 +4512,7 @@ define internal noundef i32 @dissect_aim_snac_signon_logon(ptr noundef %0, ptr n
   %6 = tail call fastcc i32 @dissect_aim_tlv(ptr noundef %0, ptr noundef %1, i32 noundef %.06, ptr noundef %2, ptr noundef nonnull @aim_client_tlvs)
   %7 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %6)
   %8 = icmp sgt i32 %7, 0
-  br i1 %8, label %.lr.ph, label %._crit_edge, !llvm.loop !41
+  br i1 %8, label %.lr.ph, label %._crit_edge, !llvm.loop !40
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   %.0.lcssa = phi i32 [ 0, %3 ], [ %6, %.lr.ph ]
@@ -4530,7 +4530,7 @@ define internal noundef i32 @dissect_aim_snac_signon_logon_reply(ptr noundef %0,
   %6 = tail call fastcc i32 @dissect_aim_tlv(ptr noundef %0, ptr noundef %1, i32 noundef %.06, ptr noundef %2, ptr noundef nonnull @aim_client_tlvs)
   %7 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %6)
   %8 = icmp sgt i32 %7, 0
-  br i1 %8, label %.lr.ph, label %._crit_edge, !llvm.loop !42
+  br i1 %8, label %.lr.ph, label %._crit_edge, !llvm.loop !41
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   %.0.lcssa = phi i32 [ 0, %3 ], [ %6, %.lr.ph ]
@@ -4655,7 +4655,7 @@ define internal noundef i32 @dissect_aim_snac_ssi_list(ptr noundef %0, ptr nound
   %19 = tail call fastcc i32 @dissect_ssi_item(ptr noundef %0, ptr noundef %1, i32 noundef %.030, ptr noundef %18)
   %indvars.iv.next = add nuw nsw i32 %indvars.iv, 1
   %exitcond.not = icmp eq i32 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !43
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !42
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   %.0.lcssa = phi i32 [ 3, %3 ], [ %19, %.lr.ph ]
@@ -4690,7 +4690,7 @@ define internal range(i32 0, -2147483648) i32 @dissect_ssi_ssi_items(ptr noundef
   %15 = tail call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef %.013, i32 noundef %13, i32 noundef %14, ptr noundef null, ptr noundef nonnull @.str.938)
   %16 = tail call fastcc i32 @dissect_ssi_item(ptr noundef %0, ptr noundef %1, i32 noundef %.013, ptr noundef %15)
   %17 = icmp sgt i32 %4, %16
-  br i1 %17, label %.lr.ph, label %._crit_edge, !llvm.loop !44
+  br i1 %17, label %.lr.ph, label %._crit_edge, !llvm.loop !43
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   %.0.lcssa = phi i32 [ 0, %3 ], [ %16, %.lr.ph ]
@@ -4834,7 +4834,7 @@ define internal fastcc i32 @dissect_ssi_item(ptr noundef %0, ptr noundef %1, i32
   %.041 = phi i32 [ %31, %.lr.ph ], [ %27, %14 ]
   %31 = tail call fastcc i32 @dissect_aim_tlv(ptr noundef %0, ptr noundef %1, i32 noundef %.041, ptr noundef %3, ptr noundef nonnull @aim_client_tlvs)
   %32 = icmp slt i32 %31, %29
-  br i1 %32, label %.lr.ph, label %._crit_edge, !llvm.loop !45
+  br i1 %32, label %.lr.ph, label %._crit_edge, !llvm.loop !44
 
 ._crit_edge:                                      ; preds = %.lr.ph, %14
   %.0.lcssa = phi i32 [ %27, %14 ], [ %31, %.lr.ph ]
@@ -4984,41 +4984,40 @@ attributes #12 = { allocsize(1) }
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i8 0, i8 2}
 !7 = !{}
-!8 = distinct !{!8, !9, !10}
+!8 = distinct !{!8, !9}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = !{!"llvm.loop.estimated_trip_count"}
-!11 = distinct !{!11, !9, !10}
-!12 = distinct !{!12, !9, !10}
-!13 = distinct !{!13, !9, !10}
-!14 = distinct !{!14, !9, !10}
-!15 = distinct !{!15, !9, !10}
-!16 = distinct !{!16, !9, !10}
-!17 = distinct !{!17, !9, !10}
-!18 = distinct !{!18, !9, !10}
-!19 = distinct !{!19, !9, !10}
-!20 = distinct !{!20, !9, !10}
-!21 = distinct !{!21, !9, !10}
-!22 = distinct !{!22, !9, !10}
-!23 = distinct !{!23, !9, !10}
-!24 = distinct !{!24, !9, !10}
-!25 = distinct !{!25, !9, !10}
-!26 = distinct !{!26, !9, !10}
-!27 = distinct !{!27, !9, !10}
-!28 = distinct !{!28, !9, !10}
-!29 = distinct !{!29, !9, !10}
-!30 = distinct !{!30, !9, !10}
-!31 = distinct !{!31, !9, !10}
-!32 = distinct !{!32, !9, !10}
-!33 = distinct !{!33, !9, !10}
-!34 = distinct !{!34, !9, !10}
-!35 = distinct !{!35, !9, !10}
-!36 = distinct !{!36, !9, !10}
-!37 = distinct !{!37, !9, !10}
-!38 = distinct !{!38, !9, !10}
-!39 = distinct !{!39, !9, !10}
-!40 = distinct !{!40, !9, !10}
-!41 = distinct !{!41, !9, !10}
-!42 = distinct !{!42, !9, !10}
-!43 = distinct !{!43, !9, !10}
-!44 = distinct !{!44, !9, !10}
-!45 = distinct !{!45, !9, !10}
+!10 = distinct !{!10, !9}
+!11 = distinct !{!11, !9}
+!12 = distinct !{!12, !9}
+!13 = distinct !{!13, !9}
+!14 = distinct !{!14, !9}
+!15 = distinct !{!15, !9}
+!16 = distinct !{!16, !9}
+!17 = distinct !{!17, !9}
+!18 = distinct !{!18, !9}
+!19 = distinct !{!19, !9}
+!20 = distinct !{!20, !9}
+!21 = distinct !{!21, !9}
+!22 = distinct !{!22, !9}
+!23 = distinct !{!23, !9}
+!24 = distinct !{!24, !9}
+!25 = distinct !{!25, !9}
+!26 = distinct !{!26, !9}
+!27 = distinct !{!27, !9}
+!28 = distinct !{!28, !9}
+!29 = distinct !{!29, !9}
+!30 = distinct !{!30, !9}
+!31 = distinct !{!31, !9}
+!32 = distinct !{!32, !9}
+!33 = distinct !{!33, !9}
+!34 = distinct !{!34, !9}
+!35 = distinct !{!35, !9}
+!36 = distinct !{!36, !9}
+!37 = distinct !{!37, !9}
+!38 = distinct !{!38, !9}
+!39 = distinct !{!39, !9}
+!40 = distinct !{!40, !9}
+!41 = distinct !{!41, !9}
+!42 = distinct !{!42, !9}
+!43 = distinct !{!43, !9}
+!44 = distinct !{!44, !9}

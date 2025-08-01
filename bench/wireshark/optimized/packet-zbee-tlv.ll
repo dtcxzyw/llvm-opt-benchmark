@@ -936,7 +936,7 @@ dissect_zdp_security_start_key_neg_local_tlv.exit.i: ; preds = %187, %182
   %291 = add i32 %.0371.i.i, 4
   %292 = add nuw i8 %.02.i.i, 1
   %exitcond.not.i.i = icmp eq i8 %292, %285
-  br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !9
+  br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !8
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i, %284
   %.037.lcssa.i.i = phi i32 [ %288, %284 ], [ %291, %.lr.ph.i.i ]
@@ -986,7 +986,7 @@ dissect_zdp_security_start_key_neg_local_tlv.exit.i: ; preds = %187, %182
   %319 = add nuw i8 %.03.i.i, 1
   %.057.i.i = add i32 %.0574.i.i, 4
   %exitcond.not.i85.i = icmp eq i8 %319, %314
-  br i1 %exitcond.not.i85.i, label %dissect_zdp_req_clear_all_bindings_local_tlv.exit.i, label %.lr.ph.i84.i, !llvm.loop !10
+  br i1 %exitcond.not.i85.i, label %dissect_zdp_req_clear_all_bindings_local_tlv.exit.i, label %.lr.ph.i84.i, !llvm.loop !9
 
 320:                                              ; preds = %302
   %321 = load i32, ptr @hf_zbee_zdp_beacon_survey_total, align 4
@@ -1028,7 +1028,7 @@ dissect_zdp_security_start_key_neg_local_tlv.exit.i: ; preds = %187, %182
   %349 = add i32 %.0251.i.i.i, 3
   %350 = add nuw i8 %.02.i.i80.i, 1
   %exitcond.not.i.i81.i = icmp eq i8 %350, %340
-  br i1 %exitcond.not.i.i81.i, label %dissect_zdp_req_clear_all_bindings_local_tlv.exit.i, label %.lr.ph.i.i79.i, !llvm.loop !11
+  br i1 %exitcond.not.i.i81.i, label %dissect_zdp_req_clear_all_bindings_local_tlv.exit.i, label %.lr.ph.i.i79.i, !llvm.loop !10
 
 351:                                              ; preds = %302
   %352 = add i8 %306, 1
@@ -1133,7 +1133,7 @@ dissect_zdp_security_start_key_neg_local_tlv.exit.i: ; preds = %187, %182
   %426 = add i32 %.0371.i95.i, 2
   %427 = add nuw i8 %.02.i94.i, 1
   %exitcond.not.i96.i = icmp eq i8 %427, %417
-  br i1 %exitcond.not.i96.i, label %dissect_zdp_req_clear_all_bindings_local_tlv.exit.i, label %.lr.ph.i93.i, !llvm.loop !12
+  br i1 %exitcond.not.i96.i, label %dissect_zdp_req_clear_all_bindings_local_tlv.exit.i, label %.lr.ph.i93.i, !llvm.loop !11
 
 428:                                              ; preds = %408
   %429 = add i8 %412, 1
@@ -1405,7 +1405,7 @@ dissect_zbee_tlv_nwk_status_map.exit.i.i:         ; preds = %530, %525
   %599 = load i32, ptr @hf_zbee_tlv_local_tunneling_npdu_length, align 4
   %600 = add i32 %.02745, 3
   %601 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %32, i32 noundef %599, ptr noundef %0, i32 noundef %600, i32 noundef 1, i32 noundef -2147483648, ptr noundef nonnull %9)
-  %602 = load i8, ptr %10, align 1, !range !13, !noundef !14
+  %602 = load i8, ptr %10, align 1, !range !12, !noundef !13
   %603 = trunc nuw i8 %602 to i1
   %604 = select i1 %603, ptr @.str.211, ptr @.str.212
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %594, ptr noundef nonnull @.str.210, ptr noundef nonnull %604)
@@ -1772,7 +1772,7 @@ dissect_zbd_msg_status_local_tlv.exit.i:          ; preds = %803, %798, %793, %7
 dissect_zbee_tlv.exit:                            ; preds = %819, %dissect_zbd_msg_status_local_tlv.exit.i, %486, %456, %450, %dissect_zdp_req_clear_all_bindings_local_tlv.exit.i, %119, %115, %824
   %.0.i = phi i32 [ %835, %824 ], [ %122, %119 ], [ %.0.i35, %115 ], [ %454, %450 ], [ %.0.i31, %dissect_zdp_req_clear_all_bindings_local_tlv.exit.i ], [ %497, %486 ], [ %485, %456 ], [ %823, %819 ], [ %.0.i29, %dissect_zbd_msg_status_local_tlv.exit.i ]
   %836 = call zeroext i1 @tvb_bytes_exist(ptr noundef %0, i32 noundef %.0.i, i32 noundef 2)
-  br i1 %836, label %25, label %._crit_edge, !llvm.loop !15
+  br i1 %836, label %25, label %._crit_edge, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %dissect_zbee_tlv.exit, %19
   %.027.lcssa = phi i32 [ %3, %19 ], [ %.0.i, %dissect_zbee_tlv.exit ]
@@ -1947,7 +1947,7 @@ define internal fastcc noundef i32 @dissect_zbee_tlv_nwk_channel_list(ptr nounde
 22:                                               ; preds = %19
   %23 = add nuw nsw i32 %.044.i, 1
   %exitcond.not.i = icmp eq i32 %23, 32
-  br i1 %exitcond.not.i, label %dissect_zbee_tlv_chanmask.exit, label %19, !llvm.loop !16
+  br i1 %exitcond.not.i, label %dissect_zbee_tlv_chanmask.exit, label %19, !llvm.loop !15
 
 .loopexit.i:                                      ; preds = %19
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %16, ptr noundef nonnull @.str.205, i32 noundef %.044.i)
@@ -1992,7 +1992,7 @@ define internal fastcc noundef i32 @dissect_zbee_tlv_nwk_channel_list(ptr nounde
 38:                                               ; preds = %.lr.ph.i
   %39 = add i32 %.445.i, 1
   %exitcond51.not.i = icmp eq i32 %39, 32
-  br i1 %exitcond51.not.i, label %.critedge.i, label %.lr.ph.i, !llvm.loop !17
+  br i1 %exitcond51.not.i, label %.critedge.i, label %.lr.ph.i, !llvm.loop !16
 
 .critedge.i:                                      ; preds = %38, %.lr.ph.i
   %.4.lcssa.ph.i = phi i32 [ %.445.i, %.lr.ph.i ], [ 32, %38 ]
@@ -2003,14 +2003,14 @@ define internal fastcc noundef i32 @dissect_zbee_tlv_nwk_channel_list(ptr nounde
   %.3.i = phi i32 [ %.4.lcssa.ph.i, %.critedge.i ], [ %.248.i, %33 ], [ %.248.i, %.lr.ph49.i ]
   %41 = add i32 %.3.i, 1
   %42 = icmp ult i32 %41, 32
-  br i1 %42, label %.lr.ph49.i, label %dissect_zbee_tlv_chanmask.exit, !llvm.loop !18
+  br i1 %42, label %.lr.ph49.i, label %dissect_zbee_tlv_chanmask.exit, !llvm.loop !17
 
 dissect_zbee_tlv_chanmask.exit:                   ; preds = %22, %40, %.loopexit.i
   %43 = add i32 %.093, 4
   %44 = add nuw i32 %.04, 1
   %45 = load i32, ptr %4, align 4
   %46 = icmp ult i32 %44, %45
-  br i1 %46, label %.lr.ph, label %._crit_edge, !llvm.loop !19
+  br i1 %46, label %.lr.ph, label %._crit_edge, !llvm.loop !18
 }
 
 ; Function Attrs: null_pointer_is_valid
@@ -2063,17 +2063,16 @@ attributes #4 = { nounwind }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7, !8}
-!11 = distinct !{!11, !7, !8}
-!12 = distinct !{!12, !7, !8}
-!13 = !{i8 0, i8 2}
-!14 = !{}
-!15 = distinct !{!15, !7, !8}
-!16 = distinct !{!16, !7, !8}
-!17 = distinct !{!17, !7, !8}
-!18 = distinct !{!18, !7, !8}
-!19 = distinct !{!19, !7, !8}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7}
+!12 = !{i8 0, i8 2}
+!13 = !{}
+!14 = distinct !{!14, !7}
+!15 = distinct !{!15, !7}
+!16 = distinct !{!16, !7}
+!17 = distinct !{!17, !7}
+!18 = distinct !{!18, !7}

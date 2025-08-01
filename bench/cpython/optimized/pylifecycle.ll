@@ -622,7 +622,7 @@ define hidden range(i32 0, 2) i32 @_Py_CoerceLegacyLocale(i32 noundef %0) local_
   br i1 %.not.i, label %25, label %22
 
 22:                                               ; preds = %19
-  %23 = load ptr, ptr @stderr, align 8, !tbaa !182
+  %23 = load ptr, ptr @stderr, align 8, !tbaa !181
   %24 = tail call i64 @fwrite(ptr nonnull @.str.153, i64 51, i64 1, ptr %23) #25
   br label %34
 
@@ -631,7 +631,7 @@ define hidden range(i32 0, 2) i32 @_Py_CoerceLegacyLocale(i32 noundef %0) local_
   br i1 %.not4.i, label %29, label %26
 
 26:                                               ; preds = %25
-  %27 = load ptr, ptr @stderr, align 8, !tbaa !182
+  %27 = load ptr, ptr @stderr, align 8, !tbaa !181
   %28 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %27, ptr noundef nonnull @C_LOCALE_COERCION_WARNING, ptr noundef %.017.val) #26
   br label %29
 
@@ -644,7 +644,7 @@ _coerce_default_locale_settings.exit:             ; preds = %17, %.lr.ph
   %31 = getelementptr i8, ptr %.01735, i64 8
   %32 = load ptr, ptr %31, align 8, !tbaa !177
   %.not = icmp eq ptr %32, null
-  br i1 %.not, label %.thread, label %.lr.ph, !llvm.loop !183
+  br i1 %.not, label %.thread, label %.lr.ph, !llvm.loop !182
 
 .thread:                                          ; preds = %_coerce_default_locale_settings.exit, %8
   %33 = tail call ptr @setlocale(i32 noundef 0, ptr noundef nonnull %3) #23
@@ -689,22 +689,22 @@ define hidden void @_Py_PreInitializeFromPyArgv(ptr dead_on_unwind noalias writa
   br i1 %9, label %10, label %16
 
 10:                                               ; preds = %3
-  store i32 1, ptr %0, align 8, !tbaa !184
+  store i32 1, ptr %0, align 8, !tbaa !183
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 0, ptr %11, align 4
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr @__func__._Py_PreInitializeFromPyArgv, ptr %12, align 8, !tbaa !186
+  store ptr @__func__._Py_PreInitializeFromPyArgv, ptr %12, align 8, !tbaa !185
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr @.str.132, ptr %13, align 8, !tbaa !187
+  store ptr @.str.132, ptr %13, align 8, !tbaa !186
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i32 0, ptr %14, align 8, !tbaa !188
+  store i32 0, ptr %14, align 8, !tbaa !187
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i32 0, ptr %15, align 4
   br label %29
 
 16:                                               ; preds = %3
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #23
-  %.b.i = load i1, ptr @runtime_initialized, align 4, !noalias !189
+  %.b.i = load i1, ptr @runtime_initialized, align 4, !noalias !188
   br i1 %.b.i, label %_PyRuntime_Initialize.exit.thread, label %_PyRuntime_Initialize.exit
 
 _PyRuntime_Initialize.exit.thread:                ; preds = %16
@@ -712,23 +712,23 @@ _PyRuntime_Initialize.exit.thread:                ; preds = %16
   br label %18
 
 _PyRuntime_Initialize.exit:                       ; preds = %16
-  store i1 true, ptr @runtime_initialized, align 4, !noalias !189
+  store i1 true, ptr @runtime_initialized, align 4, !noalias !188
   call void @_PyRuntimeState_Init(ptr dead_on_unwind nonnull writable sret(%struct.PyStatus) align 8 %4, ptr noundef nonnull @_PyRuntime) #23
-  %.sroa.0.0.copyload.pr = load i32, ptr %4, align 8, !tbaa !192
+  %.sroa.0.0.copyload.pr = load i32, ptr %4, align 8, !tbaa !191
   %.sroa.14.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %.sroa.14, ptr noundef nonnull align 4 dereferenceable(28) %.sroa.14.0..sroa_idx, i64 28, i1 false), !tbaa.struct !193
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %.sroa.14, ptr noundef nonnull align 4 dereferenceable(28) %.sroa.14.0..sroa_idx, i64 28, i1 false), !tbaa.struct !192
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #23
   %.not = icmp eq i32 %.sroa.0.0.copyload.pr, 0
   br i1 %.not, label %18, label %17
 
 17:                                               ; preds = %_PyRuntime_Initialize.exit
-  store i32 %.sroa.0.0.copyload.pr, ptr %0, align 8, !tbaa !192
+  store i32 %.sroa.0.0.copyload.pr, ptr %0, align 8, !tbaa !191
   %.sroa.14.0..sroa_idx14 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %.sroa.14.0..sroa_idx14, ptr noundef nonnull align 4 dereferenceable(28) %.sroa.14, i64 28, i1 false), !tbaa.struct !193
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %.sroa.14.0..sroa_idx14, ptr noundef nonnull align 4 dereferenceable(28) %.sroa.14, i64 28, i1 false), !tbaa.struct !192
   br label %29
 
 18:                                               ; preds = %_PyRuntime_Initialize.exit.thread, %_PyRuntime_Initialize.exit
-  %19 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 664), align 8, !tbaa !195
+  %19 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 664), align 8, !tbaa !194
   %.not24 = icmp eq i32 %19, 0
   br i1 %.not24, label %21, label %20
 
@@ -737,58 +737,58 @@ _PyRuntime_Initialize.exit:                       ; preds = %16
   br label %29
 
 21:                                               ; preds = %18
-  store i32 1, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 660), align 4, !tbaa !196
+  store i32 1, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 660), align 4, !tbaa !195
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5) #23
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #23
   call void @_PyPreConfig_InitFromPreConfig(ptr dead_on_unwind nonnull writable sret(%struct.PyStatus) align 8 %6, ptr noundef nonnull %5, ptr noundef nonnull %1) #23
-  %.sroa.0.0.copyload8 = load i32, ptr %6, align 8, !tbaa !192
+  %.sroa.0.0.copyload8 = load i32, ptr %6, align 8, !tbaa !191
   %.sroa.14.0..sroa_idx15 = getelementptr inbounds nuw i8, ptr %6, i64 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %.sroa.14, ptr noundef nonnull align 4 dereferenceable(28) %.sroa.14.0..sroa_idx15, i64 28, i1 false), !tbaa.struct !193
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %.sroa.14, ptr noundef nonnull align 4 dereferenceable(28) %.sroa.14.0..sroa_idx15, i64 28, i1 false), !tbaa.struct !192
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #23
   %.not25 = icmp eq i32 %.sroa.0.0.copyload8, 0
   br i1 %.not25, label %23, label %22
 
 22:                                               ; preds = %21
-  store i32 %.sroa.0.0.copyload8, ptr %0, align 8, !tbaa !192
+  store i32 %.sroa.0.0.copyload8, ptr %0, align 8, !tbaa !191
   %.sroa.14.0..sroa_idx16 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %.sroa.14.0..sroa_idx16, ptr noundef nonnull align 4 dereferenceable(28) %.sroa.14, i64 28, i1 false), !tbaa.struct !193
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %.sroa.14.0..sroa_idx16, ptr noundef nonnull align 4 dereferenceable(28) %.sroa.14, i64 28, i1 false), !tbaa.struct !192
   br label %28
 
 23:                                               ; preds = %21
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #23
   call void @_PyPreConfig_Read(ptr dead_on_unwind nonnull writable sret(%struct.PyStatus) align 8 %7, ptr noundef nonnull %5, ptr noundef %2) #23
-  %.sroa.0.0.copyload10 = load i32, ptr %7, align 8, !tbaa !192
+  %.sroa.0.0.copyload10 = load i32, ptr %7, align 8, !tbaa !191
   %.sroa.14.0..sroa_idx17 = getelementptr inbounds nuw i8, ptr %7, i64 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %.sroa.14, ptr noundef nonnull align 4 dereferenceable(28) %.sroa.14.0..sroa_idx17, i64 28, i1 false), !tbaa.struct !193
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %.sroa.14, ptr noundef nonnull align 4 dereferenceable(28) %.sroa.14.0..sroa_idx17, i64 28, i1 false), !tbaa.struct !192
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #23
   %.not26 = icmp eq i32 %.sroa.0.0.copyload10, 0
   br i1 %.not26, label %25, label %24
 
 24:                                               ; preds = %23
-  store i32 %.sroa.0.0.copyload10, ptr %0, align 8, !tbaa !192
+  store i32 %.sroa.0.0.copyload10, ptr %0, align 8, !tbaa !191
   %.sroa.14.0..sroa_idx18 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %.sroa.14.0..sroa_idx18, ptr noundef nonnull align 4 dereferenceable(28) %.sroa.14, i64 28, i1 false), !tbaa.struct !193
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %.sroa.14.0..sroa_idx18, ptr noundef nonnull align 4 dereferenceable(28) %.sroa.14, i64 28, i1 false), !tbaa.struct !192
   br label %28
 
 25:                                               ; preds = %23
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8) #23
   call void @_PyPreConfig_Write(ptr dead_on_unwind nonnull writable sret(%struct.PyStatus) align 8 %8, ptr noundef nonnull %5) #23
-  %.sroa.0.0.copyload12 = load i32, ptr %8, align 8, !tbaa !192
+  %.sroa.0.0.copyload12 = load i32, ptr %8, align 8, !tbaa !191
   %.sroa.14.0..sroa_idx19 = getelementptr inbounds nuw i8, ptr %8, i64 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %.sroa.14, ptr noundef nonnull align 4 dereferenceable(28) %.sroa.14.0..sroa_idx19, i64 28, i1 false), !tbaa.struct !193
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %.sroa.14, ptr noundef nonnull align 4 dereferenceable(28) %.sroa.14.0..sroa_idx19, i64 28, i1 false), !tbaa.struct !192
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8) #23
   %.not27 = icmp eq i32 %.sroa.0.0.copyload12, 0
   br i1 %.not27, label %27, label %26
 
 26:                                               ; preds = %25
-  store i32 %.sroa.0.0.copyload12, ptr %0, align 8, !tbaa !192
+  store i32 %.sroa.0.0.copyload12, ptr %0, align 8, !tbaa !191
   %.sroa.14.0..sroa_idx20 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %.sroa.14.0..sroa_idx20, ptr noundef nonnull align 4 dereferenceable(28) %.sroa.14, i64 28, i1 false), !tbaa.struct !193
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %.sroa.14.0..sroa_idx20, ptr noundef nonnull align 4 dereferenceable(28) %.sroa.14, i64 28, i1 false), !tbaa.struct !192
   br label %28
 
 27:                                               ; preds = %25
-  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 660), align 4, !tbaa !196
-  store i32 1, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 664), align 8, !tbaa !195
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 660), align 4, !tbaa !195
+  store i32 1, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 664), align 8, !tbaa !194
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 0, i64 32, i1 false)
   br label %28
 
@@ -814,15 +814,15 @@ declare void @_PyPreConfig_Write(ptr dead_on_unwind writable sret(%struct.PyStat
 define dso_local void @Py_PreInitializeFromBytesArgs(ptr dead_on_unwind noalias writable writeonly sret(%struct.PyStatus) align 8 captures(none) initializes((0, 32)) %0, ptr noundef %1, i64 noundef %2, ptr noundef %3) local_unnamed_addr #1 {
   %5 = alloca %struct._PyArgv, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #23
-  store i64 %2, ptr %5, align 8, !tbaa !197
+  store i64 %2, ptr %5, align 8, !tbaa !196
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store i32 1, ptr %6, align 8, !tbaa !200
+  store i32 1, ptr %6, align 8, !tbaa !199
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 12
   store i32 0, ptr %7, align 4
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store ptr %3, ptr %8, align 8, !tbaa !201
+  store ptr %3, ptr %8, align 8, !tbaa !200
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  store ptr null, ptr %9, align 8, !tbaa !202
+  store ptr null, ptr %9, align 8, !tbaa !201
   call void @_Py_PreInitializeFromPyArgv(ptr dead_on_unwind writable sret(%struct.PyStatus) align 8 %0, ptr noundef %1, ptr noundef nonnull %5)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #23
   ret void
@@ -832,11 +832,11 @@ define dso_local void @Py_PreInitializeFromBytesArgs(ptr dead_on_unwind noalias 
 define dso_local void @Py_PreInitializeFromArgs(ptr dead_on_unwind noalias writable writeonly sret(%struct.PyStatus) align 8 captures(none) initializes((0, 32)) %0, ptr noundef %1, i64 noundef %2, ptr noundef %3) local_unnamed_addr #1 {
   %5 = alloca %struct._PyArgv, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #23
-  store i64 %2, ptr %5, align 8, !tbaa !197
+  store i64 %2, ptr %5, align 8, !tbaa !196
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, i8 0, i64 16, i1 false)
-  store ptr %3, ptr %7, align 8, !tbaa !202
+  store ptr %3, ptr %7, align 8, !tbaa !201
   call void @_Py_PreInitializeFromPyArgv(ptr dead_on_unwind writable sret(%struct.PyStatus) align 8 %0, ptr noundef %1, ptr noundef nonnull %5)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #23
   ret void
@@ -854,27 +854,27 @@ define hidden void @_Py_PreInitializeFromConfig(ptr dead_on_unwind noalias writa
   %5 = alloca %struct.PyPreConfig, align 4
   %6 = alloca %struct._PyArgv, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #23
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !203)
-  %.b.i = load i1, ptr @runtime_initialized, align 4, !noalias !203
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !202)
+  %.b.i = load i1, ptr @runtime_initialized, align 4, !noalias !202
   br i1 %.b.i, label %_PyRuntime_Initialize.exit.thread, label %_PyRuntime_Initialize.exit
 
 _PyRuntime_Initialize.exit.thread:                ; preds = %3
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, i8 0, i64 32, i1 false), !alias.scope !203
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, i8 0, i64 32, i1 false), !alias.scope !202
   br label %8
 
 _PyRuntime_Initialize.exit:                       ; preds = %3
-  store i1 true, ptr @runtime_initialized, align 4, !noalias !203
+  store i1 true, ptr @runtime_initialized, align 4, !noalias !202
   call void @_PyRuntimeState_Init(ptr dead_on_unwind nonnull writable sret(%struct.PyStatus) align 8 %4, ptr noundef nonnull @_PyRuntime) #23
-  %.pr = load i32, ptr %4, align 8, !tbaa !184
+  %.pr = load i32, ptr %4, align 8, !tbaa !183
   %.not = icmp eq i32 %.pr, 0
   br i1 %.not, label %8, label %7
 
 7:                                                ; preds = %_PyRuntime_Initialize.exit
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 32, i1 false), !tbaa.struct !206
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 32, i1 false), !tbaa.struct !205
   br label %26
 
 8:                                                ; preds = %_PyRuntime_Initialize.exit.thread, %_PyRuntime_Initialize.exit
-  %9 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 664), align 8, !tbaa !195
+  %9 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 664), align 8, !tbaa !194
   %.not7 = icmp eq i32 %9, 0
   br i1 %.not7, label %11, label %10
 
@@ -886,7 +886,7 @@ _PyRuntime_Initialize.exit:                       ; preds = %3
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5) #23
   call void @_PyPreConfig_InitFromConfig(ptr noundef nonnull %5, ptr noundef %1) #23
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 104
-  %13 = load i32, ptr %12, align 8, !tbaa !207
+  %13 = load i32, ptr %12, align 8, !tbaa !206
   %.not8 = icmp eq i32 %13, 0
   br i1 %.not8, label %14, label %15
 
@@ -901,14 +901,14 @@ _PyRuntime_Initialize.exit:                       ; preds = %3
 17:                                               ; preds = %15
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #23
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 128
-  %19 = load i64, ptr %18, align 8, !tbaa !208
-  store i64 %19, ptr %6, align 8, !tbaa !197
+  %19 = load i64, ptr %18, align 8, !tbaa !207
+  store i64 %19, ptr %6, align 8, !tbaa !196
   %20 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %21 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 136
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %20, i8 0, i64 16, i1 false)
-  %23 = load ptr, ptr %22, align 8, !tbaa !209
-  store ptr %23, ptr %21, align 8, !tbaa !202
+  %23 = load ptr, ptr %22, align 8, !tbaa !208
+  store ptr %23, ptr %21, align 8, !tbaa !201
   call void @_Py_PreInitializeFromPyArgv(ptr dead_on_unwind writable sret(%struct.PyStatus) align 8 %0, ptr noundef nonnull %5, ptr noundef nonnull %6)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #23
   br label %25
@@ -950,44 +950,44 @@ define dso_local void @Py_InitializeFromConfig(ptr dead_on_unwind noalias writab
   br i1 %19, label %20, label %26
 
 20:                                               ; preds = %2
-  store i32 1, ptr %0, align 8, !tbaa !184
+  store i32 1, ptr %0, align 8, !tbaa !183
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 0, ptr %21, align 4
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr @__func__.Py_InitializeFromConfig, ptr %22, align 8, !tbaa !186
+  store ptr @__func__.Py_InitializeFromConfig, ptr %22, align 8, !tbaa !185
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr @.str.133, ptr %23, align 8, !tbaa !187
+  store ptr @.str.133, ptr %23, align 8, !tbaa !186
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i32 0, ptr %24, align 8, !tbaa !188
+  store i32 0, ptr %24, align 8, !tbaa !187
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i32 0, ptr %25, align 4
   br label %96
 
 26:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %17) #23
-  %.b.i = load i1, ptr @runtime_initialized, align 4, !noalias !210
+  %.b.i = load i1, ptr @runtime_initialized, align 4, !noalias !209
   br i1 %.b.i, label %.thread, label %_PyRuntime_Initialize.exit
 
 .thread:                                          ; preds = %26
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %17) #23
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %18) #23
-  store ptr null, ptr %18, align 8, !tbaa !213
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %12) #23, !noalias !214
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9) #23, !noalias !217
+  store ptr null, ptr %18, align 8, !tbaa !212
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %12) #23, !noalias !213
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9) #23, !noalias !216
   br label %_PyRuntime_Initialize.exit.thread.i.i
 
 _PyRuntime_Initialize.exit:                       ; preds = %26
-  store i1 true, ptr @runtime_initialized, align 4, !noalias !210
+  store i1 true, ptr @runtime_initialized, align 4, !noalias !209
   call void @_PyRuntimeState_Init(ptr dead_on_unwind nonnull writable sret(%struct.PyStatus) align 8 %17, ptr noundef nonnull @_PyRuntime) #23
-  %.sroa.0.0.copyload.pr = load i32, ptr %17, align 8, !tbaa !192
+  %.sroa.0.0.copyload.pr = load i32, ptr %17, align 8, !tbaa !191
   %.sroa.11.0..sroa_idx = getelementptr inbounds nuw i8, ptr %17, i64 4
   %.sroa.11.sroa.0.0.copyload = load i32, ptr %.sroa.11.0..sroa_idx, align 4
   %.sroa.11.sroa.8.0..sroa.11.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %17, i64 8
-  %.sroa.11.sroa.8.0.copyload = load ptr, ptr %.sroa.11.sroa.8.0..sroa.11.0..sroa_idx.sroa_idx, align 8, !tbaa !194
+  %.sroa.11.sroa.8.0.copyload = load ptr, ptr %.sroa.11.sroa.8.0..sroa.11.0..sroa_idx.sroa_idx, align 8, !tbaa !193
   %.sroa.11.sroa.10.0..sroa.11.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %17, i64 16
-  %.sroa.11.sroa.10.0.copyload = load ptr, ptr %.sroa.11.sroa.10.0..sroa.11.0..sroa_idx.sroa_idx, align 8, !tbaa !194
+  %.sroa.11.sroa.10.0.copyload = load ptr, ptr %.sroa.11.sroa.10.0..sroa.11.0..sroa_idx.sroa_idx, align 8, !tbaa !193
   %.sroa.11.sroa.12.0..sroa.11.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %17, i64 24
-  %.sroa.11.sroa.12.0.copyload = load i32, ptr %.sroa.11.sroa.12.0..sroa.11.0..sroa_idx.sroa_idx, align 8, !tbaa !192
+  %.sroa.11.sroa.12.0.copyload = load i32, ptr %.sroa.11.sroa.12.0..sroa.11.0..sroa_idx.sroa_idx, align 8, !tbaa !191
   %.sroa.11.sroa.14.0..sroa.11.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %17, i64 28
   %.sroa.11.sroa.14.0.copyload = load i32, ptr %.sroa.11.sroa.14.0..sroa.11.0..sroa_idx.sroa_idx, align 4
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %17) #23
@@ -995,221 +995,221 @@ _PyRuntime_Initialize.exit:                       ; preds = %26
   br i1 %.not, label %28, label %27
 
 27:                                               ; preds = %_PyRuntime_Initialize.exit
-  store i32 %.sroa.0.0.copyload.pr, ptr %0, align 8, !tbaa !192
+  store i32 %.sroa.0.0.copyload.pr, ptr %0, align 8, !tbaa !191
   %.sroa.11.0..sroa_idx8 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %.sroa.11.sroa.0.0.copyload, ptr %.sroa.11.0..sroa_idx8, align 4
   %.sroa.11.sroa.8.0..sroa.11.0..sroa_idx8.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.sroa.11.sroa.8.0.copyload, ptr %.sroa.11.sroa.8.0..sroa.11.0..sroa_idx8.sroa_idx, align 8, !tbaa !194
+  store ptr %.sroa.11.sroa.8.0.copyload, ptr %.sroa.11.sroa.8.0..sroa.11.0..sroa_idx8.sroa_idx, align 8, !tbaa !193
   %.sroa.11.sroa.10.0..sroa.11.0..sroa_idx8.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %.sroa.11.sroa.10.0.copyload, ptr %.sroa.11.sroa.10.0..sroa.11.0..sroa_idx8.sroa_idx, align 8, !tbaa !194
+  store ptr %.sroa.11.sroa.10.0.copyload, ptr %.sroa.11.sroa.10.0..sroa.11.0..sroa_idx8.sroa_idx, align 8, !tbaa !193
   %.sroa.11.sroa.12.0..sroa.11.0..sroa_idx8.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i32 %.sroa.11.sroa.12.0.copyload, ptr %.sroa.11.sroa.12.0..sroa.11.0..sroa_idx8.sroa_idx, align 8, !tbaa !192
+  store i32 %.sroa.11.sroa.12.0.copyload, ptr %.sroa.11.sroa.12.0..sroa.11.0..sroa_idx8.sroa_idx, align 8, !tbaa !191
   %.sroa.11.sroa.14.0..sroa.11.0..sroa_idx8.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i32 %.sroa.11.sroa.14.0.copyload, ptr %.sroa.11.sroa.14.0..sroa.11.0..sroa_idx8.sroa_idx, align 4
   br label %96
 
 28:                                               ; preds = %_PyRuntime_Initialize.exit
-  %.b.i.i.i.pre = load i1, ptr @runtime_initialized, align 4, !noalias !220
+  %.b.i.i.i.pre = load i1, ptr @runtime_initialized, align 4, !noalias !219
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %18) #23
-  store ptr null, ptr %18, align 8, !tbaa !213
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %12) #23, !noalias !214
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9) #23, !noalias !224
-  call void @llvm.experimental.noalias.scope.decl(metadata !225)
+  store ptr null, ptr %18, align 8, !tbaa !212
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %12) #23, !noalias !213
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9) #23, !noalias !223
+  call void @llvm.experimental.noalias.scope.decl(metadata !224)
   br i1 %.b.i.i.i.pre, label %_PyRuntime_Initialize.exit.thread.i.i, label %_PyRuntime_Initialize.exit.i.i
 
 _PyRuntime_Initialize.exit.thread.i.i:            ; preds = %.thread, %28
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %9, i8 0, i64 32, i1 false), !alias.scope !225, !noalias !224
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %9, i8 0, i64 32, i1 false), !alias.scope !224, !noalias !223
   br label %30
 
 _PyRuntime_Initialize.exit.i.i:                   ; preds = %28
-  store i1 true, ptr @runtime_initialized, align 4, !noalias !220
-  call void @_PyRuntimeState_Init(ptr dead_on_unwind nonnull writable sret(%struct.PyStatus) align 8 %9, ptr noundef nonnull @_PyRuntime) #23, !noalias !224
-  %.pr.i.i = load i32, ptr %9, align 8, !tbaa !184, !noalias !224
+  store i1 true, ptr @runtime_initialized, align 4, !noalias !219
+  call void @_PyRuntimeState_Init(ptr dead_on_unwind nonnull writable sret(%struct.PyStatus) align 8 %9, ptr noundef nonnull @_PyRuntime) #23, !noalias !223
+  %.pr.i.i = load i32, ptr %9, align 8, !tbaa !183, !noalias !223
   %.not.i.i = icmp eq i32 %.pr.i.i, 0
   br i1 %.not.i.i, label %30, label %29
 
 29:                                               ; preds = %_PyRuntime_Initialize.exit.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef nonnull align 8 dereferenceable(32) %9, i64 32, i1 false), !tbaa.struct !206, !noalias !214
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef nonnull align 8 dereferenceable(32) %9, i64 32, i1 false), !tbaa.struct !205, !noalias !213
   br label %_Py_PreInitializeFromConfig.exit.i
 
 30:                                               ; preds = %_PyRuntime_Initialize.exit.i.i, %_PyRuntime_Initialize.exit.thread.i.i
-  %31 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 664), align 8, !tbaa !195, !noalias !224
+  %31 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 664), align 8, !tbaa !194, !noalias !223
   %.not7.i.i = icmp eq i32 %31, 0
   br i1 %.not7.i.i, label %32, label %_Py_PreInitializeFromConfig.exit.i.thread
 
 _Py_PreInitializeFromConfig.exit.i.thread:        ; preds = %30
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9) #23, !noalias !224
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %12) #23, !noalias !214
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9) #23, !noalias !223
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %12) #23, !noalias !213
   br label %44
 
 32:                                               ; preds = %30
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %10) #23, !noalias !224
-  call void @_PyPreConfig_InitFromConfig(ptr noundef nonnull %10, ptr noundef nonnull %1) #23, !noalias !224
+  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %10) #23, !noalias !223
+  call void @_PyPreConfig_InitFromConfig(ptr noundef nonnull %10, ptr noundef nonnull %1) #23, !noalias !223
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 104
-  %34 = load i32, ptr %33, align 8, !tbaa !207, !noalias !224
+  %34 = load i32, ptr %33, align 8, !tbaa !206, !noalias !223
   %.not8.i.i = icmp eq i32 %34, 0
   br i1 %.not8.i.i, label %35, label %36
 
 35:                                               ; preds = %32
-  call void @_Py_PreInitializeFromPyArgv(ptr dead_on_unwind nonnull writable sret(%struct.PyStatus) align 8 %12, ptr noundef nonnull %10, ptr noundef null), !noalias !214
+  call void @_Py_PreInitializeFromPyArgv(ptr dead_on_unwind nonnull writable sret(%struct.PyStatus) align 8 %12, ptr noundef nonnull %10, ptr noundef null), !noalias !213
   br label %43
 
 36:                                               ; preds = %32
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11) #23, !noalias !224
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11) #23, !noalias !223
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 128
-  %38 = load i64, ptr %37, align 8, !tbaa !208, !noalias !224
-  store i64 %38, ptr %11, align 8, !tbaa !197, !noalias !224
+  %38 = load i64, ptr %37, align 8, !tbaa !207, !noalias !223
+  store i64 %38, ptr %11, align 8, !tbaa !196, !noalias !223
   %39 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %40 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %41 = getelementptr inbounds nuw i8, ptr %1, i64 136
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %39, i8 0, i64 16, i1 false), !noalias !224
-  %42 = load ptr, ptr %41, align 8, !tbaa !209, !noalias !224
-  store ptr %42, ptr %40, align 8, !tbaa !202, !noalias !224
-  call void @_Py_PreInitializeFromPyArgv(ptr dead_on_unwind nonnull writable sret(%struct.PyStatus) align 8 %12, ptr noundef nonnull %10, ptr noundef nonnull %11), !noalias !214
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11) #23, !noalias !224
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %39, i8 0, i64 16, i1 false), !noalias !223
+  %42 = load ptr, ptr %41, align 8, !tbaa !208, !noalias !223
+  store ptr %42, ptr %40, align 8, !tbaa !201, !noalias !223
+  call void @_Py_PreInitializeFromPyArgv(ptr dead_on_unwind nonnull writable sret(%struct.PyStatus) align 8 %12, ptr noundef nonnull %10, ptr noundef nonnull %11), !noalias !213
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11) #23, !noalias !223
   br label %43
 
 43:                                               ; preds = %36, %35
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %10) #23, !noalias !224
+  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %10) #23, !noalias !223
   br label %_Py_PreInitializeFromConfig.exit.i
 
 _Py_PreInitializeFromConfig.exit.i:               ; preds = %43, %29
-  %.sroa.028.0.copyload.pr = load i32, ptr %12, align 8, !tbaa !192
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9) #23, !noalias !224
+  %.sroa.028.0.copyload.pr = load i32, ptr %12, align 8, !tbaa !191
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9) #23, !noalias !223
   %.sroa.1134.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 4
   %.sroa.1134.0.copyload = load i32, ptr %.sroa.1134.0..sroa_idx, align 4
   %.sroa.1341.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 8
-  %.sroa.1341.0.copyload = load ptr, ptr %.sroa.1341.0..sroa_idx, align 8, !tbaa !194
+  %.sroa.1341.0.copyload = load ptr, ptr %.sroa.1341.0..sroa_idx, align 8, !tbaa !193
   %.sroa.14.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 16
-  %.sroa.14.0.copyload = load ptr, ptr %.sroa.14.0..sroa_idx, align 8, !tbaa !194
+  %.sroa.14.0.copyload = load ptr, ptr %.sroa.14.0..sroa_idx, align 8, !tbaa !193
   %.sroa.1554.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 24
-  %.sroa.1554.0.copyload = load i32, ptr %.sroa.1554.0..sroa_idx, align 8, !tbaa !192
+  %.sroa.1554.0.copyload = load i32, ptr %.sroa.1554.0..sroa_idx, align 8, !tbaa !191
   %.sroa.16.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 28
   %.sroa.16.0.copyload = load i32, ptr %.sroa.16.0..sroa_idx, align 4
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %12) #23, !noalias !214
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %12) #23, !noalias !213
   %.not.i = icmp eq i32 %.sroa.028.0.copyload.pr, 0
   br i1 %.not.i, label %44, label %pyinit_core.exit.thread
 
 44:                                               ; preds = %_Py_PreInitializeFromConfig.exit.i.thread, %_Py_PreInitializeFromConfig.exit.i
-  call void @llvm.lifetime.start.p0(i64 448, ptr nonnull %13) #23, !noalias !214
-  call void @PyConfig_InitPythonConfig(ptr noundef nonnull %13) #23, !noalias !214
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %14) #23, !noalias !214
-  call void @_PyConfig_Copy(ptr dead_on_unwind nonnull writable sret(%struct.PyStatus) align 8 %14, ptr noundef nonnull %13, ptr noundef nonnull %1) #23, !noalias !214
-  %.sroa.028.0.copyload31 = load i32, ptr %14, align 8, !tbaa !192
+  call void @llvm.lifetime.start.p0(i64 448, ptr nonnull %13) #23, !noalias !213
+  call void @PyConfig_InitPythonConfig(ptr noundef nonnull %13) #23, !noalias !213
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %14) #23, !noalias !213
+  call void @_PyConfig_Copy(ptr dead_on_unwind nonnull writable sret(%struct.PyStatus) align 8 %14, ptr noundef nonnull %13, ptr noundef nonnull %1) #23, !noalias !213
+  %.sroa.028.0.copyload31 = load i32, ptr %14, align 8, !tbaa !191
   %.sroa.1134.0..sroa_idx35 = getelementptr inbounds nuw i8, ptr %14, i64 4
   %.sroa.1134.0.copyload36 = load i32, ptr %.sroa.1134.0..sroa_idx35, align 4
   %.sroa.1341.0..sroa_idx42 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %.sroa.1341.0.copyload43 = load ptr, ptr %.sroa.1341.0..sroa_idx42, align 8, !tbaa !194
+  %.sroa.1341.0.copyload43 = load ptr, ptr %.sroa.1341.0..sroa_idx42, align 8, !tbaa !193
   %.sroa.14.0..sroa_idx48 = getelementptr inbounds nuw i8, ptr %14, i64 16
-  %.sroa.14.0.copyload49 = load ptr, ptr %.sroa.14.0..sroa_idx48, align 8, !tbaa !194
+  %.sroa.14.0.copyload49 = load ptr, ptr %.sroa.14.0..sroa_idx48, align 8, !tbaa !193
   %.sroa.1554.0..sroa_idx55 = getelementptr inbounds nuw i8, ptr %14, i64 24
-  %.sroa.1554.0.copyload56 = load i32, ptr %.sroa.1554.0..sroa_idx55, align 8, !tbaa !192
+  %.sroa.1554.0.copyload56 = load i32, ptr %.sroa.1554.0..sroa_idx55, align 8, !tbaa !191
   %.sroa.16.0..sroa_idx61 = getelementptr inbounds nuw i8, ptr %14, i64 28
   %.sroa.16.0.copyload62 = load i32, ptr %.sroa.16.0..sroa_idx61, align 4
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %14) #23, !noalias !214
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %14) #23, !noalias !213
   %.not7.i = icmp eq i32 %.sroa.028.0.copyload31, 0
   br i1 %.not7.i, label %45, label %pyinit_core.exit.thread119
 
 45:                                               ; preds = %44
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %15) #23, !noalias !214
-  call void @_PyConfig_Read(ptr dead_on_unwind nonnull writable sret(%struct.PyStatus) align 8 %15, ptr noundef nonnull %13, i32 noundef 0) #23, !noalias !214
-  %.sroa.028.0.copyload32 = load i32, ptr %15, align 8, !tbaa !192
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %15) #23, !noalias !213
+  call void @_PyConfig_Read(ptr dead_on_unwind nonnull writable sret(%struct.PyStatus) align 8 %15, ptr noundef nonnull %13, i32 noundef 0) #23, !noalias !213
+  %.sroa.028.0.copyload32 = load i32, ptr %15, align 8, !tbaa !191
   %.sroa.1134.0..sroa_idx37 = getelementptr inbounds nuw i8, ptr %15, i64 4
   %.sroa.1134.0.copyload38 = load i32, ptr %.sroa.1134.0..sroa_idx37, align 4
   %.sroa.1341.0..sroa_idx44 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  %.sroa.1341.0.copyload45 = load ptr, ptr %.sroa.1341.0..sroa_idx44, align 8, !tbaa !194
+  %.sroa.1341.0.copyload45 = load ptr, ptr %.sroa.1341.0..sroa_idx44, align 8, !tbaa !193
   %.sroa.14.0..sroa_idx50 = getelementptr inbounds nuw i8, ptr %15, i64 16
-  %.sroa.14.0.copyload51 = load ptr, ptr %.sroa.14.0..sroa_idx50, align 8, !tbaa !194
+  %.sroa.14.0.copyload51 = load ptr, ptr %.sroa.14.0..sroa_idx50, align 8, !tbaa !193
   %.sroa.1554.0..sroa_idx57 = getelementptr inbounds nuw i8, ptr %15, i64 24
-  %.sroa.1554.0.copyload58 = load i32, ptr %.sroa.1554.0..sroa_idx57, align 8, !tbaa !192
+  %.sroa.1554.0.copyload58 = load i32, ptr %.sroa.1554.0..sroa_idx57, align 8, !tbaa !191
   %.sroa.16.0..sroa_idx63 = getelementptr inbounds nuw i8, ptr %15, i64 28
   %.sroa.16.0.copyload64 = load i32, ptr %.sroa.16.0..sroa_idx63, align 4
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %15) #23, !noalias !214
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %15) #23, !noalias !213
   %.not8.i = icmp eq i32 %.sroa.028.0.copyload32, 0
   br i1 %.not8.i, label %46, label %pyinit_core.exit.thread119
 
 46:                                               ; preds = %45
-  %47 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 668), align 4, !tbaa !4, !noalias !214
+  %47 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 668), align 4, !tbaa !4, !noalias !213
   %.not9.i = icmp eq i32 %47, 0
   br i1 %.not9.i, label %pyinit_core.exit, label %48
 
 48:                                               ; preds = %46
   %49 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
-  %50 = load ptr, ptr %49, align 8, !tbaa !213, !noalias !226
+  %50 = load ptr, ptr %49, align 8, !tbaa !212, !noalias !225
   %.not.i10.i = icmp eq ptr %50, null
   br i1 %.not.i10.i, label %pyinit_core.exit.thread119, label %51
 
 51:                                               ; preds = %48
   %52 = getelementptr inbounds nuw i8, ptr %50, i64 16
-  %53 = load ptr, ptr %52, align 8, !tbaa !229, !noalias !226
+  %53 = load ptr, ptr %52, align 8, !tbaa !228, !noalias !225
   %54 = icmp eq ptr %53, null
   br i1 %54, label %pyinit_core.exit.thread119, label %55
 
 55:                                               ; preds = %51
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #23, !noalias !226
-  call void @_PyConfig_Write(ptr dead_on_unwind nonnull writable sret(%struct.PyStatus) align 8 %6, ptr noundef nonnull %13, ptr noundef nonnull @_PyRuntime) #23, !noalias !226
-  %.sroa.0.0.copyload.i.i = load i32, ptr %6, align 8, !tbaa !192, !noalias !226
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #23, !noalias !225
+  call void @_PyConfig_Write(ptr dead_on_unwind nonnull writable sret(%struct.PyStatus) align 8 %6, ptr noundef nonnull %13, ptr noundef nonnull @_PyRuntime) #23, !noalias !225
+  %.sroa.0.0.copyload.i.i = load i32, ptr %6, align 8, !tbaa !191, !noalias !225
   %.sroa.11.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %6, i64 4
-  %.sroa.11.i.sroa.0.0.copyload.i = load i32, ptr %.sroa.11.0..sroa_idx.i.i, align 4, !noalias !226
+  %.sroa.11.i.sroa.0.0.copyload.i = load i32, ptr %.sroa.11.0..sroa_idx.i.i, align 4, !noalias !225
   %.sroa.11.i.sroa.8.0..sroa.11.0..sroa_idx.i.sroa_idx.i = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %.sroa.11.i.sroa.8.0.copyload.i = load ptr, ptr %.sroa.11.i.sroa.8.0..sroa.11.0..sroa_idx.i.sroa_idx.i, align 8, !tbaa !194, !noalias !226
+  %.sroa.11.i.sroa.8.0.copyload.i = load ptr, ptr %.sroa.11.i.sroa.8.0..sroa.11.0..sroa_idx.i.sroa_idx.i, align 8, !tbaa !193, !noalias !225
   %.sroa.11.i.sroa.11.0..sroa.11.0..sroa_idx.i.sroa_idx.i = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %.sroa.11.i.sroa.11.0.copyload.i = load ptr, ptr %.sroa.11.i.sroa.11.0..sroa.11.0..sroa_idx.i.sroa_idx.i, align 8, !tbaa !194, !noalias !226
+  %.sroa.11.i.sroa.11.0.copyload.i = load ptr, ptr %.sroa.11.i.sroa.11.0..sroa.11.0..sroa_idx.i.sroa_idx.i, align 8, !tbaa !193, !noalias !225
   %.sroa.11.i.sroa.14.0..sroa.11.0..sroa_idx.i.sroa_idx.i = getelementptr inbounds nuw i8, ptr %6, i64 24
-  %.sroa.11.i.sroa.14.0.copyload.i = load i32, ptr %.sroa.11.i.sroa.14.0..sroa.11.0..sroa_idx.i.sroa_idx.i, align 8, !tbaa !192, !noalias !226
+  %.sroa.11.i.sroa.14.0.copyload.i = load i32, ptr %.sroa.11.i.sroa.14.0..sroa.11.0..sroa_idx.i.sroa_idx.i, align 8, !tbaa !191, !noalias !225
   %.sroa.11.i.sroa.17.0..sroa.11.0..sroa_idx.i.sroa_idx.i = getelementptr inbounds nuw i8, ptr %6, i64 28
-  %.sroa.11.i.sroa.17.0.copyload.i = load i32, ptr %.sroa.11.i.sroa.17.0..sroa.11.0..sroa_idx.i.sroa_idx.i, align 4, !noalias !226
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #23, !noalias !226
+  %.sroa.11.i.sroa.17.0.copyload.i = load i32, ptr %.sroa.11.i.sroa.17.0..sroa.11.0..sroa_idx.i.sroa_idx.i, align 4, !noalias !225
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #23, !noalias !225
   %.not25.i.i = icmp eq i32 %.sroa.0.0.copyload.i.i, 0
   br i1 %.not25.i.i, label %56, label %pyinit_core.exit.thread119
 
 56:                                               ; preds = %55
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #23, !noalias !226
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #23, !noalias !225
   %57 = getelementptr inbounds nuw i8, ptr %53, i64 7992
-  call void @_PyConfig_Copy(ptr dead_on_unwind nonnull writable sret(%struct.PyStatus) align 8 %7, ptr noundef nonnull %57, ptr noundef nonnull %13) #23, !noalias !226
-  %.sroa.0.0.copyload9.i.i = load i32, ptr %7, align 8, !tbaa !192, !noalias !226
+  call void @_PyConfig_Copy(ptr dead_on_unwind nonnull writable sret(%struct.PyStatus) align 8 %7, ptr noundef nonnull %57, ptr noundef nonnull %13) #23, !noalias !225
+  %.sroa.0.0.copyload9.i.i = load i32, ptr %7, align 8, !tbaa !191, !noalias !225
   %.sroa.11.0..sroa_idx14.i.i = getelementptr inbounds nuw i8, ptr %7, i64 4
-  %.sroa.11.i.sroa.0.0.copyload19.i = load i32, ptr %.sroa.11.0..sroa_idx14.i.i, align 4, !noalias !226
+  %.sroa.11.i.sroa.0.0.copyload19.i = load i32, ptr %.sroa.11.0..sroa_idx14.i.i, align 4, !noalias !225
   %.sroa.11.i.sroa.8.0..sroa.11.0..sroa_idx14.i.sroa_idx.i = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %.sroa.11.i.sroa.8.0.copyload21.i = load ptr, ptr %.sroa.11.i.sroa.8.0..sroa.11.0..sroa_idx14.i.sroa_idx.i, align 8, !tbaa !194, !noalias !226
+  %.sroa.11.i.sroa.8.0.copyload21.i = load ptr, ptr %.sroa.11.i.sroa.8.0..sroa.11.0..sroa_idx14.i.sroa_idx.i, align 8, !tbaa !193, !noalias !225
   %.sroa.11.i.sroa.11.0..sroa.11.0..sroa_idx14.i.sroa_idx.i = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %.sroa.11.i.sroa.11.0.copyload23.i = load ptr, ptr %.sroa.11.i.sroa.11.0..sroa.11.0..sroa_idx14.i.sroa_idx.i, align 8, !tbaa !194, !noalias !226
+  %.sroa.11.i.sroa.11.0.copyload23.i = load ptr, ptr %.sroa.11.i.sroa.11.0..sroa.11.0..sroa_idx14.i.sroa_idx.i, align 8, !tbaa !193, !noalias !225
   %.sroa.11.i.sroa.14.0..sroa.11.0..sroa_idx14.i.sroa_idx.i = getelementptr inbounds nuw i8, ptr %7, i64 24
-  %.sroa.11.i.sroa.14.0.copyload25.i = load i32, ptr %.sroa.11.i.sroa.14.0..sroa.11.0..sroa_idx14.i.sroa_idx.i, align 8, !tbaa !192, !noalias !226
+  %.sroa.11.i.sroa.14.0.copyload25.i = load i32, ptr %.sroa.11.i.sroa.14.0..sroa.11.0..sroa_idx14.i.sroa_idx.i, align 8, !tbaa !191, !noalias !225
   %.sroa.11.i.sroa.17.0..sroa.11.0..sroa_idx14.i.sroa_idx.i = getelementptr inbounds nuw i8, ptr %7, i64 28
-  %.sroa.11.i.sroa.17.0.copyload27.i = load i32, ptr %.sroa.11.i.sroa.17.0..sroa.11.0..sroa_idx14.i.sroa_idx.i, align 4, !noalias !226
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #23, !noalias !226
+  %.sroa.11.i.sroa.17.0.copyload27.i = load i32, ptr %.sroa.11.i.sroa.17.0..sroa.11.0..sroa_idx14.i.sroa_idx.i, align 4, !noalias !225
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #23, !noalias !225
   %.not26.i.i = icmp eq i32 %.sroa.0.0.copyload9.i.i, 0
   br i1 %.not26.i.i, label %58, label %pyinit_core.exit.thread119
 
 58:                                               ; preds = %56
-  %59 = call ptr @_PyInterpreterState_GetConfig(ptr noundef nonnull %53) #23, !noalias !226
+  %59 = call ptr @_PyInterpreterState_GetConfig(ptr noundef nonnull %53) #23, !noalias !225
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 432
-  %61 = load i32, ptr %60, align 8, !tbaa !230, !noalias !226
+  %61 = load i32, ptr %60, align 8, !tbaa !229, !noalias !225
   %.not27.i.i = icmp eq i32 %61, 0
   br i1 %.not27.i.i, label %pyinit_core.exit.thread127, label %62
 
 62:                                               ; preds = %58
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8) #23, !noalias !226
-  call void @_PyPathConfig_UpdateGlobal(ptr dead_on_unwind nonnull writable sret(%struct.PyStatus) align 8 %8, ptr noundef nonnull %59) #23, !noalias !226
-  %.sroa.0.0.copyload11.i.i = load i32, ptr %8, align 8, !tbaa !192, !noalias !226
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8) #23, !noalias !225
+  call void @_PyPathConfig_UpdateGlobal(ptr dead_on_unwind nonnull writable sret(%struct.PyStatus) align 8 %8, ptr noundef nonnull %59) #23, !noalias !225
+  %.sroa.0.0.copyload11.i.i = load i32, ptr %8, align 8, !tbaa !191, !noalias !225
   %.sroa.11.0..sroa_idx16.i.i = getelementptr inbounds nuw i8, ptr %8, i64 4
-  %.sroa.11.i.sroa.0.0.copyload20.i = load i32, ptr %.sroa.11.0..sroa_idx16.i.i, align 4, !noalias !226
+  %.sroa.11.i.sroa.0.0.copyload20.i = load i32, ptr %.sroa.11.0..sroa_idx16.i.i, align 4, !noalias !225
   %.sroa.11.i.sroa.8.0..sroa.11.0..sroa_idx16.i.sroa_idx.i = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %.sroa.11.i.sroa.8.0.copyload22.i = load ptr, ptr %.sroa.11.i.sroa.8.0..sroa.11.0..sroa_idx16.i.sroa_idx.i, align 8, !tbaa !194, !noalias !226
+  %.sroa.11.i.sroa.8.0.copyload22.i = load ptr, ptr %.sroa.11.i.sroa.8.0..sroa.11.0..sroa_idx16.i.sroa_idx.i, align 8, !tbaa !193, !noalias !225
   %.sroa.11.i.sroa.11.0..sroa.11.0..sroa_idx16.i.sroa_idx.i = getelementptr inbounds nuw i8, ptr %8, i64 16
-  %.sroa.11.i.sroa.11.0.copyload24.i = load ptr, ptr %.sroa.11.i.sroa.11.0..sroa.11.0..sroa_idx16.i.sroa_idx.i, align 8, !tbaa !194, !noalias !226
+  %.sroa.11.i.sroa.11.0.copyload24.i = load ptr, ptr %.sroa.11.i.sroa.11.0..sroa.11.0..sroa_idx16.i.sroa_idx.i, align 8, !tbaa !193, !noalias !225
   %.sroa.11.i.sroa.14.0..sroa.11.0..sroa_idx16.i.sroa_idx.i = getelementptr inbounds nuw i8, ptr %8, i64 24
-  %.sroa.11.i.sroa.14.0.copyload26.i = load i32, ptr %.sroa.11.i.sroa.14.0..sroa.11.0..sroa_idx16.i.sroa_idx.i, align 8, !tbaa !192, !noalias !226
+  %.sroa.11.i.sroa.14.0.copyload26.i = load i32, ptr %.sroa.11.i.sroa.14.0..sroa.11.0..sroa_idx16.i.sroa_idx.i, align 8, !tbaa !191, !noalias !225
   %.sroa.11.i.sroa.17.0..sroa.11.0..sroa_idx16.i.sroa_idx.i = getelementptr inbounds nuw i8, ptr %8, i64 28
-  %.sroa.11.i.sroa.17.0.copyload28.i = load i32, ptr %.sroa.11.i.sroa.17.0..sroa.11.0..sroa_idx16.i.sroa_idx.i, align 4, !noalias !226
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8) #23, !noalias !226
+  %.sroa.11.i.sroa.17.0.copyload28.i = load i32, ptr %.sroa.11.i.sroa.17.0..sroa.11.0..sroa_idx16.i.sroa_idx.i, align 4, !noalias !225
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8) #23, !noalias !225
   %.not28.i.i = icmp eq i32 %.sroa.0.0.copyload11.i.i, 0
   br i1 %.not28.i.i, label %pyinit_core.exit.thread127, label %pyinit_core.exit.thread119
 
 pyinit_core.exit.thread127:                       ; preds = %58, %62
-  call void @PyConfig_Clear(ptr noundef nonnull %13) #23, !noalias !214
-  call void @llvm.lifetime.end.p0(i64 448, ptr nonnull %13) #23, !noalias !214
+  call void @PyConfig_Clear(ptr noundef nonnull %13) #23, !noalias !213
+  call void @llvm.lifetime.end.p0(i64 448, ptr nonnull %13) #23, !noalias !213
   br label %63
 
 pyinit_core.exit.thread119:                       ; preds = %45, %44, %48, %51, %55, %56, %62
@@ -1219,32 +1219,32 @@ pyinit_core.exit.thread119:                       ; preds = %45, %44, %48, %51, 
   %.sroa.1341.0.ph = phi ptr [ %.sroa.11.i.sroa.8.0.copyload22.i, %62 ], [ %.sroa.11.i.sroa.8.0.copyload21.i, %56 ], [ %.sroa.11.i.sroa.8.0.copyload.i, %55 ], [ @__func__.pyinit_core_reconfigure, %51 ], [ @__func__.pyinit_core_reconfigure, %48 ], [ %.sroa.1341.0.copyload43, %44 ], [ %.sroa.1341.0.copyload45, %45 ]
   %.sroa.1134.0.ph = phi i32 [ %.sroa.11.i.sroa.0.0.copyload20.i, %62 ], [ %.sroa.11.i.sroa.0.0.copyload19.i, %56 ], [ %.sroa.11.i.sroa.0.0.copyload.i, %55 ], [ 0, %51 ], [ 0, %48 ], [ %.sroa.1134.0.copyload36, %44 ], [ %.sroa.1134.0.copyload38, %45 ]
   %.sroa.028.0.ph = phi i32 [ %.sroa.0.0.copyload11.i.i, %62 ], [ %.sroa.0.0.copyload9.i.i, %56 ], [ %.sroa.0.0.copyload.i.i, %55 ], [ 1, %51 ], [ 1, %48 ], [ %.sroa.028.0.copyload31, %44 ], [ %.sroa.028.0.copyload32, %45 ]
-  call void @PyConfig_Clear(ptr noundef nonnull %13) #23, !noalias !214
-  call void @llvm.lifetime.end.p0(i64 448, ptr nonnull %13) #23, !noalias !214
+  call void @PyConfig_Clear(ptr noundef nonnull %13) #23, !noalias !213
+  call void @llvm.lifetime.end.p0(i64 448, ptr nonnull %13) #23, !noalias !213
   br label %pyinit_core.exit.thread
 
 pyinit_core.exit:                                 ; preds = %46
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %16) #23, !noalias !214
-  call fastcc void @pyinit_config(ptr dead_on_unwind noalias writable align 8 %16, ptr noundef nonnull %18, ptr noundef %13), !noalias !214
-  %.sroa.028.0.copyload33 = load i32, ptr %16, align 8, !tbaa !192
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %16) #23, !noalias !213
+  call fastcc void @pyinit_config(ptr dead_on_unwind noalias writable align 8 %16, ptr noundef nonnull %18, ptr noundef %13), !noalias !213
+  %.sroa.028.0.copyload33 = load i32, ptr %16, align 8, !tbaa !191
   %.sroa.1134.0..sroa_idx39 = getelementptr inbounds nuw i8, ptr %16, i64 4
   %.sroa.1134.0.copyload40 = load i32, ptr %.sroa.1134.0..sroa_idx39, align 4
   %.sroa.1341.0..sroa_idx46 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  %.sroa.1341.0.copyload47 = load ptr, ptr %.sroa.1341.0..sroa_idx46, align 8, !tbaa !194
+  %.sroa.1341.0.copyload47 = load ptr, ptr %.sroa.1341.0..sroa_idx46, align 8, !tbaa !193
   %.sroa.14.0..sroa_idx52 = getelementptr inbounds nuw i8, ptr %16, i64 16
-  %.sroa.14.0.copyload53 = load ptr, ptr %.sroa.14.0..sroa_idx52, align 8, !tbaa !194
+  %.sroa.14.0.copyload53 = load ptr, ptr %.sroa.14.0..sroa_idx52, align 8, !tbaa !193
   %.sroa.1554.0..sroa_idx59 = getelementptr inbounds nuw i8, ptr %16, i64 24
-  %.sroa.1554.0.copyload60 = load i32, ptr %.sroa.1554.0..sroa_idx59, align 8, !tbaa !192
+  %.sroa.1554.0.copyload60 = load i32, ptr %.sroa.1554.0..sroa_idx59, align 8, !tbaa !191
   %.sroa.16.0..sroa_idx65 = getelementptr inbounds nuw i8, ptr %16, i64 28
   %.sroa.16.0.copyload66 = load i32, ptr %.sroa.16.0..sroa_idx65, align 4
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %16) #23, !noalias !214
-  call void @PyConfig_Clear(ptr noundef nonnull %13) #23, !noalias !214
-  call void @llvm.lifetime.end.p0(i64 448, ptr nonnull %13) #23, !noalias !214
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %16) #23, !noalias !213
+  call void @PyConfig_Clear(ptr noundef nonnull %13) #23, !noalias !213
+  call void @llvm.lifetime.end.p0(i64 448, ptr nonnull %13) #23, !noalias !213
   %.not16 = icmp eq i32 %.sroa.028.0.copyload33, 0
   br i1 %.not16, label %pyinit_core.exit._crit_edge, label %pyinit_core.exit.thread
 
 pyinit_core.exit._crit_edge:                      ; preds = %pyinit_core.exit
-  %.pre = load ptr, ptr %18, align 8, !tbaa !213
+  %.pre = load ptr, ptr %18, align 8, !tbaa !212
   br label %63
 
 pyinit_core.exit.thread:                          ; preds = %_Py_PreInitializeFromConfig.exit.i, %pyinit_core.exit.thread119, %pyinit_core.exit
@@ -1254,15 +1254,15 @@ pyinit_core.exit.thread:                          ; preds = %_Py_PreInitializeFr
   %.sroa.14.1115 = phi ptr [ %.sroa.14.0.copyload53, %pyinit_core.exit ], [ %.sroa.14.0.ph, %pyinit_core.exit.thread119 ], [ %.sroa.14.0.copyload, %_Py_PreInitializeFromConfig.exit.i ]
   %.sroa.1554.1114 = phi i32 [ %.sroa.1554.0.copyload60, %pyinit_core.exit ], [ %.sroa.1554.0.ph, %pyinit_core.exit.thread119 ], [ %.sroa.1554.0.copyload, %_Py_PreInitializeFromConfig.exit.i ]
   %.sroa.16.1113 = phi i32 [ %.sroa.16.0.copyload66, %pyinit_core.exit ], [ %.sroa.16.0.ph, %pyinit_core.exit.thread119 ], [ %.sroa.16.0.copyload, %_Py_PreInitializeFromConfig.exit.i ]
-  store i32 %.sroa.028.1118, ptr %0, align 8, !tbaa !192
+  store i32 %.sroa.028.1118, ptr %0, align 8, !tbaa !191
   %.sroa.11.0..sroa_idx10 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %.sroa.1134.1117, ptr %.sroa.11.0..sroa_idx10, align 4
   %.sroa.11.sroa.8.0..sroa.11.0..sroa_idx10.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.sroa.1341.1116, ptr %.sroa.11.sroa.8.0..sroa.11.0..sroa_idx10.sroa_idx, align 8, !tbaa !194
+  store ptr %.sroa.1341.1116, ptr %.sroa.11.sroa.8.0..sroa.11.0..sroa_idx10.sroa_idx, align 8, !tbaa !193
   %.sroa.11.sroa.10.0..sroa.11.0..sroa_idx10.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %.sroa.14.1115, ptr %.sroa.11.sroa.10.0..sroa.11.0..sroa_idx10.sroa_idx, align 8, !tbaa !194
+  store ptr %.sroa.14.1115, ptr %.sroa.11.sroa.10.0..sroa.11.0..sroa_idx10.sroa_idx, align 8, !tbaa !193
   %.sroa.11.sroa.12.0..sroa.11.0..sroa_idx10.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i32 %.sroa.1554.1114, ptr %.sroa.11.sroa.12.0..sroa.11.0..sroa_idx10.sroa_idx, align 8, !tbaa !192
+  store i32 %.sroa.1554.1114, ptr %.sroa.11.sroa.12.0..sroa.11.0..sroa_idx10.sroa_idx, align 8, !tbaa !191
   %.sroa.11.sroa.14.0..sroa.11.0..sroa_idx10.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i32 %.sroa.16.1113, ptr %.sroa.11.sroa.14.0..sroa.11.0..sroa_idx10.sroa_idx, align 4
   br label %95
@@ -1270,98 +1270,98 @@ pyinit_core.exit.thread:                          ; preds = %_Py_PreInitializeFr
 63:                                               ; preds = %pyinit_core.exit._crit_edge, %pyinit_core.exit.thread127
   %64 = phi ptr [ %.pre, %pyinit_core.exit._crit_edge ], [ %50, %pyinit_core.exit.thread127 ]
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 16
-  %66 = load ptr, ptr %65, align 8, !tbaa !229
+  %66 = load ptr, ptr %65, align 8, !tbaa !228
   %67 = call ptr @_PyInterpreterState_GetConfig(ptr noundef %66) #23
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 436
-  %69 = load i32, ptr %68, align 4, !tbaa !231
+  %69 = load i32, ptr %68, align 4, !tbaa !230
   %.not17 = icmp eq i32 %69, 0
   br i1 %.not17, label %pyinit_main.exit.thread148, label %70
 
 70:                                               ; preds = %63
-  %71 = load ptr, ptr %65, align 8, !tbaa !229, !noalias !232
+  %71 = load ptr, ptr %65, align 8, !tbaa !228, !noalias !231
   %72 = getelementptr inbounds nuw i8, ptr %71, i64 7376
-  %73 = load ptr, ptr %72, align 8, !tbaa !235, !noalias !232
+  %73 = load ptr, ptr %72, align 8, !tbaa !234, !noalias !231
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 668
-  %75 = load i32, ptr %74, align 4, !tbaa !4, !noalias !232
+  %75 = load i32, ptr %74, align 4, !tbaa !4, !noalias !231
   %.not.i19 = icmp eq i32 %75, 0
   br i1 %.not.i19, label %pyinit_main.exit.thread, label %76
 
 76:                                               ; preds = %70
   %77 = getelementptr inbounds nuw i8, ptr %73, i64 672
-  %78 = load i32, ptr %77, align 8, !tbaa !175, !noalias !232
+  %78 = load i32, ptr %77, align 8, !tbaa !175, !noalias !231
   %.not5.i = icmp eq i32 %78, 0
   br i1 %.not5.i, label %93, label %79
 
 79:                                               ; preds = %76
   %80 = getelementptr inbounds nuw i8, ptr %71, i64 7992
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #23, !noalias !236
-  call void @_PyConfig_Write(ptr dead_on_unwind nonnull writable sret(%struct.PyStatus) align 8 %3, ptr noundef nonnull %80, ptr noundef nonnull %73) #23, !noalias !236
-  %81 = load i32, ptr %3, align 8, !tbaa !184, !noalias !236
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #23, !noalias !235
+  call void @_PyConfig_Write(ptr dead_on_unwind nonnull writable sret(%struct.PyStatus) align 8 %3, ptr noundef nonnull %80, ptr noundef nonnull %73) #23, !noalias !235
+  %81 = load i32, ptr %3, align 8, !tbaa !183, !noalias !235
   %.not14.i.i.i = icmp eq i32 %81, 0
   br i1 %.not14.i.i.i, label %.critedge.i.i.i, label %82
 
 82:                                               ; preds = %79
-  call void @_PyErr_SetFromPyStatus(ptr noundef nonnull byval(%struct.PyStatus) align 8 %3) #23, !noalias !236
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #23, !noalias !236
+  call void @_PyErr_SetFromPyStatus(ptr noundef nonnull byval(%struct.PyStatus) align 8 %3) #23, !noalias !235
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #23, !noalias !235
   br label %pyinit_main.exit.thread
 
 .critedge.i.i.i:                                  ; preds = %79
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #23, !noalias !236
-  %.pre.i.i.i = load ptr, ptr %65, align 8, !tbaa !229, !noalias !236
-  %83 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 712), align 8, !tbaa !239, !noalias !236
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #23, !noalias !235
+  %.pre.i.i.i = load ptr, ptr %65, align 8, !tbaa !228, !noalias !235
+  %83 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 712), align 8, !tbaa !238, !noalias !235
   %.not19.i.i.i = icmp eq ptr %.pre.i.i.i, %83
   br i1 %.not19.i.i.i, label %84, label %interpreter_update_config.exit.i.i
 
 84:                                               ; preds = %.critedge.i.i.i
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #23, !noalias !236
-  call void @_PyPathConfig_UpdateGlobal(ptr dead_on_unwind nonnull writable sret(%struct.PyStatus) align 8 %4, ptr noundef nonnull %80) #23, !noalias !236
-  %85 = load i32, ptr %4, align 8, !tbaa !184, !noalias !236
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #23, !noalias !235
+  call void @_PyPathConfig_UpdateGlobal(ptr dead_on_unwind nonnull writable sret(%struct.PyStatus) align 8 %4, ptr noundef nonnull %80) #23, !noalias !235
+  %85 = load i32, ptr %4, align 8, !tbaa !183, !noalias !235
   %.not16.i.i.i = icmp eq i32 %85, 0
   br i1 %.not16.i.i.i, label %.critedge18.i.i.i, label %86
 
 86:                                               ; preds = %84
-  call void @_PyErr_SetFromPyStatus(ptr noundef nonnull byval(%struct.PyStatus) align 8 %4) #23, !noalias !236
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #23, !noalias !236
+  call void @_PyErr_SetFromPyStatus(ptr noundef nonnull byval(%struct.PyStatus) align 8 %4) #23, !noalias !235
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #23, !noalias !235
   br label %pyinit_main.exit.thread
 
 .critedge18.i.i.i:                                ; preds = %84
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #23, !noalias !236
-  %.pre20.i.i.i = load ptr, ptr %65, align 8, !tbaa !229, !noalias !236
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #23, !noalias !235
+  %.pre20.i.i.i = load ptr, ptr %65, align 8, !tbaa !228, !noalias !235
   br label %interpreter_update_config.exit.i.i
 
 interpreter_update_config.exit.i.i:               ; preds = %.critedge18.i.i.i, %.critedge.i.i.i
   %87 = phi ptr [ %.pre20.i.i.i, %.critedge18.i.i.i ], [ %.pre.i.i.i, %.critedge.i.i.i ]
   %88 = getelementptr inbounds nuw i8, ptr %71, i64 8256
-  %89 = load i32, ptr %88, align 8, !tbaa !240, !noalias !236
+  %89 = load i32, ptr %88, align 8, !tbaa !239, !noalias !235
   %90 = getelementptr inbounds nuw i8, ptr %87, i64 11656
-  store i32 %89, ptr %90, align 8, !tbaa !241, !noalias !236
-  %91 = call i32 @_PySys_UpdateConfig(ptr noundef nonnull %64) #23, !noalias !236
+  store i32 %89, ptr %90, align 8, !tbaa !240, !noalias !235
+  %91 = call i32 @_PySys_UpdateConfig(ptr noundef nonnull %64) #23, !noalias !235
   %92 = icmp slt i32 %91, 0
   br i1 %92, label %pyinit_main.exit.thread, label %pyinit_main.exit.thread148
 
 93:                                               ; preds = %76
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #23, !noalias !232
-  call fastcc void @init_interp_main(ptr dead_on_unwind noalias writable align 8 %5, ptr noundef nonnull %64), !noalias !232
-  %94 = load i32, ptr %5, align 8, !tbaa !184, !noalias !232
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #23, !noalias !231
+  call fastcc void @init_interp_main(ptr dead_on_unwind noalias writable align 8 %5, ptr noundef nonnull %64), !noalias !231
+  %94 = load i32, ptr %5, align 8, !tbaa !183, !noalias !231
   %.not6.i = icmp eq i32 %94, 0
   br i1 %.not6.i, label %pyinit_main.exit.thread156, label %pyinit_main.exit
 
 pyinit_main.exit.thread156:                       ; preds = %93
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #23, !noalias !232
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #23, !noalias !231
   br label %pyinit_main.exit.thread148
 
 pyinit_main.exit:                                 ; preds = %93
   %.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 4
   %.sroa.8.0.copyload = load i32, ptr %.sroa.8.0..sroa_idx, align 4
   %.sroa.1121.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %.sroa.1121.0.copyload = load ptr, ptr %.sroa.1121.0..sroa_idx, align 8, !tbaa !194
+  %.sroa.1121.0.copyload = load ptr, ptr %.sroa.1121.0..sroa_idx, align 8, !tbaa !193
   %.sroa.13.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %.sroa.13.0.copyload = load ptr, ptr %.sroa.13.0..sroa_idx, align 8, !tbaa !194
+  %.sroa.13.0.copyload = load ptr, ptr %.sroa.13.0..sroa_idx, align 8, !tbaa !193
   %.sroa.15.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 24
-  %.sroa.15.0.copyload = load i32, ptr %.sroa.15.0..sroa_idx, align 8, !tbaa !192
+  %.sroa.15.0.copyload = load i32, ptr %.sroa.15.0..sroa_idx, align 8, !tbaa !191
   %.sroa.17.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 28
   %.sroa.17.0.copyload = load i32, ptr %.sroa.17.0..sroa_idx, align 4
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #23, !noalias !232
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #23, !noalias !231
   br label %pyinit_main.exit.thread
 
 pyinit_main.exit.thread:                          ; preds = %82, %86, %interpreter_update_config.exit.i.i, %70, %pyinit_main.exit
@@ -1371,15 +1371,15 @@ pyinit_main.exit.thread:                          ; preds = %82, %86, %interpret
   %.sroa.1121.1144 = phi ptr [ %.sroa.1121.0.copyload, %pyinit_main.exit ], [ @__func__.pyinit_main, %70 ], [ @__func__.pyinit_main_reconfigure, %interpreter_update_config.exit.i.i ], [ @__func__.pyinit_main_reconfigure, %86 ], [ @__func__.pyinit_main_reconfigure, %82 ]
   %.sroa.8.1143 = phi i32 [ %.sroa.8.0.copyload, %pyinit_main.exit ], [ 0, %70 ], [ 0, %interpreter_update_config.exit.i.i ], [ 0, %86 ], [ 0, %82 ]
   %.sroa.0.1142 = phi i32 [ %94, %pyinit_main.exit ], [ 1, %70 ], [ 1, %interpreter_update_config.exit.i.i ], [ 1, %86 ], [ 1, %82 ]
-  store i32 %.sroa.0.1142, ptr %0, align 8, !tbaa !192
+  store i32 %.sroa.0.1142, ptr %0, align 8, !tbaa !191
   %.sroa.11.0..sroa_idx12 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %.sroa.8.1143, ptr %.sroa.11.0..sroa_idx12, align 4
   %.sroa.11.sroa.8.0..sroa.11.0..sroa_idx12.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.sroa.1121.1144, ptr %.sroa.11.sroa.8.0..sroa.11.0..sroa_idx12.sroa_idx, align 8, !tbaa !194
+  store ptr %.sroa.1121.1144, ptr %.sroa.11.sroa.8.0..sroa.11.0..sroa_idx12.sroa_idx, align 8, !tbaa !193
   %.sroa.11.sroa.10.0..sroa.11.0..sroa_idx12.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %.sroa.13.1145, ptr %.sroa.11.sroa.10.0..sroa.11.0..sroa_idx12.sroa_idx, align 8, !tbaa !194
+  store ptr %.sroa.13.1145, ptr %.sroa.11.sroa.10.0..sroa.11.0..sroa_idx12.sroa_idx, align 8, !tbaa !193
   %.sroa.11.sroa.12.0..sroa.11.0..sroa_idx12.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i32 %.sroa.15.1146, ptr %.sroa.11.sroa.12.0..sroa.11.0..sroa_idx12.sroa_idx, align 8, !tbaa !192
+  store i32 %.sroa.15.1146, ptr %.sroa.11.sroa.12.0..sroa.11.0..sroa_idx12.sroa_idx, align 8, !tbaa !191
   %.sroa.11.sroa.14.0..sroa.11.0..sroa_idx12.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i32 %.sroa.17.1147, ptr %.sroa.11.sroa.14.0..sroa.11.0..sroa_idx12.sroa_idx, align 4
   br label %95
@@ -1405,23 +1405,23 @@ define dso_local void @Py_InitializeEx(i32 noundef %0) local_unnamed_addr #1 {
   %4 = alloca %struct.PyConfig, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2) #23
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #23
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !242)
-  %.b.i = load i1, ptr @runtime_initialized, align 4, !noalias !242
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !241)
+  %.b.i = load i1, ptr @runtime_initialized, align 4, !noalias !241
   br i1 %.b.i, label %5, label %6
 
 5:                                                ; preds = %1
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 32, i1 false), !alias.scope !242
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 32, i1 false), !alias.scope !241
   br label %_PyRuntime_Initialize.exit
 
 6:                                                ; preds = %1
-  store i1 true, ptr @runtime_initialized, align 4, !noalias !242
+  store i1 true, ptr @runtime_initialized, align 4, !noalias !241
   call void @_PyRuntimeState_Init(ptr dead_on_unwind nonnull writable sret(%struct.PyStatus) align 8 %3, ptr noundef nonnull @_PyRuntime) #23
   br label %_PyRuntime_Initialize.exit
 
 _PyRuntime_Initialize.exit:                       ; preds = %5, %6
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false), !tbaa.struct !206
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false), !tbaa.struct !205
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #23
-  %7 = load i32, ptr %2, align 8, !tbaa !184
+  %7 = load i32, ptr %2, align 8, !tbaa !183
   %.not = icmp eq i32 %7, 0
   br i1 %.not, label %9, label %8
 
@@ -1438,10 +1438,10 @@ _PyRuntime_Initialize.exit:                       ; preds = %5, %6
   call void @llvm.lifetime.start.p0(i64 448, ptr nonnull %4) #23
   call void @_PyConfig_InitCompatConfig(ptr noundef nonnull %4) #23
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store i32 %0, ptr %12, align 8, !tbaa !245
+  store i32 %0, ptr %12, align 8, !tbaa !244
   call void @Py_InitializeFromConfig(ptr dead_on_unwind nonnull writable sret(%struct.PyStatus) align 8 %2, ptr noundef nonnull %4)
   call void @PyConfig_Clear(ptr noundef nonnull %4) #23
-  %13 = load i32, ptr %2, align 8, !tbaa !184
+  %13 = load i32, ptr %2, align 8, !tbaa !183
   %.not2 = icmp eq i32 %13, 0
   br i1 %.not2, label %15, label %14
 
@@ -1460,7 +1460,7 @@ _PyRuntime_Initialize.exit:                       ; preds = %5, %6
 
 ; Function Attrs: noreturn nounwind uwtable
 define dso_local void @Py_ExitStatusException(ptr noundef readonly byval(%struct.PyStatus) align 8 captures(none) %0) local_unnamed_addr #11 {
-  %2 = load i32, ptr %0, align 8, !tbaa !184
+  %2 = load i32, ptr %0, align 8, !tbaa !183
   switch i32 %2, label %13 [
     i32 2, label %3
     i32 1, label %6
@@ -1468,17 +1468,17 @@ define dso_local void @Py_ExitStatusException(ptr noundef readonly byval(%struct
 
 3:                                                ; preds = %1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %5 = load i32, ptr %4, align 8, !tbaa !188
+  %5 = load i32, ptr %4, align 8, !tbaa !187
   tail call void @exit(i32 noundef %5) #28
   unreachable
 
 6:                                                ; preds = %1
-  %7 = load ptr, ptr @stderr, align 8, !tbaa !182
+  %7 = load ptr, ptr @stderr, align 8, !tbaa !181
   %8 = tail call i32 @fileno(ptr noundef %7) #23
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %10 = load ptr, ptr %9, align 8, !tbaa !186
+  %10 = load ptr, ptr %9, align 8, !tbaa !185
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %12 = load ptr, ptr %11, align 8, !tbaa !187
+  %12 = load ptr, ptr %11, align 8, !tbaa !186
   tail call fastcc void @fatal_error(i32 noundef %8, i32 noundef 1, ptr noundef %10, ptr noundef %12, i32 noundef 1) #27
   unreachable
 
@@ -1510,12 +1510,12 @@ define internal fastcc range(i32 -1, 1) i32 @_Py_Finalize() unnamed_addr #1 {
   br i1 %.not, label %111, label %2
 
 2:                                                ; preds = %0
-  %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 736), align 8, !tbaa !246
-  %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 712), align 8, !tbaa !239
+  %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 736), align 8, !tbaa !245
+  %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 712), align 8, !tbaa !238
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
-  %6 = load ptr, ptr %5, align 8, !tbaa !213
+  %6 = load ptr, ptr %5, align 8, !tbaa !212
   %7 = tail call i64 @PyThread_get_thread_ident() #23
-  %8 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 728), align 8, !tbaa !247
+  %8 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 728), align 8, !tbaa !246
   %.not.i = icmp eq i64 %7, %8
   br i1 %.not.i, label %9, label %10
 
@@ -1525,8 +1525,8 @@ define internal fastcc range(i32 -1, 1) i32 @_Py_Finalize() unnamed_addr #1 {
 
 10:                                               ; preds = %2
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %12 = load ptr, ptr %11, align 8, !tbaa !229
-  %13 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 712), align 8, !tbaa !239
+  %12 = load ptr, ptr %11, align 8, !tbaa !228
+  %13 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 712), align 8, !tbaa !238
   %.not1.i = icmp eq ptr %12, %13
   br i1 %.not1.i, label %_PyRuntimeState_SetFinalizing.exit, label %14
 
@@ -1547,27 +1547,27 @@ define internal fastcc range(i32 -1, 1) i32 @_Py_Finalize() unnamed_addr #1 {
 _PyRuntimeState_SetFinalizing.exit:               ; preds = %9, %10, %14, %.sink.split.i
   %.0.i = phi ptr [ %3, %9 ], [ %3, %10 ], [ %6, %14 ], [ %.sink.i, %.sink.split.i ]
   %18 = getelementptr inbounds nuw i8, ptr %.0.i, i64 16
-  %19 = load ptr, ptr %18, align 8, !tbaa !229
+  %19 = load ptr, ptr %18, align 8, !tbaa !228
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 7312
-  store i32 1, ptr %20, align 8, !tbaa !248
+  store i32 1, ptr %20, align 8, !tbaa !247
   tail call fastcc void @wait_for_thread_shutdown(ptr noundef %.0.i)
   tail call void @_Py_FinishPendingCalls(ptr noundef %.0.i) #23
-  %21 = load ptr, ptr %18, align 8, !tbaa !229
+  %21 = load ptr, ptr %18, align 8, !tbaa !228
   tail call void @_PyAtExit_Call(ptr noundef %21) #23
-  %22 = load ptr, ptr %18, align 8, !tbaa !229
+  %22 = load ptr, ptr %18, align 8, !tbaa !228
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 8064
-  %24 = load i32, ptr %23, align 8, !tbaa !249
+  %24 = load i32, ptr %23, align 8, !tbaa !248
   tail call void @_PyEval_StopTheWorldAll(ptr noundef nonnull @_PyRuntime) #23
-  %25 = load ptr, ptr %18, align 8, !tbaa !229
+  %25 = load ptr, ptr %18, align 8, !tbaa !228
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 7384
   %27 = ptrtoint ptr %.0.i to i64
   store atomic i64 %27, ptr %26 monotonic, align 8
   %28 = getelementptr inbounds nuw i8, ptr %.0.i, i64 152
-  %29 = load i64, ptr %28, align 8, !tbaa !250
+  %29 = load i64, ptr %28, align 8, !tbaa !249
   %30 = getelementptr inbounds nuw i8, ptr %25, i64 7392
   store atomic i64 %29, ptr %30 monotonic, align 8
   store atomic i64 %27, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 680) monotonic, align 8
-  %31 = load i64, ptr %28, align 8, !tbaa !250
+  %31 = load i64, ptr %28, align 8, !tbaa !249
   store atomic i64 %31, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 688) monotonic, align 8
   store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 672), align 8, !tbaa !175
   store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 668), align 4, !tbaa !4
@@ -1577,13 +1577,13 @@ _PyRuntimeState_SetFinalizing.exit:               ; preds = %9, %10, %14, %.sink
   %33 = tail call fastcc i32 @flush_std_files()
   tail call void @_PySignal_Fini() #23
   %34 = tail call i64 @PyGC_Collect() #23
-  %35 = load ptr, ptr %18, align 8, !tbaa !229
+  %35 = load ptr, ptr %18, align 8, !tbaa !228
   tail call void @_PyImport_FiniExternal(ptr noundef %35) #23
   tail call fastcc void @finalize_modules(ptr noundef %.0.i)
-  %36 = load ptr, ptr %5, align 8, !tbaa !213
-  %37 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 712), align 8, !tbaa !239
+  %36 = load ptr, ptr %5, align 8, !tbaa !212
+  %37 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 712), align 8, !tbaa !238
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 7376
-  %39 = load ptr, ptr %38, align 8, !tbaa !235
+  %39 = load ptr, ptr %38, align 8, !tbaa !234
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 696
   %41 = cmpxchg ptr %40, i8 0, i8 1 seq_cst seq_cst, align 1
   %42 = extractvalue { i8, i1 } %41, 1
@@ -1595,13 +1595,13 @@ _PyRuntimeState_SetFinalizing.exit:               ; preds = %9, %10, %14, %.sink
 
 PyMutex_LockFlags.exit.i:                         ; preds = %43, %_PyRuntimeState_SetFinalizing.exit
   %45 = getelementptr inbounds nuw i8, ptr %39, i64 704
-  %46 = load ptr, ptr %45, align 8, !tbaa !251
+  %46 = load ptr, ptr %45, align 8, !tbaa !250
   %47 = icmp eq ptr %46, %37
   br i1 %47, label %48, label %51
 
 48:                                               ; preds = %PyMutex_LockFlags.exit.i
   %49 = getelementptr inbounds nuw i8, ptr %46, i64 7264
-  %50 = load ptr, ptr %49, align 8, !tbaa !252
+  %50 = load ptr, ptr %49, align 8, !tbaa !251
   br label %51
 
 51:                                               ; preds = %48, %PyMutex_LockFlags.exit.i
@@ -1619,7 +1619,7 @@ _PyMutex_Unlock.exit.i:                           ; preds = %54, %51
   br i1 %55, label %finalize_subinterpreters.exit, label %56
 
 56:                                               ; preds = %_PyMutex_Unlock.exit.i
-  %57 = load ptr, ptr @PyExc_RuntimeWarning, align 8, !tbaa !253
+  %57 = load ptr, ptr @PyExc_RuntimeWarning, align 8, !tbaa !252
   %58 = tail call i32 @PyErr_WarnEx(ptr noundef %57, ptr noundef nonnull @.str.211, i64 noundef 0) #23
   tail call void @_PyThreadState_Detach(ptr noundef %36) #23
   br label %59
@@ -1627,7 +1627,7 @@ _PyMutex_Unlock.exit.i:                           ; preds = %54, %51
 59:                                               ; preds = %_PyMutex_Unlock.exit34.i, %56
   %.135.i = phi ptr [ %.0.i31, %56 ], [ %.2.i, %_PyMutex_Unlock.exit34.i ]
   %60 = getelementptr inbounds nuw i8, ptr %.135.i, i64 7336
-  %61 = load ptr, ptr %60, align 8, !tbaa !254
+  %61 = load ptr, ptr %60, align 8, !tbaa !253
   %.not32.i = icmp eq ptr %61, null
   br i1 %.not32.i, label %63, label %62
 
@@ -1651,13 +1651,13 @@ _PyMutex_Unlock.exit.i:                           ; preds = %54, %51
   br label %PyMutex_LockFlags.exit33.i
 
 PyMutex_LockFlags.exit33.i:                       ; preds = %67, %63
-  %69 = load ptr, ptr %45, align 8, !tbaa !251
+  %69 = load ptr, ptr %45, align 8, !tbaa !250
   %70 = icmp eq ptr %69, %37
   br i1 %70, label %71, label %74
 
 71:                                               ; preds = %PyMutex_LockFlags.exit33.i
   %72 = getelementptr inbounds nuw i8, ptr %69, i64 7264
-  %73 = load ptr, ptr %72, align 8, !tbaa !252
+  %73 = load ptr, ptr %72, align 8, !tbaa !251
   br label %74
 
 74:                                               ; preds = %71, %PyMutex_LockFlags.exit33.i
@@ -1672,7 +1672,7 @@ PyMutex_LockFlags.exit33.i:                       ; preds = %67, %63
 
 _PyMutex_Unlock.exit34.i:                         ; preds = %77, %74
   %.not.i32 = icmp eq ptr %.2.i, null
-  br i1 %.not.i32, label %78, label %59, !llvm.loop !255
+  br i1 %.not.i32, label %78, label %59, !llvm.loop !254
 
 78:                                               ; preds = %_PyMutex_Unlock.exit34.i
   tail call void @_PyThreadState_Attach(ptr noundef %36) #23
@@ -1684,7 +1684,7 @@ finalize_subinterpreters.exit:                    ; preds = %_PyMutex_Unlock.exi
   %.inv = icmp sgt i32 %79, -1
   %.1 = select i1 %.inv, i32 %33, i32 -1
   tail call void @_PyTraceMalloc_Fini() #23
-  %80 = load ptr, ptr %18, align 8, !tbaa !229
+  %80 = load ptr, ptr %18, align 8, !tbaa !228
   tail call void @_PyImport_FiniCore(ptr noundef %80) #23
   tail call void @_PyImport_Fini() #23
   tail call void @_PyFaulthandler_Fini() #23
@@ -1694,12 +1694,12 @@ finalize_subinterpreters.exit:                    ; preds = %_PyMutex_Unlock.exi
   br i1 %.not28, label %84, label %81
 
 81:                                               ; preds = %finalize_subinterpreters.exit
-  %82 = load ptr, ptr @stderr, align 8, !tbaa !182
+  %82 = load ptr, ptr @stderr, align 8, !tbaa !181
   %83 = tail call i32 @_PyObject_DebugMallocStats(ptr noundef %82) #23
   br label %84
 
 84:                                               ; preds = %81, %finalize_subinterpreters.exit
-  %85 = load ptr, ptr %18, align 8, !tbaa !229
+  %85 = load ptr, ptr %18, align 8, !tbaa !228
   tail call void @_PyGILState_Fini(ptr noundef %85) #23
   tail call void @PyInterpreterState_Delete(ptr noundef %85) #23
   tail call void @_Py_FinalizeAllocatedBlocks(ptr noundef nonnull @_PyRuntime) #23
@@ -1712,18 +1712,18 @@ finalize_subinterpreters.exit:                    ; preds = %_PyMutex_Unlock.exi
   br label %_PyMutex_Lock.exit.i
 
 _PyMutex_Lock.exit.i:                             ; preds = %88, %84
-  %89 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 2584), align 8, !tbaa !256
+  %89 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 2584), align 8, !tbaa !255
   %90 = icmp sgt i32 %89, 0
   br i1 %90, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %_PyMutex_Lock.exit.i, %_PyMutex_Lock.exit12.i
   %91 = phi i32 [ %102, %_PyMutex_Lock.exit12.i ], [ %89, %_PyMutex_Lock.exit.i ]
   %92 = add nsw i32 %91, -1
-  store i32 %92, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 2584), align 8, !tbaa !256
+  store i32 %92, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 2584), align 8, !tbaa !255
   %93 = zext nneg i32 %92 to i64
   %94 = getelementptr [32 x ptr], ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 2328), i64 0, i64 %93
-  %95 = load ptr, ptr %94, align 8, !tbaa !257
-  store ptr null, ptr %94, align 8, !tbaa !257
+  %95 = load ptr, ptr %94, align 8, !tbaa !256
+  store ptr null, ptr %94, align 8, !tbaa !256
   %96 = cmpxchg ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 2320), i8 1, i8 0 seq_cst seq_cst, align 1
   %97 = extractvalue { i8, i1 } %96, 1
   br i1 %97, label %_PyMutex_Unlock.exit.i33, label %98
@@ -1743,9 +1743,9 @@ _PyMutex_Unlock.exit.i33:                         ; preds = %98, %.lr.ph.i
   br label %_PyMutex_Lock.exit12.i
 
 _PyMutex_Lock.exit12.i:                           ; preds = %101, %_PyMutex_Unlock.exit.i33
-  %102 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 2584), align 8, !tbaa !256
+  %102 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 2584), align 8, !tbaa !255
   %103 = icmp sgt i32 %102, 0
-  br i1 %103, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !258
+  br i1 %103, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !257
 
 ._crit_edge.i:                                    ; preds = %_PyMutex_Lock.exit12.i, %_PyMutex_Lock.exit.i
   %104 = cmpxchg ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 2320), i8 1, i8 0 seq_cst seq_cst, align 1
@@ -1757,9 +1757,9 @@ _PyMutex_Lock.exit12.i:                           ; preds = %101, %_PyMutex_Unlo
   br label %call_ll_exitfuncs.exit
 
 call_ll_exitfuncs.exit:                           ; preds = %._crit_edge.i, %106
-  %107 = load ptr, ptr @stdout, align 8, !tbaa !182
+  %107 = load ptr, ptr @stdout, align 8, !tbaa !181
   %108 = tail call i32 @fflush(ptr noundef %107)
-  %109 = load ptr, ptr @stderr, align 8, !tbaa !182
+  %109 = load ptr, ptr @stderr, align 8, !tbaa !181
   %110 = tail call i32 @fflush(ptr noundef %109)
   tail call void @_PyRuntimeState_Fini(ptr noundef nonnull @_PyRuntime) #23
   store i1 false, ptr @runtime_initialized, align 4
@@ -1790,7 +1790,7 @@ define internal fastcc void @new_interpreter(ptr dead_on_unwind noalias writable
   %8 = alloca %struct.PyStatus, align 8
   %9 = alloca %struct.PyStatus, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #23
-  %.b.i = load i1, ptr @runtime_initialized, align 4, !noalias !259
+  %.b.i = load i1, ptr @runtime_initialized, align 4, !noalias !258
   br i1 %.b.i, label %_PyRuntime_Initialize.exit.thread, label %_PyRuntime_Initialize.exit
 
 _PyRuntime_Initialize.exit.thread:                ; preds = %4
@@ -1798,17 +1798,17 @@ _PyRuntime_Initialize.exit.thread:                ; preds = %4
   br label %11
 
 _PyRuntime_Initialize.exit:                       ; preds = %4
-  store i1 true, ptr @runtime_initialized, align 4, !noalias !259
+  store i1 true, ptr @runtime_initialized, align 4, !noalias !258
   call void @_PyRuntimeState_Init(ptr dead_on_unwind nonnull writable sret(%struct.PyStatus) align 8 %5, ptr noundef nonnull @_PyRuntime) #23
-  %.sroa.035.0.copyload.pr = load i32, ptr %5, align 8, !tbaa !192
+  %.sroa.035.0.copyload.pr = load i32, ptr %5, align 8, !tbaa !191
   %.sroa.19.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 4
   %.sroa.19.0.copyload = load i32, ptr %.sroa.19.0..sroa_idx, align 4
   %.sroa.21.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %.sroa.21.0.copyload = load ptr, ptr %.sroa.21.0..sroa_idx, align 8, !tbaa !194
+  %.sroa.21.0.copyload = load ptr, ptr %.sroa.21.0..sroa_idx, align 8, !tbaa !193
   %.sroa.23.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %.sroa.23.0.copyload = load ptr, ptr %.sroa.23.0..sroa_idx, align 8, !tbaa !194
+  %.sroa.23.0.copyload = load ptr, ptr %.sroa.23.0..sroa_idx, align 8, !tbaa !193
   %.sroa.25.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 24
-  %.sroa.25.0.copyload = load i32, ptr %.sroa.25.0..sroa_idx, align 8, !tbaa !192
+  %.sroa.25.0.copyload = load i32, ptr %.sroa.25.0..sroa_idx, align 8, !tbaa !191
   %.sroa.27.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 28
   %.sroa.27.0.copyload = load i32, ptr %.sroa.27.0..sroa_idx, align 4
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #23
@@ -1816,15 +1816,15 @@ _PyRuntime_Initialize.exit:                       ; preds = %4
   br i1 %.not, label %11, label %10
 
 10:                                               ; preds = %_PyRuntime_Initialize.exit
-  store i32 %.sroa.035.0.copyload.pr, ptr %0, align 8, !tbaa !192
+  store i32 %.sroa.035.0.copyload.pr, ptr %0, align 8, !tbaa !191
   %.sroa.19.0..sroa_idx49 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %.sroa.19.0.copyload, ptr %.sroa.19.0..sroa_idx49, align 4
   %.sroa.21.0..sroa_idx65 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.sroa.21.0.copyload, ptr %.sroa.21.0..sroa_idx65, align 8, !tbaa !194
+  store ptr %.sroa.21.0.copyload, ptr %.sroa.21.0..sroa_idx65, align 8, !tbaa !193
   %.sroa.23.0..sroa_idx81 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %.sroa.23.0.copyload, ptr %.sroa.23.0..sroa_idx81, align 8, !tbaa !194
+  store ptr %.sroa.23.0.copyload, ptr %.sroa.23.0..sroa_idx81, align 8, !tbaa !193
   %.sroa.25.0..sroa_idx97 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i32 %.sroa.25.0.copyload, ptr %.sroa.25.0..sroa_idx97, align 8, !tbaa !192
+  store i32 %.sroa.25.0.copyload, ptr %.sroa.25.0..sroa_idx97, align 8, !tbaa !191
   %.sroa.27.0..sroa_idx113 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i32 %.sroa.27.0.copyload, ptr %.sroa.27.0..sroa_idx113, align 4
   br label %93
@@ -1835,36 +1835,36 @@ _PyRuntime_Initialize.exit:                       ; preds = %4
   br i1 %.not139, label %13, label %19
 
 13:                                               ; preds = %11
-  store i32 1, ptr %0, align 8, !tbaa !184
+  store i32 1, ptr %0, align 8, !tbaa !183
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 0, ptr %14, align 4
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr @__func__.new_interpreter, ptr %15, align 8, !tbaa !186
+  store ptr @__func__.new_interpreter, ptr %15, align 8, !tbaa !185
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr @.str.212, ptr %16, align 8, !tbaa !187
+  store ptr @.str.212, ptr %16, align 8, !tbaa !186
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i32 0, ptr %17, align 8, !tbaa !188
+  store i32 0, ptr %17, align 8, !tbaa !187
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i32 0, ptr %18, align 4
   br label %93
 
 19:                                               ; preds = %11
-  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 9952), align 8, !tbaa !262
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 9952), align 8, !tbaa !261
   %20 = call ptr @PyInterpreterState_New() #23
   %21 = icmp eq ptr %20, null
   br i1 %21, label %22, label %23
 
 22:                                               ; preds = %19
-  store ptr null, ptr %1, align 8, !tbaa !213
+  store ptr null, ptr %1, align 8, !tbaa !212
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 0, i64 32, i1 false)
   br label %93
 
 23:                                               ; preds = %19
   call void @_PyInterpreterState_SetWhence(ptr noundef nonnull %20, i64 noundef %3) #23
   %24 = getelementptr inbounds nuw i8, ptr %20, i64 7308
-  store i32 1, ptr %24, align 4, !tbaa !263
+  store i32 1, ptr %24, align 4, !tbaa !262
   %25 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
-  %26 = load ptr, ptr %25, align 8, !tbaa !213
+  %26 = load ptr, ptr %25, align 8, !tbaa !212
   %.not140 = icmp eq ptr %26, null
   br i1 %.not140, label %.critedge, label %27
 
@@ -1875,20 +1875,20 @@ _PyRuntime_Initialize.exit:                       ; preds = %4
 
 .critedge:                                        ; preds = %23, %27
   %.sink.in = phi ptr [ %28, %27 ], [ getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 712), %23 ]
-  %.sink = load ptr, ptr %.sink.in, align 8, !tbaa !264
+  %.sink = load ptr, ptr %.sink.in, align 8, !tbaa !263
   %29 = call ptr @_PyInterpreterState_GetConfig(ptr noundef %.sink) #23
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #23
   %30 = getelementptr inbounds nuw i8, ptr %20, i64 7992
   call void @_PyConfig_Copy(ptr dead_on_unwind nonnull writable sret(%struct.PyStatus) align 8 %6, ptr noundef nonnull %30, ptr noundef %29) #23
-  %.sroa.035.0.copyload42 = load i32, ptr %6, align 8, !tbaa !192
+  %.sroa.035.0.copyload42 = load i32, ptr %6, align 8, !tbaa !191
   %.sroa.19.0..sroa_idx51 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %.sroa.19.0.copyload52 = load i32, ptr %.sroa.19.0..sroa_idx51, align 4
   %.sroa.21.0..sroa_idx67 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %.sroa.21.0.copyload68 = load ptr, ptr %.sroa.21.0..sroa_idx67, align 8, !tbaa !194
+  %.sroa.21.0.copyload68 = load ptr, ptr %.sroa.21.0..sroa_idx67, align 8, !tbaa !193
   %.sroa.23.0..sroa_idx83 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %.sroa.23.0.copyload84 = load ptr, ptr %.sroa.23.0..sroa_idx83, align 8, !tbaa !194
+  %.sroa.23.0.copyload84 = load ptr, ptr %.sroa.23.0..sroa_idx83, align 8, !tbaa !193
   %.sroa.25.0..sroa_idx99 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  %.sroa.25.0.copyload100 = load i32, ptr %.sroa.25.0..sroa_idx99, align 8, !tbaa !192
+  %.sroa.25.0.copyload100 = load i32, ptr %.sroa.25.0..sroa_idx99, align 8, !tbaa !191
   %.sroa.27.0..sroa_idx115 = getelementptr inbounds nuw i8, ptr %6, i64 28
   %.sroa.27.0.copyload116 = load i32, ptr %.sroa.27.0..sroa_idx115, align 4
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #23
@@ -1896,106 +1896,106 @@ _PyRuntime_Initialize.exit:                       ; preds = %4
   br i1 %.not141, label %31, label %.thread
 
 31:                                               ; preds = %.critedge
-  %32 = load i32, ptr %2, align 4, !tbaa !265, !noalias !267
+  %32 = load i32, ptr %2, align 4, !tbaa !264, !noalias !266
   %.not.i = icmp eq i32 %32, 0
   br i1 %.not.i, label %37, label %33
 
 33:                                               ; preds = %31
   %34 = getelementptr inbounds nuw i8, ptr %20, i64 8440
-  %35 = load i64, ptr %34, align 8, !tbaa !270, !noalias !267
+  %35 = load i64, ptr %34, align 8, !tbaa !269, !noalias !266
   %36 = or i64 %35, 32
-  store i64 %36, ptr %34, align 8, !tbaa !270, !noalias !267
+  store i64 %36, ptr %34, align 8, !tbaa !269, !noalias !266
   br label %40
 
 37:                                               ; preds = %31
   %38 = getelementptr inbounds nuw i8, ptr %2, i64 20
-  %39 = load i32, ptr %38, align 4, !tbaa !271, !noalias !267
+  %39 = load i32, ptr %38, align 4, !tbaa !270, !noalias !266
   %.not14.i = icmp eq i32 %39, 0
   br i1 %.not14.i, label %.thread, label %40
 
 40:                                               ; preds = %37, %33
   %41 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  %42 = load i32, ptr %41, align 4, !tbaa !272, !noalias !267
+  %42 = load i32, ptr %41, align 4, !tbaa !271, !noalias !266
   %.not15.i = icmp eq i32 %42, 0
   br i1 %.not15.i, label %47, label %43
 
 43:                                               ; preds = %40
   %44 = getelementptr inbounds nuw i8, ptr %20, i64 8440
-  %45 = load i64, ptr %44, align 8, !tbaa !270, !noalias !267
+  %45 = load i64, ptr %44, align 8, !tbaa !269, !noalias !266
   %46 = or i64 %45, 32768
-  store i64 %46, ptr %44, align 8, !tbaa !270, !noalias !267
+  store i64 %46, ptr %44, align 8, !tbaa !269, !noalias !266
   br label %47
 
 47:                                               ; preds = %43, %40
   %48 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %49 = load i32, ptr %48, align 4, !tbaa !273, !noalias !267
+  %49 = load i32, ptr %48, align 4, !tbaa !272, !noalias !266
   %.not16.i = icmp eq i32 %49, 0
   br i1 %.not16.i, label %54, label %50
 
 50:                                               ; preds = %47
   %51 = getelementptr inbounds nuw i8, ptr %20, i64 8440
-  %52 = load i64, ptr %51, align 8, !tbaa !270, !noalias !267
+  %52 = load i64, ptr %51, align 8, !tbaa !269, !noalias !266
   %53 = or i64 %52, 65536
-  store i64 %53, ptr %51, align 8, !tbaa !270, !noalias !267
+  store i64 %53, ptr %51, align 8, !tbaa !269, !noalias !266
   br label %54
 
 54:                                               ; preds = %50, %47
   %55 = getelementptr inbounds nuw i8, ptr %2, i64 12
-  %56 = load i32, ptr %55, align 4, !tbaa !274, !noalias !267
+  %56 = load i32, ptr %55, align 4, !tbaa !273, !noalias !266
   %.not17.i = icmp eq i32 %56, 0
   br i1 %.not17.i, label %61, label %57
 
 57:                                               ; preds = %54
   %58 = getelementptr inbounds nuw i8, ptr %20, i64 8440
-  %59 = load i64, ptr %58, align 8, !tbaa !270, !noalias !267
+  %59 = load i64, ptr %58, align 8, !tbaa !269, !noalias !266
   %60 = or i64 %59, 1024
-  store i64 %60, ptr %58, align 8, !tbaa !270, !noalias !267
+  store i64 %60, ptr %58, align 8, !tbaa !269, !noalias !266
   br label %61
 
 61:                                               ; preds = %57, %54
   %62 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %63 = load i32, ptr %62, align 4, !tbaa !275, !noalias !267
+  %63 = load i32, ptr %62, align 4, !tbaa !274, !noalias !266
   %.not18.i = icmp eq i32 %63, 0
   br i1 %.not18.i, label %68, label %64
 
 64:                                               ; preds = %61
   %65 = getelementptr inbounds nuw i8, ptr %20, i64 8440
-  %66 = load i64, ptr %65, align 8, !tbaa !270, !noalias !267
+  %66 = load i64, ptr %65, align 8, !tbaa !269, !noalias !266
   %67 = or i64 %66, 2048
-  store i64 %67, ptr %65, align 8, !tbaa !270, !noalias !267
+  store i64 %67, ptr %65, align 8, !tbaa !269, !noalias !266
   br label %68
 
 68:                                               ; preds = %64, %61
   %69 = getelementptr inbounds nuw i8, ptr %2, i64 20
-  %70 = load i32, ptr %69, align 4, !tbaa !271, !noalias !267
+  %70 = load i32, ptr %69, align 4, !tbaa !270, !noalias !266
   %.not19.i = icmp eq i32 %70, 0
   br i1 %.not19.i, label %75, label %71
 
 71:                                               ; preds = %68
   %72 = getelementptr inbounds nuw i8, ptr %20, i64 8440
-  %73 = load i64, ptr %72, align 8, !tbaa !270, !noalias !267
+  %73 = load i64, ptr %72, align 8, !tbaa !269, !noalias !266
   %74 = or i64 %73, 256
-  store i64 %74, ptr %72, align 8, !tbaa !270, !noalias !267
+  store i64 %74, ptr %72, align 8, !tbaa !269, !noalias !266
   br label %75
 
 75:                                               ; preds = %71, %68
   %76 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %77 = load i32, ptr %76, align 4, !tbaa !276, !noalias !267
+  %77 = load i32, ptr %76, align 4, !tbaa !275, !noalias !266
   %switch.i = icmp ult i32 %77, 3
   br i1 %switch.i, label %init_interp_settings.exit, label %.thread
 
 init_interp_settings.exit:                        ; preds = %75
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #23
   call void @_PyObject_InitState(ptr dead_on_unwind nonnull writable sret(%struct.PyStatus) align 8 %7, ptr noundef nonnull %20) #23
-  %.sroa.035.0.copyload44 = load i32, ptr %7, align 8, !tbaa !192
+  %.sroa.035.0.copyload44 = load i32, ptr %7, align 8, !tbaa !191
   %.sroa.19.0..sroa_idx55 = getelementptr inbounds nuw i8, ptr %7, i64 4
   %.sroa.19.0.copyload56 = load i32, ptr %.sroa.19.0..sroa_idx55, align 4
   %.sroa.21.0..sroa_idx71 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %.sroa.21.0.copyload72 = load ptr, ptr %.sroa.21.0..sroa_idx71, align 8, !tbaa !194
+  %.sroa.21.0.copyload72 = load ptr, ptr %.sroa.21.0..sroa_idx71, align 8, !tbaa !193
   %.sroa.23.0..sroa_idx87 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %.sroa.23.0.copyload88 = load ptr, ptr %.sroa.23.0..sroa_idx87, align 8, !tbaa !194
+  %.sroa.23.0.copyload88 = load ptr, ptr %.sroa.23.0..sroa_idx87, align 8, !tbaa !193
   %.sroa.25.0..sroa_idx103 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  %.sroa.25.0.copyload104 = load i32, ptr %.sroa.25.0..sroa_idx103, align 8, !tbaa !192
+  %.sroa.25.0.copyload104 = load i32, ptr %.sroa.25.0..sroa_idx103, align 8, !tbaa !191
   %.sroa.27.0..sroa_idx119 = getelementptr inbounds nuw i8, ptr %7, i64 28
   %.sroa.27.0.copyload120 = load i32, ptr %.sroa.27.0..sroa_idx119, align 4
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #23
@@ -2003,15 +2003,15 @@ init_interp_settings.exit:                        ; preds = %75
   br i1 %.not143, label %79, label %78
 
 78:                                               ; preds = %init_interp_settings.exit
-  store i32 %.sroa.035.0.copyload44, ptr %0, align 8, !tbaa !192
+  store i32 %.sroa.035.0.copyload44, ptr %0, align 8, !tbaa !191
   %.sroa.19.0..sroa_idx57 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %.sroa.19.0.copyload56, ptr %.sroa.19.0..sroa_idx57, align 4
   %.sroa.21.0..sroa_idx73 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.sroa.21.0.copyload72, ptr %.sroa.21.0..sroa_idx73, align 8, !tbaa !194
+  store ptr %.sroa.21.0.copyload72, ptr %.sroa.21.0..sroa_idx73, align 8, !tbaa !193
   %.sroa.23.0..sroa_idx89 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %.sroa.23.0.copyload88, ptr %.sroa.23.0..sroa_idx89, align 8, !tbaa !194
+  store ptr %.sroa.23.0.copyload88, ptr %.sroa.23.0..sroa_idx89, align 8, !tbaa !193
   %.sroa.25.0..sroa_idx105 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i32 %.sroa.25.0.copyload104, ptr %.sroa.25.0..sroa_idx105, align 8, !tbaa !192
+  store i32 %.sroa.25.0.copyload104, ptr %.sroa.25.0..sroa_idx105, align 8, !tbaa !191
   %.sroa.27.0..sroa_idx121 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i32 %.sroa.27.0.copyload120, ptr %.sroa.27.0..sroa_idx121, align 4
   br label %93
@@ -2028,19 +2028,19 @@ init_interp_settings.exit:                        ; preds = %75
 
 85:                                               ; preds = %82
   call void @_PyThreadState_Bind(ptr noundef nonnull %83) #23
-  %86 = load i32, ptr %76, align 4, !tbaa !276
+  %86 = load i32, ptr %76, align 4, !tbaa !275
   call fastcc void @init_interp_create_gil(ptr noundef %83, i32 noundef %86)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8) #23
   call fastcc void @pycore_interp_init(ptr dead_on_unwind noalias writable align 8 %8, ptr noundef nonnull %83)
-  %.sroa.035.0.copyload46 = load i32, ptr %8, align 8, !tbaa !192
+  %.sroa.035.0.copyload46 = load i32, ptr %8, align 8, !tbaa !191
   %.sroa.19.0..sroa_idx59 = getelementptr inbounds nuw i8, ptr %8, i64 4
   %.sroa.19.0.copyload60 = load i32, ptr %.sroa.19.0..sroa_idx59, align 4
   %.sroa.21.0..sroa_idx75 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %.sroa.21.0.copyload76 = load ptr, ptr %.sroa.21.0..sroa_idx75, align 8, !tbaa !194
+  %.sroa.21.0.copyload76 = load ptr, ptr %.sroa.21.0..sroa_idx75, align 8, !tbaa !193
   %.sroa.23.0..sroa_idx91 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  %.sroa.23.0.copyload92 = load ptr, ptr %.sroa.23.0..sroa_idx91, align 8, !tbaa !194
+  %.sroa.23.0.copyload92 = load ptr, ptr %.sroa.23.0..sroa_idx91, align 8, !tbaa !193
   %.sroa.25.0..sroa_idx107 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  %.sroa.25.0.copyload108 = load i32, ptr %.sroa.25.0..sroa_idx107, align 8, !tbaa !192
+  %.sroa.25.0.copyload108 = load i32, ptr %.sroa.25.0..sroa_idx107, align 8, !tbaa !191
   %.sroa.27.0..sroa_idx123 = getelementptr inbounds nuw i8, ptr %8, i64 28
   %.sroa.27.0.copyload124 = load i32, ptr %.sroa.27.0..sroa_idx123, align 4
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8) #23
@@ -2050,15 +2050,15 @@ init_interp_settings.exit:                        ; preds = %75
 87:                                               ; preds = %85
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9) #23
   call fastcc void @init_interp_main(ptr dead_on_unwind noalias writable align 8 %9, ptr noundef nonnull %83)
-  %.sroa.035.0.copyload47 = load i32, ptr %9, align 8, !tbaa !192
+  %.sroa.035.0.copyload47 = load i32, ptr %9, align 8, !tbaa !191
   %.sroa.19.0..sroa_idx61 = getelementptr inbounds nuw i8, ptr %9, i64 4
   %.sroa.19.0.copyload62 = load i32, ptr %.sroa.19.0..sroa_idx61, align 4
   %.sroa.21.0..sroa_idx77 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %.sroa.21.0.copyload78 = load ptr, ptr %.sroa.21.0..sroa_idx77, align 8, !tbaa !194
+  %.sroa.21.0.copyload78 = load ptr, ptr %.sroa.21.0..sroa_idx77, align 8, !tbaa !193
   %.sroa.23.0..sroa_idx93 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  %.sroa.23.0.copyload94 = load ptr, ptr %.sroa.23.0..sroa_idx93, align 8, !tbaa !194
+  %.sroa.23.0.copyload94 = load ptr, ptr %.sroa.23.0..sroa_idx93, align 8, !tbaa !193
   %.sroa.25.0..sroa_idx109 = getelementptr inbounds nuw i8, ptr %9, i64 24
-  %.sroa.25.0.copyload110 = load i32, ptr %.sroa.25.0..sroa_idx109, align 8, !tbaa !192
+  %.sroa.25.0.copyload110 = load i32, ptr %.sroa.25.0..sroa_idx109, align 8, !tbaa !191
   %.sroa.27.0..sroa_idx125 = getelementptr inbounds nuw i8, ptr %9, i64 28
   %.sroa.27.0.copyload126 = load i32, ptr %.sroa.27.0..sroa_idx125, align 4
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9) #23
@@ -2066,7 +2066,7 @@ init_interp_settings.exit:                        ; preds = %75
   br i1 %.not145, label %88, label %89
 
 88:                                               ; preds = %87
-  store ptr %83, ptr %1, align 8, !tbaa !213
+  store ptr %83, ptr %1, align 8, !tbaa !212
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 0, i64 32, i1 false)
   br label %93
 
@@ -2077,7 +2077,7 @@ init_interp_settings.exit:                        ; preds = %75
   %.sroa.23.0.ph = phi ptr [ @.str.155, %82 ], [ @.str.155, %79 ], [ %.sroa.23.0.copyload84, %.critedge ], [ @.str.157, %37 ], [ @.str.158, %75 ]
   %.sroa.25.0.ph = phi i32 [ 0, %82 ], [ 0, %79 ], [ %.sroa.25.0.copyload100, %.critedge ], [ 0, %37 ], [ 0, %75 ]
   %.sroa.27.0.ph = phi i32 [ 0, %82 ], [ 0, %79 ], [ %.sroa.27.0.copyload116, %.critedge ], [ 0, %37 ], [ 0, %75 ]
-  store ptr null, ptr %1, align 8, !tbaa !213
+  store ptr null, ptr %1, align 8, !tbaa !212
   br label %90
 
 89:                                               ; preds = %85, %87
@@ -2087,7 +2087,7 @@ init_interp_settings.exit:                        ; preds = %75
   %.sroa.23.0 = phi ptr [ %.sroa.23.0.copyload92, %85 ], [ %.sroa.23.0.copyload94, %87 ]
   %.sroa.25.0 = phi i32 [ %.sroa.25.0.copyload108, %85 ], [ %.sroa.25.0.copyload110, %87 ]
   %.sroa.27.0 = phi i32 [ %.sroa.27.0.copyload124, %85 ], [ %.sroa.27.0.copyload126, %87 ]
-  store ptr null, ptr %1, align 8, !tbaa !213
+  store ptr null, ptr %1, align 8, !tbaa !212
   call void @PyThreadState_Clear(ptr noundef nonnull %83) #23
   call void @_PyThreadState_Detach(ptr noundef nonnull %83) #23
   call void @PyThreadState_Delete(ptr noundef nonnull %83) #23
@@ -2108,15 +2108,15 @@ init_interp_settings.exit:                        ; preds = %75
 
 92:                                               ; preds = %91, %90
   call void @PyInterpreterState_Delete(ptr noundef nonnull %20) #23
-  store i32 %.sroa.035.0171, ptr %0, align 8, !tbaa !192
+  store i32 %.sroa.035.0171, ptr %0, align 8, !tbaa !191
   %.sroa.19.0..sroa_idx63 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %.sroa.19.0172, ptr %.sroa.19.0..sroa_idx63, align 4
   %.sroa.21.0..sroa_idx79 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.sroa.21.0173, ptr %.sroa.21.0..sroa_idx79, align 8, !tbaa !194
+  store ptr %.sroa.21.0173, ptr %.sroa.21.0..sroa_idx79, align 8, !tbaa !193
   %.sroa.23.0..sroa_idx95 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %.sroa.23.0174, ptr %.sroa.23.0..sroa_idx95, align 8, !tbaa !194
+  store ptr %.sroa.23.0174, ptr %.sroa.23.0..sroa_idx95, align 8, !tbaa !193
   %.sroa.25.0..sroa_idx111 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i32 %.sroa.25.0175, ptr %.sroa.25.0..sroa_idx111, align 8, !tbaa !192
+  store i32 %.sroa.25.0175, ptr %.sroa.25.0..sroa_idx111, align 8, !tbaa !191
   %.sroa.27.0..sroa_idx127 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i32 %.sroa.27.0176, ptr %.sroa.27.0..sroa_idx127, align 4
   br label %93
@@ -2130,10 +2130,10 @@ define dso_local ptr @Py_NewInterpreter() local_unnamed_addr #1 {
   %1 = alloca ptr, align 8
   %2 = alloca %struct.PyStatus, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1) #23
-  store ptr null, ptr %1, align 8, !tbaa !213
+  store ptr null, ptr %1, align 8, !tbaa !212
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2) #23
   call fastcc void @new_interpreter(ptr dead_on_unwind noalias nonnull writable align 8 %2, ptr noundef nonnull %1, ptr noundef nonnull @__const.Py_NewInterpreter.config, i64 noundef 2)
-  %3 = load i32, ptr %2, align 8, !tbaa !184
+  %3 = load i32, ptr %2, align 8, !tbaa !183
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %5, label %4
 
@@ -2142,7 +2142,7 @@ define dso_local ptr @Py_NewInterpreter() local_unnamed_addr #1 {
   unreachable
 
 5:                                                ; preds = %0
-  %6 = load ptr, ptr %1, align 8, !tbaa !213
+  %6 = load ptr, ptr %1, align 8, !tbaa !212
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #23
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1) #23
   ret ptr %6
@@ -2151,9 +2151,9 @@ define dso_local ptr @Py_NewInterpreter() local_unnamed_addr #1 {
 ; Function Attrs: nounwind uwtable
 define dso_local void @Py_EndInterpreter(ptr noundef %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %3 = load ptr, ptr %2, align 8, !tbaa !229
+  %3 = load ptr, ptr %2, align 8, !tbaa !228
   %4 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
-  %5 = load ptr, ptr %4, align 8, !tbaa !213
+  %5 = load ptr, ptr %4, align 8, !tbaa !212
   %.not = icmp eq ptr %0, %5
   br i1 %.not, label %7, label %6
 
@@ -2163,7 +2163,7 @@ define dso_local void @Py_EndInterpreter(ptr noundef %0) local_unnamed_addr #1 {
 
 7:                                                ; preds = %1
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %9 = load ptr, ptr %8, align 8, !tbaa !277
+  %9 = load ptr, ptr %8, align 8, !tbaa !276
   %.not17 = icmp eq ptr %9, null
   br i1 %.not17, label %11, label %10
 
@@ -2173,19 +2173,19 @@ define dso_local void @Py_EndInterpreter(ptr noundef %0) local_unnamed_addr #1 {
 
 11:                                               ; preds = %7
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 7312
-  store i32 1, ptr %12, align 8, !tbaa !248
+  store i32 1, ptr %12, align 8, !tbaa !247
   tail call fastcc void @wait_for_thread_shutdown(ptr noundef nonnull %0)
   tail call void @_Py_FinishPendingCalls(ptr noundef nonnull %0) #23
-  %13 = load ptr, ptr %2, align 8, !tbaa !229
+  %13 = load ptr, ptr %2, align 8, !tbaa !228
   tail call void @_PyAtExit_Call(ptr noundef %13) #23
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 7336
-  %15 = load ptr, ptr %14, align 8, !tbaa !254
+  %15 = load ptr, ptr %14, align 8, !tbaa !253
   %.not18 = icmp eq ptr %0, %15
   br i1 %.not18, label %16, label %19
 
 16:                                               ; preds = %11
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %18 = load ptr, ptr %17, align 8, !tbaa !278
+  %18 = load ptr, ptr %17, align 8, !tbaa !277
   %.not19 = icmp eq ptr %18, null
   br i1 %.not19, label %_PyInterpreterState_SetFinalizing.exit, label %19
 
@@ -2198,16 +2198,16 @@ _PyInterpreterState_SetFinalizing.exit:           ; preds = %16
   %21 = ptrtoint ptr %0 to i64
   store atomic i64 %21, ptr %20 monotonic, align 8
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  %23 = load i64, ptr %22, align 8, !tbaa !250
+  %23 = load i64, ptr %22, align 8, !tbaa !249
   %24 = getelementptr inbounds nuw i8, ptr %3, i64 7392
   store atomic i64 %23, ptr %24 monotonic, align 8
-  %25 = load ptr, ptr %2, align 8, !tbaa !229
+  %25 = load ptr, ptr %2, align 8, !tbaa !228
   tail call void @_PyImport_FiniExternal(ptr noundef %25) #23
   tail call fastcc void @finalize_modules(ptr noundef nonnull %0)
-  %26 = load ptr, ptr %2, align 8, !tbaa !229
+  %26 = load ptr, ptr %2, align 8, !tbaa !228
   tail call void @_PyImport_FiniCore(ptr noundef %26) #23
   tail call fastcc void @finalize_interp_clear(ptr noundef nonnull %0)
-  %27 = load ptr, ptr %2, align 8, !tbaa !229
+  %27 = load ptr, ptr %2, align 8, !tbaa !228
   tail call void @_PyGILState_Fini(ptr noundef %27) #23
   tail call void @PyInterpreterState_Delete(ptr noundef %27) #23
   ret void
@@ -2215,7 +2215,7 @@ _PyInterpreterState_SetFinalizing.exit:           ; preds = %16
 
 ; Function Attrs: noreturn nounwind uwtable
 define dso_local void @_Py_FatalErrorFunc(ptr noundef %0, ptr noundef %1) local_unnamed_addr #11 {
-  %3 = load ptr, ptr @stderr, align 8, !tbaa !182
+  %3 = load ptr, ptr @stderr, align 8, !tbaa !181
   %4 = tail call i32 @fileno(ptr noundef %3) #23
   tail call fastcc void @fatal_error(i32 noundef %4, i32 noundef 1, ptr noundef %0, ptr noundef %1, i32 noundef -1) #27
   unreachable
@@ -2230,13 +2230,13 @@ define internal fastcc void @wait_for_thread_shutdown(ptr noundef readonly captu
 
 5:                                                ; preds = %1
   %6 = getelementptr i8, ptr %0, i64 112
-  %.val = load ptr, ptr %6, align 8, !tbaa !279
+  %.val = load ptr, ptr %6, align 8, !tbaa !278
   %7 = icmp eq ptr %.val, null
   br i1 %7, label %Py_DECREF.exit8, label %_PyErr_Occurred.exit
 
 _PyErr_Occurred.exit:                             ; preds = %5
   %8 = getelementptr i8, ptr %.val, i64 8
-  %.val.i = load ptr, ptr %8, align 8, !tbaa !280
+  %.val.i = load ptr, ptr %8, align 8, !tbaa !279
   %.not = icmp eq ptr %.val.i, null
   br i1 %.not, label %Py_DECREF.exit8, label %9
 
@@ -2246,7 +2246,7 @@ _PyErr_Occurred.exit:                             ; preds = %5
 
 10:                                               ; preds = %1
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
-  store ptr %3, ptr %2, align 8, !tbaa !253
+  store ptr %3, ptr %2, align 8, !tbaa !252
   %11 = call ptr @PyObject_VectorcallMethod(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 47128), ptr noundef nonnull %2, i64 noundef -9223372036854775807, ptr noundef null) #23
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
   %12 = icmp eq ptr %11, null
@@ -2304,11 +2304,11 @@ define internal fastcc void @finalize_modules(ptr noundef %0) unnamed_addr #1 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %8 = load ptr, ptr %7, align 8, !tbaa !229
+  %8 = load ptr, ptr %7, align 8, !tbaa !228
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 222968
-  store i8 0, ptr %9, align 8, !tbaa !281
+  store i8 0, ptr %9, align 8, !tbaa !280
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 7648
-  %11 = load ptr, ptr %10, align 8, !tbaa !282
+  %11 = load ptr, ptr %10, align 8, !tbaa !281
   %12 = tail call i32 @PyDict_Unwatch(i32 noundef 0, ptr noundef %11) #23
   %13 = tail call ptr @_PyImport_GetModules(ptr noundef %8) #23
   %14 = icmp eq ptr %13, null
@@ -2317,8 +2317,8 @@ define internal fastcc void @finalize_modules(ptr noundef %0) unnamed_addr #1 {
 15:                                               ; preds = %1
   %16 = tail call ptr @_PyInterpreterState_GetConfig(ptr noundef nonnull %8) #23
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 208
-  %18 = load i32, ptr %17, align 8, !tbaa !283
-  %.val = load ptr, ptr %7, align 8, !tbaa !229
+  %18 = load i32, ptr %17, align 8, !tbaa !282
+  %.val = load ptr, ptr %7, align 8, !tbaa !228
   %.not.i25 = icmp eq i32 %18, 0
   br i1 %.not.i25, label %20, label %19
 
@@ -2328,7 +2328,7 @@ define internal fastcc void @finalize_modules(ptr noundef %0) unnamed_addr #1 {
 
 20:                                               ; preds = %19, %15
   %21 = getelementptr inbounds nuw i8, ptr %.val, i64 7648
-  %22 = load ptr, ptr %21, align 8, !tbaa !282
+  %22 = load ptr, ptr %21, align 8, !tbaa !281
   %23 = tail call i32 @PyDict_SetItemString(ptr noundef %22, ptr noundef nonnull @.str.227, ptr noundef nonnull @_Py_NoneStruct) #23
   %24 = icmp slt i32 %23, 0
   br i1 %24, label %25, label %.preheader
@@ -2348,9 +2348,9 @@ define internal fastcc void @finalize_modules(ptr noundef %0) unnamed_addr #1 {
   %27 = phi ptr [ %56, %Py_DECREF.exit.us.i ], [ @.str.223, %.preheader.i ]
   %.12.us.i = phi ptr [ %55, %Py_DECREF.exit.us.i ], [ @finalize_modules_delete_special.sys_files, %.preheader.i ]
   %28 = getelementptr i8, ptr %.12.us.i, i64 8
-  %29 = load ptr, ptr %28, align 8, !tbaa !194
+  %29 = load ptr, ptr %28, align 8, !tbaa !193
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #23
-  %30 = load ptr, ptr %26, align 8, !tbaa !284
+  %30 = load ptr, ptr %26, align 8, !tbaa !283
   %31 = call i32 @PyDict_GetItemStringRef(ptr noundef %30, ptr noundef %29, ptr noundef nonnull %6) #23
   %32 = icmp slt i32 %31, 0
   br i1 %32, label %33, label %34
@@ -2360,7 +2360,7 @@ define internal fastcc void @finalize_modules(ptr noundef %0) unnamed_addr #1 {
   br label %34
 
 34:                                               ; preds = %33, %.preheader.split.us.i
-  %35 = load ptr, ptr %6, align 8, !tbaa !253
+  %35 = load ptr, ptr %6, align 8, !tbaa !252
   %36 = icmp eq ptr %35, null
   br i1 %36, label %37, label %42
 
@@ -2375,12 +2375,12 @@ define internal fastcc void @finalize_modules(ptr noundef %0) unnamed_addr #1 {
   br label %_Py_NewRef.exit.us.i
 
 _Py_NewRef.exit.us.i:                             ; preds = %40, %37
-  store ptr @_Py_NoneStruct, ptr %6, align 8, !tbaa !253
+  store ptr @_Py_NoneStruct, ptr %6, align 8, !tbaa !252
   br label %42
 
 42:                                               ; preds = %_Py_NewRef.exit.us.i, %34
   %43 = phi ptr [ @_Py_NoneStruct, %_Py_NewRef.exit.us.i ], [ %35, %34 ]
-  %44 = load ptr, ptr %26, align 8, !tbaa !284
+  %44 = load ptr, ptr %26, align 8, !tbaa !283
   %45 = call i32 @PyDict_SetItemString(ptr noundef %44, ptr noundef nonnull %27, ptr noundef nonnull %43) #23
   %46 = icmp slt i32 %45, 0
   br i1 %46, label %47, label %48
@@ -2390,7 +2390,7 @@ _Py_NewRef.exit.us.i:                             ; preds = %40, %37
   br label %48
 
 48:                                               ; preds = %47, %42
-  %49 = load ptr, ptr %6, align 8, !tbaa !253
+  %49 = load ptr, ptr %6, align 8, !tbaa !252
   %50 = load i32, ptr %49, align 8, !tbaa !176
   %.not.i.us.i = icmp sgt i32 %50, -1
   br i1 %.not.i.us.i, label %51, label %Py_DECREF.exit.us.i
@@ -2408,9 +2408,9 @@ _Py_NewRef.exit.us.i:                             ; preds = %40, %37
 Py_DECREF.exit.us.i:                              ; preds = %54, %51, %48
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #23
   %55 = getelementptr i8, ptr %.12.us.i, i64 16
-  %56 = load ptr, ptr %55, align 8, !tbaa !194
+  %56 = load ptr, ptr %55, align 8, !tbaa !193
   %.not23.us.i = icmp eq ptr %56, null
-  br i1 %.not23.us.i, label %finalize_modules_delete_special.exit, label %.preheader.split.us.i, !llvm.loop !285
+  br i1 %.not23.us.i, label %finalize_modules_delete_special.exit, label %.preheader.split.us.i, !llvm.loop !284
 
 57:                                               ; preds = %.preheader, %62
   %58 = phi ptr [ %64, %62 ], [ @.str.213, %.preheader ]
@@ -2425,18 +2425,18 @@ Py_DECREF.exit.us.i:                              ; preds = %54, %51, %48
 
 62:                                               ; preds = %61, %57
   %63 = getelementptr i8, ptr %.01.i, i64 8
-  %64 = load ptr, ptr %63, align 8, !tbaa !194
+  %64 = load ptr, ptr %63, align 8, !tbaa !193
   %.not22.i = icmp eq ptr %64, null
-  br i1 %.not22.i, label %.preheader.i, label %57, !llvm.loop !287
+  br i1 %.not22.i, label %.preheader.i, label %57, !llvm.loop !286
 
 .preheader.split.i:                               ; preds = %.preheader.i, %Py_DECREF.exit.i
   %65 = phi ptr [ %94, %Py_DECREF.exit.i ], [ @.str.223, %.preheader.i ]
   %.12.i = phi ptr [ %93, %Py_DECREF.exit.i ], [ @finalize_modules_delete_special.sys_files, %.preheader.i ]
   %66 = getelementptr i8, ptr %.12.i, i64 8
-  %67 = load ptr, ptr %66, align 8, !tbaa !194
+  %67 = load ptr, ptr %66, align 8, !tbaa !193
   call void (ptr, ...) @PySys_WriteStderr(ptr noundef nonnull @.str.230, ptr noundef nonnull %65) #23
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #23
-  %68 = load ptr, ptr %26, align 8, !tbaa !284
+  %68 = load ptr, ptr %26, align 8, !tbaa !283
   %69 = call i32 @PyDict_GetItemStringRef(ptr noundef %68, ptr noundef %67, ptr noundef nonnull %6) #23
   %70 = icmp slt i32 %69, 0
   br i1 %70, label %71, label %72
@@ -2446,7 +2446,7 @@ Py_DECREF.exit.us.i:                              ; preds = %54, %51, %48
   br label %72
 
 72:                                               ; preds = %71, %.preheader.split.i
-  %73 = load ptr, ptr %6, align 8, !tbaa !253
+  %73 = load ptr, ptr %6, align 8, !tbaa !252
   %74 = icmp eq ptr %73, null
   br i1 %74, label %75, label %80
 
@@ -2461,12 +2461,12 @@ Py_DECREF.exit.us.i:                              ; preds = %54, %51, %48
   br label %_Py_NewRef.exit.i
 
 _Py_NewRef.exit.i:                                ; preds = %78, %75
-  store ptr @_Py_NoneStruct, ptr %6, align 8, !tbaa !253
+  store ptr @_Py_NoneStruct, ptr %6, align 8, !tbaa !252
   br label %80
 
 80:                                               ; preds = %_Py_NewRef.exit.i, %72
   %81 = phi ptr [ @_Py_NoneStruct, %_Py_NewRef.exit.i ], [ %73, %72 ]
-  %82 = load ptr, ptr %26, align 8, !tbaa !284
+  %82 = load ptr, ptr %26, align 8, !tbaa !283
   %83 = call i32 @PyDict_SetItemString(ptr noundef %82, ptr noundef nonnull %65, ptr noundef nonnull %81) #23
   %84 = icmp slt i32 %83, 0
   br i1 %84, label %85, label %86
@@ -2476,7 +2476,7 @@ _Py_NewRef.exit.i:                                ; preds = %78, %75
   br label %86
 
 86:                                               ; preds = %85, %80
-  %87 = load ptr, ptr %6, align 8, !tbaa !253
+  %87 = load ptr, ptr %6, align 8, !tbaa !252
   %88 = load i32, ptr %87, align 8, !tbaa !176
   %.not.i.i = icmp sgt i32 %88, -1
   br i1 %.not.i.i, label %89, label %Py_DECREF.exit.i
@@ -2494,9 +2494,9 @@ _Py_NewRef.exit.i:                                ; preds = %78, %75
 Py_DECREF.exit.i:                                 ; preds = %92, %89, %86
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #23
   %93 = getelementptr i8, ptr %.12.i, i64 16
-  %94 = load ptr, ptr %93, align 8, !tbaa !194
+  %94 = load ptr, ptr %93, align 8, !tbaa !193
   %.not23.i = icmp eq ptr %94, null
-  br i1 %.not23.i, label %finalize_modules_delete_special.exit, label %.preheader.split.i, !llvm.loop !288
+  br i1 %.not23.i, label %finalize_modules_delete_special.exit, label %.preheader.split.i, !llvm.loop !287
 
 finalize_modules_delete_special.exit:             ; preds = %Py_DECREF.exit.i, %Py_DECREF.exit.us.i
   %95 = call ptr @PyList_New(i64 noundef 0) #23
@@ -2509,13 +2509,13 @@ finalize_modules_delete_special.exit:             ; preds = %Py_DECREF.exit.i, %
 
 98:                                               ; preds = %97, %finalize_modules_delete_special.exit
   %99 = getelementptr i8, ptr %13, i64 8
-  %.val80.i = load ptr, ptr %99, align 8, !tbaa !280
+  %.val80.i = load ptr, ptr %99, align 8, !tbaa !279
   %.not.i26 = icmp eq ptr %.val80.i, @PyDict_Type
   br i1 %.not.i26, label %100, label %157
 
 100:                                              ; preds = %98
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #23
-  store i64 0, ptr %3, align 8, !tbaa !289
+  store i64 0, ptr %3, align 8, !tbaa !288
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #23
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #23
   %101 = call i32 @PyDict_Next(ptr noundef nonnull %13, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5) #23
@@ -2526,9 +2526,9 @@ finalize_modules_delete_special.exit:             ; preds = %Py_DECREF.exit.i, %
   br i1 %96, label %.lr.ph103.split.us.i, label %.lr.ph103.split.i
 
 .lr.ph103.split.us.i:                             ; preds = %.lr.ph103.i, %114
-  %102 = load ptr, ptr %5, align 8, !tbaa !253
+  %102 = load ptr, ptr %5, align 8, !tbaa !252
   %103 = getelementptr i8, ptr %102, i64 8
-  %.val81.us.i = load ptr, ptr %103, align 8, !tbaa !280
+  %.val81.us.i = load ptr, ptr %103, align 8, !tbaa !279
   %.not.i83.us.i = icmp eq ptr %.val81.us.i, @PyModule_Type
   br i1 %.not.i83.us.i, label %PyObject_TypeCheck.exit.thread.us.i, label %PyObject_TypeCheck.exit.us.i
 
@@ -2538,21 +2538,21 @@ PyObject_TypeCheck.exit.us.i:                     ; preds = %.lr.ph103.split.us.
   br i1 %.not98.us.i, label %114, label %PyObject_TypeCheck.exit.thread.us.i
 
 PyObject_TypeCheck.exit.thread.us.i:              ; preds = %PyObject_TypeCheck.exit.us.i, %.lr.ph103.split.us.i
-  %.pre106.i = load ptr, ptr %4, align 8, !tbaa !253
+  %.pre106.i = load ptr, ptr %4, align 8, !tbaa !252
   br i1 %.not.i25, label %Py_DECREF.exit72.us.i, label %105
 
 105:                                              ; preds = %PyObject_TypeCheck.exit.thread.us.i
   %106 = getelementptr i8, ptr %.pre106.i, i64 8
-  %.val77.us.i = load ptr, ptr %106, align 8, !tbaa !280
+  %.val77.us.i = load ptr, ptr %106, align 8, !tbaa !279
   %107 = getelementptr i8, ptr %.val77.us.i, i64 168
-  %.val79.us.i = load i64, ptr %107, align 8, !tbaa !290
+  %.val79.us.i = load i64, ptr %107, align 8, !tbaa !289
   %108 = and i64 %.val79.us.i, 268435456
   %.not61.us.i = icmp eq i64 %108, 0
   br i1 %.not61.us.i, label %Py_DECREF.exit72.us.i, label %109
 
 109:                                              ; preds = %105
   call void (ptr, ...) @PySys_FormatStderr(ptr noundef nonnull @.str.233, ptr noundef nonnull %.pre106.i) #23
-  %.pre.i = load ptr, ptr %4, align 8, !tbaa !253
+  %.pre.i = load ptr, ptr %4, align 8, !tbaa !252
   br label %Py_DECREF.exit72.us.i
 
 Py_DECREF.exit72.us.i:                            ; preds = %109, %105, %PyObject_TypeCheck.exit.thread.us.i
@@ -2568,12 +2568,12 @@ Py_DECREF.exit72.us.i:                            ; preds = %109, %105, %PyObjec
 114:                                              ; preds = %113, %Py_DECREF.exit72.us.i, %PyObject_TypeCheck.exit.us.i
   %115 = call i32 @PyDict_Next(ptr noundef nonnull %13, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5) #23
   %.not58.us.i = icmp eq i32 %115, 0
-  br i1 %.not58.us.i, label %._crit_edge104.i, label %.lr.ph103.split.us.i, !llvm.loop !295
+  br i1 %.not58.us.i, label %._crit_edge104.i, label %.lr.ph103.split.us.i, !llvm.loop !294
 
 .lr.ph103.split.i:                                ; preds = %.lr.ph103.i, %155
-  %116 = load ptr, ptr %5, align 8, !tbaa !253
+  %116 = load ptr, ptr %5, align 8, !tbaa !252
   %117 = getelementptr i8, ptr %116, i64 8
-  %.val81.i = load ptr, ptr %117, align 8, !tbaa !280
+  %.val81.i = load ptr, ptr %117, align 8, !tbaa !279
   %.not.i83.i = icmp eq ptr %.val81.i, @PyModule_Type
   br i1 %.not.i83.i, label %PyObject_TypeCheck.exit.thread.i, label %PyObject_TypeCheck.exit.i
 
@@ -2586,11 +2586,11 @@ PyObject_TypeCheck.exit.thread.i:                 ; preds = %PyObject_TypeCheck.
   br i1 %.not.i25, label %125, label %119
 
 119:                                              ; preds = %PyObject_TypeCheck.exit.thread.i
-  %120 = load ptr, ptr %4, align 8, !tbaa !253
+  %120 = load ptr, ptr %4, align 8, !tbaa !252
   %121 = getelementptr i8, ptr %120, i64 8
-  %.val77.i = load ptr, ptr %121, align 8, !tbaa !280
+  %.val77.i = load ptr, ptr %121, align 8, !tbaa !279
   %122 = getelementptr i8, ptr %.val77.i, i64 168
-  %.val79.i = load i64, ptr %122, align 8, !tbaa !290
+  %.val79.i = load i64, ptr %122, align 8, !tbaa !289
   %123 = and i64 %.val79.i, 268435456
   %.not61.i = icmp eq i64 %123, 0
   br i1 %.not61.i, label %125, label %124
@@ -2600,13 +2600,13 @@ PyObject_TypeCheck.exit.thread.i:                 ; preds = %PyObject_TypeCheck.
   br label %125
 
 125:                                              ; preds = %124, %119, %PyObject_TypeCheck.exit.thread.i
-  %126 = load ptr, ptr %5, align 8, !tbaa !253
+  %126 = load ptr, ptr %5, align 8, !tbaa !252
   %127 = call ptr @PyWeakref_NewRef(ptr noundef %126, ptr noundef null) #23
   %.not63.i = icmp eq ptr %127, null
   br i1 %.not63.i, label %150, label %128
 
 128:                                              ; preds = %125
-  %129 = load ptr, ptr %4, align 8, !tbaa !253
+  %129 = load ptr, ptr %4, align 8, !tbaa !252
   %130 = call ptr (i64, ...) @PyTuple_Pack(i64 noundef 2, ptr noundef %129, ptr noundef nonnull %127) #23
   %.not64.i = icmp eq ptr %130, null
   br i1 %.not64.i, label %.split39.thread.i, label %131
@@ -2671,7 +2671,7 @@ Py_XDECREF.exit.i:                                ; preds = %144, %141, %139, %1
   br label %Py_DECREF.exit72.i
 
 Py_DECREF.exit72.i:                               ; preds = %150, %149, %146, %Py_XDECREF.exit.i
-  %151 = load ptr, ptr %4, align 8, !tbaa !253
+  %151 = load ptr, ptr %4, align 8, !tbaa !252
   %152 = call i32 @PyObject_SetItem(ptr noundef nonnull %13, ptr noundef %151, ptr noundef nonnull @_Py_NoneStruct) #23
   %153 = icmp slt i32 %152, 0
   br i1 %153, label %154, label %155
@@ -2683,7 +2683,7 @@ Py_DECREF.exit72.i:                               ; preds = %150, %149, %146, %P
 155:                                              ; preds = %154, %Py_DECREF.exit72.i, %PyObject_TypeCheck.exit.i
   %156 = call i32 @PyDict_Next(ptr noundef nonnull %13, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5) #23
   %.not58.i = icmp eq i32 %156, 0
-  br i1 %.not58.i, label %._crit_edge104.i, label %.lr.ph103.split.i, !llvm.loop !296
+  br i1 %.not58.i, label %._crit_edge104.i, label %.lr.ph103.split.i, !llvm.loop !295
 
 ._crit_edge104.i:                                 ; preds = %155, %114, %100
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #23
@@ -2713,11 +2713,11 @@ Py_DECREF.exit72.i:                               ; preds = %150, %149, %146, %P
 
 165:                                              ; preds = %.lr.ph.i
   call void (ptr, ...) @PyErr_FormatUnraisable(ptr noundef nonnull @.str.232) #23
-  br label %Py_DECREF.exit66.i, !llvm.loop !297
+  br label %Py_DECREF.exit66.i, !llvm.loop !296
 
 166:                                              ; preds = %.lr.ph.i
   %167 = getelementptr i8, ptr %163, i64 8
-  %.val82.i = load ptr, ptr %167, align 8, !tbaa !280
+  %.val82.i = load ptr, ptr %167, align 8, !tbaa !279
   %.not.i88.i = icmp eq ptr %.val82.i, @PyModule_Type
   br i1 %.not.i88.i, label %PyObject_TypeCheck.exit89.thread.i, label %PyObject_TypeCheck.exit89.i
 
@@ -2731,9 +2731,9 @@ PyObject_TypeCheck.exit89.thread.i:               ; preds = %PyObject_TypeCheck.
 
 169:                                              ; preds = %PyObject_TypeCheck.exit89.thread.i
   %170 = getelementptr i8, ptr %162, i64 8
-  %.val.i = load ptr, ptr %170, align 8, !tbaa !280
+  %.val.i = load ptr, ptr %170, align 8, !tbaa !279
   %171 = getelementptr i8, ptr %.val.i, i64 168
-  %.val78.i = load i64, ptr %171, align 8, !tbaa !290
+  %.val78.i = load i64, ptr %171, align 8, !tbaa !289
   %172 = and i64 %.val78.i, 268435456
   %.not54.i = icmp eq i64 %172, 0
   br i1 %.not54.i, label %174, label %173
@@ -2856,7 +2856,7 @@ Py_DECREF.exit68.i:                               ; preds = %207, %204, %202
 Py_DECREF.exit66.i:                               ; preds = %212, %209, %Py_DECREF.exit68.i, %165
   %213 = call ptr @PyIter_Next(ptr noundef nonnull %158) #23
   %.not50.i = icmp eq ptr %213, null
-  br i1 %.not50.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !298
+  br i1 %.not50.i, label %._crit_edge.i, label %.lr.ph.i
 
 ._crit_edge.i:                                    ; preds = %Py_DECREF.exit66.i, %.preheader.i27
   %214 = call ptr @PyErr_Occurred() #23
@@ -2883,7 +2883,7 @@ Py_DECREF.exit66.i:                               ; preds = %212, %209, %Py_DECR
   br label %finalize_remove_modules.exit
 
 finalize_remove_modules.exit:                     ; preds = %._crit_edge104.i, %161, %216, %218, %221
-  %.val.i30 = load ptr, ptr %99, align 8, !tbaa !280
+  %.val.i30 = load ptr, ptr %99, align 8, !tbaa !279
   %.not.i31 = icmp eq ptr %.val.i30, @PyDict_Type
   br i1 %.not.i31, label %222, label %223
 
@@ -2893,7 +2893,7 @@ finalize_remove_modules.exit:                     ; preds = %._crit_edge104.i, %
 
 223:                                              ; preds = %finalize_remove_modules.exit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
-  store ptr %13, ptr %2, align 8, !tbaa !253
+  store ptr %13, ptr %2, align 8, !tbaa !252
   %224 = call ptr @PyObject_VectorcallMethod(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 50864), ptr noundef nonnull %2, i64 noundef -9223372036854775807, ptr noundef null) #23
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
   %225 = icmp eq ptr %224, null
@@ -2904,9 +2904,9 @@ finalize_remove_modules.exit:                     ; preds = %._crit_edge104.i, %
   br label %finalize_clear_modules_dict.exit
 
 finalize_clear_modules_dict.exit:                 ; preds = %222, %223, %226
-  %.val24 = load ptr, ptr %7, align 8, !tbaa !229
+  %.val24 = load ptr, ptr %7, align 8, !tbaa !228
   %227 = getelementptr inbounds nuw i8, ptr %.val24, i64 7648
-  %228 = load ptr, ptr %227, align 8, !tbaa !282
+  %228 = load ptr, ptr %227, align 8, !tbaa !281
   %229 = call ptr @PyDict_Copy(ptr noundef %228) #23
   %230 = icmp eq ptr %229, null
   br i1 %230, label %231, label %232
@@ -2916,11 +2916,11 @@ finalize_clear_modules_dict.exit:                 ; preds = %222, %223, %226
   br label %232
 
 232:                                              ; preds = %231, %finalize_clear_modules_dict.exit
-  %233 = load ptr, ptr %227, align 8, !tbaa !282
+  %233 = load ptr, ptr %227, align 8, !tbaa !281
   call void @PyDict_Clear(ptr noundef %233) #23
-  %234 = load ptr, ptr %227, align 8, !tbaa !282
+  %234 = load ptr, ptr %227, align 8, !tbaa !281
   %235 = getelementptr inbounds nuw i8, ptr %.val24, i64 8464
-  %236 = load ptr, ptr %235, align 8, !tbaa !299
+  %236 = load ptr, ptr %235, align 8, !tbaa !297
   %237 = call i32 @PyDict_Update(ptr noundef %234, ptr noundef %236) #23
   %.not.i32 = icmp eq i32 %237, 0
   br i1 %.not.i32, label %239, label %238
@@ -2954,7 +2954,7 @@ finalize_restore_builtins.exit:                   ; preds = %239, %240, %242, %2
 
 246:                                              ; preds = %finalize_restore_builtins.exit
   %247 = getelementptr i8, ptr %95, i64 16
-  %.val25.i = load i64, ptr %247, align 8, !tbaa !300
+  %.val25.i = load i64, ptr %247, align 8, !tbaa !298
   %.029.i = add i64 %.val25.i, -1
   %248 = icmp sgt i64 %.029.i, -1
   br i1 %248, label %.lr.ph.i36, label %finalize_modules_clear_weaklist.exit
@@ -2966,13 +2966,13 @@ finalize_restore_builtins.exit:                   ; preds = %239, %240, %242, %2
 
 .lr.ph.split.us.i:                                ; preds = %.lr.ph.i36, %Py_DECREF.exit22.us.i
   %.030.us.i = phi i64 [ %.0.us.i, %Py_DECREF.exit22.us.i ], [ %.029.i, %.lr.ph.i36 ]
-  %251 = load ptr, ptr %249, align 8, !tbaa !301
+  %251 = load ptr, ptr %249, align 8, !tbaa !299
   %252 = getelementptr ptr, ptr %251, i64 %.030.us.i
-  %253 = load ptr, ptr %252, align 8, !tbaa !253
+  %253 = load ptr, ptr %252, align 8, !tbaa !252
   %254 = getelementptr i8, ptr %253, i64 32
-  %255 = load ptr, ptr %254, align 8, !tbaa !253
+  %255 = load ptr, ptr %254, align 8, !tbaa !252
   %256 = getelementptr i8, ptr %255, i64 16
-  %.val26.us.i = load ptr, ptr %256, align 8, !tbaa !303
+  %.val26.us.i = load ptr, ptr %256, align 8, !tbaa !301
   %257 = icmp eq ptr %.val26.us.i, @_Py_NoneStruct
   br i1 %257, label %Py_DECREF.exit22.us.i, label %258
 
@@ -2993,13 +2993,13 @@ finalize_restore_builtins.exit:                   ; preds = %239, %240, %242, %2
 _PyWeakref_GET_REF.exit.us.i:                     ; preds = %261, %259
   %263 = phi i32 [ %262, %261 ], [ %.val.i.i.us.i, %259 ]
   %264 = getelementptr i8, ptr %.val26.us.i, i64 16
-  %.val27.us.i = load ptr, ptr %264, align 8, !tbaa !306
-  %265 = load ptr, ptr %10, align 8, !tbaa !282
+  %.val27.us.i = load ptr, ptr %264, align 8, !tbaa !304
+  %265 = load ptr, ptr %10, align 8, !tbaa !281
   %266 = icmp eq ptr %.val27.us.i, %265
   br i1 %266, label %276, label %267
 
 267:                                              ; preds = %_PyWeakref_GET_REF.exit.us.i
-  %268 = load ptr, ptr %250, align 8, !tbaa !284
+  %268 = load ptr, ptr %250, align 8, !tbaa !283
   %269 = icmp eq ptr %.val27.us.i, %268
   br i1 %269, label %276, label %270
 
@@ -3031,19 +3031,19 @@ _PyWeakref_GET_REF.exit.us.i:                     ; preds = %261, %259
 Py_DECREF.exit22.us.i:                            ; preds = %277, %276, %275, %272, %270, %258, %.lr.ph.split.us.i
   %.0.us.i = add nsw i64 %.030.us.i, -1
   %279 = icmp sgt i64 %.030.us.i, 0
-  br i1 %279, label %.lr.ph.split.us.i, label %finalize_modules_clear_weaklist.exit, !llvm.loop !309
+  br i1 %279, label %.lr.ph.split.us.i, label %finalize_modules_clear_weaklist.exit, !llvm.loop !307
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i36, %Py_DECREF.exit22.i
   %.030.i = phi i64 [ %.0.i, %Py_DECREF.exit22.i ], [ %.029.i, %.lr.ph.i36 ]
-  %280 = load ptr, ptr %249, align 8, !tbaa !301
+  %280 = load ptr, ptr %249, align 8, !tbaa !299
   %281 = getelementptr ptr, ptr %280, i64 %.030.i
-  %282 = load ptr, ptr %281, align 8, !tbaa !253
+  %282 = load ptr, ptr %281, align 8, !tbaa !252
   %283 = getelementptr inbounds nuw i8, ptr %282, i64 24
-  %284 = load ptr, ptr %283, align 8, !tbaa !253
+  %284 = load ptr, ptr %283, align 8, !tbaa !252
   %285 = getelementptr i8, ptr %282, i64 32
-  %286 = load ptr, ptr %285, align 8, !tbaa !253
+  %286 = load ptr, ptr %285, align 8, !tbaa !252
   %287 = getelementptr i8, ptr %286, i64 16
-  %.val26.i = load ptr, ptr %287, align 8, !tbaa !303
+  %.val26.i = load ptr, ptr %287, align 8, !tbaa !301
   %288 = icmp eq ptr %.val26.i, @_Py_NoneStruct
   br i1 %288, label %Py_DECREF.exit22.i, label %289
 
@@ -3064,13 +3064,13 @@ Py_DECREF.exit22.us.i:                            ; preds = %277, %276, %275, %2
 _PyWeakref_GET_REF.exit.i:                        ; preds = %292, %290
   %294 = phi i32 [ %293, %292 ], [ %.val.i.i.i, %290 ]
   %295 = getelementptr i8, ptr %.val26.i, i64 16
-  %.val27.i = load ptr, ptr %295, align 8, !tbaa !306
-  %296 = load ptr, ptr %10, align 8, !tbaa !282
+  %.val27.i = load ptr, ptr %295, align 8, !tbaa !304
+  %296 = load ptr, ptr %10, align 8, !tbaa !281
   %297 = icmp eq ptr %.val27.i, %296
   br i1 %297, label %301, label %298
 
 298:                                              ; preds = %_PyWeakref_GET_REF.exit.i
-  %299 = load ptr, ptr %250, align 8, !tbaa !284
+  %299 = load ptr, ptr %250, align 8, !tbaa !283
   %300 = icmp eq ptr %.val27.i, %299
   br i1 %300, label %301, label %304
 
@@ -3085,9 +3085,9 @@ _PyWeakref_GET_REF.exit.i:                        ; preds = %292, %290
 
 304:                                              ; preds = %298
   %305 = getelementptr i8, ptr %284, i64 8
-  %.val.i39 = load ptr, ptr %305, align 8, !tbaa !280
+  %.val.i39 = load ptr, ptr %305, align 8, !tbaa !279
   %306 = getelementptr i8, ptr %.val.i39, i64 168
-  %.val24.i = load i64, ptr %306, align 8, !tbaa !290
+  %.val24.i = load i64, ptr %306, align 8, !tbaa !289
   %307 = and i64 %.val24.i, 268435456
   %.not20.i = icmp eq i64 %307, 0
   br i1 %.not20.i, label %309, label %308
@@ -3115,7 +3115,7 @@ _PyWeakref_GET_REF.exit.i:                        ; preds = %292, %290
 Py_DECREF.exit22.i:                               ; preds = %314, %311, %309, %302, %301, %289, %.lr.ph.split.i
   %.0.i = add nsw i64 %.030.i, -1
   %315 = icmp sgt i64 %.030.i, 0
-  br i1 %315, label %.lr.ph.split.i, label %finalize_modules_clear_weaklist.exit, !llvm.loop !310
+  br i1 %315, label %.lr.ph.split.i, label %finalize_modules_clear_weaklist.exit, !llvm.loop !308
 
 finalize_modules_clear_weaklist.exit:             ; preds = %Py_DECREF.exit22.i, %Py_DECREF.exit22.us.i, %246
   %316 = load i32, ptr %95, align 8, !tbaa !176
@@ -3138,19 +3138,19 @@ Py_DECREF.exit:                                   ; preds = %320, %317, %finaliz
 321:                                              ; preds = %Py_DECREF.exit
   call void (ptr, ...) @PySys_FormatStderr(ptr noundef nonnull @.str.237) #23
   %322 = getelementptr inbounds nuw i8, ptr %8, i64 7640
-  %323 = load ptr, ptr %322, align 8, !tbaa !284
+  %323 = load ptr, ptr %322, align 8, !tbaa !283
   call void @_PyModule_ClearDict(ptr noundef %323) #23
   call void (ptr, ...) @PySys_FormatStderr(ptr noundef nonnull @.str.238) #23
   br label %finalize_clear_sys_builtins_dict.exit
 
 .critedge.i:                                      ; preds = %Py_DECREF.exit
   %324 = getelementptr inbounds nuw i8, ptr %8, i64 7640
-  %325 = load ptr, ptr %324, align 8, !tbaa !284
+  %325 = load ptr, ptr %324, align 8, !tbaa !283
   call void @_PyModule_ClearDict(ptr noundef %325) #23
   br label %finalize_clear_sys_builtins_dict.exit
 
 finalize_clear_sys_builtins_dict.exit:            ; preds = %321, %.critedge.i
-  %326 = load ptr, ptr %10, align 8, !tbaa !282
+  %326 = load ptr, ptr %10, align 8, !tbaa !281
   call void @_PyModule_ClearDict(ptr noundef %326) #23
   call void @_PyImport_ClearModulesByIndex(ptr noundef nonnull %8) #23
   call void @_PyImport_ClearModules(ptr noundef nonnull %8) #23
@@ -3166,13 +3166,13 @@ declare void @_PyImport_FiniCore(ptr noundef) local_unnamed_addr #0
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @finalize_interp_clear(ptr noundef %0) unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %3 = load ptr, ptr %2, align 8, !tbaa !229
-  %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 712), align 8, !tbaa !239
+  %3 = load ptr, ptr %2, align 8, !tbaa !228
+  %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 712), align 8, !tbaa !238
   %.not = icmp eq ptr %3, %4
   tail call void @_PyXI_Fini(ptr noundef %3) #23
-  %5 = load ptr, ptr %2, align 8, !tbaa !229
+  %5 = load ptr, ptr %2, align 8, !tbaa !228
   tail call void @_PyExc_ClearExceptionGroupType(ptr noundef %5) #23
-  %6 = load ptr, ptr %2, align 8, !tbaa !229
+  %6 = load ptr, ptr %2, align 8, !tbaa !228
   tail call void @_Py_clear_generic_types(ptr noundef %6) #23
   tail call void @_PyInterpreterState_Clear(ptr noundef %0) #23
   br i1 %.not, label %7, label %.critedge
@@ -3187,7 +3187,7 @@ define internal fastcc void @finalize_interp_clear(ptr noundef %0) unnamed_addr 
   br label %.critedge
 
 .critedge:                                        ; preds = %1, %7
-  %9 = load ptr, ptr %2, align 8, !tbaa !229
+  %9 = load ptr, ptr %2, align 8, !tbaa !228
   tail call void @_PyTypes_FiniExtTypes(ptr noundef %9) #23
   tail call void @_PyUnicode_FiniTypes(ptr noundef %9) #23
   tail call void @_PySys_FiniTypes(ptr noundef %9) #23
@@ -3203,14 +3203,14 @@ define internal fastcc void @finalize_interp_clear(ptr noundef %0) unnamed_addr 
   tail call void @_PyUnicode_ClearInterned(ptr noundef %9) #23
   tail call void @_PyUnicode_Fini(ptr noundef %9) #23
   %10 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
-  %11 = load ptr, ptr %10, align 8, !tbaa !213
+  %11 = load ptr, ptr %10, align 8, !tbaa !212
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
-  %13 = load ptr, ptr %12, align 8, !tbaa !229
+  %13 = load ptr, ptr %12, align 8, !tbaa !228
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 11032
   tail call void @_PyObject_ClearFreeLists(ptr noundef nonnull %14, i32 noundef 1) #23
-  %15 = load ptr, ptr %2, align 8, !tbaa !229
+  %15 = load ptr, ptr %2, align 8, !tbaa !228
   tail call void @_PyDtoa_Fini(ptr noundef %15) #23
-  %16 = load ptr, ptr %2, align 8, !tbaa !229
+  %16 = load ptr, ptr %2, align 8, !tbaa !228
   tail call void @_PyMem_FiniDelayed(ptr noundef %16) #23
   tail call void @_PyThreadState_ClearMimallocHeaps(ptr noundef nonnull %0) #23
   ret void
@@ -3252,9 +3252,9 @@ define hidden void @_Py_DumpExtensionModules(i32 noundef %0, ptr noundef %1) loc
 
 13:                                               ; preds = %10
   %14 = getelementptr i8, ptr %11, i64 8
-  %.val = load ptr, ptr %14, align 8, !tbaa !280
+  %.val = load ptr, ptr %14, align 8, !tbaa !279
   %15 = getelementptr i8, ptr %.val, i64 168
-  %.val53 = load i64, ptr %15, align 8, !tbaa !290
+  %.val53 = load i64, ptr %15, align 8, !tbaa !289
   %16 = and i64 %.val53, 536870912
   %.not = icmp eq i64 %16, 0
   br i1 %.not, label %88, label %17
@@ -3264,22 +3264,22 @@ define hidden void @_Py_DumpExtensionModules(i32 noundef %0, ptr noundef %1) loc
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #23
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #23
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 7640
-  %19 = load ptr, ptr %18, align 8, !tbaa !284
+  %19 = load ptr, ptr %18, align 8, !tbaa !283
   %.not35 = icmp eq ptr %19, null
   br i1 %.not35, label %.thread, label %20
 
 20:                                               ; preds = %17
-  store i64 0, ptr %3, align 8, !tbaa !289
+  store i64 0, ptr %3, align 8, !tbaa !288
   %21 = call i32 @_PyDict_Next(ptr noundef nonnull %19, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef null) #23
   %.not3661 = icmp eq i32 %21, 0
   br i1 %.not3661, label %.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %20, %29
-  %22 = load ptr, ptr %4, align 8, !tbaa !253
+  %22 = load ptr, ptr %4, align 8, !tbaa !252
   %23 = getelementptr i8, ptr %22, i64 8
-  %.val50 = load ptr, ptr %23, align 8, !tbaa !280
+  %.val50 = load ptr, ptr %23, align 8, !tbaa !279
   %24 = getelementptr i8, ptr %.val50, i64 168
-  %.val54 = load i64, ptr %24, align 8, !tbaa !290
+  %.val54 = load i64, ptr %24, align 8, !tbaa !289
   %25 = and i64 %.val54, 268435456
   %.not37 = icmp eq i64 %25, 0
   br i1 %.not37, label %29, label %26
@@ -3290,19 +3290,19 @@ define hidden void @_Py_DumpExtensionModules(i32 noundef %0, ptr noundef %1) loc
   br i1 %28, label %32, label %29
 
 29:                                               ; preds = %26, %.lr.ph
-  %30 = load ptr, ptr %18, align 8, !tbaa !284
+  %30 = load ptr, ptr %18, align 8, !tbaa !283
   %31 = call i32 @_PyDict_Next(ptr noundef %30, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef null) #23
   %.not36 = icmp eq i32 %31, 0
-  br i1 %.not36, label %.thread, label %.lr.ph, !llvm.loop !311
+  br i1 %.not36, label %.thread, label %.lr.ph, !llvm.loop !309
 
 32:                                               ; preds = %26
-  %33 = load ptr, ptr %5, align 8, !tbaa !253
+  %33 = load ptr, ptr %5, align 8, !tbaa !252
   %.not38 = icmp eq ptr %33, null
   br i1 %.not38, label %.thread, label %34
 
 34:                                               ; preds = %32
   %35 = getelementptr i8, ptr %33, i64 8
-  %.030.val57 = load ptr, ptr %35, align 8, !tbaa !280
+  %.030.val57 = load ptr, ptr %35, align 8, !tbaa !279
   %.not60 = icmp eq ptr %.030.val57, @PyFrozenSet_Type
   br i1 %.not60, label %.thread, label %36
 
@@ -3315,7 +3315,7 @@ define hidden void @_Py_DumpExtensionModules(i32 noundef %0, ptr noundef %1) loc
 .thread:                                          ; preds = %29, %20, %17, %36, %34, %32
   %.2 = phi ptr [ %33, %34 ], [ null, %32 ], [ %spec.select, %36 ], [ null, %17 ], [ null, %20 ], [ null, %29 ]
   %.2.fr = freeze ptr %.2
-  store i64 0, ptr %3, align 8, !tbaa !289
+  store i64 0, ptr %3, align 8, !tbaa !288
   %38 = call i32 @_PyDict_Next(ptr noundef nonnull %11, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef null) #23
   %.not416568 = icmp eq i32 %38, 0
   br i1 %.not416568, label %.outer._crit_edge.thread, label %.lr.ph66.lr.ph
@@ -3338,25 +3338,25 @@ define hidden void @_Py_DumpExtensionModules(i32 noundef %0, ptr noundef %1) loc
   br label %.outer.us
 
 .outer.us:                                        ; preds = %41, %39
-  %43 = load ptr, ptr %4, align 8, !tbaa !253
+  %43 = load ptr, ptr %4, align 8, !tbaa !252
   call void @_Py_DumpASCII(i32 noundef %0, ptr noundef %43) #23
   %44 = add i64 %.028.ph70.us, 1
   %45 = call i32 @_PyDict_Next(ptr noundef nonnull %11, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef null) #23
   %.not4165.us = icmp eq i32 %45, 0
-  br i1 %.not4165.us, label %.outer._crit_edge, label %.lr.ph66.us, !llvm.loop !312
+  br i1 %.not4165.us, label %.outer._crit_edge, label %.lr.ph66.us, !llvm.loop !310
 
 46:                                               ; preds = %.backedge.us.us, %.lr.ph66.us
-  %47 = load ptr, ptr %4, align 8, !tbaa !253
+  %47 = load ptr, ptr %4, align 8, !tbaa !252
   %48 = getelementptr i8, ptr %47, i64 8
-  %.val51.us.us = load ptr, ptr %48, align 8, !tbaa !280
+  %.val51.us.us = load ptr, ptr %48, align 8, !tbaa !279
   %49 = getelementptr i8, ptr %.val51.us.us, i64 168
-  %.val55.us.us = load i64, ptr %49, align 8, !tbaa !290
+  %.val55.us.us = load i64, ptr %49, align 8, !tbaa !289
   %50 = and i64 %.val55.us.us, 268435456
   %.not43.us.us = icmp eq i64 %50, 0
   br i1 %.not43.us.us, label %.backedge.us.us, label %51
 
 51:                                               ; preds = %46
-  %52 = load ptr, ptr %5, align 8, !tbaa !253
+  %52 = load ptr, ptr %5, align 8, !tbaa !252
   %53 = call i32 @_PyModule_IsExtension(ptr noundef %52) #23
   %.not44.us.us = icmp eq i32 %53, 0
   br i1 %.not44.us.us, label %.backedge.us.us, label %.loopexit.split.us.us
@@ -3364,7 +3364,7 @@ define hidden void @_Py_DumpExtensionModules(i32 noundef %0, ptr noundef %1) loc
 .backedge.us.us:                                  ; preds = %51, %46
   %54 = call i32 @_PyDict_Next(ptr noundef nonnull %11, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef null) #23
   %.not41.us.us = icmp eq i32 %54, 0
-  br i1 %.not41.us.us, label %.outer._crit_edge, label %46, !llvm.loop !313
+  br i1 %.not41.us.us, label %.outer._crit_edge, label %46, !llvm.loop !311
 
 .loopexit.split.us.us:                            ; preds = %51
   br i1 %.not49.us, label %41, label %39
@@ -3375,11 +3375,11 @@ define hidden void @_Py_DumpExtensionModules(i32 noundef %0, ptr noundef %1) loc
   br label %55
 
 55:                                               ; preds = %.lr.ph66, %.backedge
-  %56 = load ptr, ptr %4, align 8, !tbaa !253
+  %56 = load ptr, ptr %4, align 8, !tbaa !252
   %57 = getelementptr i8, ptr %56, i64 8
-  %.val51 = load ptr, ptr %57, align 8, !tbaa !280
+  %.val51 = load ptr, ptr %57, align 8, !tbaa !279
   %58 = getelementptr i8, ptr %.val51, i64 168
-  %.val55 = load i64, ptr %58, align 8, !tbaa !290
+  %.val55 = load i64, ptr %58, align 8, !tbaa !289
   %59 = and i64 %.val55, 268435456
   %.not43 = icmp eq i64 %59, 0
   br i1 %.not43, label %.backedge, label %61
@@ -3387,17 +3387,17 @@ define hidden void @_Py_DumpExtensionModules(i32 noundef %0, ptr noundef %1) loc
 .backedge:                                        ; preds = %55, %61, %76
   %60 = call i32 @_PyDict_Next(ptr noundef nonnull %11, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef null) #23
   %.not41 = icmp eq i32 %60, 0
-  br i1 %.not41, label %.outer._crit_edge, label %55, !llvm.loop !314
+  br i1 %.not41, label %.outer._crit_edge, label %55, !llvm.loop !312
 
 61:                                               ; preds = %55
-  %62 = load ptr, ptr %5, align 8, !tbaa !253
+  %62 = load ptr, ptr %5, align 8, !tbaa !252
   %63 = call i32 @_PyModule_IsExtension(ptr noundef %62) #23
   %.not44 = icmp eq i32 %63, 0
   br i1 %.not44, label %.backedge, label %64
 
 64:                                               ; preds = %61
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #23
-  store i64 0, ptr %6, align 8, !tbaa !289
+  store i64 0, ptr %6, align 8, !tbaa !288
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #23
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #23
   %65 = call i32 @_PySet_NextEntry(ptr noundef nonnull %.2.fr, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %8) #23
@@ -3405,17 +3405,17 @@ define hidden void @_Py_DumpExtensionModules(i32 noundef %0, ptr noundef %1) loc
   br i1 %.not4662, label %.critedge, label %.lr.ph63
 
 .lr.ph63:                                         ; preds = %64, %74
-  %66 = load ptr, ptr %7, align 8, !tbaa !253
+  %66 = load ptr, ptr %7, align 8, !tbaa !252
   %67 = getelementptr i8, ptr %66, i64 8
-  %.val52 = load ptr, ptr %67, align 8, !tbaa !280
+  %.val52 = load ptr, ptr %67, align 8, !tbaa !279
   %68 = getelementptr i8, ptr %.val52, i64 168
-  %.val56 = load i64, ptr %68, align 8, !tbaa !290
+  %.val56 = load i64, ptr %68, align 8, !tbaa !289
   %69 = and i64 %.val56, 268435456
   %.not47 = icmp eq i64 %69, 0
   br i1 %.not47, label %74, label %70
 
 70:                                               ; preds = %.lr.ph63
-  %71 = load ptr, ptr %4, align 8, !tbaa !253
+  %71 = load ptr, ptr %4, align 8, !tbaa !252
   %72 = call i32 @PyUnicode_Compare(ptr noundef %71, ptr noundef nonnull %66) #23
   %73 = icmp eq i32 %72, 0
   br i1 %73, label %76, label %74
@@ -3423,7 +3423,7 @@ define hidden void @_Py_DumpExtensionModules(i32 noundef %0, ptr noundef %1) loc
 74:                                               ; preds = %70, %.lr.ph63
   %75 = call i32 @_PySet_NextEntry(ptr noundef nonnull %.2.fr, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %8) #23
   %.not46 = icmp eq i32 %75, 0
-  br i1 %.not46, label %.critedge, label %.lr.ph63, !llvm.loop !315
+  br i1 %.not46, label %.critedge, label %.lr.ph63, !llvm.loop !313
 
 76:                                               ; preds = %70
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #23
@@ -3446,12 +3446,12 @@ define hidden void @_Py_DumpExtensionModules(i32 noundef %0, ptr noundef %1) loc
   br label %.outer
 
 .outer:                                           ; preds = %79, %77
-  %81 = load ptr, ptr %4, align 8, !tbaa !253
+  %81 = load ptr, ptr %4, align 8, !tbaa !252
   call void @_Py_DumpASCII(i32 noundef %0, ptr noundef %81) #23
   %82 = add i64 %.028.ph70, 1
   %83 = call i32 @_PyDict_Next(ptr noundef nonnull %11, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef null) #23
   %.not4165 = icmp eq i32 %83, 0
-  br i1 %.not4165, label %.outer._crit_edge, label %.lr.ph66, !llvm.loop !314
+  br i1 %.not4165, label %.outer._crit_edge, label %.lr.ph66, !llvm.loop !312
 
 .outer._crit_edge:                                ; preds = %.outer, %.backedge, %.outer.us, %.backedge.us.us
   %.028.ph.lcssa = phi i64 [ %.028.ph70.us, %.backedge.us.us ], [ %44, %.outer.us ], [ %.028.ph70, %.backedge ], [ %82, %.outer ]
@@ -3497,7 +3497,7 @@ declare void @_Py_DumpDecimal(i32 noundef, i64 noundef) local_unnamed_addr #0
 
 ; Function Attrs: noreturn nounwind uwtable
 define dso_local void @Py_FatalError(ptr noundef %0) local_unnamed_addr #11 {
-  %2 = load ptr, ptr @stderr, align 8, !tbaa !182
+  %2 = load ptr, ptr @stderr, align 8, !tbaa !181
   %3 = tail call i32 @fileno(ptr noundef %2) #23
   tail call fastcc void @fatal_error(i32 noundef %3, i32 noundef 1, ptr noundef null, ptr noundef %0, i32 noundef -1) #27
   unreachable
@@ -3580,7 +3580,7 @@ define internal fastcc void @fatal_error(i32 noundef %0, i32 noundef range(i32 0
   br label %fatal_error_dump_runtime.exit
 
 38:                                               ; preds = %34
-  %39 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 664), align 8, !tbaa !195
+  %39 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 664), align 8, !tbaa !194
   %.not18.i = icmp eq i32 %39, 0
   br i1 %.not18.i, label %42, label %40
 
@@ -3589,7 +3589,7 @@ define internal fastcc void @fatal_error(i32 noundef %0, i32 noundef range(i32 0
   br label %fatal_error_dump_runtime.exit
 
 42:                                               ; preds = %38
-  %43 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 660), align 4, !tbaa !196
+  %43 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 660), align 4, !tbaa !195
   %.not19.i = icmp eq i32 %43, 0
   br i1 %.not19.i, label %46, label %44
 
@@ -3604,7 +3604,7 @@ define internal fastcc void @fatal_error(i32 noundef %0, i32 noundef range(i32 0
 fatal_error_dump_runtime.exit:                    ; preds = %27, %32, %36, %40, %44, %46
   %48 = tail call i64 @_Py_write_noraise(i32 noundef %0, ptr noundef nonnull @.str.142, i64 noundef 1) #23
   %49 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
-  %50 = load ptr, ptr %49, align 8, !tbaa !213
+  %50 = load ptr, ptr %49, align 8, !tbaa !212
   %51 = tail call ptr @PyGILState_GetThisThreadState() #23
   %.not41 = icmp eq ptr %50, null
   br i1 %.not41, label %52, label %53
@@ -3616,7 +3616,7 @@ fatal_error_dump_runtime.exit:                    ; preds = %27, %32, %36, %40, 
 53:                                               ; preds = %52, %fatal_error_dump_runtime.exit
   %.pn = phi ptr [ %50, %fatal_error_dump_runtime.exit ], [ %51, %52 ]
   %.0.in = getelementptr inbounds nuw i8, ptr %.pn, i64 16
-  %.0 = load ptr, ptr %.0.in, align 8, !tbaa !229
+  %.0 = load ptr, ptr %.0.in, align 8, !tbaa !228
   %54 = icmp ne ptr %51, null
   %55 = icmp eq ptr %51, %50
   %56 = select i1 %54, i1 %55, i1 false
@@ -3738,7 +3738,7 @@ define hidden void @_Py_FatalErrorFormat(ptr noundef %0, ptr noundef readonly ca
 
 5:                                                ; preds = %2
   store i1 true, ptr @_Py_FatalErrorFormat.reentrant, align 4
-  %6 = load ptr, ptr @stderr, align 8, !tbaa !182
+  %6 = load ptr, ptr @stderr, align 8, !tbaa !181
   %7 = tail call i32 @fileno(ptr noundef %6) #23
   %8 = tail call i64 @_Py_write_noraise(i32 noundef %7, ptr noundef nonnull @.str.143, i64 noundef 20) #23
   %.not = icmp eq ptr %0, null
@@ -3812,7 +3812,7 @@ define dso_local range(i32 -1, 1) i32 @Py_AtExit(ptr noundef %0) local_unnamed_a
   br label %_PyMutex_Lock.exit
 
 _PyMutex_Lock.exit:                               ; preds = %1, %4
-  %5 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 2584), align 8, !tbaa !256
+  %5 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 2584), align 8, !tbaa !255
   %6 = icmp sgt i32 %5, 31
   br i1 %6, label %7, label %10
 
@@ -3823,10 +3823,10 @@ _PyMutex_Lock.exit:                               ; preds = %1, %4
 
 10:                                               ; preds = %_PyMutex_Lock.exit
   %11 = add nsw i32 %5, 1
-  store i32 %11, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 2584), align 8, !tbaa !256
+  store i32 %11, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 2584), align 8, !tbaa !255
   %12 = sext i32 %5 to i64
   %13 = getelementptr [32 x ptr], ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 2328), i64 0, i64 %12
-  store ptr %0, ptr %13, align 8, !tbaa !257
+  store ptr %0, ptr %13, align 8, !tbaa !256
   %14 = cmpxchg ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 2320), i8 1, i8 0 seq_cst seq_cst, align 1
   %15 = extractvalue { i8, i1 } %14, 1
   br i1 %15, label %_PyMutex_Unlock.exit, label %_PyMutex_Unlock.exit.sink.split
@@ -3844,7 +3844,7 @@ _PyMutex_Unlock.exit:                             ; preds = %_PyMutex_Unlock.exi
 ; Function Attrs: noreturn nounwind uwtable
 define dso_local void @Py_Exit(i32 noundef %0) local_unnamed_addr #11 {
   %2 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
-  %3 = load ptr, ptr %2, align 8, !tbaa !213
+  %3 = load ptr, ptr %2, align 8, !tbaa !212
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %9, label %4
 
@@ -3855,7 +3855,7 @@ define dso_local void @Py_Exit(i32 noundef %0) local_unnamed_addr #11 {
 
 6:                                                ; preds = %4
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %8 = load ptr, ptr %7, align 8, !tbaa !229
+  %8 = load ptr, ptr %7, align 8, !tbaa !228
   tail call void @_PyInterpreterState_SetNotRunningMain(ptr noundef %8) #23
   br label %9
 
@@ -3881,7 +3881,7 @@ define dso_local range(i32 0, 2) i32 @Py_FdIsInteractive(ptr noundef captures(no
 5:                                                ; preds = %2
   %6 = tail call ptr @_Py_GetConfig() #23
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 192
-  %8 = load i32, ptr %7, align 8, !tbaa !316
+  %8 = load i32, ptr %7, align 8, !tbaa !314
   %.not5 = icmp eq i32 %8, 0
   br i1 %.not5, label %18, label %9
 
@@ -3920,7 +3920,7 @@ define hidden range(i32 0, 2) i32 @_Py_FdIsInteractive(ptr noundef captures(none
 5:                                                ; preds = %2
   %6 = tail call ptr @_Py_GetConfig() #23
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 192
-  %8 = load i32, ptr %7, align 8, !tbaa !316
+  %8 = load i32, ptr %7, align 8, !tbaa !314
   %.not5 = icmp eq i32 %8, 0
   br i1 %.not5, label %18, label %9
 
@@ -3969,7 +3969,7 @@ define dso_local ptr @PyOS_setsig(i32 noundef %0, ptr noundef %1) local_unnamed_
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %6 = call i32 @sigemptyset(ptr noundef nonnull %5) #23
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 136
-  store i32 134217728, ptr %7, align 8, !tbaa !317
+  store i32 134217728, ptr %7, align 8, !tbaa !315
   %8 = call i32 @sigaction(i32 noundef %0, ptr noundef nonnull %3, ptr noundef nonnull %4) #23
   %9 = icmp eq i32 %8, -1
   %10 = load ptr, ptr %4, align 8
@@ -4007,44 +4007,44 @@ define internal fastcc void @pyinit_config(ptr dead_on_unwind noalias nonnull wr
   %12 = alloca %struct.PyStatus, align 8
   %13 = alloca %struct.PyStatus, align 8
   %14 = alloca %struct.PyStatus, align 8
-  %15 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 672), align 8, !tbaa !175, !noalias !319
+  %15 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 672), align 8, !tbaa !175, !noalias !317
   %.not.i = icmp eq i32 %15, 0
   br i1 %.not.i, label %16, label %pycore_init_runtime.exit.thread
 
 16:                                               ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10) #23, !noalias !319
-  call void @_PyConfig_Write(ptr dead_on_unwind nonnull writable sret(%struct.PyStatus) align 8 %10, ptr noundef nonnull %2, ptr noundef nonnull @_PyRuntime) #23, !noalias !319
-  %17 = load i32, ptr %10, align 8, !tbaa !184, !noalias !319
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10) #23, !noalias !317
+  call void @_PyConfig_Write(ptr dead_on_unwind nonnull writable sret(%struct.PyStatus) align 8 %10, ptr noundef nonnull %2, ptr noundef nonnull @_PyRuntime) #23, !noalias !317
+  %17 = load i32, ptr %10, align 8, !tbaa !183, !noalias !317
   %.not6.i = icmp eq i32 %17, 0
   br i1 %.not6.i, label %18, label %pycore_init_runtime.exit.thread104
 
 18:                                               ; preds = %16
-  store atomic i64 0, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 680) monotonic, align 8, !noalias !319
-  store atomic i64 0, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 688) monotonic, align 8, !noalias !319
-  call void @_Py_InitVersion() #23, !noalias !319
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11) #23, !noalias !319
-  call void @_Py_HashRandomization_Init(ptr dead_on_unwind nonnull writable sret(%struct.PyStatus) align 8 %11, ptr noundef nonnull %2) #23, !noalias !319
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull align 8 dereferenceable(32) %11, i64 32, i1 false), !tbaa.struct !206, !noalias !319
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11) #23, !noalias !319
-  %19 = load i32, ptr %10, align 8, !tbaa !184, !noalias !319
+  store atomic i64 0, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 680) monotonic, align 8, !noalias !317
+  store atomic i64 0, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 688) monotonic, align 8, !noalias !317
+  call void @_Py_InitVersion() #23, !noalias !317
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11) #23, !noalias !317
+  call void @_Py_HashRandomization_Init(ptr dead_on_unwind nonnull writable sret(%struct.PyStatus) align 8 %11, ptr noundef nonnull %2) #23, !noalias !317
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull align 8 dereferenceable(32) %11, i64 32, i1 false), !tbaa.struct !205, !noalias !317
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11) #23, !noalias !317
+  %19 = load i32, ptr %10, align 8, !tbaa !183, !noalias !317
   %.not7.i = icmp eq i32 %19, 0
   br i1 %.not7.i, label %20, label %pycore_init_runtime.exit.thread104
 
 20:                                               ; preds = %18
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %12) #23, !noalias !319
-  call void @_PyImport_Init(ptr dead_on_unwind nonnull writable sret(%struct.PyStatus) align 8 %12) #23, !noalias !319
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull align 8 dereferenceable(32) %12, i64 32, i1 false), !tbaa.struct !206, !noalias !319
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %12) #23, !noalias !319
-  %21 = load i32, ptr %10, align 8, !tbaa !184, !noalias !319
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %12) #23, !noalias !317
+  call void @_PyImport_Init(ptr dead_on_unwind nonnull writable sret(%struct.PyStatus) align 8 %12) #23, !noalias !317
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull align 8 dereferenceable(32) %12, i64 32, i1 false), !tbaa.struct !205, !noalias !317
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %12) #23, !noalias !317
+  %21 = load i32, ptr %10, align 8, !tbaa !183, !noalias !317
   %.not8.i = icmp eq i32 %21, 0
   br i1 %.not8.i, label %22, label %pycore_init_runtime.exit.thread104
 
 22:                                               ; preds = %20
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %13) #23, !noalias !319
-  call void @_PyInterpreterState_Enable(ptr dead_on_unwind nonnull writable sret(%struct.PyStatus) align 8 %13, ptr noundef nonnull @_PyRuntime) #23, !noalias !319
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull align 8 dereferenceable(32) %13, i64 32, i1 false), !tbaa.struct !206, !noalias !319
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %13) #23, !noalias !319
-  %23 = load i32, ptr %10, align 8, !tbaa !184, !noalias !319
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %13) #23, !noalias !317
+  call void @_PyInterpreterState_Enable(ptr dead_on_unwind nonnull writable sret(%struct.PyStatus) align 8 %13, ptr noundef nonnull @_PyRuntime) #23, !noalias !317
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull align 8 dereferenceable(32) %13, i64 32, i1 false), !tbaa.struct !205, !noalias !317
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %13) #23, !noalias !317
+  %23 = load i32, ptr %10, align 8, !tbaa !183, !noalias !317
   %.not9.i = icmp eq i32 %23, 0
   br i1 %.not9.i, label %24, label %pycore_init_runtime.exit.thread104
 
@@ -4053,14 +4053,14 @@ pycore_init_runtime.exit.thread104:               ; preds = %22, %20, %18, %16
   %.sroa.16.0..sroa_idx23 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %.sroa.16.0.copyload24 = load i32, ptr %.sroa.16.0..sroa_idx23, align 4
   %.sroa.1825.0..sroa_idx38 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %.sroa.1825.0.copyload39 = load ptr, ptr %.sroa.1825.0..sroa_idx38, align 8, !tbaa !194
+  %.sroa.1825.0.copyload39 = load ptr, ptr %.sroa.1825.0..sroa_idx38, align 8, !tbaa !193
   %.sroa.20.0..sroa_idx52 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  %.sroa.20.0.copyload53 = load ptr, ptr %.sroa.20.0..sroa_idx52, align 8, !tbaa !194
+  %.sroa.20.0.copyload53 = load ptr, ptr %.sroa.20.0..sroa_idx52, align 8, !tbaa !193
   %.sroa.22.0..sroa_idx66 = getelementptr inbounds nuw i8, ptr %10, i64 24
-  %.sroa.22.0.copyload67 = load i32, ptr %.sroa.22.0..sroa_idx66, align 8, !tbaa !192
+  %.sroa.22.0.copyload67 = load i32, ptr %.sroa.22.0..sroa_idx66, align 8, !tbaa !191
   %.sroa.24.0..sroa_idx80 = getelementptr inbounds nuw i8, ptr %10, i64 28
   %.sroa.24.0.copyload81 = load i32, ptr %.sroa.24.0..sroa_idx80, align 4
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10) #23, !noalias !319
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10) #23, !noalias !317
   br label %pycore_init_runtime.exit.thread
 
 pycore_init_runtime.exit.thread:                  ; preds = %3, %pycore_init_runtime.exit.thread104
@@ -4070,132 +4070,132 @@ pycore_init_runtime.exit.thread:                  ; preds = %3, %pycore_init_run
   %.sroa.1825.1100 = phi ptr [ %.sroa.1825.0.copyload39, %pycore_init_runtime.exit.thread104 ], [ @__func__.pycore_init_runtime, %3 ]
   %.sroa.16.199 = phi i32 [ %.sroa.16.0.copyload24, %pycore_init_runtime.exit.thread104 ], [ 0, %3 ]
   %.sroa.01.198 = phi i32 [ %.sroa.01.0.ph, %pycore_init_runtime.exit.thread104 ], [ 1, %3 ]
-  store i32 %.sroa.01.198, ptr %0, align 8, !tbaa !192
+  store i32 %.sroa.01.198, ptr %0, align 8, !tbaa !191
   %.sroa.16.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %.sroa.16.199, ptr %.sroa.16.0..sroa_idx, align 4
   %.sroa.1825.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.sroa.1825.1100, ptr %.sroa.1825.0..sroa_idx, align 8, !tbaa !194
+  store ptr %.sroa.1825.1100, ptr %.sroa.1825.0..sroa_idx, align 8, !tbaa !193
   %.sroa.20.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %.sroa.20.1101, ptr %.sroa.20.0..sroa_idx, align 8, !tbaa !194
+  store ptr %.sroa.20.1101, ptr %.sroa.20.0..sroa_idx, align 8, !tbaa !193
   %.sroa.22.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i32 %.sroa.22.1102, ptr %.sroa.22.0..sroa_idx, align 8, !tbaa !192
+  store i32 %.sroa.22.1102, ptr %.sroa.22.0..sroa_idx, align 8, !tbaa !191
   %.sroa.24.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i32 %.sroa.24.1103, ptr %.sroa.24.0..sroa_idx, align 4
   br label %50
 
 24:                                               ; preds = %22
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10) #23, !noalias !319
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #23, !noalias !322
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #23, !noalias !322
-  call void @_PyInterpreterState_New(ptr dead_on_unwind nonnull writable sret(%struct.PyStatus) align 8 %5, ptr noundef null, ptr noundef nonnull %4) #23, !noalias !322
-  %.sroa.0.0.copyload.i = load i32, ptr %5, align 8, !tbaa !192, !noalias !322
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10) #23, !noalias !317
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #23, !noalias !320
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #23, !noalias !320
+  call void @_PyInterpreterState_New(ptr dead_on_unwind nonnull writable sret(%struct.PyStatus) align 8 %5, ptr noundef null, ptr noundef nonnull %4) #23, !noalias !320
+  %.sroa.0.0.copyload.i = load i32, ptr %5, align 8, !tbaa !191, !noalias !320
   %.sroa.20.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %5, i64 4
-  %.sroa.20.sroa.0.0.copyload.i = load i32, ptr %.sroa.20.0..sroa_idx.i, align 4, !noalias !322
+  %.sroa.20.sroa.0.0.copyload.i = load i32, ptr %.sroa.20.0..sroa_idx.i, align 4, !noalias !320
   %.sroa.20.sroa.14.0..sroa.20.0..sroa_idx.sroa_idx.i = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %.sroa.20.sroa.14.0.copyload.i = load ptr, ptr %.sroa.20.sroa.14.0..sroa.20.0..sroa_idx.sroa_idx.i, align 8, !tbaa !194, !noalias !322
+  %.sroa.20.sroa.14.0.copyload.i = load ptr, ptr %.sroa.20.sroa.14.0..sroa.20.0..sroa_idx.sroa_idx.i, align 8, !tbaa !193, !noalias !320
   %.sroa.20.sroa.15.0..sroa.20.0..sroa_idx.sroa_idx.i = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %.sroa.20.sroa.15.0.copyload.i = load ptr, ptr %.sroa.20.sroa.15.0..sroa.20.0..sroa_idx.sroa_idx.i, align 8, !tbaa !194, !noalias !322
+  %.sroa.20.sroa.15.0.copyload.i = load ptr, ptr %.sroa.20.sroa.15.0..sroa.20.0..sroa_idx.sroa_idx.i, align 8, !tbaa !193, !noalias !320
   %.sroa.20.sroa.16.0..sroa.20.0..sroa_idx.sroa_idx.i = getelementptr inbounds nuw i8, ptr %5, i64 24
-  %.sroa.20.sroa.16.0.copyload.i = load i32, ptr %.sroa.20.sroa.16.0..sroa.20.0..sroa_idx.sroa_idx.i, align 8, !tbaa !192, !noalias !322
+  %.sroa.20.sroa.16.0.copyload.i = load i32, ptr %.sroa.20.sroa.16.0..sroa.20.0..sroa_idx.sroa_idx.i, align 8, !tbaa !191, !noalias !320
   %.sroa.20.sroa.17.0..sroa.20.0..sroa_idx.sroa_idx.i = getelementptr inbounds nuw i8, ptr %5, i64 28
-  %.sroa.20.sroa.17.0.copyload.i = load i32, ptr %.sroa.20.sroa.17.0..sroa.20.0..sroa_idx.sroa_idx.i, align 4, !noalias !322
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #23, !noalias !322
+  %.sroa.20.sroa.17.0.copyload.i = load i32, ptr %.sroa.20.sroa.17.0..sroa.20.0..sroa_idx.sroa_idx.i, align 4, !noalias !320
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #23, !noalias !320
   %.not.i8 = icmp eq i32 %.sroa.0.0.copyload.i, 0
   br i1 %.not.i8, label %25, label %46
 
 25:                                               ; preds = %24
-  %26 = load ptr, ptr %4, align 8, !tbaa !264, !noalias !322
-  call void @_PyInterpreterState_SetWhence(ptr noundef %26, i64 noundef 1) #23, !noalias !322
-  %27 = load ptr, ptr %4, align 8, !tbaa !264, !noalias !322
+  %26 = load ptr, ptr %4, align 8, !tbaa !263, !noalias !320
+  call void @_PyInterpreterState_SetWhence(ptr noundef %26, i64 noundef 1) #23, !noalias !320
+  %27 = load ptr, ptr %4, align 8, !tbaa !263, !noalias !320
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 7308
-  store i32 1, ptr %28, align 4, !tbaa !263, !noalias !322
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #23, !noalias !322
+  store i32 1, ptr %28, align 4, !tbaa !262, !noalias !320
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #23, !noalias !320
   %29 = getelementptr inbounds nuw i8, ptr %27, i64 7992
-  call void @_PyConfig_Copy(ptr dead_on_unwind nonnull writable sret(%struct.PyStatus) align 8 %6, ptr noundef nonnull %29, ptr noundef nonnull %2) #23, !noalias !322
-  %.sroa.0.0.copyload11.i = load i32, ptr %6, align 8, !tbaa !192, !noalias !322
+  call void @_PyConfig_Copy(ptr dead_on_unwind nonnull writable sret(%struct.PyStatus) align 8 %6, ptr noundef nonnull %29, ptr noundef nonnull %2) #23, !noalias !320
+  %.sroa.0.0.copyload11.i = load i32, ptr %6, align 8, !tbaa !191, !noalias !320
   %.sroa.20.0..sroa_idx22.i = getelementptr inbounds nuw i8, ptr %6, i64 4
-  %.sroa.20.sroa.0.0.copyload7.i = load i32, ptr %.sroa.20.0..sroa_idx22.i, align 4, !noalias !322
+  %.sroa.20.sroa.0.0.copyload7.i = load i32, ptr %.sroa.20.0..sroa_idx22.i, align 4, !noalias !320
   %.sroa.20.sroa.14.0..sroa.20.0..sroa_idx22.sroa_idx.i = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %.sroa.20.sroa.14.0.copyload17.i = load ptr, ptr %.sroa.20.sroa.14.0..sroa.20.0..sroa_idx22.sroa_idx.i, align 8, !tbaa !194, !noalias !322
+  %.sroa.20.sroa.14.0.copyload17.i = load ptr, ptr %.sroa.20.sroa.14.0..sroa.20.0..sroa_idx22.sroa_idx.i, align 8, !tbaa !193, !noalias !320
   %.sroa.20.sroa.15.0..sroa.20.0..sroa_idx22.sroa_idx.i = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %.sroa.20.sroa.15.0.copyload27.i = load ptr, ptr %.sroa.20.sroa.15.0..sroa.20.0..sroa_idx22.sroa_idx.i, align 8, !tbaa !194, !noalias !322
+  %.sroa.20.sroa.15.0.copyload27.i = load ptr, ptr %.sroa.20.sroa.15.0..sroa.20.0..sroa_idx22.sroa_idx.i, align 8, !tbaa !193, !noalias !320
   %.sroa.20.sroa.16.0..sroa.20.0..sroa_idx22.sroa_idx.i = getelementptr inbounds nuw i8, ptr %6, i64 24
-  %.sroa.20.sroa.16.0.copyload37.i = load i32, ptr %.sroa.20.sroa.16.0..sroa.20.0..sroa_idx22.sroa_idx.i, align 8, !tbaa !192, !noalias !322
+  %.sroa.20.sroa.16.0.copyload37.i = load i32, ptr %.sroa.20.sroa.16.0..sroa.20.0..sroa_idx22.sroa_idx.i, align 8, !tbaa !191, !noalias !320
   %.sroa.20.sroa.17.0..sroa.20.0..sroa_idx22.sroa_idx.i = getelementptr inbounds nuw i8, ptr %6, i64 28
-  %.sroa.20.sroa.17.0.copyload47.i = load i32, ptr %.sroa.20.sroa.17.0..sroa.20.0..sroa_idx22.sroa_idx.i, align 4, !noalias !322
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #23, !noalias !322
+  %.sroa.20.sroa.17.0.copyload47.i = load i32, ptr %.sroa.20.sroa.17.0..sroa.20.0..sroa_idx22.sroa_idx.i, align 4, !noalias !320
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #23, !noalias !320
   %.not35.i = icmp eq i32 %.sroa.0.0.copyload11.i, 0
   br i1 %.not35.i, label %30, label %46
 
 30:                                               ; preds = %25
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #23, !noalias !322
-  %31 = load ptr, ptr %4, align 8, !tbaa !264, !noalias !322
-  call void @_PyGILState_Init(ptr dead_on_unwind nonnull writable sret(%struct.PyStatus) align 8 %7, ptr noundef %31) #23, !noalias !322
-  %.sroa.0.0.copyload13.i = load i32, ptr %7, align 8, !tbaa !192, !noalias !322
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #23, !noalias !320
+  %31 = load ptr, ptr %4, align 8, !tbaa !263, !noalias !320
+  call void @_PyGILState_Init(ptr dead_on_unwind nonnull writable sret(%struct.PyStatus) align 8 %7, ptr noundef %31) #23, !noalias !320
+  %.sroa.0.0.copyload13.i = load i32, ptr %7, align 8, !tbaa !191, !noalias !320
   %.sroa.20.0..sroa_idx24.i = getelementptr inbounds nuw i8, ptr %7, i64 4
-  %.sroa.20.sroa.0.0.copyload9.i = load i32, ptr %.sroa.20.0..sroa_idx24.i, align 4, !noalias !322
+  %.sroa.20.sroa.0.0.copyload9.i = load i32, ptr %.sroa.20.0..sroa_idx24.i, align 4, !noalias !320
   %.sroa.20.sroa.14.0..sroa.20.0..sroa_idx24.sroa_idx.i = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %.sroa.20.sroa.14.0.copyload19.i = load ptr, ptr %.sroa.20.sroa.14.0..sroa.20.0..sroa_idx24.sroa_idx.i, align 8, !tbaa !194, !noalias !322
+  %.sroa.20.sroa.14.0.copyload19.i = load ptr, ptr %.sroa.20.sroa.14.0..sroa.20.0..sroa_idx24.sroa_idx.i, align 8, !tbaa !193, !noalias !320
   %.sroa.20.sroa.15.0..sroa.20.0..sroa_idx24.sroa_idx.i = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %.sroa.20.sroa.15.0.copyload29.i = load ptr, ptr %.sroa.20.sroa.15.0..sroa.20.0..sroa_idx24.sroa_idx.i, align 8, !tbaa !194, !noalias !322
+  %.sroa.20.sroa.15.0.copyload29.i = load ptr, ptr %.sroa.20.sroa.15.0..sroa.20.0..sroa_idx24.sroa_idx.i, align 8, !tbaa !193, !noalias !320
   %.sroa.20.sroa.16.0..sroa.20.0..sroa_idx24.sroa_idx.i = getelementptr inbounds nuw i8, ptr %7, i64 24
-  %.sroa.20.sroa.16.0.copyload39.i = load i32, ptr %.sroa.20.sroa.16.0..sroa.20.0..sroa_idx24.sroa_idx.i, align 8, !tbaa !192, !noalias !322
+  %.sroa.20.sroa.16.0.copyload39.i = load i32, ptr %.sroa.20.sroa.16.0..sroa.20.0..sroa_idx24.sroa_idx.i, align 8, !tbaa !191, !noalias !320
   %.sroa.20.sroa.17.0..sroa.20.0..sroa_idx24.sroa_idx.i = getelementptr inbounds nuw i8, ptr %7, i64 28
-  %.sroa.20.sroa.17.0.copyload49.i = load i32, ptr %.sroa.20.sroa.17.0..sroa.20.0..sroa_idx24.sroa_idx.i, align 4, !noalias !322
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #23, !noalias !322
+  %.sroa.20.sroa.17.0.copyload49.i = load i32, ptr %.sroa.20.sroa.17.0..sroa.20.0..sroa_idx24.sroa_idx.i, align 4, !noalias !320
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #23, !noalias !320
   %.not36.i = icmp eq i32 %.sroa.0.0.copyload13.i, 0
   br i1 %.not36.i, label %32, label %46
 
 32:                                               ; preds = %30
-  %33 = load ptr, ptr %4, align 8, !tbaa !264, !noalias !322
+  %33 = load ptr, ptr %4, align 8, !tbaa !263, !noalias !320
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 8440
-  %35 = load i64, ptr %34, align 8, !tbaa !270, !noalias !325
+  %35 = load i64, ptr %34, align 8, !tbaa !269, !noalias !323
   %36 = or i64 %35, 101408
-  store i64 %36, ptr %34, align 8, !tbaa !270, !noalias !325
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8) #23, !noalias !322
-  call void @_PyObject_InitState(ptr dead_on_unwind nonnull writable sret(%struct.PyStatus) align 8 %8, ptr noundef %33) #23, !noalias !322
-  %.sroa.0.0.copyload17.i = load i32, ptr %8, align 8, !tbaa !192, !noalias !322
+  store i64 %36, ptr %34, align 8, !tbaa !269, !noalias !323
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8) #23, !noalias !320
+  call void @_PyObject_InitState(ptr dead_on_unwind nonnull writable sret(%struct.PyStatus) align 8 %8, ptr noundef %33) #23, !noalias !320
+  %.sroa.0.0.copyload17.i = load i32, ptr %8, align 8, !tbaa !191, !noalias !320
   %.sroa.20.0..sroa_idx28.i = getelementptr inbounds nuw i8, ptr %8, i64 4
-  %.sroa.20.sroa.0.0.copyload12.i = load i32, ptr %.sroa.20.0..sroa_idx28.i, align 4, !noalias !322
+  %.sroa.20.sroa.0.0.copyload12.i = load i32, ptr %.sroa.20.0..sroa_idx28.i, align 4, !noalias !320
   %.sroa.20.sroa.14.0..sroa.20.0..sroa_idx28.sroa_idx.i = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %.sroa.20.sroa.14.0.copyload22.i = load ptr, ptr %.sroa.20.sroa.14.0..sroa.20.0..sroa_idx28.sroa_idx.i, align 8, !tbaa !194, !noalias !322
+  %.sroa.20.sroa.14.0.copyload22.i = load ptr, ptr %.sroa.20.sroa.14.0..sroa.20.0..sroa_idx28.sroa_idx.i, align 8, !tbaa !193, !noalias !320
   %.sroa.20.sroa.15.0..sroa.20.0..sroa_idx28.sroa_idx.i = getelementptr inbounds nuw i8, ptr %8, i64 16
-  %.sroa.20.sroa.15.0.copyload32.i = load ptr, ptr %.sroa.20.sroa.15.0..sroa.20.0..sroa_idx28.sroa_idx.i, align 8, !tbaa !194, !noalias !322
+  %.sroa.20.sroa.15.0.copyload32.i = load ptr, ptr %.sroa.20.sroa.15.0..sroa.20.0..sroa_idx28.sroa_idx.i, align 8, !tbaa !193, !noalias !320
   %.sroa.20.sroa.16.0..sroa.20.0..sroa_idx28.sroa_idx.i = getelementptr inbounds nuw i8, ptr %8, i64 24
-  %.sroa.20.sroa.16.0.copyload42.i = load i32, ptr %.sroa.20.sroa.16.0..sroa.20.0..sroa_idx28.sroa_idx.i, align 8, !tbaa !192, !noalias !322
+  %.sroa.20.sroa.16.0.copyload42.i = load i32, ptr %.sroa.20.sroa.16.0..sroa.20.0..sroa_idx28.sroa_idx.i, align 8, !tbaa !191, !noalias !320
   %.sroa.20.sroa.17.0..sroa.20.0..sroa_idx28.sroa_idx.i = getelementptr inbounds nuw i8, ptr %8, i64 28
-  %.sroa.20.sroa.17.0.copyload52.i = load i32, ptr %.sroa.20.sroa.17.0..sroa.20.0..sroa_idx28.sroa_idx.i, align 4, !noalias !322
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8) #23, !noalias !322
+  %.sroa.20.sroa.17.0.copyload52.i = load i32, ptr %.sroa.20.sroa.17.0..sroa.20.0..sroa_idx28.sroa_idx.i, align 4, !noalias !320
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8) #23, !noalias !320
   %.not38.i = icmp eq i32 %.sroa.0.0.copyload17.i, 0
   br i1 %.not38.i, label %37, label %46
 
 37:                                               ; preds = %32
-  %38 = load ptr, ptr %4, align 8, !tbaa !264, !noalias !322
-  %39 = call i32 @_PyMem_init_obmalloc(ptr noundef %38) #23, !noalias !322
+  %38 = load ptr, ptr %4, align 8, !tbaa !263, !noalias !320
+  %39 = call i32 @_PyMem_init_obmalloc(ptr noundef %38) #23, !noalias !320
   %40 = icmp slt i32 %39, 0
   br i1 %40, label %46, label %41
 
 41:                                               ; preds = %37
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9) #23, !noalias !322
-  call void @_PyTraceMalloc_Init(ptr dead_on_unwind nonnull writable sret(%struct.PyStatus) align 8 %9) #23, !noalias !322
-  %.sroa.0.0.copyload19.i = load i32, ptr %9, align 8, !tbaa !192, !noalias !322
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9) #23, !noalias !320
+  call void @_PyTraceMalloc_Init(ptr dead_on_unwind nonnull writable sret(%struct.PyStatus) align 8 %9) #23, !noalias !320
+  %.sroa.0.0.copyload19.i = load i32, ptr %9, align 8, !tbaa !191, !noalias !320
   %.sroa.20.0..sroa_idx30.i = getelementptr inbounds nuw i8, ptr %9, i64 4
-  %.sroa.20.sroa.0.0.copyload14.i = load i32, ptr %.sroa.20.0..sroa_idx30.i, align 4, !noalias !322
+  %.sroa.20.sroa.0.0.copyload14.i = load i32, ptr %.sroa.20.0..sroa_idx30.i, align 4, !noalias !320
   %.sroa.20.sroa.14.0..sroa.20.0..sroa_idx30.sroa_idx.i = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %.sroa.20.sroa.14.0.copyload24.i = load ptr, ptr %.sroa.20.sroa.14.0..sroa.20.0..sroa_idx30.sroa_idx.i, align 8, !tbaa !194, !noalias !322
+  %.sroa.20.sroa.14.0.copyload24.i = load ptr, ptr %.sroa.20.sroa.14.0..sroa.20.0..sroa_idx30.sroa_idx.i, align 8, !tbaa !193, !noalias !320
   %.sroa.20.sroa.15.0..sroa.20.0..sroa_idx30.sroa_idx.i = getelementptr inbounds nuw i8, ptr %9, i64 16
-  %.sroa.20.sroa.15.0.copyload34.i = load ptr, ptr %.sroa.20.sroa.15.0..sroa.20.0..sroa_idx30.sroa_idx.i, align 8, !tbaa !194, !noalias !322
+  %.sroa.20.sroa.15.0.copyload34.i = load ptr, ptr %.sroa.20.sroa.15.0..sroa.20.0..sroa_idx30.sroa_idx.i, align 8, !tbaa !193, !noalias !320
   %.sroa.20.sroa.16.0..sroa.20.0..sroa_idx30.sroa_idx.i = getelementptr inbounds nuw i8, ptr %9, i64 24
-  %.sroa.20.sroa.16.0.copyload44.i = load i32, ptr %.sroa.20.sroa.16.0..sroa.20.0..sroa_idx30.sroa_idx.i, align 8, !tbaa !192, !noalias !322
+  %.sroa.20.sroa.16.0.copyload44.i = load i32, ptr %.sroa.20.sroa.16.0..sroa.20.0..sroa_idx30.sroa_idx.i, align 8, !tbaa !191, !noalias !320
   %.sroa.20.sroa.17.0..sroa.20.0..sroa_idx30.sroa_idx.i = getelementptr inbounds nuw i8, ptr %9, i64 28
-  %.sroa.20.sroa.17.0.copyload54.i = load i32, ptr %.sroa.20.sroa.17.0..sroa.20.0..sroa_idx30.sroa_idx.i, align 4, !noalias !322
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9) #23, !noalias !322
+  %.sroa.20.sroa.17.0.copyload54.i = load i32, ptr %.sroa.20.sroa.17.0..sroa.20.0..sroa_idx30.sroa_idx.i, align 4, !noalias !320
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9) #23, !noalias !320
   %.not39.i = icmp eq i32 %.sroa.0.0.copyload19.i, 0
   br i1 %.not39.i, label %42, label %46
 
 42:                                               ; preds = %41
-  %43 = load ptr, ptr %4, align 8, !tbaa !264, !noalias !322
-  %44 = call ptr @_PyThreadState_New(ptr noundef %43, i32 noundef 1) #23, !noalias !322
+  %43 = load ptr, ptr %4, align 8, !tbaa !263, !noalias !320
+  %44 = call ptr @_PyThreadState_New(ptr noundef %43, i32 noundef 1) #23, !noalias !320
   %45 = icmp eq ptr %44, null
   br i1 %45, label %46, label %47
 
@@ -4206,37 +4206,37 @@ pycore_init_runtime.exit.thread:                  ; preds = %3, %pycore_init_run
   %.sroa.25.0.ph = phi ptr [ @.str.156, %42 ], [ %.sroa.20.sroa.15.0.copyload34.i, %41 ], [ @.str.155, %37 ], [ %.sroa.20.sroa.15.0.copyload32.i, %32 ], [ %.sroa.20.sroa.15.0.copyload29.i, %30 ], [ %.sroa.20.sroa.15.0.copyload27.i, %25 ], [ %.sroa.20.sroa.15.0.copyload.i, %24 ]
   %.sroa.32.0.ph = phi i32 [ 0, %42 ], [ %.sroa.20.sroa.16.0.copyload44.i, %41 ], [ 0, %37 ], [ %.sroa.20.sroa.16.0.copyload42.i, %32 ], [ %.sroa.20.sroa.16.0.copyload39.i, %30 ], [ %.sroa.20.sroa.16.0.copyload37.i, %25 ], [ %.sroa.20.sroa.16.0.copyload.i, %24 ]
   %.sroa.39.0.ph = phi i32 [ 0, %42 ], [ %.sroa.20.sroa.17.0.copyload54.i, %41 ], [ 0, %37 ], [ %.sroa.20.sroa.17.0.copyload52.i, %32 ], [ %.sroa.20.sroa.17.0.copyload49.i, %30 ], [ %.sroa.20.sroa.17.0.copyload47.i, %25 ], [ %.sroa.20.sroa.17.0.copyload.i, %24 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #23, !noalias !322
-  store i32 %.sroa.0.0.ph, ptr %0, align 8, !tbaa !192
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #23, !noalias !320
+  store i32 %.sroa.0.0.ph, ptr %0, align 8, !tbaa !191
   %.sroa.16.0..sroa_idx11 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %.sroa.11.0.ph, ptr %.sroa.16.0..sroa_idx11, align 4
   %.sroa.1825.0..sroa_idx26 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.sroa.18.0.ph, ptr %.sroa.1825.0..sroa_idx26, align 8, !tbaa !194
+  store ptr %.sroa.18.0.ph, ptr %.sroa.1825.0..sroa_idx26, align 8, !tbaa !193
   %.sroa.20.0..sroa_idx40 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %.sroa.25.0.ph, ptr %.sroa.20.0..sroa_idx40, align 8, !tbaa !194
+  store ptr %.sroa.25.0.ph, ptr %.sroa.20.0..sroa_idx40, align 8, !tbaa !193
   %.sroa.22.0..sroa_idx54 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i32 %.sroa.32.0.ph, ptr %.sroa.22.0..sroa_idx54, align 8, !tbaa !192
+  store i32 %.sroa.32.0.ph, ptr %.sroa.22.0..sroa_idx54, align 8, !tbaa !191
   %.sroa.24.0..sroa_idx68 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i32 %.sroa.39.0.ph, ptr %.sroa.24.0..sroa_idx68, align 4
   br label %50
 
 47:                                               ; preds = %42
-  store ptr %44, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 736), align 8, !tbaa !246, !noalias !322
-  call void @_PyThreadState_Bind(ptr noundef nonnull %44) #23, !noalias !322
-  call fastcc void @init_interp_create_gil(ptr noundef %44, i32 noundef 2), !noalias !322
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #23, !noalias !322
-  store ptr %44, ptr %1, align 8, !tbaa !213
+  store ptr %44, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 736), align 8, !tbaa !245, !noalias !320
+  call void @_PyThreadState_Bind(ptr noundef nonnull %44) #23, !noalias !320
+  call fastcc void @init_interp_create_gil(ptr noundef %44, i32 noundef 2), !noalias !320
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #23, !noalias !320
+  store ptr %44, ptr %1, align 8, !tbaa !212
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %14) #23
   call fastcc void @pycore_interp_init(ptr dead_on_unwind noalias writable align 8 %14, ptr noundef nonnull %44)
-  %.sroa.01.0.copyload5 = load i32, ptr %14, align 8, !tbaa !192
+  %.sroa.01.0.copyload5 = load i32, ptr %14, align 8, !tbaa !191
   %.sroa.16.0..sroa_idx13 = getelementptr inbounds nuw i8, ptr %14, i64 4
   %.sroa.16.0.copyload14 = load i32, ptr %.sroa.16.0..sroa_idx13, align 4
   %.sroa.1825.0..sroa_idx28 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %.sroa.1825.0.copyload29 = load ptr, ptr %.sroa.1825.0..sroa_idx28, align 8, !tbaa !194
+  %.sroa.1825.0.copyload29 = load ptr, ptr %.sroa.1825.0..sroa_idx28, align 8, !tbaa !193
   %.sroa.20.0..sroa_idx42 = getelementptr inbounds nuw i8, ptr %14, i64 16
-  %.sroa.20.0.copyload43 = load ptr, ptr %.sroa.20.0..sroa_idx42, align 8, !tbaa !194
+  %.sroa.20.0.copyload43 = load ptr, ptr %.sroa.20.0..sroa_idx42, align 8, !tbaa !193
   %.sroa.22.0..sroa_idx56 = getelementptr inbounds nuw i8, ptr %14, i64 24
-  %.sroa.22.0.copyload57 = load i32, ptr %.sroa.22.0..sroa_idx56, align 8, !tbaa !192
+  %.sroa.22.0.copyload57 = load i32, ptr %.sroa.22.0..sroa_idx56, align 8, !tbaa !191
   %.sroa.24.0..sroa_idx70 = getelementptr inbounds nuw i8, ptr %14, i64 28
   %.sroa.24.0.copyload71 = load i32, ptr %.sroa.24.0..sroa_idx70, align 4
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %14) #23
@@ -4244,15 +4244,15 @@ pycore_init_runtime.exit.thread:                  ; preds = %3, %pycore_init_run
   br i1 %.not7, label %49, label %48
 
 48:                                               ; preds = %47
-  store i32 %.sroa.01.0.copyload5, ptr %0, align 8, !tbaa !192
+  store i32 %.sroa.01.0.copyload5, ptr %0, align 8, !tbaa !191
   %.sroa.16.0..sroa_idx15 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %.sroa.16.0.copyload14, ptr %.sroa.16.0..sroa_idx15, align 4
   %.sroa.1825.0..sroa_idx30 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.sroa.1825.0.copyload29, ptr %.sroa.1825.0..sroa_idx30, align 8, !tbaa !194
+  store ptr %.sroa.1825.0.copyload29, ptr %.sroa.1825.0..sroa_idx30, align 8, !tbaa !193
   %.sroa.20.0..sroa_idx44 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %.sroa.20.0.copyload43, ptr %.sroa.20.0..sroa_idx44, align 8, !tbaa !194
+  store ptr %.sroa.20.0.copyload43, ptr %.sroa.20.0..sroa_idx44, align 8, !tbaa !193
   %.sroa.22.0..sroa_idx58 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i32 %.sroa.22.0.copyload57, ptr %.sroa.22.0..sroa_idx58, align 8, !tbaa !192
+  store i32 %.sroa.22.0.copyload57, ptr %.sroa.22.0..sroa_idx58, align 8, !tbaa !191
   %.sroa.24.0..sroa_idx72 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i32 %.sroa.24.0.copyload71, ptr %.sroa.24.0..sroa_idx72, align 4
   br label %50
@@ -4283,40 +4283,40 @@ define internal fastcc void @pycore_interp_init(ptr dead_on_unwind noalias nonnu
   %12 = alloca %struct.PyStatus, align 8
   %13 = alloca %struct.PyStatus, align 8
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %15 = load ptr, ptr %14, align 8, !tbaa !229
+  %15 = load ptr, ptr %14, align 8, !tbaa !228
   call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %.sroa.27)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #23
-  store ptr null, ptr %4, align 8, !tbaa !253
+  store ptr null, ptr %4, align 8, !tbaa !252
   call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %.sroa.5)
   call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %.sroa.5.i)
-  tail call void @_PyFloat_InitState(ptr noundef %15) #23, !noalias !328
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #23, !noalias !328
-  call void @_PyUnicode_InitGlobalObjects(ptr dead_on_unwind nonnull writable sret(%struct.PyStatus) align 8 %3, ptr noundef %15) #23, !noalias !328
-  %.sroa.0.0.copyload.i = load i32, ptr %3, align 8, !tbaa !192, !noalias !328
+  tail call void @_PyFloat_InitState(ptr noundef %15) #23, !noalias !326
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #23, !noalias !326
+  call void @_PyUnicode_InitGlobalObjects(ptr dead_on_unwind nonnull writable sret(%struct.PyStatus) align 8 %3, ptr noundef %15) #23, !noalias !326
+  %.sroa.0.0.copyload.i = load i32, ptr %3, align 8, !tbaa !191, !noalias !326
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %.sroa.5.i, ptr noundef nonnull align 4 dereferenceable(28) %.sroa.5.0..sroa_idx.i, i64 28, i1 false), !tbaa.struct !193, !noalias !328
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #23, !noalias !328
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %.sroa.5.i, ptr noundef nonnull align 4 dereferenceable(28) %.sroa.5.0..sroa_idx.i, i64 28, i1 false), !tbaa.struct !192, !noalias !326
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #23, !noalias !326
   %.not.i = icmp eq i32 %.sroa.0.0.copyload.i, 0
   br i1 %.not.i, label %16, label %19
 
 16:                                               ; preds = %2
-  call void @_PyUnicode_InitState(ptr noundef %15) #23, !noalias !328
-  %17 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 712), align 8, !tbaa !239, !noalias !328
+  call void @_PyUnicode_InitState(ptr noundef %15) #23, !noalias !326
+  %17 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 712), align 8, !tbaa !238, !noalias !326
   %.not7.i = icmp eq ptr %15, %17
   br i1 %.not7.i, label %18, label %20
 
 18:                                               ; preds = %16
-  call void @_Py_GetConstant_Init() #23, !noalias !328
+  call void @_Py_GetConstant_Init() #23, !noalias !326
   br label %20
 
 19:                                               ; preds = %2
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %.sroa.5, ptr noundef nonnull align 4 dereferenceable(28) %.sroa.5.i, i64 28, i1 false), !tbaa.struct !193
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %.sroa.5, ptr noundef nonnull align 4 dereferenceable(28) %.sroa.5.i, i64 28, i1 false), !tbaa.struct !192
   call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %.sroa.5.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %.sroa.27, ptr noundef nonnull align 4 dereferenceable(28) %.sroa.5, i64 28, i1 false), !tbaa.struct !193
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %.sroa.27, ptr noundef nonnull align 4 dereferenceable(28) %.sroa.5, i64 28, i1 false), !tbaa.struct !192
   call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %.sroa.5)
-  store i32 %.sroa.0.0.copyload.i, ptr %0, align 8, !tbaa !192
+  store i32 %.sroa.0.0.copyload.i, ptr %0, align 8, !tbaa !191
   %.sroa.27.0..sroa_idx24 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %.sroa.27.0..sroa_idx24, ptr noundef nonnull align 4 dereferenceable(28) %.sroa.27, i64 28, i1 false), !tbaa.struct !193
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %.sroa.27.0..sroa_idx24, ptr noundef nonnull align 4 dereferenceable(28) %.sroa.27, i64 28, i1 false), !tbaa.struct !192
   br label %48
 
 20:                                               ; preds = %16, %18
@@ -4324,57 +4324,57 @@ define internal fastcc void @pycore_interp_init(ptr dead_on_unwind noalias nonnu
   call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %.sroa.5)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #23
   call void @_PyCode_Init(ptr dead_on_unwind nonnull writable sret(%struct.PyStatus) align 8 %5, ptr noundef %15) #23
-  %.sroa.0.0.copyload10 = load i32, ptr %5, align 8, !tbaa !192
+  %.sroa.0.0.copyload10 = load i32, ptr %5, align 8, !tbaa !191
   %.sroa.27.0..sroa_idx25 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %.sroa.27, ptr noundef nonnull align 4 dereferenceable(28) %.sroa.27.0..sroa_idx25, i64 28, i1 false), !tbaa.struct !193
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %.sroa.27, ptr noundef nonnull align 4 dereferenceable(28) %.sroa.27.0..sroa_idx25, i64 28, i1 false), !tbaa.struct !192
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #23
   %.not52 = icmp eq i32 %.sroa.0.0.copyload10, 0
   br i1 %.not52, label %22, label %21
 
 21:                                               ; preds = %20
-  store i32 %.sroa.0.0.copyload10, ptr %0, align 8, !tbaa !192
+  store i32 %.sroa.0.0.copyload10, ptr %0, align 8, !tbaa !191
   %.sroa.27.0..sroa_idx26 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %.sroa.27.0..sroa_idx26, ptr noundef nonnull align 4 dereferenceable(28) %.sroa.27, i64 28, i1 false), !tbaa.struct !193
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %.sroa.27.0..sroa_idx26, ptr noundef nonnull align 4 dereferenceable(28) %.sroa.27, i64 28, i1 false), !tbaa.struct !192
   br label %48
 
 22:                                               ; preds = %20
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #23
   call void @_PyDtoa_Init(ptr dead_on_unwind nonnull writable sret(%struct.PyStatus) align 8 %6, ptr noundef %15) #23
-  %.sroa.0.0.copyload12 = load i32, ptr %6, align 8, !tbaa !192
+  %.sroa.0.0.copyload12 = load i32, ptr %6, align 8, !tbaa !191
   %.sroa.27.0..sroa_idx27 = getelementptr inbounds nuw i8, ptr %6, i64 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %.sroa.27, ptr noundef nonnull align 4 dereferenceable(28) %.sroa.27.0..sroa_idx27, i64 28, i1 false), !tbaa.struct !193
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %.sroa.27, ptr noundef nonnull align 4 dereferenceable(28) %.sroa.27.0..sroa_idx27, i64 28, i1 false), !tbaa.struct !192
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #23
   %.not53 = icmp eq i32 %.sroa.0.0.copyload12, 0
   br i1 %.not53, label %24, label %23
 
 23:                                               ; preds = %22
-  store i32 %.sroa.0.0.copyload12, ptr %0, align 8, !tbaa !192
+  store i32 %.sroa.0.0.copyload12, ptr %0, align 8, !tbaa !191
   %.sroa.27.0..sroa_idx28 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %.sroa.27.0..sroa_idx28, ptr noundef nonnull align 4 dereferenceable(28) %.sroa.27, i64 28, i1 false), !tbaa.struct !193
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %.sroa.27.0..sroa_idx28, ptr noundef nonnull align 4 dereferenceable(28) %.sroa.27, i64 28, i1 false), !tbaa.struct !192
   br label %48
 
 24:                                               ; preds = %22
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #23
   call void @_PyGC_Init(ptr dead_on_unwind nonnull writable sret(%struct.PyStatus) align 8 %7, ptr noundef %15) #23
-  %.sroa.0.0.copyload14 = load i32, ptr %7, align 8, !tbaa !192
+  %.sroa.0.0.copyload14 = load i32, ptr %7, align 8, !tbaa !191
   %.sroa.27.0..sroa_idx29 = getelementptr inbounds nuw i8, ptr %7, i64 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %.sroa.27, ptr noundef nonnull align 4 dereferenceable(28) %.sroa.27.0..sroa_idx29, i64 28, i1 false), !tbaa.struct !193
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %.sroa.27, ptr noundef nonnull align 4 dereferenceable(28) %.sroa.27.0..sroa_idx29, i64 28, i1 false), !tbaa.struct !192
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #23
   %.not54 = icmp eq i32 %.sroa.0.0.copyload14, 0
   br i1 %.not54, label %26, label %25
 
 25:                                               ; preds = %24
-  store i32 %.sroa.0.0.copyload14, ptr %0, align 8, !tbaa !192
+  store i32 %.sroa.0.0.copyload14, ptr %0, align 8, !tbaa !191
   %.sroa.27.0..sroa_idx30 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %.sroa.27.0..sroa_idx30, ptr noundef nonnull align 4 dereferenceable(28) %.sroa.27, i64 28, i1 false), !tbaa.struct !193
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %.sroa.27.0..sroa_idx30, ptr noundef nonnull align 4 dereferenceable(28) %.sroa.27, i64 28, i1 false), !tbaa.struct !192
   br label %48
 
 26:                                               ; preds = %24
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8) #23
   call fastcc void @pycore_init_types(ptr dead_on_unwind noalias writable align 8 %8, ptr noundef %15)
-  %.sroa.0.0.copyload16 = load i32, ptr %8, align 8, !tbaa !192
+  %.sroa.0.0.copyload16 = load i32, ptr %8, align 8, !tbaa !191
   %.sroa.27.0..sroa_idx31 = getelementptr inbounds nuw i8, ptr %8, i64 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %.sroa.27, ptr noundef nonnull align 4 dereferenceable(28) %.sroa.27.0..sroa_idx31, i64 28, i1 false), !tbaa.struct !193
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %.sroa.27, ptr noundef nonnull align 4 dereferenceable(28) %.sroa.27.0..sroa_idx31, i64 28, i1 false), !tbaa.struct !192
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8) #23
   %.not55 = icmp eq i32 %.sroa.0.0.copyload16, 0
   br i1 %.not55, label %27, label %46
@@ -4385,15 +4385,15 @@ define internal fastcc void @pycore_interp_init(ptr dead_on_unwind noalias nonnu
   br i1 %29, label %30, label %36
 
 30:                                               ; preds = %27
-  store i32 1, ptr %0, align 8, !tbaa !184
+  store i32 1, ptr %0, align 8, !tbaa !183
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 0, ptr %31, align 4
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr @__func__.pycore_interp_init, ptr %32, align 8, !tbaa !186
+  store ptr @__func__.pycore_interp_init, ptr %32, align 8, !tbaa !185
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr @.str.159, ptr %33, align 8, !tbaa !187
+  store ptr @.str.159, ptr %33, align 8, !tbaa !186
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i32 0, ptr %34, align 8, !tbaa !188
+  store i32 0, ptr %34, align 8, !tbaa !187
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i32 0, ptr %35, align 4
   br label %48
@@ -4401,25 +4401,25 @@ define internal fastcc void @pycore_interp_init(ptr dead_on_unwind noalias nonnu
 36:                                               ; preds = %27
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9) #23
   call void @_PyAtExit_Init(ptr dead_on_unwind nonnull writable sret(%struct.PyStatus) align 8 %9, ptr noundef %15) #23
-  %.sroa.0.0.copyload17 = load i32, ptr %9, align 8, !tbaa !192
+  %.sroa.0.0.copyload17 = load i32, ptr %9, align 8, !tbaa !191
   %.sroa.27.0..sroa_idx32 = getelementptr inbounds nuw i8, ptr %9, i64 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %.sroa.27, ptr noundef nonnull align 4 dereferenceable(28) %.sroa.27.0..sroa_idx32, i64 28, i1 false), !tbaa.struct !193
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %.sroa.27, ptr noundef nonnull align 4 dereferenceable(28) %.sroa.27.0..sroa_idx32, i64 28, i1 false), !tbaa.struct !192
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9) #23
   %.not56 = icmp eq i32 %.sroa.0.0.copyload17, 0
   br i1 %.not56, label %38, label %37
 
 37:                                               ; preds = %36
-  store i32 %.sroa.0.0.copyload17, ptr %0, align 8, !tbaa !192
+  store i32 %.sroa.0.0.copyload17, ptr %0, align 8, !tbaa !191
   %.sroa.27.0..sroa_idx33 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %.sroa.27.0..sroa_idx33, ptr noundef nonnull align 4 dereferenceable(28) %.sroa.27, i64 28, i1 false), !tbaa.struct !193
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %.sroa.27.0..sroa_idx33, ptr noundef nonnull align 4 dereferenceable(28) %.sroa.27, i64 28, i1 false), !tbaa.struct !192
   br label %48
 
 38:                                               ; preds = %36
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10) #23
   call void @_PySys_Create(ptr dead_on_unwind nonnull writable sret(%struct.PyStatus) align 8 %10, ptr noundef nonnull %1, ptr noundef nonnull %4) #23
-  %.sroa.0.0.copyload19 = load i32, ptr %10, align 8, !tbaa !192
+  %.sroa.0.0.copyload19 = load i32, ptr %10, align 8, !tbaa !191
   %.sroa.27.0..sroa_idx34 = getelementptr inbounds nuw i8, ptr %10, i64 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %.sroa.27, ptr noundef nonnull align 4 dereferenceable(28) %.sroa.27.0..sroa_idx34, i64 28, i1 false), !tbaa.struct !193
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %.sroa.27, ptr noundef nonnull align 4 dereferenceable(28) %.sroa.27.0..sroa_idx34, i64 28, i1 false), !tbaa.struct !192
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10) #23
   %.not57 = icmp eq i32 %.sroa.0.0.copyload19, 0
   br i1 %.not57, label %39, label %46
@@ -4427,9 +4427,9 @@ define internal fastcc void @pycore_interp_init(ptr dead_on_unwind noalias nonnu
 39:                                               ; preds = %38
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11) #23
   call fastcc void @pycore_init_builtins(ptr dead_on_unwind noalias writable align 8 %11, ptr noundef nonnull %1)
-  %.sroa.0.0.copyload20 = load i32, ptr %11, align 8, !tbaa !192
+  %.sroa.0.0.copyload20 = load i32, ptr %11, align 8, !tbaa !191
   %.sroa.27.0..sroa_idx35 = getelementptr inbounds nuw i8, ptr %11, i64 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %.sroa.27, ptr noundef nonnull align 4 dereferenceable(28) %.sroa.27.0..sroa_idx35, i64 28, i1 false), !tbaa.struct !193
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %.sroa.27, ptr noundef nonnull align 4 dereferenceable(28) %.sroa.27.0..sroa_idx35, i64 28, i1 false), !tbaa.struct !192
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11) #23
   %.not58 = icmp eq i32 %.sroa.0.0.copyload20, 0
   br i1 %.not58, label %40, label %46
@@ -4437,9 +4437,9 @@ define internal fastcc void @pycore_interp_init(ptr dead_on_unwind noalias nonnu
 40:                                               ; preds = %39
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %12) #23
   call void @_PyXI_Init(ptr dead_on_unwind nonnull writable sret(%struct.PyStatus) align 8 %12, ptr noundef %15) #23
-  %.sroa.0.0.copyload21 = load i32, ptr %12, align 8, !tbaa !192
+  %.sroa.0.0.copyload21 = load i32, ptr %12, align 8, !tbaa !191
   %.sroa.27.0..sroa_idx36 = getelementptr inbounds nuw i8, ptr %12, i64 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %.sroa.27, ptr noundef nonnull align 4 dereferenceable(28) %.sroa.27.0..sroa_idx36, i64 28, i1 false), !tbaa.struct !193
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %.sroa.27, ptr noundef nonnull align 4 dereferenceable(28) %.sroa.27.0..sroa_idx36, i64 28, i1 false), !tbaa.struct !192
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %12) #23
   %.not59 = icmp eq i32 %.sroa.0.0.copyload21, 0
   br i1 %.not59, label %41, label %46
@@ -4447,23 +4447,23 @@ define internal fastcc void @pycore_interp_init(ptr dead_on_unwind noalias nonnu
 41:                                               ; preds = %40
   %42 = call ptr @_PyInterpreterState_GetConfig(ptr noundef %15) #23
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %13) #23
-  %43 = load ptr, ptr %4, align 8, !tbaa !253
+  %43 = load ptr, ptr %4, align 8, !tbaa !252
   %44 = getelementptr inbounds nuw i8, ptr %42, i64 432
-  %45 = load i32, ptr %44, align 8, !tbaa !230
+  %45 = load i32, ptr %44, align 8, !tbaa !229
   call void @_PyImport_InitCore(ptr dead_on_unwind nonnull writable sret(%struct.PyStatus) align 8 %13, ptr noundef nonnull %1, ptr noundef %43, i32 noundef %45) #23
-  %.sroa.0.0.copyload22 = load i32, ptr %13, align 8, !tbaa !192
+  %.sroa.0.0.copyload22 = load i32, ptr %13, align 8, !tbaa !191
   %.sroa.27.0..sroa_idx37 = getelementptr inbounds nuw i8, ptr %13, i64 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %.sroa.27, ptr noundef nonnull align 4 dereferenceable(28) %.sroa.27.0..sroa_idx37, i64 28, i1 false), !tbaa.struct !193
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %.sroa.27, ptr noundef nonnull align 4 dereferenceable(28) %.sroa.27.0..sroa_idx37, i64 28, i1 false), !tbaa.struct !192
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %13) #23
   br label %46
 
 46:                                               ; preds = %41, %40, %39, %38, %26
   %.sroa.0.0 = phi i32 [ %.sroa.0.0.copyload16, %26 ], [ %.sroa.0.0.copyload19, %38 ], [ %.sroa.0.0.copyload20, %39 ], [ %.sroa.0.0.copyload21, %40 ], [ %.sroa.0.0.copyload22, %41 ]
-  %47 = load ptr, ptr %4, align 8, !tbaa !253
+  %47 = load ptr, ptr %4, align 8, !tbaa !252
   call fastcc void @Py_XDECREF(ptr noundef %47)
-  store i32 %.sroa.0.0, ptr %0, align 8, !tbaa !192
+  store i32 %.sroa.0.0, ptr %0, align 8, !tbaa !191
   %.sroa.27.0..sroa_idx38 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %.sroa.27.0..sroa_idx38, ptr noundef nonnull align 4 dereferenceable(28) %.sroa.27, i64 28, i1 false), !tbaa.struct !193
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %.sroa.27.0..sroa_idx38, ptr noundef nonnull align 4 dereferenceable(28) %.sroa.27, i64 28, i1 false), !tbaa.struct !192
   br label %48
 
 48:                                               ; preds = %46, %37, %30, %25, %23, %21, %19
@@ -4501,7 +4501,7 @@ declare void @_PyThreadState_Bind(ptr noundef) local_unnamed_addr #0
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @init_interp_create_gil(ptr noundef nonnull %0, i32 noundef %1) unnamed_addr #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %4 = load ptr, ptr %3, align 8, !tbaa !229
+  %4 = load ptr, ptr %3, align 8, !tbaa !228
   tail call void @_PyEval_FiniGIL(ptr noundef %4) #23
   tail call void @_PyGILState_SetTstate(ptr noundef nonnull %0) #23
   %5 = icmp eq i32 %1, 2
@@ -4537,65 +4537,65 @@ define internal fastcc void @pycore_init_types(ptr dead_on_unwind noalias nonnul
   call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %.sroa.29)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #23
   call void @_PyTypes_InitTypes(ptr dead_on_unwind nonnull writable sret(%struct.PyStatus) align 8 %3, ptr noundef %1) #23
-  %.sroa.0.0.copyload = load i32, ptr %3, align 8, !tbaa !192
+  %.sroa.0.0.copyload = load i32, ptr %3, align 8, !tbaa !191
   %.sroa.29.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %.sroa.29, ptr noundef nonnull align 4 dereferenceable(28) %.sroa.29.0..sroa_idx, i64 28, i1 false), !tbaa.struct !193
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %.sroa.29, ptr noundef nonnull align 4 dereferenceable(28) %.sroa.29.0..sroa_idx, i64 28, i1 false), !tbaa.struct !192
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #23
   %.not = icmp eq i32 %.sroa.0.0.copyload, 0
   br i1 %.not, label %13, label %12
 
 12:                                               ; preds = %2
-  store i32 %.sroa.0.0.copyload, ptr %0, align 8, !tbaa !192
+  store i32 %.sroa.0.0.copyload, ptr %0, align 8, !tbaa !191
   %.sroa.29.0..sroa_idx26 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %.sroa.29.0..sroa_idx26, ptr noundef nonnull align 4 dereferenceable(28) %.sroa.29, i64 28, i1 false), !tbaa.struct !193
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %.sroa.29.0..sroa_idx26, ptr noundef nonnull align 4 dereferenceable(28) %.sroa.29, i64 28, i1 false), !tbaa.struct !192
   br label %39
 
 13:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #23
   call void @_PyLong_InitTypes(ptr dead_on_unwind nonnull writable sret(%struct.PyStatus) align 8 %4, ptr noundef %1) #23
-  %.sroa.0.0.copyload10 = load i32, ptr %4, align 8, !tbaa !192
+  %.sroa.0.0.copyload10 = load i32, ptr %4, align 8, !tbaa !191
   %.sroa.29.0..sroa_idx27 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %.sroa.29, ptr noundef nonnull align 4 dereferenceable(28) %.sroa.29.0..sroa_idx27, i64 28, i1 false), !tbaa.struct !193
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %.sroa.29, ptr noundef nonnull align 4 dereferenceable(28) %.sroa.29.0..sroa_idx27, i64 28, i1 false), !tbaa.struct !192
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #23
   %.not52 = icmp eq i32 %.sroa.0.0.copyload10, 0
   br i1 %.not52, label %15, label %14
 
 14:                                               ; preds = %13
-  store i32 %.sroa.0.0.copyload10, ptr %0, align 8, !tbaa !192
+  store i32 %.sroa.0.0.copyload10, ptr %0, align 8, !tbaa !191
   %.sroa.29.0..sroa_idx28 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %.sroa.29.0..sroa_idx28, ptr noundef nonnull align 4 dereferenceable(28) %.sroa.29, i64 28, i1 false), !tbaa.struct !193
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %.sroa.29.0..sroa_idx28, ptr noundef nonnull align 4 dereferenceable(28) %.sroa.29, i64 28, i1 false), !tbaa.struct !192
   br label %39
 
 15:                                               ; preds = %13
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #23
   call void @_PyUnicode_InitTypes(ptr dead_on_unwind nonnull writable sret(%struct.PyStatus) align 8 %5, ptr noundef %1) #23
-  %.sroa.0.0.copyload12 = load i32, ptr %5, align 8, !tbaa !192
+  %.sroa.0.0.copyload12 = load i32, ptr %5, align 8, !tbaa !191
   %.sroa.29.0..sroa_idx29 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %.sroa.29, ptr noundef nonnull align 4 dereferenceable(28) %.sroa.29.0..sroa_idx29, i64 28, i1 false), !tbaa.struct !193
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %.sroa.29, ptr noundef nonnull align 4 dereferenceable(28) %.sroa.29.0..sroa_idx29, i64 28, i1 false), !tbaa.struct !192
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #23
   %.not53 = icmp eq i32 %.sroa.0.0.copyload12, 0
   br i1 %.not53, label %17, label %16
 
 16:                                               ; preds = %15
-  store i32 %.sroa.0.0.copyload12, ptr %0, align 8, !tbaa !192
+  store i32 %.sroa.0.0.copyload12, ptr %0, align 8, !tbaa !191
   %.sroa.29.0..sroa_idx30 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %.sroa.29.0..sroa_idx30, ptr noundef nonnull align 4 dereferenceable(28) %.sroa.29, i64 28, i1 false), !tbaa.struct !193
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %.sroa.29.0..sroa_idx30, ptr noundef nonnull align 4 dereferenceable(28) %.sroa.29, i64 28, i1 false), !tbaa.struct !192
   br label %39
 
 17:                                               ; preds = %15
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #23
   call void @_PyFloat_InitTypes(ptr dead_on_unwind nonnull writable sret(%struct.PyStatus) align 8 %6, ptr noundef %1) #23
-  %.sroa.0.0.copyload14 = load i32, ptr %6, align 8, !tbaa !192
+  %.sroa.0.0.copyload14 = load i32, ptr %6, align 8, !tbaa !191
   %.sroa.29.0..sroa_idx31 = getelementptr inbounds nuw i8, ptr %6, i64 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %.sroa.29, ptr noundef nonnull align 4 dereferenceable(28) %.sroa.29.0..sroa_idx31, i64 28, i1 false), !tbaa.struct !193
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %.sroa.29, ptr noundef nonnull align 4 dereferenceable(28) %.sroa.29.0..sroa_idx31, i64 28, i1 false), !tbaa.struct !192
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #23
   %.not54 = icmp eq i32 %.sroa.0.0.copyload14, 0
   br i1 %.not54, label %19, label %18
 
 18:                                               ; preds = %17
-  store i32 %.sroa.0.0.copyload14, ptr %0, align 8, !tbaa !192
+  store i32 %.sroa.0.0.copyload14, ptr %0, align 8, !tbaa !191
   %.sroa.29.0..sroa_idx32 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %.sroa.29.0..sroa_idx32, ptr noundef nonnull align 4 dereferenceable(28) %.sroa.29, i64 28, i1 false), !tbaa.struct !193
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %.sroa.29.0..sroa_idx32, ptr noundef nonnull align 4 dereferenceable(28) %.sroa.29, i64 28, i1 false), !tbaa.struct !192
   br label %39
 
 19:                                               ; preds = %17
@@ -4604,15 +4604,15 @@ define internal fastcc void @pycore_init_types(ptr dead_on_unwind noalias nonnul
   br i1 %21, label %22, label %28
 
 22:                                               ; preds = %19
-  store i32 1, ptr %0, align 8, !tbaa !184
+  store i32 1, ptr %0, align 8, !tbaa !183
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 0, ptr %23, align 4
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr @__func__.pycore_init_types, ptr %24, align 8, !tbaa !186
+  store ptr @__func__.pycore_init_types, ptr %24, align 8, !tbaa !185
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr @.str.160, ptr %25, align 8, !tbaa !187
+  store ptr @.str.160, ptr %25, align 8, !tbaa !186
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i32 0, ptr %26, align 8, !tbaa !188
+  store i32 0, ptr %26, align 8, !tbaa !187
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i32 0, ptr %27, align 4
   br label %39
@@ -4620,81 +4620,81 @@ define internal fastcc void @pycore_init_types(ptr dead_on_unwind noalias nonnul
 28:                                               ; preds = %19
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #23
   call void @_PyExc_InitGlobalObjects(ptr dead_on_unwind nonnull writable sret(%struct.PyStatus) align 8 %7, ptr noundef %1) #23
-  %.sroa.0.0.copyload16 = load i32, ptr %7, align 8, !tbaa !192
+  %.sroa.0.0.copyload16 = load i32, ptr %7, align 8, !tbaa !191
   %.sroa.29.0..sroa_idx33 = getelementptr inbounds nuw i8, ptr %7, i64 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %.sroa.29, ptr noundef nonnull align 4 dereferenceable(28) %.sroa.29.0..sroa_idx33, i64 28, i1 false), !tbaa.struct !193
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %.sroa.29, ptr noundef nonnull align 4 dereferenceable(28) %.sroa.29.0..sroa_idx33, i64 28, i1 false), !tbaa.struct !192
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #23
   %.not55 = icmp eq i32 %.sroa.0.0.copyload16, 0
   br i1 %.not55, label %30, label %29
 
 29:                                               ; preds = %28
-  store i32 %.sroa.0.0.copyload16, ptr %0, align 8, !tbaa !192
+  store i32 %.sroa.0.0.copyload16, ptr %0, align 8, !tbaa !191
   %.sroa.29.0..sroa_idx34 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %.sroa.29.0..sroa_idx34, ptr noundef nonnull align 4 dereferenceable(28) %.sroa.29, i64 28, i1 false), !tbaa.struct !193
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %.sroa.29.0..sroa_idx34, ptr noundef nonnull align 4 dereferenceable(28) %.sroa.29, i64 28, i1 false), !tbaa.struct !192
   br label %39
 
 30:                                               ; preds = %28
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8) #23
   call void @_PyExc_InitState(ptr dead_on_unwind nonnull writable sret(%struct.PyStatus) align 8 %8, ptr noundef %1) #23
-  %.sroa.0.0.copyload18 = load i32, ptr %8, align 8, !tbaa !192
+  %.sroa.0.0.copyload18 = load i32, ptr %8, align 8, !tbaa !191
   %.sroa.29.0..sroa_idx35 = getelementptr inbounds nuw i8, ptr %8, i64 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %.sroa.29, ptr noundef nonnull align 4 dereferenceable(28) %.sroa.29.0..sroa_idx35, i64 28, i1 false), !tbaa.struct !193
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %.sroa.29, ptr noundef nonnull align 4 dereferenceable(28) %.sroa.29.0..sroa_idx35, i64 28, i1 false), !tbaa.struct !192
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8) #23
   %.not56 = icmp eq i32 %.sroa.0.0.copyload18, 0
   br i1 %.not56, label %32, label %31
 
 31:                                               ; preds = %30
-  store i32 %.sroa.0.0.copyload18, ptr %0, align 8, !tbaa !192
+  store i32 %.sroa.0.0.copyload18, ptr %0, align 8, !tbaa !191
   %.sroa.29.0..sroa_idx36 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %.sroa.29.0..sroa_idx36, ptr noundef nonnull align 4 dereferenceable(28) %.sroa.29, i64 28, i1 false), !tbaa.struct !193
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %.sroa.29.0..sroa_idx36, ptr noundef nonnull align 4 dereferenceable(28) %.sroa.29, i64 28, i1 false), !tbaa.struct !192
   br label %39
 
 32:                                               ; preds = %30
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9) #23
   call void @_PyErr_InitTypes(ptr dead_on_unwind nonnull writable sret(%struct.PyStatus) align 8 %9, ptr noundef %1) #23
-  %.sroa.0.0.copyload20 = load i32, ptr %9, align 8, !tbaa !192
+  %.sroa.0.0.copyload20 = load i32, ptr %9, align 8, !tbaa !191
   %.sroa.29.0..sroa_idx37 = getelementptr inbounds nuw i8, ptr %9, i64 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %.sroa.29, ptr noundef nonnull align 4 dereferenceable(28) %.sroa.29.0..sroa_idx37, i64 28, i1 false), !tbaa.struct !193
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %.sroa.29, ptr noundef nonnull align 4 dereferenceable(28) %.sroa.29.0..sroa_idx37, i64 28, i1 false), !tbaa.struct !192
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9) #23
   %.not57 = icmp eq i32 %.sroa.0.0.copyload20, 0
   br i1 %.not57, label %34, label %33
 
 33:                                               ; preds = %32
-  store i32 %.sroa.0.0.copyload20, ptr %0, align 8, !tbaa !192
+  store i32 %.sroa.0.0.copyload20, ptr %0, align 8, !tbaa !191
   %.sroa.29.0..sroa_idx38 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %.sroa.29.0..sroa_idx38, ptr noundef nonnull align 4 dereferenceable(28) %.sroa.29, i64 28, i1 false), !tbaa.struct !193
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %.sroa.29.0..sroa_idx38, ptr noundef nonnull align 4 dereferenceable(28) %.sroa.29, i64 28, i1 false), !tbaa.struct !192
   br label %39
 
 34:                                               ; preds = %32
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10) #23
   call void @_PyContext_Init(ptr dead_on_unwind nonnull writable sret(%struct.PyStatus) align 8 %10, ptr noundef %1) #23
-  %.sroa.0.0.copyload22 = load i32, ptr %10, align 8, !tbaa !192
+  %.sroa.0.0.copyload22 = load i32, ptr %10, align 8, !tbaa !191
   %.sroa.29.0..sroa_idx39 = getelementptr inbounds nuw i8, ptr %10, i64 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %.sroa.29, ptr noundef nonnull align 4 dereferenceable(28) %.sroa.29.0..sroa_idx39, i64 28, i1 false), !tbaa.struct !193
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %.sroa.29, ptr noundef nonnull align 4 dereferenceable(28) %.sroa.29.0..sroa_idx39, i64 28, i1 false), !tbaa.struct !192
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10) #23
   %.not58 = icmp eq i32 %.sroa.0.0.copyload22, 0
   br i1 %.not58, label %36, label %35
 
 35:                                               ; preds = %34
-  store i32 %.sroa.0.0.copyload22, ptr %0, align 8, !tbaa !192
+  store i32 %.sroa.0.0.copyload22, ptr %0, align 8, !tbaa !191
   %.sroa.29.0..sroa_idx40 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %.sroa.29.0..sroa_idx40, ptr noundef nonnull align 4 dereferenceable(28) %.sroa.29, i64 28, i1 false), !tbaa.struct !193
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %.sroa.29.0..sroa_idx40, ptr noundef nonnull align 4 dereferenceable(28) %.sroa.29, i64 28, i1 false), !tbaa.struct !192
   br label %39
 
 36:                                               ; preds = %34
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11) #23
   call void @_PyXI_InitTypes(ptr dead_on_unwind nonnull writable sret(%struct.PyStatus) align 8 %11, ptr noundef %1) #23
-  %.sroa.0.0.copyload24 = load i32, ptr %11, align 8, !tbaa !192
+  %.sroa.0.0.copyload24 = load i32, ptr %11, align 8, !tbaa !191
   %.sroa.29.0..sroa_idx41 = getelementptr inbounds nuw i8, ptr %11, i64 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %.sroa.29, ptr noundef nonnull align 4 dereferenceable(28) %.sroa.29.0..sroa_idx41, i64 28, i1 false), !tbaa.struct !193
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %.sroa.29, ptr noundef nonnull align 4 dereferenceable(28) %.sroa.29.0..sroa_idx41, i64 28, i1 false), !tbaa.struct !192
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11) #23
   %.not59 = icmp eq i32 %.sroa.0.0.copyload24, 0
   br i1 %.not59, label %38, label %37
 
 37:                                               ; preds = %36
-  store i32 %.sroa.0.0.copyload24, ptr %0, align 8, !tbaa !192
+  store i32 %.sroa.0.0.copyload24, ptr %0, align 8, !tbaa !191
   %.sroa.29.0..sroa_idx42 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %.sroa.29.0..sroa_idx42, ptr noundef nonnull align 4 dereferenceable(28) %.sroa.29, i64 28, i1 false), !tbaa.struct !193
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %.sroa.29.0..sroa_idx42, ptr noundef nonnull align 4 dereferenceable(28) %.sroa.29, i64 28, i1 false), !tbaa.struct !192
   br label %39
 
 38:                                               ; preds = %36
@@ -4715,7 +4715,7 @@ declare void @_PySys_Create(ptr dead_on_unwind writable sret(%struct.PyStatus) a
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @pycore_init_builtins(ptr dead_on_unwind noalias nonnull writable writeonly align 8 captures(none) initializes((0, 32)) %0, ptr noundef %1) unnamed_addr #1 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %4 = load ptr, ptr %3, align 8, !tbaa !229
+  %4 = load ptr, ptr %3, align 8, !tbaa !228
   %5 = tail call ptr @_PyBuiltin_Init(ptr noundef %4) #23
   %6 = icmp eq ptr %5, null
   br i1 %6, label %Py_XDECREF.exit, label %7
@@ -4743,58 +4743,58 @@ define internal fastcc void @pycore_init_builtins(ptr dead_on_unwind noalias non
 
 _Py_NewRef.exit:                                  ; preds = %14, %17
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 7648
-  store ptr %12, ptr %19, align 8, !tbaa !282
+  store ptr %12, ptr %19, align 8, !tbaa !281
   %20 = tail call ptr @PyDict_GetItemWithError(ptr noundef nonnull %12, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 60120)) #23
   %.not = icmp eq ptr %20, null
   br i1 %.not, label %56, label %21
 
 21:                                               ; preds = %_Py_NewRef.exit
   %22 = getelementptr inbounds nuw i8, ptr %4, i64 222936
-  store ptr %20, ptr %22, align 8, !tbaa !331
+  store ptr %20, ptr %22, align 8, !tbaa !329
   %23 = tail call ptr @PyDict_GetItemWithError(ptr noundef nonnull %12, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 61664)) #23
   %.not37 = icmp eq ptr %23, null
   br i1 %.not37, label %56, label %24
 
 24:                                               ; preds = %21
   %25 = getelementptr inbounds nuw i8, ptr %4, i64 222944
-  store ptr %23, ptr %25, align 8, !tbaa !332
+  store ptr %23, ptr %25, align 8, !tbaa !330
   %26 = tail call ptr @_PyType_Lookup(ptr noundef nonnull @PyList_Type, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 48320)) #23
   %27 = icmp eq ptr %26, null
   br i1 %27, label %56, label %28
 
 28:                                               ; preds = %24
   %29 = getelementptr inbounds nuw i8, ptr %4, i64 222952
-  store ptr %26, ptr %29, align 8, !tbaa !333
+  store ptr %26, ptr %29, align 8, !tbaa !331
   %30 = tail call ptr @_PyType_Lookup(ptr noundef nonnull @PyBaseObject_Type, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 39264)) #23
   %31 = icmp eq ptr %30, null
   br i1 %31, label %56, label %32
 
 32:                                               ; preds = %28
   %33 = getelementptr inbounds nuw i8, ptr %4, i64 222960
-  store ptr %30, ptr %33, align 8, !tbaa !334
+  store ptr %30, ptr %33, align 8, !tbaa !332
   %34 = tail call i32 @_PyBuiltins_AddExceptions(ptr noundef nonnull %5) #23
   %35 = icmp slt i32 %34, 0
   br i1 %35, label %36, label %42
 
 36:                                               ; preds = %32
-  store i32 1, ptr %0, align 8, !tbaa !184
+  store i32 1, ptr %0, align 8, !tbaa !183
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 0, ptr %37, align 4
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr @__func__.pycore_init_builtins, ptr %38, align 8, !tbaa !186
+  store ptr @__func__.pycore_init_builtins, ptr %38, align 8, !tbaa !185
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr @.str.162, ptr %39, align 8, !tbaa !187
+  store ptr @.str.162, ptr %39, align 8, !tbaa !186
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i32 0, ptr %40, align 8, !tbaa !188
+  store i32 0, ptr %40, align 8, !tbaa !187
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i32 0, ptr %41, align 4
   br label %67
 
 42:                                               ; preds = %32
-  %43 = load ptr, ptr %19, align 8, !tbaa !282
+  %43 = load ptr, ptr %19, align 8, !tbaa !281
   %44 = tail call ptr @PyDict_Copy(ptr noundef %43) #23
   %45 = getelementptr inbounds nuw i8, ptr %4, i64 8464
-  store ptr %44, ptr %45, align 8, !tbaa !299
+  store ptr %44, ptr %45, align 8, !tbaa !297
   %46 = icmp eq ptr %44, null
   br i1 %46, label %56, label %47
 
@@ -4838,15 +4838,15 @@ Py_DECREF.exit:                                   ; preds = %47, %49, %52
   br label %Py_XDECREF.exit
 
 Py_XDECREF.exit:                                  ; preds = %2, %56, %58, %61
-  store i32 1, ptr %0, align 8, !tbaa !184
+  store i32 1, ptr %0, align 8, !tbaa !183
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 0, ptr %62, align 4
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr @__func__.pycore_init_builtins, ptr %63, align 8, !tbaa !186
+  store ptr @__func__.pycore_init_builtins, ptr %63, align 8, !tbaa !185
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr @.str.163, ptr %64, align 8, !tbaa !187
+  store ptr @.str.163, ptr %64, align 8, !tbaa !186
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i32 0, ptr %65, align 8, !tbaa !188
+  store i32 0, ptr %65, align 8, !tbaa !187
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i32 0, ptr %66, align 4
   br label %67
@@ -4945,12 +4945,12 @@ define internal fastcc void @init_interp_main(ptr dead_on_unwind noalias nonnull
   %11 = alloca %struct.PyStatus, align 8
   call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %.sroa.26)
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %13 = load ptr, ptr %12, align 8, !tbaa !229
-  %14 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 712), align 8, !tbaa !239
+  %13 = load ptr, ptr %12, align 8, !tbaa !228
+  %14 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 712), align 8, !tbaa !238
   %.not130 = icmp eq ptr %13, %14
   %15 = tail call ptr @_PyInterpreterState_GetConfig(ptr noundef %13) #23
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 432
-  %17 = load i32, ptr %16, align 8, !tbaa !230
+  %17 = load i32, ptr %16, align 8, !tbaa !229
   %.not = icmp eq i32 %17, 0
   br i1 %.not, label %18, label %24
 
@@ -4959,7 +4959,7 @@ define internal fastcc void @init_interp_main(ptr dead_on_unwind noalias nonnull
 
 19:                                               ; preds = %18
   %20 = getelementptr inbounds nuw i8, ptr %13, i64 7376
-  %21 = load ptr, ptr %20, align 8, !tbaa !235
+  %21 = load ptr, ptr %20, align 8, !tbaa !234
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 672
   store i32 1, ptr %22, align 8, !tbaa !175
   br label %23
@@ -4972,22 +4972,22 @@ define internal fastcc void @init_interp_main(ptr dead_on_unwind noalias nonnull
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #23
   %25 = getelementptr inbounds nuw i8, ptr %13, i64 7992
   call void @_PyConfig_InitImportConfig(ptr dead_on_unwind nonnull writable sret(%struct.PyStatus) align 8 %4, ptr noundef nonnull %25) #23
-  %.sroa.0.0.copyload = load i32, ptr %4, align 8, !tbaa !192
+  %.sroa.0.0.copyload = load i32, ptr %4, align 8, !tbaa !191
   %.sroa.26.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %.sroa.26, ptr noundef nonnull align 4 dereferenceable(28) %.sroa.26.0..sroa_idx, i64 28, i1 false), !tbaa.struct !193
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %.sroa.26, ptr noundef nonnull align 4 dereferenceable(28) %.sroa.26.0..sroa_idx, i64 28, i1 false), !tbaa.struct !192
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #23
   %.not99 = icmp eq i32 %.sroa.0.0.copyload, 0
   br i1 %.not99, label %27, label %26
 
 26:                                               ; preds = %24
-  store i32 %.sroa.0.0.copyload, ptr %0, align 8, !tbaa !192
+  store i32 %.sroa.0.0.copyload, ptr %0, align 8, !tbaa !191
   %.sroa.26.0..sroa_idx65 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %.sroa.26.0..sroa_idx65, ptr noundef nonnull align 4 dereferenceable(28) %.sroa.26, i64 28, i1 false), !tbaa.struct !193
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %.sroa.26.0..sroa_idx65, ptr noundef nonnull align 4 dereferenceable(28) %.sroa.26, i64 28, i1 false), !tbaa.struct !192
   br label %.critedge118
 
 27:                                               ; preds = %24
-  %28 = load ptr, ptr %12, align 8, !tbaa !229
-  %29 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 712), align 8, !tbaa !239
+  %28 = load ptr, ptr %12, align 8, !tbaa !228
+  %29 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 712), align 8, !tbaa !238
   %.not19.i = icmp eq ptr %28, %29
   br i1 %.not19.i, label %30, label %interpreter_update_config.exit
 
@@ -4995,7 +4995,7 @@ define internal fastcc void @init_interp_main(ptr dead_on_unwind noalias nonnull
   %31 = getelementptr inbounds nuw i8, ptr %28, i64 7992
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #23
   call void @_PyPathConfig_UpdateGlobal(ptr dead_on_unwind nonnull writable sret(%struct.PyStatus) align 8 %3, ptr noundef nonnull %31) #23
-  %32 = load i32, ptr %3, align 8, !tbaa !184
+  %32 = load i32, ptr %3, align 8, !tbaa !183
   %.not16.i = icmp eq i32 %32, 0
   br i1 %.not16.i, label %.critedge18.i, label %interpreter_update_config.exit.thread
 
@@ -5006,29 +5006,29 @@ interpreter_update_config.exit.thread:            ; preds = %30
 
 .critedge18.i:                                    ; preds = %30
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #23
-  %.pre20.i = load ptr, ptr %12, align 8, !tbaa !229
+  %.pre20.i = load ptr, ptr %12, align 8, !tbaa !228
   br label %interpreter_update_config.exit
 
 interpreter_update_config.exit:                   ; preds = %27, %.critedge18.i
   %33 = phi ptr [ %.pre20.i, %.critedge18.i ], [ %28, %27 ]
   %34 = getelementptr inbounds nuw i8, ptr %28, i64 8256
-  %35 = load i32, ptr %34, align 8, !tbaa !240
+  %35 = load i32, ptr %34, align 8, !tbaa !239
   %36 = getelementptr inbounds nuw i8, ptr %33, i64 11656
-  store i32 %35, ptr %36, align 8, !tbaa !241
+  store i32 %35, ptr %36, align 8, !tbaa !240
   %37 = call i32 @_PySys_UpdateConfig(ptr noundef nonnull %1) #23
   %38 = icmp slt i32 %37, 0
   br i1 %38, label %39, label %45
 
 39:                                               ; preds = %interpreter_update_config.exit.thread, %interpreter_update_config.exit
-  store i32 1, ptr %0, align 8, !tbaa !184
+  store i32 1, ptr %0, align 8, !tbaa !183
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 0, ptr %40, align 4
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr @__func__.init_interp_main, ptr %41, align 8, !tbaa !186
+  store ptr @__func__.init_interp_main, ptr %41, align 8, !tbaa !185
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr @.str.168, ptr %42, align 8, !tbaa !187
+  store ptr @.str.168, ptr %42, align 8, !tbaa !186
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i32 0, ptr %43, align 8, !tbaa !188
+  store i32 0, ptr %43, align 8, !tbaa !187
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i32 0, ptr %44, align 4
   br label %.critedge118
@@ -5036,17 +5036,17 @@ interpreter_update_config.exit:                   ; preds = %27, %.critedge18.i
 45:                                               ; preds = %interpreter_update_config.exit
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #23
   call void @_PyImport_InitExternal(ptr dead_on_unwind nonnull writable sret(%struct.PyStatus) align 8 %5, ptr noundef nonnull %1) #23
-  %.sroa.0.0.copyload51 = load i32, ptr %5, align 8, !tbaa !192
+  %.sroa.0.0.copyload51 = load i32, ptr %5, align 8, !tbaa !191
   %.sroa.26.0..sroa_idx66 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %.sroa.26, ptr noundef nonnull align 4 dereferenceable(28) %.sroa.26.0..sroa_idx66, i64 28, i1 false), !tbaa.struct !193
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %.sroa.26, ptr noundef nonnull align 4 dereferenceable(28) %.sroa.26.0..sroa_idx66, i64 28, i1 false), !tbaa.struct !192
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #23
   %.not100 = icmp eq i32 %.sroa.0.0.copyload51, 0
   br i1 %.not100, label %47, label %46
 
 46:                                               ; preds = %45
-  store i32 %.sroa.0.0.copyload51, ptr %0, align 8, !tbaa !192
+  store i32 %.sroa.0.0.copyload51, ptr %0, align 8, !tbaa !191
   %.sroa.26.0..sroa_idx67 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %.sroa.26.0..sroa_idx67, ptr noundef nonnull align 4 dereferenceable(28) %.sroa.26, i64 28, i1 false), !tbaa.struct !193
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %.sroa.26.0..sroa_idx67, ptr noundef nonnull align 4 dereferenceable(28) %.sroa.26, i64 28, i1 false), !tbaa.struct !192
   br label %.critedge118
 
 47:                                               ; preds = %45
@@ -5055,35 +5055,35 @@ interpreter_update_config.exit:                   ; preds = %27, %.critedge18.i
 48:                                               ; preds = %47
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #23
   %49 = getelementptr inbounds nuw i8, ptr %15, i64 32
-  %50 = load i32, ptr %49, align 8, !tbaa !335
+  %50 = load i32, ptr %49, align 8, !tbaa !333
   call void @_PyFaulthandler_Init(ptr dead_on_unwind nonnull writable sret(%struct.PyStatus) align 8 %6, i32 noundef %50) #23
-  %.sroa.0.0.copyload53 = load i32, ptr %6, align 8, !tbaa !192
+  %.sroa.0.0.copyload53 = load i32, ptr %6, align 8, !tbaa !191
   %.sroa.26.0..sroa_idx68 = getelementptr inbounds nuw i8, ptr %6, i64 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %.sroa.26, ptr noundef nonnull align 4 dereferenceable(28) %.sroa.26.0..sroa_idx68, i64 28, i1 false), !tbaa.struct !193
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %.sroa.26, ptr noundef nonnull align 4 dereferenceable(28) %.sroa.26.0..sroa_idx68, i64 28, i1 false), !tbaa.struct !192
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #23
   %.not102 = icmp eq i32 %.sroa.0.0.copyload53, 0
   br i1 %.not102, label %52, label %51
 
 51:                                               ; preds = %48
-  store i32 %.sroa.0.0.copyload53, ptr %0, align 8, !tbaa !192
+  store i32 %.sroa.0.0.copyload53, ptr %0, align 8, !tbaa !191
   %.sroa.26.0..sroa_idx69 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %.sroa.26.0..sroa_idx69, ptr noundef nonnull align 4 dereferenceable(28) %.sroa.26, i64 28, i1 false), !tbaa.struct !193
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %.sroa.26.0..sroa_idx69, ptr noundef nonnull align 4 dereferenceable(28) %.sroa.26, i64 28, i1 false), !tbaa.struct !192
   br label %.critedge118
 
 52:                                               ; preds = %48, %47
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #23
   call void @_PyUnicode_InitEncodings(ptr dead_on_unwind nonnull writable sret(%struct.PyStatus) align 8 %7, ptr noundef nonnull %1) #23
-  %.sroa.0.0.copyload55 = load i32, ptr %7, align 8, !tbaa !192
+  %.sroa.0.0.copyload55 = load i32, ptr %7, align 8, !tbaa !191
   %.sroa.26.0..sroa_idx70 = getelementptr inbounds nuw i8, ptr %7, i64 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %.sroa.26, ptr noundef nonnull align 4 dereferenceable(28) %.sroa.26.0..sroa_idx70, i64 28, i1 false), !tbaa.struct !193
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %.sroa.26, ptr noundef nonnull align 4 dereferenceable(28) %.sroa.26.0..sroa_idx70, i64 28, i1 false), !tbaa.struct !192
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #23
   %.not103 = icmp eq i32 %.sroa.0.0.copyload55, 0
   br i1 %.not103, label %54, label %53
 
 53:                                               ; preds = %52
-  store i32 %.sroa.0.0.copyload55, ptr %0, align 8, !tbaa !192
+  store i32 %.sroa.0.0.copyload55, ptr %0, align 8, !tbaa !191
   %.sroa.26.0..sroa_idx71 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %.sroa.26.0..sroa_idx71, ptr noundef nonnull align 4 dereferenceable(28) %.sroa.26, i64 28, i1 false), !tbaa.struct !193
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %.sroa.26.0..sroa_idx71, ptr noundef nonnull align 4 dereferenceable(28) %.sroa.26, i64 28, i1 false), !tbaa.struct !192
   br label %.critedge118
 
 54:                                               ; preds = %52
@@ -5091,28 +5091,28 @@ interpreter_update_config.exit:                   ; preds = %27, %.critedge18.i
 
 55:                                               ; preds = %54
   %56 = getelementptr inbounds nuw i8, ptr %15, i64 16
-  %57 = load i32, ptr %56, align 8, !tbaa !245
+  %57 = load i32, ptr %56, align 8, !tbaa !244
   %58 = call i32 @_PySignal_Init(i32 noundef %57) #23
   %59 = icmp slt i32 %58, 0
   br i1 %59, label %60, label %66
 
 60:                                               ; preds = %55
-  store i32 1, ptr %0, align 8, !tbaa !184
+  store i32 1, ptr %0, align 8, !tbaa !183
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 0, ptr %61, align 4
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr @__func__.init_interp_main, ptr %62, align 8, !tbaa !186
+  store ptr @__func__.init_interp_main, ptr %62, align 8, !tbaa !185
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr @.str.169, ptr %63, align 8, !tbaa !187
+  store ptr @.str.169, ptr %63, align 8, !tbaa !186
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i32 0, ptr %64, align 8, !tbaa !188
+  store i32 0, ptr %64, align 8, !tbaa !187
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i32 0, ptr %65, align 4
   br label %.critedge118
 
 66:                                               ; preds = %55
   %67 = getelementptr inbounds nuw i8, ptr %15, i64 36
-  %68 = load i32, ptr %67, align 4, !tbaa !336
+  %68 = load i32, ptr %67, align 4, !tbaa !334
   %.not104 = icmp eq i32 %68, 0
   br i1 %.not104, label %78, label %69
 
@@ -5122,22 +5122,22 @@ interpreter_update_config.exit:                   ; preds = %27, %.critedge18.i
   br i1 %71, label %72, label %78
 
 72:                                               ; preds = %69
-  store i32 1, ptr %0, align 8, !tbaa !184
+  store i32 1, ptr %0, align 8, !tbaa !183
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 0, ptr %73, align 4
   %74 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr @__func__.init_interp_main, ptr %74, align 8, !tbaa !186
+  store ptr @__func__.init_interp_main, ptr %74, align 8, !tbaa !185
   %75 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr @.str.170, ptr %75, align 8, !tbaa !187
+  store ptr @.str.170, ptr %75, align 8, !tbaa !186
   %76 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i32 0, ptr %76, align 8, !tbaa !188
+  store i32 0, ptr %76, align 8, !tbaa !187
   %77 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i32 0, ptr %77, align 4
   br label %.critedge118
 
 78:                                               ; preds = %69, %66
   %79 = getelementptr inbounds nuw i8, ptr %15, i64 40
-  %80 = load i32, ptr %79, align 8, !tbaa !337
+  %80 = load i32, ptr %79, align 8, !tbaa !335
   switch i32 %80, label %81 [
     i32 0, label %94
     i32 1, label %82
@@ -5153,21 +5153,21 @@ interpreter_update_config.exit:                   ; preds = %27, %.critedge18.i
   br i1 %84, label %.critedge, label %85
 
 85:                                               ; preds = %82
-  %86 = load i32, ptr %79, align 8, !tbaa !337
+  %86 = load i32, ptr %79, align 8, !tbaa !335
   %87 = call i32 @_PyPerfTrampoline_Init(i32 noundef %86) #23
   %88 = icmp slt i32 %87, 0
   br i1 %88, label %.critedge, label %94
 
 .critedge:                                        ; preds = %85, %82
-  store i32 1, ptr %0, align 8, !tbaa !184
+  store i32 1, ptr %0, align 8, !tbaa !183
   %89 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 0, ptr %89, align 4
   %90 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr @__func__.init_interp_main, ptr %90, align 8, !tbaa !186
+  store ptr @__func__.init_interp_main, ptr %90, align 8, !tbaa !185
   %91 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr @.str.171, ptr %91, align 8, !tbaa !187
+  store ptr @.str.171, ptr %91, align 8, !tbaa !186
   %92 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i32 0, ptr %92, align 8, !tbaa !188
+  store i32 0, ptr %92, align 8, !tbaa !187
   %93 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i32 0, ptr %93, align 4
   br label %.critedge118
@@ -5175,49 +5175,49 @@ interpreter_update_config.exit:                   ; preds = %27, %.critedge18.i
 94:                                               ; preds = %85, %78, %54
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8) #23
   call fastcc void @init_sys_streams(ptr dead_on_unwind noalias writable align 8 %8, ptr noundef nonnull %1)
-  %.sroa.0.0.copyload57 = load i32, ptr %8, align 8, !tbaa !192
+  %.sroa.0.0.copyload57 = load i32, ptr %8, align 8, !tbaa !191
   %.sroa.26.0..sroa_idx72 = getelementptr inbounds nuw i8, ptr %8, i64 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %.sroa.26, ptr noundef nonnull align 4 dereferenceable(28) %.sroa.26.0..sroa_idx72, i64 28, i1 false), !tbaa.struct !193
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %.sroa.26, ptr noundef nonnull align 4 dereferenceable(28) %.sroa.26.0..sroa_idx72, i64 28, i1 false), !tbaa.struct !192
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8) #23
   %.not106 = icmp eq i32 %.sroa.0.0.copyload57, 0
   br i1 %.not106, label %96, label %95
 
 95:                                               ; preds = %94
-  store i32 %.sroa.0.0.copyload57, ptr %0, align 8, !tbaa !192
+  store i32 %.sroa.0.0.copyload57, ptr %0, align 8, !tbaa !191
   %.sroa.26.0..sroa_idx73 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %.sroa.26.0..sroa_idx73, ptr noundef nonnull align 4 dereferenceable(28) %.sroa.26, i64 28, i1 false), !tbaa.struct !193
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %.sroa.26.0..sroa_idx73, ptr noundef nonnull align 4 dereferenceable(28) %.sroa.26, i64 28, i1 false), !tbaa.struct !192
   br label %.critedge118
 
 96:                                               ; preds = %94
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9) #23
   call fastcc void @init_set_builtins_open(ptr dead_on_unwind noalias writable align 8 %9)
-  %.sroa.0.0.copyload59 = load i32, ptr %9, align 8, !tbaa !192
+  %.sroa.0.0.copyload59 = load i32, ptr %9, align 8, !tbaa !191
   %.sroa.26.0..sroa_idx74 = getelementptr inbounds nuw i8, ptr %9, i64 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %.sroa.26, ptr noundef nonnull align 4 dereferenceable(28) %.sroa.26.0..sroa_idx74, i64 28, i1 false), !tbaa.struct !193
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %.sroa.26, ptr noundef nonnull align 4 dereferenceable(28) %.sroa.26.0..sroa_idx74, i64 28, i1 false), !tbaa.struct !192
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9) #23
   %.not107 = icmp eq i32 %.sroa.0.0.copyload59, 0
   br i1 %.not107, label %98, label %97
 
 97:                                               ; preds = %96
-  store i32 %.sroa.0.0.copyload59, ptr %0, align 8, !tbaa !192
+  store i32 %.sroa.0.0.copyload59, ptr %0, align 8, !tbaa !191
   %.sroa.26.0..sroa_idx75 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %.sroa.26.0..sroa_idx75, ptr noundef nonnull align 4 dereferenceable(28) %.sroa.26, i64 28, i1 false), !tbaa.struct !193
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %.sroa.26.0..sroa_idx75, ptr noundef nonnull align 4 dereferenceable(28) %.sroa.26, i64 28, i1 false), !tbaa.struct !192
   br label %.critedge118
 
 98:                                               ; preds = %96
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10) #23
   call fastcc void @add_main_module(ptr dead_on_unwind noalias writable align 8 %10, ptr noundef nonnull %13)
-  %.sroa.0.0.copyload61 = load i32, ptr %10, align 8, !tbaa !192
+  %.sroa.0.0.copyload61 = load i32, ptr %10, align 8, !tbaa !191
   %.sroa.26.0..sroa_idx76 = getelementptr inbounds nuw i8, ptr %10, i64 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %.sroa.26, ptr noundef nonnull align 4 dereferenceable(28) %.sroa.26.0..sroa_idx76, i64 28, i1 false), !tbaa.struct !193
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %.sroa.26, ptr noundef nonnull align 4 dereferenceable(28) %.sroa.26.0..sroa_idx76, i64 28, i1 false), !tbaa.struct !192
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10) #23
   %.not108 = icmp eq i32 %.sroa.0.0.copyload61, 0
   br i1 %.not108, label %100, label %99
 
 99:                                               ; preds = %98
-  store i32 %.sroa.0.0.copyload61, ptr %0, align 8, !tbaa !192
+  store i32 %.sroa.0.0.copyload61, ptr %0, align 8, !tbaa !191
   %.sroa.26.0..sroa_idx77 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %.sroa.26.0..sroa_idx77, ptr noundef nonnull align 4 dereferenceable(28) %.sroa.26, i64 28, i1 false), !tbaa.struct !193
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %.sroa.26.0..sroa_idx77, ptr noundef nonnull align 4 dereferenceable(28) %.sroa.26, i64 28, i1 false), !tbaa.struct !192
   br label %.critedge118
 
 100:                                              ; preds = %98
@@ -5254,38 +5254,38 @@ interpreter_update_config.exit:                   ; preds = %27, %.critedge18.i
   br label %Py_XDECREF.exit
 
 .split89:                                         ; preds = %106
-  %114 = load ptr, ptr @stderr, align 8, !tbaa !182
+  %114 = load ptr, ptr @stderr, align 8, !tbaa !181
   %115 = call i64 @fwrite(ptr nonnull @.str.174, i64 37, i64 1, ptr %114) #25
   call void @_PyErr_Print(ptr noundef nonnull %1) #23
   br label %Py_XDECREF.exit
 
 Py_XDECREF.exit:                                  ; preds = %113, %110, %.split, %.split89, %103, %101
   %116 = getelementptr inbounds nuw i8, ptr %13, i64 7376
-  %117 = load ptr, ptr %116, align 8, !tbaa !235
+  %117 = load ptr, ptr %116, align 8, !tbaa !234
   %118 = getelementptr inbounds nuw i8, ptr %117, i64 672
   store i32 1, ptr %118, align 8, !tbaa !175
   br label %119
 
 119:                                              ; preds = %Py_XDECREF.exit, %100
   %120 = getelementptr inbounds nuw i8, ptr %15, i64 176
-  %121 = load i32, ptr %120, align 8, !tbaa !338
+  %121 = load i32, ptr %120, align 8, !tbaa !336
   %.not110 = icmp eq i32 %121, 0
   br i1 %.not110, label %124, label %122
 
 122:                                              ; preds = %119
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11) #23
   call fastcc void @init_import_site(ptr dead_on_unwind noalias writable align 8 %11)
-  %.sroa.0.0.copyload63 = load i32, ptr %11, align 8, !tbaa !192
+  %.sroa.0.0.copyload63 = load i32, ptr %11, align 8, !tbaa !191
   %.sroa.26.0..sroa_idx78 = getelementptr inbounds nuw i8, ptr %11, i64 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %.sroa.26, ptr noundef nonnull align 4 dereferenceable(28) %.sroa.26.0..sroa_idx78, i64 28, i1 false), !tbaa.struct !193
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %.sroa.26, ptr noundef nonnull align 4 dereferenceable(28) %.sroa.26.0..sroa_idx78, i64 28, i1 false), !tbaa.struct !192
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11) #23
   %.not111 = icmp eq i32 %.sroa.0.0.copyload63, 0
   br i1 %.not111, label %124, label %123
 
 123:                                              ; preds = %122
-  store i32 %.sroa.0.0.copyload63, ptr %0, align 8, !tbaa !192
+  store i32 %.sroa.0.0.copyload63, ptr %0, align 8, !tbaa !191
   %.sroa.26.0..sroa_idx79 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %.sroa.26.0..sroa_idx79, ptr noundef nonnull align 4 dereferenceable(28) %.sroa.26, i64 28, i1 false), !tbaa.struct !193
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %.sroa.26.0..sroa_idx79, ptr noundef nonnull align 4 dereferenceable(28) %.sroa.26, i64 28, i1 false), !tbaa.struct !192
   br label %.critedge118
 
 124:                                              ; preds = %122, %119
@@ -5293,15 +5293,15 @@ Py_XDECREF.exit:                                  ; preds = %113, %110, %.split,
 
 125:                                              ; preds = %124
   %126 = getelementptr inbounds nuw i8, ptr %13, i64 7376
-  %127 = load ptr, ptr %126, align 8, !tbaa !235
+  %127 = load ptr, ptr %126, align 8, !tbaa !234
   %128 = getelementptr i8, ptr %127, i64 10456
-  %.val = load i32, ptr %128, align 4, !tbaa !339
+  %.val = load i32, ptr %128, align 4, !tbaa !337
   call fastcc void @emit_stderr_warning_for_legacy_locale(i32 %.val)
   br label %.critedge120
 
 .critedge116:                                     ; preds = %124
   %129 = getelementptr inbounds nuw i8, ptr %15, i64 424
-  %130 = load ptr, ptr %129, align 8, !tbaa !340
+  %130 = load ptr, ptr %129, align 8, !tbaa !338
   %.not112 = icmp eq ptr %130, null
   br i1 %.not112, label %.critedge120, label %131
 
@@ -5311,22 +5311,22 @@ Py_XDECREF.exit:                                  ; preds = %113, %110, %.split,
   br i1 %133, label %134, label %140
 
 134:                                              ; preds = %131
-  store i32 1, ptr %0, align 8, !tbaa !184
+  store i32 1, ptr %0, align 8, !tbaa !183
   %135 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 0, ptr %135, align 4
   %136 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr @__func__.init_interp_main, ptr %136, align 8, !tbaa !186
+  store ptr @__func__.init_interp_main, ptr %136, align 8, !tbaa !185
   %137 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr @.str.175, ptr %137, align 8, !tbaa !187
+  store ptr @.str.175, ptr %137, align 8, !tbaa !186
   %138 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i32 0, ptr %138, align 8, !tbaa !188
+  store i32 0, ptr %138, align 8, !tbaa !187
   %139 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i32 0, ptr %139, align 4
   br label %.critedge118
 
 140:                                              ; preds = %131
   %141 = getelementptr inbounds nuw i8, ptr %13, i64 7640
-  %142 = load ptr, ptr %141, align 8, !tbaa !284
+  %142 = load ptr, ptr %141, align 8, !tbaa !283
   %143 = icmp eq ptr %142, null
   br i1 %143, label %144, label %155
 
@@ -5346,15 +5346,15 @@ Py_XDECREF.exit:                                  ; preds = %113, %110, %.split,
   br label %Py_DECREF.exit124
 
 Py_DECREF.exit124:                                ; preds = %144, %146, %149
-  store i32 1, ptr %0, align 8, !tbaa !184
+  store i32 1, ptr %0, align 8, !tbaa !183
   %150 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 0, ptr %150, align 4
   %151 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr @__func__.init_interp_main, ptr %151, align 8, !tbaa !186
+  store ptr @__func__.init_interp_main, ptr %151, align 8, !tbaa !185
   %152 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr @.str.175, ptr %152, align 8, !tbaa !187
+  store ptr @.str.175, ptr %152, align 8, !tbaa !186
   %153 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i32 0, ptr %153, align 8, !tbaa !188
+  store i32 0, ptr %153, align 8, !tbaa !187
   %154 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i32 0, ptr %154, align 4
   br label %.critedge118
@@ -5380,15 +5380,15 @@ Py_DECREF.exit124:                                ; preds = %144, %146, %149
   br label %Py_DECREF.exit122
 
 Py_DECREF.exit122:                                ; preds = %158, %160, %163
-  store i32 1, ptr %0, align 8, !tbaa !184
+  store i32 1, ptr %0, align 8, !tbaa !183
   %164 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 0, ptr %164, align 4
   %165 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr @__func__.init_interp_main, ptr %165, align 8, !tbaa !186
+  store ptr @__func__.init_interp_main, ptr %165, align 8, !tbaa !185
   %166 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr @.str.175, ptr %166, align 8, !tbaa !187
+  store ptr @.str.175, ptr %166, align 8, !tbaa !186
   %167 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i32 0, ptr %167, align 8, !tbaa !188
+  store i32 0, ptr %167, align 8, !tbaa !187
   %168 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i32 0, ptr %168, align 4
   br label %.critedge118
@@ -5414,38 +5414,38 @@ Py_DECREF.exit:                                   ; preds = %169, %172, %175
   br i1 %.not113, label %.critedge120, label %176
 
 176:                                              ; preds = %Py_DECREF.exit
-  store i32 1, ptr %0, align 8, !tbaa !184
+  store i32 1, ptr %0, align 8, !tbaa !183
   %177 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 0, ptr %177, align 4
   %178 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr @__func__.init_interp_main, ptr %178, align 8, !tbaa !186
+  store ptr @__func__.init_interp_main, ptr %178, align 8, !tbaa !185
   %179 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr @.str.175, ptr %179, align 8, !tbaa !187
+  store ptr @.str.175, ptr %179, align 8, !tbaa !186
   %180 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i32 0, ptr %180, align 8, !tbaa !188
+  store i32 0, ptr %180, align 8, !tbaa !187
   %181 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i32 0, ptr %181, align 4
   br label %.critedge118
 
 .critedge120:                                     ; preds = %Py_DECREF.exit, %125, %.critedge116
   %182 = getelementptr inbounds nuw i8, ptr %13, i64 79672
-  store ptr @builtins_dict_watcher, ptr %182, align 8, !tbaa !257
+  store ptr @builtins_dict_watcher, ptr %182, align 8, !tbaa !256
   %183 = getelementptr inbounds nuw i8, ptr %13, i64 7648
-  %184 = load ptr, ptr %183, align 8, !tbaa !282
+  %184 = load ptr, ptr %183, align 8, !tbaa !281
   %185 = call i32 @PyDict_Watch(i32 noundef 0, ptr noundef %184) #23
   %.not114 = icmp eq i32 %185, 0
   br i1 %.not114, label %192, label %186
 
 186:                                              ; preds = %.critedge120
-  store i32 1, ptr %0, align 8, !tbaa !184
+  store i32 1, ptr %0, align 8, !tbaa !183
   %187 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 0, ptr %187, align 4
   %188 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr @__func__.init_interp_main, ptr %188, align 8, !tbaa !186
+  store ptr @__func__.init_interp_main, ptr %188, align 8, !tbaa !185
   %189 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr @.str.176, ptr %189, align 8, !tbaa !187
+  store ptr @.str.176, ptr %189, align 8, !tbaa !186
   %190 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i32 0, ptr %190, align 8, !tbaa !188
+  store i32 0, ptr %190, align 8, !tbaa !187
   %191 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i32 0, ptr %191, align 4
   br label %.critedge118
@@ -5483,10 +5483,10 @@ declare i32 @_PyPerfTrampoline_Init(i32 noundef) local_unnamed_addr #0
 define internal fastcc void @init_sys_streams(ptr dead_on_unwind noalias nonnull writable writeonly align 8 captures(none) initializes((0, 32)) %0, ptr noundef %1) unnamed_addr #1 {
   %3 = alloca %struct.stat, align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %5 = load ptr, ptr %4, align 8, !tbaa !229
+  %5 = load ptr, ptr %4, align 8, !tbaa !228
   %6 = tail call ptr @_PyInterpreterState_GetConfig(ptr noundef %5) #23
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %3) #23
-  %7 = load ptr, ptr @stdin, align 8, !tbaa !182
+  %7 = load ptr, ptr @stdin, align 8, !tbaa !181
   %8 = tail call i32 @fileno(ptr noundef %7) #23
   %9 = call i32 @_Py_fstat_noraise(i32 noundef %8, ptr noundef nonnull %3) #23
   %10 = icmp eq i32 %9, 0
@@ -5494,7 +5494,7 @@ define internal fastcc void @init_sys_streams(ptr dead_on_unwind noalias nonnull
 
 11:                                               ; preds = %2
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %13 = load i32, ptr %12, align 8, !tbaa !341
+  %13 = load i32, ptr %12, align 8, !tbaa !339
   %14 = and i32 %13, 61440
   %15 = icmp eq i32 %14, 16384
   br i1 %15, label %Py_XDECREF.exit64, label %16
@@ -5505,14 +5505,14 @@ define internal fastcc void @init_sys_streams(ptr dead_on_unwind noalias nonnull
   br i1 %.not, label %Py_XDECREF.exit64, label %18
 
 18:                                               ; preds = %16
-  %19 = load ptr, ptr @stdin, align 8, !tbaa !182
+  %19 = load ptr, ptr @stdin, align 8, !tbaa !181
   %20 = call i32 @fileno(ptr noundef %19) #23
   %21 = getelementptr inbounds nuw i8, ptr %6, i64 232
-  %22 = load ptr, ptr %21, align 8, !tbaa !344
+  %22 = load ptr, ptr %21, align 8, !tbaa !342
   %23 = getelementptr inbounds nuw i8, ptr %6, i64 240
-  %24 = load ptr, ptr %23, align 8, !tbaa !345
+  %24 = load ptr, ptr %23, align 8, !tbaa !343
   %25 = getelementptr i8, ptr %6, i64 224
-  %.val = load i32, ptr %25, align 8, !tbaa !346
+  %.val = load i32, ptr %25, align 8, !tbaa !344
   %26 = call fastcc ptr @create_stdio(i32 %.val, ptr noundef %17, i32 noundef %20, i32 noundef 0, ptr noundef nonnull @.str.147, ptr noundef %22, ptr noundef %24)
   %27 = icmp eq ptr %26, null
   br i1 %27, label %88, label %28
@@ -5535,11 +5535,11 @@ define internal fastcc void @init_sys_streams(ptr dead_on_unwind noalias nonnull
   br label %Py_DECREF.exit54
 
 Py_DECREF.exit54:                                 ; preds = %28, %32, %35
-  %36 = load ptr, ptr @stdout, align 8, !tbaa !182
+  %36 = load ptr, ptr @stdout, align 8, !tbaa !181
   %37 = call i32 @fileno(ptr noundef %36) #23
-  %38 = load ptr, ptr %21, align 8, !tbaa !344
-  %39 = load ptr, ptr %23, align 8, !tbaa !345
-  %.val59 = load i32, ptr %25, align 8, !tbaa !346
+  %38 = load ptr, ptr %21, align 8, !tbaa !342
+  %39 = load ptr, ptr %23, align 8, !tbaa !343
+  %.val59 = load i32, ptr %25, align 8, !tbaa !344
   %40 = call fastcc ptr @create_stdio(i32 %.val59, ptr noundef %17, i32 noundef %37, i32 noundef 1, ptr noundef nonnull @.str.180, ptr noundef %38, ptr noundef %39)
   %41 = icmp eq ptr %40, null
   br i1 %41, label %88, label %42
@@ -5562,10 +5562,10 @@ Py_DECREF.exit54:                                 ; preds = %28, %32, %35
   br label %Py_DECREF.exit52
 
 Py_DECREF.exit52:                                 ; preds = %42, %46, %49
-  %50 = load ptr, ptr @stderr, align 8, !tbaa !182
+  %50 = load ptr, ptr @stderr, align 8, !tbaa !181
   %51 = call i32 @fileno(ptr noundef %50) #23
-  %52 = load ptr, ptr %21, align 8, !tbaa !344
-  %.val60 = load i32, ptr %25, align 8, !tbaa !346
+  %52 = load ptr, ptr %21, align 8, !tbaa !342
+  %.val60 = load i32, ptr %25, align 8, !tbaa !344
   %53 = call fastcc ptr @create_stdio(i32 %.val60, ptr noundef %17, i32 noundef %51, i32 noundef 1, ptr noundef nonnull @.str.182, ptr noundef %52, ptr noundef nonnull @.str.183)
   %54 = icmp eq ptr %53, null
   br i1 %54, label %88, label %55
@@ -5681,15 +5681,15 @@ Py_XDECREF.exit64:                                ; preds = %93, %90, %88, %16, 
   %.sroa.011.073.sink = phi i32 [ 1, %11 ], [ %.sroa.011.0.ph, %88 ], [ %.sroa.011.0.ph, %90 ], [ %.sroa.011.0.ph, %93 ], [ 1, %16 ]
   %.sroa.613.071.sink = phi ptr [ @__func__.init_sys_streams, %11 ], [ %.sroa.613.0.ph, %88 ], [ %.sroa.613.0.ph, %90 ], [ %.sroa.613.0.ph, %93 ], [ @__func__.init_sys_streams, %16 ]
   %.sroa.7.069.sink = phi ptr [ @.str.177, %11 ], [ %.sroa.7.0.ph, %88 ], [ %.sroa.7.0.ph, %90 ], [ %.sroa.7.0.ph, %93 ], [ @.str.186, %16 ]
-  store i32 %.sroa.011.073.sink, ptr %0, align 8, !tbaa !192
+  store i32 %.sroa.011.073.sink, ptr %0, align 8, !tbaa !191
   %.sroa.512.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 0, ptr %.sroa.512.0..sroa_idx, align 4
   %.sroa.613.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.sroa.613.071.sink, ptr %.sroa.613.0..sroa_idx, align 8, !tbaa !194
+  store ptr %.sroa.613.071.sink, ptr %.sroa.613.0..sroa_idx, align 8, !tbaa !193
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %.sroa.7.069.sink, ptr %.sroa.7.0..sroa_idx, align 8, !tbaa !194
+  store ptr %.sroa.7.069.sink, ptr %.sroa.7.0..sroa_idx, align 8, !tbaa !193
   %.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i32 0, ptr %.sroa.8.0..sroa_idx, align 8, !tbaa !192
+  store i32 0, ptr %.sroa.8.0..sroa_idx, align 8, !tbaa !191
   %.sroa.9.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i32 0, ptr %.sroa.9.0..sroa_idx, align 4
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %3) #23
@@ -5757,29 +5757,29 @@ Py_DECREF.exit:                                   ; preds = %17, %14, %.split
   br label %Py_XDECREF.exit
 
 .split6:                                          ; preds = %1
-  store i32 1, ptr %0, align 8, !tbaa !192
+  store i32 1, ptr %0, align 8, !tbaa !191
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 0, ptr %.sroa.2.0..sroa_idx, align 4
   %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr @__func__.init_set_builtins_open, ptr %.sroa.3.0..sroa_idx, align 8, !tbaa !194
+  store ptr @__func__.init_set_builtins_open, ptr %.sroa.3.0..sroa_idx, align 8, !tbaa !193
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr @.str.194, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !194
+  store ptr @.str.194, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !193
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i32 0, ptr %.sroa.5.0..sroa_idx, align 8, !tbaa !192
+  store i32 0, ptr %.sroa.5.0..sroa_idx, align 8, !tbaa !191
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i32 0, ptr %.sroa.6.0..sroa_idx, align 4
   br label %Py_XDECREF.exit
 
 23:                                               ; preds = %13, %10, %9, %3
-  store i32 1, ptr %0, align 8, !tbaa !192
+  store i32 1, ptr %0, align 8, !tbaa !191
   %.sroa.2.0..sroa_idx16 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 0, ptr %.sroa.2.0..sroa_idx16, align 4
   %.sroa.3.0..sroa_idx17 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr @__func__.init_set_builtins_open, ptr %.sroa.3.0..sroa_idx17, align 8, !tbaa !194
+  store ptr @__func__.init_set_builtins_open, ptr %.sroa.3.0..sroa_idx17, align 8, !tbaa !193
   %.sroa.4.0..sroa_idx18 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr @.str.194, ptr %.sroa.4.0..sroa_idx18, align 8, !tbaa !194
+  store ptr @.str.194, ptr %.sroa.4.0..sroa_idx18, align 8, !tbaa !193
   %.sroa.5.0..sroa_idx19 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i32 0, ptr %.sroa.5.0..sroa_idx19, align 8, !tbaa !192
+  store i32 0, ptr %.sroa.5.0..sroa_idx19, align 8, !tbaa !191
   %.sroa.6.0..sroa_idx20 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i32 0, ptr %.sroa.6.0..sroa_idx20, align 4
   %24 = load i32, ptr %2, align 8, !tbaa !176
@@ -5808,15 +5808,15 @@ define internal fastcc void @add_main_module(ptr dead_on_unwind noalias nonnull 
   br i1 %5, label %6, label %12
 
 6:                                                ; preds = %2
-  store i32 1, ptr %0, align 8, !tbaa !184
+  store i32 1, ptr %0, align 8, !tbaa !183
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 0, ptr %7, align 4
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr @__func__.add_main_module, ptr %8, align 8, !tbaa !186
+  store ptr @__func__.add_main_module, ptr %8, align 8, !tbaa !185
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr @.str.195, ptr %9, align 8, !tbaa !187
+  store ptr @.str.195, ptr %9, align 8, !tbaa !186
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i32 0, ptr %10, align 8, !tbaa !188
+  store i32 0, ptr %10, align 8, !tbaa !187
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i32 0, ptr %11, align 4
   br label %.critedge
@@ -5828,15 +5828,15 @@ define internal fastcc void @add_main_module(ptr dead_on_unwind noalias nonnull 
   br i1 %15, label %16, label %22
 
 16:                                               ; preds = %12
-  store i32 1, ptr %0, align 8, !tbaa !184
+  store i32 1, ptr %0, align 8, !tbaa !183
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 0, ptr %17, align 4
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr @__func__.add_main_module, ptr %18, align 8, !tbaa !186
+  store ptr @__func__.add_main_module, ptr %18, align 8, !tbaa !185
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr @.str.197, ptr %19, align 8, !tbaa !187
+  store ptr @.str.197, ptr %19, align 8, !tbaa !186
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i32 0, ptr %20, align 8, !tbaa !188
+  store i32 0, ptr %20, align 8, !tbaa !187
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i32 0, ptr %21, align 4
   br label %.critedge
@@ -5851,15 +5851,15 @@ define internal fastcc void @add_main_module(ptr dead_on_unwind noalias nonnull 
   br i1 %25, label %26, label %32
 
 26:                                               ; preds = %23
-  store i32 1, ptr %0, align 8, !tbaa !184
+  store i32 1, ptr %0, align 8, !tbaa !183
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 0, ptr %27, align 4
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr @__func__.add_main_module, ptr %28, align 8, !tbaa !186
+  store ptr @__func__.add_main_module, ptr %28, align 8, !tbaa !185
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr @.str.198, ptr %29, align 8, !tbaa !187
+  store ptr @.str.198, ptr %29, align 8, !tbaa !186
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i32 0, ptr %30, align 8, !tbaa !188
+  store i32 0, ptr %30, align 8, !tbaa !187
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i32 0, ptr %31, align 4
   br label %.critedge
@@ -5870,15 +5870,15 @@ define internal fastcc void @add_main_module(ptr dead_on_unwind noalias nonnull 
   br i1 %34, label %35, label %41
 
 35:                                               ; preds = %32
-  store i32 1, ptr %0, align 8, !tbaa !184
+  store i32 1, ptr %0, align 8, !tbaa !183
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 0, ptr %36, align 4
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr @__func__.add_main_module, ptr %37, align 8, !tbaa !186
+  store ptr @__func__.add_main_module, ptr %37, align 8, !tbaa !185
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr @.str.199, ptr %38, align 8, !tbaa !187
+  store ptr @.str.199, ptr %38, align 8, !tbaa !186
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i32 0, ptr %39, align 8, !tbaa !188
+  store i32 0, ptr %39, align 8, !tbaa !187
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i32 0, ptr %40, align 4
   br label %.critedge
@@ -5905,21 +5905,21 @@ Py_DECREF.exit28:                                 ; preds = %46, %43, %41, %22
   br i1 %48, label %49, label %55
 
 49:                                               ; preds = %Py_DECREF.exit28
-  store i32 1, ptr %0, align 8, !tbaa !184
+  store i32 1, ptr %0, align 8, !tbaa !183
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 0, ptr %50, align 4
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr @__func__.add_main_module, ptr %51, align 8, !tbaa !186
+  store ptr @__func__.add_main_module, ptr %51, align 8, !tbaa !185
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr @.str.201, ptr %52, align 8, !tbaa !187
+  store ptr @.str.201, ptr %52, align 8, !tbaa !186
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i32 0, ptr %53, align 8, !tbaa !188
+  store i32 0, ptr %53, align 8, !tbaa !187
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i32 0, ptr %54, align 4
   br label %.critedge26
 
 55:                                               ; preds = %Py_DECREF.exit28
-  %56 = load ptr, ptr %3, align 8, !tbaa !253
+  %56 = load ptr, ptr %3, align 8, !tbaa !252
   %57 = icmp ne ptr %56, null
   %58 = icmp ne ptr %56, @_Py_NoneStruct
   %.not24 = and i1 %57, %58
@@ -5950,15 +5950,15 @@ Py_XDECREF.exit:                                  ; preds = %55, %59, %61, %64
   br i1 %67, label %68, label %74
 
 68:                                               ; preds = %65
-  store i32 1, ptr %0, align 8, !tbaa !184
+  store i32 1, ptr %0, align 8, !tbaa !183
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 0, ptr %69, align 4
   %70 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr @__func__.add_main_module, ptr %70, align 8, !tbaa !186
+  store ptr @__func__.add_main_module, ptr %70, align 8, !tbaa !185
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr @.str.203, ptr %71, align 8, !tbaa !187
+  store ptr @.str.203, ptr %71, align 8, !tbaa !186
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i32 0, ptr %72, align 8, !tbaa !188
+  store i32 0, ptr %72, align 8, !tbaa !187
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i32 0, ptr %73, align 4
   br label %.critedge26
@@ -5969,15 +5969,15 @@ Py_XDECREF.exit:                                  ; preds = %55, %59, %61, %64
   br i1 %76, label %77, label %83
 
 77:                                               ; preds = %74
-  store i32 1, ptr %0, align 8, !tbaa !184
+  store i32 1, ptr %0, align 8, !tbaa !183
   %78 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 0, ptr %78, align 4
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr @__func__.add_main_module, ptr %79, align 8, !tbaa !186
+  store ptr @__func__.add_main_module, ptr %79, align 8, !tbaa !185
   %80 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr @.str.204, ptr %80, align 8, !tbaa !187
+  store ptr @.str.204, ptr %80, align 8, !tbaa !186
   %81 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i32 0, ptr %81, align 8, !tbaa !188
+  store i32 0, ptr %81, align 8, !tbaa !187
   %82 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i32 0, ptr %82, align 4
   br label %.critedge26
@@ -6024,15 +6024,15 @@ define internal fastcc void @init_import_site(ptr dead_on_unwind noalias nonnull
   br i1 %3, label %4, label %10
 
 4:                                                ; preds = %1
-  store i32 1, ptr %0, align 8, !tbaa !184
+  store i32 1, ptr %0, align 8, !tbaa !183
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 0, ptr %5, align 4
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr @__func__.init_import_site, ptr %6, align 8, !tbaa !186
+  store ptr @__func__.init_import_site, ptr %6, align 8, !tbaa !185
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr @.str.206, ptr %7, align 8, !tbaa !187
+  store ptr @.str.206, ptr %7, align 8, !tbaa !186
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i32 0, ptr %8, align 8, !tbaa !188
+  store i32 0, ptr %8, align 8, !tbaa !187
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i32 0, ptr %9, align 4
   br label %16
@@ -6096,17 +6096,17 @@ declare i32 @PyList_Insert(ptr noundef, i64 noundef, ptr noundef) local_unnamed_
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define internal noundef i32 @builtins_dict_watcher(i32 %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3) #18 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
-  %6 = load ptr, ptr %5, align 8, !tbaa !213
+  %6 = load ptr, ptr %5, align 8, !tbaa !212
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %8 = load ptr, ptr %7, align 8, !tbaa !229
+  %8 = load ptr, ptr %7, align 8, !tbaa !228
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 222995
-  %10 = load i8, ptr %9, align 1, !tbaa !347
+  %10 = load i8, ptr %9, align 1, !tbaa !345
   %.not = icmp eq i8 %10, -1
   br i1 %.not, label %13, label %11
 
 11:                                               ; preds = %4
   %12 = add nuw i8 %10, 1
-  store i8 %12, ptr %9, align 1, !tbaa !347
+  store i8 %12, ptr %9, align 1, !tbaa !345
   br label %13
 
 13:                                               ; preds = %11, %4
@@ -6165,7 +6165,7 @@ _Py_NewRef.exit:                                  ; preds = %21, %18, %15
 
 28:                                               ; preds = %25
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
-  store ptr %.1101, ptr %7, align 8, !tbaa !253
+  store ptr %.1101, ptr %7, align 8, !tbaa !252
   %29 = call ptr @PyObject_VectorcallMethod(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 60072), ptr noundef nonnull %7, i64 noundef -9223372036854775807, ptr noundef null) #23
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   %30 = icmp eq ptr %29, null
@@ -6200,7 +6200,7 @@ Py_DECREF.exit145:                                ; preds = %31, %34, %37
   br i1 %.not123, label %41, label %46
 
 41:                                               ; preds = %40
-  %42 = load ptr, ptr @stderr, align 8, !tbaa !182
+  %42 = load ptr, ptr @stderr, align 8, !tbaa !181
   %43 = call i32 @fileno(ptr noundef %42) #23
   %44 = icmp eq i32 %1, %43
   br i1 %44, label %46, label %45
@@ -6435,7 +6435,7 @@ Py_XDECREF.exit164.sink.split:                    ; preds = %122, %74, %61
   br label %Py_XDECREF.exit164
 
 Py_XDECREF.exit164:                               ; preds = %Py_XDECREF.exit164.sink.split, %9, %Py_DECREF.exit129, %59, %61, %Py_DECREF.exit137, %74, %Py_XDECREF.exit161, %120, %122
-  %125 = load ptr, ptr @PyExc_OSError, align 8, !tbaa !253
+  %125 = load ptr, ptr @PyExc_OSError, align 8, !tbaa !252
   %126 = call i32 @PyErr_ExceptionMatches(ptr noundef %125) #23
   %.not126 = icmp eq i32 %126, 0
   br i1 %.not126, label %Py_DECREF.exit, label %127
@@ -6511,7 +6511,7 @@ declare void @_PyThreadState_DeleteList(ptr noundef) local_unnamed_addr #0
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 -1, 1) i32 @flush_std_files() unnamed_addr #1 {
   %1 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
-  %2 = load ptr, ptr %1, align 8, !tbaa !213
+  %2 = load ptr, ptr %1, align 8, !tbaa !212
   %3 = tail call ptr @_PySys_GetAttr(ptr noundef %2, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 70992)) #23
   %4 = tail call ptr @_PySys_GetAttr(ptr noundef %2, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 70896)) #23
   %5 = icmp ne ptr %3, null
@@ -7005,172 +7005,170 @@ attributes #28 = { noreturn nounwind }
 !176 = !{!7, !7, i64 0}
 !177 = !{!178, !63, i64 0}
 !178 = !{!"_CandidateLocale", !63, i64 0}
-!179 = distinct !{!179, !180, !181}
+!179 = distinct !{!179, !180}
 !180 = !{!"llvm.loop.mustprogress"}
-!181 = !{!"llvm.loop.estimated_trip_count"}
-!182 = !{!68, !68, i64 0}
-!183 = distinct !{!183, !180, !181}
-!184 = !{!185, !27, i64 0}
-!185 = !{!"", !27, i64 0, !63, i64 8, !63, i64 16, !27, i64 24}
-!186 = !{!185, !63, i64 8}
-!187 = !{!185, !63, i64 16}
-!188 = !{!185, !27, i64 24}
-!189 = !{!190}
-!190 = distinct !{!190, !191, !"_PyRuntime_Initialize: argument 0"}
-!191 = distinct !{!191, !"_PyRuntime_Initialize"}
-!192 = !{!27, !27, i64 0}
-!193 = !{i64 4, i64 8, !194, i64 12, i64 8, !194, i64 20, i64 4, !192}
-!194 = !{!63, !63, i64 0}
-!195 = !{!5, !27, i64 664}
-!196 = !{!5, !27, i64 660}
-!197 = !{!198, !9, i64 0}
-!198 = !{!"_PyArgv", !9, i64 0, !27, i64 8, !199, i64 16, !55, i64 24}
-!199 = !{!"p2 omnipotent char", !29, i64 0}
-!200 = !{!198, !27, i64 8}
-!201 = !{!198, !199, i64 16}
-!202 = !{!198, !55, i64 24}
-!203 = !{!204}
-!204 = distinct !{!204, !205, !"_PyRuntime_Initialize: argument 0"}
-!205 = distinct !{!205, !"_PyRuntime_Initialize"}
-!206 = !{i64 0, i64 4, !192, i64 8, i64 8, !194, i64 16, i64 8, !194, i64 24, i64 4, !192}
-!207 = !{!128, !27, i64 104}
-!208 = !{!128, !9, i64 128}
-!209 = !{!128, !55, i64 136}
-!210 = !{!211}
-!211 = distinct !{!211, !212, !"_PyRuntime_Initialize: argument 0"}
-!212 = distinct !{!212, !"_PyRuntime_Initialize"}
-!213 = !{!28, !28, i64 0}
-!214 = !{!215}
-!215 = distinct !{!215, !216, !"pyinit_core: argument 0"}
-!216 = distinct !{!216, !"pyinit_core"}
-!217 = !{!218, !215}
-!218 = distinct !{!218, !219, !"_Py_PreInitializeFromConfig: argument 0:thread"}
-!219 = distinct !{!219, !"_Py_PreInitializeFromConfig"}
-!220 = !{!221, !223, !215}
-!221 = distinct !{!221, !222, !"_PyRuntime_Initialize: argument 0"}
-!222 = distinct !{!222, !"_PyRuntime_Initialize"}
-!223 = distinct !{!223, !219, !"_Py_PreInitializeFromConfig: argument 0"}
-!224 = !{!223, !215}
-!225 = !{!221}
-!226 = !{!227, !215}
-!227 = distinct !{!227, !228, !"pyinit_core_reconfigure: argument 0"}
-!228 = distinct !{!228, !"pyinit_core_reconfigure"}
-!229 = !{!169, !32, i64 16}
-!230 = !{!128, !27, i64 432}
-!231 = !{!128, !27, i64 436}
-!232 = !{!233}
-!233 = distinct !{!233, !234, !"pyinit_main: argument 0"}
-!234 = distinct !{!234, !"pyinit_main"}
-!235 = !{!115, !120, i64 7376}
-!236 = !{!237, !233}
-!237 = distinct !{!237, !238, !"pyinit_main_reconfigure: argument 0"}
-!238 = distinct !{!238, !"pyinit_main_reconfigure"}
-!239 = !{!5, !32, i64 712}
-!240 = !{!128, !27, i64 264}
-!241 = !{!115, !27, i64 11656}
-!242 = !{!243}
-!243 = distinct !{!243, !244, !"_PyRuntime_Initialize: argument 0"}
-!244 = distinct !{!244, !"_PyRuntime_Initialize"}
-!245 = !{!128, !27, i64 16}
-!246 = !{!5, !28, i64 736}
-!247 = !{!5, !9, i64 728}
-!248 = !{!115, !27, i64 7312}
-!249 = !{!115, !27, i64 8064}
-!250 = !{!169, !9, i64 152}
-!251 = !{!30, !32, i64 8}
-!252 = !{!115, !32, i64 7264}
-!253 = !{!52, !52, i64 0}
-!254 = !{!115, !28, i64 7336}
-!255 = distinct !{!255, !180, !181}
-!256 = !{!58, !27, i64 264}
-!257 = !{!29, !29, i64 0}
-!258 = distinct !{!258, !180, !181}
-!259 = !{!260}
-!260 = distinct !{!260, !261, !"_PyRuntime_Initialize: argument 0"}
-!261 = distinct !{!261, !"_PyRuntime_Initialize"}
-!262 = !{!5, !27, i64 9952}
-!263 = !{!115, !27, i64 7308}
-!264 = !{!32, !32, i64 0}
-!265 = !{!266, !27, i64 0}
-!266 = !{!"", !27, i64 0, !27, i64 4, !27, i64 8, !27, i64 12, !27, i64 16, !27, i64 20, !27, i64 24}
-!267 = !{!268}
-!268 = distinct !{!268, !269, !"init_interp_settings: argument 0"}
-!269 = distinct !{!269, !"init_interp_settings"}
-!270 = !{!115, !9, i64 8440}
-!271 = !{!266, !27, i64 20}
-!272 = !{!266, !27, i64 4}
-!273 = !{!266, !27, i64 8}
-!274 = !{!266, !27, i64 12}
-!275 = !{!266, !27, i64 16}
-!276 = !{!266, !27, i64 24}
-!277 = !{!169, !171, i64 72}
-!278 = !{!169, !28, i64 8}
-!279 = !{!169, !52, i64 112}
-!280 = !{!103, !104, i64 8}
-!281 = !{!115, !88, i64 222968}
-!282 = !{!115, !52, i64 7648}
-!283 = !{!128, !27, i64 208}
-!284 = !{!115, !52, i64 7640}
-!285 = distinct !{!285, !180, !181, !286}
-!286 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!287 = distinct !{!287, !180, !181}
-!288 = distinct !{!288, !180, !181}
-!289 = !{!9, !9, i64 0}
-!290 = !{!291, !9, i64 168}
-!291 = !{!"_typeobject", !102, i64 0, !63, i64 24, !9, i64 32, !9, i64 40, !29, i64 48, !9, i64 56, !29, i64 64, !29, i64 72, !29, i64 80, !29, i64 88, !29, i64 96, !29, i64 104, !29, i64 112, !29, i64 120, !29, i64 128, !29, i64 136, !29, i64 144, !29, i64 152, !29, i64 160, !9, i64 168, !63, i64 176, !29, i64 184, !29, i64 192, !29, i64 200, !9, i64 208, !29, i64 216, !29, i64 224, !292, i64 232, !293, i64 240, !294, i64 248, !104, i64 256, !52, i64 264, !29, i64 272, !29, i64 280, !9, i64 288, !29, i64 296, !29, i64 304, !29, i64 312, !29, i64 320, !29, i64 328, !52, i64 336, !52, i64 344, !52, i64 352, !29, i64 360, !52, i64 368, !29, i64 376, !27, i64 384, !29, i64 392, !29, i64 400, !7, i64 408, !84, i64 410}
-!292 = !{!"p1 _ZTS11PyMethodDef", !29, i64 0}
-!293 = !{!"p1 _ZTS11PyMemberDef", !29, i64 0}
-!294 = !{!"p1 _ZTS11PyGetSetDef", !29, i64 0}
-!295 = distinct !{!295, !180, !181, !286}
-!296 = distinct !{!296, !180, !181}
-!297 = distinct !{!297, !180}
-!298 = distinct !{!298, !181}
-!299 = !{!115, !52, i64 8464}
-!300 = !{!102, !9, i64 16}
-!301 = !{!302, !145, i64 24}
-!302 = !{!"", !102, i64 0, !145, i64 24, !9, i64 32}
-!303 = !{!304, !52, i64 16}
-!304 = !{!"_PyWeakReference", !103, i64 0, !52, i64 16, !52, i64 24, !9, i64 32, !305, i64 40, !305, i64 48, !29, i64 56}
-!305 = !{!"p1 _ZTS16_PyWeakReference", !29, i64 0}
-!306 = !{!307, !52, i64 16}
-!307 = !{!"", !103, i64 0, !52, i64 16, !308, i64 24, !29, i64 32, !52, i64 40, !52, i64 48}
-!308 = !{!"p1 _ZTS11PyModuleDef", !29, i64 0}
-!309 = distinct !{!309, !180, !181, !286}
-!310 = distinct !{!310, !180, !181}
-!311 = distinct !{!311, !180, !181}
-!312 = distinct !{!312, !181, !286}
-!313 = distinct !{!313, !181, !286}
-!314 = distinct !{!314, !181}
-!315 = distinct !{!315, !180, !181}
-!316 = !{!128, !27, i64 192}
-!317 = !{!318, !27, i64 136}
-!318 = !{!"sigaction", !7, i64 0, !89, i64 8, !27, i64 136, !29, i64 144}
-!319 = !{!320}
-!320 = distinct !{!320, !321, !"pycore_init_runtime: argument 0"}
-!321 = distinct !{!321, !"pycore_init_runtime"}
-!322 = !{!323}
-!323 = distinct !{!323, !324, !"pycore_create_interpreter: argument 0"}
-!324 = distinct !{!324, !"pycore_create_interpreter"}
-!325 = !{!326, !323}
-!326 = distinct !{!326, !327, !"init_interp_settings: argument 0"}
-!327 = distinct !{!327, !"init_interp_settings"}
-!328 = !{!329}
-!329 = distinct !{!329, !330, !"pycore_init_global_objects: argument 0"}
-!330 = distinct !{!330, !"pycore_init_global_objects"}
-!331 = !{!115, !52, i64 222936}
-!332 = !{!115, !52, i64 222944}
-!333 = !{!115, !52, i64 222952}
-!334 = !{!115, !52, i64 222960}
-!335 = !{!128, !27, i64 32}
-!336 = !{!128, !27, i64 36}
-!337 = !{!128, !27, i64 40}
-!338 = !{!128, !27, i64 176}
-!339 = !{!90, !27, i64 24}
-!340 = !{!128, !129, i64 424}
-!341 = !{!342, !27, i64 24}
-!342 = !{!"stat", !9, i64 0, !9, i64 8, !9, i64 16, !27, i64 24, !27, i64 28, !27, i64 32, !27, i64 36, !9, i64 40, !9, i64 48, !9, i64 56, !9, i64 64, !343, i64 72, !343, i64 88, !343, i64 104, !7, i64 120}
-!343 = !{!"timespec", !9, i64 0, !9, i64 8}
-!344 = !{!128, !129, i64 232}
-!345 = !{!128, !129, i64 240}
-!346 = !{!128, !27, i64 224}
-!347 = !{!115, !7, i64 222995}
+!181 = !{!68, !68, i64 0}
+!182 = distinct !{!182, !180}
+!183 = !{!184, !27, i64 0}
+!184 = !{!"", !27, i64 0, !63, i64 8, !63, i64 16, !27, i64 24}
+!185 = !{!184, !63, i64 8}
+!186 = !{!184, !63, i64 16}
+!187 = !{!184, !27, i64 24}
+!188 = !{!189}
+!189 = distinct !{!189, !190, !"_PyRuntime_Initialize: argument 0"}
+!190 = distinct !{!190, !"_PyRuntime_Initialize"}
+!191 = !{!27, !27, i64 0}
+!192 = !{i64 4, i64 8, !193, i64 12, i64 8, !193, i64 20, i64 4, !191}
+!193 = !{!63, !63, i64 0}
+!194 = !{!5, !27, i64 664}
+!195 = !{!5, !27, i64 660}
+!196 = !{!197, !9, i64 0}
+!197 = !{!"_PyArgv", !9, i64 0, !27, i64 8, !198, i64 16, !55, i64 24}
+!198 = !{!"p2 omnipotent char", !29, i64 0}
+!199 = !{!197, !27, i64 8}
+!200 = !{!197, !198, i64 16}
+!201 = !{!197, !55, i64 24}
+!202 = !{!203}
+!203 = distinct !{!203, !204, !"_PyRuntime_Initialize: argument 0"}
+!204 = distinct !{!204, !"_PyRuntime_Initialize"}
+!205 = !{i64 0, i64 4, !191, i64 8, i64 8, !193, i64 16, i64 8, !193, i64 24, i64 4, !191}
+!206 = !{!128, !27, i64 104}
+!207 = !{!128, !9, i64 128}
+!208 = !{!128, !55, i64 136}
+!209 = !{!210}
+!210 = distinct !{!210, !211, !"_PyRuntime_Initialize: argument 0"}
+!211 = distinct !{!211, !"_PyRuntime_Initialize"}
+!212 = !{!28, !28, i64 0}
+!213 = !{!214}
+!214 = distinct !{!214, !215, !"pyinit_core: argument 0"}
+!215 = distinct !{!215, !"pyinit_core"}
+!216 = !{!217, !214}
+!217 = distinct !{!217, !218, !"_Py_PreInitializeFromConfig: argument 0:thread"}
+!218 = distinct !{!218, !"_Py_PreInitializeFromConfig"}
+!219 = !{!220, !222, !214}
+!220 = distinct !{!220, !221, !"_PyRuntime_Initialize: argument 0"}
+!221 = distinct !{!221, !"_PyRuntime_Initialize"}
+!222 = distinct !{!222, !218, !"_Py_PreInitializeFromConfig: argument 0"}
+!223 = !{!222, !214}
+!224 = !{!220}
+!225 = !{!226, !214}
+!226 = distinct !{!226, !227, !"pyinit_core_reconfigure: argument 0"}
+!227 = distinct !{!227, !"pyinit_core_reconfigure"}
+!228 = !{!169, !32, i64 16}
+!229 = !{!128, !27, i64 432}
+!230 = !{!128, !27, i64 436}
+!231 = !{!232}
+!232 = distinct !{!232, !233, !"pyinit_main: argument 0"}
+!233 = distinct !{!233, !"pyinit_main"}
+!234 = !{!115, !120, i64 7376}
+!235 = !{!236, !232}
+!236 = distinct !{!236, !237, !"pyinit_main_reconfigure: argument 0"}
+!237 = distinct !{!237, !"pyinit_main_reconfigure"}
+!238 = !{!5, !32, i64 712}
+!239 = !{!128, !27, i64 264}
+!240 = !{!115, !27, i64 11656}
+!241 = !{!242}
+!242 = distinct !{!242, !243, !"_PyRuntime_Initialize: argument 0"}
+!243 = distinct !{!243, !"_PyRuntime_Initialize"}
+!244 = !{!128, !27, i64 16}
+!245 = !{!5, !28, i64 736}
+!246 = !{!5, !9, i64 728}
+!247 = !{!115, !27, i64 7312}
+!248 = !{!115, !27, i64 8064}
+!249 = !{!169, !9, i64 152}
+!250 = !{!30, !32, i64 8}
+!251 = !{!115, !32, i64 7264}
+!252 = !{!52, !52, i64 0}
+!253 = !{!115, !28, i64 7336}
+!254 = distinct !{!254, !180}
+!255 = !{!58, !27, i64 264}
+!256 = !{!29, !29, i64 0}
+!257 = distinct !{!257, !180}
+!258 = !{!259}
+!259 = distinct !{!259, !260, !"_PyRuntime_Initialize: argument 0"}
+!260 = distinct !{!260, !"_PyRuntime_Initialize"}
+!261 = !{!5, !27, i64 9952}
+!262 = !{!115, !27, i64 7308}
+!263 = !{!32, !32, i64 0}
+!264 = !{!265, !27, i64 0}
+!265 = !{!"", !27, i64 0, !27, i64 4, !27, i64 8, !27, i64 12, !27, i64 16, !27, i64 20, !27, i64 24}
+!266 = !{!267}
+!267 = distinct !{!267, !268, !"init_interp_settings: argument 0"}
+!268 = distinct !{!268, !"init_interp_settings"}
+!269 = !{!115, !9, i64 8440}
+!270 = !{!265, !27, i64 20}
+!271 = !{!265, !27, i64 4}
+!272 = !{!265, !27, i64 8}
+!273 = !{!265, !27, i64 12}
+!274 = !{!265, !27, i64 16}
+!275 = !{!265, !27, i64 24}
+!276 = !{!169, !171, i64 72}
+!277 = !{!169, !28, i64 8}
+!278 = !{!169, !52, i64 112}
+!279 = !{!103, !104, i64 8}
+!280 = !{!115, !88, i64 222968}
+!281 = !{!115, !52, i64 7648}
+!282 = !{!128, !27, i64 208}
+!283 = !{!115, !52, i64 7640}
+!284 = distinct !{!284, !180, !285}
+!285 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!286 = distinct !{!286, !180}
+!287 = distinct !{!287, !180}
+!288 = !{!9, !9, i64 0}
+!289 = !{!290, !9, i64 168}
+!290 = !{!"_typeobject", !102, i64 0, !63, i64 24, !9, i64 32, !9, i64 40, !29, i64 48, !9, i64 56, !29, i64 64, !29, i64 72, !29, i64 80, !29, i64 88, !29, i64 96, !29, i64 104, !29, i64 112, !29, i64 120, !29, i64 128, !29, i64 136, !29, i64 144, !29, i64 152, !29, i64 160, !9, i64 168, !63, i64 176, !29, i64 184, !29, i64 192, !29, i64 200, !9, i64 208, !29, i64 216, !29, i64 224, !291, i64 232, !292, i64 240, !293, i64 248, !104, i64 256, !52, i64 264, !29, i64 272, !29, i64 280, !9, i64 288, !29, i64 296, !29, i64 304, !29, i64 312, !29, i64 320, !29, i64 328, !52, i64 336, !52, i64 344, !52, i64 352, !29, i64 360, !52, i64 368, !29, i64 376, !27, i64 384, !29, i64 392, !29, i64 400, !7, i64 408, !84, i64 410}
+!291 = !{!"p1 _ZTS11PyMethodDef", !29, i64 0}
+!292 = !{!"p1 _ZTS11PyMemberDef", !29, i64 0}
+!293 = !{!"p1 _ZTS11PyGetSetDef", !29, i64 0}
+!294 = distinct !{!294, !180, !285}
+!295 = distinct !{!295, !180}
+!296 = distinct !{!296, !180}
+!297 = !{!115, !52, i64 8464}
+!298 = !{!102, !9, i64 16}
+!299 = !{!300, !145, i64 24}
+!300 = !{!"", !102, i64 0, !145, i64 24, !9, i64 32}
+!301 = !{!302, !52, i64 16}
+!302 = !{!"_PyWeakReference", !103, i64 0, !52, i64 16, !52, i64 24, !9, i64 32, !303, i64 40, !303, i64 48, !29, i64 56}
+!303 = !{!"p1 _ZTS16_PyWeakReference", !29, i64 0}
+!304 = !{!305, !52, i64 16}
+!305 = !{!"", !103, i64 0, !52, i64 16, !306, i64 24, !29, i64 32, !52, i64 40, !52, i64 48}
+!306 = !{!"p1 _ZTS11PyModuleDef", !29, i64 0}
+!307 = distinct !{!307, !180, !285}
+!308 = distinct !{!308, !180}
+!309 = distinct !{!309, !180}
+!310 = distinct !{!310, !180, !285}
+!311 = distinct !{!311, !180, !285}
+!312 = distinct !{!312, !180}
+!313 = distinct !{!313, !180}
+!314 = !{!128, !27, i64 192}
+!315 = !{!316, !27, i64 136}
+!316 = !{!"sigaction", !7, i64 0, !89, i64 8, !27, i64 136, !29, i64 144}
+!317 = !{!318}
+!318 = distinct !{!318, !319, !"pycore_init_runtime: argument 0"}
+!319 = distinct !{!319, !"pycore_init_runtime"}
+!320 = !{!321}
+!321 = distinct !{!321, !322, !"pycore_create_interpreter: argument 0"}
+!322 = distinct !{!322, !"pycore_create_interpreter"}
+!323 = !{!324, !321}
+!324 = distinct !{!324, !325, !"init_interp_settings: argument 0"}
+!325 = distinct !{!325, !"init_interp_settings"}
+!326 = !{!327}
+!327 = distinct !{!327, !328, !"pycore_init_global_objects: argument 0"}
+!328 = distinct !{!328, !"pycore_init_global_objects"}
+!329 = !{!115, !52, i64 222936}
+!330 = !{!115, !52, i64 222944}
+!331 = !{!115, !52, i64 222952}
+!332 = !{!115, !52, i64 222960}
+!333 = !{!128, !27, i64 32}
+!334 = !{!128, !27, i64 36}
+!335 = !{!128, !27, i64 40}
+!336 = !{!128, !27, i64 176}
+!337 = !{!90, !27, i64 24}
+!338 = !{!128, !129, i64 424}
+!339 = !{!340, !27, i64 24}
+!340 = !{!"stat", !9, i64 0, !9, i64 8, !9, i64 16, !27, i64 24, !27, i64 28, !27, i64 32, !27, i64 36, !9, i64 40, !9, i64 48, !9, i64 56, !9, i64 64, !341, i64 72, !341, i64 88, !341, i64 104, !7, i64 120}
+!341 = !{!"timespec", !9, i64 0, !9, i64 8}
+!342 = !{!128, !129, i64 232}
+!343 = !{!128, !129, i64 240}
+!344 = !{!128, !27, i64 224}
+!345 = !{!115, !7, i64 222995}

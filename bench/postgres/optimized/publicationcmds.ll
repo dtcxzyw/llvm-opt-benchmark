@@ -309,11 +309,11 @@ define dso_local zeroext i1 @pub_contains_invalid_column(i32 noundef %0, ptr nou
   %32 = zext i1 %31 to i8
   store i8 %32, ptr %5, align 1
   %.not59 = icmp eq i8 %4, 115
-  %.pre78 = load ptr, ptr %11, align 8
+  %.pre77 = load ptr, ptr %11, align 8
   br i1 %.not59, label %41, label %33
 
 33:                                               ; preds = %29
-  %34 = getelementptr inbounds nuw i8, ptr %.pre78, i64 16
+  %34 = getelementptr inbounds nuw i8, ptr %.pre77, i64 16
   %35 = load ptr, ptr %34, align 8
   %.not60 = icmp eq ptr %35, null
   br i1 %.not60, label %41, label %36
@@ -330,7 +330,7 @@ define dso_local zeroext i1 @pub_contains_invalid_column(i32 noundef %0, ptr nou
   br label %41
 
 41:                                               ; preds = %40, %36, %33, %29
-  %42 = phi ptr [ %.pre, %40 ], [ %.pre78, %36 ], [ %.pre78, %33 ], [ %.pre78, %29 ]
+  %42 = phi ptr [ %.pre, %40 ], [ %.pre77, %36 ], [ %.pre77, %33 ], [ %.pre77, %29 ]
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 16
   %44 = load ptr, ptr %43, align 8
   %.not61 = icmp eq ptr %44, null
@@ -354,11 +354,10 @@ define dso_local zeroext i1 @pub_contains_invalid_column(i32 noundef %0, ptr nou
 53:                                               ; preds = %50
   %54 = load i8, ptr %5, align 1, !range !4, !noundef !5
   %55 = trunc nuw i8 %54 to i1
-  br i1 %55, label %148, label %56
+  br i1 %55, label %154, label %56
 
 56:                                               ; preds = %50, %53, %21
   %57 = call ptr @RelationGetIndexAttrBitmap(ptr noundef nonnull %1, i32 noundef 2) #9
-  %invariant.gep = getelementptr i8, ptr %12, i64 14
   %58 = call i32 @bms_next_member(ptr noundef %57, i32 noundef -1) #9
   %59 = icmp sgt i32 %58, -1
   br i1 %59, label %.lr.ph, label %.thread
@@ -367,8 +366,8 @@ define dso_local zeroext i1 @pub_contains_invalid_column(i32 noundef %0, ptr nou
   %60 = icmp ne i8 %4, 115
   br i1 %3, label %.lr.ph.split.us, label %.lr.ph.split
 
-.lr.ph.split.us:                                  ; preds = %.lr.ph, %88
-  %61 = phi i32 [ %89, %88 ], [ %58, %.lr.ph ]
+.lr.ph.split.us:                                  ; preds = %.lr.ph, %90
+  %61 = phi i32 [ %91, %90 ], [ %58, %.lr.ph ]
   %62 = trunc i32 %61 to i16
   %63 = add i16 %62, -7
   %64 = load ptr, ptr %8, align 8
@@ -387,139 +386,142 @@ define dso_local zeroext i1 @pub_contains_invalid_column(i32 noundef %0, ptr nou
   %75 = or i8 %73, %74
   %.not62.us = icmp eq i8 %75, 0
   store i8 %75, ptr %5, align 1
-  br i1 %.not62.us, label %88, label %76
+  br i1 %.not62.us, label %90, label %76
 
 76:                                               ; preds = %66
   %77 = load i8, ptr %6, align 1, !range !4, !noundef !5
   %78 = trunc nuw i8 %77 to i1
-  br i1 %78, label %.thread, label %88
+  br i1 %78, label %.thread, label %90
 
 79:                                               ; preds = %.lr.ph.split.us
   %80 = sext i16 %63 to i64
   %81 = load i32, ptr %12, align 8
   %82 = sext i32 %81 to i64
   %83 = shl nsw i64 %82, 4
+  %84 = getelementptr i8, ptr %12, i64 %83
   %.idx.us = mul nsw i64 %80, 100
-  %gep.us = getelementptr i8, ptr %invariant.gep, i64 %83
-  %84 = getelementptr i8, ptr %gep.us, i64 %.idx.us
-  %85 = load i8, ptr %84, align 2
-  %86 = icmp eq i8 %85, 115
-  %or.cond.us = and i1 %60, %86
-  %87 = icmp eq i8 %85, 118
-  %or.cond = or i1 %or.cond.us, %87
-  br i1 %or.cond, label %.thread.sink.split, label %88, !llvm.loop !6
+  %85 = getelementptr i8, ptr %84, i64 14
+  %86 = getelementptr i8, ptr %85, i64 %.idx.us
+  %87 = load i8, ptr %86, align 2
+  %88 = icmp eq i8 %87, 115
+  %or.cond.us = and i1 %60, %88
+  %89 = icmp eq i8 %87, 118
+  %or.cond = or i1 %or.cond.us, %89
+  br i1 %or.cond, label %.thread.sink.split, label %90, !llvm.loop !6
 
-88:                                               ; preds = %79, %76, %66
-  %89 = call i32 @bms_next_member(ptr noundef %57, i32 noundef %61) #9
-  %90 = icmp sgt i32 %89, -1
-  br i1 %90, label %.lr.ph.split.us, label %.thread, !llvm.loop !8
+90:                                               ; preds = %79, %76, %66
+  %91 = call i32 @bms_next_member(ptr noundef %57, i32 noundef %61) #9
+  %92 = icmp sgt i32 %91, -1
+  br i1 %92, label %.lr.ph.split.us, label %.thread, !llvm.loop !8
 
 .lr.ph.split:                                     ; preds = %.lr.ph
   br i1 %60, label %.lr.ph.split.split, label %.lr.ph.split.split.us
 
-.lr.ph.split.split.us:                            ; preds = %.lr.ph.split, %114
-  %91 = phi i32 [ %115, %114 ], [ %58, %.lr.ph.split ]
-  %92 = trunc i32 %91 to i16
-  %93 = add i16 %92, -7
-  %94 = load ptr, ptr %8, align 8
-  %95 = icmp eq ptr %94, null
-  br i1 %95, label %106, label %96
+.lr.ph.split.split.us:                            ; preds = %.lr.ph.split, %118
+  %93 = phi i32 [ %119, %118 ], [ %58, %.lr.ph.split ]
+  %94 = trunc i32 %93 to i16
+  %95 = add i16 %94, -7
+  %96 = load ptr, ptr %8, align 8
+  %97 = icmp eq ptr %96, null
+  br i1 %97, label %108, label %98
 
-96:                                               ; preds = %.lr.ph.split.split.us
-  %97 = sext i16 %93 to i32
-  %98 = call zeroext i1 @bms_is_member(i32 noundef %97, ptr noundef nonnull %94) #9
-  %99 = xor i1 %98, true
-  %100 = load i8, ptr %5, align 1, !range !4, !noundef !5
-  %101 = zext i1 %99 to i8
-  %102 = or i8 %100, %101
-  %.not62.us69 = icmp eq i8 %102, 0
-  store i8 %102, ptr %5, align 1
-  br i1 %.not62.us69, label %114, label %103
+98:                                               ; preds = %.lr.ph.split.split.us
+  %99 = sext i16 %95 to i32
+  %100 = call zeroext i1 @bms_is_member(i32 noundef %99, ptr noundef nonnull %96) #9
+  %101 = xor i1 %100, true
+  %102 = load i8, ptr %5, align 1, !range !4, !noundef !5
+  %103 = zext i1 %101 to i8
+  %104 = or i8 %102, %103
+  %.not62.us69 = icmp eq i8 %104, 0
+  store i8 %104, ptr %5, align 1
+  br i1 %.not62.us69, label %118, label %105
 
-103:                                              ; preds = %96
-  %104 = load i8, ptr %6, align 1, !range !4, !noundef !5
-  %105 = trunc nuw i8 %104 to i1
-  br i1 %105, label %.thread, label %114
+105:                                              ; preds = %98
+  %106 = load i8, ptr %6, align 1, !range !4, !noundef !5
+  %107 = trunc nuw i8 %106 to i1
+  br i1 %107, label %.thread, label %118
 
-106:                                              ; preds = %.lr.ph.split.split.us
-  %107 = sext i16 %93 to i64
-  %108 = load i32, ptr %12, align 8
-  %109 = sext i32 %108 to i64
-  %110 = shl nsw i64 %109, 4
-  %.idx.us70 = mul nsw i64 %107, 100
-  %gep.us71 = getelementptr i8, ptr %invariant.gep, i64 %110
-  %111 = getelementptr i8, ptr %gep.us71, i64 %.idx.us70
-  %112 = load i8, ptr %111, align 2
-  %113 = icmp eq i8 %112, 118
-  br i1 %113, label %.thread.sink.split, label %114, !llvm.loop !6
+108:                                              ; preds = %.lr.ph.split.split.us
+  %109 = sext i16 %95 to i64
+  %110 = load i32, ptr %12, align 8
+  %111 = sext i32 %110 to i64
+  %112 = shl nsw i64 %111, 4
+  %113 = getelementptr i8, ptr %12, i64 %112
+  %.idx.us70 = mul nsw i64 %109, 100
+  %114 = getelementptr i8, ptr %113, i64 14
+  %115 = getelementptr i8, ptr %114, i64 %.idx.us70
+  %116 = load i8, ptr %115, align 2
+  %117 = icmp eq i8 %116, 118
+  br i1 %117, label %.thread.sink.split, label %118, !llvm.loop !6
 
-114:                                              ; preds = %106, %103, %96
-  %115 = call i32 @bms_next_member(ptr noundef %57, i32 noundef %91) #9
-  %116 = icmp sgt i32 %115, -1
-  br i1 %116, label %.lr.ph.split.split.us, label %.thread, !llvm.loop !10
+118:                                              ; preds = %108, %105, %98
+  %119 = call i32 @bms_next_member(ptr noundef %57, i32 noundef %93) #9
+  %120 = icmp sgt i32 %119, -1
+  br i1 %120, label %.lr.ph.split.split.us, label %.thread, !llvm.loop !10
 
-.lr.ph.split.split:                               ; preds = %.lr.ph.split, %139
-  %117 = phi i32 [ %140, %139 ], [ %58, %.lr.ph.split ]
-  %118 = trunc i32 %117 to i16
-  %119 = add i16 %118, -7
-  %120 = load ptr, ptr %8, align 8
-  %121 = icmp eq ptr %120, null
-  br i1 %121, label %122, label %129
+.lr.ph.split.split:                               ; preds = %.lr.ph.split, %145
+  %121 = phi i32 [ %146, %145 ], [ %58, %.lr.ph.split ]
+  %122 = trunc i32 %121 to i16
+  %123 = add i16 %122, -7
+  %124 = load ptr, ptr %8, align 8
+  %125 = icmp eq ptr %124, null
+  br i1 %125, label %126, label %135
 
-122:                                              ; preds = %.lr.ph.split.split
-  %123 = sext i16 %119 to i64
-  %124 = load i32, ptr %12, align 8
-  %125 = sext i32 %124 to i64
-  %126 = shl nsw i64 %125, 4
-  %.idx = mul nsw i64 %123, 100
-  %gep = getelementptr i8, ptr %invariant.gep, i64 %126
-  %127 = getelementptr i8, ptr %gep, i64 %.idx
-  %128 = load i8, ptr %127, align 2
-  switch i8 %128, label %139 [
+126:                                              ; preds = %.lr.ph.split.split
+  %127 = sext i16 %123 to i64
+  %128 = load i32, ptr %12, align 8
+  %129 = sext i32 %128 to i64
+  %130 = shl nsw i64 %129, 4
+  %131 = getelementptr i8, ptr %12, i64 %130
+  %.idx = mul nsw i64 %127, 100
+  %132 = getelementptr i8, ptr %131, i64 14
+  %133 = getelementptr i8, ptr %132, i64 %.idx
+  %134 = load i8, ptr %133, align 2
+  switch i8 %134, label %145 [
     i8 115, label %.thread.sink.split
     i8 118, label %.thread.sink.split
   ]
 
-129:                                              ; preds = %.lr.ph.split.split
-  %130 = sext i16 %119 to i32
-  %131 = call zeroext i1 @bms_is_member(i32 noundef %130, ptr noundef nonnull %120) #9
-  %132 = xor i1 %131, true
-  %133 = load i8, ptr %5, align 1, !range !4, !noundef !5
-  %134 = zext i1 %132 to i8
-  %135 = or i8 %133, %134
-  %.not62 = icmp eq i8 %135, 0
-  store i8 %135, ptr %5, align 1
-  br i1 %.not62, label %139, label %136
+135:                                              ; preds = %.lr.ph.split.split
+  %136 = sext i16 %123 to i32
+  %137 = call zeroext i1 @bms_is_member(i32 noundef %136, ptr noundef nonnull %124) #9
+  %138 = xor i1 %137, true
+  %139 = load i8, ptr %5, align 1, !range !4, !noundef !5
+  %140 = zext i1 %138 to i8
+  %141 = or i8 %139, %140
+  %.not62 = icmp eq i8 %141, 0
+  store i8 %141, ptr %5, align 1
+  br i1 %.not62, label %145, label %142
 
-136:                                              ; preds = %129
-  %137 = load i8, ptr %6, align 1, !range !4, !noundef !5
-  %138 = trunc nuw i8 %137 to i1
-  br i1 %138, label %.thread, label %139
+142:                                              ; preds = %135
+  %143 = load i8, ptr %6, align 1, !range !4, !noundef !5
+  %144 = trunc nuw i8 %143 to i1
+  br i1 %144, label %.thread, label %145
 
-139:                                              ; preds = %122, %129, %136
-  %140 = call i32 @bms_next_member(ptr noundef %57, i32 noundef %117) #9
-  %141 = icmp sgt i32 %140, -1
-  br i1 %141, label %.lr.ph.split.split, label %.thread
+145:                                              ; preds = %126, %135, %142
+  %146 = call i32 @bms_next_member(ptr noundef %57, i32 noundef %121) #9
+  %147 = icmp sgt i32 %146, -1
+  br i1 %147, label %.lr.ph.split.split, label %.thread
 
-.thread.sink.split:                               ; preds = %106, %122, %122, %79
+.thread.sink.split:                               ; preds = %108, %126, %126, %79
   store i8 1, ptr %6, align 1
   br label %.thread
 
-.thread:                                          ; preds = %114, %103, %139, %136, %88, %76, %.thread.sink.split, %56
-  %142 = load ptr, ptr %8, align 8
-  call void @bms_free(ptr noundef %142) #9
+.thread:                                          ; preds = %118, %105, %145, %142, %90, %76, %.thread.sink.split, %56
+  %148 = load ptr, ptr %8, align 8
+  call void @bms_free(ptr noundef %148) #9
   call void @bms_free(ptr noundef %57) #9
-  %143 = load i8, ptr %5, align 1, !range !4, !noundef !5
-  %144 = trunc nuw i8 %143 to i1
-  br i1 %144, label %148, label %145
+  %149 = load i8, ptr %5, align 1, !range !4, !noundef !5
+  %150 = trunc nuw i8 %149 to i1
+  br i1 %150, label %154, label %151
 
-145:                                              ; preds = %.thread
-  %146 = load i8, ptr %6, align 1, !range !4, !noundef !5
-  %147 = trunc nuw i8 %146 to i1
-  br label %148
+151:                                              ; preds = %.thread
+  %152 = load i8, ptr %6, align 1, !range !4, !noundef !5
+  %153 = trunc nuw i8 %152 to i1
+  br label %154
 
-148:                                              ; preds = %.thread, %145, %53
-  %.0 = phi i1 [ true, %53 ], [ true, %.thread ], [ %147, %145 ]
+154:                                              ; preds = %.thread, %151, %53
+  %.0 = phi i1 [ true, %53 ], [ true, %.thread ], [ %153, %151 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #9
   ret i1 %.0
 }
@@ -1214,7 +1216,7 @@ define internal fastcc ptr @OpenTableList(ptr noundef readonly captures(address_
   %13 = trunc nuw i8 %12 to i1
   %14 = load volatile i32, ptr @InterruptPending, align 4
   %.not107 = icmp eq i32 %14, 0
-  br i1 %.not107, label %16, label %15, !prof !13
+  br i1 %.not107, label %16, label %15, !prof !12
 
 .critedge:                                        ; preds = %.critedge122, %.lr.ph169, %1
   %.088.lcssa = phi ptr [ null, %1 ], [ null, %.lr.ph169 ], [ %.189, %.critedge122 ]
@@ -1350,7 +1352,7 @@ define internal fastcc ptr @OpenTableList(ptr noundef readonly captures(address_
   %78 = load i32, ptr %77, align 8
   %79 = load volatile i32, ptr @InterruptPending, align 4
   %.not113 = icmp eq i32 %79, 0
-  br i1 %.not113, label %81, label %80, !prof !13
+  br i1 %.not113, label %81, label %80, !prof !12
 
 80:                                               ; preds = %.lr.ph242
   tail call void @ProcessInterrupts() #9
@@ -1771,7 +1773,7 @@ define internal fastcc void @LockSchemaList(ptr noundef readonly captures(addres
   %12 = load i32, ptr %11, align 8
   %13 = load volatile i32, ptr @InterruptPending, align 4
   %.not10 = icmp eq i32 %13, 0
-  br i1 %.not10, label %15, label %14, !prof !13
+  br i1 %.not10, label %15, label %14, !prof !12
 
 .critedge:                                        ; preds = %6, %.lr.ph, %1
   ret void
@@ -1893,7 +1895,7 @@ list_length.exit:                                 ; preds = %1
   %10 = load i32, ptr %2, align 4
   %11 = sext i32 %10 to i64
   %12 = icmp slt i64 %indvars.iv.next, %11
-  br i1 %12, label %.critedge9, label %.critedge, !llvm.loop !14
+  br i1 %12, label %.critedge9, label %.critedge, !llvm.loop !13
 
 13:                                               ; preds = %list_length.exit
   tail call void @CacheInvalidateRelcacheAll() #9
@@ -2173,7 +2175,7 @@ define dso_local void @AlterPublication(ptr noundef %0, ptr noundef %1) local_un
   %150 = load i32, ptr %139, align 4
   %151 = sext i32 %150 to i64
   %.not76.i = icmp slt i64 %indvars.iv.next99.i, %151
-  br i1 %.not76.i, label %145, label %.critedge79.i, !llvm.loop !15
+  br i1 %.not76.i, label %145, label %.critedge79.i, !llvm.loop !14
 
 .critedge79.i:                                    ; preds = %145, %142, %.preheader.i
   %.066.i = phi ptr [ %144, %142 ], [ null, %.preheader.i ], [ %149, %145 ]
@@ -2207,7 +2209,7 @@ list_length.exit.i.i:                             ; preds = %.critedge79.i
   %163 = load i32, ptr %155, align 4
   %164 = sext i32 %163 to i64
   %165 = icmp slt i64 %indvars.iv.next.i.i, %164
-  br i1 %165, label %.critedge9.i.i, label %InvalidatePublicationRels.exit.i, !llvm.loop !14
+  br i1 %165, label %.critedge9.i.i, label %InvalidatePublicationRels.exit.i, !llvm.loop !13
 
 InvalidatePublicationRels.exit.sink.split.i:      ; preds = %list_length.exit.i.i, %124
   call void @CacheInvalidateRelcacheAll() #9
@@ -2829,7 +2831,7 @@ list_length.exit.i:                               ; preds = %8
   %25 = load i32, ptr %17, align 4
   %26 = sext i32 %25 to i64
   %27 = icmp slt i64 %indvars.iv.next.i, %26
-  br i1 %27, label %.critedge9.i, label %InvalidatePublicationRels.exit, !llvm.loop !14
+  br i1 %27, label %.critedge9.i, label %InvalidatePublicationRels.exit, !llvm.loop !13
 
 28:                                               ; preds = %list_length.exit.i
   tail call void @CacheInvalidateRelcacheAll() #9
@@ -2942,7 +2944,7 @@ list_length.exit.i:                               ; preds = %8
   %25 = load i32, ptr %17, align 4
   %26 = sext i32 %25 to i64
   %27 = icmp slt i64 %indvars.iv.next.i, %26
-  br i1 %27, label %.critedge9.i, label %InvalidatePublicationRels.exit, !llvm.loop !14
+  br i1 %27, label %.critedge9.i, label %InvalidatePublicationRels.exit, !llvm.loop !13
 
 28:                                               ; preds = %list_length.exit.i
   tail call void @CacheInvalidateRelcacheAll() #9
@@ -3533,8 +3535,7 @@ attributes #12 = { noreturn nounwind }
 !8 = distinct !{!8, !9}
 !9 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !10 = distinct !{!10, !9}
-!11 = distinct !{!11, !7, !12}
-!12 = !{!"llvm.loop.estimated_trip_count"}
-!13 = !{!"branch_weights", !"expected", i32 2000, i32 1}
-!14 = distinct !{!14, !7, !12}
-!15 = distinct !{!15, !7, !12}
+!11 = distinct !{!11, !7}
+!12 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!13 = distinct !{!13, !7}
+!14 = distinct !{!14, !7}

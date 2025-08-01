@@ -125,7 +125,7 @@ define void @Extra_BitMatrixPrint(ptr noundef captures(none) %0) local_unnamed_a
   %putchar19 = tail call i32 @putchar(i32 32)
   %9 = add nuw nsw i32 %.01320, 1
   %exitcond.not = icmp eq i32 %9, %indvars.iv
-  br i1 %exitcond.not, label %10, label %8, !llvm.loop !19
+  br i1 %exitcond.not, label %10, label %8, !llvm.loop !18
 
 10:                                               ; preds = %8
   %11 = add nuw nsw i32 %.022, 1
@@ -134,9 +134,9 @@ define void @Extra_BitMatrixPrint(ptr noundef captures(none) %0) local_unnamed_a
 
 .lr.ph:                                           ; preds = %10, %.lr.ph
   %.121 = phi i32 [ %28, %.lr.ph ], [ %11, %10 ]
-  %13 = load i32, ptr %5, align 8, !tbaa !20
+  %13 = load i32, ptr %5, align 8, !tbaa !19
   %14 = add nsw i32 %13, 1
-  store i32 %14, ptr %5, align 8, !tbaa !20
+  store i32 %14, ptr %5, align 8, !tbaa !19
   %15 = load ptr, ptr %0, align 8, !tbaa !13
   %16 = load i32, ptr %6, align 8, !tbaa !10
   %17 = load i32, ptr %7, align 4, !tbaa !11
@@ -148,7 +148,7 @@ define void @Extra_BitMatrixPrint(ptr noundef captures(none) %0) local_unnamed_a
   %21 = lshr i32 %.26.i, %16
   %22 = zext nneg i32 %21 to i64
   %23 = getelementptr inbounds nuw i32, ptr %20, i64 %22
-  %24 = load i32, ptr %23, align 4, !tbaa !21
+  %24 = load i32, ptr %23, align 4, !tbaa !20
   %25 = and i32 %17, %.26.i
   %26 = shl nuw i32 1, %25
   %27 = and i32 %24, %26
@@ -157,13 +157,13 @@ define void @Extra_BitMatrixPrint(ptr noundef captures(none) %0) local_unnamed_a
   %putchar18 = tail call i32 @putchar(i32 %.)
   %28 = add nuw i32 %.121, 1
   %exitcond24.not = icmp eq i32 %28, %3
-  br i1 %exitcond24.not, label %._crit_edge, label %.lr.ph, !llvm.loop !22
+  br i1 %exitcond24.not, label %._crit_edge, label %.lr.ph, !llvm.loop !21
 
 ._crit_edge:                                      ; preds = %.lr.ph, %10
   %putchar15 = tail call i32 @putchar(i32 10)
   %indvars.iv.next = add nuw i32 %indvars.iv, 1
   %exitcond25.not = icmp eq i32 %11, %3
-  br i1 %exitcond25.not, label %._crit_edge23, label %.preheader, !llvm.loop !23
+  br i1 %exitcond25.not, label %._crit_edge23, label %.preheader, !llvm.loop !22
 
 ._crit_edge23:                                    ; preds = %._crit_edge, %1
   ret void
@@ -179,9 +179,9 @@ define i32 @Extra_BitMatrixReadSize(ptr noundef readonly captures(none) %0) loca
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define range(i32 0, 2) i32 @Extra_BitMatrixLookup1(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #8 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %5 = load i32, ptr %4, align 8, !tbaa !20
+  %5 = load i32, ptr %4, align 8, !tbaa !19
   %6 = add nsw i32 %5, 1
-  store i32 %6, ptr %4, align 8, !tbaa !20
+  store i32 %6, ptr %4, align 8, !tbaa !19
   %7 = load ptr, ptr %0, align 8, !tbaa !13
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = load i32, ptr %8, align 8, !tbaa !10
@@ -195,7 +195,7 @@ define range(i32 0, 2) i32 @Extra_BitMatrixLookup1(ptr noundef captures(none) %0
   %15 = ashr i32 %.26, %9
   %16 = sext i32 %15 to i64
   %17 = getelementptr inbounds i32, ptr %14, i64 %16
-  %18 = load i32, ptr %17, align 4, !tbaa !21
+  %18 = load i32, ptr %17, align 4, !tbaa !20
   %19 = and i32 %11, %.26
   %20 = lshr i32 %18, %19
   %.0 = and i32 %20, 1
@@ -205,9 +205,9 @@ define range(i32 0, 2) i32 @Extra_BitMatrixLookup1(ptr noundef captures(none) %0
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define void @Extra_BitMatrixInsert1(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #3 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %5 = load i32, ptr %4, align 4, !tbaa !24
+  %5 = load i32, ptr %4, align 4, !tbaa !23
   %6 = add nsw i32 %5, 1
-  store i32 %6, ptr %4, align 4, !tbaa !24
+  store i32 %6, ptr %4, align 4, !tbaa !23
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %8 = load i32, ptr %7, align 4, !tbaa !11
   %9 = load ptr, ptr %0, align 8, !tbaa !13
@@ -223,18 +223,18 @@ define void @Extra_BitMatrixInsert1(ptr noundef captures(none) %0, i32 noundef %
   %17 = ashr i32 %., %11
   %18 = sext i32 %17 to i64
   %19 = getelementptr inbounds i32, ptr %16, i64 %18
-  %20 = load i32, ptr %19, align 4, !tbaa !21
+  %20 = load i32, ptr %19, align 4, !tbaa !20
   %21 = or i32 %20, %13
-  store i32 %21, ptr %19, align 4, !tbaa !21
+  store i32 %21, ptr %19, align 4, !tbaa !20
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define void @Extra_BitMatrixDelete1(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #3 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %5 = load i32, ptr %4, align 8, !tbaa !25
+  %5 = load i32, ptr %4, align 8, !tbaa !24
   %6 = add nsw i32 %5, 1
-  store i32 %6, ptr %4, align 8, !tbaa !25
+  store i32 %6, ptr %4, align 8, !tbaa !24
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %8 = load i32, ptr %7, align 4, !tbaa !11
   %9 = load ptr, ptr %0, align 8, !tbaa !13
@@ -251,18 +251,18 @@ define void @Extra_BitMatrixDelete1(ptr noundef captures(none) %0, i32 noundef %
   %18 = ashr i32 %., %11
   %19 = sext i32 %18 to i64
   %20 = getelementptr inbounds i32, ptr %17, i64 %19
-  %21 = load i32, ptr %20, align 4, !tbaa !21
+  %21 = load i32, ptr %20, align 4, !tbaa !20
   %22 = and i32 %21, %14
-  store i32 %22, ptr %20, align 4, !tbaa !21
+  store i32 %22, ptr %20, align 4, !tbaa !20
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define void @Extra_BitMatrixInsert2(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #3 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %5 = load i32, ptr %4, align 4, !tbaa !24
+  %5 = load i32, ptr %4, align 4, !tbaa !23
   %6 = add nsw i32 %5, 1
-  store i32 %6, ptr %4, align 4, !tbaa !24
+  store i32 %6, ptr %4, align 4, !tbaa !23
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %8 = load i32, ptr %7, align 4, !tbaa !11
   %9 = load ptr, ptr %0, align 8, !tbaa !13
@@ -278,18 +278,18 @@ define void @Extra_BitMatrixInsert2(ptr noundef captures(none) %0, i32 noundef %
   %17 = ashr i32 %., %11
   %18 = sext i32 %17 to i64
   %19 = getelementptr inbounds i32, ptr %16, i64 %18
-  %20 = load i32, ptr %19, align 4, !tbaa !21
+  %20 = load i32, ptr %19, align 4, !tbaa !20
   %21 = or i32 %20, %13
-  store i32 %21, ptr %19, align 4, !tbaa !21
+  store i32 %21, ptr %19, align 4, !tbaa !20
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define range(i32 0, 2) i32 @Extra_BitMatrixLookup2(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #8 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %5 = load i32, ptr %4, align 8, !tbaa !20
+  %5 = load i32, ptr %4, align 8, !tbaa !19
   %6 = add nsw i32 %5, 1
-  store i32 %6, ptr %4, align 8, !tbaa !20
+  store i32 %6, ptr %4, align 8, !tbaa !19
   %7 = load ptr, ptr %0, align 8, !tbaa !13
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = load i32, ptr %8, align 8, !tbaa !10
@@ -303,7 +303,7 @@ define range(i32 0, 2) i32 @Extra_BitMatrixLookup2(ptr noundef captures(none) %0
   %15 = ashr i32 %.26, %9
   %16 = sext i32 %15 to i64
   %17 = getelementptr inbounds i32, ptr %14, i64 %16
-  %18 = load i32, ptr %17, align 4, !tbaa !21
+  %18 = load i32, ptr %17, align 4, !tbaa !20
   %19 = and i32 %11, %.26
   %20 = lshr i32 %18, %19
   %.0 = and i32 %20, 1
@@ -313,9 +313,9 @@ define range(i32 0, 2) i32 @Extra_BitMatrixLookup2(ptr noundef captures(none) %0
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define void @Extra_BitMatrixDelete2(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #3 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %5 = load i32, ptr %4, align 8, !tbaa !25
+  %5 = load i32, ptr %4, align 8, !tbaa !24
   %6 = add nsw i32 %5, 1
-  store i32 %6, ptr %4, align 8, !tbaa !25
+  store i32 %6, ptr %4, align 8, !tbaa !24
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %8 = load i32, ptr %7, align 4, !tbaa !11
   %9 = load ptr, ptr %0, align 8, !tbaa !13
@@ -332,9 +332,9 @@ define void @Extra_BitMatrixDelete2(ptr noundef captures(none) %0, i32 noundef %
   %18 = ashr i32 %., %11
   %19 = sext i32 %18 to i64
   %20 = getelementptr inbounds i32, ptr %17, i64 %19
-  %21 = load i32, ptr %20, align 4, !tbaa !21
+  %21 = load i32, ptr %20, align 4, !tbaa !20
   %22 = and i32 %21, %14
-  store i32 %22, ptr %20, align 4, !tbaa !21
+  store i32 %22, ptr %20, align 4, !tbaa !20
   ret void
 }
 
@@ -355,16 +355,16 @@ define void @Extra_BitMatrixOr(ptr noundef readonly captures(none) %0, i32 nound
 11:                                               ; preds = %.lr.ph, %11
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %11 ]
   %12 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv
-  %13 = load i32, ptr %12, align 4, !tbaa !21
+  %13 = load i32, ptr %12, align 4, !tbaa !20
   %14 = getelementptr inbounds nuw i32, ptr %10, i64 %indvars.iv
-  %15 = load i32, ptr %14, align 4, !tbaa !21
+  %15 = load i32, ptr %14, align 4, !tbaa !20
   %16 = or i32 %15, %13
-  store i32 %16, ptr %14, align 4, !tbaa !21
+  store i32 %16, ptr %14, align 4, !tbaa !20
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %17 = load i32, ptr %4, align 4, !tbaa !12
   %18 = sext i32 %17 to i64
   %19 = icmp slt i64 %indvars.iv.next, %18
-  br i1 %19, label %11, label %._crit_edge, !llvm.loop !26
+  br i1 %19, label %11, label %._crit_edge, !llvm.loop !25
 
 ._crit_edge:                                      ; preds = %11, %3
   ret void
@@ -390,17 +390,17 @@ define void @Extra_BitMatrixOrTwo(ptr noundef readonly captures(none) %0, i32 no
 14:                                               ; preds = %.lr.ph, %14
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %14 ]
   %15 = getelementptr inbounds nuw i32, ptr %10, i64 %indvars.iv
-  %16 = load i32, ptr %15, align 4, !tbaa !21
+  %16 = load i32, ptr %15, align 4, !tbaa !20
   %17 = getelementptr inbounds nuw i32, ptr %13, i64 %indvars.iv
-  %18 = load i32, ptr %17, align 4, !tbaa !21
+  %18 = load i32, ptr %17, align 4, !tbaa !20
   %19 = or i32 %18, %16
-  store i32 %19, ptr %17, align 4, !tbaa !21
-  store i32 %19, ptr %15, align 4, !tbaa !21
+  store i32 %19, ptr %17, align 4, !tbaa !20
+  store i32 %19, ptr %15, align 4, !tbaa !20
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %20 = load i32, ptr %4, align 4, !tbaa !12
   %21 = sext i32 %20 to i64
   %22 = icmp slt i64 %indvars.iv.next, %21
-  br i1 %22, label %14, label %._crit_edge, !llvm.loop !27
+  br i1 %22, label %14, label %._crit_edge, !llvm.loop !26
 
 ._crit_edge:                                      ; preds = %14, %3
   ret void
@@ -421,7 +421,7 @@ define i32 @Extra_BitMatrixCountOnesUpper(ptr noundef readonly captures(none) %0
 .loopexit:                                        ; preds = %11, %.lr.ph18
   %.1.lcssa = phi i32 [ %.017, %.lr.ph18 ], [ %19, %11 ]
   %exitcond21.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond21.not, label %._crit_edge, label %.lr.ph18, !llvm.loop !28
+  br i1 %exitcond21.not, label %._crit_edge, label %.lr.ph18, !llvm.loop !27
 
 .lr.ph18:                                         ; preds = %.lr.ph18.preheader, %.loopexit
   %indvars.iv = phi i64 [ 0, %.lr.ph18.preheader ], [ %indvars.iv.next, %.loopexit ]
@@ -443,14 +443,14 @@ define i32 @Extra_BitMatrixCountOnesUpper(ptr noundef readonly captures(none) %0
   %12 = lshr i32 %.01214, 5
   %13 = zext nneg i32 %12 to i64
   %14 = getelementptr inbounds nuw i32, ptr %9, i64 %13
-  %15 = load i32, ptr %14, align 4, !tbaa !21
+  %15 = load i32, ptr %14, align 4, !tbaa !20
   %16 = and i32 %.01214, 31
   %17 = lshr i32 %15, %16
   %18 = and i32 %17, 1
   %19 = add nsw i32 %18, %.115
   %20 = add nuw nsw i32 %.01214, 1
   %exitcond.not = icmp eq i32 %20, %3
-  br i1 %exitcond.not, label %.loopexit, label %11, !llvm.loop !29
+  br i1 %exitcond.not, label %.loopexit, label %11, !llvm.loop !28
 
 ._crit_edge:                                      ; preds = %.loopexit, %1
   %.0.lcssa = phi i32 [ 0, %1 ], [ %.1.lcssa, %.loopexit ]
@@ -488,14 +488,14 @@ define range(i32 0, 2) i32 @Extra_BitMatrixIsDisjoint(ptr noundef readonly captu
 15:                                               ; preds = %16
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us, label %16, !llvm.loop !30
+  br i1 %exitcond.not, label %._crit_edge.us, label %16, !llvm.loop !29
 
 16:                                               ; preds = %.preheader.us, %15
   %indvars.iv = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next, %15 ]
   %17 = getelementptr inbounds nuw i32, ptr %12, i64 %indvars.iv
-  %18 = load i32, ptr %17, align 4, !tbaa !21
+  %18 = load i32, ptr %17, align 4, !tbaa !20
   %19 = getelementptr inbounds nuw i32, ptr %14, i64 %indvars.iv
-  %20 = load i32, ptr %19, align 4, !tbaa !21
+  %20 = load i32, ptr %19, align 4, !tbaa !20
   %21 = and i32 %20, %18
   %.not.us = icmp eq i32 %21, 0
   br i1 %.not.us, label %15, label %.loopexit
@@ -503,7 +503,7 @@ define range(i32 0, 2) i32 @Extra_BitMatrixIsDisjoint(ptr noundef readonly captu
 ._crit_edge.us:                                   ; preds = %15
   %indvars.iv.next21 = add nuw nsw i64 %indvars.iv20, 1
   %exitcond24.not = icmp eq i64 %indvars.iv.next21, %wide.trip.count23
-  br i1 %exitcond24.not, label %.loopexit, label %.preheader.us, !llvm.loop !31
+  br i1 %exitcond24.not, label %.loopexit, label %.preheader.us, !llvm.loop !30
 
 .loopexit:                                        ; preds = %._crit_edge.us, %16, %.preheader.lr.ph, %2
   %.013 = phi i32 [ 1, %2 ], [ 1, %.preheader.lr.ph ], [ 0, %16 ], [ 1, %._crit_edge.us ]
@@ -531,20 +531,20 @@ define range(i32 0, 2) i32 @Extra_BitMatrixIsClique(ptr noundef captures(none) %
 
 .loopexit34.us:                                   ; preds = %..loopexit_crit_edge.us.us, %.lr.ph.split.us
   %exitcond44.not = icmp eq i32 %8, %3
-  br i1 %exitcond44.not, label %.loopexit33, label %.lr.ph.split.us, !llvm.loop !33
+  br i1 %exitcond44.not, label %.loopexit33, label %.lr.ph.split.us, !llvm.loop !32
 
 .lr.ph39.us:                                      ; preds = %.lr.ph.split.us
   %10 = load ptr, ptr %0, align 8, !tbaa !13
   %11 = load i32, ptr %6, align 8, !tbaa !10
   %12 = load i32, ptr %7, align 4, !tbaa !11
-  %.promoted.us = load i32, ptr %5, align 8, !tbaa !20
+  %.promoted.us = load i32, ptr %5, align 8, !tbaa !19
   br label %13
 
 13:                                               ; preds = %..loopexit_crit_edge.us.us, %.lr.ph39.us
   %14 = phi i32 [ %.promoted.us, %.lr.ph39.us ], [ %55, %..loopexit_crit_edge.us.us ]
   %.02337.us.us = phi i32 [ %8, %.lr.ph39.us ], [ %56, %..loopexit_crit_edge.us.us ]
   %15 = add nsw i32 %14, 1
-  store i32 %15, ptr %5, align 8, !tbaa !20
+  store i32 %15, ptr %5, align 8, !tbaa !19
   %..i.us.us = tail call i32 @llvm.smin.i32(i32 %.02440.us, i32 %.02337.us.us)
   %.26.i.us.us = tail call i32 @llvm.smax.i32(i32 %.02440.us, i32 %.02337.us.us)
   %16 = zext nneg i32 %..i.us.us to i64
@@ -553,7 +553,7 @@ define range(i32 0, 2) i32 @Extra_BitMatrixIsClique(ptr noundef captures(none) %
   %19 = lshr i32 %.26.i.us.us, %11
   %20 = zext nneg i32 %19 to i64
   %21 = getelementptr inbounds nuw i32, ptr %18, i64 %20
-  %22 = load i32, ptr %21, align 4, !tbaa !21
+  %22 = load i32, ptr %21, align 4, !tbaa !20
   %23 = and i32 %12, %.26.i.us.us
   %24 = shl nuw i32 1, %23
   %25 = and i32 %22, %24
@@ -570,7 +570,7 @@ define range(i32 0, 2) i32 @Extra_BitMatrixIsClique(ptr noundef captures(none) %
 
 29:                                               ; preds = %.preheader.us.us
   %30 = add nsw i32 %26, 1
-  store i32 %30, ptr %5, align 8, !tbaa !20
+  store i32 %30, ptr %5, align 8, !tbaa !19
   %..i27.us.us = tail call i32 @llvm.smin.i32(i32 %.036.us.us, i32 %.02440.us)
   %.26.i28.us.us = tail call i32 @llvm.smax.i32(i32 %.036.us.us, i32 %.02440.us)
   %31 = zext nneg i32 %..i27.us.us to i64
@@ -579,11 +579,11 @@ define range(i32 0, 2) i32 @Extra_BitMatrixIsClique(ptr noundef captures(none) %
   %34 = lshr i32 %.26.i28.us.us, %11
   %35 = zext nneg i32 %34 to i64
   %36 = getelementptr inbounds nuw i32, ptr %33, i64 %35
-  %37 = load i32, ptr %36, align 4, !tbaa !21
+  %37 = load i32, ptr %36, align 4, !tbaa !20
   %38 = and i32 %.26.i28.us.us, %12
   %39 = lshr i32 %37, %38
   %40 = add nsw i32 %26, 2
-  store i32 %40, ptr %5, align 8, !tbaa !20
+  store i32 %40, ptr %5, align 8, !tbaa !19
   %..i30.us.us = tail call i32 @llvm.smin.i32(i32 %.036.us.us, i32 %.02337.us.us)
   %.26.i31.us.us = tail call i32 @llvm.smax.i32(i32 %.036.us.us, i32 %.02337.us.us)
   %41 = zext nneg i32 %..i30.us.us to i64
@@ -592,7 +592,7 @@ define range(i32 0, 2) i32 @Extra_BitMatrixIsClique(ptr noundef captures(none) %
   %44 = lshr i32 %.26.i31.us.us, %11
   %45 = zext nneg i32 %44 to i64
   %46 = getelementptr inbounds nuw i32, ptr %43, i64 %45
-  %47 = load i32, ptr %46, align 4, !tbaa !21
+  %47 = load i32, ptr %46, align 4, !tbaa !20
   %48 = and i32 %.26.i31.us.us, %12
   %49 = lshr i32 %47, %48
   %50 = xor i32 %49, %39
@@ -604,13 +604,13 @@ define range(i32 0, 2) i32 @Extra_BitMatrixIsClique(ptr noundef captures(none) %
   %53 = phi i32 [ %40, %29 ], [ %26, %.preheader.us.us ]
   %54 = add nuw nsw i32 %.036.us.us, 1
   %exitcond.not = icmp eq i32 %54, %3
-  br i1 %exitcond.not, label %..loopexit_crit_edge.us.us, label %.preheader.us.us, !llvm.loop !34
+  br i1 %exitcond.not, label %..loopexit_crit_edge.us.us, label %.preheader.us.us, !llvm.loop !33
 
 ..loopexit_crit_edge.us.us:                       ; preds = %52, %13
   %55 = phi i32 [ %15, %13 ], [ %53, %52 ]
   %56 = add nuw i32 %.02337.us.us, 1
   %exitcond43.not = icmp eq i32 %56, %3
-  br i1 %exitcond43.not, label %.loopexit34.us, label %13, !llvm.loop !35
+  br i1 %exitcond43.not, label %.loopexit34.us, label %13, !llvm.loop !34
 
 .loopexit33:                                      ; preds = %.loopexit34.us, %29, %1
   %.025 = phi i32 [ 1, %1 ], [ 0, %29 ], [ 1, %.loopexit34.us ]
@@ -665,23 +665,22 @@ attributes #16 = { nounwind }
 !13 = !{!4, !5, i64 0}
 !14 = !{!15, !15, i64 0}
 !15 = !{!"p1 int", !6, i64 0}
-!16 = distinct !{!16, !17, !18}
+!16 = distinct !{!16, !17}
 !17 = !{!"llvm.loop.mustprogress"}
-!18 = !{!"llvm.loop.estimated_trip_count"}
-!19 = distinct !{!19, !17, !18}
-!20 = !{!4, !9, i64 24}
-!21 = !{!9, !9, i64 0}
-!22 = distinct !{!22, !17, !18}
-!23 = distinct !{!23, !17, !18}
-!24 = !{!4, !9, i64 28}
-!25 = !{!4, !9, i64 32}
-!26 = distinct !{!26, !17, !18}
-!27 = distinct !{!27, !17, !18}
-!28 = distinct !{!28, !17, !18}
-!29 = distinct !{!29, !17, !18}
-!30 = distinct !{!30, !17, !18}
-!31 = distinct !{!31, !17, !18, !32}
-!32 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!33 = distinct !{!33, !17, !18, !32}
-!34 = distinct !{!34, !17, !18}
-!35 = distinct !{!35, !17, !18, !32}
+!18 = distinct !{!18, !17}
+!19 = !{!4, !9, i64 24}
+!20 = !{!9, !9, i64 0}
+!21 = distinct !{!21, !17}
+!22 = distinct !{!22, !17}
+!23 = !{!4, !9, i64 28}
+!24 = !{!4, !9, i64 32}
+!25 = distinct !{!25, !17}
+!26 = distinct !{!26, !17}
+!27 = distinct !{!27, !17}
+!28 = distinct !{!28, !17}
+!29 = distinct !{!29, !17}
+!30 = distinct !{!30, !17, !31}
+!31 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!32 = distinct !{!32, !17, !31}
+!33 = distinct !{!33, !17}
+!34 = distinct !{!34, !17, !31}

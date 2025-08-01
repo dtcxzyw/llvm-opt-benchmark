@@ -169,7 +169,7 @@ _mi_os_random_weak.exit:                          ; preds = %12, %_mi_os_random_
   store i32 %32, ptr %33, align 4, !tbaa !3
   %34 = add nuw nsw i64 %.013, 1
   %exitcond.not = icmp eq i64 %34, 8
-  br i1 %exitcond.not, label %.loopexit, label %_mi_os_random_weak.exit, !llvm.loop !13
+  br i1 %exitcond.not, label %.loopexit, label %_mi_os_random_weak.exit, !llvm.loop !12
 
 .loopexit:                                        ; preds = %_mi_os_random_weak.exit, %4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(136) %0, i8 0, i64 136, i1 false)
@@ -184,7 +184,7 @@ _mi_os_random_weak.exit:                          ; preds = %12, %_mi_os_random_
   store i32 %38, ptr %39, align 4, !tbaa !3
   %40 = add nuw nsw i64 %.01819.i, 1
   %exitcond.not.i11 = icmp eq i64 %40, 4
-  br i1 %exitcond.not.i11, label %.preheader.i.preheader, label %35, !llvm.loop !14
+  br i1 %exitcond.not.i11, label %.preheader.i.preheader, label %35, !llvm.loop !13
 
 .preheader.i.preheader:                           ; preds = %35
   %scevgep = getelementptr i8, ptr %0, i64 16
@@ -246,7 +246,7 @@ _mi_os_random_weak.exit.i:                        ; preds = %8, %_mi_os_random_w
   store i32 %28, ptr %29, align 4, !tbaa !3
   %30 = add nuw nsw i64 %.013.i, 1
   %exitcond.not.i = icmp eq i64 %30, 8
-  br i1 %exitcond.not.i, label %31, label %_mi_os_random_weak.exit.i, !llvm.loop !13
+  br i1 %exitcond.not.i, label %31, label %_mi_os_random_weak.exit.i, !llvm.loop !12
 
 31:                                               ; preds = %_mi_os_random_weak.exit.i
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(136) %0, i8 0, i64 136, i1 false)
@@ -261,7 +261,7 @@ _mi_os_random_weak.exit.i:                        ; preds = %8, %_mi_os_random_w
   store i32 %35, ptr %36, align 4, !tbaa !3
   %37 = add nuw nsw i64 %.01819.i.i, 1
   %exitcond.not.i11.i = icmp eq i64 %37, 4
-  br i1 %exitcond.not.i11.i, label %mi_random_init_ex.exit, label %32, !llvm.loop !14
+  br i1 %exitcond.not.i11.i, label %mi_random_init_ex.exit, label %32, !llvm.loop !13
 
 mi_random_init_ex.exit:                           ; preds = %32
   %scevgep.i = getelementptr i8, ptr %0, i64 16
@@ -280,7 +280,7 @@ mi_random_init_ex.exit:                           ; preds = %32
 ; Function Attrs: nounwind uwtable
 define hidden void @_mi_random_reinit_if_weak(ptr noundef %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 132
-  %3 = load i8, ptr %2, align 4, !tbaa !15, !range !16, !noundef !17
+  %3 = load i8, ptr %2, align 4, !tbaa !14, !range !15, !noundef !16
   %4 = trunc nuw i8 %3 to i1
   br i1 %4, label %5, label %6
 
@@ -470,7 +470,7 @@ define internal fastcc void @chacha_block(ptr noundef captures(none) %0) unnamed
   %130 = tail call noundef i32 @llvm.fshl.i32(i32 %129, i32 %129, i32 7)
   %131 = add nuw nsw i64 %.01953, 2
   %132 = icmp samesign ult i64 %.01953, 18
-  br i1 %132, label %18, label %.preheader, !llvm.loop !18
+  br i1 %132, label %18, label %.preheader, !llvm.loop !17
 
 133:                                              ; preds = %139
   %134 = getelementptr inbounds nuw i8, ptr %0, i64 128
@@ -493,7 +493,7 @@ define internal fastcc void @chacha_block(ptr noundef captures(none) %0) unnamed
   store i32 %144, ptr %145, align 4, !tbaa !3
   %146 = add nuw nsw i64 %.054, 1
   %exitcond.not = icmp eq i64 %146, 16
-  br i1 %exitcond.not, label %133, label %139, !llvm.loop !19
+  br i1 %exitcond.not, label %133, label %139, !llvm.loop !18
 
 147:                                              ; preds = %133
   %148 = getelementptr inbounds nuw i8, ptr %0, i64 52
@@ -548,13 +548,12 @@ attributes #9 = { nounwind }
 !7 = !{!8, !4, i64 128}
 !8 = !{!"mi_random_cxt_s", !5, i64 0, !5, i64 64, !4, i64 128, !9, i64 132}
 !9 = !{!"_Bool", !5, i64 0}
-!10 = distinct !{!10, !11, !12}
+!10 = distinct !{!10, !11}
 !11 = !{!"llvm.loop.mustprogress"}
-!12 = !{!"llvm.loop.estimated_trip_count"}
-!13 = distinct !{!13, !11, !12}
-!14 = distinct !{!14, !11, !12}
-!15 = !{!8, !9, i64 132}
-!16 = !{i8 0, i8 2}
-!17 = !{}
-!18 = distinct !{!18, !11, !12}
-!19 = distinct !{!19, !11, !12}
+!12 = distinct !{!12, !11}
+!13 = distinct !{!13, !11}
+!14 = !{!8, !9, i64 132}
+!15 = !{i8 0, i8 2}
+!16 = !{}
+!17 = distinct !{!17, !11}
+!18 = distinct !{!18, !11}

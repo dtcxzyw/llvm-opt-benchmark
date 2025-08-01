@@ -252,7 +252,7 @@ define hidden void @_ZN28ShenandoahReferenceProcessor19reset_thread_localsEv(ptr
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %7, i8 0, i64 136, i1 false)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %5, !llvm.loop !9
+  br i1 %exitcond.not, label %._crit_edge, label %5, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %5, %1
   ret void
@@ -274,7 +274,7 @@ define hidden void @_ZN28ShenandoahReferenceProcessor16set_mark_closureEjP30Shen
 define hidden void @_ZN28ShenandoahReferenceProcessor25set_soft_reference_policyEb(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(80) initializes((8, 16)) %0, i1 noundef zeroext %1) local_unnamed_addr #5 align 2 {
   %3 = load atomic i8, ptr @_ZGVZN28ShenandoahReferenceProcessor25set_soft_reference_policyEbE19lru_max_heap_policy acquire, align 8
   %4 = icmp eq i8 %3, 0
-  br i1 %4, label %5, label %8, !prof !10
+  br i1 %4, label %5, label %8, !prof !9
 
 5:                                                ; preds = %2
   %6 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN28ShenandoahReferenceProcessor25set_soft_reference_policyEbE19lru_max_heap_policy) #14
@@ -590,7 +590,7 @@ _ZL20reference_discoveredI9narrowOopEP7oopDescS2_.exit.thread._crit_edge: ; pred
   %94 = lshr i64 %93, %81
   %95 = trunc i64 %94 to i32
   %96 = select i1 %91, i32 0, i32 %95
-  %97 = tail call noundef i32 asm sideeffect "lock cmpxchgl $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %96, i32 0, ptr %90) #14, !srcloc !11
+  %97 = tail call noundef i32 asm sideeffect "lock cmpxchgl $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %96, i32 0, ptr %90) #14, !srcloc !10
   %98 = icmp eq i32 %97, 0
   %99 = load ptr, ptr @_ZN14CompressedOops11_narrow_oopE, align 8
   %100 = ptrtoint ptr %99 to i64
@@ -755,7 +755,7 @@ _ZL20reference_discoveredIP7oopDescES1_S1_.exit.thread._crit_edge: ; preds = %_Z
   %69 = sext i32 %68 to i64
   %70 = add nsw i64 %69, %8
   %71 = inttoptr i64 %70 to ptr
-  %72 = tail call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %spec.select, ptr null, ptr %71) #14, !srcloc !12
+  %72 = tail call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %spec.select, ptr null, ptr %71) #14, !srcloc !11
   %73 = icmp eq ptr %72, null
   br i1 %73, label %74, label %88
 
@@ -802,7 +802,7 @@ define hidden void @_ZN28ShenandoahReferenceProcessor4workEv(ptr noundef nonnull
   %2 = load ptr, ptr @_ZN8Universe14_collectedHeapE, align 8
   %3 = tail call noundef i32 @_ZN14ShenandoahHeap11max_workersEv(ptr noundef nonnull align 8 dereferenceable(2657) %2) #14
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %5 = tail call noundef i32 asm sideeffect "lock xaddl $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 1, ptr nonnull %4) #14, !srcloc !13
+  %5 = tail call noundef i32 asm sideeffect "lock xaddl $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 1, ptr nonnull %4) #14, !srcloc !12
   %6 = icmp ult i32 %5, %3
   br i1 %6, label %.lr.ph, label %._crit_edge
 
@@ -828,9 +828,9 @@ define hidden void @_ZN28ShenandoahReferenceProcessor4workEv(ptr noundef nonnull
   br label %16
 
 16:                                               ; preds = %15, %14
-  %17 = tail call noundef i32 asm sideeffect "lock xaddl $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 1, ptr nonnull %4) #14, !srcloc !13
+  %17 = tail call noundef i32 asm sideeffect "lock xaddl $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 1, ptr nonnull %4) #14, !srcloc !12
   %18 = icmp ult i32 %17, %3
-  br i1 %18, label %8, label %._crit_edge, !llvm.loop !14
+  br i1 %18, label %8, label %._crit_edge, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %16, %1
   ret void
@@ -1275,7 +1275,7 @@ _ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit.thread.i49: ; preds = %_
 _ZL3lrbP7oopDesc.exit53:                          ; preds = %224, %_ZL20reference_discoveredI9narrowOopEP7oopDescS2_.exit, %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit.i51, %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit.thread.i49
   %.0.i50 = phi ptr [ %293, %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit.thread.i49 ], [ %.0.i.i46, %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit.i51 ], [ null, %_ZL20reference_discoveredI9narrowOopEP7oopDescS2_.exit ], [ null, %224 ]
   %294 = icmp eq ptr %.0.i3664, %.0.i50
-  br i1 %294, label %295, label %66, !llvm.loop !15
+  br i1 %294, label %295, label %66, !llvm.loop !14
 
 295:                                              ; preds = %_ZL3lrbP7oopDesc.exit53
   %296 = load i32, ptr @_ZN23java_lang_ref_Reference18_discovered_offsetE, align 4
@@ -1345,7 +1345,7 @@ _ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit.thread.i56: ; preds = %_
 _ZL3lrbP7oopDesc.exit60:                          ; preds = %302, %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit.i58, %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit.thread.i56
   %.0.i57 = phi ptr [ %339, %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit.thread.i56 ], [ %310, %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit.i58 ], [ null, %302 ]
   %340 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %341 = tail call noundef ptr asm sideeffect "xchgq ($2),$0", "=r,0,r,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %.0.i57, ptr nonnull %340) #14, !srcloc !16
+  %341 = tail call noundef ptr asm sideeffect "xchgq ($2),$0", "=r,0,r,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %.0.i57, ptr nonnull %340) #14, !srcloc !15
   %342 = icmp eq ptr %341, null
   %343 = load ptr, ptr @_ZN14CompressedOops11_narrow_oopE, align 8
   %344 = ptrtoint ptr %341 to i64
@@ -1747,7 +1747,7 @@ _ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit.thread.i49: ; preds = %_
 _ZL3lrbP7oopDesc.exit53:                          ; preds = %175, %_ZL20reference_discoveredIP7oopDescES1_S1_.exit, %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit.i51, %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit.thread.i49
   %.0.i50 = phi ptr [ %229, %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit.thread.i49 ], [ %.0.i.i4671, %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit.i51 ], [ null, %_ZL20reference_discoveredIP7oopDescES1_S1_.exit ], [ null, %175 ]
   %230 = icmp eq ptr %.0.i3664, %.0.i50
-  br i1 %230, label %231, label %44, !llvm.loop !17
+  br i1 %230, label %231, label %44, !llvm.loop !16
 
 231:                                              ; preds = %_ZL3lrbP7oopDesc.exit53
   %232 = load i32, ptr @_ZN23java_lang_ref_Reference18_discovered_offsetE, align 4
@@ -1806,7 +1806,7 @@ _ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit.thread.i56: ; preds = %_
 _ZL3lrbP7oopDesc.exit60:                          ; preds = %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit.i58, %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit.thread.i56
   %.0.i57 = phi ptr [ %267, %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit.thread.i56 ], [ %236, %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit.i58 ]
   %268 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %269 = tail call noundef ptr asm sideeffect "xchgq ($2),$0", "=r,0,r,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %.0.i57, ptr nonnull %268) #14, !srcloc !16
+  %269 = tail call noundef ptr asm sideeffect "xchgq ($2),$0", "=r,0,r,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %.0.i57, ptr nonnull %268) #14, !srcloc !15
   store ptr %269, ptr %.1, align 8
   %270 = icmp eq ptr %269, null
   br i1 %270, label %271, label %273
@@ -1828,7 +1828,7 @@ _ZL3lrbP7oopDesc.exit60:                          ; preds = %_ZNK24ShenandoahMar
 define hidden void @_ZN28ShenandoahReferenceProcessor18process_referencesEN22ShenandoahPhaseTimings5PhaseEP13WorkerThreadsb(ptr noundef nonnull align 8 dereferenceable(80) %0, i32 noundef %1, ptr noundef %2, i1 noundef zeroext %3) local_unnamed_addr #5 align 2 {
   %5 = alloca %class.ShenandoahReferenceProcessorTask, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %7 = tail call i32 asm sideeffect "xchgl ($2),$0", "=r,0,r,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 0, ptr nonnull %6) #14, !srcloc !18
+  %7 = tail call i32 asm sideeffect "xchgl ($2),$0", "=r,0,r,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 0, ptr nonnull %6) #14, !srcloc !17
   %8 = zext i1 %3 to i8
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr @.str.18, ptr %9, align 8
@@ -1902,12 +1902,12 @@ define hidden void @_ZN28ShenandoahReferenceProcessor18collect_statisticsEv(ptr 
   store i64 %28, ptr %26, align 8
   %29 = add nuw nsw i64 %.017, 1
   %exitcond.not = icmp eq i64 %29, 5
-  br i1 %exitcond.not, label %30, label %13, !llvm.loop !19
+  br i1 %exitcond.not, label %30, label %13, !llvm.loop !18
 
 30:                                               ; preds = %13
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond21.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond21.not, label %._crit_edge.loopexit, label %.preheader, !llvm.loop !20
+  br i1 %exitcond21.not, label %._crit_edge.loopexit, label %.preheader, !llvm.loop !19
 
 ._crit_edge.loopexit:                             ; preds = %30
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -2150,7 +2150,7 @@ define hidden void @_ZN28ShenandoahReferenceProcessor25abandon_partial_discovery
   %22 = inttoptr i64 %21 to ptr
   %.05.i = load i32, ptr %22, align 4
   %23 = icmp eq i32 %.05.i, 0
-  br i1 %23, label %_ZN28ShenandoahReferenceProcessor21clean_discovered_listI9narrowOopEEvPT_.exit, label %.lr.ph.i, !llvm.loop !21
+  br i1 %23, label %_ZN28ShenandoahReferenceProcessor21clean_discovered_listI9narrowOopEEvPT_.exit, label %.lr.ph.i, !llvm.loop !20
 
 24:                                               ; preds = %5
   %.067.i = load ptr, ptr %9, align 8
@@ -2168,12 +2168,12 @@ define hidden void @_ZN28ShenandoahReferenceProcessor25abandon_partial_discovery
   %30 = inttoptr i64 %29 to ptr
   %.06.i = load ptr, ptr %30, align 8
   %31 = icmp eq ptr %.06.i, null
-  br i1 %31, label %_ZN28ShenandoahReferenceProcessor21clean_discovered_listI9narrowOopEEvPT_.exit, label %.lr.ph.i10, !llvm.loop !22
+  br i1 %31, label %_ZN28ShenandoahReferenceProcessor21clean_discovered_listI9narrowOopEEvPT_.exit, label %.lr.ph.i10, !llvm.loop !21
 
 _ZN28ShenandoahReferenceProcessor21clean_discovered_listI9narrowOopEEvPT_.exit: ; preds = %.lr.ph.i10, %.lr.ph.i, %24, %10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %5, !llvm.loop !23
+  br i1 %exitcond.not, label %._crit_edge, label %5, !llvm.loop !22
 
 ._crit_edge:                                      ; preds = %_ZN28ShenandoahReferenceProcessor21clean_discovered_listI9narrowOopEEvPT_.exit, %1
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -2214,7 +2214,7 @@ _ZN28ShenandoahReferenceProcessor21clean_discovered_listI9narrowOopEEvPT_.exit: 
   %54 = inttoptr i64 %53 to ptr
   %.05.i15 = load i32, ptr %54, align 4
   %55 = icmp eq i32 %.05.i15, 0
-  br i1 %55, label %_ZN28ShenandoahReferenceProcessor21clean_discovered_listI9narrowOopEEvPT_.exit16, label %.lr.ph.i12, !llvm.loop !21
+  br i1 %55, label %_ZN28ShenandoahReferenceProcessor21clean_discovered_listI9narrowOopEEvPT_.exit16, label %.lr.ph.i12, !llvm.loop !20
 
 56:                                               ; preds = %34
   %.067.i17 = load ptr, ptr %41, align 8
@@ -2232,7 +2232,7 @@ _ZN28ShenandoahReferenceProcessor21clean_discovered_listI9narrowOopEEvPT_.exit: 
   %62 = inttoptr i64 %61 to ptr
   %.06.i21 = load ptr, ptr %62, align 8
   %63 = icmp eq ptr %.06.i21, null
-  br i1 %63, label %_ZN28ShenandoahReferenceProcessor21clean_discovered_listI9narrowOopEEvPT_.exit16, label %.lr.ph.i18, !llvm.loop !22
+  br i1 %63, label %_ZN28ShenandoahReferenceProcessor21clean_discovered_listI9narrowOopEEvPT_.exit16, label %.lr.ph.i18, !llvm.loop !21
 
 _ZN28ShenandoahReferenceProcessor21clean_discovered_listI9narrowOopEEvPT_.exit16: ; preds = %.lr.ph.i18, %.lr.ph.i12, %56, %42, %._crit_edge
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -2395,7 +2395,7 @@ _ZN33ShenandoahConcurrentWorkerSessionC2Ej.exit:  ; preds = %10, %13
   %19 = load ptr, ptr @_ZN8Universe14_collectedHeapE, align 8
   %20 = call noundef i32 @_ZN14ShenandoahHeap11max_workersEv(ptr noundef nonnull align 8 dereferenceable(2657) %19) #14
   %21 = getelementptr inbounds nuw i8, ptr %18, i64 40
-  %22 = call noundef i32 asm sideeffect "lock xaddl $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 1, ptr nonnull %21) #14, !srcloc !13
+  %22 = call noundef i32 asm sideeffect "lock xaddl $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 1, ptr nonnull %21) #14, !srcloc !12
   %23 = icmp ult i32 %22, %20
   br i1 %23, label %.lr.ph.i, label %_ZN28ShenandoahReferenceProcessor4workEv.exit
 
@@ -2421,9 +2421,9 @@ _ZN33ShenandoahConcurrentWorkerSessionC2Ej.exit:  ; preds = %10, %13
   br label %33
 
 33:                                               ; preds = %32, %31
-  %34 = call noundef i32 asm sideeffect "lock xaddl $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 1, ptr nonnull %21) #14, !srcloc !13
+  %34 = call noundef i32 asm sideeffect "lock xaddl $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 1, ptr nonnull %21) #14, !srcloc !12
   %35 = icmp ult i32 %34, %20
-  br i1 %35, label %25, label %_ZN28ShenandoahReferenceProcessor4workEv.exit, !llvm.loop !14
+  br i1 %35, label %25, label %_ZN28ShenandoahReferenceProcessor4workEv.exit, !llvm.loop !13
 
 _ZN28ShenandoahReferenceProcessor4workEv.exit:    ; preds = %33, %_ZN33ShenandoahConcurrentWorkerSessionC2Ej.exit
   call void @_ZN30ShenandoahWorkerTimingsTrackerD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %4) #14
@@ -2451,7 +2451,7 @@ _ZN31ShenandoahParallelWorkerSessionC2Ej.exit:    ; preds = %36, %39
   %45 = load ptr, ptr @_ZN8Universe14_collectedHeapE, align 8
   %46 = call noundef i32 @_ZN14ShenandoahHeap11max_workersEv(ptr noundef nonnull align 8 dereferenceable(2657) %45) #14
   %47 = getelementptr inbounds nuw i8, ptr %44, i64 40
-  %48 = call noundef i32 asm sideeffect "lock xaddl $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 1, ptr nonnull %47) #14, !srcloc !13
+  %48 = call noundef i32 asm sideeffect "lock xaddl $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 1, ptr nonnull %47) #14, !srcloc !12
   %49 = icmp ult i32 %48, %46
   br i1 %49, label %.lr.ph.i4, label %_ZN28ShenandoahReferenceProcessor4workEv.exit6
 
@@ -2477,9 +2477,9 @@ _ZN31ShenandoahParallelWorkerSessionC2Ej.exit:    ; preds = %36, %39
   br label %59
 
 59:                                               ; preds = %58, %57
-  %60 = call noundef i32 asm sideeffect "lock xaddl $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 1, ptr nonnull %47) #14, !srcloc !13
+  %60 = call noundef i32 asm sideeffect "lock xaddl $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 1, ptr nonnull %47) #14, !srcloc !12
   %61 = icmp ult i32 %60, %46
-  br i1 %61, label %51, label %_ZN28ShenandoahReferenceProcessor4workEv.exit6, !llvm.loop !14
+  br i1 %61, label %51, label %_ZN28ShenandoahReferenceProcessor4workEv.exit6, !llvm.loop !13
 
 _ZN28ShenandoahReferenceProcessor4workEv.exit6:   ; preds = %59, %_ZN31ShenandoahParallelWorkerSessionC2Ej.exit
   call void @_ZN30ShenandoahWorkerTimingsTrackerD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %6) #14
@@ -2695,7 +2695,7 @@ define linkonce_odr hidden noundef ptr @_ZN20ShenandoahBarrierSet22load_referenc
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 769
   %9 = load volatile i8, ptr %8, align 1
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !24
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !23
   %10 = and i8 %9, 1
   %.not = icmp eq i8 %10, 0
   br i1 %.not, label %_ZN22ShenandoahEvacOOMScopeD2Ev.exit, label %11
@@ -2730,7 +2730,7 @@ define linkonce_odr hidden noundef ptr @_ZN20ShenandoahBarrierSet22load_referenc
 31:                                               ; preds = %24
   %32 = getelementptr inbounds nuw i8, ptr %12, i64 769
   %33 = load volatile i8, ptr %32, align 1
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !24
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !23
   %34 = and i8 %33, 4
   %.not14 = icmp eq i8 %34, 0
   br i1 %.not14, label %_ZN22ShenandoahEvacOOMScopeD2Ev.exit, label %35
@@ -2760,7 +2760,7 @@ define linkonce_odr hidden noundef ptr @_ZN20ShenandoahBarrierSet22load_referenc
 49:                                               ; preds = %45
   %50 = tail call noundef ptr @_ZN24ShenandoahEvacOOMHandler18counter_for_threadEP6Thread(ptr noundef nonnull align 8 dereferenceable(80) %39, ptr noundef nonnull %37) #14
   %51 = load volatile i32, ptr %50, align 4
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !24
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !23
   %52 = load i32, ptr @_ZN24ShenandoahEvacOOMCounter15OOM_MARKER_MASKE, align 4
   %53 = and i32 %52, %51
   %.not.i.i.i13 = icmp eq i32 %53, 0
@@ -3147,22 +3147,21 @@ attributes #15 = { noreturn nounwind }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = !{!"branch_weights", i32 1, i32 1048575}
-!11 = !{i64 2145411161}
-!12 = !{i64 2145412694}
-!13 = !{i64 2145409567}
-!14 = distinct !{!14, !7, !8}
-!15 = distinct !{!15, !7, !8}
-!16 = !{i64 2145412131}
-!17 = distinct !{!17, !7, !8}
-!18 = !{i64 2145415273}
-!19 = distinct !{!19, !7, !8}
-!20 = distinct !{!20, !7, !8}
-!21 = distinct !{!21, !7, !8}
-!22 = distinct !{!22, !7, !8}
-!23 = distinct !{!23, !7, !8}
-!24 = !{i64 2145392468}
+!8 = distinct !{!8, !7}
+!9 = !{!"branch_weights", i32 1, i32 1048575}
+!10 = !{i64 2145411161}
+!11 = !{i64 2145412694}
+!12 = !{i64 2145409567}
+!13 = distinct !{!13, !7}
+!14 = distinct !{!14, !7}
+!15 = !{i64 2145412131}
+!16 = distinct !{!16, !7}
+!17 = !{i64 2145415273}
+!18 = distinct !{!18, !7}
+!19 = distinct !{!19, !7}
+!20 = distinct !{!20, !7}
+!21 = distinct !{!21, !7}
+!22 = distinct !{!22, !7}
+!23 = !{i64 2145392468}

@@ -245,7 +245,7 @@ define dso_local range(i32 0, 2) i32 @setup_tests() local_unnamed_addr #1 {
   br i1 %.not9, label %11, label %14
 
 11:                                               ; preds = %9
-  %12 = load ptr, ptr @libctx, align 8, !tbaa !7
+  %12 = load ptr, ptr @libctx, align 8, !tbaa !6
   %13 = tail call i32 @fips_provider_version_lt(ptr noundef %12, i32 noundef 3, i32 noundef 4, i32 noundef 0) #7
   %.not10 = icmp eq i32 %13, 0
   br i1 %.not10, label %15, label %14
@@ -258,19 +258,19 @@ define dso_local range(i32 0, 2) i32 @setup_tests() local_unnamed_addr #1 {
   tail call void @add_all_tests(ptr noundef nonnull @.str.22, ptr noundef nonnull @test_dh_safeprime_param_keygen, i32 noundef 27, i32 noundef 1) #7
   tail call void @add_test(ptr noundef nonnull @.str.23, ptr noundef nonnull @dhx_cert_load) #7
   %16 = tail call ptr @OPENSSL_sk_new(ptr noundef nonnull @name_cmp) #7
-  store ptr %16, ptr @cipher_names, align 8, !tbaa !12
+  store ptr %16, ptr @cipher_names, align 8, !tbaa !11
   %17 = tail call i32 @test_ptr(ptr noundef nonnull @.str.24, i32 noundef 811, ptr noundef nonnull @.str.25, ptr noundef %16) #7
   %.not11 = icmp eq i32 %17, 0
   br i1 %.not11, label %.loopexit, label %18
 
 18:                                               ; preds = %15
-  %19 = load ptr, ptr @libctx, align 8, !tbaa !7
-  %20 = load ptr, ptr @cipher_names, align 8, !tbaa !12
+  %19 = load ptr, ptr @libctx, align 8, !tbaa !6
+  %20 = load ptr, ptr @cipher_names, align 8, !tbaa !11
   tail call void @EVP_CIPHER_do_all_provided(ptr noundef %19, ptr noundef nonnull @collect_cipher_names, ptr noundef %20) #7
-  %21 = load ptr, ptr @cipher_names, align 8, !tbaa !12
+  %21 = load ptr, ptr @cipher_names, align 8, !tbaa !11
   %22 = tail call i32 @OPENSSL_sk_num(ptr noundef %21) #7
   tail call void @add_all_tests(ptr noundef nonnull @.str.26, ptr noundef nonnull @test_cipher_reinit, i32 noundef %22, i32 noundef 1) #7
-  %23 = load ptr, ptr @cipher_names, align 8, !tbaa !12
+  %23 = load ptr, ptr @cipher_names, align 8, !tbaa !11
   %24 = tail call i32 @OPENSSL_sk_num(ptr noundef %23) #7
   tail call void @add_all_tests(ptr noundef nonnull @.str.27, ptr noundef nonnull @test_cipher_reinit_partialupdate, i32 noundef %24, i32 noundef 1) #7
   tail call void @add_test(ptr noundef nonnull @.str.28, ptr noundef nonnull @kem_rsa_gen_recover) #7
@@ -336,7 +336,7 @@ declare void @add_all_tests(ptr noundef, ptr noundef, i32 noundef, i32 noundef) 
 define internal range(i32 0, 2) i32 @test_dsa_param_keygen(i32 noundef %0) #1 {
   %2 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #7
-  store ptr null, ptr %2, align 8, !tbaa !14
+  store ptr null, ptr %2, align 8, !tbaa !13
   %3 = sdiv i32 %0, 9
   %4 = sdiv i32 %0, 3
   %5 = srem i32 %4, 3
@@ -354,7 +354,7 @@ define internal range(i32 0, 2) i32 @test_dsa_param_keygen(i32 noundef %0) #1 {
 11:                                               ; preds = %1
   %12 = zext nneg i32 %3 to i64
   %13 = getelementptr inbounds nuw [3 x ptr], ptr @__const.getname.name, i64 0, i64 %12
-  %14 = load ptr, ptr %13, align 8, !tbaa !16
+  %14 = load ptr, ptr %13, align 8, !tbaa !15
   br label %getname.exit
 
 getname.exit:                                     ; preds = %1, %11
@@ -365,7 +365,7 @@ getname.exit:                                     ; preds = %1, %11
 15:                                               ; preds = %getname.exit
   %16 = zext nneg i32 %5 to i64
   %17 = getelementptr inbounds nuw [3 x ptr], ptr @__const.getname.name, i64 0, i64 %16
-  %18 = load ptr, ptr %17, align 8, !tbaa !16
+  %18 = load ptr, ptr %17, align 8, !tbaa !15
   br label %getname.exit52
 
 getname.exit52:                                   ; preds = %getname.exit, %15
@@ -376,7 +376,7 @@ getname.exit52:                                   ; preds = %getname.exit, %15
 19:                                               ; preds = %getname.exit52
   %20 = zext nneg i32 %6 to i64
   %21 = getelementptr inbounds nuw [3 x ptr], ptr @__const.getname.name, i64 0, i64 %20
-  %22 = load ptr, ptr %21, align 8, !tbaa !16
+  %22 = load ptr, ptr %21, align 8, !tbaa !15
   br label %getname.exit55
 
 getname.exit55:                                   ; preds = %getname.exit52, %19
@@ -396,7 +396,7 @@ getname.exit55:                                   ; preds = %getname.exit52, %19
 28:                                               ; preds = %25
   %29 = sext i32 %3 to i64
   %30 = getelementptr inbounds [3 x ptr], ptr @test_dsa_param_keygen.bn, i64 0, i64 %29
-  %31 = load ptr, ptr %30, align 8, !tbaa !18
+  %31 = load ptr, ptr %30, align 8, !tbaa !17
   %32 = tail call ptr @BN_dup(ptr noundef %31) #7
   %33 = tail call i32 @test_ptr(ptr noundef nonnull @.str.24, i32 noundef 147, ptr noundef nonnull @.str.39, ptr noundef %32) #7
   %.not39 = icmp eq i32 %33, 0
@@ -405,7 +405,7 @@ getname.exit55:                                   ; preds = %getname.exit52, %19
 34:                                               ; preds = %28
   %35 = sext i32 %5 to i64
   %36 = getelementptr inbounds [3 x ptr], ptr @test_dsa_param_keygen.bn, i64 0, i64 %35
-  %37 = load ptr, ptr %36, align 8, !tbaa !18
+  %37 = load ptr, ptr %36, align 8, !tbaa !17
   %38 = tail call ptr @BN_dup(ptr noundef %37) #7
   %39 = tail call i32 @test_ptr(ptr noundef nonnull @.str.24, i32 noundef 148, ptr noundef nonnull @.str.40, ptr noundef %38) #7
   %.not40 = icmp eq i32 %39, 0
@@ -414,7 +414,7 @@ getname.exit55:                                   ; preds = %getname.exit52, %19
 40:                                               ; preds = %34
   %41 = sext i32 %6 to i64
   %42 = getelementptr inbounds [3 x ptr], ptr @test_dsa_param_keygen.bn, i64 0, i64 %41
-  %43 = load ptr, ptr %42, align 8, !tbaa !18
+  %43 = load ptr, ptr %42, align 8, !tbaa !17
   %44 = tail call ptr @BN_dup(ptr noundef %43) #7
   %45 = tail call i32 @test_ptr(ptr noundef nonnull @.str.24, i32 noundef 149, ptr noundef nonnull @.str.41, ptr noundef %44) #7
   %.not41 = icmp eq i32 %45, 0
@@ -437,7 +437,7 @@ getname.exit55:                                   ; preds = %getname.exit52, %19
   br i1 %.not43, label %75, label %56
 
 56:                                               ; preds = %51
-  %57 = load ptr, ptr @libctx, align 8, !tbaa !7
+  %57 = load ptr, ptr @libctx, align 8, !tbaa !6
   %58 = tail call ptr @EVP_PKEY_CTX_new_from_pkey(ptr noundef %57, ptr noundef %23, ptr noundef null) #7
   %59 = tail call i32 @test_ptr(ptr noundef nonnull @.str.24, i32 noundef 158, ptr noundef nonnull @.str.44, ptr noundef %58) #7
   %.not44 = icmp eq i32 %59, 0
@@ -459,14 +459,14 @@ getname.exit55:                                   ; preds = %getname.exit52, %19
   br i1 %spec.select, label %67, label %75
 
 67:                                               ; preds = %66
-  %68 = load ptr, ptr %2, align 8, !tbaa !14
+  %68 = load ptr, ptr %2, align 8, !tbaa !13
   %69 = call ptr @EVP_PKEY_dup(ptr noundef %68) #7
   %70 = call i32 @test_ptr(ptr noundef nonnull @.str.24, i32 noundef 164, ptr noundef nonnull @.str.48, ptr noundef %69) #7
   %.not47 = icmp eq i32 %70, 0
   br i1 %.not47, label %75, label %71
 
 71:                                               ; preds = %67
-  %72 = load ptr, ptr %2, align 8, !tbaa !14
+  %72 = load ptr, ptr %2, align 8, !tbaa !13
   %73 = call i32 @EVP_PKEY_eq(ptr noundef %72, ptr noundef %69) #7
   %74 = call i32 @test_int_eq(ptr noundef nonnull @.str.24, i32 noundef 165, ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.50, i32 noundef %73, i32 noundef 1) #7
   %.not48 = icmp ne i32 %74, 0
@@ -481,7 +481,7 @@ getname.exit55:                                   ; preds = %getname.exit52, %19
   %.033 = phi ptr [ null, %67 ], [ null, %63 ], [ null, %60 ], [ null, %56 ], [ null, %51 ], [ %32, %46 ], [ %32, %40 ], [ %32, %34 ], [ %32, %28 ], [ null, %25 ], [ null, %getname.exit55 ], [ null, %66 ], [ null, %71 ]
   %.032 = phi ptr [ null, %67 ], [ null, %63 ], [ null, %60 ], [ null, %56 ], [ null, %51 ], [ %38, %46 ], [ %38, %40 ], [ %38, %34 ], [ null, %28 ], [ null, %25 ], [ null, %getname.exit55 ], [ null, %66 ], [ null, %71 ]
   %.0 = phi ptr [ null, %67 ], [ null, %63 ], [ null, %60 ], [ null, %56 ], [ null, %51 ], [ %44, %46 ], [ %44, %40 ], [ null, %34 ], [ null, %28 ], [ null, %25 ], [ null, %getname.exit55 ], [ null, %66 ], [ null, %71 ]
-  %76 = load ptr, ptr %2, align 8, !tbaa !14
+  %76 = load ptr, ptr %2, align 8, !tbaa !13
   call void @EVP_PKEY_free(ptr noundef %76) #7
   call void @EVP_PKEY_free(ptr noundef %.037) #7
   call void @EVP_PKEY_CTX_free(ptr noundef %.035) #7
@@ -498,7 +498,7 @@ getname.exit55:                                   ; preds = %getname.exit52, %19
 define internal range(i32 0, 2) i32 @test_dh_safeprime_param_keygen(i32 noundef %0) #1 {
   %2 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #7
-  store ptr null, ptr %2, align 8, !tbaa !14
+  store ptr null, ptr %2, align 8, !tbaa !13
   %3 = sdiv i32 %0, 9
   %4 = sdiv i32 %0, 3
   %5 = srem i32 %4, 3
@@ -516,7 +516,7 @@ define internal range(i32 0, 2) i32 @test_dh_safeprime_param_keygen(i32 noundef 
 11:                                               ; preds = %1
   %12 = zext nneg i32 %3 to i64
   %13 = getelementptr inbounds nuw [3 x ptr], ptr @__const.getname.name, i64 0, i64 %12
-  %14 = load ptr, ptr %13, align 8, !tbaa !16
+  %14 = load ptr, ptr %13, align 8, !tbaa !15
   br label %getname.exit.i
 
 getname.exit.i:                                   ; preds = %11, %1
@@ -527,7 +527,7 @@ getname.exit.i:                                   ; preds = %11, %1
 15:                                               ; preds = %getname.exit.i
   %16 = zext nneg i32 %5 to i64
   %17 = getelementptr inbounds nuw [3 x ptr], ptr @__const.getname.name, i64 0, i64 %16
-  %18 = load ptr, ptr %17, align 8, !tbaa !16
+  %18 = load ptr, ptr %17, align 8, !tbaa !15
   br label %getname.exit55.i
 
 getname.exit55.i:                                 ; preds = %15, %getname.exit.i
@@ -538,7 +538,7 @@ getname.exit55.i:                                 ; preds = %15, %getname.exit.i
 19:                                               ; preds = %getname.exit55.i
   %20 = zext nneg i32 %6 to i64
   %21 = getelementptr inbounds nuw [3 x ptr], ptr @__const.getname.name, i64 0, i64 %20
-  %22 = load ptr, ptr %21, align 8, !tbaa !16
+  %22 = load ptr, ptr %21, align 8, !tbaa !15
   br label %getname.exit58.i
 
 getname.exit58.i:                                 ; preds = %19, %getname.exit55.i
@@ -558,7 +558,7 @@ getname.exit58.i:                                 ; preds = %19, %getname.exit55
 28:                                               ; preds = %25
   %29 = sext i32 %3 to i64
   %30 = getelementptr inbounds ptr, ptr @test_dh_safeprime_param_keygen.bn, i64 %29
-  %31 = load ptr, ptr %30, align 8, !tbaa !18
+  %31 = load ptr, ptr %30, align 8, !tbaa !17
   %32 = tail call ptr @BN_dup(ptr noundef %31) #7
   %33 = tail call i32 @test_ptr(ptr noundef nonnull @.str.24, i32 noundef 210, ptr noundef nonnull @.str.39, ptr noundef %32) #7
   %.not42.i = icmp eq i32 %33, 0
@@ -567,7 +567,7 @@ getname.exit58.i:                                 ; preds = %19, %getname.exit55
 34:                                               ; preds = %28
   %35 = sext i32 %5 to i64
   %36 = getelementptr inbounds ptr, ptr @test_dh_safeprime_param_keygen.bn, i64 %35
-  %37 = load ptr, ptr %36, align 8, !tbaa !18
+  %37 = load ptr, ptr %36, align 8, !tbaa !17
   %38 = tail call ptr @BN_dup(ptr noundef %37) #7
   %39 = tail call i32 @test_ptr(ptr noundef nonnull @.str.24, i32 noundef 211, ptr noundef nonnull @.str.40, ptr noundef %38) #7
   %.not43.i = icmp eq i32 %39, 0
@@ -576,7 +576,7 @@ getname.exit58.i:                                 ; preds = %19, %getname.exit55
 40:                                               ; preds = %34
   %41 = sext i32 %6 to i64
   %42 = getelementptr inbounds ptr, ptr @test_dh_safeprime_param_keygen.bn, i64 %41
-  %43 = load ptr, ptr %42, align 8, !tbaa !18
+  %43 = load ptr, ptr %42, align 8, !tbaa !17
   %44 = tail call ptr @BN_dup(ptr noundef %43) #7
   %45 = tail call i32 @test_ptr(ptr noundef nonnull @.str.24, i32 noundef 212, ptr noundef nonnull @.str.41, ptr noundef %44) #7
   %.not44.i = icmp eq i32 %45, 0
@@ -599,7 +599,7 @@ getname.exit58.i:                                 ; preds = %19, %getname.exit55
   br i1 %.not46.i, label %do_dh_param_keygen.exit, label %56
 
 56:                                               ; preds = %51
-  %57 = load ptr, ptr @libctx, align 8, !tbaa !7
+  %57 = load ptr, ptr @libctx, align 8, !tbaa !6
   %58 = tail call ptr @EVP_PKEY_CTX_new_from_pkey(ptr noundef %57, ptr noundef %23, ptr noundef null) #7
   %59 = tail call i32 @test_ptr(ptr noundef nonnull @.str.24, i32 noundef 221, ptr noundef nonnull @.str.44, ptr noundef %58) #7
   %.not47.i = icmp eq i32 %59, 0
@@ -621,14 +621,14 @@ getname.exit58.i:                                 ; preds = %19, %getname.exit55
   br i1 %spec.select.i, label %67, label %do_dh_param_keygen.exit
 
 67:                                               ; preds = %66
-  %68 = load ptr, ptr %2, align 8, !tbaa !14
+  %68 = load ptr, ptr %2, align 8, !tbaa !13
   %69 = call ptr @EVP_PKEY_dup(ptr noundef %68) #7
   %70 = call i32 @test_ptr(ptr noundef nonnull @.str.24, i32 noundef 227, ptr noundef nonnull @.str.48, ptr noundef %69) #7
   %.not50.i = icmp eq i32 %70, 0
   br i1 %.not50.i, label %do_dh_param_keygen.exit, label %71
 
 71:                                               ; preds = %67
-  %72 = load ptr, ptr %2, align 8, !tbaa !14
+  %72 = load ptr, ptr %2, align 8, !tbaa !13
   %73 = call i32 @EVP_PKEY_eq(ptr noundef %72, ptr noundef %69) #7
   %74 = call i32 @test_int_eq(ptr noundef nonnull @.str.24, i32 noundef 228, ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.50, i32 noundef %73, i32 noundef 1) #7
   %.not51.i = icmp ne i32 %74, 0
@@ -643,7 +643,7 @@ do_dh_param_keygen.exit:                          ; preds = %getname.exit58.i, %
   %.036.i = phi ptr [ null, %67 ], [ null, %63 ], [ null, %60 ], [ null, %56 ], [ null, %51 ], [ %32, %46 ], [ %32, %40 ], [ %32, %34 ], [ %32, %28 ], [ null, %25 ], [ null, %getname.exit58.i ], [ null, %66 ], [ null, %71 ]
   %.035.i = phi ptr [ null, %67 ], [ null, %63 ], [ null, %60 ], [ null, %56 ], [ null, %51 ], [ %38, %46 ], [ %38, %40 ], [ %38, %34 ], [ null, %28 ], [ null, %25 ], [ null, %getname.exit58.i ], [ null, %66 ], [ null, %71 ]
   %.0.i = phi ptr [ null, %67 ], [ null, %63 ], [ null, %60 ], [ null, %56 ], [ null, %51 ], [ %44, %46 ], [ %44, %40 ], [ null, %34 ], [ null, %28 ], [ null, %25 ], [ null, %getname.exit58.i ], [ null, %66 ], [ null, %71 ]
-  %75 = load ptr, ptr %2, align 8, !tbaa !14
+  %75 = load ptr, ptr %2, align 8, !tbaa !13
   call void @EVP_PKEY_free(ptr noundef %75) #7
   call void @EVP_PKEY_free(ptr noundef %.040.i) #7
   call void @EVP_PKEY_CTX_free(ptr noundef %.038.i) #7
@@ -660,16 +660,16 @@ do_dh_param_keygen.exit:                          ; preds = %getname.exit58.i, %
 define internal range(i32 0, 2) i32 @dhx_cert_load() #1 {
   %1 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1) #7
-  store ptr null, ptr %1, align 8, !tbaa !20
+  store ptr null, ptr %1, align 8, !tbaa !19
   %2 = tail call ptr @BIO_new_mem_buf(ptr noundef nonnull @dhx_cert_load.dhx_cert, i32 noundef 1027) #7
   %3 = tail call i32 @test_ptr(ptr noundef nonnull @.str.24, i32 noundef 333, ptr noundef nonnull @.str.59, ptr noundef %2) #7
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %11, label %4
 
 4:                                                ; preds = %0
-  %5 = load ptr, ptr @libctx, align 8, !tbaa !7
+  %5 = load ptr, ptr @libctx, align 8, !tbaa !6
   %6 = tail call ptr @X509_new_ex(ptr noundef %5, ptr noundef null) #7
-  store ptr %6, ptr %1, align 8, !tbaa !20
+  store ptr %6, ptr %1, align 8, !tbaa !19
   %7 = tail call i32 @test_ptr(ptr noundef nonnull @.str.24, i32 noundef 334, ptr noundef nonnull @.str.60, ptr noundef %6) #7
   %.not2 = icmp eq i32 %7, 0
   br i1 %.not2, label %11, label %8
@@ -679,7 +679,7 @@ define internal range(i32 0, 2) i32 @dhx_cert_load() #1 {
   %10 = call i32 @test_ptr(ptr noundef nonnull @.str.24, i32 noundef 335, ptr noundef nonnull @.str.61, ptr noundef %9) #7
   %.not3 = icmp ne i32 %10, 0
   %spec.select = zext i1 %.not3 to i32
-  %.pre = load ptr, ptr %1, align 8, !tbaa !20
+  %.pre = load ptr, ptr %1, align 8, !tbaa !19
   br label %11
 
 11:                                               ; preds = %8, %0, %4
@@ -697,8 +697,8 @@ declare ptr @OPENSSL_sk_new(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @name_cmp(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #1 {
-  %3 = load ptr, ptr %0, align 8, !tbaa !16
-  %4 = load ptr, ptr %1, align 8, !tbaa !16
+  %3 = load ptr, ptr %0, align 8, !tbaa !15
+  %4 = load ptr, ptr %1, align 8, !tbaa !15
   %5 = tail call i32 @OPENSSL_strcasecmp(ptr noundef %3, ptr noundef %4) #7
   ret i32 %5
 }
@@ -708,7 +708,7 @@ declare void @EVP_CIPHER_do_all_provided(ptr noundef, ptr noundef, ptr noundef) 
 ; Function Attrs: nounwind uwtable
 define internal void @collect_cipher_names(ptr noundef %0, ptr noundef %1) #1 {
   %3 = tail call ptr @EVP_CIPHER_get0_name(ptr noundef %0) #7
-  %4 = load ptr, ptr @libctx, align 8, !tbaa !7
+  %4 = load ptr, ptr @libctx, align 8, !tbaa !6
   %5 = tail call i32 @OSSL_PROVIDER_available(ptr noundef %4, ptr noundef nonnull @.str.20) #7
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %.tail.thread, label %sub_0
@@ -760,11 +760,11 @@ define internal range(i32 0, 2) i32 @test_cipher_reinit(i32 noundef %0) #1 {
   %9 = alloca [64 x i8], align 16
   %10 = alloca [48 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #7
-  store i32 0, ptr %2, align 4, !tbaa !22
+  store i32 0, ptr %2, align 4, !tbaa !21
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #7
-  store i32 0, ptr %3, align 4, !tbaa !22
+  store i32 0, ptr %3, align 4, !tbaa !21
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #7
-  store i32 0, ptr %4, align 4, !tbaa !22
+  store i32 0, ptr %4, align 4, !tbaa !21
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %5) #7
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %6) #7
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %7) #7
@@ -774,7 +774,7 @@ define internal range(i32 0, 2) i32 @test_cipher_reinit(i32 noundef %0) #1 {
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %9, ptr noundef nonnull align 16 dereferenceable(64) @__const.test_cipher_reinit.key, i64 64, i1 false)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %10) #7
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %10, ptr noundef nonnull align 16 dereferenceable(48) @__const.test_cipher_reinit.iv, i64 48, i1 false)
-  %11 = load ptr, ptr @cipher_names, align 8, !tbaa !12
+  %11 = load ptr, ptr @cipher_names, align 8, !tbaa !11
   %12 = tail call ptr @OPENSSL_sk_value(ptr noundef %11, i32 noundef %0) #7
   %13 = tail call ptr @EVP_CIPHER_CTX_new() #7
   %14 = tail call i32 @test_ptr(ptr noundef nonnull @.str.24, i32 noundef 379, ptr noundef nonnull @.str.63, ptr noundef %13) #7
@@ -783,7 +783,7 @@ define internal range(i32 0, 2) i32 @test_cipher_reinit(i32 noundef %0) #1 {
 
 15:                                               ; preds = %1
   tail call void (ptr, ...) @test_note(ptr noundef nonnull @.str.64, ptr noundef %12) #7
-  %16 = load ptr, ptr @libctx, align 8, !tbaa !7
+  %16 = load ptr, ptr @libctx, align 8, !tbaa !6
   %17 = tail call ptr @EVP_CIPHER_fetch(ptr noundef %16, ptr noundef %12, ptr noundef null) #7
   %18 = tail call i32 @test_ptr(ptr noundef nonnull @.str.24, i32 noundef 383, ptr noundef nonnull @.str.65, ptr noundef %17) #7
   %.not28 = icmp eq i32 %18, 0
@@ -867,9 +867,9 @@ define internal range(i32 0, 2) i32 @test_cipher_reinit(i32 noundef %0) #1 {
 
 63:                                               ; preds = %62
   %.not38 = icmp eq i32 %32, 0
-  %64 = load i32, ptr %2, align 4, !tbaa !22
+  %64 = load i32, ptr %2, align 4, !tbaa !21
   %65 = sext i32 %64 to i64
-  %66 = load i32, ptr %3, align 4, !tbaa !22
+  %66 = load i32, ptr %3, align 4, !tbaa !21
   %67 = sext i32 %66 to i64
   br i1 %.not38, label %82, label %68
 
@@ -879,18 +879,18 @@ define internal range(i32 0, 2) i32 @test_cipher_reinit(i32 noundef %0) #1 {
   br i1 %.not41, label %92, label %70
 
 70:                                               ; preds = %68
-  %71 = load i32, ptr %2, align 4, !tbaa !22
+  %71 = load i32, ptr %2, align 4, !tbaa !21
   %72 = sext i32 %71 to i64
-  %73 = load i32, ptr %4, align 4, !tbaa !22
+  %73 = load i32, ptr %4, align 4, !tbaa !21
   %74 = sext i32 %73 to i64
   %75 = call i32 @test_mem_ne(ptr noundef nonnull @.str.24, i32 noundef 416, ptr noundef nonnull @.str.78, ptr noundef nonnull @.str.80, ptr noundef nonnull %5, i64 noundef %72, ptr noundef nonnull %7, i64 noundef %74) #7
   %.not42 = icmp eq i32 %75, 0
   br i1 %.not42, label %92, label %76
 
 76:                                               ; preds = %70
-  %77 = load i32, ptr %3, align 4, !tbaa !22
+  %77 = load i32, ptr %3, align 4, !tbaa !21
   %78 = sext i32 %77 to i64
-  %79 = load i32, ptr %4, align 4, !tbaa !22
+  %79 = load i32, ptr %4, align 4, !tbaa !21
   %80 = sext i32 %79 to i64
   %81 = call i32 @test_mem_ne(ptr noundef nonnull @.str.24, i32 noundef 417, ptr noundef nonnull @.str.79, ptr noundef nonnull @.str.80, ptr noundef nonnull %6, i64 noundef %78, ptr noundef nonnull %7, i64 noundef %80) #7
   %.not43 = icmp eq i32 %81, 0
@@ -906,9 +906,9 @@ define internal range(i32 0, 2) i32 @test_cipher_reinit(i32 noundef %0) #1 {
   br i1 %or.cond, label %91, label %85
 
 85:                                               ; preds = %84
-  %86 = load i32, ptr %2, align 4, !tbaa !22
+  %86 = load i32, ptr %2, align 4, !tbaa !21
   %87 = sext i32 %86 to i64
-  %88 = load i32, ptr %4, align 4, !tbaa !22
+  %88 = load i32, ptr %4, align 4, !tbaa !21
   %89 = sext i32 %88 to i64
   %90 = call i32 @test_mem_eq(ptr noundef nonnull @.str.24, i32 noundef 421, ptr noundef nonnull @.str.78, ptr noundef nonnull @.str.80, ptr noundef nonnull %5, i64 noundef %87, ptr noundef nonnull %7, i64 noundef %89) #7
   %.not40 = icmp eq i32 %90, 0
@@ -945,15 +945,15 @@ define internal range(i32 0, 2) i32 @test_cipher_reinit_partialupdate(i32 nounde
   %6 = alloca [256 x i8], align 16
   %7 = alloca [256 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #7
-  store i32 0, ptr %2, align 4, !tbaa !22
+  store i32 0, ptr %2, align 4, !tbaa !21
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #7
-  store i32 0, ptr %3, align 4, !tbaa !22
+  store i32 0, ptr %3, align 4, !tbaa !21
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #7
-  store i32 0, ptr %4, align 4, !tbaa !22
+  store i32 0, ptr %4, align 4, !tbaa !21
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %5) #7
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %6) #7
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %7) #7
-  %8 = load ptr, ptr @cipher_names, align 8, !tbaa !12
+  %8 = load ptr, ptr @cipher_names, align 8, !tbaa !11
   %9 = tail call ptr @OPENSSL_sk_value(ptr noundef %8, i32 noundef %0) #7
   %10 = tail call ptr @EVP_CIPHER_CTX_new() #7
   %11 = tail call i32 @test_ptr(ptr noundef nonnull @.str.24, i32 noundef 473, ptr noundef nonnull @.str.63, ptr noundef %10) #7
@@ -962,7 +962,7 @@ define internal range(i32 0, 2) i32 @test_cipher_reinit_partialupdate(i32 nounde
 
 12:                                               ; preds = %1
   tail call void (ptr, ...) @test_note(ptr noundef nonnull @.str.64, ptr noundef %9) #7
-  %13 = load ptr, ptr @libctx, align 8, !tbaa !7
+  %13 = load ptr, ptr @libctx, align 8, !tbaa !6
   %14 = tail call ptr @EVP_CIPHER_fetch(ptr noundef %13, ptr noundef %9, ptr noundef null) #7
   %15 = tail call i32 @test_ptr(ptr noundef nonnull @.str.24, i32 noundef 477, ptr noundef nonnull @.str.65, ptr noundef %14) #7
   %.not29 = icmp eq i32 %15, 0
@@ -1036,9 +1036,9 @@ define internal range(i32 0, 2) i32 @test_cipher_reinit_partialupdate(i32 nounde
   br i1 %.not36, label %61, label %55
 
 55:                                               ; preds = %53
-  %56 = load i32, ptr %2, align 4, !tbaa !22
+  %56 = load i32, ptr %2, align 4, !tbaa !21
   %57 = sext i32 %56 to i64
-  %58 = load i32, ptr %3, align 4, !tbaa !22
+  %58 = load i32, ptr %3, align 4, !tbaa !21
   %59 = sext i32 %58 to i64
   %60 = call i32 @test_mem_eq(ptr noundef nonnull @.str.24, i32 noundef 503, ptr noundef nonnull @.str.78, ptr noundef nonnull @.str.79, ptr noundef nonnull %5, i64 noundef %57, ptr noundef nonnull %6, i64 noundef %59) #7
   %.not37 = icmp eq i32 %60, 0
@@ -1071,9 +1071,9 @@ define internal range(i32 0, 2) i32 @test_cipher_reinit_partialupdate(i32 nounde
   br i1 %.not41, label %81, label %75
 
 75:                                               ; preds = %73
-  %76 = load i32, ptr %2, align 4, !tbaa !22
+  %76 = load i32, ptr %2, align 4, !tbaa !21
   %77 = sext i32 %76 to i64
-  %78 = load i32, ptr %4, align 4, !tbaa !22
+  %78 = load i32, ptr %4, align 4, !tbaa !21
   %79 = sext i32 %78 to i64
   %80 = call i32 @test_mem_eq(ptr noundef nonnull @.str.24, i32 noundef 512, ptr noundef nonnull @.str.78, ptr noundef nonnull @.str.80, ptr noundef nonnull %5, i64 noundef %77, ptr noundef nonnull %7, i64 noundef %79) #7
   %.not42 = icmp eq i32 %80, 0
@@ -1107,7 +1107,7 @@ define internal range(i32 0, 2) i32 @kem_rsa_gen_recover() #1 {
   %7 = alloca i64, align 8
   %8 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1) #7
-  store ptr null, ptr %1, align 8, !tbaa !14
+  store ptr null, ptr %1, align 8, !tbaa !13
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #7
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %3) #7
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %3, i8 0, i64 256, i1 false)
@@ -1116,19 +1116,19 @@ define internal range(i32 0, 2) i32 @kem_rsa_gen_recover() #1 {
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %5) #7
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %5, i8 0, i64 256, i1 false)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #7
-  store i64 0, ptr %6, align 8, !tbaa !24
+  store i64 0, ptr %6, align 8, !tbaa !23
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #7
-  store i64 0, ptr %7, align 8, !tbaa !24
+  store i64 0, ptr %7, align 8, !tbaa !23
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #7
-  store i64 0, ptr %8, align 8, !tbaa !24
+  store i64 0, ptr %8, align 8, !tbaa !23
   %9 = call fastcc i32 @rsa_keygen(ptr noundef %1, ptr noundef %2)
   %10 = call i32 @test_true(ptr noundef nonnull @.str.24, i32 noundef 582, ptr noundef nonnull @.str.85, i32 noundef %9) #7
   %.not = icmp eq i32 %10, 0
   br i1 %.not, label %73, label %11
 
 11:                                               ; preds = %0
-  %12 = load ptr, ptr @libctx, align 8, !tbaa !7
-  %13 = load ptr, ptr %1, align 8, !tbaa !14
+  %12 = load ptr, ptr @libctx, align 8, !tbaa !6
+  %13 = load ptr, ptr %1, align 8, !tbaa !13
   %14 = call ptr @EVP_PKEY_CTX_new_from_pkey(ptr noundef %12, ptr noundef %13, ptr noundef null) #7
   %15 = call i32 @test_ptr(ptr noundef nonnull @.str.24, i32 noundef 583, ptr noundef nonnull @.str.86, ptr noundef %14) #7
   %.not21 = icmp eq i32 %15, 0
@@ -1165,16 +1165,16 @@ define internal range(i32 0, 2) i32 @kem_rsa_gen_recover() #1 {
   br i1 %.not26, label %73, label %31
 
 31:                                               ; preds = %28
-  %32 = load i64, ptr %6, align 8, !tbaa !24
+  %32 = load i64, ptr %6, align 8, !tbaa !23
   %33 = trunc i64 %32 to i32
-  %34 = load i64, ptr %8, align 8, !tbaa !24
+  %34 = load i64, ptr %8, align 8, !tbaa !23
   %35 = trunc i64 %34 to i32
   %36 = call i32 @test_int_eq(ptr noundef nonnull @.str.24, i32 noundef 591, ptr noundef nonnull @.str.93, ptr noundef nonnull @.str.94, i32 noundef %33, i32 noundef %35) #7
   %.not27 = icmp eq i32 %36, 0
   br i1 %.not27, label %73, label %37
 
 37:                                               ; preds = %31
-  %38 = load i64, ptr %6, align 8, !tbaa !24
+  %38 = load i64, ptr %6, align 8, !tbaa !23
   %39 = trunc i64 %38 to i32
   %40 = call i32 @test_int_eq(ptr noundef nonnull @.str.24, i32 noundef 592, ptr noundef nonnull @.str.93, ptr noundef nonnull @.str.95, i32 noundef %39, i32 noundef 256) #7
   %.not28 = icmp eq i32 %40, 0
@@ -1187,8 +1187,8 @@ define internal range(i32 0, 2) i32 @kem_rsa_gen_recover() #1 {
   br i1 %.not29, label %73, label %44
 
 44:                                               ; preds = %41
-  %45 = load ptr, ptr @libctx, align 8, !tbaa !7
-  %46 = load ptr, ptr %2, align 8, !tbaa !14
+  %45 = load ptr, ptr @libctx, align 8, !tbaa !6
+  %46 = load ptr, ptr %2, align 8, !tbaa !13
   %47 = call ptr @EVP_PKEY_CTX_new_from_pkey(ptr noundef %45, ptr noundef %46, ptr noundef null) #7
   %48 = call i32 @test_ptr(ptr noundef nonnull @.str.24, i32 noundef 595, ptr noundef nonnull @.str.97, ptr noundef %47) #7
   %.not30 = icmp eq i32 %48, 0
@@ -1207,29 +1207,29 @@ define internal range(i32 0, 2) i32 @kem_rsa_gen_recover() #1 {
   br i1 %.not32, label %73, label %55
 
 55:                                               ; preds = %52
-  %56 = load i64, ptr %6, align 8, !tbaa !24
+  %56 = load i64, ptr %6, align 8, !tbaa !23
   %57 = call i32 @EVP_PKEY_decapsulate(ptr noundef %47, ptr noundef null, ptr noundef null, ptr noundef nonnull %4, i64 noundef %56) #7
   %58 = call i32 @test_int_eq(ptr noundef nonnull @.str.24, i32 noundef 599, ptr noundef nonnull @.str.100, ptr noundef nonnull @.str.34, i32 noundef %57, i32 noundef 0) #7
   %.not33 = icmp eq i32 %58, 0
   br i1 %.not33, label %73, label %59
 
 59:                                               ; preds = %55
-  %60 = load i64, ptr %6, align 8, !tbaa !24
+  %60 = load i64, ptr %6, align 8, !tbaa !23
   %61 = call i32 @EVP_PKEY_decapsulate(ptr noundef %47, ptr noundef null, ptr noundef nonnull %7, ptr noundef nonnull %4, i64 noundef %60) #7
   %62 = call i32 @test_int_eq(ptr noundef nonnull @.str.24, i32 noundef 601, ptr noundef nonnull @.str.101, ptr noundef nonnull @.str.50, i32 noundef %61, i32 noundef 1) #7
   %.not34 = icmp eq i32 %62, 0
   br i1 %.not34, label %73, label %63
 
 63:                                               ; preds = %59
-  %64 = load i64, ptr %6, align 8, !tbaa !24
+  %64 = load i64, ptr %6, align 8, !tbaa !23
   %65 = call i32 @EVP_PKEY_decapsulate(ptr noundef %47, ptr noundef nonnull %5, ptr noundef nonnull %7, ptr noundef nonnull %4, i64 noundef %64) #7
   %66 = call i32 @test_int_eq(ptr noundef nonnull @.str.24, i32 noundef 603, ptr noundef nonnull @.str.102, ptr noundef nonnull @.str.50, i32 noundef %65, i32 noundef 1) #7
   %.not35 = icmp eq i32 %66, 0
   br i1 %.not35, label %73, label %67
 
 67:                                               ; preds = %63
-  %68 = load i64, ptr %7, align 8, !tbaa !24
-  %69 = load i64, ptr %8, align 8, !tbaa !24
+  %68 = load i64, ptr %7, align 8, !tbaa !23
+  %69 = load i64, ptr %8, align 8, !tbaa !23
   %70 = call i32 @test_mem_eq(ptr noundef nonnull @.str.24, i32 noundef 604, ptr noundef nonnull @.str.103, ptr noundef nonnull @.str.104, ptr noundef nonnull %5, i64 noundef %68, ptr noundef nonnull %3, i64 noundef %69) #7
   %71 = icmp ne i32 %70, 0
   %72 = zext i1 %71 to i32
@@ -1240,18 +1240,18 @@ define internal range(i32 0, 2) i32 @kem_rsa_gen_recover() #1 {
   %.019 = phi ptr [ %47, %67 ], [ %47, %63 ], [ %47, %59 ], [ %47, %55 ], [ %47, %52 ], [ %47, %49 ], [ %47, %44 ], [ null, %41 ], [ null, %37 ], [ null, %31 ], [ null, %28 ], [ null, %25 ], [ null, %22 ], [ null, %19 ], [ null, %16 ], [ null, %11 ], [ null, %0 ]
   %.018 = phi ptr [ %23, %67 ], [ %23, %63 ], [ %23, %59 ], [ %23, %55 ], [ %23, %52 ], [ %23, %49 ], [ %23, %44 ], [ %23, %41 ], [ %23, %37 ], [ %23, %31 ], [ %23, %28 ], [ %23, %25 ], [ %23, %22 ], [ null, %19 ], [ null, %16 ], [ null, %11 ], [ null, %0 ]
   %74 = phi i32 [ %72, %67 ], [ 0, %63 ], [ 0, %59 ], [ 0, %55 ], [ 0, %52 ], [ 0, %49 ], [ 0, %44 ], [ 0, %41 ], [ 0, %37 ], [ 0, %31 ], [ 0, %28 ], [ 0, %25 ], [ 0, %22 ], [ 0, %19 ], [ 0, %16 ], [ 0, %11 ], [ 0, %0 ]
-  %75 = load ptr, ptr @libctx, align 8, !tbaa !7
+  %75 = load ptr, ptr @libctx, align 8, !tbaa !6
   %76 = call i32 @fips_provider_version_match(ptr noundef %75, ptr noundef nonnull @.str.105) #7
   %.not36 = icmp eq i32 %76, 0
   br i1 %.not36, label %84, label %77
 
 77:                                               ; preds = %73
-  store i64 1, ptr %6, align 8, !tbaa !24
+  store i64 1, ptr %6, align 8, !tbaa !23
   %78 = call i32 @EVP_PKEY_encapsulate(ptr noundef %.018, ptr noundef nonnull %4, ptr noundef nonnull %6, ptr noundef nonnull %3, ptr noundef nonnull %8) #7
   %79 = call i32 @test_int_eq(ptr noundef nonnull @.str.24, i32 noundef 610, ptr noundef nonnull @.str.96, ptr noundef nonnull @.str.34, i32 noundef %78, i32 noundef 0) #7
   %.not37 = icmp eq i32 %79, 0
-  store i64 1, ptr %7, align 8, !tbaa !24
-  %80 = load i64, ptr %6, align 8, !tbaa !24
+  store i64 1, ptr %7, align 8, !tbaa !23
+  %80 = load i64, ptr %6, align 8, !tbaa !23
   %81 = call i32 @EVP_PKEY_decapsulate(ptr noundef %.019, ptr noundef nonnull %5, ptr noundef nonnull %7, ptr noundef nonnull %4, i64 noundef %80) #7
   %82 = call i32 @test_int_eq(ptr noundef nonnull @.str.24, i32 noundef 614, ptr noundef nonnull @.str.102, ptr noundef nonnull @.str.34, i32 noundef %81, i32 noundef 0) #7
   %.not38 = icmp eq i32 %82, 0
@@ -1261,9 +1261,9 @@ define internal range(i32 0, 2) i32 @kem_rsa_gen_recover() #1 {
 
 84:                                               ; preds = %77, %73
   %.0 = phi i32 [ %74, %73 ], [ %spec.select39, %77 ]
-  %85 = load ptr, ptr %1, align 8, !tbaa !14
+  %85 = load ptr, ptr %1, align 8, !tbaa !13
   call void @EVP_PKEY_free(ptr noundef %85) #7
-  %86 = load ptr, ptr %2, align 8, !tbaa !14
+  %86 = load ptr, ptr %2, align 8, !tbaa !13
   call void @EVP_PKEY_free(ptr noundef %86) #7
   call void @EVP_PKEY_CTX_free(ptr noundef %.019) #7
   call void @EVP_PKEY_CTX_free(ptr noundef %.018) #7
@@ -1288,36 +1288,36 @@ define internal range(i32 0, 2) i32 @kem_rsa_params() #1 {
   %5 = alloca i64, align 8
   %6 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1) #7
-  store ptr null, ptr %1, align 8, !tbaa !14
+  store ptr null, ptr %1, align 8, !tbaa !13
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #7
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %3) #7
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %3, i8 0, i64 256, i1 false)
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %4) #7
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %4, i8 0, i64 256, i1 false)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #7
-  store i64 0, ptr %5, align 8, !tbaa !24
+  store i64 0, ptr %5, align 8, !tbaa !23
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #7
-  store i64 0, ptr %6, align 8, !tbaa !24
+  store i64 0, ptr %6, align 8, !tbaa !23
   %7 = call fastcc i32 @rsa_keygen(ptr noundef %1, ptr noundef %2)
   %8 = call i32 @test_true(ptr noundef nonnull @.str.24, i32 noundef 668, ptr noundef nonnull @.str.113, i32 noundef %7) #7
   %.not = icmp eq i32 %8, 0
   br i1 %.not, label %._crit_edge, label %9
 
 ._crit_edge:                                      ; preds = %0
-  %.pre = load ptr, ptr %2, align 8, !tbaa !14
+  %.pre = load ptr, ptr %2, align 8, !tbaa !13
   br label %135
 
 9:                                                ; preds = %0
-  %10 = load ptr, ptr @libctx, align 8, !tbaa !7
-  %11 = load ptr, ptr %1, align 8, !tbaa !14
+  %10 = load ptr, ptr @libctx, align 8, !tbaa !6
+  %11 = load ptr, ptr %1, align 8, !tbaa !13
   %12 = call ptr @EVP_PKEY_CTX_new_from_pkey(ptr noundef %10, ptr noundef %11, ptr noundef null) #7
   %13 = call i32 @test_ptr(ptr noundef nonnull @.str.24, i32 noundef 669, ptr noundef nonnull @.str.114, ptr noundef %12) #7
   %.not33 = icmp eq i32 %13, 0
-  %.pre72 = load ptr, ptr %2, align 8, !tbaa !14
+  %.pre72 = load ptr, ptr %2, align 8, !tbaa !13
   br i1 %.not33, label %135, label %14
 
 14:                                               ; preds = %9
-  %15 = load ptr, ptr @libctx, align 8, !tbaa !7
+  %15 = load ptr, ptr @libctx, align 8, !tbaa !6
   %16 = call ptr @EVP_PKEY_CTX_new_from_pkey(ptr noundef %15, ptr noundef %.pre72, ptr noundef null) #7
   %17 = call i32 @test_ptr(ptr noundef nonnull @.str.24, i32 noundef 670, ptr noundef nonnull @.str.115, ptr noundef %16) #7
   %.not34 = icmp eq i32 %17, 0
@@ -1384,7 +1384,7 @@ define internal range(i32 0, 2) i32 @kem_rsa_params() #1 {
   br i1 %.not44, label %135, label %48
 
 48:                                               ; preds = %45
-  %49 = load i8, ptr %3, align 16, !tbaa !26
+  %49 = load i8, ptr %3, align 16, !tbaa !25
   %50 = call i32 @test_uchar_eq(ptr noundef nonnull @.str.24, i32 noundef 686, ptr noundef nonnull @.str.127, ptr noundef nonnull @.str.34, i8 noundef zeroext %49, i8 noundef zeroext 0) #7
   %.not45 = icmp eq i32 %50, 0
   br i1 %.not45, label %135, label %51
@@ -1522,7 +1522,7 @@ define internal range(i32 0, 2) i32 @kem_rsa_params() #1 {
   br i1 %.not67, label %135, label %117
 
 117:                                              ; preds = %114
-  %118 = load i64, ptr %6, align 8, !tbaa !24
+  %118 = load i64, ptr %6, align 8, !tbaa !23
   %119 = trunc i64 %118 to i32
   %120 = call i32 @test_int_eq(ptr noundef nonnull @.str.24, i32 noundef 717, ptr noundef nonnull @.str.94, ptr noundef nonnull @.str.145, i32 noundef %119, i32 noundef 256) #7
   %.not68 = icmp eq i32 %120, 0
@@ -1558,7 +1558,7 @@ define internal range(i32 0, 2) i32 @kem_rsa_params() #1 {
   %.032 = phi ptr [ %12, %130 ], [ %12, %127 ], [ %12, %124 ], [ %12, %121 ], [ %12, %117 ], [ %12, %114 ], [ %12, %111 ], [ %12, %108 ], [ %12, %105 ], [ %12, %102 ], [ %12, %99 ], [ %12, %96 ], [ %12, %93 ], [ %12, %90 ], [ %12, %87 ], [ %12, %84 ], [ %12, %81 ], [ %12, %78 ], [ %12, %75 ], [ %12, %72 ], [ %12, %69 ], [ %12, %66 ], [ %12, %63 ], [ %12, %60 ], [ %12, %57 ], [ %12, %54 ], [ %12, %51 ], [ %12, %48 ], [ %12, %45 ], [ %12, %42 ], [ %12, %39 ], [ %12, %36 ], [ %12, %33 ], [ %12, %30 ], [ %12, %27 ], [ %12, %24 ], [ %12, %21 ], [ %12, %18 ], [ %12, %14 ], [ %12, %9 ], [ null, %._crit_edge ]
   %.0 = phi ptr [ %16, %130 ], [ %16, %127 ], [ %16, %124 ], [ %16, %121 ], [ %16, %117 ], [ %16, %114 ], [ %16, %111 ], [ %16, %108 ], [ %16, %105 ], [ %16, %102 ], [ %16, %99 ], [ %16, %96 ], [ %16, %93 ], [ %16, %90 ], [ %16, %87 ], [ %16, %84 ], [ %16, %81 ], [ %16, %78 ], [ %16, %75 ], [ %16, %72 ], [ %16, %69 ], [ %16, %66 ], [ %16, %63 ], [ %16, %60 ], [ %16, %57 ], [ %16, %54 ], [ %16, %51 ], [ %16, %48 ], [ %16, %45 ], [ %16, %42 ], [ %16, %39 ], [ %16, %36 ], [ %16, %33 ], [ %16, %30 ], [ %16, %27 ], [ %16, %24 ], [ %16, %21 ], [ %16, %18 ], [ %16, %14 ], [ null, %9 ], [ null, %._crit_edge ]
   %137 = phi i32 [ %134, %130 ], [ 0, %127 ], [ 0, %124 ], [ 0, %121 ], [ 0, %117 ], [ 0, %114 ], [ 0, %111 ], [ 0, %108 ], [ 0, %105 ], [ 0, %102 ], [ 0, %99 ], [ 0, %96 ], [ 0, %93 ], [ 0, %90 ], [ 0, %87 ], [ 0, %84 ], [ 0, %81 ], [ 0, %78 ], [ 0, %75 ], [ 0, %72 ], [ 0, %69 ], [ 0, %66 ], [ 0, %63 ], [ 0, %60 ], [ 0, %57 ], [ 0, %54 ], [ 0, %51 ], [ 0, %48 ], [ 0, %45 ], [ 0, %42 ], [ 0, %39 ], [ 0, %36 ], [ 0, %33 ], [ 0, %30 ], [ 0, %27 ], [ 0, %24 ], [ 0, %21 ], [ 0, %18 ], [ 0, %14 ], [ 0, %9 ], [ 0, %._crit_edge ]
-  %138 = load ptr, ptr %1, align 8, !tbaa !14
+  %138 = load ptr, ptr %1, align 8, !tbaa !13
   call void @EVP_PKEY_free(ptr noundef %138) #7
   call void @EVP_PKEY_free(ptr noundef %136) #7
   call void @EVP_PKEY_CTX_free(ptr noundef %.032) #7
@@ -1578,15 +1578,15 @@ define internal range(i32 0, 2) i32 @kem_invalid_keytype() #1 {
   %2 = alloca [2 x %struct.ossl_param_st], align 16
   %3 = alloca %struct.ossl_param_st, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1) #7
-  store ptr null, ptr %1, align 8, !tbaa !14
+  store ptr null, ptr %1, align 8, !tbaa !13
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %2) #7
   call void @OSSL_PARAM_construct_utf8_string(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %2, ptr noundef nonnull @.str.152, ptr noundef nonnull @.str.153, i64 noundef 0) #7
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 40
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3) #7
   call void @OSSL_PARAM_construct_end(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %3) #7
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, ptr noundef nonnull align 8 dereferenceable(40) %3, i64 40, i1 false), !tbaa.struct !27
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, ptr noundef nonnull align 8 dereferenceable(40) %3, i64 40, i1 false), !tbaa.struct !26
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3) #7
-  %5 = load ptr, ptr @libctx, align 8, !tbaa !7
+  %5 = load ptr, ptr @libctx, align 8, !tbaa !6
   %6 = call ptr @EVP_PKEY_CTX_new_from_name(ptr noundef %5, ptr noundef nonnull @.str.155, ptr noundef null) #7
   %7 = call i32 @test_ptr(ptr noundef nonnull @.str.24, i32 noundef 741, ptr noundef nonnull @.str.154, ptr noundef %6) #7
   %.not.i = icmp eq i32 %7, 0
@@ -1615,7 +1615,7 @@ define internal range(i32 0, 2) i32 @kem_invalid_keytype() #1 {
 
 gen_dh_key.exit:                                  ; preds = %0, %8, %11, %16
   call void @EVP_PKEY_CTX_free(ptr noundef %6) #7
-  %21 = load ptr, ptr %1, align 8, !tbaa !14
+  %21 = load ptr, ptr %1, align 8, !tbaa !13
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %2) #7
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1) #7
   %22 = call i32 @test_ptr(ptr noundef nonnull @.str.24, i32 noundef 758, ptr noundef nonnull @.str.150, ptr noundef %21) #7
@@ -1623,7 +1623,7 @@ gen_dh_key.exit:                                  ; preds = %0, %8, %11, %16
   br i1 %.not, label %30, label %23
 
 23:                                               ; preds = %gen_dh_key.exit
-  %24 = load ptr, ptr @libctx, align 8, !tbaa !7
+  %24 = load ptr, ptr @libctx, align 8, !tbaa !6
   %25 = call ptr @EVP_PKEY_CTX_new_from_pkey(ptr noundef %24, ptr noundef %21, ptr noundef null) #7
   %26 = call i32 @test_ptr(ptr noundef nonnull @.str.24, i32 noundef 761, ptr noundef nonnull @.str.151, ptr noundef %25) #7
   %.not5 = icmp eq i32 %26, 0
@@ -1654,14 +1654,14 @@ define internal range(i32 0, 2) i32 @test_cipher_tdes_randkey() #1 {
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %1, i8 0, i64 24, i1 false)
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %2) #7
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #7
-  store i32 0, ptr %3, align 4, !tbaa !22
+  store i32 0, ptr %3, align 4, !tbaa !21
   call void @OSSL_PARAM_construct_int(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %2, ptr noundef nonnull @.str.159, ptr noundef nonnull %3) #7
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 40
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4) #7
   call void @OSSL_PARAM_construct_end(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %4) #7
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %5, ptr noundef nonnull align 8 dereferenceable(40) %4, i64 40, i1 false), !tbaa.struct !27
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %5, ptr noundef nonnull align 8 dereferenceable(40) %4, i64 40, i1 false), !tbaa.struct !26
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #7
-  %6 = load ptr, ptr @libctx, align 8, !tbaa !7
+  %6 = load ptr, ptr @libctx, align 8, !tbaa !6
   %7 = call ptr @EVP_CIPHER_fetch(ptr noundef %6, ptr noundef nonnull @.str.161, ptr noundef null) #7
   %8 = call i32 @test_ptr(ptr noundef nonnull @.str.24, i32 noundef 642, ptr noundef nonnull @.str.160, ptr noundef %7) #7
   %.not = icmp eq i32 %8, 0
@@ -1676,7 +1676,7 @@ define internal range(i32 0, 2) i32 @test_cipher_tdes_randkey() #1 {
   br i1 %.not9, label %36, label %14
 
 14:                                               ; preds = %9
-  %15 = load ptr, ptr @libctx, align 8, !tbaa !7
+  %15 = load ptr, ptr @libctx, align 8, !tbaa !6
   %16 = call ptr @EVP_CIPHER_fetch(ptr noundef %15, ptr noundef nonnull @.str.164, ptr noundef null) #7
   %17 = call i32 @test_ptr(ptr noundef nonnull @.str.24, i32 noundef 644, ptr noundef nonnull @.str.163, ptr noundef %16) #7
   %.not10 = icmp eq i32 %17, 0
@@ -1729,13 +1729,13 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @cleanup_tests() local_unnamed_addr #1 {
-  %1 = load ptr, ptr @cipher_names, align 8, !tbaa !12
+  %1 = load ptr, ptr @cipher_names, align 8, !tbaa !11
   tail call void @OPENSSL_sk_pop_free(ptr noundef %1, ptr noundef nonnull @string_free) #7
-  %2 = load ptr, ptr @libprov, align 8, !tbaa !29
+  %2 = load ptr, ptr @libprov, align 8, !tbaa !28
   %3 = tail call i32 @OSSL_PROVIDER_unload(ptr noundef %2) #7
-  %4 = load ptr, ptr @libctx, align 8, !tbaa !7
+  %4 = load ptr, ptr @libctx, align 8, !tbaa !6
   tail call void @OSSL_LIB_CTX_free(ptr noundef %4) #7
-  %5 = load ptr, ptr @nullprov, align 8, !tbaa !29
+  %5 = load ptr, ptr @nullprov, align 8, !tbaa !28
   %6 = tail call i32 @OSSL_PROVIDER_unload(ptr noundef %5) #7
   ret void
 }
@@ -1860,20 +1860,20 @@ define internal fastcc range(i32 0, 2) i32 @rsa_keygen(ptr noundef nonnull %0, p
   %4 = alloca ptr, align 8
   %5 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #7
-  store ptr null, ptr %3, align 8, !tbaa !16
+  store ptr null, ptr %3, align 8, !tbaa !15
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #7
-  store ptr null, ptr %4, align 8, !tbaa !16
+  store ptr null, ptr %4, align 8, !tbaa !15
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #7
-  store i64 0, ptr %5, align 8, !tbaa !24
-  %6 = load ptr, ptr @libctx, align 8, !tbaa !7
+  store i64 0, ptr %5, align 8, !tbaa !23
+  %6 = load ptr, ptr @libctx, align 8, !tbaa !6
   %7 = tail call ptr (ptr, ptr, ptr, ...) @EVP_PKEY_Q_keygen(ptr noundef %6, ptr noundef null, ptr noundef nonnull @.str.107, i64 noundef 2048) #7
-  store ptr %7, ptr %1, align 8, !tbaa !14
+  store ptr %7, ptr %1, align 8, !tbaa !13
   %8 = tail call i32 @test_ptr(ptr noundef nonnull @.str.24, i32 noundef 552, ptr noundef nonnull @.str.106, ptr noundef %7) #7
   %.not = icmp eq i32 %8, 0
   br i1 %.not, label %23, label %9
 
 9:                                                ; preds = %2
-  %10 = load ptr, ptr %1, align 8, !tbaa !14
+  %10 = load ptr, ptr %1, align 8, !tbaa !13
   %11 = tail call ptr @OSSL_ENCODER_CTX_new_for_pkey(ptr noundef %10, i32 noundef 134, ptr noundef nonnull @.str.109, ptr noundef nonnull @.str.110, ptr noundef null) #7
   %12 = tail call i32 @test_ptr(ptr noundef nonnull @.str.24, i32 noundef 557, ptr noundef nonnull @.str.108, ptr noundef %11) #7
   %.not7 = icmp eq i32 %12, 0
@@ -1888,9 +1888,9 @@ define internal fastcc range(i32 0, 2) i32 @rsa_keygen(ptr noundef nonnull %0, p
   br i1 %.not8, label %23, label %18
 
 18:                                               ; preds = %13
-  %19 = load ptr, ptr %3, align 8, !tbaa !16
-  store ptr %19, ptr %4, align 8, !tbaa !16
-  %20 = load i64, ptr %5, align 8, !tbaa !24
+  %19 = load ptr, ptr %3, align 8, !tbaa !15
+  store ptr %19, ptr %4, align 8, !tbaa !15
+  %20 = load i64, ptr %5, align 8, !tbaa !23
   %21 = call ptr @d2i_PublicKey(i32 noundef 6, ptr noundef nonnull %0, ptr noundef nonnull %4, i64 noundef %20) #7
   %22 = call i32 @test_ptr(ptr noundef nonnull @.str.24, i32 noundef 561, ptr noundef nonnull @.str.112, ptr noundef %21) #7
   %.not9 = icmp ne i32 %22, 0
@@ -1901,7 +1901,7 @@ define internal fastcc range(i32 0, 2) i32 @rsa_keygen(ptr noundef nonnull %0, p
   %.06 = phi i32 [ 0, %13 ], [ 0, %9 ], [ 0, %2 ], [ %spec.select, %18 ]
   %.0 = phi ptr [ %11, %13 ], [ %11, %9 ], [ null, %2 ], [ %11, %18 ]
   call void @OSSL_ENCODER_CTX_free(ptr noundef %.0) #7
-  %24 = load ptr, ptr %3, align 8, !tbaa !16
+  %24 = load ptr, ptr %3, align 8, !tbaa !15
   call void @CRYPTO_free(ptr noundef %24, ptr noundef nonnull @.str.24, i32 noundef 566) #7
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #7
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #7
@@ -1967,30 +1967,29 @@ attributes #8 = { nounwind willreturn memory(read) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = distinct !{!4, !5, !6}
+!4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{!"llvm.loop.estimated_trip_count"}
-!7 = !{!8, !8, i64 0}
-!8 = !{!"p1 _ZTS15ossl_lib_ctx_st", !9, i64 0}
-!9 = !{!"any pointer", !10, i64 0}
-!10 = !{!"omnipotent char", !11, i64 0}
-!11 = !{!"Simple C/C++ TBAA"}
-!12 = !{!13, !13, i64 0}
-!13 = !{!"p1 _ZTS23stack_st_OPENSSL_STRING", !9, i64 0}
-!14 = !{!15, !15, i64 0}
-!15 = !{!"p1 _ZTS11evp_pkey_st", !9, i64 0}
-!16 = !{!17, !17, i64 0}
-!17 = !{!"p1 omnipotent char", !9, i64 0}
-!18 = !{!19, !19, i64 0}
-!19 = !{!"p1 _ZTS9bignum_st", !9, i64 0}
-!20 = !{!21, !21, i64 0}
-!21 = !{!"p1 _ZTS7x509_st", !9, i64 0}
-!22 = !{!23, !23, i64 0}
-!23 = !{!"int", !10, i64 0}
-!24 = !{!25, !25, i64 0}
-!25 = !{!"long", !10, i64 0}
-!26 = !{!10, !10, i64 0}
-!27 = !{i64 0, i64 8, !16, i64 8, i64 4, !22, i64 16, i64 8, !28, i64 24, i64 8, !24, i64 32, i64 8, !24}
-!28 = !{!9, !9, i64 0}
-!29 = !{!30, !30, i64 0}
-!30 = !{!"p1 _ZTS16ossl_provider_st", !9, i64 0}
+!6 = !{!7, !7, i64 0}
+!7 = !{!"p1 _ZTS15ossl_lib_ctx_st", !8, i64 0}
+!8 = !{!"any pointer", !9, i64 0}
+!9 = !{!"omnipotent char", !10, i64 0}
+!10 = !{!"Simple C/C++ TBAA"}
+!11 = !{!12, !12, i64 0}
+!12 = !{!"p1 _ZTS23stack_st_OPENSSL_STRING", !8, i64 0}
+!13 = !{!14, !14, i64 0}
+!14 = !{!"p1 _ZTS11evp_pkey_st", !8, i64 0}
+!15 = !{!16, !16, i64 0}
+!16 = !{!"p1 omnipotent char", !8, i64 0}
+!17 = !{!18, !18, i64 0}
+!18 = !{!"p1 _ZTS9bignum_st", !8, i64 0}
+!19 = !{!20, !20, i64 0}
+!20 = !{!"p1 _ZTS7x509_st", !8, i64 0}
+!21 = !{!22, !22, i64 0}
+!22 = !{!"int", !9, i64 0}
+!23 = !{!24, !24, i64 0}
+!24 = !{!"long", !9, i64 0}
+!25 = !{!9, !9, i64 0}
+!26 = !{i64 0, i64 8, !15, i64 8, i64 4, !21, i64 16, i64 8, !27, i64 24, i64 8, !23, i64 32, i64 8, !23}
+!27 = !{!8, !8, i64 0}
+!28 = !{!29, !29, i64 0}
+!29 = !{!"p1 _ZTS16ossl_provider_st", !8, i64 0}

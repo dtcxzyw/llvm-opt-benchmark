@@ -83,7 +83,7 @@ define dso_local void @PHP_RIPEMD128Update(ptr noundef captures(none) %0, ptr no
   %28 = add i64 %.031, 64
   %29 = add i64 %.031, 127
   %30 = icmp ult i64 %29, %2
-  br i1 %30, label %.lr.ph, label %.loopexit, !llvm.loop !8
+  br i1 %30, label %.lr.ph, label %.loopexit
 
 31:                                               ; preds = %._crit_edge
   %32 = zext nneg i32 %6 to i64
@@ -148,7 +148,7 @@ define dso_local void @PHP_RIPEMD128Final(ptr noundef writeonly captures(none) %
   %30 = add nuw nsw i64 %.031.i, 64
   %31 = add nuw nsw i64 %.031.i, 127
   %32 = icmp samesign ult i64 %31, %13
-  br i1 %32, label %.lr.ph.i, label %PHP_RIPEMD128Update.exit, !llvm.loop !8
+  br i1 %32, label %.lr.ph.i, label %PHP_RIPEMD128Update.exit
 
 33:                                               ; preds = %2
   %34 = zext nneg i32 %10 to i64
@@ -206,24 +206,24 @@ PHP_RIPEMD128Update.exit22:                       ; preds = %52, %47
   %61 = trunc nuw i32 %60 to i8
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv.i
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 3
-  store i8 %61, ptr %63, align 1, !tbaa !10
+  store i8 %61, ptr %63, align 1, !tbaa !8
   %64 = load i32, ptr %58, align 4, !tbaa !4
   %65 = lshr i32 %64, 16
   %66 = trunc i32 %65 to i8
   %67 = getelementptr inbounds nuw i8, ptr %62, i64 2
-  store i8 %66, ptr %67, align 1, !tbaa !10
+  store i8 %66, ptr %67, align 1, !tbaa !8
   %68 = load i32, ptr %58, align 4, !tbaa !4
   %69 = lshr i32 %68, 8
   %70 = trunc i32 %69 to i8
   %71 = getelementptr inbounds nuw i8, ptr %62, i64 1
-  store i8 %70, ptr %71, align 1, !tbaa !10
+  store i8 %70, ptr %71, align 1, !tbaa !8
   %72 = load i32, ptr %58, align 4, !tbaa !4
   %73 = trunc i32 %72 to i8
-  store i8 %73, ptr %62, align 1, !tbaa !10
+  store i8 %73, ptr %62, align 1, !tbaa !8
   %indvars.iv.next23.i = add nuw nsw i64 %indvars.iv22.i, 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 4
   %exitcond.not.i = icmp eq i64 %indvars.iv.next23.i, 4
-  br i1 %exitcond.not.i, label %RIPEMDEncode.exit, label %57, !llvm.loop !11
+  br i1 %exitcond.not.i, label %RIPEMDEncode.exit, label %57
 
 RIPEMDEncode.exit:                                ; preds = %57
   tail call void @explicit_bzero(ptr noundef nonnull %1, i64 noundef 88) #7
@@ -298,7 +298,7 @@ define dso_local void @PHP_RIPEMD160Update(ptr noundef captures(none) %0, ptr no
   %28 = add i64 %.031, 64
   %29 = add i64 %.031, 127
   %30 = icmp ult i64 %29, %2
-  br i1 %30, label %.lr.ph, label %.loopexit, !llvm.loop !12
+  br i1 %30, label %.lr.ph, label %.loopexit
 
 31:                                               ; preds = %._crit_edge
   %32 = zext nneg i32 %6 to i64
@@ -363,7 +363,7 @@ define dso_local void @PHP_RIPEMD160Final(ptr noundef writeonly captures(none) %
   %30 = add nuw nsw i64 %.031.i, 64
   %31 = add nuw nsw i64 %.031.i, 127
   %32 = icmp samesign ult i64 %31, %13
-  br i1 %32, label %.lr.ph.i, label %PHP_RIPEMD160Update.exit, !llvm.loop !12
+  br i1 %32, label %.lr.ph.i, label %PHP_RIPEMD160Update.exit
 
 33:                                               ; preds = %2
   %34 = zext nneg i32 %10 to i64
@@ -421,24 +421,24 @@ PHP_RIPEMD160Update.exit22:                       ; preds = %52, %47
   %61 = trunc nuw i32 %60 to i8
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv.i
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 3
-  store i8 %61, ptr %63, align 1, !tbaa !10
+  store i8 %61, ptr %63, align 1, !tbaa !8
   %64 = load i32, ptr %58, align 4, !tbaa !4
   %65 = lshr i32 %64, 16
   %66 = trunc i32 %65 to i8
   %67 = getelementptr inbounds nuw i8, ptr %62, i64 2
-  store i8 %66, ptr %67, align 1, !tbaa !10
+  store i8 %66, ptr %67, align 1, !tbaa !8
   %68 = load i32, ptr %58, align 4, !tbaa !4
   %69 = lshr i32 %68, 8
   %70 = trunc i32 %69 to i8
   %71 = getelementptr inbounds nuw i8, ptr %62, i64 1
-  store i8 %70, ptr %71, align 1, !tbaa !10
+  store i8 %70, ptr %71, align 1, !tbaa !8
   %72 = load i32, ptr %58, align 4, !tbaa !4
   %73 = trunc i32 %72 to i8
-  store i8 %73, ptr %62, align 1, !tbaa !10
+  store i8 %73, ptr %62, align 1, !tbaa !8
   %indvars.iv.next23.i = add nuw nsw i64 %indvars.iv22.i, 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 4
   %exitcond.not.i = icmp eq i64 %indvars.iv.next23.i, 5
-  br i1 %exitcond.not.i, label %RIPEMDEncode.exit, label %57, !llvm.loop !11
+  br i1 %exitcond.not.i, label %RIPEMDEncode.exit, label %57
 
 RIPEMDEncode.exit:                                ; preds = %57
   tail call void @explicit_bzero(ptr noundef nonnull %1, i64 noundef 92) #7
@@ -513,7 +513,7 @@ define dso_local void @PHP_RIPEMD256Update(ptr noundef captures(none) %0, ptr no
   %28 = add i64 %.031, 64
   %29 = add i64 %.031, 127
   %30 = icmp ult i64 %29, %2
-  br i1 %30, label %.lr.ph, label %.loopexit, !llvm.loop !13
+  br i1 %30, label %.lr.ph, label %.loopexit
 
 31:                                               ; preds = %._crit_edge
   %32 = zext nneg i32 %6 to i64
@@ -578,7 +578,7 @@ define dso_local void @PHP_RIPEMD256Final(ptr noundef writeonly captures(none) %
   %30 = add nuw nsw i64 %.031.i, 64
   %31 = add nuw nsw i64 %.031.i, 127
   %32 = icmp samesign ult i64 %31, %13
-  br i1 %32, label %.lr.ph.i, label %PHP_RIPEMD256Update.exit, !llvm.loop !13
+  br i1 %32, label %.lr.ph.i, label %PHP_RIPEMD256Update.exit
 
 33:                                               ; preds = %2
   %34 = zext nneg i32 %10 to i64
@@ -636,24 +636,24 @@ PHP_RIPEMD256Update.exit22:                       ; preds = %52, %47
   %61 = trunc nuw i32 %60 to i8
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv.i
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 3
-  store i8 %61, ptr %63, align 1, !tbaa !10
+  store i8 %61, ptr %63, align 1, !tbaa !8
   %64 = load i32, ptr %58, align 4, !tbaa !4
   %65 = lshr i32 %64, 16
   %66 = trunc i32 %65 to i8
   %67 = getelementptr inbounds nuw i8, ptr %62, i64 2
-  store i8 %66, ptr %67, align 1, !tbaa !10
+  store i8 %66, ptr %67, align 1, !tbaa !8
   %68 = load i32, ptr %58, align 4, !tbaa !4
   %69 = lshr i32 %68, 8
   %70 = trunc i32 %69 to i8
   %71 = getelementptr inbounds nuw i8, ptr %62, i64 1
-  store i8 %70, ptr %71, align 1, !tbaa !10
+  store i8 %70, ptr %71, align 1, !tbaa !8
   %72 = load i32, ptr %58, align 4, !tbaa !4
   %73 = trunc i32 %72 to i8
-  store i8 %73, ptr %62, align 1, !tbaa !10
+  store i8 %73, ptr %62, align 1, !tbaa !8
   %indvars.iv.next23.i = add nuw nsw i64 %indvars.iv22.i, 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 4
   %exitcond.not.i = icmp eq i64 %indvars.iv.next23.i, 8
-  br i1 %exitcond.not.i, label %RIPEMDEncode.exit, label %57, !llvm.loop !11
+  br i1 %exitcond.not.i, label %RIPEMDEncode.exit, label %57
 
 RIPEMDEncode.exit:                                ; preds = %57
   tail call void @explicit_bzero(ptr noundef nonnull %1, i64 noundef 104) #7
@@ -732,7 +732,7 @@ define dso_local void @PHP_RIPEMD320Update(ptr noundef captures(none) %0, ptr no
   %28 = add i64 %.031, 64
   %29 = add i64 %.031, 127
   %30 = icmp ult i64 %29, %2
-  br i1 %30, label %.lr.ph, label %.loopexit, !llvm.loop !14
+  br i1 %30, label %.lr.ph, label %.loopexit
 
 31:                                               ; preds = %._crit_edge
   %32 = zext nneg i32 %6 to i64
@@ -797,7 +797,7 @@ define dso_local void @PHP_RIPEMD320Final(ptr noundef writeonly captures(none) %
   %30 = add nuw nsw i64 %.031.i, 64
   %31 = add nuw nsw i64 %.031.i, 127
   %32 = icmp samesign ult i64 %31, %13
-  br i1 %32, label %.lr.ph.i, label %PHP_RIPEMD320Update.exit, !llvm.loop !14
+  br i1 %32, label %.lr.ph.i, label %PHP_RIPEMD320Update.exit
 
 33:                                               ; preds = %2
   %34 = zext nneg i32 %10 to i64
@@ -855,24 +855,24 @@ PHP_RIPEMD320Update.exit22:                       ; preds = %52, %47
   %61 = trunc nuw i32 %60 to i8
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv.i
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 3
-  store i8 %61, ptr %63, align 1, !tbaa !10
+  store i8 %61, ptr %63, align 1, !tbaa !8
   %64 = load i32, ptr %58, align 4, !tbaa !4
   %65 = lshr i32 %64, 16
   %66 = trunc i32 %65 to i8
   %67 = getelementptr inbounds nuw i8, ptr %62, i64 2
-  store i8 %66, ptr %67, align 1, !tbaa !10
+  store i8 %66, ptr %67, align 1, !tbaa !8
   %68 = load i32, ptr %58, align 4, !tbaa !4
   %69 = lshr i32 %68, 8
   %70 = trunc i32 %69 to i8
   %71 = getelementptr inbounds nuw i8, ptr %62, i64 1
-  store i8 %70, ptr %71, align 1, !tbaa !10
+  store i8 %70, ptr %71, align 1, !tbaa !8
   %72 = load i32, ptr %58, align 4, !tbaa !4
   %73 = trunc i32 %72 to i8
-  store i8 %73, ptr %62, align 1, !tbaa !10
+  store i8 %73, ptr %62, align 1, !tbaa !8
   %indvars.iv.next23.i = add nuw nsw i64 %indvars.iv22.i, 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 4
   %exitcond.not.i = icmp eq i64 %indvars.iv.next23.i, 10
-  br i1 %exitcond.not.i, label %RIPEMDEncode.exit, label %57, !llvm.loop !11
+  br i1 %exitcond.not.i, label %RIPEMDEncode.exit, label %57
 
 RIPEMDEncode.exit:                                ; preds = %57
   tail call void @explicit_bzero(ptr noundef nonnull %1, i64 noundef 112) #7
@@ -915,13 +915,13 @@ RIPEMDDecode.exit:                                ; preds = %RIPEMDDecode.exit.p
   %11 = xor i32 %10, %.0201222
   %12 = add i32 %11, %.0213219
   %13 = getelementptr inbounds nuw [80 x i8], ptr @R, i64 0, i64 %indvars.iv
-  %14 = load i8, ptr %13, align 1, !tbaa !10
+  %14 = load i8, ptr %13, align 1, !tbaa !8
   %15 = zext i8 %14 to i64
   %16 = getelementptr inbounds nuw [16 x i32], ptr %2, i64 0, i64 %15
   %17 = load i32, ptr %16, align 4, !tbaa !4
   %18 = add i32 %12, %17
   %19 = getelementptr inbounds nuw [80 x i8], ptr @S, i64 0, i64 %indvars.iv
-  %20 = load i8, ptr %19, align 1, !tbaa !10
+  %20 = load i8, ptr %19, align 1, !tbaa !8
   %21 = zext i8 %20 to i32
   %22 = shl i32 %18, %21
   %23 = sub nsw i32 32, %21
@@ -932,7 +932,7 @@ RIPEMDDecode.exit:                                ; preds = %RIPEMDDecode.exit.p
   %28 = and i32 %.0189225, %27
   %29 = or i32 %26, %28
   %30 = getelementptr inbounds nuw [80 x i8], ptr @RR, i64 0, i64 %indvars.iv
-  %31 = load i8, ptr %30, align 1, !tbaa !10
+  %31 = load i8, ptr %30, align 1, !tbaa !8
   %32 = zext i8 %31 to i64
   %33 = getelementptr inbounds nuw [16 x i32], ptr %2, i64 0, i64 %32
   %34 = load i32, ptr %33, align 4, !tbaa !4
@@ -940,7 +940,7 @@ RIPEMDDecode.exit:                                ; preds = %RIPEMDDecode.exit.p
   %36 = add i32 %35, %29
   %37 = add i32 %36, %34
   %38 = getelementptr inbounds nuw [80 x i8], ptr @SS, i64 0, i64 %indvars.iv
-  %39 = load i8, ptr %38, align 1, !tbaa !10
+  %39 = load i8, ptr %38, align 1, !tbaa !8
   %40 = zext i8 %39 to i32
   %41 = shl i32 %37, %40
   %42 = sub nsw i32 32, %40
@@ -948,7 +948,7 @@ RIPEMDDecode.exit:                                ; preds = %RIPEMDDecode.exit.p
   %44 = or disjoint i32 %43, %41
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
-  br i1 %exitcond.not, label %.preheader218, label %RIPEMDDecode.exit, !llvm.loop !15
+  br i1 %exitcond.not, label %.preheader218, label %RIPEMDDecode.exit
 
 .preheader218:                                    ; preds = %RIPEMDDecode.exit, %.preheader218
   %indvars.iv263 = phi i64 [ %indvars.iv.next264, %.preheader218 ], [ 16, %RIPEMDDecode.exit ]
@@ -966,7 +966,7 @@ RIPEMDDecode.exit:                                ; preds = %RIPEMDDecode.exit.p
   %48 = or i32 %47, %45
   %49 = add i32 %48, %.1214228
   %50 = getelementptr inbounds nuw [80 x i8], ptr @R, i64 0, i64 %indvars.iv263
-  %51 = load i8, ptr %50, align 1, !tbaa !10
+  %51 = load i8, ptr %50, align 1, !tbaa !8
   %52 = zext i8 %51 to i64
   %53 = getelementptr inbounds nuw [16 x i32], ptr %2, i64 0, i64 %52
   %54 = load i32, ptr %53, align 4, !tbaa !4
@@ -977,7 +977,7 @@ RIPEMDDecode.exit:                                ; preds = %RIPEMDDecode.exit.p
   %59 = load i32, ptr %58, align 4, !tbaa !4
   %60 = add i32 %55, %59
   %61 = getelementptr inbounds nuw [80 x i8], ptr @S, i64 0, i64 %indvars.iv263
-  %62 = load i8, ptr %61, align 1, !tbaa !10
+  %62 = load i8, ptr %61, align 1, !tbaa !8
   %63 = zext i8 %62 to i32
   %64 = shl i32 %60, %63
   %65 = sub nsw i32 32, %63
@@ -988,7 +988,7 @@ RIPEMDDecode.exit:                                ; preds = %RIPEMDDecode.exit.p
   %70 = xor i32 %69, %.1186235
   %71 = add i32 %70, %.1198232
   %72 = getelementptr inbounds nuw [80 x i8], ptr @RR, i64 0, i64 %indvars.iv263
-  %73 = load i8, ptr %72, align 1, !tbaa !10
+  %73 = load i8, ptr %72, align 1, !tbaa !8
   %74 = zext i8 %73 to i64
   %75 = getelementptr inbounds nuw [16 x i32], ptr %2, i64 0, i64 %74
   %76 = load i32, ptr %75, align 4, !tbaa !4
@@ -997,7 +997,7 @@ RIPEMDDecode.exit:                                ; preds = %RIPEMDDecode.exit.p
   %79 = load i32, ptr %78, align 4, !tbaa !4
   %80 = add i32 %77, %79
   %81 = getelementptr inbounds nuw [80 x i8], ptr @SS, i64 0, i64 %indvars.iv263
-  %82 = load i8, ptr %81, align 1, !tbaa !10
+  %82 = load i8, ptr %81, align 1, !tbaa !8
   %83 = zext i8 %82 to i32
   %84 = shl i32 %80, %83
   %85 = sub nsw i32 32, %83
@@ -1005,7 +1005,7 @@ RIPEMDDecode.exit:                                ; preds = %RIPEMDDecode.exit.p
   %87 = or disjoint i32 %86, %84
   %indvars.iv.next264 = add nuw nsw i64 %indvars.iv263, 1
   %exitcond266.not = icmp eq i64 %indvars.iv.next264, 32
-  br i1 %exitcond266.not, label %.preheader217, label %.preheader218, !llvm.loop !16
+  br i1 %exitcond266.not, label %.preheader217, label %.preheader218
 
 .preheader217:                                    ; preds = %.preheader218, %.preheader217
   %indvars.iv267 = phi i64 [ %indvars.iv.next268, %.preheader217 ], [ 32, %.preheader218 ]
@@ -1022,7 +1022,7 @@ RIPEMDDecode.exit:                                ; preds = %RIPEMDDecode.exit.p
   %90 = xor i32 %89, %.2203240
   %91 = add i32 %90, %.2215237
   %92 = getelementptr inbounds nuw [80 x i8], ptr @R, i64 0, i64 %indvars.iv267
-  %93 = load i8, ptr %92, align 1, !tbaa !10
+  %93 = load i8, ptr %92, align 1, !tbaa !8
   %94 = zext i8 %93 to i64
   %95 = getelementptr inbounds nuw [16 x i32], ptr %2, i64 0, i64 %94
   %96 = load i32, ptr %95, align 4, !tbaa !4
@@ -1033,7 +1033,7 @@ RIPEMDDecode.exit:                                ; preds = %RIPEMDDecode.exit.p
   %101 = load i32, ptr %100, align 4, !tbaa !4
   %102 = add i32 %97, %101
   %103 = getelementptr inbounds nuw [80 x i8], ptr @S, i64 0, i64 %indvars.iv267
-  %104 = load i8, ptr %103, align 1, !tbaa !10
+  %104 = load i8, ptr %103, align 1, !tbaa !8
   %105 = zext i8 %104 to i32
   %106 = shl i32 %102, %105
   %107 = sub nsw i32 32, %105
@@ -1045,7 +1045,7 @@ RIPEMDDecode.exit:                                ; preds = %RIPEMDDecode.exit.p
   %113 = or i32 %112, %110
   %114 = add i32 %113, %.2199241
   %115 = getelementptr inbounds nuw [80 x i8], ptr @RR, i64 0, i64 %indvars.iv267
-  %116 = load i8, ptr %115, align 1, !tbaa !10
+  %116 = load i8, ptr %115, align 1, !tbaa !8
   %117 = zext i8 %116 to i64
   %118 = getelementptr inbounds nuw [16 x i32], ptr %2, i64 0, i64 %117
   %119 = load i32, ptr %118, align 4, !tbaa !4
@@ -1054,7 +1054,7 @@ RIPEMDDecode.exit:                                ; preds = %RIPEMDDecode.exit.p
   %122 = load i32, ptr %121, align 4, !tbaa !4
   %123 = add i32 %120, %122
   %124 = getelementptr inbounds nuw [80 x i8], ptr @SS, i64 0, i64 %indvars.iv267
-  %125 = load i8, ptr %124, align 1, !tbaa !10
+  %125 = load i8, ptr %124, align 1, !tbaa !8
   %126 = zext i8 %125 to i32
   %127 = shl i32 %123, %126
   %128 = sub nsw i32 32, %126
@@ -1062,7 +1062,7 @@ RIPEMDDecode.exit:                                ; preds = %RIPEMDDecode.exit.p
   %130 = or disjoint i32 %129, %127
   %indvars.iv.next268 = add nuw nsw i64 %indvars.iv267, 1
   %exitcond270.not = icmp eq i64 %indvars.iv.next268, 48
-  br i1 %exitcond270.not, label %.preheader, label %.preheader217, !llvm.loop !17
+  br i1 %exitcond270.not, label %.preheader, label %.preheader217
 
 .preheader:                                       ; preds = %.preheader217, %.preheader
   %indvars.iv271 = phi i64 [ %indvars.iv.next272, %.preheader ], [ 48, %.preheader217 ]
@@ -1080,7 +1080,7 @@ RIPEMDDecode.exit:                                ; preds = %RIPEMDDecode.exit.p
   %134 = or i32 %131, %133
   %135 = add i32 %134, %.3216246
   %136 = getelementptr inbounds nuw [80 x i8], ptr @R, i64 0, i64 %indvars.iv271
-  %137 = load i8, ptr %136, align 1, !tbaa !10
+  %137 = load i8, ptr %136, align 1, !tbaa !8
   %138 = zext i8 %137 to i64
   %139 = getelementptr inbounds nuw [16 x i32], ptr %2, i64 0, i64 %138
   %140 = load i32, ptr %139, align 4, !tbaa !4
@@ -1091,7 +1091,7 @@ RIPEMDDecode.exit:                                ; preds = %RIPEMDDecode.exit.p
   %145 = load i32, ptr %144, align 4, !tbaa !4
   %146 = add i32 %141, %145
   %147 = getelementptr inbounds nuw [80 x i8], ptr @S, i64 0, i64 %indvars.iv271
-  %148 = load i8, ptr %147, align 1, !tbaa !10
+  %148 = load i8, ptr %147, align 1, !tbaa !8
   %149 = zext i8 %148 to i32
   %150 = shl i32 %146, %149
   %151 = sub nsw i32 32, %149
@@ -1101,7 +1101,7 @@ RIPEMDDecode.exit:                                ; preds = %RIPEMDDecode.exit.p
   %155 = xor i32 %154, %.3188253
   %156 = add i32 %155, %.3200250
   %157 = getelementptr inbounds nuw [80 x i8], ptr @RR, i64 0, i64 %indvars.iv271
-  %158 = load i8, ptr %157, align 1, !tbaa !10
+  %158 = load i8, ptr %157, align 1, !tbaa !8
   %159 = zext i8 %158 to i64
   %160 = getelementptr inbounds nuw [16 x i32], ptr %2, i64 0, i64 %159
   %161 = load i32, ptr %160, align 4, !tbaa !4
@@ -1110,7 +1110,7 @@ RIPEMDDecode.exit:                                ; preds = %RIPEMDDecode.exit.p
   %164 = load i32, ptr %163, align 4, !tbaa !4
   %165 = add i32 %162, %164
   %166 = getelementptr inbounds nuw [80 x i8], ptr @SS, i64 0, i64 %indvars.iv271
-  %167 = load i8, ptr %166, align 1, !tbaa !10
+  %167 = load i8, ptr %166, align 1, !tbaa !8
   %168 = zext i8 %167 to i32
   %169 = shl i32 %165, %168
   %170 = sub nsw i32 32, %168
@@ -1118,7 +1118,7 @@ RIPEMDDecode.exit:                                ; preds = %RIPEMDDecode.exit.p
   %172 = or disjoint i32 %171, %169
   %indvars.iv.next272 = add nuw nsw i64 %indvars.iv271, 1
   %exitcond274.not = icmp eq i64 %indvars.iv.next272, 64
-  br i1 %exitcond274.not, label %173, label %.preheader, !llvm.loop !18
+  br i1 %exitcond274.not, label %173, label %.preheader
 
 173:                                              ; preds = %.preheader
   %174 = add i32 %.3212247, %5
@@ -1178,13 +1178,13 @@ RIPEMDDecode.exit:                                ; preds = %RIPEMDDecode.exit.p
   %19 = xor i32 %18, %.0212233
   %20 = add i32 %19, %.0224230
   %21 = getelementptr inbounds nuw [80 x i8], ptr @R, i64 0, i64 %indvars.iv
-  %22 = load i8, ptr %21, align 1, !tbaa !10
+  %22 = load i8, ptr %21, align 1, !tbaa !8
   %23 = zext i8 %22 to i64
   %24 = getelementptr inbounds nuw [16 x i32], ptr %2, i64 0, i64 %23
   %25 = load i32, ptr %24, align 4, !tbaa !4
   %26 = add i32 %20, %25
   %27 = getelementptr inbounds nuw [80 x i8], ptr @S, i64 0, i64 %indvars.iv
-  %28 = load i8, ptr %27, align 1, !tbaa !10
+  %28 = load i8, ptr %27, align 1, !tbaa !8
   %29 = zext i8 %28 to i32
   %30 = shl i32 %26, %29
   %31 = sub nsw i32 32, %29
@@ -1195,7 +1195,7 @@ RIPEMDDecode.exit:                                ; preds = %RIPEMDDecode.exit.p
   %36 = and i32 %.0200236, %35
   %37 = or i32 %34, %36
   %38 = getelementptr inbounds nuw [80 x i8], ptr @RR, i64 0, i64 %indvars.iv
-  %39 = load i8, ptr %38, align 1, !tbaa !10
+  %39 = load i8, ptr %38, align 1, !tbaa !8
   %40 = zext i8 %39 to i64
   %41 = getelementptr inbounds nuw [16 x i32], ptr %2, i64 0, i64 %40
   %42 = load i32, ptr %41, align 4, !tbaa !4
@@ -1203,7 +1203,7 @@ RIPEMDDecode.exit:                                ; preds = %RIPEMDDecode.exit.p
   %44 = add i32 %43, %37
   %45 = add i32 %44, %42
   %46 = getelementptr inbounds nuw [80 x i8], ptr @SS, i64 0, i64 %indvars.iv
-  %47 = load i8, ptr %46, align 1, !tbaa !10
+  %47 = load i8, ptr %46, align 1, !tbaa !8
   %48 = zext i8 %47 to i32
   %49 = shl i32 %45, %48
   %50 = sub nsw i32 32, %48
@@ -1211,7 +1211,7 @@ RIPEMDDecode.exit:                                ; preds = %RIPEMDDecode.exit.p
   %52 = or disjoint i32 %51, %49
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
-  br i1 %exitcond.not, label %.preheader229, label %RIPEMDDecode.exit, !llvm.loop !19
+  br i1 %exitcond.not, label %.preheader229, label %RIPEMDDecode.exit
 
 .preheader229:                                    ; preds = %RIPEMDDecode.exit, %.preheader229
   %indvars.iv274 = phi i64 [ %indvars.iv.next275, %.preheader229 ], [ 16, %RIPEMDDecode.exit ]
@@ -1229,7 +1229,7 @@ RIPEMDDecode.exit:                                ; preds = %RIPEMDDecode.exit.p
   %56 = or i32 %55, %53
   %57 = add i32 %56, %.1225239
   %58 = getelementptr inbounds nuw [80 x i8], ptr @R, i64 0, i64 %indvars.iv274
-  %59 = load i8, ptr %58, align 1, !tbaa !10
+  %59 = load i8, ptr %58, align 1, !tbaa !8
   %60 = zext i8 %59 to i64
   %61 = getelementptr inbounds nuw [16 x i32], ptr %2, i64 0, i64 %60
   %62 = load i32, ptr %61, align 4, !tbaa !4
@@ -1240,7 +1240,7 @@ RIPEMDDecode.exit:                                ; preds = %RIPEMDDecode.exit.p
   %67 = load i32, ptr %66, align 4, !tbaa !4
   %68 = add i32 %63, %67
   %69 = getelementptr inbounds nuw [80 x i8], ptr @S, i64 0, i64 %indvars.iv274
-  %70 = load i8, ptr %69, align 1, !tbaa !10
+  %70 = load i8, ptr %69, align 1, !tbaa !8
   %71 = zext i8 %70 to i32
   %72 = shl i32 %68, %71
   %73 = sub nsw i32 32, %71
@@ -1251,7 +1251,7 @@ RIPEMDDecode.exit:                                ; preds = %RIPEMDDecode.exit.p
   %78 = xor i32 %77, %.1197246
   %79 = add i32 %78, %.1209243
   %80 = getelementptr inbounds nuw [80 x i8], ptr @RR, i64 0, i64 %indvars.iv274
-  %81 = load i8, ptr %80, align 1, !tbaa !10
+  %81 = load i8, ptr %80, align 1, !tbaa !8
   %82 = zext i8 %81 to i64
   %83 = getelementptr inbounds nuw [16 x i32], ptr %2, i64 0, i64 %82
   %84 = load i32, ptr %83, align 4, !tbaa !4
@@ -1260,7 +1260,7 @@ RIPEMDDecode.exit:                                ; preds = %RIPEMDDecode.exit.p
   %87 = load i32, ptr %86, align 4, !tbaa !4
   %88 = add i32 %85, %87
   %89 = getelementptr inbounds nuw [80 x i8], ptr @SS, i64 0, i64 %indvars.iv274
-  %90 = load i8, ptr %89, align 1, !tbaa !10
+  %90 = load i8, ptr %89, align 1, !tbaa !8
   %91 = zext i8 %90 to i32
   %92 = shl i32 %88, %91
   %93 = sub nsw i32 32, %91
@@ -1268,7 +1268,7 @@ RIPEMDDecode.exit:                                ; preds = %RIPEMDDecode.exit.p
   %95 = or disjoint i32 %94, %92
   %indvars.iv.next275 = add nuw nsw i64 %indvars.iv274, 1
   %exitcond277.not = icmp eq i64 %indvars.iv.next275, 32
-  br i1 %exitcond277.not, label %.preheader228, label %.preheader229, !llvm.loop !20
+  br i1 %exitcond277.not, label %.preheader228, label %.preheader229
 
 .preheader228:                                    ; preds = %.preheader229, %.preheader228
   %indvars.iv278 = phi i64 [ %indvars.iv.next279, %.preheader228 ], [ 32, %.preheader229 ]
@@ -1285,7 +1285,7 @@ RIPEMDDecode.exit:                                ; preds = %RIPEMDDecode.exit.p
   %98 = xor i32 %97, %.2214251
   %99 = add i32 %98, %.2226248
   %100 = getelementptr inbounds nuw [80 x i8], ptr @R, i64 0, i64 %indvars.iv278
-  %101 = load i8, ptr %100, align 1, !tbaa !10
+  %101 = load i8, ptr %100, align 1, !tbaa !8
   %102 = zext i8 %101 to i64
   %103 = getelementptr inbounds nuw [16 x i32], ptr %2, i64 0, i64 %102
   %104 = load i32, ptr %103, align 4, !tbaa !4
@@ -1296,7 +1296,7 @@ RIPEMDDecode.exit:                                ; preds = %RIPEMDDecode.exit.p
   %109 = load i32, ptr %108, align 4, !tbaa !4
   %110 = add i32 %105, %109
   %111 = getelementptr inbounds nuw [80 x i8], ptr @S, i64 0, i64 %indvars.iv278
-  %112 = load i8, ptr %111, align 1, !tbaa !10
+  %112 = load i8, ptr %111, align 1, !tbaa !8
   %113 = zext i8 %112 to i32
   %114 = shl i32 %110, %113
   %115 = sub nsw i32 32, %113
@@ -1308,7 +1308,7 @@ RIPEMDDecode.exit:                                ; preds = %RIPEMDDecode.exit.p
   %121 = or i32 %120, %118
   %122 = add i32 %121, %.2210252
   %123 = getelementptr inbounds nuw [80 x i8], ptr @RR, i64 0, i64 %indvars.iv278
-  %124 = load i8, ptr %123, align 1, !tbaa !10
+  %124 = load i8, ptr %123, align 1, !tbaa !8
   %125 = zext i8 %124 to i64
   %126 = getelementptr inbounds nuw [16 x i32], ptr %2, i64 0, i64 %125
   %127 = load i32, ptr %126, align 4, !tbaa !4
@@ -1317,7 +1317,7 @@ RIPEMDDecode.exit:                                ; preds = %RIPEMDDecode.exit.p
   %130 = load i32, ptr %129, align 4, !tbaa !4
   %131 = add i32 %128, %130
   %132 = getelementptr inbounds nuw [80 x i8], ptr @SS, i64 0, i64 %indvars.iv278
-  %133 = load i8, ptr %132, align 1, !tbaa !10
+  %133 = load i8, ptr %132, align 1, !tbaa !8
   %134 = zext i8 %133 to i32
   %135 = shl i32 %131, %134
   %136 = sub nsw i32 32, %134
@@ -1325,7 +1325,7 @@ RIPEMDDecode.exit:                                ; preds = %RIPEMDDecode.exit.p
   %138 = or disjoint i32 %137, %135
   %indvars.iv.next279 = add nuw nsw i64 %indvars.iv278, 1
   %exitcond281.not = icmp eq i64 %indvars.iv.next279, 48
-  br i1 %exitcond281.not, label %.preheader, label %.preheader228, !llvm.loop !21
+  br i1 %exitcond281.not, label %.preheader, label %.preheader228
 
 .preheader:                                       ; preds = %.preheader228, %.preheader
   %indvars.iv282 = phi i64 [ %indvars.iv.next283, %.preheader ], [ 48, %.preheader228 ]
@@ -1343,7 +1343,7 @@ RIPEMDDecode.exit:                                ; preds = %RIPEMDDecode.exit.p
   %142 = or i32 %139, %141
   %143 = add i32 %142, %.3227257
   %144 = getelementptr inbounds nuw [80 x i8], ptr @R, i64 0, i64 %indvars.iv282
-  %145 = load i8, ptr %144, align 1, !tbaa !10
+  %145 = load i8, ptr %144, align 1, !tbaa !8
   %146 = zext i8 %145 to i64
   %147 = getelementptr inbounds nuw [16 x i32], ptr %2, i64 0, i64 %146
   %148 = load i32, ptr %147, align 4, !tbaa !4
@@ -1354,7 +1354,7 @@ RIPEMDDecode.exit:                                ; preds = %RIPEMDDecode.exit.p
   %153 = load i32, ptr %152, align 4, !tbaa !4
   %154 = add i32 %149, %153
   %155 = getelementptr inbounds nuw [80 x i8], ptr @S, i64 0, i64 %indvars.iv282
-  %156 = load i8, ptr %155, align 1, !tbaa !10
+  %156 = load i8, ptr %155, align 1, !tbaa !8
   %157 = zext i8 %156 to i32
   %158 = shl i32 %154, %157
   %159 = sub nsw i32 32, %157
@@ -1364,7 +1364,7 @@ RIPEMDDecode.exit:                                ; preds = %RIPEMDDecode.exit.p
   %163 = xor i32 %162, %.3199264
   %164 = add i32 %163, %.3211261
   %165 = getelementptr inbounds nuw [80 x i8], ptr @RR, i64 0, i64 %indvars.iv282
-  %166 = load i8, ptr %165, align 1, !tbaa !10
+  %166 = load i8, ptr %165, align 1, !tbaa !8
   %167 = zext i8 %166 to i64
   %168 = getelementptr inbounds nuw [16 x i32], ptr %2, i64 0, i64 %167
   %169 = load i32, ptr %168, align 4, !tbaa !4
@@ -1373,7 +1373,7 @@ RIPEMDDecode.exit:                                ; preds = %RIPEMDDecode.exit.p
   %172 = load i32, ptr %171, align 4, !tbaa !4
   %173 = add i32 %170, %172
   %174 = getelementptr inbounds nuw [80 x i8], ptr @SS, i64 0, i64 %indvars.iv282
-  %175 = load i8, ptr %174, align 1, !tbaa !10
+  %175 = load i8, ptr %174, align 1, !tbaa !8
   %176 = zext i8 %175 to i32
   %177 = shl i32 %173, %176
   %178 = sub nsw i32 32, %176
@@ -1381,7 +1381,7 @@ RIPEMDDecode.exit:                                ; preds = %RIPEMDDecode.exit.p
   %180 = or disjoint i32 %179, %177
   %indvars.iv.next283 = add nuw nsw i64 %indvars.iv282, 1
   %exitcond285.not = icmp eq i64 %indvars.iv.next283, 64
-  br i1 %exitcond285.not, label %181, label %.preheader, !llvm.loop !22
+  br i1 %exitcond285.not, label %181, label %.preheader
 
 181:                                              ; preds = %.preheader
   %182 = add i32 %.3215260, %3
@@ -1438,13 +1438,13 @@ RIPEMDDecode.exit:                                ; preds = %RIPEMDDecode.exit.p
   %13 = xor i32 %12, %.0289315
   %14 = add i32 %13, %.0304312
   %15 = getelementptr inbounds nuw [80 x i8], ptr @R, i64 0, i64 %indvars.iv
-  %16 = load i8, ptr %15, align 1, !tbaa !10
+  %16 = load i8, ptr %15, align 1, !tbaa !8
   %17 = zext i8 %16 to i64
   %18 = getelementptr inbounds nuw [16 x i32], ptr %2, i64 0, i64 %17
   %19 = load i32, ptr %18, align 4, !tbaa !4
   %20 = add i32 %14, %19
   %21 = getelementptr inbounds nuw [80 x i8], ptr @S, i64 0, i64 %indvars.iv
-  %22 = load i8, ptr %21, align 1, !tbaa !10
+  %22 = load i8, ptr %21, align 1, !tbaa !8
   %23 = zext i8 %22 to i32
   %24 = shl i32 %20, %23
   %25 = sub nsw i32 32, %23
@@ -1456,7 +1456,7 @@ RIPEMDDecode.exit:                                ; preds = %RIPEMDDecode.exit.p
   %31 = or i32 %.0269319, %30
   %32 = xor i32 %31, %.0274318
   %33 = getelementptr inbounds nuw [80 x i8], ptr @RR, i64 0, i64 %indvars.iv
-  %34 = load i8, ptr %33, align 1, !tbaa !10
+  %34 = load i8, ptr %33, align 1, !tbaa !8
   %35 = zext i8 %34 to i64
   %36 = getelementptr inbounds nuw [16 x i32], ptr %2, i64 0, i64 %35
   %37 = load i32, ptr %36, align 4, !tbaa !4
@@ -1464,7 +1464,7 @@ RIPEMDDecode.exit:                                ; preds = %RIPEMDDecode.exit.p
   %39 = add i32 %38, %32
   %40 = add i32 %39, %37
   %41 = getelementptr inbounds nuw [80 x i8], ptr @SS, i64 0, i64 %indvars.iv
-  %42 = load i8, ptr %41, align 1, !tbaa !10
+  %42 = load i8, ptr %41, align 1, !tbaa !8
   %43 = zext i8 %42 to i32
   %44 = shl i32 %40, %43
   %45 = sub nsw i32 32, %43
@@ -1474,7 +1474,7 @@ RIPEMDDecode.exit:                                ; preds = %RIPEMDDecode.exit.p
   %49 = tail call i32 @llvm.fshl.i32(i32 %.0269319, i32 %.0269319, i32 10)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
-  br i1 %exitcond.not, label %.preheader311, label %RIPEMDDecode.exit, !llvm.loop !23
+  br i1 %exitcond.not, label %.preheader311, label %RIPEMDDecode.exit
 
 .preheader311:                                    ; preds = %RIPEMDDecode.exit, %.preheader311
   %indvars.iv387 = phi i64 [ %indvars.iv.next388, %.preheader311 ], [ 16, %RIPEMDDecode.exit ]
@@ -1494,7 +1494,7 @@ RIPEMDDecode.exit:                                ; preds = %RIPEMDDecode.exit.p
   %53 = or i32 %52, %50
   %54 = add i32 %53, %.1305323
   %55 = getelementptr inbounds nuw [80 x i8], ptr @R, i64 0, i64 %indvars.iv387
-  %56 = load i8, ptr %55, align 1, !tbaa !10
+  %56 = load i8, ptr %55, align 1, !tbaa !8
   %57 = zext i8 %56 to i64
   %58 = getelementptr inbounds nuw [16 x i32], ptr %2, i64 0, i64 %57
   %59 = load i32, ptr %58, align 4, !tbaa !4
@@ -1505,7 +1505,7 @@ RIPEMDDecode.exit:                                ; preds = %RIPEMDDecode.exit.p
   %64 = load i32, ptr %63, align 4, !tbaa !4
   %65 = add i32 %60, %64
   %66 = getelementptr inbounds nuw [80 x i8], ptr @S, i64 0, i64 %indvars.iv387
-  %67 = load i8, ptr %66, align 1, !tbaa !10
+  %67 = load i8, ptr %66, align 1, !tbaa !8
   %68 = zext i8 %67 to i32
   %69 = shl i32 %65, %68
   %70 = sub nsw i32 32, %68
@@ -1519,7 +1519,7 @@ RIPEMDDecode.exit:                                ; preds = %RIPEMDDecode.exit.p
   %78 = or i32 %75, %77
   %79 = add i32 %78, %.1280328
   %80 = getelementptr inbounds nuw [80 x i8], ptr @RR, i64 0, i64 %indvars.iv387
-  %81 = load i8, ptr %80, align 1, !tbaa !10
+  %81 = load i8, ptr %80, align 1, !tbaa !8
   %82 = zext i8 %81 to i64
   %83 = getelementptr inbounds nuw [16 x i32], ptr %2, i64 0, i64 %82
   %84 = load i32, ptr %83, align 4, !tbaa !4
@@ -1528,7 +1528,7 @@ RIPEMDDecode.exit:                                ; preds = %RIPEMDDecode.exit.p
   %87 = load i32, ptr %86, align 4, !tbaa !4
   %88 = add i32 %85, %87
   %89 = getelementptr inbounds nuw [80 x i8], ptr @SS, i64 0, i64 %indvars.iv387
-  %90 = load i8, ptr %89, align 1, !tbaa !10
+  %90 = load i8, ptr %89, align 1, !tbaa !8
   %91 = zext i8 %90 to i32
   %92 = shl i32 %88, %91
   %93 = sub nsw i32 32, %91
@@ -1538,7 +1538,7 @@ RIPEMDDecode.exit:                                ; preds = %RIPEMDDecode.exit.p
   %97 = tail call i32 @llvm.fshl.i32(i32 %.1270330, i32 %.1270330, i32 10)
   %indvars.iv.next388 = add nuw nsw i64 %indvars.iv387, 1
   %exitcond390.not = icmp eq i64 %indvars.iv.next388, 32
-  br i1 %exitcond390.not, label %.preheader310, label %.preheader311, !llvm.loop !24
+  br i1 %exitcond390.not, label %.preheader310, label %.preheader311
 
 .preheader310:                                    ; preds = %.preheader311, %.preheader310
   %indvars.iv391 = phi i64 [ %indvars.iv.next392, %.preheader310 ], [ 32, %.preheader311 ]
@@ -1557,7 +1557,7 @@ RIPEMDDecode.exit:                                ; preds = %RIPEMDDecode.exit.p
   %100 = xor i32 %99, %.2291337
   %101 = add i32 %100, %.2306334
   %102 = getelementptr inbounds nuw [80 x i8], ptr @R, i64 0, i64 %indvars.iv391
-  %103 = load i8, ptr %102, align 1, !tbaa !10
+  %103 = load i8, ptr %102, align 1, !tbaa !8
   %104 = zext i8 %103 to i64
   %105 = getelementptr inbounds nuw [16 x i32], ptr %2, i64 0, i64 %104
   %106 = load i32, ptr %105, align 4, !tbaa !4
@@ -1568,7 +1568,7 @@ RIPEMDDecode.exit:                                ; preds = %RIPEMDDecode.exit.p
   %111 = load i32, ptr %110, align 4, !tbaa !4
   %112 = add i32 %107, %111
   %113 = getelementptr inbounds nuw [80 x i8], ptr @S, i64 0, i64 %indvars.iv391
-  %114 = load i8, ptr %113, align 1, !tbaa !10
+  %114 = load i8, ptr %113, align 1, !tbaa !8
   %115 = zext i8 %114 to i32
   %116 = shl i32 %112, %115
   %117 = sub nsw i32 32, %115
@@ -1581,7 +1581,7 @@ RIPEMDDecode.exit:                                ; preds = %RIPEMDDecode.exit.p
   %124 = xor i32 %123, %.2266342
   %125 = add i32 %124, %.2281339
   %126 = getelementptr inbounds nuw [80 x i8], ptr @RR, i64 0, i64 %indvars.iv391
-  %127 = load i8, ptr %126, align 1, !tbaa !10
+  %127 = load i8, ptr %126, align 1, !tbaa !8
   %128 = zext i8 %127 to i64
   %129 = getelementptr inbounds nuw [16 x i32], ptr %2, i64 0, i64 %128
   %130 = load i32, ptr %129, align 4, !tbaa !4
@@ -1590,7 +1590,7 @@ RIPEMDDecode.exit:                                ; preds = %RIPEMDDecode.exit.p
   %133 = load i32, ptr %132, align 4, !tbaa !4
   %134 = add i32 %131, %133
   %135 = getelementptr inbounds nuw [80 x i8], ptr @SS, i64 0, i64 %indvars.iv391
-  %136 = load i8, ptr %135, align 1, !tbaa !10
+  %136 = load i8, ptr %135, align 1, !tbaa !8
   %137 = zext i8 %136 to i32
   %138 = shl i32 %134, %137
   %139 = sub nsw i32 32, %137
@@ -1600,7 +1600,7 @@ RIPEMDDecode.exit:                                ; preds = %RIPEMDDecode.exit.p
   %143 = tail call i32 @llvm.fshl.i32(i32 %.2271341, i32 %.2271341, i32 10)
   %indvars.iv.next392 = add nuw nsw i64 %indvars.iv391, 1
   %exitcond394.not = icmp eq i64 %indvars.iv.next392, 48
-  br i1 %exitcond394.not, label %.preheader309, label %.preheader310, !llvm.loop !25
+  br i1 %exitcond394.not, label %.preheader309, label %.preheader310
 
 .preheader309:                                    ; preds = %.preheader310, %.preheader309
   %indvars.iv395 = phi i64 [ %indvars.iv.next396, %.preheader309 ], [ 48, %.preheader310 ]
@@ -1620,7 +1620,7 @@ RIPEMDDecode.exit:                                ; preds = %RIPEMDDecode.exit.p
   %147 = or i32 %144, %146
   %148 = add i32 %147, %.3307345
   %149 = getelementptr inbounds nuw [80 x i8], ptr @R, i64 0, i64 %indvars.iv395
-  %150 = load i8, ptr %149, align 1, !tbaa !10
+  %150 = load i8, ptr %149, align 1, !tbaa !8
   %151 = zext i8 %150 to i64
   %152 = getelementptr inbounds nuw [16 x i32], ptr %2, i64 0, i64 %151
   %153 = load i32, ptr %152, align 4, !tbaa !4
@@ -1631,7 +1631,7 @@ RIPEMDDecode.exit:                                ; preds = %RIPEMDDecode.exit.p
   %158 = load i32, ptr %157, align 4, !tbaa !4
   %159 = add i32 %154, %158
   %160 = getelementptr inbounds nuw [80 x i8], ptr @S, i64 0, i64 %indvars.iv395
-  %161 = load i8, ptr %160, align 1, !tbaa !10
+  %161 = load i8, ptr %160, align 1, !tbaa !8
   %162 = zext i8 %161 to i32
   %163 = shl i32 %159, %162
   %164 = sub nsw i32 32, %162
@@ -1645,7 +1645,7 @@ RIPEMDDecode.exit:                                ; preds = %RIPEMDDecode.exit.p
   %172 = or i32 %171, %169
   %173 = add i32 %172, %.3282350
   %174 = getelementptr inbounds nuw [80 x i8], ptr @RR, i64 0, i64 %indvars.iv395
-  %175 = load i8, ptr %174, align 1, !tbaa !10
+  %175 = load i8, ptr %174, align 1, !tbaa !8
   %176 = zext i8 %175 to i64
   %177 = getelementptr inbounds nuw [16 x i32], ptr %2, i64 0, i64 %176
   %178 = load i32, ptr %177, align 4, !tbaa !4
@@ -1654,7 +1654,7 @@ RIPEMDDecode.exit:                                ; preds = %RIPEMDDecode.exit.p
   %181 = load i32, ptr %180, align 4, !tbaa !4
   %182 = add i32 %179, %181
   %183 = getelementptr inbounds nuw [80 x i8], ptr @SS, i64 0, i64 %indvars.iv395
-  %184 = load i8, ptr %183, align 1, !tbaa !10
+  %184 = load i8, ptr %183, align 1, !tbaa !8
   %185 = zext i8 %184 to i32
   %186 = shl i32 %182, %185
   %187 = sub nsw i32 32, %185
@@ -1664,7 +1664,7 @@ RIPEMDDecode.exit:                                ; preds = %RIPEMDDecode.exit.p
   %191 = tail call i32 @llvm.fshl.i32(i32 %.3272352, i32 %.3272352, i32 10)
   %indvars.iv.next396 = add nuw nsw i64 %indvars.iv395, 1
   %exitcond398.not = icmp eq i64 %indvars.iv.next396, 64
-  br i1 %exitcond398.not, label %.preheader, label %.preheader309, !llvm.loop !26
+  br i1 %exitcond398.not, label %.preheader, label %.preheader309
 
 .preheader:                                       ; preds = %.preheader309, %.preheader
   %indvars.iv399 = phi i64 [ %indvars.iv.next400, %.preheader ], [ 64, %.preheader309 ]
@@ -1683,7 +1683,7 @@ RIPEMDDecode.exit:                                ; preds = %RIPEMDDecode.exit.p
   %194 = xor i32 %193, %.4303357
   %195 = add i32 %194, %.4308356
   %196 = getelementptr inbounds nuw [80 x i8], ptr @R, i64 0, i64 %indvars.iv399
-  %197 = load i8, ptr %196, align 1, !tbaa !10
+  %197 = load i8, ptr %196, align 1, !tbaa !8
   %198 = zext i8 %197 to i64
   %199 = getelementptr inbounds nuw [16 x i32], ptr %2, i64 0, i64 %198
   %200 = load i32, ptr %199, align 4, !tbaa !4
@@ -1694,7 +1694,7 @@ RIPEMDDecode.exit:                                ; preds = %RIPEMDDecode.exit.p
   %205 = load i32, ptr %204, align 4, !tbaa !4
   %206 = add i32 %201, %205
   %207 = getelementptr inbounds nuw [80 x i8], ptr @S, i64 0, i64 %indvars.iv399
-  %208 = load i8, ptr %207, align 1, !tbaa !10
+  %208 = load i8, ptr %207, align 1, !tbaa !8
   %209 = zext i8 %208 to i32
   %210 = shl i32 %206, %209
   %211 = sub nsw i32 32, %209
@@ -1706,7 +1706,7 @@ RIPEMDDecode.exit:                                ; preds = %RIPEMDDecode.exit.p
   %217 = xor i32 %216, %.4268364
   %218 = add i32 %217, %.4283361
   %219 = getelementptr inbounds nuw [80 x i8], ptr @RR, i64 0, i64 %indvars.iv399
-  %220 = load i8, ptr %219, align 1, !tbaa !10
+  %220 = load i8, ptr %219, align 1, !tbaa !8
   %221 = zext i8 %220 to i64
   %222 = getelementptr inbounds nuw [16 x i32], ptr %2, i64 0, i64 %221
   %223 = load i32, ptr %222, align 4, !tbaa !4
@@ -1715,7 +1715,7 @@ RIPEMDDecode.exit:                                ; preds = %RIPEMDDecode.exit.p
   %226 = load i32, ptr %225, align 4, !tbaa !4
   %227 = add i32 %224, %226
   %228 = getelementptr inbounds nuw [80 x i8], ptr @SS, i64 0, i64 %indvars.iv399
-  %229 = load i8, ptr %228, align 1, !tbaa !10
+  %229 = load i8, ptr %228, align 1, !tbaa !8
   %230 = zext i8 %229 to i32
   %231 = shl i32 %227, %230
   %232 = sub nsw i32 32, %230
@@ -1725,7 +1725,7 @@ RIPEMDDecode.exit:                                ; preds = %RIPEMDDecode.exit.p
   %236 = tail call i32 @llvm.fshl.i32(i32 %.4273363, i32 %.4273363, i32 10)
   %indvars.iv.next400 = add nuw nsw i64 %indvars.iv399, 1
   %exitcond402.not = icmp eq i64 %indvars.iv.next400, 80
-  br i1 %exitcond402.not, label %237, label %.preheader, !llvm.loop !27
+  br i1 %exitcond402.not, label %237, label %.preheader
 
 237:                                              ; preds = %.preheader
   %238 = add i32 %.4303357, %5
@@ -1791,13 +1791,13 @@ RIPEMDDecode.exit:                                ; preds = %RIPEMDDecode.exit.p
   %23 = xor i32 %22, %.0303329
   %24 = add i32 %23, %.0318326
   %25 = getelementptr inbounds nuw [80 x i8], ptr @R, i64 0, i64 %indvars.iv
-  %26 = load i8, ptr %25, align 1, !tbaa !10
+  %26 = load i8, ptr %25, align 1, !tbaa !8
   %27 = zext i8 %26 to i64
   %28 = getelementptr inbounds nuw [16 x i32], ptr %2, i64 0, i64 %27
   %29 = load i32, ptr %28, align 4, !tbaa !4
   %30 = add i32 %24, %29
   %31 = getelementptr inbounds nuw [80 x i8], ptr @S, i64 0, i64 %indvars.iv
-  %32 = load i8, ptr %31, align 1, !tbaa !10
+  %32 = load i8, ptr %31, align 1, !tbaa !8
   %33 = zext i8 %32 to i32
   %34 = shl i32 %30, %33
   %35 = sub nsw i32 32, %33
@@ -1809,7 +1809,7 @@ RIPEMDDecode.exit:                                ; preds = %RIPEMDDecode.exit.p
   %41 = or i32 %.0283333, %40
   %42 = xor i32 %41, %.0288332
   %43 = getelementptr inbounds nuw [80 x i8], ptr @RR, i64 0, i64 %indvars.iv
-  %44 = load i8, ptr %43, align 1, !tbaa !10
+  %44 = load i8, ptr %43, align 1, !tbaa !8
   %45 = zext i8 %44 to i64
   %46 = getelementptr inbounds nuw [16 x i32], ptr %2, i64 0, i64 %45
   %47 = load i32, ptr %46, align 4, !tbaa !4
@@ -1817,7 +1817,7 @@ RIPEMDDecode.exit:                                ; preds = %RIPEMDDecode.exit.p
   %49 = add i32 %48, %42
   %50 = add i32 %49, %47
   %51 = getelementptr inbounds nuw [80 x i8], ptr @SS, i64 0, i64 %indvars.iv
-  %52 = load i8, ptr %51, align 1, !tbaa !10
+  %52 = load i8, ptr %51, align 1, !tbaa !8
   %53 = zext i8 %52 to i32
   %54 = shl i32 %50, %53
   %55 = sub nsw i32 32, %53
@@ -1827,7 +1827,7 @@ RIPEMDDecode.exit:                                ; preds = %RIPEMDDecode.exit.p
   %59 = tail call i32 @llvm.fshl.i32(i32 %.0283333, i32 %.0283333, i32 10)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
-  br i1 %exitcond.not, label %.preheader325, label %RIPEMDDecode.exit, !llvm.loop !28
+  br i1 %exitcond.not, label %.preheader325, label %RIPEMDDecode.exit
 
 .preheader325:                                    ; preds = %RIPEMDDecode.exit, %.preheader325
   %indvars.iv401 = phi i64 [ %indvars.iv.next402, %.preheader325 ], [ 16, %RIPEMDDecode.exit ]
@@ -1847,7 +1847,7 @@ RIPEMDDecode.exit:                                ; preds = %RIPEMDDecode.exit.p
   %63 = or i32 %62, %60
   %64 = add i32 %63, %.1319337
   %65 = getelementptr inbounds nuw [80 x i8], ptr @R, i64 0, i64 %indvars.iv401
-  %66 = load i8, ptr %65, align 1, !tbaa !10
+  %66 = load i8, ptr %65, align 1, !tbaa !8
   %67 = zext i8 %66 to i64
   %68 = getelementptr inbounds nuw [16 x i32], ptr %2, i64 0, i64 %67
   %69 = load i32, ptr %68, align 4, !tbaa !4
@@ -1858,7 +1858,7 @@ RIPEMDDecode.exit:                                ; preds = %RIPEMDDecode.exit.p
   %74 = load i32, ptr %73, align 4, !tbaa !4
   %75 = add i32 %70, %74
   %76 = getelementptr inbounds nuw [80 x i8], ptr @S, i64 0, i64 %indvars.iv401
-  %77 = load i8, ptr %76, align 1, !tbaa !10
+  %77 = load i8, ptr %76, align 1, !tbaa !8
   %78 = zext i8 %77 to i32
   %79 = shl i32 %75, %78
   %80 = sub nsw i32 32, %78
@@ -1872,7 +1872,7 @@ RIPEMDDecode.exit:                                ; preds = %RIPEMDDecode.exit.p
   %88 = or i32 %85, %87
   %89 = add i32 %88, %.1294342
   %90 = getelementptr inbounds nuw [80 x i8], ptr @RR, i64 0, i64 %indvars.iv401
-  %91 = load i8, ptr %90, align 1, !tbaa !10
+  %91 = load i8, ptr %90, align 1, !tbaa !8
   %92 = zext i8 %91 to i64
   %93 = getelementptr inbounds nuw [16 x i32], ptr %2, i64 0, i64 %92
   %94 = load i32, ptr %93, align 4, !tbaa !4
@@ -1881,7 +1881,7 @@ RIPEMDDecode.exit:                                ; preds = %RIPEMDDecode.exit.p
   %97 = load i32, ptr %96, align 4, !tbaa !4
   %98 = add i32 %95, %97
   %99 = getelementptr inbounds nuw [80 x i8], ptr @SS, i64 0, i64 %indvars.iv401
-  %100 = load i8, ptr %99, align 1, !tbaa !10
+  %100 = load i8, ptr %99, align 1, !tbaa !8
   %101 = zext i8 %100 to i32
   %102 = shl i32 %98, %101
   %103 = sub nsw i32 32, %101
@@ -1891,7 +1891,7 @@ RIPEMDDecode.exit:                                ; preds = %RIPEMDDecode.exit.p
   %107 = tail call i32 @llvm.fshl.i32(i32 %.1284344, i32 %.1284344, i32 10)
   %indvars.iv.next402 = add nuw nsw i64 %indvars.iv401, 1
   %exitcond404.not = icmp eq i64 %indvars.iv.next402, 32
-  br i1 %exitcond404.not, label %.preheader324, label %.preheader325, !llvm.loop !29
+  br i1 %exitcond404.not, label %.preheader324, label %.preheader325
 
 .preheader324:                                    ; preds = %.preheader325, %.preheader324
   %indvars.iv405 = phi i64 [ %indvars.iv.next406, %.preheader324 ], [ 32, %.preheader325 ]
@@ -1910,7 +1910,7 @@ RIPEMDDecode.exit:                                ; preds = %RIPEMDDecode.exit.p
   %110 = xor i32 %109, %.2305351
   %111 = add i32 %110, %.2320348
   %112 = getelementptr inbounds nuw [80 x i8], ptr @R, i64 0, i64 %indvars.iv405
-  %113 = load i8, ptr %112, align 1, !tbaa !10
+  %113 = load i8, ptr %112, align 1, !tbaa !8
   %114 = zext i8 %113 to i64
   %115 = getelementptr inbounds nuw [16 x i32], ptr %2, i64 0, i64 %114
   %116 = load i32, ptr %115, align 4, !tbaa !4
@@ -1921,7 +1921,7 @@ RIPEMDDecode.exit:                                ; preds = %RIPEMDDecode.exit.p
   %121 = load i32, ptr %120, align 4, !tbaa !4
   %122 = add i32 %117, %121
   %123 = getelementptr inbounds nuw [80 x i8], ptr @S, i64 0, i64 %indvars.iv405
-  %124 = load i8, ptr %123, align 1, !tbaa !10
+  %124 = load i8, ptr %123, align 1, !tbaa !8
   %125 = zext i8 %124 to i32
   %126 = shl i32 %122, %125
   %127 = sub nsw i32 32, %125
@@ -1934,7 +1934,7 @@ RIPEMDDecode.exit:                                ; preds = %RIPEMDDecode.exit.p
   %134 = xor i32 %133, %.2280356
   %135 = add i32 %134, %.2295353
   %136 = getelementptr inbounds nuw [80 x i8], ptr @RR, i64 0, i64 %indvars.iv405
-  %137 = load i8, ptr %136, align 1, !tbaa !10
+  %137 = load i8, ptr %136, align 1, !tbaa !8
   %138 = zext i8 %137 to i64
   %139 = getelementptr inbounds nuw [16 x i32], ptr %2, i64 0, i64 %138
   %140 = load i32, ptr %139, align 4, !tbaa !4
@@ -1943,7 +1943,7 @@ RIPEMDDecode.exit:                                ; preds = %RIPEMDDecode.exit.p
   %143 = load i32, ptr %142, align 4, !tbaa !4
   %144 = add i32 %141, %143
   %145 = getelementptr inbounds nuw [80 x i8], ptr @SS, i64 0, i64 %indvars.iv405
-  %146 = load i8, ptr %145, align 1, !tbaa !10
+  %146 = load i8, ptr %145, align 1, !tbaa !8
   %147 = zext i8 %146 to i32
   %148 = shl i32 %144, %147
   %149 = sub nsw i32 32, %147
@@ -1953,7 +1953,7 @@ RIPEMDDecode.exit:                                ; preds = %RIPEMDDecode.exit.p
   %153 = tail call i32 @llvm.fshl.i32(i32 %.2285355, i32 %.2285355, i32 10)
   %indvars.iv.next406 = add nuw nsw i64 %indvars.iv405, 1
   %exitcond408.not = icmp eq i64 %indvars.iv.next406, 48
-  br i1 %exitcond408.not, label %.preheader323, label %.preheader324, !llvm.loop !30
+  br i1 %exitcond408.not, label %.preheader323, label %.preheader324
 
 .preheader323:                                    ; preds = %.preheader324, %.preheader323
   %indvars.iv409 = phi i64 [ %indvars.iv.next410, %.preheader323 ], [ 48, %.preheader324 ]
@@ -1973,7 +1973,7 @@ RIPEMDDecode.exit:                                ; preds = %RIPEMDDecode.exit.p
   %157 = or i32 %154, %156
   %158 = add i32 %157, %.3321359
   %159 = getelementptr inbounds nuw [80 x i8], ptr @R, i64 0, i64 %indvars.iv409
-  %160 = load i8, ptr %159, align 1, !tbaa !10
+  %160 = load i8, ptr %159, align 1, !tbaa !8
   %161 = zext i8 %160 to i64
   %162 = getelementptr inbounds nuw [16 x i32], ptr %2, i64 0, i64 %161
   %163 = load i32, ptr %162, align 4, !tbaa !4
@@ -1984,7 +1984,7 @@ RIPEMDDecode.exit:                                ; preds = %RIPEMDDecode.exit.p
   %168 = load i32, ptr %167, align 4, !tbaa !4
   %169 = add i32 %164, %168
   %170 = getelementptr inbounds nuw [80 x i8], ptr @S, i64 0, i64 %indvars.iv409
-  %171 = load i8, ptr %170, align 1, !tbaa !10
+  %171 = load i8, ptr %170, align 1, !tbaa !8
   %172 = zext i8 %171 to i32
   %173 = shl i32 %169, %172
   %174 = sub nsw i32 32, %172
@@ -1998,7 +1998,7 @@ RIPEMDDecode.exit:                                ; preds = %RIPEMDDecode.exit.p
   %182 = or i32 %181, %179
   %183 = add i32 %182, %.3296364
   %184 = getelementptr inbounds nuw [80 x i8], ptr @RR, i64 0, i64 %indvars.iv409
-  %185 = load i8, ptr %184, align 1, !tbaa !10
+  %185 = load i8, ptr %184, align 1, !tbaa !8
   %186 = zext i8 %185 to i64
   %187 = getelementptr inbounds nuw [16 x i32], ptr %2, i64 0, i64 %186
   %188 = load i32, ptr %187, align 4, !tbaa !4
@@ -2007,7 +2007,7 @@ RIPEMDDecode.exit:                                ; preds = %RIPEMDDecode.exit.p
   %191 = load i32, ptr %190, align 4, !tbaa !4
   %192 = add i32 %189, %191
   %193 = getelementptr inbounds nuw [80 x i8], ptr @SS, i64 0, i64 %indvars.iv409
-  %194 = load i8, ptr %193, align 1, !tbaa !10
+  %194 = load i8, ptr %193, align 1, !tbaa !8
   %195 = zext i8 %194 to i32
   %196 = shl i32 %192, %195
   %197 = sub nsw i32 32, %195
@@ -2017,7 +2017,7 @@ RIPEMDDecode.exit:                                ; preds = %RIPEMDDecode.exit.p
   %201 = tail call i32 @llvm.fshl.i32(i32 %.3286366, i32 %.3286366, i32 10)
   %indvars.iv.next410 = add nuw nsw i64 %indvars.iv409, 1
   %exitcond412.not = icmp eq i64 %indvars.iv.next410, 64
-  br i1 %exitcond412.not, label %.preheader, label %.preheader323, !llvm.loop !31
+  br i1 %exitcond412.not, label %.preheader, label %.preheader323
 
 .preheader:                                       ; preds = %.preheader323, %.preheader
   %indvars.iv413 = phi i64 [ %indvars.iv.next414, %.preheader ], [ 64, %.preheader323 ]
@@ -2036,7 +2036,7 @@ RIPEMDDecode.exit:                                ; preds = %RIPEMDDecode.exit.p
   %204 = xor i32 %203, %.4317371
   %205 = add i32 %204, %.4322370
   %206 = getelementptr inbounds nuw [80 x i8], ptr @R, i64 0, i64 %indvars.iv413
-  %207 = load i8, ptr %206, align 1, !tbaa !10
+  %207 = load i8, ptr %206, align 1, !tbaa !8
   %208 = zext i8 %207 to i64
   %209 = getelementptr inbounds nuw [16 x i32], ptr %2, i64 0, i64 %208
   %210 = load i32, ptr %209, align 4, !tbaa !4
@@ -2047,7 +2047,7 @@ RIPEMDDecode.exit:                                ; preds = %RIPEMDDecode.exit.p
   %215 = load i32, ptr %214, align 4, !tbaa !4
   %216 = add i32 %211, %215
   %217 = getelementptr inbounds nuw [80 x i8], ptr @S, i64 0, i64 %indvars.iv413
-  %218 = load i8, ptr %217, align 1, !tbaa !10
+  %218 = load i8, ptr %217, align 1, !tbaa !8
   %219 = zext i8 %218 to i32
   %220 = shl i32 %216, %219
   %221 = sub nsw i32 32, %219
@@ -2059,7 +2059,7 @@ RIPEMDDecode.exit:                                ; preds = %RIPEMDDecode.exit.p
   %227 = xor i32 %226, %.4282378
   %228 = add i32 %227, %.4297375
   %229 = getelementptr inbounds nuw [80 x i8], ptr @RR, i64 0, i64 %indvars.iv413
-  %230 = load i8, ptr %229, align 1, !tbaa !10
+  %230 = load i8, ptr %229, align 1, !tbaa !8
   %231 = zext i8 %230 to i64
   %232 = getelementptr inbounds nuw [16 x i32], ptr %2, i64 0, i64 %231
   %233 = load i32, ptr %232, align 4, !tbaa !4
@@ -2068,7 +2068,7 @@ RIPEMDDecode.exit:                                ; preds = %RIPEMDDecode.exit.p
   %236 = load i32, ptr %235, align 4, !tbaa !4
   %237 = add i32 %234, %236
   %238 = getelementptr inbounds nuw [80 x i8], ptr @SS, i64 0, i64 %indvars.iv413
-  %239 = load i8, ptr %238, align 1, !tbaa !10
+  %239 = load i8, ptr %238, align 1, !tbaa !8
   %240 = zext i8 %239 to i32
   %241 = shl i32 %237, %240
   %242 = sub nsw i32 32, %240
@@ -2078,7 +2078,7 @@ RIPEMDDecode.exit:                                ; preds = %RIPEMDDecode.exit.p
   %246 = tail call i32 @llvm.fshl.i32(i32 %.4287377, i32 %.4287377, i32 10)
   %indvars.iv.next414 = add nuw nsw i64 %indvars.iv413, 1
   %exitcond416.not = icmp eq i64 %indvars.iv.next414, 80
-  br i1 %exitcond416.not, label %247, label %.preheader, !llvm.loop !32
+  br i1 %exitcond416.not, label %247, label %.preheader
 
 247:                                              ; preds = %.preheader
   %248 = add i32 %.4302374, %3
@@ -2131,28 +2131,4 @@ attributes #7 = { nounwind }
 !5 = !{!"int", !6, i64 0}
 !6 = !{!"omnipotent char", !7, i64 0}
 !7 = !{!"Simple C/C++ TBAA"}
-!8 = distinct !{!8, !9}
-!9 = !{!"llvm.loop.estimated_trip_count"}
-!10 = !{!6, !6, i64 0}
-!11 = distinct !{!11, !9}
-!12 = distinct !{!12, !9}
-!13 = distinct !{!13, !9}
-!14 = distinct !{!14, !9}
-!15 = distinct !{!15, !9}
-!16 = distinct !{!16, !9}
-!17 = distinct !{!17, !9}
-!18 = distinct !{!18, !9}
-!19 = distinct !{!19, !9}
-!20 = distinct !{!20, !9}
-!21 = distinct !{!21, !9}
-!22 = distinct !{!22, !9}
-!23 = distinct !{!23, !9}
-!24 = distinct !{!24, !9}
-!25 = distinct !{!25, !9}
-!26 = distinct !{!26, !9}
-!27 = distinct !{!27, !9}
-!28 = distinct !{!28, !9}
-!29 = distinct !{!29, !9}
-!30 = distinct !{!30, !9}
-!31 = distinct !{!31, !9}
-!32 = distinct !{!32, !9}
+!8 = !{!6, !6, i64 0}

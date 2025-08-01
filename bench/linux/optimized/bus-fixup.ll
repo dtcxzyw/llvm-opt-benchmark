@@ -177,17 +177,17 @@ define internal void @mei_nfc(ptr noundef %0) #0 align 16 {
   %25 = getelementptr inbounds nuw i8, ptr %2, i64 10
   store i8 1, ptr %25, align 2
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3) #10
-  store i8 0, ptr %3, align 1, !annotation !9
+  store i8 0, ptr %3, align 1, !annotation !8
   %26 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %27 = load ptr, ptr %26, align 8
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 216
   %29 = tail call zeroext i1 @mutex_is_locked(ptr noundef nonnull %28) #10
-  br i1 %29, label %30, label %31, !prof !10
+  br i1 %29, label %30, label %31, !prof !9
 
 30:                                               ; preds = %23
-  tail call void asm sideeffect "352: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 352b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 352) #10, !srcloc !11
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.5, i32 382, i32 2305, i64 12) #10, !srcloc !12
-  tail call void asm sideeffect "353: nop\0A\09.pushsection .discard.instr_end\0A\09.long 353b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 353) #10, !srcloc !13
+  tail call void asm sideeffect "352: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 352b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 352) #10, !srcloc !10
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.5, i32 382, i32 2305, i64 12) #10, !srcloc !11
+  tail call void asm sideeffect "353: nop\0A\09.pushsection .discard.instr_end\0A\09.long 353b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 353) #10, !srcloc !12
   br label %31
 
 31:                                               ; preds = %30, %23
@@ -366,7 +366,7 @@ define internal void @mei_mkhi_fix(ptr noundef %0) #0 align 16 {
   br i1 %22, label %28, label %23
 
 23:                                               ; preds = %17
-  %24 = tail call fastcc i32 @mei_fwver(ptr noundef %0), !range !14
+  %24 = tail call fastcc i32 @mei_fwver(ptr noundef %0), !range !13
   %25 = icmp slt i32 %24, 0
   br i1 %25, label %26, label %28
 
@@ -468,7 +468,7 @@ define internal void @mei_gsc_mkhi_fix_ver(ptr noundef %0) #0 align 16 {
   br label %37
 
 32:                                               ; preds = %16
-  %33 = tail call fastcc i32 @mei_fwver(ptr noundef %0), !range !14
+  %33 = tail call fastcc i32 @mei_fwver(ptr noundef %0), !range !13
   %34 = icmp slt i32 %33, 0
   br i1 %34, label %35, label %37
 
@@ -501,7 +501,7 @@ define internal void @mei_gsc_mkhi_ver(ptr noundef %0) #0 align 16 {
   br i1 %10, label %11, label %18
 
 11:                                               ; preds = %8
-  %12 = tail call fastcc i32 @mei_fwver(ptr noundef %0), !range !14
+  %12 = tail call fastcc i32 @mei_fwver(ptr noundef %0), !range !13
   %13 = icmp slt i32 %12, 0
   br i1 %13, label %14, label %16
 
@@ -640,7 +640,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @mei_fwver(ptr noundef %0) 
   %3 = alloca %struct.mkhi_msg, align 4
   call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %2) #10
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #10
-  store i32 767, ptr %3, align 4, !annotation !9
+  store i32 767, ptr %3, align 4, !annotation !8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(28) %2, i8 0, i64 28, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 760
   %5 = load ptr, ptr %4, align 8
@@ -722,7 +722,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @mei_fwver(ptr noundef %0) 
   %61 = getelementptr i8, ptr %60, i64 %.idx
   store i16 %58, ptr %61, align 4
   %62 = icmp eq i64 %32, 3
-  br i1 %62, label %63, label %30, !llvm.loop !15
+  br i1 %62, label %63, label %30, !llvm.loop !14
 
 63:                                               ; preds = %36, %30
   %64 = load ptr, ptr %13, align 8
@@ -769,14 +769,13 @@ attributes #12 = { nounwind allocsize(2) }
 !2 = !{i32 4, !"function_return_thunk_extern", i32 1}
 !3 = !{i32 4, !"indirect_branch_cs_prefix", i32 1}
 !4 = !{i32 4, !"SkipRaxSetup", i32 1}
-!5 = distinct !{!5, !6, !7, !8}
+!5 = distinct !{!5, !6, !7}
 !6 = !{!"llvm.loop.mustprogress"}
 !7 = !{!"llvm.loop.unroll.disable"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = !{!"auto-init"}
-!10 = !{!"branch_weights", i32 1, i32 2000}
-!11 = !{i64 2155268044, i64 2155267853, i64 2155267905, i64 2155267951, i64 2155267979}
-!12 = !{i64 2155268118, i64 2155268147, i64 2155268193, i64 2155268251, i64 2155268305, i64 2155268359, i64 2155268414, i64 2155268445, i64 2155268753, i64 2155268759, i64 2155268806, i64 2155268829, i64 2155268855}
-!13 = !{i64 2155269316, i64 2155269127, i64 2155269177, i64 2155269223, i64 2155269251}
-!14 = !{i32 -2147483648, i32 1}
-!15 = distinct !{!15, !6, !7, !8}
+!8 = !{!"auto-init"}
+!9 = !{!"branch_weights", i32 1, i32 2000}
+!10 = !{i64 2155268044, i64 2155267853, i64 2155267905, i64 2155267951, i64 2155267979}
+!11 = !{i64 2155268118, i64 2155268147, i64 2155268193, i64 2155268251, i64 2155268305, i64 2155268359, i64 2155268414, i64 2155268445, i64 2155268753, i64 2155268759, i64 2155268806, i64 2155268829, i64 2155268855}
+!12 = !{i64 2155269316, i64 2155269127, i64 2155269177, i64 2155269223, i64 2155269251}
+!13 = !{i32 -2147483648, i32 1}
+!14 = distinct !{!14, !6, !7}

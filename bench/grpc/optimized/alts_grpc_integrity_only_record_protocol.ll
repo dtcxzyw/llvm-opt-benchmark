@@ -479,10 +479,10 @@ _ZN4absl12lts_2024072212log_internal10LogMessagelsILi46EEERS2_RAT__Kc.exit: ; pr
   %31 = load i64, ptr %20, align 8, !tbaa !25
   tail call void @grpc_slice_buffer_move_first(ptr noundef nonnull %1, i64 noundef %31, ptr noundef nonnull %30)
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %33 = load i64, ptr %32, align 8, !tbaa !44
+  %33 = load i64, ptr %32, align 8, !tbaa !43
   %34 = load i64, ptr %20, align 8, !tbaa !25
   %.not.not = icmp eq i64 %33, %34
-  br i1 %.not.not, label %.critedge, label %35, !prof !45
+  br i1 %.not.not, label %.critedge, label %35, !prof !44
 
 35:                                               ; preds = %29
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #12
@@ -503,7 +503,7 @@ _ZN4absl12lts_2024072212log_internal10LogMessagelsILi46EEERS2_RAT__Kc.exit: ; pr
   %43 = load i64, ptr %18, align 8, !tbaa !24
   %44 = load i64, ptr %22, align 8, !tbaa !26
   %.not.not59 = icmp eq i64 %43, %44
-  br i1 %.not.not59, label %.critedge63, label %45, !prof !45
+  br i1 %.not.not59, label %.critedge63, label %45, !prof !44
 
 45:                                               ; preds = %.critedge
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #12
@@ -550,7 +550,7 @@ _ZN4absl12lts_2024072212log_internal10LogMessagelsILi46EEERS2_RAT__Kc.exit: ; pr
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 272
   %66 = load ptr, ptr %65, align 8, !tbaa !33
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 312
-  %68 = load i64, ptr %67, align 8, !tbaa !46
+  %68 = load i64, ptr %67, align 8, !tbaa !45
   store ptr %.sroa.04.0, ptr %9, align 8, !tbaa !38
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i64 %43, ptr %.sroa.7.0..sroa_idx, align 8, !tbaa !39
@@ -634,7 +634,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(16) ptr @_ZN4absl12l
   %3 = alloca %"class.absl::lts_20240722::log_internal::LogMessage::OstreamView", align 8
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %3) #12
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = load ptr, ptr %4, align 8, !tbaa !47
+  %5 = load ptr, ptr %4, align 8, !tbaa !46
   call void @_ZN4absl12lts_2024072212log_internal10LogMessage11OstreamViewC1ERNS2_14LogMessageDataE(ptr noundef nonnull align 8 dereferenceable(120) %3, ptr noundef nonnull align 1 %5)
   %6 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN4absl12lts_2024072212log_internal10LogMessage11OstreamView6streamEv(ptr noundef nonnull align 8 dereferenceable(120) %3)
           to label %7 unwind label %11
@@ -763,11 +763,10 @@ attributes #15 = { noreturn nounwind }
 !38 = !{!7, !7, i64 0}
 !39 = !{!13, !13, i64 0}
 !40 = !{!8, !8, i64 0}
-!41 = distinct !{!41, !42, !43}
+!41 = distinct !{!41, !42}
 !42 = !{!"llvm.loop.mustprogress"}
-!43 = !{!"llvm.loop.estimated_trip_count"}
-!44 = !{!5, !13, i64 48}
-!45 = !{!"branch_weights", !"expected", i32 2000, i32 1}
-!46 = !{!4, !13, i64 312}
-!47 = !{!48, !48, i64 0}
-!48 = !{!"p1 _ZTSN4absl12lts_2024072212log_internal10LogMessage14LogMessageDataE", !7, i64 0}
+!43 = !{!5, !13, i64 48}
+!44 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!45 = !{!4, !13, i64 312}
+!46 = !{!47, !47, i64 0}
+!47 = !{!"p1 _ZTSN4absl12lts_2024072212log_internal10LogMessage14LogMessageDataE", !7, i64 0}

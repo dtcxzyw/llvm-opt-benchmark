@@ -73,7 +73,7 @@ define dso_local i64 @sdhci_read_cmd(ptr noundef %0, i64 noundef %1, ptr noundef
   %25 = lshr i32 %.01827.i, 8
   %lftr.wideiv = trunc i64 %22 to i32
   %exitcond = icmp eq i32 %19, %lftr.wideiv
-  br i1 %exitcond, label %.loopexit.i, label %.lr.ph.i, !llvm.loop !7
+  br i1 %exitcond, label %.loopexit.i, label %.lr.ph.i, !llvm.loop !6
 
 read_fifo.exit:                                   ; preds = %.loopexit.i, %.lr.ph.i, %4
   %.020.i = phi i64 [ 0, %4 ], [ %22, %.lr.ph.i ], [ %.1.lcssa.i, %.loopexit.i ]
@@ -126,7 +126,7 @@ define dso_local void @sdhci_write_cmd(ptr noundef %0, i64 noundef %1, ptr nound
   %23 = or i32 %22, %.01418.i
   %24 = add nuw nsw i32 %.019.i, 1
   %exitcond.not.i = icmp eq i32 %24, %16
-  br i1 %exitcond.not.i, label %._crit_edge.i.loopexit, label %.lr.ph.i, !llvm.loop !8
+  br i1 %exitcond.not.i, label %._crit_edge.i.loopexit, label %.lr.ph.i, !llvm.loop !7
 
 ._crit_edge.i.loopexit:                           ; preds = %.lr.ph.i
   %25 = add nuw i64 %.01521.i, 1
@@ -140,7 +140,7 @@ define dso_local void @sdhci_write_cmd(ptr noundef %0, i64 noundef %1, ptr nound
   %.014.lcssa.i = phi i32 [ 0, %.lr.ph23.i ], [ %23, %._crit_edge.i.loopexit ]
   tail call void @qtest_writel(ptr noundef %0, i64 noundef %12, i32 noundef %.014.lcssa.i) #3
   %29 = icmp ult i64 %.1.lcssa.i, %3
-  br i1 %29, label %.lr.ph23.i, label %write_fifo.exit, !llvm.loop !9
+  br i1 %29, label %.lr.ph23.i, label %write_fifo.exit, !llvm.loop !8
 
 write_fifo.exit:                                  ; preds = %._crit_edge.i, %5
   %30 = sub i64 %4, %3
@@ -155,7 +155,7 @@ write_fifo.exit:                                  ; preds = %._crit_edge.i, %5
   tail call void @qtest_writel(ptr noundef %0, i64 noundef %12, i32 noundef 0) #3
   %36 = add nsw i32 %35, -1
   %.not.i14 = icmp eq i32 %35, 0
-  br i1 %.not.i14, label %fill_block.exit, label %.lr.ph.i13, !llvm.loop !10
+  br i1 %.not.i14, label %fill_block.exit, label %.lr.ph.i13, !llvm.loop !9
 
 fill_block.exit:                                  ; preds = %.lr.ph.i13, %write_fifo.exit
   tail call void @qtest_writew(ptr noundef %0, i64 noundef %7, i16 noundef zeroext 0) #3
@@ -182,10 +182,9 @@ attributes #3 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = distinct !{!4, !5, !6}
+!4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{!"llvm.loop.estimated_trip_count"}
-!7 = distinct !{!7, !5, !6}
-!8 = distinct !{!8, !5, !6}
-!9 = distinct !{!9, !5, !6}
-!10 = distinct !{!10, !5, !6}
+!6 = distinct !{!6, !5}
+!7 = distinct !{!7, !5}
+!8 = distinct !{!8, !5}
+!9 = distinct !{!9, !5}

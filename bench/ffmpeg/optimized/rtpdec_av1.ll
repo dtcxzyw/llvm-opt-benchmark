@@ -377,7 +377,7 @@ parse_leb.exit:                                   ; preds = %111
 
 136:                                              ; preds = %132
   %137 = add i32 %.0335353365, %.0255481
-  br label %.thread366, !llvm.loop !50
+  br label %.thread366, !llvm.loop !49
 
 138:                                              ; preds = %130
   %139 = zext nneg i8 %126 to i32
@@ -398,7 +398,7 @@ parse_leb.exit:                                   ; preds = %111
   %145 = add nuw nsw i32 %.0.i, 1
   %146 = lshr i32 %.04.i, 7
   %.not.i319 = icmp ult i32 %.04.i, 128
-  br i1 %.not.i319, label %calc_leb_size.exit, label %144, !llvm.loop !51
+  br i1 %.not.i319, label %calc_leb_size.exit, label %144, !llvm.loop !50
 
 calc_leb_size.exit:                               ; preds = %144
   %147 = add i32 %145, %.0335353365
@@ -414,7 +414,7 @@ calc_leb_size.exit:                               ; preds = %144
   %.not305 = icmp eq i32 %151, 0
   %152 = add nsw i32 %.0243, 2
   %spec.select = select i1 %.not305, i32 %.0243, i32 %152
-  %153 = load ptr, ptr %89, align 8, !tbaa !52
+  %153 = load ptr, ptr %89, align 8, !tbaa !51
   %.not306 = icmp eq ptr %153, null
   br i1 %.not306, label %157, label %154
 
@@ -436,12 +436,12 @@ calc_leb_size.exit:                               ; preds = %144
   br i1 %.not308, label %171, label %162
 
 162:                                              ; preds = %160
-  %163 = load ptr, ptr %89, align 8, !tbaa !52
+  %163 = load ptr, ptr %89, align 8, !tbaa !51
   %164 = add i32 %.0255481, 1
   %165 = zext i32 %.0255481 to i64
   %166 = getelementptr inbounds nuw i8, ptr %163, i64 %165
   store i8 18, ptr %166, align 1, !tbaa !33
-  %167 = load ptr, ptr %89, align 8, !tbaa !52
+  %167 = load ptr, ptr %89, align 8, !tbaa !51
   %168 = add i32 %.0255481, 2
   %169 = zext i32 %164 to i64
   %170 = getelementptr inbounds nuw i8, ptr %167, i64 %169
@@ -477,12 +477,12 @@ calc_leb_size.exit:                               ; preds = %144
   %178 = getelementptr inbounds nuw i8, ptr %.1265356364, i64 1
   %179 = load i8, ptr %.1265356364, align 1, !tbaa !33
   %180 = or i8 %179, 2
-  %181 = load ptr, ptr %89, align 8, !tbaa !52
+  %181 = load ptr, ptr %89, align 8, !tbaa !51
   %182 = add i32 %.5260419, 1
   %183 = zext i32 %.5260419 to i64
   %184 = getelementptr inbounds nuw i8, ptr %181, i64 %183
   store i8 %180, ptr %184, align 1, !tbaa !33
-  store i32 1, ptr %90, align 4, !tbaa !53
+  store i32 1, ptr %90, align 4, !tbaa !52
   %185 = add i32 %.0335353365, -1
   %186 = and i32 %.pre-phi, 4
   %.not310 = icmp eq i32 %186, 0
@@ -499,12 +499,12 @@ calc_leb_size.exit:                               ; preds = %144
 189:                                              ; preds = %187
   %190 = getelementptr inbounds nuw i8, ptr %.1265356364, i64 2
   %191 = load i8, ptr %178, align 1, !tbaa !33
-  %192 = load ptr, ptr %89, align 8, !tbaa !52
+  %192 = load ptr, ptr %89, align 8, !tbaa !51
   %193 = add i32 %.5260419, 2
   %194 = zext i32 %182 to i64
   %195 = getelementptr inbounds nuw i8, ptr %192, i64 %194
   store i8 %191, ptr %195, align 1, !tbaa !33
-  store i32 2, ptr %90, align 4, !tbaa !53
+  store i32 2, ptr %90, align 4, !tbaa !52
   %196 = add i32 %.0335353365, -2
   br label %197
 
@@ -512,8 +512,8 @@ calc_leb_size.exit:                               ; preds = %144
   %.4268 = phi ptr [ %190, %189 ], [ %178, %177 ]
   %.7262 = phi i32 [ %193, %189 ], [ %182, %177 ]
   %.1242 = phi i32 [ %196, %189 ], [ %185, %177 ]
-  store i32 %.7262, ptr %91, align 4, !tbaa !54
-  %198 = load ptr, ptr %89, align 8, !tbaa !52
+  store i32 %.7262, ptr %91, align 4, !tbaa !53
+  %198 = load ptr, ptr %89, align 8, !tbaa !51
   %199 = zext i32 %.7262 to i64
   %200 = getelementptr inbounds nuw i8, ptr %198, i64 %199
   %201 = icmp ult i32 %.1242, 128
@@ -530,7 +530,7 @@ calc_leb_size.exit:                               ; preds = %144
   %206 = lshr i32 %.0710.i, 7
   %207 = add nuw nsw i32 %202, 1
   %208 = icmp ult i32 %.0710.i, 16384
-  br i1 %208, label %write_leb.exit, label %.lr.ph.i, !llvm.loop !55
+  br i1 %208, label %write_leb.exit, label %.lr.ph.i
 
 write_leb.exit:                                   ; preds = %.lr.ph.i, %197
   %.08.lcssa.i = phi ptr [ %200, %197 ], [ %205, %.lr.ph.i ]
@@ -538,7 +538,7 @@ write_leb.exit:                                   ; preds = %.lr.ph.i, %197
   %.lcssa.i = phi i32 [ 1, %197 ], [ %207, %.lr.ph.i ]
   %209 = trunc nuw nsw i32 %.07.lcssa.i to i8
   store i8 %209, ptr %.08.lcssa.i, align 1, !tbaa !33
-  store i32 %.lcssa.i, ptr %92, align 4, !tbaa !56
+  store i32 %.lcssa.i, ptr %92, align 4, !tbaa !54
   %210 = add i32 %.lcssa.i, %.7262
   br label %.thread511
 
@@ -549,7 +549,7 @@ write_leb.exit:                                   ; preds = %.lr.ph.i, %197
   %.3267 = phi ptr [ %.4268, %write_leb.exit ], [ %.1265356364, %176 ], [ %.1265356364, %171 ], [ %.1265356364, %.thread389.thread ]
   %.6261 = phi i32 [ %210, %write_leb.exit ], [ %.0255481, %176 ], [ %.4259, %171 ], [ %.0255481, %.thread389.thread ]
   %.0241 = phi i32 [ %.1242, %write_leb.exit ], [ %.0335353365, %176 ], [ %.0335353365, %171 ], [ %.0335353365, %.thread389.thread ]
-  %211 = load ptr, ptr %89, align 8, !tbaa !52
+  %211 = load ptr, ptr %89, align 8, !tbaa !51
   %212 = zext i32 %.6261 to i64
   %213 = getelementptr inbounds nuw i8, ptr %211, i64 %212
   %214 = zext i32 %.0241 to i64
@@ -566,10 +566,10 @@ write_leb.exit:                                   ; preds = %.lr.ph.i, %197
 
 220:                                              ; preds = %.thread511
   %221 = add i32 %218, %.0335353365
-  %222 = load i32, ptr %90, align 4, !tbaa !53
+  %222 = load i32, ptr %90, align 4, !tbaa !52
   %223 = sub i32 %221, %222
-  %224 = load ptr, ptr %89, align 8, !tbaa !52
-  %225 = load i32, ptr %91, align 4, !tbaa !54
+  %224 = load ptr, ptr %89, align 8, !tbaa !51
+  %225 = load i32, ptr %91, align 4, !tbaa !53
   br label %226
 
 226:                                              ; preds = %226, %220
@@ -578,12 +578,12 @@ write_leb.exit:                                   ; preds = %.lr.ph.i, %197
   %227 = add nuw nsw i32 %.0.i321, 1
   %228 = lshr i32 %.04.i320, 7
   %.not.i322 = icmp ult i32 %.04.i320, 128
-  br i1 %.not.i322, label %calc_leb_size.exit323, label %226, !llvm.loop !51
+  br i1 %.not.i322, label %calc_leb_size.exit323, label %226, !llvm.loop !50
 
 calc_leb_size.exit323:                            ; preds = %226
   %229 = zext i32 %225 to i64
   %230 = getelementptr inbounds nuw i8, ptr %224, i64 %229
-  %231 = load i32, ptr %92, align 4, !tbaa !56
+  %231 = load i32, ptr %92, align 4, !tbaa !54
   %.not450 = icmp ult i32 %.0.i321, %231
   br i1 %.not450, label %247, label %232
 
@@ -594,8 +594,8 @@ calc_leb_size.exit323:                            ; preds = %226
   br i1 %235, label %.thread422, label %.thread432
 
 .thread422:                                       ; preds = %232
-  %236 = load ptr, ptr %89, align 8, !tbaa !52
-  %237 = load i32, ptr %91, align 4, !tbaa !54
+  %236 = load ptr, ptr %89, align 8, !tbaa !51
+  %237 = load i32, ptr %91, align 4, !tbaa !53
   %238 = zext i32 %237 to i64
   %239 = getelementptr inbounds nuw i8, ptr %236, i64 %238
   %240 = zext nneg i32 %233 to i64
@@ -624,7 +624,7 @@ calc_leb_size.exit323:                            ; preds = %226
   store i8 %250, ptr %.089.i326, align 1, !tbaa !33
   %252 = lshr i32 %.0710.i325, 7
   %253 = icmp ult i32 %.0710.i325, 16384
-  br i1 %253, label %.thread426, label %.lr.ph.i324, !llvm.loop !55
+  br i1 %253, label %.thread426, label %.lr.ph.i324
 
 .thread426:                                       ; preds = %.lr.ph.i324, %247
   %.08.lcssa.i327 = phi ptr [ %.0225, %247 ], [ %251, %.lr.ph.i324 ]
@@ -695,14 +695,14 @@ calc_leb_size.exit323:                            ; preds = %226
   %266 = getelementptr inbounds nuw i8, ptr %1, i64 12
   store i32 0, ptr %266, align 4, !tbaa !40
   %267 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  store i32 0, ptr %267, align 4, !tbaa !54
+  store i32 0, ptr %267, align 4, !tbaa !53
   br label %268
 
 268:                                              ; preds = %265, %264
   %269 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %270 = load i32, ptr %269, align 8, !tbaa !57
+  %270 = load i32, ptr %269, align 8, !tbaa !55
   %271 = getelementptr inbounds nuw i8, ptr %3, i64 36
-  store i32 %270, ptr %271, align 4, !tbaa !60
+  store i32 %270, ptr %271, align 4, !tbaa !58
   br label %.thread432
 
 272:                                              ; preds = %49, %52, %55, %43, %36
@@ -881,17 +881,15 @@ attributes #9 = { nounwind willreturn memory(read) }
 !44 = !{!28, !15, i64 0}
 !45 = !{!15, !15, i64 0}
 !46 = !{!36, !15, i64 40}
-!47 = distinct !{!47, !48, !49}
+!47 = distinct !{!47, !48}
 !48 = !{!"llvm.loop.mustprogress"}
-!49 = !{!"llvm.loop.estimated_trip_count"}
+!49 = distinct !{!49, !48}
 !50 = distinct !{!50, !48}
-!51 = distinct !{!51, !48, !49}
-!52 = !{!36, !5, i64 24}
-!53 = !{!28, !15, i64 24}
-!54 = !{!28, !15, i64 16}
-!55 = distinct !{!55, !49}
-!56 = !{!28, !15, i64 20}
-!57 = !{!58, !15, i64 8}
-!58 = !{!"AVStream", !11, i64 0, !15, i64 8, !15, i64 12, !59, i64 16, !6, i64 24, !39, i64 32, !20, i64 40, !20, i64 48, !20, i64 56, !15, i64 64, !15, i64 68, !39, i64 72, !22, i64 80, !39, i64 88, !36, i64 96, !15, i64 200, !39, i64 204, !15, i64 212}
-!59 = !{!"p1 _ZTS17AVCodecParameters", !6, i64 0}
-!60 = !{!36, !15, i64 36}
+!51 = !{!36, !5, i64 24}
+!52 = !{!28, !15, i64 24}
+!53 = !{!28, !15, i64 16}
+!54 = !{!28, !15, i64 20}
+!55 = !{!56, !15, i64 8}
+!56 = !{!"AVStream", !11, i64 0, !15, i64 8, !15, i64 12, !57, i64 16, !6, i64 24, !39, i64 32, !20, i64 40, !20, i64 48, !20, i64 56, !15, i64 64, !15, i64 68, !39, i64 72, !22, i64 80, !39, i64 88, !36, i64 96, !15, i64 200, !39, i64 204, !15, i64 212}
+!57 = !{!"p1 _ZTS17AVCodecParameters", !6, i64 0}
+!58 = !{!36, !15, i64 36}

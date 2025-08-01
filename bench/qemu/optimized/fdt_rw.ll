@@ -1487,7 +1487,7 @@ define dso_local i32 @fdt_open_into(ptr noundef %0, ptr noundef %1, i32 noundef 
   %72 = load i32, ptr %4, align 4
   %73 = call i32 @fdt_next_tag(ptr noundef nonnull %0, i32 noundef %72, ptr noundef nonnull %4) #9
   %.not = icmp eq i32 %73, 9
-  br i1 %.not, label %74, label %71, !llvm.loop !8
+  br i1 %.not, label %74, label %71, !llvm.loop !7
 
 74:                                               ; preds = %71
   %75 = load i32, ptr %4, align 4
@@ -2066,7 +2066,6 @@ attributes #10 = { nounwind willreturn memory(read) }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{!"auto-init"}
-!5 = distinct !{!5, !6, !7}
+!5 = distinct !{!5, !6}
 !6 = !{!"llvm.loop.mustprogress"}
-!7 = !{!"llvm.loop.estimated_trip_count"}
-!8 = distinct !{!8, !6, !7}
+!7 = distinct !{!7, !6}

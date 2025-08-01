@@ -307,7 +307,7 @@ _ZL11pointInPolyiPKfS0_.exit.thread:              ; preds = %22, %_ZL11pointInPo
   %.1 = phi i32 [ %65, %64 ], [ %.072, %60 ], [ %.072, %55 ], [ %.072, %_ZL11pointInPolyiPKfS0_.exit ], [ %.072, %22 ]
   %indvars.iv.next85 = add nuw nsw i64 %indvars.iv84, 1
   %exitcond88.not = icmp eq i64 %indvars.iv.next85, %wide.trip.count87
-  br i1 %exitcond88.not, label %._crit_edge75, label %22, !llvm.loop !8
+  br i1 %exitcond88.not, label %._crit_edge75, label %22, !llvm.loop !7
 
 ._crit_edge75:                                    ; preds = %_ZL11pointInPolyiPKfS0_.exit.thread
   %.not56 = icmp eq i32 %.1, -1
@@ -380,7 +380,7 @@ _ZL11pointInPolyiPKfS0_.exit.thread:              ; preds = %22, %_ZL11pointInPo
   store float %110, ptr %111, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.lr.ph, label %97, !llvm.loop !9
+  br i1 %exitcond.not, label %.lr.ph, label %97, !llvm.loop !8
 
 .lr.ph:                                           ; preds = %97, %.lr.ph
   %indvars.iv79 = phi i64 [ %indvars.iv.next80, %.lr.ph ], [ 0, %97 ]
@@ -393,7 +393,7 @@ _ZL11pointInPolyiPKfS0_.exit.thread:              ; preds = %22, %_ZL11pointInPo
   %117 = select i1 %116, float %.04269, float %115
   %indvars.iv.next80 = add nuw nsw i64 %indvars.iv79, 1
   %exitcond83.not = icmp eq i64 %indvars.iv.next80, %wide.trip.count
-  br i1 %exitcond83.not, label %._crit_edge, label %.lr.ph, !llvm.loop !10
+  br i1 %exitcond83.not, label %._crit_edge, label %.lr.ph, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %.lr.ph
   %118 = getelementptr inbounds nuw i8, ptr %0, i64 28
@@ -493,7 +493,7 @@ _Z5cmpptPKfS0_.exit.thread34.i:                   ; preds = %_Z5cmpptPKfS0_.exit
   %170 = phi i32 [ %169, %_Z5cmpptPKfS0_.exit.thread.i ], [ %.02937.i, %_Z5cmpptPKfS0_.exit.i ], [ %.02937.i, %162 ]
   %indvars.iv.next.i61 = add nuw nsw i64 %indvars.iv.i59, 1
   %exitcond.not.i62 = icmp eq i64 %indvars.iv.next.i61, %wide.trip.count.i58
-  br i1 %exitcond.not.i62, label %.preheader.i.preheader, label %154, !llvm.loop !11
+  br i1 %exitcond.not.i62, label %.preheader.i.preheader, label %154, !llvm.loop !10
 
 .preheader.i.preheader:                           ; preds = %_Z5cmpptPKfS0_.exit.thread34.i
   %171 = getelementptr inbounds nuw i8, ptr %0, i64 180
@@ -548,13 +548,13 @@ _Z5cmpptPKfS0_.exit.thread34.i:                   ; preds = %_Z5cmpptPKfS0_.exit
   %.1.i63 = phi i32 [ %201, %200 ], [ %.02739.i, %179 ]
   %indvars.iv.next44.i = add nuw nsw i64 %indvars.iv43.i, 1
   %exitcond47.not.i = icmp eq i64 %indvars.iv.next44.i, %wide.trip.count.i58
-  br i1 %exitcond47.not.i, label %203, label %177, !llvm.loop !12
+  br i1 %exitcond47.not.i, label %203, label %177, !llvm.loop !11
 
 203:                                              ; preds = %202
   %indvars.iv.next49.i = add nuw nsw i64 %indvars.iv48.i, 1
   %204 = load i32, ptr %171, align 4
   %.not.i64 = icmp eq i32 %.1.i63, %204
-  br i1 %.not.i64, label %_ZL10convexhullPKfiPi.exit, label %.preheader.i, !llvm.loop !13
+  br i1 %.not.i64, label %_ZL10convexhullPKfiPi.exit, label %.preheader.i, !llvm.loop !12
 
 _ZL10convexhullPKfiPi.exit:                       ; preds = %203
   %205 = trunc nuw i64 %indvars.iv.next49.i to i32
@@ -618,7 +618,7 @@ define dso_local void @_ZN16ConvexVolumeTool12handleRenderEv(ptr noundef nonnull
   %15 = select i1 %14, float %.052, float %13
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %9, !llvm.loop !14
+  br i1 %exitcond.not, label %._crit_edge, label %9, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %9, %1
   %.0.lcssa = phi float [ 0x47EFFFFFE0000000, %1 ], [ %15, %9 ]
@@ -665,7 +665,7 @@ define dso_local void @_ZN16ConvexVolumeTool12handleRenderEv(ptr noundef nonnull
   %46 = load i32, ptr %5, align 8
   %47 = sext i32 %46 to i64
   %48 = icmp slt i64 %indvars.iv.next64, %47
-  br i1 %48, label %28, label %._crit_edge56, !llvm.loop !15
+  br i1 %48, label %28, label %._crit_edge56, !llvm.loop !14
 
 ._crit_edge56:                                    ; preds = %28, %._crit_edge
   %49 = load ptr, ptr %4, align 8
@@ -744,7 +744,7 @@ define dso_local void @_ZN16ConvexVolumeTool12handleRenderEv(ptr noundef nonnull
   %106 = sext i32 %105 to i64
   %107 = icmp slt i64 %indvars.iv.next67, %106
   %108 = trunc nuw nsw i64 %indvars.iv66 to i32
-  br i1 %107, label %61, label %._crit_edge61, !llvm.loop !16
+  br i1 %107, label %61, label %._crit_edge61, !llvm.loop !15
 
 ._crit_edge61:                                    ; preds = %61, %._crit_edge56
   %109 = load ptr, ptr %4, align 8
@@ -825,15 +825,14 @@ attributes #9 = { builtin nounwind }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6, !7}
+!5 = distinct !{!5, !6}
 !6 = !{!"llvm.loop.mustprogress"}
-!7 = !{!"llvm.loop.estimated_trip_count"}
-!8 = distinct !{!8, !6, !7}
-!9 = distinct !{!9, !6, !7}
-!10 = distinct !{!10, !6, !7}
-!11 = distinct !{!11, !6, !7}
-!12 = distinct !{!12, !6, !7}
-!13 = distinct !{!13, !6, !7}
-!14 = distinct !{!14, !6, !7}
-!15 = distinct !{!15, !6, !7}
-!16 = distinct !{!16, !6, !7}
+!7 = distinct !{!7, !6}
+!8 = distinct !{!8, !6}
+!9 = distinct !{!9, !6}
+!10 = distinct !{!10, !6}
+!11 = distinct !{!11, !6}
+!12 = distinct !{!12, !6}
+!13 = distinct !{!13, !6}
+!14 = distinct !{!14, !6}
+!15 = distinct !{!15, !6}

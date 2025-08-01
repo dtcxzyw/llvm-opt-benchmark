@@ -477,7 +477,7 @@ sub_1.i.i:                                        ; preds = %sub_0.i.i
 151:                                              ; preds = %.tail.thread.i.i
   %152 = tail call ptr @wmem_list_frame_prev(ptr noundef nonnull %.072.i.i)
   %.not.i211.i = icmp eq ptr %152, null
-  br i1 %.not.i211.i, label %is_ipv4_format.exit.i, label %sub_0.i.i, !llvm.loop !9
+  br i1 %.not.i211.i, label %is_ipv4_format.exit.i, label %sub_0.i.i, !llvm.loop !8
 
 is_ipv4_format.exit.i:                            ; preds = %151, %.tail.thread.i.i, %.tail.i.i, %136
   %.0.i212214.i = phi i1 [ true, %136 ], [ false, %.tail.thread.i.i ], [ true, %151 ], [ true, %.tail.i.i ]
@@ -517,7 +517,7 @@ is_ipv4_format.exit.i:                            ; preds = %151, %.tail.thread.
   %174 = add i32 %.1225.us.i, %153
   %175 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %174)
   %.not.us.i = icmp slt i32 %175, %153
-  br i1 %.not.us.i, label %._crit_edge.i, label %.lr.ph226.split.us.i, !llvm.loop !10
+  br i1 %.not.us.i, label %._crit_edge.i, label %.lr.ph226.split.us.i, !llvm.loop !9
 
 .lr.ph226.split.i:                                ; preds = %.lr.ph226.i, %.lr.ph226.split.i
   %.1225.i = phi i32 [ %190, %.lr.ph226.split.i ], [ 20, %.lr.ph226.i ]
@@ -542,7 +542,7 @@ is_ipv4_format.exit.i:                            ; preds = %151, %.tail.thread.
   %190 = add i32 %.1225.i, %153
   %191 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %190)
   %.not.i = icmp slt i32 %191, %153
-  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph226.split.i, !llvm.loop !12
+  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph226.split.i, !llvm.loop !11
 
 ._crit_edge.i:                                    ; preds = %.lr.ph226.split.i, %.lr.ph226.split.us.i, %is_ipv4_format.exit.i
   %.0209.lcssa.i = phi i32 [ 0, %is_ipv4_format.exit.i ], [ %160, %.lr.ph226.split.us.i ], [ %176, %.lr.ph226.split.i ]
@@ -570,7 +570,7 @@ is_ipv4_format.exit.i:                            ; preds = %151, %.tail.thread.
   %204 = add i32 %.2220.i, 20
   %205 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %204)
   %206 = icmp sgt i32 %205, 19
-  br i1 %206, label %.lr.ph221.i, label %dissect_bt_tracker_msg.exit, !llvm.loop !13
+  br i1 %206, label %.lr.ph221.i, label %dissect_bt_tracker_msg.exit, !llvm.loop !12
 
 207:                                              ; preds = %proto_item_set_generated.exit.i
   %208 = load i32, ptr @hf_bt_tracker_action, align 4
@@ -594,7 +594,7 @@ is_ipv4_format.exit.i:                            ; preds = %151, %.tail.thread.
   %222 = add i32 %.3219.i, 12
   %223 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %222)
   %224 = icmp sgt i32 %223, 11
-  br i1 %224, label %.lr.ph.i, label %dissect_bt_tracker_msg.exit, !llvm.loop !14
+  br i1 %224, label %.lr.ph.i, label %dissect_bt_tracker_msg.exit, !llvm.loop !13
 
 225:                                              ; preds = %proto_item_set_generated.exit.i
   %226 = load i32, ptr @hf_bt_tracker_action, align 4
@@ -713,12 +713,11 @@ attributes #5 = { nounwind willreturn memory(read) }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7, !8, !11}
-!11 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!12 = distinct !{!12, !7, !8}
-!13 = distinct !{!13, !7, !8}
-!14 = distinct !{!14, !7, !8}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7, !10}
+!10 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!11 = distinct !{!11, !7}
+!12 = distinct !{!12, !7}
+!13 = distinct !{!13, !7}

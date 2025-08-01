@@ -49,11 +49,11 @@ define dso_local void @stats_prefix_clear() local_unnamed_addr #2 {
   store ptr null, ptr %2, align 8, !tbaa !7
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 256
-  br i1 %exitcond.not, label %7, label %1, !llvm.loop !18
+  br i1 %exitcond.not, label %7, label %1, !llvm.loop !17
 
 7:                                                ; preds = %._crit_edge
-  store i32 0, ptr @num_prefixes, align 4, !tbaa !19
-  store i32 0, ptr @total_prefix_size, align 4, !tbaa !19
+  store i32 0, ptr @num_prefixes, align 4, !tbaa !18
+  store i32 0, ptr @total_prefix_size, align 4, !tbaa !18
   ret void
 }
 
@@ -83,10 +83,10 @@ define dso_local noundef ptr @stats_prefix_find(ptr noundef %0, i64 noundef %1) 
 9:                                                ; preds = %7
   %10 = add nuw i64 %.03546, 1
   %exitcond.not = icmp eq i64 %10, %1
-  br i1 %exitcond.not, label %.critedge42, label %4, !llvm.loop !21
+  br i1 %exitcond.not, label %.critedge42, label %4, !llvm.loop !20
 
 .critedge:                                        ; preds = %7
-  %11 = load ptr, ptr @hash, align 8, !tbaa !22
+  %11 = load ptr, ptr @hash, align 8, !tbaa !21
   %12 = tail call i32 %11(ptr noundef nonnull %0, i64 noundef %.03546) #11
   %13 = and i32 %12, 255
   %14 = zext nneg i32 %13 to i64
@@ -106,7 +106,7 @@ define dso_local noundef ptr @stats_prefix_find(ptr noundef %0, i64 noundef %1) 
   %20 = getelementptr inbounds nuw i8, ptr %.03750, i64 48
   %.037 = load ptr, ptr %20, align 8, !tbaa !7
   %.not41 = icmp eq ptr %.037, null
-  br i1 %.not41, label %._crit_edge, label %.lr.ph51, !llvm.loop !23
+  br i1 %.not41, label %._crit_edge, label %.lr.ph51, !llvm.loop !22
 
 ._crit_edge:                                      ; preds = %19, %.critedge
   %21 = tail call noalias dereferenceable_or_null(56) ptr @calloc(i64 noundef 56, i64 noundef 1) #13
@@ -134,17 +134,17 @@ define dso_local noundef ptr @stats_prefix_find(ptr noundef %0, i64 noundef %1) 
   %31 = getelementptr inbounds nuw i8, ptr %26, i64 %.03546
   store i8 0, ptr %31, align 1, !tbaa !4
   %32 = getelementptr inbounds nuw i8, ptr %21, i64 8
-  store i64 %.03546, ptr %32, align 8, !tbaa !24
+  store i64 %.03546, ptr %32, align 8, !tbaa !23
   %33 = getelementptr inbounds nuw i8, ptr %21, i64 48
   store ptr %.03748, ptr %33, align 8, !tbaa !10
   store ptr %21, ptr %15, align 8, !tbaa !7
-  %34 = load i32, ptr @num_prefixes, align 4, !tbaa !19
+  %34 = load i32, ptr @num_prefixes, align 4, !tbaa !18
   %35 = add nsw i32 %34, 1
-  store i32 %35, ptr @num_prefixes, align 4, !tbaa !19
-  %36 = load i32, ptr @total_prefix_size, align 4, !tbaa !19
+  store i32 %35, ptr @num_prefixes, align 4, !tbaa !18
+  %36 = load i32, ptr @total_prefix_size, align 4, !tbaa !18
   %37 = trunc i64 %.03546 to i32
   %38 = add i32 %36, %37
-  store i32 %38, ptr @total_prefix_size, align 4, !tbaa !19
+  store i32 %38, ptr @total_prefix_size, align 4, !tbaa !18
   br label %.critedge42
 
 .critedge42:                                      ; preds = %9, %4, %.lr.ph51, %2, %29, %28, %23
@@ -176,16 +176,16 @@ define dso_local void @stats_prefix_record_get(ptr noundef %0, i64 noundef %1, i
 
 5:                                                ; preds = %3
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %7 = load i64, ptr %6, align 8, !tbaa !25
+  %7 = load i64, ptr %6, align 8, !tbaa !24
   %8 = add i64 %7, 1
-  store i64 %8, ptr %6, align 8, !tbaa !25
+  store i64 %8, ptr %6, align 8, !tbaa !24
   br i1 %2, label %9, label %13
 
 9:                                                ; preds = %5
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 40
-  %11 = load i64, ptr %10, align 8, !tbaa !26
+  %11 = load i64, ptr %10, align 8, !tbaa !25
   %12 = add i64 %11, 1
-  store i64 %12, ptr %10, align 8, !tbaa !26
+  store i64 %12, ptr %10, align 8, !tbaa !25
   br label %13
 
 13:                                               ; preds = %5, %9, %3
@@ -206,9 +206,9 @@ define dso_local void @stats_prefix_record_delete(ptr noundef %0, i64 noundef %1
 
 4:                                                ; preds = %2
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  %6 = load i64, ptr %5, align 8, !tbaa !27
+  %6 = load i64, ptr %5, align 8, !tbaa !26
   %7 = add i64 %6, 1
-  store i64 %7, ptr %5, align 8, !tbaa !27
+  store i64 %7, ptr %5, align 8, !tbaa !26
   br label %8
 
 8:                                                ; preds = %4, %2
@@ -225,9 +225,9 @@ define dso_local void @stats_prefix_record_set(ptr noundef %0, i64 noundef %1) l
 
 4:                                                ; preds = %2
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %6 = load i64, ptr %5, align 8, !tbaa !28
+  %6 = load i64, ptr %5, align 8, !tbaa !27
   %7 = add i64 %6, 1
-  store i64 %7, ptr %5, align 8, !tbaa !28
+  store i64 %7, ptr %5, align 8, !tbaa !27
   br label %8
 
 8:                                                ; preds = %4, %2
@@ -238,9 +238,9 @@ define dso_local void @stats_prefix_record_set(ptr noundef %0, i64 noundef %1) l
 ; Function Attrs: nounwind uwtable
 define dso_local noalias noundef ptr @stats_prefix_dump(ptr noundef writeonly captures(none) %0) local_unnamed_addr #2 {
   tail call void @STATS_LOCK() #11
-  %2 = load i32, ptr @total_prefix_size, align 4, !tbaa !19
+  %2 = load i32, ptr @total_prefix_size, align 4, !tbaa !18
   %3 = sext i32 %2 to i64
-  %4 = load i32, ptr @num_prefixes, align 4, !tbaa !19
+  %4 = load i32, ptr @num_prefixes, align 4, !tbaa !18
   %5 = sext i32 %4 to i64
   %6 = mul nsw i64 %5, 109
   %7 = add nsw i64 %3, 53
@@ -270,25 +270,25 @@ define dso_local noalias noundef ptr @stats_prefix_dump(ptr noundef writeonly ca
   %15 = sub nsw i64 %8, %13
   %16 = load ptr, ptr %.02833, align 8, !tbaa !14
   %17 = getelementptr inbounds nuw i8, ptr %.02833, i64 16
-  %18 = load i64, ptr %17, align 8, !tbaa !25
+  %18 = load i64, ptr %17, align 8, !tbaa !24
   %19 = getelementptr inbounds nuw i8, ptr %.02833, i64 40
-  %20 = load i64, ptr %19, align 8, !tbaa !26
+  %20 = load i64, ptr %19, align 8, !tbaa !25
   %21 = getelementptr inbounds nuw i8, ptr %.02833, i64 24
-  %22 = load i64, ptr %21, align 8, !tbaa !28
+  %22 = load i64, ptr %21, align 8, !tbaa !27
   %23 = getelementptr inbounds nuw i8, ptr %.02833, i64 32
-  %24 = load i64, ptr %23, align 8, !tbaa !27
+  %24 = load i64, ptr %23, align 8, !tbaa !26
   %25 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %14, i64 noundef %15, ptr noundef nonnull @.str.2, ptr noundef %16, i64 noundef %18, i64 noundef %20, i64 noundef %22, i64 noundef %24) #11
   %26 = add i32 %25, %.132
   %27 = getelementptr inbounds nuw i8, ptr %.02833, i64 48
   %.028 = load ptr, ptr %27, align 8, !tbaa !7
   %.not = icmp eq ptr %.028, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !29
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !28
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
   %.1.lcssa = phi i32 [ %.035, %.preheader ], [ %26, %.lr.ph ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 256
-  br i1 %exitcond.not, label %28, label %.preheader, !llvm.loop !30
+  br i1 %exitcond.not, label %28, label %.preheader, !llvm.loop !29
 
 28:                                               ; preds = %._crit_edge
   tail call void @STATS_UNLOCK() #11
@@ -296,7 +296,7 @@ define dso_local noalias noundef ptr @stats_prefix_dump(ptr noundef writeonly ca
   %30 = getelementptr inbounds i8, ptr %9, i64 %29
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %30, ptr noundef nonnull align 1 dereferenceable(6) @.str.4, i64 6, i1 false)
   %31 = add nsw i32 %.1.lcssa, 5
-  store i32 %31, ptr %0, align 4, !tbaa !19
+  store i32 %31, ptr %0, align 4, !tbaa !18
   br label %32
 
 32:                                               ; preds = %28, %11
@@ -343,19 +343,18 @@ attributes #15 = { nounwind allocsize(0) }
 !12 = !{!"p1 omnipotent char", !9, i64 0}
 !13 = !{!"long", !5, i64 0}
 !14 = !{!11, !12, i64 0}
-!15 = distinct !{!15, !16, !17}
+!15 = distinct !{!15, !16}
 !16 = !{!"llvm.loop.mustprogress"}
-!17 = !{!"llvm.loop.estimated_trip_count"}
-!18 = distinct !{!18, !16, !17}
-!19 = !{!20, !20, i64 0}
-!20 = !{!"int", !5, i64 0}
-!21 = distinct !{!21, !16, !17}
-!22 = !{!9, !9, i64 0}
-!23 = distinct !{!23, !16, !17}
-!24 = !{!11, !13, i64 8}
-!25 = !{!11, !13, i64 16}
-!26 = !{!11, !13, i64 40}
-!27 = !{!11, !13, i64 32}
-!28 = !{!11, !13, i64 24}
-!29 = distinct !{!29, !16, !17}
-!30 = distinct !{!30, !16, !17}
+!17 = distinct !{!17, !16}
+!18 = !{!19, !19, i64 0}
+!19 = !{!"int", !5, i64 0}
+!20 = distinct !{!20, !16}
+!21 = !{!9, !9, i64 0}
+!22 = distinct !{!22, !16}
+!23 = !{!11, !13, i64 8}
+!24 = !{!11, !13, i64 16}
+!25 = !{!11, !13, i64 40}
+!26 = !{!11, !13, i64 32}
+!27 = !{!11, !13, i64 24}
+!28 = distinct !{!28, !16}
+!29 = distinct !{!29, !16}

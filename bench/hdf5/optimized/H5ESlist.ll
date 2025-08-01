@@ -86,15 +86,15 @@ define i32 @H5ES__list_iterate(ptr noundef readonly captures(none) %0, i32 nound
   %16 = load ptr, ptr %.in17, align 8, !tbaa !24
   %17 = tail call i32 %2(ptr noundef nonnull %.013, ptr noundef %3) #4
   %.not18 = icmp eq i32 %17, 0
-  br i1 %.not18, label %14, label %18, !llvm.loop !25
+  br i1 %.not18, label %14, label %18
 
 18:                                               ; preds = %15
   %19 = icmp slt i32 %17, 0
   br i1 %19, label %20, label %.thread
 
 20:                                               ; preds = %18
-  %21 = load i64, ptr @H5E_EVENTSET_g, align 8, !tbaa !27
-  %22 = load i64, ptr @H5E_CANTNEXT_g, align 8, !tbaa !27
+  %21 = load i64, ptr @H5E_EVENTSET_g, align 8, !tbaa !25
+  %22 = load i64, ptr @H5E_CANTNEXT_g, align 8, !tbaa !25
   %23 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5ES__list_iterate, i32 noundef 161, i64 noundef %21, i64 noundef %22, ptr noundef nonnull @.str.1) #4
   br label %.thread
 
@@ -200,6 +200,4 @@ attributes #4 = { nounwind }
 !22 = !{!11, !14, i64 8}
 !23 = !{!20, !18, i64 0}
 !24 = !{!14, !14, i64 0}
-!25 = distinct !{!25, !26}
-!26 = !{!"llvm.loop.estimated_trip_count"}
-!27 = !{!18, !18, i64 0}
+!25 = !{!18, !18, i64 0}

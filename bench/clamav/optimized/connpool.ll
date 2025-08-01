@@ -399,7 +399,7 @@ define dso_local void @cpool_free() local_unnamed_addr #0 {
   %24 = load i32, ptr %23, align 8, !tbaa !20
   %25 = zext i32 %24 to i64
   %26 = icmp samesign ult i64 %indvars.iv.next, %25
-  br i1 %26, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !48
+  br i1 %26, label %.lr.ph, label %._crit_edge.loopexit
 
 ._crit_edge.loopexit:                             ; preds = %22
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %23, i64 16
@@ -452,7 +452,7 @@ define internal noalias noundef ptr @cpool_mon(ptr readnone captures(none) %0) #
 
 ._crit_edge.thread.i:                             ; preds = %7
   %14 = getelementptr inbounds nuw i8, ptr %12, i64 4
-  store i32 0, ptr %14, align 4, !tbaa !50
+  store i32 0, ptr %14, align 4, !tbaa !48
   br label %42
 
 .lr.ph.i:                                         ; preds = %7
@@ -479,7 +479,7 @@ define internal noalias noundef ptr @cpool_mon(ptr readnone captures(none) %0) #
 
 24:                                               ; preds = %22
   %25 = getelementptr inbounds nuw i8, ptr %19, i64 4
-  %26 = load i32, ptr %25, align 4, !tbaa !50
+  %26 = load i32, ptr %25, align 4, !tbaa !48
   %.not19.i = icmp eq i32 %26, 0
   br i1 %.not19.i, label %27, label %32
 
@@ -509,12 +509,12 @@ define internal noalias noundef ptr @cpool_mon(ptr readnone captures(none) %0) #
   %38 = getelementptr inbounds nuw i8, ptr %.01424.i, i64 40
   %39 = add i32 %.025.i, 1
   %.not.i = icmp ugt i32 %39, %33
-  br i1 %.not.i, label %._crit_edge.i, label %17, !llvm.loop !51
+  br i1 %.not.i, label %._crit_edge.i, label %17
 
 ._crit_edge.i:                                    ; preds = %32
   %40 = sub i32 %33, %37
   %41 = getelementptr inbounds nuw i8, ptr %34, i64 4
-  store i32 %40, ptr %41, align 4, !tbaa !50
+  store i32 %40, ptr %41, align 4, !tbaa !48
   %.not17.i = icmp eq i32 %33, %37
   br i1 %.not17.i, label %42, label %cpool_probe.exit
 
@@ -525,12 +525,12 @@ define internal noalias noundef ptr @cpool_mon(ptr readnone captures(none) %0) #
 cpool_probe.exit:                                 ; preds = %._crit_edge.i, %42
   %44 = call i64 @time(ptr noundef null) #13
   %45 = add nsw i64 %44, 60
-  store i64 %45, ptr %3, align 8, !tbaa !52
-  store i64 0, ptr %6, align 8, !tbaa !54
+  store i64 %45, ptr %3, align 8, !tbaa !49
+  store i64 0, ptr %6, align 8, !tbaa !51
   %46 = call i32 @pthread_cond_timedwait(ptr noundef nonnull @mon_cond, ptr noundef nonnull %2, ptr noundef nonnull %3) #13
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #13
   %.b = load i1, ptr @quitting, align 4
-  br i1 %.b, label %7, label %._crit_edge, !llvm.loop !55
+  br i1 %.b, label %7, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %cpool_probe.exit, %1
   %47 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %2) #13
@@ -560,7 +560,7 @@ declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #7
 define dso_local noundef ptr @cpool_get_rand(ptr noundef writeonly captures(none) %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr @cp, align 8, !tbaa !4
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  %4 = load i32, ptr %3, align 4, !tbaa !50
+  %4 = load i32, ptr %3, align 4, !tbaa !48
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %.loopexit, label %.lr.ph.preheader
 
@@ -608,7 +608,7 @@ define dso_local noundef ptr @cpool_get_rand(ptr noundef writeonly captures(none
 28:                                               ; preds = %25, %22, %19
   %.0 = phi ptr [ %16, %22 ], [ %16, %19 ], [ %spec.select, %25 ]
   %29 = tail call i32 @nc_connect_entry(ptr noundef nonnull %.0) #13
-  store i32 %29, ptr %0, align 4, !tbaa !56
+  store i32 %29, ptr %0, align 4, !tbaa !52
   %30 = icmp eq i32 %29, -1
   br i1 %30, label %31, label %.loopexit18
 
@@ -624,7 +624,7 @@ define dso_local noundef ptr @cpool_get_rand(ptr noundef writeonly captures(none
   %35 = phi ptr [ %10, %.lr.ph ], [ %.pre, %31 ]
   %36 = add nuw i32 %.01019, 1
   %37 = icmp ult i32 %36, %34
-  br i1 %37, label %.lr.ph, label %.loopexit, !llvm.loop !57
+  br i1 %37, label %.lr.ph, label %.loopexit
 
 .loopexit:                                        ; preds = %33, %1
   %38 = tail call i32 @pthread_cond_signal(ptr noundef nonnull @mon_cond) #13
@@ -748,13 +748,8 @@ attributes #16 = { nounwind allocsize(0) }
 !45 = !{!"sockaddr", !24, i64 0, !7, i64 2}
 !46 = !{!10, !14, i64 48}
 !47 = !{!29, !29, i64 0}
-!48 = distinct !{!48, !49}
-!49 = !{!"llvm.loop.estimated_trip_count"}
-!50 = !{!18, !13, i64 4}
-!51 = distinct !{!51, !49}
-!52 = !{!53, !29, i64 0}
-!53 = !{!"timespec", !29, i64 0, !29, i64 8}
-!54 = !{!53, !29, i64 8}
-!55 = distinct !{!55, !49}
-!56 = !{!13, !13, i64 0}
-!57 = distinct !{!57, !49}
+!48 = !{!18, !13, i64 4}
+!49 = !{!50, !29, i64 0}
+!50 = !{!"timespec", !29, i64 0, !29, i64 8}
+!51 = !{!50, !29, i64 8}
+!52 = !{!13, !13, i64 0}

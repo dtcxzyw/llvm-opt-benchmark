@@ -720,7 +720,7 @@ define internal void @register_diameter_fields(ptr readnone captures(none) %0) #
   %37 = getelementptr i8, ptr %.0140204.i, i64 32
   %38 = load ptr, ptr %37, align 8
   %.not160.i = icmp eq ptr %38, null
-  br i1 %.not160.i, label %39, label %33, !llvm.loop !11
+  br i1 %.not160.i, label %39, label %33, !llvm.loop !10
 
 39:                                               ; preds = %33
   %40 = icmp ne ptr %11, null
@@ -798,7 +798,7 @@ define internal void @register_diameter_fields(ptr readnone captures(none) %0) #
   %74 = getelementptr inbounds nuw i8, ptr %.0137207.i, i64 16
   %.0137.i = load ptr, ptr %74, align 8
   %.not161.i = icmp eq ptr %.0137.i, null
-  br i1 %.not161.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !12
+  br i1 %.not161.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !11
 
 ._crit_edge.i:                                    ; preds = %73, %53
   %75 = load ptr, ptr %44, align 8
@@ -840,7 +840,7 @@ define internal void @register_diameter_fields(ptr readnone captures(none) %0) #
   %89 = getelementptr inbounds nuw i8, ptr %.0131208.i, i64 16
   %90 = load ptr, ptr %89, align 8
   %.not163.i = icmp eq ptr %90, null
-  br i1 %.not163.i, label %91, label %81, !llvm.loop !13
+  br i1 %.not163.i, label %91, label %81, !llvm.loop !12
 
 91:                                               ; preds = %88
   call void @wmem_array_sort(ptr noundef %78, ptr noundef nonnull @compare_avps)
@@ -911,7 +911,7 @@ define internal void @register_diameter_fields(ptr readnone captures(none) %0) #
   %124 = getelementptr inbounds nuw i8, ptr %.0134.i, i64 24
   %125 = load ptr, ptr %124, align 8
   %.old1.not.i = icmp eq ptr %125, null
-  br i1 %.old1.not.i, label %.loopexit202.i, label %101, !llvm.loop !14
+  br i1 %.old1.not.i, label %.loopexit202.i, label %101
 
 .loopexit202.i:                                   ; preds = %123, %97
   %126 = call ptr @g_array_free(ptr noundef %14, i32 noundef 0)
@@ -964,7 +964,7 @@ define internal void @register_diameter_fields(ptr readnone captures(none) %0) #
   %146 = getelementptr inbounds nuw i8, ptr %.0136.i, i64 24
   %147 = load ptr, ptr %146, align 8
   %.old3.not.i = icmp eq ptr %147, null
-  br i1 %.old3.not.i, label %.loopexit.i, label %130, !llvm.loop !15
+  br i1 %.old3.not.i, label %.loopexit.i, label %130
 
 .loopexit.i:                                      ; preds = %145, %.loopexit202.i
   %148 = getelementptr inbounds nuw i8, ptr %44, i64 32
@@ -1048,7 +1048,7 @@ define internal void @register_diameter_fields(ptr readnone captures(none) %0) #
   %183 = getelementptr inbounds nuw i8, ptr %.0133209.i, i64 16
   %184 = load ptr, ptr %183, align 8
   %.not173.i = icmp eq ptr %184, null
-  br i1 %.not173.i, label %185, label %179, !llvm.loop !16
+  br i1 %.not173.i, label %185, label %179, !llvm.loop !13
 
 185:                                              ; preds = %179
   call void @wmem_array_sort(ptr noundef %178, ptr noundef nonnull @compare_avps)
@@ -1105,7 +1105,7 @@ define internal void @register_diameter_fields(ptr readnone captures(none) %0) #
   %208 = getelementptr inbounds nuw i8, ptr %.0130212.i, i64 24
   %.0130.i = load ptr, ptr %208, align 8
   %.not174.i = icmp eq ptr %.0130.i, null
-  br i1 %.not174.i, label %._crit_edge215.i, label %189, !llvm.loop !17
+  br i1 %.not174.i, label %._crit_edge215.i, label %189, !llvm.loop !14
 
 209:                                              ; preds = %202, %192
   %210 = getelementptr inbounds nuw i8, ptr %.0130212.i, i64 16
@@ -1157,7 +1157,7 @@ define internal void @register_diameter_fields(ptr readnone captures(none) %0) #
   %230 = getelementptr inbounds nuw i8, ptr %.0139218.i, i64 56
   %.0139.i = load ptr, ptr %230, align 8
   %.not169.i = icmp eq ptr %.0139.i, null
-  br i1 %.not169.i, label %._crit_edge221.i, label %158, !llvm.loop !18
+  br i1 %.not169.i, label %._crit_edge221.i, label %158, !llvm.loop !15
 
 ._crit_edge221.i:                                 ; preds = %229, %.loopexit.i
   %231 = load ptr, ptr @build_dict.2, align 8
@@ -2516,7 +2516,7 @@ dictionary_load.exit:                             ; preds = %46, %._crit_edge221
   call void @g_ptr_array_add(ptr noundef %903, ptr noundef %905)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %real_register_diameter_fields.exit, label %902, !llvm.loop !19
+  br i1 %exitcond.not.i, label %real_register_diameter_fields.exit, label %902, !llvm.loop !16
 
 real_register_diameter_fields.exit:               ; preds = %902
   %906 = load i32, ptr @proto_diameter, align 4
@@ -3537,7 +3537,7 @@ proto_item_set_generated.exit:                    ; preds = %proto_item_set_gene
   %231 = add i32 %230, %.0167
   %232 = load i32, ptr %7, align 4
   %233 = icmp slt i32 %231, %232
-  br i1 %233, label %.lr.ph, label %._crit_edge, !llvm.loop !20
+  br i1 %233, label %.lr.ph, label %._crit_edge, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %.lr.ph, %proto_item_set_generated.exit
   %234 = load i32, ptr @diameter_tap, align 4
@@ -4003,7 +4003,7 @@ define internal fastcc i32 @dissect_diameter_avp(ptr noundef %0, ptr noundef %1,
 204:                                              ; preds = %206
   %205 = add nuw i8 %.0204, 1
   %exitcond.not = icmp eq i8 %205, %.0178
-  br i1 %exitcond.not, label %.loopexit, label %206, !llvm.loop !21
+  br i1 %exitcond.not, label %.loopexit, label %206, !llvm.loop !18
 
 206:                                              ; preds = %201, %204
   %.0204 = phi i8 [ 0, %201 ], [ %205, %204 ]
@@ -4385,7 +4385,7 @@ define internal i32 @strcase_hash(ptr noundef readonly captures(none) %0) #12 {
   %.021 = getelementptr i8, ptr %.02130, i64 1
   %14 = load i8, ptr %.021, align 1
   %.not25 = icmp eq i8 %14, 0
-  br i1 %.not25, label %.loopexit, label %.lr.ph, !llvm.loop !22
+  br i1 %.not25, label %.loopexit, label %.lr.ph, !llvm.loop !19
 
 .loopexit:                                        ; preds = %.lr.ph, %3, %1
   %.020 = phi i32 [ 0, %1 ], [ %spec.select, %3 ], [ %13, %.lr.ph ]
@@ -4682,7 +4682,7 @@ switch.lookup:                                    ; preds = %9, %switch.lookup
   %17 = load ptr, ptr %16, align 8
   %.not30 = icmp eq ptr %17, null
   %18 = add i32 %.0, 1
-  br i1 %.not30, label %19, label %switch.lookup, !llvm.loop !23
+  br i1 %.not30, label %19, label %switch.lookup, !llvm.loop !20
 
 19:                                               ; preds = %switch.lookup
   %20 = tail call ptr @wmem_epan_scope()
@@ -4767,7 +4767,7 @@ define internal noalias noundef ptr @grouped_avp(ptr noundef %0, ptr noundef rea
   %16 = tail call fastcc i32 @dissect_diameter_avp(ptr noundef %0, ptr noundef %2, i32 noundef %.020, ptr noundef %3, i1 noundef zeroext false)
   %17 = add i32 %16, %.020
   %18 = icmp slt i32 %17, %5
-  br i1 %18, label %.lr.ph, label %._crit_edge, !llvm.loop !24
+  br i1 %18, label %.lr.ph, label %._crit_edge, !llvm.loop !21
 
 ._crit_edge:                                      ; preds = %.lr.ph, %4
   %19 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -5306,7 +5306,7 @@ switch.early.test.i:                              ; preds = %40
   %49 = getelementptr i8, ptr %.025.i, i64 1
   %50 = load i8, ptr %49, align 1
   %.not.i = icmp eq i8 %50, 0
-  br i1 %.not.i, label %alnumerize.exit, label %40, !llvm.loop !25
+  br i1 %.not.i, label %alnumerize.exit, label %40, !llvm.loop !22
 
 alnumerize.exit:                                  ; preds = %48, %26
   %.019.lcssa.i = phi ptr [ %37, %26 ], [ %.1.i, %48 ]
@@ -5539,7 +5539,7 @@ switch.early.test.i:                              ; preds = %22
   %31 = getelementptr i8, ptr %.025.i, i64 1
   %32 = load i8, ptr %31, align 1
   %.not.i = icmp eq i8 %32, 0
-  br i1 %.not.i, label %alnumerize.exit, label %22, !llvm.loop !25
+  br i1 %.not.i, label %alnumerize.exit, label %22, !llvm.loop !22
 
 alnumerize.exit:                                  ; preds = %30, %3
   %.019.lcssa.i = phi ptr [ %19, %3 ], [ %.1.i, %30 ]
@@ -5614,7 +5614,7 @@ switch.early.test.i39:                            ; preds = %53
   %62 = getelementptr i8, ptr %.025.i32, i64 1
   %63 = load i8, ptr %62, align 1
   %.not.i37 = icmp eq i8 %63, 0
-  br i1 %.not.i37, label %alnumerize.exit40, label %53, !llvm.loop !25
+  br i1 %.not.i37, label %alnumerize.exit40, label %53, !llvm.loop !22
 
 alnumerize.exit40:                                ; preds = %61, %alnumerize.exit
   %.019.lcssa.i38 = phi ptr [ %50, %alnumerize.exit ], [ %.1.i36, %61 ]
@@ -5685,7 +5685,7 @@ switch.early.test.i50:                            ; preds = %82
   %91 = getelementptr i8, ptr %.025.i43, i64 1
   %92 = load i8, ptr %91, align 1
   %.not.i48 = icmp eq i8 %92, 0
-  br i1 %.not.i48, label %alnumerize.exit51, label %82, !llvm.loop !25
+  br i1 %.not.i48, label %alnumerize.exit51, label %82, !llvm.loop !22
 
 alnumerize.exit51:                                ; preds = %90, %alnumerize.exit40
   %.019.lcssa.i49 = phi ptr [ %79, %alnumerize.exit40 ], [ %.1.i47, %90 ]
@@ -5756,7 +5756,7 @@ switch.early.test.i61:                            ; preds = %111
   %120 = getelementptr i8, ptr %.025.i54, i64 1
   %121 = load i8, ptr %120, align 1
   %.not.i59 = icmp eq i8 %121, 0
-  br i1 %.not.i59, label %alnumerize.exit62, label %111, !llvm.loop !25
+  br i1 %.not.i59, label %alnumerize.exit62, label %111, !llvm.loop !22
 
 alnumerize.exit62:                                ; preds = %119, %alnumerize.exit51
   %.019.lcssa.i60 = phi ptr [ %108, %alnumerize.exit51 ], [ %.1.i58, %119 ]
@@ -5827,7 +5827,7 @@ switch.early.test.i72:                            ; preds = %140
   %149 = getelementptr i8, ptr %.025.i65, i64 1
   %150 = load i8, ptr %149, align 1
   %.not.i70 = icmp eq i8 %150, 0
-  br i1 %.not.i70, label %alnumerize.exit73, label %140, !llvm.loop !25
+  br i1 %.not.i70, label %alnumerize.exit73, label %140, !llvm.loop !22
 
 alnumerize.exit73:                                ; preds = %148, %alnumerize.exit62
   %.019.lcssa.i71 = phi ptr [ %137, %alnumerize.exit62 ], [ %.1.i69, %148 ]
@@ -5984,21 +5984,18 @@ attributes #19 = { nounwind returns_twice }
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i8 0, i8 2}
 !7 = !{}
-!8 = distinct !{!8, !9, !10}
+!8 = distinct !{!8, !9}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = !{!"llvm.loop.estimated_trip_count"}
-!11 = distinct !{!11, !9, !10}
-!12 = distinct !{!12, !9, !10}
-!13 = distinct !{!13, !9, !10}
-!14 = distinct !{!14, !10}
-!15 = distinct !{!15, !10}
-!16 = distinct !{!16, !9, !10}
-!17 = distinct !{!17, !9, !10}
-!18 = distinct !{!18, !9, !10}
-!19 = distinct !{!19, !9, !10}
-!20 = distinct !{!20, !9, !10}
-!21 = distinct !{!21, !9, !10}
-!22 = distinct !{!22, !9, !10}
-!23 = distinct !{!23, !9, !10}
-!24 = distinct !{!24, !9, !10}
-!25 = distinct !{!25, !9, !10}
+!10 = distinct !{!10, !9}
+!11 = distinct !{!11, !9}
+!12 = distinct !{!12, !9}
+!13 = distinct !{!13, !9}
+!14 = distinct !{!14, !9}
+!15 = distinct !{!15, !9}
+!16 = distinct !{!16, !9}
+!17 = distinct !{!17, !9}
+!18 = distinct !{!18, !9}
+!19 = distinct !{!19, !9}
+!20 = distinct !{!20, !9}
+!21 = distinct !{!21, !9}
+!22 = distinct !{!22, !9}

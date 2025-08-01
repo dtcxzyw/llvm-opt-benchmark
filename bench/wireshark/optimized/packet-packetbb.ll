@@ -931,7 +931,7 @@ default.unreachable:                              ; preds = %303
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %.1.i.i, ptr noundef nonnull @.str.190, i32 noundef %334)
   %335 = add nuw nsw i32 %.0253288.i.i, 1
   %exitcond.not.i.i = icmp eq i32 %335, %253
-  br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %303, !llvm.loop !9
+  br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %303, !llvm.loop !8
 
 ._crit_edge.i.i:                                  ; preds = %333, %294
   %336 = call fastcc i32 @dissect_pbb_tlvblock(ptr noundef %0, ptr noundef %1, ptr noundef %272, i32 noundef %264, i32 noundef range(i32 0, 65536) %149, i8 noundef signext %168, i32 noundef 2)
@@ -941,13 +941,13 @@ dissect_pbb_addressblock.exit.i:                  ; preds = %._crit_edge.i.i, %2
   %.0264.i.i = phi i32 [ %164, %162 ], [ %176, %174 ], [ %184, %182 ], [ %189, %187 ], [ %202, %200 ], [ %214, %211 ], [ %336, %._crit_edge.i.i ], [ %224, %222 ], [ %236, %234 ], [ %241, %239 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #6
   %337 = icmp ult i32 %.0264.i.i, %149
-  br i1 %337, label %159, label %dissect_pbb_message.exit, !llvm.loop !10
+  br i1 %337, label %159, label %dissect_pbb_message.exit, !llvm.loop !9
 
 dissect_pbb_message.exit:                         ; preds = %dissect_pbb_addressblock.exit.i, %56, %82, %150, %152, %dissect_pbb_addressblock.exit.thread.i
   %.0130.i = phi i32 [ %58, %56 ], [ %84, %82 ], [ %151, %150 ], [ %153, %152 ], [ %149, %dissect_pbb_addressblock.exit.thread.i ], [ %.0264.i.i, %dissect_pbb_addressblock.exit.i ]
   %338 = call i32 @tvb_reported_length(ptr noundef %0)
   %339 = icmp ult i32 %.0130.i, %338
-  br i1 %339, label %52, label %._crit_edge, !llvm.loop !11
+  br i1 %339, label %52, label %._crit_edge, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %dissect_pbb_message.exit, %dissect_pbb_header.exit
   %340 = call i32 @tvb_captured_length(ptr noundef %0)
@@ -1387,7 +1387,7 @@ dissect_pbb_tlvvalue.exit:                        ; preds = %127, %128, %132, %.
   %223 = add i32 %219, %.9194
   %224 = add nuw nsw i32 %.0166195, 1
   %exitcond.not = icmp eq i32 %.0166195, %212
-  br i1 %exitcond.not, label %.loopexit, label %220, !llvm.loop !12
+  br i1 %exitcond.not, label %.loopexit, label %220, !llvm.loop !11
 
 .loopexit:                                        ; preds = %220, %216, %211, %dissect_pbb_tlvvalue.exit, %120
   %.7 = phi i32 [ %210, %dissect_pbb_tlvvalue.exit ], [ %.6, %120 ], [ %.6, %211 ], [ %.6, %216 ], [ %223, %220 ]
@@ -1403,7 +1403,7 @@ dissect_pbb_tlvvalue.exit:                        ; preds = %127, %128, %132, %.
 228:                                              ; preds = %225, %.loopexit
   %229 = add i32 %.0173196, 1
   %230 = icmp ult i32 %.7, %16
-  br i1 %230, label %31, label %._crit_edge, !llvm.loop !13
+  br i1 %230, label %31, label %._crit_edge, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %228, %21
   %.0173.lcssa = phi i32 [ 0, %21 ], [ %229, %228 ]
@@ -1483,11 +1483,10 @@ attributes #6 = { nounwind }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7, !8}
-!11 = distinct !{!11, !7, !8}
-!12 = distinct !{!12, !7, !8}
-!13 = distinct !{!13, !7, !8}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7}
+!12 = distinct !{!12, !7}

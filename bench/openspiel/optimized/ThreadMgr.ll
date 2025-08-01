@@ -225,7 +225,7 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit:               ; preds = %53, %55, %57, %59
   store i32 -1, ptr %64, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond24.not = icmp eq i64 %indvars.iv.next, %44
-  br i1 %exitcond24.not, label %._crit_edge22, label %.lr.ph21, !llvm.loop !7
+  br i1 %exitcond24.not, label %._crit_edge22, label %.lr.ph21, !llvm.loop !6
 
 ._crit_edge22:                                    ; preds = %.lr.ph21, %_ZNSt6vectorIiSaIiEE6resizeEm.exit
   store i32 %1, ptr %39, align 4
@@ -295,7 +295,7 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit:               ; preds = %18, %20, %22, %24
   %30 = load i32, ptr %4, align 4
   %31 = zext i32 %30 to i64
   %32 = icmp samesign ult i64 %indvars.iv.next, %31
-  br i1 %32, label %.lr.ph, label %.loopexit, !llvm.loop !8
+  br i1 %32, label %.lr.ph, label %.loopexit, !llvm.loop !7
 
 .loopexit:                                        ; preds = %.lr.ph, %_ZNSt6vectorIiSaIiEE6resizeEm.exit, %2
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -346,7 +346,7 @@ _ZNSt5mutex4lockEv.exit.preheader:                ; preds = %_ZNSt5mutex4lockEv.
 _ZNSt5mutex4lockEv.exit:                          ; preds = %43
   %51 = add nuw i32 %.02041, 1
   %exitcond.not = icmp eq i32 %51, %41
-  br i1 %exitcond.not, label %_ZNSt5mutex4lockEv.exit._crit_edge, label %43, !llvm.loop !9
+  br i1 %exitcond.not, label %_ZNSt5mutex4lockEv.exit._crit_edge, label %43, !llvm.loop !8
 
 52:                                               ; preds = %43
   %53 = getelementptr inbounds nuw i64, ptr %42, i64 %.zext
@@ -374,13 +374,13 @@ _ZNSt5mutex4lockEv.exit._crit_edge:               ; preds = %_ZNSt5mutex4lockEv.
   %63 = tail call ptr @__errno_location() #19
   %64 = load i32, ptr %63, align 4
   %65 = icmp eq i32 %64, 4
-  br i1 %65, label %59, label %_ZNSt11this_thread9sleep_forIlSt5ratioILl1ELl1000EEEEvRKNSt6chrono8durationIT_T0_EE.exit, !llvm.loop !10
+  br i1 %65, label %59, label %_ZNSt11this_thread9sleep_forIlSt5ratioILl1ELl1000EEEEvRKNSt6chrono8durationIT_T0_EE.exit, !llvm.loop !9
 
 _ZNSt11this_thread9sleep_forIlSt5ratioILl1ELl1000EEEEvRKNSt6chrono8durationIT_T0_EE.exit: ; preds = %59, %62
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   %66 = call noundef i32 @pthread_mutex_lock(ptr noundef nonnull @mtx) #17
   %.not.i = icmp eq i32 %66, 0
-  br i1 %.not.i, label %_ZNSt5mutex4lockEv.exit.preheader, label %._crit_edge, !llvm.loop !11
+  br i1 %.not.i, label %_ZNSt5mutex4lockEv.exit.preheader, label %._crit_edge, !llvm.loop !10
 
 .critedge:                                        ; preds = %52, %.loopexit
   %.0 = phi i32 [ -1, %.loopexit ], [ %.02041, %52 ]
@@ -524,7 +524,7 @@ _ZNSt5mutex4lockEv.exit:                          ; preds = %3
   %32 = phi i32 [ %.pre, %._crit_edge26 ], [ %18, %.lr.ph ]
   %33 = add nuw i32 %.019, 1
   %34 = icmp ult i32 %33, %32
-  br i1 %34, label %.lr.ph, label %._crit_edge, !llvm.loop !12
+  br i1 %34, label %.lr.ph, label %._crit_edge, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %31, %.preheader15
   %35 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSoS_E(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_)
@@ -586,7 +586,7 @@ _ZNSt5mutex4lockEv.exit:                          ; preds = %3
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %62 = zext i32 %61 to i64
   %63 = icmp samesign ult i64 %indvars.iv.next, %62
-  br i1 %63, label %41, label %._crit_edge22, !llvm.loop !13
+  br i1 %63, label %41, label %._crit_edge22, !llvm.loop !12
 
 ._crit_edge22:                                    ; preds = %60, %.preheader
   %64 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSoS_E(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_)
@@ -741,7 +741,7 @@ _ZNSt14_Bit_referenceaSERKS_.exit.i.i.i.i.i:      ; preds = %53, %50
   store i64 %storemerge.i.i.i.i.i, ptr %.sroa.07.1.i.i.i.i.i, align 8
   %57 = add nsw i64 %.024.i.i.i.i.i, -1
   %58 = icmp sgt i64 %.024.i.i.i.i.i, 1
-  br i1 %58, label %_ZNSt13_Bit_iteratormmEv.exit.i.i.i.i.i, label %_ZSt13copy_backwardISt13_Bit_iteratorS0_ET0_T_S2_S1_.exit, !llvm.loop !14
+  br i1 %58, label %_ZNSt13_Bit_iteratormmEv.exit.i.i.i.i.i, label %_ZSt13copy_backwardISt13_Bit_iteratorS0_ET0_T_S2_S1_.exit, !llvm.loop !13
 
 _ZSt13copy_backwardISt13_Bit_iteratorS0_ET0_T_S2_S1_.exit: ; preds = %_ZNSt14_Bit_referenceaSERKS_.exit.i.i.i.i.i, %25
   %59 = add nsw i64 %3, %29
@@ -936,7 +936,7 @@ _ZNSt14_Bit_referenceaSEb.exit.i.i.i.i.i.i:       ; preds = %141, %138
   %.sroa.03.1.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.03.016.i.i.i.i.i.i, i64 %.sroa.03.1.idx.i.i.i.i.i.i
   %149 = add nsw i64 %.019.i.i.i.i.i.i, -1
   %150 = icmp sgt i64 %.019.i.i.i.i.i.i, 1
-  br i1 %150, label %.lr.ph.i.i.i.i.i.i, label %_ZNSt6vectorIbSaIbEE15_M_copy_alignedESt19_Bit_const_iteratorS2_St13_Bit_iterator.exit, !llvm.loop !15
+  br i1 %150, label %.lr.ph.i.i.i.i.i.i, label %_ZNSt6vectorIbSaIbEE15_M_copy_alignedESt19_Bit_const_iteratorS2_St13_Bit_iterator.exit, !llvm.loop !14
 
 _ZNSt6vectorIbSaIbEE15_M_copy_alignedESt19_Bit_const_iteratorS2_St13_Bit_iterator.exit: ; preds = %_ZNSt14_Bit_referenceaSEb.exit.i.i.i.i.i.i, %_ZSt4copyIPmS0_ET0_T_S2_S1_.exit.i
   %.sroa.5.0.lcssa.i.i.i.i.i.i = phi i32 [ 0, %_ZSt4copyIPmS0_ET0_T_S2_S1_.exit.i ], [ %.sroa.5.1.i.i.i.i.i.i, %_ZNSt14_Bit_referenceaSEb.exit.i.i.i.i.i.i ]
@@ -1093,7 +1093,7 @@ _ZNSt14_Bit_referenceaSERKS_.exit.i.i.i.i.i122:   ; preds = %216, %213
   %.sroa.5.1.i.i.i.i.i129 = select i1 %223, i32 0, i32 %222
   %224 = add nsw i64 %.024.i.i.i.i.i118, -1
   %225 = icmp sgt i64 %.024.i.i.i.i.i118, 1
-  br i1 %225, label %.lr.ph.i.i.i.i.i, label %_ZSt4copyISt13_Bit_iteratorS0_ET0_T_S2_S1_.exit, !llvm.loop !16
+  br i1 %225, label %.lr.ph.i.i.i.i.i, label %_ZSt4copyISt13_Bit_iteratorS0_ET0_T_S2_S1_.exit, !llvm.loop !15
 
 _ZSt4copyISt13_Bit_iteratorS0_ET0_T_S2_S1_.exit:  ; preds = %_ZNSt14_Bit_referenceaSERKS_.exit.i.i.i.i.i122, %_ZSt4fillISt13_Bit_iteratorbEvT_S1_RKT0_.exit101
   %.sroa.07.0.lcssa.i.i.i.i.i114 = phi ptr [ %storemerge.i.i.i87, %_ZSt4fillISt13_Bit_iteratorbEvT_S1_RKT0_.exit101 ], [ %.sroa.07.1.i.i.i.i.i128, %_ZNSt14_Bit_referenceaSERKS_.exit.i.i.i.i.i122 ]
@@ -1300,16 +1300,15 @@ attributes #20 = { builtin allocsize(0) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5, !6}
+!4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{!"llvm.loop.estimated_trip_count"}
-!7 = distinct !{!7, !5, !6}
-!8 = distinct !{!8, !5, !6}
-!9 = distinct !{!9, !5, !6}
-!10 = distinct !{!10, !5, !6}
-!11 = distinct !{!11, !5, !6}
-!12 = distinct !{!12, !5, !6}
-!13 = distinct !{!13, !5, !6}
-!14 = distinct !{!14, !5, !6}
-!15 = distinct !{!15, !5, !6}
-!16 = distinct !{!16, !5, !6}
+!6 = distinct !{!6, !5}
+!7 = distinct !{!7, !5}
+!8 = distinct !{!8, !5}
+!9 = distinct !{!9, !5}
+!10 = distinct !{!10, !5}
+!11 = distinct !{!11, !5}
+!12 = distinct !{!12, !5}
+!13 = distinct !{!13, !5}
+!14 = distinct !{!14, !5}
+!15 = distinct !{!15, !5}

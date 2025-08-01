@@ -179,11 +179,11 @@ blas_quickdivide.exit110:                         ; preds = %.lr.ph118, %80
   %94 = getelementptr inbounds nuw i8, ptr %92, i64 24
   store ptr %15, ptr %94, align 8, !tbaa !27
   %95 = getelementptr inbounds nuw i8, ptr %92, i64 8
-  store i64 %.2102115, ptr %95, align 8, !tbaa !33
+  store i64 %.2102115, ptr %95, align 8, !tbaa !32
   %96 = getelementptr inbounds nuw i8, ptr %92, i64 32
   store ptr null, ptr %96, align 8, !tbaa !28
   %97 = getelementptr inbounds nuw i8, ptr %92, i64 40
-  store ptr %88, ptr %97, align 8, !tbaa !34
+  store ptr %88, ptr %97, align 8, !tbaa !33
   %98 = getelementptr inbounds nuw i8, ptr %92, i64 48
   %99 = getelementptr inbounds nuw [16 x %struct.blas_queue], ptr %16, i64 0, i64 %90
   %100 = getelementptr inbounds nuw i8, ptr %92, i64 64
@@ -191,7 +191,7 @@ blas_quickdivide.exit110:                         ; preds = %.lr.ph118, %80
   store ptr %99, ptr %100, align 8, !tbaa !29
   %101 = sub nsw i64 %.197116, %spec.select107
   %102 = icmp sgt i64 %101, 0
-  br i1 %102, label %.lr.ph118, label %.loopexit112.thread134, !llvm.loop !35
+  br i1 %102, label %.lr.ph118, label %.loopexit112.thread134, !llvm.loop !34
 
 .loopexit112:                                     ; preds = %60, %._crit_edge
   %.not = icmp eq i64 %.0100.lcssa, 0
@@ -199,9 +199,9 @@ blas_quickdivide.exit110:                         ; preds = %.lr.ph118, %80
 
 .loopexit112.thread134:                           ; preds = %blas_quickdivide.exit110
   %103 = getelementptr inbounds nuw i8, ptr %16, i64 48
-  store ptr null, ptr %103, align 16, !tbaa !36
+  store ptr null, ptr %103, align 16, !tbaa !35
   %104 = getelementptr inbounds nuw i8, ptr %16, i64 56
-  store ptr %9, ptr %104, align 8, !tbaa !37
+  store ptr %9, ptr %104, align 8, !tbaa !36
   %105 = getelementptr inbounds nuw [16 x %struct.blas_queue], ptr %16, i64 0, i64 %.2102115, i32 8
   store ptr null, ptr %105, align 8, !tbaa !29
   %106 = call i32 @exec_blas(i64 noundef %90, ptr noundef nonnull %16) #6
@@ -225,18 +225,18 @@ blas_quickdivide.exit110:                         ; preds = %.lr.ph118, %80
   store double %116, ptr %114, align 8, !tbaa !3
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %0
-  br i1 %exitcond.not, label %._crit_edge122.us, label %109, !llvm.loop !38
+  br i1 %exitcond.not, label %._crit_edge122.us, label %109, !llvm.loop !37
 
 ._crit_edge122.us:                                ; preds = %109
   %117 = add nuw nsw i64 %.2123.us, 1
   %exitcond128.not = icmp eq i64 %.2123.us, %.2102115
-  br i1 %exitcond128.not, label %.loopexit, label %.preheader.us, !llvm.loop !39
+  br i1 %exitcond128.not, label %.loopexit, label %.preheader.us, !llvm.loop !38
 
 .loopexit.critedge:                               ; preds = %.loopexit112
   %118 = getelementptr inbounds nuw i8, ptr %16, i64 48
-  store ptr null, ptr %118, align 16, !tbaa !36
+  store ptr null, ptr %118, align 16, !tbaa !35
   %119 = getelementptr inbounds nuw i8, ptr %16, i64 56
-  store ptr %9, ptr %119, align 8, !tbaa !37
+  store ptr %9, ptr %119, align 8, !tbaa !36
   %120 = add nsw i64 %.0100.lcssa, -1
   %121 = getelementptr inbounds [16 x %struct.blas_queue], ptr %16, i64 0, i64 %120, i32 8
   store ptr null, ptr %121, align 8, !tbaa !29
@@ -379,14 +379,13 @@ attributes #6 = { nounwind }
 !27 = !{!24, !9, i64 24}
 !28 = !{!24, !9, i64 32}
 !29 = !{!24, !25, i64 64}
-!30 = distinct !{!30, !31, !32}
+!30 = distinct !{!30, !31}
 !31 = !{!"llvm.loop.mustprogress"}
-!32 = !{!"llvm.loop.estimated_trip_count"}
-!33 = !{!24, !10, i64 8}
-!34 = !{!24, !9, i64 40}
-!35 = distinct !{!35, !31, !32}
-!36 = !{!24, !9, i64 48}
-!37 = !{!24, !9, i64 56}
-!38 = distinct !{!38, !31, !32}
-!39 = distinct !{!39, !31, !32, !40}
-!40 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!32 = !{!24, !10, i64 8}
+!33 = !{!24, !9, i64 40}
+!34 = distinct !{!34, !31}
+!35 = !{!24, !9, i64 48}
+!36 = !{!24, !9, i64 56}
+!37 = distinct !{!37, !31}
+!38 = distinct !{!38, !31, !39}
+!39 = !{!"llvm.loop.unswitch.nontrivial.disable"}

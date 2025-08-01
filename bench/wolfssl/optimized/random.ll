@@ -54,9 +54,9 @@ define range(i32 -173, 2) i32 @wc_RNG_DRBG_Reseed(ptr noundef readonly captures(
   %.11933.i.i = phi i32 [ %18, %.lr.ph35.i.i ], [ 7, %.lr.ph29.i.i ]
   %18 = add nsw i32 %.11933.i.i, -1
   %19 = getelementptr inbounds nuw i8, ptr %.11734.i.i, i64 1
-  store volatile i8 0, ptr %.11734.i.i, align 1, !tbaa !16
+  store volatile i8 0, ptr %.11734.i.i, align 1, !tbaa !15
   %.not22.i.i = icmp eq i32 %18, 0
-  br i1 %.not22.i.i, label %.loopexit.i, label %.lr.ph35.i.i, !llvm.loop !17
+  br i1 %.not22.i.i, label %.loopexit.i, label %.lr.ph35.i.i, !llvm.loop !16
 
 .loopexit.i:                                      ; preds = %.lr.ph35.i.i
   %20 = getelementptr inbounds nuw i8, ptr %9, i64 59
@@ -65,7 +65,7 @@ define range(i32 -173, 2) i32 @wc_RNG_DRBG_Reseed(ptr noundef readonly captures(
   br i1 %22, label %23, label %Hash_DRBG_Reseed.exit
 
 23:                                               ; preds = %.loopexit.i
-  store i32 1, ptr %9, align 8, !tbaa !18
+  store i32 1, ptr %9, align 8, !tbaa !17
   br label %Hash_DRBG_Reseed.exit
 
 Hash_DRBG_Reseed.exit:                            ; preds = %7, %11, %.loopexit.i, %23
@@ -110,9 +110,9 @@ define internal fastcc range(i32 0, 2) i32 @Hash_DRBG_Reseed(ptr noundef %0, ptr
   %.11933.i = phi i32 [ %13, %.lr.ph35.i ], [ 7, %.lr.ph29.i ]
   %13 = add nsw i32 %.11933.i, -1
   %14 = getelementptr inbounds nuw i8, ptr %.11734.i, i64 1
-  store volatile i8 0, ptr %.11734.i, align 1, !tbaa !16
+  store volatile i8 0, ptr %.11734.i, align 1, !tbaa !15
   %.not22.i = icmp eq i32 %13, 0
-  br i1 %.not22.i, label %.loopexit, label %.lr.ph35.i, !llvm.loop !17
+  br i1 %.not22.i, label %.loopexit, label %.lr.ph35.i, !llvm.loop !16
 
 .loopexit:                                        ; preds = %.lr.ph35.i
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 59
@@ -121,7 +121,7 @@ define internal fastcc range(i32 0, 2) i32 @Hash_DRBG_Reseed(ptr noundef %0, ptr
   br i1 %17, label %18, label %.thread
 
 18:                                               ; preds = %.loopexit
-  store i32 1, ptr %0, align 8, !tbaa !18
+  store i32 1, ptr %0, align 8, !tbaa !17
   br label %.thread
 
 .thread:                                          ; preds = %6, %.loopexit, %18, %3
@@ -155,16 +155,16 @@ define range(i32 0, 4) i32 @wc_RNG_TestSeed(ptr noundef readonly captures(none) 
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %.lr.ph ]
   %.010.i = phi i32 [ %15, %.lr.ph.i ], [ 0, %.lr.ph ]
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 %indvars.iv.i
-  %10 = load i8, ptr %9, align 1, !tbaa !16
+  %10 = load i8, ptr %9, align 1, !tbaa !15
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 %indvars.iv.i
-  %12 = load i8, ptr %11, align 1, !tbaa !16
+  %12 = load i8, ptr %11, align 1, !tbaa !15
   %13 = xor i8 %12, %10
   %.fr = freeze i8 %13
   %14 = zext i8 %.fr to i32
   %15 = or i32 %.010.i, %14
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %7
-  br i1 %exitcond.not.i, label %ConstantCompare.exit, label %.lr.ph.i, !llvm.loop !20
+  br i1 %exitcond.not.i, label %ConstantCompare.exit, label %.lr.ph.i, !llvm.loop !19
 
 ConstantCompare.exit:                             ; preds = %.lr.ph.i
   %16 = icmp eq i32 %15, 0
@@ -180,7 +180,7 @@ ConstantCompare.exit.thread:                      ; preds = %.lr.ph, %ConstantCo
   %20 = sub i32 %1, %19
   %21 = tail call noundef range(i32 0, 5) i32 @llvm.umin.i32(i32 %20, i32 4)
   %22 = icmp samesign ult i64 %indvars.iv.next, %5
-  br i1 %22, label %.lr.ph, label %._crit_edge, !llvm.loop !21
+  br i1 %22, label %.lr.ph, label %._crit_edge, !llvm.loop !20
 
 ._crit_edge:                                      ; preds = %17, %2
   %.013.lcssa = phi i32 [ 0, %2 ], [ %18, %17 ]
@@ -229,11 +229,11 @@ define internal fastcc range(i32 -209, 4) i32 @_InitRng(ptr noundef captures(add
 
 11:                                               ; preds = %8
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %3, ptr %12, align 8, !tbaa !22
+  store ptr %3, ptr %12, align 8, !tbaa !21
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr null, ptr %13, align 8, !tbaa !3
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i8 0, ptr %14, align 8, !tbaa !23
+  store i8 0, ptr %14, align 8, !tbaa !22
   %15 = icmp eq i32 %2, 0
   %spec.select = select i1 %15, i32 52, i32 36
   %16 = tail call fastcc i32 @wc_RNG_HealthTestLocal(i32 noundef 0, ptr noundef %3, i32 noundef %4)
@@ -249,13 +249,13 @@ define internal fastcc range(i32 -209, 4) i32 @_InitRng(ptr noundef captures(add
 
 19:                                               ; preds = %17
   %20 = tail call i32 (ptr, i32, ...) @open(ptr noundef nonnull @.str, i32 noundef 0) #9
-  store i32 %20, ptr %0, align 4, !tbaa !24
+  store i32 %20, ptr %0, align 4, !tbaa !23
   %21 = icmp eq i32 %20, -1
   br i1 %21, label %22, label %.preheader
 
 22:                                               ; preds = %19
   %23 = tail call i32 (ptr, i32, ...) @open(ptr noundef nonnull @.str.1, i32 noundef 0) #9
-  store i32 %23, ptr %0, align 4, !tbaa !24
+  store i32 %23, ptr %0, align 4, !tbaa !23
   %24 = icmp eq i32 %23, -1
   br i1 %24, label %wc_RNG_TestSeed.exit.thread, label %.preheader
 
@@ -266,7 +266,7 @@ define internal fastcc range(i32 -209, 4) i32 @_InitRng(ptr noundef captures(add
   %.022.i = phi ptr [ %34, %32 ], [ %6, %.preheader ]
   %.020.i = phi i32 [ 0, %32 ], [ %spec.select, %.preheader ]
   %.not.i = icmp eq i32 %.020.i, 0
-  %26 = load i32, ptr %0, align 4, !tbaa !24
+  %26 = load i32, ptr %0, align 4, !tbaa !23
   br i1 %.not.i, label %37, label %27
 
 27:                                               ; preds = %25
@@ -281,10 +281,10 @@ define internal fastcc range(i32 -209, 4) i32 @_InitRng(ptr noundef captures(add
   %33 = ashr exact i64 %sext.i, 32
   %34 = getelementptr inbounds i8, ptr %.022.i, i64 %33
   %.not28.i = icmp eq i32 %.020.i, %30
-  br i1 %.not28.i, label %25, label %wc_GenerateSeed.exit.thread57, !llvm.loop !25
+  br i1 %.not28.i, label %25, label %wc_GenerateSeed.exit.thread57
 
 wc_GenerateSeed.exit.thread57:                    ; preds = %32, %27
-  %35 = load i32, ptr %0, align 4, !tbaa !24
+  %35 = load i32, ptr %0, align 4, !tbaa !23
   %36 = tail call i32 @close(i32 noundef %35) #9
   br label %wc_RNG_TestSeed.exit.thread
 
@@ -314,16 +314,16 @@ wc_GenerateSeed.exit.thread57:                    ; preds = %32, %27
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %.lr.ph.i.i ], [ 0, %.lr.ph.i ]
   %.010.i.i = phi i32 [ %51, %.lr.ph.i.i ], [ 0, %.lr.ph.i ]
   %45 = getelementptr inbounds nuw i8, ptr %42, i64 %indvars.iv.i.i
-  %46 = load i8, ptr %45, align 1, !tbaa !16
+  %46 = load i8, ptr %45, align 1, !tbaa !15
   %47 = getelementptr inbounds nuw i8, ptr %44, i64 %indvars.iv.i.i
-  %48 = load i8, ptr %47, align 1, !tbaa !16
+  %48 = load i8, ptr %47, align 1, !tbaa !15
   %49 = xor i8 %48, %46
   %.fr.i = freeze i8 %49
   %50 = zext i8 %.fr.i to i32
   %51 = or i32 %.010.i.i, %50
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %43
-  br i1 %exitcond.not.i.i, label %ConstantCompare.exit.i, label %.lr.ph.i.i, !llvm.loop !20
+  br i1 %exitcond.not.i.i, label %ConstantCompare.exit.i, label %.lr.ph.i.i, !llvm.loop !19
 
 ConstantCompare.exit.i:                           ; preds = %.lr.ph.i.i
   %52 = icmp eq i32 %51, 0
@@ -335,7 +335,7 @@ ConstantCompare.exit.i:                           ; preds = %.lr.ph.i.i
   %55 = sub i32 %spec.select, %54
   %56 = tail call noundef range(i32 0, 5) i32 @llvm.umin.i32(i32 %55, i32 4)
   %57 = icmp samesign ult i64 %indvars.iv.next.i, %40
-  br i1 %57, label %.lr.ph.i, label %wc_RNG_TestSeed.exit, !llvm.loop !21
+  br i1 %57, label %.lr.ph.i, label %wc_RNG_TestSeed.exit, !llvm.loop !20
 
 .thread71:                                        ; preds = %.lr.ph.i, %ConstantCompare.exit.i
   %indvars.iv.next.i72 = add nuw nsw i64 %indvars.iv.i, 4
@@ -343,10 +343,10 @@ ConstantCompare.exit.i:                           ; preds = %.lr.ph.i.i
   %59 = sub i32 %spec.select, %58
   %60 = tail call noundef range(i32 0, 5) i32 @llvm.umin.i32(i32 %59, i32 4)
   %61 = icmp samesign ult i64 %indvars.iv.next.i72, %40
-  br i1 %61, label %.lr.ph.i.outer, label %wc_RNG_TestSeed.exit.thread73, !llvm.loop !21
+  br i1 %61, label %.lr.ph.i.outer, label %wc_RNG_TestSeed.exit.thread73, !llvm.loop !20
 
 wc_RNG_TestSeed.exit.thread:                      ; preds = %wc_GenerateSeed.exit.thread57, %22
-  store i8 2, ptr %14, align 8, !tbaa !23
+  store i8 2, ptr %14, align 8, !tbaa !22
   br label %wc_RNG_TestSeed.exit.thread73
 
 wc_RNG_TestSeed.exit:                             ; preds = %53
@@ -355,10 +355,10 @@ wc_RNG_TestSeed.exit:                             ; preds = %53
 62:                                               ; preds = %wc_RNG_TestSeed.exit
   %63 = load ptr, ptr %13, align 8, !tbaa !3
   %64 = getelementptr inbounds nuw i8, ptr %6, i64 4
-  %65 = load ptr, ptr %12, align 8, !tbaa !22
+  %65 = load ptr, ptr %12, align 8, !tbaa !21
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %63, i8 0, i64 120, i1 false)
   %66 = getelementptr inbounds nuw i8, ptr %63, i64 120
-  store ptr %65, ptr %66, align 8, !tbaa !26
+  store ptr %65, ptr %66, align 8, !tbaa !24
   %67 = getelementptr inbounds nuw i8, ptr %63, i64 4
   %68 = call fastcc i32 @Hash_df(ptr noundef nonnull %63, ptr noundef nonnull %67, i8 noundef zeroext 4, ptr noundef nonnull %64, i32 noundef %39, ptr noundef %1, i32 noundef %2)
   %69 = icmp eq i32 %68, 0
@@ -371,7 +371,7 @@ wc_RNG_TestSeed.exit:                             ; preds = %53
   br i1 %73, label %Hash_DRBG_Instantiate.exit, label %wc_RNG_TestSeed.exit.thread73
 
 Hash_DRBG_Instantiate.exit:                       ; preds = %70
-  store i32 1, ptr %63, align 8, !tbaa !18
+  store i32 1, ptr %63, align 8, !tbaa !17
   br label %.lr.ph29.preheader.i
 
 wc_RNG_TestSeed.exit.thread73:                    ; preds = %.thread71, %wc_RNG_TestSeed.exit, %wc_RNG_TestSeed.exit.thread, %70, %62
@@ -410,9 +410,9 @@ wc_RNG_TestSeed.exit.thread73:                    ; preds = %.thread71, %wc_RNG_
   %.11933.i = phi i32 [ %80, %.lr.ph35.i ], [ %78, %.preheader.i ]
   %80 = add i32 %.11933.i, -1
   %81 = getelementptr inbounds nuw i8, ptr %.11734.i, i64 1
-  store volatile i8 0, ptr %.11734.i, align 1, !tbaa !16
+  store volatile i8 0, ptr %.11734.i, align 1, !tbaa !15
   %.not22.i = icmp eq i32 %80, 0
-  br i1 %.not22.i, label %.loopexit, label %.lr.ph35.i, !llvm.loop !17
+  br i1 %.not22.i, label %.loopexit, label %.lr.ph35.i, !llvm.loop !16
 
 .loopexit:                                        ; preds = %.lr.ph35.i, %.preheader.i
   call void @llvm.lifetime.end.p0(i64 52, ptr nonnull %6) #9
@@ -434,7 +434,7 @@ wc_RNG_TestSeed.exit.thread73:                    ; preds = %.thread71, %wc_RNG_
 .sink.split:                                      ; preds = %.loopexit, %.thread63, %83, %82
   %.sink = phi i8 [ 2, %82 ], [ 2, %83 ], [ 3, %.thread63 ], [ 1, %.loopexit ]
   %.0.ph = phi i32 [ -199, %82 ], [ %.2, %83 ], [ -209, %.thread63 ], [ %.2, %.loopexit ]
-  store i8 %.sink, ptr %14, align 8, !tbaa !23
+  store i8 %.sink, ptr %14, align 8, !tbaa !22
   br label %84
 
 84:                                               ; preds = %.sink.split, %8, %5
@@ -447,7 +447,7 @@ declare void @wolfSSL_Free(ptr noundef) local_unnamed_addr #3
 ; Function Attrs: nounwind uwtable
 define range(i32 -209, 4) i32 @wc_rng_new_ex(ptr noundef captures(none) initializes((0, 8)) %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = tail call ptr @wolfSSL_Malloc(i64 noundef 32) #9
-  store ptr %6, ptr %0, align 8, !tbaa !27
+  store ptr %6, ptr %0, align 8, !tbaa !25
   %7 = icmp eq ptr %6, null
   br i1 %7, label %14, label %8
 
@@ -457,7 +457,7 @@ define range(i32 -209, 4) i32 @wc_rng_new_ex(ptr noundef captures(none) initiali
   br i1 %.not, label %14, label %10
 
 10:                                               ; preds = %8
-  %11 = load ptr, ptr %0, align 8, !tbaa !27
+  %11 = load ptr, ptr %0, align 8, !tbaa !25
   %.not15 = icmp eq ptr %11, null
   br i1 %.not15, label %13, label %12
 
@@ -466,7 +466,7 @@ define range(i32 -209, 4) i32 @wc_rng_new_ex(ptr noundef captures(none) initiali
   br label %13
 
 13:                                               ; preds = %12, %10
-  store ptr null, ptr %0, align 8, !tbaa !27
+  store ptr null, ptr %0, align 8, !tbaa !25
   br label %14
 
 14:                                               ; preds = %8, %13, %5
@@ -503,9 +503,9 @@ define void @wc_rng_free(ptr noundef %0) local_unnamed_addr #0 {
   %.01625.i.i.i = phi ptr [ %12, %.lr.ph.i.i.i ], [ %4, %5 ]
   %11 = add nsw i32 %.126.i.i.i, -1
   %12 = getelementptr inbounds nuw i8, ptr %.01625.i.i.i, i64 1
-  store volatile i8 0, ptr %.01625.i.i.i, align 1, !tbaa !16
+  store volatile i8 0, ptr %.01625.i.i.i, align 1, !tbaa !15
   %.not.i.i.i = icmp eq i32 %11, 0
-  br i1 %.not.i.i.i, label %.lr.ph29.i.i.i.preheader, label %.lr.ph.i.i.i, !llvm.loop !29
+  br i1 %.not.i.i.i, label %.lr.ph29.i.i.i.preheader, label %.lr.ph.i.i.i, !llvm.loop !27
 
 .preheader.i.i.i:                                 ; preds = %.lr.ph29.i.i.i
   %.not2232.i.i.i = icmp eq i32 %14, 0
@@ -525,9 +525,9 @@ define void @wc_rng_free(ptr noundef %0) local_unnamed_addr #0 {
   %.11933.i.i.i = phi i32 [ %16, %.lr.ph35.i.i.i ], [ %14, %.preheader.i.i.i ]
   %16 = add i32 %.11933.i.i.i, -1
   %17 = getelementptr inbounds nuw i8, ptr %.11734.i.i.i, i64 1
-  store volatile i8 0, ptr %.11734.i.i.i, align 1, !tbaa !16
+  store volatile i8 0, ptr %.11734.i.i.i, align 1, !tbaa !15
   %.not22.i.i.i = icmp eq i32 %16, 0
-  br i1 %.not22.i.i.i, label %ForceZero.exit.i.i, label %.lr.ph35.i.i.i, !llvm.loop !17
+  br i1 %.not22.i.i.i, label %ForceZero.exit.i.i, label %.lr.ph35.i.i.i, !llvm.loop !16
 
 ForceZero.exit.i.i:                               ; preds = %.lr.ph35.i.i.i, %.preheader.i.i.i
   %18 = load ptr, ptr %3, align 8, !tbaa !3
@@ -544,7 +544,7 @@ ForceZero.exit.i.i:                               ; preds = %.lr.ph35.i.i.i, %.p
 
 wc_FreeRng.exit:                                  ; preds = %2, %20
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i8 0, ptr %21, align 8, !tbaa !23
+  store i8 0, ptr %21, align 8, !tbaa !22
   %22 = ptrtoint ptr %0 to i64
   %23 = trunc i64 %22 to i32
   %24 = sub i32 0, %23
@@ -562,9 +562,9 @@ wc_FreeRng.exit:                                  ; preds = %2, %20
   %.01625.i = phi ptr [ %28, %.lr.ph.i ], [ %0, %wc_FreeRng.exit ]
   %27 = add nsw i32 %.126.i, -1
   %28 = getelementptr inbounds nuw i8, ptr %.01625.i, i64 1
-  store volatile i8 0, ptr %.01625.i, align 1, !tbaa !16
+  store volatile i8 0, ptr %.01625.i, align 1, !tbaa !15
   %.not.i7 = icmp eq i32 %27, 0
-  br i1 %.not.i7, label %.lr.ph29.i.preheader, label %.lr.ph.i, !llvm.loop !29
+  br i1 %.not.i7, label %.lr.ph29.i.preheader, label %.lr.ph.i, !llvm.loop !27
 
 .preheader.i:                                     ; preds = %.lr.ph29.i
   %.not2232.i = icmp eq i32 %30, 0
@@ -584,9 +584,9 @@ wc_FreeRng.exit:                                  ; preds = %2, %20
   %.11933.i = phi i32 [ %32, %.lr.ph35.i ], [ %30, %.preheader.i ]
   %32 = add i32 %.11933.i, -1
   %33 = getelementptr inbounds nuw i8, ptr %.11734.i, i64 1
-  store volatile i8 0, ptr %.11734.i, align 1, !tbaa !16
+  store volatile i8 0, ptr %.11734.i, align 1, !tbaa !15
   %.not22.i = icmp eq i32 %32, 0
-  br i1 %.not22.i, label %ForceZero.exit, label %.lr.ph35.i, !llvm.loop !17
+  br i1 %.not22.i, label %ForceZero.exit, label %.lr.ph35.i, !llvm.loop !16
 
 ForceZero.exit:                                   ; preds = %.lr.ph35.i, %.preheader.i
   tail call void @wolfSSL_Free(ptr noundef nonnull %0) #9
@@ -625,9 +625,9 @@ define range(i32 -199, 1) i32 @wc_FreeRng(ptr noundef captures(address_is_null) 
   %.01625.i.i = phi ptr [ %13, %.lr.ph.i.i ], [ %5, %6 ]
   %12 = add nsw i32 %.126.i.i, -1
   %13 = getelementptr inbounds nuw i8, ptr %.01625.i.i, i64 1
-  store volatile i8 0, ptr %.01625.i.i, align 1, !tbaa !16
+  store volatile i8 0, ptr %.01625.i.i, align 1, !tbaa !15
   %.not.i.i = icmp eq i32 %12, 0
-  br i1 %.not.i.i, label %.lr.ph29.i.i.preheader, label %.lr.ph.i.i, !llvm.loop !29
+  br i1 %.not.i.i, label %.lr.ph29.i.i.preheader, label %.lr.ph.i.i, !llvm.loop !27
 
 .preheader.i.i:                                   ; preds = %.lr.ph29.i.i
   %.not2232.i.i = icmp eq i32 %15, 0
@@ -647,9 +647,9 @@ define range(i32 -199, 1) i32 @wc_FreeRng(ptr noundef captures(address_is_null) 
   %.11933.i.i = phi i32 [ %17, %.lr.ph35.i.i ], [ %15, %.preheader.i.i ]
   %17 = add i32 %.11933.i.i, -1
   %18 = getelementptr inbounds nuw i8, ptr %.11734.i.i, i64 1
-  store volatile i8 0, ptr %.11734.i.i, align 1, !tbaa !16
+  store volatile i8 0, ptr %.11734.i.i, align 1, !tbaa !15
   %.not22.i.i = icmp eq i32 %17, 0
-  br i1 %.not22.i.i, label %ForceZero.exit.i.preheader, label %.lr.ph35.i.i, !llvm.loop !17
+  br i1 %.not22.i.i, label %ForceZero.exit.i.preheader, label %.lr.ph35.i.i, !llvm.loop !16
 
 ForceZero.exit.i.preheader:                       ; preds = %.lr.ph35.i.i, %.preheader.i.i
   br label %ForceZero.exit.i
@@ -658,12 +658,12 @@ ForceZero.exit.i:                                 ; preds = %ForceZero.exit.i.pr
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %ForceZero.exit.i ], [ 0, %ForceZero.exit.i.preheader ]
   %.0711.i = phi i32 [ %22, %ForceZero.exit.i ], [ 0, %ForceZero.exit.i.preheader ]
   %19 = getelementptr inbounds nuw i8, ptr %5, i64 %indvars.iv.i
-  %20 = load i8, ptr %19, align 1, !tbaa !16
+  %20 = load i8, ptr %19, align 1, !tbaa !15
   %21 = zext i8 %20 to i32
   %22 = or i32 %.0711.i, %21
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 128
-  br i1 %exitcond.not.i, label %Hash_DRBG_Uninstantiate.exit, label %ForceZero.exit.i, !llvm.loop !30
+  br i1 %exitcond.not.i, label %Hash_DRBG_Uninstantiate.exit, label %ForceZero.exit.i, !llvm.loop !28
 
 Hash_DRBG_Uninstantiate.exit:                     ; preds = %ForceZero.exit.i
   %.not15 = icmp eq i32 %22, 0
@@ -683,7 +683,7 @@ Hash_DRBG_Uninstantiate.exit:                     ; preds = %ForceZero.exit.i
 26:                                               ; preds = %25, %3
   %.09 = phi i32 [ %spec.select, %25 ], [ 0, %3 ]
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i8 0, ptr %27, align 8, !tbaa !23
+  store i8 0, ptr %27, align 8, !tbaa !22
   br label %28
 
 28:                                               ; preds = %1, %26
@@ -710,9 +710,9 @@ define internal fastcc void @ForceZero(ptr noundef nonnull %0, i32 noundef range
   %.01625 = phi ptr [ %9, %.lr.ph ], [ %0, %2 ]
   %8 = add nsw i32 %.126, -1
   %9 = getelementptr inbounds nuw i8, ptr %.01625, i64 1
-  store volatile i8 0, ptr %.01625, align 1, !tbaa !16
+  store volatile i8 0, ptr %.01625, align 1, !tbaa !15
   %.not = icmp eq i32 %8, 0
-  br i1 %.not, label %.lr.ph29.preheader, label %.lr.ph, !llvm.loop !29
+  br i1 %.not, label %.lr.ph29.preheader, label %.lr.ph, !llvm.loop !27
 
 .preheader:                                       ; preds = %.lr.ph29
   %.not2232 = icmp eq i32 %11, 0
@@ -732,9 +732,9 @@ define internal fastcc void @ForceZero(ptr noundef nonnull %0, i32 noundef range
   %.11933 = phi i32 [ %13, %.lr.ph35 ], [ %11, %.preheader ]
   %13 = add i32 %.11933, -1
   %14 = getelementptr inbounds nuw i8, ptr %.11734, i64 1
-  store volatile i8 0, ptr %.11734, align 1, !tbaa !16
+  store volatile i8 0, ptr %.11734, align 1, !tbaa !15
   %.not22 = icmp eq i32 %13, 0
-  br i1 %.not22, label %._crit_edge, label %.lr.ph35, !llvm.loop !17
+  br i1 %.not22, label %._crit_edge, label %.lr.ph35, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %.lr.ph35, %.preheader
   ret void
@@ -783,7 +783,7 @@ define range(i32 -209, 1) i32 @wc_RNG_GenerateBlock(ptr noundef captures(address
 
 12:                                               ; preds = %10
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %14 = load i8, ptr %13, align 8, !tbaa !23
+  %14 = load i8, ptr %13, align 8, !tbaa !22
   %.not = icmp eq i8 %14, 1
   br i1 %.not, label %15, label %47
 
@@ -796,7 +796,7 @@ define range(i32 -209, 1) i32 @wc_RNG_GenerateBlock(ptr noundef captures(address
 
 20:                                               ; preds = %15
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %22 = load ptr, ptr %21, align 8, !tbaa !22
+  %22 = load ptr, ptr %21, align 8, !tbaa !21
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %4) #9
   %23 = call i32 @wc_RNG_HealthTest_ex(i32 noundef 1, ptr noundef null, i32 noundef 0, ptr noundef nonnull @seedA_data, i32 noundef 48, ptr noundef nonnull @reseedSeedA_data, i32 noundef 32, ptr noundef nonnull %4, i32 noundef 128, ptr noundef %22, i32 poison)
   %24 = icmp eq i32 %23, 0
@@ -810,15 +810,15 @@ wc_RNG_HealthTestLocal.exit.thread:               ; preds = %20
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %.lr.ph.i.i ], [ 0, %20 ]
   %.010.i.i = phi i32 [ %31, %.lr.ph.i.i ], [ 0, %20 ]
   %25 = getelementptr inbounds nuw i8, ptr %4, i64 %indvars.iv.i.i
-  %26 = load i8, ptr %25, align 1, !tbaa !16
+  %26 = load i8, ptr %25, align 1, !tbaa !15
   %27 = getelementptr inbounds nuw i8, ptr @outputA_data, i64 %indvars.iv.i.i
-  %28 = load i8, ptr %27, align 1, !tbaa !16
+  %28 = load i8, ptr %27, align 1, !tbaa !15
   %29 = xor i8 %28, %26
   %30 = zext i8 %29 to i32
   %31 = or i32 %.010.i.i, %30
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 128
-  br i1 %exitcond.not.i.i, label %wc_RNG_HealthTestLocal.exit, label %.lr.ph.i.i, !llvm.loop !20
+  br i1 %exitcond.not.i.i, label %wc_RNG_HealthTestLocal.exit, label %.lr.ph.i.i, !llvm.loop !19
 
 wc_RNG_HealthTestLocal.exit:                      ; preds = %.lr.ph.i.i
   %.not28.i.not = icmp eq i32 %31, 0
@@ -867,7 +867,7 @@ wc_RNG_HealthTestLocal.exit:                      ; preds = %.lr.ph.i.i
 .sink.split:                                      ; preds = %45, %wc_RNG_HealthTestLocal.exit, %wc_RNG_HealthTestLocal.exit.thread, %46
   %.sink = phi i8 [ 2, %46 ], [ 3, %wc_RNG_HealthTestLocal.exit.thread ], [ 3, %wc_RNG_HealthTestLocal.exit ], [ 3, %45 ]
   %.0.ph = phi i32 [ -199, %46 ], [ -209, %wc_RNG_HealthTestLocal.exit.thread ], [ -209, %wc_RNG_HealthTestLocal.exit ], [ -209, %45 ]
-  store i8 %.sink, ptr %13, align 8, !tbaa !23
+  store i8 %.sink, ptr %13, align 8, !tbaa !22
   br label %47
 
 47:                                               ; preds = %.sink.split, %45, %12, %10, %8, %3
@@ -891,14 +891,14 @@ define internal fastcc range(i32 0, 3) i32 @Hash_DRBG_Generate(ptr noundef %0, p
   br i1 %11, label %115, label %12
 
 12:                                               ; preds = %3
-  %13 = load i32, ptr %0, align 8, !tbaa !18
+  %13 = load i32, ptr %0, align 8, !tbaa !17
   %14 = icmp eq i32 %13, 1000000
   br i1 %14, label %115, label %15
 
 15:                                               ; preds = %12
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10) #9
-  store i8 3, ptr %8, align 1, !tbaa !16
-  store i32 %13, ptr %9, align 4, !tbaa !31
+  store i8 3, ptr %8, align 1, !tbaa !15
+  store i32 %13, ptr %9, align 4, !tbaa !29
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 4
   call void @llvm.lifetime.start.p0(i64 55, ptr nonnull %4) #9
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #9
@@ -950,14 +950,14 @@ define internal fastcc range(i32 0, 3) i32 @Hash_DRBG_Generate(ptr noundef %0, p
   %.06.i.i = phi i32 [ 54, %33 ], [ %39, %34 ]
   %35 = zext nneg i32 %.06.i.i to i64
   %36 = getelementptr inbounds nuw i8, ptr %4, i64 %35
-  %37 = load i8, ptr %36, align 1, !tbaa !16
+  %37 = load i8, ptr %36, align 1, !tbaa !15
   %38 = add i8 %37, 1
-  store i8 %38, ptr %36, align 1, !tbaa !16
+  store i8 %38, ptr %36, align 1, !tbaa !15
   %.not.i.i = icmp ne i8 %38, 0
   %39 = add nsw i32 %.06.i.i, -1
   %.not7.i.i = icmp eq i32 %.06.i.i, 0
   %or.cond.i.i = or i1 %.not7.i.i, %.not.i.i
-  br i1 %or.cond.i.i, label %array_add_one.exit.loopexit.i, label %34, !llvm.loop !32
+  br i1 %or.cond.i.i, label %array_add_one.exit.loopexit.i, label %34, !llvm.loop !30
 
 40:                                               ; preds = %31
   %41 = zext nneg i32 %.0255.i to i64
@@ -974,7 +974,7 @@ array_add_one.exit.i:                             ; preds = %array_add_one.exit.
   %.124.i = phi ptr [ %.0236.i, %40 ], [ %.0236.i, %30 ], [ %43, %array_add_one.exit.loopexit.i ]
   %44 = add nuw nsw i32 %.0217.i, 1
   %exitcond.not.i = icmp eq i32 %44, %20
-  br i1 %exitcond.not.i, label %.lr.ph29.preheader.i.i, label %21, !llvm.loop !33
+  br i1 %exitcond.not.i, label %.lr.ph29.preheader.i.i, label %21, !llvm.loop !31
 
 .lr.ph29.preheader.i.i:                           ; preds = %array_add_one.exit.i, %27, %.thread2.i
   %45 = phi i1 [ false, %.thread2.i ], [ %29, %27 ], [ %29, %array_add_one.exit.i ]
@@ -994,9 +994,9 @@ array_add_one.exit.i:                             ; preds = %array_add_one.exit.
   %.11933.i.i = phi i32 [ %49, %.lr.ph35.i.i ], [ 7, %.lr.ph29.i.i ]
   %49 = add nsw i32 %.11933.i.i, -1
   %50 = getelementptr inbounds nuw i8, ptr %.11734.i.i, i64 1
-  store volatile i8 0, ptr %.11734.i.i, align 1, !tbaa !16
+  store volatile i8 0, ptr %.11734.i.i, align 1, !tbaa !15
   %.not22.i.i = icmp eq i32 %49, 0
-  br i1 %.not22.i.i, label %Hash_gen.exit, label %.lr.ph35.i.i, !llvm.loop !17
+  br i1 %.not22.i.i, label %Hash_gen.exit, label %.lr.ph35.i.i, !llvm.loop !16
 
 Hash_gen.exit:                                    ; preds = %.lr.ph35.i.i
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %6) #9
@@ -1035,33 +1035,33 @@ Hash_gen.exit:                                    ; preds = %.lr.ph35.i.i
   %.034.i = phi i16 [ %70, %.preheader ], [ 0, %.critedge23 ]
   %indvars.iv.next39.i = add nsw i64 %indvars.iv38.i, -1
   %61 = getelementptr inbounds i8, ptr %16, i64 %indvars.iv.i
-  %62 = load i8, ptr %61, align 1, !tbaa !16
+  %62 = load i8, ptr %61, align 1, !tbaa !15
   %63 = zext i8 %62 to i16
   %64 = add nuw nsw i16 %.034.i, %63
   %65 = getelementptr inbounds nuw i8, ptr %10, i64 %indvars.iv.next39.i
-  %66 = load i8, ptr %65, align 1, !tbaa !16
+  %66 = load i8, ptr %65, align 1, !tbaa !15
   %67 = zext i8 %66 to i16
   %68 = add nuw nsw i16 %64, %67
   %69 = trunc i16 %68 to i8
-  store i8 %69, ptr %61, align 1, !tbaa !16
+  store i8 %69, ptr %61, align 1, !tbaa !15
   %70 = lshr i16 %68, 8
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
   %71 = icmp samesign ugt i64 %indvars.iv38.i, 1
-  br i1 %71, label %.preheader, label %.lr.ph.i, !llvm.loop !34
+  br i1 %71, label %.preheader, label %.lr.ph.i, !llvm.loop !32
 
 .lr.ph.i:                                         ; preds = %.preheader, %.lr.ph.i
   %indvars.iv42.i = phi i64 [ %indvars.iv.next43.i, %.lr.ph.i ], [ 22, %.preheader ]
   %.136.i = phi i16 [ %77, %.lr.ph.i ], [ %70, %.preheader ]
   %72 = getelementptr inbounds nuw i8, ptr %16, i64 %indvars.iv42.i
-  %73 = load i8, ptr %72, align 1, !tbaa !16
+  %73 = load i8, ptr %72, align 1, !tbaa !15
   %74 = zext i8 %73 to i16
   %75 = add nuw nsw i16 %.136.i, %74
   %76 = trunc i16 %75 to i8
-  store i8 %76, ptr %72, align 1, !tbaa !16
+  store i8 %76, ptr %72, align 1, !tbaa !15
   %77 = lshr i16 %75, 8
   %indvars.iv.next43.i = add nsw i64 %indvars.iv42.i, -1
   %.not.i24 = icmp eq i64 %indvars.iv42.i, 0
-  br i1 %.not.i24, label %array_add.exit, label %.lr.ph.i, !llvm.loop !35
+  br i1 %.not.i24, label %array_add.exit, label %.lr.ph.i, !llvm.loop !33
 
 array_add.exit:                                   ; preds = %.lr.ph.i
   %78 = getelementptr inbounds nuw i8, ptr %0, i64 59
@@ -1073,23 +1073,23 @@ array_add.exit:                                   ; preds = %.lr.ph.i
   %.034.i28 = phi i16 [ 0, %array_add.exit ], [ %89, %79 ]
   %indvars.iv.next39.i29 = add nsw i64 %indvars.iv38.i26, -1
   %80 = getelementptr inbounds i8, ptr %16, i64 %indvars.iv.i27
-  %81 = load i8, ptr %80, align 1, !tbaa !16
+  %81 = load i8, ptr %80, align 1, !tbaa !15
   %82 = zext i8 %81 to i16
   %83 = add nuw nsw i16 %.034.i28, %82
   %84 = getelementptr inbounds nuw i8, ptr %78, i64 %indvars.iv.next39.i29
-  %85 = load i8, ptr %84, align 1, !tbaa !16
+  %85 = load i8, ptr %84, align 1, !tbaa !15
   %86 = zext i8 %85 to i16
   %87 = add nuw nsw i16 %83, %86
   %88 = trunc i16 %87 to i8
-  store i8 %88, ptr %80, align 1, !tbaa !16
+  store i8 %88, ptr %80, align 1, !tbaa !15
   %89 = lshr i16 %87, 8
   %indvars.iv.next.i30 = add nsw i64 %indvars.iv.i27, -1
   %90 = icmp samesign ugt i64 %indvars.iv38.i26, 1
-  br i1 %90, label %79, label %array_add.exit39, !llvm.loop !34
+  br i1 %90, label %79, label %array_add.exit39, !llvm.loop !32
 
 array_add.exit39:                                 ; preds = %79
   %91 = call noundef i32 @llvm.bswap.i32(i32 %13)
-  store i32 %91, ptr %9, align 4, !tbaa !31
+  store i32 %91, ptr %9, align 4, !tbaa !29
   br label %92
 
 92:                                               ; preds = %92, %array_add.exit39
@@ -1098,39 +1098,39 @@ array_add.exit39:                                 ; preds = %79
   %.034.i43 = phi i16 [ 0, %array_add.exit39 ], [ %102, %92 ]
   %indvars.iv.next39.i44 = add nsw i64 %indvars.iv38.i41, -1
   %93 = getelementptr inbounds i8, ptr %16, i64 %indvars.iv.i42
-  %94 = load i8, ptr %93, align 1, !tbaa !16
+  %94 = load i8, ptr %93, align 1, !tbaa !15
   %95 = zext i8 %94 to i16
   %96 = add nuw nsw i16 %.034.i43, %95
   %97 = getelementptr inbounds nuw i8, ptr %9, i64 %indvars.iv.next39.i44
-  %98 = load i8, ptr %97, align 1, !tbaa !16
+  %98 = load i8, ptr %97, align 1, !tbaa !15
   %99 = zext i8 %98 to i16
   %100 = add nuw nsw i16 %96, %99
   %101 = trunc i16 %100 to i8
-  store i8 %101, ptr %93, align 1, !tbaa !16
+  store i8 %101, ptr %93, align 1, !tbaa !15
   %102 = lshr i16 %100, 8
   %indvars.iv.next.i45 = add nsw i64 %indvars.iv.i42, -1
   %103 = icmp samesign ugt i64 %indvars.iv38.i41, 1
-  br i1 %103, label %92, label %.lr.ph.i49, !llvm.loop !34
+  br i1 %103, label %92, label %.lr.ph.i49, !llvm.loop !32
 
 .lr.ph.i49:                                       ; preds = %92, %.lr.ph.i49
   %indvars.iv42.i50 = phi i64 [ %indvars.iv.next43.i52, %.lr.ph.i49 ], [ 50, %92 ]
   %.136.i51 = phi i16 [ %109, %.lr.ph.i49 ], [ %102, %92 ]
   %104 = getelementptr inbounds nuw i8, ptr %16, i64 %indvars.iv42.i50
-  %105 = load i8, ptr %104, align 1, !tbaa !16
+  %105 = load i8, ptr %104, align 1, !tbaa !15
   %106 = zext i8 %105 to i16
   %107 = add nuw nsw i16 %.136.i51, %106
   %108 = trunc i16 %107 to i8
-  store i8 %108, ptr %104, align 1, !tbaa !16
+  store i8 %108, ptr %104, align 1, !tbaa !15
   %109 = lshr i16 %107, 8
   %indvars.iv.next43.i52 = add nsw i64 %indvars.iv42.i50, -1
   %.not.i53 = icmp eq i64 %indvars.iv42.i50, 0
-  br i1 %.not.i53, label %array_add.exit54, label %.lr.ph.i49, !llvm.loop !35
+  br i1 %.not.i53, label %array_add.exit54, label %.lr.ph.i49, !llvm.loop !33
 
 array_add.exit54:                                 ; preds = %.lr.ph.i49, %.critedge23.thread, %.critedge23
   %110 = phi i32 [ 1, %.critedge23.thread ], [ 1, %.critedge23 ], [ 0, %.lr.ph.i49 ]
-  %111 = load i32, ptr %0, align 8, !tbaa !18
+  %111 = load i32, ptr %0, align 8, !tbaa !17
   %112 = add i32 %111, 1
-  store i32 %112, ptr %0, align 8, !tbaa !18
+  store i32 %112, ptr %0, align 8, !tbaa !17
   br label %.lr.ph29.preheader.i
 
 .lr.ph29.preheader.i:                             ; preds = %Hash_gen.exit, %array_add.exit54
@@ -1174,15 +1174,15 @@ define internal fastcc range(i32 -173, 1) i32 @wc_RNG_HealthTestLocal(i32 nounde
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %5 ]
   %.010.i = phi i32 [ %14, %.lr.ph.i ], [ 0, %5 ]
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 %indvars.iv.i
-  %9 = load i8, ptr %8, align 1, !tbaa !16
+  %9 = load i8, ptr %8, align 1, !tbaa !15
   %10 = getelementptr inbounds nuw i8, ptr @outputA_data, i64 %indvars.iv.i
-  %11 = load i8, ptr %10, align 1, !tbaa !16
+  %11 = load i8, ptr %10, align 1, !tbaa !15
   %12 = xor i8 %11, %9
   %13 = zext i8 %12 to i32
   %14 = or i32 %.010.i, %13
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 128
-  br i1 %exitcond.not.i, label %ConstantCompare.exit, label %.lr.ph.i, !llvm.loop !20
+  br i1 %exitcond.not.i, label %ConstantCompare.exit, label %.lr.ph.i, !llvm.loop !19
 
 ConstantCompare.exit:                             ; preds = %.lr.ph.i
   %.not28 = icmp ne i32 %14, 0
@@ -1198,15 +1198,15 @@ ConstantCompare.exit:                             ; preds = %.lr.ph.i
   %indvars.iv.i31 = phi i64 [ %indvars.iv.next.i33, %.lr.ph.i30 ], [ 0, %15 ]
   %.010.i32 = phi i32 [ %23, %.lr.ph.i30 ], [ 0, %15 ]
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 %indvars.iv.i31
-  %18 = load i8, ptr %17, align 1, !tbaa !16
+  %18 = load i8, ptr %17, align 1, !tbaa !15
   %19 = getelementptr inbounds nuw i8, ptr @outputB_data, i64 %indvars.iv.i31
-  %20 = load i8, ptr %19, align 1, !tbaa !16
+  %20 = load i8, ptr %19, align 1, !tbaa !15
   %21 = xor i8 %20, %18
   %22 = zext i8 %21 to i32
   %23 = or i32 %.010.i32, %22
   %indvars.iv.next.i33 = add nuw nsw i64 %indvars.iv.i31, 1
   %exitcond.not.i34 = icmp eq i64 %indvars.iv.next.i33, 128
-  br i1 %exitcond.not.i34, label %24, label %.lr.ph.i30, !llvm.loop !20
+  br i1 %exitcond.not.i34, label %24, label %.lr.ph.i30, !llvm.loop !19
 
 24:                                               ; preds = %.lr.ph.i30
   %.not26.not = icmp eq i32 %23, 0
@@ -1221,15 +1221,15 @@ ConstantCompare.exit:                             ; preds = %.lr.ph.i
   %indvars.iv.i37 = phi i64 [ %indvars.iv.next.i39, %.lr.ph.i36 ], [ 0, %25 ]
   %.010.i38 = phi i32 [ %34, %.lr.ph.i36 ], [ 0, %25 ]
   %28 = getelementptr inbounds nuw i8, ptr %4, i64 %indvars.iv.i37
-  %29 = load i8, ptr %28, align 1, !tbaa !16
+  %29 = load i8, ptr %28, align 1, !tbaa !15
   %30 = getelementptr inbounds nuw i8, ptr @outputB_data, i64 %indvars.iv.i37
-  %31 = load i8, ptr %30, align 1, !tbaa !16
+  %31 = load i8, ptr %30, align 1, !tbaa !15
   %32 = xor i8 %31, %29
   %33 = zext i8 %32 to i32
   %34 = or i32 %.010.i38, %33
   %indvars.iv.next.i39 = add nuw nsw i64 %indvars.iv.i37, 1
   %exitcond.not.i40 = icmp eq i64 %indvars.iv.next.i39, 128
-  br i1 %exitcond.not.i40, label %ConstantCompare.exit41, label %.lr.ph.i36, !llvm.loop !20
+  br i1 %exitcond.not.i40, label %ConstantCompare.exit41, label %.lr.ph.i36, !llvm.loop !19
 
 ConstantCompare.exit41:                           ; preds = %.lr.ph.i36
   %.not27 = icmp ne i32 %34, 0
@@ -1249,13 +1249,13 @@ define range(i32 -173, 1) i32 @wc_GenerateSeed(ptr noundef captures(address_is_n
 
 5:                                                ; preds = %3
   %6 = tail call i32 (ptr, i32, ...) @open(ptr noundef nonnull @.str, i32 noundef 0) #9
-  store i32 %6, ptr %0, align 4, !tbaa !24
+  store i32 %6, ptr %0, align 4, !tbaa !23
   %7 = icmp eq i32 %6, -1
   br i1 %7, label %8, label %.preheader
 
 8:                                                ; preds = %5
   %9 = tail call i32 (ptr, i32, ...) @open(ptr noundef nonnull @.str.1, i32 noundef 0) #9
-  store i32 %9, ptr %0, align 4, !tbaa !24
+  store i32 %9, ptr %0, align 4, !tbaa !23
   %10 = icmp eq i32 %9, -1
   br i1 %10, label %23, label %.preheader
 
@@ -1269,7 +1269,7 @@ define range(i32 -173, 1) i32 @wc_GenerateSeed(ptr noundef captures(address_is_n
   br i1 %.not, label %.thread, label %12
 
 12:                                               ; preds = %11
-  %13 = load i32, ptr %0, align 4, !tbaa !24
+  %13 = load i32, ptr %0, align 4, !tbaa !23
   %14 = zext i32 %.020 to i64
   %15 = tail call i64 @read(i32 noundef %13, ptr noundef %.022, i64 noundef %14) #9
   %16 = trunc i64 %15 to i32
@@ -1281,11 +1281,11 @@ define range(i32 -173, 1) i32 @wc_GenerateSeed(ptr noundef captures(address_is_n
   %19 = ashr exact i64 %sext, 32
   %20 = getelementptr inbounds i8, ptr %.022, i64 %19
   %.not28 = icmp eq i32 %.020, %16
-  br i1 %.not28, label %11, label %.thread, !llvm.loop !25
+  br i1 %.not28, label %11, label %.thread
 
 .thread:                                          ; preds = %18, %12, %11
   %.1 = phi i32 [ 0, %11 ], [ -105, %18 ], [ -102, %12 ]
-  %21 = load i32, ptr %0, align 4, !tbaa !24
+  %21 = load i32, ptr %0, align 4, !tbaa !23
   %22 = tail call i32 @close(i32 noundef %21) #9
   br label %23
 
@@ -1329,7 +1329,7 @@ define range(i32 -173, 1) i32 @wc_RNG_HealthTest_ex(i32 noundef %0, ptr noundef 
 20:                                               ; preds = %19
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %13, i8 0, i64 120, i1 false)
   %21 = getelementptr inbounds nuw i8, ptr %13, i64 120
-  store ptr %9, ptr %21, align 8, !tbaa !26
+  store ptr %9, ptr %21, align 8, !tbaa !24
   %22 = getelementptr inbounds nuw i8, ptr %13, i64 4
   %23 = call fastcc i32 @Hash_df(ptr noundef nonnull %13, ptr noundef nonnull %22, i8 noundef zeroext 4, ptr noundef nonnull %3, i32 noundef %4, ptr noundef %1, i32 noundef %2)
   %24 = icmp eq i32 %23, 0
@@ -1342,7 +1342,7 @@ define range(i32 -173, 1) i32 @wc_RNG_HealthTest_ex(i32 noundef %0, ptr noundef 
   br i1 %28, label %29, label %.lr.ph29.preheader.i.i38
 
 29:                                               ; preds = %25
-  store i32 1, ptr %13, align 8, !tbaa !18
+  store i32 1, ptr %13, align 8, !tbaa !17
   br i1 %17, label %30, label %40
 
 30:                                               ; preds = %29
@@ -1370,9 +1370,9 @@ define range(i32 -173, 1) i32 @wc_RNG_HealthTest_ex(i32 noundef %0, ptr noundef 
   %.11933.i.i = phi i32 [ %36, %.lr.ph35.i.i ], [ 7, %.lr.ph29.i.i ]
   %36 = add nsw i32 %.11933.i.i, -1
   %37 = getelementptr inbounds nuw i8, ptr %.11734.i.i, i64 1
-  store volatile i8 0, ptr %.11734.i.i, align 1, !tbaa !16
+  store volatile i8 0, ptr %.11734.i.i, align 1, !tbaa !15
   %.not22.i.i = icmp eq i32 %36, 0
-  br i1 %.not22.i.i, label %.loopexit.i, label %.lr.ph35.i.i, !llvm.loop !17
+  br i1 %.not22.i.i, label %.loopexit.i, label %.lr.ph35.i.i, !llvm.loop !16
 
 .loopexit.i:                                      ; preds = %.lr.ph35.i.i
   %38 = call fastcc i32 @Hash_df(ptr noundef nonnull %13, ptr noundef nonnull %26, i8 noundef zeroext 0, ptr noundef nonnull %22, i32 noundef 55, ptr noundef null, i32 noundef 0)
@@ -1384,7 +1384,7 @@ Hash_DRBG_Reseed.exit.thread:                     ; preds = %.loopexit.i, %30
   br label %.lr.ph29.preheader.i.i38
 
 Hash_DRBG_Reseed.exit:                            ; preds = %.loopexit.i
-  store i32 1, ptr %13, align 8, !tbaa !18
+  store i32 1, ptr %13, align 8, !tbaa !17
   call void @llvm.lifetime.end.p0(i64 55, ptr nonnull %12) #9
   br label %40
 
@@ -1416,12 +1416,12 @@ ForceZero.exit.i:                                 ; preds = %.lr.ph29.i.i39, %Fo
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %ForceZero.exit.i ], [ 0, %.lr.ph29.i.i39 ]
   %.0711.i = phi i32 [ %49, %ForceZero.exit.i ], [ 0, %.lr.ph29.i.i39 ]
   %46 = getelementptr inbounds nuw i8, ptr %13, i64 %indvars.iv.i
-  %47 = load i8, ptr %46, align 1, !tbaa !16
+  %47 = load i8, ptr %46, align 1, !tbaa !15
   %48 = zext i8 %47 to i32
   %49 = or i32 %.0711.i, %48
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 128
-  br i1 %exitcond.not.i, label %Hash_DRBG_Uninstantiate.exit, label %ForceZero.exit.i, !llvm.loop !30
+  br i1 %exitcond.not.i, label %Hash_DRBG_Uninstantiate.exit, label %ForceZero.exit.i, !llvm.loop !28
 
 Hash_DRBG_Uninstantiate.exit:                     ; preds = %ForceZero.exit.i
   %.not51 = icmp eq i32 %49, 0
@@ -1452,7 +1452,7 @@ define internal fastcc range(i32 0, 2) i32 @Hash_df(ptr noundef readnone capture
   %10 = alloca i32, align 4
   %11 = alloca [1 x %struct.wc_Sha256], align 16
   %12 = alloca [32 x i8], align 16
-  store i8 %2, ptr %8, align 1, !tbaa !16
+  store i8 %2, ptr %8, align 1, !tbaa !15
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %9) #9
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #9
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %11) #9
@@ -1461,8 +1461,8 @@ define internal fastcc range(i32 0, 2) i32 @Hash_df(ptr noundef readnone capture
   br i1 %13, label %55, label %14
 
 14:                                               ; preds = %7
-  store i32 -1207894016, ptr %10, align 4, !tbaa !31
-  store i8 1, ptr %9, align 1, !tbaa !16
+  store i32 -1207894016, ptr %10, align 4, !tbaa !29
+  store i8 1, ptr %9, align 1, !tbaa !15
   %15 = icmp ne ptr %5, null
   %16 = icmp ne i32 %6, 0
   %or.cond = and i1 %15, %16
@@ -1482,9 +1482,9 @@ define internal fastcc range(i32 0, 2) i32 @Hash_df(ptr noundef readnone capture
   br i1 %22, label %23, label %.thread53
 
 23:                                               ; preds = %20
-  %24 = load i8, ptr %9, align 1, !tbaa !16
+  %24 = load i8, ptr %9, align 1, !tbaa !15
   %25 = add i8 %24, 1
-  store i8 %25, ptr %9, align 1, !tbaa !16
+  store i8 %25, ptr %9, align 1, !tbaa !15
   %26 = call i32 @wc_Sha256Update(ptr noundef nonnull %11, ptr noundef nonnull %10, i32 noundef 4) #9
   %27 = icmp eq i32 %26, 0
   %28 = load i8, ptr %8, align 1
@@ -1544,7 +1544,7 @@ define internal fastcc range(i32 0, 2) i32 @Hash_df(ptr noundef readnone capture
   %.655 = phi i32 [ 0, %45 ], [ 0, %48 ], [ %41, %.thread50 ], [ %.6.ph, %.thread53 ]
   %.136 = phi i32 [ %46, %45 ], [ %.03557, %48 ], [ %.03557, %.thread50 ], [ %.03557, %.thread53 ]
   %.134 = phi ptr [ %47, %45 ], [ %.03358, %48 ], [ %.03358, %.thread50 ], [ %.03358, %.thread53 ]
-  br i1 %18, label %17, label %.lr.ph29.preheader.i, !llvm.loop !36
+  br i1 %18, label %17, label %.lr.ph29.preheader.i, !llvm.loop !34
 
 .lr.ph29.preheader.i:                             ; preds = %50, %17
   %.1 = phi i32 [ %19, %17 ], [ %.655, %50 ]
@@ -1616,27 +1616,25 @@ attributes #9 = { nounwind }
 !10 = !{!"p1 _ZTS4DRBG", !9, i64 0}
 !11 = !{!12, !12, i64 0}
 !12 = !{!"long", !7, i64 0}
-!13 = distinct !{!13, !14, !15}
+!13 = distinct !{!13, !14}
 !14 = !{!"llvm.loop.mustprogress"}
-!15 = !{!"llvm.loop.estimated_trip_count"}
-!16 = !{!7, !7, i64 0}
-!17 = distinct !{!17, !14, !15}
-!18 = !{!19, !6, i64 0}
-!19 = !{!"DRBG_internal", !6, i64 0, !7, i64 4, !7, i64 59, !9, i64 120}
-!20 = distinct !{!20, !14, !15}
-!21 = distinct !{!21, !14, !15}
-!22 = !{!4, !9, i64 8}
-!23 = !{!4, !7, i64 24}
-!24 = !{!5, !6, i64 0}
-!25 = distinct !{!25, !15}
-!26 = !{!19, !9, i64 120}
-!27 = !{!28, !28, i64 0}
-!28 = !{!"p1 _ZTS6WC_RNG", !9, i64 0}
-!29 = distinct !{!29, !14, !15}
-!30 = distinct !{!30, !14, !15}
-!31 = !{!6, !6, i64 0}
-!32 = distinct !{!32, !14, !15}
-!33 = distinct !{!33, !14, !15}
-!34 = distinct !{!34, !14, !15}
-!35 = distinct !{!35, !14, !15}
-!36 = distinct !{!36, !14, !15}
+!15 = !{!7, !7, i64 0}
+!16 = distinct !{!16, !14}
+!17 = !{!18, !6, i64 0}
+!18 = !{!"DRBG_internal", !6, i64 0, !7, i64 4, !7, i64 59, !9, i64 120}
+!19 = distinct !{!19, !14}
+!20 = distinct !{!20, !14}
+!21 = !{!4, !9, i64 8}
+!22 = !{!4, !7, i64 24}
+!23 = !{!5, !6, i64 0}
+!24 = !{!18, !9, i64 120}
+!25 = !{!26, !26, i64 0}
+!26 = !{!"p1 _ZTS6WC_RNG", !9, i64 0}
+!27 = distinct !{!27, !14}
+!28 = distinct !{!28, !14}
+!29 = !{!6, !6, i64 0}
+!30 = distinct !{!30, !14}
+!31 = distinct !{!31, !14}
+!32 = distinct !{!32, !14}
+!33 = distinct !{!33, !14}
+!34 = distinct !{!34, !14}

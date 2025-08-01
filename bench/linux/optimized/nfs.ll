@@ -236,7 +236,7 @@ define internal ptr @fat_get_parent(ptr noundef readonly captures(none) %0) #1 a
   %143 = getelementptr i8, ptr %141, i64 -80
   %144 = icmp eq ptr %143, null
   %145 = or i1 %142, %144
-  br i1 %145, label %.loopexit, label %.preheader, !llvm.loop !13
+  br i1 %145, label %.loopexit, label %.preheader, !llvm.loop !9
 
 146:                                              ; preds = %136
   call void @_raw_spin_unlock(ptr noundef nonnull %120) #6
@@ -613,8 +613,6 @@ attributes #7 = { cold nounwind }
 !6 = !{!"branch_weights", i32 2000, i32 1}
 !7 = !{i64 2154919288, i64 2154919097, i64 2154919149, i64 2154919195, i64 2154919223}
 !8 = !{i64 2154919362, i64 2154919391, i64 2154919437, i64 2154919495, i64 2154919549, i64 2154919603, i64 2154919658, i64 2154919689}
-!9 = distinct !{!9, !10, !11, !12}
+!9 = distinct !{!9, !10, !11}
 !10 = !{!"llvm.loop.mustprogress"}
 !11 = !{!"llvm.loop.unroll.disable"}
-!12 = !{!"llvm.loop.estimated_trip_count"}
-!13 = distinct !{!13, !10, !11, !12}

@@ -97,7 +97,7 @@ define dso_local void @mpi_add_ui(ptr noundef %0, ptr noundef readonly captures(
   store i64 %53, ptr %54, align 8
   %55 = add nuw nsw i64 %51, 1
   %56 = icmp eq i64 %55, %49
-  br i1 %56, label %.loopexit, label %50, !llvm.loop !9
+  br i1 %56, label %.loopexit, label %50, !llvm.loop !8
 
 .loopexit:                                        ; preds = %.preheader, %50, %45, %.loopexit13
   %57 = phi i64 [ 0, %.loopexit13 ], [ 0, %45 ], [ 0, %50 ], [ 1, %.preheader ]
@@ -142,7 +142,7 @@ define dso_local void @mpi_add_ui(ptr noundef %0, ptr noundef readonly captures(
   %81 = getelementptr i8, ptr %72, i64 8
   store i64 %80, ptr %72, align 8
   %82 = icmp eq i64 %79, 0
-  br i1 %82, label %.preheader15, label %.loopexit17, !llvm.loop !10
+  br i1 %82, label %.preheader15, label %.loopexit17, !llvm.loop !9
 
 .loopexit17:                                      ; preds = %77, %67
   %83 = phi ptr [ %70, %67 ], [ %81, %77 ]
@@ -168,7 +168,7 @@ define dso_local void @mpi_add_ui(ptr noundef %0, ptr noundef readonly captures(
   store i64 %95, ptr %96, align 8
   %97 = add nuw nsw i64 %93, 1
   %98 = icmp eq i64 %97, %91
-  br i1 %98, label %.loopexit14, label %92, !llvm.loop !11
+  br i1 %98, label %.loopexit14, label %92, !llvm.loop !10
 
 .loopexit14:                                      ; preds = %.preheader15, %92, %87, %.loopexit17
   %99 = add i32 %5, -1
@@ -264,7 +264,7 @@ define dso_local void @mpi_add(ptr noundef %0, ptr noundef readonly captures(non
   store i64 %54, ptr %55, align 8
   %56 = add nuw nsw i64 %52, 1
   %57 = icmp eq i64 %56, %50
-  br i1 %57, label %.loopexit, label %51, !llvm.loop !12
+  br i1 %57, label %.loopexit, label %51, !llvm.loop !11
 
 58:                                               ; preds = %33
   %59 = icmp eq i32 %38, %39
@@ -303,7 +303,7 @@ define dso_local void @mpi_add(ptr noundef %0, ptr noundef readonly captures(non
   %82 = getelementptr i8, ptr %73, i64 8
   store i64 %81, ptr %73, align 8
   %83 = icmp eq i64 %80, 0
-  br i1 %83, label %.preheader30, label %.loopexit32, !llvm.loop !13
+  br i1 %83, label %.preheader30, label %.loopexit32, !llvm.loop !9
 
 .loopexit32:                                      ; preds = %78, %62
   %84 = phi ptr [ %71, %62 ], [ %82, %78 ]
@@ -329,7 +329,7 @@ define dso_local void @mpi_add(ptr noundef %0, ptr noundef readonly captures(non
   store i64 %96, ptr %97, align 8
   %98 = add nuw nsw i64 %94, 1
   %99 = icmp eq i64 %98, %92
-  br i1 %99, label %.loopexit29, label %93, !llvm.loop !14
+  br i1 %99, label %.loopexit29, label %93, !llvm.loop !10
 
 .loopexit29:                                      ; preds = %.preheader30, %93, %88, %.loopexit32
   %100 = getelementptr i8, ptr %45, i64 -8
@@ -347,7 +347,7 @@ define dso_local void @mpi_add(ptr noundef %0, ptr noundef readonly captures(non
 107:                                              ; preds = %.preheader26
   %108 = add nsw i32 %102, -1
   %109 = icmp sgt i32 %102, 1
-  br i1 %109, label %.preheader26, label %.loopexit, !llvm.loop !15
+  br i1 %109, label %.preheader26, label %.loopexit, !llvm.loop !12
 
 110:                                              ; preds = %60
   %111 = tail call i32 @mpihelp_cmp(ptr noundef %43, ptr noundef %41, i32 noundef %36) #2
@@ -371,7 +371,7 @@ define dso_local void @mpi_add(ptr noundef %0, ptr noundef readonly captures(non
 122:                                              ; preds = %.preheader21
   %123 = add nsw i32 %117, -1
   %124 = icmp sgt i32 %117, 1
-  br i1 %124, label %.preheader21, label %.loopexit22, !llvm.loop !16
+  br i1 %124, label %.preheader21, label %.loopexit22, !llvm.loop !13
 
 .loopexit22:                                      ; preds = %122, %.preheader21, %115
   %125 = phi i32 [ %36, %115 ], [ %117, %.preheader21 ], [ 0, %122 ]
@@ -394,7 +394,7 @@ define dso_local void @mpi_add(ptr noundef %0, ptr noundef readonly captures(non
 135:                                              ; preds = %.preheader23
   %136 = add nsw i32 %130, -1
   %137 = icmp sgt i32 %130, 1
-  br i1 %137, label %.preheader23, label %.loopexit24, !llvm.loop !17
+  br i1 %137, label %.preheader23, label %.loopexit24, !llvm.loop !14
 
 .loopexit24:                                      ; preds = %135, %.preheader23, %128
   %138 = phi i32 [ %36, %128 ], [ %130, %.preheader23 ], [ 0, %135 ]
@@ -435,7 +435,7 @@ define dso_local void @mpi_add(ptr noundef %0, ptr noundef readonly captures(non
   %163 = getelementptr i8, ptr %154, i64 8
   store i64 %162, ptr %154, align 8
   %164 = icmp eq i64 %162, 0
-  br i1 %164, label %.preheader, label %.loopexit20, !llvm.loop !18
+  br i1 %164, label %.preheader, label %.loopexit20, !llvm.loop !5
 
 .loopexit20:                                      ; preds = %159, %144
   %165 = phi ptr [ %152, %144 ], [ %163, %159 ]
@@ -461,7 +461,7 @@ define dso_local void @mpi_add(ptr noundef %0, ptr noundef readonly captures(non
   store i64 %177, ptr %178, align 8
   %179 = add nuw nsw i64 %175, 1
   %180 = icmp eq i64 %179, %173
-  br i1 %180, label %.loopexit18, label %174, !llvm.loop !19
+  br i1 %180, label %.loopexit18, label %174, !llvm.loop !8
 
 .loopexit18:                                      ; preds = %.preheader, %174, %169, %.loopexit20, %141
   %181 = phi i64 [ %142, %141 ], [ 0, %.loopexit20 ], [ 0, %169 ], [ 0, %174 ], [ 1, %.preheader ]
@@ -547,18 +547,13 @@ attributes #2 = { nounwind }
 !2 = !{i32 4, !"function_return_thunk_extern", i32 1}
 !3 = !{i32 4, !"indirect_branch_cs_prefix", i32 1}
 !4 = !{i32 4, !"SkipRaxSetup", i32 1}
-!5 = distinct !{!5, !6, !7, !8}
+!5 = distinct !{!5, !6, !7}
 !6 = !{!"llvm.loop.mustprogress"}
 !7 = !{!"llvm.loop.unroll.disable"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !6, !7, !8}
-!10 = distinct !{!10, !6, !7, !8}
-!11 = distinct !{!11, !6, !7, !8}
-!12 = distinct !{!12, !6, !7, !8}
-!13 = distinct !{!13, !6, !7, !8}
-!14 = distinct !{!14, !6, !7, !8}
-!15 = distinct !{!15, !6, !7, !8}
-!16 = distinct !{!16, !6, !7, !8}
-!17 = distinct !{!17, !6, !7, !8}
-!18 = distinct !{!18, !6, !7, !8}
-!19 = distinct !{!19, !6, !7, !8}
+!8 = distinct !{!8, !6, !7}
+!9 = distinct !{!9, !6, !7}
+!10 = distinct !{!10, !6, !7}
+!11 = distinct !{!11, !6, !7}
+!12 = distinct !{!12, !6, !7}
+!13 = distinct !{!13, !6, !7}
+!14 = distinct !{!14, !6, !7}

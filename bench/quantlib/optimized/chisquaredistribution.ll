@@ -369,7 +369,7 @@ L10:                                              ; preds = %for.cond, %for.cond
   %cmp51 = fcmp ole double %div50, 0x3D719799812DEA11
   %cmp52 = icmp samesign ugt i64 %n.1, 10000
   %or.cond1 = select i1 %cmp51, i1 true, i1 %cmp52
-  br i1 %or.cond1, label %L_End, label %for.cond36, !llvm.loop !25
+  br i1 %or.cond1, label %L_End, label %for.cond36, !llvm.loop !24
 
 L_End:                                            ; preds = %L10
   %cmp55 = fcmp ogt double %div50, 0x3D719799812DEA11
@@ -568,7 +568,7 @@ define linkonce_odr void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC
 entry:
   %__dnew.i = alloca i64, align 8
   %0 = getelementptr inbounds nuw i8, ptr %this, i64 16
-  store ptr %0, ptr %this, align 8, !tbaa !26
+  store ptr %0, ptr %this, align 8, !tbaa !25
   %cmp = icmp eq ptr %__s, null
   br i1 %cmp, label %if.then, label %if.end
 
@@ -579,14 +579,14 @@ if.then:                                          ; preds = %entry
 if.end:                                           ; preds = %entry
   %call.i = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %__s) #17
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__dnew.i) #17
-  store i64 %call.i, ptr %__dnew.i, align 8, !tbaa !27
+  store i64 %call.i, ptr %__dnew.i, align 8, !tbaa !26
   %cmp.i = icmp ugt i64 %call.i, 15
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %if.end
   %call2.i5 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(8) %__dnew.i, i64 noundef 0)
   store ptr %call2.i5, ptr %this, align 8, !tbaa !10
-  %1 = load i64, ptr %__dnew.i, align 8, !tbaa !27
+  %1 = load i64, ptr %__dnew.i, align 8, !tbaa !26
   store i64 %1, ptr %0, align 8, !tbaa !16
   br label %if.end.i
 
@@ -607,7 +607,7 @@ if.end.i.i.i.i:                                   ; preds = %if.end.i
   br label %invoke.cont5
 
 invoke.cont5:                                     ; preds = %if.end.i.i.i.i, %if.then.i.i.i, %if.end.i
-  %4 = load i64, ptr %__dnew.i, align 8, !tbaa !27
+  %4 = load i64, ptr %__dnew.i, align 8, !tbaa !26
   %_M_string_length.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i64 %4, ptr %_M_string_length.i.i.i, align 8, !tbaa !15
   %5 = load ptr, ptr %this, align 8, !tbaa !10
@@ -625,9 +625,9 @@ declare void @_ZN8QuantLib5ErrorC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsI
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8QuantLib5ErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib5ErrorE, i64 16), ptr %this, align 8, !tbaa !28
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib5ErrorE, i64 16), ptr %this, align 8, !tbaa !27
   %pn.i = getelementptr inbounds nuw i8, ptr %this, i64 16
-  %0 = load ptr, ptr %pn.i, align 8, !tbaa !30
+  %0 = load ptr, ptr %pn.i, align 8, !tbaa !29
   %cmp.not.i.i = icmp eq ptr %0, null
   br i1 %cmp.not.i.i, label %_ZN5boost10shared_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit, label %if.then.i.i
 
@@ -638,7 +638,7 @@ if.then.i.i:                                      ; preds = %entry
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %_ZN5boost10shared_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
-  %vtable.i.i.i = load ptr, ptr %0, align 8, !tbaa !28
+  %vtable.i.i.i = load ptr, ptr %0, align 8, !tbaa !27
   %vfn.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i, i64 16
   %2 = load ptr, ptr %vfn.i.i.i, align 8
   invoke void %2(ptr noundef nonnull align 8 dereferenceable(16) %0)
@@ -651,7 +651,7 @@ if.then.i.i.i:                                    ; preds = %if.then.i.i
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %_ZN5boost10shared_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit
 
 if.then.i.i.i.i:                                  ; preds = %.noexc.i.i
-  %vtable.i.i.i.i = load ptr, ptr %0, align 8, !tbaa !28
+  %vtable.i.i.i.i = load ptr, ptr %0, align 8, !tbaa !27
   %vfn.i.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i.i, i64 24
   %4 = load ptr, ptr %vfn.i.i.i.i, align 8
   invoke void %4(ptr noundef nonnull align 8 dereferenceable(16) %0)
@@ -681,9 +681,9 @@ declare void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(p
 define noundef double @_ZNK8QuantLib43NonCentralCumulativeChiSquareSankaranApproxclEd(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this, double noundef %x) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.QuantLib::CumulativeNormalDistribution", align 8
-  %0 = load double, ptr %this, align 8, !tbaa !32
+  %0 = load double, ptr %this, align 8, !tbaa !31
   %ncp_ = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %1 = load double, ptr %ncp_, align 8, !tbaa !34
+  %1 = load double, ptr %ncp_, align 8, !tbaa !33
   %add = fadd double %0, %1
   %mul = fmul double %add, 2.000000e+00
   %2 = tail call double @llvm.fmuladd.f64(double %1, double 3.000000e+00, double %0)
@@ -716,19 +716,19 @@ entry:
   %mul39 = fmul double %mul36, %8
   %div40 = fdiv double %sub33, %mul39
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %ref.tmp) #17
-  store double 0.000000e+00, ptr %ref.tmp, align 8, !tbaa !35
+  store double 0.000000e+00, ptr %ref.tmp, align 8, !tbaa !34
   %sigma_.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
-  store double 1.000000e+00, ptr %sigma_.i, align 8, !tbaa !39
+  store double 1.000000e+00, ptr %sigma_.i, align 8, !tbaa !38
   %gaussian_.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 16
-  store double 0.000000e+00, ptr %gaussian_.i, align 8, !tbaa !40
+  store double 0.000000e+00, ptr %gaussian_.i, align 8, !tbaa !39
   %sigma_.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 24
-  store double 1.000000e+00, ptr %sigma_.i.i, align 8, !tbaa !41
+  store double 1.000000e+00, ptr %sigma_.i.i, align 8, !tbaa !40
   %normalizationFactor_.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 32
-  store double 0x3FD9884533D43651, ptr %normalizationFactor_.i.i, align 8, !tbaa !42
+  store double 0x3FD9884533D43651, ptr %normalizationFactor_.i.i, align 8, !tbaa !41
   %derNormalizationFactor_.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 48
-  store double 1.000000e+00, ptr %derNormalizationFactor_.i.i, align 8, !tbaa !43
+  store double 1.000000e+00, ptr %derNormalizationFactor_.i.i, align 8, !tbaa !42
   %denominator_.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 40
-  store double 2.000000e+00, ptr %denominator_.i.i, align 8, !tbaa !44
+  store double 2.000000e+00, ptr %denominator_.i.i, align 8, !tbaa !43
   %call41 = call noundef double @_ZNK8QuantLib28CumulativeNormalDistributionclEd(ptr noundef nonnull align 8 dereferenceable(57) %ref.tmp, double noundef %div40)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %ref.tmp) #17
   ret double %call41
@@ -747,11 +747,11 @@ entry:
   store double %ncp, ptr %ncp_.i, align 8, !tbaa !17
   %guess_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %add = fadd double %df, %ncp
-  store double %add, ptr %guess_, align 8, !tbaa !45
+  store double %add, ptr %guess_, align 8, !tbaa !44
   %maxEvaluations_ = getelementptr inbounds nuw i8, ptr %this, i64 24
-  store i64 %maxEvaluations, ptr %maxEvaluations_, align 8, !tbaa !47
+  store i64 %maxEvaluations, ptr %maxEvaluations_, align 8, !tbaa !46
   %accuracy_ = getelementptr inbounds nuw i8, ptr %this, i64 32
-  store double %accuracy, ptr %accuracy_, align 8, !tbaa !48
+  store double %accuracy, ptr %accuracy_, align 8, !tbaa !47
   ret void
 }
 
@@ -795,9 +795,9 @@ entry:
   %ref.tmp339.i = alloca %"class.std::allocator", align 1
   %ref.tmp342.i = alloca %"class.std::__cxx11::basic_string", align 8
   %guess_ = getelementptr inbounds nuw i8, ptr %this, i64 16
-  %0 = load double, ptr %guess_, align 8, !tbaa !45
+  %0 = load double, ptr %guess_, align 8, !tbaa !44
   %maxEvaluations_ = getelementptr inbounds nuw i8, ptr %this, i64 24
-  %1 = load i64, ptr %maxEvaluations_, align 8, !tbaa !47
+  %1 = load i64, ptr %maxEvaluations_, align 8, !tbaa !46
   %call40 = tail call noundef double @_ZNK8QuantLib41NonCentralCumulativeChiSquareDistributionclEd(ptr noundef nonnull align 8 dereferenceable(16) %this, double noundef %0)
   %cmp41 = fcmp olt double %call40, %x
   %cmp242 = icmp ne i64 %1, 0
@@ -813,15 +813,15 @@ while.body:                                       ; preds = %entry, %while.body
   %cmp = fcmp olt double %call, %x
   %cmp2 = icmp ne i64 %dec, 0
   %3 = select i1 %cmp, i1 %cmp2, i1 false
-  br i1 %3, label %while.body, label %while.end, !llvm.loop !49
+  br i1 %3, label %while.body, label %while.end, !llvm.loop !48
 
 while.end:                                        ; preds = %while.body, %entry
   %upper.0.lcssa = phi double [ %0, %entry ], [ %mul, %while.body ]
   %evaluations.0.lcssa = phi i64 [ %1, %entry ], [ %dec, %while.body ]
   %accuracy_ = getelementptr inbounds nuw i8, ptr %this, i64 32
-  %4 = load double, ptr %accuracy_, align 8, !tbaa !48
+  %4 = load double, ptr %accuracy_, align 8, !tbaa !47
   %mul3 = fmul double %upper.0.lcssa, 7.500000e-01
-  %5 = load i64, ptr %maxEvaluations_, align 8, !tbaa !47
+  %5 = load i64, ptr %maxEvaluations_, align 8, !tbaa !46
   %cmp5 = icmp eq i64 %evaluations.0.lcssa, %5
   %mul6 = fmul double %upper.0.lcssa, 5.000000e-01
   %cond = select i1 %cmp5, double 0.000000e+00, double %mul6
@@ -1216,15 +1216,15 @@ invoke.cont217.i:                                 ; preds = %invoke.cont214.i
           to label %invoke.cont221.i unwind label %lpad208.i
 
 invoke.cont221.i:                                 ; preds = %invoke.cont217.i
-  %vtable.i.i = load ptr, ptr %call.i185186.i, align 8, !tbaa !28
+  %vtable.i.i = load ptr, ptr %call.i185186.i, align 8, !tbaa !27
   %vbase.offset.ptr.i.i = getelementptr i8, ptr %vtable.i.i, i64 -24
   %vbase.offset.i.i = load i64, ptr %vbase.offset.ptr.i.i, align 8
   %add.ptr.i.i = getelementptr inbounds i8, ptr %call.i185186.i, i64 %vbase.offset.i.i
   %_M_flags.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i, i64 24
-  %50 = load i32, ptr %_M_flags.i.i.i, align 8, !tbaa !50
+  %50 = load i32, ptr %_M_flags.i.i.i, align 8, !tbaa !49
   %and.i.i.i.i.i = and i32 %50, -261
   %or.i.i.i.i.i = or disjoint i32 %and.i.i.i.i.i, 256
-  store i32 %or.i.i.i.i.i, ptr %_M_flags.i.i.i, align 4, !tbaa !56
+  store i32 %or.i.i.i.i.i, ptr %_M_flags.i.i.i, align 4, !tbaa !55
   %call.i194195.i = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIdEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %call.i185186.i, double noundef %sub.i.i)
           to label %invoke.cont224.i unwind label %lpad208.i
 
@@ -1920,7 +1920,7 @@ if.end122.i.i:                                    ; preds = %if.else118.i.i, %if
   %sub.i62.i.i = fsub double %call.i61.i.i, %x
   %inc126.i.i = add i64 %solver.sroa.56.0, 1
   %cmp10.not.i.i = icmp ugt i64 %inc126.i.i, %evaluations.0.lcssa
-  br i1 %cmp10.not.i.i, label %do.body.i.i, label %while.body.i.i, !llvm.loop !57
+  br i1 %cmp10.not.i.i, label %do.body.i.i, label %while.body.i.i, !llvm.loop !56
 
 do.body.i.i:                                      ; preds = %if.end122.i.i, %do.end365.i
   call void @llvm.lifetime.start.p0(i64 376, ptr nonnull %_ql_msg_stream.i.i) #17
@@ -2189,39 +2189,38 @@ attributes #20 = { noreturn nounwind }
 !19 = !{!20, !20, i64 0}
 !20 = !{!"int", !6, i64 0}
 !21 = !{!18, !5, i64 0}
-!22 = distinct !{!22, !23, !24}
+!22 = distinct !{!22, !23}
 !23 = !{!"llvm.loop.mustprogress"}
-!24 = !{!"llvm.loop.estimated_trip_count"}
-!25 = distinct !{!25, !23}
-!26 = !{!12, !13, i64 0}
-!27 = !{!14, !14, i64 0}
-!28 = !{!29, !29, i64 0}
-!29 = !{!"vtable pointer", !7, i64 0}
-!30 = !{!31, !13, i64 0}
-!31 = !{!"_ZTSN5boost6detail12shared_countE", !13, i64 0}
-!32 = !{!33, !5, i64 0}
-!33 = !{!"_ZTSN8QuantLib43NonCentralCumulativeChiSquareSankaranApproxE", !5, i64 0, !5, i64 8}
-!34 = !{!33, !5, i64 8}
-!35 = !{!36, !5, i64 0}
-!36 = !{!"_ZTSN8QuantLib28CumulativeNormalDistributionE", !5, i64 0, !5, i64 8, !37, i64 16, !38, i64 56}
-!37 = !{!"_ZTSN8QuantLib18NormalDistributionE", !5, i64 0, !5, i64 8, !5, i64 16, !5, i64 24, !5, i64 32}
-!38 = !{!"_ZTSN8QuantLib13ErrorFunctionE"}
-!39 = !{!36, !5, i64 8}
-!40 = !{!37, !5, i64 0}
-!41 = !{!37, !5, i64 8}
-!42 = !{!37, !5, i64 16}
-!43 = !{!37, !5, i64 32}
-!44 = !{!37, !5, i64 24}
-!45 = !{!46, !5, i64 16}
-!46 = !{!"_ZTSN8QuantLib48InverseNonCentralCumulativeChiSquareDistributionE", !18, i64 0, !5, i64 16, !14, i64 24, !5, i64 32}
-!47 = !{!46, !14, i64 24}
-!48 = !{!46, !5, i64 32}
-!49 = distinct !{!49, !23, !24}
-!50 = !{!51, !52, i64 24}
-!51 = !{!"_ZTSSt8ios_base", !14, i64 8, !14, i64 16, !52, i64 24, !53, i64 28, !53, i64 32, !13, i64 40, !54, i64 48, !6, i64 64, !20, i64 192, !13, i64 200, !55, i64 208}
-!52 = !{!"_ZTSSt13_Ios_Fmtflags", !6, i64 0}
-!53 = !{!"_ZTSSt12_Ios_Iostate", !6, i64 0}
-!54 = !{!"_ZTSNSt8ios_base6_WordsE", !13, i64 0, !14, i64 8}
-!55 = !{!"_ZTSSt6locale", !13, i64 0}
-!56 = !{!52, !52, i64 0}
-!57 = distinct !{!57, !23, !24}
+!24 = distinct !{!24, !23}
+!25 = !{!12, !13, i64 0}
+!26 = !{!14, !14, i64 0}
+!27 = !{!28, !28, i64 0}
+!28 = !{!"vtable pointer", !7, i64 0}
+!29 = !{!30, !13, i64 0}
+!30 = !{!"_ZTSN5boost6detail12shared_countE", !13, i64 0}
+!31 = !{!32, !5, i64 0}
+!32 = !{!"_ZTSN8QuantLib43NonCentralCumulativeChiSquareSankaranApproxE", !5, i64 0, !5, i64 8}
+!33 = !{!32, !5, i64 8}
+!34 = !{!35, !5, i64 0}
+!35 = !{!"_ZTSN8QuantLib28CumulativeNormalDistributionE", !5, i64 0, !5, i64 8, !36, i64 16, !37, i64 56}
+!36 = !{!"_ZTSN8QuantLib18NormalDistributionE", !5, i64 0, !5, i64 8, !5, i64 16, !5, i64 24, !5, i64 32}
+!37 = !{!"_ZTSN8QuantLib13ErrorFunctionE"}
+!38 = !{!35, !5, i64 8}
+!39 = !{!36, !5, i64 0}
+!40 = !{!36, !5, i64 8}
+!41 = !{!36, !5, i64 16}
+!42 = !{!36, !5, i64 32}
+!43 = !{!36, !5, i64 24}
+!44 = !{!45, !5, i64 16}
+!45 = !{!"_ZTSN8QuantLib48InverseNonCentralCumulativeChiSquareDistributionE", !18, i64 0, !5, i64 16, !14, i64 24, !5, i64 32}
+!46 = !{!45, !14, i64 24}
+!47 = !{!45, !5, i64 32}
+!48 = distinct !{!48, !23}
+!49 = !{!50, !51, i64 24}
+!50 = !{!"_ZTSSt8ios_base", !14, i64 8, !14, i64 16, !51, i64 24, !52, i64 28, !52, i64 32, !13, i64 40, !53, i64 48, !6, i64 64, !20, i64 192, !13, i64 200, !54, i64 208}
+!51 = !{!"_ZTSSt13_Ios_Fmtflags", !6, i64 0}
+!52 = !{!"_ZTSSt12_Ios_Iostate", !6, i64 0}
+!53 = !{!"_ZTSNSt8ios_base6_WordsE", !13, i64 0, !14, i64 8}
+!54 = !{!"_ZTSSt6locale", !13, i64 0}
+!55 = !{!51, !51, i64 0}
+!56 = distinct !{!56, !23}

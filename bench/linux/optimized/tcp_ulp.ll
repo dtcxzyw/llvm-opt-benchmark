@@ -52,7 +52,7 @@ define dso_local noundef range(i32 -17, 1) i32 @tcp_register_ulp(ptr noundef %0)
   store ptr @tcp_ulp_list, ptr %0, align 8
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %13, ptr %14, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #4, !srcloc !9
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #4, !srcloc !8
   store volatile ptr %0, ptr %13, align 8
   store ptr %0, ptr getelementptr inbounds nuw (i8, ptr @tcp_ulp_list, i64 8), align 8
   br label %15
@@ -104,12 +104,12 @@ define dso_local void @tcp_get_available_ulp(ptr noundef writeonly captures(none
   %15 = sext i32 %14 to i64
   %16 = add i64 %4, %15
   %17 = icmp ult i64 %16, %1
-  br i1 %17, label %3, label %18, !prof !10, !llvm.loop !11
+  br i1 %17, label %3, label %18, !prof !9, !llvm.loop !10
 
 18:                                               ; preds = %8
-  tail call void asm sideeffect "909: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 909b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 909) #4, !srcloc !13
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.3, i32 97, i32 2307, i64 12) #4, !srcloc !14
-  tail call void asm sideeffect "910: nop\0A\09.pushsection .discard.instr_end\0A\09.long 910b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 910) #4, !srcloc !15
+  tail call void asm sideeffect "909: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 909b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 909) #4, !srcloc !11
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.3, i32 97, i32 2307, i64 12) #4, !srcloc !12
+  tail call void asm sideeffect "910: nop\0A\09.pushsection .discard.instr_end\0A\09.long 910b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 910) #4, !srcloc !13
   br label %.loopexit
 
 .loopexit:                                        ; preds = %3, %18
@@ -185,7 +185,7 @@ define dso_local i32 @tcp_set_ulp(ptr noundef %0, ptr noundef %1) local_unnamed_
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 64
   %9 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %8, ptr noundef %1) #4
   %10 = icmp eq i32 %9, 0
-  br i1 %10, label %11, label %3, !llvm.loop !16
+  br i1 %10, label %11, label %3, !llvm.loop !5
 
 11:                                               ; preds = %7
   %12 = icmp eq ptr %5, null
@@ -211,7 +211,7 @@ define dso_local i32 @tcp_set_ulp(ptr noundef %0, ptr noundef %1) local_unnamed_
   %21 = getelementptr inbounds nuw i8, ptr %18, i64 64
   %22 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %21, ptr noundef %1) #4
   %23 = icmp eq i32 %22, 0
-  br i1 %23, label %24, label %16, !llvm.loop !17
+  br i1 %23, label %24, label %16, !llvm.loop !5
 
 24:                                               ; preds = %20
   %25 = icmp eq ptr %18, null
@@ -243,7 +243,7 @@ define dso_local i32 @tcp_set_ulp(ptr noundef %0, ptr noundef %1) local_unnamed_
 
 38:                                               ; preds = %34
   %39 = getelementptr inbounds nuw i8, ptr %36, i64 8
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; andb ${1:b},$0", "=*m,iq,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %39, i32 -33, ptr nonnull elementtype(i8) %39) #4, !srcloc !18
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; andb ${1:b},$0", "=*m,iq,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %39, i32 -33, ptr nonnull elementtype(i8) %39) #4, !srcloc !14
   br label %40
 
 40:                                               ; preds = %38, %34
@@ -317,17 +317,13 @@ attributes #4 = { nounwind }
 !2 = !{i32 4, !"function_return_thunk_extern", i32 1}
 !3 = !{i32 4, !"indirect_branch_cs_prefix", i32 1}
 !4 = !{i32 4, !"SkipRaxSetup", i32 1}
-!5 = distinct !{!5, !6, !7, !8}
+!5 = distinct !{!5, !6, !7}
 !6 = !{!"llvm.loop.mustprogress"}
 !7 = !{!"llvm.loop.unroll.disable"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = !{i64 2151744465}
-!10 = !{!"branch_weights", i32 2000, i32 1}
-!11 = distinct !{!11, !6, !7, !12}
-!12 = !{!"llvm.loop.estimated_trip_count", i32 2001}
-!13 = !{i64 2160530239, i64 2160530048, i64 2160530100, i64 2160530146, i64 2160530174}
-!14 = !{i64 2160530313, i64 2160530342, i64 2160530388, i64 2160530446, i64 2160530500, i64 2160530554, i64 2160530609, i64 2160530640, i64 2160530948, i64 2160530954, i64 2160531001, i64 2160531024, i64 2160531050}
-!15 = !{i64 2160531500, i64 2160531311, i64 2160531361, i64 2160531407, i64 2160531435}
-!16 = distinct !{!16, !6, !7, !8}
-!17 = distinct !{!17, !6, !7, !8}
-!18 = !{i64 2148460303, i64 2148460342, i64 2148460363, i64 2148460400, i64 2148460423, i64 2148460293}
+!8 = !{i64 2151744465}
+!9 = !{!"branch_weights", i32 2000, i32 1}
+!10 = distinct !{!10, !6, !7}
+!11 = !{i64 2160530239, i64 2160530048, i64 2160530100, i64 2160530146, i64 2160530174}
+!12 = !{i64 2160530313, i64 2160530342, i64 2160530388, i64 2160530446, i64 2160530500, i64 2160530554, i64 2160530609, i64 2160530640, i64 2160530948, i64 2160530954, i64 2160531001, i64 2160531024, i64 2160531050}
+!13 = !{i64 2160531500, i64 2160531311, i64 2160531361, i64 2160531407, i64 2160531435}
+!14 = !{i64 2148460303, i64 2148460342, i64 2148460363, i64 2148460400, i64 2148460423, i64 2148460293}

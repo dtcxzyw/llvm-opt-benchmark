@@ -505,7 +505,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit42: ; preds = %_ZN
 .lr.ph:                                           ; preds = %.lr.ph51.split, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.lr.ph51.split ]
   %96 = getelementptr inbounds nuw float, ptr %87, i64 %indvars.iv
-  %97 = load float, ptr %96, align 4, !tbaa !60
+  %97 = load float, ptr %96, align 4, !tbaa !59
   %98 = fmul float %97, 2.550000e+02
   %99 = fcmp ogt float %98, 2.550000e+02
   %.sroa.speculated46 = select i1 %99, float 2.550000e+02, float %98
@@ -525,7 +525,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit42: ; preds = %_ZN
   %110 = load i32, ptr %109, align 4, !tbaa !13
   %111 = sext i32 %110 to i64
   %112 = icmp slt i64 %indvars.iv.next, %111
-  br i1 %112, label %.lr.ph, label %._crit_edge, !llvm.loop !62
+  br i1 %112, label %.lr.ph, label %._crit_edge, !llvm.loop !61
 
 113:                                              ; preds = %80, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit42
   %.pn30.pn = phi { ptr, i32 } [ %.pn30, %80 ], [ %71, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit42 ]
@@ -673,10 +673,9 @@ attributes #10 = { builtin nounwind }
 !53 = !{!28, !29, i64 16}
 !54 = !{!28, !35, i64 72}
 !55 = !{!50, !50, i64 0}
-!56 = distinct !{!56, !57, !58, !59}
+!56 = distinct !{!56, !57, !58}
 !57 = !{!"llvm.loop.mustprogress"}
-!58 = !{!"llvm.loop.estimated_trip_count"}
-!59 = !{!"llvm.loop.unswitch.partial.disable"}
-!60 = !{!61, !61, i64 0}
-!61 = !{!"float", !7, i64 0}
-!62 = distinct !{!62, !57, !58}
+!58 = !{!"llvm.loop.unswitch.partial.disable"}
+!59 = !{!60, !60, i64 0}
+!60 = !{!"float", !7, i64 0}
+!61 = distinct !{!61, !57}

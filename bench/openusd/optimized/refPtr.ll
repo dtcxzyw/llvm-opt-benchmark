@@ -66,7 +66,7 @@ define noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_Uniq
   %7 = cmpxchg weak ptr %3, i32 %.060, i32 %6 release monotonic, align 4
   %8 = extractvalue { i32, i1 } %7, 1
   %9 = extractvalue { i32, i1 } %7, 0
-  br i1 %8, label %.loopexit, label %4, !llvm.loop !7
+  br i1 %8, label %.loopexit, label %4, !llvm.loop !6
 
 10:                                               ; preds = %4
   %11 = load ptr, ptr @_ZN32pxrInternal_v0_24__pxrReserved__9TfRefBase22_uniqueChangedListenerE, align 8
@@ -107,7 +107,7 @@ define noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_Uniq
   %8 = cmpxchg weak ptr %2, i32 %.0147, i32 %7 seq_cst seq_cst, align 4
   %9 = extractvalue { i32, i1 } %8, 1
   %10 = extractvalue { i32, i1 } %8, 0
-  br i1 %9, label %.thread, label %4, !llvm.loop !8
+  br i1 %9, label %.thread, label %4, !llvm.loop !7
 
 11:                                               ; preds = %4
   %12 = icmp slt i32 %.0147, 0
@@ -123,7 +123,7 @@ define noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_Uniq
   %16 = cmpxchg weak ptr %2, i32 %.18, i32 %13 seq_cst seq_cst, align 4
   %17 = extractvalue { i32, i1 } %16, 1
   %18 = extractvalue { i32, i1 } %16, 0
-  br i1 %17, label %.thread, label %.preheader, !llvm.loop !9
+  br i1 %17, label %.thread, label %.preheader, !llvm.loop !8
 
 19:                                               ; preds = %.preheader
   %20 = icmp eq i32 %.18, 0
@@ -144,7 +144,7 @@ define noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_Uniq
   %26 = cmpxchg weak ptr %2, i32 %.35, i32 %25 seq_cst seq_cst, align 4
   %27 = extractvalue { i32, i1 } %26, 1
   %28 = extractvalue { i32, i1 } %26, 0
-  br i1 %27, label %29, label %23, !llvm.loop !10
+  br i1 %27, label %29, label %23, !llvm.loop !9
 
 29:                                               ; preds = %24
   %30 = icmp eq i32 %.35, -1
@@ -222,10 +222,9 @@ attributes #7 = { noreturn }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5, !6}
+!4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{!"llvm.loop.estimated_trip_count"}
-!7 = distinct !{!7, !5, !6}
-!8 = distinct !{!8, !5, !6}
-!9 = distinct !{!9, !5, !6}
-!10 = distinct !{!10, !5, !6}
+!6 = distinct !{!6, !5}
+!7 = distinct !{!7, !5}
+!8 = distinct !{!8, !5}
+!9 = distinct !{!9, !5}

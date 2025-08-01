@@ -392,7 +392,7 @@ define noundef zeroext i1 @_ZNK10OpenSubdiv6v3_6_03Bfr14SurfaceFactory24faceHasL
           to label %45 unwind label %.loopexit
 
 45:                                               ; preds = %44
-  %46 = load i16, ptr %30, align 8, !noalias !11
+  %46 = load i16, ptr %30, align 8, !noalias !10
   %47 = load i8, ptr %31, align 8
   %48 = and i8 %47, 8
   %.not = icmp eq i8 %48, 0
@@ -829,7 +829,7 @@ _ZN10OpenSubdiv6v3_6_03Bfr8internal11SurfaceData9resizeCVsEi.exit: ; preds = %._
   store i32 %., ptr %50, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %46, !llvm.loop !14
+  br i1 %exitcond.not, label %.loopexit, label %46, !llvm.loop !13
 
 .loopexit:                                        ; preds = %46, %40
   %51 = load i8, ptr %11, align 4
@@ -1055,7 +1055,7 @@ _ZNSt10shared_ptrIKN10OpenSubdiv6v3_6_03Bfr9PatchTreeEEaSEOS5_.exit: ; preds = %
   %78 = add i64 %70, %77
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %56, !llvm.loop !15
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %56, !llvm.loop !14
 
 .loopexit.i:                                      ; preds = %258, %149
   %lpad.loopexit.i = landingpad { ptr, i32 }
@@ -1324,7 +1324,7 @@ _ZNSt10shared_ptrIKN10OpenSubdiv6v3_6_03Bfr9PatchTreeEEaSEOS5_.exit: ; preds = %
   %.0.in.i.i.i = load i16, ptr %199, align 2
   %.0.i.i.i = sext i16 %.0.in.i.i.i to i32
   %201 = icmp samesign ugt i32 %.0813.i.i.i, 1
-  br i1 %201, label %196, label %_ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex12GetFaceFirstERKNS1_16FaceVertexSubsetE.exit.i, !llvm.loop !16
+  br i1 %201, label %196, label %_ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex12GetFaceFirstERKNS1_16FaceVertexSubsetE.exit.i, !llvm.loop !15
 
 _ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex12GetFaceFirstERKNS1_16FaceVertexSubsetE.exit.i: ; preds = %196, %192, %179, %171, %163
   %.09.i.i.i = phi i32 [ %169, %163 ], [ %178, %171 ], [ %191, %179 ], [ %162, %192 ], [ %.0.i.i.i, %196 ]
@@ -1398,7 +1398,7 @@ _ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex11GetFaceNextEi.exit.i: ; preds = %238, %
   %.0.i.i = phi i32 [ %230, %223 ], [ %237, %236 ], [ %240, %238 ]
   %indvars.iv.next161.i = add nuw nsw i64 %indvars.iv160.i, 1
   %exitcond164.not.i = icmp eq i64 %indvars.iv.next161.i, %wide.trip.count163.i
-  br i1 %exitcond164.not.i, label %._crit_edge149.i, label %207, !llvm.loop !17
+  br i1 %exitcond164.not.i, label %._crit_edge149.i, label %207, !llvm.loop !16
 
 ._crit_edge149.i:                                 ; preds = %_ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex11GetFaceNextEi.exit.i, %_ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex12GetFaceFirstERKNS1_16FaceVertexSubsetE.exit.i
   %241 = load ptr, ptr %5, align 8
@@ -1526,7 +1526,7 @@ _ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex11GetFaceNextEi.exit.i: ; preds = %238, %
   %.0.in.i.i108.i = load i16, ptr %308, align 2
   %.0.i.i109.i = sext i16 %.0.in.i.i108.i to i32
   %310 = icmp samesign ugt i32 %.0813.i.i107.i, 1
-  br i1 %310, label %305, label %_ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex12GetFaceFirstERKNS1_16FaceVertexSubsetE.exit110.i, !llvm.loop !16
+  br i1 %310, label %305, label %_ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex12GetFaceFirstERKNS1_16FaceVertexSubsetE.exit110.i, !llvm.loop !15
 
 _ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex12GetFaceFirstERKNS1_16FaceVertexSubsetE.exit110.i: ; preds = %305, %301, %288, %280, %272
   %.09.i.i104.i = phi i32 [ %278, %272 ], [ %287, %280 ], [ %300, %288 ], [ %271, %301 ], [ %.0.i.i109.i, %305 ]
@@ -1586,7 +1586,7 @@ _ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex11GetFaceNextEi.exit114.i: ; preds = %339
   %.0.i112.i = phi i32 [ %331, %326 ], [ %338, %337 ], [ %341, %339 ]
   %indvars.iv.next166.i = add nuw nsw i64 %indvars.iv165.i, 1
   %exitcond169.not.i = icmp eq i64 %indvars.iv.next166.i, %wide.trip.count168.i
-  br i1 %exitcond169.not.i, label %._crit_edge153.i, label %315, !llvm.loop !18
+  br i1 %exitcond169.not.i, label %._crit_edge153.i, label %315, !llvm.loop !17
 
 ._crit_edge153.i:                                 ; preds = %_ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex11GetFaceNextEi.exit114.i, %_ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex12GetFaceFirstERKNS1_16FaceVertexSubsetE.exit110.i
   %342 = load ptr, ptr %4, align 8
@@ -1600,7 +1600,7 @@ _ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex11GetFaceNextEi.exit114.i: ; preds = %339
   %.3.i = phi ptr [ %345, %._crit_edge153.i ], [ %.2.i, %245 ]
   %indvars.iv.next171.i = add nuw nsw i64 %indvars.iv170.i, 1
   %exitcond174.not.i = icmp eq i64 %indvars.iv.next171.i, %wide.trip.count173.i
-  br i1 %exitcond174.not.i, label %._crit_edge158.loopexit.i, label %105, !llvm.loop !19
+  br i1 %exitcond174.not.i, label %._crit_edge158.loopexit.i, label %105, !llvm.loop !18
 
 ._crit_edge158.loopexit.i:                        ; preds = %346
   %.pre.i = load ptr, ptr %6, align 8
@@ -2482,7 +2482,7 @@ define linkonce_odr void @_ZNSt8_Rb_treeIiSt4pairIKiiESt10_Select1stIS2_ESt4less
   %6 = load ptr, ptr %5, align 8
   tail call void @_ZdlPvm(ptr noundef nonnull %.07, i64 noundef 40) #18
   %.not = icmp eq ptr %6, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !20
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !19
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   ret void
@@ -2570,26 +2570,26 @@ _ZN10OpenSubdiv6v3_6_03Bfr8internal11SurfaceData9resizeCVsEi.exit: ; preds = %29
 
 52:                                               ; preds = %_ZN10OpenSubdiv6v3_6_03Bfr8internal11SurfaceData9resizeCVsEi.exit
   %53 = getelementptr inbounds nuw i8, ptr %2, i64 112
-  %54 = load ptr, ptr %53, align 8, !noalias !21
+  %54 = load ptr, ptr %53, align 8, !noalias !20
   %55 = getelementptr inbounds nuw i8, ptr %2, i64 120
-  %56 = load ptr, ptr %55, align 8, !noalias !21
+  %56 = load ptr, ptr %55, align 8, !noalias !20
   %.not.i.i.i.i = icmp eq ptr %56, null
   br i1 %.not.i.i.i.i, label %_ZNK10OpenSubdiv6v3_6_03Bfr8internal11SurfaceData16getIrregPatchPtrEv.exit.thread, label %57
 
 57:                                               ; preds = %52
   %58 = getelementptr inbounds nuw i8, ptr %56, i64 8
-  %59 = load i8, ptr @__libc_single_threaded, align 1, !noalias !21
+  %59 = load i8, ptr @__libc_single_threaded, align 1, !noalias !20
   %.not.i.i.i.i.i = icmp eq i8 %59, 0
   br i1 %.not.i.i.i.i.i, label %63, label %60
 
 60:                                               ; preds = %57
-  %61 = load i32, ptr %58, align 4, !noalias !21
+  %61 = load i32, ptr %58, align 4, !noalias !20
   %62 = add nsw i32 %61, 1
-  store i32 %62, ptr %58, align 4, !noalias !21
+  store i32 %62, ptr %58, align 4, !noalias !20
   br label %_ZNK10OpenSubdiv6v3_6_03Bfr8internal11SurfaceData16getIrregPatchPtrEv.exit
 
 63:                                               ; preds = %57
-  %64 = atomicrmw volatile add ptr %58, i32 1 acq_rel, align 4, !noalias !21
+  %64 = atomicrmw volatile add ptr %58, i32 1 acq_rel, align 4, !noalias !20
   br label %_ZNK10OpenSubdiv6v3_6_03Bfr8internal11SurfaceData16getIrregPatchPtrEv.exit
 
 _ZNK10OpenSubdiv6v3_6_03Bfr8internal11SurfaceData16getIrregPatchPtrEv.exit: ; preds = %60, %63
@@ -2868,12 +2868,12 @@ define noundef zeroext i1 @_ZNK10OpenSubdiv6v3_6_03Bfr14SurfaceFactory28initFace
   tail call void @_ZN10OpenSubdiv6v3_6_03Bfr10FaceVertex8FinalizeEi(ptr noundef nonnull align 8 dereferenceable(224) %14, i32 noundef %20)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %.loopexit16, label %12, !llvm.loop !24
+  br i1 %exitcond.not.i, label %.loopexit16, label %12, !llvm.loop !23
 
 .loopexit16:                                      ; preds = %22, %3
   tail call void @_ZN10OpenSubdiv6v3_6_03Bfr12FaceTopology8FinalizeEv(ptr noundef nonnull align 8 dereferenceable(944) %2)
   %23 = getelementptr inbounds nuw i8, ptr %2, i64 20
-  %24 = load i16, ptr %23, align 4, !noalias !25
+  %24 = load i16, ptr %23, align 4, !noalias !24
   %25 = and i16 %24, 256
   %.not = icmp eq i16 %25, 0
   br i1 %.not, label %_ZNK10OpenSubdiv6v3_6_03Bfr14SurfaceFactory30gatherFaceNeighborhoodTopologyEiPNS1_12FaceTopologyE.exit, label %26
@@ -2937,7 +2937,7 @@ _ZN10OpenSubdiv6v3_6_03Vtr8internal11StackBufferIiLj72ELb1EEC2Ej.exit: ; preds =
   %54 = add nsw i32 %47, %.02328.us.i
   %indvars.iv.next37.i = add nuw nsw i64 %indvars.iv36.i, 1
   %exitcond40.not.i = icmp eq i64 %indvars.iv.next37.i, %wide.trip.count39.i
-  br i1 %exitcond40.not.i, label %_ZNK10OpenSubdiv6v3_6_03Bfr14SurfaceFactory29gatherFaceNeighborhoodIndicesEiRKNS1_12FaceTopologyEPKlPi.exit, label %.lr.ph.split.us.i, !llvm.loop !28
+  br i1 %exitcond40.not.i, label %_ZNK10OpenSubdiv6v3_6_03Bfr14SurfaceFactory29gatherFaceNeighborhoodIndicesEiRKNS1_12FaceTopologyEPKlPi.exit, label %.lr.ph.split.us.i, !llvm.loop !27
 
 _ZNK10OpenSubdiv6v3_6_03Bfr14SurfaceFactory29gatherFaceNeighborhoodIndicesEiRKNS1_12FaceTopologyEPKlPi.exit: ; preds = %51
   %55 = icmp sgt i32 %54, -1
@@ -3013,7 +3013,7 @@ define noundef zeroext i1 @_ZNK10OpenSubdiv6v3_6_03Bfr14SurfaceFactory30gatherFa
   tail call void @_ZN10OpenSubdiv6v3_6_03Bfr10FaceVertex8FinalizeEi(ptr noundef nonnull align 8 dereferenceable(224) %13, i32 noundef %19)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %11, !llvm.loop !24
+  br i1 %exitcond.not, label %._crit_edge, label %11, !llvm.loop !23
 
 ._crit_edge:                                      ; preds = %21, %3
   tail call void @_ZN10OpenSubdiv6v3_6_03Bfr12FaceTopology8FinalizeEv(ptr noundef nonnull align 8 dereferenceable(944) %2)
@@ -3058,7 +3058,7 @@ define noundef i32 @_ZNK10OpenSubdiv6v3_6_03Bfr14SurfaceFactory29gatherFaceNeigh
   %22 = add nsw i32 %15, %.02328.us
   %indvars.iv.next37 = add nuw nsw i64 %indvars.iv36, 1
   %exitcond40.not = icmp eq i64 %indvars.iv.next37, %wide.trip.count39
-  br i1 %exitcond40.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !28
+  br i1 %exitcond40.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !27
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %32
   %indvars.iv = phi i64 [ %indvars.iv.next, %32 ], [ 0, %.lr.ph ]
@@ -3082,7 +3082,7 @@ define noundef i32 @_ZNK10OpenSubdiv6v3_6_03Bfr14SurfaceFactory29gatherFaceNeigh
   %35 = add nsw i32 %28, %.02328
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count39
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !30
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !29
 
 ._crit_edge:                                      ; preds = %.lr.ph.split, %32, %.lr.ph.split.us, %19, %5
   %.0 = phi i32 [ 0, %5 ], [ %22, %19 ], [ -1, %.lr.ph.split.us ], [ %35, %32 ], [ -1, %.lr.ph.split ]
@@ -3181,7 +3181,7 @@ _ZN10OpenSubdiv6v3_6_03Bfr8internal11SurfaceData12reinitializeEv.exit10.i: ; pre
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %41 = sext i32 %40 to i64
   %42 = icmp slt i64 %indvars.iv.next.i, %41
-  br i1 %42, label %26, label %_ZNK10OpenSubdiv6v3_6_03Bfr14SurfaceFactory10SurfaceSet18InitializeSurfacesEv.exit, !llvm.loop !31
+  br i1 %42, label %26, label %_ZNK10OpenSubdiv6v3_6_03Bfr14SurfaceFactory10SurfaceSet18InitializeSurfacesEv.exit, !llvm.loop !30
 
 _ZNK10OpenSubdiv6v3_6_03Bfr14SurfaceFactory10SurfaceSet18InitializeSurfacesEv.exit: ; preds = %_ZN10OpenSubdiv6v3_6_03Bfr8internal11SurfaceData12reinitializeEv.exit10.i, %_ZN10OpenSubdiv6v3_6_03Bfr8internal11SurfaceData12reinitializeEv.exit7.i
   %43 = load ptr, ptr %0, align 8
@@ -3425,7 +3425,7 @@ _ZNK10OpenSubdiv6v3_6_03Bfr14SurfaceFactory25isFaceNeighborhoodRegularEiPKlPi.ex
 .noexc66:                                         ; preds = %63
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %53, !llvm.loop !24
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %53, !llvm.loop !23
 
 ._crit_edge.i:                                    ; preds = %.noexc66, %.noexc63
   invoke void @_ZN10OpenSubdiv6v3_6_03Bfr12FaceTopology8FinalizeEv(ptr noundef nonnull align 8 dereferenceable(944) %4)
@@ -3436,7 +3436,7 @@ _ZNK10OpenSubdiv6v3_6_03Bfr14SurfaceFactory25isFaceNeighborhoodRegularEiPKlPi.ex
 
 65:                                               ; preds = %64
   %66 = getelementptr inbounds nuw i8, ptr %4, i64 20
-  %67 = load i16, ptr %66, align 4, !noalias !32
+  %67 = load i16, ptr %66, align 4, !noalias !31
   %68 = and i16 %67, 256
   %.not109 = icmp eq i16 %68, 0
   br i1 %.not109, label %107, label %69
@@ -3515,7 +3515,7 @@ _ZNK10OpenSubdiv6v3_6_03Bfr14SurfaceFactory25isFaceNeighborhoodRegularEiPKlPi.ex
   %100 = add nsw i32 %93, %.02328.us.i
   %indvars.iv.next37.i = add nuw nsw i64 %indvars.iv36.i, 1
   %exitcond40.not.i = icmp eq i64 %indvars.iv.next37.i, %wide.trip.count39.i
-  br i1 %exitcond40.not.i, label %_ZNK10OpenSubdiv6v3_6_03Bfr14SurfaceFactory29gatherFaceNeighborhoodIndicesEiRKNS1_12FaceTopologyEPKlPi.exit, label %.lr.ph.split.us.i, !llvm.loop !28
+  br i1 %exitcond40.not.i, label %_ZNK10OpenSubdiv6v3_6_03Bfr14SurfaceFactory29gatherFaceNeighborhoodIndicesEiRKNS1_12FaceTopologyEPKlPi.exit, label %.lr.ph.split.us.i, !llvm.loop !27
 
 _ZNK10OpenSubdiv6v3_6_03Bfr14SurfaceFactory29gatherFaceNeighborhoodIndicesEiRKNS1_12FaceTopologyEPKlPi.exit: ; preds = %97
   %101 = icmp slt i32 %100, 0
@@ -3523,7 +3523,7 @@ _ZNK10OpenSubdiv6v3_6_03Bfr14SurfaceFactory29gatherFaceNeighborhoodIndicesEiRKNS
 
 _ZNK10OpenSubdiv6v3_6_03Bfr14SurfaceFactory29gatherFaceNeighborhoodIndicesEiRKNS1_12FaceTopologyEPKlPi.exit.thread98: ; preds = %83, %_ZNK10OpenSubdiv6v3_6_03Bfr14SurfaceFactory29gatherFaceNeighborhoodIndicesEiRKNS1_12FaceTopologyEPKlPi.exit
   %102 = getelementptr inbounds nuw i8, ptr %4, i64 20
-  %103 = load i16, ptr %102, align 4, !noalias !35
+  %103 = load i16, ptr %102, align 4, !noalias !34
   %104 = and i16 %103, 256
   %.not110 = icmp eq i16 %104, 0
   br i1 %.not110, label %107, label %105
@@ -3541,7 +3541,7 @@ _ZNK10OpenSubdiv6v3_6_03Bfr14SurfaceFactory29gatherFaceNeighborhoodIndicesEiRKNS
 
 110:                                              ; preds = %107
   %111 = getelementptr inbounds nuw i8, ptr %4, i64 20
-  %112 = load i16, ptr %111, align 4, !noalias !38
+  %112 = load i16, ptr %111, align 4, !noalias !37
   %113 = and i8 %108, 8
   %.not.i = icmp ne i8 %113, 0
   %114 = and i16 %112, 1024
@@ -3763,7 +3763,7 @@ _ZNK10OpenSubdiv6v3_6_03Bfr14SurfaceFactory25isFaceNeighborhoodRegularEiPKlPi.ex
   %211 = add nsw i32 %204, %.02328.i
   %indvars.iv.next.i85 = add nuw nsw i64 %indvars.iv.i83, 1
   %exitcond.not.i86 = icmp eq i64 %indvars.iv.next.i85, %wide.trip.count39.i82
-  br i1 %exitcond.not.i86, label %_ZNK10OpenSubdiv6v3_6_03Bfr14SurfaceFactory29gatherFaceNeighborhoodIndicesEiRKNS1_12FaceTopologyEPKlPi.exit95, label %.lr.ph.split.i, !llvm.loop !30
+  br i1 %exitcond.not.i86, label %_ZNK10OpenSubdiv6v3_6_03Bfr14SurfaceFactory29gatherFaceNeighborhoodIndicesEiRKNS1_12FaceTopologyEPKlPi.exit95, label %.lr.ph.split.i, !llvm.loop !29
 
 _ZNK10OpenSubdiv6v3_6_03Bfr14SurfaceFactory29gatherFaceNeighborhoodIndicesEiRKNS1_12FaceTopologyEPKlPi.exit95: ; preds = %208
   %212 = icmp slt i32 %211, 0
@@ -3839,7 +3839,7 @@ _ZN10OpenSubdiv6v3_6_03Bfr11FaceSurfaceC2ERKS2_PKi.exit: ; preds = %_ZNK10OpenSu
 231:                                              ; preds = %177, %229
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %_ZNK10OpenSubdiv6v3_6_03Bfr14SurfaceFactory30gatherFaceNeighborhoodTopologyEiPNS1_12FaceTopologyE.exit, label %157, !llvm.loop !41
+  br i1 %exitcond.not, label %_ZNK10OpenSubdiv6v3_6_03Bfr14SurfaceFactory30gatherFaceNeighborhoodTopologyEiPNS1_12FaceTopologyE.exit, label %157, !llvm.loop !40
 
 _ZNK10OpenSubdiv6v3_6_03Bfr14SurfaceFactory30gatherFaceNeighborhoodTopologyEiPNS1_12FaceTopologyE.exit: ; preds = %.noexc65, %.noexc71, %182, %_ZNK10OpenSubdiv6v3_6_03Bfr14SurfaceFactory29gatherFaceNeighborhoodIndicesEiRKNS1_12FaceTopologyEPKlPi.exit95, %231, %.noexc94, %138, %110, %_ZNK10OpenSubdiv6v3_6_03Bfr14SurfaceFactory24faceHasLimitNeighborhoodERKNS1_12FaceTopologyE.exit, %137, %_ZNK10OpenSubdiv6v3_6_03Bfr14SurfaceFactory29gatherFaceNeighborhoodIndicesEiRKNS1_12FaceTopologyEPKlPi.exit, %41
   %.0 = phi i1 [ true, %41 ], [ false, %_ZNK10OpenSubdiv6v3_6_03Bfr14SurfaceFactory29gatherFaceNeighborhoodIndicesEiRKNS1_12FaceTopologyEPKlPi.exit ], [ %or.cond7.not.i.not.not113, %_ZNK10OpenSubdiv6v3_6_03Bfr14SurfaceFactory24faceHasLimitNeighborhoodERKNS1_12FaceTopologyE.exit ], [ true, %137 ], [ false, %110 ], [ true, %138 ], [ false, %.noexc94 ], [ false, %182 ], [ false, %_ZNK10OpenSubdiv6v3_6_03Bfr14SurfaceFactory29gatherFaceNeighborhoodIndicesEiRKNS1_12FaceTopologyEPKlPi.exit95 ], [ true, %231 ], [ false, %.noexc71 ], [ false, %.noexc65 ]
@@ -3889,7 +3889,7 @@ _ZNK10OpenSubdiv6v3_6_03Bfr14SurfaceFactory30gatherFaceNeighborhoodTopologyEiPNS
   %254 = load i32, ptr %235, align 8
   %255 = zext i32 %254 to i64
   %256 = icmp samesign ult i64 %indvars.iv.next.i.i.i, %255
-  br i1 %256, label %.lr.ph.i.i.i, label %_ZN10OpenSubdiv6v3_6_03Bfr12FaceTopologyD2Ev.exit, !llvm.loop !42
+  br i1 %256, label %.lr.ph.i.i.i, label %_ZN10OpenSubdiv6v3_6_03Bfr12FaceTopologyD2Ev.exit, !llvm.loop !41
 
 _ZN10OpenSubdiv6v3_6_03Bfr12FaceTopologyD2Ev.exit: ; preds = %.lr.ph.i.i.i, %_ZNK10OpenSubdiv6v3_6_03Bfr14SurfaceFactory30gatherFaceNeighborhoodTopologyEiPNS1_12FaceTopologyE.exit
   %257 = getelementptr inbounds nuw i8, ptr %4, i64 936
@@ -3993,7 +3993,7 @@ _ZNK10OpenSubdiv6v3_6_03Bfr14SurfaceFactory10SurfaceSet14GetFVarSurfaceEi.exit: 
   call void @_ZNK10OpenSubdiv6v3_6_03Bfr14SurfaceFactory19assignLinearSurfaceEPNS1_8internal11SurfaceDataEiPKl(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef %39, i32 noundef %1, ptr noundef nonnull %4)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %26, !llvm.loop !43
+  br i1 %exitcond.not, label %.loopexit, label %26, !llvm.loop !42
 
 .loopexit:                                        ; preds = %_ZNK10OpenSubdiv6v3_6_03Bfr14SurfaceFactory10SurfaceSet14GetFVarSurfaceEi.exit, %19, %16
   ret i1 true
@@ -4045,7 +4045,7 @@ define linkonce_odr void @_ZN10OpenSubdiv6v3_6_03Bfr12FaceTopologyD2Ev(ptr nound
   %22 = load i32, ptr %3, align 8
   %23 = zext i32 %22 to i64
   %24 = icmp samesign ult i64 %indvars.iv.next.i.i, %23
-  br i1 %24, label %.lr.ph.i.i, label %_ZN10OpenSubdiv6v3_6_03Vtr8internal11StackBufferINS0_3Bfr10FaceVertexELj4ELb0EED2Ev.exit, !llvm.loop !42
+  br i1 %24, label %.lr.ph.i.i, label %_ZN10OpenSubdiv6v3_6_03Vtr8internal11StackBufferINS0_3Bfr10FaceVertexELj4ELb0EED2Ev.exit, !llvm.loop !41
 
 _ZN10OpenSubdiv6v3_6_03Vtr8internal11StackBufferINS0_3Bfr10FaceVertexELj4ELb0EED2Ev.exit: ; preds = %.lr.ph.i.i, %1
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 936
@@ -4122,39 +4122,38 @@ attributes #18 = { builtin nounwind }
 !5 = !{!6}
 !6 = distinct !{!6, !7, !"_ZNK10OpenSubdiv6v3_6_03Bfr12FaceTopology6GetTagEv: argument 0"}
 !7 = distinct !{!7, !"_ZNK10OpenSubdiv6v3_6_03Bfr12FaceTopology6GetTagEv"}
-!8 = distinct !{!8, !9, !10}
+!8 = distinct !{!8, !9}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = !{!"llvm.loop.estimated_trip_count"}
-!11 = !{!12}
-!12 = distinct !{!12, !13, !"_ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex6GetTagEv: argument 0"}
-!13 = distinct !{!13, !"_ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex6GetTagEv"}
-!14 = distinct !{!14, !9, !10}
-!15 = distinct !{!15, !9, !10}
-!16 = distinct !{!16, !9, !10}
-!17 = distinct !{!17, !9, !10}
-!18 = distinct !{!18, !9, !10}
-!19 = distinct !{!19, !9, !10}
-!20 = distinct !{!20, !9, !10}
-!21 = !{!22}
-!22 = distinct !{!22, !23, !"_ZNK10OpenSubdiv6v3_6_03Bfr8internal11SurfaceData16getIrregPatchPtrEv: argument 0"}
-!23 = distinct !{!23, !"_ZNK10OpenSubdiv6v3_6_03Bfr8internal11SurfaceData16getIrregPatchPtrEv"}
-!24 = distinct !{!24, !9, !10}
-!25 = !{!26}
-!26 = distinct !{!26, !27, !"_ZNK10OpenSubdiv6v3_6_03Bfr12FaceTopology6GetTagEv: argument 0"}
-!27 = distinct !{!27, !"_ZNK10OpenSubdiv6v3_6_03Bfr12FaceTopology6GetTagEv"}
-!28 = distinct !{!28, !9, !10, !29}
-!29 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!30 = distinct !{!30, !9, !10}
-!31 = distinct !{!31, !9, !10}
-!32 = !{!33}
-!33 = distinct !{!33, !34, !"_ZNK10OpenSubdiv6v3_6_03Bfr12FaceTopology6GetTagEv: argument 0"}
-!34 = distinct !{!34, !"_ZNK10OpenSubdiv6v3_6_03Bfr12FaceTopology6GetTagEv"}
-!35 = !{!36}
-!36 = distinct !{!36, !37, !"_ZNK10OpenSubdiv6v3_6_03Bfr12FaceTopology6GetTagEv: argument 0"}
-!37 = distinct !{!37, !"_ZNK10OpenSubdiv6v3_6_03Bfr12FaceTopology6GetTagEv"}
-!38 = !{!39}
-!39 = distinct !{!39, !40, !"_ZNK10OpenSubdiv6v3_6_03Bfr12FaceTopology6GetTagEv: argument 0"}
-!40 = distinct !{!40, !"_ZNK10OpenSubdiv6v3_6_03Bfr12FaceTopology6GetTagEv"}
-!41 = distinct !{!41, !9, !10}
-!42 = distinct !{!42, !9, !10}
-!43 = distinct !{!43, !9, !10}
+!10 = !{!11}
+!11 = distinct !{!11, !12, !"_ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex6GetTagEv: argument 0"}
+!12 = distinct !{!12, !"_ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex6GetTagEv"}
+!13 = distinct !{!13, !9}
+!14 = distinct !{!14, !9}
+!15 = distinct !{!15, !9}
+!16 = distinct !{!16, !9}
+!17 = distinct !{!17, !9}
+!18 = distinct !{!18, !9}
+!19 = distinct !{!19, !9}
+!20 = !{!21}
+!21 = distinct !{!21, !22, !"_ZNK10OpenSubdiv6v3_6_03Bfr8internal11SurfaceData16getIrregPatchPtrEv: argument 0"}
+!22 = distinct !{!22, !"_ZNK10OpenSubdiv6v3_6_03Bfr8internal11SurfaceData16getIrregPatchPtrEv"}
+!23 = distinct !{!23, !9}
+!24 = !{!25}
+!25 = distinct !{!25, !26, !"_ZNK10OpenSubdiv6v3_6_03Bfr12FaceTopology6GetTagEv: argument 0"}
+!26 = distinct !{!26, !"_ZNK10OpenSubdiv6v3_6_03Bfr12FaceTopology6GetTagEv"}
+!27 = distinct !{!27, !9, !28}
+!28 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!29 = distinct !{!29, !9}
+!30 = distinct !{!30, !9}
+!31 = !{!32}
+!32 = distinct !{!32, !33, !"_ZNK10OpenSubdiv6v3_6_03Bfr12FaceTopology6GetTagEv: argument 0"}
+!33 = distinct !{!33, !"_ZNK10OpenSubdiv6v3_6_03Bfr12FaceTopology6GetTagEv"}
+!34 = !{!35}
+!35 = distinct !{!35, !36, !"_ZNK10OpenSubdiv6v3_6_03Bfr12FaceTopology6GetTagEv: argument 0"}
+!36 = distinct !{!36, !"_ZNK10OpenSubdiv6v3_6_03Bfr12FaceTopology6GetTagEv"}
+!37 = !{!38}
+!38 = distinct !{!38, !39, !"_ZNK10OpenSubdiv6v3_6_03Bfr12FaceTopology6GetTagEv: argument 0"}
+!39 = distinct !{!39, !"_ZNK10OpenSubdiv6v3_6_03Bfr12FaceTopology6GetTagEv"}
+!40 = distinct !{!40, !9}
+!41 = distinct !{!41, !9}
+!42 = distinct !{!42, !9}

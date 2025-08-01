@@ -765,7 +765,7 @@ define internal noundef i32 @json_manifest_object_field_start(ptr noundef captur
 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %8 = load i8, ptr %7, align 8, !range !7, !noundef !8
+  %8 = load i8, ptr %7, align 8, !range !6, !noundef !7
   %9 = trunc nuw i8 %8 to i1
   br i1 %9, label %17, label %10
 
@@ -1180,7 +1180,7 @@ define internal fastcc void @verify_manifest_checksum(ptr noundef readonly captu
   %.1 = select i1 %10, i64 %.04156, i64 %.04057
   %12 = add nuw i64 %.04554, 1
   %exitcond.not = icmp eq i64 %12, %2
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !9
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %.lr.ph
   %13 = icmp ult i64 %.144, 2
@@ -1477,9 +1477,8 @@ attributes #10 = { nounwind willreturn memory(read) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = distinct !{!4, !5, !6}
+!4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{!"llvm.loop.estimated_trip_count"}
-!7 = !{i8 0, i8 2}
-!8 = !{}
-!9 = distinct !{!9, !5, !6}
+!6 = !{i8 0, i8 2}
+!7 = !{}
+!8 = distinct !{!8, !5}

@@ -275,7 +275,7 @@ define dso_local void @nlmsvc_locks_init_private(ptr noundef writeonly captures(
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 40
   %12 = load i32, ptr %11, align 8
   %13 = icmp eq i32 %12, %2
-  br i1 %13, label %14, label %6, !llvm.loop !12
+  br i1 %13, label %14, label %6, !llvm.loop !11
 
 14:                                               ; preds = %10
   %15 = getelementptr inbounds nuw i8, ptr %8, i64 16
@@ -315,7 +315,7 @@ define dso_local void @nlmsvc_locks_init_private(ptr noundef writeonly captures(
   %33 = getelementptr inbounds nuw i8, ptr %30, i64 40
   %34 = load i32, ptr %33, align 8
   %35 = icmp eq i32 %34, %2
-  br i1 %35, label %36, label %28, !llvm.loop !13
+  br i1 %35, label %36, label %28, !llvm.loop !11
 
 36:                                               ; preds = %32
   %37 = getelementptr inbounds nuw i8, ptr %30, i64 16
@@ -426,7 +426,7 @@ define dso_local range(i32 0, 812974081) i32 @nlmsvc_lock(ptr noundef %0, ptr no
   %44 = getelementptr inbounds nuw i8, ptr %30, i64 68
   %45 = getelementptr inbounds nuw i8, ptr %3, i64 12
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(130) %44, ptr noundef nonnull align 4 dereferenceable(130) %45, i64 130, i1 false)
-  %46 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #11, !srcloc !14
+  %46 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #11, !srcloc !12
   %47 = inttoptr i64 %46 to ptr
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 1872
   %49 = load ptr, ptr %48, align 16
@@ -753,7 +753,7 @@ define dso_local range(i32 0, 812974081) i32 @nlmsvc_lock(ptr noundef %0, ptr no
   br i1 %197, label %226, label %.thread
 
 226:                                              ; preds = %225
-  %227 = tail call fastcc i32 @nlmsvc_defer_lock_rqst(ptr noundef %0, ptr noundef nonnull %105), !range !15
+  %227 = tail call fastcc i32 @nlmsvc_defer_lock_rqst(ptr noundef %0, ptr noundef nonnull %105), !range !13
   br label %.thread
 
 228:                                              ; preds = %202
@@ -899,7 +899,7 @@ define internal fastcc ptr @nlmsvc_lookup_block(ptr noundef readnone captures(ad
 .critedge:                                        ; preds = %43, %38, %33, %28, %17, %48, %12
   %64 = load ptr, ptr %13, align 8
   %65 = icmp eq ptr %64, @nlm_blocked
-  br i1 %65, label %.loopexit, label %12, !llvm.loop !16
+  br i1 %65, label %.loopexit, label %12, !llvm.loop !14
 
 .loopexit:                                        ; preds = %.critedge, %62, %58, %2
   %66 = phi ptr [ %55, %62 ], [ %55, %58 ], [ null, %2 ], [ null, %.critedge ]
@@ -1005,7 +1005,7 @@ define internal fastcc range(i32 33554432, 812974081) i32 @nlmsvc_defer_lock_rqs
   %35 = icmp slt i64 %34, 0
   %36 = icmp eq i64 %33, -1
   %37 = or i1 %36, %35
-  br i1 %37, label %nlmsvc_insert_block_locked.exit, label %27, !llvm.loop !17
+  br i1 %37, label %nlmsvc_insert_block_locked.exit, label %27, !llvm.loop !15
 
 nlmsvc_insert_block_locked.exit:                  ; preds = %27, %31
   %38 = getelementptr inbounds nuw i8, ptr %29, i64 8
@@ -1064,9 +1064,9 @@ define dso_local noundef range(i32 0, 67108865) i32 @nlmsvc_testlock(ptr noundef
   ]
 
 23:                                               ; preds = %15
-  tail call void asm sideeffect "718: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 718b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 718) #9, !srcloc !18
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 633, i32 2307, i64 12) #9, !srcloc !19
-  tail call void asm sideeffect "719: nop\0A\09.pushsection .discard.instr_end\0A\09.long 719b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 719) #9, !srcloc !20
+  tail call void asm sideeffect "718: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 718b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 718) #9, !srcloc !16
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 633, i32 2307, i64 12) #9, !srcloc !17
+  tail call void asm sideeffect "719: nop\0A\09.pushsection .discard.instr_end\0A\09.long 719b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 719) #9, !srcloc !18
   br label %42
 
 24:                                               ; preds = %15
@@ -1112,7 +1112,7 @@ declare dso_local void @locks_release_private(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local range(i32 0, 33554433) i32 @nlmsvc_unlock(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 align 16 {
-  %4 = tail call i32 @nlmsvc_cancel_blocked(ptr noundef %0, ptr noundef %1, ptr noundef %2), !range !21
+  %4 = tail call i32 @nlmsvc_cancel_blocked(ptr noundef %0, ptr noundef %1, ptr noundef %2), !range !19
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 184
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 268
   store i8 2, ptr %6, align 4
@@ -1333,7 +1333,7 @@ define internal void @nlmsvc_notify_blocked(ptr noundef readonly captures(none) 
 .backedge:                                        ; preds = %37, %32, %27, %22, %13, %42
   %48 = load ptr, ptr %14, align 8
   %49 = icmp eq ptr %48, @nlm_blocked
-  br i1 %49, label %._crit_edge, label %13, !llvm.loop !22
+  br i1 %49, label %._crit_edge, label %13, !llvm.loop !20
 
 50:                                               ; preds = %42
   %51 = getelementptr i8, ptr %14, i64 -8
@@ -1389,7 +1389,7 @@ define internal void @nlmsvc_notify_blocked(ptr noundef readonly captures(none) 
   %79 = icmp slt i64 %78, 0
   %80 = icmp eq i64 %77, -1
   %81 = or i1 %80, %79
-  br i1 %81, label %82, label %71, !llvm.loop !23
+  br i1 %81, label %82, label %71, !llvm.loop !15
 
 82:                                               ; preds = %75, %71
   %83 = getelementptr inbounds nuw i8, ptr %73, i64 8
@@ -1491,7 +1491,7 @@ define internal noundef range(i32 -37, 1) i32 @nlmsvc_grant_deferred(ptr noundef
 .backedge:                                        ; preds = %39, %34, %29, %24, %15, %44
   %50 = load ptr, ptr %16, align 8
   %51 = icmp eq ptr %50, @nlm_blocked
-  br i1 %51, label %.thread, label %15, !llvm.loop !24
+  br i1 %51, label %.thread, label %15, !llvm.loop !21
 
 52:                                               ; preds = %44
   %53 = getelementptr i8, ptr %16, i64 -8
@@ -1588,7 +1588,7 @@ define internal noundef range(i32 -37, 1) i32 @nlmsvc_grant_deferred(ptr noundef
   %100 = icmp slt i64 %99, 0
   %101 = icmp eq i64 %98, -1
   %102 = or i1 %101, %100
-  br i1 %102, label %103, label %92, !llvm.loop !25
+  br i1 %102, label %103, label %92, !llvm.loop !15
 
 103:                                              ; preds = %92, %96
   %104 = getelementptr inbounds nuw i8, ptr %94, i64 8
@@ -1646,7 +1646,7 @@ define dso_local void @nlmsvc_grant_reply(ptr noundef readonly captures(none) %0
 .critedge.backedge:                               ; preds = %15, %8
   %18 = load ptr, ptr %9, align 8
   %19 = icmp eq ptr %18, @nlm_blocked
-  br i1 %19, label %.thread, label %8, !llvm.loop !26
+  br i1 %19, label %.thread, label %8, !llvm.loop !22
 
 20:                                               ; preds = %15
   %21 = getelementptr i8, ptr %9, i64 32
@@ -1732,7 +1732,7 @@ define dso_local void @nlmsvc_grant_reply(ptr noundef readonly captures(none) %0
   %63 = icmp slt i64 %62, 0
   %64 = icmp eq i64 %61, -1
   %65 = or i1 %64, %63
-  br i1 %65, label %nlmsvc_insert_block_locked.exit, label %55, !llvm.loop !17
+  br i1 %65, label %nlmsvc_insert_block_locked.exit, label %55, !llvm.loop !15
 
 nlmsvc_insert_block_locked.exit:                  ; preds = %55, %59
   %66 = getelementptr inbounds nuw i8, ptr %57, i64 8
@@ -1838,14 +1838,14 @@ define dso_local void @nlmsvc_retry_blocked(ptr noundef %0) local_unnamed_addr #
 7:                                                ; preds = %238, %4
   %8 = load ptr, ptr %5, align 8
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 184
-  %10 = tail call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $2, $0\0A\09/* output condition code c*/\0A", "=*m,={@ccc},Ir,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %9, i64 1, ptr nonnull elementtype(i64) %9) #9, !srcloc !27
+  %10 = tail call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $2, $0\0A\09/* output condition code c*/\0A", "=*m,={@ccc},Ir,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %9, i64 1, ptr nonnull elementtype(i64) %9) #9, !srcloc !23
   %11 = icmp ult i8 %10, 2
   tail call void @llvm.assume(i1 %11)
   %12 = icmp eq i8 %10, 0
   br i1 %12, label %14, label %13
 
 13:                                               ; preds = %7
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %6, i32 16, ptr nonnull elementtype(i8) %6) #9, !srcloc !28
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %6, i32 16, ptr nonnull elementtype(i8) %6) #9, !srcloc !24
   br label %14
 
 14:                                               ; preds = %13, %7
@@ -1941,7 +1941,7 @@ define dso_local void @nlmsvc_retry_blocked(ptr noundef %0) local_unnamed_addr #
   %67 = icmp slt i64 %66, 0
   %68 = icmp eq i64 %65, -1
   %69 = or i1 %68, %67
-  br i1 %69, label %nlmsvc_insert_block_locked.exit, label %59, !llvm.loop !17
+  br i1 %69, label %nlmsvc_insert_block_locked.exit, label %59, !llvm.loop !15
 
 nlmsvc_insert_block_locked.exit:                  ; preds = %59, %63
   %70 = getelementptr inbounds nuw i8, ptr %61, i64 8
@@ -2152,7 +2152,7 @@ nlmsvc_insert_block_locked.exit:                  ; preds = %59, %63
   %177 = icmp slt i64 %176, 0
   %178 = icmp eq i64 %175, -1
   %179 = or i1 %178, %177
-  br i1 %179, label %nlmsvc_insert_block_locked.exit10, label %169, !llvm.loop !17
+  br i1 %179, label %nlmsvc_insert_block_locked.exit10, label %169, !llvm.loop !15
 
 nlmsvc_insert_block_locked.exit10:                ; preds = %169, %173
   %180 = getelementptr inbounds nuw i8, ptr %171, i64 8
@@ -2271,7 +2271,7 @@ nlmsvc_insert_block_locked.exit10:                ; preds = %169, %173
   %233 = icmp slt i64 %232, 0
   %234 = icmp eq i64 %231, -1
   %235 = or i1 %234, %233
-  br i1 %235, label %nlmsvc_insert_block_locked.exit11, label %225, !llvm.loop !17
+  br i1 %235, label %nlmsvc_insert_block_locked.exit11, label %225, !llvm.loop !15
 
 nlmsvc_insert_block_locked.exit11:                ; preds = %225, %229
   %236 = getelementptr inbounds nuw i8, ptr %227, i64 8
@@ -2288,7 +2288,7 @@ nlmsvc_insert_block_locked.exit11:                ; preds = %225, %229
   tail call void @_raw_spin_lock(ptr noundef nonnull @nlm_blocked_lock) #9
   %239 = load volatile ptr, ptr @nlm_blocked, align 8
   %240 = icmp eq ptr %239, @nlm_blocked
-  br i1 %240, label %.thread, label %7, !llvm.loop !29
+  br i1 %240, label %.thread, label %7, !llvm.loop !25
 
 .thread:                                          ; preds = %238, %18, %14, %1
   tail call void @_raw_spin_unlock(ptr noundef nonnull @nlm_blocked_lock) #9
@@ -2436,7 +2436,7 @@ define internal void @nlmsvc_grant_callback(ptr noundef readonly captures(none) 
   %41 = icmp slt i64 %40, 0
   %42 = icmp eq i64 %39, -1
   %43 = or i1 %42, %41
-  br i1 %43, label %nlmsvc_insert_block_locked.exit, label %33, !llvm.loop !17
+  br i1 %43, label %nlmsvc_insert_block_locked.exit, label %33, !llvm.loop !15
 
 nlmsvc_insert_block_locked.exit:                  ; preds = %33, %37
   %44 = getelementptr inbounds nuw i8, ptr %35, i64 8
@@ -2494,25 +2494,21 @@ attributes #13 = { cold nounwind }
 !5 = !{i64 2148905152, i64 2148905191, i64 2148905212, i64 2148905249, i64 2148905272, i64 2148905281}
 !6 = !{!"branch_weights", i32 1, i32 2000}
 !7 = !{!"branch_weights", i32 2000, i32 1}
-!8 = distinct !{!8, !9, !10, !11}
+!8 = distinct !{!8, !9, !10}
 !9 = !{!"llvm.loop.mustprogress"}
 !10 = !{!"llvm.loop.unroll.disable"}
-!11 = !{!"llvm.loop.estimated_trip_count"}
-!12 = distinct !{!12, !9, !10, !11}
-!13 = distinct !{!13, !9, !10, !11}
-!14 = !{i64 2147960278}
-!15 = !{i32 33554432, i32 812974081}
-!16 = distinct !{!16, !9, !10, !11}
-!17 = distinct !{!17, !9, !10, !11}
-!18 = !{i64 2158443527, i64 2158443336, i64 2158443388, i64 2158443434, i64 2158443462}
-!19 = !{i64 2158443601, i64 2158443630, i64 2158443676, i64 2158443734, i64 2158443788, i64 2158443842, i64 2158443897, i64 2158443928, i64 2158444236, i64 2158444242, i64 2158444289, i64 2158444312, i64 2158444338}
-!20 = !{i64 2158444789, i64 2158444600, i64 2158444650, i64 2158444696, i64 2158444724}
-!21 = !{i32 0, i32 67108865}
-!22 = distinct !{!22, !11}
-!23 = distinct !{!23, !9, !10, !11}
-!24 = distinct !{!24, !11}
-!25 = distinct !{!25, !9, !10, !11}
-!26 = distinct !{!26, !11}
-!27 = !{i64 2148420315, i64 2148420354, i64 2148420375, i64 2148420412, i64 2148420435, i64 2148420444, i64 2148420547}
-!28 = !{i64 2148410962, i64 2148411001, i64 2148411022, i64 2148411059, i64 2148411082, i64 2148410952}
-!29 = distinct !{!29, !9, !10, !11}
+!11 = distinct !{!11, !9, !10}
+!12 = !{i64 2147960278}
+!13 = !{i32 33554432, i32 812974081}
+!14 = distinct !{!14, !9, !10}
+!15 = distinct !{!15, !9, !10}
+!16 = !{i64 2158443527, i64 2158443336, i64 2158443388, i64 2158443434, i64 2158443462}
+!17 = !{i64 2158443601, i64 2158443630, i64 2158443676, i64 2158443734, i64 2158443788, i64 2158443842, i64 2158443897, i64 2158443928, i64 2158444236, i64 2158444242, i64 2158444289, i64 2158444312, i64 2158444338}
+!18 = !{i64 2158444789, i64 2158444600, i64 2158444650, i64 2158444696, i64 2158444724}
+!19 = !{i32 0, i32 67108865}
+!20 = distinct !{!20, !9, !10}
+!21 = distinct !{!21, !9, !10}
+!22 = distinct !{!22, !9, !10}
+!23 = !{i64 2148420315, i64 2148420354, i64 2148420375, i64 2148420412, i64 2148420435, i64 2148420444, i64 2148420547}
+!24 = !{i64 2148410962, i64 2148411001, i64 2148411022, i64 2148411059, i64 2148411082, i64 2148410952}
+!25 = distinct !{!25, !9, !10}

@@ -114,7 +114,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   br i1 %or.cond.i.i.i.i, label %25, label %28
 
 25:                                               ; preds = %19
-  %26 = load ptr, ptr @stderr, align 8, !tbaa !19
+  %26 = load ptr, ptr @stderr, align 8, !tbaa !18
   %27 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %26, ptr noundef nonnull @.str.12, ptr noundef %20) #12
   br label %34
 
@@ -123,7 +123,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   br i1 %29, label %30, label %setOne.exit.i
 
 30:                                               ; preds = %28
-  %31 = load ptr, ptr @stderr, align 8, !tbaa !19
+  %31 = load ptr, ptr @stderr, align 8, !tbaa !18
   %32 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %31, ptr noundef nonnull @.str.13, ptr noundef %20, i32 noundef 1) #12
   br label %34
 
@@ -168,7 +168,7 @@ setOne.exit.i:                                    ; preds = %28
 
 45:                                               ; preds = %44, %17
   %46 = load ptr, ptr @optarg, align 8, !tbaa !14
-  %47 = load i8, ptr %46, align 1, !tbaa !20
+  %47 = load i8, ptr %46, align 1, !tbaa !19
   %48 = icmp eq i8 %47, 102
   br i1 %48, label %49, label %setFold.exit.i
 
@@ -190,7 +190,7 @@ setFold.exit.i:                                   ; preds = %49, %45
   br i1 %or.cond.i.i.i, label %55, label %58
 
 55:                                               ; preds = %setFold.exit.i
-  %56 = load ptr, ptr @stderr, align 8, !tbaa !19
+  %56 = load ptr, ptr @stderr, align 8, !tbaa !18
   %57 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %56, ptr noundef nonnull @.str.12, ptr noundef nonnull %.0.i.i) #12
   br label %.loopexit.i
 
@@ -199,19 +199,19 @@ setFold.exit.i:                                   ; preds = %49, %45
   br i1 %59, label %60, label %readPos.exit.i.i
 
 60:                                               ; preds = %58
-  %61 = load ptr, ptr @stderr, align 8, !tbaa !19
+  %61 = load ptr, ptr @stderr, align 8, !tbaa !18
   %62 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %61, ptr noundef nonnull @.str.13, ptr noundef nonnull %.0.i.i, i32 noundef 1) #12
   br label %.loopexit.i
 
 readPos.exit.i.i:                                 ; preds = %58
   %63 = trunc nuw i64 %51 to i32
-  store i32 %63, ptr @opts.0, align 8, !tbaa !21
-  %64 = load i8, ptr %52, align 1, !tbaa !20
+  store i32 %63, ptr @opts.0, align 8, !tbaa !20
+  %64 = load i8, ptr %52, align 1, !tbaa !19
   %.not.i.i = icmp eq i8 %64, 44
   br i1 %.not.i.i, label %68, label %65
 
 65:                                               ; preds = %readPos.exit.i.i
-  %66 = load ptr, ptr @stderr, align 8, !tbaa !19
+  %66 = load ptr, ptr @stderr, align 8, !tbaa !18
   %67 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %66, ptr noundef nonnull @.str.11, ptr noundef nonnull %.0.i.i) #12
   br label %.loopexit.i
 
@@ -226,7 +226,7 @@ readPos.exit.i.i:                                 ; preds = %58
   br i1 %or.cond.i11.i.i, label %74, label %77
 
 74:                                               ; preds = %68
-  %75 = load ptr, ptr @stderr, align 8, !tbaa !19
+  %75 = load ptr, ptr @stderr, align 8, !tbaa !18
   %76 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %75, ptr noundef nonnull @.str.12, ptr noundef nonnull %69) #12
   br label %.loopexit.i
 
@@ -238,12 +238,12 @@ readPos.exit.i.i:                                 ; preds = %58
   ]
 
 78:                                               ; preds = %77
-  %79 = load ptr, ptr @stderr, align 8, !tbaa !19
+  %79 = load ptr, ptr @stderr, align 8, !tbaa !18
   %80 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %79, ptr noundef nonnull @.str.13, ptr noundef nonnull %69, i32 noundef 1) #12
   br label %.loopexit.i
 
 setTwo.exit.i:                                    ; preds = %77
-  store i32 %trunc.i.i, ptr @opts.1, align 4, !tbaa !22
+  store i32 %trunc.i.i, ptr @opts.1, align 4, !tbaa !21
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #11
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14)
   br label %.backedge
@@ -266,7 +266,7 @@ setTwo.exit.i:                                    ; preds = %77
   br i1 %or.cond.i.i.i78.i, label %87, label %90
 
 87:                                               ; preds = %81
-  %88 = load ptr, ptr @stderr, align 8, !tbaa !19
+  %88 = load ptr, ptr @stderr, align 8, !tbaa !18
   %89 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %88, ptr noundef nonnull @.str.12, ptr noundef %82) #12
   br label %96
 
@@ -275,7 +275,7 @@ setTwo.exit.i:                                    ; preds = %77
   br i1 %91, label %92, label %setOne.exit81.i
 
 92:                                               ; preds = %90
-  %93 = load ptr, ptr @stderr, align 8, !tbaa !19
+  %93 = load ptr, ptr @stderr, align 8, !tbaa !18
   %94 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %93, ptr noundef nonnull @.str.13, ptr noundef %82, i32 noundef 1) #12
   br label %96
 
@@ -302,7 +302,7 @@ setOne.exit81.i:                                  ; preds = %90
   br i1 %or.cond.i.i.i82.i, label %103, label %106
 
 103:                                              ; preds = %97
-  %104 = load ptr, ptr @stderr, align 8, !tbaa !19
+  %104 = load ptr, ptr @stderr, align 8, !tbaa !18
   %105 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %104, ptr noundef nonnull @.str.12, ptr noundef %98) #12
   br label %112
 
@@ -311,7 +311,7 @@ setOne.exit81.i:                                  ; preds = %90
   br i1 %107, label %108, label %setOne.exit85.i
 
 108:                                              ; preds = %106
-  %109 = load ptr, ptr @stderr, align 8, !tbaa !19
+  %109 = load ptr, ptr @stderr, align 8, !tbaa !18
   %110 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %109, ptr noundef nonnull @.str.13, ptr noundef %98, i32 noundef 1) #12
   br label %112
 
@@ -358,7 +358,7 @@ setOne.exit85.i:                                  ; preds = %106
   br i1 %or.cond.i.i.i86.i, label %127, label %130
 
 127:                                              ; preds = %121
-  %128 = load ptr, ptr @stderr, align 8, !tbaa !19
+  %128 = load ptr, ptr @stderr, align 8, !tbaa !18
   %129 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %128, ptr noundef nonnull @.str.12, ptr noundef %122) #12
   br label %136
 
@@ -367,7 +367,7 @@ setOne.exit85.i:                                  ; preds = %106
   br i1 %131, label %132, label %setOne.exit89.i
 
 132:                                              ; preds = %130
-  %133 = load ptr, ptr @stderr, align 8, !tbaa !19
+  %133 = load ptr, ptr @stderr, align 8, !tbaa !18
   %134 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %133, ptr noundef nonnull @.str.13, ptr noundef %122, i32 noundef 1) #12
   br label %136
 
@@ -404,7 +404,7 @@ setOne.exit89.i:                                  ; preds = %130
   br i1 %or.cond.i.i.i90.i, label %147, label %150
 
 147:                                              ; preds = %141
-  %148 = load ptr, ptr @stderr, align 8, !tbaa !19
+  %148 = load ptr, ptr @stderr, align 8, !tbaa !18
   %149 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %148, ptr noundef nonnull @.str.12, ptr noundef %142) #12
   br label %156
 
@@ -413,7 +413,7 @@ setOne.exit89.i:                                  ; preds = %130
   br i1 %151, label %152, label %setOne.exit93.i
 
 152:                                              ; preds = %150
-  %153 = load ptr, ptr @stderr, align 8, !tbaa !19
+  %153 = load ptr, ptr @stderr, align 8, !tbaa !18
   %154 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %153, ptr noundef nonnull @.str.13, ptr noundef %142, i32 noundef 1) #12
   br label %156
 
@@ -446,14 +446,14 @@ setOne.exit93.i:                                  ; preds = %150
   br i1 %165, label %166, label %openFile.exit.i
 
 166:                                              ; preds = %161
-  %167 = load ptr, ptr @stderr, align 8, !tbaa !19
+  %167 = load ptr, ptr @stderr, align 8, !tbaa !18
   %168 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %167, ptr noundef nonnull @.str.17, ptr noundef %162, ptr noundef %163, ptr noundef nonnull @.str.16) #12
   tail call void @perror(ptr noundef %163) #13
   tail call fastcc void @graphviz_exit(i32 noundef 1) #14
   unreachable
 
 openFile.exit.i:                                  ; preds = %161
-  store ptr %164, ptr @opts.9, align 8, !tbaa !23
+  store ptr %164, ptr @opts.9, align 8, !tbaa !22
   br label %.backedge
 
 169:                                              ; preds = %17
@@ -468,7 +468,7 @@ openFile.exit.i:                                  ; preds = %161
   br i1 %or.cond.i.i.i94.i, label %175, label %178
 
 175:                                              ; preds = %169
-  %176 = load ptr, ptr @stderr, align 8, !tbaa !19
+  %176 = load ptr, ptr @stderr, align 8, !tbaa !18
   %177 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %176, ptr noundef nonnull @.str.12, ptr noundef %170) #12
   br label %184
 
@@ -477,7 +477,7 @@ openFile.exit.i:                                  ; preds = %161
   br i1 %179, label %180, label %setOne.exit97.i
 
 180:                                              ; preds = %178
-  %181 = load ptr, ptr @stderr, align 8, !tbaa !19
+  %181 = load ptr, ptr @stderr, align 8, !tbaa !18
   %182 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %181, ptr noundef nonnull @.str.13, ptr noundef %170, i32 noundef 1) #12
   br label %184
 
@@ -503,12 +503,12 @@ setOne.exit97.i:                                  ; preds = %178
   unreachable
 
 189:                                              ; preds = %185
-  %190 = load i32, ptr @opts.1, align 4, !tbaa !22
+  %190 = load i32, ptr @opts.1, align 4, !tbaa !21
   %191 = icmp ugt i32 %190, 3
   br i1 %191, label %192, label %.backedge
 
 192:                                              ; preds = %189
-  %193 = load ptr, ptr @stderr, align 8, !tbaa !19
+  %193 = load ptr, ptr @stderr, align 8, !tbaa !18
   %194 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %193, ptr noundef nonnull @.str.5, i32 noundef %190) #12
   tail call fastcc void @errexit(i32 noundef 83)
   unreachable
@@ -525,7 +525,7 @@ setOne.exit97.i:                                  ; preds = %178
   br i1 %or.cond.i.i.i98.i, label %201, label %204
 
 201:                                              ; preds = %195
-  %202 = load ptr, ptr @stderr, align 8, !tbaa !19
+  %202 = load ptr, ptr @stderr, align 8, !tbaa !18
   %203 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %202, ptr noundef nonnull @.str.12, ptr noundef %196) #12
   br label %210
 
@@ -534,7 +534,7 @@ setOne.exit97.i:                                  ; preds = %178
   br i1 %205, label %206, label %setOne.exit101.i
 
 206:                                              ; preds = %204
-  %207 = load ptr, ptr @stderr, align 8, !tbaa !19
+  %207 = load ptr, ptr @stderr, align 8, !tbaa !18
   %208 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %207, ptr noundef nonnull @.str.13, ptr noundef %196, i32 noundef 1) #12
   br label %210
 
@@ -570,7 +570,7 @@ setOne.exit101.i:                                 ; preds = %204
   br i1 %or.cond.i.i102.i, label %221, label %224
 
 221:                                              ; preds = %215
-  %222 = load ptr, ptr @stderr, align 8, !tbaa !19
+  %222 = load ptr, ptr @stderr, align 8, !tbaa !18
   %223 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %222, ptr noundef nonnull @.str.12, ptr noundef %216) #12
   br label %setTwoTwoOpt.exit.thread.i
 
@@ -579,19 +579,19 @@ setOne.exit101.i:                                 ; preds = %204
   br i1 %225, label %226, label %readPos.exit.i103.i
 
 226:                                              ; preds = %224
-  %227 = load ptr, ptr @stderr, align 8, !tbaa !19
+  %227 = load ptr, ptr @stderr, align 8, !tbaa !18
   %228 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %227, ptr noundef nonnull @.str.13, ptr noundef %216, i32 noundef 1) #12
   br label %setTwoTwoOpt.exit.thread.i
 
 readPos.exit.i103.i:                              ; preds = %224
   %229 = trunc nuw i64 %217 to i32
-  store i32 %229, ptr @opts.0, align 8, !tbaa !21
-  %230 = load i8, ptr %218, align 1, !tbaa !20
+  store i32 %229, ptr @opts.0, align 8, !tbaa !20
+  %230 = load i8, ptr %218, align 1, !tbaa !19
   %.not.i104.i = icmp eq i8 %230, 44
   br i1 %.not.i104.i, label %234, label %231
 
 231:                                              ; preds = %readPos.exit.i103.i
-  %232 = load ptr, ptr @stderr, align 8, !tbaa !19
+  %232 = load ptr, ptr @stderr, align 8, !tbaa !18
   %233 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %232, ptr noundef nonnull @.str.11, ptr noundef %216) #12
   br label %setTwoTwoOpt.exit.thread.i
 
@@ -605,7 +605,7 @@ readPos.exit.i103.i:                              ; preds = %224
   br i1 %or.cond.i25.i.i, label %240, label %243
 
 240:                                              ; preds = %234
-  %241 = load ptr, ptr @stderr, align 8, !tbaa !19
+  %241 = load ptr, ptr @stderr, align 8, !tbaa !18
   %242 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %241, ptr noundef nonnull @.str.12, ptr noundef nonnull %235) #12
   br label %setTwoTwoOpt.exit.thread20.i
 
@@ -614,20 +614,20 @@ readPos.exit.i103.i:                              ; preds = %224
   br i1 %244, label %245, label %readPos.exit27.i.i
 
 245:                                              ; preds = %243
-  %246 = load ptr, ptr @stderr, align 8, !tbaa !19
+  %246 = load ptr, ptr @stderr, align 8, !tbaa !18
   %247 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %246, ptr noundef nonnull @.str.13, ptr noundef nonnull %235, i32 noundef 1) #12
   br label %setTwoTwoOpt.exit.thread20.i
 
 readPos.exit27.i.i:                               ; preds = %243
   %248 = trunc nuw i64 %236 to i32
-  store i32 %248, ptr @opts.1, align 4, !tbaa !22
-  %249 = load i8, ptr %237, align 1, !tbaa !20
+  store i32 %248, ptr @opts.1, align 4, !tbaa !21
+  %249 = load i8, ptr %237, align 1, !tbaa !19
   %.not23.i.i = icmp eq i8 %249, 44
   br i1 %.not23.i.i, label %251, label %250
 
 250:                                              ; preds = %readPos.exit27.i.i
-  store i32 0, ptr @opts.4, align 8, !tbaa !24
-  store i32 0, ptr @opts.3, align 4, !tbaa !25
+  store i32 0, ptr @opts.4, align 8, !tbaa !23
+  store i32 0, ptr @opts.3, align 4, !tbaa !24
   br label %setTwoTwoOpt.exit.thread20.i
 
 251:                                              ; preds = %readPos.exit27.i.i
@@ -640,7 +640,7 @@ readPos.exit27.i.i:                               ; preds = %243
   br i1 %or.cond.i28.i.i, label %257, label %260
 
 257:                                              ; preds = %251
-  %258 = load ptr, ptr @stderr, align 8, !tbaa !19
+  %258 = load ptr, ptr @stderr, align 8, !tbaa !18
   %259 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %258, ptr noundef nonnull @.str.12, ptr noundef nonnull %252) #12
   br label %setTwoTwoOpt.exit.thread.i
 
@@ -649,19 +649,19 @@ readPos.exit27.i.i:                               ; preds = %243
   br i1 %261, label %262, label %readPos.exit30.i.i
 
 262:                                              ; preds = %260
-  %263 = load ptr, ptr @stderr, align 8, !tbaa !19
+  %263 = load ptr, ptr @stderr, align 8, !tbaa !18
   %264 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %263, ptr noundef nonnull @.str.13, ptr noundef nonnull %252, i32 noundef 1) #12
   br label %setTwoTwoOpt.exit.thread.i
 
 readPos.exit30.i.i:                               ; preds = %260
   %265 = trunc nuw i64 %253 to i32
-  store i32 %265, ptr @opts.3, align 4, !tbaa !25
-  %266 = load i8, ptr %254, align 1, !tbaa !20
+  store i32 %265, ptr @opts.3, align 4, !tbaa !24
+  %266 = load i8, ptr %254, align 1, !tbaa !19
   %.not24.i.i = icmp eq i8 %266, 44
   br i1 %.not24.i.i, label %268, label %267
 
 267:                                              ; preds = %readPos.exit30.i.i
-  store i32 0, ptr @opts.4, align 8, !tbaa !24
+  store i32 0, ptr @opts.4, align 8, !tbaa !23
   br label %setTwoTwoOpt.exit.thread20.i
 
 268:                                              ; preds = %readPos.exit30.i.i
@@ -676,7 +676,7 @@ readPos.exit30.i.i:                               ; preds = %260
   br i1 %or.cond.i.i.i106.i, label %274, label %277
 
 274:                                              ; preds = %268
-  %275 = load ptr, ptr @stderr, align 8, !tbaa !19
+  %275 = load ptr, ptr @stderr, align 8, !tbaa !18
   %276 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %275, ptr noundef nonnull @.str.12, ptr noundef nonnull %269) #12
   br label %setTwoTwoOpt.exit.thread24.i
 
@@ -685,7 +685,7 @@ readPos.exit30.i.i:                               ; preds = %260
   br i1 %278, label %279, label %setTwoTwoOpt.exit.i
 
 279:                                              ; preds = %277
-  %280 = load ptr, ptr @stderr, align 8, !tbaa !19
+  %280 = load ptr, ptr @stderr, align 8, !tbaa !18
   %281 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %280, ptr noundef nonnull @.str.13, ptr noundef nonnull %269, i32 noundef 1) #12
   br label %setTwoTwoOpt.exit.thread24.i
 
@@ -721,7 +721,7 @@ setTwoTwoOpt.exit.thread.i:                       ; preds = %setTwoTwoOpt.exit.t
   br i1 %or.cond.i.i108.i, label %289, label %292
 
 289:                                              ; preds = %283
-  %290 = load ptr, ptr @stderr, align 8, !tbaa !19
+  %290 = load ptr, ptr @stderr, align 8, !tbaa !18
   %291 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %290, ptr noundef nonnull @.str.12, ptr noundef %284) #12
   br label %298
 
@@ -730,7 +730,7 @@ setTwoTwoOpt.exit.thread.i:                       ; preds = %setTwoTwoOpt.exit.t
   br i1 %293, label %294, label %readOne.exit.i
 
 294:                                              ; preds = %292
-  %295 = load ptr, ptr @stderr, align 8, !tbaa !19
+  %295 = load ptr, ptr @stderr, align 8, !tbaa !18
   %296 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %295, ptr noundef nonnull @.str.13, ptr noundef %284, i32 noundef 1) #12
   br label %298
 
@@ -757,7 +757,7 @@ readOne.exit.i:                                   ; preds = %292
   br i1 %or.cond.i.i.i111.i, label %305, label %308
 
 305:                                              ; preds = %299
-  %306 = load ptr, ptr @stderr, align 8, !tbaa !19
+  %306 = load ptr, ptr @stderr, align 8, !tbaa !18
   %307 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %306, ptr noundef nonnull @.str.12, ptr noundef %300) #12
   br label %314
 
@@ -766,7 +766,7 @@ readOne.exit.i:                                   ; preds = %292
   br i1 %309, label %310, label %setOne.exit115.i
 
 310:                                              ; preds = %308
-  %311 = load ptr, ptr @stderr, align 8, !tbaa !19
+  %311 = load ptr, ptr @stderr, align 8, !tbaa !18
   %312 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %311, ptr noundef nonnull @.str.13, ptr noundef %300, i32 noundef 1) #12
   br label %314
 
@@ -794,12 +794,12 @@ setOne.exit115.i:                                 ; preds = %308
   unreachable
 
 322:                                              ; preds = %315
-  %323 = load ptr, ptr @stderr, align 8, !tbaa !19
+  %323 = load ptr, ptr @stderr, align 8, !tbaa !18
   %324 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %323, ptr noundef nonnull @.str.6, i32 noundef %316) #12
   br label %.backedge
 
 325:                                              ; preds = %17
-  %326 = load ptr, ptr @stderr, align 8, !tbaa !19
+  %326 = load ptr, ptr @stderr, align 8, !tbaa !18
   %327 = tail call i64 @fwrite(ptr nonnull @.str.7, i64 17, i64 1, ptr %326) #13
   %328 = load ptr, ptr @stderr, align 8
   %329 = load ptr, ptr @cmd, align 8, !tbaa !14
@@ -808,13 +808,13 @@ setOne.exit115.i:                                 ; preds = %308
   unreachable
 
 331:                                              ; preds = %17
-  %332 = load ptr, ptr @opts.9, align 8, !tbaa !23
+  %332 = load ptr, ptr @opts.9, align 8, !tbaa !22
   %.not58.i = icmp eq ptr %332, null
   br i1 %.not58.i, label %333, label %335
 
 333:                                              ; preds = %331
-  %334 = load ptr, ptr @stdout, align 8, !tbaa !19
-  store ptr %334, ptr @opts.9, align 8, !tbaa !23
+  %334 = load ptr, ptr @stdout, align 8, !tbaa !18
+  store ptr %334, ptr @opts.9, align 8, !tbaa !22
   br label %335
 
 335:                                              ; preds = %333, %331
@@ -823,7 +823,7 @@ setOne.exit115.i:                                 ; preds = %308
   br i1 %337, label %338, label %init.exit
 
 338:                                              ; preds = %335
-  %339 = load ptr, ptr @stderr, align 8, !tbaa !19
+  %339 = load ptr, ptr @stderr, align 8, !tbaa !18
   %340 = tail call i64 @fwrite(ptr nonnull @.str.8, i64 19, i64 1, ptr %339) #13
   %341 = load ptr, ptr @stderr, align 8
   %342 = load ptr, ptr @cmd, align 8, !tbaa !14
@@ -858,8 +858,8 @@ init.exit:                                        ; preds = %335
   ]
 
 346:                                              ; preds = %init.exit
-  %347 = load i32, ptr @opts.0, align 8, !tbaa !21
-  %348 = load i32, ptr @opts.1, align 4, !tbaa !22
+  %347 = load i32, ptr @opts.0, align 8, !tbaa !20
+  %348 = load i32, ptr @opts.1, align 4, !tbaa !21
   %.b413 = load i1, ptr @opts.7, align 4
   %349 = zext i1 %.b413 to i32
   %.b = load i1, ptr @opts.6, align 8
@@ -868,19 +868,19 @@ init.exit:                                        ; preds = %335
   br label %416
 
 351:                                              ; preds = %init.exit
-  %352 = load i32, ptr @opts.0, align 8, !tbaa !21
+  %352 = load i32, ptr @opts.0, align 8, !tbaa !20
   tail call void @makeCircle(i32 noundef %352, ptr noundef nonnull %undirfn.dirfn) #11
   br label %416
 
 353:                                              ; preds = %init.exit
-  %354 = load i32, ptr @opts.0, align 8, !tbaa !21
+  %354 = load i32, ptr @opts.0, align 8, !tbaa !20
   tail call void @makePath(i32 noundef %354, ptr noundef nonnull %undirfn.dirfn) #11
   br label %416
 
 355:                                              ; preds = %init.exit
-  %356 = load i32, ptr @opts.1, align 4, !tbaa !22
+  %356 = load i32, ptr @opts.1, align 4, !tbaa !21
   %357 = icmp eq i32 %356, 2
-  %358 = load i32, ptr @opts.0, align 8, !tbaa !21
+  %358 = load i32, ptr @opts.0, align 8, !tbaa !20
   br i1 %357, label %359, label %360
 
 359:                                              ; preds = %355
@@ -892,24 +892,24 @@ init.exit:                                        ; preds = %335
   br label %416
 
 361:                                              ; preds = %init.exit
-  %362 = load i32, ptr @opts.0, align 8, !tbaa !21
+  %362 = load i32, ptr @opts.0, align 8, !tbaa !20
   tail call void @makeTriMesh(i32 noundef %362, ptr noundef nonnull %undirfn.dirfn) #11
   br label %416
 
 363:                                              ; preds = %init.exit
-  %364 = load i32, ptr @opts.0, align 8, !tbaa !21
-  %365 = load i32, ptr @opts.1, align 4, !tbaa !22
+  %364 = load i32, ptr @opts.0, align 8, !tbaa !20
+  %365 = load i32, ptr @opts.1, align 4, !tbaa !21
   tail call void @makeBall(i32 noundef %364, i32 noundef %365, ptr noundef nonnull %undirfn.dirfn) #11
   br label %416
 
 366:                                              ; preds = %init.exit
-  %367 = load i32, ptr @opts.3, align 4, !tbaa !25
+  %367 = load i32, ptr @opts.3, align 4, !tbaa !24
   %368 = icmp eq i32 %367, 0
   %369 = load i32, ptr @opts.4, align 8
   %370 = icmp eq i32 %369, 0
   %or.cond = select i1 %368, i1 %370, i1 false
-  %371 = load i32, ptr @opts.0, align 8, !tbaa !21
-  %372 = load i32, ptr @opts.1, align 4, !tbaa !22
+  %371 = load i32, ptr @opts.0, align 8, !tbaa !20
+  %372 = load i32, ptr @opts.1, align 4, !tbaa !21
   br i1 %or.cond, label %373, label %374
 
 373:                                              ; preds = %366
@@ -921,21 +921,21 @@ init.exit:                                        ; preds = %335
   br label %416
 
 375:                                              ; preds = %init.exit
-  %376 = load i32, ptr @opts.0, align 8, !tbaa !21
-  %377 = load i32, ptr @opts.1, align 4, !tbaa !22
+  %376 = load i32, ptr @opts.0, align 8, !tbaa !20
+  %377 = load i32, ptr @opts.1, align 4, !tbaa !21
   tail call void @makeCylinder(i32 noundef %376, i32 noundef %377, ptr noundef nonnull %undirfn.dirfn) #11
   br label %416
 
 378:                                              ; preds = %init.exit
-  %379 = load i32, ptr @opts.0, align 8, !tbaa !21
-  %380 = load i32, ptr @opts.1, align 4, !tbaa !22
+  %379 = load i32, ptr @opts.0, align 8, !tbaa !20
+  %380 = load i32, ptr @opts.1, align 4, !tbaa !21
   tail call void @makeMobius(i32 noundef %379, i32 noundef %380, ptr noundef nonnull %undirfn.dirfn) #11
   br label %416
 
 381:                                              ; preds = %init.exit
-  %382 = load i32, ptr @opts.1, align 4, !tbaa !22
+  %382 = load i32, ptr @opts.1, align 4, !tbaa !21
   %383 = icmp eq i32 %382, 2
-  %384 = load i32, ptr @opts.0, align 8, !tbaa !21
+  %384 = load i32, ptr @opts.0, align 8, !tbaa !20
   br i1 %383, label %385, label %386
 
 385:                                              ; preds = %381
@@ -947,18 +947,18 @@ init.exit:                                        ; preds = %335
   br label %416
 
 387:                                              ; preds = %init.exit
-  %388 = load i32, ptr @opts.0, align 8, !tbaa !21
+  %388 = load i32, ptr @opts.0, align 8, !tbaa !20
   tail call void @makeComplete(i32 noundef %388, ptr noundef nonnull %undirfn.dirfn) #11
   br label %416
 
 389:                                              ; preds = %init.exit
-  %390 = load i32, ptr @opts.0, align 8, !tbaa !21
-  %391 = load i32, ptr @opts.1, align 4, !tbaa !22
+  %390 = load i32, ptr @opts.0, align 8, !tbaa !20
+  %391 = load i32, ptr @opts.1, align 4, !tbaa !21
   tail call void @makeRandom(i32 noundef %390, i32 noundef %391, ptr noundef nonnull %undirfn.dirfn) #11
   br label %416
 
 392:                                              ; preds = %init.exit
-  %393 = load i32, ptr @opts.0, align 8, !tbaa !21
+  %393 = load i32, ptr @opts.0, align 8, !tbaa !20
   %394 = tail call ptr @makeTreeGen(i32 noundef %393) #11
   %395 = load i32, ptr @opts.2, align 8, !tbaa !13
   %.not31159 = icmp eq i32 %395, 0
@@ -966,8 +966,8 @@ init.exit:                                        ; preds = %335
 
 ._crit_edge:                                      ; preds = %closeOpen.exit, %392
   tail call void @freeTreeGen(ptr noundef %394) #11
-  %396 = load i32, ptr @opts.0, align 8, !tbaa !21
-  %397 = load i32, ptr @opts.1, align 4, !tbaa !22
+  %396 = load i32, ptr @opts.0, align 8, !tbaa !20
+  %397 = load i32, ptr @opts.1, align 4, !tbaa !21
   tail call void @makeRandom(i32 noundef %396, i32 noundef %397, ptr noundef nonnull %undirfn.dirfn) #11
   br label %416
 
@@ -980,7 +980,7 @@ init.exit:                                        ; preds = %335
 
 399:                                              ; preds = %.lr.ph
   %.b414 = load i1, ptr @opts.8, align 8
-  %400 = load ptr, ptr @opts.9, align 8, !tbaa !23
+  %400 = load ptr, ptr @opts.9, align 8, !tbaa !22
   br i1 %.b414, label %401, label %403
 
 401:                                              ; preds = %399
@@ -995,31 +995,31 @@ closeOpen.exit:                                   ; preds = %403, %401, %.lr.ph
   %405 = add i32 %.0160, 1
   %406 = load i32, ptr @opts.2, align 8, !tbaa !13
   %.not31 = icmp ugt i32 %405, %406
-  br i1 %.not31, label %._crit_edge, label %.lr.ph, !llvm.loop !26
+  br i1 %.not31, label %._crit_edge, label %.lr.ph, !llvm.loop !25
 
 407:                                              ; preds = %init.exit
-  %408 = load i32, ptr @opts.0, align 8, !tbaa !21
-  %409 = load i32, ptr @opts.1, align 4, !tbaa !22
+  %408 = load i32, ptr @opts.0, align 8, !tbaa !20
+  %409 = load i32, ptr @opts.1, align 4, !tbaa !21
   tail call void @makeCompleteB(i32 noundef %408, i32 noundef %409, ptr noundef nonnull %undirfn.dirfn) #11
   br label %416
 
 410:                                              ; preds = %init.exit
-  %411 = load i32, ptr @opts.0, align 8, !tbaa !21
+  %411 = load i32, ptr @opts.0, align 8, !tbaa !20
   tail call void @makeHypercube(i32 noundef %411, ptr noundef nonnull %undirfn.dirfn) #11
   br label %416
 
 412:                                              ; preds = %init.exit
-  %413 = load i32, ptr @opts.0, align 8, !tbaa !21
+  %413 = load i32, ptr @opts.0, align 8, !tbaa !20
   tail call void @makeStar(i32 noundef %413, ptr noundef nonnull %undirfn.dirfn) #11
   br label %416
 
 414:                                              ; preds = %init.exit
-  %415 = load i32, ptr @opts.0, align 8, !tbaa !21
+  %415 = load i32, ptr @opts.0, align 8, !tbaa !20
   tail call void @makeWheel(i32 noundef %415, ptr noundef nonnull %undirfn.dirfn) #11
   br label %416
 
 416:                                              ; preds = %init.exit, %385, %386, %373, %374, %359, %360, %414, %412, %410, %407, %._crit_edge, %389, %387, %378, %375, %363, %361, %353, %351, %346
-  %417 = load ptr, ptr @opts.9, align 8, !tbaa !23
+  %417 = load ptr, ptr @opts.9, align 8, !tbaa !22
   %418 = tail call i64 @fwrite(ptr nonnull @.str.3, i64 2, i64 1, ptr %417)
   tail call fastcc void @graphviz_exit(i32 noundef 0) #14
   unreachable
@@ -1034,7 +1034,7 @@ declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly ca
 ; Function Attrs: nofree nounwind uwtable
 define internal void @dirfn(i32 noundef %0, i32 noundef %1) #3 {
   %.not = icmp eq i32 %1, 0
-  %3 = load ptr, ptr @opts.9, align 8, !tbaa !23
+  %3 = load ptr, ptr @opts.9, align 8, !tbaa !22
   %4 = load ptr, ptr @opts.10, align 8, !tbaa !4
   br i1 %.not, label %7, label %5
 
@@ -1053,7 +1053,7 @@ define internal void @dirfn(i32 noundef %0, i32 noundef %1) #3 {
 ; Function Attrs: nofree nounwind uwtable
 define internal void @undirfn(i32 noundef %0, i32 noundef %1) #3 {
   %.not = icmp eq i32 %1, 0
-  %3 = load ptr, ptr @opts.9, align 8, !tbaa !23
+  %3 = load ptr, ptr @opts.9, align 8, !tbaa !22
   %4 = load ptr, ptr @opts.10, align 8, !tbaa !4
   br i1 %.not, label %7, label %5
 
@@ -1127,7 +1127,7 @@ declare i32 @getopt(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: cold nofree noreturn nounwind uwtable
 define internal fastcc void @errexit(i32 noundef range(i32 0, -1) %0) unnamed_addr #7 {
-  %2 = load ptr, ptr @stderr, align 8, !tbaa !19
+  %2 = load ptr, ptr @stderr, align 8, !tbaa !18
   %sext = shl i32 %0, 24
   %3 = ashr exact i32 %sext, 24
   %4 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.10, i32 noundef %3) #12
@@ -1151,7 +1151,7 @@ define internal fastcc range(i32 -1, 1) i32 @setTwo(ptr noundef %0) unnamed_addr
   br i1 %or.cond.i, label %8, label %11
 
 8:                                                ; preds = %1
-  %9 = load ptr, ptr @stderr, align 8, !tbaa !19
+  %9 = load ptr, ptr @stderr, align 8, !tbaa !18
   %10 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %9, ptr noundef nonnull @.str.12, ptr noundef %0) #12
   br label %readPos.exit.thread
 
@@ -1160,19 +1160,19 @@ define internal fastcc range(i32 -1, 1) i32 @setTwo(ptr noundef %0) unnamed_addr
   br i1 %12, label %13, label %readPos.exit
 
 13:                                               ; preds = %11
-  %14 = load ptr, ptr @stderr, align 8, !tbaa !19
+  %14 = load ptr, ptr @stderr, align 8, !tbaa !18
   %15 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %14, ptr noundef nonnull @.str.13, ptr noundef %0, i32 noundef 1) #12
   br label %readPos.exit.thread
 
 readPos.exit:                                     ; preds = %11
   %16 = trunc nuw i64 %4 to i32
-  store i32 %16, ptr @opts.0, align 8, !tbaa !21
-  %17 = load i8, ptr %5, align 1, !tbaa !20
+  store i32 %16, ptr @opts.0, align 8, !tbaa !20
+  %17 = load i8, ptr %5, align 1, !tbaa !19
   %.not = icmp eq i8 %17, 44
   br i1 %.not, label %21, label %18
 
 18:                                               ; preds = %readPos.exit
-  %19 = load ptr, ptr @stderr, align 8, !tbaa !19
+  %19 = load ptr, ptr @stderr, align 8, !tbaa !18
   %20 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %19, ptr noundef nonnull @.str.11, ptr noundef %0) #12
   br label %readPos.exit.thread
 
@@ -1187,7 +1187,7 @@ readPos.exit:                                     ; preds = %11
   br i1 %or.cond.i11, label %27, label %30
 
 27:                                               ; preds = %21
-  %28 = load ptr, ptr @stderr, align 8, !tbaa !19
+  %28 = load ptr, ptr @stderr, align 8, !tbaa !18
   %29 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %28, ptr noundef nonnull @.str.12, ptr noundef nonnull %22) #12
   br label %readPos.exit.thread
 
@@ -1199,12 +1199,12 @@ readPos.exit:                                     ; preds = %11
   ]
 
 31:                                               ; preds = %30
-  %32 = load ptr, ptr @stderr, align 8, !tbaa !19
+  %32 = load ptr, ptr @stderr, align 8, !tbaa !18
   %33 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %32, ptr noundef nonnull @.str.13, ptr noundef nonnull %22, i32 noundef 1) #12
   br label %readPos.exit.thread
 
 34:                                               ; preds = %30
-  store i32 %trunc, ptr @opts.1, align 4, !tbaa !22
+  store i32 %trunc, ptr @opts.1, align 4, !tbaa !21
   br label %readPos.exit.thread
 
 readPos.exit.thread:                              ; preds = %30, %31, %27, %13, %8, %34, %18
@@ -1226,7 +1226,7 @@ define internal fastcc range(i32 -1, 1) i32 @setTwoOpt(ptr noundef %0) unnamed_a
   br i1 %or.cond.i, label %8, label %11
 
 8:                                                ; preds = %1
-  %9 = load ptr, ptr @stderr, align 8, !tbaa !19
+  %9 = load ptr, ptr @stderr, align 8, !tbaa !18
   %10 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %9, ptr noundef nonnull @.str.12, ptr noundef %0) #12
   br label %readPos.exit.thread
 
@@ -1235,19 +1235,19 @@ define internal fastcc range(i32 -1, 1) i32 @setTwoOpt(ptr noundef %0) unnamed_a
   br i1 %12, label %13, label %readPos.exit
 
 13:                                               ; preds = %11
-  %14 = load ptr, ptr @stderr, align 8, !tbaa !19
+  %14 = load ptr, ptr @stderr, align 8, !tbaa !18
   %15 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %14, ptr noundef nonnull @.str.13, ptr noundef %0, i32 noundef 1) #12
   br label %readPos.exit.thread
 
 readPos.exit:                                     ; preds = %11
   %16 = trunc nuw i64 %4 to i32
-  store i32 %16, ptr @opts.0, align 8, !tbaa !21
-  %17 = load i8, ptr %5, align 1, !tbaa !20
+  store i32 %16, ptr @opts.0, align 8, !tbaa !20
+  %17 = load i8, ptr %5, align 1, !tbaa !19
   %.not = icmp eq i8 %17, 44
   br i1 %.not, label %19, label %18
 
 18:                                               ; preds = %readPos.exit
-  store i32 2, ptr @opts.1, align 4, !tbaa !22
+  store i32 2, ptr @opts.1, align 4, !tbaa !21
   br label %readPos.exit.thread
 
 19:                                               ; preds = %readPos.exit
@@ -1261,7 +1261,7 @@ readPos.exit:                                     ; preds = %11
   br i1 %or.cond.i12, label %25, label %28
 
 25:                                               ; preds = %19
-  %26 = load ptr, ptr @stderr, align 8, !tbaa !19
+  %26 = load ptr, ptr @stderr, align 8, !tbaa !18
   %27 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %26, ptr noundef nonnull @.str.12, ptr noundef nonnull %20) #12
   br label %readPos.exit.thread
 
@@ -1273,12 +1273,12 @@ readPos.exit:                                     ; preds = %11
   ]
 
 29:                                               ; preds = %28
-  %30 = load ptr, ptr @stderr, align 8, !tbaa !19
+  %30 = load ptr, ptr @stderr, align 8, !tbaa !18
   %31 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %30, ptr noundef nonnull @.str.13, ptr noundef nonnull %20, i32 noundef 1) #12
   br label %readPos.exit.thread
 
 32:                                               ; preds = %28
-  store i32 %trunc, ptr @opts.1, align 4, !tbaa !22
+  store i32 %trunc, ptr @opts.1, align 4, !tbaa !21
   br label %readPos.exit.thread
 
 readPos.exit.thread:                              ; preds = %28, %29, %25, %13, %8, %32, %18
@@ -1337,14 +1337,13 @@ attributes #15 = { noreturn nounwind }
 !13 = !{!5, !6, i64 8}
 !14 = !{!11, !11, i64 0}
 !15 = !{!6, !6, i64 0}
-!16 = distinct !{!16, !17, !18}
+!16 = distinct !{!16, !17}
 !17 = !{!"llvm.loop.mustprogress"}
-!18 = !{!"llvm.loop.estimated_trip_count"}
-!19 = !{!9, !9, i64 0}
-!20 = !{!7, !7, i64 0}
-!21 = !{!5, !6, i64 0}
-!22 = !{!5, !6, i64 4}
-!23 = !{!5, !9, i64 40}
-!24 = !{!5, !6, i64 16}
-!25 = !{!5, !6, i64 12}
-!26 = distinct !{!26, !17, !18}
+!18 = !{!9, !9, i64 0}
+!19 = !{!7, !7, i64 0}
+!20 = !{!5, !6, i64 0}
+!21 = !{!5, !6, i64 4}
+!22 = !{!5, !9, i64 40}
+!23 = !{!5, !6, i64 16}
+!24 = !{!5, !6, i64 12}
+!25 = distinct !{!25, !17}

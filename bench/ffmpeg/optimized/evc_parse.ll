@@ -383,7 +383,7 @@ get_ue_golomb_long.exit131:                       ; preds = %184, %226, %230
   %267 = getelementptr inbounds nuw [512 x i8], ptr @ff_ue_golomb_vlc_code, i64 0, i64 %262
   %268 = load i8, ptr %267, align 1, !tbaa !13
   %269 = getelementptr inbounds nuw i8, ptr %1, i64 892
-  store i8 %268, ptr %269, align 4, !tbaa !37
+  store i8 %268, ptr %269, align 4, !tbaa !36
   %270 = icmp eq i32 %3, 1
   br i1 %270, label %271, label %284
 
@@ -402,12 +402,12 @@ get_ue_golomb_long.exit131:                       ; preds = %184, %226, %230
   %281 = trunc i32 %280 to i8
   %282 = lshr i8 %281, 7
   %283 = getelementptr inbounds nuw i8, ptr %1, i64 893
-  store i8 %282, ptr %283, align 1, !tbaa !38
+  store i8 %282, ptr %283, align 1, !tbaa !37
   br label %284
 
 284:                                              ; preds = %271, %.loopexit
   %285 = getelementptr inbounds nuw i8, ptr %36, i64 64
-  %286 = load i8, ptr %285, align 4, !tbaa !39
+  %286 = load i8, ptr %285, align 4, !tbaa !38
   %.not104 = icmp ne i8 %286, 0
   %switch = icmp ult i8 %268, 2
   %or.cond140 = select i1 %.not104, i1 %switch, i1 false
@@ -433,15 +433,15 @@ get_ue_golomb_long.exit131:                       ; preds = %184, %226, %230
 300:                                              ; preds = %284, %287
   %.sink147 = phi i8 [ %299, %287 ], [ 0, %284 ]
   %301 = getelementptr inbounds nuw i8, ptr %1, i64 894
-  store i8 %.sink147, ptr %301, align 2, !tbaa !44
+  store i8 %.sink147, ptr %301, align 2, !tbaa !43
   %302 = getelementptr inbounds nuw i8, ptr %36, i64 77
-  %303 = load i8, ptr %302, align 1, !tbaa !45
+  %303 = load i8, ptr %302, align 1, !tbaa !44
   %.not105 = icmp eq i8 %303, 0
   br i1 %.not105, label %444, label %304
 
 304:                                              ; preds = %300
   %305 = getelementptr inbounds nuw i8, ptr %36, i64 12
-  %306 = load i8, ptr %305, align 4, !tbaa !46
+  %306 = load i8, ptr %305, align 4, !tbaa !45
   %307 = load i32, ptr %5, align 8, !tbaa !4
   %308 = lshr i32 %307, 3
   %309 = zext nneg i32 %308 to i64
@@ -458,7 +458,7 @@ get_ue_golomb_long.exit131:                       ; preds = %184, %226, %230
   %318 = and i32 %317, 1
   %319 = trunc nuw nsw i32 %318 to i8
   %320 = getelementptr inbounds nuw i8, ptr %1, i64 895
-  store i8 %319, ptr %320, align 1, !tbaa !47
+  store i8 %319, ptr %320, align 1, !tbaa !46
   %.not106 = icmp eq i32 %318, 0
   br i1 %.not106, label %371, label %321
 
@@ -476,7 +476,7 @@ get_ue_golomb_long.exit131:                       ; preds = %184, %226, %230
   store i32 %331, ptr %5, align 8, !tbaa !4
   %332 = trunc nuw nsw i32 %329 to i8
   %333 = getelementptr inbounds nuw i8, ptr %1, i64 896
-  store i8 %332, ptr %333, align 4, !tbaa !48
+  store i8 %332, ptr %333, align 4, !tbaa !47
   %334 = lshr i32 %331, 3
   %335 = zext nneg i32 %334 to i64
   %336 = getelementptr inbounds nuw i8, ptr %253, i64 %335
@@ -491,7 +491,7 @@ get_ue_golomb_long.exit131:                       ; preds = %184, %226, %230
   %343 = trunc i32 %342 to i8
   %344 = lshr i8 %343, 7
   %345 = getelementptr inbounds nuw i8, ptr %1, i64 897
-  store i8 %344, ptr %345, align 1, !tbaa !49
+  store i8 %344, ptr %345, align 1, !tbaa !48
   %346 = lshr i32 %spec.select.i136, 3
   %347 = zext nneg i32 %346 to i64
   %348 = getelementptr inbounds nuw i8, ptr %253, i64 %347
@@ -505,7 +505,7 @@ get_ue_golomb_long.exit131:                       ; preds = %184, %226, %230
   store i32 %355, ptr %5, align 8, !tbaa !4
   %356 = trunc nuw nsw i32 %353 to i8
   %357 = getelementptr inbounds nuw i8, ptr %1, i64 898
-  store i8 %356, ptr %357, align 2, !tbaa !50
+  store i8 %356, ptr %357, align 2, !tbaa !49
   %358 = add i8 %306, -3
   %or.cond = icmp ult i8 %358, -2
   %.not107 = icmp ult i32 %352, 1073741824
@@ -526,7 +526,7 @@ get_ue_golomb_long.exit131:                       ; preds = %184, %226, %230
   store i32 %368, ptr %5, align 8, !tbaa !4
   %369 = trunc nuw nsw i32 %366 to i8
   %370 = getelementptr inbounds nuw i8, ptr %1, i64 899
-  store i8 %369, ptr %370, align 1, !tbaa !51
+  store i8 %369, ptr %370, align 1, !tbaa !50
   br label %444
 
 371:                                              ; preds = %321, %304
@@ -560,7 +560,7 @@ get_ue_golomb_long.exit131:                       ; preds = %184, %226, %230
   %388 = tail call i32 @llvm.umin.i32(i32 %252, i32 %387)
   store i32 %388, ptr %5, align 8, !tbaa !4
   %389 = trunc nuw nsw i32 %386 to i8
-  store i8 %389, ptr %375, align 2, !tbaa !50
+  store i8 %389, ptr %375, align 2, !tbaa !49
   br label %390
 
 390:                                              ; preds = %377, %374
@@ -581,7 +581,7 @@ get_ue_golomb_long.exit131:                       ; preds = %184, %226, %230
   store i32 %402, ptr %5, align 8, !tbaa !4
   %403 = trunc nuw nsw i32 %400 to i8
   %404 = getelementptr inbounds nuw i8, ptr %1, i64 899
-  store i8 %403, ptr %404, align 1, !tbaa !51
+  store i8 %403, ptr %404, align 1, !tbaa !50
   %405 = lshr i32 %402, 3
   %406 = zext nneg i32 %405 to i64
   %407 = getelementptr inbounds nuw i8, ptr %253, i64 %406
@@ -596,7 +596,7 @@ get_ue_golomb_long.exit131:                       ; preds = %184, %226, %230
   %414 = trunc i32 %413 to i8
   %415 = lshr i8 %414, 7
   %416 = getelementptr inbounds nuw i8, ptr %1, i64 900
-  store i8 %415, ptr %416, align 4, !tbaa !52
+  store i8 %415, ptr %416, align 4, !tbaa !51
   br label %417
 
 417:                                              ; preds = %391, %390
@@ -617,7 +617,7 @@ get_ue_golomb_long.exit131:                       ; preds = %184, %226, %230
   store i32 %429, ptr %5, align 8, !tbaa !4
   %430 = trunc nuw nsw i32 %427 to i8
   %431 = getelementptr inbounds nuw i8, ptr %1, i64 901
-  store i8 %430, ptr %431, align 1, !tbaa !53
+  store i8 %430, ptr %431, align 1, !tbaa !52
   %432 = lshr i32 %429, 3
   %433 = zext nneg i32 %432 to i64
   %434 = getelementptr inbounds nuw i8, ptr %253, i64 %433
@@ -632,7 +632,7 @@ get_ue_golomb_long.exit131:                       ; preds = %184, %226, %230
   %441 = trunc i32 %440 to i8
   %442 = lshr i8 %441, 7
   %443 = getelementptr inbounds nuw i8, ptr %1, i64 902
-  store i8 %442, ptr %443, align 2, !tbaa !54
+  store i8 %442, ptr %443, align 2, !tbaa !53
   br label %444
 
 444:                                              ; preds = %.thread, %371, %418, %417, %300
@@ -640,13 +640,13 @@ get_ue_golomb_long.exit131:                       ; preds = %184, %226, %230
 
 445:                                              ; preds = %444
   %446 = getelementptr inbounds nuw i8, ptr %36, i64 80
-  %447 = load i8, ptr %446, align 4, !tbaa !55
+  %447 = load i8, ptr %446, align 4, !tbaa !54
   %.not112 = icmp eq i8 %447, 0
   br i1 %.not112, label %.critedge, label %448
 
 448:                                              ; preds = %445
   %449 = getelementptr inbounds nuw i8, ptr %36, i64 84
-  %450 = load i32, ptr %449, align 4, !tbaa !56
+  %450 = load i32, ptr %449, align 4, !tbaa !55
   %451 = add i32 %450, 4
   %452 = load i32, ptr %5, align 8, !tbaa !4
   %453 = lshr i32 %452, 3
@@ -663,7 +663,7 @@ get_ue_golomb_long.exit131:                       ; preds = %184, %226, %230
   store i32 %463, ptr %5, align 8, !tbaa !4
   %464 = trunc i32 %461 to i16
   %465 = getelementptr inbounds nuw i8, ptr %1, i64 904
-  store i16 %464, ptr %465, align 4, !tbaa !57
+  store i16 %464, ptr %465, align 4, !tbaa !56
   br label %.critedge
 
 .critedge:                                        ; preds = %115, %get_ue_golomb_long.exit, %444, %448, %445, %31, %26, %4
@@ -695,33 +695,33 @@ define range(i32 -1094995529, 1) i32 @ff_evc_derive_poc(ptr noundef readonly cap
 
 17:                                               ; preds = %11
   %18 = getelementptr inbounds nuw i8, ptr %16, i64 80
-  %19 = load i8, ptr %18, align 4, !tbaa !55
+  %19 = load i8, ptr %18, align 4, !tbaa !54
   %.not84 = icmp eq i8 %19, 0
   br i1 %.not84, label %50, label %20
 
 20:                                               ; preds = %17
-  %21 = load i32, ptr %2, align 4, !tbaa !58
+  %21 = load i32, ptr %2, align 4, !tbaa !57
   %22 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  store i32 %21, ptr %22, align 4, !tbaa !60
+  store i32 %21, ptr %22, align 4, !tbaa !59
   %23 = icmp eq i32 %3, 1
   br i1 %23, label %._crit_edge101, label %24
 
 ._crit_edge101:                                   ; preds = %20
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 904
-  %.pre = load i16, ptr %.phi.trans.insert, align 4, !tbaa !57
+  %.pre = load i16, ptr %.phi.trans.insert, align 4, !tbaa !56
   %.pre102 = zext i16 %.pre to i32
   br label %48
 
 24:                                               ; preds = %20
   %25 = getelementptr inbounds nuw i8, ptr %16, i64 84
-  %26 = load i32, ptr %25, align 4, !tbaa !56
+  %26 = load i32, ptr %25, align 4, !tbaa !55
   %27 = add i32 %26, 4
   %28 = shl nuw i32 1, %27
   %29 = add nsw i32 %28, -1
   %30 = and i32 %29, %21
   %31 = sub nsw i32 %21, %30
   %32 = getelementptr inbounds nuw i8, ptr %1, i64 904
-  %33 = load i16, ptr %32, align 4, !tbaa !57
+  %33 = load i16, ptr %32, align 4, !tbaa !56
   %34 = zext i16 %33 to i32
   %35 = icmp samesign ugt i32 %30, %34
   br i1 %35, label %36, label %41
@@ -752,7 +752,7 @@ define range(i32 -1094995529, 1) i32 @ff_evc_derive_poc(ptr noundef readonly cap
   %.pre-phi = phi i32 [ %.pre102, %._crit_edge101 ], [ %34, %43 ], [ %34, %39 ], [ %34, %41 ]
   %.072 = phi i32 [ 0, %._crit_edge101 ], [ %spec.select, %43 ], [ %40, %39 ], [ %31, %41 ]
   %49 = add nsw i32 %.072, %.pre-phi
-  store i32 %49, ptr %2, align 4, !tbaa !58
+  store i32 %49, ptr %2, align 4, !tbaa !57
   br label %.critedge
 
 50:                                               ; preds = %17
@@ -760,14 +760,14 @@ define range(i32 -1094995529, 1) i32 @ff_evc_derive_poc(ptr noundef readonly cap
   br i1 %51, label %52, label %54
 
 52:                                               ; preds = %50
-  store i32 0, ptr %2, align 4, !tbaa !58
+  store i32 0, ptr %2, align 4, !tbaa !57
   %53 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store i32 -1, ptr %53, align 4, !tbaa !61
+  store i32 -1, ptr %53, align 4, !tbaa !60
   br label %.critedge
 
 54:                                               ; preds = %50
   %55 = getelementptr inbounds nuw i8, ptr %16, i64 88
-  %56 = load i32, ptr %55, align 4, !tbaa !62
+  %56 = load i32, ptr %55, align 4, !tbaa !61
   %57 = shl nuw i32 1, %56
   %58 = icmp sgt i32 %57, 1
   br i1 %58, label %59, label %70
@@ -802,28 +802,28 @@ define range(i32 -1094995529, 1) i32 @ff_evc_derive_poc(ptr noundef readonly cap
 
 74:                                               ; preds = %72
   %75 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  %76 = load i32, ptr %75, align 4, !tbaa !60
+  %76 = load i32, ptr %75, align 4, !tbaa !59
   %77 = add nsw i32 %76, %57
-  store i32 %77, ptr %2, align 4, !tbaa !58
+  store i32 %77, ptr %2, align 4, !tbaa !57
   %78 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store i32 0, ptr %78, align 4, !tbaa !61
-  store i32 %77, ptr %75, align 4, !tbaa !60
+  store i32 0, ptr %78, align 4, !tbaa !60
+  store i32 %77, ptr %75, align 4, !tbaa !59
   br label %.critedge
 
 79:                                               ; preds = %72
   %80 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %81 = load i32, ptr %80, align 4, !tbaa !61
+  %81 = load i32, ptr %80, align 4, !tbaa !60
   %82 = add nsw i32 %81, 1
   %83 = srem i32 %82, %57
-  store i32 %83, ptr %80, align 4, !tbaa !61
+  store i32 %83, ptr %80, align 4, !tbaa !60
   %84 = icmp eq i32 %83, 0
   br i1 %84, label %.thread, label %88
 
 .thread:                                          ; preds = %79
   %85 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  %86 = load i32, ptr %85, align 4, !tbaa !60
+  %86 = load i32, ptr %85, align 4, !tbaa !59
   %87 = add nsw i32 %86, %57
-  store i32 %87, ptr %85, align 4, !tbaa !60
+  store i32 %87, ptr %85, align 4, !tbaa !59
   br label %.lr.ph.preheader
 
 88:                                               ; preds = %79
@@ -852,13 +852,13 @@ define range(i32 -1094995529, 1) i32 @ff_evc_derive_poc(ptr noundef readonly cap
   %99 = phi i32 [ %83, %.lr.ph.preheader ], [ %.be, %.lr.ph.backedge ]
   %100 = add nsw i32 %99, 1
   %101 = srem i32 %100, %57
-  store i32 %101, ptr %80, align 4, !tbaa !61
+  store i32 %101, ptr %80, align 4, !tbaa !60
   %102 = icmp eq i32 %101, 0
   br i1 %102, label %.lr.ph.backedge, label %103
 
 .lr.ph.backedge:                                  ; preds = %.lr.ph, %103
   %.be = phi i32 [ %101, %103 ], [ 0, %.lr.ph ]
-  br label %.lr.ph, !llvm.loop !63
+  br label %.lr.ph, !llvm.loop !62
 
 103:                                              ; preds = %.lr.ph
   %.not.i94 = icmp ult i32 %101, 65536
@@ -891,9 +891,9 @@ define range(i32 -1094995529, 1) i32 @ff_evc_derive_poc(ptr noundef readonly cap
   %122 = fmul nsz double %121, %115
   %123 = fptosi double %122 to i32
   %124 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  %125 = load i32, ptr %124, align 4, !tbaa !60
+  %125 = load i32, ptr %124, align 4, !tbaa !59
   %126 = add nsw i32 %125, %123
-  store i32 %126, ptr %2, align 4, !tbaa !58
+  store i32 %126, ptr %2, align 4, !tbaa !57
   br label %.critedge
 
 .critedge:                                        ; preds = %48, %52, %74, %._crit_edge, %70, %11, %5
@@ -954,33 +954,32 @@ attributes #3 = { nocallback nofree nosync nounwind speculatable willreturn memo
 !31 = !{!10, !10, i64 0}
 !32 = !{!21, !10, i64 8}
 !33 = !{!22, !22, i64 0}
-!34 = distinct !{!34, !35, !36}
+!34 = distinct !{!34, !35}
 !35 = !{!"llvm.loop.mustprogress"}
-!36 = !{!"llvm.loop.estimated_trip_count"}
-!37 = !{!21, !8, i64 892}
-!38 = !{!21, !8, i64 893}
-!39 = !{!40, !8, i64 64}
-!40 = !{!"EVCParserSPS", !8, i64 0, !8, i64 1, !8, i64 2, !10, i64 4, !10, i64 8, !8, i64 12, !10, i64 16, !10, i64 20, !8, i64 24, !8, i64 25, !8, i64 26, !10, i64 28, !10, i64 32, !10, i64 36, !10, i64 40, !10, i64 44, !8, i64 48, !10, i64 52, !10, i64 56, !8, i64 60, !8, i64 61, !8, i64 62, !8, i64 63, !8, i64 64, !8, i64 65, !8, i64 66, !8, i64 67, !10, i64 68, !8, i64 72, !8, i64 73, !8, i64 74, !8, i64 75, !8, i64 76, !8, i64 77, !8, i64 78, !8, i64 79, !8, i64 80, !8, i64 81, !8, i64 82, !10, i64 84, !10, i64 88, !10, i64 92, !8, i64 96, !10, i64 100, !8, i64 104, !8, i64 105, !8, i64 106, !8, i64 108, !8, i64 11372, !10, i64 11376, !10, i64 11380, !10, i64 11384, !10, i64 11388, !41, i64 11392, !8, i64 11980, !42, i64 11984}
-!41 = !{!"ChromaQpTable", !8, i64 0, !8, i64 1, !8, i64 2, !8, i64 3, !8, i64 5, !8, i64 124}
-!42 = !{!"VUIParameters", !8, i64 0, !8, i64 1, !22, i64 2, !22, i64 4, !8, i64 6, !8, i64 7, !8, i64 8, !8, i64 9, !8, i64 10, !8, i64 11, !8, i64 12, !8, i64 13, !8, i64 14, !8, i64 15, !8, i64 16, !8, i64 17, !8, i64 18, !8, i64 19, !8, i64 20, !10, i64 24, !10, i64 28, !8, i64 32, !8, i64 33, !8, i64 34, !8, i64 35, !8, i64 36, !8, i64 37, !8, i64 38, !8, i64 39, !8, i64 40, !8, i64 41, !8, i64 42, !10, i64 44, !10, i64 48, !43, i64 52}
-!43 = !{!"HRDParameters", !8, i64 0, !8, i64 1, !8, i64 2, !8, i64 4, !8, i64 132, !8, i64 260, !8, i64 292, !8, i64 293, !8, i64 294, !8, i64 295}
-!44 = !{!21, !8, i64 894}
-!45 = !{!40, !8, i64 77}
-!46 = !{!40, !8, i64 12}
-!47 = !{!21, !8, i64 895}
-!48 = !{!21, !8, i64 896}
-!49 = !{!21, !8, i64 897}
-!50 = !{!21, !8, i64 898}
-!51 = !{!21, !8, i64 899}
-!52 = !{!21, !8, i64 900}
-!53 = !{!21, !8, i64 901}
-!54 = !{!21, !8, i64 902}
-!55 = !{!40, !8, i64 80}
-!56 = !{!40, !10, i64 84}
-!57 = !{!21, !22, i64 904}
-!58 = !{!59, !10, i64 0}
-!59 = !{!"EVCParserPoc", !10, i64 0, !10, i64 4, !10, i64 8}
-!60 = !{!59, !10, i64 4}
-!61 = !{!59, !10, i64 8}
-!62 = !{!40, !10, i64 88}
-!63 = distinct !{!63, !35, !36}
+!36 = !{!21, !8, i64 892}
+!37 = !{!21, !8, i64 893}
+!38 = !{!39, !8, i64 64}
+!39 = !{!"EVCParserSPS", !8, i64 0, !8, i64 1, !8, i64 2, !10, i64 4, !10, i64 8, !8, i64 12, !10, i64 16, !10, i64 20, !8, i64 24, !8, i64 25, !8, i64 26, !10, i64 28, !10, i64 32, !10, i64 36, !10, i64 40, !10, i64 44, !8, i64 48, !10, i64 52, !10, i64 56, !8, i64 60, !8, i64 61, !8, i64 62, !8, i64 63, !8, i64 64, !8, i64 65, !8, i64 66, !8, i64 67, !10, i64 68, !8, i64 72, !8, i64 73, !8, i64 74, !8, i64 75, !8, i64 76, !8, i64 77, !8, i64 78, !8, i64 79, !8, i64 80, !8, i64 81, !8, i64 82, !10, i64 84, !10, i64 88, !10, i64 92, !8, i64 96, !10, i64 100, !8, i64 104, !8, i64 105, !8, i64 106, !8, i64 108, !8, i64 11372, !10, i64 11376, !10, i64 11380, !10, i64 11384, !10, i64 11388, !40, i64 11392, !8, i64 11980, !41, i64 11984}
+!40 = !{!"ChromaQpTable", !8, i64 0, !8, i64 1, !8, i64 2, !8, i64 3, !8, i64 5, !8, i64 124}
+!41 = !{!"VUIParameters", !8, i64 0, !8, i64 1, !22, i64 2, !22, i64 4, !8, i64 6, !8, i64 7, !8, i64 8, !8, i64 9, !8, i64 10, !8, i64 11, !8, i64 12, !8, i64 13, !8, i64 14, !8, i64 15, !8, i64 16, !8, i64 17, !8, i64 18, !8, i64 19, !8, i64 20, !10, i64 24, !10, i64 28, !8, i64 32, !8, i64 33, !8, i64 34, !8, i64 35, !8, i64 36, !8, i64 37, !8, i64 38, !8, i64 39, !8, i64 40, !8, i64 41, !8, i64 42, !10, i64 44, !10, i64 48, !42, i64 52}
+!42 = !{!"HRDParameters", !8, i64 0, !8, i64 1, !8, i64 2, !8, i64 4, !8, i64 132, !8, i64 260, !8, i64 292, !8, i64 293, !8, i64 294, !8, i64 295}
+!43 = !{!21, !8, i64 894}
+!44 = !{!39, !8, i64 77}
+!45 = !{!39, !8, i64 12}
+!46 = !{!21, !8, i64 895}
+!47 = !{!21, !8, i64 896}
+!48 = !{!21, !8, i64 897}
+!49 = !{!21, !8, i64 898}
+!50 = !{!21, !8, i64 899}
+!51 = !{!21, !8, i64 900}
+!52 = !{!21, !8, i64 901}
+!53 = !{!21, !8, i64 902}
+!54 = !{!39, !8, i64 80}
+!55 = !{!39, !10, i64 84}
+!56 = !{!21, !22, i64 904}
+!57 = !{!58, !10, i64 0}
+!58 = !{!"EVCParserPoc", !10, i64 0, !10, i64 4, !10, i64 8}
+!59 = !{!58, !10, i64 4}
+!60 = !{!58, !10, i64 8}
+!61 = !{!39, !10, i64 88}
+!62 = distinct !{!62, !35}

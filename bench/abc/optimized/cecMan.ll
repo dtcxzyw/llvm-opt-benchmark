@@ -636,15 +636,15 @@ Vec_PtrAllocSimInfo.exit:                         ; preds = %.lr.ph.i, %2
   %45 = getelementptr inbounds nuw i8, ptr %43, i64 8
   store ptr %37, ptr %45, align 8, !tbaa !38
   %46 = getelementptr inbounds nuw i8, ptr %calloc, i64 64
-  store ptr %43, ptr %46, align 8, !tbaa !107
+  store ptr %43, ptr %46, align 8, !tbaa !106
   %47 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %48 = load i32, ptr %47, align 4, !tbaa !108
+  %48 = load i32, ptr %47, align 4, !tbaa !107
   %.not = icmp eq i32 %48, 0
   br i1 %.not, label %49, label %51
 
 49:                                               ; preds = %Vec_PtrAllocSimInfo.exit
   %50 = getelementptr i8, ptr %0, i64 16
-  %.val28 = load i32, ptr %50, align 8, !tbaa !109
+  %.val28 = load i32, ptr %50, align 8, !tbaa !108
   %.not25 = icmp eq i32 %.val28, 0
   br i1 %.not25, label %Vec_PtrCleanSimInfo.exit, label %51
 
@@ -682,7 +682,7 @@ Vec_PtrAllocSimInfo.exit35:                       ; preds = %.lr.ph.i31
   %64 = getelementptr inbounds nuw i8, ptr %62, i64 8
   store ptr %56, ptr %64, align 8, !tbaa !38
   %65 = getelementptr inbounds nuw i8, ptr %calloc, i64 72
-  store ptr %62, ptr %65, align 8, !tbaa !110
+  store ptr %62, ptr %65, align 8, !tbaa !109
   %66 = shl nsw i32 %4, 2
   %67 = sext i32 %66 to i64
   br label %68
@@ -697,7 +697,7 @@ Vec_PtrAllocSimInfo.exit35:                       ; preds = %.lr.ph.i31
   %71 = load i32, ptr %63, align 4, !tbaa !35
   %72 = sext i32 %71 to i64
   %73 = icmp slt i64 %indvars.iv.next.i38, %72
-  br i1 %73, label %68, label %Vec_PtrCleanSimInfo.exit, !llvm.loop !111
+  br i1 %73, label %68, label %Vec_PtrCleanSimInfo.exit, !llvm.loop !110
 
 Vec_PtrCleanSimInfo.exit.critedge:                ; preds = %51
   %74 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #17
@@ -707,12 +707,12 @@ Vec_PtrCleanSimInfo.exit.critedge:                ; preds = %51
   %76 = getelementptr inbounds nuw i8, ptr %74, i64 8
   store ptr %56, ptr %76, align 8, !tbaa !38
   %77 = getelementptr inbounds nuw i8, ptr %calloc, i64 72
-  store ptr %74, ptr %77, align 8, !tbaa !110
+  store ptr %74, ptr %77, align 8, !tbaa !109
   br label %Vec_PtrCleanSimInfo.exit
 
 Vec_PtrCleanSimInfo.exit:                         ; preds = %68, %Vec_PtrCleanSimInfo.exit.critedge, %49
   %78 = getelementptr inbounds nuw i8, ptr %calloc, i64 88
-  store i32 -1, ptr %78, align 8, !tbaa !112
+  store i32 -1, ptr %78, align 8, !tbaa !111
   ret ptr %calloc
 }
 
@@ -771,7 +771,7 @@ Vec_IntFree.exit42:                               ; preds = %Vec_IntFree.exit40,
 Vec_IntFree.exit44:                               ; preds = %Vec_IntFree.exit42, %21
   tail call void @free(ptr noundef nonnull %18) #18
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %23 = load ptr, ptr %22, align 8, !tbaa !107
+  %23 = load ptr, ptr %22, align 8, !tbaa !106
   %.not = icmp eq ptr %23, null
   br i1 %.not, label %28, label %24
 
@@ -791,7 +791,7 @@ Vec_PtrFree.exit:                                 ; preds = %24, %27
 
 28:                                               ; preds = %Vec_PtrFree.exit, %Vec_IntFree.exit44
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %30 = load ptr, ptr %29, align 8, !tbaa !110
+  %30 = load ptr, ptr %29, align 8, !tbaa !109
   %.not32 = icmp eq ptr %30, null
   br i1 %.not32, label %35, label %31
 
@@ -811,46 +811,46 @@ Vec_PtrFree.exit47:                               ; preds = %31, %34
 
 35:                                               ; preds = %Vec_PtrFree.exit47, %28
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %37 = load ptr, ptr %36, align 8, !tbaa !113
+  %37 = load ptr, ptr %36, align 8, !tbaa !112
   %.not33 = icmp eq ptr %37, null
   br i1 %.not33, label %39, label %38
 
 38:                                               ; preds = %35
   tail call void @free(ptr noundef nonnull %37) #18
-  store ptr null, ptr %36, align 8, !tbaa !113
+  store ptr null, ptr %36, align 8, !tbaa !112
   br label %39
 
 39:                                               ; preds = %35, %38
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %41 = load ptr, ptr %40, align 8, !tbaa !114
+  %41 = load ptr, ptr %40, align 8, !tbaa !113
   %.not34 = icmp eq ptr %41, null
   br i1 %.not34, label %43, label %42
 
 42:                                               ; preds = %39
   tail call void @free(ptr noundef nonnull %41) #18
-  store ptr null, ptr %40, align 8, !tbaa !114
+  store ptr null, ptr %40, align 8, !tbaa !113
   br label %43
 
 43:                                               ; preds = %39, %42
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %45 = load ptr, ptr %44, align 8, !tbaa !115
+  %45 = load ptr, ptr %44, align 8, !tbaa !114
   %.not35 = icmp eq ptr %45, null
   br i1 %.not35, label %47, label %46
 
 46:                                               ; preds = %43
   tail call void @free(ptr noundef nonnull %45) #18
-  store ptr null, ptr %44, align 8, !tbaa !115
+  store ptr null, ptr %44, align 8, !tbaa !114
   br label %47
 
 47:                                               ; preds = %43, %46
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %49 = load ptr, ptr %48, align 8, !tbaa !116
+  %49 = load ptr, ptr %48, align 8, !tbaa !115
   %.not36 = icmp eq ptr %49, null
   br i1 %.not36, label %51, label %50
 
 50:                                               ; preds = %47
   tail call void @free(ptr noundef nonnull %49) #18
-  store ptr null, ptr %48, align 8, !tbaa !116
+  store ptr null, ptr %48, align 8, !tbaa !115
   br label %51
 
 51:                                               ; preds = %47, %50
@@ -871,9 +871,9 @@ Vec_PtrFree.exit47:                               ; preds = %31, %34
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: none, inaccessiblemem: readwrite) uwtable
 define noalias noundef ptr @Cec_ManFraStart(ptr noundef %0, ptr noundef %1) local_unnamed_addr #9 {
   %calloc = tail call dereferenceable_or_null(80) ptr @calloc(i64 1, i64 80)
-  store ptr %0, ptr %calloc, align 8, !tbaa !117
+  store ptr %0, ptr %calloc, align 8, !tbaa !116
   %3 = getelementptr inbounds nuw i8, ptr %calloc, i64 8
-  store ptr %1, ptr %3, align 8, !tbaa !120
+  store ptr %1, ptr %3, align 8, !tbaa !119
   %4 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #17
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i32 0, ptr %5, align 4, !tbaa !41
@@ -882,14 +882,14 @@ define noalias noundef ptr @Cec_ManFraStart(ptr noundef %0, ptr noundef %1) loca
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %6, ptr %7, align 8, !tbaa !43
   %8 = getelementptr inbounds nuw i8, ptr %calloc, i64 16
-  store ptr %4, ptr %8, align 8, !tbaa !121
+  store ptr %4, ptr %8, align 8, !tbaa !120
   ret ptr %calloc
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
 define void @Cec_ManFraStop(ptr noundef captures(none) %0) local_unnamed_addr #10 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %3 = load ptr, ptr %2, align 8, !tbaa !121
+  %3 = load ptr, ptr %2, align 8, !tbaa !120
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = load ptr, ptr %4, align 8, !tbaa !43
   %.not.i = icmp eq ptr %5, null
@@ -1053,21 +1053,20 @@ attributes #19 = { nounwind willreturn memory(read) }
 !101 = !{!92, !10, i64 136}
 !102 = !{!92, !10, i64 144}
 !103 = !{!6, !6, i64 0}
-!104 = distinct !{!104, !105, !106}
+!104 = distinct !{!104, !105}
 !105 = !{!"llvm.loop.mustprogress"}
-!106 = !{!"llvm.loop.estimated_trip_count"}
-!107 = !{!92, !14, i64 64}
-!108 = !{!96, !12, i64 24}
-!109 = !{!18, !12, i64 16}
-!110 = !{!92, !14, i64 72}
-!111 = distinct !{!111, !105, !106}
-!112 = !{!92, !12, i64 88}
-!113 = !{!92, !13, i64 112}
-!114 = !{!92, !24, i64 96}
-!115 = !{!92, !6, i64 80}
-!116 = !{!92, !13, i64 32}
-!117 = !{!118, !9, i64 0}
-!118 = !{!"Cec_ManFra_t_", !9, i64 0, !119, i64 8, !10, i64 16, !12, i64 24, !12, i64 28, !12, i64 32, !12, i64 36, !12, i64 40, !12, i64 44, !29, i64 48, !29, i64 56, !29, i64 64, !29, i64 72}
-!119 = !{!"p1 _ZTS13Cec_ParFra_t_", !6, i64 0}
-!120 = !{!118, !119, i64 8}
-!121 = !{!118, !10, i64 16}
+!106 = !{!92, !14, i64 64}
+!107 = !{!96, !12, i64 24}
+!108 = !{!18, !12, i64 16}
+!109 = !{!92, !14, i64 72}
+!110 = distinct !{!110, !105}
+!111 = !{!92, !12, i64 88}
+!112 = !{!92, !13, i64 112}
+!113 = !{!92, !24, i64 96}
+!114 = !{!92, !6, i64 80}
+!115 = !{!92, !13, i64 32}
+!116 = !{!117, !9, i64 0}
+!117 = !{!"Cec_ManFra_t_", !9, i64 0, !118, i64 8, !10, i64 16, !12, i64 24, !12, i64 28, !12, i64 32, !12, i64 36, !12, i64 40, !12, i64 44, !29, i64 48, !29, i64 56, !29, i64 64, !29, i64 72}
+!118 = !{!"p1 _ZTS13Cec_ParFra_t_", !6, i64 0}
+!119 = !{!117, !118, i64 8}
+!120 = !{!117, !10, i64 16}

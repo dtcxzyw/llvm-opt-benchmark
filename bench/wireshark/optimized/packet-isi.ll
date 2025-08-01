@@ -1988,7 +1988,7 @@ define internal i32 @dissect_isi_network(ptr noundef %0, ptr noundef %1, ptr nou
   %89 = add i32 %.04243.i, %60
   %90 = add nuw nsw i32 %.044.i, 1
   %exitcond.not.i28 = icmp eq i32 %90, %56
-  br i1 %exitcond.not.i28, label %dissect_isi_network_status.exit, label %.lr.ph.i27, !llvm.loop !9
+  br i1 %exitcond.not.i28, label %dissect_isi_network_status.exit, label %.lr.ph.i27, !llvm.loop !8
 
 91:                                               ; preds = %4
   br label %dissect_isi_network_status.exit.sink.split
@@ -2371,7 +2371,7 @@ define internal i32 @dissect_isi_gps(ptr noundef %0, ptr noundef readonly captur
   %194 = tail call ptr @proto_tree_add_float(ptr noundef %167, i32 noundef %193, ptr noundef %0, i32 noundef %178, i32 noundef 2, float noundef %182)
   %195 = add nuw nsw i32 %.01801.i, 1
   %exitcond.not.i = icmp eq i32 %195, %161
-  br i1 %exitcond.not.i, label %.loopexit.i, label %163, !llvm.loop !10
+  br i1 %exitcond.not.i, label %.loopexit.i, label %163, !llvm.loop !9
 
 196:                                              ; preds = %.lr.ph4.i
   %197 = load i32, ptr @hf_isi_gps_mcc, align 4
@@ -2402,7 +2402,7 @@ define internal i32 @dissect_isi_gps(ptr noundef %0, ptr noundef readonly captur
   %217 = add i32 %.01792.i, %41
   %218 = add nuw nsw i32 %.03.i, 1
   %exitcond6.not.i = icmp eq i32 %218, %36
-  br i1 %exitcond6.not.i, label %dissect_isi_gps_data.exit, label %.lr.ph4.i, !llvm.loop !11
+  br i1 %exitcond6.not.i, label %dissect_isi_gps_data.exit, label %.lr.ph4.i, !llvm.loop !10
 
 219:                                              ; preds = %4
   %220 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -2501,9 +2501,8 @@ attributes #1 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protect
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7, !8}
-!11 = distinct !{!11, !7, !8}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}

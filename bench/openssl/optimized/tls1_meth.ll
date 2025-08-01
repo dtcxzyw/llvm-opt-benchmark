@@ -474,9 +474,9 @@ define internal range(i32 0, 2) i32 @tls1_cipher(ptr noundef %0, ptr noundef %1,
   %.0255335 = phi i64 [ 0, %.preheader331 ], [ %41, %40 ]
   %43 = getelementptr inbounds nuw %struct.tls_rl_record_st, ptr %1, i64 %.0255335
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 32
-  %45 = load ptr, ptr %44, align 8, !tbaa !45
+  %45 = load ptr, ptr %44, align 8, !tbaa !44
   %46 = getelementptr inbounds nuw i8, ptr %43, i64 40
-  %47 = load ptr, ptr %46, align 8, !tbaa !47
+  %47 = load ptr, ptr %46, align 8, !tbaa !46
   %.not282 = icmp eq ptr %45, %47
   br i1 %.not282, label %49, label %48
 
@@ -556,7 +556,7 @@ define internal range(i32 0, 2) i32 @tls1_cipher(ptr noundef %0, ptr noundef %1,
   %.1256337 = phi i64 [ 0, %70 ], [ %148, %147 ]
   %78 = getelementptr inbounds nuw %struct.tls_rl_record_st, ptr %1, i64 %.1256337
   %79 = getelementptr inbounds nuw i8, ptr %78, i64 8
-  %80 = load i64, ptr %79, align 8, !tbaa !48
+  %80 = load i64, ptr %79, align 8, !tbaa !47
   %81 = getelementptr inbounds nuw [32 x i64], ptr %7, i64 0, i64 %.1256337
   store i64 %80, ptr %81, align 8, !tbaa !25
   %82 = call ptr @EVP_CIPHER_CTX_get0_cipher(ptr noundef nonnull %25) #4
@@ -566,12 +566,12 @@ define internal range(i32 0, 2) i32 @tls1_cipher(ptr noundef %0, ptr noundef %1,
   br i1 %.not297, label %121, label %85
 
 85:                                               ; preds = %77
-  %86 = load i32, ptr %71, align 8, !tbaa !49
+  %86 = load i32, ptr %71, align 8, !tbaa !48
   %.not301 = icmp eq i32 %86, 0
   br i1 %.not301, label %93, label %87
 
 87:                                               ; preds = %85
-  %88 = load i16, ptr %72, align 8, !tbaa !50
+  %88 = load i16, ptr %72, align 8, !tbaa !49
   %89 = lshr i16 %88, 8
   %90 = trunc nuw i16 %89 to i8
   %91 = trunc i16 %88 to i8
@@ -593,27 +593,27 @@ define internal range(i32 0, 2) i32 @tls1_cipher(ptr noundef %0, ptr noundef %1,
 
 97:                                               ; preds = %93, %87
   %98 = getelementptr inbounds nuw i8, ptr %78, i64 4
-  %99 = load i32, ptr %98, align 4, !tbaa !51
+  %99 = load i32, ptr %98, align 4, !tbaa !50
   %100 = trunc i32 %99 to i8
   %101 = getelementptr inbounds nuw [32 x [13 x i8]], ptr %8, i64 0, i64 %.1256337
   %102 = getelementptr inbounds nuw i8, ptr %101, i64 8
-  store i8 %100, ptr %102, align 1, !tbaa !52
+  store i8 %100, ptr %102, align 1, !tbaa !51
   %103 = load i32, ptr %75, align 4, !tbaa !38
   %104 = lshr i32 %103, 8
   %105 = trunc i32 %104 to i8
   %106 = getelementptr inbounds nuw i8, ptr %101, i64 9
-  store i8 %105, ptr %106, align 1, !tbaa !52
+  store i8 %105, ptr %106, align 1, !tbaa !51
   %107 = trunc i32 %103 to i8
   %108 = getelementptr inbounds nuw i8, ptr %101, i64 10
-  store i8 %107, ptr %108, align 1, !tbaa !52
-  %109 = load i64, ptr %79, align 8, !tbaa !48
+  store i8 %107, ptr %108, align 1, !tbaa !51
+  %109 = load i64, ptr %79, align 8, !tbaa !47
   %110 = lshr i64 %109, 8
   %111 = trunc i64 %110 to i8
   %112 = getelementptr inbounds nuw i8, ptr %101, i64 11
-  store i8 %111, ptr %112, align 1, !tbaa !52
+  store i8 %111, ptr %112, align 1, !tbaa !51
   %113 = trunc i64 %109 to i8
   %114 = getelementptr inbounds nuw i8, ptr %101, i64 12
-  store i8 %113, ptr %114, align 1, !tbaa !52
+  store i8 %113, ptr %114, align 1, !tbaa !51
   %115 = call i32 @EVP_CIPHER_CTX_ctrl(ptr noundef nonnull %25, i32 noundef 22, i32 noundef 13, ptr noundef nonnull %101) #4
   %116 = icmp slt i32 %115, 1
   br i1 %116, label %117, label %118
@@ -662,14 +662,14 @@ define internal range(i32 0, 2) i32 @tls1_cipher(ptr noundef %0, ptr noundef %1,
 
 134:                                              ; preds = %.lr.ph, %134
   %.0261336 = phi i64 [ %123, %.lr.ph ], [ %137, %134 ]
-  %135 = load ptr, ptr %133, align 8, !tbaa !47
+  %135 = load ptr, ptr %133, align 8, !tbaa !46
   %136 = getelementptr inbounds nuw i8, ptr %135, i64 %.0261336
-  store i8 %130, ptr %136, align 1, !tbaa !52
+  store i8 %130, ptr %136, align 1, !tbaa !51
   %137 = add nuw i64 %.0261336, 1
   %138 = load i64, ptr %81, align 8, !tbaa !25
   %139 = add i64 %138, %125
   %140 = icmp ult i64 %137, %139
-  br i1 %140, label %134, label %.sink.split, !llvm.loop !53
+  br i1 %140, label %134, label %.sink.split, !llvm.loop !52
 
 .thread318:                                       ; preds = %121
   br i1 %29, label %.thread318..thread318.thread_crit_edge, label %147
@@ -694,16 +694,16 @@ define internal range(i32 0, 2) i32 @tls1_cipher(ptr noundef %0, ptr noundef %1,
   %.sink355 = phi i64 [ %119, %.thread318.thread324 ], [ %125, %128 ], [ %125, %134 ]
   %.2254322.ph = phi i32 [ %115, %.thread318.thread324 ], [ %.0252339, %128 ], [ %.0252339, %134 ]
   store i64 %.lcssa.sink, ptr %81, align 8, !tbaa !25
-  %145 = load i64, ptr %79, align 8, !tbaa !48
+  %145 = load i64, ptr %79, align 8, !tbaa !47
   %146 = add i64 %145, %.sink355
-  store i64 %146, ptr %79, align 8, !tbaa !48
+  store i64 %146, ptr %79, align 8, !tbaa !47
   br label %147
 
 147:                                              ; preds = %.sink.split, %.thread318, %143
   %.2254322 = phi i32 [ %.0252339, %.thread318 ], [ %.2254323, %143 ], [ %.2254322.ph, %.sink.split ]
   %148 = add nuw i64 %.1256337, 1
   %exitcond346.not = icmp eq i64 %148, %2
-  br i1 %exitcond346.not, label %149, label %77, !llvm.loop !54
+  br i1 %exitcond346.not, label %149, label %77, !llvm.loop !53
 
 149:                                              ; preds = %147
   br i1 %.not284, label %170, label %.preheader329
@@ -711,12 +711,12 @@ define internal range(i32 0, 2) i32 @tls1_cipher(ptr noundef %0, ptr noundef %1,
 .preheader329:                                    ; preds = %149, %.preheader329
   %.2257340 = phi i64 [ %153, %.preheader329 ], [ 0, %149 ]
   %150 = getelementptr inbounds nuw %struct.tls_rl_record_st, ptr %1, i64 %.2257340, i32 5
-  %151 = load ptr, ptr %150, align 8, !tbaa !45
+  %151 = load ptr, ptr %150, align 8, !tbaa !44
   %152 = getelementptr inbounds nuw [32 x ptr], ptr %9, i64 0, i64 %.2257340
-  store ptr %151, ptr %152, align 8, !tbaa !55
+  store ptr %151, ptr %152, align 8, !tbaa !54
   %153 = add nuw i64 %.2257340, 1
   %exitcond347.not = icmp eq i64 %153, %2
-  br i1 %exitcond347.not, label %154, label %.preheader329, !llvm.loop !56
+  br i1 %exitcond347.not, label %154, label %.preheader329, !llvm.loop !55
 
 154:                                              ; preds = %.preheader329
   %155 = trunc i64 %2 to i32
@@ -733,12 +733,12 @@ define internal range(i32 0, 2) i32 @tls1_cipher(ptr noundef %0, ptr noundef %1,
 .preheader328:                                    ; preds = %154, %.preheader328
   %.3258341 = phi i64 [ %162, %.preheader328 ], [ 0, %154 ]
   %159 = getelementptr inbounds nuw %struct.tls_rl_record_st, ptr %1, i64 %.3258341, i32 6
-  %160 = load ptr, ptr %159, align 8, !tbaa !47
+  %160 = load ptr, ptr %159, align 8, !tbaa !46
   %161 = getelementptr inbounds nuw [32 x ptr], ptr %9, i64 0, i64 %.3258341
-  store ptr %160, ptr %161, align 8, !tbaa !55
+  store ptr %160, ptr %161, align 8, !tbaa !54
   %162 = add nuw i64 %.3258341, 1
   %exitcond348.not = icmp eq i64 %162, %2
-  br i1 %exitcond348.not, label %163, label %.preheader328, !llvm.loop !57
+  br i1 %exitcond348.not, label %163, label %.preheader328, !llvm.loop !56
 
 163:                                              ; preds = %.preheader328
   %164 = call i32 @EVP_CIPHER_CTX_ctrl(ptr noundef nonnull %25, i32 noundef 35, i32 noundef %155, ptr noundef nonnull %9) #4
@@ -757,13 +757,13 @@ define internal range(i32 0, 2) i32 @tls1_cipher(ptr noundef %0, ptr noundef %1,
   br label %.critedge305
 
 170:                                              ; preds = %166, %149
-  %171 = load i32, ptr %71, align 8, !tbaa !49
+  %171 = load i32, ptr %71, align 8, !tbaa !48
   %.not285 = icmp eq i32 %171, 0
   br i1 %.not285, label %172, label %.critedge307
 
 172:                                              ; preds = %170
   %173 = getelementptr inbounds nuw i8, ptr %0, i64 4280
-  %174 = load i32, ptr %173, align 8, !tbaa !58
+  %174 = load i32, ptr %173, align 8, !tbaa !57
   %.not286 = icmp eq i32 %174, 0
   br i1 %.not286, label %.critedge307, label %175
 
@@ -772,7 +772,7 @@ define internal range(i32 0, 2) i32 @tls1_cipher(ptr noundef %0, ptr noundef %1,
 
 176:                                              ; preds = %175
   %177 = getelementptr inbounds nuw i8, ptr %0, i64 4272
-  %178 = load i32, ptr %177, align 8, !tbaa !59
+  %178 = load i32, ptr %177, align 8, !tbaa !58
   %.not287 = icmp eq i32 %178, 0
   %spec.select = zext i1 %.not287 to i32
   br label %179
@@ -804,9 +804,9 @@ define internal range(i32 0, 2) i32 @tls1_cipher(ptr noundef %0, ptr noundef %1,
 
 185:                                              ; preds = %183
   %186 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %187 = load ptr, ptr %186, align 8, !tbaa !45
+  %187 = load ptr, ptr %186, align 8, !tbaa !44
   %188 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %189 = load ptr, ptr %188, align 8, !tbaa !47
+  %189 = load ptr, ptr %188, align 8, !tbaa !46
   %190 = load i64, ptr %7, align 16, !tbaa !25
   %191 = trunc i64 %190 to i32
   %192 = call i32 @EVP_CipherUpdate(ptr noundef nonnull %25, ptr noundef %187, ptr noundef nonnull %10, ptr noundef %189, i32 noundef %191) #4
@@ -814,10 +814,10 @@ define internal range(i32 0, 2) i32 @tls1_cipher(ptr noundef %0, ptr noundef %1,
   br i1 %.not293, label %.critedge311, label %193
 
 193:                                              ; preds = %185
-  %194 = load i32, ptr %10, align 4, !tbaa !60
+  %194 = load i32, ptr %10, align 4, !tbaa !59
   %195 = sext i32 %194 to i64
   %196 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i64 %195, ptr %196, align 8, !tbaa !48
+  store i64 %195, ptr %196, align 8, !tbaa !47
   br i1 %29, label %197, label %230
 
 197:                                              ; preds = %193
@@ -826,12 +826,12 @@ define internal range(i32 0, 2) i32 @tls1_cipher(ptr noundef %0, ptr noundef %1,
   br i1 %199, label %200, label %205
 
 200:                                              ; preds = %197
-  %201 = load ptr, ptr %186, align 8, !tbaa !45
+  %201 = load ptr, ptr %186, align 8, !tbaa !44
   %202 = getelementptr inbounds nuw i8, ptr %201, i64 8
-  store ptr %202, ptr %186, align 8, !tbaa !45
-  %203 = load ptr, ptr %188, align 8, !tbaa !47
+  store ptr %202, ptr %186, align 8, !tbaa !44
+  %203 = load ptr, ptr %188, align 8, !tbaa !46
   %204 = getelementptr inbounds nuw i8, ptr %203, i64 8
-  store ptr %204, ptr %188, align 8, !tbaa !47
+  store ptr %204, ptr %188, align 8, !tbaa !46
   br label %224
 
 205:                                              ; preds = %197
@@ -840,12 +840,12 @@ define internal range(i32 0, 2) i32 @tls1_cipher(ptr noundef %0, ptr noundef %1,
   br i1 %207, label %208, label %213
 
 208:                                              ; preds = %205
-  %209 = load ptr, ptr %186, align 8, !tbaa !45
+  %209 = load ptr, ptr %186, align 8, !tbaa !44
   %210 = getelementptr inbounds nuw i8, ptr %209, i64 8
-  store ptr %210, ptr %186, align 8, !tbaa !45
-  %211 = load ptr, ptr %188, align 8, !tbaa !47
+  store ptr %210, ptr %186, align 8, !tbaa !44
+  %211 = load ptr, ptr %188, align 8, !tbaa !46
   %212 = getelementptr inbounds nuw i8, ptr %211, i64 8
-  store ptr %212, ptr %188, align 8, !tbaa !47
+  store ptr %212, ptr %188, align 8, !tbaa !46
   br label %224
 
 213:                                              ; preds = %205
@@ -862,16 +862,16 @@ define internal range(i32 0, 2) i32 @tls1_cipher(ptr noundef %0, ptr noundef %1,
   ]
 
 216:                                              ; preds = %214, %214, %214, %214, %214
-  %217 = load ptr, ptr %186, align 8, !tbaa !45
+  %217 = load ptr, ptr %186, align 8, !tbaa !44
   %218 = getelementptr inbounds nuw i8, ptr %217, i64 %60
-  store ptr %218, ptr %186, align 8, !tbaa !45
-  %219 = load ptr, ptr %188, align 8, !tbaa !47
+  store ptr %218, ptr %186, align 8, !tbaa !44
+  %219 = load ptr, ptr %188, align 8, !tbaa !46
   %220 = getelementptr inbounds nuw i8, ptr %219, i64 %60
-  store ptr %220, ptr %188, align 8, !tbaa !47
+  store ptr %220, ptr %188, align 8, !tbaa !46
   %221 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %222 = load i64, ptr %221, align 8, !tbaa !61
+  %222 = load i64, ptr %221, align 8, !tbaa !60
   %223 = sub i64 %222, %60
-  store i64 %223, ptr %221, align 8, !tbaa !61
+  store i64 %223, ptr %221, align 8, !tbaa !60
   br label %224
 
 224:                                              ; preds = %214, %208, %216, %213, %200
@@ -881,12 +881,12 @@ define internal range(i32 0, 2) i32 @tls1_cipher(ptr noundef %0, ptr noundef %1,
 225:                                              ; preds = %224
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %11) #4
   %226 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store i32 0, ptr %226, align 8, !tbaa !62
+  store i32 0, ptr %226, align 8, !tbaa !61
   %227 = getelementptr inbounds nuw i8, ptr %11, i64 40
   call void @OSSL_PARAM_construct_octet_ptr(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %11, ptr noundef nonnull @.str.2, ptr noundef nonnull %4, i64 noundef %5) #4
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %12) #4
   call void @OSSL_PARAM_construct_end(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %12) #4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %227, ptr noundef nonnull align 8 dereferenceable(40) %12, i64 40, i1 false), !tbaa.struct !64
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %227, ptr noundef nonnull align 8 dereferenceable(40) %12, i64 40, i1 false), !tbaa.struct !63
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %12) #4
   %228 = call i32 @EVP_CIPHER_CTX_get_params(ptr noundef nonnull %25, ptr noundef nonnull %11) #4
   %.not296.not = icmp eq i32 %228, 0
@@ -909,9 +909,9 @@ define internal range(i32 0, 2) i32 @tls1_cipher(ptr noundef %0, ptr noundef %1,
 
 231:                                              ; preds = %.critedge307
   %232 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %233 = load ptr, ptr %232, align 8, !tbaa !45
+  %233 = load ptr, ptr %232, align 8, !tbaa !44
   %234 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %235 = load ptr, ptr %234, align 8, !tbaa !47
+  %235 = load ptr, ptr %234, align 8, !tbaa !46
   %236 = load i64, ptr %7, align 16, !tbaa !25
   %237 = trunc i64 %236 to i32
   %238 = call i32 @EVP_Cipher(ptr noundef nonnull %25, ptr noundef %233, ptr noundef %235, i32 noundef %237) #4
@@ -941,7 +941,7 @@ define internal range(i32 0, 2) i32 @tls1_cipher(ptr noundef %0, ptr noundef %1,
 248:                                              ; preds = %297
   %249 = add nuw i64 %.4259342, 1
   %exitcond349.not = icmp eq i64 %249, %2
-  br i1 %exitcond349.not, label %.critedge305, label %250, !llvm.loop !66
+  br i1 %exitcond349.not, label %.critedge305, label %250, !llvm.loop !65
 
 250:                                              ; preds = %.preheader, %248
   %.4259342 = phi i64 [ 0, %.preheader ], [ %249, %248 ]
@@ -952,17 +952,17 @@ define internal range(i32 0, 2) i32 @tls1_cipher(ptr noundef %0, ptr noundef %1,
 253:                                              ; preds = %250
   %254 = getelementptr inbounds nuw %struct.tls_rl_record_st, ptr %1, i64 %.4259342
   %255 = getelementptr inbounds nuw i8, ptr %254, i64 32
-  %256 = load ptr, ptr %255, align 8, !tbaa !45
+  %256 = load ptr, ptr %255, align 8, !tbaa !44
   %257 = getelementptr inbounds nuw i8, ptr %256, i64 8
-  store ptr %257, ptr %255, align 8, !tbaa !45
+  store ptr %257, ptr %255, align 8, !tbaa !44
   %258 = getelementptr inbounds nuw i8, ptr %254, i64 40
-  %259 = load ptr, ptr %258, align 8, !tbaa !47
+  %259 = load ptr, ptr %258, align 8, !tbaa !46
   %260 = getelementptr inbounds nuw i8, ptr %259, i64 8
-  store ptr %260, ptr %258, align 8, !tbaa !47
+  store ptr %260, ptr %258, align 8, !tbaa !46
   %261 = getelementptr inbounds nuw i8, ptr %254, i64 8
-  %262 = load i64, ptr %261, align 8, !tbaa !48
+  %262 = load i64, ptr %261, align 8, !tbaa !47
   %263 = add i64 %262, -8
-  store i64 %263, ptr %261, align 8, !tbaa !48
+  store i64 %263, ptr %261, align 8, !tbaa !47
   br label %297
 
 264:                                              ; preds = %250
@@ -973,17 +973,17 @@ define internal range(i32 0, 2) i32 @tls1_cipher(ptr noundef %0, ptr noundef %1,
 267:                                              ; preds = %264
   %268 = getelementptr inbounds nuw %struct.tls_rl_record_st, ptr %1, i64 %.4259342
   %269 = getelementptr inbounds nuw i8, ptr %268, i64 32
-  %270 = load ptr, ptr %269, align 8, !tbaa !45
+  %270 = load ptr, ptr %269, align 8, !tbaa !44
   %271 = getelementptr inbounds nuw i8, ptr %270, i64 8
-  store ptr %271, ptr %269, align 8, !tbaa !45
+  store ptr %271, ptr %269, align 8, !tbaa !44
   %272 = getelementptr inbounds nuw i8, ptr %268, i64 40
-  %273 = load ptr, ptr %272, align 8, !tbaa !47
+  %273 = load ptr, ptr %272, align 8, !tbaa !46
   %274 = getelementptr inbounds nuw i8, ptr %273, i64 8
-  store ptr %274, ptr %272, align 8, !tbaa !47
+  store ptr %274, ptr %272, align 8, !tbaa !46
   %275 = getelementptr inbounds nuw i8, ptr %268, i64 8
-  %276 = load i64, ptr %275, align 8, !tbaa !48
+  %276 = load i64, ptr %275, align 8, !tbaa !47
   %277 = add i64 %276, -8
-  store i64 %277, ptr %275, align 8, !tbaa !48
+  store i64 %277, ptr %275, align 8, !tbaa !47
   br label %297
 
 278:                                              ; preds = %264
@@ -1002,34 +1002,34 @@ define internal range(i32 0, 2) i32 @tls1_cipher(ptr noundef %0, ptr noundef %1,
 281:                                              ; preds = %279, %279, %279, %279, %279
   %282 = getelementptr inbounds nuw %struct.tls_rl_record_st, ptr %1, i64 %.4259342
   %283 = getelementptr inbounds nuw i8, ptr %282, i64 8
-  %284 = load i64, ptr %283, align 8, !tbaa !48
+  %284 = load i64, ptr %283, align 8, !tbaa !47
   %285 = icmp ult i64 %284, %60
   br i1 %285, label %.critedge305, label %286
 
 286:                                              ; preds = %281
   %287 = getelementptr inbounds nuw i8, ptr %282, i64 32
-  %288 = load ptr, ptr %287, align 8, !tbaa !45
+  %288 = load ptr, ptr %287, align 8, !tbaa !44
   %289 = getelementptr inbounds nuw i8, ptr %288, i64 %60
-  store ptr %289, ptr %287, align 8, !tbaa !45
+  store ptr %289, ptr %287, align 8, !tbaa !44
   %290 = getelementptr inbounds nuw i8, ptr %282, i64 40
-  %291 = load ptr, ptr %290, align 8, !tbaa !47
+  %291 = load ptr, ptr %290, align 8, !tbaa !46
   %292 = getelementptr inbounds nuw i8, ptr %291, i64 %60
-  store ptr %292, ptr %290, align 8, !tbaa !47
+  store ptr %292, ptr %290, align 8, !tbaa !46
   %293 = sub nuw i64 %284, %60
-  store i64 %293, ptr %283, align 8, !tbaa !48
+  store i64 %293, ptr %283, align 8, !tbaa !47
   %294 = getelementptr inbounds nuw i8, ptr %282, i64 16
-  %295 = load i64, ptr %294, align 8, !tbaa !61
+  %295 = load i64, ptr %294, align 8, !tbaa !60
   %296 = sub i64 %295, %60
-  store i64 %296, ptr %294, align 8, !tbaa !61
+  store i64 %296, ptr %294, align 8, !tbaa !60
   br label %297
 
 297:                                              ; preds = %279, %267, %286, %278, %253
   %298 = getelementptr inbounds nuw %struct.tls_rl_record_st, ptr %1, i64 %.4259342
   %299 = getelementptr inbounds nuw i8, ptr %298, i64 8
   %300 = getelementptr inbounds nuw i8, ptr %298, i64 16
-  %301 = load i64, ptr %300, align 8, !tbaa !61
+  %301 = load i64, ptr %300, align 8, !tbaa !60
   %302 = getelementptr inbounds nuw i8, ptr %298, i64 32
-  %303 = load ptr, ptr %302, align 8, !tbaa !45
+  %303 = load ptr, ptr %302, align 8, !tbaa !44
   %304 = getelementptr inbounds nuw %struct.ssl_mac_buf_st, ptr %4, i64 %.4259342
   %305 = select i1 %.not290, ptr null, ptr %304
   %306 = getelementptr inbounds nuw i8, ptr %304, i64 8
@@ -1075,7 +1075,7 @@ define internal range(i32 0, 2) i32 @tls1_mac(ptr noundef %0, ptr noundef %1, pt
   %15 = zext nneg i32 %12 to i64
   store i64 %15, ptr %5, align 8, !tbaa !25
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 4276
-  %17 = load i32, ptr %16, align 4, !tbaa !67
+  %17 = load i32, ptr %16, align 4, !tbaa !66
   %.not = icmp eq i32 %17, 0
   br i1 %.not, label %18, label %23
 
@@ -1093,13 +1093,13 @@ define internal range(i32 0, 2) i32 @tls1_mac(ptr noundef %0, ptr noundef %1, pt
   %.049 = phi ptr [ %11, %14 ], [ %19, %21 ]
   %.048 = phi ptr [ null, %14 ], [ %19, %21 ]
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %25 = load i32, ptr %24, align 8, !tbaa !49
+  %25 = load i32, ptr %24, align 8, !tbaa !48
   %.not56 = icmp eq i32 %25, 0
   br i1 %.not56, label %26, label %.thread
 
 26:                                               ; preds = %23
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 4280
-  %28 = load i32, ptr %27, align 8, !tbaa !58
+  %28 = load i32, ptr %27, align 8, !tbaa !57
   %.not57 = icmp eq i32 %28, 0
   br i1 %.not57, label %.thread67, label %29
 
@@ -1109,13 +1109,13 @@ define internal range(i32 0, 2) i32 @tls1_mac(ptr noundef %0, ptr noundef %1, pt
   br i1 %31, label %93, label %32
 
 32:                                               ; preds = %29
-  %.pr.pre = load i32, ptr %24, align 8, !tbaa !49
+  %.pr.pre = load i32, ptr %24, align 8, !tbaa !48
   %33 = icmp eq i32 %.pr.pre, 0
   br i1 %33, label %.thread67, label %.thread
 
 .thread:                                          ; preds = %23, %32
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %35 = load i16, ptr %34, align 8, !tbaa !50
+  %35 = load i16, ptr %34, align 8, !tbaa !49
   %36 = lshr i16 %35, 8
   %37 = trunc nuw i16 %36 to i8
   %38 = trunc i16 %35 to i8
@@ -1134,34 +1134,34 @@ define internal range(i32 0, 2) i32 @tls1_mac(ptr noundef %0, ptr noundef %1, pt
 
 41:                                               ; preds = %.thread67, %.thread
   %42 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %43 = load i32, ptr %42, align 4, !tbaa !51
+  %43 = load i32, ptr %42, align 4, !tbaa !50
   %44 = trunc i32 %43 to i8
   %45 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store i8 %44, ptr %45, align 8, !tbaa !52
+  store i8 %44, ptr %45, align 8, !tbaa !51
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %47 = load i32, ptr %46, align 4, !tbaa !38
   %48 = lshr i32 %47, 8
   %49 = trunc i32 %48 to i8
   %50 = getelementptr inbounds nuw i8, ptr %6, i64 9
-  store i8 %49, ptr %50, align 1, !tbaa !52
+  store i8 %49, ptr %50, align 1, !tbaa !51
   %51 = trunc i32 %47 to i8
   %52 = getelementptr inbounds nuw i8, ptr %6, i64 10
-  store i8 %51, ptr %52, align 2, !tbaa !52
+  store i8 %51, ptr %52, align 2, !tbaa !51
   %53 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %54 = load i64, ptr %53, align 8, !tbaa !48
+  %54 = load i64, ptr %53, align 8, !tbaa !47
   %55 = lshr i64 %54, 8
   %56 = trunc i64 %55 to i8
   %57 = getelementptr inbounds nuw i8, ptr %6, i64 11
-  store i8 %56, ptr %57, align 1, !tbaa !52
+  store i8 %56, ptr %57, align 1, !tbaa !51
   %58 = trunc i64 %54 to i8
   %59 = getelementptr inbounds nuw i8, ptr %6, i64 12
-  store i8 %58, ptr %59, align 4, !tbaa !52
+  store i8 %58, ptr %59, align 4, !tbaa !51
   %.not59 = icmp eq i32 %3, 0
   br i1 %.not59, label %60, label %76
 
 60:                                               ; preds = %41
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 4272
-  %62 = load i32, ptr %61, align 8, !tbaa !59
+  %62 = load i32, ptr %61, align 8, !tbaa !58
   %.not60 = icmp eq i32 %62, 0
   br i1 %.not60, label %63, label %76
 
@@ -1185,7 +1185,7 @@ define internal range(i32 0, 2) i32 @tls1_mac(ptr noundef %0, ptr noundef %1, pt
   call void @OSSL_PARAM_construct_size_t(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %7, ptr noundef nonnull @.str.3, ptr noundef nonnull %73) #4
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %8) #4
   call void @OSSL_PARAM_construct_end(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %8) #4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %72, ptr noundef nonnull align 8 dereferenceable(40) %8, i64 40, i1 false), !tbaa.struct !64
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %72, ptr noundef nonnull align 8 dereferenceable(40) %8, i64 40, i1 false), !tbaa.struct !63
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %8) #4
   %74 = call ptr @EVP_MD_CTX_get_pkey_ctx(ptr noundef %.049) #4
   %75 = call i32 @EVP_PKEY_CTX_set_params(ptr noundef %74, ptr noundef nonnull %7) #4
@@ -1200,8 +1200,8 @@ define internal range(i32 0, 2) i32 @tls1_mac(ptr noundef %0, ptr noundef %1, pt
 
 79:                                               ; preds = %76
   %80 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %81 = load ptr, ptr %80, align 8, !tbaa !47
-  %82 = load i64, ptr %53, align 8, !tbaa !48
+  %81 = load ptr, ptr %80, align 8, !tbaa !46
+  %82 = load i64, ptr %53, align 8, !tbaa !47
   %83 = call i32 @EVP_DigestSignUpdate(ptr noundef %.049, ptr noundef %81, i64 noundef %82) #4
   %84 = icmp slt i32 %83, 1
   br i1 %84, label %93, label %85
@@ -1212,7 +1212,7 @@ define internal range(i32 0, 2) i32 @tls1_mac(ptr noundef %0, ptr noundef %1, pt
   br i1 %87, label %93, label %88
 
 88:                                               ; preds = %85
-  %89 = load i32, ptr %24, align 8, !tbaa !49
+  %89 = load i32, ptr %24, align 8, !tbaa !48
   %.not63 = icmp eq i32 %89, 0
   br i1 %.not63, label %90, label %92
 
@@ -1396,29 +1396,28 @@ attributes #4 = { nounwind }
 !39 = !{!4, !14, i64 4144}
 !40 = !{!"branch_weights", !"expected", i32 2000, i32 1}
 !41 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!42 = distinct !{!42, !43, !44}
+!42 = distinct !{!42, !43}
 !43 = !{!"llvm.loop.mustprogress"}
-!44 = !{!"llvm.loop.estimated_trip_count"}
-!45 = !{!46, !9, i64 32}
-!46 = !{!"tls_rl_record_st", !10, i64 0, !10, i64 4, !14, i64 8, !14, i64 16, !14, i64 24, !9, i64 32, !9, i64 40, !9, i64 48, !12, i64 56, !7, i64 58}
-!47 = !{!46, !9, i64 40}
-!48 = !{!46, !14, i64 8}
-!49 = !{!4, !10, i64 16}
-!50 = !{!4, !12, i64 48}
-!51 = !{!46, !10, i64 4}
-!52 = !{!7, !7, i64 0}
-!53 = distinct !{!53, !43, !44}
-!54 = distinct !{!54, !43, !44}
-!55 = !{!9, !9, i64 0}
-!56 = distinct !{!56, !43, !44}
-!57 = distinct !{!57, !43, !44}
-!58 = !{!4, !10, i64 4280}
-!59 = !{!4, !10, i64 4272}
-!60 = !{!10, !10, i64 0}
-!61 = !{!46, !14, i64 16}
-!62 = !{!63, !10, i64 8}
-!63 = !{!"ssl_mac_buf_st", !9, i64 0, !10, i64 8}
-!64 = !{i64 0, i64 8, !55, i64 8, i64 4, !60, i64 16, i64 8, !65, i64 24, i64 8, !25, i64 32, i64 8, !25}
-!65 = !{!6, !6, i64 0}
-!66 = distinct !{!66, !43, !44}
-!67 = !{!4, !10, i64 4276}
+!44 = !{!45, !9, i64 32}
+!45 = !{!"tls_rl_record_st", !10, i64 0, !10, i64 4, !14, i64 8, !14, i64 16, !14, i64 24, !9, i64 32, !9, i64 40, !9, i64 48, !12, i64 56, !7, i64 58}
+!46 = !{!45, !9, i64 40}
+!47 = !{!45, !14, i64 8}
+!48 = !{!4, !10, i64 16}
+!49 = !{!4, !12, i64 48}
+!50 = !{!45, !10, i64 4}
+!51 = !{!7, !7, i64 0}
+!52 = distinct !{!52, !43}
+!53 = distinct !{!53, !43}
+!54 = !{!9, !9, i64 0}
+!55 = distinct !{!55, !43}
+!56 = distinct !{!56, !43}
+!57 = !{!4, !10, i64 4280}
+!58 = !{!4, !10, i64 4272}
+!59 = !{!10, !10, i64 0}
+!60 = !{!45, !14, i64 16}
+!61 = !{!62, !10, i64 8}
+!62 = !{!"ssl_mac_buf_st", !9, i64 0, !10, i64 8}
+!63 = !{i64 0, i64 8, !54, i64 8, i64 4, !59, i64 16, i64 8, !64, i64 24, i64 8, !25, i64 32, i64 8, !25}
+!64 = !{!6, !6, i64 0}
+!65 = distinct !{!65, !43}
+!66 = !{!4, !10, i64 4276}

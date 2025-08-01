@@ -163,7 +163,7 @@ define dso_local noundef i32 @_ZNSt3__113random_deviceclEv(ptr noundef nonnull r
   %.110 = phi ptr [ %13, %11 ], [ %.0914, %7 ]
   %.1 = phi i64 [ %12, %11 ], [ %.015, %7 ]
   %.not = icmp eq i64 %.1, 0
-  br i1 %.not, label %15, label %3, !llvm.loop !13
+  br i1 %.not, label %15, label %3
 
 15:                                               ; preds = %14
   %16 = load i32, ptr %2, align 4, !tbaa !9
@@ -241,5 +241,3 @@ attributes #15 = { noreturn nounwind }
 !10 = !{!7, !7, i64 0}
 !11 = distinct !{!11, !12}
 !12 = !{!"llvm.loop.mustprogress"}
-!13 = distinct !{!13, !14}
-!14 = !{!"llvm.loop.estimated_trip_count"}

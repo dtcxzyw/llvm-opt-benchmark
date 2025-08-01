@@ -621,7 +621,7 @@ define internal fastcc noundef range(i32 -1, 1) i32 @e1000_validate_option(ptr n
   %50 = getelementptr %struct.e1000_opt_list, ptr %17, i64 %indvars.iv.next
   %51 = load i32, ptr %50, align 8
   %52 = icmp eq i32 %4, %51
-  br i1 %52, label %53, label %.preheader, !llvm.loop !9
+  br i1 %52, label %53, label %.preheader, !llvm.loop !6
 
 53:                                               ; preds = %49
   %54 = trunc nuw nsw i64 %indvars.iv.next to i32
@@ -652,8 +652,8 @@ define internal fastcc noundef range(i32 -1, 1) i32 @e1000_validate_option(ptr n
   br label %.loopexit
 
 68:                                               ; preds = %9
-  tail call void asm sideeffect "728: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 728b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 728) #5, !srcloc !11
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.40, i32 206, i32 0, i64 12) #5, !srcloc !12
+  tail call void asm sideeffect "728: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 728b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 728) #5, !srcloc !9
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.40, i32 206, i32 0, i64 12) #5, !srcloc !10
   unreachable
 
 .loopexit:                                        ; preds = %.preheader, %..loopexit_crit_edge, %38, %34, %21, %11
@@ -712,7 +712,5 @@ attributes #5 = { nounwind }
 !6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
 !8 = !{!"llvm.loop.unroll.disable"}
-!9 = distinct !{!9, !7, !8, !10}
-!10 = !{!"llvm.loop.estimated_trip_count"}
-!11 = !{i64 2158847148, i64 2158846957, i64 2158847009, i64 2158847055, i64 2158847083}
-!12 = !{i64 2158847222, i64 2158847251, i64 2158847297, i64 2158847355, i64 2158847409, i64 2158847463, i64 2158847518, i64 2158847549}
+!9 = !{i64 2158847148, i64 2158846957, i64 2158847009, i64 2158847055, i64 2158847083}
+!10 = !{i64 2158847222, i64 2158847251, i64 2158847297, i64 2158847355, i64 2158847409, i64 2158847463, i64 2158847518, i64 2158847549}

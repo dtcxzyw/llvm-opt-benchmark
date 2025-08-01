@@ -632,7 +632,7 @@ define void @_ZN3net18TcpCubicSenderBase17OnCongestionEventEbmRKSt6vectorISt4pai
   %49 = zext i16 %48 to i64
   %50 = load i64, ptr %32, align 8, !tbaa !37
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %46, i64 %50)
-  store i64 %.sroa.speculated.i, ptr %32, align 8, !tbaa !47
+  store i64 %.sroa.speculated.i, ptr %32, align 8, !tbaa !46
   %51 = load ptr, ptr %0, align 8, !tbaa !3
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 112
   %53 = load ptr, ptr %52, align 8
@@ -640,7 +640,7 @@ define void @_ZN3net18TcpCubicSenderBase17OnCongestionEventEbmRKSt6vectorISt4pai
   br i1 %54, label %55, label %59
 
 55:                                               ; preds = %45
-  %56 = load i8, ptr %34, align 4, !tbaa !29, !range !48, !noundef !49
+  %56 = load i8, ptr %34, align 4, !tbaa !29, !range !47, !noundef !48
   %57 = trunc nuw i8 %56 to i1
   br i1 %57, label %_ZN3net18TcpCubicSenderBase13OnPacketAckedEmmm.exit, label %58
 
@@ -667,7 +667,7 @@ _ZN3net18TcpCubicSenderBase13OnPacketAckedEmmm.exit: ; preds = %55, %58, %59, %6
   %68 = getelementptr inbounds nuw i8, ptr %.sroa.014.027, i64 16
   %69 = load ptr, ptr %30, align 8, !tbaa !38
   %.not23 = icmp eq ptr %68, %69
-  br i1 %.not23, label %._crit_edge30, label %45, !llvm.loop !50
+  br i1 %.not23, label %._crit_edge30, label %45, !llvm.loop !49
 }
 
 declare noundef zeroext i1 @_ZN3net15HybridSlowStart19ShouldExitSlowStartENS_8QuicTime5DeltaES2_m(ptr noundef nonnull align 8 dereferenceable(48), i64, i64, i64, i64, i64 noundef) local_unnamed_addr #1
@@ -677,7 +677,7 @@ define void @_ZN3net18TcpCubicSenderBase13OnPacketAckedEmmm(ptr noundef nonnull 
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %6 = load i64, ptr %5, align 8, !tbaa !37
   %.sroa.speculated = tail call i64 @llvm.umax.i64(i64 %1, i64 %6)
-  store i64 %.sroa.speculated, ptr %5, align 8, !tbaa !47
+  store i64 %.sroa.speculated, ptr %5, align 8, !tbaa !46
   %7 = load ptr, ptr %0, align 8, !tbaa !3
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 112
   %9 = load ptr, ptr %8, align 8
@@ -686,7 +686,7 @@ define void @_ZN3net18TcpCubicSenderBase13OnPacketAckedEmmm(ptr noundef nonnull 
 
 11:                                               ; preds = %4
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 140
-  %13 = load i8, ptr %12, align 4, !tbaa !29, !range !48, !noundef !49
+  %13 = load i8, ptr %12, align 4, !tbaa !29, !range !47, !noundef !48
   %14 = trunc nuw i8 %13 to i1
   br i1 %14, label %27, label %15
 
@@ -731,9 +731,9 @@ define noundef zeroext i1 @_ZN3net18TcpCubicSenderBase12OnPacketSentENS_8QuicTim
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %13 = load ptr, ptr %12, align 8, !tbaa !21
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 104
-  %15 = load i64, ptr %14, align 8, !tbaa !51
+  %15 = load i64, ptr %14, align 8, !tbaa !50
   %16 = add i64 %15, 1
-  store i64 %16, ptr %14, align 8, !tbaa !51
+  store i64 %16, ptr %14, align 8, !tbaa !50
   br label %17
 
 17:                                               ; preds = %11, %6
@@ -754,7 +754,7 @@ define noundef zeroext i1 @_ZN3net18TcpCubicSenderBase12OnPacketSentENS_8QuicTim
 
 25:                                               ; preds = %18, %23
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  store i64 %3, ptr %26, align 8, !tbaa !55
+  store i64 %3, ptr %26, align 8, !tbaa !54
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @_ZN3net15HybridSlowStart12OnPacketSentEm(ptr noundef nonnull align 8 dereferenceable(48) %27, i64 noundef %3)
   br label %28
@@ -770,7 +770,7 @@ declare void @_ZN3net15HybridSlowStart12OnPacketSentEm(ptr noundef nonnull align
 ; Function Attrs: mustprogress uwtable
 define { i64, i64 } @_ZNK3net18TcpCubicSenderBase13TimeUntilSendENS_8QuicTimeEm(ptr noundef nonnull align 8 dereferenceable(141) %0, i64 %1, i64 noundef %2) unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 140
-  %5 = load i8, ptr %4, align 4, !tbaa !29, !range !48, !noundef !49
+  %5 = load i8, ptr %4, align 4, !tbaa !29, !range !47, !noundef !48
   %6 = trunc nuw i8 %5 to i1
   br i1 %6, label %23, label %7
 
@@ -804,7 +804,7 @@ define { i64, i64 } @_ZNK3net18TcpCubicSenderBase13TimeUntilSendENS_8QuicTimeEm(
 
 29:                                               ; preds = %23
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  %31 = load i8, ptr %30, align 8, !tbaa !27, !range !48, !noundef !49
+  %31 = load i8, ptr %30, align 8, !tbaa !27, !range !47, !noundef !48
   %32 = trunc nuw i8 %31 to i1
   %33 = icmp ult i64 %2, 5840
   %or.cond = and i1 %33, %32
@@ -812,7 +812,7 @@ define { i64, i64 } @_ZNK3net18TcpCubicSenderBase13TimeUntilSendENS_8QuicTimeEm(
 
 34:                                               ; preds = %29
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 139
-  %36 = load i8, ptr %35, align 1, !tbaa !30, !range !48, !noundef !49
+  %36 = load i8, ptr %35, align 1, !tbaa !30, !range !47, !noundef !48
   %37 = trunc nuw i8 %36 to i1
   br i1 %37, label %38, label %47
 
@@ -852,7 +852,7 @@ define i64 @_ZNK3net18TcpCubicSenderBase10PacingRateEm(ptr noundef nonnull align
 
 9:                                                ; preds = %2
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 80
-  %11 = load i64, ptr %10, align 8, !tbaa !56
+  %11 = load i64, ptr %10, align 8, !tbaa !55
   br label %12
 
 12:                                               ; preds = %9, %2
@@ -864,7 +864,7 @@ define i64 @_ZNK3net18TcpCubicSenderBase10PacingRateEm(ptr noundef nonnull align
   %16 = tail call noundef i64 %15(ptr noundef nonnull align 8 dereferenceable(8) %0)
   %17 = tail call i64 @_ZN3net13QuicBandwidth21FromBytesAndTimeDeltaEmNS_8QuicTime5DeltaE(i64 noundef %16, i64 %.sroa.08.0, i64 %.sroa.5.0)
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 139
-  %19 = load i8, ptr %18, align 1, !tbaa !30, !range !48, !noundef !49
+  %19 = load i8, ptr %18, align 1, !tbaa !30, !range !47, !noundef !48
   %20 = trunc nuw i8 %19 to i1
   br i1 %20, label %21, label %32
 
@@ -880,7 +880,7 @@ define i64 @_ZNK3net18TcpCubicSenderBase10PacingRateEm(ptr noundef nonnull align
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   %28 = sitofp i64 %17 to float
   %29 = fmul float %28, 7.500000e-01
-  %30 = tail call noundef i64 @llroundf(float noundef %29) #15, !tbaa !59
+  %30 = tail call noundef i64 @llroundf(float noundef %29) #15, !tbaa !58
   call void @_ZN3net13QuicBandwidthC1El(ptr noundef nonnull align 8 dereferenceable(8) %4, i64 noundef %30)
   %31 = load i64, ptr %4, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
@@ -895,7 +895,7 @@ define i64 @_ZNK3net18TcpCubicSenderBase10PacingRateEm(ptr noundef nonnull align
 
 37:                                               ; preds = %32
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 140
-  %39 = load i8, ptr %38, align 4, !tbaa !29, !range !48, !noundef !49
+  %39 = load i8, ptr %38, align 4, !tbaa !29, !range !47, !noundef !48
   %40 = trunc nuw i8 %39 to i1
   br i1 %40, label %41, label %47
 
@@ -912,7 +912,7 @@ define i64 @_ZNK3net18TcpCubicSenderBase10PacingRateEm(ptr noundef nonnull align
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   %49 = sitofp i64 %17 to float
   %50 = fmul float %48, %49
-  %51 = tail call noundef i64 @llroundf(float noundef %50) #15, !tbaa !59
+  %51 = tail call noundef i64 @llroundf(float noundef %50) #15, !tbaa !58
   call void @_ZN3net13QuicBandwidthC1El(ptr noundef nonnull align 8 dereferenceable(8) %3, i64 noundef %51)
   %52 = load i64, ptr %3, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
@@ -1021,9 +1021,9 @@ define noundef zeroext i1 @_ZNK3net18TcpCubicSenderBase13IsCwndLimitedEm(ptr nou
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef zeroext i1 @_ZNK3net18TcpCubicSenderBase10InRecoveryEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(141) %0) unnamed_addr #8 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  %3 = load i64, ptr %2, align 8, !tbaa !47
+  %3 = load i64, ptr %2, align 8, !tbaa !46
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %5 = load i64, ptr %4, align 8, !tbaa !60
+  %5 = load i64, ptr %4, align 8, !tbaa !59
   %6 = add i64 %3, -1
   %spec.select = icmp ult i64 %6, %5
   ret i1 %spec.select
@@ -1032,7 +1032,7 @@ define noundef zeroext i1 @_ZNK3net18TcpCubicSenderBase10InRecoveryEv(ptr nounde
 ; Function Attrs: mustprogress uwtable
 define void @_ZN3net18TcpCubicSenderBase23OnRetransmissionTimeoutEb(ptr noundef nonnull align 8 dereferenceable(141) initializes((128, 136)) %0, i1 noundef zeroext %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  store i64 0, ptr %3, align 8, !tbaa !60
+  store i64 0, ptr %3, align 8, !tbaa !59
   br i1 %1, label %4, label %9
 
 4:                                                ; preds = %2
@@ -1058,11 +1058,11 @@ define void @_ZN3net18TcpCubicSenderBase21OnConnectionMigrationEv(ptr noundef no
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2) #15
   call void @_ZN3net9PrrSenderC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false), !tbaa.struct !61
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false), !tbaa.struct !60
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #15
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 137
-  store i8 0, ptr %6, align 1, !tbaa !62
+  store i8 0, ptr %6, align 1, !tbaa !61
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false)
   ret void
 }
@@ -1071,10 +1071,10 @@ define void @_ZN3net18TcpCubicSenderBase21OnConnectionMigrationEv(ptr noundef no
 define void @_ZNK3net18TcpCubicSenderBase13GetDebugStateB5cxx11Ev(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nonnull readnone align 8 captures(none) %1) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 ._crit_edge.i.i:
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %2, ptr %0, align 8, !tbaa !63
+  store ptr %2, ptr %0, align 8, !tbaa !62
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 0, ptr %3, align 8, !tbaa !66
-  store i8 0, ptr %2, align 8, !tbaa !68
+  store i64 0, ptr %3, align 8, !tbaa !65
+  store i8 0, ptr %2, align 8, !tbaa !67
   ret void
 }
 
@@ -1166,28 +1166,27 @@ attributes #16 = { builtin nounwind }
 !41 = !{!"_ZTSSt4pairImtE", !13, i64 0, !42, i64 8}
 !42 = !{!"short", !11, i64 0}
 !43 = !{!41, !42, i64 8}
-!44 = distinct !{!44, !45, !46}
+!44 = distinct !{!44, !45}
 !45 = !{!"llvm.loop.mustprogress"}
-!46 = !{!"llvm.loop.estimated_trip_count"}
-!47 = !{!7, !13, i64 120}
-!48 = !{i8 0, i8 2}
-!49 = !{}
-!50 = distinct !{!50, !45, !46}
-!51 = !{!52, !13, i64 104}
-!52 = !{!"_ZTSN3net19QuicConnectionStatsE", !13, i64 0, !13, i64 8, !13, i64 16, !13, i64 24, !13, i64 32, !13, i64 40, !13, i64 48, !13, i64 56, !13, i64 64, !13, i64 72, !13, i64 80, !13, i64 88, !13, i64 96, !13, i64 104, !13, i64 112, !13, i64 120, !13, i64 128, !13, i64 136, !13, i64 144, !13, i64 152, !13, i64 160, !13, i64 168, !13, i64 176, !13, i64 184, !13, i64 192, !53, i64 200, !13, i64 208, !13, i64 216, !13, i64 224, !14, i64 232, !54, i64 240}
-!53 = !{!"_ZTSN3net13QuicBandwidthE", !13, i64 0}
-!54 = !{!"_ZTSN3net8QuicTimeE", !13, i64 0}
-!55 = !{!7, !13, i64 112}
-!56 = !{!57, !13, i64 80}
-!57 = !{!"_ZTSN3net8RttStatsE", !15, i64 0, !15, i64 16, !15, i64 32, !15, i64 48, !15, i64 64, !13, i64 80, !15, i64 88, !54, i64 104, !14, i64 112, !58, i64 120}
-!58 = !{!"_ZTSN3net14WindowedFilterINS_8QuicTime5DeltaENS_9MinFilterIS2_EES1_S2_EE", !15, i64 0, !15, i64 16, !11, i64 32}
-!59 = !{!14, !14, i64 0}
-!60 = !{!7, !13, i64 128}
-!61 = !{i64 0, i64 8, !37, i64 8, i64 8, !37, i64 16, i64 8, !37, i64 24, i64 8, !37}
-!62 = !{!7, !10, i64 137}
-!63 = !{!64, !65, i64 0}
-!64 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderE", !65, i64 0}
-!65 = !{!"p1 omnipotent char", !19, i64 0}
-!66 = !{!67, !13, i64 8}
-!67 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE", !64, i64 0, !13, i64 8, !11, i64 16}
-!68 = !{!11, !11, i64 0}
+!46 = !{!7, !13, i64 120}
+!47 = !{i8 0, i8 2}
+!48 = !{}
+!49 = distinct !{!49, !45}
+!50 = !{!51, !13, i64 104}
+!51 = !{!"_ZTSN3net19QuicConnectionStatsE", !13, i64 0, !13, i64 8, !13, i64 16, !13, i64 24, !13, i64 32, !13, i64 40, !13, i64 48, !13, i64 56, !13, i64 64, !13, i64 72, !13, i64 80, !13, i64 88, !13, i64 96, !13, i64 104, !13, i64 112, !13, i64 120, !13, i64 128, !13, i64 136, !13, i64 144, !13, i64 152, !13, i64 160, !13, i64 168, !13, i64 176, !13, i64 184, !13, i64 192, !52, i64 200, !13, i64 208, !13, i64 216, !13, i64 224, !14, i64 232, !53, i64 240}
+!52 = !{!"_ZTSN3net13QuicBandwidthE", !13, i64 0}
+!53 = !{!"_ZTSN3net8QuicTimeE", !13, i64 0}
+!54 = !{!7, !13, i64 112}
+!55 = !{!56, !13, i64 80}
+!56 = !{!"_ZTSN3net8RttStatsE", !15, i64 0, !15, i64 16, !15, i64 32, !15, i64 48, !15, i64 64, !13, i64 80, !15, i64 88, !53, i64 104, !14, i64 112, !57, i64 120}
+!57 = !{!"_ZTSN3net14WindowedFilterINS_8QuicTime5DeltaENS_9MinFilterIS2_EES1_S2_EE", !15, i64 0, !15, i64 16, !11, i64 32}
+!58 = !{!14, !14, i64 0}
+!59 = !{!7, !13, i64 128}
+!60 = !{i64 0, i64 8, !37, i64 8, i64 8, !37, i64 16, i64 8, !37, i64 24, i64 8, !37}
+!61 = !{!7, !10, i64 137}
+!62 = !{!63, !64, i64 0}
+!63 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderE", !64, i64 0}
+!64 = !{!"p1 omnipotent char", !19, i64 0}
+!65 = !{!66, !13, i64 8}
+!66 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE", !63, i64 0, !13, i64 8, !11, i64 16}
+!67 = !{!11, !11, i64 0}

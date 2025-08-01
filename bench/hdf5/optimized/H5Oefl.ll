@@ -412,7 +412,7 @@ define internal noundef ptr @H5O__efl_decode(ptr noundef %0, ptr readnone captur
   %219 = call noalias ptr @H5MM_strndup(ptr noundef nonnull %201, i64 noundef %218) #11
   %220 = load ptr, ptr %116, align 8, !tbaa !21
   %221 = getelementptr inbounds nuw %struct.H5O_efl_entry_t, ptr %220, i64 %.0161218, i32 1
-  store ptr %219, ptr %221, align 8, !tbaa !27
+  store ptr %219, ptr %221, align 8, !tbaa !26
   %222 = icmp eq ptr %219, null
   br i1 %222, label %223, label %227
 
@@ -499,7 +499,7 @@ define internal noundef ptr @H5O__efl_decode(ptr noundef %0, ptr readnone captur
   %276 = or disjoint i64 %272, %275
   %277 = add nuw nsw i64 %.0156214, 1
   %exitcond224.not = icmp eq i64 %277, 8
-  br i1 %exitcond224.not, label %278, label %270, !llvm.loop !28
+  br i1 %exitcond224.not, label %278, label %270, !llvm.loop !27
 
 278:                                              ; preds = %270
   %279 = getelementptr inbounds nuw i8, ptr %271, i64 7
@@ -528,7 +528,7 @@ define internal noundef ptr @H5O__efl_decode(ptr noundef %0, ptr readnone captur
   %.1 = phi i64 [ 0, %245 ], [ %.1.ph, %.sink.split ]
   %291 = load ptr, ptr %116, align 8, !tbaa !21
   %292 = getelementptr inbounds nuw %struct.H5O_efl_entry_t, ptr %291, i64 %.0161218, i32 2
-  store i64 %.1, ptr %292, align 8, !tbaa !29
+  store i64 %.1, ptr %292, align 8, !tbaa !28
   %293 = call zeroext i8 @H5F_sizeof_size(ptr noundef %0) #11
   %.not180 = icmp eq i8 %293, 0
   br i1 %.not180, label %310, label %294
@@ -569,35 +569,35 @@ define internal noundef ptr @H5O__efl_decode(ptr noundef %0, ptr readnone captur
   %315 = zext i8 %314 to i64
   %316 = load ptr, ptr %116, align 8, !tbaa !21
   %317 = getelementptr inbounds nuw %struct.H5O_efl_entry_t, ptr %316, i64 %.0161218, i32 3
-  store i64 %315, ptr %317, align 8, !tbaa !30
+  store i64 %315, ptr %317, align 8, !tbaa !29
   %318 = getelementptr inbounds nuw i8, ptr %313, i64 1
   store ptr %318, ptr %7, align 8, !tbaa !3
   %319 = load i8, ptr %318, align 1, !tbaa !15
   %320 = zext i8 %319 to i64
   %321 = shl nuw nsw i64 %320, 8
   %322 = or disjoint i64 %321, %315
-  store i64 %322, ptr %317, align 8, !tbaa !30
+  store i64 %322, ptr %317, align 8, !tbaa !29
   %323 = getelementptr inbounds nuw i8, ptr %313, i64 2
   store ptr %323, ptr %7, align 8, !tbaa !3
   %324 = load i8, ptr %323, align 1, !tbaa !15
   %325 = zext i8 %324 to i64
   %326 = shl nuw nsw i64 %325, 16
   %327 = or disjoint i64 %326, %322
-  store i64 %327, ptr %317, align 8, !tbaa !30
+  store i64 %327, ptr %317, align 8, !tbaa !29
   %328 = getelementptr inbounds nuw i8, ptr %313, i64 3
   store ptr %328, ptr %7, align 8, !tbaa !3
   %329 = load i8, ptr %328, align 1, !tbaa !15
   %330 = zext i8 %329 to i64
   %331 = shl nuw nsw i64 %330, 24
   %332 = or disjoint i64 %331, %327
-  store i64 %332, ptr %317, align 8, !tbaa !30
+  store i64 %332, ptr %317, align 8, !tbaa !29
   %333 = getelementptr inbounds nuw i8, ptr %313, i64 4
   br label %.sink.split233
 
 334:                                              ; preds = %310
   %335 = load ptr, ptr %116, align 8, !tbaa !21
   %336 = getelementptr inbounds nuw %struct.H5O_efl_entry_t, ptr %335, i64 %.0161218, i32 3
-  store i64 0, ptr %336, align 8, !tbaa !30
+  store i64 0, ptr %336, align 8, !tbaa !29
   %337 = load ptr, ptr %7, align 8, !tbaa !3
   %338 = getelementptr inbounds nuw i8, ptr %337, i64 8
   br label %339
@@ -612,10 +612,10 @@ define internal noundef ptr @H5O__efl_decode(ptr noundef %0, ptr readnone captur
   %344 = load i8, ptr %343, align 1, !tbaa !15
   %345 = zext i8 %344 to i64
   %346 = or disjoint i64 %342, %345
-  store i64 %346, ptr %336, align 8, !tbaa !30
+  store i64 %346, ptr %336, align 8, !tbaa !29
   %347 = add nuw nsw i64 %.0155217, 1
   %exitcond225.not = icmp eq i64 %347, 8
-  br i1 %exitcond225.not, label %348, label %339, !llvm.loop !31
+  br i1 %exitcond225.not, label %348, label %339, !llvm.loop !30
 
 348:                                              ; preds = %339
   %349 = getelementptr inbounds nuw i8, ptr %341, i64 7
@@ -627,14 +627,14 @@ define internal noundef ptr @H5O__efl_decode(ptr noundef %0, ptr readnone captur
   %353 = zext i8 %352 to i64
   %354 = load ptr, ptr %116, align 8, !tbaa !21
   %355 = getelementptr inbounds nuw %struct.H5O_efl_entry_t, ptr %354, i64 %.0161218, i32 3
-  store i64 %353, ptr %355, align 8, !tbaa !30
+  store i64 %353, ptr %355, align 8, !tbaa !29
   %356 = getelementptr inbounds nuw i8, ptr %351, i64 1
   store ptr %356, ptr %7, align 8, !tbaa !3
   %357 = load i8, ptr %356, align 1, !tbaa !15
   %358 = zext i8 %357 to i64
   %359 = shl nuw nsw i64 %358, 8
   %360 = or disjoint i64 %359, %353
-  store i64 %360, ptr %355, align 8, !tbaa !30
+  store i64 %360, ptr %355, align 8, !tbaa !29
   %361 = getelementptr inbounds nuw i8, ptr %351, i64 2
   br label %.sink.split233
 
@@ -647,7 +647,7 @@ define internal noundef ptr @H5O__efl_decode(ptr noundef %0, ptr readnone captur
   %363 = add nuw i64 %.0161218, 1
   %364 = load i64, ptr %77, align 8, !tbaa !19
   %365 = icmp ult i64 %363, %364
-  br i1 %365, label %133, label %._crit_edge, !llvm.loop !32
+  br i1 %365, label %133, label %._crit_edge, !llvm.loop !31
 
 ._crit_edge:                                      ; preds = %362, %129
   %366 = call i32 @H5HL_unprotect(ptr noundef nonnull %123) #11
@@ -692,12 +692,12 @@ define internal noundef ptr @H5O__efl_decode(ptr noundef %0, ptr readnone captur
   %.0219 = phi i64 [ %386, %.lr.ph220 ], [ 0, %.preheader ]
   %382 = load ptr, ptr %376, align 8, !tbaa !21
   %383 = getelementptr inbounds nuw %struct.H5O_efl_entry_t, ptr %382, i64 %.0219, i32 1
-  %384 = load ptr, ptr %383, align 8, !tbaa !27
+  %384 = load ptr, ptr %383, align 8, !tbaa !26
   %385 = call ptr @H5MM_xfree(ptr noundef %384) #11
   %386 = add nuw i64 %.0219, 1
   %387 = load i64, ptr %378, align 8, !tbaa !19
   %388 = icmp ult i64 %386, %387
-  br i1 %388, label %.lr.ph220, label %._crit_edge221.loopexit, !llvm.loop !33
+  br i1 %388, label %.lr.ph220, label %._crit_edge221.loopexit, !llvm.loop !32
 
 389:                                              ; preds = %._crit_edge221, %.thread194
   %390 = call ptr @H5MM_xfree(ptr noundef nonnull %17) #11
@@ -823,7 +823,7 @@ define internal noundef i32 @H5O__efl_encode(ptr noundef %0, i1 zeroext %1, i64 
   %66 = add nuw nsw i64 %.08893, 1
   %67 = lshr i64 %.09092, 8
   %exitcond.not = icmp eq i64 %66, 8
-  br i1 %exitcond.not, label %.sink.split, label %63, !llvm.loop !34
+  br i1 %exitcond.not, label %.sink.split, label %63, !llvm.loop !33
 
 68:                                               ; preds = %36
   %69 = load ptr, ptr %35, align 8, !tbaa !21
@@ -865,7 +865,7 @@ define internal noundef i32 @H5O__efl_encode(ptr noundef %0, i1 zeroext %1, i64 
 85:                                               ; preds = %83
   %86 = load ptr, ptr %35, align 8, !tbaa !21
   %87 = getelementptr inbounds nuw %struct.H5O_efl_entry_t, ptr %86, i64 %.091101, i32 2
-  %88 = load i64, ptr %87, align 8, !tbaa !29
+  %88 = load i64, ptr %87, align 8, !tbaa !28
   %89 = trunc i64 %88 to i8
   %90 = load ptr, ptr %6, align 8, !tbaa !3
   store i8 %89, ptr %90, align 1, !tbaa !15
@@ -874,7 +874,7 @@ define internal noundef i32 @H5O__efl_encode(ptr noundef %0, i1 zeroext %1, i64 
   store ptr %92, ptr %6, align 8, !tbaa !3
   %93 = load ptr, ptr %35, align 8, !tbaa !21
   %94 = getelementptr inbounds nuw %struct.H5O_efl_entry_t, ptr %93, i64 %.091101, i32 2
-  %95 = load i64, ptr %94, align 8, !tbaa !29
+  %95 = load i64, ptr %94, align 8, !tbaa !28
   %96 = lshr i64 %95, 8
   %97 = trunc i64 %96 to i8
   store i8 %97, ptr %92, align 1, !tbaa !15
@@ -883,7 +883,7 @@ define internal noundef i32 @H5O__efl_encode(ptr noundef %0, i1 zeroext %1, i64 
   store ptr %99, ptr %6, align 8, !tbaa !3
   %100 = load ptr, ptr %35, align 8, !tbaa !21
   %101 = getelementptr inbounds nuw %struct.H5O_efl_entry_t, ptr %100, i64 %.091101, i32 2
-  %102 = load i64, ptr %101, align 8, !tbaa !29
+  %102 = load i64, ptr %101, align 8, !tbaa !28
   %103 = lshr i64 %102, 16
   %104 = trunc i64 %103 to i8
   store i8 %104, ptr %99, align 1, !tbaa !15
@@ -892,7 +892,7 @@ define internal noundef i32 @H5O__efl_encode(ptr noundef %0, i1 zeroext %1, i64 
 105:                                              ; preds = %83
   %106 = load ptr, ptr %35, align 8, !tbaa !21
   %107 = getelementptr inbounds nuw %struct.H5O_efl_entry_t, ptr %106, i64 %.091101, i32 2
-  %108 = load i64, ptr %107, align 8, !tbaa !29
+  %108 = load i64, ptr %107, align 8, !tbaa !28
   %109 = load ptr, ptr %6, align 8, !tbaa !3
   br label %110
 
@@ -906,12 +906,12 @@ define internal noundef i32 @H5O__efl_encode(ptr noundef %0, i1 zeroext %1, i64 
   %113 = add nuw nsw i64 %.08396, 1
   %114 = lshr i64 %.08595, 8
   %exitcond102.not = icmp eq i64 %113, 8
-  br i1 %exitcond102.not, label %.sink.split106, label %110, !llvm.loop !35
+  br i1 %exitcond102.not, label %.sink.split106, label %110, !llvm.loop !34
 
 115:                                              ; preds = %83
   %116 = load ptr, ptr %35, align 8, !tbaa !21
   %117 = getelementptr inbounds nuw %struct.H5O_efl_entry_t, ptr %116, i64 %.091101, i32 2
-  %118 = load i64, ptr %117, align 8, !tbaa !29
+  %118 = load i64, ptr %117, align 8, !tbaa !28
   %119 = trunc i64 %118 to i8
   %120 = load ptr, ptr %6, align 8, !tbaa !3
   store i8 %119, ptr %120, align 1, !tbaa !15
@@ -924,7 +924,7 @@ define internal noundef i32 @H5O__efl_encode(ptr noundef %0, i1 zeroext %1, i64 
   store ptr %122, ptr %6, align 8, !tbaa !3
   %123 = load ptr, ptr %35, align 8, !tbaa !21
   %124 = getelementptr inbounds nuw %struct.H5O_efl_entry_t, ptr %123, i64 %.091101, i32 2
-  %125 = load i64, ptr %124, align 8, !tbaa !29
+  %125 = load i64, ptr %124, align 8, !tbaa !28
   %126 = lshr i64 %125, %.sink119
   %127 = trunc i64 %126 to i8
   store i8 %127, ptr %122, align 1, !tbaa !15
@@ -948,7 +948,7 @@ define internal noundef i32 @H5O__efl_encode(ptr noundef %0, i1 zeroext %1, i64 
 132:                                              ; preds = %130
   %133 = load ptr, ptr %35, align 8, !tbaa !21
   %134 = getelementptr inbounds nuw %struct.H5O_efl_entry_t, ptr %133, i64 %.091101, i32 3
-  %135 = load i64, ptr %134, align 8, !tbaa !30
+  %135 = load i64, ptr %134, align 8, !tbaa !29
   %136 = trunc i64 %135 to i8
   %137 = load ptr, ptr %6, align 8, !tbaa !3
   store i8 %136, ptr %137, align 1, !tbaa !15
@@ -957,7 +957,7 @@ define internal noundef i32 @H5O__efl_encode(ptr noundef %0, i1 zeroext %1, i64 
   store ptr %139, ptr %6, align 8, !tbaa !3
   %140 = load ptr, ptr %35, align 8, !tbaa !21
   %141 = getelementptr inbounds nuw %struct.H5O_efl_entry_t, ptr %140, i64 %.091101, i32 3
-  %142 = load i64, ptr %141, align 8, !tbaa !30
+  %142 = load i64, ptr %141, align 8, !tbaa !29
   %143 = lshr i64 %142, 8
   %144 = trunc i64 %143 to i8
   store i8 %144, ptr %139, align 1, !tbaa !15
@@ -966,7 +966,7 @@ define internal noundef i32 @H5O__efl_encode(ptr noundef %0, i1 zeroext %1, i64 
   store ptr %146, ptr %6, align 8, !tbaa !3
   %147 = load ptr, ptr %35, align 8, !tbaa !21
   %148 = getelementptr inbounds nuw %struct.H5O_efl_entry_t, ptr %147, i64 %.091101, i32 3
-  %149 = load i64, ptr %148, align 8, !tbaa !30
+  %149 = load i64, ptr %148, align 8, !tbaa !29
   %150 = lshr i64 %149, 16
   %151 = trunc i64 %150 to i8
   store i8 %151, ptr %146, align 1, !tbaa !15
@@ -975,7 +975,7 @@ define internal noundef i32 @H5O__efl_encode(ptr noundef %0, i1 zeroext %1, i64 
 152:                                              ; preds = %130
   %153 = load ptr, ptr %35, align 8, !tbaa !21
   %154 = getelementptr inbounds nuw %struct.H5O_efl_entry_t, ptr %153, i64 %.091101, i32 3
-  %155 = load i64, ptr %154, align 8, !tbaa !30
+  %155 = load i64, ptr %154, align 8, !tbaa !29
   %156 = load ptr, ptr %6, align 8, !tbaa !3
   br label %157
 
@@ -989,12 +989,12 @@ define internal noundef i32 @H5O__efl_encode(ptr noundef %0, i1 zeroext %1, i64 
   %160 = add nuw nsw i64 %.07899, 1
   %161 = lshr i64 %.08098, 8
   %exitcond103.not = icmp eq i64 %160, 8
-  br i1 %exitcond103.not, label %.sink.split109, label %157, !llvm.loop !36
+  br i1 %exitcond103.not, label %.sink.split109, label %157, !llvm.loop !35
 
 162:                                              ; preds = %130
   %163 = load ptr, ptr %35, align 8, !tbaa !21
   %164 = getelementptr inbounds nuw %struct.H5O_efl_entry_t, ptr %163, i64 %.091101, i32 3
-  %165 = load i64, ptr %164, align 8, !tbaa !30
+  %165 = load i64, ptr %164, align 8, !tbaa !29
   %166 = trunc i64 %165 to i8
   %167 = load ptr, ptr %6, align 8, !tbaa !3
   store i8 %166, ptr %167, align 1, !tbaa !15
@@ -1007,7 +1007,7 @@ define internal noundef i32 @H5O__efl_encode(ptr noundef %0, i1 zeroext %1, i64 
   store ptr %169, ptr %6, align 8, !tbaa !3
   %170 = load ptr, ptr %35, align 8, !tbaa !21
   %171 = getelementptr inbounds nuw %struct.H5O_efl_entry_t, ptr %170, i64 %.091101, i32 3
-  %172 = load i64, ptr %171, align 8, !tbaa !30
+  %172 = load i64, ptr %171, align 8, !tbaa !29
   %173 = lshr i64 %172, %.sink124
   %174 = trunc i64 %173 to i8
   store i8 %174, ptr %169, align 1, !tbaa !15
@@ -1024,7 +1024,7 @@ define internal noundef i32 @H5O__efl_encode(ptr noundef %0, i1 zeroext %1, i64 
   %178 = add nuw i64 %.091101, 1
   %179 = load i64, ptr %18, align 8, !tbaa !19
   %180 = icmp ult i64 %178, %179
-  br i1 %180, label %36, label %.loopexit, !llvm.loop !37
+  br i1 %180, label %36, label %.loopexit, !llvm.loop !36
 
 .loopexit:                                        ; preds = %177, %13, %5
   ret i32 0
@@ -1057,7 +1057,7 @@ define internal noundef ptr @H5O__efl_copy(ptr noundef readonly captures(none) %
 
 16:                                               ; preds = %10, %9
   %.046 = phi ptr [ %1, %9 ], [ %11, %10 ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.046, ptr noundef nonnull align 8 dereferenceable(32) %0, i64 32, i1 false), !tbaa.struct !38
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.046, ptr noundef nonnull align 8 dereferenceable(32) %0, i64 32, i1 false), !tbaa.struct !37
   %17 = getelementptr inbounds nuw i8, ptr %.046, i64 8
   %18 = load i64, ptr %17, align 8, !tbaa !16
   %.not53.not = icmp eq i64 %18, 0
@@ -1091,7 +1091,7 @@ define internal noundef ptr @H5O__efl_copy(ptr noundef readonly captures(none) %
   %32 = add nuw i64 %.04468, 1
   %33 = load i64, ptr %24, align 8, !tbaa !19
   %34 = icmp ult i64 %32, %33
-  br i1 %34, label %35, label %.loopexit, !llvm.loop !40
+  br i1 %34, label %35, label %.loopexit, !llvm.loop !39
 
 35:                                               ; preds = %.lr.ph, %31
   %36 = phi ptr [ %21, %.lr.ph ], [ %44, %31 ]
@@ -1099,14 +1099,14 @@ define internal noundef ptr @H5O__efl_copy(ptr noundef readonly captures(none) %
   %37 = getelementptr inbounds nuw %struct.H5O_efl_entry_t, ptr %36, i64 %.04468
   %38 = load ptr, ptr %26, align 8, !tbaa !21
   %39 = getelementptr inbounds nuw %struct.H5O_efl_entry_t, ptr %38, i64 %.04468
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %37, ptr noundef nonnull align 8 dereferenceable(32) %39, i64 32, i1 false), !tbaa.struct !41
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %37, ptr noundef nonnull align 8 dereferenceable(32) %39, i64 32, i1 false), !tbaa.struct !40
   %40 = load ptr, ptr %26, align 8, !tbaa !21
   %41 = getelementptr inbounds nuw %struct.H5O_efl_entry_t, ptr %40, i64 %.04468, i32 1
-  %42 = load ptr, ptr %41, align 8, !tbaa !27
+  %42 = load ptr, ptr %41, align 8, !tbaa !26
   %43 = tail call noalias ptr @H5MM_xstrdup(ptr noundef %42) #11
   %44 = load ptr, ptr %22, align 8, !tbaa !21
   %45 = getelementptr inbounds nuw %struct.H5O_efl_entry_t, ptr %44, i64 %.04468, i32 1
-  store ptr %43, ptr %45, align 8, !tbaa !27
+  store ptr %43, ptr %45, align 8, !tbaa !26
   %46 = icmp eq ptr %43, null
   br i1 %46, label %47, label %31
 
@@ -1125,14 +1125,14 @@ define internal noundef ptr @H5O__efl_copy(ptr noundef readonly captures(none) %
   %54 = phi ptr [ %67, %65 ], [ %.pre74, %47 ]
   %.14569 = phi i64 [ %68, %65 ], [ 0, %47 ]
   %55 = getelementptr inbounds nuw %struct.H5O_efl_entry_t, ptr %54, i64 %.14569, i32 1
-  %56 = load ptr, ptr %55, align 8, !tbaa !27
+  %56 = load ptr, ptr %55, align 8, !tbaa !26
   %.not54 = icmp eq ptr %56, null
   br i1 %.not54, label %65, label %57
 
 57:                                               ; preds = %.lr.ph70
   %58 = load ptr, ptr %26, align 8, !tbaa !21
   %59 = getelementptr inbounds nuw %struct.H5O_efl_entry_t, ptr %58, i64 %.14569, i32 1
-  %60 = load ptr, ptr %59, align 8, !tbaa !27
+  %60 = load ptr, ptr %59, align 8, !tbaa !26
   %.not55 = icmp eq ptr %56, %60
   br i1 %.not55, label %65, label %61
 
@@ -1140,7 +1140,7 @@ define internal noundef ptr @H5O__efl_copy(ptr noundef readonly captures(none) %
   %62 = tail call ptr @H5MM_xfree(ptr noundef nonnull %56) #11
   %63 = load ptr, ptr %22, align 8, !tbaa !21
   %64 = getelementptr inbounds nuw %struct.H5O_efl_entry_t, ptr %63, i64 %.14569, i32 1
-  store ptr %62, ptr %64, align 8, !tbaa !27
+  store ptr %62, ptr %64, align 8, !tbaa !26
   %.pre73 = load i64, ptr %51, align 8, !tbaa !19
   br label %65
 
@@ -1149,7 +1149,7 @@ define internal noundef ptr @H5O__efl_copy(ptr noundef readonly captures(none) %
   %67 = phi ptr [ %54, %.lr.ph70 ], [ %54, %57 ], [ %63, %61 ]
   %68 = add nuw i64 %.14569, 1
   %69 = icmp ult i64 %68, %66
-  br i1 %69, label %.lr.ph70, label %._crit_edge, !llvm.loop !42
+  br i1 %69, label %.lr.ph70, label %._crit_edge, !llvm.loop !41
 
 ._crit_edge:                                      ; preds = %65, %47
   %70 = phi ptr [ %.pre74, %47 ], [ %67, %65 ]
@@ -1229,17 +1229,17 @@ define internal noundef i32 @H5O__efl_reset(ptr noundef captures(none) %0) #0 {
   %13 = phi ptr [ %17, %.lr.ph ], [ %10, %.preheader ]
   %.015 = phi i64 [ %20, %.lr.ph ], [ 0, %.preheader ]
   %14 = getelementptr inbounds nuw %struct.H5O_efl_entry_t, ptr %13, i64 %.015, i32 1
-  %15 = load ptr, ptr %14, align 8, !tbaa !27
+  %15 = load ptr, ptr %14, align 8, !tbaa !26
   %16 = tail call ptr @H5MM_xfree(ptr noundef %15) #11
   %17 = load ptr, ptr %9, align 8, !tbaa !21
   %18 = getelementptr inbounds nuw %struct.H5O_efl_entry_t, ptr %17, i64 %.015, i32 1
-  store ptr %16, ptr %18, align 8, !tbaa !27
+  store ptr %16, ptr %18, align 8, !tbaa !26
   %19 = getelementptr inbounds nuw %struct.H5O_efl_entry_t, ptr %17, i64 %.015
   store i64 0, ptr %19, align 8, !tbaa !22
   %20 = add nuw i64 %.015, 1
   %21 = load i64, ptr %11, align 8, !tbaa !19
   %22 = icmp ult i64 %20, %21
-  br i1 %22, label %.lr.ph, label %._crit_edge, !llvm.loop !43
+  br i1 %22, label %.lr.ph, label %._crit_edge, !llvm.loop !42
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
   %23 = phi ptr [ %10, %.preheader ], [ %17, %.lr.ph ]
@@ -1300,14 +1300,14 @@ define internal noundef ptr @H5O__efl_copy_file(ptr readnone captures(none) %0, 
   %.05279 = phi i64 [ 8, %.lr.ph ], [ %33, %27 ]
   %.05378 = phi i64 [ 0, %.lr.ph ], [ %34, %27 ]
   %28 = getelementptr inbounds nuw %struct.H5O_efl_entry_t, ptr %26, i64 %.05378, i32 1
-  %29 = load ptr, ptr %28, align 8, !tbaa !27
+  %29 = load ptr, ptr %28, align 8, !tbaa !26
   %30 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %29) #12
   %31 = add i64 %30, 8
   %32 = and i64 %31, 4294967288
   %33 = add i64 %32, %.05279
   %34 = add nuw i64 %.05378, 1
   %exitcond.not = icmp eq i64 %34, %24
-  br i1 %exitcond.not, label %._crit_edge, label %27, !llvm.loop !44
+  br i1 %exitcond.not, label %._crit_edge, label %27, !llvm.loop !43
 
 ._crit_edge:                                      ; preds = %27, %22
   %.052.lcssa = phi i64 [ 8, %22 ], [ %33, %27 ]
@@ -1384,17 +1384,17 @@ define internal noundef ptr @H5O__efl_copy_file(ptr readnone captures(none) %0, 
   %76 = add nuw i64 %.15480, 1
   %77 = load i64, ptr %23, align 8, !tbaa !19
   %78 = icmp ult i64 %76, %77
-  br i1 %78, label %79, label %.thread67, !llvm.loop !45
+  br i1 %78, label %79, label %.thread67, !llvm.loop !44
 
 79:                                               ; preds = %.lr.ph82, %75
   %.15480 = phi i64 [ 0, %.lr.ph82 ], [ %76, %75 ]
   %80 = load ptr, ptr %73, align 8, !tbaa !21
   %81 = getelementptr inbounds nuw %struct.H5O_efl_entry_t, ptr %80, i64 %.15480, i32 1
-  %82 = load ptr, ptr %81, align 8, !tbaa !27
+  %82 = load ptr, ptr %81, align 8, !tbaa !26
   %83 = call noalias ptr @H5MM_xstrdup(ptr noundef %82) #11
   %84 = load ptr, ptr %74, align 8, !tbaa !21
   %85 = getelementptr inbounds nuw %struct.H5O_efl_entry_t, ptr %84, i64 %.15480, i32 1
-  store ptr %83, ptr %85, align 8, !tbaa !27
+  store ptr %83, ptr %85, align 8, !tbaa !26
   %86 = getelementptr inbounds nuw %struct.H5O_efl_entry_t, ptr %84, i64 %.15480
   %87 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %83) #12
   %88 = add i64 %87, 1
@@ -1474,7 +1474,7 @@ define internal noundef i32 @H5O__efl_debug(ptr readnone captures(none) %0, ptr 
   %28 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.28, i32 noundef %3, ptr noundef nonnull @.str.20, ptr noundef nonnull %6) #11
   %29 = load ptr, ptr %25, align 8, !tbaa !21
   %30 = getelementptr inbounds nuw %struct.H5O_efl_entry_t, ptr %29, i64 %.039, i32 1
-  %31 = load ptr, ptr %30, align 8, !tbaa !27
+  %31 = load ptr, ptr %30, align 8, !tbaa !26
   %32 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.29, i32 noundef %22, ptr noundef nonnull @.str.20, i32 noundef %24, ptr noundef nonnull @.str.30, ptr noundef %31) #11
   %33 = load ptr, ptr %25, align 8, !tbaa !21
   %34 = getelementptr inbounds nuw %struct.H5O_efl_entry_t, ptr %33, i64 %.039
@@ -1482,17 +1482,17 @@ define internal noundef i32 @H5O__efl_debug(ptr readnone captures(none) %0, ptr 
   %36 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.31, i32 noundef %22, ptr noundef nonnull @.str.20, i32 noundef %24, ptr noundef nonnull @.str.32, i64 noundef %35) #11
   %37 = load ptr, ptr %25, align 8, !tbaa !21
   %38 = getelementptr inbounds nuw %struct.H5O_efl_entry_t, ptr %37, i64 %.039, i32 2
-  %39 = load i64, ptr %38, align 8, !tbaa !29
+  %39 = load i64, ptr %38, align 8, !tbaa !28
   %40 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.33, i32 noundef %22, ptr noundef nonnull @.str.20, i32 noundef %24, ptr noundef nonnull @.str.34, i64 noundef %39) #11
   %41 = load ptr, ptr %25, align 8, !tbaa !21
   %42 = getelementptr inbounds nuw %struct.H5O_efl_entry_t, ptr %41, i64 %.039, i32 3
-  %43 = load i64, ptr %42, align 8, !tbaa !30
+  %43 = load i64, ptr %42, align 8, !tbaa !29
   %44 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.23, i32 noundef %22, ptr noundef nonnull @.str.20, i32 noundef %24, ptr noundef nonnull @.str.35, i64 noundef %43) #11
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6) #11
   %45 = add nuw i64 %.039, 1
   %46 = load i64, ptr %16, align 8, !tbaa !19
   %47 = icmp ult i64 %45, %46
-  br i1 %47, label %26, label %.loopexit, !llvm.loop !46
+  br i1 %47, label %26, label %.loopexit, !llvm.loop !45
 
 .loopexit:                                        ; preds = %26, %13, %5
   ret i32 0
@@ -1545,7 +1545,7 @@ define range(i32 -1, 1) i32 @H5O_efl_total_size(ptr noundef readonly captures(no
   %23 = load ptr, ptr %22, align 8, !tbaa !21
   %24 = getelementptr %struct.H5O_efl_entry_t, ptr %23, i64 %20
   %25 = getelementptr i8, ptr %24, i64 -8
-  %26 = load i64, ptr %25, align 8, !tbaa !30
+  %26 = load i64, ptr %25, align 8, !tbaa !29
   %27 = icmp eq i64 %26, -1
   br i1 %27, label %28, label %.lr.ph
 
@@ -1561,13 +1561,13 @@ define range(i32 -1, 1) i32 @H5O_efl_total_size(ptr noundef readonly captures(no
 31:                                               ; preds = %33
   %32 = add nuw i64 %.01927, 1
   %exitcond.not = icmp eq i64 %32, %20
-  br i1 %exitcond.not, label %._crit_edge, label %33, !llvm.loop !47
+  br i1 %exitcond.not, label %._crit_edge, label %33, !llvm.loop !46
 
 33:                                               ; preds = %.lr.ph, %31
   %.01927 = phi i64 [ 0, %.lr.ph ], [ %32, %31 ]
   %.02226 = phi i64 [ 0, %.lr.ph ], [ %36, %31 ]
   %34 = getelementptr inbounds nuw %struct.H5O_efl_entry_t, ptr %30, i64 %.01927, i32 3
-  %35 = load i64, ptr %34, align 8, !tbaa !30
+  %35 = load i64, ptr %34, align 8, !tbaa !29
   %36 = add i64 %35, %.02226
   %37 = icmp ult i64 %36, %.02226
   br i1 %37, label %38, label %31
@@ -1687,27 +1687,26 @@ attributes #12 = { nounwind willreturn memory(read) }
 !21 = !{!17, !18, i64 24}
 !22 = !{!23, !14, i64 0}
 !23 = !{!"H5O_efl_entry_t", !14, i64 0, !4, i64 8, !14, i64 16, !14, i64 24}
-!24 = distinct !{!24, !25, !26}
+!24 = distinct !{!24, !25}
 !25 = !{!"llvm.loop.mustprogress"}
-!26 = !{!"llvm.loop.estimated_trip_count"}
-!27 = !{!23, !4, i64 8}
-!28 = distinct !{!28, !25, !26}
-!29 = !{!23, !14, i64 16}
-!30 = !{!23, !14, i64 24}
-!31 = distinct !{!31, !25, !26}
-!32 = distinct !{!32, !25, !26}
-!33 = distinct !{!33, !25, !26}
-!34 = distinct !{!34, !25, !26}
-!35 = distinct !{!35, !25, !26}
-!36 = distinct !{!36, !25, !26}
-!37 = distinct !{!37, !25, !26}
-!38 = !{i64 0, i64 8, !13, i64 8, i64 8, !13, i64 16, i64 8, !13, i64 24, i64 8, !39}
-!39 = !{!18, !18, i64 0}
-!40 = distinct !{!40, !25, !26}
-!41 = !{i64 0, i64 8, !13, i64 8, i64 8, !3, i64 16, i64 8, !13, i64 24, i64 8, !13}
-!42 = distinct !{!42, !25, !26}
-!43 = distinct !{!43, !25, !26}
-!44 = distinct !{!44, !25, !26}
-!45 = distinct !{!45, !25, !26}
-!46 = distinct !{!46, !25, !26}
-!47 = distinct !{!47, !25, !26}
+!26 = !{!23, !4, i64 8}
+!27 = distinct !{!27, !25}
+!28 = !{!23, !14, i64 16}
+!29 = !{!23, !14, i64 24}
+!30 = distinct !{!30, !25}
+!31 = distinct !{!31, !25}
+!32 = distinct !{!32, !25}
+!33 = distinct !{!33, !25}
+!34 = distinct !{!34, !25}
+!35 = distinct !{!35, !25}
+!36 = distinct !{!36, !25}
+!37 = !{i64 0, i64 8, !13, i64 8, i64 8, !13, i64 16, i64 8, !13, i64 24, i64 8, !38}
+!38 = !{!18, !18, i64 0}
+!39 = distinct !{!39, !25}
+!40 = !{i64 0, i64 8, !13, i64 8, i64 8, !3, i64 16, i64 8, !13, i64 24, i64 8, !13}
+!41 = distinct !{!41, !25}
+!42 = distinct !{!42, !25}
+!43 = distinct !{!43, !25}
+!44 = distinct !{!44, !25}
+!45 = distinct !{!45, !25}
+!46 = distinct !{!46, !25}

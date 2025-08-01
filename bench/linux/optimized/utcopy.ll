@@ -280,8 +280,8 @@ define dso_local range(i32 0, 16) i32 @acpi_ut_copy_eobject_to_iobject(ptr nound
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %46 = load i32, ptr %45, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #6
-  store i64 0, ptr %4, align 8, !annotation !10
-  call void asm sideeffect "# __raw_save_flags\0A\09pushf ; pop $0", "=*rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %4) #6, !srcloc !11
+  store i64 0, ptr %4, align 8, !annotation !9
+  call void asm sideeffect "# __raw_save_flags\0A\09pushf ; pop $0", "=*rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %4) #6, !srcloc !10
   %47 = load i64, ptr %4, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #6
   %48 = and i64 %47, 512
@@ -309,8 +309,8 @@ define dso_local range(i32 0, 16) i32 @acpi_ut_copy_eobject_to_iobject(ptr nound
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %64 = load i32, ptr %63, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #6
-  store i64 0, ptr %3, align 8, !annotation !10
-  call void asm sideeffect "# __raw_save_flags\0A\09pushf ; pop $0", "=*rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %3) #6, !srcloc !11
+  store i64 0, ptr %3, align 8, !annotation !9
+  call void asm sideeffect "# __raw_save_flags\0A\09pushf ; pop $0", "=*rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %3) #6, !srcloc !10
   %65 = load i64, ptr %3, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #6
   %66 = and i64 %65, 512
@@ -394,8 +394,8 @@ define dso_local i32 @acpi_ut_copy_iobject_to_iobject(ptr noundef %0, ptr nounde
   %20 = getelementptr inbounds nuw i8, ptr %8, i64 44
   store i32 %19, ptr %20, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #6
-  store i64 0, ptr %4, align 8, !annotation !10
-  call void asm sideeffect "# __raw_save_flags\0A\09pushf ; pop $0", "=*rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %4) #6, !srcloc !11
+  store i64 0, ptr %4, align 8, !annotation !9
+  call void asm sideeffect "# __raw_save_flags\0A\09pushf ; pop $0", "=*rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %4) #6, !srcloc !10
   %21 = load i64, ptr %4, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #6
   %22 = and i64 %21, 512
@@ -484,8 +484,8 @@ define internal fastcc i32 @acpi_ut_copy_simple_object(ptr noundef readonly capt
 
 25:                                               ; preds = %21
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #6
-  store i64 0, ptr %4, align 8, !annotation !10
-  call void asm sideeffect "# __raw_save_flags\0A\09pushf ; pop $0", "=*rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %4) #6, !srcloc !11
+  store i64 0, ptr %4, align 8, !annotation !9
+  call void asm sideeffect "# __raw_save_flags\0A\09pushf ; pop $0", "=*rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %4) #6, !srcloc !10
   %26 = load i64, ptr %4, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #6
   %27 = and i64 %26, 512
@@ -515,8 +515,8 @@ define internal fastcc i32 @acpi_ut_copy_simple_object(ptr noundef readonly capt
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %44 = load i32, ptr %43, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #6
-  store i64 0, ptr %3, align 8, !annotation !10
-  call void asm sideeffect "# __raw_save_flags\0A\09pushf ; pop $0", "=*rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %3) #6, !srcloc !11
+  store i64 0, ptr %3, align 8, !annotation !9
+  call void asm sideeffect "# __raw_save_flags\0A\09pushf ; pop $0", "=*rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %3) #6, !srcloc !10
   %45 = load i64, ptr %3, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #6
   %46 = and i64 %45, 512
@@ -756,9 +756,8 @@ attributes #7 = { nounwind allocsize(0) }
 !3 = !{i32 4, !"indirect_branch_cs_prefix", i32 1}
 !4 = !{i32 4, !"SkipRaxSetup", i32 1}
 !5 = !{i32 0, i32 16}
-!6 = distinct !{!6, !7, !8, !9}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
 !8 = !{!"llvm.loop.unroll.disable"}
-!9 = !{!"llvm.loop.estimated_trip_count"}
-!10 = !{!"auto-init"}
-!11 = !{i64 1823853, i64 1823874}
+!9 = !{!"auto-init"}
+!10 = !{i64 1823853, i64 1823874}

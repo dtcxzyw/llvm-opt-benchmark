@@ -917,7 +917,7 @@ define range(i32 -1, 1) i32 @rfmtlong(i64 noundef %0, ptr noundef readonly %1, p
   %37 = sdiv i64 %.233.i, 10
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %.loopexit177, label %.lr.ph.i, !llvm.loop !7
+  br i1 %exitcond.not.i, label %.loopexit177, label %.lr.ph.i, !llvm.loop !6
 
 38:                                               ; preds = %26
   tail call void @free(ptr noundef nonnull %7) #16
@@ -970,7 +970,7 @@ getRightMostDot.exit.thread:                      ; preds = %46
   %59 = add nuw i32 %.013.i, 1
   %.09.i = add nsw i32 %.0914.i, -1
   %exitcond.not.i149 = icmp eq i32 %59, %48
-  br i1 %exitcond.not.i149, label %getRightMostDot.exit, label %.lr.ph.i148, !llvm.loop !8
+  br i1 %exitcond.not.i149, label %getRightMostDot.exit, label %.lr.ph.i148, !llvm.loop !7
 
 getRightMostDot.exit:                             ; preds = %58, %54
   %.010.i = phi i64 [ %57, %54 ], [ 4294967295, %58 ]
@@ -1265,7 +1265,7 @@ getRightMostDot.exit:                             ; preds = %58, %54
   %159 = add nuw i32 %.0137183, 1
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %exitcond.not = icmp eq i32 %159, %48
-  br i1 %exitcond.not, label %.loopexit, label %63, !llvm.loop !9
+  br i1 %exitcond.not, label %.loopexit, label %63, !llvm.loop !8
 
 .loopexit:                                        ; preds = %158, %getRightMostDot.exit.thread, %69
   %160 = getelementptr inbounds nuw i8, ptr %7, i64 %5
@@ -1289,7 +1289,7 @@ getRightMostDot.exit:                             ; preds = %58, %54
   %167 = call ptr @strcat(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(1) %4) #16
   %indvars.iv.next204 = add nsw i64 %indvars.iv203, -1
   %.not213 = icmp eq i64 %indvars.iv203, 0
-  br i1 %.not213, label %._crit_edge, label %.lr.ph198, !llvm.loop !10
+  br i1 %.not213, label %._crit_edge, label %.lr.ph198, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %.lr.ph198, %.loopexit
   %168 = getelementptr inbounds nuw i8, ptr %2, i64 %161
@@ -1347,7 +1347,7 @@ define void @rupshift(ptr noundef captures(none) %0) local_unnamed_addr #10 {
   %18 = getelementptr inbounds nuw i8, ptr %.08, i64 1
   %19 = load i8, ptr %18, align 1
   %.not = icmp eq i8 %19, 0
-  br i1 %.not, label %._crit_edge, label %4, !llvm.loop !11
+  br i1 %.not, label %._crit_edge, label %4, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %17, %1
   ret void
@@ -1370,7 +1370,7 @@ define i32 @byleng(ptr noundef readonly captures(none) %0, i32 noundef %1) local
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
   %6 = load i8, ptr %5, align 1
   %cond = icmp eq i8 %6, 32
-  br i1 %cond, label %3, label %.critedge, !llvm.loop !12
+  br i1 %cond, label %3, label %.critedge
 
 .critedge:                                        ; preds = %3
   ret i32 %.0.in
@@ -1387,7 +1387,7 @@ define void @ldchar(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr 
   %6 = getelementptr inbounds i8, ptr %0, i64 %5
   %7 = load i8, ptr %6, align 1
   %cond.i = icmp eq i8 %7, 32
-  br i1 %cond.i, label %4, label %byleng.exit, !llvm.loop !12
+  br i1 %cond.i, label %4, label %byleng.exit
 
 byleng.exit:                                      ; preds = %4
   %8 = sext i32 %.0.in.i to i64
@@ -1488,12 +1488,10 @@ attributes #18 = { nounwind allocsize(0) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{ptr @PGTYPESnumeric_add, ptr @PGTYPESnumeric_div, ptr @PGTYPESnumeric_mul, ptr @PGTYPESnumeric_sub}
-!4 = distinct !{!4, !5, !6}
+!4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{!"llvm.loop.estimated_trip_count"}
-!7 = distinct !{!7, !5, !6}
-!8 = distinct !{!8, !5, !6}
-!9 = distinct !{!9, !5, !6}
-!10 = distinct !{!10, !5, !6}
-!11 = distinct !{!11, !5, !6}
-!12 = distinct !{!12, !6}
+!6 = distinct !{!6, !5}
+!7 = distinct !{!7, !5}
+!8 = distinct !{!8, !5}
+!9 = distinct !{!9, !5}
+!10 = distinct !{!10, !5}

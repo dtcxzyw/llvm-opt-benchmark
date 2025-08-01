@@ -31,7 +31,7 @@ define noundef i32 @domatcopy_k_ct(i64 noundef %0, i64 noundef %1, double nounde
 ._crit_edge.us74:                                 ; preds = %13
   %17 = add nuw nsw i64 %.04971.us, 1
   %exitcond84.not = icmp eq i64 %17, %1
-  br i1 %exitcond84.not, label %.loopexit, label %.lr.ph.us73, !llvm.loop !10
+  br i1 %exitcond84.not, label %.loopexit, label %.lr.ph.us73, !llvm.loop !9
 
 18:                                               ; preds = %10
   %19 = fcmp oeq double %2, 1.000000e+00
@@ -53,13 +53,13 @@ define noundef i32 @domatcopy_k_ct(i64 noundef %0, i64 noundef %1, double nounde
   store double %24, ptr %26, align 8, !tbaa !3
   %27 = add nuw nsw i64 %.260.us, 1
   %exitcond.not = icmp eq i64 %27, %0
-  br i1 %exitcond.not, label %._crit_edge.us, label %21, !llvm.loop !12
+  br i1 %exitcond.not, label %._crit_edge.us, label %21, !llvm.loop !11
 
 ._crit_edge.us:                                   ; preds = %21
   %28 = getelementptr inbounds double, ptr %.162.us, i64 %4
   %29 = add nuw nsw i64 %.25161.us, 1
   %exitcond80.not = icmp eq i64 %29, %1
-  br i1 %exitcond80.not, label %.loopexit, label %.lr.ph.us, !llvm.loop !13
+  br i1 %exitcond80.not, label %.loopexit, label %.lr.ph.us, !llvm.loop !12
 
 .lr.ph.us68:                                      ; preds = %18, %._crit_edge.us69
   %.066.us = phi ptr [ %37, %._crit_edge.us69 ], [ %3, %18 ]
@@ -76,13 +76,13 @@ define noundef i32 @domatcopy_k_ct(i64 noundef %0, i64 noundef %1, double nounde
   store double %33, ptr %35, align 8, !tbaa !3
   %36 = add nuw nsw i64 %.14864.us, 1
   %exitcond81.not = icmp eq i64 %36, %0
-  br i1 %exitcond81.not, label %._crit_edge.us69, label %31, !llvm.loop !14
+  br i1 %exitcond81.not, label %._crit_edge.us69, label %31, !llvm.loop !13
 
 ._crit_edge.us69:                                 ; preds = %31
   %37 = getelementptr inbounds double, ptr %.066.us, i64 %4
   %38 = add nuw nsw i64 %.15065.us, 1
   %exitcond82.not = icmp eq i64 %38, %1
-  br i1 %exitcond82.not, label %.loopexit, label %.lr.ph.us68, !llvm.loop !15
+  br i1 %exitcond82.not, label %.loopexit, label %.lr.ph.us68, !llvm.loop !14
 
 .loopexit:                                        ; preds = %._crit_edge.us, %._crit_edge.us69, %._crit_edge.us74, %7
   ret i32 0
@@ -99,12 +99,11 @@ attributes #0 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwt
 !4 = !{!"double", !5, i64 0}
 !5 = !{!"omnipotent char", !6, i64 0}
 !6 = !{!"Simple C/C++ TBAA"}
-!7 = distinct !{!7, !8, !9}
+!7 = distinct !{!7, !8}
 !8 = !{!"llvm.loop.mustprogress"}
-!9 = !{!"llvm.loop.estimated_trip_count"}
-!10 = distinct !{!10, !8, !9, !11}
-!11 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!12 = distinct !{!12, !8, !9}
-!13 = distinct !{!13, !8, !9, !11}
-!14 = distinct !{!14, !8, !9}
-!15 = distinct !{!15, !8, !9, !11}
+!9 = distinct !{!9, !8, !10}
+!10 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!11 = distinct !{!11, !8}
+!12 = distinct !{!12, !8, !10}
+!13 = distinct !{!13, !8}
+!14 = distinct !{!14, !8, !10}

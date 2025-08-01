@@ -757,7 +757,7 @@ terminate.lpad.i.i.i.i.i:                         ; preds = %if.then.i.i.i.i.i
 _ZSt8_DestroyISt8functionIFdS0_IFdRKSt6vectorIdSaIdEEEEdEEEvPT_.exit.i.i.i: ; preds = %if.then.i.i.i.i.i, %for.body.i.i.i
   %incdec.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.04.i.i.i, i64 32
   %cmp.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %1
-  br i1 %cmp.not.i.i.i, label %invoke.contthread-pre-split, label %for.body.i.i.i, !llvm.loop !50
+  br i1 %cmp.not.i.i.i, label %invoke.contthread-pre-split, label %for.body.i.i.i, !llvm.loop !49
 
 invoke.contthread-pre-split:                      ; preds = %_ZSt8_DestroyISt8functionIFdS0_IFdRKSt6vectorIdSaIdEEEEdEEEvPT_.exit.i.i.i
   %.pr = load ptr, ptr %this, align 8, !tbaa !3
@@ -939,8 +939,8 @@ entry:
   %_M_invoker.i.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp.i.i, i64 24
   %_M_invoker2.i.i.i = getelementptr inbounds nuw i8, ptr %__args, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i.i, i8 0, i64 24, i1 false)
-  %0 = load ptr, ptr %_M_invoker2.i.i.i, align 8, !tbaa !51
-  store ptr %0, ptr %_M_invoker.i.i.i, align 8, !tbaa !51
+  %0 = load ptr, ptr %_M_invoker2.i.i.i, align 8, !tbaa !50
+  store ptr %0, ptr %_M_invoker.i.i.i, align 8, !tbaa !50
   %_M_manager.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__args, i64 16
   %1 = load ptr, ptr %_M_manager.i.i.i.i.i, align 8, !tbaa !45
   %tobool.not.i.i.not.i.i.i = icmp eq ptr %1, null
@@ -955,7 +955,7 @@ if.then.i.i.i:                                    ; preds = %entry
 
 _ZNSt8functionIFdRKSt6vectorIdSaIdEEEEC2EOS6_.exit.i.i: ; preds = %if.then.i.i.i, %entry
   %2 = load double, ptr %__args1, align 8, !tbaa !39
-  %3 = load ptr, ptr %__functor, align 8, !tbaa !53
+  %3 = load ptr, ptr %__functor, align 8, !tbaa !52
   %varBuffer_.i.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 120
   %4 = load ptr, ptr %varBuffer_.i.i.i.i, align 8, !tbaa !37
   %add.ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %4, i64 112
@@ -963,7 +963,7 @@ _ZNSt8functionIFdRKSt6vectorIdSaIdEEEEC2EOS6_.exit.i.i: ; preds = %if.then.i.i.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i.i.i.i) #13
   store ptr %agg.tmp.i.i, ptr %ref.tmp.i.i.i.i, align 8, !tbaa !42
   %5 = getelementptr inbounds nuw i8, ptr %ref.tmp.i.i.i.i, i64 8
-  store ptr %3, ptr %5, align 8, !tbaa !55
+  store ptr %3, ptr %5, align 8, !tbaa !54
   %call2.i.i1.i.i = invoke noundef double @_ZNK8QuantLib18GaussianQuadratureclIZNKS_30GaussianQuadMultidimIntegrator16scalarIntegratorILi15EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEEdEUldE_EEdRKT_(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i.i.i)
           to label %invoke.cont.i.i unwind label %lpad.i.i
 
@@ -1046,7 +1046,7 @@ define linkonce_odr noundef double @_ZNK8QuantLib18GaussianQuadratureclIZNKS_30G
 entry:
   %ref.tmp.i.i.i.i.i.i.i.i.i.i.i.i = alloca %class.anon.24, align 8
   %n_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %0 = load i64, ptr %n_.i.i, align 8, !tbaa !57
+  %0 = load i64, ptr %n_.i.i, align 8, !tbaa !56
   %conv = trunc i64 %0 to i32
   %cmp10 = icmp sgt i32 %conv, 0
   br i1 %cmp10, label %for.body.lr.ph, label %for.cond.cleanup
@@ -1072,14 +1072,14 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %6 = load ptr, ptr %this, align 8, !tbaa !42
   %arrayidx.i5 = getelementptr inbounds nuw double, ptr %6, i64 %indvars.iv.next
   %7 = load double, ptr %arrayidx.i5, align 8, !tbaa !39
-  %8 = load ptr, ptr %1, align 8, !tbaa !55
-  %9 = load ptr, ptr %f, align 8, !tbaa !58
+  %8 = load ptr, ptr %1, align 8, !tbaa !54
+  %9 = load ptr, ptr %f, align 8, !tbaa !57
   %varBuffer_.i.i = getelementptr inbounds nuw i8, ptr %8, i64 120
   %10 = load ptr, ptr %varBuffer_.i.i, align 8, !tbaa !37
   %add.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %10, i64 104
   store double %7, ptr %add.ptr.i.i.i, align 8, !tbaa !39
   %n_.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %11 = load i64, ptr %n_.i.i.i.i.i, align 8, !tbaa !57
+  %11 = load i64, ptr %n_.i.i.i.i.i, align 8, !tbaa !56
   %conv.i.i.i = trunc i64 %11 to i32
   %cmp6.i.i.i = icmp sgt i32 %conv.i.i.i, 0
   br i1 %cmp6.i.i.i, label %for.body.lr.ph.i.i.i, label %_ZZNK8QuantLib30GaussianQuadMultidimIntegrator16scalarIntegratorILi15EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEEdENKUldE_clEd.exit
@@ -1102,7 +1102,7 @@ for.body.i.i.i:                                   ; preds = %_ZNK8QuantLib18Gaus
   %17 = load ptr, ptr %varBuffer_.i.i, align 8, !tbaa !37
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %17, i64 96
   store double %16, ptr %add.ptr.i.i.i.i.i.i, align 8, !tbaa !39
-  %18 = load i64, ptr %n_.i.i.i.i.i, align 8, !tbaa !57
+  %18 = load i64, ptr %n_.i.i.i.i.i, align 8, !tbaa !56
   %conv.i = trunc i64 %18 to i32
   %cmp8.i = icmp sgt i32 %conv.i, 0
   br i1 %cmp8.i, label %for.body.lr.ph.i, label %_ZNK8QuantLib18GaussianQuadratureclIZNKS_30GaussianQuadMultidimIntegrator16scalarIntegratorILi13EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEEdEUldE_EEdRKT_.exit
@@ -1124,7 +1124,7 @@ for.body.i:                                       ; preds = %_ZZNK8QuantLib30Gau
   %24 = load ptr, ptr %varBuffer_.i.i, align 8, !tbaa !37
   %add.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %24, i64 88
   store double %23, ptr %add.ptr.i.i.i.i, align 8, !tbaa !39
-  %25 = load i64, ptr %n_.i.i.i.i.i, align 8, !tbaa !57
+  %25 = load i64, ptr %n_.i.i.i.i.i, align 8, !tbaa !56
   %conv.i.i.i.i = trunc i64 %25 to i32
   %cmp7.i.i.i.i = icmp sgt i32 %conv.i.i.i.i, 0
   br i1 %cmp7.i.i.i.i, label %for.body.lr.ph.i.i.i.i, label %_ZZNK8QuantLib30GaussianQuadMultidimIntegrator16scalarIntegratorILi13EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEEdENKUldE_clEd.exit.i
@@ -1146,7 +1146,7 @@ for.body.i.i.i.i:                                 ; preds = %_ZZNK8QuantLib30Gau
   %31 = load ptr, ptr %varBuffer_.i.i, align 8, !tbaa !37
   %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %31, i64 80
   store double %30, ptr %add.ptr.i.i.i.i.i.i.i, align 8, !tbaa !39
-  %32 = load i64, ptr %n_.i.i.i.i.i, align 8, !tbaa !57
+  %32 = load i64, ptr %n_.i.i.i.i.i, align 8, !tbaa !56
   %conv.i.i.i.i.i.i.i = trunc i64 %32 to i32
   %cmp6.i.i.i.i.i.i.i = icmp sgt i32 %conv.i.i.i.i.i.i.i, 0
   br i1 %cmp6.i.i.i.i.i.i.i, label %for.body.lr.ph.i.i.i.i.i.i.i, label %_ZZNK8QuantLib30GaussianQuadMultidimIntegrator16scalarIntegratorILi12EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEEdENKUldE_clEd.exit.i.i.i.i
@@ -1168,7 +1168,7 @@ for.body.i.i.i.i.i.i.i:                           ; preds = %_ZZNK8QuantLib30Gau
   %38 = load ptr, ptr %varBuffer_.i.i, align 8, !tbaa !37
   %add.ptr.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %38, i64 72
   store double %37, ptr %add.ptr.i.i.i.i.i.i.i.i.i.i, align 8, !tbaa !39
-  %39 = load i64, ptr %n_.i.i.i.i.i, align 8, !tbaa !57
+  %39 = load i64, ptr %n_.i.i.i.i.i, align 8, !tbaa !56
   %conv.i.i.i.i.i.i.i.i.i.i = trunc i64 %39 to i32
   %cmp6.i.i.i.i.i.i.i.i.i.i = icmp sgt i32 %conv.i.i.i.i.i.i.i.i.i.i, 0
   br i1 %cmp6.i.i.i.i.i.i.i.i.i.i, label %for.body.lr.ph.i.i.i.i.i.i.i.i.i.i, label %_ZZNK8QuantLib30GaussianQuadMultidimIntegrator16scalarIntegratorILi11EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEEdENKUldE_clEd.exit.i.i.i.i.i.i.i
@@ -1192,42 +1192,42 @@ for.body.i.i.i.i.i.i.i.i.i.i:                     ; preds = %for.body.i.i.i.i.i.
   store double %44, ptr %add.ptr.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !tbaa !39
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i.i.i.i.i.i.i.i.i.i.i.i) #13
   store ptr %9, ptr %ref.tmp.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !tbaa !42
-  store ptr %8, ptr %2, align 8, !tbaa !59
+  store ptr %8, ptr %2, align 8, !tbaa !58
   %call2.i.i.i.i.i.i.i.i.i.i.i.i = call noundef double @_ZNK8QuantLib18GaussianQuadratureclIZNKS_30GaussianQuadMultidimIntegrator16scalarIntegratorILi9EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEEdEUldE_EEdRKT_(ptr noundef nonnull align 8 dereferenceable(144) %8, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i.i.i.i.i.i.i.i.i.i.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i.i.i.i.i.i.i.i.i.i.i.i) #13
   %46 = call double @llvm.fmuladd.f64(double %42, double %call2.i.i.i.i.i.i.i.i.i.i.i.i, double %sum.07.i.i.i.i.i.i.i.i.i.i)
   %cmp.i.i.i.i.i.i.i.i.i.i = icmp samesign ugt i64 %indvars.iv.i.i.i.i.i.i.i.i.i.i, 1
-  br i1 %cmp.i.i.i.i.i.i.i.i.i.i, label %for.body.i.i.i.i.i.i.i.i.i.i, label %_ZZNK8QuantLib30GaussianQuadMultidimIntegrator16scalarIntegratorILi11EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEEdENKUldE_clEd.exit.i.i.i.i.i.i.i, !llvm.loop !61
+  br i1 %cmp.i.i.i.i.i.i.i.i.i.i, label %for.body.i.i.i.i.i.i.i.i.i.i, label %_ZZNK8QuantLib30GaussianQuadMultidimIntegrator16scalarIntegratorILi11EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEEdENKUldE_clEd.exit.i.i.i.i.i.i.i, !llvm.loop !60
 
 _ZZNK8QuantLib30GaussianQuadMultidimIntegrator16scalarIntegratorILi11EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEEdENKUldE_clEd.exit.i.i.i.i.i.i.i: ; preds = %for.body.i.i.i.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i.i
   %sum.0.lcssa.i.i.i.i.i.i.i.i.i.i = phi double [ 0.000000e+00, %for.body.i.i.i.i.i.i.i ], [ %46, %for.body.i.i.i.i.i.i.i.i.i.i ]
   %47 = call double @llvm.fmuladd.f64(double %35, double %sum.0.lcssa.i.i.i.i.i.i.i.i.i.i, double %sum.07.i.i.i.i.i.i.i)
   %cmp.i.i.i.i.i.i.i = icmp samesign ugt i64 %indvars.iv.i.i.i.i.i.i.i, 1
-  br i1 %cmp.i.i.i.i.i.i.i, label %for.body.i.i.i.i.i.i.i, label %_ZZNK8QuantLib30GaussianQuadMultidimIntegrator16scalarIntegratorILi12EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEEdENKUldE_clEd.exit.i.i.i.i, !llvm.loop !62
+  br i1 %cmp.i.i.i.i.i.i.i, label %for.body.i.i.i.i.i.i.i, label %_ZZNK8QuantLib30GaussianQuadMultidimIntegrator16scalarIntegratorILi12EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEEdENKUldE_clEd.exit.i.i.i.i, !llvm.loop !61
 
 _ZZNK8QuantLib30GaussianQuadMultidimIntegrator16scalarIntegratorILi12EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEEdENKUldE_clEd.exit.i.i.i.i: ; preds = %_ZZNK8QuantLib30GaussianQuadMultidimIntegrator16scalarIntegratorILi11EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEEdENKUldE_clEd.exit.i.i.i.i.i.i.i, %for.body.i.i.i.i
   %sum.0.lcssa.i.i.i.i.i.i.i = phi double [ 0.000000e+00, %for.body.i.i.i.i ], [ %47, %_ZZNK8QuantLib30GaussianQuadMultidimIntegrator16scalarIntegratorILi11EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEEdENKUldE_clEd.exit.i.i.i.i.i.i.i ]
   %48 = call double @llvm.fmuladd.f64(double %28, double %sum.0.lcssa.i.i.i.i.i.i.i, double %sum.08.i.i.i.i)
   %cmp.i.i.i.i = icmp sgt i64 %indvars.iv.i.i.i.i, 1
-  br i1 %cmp.i.i.i.i, label %for.body.i.i.i.i, label %_ZZNK8QuantLib30GaussianQuadMultidimIntegrator16scalarIntegratorILi13EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEEdENKUldE_clEd.exit.i, !llvm.loop !63
+  br i1 %cmp.i.i.i.i, label %for.body.i.i.i.i, label %_ZZNK8QuantLib30GaussianQuadMultidimIntegrator16scalarIntegratorILi13EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEEdENKUldE_clEd.exit.i, !llvm.loop !62
 
 _ZZNK8QuantLib30GaussianQuadMultidimIntegrator16scalarIntegratorILi13EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEEdENKUldE_clEd.exit.i: ; preds = %_ZZNK8QuantLib30GaussianQuadMultidimIntegrator16scalarIntegratorILi12EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEEdENKUldE_clEd.exit.i.i.i.i, %for.body.i
   %sum.0.lcssa.i.i.i.i = phi double [ 0.000000e+00, %for.body.i ], [ %48, %_ZZNK8QuantLib30GaussianQuadMultidimIntegrator16scalarIntegratorILi12EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEEdENKUldE_clEd.exit.i.i.i.i ]
   %49 = call double @llvm.fmuladd.f64(double %21, double %sum.0.lcssa.i.i.i.i, double %sum.09.i)
   %cmp.i = icmp sgt i64 %indvars.iv.i, 1
-  br i1 %cmp.i, label %for.body.i, label %_ZNK8QuantLib18GaussianQuadratureclIZNKS_30GaussianQuadMultidimIntegrator16scalarIntegratorILi13EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEEdEUldE_EEdRKT_.exit, !llvm.loop !64
+  br i1 %cmp.i, label %for.body.i, label %_ZNK8QuantLib18GaussianQuadratureclIZNKS_30GaussianQuadMultidimIntegrator16scalarIntegratorILi13EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEEdEUldE_EEdRKT_.exit, !llvm.loop !63
 
 _ZNK8QuantLib18GaussianQuadratureclIZNKS_30GaussianQuadMultidimIntegrator16scalarIntegratorILi13EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEEdEUldE_EEdRKT_.exit: ; preds = %_ZZNK8QuantLib30GaussianQuadMultidimIntegrator16scalarIntegratorILi13EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEEdENKUldE_clEd.exit.i, %for.body.i.i.i
   %sum.0.lcssa.i = phi double [ 0.000000e+00, %for.body.i.i.i ], [ %49, %_ZZNK8QuantLib30GaussianQuadMultidimIntegrator16scalarIntegratorILi13EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEEdENKUldE_clEd.exit.i ]
   %50 = call double @llvm.fmuladd.f64(double %14, double %sum.0.lcssa.i, double %sum.07.i.i.i)
   %cmp.i.i.i = icmp samesign ugt i64 %indvars.iv.i.i.i, 1
-  br i1 %cmp.i.i.i, label %for.body.i.i.i, label %_ZZNK8QuantLib30GaussianQuadMultidimIntegrator16scalarIntegratorILi15EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEEdENKUldE_clEd.exit, !llvm.loop !65
+  br i1 %cmp.i.i.i, label %for.body.i.i.i, label %_ZZNK8QuantLib30GaussianQuadMultidimIntegrator16scalarIntegratorILi15EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEEdENKUldE_clEd.exit, !llvm.loop !64
 
 _ZZNK8QuantLib30GaussianQuadMultidimIntegrator16scalarIntegratorILi15EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEEdENKUldE_clEd.exit: ; preds = %_ZNK8QuantLib18GaussianQuadratureclIZNKS_30GaussianQuadMultidimIntegrator16scalarIntegratorILi13EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEEdEUldE_EEdRKT_.exit, %for.body
   %sum.0.lcssa.i.i.i = phi double [ 0.000000e+00, %for.body ], [ %50, %_ZNK8QuantLib18GaussianQuadratureclIZNKS_30GaussianQuadMultidimIntegrator16scalarIntegratorILi13EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEEdEUldE_EEdRKT_.exit ]
   %51 = call double @llvm.fmuladd.f64(double %5, double %sum.0.lcssa.i.i.i, double %sum.011)
   %cmp = icmp sgt i64 %indvars.iv, 1
-  br i1 %cmp, label %for.body, label %for.cond.cleanup, !llvm.loop !66
+  br i1 %cmp, label %for.body, label %for.cond.cleanup, !llvm.loop !65
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
@@ -1238,7 +1238,7 @@ define linkonce_odr noundef double @_ZNK8QuantLib18GaussianQuadratureclIZNKS_30G
 entry:
   %ref.tmp.i.i.i.i.i.i.i.i.i.i.i = alloca %class.anon.24, align 8
   %n_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %0 = load i64, ptr %n_.i.i, align 8, !tbaa !57
+  %0 = load i64, ptr %n_.i.i, align 8, !tbaa !56
   %conv = trunc i64 %0 to i32
   %cmp8 = icmp sgt i32 %conv, 0
   br i1 %cmp8, label %for.body.lr.ph, label %for.cond.cleanup
@@ -1264,14 +1264,14 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %6 = load ptr, ptr %this, align 8, !tbaa !42
   %arrayidx.i5 = getelementptr inbounds nuw double, ptr %6, i64 %indvars.iv.next
   %7 = load double, ptr %arrayidx.i5, align 8, !tbaa !39
-  %8 = load ptr, ptr %1, align 8, !tbaa !67
-  %9 = load ptr, ptr %f, align 8, !tbaa !69
+  %8 = load ptr, ptr %1, align 8, !tbaa !66
+  %9 = load ptr, ptr %f, align 8, !tbaa !68
   %varBuffer_.i.i = getelementptr inbounds nuw i8, ptr %8, i64 120
   %10 = load ptr, ptr %varBuffer_.i.i, align 8, !tbaa !37
   %add.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %10, i64 88
   store double %7, ptr %add.ptr.i.i.i, align 8, !tbaa !39
   %n_.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %11 = load i64, ptr %n_.i.i.i.i.i, align 8, !tbaa !57
+  %11 = load i64, ptr %n_.i.i.i.i.i, align 8, !tbaa !56
   %conv.i.i.i = trunc i64 %11 to i32
   %cmp7.i.i.i = icmp sgt i32 %conv.i.i.i, 0
   br i1 %cmp7.i.i.i, label %for.body.lr.ph.i.i.i, label %_ZZNK8QuantLib30GaussianQuadMultidimIntegrator16scalarIntegratorILi13EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEEdENKUldE_clEd.exit
@@ -1294,7 +1294,7 @@ for.body.i.i.i:                                   ; preds = %_ZZNK8QuantLib30Gau
   %17 = load ptr, ptr %varBuffer_.i.i, align 8, !tbaa !37
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %17, i64 80
   store double %16, ptr %add.ptr.i.i.i.i.i.i, align 8, !tbaa !39
-  %18 = load i64, ptr %n_.i.i.i.i.i, align 8, !tbaa !57
+  %18 = load i64, ptr %n_.i.i.i.i.i, align 8, !tbaa !56
   %conv.i.i.i.i.i.i = trunc i64 %18 to i32
   %cmp6.i.i.i.i.i.i = icmp sgt i32 %conv.i.i.i.i.i.i, 0
   br i1 %cmp6.i.i.i.i.i.i, label %for.body.lr.ph.i.i.i.i.i.i, label %_ZZNK8QuantLib30GaussianQuadMultidimIntegrator16scalarIntegratorILi12EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEEdENKUldE_clEd.exit.i.i.i
@@ -1316,7 +1316,7 @@ for.body.i.i.i.i.i.i:                             ; preds = %_ZZNK8QuantLib30Gau
   %24 = load ptr, ptr %varBuffer_.i.i, align 8, !tbaa !37
   %add.ptr.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %24, i64 72
   store double %23, ptr %add.ptr.i.i.i.i.i.i.i.i.i, align 8, !tbaa !39
-  %25 = load i64, ptr %n_.i.i.i.i.i, align 8, !tbaa !57
+  %25 = load i64, ptr %n_.i.i.i.i.i, align 8, !tbaa !56
   %conv.i.i.i.i.i.i.i.i.i = trunc i64 %25 to i32
   %cmp6.i.i.i.i.i.i.i.i.i = icmp sgt i32 %conv.i.i.i.i.i.i.i.i.i, 0
   br i1 %cmp6.i.i.i.i.i.i.i.i.i, label %for.body.lr.ph.i.i.i.i.i.i.i.i.i, label %_ZZNK8QuantLib30GaussianQuadMultidimIntegrator16scalarIntegratorILi11EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEEdENKUldE_clEd.exit.i.i.i.i.i.i
@@ -1340,37 +1340,37 @@ for.body.i.i.i.i.i.i.i.i.i:                       ; preds = %for.body.i.i.i.i.i.
   store double %30, ptr %add.ptr.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !tbaa !39
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i.i.i.i.i.i.i.i.i.i.i) #13
   store ptr %9, ptr %ref.tmp.i.i.i.i.i.i.i.i.i.i.i, align 8, !tbaa !42
-  store ptr %8, ptr %2, align 8, !tbaa !59
+  store ptr %8, ptr %2, align 8, !tbaa !58
   %call2.i.i.i.i.i.i.i.i.i.i.i = call noundef double @_ZNK8QuantLib18GaussianQuadratureclIZNKS_30GaussianQuadMultidimIntegrator16scalarIntegratorILi9EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEEdEUldE_EEdRKT_(ptr noundef nonnull align 8 dereferenceable(144) %8, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i.i.i.i.i.i.i.i.i.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i.i.i.i.i.i.i.i.i.i.i) #13
   %32 = call double @llvm.fmuladd.f64(double %28, double %call2.i.i.i.i.i.i.i.i.i.i.i, double %sum.07.i.i.i.i.i.i.i.i.i)
   %cmp.i.i.i.i.i.i.i.i.i = icmp samesign ugt i64 %indvars.iv.i.i.i.i.i.i.i.i.i, 1
-  br i1 %cmp.i.i.i.i.i.i.i.i.i, label %for.body.i.i.i.i.i.i.i.i.i, label %_ZZNK8QuantLib30GaussianQuadMultidimIntegrator16scalarIntegratorILi11EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEEdENKUldE_clEd.exit.i.i.i.i.i.i, !llvm.loop !61
+  br i1 %cmp.i.i.i.i.i.i.i.i.i, label %for.body.i.i.i.i.i.i.i.i.i, label %_ZZNK8QuantLib30GaussianQuadMultidimIntegrator16scalarIntegratorILi11EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEEdENKUldE_clEd.exit.i.i.i.i.i.i, !llvm.loop !60
 
 _ZZNK8QuantLib30GaussianQuadMultidimIntegrator16scalarIntegratorILi11EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEEdENKUldE_clEd.exit.i.i.i.i.i.i: ; preds = %for.body.i.i.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i
   %sum.0.lcssa.i.i.i.i.i.i.i.i.i = phi double [ 0.000000e+00, %for.body.i.i.i.i.i.i ], [ %32, %for.body.i.i.i.i.i.i.i.i.i ]
   %33 = call double @llvm.fmuladd.f64(double %21, double %sum.0.lcssa.i.i.i.i.i.i.i.i.i, double %sum.07.i.i.i.i.i.i)
   %cmp.i.i.i.i.i.i = icmp samesign ugt i64 %indvars.iv.i.i.i.i.i.i, 1
-  br i1 %cmp.i.i.i.i.i.i, label %for.body.i.i.i.i.i.i, label %_ZZNK8QuantLib30GaussianQuadMultidimIntegrator16scalarIntegratorILi12EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEEdENKUldE_clEd.exit.i.i.i, !llvm.loop !62
+  br i1 %cmp.i.i.i.i.i.i, label %for.body.i.i.i.i.i.i, label %_ZZNK8QuantLib30GaussianQuadMultidimIntegrator16scalarIntegratorILi12EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEEdENKUldE_clEd.exit.i.i.i, !llvm.loop !61
 
 _ZZNK8QuantLib30GaussianQuadMultidimIntegrator16scalarIntegratorILi12EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEEdENKUldE_clEd.exit.i.i.i: ; preds = %_ZZNK8QuantLib30GaussianQuadMultidimIntegrator16scalarIntegratorILi11EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEEdENKUldE_clEd.exit.i.i.i.i.i.i, %for.body.i.i.i
   %sum.0.lcssa.i.i.i.i.i.i = phi double [ 0.000000e+00, %for.body.i.i.i ], [ %33, %_ZZNK8QuantLib30GaussianQuadMultidimIntegrator16scalarIntegratorILi11EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEEdENKUldE_clEd.exit.i.i.i.i.i.i ]
   %34 = call double @llvm.fmuladd.f64(double %14, double %sum.0.lcssa.i.i.i.i.i.i, double %sum.08.i.i.i)
   %cmp.i.i.i = icmp sgt i64 %indvars.iv.i.i.i, 1
-  br i1 %cmp.i.i.i, label %for.body.i.i.i, label %_ZZNK8QuantLib30GaussianQuadMultidimIntegrator16scalarIntegratorILi13EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEEdENKUldE_clEd.exit, !llvm.loop !63
+  br i1 %cmp.i.i.i, label %for.body.i.i.i, label %_ZZNK8QuantLib30GaussianQuadMultidimIntegrator16scalarIntegratorILi13EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEEdENKUldE_clEd.exit, !llvm.loop !62
 
 _ZZNK8QuantLib30GaussianQuadMultidimIntegrator16scalarIntegratorILi13EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEEdENKUldE_clEd.exit: ; preds = %_ZZNK8QuantLib30GaussianQuadMultidimIntegrator16scalarIntegratorILi12EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEEdENKUldE_clEd.exit.i.i.i, %for.body
   %sum.0.lcssa.i.i.i = phi double [ 0.000000e+00, %for.body ], [ %34, %_ZZNK8QuantLib30GaussianQuadMultidimIntegrator16scalarIntegratorILi12EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEEdENKUldE_clEd.exit.i.i.i ]
   %35 = call double @llvm.fmuladd.f64(double %5, double %sum.0.lcssa.i.i.i, double %sum.09)
   %cmp = icmp sgt i64 %indvars.iv, 1
-  br i1 %cmp, label %for.body, label %for.cond.cleanup, !llvm.loop !64
+  br i1 %cmp, label %for.body, label %for.cond.cleanup, !llvm.loop !63
 }
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef double @_ZNK8QuantLib18GaussianQuadratureclIZNKS_30GaussianQuadMultidimIntegrator16scalarIntegratorILi9EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEEdEUldE_EEdRKT_(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(16) %f) local_unnamed_addr #0 comdat align 2 {
 entry:
   %n_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %0 = load i64, ptr %n_.i.i, align 8, !tbaa !57
+  %0 = load i64, ptr %n_.i.i, align 8, !tbaa !56
   %conv = trunc i64 %0 to i32
   %cmp13 = icmp sgt i32 %conv, 0
   br i1 %cmp13, label %for.body.lr.ph, label %for.cond.cleanup
@@ -1395,14 +1395,14 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %5 = load ptr, ptr %this, align 8, !tbaa !42
   %arrayidx.i5 = getelementptr inbounds nuw double, ptr %5, i64 %indvars.iv.next
   %6 = load double, ptr %arrayidx.i5, align 8, !tbaa !39
-  %7 = load ptr, ptr %1, align 8, !tbaa !59
-  %8 = load ptr, ptr %f, align 8, !tbaa !70
+  %7 = load ptr, ptr %1, align 8, !tbaa !58
+  %8 = load ptr, ptr %f, align 8, !tbaa !69
   %varBuffer_.i.i = getelementptr inbounds nuw i8, ptr %7, i64 120
   %9 = load ptr, ptr %varBuffer_.i.i, align 8, !tbaa !37
   %add.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %9, i64 56
   store double %6, ptr %add.ptr.i.i.i, align 8, !tbaa !39
   %n_.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %10 = load i64, ptr %n_.i.i.i.i.i, align 8, !tbaa !57
+  %10 = load i64, ptr %n_.i.i.i.i.i, align 8, !tbaa !56
   %conv.i.i.i = trunc i64 %10 to i32
   %cmp6.i.i.i = icmp sgt i32 %conv.i.i.i, 0
   br i1 %cmp6.i.i.i, label %for.body.lr.ph.i.i.i, label %_ZZNK8QuantLib30GaussianQuadMultidimIntegrator16scalarIntegratorILi9EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEEdENKUldE_clEd.exit
@@ -1427,7 +1427,7 @@ for.body.i.i.i:                                   ; preds = %_ZNK8QuantLib18Gaus
   %16 = load ptr, ptr %varBuffer_.i.i, align 8, !tbaa !37
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %16, i64 48
   store double %15, ptr %add.ptr.i.i.i.i.i.i, align 8, !tbaa !39
-  %17 = load i64, ptr %n_.i.i.i.i.i, align 8, !tbaa !57
+  %17 = load i64, ptr %n_.i.i.i.i.i, align 8, !tbaa !56
   %conv.i = trunc i64 %17 to i32
   %cmp11.i = icmp sgt i32 %conv.i, 0
   br i1 %cmp11.i, label %for.body.lr.ph.i, label %_ZNK8QuantLib18GaussianQuadratureclIZNKS_30GaussianQuadMultidimIntegrator16scalarIntegratorILi7EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEEdEUldE_EEdRKT_.exit
@@ -1449,7 +1449,7 @@ for.body.i:                                       ; preds = %_ZZNK8QuantLib30Gau
   %23 = load ptr, ptr %varBuffer_.i.i, align 8, !tbaa !37
   %add.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %23, i64 40
   store double %22, ptr %add.ptr.i.i.i.i, align 8, !tbaa !39
-  %24 = load i64, ptr %n_.i.i.i.i.i, align 8, !tbaa !57
+  %24 = load i64, ptr %n_.i.i.i.i.i, align 8, !tbaa !56
   %conv.i.i.i.i = trunc i64 %24 to i32
   %cmp6.i.i.i.i = icmp sgt i32 %conv.i.i.i.i, 0
   br i1 %cmp6.i.i.i.i, label %for.body.lr.ph.i.i.i.i, label %_ZZNK8QuantLib30GaussianQuadMultidimIntegrator16scalarIntegratorILi7EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEEdENKUldE_clEd.exit.i
@@ -1471,7 +1471,7 @@ for.body.i.i.i.i:                                 ; preds = %_ZNK8QuantLib18Gaus
   %30 = load ptr, ptr %varBuffer_.i.i, align 8, !tbaa !37
   %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %30, i64 32
   store double %29, ptr %add.ptr.i.i.i.i.i.i.i, align 8, !tbaa !39
-  %31 = load i64, ptr %n_.i.i.i.i.i, align 8, !tbaa !57
+  %31 = load i64, ptr %n_.i.i.i.i.i, align 8, !tbaa !56
   %conv.i.i = trunc i64 %31 to i32
   %cmp9.i.i = icmp sgt i32 %conv.i.i, 0
   br i1 %cmp9.i.i, label %for.body.lr.ph.i.i, label %_ZNK8QuantLib18GaussianQuadratureclIZNKS_30GaussianQuadMultidimIntegrator16scalarIntegratorILi5EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEEdEUldE_EEdRKT_.exit.i
@@ -1493,7 +1493,7 @@ for.body.i.i:                                     ; preds = %_ZZNK8QuantLib30Gau
   %37 = load ptr, ptr %varBuffer_.i.i, align 8, !tbaa !37
   %add.ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %37, i64 24
   store double %36, ptr %add.ptr.i.i.i.i.i, align 8, !tbaa !39
-  %38 = load i64, ptr %n_.i.i.i.i.i, align 8, !tbaa !57
+  %38 = load i64, ptr %n_.i.i.i.i.i, align 8, !tbaa !56
   %conv.i.i.i.i.i = trunc i64 %38 to i32
   %cmp8.i.i.i.i.i = icmp sgt i32 %conv.i.i.i.i.i, 0
   br i1 %cmp8.i.i.i.i.i, label %for.body.lr.ph.i.i.i.i.i, label %_ZZNK8QuantLib30GaussianQuadMultidimIntegrator16scalarIntegratorILi5EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEEdENKUldE_clEd.exit.i.i
@@ -1515,7 +1515,7 @@ for.body.i.i.i.i.i:                               ; preds = %_ZZNK8QuantLib30Gau
   %44 = load ptr, ptr %varBuffer_.i.i, align 8, !tbaa !37
   %add.ptr.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %44, i64 16
   store double %43, ptr %add.ptr.i.i.i.i.i.i.i.i, align 8, !tbaa !39
-  %45 = load i64, ptr %n_.i.i.i.i.i, align 8, !tbaa !57
+  %45 = load i64, ptr %n_.i.i.i.i.i, align 8, !tbaa !56
   %conv.i.i.i.i.i.i.i.i = trunc i64 %45 to i32
   %cmp7.i.i.i.i.i.i.i.i = icmp sgt i32 %conv.i.i.i.i.i.i.i.i, 0
   br i1 %cmp7.i.i.i.i.i.i.i.i, label %for.body.lr.ph.i.i.i.i.i.i.i.i, label %_ZZNK8QuantLib30GaussianQuadMultidimIntegrator16scalarIntegratorILi4EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEEdENKUldE_clEd.exit.i.i.i.i.i
@@ -1537,7 +1537,7 @@ for.body.i.i.i.i.i.i.i.i:                         ; preds = %_ZZNK8QuantLib30Gau
   %51 = load ptr, ptr %varBuffer_.i.i, align 8, !tbaa !37
   %add.ptr.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %51, i64 8
   store double %50, ptr %add.ptr.i.i.i.i.i.i.i.i.i.i.i, align 8, !tbaa !39
-  %52 = load i64, ptr %n_.i.i.i.i.i, align 8, !tbaa !57
+  %52 = load i64, ptr %n_.i.i.i.i.i, align 8, !tbaa !56
   %conv.i.i.i.i.i.i.i.i.i.i.i = trunc i64 %52 to i32
   %cmp7.i.i.i.i.i.i.i.i.i.i.i = icmp sgt i32 %conv.i.i.i.i.i.i.i.i.i.i.i, 0
   br i1 %cmp7.i.i.i.i.i.i.i.i.i.i.i, label %for.body.lr.ph.i.i.i.i.i.i.i.i.i.i.i, label %_ZZNK8QuantLib30GaussianQuadMultidimIntegrator16scalarIntegratorILi3EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEEdENKUldE_clEd.exit.i.i.i.i.i.i.i.i
@@ -1567,60 +1567,60 @@ if.then.i.i.i.i.i.i.i.i.i.i.i.i.i.i:              ; preds = %for.body.i.i.i.i.i.
   unreachable
 
 _ZZNK8QuantLib30GaussianQuadMultidimIntegrator16scalarIntegratorILi2EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEEdENKUldE_clEd.exit.i.i.i.i.i.i.i.i.i.i.i: ; preds = %for.body.i.i.i.i.i.i.i.i.i.i.i
-  %60 = load ptr, ptr %_M_invoker.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !tbaa !51
+  %60 = load ptr, ptr %_M_invoker.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !tbaa !50
   %call2.i.i.i.i.i.i.i.i.i.i.i.i.i.i = tail call noundef double %60(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(24) %varBuffer_.i.i)
   %61 = tail call double @llvm.fmuladd.f64(double %55, double %call2.i.i.i.i.i.i.i.i.i.i.i.i.i.i, double %sum.08.i.i.i.i.i.i.i.i.i.i.i)
   %cmp.i.i.i.i.i.i.i.i.i.i.i = icmp samesign ugt i64 %indvars.iv.i.i.i.i.i.i.i.i.i.i.i, 1
-  br i1 %cmp.i.i.i.i.i.i.i.i.i.i.i, label %for.body.i.i.i.i.i.i.i.i.i.i.i, label %_ZZNK8QuantLib30GaussianQuadMultidimIntegrator16scalarIntegratorILi3EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEEdENKUldE_clEd.exit.i.i.i.i.i.i.i.i, !llvm.loop !71
+  br i1 %cmp.i.i.i.i.i.i.i.i.i.i.i, label %for.body.i.i.i.i.i.i.i.i.i.i.i, label %_ZZNK8QuantLib30GaussianQuadMultidimIntegrator16scalarIntegratorILi3EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEEdENKUldE_clEd.exit.i.i.i.i.i.i.i.i, !llvm.loop !70
 
 _ZZNK8QuantLib30GaussianQuadMultidimIntegrator16scalarIntegratorILi3EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEEdENKUldE_clEd.exit.i.i.i.i.i.i.i.i: ; preds = %_ZZNK8QuantLib30GaussianQuadMultidimIntegrator16scalarIntegratorILi2EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEEdENKUldE_clEd.exit.i.i.i.i.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i.i.i
   %sum.0.lcssa.i.i.i.i.i.i.i.i.i.i.i = phi double [ 0.000000e+00, %for.body.i.i.i.i.i.i.i.i ], [ %61, %_ZZNK8QuantLib30GaussianQuadMultidimIntegrator16scalarIntegratorILi2EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEEdENKUldE_clEd.exit.i.i.i.i.i.i.i.i.i.i.i ]
   %62 = tail call double @llvm.fmuladd.f64(double %48, double %sum.0.lcssa.i.i.i.i.i.i.i.i.i.i.i, double %sum.08.i.i.i.i.i.i.i.i)
   %cmp.i.i.i.i.i.i.i.i = icmp sgt i64 %indvars.iv.i.i.i.i.i.i.i.i, 1
-  br i1 %cmp.i.i.i.i.i.i.i.i, label %for.body.i.i.i.i.i.i.i.i, label %_ZZNK8QuantLib30GaussianQuadMultidimIntegrator16scalarIntegratorILi4EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEEdENKUldE_clEd.exit.i.i.i.i.i, !llvm.loop !72
+  br i1 %cmp.i.i.i.i.i.i.i.i, label %for.body.i.i.i.i.i.i.i.i, label %_ZZNK8QuantLib30GaussianQuadMultidimIntegrator16scalarIntegratorILi4EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEEdENKUldE_clEd.exit.i.i.i.i.i, !llvm.loop !71
 
 _ZZNK8QuantLib30GaussianQuadMultidimIntegrator16scalarIntegratorILi4EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEEdENKUldE_clEd.exit.i.i.i.i.i: ; preds = %_ZZNK8QuantLib30GaussianQuadMultidimIntegrator16scalarIntegratorILi3EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEEdENKUldE_clEd.exit.i.i.i.i.i.i.i.i, %for.body.i.i.i.i.i
   %sum.0.lcssa.i.i.i.i.i.i.i.i = phi double [ 0.000000e+00, %for.body.i.i.i.i.i ], [ %62, %_ZZNK8QuantLib30GaussianQuadMultidimIntegrator16scalarIntegratorILi3EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEEdENKUldE_clEd.exit.i.i.i.i.i.i.i.i ]
   %63 = tail call double @llvm.fmuladd.f64(double %41, double %sum.0.lcssa.i.i.i.i.i.i.i.i, double %sum.09.i.i.i.i.i)
   %cmp.i.i.i.i.i = icmp sgt i64 %indvars.iv.i.i.i.i.i, 1
-  br i1 %cmp.i.i.i.i.i, label %for.body.i.i.i.i.i, label %_ZZNK8QuantLib30GaussianQuadMultidimIntegrator16scalarIntegratorILi5EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEEdENKUldE_clEd.exit.i.i, !llvm.loop !73
+  br i1 %cmp.i.i.i.i.i, label %for.body.i.i.i.i.i, label %_ZZNK8QuantLib30GaussianQuadMultidimIntegrator16scalarIntegratorILi5EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEEdENKUldE_clEd.exit.i.i, !llvm.loop !72
 
 _ZZNK8QuantLib30GaussianQuadMultidimIntegrator16scalarIntegratorILi5EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEEdENKUldE_clEd.exit.i.i: ; preds = %_ZZNK8QuantLib30GaussianQuadMultidimIntegrator16scalarIntegratorILi4EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEEdENKUldE_clEd.exit.i.i.i.i.i, %for.body.i.i
   %sum.0.lcssa.i.i.i.i.i = phi double [ 0.000000e+00, %for.body.i.i ], [ %63, %_ZZNK8QuantLib30GaussianQuadMultidimIntegrator16scalarIntegratorILi4EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEEdENKUldE_clEd.exit.i.i.i.i.i ]
   %64 = tail call double @llvm.fmuladd.f64(double %34, double %sum.0.lcssa.i.i.i.i.i, double %sum.010.i.i)
   %cmp.i.i = icmp sgt i64 %indvars.iv.i.i, 1
-  br i1 %cmp.i.i, label %for.body.i.i, label %_ZNK8QuantLib18GaussianQuadratureclIZNKS_30GaussianQuadMultidimIntegrator16scalarIntegratorILi5EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEEdEUldE_EEdRKT_.exit.i, !llvm.loop !74
+  br i1 %cmp.i.i, label %for.body.i.i, label %_ZNK8QuantLib18GaussianQuadratureclIZNKS_30GaussianQuadMultidimIntegrator16scalarIntegratorILi5EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEEdEUldE_EEdRKT_.exit.i, !llvm.loop !73
 
 _ZNK8QuantLib18GaussianQuadratureclIZNKS_30GaussianQuadMultidimIntegrator16scalarIntegratorILi5EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEEdEUldE_EEdRKT_.exit.i: ; preds = %_ZZNK8QuantLib30GaussianQuadMultidimIntegrator16scalarIntegratorILi5EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEEdENKUldE_clEd.exit.i.i, %for.body.i.i.i.i
   %sum.0.lcssa.i.i = phi double [ 0.000000e+00, %for.body.i.i.i.i ], [ %64, %_ZZNK8QuantLib30GaussianQuadMultidimIntegrator16scalarIntegratorILi5EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEEdENKUldE_clEd.exit.i.i ]
   %65 = tail call double @llvm.fmuladd.f64(double %27, double %sum.0.lcssa.i.i, double %sum.07.i.i.i.i)
   %cmp.i.i.i.i = icmp samesign ugt i64 %indvars.iv.i.i.i.i, 1
-  br i1 %cmp.i.i.i.i, label %for.body.i.i.i.i, label %_ZZNK8QuantLib30GaussianQuadMultidimIntegrator16scalarIntegratorILi7EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEEdENKUldE_clEd.exit.i, !llvm.loop !75
+  br i1 %cmp.i.i.i.i, label %for.body.i.i.i.i, label %_ZZNK8QuantLib30GaussianQuadMultidimIntegrator16scalarIntegratorILi7EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEEdENKUldE_clEd.exit.i, !llvm.loop !74
 
 _ZZNK8QuantLib30GaussianQuadMultidimIntegrator16scalarIntegratorILi7EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEEdENKUldE_clEd.exit.i: ; preds = %_ZNK8QuantLib18GaussianQuadratureclIZNKS_30GaussianQuadMultidimIntegrator16scalarIntegratorILi5EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEEdEUldE_EEdRKT_.exit.i, %for.body.i
   %sum.0.lcssa.i.i.i.i = phi double [ 0.000000e+00, %for.body.i ], [ %65, %_ZNK8QuantLib18GaussianQuadratureclIZNKS_30GaussianQuadMultidimIntegrator16scalarIntegratorILi5EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEEdEUldE_EEdRKT_.exit.i ]
   %66 = tail call double @llvm.fmuladd.f64(double %20, double %sum.0.lcssa.i.i.i.i, double %sum.012.i)
   %cmp.i = icmp sgt i64 %indvars.iv.i, 1
-  br i1 %cmp.i, label %for.body.i, label %_ZNK8QuantLib18GaussianQuadratureclIZNKS_30GaussianQuadMultidimIntegrator16scalarIntegratorILi7EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEEdEUldE_EEdRKT_.exit, !llvm.loop !76
+  br i1 %cmp.i, label %for.body.i, label %_ZNK8QuantLib18GaussianQuadratureclIZNKS_30GaussianQuadMultidimIntegrator16scalarIntegratorILi7EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEEdEUldE_EEdRKT_.exit, !llvm.loop !75
 
 _ZNK8QuantLib18GaussianQuadratureclIZNKS_30GaussianQuadMultidimIntegrator16scalarIntegratorILi7EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEEdEUldE_EEdRKT_.exit: ; preds = %_ZZNK8QuantLib30GaussianQuadMultidimIntegrator16scalarIntegratorILi7EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEEdENKUldE_clEd.exit.i, %for.body.i.i.i
   %sum.0.lcssa.i = phi double [ 0.000000e+00, %for.body.i.i.i ], [ %66, %_ZZNK8QuantLib30GaussianQuadMultidimIntegrator16scalarIntegratorILi7EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEEdENKUldE_clEd.exit.i ]
   %67 = tail call double @llvm.fmuladd.f64(double %13, double %sum.0.lcssa.i, double %sum.07.i.i.i)
   %cmp.i.i.i = icmp samesign ugt i64 %indvars.iv.i.i.i, 1
-  br i1 %cmp.i.i.i, label %for.body.i.i.i, label %_ZZNK8QuantLib30GaussianQuadMultidimIntegrator16scalarIntegratorILi9EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEEdENKUldE_clEd.exit, !llvm.loop !77
+  br i1 %cmp.i.i.i, label %for.body.i.i.i, label %_ZZNK8QuantLib30GaussianQuadMultidimIntegrator16scalarIntegratorILi9EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEEdENKUldE_clEd.exit, !llvm.loop !76
 
 _ZZNK8QuantLib30GaussianQuadMultidimIntegrator16scalarIntegratorILi9EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEEdENKUldE_clEd.exit: ; preds = %_ZNK8QuantLib18GaussianQuadratureclIZNKS_30GaussianQuadMultidimIntegrator16scalarIntegratorILi7EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEEdEUldE_EEdRKT_.exit, %for.body
   %sum.0.lcssa.i.i.i = phi double [ 0.000000e+00, %for.body ], [ %67, %_ZNK8QuantLib18GaussianQuadratureclIZNKS_30GaussianQuadMultidimIntegrator16scalarIntegratorILi7EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEEdEUldE_EEdRKT_.exit ]
   %68 = tail call double @llvm.fmuladd.f64(double %4, double %sum.0.lcssa.i.i.i, double %sum.014)
   %cmp = icmp sgt i64 %indvars.iv, 1
-  br i1 %cmp, label %for.body, label %for.cond.cleanup, !llvm.loop !78
+  br i1 %cmp, label %for.body, label %for.cond.cleanup, !llvm.loop !77
 }
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef double @_ZNK8QuantLib18GaussianQuadratureclIZNKS_30GaussianQuadMultidimIntegrator16scalarIntegratorILi7EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEEdEUldE_EEdRKT_(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(16) %f) local_unnamed_addr #0 comdat align 2 {
 entry:
   %n_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %0 = load i64, ptr %n_.i.i, align 8, !tbaa !57
+  %0 = load i64, ptr %n_.i.i, align 8, !tbaa !56
   %conv = trunc i64 %0 to i32
   %cmp11 = icmp sgt i32 %conv, 0
   br i1 %cmp11, label %for.body.lr.ph, label %for.cond.cleanup
@@ -1645,14 +1645,14 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %5 = load ptr, ptr %this, align 8, !tbaa !42
   %arrayidx.i5 = getelementptr inbounds nuw double, ptr %5, i64 %indvars.iv.next
   %6 = load double, ptr %arrayidx.i5, align 8, !tbaa !39
-  %7 = load ptr, ptr %1, align 8, !tbaa !79
-  %8 = load ptr, ptr %f, align 8, !tbaa !81
+  %7 = load ptr, ptr %1, align 8, !tbaa !78
+  %8 = load ptr, ptr %f, align 8, !tbaa !80
   %varBuffer_.i.i = getelementptr inbounds nuw i8, ptr %7, i64 120
   %9 = load ptr, ptr %varBuffer_.i.i, align 8, !tbaa !37
   %add.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %9, i64 40
   store double %6, ptr %add.ptr.i.i.i, align 8, !tbaa !39
   %n_.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %10 = load i64, ptr %n_.i.i.i.i.i, align 8, !tbaa !57
+  %10 = load i64, ptr %n_.i.i.i.i.i, align 8, !tbaa !56
   %conv.i.i.i = trunc i64 %10 to i32
   %cmp6.i.i.i = icmp sgt i32 %conv.i.i.i, 0
   br i1 %cmp6.i.i.i, label %for.body.lr.ph.i.i.i, label %_ZZNK8QuantLib30GaussianQuadMultidimIntegrator16scalarIntegratorILi7EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEEdENKUldE_clEd.exit
@@ -1677,7 +1677,7 @@ for.body.i.i.i:                                   ; preds = %_ZNK8QuantLib18Gaus
   %16 = load ptr, ptr %varBuffer_.i.i, align 8, !tbaa !37
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %16, i64 32
   store double %15, ptr %add.ptr.i.i.i.i.i.i, align 8, !tbaa !39
-  %17 = load i64, ptr %n_.i.i.i.i.i, align 8, !tbaa !57
+  %17 = load i64, ptr %n_.i.i.i.i.i, align 8, !tbaa !56
   %conv.i = trunc i64 %17 to i32
   %cmp9.i = icmp sgt i32 %conv.i, 0
   br i1 %cmp9.i, label %for.body.lr.ph.i, label %_ZNK8QuantLib18GaussianQuadratureclIZNKS_30GaussianQuadMultidimIntegrator16scalarIntegratorILi5EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEEdEUldE_EEdRKT_.exit
@@ -1699,7 +1699,7 @@ for.body.i:                                       ; preds = %_ZZNK8QuantLib30Gau
   %23 = load ptr, ptr %varBuffer_.i.i, align 8, !tbaa !37
   %add.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %23, i64 24
   store double %22, ptr %add.ptr.i.i.i.i, align 8, !tbaa !39
-  %24 = load i64, ptr %n_.i.i.i.i.i, align 8, !tbaa !57
+  %24 = load i64, ptr %n_.i.i.i.i.i, align 8, !tbaa !56
   %conv.i.i.i.i = trunc i64 %24 to i32
   %cmp8.i.i.i.i = icmp sgt i32 %conv.i.i.i.i, 0
   br i1 %cmp8.i.i.i.i, label %for.body.lr.ph.i.i.i.i, label %_ZZNK8QuantLib30GaussianQuadMultidimIntegrator16scalarIntegratorILi5EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEEdENKUldE_clEd.exit.i
@@ -1721,7 +1721,7 @@ for.body.i.i.i.i:                                 ; preds = %_ZZNK8QuantLib30Gau
   %30 = load ptr, ptr %varBuffer_.i.i, align 8, !tbaa !37
   %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %30, i64 16
   store double %29, ptr %add.ptr.i.i.i.i.i.i.i, align 8, !tbaa !39
-  %31 = load i64, ptr %n_.i.i.i.i.i, align 8, !tbaa !57
+  %31 = load i64, ptr %n_.i.i.i.i.i, align 8, !tbaa !56
   %conv.i.i.i.i.i.i.i = trunc i64 %31 to i32
   %cmp7.i.i.i.i.i.i.i = icmp sgt i32 %conv.i.i.i.i.i.i.i, 0
   br i1 %cmp7.i.i.i.i.i.i.i, label %for.body.lr.ph.i.i.i.i.i.i.i, label %_ZZNK8QuantLib30GaussianQuadMultidimIntegrator16scalarIntegratorILi4EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEEdENKUldE_clEd.exit.i.i.i.i
@@ -1743,7 +1743,7 @@ for.body.i.i.i.i.i.i.i:                           ; preds = %_ZZNK8QuantLib30Gau
   %37 = load ptr, ptr %varBuffer_.i.i, align 8, !tbaa !37
   %add.ptr.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %37, i64 8
   store double %36, ptr %add.ptr.i.i.i.i.i.i.i.i.i.i, align 8, !tbaa !39
-  %38 = load i64, ptr %n_.i.i.i.i.i, align 8, !tbaa !57
+  %38 = load i64, ptr %n_.i.i.i.i.i, align 8, !tbaa !56
   %conv.i.i.i.i.i.i.i.i.i.i = trunc i64 %38 to i32
   %cmp7.i.i.i.i.i.i.i.i.i.i = icmp sgt i32 %conv.i.i.i.i.i.i.i.i.i.i, 0
   br i1 %cmp7.i.i.i.i.i.i.i.i.i.i, label %for.body.lr.ph.i.i.i.i.i.i.i.i.i.i, label %_ZZNK8QuantLib30GaussianQuadMultidimIntegrator16scalarIntegratorILi3EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEEdENKUldE_clEd.exit.i.i.i.i.i.i.i
@@ -1773,48 +1773,48 @@ if.then.i.i.i.i.i.i.i.i.i.i.i.i.i:                ; preds = %for.body.i.i.i.i.i.
   unreachable
 
 _ZZNK8QuantLib30GaussianQuadMultidimIntegrator16scalarIntegratorILi2EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEEdENKUldE_clEd.exit.i.i.i.i.i.i.i.i.i.i: ; preds = %for.body.i.i.i.i.i.i.i.i.i.i
-  %46 = load ptr, ptr %_M_invoker.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !tbaa !51
+  %46 = load ptr, ptr %_M_invoker.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !tbaa !50
   %call2.i.i.i.i.i.i.i.i.i.i.i.i.i = tail call noundef double %46(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(24) %varBuffer_.i.i)
   %47 = tail call double @llvm.fmuladd.f64(double %41, double %call2.i.i.i.i.i.i.i.i.i.i.i.i.i, double %sum.08.i.i.i.i.i.i.i.i.i.i)
   %cmp.i.i.i.i.i.i.i.i.i.i = icmp samesign ugt i64 %indvars.iv.i.i.i.i.i.i.i.i.i.i, 1
-  br i1 %cmp.i.i.i.i.i.i.i.i.i.i, label %for.body.i.i.i.i.i.i.i.i.i.i, label %_ZZNK8QuantLib30GaussianQuadMultidimIntegrator16scalarIntegratorILi3EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEEdENKUldE_clEd.exit.i.i.i.i.i.i.i, !llvm.loop !71
+  br i1 %cmp.i.i.i.i.i.i.i.i.i.i, label %for.body.i.i.i.i.i.i.i.i.i.i, label %_ZZNK8QuantLib30GaussianQuadMultidimIntegrator16scalarIntegratorILi3EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEEdENKUldE_clEd.exit.i.i.i.i.i.i.i, !llvm.loop !70
 
 _ZZNK8QuantLib30GaussianQuadMultidimIntegrator16scalarIntegratorILi3EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEEdENKUldE_clEd.exit.i.i.i.i.i.i.i: ; preds = %_ZZNK8QuantLib30GaussianQuadMultidimIntegrator16scalarIntegratorILi2EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEEdENKUldE_clEd.exit.i.i.i.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i.i
   %sum.0.lcssa.i.i.i.i.i.i.i.i.i.i = phi double [ 0.000000e+00, %for.body.i.i.i.i.i.i.i ], [ %47, %_ZZNK8QuantLib30GaussianQuadMultidimIntegrator16scalarIntegratorILi2EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEEdENKUldE_clEd.exit.i.i.i.i.i.i.i.i.i.i ]
   %48 = tail call double @llvm.fmuladd.f64(double %34, double %sum.0.lcssa.i.i.i.i.i.i.i.i.i.i, double %sum.08.i.i.i.i.i.i.i)
   %cmp.i.i.i.i.i.i.i = icmp sgt i64 %indvars.iv.i.i.i.i.i.i.i, 1
-  br i1 %cmp.i.i.i.i.i.i.i, label %for.body.i.i.i.i.i.i.i, label %_ZZNK8QuantLib30GaussianQuadMultidimIntegrator16scalarIntegratorILi4EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEEdENKUldE_clEd.exit.i.i.i.i, !llvm.loop !72
+  br i1 %cmp.i.i.i.i.i.i.i, label %for.body.i.i.i.i.i.i.i, label %_ZZNK8QuantLib30GaussianQuadMultidimIntegrator16scalarIntegratorILi4EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEEdENKUldE_clEd.exit.i.i.i.i, !llvm.loop !71
 
 _ZZNK8QuantLib30GaussianQuadMultidimIntegrator16scalarIntegratorILi4EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEEdENKUldE_clEd.exit.i.i.i.i: ; preds = %_ZZNK8QuantLib30GaussianQuadMultidimIntegrator16scalarIntegratorILi3EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEEdENKUldE_clEd.exit.i.i.i.i.i.i.i, %for.body.i.i.i.i
   %sum.0.lcssa.i.i.i.i.i.i.i = phi double [ 0.000000e+00, %for.body.i.i.i.i ], [ %48, %_ZZNK8QuantLib30GaussianQuadMultidimIntegrator16scalarIntegratorILi3EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEEdENKUldE_clEd.exit.i.i.i.i.i.i.i ]
   %49 = tail call double @llvm.fmuladd.f64(double %27, double %sum.0.lcssa.i.i.i.i.i.i.i, double %sum.09.i.i.i.i)
   %cmp.i.i.i.i = icmp sgt i64 %indvars.iv.i.i.i.i, 1
-  br i1 %cmp.i.i.i.i, label %for.body.i.i.i.i, label %_ZZNK8QuantLib30GaussianQuadMultidimIntegrator16scalarIntegratorILi5EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEEdENKUldE_clEd.exit.i, !llvm.loop !73
+  br i1 %cmp.i.i.i.i, label %for.body.i.i.i.i, label %_ZZNK8QuantLib30GaussianQuadMultidimIntegrator16scalarIntegratorILi5EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEEdENKUldE_clEd.exit.i, !llvm.loop !72
 
 _ZZNK8QuantLib30GaussianQuadMultidimIntegrator16scalarIntegratorILi5EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEEdENKUldE_clEd.exit.i: ; preds = %_ZZNK8QuantLib30GaussianQuadMultidimIntegrator16scalarIntegratorILi4EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEEdENKUldE_clEd.exit.i.i.i.i, %for.body.i
   %sum.0.lcssa.i.i.i.i = phi double [ 0.000000e+00, %for.body.i ], [ %49, %_ZZNK8QuantLib30GaussianQuadMultidimIntegrator16scalarIntegratorILi4EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEEdENKUldE_clEd.exit.i.i.i.i ]
   %50 = tail call double @llvm.fmuladd.f64(double %20, double %sum.0.lcssa.i.i.i.i, double %sum.010.i)
   %cmp.i = icmp sgt i64 %indvars.iv.i, 1
-  br i1 %cmp.i, label %for.body.i, label %_ZNK8QuantLib18GaussianQuadratureclIZNKS_30GaussianQuadMultidimIntegrator16scalarIntegratorILi5EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEEdEUldE_EEdRKT_.exit, !llvm.loop !74
+  br i1 %cmp.i, label %for.body.i, label %_ZNK8QuantLib18GaussianQuadratureclIZNKS_30GaussianQuadMultidimIntegrator16scalarIntegratorILi5EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEEdEUldE_EEdRKT_.exit, !llvm.loop !73
 
 _ZNK8QuantLib18GaussianQuadratureclIZNKS_30GaussianQuadMultidimIntegrator16scalarIntegratorILi5EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEEdEUldE_EEdRKT_.exit: ; preds = %_ZZNK8QuantLib30GaussianQuadMultidimIntegrator16scalarIntegratorILi5EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEEdENKUldE_clEd.exit.i, %for.body.i.i.i
   %sum.0.lcssa.i = phi double [ 0.000000e+00, %for.body.i.i.i ], [ %50, %_ZZNK8QuantLib30GaussianQuadMultidimIntegrator16scalarIntegratorILi5EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEEdENKUldE_clEd.exit.i ]
   %51 = tail call double @llvm.fmuladd.f64(double %13, double %sum.0.lcssa.i, double %sum.07.i.i.i)
   %cmp.i.i.i = icmp samesign ugt i64 %indvars.iv.i.i.i, 1
-  br i1 %cmp.i.i.i, label %for.body.i.i.i, label %_ZZNK8QuantLib30GaussianQuadMultidimIntegrator16scalarIntegratorILi7EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEEdENKUldE_clEd.exit, !llvm.loop !75
+  br i1 %cmp.i.i.i, label %for.body.i.i.i, label %_ZZNK8QuantLib30GaussianQuadMultidimIntegrator16scalarIntegratorILi7EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEEdENKUldE_clEd.exit, !llvm.loop !74
 
 _ZZNK8QuantLib30GaussianQuadMultidimIntegrator16scalarIntegratorILi7EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEEdENKUldE_clEd.exit: ; preds = %_ZNK8QuantLib18GaussianQuadratureclIZNKS_30GaussianQuadMultidimIntegrator16scalarIntegratorILi5EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEEdEUldE_EEdRKT_.exit, %for.body
   %sum.0.lcssa.i.i.i = phi double [ 0.000000e+00, %for.body ], [ %51, %_ZNK8QuantLib18GaussianQuadratureclIZNKS_30GaussianQuadMultidimIntegrator16scalarIntegratorILi5EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEEdEUldE_EEdRKT_.exit ]
   %52 = tail call double @llvm.fmuladd.f64(double %4, double %sum.0.lcssa.i.i.i, double %sum.012)
   %cmp = icmp sgt i64 %indvars.iv, 1
-  br i1 %cmp, label %for.body, label %for.cond.cleanup, !llvm.loop !76
+  br i1 %cmp, label %for.body, label %for.cond.cleanup, !llvm.loop !75
 }
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef double @_ZNK8QuantLib18GaussianQuadratureclIZNKS_30GaussianQuadMultidimIntegrator16scalarIntegratorILi5EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEEdEUldE_EEdRKT_(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(16) %f) local_unnamed_addr #0 comdat align 2 {
 entry:
   %n_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %0 = load i64, ptr %n_.i.i, align 8, !tbaa !57
+  %0 = load i64, ptr %n_.i.i, align 8, !tbaa !56
   %conv = trunc i64 %0 to i32
   %cmp9 = icmp sgt i32 %conv, 0
   br i1 %cmp9, label %for.body.lr.ph, label %for.cond.cleanup
@@ -1839,14 +1839,14 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %5 = load ptr, ptr %this, align 8, !tbaa !42
   %arrayidx.i5 = getelementptr inbounds nuw double, ptr %5, i64 %indvars.iv.next
   %6 = load double, ptr %arrayidx.i5, align 8, !tbaa !39
-  %7 = load ptr, ptr %1, align 8, !tbaa !82
-  %8 = load ptr, ptr %f, align 8, !tbaa !84
+  %7 = load ptr, ptr %1, align 8, !tbaa !81
+  %8 = load ptr, ptr %f, align 8, !tbaa !83
   %varBuffer_.i.i = getelementptr inbounds nuw i8, ptr %7, i64 120
   %9 = load ptr, ptr %varBuffer_.i.i, align 8, !tbaa !37
   %add.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %9, i64 24
   store double %6, ptr %add.ptr.i.i.i, align 8, !tbaa !39
   %n_.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %10 = load i64, ptr %n_.i.i.i.i.i, align 8, !tbaa !57
+  %10 = load i64, ptr %n_.i.i.i.i.i, align 8, !tbaa !56
   %conv.i.i.i = trunc i64 %10 to i32
   %cmp8.i.i.i = icmp sgt i32 %conv.i.i.i, 0
   br i1 %cmp8.i.i.i, label %for.body.lr.ph.i.i.i, label %_ZZNK8QuantLib30GaussianQuadMultidimIntegrator16scalarIntegratorILi5EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEEdENKUldE_clEd.exit
@@ -1871,7 +1871,7 @@ for.body.i.i.i:                                   ; preds = %_ZZNK8QuantLib30Gau
   %16 = load ptr, ptr %varBuffer_.i.i, align 8, !tbaa !37
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %16, i64 16
   store double %15, ptr %add.ptr.i.i.i.i.i.i, align 8, !tbaa !39
-  %17 = load i64, ptr %n_.i.i.i.i.i, align 8, !tbaa !57
+  %17 = load i64, ptr %n_.i.i.i.i.i, align 8, !tbaa !56
   %conv.i.i.i.i.i.i = trunc i64 %17 to i32
   %cmp7.i.i.i.i.i.i = icmp sgt i32 %conv.i.i.i.i.i.i, 0
   br i1 %cmp7.i.i.i.i.i.i, label %for.body.lr.ph.i.i.i.i.i.i, label %_ZZNK8QuantLib30GaussianQuadMultidimIntegrator16scalarIntegratorILi4EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEEdENKUldE_clEd.exit.i.i.i
@@ -1893,7 +1893,7 @@ for.body.i.i.i.i.i.i:                             ; preds = %_ZZNK8QuantLib30Gau
   %23 = load ptr, ptr %varBuffer_.i.i, align 8, !tbaa !37
   %add.ptr.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %23, i64 8
   store double %22, ptr %add.ptr.i.i.i.i.i.i.i.i.i, align 8, !tbaa !39
-  %24 = load i64, ptr %n_.i.i.i.i.i, align 8, !tbaa !57
+  %24 = load i64, ptr %n_.i.i.i.i.i, align 8, !tbaa !56
   %conv.i.i.i.i.i.i.i.i.i = trunc i64 %24 to i32
   %cmp7.i.i.i.i.i.i.i.i.i = icmp sgt i32 %conv.i.i.i.i.i.i.i.i.i, 0
   br i1 %cmp7.i.i.i.i.i.i.i.i.i, label %for.body.lr.ph.i.i.i.i.i.i.i.i.i, label %_ZZNK8QuantLib30GaussianQuadMultidimIntegrator16scalarIntegratorILi3EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEEdENKUldE_clEd.exit.i.i.i.i.i.i
@@ -1923,29 +1923,29 @@ if.then.i.i.i.i.i.i.i.i.i.i.i.i:                  ; preds = %for.body.i.i.i.i.i.
   unreachable
 
 _ZZNK8QuantLib30GaussianQuadMultidimIntegrator16scalarIntegratorILi2EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEEdENKUldE_clEd.exit.i.i.i.i.i.i.i.i.i: ; preds = %for.body.i.i.i.i.i.i.i.i.i
-  %32 = load ptr, ptr %_M_invoker.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !tbaa !51
+  %32 = load ptr, ptr %_M_invoker.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !tbaa !50
   %call2.i.i.i.i.i.i.i.i.i.i.i.i = tail call noundef double %32(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(24) %varBuffer_.i.i)
   %33 = tail call double @llvm.fmuladd.f64(double %27, double %call2.i.i.i.i.i.i.i.i.i.i.i.i, double %sum.08.i.i.i.i.i.i.i.i.i)
   %cmp.i.i.i.i.i.i.i.i.i = icmp samesign ugt i64 %indvars.iv.i.i.i.i.i.i.i.i.i, 1
-  br i1 %cmp.i.i.i.i.i.i.i.i.i, label %for.body.i.i.i.i.i.i.i.i.i, label %_ZZNK8QuantLib30GaussianQuadMultidimIntegrator16scalarIntegratorILi3EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEEdENKUldE_clEd.exit.i.i.i.i.i.i, !llvm.loop !71
+  br i1 %cmp.i.i.i.i.i.i.i.i.i, label %for.body.i.i.i.i.i.i.i.i.i, label %_ZZNK8QuantLib30GaussianQuadMultidimIntegrator16scalarIntegratorILi3EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEEdENKUldE_clEd.exit.i.i.i.i.i.i, !llvm.loop !70
 
 _ZZNK8QuantLib30GaussianQuadMultidimIntegrator16scalarIntegratorILi3EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEEdENKUldE_clEd.exit.i.i.i.i.i.i: ; preds = %_ZZNK8QuantLib30GaussianQuadMultidimIntegrator16scalarIntegratorILi2EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEEdENKUldE_clEd.exit.i.i.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i
   %sum.0.lcssa.i.i.i.i.i.i.i.i.i = phi double [ 0.000000e+00, %for.body.i.i.i.i.i.i ], [ %33, %_ZZNK8QuantLib30GaussianQuadMultidimIntegrator16scalarIntegratorILi2EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEEdENKUldE_clEd.exit.i.i.i.i.i.i.i.i.i ]
   %34 = tail call double @llvm.fmuladd.f64(double %20, double %sum.0.lcssa.i.i.i.i.i.i.i.i.i, double %sum.08.i.i.i.i.i.i)
   %cmp.i.i.i.i.i.i = icmp sgt i64 %indvars.iv.i.i.i.i.i.i, 1
-  br i1 %cmp.i.i.i.i.i.i, label %for.body.i.i.i.i.i.i, label %_ZZNK8QuantLib30GaussianQuadMultidimIntegrator16scalarIntegratorILi4EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEEdENKUldE_clEd.exit.i.i.i, !llvm.loop !72
+  br i1 %cmp.i.i.i.i.i.i, label %for.body.i.i.i.i.i.i, label %_ZZNK8QuantLib30GaussianQuadMultidimIntegrator16scalarIntegratorILi4EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEEdENKUldE_clEd.exit.i.i.i, !llvm.loop !71
 
 _ZZNK8QuantLib30GaussianQuadMultidimIntegrator16scalarIntegratorILi4EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEEdENKUldE_clEd.exit.i.i.i: ; preds = %_ZZNK8QuantLib30GaussianQuadMultidimIntegrator16scalarIntegratorILi3EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEEdENKUldE_clEd.exit.i.i.i.i.i.i, %for.body.i.i.i
   %sum.0.lcssa.i.i.i.i.i.i = phi double [ 0.000000e+00, %for.body.i.i.i ], [ %34, %_ZZNK8QuantLib30GaussianQuadMultidimIntegrator16scalarIntegratorILi3EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEEdENKUldE_clEd.exit.i.i.i.i.i.i ]
   %35 = tail call double @llvm.fmuladd.f64(double %13, double %sum.0.lcssa.i.i.i.i.i.i, double %sum.09.i.i.i)
   %cmp.i.i.i = icmp sgt i64 %indvars.iv.i.i.i, 1
-  br i1 %cmp.i.i.i, label %for.body.i.i.i, label %_ZZNK8QuantLib30GaussianQuadMultidimIntegrator16scalarIntegratorILi5EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEEdENKUldE_clEd.exit, !llvm.loop !73
+  br i1 %cmp.i.i.i, label %for.body.i.i.i, label %_ZZNK8QuantLib30GaussianQuadMultidimIntegrator16scalarIntegratorILi5EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEEdENKUldE_clEd.exit, !llvm.loop !72
 
 _ZZNK8QuantLib30GaussianQuadMultidimIntegrator16scalarIntegratorILi5EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEEdENKUldE_clEd.exit: ; preds = %_ZZNK8QuantLib30GaussianQuadMultidimIntegrator16scalarIntegratorILi4EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEEdENKUldE_clEd.exit.i.i.i, %for.body
   %sum.0.lcssa.i.i.i = phi double [ 0.000000e+00, %for.body ], [ %35, %_ZZNK8QuantLib30GaussianQuadMultidimIntegrator16scalarIntegratorILi4EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEEdENKUldE_clEd.exit.i.i.i ]
   %36 = tail call double @llvm.fmuladd.f64(double %4, double %sum.0.lcssa.i.i.i, double %sum.010)
   %cmp = icmp sgt i64 %indvars.iv, 1
-  br i1 %cmp, label %for.body, label %for.cond.cleanup, !llvm.loop !74
+  br i1 %cmp, label %for.body, label %for.cond.cleanup, !llvm.loop !73
 }
 
 ; Function Attrs: noreturn
@@ -1955,19 +1955,19 @@ declare void @_ZSt25__throw_bad_function_callv() local_unnamed_addr #8
 define linkonce_odr void @_ZNSt17_Function_handlerIFSt6vectorIdSaIdEERKSt8functionIFS2_RKS2_EEdEZNK8QuantLib30GaussianQuadMultidimIntegrator9spawnFctsILm15EEEvvEUlS9_dE_E9_M_invokeERKSt9_Any_dataS9_Od(ptr dead_on_unwind noalias writable sret(%"class.std::vector.7") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %__functor, ptr noundef nonnull align 8 dereferenceable(32) %__args, ptr noundef nonnull align 8 dereferenceable(8) %__args1) #0 comdat align 2 {
 entry:
   %ref.tmp.i.i.i.i = alloca %class.anon.35, align 8
-  %0 = load double, ptr %__args1, align 8, !tbaa !39, !noalias !85
-  %1 = load ptr, ptr %__functor, align 8, !tbaa !90, !noalias !92
+  %0 = load double, ptr %__args1, align 8, !tbaa !39, !noalias !84
+  %1 = load ptr, ptr %__functor, align 8, !tbaa !89, !noalias !91
   %varBuffer_.i.i.i.i = getelementptr inbounds nuw i8, ptr %1, i64 120
-  %2 = load ptr, ptr %varBuffer_.i.i.i.i, align 8, !tbaa !37, !noalias !95
+  %2 = load ptr, ptr %varBuffer_.i.i.i.i, align 8, !tbaa !37, !noalias !94
   %add.ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 112
-  store double %0, ptr %add.ptr.i.i.i.i.i, align 8, !tbaa !39, !noalias !95
+  store double %0, ptr %add.ptr.i.i.i.i.i, align 8, !tbaa !39, !noalias !94
   %integralV_.i.i.i.i = getelementptr inbounds nuw i8, ptr %1, i64 32
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i.i.i.i) #13, !noalias !95
-  store ptr %__args, ptr %ref.tmp.i.i.i.i, align 8, !tbaa !42, !noalias !95
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i.i.i.i) #13, !noalias !94
+  store ptr %__args, ptr %ref.tmp.i.i.i.i, align 8, !tbaa !42, !noalias !94
   %3 = getelementptr inbounds nuw i8, ptr %ref.tmp.i.i.i.i, i64 8
-  store ptr %1, ptr %3, align 8, !tbaa !98, !noalias !95
+  store ptr %1, ptr %3, align 8, !tbaa !97, !noalias !94
   call void @_ZNK8QuantLib30GaussianQuadMultidimIntegrator16VectorIntegratorclIZNKS0_18vectorIntegratorVRILi15EEESt6vectorIdSaIdEERKSt8functionIFS6_RKS6_EEdEUldE_EES6_RKT_(ptr dead_on_unwind writable sret(%"class.std::vector.7") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %integralV_.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i.i.i)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i.i.i.i) #13, !noalias !95
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i.i.i.i) #13, !noalias !94
   ret void
 }
 
@@ -2005,7 +2005,7 @@ invoke.cont:
   %term = alloca %"class.std::vector.7", align 8
   %ref.tmp = alloca %"class.std::vector.7", align 8
   %n_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %0 = load i64, ptr %n_.i.i, align 8, !tbaa !57
+  %0 = load i64, ptr %n_.i.i, align 8, !tbaa !56
   %1 = trunc i64 %0 to i32
   %conv = add i32 %1, -1
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %term) #13
@@ -2014,19 +2014,19 @@ invoke.cont:
   %arrayidx.i = getelementptr inbounds nuw double, ptr %2, i64 %conv2
   %3 = load double, ptr %arrayidx.i, align 8, !tbaa !39
   %4 = getelementptr inbounds nuw i8, ptr %f, i64 8
-  %5 = load ptr, ptr %4, align 8, !tbaa !98, !noalias !100
-  %6 = load ptr, ptr %f, align 8, !tbaa !103, !noalias !100
+  %5 = load ptr, ptr %4, align 8, !tbaa !97, !noalias !99
+  %6 = load ptr, ptr %f, align 8, !tbaa !102, !noalias !99
   %varBuffer_.i.i = getelementptr inbounds nuw i8, ptr %5, i64 120
-  %7 = load ptr, ptr %varBuffer_.i.i, align 8, !tbaa !37, !noalias !104
+  %7 = load ptr, ptr %varBuffer_.i.i, align 8, !tbaa !37, !noalias !103
   %add.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %7, i64 104
-  store double %3, ptr %add.ptr.i.i.i, align 8, !tbaa !39, !noalias !104
+  store double %3, ptr %add.ptr.i.i.i, align 8, !tbaa !39, !noalias !103
   %integralV_.i.i = getelementptr inbounds nuw i8, ptr %5, i64 32
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i.i) #13, !noalias !104
-  store ptr %6, ptr %ref.tmp.i.i, align 8, !tbaa !42, !noalias !104
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i.i) #13, !noalias !103
+  store ptr %6, ptr %ref.tmp.i.i, align 8, !tbaa !42, !noalias !103
   %8 = getelementptr inbounds nuw i8, ptr %ref.tmp.i.i, i64 8
-  store ptr %5, ptr %8, align 8, !tbaa !107, !noalias !104
+  store ptr %5, ptr %8, align 8, !tbaa !106, !noalias !103
   call void @_ZNK8QuantLib30GaussianQuadMultidimIntegrator16VectorIntegratorclIZNKS0_18vectorIntegratorVRILi14EEESt6vectorIdSaIdEERKSt8functionIFS6_RKS6_EEdEUldE_EES6_RKT_(ptr dead_on_unwind nonnull writable sret(%"class.std::vector.7") align 8 %term, ptr noundef nonnull align 8 dereferenceable(32) %integralV_.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i.i) #13, !noalias !104
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i.i) #13, !noalias !103
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %term, i64 8
   %9 = load ptr, ptr %_M_finish.i, align 8, !tbaa !41
   %10 = load ptr, ptr %term, align 8, !tbaa !37
@@ -2047,7 +2047,7 @@ invoke.cont.i.thread:                             ; preds = %invoke.cont
 
 cond.true.i.i.i.i:                                ; preds = %invoke.cont
   %cmp.i.i.i.i.i.i = icmp ugt i64 %sub.ptr.sub.i.i, 9223372036854775800
-  br i1 %cmp.i.i.i.i.i.i, label %if.then3.i.i.i.i.i.i, label %_ZNSt16allocator_traitsISaIdEE8allocateERS0_m.exit.i.i.i.i, !prof !109
+  br i1 %cmp.i.i.i.i.i.i, label %if.then3.i.i.i.i.i.i, label %_ZNSt16allocator_traitsISaIdEE8allocateERS0_m.exit.i.i.i.i, !prof !108
 
 if.then3.i.i.i.i.i.i:                             ; preds = %cond.true.i.i.i.i
   invoke void @_ZSt28__throw_bad_array_new_lengthv() #15
@@ -2094,21 +2094,21 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %13 = load ptr, ptr %this, align 8, !tbaa !42
   %arrayidx.i6 = getelementptr inbounds nuw double, ptr %13, i64 %indvars.iv
   %14 = load double, ptr %arrayidx.i6, align 8, !tbaa !39
-  %15 = load ptr, ptr %4, align 8, !tbaa !98, !noalias !110
-  %16 = load ptr, ptr %f, align 8, !tbaa !103, !noalias !110
+  %15 = load ptr, ptr %4, align 8, !tbaa !97, !noalias !109
+  %16 = load ptr, ptr %f, align 8, !tbaa !102, !noalias !109
   %varBuffer_.i.i8 = getelementptr inbounds nuw i8, ptr %15, i64 120
-  %17 = load ptr, ptr %varBuffer_.i.i8, align 8, !tbaa !37, !noalias !113
+  %17 = load ptr, ptr %varBuffer_.i.i8, align 8, !tbaa !37, !noalias !112
   %add.ptr.i.i.i9 = getelementptr inbounds nuw i8, ptr %17, i64 104
-  store double %14, ptr %add.ptr.i.i.i9, align 8, !tbaa !39, !noalias !113
+  store double %14, ptr %add.ptr.i.i.i9, align 8, !tbaa !39, !noalias !112
   %integralV_.i.i10 = getelementptr inbounds nuw i8, ptr %15, i64 32
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i.i7) #13, !noalias !113
-  store ptr %16, ptr %ref.tmp.i.i7, align 8, !tbaa !42, !noalias !113
-  store ptr %15, ptr %11, align 8, !tbaa !107, !noalias !113
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i.i7) #13, !noalias !112
+  store ptr %16, ptr %ref.tmp.i.i7, align 8, !tbaa !42, !noalias !112
+  store ptr %15, ptr %11, align 8, !tbaa !106, !noalias !112
   invoke void @_ZNK8QuantLib30GaussianQuadMultidimIntegrator16VectorIntegratorclIZNKS0_18vectorIntegratorVRILi14EEESt6vectorIdSaIdEERKSt8functionIFS6_RKS6_EEdEUldE_EES6_RKT_(ptr dead_on_unwind nonnull writable sret(%"class.std::vector.7") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(32) %integralV_.i.i10, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i7)
           to label %invoke.cont17 unwind label %ehcleanup
 
 invoke.cont17:                                    ; preds = %for.body
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i.i7) #13, !noalias !113
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i.i7) #13, !noalias !112
   %18 = load ptr, ptr %term, align 8, !tbaa !37
   %19 = load ptr, ptr %_M_end_of_storage.i.i.i.i, align 8, !tbaa !38
   %20 = load ptr, ptr %ref.tmp, align 8, !tbaa !37
@@ -2161,7 +2161,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %incdec.ptr.i.i = getelementptr inbounds nuw i8, ptr %__first1.sroa.0.010.i, i64 8
   %incdec.ptr.i1.i = getelementptr i8, ptr %__first2.sroa.0.09.i, i64 8
   %cmp.i.not.i = icmp eq ptr %incdec.ptr.i.i, %25
-  br i1 %cmp.i.not.i, label %_ZSt9transformIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEES6_S6_ZNK8QuantLib30GaussianQuadMultidimIntegrator16VectorIntegratorclIZNKS8_18vectorIntegratorVRILi15EEES5_RKSt8functionIFS5_RKS5_EEdEUldE_EES5_RKT_EUlddE_ET1_SK_SK_T0_SO_T2_.exit, label %for.body.i, !llvm.loop !116
+  br i1 %cmp.i.not.i, label %_ZSt9transformIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEES6_S6_ZNK8QuantLib30GaussianQuadMultidimIntegrator16VectorIntegratorclIZNKS8_18vectorIntegratorVRILi15EEES5_RKSt8functionIFS5_RKS5_EEdEUldE_EES5_RKT_EUlddE_ET1_SK_SK_T0_SO_T2_.exit, label %for.body.i, !llvm.loop !115
 
 _ZSt9transformIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEES6_S6_ZNK8QuantLib30GaussianQuadMultidimIntegrator16VectorIntegratorclIZNKS8_18vectorIntegratorVRILi15EEES5_RKSt8functionIFS5_RKS5_EEdEUldE_EES5_RKT_EUlddE_ET1_SK_SK_T0_SO_T2_.exit: ; preds = %for.body.i, %_ZNSt6vectorIdSaIdEED2Ev.exit
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
@@ -2233,7 +2233,7 @@ invoke.cont:
   %term = alloca %"class.std::vector.7", align 8
   %ref.tmp = alloca %"class.std::vector.7", align 8
   %n_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %0 = load i64, ptr %n_.i.i, align 8, !tbaa !57
+  %0 = load i64, ptr %n_.i.i, align 8, !tbaa !56
   %1 = trunc i64 %0 to i32
   %conv = add i32 %1, -1
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %term) #13
@@ -2242,19 +2242,19 @@ invoke.cont:
   %arrayidx.i = getelementptr inbounds nuw double, ptr %2, i64 %conv2
   %3 = load double, ptr %arrayidx.i, align 8, !tbaa !39
   %4 = getelementptr inbounds nuw i8, ptr %f, i64 8
-  %5 = load ptr, ptr %4, align 8, !tbaa !107, !noalias !117
-  %6 = load ptr, ptr %f, align 8, !tbaa !120, !noalias !117
+  %5 = load ptr, ptr %4, align 8, !tbaa !106, !noalias !116
+  %6 = load ptr, ptr %f, align 8, !tbaa !119, !noalias !116
   %varBuffer_.i.i = getelementptr inbounds nuw i8, ptr %5, i64 120
-  %7 = load ptr, ptr %varBuffer_.i.i, align 8, !tbaa !37, !noalias !121
+  %7 = load ptr, ptr %varBuffer_.i.i, align 8, !tbaa !37, !noalias !120
   %add.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %7, i64 96
-  store double %3, ptr %add.ptr.i.i.i, align 8, !tbaa !39, !noalias !121
+  store double %3, ptr %add.ptr.i.i.i, align 8, !tbaa !39, !noalias !120
   %integralV_.i.i = getelementptr inbounds nuw i8, ptr %5, i64 32
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i.i) #13, !noalias !121
-  store ptr %6, ptr %ref.tmp.i.i, align 8, !tbaa !42, !noalias !121
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i.i) #13, !noalias !120
+  store ptr %6, ptr %ref.tmp.i.i, align 8, !tbaa !42, !noalias !120
   %8 = getelementptr inbounds nuw i8, ptr %ref.tmp.i.i, i64 8
-  store ptr %5, ptr %8, align 8, !tbaa !124, !noalias !121
+  store ptr %5, ptr %8, align 8, !tbaa !123, !noalias !120
   call void @_ZNK8QuantLib30GaussianQuadMultidimIntegrator16VectorIntegratorclIZNKS0_18vectorIntegratorVRILi13EEESt6vectorIdSaIdEERKSt8functionIFS6_RKS6_EEdEUldE_EES6_RKT_(ptr dead_on_unwind nonnull writable sret(%"class.std::vector.7") align 8 %term, ptr noundef nonnull align 8 dereferenceable(32) %integralV_.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i.i) #13, !noalias !121
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i.i) #13, !noalias !120
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %term, i64 8
   %9 = load ptr, ptr %_M_finish.i, align 8, !tbaa !41
   %10 = load ptr, ptr %term, align 8, !tbaa !37
@@ -2275,7 +2275,7 @@ invoke.cont.i.thread:                             ; preds = %invoke.cont
 
 cond.true.i.i.i.i:                                ; preds = %invoke.cont
   %cmp.i.i.i.i.i.i = icmp ugt i64 %sub.ptr.sub.i.i, 9223372036854775800
-  br i1 %cmp.i.i.i.i.i.i, label %if.then3.i.i.i.i.i.i, label %_ZNSt16allocator_traitsISaIdEE8allocateERS0_m.exit.i.i.i.i, !prof !109
+  br i1 %cmp.i.i.i.i.i.i, label %if.then3.i.i.i.i.i.i, label %_ZNSt16allocator_traitsISaIdEE8allocateERS0_m.exit.i.i.i.i, !prof !108
 
 if.then3.i.i.i.i.i.i:                             ; preds = %cond.true.i.i.i.i
   invoke void @_ZSt28__throw_bad_array_new_lengthv() #15
@@ -2322,21 +2322,21 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %13 = load ptr, ptr %this, align 8, !tbaa !42
   %arrayidx.i6 = getelementptr inbounds nuw double, ptr %13, i64 %indvars.iv
   %14 = load double, ptr %arrayidx.i6, align 8, !tbaa !39
-  %15 = load ptr, ptr %4, align 8, !tbaa !107, !noalias !126
-  %16 = load ptr, ptr %f, align 8, !tbaa !120, !noalias !126
+  %15 = load ptr, ptr %4, align 8, !tbaa !106, !noalias !125
+  %16 = load ptr, ptr %f, align 8, !tbaa !119, !noalias !125
   %varBuffer_.i.i8 = getelementptr inbounds nuw i8, ptr %15, i64 120
-  %17 = load ptr, ptr %varBuffer_.i.i8, align 8, !tbaa !37, !noalias !129
+  %17 = load ptr, ptr %varBuffer_.i.i8, align 8, !tbaa !37, !noalias !128
   %add.ptr.i.i.i9 = getelementptr inbounds nuw i8, ptr %17, i64 96
-  store double %14, ptr %add.ptr.i.i.i9, align 8, !tbaa !39, !noalias !129
+  store double %14, ptr %add.ptr.i.i.i9, align 8, !tbaa !39, !noalias !128
   %integralV_.i.i10 = getelementptr inbounds nuw i8, ptr %15, i64 32
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i.i7) #13, !noalias !129
-  store ptr %16, ptr %ref.tmp.i.i7, align 8, !tbaa !42, !noalias !129
-  store ptr %15, ptr %11, align 8, !tbaa !124, !noalias !129
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i.i7) #13, !noalias !128
+  store ptr %16, ptr %ref.tmp.i.i7, align 8, !tbaa !42, !noalias !128
+  store ptr %15, ptr %11, align 8, !tbaa !123, !noalias !128
   invoke void @_ZNK8QuantLib30GaussianQuadMultidimIntegrator16VectorIntegratorclIZNKS0_18vectorIntegratorVRILi13EEESt6vectorIdSaIdEERKSt8functionIFS6_RKS6_EEdEUldE_EES6_RKT_(ptr dead_on_unwind nonnull writable sret(%"class.std::vector.7") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(32) %integralV_.i.i10, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i7)
           to label %invoke.cont17 unwind label %ehcleanup
 
 invoke.cont17:                                    ; preds = %for.body
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i.i7) #13, !noalias !129
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i.i7) #13, !noalias !128
   %18 = load ptr, ptr %term, align 8, !tbaa !37
   %19 = load ptr, ptr %_M_end_of_storage.i.i.i.i, align 8, !tbaa !38
   %20 = load ptr, ptr %ref.tmp, align 8, !tbaa !37
@@ -2389,7 +2389,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %incdec.ptr.i.i = getelementptr inbounds nuw i8, ptr %__first1.sroa.0.010.i, i64 8
   %incdec.ptr.i1.i = getelementptr i8, ptr %__first2.sroa.0.09.i, i64 8
   %cmp.i.not.i = icmp eq ptr %incdec.ptr.i.i, %25
-  br i1 %cmp.i.not.i, label %_ZSt9transformIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEES6_S6_ZNK8QuantLib30GaussianQuadMultidimIntegrator16VectorIntegratorclIZNKS8_18vectorIntegratorVRILi14EEES5_RKSt8functionIFS5_RKS5_EEdEUldE_EES5_RKT_EUlddE_ET1_SK_SK_T0_SO_T2_.exit, label %for.body.i, !llvm.loop !132
+  br i1 %cmp.i.not.i, label %_ZSt9transformIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEES6_S6_ZNK8QuantLib30GaussianQuadMultidimIntegrator16VectorIntegratorclIZNKS8_18vectorIntegratorVRILi14EEES5_RKSt8functionIFS5_RKS5_EEdEUldE_EES5_RKT_EUlddE_ET1_SK_SK_T0_SO_T2_.exit, label %for.body.i, !llvm.loop !131
 
 _ZSt9transformIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEES6_S6_ZNK8QuantLib30GaussianQuadMultidimIntegrator16VectorIntegratorclIZNKS8_18vectorIntegratorVRILi14EEES5_RKSt8functionIFS5_RKS5_EEdEUldE_EES5_RKT_EUlddE_ET1_SK_SK_T0_SO_T2_.exit: ; preds = %for.body.i, %_ZNSt6vectorIdSaIdEED2Ev.exit
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
@@ -2461,7 +2461,7 @@ invoke.cont:
   %term = alloca %"class.std::vector.7", align 8
   %ref.tmp = alloca %"class.std::vector.7", align 8
   %n_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %0 = load i64, ptr %n_.i.i, align 8, !tbaa !57
+  %0 = load i64, ptr %n_.i.i, align 8, !tbaa !56
   %1 = trunc i64 %0 to i32
   %conv = add i32 %1, -1
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %term) #13
@@ -2470,19 +2470,19 @@ invoke.cont:
   %arrayidx.i = getelementptr inbounds nuw double, ptr %2, i64 %conv2
   %3 = load double, ptr %arrayidx.i, align 8, !tbaa !39
   %4 = getelementptr inbounds nuw i8, ptr %f, i64 8
-  %5 = load ptr, ptr %4, align 8, !tbaa !124, !noalias !133
-  %6 = load ptr, ptr %f, align 8, !tbaa !136, !noalias !133
+  %5 = load ptr, ptr %4, align 8, !tbaa !123, !noalias !132
+  %6 = load ptr, ptr %f, align 8, !tbaa !135, !noalias !132
   %varBuffer_.i.i = getelementptr inbounds nuw i8, ptr %5, i64 120
-  %7 = load ptr, ptr %varBuffer_.i.i, align 8, !tbaa !37, !noalias !137
+  %7 = load ptr, ptr %varBuffer_.i.i, align 8, !tbaa !37, !noalias !136
   %add.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %7, i64 88
-  store double %3, ptr %add.ptr.i.i.i, align 8, !tbaa !39, !noalias !137
+  store double %3, ptr %add.ptr.i.i.i, align 8, !tbaa !39, !noalias !136
   %integralV_.i.i = getelementptr inbounds nuw i8, ptr %5, i64 32
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i.i) #13, !noalias !137
-  store ptr %6, ptr %ref.tmp.i.i, align 8, !tbaa !42, !noalias !137
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i.i) #13, !noalias !136
+  store ptr %6, ptr %ref.tmp.i.i, align 8, !tbaa !42, !noalias !136
   %8 = getelementptr inbounds nuw i8, ptr %ref.tmp.i.i, i64 8
-  store ptr %5, ptr %8, align 8, !tbaa !140, !noalias !137
+  store ptr %5, ptr %8, align 8, !tbaa !139, !noalias !136
   call void @_ZNK8QuantLib30GaussianQuadMultidimIntegrator16VectorIntegratorclIZNKS0_18vectorIntegratorVRILi12EEESt6vectorIdSaIdEERKSt8functionIFS6_RKS6_EEdEUldE_EES6_RKT_(ptr dead_on_unwind nonnull writable sret(%"class.std::vector.7") align 8 %term, ptr noundef nonnull align 8 dereferenceable(32) %integralV_.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i.i) #13, !noalias !137
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i.i) #13, !noalias !136
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %term, i64 8
   %9 = load ptr, ptr %_M_finish.i, align 8, !tbaa !41
   %10 = load ptr, ptr %term, align 8, !tbaa !37
@@ -2503,7 +2503,7 @@ invoke.cont.i.thread:                             ; preds = %invoke.cont
 
 cond.true.i.i.i.i:                                ; preds = %invoke.cont
   %cmp.i.i.i.i.i.i = icmp ugt i64 %sub.ptr.sub.i.i, 9223372036854775800
-  br i1 %cmp.i.i.i.i.i.i, label %if.then3.i.i.i.i.i.i, label %_ZNSt16allocator_traitsISaIdEE8allocateERS0_m.exit.i.i.i.i, !prof !109
+  br i1 %cmp.i.i.i.i.i.i, label %if.then3.i.i.i.i.i.i, label %_ZNSt16allocator_traitsISaIdEE8allocateERS0_m.exit.i.i.i.i, !prof !108
 
 if.then3.i.i.i.i.i.i:                             ; preds = %cond.true.i.i.i.i
   invoke void @_ZSt28__throw_bad_array_new_lengthv() #15
@@ -2550,21 +2550,21 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %13 = load ptr, ptr %this, align 8, !tbaa !42
   %arrayidx.i6 = getelementptr inbounds nuw double, ptr %13, i64 %indvars.iv
   %14 = load double, ptr %arrayidx.i6, align 8, !tbaa !39
-  %15 = load ptr, ptr %4, align 8, !tbaa !124, !noalias !142
-  %16 = load ptr, ptr %f, align 8, !tbaa !136, !noalias !142
+  %15 = load ptr, ptr %4, align 8, !tbaa !123, !noalias !141
+  %16 = load ptr, ptr %f, align 8, !tbaa !135, !noalias !141
   %varBuffer_.i.i8 = getelementptr inbounds nuw i8, ptr %15, i64 120
-  %17 = load ptr, ptr %varBuffer_.i.i8, align 8, !tbaa !37, !noalias !145
+  %17 = load ptr, ptr %varBuffer_.i.i8, align 8, !tbaa !37, !noalias !144
   %add.ptr.i.i.i9 = getelementptr inbounds nuw i8, ptr %17, i64 88
-  store double %14, ptr %add.ptr.i.i.i9, align 8, !tbaa !39, !noalias !145
+  store double %14, ptr %add.ptr.i.i.i9, align 8, !tbaa !39, !noalias !144
   %integralV_.i.i10 = getelementptr inbounds nuw i8, ptr %15, i64 32
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i.i7) #13, !noalias !145
-  store ptr %16, ptr %ref.tmp.i.i7, align 8, !tbaa !42, !noalias !145
-  store ptr %15, ptr %11, align 8, !tbaa !140, !noalias !145
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i.i7) #13, !noalias !144
+  store ptr %16, ptr %ref.tmp.i.i7, align 8, !tbaa !42, !noalias !144
+  store ptr %15, ptr %11, align 8, !tbaa !139, !noalias !144
   invoke void @_ZNK8QuantLib30GaussianQuadMultidimIntegrator16VectorIntegratorclIZNKS0_18vectorIntegratorVRILi12EEESt6vectorIdSaIdEERKSt8functionIFS6_RKS6_EEdEUldE_EES6_RKT_(ptr dead_on_unwind nonnull writable sret(%"class.std::vector.7") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(32) %integralV_.i.i10, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i7)
           to label %invoke.cont17 unwind label %ehcleanup
 
 invoke.cont17:                                    ; preds = %for.body
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i.i7) #13, !noalias !145
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i.i7) #13, !noalias !144
   %18 = load ptr, ptr %term, align 8, !tbaa !37
   %19 = load ptr, ptr %_M_end_of_storage.i.i.i.i, align 8, !tbaa !38
   %20 = load ptr, ptr %ref.tmp, align 8, !tbaa !37
@@ -2617,7 +2617,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %incdec.ptr.i.i = getelementptr inbounds nuw i8, ptr %__first1.sroa.0.010.i, i64 8
   %incdec.ptr.i1.i = getelementptr i8, ptr %__first2.sroa.0.09.i, i64 8
   %cmp.i.not.i = icmp eq ptr %incdec.ptr.i.i, %25
-  br i1 %cmp.i.not.i, label %_ZSt9transformIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEES6_S6_ZNK8QuantLib30GaussianQuadMultidimIntegrator16VectorIntegratorclIZNKS8_18vectorIntegratorVRILi13EEES5_RKSt8functionIFS5_RKS5_EEdEUldE_EES5_RKT_EUlddE_ET1_SK_SK_T0_SO_T2_.exit, label %for.body.i, !llvm.loop !148
+  br i1 %cmp.i.not.i, label %_ZSt9transformIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEES6_S6_ZNK8QuantLib30GaussianQuadMultidimIntegrator16VectorIntegratorclIZNKS8_18vectorIntegratorVRILi13EEES5_RKSt8functionIFS5_RKS5_EEdEUldE_EES5_RKT_EUlddE_ET1_SK_SK_T0_SO_T2_.exit, label %for.body.i, !llvm.loop !147
 
 _ZSt9transformIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEES6_S6_ZNK8QuantLib30GaussianQuadMultidimIntegrator16VectorIntegratorclIZNKS8_18vectorIntegratorVRILi13EEES5_RKSt8functionIFS5_RKS5_EEdEUldE_EES5_RKT_EUlddE_ET1_SK_SK_T0_SO_T2_.exit: ; preds = %for.body.i, %_ZNSt6vectorIdSaIdEED2Ev.exit
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
@@ -2689,7 +2689,7 @@ invoke.cont:
   %term = alloca %"class.std::vector.7", align 8
   %ref.tmp = alloca %"class.std::vector.7", align 8
   %n_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %0 = load i64, ptr %n_.i.i, align 8, !tbaa !57
+  %0 = load i64, ptr %n_.i.i, align 8, !tbaa !56
   %1 = trunc i64 %0 to i32
   %conv = add i32 %1, -1
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %term) #13
@@ -2698,19 +2698,19 @@ invoke.cont:
   %arrayidx.i = getelementptr inbounds nuw double, ptr %2, i64 %conv2
   %3 = load double, ptr %arrayidx.i, align 8, !tbaa !39
   %4 = getelementptr inbounds nuw i8, ptr %f, i64 8
-  %5 = load ptr, ptr %4, align 8, !tbaa !140, !noalias !149
-  %6 = load ptr, ptr %f, align 8, !tbaa !152, !noalias !149
+  %5 = load ptr, ptr %4, align 8, !tbaa !139, !noalias !148
+  %6 = load ptr, ptr %f, align 8, !tbaa !151, !noalias !148
   %varBuffer_.i.i = getelementptr inbounds nuw i8, ptr %5, i64 120
-  %7 = load ptr, ptr %varBuffer_.i.i, align 8, !tbaa !37, !noalias !153
+  %7 = load ptr, ptr %varBuffer_.i.i, align 8, !tbaa !37, !noalias !152
   %add.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %7, i64 80
-  store double %3, ptr %add.ptr.i.i.i, align 8, !tbaa !39, !noalias !153
+  store double %3, ptr %add.ptr.i.i.i, align 8, !tbaa !39, !noalias !152
   %integralV_.i.i = getelementptr inbounds nuw i8, ptr %5, i64 32
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i.i) #13, !noalias !153
-  store ptr %6, ptr %ref.tmp.i.i, align 8, !tbaa !42, !noalias !153
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i.i) #13, !noalias !152
+  store ptr %6, ptr %ref.tmp.i.i, align 8, !tbaa !42, !noalias !152
   %8 = getelementptr inbounds nuw i8, ptr %ref.tmp.i.i, i64 8
-  store ptr %5, ptr %8, align 8, !tbaa !156, !noalias !153
+  store ptr %5, ptr %8, align 8, !tbaa !155, !noalias !152
   call void @_ZNK8QuantLib30GaussianQuadMultidimIntegrator16VectorIntegratorclIZNKS0_18vectorIntegratorVRILi11EEESt6vectorIdSaIdEERKSt8functionIFS6_RKS6_EEdEUldE_EES6_RKT_(ptr dead_on_unwind nonnull writable sret(%"class.std::vector.7") align 8 %term, ptr noundef nonnull align 8 dereferenceable(32) %integralV_.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i.i) #13, !noalias !153
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i.i) #13, !noalias !152
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %term, i64 8
   %9 = load ptr, ptr %_M_finish.i, align 8, !tbaa !41
   %10 = load ptr, ptr %term, align 8, !tbaa !37
@@ -2731,7 +2731,7 @@ invoke.cont.i.thread:                             ; preds = %invoke.cont
 
 cond.true.i.i.i.i:                                ; preds = %invoke.cont
   %cmp.i.i.i.i.i.i = icmp ugt i64 %sub.ptr.sub.i.i, 9223372036854775800
-  br i1 %cmp.i.i.i.i.i.i, label %if.then3.i.i.i.i.i.i, label %_ZNSt16allocator_traitsISaIdEE8allocateERS0_m.exit.i.i.i.i, !prof !109
+  br i1 %cmp.i.i.i.i.i.i, label %if.then3.i.i.i.i.i.i, label %_ZNSt16allocator_traitsISaIdEE8allocateERS0_m.exit.i.i.i.i, !prof !108
 
 if.then3.i.i.i.i.i.i:                             ; preds = %cond.true.i.i.i.i
   invoke void @_ZSt28__throw_bad_array_new_lengthv() #15
@@ -2778,21 +2778,21 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %13 = load ptr, ptr %this, align 8, !tbaa !42
   %arrayidx.i6 = getelementptr inbounds nuw double, ptr %13, i64 %indvars.iv
   %14 = load double, ptr %arrayidx.i6, align 8, !tbaa !39
-  %15 = load ptr, ptr %4, align 8, !tbaa !140, !noalias !158
-  %16 = load ptr, ptr %f, align 8, !tbaa !152, !noalias !158
+  %15 = load ptr, ptr %4, align 8, !tbaa !139, !noalias !157
+  %16 = load ptr, ptr %f, align 8, !tbaa !151, !noalias !157
   %varBuffer_.i.i8 = getelementptr inbounds nuw i8, ptr %15, i64 120
-  %17 = load ptr, ptr %varBuffer_.i.i8, align 8, !tbaa !37, !noalias !161
+  %17 = load ptr, ptr %varBuffer_.i.i8, align 8, !tbaa !37, !noalias !160
   %add.ptr.i.i.i9 = getelementptr inbounds nuw i8, ptr %17, i64 80
-  store double %14, ptr %add.ptr.i.i.i9, align 8, !tbaa !39, !noalias !161
+  store double %14, ptr %add.ptr.i.i.i9, align 8, !tbaa !39, !noalias !160
   %integralV_.i.i10 = getelementptr inbounds nuw i8, ptr %15, i64 32
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i.i7) #13, !noalias !161
-  store ptr %16, ptr %ref.tmp.i.i7, align 8, !tbaa !42, !noalias !161
-  store ptr %15, ptr %11, align 8, !tbaa !156, !noalias !161
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i.i7) #13, !noalias !160
+  store ptr %16, ptr %ref.tmp.i.i7, align 8, !tbaa !42, !noalias !160
+  store ptr %15, ptr %11, align 8, !tbaa !155, !noalias !160
   invoke void @_ZNK8QuantLib30GaussianQuadMultidimIntegrator16VectorIntegratorclIZNKS0_18vectorIntegratorVRILi11EEESt6vectorIdSaIdEERKSt8functionIFS6_RKS6_EEdEUldE_EES6_RKT_(ptr dead_on_unwind nonnull writable sret(%"class.std::vector.7") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(32) %integralV_.i.i10, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i7)
           to label %invoke.cont17 unwind label %ehcleanup
 
 invoke.cont17:                                    ; preds = %for.body
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i.i7) #13, !noalias !161
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i.i7) #13, !noalias !160
   %18 = load ptr, ptr %term, align 8, !tbaa !37
   %19 = load ptr, ptr %_M_end_of_storage.i.i.i.i, align 8, !tbaa !38
   %20 = load ptr, ptr %ref.tmp, align 8, !tbaa !37
@@ -2845,7 +2845,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %incdec.ptr.i.i = getelementptr inbounds nuw i8, ptr %__first1.sroa.0.010.i, i64 8
   %incdec.ptr.i1.i = getelementptr i8, ptr %__first2.sroa.0.09.i, i64 8
   %cmp.i.not.i = icmp eq ptr %incdec.ptr.i.i, %25
-  br i1 %cmp.i.not.i, label %_ZSt9transformIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEES6_S6_ZNK8QuantLib30GaussianQuadMultidimIntegrator16VectorIntegratorclIZNKS8_18vectorIntegratorVRILi12EEES5_RKSt8functionIFS5_RKS5_EEdEUldE_EES5_RKT_EUlddE_ET1_SK_SK_T0_SO_T2_.exit, label %for.body.i, !llvm.loop !164
+  br i1 %cmp.i.not.i, label %_ZSt9transformIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEES6_S6_ZNK8QuantLib30GaussianQuadMultidimIntegrator16VectorIntegratorclIZNKS8_18vectorIntegratorVRILi12EEES5_RKSt8functionIFS5_RKS5_EEdEUldE_EES5_RKT_EUlddE_ET1_SK_SK_T0_SO_T2_.exit, label %for.body.i, !llvm.loop !163
 
 _ZSt9transformIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEES6_S6_ZNK8QuantLib30GaussianQuadMultidimIntegrator16VectorIntegratorclIZNKS8_18vectorIntegratorVRILi12EEES5_RKSt8functionIFS5_RKS5_EEdEUldE_EES5_RKT_EUlddE_ET1_SK_SK_T0_SO_T2_.exit: ; preds = %for.body.i, %_ZNSt6vectorIdSaIdEED2Ev.exit
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
@@ -2917,7 +2917,7 @@ invoke.cont:
   %term = alloca %"class.std::vector.7", align 8
   %ref.tmp = alloca %"class.std::vector.7", align 8
   %n_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %0 = load i64, ptr %n_.i.i, align 8, !tbaa !57
+  %0 = load i64, ptr %n_.i.i, align 8, !tbaa !56
   %1 = trunc i64 %0 to i32
   %conv = add i32 %1, -1
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %term) #13
@@ -2926,19 +2926,19 @@ invoke.cont:
   %arrayidx.i = getelementptr inbounds nuw double, ptr %2, i64 %conv2
   %3 = load double, ptr %arrayidx.i, align 8, !tbaa !39
   %4 = getelementptr inbounds nuw i8, ptr %f, i64 8
-  %5 = load ptr, ptr %4, align 8, !tbaa !156, !noalias !165
-  %6 = load ptr, ptr %f, align 8, !tbaa !168, !noalias !165
+  %5 = load ptr, ptr %4, align 8, !tbaa !155, !noalias !164
+  %6 = load ptr, ptr %f, align 8, !tbaa !167, !noalias !164
   %varBuffer_.i.i = getelementptr inbounds nuw i8, ptr %5, i64 120
-  %7 = load ptr, ptr %varBuffer_.i.i, align 8, !tbaa !37, !noalias !169
+  %7 = load ptr, ptr %varBuffer_.i.i, align 8, !tbaa !37, !noalias !168
   %add.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %7, i64 72
-  store double %3, ptr %add.ptr.i.i.i, align 8, !tbaa !39, !noalias !169
+  store double %3, ptr %add.ptr.i.i.i, align 8, !tbaa !39, !noalias !168
   %integralV_.i.i = getelementptr inbounds nuw i8, ptr %5, i64 32
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i.i) #13, !noalias !169
-  store ptr %6, ptr %ref.tmp.i.i, align 8, !tbaa !42, !noalias !169
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i.i) #13, !noalias !168
+  store ptr %6, ptr %ref.tmp.i.i, align 8, !tbaa !42, !noalias !168
   %8 = getelementptr inbounds nuw i8, ptr %ref.tmp.i.i, i64 8
-  store ptr %5, ptr %8, align 8, !tbaa !172, !noalias !169
+  store ptr %5, ptr %8, align 8, !tbaa !171, !noalias !168
   call void @_ZNK8QuantLib30GaussianQuadMultidimIntegrator16VectorIntegratorclIZNKS0_18vectorIntegratorVRILi10EEESt6vectorIdSaIdEERKSt8functionIFS6_RKS6_EEdEUldE_EES6_RKT_(ptr dead_on_unwind nonnull writable sret(%"class.std::vector.7") align 8 %term, ptr noundef nonnull align 8 dereferenceable(32) %integralV_.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i.i) #13, !noalias !169
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i.i) #13, !noalias !168
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %term, i64 8
   %9 = load ptr, ptr %_M_finish.i, align 8, !tbaa !41
   %10 = load ptr, ptr %term, align 8, !tbaa !37
@@ -2959,7 +2959,7 @@ invoke.cont.i.thread:                             ; preds = %invoke.cont
 
 cond.true.i.i.i.i:                                ; preds = %invoke.cont
   %cmp.i.i.i.i.i.i = icmp ugt i64 %sub.ptr.sub.i.i, 9223372036854775800
-  br i1 %cmp.i.i.i.i.i.i, label %if.then3.i.i.i.i.i.i, label %_ZNSt16allocator_traitsISaIdEE8allocateERS0_m.exit.i.i.i.i, !prof !109
+  br i1 %cmp.i.i.i.i.i.i, label %if.then3.i.i.i.i.i.i, label %_ZNSt16allocator_traitsISaIdEE8allocateERS0_m.exit.i.i.i.i, !prof !108
 
 if.then3.i.i.i.i.i.i:                             ; preds = %cond.true.i.i.i.i
   invoke void @_ZSt28__throw_bad_array_new_lengthv() #15
@@ -3006,21 +3006,21 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %13 = load ptr, ptr %this, align 8, !tbaa !42
   %arrayidx.i6 = getelementptr inbounds nuw double, ptr %13, i64 %indvars.iv
   %14 = load double, ptr %arrayidx.i6, align 8, !tbaa !39
-  %15 = load ptr, ptr %4, align 8, !tbaa !156, !noalias !174
-  %16 = load ptr, ptr %f, align 8, !tbaa !168, !noalias !174
+  %15 = load ptr, ptr %4, align 8, !tbaa !155, !noalias !173
+  %16 = load ptr, ptr %f, align 8, !tbaa !167, !noalias !173
   %varBuffer_.i.i8 = getelementptr inbounds nuw i8, ptr %15, i64 120
-  %17 = load ptr, ptr %varBuffer_.i.i8, align 8, !tbaa !37, !noalias !177
+  %17 = load ptr, ptr %varBuffer_.i.i8, align 8, !tbaa !37, !noalias !176
   %add.ptr.i.i.i9 = getelementptr inbounds nuw i8, ptr %17, i64 72
-  store double %14, ptr %add.ptr.i.i.i9, align 8, !tbaa !39, !noalias !177
+  store double %14, ptr %add.ptr.i.i.i9, align 8, !tbaa !39, !noalias !176
   %integralV_.i.i10 = getelementptr inbounds nuw i8, ptr %15, i64 32
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i.i7) #13, !noalias !177
-  store ptr %16, ptr %ref.tmp.i.i7, align 8, !tbaa !42, !noalias !177
-  store ptr %15, ptr %11, align 8, !tbaa !172, !noalias !177
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i.i7) #13, !noalias !176
+  store ptr %16, ptr %ref.tmp.i.i7, align 8, !tbaa !42, !noalias !176
+  store ptr %15, ptr %11, align 8, !tbaa !171, !noalias !176
   invoke void @_ZNK8QuantLib30GaussianQuadMultidimIntegrator16VectorIntegratorclIZNKS0_18vectorIntegratorVRILi10EEESt6vectorIdSaIdEERKSt8functionIFS6_RKS6_EEdEUldE_EES6_RKT_(ptr dead_on_unwind nonnull writable sret(%"class.std::vector.7") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(32) %integralV_.i.i10, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i7)
           to label %invoke.cont17 unwind label %ehcleanup
 
 invoke.cont17:                                    ; preds = %for.body
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i.i7) #13, !noalias !177
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i.i7) #13, !noalias !176
   %18 = load ptr, ptr %term, align 8, !tbaa !37
   %19 = load ptr, ptr %_M_end_of_storage.i.i.i.i, align 8, !tbaa !38
   %20 = load ptr, ptr %ref.tmp, align 8, !tbaa !37
@@ -3073,7 +3073,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %incdec.ptr.i.i = getelementptr inbounds nuw i8, ptr %__first1.sroa.0.010.i, i64 8
   %incdec.ptr.i1.i = getelementptr i8, ptr %__first2.sroa.0.09.i, i64 8
   %cmp.i.not.i = icmp eq ptr %incdec.ptr.i.i, %25
-  br i1 %cmp.i.not.i, label %_ZSt9transformIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEES6_S6_ZNK8QuantLib30GaussianQuadMultidimIntegrator16VectorIntegratorclIZNKS8_18vectorIntegratorVRILi11EEES5_RKSt8functionIFS5_RKS5_EEdEUldE_EES5_RKT_EUlddE_ET1_SK_SK_T0_SO_T2_.exit, label %for.body.i, !llvm.loop !180
+  br i1 %cmp.i.not.i, label %_ZSt9transformIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEES6_S6_ZNK8QuantLib30GaussianQuadMultidimIntegrator16VectorIntegratorclIZNKS8_18vectorIntegratorVRILi11EEES5_RKSt8functionIFS5_RKS5_EEdEUldE_EES5_RKT_EUlddE_ET1_SK_SK_T0_SO_T2_.exit, label %for.body.i, !llvm.loop !179
 
 _ZSt9transformIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEES6_S6_ZNK8QuantLib30GaussianQuadMultidimIntegrator16VectorIntegratorclIZNKS8_18vectorIntegratorVRILi11EEES5_RKSt8functionIFS5_RKS5_EEdEUldE_EES5_RKT_EUlddE_ET1_SK_SK_T0_SO_T2_.exit: ; preds = %for.body.i, %_ZNSt6vectorIdSaIdEED2Ev.exit
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
@@ -3145,7 +3145,7 @@ invoke.cont:
   %term = alloca %"class.std::vector.7", align 8
   %ref.tmp = alloca %"class.std::vector.7", align 8
   %n_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %0 = load i64, ptr %n_.i.i, align 8, !tbaa !57
+  %0 = load i64, ptr %n_.i.i, align 8, !tbaa !56
   %1 = trunc i64 %0 to i32
   %conv = add i32 %1, -1
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %term) #13
@@ -3154,19 +3154,19 @@ invoke.cont:
   %arrayidx.i = getelementptr inbounds nuw double, ptr %2, i64 %conv2
   %3 = load double, ptr %arrayidx.i, align 8, !tbaa !39
   %4 = getelementptr inbounds nuw i8, ptr %f, i64 8
-  %5 = load ptr, ptr %4, align 8, !tbaa !172, !noalias !181
-  %6 = load ptr, ptr %f, align 8, !tbaa !184, !noalias !181
+  %5 = load ptr, ptr %4, align 8, !tbaa !171, !noalias !180
+  %6 = load ptr, ptr %f, align 8, !tbaa !183, !noalias !180
   %varBuffer_.i.i = getelementptr inbounds nuw i8, ptr %5, i64 120
-  %7 = load ptr, ptr %varBuffer_.i.i, align 8, !tbaa !37, !noalias !185
+  %7 = load ptr, ptr %varBuffer_.i.i, align 8, !tbaa !37, !noalias !184
   %add.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %7, i64 64
-  store double %3, ptr %add.ptr.i.i.i, align 8, !tbaa !39, !noalias !185
+  store double %3, ptr %add.ptr.i.i.i, align 8, !tbaa !39, !noalias !184
   %integralV_.i.i = getelementptr inbounds nuw i8, ptr %5, i64 32
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i.i) #13, !noalias !185
-  store ptr %6, ptr %ref.tmp.i.i, align 8, !tbaa !42, !noalias !185
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i.i) #13, !noalias !184
+  store ptr %6, ptr %ref.tmp.i.i, align 8, !tbaa !42, !noalias !184
   %8 = getelementptr inbounds nuw i8, ptr %ref.tmp.i.i, i64 8
-  store ptr %5, ptr %8, align 8, !tbaa !188, !noalias !185
+  store ptr %5, ptr %8, align 8, !tbaa !187, !noalias !184
   call void @_ZNK8QuantLib30GaussianQuadMultidimIntegrator16VectorIntegratorclIZNKS0_18vectorIntegratorVRILi9EEESt6vectorIdSaIdEERKSt8functionIFS6_RKS6_EEdEUldE_EES6_RKT_(ptr dead_on_unwind nonnull writable sret(%"class.std::vector.7") align 8 %term, ptr noundef nonnull align 8 dereferenceable(32) %integralV_.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i.i) #13, !noalias !185
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i.i) #13, !noalias !184
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %term, i64 8
   %9 = load ptr, ptr %_M_finish.i, align 8, !tbaa !41
   %10 = load ptr, ptr %term, align 8, !tbaa !37
@@ -3187,7 +3187,7 @@ invoke.cont.i.thread:                             ; preds = %invoke.cont
 
 cond.true.i.i.i.i:                                ; preds = %invoke.cont
   %cmp.i.i.i.i.i.i = icmp ugt i64 %sub.ptr.sub.i.i, 9223372036854775800
-  br i1 %cmp.i.i.i.i.i.i, label %if.then3.i.i.i.i.i.i, label %_ZNSt16allocator_traitsISaIdEE8allocateERS0_m.exit.i.i.i.i, !prof !109
+  br i1 %cmp.i.i.i.i.i.i, label %if.then3.i.i.i.i.i.i, label %_ZNSt16allocator_traitsISaIdEE8allocateERS0_m.exit.i.i.i.i, !prof !108
 
 if.then3.i.i.i.i.i.i:                             ; preds = %cond.true.i.i.i.i
   invoke void @_ZSt28__throw_bad_array_new_lengthv() #15
@@ -3234,21 +3234,21 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %13 = load ptr, ptr %this, align 8, !tbaa !42
   %arrayidx.i6 = getelementptr inbounds nuw double, ptr %13, i64 %indvars.iv
   %14 = load double, ptr %arrayidx.i6, align 8, !tbaa !39
-  %15 = load ptr, ptr %4, align 8, !tbaa !172, !noalias !190
-  %16 = load ptr, ptr %f, align 8, !tbaa !184, !noalias !190
+  %15 = load ptr, ptr %4, align 8, !tbaa !171, !noalias !189
+  %16 = load ptr, ptr %f, align 8, !tbaa !183, !noalias !189
   %varBuffer_.i.i8 = getelementptr inbounds nuw i8, ptr %15, i64 120
-  %17 = load ptr, ptr %varBuffer_.i.i8, align 8, !tbaa !37, !noalias !193
+  %17 = load ptr, ptr %varBuffer_.i.i8, align 8, !tbaa !37, !noalias !192
   %add.ptr.i.i.i9 = getelementptr inbounds nuw i8, ptr %17, i64 64
-  store double %14, ptr %add.ptr.i.i.i9, align 8, !tbaa !39, !noalias !193
+  store double %14, ptr %add.ptr.i.i.i9, align 8, !tbaa !39, !noalias !192
   %integralV_.i.i10 = getelementptr inbounds nuw i8, ptr %15, i64 32
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i.i7) #13, !noalias !193
-  store ptr %16, ptr %ref.tmp.i.i7, align 8, !tbaa !42, !noalias !193
-  store ptr %15, ptr %11, align 8, !tbaa !188, !noalias !193
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i.i7) #13, !noalias !192
+  store ptr %16, ptr %ref.tmp.i.i7, align 8, !tbaa !42, !noalias !192
+  store ptr %15, ptr %11, align 8, !tbaa !187, !noalias !192
   invoke void @_ZNK8QuantLib30GaussianQuadMultidimIntegrator16VectorIntegratorclIZNKS0_18vectorIntegratorVRILi9EEESt6vectorIdSaIdEERKSt8functionIFS6_RKS6_EEdEUldE_EES6_RKT_(ptr dead_on_unwind nonnull writable sret(%"class.std::vector.7") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(32) %integralV_.i.i10, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i7)
           to label %invoke.cont17 unwind label %ehcleanup
 
 invoke.cont17:                                    ; preds = %for.body
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i.i7) #13, !noalias !193
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i.i7) #13, !noalias !192
   %18 = load ptr, ptr %term, align 8, !tbaa !37
   %19 = load ptr, ptr %_M_end_of_storage.i.i.i.i, align 8, !tbaa !38
   %20 = load ptr, ptr %ref.tmp, align 8, !tbaa !37
@@ -3301,7 +3301,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %incdec.ptr.i.i = getelementptr inbounds nuw i8, ptr %__first1.sroa.0.010.i, i64 8
   %incdec.ptr.i1.i = getelementptr i8, ptr %__first2.sroa.0.09.i, i64 8
   %cmp.i.not.i = icmp eq ptr %incdec.ptr.i.i, %25
-  br i1 %cmp.i.not.i, label %_ZSt9transformIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEES6_S6_ZNK8QuantLib30GaussianQuadMultidimIntegrator16VectorIntegratorclIZNKS8_18vectorIntegratorVRILi10EEES5_RKSt8functionIFS5_RKS5_EEdEUldE_EES5_RKT_EUlddE_ET1_SK_SK_T0_SO_T2_.exit, label %for.body.i, !llvm.loop !196
+  br i1 %cmp.i.not.i, label %_ZSt9transformIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEES6_S6_ZNK8QuantLib30GaussianQuadMultidimIntegrator16VectorIntegratorclIZNKS8_18vectorIntegratorVRILi10EEES5_RKSt8functionIFS5_RKS5_EEdEUldE_EES5_RKT_EUlddE_ET1_SK_SK_T0_SO_T2_.exit, label %for.body.i, !llvm.loop !195
 
 _ZSt9transformIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEES6_S6_ZNK8QuantLib30GaussianQuadMultidimIntegrator16VectorIntegratorclIZNKS8_18vectorIntegratorVRILi10EEES5_RKSt8functionIFS5_RKS5_EEdEUldE_EES5_RKT_EUlddE_ET1_SK_SK_T0_SO_T2_.exit: ; preds = %for.body.i, %_ZNSt6vectorIdSaIdEED2Ev.exit
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
@@ -3373,7 +3373,7 @@ invoke.cont:
   %term = alloca %"class.std::vector.7", align 8
   %ref.tmp = alloca %"class.std::vector.7", align 8
   %n_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %0 = load i64, ptr %n_.i.i, align 8, !tbaa !57
+  %0 = load i64, ptr %n_.i.i, align 8, !tbaa !56
   %1 = trunc i64 %0 to i32
   %conv = add i32 %1, -1
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %term) #13
@@ -3382,19 +3382,19 @@ invoke.cont:
   %arrayidx.i = getelementptr inbounds nuw double, ptr %2, i64 %conv2
   %3 = load double, ptr %arrayidx.i, align 8, !tbaa !39
   %4 = getelementptr inbounds nuw i8, ptr %f, i64 8
-  %5 = load ptr, ptr %4, align 8, !tbaa !188, !noalias !197
-  %6 = load ptr, ptr %f, align 8, !tbaa !200, !noalias !197
+  %5 = load ptr, ptr %4, align 8, !tbaa !187, !noalias !196
+  %6 = load ptr, ptr %f, align 8, !tbaa !199, !noalias !196
   %varBuffer_.i.i = getelementptr inbounds nuw i8, ptr %5, i64 120
-  %7 = load ptr, ptr %varBuffer_.i.i, align 8, !tbaa !37, !noalias !201
+  %7 = load ptr, ptr %varBuffer_.i.i, align 8, !tbaa !37, !noalias !200
   %add.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %7, i64 56
-  store double %3, ptr %add.ptr.i.i.i, align 8, !tbaa !39, !noalias !201
+  store double %3, ptr %add.ptr.i.i.i, align 8, !tbaa !39, !noalias !200
   %integralV_.i.i = getelementptr inbounds nuw i8, ptr %5, i64 32
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i.i) #13, !noalias !201
-  store ptr %6, ptr %ref.tmp.i.i, align 8, !tbaa !42, !noalias !201
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i.i) #13, !noalias !200
+  store ptr %6, ptr %ref.tmp.i.i, align 8, !tbaa !42, !noalias !200
   %8 = getelementptr inbounds nuw i8, ptr %ref.tmp.i.i, i64 8
-  store ptr %5, ptr %8, align 8, !tbaa !204, !noalias !201
+  store ptr %5, ptr %8, align 8, !tbaa !203, !noalias !200
   call void @_ZNK8QuantLib30GaussianQuadMultidimIntegrator16VectorIntegratorclIZNKS0_18vectorIntegratorVRILi8EEESt6vectorIdSaIdEERKSt8functionIFS6_RKS6_EEdEUldE_EES6_RKT_(ptr dead_on_unwind nonnull writable sret(%"class.std::vector.7") align 8 %term, ptr noundef nonnull align 8 dereferenceable(32) %integralV_.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i.i) #13, !noalias !201
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i.i) #13, !noalias !200
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %term, i64 8
   %9 = load ptr, ptr %_M_finish.i, align 8, !tbaa !41
   %10 = load ptr, ptr %term, align 8, !tbaa !37
@@ -3415,7 +3415,7 @@ invoke.cont.i.thread:                             ; preds = %invoke.cont
 
 cond.true.i.i.i.i:                                ; preds = %invoke.cont
   %cmp.i.i.i.i.i.i = icmp ugt i64 %sub.ptr.sub.i.i, 9223372036854775800
-  br i1 %cmp.i.i.i.i.i.i, label %if.then3.i.i.i.i.i.i, label %_ZNSt16allocator_traitsISaIdEE8allocateERS0_m.exit.i.i.i.i, !prof !109
+  br i1 %cmp.i.i.i.i.i.i, label %if.then3.i.i.i.i.i.i, label %_ZNSt16allocator_traitsISaIdEE8allocateERS0_m.exit.i.i.i.i, !prof !108
 
 if.then3.i.i.i.i.i.i:                             ; preds = %cond.true.i.i.i.i
   invoke void @_ZSt28__throw_bad_array_new_lengthv() #15
@@ -3462,21 +3462,21 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %13 = load ptr, ptr %this, align 8, !tbaa !42
   %arrayidx.i6 = getelementptr inbounds nuw double, ptr %13, i64 %indvars.iv
   %14 = load double, ptr %arrayidx.i6, align 8, !tbaa !39
-  %15 = load ptr, ptr %4, align 8, !tbaa !188, !noalias !206
-  %16 = load ptr, ptr %f, align 8, !tbaa !200, !noalias !206
+  %15 = load ptr, ptr %4, align 8, !tbaa !187, !noalias !205
+  %16 = load ptr, ptr %f, align 8, !tbaa !199, !noalias !205
   %varBuffer_.i.i8 = getelementptr inbounds nuw i8, ptr %15, i64 120
-  %17 = load ptr, ptr %varBuffer_.i.i8, align 8, !tbaa !37, !noalias !209
+  %17 = load ptr, ptr %varBuffer_.i.i8, align 8, !tbaa !37, !noalias !208
   %add.ptr.i.i.i9 = getelementptr inbounds nuw i8, ptr %17, i64 56
-  store double %14, ptr %add.ptr.i.i.i9, align 8, !tbaa !39, !noalias !209
+  store double %14, ptr %add.ptr.i.i.i9, align 8, !tbaa !39, !noalias !208
   %integralV_.i.i10 = getelementptr inbounds nuw i8, ptr %15, i64 32
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i.i7) #13, !noalias !209
-  store ptr %16, ptr %ref.tmp.i.i7, align 8, !tbaa !42, !noalias !209
-  store ptr %15, ptr %11, align 8, !tbaa !204, !noalias !209
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i.i7) #13, !noalias !208
+  store ptr %16, ptr %ref.tmp.i.i7, align 8, !tbaa !42, !noalias !208
+  store ptr %15, ptr %11, align 8, !tbaa !203, !noalias !208
   invoke void @_ZNK8QuantLib30GaussianQuadMultidimIntegrator16VectorIntegratorclIZNKS0_18vectorIntegratorVRILi8EEESt6vectorIdSaIdEERKSt8functionIFS6_RKS6_EEdEUldE_EES6_RKT_(ptr dead_on_unwind nonnull writable sret(%"class.std::vector.7") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(32) %integralV_.i.i10, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i7)
           to label %invoke.cont17 unwind label %ehcleanup
 
 invoke.cont17:                                    ; preds = %for.body
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i.i7) #13, !noalias !209
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i.i7) #13, !noalias !208
   %18 = load ptr, ptr %term, align 8, !tbaa !37
   %19 = load ptr, ptr %_M_end_of_storage.i.i.i.i, align 8, !tbaa !38
   %20 = load ptr, ptr %ref.tmp, align 8, !tbaa !37
@@ -3529,7 +3529,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %incdec.ptr.i.i = getelementptr inbounds nuw i8, ptr %__first1.sroa.0.010.i, i64 8
   %incdec.ptr.i1.i = getelementptr i8, ptr %__first2.sroa.0.09.i, i64 8
   %cmp.i.not.i = icmp eq ptr %incdec.ptr.i.i, %25
-  br i1 %cmp.i.not.i, label %_ZSt9transformIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEES6_S6_ZNK8QuantLib30GaussianQuadMultidimIntegrator16VectorIntegratorclIZNKS8_18vectorIntegratorVRILi9EEES5_RKSt8functionIFS5_RKS5_EEdEUldE_EES5_RKT_EUlddE_ET1_SK_SK_T0_SO_T2_.exit, label %for.body.i, !llvm.loop !212
+  br i1 %cmp.i.not.i, label %_ZSt9transformIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEES6_S6_ZNK8QuantLib30GaussianQuadMultidimIntegrator16VectorIntegratorclIZNKS8_18vectorIntegratorVRILi9EEES5_RKSt8functionIFS5_RKS5_EEdEUldE_EES5_RKT_EUlddE_ET1_SK_SK_T0_SO_T2_.exit, label %for.body.i, !llvm.loop !211
 
 _ZSt9transformIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEES6_S6_ZNK8QuantLib30GaussianQuadMultidimIntegrator16VectorIntegratorclIZNKS8_18vectorIntegratorVRILi9EEES5_RKSt8functionIFS5_RKS5_EEdEUldE_EES5_RKT_EUlddE_ET1_SK_SK_T0_SO_T2_.exit: ; preds = %for.body.i, %_ZNSt6vectorIdSaIdEED2Ev.exit
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
@@ -3601,7 +3601,7 @@ invoke.cont:
   %term = alloca %"class.std::vector.7", align 8
   %ref.tmp = alloca %"class.std::vector.7", align 8
   %n_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %0 = load i64, ptr %n_.i.i, align 8, !tbaa !57
+  %0 = load i64, ptr %n_.i.i, align 8, !tbaa !56
   %1 = trunc i64 %0 to i32
   %conv = add i32 %1, -1
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %term) #13
@@ -3610,19 +3610,19 @@ invoke.cont:
   %arrayidx.i = getelementptr inbounds nuw double, ptr %2, i64 %conv2
   %3 = load double, ptr %arrayidx.i, align 8, !tbaa !39
   %4 = getelementptr inbounds nuw i8, ptr %f, i64 8
-  %5 = load ptr, ptr %4, align 8, !tbaa !204, !noalias !213
-  %6 = load ptr, ptr %f, align 8, !tbaa !216, !noalias !213
+  %5 = load ptr, ptr %4, align 8, !tbaa !203, !noalias !212
+  %6 = load ptr, ptr %f, align 8, !tbaa !215, !noalias !212
   %varBuffer_.i.i = getelementptr inbounds nuw i8, ptr %5, i64 120
-  %7 = load ptr, ptr %varBuffer_.i.i, align 8, !tbaa !37, !noalias !217
+  %7 = load ptr, ptr %varBuffer_.i.i, align 8, !tbaa !37, !noalias !216
   %add.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %7, i64 48
-  store double %3, ptr %add.ptr.i.i.i, align 8, !tbaa !39, !noalias !217
+  store double %3, ptr %add.ptr.i.i.i, align 8, !tbaa !39, !noalias !216
   %integralV_.i.i = getelementptr inbounds nuw i8, ptr %5, i64 32
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i.i) #13, !noalias !217
-  store ptr %6, ptr %ref.tmp.i.i, align 8, !tbaa !42, !noalias !217
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i.i) #13, !noalias !216
+  store ptr %6, ptr %ref.tmp.i.i, align 8, !tbaa !42, !noalias !216
   %8 = getelementptr inbounds nuw i8, ptr %ref.tmp.i.i, i64 8
-  store ptr %5, ptr %8, align 8, !tbaa !220, !noalias !217
+  store ptr %5, ptr %8, align 8, !tbaa !219, !noalias !216
   call void @_ZNK8QuantLib30GaussianQuadMultidimIntegrator16VectorIntegratorclIZNKS0_18vectorIntegratorVRILi7EEESt6vectorIdSaIdEERKSt8functionIFS6_RKS6_EEdEUldE_EES6_RKT_(ptr dead_on_unwind nonnull writable sret(%"class.std::vector.7") align 8 %term, ptr noundef nonnull align 8 dereferenceable(32) %integralV_.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i.i) #13, !noalias !217
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i.i) #13, !noalias !216
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %term, i64 8
   %9 = load ptr, ptr %_M_finish.i, align 8, !tbaa !41
   %10 = load ptr, ptr %term, align 8, !tbaa !37
@@ -3643,7 +3643,7 @@ invoke.cont.i.thread:                             ; preds = %invoke.cont
 
 cond.true.i.i.i.i:                                ; preds = %invoke.cont
   %cmp.i.i.i.i.i.i = icmp ugt i64 %sub.ptr.sub.i.i, 9223372036854775800
-  br i1 %cmp.i.i.i.i.i.i, label %if.then3.i.i.i.i.i.i, label %_ZNSt16allocator_traitsISaIdEE8allocateERS0_m.exit.i.i.i.i, !prof !109
+  br i1 %cmp.i.i.i.i.i.i, label %if.then3.i.i.i.i.i.i, label %_ZNSt16allocator_traitsISaIdEE8allocateERS0_m.exit.i.i.i.i, !prof !108
 
 if.then3.i.i.i.i.i.i:                             ; preds = %cond.true.i.i.i.i
   invoke void @_ZSt28__throw_bad_array_new_lengthv() #15
@@ -3690,21 +3690,21 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %13 = load ptr, ptr %this, align 8, !tbaa !42
   %arrayidx.i6 = getelementptr inbounds nuw double, ptr %13, i64 %indvars.iv
   %14 = load double, ptr %arrayidx.i6, align 8, !tbaa !39
-  %15 = load ptr, ptr %4, align 8, !tbaa !204, !noalias !222
-  %16 = load ptr, ptr %f, align 8, !tbaa !216, !noalias !222
+  %15 = load ptr, ptr %4, align 8, !tbaa !203, !noalias !221
+  %16 = load ptr, ptr %f, align 8, !tbaa !215, !noalias !221
   %varBuffer_.i.i8 = getelementptr inbounds nuw i8, ptr %15, i64 120
-  %17 = load ptr, ptr %varBuffer_.i.i8, align 8, !tbaa !37, !noalias !225
+  %17 = load ptr, ptr %varBuffer_.i.i8, align 8, !tbaa !37, !noalias !224
   %add.ptr.i.i.i9 = getelementptr inbounds nuw i8, ptr %17, i64 48
-  store double %14, ptr %add.ptr.i.i.i9, align 8, !tbaa !39, !noalias !225
+  store double %14, ptr %add.ptr.i.i.i9, align 8, !tbaa !39, !noalias !224
   %integralV_.i.i10 = getelementptr inbounds nuw i8, ptr %15, i64 32
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i.i7) #13, !noalias !225
-  store ptr %16, ptr %ref.tmp.i.i7, align 8, !tbaa !42, !noalias !225
-  store ptr %15, ptr %11, align 8, !tbaa !220, !noalias !225
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i.i7) #13, !noalias !224
+  store ptr %16, ptr %ref.tmp.i.i7, align 8, !tbaa !42, !noalias !224
+  store ptr %15, ptr %11, align 8, !tbaa !219, !noalias !224
   invoke void @_ZNK8QuantLib30GaussianQuadMultidimIntegrator16VectorIntegratorclIZNKS0_18vectorIntegratorVRILi7EEESt6vectorIdSaIdEERKSt8functionIFS6_RKS6_EEdEUldE_EES6_RKT_(ptr dead_on_unwind nonnull writable sret(%"class.std::vector.7") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(32) %integralV_.i.i10, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i7)
           to label %invoke.cont17 unwind label %ehcleanup
 
 invoke.cont17:                                    ; preds = %for.body
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i.i7) #13, !noalias !225
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i.i7) #13, !noalias !224
   %18 = load ptr, ptr %term, align 8, !tbaa !37
   %19 = load ptr, ptr %_M_end_of_storage.i.i.i.i, align 8, !tbaa !38
   %20 = load ptr, ptr %ref.tmp, align 8, !tbaa !37
@@ -3757,7 +3757,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %incdec.ptr.i.i = getelementptr inbounds nuw i8, ptr %__first1.sroa.0.010.i, i64 8
   %incdec.ptr.i1.i = getelementptr i8, ptr %__first2.sroa.0.09.i, i64 8
   %cmp.i.not.i = icmp eq ptr %incdec.ptr.i.i, %25
-  br i1 %cmp.i.not.i, label %_ZSt9transformIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEES6_S6_ZNK8QuantLib30GaussianQuadMultidimIntegrator16VectorIntegratorclIZNKS8_18vectorIntegratorVRILi8EEES5_RKSt8functionIFS5_RKS5_EEdEUldE_EES5_RKT_EUlddE_ET1_SK_SK_T0_SO_T2_.exit, label %for.body.i, !llvm.loop !228
+  br i1 %cmp.i.not.i, label %_ZSt9transformIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEES6_S6_ZNK8QuantLib30GaussianQuadMultidimIntegrator16VectorIntegratorclIZNKS8_18vectorIntegratorVRILi8EEES5_RKSt8functionIFS5_RKS5_EEdEUldE_EES5_RKT_EUlddE_ET1_SK_SK_T0_SO_T2_.exit, label %for.body.i, !llvm.loop !227
 
 _ZSt9transformIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEES6_S6_ZNK8QuantLib30GaussianQuadMultidimIntegrator16VectorIntegratorclIZNKS8_18vectorIntegratorVRILi8EEES5_RKSt8functionIFS5_RKS5_EEdEUldE_EES5_RKT_EUlddE_ET1_SK_SK_T0_SO_T2_.exit: ; preds = %for.body.i, %_ZNSt6vectorIdSaIdEED2Ev.exit
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
@@ -3829,7 +3829,7 @@ invoke.cont:
   %term = alloca %"class.std::vector.7", align 8
   %ref.tmp = alloca %"class.std::vector.7", align 8
   %n_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %0 = load i64, ptr %n_.i.i, align 8, !tbaa !57
+  %0 = load i64, ptr %n_.i.i, align 8, !tbaa !56
   %1 = trunc i64 %0 to i32
   %conv = add i32 %1, -1
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %term) #13
@@ -3838,19 +3838,19 @@ invoke.cont:
   %arrayidx.i = getelementptr inbounds nuw double, ptr %2, i64 %conv2
   %3 = load double, ptr %arrayidx.i, align 8, !tbaa !39
   %4 = getelementptr inbounds nuw i8, ptr %f, i64 8
-  %5 = load ptr, ptr %4, align 8, !tbaa !220, !noalias !229
-  %6 = load ptr, ptr %f, align 8, !tbaa !232, !noalias !229
+  %5 = load ptr, ptr %4, align 8, !tbaa !219, !noalias !228
+  %6 = load ptr, ptr %f, align 8, !tbaa !231, !noalias !228
   %varBuffer_.i.i = getelementptr inbounds nuw i8, ptr %5, i64 120
-  %7 = load ptr, ptr %varBuffer_.i.i, align 8, !tbaa !37, !noalias !233
+  %7 = load ptr, ptr %varBuffer_.i.i, align 8, !tbaa !37, !noalias !232
   %add.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %7, i64 40
-  store double %3, ptr %add.ptr.i.i.i, align 8, !tbaa !39, !noalias !233
+  store double %3, ptr %add.ptr.i.i.i, align 8, !tbaa !39, !noalias !232
   %integralV_.i.i = getelementptr inbounds nuw i8, ptr %5, i64 32
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i.i) #13, !noalias !233
-  store ptr %6, ptr %ref.tmp.i.i, align 8, !tbaa !42, !noalias !233
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i.i) #13, !noalias !232
+  store ptr %6, ptr %ref.tmp.i.i, align 8, !tbaa !42, !noalias !232
   %8 = getelementptr inbounds nuw i8, ptr %ref.tmp.i.i, i64 8
-  store ptr %5, ptr %8, align 8, !tbaa !236, !noalias !233
+  store ptr %5, ptr %8, align 8, !tbaa !235, !noalias !232
   call void @_ZNK8QuantLib30GaussianQuadMultidimIntegrator16VectorIntegratorclIZNKS0_18vectorIntegratorVRILi6EEESt6vectorIdSaIdEERKSt8functionIFS6_RKS6_EEdEUldE_EES6_RKT_(ptr dead_on_unwind nonnull writable sret(%"class.std::vector.7") align 8 %term, ptr noundef nonnull align 8 dereferenceable(32) %integralV_.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i.i) #13, !noalias !233
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i.i) #13, !noalias !232
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %term, i64 8
   %9 = load ptr, ptr %_M_finish.i, align 8, !tbaa !41
   %10 = load ptr, ptr %term, align 8, !tbaa !37
@@ -3871,7 +3871,7 @@ invoke.cont.i.thread:                             ; preds = %invoke.cont
 
 cond.true.i.i.i.i:                                ; preds = %invoke.cont
   %cmp.i.i.i.i.i.i = icmp ugt i64 %sub.ptr.sub.i.i, 9223372036854775800
-  br i1 %cmp.i.i.i.i.i.i, label %if.then3.i.i.i.i.i.i, label %_ZNSt16allocator_traitsISaIdEE8allocateERS0_m.exit.i.i.i.i, !prof !109
+  br i1 %cmp.i.i.i.i.i.i, label %if.then3.i.i.i.i.i.i, label %_ZNSt16allocator_traitsISaIdEE8allocateERS0_m.exit.i.i.i.i, !prof !108
 
 if.then3.i.i.i.i.i.i:                             ; preds = %cond.true.i.i.i.i
   invoke void @_ZSt28__throw_bad_array_new_lengthv() #15
@@ -3918,21 +3918,21 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %13 = load ptr, ptr %this, align 8, !tbaa !42
   %arrayidx.i6 = getelementptr inbounds nuw double, ptr %13, i64 %indvars.iv
   %14 = load double, ptr %arrayidx.i6, align 8, !tbaa !39
-  %15 = load ptr, ptr %4, align 8, !tbaa !220, !noalias !238
-  %16 = load ptr, ptr %f, align 8, !tbaa !232, !noalias !238
+  %15 = load ptr, ptr %4, align 8, !tbaa !219, !noalias !237
+  %16 = load ptr, ptr %f, align 8, !tbaa !231, !noalias !237
   %varBuffer_.i.i8 = getelementptr inbounds nuw i8, ptr %15, i64 120
-  %17 = load ptr, ptr %varBuffer_.i.i8, align 8, !tbaa !37, !noalias !241
+  %17 = load ptr, ptr %varBuffer_.i.i8, align 8, !tbaa !37, !noalias !240
   %add.ptr.i.i.i9 = getelementptr inbounds nuw i8, ptr %17, i64 40
-  store double %14, ptr %add.ptr.i.i.i9, align 8, !tbaa !39, !noalias !241
+  store double %14, ptr %add.ptr.i.i.i9, align 8, !tbaa !39, !noalias !240
   %integralV_.i.i10 = getelementptr inbounds nuw i8, ptr %15, i64 32
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i.i7) #13, !noalias !241
-  store ptr %16, ptr %ref.tmp.i.i7, align 8, !tbaa !42, !noalias !241
-  store ptr %15, ptr %11, align 8, !tbaa !236, !noalias !241
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i.i7) #13, !noalias !240
+  store ptr %16, ptr %ref.tmp.i.i7, align 8, !tbaa !42, !noalias !240
+  store ptr %15, ptr %11, align 8, !tbaa !235, !noalias !240
   invoke void @_ZNK8QuantLib30GaussianQuadMultidimIntegrator16VectorIntegratorclIZNKS0_18vectorIntegratorVRILi6EEESt6vectorIdSaIdEERKSt8functionIFS6_RKS6_EEdEUldE_EES6_RKT_(ptr dead_on_unwind nonnull writable sret(%"class.std::vector.7") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(32) %integralV_.i.i10, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i7)
           to label %invoke.cont17 unwind label %ehcleanup
 
 invoke.cont17:                                    ; preds = %for.body
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i.i7) #13, !noalias !241
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i.i7) #13, !noalias !240
   %18 = load ptr, ptr %term, align 8, !tbaa !37
   %19 = load ptr, ptr %_M_end_of_storage.i.i.i.i, align 8, !tbaa !38
   %20 = load ptr, ptr %ref.tmp, align 8, !tbaa !37
@@ -3985,7 +3985,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %incdec.ptr.i.i = getelementptr inbounds nuw i8, ptr %__first1.sroa.0.010.i, i64 8
   %incdec.ptr.i1.i = getelementptr i8, ptr %__first2.sroa.0.09.i, i64 8
   %cmp.i.not.i = icmp eq ptr %incdec.ptr.i.i, %25
-  br i1 %cmp.i.not.i, label %_ZSt9transformIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEES6_S6_ZNK8QuantLib30GaussianQuadMultidimIntegrator16VectorIntegratorclIZNKS8_18vectorIntegratorVRILi7EEES5_RKSt8functionIFS5_RKS5_EEdEUldE_EES5_RKT_EUlddE_ET1_SK_SK_T0_SO_T2_.exit, label %for.body.i, !llvm.loop !244
+  br i1 %cmp.i.not.i, label %_ZSt9transformIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEES6_S6_ZNK8QuantLib30GaussianQuadMultidimIntegrator16VectorIntegratorclIZNKS8_18vectorIntegratorVRILi7EEES5_RKSt8functionIFS5_RKS5_EEdEUldE_EES5_RKT_EUlddE_ET1_SK_SK_T0_SO_T2_.exit, label %for.body.i, !llvm.loop !243
 
 _ZSt9transformIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEES6_S6_ZNK8QuantLib30GaussianQuadMultidimIntegrator16VectorIntegratorclIZNKS8_18vectorIntegratorVRILi7EEES5_RKSt8functionIFS5_RKS5_EEdEUldE_EES5_RKT_EUlddE_ET1_SK_SK_T0_SO_T2_.exit: ; preds = %for.body.i, %_ZNSt6vectorIdSaIdEED2Ev.exit
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
@@ -4057,7 +4057,7 @@ invoke.cont:
   %term = alloca %"class.std::vector.7", align 8
   %ref.tmp = alloca %"class.std::vector.7", align 8
   %n_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %0 = load i64, ptr %n_.i.i, align 8, !tbaa !57
+  %0 = load i64, ptr %n_.i.i, align 8, !tbaa !56
   %1 = trunc i64 %0 to i32
   %conv = add i32 %1, -1
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %term) #13
@@ -4066,19 +4066,19 @@ invoke.cont:
   %arrayidx.i = getelementptr inbounds nuw double, ptr %2, i64 %conv2
   %3 = load double, ptr %arrayidx.i, align 8, !tbaa !39
   %4 = getelementptr inbounds nuw i8, ptr %f, i64 8
-  %5 = load ptr, ptr %4, align 8, !tbaa !236, !noalias !245
-  %6 = load ptr, ptr %f, align 8, !tbaa !248, !noalias !245
+  %5 = load ptr, ptr %4, align 8, !tbaa !235, !noalias !244
+  %6 = load ptr, ptr %f, align 8, !tbaa !247, !noalias !244
   %varBuffer_.i.i = getelementptr inbounds nuw i8, ptr %5, i64 120
-  %7 = load ptr, ptr %varBuffer_.i.i, align 8, !tbaa !37, !noalias !249
+  %7 = load ptr, ptr %varBuffer_.i.i, align 8, !tbaa !37, !noalias !248
   %add.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %7, i64 32
-  store double %3, ptr %add.ptr.i.i.i, align 8, !tbaa !39, !noalias !249
+  store double %3, ptr %add.ptr.i.i.i, align 8, !tbaa !39, !noalias !248
   %integralV_.i.i = getelementptr inbounds nuw i8, ptr %5, i64 32
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i.i) #13, !noalias !249
-  store ptr %6, ptr %ref.tmp.i.i, align 8, !tbaa !42, !noalias !249
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i.i) #13, !noalias !248
+  store ptr %6, ptr %ref.tmp.i.i, align 8, !tbaa !42, !noalias !248
   %8 = getelementptr inbounds nuw i8, ptr %ref.tmp.i.i, i64 8
-  store ptr %5, ptr %8, align 8, !tbaa !252, !noalias !249
+  store ptr %5, ptr %8, align 8, !tbaa !251, !noalias !248
   call void @_ZNK8QuantLib30GaussianQuadMultidimIntegrator16VectorIntegratorclIZNKS0_18vectorIntegratorVRILi5EEESt6vectorIdSaIdEERKSt8functionIFS6_RKS6_EEdEUldE_EES6_RKT_(ptr dead_on_unwind nonnull writable sret(%"class.std::vector.7") align 8 %term, ptr noundef nonnull align 8 dereferenceable(32) %integralV_.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i.i) #13, !noalias !249
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i.i) #13, !noalias !248
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %term, i64 8
   %9 = load ptr, ptr %_M_finish.i, align 8, !tbaa !41
   %10 = load ptr, ptr %term, align 8, !tbaa !37
@@ -4099,7 +4099,7 @@ invoke.cont.i.thread:                             ; preds = %invoke.cont
 
 cond.true.i.i.i.i:                                ; preds = %invoke.cont
   %cmp.i.i.i.i.i.i = icmp ugt i64 %sub.ptr.sub.i.i, 9223372036854775800
-  br i1 %cmp.i.i.i.i.i.i, label %if.then3.i.i.i.i.i.i, label %_ZNSt16allocator_traitsISaIdEE8allocateERS0_m.exit.i.i.i.i, !prof !109
+  br i1 %cmp.i.i.i.i.i.i, label %if.then3.i.i.i.i.i.i, label %_ZNSt16allocator_traitsISaIdEE8allocateERS0_m.exit.i.i.i.i, !prof !108
 
 if.then3.i.i.i.i.i.i:                             ; preds = %cond.true.i.i.i.i
   invoke void @_ZSt28__throw_bad_array_new_lengthv() #15
@@ -4146,21 +4146,21 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %13 = load ptr, ptr %this, align 8, !tbaa !42
   %arrayidx.i6 = getelementptr inbounds nuw double, ptr %13, i64 %indvars.iv
   %14 = load double, ptr %arrayidx.i6, align 8, !tbaa !39
-  %15 = load ptr, ptr %4, align 8, !tbaa !236, !noalias !254
-  %16 = load ptr, ptr %f, align 8, !tbaa !248, !noalias !254
+  %15 = load ptr, ptr %4, align 8, !tbaa !235, !noalias !253
+  %16 = load ptr, ptr %f, align 8, !tbaa !247, !noalias !253
   %varBuffer_.i.i8 = getelementptr inbounds nuw i8, ptr %15, i64 120
-  %17 = load ptr, ptr %varBuffer_.i.i8, align 8, !tbaa !37, !noalias !257
+  %17 = load ptr, ptr %varBuffer_.i.i8, align 8, !tbaa !37, !noalias !256
   %add.ptr.i.i.i9 = getelementptr inbounds nuw i8, ptr %17, i64 32
-  store double %14, ptr %add.ptr.i.i.i9, align 8, !tbaa !39, !noalias !257
+  store double %14, ptr %add.ptr.i.i.i9, align 8, !tbaa !39, !noalias !256
   %integralV_.i.i10 = getelementptr inbounds nuw i8, ptr %15, i64 32
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i.i7) #13, !noalias !257
-  store ptr %16, ptr %ref.tmp.i.i7, align 8, !tbaa !42, !noalias !257
-  store ptr %15, ptr %11, align 8, !tbaa !252, !noalias !257
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i.i7) #13, !noalias !256
+  store ptr %16, ptr %ref.tmp.i.i7, align 8, !tbaa !42, !noalias !256
+  store ptr %15, ptr %11, align 8, !tbaa !251, !noalias !256
   invoke void @_ZNK8QuantLib30GaussianQuadMultidimIntegrator16VectorIntegratorclIZNKS0_18vectorIntegratorVRILi5EEESt6vectorIdSaIdEERKSt8functionIFS6_RKS6_EEdEUldE_EES6_RKT_(ptr dead_on_unwind nonnull writable sret(%"class.std::vector.7") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(32) %integralV_.i.i10, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i7)
           to label %invoke.cont17 unwind label %ehcleanup
 
 invoke.cont17:                                    ; preds = %for.body
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i.i7) #13, !noalias !257
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i.i7) #13, !noalias !256
   %18 = load ptr, ptr %term, align 8, !tbaa !37
   %19 = load ptr, ptr %_M_end_of_storage.i.i.i.i, align 8, !tbaa !38
   %20 = load ptr, ptr %ref.tmp, align 8, !tbaa !37
@@ -4213,7 +4213,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %incdec.ptr.i.i = getelementptr inbounds nuw i8, ptr %__first1.sroa.0.010.i, i64 8
   %incdec.ptr.i1.i = getelementptr i8, ptr %__first2.sroa.0.09.i, i64 8
   %cmp.i.not.i = icmp eq ptr %incdec.ptr.i.i, %25
-  br i1 %cmp.i.not.i, label %_ZSt9transformIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEES6_S6_ZNK8QuantLib30GaussianQuadMultidimIntegrator16VectorIntegratorclIZNKS8_18vectorIntegratorVRILi6EEES5_RKSt8functionIFS5_RKS5_EEdEUldE_EES5_RKT_EUlddE_ET1_SK_SK_T0_SO_T2_.exit, label %for.body.i, !llvm.loop !260
+  br i1 %cmp.i.not.i, label %_ZSt9transformIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEES6_S6_ZNK8QuantLib30GaussianQuadMultidimIntegrator16VectorIntegratorclIZNKS8_18vectorIntegratorVRILi6EEES5_RKSt8functionIFS5_RKS5_EEdEUldE_EES5_RKT_EUlddE_ET1_SK_SK_T0_SO_T2_.exit, label %for.body.i, !llvm.loop !259
 
 _ZSt9transformIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEES6_S6_ZNK8QuantLib30GaussianQuadMultidimIntegrator16VectorIntegratorclIZNKS8_18vectorIntegratorVRILi6EEES5_RKSt8functionIFS5_RKS5_EEdEUldE_EES5_RKT_EUlddE_ET1_SK_SK_T0_SO_T2_.exit: ; preds = %for.body.i, %_ZNSt6vectorIdSaIdEED2Ev.exit
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
@@ -4285,7 +4285,7 @@ invoke.cont:
   %term = alloca %"class.std::vector.7", align 8
   %ref.tmp = alloca %"class.std::vector.7", align 8
   %n_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %0 = load i64, ptr %n_.i.i, align 8, !tbaa !57
+  %0 = load i64, ptr %n_.i.i, align 8, !tbaa !56
   %1 = trunc i64 %0 to i32
   %conv = add i32 %1, -1
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %term) #13
@@ -4294,19 +4294,19 @@ invoke.cont:
   %arrayidx.i = getelementptr inbounds nuw double, ptr %2, i64 %conv2
   %3 = load double, ptr %arrayidx.i, align 8, !tbaa !39
   %4 = getelementptr inbounds nuw i8, ptr %f, i64 8
-  %5 = load ptr, ptr %4, align 8, !tbaa !252, !noalias !261
-  %6 = load ptr, ptr %f, align 8, !tbaa !264, !noalias !261
+  %5 = load ptr, ptr %4, align 8, !tbaa !251, !noalias !260
+  %6 = load ptr, ptr %f, align 8, !tbaa !263, !noalias !260
   %varBuffer_.i.i = getelementptr inbounds nuw i8, ptr %5, i64 120
-  %7 = load ptr, ptr %varBuffer_.i.i, align 8, !tbaa !37, !noalias !265
+  %7 = load ptr, ptr %varBuffer_.i.i, align 8, !tbaa !37, !noalias !264
   %add.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %7, i64 24
-  store double %3, ptr %add.ptr.i.i.i, align 8, !tbaa !39, !noalias !265
+  store double %3, ptr %add.ptr.i.i.i, align 8, !tbaa !39, !noalias !264
   %integralV_.i.i = getelementptr inbounds nuw i8, ptr %5, i64 32
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i.i) #13, !noalias !265
-  store ptr %6, ptr %ref.tmp.i.i, align 8, !tbaa !42, !noalias !265
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i.i) #13, !noalias !264
+  store ptr %6, ptr %ref.tmp.i.i, align 8, !tbaa !42, !noalias !264
   %8 = getelementptr inbounds nuw i8, ptr %ref.tmp.i.i, i64 8
-  store ptr %5, ptr %8, align 8, !tbaa !268, !noalias !265
+  store ptr %5, ptr %8, align 8, !tbaa !267, !noalias !264
   call void @_ZNK8QuantLib30GaussianQuadMultidimIntegrator16VectorIntegratorclIZNKS0_18vectorIntegratorVRILi4EEESt6vectorIdSaIdEERKSt8functionIFS6_RKS6_EEdEUldE_EES6_RKT_(ptr dead_on_unwind nonnull writable sret(%"class.std::vector.7") align 8 %term, ptr noundef nonnull align 8 dereferenceable(32) %integralV_.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i.i) #13, !noalias !265
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i.i) #13, !noalias !264
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %term, i64 8
   %9 = load ptr, ptr %_M_finish.i, align 8, !tbaa !41
   %10 = load ptr, ptr %term, align 8, !tbaa !37
@@ -4327,7 +4327,7 @@ invoke.cont.i.thread:                             ; preds = %invoke.cont
 
 cond.true.i.i.i.i:                                ; preds = %invoke.cont
   %cmp.i.i.i.i.i.i = icmp ugt i64 %sub.ptr.sub.i.i, 9223372036854775800
-  br i1 %cmp.i.i.i.i.i.i, label %if.then3.i.i.i.i.i.i, label %_ZNSt16allocator_traitsISaIdEE8allocateERS0_m.exit.i.i.i.i, !prof !109
+  br i1 %cmp.i.i.i.i.i.i, label %if.then3.i.i.i.i.i.i, label %_ZNSt16allocator_traitsISaIdEE8allocateERS0_m.exit.i.i.i.i, !prof !108
 
 if.then3.i.i.i.i.i.i:                             ; preds = %cond.true.i.i.i.i
   invoke void @_ZSt28__throw_bad_array_new_lengthv() #15
@@ -4374,21 +4374,21 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %13 = load ptr, ptr %this, align 8, !tbaa !42
   %arrayidx.i6 = getelementptr inbounds nuw double, ptr %13, i64 %indvars.iv
   %14 = load double, ptr %arrayidx.i6, align 8, !tbaa !39
-  %15 = load ptr, ptr %4, align 8, !tbaa !252, !noalias !270
-  %16 = load ptr, ptr %f, align 8, !tbaa !264, !noalias !270
+  %15 = load ptr, ptr %4, align 8, !tbaa !251, !noalias !269
+  %16 = load ptr, ptr %f, align 8, !tbaa !263, !noalias !269
   %varBuffer_.i.i8 = getelementptr inbounds nuw i8, ptr %15, i64 120
-  %17 = load ptr, ptr %varBuffer_.i.i8, align 8, !tbaa !37, !noalias !273
+  %17 = load ptr, ptr %varBuffer_.i.i8, align 8, !tbaa !37, !noalias !272
   %add.ptr.i.i.i9 = getelementptr inbounds nuw i8, ptr %17, i64 24
-  store double %14, ptr %add.ptr.i.i.i9, align 8, !tbaa !39, !noalias !273
+  store double %14, ptr %add.ptr.i.i.i9, align 8, !tbaa !39, !noalias !272
   %integralV_.i.i10 = getelementptr inbounds nuw i8, ptr %15, i64 32
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i.i7) #13, !noalias !273
-  store ptr %16, ptr %ref.tmp.i.i7, align 8, !tbaa !42, !noalias !273
-  store ptr %15, ptr %11, align 8, !tbaa !268, !noalias !273
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i.i7) #13, !noalias !272
+  store ptr %16, ptr %ref.tmp.i.i7, align 8, !tbaa !42, !noalias !272
+  store ptr %15, ptr %11, align 8, !tbaa !267, !noalias !272
   invoke void @_ZNK8QuantLib30GaussianQuadMultidimIntegrator16VectorIntegratorclIZNKS0_18vectorIntegratorVRILi4EEESt6vectorIdSaIdEERKSt8functionIFS6_RKS6_EEdEUldE_EES6_RKT_(ptr dead_on_unwind nonnull writable sret(%"class.std::vector.7") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(32) %integralV_.i.i10, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i7)
           to label %invoke.cont17 unwind label %ehcleanup
 
 invoke.cont17:                                    ; preds = %for.body
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i.i7) #13, !noalias !273
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i.i7) #13, !noalias !272
   %18 = load ptr, ptr %term, align 8, !tbaa !37
   %19 = load ptr, ptr %_M_end_of_storage.i.i.i.i, align 8, !tbaa !38
   %20 = load ptr, ptr %ref.tmp, align 8, !tbaa !37
@@ -4441,7 +4441,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %incdec.ptr.i.i = getelementptr inbounds nuw i8, ptr %__first1.sroa.0.010.i, i64 8
   %incdec.ptr.i1.i = getelementptr i8, ptr %__first2.sroa.0.09.i, i64 8
   %cmp.i.not.i = icmp eq ptr %incdec.ptr.i.i, %25
-  br i1 %cmp.i.not.i, label %_ZSt9transformIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEES6_S6_ZNK8QuantLib30GaussianQuadMultidimIntegrator16VectorIntegratorclIZNKS8_18vectorIntegratorVRILi5EEES5_RKSt8functionIFS5_RKS5_EEdEUldE_EES5_RKT_EUlddE_ET1_SK_SK_T0_SO_T2_.exit, label %for.body.i, !llvm.loop !276
+  br i1 %cmp.i.not.i, label %_ZSt9transformIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEES6_S6_ZNK8QuantLib30GaussianQuadMultidimIntegrator16VectorIntegratorclIZNKS8_18vectorIntegratorVRILi5EEES5_RKSt8functionIFS5_RKS5_EEdEUldE_EES5_RKT_EUlddE_ET1_SK_SK_T0_SO_T2_.exit, label %for.body.i, !llvm.loop !275
 
 _ZSt9transformIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEES6_S6_ZNK8QuantLib30GaussianQuadMultidimIntegrator16VectorIntegratorclIZNKS8_18vectorIntegratorVRILi5EEES5_RKSt8functionIFS5_RKS5_EEdEUldE_EES5_RKT_EUlddE_ET1_SK_SK_T0_SO_T2_.exit: ; preds = %for.body.i, %_ZNSt6vectorIdSaIdEED2Ev.exit
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
@@ -4513,7 +4513,7 @@ invoke.cont:
   %term = alloca %"class.std::vector.7", align 8
   %ref.tmp = alloca %"class.std::vector.7", align 8
   %n_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %0 = load i64, ptr %n_.i.i, align 8, !tbaa !57
+  %0 = load i64, ptr %n_.i.i, align 8, !tbaa !56
   %1 = trunc i64 %0 to i32
   %conv = add i32 %1, -1
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %term) #13
@@ -4522,19 +4522,19 @@ invoke.cont:
   %arrayidx.i = getelementptr inbounds nuw double, ptr %2, i64 %conv2
   %3 = load double, ptr %arrayidx.i, align 8, !tbaa !39
   %4 = getelementptr inbounds nuw i8, ptr %f, i64 8
-  %5 = load ptr, ptr %4, align 8, !tbaa !268, !noalias !277
-  %6 = load ptr, ptr %f, align 8, !tbaa !280, !noalias !277
+  %5 = load ptr, ptr %4, align 8, !tbaa !267, !noalias !276
+  %6 = load ptr, ptr %f, align 8, !tbaa !279, !noalias !276
   %varBuffer_.i.i = getelementptr inbounds nuw i8, ptr %5, i64 120
-  %7 = load ptr, ptr %varBuffer_.i.i, align 8, !tbaa !37, !noalias !281
+  %7 = load ptr, ptr %varBuffer_.i.i, align 8, !tbaa !37, !noalias !280
   %add.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %7, i64 16
-  store double %3, ptr %add.ptr.i.i.i, align 8, !tbaa !39, !noalias !281
+  store double %3, ptr %add.ptr.i.i.i, align 8, !tbaa !39, !noalias !280
   %integralV_.i.i = getelementptr inbounds nuw i8, ptr %5, i64 32
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i.i) #13, !noalias !281
-  store ptr %6, ptr %ref.tmp.i.i, align 8, !tbaa !42, !noalias !281
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i.i) #13, !noalias !280
+  store ptr %6, ptr %ref.tmp.i.i, align 8, !tbaa !42, !noalias !280
   %8 = getelementptr inbounds nuw i8, ptr %ref.tmp.i.i, i64 8
-  store ptr %5, ptr %8, align 8, !tbaa !284, !noalias !281
+  store ptr %5, ptr %8, align 8, !tbaa !283, !noalias !280
   call void @_ZNK8QuantLib30GaussianQuadMultidimIntegrator16VectorIntegratorclIZNKS0_18vectorIntegratorVRILi3EEESt6vectorIdSaIdEERKSt8functionIFS6_RKS6_EEdEUldE_EES6_RKT_(ptr dead_on_unwind nonnull writable sret(%"class.std::vector.7") align 8 %term, ptr noundef nonnull align 8 dereferenceable(32) %integralV_.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i.i) #13, !noalias !281
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i.i) #13, !noalias !280
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %term, i64 8
   %9 = load ptr, ptr %_M_finish.i, align 8, !tbaa !41
   %10 = load ptr, ptr %term, align 8, !tbaa !37
@@ -4555,7 +4555,7 @@ invoke.cont.i.thread:                             ; preds = %invoke.cont
 
 cond.true.i.i.i.i:                                ; preds = %invoke.cont
   %cmp.i.i.i.i.i.i = icmp ugt i64 %sub.ptr.sub.i.i, 9223372036854775800
-  br i1 %cmp.i.i.i.i.i.i, label %if.then3.i.i.i.i.i.i, label %_ZNSt16allocator_traitsISaIdEE8allocateERS0_m.exit.i.i.i.i, !prof !109
+  br i1 %cmp.i.i.i.i.i.i, label %if.then3.i.i.i.i.i.i, label %_ZNSt16allocator_traitsISaIdEE8allocateERS0_m.exit.i.i.i.i, !prof !108
 
 if.then3.i.i.i.i.i.i:                             ; preds = %cond.true.i.i.i.i
   invoke void @_ZSt28__throw_bad_array_new_lengthv() #15
@@ -4602,21 +4602,21 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %13 = load ptr, ptr %this, align 8, !tbaa !42
   %arrayidx.i6 = getelementptr inbounds nuw double, ptr %13, i64 %indvars.iv
   %14 = load double, ptr %arrayidx.i6, align 8, !tbaa !39
-  %15 = load ptr, ptr %4, align 8, !tbaa !268, !noalias !286
-  %16 = load ptr, ptr %f, align 8, !tbaa !280, !noalias !286
+  %15 = load ptr, ptr %4, align 8, !tbaa !267, !noalias !285
+  %16 = load ptr, ptr %f, align 8, !tbaa !279, !noalias !285
   %varBuffer_.i.i8 = getelementptr inbounds nuw i8, ptr %15, i64 120
-  %17 = load ptr, ptr %varBuffer_.i.i8, align 8, !tbaa !37, !noalias !289
+  %17 = load ptr, ptr %varBuffer_.i.i8, align 8, !tbaa !37, !noalias !288
   %add.ptr.i.i.i9 = getelementptr inbounds nuw i8, ptr %17, i64 16
-  store double %14, ptr %add.ptr.i.i.i9, align 8, !tbaa !39, !noalias !289
+  store double %14, ptr %add.ptr.i.i.i9, align 8, !tbaa !39, !noalias !288
   %integralV_.i.i10 = getelementptr inbounds nuw i8, ptr %15, i64 32
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i.i7) #13, !noalias !289
-  store ptr %16, ptr %ref.tmp.i.i7, align 8, !tbaa !42, !noalias !289
-  store ptr %15, ptr %11, align 8, !tbaa !284, !noalias !289
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i.i7) #13, !noalias !288
+  store ptr %16, ptr %ref.tmp.i.i7, align 8, !tbaa !42, !noalias !288
+  store ptr %15, ptr %11, align 8, !tbaa !283, !noalias !288
   invoke void @_ZNK8QuantLib30GaussianQuadMultidimIntegrator16VectorIntegratorclIZNKS0_18vectorIntegratorVRILi3EEESt6vectorIdSaIdEERKSt8functionIFS6_RKS6_EEdEUldE_EES6_RKT_(ptr dead_on_unwind nonnull writable sret(%"class.std::vector.7") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(32) %integralV_.i.i10, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i7)
           to label %invoke.cont17 unwind label %ehcleanup
 
 invoke.cont17:                                    ; preds = %for.body
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i.i7) #13, !noalias !289
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i.i7) #13, !noalias !288
   %18 = load ptr, ptr %term, align 8, !tbaa !37
   %19 = load ptr, ptr %_M_end_of_storage.i.i.i.i, align 8, !tbaa !38
   %20 = load ptr, ptr %ref.tmp, align 8, !tbaa !37
@@ -4669,7 +4669,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %incdec.ptr.i.i = getelementptr inbounds nuw i8, ptr %__first1.sroa.0.010.i, i64 8
   %incdec.ptr.i1.i = getelementptr i8, ptr %__first2.sroa.0.09.i, i64 8
   %cmp.i.not.i = icmp eq ptr %incdec.ptr.i.i, %25
-  br i1 %cmp.i.not.i, label %_ZSt9transformIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEES6_S6_ZNK8QuantLib30GaussianQuadMultidimIntegrator16VectorIntegratorclIZNKS8_18vectorIntegratorVRILi4EEES5_RKSt8functionIFS5_RKS5_EEdEUldE_EES5_RKT_EUlddE_ET1_SK_SK_T0_SO_T2_.exit, label %for.body.i, !llvm.loop !292
+  br i1 %cmp.i.not.i, label %_ZSt9transformIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEES6_S6_ZNK8QuantLib30GaussianQuadMultidimIntegrator16VectorIntegratorclIZNKS8_18vectorIntegratorVRILi4EEES5_RKSt8functionIFS5_RKS5_EEdEUldE_EES5_RKT_EUlddE_ET1_SK_SK_T0_SO_T2_.exit, label %for.body.i, !llvm.loop !291
 
 _ZSt9transformIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEES6_S6_ZNK8QuantLib30GaussianQuadMultidimIntegrator16VectorIntegratorclIZNKS8_18vectorIntegratorVRILi4EEES5_RKSt8functionIFS5_RKS5_EEdEUldE_EES5_RKT_EUlddE_ET1_SK_SK_T0_SO_T2_.exit: ; preds = %for.body.i, %_ZNSt6vectorIdSaIdEED2Ev.exit
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
@@ -4741,7 +4741,7 @@ invoke.cont:
   %term = alloca %"class.std::vector.7", align 8
   %ref.tmp = alloca %"class.std::vector.7", align 8
   %n_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %0 = load i64, ptr %n_.i.i, align 8, !tbaa !57
+  %0 = load i64, ptr %n_.i.i, align 8, !tbaa !56
   %1 = trunc i64 %0 to i32
   %conv = add i32 %1, -1
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %term) #13
@@ -4750,19 +4750,19 @@ invoke.cont:
   %arrayidx.i = getelementptr inbounds nuw double, ptr %2, i64 %conv2
   %3 = load double, ptr %arrayidx.i, align 8, !tbaa !39
   %4 = getelementptr inbounds nuw i8, ptr %f, i64 8
-  %5 = load ptr, ptr %4, align 8, !tbaa !284, !noalias !293
-  %6 = load ptr, ptr %f, align 8, !tbaa !296, !noalias !293
+  %5 = load ptr, ptr %4, align 8, !tbaa !283, !noalias !292
+  %6 = load ptr, ptr %f, align 8, !tbaa !295, !noalias !292
   %varBuffer_.i.i = getelementptr inbounds nuw i8, ptr %5, i64 120
-  %7 = load ptr, ptr %varBuffer_.i.i, align 8, !tbaa !37, !noalias !297
+  %7 = load ptr, ptr %varBuffer_.i.i, align 8, !tbaa !37, !noalias !296
   %add.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store double %3, ptr %add.ptr.i.i.i, align 8, !tbaa !39, !noalias !297
+  store double %3, ptr %add.ptr.i.i.i, align 8, !tbaa !39, !noalias !296
   %integralV_.i.i = getelementptr inbounds nuw i8, ptr %5, i64 32
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i.i) #13, !noalias !297
-  store ptr %6, ptr %ref.tmp.i.i, align 8, !tbaa !42, !noalias !297
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i.i) #13, !noalias !296
+  store ptr %6, ptr %ref.tmp.i.i, align 8, !tbaa !42, !noalias !296
   %8 = getelementptr inbounds nuw i8, ptr %ref.tmp.i.i, i64 8
-  store ptr %5, ptr %8, align 8, !tbaa !300, !noalias !297
+  store ptr %5, ptr %8, align 8, !tbaa !299, !noalias !296
   call void @_ZNK8QuantLib30GaussianQuadMultidimIntegrator16VectorIntegratorclIZNKS0_18vectorIntegratorVRILi2EEESt6vectorIdSaIdEERKSt8functionIFS6_RKS6_EEdEUldE_EES6_RKT_(ptr dead_on_unwind nonnull writable sret(%"class.std::vector.7") align 8 %term, ptr noundef nonnull align 8 dereferenceable(32) %integralV_.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i.i) #13, !noalias !297
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i.i) #13, !noalias !296
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %term, i64 8
   %9 = load ptr, ptr %_M_finish.i, align 8, !tbaa !41
   %10 = load ptr, ptr %term, align 8, !tbaa !37
@@ -4783,7 +4783,7 @@ invoke.cont.i.thread:                             ; preds = %invoke.cont
 
 cond.true.i.i.i.i:                                ; preds = %invoke.cont
   %cmp.i.i.i.i.i.i = icmp ugt i64 %sub.ptr.sub.i.i, 9223372036854775800
-  br i1 %cmp.i.i.i.i.i.i, label %if.then3.i.i.i.i.i.i, label %_ZNSt16allocator_traitsISaIdEE8allocateERS0_m.exit.i.i.i.i, !prof !109
+  br i1 %cmp.i.i.i.i.i.i, label %if.then3.i.i.i.i.i.i, label %_ZNSt16allocator_traitsISaIdEE8allocateERS0_m.exit.i.i.i.i, !prof !108
 
 if.then3.i.i.i.i.i.i:                             ; preds = %cond.true.i.i.i.i
   invoke void @_ZSt28__throw_bad_array_new_lengthv() #15
@@ -4830,21 +4830,21 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %13 = load ptr, ptr %this, align 8, !tbaa !42
   %arrayidx.i6 = getelementptr inbounds nuw double, ptr %13, i64 %indvars.iv
   %14 = load double, ptr %arrayidx.i6, align 8, !tbaa !39
-  %15 = load ptr, ptr %4, align 8, !tbaa !284, !noalias !302
-  %16 = load ptr, ptr %f, align 8, !tbaa !296, !noalias !302
+  %15 = load ptr, ptr %4, align 8, !tbaa !283, !noalias !301
+  %16 = load ptr, ptr %f, align 8, !tbaa !295, !noalias !301
   %varBuffer_.i.i8 = getelementptr inbounds nuw i8, ptr %15, i64 120
-  %17 = load ptr, ptr %varBuffer_.i.i8, align 8, !tbaa !37, !noalias !305
+  %17 = load ptr, ptr %varBuffer_.i.i8, align 8, !tbaa !37, !noalias !304
   %add.ptr.i.i.i9 = getelementptr inbounds nuw i8, ptr %17, i64 8
-  store double %14, ptr %add.ptr.i.i.i9, align 8, !tbaa !39, !noalias !305
+  store double %14, ptr %add.ptr.i.i.i9, align 8, !tbaa !39, !noalias !304
   %integralV_.i.i10 = getelementptr inbounds nuw i8, ptr %15, i64 32
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i.i7) #13, !noalias !305
-  store ptr %16, ptr %ref.tmp.i.i7, align 8, !tbaa !42, !noalias !305
-  store ptr %15, ptr %11, align 8, !tbaa !300, !noalias !305
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i.i7) #13, !noalias !304
+  store ptr %16, ptr %ref.tmp.i.i7, align 8, !tbaa !42, !noalias !304
+  store ptr %15, ptr %11, align 8, !tbaa !299, !noalias !304
   invoke void @_ZNK8QuantLib30GaussianQuadMultidimIntegrator16VectorIntegratorclIZNKS0_18vectorIntegratorVRILi2EEESt6vectorIdSaIdEERKSt8functionIFS6_RKS6_EEdEUldE_EES6_RKT_(ptr dead_on_unwind nonnull writable sret(%"class.std::vector.7") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(32) %integralV_.i.i10, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i7)
           to label %invoke.cont17 unwind label %ehcleanup
 
 invoke.cont17:                                    ; preds = %for.body
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i.i7) #13, !noalias !305
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i.i7) #13, !noalias !304
   %18 = load ptr, ptr %term, align 8, !tbaa !37
   %19 = load ptr, ptr %_M_end_of_storage.i.i.i.i, align 8, !tbaa !38
   %20 = load ptr, ptr %ref.tmp, align 8, !tbaa !37
@@ -4897,7 +4897,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %incdec.ptr.i.i = getelementptr inbounds nuw i8, ptr %__first1.sroa.0.010.i, i64 8
   %incdec.ptr.i1.i = getelementptr i8, ptr %__first2.sroa.0.09.i, i64 8
   %cmp.i.not.i = icmp eq ptr %incdec.ptr.i.i, %25
-  br i1 %cmp.i.not.i, label %_ZSt9transformIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEES6_S6_ZNK8QuantLib30GaussianQuadMultidimIntegrator16VectorIntegratorclIZNKS8_18vectorIntegratorVRILi3EEES5_RKSt8functionIFS5_RKS5_EEdEUldE_EES5_RKT_EUlddE_ET1_SK_SK_T0_SO_T2_.exit, label %for.body.i, !llvm.loop !308
+  br i1 %cmp.i.not.i, label %_ZSt9transformIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEES6_S6_ZNK8QuantLib30GaussianQuadMultidimIntegrator16VectorIntegratorclIZNKS8_18vectorIntegratorVRILi3EEES5_RKSt8functionIFS5_RKS5_EEdEUldE_EES5_RKT_EUlddE_ET1_SK_SK_T0_SO_T2_.exit, label %for.body.i, !llvm.loop !307
 
 _ZSt9transformIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEES6_S6_ZNK8QuantLib30GaussianQuadMultidimIntegrator16VectorIntegratorclIZNKS8_18vectorIntegratorVRILi3EEES5_RKSt8functionIFS5_RKS5_EEdEUldE_EES5_RKT_EUlddE_ET1_SK_SK_T0_SO_T2_.exit: ; preds = %for.body.i, %_ZNSt6vectorIdSaIdEED2Ev.exit
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
@@ -4967,7 +4967,7 @@ entry:
   %term = alloca %"class.std::vector.7", align 8
   %ref.tmp = alloca %"class.std::vector.7", align 8
   %n_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %0 = load i64, ptr %n_.i.i, align 8, !tbaa !57
+  %0 = load i64, ptr %n_.i.i, align 8, !tbaa !56
   %1 = trunc i64 %0 to i32
   %conv = add i32 %1, -1
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %term) #13
@@ -4976,23 +4976,23 @@ entry:
   %arrayidx.i = getelementptr inbounds nuw double, ptr %2, i64 %conv2
   %3 = load double, ptr %arrayidx.i, align 8, !tbaa !39
   %4 = getelementptr inbounds nuw i8, ptr %f, i64 8
-  %5 = load ptr, ptr %4, align 8, !tbaa !300, !noalias !309
-  %6 = load ptr, ptr %f, align 8, !tbaa !312, !noalias !309
+  %5 = load ptr, ptr %4, align 8, !tbaa !299, !noalias !308
+  %6 = load ptr, ptr %f, align 8, !tbaa !311, !noalias !308
   %varBuffer_.i.i = getelementptr inbounds nuw i8, ptr %5, i64 120
-  %7 = load ptr, ptr %varBuffer_.i.i, align 8, !tbaa !37, !noalias !313
-  store double %3, ptr %7, align 8, !tbaa !39, !noalias !313
+  %7 = load ptr, ptr %varBuffer_.i.i, align 8, !tbaa !37, !noalias !312
+  store double %3, ptr %7, align 8, !tbaa !39, !noalias !312
   %_M_manager.i.i.i.i = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %8 = load ptr, ptr %_M_manager.i.i.i.i, align 8, !tbaa !45, !noalias !316
+  %8 = load ptr, ptr %_M_manager.i.i.i.i, align 8, !tbaa !45, !noalias !315
   %tobool.not.i.i.i.i = icmp eq ptr %8, null
   br i1 %tobool.not.i.i.i.i, label %if.then.i.i.i, label %invoke.cont
 
 if.then.i.i.i:                                    ; preds = %entry
-  tail call void @_ZSt25__throw_bad_function_callv() #15, !noalias !316
+  tail call void @_ZSt25__throw_bad_function_callv() #15, !noalias !315
   unreachable
 
 invoke.cont:                                      ; preds = %entry
   %_M_invoker.i.i.i = getelementptr inbounds nuw i8, ptr %6, i64 24
-  %9 = load ptr, ptr %_M_invoker.i.i.i, align 8, !tbaa !319, !noalias !316
+  %9 = load ptr, ptr %_M_invoker.i.i.i, align 8, !tbaa !318, !noalias !315
   call void %9(ptr dead_on_unwind nonnull writable sret(%"class.std::vector.7") align 8 %term, ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(24) %varBuffer_.i.i)
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %term, i64 8
   %10 = load ptr, ptr %_M_finish.i, align 8, !tbaa !41
@@ -5014,7 +5014,7 @@ invoke.cont.i.thread:                             ; preds = %invoke.cont
 
 cond.true.i.i.i.i:                                ; preds = %invoke.cont
   %cmp.i.i.i.i.i.i = icmp ugt i64 %sub.ptr.sub.i.i, 9223372036854775800
-  br i1 %cmp.i.i.i.i.i.i, label %if.then3.i.i.i.i.i.i, label %_ZNSt16allocator_traitsISaIdEE8allocateERS0_m.exit.i.i.i.i, !prof !109
+  br i1 %cmp.i.i.i.i.i.i, label %if.then3.i.i.i.i.i.i, label %_ZNSt16allocator_traitsISaIdEE8allocateERS0_m.exit.i.i.i.i, !prof !108
 
 if.then3.i.i.i.i.i.i:                             ; preds = %cond.true.i.i.i.i
   invoke void @_ZSt28__throw_bad_array_new_lengthv() #15
@@ -5060,13 +5060,13 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %13 = load ptr, ptr %this, align 8, !tbaa !42
   %arrayidx.i5 = getelementptr inbounds nuw double, ptr %13, i64 %indvars.iv
   %14 = load double, ptr %arrayidx.i5, align 8, !tbaa !39
-  %15 = load ptr, ptr %4, align 8, !tbaa !300, !noalias !321
-  %16 = load ptr, ptr %f, align 8, !tbaa !312, !noalias !321
+  %15 = load ptr, ptr %4, align 8, !tbaa !299, !noalias !320
+  %16 = load ptr, ptr %f, align 8, !tbaa !311, !noalias !320
   %varBuffer_.i.i6 = getelementptr inbounds nuw i8, ptr %15, i64 120
-  %17 = load ptr, ptr %varBuffer_.i.i6, align 8, !tbaa !37, !noalias !324
-  store double %14, ptr %17, align 8, !tbaa !39, !noalias !324
+  %17 = load ptr, ptr %varBuffer_.i.i6, align 8, !tbaa !37, !noalias !323
+  store double %14, ptr %17, align 8, !tbaa !39, !noalias !323
   %_M_manager.i.i.i.i7 = getelementptr inbounds nuw i8, ptr %16, i64 16
-  %18 = load ptr, ptr %_M_manager.i.i.i.i7, align 8, !tbaa !45, !noalias !327
+  %18 = load ptr, ptr %_M_manager.i.i.i.i7, align 8, !tbaa !45, !noalias !326
   %tobool.not.i.i.i.i8 = icmp eq ptr %18, null
   br i1 %tobool.not.i.i.i.i8, label %if.then.i.i.i10, label %_ZNK8QuantLib30GaussianQuadMultidimIntegrator18vectorIntegratorVRILi1EEESt6vectorIdSaIdEERKSt8functionIFS4_RKS4_EEd.exit.i
 
@@ -5079,7 +5079,7 @@ if.then.i.i.i10:                                  ; preds = %for.body
 
 _ZNK8QuantLib30GaussianQuadMultidimIntegrator18vectorIntegratorVRILi1EEESt6vectorIdSaIdEERKSt8functionIFS4_RKS4_EEd.exit.i: ; preds = %for.body
   %_M_invoker.i.i.i9 = getelementptr inbounds nuw i8, ptr %16, i64 24
-  %19 = load ptr, ptr %_M_invoker.i.i.i9, align 8, !tbaa !319, !noalias !327
+  %19 = load ptr, ptr %_M_invoker.i.i.i9, align 8, !tbaa !318, !noalias !326
   invoke void %19(ptr dead_on_unwind nonnull writable sret(%"class.std::vector.7") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(32) %16, ptr noundef nonnull align 8 dereferenceable(24) %varBuffer_.i.i6)
           to label %invoke.cont17 unwind label %ehcleanup.loopexit
 
@@ -5136,7 +5136,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %incdec.ptr.i.i = getelementptr inbounds nuw i8, ptr %__first1.sroa.0.010.i, i64 8
   %incdec.ptr.i1.i = getelementptr i8, ptr %__first2.sroa.0.09.i, i64 8
   %cmp.i.not.i = icmp eq ptr %incdec.ptr.i.i, %27
-  br i1 %cmp.i.not.i, label %_ZSt9transformIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEES6_S6_ZNK8QuantLib30GaussianQuadMultidimIntegrator16VectorIntegratorclIZNKS8_18vectorIntegratorVRILi2EEES5_RKSt8functionIFS5_RKS5_EEdEUldE_EES5_RKT_EUlddE_ET1_SK_SK_T0_SO_T2_.exit, label %for.body.i, !llvm.loop !330
+  br i1 %cmp.i.not.i, label %_ZSt9transformIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEES6_S6_ZNK8QuantLib30GaussianQuadMultidimIntegrator16VectorIntegratorclIZNKS8_18vectorIntegratorVRILi2EEES5_RKSt8functionIFS5_RKS5_EEdEUldE_EES5_RKT_EUlddE_ET1_SK_SK_T0_SO_T2_.exit, label %for.body.i, !llvm.loop !329
 
 _ZSt9transformIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEES6_S6_ZNK8QuantLib30GaussianQuadMultidimIntegrator16VectorIntegratorclIZNKS8_18vectorIntegratorVRILi2EEES5_RKSt8functionIFS5_RKS5_EEdEUldE_EES5_RKT_EUlddE_ET1_SK_SK_T0_SO_T2_.exit: ; preds = %for.body.i, %_ZNSt6vectorIdSaIdEED2Ev.exit
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
@@ -5341,8 +5341,8 @@ entry:
   %_M_invoker.i = getelementptr inbounds nuw i8, ptr %agg.tmp, i64 24
   %_M_invoker2.i = getelementptr inbounds nuw i8, ptr %__args, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, i8 0, i64 24, i1 false)
-  %0 = load ptr, ptr %_M_invoker2.i, align 8, !tbaa !51
-  store ptr %0, ptr %_M_invoker.i, align 8, !tbaa !51
+  %0 = load ptr, ptr %_M_invoker2.i, align 8, !tbaa !50
+  store ptr %0, ptr %_M_invoker.i, align 8, !tbaa !50
   %_M_manager.i.i.i = getelementptr inbounds nuw i8, ptr %__args, i64 16
   %1 = load ptr, ptr %_M_manager.i.i.i, align 8, !tbaa !45
   %tobool.not.i.i.not.i = icmp eq ptr %1, null
@@ -5357,13 +5357,13 @@ if.then.i:                                        ; preds = %entry
 
 _ZNSt8functionIFdRKSt6vectorIdSaIdEEEEC2EOS6_.exit: ; preds = %entry, %if.then.i
   %2 = load double, ptr %__args1, align 8, !tbaa !39
-  %3 = load ptr, ptr %__f, align 8, !tbaa !331
+  %3 = load ptr, ptr %__f, align 8, !tbaa !330
   %varBuffer_.i.i = getelementptr inbounds nuw i8, ptr %3, i64 120
   %4 = load ptr, ptr %varBuffer_.i.i, align 8, !tbaa !37
   %add.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %4, i64 104
   store double %2, ptr %add.ptr.i.i.i, align 8, !tbaa !39
   %n_.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %5 = load i64, ptr %n_.i.i.i.i.i, align 8, !tbaa !57
+  %5 = load i64, ptr %n_.i.i.i.i.i, align 8, !tbaa !56
   %conv.i.i.i = trunc i64 %5 to i32
   %cmp6.i.i.i = icmp sgt i32 %conv.i.i.i, 0
   br i1 %cmp6.i.i.i, label %for.body.lr.ph.i.i.i, label %invoke.cont
@@ -5389,7 +5389,7 @@ for.body.i.i.i:                                   ; preds = %call2.i.i.i.i.i.noe
   store double %11, ptr %add.ptr.i.i.i.i.i.i, align 8, !tbaa !39
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i.i.i.i.i) #13
   store ptr %agg.tmp, ptr %ref.tmp.i.i.i.i.i, align 8, !tbaa !42
-  store ptr %3, ptr %6, align 8, !tbaa !67
+  store ptr %3, ptr %6, align 8, !tbaa !66
   %call2.i.i.i.i.i1 = invoke noundef double @_ZNK8QuantLib18GaussianQuadratureclIZNKS_30GaussianQuadMultidimIntegrator16scalarIntegratorILi13EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEEdEUldE_EEdRKT_(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i.i.i.i)
           to label %call2.i.i.i.i.i.noexc unwind label %lpad
 
@@ -5397,7 +5397,7 @@ call2.i.i.i.i.i.noexc:                            ; preds = %for.body.i.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i.i.i.i.i) #13
   %13 = call double @llvm.fmuladd.f64(double %9, double %call2.i.i.i.i.i1, double %sum.07.i.i.i)
   %cmp.i.i.i = icmp samesign ugt i64 %indvars.iv.i.i.i, 1
-  br i1 %cmp.i.i.i, label %for.body.i.i.i, label %invoke.cont.loopexit, !llvm.loop !65
+  br i1 %cmp.i.i.i, label %for.body.i.i.i, label %invoke.cont.loopexit, !llvm.loop !64
 
 invoke.cont.loopexit:                             ; preds = %call2.i.i.i.i.i.noexc
   %_M_manager.i.phi.trans.insert = getelementptr inbounds nuw i8, ptr %agg.tmp, i64 16
@@ -5451,19 +5451,19 @@ _ZNSt14_Function_baseD2Ev.exit8:                  ; preds = %lpad, %if.then.i5
 define linkonce_odr void @_ZNSt17_Function_handlerIFSt6vectorIdSaIdEERKSt8functionIFS2_RKS2_EEdEZNK8QuantLib30GaussianQuadMultidimIntegrator9spawnFctsILm14EEEvvEUlS9_dE_E9_M_invokeERKSt9_Any_dataS9_Od(ptr dead_on_unwind noalias writable sret(%"class.std::vector.7") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %__functor, ptr noundef nonnull align 8 dereferenceable(32) %__args, ptr noundef nonnull align 8 dereferenceable(8) %__args1) #0 comdat align 2 {
 entry:
   %ref.tmp.i.i.i.i = alloca %class.anon.38, align 8
-  %0 = load double, ptr %__args1, align 8, !tbaa !39, !noalias !333
-  %1 = load ptr, ptr %__functor, align 8, !tbaa !338, !noalias !340
+  %0 = load double, ptr %__args1, align 8, !tbaa !39, !noalias !332
+  %1 = load ptr, ptr %__functor, align 8, !tbaa !337, !noalias !339
   %varBuffer_.i.i.i.i = getelementptr inbounds nuw i8, ptr %1, i64 120
-  %2 = load ptr, ptr %varBuffer_.i.i.i.i, align 8, !tbaa !37, !noalias !343
+  %2 = load ptr, ptr %varBuffer_.i.i.i.i, align 8, !tbaa !37, !noalias !342
   %add.ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 104
-  store double %0, ptr %add.ptr.i.i.i.i.i, align 8, !tbaa !39, !noalias !343
+  store double %0, ptr %add.ptr.i.i.i.i.i, align 8, !tbaa !39, !noalias !342
   %integralV_.i.i.i.i = getelementptr inbounds nuw i8, ptr %1, i64 32
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i.i.i.i) #13, !noalias !343
-  store ptr %__args, ptr %ref.tmp.i.i.i.i, align 8, !tbaa !42, !noalias !343
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i.i.i.i) #13, !noalias !342
+  store ptr %__args, ptr %ref.tmp.i.i.i.i, align 8, !tbaa !42, !noalias !342
   %3 = getelementptr inbounds nuw i8, ptr %ref.tmp.i.i.i.i, i64 8
-  store ptr %1, ptr %3, align 8, !tbaa !107, !noalias !343
+  store ptr %1, ptr %3, align 8, !tbaa !106, !noalias !342
   call void @_ZNK8QuantLib30GaussianQuadMultidimIntegrator16VectorIntegratorclIZNKS0_18vectorIntegratorVRILi14EEESt6vectorIdSaIdEERKSt8functionIFS6_RKS6_EEdEUldE_EES6_RKT_(ptr dead_on_unwind writable sret(%"class.std::vector.7") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %integralV_.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i.i.i)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i.i.i.i) #13, !noalias !343
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i.i.i.i) #13, !noalias !342
   ret void
 }
 
@@ -5590,8 +5590,8 @@ entry:
   %_M_invoker.i.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp.i.i, i64 24
   %_M_invoker2.i.i.i = getelementptr inbounds nuw i8, ptr %__args, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i.i, i8 0, i64 24, i1 false)
-  %0 = load ptr, ptr %_M_invoker2.i.i.i, align 8, !tbaa !51
-  store ptr %0, ptr %_M_invoker.i.i.i, align 8, !tbaa !51
+  %0 = load ptr, ptr %_M_invoker2.i.i.i, align 8, !tbaa !50
+  store ptr %0, ptr %_M_invoker.i.i.i, align 8, !tbaa !50
   %_M_manager.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__args, i64 16
   %1 = load ptr, ptr %_M_manager.i.i.i.i.i, align 8, !tbaa !45
   %tobool.not.i.i.not.i.i.i = icmp eq ptr %1, null
@@ -5606,7 +5606,7 @@ if.then.i.i.i:                                    ; preds = %entry
 
 _ZNSt8functionIFdRKSt6vectorIdSaIdEEEEC2EOS6_.exit.i.i: ; preds = %if.then.i.i.i, %entry
   %2 = load double, ptr %__args1, align 8, !tbaa !39
-  %3 = load ptr, ptr %__functor, align 8, !tbaa !346
+  %3 = load ptr, ptr %__functor, align 8, !tbaa !345
   %varBuffer_.i.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 120
   %4 = load ptr, ptr %varBuffer_.i.i.i.i, align 8, !tbaa !37
   %add.ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %4, i64 96
@@ -5614,7 +5614,7 @@ _ZNSt8functionIFdRKSt6vectorIdSaIdEEEEC2EOS6_.exit.i.i: ; preds = %if.then.i.i.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i.i.i.i) #13
   store ptr %agg.tmp.i.i, ptr %ref.tmp.i.i.i.i, align 8, !tbaa !42
   %5 = getelementptr inbounds nuw i8, ptr %ref.tmp.i.i.i.i, i64 8
-  store ptr %3, ptr %5, align 8, !tbaa !67
+  store ptr %3, ptr %5, align 8, !tbaa !66
   %call2.i.i1.i.i = invoke noundef double @_ZNK8QuantLib18GaussianQuadratureclIZNKS_30GaussianQuadMultidimIntegrator16scalarIntegratorILi13EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEEdEUldE_EEdRKT_(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i.i.i)
           to label %invoke.cont.i.i unwind label %lpad.i.i
 
@@ -5693,19 +5693,19 @@ sw.epilog:                                        ; preds = %entry, %sw.bb4.i, %
 define linkonce_odr void @_ZNSt17_Function_handlerIFSt6vectorIdSaIdEERKSt8functionIFS2_RKS2_EEdEZNK8QuantLib30GaussianQuadMultidimIntegrator9spawnFctsILm13EEEvvEUlS9_dE_E9_M_invokeERKSt9_Any_dataS9_Od(ptr dead_on_unwind noalias writable sret(%"class.std::vector.7") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %__functor, ptr noundef nonnull align 8 dereferenceable(32) %__args, ptr noundef nonnull align 8 dereferenceable(8) %__args1) #0 comdat align 2 {
 entry:
   %ref.tmp.i.i.i.i = alloca %class.anon.41, align 8
-  %0 = load double, ptr %__args1, align 8, !tbaa !39, !noalias !348
-  %1 = load ptr, ptr %__functor, align 8, !tbaa !353, !noalias !355
+  %0 = load double, ptr %__args1, align 8, !tbaa !39, !noalias !347
+  %1 = load ptr, ptr %__functor, align 8, !tbaa !352, !noalias !354
   %varBuffer_.i.i.i.i = getelementptr inbounds nuw i8, ptr %1, i64 120
-  %2 = load ptr, ptr %varBuffer_.i.i.i.i, align 8, !tbaa !37, !noalias !358
+  %2 = load ptr, ptr %varBuffer_.i.i.i.i, align 8, !tbaa !37, !noalias !357
   %add.ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 96
-  store double %0, ptr %add.ptr.i.i.i.i.i, align 8, !tbaa !39, !noalias !358
+  store double %0, ptr %add.ptr.i.i.i.i.i, align 8, !tbaa !39, !noalias !357
   %integralV_.i.i.i.i = getelementptr inbounds nuw i8, ptr %1, i64 32
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i.i.i.i) #13, !noalias !358
-  store ptr %__args, ptr %ref.tmp.i.i.i.i, align 8, !tbaa !42, !noalias !358
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i.i.i.i) #13, !noalias !357
+  store ptr %__args, ptr %ref.tmp.i.i.i.i, align 8, !tbaa !42, !noalias !357
   %3 = getelementptr inbounds nuw i8, ptr %ref.tmp.i.i.i.i, i64 8
-  store ptr %1, ptr %3, align 8, !tbaa !124, !noalias !358
+  store ptr %1, ptr %3, align 8, !tbaa !123, !noalias !357
   call void @_ZNK8QuantLib30GaussianQuadMultidimIntegrator16VectorIntegratorclIZNKS0_18vectorIntegratorVRILi13EEESt6vectorIdSaIdEERKSt8functionIFS6_RKS6_EEdEUldE_EES6_RKT_(ptr dead_on_unwind writable sret(%"class.std::vector.7") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %integralV_.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i.i.i)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i.i.i.i) #13, !noalias !358
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i.i.i.i) #13, !noalias !357
   ret void
 }
 
@@ -5864,8 +5864,8 @@ entry:
   %_M_invoker.i = getelementptr inbounds nuw i8, ptr %agg.tmp, i64 24
   %_M_invoker2.i = getelementptr inbounds nuw i8, ptr %__args, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, i8 0, i64 24, i1 false)
-  %0 = load ptr, ptr %_M_invoker2.i, align 8, !tbaa !51
-  store ptr %0, ptr %_M_invoker.i, align 8, !tbaa !51
+  %0 = load ptr, ptr %_M_invoker2.i, align 8, !tbaa !50
+  store ptr %0, ptr %_M_invoker.i, align 8, !tbaa !50
   %_M_manager.i.i.i = getelementptr inbounds nuw i8, ptr %__args, i64 16
   %1 = load ptr, ptr %_M_manager.i.i.i, align 8, !tbaa !45
   %tobool.not.i.i.not.i = icmp eq ptr %1, null
@@ -5880,13 +5880,13 @@ if.then.i:                                        ; preds = %entry
 
 _ZNSt8functionIFdRKSt6vectorIdSaIdEEEEC2EOS6_.exit: ; preds = %entry, %if.then.i
   %2 = load double, ptr %__args1, align 8, !tbaa !39
-  %3 = load ptr, ptr %__f, align 8, !tbaa !361
+  %3 = load ptr, ptr %__f, align 8, !tbaa !360
   %varBuffer_.i.i = getelementptr inbounds nuw i8, ptr %3, i64 120
   %4 = load ptr, ptr %varBuffer_.i.i, align 8, !tbaa !37
   %add.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %4, i64 88
   store double %2, ptr %add.ptr.i.i.i, align 8, !tbaa !39
   %n_.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %5 = load i64, ptr %n_.i.i.i.i.i, align 8, !tbaa !57
+  %5 = load i64, ptr %n_.i.i.i.i.i, align 8, !tbaa !56
   %conv.i.i.i = trunc i64 %5 to i32
   %cmp7.i.i.i = icmp sgt i32 %conv.i.i.i, 0
   br i1 %cmp7.i.i.i, label %for.body.lr.ph.i.i.i, label %invoke.cont
@@ -5910,7 +5910,7 @@ for.body.i.i.i:                                   ; preds = %_ZZNK8QuantLib30Gau
   %12 = load ptr, ptr %varBuffer_.i.i, align 8, !tbaa !37
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %12, i64 80
   store double %11, ptr %add.ptr.i.i.i.i.i.i, align 8, !tbaa !39
-  %13 = load i64, ptr %n_.i.i.i.i.i, align 8, !tbaa !57
+  %13 = load i64, ptr %n_.i.i.i.i.i, align 8, !tbaa !56
   %conv.i.i.i.i.i.i = trunc i64 %13 to i32
   %cmp6.i.i.i.i.i.i = icmp sgt i32 %conv.i.i.i.i.i.i, 0
   br i1 %cmp6.i.i.i.i.i.i, label %for.body.lr.ph.i.i.i.i.i.i, label %_ZZNK8QuantLib30GaussianQuadMultidimIntegrator16scalarIntegratorILi12EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEEdENKUldE_clEd.exit.i.i.i
@@ -5932,7 +5932,7 @@ for.body.i.i.i.i.i.i:                             ; preds = %_ZZNK8QuantLib30Gau
   %19 = load ptr, ptr %varBuffer_.i.i, align 8, !tbaa !37
   %add.ptr.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %19, i64 72
   store double %18, ptr %add.ptr.i.i.i.i.i.i.i.i.i, align 8, !tbaa !39
-  %20 = load i64, ptr %n_.i.i.i.i.i, align 8, !tbaa !57
+  %20 = load i64, ptr %n_.i.i.i.i.i, align 8, !tbaa !56
   %conv.i.i.i.i.i.i.i.i.i = trunc i64 %20 to i32
   %cmp6.i.i.i.i.i.i.i.i.i = icmp sgt i32 %conv.i.i.i.i.i.i.i.i.i, 0
   br i1 %cmp6.i.i.i.i.i.i.i.i.i, label %for.body.lr.ph.i.i.i.i.i.i.i.i.i, label %_ZZNK8QuantLib30GaussianQuadMultidimIntegrator16scalarIntegratorILi11EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEEdENKUldE_clEd.exit.i.i.i.i.i.i
@@ -5956,7 +5956,7 @@ for.body.i.i.i.i.i.i.i.i.i:                       ; preds = %call2.i.i.i.i.i.i.i
   store double %25, ptr %add.ptr.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !tbaa !39
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i.i.i.i.i.i.i.i.i.i.i) #13
   store ptr %agg.tmp, ptr %ref.tmp.i.i.i.i.i.i.i.i.i.i.i, align 8, !tbaa !42
-  store ptr %3, ptr %6, align 8, !tbaa !59
+  store ptr %3, ptr %6, align 8, !tbaa !58
   %call2.i.i.i.i.i.i.i.i.i.i.i1 = invoke noundef double @_ZNK8QuantLib18GaussianQuadratureclIZNKS_30GaussianQuadMultidimIntegrator16scalarIntegratorILi9EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEEdEUldE_EEdRKT_(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i.i.i.i.i.i.i.i.i.i)
           to label %call2.i.i.i.i.i.i.i.i.i.i.i.noexc unwind label %lpad
 
@@ -5964,19 +5964,19 @@ call2.i.i.i.i.i.i.i.i.i.i.i.noexc:                ; preds = %for.body.i.i.i.i.i.
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i.i.i.i.i.i.i.i.i.i.i) #13
   %27 = call double @llvm.fmuladd.f64(double %23, double %call2.i.i.i.i.i.i.i.i.i.i.i1, double %sum.07.i.i.i.i.i.i.i.i.i)
   %cmp.i.i.i.i.i.i.i.i.i = icmp samesign ugt i64 %indvars.iv.i.i.i.i.i.i.i.i.i, 1
-  br i1 %cmp.i.i.i.i.i.i.i.i.i, label %for.body.i.i.i.i.i.i.i.i.i, label %_ZZNK8QuantLib30GaussianQuadMultidimIntegrator16scalarIntegratorILi11EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEEdENKUldE_clEd.exit.i.i.i.i.i.i, !llvm.loop !61
+  br i1 %cmp.i.i.i.i.i.i.i.i.i, label %for.body.i.i.i.i.i.i.i.i.i, label %_ZZNK8QuantLib30GaussianQuadMultidimIntegrator16scalarIntegratorILi11EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEEdENKUldE_clEd.exit.i.i.i.i.i.i, !llvm.loop !60
 
 _ZZNK8QuantLib30GaussianQuadMultidimIntegrator16scalarIntegratorILi11EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEEdENKUldE_clEd.exit.i.i.i.i.i.i: ; preds = %call2.i.i.i.i.i.i.i.i.i.i.i.noexc, %for.body.i.i.i.i.i.i
   %sum.0.lcssa.i.i.i.i.i.i.i.i.i = phi double [ 0.000000e+00, %for.body.i.i.i.i.i.i ], [ %27, %call2.i.i.i.i.i.i.i.i.i.i.i.noexc ]
   %28 = call double @llvm.fmuladd.f64(double %16, double %sum.0.lcssa.i.i.i.i.i.i.i.i.i, double %sum.07.i.i.i.i.i.i)
   %cmp.i.i.i.i.i.i = icmp samesign ugt i64 %indvars.iv.i.i.i.i.i.i, 1
-  br i1 %cmp.i.i.i.i.i.i, label %for.body.i.i.i.i.i.i, label %_ZZNK8QuantLib30GaussianQuadMultidimIntegrator16scalarIntegratorILi12EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEEdENKUldE_clEd.exit.i.i.i, !llvm.loop !62
+  br i1 %cmp.i.i.i.i.i.i, label %for.body.i.i.i.i.i.i, label %_ZZNK8QuantLib30GaussianQuadMultidimIntegrator16scalarIntegratorILi12EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEEdENKUldE_clEd.exit.i.i.i, !llvm.loop !61
 
 _ZZNK8QuantLib30GaussianQuadMultidimIntegrator16scalarIntegratorILi12EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEEdENKUldE_clEd.exit.i.i.i: ; preds = %_ZZNK8QuantLib30GaussianQuadMultidimIntegrator16scalarIntegratorILi11EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEEdENKUldE_clEd.exit.i.i.i.i.i.i, %for.body.i.i.i
   %sum.0.lcssa.i.i.i.i.i.i = phi double [ 0.000000e+00, %for.body.i.i.i ], [ %28, %_ZZNK8QuantLib30GaussianQuadMultidimIntegrator16scalarIntegratorILi11EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEEdENKUldE_clEd.exit.i.i.i.i.i.i ]
   %29 = call double @llvm.fmuladd.f64(double %9, double %sum.0.lcssa.i.i.i.i.i.i, double %sum.08.i.i.i)
   %cmp.i.i.i = icmp sgt i64 %indvars.iv.i.i.i, 1
-  br i1 %cmp.i.i.i, label %for.body.i.i.i, label %invoke.cont.loopexit, !llvm.loop !63
+  br i1 %cmp.i.i.i, label %for.body.i.i.i, label %invoke.cont.loopexit, !llvm.loop !62
 
 invoke.cont.loopexit:                             ; preds = %_ZZNK8QuantLib30GaussianQuadMultidimIntegrator16scalarIntegratorILi12EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEEdENKUldE_clEd.exit.i.i.i
   %_M_manager.i.phi.trans.insert = getelementptr inbounds nuw i8, ptr %agg.tmp, i64 16
@@ -6030,19 +6030,19 @@ _ZNSt14_Function_baseD2Ev.exit8:                  ; preds = %lpad, %if.then.i5
 define linkonce_odr void @_ZNSt17_Function_handlerIFSt6vectorIdSaIdEERKSt8functionIFS2_RKS2_EEdEZNK8QuantLib30GaussianQuadMultidimIntegrator9spawnFctsILm12EEEvvEUlS9_dE_E9_M_invokeERKSt9_Any_dataS9_Od(ptr dead_on_unwind noalias writable sret(%"class.std::vector.7") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %__functor, ptr noundef nonnull align 8 dereferenceable(32) %__args, ptr noundef nonnull align 8 dereferenceable(8) %__args1) #0 comdat align 2 {
 entry:
   %ref.tmp.i.i.i.i = alloca %class.anon.44, align 8
-  %0 = load double, ptr %__args1, align 8, !tbaa !39, !noalias !363
-  %1 = load ptr, ptr %__functor, align 8, !tbaa !368, !noalias !370
+  %0 = load double, ptr %__args1, align 8, !tbaa !39, !noalias !362
+  %1 = load ptr, ptr %__functor, align 8, !tbaa !367, !noalias !369
   %varBuffer_.i.i.i.i = getelementptr inbounds nuw i8, ptr %1, i64 120
-  %2 = load ptr, ptr %varBuffer_.i.i.i.i, align 8, !tbaa !37, !noalias !373
+  %2 = load ptr, ptr %varBuffer_.i.i.i.i, align 8, !tbaa !37, !noalias !372
   %add.ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 88
-  store double %0, ptr %add.ptr.i.i.i.i.i, align 8, !tbaa !39, !noalias !373
+  store double %0, ptr %add.ptr.i.i.i.i.i, align 8, !tbaa !39, !noalias !372
   %integralV_.i.i.i.i = getelementptr inbounds nuw i8, ptr %1, i64 32
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i.i.i.i) #13, !noalias !373
-  store ptr %__args, ptr %ref.tmp.i.i.i.i, align 8, !tbaa !42, !noalias !373
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i.i.i.i) #13, !noalias !372
+  store ptr %__args, ptr %ref.tmp.i.i.i.i, align 8, !tbaa !42, !noalias !372
   %3 = getelementptr inbounds nuw i8, ptr %ref.tmp.i.i.i.i, i64 8
-  store ptr %1, ptr %3, align 8, !tbaa !140, !noalias !373
+  store ptr %1, ptr %3, align 8, !tbaa !139, !noalias !372
   call void @_ZNK8QuantLib30GaussianQuadMultidimIntegrator16VectorIntegratorclIZNKS0_18vectorIntegratorVRILi12EEESt6vectorIdSaIdEERKSt8functionIFS6_RKS6_EEdEUldE_EES6_RKT_(ptr dead_on_unwind writable sret(%"class.std::vector.7") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %integralV_.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i.i.i)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i.i.i.i) #13, !noalias !373
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i.i.i.i) #13, !noalias !372
   ret void
 }
 
@@ -6201,8 +6201,8 @@ entry:
   %_M_invoker.i = getelementptr inbounds nuw i8, ptr %agg.tmp, i64 24
   %_M_invoker2.i = getelementptr inbounds nuw i8, ptr %__args, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, i8 0, i64 24, i1 false)
-  %0 = load ptr, ptr %_M_invoker2.i, align 8, !tbaa !51
-  store ptr %0, ptr %_M_invoker.i, align 8, !tbaa !51
+  %0 = load ptr, ptr %_M_invoker2.i, align 8, !tbaa !50
+  store ptr %0, ptr %_M_invoker.i, align 8, !tbaa !50
   %_M_manager.i.i.i = getelementptr inbounds nuw i8, ptr %__args, i64 16
   %1 = load ptr, ptr %_M_manager.i.i.i, align 8, !tbaa !45
   %tobool.not.i.i.not.i = icmp eq ptr %1, null
@@ -6217,13 +6217,13 @@ if.then.i:                                        ; preds = %entry
 
 _ZNSt8functionIFdRKSt6vectorIdSaIdEEEEC2EOS6_.exit: ; preds = %entry, %if.then.i
   %2 = load double, ptr %__args1, align 8, !tbaa !39
-  %3 = load ptr, ptr %__f, align 8, !tbaa !376
+  %3 = load ptr, ptr %__f, align 8, !tbaa !375
   %varBuffer_.i.i = getelementptr inbounds nuw i8, ptr %3, i64 120
   %4 = load ptr, ptr %varBuffer_.i.i, align 8, !tbaa !37
   %add.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %4, i64 80
   store double %2, ptr %add.ptr.i.i.i, align 8, !tbaa !39
   %n_.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %5 = load i64, ptr %n_.i.i.i.i.i, align 8, !tbaa !57
+  %5 = load i64, ptr %n_.i.i.i.i.i, align 8, !tbaa !56
   %conv.i.i.i = trunc i64 %5 to i32
   %cmp6.i.i.i = icmp sgt i32 %conv.i.i.i, 0
   br i1 %cmp6.i.i.i, label %for.body.lr.ph.i.i.i, label %invoke.cont
@@ -6247,7 +6247,7 @@ for.body.i.i.i:                                   ; preds = %_ZZNK8QuantLib30Gau
   %12 = load ptr, ptr %varBuffer_.i.i, align 8, !tbaa !37
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %12, i64 72
   store double %11, ptr %add.ptr.i.i.i.i.i.i, align 8, !tbaa !39
-  %13 = load i64, ptr %n_.i.i.i.i.i, align 8, !tbaa !57
+  %13 = load i64, ptr %n_.i.i.i.i.i, align 8, !tbaa !56
   %conv.i.i.i.i.i.i = trunc i64 %13 to i32
   %cmp6.i.i.i.i.i.i = icmp sgt i32 %conv.i.i.i.i.i.i, 0
   br i1 %cmp6.i.i.i.i.i.i, label %for.body.lr.ph.i.i.i.i.i.i, label %_ZZNK8QuantLib30GaussianQuadMultidimIntegrator16scalarIntegratorILi11EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEEdENKUldE_clEd.exit.i.i.i
@@ -6271,7 +6271,7 @@ for.body.i.i.i.i.i.i:                             ; preds = %call2.i.i.i.i.i.i.i
   store double %18, ptr %add.ptr.i.i.i.i.i.i.i.i.i, align 8, !tbaa !39
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i.i.i.i.i.i.i.i) #13
   store ptr %agg.tmp, ptr %ref.tmp.i.i.i.i.i.i.i.i, align 8, !tbaa !42
-  store ptr %3, ptr %6, align 8, !tbaa !59
+  store ptr %3, ptr %6, align 8, !tbaa !58
   %call2.i.i.i.i.i.i.i.i1 = invoke noundef double @_ZNK8QuantLib18GaussianQuadratureclIZNKS_30GaussianQuadMultidimIntegrator16scalarIntegratorILi9EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEEdEUldE_EEdRKT_(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i.i.i.i.i.i.i)
           to label %call2.i.i.i.i.i.i.i.i.noexc unwind label %lpad
 
@@ -6279,13 +6279,13 @@ call2.i.i.i.i.i.i.i.i.noexc:                      ; preds = %for.body.i.i.i.i.i.
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i.i.i.i.i.i.i.i) #13
   %20 = call double @llvm.fmuladd.f64(double %16, double %call2.i.i.i.i.i.i.i.i1, double %sum.07.i.i.i.i.i.i)
   %cmp.i.i.i.i.i.i = icmp samesign ugt i64 %indvars.iv.i.i.i.i.i.i, 1
-  br i1 %cmp.i.i.i.i.i.i, label %for.body.i.i.i.i.i.i, label %_ZZNK8QuantLib30GaussianQuadMultidimIntegrator16scalarIntegratorILi11EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEEdENKUldE_clEd.exit.i.i.i, !llvm.loop !61
+  br i1 %cmp.i.i.i.i.i.i, label %for.body.i.i.i.i.i.i, label %_ZZNK8QuantLib30GaussianQuadMultidimIntegrator16scalarIntegratorILi11EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEEdENKUldE_clEd.exit.i.i.i, !llvm.loop !60
 
 _ZZNK8QuantLib30GaussianQuadMultidimIntegrator16scalarIntegratorILi11EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEEdENKUldE_clEd.exit.i.i.i: ; preds = %call2.i.i.i.i.i.i.i.i.noexc, %for.body.i.i.i
   %sum.0.lcssa.i.i.i.i.i.i = phi double [ 0.000000e+00, %for.body.i.i.i ], [ %20, %call2.i.i.i.i.i.i.i.i.noexc ]
   %21 = call double @llvm.fmuladd.f64(double %9, double %sum.0.lcssa.i.i.i.i.i.i, double %sum.07.i.i.i)
   %cmp.i.i.i = icmp samesign ugt i64 %indvars.iv.i.i.i, 1
-  br i1 %cmp.i.i.i, label %for.body.i.i.i, label %invoke.cont.loopexit, !llvm.loop !62
+  br i1 %cmp.i.i.i, label %for.body.i.i.i, label %invoke.cont.loopexit, !llvm.loop !61
 
 invoke.cont.loopexit:                             ; preds = %_ZZNK8QuantLib30GaussianQuadMultidimIntegrator16scalarIntegratorILi11EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEEdENKUldE_clEd.exit.i.i.i
   %_M_manager.i.phi.trans.insert = getelementptr inbounds nuw i8, ptr %agg.tmp, i64 16
@@ -6339,19 +6339,19 @@ _ZNSt14_Function_baseD2Ev.exit8:                  ; preds = %lpad, %if.then.i5
 define linkonce_odr void @_ZNSt17_Function_handlerIFSt6vectorIdSaIdEERKSt8functionIFS2_RKS2_EEdEZNK8QuantLib30GaussianQuadMultidimIntegrator9spawnFctsILm11EEEvvEUlS9_dE_E9_M_invokeERKSt9_Any_dataS9_Od(ptr dead_on_unwind noalias writable sret(%"class.std::vector.7") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %__functor, ptr noundef nonnull align 8 dereferenceable(32) %__args, ptr noundef nonnull align 8 dereferenceable(8) %__args1) #0 comdat align 2 {
 entry:
   %ref.tmp.i.i.i.i = alloca %class.anon.47, align 8
-  %0 = load double, ptr %__args1, align 8, !tbaa !39, !noalias !378
-  %1 = load ptr, ptr %__functor, align 8, !tbaa !383, !noalias !385
+  %0 = load double, ptr %__args1, align 8, !tbaa !39, !noalias !377
+  %1 = load ptr, ptr %__functor, align 8, !tbaa !382, !noalias !384
   %varBuffer_.i.i.i.i = getelementptr inbounds nuw i8, ptr %1, i64 120
-  %2 = load ptr, ptr %varBuffer_.i.i.i.i, align 8, !tbaa !37, !noalias !388
+  %2 = load ptr, ptr %varBuffer_.i.i.i.i, align 8, !tbaa !37, !noalias !387
   %add.ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 80
-  store double %0, ptr %add.ptr.i.i.i.i.i, align 8, !tbaa !39, !noalias !388
+  store double %0, ptr %add.ptr.i.i.i.i.i, align 8, !tbaa !39, !noalias !387
   %integralV_.i.i.i.i = getelementptr inbounds nuw i8, ptr %1, i64 32
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i.i.i.i) #13, !noalias !388
-  store ptr %__args, ptr %ref.tmp.i.i.i.i, align 8, !tbaa !42, !noalias !388
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i.i.i.i) #13, !noalias !387
+  store ptr %__args, ptr %ref.tmp.i.i.i.i, align 8, !tbaa !42, !noalias !387
   %3 = getelementptr inbounds nuw i8, ptr %ref.tmp.i.i.i.i, i64 8
-  store ptr %1, ptr %3, align 8, !tbaa !156, !noalias !388
+  store ptr %1, ptr %3, align 8, !tbaa !155, !noalias !387
   call void @_ZNK8QuantLib30GaussianQuadMultidimIntegrator16VectorIntegratorclIZNKS0_18vectorIntegratorVRILi11EEESt6vectorIdSaIdEERKSt8functionIFS6_RKS6_EEdEUldE_EES6_RKT_(ptr dead_on_unwind writable sret(%"class.std::vector.7") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %integralV_.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i.i.i)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i.i.i.i) #13, !noalias !388
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i.i.i.i) #13, !noalias !387
   ret void
 }
 
@@ -6510,8 +6510,8 @@ entry:
   %_M_invoker.i = getelementptr inbounds nuw i8, ptr %agg.tmp, i64 24
   %_M_invoker2.i = getelementptr inbounds nuw i8, ptr %__args, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, i8 0, i64 24, i1 false)
-  %0 = load ptr, ptr %_M_invoker2.i, align 8, !tbaa !51
-  store ptr %0, ptr %_M_invoker.i, align 8, !tbaa !51
+  %0 = load ptr, ptr %_M_invoker2.i, align 8, !tbaa !50
+  store ptr %0, ptr %_M_invoker.i, align 8, !tbaa !50
   %_M_manager.i.i.i = getelementptr inbounds nuw i8, ptr %__args, i64 16
   %1 = load ptr, ptr %_M_manager.i.i.i, align 8, !tbaa !45
   %tobool.not.i.i.not.i = icmp eq ptr %1, null
@@ -6526,13 +6526,13 @@ if.then.i:                                        ; preds = %entry
 
 _ZNSt8functionIFdRKSt6vectorIdSaIdEEEEC2EOS6_.exit: ; preds = %entry, %if.then.i
   %2 = load double, ptr %__args1, align 8, !tbaa !39
-  %3 = load ptr, ptr %__f, align 8, !tbaa !391
+  %3 = load ptr, ptr %__f, align 8, !tbaa !390
   %varBuffer_.i.i = getelementptr inbounds nuw i8, ptr %3, i64 120
   %4 = load ptr, ptr %varBuffer_.i.i, align 8, !tbaa !37
   %add.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %4, i64 72
   store double %2, ptr %add.ptr.i.i.i, align 8, !tbaa !39
   %n_.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %5 = load i64, ptr %n_.i.i.i.i.i, align 8, !tbaa !57
+  %5 = load i64, ptr %n_.i.i.i.i.i, align 8, !tbaa !56
   %conv.i.i.i = trunc i64 %5 to i32
   %cmp6.i.i.i = icmp sgt i32 %conv.i.i.i, 0
   br i1 %cmp6.i.i.i, label %for.body.lr.ph.i.i.i, label %invoke.cont
@@ -6558,7 +6558,7 @@ for.body.i.i.i:                                   ; preds = %call2.i.i.i.i.i.noe
   store double %11, ptr %add.ptr.i.i.i.i.i.i, align 8, !tbaa !39
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i.i.i.i.i) #13
   store ptr %agg.tmp, ptr %ref.tmp.i.i.i.i.i, align 8, !tbaa !42
-  store ptr %3, ptr %6, align 8, !tbaa !59
+  store ptr %3, ptr %6, align 8, !tbaa !58
   %call2.i.i.i.i.i1 = invoke noundef double @_ZNK8QuantLib18GaussianQuadratureclIZNKS_30GaussianQuadMultidimIntegrator16scalarIntegratorILi9EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEEdEUldE_EEdRKT_(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i.i.i.i)
           to label %call2.i.i.i.i.i.noexc unwind label %lpad
 
@@ -6566,7 +6566,7 @@ call2.i.i.i.i.i.noexc:                            ; preds = %for.body.i.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i.i.i.i.i) #13
   %13 = call double @llvm.fmuladd.f64(double %9, double %call2.i.i.i.i.i1, double %sum.07.i.i.i)
   %cmp.i.i.i = icmp samesign ugt i64 %indvars.iv.i.i.i, 1
-  br i1 %cmp.i.i.i, label %for.body.i.i.i, label %invoke.cont.loopexit, !llvm.loop !61
+  br i1 %cmp.i.i.i, label %for.body.i.i.i, label %invoke.cont.loopexit, !llvm.loop !60
 
 invoke.cont.loopexit:                             ; preds = %call2.i.i.i.i.i.noexc
   %_M_manager.i.phi.trans.insert = getelementptr inbounds nuw i8, ptr %agg.tmp, i64 16
@@ -6620,19 +6620,19 @@ _ZNSt14_Function_baseD2Ev.exit8:                  ; preds = %lpad, %if.then.i5
 define linkonce_odr void @_ZNSt17_Function_handlerIFSt6vectorIdSaIdEERKSt8functionIFS2_RKS2_EEdEZNK8QuantLib30GaussianQuadMultidimIntegrator9spawnFctsILm10EEEvvEUlS9_dE_E9_M_invokeERKSt9_Any_dataS9_Od(ptr dead_on_unwind noalias writable sret(%"class.std::vector.7") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %__functor, ptr noundef nonnull align 8 dereferenceable(32) %__args, ptr noundef nonnull align 8 dereferenceable(8) %__args1) #0 comdat align 2 {
 entry:
   %ref.tmp.i.i.i.i = alloca %class.anon.50, align 8
-  %0 = load double, ptr %__args1, align 8, !tbaa !39, !noalias !393
-  %1 = load ptr, ptr %__functor, align 8, !tbaa !398, !noalias !400
+  %0 = load double, ptr %__args1, align 8, !tbaa !39, !noalias !392
+  %1 = load ptr, ptr %__functor, align 8, !tbaa !397, !noalias !399
   %varBuffer_.i.i.i.i = getelementptr inbounds nuw i8, ptr %1, i64 120
-  %2 = load ptr, ptr %varBuffer_.i.i.i.i, align 8, !tbaa !37, !noalias !403
+  %2 = load ptr, ptr %varBuffer_.i.i.i.i, align 8, !tbaa !37, !noalias !402
   %add.ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 72
-  store double %0, ptr %add.ptr.i.i.i.i.i, align 8, !tbaa !39, !noalias !403
+  store double %0, ptr %add.ptr.i.i.i.i.i, align 8, !tbaa !39, !noalias !402
   %integralV_.i.i.i.i = getelementptr inbounds nuw i8, ptr %1, i64 32
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i.i.i.i) #13, !noalias !403
-  store ptr %__args, ptr %ref.tmp.i.i.i.i, align 8, !tbaa !42, !noalias !403
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i.i.i.i) #13, !noalias !402
+  store ptr %__args, ptr %ref.tmp.i.i.i.i, align 8, !tbaa !42, !noalias !402
   %3 = getelementptr inbounds nuw i8, ptr %ref.tmp.i.i.i.i, i64 8
-  store ptr %1, ptr %3, align 8, !tbaa !172, !noalias !403
+  store ptr %1, ptr %3, align 8, !tbaa !171, !noalias !402
   call void @_ZNK8QuantLib30GaussianQuadMultidimIntegrator16VectorIntegratorclIZNKS0_18vectorIntegratorVRILi10EEESt6vectorIdSaIdEERKSt8functionIFS6_RKS6_EEdEUldE_EES6_RKT_(ptr dead_on_unwind writable sret(%"class.std::vector.7") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %integralV_.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i.i.i)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i.i.i.i) #13, !noalias !403
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i.i.i.i) #13, !noalias !402
   ret void
 }
 
@@ -6759,8 +6759,8 @@ entry:
   %_M_invoker.i.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp.i.i, i64 24
   %_M_invoker2.i.i.i = getelementptr inbounds nuw i8, ptr %__args, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i.i, i8 0, i64 24, i1 false)
-  %0 = load ptr, ptr %_M_invoker2.i.i.i, align 8, !tbaa !51
-  store ptr %0, ptr %_M_invoker.i.i.i, align 8, !tbaa !51
+  %0 = load ptr, ptr %_M_invoker2.i.i.i, align 8, !tbaa !50
+  store ptr %0, ptr %_M_invoker.i.i.i, align 8, !tbaa !50
   %_M_manager.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__args, i64 16
   %1 = load ptr, ptr %_M_manager.i.i.i.i.i, align 8, !tbaa !45
   %tobool.not.i.i.not.i.i.i = icmp eq ptr %1, null
@@ -6775,7 +6775,7 @@ if.then.i.i.i:                                    ; preds = %entry
 
 _ZNSt8functionIFdRKSt6vectorIdSaIdEEEEC2EOS6_.exit.i.i: ; preds = %if.then.i.i.i, %entry
   %2 = load double, ptr %__args1, align 8, !tbaa !39
-  %3 = load ptr, ptr %__functor, align 8, !tbaa !406
+  %3 = load ptr, ptr %__functor, align 8, !tbaa !405
   %varBuffer_.i.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 120
   %4 = load ptr, ptr %varBuffer_.i.i.i.i, align 8, !tbaa !37
   %add.ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %4, i64 64
@@ -6783,7 +6783,7 @@ _ZNSt8functionIFdRKSt6vectorIdSaIdEEEEC2EOS6_.exit.i.i: ; preds = %if.then.i.i.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i.i.i.i) #13
   store ptr %agg.tmp.i.i, ptr %ref.tmp.i.i.i.i, align 8, !tbaa !42
   %5 = getelementptr inbounds nuw i8, ptr %ref.tmp.i.i.i.i, i64 8
-  store ptr %3, ptr %5, align 8, !tbaa !59
+  store ptr %3, ptr %5, align 8, !tbaa !58
   %call2.i.i1.i.i = invoke noundef double @_ZNK8QuantLib18GaussianQuadratureclIZNKS_30GaussianQuadMultidimIntegrator16scalarIntegratorILi9EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEEdEUldE_EEdRKT_(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i.i.i)
           to label %invoke.cont.i.i unwind label %lpad.i.i
 
@@ -6862,19 +6862,19 @@ sw.epilog:                                        ; preds = %entry, %sw.bb4.i, %
 define linkonce_odr void @_ZNSt17_Function_handlerIFSt6vectorIdSaIdEERKSt8functionIFS2_RKS2_EEdEZNK8QuantLib30GaussianQuadMultidimIntegrator9spawnFctsILm9EEEvvEUlS9_dE_E9_M_invokeERKSt9_Any_dataS9_Od(ptr dead_on_unwind noalias writable sret(%"class.std::vector.7") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %__functor, ptr noundef nonnull align 8 dereferenceable(32) %__args, ptr noundef nonnull align 8 dereferenceable(8) %__args1) #0 comdat align 2 {
 entry:
   %ref.tmp.i.i.i.i = alloca %class.anon.53, align 8
-  %0 = load double, ptr %__args1, align 8, !tbaa !39, !noalias !408
-  %1 = load ptr, ptr %__functor, align 8, !tbaa !413, !noalias !415
+  %0 = load double, ptr %__args1, align 8, !tbaa !39, !noalias !407
+  %1 = load ptr, ptr %__functor, align 8, !tbaa !412, !noalias !414
   %varBuffer_.i.i.i.i = getelementptr inbounds nuw i8, ptr %1, i64 120
-  %2 = load ptr, ptr %varBuffer_.i.i.i.i, align 8, !tbaa !37, !noalias !418
+  %2 = load ptr, ptr %varBuffer_.i.i.i.i, align 8, !tbaa !37, !noalias !417
   %add.ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 64
-  store double %0, ptr %add.ptr.i.i.i.i.i, align 8, !tbaa !39, !noalias !418
+  store double %0, ptr %add.ptr.i.i.i.i.i, align 8, !tbaa !39, !noalias !417
   %integralV_.i.i.i.i = getelementptr inbounds nuw i8, ptr %1, i64 32
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i.i.i.i) #13, !noalias !418
-  store ptr %__args, ptr %ref.tmp.i.i.i.i, align 8, !tbaa !42, !noalias !418
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i.i.i.i) #13, !noalias !417
+  store ptr %__args, ptr %ref.tmp.i.i.i.i, align 8, !tbaa !42, !noalias !417
   %3 = getelementptr inbounds nuw i8, ptr %ref.tmp.i.i.i.i, i64 8
-  store ptr %1, ptr %3, align 8, !tbaa !188, !noalias !418
+  store ptr %1, ptr %3, align 8, !tbaa !187, !noalias !417
   call void @_ZNK8QuantLib30GaussianQuadMultidimIntegrator16VectorIntegratorclIZNKS0_18vectorIntegratorVRILi9EEESt6vectorIdSaIdEERKSt8functionIFS6_RKS6_EEdEUldE_EES6_RKT_(ptr dead_on_unwind writable sret(%"class.std::vector.7") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %integralV_.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i.i.i)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i.i.i.i) #13, !noalias !418
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i.i.i.i) #13, !noalias !417
   ret void
 }
 
@@ -7033,8 +7033,8 @@ entry:
   %_M_invoker.i = getelementptr inbounds nuw i8, ptr %agg.tmp, i64 24
   %_M_invoker2.i = getelementptr inbounds nuw i8, ptr %__args, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, i8 0, i64 24, i1 false)
-  %0 = load ptr, ptr %_M_invoker2.i, align 8, !tbaa !51
-  store ptr %0, ptr %_M_invoker.i, align 8, !tbaa !51
+  %0 = load ptr, ptr %_M_invoker2.i, align 8, !tbaa !50
+  store ptr %0, ptr %_M_invoker.i, align 8, !tbaa !50
   %_M_manager.i.i.i = getelementptr inbounds nuw i8, ptr %__args, i64 16
   %1 = load ptr, ptr %_M_manager.i.i.i, align 8, !tbaa !45
   %tobool.not.i.i.not.i = icmp eq ptr %1, null
@@ -7049,13 +7049,13 @@ if.then.i:                                        ; preds = %entry
 
 _ZNSt8functionIFdRKSt6vectorIdSaIdEEEEC2EOS6_.exit: ; preds = %entry, %if.then.i
   %2 = load double, ptr %__args1, align 8, !tbaa !39
-  %3 = load ptr, ptr %__f, align 8, !tbaa !421
+  %3 = load ptr, ptr %__f, align 8, !tbaa !420
   %varBuffer_.i.i = getelementptr inbounds nuw i8, ptr %3, i64 120
   %4 = load ptr, ptr %varBuffer_.i.i, align 8, !tbaa !37
   %add.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %4, i64 56
   store double %2, ptr %add.ptr.i.i.i, align 8, !tbaa !39
   %n_.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %5 = load i64, ptr %n_.i.i.i.i.i, align 8, !tbaa !57
+  %5 = load i64, ptr %n_.i.i.i.i.i, align 8, !tbaa !56
   %conv.i.i.i = trunc i64 %5 to i32
   %cmp6.i.i.i = icmp sgt i32 %conv.i.i.i, 0
   br i1 %cmp6.i.i.i, label %for.body.lr.ph.i.i.i, label %invoke.cont
@@ -7081,7 +7081,7 @@ for.body.i.i.i:                                   ; preds = %call2.i.i.i.i.i.noe
   store double %11, ptr %add.ptr.i.i.i.i.i.i, align 8, !tbaa !39
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i.i.i.i.i) #13
   store ptr %agg.tmp, ptr %ref.tmp.i.i.i.i.i, align 8, !tbaa !42
-  store ptr %3, ptr %6, align 8, !tbaa !79
+  store ptr %3, ptr %6, align 8, !tbaa !78
   %call2.i.i.i.i.i1 = invoke noundef double @_ZNK8QuantLib18GaussianQuadratureclIZNKS_30GaussianQuadMultidimIntegrator16scalarIntegratorILi7EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEEdEUldE_EEdRKT_(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i.i.i.i)
           to label %call2.i.i.i.i.i.noexc unwind label %lpad
 
@@ -7089,7 +7089,7 @@ call2.i.i.i.i.i.noexc:                            ; preds = %for.body.i.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i.i.i.i.i) #13
   %13 = call double @llvm.fmuladd.f64(double %9, double %call2.i.i.i.i.i1, double %sum.07.i.i.i)
   %cmp.i.i.i = icmp samesign ugt i64 %indvars.iv.i.i.i, 1
-  br i1 %cmp.i.i.i, label %for.body.i.i.i, label %invoke.cont.loopexit, !llvm.loop !77
+  br i1 %cmp.i.i.i, label %for.body.i.i.i, label %invoke.cont.loopexit, !llvm.loop !76
 
 invoke.cont.loopexit:                             ; preds = %call2.i.i.i.i.i.noexc
   %_M_manager.i.phi.trans.insert = getelementptr inbounds nuw i8, ptr %agg.tmp, i64 16
@@ -7143,19 +7143,19 @@ _ZNSt14_Function_baseD2Ev.exit8:                  ; preds = %lpad, %if.then.i5
 define linkonce_odr void @_ZNSt17_Function_handlerIFSt6vectorIdSaIdEERKSt8functionIFS2_RKS2_EEdEZNK8QuantLib30GaussianQuadMultidimIntegrator9spawnFctsILm8EEEvvEUlS9_dE_E9_M_invokeERKSt9_Any_dataS9_Od(ptr dead_on_unwind noalias writable sret(%"class.std::vector.7") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %__functor, ptr noundef nonnull align 8 dereferenceable(32) %__args, ptr noundef nonnull align 8 dereferenceable(8) %__args1) #0 comdat align 2 {
 entry:
   %ref.tmp.i.i.i.i = alloca %class.anon.56, align 8
-  %0 = load double, ptr %__args1, align 8, !tbaa !39, !noalias !423
-  %1 = load ptr, ptr %__functor, align 8, !tbaa !428, !noalias !430
+  %0 = load double, ptr %__args1, align 8, !tbaa !39, !noalias !422
+  %1 = load ptr, ptr %__functor, align 8, !tbaa !427, !noalias !429
   %varBuffer_.i.i.i.i = getelementptr inbounds nuw i8, ptr %1, i64 120
-  %2 = load ptr, ptr %varBuffer_.i.i.i.i, align 8, !tbaa !37, !noalias !433
+  %2 = load ptr, ptr %varBuffer_.i.i.i.i, align 8, !tbaa !37, !noalias !432
   %add.ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 56
-  store double %0, ptr %add.ptr.i.i.i.i.i, align 8, !tbaa !39, !noalias !433
+  store double %0, ptr %add.ptr.i.i.i.i.i, align 8, !tbaa !39, !noalias !432
   %integralV_.i.i.i.i = getelementptr inbounds nuw i8, ptr %1, i64 32
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i.i.i.i) #13, !noalias !433
-  store ptr %__args, ptr %ref.tmp.i.i.i.i, align 8, !tbaa !42, !noalias !433
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i.i.i.i) #13, !noalias !432
+  store ptr %__args, ptr %ref.tmp.i.i.i.i, align 8, !tbaa !42, !noalias !432
   %3 = getelementptr inbounds nuw i8, ptr %ref.tmp.i.i.i.i, i64 8
-  store ptr %1, ptr %3, align 8, !tbaa !204, !noalias !433
+  store ptr %1, ptr %3, align 8, !tbaa !203, !noalias !432
   call void @_ZNK8QuantLib30GaussianQuadMultidimIntegrator16VectorIntegratorclIZNKS0_18vectorIntegratorVRILi8EEESt6vectorIdSaIdEERKSt8functionIFS6_RKS6_EEdEUldE_EES6_RKT_(ptr dead_on_unwind writable sret(%"class.std::vector.7") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %integralV_.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i.i.i)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i.i.i.i) #13, !noalias !433
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i.i.i.i) #13, !noalias !432
   ret void
 }
 
@@ -7282,8 +7282,8 @@ entry:
   %_M_invoker.i.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp.i.i, i64 24
   %_M_invoker2.i.i.i = getelementptr inbounds nuw i8, ptr %__args, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i.i, i8 0, i64 24, i1 false)
-  %0 = load ptr, ptr %_M_invoker2.i.i.i, align 8, !tbaa !51
-  store ptr %0, ptr %_M_invoker.i.i.i, align 8, !tbaa !51
+  %0 = load ptr, ptr %_M_invoker2.i.i.i, align 8, !tbaa !50
+  store ptr %0, ptr %_M_invoker.i.i.i, align 8, !tbaa !50
   %_M_manager.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__args, i64 16
   %1 = load ptr, ptr %_M_manager.i.i.i.i.i, align 8, !tbaa !45
   %tobool.not.i.i.not.i.i.i = icmp eq ptr %1, null
@@ -7298,7 +7298,7 @@ if.then.i.i.i:                                    ; preds = %entry
 
 _ZNSt8functionIFdRKSt6vectorIdSaIdEEEEC2EOS6_.exit.i.i: ; preds = %if.then.i.i.i, %entry
   %2 = load double, ptr %__args1, align 8, !tbaa !39
-  %3 = load ptr, ptr %__functor, align 8, !tbaa !436
+  %3 = load ptr, ptr %__functor, align 8, !tbaa !435
   %varBuffer_.i.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 120
   %4 = load ptr, ptr %varBuffer_.i.i.i.i, align 8, !tbaa !37
   %add.ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %4, i64 48
@@ -7306,7 +7306,7 @@ _ZNSt8functionIFdRKSt6vectorIdSaIdEEEEC2EOS6_.exit.i.i: ; preds = %if.then.i.i.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i.i.i.i) #13
   store ptr %agg.tmp.i.i, ptr %ref.tmp.i.i.i.i, align 8, !tbaa !42
   %5 = getelementptr inbounds nuw i8, ptr %ref.tmp.i.i.i.i, i64 8
-  store ptr %3, ptr %5, align 8, !tbaa !79
+  store ptr %3, ptr %5, align 8, !tbaa !78
   %call2.i.i1.i.i = invoke noundef double @_ZNK8QuantLib18GaussianQuadratureclIZNKS_30GaussianQuadMultidimIntegrator16scalarIntegratorILi7EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEEdEUldE_EEdRKT_(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i.i.i)
           to label %invoke.cont.i.i unwind label %lpad.i.i
 
@@ -7385,19 +7385,19 @@ sw.epilog:                                        ; preds = %entry, %sw.bb4.i, %
 define linkonce_odr void @_ZNSt17_Function_handlerIFSt6vectorIdSaIdEERKSt8functionIFS2_RKS2_EEdEZNK8QuantLib30GaussianQuadMultidimIntegrator9spawnFctsILm7EEEvvEUlS9_dE_E9_M_invokeERKSt9_Any_dataS9_Od(ptr dead_on_unwind noalias writable sret(%"class.std::vector.7") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %__functor, ptr noundef nonnull align 8 dereferenceable(32) %__args, ptr noundef nonnull align 8 dereferenceable(8) %__args1) #0 comdat align 2 {
 entry:
   %ref.tmp.i.i.i.i = alloca %class.anon.59, align 8
-  %0 = load double, ptr %__args1, align 8, !tbaa !39, !noalias !438
-  %1 = load ptr, ptr %__functor, align 8, !tbaa !443, !noalias !445
+  %0 = load double, ptr %__args1, align 8, !tbaa !39, !noalias !437
+  %1 = load ptr, ptr %__functor, align 8, !tbaa !442, !noalias !444
   %varBuffer_.i.i.i.i = getelementptr inbounds nuw i8, ptr %1, i64 120
-  %2 = load ptr, ptr %varBuffer_.i.i.i.i, align 8, !tbaa !37, !noalias !448
+  %2 = load ptr, ptr %varBuffer_.i.i.i.i, align 8, !tbaa !37, !noalias !447
   %add.ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 48
-  store double %0, ptr %add.ptr.i.i.i.i.i, align 8, !tbaa !39, !noalias !448
+  store double %0, ptr %add.ptr.i.i.i.i.i, align 8, !tbaa !39, !noalias !447
   %integralV_.i.i.i.i = getelementptr inbounds nuw i8, ptr %1, i64 32
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i.i.i.i) #13, !noalias !448
-  store ptr %__args, ptr %ref.tmp.i.i.i.i, align 8, !tbaa !42, !noalias !448
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i.i.i.i) #13, !noalias !447
+  store ptr %__args, ptr %ref.tmp.i.i.i.i, align 8, !tbaa !42, !noalias !447
   %3 = getelementptr inbounds nuw i8, ptr %ref.tmp.i.i.i.i, i64 8
-  store ptr %1, ptr %3, align 8, !tbaa !220, !noalias !448
+  store ptr %1, ptr %3, align 8, !tbaa !219, !noalias !447
   call void @_ZNK8QuantLib30GaussianQuadMultidimIntegrator16VectorIntegratorclIZNKS0_18vectorIntegratorVRILi7EEESt6vectorIdSaIdEERKSt8functionIFS6_RKS6_EEdEUldE_EES6_RKT_(ptr dead_on_unwind writable sret(%"class.std::vector.7") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %integralV_.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i.i.i)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i.i.i.i) #13, !noalias !448
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i.i.i.i) #13, !noalias !447
   ret void
 }
 
@@ -7556,8 +7556,8 @@ entry:
   %_M_invoker.i = getelementptr inbounds nuw i8, ptr %agg.tmp, i64 24
   %_M_invoker2.i = getelementptr inbounds nuw i8, ptr %__args, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, i8 0, i64 24, i1 false)
-  %0 = load ptr, ptr %_M_invoker2.i, align 8, !tbaa !51
-  store ptr %0, ptr %_M_invoker.i, align 8, !tbaa !51
+  %0 = load ptr, ptr %_M_invoker2.i, align 8, !tbaa !50
+  store ptr %0, ptr %_M_invoker.i, align 8, !tbaa !50
   %_M_manager.i.i.i = getelementptr inbounds nuw i8, ptr %__args, i64 16
   %1 = load ptr, ptr %_M_manager.i.i.i, align 8, !tbaa !45
   %tobool.not.i.i.not.i = icmp eq ptr %1, null
@@ -7572,13 +7572,13 @@ if.then.i:                                        ; preds = %entry
 
 _ZNSt8functionIFdRKSt6vectorIdSaIdEEEEC2EOS6_.exit: ; preds = %entry, %if.then.i
   %2 = load double, ptr %__args1, align 8, !tbaa !39
-  %3 = load ptr, ptr %__f, align 8, !tbaa !451
+  %3 = load ptr, ptr %__f, align 8, !tbaa !450
   %varBuffer_.i.i = getelementptr inbounds nuw i8, ptr %3, i64 120
   %4 = load ptr, ptr %varBuffer_.i.i, align 8, !tbaa !37
   %add.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %4, i64 40
   store double %2, ptr %add.ptr.i.i.i, align 8, !tbaa !39
   %n_.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %5 = load i64, ptr %n_.i.i.i.i.i, align 8, !tbaa !57
+  %5 = load i64, ptr %n_.i.i.i.i.i, align 8, !tbaa !56
   %conv.i.i.i = trunc i64 %5 to i32
   %cmp6.i.i.i = icmp sgt i32 %conv.i.i.i, 0
   br i1 %cmp6.i.i.i, label %for.body.lr.ph.i.i.i, label %invoke.cont
@@ -7604,7 +7604,7 @@ for.body.i.i.i:                                   ; preds = %call2.i.i.i.i.i.noe
   store double %11, ptr %add.ptr.i.i.i.i.i.i, align 8, !tbaa !39
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i.i.i.i.i) #13
   store ptr %agg.tmp, ptr %ref.tmp.i.i.i.i.i, align 8, !tbaa !42
-  store ptr %3, ptr %6, align 8, !tbaa !82
+  store ptr %3, ptr %6, align 8, !tbaa !81
   %call2.i.i.i.i.i1 = invoke noundef double @_ZNK8QuantLib18GaussianQuadratureclIZNKS_30GaussianQuadMultidimIntegrator16scalarIntegratorILi5EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEEdEUldE_EEdRKT_(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i.i.i.i)
           to label %call2.i.i.i.i.i.noexc unwind label %lpad
 
@@ -7612,7 +7612,7 @@ call2.i.i.i.i.i.noexc:                            ; preds = %for.body.i.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i.i.i.i.i) #13
   %13 = call double @llvm.fmuladd.f64(double %9, double %call2.i.i.i.i.i1, double %sum.07.i.i.i)
   %cmp.i.i.i = icmp samesign ugt i64 %indvars.iv.i.i.i, 1
-  br i1 %cmp.i.i.i, label %for.body.i.i.i, label %invoke.cont.loopexit, !llvm.loop !75
+  br i1 %cmp.i.i.i, label %for.body.i.i.i, label %invoke.cont.loopexit, !llvm.loop !74
 
 invoke.cont.loopexit:                             ; preds = %call2.i.i.i.i.i.noexc
   %_M_manager.i.phi.trans.insert = getelementptr inbounds nuw i8, ptr %agg.tmp, i64 16
@@ -7666,19 +7666,19 @@ _ZNSt14_Function_baseD2Ev.exit8:                  ; preds = %lpad, %if.then.i5
 define linkonce_odr void @_ZNSt17_Function_handlerIFSt6vectorIdSaIdEERKSt8functionIFS2_RKS2_EEdEZNK8QuantLib30GaussianQuadMultidimIntegrator9spawnFctsILm6EEEvvEUlS9_dE_E9_M_invokeERKSt9_Any_dataS9_Od(ptr dead_on_unwind noalias writable sret(%"class.std::vector.7") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %__functor, ptr noundef nonnull align 8 dereferenceable(32) %__args, ptr noundef nonnull align 8 dereferenceable(8) %__args1) #0 comdat align 2 {
 entry:
   %ref.tmp.i.i.i.i = alloca %class.anon.62, align 8
-  %0 = load double, ptr %__args1, align 8, !tbaa !39, !noalias !453
-  %1 = load ptr, ptr %__functor, align 8, !tbaa !458, !noalias !460
+  %0 = load double, ptr %__args1, align 8, !tbaa !39, !noalias !452
+  %1 = load ptr, ptr %__functor, align 8, !tbaa !457, !noalias !459
   %varBuffer_.i.i.i.i = getelementptr inbounds nuw i8, ptr %1, i64 120
-  %2 = load ptr, ptr %varBuffer_.i.i.i.i, align 8, !tbaa !37, !noalias !463
+  %2 = load ptr, ptr %varBuffer_.i.i.i.i, align 8, !tbaa !37, !noalias !462
   %add.ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 40
-  store double %0, ptr %add.ptr.i.i.i.i.i, align 8, !tbaa !39, !noalias !463
+  store double %0, ptr %add.ptr.i.i.i.i.i, align 8, !tbaa !39, !noalias !462
   %integralV_.i.i.i.i = getelementptr inbounds nuw i8, ptr %1, i64 32
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i.i.i.i) #13, !noalias !463
-  store ptr %__args, ptr %ref.tmp.i.i.i.i, align 8, !tbaa !42, !noalias !463
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i.i.i.i) #13, !noalias !462
+  store ptr %__args, ptr %ref.tmp.i.i.i.i, align 8, !tbaa !42, !noalias !462
   %3 = getelementptr inbounds nuw i8, ptr %ref.tmp.i.i.i.i, i64 8
-  store ptr %1, ptr %3, align 8, !tbaa !236, !noalias !463
+  store ptr %1, ptr %3, align 8, !tbaa !235, !noalias !462
   call void @_ZNK8QuantLib30GaussianQuadMultidimIntegrator16VectorIntegratorclIZNKS0_18vectorIntegratorVRILi6EEESt6vectorIdSaIdEERKSt8functionIFS6_RKS6_EEdEUldE_EES6_RKT_(ptr dead_on_unwind writable sret(%"class.std::vector.7") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %integralV_.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i.i.i)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i.i.i.i) #13, !noalias !463
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i.i.i.i) #13, !noalias !462
   ret void
 }
 
@@ -7805,8 +7805,8 @@ entry:
   %_M_invoker.i.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp.i.i, i64 24
   %_M_invoker2.i.i.i = getelementptr inbounds nuw i8, ptr %__args, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i.i, i8 0, i64 24, i1 false)
-  %0 = load ptr, ptr %_M_invoker2.i.i.i, align 8, !tbaa !51
-  store ptr %0, ptr %_M_invoker.i.i.i, align 8, !tbaa !51
+  %0 = load ptr, ptr %_M_invoker2.i.i.i, align 8, !tbaa !50
+  store ptr %0, ptr %_M_invoker.i.i.i, align 8, !tbaa !50
   %_M_manager.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__args, i64 16
   %1 = load ptr, ptr %_M_manager.i.i.i.i.i, align 8, !tbaa !45
   %tobool.not.i.i.not.i.i.i = icmp eq ptr %1, null
@@ -7821,7 +7821,7 @@ if.then.i.i.i:                                    ; preds = %entry
 
 _ZNSt8functionIFdRKSt6vectorIdSaIdEEEEC2EOS6_.exit.i.i: ; preds = %if.then.i.i.i, %entry
   %2 = load double, ptr %__args1, align 8, !tbaa !39
-  %3 = load ptr, ptr %__functor, align 8, !tbaa !466
+  %3 = load ptr, ptr %__functor, align 8, !tbaa !465
   %varBuffer_.i.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 120
   %4 = load ptr, ptr %varBuffer_.i.i.i.i, align 8, !tbaa !37
   %add.ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %4, i64 32
@@ -7829,7 +7829,7 @@ _ZNSt8functionIFdRKSt6vectorIdSaIdEEEEC2EOS6_.exit.i.i: ; preds = %if.then.i.i.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i.i.i.i) #13
   store ptr %agg.tmp.i.i, ptr %ref.tmp.i.i.i.i, align 8, !tbaa !42
   %5 = getelementptr inbounds nuw i8, ptr %ref.tmp.i.i.i.i, i64 8
-  store ptr %3, ptr %5, align 8, !tbaa !82
+  store ptr %3, ptr %5, align 8, !tbaa !81
   %call2.i.i1.i.i = invoke noundef double @_ZNK8QuantLib18GaussianQuadratureclIZNKS_30GaussianQuadMultidimIntegrator16scalarIntegratorILi5EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEEdEUldE_EEdRKT_(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i.i.i)
           to label %invoke.cont.i.i unwind label %lpad.i.i
 
@@ -7908,19 +7908,19 @@ sw.epilog:                                        ; preds = %entry, %sw.bb4.i, %
 define linkonce_odr void @_ZNSt17_Function_handlerIFSt6vectorIdSaIdEERKSt8functionIFS2_RKS2_EEdEZNK8QuantLib30GaussianQuadMultidimIntegrator9spawnFctsILm5EEEvvEUlS9_dE_E9_M_invokeERKSt9_Any_dataS9_Od(ptr dead_on_unwind noalias writable sret(%"class.std::vector.7") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %__functor, ptr noundef nonnull align 8 dereferenceable(32) %__args, ptr noundef nonnull align 8 dereferenceable(8) %__args1) #0 comdat align 2 {
 entry:
   %ref.tmp.i.i.i.i = alloca %class.anon.65, align 8
-  %0 = load double, ptr %__args1, align 8, !tbaa !39, !noalias !468
-  %1 = load ptr, ptr %__functor, align 8, !tbaa !473, !noalias !475
+  %0 = load double, ptr %__args1, align 8, !tbaa !39, !noalias !467
+  %1 = load ptr, ptr %__functor, align 8, !tbaa !472, !noalias !474
   %varBuffer_.i.i.i.i = getelementptr inbounds nuw i8, ptr %1, i64 120
-  %2 = load ptr, ptr %varBuffer_.i.i.i.i, align 8, !tbaa !37, !noalias !478
+  %2 = load ptr, ptr %varBuffer_.i.i.i.i, align 8, !tbaa !37, !noalias !477
   %add.ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 32
-  store double %0, ptr %add.ptr.i.i.i.i.i, align 8, !tbaa !39, !noalias !478
+  store double %0, ptr %add.ptr.i.i.i.i.i, align 8, !tbaa !39, !noalias !477
   %integralV_.i.i.i.i = getelementptr inbounds nuw i8, ptr %1, i64 32
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i.i.i.i) #13, !noalias !478
-  store ptr %__args, ptr %ref.tmp.i.i.i.i, align 8, !tbaa !42, !noalias !478
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i.i.i.i) #13, !noalias !477
+  store ptr %__args, ptr %ref.tmp.i.i.i.i, align 8, !tbaa !42, !noalias !477
   %3 = getelementptr inbounds nuw i8, ptr %ref.tmp.i.i.i.i, i64 8
-  store ptr %1, ptr %3, align 8, !tbaa !252, !noalias !478
+  store ptr %1, ptr %3, align 8, !tbaa !251, !noalias !477
   call void @_ZNK8QuantLib30GaussianQuadMultidimIntegrator16VectorIntegratorclIZNKS0_18vectorIntegratorVRILi5EEESt6vectorIdSaIdEERKSt8functionIFS6_RKS6_EEdEUldE_EES6_RKT_(ptr dead_on_unwind writable sret(%"class.std::vector.7") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %integralV_.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i.i.i)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i.i.i.i) #13, !noalias !478
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i.i.i.i) #13, !noalias !477
   ret void
 }
 
@@ -8078,8 +8078,8 @@ entry:
   %_M_invoker.i = getelementptr inbounds nuw i8, ptr %agg.tmp, i64 24
   %_M_invoker2.i = getelementptr inbounds nuw i8, ptr %__args, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, i8 0, i64 24, i1 false)
-  %0 = load ptr, ptr %_M_invoker2.i, align 8, !tbaa !51
-  store ptr %0, ptr %_M_invoker.i, align 8, !tbaa !51
+  %0 = load ptr, ptr %_M_invoker2.i, align 8, !tbaa !50
+  store ptr %0, ptr %_M_invoker.i, align 8, !tbaa !50
   %_M_manager.i.i.i = getelementptr inbounds nuw i8, ptr %__args, i64 16
   %1 = load ptr, ptr %_M_manager.i.i.i, align 8, !tbaa !45
   %tobool.not.i.i.not.i = icmp eq ptr %1, null
@@ -8094,13 +8094,13 @@ if.then.i:                                        ; preds = %entry
 
 _ZNSt8functionIFdRKSt6vectorIdSaIdEEEEC2EOS6_.exit: ; preds = %entry, %if.then.i
   %2 = load double, ptr %__args1, align 8, !tbaa !39
-  %3 = load ptr, ptr %__f, align 8, !tbaa !481
+  %3 = load ptr, ptr %__f, align 8, !tbaa !480
   %varBuffer_.i.i = getelementptr inbounds nuw i8, ptr %3, i64 120
   %4 = load ptr, ptr %varBuffer_.i.i, align 8, !tbaa !37
   %add.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %4, i64 24
   store double %2, ptr %add.ptr.i.i.i, align 8, !tbaa !39
   %n_.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %5 = load i64, ptr %n_.i.i.i.i.i, align 8, !tbaa !57
+  %5 = load i64, ptr %n_.i.i.i.i.i, align 8, !tbaa !56
   %conv.i.i.i = trunc i64 %5 to i32
   %cmp8.i.i.i = icmp sgt i32 %conv.i.i.i, 0
   br i1 %cmp8.i.i.i, label %for.body.lr.ph.i.i.i, label %invoke.cont
@@ -8124,7 +8124,7 @@ for.body.i.i.i:                                   ; preds = %_ZZNK8QuantLib30Gau
   %11 = load ptr, ptr %varBuffer_.i.i, align 8, !tbaa !37
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %11, i64 16
   store double %10, ptr %add.ptr.i.i.i.i.i.i, align 8, !tbaa !39
-  %12 = load i64, ptr %n_.i.i.i.i.i, align 8, !tbaa !57
+  %12 = load i64, ptr %n_.i.i.i.i.i, align 8, !tbaa !56
   %conv.i.i.i.i.i.i = trunc i64 %12 to i32
   %cmp7.i.i.i.i.i.i = icmp sgt i32 %conv.i.i.i.i.i.i, 0
   br i1 %cmp7.i.i.i.i.i.i, label %for.body.lr.ph.i.i.i.i.i.i, label %_ZZNK8QuantLib30GaussianQuadMultidimIntegrator16scalarIntegratorILi4EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEEdENKUldE_clEd.exit.i.i.i
@@ -8146,7 +8146,7 @@ for.body.i.i.i.i.i.i:                             ; preds = %_ZZNK8QuantLib30Gau
   %18 = load ptr, ptr %varBuffer_.i.i, align 8, !tbaa !37
   %add.ptr.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %18, i64 8
   store double %17, ptr %add.ptr.i.i.i.i.i.i.i.i.i, align 8, !tbaa !39
-  %19 = load i64, ptr %n_.i.i.i.i.i, align 8, !tbaa !57
+  %19 = load i64, ptr %n_.i.i.i.i.i, align 8, !tbaa !56
   %conv.i.i.i.i.i.i.i.i.i = trunc i64 %19 to i32
   %cmp7.i.i.i.i.i.i.i.i.i = icmp sgt i32 %conv.i.i.i.i.i.i.i.i.i, 0
   br i1 %cmp7.i.i.i.i.i.i.i.i.i, label %for.body.lr.ph.i.i.i.i.i.i.i.i.i, label %_ZZNK8QuantLib30GaussianQuadMultidimIntegrator16scalarIntegratorILi3EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEEdENKUldE_clEd.exit.i.i.i.i.i.i
@@ -8179,26 +8179,26 @@ if.then.i.i.i.i.i.i.i.i.i.i.i.i:                  ; preds = %for.body.i.i.i.i.i.
   unreachable
 
 _ZZNK8QuantLib30GaussianQuadMultidimIntegrator16scalarIntegratorILi2EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEEdENKUldE_clEd.exit.i.i.i.i.i.i.i.i.i: ; preds = %for.body.i.i.i.i.i.i.i.i.i
-  %27 = load ptr, ptr %_M_invoker.i, align 8, !tbaa !51
+  %27 = load ptr, ptr %_M_invoker.i, align 8, !tbaa !50
   %call2.i.i.i.i.i.i.i.i.i.i.i.i1 = invoke noundef double %27(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(24) %varBuffer_.i.i)
           to label %call2.i.i.i.i.i.i.i.i.i.i.i.i.noexc unwind label %lpad.loopexit
 
 call2.i.i.i.i.i.i.i.i.i.i.i.i.noexc:              ; preds = %_ZZNK8QuantLib30GaussianQuadMultidimIntegrator16scalarIntegratorILi2EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEEdENKUldE_clEd.exit.i.i.i.i.i.i.i.i.i
   %28 = call double @llvm.fmuladd.f64(double %22, double %call2.i.i.i.i.i.i.i.i.i.i.i.i1, double %sum.08.i.i.i.i.i.i.i.i.i)
   %cmp.i.i.i.i.i.i.i.i.i = icmp samesign ugt i64 %indvars.iv.i.i.i.i.i.i.i.i.i, 1
-  br i1 %cmp.i.i.i.i.i.i.i.i.i, label %for.body.i.i.i.i.i.i.i.i.i, label %_ZZNK8QuantLib30GaussianQuadMultidimIntegrator16scalarIntegratorILi3EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEEdENKUldE_clEd.exit.i.i.i.i.i.i, !llvm.loop !71
+  br i1 %cmp.i.i.i.i.i.i.i.i.i, label %for.body.i.i.i.i.i.i.i.i.i, label %_ZZNK8QuantLib30GaussianQuadMultidimIntegrator16scalarIntegratorILi3EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEEdENKUldE_clEd.exit.i.i.i.i.i.i, !llvm.loop !70
 
 _ZZNK8QuantLib30GaussianQuadMultidimIntegrator16scalarIntegratorILi3EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEEdENKUldE_clEd.exit.i.i.i.i.i.i: ; preds = %call2.i.i.i.i.i.i.i.i.i.i.i.i.noexc, %for.body.i.i.i.i.i.i
   %sum.0.lcssa.i.i.i.i.i.i.i.i.i = phi double [ 0.000000e+00, %for.body.i.i.i.i.i.i ], [ %28, %call2.i.i.i.i.i.i.i.i.i.i.i.i.noexc ]
   %29 = call double @llvm.fmuladd.f64(double %15, double %sum.0.lcssa.i.i.i.i.i.i.i.i.i, double %sum.08.i.i.i.i.i.i)
   %cmp.i.i.i.i.i.i = icmp sgt i64 %indvars.iv.i.i.i.i.i.i, 1
-  br i1 %cmp.i.i.i.i.i.i, label %for.body.i.i.i.i.i.i, label %_ZZNK8QuantLib30GaussianQuadMultidimIntegrator16scalarIntegratorILi4EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEEdENKUldE_clEd.exit.i.i.i, !llvm.loop !72
+  br i1 %cmp.i.i.i.i.i.i, label %for.body.i.i.i.i.i.i, label %_ZZNK8QuantLib30GaussianQuadMultidimIntegrator16scalarIntegratorILi4EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEEdENKUldE_clEd.exit.i.i.i, !llvm.loop !71
 
 _ZZNK8QuantLib30GaussianQuadMultidimIntegrator16scalarIntegratorILi4EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEEdENKUldE_clEd.exit.i.i.i: ; preds = %_ZZNK8QuantLib30GaussianQuadMultidimIntegrator16scalarIntegratorILi3EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEEdENKUldE_clEd.exit.i.i.i.i.i.i, %for.body.i.i.i
   %sum.0.lcssa.i.i.i.i.i.i = phi double [ 0.000000e+00, %for.body.i.i.i ], [ %29, %_ZZNK8QuantLib30GaussianQuadMultidimIntegrator16scalarIntegratorILi3EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEEdENKUldE_clEd.exit.i.i.i.i.i.i ]
   %30 = call double @llvm.fmuladd.f64(double %8, double %sum.0.lcssa.i.i.i.i.i.i, double %sum.09.i.i.i)
   %cmp.i.i.i = icmp sgt i64 %indvars.iv.i.i.i, 1
-  br i1 %cmp.i.i.i, label %for.body.i.i.i, label %invoke.cont.loopexit, !llvm.loop !73
+  br i1 %cmp.i.i.i, label %for.body.i.i.i, label %invoke.cont.loopexit, !llvm.loop !72
 
 invoke.cont.loopexit:                             ; preds = %_ZZNK8QuantLib30GaussianQuadMultidimIntegrator16scalarIntegratorILi4EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEEdENKUldE_clEd.exit.i.i.i
   %.pre = load ptr, ptr %_M_manager.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !tbaa !45
@@ -8259,19 +8259,19 @@ _ZNSt14_Function_baseD2Ev.exit8:                  ; preds = %lpad, %if.then.i5
 define linkonce_odr void @_ZNSt17_Function_handlerIFSt6vectorIdSaIdEERKSt8functionIFS2_RKS2_EEdEZNK8QuantLib30GaussianQuadMultidimIntegrator9spawnFctsILm4EEEvvEUlS9_dE_E9_M_invokeERKSt9_Any_dataS9_Od(ptr dead_on_unwind noalias writable sret(%"class.std::vector.7") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %__functor, ptr noundef nonnull align 8 dereferenceable(32) %__args, ptr noundef nonnull align 8 dereferenceable(8) %__args1) #0 comdat align 2 {
 entry:
   %ref.tmp.i.i.i.i = alloca %class.anon.68, align 8
-  %0 = load double, ptr %__args1, align 8, !tbaa !39, !noalias !483
-  %1 = load ptr, ptr %__functor, align 8, !tbaa !488, !noalias !490
+  %0 = load double, ptr %__args1, align 8, !tbaa !39, !noalias !482
+  %1 = load ptr, ptr %__functor, align 8, !tbaa !487, !noalias !489
   %varBuffer_.i.i.i.i = getelementptr inbounds nuw i8, ptr %1, i64 120
-  %2 = load ptr, ptr %varBuffer_.i.i.i.i, align 8, !tbaa !37, !noalias !493
+  %2 = load ptr, ptr %varBuffer_.i.i.i.i, align 8, !tbaa !37, !noalias !492
   %add.ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 24
-  store double %0, ptr %add.ptr.i.i.i.i.i, align 8, !tbaa !39, !noalias !493
+  store double %0, ptr %add.ptr.i.i.i.i.i, align 8, !tbaa !39, !noalias !492
   %integralV_.i.i.i.i = getelementptr inbounds nuw i8, ptr %1, i64 32
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i.i.i.i) #13, !noalias !493
-  store ptr %__args, ptr %ref.tmp.i.i.i.i, align 8, !tbaa !42, !noalias !493
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i.i.i.i) #13, !noalias !492
+  store ptr %__args, ptr %ref.tmp.i.i.i.i, align 8, !tbaa !42, !noalias !492
   %3 = getelementptr inbounds nuw i8, ptr %ref.tmp.i.i.i.i, i64 8
-  store ptr %1, ptr %3, align 8, !tbaa !268, !noalias !493
+  store ptr %1, ptr %3, align 8, !tbaa !267, !noalias !492
   call void @_ZNK8QuantLib30GaussianQuadMultidimIntegrator16VectorIntegratorclIZNKS0_18vectorIntegratorVRILi4EEESt6vectorIdSaIdEERKSt8functionIFS6_RKS6_EEdEUldE_EES6_RKT_(ptr dead_on_unwind writable sret(%"class.std::vector.7") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %integralV_.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i.i.i)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i.i.i.i) #13, !noalias !493
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i.i.i.i) #13, !noalias !492
   ret void
 }
 
@@ -8504,8 +8504,8 @@ entry:
   %_M_invoker.i = getelementptr inbounds nuw i8, ptr %agg.tmp, i64 24
   %_M_invoker2.i = getelementptr inbounds nuw i8, ptr %__args, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, i8 0, i64 24, i1 false)
-  %0 = load ptr, ptr %_M_invoker2.i, align 8, !tbaa !51
-  store ptr %0, ptr %_M_invoker.i, align 8, !tbaa !51
+  %0 = load ptr, ptr %_M_invoker2.i, align 8, !tbaa !50
+  store ptr %0, ptr %_M_invoker.i, align 8, !tbaa !50
   %_M_manager.i.i.i = getelementptr inbounds nuw i8, ptr %__args, i64 16
   %1 = load ptr, ptr %_M_manager.i.i.i, align 8, !tbaa !45
   %tobool.not.i.i.not.i = icmp eq ptr %1, null
@@ -8520,13 +8520,13 @@ if.then.i:                                        ; preds = %entry
 
 _ZNSt8functionIFdRKSt6vectorIdSaIdEEEEC2EOS6_.exit: ; preds = %entry, %if.then.i
   %2 = load double, ptr %__args1, align 8, !tbaa !39
-  %3 = load ptr, ptr %__f, align 8, !tbaa !496
+  %3 = load ptr, ptr %__f, align 8, !tbaa !495
   %varBuffer_.i.i = getelementptr inbounds nuw i8, ptr %3, i64 120
   %4 = load ptr, ptr %varBuffer_.i.i, align 8, !tbaa !37
   %add.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %4, i64 16
   store double %2, ptr %add.ptr.i.i.i, align 8, !tbaa !39
   %n_.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %5 = load i64, ptr %n_.i.i.i.i.i, align 8, !tbaa !57
+  %5 = load i64, ptr %n_.i.i.i.i.i, align 8, !tbaa !56
   %conv.i.i.i = trunc i64 %5 to i32
   %cmp7.i.i.i = icmp sgt i32 %conv.i.i.i, 0
   br i1 %cmp7.i.i.i, label %for.body.lr.ph.i.i.i, label %invoke.cont
@@ -8550,7 +8550,7 @@ for.body.i.i.i:                                   ; preds = %_ZZNK8QuantLib30Gau
   %11 = load ptr, ptr %varBuffer_.i.i, align 8, !tbaa !37
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %11, i64 8
   store double %10, ptr %add.ptr.i.i.i.i.i.i, align 8, !tbaa !39
-  %12 = load i64, ptr %n_.i.i.i.i.i, align 8, !tbaa !57
+  %12 = load i64, ptr %n_.i.i.i.i.i, align 8, !tbaa !56
   %conv.i.i.i.i.i.i = trunc i64 %12 to i32
   %cmp7.i.i.i.i.i.i = icmp sgt i32 %conv.i.i.i.i.i.i, 0
   br i1 %cmp7.i.i.i.i.i.i, label %for.body.lr.ph.i.i.i.i.i.i, label %_ZZNK8QuantLib30GaussianQuadMultidimIntegrator16scalarIntegratorILi3EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEEdENKUldE_clEd.exit.i.i.i
@@ -8583,20 +8583,20 @@ if.then.i.i.i.i.i.i.i.i.i:                        ; preds = %for.body.i.i.i.i.i.
   unreachable
 
 _ZZNK8QuantLib30GaussianQuadMultidimIntegrator16scalarIntegratorILi2EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEEdENKUldE_clEd.exit.i.i.i.i.i.i: ; preds = %for.body.i.i.i.i.i.i
-  %20 = load ptr, ptr %_M_invoker.i, align 8, !tbaa !51
+  %20 = load ptr, ptr %_M_invoker.i, align 8, !tbaa !50
   %call2.i.i.i.i.i.i.i.i.i1 = invoke noundef double %20(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(24) %varBuffer_.i.i)
           to label %call2.i.i.i.i.i.i.i.i.i.noexc unwind label %lpad.loopexit
 
 call2.i.i.i.i.i.i.i.i.i.noexc:                    ; preds = %_ZZNK8QuantLib30GaussianQuadMultidimIntegrator16scalarIntegratorILi2EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEEdENKUldE_clEd.exit.i.i.i.i.i.i
   %21 = call double @llvm.fmuladd.f64(double %15, double %call2.i.i.i.i.i.i.i.i.i1, double %sum.08.i.i.i.i.i.i)
   %cmp.i.i.i.i.i.i = icmp samesign ugt i64 %indvars.iv.i.i.i.i.i.i, 1
-  br i1 %cmp.i.i.i.i.i.i, label %for.body.i.i.i.i.i.i, label %_ZZNK8QuantLib30GaussianQuadMultidimIntegrator16scalarIntegratorILi3EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEEdENKUldE_clEd.exit.i.i.i, !llvm.loop !71
+  br i1 %cmp.i.i.i.i.i.i, label %for.body.i.i.i.i.i.i, label %_ZZNK8QuantLib30GaussianQuadMultidimIntegrator16scalarIntegratorILi3EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEEdENKUldE_clEd.exit.i.i.i, !llvm.loop !70
 
 _ZZNK8QuantLib30GaussianQuadMultidimIntegrator16scalarIntegratorILi3EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEEdENKUldE_clEd.exit.i.i.i: ; preds = %call2.i.i.i.i.i.i.i.i.i.noexc, %for.body.i.i.i
   %sum.0.lcssa.i.i.i.i.i.i = phi double [ 0.000000e+00, %for.body.i.i.i ], [ %21, %call2.i.i.i.i.i.i.i.i.i.noexc ]
   %22 = call double @llvm.fmuladd.f64(double %8, double %sum.0.lcssa.i.i.i.i.i.i, double %sum.08.i.i.i)
   %cmp.i.i.i = icmp sgt i64 %indvars.iv.i.i.i, 1
-  br i1 %cmp.i.i.i, label %for.body.i.i.i, label %invoke.cont.loopexit, !llvm.loop !72
+  br i1 %cmp.i.i.i, label %for.body.i.i.i, label %invoke.cont.loopexit, !llvm.loop !71
 
 invoke.cont.loopexit:                             ; preds = %_ZZNK8QuantLib30GaussianQuadMultidimIntegrator16scalarIntegratorILi3EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEEdENKUldE_clEd.exit.i.i.i
   %.pre = load ptr, ptr %_M_manager.i.i.i.i.i.i.i.i.i.i, align 8, !tbaa !45
@@ -8657,19 +8657,19 @@ _ZNSt14_Function_baseD2Ev.exit8:                  ; preds = %lpad, %if.then.i5
 define linkonce_odr void @_ZNSt17_Function_handlerIFSt6vectorIdSaIdEERKSt8functionIFS2_RKS2_EEdEZNK8QuantLib30GaussianQuadMultidimIntegrator9spawnFctsILm3EEEvvEUlS9_dE_E9_M_invokeERKSt9_Any_dataS9_Od(ptr dead_on_unwind noalias writable sret(%"class.std::vector.7") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %__functor, ptr noundef nonnull align 8 dereferenceable(32) %__args, ptr noundef nonnull align 8 dereferenceable(8) %__args1) #0 comdat align 2 {
 entry:
   %ref.tmp.i.i.i.i = alloca %class.anon.71, align 8
-  %0 = load double, ptr %__args1, align 8, !tbaa !39, !noalias !498
-  %1 = load ptr, ptr %__functor, align 8, !tbaa !503, !noalias !505
+  %0 = load double, ptr %__args1, align 8, !tbaa !39, !noalias !497
+  %1 = load ptr, ptr %__functor, align 8, !tbaa !502, !noalias !504
   %varBuffer_.i.i.i.i = getelementptr inbounds nuw i8, ptr %1, i64 120
-  %2 = load ptr, ptr %varBuffer_.i.i.i.i, align 8, !tbaa !37, !noalias !508
+  %2 = load ptr, ptr %varBuffer_.i.i.i.i, align 8, !tbaa !37, !noalias !507
   %add.ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store double %0, ptr %add.ptr.i.i.i.i.i, align 8, !tbaa !39, !noalias !508
+  store double %0, ptr %add.ptr.i.i.i.i.i, align 8, !tbaa !39, !noalias !507
   %integralV_.i.i.i.i = getelementptr inbounds nuw i8, ptr %1, i64 32
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i.i.i.i) #13, !noalias !508
-  store ptr %__args, ptr %ref.tmp.i.i.i.i, align 8, !tbaa !42, !noalias !508
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i.i.i.i) #13, !noalias !507
+  store ptr %__args, ptr %ref.tmp.i.i.i.i, align 8, !tbaa !42, !noalias !507
   %3 = getelementptr inbounds nuw i8, ptr %ref.tmp.i.i.i.i, i64 8
-  store ptr %1, ptr %3, align 8, !tbaa !284, !noalias !508
+  store ptr %1, ptr %3, align 8, !tbaa !283, !noalias !507
   call void @_ZNK8QuantLib30GaussianQuadMultidimIntegrator16VectorIntegratorclIZNKS0_18vectorIntegratorVRILi3EEESt6vectorIdSaIdEERKSt8functionIFS6_RKS6_EEdEUldE_EES6_RKT_(ptr dead_on_unwind writable sret(%"class.std::vector.7") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %integralV_.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i.i.i)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i.i.i.i) #13, !noalias !508
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i.i.i.i) #13, !noalias !507
   ret void
 }
 
@@ -8739,8 +8739,8 @@ entry:
   %_M_invoker.i = getelementptr inbounds nuw i8, ptr %agg.tmp, i64 24
   %_M_invoker2.i = getelementptr inbounds nuw i8, ptr %__args, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, i8 0, i64 24, i1 false)
-  %0 = load ptr, ptr %_M_invoker2.i, align 8, !tbaa !51
-  store ptr %0, ptr %_M_invoker.i, align 8, !tbaa !51
+  %0 = load ptr, ptr %_M_invoker2.i, align 8, !tbaa !50
+  store ptr %0, ptr %_M_invoker.i, align 8, !tbaa !50
   %_M_manager.i.i.i = getelementptr inbounds nuw i8, ptr %__args, i64 16
   %1 = load ptr, ptr %_M_manager.i.i.i, align 8, !tbaa !45
   %tobool.not.i.i.not.i = icmp eq ptr %1, null
@@ -8755,13 +8755,13 @@ if.then.i:                                        ; preds = %entry
 
 _ZNSt8functionIFdRKSt6vectorIdSaIdEEEEC2EOS6_.exit: ; preds = %entry, %if.then.i
   %2 = load double, ptr %__args1, align 8, !tbaa !39
-  %3 = load ptr, ptr %__f, align 8, !tbaa !511
+  %3 = load ptr, ptr %__f, align 8, !tbaa !510
   %varBuffer_.i.i = getelementptr inbounds nuw i8, ptr %3, i64 120
   %4 = load ptr, ptr %varBuffer_.i.i, align 8, !tbaa !37
   %add.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %4, i64 8
   store double %2, ptr %add.ptr.i.i.i, align 8, !tbaa !39
   %n_.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %5 = load i64, ptr %n_.i.i.i.i.i, align 8, !tbaa !57
+  %5 = load i64, ptr %n_.i.i.i.i.i, align 8, !tbaa !56
   %conv.i.i.i = trunc i64 %5 to i32
   %cmp7.i.i.i = icmp sgt i32 %conv.i.i.i, 0
   br i1 %cmp7.i.i.i, label %for.body.lr.ph.i.i.i, label %invoke.cont
@@ -8796,14 +8796,14 @@ if.then.i.i.i.i.i.i:                              ; preds = %for.body.i.i.i
   unreachable
 
 _ZZNK8QuantLib30GaussianQuadMultidimIntegrator16scalarIntegratorILi2EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEEdENKUldE_clEd.exit.i.i.i: ; preds = %for.body.i.i.i
-  %13 = load ptr, ptr %_M_invoker.i, align 8, !tbaa !51
+  %13 = load ptr, ptr %_M_invoker.i, align 8, !tbaa !50
   %call2.i.i.i.i.i.i1 = invoke noundef double %13(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(24) %varBuffer_.i.i)
           to label %call2.i.i.i.i.i.i.noexc unwind label %lpad.loopexit
 
 call2.i.i.i.i.i.i.noexc:                          ; preds = %_ZZNK8QuantLib30GaussianQuadMultidimIntegrator16scalarIntegratorILi2EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEEdENKUldE_clEd.exit.i.i.i
   %14 = call double @llvm.fmuladd.f64(double %8, double %call2.i.i.i.i.i.i1, double %sum.08.i.i.i)
   %cmp.i.i.i = icmp samesign ugt i64 %indvars.iv.i.i.i, 1
-  br i1 %cmp.i.i.i, label %for.body.i.i.i, label %invoke.cont.loopexit, !llvm.loop !71
+  br i1 %cmp.i.i.i, label %for.body.i.i.i, label %invoke.cont.loopexit, !llvm.loop !70
 
 invoke.cont.loopexit:                             ; preds = %call2.i.i.i.i.i.i.noexc
   %.pre = load ptr, ptr %_M_manager.i.i.i.i.i.i.i, align 8, !tbaa !45
@@ -8864,19 +8864,19 @@ _ZNSt14_Function_baseD2Ev.exit8:                  ; preds = %lpad, %if.then.i5
 define linkonce_odr void @_ZNSt17_Function_handlerIFSt6vectorIdSaIdEERKSt8functionIFS2_RKS2_EEdEZNK8QuantLib30GaussianQuadMultidimIntegrator9spawnFctsILm2EEEvvEUlS9_dE_E9_M_invokeERKSt9_Any_dataS9_Od(ptr dead_on_unwind noalias writable sret(%"class.std::vector.7") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %__functor, ptr noundef nonnull align 8 dereferenceable(32) %__args, ptr noundef nonnull align 8 dereferenceable(8) %__args1) #0 comdat align 2 {
 entry:
   %ref.tmp.i.i.i.i = alloca %class.anon.74, align 8
-  %0 = load double, ptr %__args1, align 8, !tbaa !39, !noalias !513
-  %1 = load ptr, ptr %__functor, align 8, !tbaa !518, !noalias !520
+  %0 = load double, ptr %__args1, align 8, !tbaa !39, !noalias !512
+  %1 = load ptr, ptr %__functor, align 8, !tbaa !517, !noalias !519
   %varBuffer_.i.i.i.i = getelementptr inbounds nuw i8, ptr %1, i64 120
-  %2 = load ptr, ptr %varBuffer_.i.i.i.i, align 8, !tbaa !37, !noalias !523
+  %2 = load ptr, ptr %varBuffer_.i.i.i.i, align 8, !tbaa !37, !noalias !522
   %add.ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store double %0, ptr %add.ptr.i.i.i.i.i, align 8, !tbaa !39, !noalias !523
+  store double %0, ptr %add.ptr.i.i.i.i.i, align 8, !tbaa !39, !noalias !522
   %integralV_.i.i.i.i = getelementptr inbounds nuw i8, ptr %1, i64 32
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i.i.i.i) #13, !noalias !523
-  store ptr %__args, ptr %ref.tmp.i.i.i.i, align 8, !tbaa !42, !noalias !523
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i.i.i.i) #13, !noalias !522
+  store ptr %__args, ptr %ref.tmp.i.i.i.i, align 8, !tbaa !42, !noalias !522
   %3 = getelementptr inbounds nuw i8, ptr %ref.tmp.i.i.i.i, i64 8
-  store ptr %1, ptr %3, align 8, !tbaa !300, !noalias !523
+  store ptr %1, ptr %3, align 8, !tbaa !299, !noalias !522
   call void @_ZNK8QuantLib30GaussianQuadMultidimIntegrator16VectorIntegratorclIZNKS0_18vectorIntegratorVRILi2EEESt6vectorIdSaIdEERKSt8functionIFS6_RKS6_EEdEUldE_EES6_RKT_(ptr dead_on_unwind writable sret(%"class.std::vector.7") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %integralV_.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i.i.i)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i.i.i.i) #13, !noalias !523
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i.i.i.i) #13, !noalias !522
   ret void
 }
 
@@ -8910,7 +8910,7 @@ sw.epilog:                                        ; preds = %entry, %sw.bb4.i, %
 define linkonce_odr noundef double @_ZNSt17_Function_handlerIFdSt8functionIFdRKSt6vectorIdSaIdEEEEdEZNK8QuantLib30GaussianQuadMultidimIntegrator9spawnFctsILm1EEEvvEUlRKS7_dE_E9_M_invokeERKSt9_Any_dataOS7_Od(ptr noundef nonnull align 8 dereferenceable(16) %__functor, ptr noundef nonnull align 8 dereferenceable(32) %__args, ptr noundef nonnull align 8 dereferenceable(8) %__args1) #0 comdat align 2 {
 entry:
   %0 = load double, ptr %__args1, align 8, !tbaa !39
-  %1 = load ptr, ptr %__functor, align 8, !tbaa !526
+  %1 = load ptr, ptr %__functor, align 8, !tbaa !525
   %varBuffer_.i.i.i.i = getelementptr inbounds nuw i8, ptr %1, i64 120
   %2 = load ptr, ptr %varBuffer_.i.i.i.i, align 8, !tbaa !37
   store double %0, ptr %2, align 8, !tbaa !39
@@ -8925,7 +8925,7 @@ if.then.i.i.i.i.i:                                ; preds = %entry
 
 _ZSt10__invoke_rIdRZNK8QuantLib30GaussianQuadMultidimIntegrator9spawnFctsILm1EEEvvEUlRKSt8functionIFdRKSt6vectorIdSaIdEEEEdE_JSA_dEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESG_E4typeEOSH_DpOSI_.exit: ; preds = %entry
   %_M_invoker.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__args, i64 24
-  %4 = load ptr, ptr %_M_invoker.i.i.i.i.i, align 8, !tbaa !51
+  %4 = load ptr, ptr %_M_invoker.i.i.i.i.i, align 8, !tbaa !50
   %call2.i.i.i.i.i = tail call noundef double %4(ptr noundef nonnull align 8 dereferenceable(32) %__args, ptr noundef nonnull align 8 dereferenceable(24) %varBuffer_.i.i.i.i)
   ret double %call2.i.i.i.i.i
 }
@@ -8959,23 +8959,23 @@ sw.epilog:                                        ; preds = %entry, %sw.bb4.i, %
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt17_Function_handlerIFSt6vectorIdSaIdEERKSt8functionIFS2_RKS2_EEdEZNK8QuantLib30GaussianQuadMultidimIntegrator9spawnFctsILm1EEEvvEUlS9_dE_E9_M_invokeERKSt9_Any_dataS9_Od(ptr dead_on_unwind noalias writable sret(%"class.std::vector.7") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %__functor, ptr noundef nonnull align 8 dereferenceable(32) %__args, ptr noundef nonnull align 8 dereferenceable(8) %__args1) #0 comdat align 2 {
 entry:
-  %0 = load double, ptr %__args1, align 8, !tbaa !39, !noalias !528
-  %1 = load ptr, ptr %__functor, align 8, !tbaa !533, !noalias !535
+  %0 = load double, ptr %__args1, align 8, !tbaa !39, !noalias !527
+  %1 = load ptr, ptr %__functor, align 8, !tbaa !532, !noalias !534
   %varBuffer_.i.i.i.i = getelementptr inbounds nuw i8, ptr %1, i64 120
-  %2 = load ptr, ptr %varBuffer_.i.i.i.i, align 8, !tbaa !37, !noalias !538
-  store double %0, ptr %2, align 8, !tbaa !39, !noalias !538
+  %2 = load ptr, ptr %varBuffer_.i.i.i.i, align 8, !tbaa !37, !noalias !537
+  store double %0, ptr %2, align 8, !tbaa !39, !noalias !537
   %_M_manager.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__args, i64 16
-  %3 = load ptr, ptr %_M_manager.i.i.i.i.i.i, align 8, !tbaa !45, !noalias !541
+  %3 = load ptr, ptr %_M_manager.i.i.i.i.i.i, align 8, !tbaa !45, !noalias !540
   %tobool.not.i.i.i.i.i.i = icmp eq ptr %3, null
   br i1 %tobool.not.i.i.i.i.i.i, label %if.then.i.i.i.i.i, label %_ZSt10__invoke_rISt6vectorIdSaIdEERZNK8QuantLib30GaussianQuadMultidimIntegrator9spawnFctsILm1EEEvvEUlRKSt8functionIFS2_RKS2_EEdE_JSC_dEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESG_E4typeEOSH_DpOSI_.exit
 
 if.then.i.i.i.i.i:                                ; preds = %entry
-  tail call void @_ZSt25__throw_bad_function_callv() #15, !noalias !541
+  tail call void @_ZSt25__throw_bad_function_callv() #15, !noalias !540
   unreachable
 
 _ZSt10__invoke_rISt6vectorIdSaIdEERZNK8QuantLib30GaussianQuadMultidimIntegrator9spawnFctsILm1EEEvvEUlRKSt8functionIFS2_RKS2_EEdE_JSC_dEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESG_E4typeEOSH_DpOSI_.exit: ; preds = %entry
   %_M_invoker.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__args, i64 24
-  %4 = load ptr, ptr %_M_invoker.i.i.i.i.i, align 8, !tbaa !319, !noalias !541
+  %4 = load ptr, ptr %_M_invoker.i.i.i.i.i, align 8, !tbaa !318, !noalias !540
   tail call void %4(ptr dead_on_unwind writable sret(%"class.std::vector.7") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %__args, ptr noundef nonnull align 8 dereferenceable(24) %varBuffer_.i.i.i.i)
   ret void
 }
@@ -9074,500 +9074,499 @@ attributes #17 = { noreturn nounwind }
 !44 = !{!6, !6, i64 0}
 !45 = !{!46, !5, i64 16}
 !46 = !{!"_ZTSSt14_Function_base", !6, i64 0, !5, i64 16}
-!47 = distinct !{!47, !48, !49}
+!47 = distinct !{!47, !48}
 !48 = !{!"llvm.loop.mustprogress"}
-!49 = !{!"llvm.loop.estimated_trip_count"}
-!50 = distinct !{!50, !48, !49}
-!51 = !{!52, !5, i64 24}
-!52 = !{!"_ZTSSt8functionIFdRKSt6vectorIdSaIdEEEE", !46, i64 0, !5, i64 24}
-!53 = !{!54, !5, i64 0}
-!54 = !{!"_ZTSZNK8QuantLib30GaussianQuadMultidimIntegrator9spawnFctsILm15EEEvvEUlSt8functionIFdRKSt6vectorIdSaIdEEEEdE_", !5, i64 0}
-!55 = !{!56, !5, i64 8}
-!56 = !{!"_ZTSZNK8QuantLib30GaussianQuadMultidimIntegrator16scalarIntegratorILi15EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEEdEUldE_", !5, i64 0, !5, i64 8}
-!57 = !{!18, !25, i64 8}
-!58 = !{!56, !5, i64 0}
-!59 = !{!60, !5, i64 8}
-!60 = !{!"_ZTSZNK8QuantLib30GaussianQuadMultidimIntegrator16scalarIntegratorILi9EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEEdEUldE_", !5, i64 0, !5, i64 8}
-!61 = distinct !{!61, !48, !49}
-!62 = distinct !{!62, !48, !49}
-!63 = distinct !{!63, !48, !49}
-!64 = distinct !{!64, !48, !49}
-!65 = distinct !{!65, !48, !49}
-!66 = distinct !{!66, !48, !49}
-!67 = !{!68, !5, i64 8}
-!68 = !{!"_ZTSZNK8QuantLib30GaussianQuadMultidimIntegrator16scalarIntegratorILi13EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEEdEUldE_", !5, i64 0, !5, i64 8}
-!69 = !{!68, !5, i64 0}
-!70 = !{!60, !5, i64 0}
-!71 = distinct !{!71, !48, !49}
-!72 = distinct !{!72, !48, !49}
-!73 = distinct !{!73, !48, !49}
-!74 = distinct !{!74, !48, !49}
-!75 = distinct !{!75, !48, !49}
-!76 = distinct !{!76, !48, !49}
-!77 = distinct !{!77, !48, !49}
-!78 = distinct !{!78, !48, !49}
-!79 = !{!80, !5, i64 8}
-!80 = !{!"_ZTSZNK8QuantLib30GaussianQuadMultidimIntegrator16scalarIntegratorILi7EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEEdEUldE_", !5, i64 0, !5, i64 8}
-!81 = !{!80, !5, i64 0}
-!82 = !{!83, !5, i64 8}
-!83 = !{!"_ZTSZNK8QuantLib30GaussianQuadMultidimIntegrator16scalarIntegratorILi5EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEEdEUldE_", !5, i64 0, !5, i64 8}
-!84 = !{!83, !5, i64 0}
-!85 = !{!86, !88}
-!86 = distinct !{!86, !87, !"_ZSt13__invoke_implISt6vectorIdSaIdEERZNK8QuantLib30GaussianQuadMultidimIntegrator9spawnFctsILm15EEEvvEUlRKSt8functionIFS2_RKS2_EEdE_JSC_dEET_St14__invoke_otherOT0_DpOT1_: %agg.result"}
-!87 = distinct !{!87, !"_ZSt13__invoke_implISt6vectorIdSaIdEERZNK8QuantLib30GaussianQuadMultidimIntegrator9spawnFctsILm15EEEvvEUlRKSt8functionIFS2_RKS2_EEdE_JSC_dEET_St14__invoke_otherOT0_DpOT1_"}
-!88 = distinct !{!88, !89, !"_ZSt10__invoke_rISt6vectorIdSaIdEERZNK8QuantLib30GaussianQuadMultidimIntegrator9spawnFctsILm15EEEvvEUlRKSt8functionIFS2_RKS2_EEdE_JSC_dEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESG_E4typeEOSH_DpOSI_: %agg.result"}
-!89 = distinct !{!89, !"_ZSt10__invoke_rISt6vectorIdSaIdEERZNK8QuantLib30GaussianQuadMultidimIntegrator9spawnFctsILm15EEEvvEUlRKSt8functionIFS2_RKS2_EEdE_JSC_dEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESG_E4typeEOSH_DpOSI_"}
-!90 = !{!91, !5, i64 0}
-!91 = !{!"_ZTSZNK8QuantLib30GaussianQuadMultidimIntegrator9spawnFctsILm15EEEvvEUlRKSt8functionIFSt6vectorIdSaIdEERKS5_EEdE_", !5, i64 0}
-!92 = !{!93, !86, !88}
-!93 = distinct !{!93, !94, !"_ZZNK8QuantLib30GaussianQuadMultidimIntegrator9spawnFctsILm15EEEvvENKUlRKSt8functionIFSt6vectorIdSaIdEERKS5_EEdE_clESB_d: %agg.result"}
-!94 = distinct !{!94, !"_ZZNK8QuantLib30GaussianQuadMultidimIntegrator9spawnFctsILm15EEEvvENKUlRKSt8functionIFSt6vectorIdSaIdEERKS5_EEdE_clESB_d"}
-!95 = !{!96, !93, !86, !88}
-!96 = distinct !{!96, !97, !"_ZNK8QuantLib30GaussianQuadMultidimIntegrator18vectorIntegratorVRILi15EEESt6vectorIdSaIdEERKSt8functionIFS4_RKS4_EEd: %agg.result"}
-!97 = distinct !{!97, !"_ZNK8QuantLib30GaussianQuadMultidimIntegrator18vectorIntegratorVRILi15EEESt6vectorIdSaIdEERKSt8functionIFS4_RKS4_EEd"}
-!98 = !{!99, !5, i64 8}
-!99 = !{!"_ZTSZNK8QuantLib30GaussianQuadMultidimIntegrator18vectorIntegratorVRILi15EEESt6vectorIdSaIdEERKSt8functionIFS4_RKS4_EEdEUldE_", !5, i64 0, !5, i64 8}
-!100 = !{!101}
-!101 = distinct !{!101, !102, !"_ZZNK8QuantLib30GaussianQuadMultidimIntegrator18vectorIntegratorVRILi15EEESt6vectorIdSaIdEERKSt8functionIFS4_RKS4_EEdENKUldE_clEd: %agg.result"}
-!102 = distinct !{!102, !"_ZZNK8QuantLib30GaussianQuadMultidimIntegrator18vectorIntegratorVRILi15EEESt6vectorIdSaIdEERKSt8functionIFS4_RKS4_EEdENKUldE_clEd"}
-!103 = !{!99, !5, i64 0}
-!104 = !{!105, !101}
-!105 = distinct !{!105, !106, !"_ZNK8QuantLib30GaussianQuadMultidimIntegrator18vectorIntegratorVRILi14EEESt6vectorIdSaIdEERKSt8functionIFS4_RKS4_EEd: %agg.result"}
-!106 = distinct !{!106, !"_ZNK8QuantLib30GaussianQuadMultidimIntegrator18vectorIntegratorVRILi14EEESt6vectorIdSaIdEERKSt8functionIFS4_RKS4_EEd"}
-!107 = !{!108, !5, i64 8}
-!108 = !{!"_ZTSZNK8QuantLib30GaussianQuadMultidimIntegrator18vectorIntegratorVRILi14EEESt6vectorIdSaIdEERKSt8functionIFS4_RKS4_EEdEUldE_", !5, i64 0, !5, i64 8}
-!109 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!110 = !{!111}
-!111 = distinct !{!111, !112, !"_ZZNK8QuantLib30GaussianQuadMultidimIntegrator18vectorIntegratorVRILi15EEESt6vectorIdSaIdEERKSt8functionIFS4_RKS4_EEdENKUldE_clEd: %agg.result"}
-!112 = distinct !{!112, !"_ZZNK8QuantLib30GaussianQuadMultidimIntegrator18vectorIntegratorVRILi15EEESt6vectorIdSaIdEERKSt8functionIFS4_RKS4_EEdENKUldE_clEd"}
-!113 = !{!114, !111}
-!114 = distinct !{!114, !115, !"_ZNK8QuantLib30GaussianQuadMultidimIntegrator18vectorIntegratorVRILi14EEESt6vectorIdSaIdEERKSt8functionIFS4_RKS4_EEd: %agg.result"}
-!115 = distinct !{!115, !"_ZNK8QuantLib30GaussianQuadMultidimIntegrator18vectorIntegratorVRILi14EEESt6vectorIdSaIdEERKSt8functionIFS4_RKS4_EEd"}
-!116 = distinct !{!116, !48, !49}
-!117 = !{!118}
-!118 = distinct !{!118, !119, !"_ZZNK8QuantLib30GaussianQuadMultidimIntegrator18vectorIntegratorVRILi14EEESt6vectorIdSaIdEERKSt8functionIFS4_RKS4_EEdENKUldE_clEd: %agg.result"}
-!119 = distinct !{!119, !"_ZZNK8QuantLib30GaussianQuadMultidimIntegrator18vectorIntegratorVRILi14EEESt6vectorIdSaIdEERKSt8functionIFS4_RKS4_EEdENKUldE_clEd"}
-!120 = !{!108, !5, i64 0}
-!121 = !{!122, !118}
-!122 = distinct !{!122, !123, !"_ZNK8QuantLib30GaussianQuadMultidimIntegrator18vectorIntegratorVRILi13EEESt6vectorIdSaIdEERKSt8functionIFS4_RKS4_EEd: %agg.result"}
-!123 = distinct !{!123, !"_ZNK8QuantLib30GaussianQuadMultidimIntegrator18vectorIntegratorVRILi13EEESt6vectorIdSaIdEERKSt8functionIFS4_RKS4_EEd"}
-!124 = !{!125, !5, i64 8}
-!125 = !{!"_ZTSZNK8QuantLib30GaussianQuadMultidimIntegrator18vectorIntegratorVRILi13EEESt6vectorIdSaIdEERKSt8functionIFS4_RKS4_EEdEUldE_", !5, i64 0, !5, i64 8}
-!126 = !{!127}
-!127 = distinct !{!127, !128, !"_ZZNK8QuantLib30GaussianQuadMultidimIntegrator18vectorIntegratorVRILi14EEESt6vectorIdSaIdEERKSt8functionIFS4_RKS4_EEdENKUldE_clEd: %agg.result"}
-!128 = distinct !{!128, !"_ZZNK8QuantLib30GaussianQuadMultidimIntegrator18vectorIntegratorVRILi14EEESt6vectorIdSaIdEERKSt8functionIFS4_RKS4_EEdENKUldE_clEd"}
-!129 = !{!130, !127}
-!130 = distinct !{!130, !131, !"_ZNK8QuantLib30GaussianQuadMultidimIntegrator18vectorIntegratorVRILi13EEESt6vectorIdSaIdEERKSt8functionIFS4_RKS4_EEd: %agg.result"}
-!131 = distinct !{!131, !"_ZNK8QuantLib30GaussianQuadMultidimIntegrator18vectorIntegratorVRILi13EEESt6vectorIdSaIdEERKSt8functionIFS4_RKS4_EEd"}
-!132 = distinct !{!132, !48, !49}
-!133 = !{!134}
-!134 = distinct !{!134, !135, !"_ZZNK8QuantLib30GaussianQuadMultidimIntegrator18vectorIntegratorVRILi13EEESt6vectorIdSaIdEERKSt8functionIFS4_RKS4_EEdENKUldE_clEd: %agg.result"}
-!135 = distinct !{!135, !"_ZZNK8QuantLib30GaussianQuadMultidimIntegrator18vectorIntegratorVRILi13EEESt6vectorIdSaIdEERKSt8functionIFS4_RKS4_EEdENKUldE_clEd"}
-!136 = !{!125, !5, i64 0}
-!137 = !{!138, !134}
-!138 = distinct !{!138, !139, !"_ZNK8QuantLib30GaussianQuadMultidimIntegrator18vectorIntegratorVRILi12EEESt6vectorIdSaIdEERKSt8functionIFS4_RKS4_EEd: %agg.result"}
-!139 = distinct !{!139, !"_ZNK8QuantLib30GaussianQuadMultidimIntegrator18vectorIntegratorVRILi12EEESt6vectorIdSaIdEERKSt8functionIFS4_RKS4_EEd"}
-!140 = !{!141, !5, i64 8}
-!141 = !{!"_ZTSZNK8QuantLib30GaussianQuadMultidimIntegrator18vectorIntegratorVRILi12EEESt6vectorIdSaIdEERKSt8functionIFS4_RKS4_EEdEUldE_", !5, i64 0, !5, i64 8}
-!142 = !{!143}
-!143 = distinct !{!143, !144, !"_ZZNK8QuantLib30GaussianQuadMultidimIntegrator18vectorIntegratorVRILi13EEESt6vectorIdSaIdEERKSt8functionIFS4_RKS4_EEdENKUldE_clEd: %agg.result"}
-!144 = distinct !{!144, !"_ZZNK8QuantLib30GaussianQuadMultidimIntegrator18vectorIntegratorVRILi13EEESt6vectorIdSaIdEERKSt8functionIFS4_RKS4_EEdENKUldE_clEd"}
-!145 = !{!146, !143}
-!146 = distinct !{!146, !147, !"_ZNK8QuantLib30GaussianQuadMultidimIntegrator18vectorIntegratorVRILi12EEESt6vectorIdSaIdEERKSt8functionIFS4_RKS4_EEd: %agg.result"}
-!147 = distinct !{!147, !"_ZNK8QuantLib30GaussianQuadMultidimIntegrator18vectorIntegratorVRILi12EEESt6vectorIdSaIdEERKSt8functionIFS4_RKS4_EEd"}
-!148 = distinct !{!148, !48, !49}
-!149 = !{!150}
-!150 = distinct !{!150, !151, !"_ZZNK8QuantLib30GaussianQuadMultidimIntegrator18vectorIntegratorVRILi12EEESt6vectorIdSaIdEERKSt8functionIFS4_RKS4_EEdENKUldE_clEd: %agg.result"}
-!151 = distinct !{!151, !"_ZZNK8QuantLib30GaussianQuadMultidimIntegrator18vectorIntegratorVRILi12EEESt6vectorIdSaIdEERKSt8functionIFS4_RKS4_EEdENKUldE_clEd"}
-!152 = !{!141, !5, i64 0}
-!153 = !{!154, !150}
-!154 = distinct !{!154, !155, !"_ZNK8QuantLib30GaussianQuadMultidimIntegrator18vectorIntegratorVRILi11EEESt6vectorIdSaIdEERKSt8functionIFS4_RKS4_EEd: %agg.result"}
-!155 = distinct !{!155, !"_ZNK8QuantLib30GaussianQuadMultidimIntegrator18vectorIntegratorVRILi11EEESt6vectorIdSaIdEERKSt8functionIFS4_RKS4_EEd"}
-!156 = !{!157, !5, i64 8}
-!157 = !{!"_ZTSZNK8QuantLib30GaussianQuadMultidimIntegrator18vectorIntegratorVRILi11EEESt6vectorIdSaIdEERKSt8functionIFS4_RKS4_EEdEUldE_", !5, i64 0, !5, i64 8}
-!158 = !{!159}
-!159 = distinct !{!159, !160, !"_ZZNK8QuantLib30GaussianQuadMultidimIntegrator18vectorIntegratorVRILi12EEESt6vectorIdSaIdEERKSt8functionIFS4_RKS4_EEdENKUldE_clEd: %agg.result"}
-!160 = distinct !{!160, !"_ZZNK8QuantLib30GaussianQuadMultidimIntegrator18vectorIntegratorVRILi12EEESt6vectorIdSaIdEERKSt8functionIFS4_RKS4_EEdENKUldE_clEd"}
-!161 = !{!162, !159}
-!162 = distinct !{!162, !163, !"_ZNK8QuantLib30GaussianQuadMultidimIntegrator18vectorIntegratorVRILi11EEESt6vectorIdSaIdEERKSt8functionIFS4_RKS4_EEd: %agg.result"}
-!163 = distinct !{!163, !"_ZNK8QuantLib30GaussianQuadMultidimIntegrator18vectorIntegratorVRILi11EEESt6vectorIdSaIdEERKSt8functionIFS4_RKS4_EEd"}
-!164 = distinct !{!164, !48, !49}
-!165 = !{!166}
-!166 = distinct !{!166, !167, !"_ZZNK8QuantLib30GaussianQuadMultidimIntegrator18vectorIntegratorVRILi11EEESt6vectorIdSaIdEERKSt8functionIFS4_RKS4_EEdENKUldE_clEd: %agg.result"}
-!167 = distinct !{!167, !"_ZZNK8QuantLib30GaussianQuadMultidimIntegrator18vectorIntegratorVRILi11EEESt6vectorIdSaIdEERKSt8functionIFS4_RKS4_EEdENKUldE_clEd"}
-!168 = !{!157, !5, i64 0}
-!169 = !{!170, !166}
-!170 = distinct !{!170, !171, !"_ZNK8QuantLib30GaussianQuadMultidimIntegrator18vectorIntegratorVRILi10EEESt6vectorIdSaIdEERKSt8functionIFS4_RKS4_EEd: %agg.result"}
-!171 = distinct !{!171, !"_ZNK8QuantLib30GaussianQuadMultidimIntegrator18vectorIntegratorVRILi10EEESt6vectorIdSaIdEERKSt8functionIFS4_RKS4_EEd"}
-!172 = !{!173, !5, i64 8}
-!173 = !{!"_ZTSZNK8QuantLib30GaussianQuadMultidimIntegrator18vectorIntegratorVRILi10EEESt6vectorIdSaIdEERKSt8functionIFS4_RKS4_EEdEUldE_", !5, i64 0, !5, i64 8}
-!174 = !{!175}
-!175 = distinct !{!175, !176, !"_ZZNK8QuantLib30GaussianQuadMultidimIntegrator18vectorIntegratorVRILi11EEESt6vectorIdSaIdEERKSt8functionIFS4_RKS4_EEdENKUldE_clEd: %agg.result"}
-!176 = distinct !{!176, !"_ZZNK8QuantLib30GaussianQuadMultidimIntegrator18vectorIntegratorVRILi11EEESt6vectorIdSaIdEERKSt8functionIFS4_RKS4_EEdENKUldE_clEd"}
-!177 = !{!178, !175}
-!178 = distinct !{!178, !179, !"_ZNK8QuantLib30GaussianQuadMultidimIntegrator18vectorIntegratorVRILi10EEESt6vectorIdSaIdEERKSt8functionIFS4_RKS4_EEd: %agg.result"}
-!179 = distinct !{!179, !"_ZNK8QuantLib30GaussianQuadMultidimIntegrator18vectorIntegratorVRILi10EEESt6vectorIdSaIdEERKSt8functionIFS4_RKS4_EEd"}
-!180 = distinct !{!180, !48, !49}
-!181 = !{!182}
-!182 = distinct !{!182, !183, !"_ZZNK8QuantLib30GaussianQuadMultidimIntegrator18vectorIntegratorVRILi10EEESt6vectorIdSaIdEERKSt8functionIFS4_RKS4_EEdENKUldE_clEd: %agg.result"}
-!183 = distinct !{!183, !"_ZZNK8QuantLib30GaussianQuadMultidimIntegrator18vectorIntegratorVRILi10EEESt6vectorIdSaIdEERKSt8functionIFS4_RKS4_EEdENKUldE_clEd"}
-!184 = !{!173, !5, i64 0}
-!185 = !{!186, !182}
-!186 = distinct !{!186, !187, !"_ZNK8QuantLib30GaussianQuadMultidimIntegrator18vectorIntegratorVRILi9EEESt6vectorIdSaIdEERKSt8functionIFS4_RKS4_EEd: %agg.result"}
-!187 = distinct !{!187, !"_ZNK8QuantLib30GaussianQuadMultidimIntegrator18vectorIntegratorVRILi9EEESt6vectorIdSaIdEERKSt8functionIFS4_RKS4_EEd"}
-!188 = !{!189, !5, i64 8}
-!189 = !{!"_ZTSZNK8QuantLib30GaussianQuadMultidimIntegrator18vectorIntegratorVRILi9EEESt6vectorIdSaIdEERKSt8functionIFS4_RKS4_EEdEUldE_", !5, i64 0, !5, i64 8}
-!190 = !{!191}
-!191 = distinct !{!191, !192, !"_ZZNK8QuantLib30GaussianQuadMultidimIntegrator18vectorIntegratorVRILi10EEESt6vectorIdSaIdEERKSt8functionIFS4_RKS4_EEdENKUldE_clEd: %agg.result"}
-!192 = distinct !{!192, !"_ZZNK8QuantLib30GaussianQuadMultidimIntegrator18vectorIntegratorVRILi10EEESt6vectorIdSaIdEERKSt8functionIFS4_RKS4_EEdENKUldE_clEd"}
-!193 = !{!194, !191}
-!194 = distinct !{!194, !195, !"_ZNK8QuantLib30GaussianQuadMultidimIntegrator18vectorIntegratorVRILi9EEESt6vectorIdSaIdEERKSt8functionIFS4_RKS4_EEd: %agg.result"}
-!195 = distinct !{!195, !"_ZNK8QuantLib30GaussianQuadMultidimIntegrator18vectorIntegratorVRILi9EEESt6vectorIdSaIdEERKSt8functionIFS4_RKS4_EEd"}
-!196 = distinct !{!196, !48, !49}
-!197 = !{!198}
-!198 = distinct !{!198, !199, !"_ZZNK8QuantLib30GaussianQuadMultidimIntegrator18vectorIntegratorVRILi9EEESt6vectorIdSaIdEERKSt8functionIFS4_RKS4_EEdENKUldE_clEd: %agg.result"}
-!199 = distinct !{!199, !"_ZZNK8QuantLib30GaussianQuadMultidimIntegrator18vectorIntegratorVRILi9EEESt6vectorIdSaIdEERKSt8functionIFS4_RKS4_EEdENKUldE_clEd"}
-!200 = !{!189, !5, i64 0}
-!201 = !{!202, !198}
-!202 = distinct !{!202, !203, !"_ZNK8QuantLib30GaussianQuadMultidimIntegrator18vectorIntegratorVRILi8EEESt6vectorIdSaIdEERKSt8functionIFS4_RKS4_EEd: %agg.result"}
-!203 = distinct !{!203, !"_ZNK8QuantLib30GaussianQuadMultidimIntegrator18vectorIntegratorVRILi8EEESt6vectorIdSaIdEERKSt8functionIFS4_RKS4_EEd"}
-!204 = !{!205, !5, i64 8}
-!205 = !{!"_ZTSZNK8QuantLib30GaussianQuadMultidimIntegrator18vectorIntegratorVRILi8EEESt6vectorIdSaIdEERKSt8functionIFS4_RKS4_EEdEUldE_", !5, i64 0, !5, i64 8}
-!206 = !{!207}
-!207 = distinct !{!207, !208, !"_ZZNK8QuantLib30GaussianQuadMultidimIntegrator18vectorIntegratorVRILi9EEESt6vectorIdSaIdEERKSt8functionIFS4_RKS4_EEdENKUldE_clEd: %agg.result"}
-!208 = distinct !{!208, !"_ZZNK8QuantLib30GaussianQuadMultidimIntegrator18vectorIntegratorVRILi9EEESt6vectorIdSaIdEERKSt8functionIFS4_RKS4_EEdENKUldE_clEd"}
-!209 = !{!210, !207}
-!210 = distinct !{!210, !211, !"_ZNK8QuantLib30GaussianQuadMultidimIntegrator18vectorIntegratorVRILi8EEESt6vectorIdSaIdEERKSt8functionIFS4_RKS4_EEd: %agg.result"}
-!211 = distinct !{!211, !"_ZNK8QuantLib30GaussianQuadMultidimIntegrator18vectorIntegratorVRILi8EEESt6vectorIdSaIdEERKSt8functionIFS4_RKS4_EEd"}
-!212 = distinct !{!212, !48, !49}
-!213 = !{!214}
-!214 = distinct !{!214, !215, !"_ZZNK8QuantLib30GaussianQuadMultidimIntegrator18vectorIntegratorVRILi8EEESt6vectorIdSaIdEERKSt8functionIFS4_RKS4_EEdENKUldE_clEd: %agg.result"}
-!215 = distinct !{!215, !"_ZZNK8QuantLib30GaussianQuadMultidimIntegrator18vectorIntegratorVRILi8EEESt6vectorIdSaIdEERKSt8functionIFS4_RKS4_EEdENKUldE_clEd"}
-!216 = !{!205, !5, i64 0}
-!217 = !{!218, !214}
-!218 = distinct !{!218, !219, !"_ZNK8QuantLib30GaussianQuadMultidimIntegrator18vectorIntegratorVRILi7EEESt6vectorIdSaIdEERKSt8functionIFS4_RKS4_EEd: %agg.result"}
-!219 = distinct !{!219, !"_ZNK8QuantLib30GaussianQuadMultidimIntegrator18vectorIntegratorVRILi7EEESt6vectorIdSaIdEERKSt8functionIFS4_RKS4_EEd"}
-!220 = !{!221, !5, i64 8}
-!221 = !{!"_ZTSZNK8QuantLib30GaussianQuadMultidimIntegrator18vectorIntegratorVRILi7EEESt6vectorIdSaIdEERKSt8functionIFS4_RKS4_EEdEUldE_", !5, i64 0, !5, i64 8}
-!222 = !{!223}
-!223 = distinct !{!223, !224, !"_ZZNK8QuantLib30GaussianQuadMultidimIntegrator18vectorIntegratorVRILi8EEESt6vectorIdSaIdEERKSt8functionIFS4_RKS4_EEdENKUldE_clEd: %agg.result"}
-!224 = distinct !{!224, !"_ZZNK8QuantLib30GaussianQuadMultidimIntegrator18vectorIntegratorVRILi8EEESt6vectorIdSaIdEERKSt8functionIFS4_RKS4_EEdENKUldE_clEd"}
-!225 = !{!226, !223}
-!226 = distinct !{!226, !227, !"_ZNK8QuantLib30GaussianQuadMultidimIntegrator18vectorIntegratorVRILi7EEESt6vectorIdSaIdEERKSt8functionIFS4_RKS4_EEd: %agg.result"}
-!227 = distinct !{!227, !"_ZNK8QuantLib30GaussianQuadMultidimIntegrator18vectorIntegratorVRILi7EEESt6vectorIdSaIdEERKSt8functionIFS4_RKS4_EEd"}
-!228 = distinct !{!228, !48, !49}
-!229 = !{!230}
-!230 = distinct !{!230, !231, !"_ZZNK8QuantLib30GaussianQuadMultidimIntegrator18vectorIntegratorVRILi7EEESt6vectorIdSaIdEERKSt8functionIFS4_RKS4_EEdENKUldE_clEd: %agg.result"}
-!231 = distinct !{!231, !"_ZZNK8QuantLib30GaussianQuadMultidimIntegrator18vectorIntegratorVRILi7EEESt6vectorIdSaIdEERKSt8functionIFS4_RKS4_EEdENKUldE_clEd"}
-!232 = !{!221, !5, i64 0}
-!233 = !{!234, !230}
-!234 = distinct !{!234, !235, !"_ZNK8QuantLib30GaussianQuadMultidimIntegrator18vectorIntegratorVRILi6EEESt6vectorIdSaIdEERKSt8functionIFS4_RKS4_EEd: %agg.result"}
-!235 = distinct !{!235, !"_ZNK8QuantLib30GaussianQuadMultidimIntegrator18vectorIntegratorVRILi6EEESt6vectorIdSaIdEERKSt8functionIFS4_RKS4_EEd"}
-!236 = !{!237, !5, i64 8}
-!237 = !{!"_ZTSZNK8QuantLib30GaussianQuadMultidimIntegrator18vectorIntegratorVRILi6EEESt6vectorIdSaIdEERKSt8functionIFS4_RKS4_EEdEUldE_", !5, i64 0, !5, i64 8}
-!238 = !{!239}
-!239 = distinct !{!239, !240, !"_ZZNK8QuantLib30GaussianQuadMultidimIntegrator18vectorIntegratorVRILi7EEESt6vectorIdSaIdEERKSt8functionIFS4_RKS4_EEdENKUldE_clEd: %agg.result"}
-!240 = distinct !{!240, !"_ZZNK8QuantLib30GaussianQuadMultidimIntegrator18vectorIntegratorVRILi7EEESt6vectorIdSaIdEERKSt8functionIFS4_RKS4_EEdENKUldE_clEd"}
-!241 = !{!242, !239}
-!242 = distinct !{!242, !243, !"_ZNK8QuantLib30GaussianQuadMultidimIntegrator18vectorIntegratorVRILi6EEESt6vectorIdSaIdEERKSt8functionIFS4_RKS4_EEd: %agg.result"}
-!243 = distinct !{!243, !"_ZNK8QuantLib30GaussianQuadMultidimIntegrator18vectorIntegratorVRILi6EEESt6vectorIdSaIdEERKSt8functionIFS4_RKS4_EEd"}
-!244 = distinct !{!244, !48, !49}
-!245 = !{!246}
-!246 = distinct !{!246, !247, !"_ZZNK8QuantLib30GaussianQuadMultidimIntegrator18vectorIntegratorVRILi6EEESt6vectorIdSaIdEERKSt8functionIFS4_RKS4_EEdENKUldE_clEd: %agg.result"}
-!247 = distinct !{!247, !"_ZZNK8QuantLib30GaussianQuadMultidimIntegrator18vectorIntegratorVRILi6EEESt6vectorIdSaIdEERKSt8functionIFS4_RKS4_EEdENKUldE_clEd"}
-!248 = !{!237, !5, i64 0}
-!249 = !{!250, !246}
-!250 = distinct !{!250, !251, !"_ZNK8QuantLib30GaussianQuadMultidimIntegrator18vectorIntegratorVRILi5EEESt6vectorIdSaIdEERKSt8functionIFS4_RKS4_EEd: %agg.result"}
-!251 = distinct !{!251, !"_ZNK8QuantLib30GaussianQuadMultidimIntegrator18vectorIntegratorVRILi5EEESt6vectorIdSaIdEERKSt8functionIFS4_RKS4_EEd"}
-!252 = !{!253, !5, i64 8}
-!253 = !{!"_ZTSZNK8QuantLib30GaussianQuadMultidimIntegrator18vectorIntegratorVRILi5EEESt6vectorIdSaIdEERKSt8functionIFS4_RKS4_EEdEUldE_", !5, i64 0, !5, i64 8}
-!254 = !{!255}
-!255 = distinct !{!255, !256, !"_ZZNK8QuantLib30GaussianQuadMultidimIntegrator18vectorIntegratorVRILi6EEESt6vectorIdSaIdEERKSt8functionIFS4_RKS4_EEdENKUldE_clEd: %agg.result"}
-!256 = distinct !{!256, !"_ZZNK8QuantLib30GaussianQuadMultidimIntegrator18vectorIntegratorVRILi6EEESt6vectorIdSaIdEERKSt8functionIFS4_RKS4_EEdENKUldE_clEd"}
-!257 = !{!258, !255}
-!258 = distinct !{!258, !259, !"_ZNK8QuantLib30GaussianQuadMultidimIntegrator18vectorIntegratorVRILi5EEESt6vectorIdSaIdEERKSt8functionIFS4_RKS4_EEd: %agg.result"}
-!259 = distinct !{!259, !"_ZNK8QuantLib30GaussianQuadMultidimIntegrator18vectorIntegratorVRILi5EEESt6vectorIdSaIdEERKSt8functionIFS4_RKS4_EEd"}
-!260 = distinct !{!260, !48, !49}
-!261 = !{!262}
-!262 = distinct !{!262, !263, !"_ZZNK8QuantLib30GaussianQuadMultidimIntegrator18vectorIntegratorVRILi5EEESt6vectorIdSaIdEERKSt8functionIFS4_RKS4_EEdENKUldE_clEd: %agg.result"}
-!263 = distinct !{!263, !"_ZZNK8QuantLib30GaussianQuadMultidimIntegrator18vectorIntegratorVRILi5EEESt6vectorIdSaIdEERKSt8functionIFS4_RKS4_EEdENKUldE_clEd"}
-!264 = !{!253, !5, i64 0}
-!265 = !{!266, !262}
-!266 = distinct !{!266, !267, !"_ZNK8QuantLib30GaussianQuadMultidimIntegrator18vectorIntegratorVRILi4EEESt6vectorIdSaIdEERKSt8functionIFS4_RKS4_EEd: %agg.result"}
-!267 = distinct !{!267, !"_ZNK8QuantLib30GaussianQuadMultidimIntegrator18vectorIntegratorVRILi4EEESt6vectorIdSaIdEERKSt8functionIFS4_RKS4_EEd"}
-!268 = !{!269, !5, i64 8}
-!269 = !{!"_ZTSZNK8QuantLib30GaussianQuadMultidimIntegrator18vectorIntegratorVRILi4EEESt6vectorIdSaIdEERKSt8functionIFS4_RKS4_EEdEUldE_", !5, i64 0, !5, i64 8}
-!270 = !{!271}
-!271 = distinct !{!271, !272, !"_ZZNK8QuantLib30GaussianQuadMultidimIntegrator18vectorIntegratorVRILi5EEESt6vectorIdSaIdEERKSt8functionIFS4_RKS4_EEdENKUldE_clEd: %agg.result"}
-!272 = distinct !{!272, !"_ZZNK8QuantLib30GaussianQuadMultidimIntegrator18vectorIntegratorVRILi5EEESt6vectorIdSaIdEERKSt8functionIFS4_RKS4_EEdENKUldE_clEd"}
-!273 = !{!274, !271}
-!274 = distinct !{!274, !275, !"_ZNK8QuantLib30GaussianQuadMultidimIntegrator18vectorIntegratorVRILi4EEESt6vectorIdSaIdEERKSt8functionIFS4_RKS4_EEd: %agg.result"}
-!275 = distinct !{!275, !"_ZNK8QuantLib30GaussianQuadMultidimIntegrator18vectorIntegratorVRILi4EEESt6vectorIdSaIdEERKSt8functionIFS4_RKS4_EEd"}
-!276 = distinct !{!276, !48, !49}
-!277 = !{!278}
-!278 = distinct !{!278, !279, !"_ZZNK8QuantLib30GaussianQuadMultidimIntegrator18vectorIntegratorVRILi4EEESt6vectorIdSaIdEERKSt8functionIFS4_RKS4_EEdENKUldE_clEd: %agg.result"}
-!279 = distinct !{!279, !"_ZZNK8QuantLib30GaussianQuadMultidimIntegrator18vectorIntegratorVRILi4EEESt6vectorIdSaIdEERKSt8functionIFS4_RKS4_EEdENKUldE_clEd"}
-!280 = !{!269, !5, i64 0}
-!281 = !{!282, !278}
-!282 = distinct !{!282, !283, !"_ZNK8QuantLib30GaussianQuadMultidimIntegrator18vectorIntegratorVRILi3EEESt6vectorIdSaIdEERKSt8functionIFS4_RKS4_EEd: %agg.result"}
-!283 = distinct !{!283, !"_ZNK8QuantLib30GaussianQuadMultidimIntegrator18vectorIntegratorVRILi3EEESt6vectorIdSaIdEERKSt8functionIFS4_RKS4_EEd"}
-!284 = !{!285, !5, i64 8}
-!285 = !{!"_ZTSZNK8QuantLib30GaussianQuadMultidimIntegrator18vectorIntegratorVRILi3EEESt6vectorIdSaIdEERKSt8functionIFS4_RKS4_EEdEUldE_", !5, i64 0, !5, i64 8}
-!286 = !{!287}
-!287 = distinct !{!287, !288, !"_ZZNK8QuantLib30GaussianQuadMultidimIntegrator18vectorIntegratorVRILi4EEESt6vectorIdSaIdEERKSt8functionIFS4_RKS4_EEdENKUldE_clEd: %agg.result"}
-!288 = distinct !{!288, !"_ZZNK8QuantLib30GaussianQuadMultidimIntegrator18vectorIntegratorVRILi4EEESt6vectorIdSaIdEERKSt8functionIFS4_RKS4_EEdENKUldE_clEd"}
-!289 = !{!290, !287}
-!290 = distinct !{!290, !291, !"_ZNK8QuantLib30GaussianQuadMultidimIntegrator18vectorIntegratorVRILi3EEESt6vectorIdSaIdEERKSt8functionIFS4_RKS4_EEd: %agg.result"}
-!291 = distinct !{!291, !"_ZNK8QuantLib30GaussianQuadMultidimIntegrator18vectorIntegratorVRILi3EEESt6vectorIdSaIdEERKSt8functionIFS4_RKS4_EEd"}
-!292 = distinct !{!292, !48, !49}
-!293 = !{!294}
-!294 = distinct !{!294, !295, !"_ZZNK8QuantLib30GaussianQuadMultidimIntegrator18vectorIntegratorVRILi3EEESt6vectorIdSaIdEERKSt8functionIFS4_RKS4_EEdENKUldE_clEd: %agg.result"}
-!295 = distinct !{!295, !"_ZZNK8QuantLib30GaussianQuadMultidimIntegrator18vectorIntegratorVRILi3EEESt6vectorIdSaIdEERKSt8functionIFS4_RKS4_EEdENKUldE_clEd"}
-!296 = !{!285, !5, i64 0}
-!297 = !{!298, !294}
-!298 = distinct !{!298, !299, !"_ZNK8QuantLib30GaussianQuadMultidimIntegrator18vectorIntegratorVRILi2EEESt6vectorIdSaIdEERKSt8functionIFS4_RKS4_EEd: %agg.result"}
-!299 = distinct !{!299, !"_ZNK8QuantLib30GaussianQuadMultidimIntegrator18vectorIntegratorVRILi2EEESt6vectorIdSaIdEERKSt8functionIFS4_RKS4_EEd"}
-!300 = !{!301, !5, i64 8}
-!301 = !{!"_ZTSZNK8QuantLib30GaussianQuadMultidimIntegrator18vectorIntegratorVRILi2EEESt6vectorIdSaIdEERKSt8functionIFS4_RKS4_EEdEUldE_", !5, i64 0, !5, i64 8}
-!302 = !{!303}
-!303 = distinct !{!303, !304, !"_ZZNK8QuantLib30GaussianQuadMultidimIntegrator18vectorIntegratorVRILi3EEESt6vectorIdSaIdEERKSt8functionIFS4_RKS4_EEdENKUldE_clEd: %agg.result"}
-!304 = distinct !{!304, !"_ZZNK8QuantLib30GaussianQuadMultidimIntegrator18vectorIntegratorVRILi3EEESt6vectorIdSaIdEERKSt8functionIFS4_RKS4_EEdENKUldE_clEd"}
-!305 = !{!306, !303}
-!306 = distinct !{!306, !307, !"_ZNK8QuantLib30GaussianQuadMultidimIntegrator18vectorIntegratorVRILi2EEESt6vectorIdSaIdEERKSt8functionIFS4_RKS4_EEd: %agg.result"}
-!307 = distinct !{!307, !"_ZNK8QuantLib30GaussianQuadMultidimIntegrator18vectorIntegratorVRILi2EEESt6vectorIdSaIdEERKSt8functionIFS4_RKS4_EEd"}
-!308 = distinct !{!308, !48, !49}
-!309 = !{!310}
-!310 = distinct !{!310, !311, !"_ZZNK8QuantLib30GaussianQuadMultidimIntegrator18vectorIntegratorVRILi2EEESt6vectorIdSaIdEERKSt8functionIFS4_RKS4_EEdENKUldE_clEd: %agg.result"}
-!311 = distinct !{!311, !"_ZZNK8QuantLib30GaussianQuadMultidimIntegrator18vectorIntegratorVRILi2EEESt6vectorIdSaIdEERKSt8functionIFS4_RKS4_EEdENKUldE_clEd"}
-!312 = !{!301, !5, i64 0}
-!313 = !{!314, !310}
-!314 = distinct !{!314, !315, !"_ZNK8QuantLib30GaussianQuadMultidimIntegrator18vectorIntegratorVRILi1EEESt6vectorIdSaIdEERKSt8functionIFS4_RKS4_EEd: %agg.result"}
-!315 = distinct !{!315, !"_ZNK8QuantLib30GaussianQuadMultidimIntegrator18vectorIntegratorVRILi1EEESt6vectorIdSaIdEERKSt8functionIFS4_RKS4_EEd"}
-!316 = !{!317, !314, !310}
-!317 = distinct !{!317, !318, !"_ZNKSt8functionIFSt6vectorIdSaIdEERKS2_EEclES4_: %agg.result"}
-!318 = distinct !{!318, !"_ZNKSt8functionIFSt6vectorIdSaIdEERKS2_EEclES4_"}
-!319 = !{!320, !5, i64 24}
-!320 = !{!"_ZTSSt8functionIFSt6vectorIdSaIdEERKS2_EE", !46, i64 0, !5, i64 24}
-!321 = !{!322}
-!322 = distinct !{!322, !323, !"_ZZNK8QuantLib30GaussianQuadMultidimIntegrator18vectorIntegratorVRILi2EEESt6vectorIdSaIdEERKSt8functionIFS4_RKS4_EEdENKUldE_clEd: %agg.result"}
-!323 = distinct !{!323, !"_ZZNK8QuantLib30GaussianQuadMultidimIntegrator18vectorIntegratorVRILi2EEESt6vectorIdSaIdEERKSt8functionIFS4_RKS4_EEdENKUldE_clEd"}
-!324 = !{!325, !322}
-!325 = distinct !{!325, !326, !"_ZNK8QuantLib30GaussianQuadMultidimIntegrator18vectorIntegratorVRILi1EEESt6vectorIdSaIdEERKSt8functionIFS4_RKS4_EEd: %agg.result"}
-!326 = distinct !{!326, !"_ZNK8QuantLib30GaussianQuadMultidimIntegrator18vectorIntegratorVRILi1EEESt6vectorIdSaIdEERKSt8functionIFS4_RKS4_EEd"}
-!327 = !{!328, !325, !322}
-!328 = distinct !{!328, !329, !"_ZNKSt8functionIFSt6vectorIdSaIdEERKS2_EEclES4_: %agg.result"}
-!329 = distinct !{!329, !"_ZNKSt8functionIFSt6vectorIdSaIdEERKS2_EEclES4_"}
-!330 = distinct !{!330, !48, !49}
-!331 = !{!332, !5, i64 0}
-!332 = !{!"_ZTSZNK8QuantLib30GaussianQuadMultidimIntegrator9spawnFctsILm14EEEvvEUlSt8functionIFdRKSt6vectorIdSaIdEEEEdE_", !5, i64 0}
-!333 = !{!334, !336}
-!334 = distinct !{!334, !335, !"_ZSt13__invoke_implISt6vectorIdSaIdEERZNK8QuantLib30GaussianQuadMultidimIntegrator9spawnFctsILm14EEEvvEUlRKSt8functionIFS2_RKS2_EEdE_JSC_dEET_St14__invoke_otherOT0_DpOT1_: %agg.result"}
-!335 = distinct !{!335, !"_ZSt13__invoke_implISt6vectorIdSaIdEERZNK8QuantLib30GaussianQuadMultidimIntegrator9spawnFctsILm14EEEvvEUlRKSt8functionIFS2_RKS2_EEdE_JSC_dEET_St14__invoke_otherOT0_DpOT1_"}
-!336 = distinct !{!336, !337, !"_ZSt10__invoke_rISt6vectorIdSaIdEERZNK8QuantLib30GaussianQuadMultidimIntegrator9spawnFctsILm14EEEvvEUlRKSt8functionIFS2_RKS2_EEdE_JSC_dEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESG_E4typeEOSH_DpOSI_: %agg.result"}
-!337 = distinct !{!337, !"_ZSt10__invoke_rISt6vectorIdSaIdEERZNK8QuantLib30GaussianQuadMultidimIntegrator9spawnFctsILm14EEEvvEUlRKSt8functionIFS2_RKS2_EEdE_JSC_dEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESG_E4typeEOSH_DpOSI_"}
-!338 = !{!339, !5, i64 0}
-!339 = !{!"_ZTSZNK8QuantLib30GaussianQuadMultidimIntegrator9spawnFctsILm14EEEvvEUlRKSt8functionIFSt6vectorIdSaIdEERKS5_EEdE_", !5, i64 0}
-!340 = !{!341, !334, !336}
-!341 = distinct !{!341, !342, !"_ZZNK8QuantLib30GaussianQuadMultidimIntegrator9spawnFctsILm14EEEvvENKUlRKSt8functionIFSt6vectorIdSaIdEERKS5_EEdE_clESB_d: %agg.result"}
-!342 = distinct !{!342, !"_ZZNK8QuantLib30GaussianQuadMultidimIntegrator9spawnFctsILm14EEEvvENKUlRKSt8functionIFSt6vectorIdSaIdEERKS5_EEdE_clESB_d"}
-!343 = !{!344, !341, !334, !336}
-!344 = distinct !{!344, !345, !"_ZNK8QuantLib30GaussianQuadMultidimIntegrator18vectorIntegratorVRILi14EEESt6vectorIdSaIdEERKSt8functionIFS4_RKS4_EEd: %agg.result"}
-!345 = distinct !{!345, !"_ZNK8QuantLib30GaussianQuadMultidimIntegrator18vectorIntegratorVRILi14EEESt6vectorIdSaIdEERKSt8functionIFS4_RKS4_EEd"}
-!346 = !{!347, !5, i64 0}
-!347 = !{!"_ZTSZNK8QuantLib30GaussianQuadMultidimIntegrator9spawnFctsILm13EEEvvEUlSt8functionIFdRKSt6vectorIdSaIdEEEEdE_", !5, i64 0}
-!348 = !{!349, !351}
-!349 = distinct !{!349, !350, !"_ZSt13__invoke_implISt6vectorIdSaIdEERZNK8QuantLib30GaussianQuadMultidimIntegrator9spawnFctsILm13EEEvvEUlRKSt8functionIFS2_RKS2_EEdE_JSC_dEET_St14__invoke_otherOT0_DpOT1_: %agg.result"}
-!350 = distinct !{!350, !"_ZSt13__invoke_implISt6vectorIdSaIdEERZNK8QuantLib30GaussianQuadMultidimIntegrator9spawnFctsILm13EEEvvEUlRKSt8functionIFS2_RKS2_EEdE_JSC_dEET_St14__invoke_otherOT0_DpOT1_"}
-!351 = distinct !{!351, !352, !"_ZSt10__invoke_rISt6vectorIdSaIdEERZNK8QuantLib30GaussianQuadMultidimIntegrator9spawnFctsILm13EEEvvEUlRKSt8functionIFS2_RKS2_EEdE_JSC_dEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESG_E4typeEOSH_DpOSI_: %agg.result"}
-!352 = distinct !{!352, !"_ZSt10__invoke_rISt6vectorIdSaIdEERZNK8QuantLib30GaussianQuadMultidimIntegrator9spawnFctsILm13EEEvvEUlRKSt8functionIFS2_RKS2_EEdE_JSC_dEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESG_E4typeEOSH_DpOSI_"}
-!353 = !{!354, !5, i64 0}
-!354 = !{!"_ZTSZNK8QuantLib30GaussianQuadMultidimIntegrator9spawnFctsILm13EEEvvEUlRKSt8functionIFSt6vectorIdSaIdEERKS5_EEdE_", !5, i64 0}
-!355 = !{!356, !349, !351}
-!356 = distinct !{!356, !357, !"_ZZNK8QuantLib30GaussianQuadMultidimIntegrator9spawnFctsILm13EEEvvENKUlRKSt8functionIFSt6vectorIdSaIdEERKS5_EEdE_clESB_d: %agg.result"}
-!357 = distinct !{!357, !"_ZZNK8QuantLib30GaussianQuadMultidimIntegrator9spawnFctsILm13EEEvvENKUlRKSt8functionIFSt6vectorIdSaIdEERKS5_EEdE_clESB_d"}
-!358 = !{!359, !356, !349, !351}
-!359 = distinct !{!359, !360, !"_ZNK8QuantLib30GaussianQuadMultidimIntegrator18vectorIntegratorVRILi13EEESt6vectorIdSaIdEERKSt8functionIFS4_RKS4_EEd: %agg.result"}
-!360 = distinct !{!360, !"_ZNK8QuantLib30GaussianQuadMultidimIntegrator18vectorIntegratorVRILi13EEESt6vectorIdSaIdEERKSt8functionIFS4_RKS4_EEd"}
-!361 = !{!362, !5, i64 0}
-!362 = !{!"_ZTSZNK8QuantLib30GaussianQuadMultidimIntegrator9spawnFctsILm12EEEvvEUlSt8functionIFdRKSt6vectorIdSaIdEEEEdE_", !5, i64 0}
-!363 = !{!364, !366}
-!364 = distinct !{!364, !365, !"_ZSt13__invoke_implISt6vectorIdSaIdEERZNK8QuantLib30GaussianQuadMultidimIntegrator9spawnFctsILm12EEEvvEUlRKSt8functionIFS2_RKS2_EEdE_JSC_dEET_St14__invoke_otherOT0_DpOT1_: %agg.result"}
-!365 = distinct !{!365, !"_ZSt13__invoke_implISt6vectorIdSaIdEERZNK8QuantLib30GaussianQuadMultidimIntegrator9spawnFctsILm12EEEvvEUlRKSt8functionIFS2_RKS2_EEdE_JSC_dEET_St14__invoke_otherOT0_DpOT1_"}
-!366 = distinct !{!366, !367, !"_ZSt10__invoke_rISt6vectorIdSaIdEERZNK8QuantLib30GaussianQuadMultidimIntegrator9spawnFctsILm12EEEvvEUlRKSt8functionIFS2_RKS2_EEdE_JSC_dEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESG_E4typeEOSH_DpOSI_: %agg.result"}
-!367 = distinct !{!367, !"_ZSt10__invoke_rISt6vectorIdSaIdEERZNK8QuantLib30GaussianQuadMultidimIntegrator9spawnFctsILm12EEEvvEUlRKSt8functionIFS2_RKS2_EEdE_JSC_dEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESG_E4typeEOSH_DpOSI_"}
-!368 = !{!369, !5, i64 0}
-!369 = !{!"_ZTSZNK8QuantLib30GaussianQuadMultidimIntegrator9spawnFctsILm12EEEvvEUlRKSt8functionIFSt6vectorIdSaIdEERKS5_EEdE_", !5, i64 0}
-!370 = !{!371, !364, !366}
-!371 = distinct !{!371, !372, !"_ZZNK8QuantLib30GaussianQuadMultidimIntegrator9spawnFctsILm12EEEvvENKUlRKSt8functionIFSt6vectorIdSaIdEERKS5_EEdE_clESB_d: %agg.result"}
-!372 = distinct !{!372, !"_ZZNK8QuantLib30GaussianQuadMultidimIntegrator9spawnFctsILm12EEEvvENKUlRKSt8functionIFSt6vectorIdSaIdEERKS5_EEdE_clESB_d"}
-!373 = !{!374, !371, !364, !366}
-!374 = distinct !{!374, !375, !"_ZNK8QuantLib30GaussianQuadMultidimIntegrator18vectorIntegratorVRILi12EEESt6vectorIdSaIdEERKSt8functionIFS4_RKS4_EEd: %agg.result"}
-!375 = distinct !{!375, !"_ZNK8QuantLib30GaussianQuadMultidimIntegrator18vectorIntegratorVRILi12EEESt6vectorIdSaIdEERKSt8functionIFS4_RKS4_EEd"}
-!376 = !{!377, !5, i64 0}
-!377 = !{!"_ZTSZNK8QuantLib30GaussianQuadMultidimIntegrator9spawnFctsILm11EEEvvEUlSt8functionIFdRKSt6vectorIdSaIdEEEEdE_", !5, i64 0}
-!378 = !{!379, !381}
-!379 = distinct !{!379, !380, !"_ZSt13__invoke_implISt6vectorIdSaIdEERZNK8QuantLib30GaussianQuadMultidimIntegrator9spawnFctsILm11EEEvvEUlRKSt8functionIFS2_RKS2_EEdE_JSC_dEET_St14__invoke_otherOT0_DpOT1_: %agg.result"}
-!380 = distinct !{!380, !"_ZSt13__invoke_implISt6vectorIdSaIdEERZNK8QuantLib30GaussianQuadMultidimIntegrator9spawnFctsILm11EEEvvEUlRKSt8functionIFS2_RKS2_EEdE_JSC_dEET_St14__invoke_otherOT0_DpOT1_"}
-!381 = distinct !{!381, !382, !"_ZSt10__invoke_rISt6vectorIdSaIdEERZNK8QuantLib30GaussianQuadMultidimIntegrator9spawnFctsILm11EEEvvEUlRKSt8functionIFS2_RKS2_EEdE_JSC_dEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESG_E4typeEOSH_DpOSI_: %agg.result"}
-!382 = distinct !{!382, !"_ZSt10__invoke_rISt6vectorIdSaIdEERZNK8QuantLib30GaussianQuadMultidimIntegrator9spawnFctsILm11EEEvvEUlRKSt8functionIFS2_RKS2_EEdE_JSC_dEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESG_E4typeEOSH_DpOSI_"}
-!383 = !{!384, !5, i64 0}
-!384 = !{!"_ZTSZNK8QuantLib30GaussianQuadMultidimIntegrator9spawnFctsILm11EEEvvEUlRKSt8functionIFSt6vectorIdSaIdEERKS5_EEdE_", !5, i64 0}
-!385 = !{!386, !379, !381}
-!386 = distinct !{!386, !387, !"_ZZNK8QuantLib30GaussianQuadMultidimIntegrator9spawnFctsILm11EEEvvENKUlRKSt8functionIFSt6vectorIdSaIdEERKS5_EEdE_clESB_d: %agg.result"}
-!387 = distinct !{!387, !"_ZZNK8QuantLib30GaussianQuadMultidimIntegrator9spawnFctsILm11EEEvvENKUlRKSt8functionIFSt6vectorIdSaIdEERKS5_EEdE_clESB_d"}
-!388 = !{!389, !386, !379, !381}
-!389 = distinct !{!389, !390, !"_ZNK8QuantLib30GaussianQuadMultidimIntegrator18vectorIntegratorVRILi11EEESt6vectorIdSaIdEERKSt8functionIFS4_RKS4_EEd: %agg.result"}
-!390 = distinct !{!390, !"_ZNK8QuantLib30GaussianQuadMultidimIntegrator18vectorIntegratorVRILi11EEESt6vectorIdSaIdEERKSt8functionIFS4_RKS4_EEd"}
-!391 = !{!392, !5, i64 0}
-!392 = !{!"_ZTSZNK8QuantLib30GaussianQuadMultidimIntegrator9spawnFctsILm10EEEvvEUlSt8functionIFdRKSt6vectorIdSaIdEEEEdE_", !5, i64 0}
-!393 = !{!394, !396}
-!394 = distinct !{!394, !395, !"_ZSt13__invoke_implISt6vectorIdSaIdEERZNK8QuantLib30GaussianQuadMultidimIntegrator9spawnFctsILm10EEEvvEUlRKSt8functionIFS2_RKS2_EEdE_JSC_dEET_St14__invoke_otherOT0_DpOT1_: %agg.result"}
-!395 = distinct !{!395, !"_ZSt13__invoke_implISt6vectorIdSaIdEERZNK8QuantLib30GaussianQuadMultidimIntegrator9spawnFctsILm10EEEvvEUlRKSt8functionIFS2_RKS2_EEdE_JSC_dEET_St14__invoke_otherOT0_DpOT1_"}
-!396 = distinct !{!396, !397, !"_ZSt10__invoke_rISt6vectorIdSaIdEERZNK8QuantLib30GaussianQuadMultidimIntegrator9spawnFctsILm10EEEvvEUlRKSt8functionIFS2_RKS2_EEdE_JSC_dEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESG_E4typeEOSH_DpOSI_: %agg.result"}
-!397 = distinct !{!397, !"_ZSt10__invoke_rISt6vectorIdSaIdEERZNK8QuantLib30GaussianQuadMultidimIntegrator9spawnFctsILm10EEEvvEUlRKSt8functionIFS2_RKS2_EEdE_JSC_dEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESG_E4typeEOSH_DpOSI_"}
-!398 = !{!399, !5, i64 0}
-!399 = !{!"_ZTSZNK8QuantLib30GaussianQuadMultidimIntegrator9spawnFctsILm10EEEvvEUlRKSt8functionIFSt6vectorIdSaIdEERKS5_EEdE_", !5, i64 0}
-!400 = !{!401, !394, !396}
-!401 = distinct !{!401, !402, !"_ZZNK8QuantLib30GaussianQuadMultidimIntegrator9spawnFctsILm10EEEvvENKUlRKSt8functionIFSt6vectorIdSaIdEERKS5_EEdE_clESB_d: %agg.result"}
-!402 = distinct !{!402, !"_ZZNK8QuantLib30GaussianQuadMultidimIntegrator9spawnFctsILm10EEEvvENKUlRKSt8functionIFSt6vectorIdSaIdEERKS5_EEdE_clESB_d"}
-!403 = !{!404, !401, !394, !396}
-!404 = distinct !{!404, !405, !"_ZNK8QuantLib30GaussianQuadMultidimIntegrator18vectorIntegratorVRILi10EEESt6vectorIdSaIdEERKSt8functionIFS4_RKS4_EEd: %agg.result"}
-!405 = distinct !{!405, !"_ZNK8QuantLib30GaussianQuadMultidimIntegrator18vectorIntegratorVRILi10EEESt6vectorIdSaIdEERKSt8functionIFS4_RKS4_EEd"}
-!406 = !{!407, !5, i64 0}
-!407 = !{!"_ZTSZNK8QuantLib30GaussianQuadMultidimIntegrator9spawnFctsILm9EEEvvEUlSt8functionIFdRKSt6vectorIdSaIdEEEEdE_", !5, i64 0}
-!408 = !{!409, !411}
-!409 = distinct !{!409, !410, !"_ZSt13__invoke_implISt6vectorIdSaIdEERZNK8QuantLib30GaussianQuadMultidimIntegrator9spawnFctsILm9EEEvvEUlRKSt8functionIFS2_RKS2_EEdE_JSC_dEET_St14__invoke_otherOT0_DpOT1_: %agg.result"}
-!410 = distinct !{!410, !"_ZSt13__invoke_implISt6vectorIdSaIdEERZNK8QuantLib30GaussianQuadMultidimIntegrator9spawnFctsILm9EEEvvEUlRKSt8functionIFS2_RKS2_EEdE_JSC_dEET_St14__invoke_otherOT0_DpOT1_"}
-!411 = distinct !{!411, !412, !"_ZSt10__invoke_rISt6vectorIdSaIdEERZNK8QuantLib30GaussianQuadMultidimIntegrator9spawnFctsILm9EEEvvEUlRKSt8functionIFS2_RKS2_EEdE_JSC_dEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESG_E4typeEOSH_DpOSI_: %agg.result"}
-!412 = distinct !{!412, !"_ZSt10__invoke_rISt6vectorIdSaIdEERZNK8QuantLib30GaussianQuadMultidimIntegrator9spawnFctsILm9EEEvvEUlRKSt8functionIFS2_RKS2_EEdE_JSC_dEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESG_E4typeEOSH_DpOSI_"}
-!413 = !{!414, !5, i64 0}
-!414 = !{!"_ZTSZNK8QuantLib30GaussianQuadMultidimIntegrator9spawnFctsILm9EEEvvEUlRKSt8functionIFSt6vectorIdSaIdEERKS5_EEdE_", !5, i64 0}
-!415 = !{!416, !409, !411}
-!416 = distinct !{!416, !417, !"_ZZNK8QuantLib30GaussianQuadMultidimIntegrator9spawnFctsILm9EEEvvENKUlRKSt8functionIFSt6vectorIdSaIdEERKS5_EEdE_clESB_d: %agg.result"}
-!417 = distinct !{!417, !"_ZZNK8QuantLib30GaussianQuadMultidimIntegrator9spawnFctsILm9EEEvvENKUlRKSt8functionIFSt6vectorIdSaIdEERKS5_EEdE_clESB_d"}
-!418 = !{!419, !416, !409, !411}
-!419 = distinct !{!419, !420, !"_ZNK8QuantLib30GaussianQuadMultidimIntegrator18vectorIntegratorVRILi9EEESt6vectorIdSaIdEERKSt8functionIFS4_RKS4_EEd: %agg.result"}
-!420 = distinct !{!420, !"_ZNK8QuantLib30GaussianQuadMultidimIntegrator18vectorIntegratorVRILi9EEESt6vectorIdSaIdEERKSt8functionIFS4_RKS4_EEd"}
-!421 = !{!422, !5, i64 0}
-!422 = !{!"_ZTSZNK8QuantLib30GaussianQuadMultidimIntegrator9spawnFctsILm8EEEvvEUlSt8functionIFdRKSt6vectorIdSaIdEEEEdE_", !5, i64 0}
-!423 = !{!424, !426}
-!424 = distinct !{!424, !425, !"_ZSt13__invoke_implISt6vectorIdSaIdEERZNK8QuantLib30GaussianQuadMultidimIntegrator9spawnFctsILm8EEEvvEUlRKSt8functionIFS2_RKS2_EEdE_JSC_dEET_St14__invoke_otherOT0_DpOT1_: %agg.result"}
-!425 = distinct !{!425, !"_ZSt13__invoke_implISt6vectorIdSaIdEERZNK8QuantLib30GaussianQuadMultidimIntegrator9spawnFctsILm8EEEvvEUlRKSt8functionIFS2_RKS2_EEdE_JSC_dEET_St14__invoke_otherOT0_DpOT1_"}
-!426 = distinct !{!426, !427, !"_ZSt10__invoke_rISt6vectorIdSaIdEERZNK8QuantLib30GaussianQuadMultidimIntegrator9spawnFctsILm8EEEvvEUlRKSt8functionIFS2_RKS2_EEdE_JSC_dEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESG_E4typeEOSH_DpOSI_: %agg.result"}
-!427 = distinct !{!427, !"_ZSt10__invoke_rISt6vectorIdSaIdEERZNK8QuantLib30GaussianQuadMultidimIntegrator9spawnFctsILm8EEEvvEUlRKSt8functionIFS2_RKS2_EEdE_JSC_dEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESG_E4typeEOSH_DpOSI_"}
-!428 = !{!429, !5, i64 0}
-!429 = !{!"_ZTSZNK8QuantLib30GaussianQuadMultidimIntegrator9spawnFctsILm8EEEvvEUlRKSt8functionIFSt6vectorIdSaIdEERKS5_EEdE_", !5, i64 0}
-!430 = !{!431, !424, !426}
-!431 = distinct !{!431, !432, !"_ZZNK8QuantLib30GaussianQuadMultidimIntegrator9spawnFctsILm8EEEvvENKUlRKSt8functionIFSt6vectorIdSaIdEERKS5_EEdE_clESB_d: %agg.result"}
-!432 = distinct !{!432, !"_ZZNK8QuantLib30GaussianQuadMultidimIntegrator9spawnFctsILm8EEEvvENKUlRKSt8functionIFSt6vectorIdSaIdEERKS5_EEdE_clESB_d"}
-!433 = !{!434, !431, !424, !426}
-!434 = distinct !{!434, !435, !"_ZNK8QuantLib30GaussianQuadMultidimIntegrator18vectorIntegratorVRILi8EEESt6vectorIdSaIdEERKSt8functionIFS4_RKS4_EEd: %agg.result"}
-!435 = distinct !{!435, !"_ZNK8QuantLib30GaussianQuadMultidimIntegrator18vectorIntegratorVRILi8EEESt6vectorIdSaIdEERKSt8functionIFS4_RKS4_EEd"}
-!436 = !{!437, !5, i64 0}
-!437 = !{!"_ZTSZNK8QuantLib30GaussianQuadMultidimIntegrator9spawnFctsILm7EEEvvEUlSt8functionIFdRKSt6vectorIdSaIdEEEEdE_", !5, i64 0}
-!438 = !{!439, !441}
-!439 = distinct !{!439, !440, !"_ZSt13__invoke_implISt6vectorIdSaIdEERZNK8QuantLib30GaussianQuadMultidimIntegrator9spawnFctsILm7EEEvvEUlRKSt8functionIFS2_RKS2_EEdE_JSC_dEET_St14__invoke_otherOT0_DpOT1_: %agg.result"}
-!440 = distinct !{!440, !"_ZSt13__invoke_implISt6vectorIdSaIdEERZNK8QuantLib30GaussianQuadMultidimIntegrator9spawnFctsILm7EEEvvEUlRKSt8functionIFS2_RKS2_EEdE_JSC_dEET_St14__invoke_otherOT0_DpOT1_"}
-!441 = distinct !{!441, !442, !"_ZSt10__invoke_rISt6vectorIdSaIdEERZNK8QuantLib30GaussianQuadMultidimIntegrator9spawnFctsILm7EEEvvEUlRKSt8functionIFS2_RKS2_EEdE_JSC_dEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESG_E4typeEOSH_DpOSI_: %agg.result"}
-!442 = distinct !{!442, !"_ZSt10__invoke_rISt6vectorIdSaIdEERZNK8QuantLib30GaussianQuadMultidimIntegrator9spawnFctsILm7EEEvvEUlRKSt8functionIFS2_RKS2_EEdE_JSC_dEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESG_E4typeEOSH_DpOSI_"}
-!443 = !{!444, !5, i64 0}
-!444 = !{!"_ZTSZNK8QuantLib30GaussianQuadMultidimIntegrator9spawnFctsILm7EEEvvEUlRKSt8functionIFSt6vectorIdSaIdEERKS5_EEdE_", !5, i64 0}
-!445 = !{!446, !439, !441}
-!446 = distinct !{!446, !447, !"_ZZNK8QuantLib30GaussianQuadMultidimIntegrator9spawnFctsILm7EEEvvENKUlRKSt8functionIFSt6vectorIdSaIdEERKS5_EEdE_clESB_d: %agg.result"}
-!447 = distinct !{!447, !"_ZZNK8QuantLib30GaussianQuadMultidimIntegrator9spawnFctsILm7EEEvvENKUlRKSt8functionIFSt6vectorIdSaIdEERKS5_EEdE_clESB_d"}
-!448 = !{!449, !446, !439, !441}
-!449 = distinct !{!449, !450, !"_ZNK8QuantLib30GaussianQuadMultidimIntegrator18vectorIntegratorVRILi7EEESt6vectorIdSaIdEERKSt8functionIFS4_RKS4_EEd: %agg.result"}
-!450 = distinct !{!450, !"_ZNK8QuantLib30GaussianQuadMultidimIntegrator18vectorIntegratorVRILi7EEESt6vectorIdSaIdEERKSt8functionIFS4_RKS4_EEd"}
-!451 = !{!452, !5, i64 0}
-!452 = !{!"_ZTSZNK8QuantLib30GaussianQuadMultidimIntegrator9spawnFctsILm6EEEvvEUlSt8functionIFdRKSt6vectorIdSaIdEEEEdE_", !5, i64 0}
-!453 = !{!454, !456}
-!454 = distinct !{!454, !455, !"_ZSt13__invoke_implISt6vectorIdSaIdEERZNK8QuantLib30GaussianQuadMultidimIntegrator9spawnFctsILm6EEEvvEUlRKSt8functionIFS2_RKS2_EEdE_JSC_dEET_St14__invoke_otherOT0_DpOT1_: %agg.result"}
-!455 = distinct !{!455, !"_ZSt13__invoke_implISt6vectorIdSaIdEERZNK8QuantLib30GaussianQuadMultidimIntegrator9spawnFctsILm6EEEvvEUlRKSt8functionIFS2_RKS2_EEdE_JSC_dEET_St14__invoke_otherOT0_DpOT1_"}
-!456 = distinct !{!456, !457, !"_ZSt10__invoke_rISt6vectorIdSaIdEERZNK8QuantLib30GaussianQuadMultidimIntegrator9spawnFctsILm6EEEvvEUlRKSt8functionIFS2_RKS2_EEdE_JSC_dEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESG_E4typeEOSH_DpOSI_: %agg.result"}
-!457 = distinct !{!457, !"_ZSt10__invoke_rISt6vectorIdSaIdEERZNK8QuantLib30GaussianQuadMultidimIntegrator9spawnFctsILm6EEEvvEUlRKSt8functionIFS2_RKS2_EEdE_JSC_dEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESG_E4typeEOSH_DpOSI_"}
-!458 = !{!459, !5, i64 0}
-!459 = !{!"_ZTSZNK8QuantLib30GaussianQuadMultidimIntegrator9spawnFctsILm6EEEvvEUlRKSt8functionIFSt6vectorIdSaIdEERKS5_EEdE_", !5, i64 0}
-!460 = !{!461, !454, !456}
-!461 = distinct !{!461, !462, !"_ZZNK8QuantLib30GaussianQuadMultidimIntegrator9spawnFctsILm6EEEvvENKUlRKSt8functionIFSt6vectorIdSaIdEERKS5_EEdE_clESB_d: %agg.result"}
-!462 = distinct !{!462, !"_ZZNK8QuantLib30GaussianQuadMultidimIntegrator9spawnFctsILm6EEEvvENKUlRKSt8functionIFSt6vectorIdSaIdEERKS5_EEdE_clESB_d"}
-!463 = !{!464, !461, !454, !456}
-!464 = distinct !{!464, !465, !"_ZNK8QuantLib30GaussianQuadMultidimIntegrator18vectorIntegratorVRILi6EEESt6vectorIdSaIdEERKSt8functionIFS4_RKS4_EEd: %agg.result"}
-!465 = distinct !{!465, !"_ZNK8QuantLib30GaussianQuadMultidimIntegrator18vectorIntegratorVRILi6EEESt6vectorIdSaIdEERKSt8functionIFS4_RKS4_EEd"}
-!466 = !{!467, !5, i64 0}
-!467 = !{!"_ZTSZNK8QuantLib30GaussianQuadMultidimIntegrator9spawnFctsILm5EEEvvEUlSt8functionIFdRKSt6vectorIdSaIdEEEEdE_", !5, i64 0}
-!468 = !{!469, !471}
-!469 = distinct !{!469, !470, !"_ZSt13__invoke_implISt6vectorIdSaIdEERZNK8QuantLib30GaussianQuadMultidimIntegrator9spawnFctsILm5EEEvvEUlRKSt8functionIFS2_RKS2_EEdE_JSC_dEET_St14__invoke_otherOT0_DpOT1_: %agg.result"}
-!470 = distinct !{!470, !"_ZSt13__invoke_implISt6vectorIdSaIdEERZNK8QuantLib30GaussianQuadMultidimIntegrator9spawnFctsILm5EEEvvEUlRKSt8functionIFS2_RKS2_EEdE_JSC_dEET_St14__invoke_otherOT0_DpOT1_"}
-!471 = distinct !{!471, !472, !"_ZSt10__invoke_rISt6vectorIdSaIdEERZNK8QuantLib30GaussianQuadMultidimIntegrator9spawnFctsILm5EEEvvEUlRKSt8functionIFS2_RKS2_EEdE_JSC_dEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESG_E4typeEOSH_DpOSI_: %agg.result"}
-!472 = distinct !{!472, !"_ZSt10__invoke_rISt6vectorIdSaIdEERZNK8QuantLib30GaussianQuadMultidimIntegrator9spawnFctsILm5EEEvvEUlRKSt8functionIFS2_RKS2_EEdE_JSC_dEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESG_E4typeEOSH_DpOSI_"}
-!473 = !{!474, !5, i64 0}
-!474 = !{!"_ZTSZNK8QuantLib30GaussianQuadMultidimIntegrator9spawnFctsILm5EEEvvEUlRKSt8functionIFSt6vectorIdSaIdEERKS5_EEdE_", !5, i64 0}
-!475 = !{!476, !469, !471}
-!476 = distinct !{!476, !477, !"_ZZNK8QuantLib30GaussianQuadMultidimIntegrator9spawnFctsILm5EEEvvENKUlRKSt8functionIFSt6vectorIdSaIdEERKS5_EEdE_clESB_d: %agg.result"}
-!477 = distinct !{!477, !"_ZZNK8QuantLib30GaussianQuadMultidimIntegrator9spawnFctsILm5EEEvvENKUlRKSt8functionIFSt6vectorIdSaIdEERKS5_EEdE_clESB_d"}
-!478 = !{!479, !476, !469, !471}
-!479 = distinct !{!479, !480, !"_ZNK8QuantLib30GaussianQuadMultidimIntegrator18vectorIntegratorVRILi5EEESt6vectorIdSaIdEERKSt8functionIFS4_RKS4_EEd: %agg.result"}
-!480 = distinct !{!480, !"_ZNK8QuantLib30GaussianQuadMultidimIntegrator18vectorIntegratorVRILi5EEESt6vectorIdSaIdEERKSt8functionIFS4_RKS4_EEd"}
-!481 = !{!482, !5, i64 0}
-!482 = !{!"_ZTSZNK8QuantLib30GaussianQuadMultidimIntegrator9spawnFctsILm4EEEvvEUlSt8functionIFdRKSt6vectorIdSaIdEEEEdE_", !5, i64 0}
-!483 = !{!484, !486}
-!484 = distinct !{!484, !485, !"_ZSt13__invoke_implISt6vectorIdSaIdEERZNK8QuantLib30GaussianQuadMultidimIntegrator9spawnFctsILm4EEEvvEUlRKSt8functionIFS2_RKS2_EEdE_JSC_dEET_St14__invoke_otherOT0_DpOT1_: %agg.result"}
-!485 = distinct !{!485, !"_ZSt13__invoke_implISt6vectorIdSaIdEERZNK8QuantLib30GaussianQuadMultidimIntegrator9spawnFctsILm4EEEvvEUlRKSt8functionIFS2_RKS2_EEdE_JSC_dEET_St14__invoke_otherOT0_DpOT1_"}
-!486 = distinct !{!486, !487, !"_ZSt10__invoke_rISt6vectorIdSaIdEERZNK8QuantLib30GaussianQuadMultidimIntegrator9spawnFctsILm4EEEvvEUlRKSt8functionIFS2_RKS2_EEdE_JSC_dEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESG_E4typeEOSH_DpOSI_: %agg.result"}
-!487 = distinct !{!487, !"_ZSt10__invoke_rISt6vectorIdSaIdEERZNK8QuantLib30GaussianQuadMultidimIntegrator9spawnFctsILm4EEEvvEUlRKSt8functionIFS2_RKS2_EEdE_JSC_dEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESG_E4typeEOSH_DpOSI_"}
-!488 = !{!489, !5, i64 0}
-!489 = !{!"_ZTSZNK8QuantLib30GaussianQuadMultidimIntegrator9spawnFctsILm4EEEvvEUlRKSt8functionIFSt6vectorIdSaIdEERKS5_EEdE_", !5, i64 0}
-!490 = !{!491, !484, !486}
-!491 = distinct !{!491, !492, !"_ZZNK8QuantLib30GaussianQuadMultidimIntegrator9spawnFctsILm4EEEvvENKUlRKSt8functionIFSt6vectorIdSaIdEERKS5_EEdE_clESB_d: %agg.result"}
-!492 = distinct !{!492, !"_ZZNK8QuantLib30GaussianQuadMultidimIntegrator9spawnFctsILm4EEEvvENKUlRKSt8functionIFSt6vectorIdSaIdEERKS5_EEdE_clESB_d"}
-!493 = !{!494, !491, !484, !486}
-!494 = distinct !{!494, !495, !"_ZNK8QuantLib30GaussianQuadMultidimIntegrator18vectorIntegratorVRILi4EEESt6vectorIdSaIdEERKSt8functionIFS4_RKS4_EEd: %agg.result"}
-!495 = distinct !{!495, !"_ZNK8QuantLib30GaussianQuadMultidimIntegrator18vectorIntegratorVRILi4EEESt6vectorIdSaIdEERKSt8functionIFS4_RKS4_EEd"}
-!496 = !{!497, !5, i64 0}
-!497 = !{!"_ZTSZNK8QuantLib30GaussianQuadMultidimIntegrator9spawnFctsILm3EEEvvEUlSt8functionIFdRKSt6vectorIdSaIdEEEEdE_", !5, i64 0}
-!498 = !{!499, !501}
-!499 = distinct !{!499, !500, !"_ZSt13__invoke_implISt6vectorIdSaIdEERZNK8QuantLib30GaussianQuadMultidimIntegrator9spawnFctsILm3EEEvvEUlRKSt8functionIFS2_RKS2_EEdE_JSC_dEET_St14__invoke_otherOT0_DpOT1_: %agg.result"}
-!500 = distinct !{!500, !"_ZSt13__invoke_implISt6vectorIdSaIdEERZNK8QuantLib30GaussianQuadMultidimIntegrator9spawnFctsILm3EEEvvEUlRKSt8functionIFS2_RKS2_EEdE_JSC_dEET_St14__invoke_otherOT0_DpOT1_"}
-!501 = distinct !{!501, !502, !"_ZSt10__invoke_rISt6vectorIdSaIdEERZNK8QuantLib30GaussianQuadMultidimIntegrator9spawnFctsILm3EEEvvEUlRKSt8functionIFS2_RKS2_EEdE_JSC_dEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESG_E4typeEOSH_DpOSI_: %agg.result"}
-!502 = distinct !{!502, !"_ZSt10__invoke_rISt6vectorIdSaIdEERZNK8QuantLib30GaussianQuadMultidimIntegrator9spawnFctsILm3EEEvvEUlRKSt8functionIFS2_RKS2_EEdE_JSC_dEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESG_E4typeEOSH_DpOSI_"}
-!503 = !{!504, !5, i64 0}
-!504 = !{!"_ZTSZNK8QuantLib30GaussianQuadMultidimIntegrator9spawnFctsILm3EEEvvEUlRKSt8functionIFSt6vectorIdSaIdEERKS5_EEdE_", !5, i64 0}
-!505 = !{!506, !499, !501}
-!506 = distinct !{!506, !507, !"_ZZNK8QuantLib30GaussianQuadMultidimIntegrator9spawnFctsILm3EEEvvENKUlRKSt8functionIFSt6vectorIdSaIdEERKS5_EEdE_clESB_d: %agg.result"}
-!507 = distinct !{!507, !"_ZZNK8QuantLib30GaussianQuadMultidimIntegrator9spawnFctsILm3EEEvvENKUlRKSt8functionIFSt6vectorIdSaIdEERKS5_EEdE_clESB_d"}
-!508 = !{!509, !506, !499, !501}
-!509 = distinct !{!509, !510, !"_ZNK8QuantLib30GaussianQuadMultidimIntegrator18vectorIntegratorVRILi3EEESt6vectorIdSaIdEERKSt8functionIFS4_RKS4_EEd: %agg.result"}
-!510 = distinct !{!510, !"_ZNK8QuantLib30GaussianQuadMultidimIntegrator18vectorIntegratorVRILi3EEESt6vectorIdSaIdEERKSt8functionIFS4_RKS4_EEd"}
-!511 = !{!512, !5, i64 0}
-!512 = !{!"_ZTSZNK8QuantLib30GaussianQuadMultidimIntegrator9spawnFctsILm2EEEvvEUlSt8functionIFdRKSt6vectorIdSaIdEEEEdE_", !5, i64 0}
-!513 = !{!514, !516}
-!514 = distinct !{!514, !515, !"_ZSt13__invoke_implISt6vectorIdSaIdEERZNK8QuantLib30GaussianQuadMultidimIntegrator9spawnFctsILm2EEEvvEUlRKSt8functionIFS2_RKS2_EEdE_JSC_dEET_St14__invoke_otherOT0_DpOT1_: %agg.result"}
-!515 = distinct !{!515, !"_ZSt13__invoke_implISt6vectorIdSaIdEERZNK8QuantLib30GaussianQuadMultidimIntegrator9spawnFctsILm2EEEvvEUlRKSt8functionIFS2_RKS2_EEdE_JSC_dEET_St14__invoke_otherOT0_DpOT1_"}
-!516 = distinct !{!516, !517, !"_ZSt10__invoke_rISt6vectorIdSaIdEERZNK8QuantLib30GaussianQuadMultidimIntegrator9spawnFctsILm2EEEvvEUlRKSt8functionIFS2_RKS2_EEdE_JSC_dEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESG_E4typeEOSH_DpOSI_: %agg.result"}
-!517 = distinct !{!517, !"_ZSt10__invoke_rISt6vectorIdSaIdEERZNK8QuantLib30GaussianQuadMultidimIntegrator9spawnFctsILm2EEEvvEUlRKSt8functionIFS2_RKS2_EEdE_JSC_dEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESG_E4typeEOSH_DpOSI_"}
-!518 = !{!519, !5, i64 0}
-!519 = !{!"_ZTSZNK8QuantLib30GaussianQuadMultidimIntegrator9spawnFctsILm2EEEvvEUlRKSt8functionIFSt6vectorIdSaIdEERKS5_EEdE_", !5, i64 0}
-!520 = !{!521, !514, !516}
-!521 = distinct !{!521, !522, !"_ZZNK8QuantLib30GaussianQuadMultidimIntegrator9spawnFctsILm2EEEvvENKUlRKSt8functionIFSt6vectorIdSaIdEERKS5_EEdE_clESB_d: %agg.result"}
-!522 = distinct !{!522, !"_ZZNK8QuantLib30GaussianQuadMultidimIntegrator9spawnFctsILm2EEEvvENKUlRKSt8functionIFSt6vectorIdSaIdEERKS5_EEdE_clESB_d"}
-!523 = !{!524, !521, !514, !516}
-!524 = distinct !{!524, !525, !"_ZNK8QuantLib30GaussianQuadMultidimIntegrator18vectorIntegratorVRILi2EEESt6vectorIdSaIdEERKSt8functionIFS4_RKS4_EEd: %agg.result"}
-!525 = distinct !{!525, !"_ZNK8QuantLib30GaussianQuadMultidimIntegrator18vectorIntegratorVRILi2EEESt6vectorIdSaIdEERKSt8functionIFS4_RKS4_EEd"}
-!526 = !{!527, !5, i64 0}
-!527 = !{!"_ZTSZNK8QuantLib30GaussianQuadMultidimIntegrator9spawnFctsILm1EEEvvEUlRKSt8functionIFdRKSt6vectorIdSaIdEEEEdE_", !5, i64 0}
-!528 = !{!529, !531}
-!529 = distinct !{!529, !530, !"_ZSt13__invoke_implISt6vectorIdSaIdEERZNK8QuantLib30GaussianQuadMultidimIntegrator9spawnFctsILm1EEEvvEUlRKSt8functionIFS2_RKS2_EEdE_JSC_dEET_St14__invoke_otherOT0_DpOT1_: %agg.result"}
-!530 = distinct !{!530, !"_ZSt13__invoke_implISt6vectorIdSaIdEERZNK8QuantLib30GaussianQuadMultidimIntegrator9spawnFctsILm1EEEvvEUlRKSt8functionIFS2_RKS2_EEdE_JSC_dEET_St14__invoke_otherOT0_DpOT1_"}
-!531 = distinct !{!531, !532, !"_ZSt10__invoke_rISt6vectorIdSaIdEERZNK8QuantLib30GaussianQuadMultidimIntegrator9spawnFctsILm1EEEvvEUlRKSt8functionIFS2_RKS2_EEdE_JSC_dEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESG_E4typeEOSH_DpOSI_: %agg.result"}
-!532 = distinct !{!532, !"_ZSt10__invoke_rISt6vectorIdSaIdEERZNK8QuantLib30GaussianQuadMultidimIntegrator9spawnFctsILm1EEEvvEUlRKSt8functionIFS2_RKS2_EEdE_JSC_dEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESG_E4typeEOSH_DpOSI_"}
-!533 = !{!534, !5, i64 0}
-!534 = !{!"_ZTSZNK8QuantLib30GaussianQuadMultidimIntegrator9spawnFctsILm1EEEvvEUlRKSt8functionIFSt6vectorIdSaIdEERKS5_EEdE_", !5, i64 0}
-!535 = !{!536, !529, !531}
-!536 = distinct !{!536, !537, !"_ZZNK8QuantLib30GaussianQuadMultidimIntegrator9spawnFctsILm1EEEvvENKUlRKSt8functionIFSt6vectorIdSaIdEERKS5_EEdE_clESB_d: %agg.result"}
-!537 = distinct !{!537, !"_ZZNK8QuantLib30GaussianQuadMultidimIntegrator9spawnFctsILm1EEEvvENKUlRKSt8functionIFSt6vectorIdSaIdEERKS5_EEdE_clESB_d"}
-!538 = !{!539, !536, !529, !531}
-!539 = distinct !{!539, !540, !"_ZNK8QuantLib30GaussianQuadMultidimIntegrator18vectorIntegratorVRILi1EEESt6vectorIdSaIdEERKSt8functionIFS4_RKS4_EEd: %agg.result"}
-!540 = distinct !{!540, !"_ZNK8QuantLib30GaussianQuadMultidimIntegrator18vectorIntegratorVRILi1EEESt6vectorIdSaIdEERKSt8functionIFS4_RKS4_EEd"}
-!541 = !{!542, !539, !536, !529, !531}
-!542 = distinct !{!542, !543, !"_ZNKSt8functionIFSt6vectorIdSaIdEERKS2_EEclES4_: %agg.result"}
-!543 = distinct !{!543, !"_ZNKSt8functionIFSt6vectorIdSaIdEERKS2_EEclES4_"}
+!49 = distinct !{!49, !48}
+!50 = !{!51, !5, i64 24}
+!51 = !{!"_ZTSSt8functionIFdRKSt6vectorIdSaIdEEEE", !46, i64 0, !5, i64 24}
+!52 = !{!53, !5, i64 0}
+!53 = !{!"_ZTSZNK8QuantLib30GaussianQuadMultidimIntegrator9spawnFctsILm15EEEvvEUlSt8functionIFdRKSt6vectorIdSaIdEEEEdE_", !5, i64 0}
+!54 = !{!55, !5, i64 8}
+!55 = !{!"_ZTSZNK8QuantLib30GaussianQuadMultidimIntegrator16scalarIntegratorILi15EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEEdEUldE_", !5, i64 0, !5, i64 8}
+!56 = !{!18, !25, i64 8}
+!57 = !{!55, !5, i64 0}
+!58 = !{!59, !5, i64 8}
+!59 = !{!"_ZTSZNK8QuantLib30GaussianQuadMultidimIntegrator16scalarIntegratorILi9EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEEdEUldE_", !5, i64 0, !5, i64 8}
+!60 = distinct !{!60, !48}
+!61 = distinct !{!61, !48}
+!62 = distinct !{!62, !48}
+!63 = distinct !{!63, !48}
+!64 = distinct !{!64, !48}
+!65 = distinct !{!65, !48}
+!66 = !{!67, !5, i64 8}
+!67 = !{!"_ZTSZNK8QuantLib30GaussianQuadMultidimIntegrator16scalarIntegratorILi13EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEEdEUldE_", !5, i64 0, !5, i64 8}
+!68 = !{!67, !5, i64 0}
+!69 = !{!59, !5, i64 0}
+!70 = distinct !{!70, !48}
+!71 = distinct !{!71, !48}
+!72 = distinct !{!72, !48}
+!73 = distinct !{!73, !48}
+!74 = distinct !{!74, !48}
+!75 = distinct !{!75, !48}
+!76 = distinct !{!76, !48}
+!77 = distinct !{!77, !48}
+!78 = !{!79, !5, i64 8}
+!79 = !{!"_ZTSZNK8QuantLib30GaussianQuadMultidimIntegrator16scalarIntegratorILi7EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEEdEUldE_", !5, i64 0, !5, i64 8}
+!80 = !{!79, !5, i64 0}
+!81 = !{!82, !5, i64 8}
+!82 = !{!"_ZTSZNK8QuantLib30GaussianQuadMultidimIntegrator16scalarIntegratorILi5EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEEdEUldE_", !5, i64 0, !5, i64 8}
+!83 = !{!82, !5, i64 0}
+!84 = !{!85, !87}
+!85 = distinct !{!85, !86, !"_ZSt13__invoke_implISt6vectorIdSaIdEERZNK8QuantLib30GaussianQuadMultidimIntegrator9spawnFctsILm15EEEvvEUlRKSt8functionIFS2_RKS2_EEdE_JSC_dEET_St14__invoke_otherOT0_DpOT1_: %agg.result"}
+!86 = distinct !{!86, !"_ZSt13__invoke_implISt6vectorIdSaIdEERZNK8QuantLib30GaussianQuadMultidimIntegrator9spawnFctsILm15EEEvvEUlRKSt8functionIFS2_RKS2_EEdE_JSC_dEET_St14__invoke_otherOT0_DpOT1_"}
+!87 = distinct !{!87, !88, !"_ZSt10__invoke_rISt6vectorIdSaIdEERZNK8QuantLib30GaussianQuadMultidimIntegrator9spawnFctsILm15EEEvvEUlRKSt8functionIFS2_RKS2_EEdE_JSC_dEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESG_E4typeEOSH_DpOSI_: %agg.result"}
+!88 = distinct !{!88, !"_ZSt10__invoke_rISt6vectorIdSaIdEERZNK8QuantLib30GaussianQuadMultidimIntegrator9spawnFctsILm15EEEvvEUlRKSt8functionIFS2_RKS2_EEdE_JSC_dEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESG_E4typeEOSH_DpOSI_"}
+!89 = !{!90, !5, i64 0}
+!90 = !{!"_ZTSZNK8QuantLib30GaussianQuadMultidimIntegrator9spawnFctsILm15EEEvvEUlRKSt8functionIFSt6vectorIdSaIdEERKS5_EEdE_", !5, i64 0}
+!91 = !{!92, !85, !87}
+!92 = distinct !{!92, !93, !"_ZZNK8QuantLib30GaussianQuadMultidimIntegrator9spawnFctsILm15EEEvvENKUlRKSt8functionIFSt6vectorIdSaIdEERKS5_EEdE_clESB_d: %agg.result"}
+!93 = distinct !{!93, !"_ZZNK8QuantLib30GaussianQuadMultidimIntegrator9spawnFctsILm15EEEvvENKUlRKSt8functionIFSt6vectorIdSaIdEERKS5_EEdE_clESB_d"}
+!94 = !{!95, !92, !85, !87}
+!95 = distinct !{!95, !96, !"_ZNK8QuantLib30GaussianQuadMultidimIntegrator18vectorIntegratorVRILi15EEESt6vectorIdSaIdEERKSt8functionIFS4_RKS4_EEd: %agg.result"}
+!96 = distinct !{!96, !"_ZNK8QuantLib30GaussianQuadMultidimIntegrator18vectorIntegratorVRILi15EEESt6vectorIdSaIdEERKSt8functionIFS4_RKS4_EEd"}
+!97 = !{!98, !5, i64 8}
+!98 = !{!"_ZTSZNK8QuantLib30GaussianQuadMultidimIntegrator18vectorIntegratorVRILi15EEESt6vectorIdSaIdEERKSt8functionIFS4_RKS4_EEdEUldE_", !5, i64 0, !5, i64 8}
+!99 = !{!100}
+!100 = distinct !{!100, !101, !"_ZZNK8QuantLib30GaussianQuadMultidimIntegrator18vectorIntegratorVRILi15EEESt6vectorIdSaIdEERKSt8functionIFS4_RKS4_EEdENKUldE_clEd: %agg.result"}
+!101 = distinct !{!101, !"_ZZNK8QuantLib30GaussianQuadMultidimIntegrator18vectorIntegratorVRILi15EEESt6vectorIdSaIdEERKSt8functionIFS4_RKS4_EEdENKUldE_clEd"}
+!102 = !{!98, !5, i64 0}
+!103 = !{!104, !100}
+!104 = distinct !{!104, !105, !"_ZNK8QuantLib30GaussianQuadMultidimIntegrator18vectorIntegratorVRILi14EEESt6vectorIdSaIdEERKSt8functionIFS4_RKS4_EEd: %agg.result"}
+!105 = distinct !{!105, !"_ZNK8QuantLib30GaussianQuadMultidimIntegrator18vectorIntegratorVRILi14EEESt6vectorIdSaIdEERKSt8functionIFS4_RKS4_EEd"}
+!106 = !{!107, !5, i64 8}
+!107 = !{!"_ZTSZNK8QuantLib30GaussianQuadMultidimIntegrator18vectorIntegratorVRILi14EEESt6vectorIdSaIdEERKSt8functionIFS4_RKS4_EEdEUldE_", !5, i64 0, !5, i64 8}
+!108 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!109 = !{!110}
+!110 = distinct !{!110, !111, !"_ZZNK8QuantLib30GaussianQuadMultidimIntegrator18vectorIntegratorVRILi15EEESt6vectorIdSaIdEERKSt8functionIFS4_RKS4_EEdENKUldE_clEd: %agg.result"}
+!111 = distinct !{!111, !"_ZZNK8QuantLib30GaussianQuadMultidimIntegrator18vectorIntegratorVRILi15EEESt6vectorIdSaIdEERKSt8functionIFS4_RKS4_EEdENKUldE_clEd"}
+!112 = !{!113, !110}
+!113 = distinct !{!113, !114, !"_ZNK8QuantLib30GaussianQuadMultidimIntegrator18vectorIntegratorVRILi14EEESt6vectorIdSaIdEERKSt8functionIFS4_RKS4_EEd: %agg.result"}
+!114 = distinct !{!114, !"_ZNK8QuantLib30GaussianQuadMultidimIntegrator18vectorIntegratorVRILi14EEESt6vectorIdSaIdEERKSt8functionIFS4_RKS4_EEd"}
+!115 = distinct !{!115, !48}
+!116 = !{!117}
+!117 = distinct !{!117, !118, !"_ZZNK8QuantLib30GaussianQuadMultidimIntegrator18vectorIntegratorVRILi14EEESt6vectorIdSaIdEERKSt8functionIFS4_RKS4_EEdENKUldE_clEd: %agg.result"}
+!118 = distinct !{!118, !"_ZZNK8QuantLib30GaussianQuadMultidimIntegrator18vectorIntegratorVRILi14EEESt6vectorIdSaIdEERKSt8functionIFS4_RKS4_EEdENKUldE_clEd"}
+!119 = !{!107, !5, i64 0}
+!120 = !{!121, !117}
+!121 = distinct !{!121, !122, !"_ZNK8QuantLib30GaussianQuadMultidimIntegrator18vectorIntegratorVRILi13EEESt6vectorIdSaIdEERKSt8functionIFS4_RKS4_EEd: %agg.result"}
+!122 = distinct !{!122, !"_ZNK8QuantLib30GaussianQuadMultidimIntegrator18vectorIntegratorVRILi13EEESt6vectorIdSaIdEERKSt8functionIFS4_RKS4_EEd"}
+!123 = !{!124, !5, i64 8}
+!124 = !{!"_ZTSZNK8QuantLib30GaussianQuadMultidimIntegrator18vectorIntegratorVRILi13EEESt6vectorIdSaIdEERKSt8functionIFS4_RKS4_EEdEUldE_", !5, i64 0, !5, i64 8}
+!125 = !{!126}
+!126 = distinct !{!126, !127, !"_ZZNK8QuantLib30GaussianQuadMultidimIntegrator18vectorIntegratorVRILi14EEESt6vectorIdSaIdEERKSt8functionIFS4_RKS4_EEdENKUldE_clEd: %agg.result"}
+!127 = distinct !{!127, !"_ZZNK8QuantLib30GaussianQuadMultidimIntegrator18vectorIntegratorVRILi14EEESt6vectorIdSaIdEERKSt8functionIFS4_RKS4_EEdENKUldE_clEd"}
+!128 = !{!129, !126}
+!129 = distinct !{!129, !130, !"_ZNK8QuantLib30GaussianQuadMultidimIntegrator18vectorIntegratorVRILi13EEESt6vectorIdSaIdEERKSt8functionIFS4_RKS4_EEd: %agg.result"}
+!130 = distinct !{!130, !"_ZNK8QuantLib30GaussianQuadMultidimIntegrator18vectorIntegratorVRILi13EEESt6vectorIdSaIdEERKSt8functionIFS4_RKS4_EEd"}
+!131 = distinct !{!131, !48}
+!132 = !{!133}
+!133 = distinct !{!133, !134, !"_ZZNK8QuantLib30GaussianQuadMultidimIntegrator18vectorIntegratorVRILi13EEESt6vectorIdSaIdEERKSt8functionIFS4_RKS4_EEdENKUldE_clEd: %agg.result"}
+!134 = distinct !{!134, !"_ZZNK8QuantLib30GaussianQuadMultidimIntegrator18vectorIntegratorVRILi13EEESt6vectorIdSaIdEERKSt8functionIFS4_RKS4_EEdENKUldE_clEd"}
+!135 = !{!124, !5, i64 0}
+!136 = !{!137, !133}
+!137 = distinct !{!137, !138, !"_ZNK8QuantLib30GaussianQuadMultidimIntegrator18vectorIntegratorVRILi12EEESt6vectorIdSaIdEERKSt8functionIFS4_RKS4_EEd: %agg.result"}
+!138 = distinct !{!138, !"_ZNK8QuantLib30GaussianQuadMultidimIntegrator18vectorIntegratorVRILi12EEESt6vectorIdSaIdEERKSt8functionIFS4_RKS4_EEd"}
+!139 = !{!140, !5, i64 8}
+!140 = !{!"_ZTSZNK8QuantLib30GaussianQuadMultidimIntegrator18vectorIntegratorVRILi12EEESt6vectorIdSaIdEERKSt8functionIFS4_RKS4_EEdEUldE_", !5, i64 0, !5, i64 8}
+!141 = !{!142}
+!142 = distinct !{!142, !143, !"_ZZNK8QuantLib30GaussianQuadMultidimIntegrator18vectorIntegratorVRILi13EEESt6vectorIdSaIdEERKSt8functionIFS4_RKS4_EEdENKUldE_clEd: %agg.result"}
+!143 = distinct !{!143, !"_ZZNK8QuantLib30GaussianQuadMultidimIntegrator18vectorIntegratorVRILi13EEESt6vectorIdSaIdEERKSt8functionIFS4_RKS4_EEdENKUldE_clEd"}
+!144 = !{!145, !142}
+!145 = distinct !{!145, !146, !"_ZNK8QuantLib30GaussianQuadMultidimIntegrator18vectorIntegratorVRILi12EEESt6vectorIdSaIdEERKSt8functionIFS4_RKS4_EEd: %agg.result"}
+!146 = distinct !{!146, !"_ZNK8QuantLib30GaussianQuadMultidimIntegrator18vectorIntegratorVRILi12EEESt6vectorIdSaIdEERKSt8functionIFS4_RKS4_EEd"}
+!147 = distinct !{!147, !48}
+!148 = !{!149}
+!149 = distinct !{!149, !150, !"_ZZNK8QuantLib30GaussianQuadMultidimIntegrator18vectorIntegratorVRILi12EEESt6vectorIdSaIdEERKSt8functionIFS4_RKS4_EEdENKUldE_clEd: %agg.result"}
+!150 = distinct !{!150, !"_ZZNK8QuantLib30GaussianQuadMultidimIntegrator18vectorIntegratorVRILi12EEESt6vectorIdSaIdEERKSt8functionIFS4_RKS4_EEdENKUldE_clEd"}
+!151 = !{!140, !5, i64 0}
+!152 = !{!153, !149}
+!153 = distinct !{!153, !154, !"_ZNK8QuantLib30GaussianQuadMultidimIntegrator18vectorIntegratorVRILi11EEESt6vectorIdSaIdEERKSt8functionIFS4_RKS4_EEd: %agg.result"}
+!154 = distinct !{!154, !"_ZNK8QuantLib30GaussianQuadMultidimIntegrator18vectorIntegratorVRILi11EEESt6vectorIdSaIdEERKSt8functionIFS4_RKS4_EEd"}
+!155 = !{!156, !5, i64 8}
+!156 = !{!"_ZTSZNK8QuantLib30GaussianQuadMultidimIntegrator18vectorIntegratorVRILi11EEESt6vectorIdSaIdEERKSt8functionIFS4_RKS4_EEdEUldE_", !5, i64 0, !5, i64 8}
+!157 = !{!158}
+!158 = distinct !{!158, !159, !"_ZZNK8QuantLib30GaussianQuadMultidimIntegrator18vectorIntegratorVRILi12EEESt6vectorIdSaIdEERKSt8functionIFS4_RKS4_EEdENKUldE_clEd: %agg.result"}
+!159 = distinct !{!159, !"_ZZNK8QuantLib30GaussianQuadMultidimIntegrator18vectorIntegratorVRILi12EEESt6vectorIdSaIdEERKSt8functionIFS4_RKS4_EEdENKUldE_clEd"}
+!160 = !{!161, !158}
+!161 = distinct !{!161, !162, !"_ZNK8QuantLib30GaussianQuadMultidimIntegrator18vectorIntegratorVRILi11EEESt6vectorIdSaIdEERKSt8functionIFS4_RKS4_EEd: %agg.result"}
+!162 = distinct !{!162, !"_ZNK8QuantLib30GaussianQuadMultidimIntegrator18vectorIntegratorVRILi11EEESt6vectorIdSaIdEERKSt8functionIFS4_RKS4_EEd"}
+!163 = distinct !{!163, !48}
+!164 = !{!165}
+!165 = distinct !{!165, !166, !"_ZZNK8QuantLib30GaussianQuadMultidimIntegrator18vectorIntegratorVRILi11EEESt6vectorIdSaIdEERKSt8functionIFS4_RKS4_EEdENKUldE_clEd: %agg.result"}
+!166 = distinct !{!166, !"_ZZNK8QuantLib30GaussianQuadMultidimIntegrator18vectorIntegratorVRILi11EEESt6vectorIdSaIdEERKSt8functionIFS4_RKS4_EEdENKUldE_clEd"}
+!167 = !{!156, !5, i64 0}
+!168 = !{!169, !165}
+!169 = distinct !{!169, !170, !"_ZNK8QuantLib30GaussianQuadMultidimIntegrator18vectorIntegratorVRILi10EEESt6vectorIdSaIdEERKSt8functionIFS4_RKS4_EEd: %agg.result"}
+!170 = distinct !{!170, !"_ZNK8QuantLib30GaussianQuadMultidimIntegrator18vectorIntegratorVRILi10EEESt6vectorIdSaIdEERKSt8functionIFS4_RKS4_EEd"}
+!171 = !{!172, !5, i64 8}
+!172 = !{!"_ZTSZNK8QuantLib30GaussianQuadMultidimIntegrator18vectorIntegratorVRILi10EEESt6vectorIdSaIdEERKSt8functionIFS4_RKS4_EEdEUldE_", !5, i64 0, !5, i64 8}
+!173 = !{!174}
+!174 = distinct !{!174, !175, !"_ZZNK8QuantLib30GaussianQuadMultidimIntegrator18vectorIntegratorVRILi11EEESt6vectorIdSaIdEERKSt8functionIFS4_RKS4_EEdENKUldE_clEd: %agg.result"}
+!175 = distinct !{!175, !"_ZZNK8QuantLib30GaussianQuadMultidimIntegrator18vectorIntegratorVRILi11EEESt6vectorIdSaIdEERKSt8functionIFS4_RKS4_EEdENKUldE_clEd"}
+!176 = !{!177, !174}
+!177 = distinct !{!177, !178, !"_ZNK8QuantLib30GaussianQuadMultidimIntegrator18vectorIntegratorVRILi10EEESt6vectorIdSaIdEERKSt8functionIFS4_RKS4_EEd: %agg.result"}
+!178 = distinct !{!178, !"_ZNK8QuantLib30GaussianQuadMultidimIntegrator18vectorIntegratorVRILi10EEESt6vectorIdSaIdEERKSt8functionIFS4_RKS4_EEd"}
+!179 = distinct !{!179, !48}
+!180 = !{!181}
+!181 = distinct !{!181, !182, !"_ZZNK8QuantLib30GaussianQuadMultidimIntegrator18vectorIntegratorVRILi10EEESt6vectorIdSaIdEERKSt8functionIFS4_RKS4_EEdENKUldE_clEd: %agg.result"}
+!182 = distinct !{!182, !"_ZZNK8QuantLib30GaussianQuadMultidimIntegrator18vectorIntegratorVRILi10EEESt6vectorIdSaIdEERKSt8functionIFS4_RKS4_EEdENKUldE_clEd"}
+!183 = !{!172, !5, i64 0}
+!184 = !{!185, !181}
+!185 = distinct !{!185, !186, !"_ZNK8QuantLib30GaussianQuadMultidimIntegrator18vectorIntegratorVRILi9EEESt6vectorIdSaIdEERKSt8functionIFS4_RKS4_EEd: %agg.result"}
+!186 = distinct !{!186, !"_ZNK8QuantLib30GaussianQuadMultidimIntegrator18vectorIntegratorVRILi9EEESt6vectorIdSaIdEERKSt8functionIFS4_RKS4_EEd"}
+!187 = !{!188, !5, i64 8}
+!188 = !{!"_ZTSZNK8QuantLib30GaussianQuadMultidimIntegrator18vectorIntegratorVRILi9EEESt6vectorIdSaIdEERKSt8functionIFS4_RKS4_EEdEUldE_", !5, i64 0, !5, i64 8}
+!189 = !{!190}
+!190 = distinct !{!190, !191, !"_ZZNK8QuantLib30GaussianQuadMultidimIntegrator18vectorIntegratorVRILi10EEESt6vectorIdSaIdEERKSt8functionIFS4_RKS4_EEdENKUldE_clEd: %agg.result"}
+!191 = distinct !{!191, !"_ZZNK8QuantLib30GaussianQuadMultidimIntegrator18vectorIntegratorVRILi10EEESt6vectorIdSaIdEERKSt8functionIFS4_RKS4_EEdENKUldE_clEd"}
+!192 = !{!193, !190}
+!193 = distinct !{!193, !194, !"_ZNK8QuantLib30GaussianQuadMultidimIntegrator18vectorIntegratorVRILi9EEESt6vectorIdSaIdEERKSt8functionIFS4_RKS4_EEd: %agg.result"}
+!194 = distinct !{!194, !"_ZNK8QuantLib30GaussianQuadMultidimIntegrator18vectorIntegratorVRILi9EEESt6vectorIdSaIdEERKSt8functionIFS4_RKS4_EEd"}
+!195 = distinct !{!195, !48}
+!196 = !{!197}
+!197 = distinct !{!197, !198, !"_ZZNK8QuantLib30GaussianQuadMultidimIntegrator18vectorIntegratorVRILi9EEESt6vectorIdSaIdEERKSt8functionIFS4_RKS4_EEdENKUldE_clEd: %agg.result"}
+!198 = distinct !{!198, !"_ZZNK8QuantLib30GaussianQuadMultidimIntegrator18vectorIntegratorVRILi9EEESt6vectorIdSaIdEERKSt8functionIFS4_RKS4_EEdENKUldE_clEd"}
+!199 = !{!188, !5, i64 0}
+!200 = !{!201, !197}
+!201 = distinct !{!201, !202, !"_ZNK8QuantLib30GaussianQuadMultidimIntegrator18vectorIntegratorVRILi8EEESt6vectorIdSaIdEERKSt8functionIFS4_RKS4_EEd: %agg.result"}
+!202 = distinct !{!202, !"_ZNK8QuantLib30GaussianQuadMultidimIntegrator18vectorIntegratorVRILi8EEESt6vectorIdSaIdEERKSt8functionIFS4_RKS4_EEd"}
+!203 = !{!204, !5, i64 8}
+!204 = !{!"_ZTSZNK8QuantLib30GaussianQuadMultidimIntegrator18vectorIntegratorVRILi8EEESt6vectorIdSaIdEERKSt8functionIFS4_RKS4_EEdEUldE_", !5, i64 0, !5, i64 8}
+!205 = !{!206}
+!206 = distinct !{!206, !207, !"_ZZNK8QuantLib30GaussianQuadMultidimIntegrator18vectorIntegratorVRILi9EEESt6vectorIdSaIdEERKSt8functionIFS4_RKS4_EEdENKUldE_clEd: %agg.result"}
+!207 = distinct !{!207, !"_ZZNK8QuantLib30GaussianQuadMultidimIntegrator18vectorIntegratorVRILi9EEESt6vectorIdSaIdEERKSt8functionIFS4_RKS4_EEdENKUldE_clEd"}
+!208 = !{!209, !206}
+!209 = distinct !{!209, !210, !"_ZNK8QuantLib30GaussianQuadMultidimIntegrator18vectorIntegratorVRILi8EEESt6vectorIdSaIdEERKSt8functionIFS4_RKS4_EEd: %agg.result"}
+!210 = distinct !{!210, !"_ZNK8QuantLib30GaussianQuadMultidimIntegrator18vectorIntegratorVRILi8EEESt6vectorIdSaIdEERKSt8functionIFS4_RKS4_EEd"}
+!211 = distinct !{!211, !48}
+!212 = !{!213}
+!213 = distinct !{!213, !214, !"_ZZNK8QuantLib30GaussianQuadMultidimIntegrator18vectorIntegratorVRILi8EEESt6vectorIdSaIdEERKSt8functionIFS4_RKS4_EEdENKUldE_clEd: %agg.result"}
+!214 = distinct !{!214, !"_ZZNK8QuantLib30GaussianQuadMultidimIntegrator18vectorIntegratorVRILi8EEESt6vectorIdSaIdEERKSt8functionIFS4_RKS4_EEdENKUldE_clEd"}
+!215 = !{!204, !5, i64 0}
+!216 = !{!217, !213}
+!217 = distinct !{!217, !218, !"_ZNK8QuantLib30GaussianQuadMultidimIntegrator18vectorIntegratorVRILi7EEESt6vectorIdSaIdEERKSt8functionIFS4_RKS4_EEd: %agg.result"}
+!218 = distinct !{!218, !"_ZNK8QuantLib30GaussianQuadMultidimIntegrator18vectorIntegratorVRILi7EEESt6vectorIdSaIdEERKSt8functionIFS4_RKS4_EEd"}
+!219 = !{!220, !5, i64 8}
+!220 = !{!"_ZTSZNK8QuantLib30GaussianQuadMultidimIntegrator18vectorIntegratorVRILi7EEESt6vectorIdSaIdEERKSt8functionIFS4_RKS4_EEdEUldE_", !5, i64 0, !5, i64 8}
+!221 = !{!222}
+!222 = distinct !{!222, !223, !"_ZZNK8QuantLib30GaussianQuadMultidimIntegrator18vectorIntegratorVRILi8EEESt6vectorIdSaIdEERKSt8functionIFS4_RKS4_EEdENKUldE_clEd: %agg.result"}
+!223 = distinct !{!223, !"_ZZNK8QuantLib30GaussianQuadMultidimIntegrator18vectorIntegratorVRILi8EEESt6vectorIdSaIdEERKSt8functionIFS4_RKS4_EEdENKUldE_clEd"}
+!224 = !{!225, !222}
+!225 = distinct !{!225, !226, !"_ZNK8QuantLib30GaussianQuadMultidimIntegrator18vectorIntegratorVRILi7EEESt6vectorIdSaIdEERKSt8functionIFS4_RKS4_EEd: %agg.result"}
+!226 = distinct !{!226, !"_ZNK8QuantLib30GaussianQuadMultidimIntegrator18vectorIntegratorVRILi7EEESt6vectorIdSaIdEERKSt8functionIFS4_RKS4_EEd"}
+!227 = distinct !{!227, !48}
+!228 = !{!229}
+!229 = distinct !{!229, !230, !"_ZZNK8QuantLib30GaussianQuadMultidimIntegrator18vectorIntegratorVRILi7EEESt6vectorIdSaIdEERKSt8functionIFS4_RKS4_EEdENKUldE_clEd: %agg.result"}
+!230 = distinct !{!230, !"_ZZNK8QuantLib30GaussianQuadMultidimIntegrator18vectorIntegratorVRILi7EEESt6vectorIdSaIdEERKSt8functionIFS4_RKS4_EEdENKUldE_clEd"}
+!231 = !{!220, !5, i64 0}
+!232 = !{!233, !229}
+!233 = distinct !{!233, !234, !"_ZNK8QuantLib30GaussianQuadMultidimIntegrator18vectorIntegratorVRILi6EEESt6vectorIdSaIdEERKSt8functionIFS4_RKS4_EEd: %agg.result"}
+!234 = distinct !{!234, !"_ZNK8QuantLib30GaussianQuadMultidimIntegrator18vectorIntegratorVRILi6EEESt6vectorIdSaIdEERKSt8functionIFS4_RKS4_EEd"}
+!235 = !{!236, !5, i64 8}
+!236 = !{!"_ZTSZNK8QuantLib30GaussianQuadMultidimIntegrator18vectorIntegratorVRILi6EEESt6vectorIdSaIdEERKSt8functionIFS4_RKS4_EEdEUldE_", !5, i64 0, !5, i64 8}
+!237 = !{!238}
+!238 = distinct !{!238, !239, !"_ZZNK8QuantLib30GaussianQuadMultidimIntegrator18vectorIntegratorVRILi7EEESt6vectorIdSaIdEERKSt8functionIFS4_RKS4_EEdENKUldE_clEd: %agg.result"}
+!239 = distinct !{!239, !"_ZZNK8QuantLib30GaussianQuadMultidimIntegrator18vectorIntegratorVRILi7EEESt6vectorIdSaIdEERKSt8functionIFS4_RKS4_EEdENKUldE_clEd"}
+!240 = !{!241, !238}
+!241 = distinct !{!241, !242, !"_ZNK8QuantLib30GaussianQuadMultidimIntegrator18vectorIntegratorVRILi6EEESt6vectorIdSaIdEERKSt8functionIFS4_RKS4_EEd: %agg.result"}
+!242 = distinct !{!242, !"_ZNK8QuantLib30GaussianQuadMultidimIntegrator18vectorIntegratorVRILi6EEESt6vectorIdSaIdEERKSt8functionIFS4_RKS4_EEd"}
+!243 = distinct !{!243, !48}
+!244 = !{!245}
+!245 = distinct !{!245, !246, !"_ZZNK8QuantLib30GaussianQuadMultidimIntegrator18vectorIntegratorVRILi6EEESt6vectorIdSaIdEERKSt8functionIFS4_RKS4_EEdENKUldE_clEd: %agg.result"}
+!246 = distinct !{!246, !"_ZZNK8QuantLib30GaussianQuadMultidimIntegrator18vectorIntegratorVRILi6EEESt6vectorIdSaIdEERKSt8functionIFS4_RKS4_EEdENKUldE_clEd"}
+!247 = !{!236, !5, i64 0}
+!248 = !{!249, !245}
+!249 = distinct !{!249, !250, !"_ZNK8QuantLib30GaussianQuadMultidimIntegrator18vectorIntegratorVRILi5EEESt6vectorIdSaIdEERKSt8functionIFS4_RKS4_EEd: %agg.result"}
+!250 = distinct !{!250, !"_ZNK8QuantLib30GaussianQuadMultidimIntegrator18vectorIntegratorVRILi5EEESt6vectorIdSaIdEERKSt8functionIFS4_RKS4_EEd"}
+!251 = !{!252, !5, i64 8}
+!252 = !{!"_ZTSZNK8QuantLib30GaussianQuadMultidimIntegrator18vectorIntegratorVRILi5EEESt6vectorIdSaIdEERKSt8functionIFS4_RKS4_EEdEUldE_", !5, i64 0, !5, i64 8}
+!253 = !{!254}
+!254 = distinct !{!254, !255, !"_ZZNK8QuantLib30GaussianQuadMultidimIntegrator18vectorIntegratorVRILi6EEESt6vectorIdSaIdEERKSt8functionIFS4_RKS4_EEdENKUldE_clEd: %agg.result"}
+!255 = distinct !{!255, !"_ZZNK8QuantLib30GaussianQuadMultidimIntegrator18vectorIntegratorVRILi6EEESt6vectorIdSaIdEERKSt8functionIFS4_RKS4_EEdENKUldE_clEd"}
+!256 = !{!257, !254}
+!257 = distinct !{!257, !258, !"_ZNK8QuantLib30GaussianQuadMultidimIntegrator18vectorIntegratorVRILi5EEESt6vectorIdSaIdEERKSt8functionIFS4_RKS4_EEd: %agg.result"}
+!258 = distinct !{!258, !"_ZNK8QuantLib30GaussianQuadMultidimIntegrator18vectorIntegratorVRILi5EEESt6vectorIdSaIdEERKSt8functionIFS4_RKS4_EEd"}
+!259 = distinct !{!259, !48}
+!260 = !{!261}
+!261 = distinct !{!261, !262, !"_ZZNK8QuantLib30GaussianQuadMultidimIntegrator18vectorIntegratorVRILi5EEESt6vectorIdSaIdEERKSt8functionIFS4_RKS4_EEdENKUldE_clEd: %agg.result"}
+!262 = distinct !{!262, !"_ZZNK8QuantLib30GaussianQuadMultidimIntegrator18vectorIntegratorVRILi5EEESt6vectorIdSaIdEERKSt8functionIFS4_RKS4_EEdENKUldE_clEd"}
+!263 = !{!252, !5, i64 0}
+!264 = !{!265, !261}
+!265 = distinct !{!265, !266, !"_ZNK8QuantLib30GaussianQuadMultidimIntegrator18vectorIntegratorVRILi4EEESt6vectorIdSaIdEERKSt8functionIFS4_RKS4_EEd: %agg.result"}
+!266 = distinct !{!266, !"_ZNK8QuantLib30GaussianQuadMultidimIntegrator18vectorIntegratorVRILi4EEESt6vectorIdSaIdEERKSt8functionIFS4_RKS4_EEd"}
+!267 = !{!268, !5, i64 8}
+!268 = !{!"_ZTSZNK8QuantLib30GaussianQuadMultidimIntegrator18vectorIntegratorVRILi4EEESt6vectorIdSaIdEERKSt8functionIFS4_RKS4_EEdEUldE_", !5, i64 0, !5, i64 8}
+!269 = !{!270}
+!270 = distinct !{!270, !271, !"_ZZNK8QuantLib30GaussianQuadMultidimIntegrator18vectorIntegratorVRILi5EEESt6vectorIdSaIdEERKSt8functionIFS4_RKS4_EEdENKUldE_clEd: %agg.result"}
+!271 = distinct !{!271, !"_ZZNK8QuantLib30GaussianQuadMultidimIntegrator18vectorIntegratorVRILi5EEESt6vectorIdSaIdEERKSt8functionIFS4_RKS4_EEdENKUldE_clEd"}
+!272 = !{!273, !270}
+!273 = distinct !{!273, !274, !"_ZNK8QuantLib30GaussianQuadMultidimIntegrator18vectorIntegratorVRILi4EEESt6vectorIdSaIdEERKSt8functionIFS4_RKS4_EEd: %agg.result"}
+!274 = distinct !{!274, !"_ZNK8QuantLib30GaussianQuadMultidimIntegrator18vectorIntegratorVRILi4EEESt6vectorIdSaIdEERKSt8functionIFS4_RKS4_EEd"}
+!275 = distinct !{!275, !48}
+!276 = !{!277}
+!277 = distinct !{!277, !278, !"_ZZNK8QuantLib30GaussianQuadMultidimIntegrator18vectorIntegratorVRILi4EEESt6vectorIdSaIdEERKSt8functionIFS4_RKS4_EEdENKUldE_clEd: %agg.result"}
+!278 = distinct !{!278, !"_ZZNK8QuantLib30GaussianQuadMultidimIntegrator18vectorIntegratorVRILi4EEESt6vectorIdSaIdEERKSt8functionIFS4_RKS4_EEdENKUldE_clEd"}
+!279 = !{!268, !5, i64 0}
+!280 = !{!281, !277}
+!281 = distinct !{!281, !282, !"_ZNK8QuantLib30GaussianQuadMultidimIntegrator18vectorIntegratorVRILi3EEESt6vectorIdSaIdEERKSt8functionIFS4_RKS4_EEd: %agg.result"}
+!282 = distinct !{!282, !"_ZNK8QuantLib30GaussianQuadMultidimIntegrator18vectorIntegratorVRILi3EEESt6vectorIdSaIdEERKSt8functionIFS4_RKS4_EEd"}
+!283 = !{!284, !5, i64 8}
+!284 = !{!"_ZTSZNK8QuantLib30GaussianQuadMultidimIntegrator18vectorIntegratorVRILi3EEESt6vectorIdSaIdEERKSt8functionIFS4_RKS4_EEdEUldE_", !5, i64 0, !5, i64 8}
+!285 = !{!286}
+!286 = distinct !{!286, !287, !"_ZZNK8QuantLib30GaussianQuadMultidimIntegrator18vectorIntegratorVRILi4EEESt6vectorIdSaIdEERKSt8functionIFS4_RKS4_EEdENKUldE_clEd: %agg.result"}
+!287 = distinct !{!287, !"_ZZNK8QuantLib30GaussianQuadMultidimIntegrator18vectorIntegratorVRILi4EEESt6vectorIdSaIdEERKSt8functionIFS4_RKS4_EEdENKUldE_clEd"}
+!288 = !{!289, !286}
+!289 = distinct !{!289, !290, !"_ZNK8QuantLib30GaussianQuadMultidimIntegrator18vectorIntegratorVRILi3EEESt6vectorIdSaIdEERKSt8functionIFS4_RKS4_EEd: %agg.result"}
+!290 = distinct !{!290, !"_ZNK8QuantLib30GaussianQuadMultidimIntegrator18vectorIntegratorVRILi3EEESt6vectorIdSaIdEERKSt8functionIFS4_RKS4_EEd"}
+!291 = distinct !{!291, !48}
+!292 = !{!293}
+!293 = distinct !{!293, !294, !"_ZZNK8QuantLib30GaussianQuadMultidimIntegrator18vectorIntegratorVRILi3EEESt6vectorIdSaIdEERKSt8functionIFS4_RKS4_EEdENKUldE_clEd: %agg.result"}
+!294 = distinct !{!294, !"_ZZNK8QuantLib30GaussianQuadMultidimIntegrator18vectorIntegratorVRILi3EEESt6vectorIdSaIdEERKSt8functionIFS4_RKS4_EEdENKUldE_clEd"}
+!295 = !{!284, !5, i64 0}
+!296 = !{!297, !293}
+!297 = distinct !{!297, !298, !"_ZNK8QuantLib30GaussianQuadMultidimIntegrator18vectorIntegratorVRILi2EEESt6vectorIdSaIdEERKSt8functionIFS4_RKS4_EEd: %agg.result"}
+!298 = distinct !{!298, !"_ZNK8QuantLib30GaussianQuadMultidimIntegrator18vectorIntegratorVRILi2EEESt6vectorIdSaIdEERKSt8functionIFS4_RKS4_EEd"}
+!299 = !{!300, !5, i64 8}
+!300 = !{!"_ZTSZNK8QuantLib30GaussianQuadMultidimIntegrator18vectorIntegratorVRILi2EEESt6vectorIdSaIdEERKSt8functionIFS4_RKS4_EEdEUldE_", !5, i64 0, !5, i64 8}
+!301 = !{!302}
+!302 = distinct !{!302, !303, !"_ZZNK8QuantLib30GaussianQuadMultidimIntegrator18vectorIntegratorVRILi3EEESt6vectorIdSaIdEERKSt8functionIFS4_RKS4_EEdENKUldE_clEd: %agg.result"}
+!303 = distinct !{!303, !"_ZZNK8QuantLib30GaussianQuadMultidimIntegrator18vectorIntegratorVRILi3EEESt6vectorIdSaIdEERKSt8functionIFS4_RKS4_EEdENKUldE_clEd"}
+!304 = !{!305, !302}
+!305 = distinct !{!305, !306, !"_ZNK8QuantLib30GaussianQuadMultidimIntegrator18vectorIntegratorVRILi2EEESt6vectorIdSaIdEERKSt8functionIFS4_RKS4_EEd: %agg.result"}
+!306 = distinct !{!306, !"_ZNK8QuantLib30GaussianQuadMultidimIntegrator18vectorIntegratorVRILi2EEESt6vectorIdSaIdEERKSt8functionIFS4_RKS4_EEd"}
+!307 = distinct !{!307, !48}
+!308 = !{!309}
+!309 = distinct !{!309, !310, !"_ZZNK8QuantLib30GaussianQuadMultidimIntegrator18vectorIntegratorVRILi2EEESt6vectorIdSaIdEERKSt8functionIFS4_RKS4_EEdENKUldE_clEd: %agg.result"}
+!310 = distinct !{!310, !"_ZZNK8QuantLib30GaussianQuadMultidimIntegrator18vectorIntegratorVRILi2EEESt6vectorIdSaIdEERKSt8functionIFS4_RKS4_EEdENKUldE_clEd"}
+!311 = !{!300, !5, i64 0}
+!312 = !{!313, !309}
+!313 = distinct !{!313, !314, !"_ZNK8QuantLib30GaussianQuadMultidimIntegrator18vectorIntegratorVRILi1EEESt6vectorIdSaIdEERKSt8functionIFS4_RKS4_EEd: %agg.result"}
+!314 = distinct !{!314, !"_ZNK8QuantLib30GaussianQuadMultidimIntegrator18vectorIntegratorVRILi1EEESt6vectorIdSaIdEERKSt8functionIFS4_RKS4_EEd"}
+!315 = !{!316, !313, !309}
+!316 = distinct !{!316, !317, !"_ZNKSt8functionIFSt6vectorIdSaIdEERKS2_EEclES4_: %agg.result"}
+!317 = distinct !{!317, !"_ZNKSt8functionIFSt6vectorIdSaIdEERKS2_EEclES4_"}
+!318 = !{!319, !5, i64 24}
+!319 = !{!"_ZTSSt8functionIFSt6vectorIdSaIdEERKS2_EE", !46, i64 0, !5, i64 24}
+!320 = !{!321}
+!321 = distinct !{!321, !322, !"_ZZNK8QuantLib30GaussianQuadMultidimIntegrator18vectorIntegratorVRILi2EEESt6vectorIdSaIdEERKSt8functionIFS4_RKS4_EEdENKUldE_clEd: %agg.result"}
+!322 = distinct !{!322, !"_ZZNK8QuantLib30GaussianQuadMultidimIntegrator18vectorIntegratorVRILi2EEESt6vectorIdSaIdEERKSt8functionIFS4_RKS4_EEdENKUldE_clEd"}
+!323 = !{!324, !321}
+!324 = distinct !{!324, !325, !"_ZNK8QuantLib30GaussianQuadMultidimIntegrator18vectorIntegratorVRILi1EEESt6vectorIdSaIdEERKSt8functionIFS4_RKS4_EEd: %agg.result"}
+!325 = distinct !{!325, !"_ZNK8QuantLib30GaussianQuadMultidimIntegrator18vectorIntegratorVRILi1EEESt6vectorIdSaIdEERKSt8functionIFS4_RKS4_EEd"}
+!326 = !{!327, !324, !321}
+!327 = distinct !{!327, !328, !"_ZNKSt8functionIFSt6vectorIdSaIdEERKS2_EEclES4_: %agg.result"}
+!328 = distinct !{!328, !"_ZNKSt8functionIFSt6vectorIdSaIdEERKS2_EEclES4_"}
+!329 = distinct !{!329, !48}
+!330 = !{!331, !5, i64 0}
+!331 = !{!"_ZTSZNK8QuantLib30GaussianQuadMultidimIntegrator9spawnFctsILm14EEEvvEUlSt8functionIFdRKSt6vectorIdSaIdEEEEdE_", !5, i64 0}
+!332 = !{!333, !335}
+!333 = distinct !{!333, !334, !"_ZSt13__invoke_implISt6vectorIdSaIdEERZNK8QuantLib30GaussianQuadMultidimIntegrator9spawnFctsILm14EEEvvEUlRKSt8functionIFS2_RKS2_EEdE_JSC_dEET_St14__invoke_otherOT0_DpOT1_: %agg.result"}
+!334 = distinct !{!334, !"_ZSt13__invoke_implISt6vectorIdSaIdEERZNK8QuantLib30GaussianQuadMultidimIntegrator9spawnFctsILm14EEEvvEUlRKSt8functionIFS2_RKS2_EEdE_JSC_dEET_St14__invoke_otherOT0_DpOT1_"}
+!335 = distinct !{!335, !336, !"_ZSt10__invoke_rISt6vectorIdSaIdEERZNK8QuantLib30GaussianQuadMultidimIntegrator9spawnFctsILm14EEEvvEUlRKSt8functionIFS2_RKS2_EEdE_JSC_dEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESG_E4typeEOSH_DpOSI_: %agg.result"}
+!336 = distinct !{!336, !"_ZSt10__invoke_rISt6vectorIdSaIdEERZNK8QuantLib30GaussianQuadMultidimIntegrator9spawnFctsILm14EEEvvEUlRKSt8functionIFS2_RKS2_EEdE_JSC_dEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESG_E4typeEOSH_DpOSI_"}
+!337 = !{!338, !5, i64 0}
+!338 = !{!"_ZTSZNK8QuantLib30GaussianQuadMultidimIntegrator9spawnFctsILm14EEEvvEUlRKSt8functionIFSt6vectorIdSaIdEERKS5_EEdE_", !5, i64 0}
+!339 = !{!340, !333, !335}
+!340 = distinct !{!340, !341, !"_ZZNK8QuantLib30GaussianQuadMultidimIntegrator9spawnFctsILm14EEEvvENKUlRKSt8functionIFSt6vectorIdSaIdEERKS5_EEdE_clESB_d: %agg.result"}
+!341 = distinct !{!341, !"_ZZNK8QuantLib30GaussianQuadMultidimIntegrator9spawnFctsILm14EEEvvENKUlRKSt8functionIFSt6vectorIdSaIdEERKS5_EEdE_clESB_d"}
+!342 = !{!343, !340, !333, !335}
+!343 = distinct !{!343, !344, !"_ZNK8QuantLib30GaussianQuadMultidimIntegrator18vectorIntegratorVRILi14EEESt6vectorIdSaIdEERKSt8functionIFS4_RKS4_EEd: %agg.result"}
+!344 = distinct !{!344, !"_ZNK8QuantLib30GaussianQuadMultidimIntegrator18vectorIntegratorVRILi14EEESt6vectorIdSaIdEERKSt8functionIFS4_RKS4_EEd"}
+!345 = !{!346, !5, i64 0}
+!346 = !{!"_ZTSZNK8QuantLib30GaussianQuadMultidimIntegrator9spawnFctsILm13EEEvvEUlSt8functionIFdRKSt6vectorIdSaIdEEEEdE_", !5, i64 0}
+!347 = !{!348, !350}
+!348 = distinct !{!348, !349, !"_ZSt13__invoke_implISt6vectorIdSaIdEERZNK8QuantLib30GaussianQuadMultidimIntegrator9spawnFctsILm13EEEvvEUlRKSt8functionIFS2_RKS2_EEdE_JSC_dEET_St14__invoke_otherOT0_DpOT1_: %agg.result"}
+!349 = distinct !{!349, !"_ZSt13__invoke_implISt6vectorIdSaIdEERZNK8QuantLib30GaussianQuadMultidimIntegrator9spawnFctsILm13EEEvvEUlRKSt8functionIFS2_RKS2_EEdE_JSC_dEET_St14__invoke_otherOT0_DpOT1_"}
+!350 = distinct !{!350, !351, !"_ZSt10__invoke_rISt6vectorIdSaIdEERZNK8QuantLib30GaussianQuadMultidimIntegrator9spawnFctsILm13EEEvvEUlRKSt8functionIFS2_RKS2_EEdE_JSC_dEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESG_E4typeEOSH_DpOSI_: %agg.result"}
+!351 = distinct !{!351, !"_ZSt10__invoke_rISt6vectorIdSaIdEERZNK8QuantLib30GaussianQuadMultidimIntegrator9spawnFctsILm13EEEvvEUlRKSt8functionIFS2_RKS2_EEdE_JSC_dEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESG_E4typeEOSH_DpOSI_"}
+!352 = !{!353, !5, i64 0}
+!353 = !{!"_ZTSZNK8QuantLib30GaussianQuadMultidimIntegrator9spawnFctsILm13EEEvvEUlRKSt8functionIFSt6vectorIdSaIdEERKS5_EEdE_", !5, i64 0}
+!354 = !{!355, !348, !350}
+!355 = distinct !{!355, !356, !"_ZZNK8QuantLib30GaussianQuadMultidimIntegrator9spawnFctsILm13EEEvvENKUlRKSt8functionIFSt6vectorIdSaIdEERKS5_EEdE_clESB_d: %agg.result"}
+!356 = distinct !{!356, !"_ZZNK8QuantLib30GaussianQuadMultidimIntegrator9spawnFctsILm13EEEvvENKUlRKSt8functionIFSt6vectorIdSaIdEERKS5_EEdE_clESB_d"}
+!357 = !{!358, !355, !348, !350}
+!358 = distinct !{!358, !359, !"_ZNK8QuantLib30GaussianQuadMultidimIntegrator18vectorIntegratorVRILi13EEESt6vectorIdSaIdEERKSt8functionIFS4_RKS4_EEd: %agg.result"}
+!359 = distinct !{!359, !"_ZNK8QuantLib30GaussianQuadMultidimIntegrator18vectorIntegratorVRILi13EEESt6vectorIdSaIdEERKSt8functionIFS4_RKS4_EEd"}
+!360 = !{!361, !5, i64 0}
+!361 = !{!"_ZTSZNK8QuantLib30GaussianQuadMultidimIntegrator9spawnFctsILm12EEEvvEUlSt8functionIFdRKSt6vectorIdSaIdEEEEdE_", !5, i64 0}
+!362 = !{!363, !365}
+!363 = distinct !{!363, !364, !"_ZSt13__invoke_implISt6vectorIdSaIdEERZNK8QuantLib30GaussianQuadMultidimIntegrator9spawnFctsILm12EEEvvEUlRKSt8functionIFS2_RKS2_EEdE_JSC_dEET_St14__invoke_otherOT0_DpOT1_: %agg.result"}
+!364 = distinct !{!364, !"_ZSt13__invoke_implISt6vectorIdSaIdEERZNK8QuantLib30GaussianQuadMultidimIntegrator9spawnFctsILm12EEEvvEUlRKSt8functionIFS2_RKS2_EEdE_JSC_dEET_St14__invoke_otherOT0_DpOT1_"}
+!365 = distinct !{!365, !366, !"_ZSt10__invoke_rISt6vectorIdSaIdEERZNK8QuantLib30GaussianQuadMultidimIntegrator9spawnFctsILm12EEEvvEUlRKSt8functionIFS2_RKS2_EEdE_JSC_dEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESG_E4typeEOSH_DpOSI_: %agg.result"}
+!366 = distinct !{!366, !"_ZSt10__invoke_rISt6vectorIdSaIdEERZNK8QuantLib30GaussianQuadMultidimIntegrator9spawnFctsILm12EEEvvEUlRKSt8functionIFS2_RKS2_EEdE_JSC_dEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESG_E4typeEOSH_DpOSI_"}
+!367 = !{!368, !5, i64 0}
+!368 = !{!"_ZTSZNK8QuantLib30GaussianQuadMultidimIntegrator9spawnFctsILm12EEEvvEUlRKSt8functionIFSt6vectorIdSaIdEERKS5_EEdE_", !5, i64 0}
+!369 = !{!370, !363, !365}
+!370 = distinct !{!370, !371, !"_ZZNK8QuantLib30GaussianQuadMultidimIntegrator9spawnFctsILm12EEEvvENKUlRKSt8functionIFSt6vectorIdSaIdEERKS5_EEdE_clESB_d: %agg.result"}
+!371 = distinct !{!371, !"_ZZNK8QuantLib30GaussianQuadMultidimIntegrator9spawnFctsILm12EEEvvENKUlRKSt8functionIFSt6vectorIdSaIdEERKS5_EEdE_clESB_d"}
+!372 = !{!373, !370, !363, !365}
+!373 = distinct !{!373, !374, !"_ZNK8QuantLib30GaussianQuadMultidimIntegrator18vectorIntegratorVRILi12EEESt6vectorIdSaIdEERKSt8functionIFS4_RKS4_EEd: %agg.result"}
+!374 = distinct !{!374, !"_ZNK8QuantLib30GaussianQuadMultidimIntegrator18vectorIntegratorVRILi12EEESt6vectorIdSaIdEERKSt8functionIFS4_RKS4_EEd"}
+!375 = !{!376, !5, i64 0}
+!376 = !{!"_ZTSZNK8QuantLib30GaussianQuadMultidimIntegrator9spawnFctsILm11EEEvvEUlSt8functionIFdRKSt6vectorIdSaIdEEEEdE_", !5, i64 0}
+!377 = !{!378, !380}
+!378 = distinct !{!378, !379, !"_ZSt13__invoke_implISt6vectorIdSaIdEERZNK8QuantLib30GaussianQuadMultidimIntegrator9spawnFctsILm11EEEvvEUlRKSt8functionIFS2_RKS2_EEdE_JSC_dEET_St14__invoke_otherOT0_DpOT1_: %agg.result"}
+!379 = distinct !{!379, !"_ZSt13__invoke_implISt6vectorIdSaIdEERZNK8QuantLib30GaussianQuadMultidimIntegrator9spawnFctsILm11EEEvvEUlRKSt8functionIFS2_RKS2_EEdE_JSC_dEET_St14__invoke_otherOT0_DpOT1_"}
+!380 = distinct !{!380, !381, !"_ZSt10__invoke_rISt6vectorIdSaIdEERZNK8QuantLib30GaussianQuadMultidimIntegrator9spawnFctsILm11EEEvvEUlRKSt8functionIFS2_RKS2_EEdE_JSC_dEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESG_E4typeEOSH_DpOSI_: %agg.result"}
+!381 = distinct !{!381, !"_ZSt10__invoke_rISt6vectorIdSaIdEERZNK8QuantLib30GaussianQuadMultidimIntegrator9spawnFctsILm11EEEvvEUlRKSt8functionIFS2_RKS2_EEdE_JSC_dEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESG_E4typeEOSH_DpOSI_"}
+!382 = !{!383, !5, i64 0}
+!383 = !{!"_ZTSZNK8QuantLib30GaussianQuadMultidimIntegrator9spawnFctsILm11EEEvvEUlRKSt8functionIFSt6vectorIdSaIdEERKS5_EEdE_", !5, i64 0}
+!384 = !{!385, !378, !380}
+!385 = distinct !{!385, !386, !"_ZZNK8QuantLib30GaussianQuadMultidimIntegrator9spawnFctsILm11EEEvvENKUlRKSt8functionIFSt6vectorIdSaIdEERKS5_EEdE_clESB_d: %agg.result"}
+!386 = distinct !{!386, !"_ZZNK8QuantLib30GaussianQuadMultidimIntegrator9spawnFctsILm11EEEvvENKUlRKSt8functionIFSt6vectorIdSaIdEERKS5_EEdE_clESB_d"}
+!387 = !{!388, !385, !378, !380}
+!388 = distinct !{!388, !389, !"_ZNK8QuantLib30GaussianQuadMultidimIntegrator18vectorIntegratorVRILi11EEESt6vectorIdSaIdEERKSt8functionIFS4_RKS4_EEd: %agg.result"}
+!389 = distinct !{!389, !"_ZNK8QuantLib30GaussianQuadMultidimIntegrator18vectorIntegratorVRILi11EEESt6vectorIdSaIdEERKSt8functionIFS4_RKS4_EEd"}
+!390 = !{!391, !5, i64 0}
+!391 = !{!"_ZTSZNK8QuantLib30GaussianQuadMultidimIntegrator9spawnFctsILm10EEEvvEUlSt8functionIFdRKSt6vectorIdSaIdEEEEdE_", !5, i64 0}
+!392 = !{!393, !395}
+!393 = distinct !{!393, !394, !"_ZSt13__invoke_implISt6vectorIdSaIdEERZNK8QuantLib30GaussianQuadMultidimIntegrator9spawnFctsILm10EEEvvEUlRKSt8functionIFS2_RKS2_EEdE_JSC_dEET_St14__invoke_otherOT0_DpOT1_: %agg.result"}
+!394 = distinct !{!394, !"_ZSt13__invoke_implISt6vectorIdSaIdEERZNK8QuantLib30GaussianQuadMultidimIntegrator9spawnFctsILm10EEEvvEUlRKSt8functionIFS2_RKS2_EEdE_JSC_dEET_St14__invoke_otherOT0_DpOT1_"}
+!395 = distinct !{!395, !396, !"_ZSt10__invoke_rISt6vectorIdSaIdEERZNK8QuantLib30GaussianQuadMultidimIntegrator9spawnFctsILm10EEEvvEUlRKSt8functionIFS2_RKS2_EEdE_JSC_dEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESG_E4typeEOSH_DpOSI_: %agg.result"}
+!396 = distinct !{!396, !"_ZSt10__invoke_rISt6vectorIdSaIdEERZNK8QuantLib30GaussianQuadMultidimIntegrator9spawnFctsILm10EEEvvEUlRKSt8functionIFS2_RKS2_EEdE_JSC_dEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESG_E4typeEOSH_DpOSI_"}
+!397 = !{!398, !5, i64 0}
+!398 = !{!"_ZTSZNK8QuantLib30GaussianQuadMultidimIntegrator9spawnFctsILm10EEEvvEUlRKSt8functionIFSt6vectorIdSaIdEERKS5_EEdE_", !5, i64 0}
+!399 = !{!400, !393, !395}
+!400 = distinct !{!400, !401, !"_ZZNK8QuantLib30GaussianQuadMultidimIntegrator9spawnFctsILm10EEEvvENKUlRKSt8functionIFSt6vectorIdSaIdEERKS5_EEdE_clESB_d: %agg.result"}
+!401 = distinct !{!401, !"_ZZNK8QuantLib30GaussianQuadMultidimIntegrator9spawnFctsILm10EEEvvENKUlRKSt8functionIFSt6vectorIdSaIdEERKS5_EEdE_clESB_d"}
+!402 = !{!403, !400, !393, !395}
+!403 = distinct !{!403, !404, !"_ZNK8QuantLib30GaussianQuadMultidimIntegrator18vectorIntegratorVRILi10EEESt6vectorIdSaIdEERKSt8functionIFS4_RKS4_EEd: %agg.result"}
+!404 = distinct !{!404, !"_ZNK8QuantLib30GaussianQuadMultidimIntegrator18vectorIntegratorVRILi10EEESt6vectorIdSaIdEERKSt8functionIFS4_RKS4_EEd"}
+!405 = !{!406, !5, i64 0}
+!406 = !{!"_ZTSZNK8QuantLib30GaussianQuadMultidimIntegrator9spawnFctsILm9EEEvvEUlSt8functionIFdRKSt6vectorIdSaIdEEEEdE_", !5, i64 0}
+!407 = !{!408, !410}
+!408 = distinct !{!408, !409, !"_ZSt13__invoke_implISt6vectorIdSaIdEERZNK8QuantLib30GaussianQuadMultidimIntegrator9spawnFctsILm9EEEvvEUlRKSt8functionIFS2_RKS2_EEdE_JSC_dEET_St14__invoke_otherOT0_DpOT1_: %agg.result"}
+!409 = distinct !{!409, !"_ZSt13__invoke_implISt6vectorIdSaIdEERZNK8QuantLib30GaussianQuadMultidimIntegrator9spawnFctsILm9EEEvvEUlRKSt8functionIFS2_RKS2_EEdE_JSC_dEET_St14__invoke_otherOT0_DpOT1_"}
+!410 = distinct !{!410, !411, !"_ZSt10__invoke_rISt6vectorIdSaIdEERZNK8QuantLib30GaussianQuadMultidimIntegrator9spawnFctsILm9EEEvvEUlRKSt8functionIFS2_RKS2_EEdE_JSC_dEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESG_E4typeEOSH_DpOSI_: %agg.result"}
+!411 = distinct !{!411, !"_ZSt10__invoke_rISt6vectorIdSaIdEERZNK8QuantLib30GaussianQuadMultidimIntegrator9spawnFctsILm9EEEvvEUlRKSt8functionIFS2_RKS2_EEdE_JSC_dEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESG_E4typeEOSH_DpOSI_"}
+!412 = !{!413, !5, i64 0}
+!413 = !{!"_ZTSZNK8QuantLib30GaussianQuadMultidimIntegrator9spawnFctsILm9EEEvvEUlRKSt8functionIFSt6vectorIdSaIdEERKS5_EEdE_", !5, i64 0}
+!414 = !{!415, !408, !410}
+!415 = distinct !{!415, !416, !"_ZZNK8QuantLib30GaussianQuadMultidimIntegrator9spawnFctsILm9EEEvvENKUlRKSt8functionIFSt6vectorIdSaIdEERKS5_EEdE_clESB_d: %agg.result"}
+!416 = distinct !{!416, !"_ZZNK8QuantLib30GaussianQuadMultidimIntegrator9spawnFctsILm9EEEvvENKUlRKSt8functionIFSt6vectorIdSaIdEERKS5_EEdE_clESB_d"}
+!417 = !{!418, !415, !408, !410}
+!418 = distinct !{!418, !419, !"_ZNK8QuantLib30GaussianQuadMultidimIntegrator18vectorIntegratorVRILi9EEESt6vectorIdSaIdEERKSt8functionIFS4_RKS4_EEd: %agg.result"}
+!419 = distinct !{!419, !"_ZNK8QuantLib30GaussianQuadMultidimIntegrator18vectorIntegratorVRILi9EEESt6vectorIdSaIdEERKSt8functionIFS4_RKS4_EEd"}
+!420 = !{!421, !5, i64 0}
+!421 = !{!"_ZTSZNK8QuantLib30GaussianQuadMultidimIntegrator9spawnFctsILm8EEEvvEUlSt8functionIFdRKSt6vectorIdSaIdEEEEdE_", !5, i64 0}
+!422 = !{!423, !425}
+!423 = distinct !{!423, !424, !"_ZSt13__invoke_implISt6vectorIdSaIdEERZNK8QuantLib30GaussianQuadMultidimIntegrator9spawnFctsILm8EEEvvEUlRKSt8functionIFS2_RKS2_EEdE_JSC_dEET_St14__invoke_otherOT0_DpOT1_: %agg.result"}
+!424 = distinct !{!424, !"_ZSt13__invoke_implISt6vectorIdSaIdEERZNK8QuantLib30GaussianQuadMultidimIntegrator9spawnFctsILm8EEEvvEUlRKSt8functionIFS2_RKS2_EEdE_JSC_dEET_St14__invoke_otherOT0_DpOT1_"}
+!425 = distinct !{!425, !426, !"_ZSt10__invoke_rISt6vectorIdSaIdEERZNK8QuantLib30GaussianQuadMultidimIntegrator9spawnFctsILm8EEEvvEUlRKSt8functionIFS2_RKS2_EEdE_JSC_dEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESG_E4typeEOSH_DpOSI_: %agg.result"}
+!426 = distinct !{!426, !"_ZSt10__invoke_rISt6vectorIdSaIdEERZNK8QuantLib30GaussianQuadMultidimIntegrator9spawnFctsILm8EEEvvEUlRKSt8functionIFS2_RKS2_EEdE_JSC_dEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESG_E4typeEOSH_DpOSI_"}
+!427 = !{!428, !5, i64 0}
+!428 = !{!"_ZTSZNK8QuantLib30GaussianQuadMultidimIntegrator9spawnFctsILm8EEEvvEUlRKSt8functionIFSt6vectorIdSaIdEERKS5_EEdE_", !5, i64 0}
+!429 = !{!430, !423, !425}
+!430 = distinct !{!430, !431, !"_ZZNK8QuantLib30GaussianQuadMultidimIntegrator9spawnFctsILm8EEEvvENKUlRKSt8functionIFSt6vectorIdSaIdEERKS5_EEdE_clESB_d: %agg.result"}
+!431 = distinct !{!431, !"_ZZNK8QuantLib30GaussianQuadMultidimIntegrator9spawnFctsILm8EEEvvENKUlRKSt8functionIFSt6vectorIdSaIdEERKS5_EEdE_clESB_d"}
+!432 = !{!433, !430, !423, !425}
+!433 = distinct !{!433, !434, !"_ZNK8QuantLib30GaussianQuadMultidimIntegrator18vectorIntegratorVRILi8EEESt6vectorIdSaIdEERKSt8functionIFS4_RKS4_EEd: %agg.result"}
+!434 = distinct !{!434, !"_ZNK8QuantLib30GaussianQuadMultidimIntegrator18vectorIntegratorVRILi8EEESt6vectorIdSaIdEERKSt8functionIFS4_RKS4_EEd"}
+!435 = !{!436, !5, i64 0}
+!436 = !{!"_ZTSZNK8QuantLib30GaussianQuadMultidimIntegrator9spawnFctsILm7EEEvvEUlSt8functionIFdRKSt6vectorIdSaIdEEEEdE_", !5, i64 0}
+!437 = !{!438, !440}
+!438 = distinct !{!438, !439, !"_ZSt13__invoke_implISt6vectorIdSaIdEERZNK8QuantLib30GaussianQuadMultidimIntegrator9spawnFctsILm7EEEvvEUlRKSt8functionIFS2_RKS2_EEdE_JSC_dEET_St14__invoke_otherOT0_DpOT1_: %agg.result"}
+!439 = distinct !{!439, !"_ZSt13__invoke_implISt6vectorIdSaIdEERZNK8QuantLib30GaussianQuadMultidimIntegrator9spawnFctsILm7EEEvvEUlRKSt8functionIFS2_RKS2_EEdE_JSC_dEET_St14__invoke_otherOT0_DpOT1_"}
+!440 = distinct !{!440, !441, !"_ZSt10__invoke_rISt6vectorIdSaIdEERZNK8QuantLib30GaussianQuadMultidimIntegrator9spawnFctsILm7EEEvvEUlRKSt8functionIFS2_RKS2_EEdE_JSC_dEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESG_E4typeEOSH_DpOSI_: %agg.result"}
+!441 = distinct !{!441, !"_ZSt10__invoke_rISt6vectorIdSaIdEERZNK8QuantLib30GaussianQuadMultidimIntegrator9spawnFctsILm7EEEvvEUlRKSt8functionIFS2_RKS2_EEdE_JSC_dEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESG_E4typeEOSH_DpOSI_"}
+!442 = !{!443, !5, i64 0}
+!443 = !{!"_ZTSZNK8QuantLib30GaussianQuadMultidimIntegrator9spawnFctsILm7EEEvvEUlRKSt8functionIFSt6vectorIdSaIdEERKS5_EEdE_", !5, i64 0}
+!444 = !{!445, !438, !440}
+!445 = distinct !{!445, !446, !"_ZZNK8QuantLib30GaussianQuadMultidimIntegrator9spawnFctsILm7EEEvvENKUlRKSt8functionIFSt6vectorIdSaIdEERKS5_EEdE_clESB_d: %agg.result"}
+!446 = distinct !{!446, !"_ZZNK8QuantLib30GaussianQuadMultidimIntegrator9spawnFctsILm7EEEvvENKUlRKSt8functionIFSt6vectorIdSaIdEERKS5_EEdE_clESB_d"}
+!447 = !{!448, !445, !438, !440}
+!448 = distinct !{!448, !449, !"_ZNK8QuantLib30GaussianQuadMultidimIntegrator18vectorIntegratorVRILi7EEESt6vectorIdSaIdEERKSt8functionIFS4_RKS4_EEd: %agg.result"}
+!449 = distinct !{!449, !"_ZNK8QuantLib30GaussianQuadMultidimIntegrator18vectorIntegratorVRILi7EEESt6vectorIdSaIdEERKSt8functionIFS4_RKS4_EEd"}
+!450 = !{!451, !5, i64 0}
+!451 = !{!"_ZTSZNK8QuantLib30GaussianQuadMultidimIntegrator9spawnFctsILm6EEEvvEUlSt8functionIFdRKSt6vectorIdSaIdEEEEdE_", !5, i64 0}
+!452 = !{!453, !455}
+!453 = distinct !{!453, !454, !"_ZSt13__invoke_implISt6vectorIdSaIdEERZNK8QuantLib30GaussianQuadMultidimIntegrator9spawnFctsILm6EEEvvEUlRKSt8functionIFS2_RKS2_EEdE_JSC_dEET_St14__invoke_otherOT0_DpOT1_: %agg.result"}
+!454 = distinct !{!454, !"_ZSt13__invoke_implISt6vectorIdSaIdEERZNK8QuantLib30GaussianQuadMultidimIntegrator9spawnFctsILm6EEEvvEUlRKSt8functionIFS2_RKS2_EEdE_JSC_dEET_St14__invoke_otherOT0_DpOT1_"}
+!455 = distinct !{!455, !456, !"_ZSt10__invoke_rISt6vectorIdSaIdEERZNK8QuantLib30GaussianQuadMultidimIntegrator9spawnFctsILm6EEEvvEUlRKSt8functionIFS2_RKS2_EEdE_JSC_dEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESG_E4typeEOSH_DpOSI_: %agg.result"}
+!456 = distinct !{!456, !"_ZSt10__invoke_rISt6vectorIdSaIdEERZNK8QuantLib30GaussianQuadMultidimIntegrator9spawnFctsILm6EEEvvEUlRKSt8functionIFS2_RKS2_EEdE_JSC_dEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESG_E4typeEOSH_DpOSI_"}
+!457 = !{!458, !5, i64 0}
+!458 = !{!"_ZTSZNK8QuantLib30GaussianQuadMultidimIntegrator9spawnFctsILm6EEEvvEUlRKSt8functionIFSt6vectorIdSaIdEERKS5_EEdE_", !5, i64 0}
+!459 = !{!460, !453, !455}
+!460 = distinct !{!460, !461, !"_ZZNK8QuantLib30GaussianQuadMultidimIntegrator9spawnFctsILm6EEEvvENKUlRKSt8functionIFSt6vectorIdSaIdEERKS5_EEdE_clESB_d: %agg.result"}
+!461 = distinct !{!461, !"_ZZNK8QuantLib30GaussianQuadMultidimIntegrator9spawnFctsILm6EEEvvENKUlRKSt8functionIFSt6vectorIdSaIdEERKS5_EEdE_clESB_d"}
+!462 = !{!463, !460, !453, !455}
+!463 = distinct !{!463, !464, !"_ZNK8QuantLib30GaussianQuadMultidimIntegrator18vectorIntegratorVRILi6EEESt6vectorIdSaIdEERKSt8functionIFS4_RKS4_EEd: %agg.result"}
+!464 = distinct !{!464, !"_ZNK8QuantLib30GaussianQuadMultidimIntegrator18vectorIntegratorVRILi6EEESt6vectorIdSaIdEERKSt8functionIFS4_RKS4_EEd"}
+!465 = !{!466, !5, i64 0}
+!466 = !{!"_ZTSZNK8QuantLib30GaussianQuadMultidimIntegrator9spawnFctsILm5EEEvvEUlSt8functionIFdRKSt6vectorIdSaIdEEEEdE_", !5, i64 0}
+!467 = !{!468, !470}
+!468 = distinct !{!468, !469, !"_ZSt13__invoke_implISt6vectorIdSaIdEERZNK8QuantLib30GaussianQuadMultidimIntegrator9spawnFctsILm5EEEvvEUlRKSt8functionIFS2_RKS2_EEdE_JSC_dEET_St14__invoke_otherOT0_DpOT1_: %agg.result"}
+!469 = distinct !{!469, !"_ZSt13__invoke_implISt6vectorIdSaIdEERZNK8QuantLib30GaussianQuadMultidimIntegrator9spawnFctsILm5EEEvvEUlRKSt8functionIFS2_RKS2_EEdE_JSC_dEET_St14__invoke_otherOT0_DpOT1_"}
+!470 = distinct !{!470, !471, !"_ZSt10__invoke_rISt6vectorIdSaIdEERZNK8QuantLib30GaussianQuadMultidimIntegrator9spawnFctsILm5EEEvvEUlRKSt8functionIFS2_RKS2_EEdE_JSC_dEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESG_E4typeEOSH_DpOSI_: %agg.result"}
+!471 = distinct !{!471, !"_ZSt10__invoke_rISt6vectorIdSaIdEERZNK8QuantLib30GaussianQuadMultidimIntegrator9spawnFctsILm5EEEvvEUlRKSt8functionIFS2_RKS2_EEdE_JSC_dEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESG_E4typeEOSH_DpOSI_"}
+!472 = !{!473, !5, i64 0}
+!473 = !{!"_ZTSZNK8QuantLib30GaussianQuadMultidimIntegrator9spawnFctsILm5EEEvvEUlRKSt8functionIFSt6vectorIdSaIdEERKS5_EEdE_", !5, i64 0}
+!474 = !{!475, !468, !470}
+!475 = distinct !{!475, !476, !"_ZZNK8QuantLib30GaussianQuadMultidimIntegrator9spawnFctsILm5EEEvvENKUlRKSt8functionIFSt6vectorIdSaIdEERKS5_EEdE_clESB_d: %agg.result"}
+!476 = distinct !{!476, !"_ZZNK8QuantLib30GaussianQuadMultidimIntegrator9spawnFctsILm5EEEvvENKUlRKSt8functionIFSt6vectorIdSaIdEERKS5_EEdE_clESB_d"}
+!477 = !{!478, !475, !468, !470}
+!478 = distinct !{!478, !479, !"_ZNK8QuantLib30GaussianQuadMultidimIntegrator18vectorIntegratorVRILi5EEESt6vectorIdSaIdEERKSt8functionIFS4_RKS4_EEd: %agg.result"}
+!479 = distinct !{!479, !"_ZNK8QuantLib30GaussianQuadMultidimIntegrator18vectorIntegratorVRILi5EEESt6vectorIdSaIdEERKSt8functionIFS4_RKS4_EEd"}
+!480 = !{!481, !5, i64 0}
+!481 = !{!"_ZTSZNK8QuantLib30GaussianQuadMultidimIntegrator9spawnFctsILm4EEEvvEUlSt8functionIFdRKSt6vectorIdSaIdEEEEdE_", !5, i64 0}
+!482 = !{!483, !485}
+!483 = distinct !{!483, !484, !"_ZSt13__invoke_implISt6vectorIdSaIdEERZNK8QuantLib30GaussianQuadMultidimIntegrator9spawnFctsILm4EEEvvEUlRKSt8functionIFS2_RKS2_EEdE_JSC_dEET_St14__invoke_otherOT0_DpOT1_: %agg.result"}
+!484 = distinct !{!484, !"_ZSt13__invoke_implISt6vectorIdSaIdEERZNK8QuantLib30GaussianQuadMultidimIntegrator9spawnFctsILm4EEEvvEUlRKSt8functionIFS2_RKS2_EEdE_JSC_dEET_St14__invoke_otherOT0_DpOT1_"}
+!485 = distinct !{!485, !486, !"_ZSt10__invoke_rISt6vectorIdSaIdEERZNK8QuantLib30GaussianQuadMultidimIntegrator9spawnFctsILm4EEEvvEUlRKSt8functionIFS2_RKS2_EEdE_JSC_dEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESG_E4typeEOSH_DpOSI_: %agg.result"}
+!486 = distinct !{!486, !"_ZSt10__invoke_rISt6vectorIdSaIdEERZNK8QuantLib30GaussianQuadMultidimIntegrator9spawnFctsILm4EEEvvEUlRKSt8functionIFS2_RKS2_EEdE_JSC_dEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESG_E4typeEOSH_DpOSI_"}
+!487 = !{!488, !5, i64 0}
+!488 = !{!"_ZTSZNK8QuantLib30GaussianQuadMultidimIntegrator9spawnFctsILm4EEEvvEUlRKSt8functionIFSt6vectorIdSaIdEERKS5_EEdE_", !5, i64 0}
+!489 = !{!490, !483, !485}
+!490 = distinct !{!490, !491, !"_ZZNK8QuantLib30GaussianQuadMultidimIntegrator9spawnFctsILm4EEEvvENKUlRKSt8functionIFSt6vectorIdSaIdEERKS5_EEdE_clESB_d: %agg.result"}
+!491 = distinct !{!491, !"_ZZNK8QuantLib30GaussianQuadMultidimIntegrator9spawnFctsILm4EEEvvENKUlRKSt8functionIFSt6vectorIdSaIdEERKS5_EEdE_clESB_d"}
+!492 = !{!493, !490, !483, !485}
+!493 = distinct !{!493, !494, !"_ZNK8QuantLib30GaussianQuadMultidimIntegrator18vectorIntegratorVRILi4EEESt6vectorIdSaIdEERKSt8functionIFS4_RKS4_EEd: %agg.result"}
+!494 = distinct !{!494, !"_ZNK8QuantLib30GaussianQuadMultidimIntegrator18vectorIntegratorVRILi4EEESt6vectorIdSaIdEERKSt8functionIFS4_RKS4_EEd"}
+!495 = !{!496, !5, i64 0}
+!496 = !{!"_ZTSZNK8QuantLib30GaussianQuadMultidimIntegrator9spawnFctsILm3EEEvvEUlSt8functionIFdRKSt6vectorIdSaIdEEEEdE_", !5, i64 0}
+!497 = !{!498, !500}
+!498 = distinct !{!498, !499, !"_ZSt13__invoke_implISt6vectorIdSaIdEERZNK8QuantLib30GaussianQuadMultidimIntegrator9spawnFctsILm3EEEvvEUlRKSt8functionIFS2_RKS2_EEdE_JSC_dEET_St14__invoke_otherOT0_DpOT1_: %agg.result"}
+!499 = distinct !{!499, !"_ZSt13__invoke_implISt6vectorIdSaIdEERZNK8QuantLib30GaussianQuadMultidimIntegrator9spawnFctsILm3EEEvvEUlRKSt8functionIFS2_RKS2_EEdE_JSC_dEET_St14__invoke_otherOT0_DpOT1_"}
+!500 = distinct !{!500, !501, !"_ZSt10__invoke_rISt6vectorIdSaIdEERZNK8QuantLib30GaussianQuadMultidimIntegrator9spawnFctsILm3EEEvvEUlRKSt8functionIFS2_RKS2_EEdE_JSC_dEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESG_E4typeEOSH_DpOSI_: %agg.result"}
+!501 = distinct !{!501, !"_ZSt10__invoke_rISt6vectorIdSaIdEERZNK8QuantLib30GaussianQuadMultidimIntegrator9spawnFctsILm3EEEvvEUlRKSt8functionIFS2_RKS2_EEdE_JSC_dEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESG_E4typeEOSH_DpOSI_"}
+!502 = !{!503, !5, i64 0}
+!503 = !{!"_ZTSZNK8QuantLib30GaussianQuadMultidimIntegrator9spawnFctsILm3EEEvvEUlRKSt8functionIFSt6vectorIdSaIdEERKS5_EEdE_", !5, i64 0}
+!504 = !{!505, !498, !500}
+!505 = distinct !{!505, !506, !"_ZZNK8QuantLib30GaussianQuadMultidimIntegrator9spawnFctsILm3EEEvvENKUlRKSt8functionIFSt6vectorIdSaIdEERKS5_EEdE_clESB_d: %agg.result"}
+!506 = distinct !{!506, !"_ZZNK8QuantLib30GaussianQuadMultidimIntegrator9spawnFctsILm3EEEvvENKUlRKSt8functionIFSt6vectorIdSaIdEERKS5_EEdE_clESB_d"}
+!507 = !{!508, !505, !498, !500}
+!508 = distinct !{!508, !509, !"_ZNK8QuantLib30GaussianQuadMultidimIntegrator18vectorIntegratorVRILi3EEESt6vectorIdSaIdEERKSt8functionIFS4_RKS4_EEd: %agg.result"}
+!509 = distinct !{!509, !"_ZNK8QuantLib30GaussianQuadMultidimIntegrator18vectorIntegratorVRILi3EEESt6vectorIdSaIdEERKSt8functionIFS4_RKS4_EEd"}
+!510 = !{!511, !5, i64 0}
+!511 = !{!"_ZTSZNK8QuantLib30GaussianQuadMultidimIntegrator9spawnFctsILm2EEEvvEUlSt8functionIFdRKSt6vectorIdSaIdEEEEdE_", !5, i64 0}
+!512 = !{!513, !515}
+!513 = distinct !{!513, !514, !"_ZSt13__invoke_implISt6vectorIdSaIdEERZNK8QuantLib30GaussianQuadMultidimIntegrator9spawnFctsILm2EEEvvEUlRKSt8functionIFS2_RKS2_EEdE_JSC_dEET_St14__invoke_otherOT0_DpOT1_: %agg.result"}
+!514 = distinct !{!514, !"_ZSt13__invoke_implISt6vectorIdSaIdEERZNK8QuantLib30GaussianQuadMultidimIntegrator9spawnFctsILm2EEEvvEUlRKSt8functionIFS2_RKS2_EEdE_JSC_dEET_St14__invoke_otherOT0_DpOT1_"}
+!515 = distinct !{!515, !516, !"_ZSt10__invoke_rISt6vectorIdSaIdEERZNK8QuantLib30GaussianQuadMultidimIntegrator9spawnFctsILm2EEEvvEUlRKSt8functionIFS2_RKS2_EEdE_JSC_dEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESG_E4typeEOSH_DpOSI_: %agg.result"}
+!516 = distinct !{!516, !"_ZSt10__invoke_rISt6vectorIdSaIdEERZNK8QuantLib30GaussianQuadMultidimIntegrator9spawnFctsILm2EEEvvEUlRKSt8functionIFS2_RKS2_EEdE_JSC_dEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESG_E4typeEOSH_DpOSI_"}
+!517 = !{!518, !5, i64 0}
+!518 = !{!"_ZTSZNK8QuantLib30GaussianQuadMultidimIntegrator9spawnFctsILm2EEEvvEUlRKSt8functionIFSt6vectorIdSaIdEERKS5_EEdE_", !5, i64 0}
+!519 = !{!520, !513, !515}
+!520 = distinct !{!520, !521, !"_ZZNK8QuantLib30GaussianQuadMultidimIntegrator9spawnFctsILm2EEEvvENKUlRKSt8functionIFSt6vectorIdSaIdEERKS5_EEdE_clESB_d: %agg.result"}
+!521 = distinct !{!521, !"_ZZNK8QuantLib30GaussianQuadMultidimIntegrator9spawnFctsILm2EEEvvENKUlRKSt8functionIFSt6vectorIdSaIdEERKS5_EEdE_clESB_d"}
+!522 = !{!523, !520, !513, !515}
+!523 = distinct !{!523, !524, !"_ZNK8QuantLib30GaussianQuadMultidimIntegrator18vectorIntegratorVRILi2EEESt6vectorIdSaIdEERKSt8functionIFS4_RKS4_EEd: %agg.result"}
+!524 = distinct !{!524, !"_ZNK8QuantLib30GaussianQuadMultidimIntegrator18vectorIntegratorVRILi2EEESt6vectorIdSaIdEERKSt8functionIFS4_RKS4_EEd"}
+!525 = !{!526, !5, i64 0}
+!526 = !{!"_ZTSZNK8QuantLib30GaussianQuadMultidimIntegrator9spawnFctsILm1EEEvvEUlRKSt8functionIFdRKSt6vectorIdSaIdEEEEdE_", !5, i64 0}
+!527 = !{!528, !530}
+!528 = distinct !{!528, !529, !"_ZSt13__invoke_implISt6vectorIdSaIdEERZNK8QuantLib30GaussianQuadMultidimIntegrator9spawnFctsILm1EEEvvEUlRKSt8functionIFS2_RKS2_EEdE_JSC_dEET_St14__invoke_otherOT0_DpOT1_: %agg.result"}
+!529 = distinct !{!529, !"_ZSt13__invoke_implISt6vectorIdSaIdEERZNK8QuantLib30GaussianQuadMultidimIntegrator9spawnFctsILm1EEEvvEUlRKSt8functionIFS2_RKS2_EEdE_JSC_dEET_St14__invoke_otherOT0_DpOT1_"}
+!530 = distinct !{!530, !531, !"_ZSt10__invoke_rISt6vectorIdSaIdEERZNK8QuantLib30GaussianQuadMultidimIntegrator9spawnFctsILm1EEEvvEUlRKSt8functionIFS2_RKS2_EEdE_JSC_dEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESG_E4typeEOSH_DpOSI_: %agg.result"}
+!531 = distinct !{!531, !"_ZSt10__invoke_rISt6vectorIdSaIdEERZNK8QuantLib30GaussianQuadMultidimIntegrator9spawnFctsILm1EEEvvEUlRKSt8functionIFS2_RKS2_EEdE_JSC_dEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESG_E4typeEOSH_DpOSI_"}
+!532 = !{!533, !5, i64 0}
+!533 = !{!"_ZTSZNK8QuantLib30GaussianQuadMultidimIntegrator9spawnFctsILm1EEEvvEUlRKSt8functionIFSt6vectorIdSaIdEERKS5_EEdE_", !5, i64 0}
+!534 = !{!535, !528, !530}
+!535 = distinct !{!535, !536, !"_ZZNK8QuantLib30GaussianQuadMultidimIntegrator9spawnFctsILm1EEEvvENKUlRKSt8functionIFSt6vectorIdSaIdEERKS5_EEdE_clESB_d: %agg.result"}
+!536 = distinct !{!536, !"_ZZNK8QuantLib30GaussianQuadMultidimIntegrator9spawnFctsILm1EEEvvENKUlRKSt8functionIFSt6vectorIdSaIdEERKS5_EEdE_clESB_d"}
+!537 = !{!538, !535, !528, !530}
+!538 = distinct !{!538, !539, !"_ZNK8QuantLib30GaussianQuadMultidimIntegrator18vectorIntegratorVRILi1EEESt6vectorIdSaIdEERKSt8functionIFS4_RKS4_EEd: %agg.result"}
+!539 = distinct !{!539, !"_ZNK8QuantLib30GaussianQuadMultidimIntegrator18vectorIntegratorVRILi1EEESt6vectorIdSaIdEERKSt8functionIFS4_RKS4_EEd"}
+!540 = !{!541, !538, !535, !528, !530}
+!541 = distinct !{!541, !542, !"_ZNKSt8functionIFSt6vectorIdSaIdEERKS2_EEclES4_: %agg.result"}
+!542 = distinct !{!542, !"_ZNKSt8functionIFSt6vectorIdSaIdEERKS2_EEclES4_"}

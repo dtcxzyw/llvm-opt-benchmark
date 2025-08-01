@@ -55,17 +55,17 @@ define internal range(i64 0, 4294967296) i64 @sse_line_8bit(ptr noundef readonly
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %.01011 = phi i32 [ 0, %.lr.ph.preheader ], [ %13, %.lr.ph ]
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv
-  %6 = load i8, ptr %5, align 1, !tbaa !14
+  %6 = load i8, ptr %5, align 1, !tbaa !13
   %7 = zext i8 %6 to i32
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv
-  %9 = load i8, ptr %8, align 1, !tbaa !14
+  %9 = load i8, ptr %8, align 1, !tbaa !13
   %10 = zext i8 %9 to i32
   %11 = sub nsw i32 %7, %10
   %12 = mul nsw i32 %11, %11
   %13 = add i32 %12, %.01011
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !15
+  br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !14
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
   %14 = zext i32 %13 to i64
@@ -92,8 +92,7 @@ attributes #1 = { nofree norecurse nosync nounwind memory(argmem: read) uwtable 
 !8 = !{!"Simple C/C++ TBAA"}
 !9 = !{!10, !10, i64 0}
 !10 = !{!"short", !7, i64 0}
-!11 = distinct !{!11, !12, !13}
+!11 = distinct !{!11, !12}
 !12 = !{!"llvm.loop.mustprogress"}
-!13 = !{!"llvm.loop.estimated_trip_count"}
-!14 = !{!7, !7, i64 0}
-!15 = distinct !{!15, !12, !13}
+!13 = !{!7, !7, i64 0}
+!14 = distinct !{!14, !12}

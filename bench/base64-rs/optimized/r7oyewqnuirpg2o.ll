@@ -105,7 +105,7 @@ define void @_ZN6base648alphabet8Alphabet18from_str_unchecked17h2e156887b9fb6d8f
   store i8 %10, ptr %11, align 1
   %12 = add nuw nsw i64 %.010, 1
   %exitcond12.not = icmp eq i64 %12, 64
-  br i1 %exitcond12.not, label %5, label %6, !llvm.loop !6
+  br i1 %exitcond12.not, label %5, label %6
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(argmem: readwrite) uwtable
@@ -157,7 +157,7 @@ _ZN6base648alphabet8Alphabet18from_str_unchecked17h2e156887b9fb6d8fE.exit: ; pre
 19:                                               ; preds = %.backedge
   %20 = add nuw nsw i64 %.01926, 1
   %exitcond30.not = icmp eq i64 %20, 64
-  br i1 %exitcond30.not, label %_ZN6base648alphabet8Alphabet18from_str_unchecked17h2e156887b9fb6d8fE.exit, label %.preheader22, !llvm.loop !8
+  br i1 %exitcond30.not, label %_ZN6base648alphabet8Alphabet18from_str_unchecked17h2e156887b9fb6d8fE.exit, label %.preheader22
 
 .preheader:                                       ; preds = %14, %.backedge
   %.025 = phi i64 [ %.0.be, %.backedge ], [ 0, %14 ]
@@ -167,7 +167,7 @@ _ZN6base648alphabet8Alphabet18from_str_unchecked17h2e156887b9fb6d8fE.exit: ; pre
 .backedge:                                        ; preds = %22, %.preheader
   %.0.be = add nuw nsw i64 %.025, 1
   %exitcond.not = icmp eq i64 %.0.be, 64
-  br i1 %exitcond.not, label %19, label %.preheader, !llvm.loop !9
+  br i1 %exitcond.not, label %19, label %.preheader
 
 22:                                               ; preds = %.preheader
   %23 = getelementptr inbounds nuw [0 x i8], ptr %1, i64 0, i64 %.025
@@ -189,23 +189,23 @@ define { ptr, i64 } @_ZN6base648alphabet8Alphabet6as_str17h481df87ac0f4bfe4E(ptr
   %3 = alloca { i64, [2 x i64] }, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
   call void @_ZN4core3str8converts9from_utf817hc5206d8edcf9d82eE(ptr noalias noundef nonnull sret({ i64, [2 x i64] }) align 8 captures(none) dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 1 %0, i64 noundef 64)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !10)
-  %4 = load i64, ptr %3, align 8, !range !13, !alias.scope !10, !noundef !4
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !6)
+  %4 = load i64, ptr %3, align 8, !range !9, !alias.scope !6, !noundef !4
   %trunc.i = trunc nuw i64 %4 to i1
   br i1 %trunc.i, label %5, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h46081d10d61c1328E.exit"
 
 5:                                                ; preds = %1
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2), !noalias !10
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2), !noalias !6
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull readonly align 8 dereferenceable(16) %6, i64 16, i1 false)
-  call void @_ZN4core6result13unwrap_failed17h03d8a5018196e1cdE(ptr noalias noundef nonnull readonly align 1 @anon.77d943629ee838dea50e264cfb34e969.0, i64 noundef 43, ptr noundef nonnull align 1 %2, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.77d943629ee838dea50e264cfb34e969.1, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.77d943629ee838dea50e264cfb34e969.12) #10, !noalias !10
+  call void @_ZN4core6result13unwrap_failed17h03d8a5018196e1cdE(ptr noalias noundef nonnull readonly align 1 @anon.77d943629ee838dea50e264cfb34e969.0, i64 noundef 43, ptr noundef nonnull align 1 %2, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.77d943629ee838dea50e264cfb34e969.1, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.77d943629ee838dea50e264cfb34e969.12) #10, !noalias !6
   unreachable
 
 "_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h46081d10d61c1328E.exit": ; preds = %1
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %8 = load ptr, ptr %7, align 8, !alias.scope !10, !nonnull !4, !align !14, !noundef !4
+  %8 = load ptr, ptr %7, align 8, !alias.scope !6, !nonnull !4, !align !10, !noundef !4
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %10 = load i64, ptr %9, align 8, !alias.scope !10, !noundef !4
+  %10 = load i64, ptr %9, align 8, !alias.scope !6, !noundef !4
   %11 = insertvalue { ptr, i64 } poison, ptr %8, 0
   %12 = insertvalue { ptr, i64 } %11, i64 %10, 1
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
@@ -214,34 +214,34 @@ define { ptr, i64 } @_ZN6base648alphabet8Alphabet6as_str17h481df87ac0f4bfe4E(ptr
 
 ; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define void @"_ZN84_$LT$base64..alphabet..Alphabet$u20$as$u20$core..convert..TryFrom$LT$$RF$str$GT$$GT$8try_from17ha8aed9ddfbcac884E"(ptr noalias noundef writeonly sret({ i8, [64 x i8] }) align 1 captures(none) dereferenceable(65) %0, ptr noalias noundef nonnull readonly align 1 captures(none) %1, i64 noundef %2) unnamed_addr #4 {
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !15)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !18)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !11)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !14)
   %.not.i = icmp eq i64 %2, 64
   br i1 %.not.i, label %.preheader22.i, label %4
 
 4:                                                ; preds = %3
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  store i8 0, ptr %5, align 1, !alias.scope !15, !noalias !18
+  store i8 0, ptr %5, align 1, !alias.scope !11, !noalias !14
   br label %_ZN6base648alphabet8Alphabet3new17h146b96448e6c844eE.exit
 
 _ZN6base648alphabet8Alphabet18from_str_unchecked17h2e156887b9fb6d8fE.exit.i: ; preds = %18
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(64) %6, ptr noundef nonnull readonly align 1 dereferenceable(64) %1, i64 64, i1 false), !alias.scope !20
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(64) %6, ptr noundef nonnull readonly align 1 dereferenceable(64) %1, i64 64, i1 false), !alias.scope !16
   br label %_ZN6base648alphabet8Alphabet3new17h146b96448e6c844eE.exit
 
 .preheader22.i:                                   ; preds = %3, %18
   %.01926.i = phi i64 [ %19, %18 ], [ 0, %3 ]
   %7 = getelementptr inbounds nuw [0 x i8], ptr %1, i64 0, i64 %.01926.i
-  %8 = load i8, ptr %7, align 1, !alias.scope !18, !noalias !15, !noundef !4
+  %8 = load i8, ptr %7, align 1, !alias.scope !14, !noalias !11, !noundef !4
   %9 = add i8 %8, -32
   %or.cond.i = icmp ult i8 %9, 95
   br i1 %or.cond.i, label %13, label %10
 
 10:                                               ; preds = %.preheader22.i
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  store i8 2, ptr %11, align 1, !alias.scope !15, !noalias !18
+  store i8 2, ptr %11, align 1, !alias.scope !11, !noalias !14
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i8 %8, ptr %12, align 1, !alias.scope !15, !noalias !18
+  store i8 %8, ptr %12, align 1, !alias.scope !11, !noalias !14
   br label %_ZN6base648alphabet8Alphabet3new17h146b96448e6c844eE.exit
 
 13:                                               ; preds = %.preheader22.i
@@ -250,15 +250,15 @@ _ZN6base648alphabet8Alphabet18from_str_unchecked17h2e156887b9fb6d8fE.exit.i: ; p
 
 15:                                               ; preds = %13
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  store i8 3, ptr %16, align 1, !alias.scope !15, !noalias !18
+  store i8 3, ptr %16, align 1, !alias.scope !11, !noalias !14
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i8 61, ptr %17, align 1, !alias.scope !15, !noalias !18
+  store i8 61, ptr %17, align 1, !alias.scope !11, !noalias !14
   br label %_ZN6base648alphabet8Alphabet3new17h146b96448e6c844eE.exit
 
 18:                                               ; preds = %.backedge.i
   %19 = add nuw nsw i64 %.01926.i, 1
   %exitcond30.not.i = icmp eq i64 %19, 64
-  br i1 %exitcond30.not.i, label %_ZN6base648alphabet8Alphabet18from_str_unchecked17h2e156887b9fb6d8fE.exit.i, label %.preheader22.i, !llvm.loop !8
+  br i1 %exitcond30.not.i, label %_ZN6base648alphabet8Alphabet18from_str_unchecked17h2e156887b9fb6d8fE.exit.i, label %.preheader22.i
 
 .preheader.i:                                     ; preds = %13, %.backedge.i
   %.025.i = phi i64 [ %.0.be.i, %.backedge.i ], [ 0, %13 ]
@@ -268,24 +268,24 @@ _ZN6base648alphabet8Alphabet18from_str_unchecked17h2e156887b9fb6d8fE.exit.i: ; p
 .backedge.i:                                      ; preds = %21, %.preheader.i
   %.0.be.i = add nuw nsw i64 %.025.i, 1
   %exitcond.not.i = icmp eq i64 %.0.be.i, 64
-  br i1 %exitcond.not.i, label %18, label %.preheader.i, !llvm.loop !9
+  br i1 %exitcond.not.i, label %18, label %.preheader.i
 
 21:                                               ; preds = %.preheader.i
   %22 = getelementptr inbounds nuw [0 x i8], ptr %1, i64 0, i64 %.025.i
-  %23 = load i8, ptr %22, align 1, !alias.scope !18, !noalias !15, !noundef !4
+  %23 = load i8, ptr %22, align 1, !alias.scope !14, !noalias !11, !noundef !4
   %24 = icmp eq i8 %8, %23
   br i1 %24, label %25, label %.backedge.i
 
 25:                                               ; preds = %21
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  store i8 1, ptr %26, align 1, !alias.scope !15, !noalias !18
+  store i8 1, ptr %26, align 1, !alias.scope !11, !noalias !14
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i8 %8, ptr %27, align 1, !alias.scope !15, !noalias !18
+  store i8 %8, ptr %27, align 1, !alias.scope !11, !noalias !14
   br label %_ZN6base648alphabet8Alphabet3new17h146b96448e6c844eE.exit
 
 _ZN6base648alphabet8Alphabet3new17h146b96448e6c844eE.exit: ; preds = %4, %_ZN6base648alphabet8Alphabet18from_str_unchecked17h2e156887b9fb6d8fE.exit.i, %10, %15, %25
   %.sink = phi i8 [ 1, %4 ], [ 0, %_ZN6base648alphabet8Alphabet18from_str_unchecked17h2e156887b9fb6d8fE.exit.i ], [ 1, %10 ], [ 1, %15 ], [ 1, %25 ]
-  store i8 %.sink, ptr %0, align 1, !alias.scope !15, !noalias !18
+  store i8 %.sink, ptr %0, align 1, !alias.scope !11, !noalias !14
   ret void
 }
 
@@ -304,7 +304,7 @@ define noundef zeroext i1 @"_ZN75_$LT$base64..alphabet..ParseAlphabetError$u20$a
   %13 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
   %14 = alloca ptr, align 8
   %15 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
-  %16 = load i8, ptr %0, align 1, !range !21, !noundef !4
+  %16 = load i8, ptr %0, align 1, !range !17, !noundef !4
   switch i8 %16, label %default.unreachable41 [
     i8 0, label %17
     i8 1, label %23
@@ -527,19 +527,15 @@ attributes #10 = { noreturn }
 !3 = !{!"rustc version 1.76.0 (07dca489a 2024-02-04)"}
 !4 = !{}
 !5 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!6 = distinct !{!6, !7}
-!7 = !{!"llvm.loop.estimated_trip_count"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = !{!11}
-!11 = distinct !{!11, !12, !"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h46081d10d61c1328E: argument 0"}
-!12 = distinct !{!12, !"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h46081d10d61c1328E"}
-!13 = !{i64 0, i64 2}
-!14 = !{i64 1}
-!15 = !{!16}
-!16 = distinct !{!16, !17, !"_ZN6base648alphabet8Alphabet3new17h146b96448e6c844eE: argument 0"}
-!17 = distinct !{!17, !"_ZN6base648alphabet8Alphabet3new17h146b96448e6c844eE"}
-!18 = !{!19}
-!19 = distinct !{!19, !17, !"_ZN6base648alphabet8Alphabet3new17h146b96448e6c844eE: argument 1"}
-!20 = !{!16, !19}
-!21 = !{i8 0, i8 4}
+!6 = !{!7}
+!7 = distinct !{!7, !8, !"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h46081d10d61c1328E: argument 0"}
+!8 = distinct !{!8, !"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h46081d10d61c1328E"}
+!9 = !{i64 0, i64 2}
+!10 = !{i64 1}
+!11 = !{!12}
+!12 = distinct !{!12, !13, !"_ZN6base648alphabet8Alphabet3new17h146b96448e6c844eE: argument 0"}
+!13 = distinct !{!13, !"_ZN6base648alphabet8Alphabet3new17h146b96448e6c844eE"}
+!14 = !{!15}
+!15 = distinct !{!15, !13, !"_ZN6base648alphabet8Alphabet3new17h146b96448e6c844eE: argument 1"}
+!16 = !{!12, !15}
+!17 = !{i8 0, i8 4}

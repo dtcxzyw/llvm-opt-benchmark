@@ -1318,13 +1318,13 @@ if.end:                                           ; preds = %entry
 
 if.end.i:                                         ; preds = %if.end
   %_M_first3.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 72
-  %3 = load ptr, ptr %_M_first3.i.i.i.i.i, align 8, !noalias !8
+  %3 = load ptr, ptr %_M_first3.i.i.i.i.i, align 8, !noalias !7
   %cmp.i.i.i1.i = icmp eq ptr %1, %3
   br i1 %cmp.i.i.i1.i, label %_ZNK4node13MemoryTracker11CurrentNodeEv.exit, label %_ZNK4node13MemoryTracker11CurrentNodeEv.exit.thread
 
 _ZNK4node13MemoryTracker11CurrentNodeEv.exit:     ; preds = %if.end.i
   %_M_node5.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 88
-  %4 = load ptr, ptr %_M_node5.i.i.i.i.i, align 8, !noalias !8
+  %4 = load ptr, ptr %_M_node5.i.i.i.i.i, align 8, !noalias !7
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 -8
   %5 = load ptr, ptr %add.ptr.i.i.i.i, align 8
   %incdec.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %5, i64 504
@@ -1342,7 +1342,7 @@ _ZNK4node13MemoryTracker11CurrentNodeEv.exit.thread: ; preds = %if.end.i
 
 if.then.i.i.i.i14:                                ; preds = %_ZNK4node13MemoryTracker11CurrentNodeEv.exit
   %_M_node5.i.i.i.i.i15 = getelementptr inbounds nuw i8, ptr %this, i64 88
-  %8 = load ptr, ptr %_M_node5.i.i.i.i.i15, align 8, !noalias !11
+  %8 = load ptr, ptr %_M_node5.i.i.i.i.i15, align 8, !noalias !10
   %add.ptr.i.i.i.i16 = getelementptr inbounds i8, ptr %8, i64 -8
   %9 = load ptr, ptr %add.ptr.i.i.i.i16, align 8
   %add.ptr.i.i.i.i.i17 = getelementptr inbounds nuw i8, ptr %9, i64 512
@@ -1374,7 +1374,7 @@ for.body:                                         ; preds = %if.end9, %for.body
   tail call void @_ZN4node13MemoryTracker10TrackFieldIcEEvPKcRKNSt7__cxx1112basic_stringIT_St11char_traitsIS6_ESaIS6_EEES3_(ptr noundef nonnull align 8 dereferenceable(152) %this, ptr noundef null, ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i, ptr noundef %element_name)
   %call.i = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %it.sroa.0.032) #21
   %cmp.i22.not = icmp eq ptr %call.i, %add.ptr.i.i
-  br i1 %cmp.i22.not, label %for.end, label %for.body, !llvm.loop !14
+  br i1 %cmp.i22.not, label %for.end, label %for.body, !llvm.loop !13
 
 for.end:                                          ; preds = %for.body, %if.end9
   %14 = load ptr, ptr %_M_finish.i.i.i, align 8
@@ -1457,13 +1457,13 @@ _ZNSt10unique_ptrIN2v813EmbedderGraph4NodeESt14default_deleteIS2_EED2Ev.exit.i: 
 
 if.end.i.i:                                       ; preds = %_ZNSt10unique_ptrIN2v813EmbedderGraph4NodeESt14default_deleteIS2_EED2Ev.exit.i
   %_M_first3.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 72
-  %6 = load ptr, ptr %_M_first3.i.i.i.i.i.i, align 8, !noalias !15
+  %6 = load ptr, ptr %_M_first3.i.i.i.i.i.i, align 8, !noalias !14
   %cmp.i.i.i1.i.i = icmp eq ptr %4, %6
   br i1 %cmp.i.i.i1.i.i, label %_ZNK4node13MemoryTracker11CurrentNodeEv.exit.i, label %_ZNK4node13MemoryTracker11CurrentNodeEv.exit.thread.i
 
 _ZNK4node13MemoryTracker11CurrentNodeEv.exit.i:   ; preds = %if.end.i.i
   %_M_node5.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 88
-  %7 = load ptr, ptr %_M_node5.i.i.i.i.i.i, align 8, !noalias !15
+  %7 = load ptr, ptr %_M_node5.i.i.i.i.i.i, align 8, !noalias !14
   %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 -8
   %8 = load ptr, ptr %add.ptr.i.i.i.i.i, align 8
   %incdec.ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %8, i64 504
@@ -1566,13 +1566,13 @@ _ZNSt10unique_ptrIN2v813EmbedderGraph4NodeESt14default_deleteIS2_EED2Ev.exit.i.i
 
 if.end.i.i.i:                                     ; preds = %_ZNSt10unique_ptrIN2v813EmbedderGraph4NodeESt14default_deleteIS2_EED2Ev.exit.i.i
   %_M_first3.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 72
-  %6 = load ptr, ptr %_M_first3.i.i.i.i.i.i.i, align 8, !noalias !18
+  %6 = load ptr, ptr %_M_first3.i.i.i.i.i.i.i, align 8, !noalias !17
   %cmp.i.i.i1.i.i.i = icmp eq ptr %4, %6
   br i1 %cmp.i.i.i1.i.i.i, label %_ZNK4node13MemoryTracker11CurrentNodeEv.exit.i.i, label %_ZNK4node13MemoryTracker11CurrentNodeEv.exit.thread.i.i
 
 _ZNK4node13MemoryTracker11CurrentNodeEv.exit.i.i: ; preds = %if.end.i.i.i
   %_M_node5.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 88
-  %7 = load ptr, ptr %_M_node5.i.i.i.i.i.i.i, align 8, !noalias !18
+  %7 = load ptr, ptr %_M_node5.i.i.i.i.i.i.i, align 8, !noalias !17
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 -8
   %8 = load ptr, ptr %add.ptr.i.i.i.i.i.i, align 8
   %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %8, i64 504
@@ -1924,7 +1924,7 @@ while.body:                                       ; preds = %entry, %while.body
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i.i) #17
   tail call void @_ZdlPv(ptr noundef nonnull %__x.addr.05) #20
   %cmp.not = icmp eq ptr %1, null
-  br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !21
+  br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !20
 
 while.end:                                        ; preds = %while.body, %entry
   ret void
@@ -1968,15 +1968,15 @@ if.then:                                          ; preds = %entry
 
 _ZNSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EEC2ERKS5_.exit.thread: ; preds = %if.then
   %9 = getelementptr inbounds nuw i8, ptr %ref.tmp7, i64 8
-  store i32 0, ptr %9, align 8, !alias.scope !22
+  store i32 0, ptr %9, align 8, !alias.scope !21
   %_M_parent.i.i.i.i.i.i15 = getelementptr inbounds nuw i8, ptr %ref.tmp7, i64 16
-  store ptr null, ptr %_M_parent.i.i.i.i.i.i15, align 8, !alias.scope !22
+  store ptr null, ptr %_M_parent.i.i.i.i.i.i15, align 8, !alias.scope !21
   %_M_left.i.i.i.i.i.i16 = getelementptr inbounds nuw i8, ptr %ref.tmp7, i64 24
-  store ptr %9, ptr %_M_left.i.i.i.i.i.i16, align 8, !alias.scope !22
+  store ptr %9, ptr %_M_left.i.i.i.i.i.i16, align 8, !alias.scope !21
   %_M_right.i.i.i.i.i.i17 = getelementptr inbounds nuw i8, ptr %ref.tmp7, i64 32
-  store ptr %9, ptr %_M_right.i.i.i.i.i.i17, align 8, !alias.scope !22
+  store ptr %9, ptr %_M_right.i.i.i.i.i.i17, align 8, !alias.scope !21
   %_M_node_count.i.i.i.i.i.i18 = getelementptr inbounds nuw i8, ptr %ref.tmp7, i64 40
-  store i64 0, ptr %_M_node_count.i.i.i.i.i.i18, align 8, !alias.scope !22
+  store i64 0, ptr %_M_node_count.i.i.i.i.i.i18, align 8, !alias.scope !21
   br label %_ZZN4node10V8Platform17StartTracingAgentEvENKUlSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS5_EEE_clB5cxx11ES7_.exit
 
 cond.true.i.i.i.i:                                ; preds = %if.then
@@ -1998,19 +1998,19 @@ for.body.i.i.i.i.i:                               ; preds = %_ZNSt12_Vector_base
   %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.sroa.0.06.i.i.i.i.i, i64 16
   %incdec.ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__cur.07.i.i.i.i.i, i64 16
   %cmp.i.not.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i, %7
-  br i1 %cmp.i.not.i.i.i.i.i, label %_ZNSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EEC2ERKS5_.exit, label %for.body.i.i.i.i.i, !llvm.loop !25
+  br i1 %cmp.i.not.i.i.i.i.i, label %_ZNSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EEC2ERKS5_.exit, label %for.body.i.i.i.i.i, !llvm.loop !24
 
 _ZNSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EEC2ERKS5_.exit: ; preds = %for.body.i.i.i.i.i
   %10 = getelementptr inbounds nuw i8, ptr %ref.tmp7, i64 8
-  store i32 0, ptr %10, align 8, !alias.scope !26
+  store i32 0, ptr %10, align 8, !alias.scope !25
   %_M_parent.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp7, i64 16
-  store ptr null, ptr %_M_parent.i.i.i.i.i.i, align 8, !alias.scope !26
+  store ptr null, ptr %_M_parent.i.i.i.i.i.i, align 8, !alias.scope !25
   %_M_left.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp7, i64 24
-  store ptr %10, ptr %_M_left.i.i.i.i.i.i, align 8, !alias.scope !26
+  store ptr %10, ptr %_M_left.i.i.i.i.i.i, align 8, !alias.scope !25
   %_M_right.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp7, i64 32
-  store ptr %10, ptr %_M_right.i.i.i.i.i.i, align 8, !alias.scope !26
+  store ptr %10, ptr %_M_right.i.i.i.i.i.i, align 8, !alias.scope !25
   %_M_node_count.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp7, i64 40
-  store i64 0, ptr %_M_node_count.i.i.i.i.i.i, align 8, !alias.scope !26
+  store i64 0, ptr %_M_node_count.i.i.i.i.i.i, align 8, !alias.scope !25
   br label %for.body.i
 
 for.body.i:                                       ; preds = %_ZNSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EEC2ERKS5_.exit, %for.body.i
@@ -2018,7 +2018,7 @@ for.body.i:                                       ; preds = %_ZNSt6vectorISt17ba
   %call.i.i = call { ptr, i8 } @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St9_IdentityIS5_ESt4lessIS5_ESaIS5_EE17_M_emplace_uniqueIJRKSt17basic_string_viewIcS3_EEEESt4pairISt17_Rb_tree_iteratorIS5_EbEDpOT_(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp7, ptr noundef nonnull align 8 dereferenceable(16) %__begin3.sroa.0.05.i)
   %incdec.ptr.i.i = getelementptr inbounds nuw i8, ptr %__begin3.sroa.0.05.i, i64 16
   %cmp.i.not.i = icmp eq ptr %__begin3.sroa.0.05.i, %__cur.07.i.i.i.i.i
-  br i1 %cmp.i.not.i, label %_ZZN4node10V8Platform17StartTracingAgentEvENKUlSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS5_EEE_clB5cxx11ES7_.exit, label %for.body.i, !llvm.loop !28
+  br i1 %cmp.i.not.i, label %_ZZN4node10V8Platform17StartTracingAgentEvENKUlSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS5_EEE_clB5cxx11ES7_.exit, label %for.body.i
 
 _ZZN4node10V8Platform17StartTracingAgentEvENKUlSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS5_EEE_clB5cxx11ES7_.exit: ; preds = %for.body.i, %_ZNSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EEC2ERKS5_.exit.thread
   %_M_parent.i.i.i.i.i.i21 = phi ptr [ %_M_parent.i.i.i.i.i.i15, %_ZNSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EEC2ERKS5_.exit.thread ], [ %_M_parent.i.i.i.i.i.i, %for.body.i ]
@@ -2128,7 +2128,7 @@ while.body.i:                                     ; preds = %entry, %while.body.
   %cond.in.i = getelementptr inbounds nuw i8, ptr %__x.021.i, i64 %cond.in.v.i
   %__x.0.i = load ptr, ptr %cond.in.i, align 8
   %cmp.not.i = icmp eq ptr %__x.0.i, null
-  br i1 %cmp.not.i, label %while.end.i, label %while.body.i, !llvm.loop !29
+  br i1 %cmp.not.i, label %while.end.i, label %while.body.i, !llvm.loop !27
 
 while.end.i:                                      ; preds = %while.body.i
   br i1 %cmp.i.i.i, label %if.then.i, label %if.end12.i
@@ -2244,7 +2244,7 @@ while.body.i:                                     ; preds = %entry, %while.body.
   %cond.in.i = getelementptr inbounds nuw i8, ptr %__x.021.i, i64 %cond.in.v.i
   %__x.0.i = load ptr, ptr %cond.in.i, align 8
   %cmp.not.i = icmp eq ptr %__x.0.i, null
-  br i1 %cmp.not.i, label %while.end.i, label %while.body.i, !llvm.loop !29
+  br i1 %cmp.not.i, label %while.end.i, label %while.body.i, !llvm.loop !27
 
 while.end.i:                                      ; preds = %while.body.i
   br i1 %cmp.i.i.i, label %if.then.i, label %if.end12.i
@@ -2436,28 +2436,26 @@ attributes #21 = { nounwind willreturn memory(read) }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6, !7}
+!5 = distinct !{!5, !6}
 !6 = !{!"llvm.loop.mustprogress"}
-!7 = !{!"llvm.loop.estimated_trip_count"}
-!8 = !{!9}
-!9 = distinct !{!9, !10, !"_ZNKSt5dequeIPN4node18MemoryRetainerNodeESaIS2_EE3endEv: %agg.result"}
-!10 = distinct !{!10, !"_ZNKSt5dequeIPN4node18MemoryRetainerNodeESaIS2_EE3endEv"}
-!11 = !{!12}
-!12 = distinct !{!12, !13, !"_ZNKSt5dequeIPN4node18MemoryRetainerNodeESaIS2_EE3endEv: %agg.result"}
-!13 = distinct !{!13, !"_ZNKSt5dequeIPN4node18MemoryRetainerNodeESaIS2_EE3endEv"}
-!14 = distinct !{!14, !6, !7}
-!15 = !{!16}
-!16 = distinct !{!16, !17, !"_ZNKSt5dequeIPN4node18MemoryRetainerNodeESaIS2_EE3endEv: %agg.result"}
-!17 = distinct !{!17, !"_ZNKSt5dequeIPN4node18MemoryRetainerNodeESaIS2_EE3endEv"}
-!18 = !{!19}
-!19 = distinct !{!19, !20, !"_ZNKSt5dequeIPN4node18MemoryRetainerNodeESaIS2_EE3endEv: %agg.result"}
-!20 = distinct !{!20, !"_ZNKSt5dequeIPN4node18MemoryRetainerNodeESaIS2_EE3endEv"}
-!21 = distinct !{!21, !6, !7}
-!22 = !{!23}
-!23 = distinct !{!23, !24, !"_ZZN4node10V8Platform17StartTracingAgentEvENKUlSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS5_EEE_clB5cxx11ES7_: %agg.result:thread"}
-!24 = distinct !{!24, !"_ZZN4node10V8Platform17StartTracingAgentEvENKUlSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS5_EEE_clB5cxx11ES7_"}
-!25 = distinct !{!25, !6, !7}
-!26 = !{!27}
-!27 = distinct !{!27, !24, !"_ZZN4node10V8Platform17StartTracingAgentEvENKUlSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS5_EEE_clB5cxx11ES7_: %agg.result"}
-!28 = distinct !{!28, !7}
-!29 = distinct !{!29, !6, !7}
+!7 = !{!8}
+!8 = distinct !{!8, !9, !"_ZNKSt5dequeIPN4node18MemoryRetainerNodeESaIS2_EE3endEv: %agg.result"}
+!9 = distinct !{!9, !"_ZNKSt5dequeIPN4node18MemoryRetainerNodeESaIS2_EE3endEv"}
+!10 = !{!11}
+!11 = distinct !{!11, !12, !"_ZNKSt5dequeIPN4node18MemoryRetainerNodeESaIS2_EE3endEv: %agg.result"}
+!12 = distinct !{!12, !"_ZNKSt5dequeIPN4node18MemoryRetainerNodeESaIS2_EE3endEv"}
+!13 = distinct !{!13, !6}
+!14 = !{!15}
+!15 = distinct !{!15, !16, !"_ZNKSt5dequeIPN4node18MemoryRetainerNodeESaIS2_EE3endEv: %agg.result"}
+!16 = distinct !{!16, !"_ZNKSt5dequeIPN4node18MemoryRetainerNodeESaIS2_EE3endEv"}
+!17 = !{!18}
+!18 = distinct !{!18, !19, !"_ZNKSt5dequeIPN4node18MemoryRetainerNodeESaIS2_EE3endEv: %agg.result"}
+!19 = distinct !{!19, !"_ZNKSt5dequeIPN4node18MemoryRetainerNodeESaIS2_EE3endEv"}
+!20 = distinct !{!20, !6}
+!21 = !{!22}
+!22 = distinct !{!22, !23, !"_ZZN4node10V8Platform17StartTracingAgentEvENKUlSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS5_EEE_clB5cxx11ES7_: %agg.result:thread"}
+!23 = distinct !{!23, !"_ZZN4node10V8Platform17StartTracingAgentEvENKUlSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS5_EEE_clB5cxx11ES7_"}
+!24 = distinct !{!24, !6}
+!25 = !{!26}
+!26 = distinct !{!26, !23, !"_ZZN4node10V8Platform17StartTracingAgentEvENKUlSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS5_EEE_clB5cxx11ES7_: %agg.result"}
+!27 = distinct !{!27, !6}

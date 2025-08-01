@@ -116,7 +116,7 @@ define dso_local range(i32 -2147483648, 1) i32 @tcf_em_tree_validate(ptr noundef
   br i1 %5, label %220, label %6
 
 6:                                                ; preds = %3
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %4, i8 0, i64 24, i1 false), !annotation !9
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %4, i8 0, i64 24, i1 false), !annotation !8
   %7 = getelementptr i8, ptr %1, i64 4
   %8 = load i16, ptr %1, align 2
   %9 = add i16 %8, -4
@@ -247,7 +247,7 @@ define dso_local range(i32 -2147483648, 1) i32 @tcf_em_tree_validate(ptr noundef
   %94 = getelementptr i8, ptr %91, i64 -48
   %95 = load i32, ptr %94, align 8
   %96 = icmp eq i32 %95, %88
-  br i1 %96, label %97, label %89, !llvm.loop !10
+  br i1 %96, label %97, label %89, !llvm.loop !9
 
 97:                                               ; preds = %93
   %98 = getelementptr i8, ptr %91, i64 -8
@@ -289,7 +289,7 @@ define dso_local range(i32 -2147483648, 1) i32 @tcf_em_tree_validate(ptr noundef
   %115 = getelementptr i8, ptr %112, i64 -48
   %116 = load i32, ptr %115, align 8
   %117 = icmp eq i32 %116, %109
-  br i1 %117, label %118, label %110, !llvm.loop !11
+  br i1 %117, label %118, label %110, !llvm.loop !9
 
 118:                                              ; preds = %114
   %119 = getelementptr i8, ptr %112, i64 -8
@@ -394,7 +394,7 @@ define dso_local range(i32 -2147483648, 1) i32 @tcf_em_tree_validate(ptr noundef
   %177 = zext nneg i32 %175 to i64
   %178 = getelementptr i8, ptr %37, i64 %177
   %179 = icmp sgt i32 %176, 3
-  br i1 %179, label %.lr.ph, label %.critedge.loopexit, !llvm.loop !12
+  br i1 %179, label %.lr.ph, label %.critedge.loopexit, !llvm.loop !10
 
 .critedge.loopexit:                               ; preds = %.lr.ph, %166
   %.lcssa39.ph = phi i64 [ %46, %166 ], [ %39, %.lr.ph ]
@@ -470,7 +470,7 @@ define dso_local range(i32 -2147483648, 1) i32 @tcf_em_tree_validate(ptr noundef
   %216 = add nuw nsw i64 %191, 1
   %217 = zext i16 %215 to i64
   %218 = icmp samesign ult i64 %216, %217
-  br i1 %218, label %.preheader, label %.loopexit.loopexit, !llvm.loop !13
+  br i1 %218, label %.preheader, label %.loopexit.loopexit, !llvm.loop !11
 
 .loopexit.loopexit:                               ; preds = %214
   %.pre60 = load ptr, ptr %29, align 8
@@ -550,7 +550,7 @@ define dso_local void @tcf_em_tree_destroy(ptr noundef captures(none) %0) #0 ali
   %34 = add nuw nsw i64 %9, 1
   %35 = zext i16 %33 to i64
   %36 = icmp samesign ult i64 %34, %35
-  br i1 %36, label %.preheader, label %.loopexit.loopexit, !llvm.loop !14
+  br i1 %36, label %.preheader, label %.loopexit.loopexit, !llvm.loop !11
 
 .loopexit.loopexit:                               ; preds = %32
   %.pre3 = load ptr, ptr %2, align 8
@@ -627,7 +627,7 @@ define dso_local noundef range(i32 -1, 1) i32 @tcf_em_tree_dump(ptr noundef %0, 
   %40 = load ptr, ptr %32, align 8
   %41 = getelementptr %struct.tcf_ematch, ptr %40, i64 %39
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #7
-  store i64 0, ptr %4, align 8, !annotation !9
+  store i64 0, ptr %4, align 8, !annotation !8
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 20
   %43 = load i16, ptr %42, align 4
   store i16 %43, ptr %4, align 8
@@ -712,7 +712,7 @@ define dso_local noundef range(i32 -1, 1) i32 @tcf_em_tree_dump(ptr noundef %0, 
   %94 = load i16, ptr %1, align 8
   %95 = zext i16 %94 to i64
   %96 = icmp samesign ult i64 %53, %95
-  br i1 %96, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !15
+  br i1 %96, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !12
 
 ._crit_edge.loopexit:                             ; preds = %85
   %.pre = load ptr, ptr %6, align 8
@@ -759,7 +759,7 @@ declare dso_local i32 @nla_put_nohdr(ptr noundef, i32 noundef, ptr noundef) loca
 define dso_local i32 @__tcf_em_tree_match(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2) #0 align 16 {
   %4 = alloca [32 x i32], align 16
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %4) #7
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(128) %4, i8 0, i64 128, i1 false), !annotation !9
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(128) %4, i8 0, i64 128, i1 false), !annotation !8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   br label %6
 
@@ -785,7 +785,7 @@ define dso_local i32 @__tcf_em_tree_match(ptr noundef %0, ptr noundef readonly c
   %21 = getelementptr %struct.tcf_ematch, ptr %20, i64 %60
   %22 = load ptr, ptr %21, align 8
   %23 = icmp eq ptr %22, null
-  br i1 %23, label %.loopexit8.loopexit, label %.preheader, !llvm.loop !16
+  br i1 %23, label %.loopexit8.loopexit, label %.preheader, !llvm.loop !13
 
 .loopexit8.loopexit:                              ; preds = %19
   %24 = trunc nsw i64 %60 to i32
@@ -796,7 +796,7 @@ define dso_local i32 @__tcf_em_tree_match(ptr noundef %0, ptr noundef readonly c
   %26 = phi i32 [ %9, %13 ], [ %48, %.loopexit8.loopexit ]
   %27 = phi ptr [ %16, %13 ], [ %21, %.loopexit8.loopexit ]
   %28 = icmp sgt i32 %7, 31
-  br i1 %28, label %98, label %29, !prof !17
+  br i1 %28, label %98, label %29, !prof !14
 
 29:                                               ; preds = %.loopexit8
   %30 = add nsw i32 %7, 1
@@ -845,7 +845,7 @@ define dso_local i32 @__tcf_em_tree_match(ptr noundef %0, ptr noundef readonly c
   %61 = load i16, ptr %1, align 8
   %62 = zext i16 %61 to i64
   %63 = icmp slt i64 %60, %62
-  br i1 %63, label %19, label %.loopexit7, !llvm.loop !18
+  br i1 %63, label %19, label %.loopexit7, !llvm.loop !13
 
 .loopexit7:                                       ; preds = %59, %56, %53, %.preheader, %6
   %64 = phi i32 [ %9, %6 ], [ %48, %59 ], [ %48, %.preheader ], [ 0, %53 ], [ %48, %56 ]
@@ -898,11 +898,11 @@ define dso_local i32 @__tcf_em_tree_match(ptr noundef %0, ptr noundef readonly c
   %.be = phi i32 [ %30, %29 ], [ %94, %93 ]
   %.be54 = phi i32 [ %35, %29 ], [ %95, %93 ]
   %.be55 = phi i32 [ %26, %29 ], [ %82, %93 ]
-  br label %6, !llvm.loop !19
+  br label %6
 
 96:                                               ; preds = %90, %87, %69
   %97 = icmp samesign ugt i64 %70, 1
-  br i1 %97, label %69, label %.loopexit, !llvm.loop !20
+  br i1 %97, label %69, label %.loopexit
 
 98:                                               ; preds = %.loopexit8
   %99 = tail call i32 @net_ratelimit() #7
@@ -971,19 +971,13 @@ attributes #10 = { cold nounwind }
 !2 = !{i32 4, !"function_return_thunk_extern", i32 1}
 !3 = !{i32 4, !"indirect_branch_cs_prefix", i32 1}
 !4 = !{i32 4, !"SkipRaxSetup", i32 1}
-!5 = distinct !{!5, !6, !7, !8}
+!5 = distinct !{!5, !6, !7}
 !6 = !{!"llvm.loop.mustprogress"}
 !7 = !{!"llvm.loop.unroll.disable"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = !{!"auto-init"}
-!10 = distinct !{!10, !6, !7, !8}
-!11 = distinct !{!11, !6, !7, !8}
-!12 = distinct !{!12, !6, !7, !8}
-!13 = distinct !{!13, !6, !7, !8}
-!14 = distinct !{!14, !6, !7, !8}
-!15 = distinct !{!15, !6, !7, !8}
-!16 = distinct !{!16, !6, !7, !8}
-!17 = !{!"branch_weights", i32 1, i32 2000}
-!18 = distinct !{!18, !6, !7}
-!19 = distinct !{!19, !8}
-!20 = distinct !{!20, !8}
+!8 = !{!"auto-init"}
+!9 = distinct !{!9, !6, !7}
+!10 = distinct !{!10, !6, !7}
+!11 = distinct !{!11, !6, !7}
+!12 = distinct !{!12, !6, !7}
+!13 = distinct !{!13, !6, !7}
+!14 = !{!"branch_weights", i32 1, i32 2000}

@@ -269,7 +269,7 @@ define noundef zeroext i1 @_ZNK13Matrix44ValueeqERK5Value(ptr noundef nonnull re
 22:                                               ; preds = %14
   %indvars.iv.next20.i = add nuw nsw i64 %indvars.iv19.i, 1
   %exitcond22.i = icmp eq i64 %indvars.iv.next20.i, 4
-  br i1 %exitcond22.i, label %_ZNK3vcg8Matrix44IfEeqERKS1_.exit, label %.preheader.i, !llvm.loop !8
+  br i1 %exitcond22.i, label %_ZNK3vcg8Matrix44IfEeqERKS1_.exit, label %.preheader.i, !llvm.loop !7
 
 _ZNK3vcg8Matrix44IfEeqERKS1_.exit:                ; preds = %22, %15, %2
   %.0 = phi i1 [ false, %2 ], [ false, %15 ], [ true, %22 ]
@@ -294,15 +294,15 @@ define void @_ZNK13Matrix44Value16fillToXMLElementER11QDomElement(ptr noundef no
           to label %11 unwind label %40
 
 11:                                               ; preds = %8
-  call void @llvm.experimental.noalias.scope.decl(metadata !9)
-  store ptr %9, ptr %3, align 8, !alias.scope !9
-  %12 = load atomic i32, ptr %9 monotonic, align 4, !noalias !9
+  call void @llvm.experimental.noalias.scope.decl(metadata !8)
+  store ptr %9, ptr %3, align 8, !alias.scope !8
+  %12 = load atomic i32, ptr %9 monotonic, align 4, !noalias !8
   %13 = add i32 %12, -1
   %or.cond.not.i.i.i = icmp ult i32 %13, -2
   br i1 %or.cond.not.i.i.i, label %14, label %_ZN7QStringC2ERKS_.exit.i
 
 14:                                               ; preds = %11
-  %15 = atomicrmw add ptr %9, i32 1 seq_cst, align 4, !noalias !9
+  %15 = atomicrmw add ptr %9, i32 1 seq_cst, align 4, !noalias !8
   br label %_ZN7QStringC2ERKS_.exit.i
 
 _ZN7QStringC2ERKS_.exit.i:                        ; preds = %14, %11
@@ -416,7 +416,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i26:  ; preds = %_ZN9QtPrivate8RefCo
 _ZN7QStringD2Ev.exit31:                           ; preds = %_ZN7QStringD2Ev.exit25, %_ZN9QtPrivate8RefCount5derefEv.exit.i27, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i26
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
-  br i1 %exitcond.not, label %47, label %8, !llvm.loop !12
+  br i1 %exitcond.not, label %47, label %8, !llvm.loop !11
 
 40:                                               ; preds = %8
   %41 = landingpad { ptr, i32 }
@@ -553,11 +553,10 @@ attributes #15 = { nounwind }
 !2 = !{i32 8, !"PIC Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6, !7}
+!5 = distinct !{!5, !6}
 !6 = !{!"llvm.loop.mustprogress"}
-!7 = !{!"llvm.loop.estimated_trip_count"}
-!8 = distinct !{!8, !6, !7}
-!9 = !{!10}
-!10 = distinct !{!10, !11, !"_ZplRK7QStringS1_: argument 0"}
-!11 = distinct !{!11, !"_ZplRK7QStringS1_"}
-!12 = distinct !{!12, !6, !7}
+!7 = distinct !{!7, !6}
+!8 = !{!9}
+!9 = distinct !{!9, !10, !"_ZplRK7QStringS1_: argument 0"}
+!10 = distinct !{!10, !"_ZplRK7QStringS1_"}
+!11 = distinct !{!11, !6}

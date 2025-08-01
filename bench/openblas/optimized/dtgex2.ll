@@ -489,7 +489,7 @@ define void @dtgex2_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   store double %323, ptr %333, align 8, !tbaa !7
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge510, label %325, !llvm.loop !12
+  br i1 %exitcond.not, label %._crit_edge510, label %325, !llvm.loop !11
 
 ._crit_edge510:                                   ; preds = %325, %321
   %storemerge478.lcssa = phi i32 [ 1, %321 ], [ %324, %325 ]
@@ -553,7 +553,7 @@ define void @dtgex2_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   %354 = add nuw nsw i32 %347, 1
   %355 = load i32, ptr %18, align 4, !tbaa !3
   %.not486.not = icmp slt i32 %347, %355
-  br i1 %.not486.not, label %.lr.ph514, label %._crit_edge515.loopexit, !llvm.loop !13
+  br i1 %.not486.not, label %.lr.ph514, label %._crit_edge515.loopexit, !llvm.loop !12
 
 ._crit_edge515.loopexit:                          ; preds = %.lr.ph514
   %.pre522 = load double, ptr %42, align 8, !tbaa !7
@@ -599,7 +599,7 @@ define void @dtgex2_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   store i32 %372, ptr %29, align 4, !tbaa !3
   %373 = load i32, ptr %18, align 4, !tbaa !3
   %.not490.not = icmp slt i32 %365, %373
-  br i1 %.not490.not, label %.lr.ph519, label %._crit_edge520.loopexit, !llvm.loop !14
+  br i1 %.not490.not, label %.lr.ph519, label %._crit_edge520.loopexit, !llvm.loop !13
 
 ._crit_edge520.loopexit:                          ; preds = %.lr.ph519
   %.pre524 = load double, ptr %42, align 8, !tbaa !7
@@ -1163,9 +1163,8 @@ attributes #6 = { nounwind }
 !6 = !{!"Simple C/C++ TBAA"}
 !7 = !{!8, !8, i64 0}
 !8 = !{!"double", !5, i64 0}
-!9 = distinct !{!9, !10, !11}
+!9 = distinct !{!9, !10}
 !10 = !{!"llvm.loop.mustprogress"}
-!11 = !{!"llvm.loop.estimated_trip_count"}
-!12 = distinct !{!12, !10, !11}
-!13 = distinct !{!13, !10, !11}
-!14 = distinct !{!14, !10, !11}
+!11 = distinct !{!11, !10}
+!12 = distinct !{!12, !10}
+!13 = distinct !{!13, !10}

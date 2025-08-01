@@ -112,7 +112,7 @@ declare void @add_test(ptr noundef, ptr noundef) local_unnamed_addr #3
 define internal range(i32 0, 2) i32 @test_curve() #1 {
   %1 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1) #4
-  store ptr null, ptr %1, align 8, !tbaa !7
+  store ptr null, ptr %1, align 8, !tbaa !6
   %2 = tail call ptr @EC_GROUP_new_by_curve_name(i32 noundef 415) #4
   %3 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 78, ptr noundef nonnull @.str.20, ptr noundef %2) #4
   %.not = icmp eq i32 %3, 0
@@ -126,7 +126,7 @@ define internal range(i32 0, 2) i32 @test_curve() #1 {
   br i1 %.not11, label %47, label %8
 
 8:                                                ; preds = %4
-  %9 = load i64, ptr @num_repeats, align 8, !tbaa !12
+  %9 = load i64, ptr @num_repeats, align 8, !tbaa !11
   %10 = tail call ptr @BN_new() #4
   %11 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 48, ptr noundef nonnull @.str.27, ptr noundef %10) #4
   %.not.i = icmp eq i32 %11, 0
@@ -147,7 +147,7 @@ define internal range(i32 0, 2) i32 @test_curve() #1 {
 18:                                               ; preds = %24
   %19 = add nuw nsw i64 %.020.i, 1
   %exitcond.not.i = icmp eq i64 %19, %9
-  br i1 %exitcond.not.i, label %walk_curve.exit, label %.lr.ph.i, !llvm.loop !14
+  br i1 %exitcond.not.i, label %walk_curve.exit, label %.lr.ph.i, !llvm.loop !13
 
 .lr.ph.i:                                         ; preds = %.preheader.i, %18
   %.020.i = phi i64 [ %19, %18 ], [ 0, %.preheader.i ]
@@ -181,9 +181,9 @@ walk_curve.exit:                                  ; preds = %18, %.preheader.i, 
   br i1 %.b, label %31, label %36
 
 31:                                               ; preds = %30
-  %32 = load ptr, ptr @bio_out, align 8, !tbaa !15
+  %32 = load ptr, ptr @bio_out, align 8, !tbaa !14
   %33 = tail call i32 @BN_print(ptr noundef %32, ptr noundef %.015.i) #4
-  %34 = load ptr, ptr @bio_out, align 8, !tbaa !15
+  %34 = load ptr, ptr @bio_out, align 8, !tbaa !14
   %35 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %34, ptr noundef nonnull @.str.23) #4
   br label %47
 
@@ -196,13 +196,13 @@ walk_curve.exit:                                  ; preds = %18, %.preheader.i, 
   br i1 %.not13, label %47, label %41
 
 41:                                               ; preds = %36
-  %42 = load ptr, ptr %1, align 8, !tbaa !7
+  %42 = load ptr, ptr %1, align 8, !tbaa !6
   %43 = call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 90, ptr noundef nonnull @.str.25, ptr noundef %42) #4
   %.not14 = icmp eq i32 %43, 0
   br i1 %.not14, label %47, label %44
 
 44:                                               ; preds = %41
-  %45 = load ptr, ptr %1, align 8, !tbaa !7
+  %45 = load ptr, ptr %1, align 8, !tbaa !6
   %46 = call i32 @test_BN_eq(ptr noundef nonnull @.str.17, i32 noundef 91, ptr noundef nonnull @.str.26, ptr noundef nonnull @.str.25, ptr noundef %.015.i, ptr noundef %45) #4
   %.not15 = icmp ne i32 %46, 0
   %spec.select = zext i1 %.not15 to i32
@@ -215,7 +215,7 @@ walk_curve.exit:                                  ; preds = %18, %.preheader.i, 
   call void @EC_GROUP_free(ptr noundef %2) #4
   call void @EC_POINT_free(ptr noundef %.010) #4
   call void @BN_free(ptr noundef %.09) #4
-  %48 = load ptr, ptr %1, align 8, !tbaa !7
+  %48 = load ptr, ptr %1, align 8, !tbaa !6
   call void @BN_free(ptr noundef %48) #4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1) #4
   ret i32 %.0
@@ -266,16 +266,15 @@ attributes #4 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = distinct !{!4, !5, !6}
+!4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{!"llvm.loop.estimated_trip_count"}
-!7 = !{!8, !8, i64 0}
-!8 = !{!"p1 _ZTS9bignum_st", !9, i64 0}
-!9 = !{!"any pointer", !10, i64 0}
-!10 = !{!"omnipotent char", !11, i64 0}
-!11 = !{!"Simple C/C++ TBAA"}
-!12 = !{!13, !13, i64 0}
-!13 = !{!"long", !10, i64 0}
-!14 = distinct !{!14, !5, !6}
-!15 = !{!16, !16, i64 0}
-!16 = !{!"p1 _ZTS6bio_st", !9, i64 0}
+!6 = !{!7, !7, i64 0}
+!7 = !{!"p1 _ZTS9bignum_st", !8, i64 0}
+!8 = !{!"any pointer", !9, i64 0}
+!9 = !{!"omnipotent char", !10, i64 0}
+!10 = !{!"Simple C/C++ TBAA"}
+!11 = !{!12, !12, i64 0}
+!12 = !{!"long", !9, i64 0}
+!13 = distinct !{!13, !5}
+!14 = !{!15, !15, i64 0}
+!15 = !{!"p1 _ZTS6bio_st", !8, i64 0}

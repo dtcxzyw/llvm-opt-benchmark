@@ -616,7 +616,7 @@ define internal i32 @dissect_sasp_pdu(ptr noundef %0, ptr noundef %1, ptr nounde
   %81 = tail call fastcc i32 @dissect_grp_memdatacomp(ptr noundef %0, ptr noundef %65, i32 noundef %.02.i)
   %82 = add nuw i16 %.0361.i, 1
   %exitcond.not.i99 = icmp eq i16 %82, %78
-  br i1 %exitcond.not.i99, label %dissect_reg_req.exit, label %.lr.ph.i98, !llvm.loop !11
+  br i1 %exitcond.not.i99, label %dissect_reg_req.exit, label %.lr.ph.i98, !llvm.loop !10
 
 83:                                               ; preds = %23
   %84 = load ptr, ptr %6, align 8
@@ -648,7 +648,7 @@ define internal i32 @dissect_sasp_pdu(ptr noundef %0, ptr noundef %1, ptr nounde
   %100 = tail call fastcc i32 @dissect_grpdatacomp(ptr noundef %0, ptr noundef %94, i32 noundef %.01819.i)
   %101 = add nuw i16 %.020.i, 1
   %exitcond.not.i102 = icmp eq i16 %101, %97
-  br i1 %exitcond.not.i102, label %dissect_reg_req.exit, label %.lr.ph.i101, !llvm.loop !12
+  br i1 %exitcond.not.i102, label %dissect_reg_req.exit, label %.lr.ph.i101, !llvm.loop !11
 
 102:                                              ; preds = %23
   %103 = load ptr, ptr %6, align 8
@@ -673,7 +673,7 @@ define internal i32 @dissect_sasp_pdu(ptr noundef %0, ptr noundef %1, ptr nounde
   %115 = tail call fastcc i32 @dissect_grp_wt_entry_datacomp(ptr noundef %0, ptr noundef %105, i32 noundef %.02627.i)
   %116 = add nuw i16 %.028.i, 1
   %exitcond.not.i105 = icmp eq i16 %116, %112
-  br i1 %exitcond.not.i105, label %dissect_reg_req.exit, label %.lr.ph.i104, !llvm.loop !13
+  br i1 %exitcond.not.i105, label %dissect_reg_req.exit, label %.lr.ph.i104, !llvm.loop !12
 
 117:                                              ; preds = %23
   %118 = load ptr, ptr %6, align 8
@@ -694,7 +694,7 @@ define internal i32 @dissect_sasp_pdu(ptr noundef %0, ptr noundef %1, ptr nounde
   %126 = tail call fastcc i32 @dissect_grp_wt_entry_datacomp(ptr noundef %0, ptr noundef %120, i32 noundef %.01819.i109)
   %127 = add nuw i16 %.020.i108, 1
   %exitcond.not.i110 = icmp eq i16 %127, %123
-  br i1 %exitcond.not.i110, label %dissect_reg_req.exit, label %.lr.ph.i107, !llvm.loop !14
+  br i1 %exitcond.not.i110, label %dissect_reg_req.exit, label %.lr.ph.i107, !llvm.loop !13
 
 128:                                              ; preds = %23
   %129 = load ptr, ptr %6, align 8
@@ -814,13 +814,13 @@ define internal i32 @dissect_sasp_pdu(ptr noundef %0, ptr noundef %1, ptr nounde
   %221 = add i32 %207, 6
   %222 = add nuw i16 %.028.i.i, 1
   %exitcond.not.i.i = icmp eq i16 %222, %173
-  br i1 %exitcond.not.i.i, label %dissect_grp_memstatedatacomp.exit.i, label %.lr.ph.i.i, !llvm.loop !15
+  br i1 %exitcond.not.i.i, label %dissect_grp_memstatedatacomp.exit.i, label %.lr.ph.i.i, !llvm.loop !14
 
 dissect_grp_memstatedatacomp.exit.i:              ; preds = %.lr.ph.i.i, %.lr.ph.i112
   %.026.lcssa.i.i = phi i32 [ %177, %.lr.ph.i112 ], [ %221, %.lr.ph.i.i ]
   %223 = add nuw i16 %.025.i, 1
   %exitcond.not.i113 = icmp eq i16 %223, %162
-  br i1 %exitcond.not.i113, label %dissect_reg_req.exit, label %.lr.ph.i112, !llvm.loop !16
+  br i1 %exitcond.not.i113, label %dissect_reg_req.exit, label %.lr.ph.i112, !llvm.loop !15
 
 224:                                              ; preds = %23
   %225 = load ptr, ptr %6, align 8
@@ -906,7 +906,7 @@ define internal fastcc i32 @dissect_grp_memdatacomp(ptr noundef %0, ptr noundef 
   %17 = tail call fastcc i32 @dissect_memdatacomp(ptr noundef %0, ptr noundef %5, i32 noundef %.02627, ptr noundef null)
   %18 = add nuw i16 %.028, 1
   %exitcond.not = icmp eq i16 %18, %12
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !17
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   %.026.lcssa = phi i32 [ %16, %3 ], [ %17, %.lr.ph ]
@@ -1060,7 +1060,7 @@ define internal fastcc noundef i32 @dissect_grp_wt_entry_datacomp(ptr noundef %0
   %34 = add i32 %17, 8
   %35 = add nuw i16 %.028, 1
   %exitcond.not = icmp eq i16 %35, %12
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !18
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   %.026.lcssa = phi i32 [ %16, %3 ], [ %34, %.lr.ph ]
@@ -1085,14 +1085,13 @@ attributes #3 = { nounwind }
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i8 0, i8 2}
 !7 = !{}
-!8 = distinct !{!8, !9, !10}
+!8 = distinct !{!8, !9}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = !{!"llvm.loop.estimated_trip_count"}
-!11 = distinct !{!11, !9, !10}
-!12 = distinct !{!12, !9, !10}
-!13 = distinct !{!13, !9, !10}
-!14 = distinct !{!14, !9, !10}
-!15 = distinct !{!15, !9, !10}
-!16 = distinct !{!16, !9, !10}
-!17 = distinct !{!17, !9, !10}
-!18 = distinct !{!18, !9, !10}
+!10 = distinct !{!10, !9}
+!11 = distinct !{!11, !9}
+!12 = distinct !{!12, !9}
+!13 = distinct !{!13, !9}
+!14 = distinct !{!14, !9}
+!15 = distinct !{!15, !9}
+!16 = distinct !{!16, !9}
+!17 = distinct !{!17, !9}

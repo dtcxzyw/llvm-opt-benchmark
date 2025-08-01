@@ -83,103 +83,103 @@ define dso_local void @MemoryContextReset(ptr noundef %0) local_unnamed_addr #0 
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %MemoryContextDeleteChildren.exit, label %.preheader.i
 
-.preheader.i:                                     ; preds = %1, %MemoryContextDelete.exit.i
-  %4 = phi ptr [ %42, %MemoryContextDelete.exit.i ], [ %3, %1 ]
-  br label %5
+MemoryContextDelete.exit.loopexit.i:              ; preds = %MemoryContextDeleteOnly.exit.i.i
+  %4 = load ptr, ptr %2, align 8
+  %.not.i = icmp eq ptr %4, null
+  br i1 %.not.i, label %MemoryContextDeleteChildren.exit, label %.preheader.i, !llvm.loop !4
 
-5:                                                ; preds = %.backedge, %.preheader.i
-  %.1.i.i = phi ptr [ %4, %.preheader.i ], [ %.1.i.i.be, %.backedge ]
-  %6 = getelementptr inbounds nuw i8, ptr %.1.i.i, i64 32
-  %7 = load ptr, ptr %6, align 8
-  %.not.i.i = icmp eq ptr %7, null
-  br i1 %.not.i.i, label %8, label %.backedge
+.preheader.i:                                     ; preds = %1, %MemoryContextDelete.exit.loopexit.i
+  %5 = phi ptr [ %4, %MemoryContextDelete.exit.loopexit.i ], [ %3, %1 ]
+  br label %6
 
-.backedge:                                        ; preds = %5, %MemoryContextDeleteOnly.exit.i.i
-  %.1.i.i.be = phi ptr [ %7, %5 ], [ %10, %MemoryContextDeleteOnly.exit.i.i ]
-  br label %5, !llvm.loop !4
+6:                                                ; preds = %.backedge, %.preheader.i
+  %.1.i.i = phi ptr [ %5, %.preheader.i ], [ %.1.i.i.be, %.backedge ]
+  %7 = getelementptr inbounds nuw i8, ptr %.1.i.i, i64 32
+  %8 = load ptr, ptr %7, align 8
+  %.not.i.i = icmp eq ptr %8, null
+  br i1 %.not.i.i, label %9, label %.backedge
 
-8:                                                ; preds = %5
-  %9 = getelementptr inbounds nuw i8, ptr %.1.i.i, i64 24
-  %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds nuw i8, ptr %.1.i.i, i64 72
-  %12 = load ptr, ptr %11, align 8
-  %.not5.i.i.i.i = icmp eq ptr %12, null
+.backedge:                                        ; preds = %6, %MemoryContextDeleteOnly.exit.i.i
+  %.1.i.i.be = phi ptr [ %8, %6 ], [ %11, %MemoryContextDeleteOnly.exit.i.i ]
+  br label %6, !llvm.loop !4
+
+9:                                                ; preds = %6
+  %10 = getelementptr inbounds nuw i8, ptr %.1.i.i, i64 24
+  %11 = load ptr, ptr %10, align 8
+  %12 = getelementptr inbounds nuw i8, ptr %.1.i.i, i64 72
+  %13 = load ptr, ptr %12, align 8
+  %.not5.i.i.i.i = icmp eq ptr %13, null
   br i1 %.not5.i.i.i.i, label %MemoryContextCallResetCallbacks.exit.i.i.i, label %.lr.ph.i.i.i.i
 
-.lr.ph.i.i.i.i:                                   ; preds = %8, %.lr.ph.i.i.i.i
-  %13 = phi ptr [ %19, %.lr.ph.i.i.i.i ], [ %12, %8 ]
-  %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
-  %15 = load ptr, ptr %14, align 8
-  store ptr %15, ptr %11, align 8
-  %16 = load ptr, ptr %13, align 8
-  %17 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  %18 = load ptr, ptr %17, align 8
-  tail call void %16(ptr noundef %18) #16
-  %19 = load ptr, ptr %11, align 8
-  %.not.i.i.i.i = icmp eq ptr %19, null
+.lr.ph.i.i.i.i:                                   ; preds = %9, %.lr.ph.i.i.i.i
+  %14 = phi ptr [ %20, %.lr.ph.i.i.i.i ], [ %13, %9 ]
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 16
+  %16 = load ptr, ptr %15, align 8
+  store ptr %16, ptr %12, align 8
+  %17 = load ptr, ptr %14, align 8
+  %18 = getelementptr inbounds nuw i8, ptr %14, i64 8
+  %19 = load ptr, ptr %18, align 8
+  tail call void %17(ptr noundef %19) #16
+  %20 = load ptr, ptr %12, align 8
+  %.not.i.i.i.i = icmp eq ptr %20, null
   br i1 %.not.i.i.i.i, label %MemoryContextCallResetCallbacks.exit.ithread-pre-split.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !6
 
 MemoryContextCallResetCallbacks.exit.ithread-pre-split.i.i: ; preds = %.lr.ph.i.i.i.i
-  %.pr.i.i = load ptr, ptr %9, align 8
+  %.pr.i.i = load ptr, ptr %10, align 8
   br label %MemoryContextCallResetCallbacks.exit.i.i.i
 
-MemoryContextCallResetCallbacks.exit.i.i.i:       ; preds = %MemoryContextCallResetCallbacks.exit.ithread-pre-split.i.i, %8
-  %20 = phi ptr [ %.pr.i.i, %MemoryContextCallResetCallbacks.exit.ithread-pre-split.i.i ], [ %10, %8 ]
-  %21 = icmp eq ptr %20, null
-  br i1 %21, label %MemoryContextDeleteOnly.exit.i.i, label %22
+MemoryContextCallResetCallbacks.exit.i.i.i:       ; preds = %MemoryContextCallResetCallbacks.exit.ithread-pre-split.i.i, %9
+  %21 = phi ptr [ %.pr.i.i, %MemoryContextCallResetCallbacks.exit.ithread-pre-split.i.i ], [ %11, %9 ]
+  %22 = icmp eq ptr %21, null
+  br i1 %22, label %MemoryContextDeleteOnly.exit.i.i, label %23
 
-22:                                               ; preds = %MemoryContextCallResetCallbacks.exit.i.i.i
-  %23 = getelementptr inbounds nuw i8, ptr %.1.i.i, i64 40
-  %24 = load ptr, ptr %23, align 8
-  %.not30.i.i.i.i = icmp eq ptr %24, null
-  %25 = getelementptr inbounds nuw i8, ptr %.1.i.i, i64 48
-  %26 = load ptr, ptr %25, align 8
-  br i1 %.not30.i.i.i.i, label %29, label %27
+23:                                               ; preds = %MemoryContextCallResetCallbacks.exit.i.i.i
+  %24 = getelementptr inbounds nuw i8, ptr %.1.i.i, i64 40
+  %25 = load ptr, ptr %24, align 8
+  %.not30.i.i.i.i = icmp eq ptr %25, null
+  %26 = getelementptr inbounds nuw i8, ptr %.1.i.i, i64 48
+  %27 = load ptr, ptr %26, align 8
+  br i1 %.not30.i.i.i.i, label %30, label %28
 
-27:                                               ; preds = %22
-  %28 = getelementptr inbounds nuw i8, ptr %24, i64 48
-  store ptr %26, ptr %28, align 8
-  br label %31
+28:                                               ; preds = %23
+  %29 = getelementptr inbounds nuw i8, ptr %25, i64 48
+  store ptr %27, ptr %29, align 8
+  br label %32
 
-29:                                               ; preds = %22
-  %30 = getelementptr inbounds nuw i8, ptr %20, i64 32
-  store ptr %26, ptr %30, align 8
-  br label %31
+30:                                               ; preds = %23
+  %31 = getelementptr inbounds nuw i8, ptr %21, i64 32
+  store ptr %27, ptr %31, align 8
+  br label %32
 
-31:                                               ; preds = %29, %27
-  %.not31.i.i.i.i = icmp eq ptr %26, null
-  br i1 %.not31.i.i.i.i, label %35, label %32
+32:                                               ; preds = %30, %28
+  %.not31.i.i.i.i = icmp eq ptr %27, null
+  br i1 %.not31.i.i.i.i, label %36, label %33
 
-32:                                               ; preds = %31
-  %33 = load ptr, ptr %23, align 8
-  %34 = getelementptr inbounds nuw i8, ptr %26, i64 40
-  store ptr %33, ptr %34, align 8
-  br label %35
+33:                                               ; preds = %32
+  %34 = load ptr, ptr %24, align 8
+  %35 = getelementptr inbounds nuw i8, ptr %27, i64 40
+  store ptr %34, ptr %35, align 8
+  br label %36
 
-35:                                               ; preds = %32, %31
-  store ptr null, ptr %9, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %23, i8 0, i64 16, i1 false)
+36:                                               ; preds = %33, %32
+  store ptr null, ptr %10, align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %24, i8 0, i64 16, i1 false)
   br label %MemoryContextDeleteOnly.exit.i.i
 
-MemoryContextDeleteOnly.exit.i.i:                 ; preds = %35, %MemoryContextCallResetCallbacks.exit.i.i.i
-  %36 = getelementptr inbounds nuw i8, ptr %.1.i.i, i64 64
-  store ptr null, ptr %36, align 8
-  %37 = getelementptr inbounds nuw i8, ptr %.1.i.i, i64 16
-  %38 = load ptr, ptr %37, align 8
-  %39 = getelementptr inbounds nuw i8, ptr %38, i64 32
-  %40 = load ptr, ptr %39, align 8
-  tail call void %40(ptr noundef nonnull %.1.i.i) #16
-  %41 = icmp eq ptr %.1.i.i, %4
-  br i1 %41, label %MemoryContextDelete.exit.i, label %.backedge
+MemoryContextDeleteOnly.exit.i.i:                 ; preds = %36, %MemoryContextCallResetCallbacks.exit.i.i.i
+  %37 = getelementptr inbounds nuw i8, ptr %.1.i.i, i64 64
+  store ptr null, ptr %37, align 8
+  %38 = getelementptr inbounds nuw i8, ptr %.1.i.i, i64 16
+  %39 = load ptr, ptr %38, align 8
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 32
+  %41 = load ptr, ptr %40, align 8
+  tail call void %41(ptr noundef nonnull %.1.i.i) #16
+  %42 = icmp eq ptr %.1.i.i, %5
+  br i1 %42, label %MemoryContextDelete.exit.loopexit.i, label %.backedge
 
-MemoryContextDelete.exit.i:                       ; preds = %MemoryContextDeleteOnly.exit.i.i
-  %42 = load ptr, ptr %2, align 8
-  %.not.i = icmp eq ptr %42, null
-  br i1 %.not.i, label %MemoryContextDeleteChildren.exit, label %.preheader.i, !llvm.loop !8
-
-MemoryContextDeleteChildren.exit:                 ; preds = %MemoryContextDelete.exit.i, %1
+MemoryContextDeleteChildren.exit:                 ; preds = %MemoryContextDelete.exit.loopexit.i, %1
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %44 = load i8, ptr %43, align 4, !range !9, !noundef !10
+  %44 = load i8, ptr %43, align 4, !range !7, !noundef !8
   %45 = trunc nuw i8 %44 to i1
   br i1 %45, label %60, label %46
 
@@ -220,110 +220,110 @@ define dso_local void @MemoryContextDeleteChildren(ptr noundef readonly captures
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %.not2 = icmp eq ptr %3, null
-  br i1 %.not2, label %._crit_edge, label %.preheader
+  br i1 %.not2, label %MemoryContextDelete.exit._crit_edge, label %.preheader
 
-.preheader:                                       ; preds = %1, %MemoryContextDelete.exit
-  %4 = phi ptr [ %42, %MemoryContextDelete.exit ], [ %3, %1 ]
-  br label %5
+MemoryContextDelete.exit.loopexit:                ; preds = %MemoryContextDeleteOnly.exit.i
+  %4 = load ptr, ptr %2, align 8
+  %.not = icmp eq ptr %4, null
+  br i1 %.not, label %MemoryContextDelete.exit._crit_edge, label %.preheader, !llvm.loop !4
 
-5:                                                ; preds = %.backedge, %.preheader
-  %.1.i = phi ptr [ %4, %.preheader ], [ %.1.i.be, %.backedge ]
-  %6 = getelementptr inbounds nuw i8, ptr %.1.i, i64 32
-  %7 = load ptr, ptr %6, align 8
-  %.not.i = icmp eq ptr %7, null
-  br i1 %.not.i, label %8, label %.backedge
+.preheader:                                       ; preds = %1, %MemoryContextDelete.exit.loopexit
+  %5 = phi ptr [ %4, %MemoryContextDelete.exit.loopexit ], [ %3, %1 ]
+  br label %6
 
-.backedge:                                        ; preds = %5, %MemoryContextDeleteOnly.exit.i
-  %.1.i.be = phi ptr [ %7, %5 ], [ %10, %MemoryContextDeleteOnly.exit.i ]
-  br label %5, !llvm.loop !4
+6:                                                ; preds = %.backedge, %.preheader
+  %.1.i = phi ptr [ %5, %.preheader ], [ %.1.i.be, %.backedge ]
+  %7 = getelementptr inbounds nuw i8, ptr %.1.i, i64 32
+  %8 = load ptr, ptr %7, align 8
+  %.not.i = icmp eq ptr %8, null
+  br i1 %.not.i, label %9, label %.backedge
 
-8:                                                ; preds = %5
-  %9 = getelementptr inbounds nuw i8, ptr %.1.i, i64 24
-  %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds nuw i8, ptr %.1.i, i64 72
-  %12 = load ptr, ptr %11, align 8
-  %.not5.i.i.i = icmp eq ptr %12, null
+.backedge:                                        ; preds = %6, %MemoryContextDeleteOnly.exit.i
+  %.1.i.be = phi ptr [ %8, %6 ], [ %11, %MemoryContextDeleteOnly.exit.i ]
+  br label %6, !llvm.loop !4
+
+9:                                                ; preds = %6
+  %10 = getelementptr inbounds nuw i8, ptr %.1.i, i64 24
+  %11 = load ptr, ptr %10, align 8
+  %12 = getelementptr inbounds nuw i8, ptr %.1.i, i64 72
+  %13 = load ptr, ptr %12, align 8
+  %.not5.i.i.i = icmp eq ptr %13, null
   br i1 %.not5.i.i.i, label %MemoryContextCallResetCallbacks.exit.i.i, label %.lr.ph.i.i.i
 
-.lr.ph.i.i.i:                                     ; preds = %8, %.lr.ph.i.i.i
-  %13 = phi ptr [ %19, %.lr.ph.i.i.i ], [ %12, %8 ]
-  %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
-  %15 = load ptr, ptr %14, align 8
-  store ptr %15, ptr %11, align 8
-  %16 = load ptr, ptr %13, align 8
-  %17 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  %18 = load ptr, ptr %17, align 8
-  tail call void %16(ptr noundef %18) #16
-  %19 = load ptr, ptr %11, align 8
-  %.not.i.i.i = icmp eq ptr %19, null
+.lr.ph.i.i.i:                                     ; preds = %9, %.lr.ph.i.i.i
+  %14 = phi ptr [ %20, %.lr.ph.i.i.i ], [ %13, %9 ]
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 16
+  %16 = load ptr, ptr %15, align 8
+  store ptr %16, ptr %12, align 8
+  %17 = load ptr, ptr %14, align 8
+  %18 = getelementptr inbounds nuw i8, ptr %14, i64 8
+  %19 = load ptr, ptr %18, align 8
+  tail call void %17(ptr noundef %19) #16
+  %20 = load ptr, ptr %12, align 8
+  %.not.i.i.i = icmp eq ptr %20, null
   br i1 %.not.i.i.i, label %MemoryContextCallResetCallbacks.exit.ithread-pre-split.i, label %.lr.ph.i.i.i, !llvm.loop !6
 
 MemoryContextCallResetCallbacks.exit.ithread-pre-split.i: ; preds = %.lr.ph.i.i.i
-  %.pr.i = load ptr, ptr %9, align 8
+  %.pr.i = load ptr, ptr %10, align 8
   br label %MemoryContextCallResetCallbacks.exit.i.i
 
-MemoryContextCallResetCallbacks.exit.i.i:         ; preds = %MemoryContextCallResetCallbacks.exit.ithread-pre-split.i, %8
-  %20 = phi ptr [ %.pr.i, %MemoryContextCallResetCallbacks.exit.ithread-pre-split.i ], [ %10, %8 ]
-  %21 = icmp eq ptr %20, null
-  br i1 %21, label %MemoryContextDeleteOnly.exit.i, label %22
+MemoryContextCallResetCallbacks.exit.i.i:         ; preds = %MemoryContextCallResetCallbacks.exit.ithread-pre-split.i, %9
+  %21 = phi ptr [ %.pr.i, %MemoryContextCallResetCallbacks.exit.ithread-pre-split.i ], [ %11, %9 ]
+  %22 = icmp eq ptr %21, null
+  br i1 %22, label %MemoryContextDeleteOnly.exit.i, label %23
 
-22:                                               ; preds = %MemoryContextCallResetCallbacks.exit.i.i
-  %23 = getelementptr inbounds nuw i8, ptr %.1.i, i64 40
-  %24 = load ptr, ptr %23, align 8
-  %.not30.i.i.i = icmp eq ptr %24, null
-  %25 = getelementptr inbounds nuw i8, ptr %.1.i, i64 48
-  %26 = load ptr, ptr %25, align 8
-  br i1 %.not30.i.i.i, label %29, label %27
+23:                                               ; preds = %MemoryContextCallResetCallbacks.exit.i.i
+  %24 = getelementptr inbounds nuw i8, ptr %.1.i, i64 40
+  %25 = load ptr, ptr %24, align 8
+  %.not30.i.i.i = icmp eq ptr %25, null
+  %26 = getelementptr inbounds nuw i8, ptr %.1.i, i64 48
+  %27 = load ptr, ptr %26, align 8
+  br i1 %.not30.i.i.i, label %30, label %28
 
-27:                                               ; preds = %22
-  %28 = getelementptr inbounds nuw i8, ptr %24, i64 48
-  store ptr %26, ptr %28, align 8
-  br label %31
+28:                                               ; preds = %23
+  %29 = getelementptr inbounds nuw i8, ptr %25, i64 48
+  store ptr %27, ptr %29, align 8
+  br label %32
 
-29:                                               ; preds = %22
-  %30 = getelementptr inbounds nuw i8, ptr %20, i64 32
-  store ptr %26, ptr %30, align 8
-  br label %31
+30:                                               ; preds = %23
+  %31 = getelementptr inbounds nuw i8, ptr %21, i64 32
+  store ptr %27, ptr %31, align 8
+  br label %32
 
-31:                                               ; preds = %29, %27
-  %.not31.i.i.i = icmp eq ptr %26, null
-  br i1 %.not31.i.i.i, label %35, label %32
+32:                                               ; preds = %30, %28
+  %.not31.i.i.i = icmp eq ptr %27, null
+  br i1 %.not31.i.i.i, label %36, label %33
 
-32:                                               ; preds = %31
-  %33 = load ptr, ptr %23, align 8
-  %34 = getelementptr inbounds nuw i8, ptr %26, i64 40
-  store ptr %33, ptr %34, align 8
-  br label %35
+33:                                               ; preds = %32
+  %34 = load ptr, ptr %24, align 8
+  %35 = getelementptr inbounds nuw i8, ptr %27, i64 40
+  store ptr %34, ptr %35, align 8
+  br label %36
 
-35:                                               ; preds = %32, %31
-  store ptr null, ptr %9, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %23, i8 0, i64 16, i1 false)
+36:                                               ; preds = %33, %32
+  store ptr null, ptr %10, align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %24, i8 0, i64 16, i1 false)
   br label %MemoryContextDeleteOnly.exit.i
 
-MemoryContextDeleteOnly.exit.i:                   ; preds = %35, %MemoryContextCallResetCallbacks.exit.i.i
-  %36 = getelementptr inbounds nuw i8, ptr %.1.i, i64 64
-  store ptr null, ptr %36, align 8
-  %37 = getelementptr inbounds nuw i8, ptr %.1.i, i64 16
-  %38 = load ptr, ptr %37, align 8
-  %39 = getelementptr inbounds nuw i8, ptr %38, i64 32
-  %40 = load ptr, ptr %39, align 8
-  tail call void %40(ptr noundef nonnull %.1.i) #16
-  %41 = icmp eq ptr %.1.i, %4
-  br i1 %41, label %MemoryContextDelete.exit, label %.backedge
+MemoryContextDeleteOnly.exit.i:                   ; preds = %36, %MemoryContextCallResetCallbacks.exit.i.i
+  %37 = getelementptr inbounds nuw i8, ptr %.1.i, i64 64
+  store ptr null, ptr %37, align 8
+  %38 = getelementptr inbounds nuw i8, ptr %.1.i, i64 16
+  %39 = load ptr, ptr %38, align 8
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 32
+  %41 = load ptr, ptr %40, align 8
+  tail call void %41(ptr noundef nonnull %.1.i) #16
+  %42 = icmp eq ptr %.1.i, %5
+  br i1 %42, label %MemoryContextDelete.exit.loopexit, label %.backedge
 
-MemoryContextDelete.exit:                         ; preds = %MemoryContextDeleteOnly.exit.i
-  %42 = load ptr, ptr %2, align 8
-  %.not = icmp eq ptr %42, null
-  br i1 %.not, label %._crit_edge, label %.preheader, !llvm.loop !8
-
-._crit_edge:                                      ; preds = %MemoryContextDelete.exit, %1
+MemoryContextDelete.exit._crit_edge:              ; preds = %MemoryContextDelete.exit.loopexit, %1
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @MemoryContextResetOnly(ptr noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %3 = load i8, ptr %2, align 4, !range !9, !noundef !10
+  %3 = load i8, ptr %2, align 4, !range !7, !noundef !8
   %4 = trunc nuw i8 %3 to i1
   br i1 %4, label %19, label %5
 
@@ -372,7 +372,7 @@ define dso_local void @MemoryContextResetChildren(ptr noundef readonly captures(
 .lr.ph:                                           ; preds = %1, %.lr.ph.backedge
   %.06 = phi ptr [ %.06.be, %.lr.ph.backedge ], [ %3, %1 ]
   %4 = getelementptr inbounds nuw i8, ptr %.06, i64 4
-  %5 = load i8, ptr %4, align 4, !range !9, !noundef !10
+  %5 = load i8, ptr %4, align 4, !range !7, !noundef !8
   %6 = trunc nuw i8 %5 to i1
   br i1 %6, label %MemoryContextResetOnly.exit, label %7
 
@@ -412,20 +412,20 @@ MemoryContextResetOnly.exit:                      ; preds = %.lr.ph, %MemoryCont
 
 .lr.ph.backedge:                                  ; preds = %.preheader.i, %MemoryContextResetOnly.exit
   %.06.be = phi ptr [ %22, %MemoryContextResetOnly.exit ], [ %24, %.preheader.i ]
-  br label %.lr.ph, !llvm.loop !11
+  br label %.lr.ph, !llvm.loop !9
 
 .preheader.i:                                     ; preds = %MemoryContextResetOnly.exit, %26
   %.08.i = phi ptr [ %28, %26 ], [ %.06, %MemoryContextResetOnly.exit ]
   %23 = getelementptr inbounds nuw i8, ptr %.08.i, i64 48
   %24 = load ptr, ptr %23, align 8
   %25 = icmp eq ptr %24, null
-  br i1 %25, label %26, label %.lr.ph.backedge, !llvm.loop !11
+  br i1 %25, label %26, label %.lr.ph.backedge, !llvm.loop !9
 
 26:                                               ; preds = %.preheader.i
   %27 = getelementptr inbounds nuw i8, ptr %.08.i, i64 24
   %28 = load ptr, ptr %27, align 8
   %29 = icmp eq ptr %28, %0
-  br i1 %29, label %._crit_edge, label %.preheader.i, !llvm.loop !12
+  br i1 %29, label %._crit_edge, label %.preheader.i, !llvm.loop !10
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
@@ -447,7 +447,7 @@ define dso_local void @MemoryContextDelete(ptr noundef %0) local_unnamed_addr #0
 
 .backedge:                                        ; preds = %2, %MemoryContextDeleteOnly.exit
   %.1.be = phi ptr [ %4, %2 ], [ %7, %MemoryContextDeleteOnly.exit ]
-  br label %2, !llvm.loop !4
+  br label %2, !llvm.loop !11
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %.1, i64 24
@@ -692,20 +692,20 @@ define dso_local i64 @MemoryContextMemAllocated(ptr noundef readonly captures(ad
 
 .lr.ph.backedge:                                  ; preds = %.preheader.i, %.lr.ph
   %.011.be = phi ptr [ %12, %.lr.ph ], [ %14, %.preheader.i ]
-  br label %.lr.ph, !llvm.loop !13
+  br label %.lr.ph, !llvm.loop !12
 
 .preheader.i:                                     ; preds = %.lr.ph, %16
   %.08.i = phi ptr [ %18, %16 ], [ %.011, %.lr.ph ]
   %13 = getelementptr inbounds nuw i8, ptr %.08.i, i64 48
   %14 = load ptr, ptr %13, align 8
   %15 = icmp eq ptr %14, null
-  br i1 %15, label %16, label %.lr.ph.backedge, !llvm.loop !13
+  br i1 %15, label %16, label %.lr.ph.backedge, !llvm.loop !12
 
 16:                                               ; preds = %.preheader.i
   %17 = getelementptr inbounds nuw i8, ptr %.08.i, i64 24
   %18 = load ptr, ptr %17, align 8
   %19 = icmp eq ptr %18, %0
-  br i1 %19, label %.loopexit, label %.preheader.i, !llvm.loop !12
+  br i1 %19, label %.loopexit, label %.preheader.i, !llvm.loop !10
 
 .loopexit:                                        ; preds = %16, %5, %2
   %.08 = phi i64 [ %4, %2 ], [ %4, %5 ], [ %10, %16 ]
@@ -742,20 +742,20 @@ define dso_local void @MemoryContextMemConsumed(ptr noundef %0, ptr noundef init
 
 .lr.ph.backedge:                                  ; preds = %.preheader.i, %.lr.ph
   %.012.be = phi ptr [ %14, %.lr.ph ], [ %16, %.preheader.i ]
-  br label %.lr.ph, !llvm.loop !14
+  br label %.lr.ph, !llvm.loop !13
 
 .preheader.i:                                     ; preds = %.lr.ph, %18
   %.08.i = phi ptr [ %20, %18 ], [ %.012, %.lr.ph ]
   %15 = getelementptr inbounds nuw i8, ptr %.08.i, i64 48
   %16 = load ptr, ptr %15, align 8
   %17 = icmp eq ptr %16, null
-  br i1 %17, label %18, label %.lr.ph.backedge, !llvm.loop !14
+  br i1 %17, label %18, label %.lr.ph.backedge, !llvm.loop !13
 
 18:                                               ; preds = %.preheader.i
   %19 = getelementptr inbounds nuw i8, ptr %.08.i, i64 24
   %20 = load ptr, ptr %19, align 8
   %21 = icmp eq ptr %20, %0
-  br i1 %21, label %._crit_edge, label %.preheader.i, !llvm.loop !12
+  br i1 %21, label %._crit_edge, label %.preheader.i, !llvm.loop !10
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
@@ -864,7 +864,7 @@ define internal fastcc void @MemoryContextStatsInternal(ptr noundef %0, i32 noun
   %27 = icmp ne ptr %25, null
   %28 = icmp slt i32 %26, %3
   %29 = select i1 %27, i1 %28, i1 false
-  br i1 %29, label %.lr.ph, label %.loopexit, !llvm.loop !15
+  br i1 %29, label %.lr.ph, label %.loopexit, !llvm.loop !14
 
 .loopexit:                                        ; preds = %.lr.ph, %.preheader40, %17, %6
   %.033 = phi ptr [ %14, %17 ], [ %14, %6 ], [ %14, %.preheader40 ], [ %25, %.lr.ph ]
@@ -892,20 +892,20 @@ MemoryContextTraverseNext.exit:                   ; preds = %MemoryContextTraver
 
 MemoryContextTraverseNext.exit.backedge:          ; preds = %.preheader.i, %MemoryContextTraverseNext.exit
   %.243.be = phi ptr [ %37, %MemoryContextTraverseNext.exit ], [ %39, %.preheader.i ]
-  br label %MemoryContextTraverseNext.exit, !llvm.loop !16
+  br label %MemoryContextTraverseNext.exit, !llvm.loop !15
 
 .preheader.i:                                     ; preds = %MemoryContextTraverseNext.exit, %41
   %.08.i = phi ptr [ %43, %41 ], [ %.243, %MemoryContextTraverseNext.exit ]
   %38 = getelementptr inbounds nuw i8, ptr %.08.i, i64 48
   %39 = load ptr, ptr %38, align 8
   %40 = icmp eq ptr %39, null
-  br i1 %40, label %41, label %MemoryContextTraverseNext.exit.backedge, !llvm.loop !16
+  br i1 %40, label %41, label %MemoryContextTraverseNext.exit.backedge, !llvm.loop !15
 
 41:                                               ; preds = %.preheader.i
   %42 = getelementptr inbounds nuw i8, ptr %.08.i, i64 24
   %43 = load ptr, ptr %42, align 8
   %44 = icmp eq ptr %43, %0
-  br i1 %44, label %45, label %.preheader.i, !llvm.loop !12
+  br i1 %44, label %45, label %.preheader.i, !llvm.loop !10
 
 45:                                               ; preds = %41
   br i1 %5, label %.preheader, label %61
@@ -935,7 +935,7 @@ MemoryContextTraverseNext.exit.backedge:          ; preds = %.preheader.i, %Memo
   %59 = add i32 %.046, 1
   %60 = load i32, ptr %7, align 4
   %.not39 = icmp sgt i32 %59, %60
-  br i1 %.not39, label %._crit_edge, label %.lr.ph47, !llvm.loop !17
+  br i1 %.not39, label %._crit_edge, label %.lr.ph47, !llvm.loop !16
 
 61:                                               ; preds = %45
   %62 = call zeroext i1 @errstart(i32 noundef 16, ptr noundef null) #16
@@ -1040,7 +1040,7 @@ define dso_local void @MemoryContextCreate(ptr noundef initializes((0, 5), (8, 8
 21:                                               ; preds = %19, %15
   store ptr %0, ptr %16, align 8
   %22 = getelementptr inbounds nuw i8, ptr %3, i64 5
-  %23 = load i8, ptr %22, align 1, !range !9, !noundef !10
+  %23 = load i8, ptr %22, align 1, !range !7, !noundef !8
   br label %26
 
 24:                                               ; preds = %5
@@ -1182,7 +1182,7 @@ define dso_local ptr @MemoryContextAllocExtended(ptr noundef %0, i64 noundef %1,
   %20 = and i32 %2, 4
   %.not31 = icmp eq i32 %20, 0
   %or.cond = or i1 %.not31, %19
-  br i1 %or.cond, label %.loopexit, label %21, !prof !18
+  br i1 %or.cond, label %.loopexit, label %21, !prof !17
 
 21:                                               ; preds = %12
   %22 = and i64 %1, 7
@@ -1306,7 +1306,7 @@ define dso_local ptr @palloc_extended(i64 noundef %0, i32 noundef %1) local_unna
   %11 = and i32 %1, 4
   %.not = icmp eq i32 %11, 0
   %or.cond = or i1 %.not, %10
-  br i1 %or.cond, label %.loopexit, label %12, !prof !18
+  br i1 %or.cond, label %.loopexit, label %12, !prof !17
 
 12:                                               ; preds = %2
   %13 = and i64 %0, 7
@@ -1341,7 +1341,7 @@ define dso_local ptr @palloc_extended(i64 noundef %0, i32 noundef %1) local_unna
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @MemoryContextAllocAligned(ptr noundef %0, i64 noundef %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = icmp ult i64 %2, 9
-  br i1 %5, label %6, label %8, !prof !19
+  br i1 %5, label %6, label %8, !prof !18
 
 6:                                                ; preds = %4
   %7 = tail call ptr @MemoryContextAllocExtended(ptr noundef %0, i64 noundef %1, i32 noundef %3)
@@ -1377,7 +1377,7 @@ define dso_local ptr @MemoryContextAllocAligned(ptr noundef %0, i64 noundef %1, 
 define dso_local ptr @palloc_aligned(i64 noundef %0, i64 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = load ptr, ptr @CurrentMemoryContext, align 8
   %5 = icmp ult i64 %1, 9
-  br i1 %5, label %6, label %8, !prof !19
+  br i1 %5, label %6, label %8, !prof !18
 
 6:                                                ; preds = %3
   %7 = tail call ptr @MemoryContextAllocExtended(ptr noundef %4, i64 noundef %0, i32 noundef %2)
@@ -1445,7 +1445,7 @@ define dso_local ptr @repalloc_extended(ptr noundef %0, i64 noundef %1, i32 noun
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @repalloc0(ptr noundef %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = icmp ugt i64 %1, %2
-  br i1 %4, label %5, label %8, !prof !19
+  br i1 %4, label %5, label %8, !prof !18
 
 5:                                                ; preds = %3
   %6 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #17
@@ -1547,37 +1547,37 @@ declare i64 @strnlen(ptr noundef captures(none), i64 noundef) local_unnamed_addr
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @pchomp(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #18
-  %invariant.gep = getelementptr i8, ptr %0, i64 -1
   %.not6 = icmp eq i64 %2, 0
   br i1 %.not6, label %.critedge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %1, %5
-  %.07 = phi i64 [ %6, %5 ], [ %2, %1 ]
-  %gep = getelementptr i8, ptr %invariant.gep, i64 %.07
-  %3 = load i8, ptr %gep, align 1
-  %4 = icmp eq i8 %3, 10
-  br i1 %4, label %5, label %.critedge
+.lr.ph:                                           ; preds = %1, %7
+  %.07 = phi i64 [ %8, %7 ], [ %2, %1 ]
+  %3 = getelementptr i8, ptr %0, i64 %.07
+  %4 = getelementptr i8, ptr %3, i64 -1
+  %5 = load i8, ptr %4, align 1
+  %6 = icmp eq i8 %5, 10
+  br i1 %6, label %7, label %.critedge
 
-5:                                                ; preds = %.lr.ph
-  %6 = add i64 %.07, -1
-  %.not = icmp eq i64 %6, 0
-  br i1 %.not, label %.critedge, label %.lr.ph, !llvm.loop !20
+7:                                                ; preds = %.lr.ph
+  %8 = add i64 %.07, -1
+  %.not = icmp eq i64 %8, 0
+  br i1 %.not, label %.critedge, label %.lr.ph, !llvm.loop !19
 
-.critedge:                                        ; preds = %.lr.ph, %5, %1
-  %.0.lcssa = phi i64 [ 0, %1 ], [ 0, %5 ], [ %.07, %.lr.ph ]
-  %7 = tail call i64 @strnlen(ptr noundef nonnull readonly %0, i64 noundef %.0.lcssa) #18
-  %8 = add i64 %7, 1
-  %9 = load ptr, ptr @CurrentMemoryContext, align 8
-  %10 = getelementptr inbounds nuw i8, ptr %9, i64 4
-  store i8 0, ptr %10, align 4
-  %11 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  %12 = load ptr, ptr %11, align 8
-  %13 = load ptr, ptr %12, align 8
-  %14 = tail call ptr %13(ptr noundef %9, i64 noundef %8, i32 noundef 0) #16
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %14, ptr nonnull readonly align 1 %0, i64 %7, i1 false)
-  %15 = getelementptr inbounds nuw i8, ptr %14, i64 %7
-  store i8 0, ptr %15, align 1
-  ret ptr %14
+.critedge:                                        ; preds = %.lr.ph, %7, %1
+  %.0.lcssa = phi i64 [ 0, %1 ], [ 0, %7 ], [ %.07, %.lr.ph ]
+  %9 = tail call i64 @strnlen(ptr noundef nonnull readonly %0, i64 noundef %.0.lcssa) #18
+  %10 = add i64 %9, 1
+  %11 = load ptr, ptr @CurrentMemoryContext, align 8
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 4
+  store i8 0, ptr %12, align 4
+  %13 = getelementptr inbounds nuw i8, ptr %11, i64 16
+  %14 = load ptr, ptr %13, align 8
+  %15 = load ptr, ptr %14, align 8
+  %16 = tail call ptr %15(ptr noundef %11, i64 noundef %10, i32 noundef 0) #16
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %16, ptr nonnull readonly align 1 %0, i64 %9, i1 false)
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 %9
+  store i8 0, ptr %17, align 1
+  ret ptr %16
 }
 
 ; Function Attrs: cold noreturn nounwind uwtable
@@ -1757,7 +1757,7 @@ define internal void @MemoryContextStatsPrint(ptr noundef readonly captures(none
   %29 = getelementptr inbounds [110 x i8], ptr %5, i64 0, i64 %28
   store i8 %spec.store.select, ptr %29, align 1
   %30 = icmp samesign ugt i32 %.144, 1
-  br i1 %30, label %.lr.ph, label %._crit_edge, !llvm.loop !21
+  br i1 %30, label %.lr.ph, label %._crit_edge, !llvm.loop !20
 
 ._crit_edge:                                      ; preds = %.lr.ph, %22
   %.028.lcssa = phi i32 [ %18, %22 ], [ %27, %.lr.ph ]
@@ -1786,7 +1786,7 @@ define internal void @MemoryContextStatsPrint(ptr noundef readonly captures(none
   %37 = tail call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %36, ptr noundef nonnull @.str.14) #16
   %38 = add nuw nsw i32 %.12945, 1
   %exitcond.not = icmp eq i32 %38, %6
-  br i1 %exitcond.not, label %._crit_edge47, label %.lr.ph46, !llvm.loop !22
+  br i1 %exitcond.not, label %._crit_edge47, label %.lr.ph46, !llvm.loop !21
 
 ._crit_edge47:                                    ; preds = %.lr.ph46, %.preheader
   %39 = load ptr, ptr @stderr, align 8
@@ -1852,21 +1852,20 @@ attributes #18 = { nounwind willreturn memory(read) }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.estimated_trip_count"}
-!6 = distinct !{!6, !7, !5}
-!7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7, !5}
-!9 = !{i8 0, i8 2}
-!10 = !{}
-!11 = distinct !{!11, !7, !5}
-!12 = distinct !{!12, !7, !5}
-!13 = distinct !{!13, !7, !5}
-!14 = distinct !{!14, !7, !5}
-!15 = distinct !{!15, !7, !5}
-!16 = distinct !{!16, !7, !5}
-!17 = distinct !{!17, !7, !5}
-!18 = !{!"branch_weights", i32 2002, i32 2000}
-!19 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!20 = distinct !{!20, !7, !5}
-!21 = distinct !{!21, !7, !5}
-!22 = distinct !{!22, !7, !5}
+!5 = !{!"llvm.loop.mustprogress"}
+!6 = distinct !{!6, !5}
+!7 = !{i8 0, i8 2}
+!8 = !{}
+!9 = distinct !{!9, !5}
+!10 = distinct !{!10, !5}
+!11 = distinct !{!11, !5}
+!12 = distinct !{!12, !5}
+!13 = distinct !{!13, !5}
+!14 = distinct !{!14, !5}
+!15 = distinct !{!15, !5}
+!16 = distinct !{!16, !5}
+!17 = !{!"branch_weights", i32 2002, i32 2000}
+!18 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!19 = distinct !{!19, !5}
+!20 = distinct !{!20, !5}
+!21 = distinct !{!21, !5}

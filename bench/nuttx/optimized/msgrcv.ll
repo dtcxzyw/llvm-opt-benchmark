@@ -106,7 +106,7 @@ define range(i64 -1, 65536) i64 @msgrcv(i32 noundef %0, ptr noundef writeonly ca
   %50 = getelementptr inbounds nuw i8, ptr %.03955.us.us.i, i64 8
   %.039.us.us.i = load ptr, ptr %50, align 8
   %.not.us.us.i = icmp eq ptr %.039.us.us.i, %20
-  br i1 %.not.us.us.i, label %._crit_edge56.split.us.us.i, label %.lr.ph.us.i, !llvm.loop !11
+  br i1 %.not.us.us.i, label %._crit_edge56.split.us.us.i, label %.lr.ph.us.i, !llvm.loop !10
 
 .split.i:                                         ; preds = %19
   br i1 %.not43.i, label %.split.split.us.i, label %.split.split.i
@@ -129,7 +129,7 @@ define range(i64 -1, 65536) i64 @msgrcv(i32 noundef %0, ptr noundef writeonly ca
   %56 = getelementptr inbounds nuw i8, ptr %.03955.us.i, i64 8
   %.039.us.i = load ptr, ptr %56, align 8
   %.not.us.i = icmp eq ptr %.039.us.i, %20
-  br i1 %.not.us.i, label %._crit_edge56.split.us.thread.i, label %.lr.ph.split.split.us70.i, !llvm.loop !13
+  br i1 %.not.us.i, label %._crit_edge56.split.us.thread.i, label %.lr.ph.split.split.us70.i, !llvm.loop !12
 
 ._crit_edge56.split.us.i:                         ; preds = %.split.split.us.i
   %.not42.us67.i57 = icmp eq ptr %.03952.us64.i, null
@@ -159,7 +159,7 @@ define range(i64 -1, 65536) i64 @msgrcv(i32 noundef %0, ptr noundef writeonly ca
 67:                                               ; preds = %65, %._crit_edge56.split.us.thread.i
   %68 = load i16, ptr %61, align 4
   %.not44.us68.i = icmp eq i16 %68, 0
-  br i1 %.not44.us68.i, label %.split.split.us.i, label %msgrcv_wait.exit, !llvm.loop !14
+  br i1 %.not44.us68.i, label %.split.split.us.i, label %msgrcv_wait.exit, !llvm.loop !13
 
 .split.split.i:                                   ; preds = %.split.i
   %.03952.i = load ptr, ptr %21, align 8
@@ -179,7 +179,7 @@ define range(i64 -1, 65536) i64 @msgrcv(i32 noundef %0, ptr noundef writeonly ca
   %74 = getelementptr inbounds nuw i8, ptr %.03955.i, i64 8
   %.039.i = load ptr, ptr %74, align 8
   %.not.i = icmp eq ptr %.039.i, %20
-  br i1 %.not.i, label %msgrcv_wait.exit.thread, label %.lr.ph.split.split.i, !llvm.loop !15
+  br i1 %.not.i, label %msgrcv_wait.exit.thread, label %.lr.ph.split.split.i, !llvm.loop !14
 
 .lr.ph.split.split.us.i:                          ; preds = %.split.split.i
   %.not42.i56 = icmp eq ptr %.03952.i, null
@@ -264,7 +264,7 @@ msgrcv_wait.exit.thread:                          ; preds = %73, %._crit_edge56.
   br i1 %.not.i44, label %up_irq_restore.exit, label %115
 
 115:                                              ; preds = %msgrcv_wait.exit.thread
-  call void asm sideeffect "sti", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !16
+  call void asm sideeffect "sti", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !15
   br label %up_irq_restore.exit
 
 up_irq_restore.exit:                              ; preds = %115, %msgrcv_wait.exit.thread
@@ -340,12 +340,11 @@ attributes #7 = { nounwind }
 !5 = !{i32 7, !"frame-pointer", i32 2}
 !6 = !{i64 579383, i64 579401}
 !7 = !{i64 580002}
-!8 = distinct !{!8, !9, !10}
-!9 = !{!"llvm.loop.estimated_trip_count"}
-!10 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!11 = distinct !{!11, !12, !9, !10}
-!12 = !{!"llvm.loop.mustprogress"}
-!13 = distinct !{!13, !12, !9}
-!14 = distinct !{!14, !9, !10}
-!15 = distinct !{!15, !12, !9, !10}
-!16 = !{i64 580123}
+!8 = distinct !{!8, !9}
+!9 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!10 = distinct !{!10, !11, !9}
+!11 = !{!"llvm.loop.mustprogress"}
+!12 = distinct !{!12, !11}
+!13 = distinct !{!13, !9}
+!14 = distinct !{!14, !11, !9}
+!15 = !{i64 580123}

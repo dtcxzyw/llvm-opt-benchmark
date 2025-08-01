@@ -337,7 +337,7 @@ for.inc.i.i.i.i.i:                                ; preds = %for.body.i.i.i.i.i
   %incdec.ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first1.addr.05.i.i.i.i.i, i64 1
   %incdec.ptr3.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first2.addr.06.i.i.i.i.i, i64 2
   %cmp.not.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i, %add.ptr.i.i92
-  br i1 %cmp.not.i.i.i.i.i, label %return, label %for.body.i.i.i.i.i, !llvm.loop !8
+  br i1 %cmp.not.i.i.i.i.i, label %return, label %for.body.i.i.i.i.i, !llvm.loop !7
 
 if.else32:                                        ; preds = %if.then14
   %bf.cast.i = trunc i32 %bf.load.i to i1
@@ -379,14 +379,14 @@ for.inc.i.i.i.i.i100:                             ; preds = %for.body.i.i.i.i.i9
   %incdec.ptr.i.i.i.i.i101 = getelementptr inbounds nuw i8, ptr %__first1.addr.05.i.i.i.i.i96, i64 1
   %incdec.ptr3.i.i.i.i.i102 = getelementptr inbounds nuw i8, ptr %__first2.addr.06.i.i.i.i.i95, i64 2
   %cmp.not.i.i.i.i.i103 = icmp eq ptr %incdec.ptr.i.i.i.i.i101, %add.ptr.i.i92
-  br i1 %cmp.not.i.i.i.i.i103, label %return, label %for.body.i.i.i.i.i94, !llvm.loop !8
+  br i1 %cmp.not.i.i.i.i.i103, label %return, label %for.body.i.i.i.i.i94, !llvm.loop !7
 
 if.end53:                                         ; preds = %for.body.i.i.i.i.i94, %for.body.i.i.i.i.i, %_ZNK6hermes12CompactTable9isDeletedEj.exit, %if.then34, %_ZNK6hermes2vm15StringPrimitive14castToASCIIRefEv.exit, %if.else41, %_ZNK6hermes2vm15StringPrimitive14castToUTF16RefEv.exit, %_ZNK6hermes12CompactTable3getEj.exit, %_ZN6hermes2vm15stringRefEqualsIccEEbN4llvh8ArrayRefIT_EENS3_IT0_EE.exit82, %_ZN6hermes2vm15stringRefEqualsIccEEbN4llvh8ArrayRefIT_EENS3_IT0_EE.exit
   %deletedIndex.sroa.3.1 = phi i1 [ %deletedIndex.sroa.3.0, %_ZN6hermes2vm15stringRefEqualsIccEEbN4llvh8ArrayRefIT_EENS3_IT0_EE.exit ], [ %deletedIndex.sroa.3.0, %_ZN6hermes2vm15stringRefEqualsIccEEbN4llvh8ArrayRefIT_EENS3_IT0_EE.exit82 ], [ %deletedIndex.sroa.3.0, %_ZNK6hermes12CompactTable3getEj.exit ], [ true, %_ZNK6hermes12CompactTable9isDeletedEj.exit ], [ %deletedIndex.sroa.3.0, %_ZNK6hermes2vm15StringPrimitive14castToUTF16RefEv.exit ], [ %deletedIndex.sroa.3.0, %if.else41 ], [ %deletedIndex.sroa.3.0, %_ZNK6hermes2vm15StringPrimitive14castToASCIIRefEv.exit ], [ %deletedIndex.sroa.3.0, %if.then34 ], [ %deletedIndex.sroa.3.0, %for.body.i.i.i.i.i ], [ %deletedIndex.sroa.3.0, %for.body.i.i.i.i.i94 ]
   %deletedIndex.sroa.0.1 = phi i32 [ %deletedIndex.sroa.0.0, %_ZN6hermes2vm15stringRefEqualsIccEEbN4llvh8ArrayRefIT_EENS3_IT0_EE.exit ], [ %deletedIndex.sroa.0.0, %_ZN6hermes2vm15stringRefEqualsIccEEbN4llvh8ArrayRefIT_EENS3_IT0_EE.exit82 ], [ %deletedIndex.sroa.0.0, %_ZNK6hermes12CompactTable3getEj.exit ], [ %idx.0, %_ZNK6hermes12CompactTable9isDeletedEj.exit ], [ %deletedIndex.sroa.0.0, %_ZNK6hermes2vm15StringPrimitive14castToUTF16RefEv.exit ], [ %deletedIndex.sroa.0.0, %if.else41 ], [ %deletedIndex.sroa.0.0, %_ZNK6hermes2vm15StringPrimitive14castToASCIIRefEv.exit ], [ %deletedIndex.sroa.0.0, %if.then34 ], [ %deletedIndex.sroa.0.0, %for.body.i.i.i.i.i ], [ %deletedIndex.sroa.0.0, %for.body.i.i.i.i.i94 ]
   %add = add i32 %idx.0, %base.0
   %inc = add i32 %base.0, 1
-  br label %while.body, !llvm.loop !9
+  br label %while.body, !llvm.loop !8
 
 return:                                           ; preds = %if.end.i91, %if.end.i77, %if.end.i68, %if.end.i, %_ZN6hermes2vm15stringRefEqualsIccEEbN4llvh8ArrayRefIT_EENS3_IT0_EE.exit82, %_ZN6hermes2vm15stringRefEqualsIccEEbN4llvh8ArrayRefIT_EENS3_IT0_EE.exit, %for.inc.i.i.i.i.i100, %for.inc.i.i.i.i.i, %if.then
   %retval.0.in.sroa.speculated = phi i32 [ %spec.select, %if.then ], [ %idx.0, %for.inc.i.i.i.i.i ], [ %idx.0, %for.inc.i.i.i.i.i100 ], [ %idx.0, %_ZN6hermes2vm15stringRefEqualsIccEEbN4llvh8ArrayRefIT_EENS3_IT0_EE.exit ], [ %idx.0, %_ZN6hermes2vm15stringRefEqualsIccEEbN4llvh8ArrayRefIT_EENS3_IT0_EE.exit82 ], [ %idx.0, %if.end.i ], [ %idx.0, %if.end.i68 ], [ %idx.0, %if.end.i77 ], [ %idx.0, %if.end.i91 ]
@@ -478,7 +478,7 @@ _ZNK6hermes12CompactTable9isDeletedEj.exit.us:    ; preds = %sw.bb.i.i25.us, %sw
   %idx.0.mux.us = select i1 %cmp.i21.us, i32 %idx.0.us, i32 %deletedIndex.sroa.0.0.us
   %add.us = add i32 %idx.0.us, %base.0.us
   %inc.us = add i32 %base.0.us, 1
-  br label %while.body.us, !llvm.loop !10
+  br label %while.body.us, !llvm.loop !9
 
 while.body:                                       ; preds = %entry, %if.end53
   %deletedIndex.sroa.3.0 = phi i1 [ %deletedIndex.sroa.3.1, %if.end53 ], [ false, %entry ]
@@ -672,7 +672,7 @@ for.inc.i.i.i.i.i:                                ; preds = %for.body.i.i.i.i.i
   %incdec.ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first1.addr.05.i.i.i.i.i, i64 2
   %incdec.ptr3.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first2.addr.06.i.i.i.i.i, i64 1
   %cmp.not.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i, %add.ptr.i.i80
-  br i1 %cmp.not.i.i.i.i.i, label %return, label %for.body.i.i.i.i.i, !llvm.loop !11
+  br i1 %cmp.not.i.i.i.i.i, label %return, label %for.body.i.i.i.i.i, !llvm.loop !10
 
 if.else24:                                        ; preds = %if.then16
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i65, label %if.else.i.i.i49
@@ -750,7 +750,7 @@ for.inc.i.i.i.i.i88:                              ; preds = %for.body.i.i.i.i.i8
   %incdec.ptr.i.i.i.i.i89 = getelementptr inbounds nuw i8, ptr %__first1.addr.05.i.i.i.i.i84, i64 2
   %incdec.ptr3.i.i.i.i.i90 = getelementptr inbounds nuw i8, ptr %__first2.addr.06.i.i.i.i.i83, i64 1
   %cmp.not.i.i.i.i.i91 = icmp eq ptr %incdec.ptr.i.i.i.i.i89, %add.ptr.i.i80
-  br i1 %cmp.not.i.i.i.i.i91, label %return, label %for.body.i.i.i.i.i82, !llvm.loop !11
+  br i1 %cmp.not.i.i.i.i.i91, label %return, label %for.body.i.i.i.i.i82, !llvm.loop !10
 
 if.else41:                                        ; preds = %if.else32
   br i1 %cmp.not.i99, label %if.end.i101, label %if.end53
@@ -768,7 +768,7 @@ if.end53:                                         ; preds = %for.body.i.i.i.i.i8
   %deletedIndex.sroa.0.1 = phi i32 [ %deletedIndex.sroa.0.0, %_ZN6hermes2vm15stringRefEqualsIDsDsEEbN4llvh8ArrayRefIT_EENS3_IT0_EE.exit ], [ %deletedIndex.sroa.0.0, %_ZN6hermes2vm15stringRefEqualsIDsDsEEbN4llvh8ArrayRefIT_EENS3_IT0_EE.exit107 ], [ %deletedIndex.sroa.0.0, %_ZNK6hermes12CompactTable3getEj.exit ], [ %idx.0, %_ZNK6hermes12CompactTable9isDeletedEj.exit ], [ %deletedIndex.sroa.0.0, %_ZNK6hermes2vm15StringPrimitive14castToASCIIRefEv.exit ], [ %deletedIndex.sroa.0.0, %if.then34 ], [ %deletedIndex.sroa.0.0, %_ZNK6hermes2vm15StringPrimitive14castToUTF16RefEv.exit ], [ %deletedIndex.sroa.0.0, %if.else41 ], [ %deletedIndex.sroa.0.0, %for.body.i.i.i.i.i ], [ %deletedIndex.sroa.0.0, %for.body.i.i.i.i.i82 ]
   %add = add i32 %idx.0, %base.0
   %inc = add i32 %base.0, 1
-  br label %while.body, !llvm.loop !12
+  br label %while.body, !llvm.loop !11
 
 return:                                           ; preds = %if.end.i101, %if.end.i78, %if.end.i69, %if.end.i, %_ZN6hermes2vm15stringRefEqualsIDsDsEEbN4llvh8ArrayRefIT_EENS3_IT0_EE.exit107, %_ZN6hermes2vm15stringRefEqualsIDsDsEEbN4llvh8ArrayRefIT_EENS3_IT0_EE.exit, %for.inc.i.i.i.i.i88, %for.inc.i.i.i.i.i, %if.then
   %retval.0.in.sroa.speculated = phi i32 [ %spec.select, %if.then ], [ %idx.0, %for.inc.i.i.i.i.i ], [ %idx.0, %for.inc.i.i.i.i.i88 ], [ %idx.0, %_ZN6hermes2vm15stringRefEqualsIDsDsEEbN4llvh8ArrayRefIT_EENS3_IT0_EE.exit ], [ %idx.0, %_ZN6hermes2vm15stringRefEqualsIDsDsEEbN4llvh8ArrayRefIT_EENS3_IT0_EE.exit107 ], [ %idx.0, %if.end.i ], [ %idx.0, %if.end.i69 ], [ %idx.0, %if.end.i78 ], [ %idx.0, %if.end.i101 ]
@@ -837,7 +837,7 @@ for.body.i.i:                                     ; preds = %_ZNK6hermes2vm15Str
   %xor.i.i.i.i = xor i32 %shr.i.i.i.i, %add.i1.i.i.i
   %incdec.ptr.i.i = getelementptr inbounds nuw i8, ptr %__begin0.07.i.i, i64 1
   %cmp.not.i.i = icmp eq ptr %incdec.ptr.i.i, %add.ptr.i.i.i
-  br i1 %cmp.not.i.i, label %_ZNK6hermes2vm6detail19IdentifierHashTable12lookupStringIcEEjN4llvh8ArrayRefIT_EEb.exit, label %for.body.i.i, !llvm.loop !13
+  br i1 %cmp.not.i.i, label %_ZNK6hermes2vm6detail19IdentifierHashTable12lookupStringIcEEjN4llvh8ArrayRefIT_EEb.exit, label %for.body.i.i
 
 _ZNK6hermes2vm6detail19IdentifierHashTable12lookupStringIcEEjN4llvh8ArrayRefIT_EEb.exit: ; preds = %for.body.i.i, %_ZNK6hermes2vm15StringPrimitive14castToASCIIRefEv.exit
   %hash.0.lcssa.i.i = phi i32 [ 0, %_ZNK6hermes2vm15StringPrimitive14castToASCIIRefEv.exit ], [ %xor.i.i.i.i, %for.body.i.i ]
@@ -896,7 +896,7 @@ for.body.i.i27:                                   ; preds = %_ZNK6hermes2vm15Str
   %xor.i.i.i.i34 = xor i32 %shr.i.i.i.i33, %add.i1.i.i.i32
   %incdec.ptr.i.i35 = getelementptr inbounds nuw i8, ptr %__begin0.07.i.i29, i64 2
   %cmp.not.i.i36 = icmp eq ptr %incdec.ptr.i.i35, %add.ptr.i.i.i25
-  br i1 %cmp.not.i.i36, label %_ZNK6hermes2vm6detail19IdentifierHashTable12lookupStringIDsEEjN4llvh8ArrayRefIT_EEb.exit, label %for.body.i.i27, !llvm.loop !14
+  br i1 %cmp.not.i.i36, label %_ZNK6hermes2vm6detail19IdentifierHashTable12lookupStringIDsEEjN4llvh8ArrayRefIT_EEb.exit, label %for.body.i.i27
 
 _ZNK6hermes2vm6detail19IdentifierHashTable12lookupStringIDsEEjN4llvh8ArrayRefIT_EEb.exit: ; preds = %for.body.i.i27, %_ZNK6hermes2vm15StringPrimitive14castToUTF16RefEv.exit
   %hash.0.lcssa.i.i37 = phi i32 [ 0, %_ZNK6hermes2vm15StringPrimitive14castToUTF16RefEv.exit ], [ %xor.i.i.i.i34, %for.body.i.i27 ]
@@ -1030,7 +1030,7 @@ sw.bb.i.us.i.i:                                   ; preds = %while.cond.us.i.i
 
 while.body.us.i.i:                                ; preds = %sw.bb.i.us.i.i
   tail call void @_ZN6hermes12CompactArray7scaleUpEv(ptr noundef nonnull align 8 dereferenceable(16) %this) #7
-  br label %while.cond.us.i.i, !llvm.loop !15
+  br label %while.cond.us.i.i, !llvm.loop !12
 
 if.end.i.i.i.i:                                   ; preds = %sw.bb.i.us.i.i
   %raw_.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -1065,7 +1065,7 @@ while.body.i.i:                                   ; preds = %while.cond.i.prehea
   tail call void @_ZN6hermes12CompactArray7scaleUpEv(ptr noundef nonnull align 8 dereferenceable(16) %this) #7
   %5 = load i32, ptr %scale_.i.i.i, align 4
   %switch.i.i = icmp ult i32 %5, 2
-  br i1 %switch.i.i, label %while.body.i.i, label %sw.bb5.i.i.i, !llvm.loop !16
+  br i1 %switch.i.i, label %while.body.i.i, label %sw.bb5.i.i.i, !llvm.loop !13
 
 _ZN6hermes12CompactTable3setEjj.exit:             ; preds = %if.end.i.i.i.i, %if.end.i6.i.i.i, %sw.bb5.i.i.i
   %size_ = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -1372,7 +1372,7 @@ _ZNK6hermes12CompactTable9isDeletedEj.exit.us.i69: ; preds = %sw.bb.i.i25.us.i79
   %idx.0.mux.us.i73 = select i1 %cmp.i21.us.i71, i32 %idx.0.us.i58, i32 %deletedIndex.sroa.0.0.us.i55
   %add.us.i74 = add i32 %idx.0.us.i58, %base.0.us.i57
   %inc.us.i75 = add i32 %base.0.us.i57, 1
-  br label %while.body.us.i53, !llvm.loop !10
+  br label %while.body.us.i53, !llvm.loop !9
 
 sw.epilog.i.i28.i82:                              ; preds = %if.else.us.i66
   unreachable
@@ -1405,7 +1405,7 @@ sw.bb.i.us.i.i:                                   ; preds = %while.cond.us.i.i
 
 while.body.us.i.i:                                ; preds = %sw.bb.i.us.i.i
   tail call void @_ZN6hermes12CompactArray7scaleUpEv(ptr noundef nonnull align 8 dereferenceable(16) %this) #7
-  br label %while.cond.us.i.i, !llvm.loop !15
+  br label %while.cond.us.i.i, !llvm.loop !12
 
 if.end.i.i.i.i:                                   ; preds = %sw.bb.i.us.i.i
   %38 = load ptr, ptr %raw_4.i.i, align 8
@@ -1437,12 +1437,12 @@ while.body.i.i:                                   ; preds = %while.cond.i.prehea
   tail call void @_ZN6hermes12CompactArray7scaleUpEv(ptr noundef nonnull align 8 dereferenceable(16) %this) #7
   %41 = load i32, ptr %scale_.i, align 4
   %switch.i.i = icmp ult i32 %41, 2
-  br i1 %switch.i.i, label %while.body.i.i, label %sw.bb5.i.i.i, !llvm.loop !16
+  br i1 %switch.i.i, label %while.body.i.i, label %sw.bb5.i.i.i, !llvm.loop !13
 
 for.inc:                                          ; preds = %sw.bb5.i.i.i, %if.end.i6.i.i.i, %if.end.i.i.i.i, %_ZNK6hermes12CompactTable7isValidEj.exit
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !17
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !14
 
 for.end:                                          ; preds = %for.inc, %if.end
   %size_ = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -1515,7 +1515,7 @@ for.body.i.i.i:                                   ; preds = %_ZNK6hermes2vm15Str
   %xor.i.i.i.i.i = xor i32 %shr.i.i.i.i.i, %add.i1.i.i.i.i
   %incdec.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %__begin0.07.i.i.i, i64 1
   %cmp.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %add.ptr.i.i.i.i
-  br i1 %cmp.not.i.i.i, label %_ZNK6hermes2vm6detail19IdentifierHashTable12lookupStringIcEEjN4llvh8ArrayRefIT_EEb.exit.i, label %for.body.i.i.i, !llvm.loop !13
+  br i1 %cmp.not.i.i.i, label %_ZNK6hermes2vm6detail19IdentifierHashTable12lookupStringIcEEjN4llvh8ArrayRefIT_EEb.exit.i, label %for.body.i.i.i
 
 _ZNK6hermes2vm6detail19IdentifierHashTable12lookupStringIcEEjN4llvh8ArrayRefIT_EEb.exit.i: ; preds = %for.body.i.i.i, %_ZNK6hermes2vm15StringPrimitive14castToASCIIRefEv.exit
   %hash.0.lcssa.i.i.i = phi i32 [ 0, %_ZNK6hermes2vm15StringPrimitive14castToASCIIRefEv.exit ], [ %xor.i.i.i.i.i, %for.body.i.i.i ]
@@ -1601,7 +1601,7 @@ for.body.i.i.i26:                                 ; preds = %_ZNK6hermes2vm15Str
   %xor.i.i.i.i.i33 = xor i32 %shr.i.i.i.i.i32, %add.i1.i.i.i.i31
   %incdec.ptr.i.i.i34 = getelementptr inbounds nuw i8, ptr %__begin0.07.i.i.i28, i64 2
   %cmp.not.i.i.i35 = icmp eq ptr %incdec.ptr.i.i.i34, %add.ptr.i.i.i.i24
-  br i1 %cmp.not.i.i.i35, label %_ZNK6hermes2vm6detail19IdentifierHashTable12lookupStringIDsEEjN4llvh8ArrayRefIT_EEb.exit.i, label %for.body.i.i.i26, !llvm.loop !14
+  br i1 %cmp.not.i.i.i35, label %_ZNK6hermes2vm6detail19IdentifierHashTable12lookupStringIDsEEjN4llvh8ArrayRefIT_EEb.exit.i, label %for.body.i.i.i26
 
 _ZNK6hermes2vm6detail19IdentifierHashTable12lookupStringIDsEEjN4llvh8ArrayRefIT_EEb.exit.i: ; preds = %for.body.i.i.i26, %_ZNK6hermes2vm15StringPrimitive14castToUTF16RefEv.exit
   %hash.0.lcssa.i.i.i36 = phi i32 [ 0, %_ZNK6hermes2vm15StringPrimitive14castToUTF16RefEv.exit ], [ %xor.i.i.i.i.i33, %for.body.i.i.i26 ]
@@ -1678,17 +1678,14 @@ attributes #8 = { noreturn nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5, !6, !7}
+!4 = distinct !{!4, !5, !6}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{!"llvm.loop.estimated_trip_count"}
-!7 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!8 = distinct !{!8, !5, !6}
+!6 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!7 = distinct !{!7, !5}
+!8 = distinct !{!8, !5}
 !9 = distinct !{!9, !5, !6}
-!10 = distinct !{!10, !5, !6, !7}
-!11 = distinct !{!11, !5, !6}
+!10 = distinct !{!10, !5}
+!11 = distinct !{!11, !5}
 !12 = distinct !{!12, !5, !6}
-!13 = distinct !{!13, !6}
-!14 = distinct !{!14, !6}
-!15 = distinct !{!15, !5, !6, !7}
-!16 = distinct !{!16, !5, !6}
-!17 = distinct !{!17, !5, !6}
+!13 = distinct !{!13, !5}
+!14 = distinct !{!14, !5}

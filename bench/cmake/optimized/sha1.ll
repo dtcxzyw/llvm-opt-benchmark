@@ -1150,7 +1150,7 @@ define dso_local void @rhash_sha1_final(ptr noundef %0, ptr noundef %1) local_un
   %6 = and i32 %5, 63
   %7 = and i64 %4, 63
   %8 = getelementptr inbounds nuw [64 x i8], ptr %0, i64 0, i64 %7
-  store i8 -128, ptr %8, align 1, !tbaa !14
+  store i8 -128, ptr %8, align 1, !tbaa !13
   %.029 = add nuw nsw i32 %6, 1
   %9 = and i32 %.029, 3
   %.not30 = icmp eq i32 %9, 0
@@ -1163,7 +1163,7 @@ define dso_local void @rhash_sha1_final(ptr noundef %0, ptr noundef %1) local_un
   %12 = sub i64 2, %4
   %13 = and i64 %12, 3
   %14 = add nuw nsw i64 %13, 1
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %scevgep, i8 0, i64 %14, i1 false), !tbaa !14
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %scevgep, i8 0, i64 %14, i1 false), !tbaa !13
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
@@ -1172,7 +1172,7 @@ define dso_local void @rhash_sha1_final(ptr noundef %0, ptr noundef %1) local_un
   %15 = trunc nuw nsw i64 %indvars.iv.next to i32
   %16 = and i32 %15, 3
   %.not = icmp eq i32 %16, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !15
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   %.0.lcssa = phi i32 [ %.029, %2 ], [ %15, %.lr.ph ]
@@ -1269,8 +1269,7 @@ attributes #9 = { nounwind }
 !8 = !{!"long", !6, i64 0}
 !9 = !{!10, !10, i64 0}
 !10 = !{!"int", !6, i64 0}
-!11 = distinct !{!11, !12, !13}
+!11 = distinct !{!11, !12}
 !12 = !{!"llvm.loop.mustprogress"}
-!13 = !{!"llvm.loop.estimated_trip_count"}
-!14 = !{!6, !6, i64 0}
-!15 = distinct !{!15, !12, !13}
+!13 = !{!6, !6, i64 0}
+!14 = distinct !{!14, !12}

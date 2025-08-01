@@ -61,13 +61,13 @@ define hidden void @"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20
   %20 = add i64 %15, 1
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3)
   %.not = icmp eq ptr %17, %6
-  br i1 %.not, label %._crit_edge, label %13, !llvm.loop !21
+  br i1 %.not, label %._crit_edge, label %13
 }
 
 ; Function Attrs: nonlazybind uwtable
 define hidden { i64, i64 } @"_ZN3std6thread5local17LocalKey$LT$T$GT$4with17h713bb084a4fb7258E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %.val = load ptr, ptr %0, align 8, !nonnull !3, !noundef !3
-  %2 = tail call noundef ptr %.val(ptr noalias noundef align 8 dereferenceable_or_null(24) null), !noalias !23
+  %2 = tail call noundef ptr %.val(ptr noalias noundef align 8 dereferenceable_or_null(24) null), !noalias !21
   %3 = icmp eq ptr %2, null
   br i1 %3, label %4, label %5
 
@@ -76,11 +76,11 @@ define hidden { i64, i64 } @"_ZN3std6thread5local17LocalKey$LT$T$GT$4with17h713b
   unreachable
 
 5:                                                ; preds = %1
-  %6 = load i64, ptr %2, align 8, !noalias !23, !noundef !3
+  %6 = load i64, ptr %2, align 8, !noalias !21, !noundef !3
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %8 = load i64, ptr %7, align 8, !noalias !23, !noundef !3
+  %8 = load i64, ptr %7, align 8, !noalias !21, !noundef !3
   %9 = add i64 %6, 1
-  store i64 %9, ptr %2, align 8, !noalias !23
+  store i64 %9, ptr %2, align 8, !noalias !21
   %10 = insertvalue { i64, i64 } poison, i64 %6, 0
   %11 = insertvalue { i64, i64 } %10, i64 %8, 1
   ret { i64, i64 } %11
@@ -95,7 +95,7 @@ define hidden noundef i64 @_ZN4core4hash11BuildHasher8hash_one17ha4a60414f9bdd89
   %3 = xor i64 %.val, 8317987319222330741
   %4 = xor i64 %.val2, 7237128888997146477
   %5 = xor i64 %.val, 7816392313619706465
-  %.val.i = load i64, ptr %1, align 8, !noalias !26, !noundef !3
+  %.val.i = load i64, ptr %1, align 8, !noalias !24, !noundef !3
   %6 = xor i64 %.val2, %.val.i
   %7 = xor i64 %6, 8387220255154660723
   %8 = add i64 %7, %5
@@ -375,11 +375,9 @@ attributes #10 = { noreturn }
 !18 = !{!7}
 !19 = !{!5}
 !20 = !{!5, !7, !9, !14}
-!21 = distinct !{!21, !22}
-!22 = !{!"llvm.loop.estimated_trip_count"}
-!23 = !{!24}
-!24 = distinct !{!24, !25, !"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17hdf9b2a79ae7f9785E: argument 0"}
-!25 = distinct !{!25, !"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17hdf9b2a79ae7f9785E"}
-!26 = !{!27}
-!27 = distinct !{!27, !28, !"_ZN4core4hash5impls52_$LT$impl$u20$core..hash..Hash$u20$for$u20$$RF$T$GT$4hash17h4070aa93f41d9a5dE: argument 0"}
-!28 = distinct !{!28, !"_ZN4core4hash5impls52_$LT$impl$u20$core..hash..Hash$u20$for$u20$$RF$T$GT$4hash17h4070aa93f41d9a5dE"}
+!21 = !{!22}
+!22 = distinct !{!22, !23, !"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17hdf9b2a79ae7f9785E: argument 0"}
+!23 = distinct !{!23, !"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17hdf9b2a79ae7f9785E"}
+!24 = !{!25}
+!25 = distinct !{!25, !26, !"_ZN4core4hash5impls52_$LT$impl$u20$core..hash..Hash$u20$for$u20$$RF$T$GT$4hash17h4070aa93f41d9a5dE: argument 0"}
+!26 = distinct !{!26, !"_ZN4core4hash5impls52_$LT$impl$u20$core..hash..Hash$u20$for$u20$$RF$T$GT$4hash17h4070aa93f41d9a5dE"}

@@ -103,7 +103,7 @@ define internal void @lv_switch_event(ptr readnone captures(none) %0, ptr nounde
   br i1 %.not.i, label %.preheader.i, label %38
 
 .preheader.i:                                     ; preds = %37, %.preheader.i
-  br label %.preheader.i, !llvm.loop !17
+  br label %.preheader.i
 
 38:                                               ; preds = %37
   %39 = tail call ptr @lv_obj_get_style_prop(ptr noundef nonnull %11, i32 noundef 0, i8 noundef zeroext 100) #5
@@ -150,18 +150,18 @@ lv_switch_trigger_anim.exit:                      ; preds = %38, %41
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %4) #5
   call void @lv_draw_rect_dsc_init(ptr noundef nonnull %4) #5
   %58 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  store ptr %57, ptr %58, align 8, !tbaa !19
+  store ptr %57, ptr %58, align 8, !tbaa !17
   call void @lv_obj_init_draw_rect_dsc(ptr noundef %56, i32 noundef 131072, ptr noundef nonnull %4) #5
   call void @lv_draw_rect(ptr noundef %57, ptr noundef nonnull %4, ptr noundef nonnull %3) #5
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #5
   %59 = getelementptr inbounds nuw i8, ptr %56, i64 40
-  %60 = load i32, ptr %59, align 4, !tbaa !26
+  %60 = load i32, ptr %59, align 4, !tbaa !24
   %61 = getelementptr inbounds nuw i8, ptr %56, i64 44
-  %62 = load i32, ptr %61, align 4, !tbaa !27
+  %62 = load i32, ptr %61, align 4, !tbaa !25
   %63 = getelementptr inbounds nuw i8, ptr %56, i64 48
-  %64 = load i32, ptr %63, align 4, !tbaa !28
+  %64 = load i32, ptr %63, align 4, !tbaa !26
   %65 = getelementptr inbounds nuw i8, ptr %56, i64 52
-  %66 = load i32, ptr %65, align 4, !tbaa !29
+  %66 = load i32, ptr %65, align 4, !tbaa !27
   %67 = call i32 @lv_area_get_width(ptr noundef nonnull %59) #5
   %68 = call i32 @lv_area_get_height(ptr noundef nonnull %59) #5
   %69 = getelementptr inbounds nuw i8, ptr %56, i64 68
@@ -267,17 +267,17 @@ draw_main.exit:                                   ; preds = %85, %107
   %130 = ptrtoint ptr %129 to i64
   %.sroa.0.0.extract.trunc.i69.i = trunc i64 %130 to i32
   %131 = sub nsw i32 %119, %.sroa.0.0.extract.trunc.i66.i
-  store i32 %131, ptr %5, align 4, !tbaa !26
+  store i32 %131, ptr %5, align 4, !tbaa !24
   %132 = add nsw i32 %118, %.sroa.0.0.extract.trunc.i67.i
-  store i32 %132, ptr %121, align 4, !tbaa !28
+  store i32 %132, ptr %121, align 4, !tbaa !26
   %133 = sub nsw i32 %117, %.sroa.0.0.extract.trunc.i68.i
-  store i32 %133, ptr %122, align 4, !tbaa !27
+  store i32 %133, ptr %122, align 4, !tbaa !25
   %134 = add nsw i32 %116, %.sroa.0.0.extract.trunc.i69.i
-  store i32 %134, ptr %120, align 4, !tbaa !29
+  store i32 %134, ptr %120, align 4, !tbaa !27
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %6) #5
   call void @lv_draw_rect_dsc_init(ptr noundef nonnull %6) #5
   %135 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  store ptr %57, ptr %135, align 8, !tbaa !19
+  store ptr %57, ptr %135, align 8, !tbaa !17
   call void @lv_obj_init_draw_rect_dsc(ptr noundef nonnull %56, i32 noundef 196608, ptr noundef nonnull %6) #5
   call void @lv_draw_rect(ptr noundef %57, ptr noundef nonnull %6, ptr noundef nonnull %5) #5
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %6) #5
@@ -313,7 +313,7 @@ define void @lv_switch_set_orientation(ptr noundef %0, i32 noundef %1) local_unn
   br i1 %.not, label %.preheader, label %3
 
 .preheader:                                       ; preds = %2, %.preheader
-  br label %.preheader, !llvm.loop !30
+  br label %.preheader
 
 3:                                                ; preds = %2
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 68
@@ -335,7 +335,7 @@ define range(i32 0, 8) i32 @lv_switch_get_orientation(ptr noundef readonly captu
   br i1 %.not, label %.preheader, label %2
 
 .preheader:                                       ; preds = %1, %.preheader
-  br label %.preheader, !llvm.loop !31
+  br label %.preheader
 
 2:                                                ; preds = %1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 68
@@ -385,7 +385,7 @@ declare void @lv_anim_set_completed_cb(ptr noundef, ptr noundef) local_unnamed_a
 
 ; Function Attrs: nounwind uwtable
 define internal void @lv_switch_anim_completed(ptr noundef readonly captures(none) %0) #0 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !32
+  %2 = load ptr, ptr %0, align 8, !tbaa !28
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 64
   store i32 -1, ptr %3, align 8, !tbaa !3
   tail call void @lv_obj_invalidate(ptr noundef %2) #5
@@ -446,20 +446,16 @@ attributes #5 = { nounwind }
 !14 = !{!"int", !8, i64 0}
 !15 = !{!"short", !8, i64 0}
 !16 = !{!14, !14, i64 0}
-!17 = distinct !{!17, !18}
-!18 = !{!"llvm.loop.estimated_trip_count"}
-!19 = !{!20, !22, i64 24}
-!20 = !{!"", !21, i64 0, !14, i64 48, !8, i64 52, !24, i64 53, !25, i64 56, !7, i64 72, !7, i64 80, !24, i64 88, !8, i64 91, !8, i64 92, !8, i64 93, !24, i64 94, !14, i64 100, !8, i64 104, !14, i64 105, !8, i64 105, !24, i64 106, !14, i64 112, !14, i64 116, !8, i64 120, !24, i64 121, !14, i64 124, !14, i64 128, !14, i64 132, !14, i64 136, !8, i64 140}
-!21 = !{!"", !10, i64 0, !14, i64 8, !14, i64 12, !14, i64 16, !22, i64 24, !23, i64 32, !7, i64 40}
-!22 = !{!"p1 _ZTS11_lv_layer_t", !7, i64 0}
-!23 = !{!"long", !8, i64 0}
-!24 = !{!"", !8, i64 0, !8, i64 1, !8, i64 2}
-!25 = !{!"", !8, i64 0, !8, i64 10, !14, i64 11, !14, i64 11}
-!26 = !{!13, !14, i64 0}
-!27 = !{!13, !14, i64 4}
-!28 = !{!13, !14, i64 8}
-!29 = !{!13, !14, i64 12}
-!30 = distinct !{!30, !18}
-!31 = distinct !{!31, !18}
-!32 = !{!33, !7, i64 0}
-!33 = !{!"_lv_anim_t", !7, i64 0, !7, i64 8, !7, i64 16, !7, i64 24, !7, i64 32, !7, i64 40, !7, i64 48, !7, i64 56, !7, i64 64, !14, i64 72, !14, i64 76, !14, i64 80, !14, i64 84, !14, i64 88, !14, i64 92, !14, i64 96, !14, i64 100, !14, i64 104, !8, i64 108, !14, i64 116, !14, i64 120, !14, i64 124, !8, i64 128, !8, i64 128, !8, i64 128, !8, i64 128, !8, i64 128}
+!17 = !{!18, !20, i64 24}
+!18 = !{!"", !19, i64 0, !14, i64 48, !8, i64 52, !22, i64 53, !23, i64 56, !7, i64 72, !7, i64 80, !22, i64 88, !8, i64 91, !8, i64 92, !8, i64 93, !22, i64 94, !14, i64 100, !8, i64 104, !14, i64 105, !8, i64 105, !22, i64 106, !14, i64 112, !14, i64 116, !8, i64 120, !22, i64 121, !14, i64 124, !14, i64 128, !14, i64 132, !14, i64 136, !8, i64 140}
+!19 = !{!"", !10, i64 0, !14, i64 8, !14, i64 12, !14, i64 16, !20, i64 24, !21, i64 32, !7, i64 40}
+!20 = !{!"p1 _ZTS11_lv_layer_t", !7, i64 0}
+!21 = !{!"long", !8, i64 0}
+!22 = !{!"", !8, i64 0, !8, i64 1, !8, i64 2}
+!23 = !{!"", !8, i64 0, !8, i64 10, !14, i64 11, !14, i64 11}
+!24 = !{!13, !14, i64 0}
+!25 = !{!13, !14, i64 4}
+!26 = !{!13, !14, i64 8}
+!27 = !{!13, !14, i64 12}
+!28 = !{!29, !7, i64 0}
+!29 = !{!"_lv_anim_t", !7, i64 0, !7, i64 8, !7, i64 16, !7, i64 24, !7, i64 32, !7, i64 40, !7, i64 48, !7, i64 56, !7, i64 64, !14, i64 72, !14, i64 76, !14, i64 80, !14, i64 84, !14, i64 88, !14, i64 92, !14, i64 96, !14, i64 100, !14, i64 104, !8, i64 108, !14, i64 116, !14, i64 120, !14, i64 124, !8, i64 128, !8, i64 128, !8, i64 128, !8, i64 128, !8, i64 128}

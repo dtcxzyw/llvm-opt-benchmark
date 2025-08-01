@@ -441,7 +441,7 @@ lean_inc.exit12:                                  ; preds = %34, %33, %31, %lean
 
 lean_dec.exit:                                    ; preds = %41, %40, %38, %lean_inc.exit12
   %42 = tail call ptr @lean_array_push(ptr noundef %.0, ptr noundef %16) #4
-  br label %3, !llvm.loop !16
+  br label %3
 }
 
 declare ptr @lean_array_push(ptr noundef, ptr noundef) local_unnamed_addr #2
@@ -466,7 +466,7 @@ lean_dec.exit64:                                  ; preds = %lean_dec.exit64.bac
   %17 = shl i64 %.053.val, 1
   %18 = or disjoint i64 %17, 1
   %19 = inttoptr i64 %18 to ptr
-  br i1 %.not, label %lean_dec.exit69, label %20, !prof !18
+  br i1 %.not, label %lean_dec.exit69, label %20, !prof !16
 
 20:                                               ; preds = %lean_dec.exit64
   %21 = icmp ugt ptr %1, %19
@@ -751,7 +751,7 @@ lean_inc.exit:                                    ; preds = %118, %117, %115, %l
 
 lean_dec.exit63:                                  ; preds = %lean_inc.exit
   %129 = tail call double @l_Float_ofScientific(ptr noundef nonnull %37, i8 noundef zeroext 0, ptr noundef nonnull inttoptr (i64 1 to ptr)) #4
-  %130 = load double, ptr @l_Lean_Loop_forIn_loop___at_Lean_PremiseSelection_random___spec__2___closed__3, align 8, !tbaa !19
+  %130 = load double, ptr @l_Lean_Loop_forIn_loop___at_Lean_PremiseSelection_random___spec__2___closed__3, align 8, !tbaa !17
   tail call void @lean_inc_heartbeat() #4
   %131 = tail call noalias ptr @mi_malloc_small(i64 noundef 24) #4
   %132 = icmp eq ptr %131, null
@@ -769,7 +769,7 @@ lean_alloc_ctor.exit101:                          ; preds = %lean_dec.exit63
   %136 = getelementptr inbounds nuw i8, ptr %131, i64 8
   store ptr %.1.i103, ptr %136, align 8, !tbaa !4
   %137 = getelementptr inbounds nuw i8, ptr %131, i64 16
-  store double %134, ptr %137, align 8, !tbaa !19
+  store double %134, ptr %137, align 8, !tbaa !17
   %138 = tail call ptr @lean_array_push(ptr noundef nonnull %.053, ptr noundef nonnull %131) #4
   br label %lean_dec.exit64.backedge
 
@@ -2177,7 +2177,7 @@ lean_inc.exit49:                                  ; preds = %47, %46, %44, %lean
 lean_dec.exit47:                                  ; preds = %54, %53, %51, %lean_inc.exit49
   %55 = load ptr, ptr @l_Lean_PremiseSelection_premiseSelectorExt, align 8, !tbaa !4
   %56 = getelementptr i8, ptr %55, i64 32
-  %.val = load i8, ptr %56, align 1, !tbaa !21
+  %.val = load i8, ptr %56, align 1, !tbaa !19
   %57 = load ptr, ptr @l_Lean_PremiseSelection_select___closed__1, align 8, !tbaa !4
   %58 = tail call ptr @l___private_Lean_Environment_0__Lean_EnvExtension_getStateUnsafe___rarg(ptr noundef nonnull inttoptr (i64 1 to ptr), ptr noundef %57, ptr noundef %39, i8 noundef zeroext %.val) #4
   %59 = ptrtoint ptr %58 to i64
@@ -3310,7 +3310,7 @@ define ptr @l_Lean_throwError___at_Lean_PremiseSelection_elabSetPremiseSelector_
 21:                                               ; preds = %20, %17
   %.val.i110 = phi i32 [ %.val.i110.pr, %20 ], [ %18, %17 ]
   %22 = icmp sgt i32 %.val.i110, 0
-  br i1 %22, label %23, label %25, !prof !22
+  br i1 %22, label %23, label %25, !prof !20
 
 23:                                               ; preds = %21
   %24 = add nuw i32 %.val.i110, 1
@@ -8790,7 +8790,7 @@ lean_dec_ref.exit40:                              ; preds = %47, %49, %50
   store ptr %54, ptr @l_Lean_Loop_forIn_loop___at_Lean_PremiseSelection_random___spec__2___closed__2, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef %54) #4
   %55 = tail call double @l_Float_ofScientific(ptr noundef nonnull inttoptr (i64 21 to ptr), i8 noundef zeroext 1, ptr noundef nonnull inttoptr (i64 3 to ptr)) #4
-  store double %55, ptr @l_Lean_Loop_forIn_loop___at_Lean_PremiseSelection_random___spec__2___closed__3, align 8, !tbaa !19
+  store double %55, ptr @l_Lean_Loop_forIn_loop___at_Lean_PremiseSelection_random___spec__2___closed__3, align 8, !tbaa !17
   %56 = load ptr, ptr @l_IO_stdGenRef, align 8, !tbaa !4
   store ptr %56, ptr @l_Lean_PremiseSelection_random___closed__1, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef %56) #4
@@ -9402,10 +9402,8 @@ attributes #5 = { noreturn nounwind }
 !13 = !{!14, !14, i64 0}
 !14 = !{!"short", !6, i64 0}
 !15 = !{!"branch_weights", !"expected", i32 2000, i32 1}
-!16 = distinct !{!16, !17}
-!17 = !{!"llvm.loop.estimated_trip_count"}
-!18 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!19 = !{!20, !20, i64 0}
-!20 = !{!"double", !6, i64 0}
-!21 = !{!6, !6, i64 0}
-!22 = !{!"branch_weights", !"expected", i32 2146812770, i32 670878}
+!16 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!17 = !{!18, !18, i64 0}
+!18 = !{!"double", !6, i64 0}
+!19 = !{!6, !6, i64 0}
+!20 = !{!"branch_weights", !"expected", i32 2146812770, i32 670878}

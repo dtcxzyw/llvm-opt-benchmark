@@ -306,7 +306,7 @@ define void @_ZN15dtProximityGrid7addItemEtffff(ptr noundef nonnull align 8 capt
 ._crit_edge:                                      ; preds = %70, %.preheader
   %72 = add i32 %.034, 1
   %exitcond42.not = icmp eq i32 %.034, %20
-  br i1 %exitcond42.not, label %._crit_edge35, label %.preheader, !llvm.loop !8
+  br i1 %exitcond42.not, label %._crit_edge35, label %.preheader, !llvm.loop !7
 
 ._crit_edge35:                                    ; preds = %._crit_edge, %.preheader.lr.ph.split, %.preheader.lr.ph, %6
   ret void
@@ -392,7 +392,7 @@ define noundef i32 @_ZNK15dtProximityGrid10queryItemsEffffPti(ptr noundef nonnul
 51:                                               ; preds = %53
   %52 = getelementptr inbounds nuw i8, ptr %.056, i64 2
   %.not48 = icmp eq ptr %52, %49
-  br i1 %.not48, label %._crit_edge, label %53, !llvm.loop !9
+  br i1 %.not48, label %._crit_edge, label %53, !llvm.loop !8
 
 53:                                               ; preds = %.lr.ph, %51
   %.056 = phi ptr [ %5, %.lr.ph ], [ %52, %51 ]
@@ -415,18 +415,18 @@ define noundef i32 @_ZNK15dtProximityGrid10queryItemsEffffPti(ptr noundef nonnul
   %58 = getelementptr inbounds nuw i8, ptr %37, i64 6
   %.042 = load i16, ptr %58, align 2
   %.not47 = icmp eq i16 %.042, -1
-  br i1 %.not47, label %._crit_edge63, label %.lr.ph62, !llvm.loop !10
+  br i1 %.not47, label %._crit_edge63, label %.lr.ph62, !llvm.loop !9
 
 ._crit_edge63:                                    ; preds = %.critedge, %26
   %.2.lcssa = phi i32 [ %.166, %26 ], [ %.3, %.critedge ]
   %59 = add i32 %.04465, 1
   %exitcond.not = icmp eq i32 %.04465, %18
-  br i1 %exitcond.not, label %._crit_edge68, label %26, !llvm.loop !11
+  br i1 %exitcond.not, label %._crit_edge68, label %26, !llvm.loop !10
 
 ._crit_edge68:                                    ; preds = %._crit_edge63
   %60 = add i32 %.04371, 1
   %exitcond77.not = icmp eq i32 %.04371, %21
-  br i1 %exitcond77.not, label %.loopexit, label %.preheader, !llvm.loop !12
+  br i1 %exitcond77.not, label %.loopexit, label %.preheader, !llvm.loop !11
 
 .loopexit:                                        ; preds = %._crit_edge68, %._crit_edge, %.preheader.lr.ph, %7
   %.040 = phi i32 [ 0, %7 ], [ 0, %.preheader.lr.ph ], [ %.259, %._crit_edge ], [ %.2.lcssa, %._crit_edge68 ]
@@ -480,7 +480,7 @@ define noundef i32 @_ZNK15dtProximityGrid14getItemCountAtEii(ptr noundef nonnull
   %31 = getelementptr inbounds nuw i8, ptr %19, i64 6
   %.012 = load i16, ptr %31, align 2
   %.not = icmp eq i16 %.012, -1
-  br i1 %.not, label %._crit_edge, label %17, !llvm.loop !13
+  br i1 %.not, label %._crit_edge, label %17, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %30, %3
   %.0.lcssa = phi i32 [ 0, %3 ], [ %.1, %30 ]
@@ -518,13 +518,12 @@ attributes #14 = { noreturn nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5, !6, !7}
+!4 = distinct !{!4, !5, !6}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{!"llvm.loop.estimated_trip_count"}
-!7 = !{!"llvm.loop.unswitch.partial.disable"}
-!8 = distinct !{!8, !5, !6, !7}
-!9 = distinct !{!9, !5, !6}
-!10 = distinct !{!10, !5, !6}
-!11 = distinct !{!11, !5, !6}
-!12 = distinct !{!12, !5, !6}
-!13 = distinct !{!13, !5, !6}
+!6 = !{!"llvm.loop.unswitch.partial.disable"}
+!7 = distinct !{!7, !5, !6}
+!8 = distinct !{!8, !5}
+!9 = distinct !{!9, !5}
+!10 = distinct !{!10, !5}
+!11 = distinct !{!11, !5}
+!12 = distinct !{!12, !5}

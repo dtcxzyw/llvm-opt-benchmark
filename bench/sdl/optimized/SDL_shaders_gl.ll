@@ -264,7 +264,7 @@ define internal fastcc zeroext i1 @CompileShaderProgram(ptr noundef nonnull read
   %7 = load ptr, ptr %0, align 8
   %8 = tail call i32 %7() #5
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %10 = load i8, ptr %9, align 8, !range !6, !noundef !7
+  %10 = load i8, ptr %9, align 8, !range !5, !noundef !6
   %11 = sext i32 %1 to i64
   %12 = getelementptr inbounds [11 x %struct.anon], ptr @shader_source, i64 0, i64 %11
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
@@ -337,7 +337,7 @@ define internal fastcc zeroext i1 @CompileShaderProgram(ptr noundef nonnull read
   call void @llvm.lifetime.end.p0(i64 10, ptr nonnull %4) #5
   %57 = add nuw nsw i32 %.04147, 1
   %exitcond.not = icmp eq i32 %57, 4
-  br i1 %exitcond.not, label %58, label %48, !llvm.loop !8
+  br i1 %exitcond.not, label %58, label %48, !llvm.loop !7
 
 58:                                               ; preds = %56
   %59 = load ptr, ptr %43, align 8
@@ -374,7 +374,7 @@ define hidden void @GL_DestroyShaderContext(ptr noundef %0) local_unnamed_addr #
   tail call void %12(i32 noundef %13) #5
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 11
-  br i1 %exitcond.not, label %14, label %4, !llvm.loop !9
+  br i1 %exitcond.not, label %14, label %4, !llvm.loop !8
 
 14:                                               ; preds = %4
   tail call void @SDL_free_REAL(ptr noundef nonnull %0) #5
@@ -604,10 +604,9 @@ attributes #5 = { nounwind }
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = distinct !{!3, !4, !5}
+!3 = distinct !{!3, !4}
 !4 = !{!"llvm.loop.mustprogress"}
-!5 = !{!"llvm.loop.estimated_trip_count"}
-!6 = !{i8 0, i8 2}
-!7 = !{}
-!8 = distinct !{!8, !4, !5}
-!9 = distinct !{!9, !4, !5}
+!5 = !{i8 0, i8 2}
+!6 = !{}
+!7 = distinct !{!7, !4}
+!8 = distinct !{!8, !4}

@@ -391,7 +391,7 @@ declare dso_local i32 @device_for_each_child(ptr noundef, ptr noundef, ptr nound
 define internal noundef i32 @mipi_dsi_remove_device_fn(ptr noundef %0, ptr readnone captures(none) %1) #0 align 16 {
   %3 = getelementptr i8, ptr %0, i64 -8
   %4 = getelementptr i8, ptr %0, i64 728
-  %5 = load i8, ptr %4, align 8, !range !9, !noundef !10
+  %5 = load i8, ptr %4, align 8, !range !8, !noundef !9
   %6 = icmp eq i8 %5, 0
   br i1 %6, label %19, label %7
 
@@ -453,14 +453,14 @@ define dso_local i32 @mipi_dsi_detach(ptr noundef %0) #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 736
-  %6 = load i8, ptr %5, align 8, !range !9, !noundef !10
+  %6 = load i8, ptr %5, align 8, !range !8, !noundef !9
   %7 = icmp eq i8 %6, 0
-  br i1 %7, label %8, label %9, !prof !11
+  br i1 %7, label %8, label %9, !prof !10
 
 8:                                                ; preds = %1
-  tail call void asm sideeffect "322: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 322b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 322) #14, !srcloc !12
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.6, i32 397, i32 2305, i64 12) #14, !srcloc !13
-  tail call void asm sideeffect "323: nop\0A\09.pushsection .discard.instr_end\0A\09.long 323b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 323) #14, !srcloc !14
+  tail call void asm sideeffect "322: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 322b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 322) #14, !srcloc !11
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.6, i32 397, i32 2305, i64 12) #14, !srcloc !12
+  tail call void asm sideeffect "323: nop\0A\09.pushsection .discard.instr_end\0A\09.long 323b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 323) #14, !srcloc !13
   br label %18
 
 9:                                                ; preds = %1
@@ -513,14 +513,14 @@ define dso_local i32 @devm_mipi_dsi_attach(ptr noundef %0, ptr noundef %1) #0 al
   %18 = load ptr, ptr %1, align 8
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %20 = load ptr, ptr %19, align 8
-  %21 = load i8, ptr %14, align 8, !range !9, !noundef !10
+  %21 = load i8, ptr %14, align 8, !range !8, !noundef !9
   %22 = icmp eq i8 %21, 0
-  br i1 %22, label %23, label %24, !prof !11
+  br i1 %22, label %23, label %24, !prof !10
 
 23:                                               ; preds = %17
-  tail call void asm sideeffect "322: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 322b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 322) #14, !srcloc !12
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.6, i32 397, i32 2305, i64 12) #14, !srcloc !13
-  tail call void asm sideeffect "323: nop\0A\09.pushsection .discard.instr_end\0A\09.long 323b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 323) #14, !srcloc !14
+  tail call void asm sideeffect "322: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 322b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 322) #14, !srcloc !11
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.6, i32 397, i32 2305, i64 12) #14, !srcloc !12
+  tail call void asm sideeffect "323: nop\0A\09.pushsection .discard.instr_end\0A\09.long 323b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 323) #14, !srcloc !13
   br label %.thread
 
 24:                                               ; preds = %17
@@ -550,14 +550,14 @@ define internal void @devm_mipi_dsi_detach(ptr noundef %0) #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 736
-  %6 = load i8, ptr %5, align 8, !range !9, !noundef !10
+  %6 = load i8, ptr %5, align 8, !range !8, !noundef !9
   %7 = icmp eq i8 %6, 0
-  br i1 %7, label %8, label %9, !prof !11
+  br i1 %7, label %8, label %9, !prof !10
 
 8:                                                ; preds = %1
-  tail call void asm sideeffect "322: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 322b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 322) #14, !srcloc !12
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.6, i32 397, i32 2305, i64 12) #14, !srcloc !13
-  tail call void asm sideeffect "323: nop\0A\09.pushsection .discard.instr_end\0A\09.long 323b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 323) #14, !srcloc !14
+  tail call void asm sideeffect "322: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 322b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 322) #14, !srcloc !11
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.6, i32 397, i32 2305, i64 12) #14, !srcloc !12
+  tail call void asm sideeffect "323: nop\0A\09.pushsection .discard.instr_end\0A\09.long 323b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 323) #14, !srcloc !13
   br label %18
 
 9:                                                ; preds = %1
@@ -797,7 +797,7 @@ define dso_local range(i32 -2147483648, 1) i32 @mipi_dsi_shutdown_peripheral(ptr
   %2 = alloca %struct.mipi_dsi_msg, align 8
   %3 = alloca [2 x i8], align 1
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %2) #14
-  store i64 0, ptr %2, align 8, !annotation !15
+  store i64 0, ptr %2, align 8, !annotation !14
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 760
   %5 = load i32, ptr %4, align 8
   %6 = trunc i32 %5 to i8
@@ -854,7 +854,7 @@ define dso_local range(i32 -2147483648, 1) i32 @mipi_dsi_turn_on_peripheral(ptr 
   %2 = alloca %struct.mipi_dsi_msg, align 8
   %3 = alloca [2 x i8], align 1
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %2) #14
-  store i64 0, ptr %2, align 8, !annotation !15
+  store i64 0, ptr %2, align 8, !annotation !14
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 760
   %5 = load i32, ptr %4, align 8
   %6 = trunc i32 %5 to i8
@@ -913,7 +913,7 @@ define dso_local range(i32 -2147483648, 1) i32 @mipi_dsi_set_maximum_return_pack
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %3) #14
   store i16 %1, ptr %3, align 2
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4) #14
-  store i64 0, ptr %4, align 8, !annotation !15
+  store i64 0, ptr %4, align 8, !annotation !14
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 760
   %6 = load i32, ptr %5, align 8
   %7 = trunc i32 %6 to i8
@@ -973,7 +973,7 @@ define dso_local range(i64 -2147483648, 1) i64 @mipi_dsi_compression_mode(ptr no
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 1
   store i8 0, ptr %6, align 1
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4) #14
-  store i64 0, ptr %4, align 8, !annotation !15
+  store i64 0, ptr %4, align 8, !annotation !14
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 760
   %8 = load i32, ptr %7, align 8
   %9 = trunc i32 %8 to i8
@@ -1028,7 +1028,7 @@ define dso_local range(i64 -2147483648, 1) i64 @mipi_dsi_compression_mode(ptr no
 define dso_local range(i64 -2147483648, 1) i64 @mipi_dsi_picture_parameter_set(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 align 16 {
   %3 = alloca %struct.mipi_dsi_msg, align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3) #14
-  store i64 0, ptr %3, align 8, !annotation !15
+  store i64 0, ptr %3, align 8, !annotation !14
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 760
   %5 = load i32, ptr %4, align 8
   %6 = trunc i32 %5 to i8
@@ -1082,7 +1082,7 @@ define dso_local range(i64 -2147483648, 1) i64 @mipi_dsi_picture_parameter_set(p
 define dso_local i64 @mipi_dsi_generic_write(ptr noundef readonly captures(none) %0, ptr noundef %1, i64 noundef %2) #0 align 16 {
   %4 = alloca %struct.mipi_dsi_msg, align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4) #14
-  store i64 0, ptr %4, align 8, !annotation !15
+  store i64 0, ptr %4, align 8, !annotation !14
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 760
   %6 = load i32, ptr %5, align 8
   %7 = trunc i32 %6 to i8
@@ -1150,7 +1150,7 @@ define dso_local i64 @mipi_dsi_generic_write(ptr noundef readonly captures(none)
 define dso_local i64 @mipi_dsi_generic_read(ptr noundef readonly captures(none) %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4) #0 align 16 {
   %6 = alloca %struct.mipi_dsi_msg, align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6) #14
-  store i64 0, ptr %6, align 8, !annotation !15
+  store i64 0, ptr %6, align 8, !annotation !14
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 760
   %8 = load i32, ptr %7, align 8
   %9 = trunc i32 %8 to i8
@@ -1217,7 +1217,7 @@ define dso_local i64 @mipi_dsi_generic_read(ptr noundef readonly captures(none) 
 define dso_local i64 @mipi_dsi_dcs_write_buffer(ptr noundef readonly captures(none) %0, ptr noundef %1, i64 noundef %2) #0 align 16 {
   %4 = alloca %struct.mipi_dsi_msg, align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4) #14
-  store i64 0, ptr %4, align 8, !annotation !15
+  store i64 0, ptr %4, align 8, !annotation !14
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 760
   %6 = load i32, ptr %5, align 8
   %7 = trunc i32 %6 to i8
@@ -1294,7 +1294,7 @@ define dso_local i64 @mipi_dsi_dcs_write(ptr noundef readonly captures(none) %0,
 
 12:                                               ; preds = %9, %4
   %13 = phi ptr [ %10, %9 ], [ %6, %4 ]
-  store i64 0, ptr %6, align 8, !annotation !15
+  store i64 0, ptr %6, align 8, !annotation !14
   store i8 %1, ptr %13, align 8
   %14 = icmp eq ptr %2, null
   br i1 %14, label %17, label %15
@@ -1306,7 +1306,7 @@ define dso_local i64 @mipi_dsi_dcs_write(ptr noundef readonly captures(none) %0,
 
 17:                                               ; preds = %15, %12
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5) #14
-  store i64 0, ptr %5, align 8, !annotation !15
+  store i64 0, ptr %5, align 8, !annotation !14
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 760
   %19 = load i32, ptr %18, align 8
   %20 = trunc i32 %19 to i8
@@ -1386,7 +1386,7 @@ define dso_local i64 @mipi_dsi_dcs_read(ptr noundef readonly captures(none) %0, 
   %6 = alloca %struct.mipi_dsi_msg, align 8
   store i8 %1, ptr %5, align 1
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6) #14
-  store i64 0, ptr %6, align 8, !annotation !15
+  store i64 0, ptr %6, align 8, !annotation !14
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 760
   %8 = load i32, ptr %7, align 8
   %9 = trunc i32 %8 to i8
@@ -1441,7 +1441,7 @@ define dso_local i32 @mipi_dsi_dcs_nop(ptr noundef readonly captures(none) %0) #
   %3 = alloca [8 x i8], align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #14
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %2) #14
-  store i64 0, ptr %2, align 8, !annotation !15
+  store i64 0, ptr %2, align 8, !annotation !14
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 760
   %5 = load i32, ptr %4, align 8
   %6 = trunc i32 %5 to i8
@@ -1480,7 +1480,7 @@ define dso_local i32 @mipi_dsi_dcs_nop(ptr noundef readonly captures(none) %0) #
   br label %26
 
 26:                                               ; preds = %25, %20
-  store i64 0, ptr %3, align 8, !annotation !15
+  store i64 0, ptr %3, align 8, !annotation !14
   %27 = call i64 %18(ptr noundef %12, ptr noundef nonnull %2) #14
   %28 = call i64 @llvm.smin.i64(i64 %27, i64 0)
   %29 = trunc i64 %28 to i32
@@ -1499,7 +1499,7 @@ define dso_local i32 @mipi_dsi_dcs_soft_reset(ptr noundef readonly captures(none
   %3 = alloca [8 x i8], align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #14
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %2) #14
-  store i64 0, ptr %2, align 8, !annotation !15
+  store i64 0, ptr %2, align 8, !annotation !14
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 760
   %5 = load i32, ptr %4, align 8
   %6 = trunc i32 %5 to i8
@@ -1538,7 +1538,7 @@ define dso_local i32 @mipi_dsi_dcs_soft_reset(ptr noundef readonly captures(none
   br label %26
 
 26:                                               ; preds = %25, %20
-  store i64 1, ptr %3, align 8, !annotation !15
+  store i64 1, ptr %3, align 8, !annotation !14
   %27 = call i64 %18(ptr noundef %12, ptr noundef nonnull %2) #14
   %28 = call i64 @llvm.smin.i64(i64 %27, i64 0)
   %29 = trunc i64 %28 to i32
@@ -1558,7 +1558,7 @@ define dso_local noundef i32 @mipi_dsi_dcs_get_power_mode(ptr noundef readonly c
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3)
   store i8 10, ptr %3, align 1
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4) #14
-  store i64 0, ptr %4, align 8, !annotation !15
+  store i64 0, ptr %4, align 8, !annotation !14
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 760
   %6 = load i32, ptr %5, align 8
   %7 = trunc i32 %6 to i8
@@ -1628,7 +1628,7 @@ define dso_local noundef i32 @mipi_dsi_dcs_get_pixel_format(ptr noundef readonly
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3)
   store i8 12, ptr %3, align 1
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4) #14
-  store i64 0, ptr %4, align 8, !annotation !15
+  store i64 0, ptr %4, align 8, !annotation !14
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 760
   %6 = load i32, ptr %5, align 8
   %7 = trunc i32 %6 to i8
@@ -1697,7 +1697,7 @@ define dso_local i32 @mipi_dsi_dcs_enter_sleep_mode(ptr noundef readonly capture
   %3 = alloca [8 x i8], align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #14
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %2) #14
-  store i64 0, ptr %2, align 8, !annotation !15
+  store i64 0, ptr %2, align 8, !annotation !14
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 760
   %5 = load i32, ptr %4, align 8
   %6 = trunc i32 %5 to i8
@@ -1736,7 +1736,7 @@ define dso_local i32 @mipi_dsi_dcs_enter_sleep_mode(ptr noundef readonly capture
   br label %26
 
 26:                                               ; preds = %25, %20
-  store i64 16, ptr %3, align 8, !annotation !15
+  store i64 16, ptr %3, align 8, !annotation !14
   %27 = call i64 %18(ptr noundef %12, ptr noundef nonnull %2) #14
   %28 = call i64 @llvm.smin.i64(i64 %27, i64 0)
   %29 = trunc i64 %28 to i32
@@ -1755,7 +1755,7 @@ define dso_local i32 @mipi_dsi_dcs_exit_sleep_mode(ptr noundef readonly captures
   %3 = alloca [8 x i8], align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #14
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %2) #14
-  store i64 0, ptr %2, align 8, !annotation !15
+  store i64 0, ptr %2, align 8, !annotation !14
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 760
   %5 = load i32, ptr %4, align 8
   %6 = trunc i32 %5 to i8
@@ -1794,7 +1794,7 @@ define dso_local i32 @mipi_dsi_dcs_exit_sleep_mode(ptr noundef readonly captures
   br label %26
 
 26:                                               ; preds = %25, %20
-  store i64 17, ptr %3, align 8, !annotation !15
+  store i64 17, ptr %3, align 8, !annotation !14
   %27 = call i64 %18(ptr noundef %12, ptr noundef nonnull %2) #14
   %28 = call i64 @llvm.smin.i64(i64 %27, i64 0)
   %29 = trunc i64 %28 to i32
@@ -1813,7 +1813,7 @@ define dso_local i32 @mipi_dsi_dcs_set_display_off(ptr noundef readonly captures
   %3 = alloca [8 x i8], align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #14
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %2) #14
-  store i64 0, ptr %2, align 8, !annotation !15
+  store i64 0, ptr %2, align 8, !annotation !14
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 760
   %5 = load i32, ptr %4, align 8
   %6 = trunc i32 %5 to i8
@@ -1852,7 +1852,7 @@ define dso_local i32 @mipi_dsi_dcs_set_display_off(ptr noundef readonly captures
   br label %26
 
 26:                                               ; preds = %25, %20
-  store i64 40, ptr %3, align 8, !annotation !15
+  store i64 40, ptr %3, align 8, !annotation !14
   %27 = call i64 %18(ptr noundef %12, ptr noundef nonnull %2) #14
   %28 = call i64 @llvm.smin.i64(i64 %27, i64 0)
   %29 = trunc i64 %28 to i32
@@ -1871,7 +1871,7 @@ define dso_local i32 @mipi_dsi_dcs_set_display_on(ptr noundef readonly captures(
   %3 = alloca [8 x i8], align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #14
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %2) #14
-  store i64 0, ptr %2, align 8, !annotation !15
+  store i64 0, ptr %2, align 8, !annotation !14
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 760
   %5 = load i32, ptr %4, align 8
   %6 = trunc i32 %5 to i8
@@ -1910,7 +1910,7 @@ define dso_local i32 @mipi_dsi_dcs_set_display_on(ptr noundef readonly captures(
   br label %26
 
 26:                                               ; preds = %25, %20
-  store i64 41, ptr %3, align 8, !annotation !15
+  store i64 41, ptr %3, align 8, !annotation !14
   %27 = call i64 %18(ptr noundef %12, ptr noundef nonnull %2) #14
   %28 = call i64 @llvm.smin.i64(i64 %27, i64 0)
   %29 = trunc i64 %28 to i32
@@ -1934,7 +1934,7 @@ define dso_local i32 @mipi_dsi_dcs_set_column_address(ptr noundef readonly captu
   %10 = trunc nuw i16 %9 to i8
   %11 = trunc i16 %2 to i8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #14
-  store i64 42, ptr %5, align 8, !annotation !15
+  store i64 42, ptr %5, align 8, !annotation !14
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 1
   store i8 %7, ptr %12, align 1
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 2
@@ -1944,7 +1944,7 @@ define dso_local i32 @mipi_dsi_dcs_set_column_address(ptr noundef readonly captu
   %15 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i8 %11, ptr %15, align 4
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4) #14
-  store i64 0, ptr %4, align 8, !annotation !15
+  store i64 0, ptr %4, align 8, !annotation !14
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 760
   %17 = load i32, ptr %16, align 8
   %18 = trunc i32 %17 to i8
@@ -2006,7 +2006,7 @@ define dso_local i32 @mipi_dsi_dcs_set_page_address(ptr noundef readonly capture
   %10 = trunc nuw i16 %9 to i8
   %11 = trunc i16 %2 to i8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #14
-  store i64 43, ptr %5, align 8, !annotation !15
+  store i64 43, ptr %5, align 8, !annotation !14
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 1
   store i8 %7, ptr %12, align 1
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 2
@@ -2016,7 +2016,7 @@ define dso_local i32 @mipi_dsi_dcs_set_page_address(ptr noundef readonly capture
   %15 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i8 %11, ptr %15, align 4
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4) #14
-  store i64 0, ptr %4, align 8, !annotation !15
+  store i64 0, ptr %4, align 8, !annotation !14
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 760
   %17 = load i32, ptr %16, align 8
   %18 = trunc i32 %17 to i8
@@ -2073,7 +2073,7 @@ define dso_local i32 @mipi_dsi_dcs_set_tear_off(ptr noundef readonly captures(no
   %3 = alloca [8 x i8], align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #14
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %2) #14
-  store i64 0, ptr %2, align 8, !annotation !15
+  store i64 0, ptr %2, align 8, !annotation !14
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 760
   %5 = load i32, ptr %4, align 8
   %6 = trunc i32 %5 to i8
@@ -2112,7 +2112,7 @@ define dso_local i32 @mipi_dsi_dcs_set_tear_off(ptr noundef readonly captures(no
   br label %26
 
 26:                                               ; preds = %25, %20
-  store i64 52, ptr %3, align 8, !annotation !15
+  store i64 52, ptr %3, align 8, !annotation !14
   %27 = call i64 %18(ptr noundef %12, ptr noundef nonnull %2) #14
   %28 = call i64 @llvm.smin.i64(i64 %27, i64 0)
   %29 = trunc i64 %28 to i32
@@ -2131,11 +2131,11 @@ define dso_local i32 @mipi_dsi_dcs_set_tear_on(ptr noundef readonly captures(non
   %4 = alloca [8 x i8], align 8
   %5 = trunc i32 %1 to i8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #14
-  store i64 53, ptr %4, align 8, !annotation !15
+  store i64 53, ptr %4, align 8, !annotation !14
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 1
   store i8 %5, ptr %6, align 1
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3) #14
-  store i64 0, ptr %3, align 8, !annotation !15
+  store i64 0, ptr %3, align 8, !annotation !14
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 760
   %8 = load i32, ptr %7, align 8
   %9 = trunc i32 %8 to i8
@@ -2191,11 +2191,11 @@ define dso_local i32 @mipi_dsi_dcs_set_pixel_format(ptr noundef readonly capture
   %3 = alloca %struct.mipi_dsi_msg, align 8
   %4 = alloca [8 x i8], align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #14
-  store i64 58, ptr %4, align 8, !annotation !15
+  store i64 58, ptr %4, align 8, !annotation !14
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 1
   store i8 %1, ptr %5, align 1
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3) #14
-  store i64 0, ptr %3, align 8, !annotation !15
+  store i64 0, ptr %3, align 8, !annotation !14
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 760
   %7 = load i32, ptr %6, align 8
   %8 = trunc i32 %7 to i8
@@ -2254,13 +2254,13 @@ define dso_local i32 @mipi_dsi_dcs_set_tear_scanline(ptr noundef readonly captur
   %6 = trunc nuw i16 %5 to i8
   %7 = trunc i16 %1 to i8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #14
-  store i64 68, ptr %4, align 8, !annotation !15
+  store i64 68, ptr %4, align 8, !annotation !14
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 1
   store i8 %6, ptr %8, align 1
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 2
   store i8 %7, ptr %9, align 2
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3) #14
-  store i64 0, ptr %3, align 8, !annotation !15
+  store i64 0, ptr %3, align 8, !annotation !14
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 760
   %11 = load i32, ptr %10, align 8
   %12 = trunc i32 %11 to i8
@@ -2316,11 +2316,11 @@ define dso_local i32 @mipi_dsi_dcs_set_display_brightness(ptr noundef readonly c
   %3 = alloca %struct.mipi_dsi_msg, align 8
   %4 = alloca [8 x i8], align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #14
-  store i64 81, ptr %4, align 8, !annotation !15
+  store i64 81, ptr %4, align 8, !annotation !14
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 1
   store i16 %1, ptr %5, align 1
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3) #14
-  store i64 0, ptr %3, align 8, !annotation !15
+  store i64 0, ptr %3, align 8, !annotation !14
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 760
   %7 = load i32, ptr %6, align 8
   %8 = trunc i32 %7 to i8
@@ -2378,7 +2378,7 @@ define dso_local noundef i32 @mipi_dsi_dcs_get_display_brightness(ptr noundef re
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3)
   store i8 82, ptr %3, align 1
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4) #14
-  store i64 0, ptr %4, align 8, !annotation !15
+  store i64 0, ptr %4, align 8, !annotation !14
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 760
   %6 = load i32, ptr %5, align 8
   %7 = trunc i32 %6 to i8
@@ -2449,13 +2449,13 @@ define dso_local i32 @mipi_dsi_dcs_set_display_brightness_large(ptr noundef read
   %6 = trunc nuw i16 %5 to i8
   %7 = trunc i16 %1 to i8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #14
-  store i64 81, ptr %4, align 8, !annotation !15
+  store i64 81, ptr %4, align 8, !annotation !14
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 1
   store i8 %6, ptr %8, align 1
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 2
   store i8 %7, ptr %9, align 2
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3) #14
-  store i64 0, ptr %3, align 8, !annotation !15
+  store i64 0, ptr %3, align 8, !annotation !14
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 760
   %11 = load i32, ptr %10, align 8
   %12 = trunc i32 %11 to i8
@@ -2515,7 +2515,7 @@ define dso_local noundef i32 @mipi_dsi_dcs_get_display_brightness_large(ptr noun
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3)
   store i8 82, ptr %3, align 1
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4) #14
-  store i64 0, ptr %4, align 8, !annotation !15
+  store i64 0, ptr %4, align 8, !annotation !14
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 760
   %7 = load i32, ptr %6, align 8
   %8 = trunc i32 %7 to i8
@@ -2560,7 +2560,7 @@ define dso_local noundef i32 @mipi_dsi_dcs_get_display_brightness_large(ptr noun
   br label %43
 
 29:                                               ; preds = %23, %28
-  store i16 0, ptr %5, align 2, !annotation !15
+  store i16 0, ptr %5, align 2, !annotation !14
   %30 = call i64 %21(ptr noundef %15, ptr noundef nonnull %4) #14
   %.fr = freeze i64 %30
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #14
@@ -2798,14 +2798,13 @@ attributes #17 = { nounwind allocsize(0) }
 !2 = !{i32 4, !"function_return_thunk_extern", i32 1}
 !3 = !{i32 4, !"indirect_branch_cs_prefix", i32 1}
 !4 = !{i32 4, !"SkipRaxSetup", i32 1}
-!5 = distinct !{!5, !6, !7, !8}
+!5 = distinct !{!5, !6, !7}
 !6 = !{!"llvm.loop.mustprogress"}
 !7 = !{!"llvm.loop.unroll.disable"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = !{i8 0, i8 2}
-!10 = !{}
-!11 = !{!"branch_weights", i32 1, i32 2000}
-!12 = !{i64 2154559547, i64 2154559356, i64 2154559408, i64 2154559454, i64 2154559482}
-!13 = !{i64 2154559621, i64 2154559650, i64 2154559696, i64 2154559754, i64 2154559808, i64 2154559862, i64 2154559917, i64 2154559948, i64 2154560256, i64 2154560262, i64 2154560309, i64 2154560332, i64 2154560358}
-!14 = !{i64 2154560821, i64 2154560632, i64 2154560682, i64 2154560728, i64 2154560756}
-!15 = !{!"auto-init"}
+!8 = !{i8 0, i8 2}
+!9 = !{}
+!10 = !{!"branch_weights", i32 1, i32 2000}
+!11 = !{i64 2154559547, i64 2154559356, i64 2154559408, i64 2154559454, i64 2154559482}
+!12 = !{i64 2154559621, i64 2154559650, i64 2154559696, i64 2154559754, i64 2154559808, i64 2154559862, i64 2154559917, i64 2154559948, i64 2154560256, i64 2154560262, i64 2154560309, i64 2154560332, i64 2154560358}
+!13 = !{i64 2154560821, i64 2154560632, i64 2154560682, i64 2154560728, i64 2154560756}
+!14 = !{!"auto-init"}

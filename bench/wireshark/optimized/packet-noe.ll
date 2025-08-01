@@ -936,7 +936,7 @@ decode_key_name.exit.i:                           ; preds = %129, %126, %120
   %.118.i.i = phi i32 [ %237, %233 ], [ %231, %.lr.ph.i.i ]
   %.1.i.i = phi i32 [ %236, %233 ], [ %230, %.lr.ph.i.i ]
   %.not.i.i60 = icmp eq i32 %.118.i.i, 0
-  br i1 %.not.i.i60, label %decode_evt.exit, label %.lr.ph.i.i, !llvm.loop !9
+  br i1 %.not.i.i60, label %decode_evt.exit, label %.lr.ph.i.i, !llvm.loop !8
 
 239:                                              ; preds = %214
   %.not43.i = icmp eq i32 %.041.i, 0
@@ -1093,7 +1093,7 @@ define internal fastcc void @decode_tlv(ptr noundef %0, ptr noundef %1, i8 nound
   %.118.i.i = phi i64 [ %.01720.i.i, %44 ], [ %37, %.lr.ph.i.i ]
   %.1.i.i = phi i64 [ %45, %44 ], [ %.01621.i.i, %.lr.ph.i.i ]
   %47 = icmp ult i64 %.1.i.i, %.118.i.i
-  br i1 %47, label %.lr.ph.i.i, label %property_is_utf8.exit.thread, !llvm.loop !10
+  br i1 %47, label %.lr.ph.i.i, label %property_is_utf8.exit.thread, !llvm.loop !9
 
 property_is_utf8.exit:                            ; preds = %43
   %48 = getelementptr i8, ptr @utf8_properties, i64 %38
@@ -1139,7 +1139,7 @@ property_is_utf8.exit.thread:                     ; preds = %46, %property_is_ut
   %.118.i.i74 = phi i64 [ %.01720.i.i72, %61 ], [ %54, %.lr.ph.i.i70 ]
   %.1.i.i75 = phi i64 [ %62, %61 ], [ %.01621.i.i71, %.lr.ph.i.i70 ]
   %64 = icmp ult i64 %.1.i.i75, %.118.i.i74
-  br i1 %64, label %.lr.ph.i.i70, label %property_is_bool.exit.thread, !llvm.loop !10
+  br i1 %64, label %.lr.ph.i.i70, label %property_is_bool.exit.thread, !llvm.loop !9
 
 property_is_bool.exit:                            ; preds = %60
   %65 = getelementptr i8, ptr @bool_properties, i64 %55
@@ -1182,7 +1182,7 @@ property_is_bool.exit.thread:                     ; preds = %63, %property_is_bo
   %86 = add i32 %32, %85
   %87 = sub i32 %33, %85
   %.not = icmp eq i32 %87, 0
-  br i1 %.not, label %._crit_edge, label %10, !llvm.loop !11
+  br i1 %.not, label %._crit_edge, label %10, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %84, %5
   ret void
@@ -1206,9 +1206,8 @@ attributes #2 = { mustprogress nofree norecurse nosync nounwind null_pointer_is_
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7, !8}
-!11 = distinct !{!11, !7, !8}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}

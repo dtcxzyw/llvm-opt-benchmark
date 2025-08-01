@@ -5628,7 +5628,7 @@ _ZNSt6vectorIPKcSaIS1_EED2Ev.exit.i.i:            ; preds = %19, %_ZNSt6vectorIb
 
 _ZN3spv21InstructionParametersD2Ev.exit:          ; preds = %_ZNSt6vectorIPKcSaIS1_EED2Ev.exit.i.i, %26
   %32 = icmp eq ptr %4, @_ZN3spv15InstructionDescE
-  br i1 %32, label %33, label %2, !llvm.loop !4
+  br i1 %32, label %33, label %2
 
 33:                                               ; preds = %_ZN3spv21InstructionParametersD2Ev.exit
   ret void
@@ -5700,7 +5700,7 @@ _ZNSt6vectorIPKcSaIS1_EED2Ev.exit.i:              ; preds = %18, %_ZNSt6vectorIb
 
 _ZN3spv17OperandParametersD2Ev.exit:              ; preds = %_ZNSt6vectorIPKcSaIS1_EED2Ev.exit.i, %25
   %31 = icmp eq ptr %4, @_ZN3spv21ExecutionModeOperandsE
-  br i1 %31, label %32, label %2, !llvm.loop !6
+  br i1 %31, label %32, label %2
 
 32:                                               ; preds = %_ZN3spv17OperandParametersD2Ev.exit
   ret void
@@ -5769,7 +5769,7 @@ _ZNSt6vectorIPKcSaIS1_EED2Ev.exit.i:              ; preds = %18, %_ZNSt6vectorIb
 
 _ZN3spv17OperandParametersD2Ev.exit:              ; preds = %_ZNSt6vectorIPKcSaIS1_EED2Ev.exit.i, %25
   %31 = icmp eq ptr %4, @_ZN3spv18DecorationOperandsE
-  br i1 %31, label %32, label %2, !llvm.loop !7
+  br i1 %31, label %32, label %2
 
 32:                                               ; preds = %_ZN3spv17OperandParametersD2Ev.exit
   ret void
@@ -7970,7 +7970,7 @@ _ZNSt14_Bit_referenceaSERKS_.exit.i.i.i.i.i:      ; preds = %39, %36
   store i64 %storemerge.i.i.i.i.i, ptr %.sroa.07.1.i.i.i.i.i, align 8
   %43 = add nsw i64 %.024.i.i.i.i.i, -1
   %44 = icmp sgt i64 %.024.i.i.i.i.i, 1
-  br i1 %44, label %_ZNSt13_Bit_iteratormmEv.exit.i.i.i.i.i, label %_ZSt13copy_backwardISt13_Bit_iteratorS0_ET0_T_S2_S1_.exit, !llvm.loop !8
+  br i1 %44, label %_ZNSt13_Bit_iteratormmEv.exit.i.i.i.i.i, label %_ZSt13copy_backwardISt13_Bit_iteratorS0_ET0_T_S2_S1_.exit, !llvm.loop !4
 
 _ZSt13copy_backwardISt13_Bit_iteratorS0_ET0_T_S2_S1_.exit: ; preds = %_ZNSt14_Bit_referenceaSERKS_.exit.i.i.i.i.i, %12
   %45 = shl nuw i64 1, %17
@@ -8086,7 +8086,7 @@ _ZNSt14_Bit_referenceaSEb.exit.i.i.i.i.i.i:       ; preds = %90, %87
   %.sroa.03.1.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.03.016.i.i.i.i.i.i, i64 %.sroa.03.1.idx.i.i.i.i.i.i
   %98 = add nsw i64 %.019.i.i.i.i.i.i, -1
   %99 = icmp sgt i64 %.019.i.i.i.i.i.i, 1
-  br i1 %99, label %.lr.ph.i.i.i.i.i.i, label %_ZNSt6vectorIbSaIbEE15_M_copy_alignedESt19_Bit_const_iteratorS2_St13_Bit_iterator.exit, !llvm.loop !10
+  br i1 %99, label %.lr.ph.i.i.i.i.i.i, label %_ZNSt6vectorIbSaIbEE15_M_copy_alignedESt19_Bit_const_iteratorS2_St13_Bit_iterator.exit, !llvm.loop !6
 
 _ZNSt6vectorIbSaIbEE15_M_copy_alignedESt19_Bit_const_iteratorS2_St13_Bit_iterator.exit: ; preds = %_ZNSt14_Bit_referenceaSEb.exit.i.i.i.i.i.i
   %100 = add i32 %.sroa.5.1.i.i.i.i.i.i, 1
@@ -8169,7 +8169,7 @@ _ZNSt14_Bit_referenceaSERKS_.exit.i.i.i.i.i45:    ; preds = %128, %125
   %.sroa.5.1.i.i.i.i.i52 = select i1 %135, i32 0, i32 %134
   %136 = add nsw i64 %.024.i.i.i.i.i41, -1
   %137 = icmp sgt i64 %.024.i.i.i.i.i41, 1
-  br i1 %137, label %.lr.ph.i.i.i.i.i, label %_ZSt4copyISt13_Bit_iteratorS0_ET0_T_S2_S1_.exit.loopexit, !llvm.loop !11
+  br i1 %137, label %.lr.ph.i.i.i.i.i, label %_ZSt4copyISt13_Bit_iteratorS0_ET0_T_S2_S1_.exit.loopexit, !llvm.loop !7
 
 _ZSt4copyISt13_Bit_iteratorS0_ET0_T_S2_S1_.exit.loopexit: ; preds = %_ZNSt14_Bit_referenceaSERKS_.exit.i.i.i.i.i45
   %.pre = load ptr, ptr %0, align 8
@@ -8232,7 +8232,7 @@ define internal void @_GLOBAL__sub_I_doc.cpp() #10 section ".text.startup" {
   store i8 %9, ptr %7, align 8
   %.add.i = add nuw nsw i64 %.idx.i, 112
   %10 = icmp eq i64 %.add.i, 7340032
-  br i1 %10, label %__cxx_global_var_init.exit, label %1, !llvm.loop !12
+  br i1 %10, label %__cxx_global_var_init.exit, label %1
 
 __cxx_global_var_init.exit:                       ; preds = %1
   %11 = tail call i32 @__cxa_atexit(ptr nonnull @__cxx_global_array_dtor, ptr null, ptr nonnull @__dso_handle) #16
@@ -8250,7 +8250,7 @@ __cxx_global_var_init.exit:                       ; preds = %1
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %.ptr.i2, i8 0, i64 60, i1 false)
   %.add.i3 = add nuw nsw i64 %.idx.i1, 88
   %16 = icmp eq i64 %.add.i3, 3520
-  br i1 %16, label %__cxx_global_var_init.1096.exit, label %12, !llvm.loop !13
+  br i1 %16, label %__cxx_global_var_init.1096.exit, label %12
 
 __cxx_global_var_init.1096.exit:                  ; preds = %12
   %17 = tail call i32 @__cxa_atexit(ptr nonnull @__cxx_global_array_dtor.1097, ptr null, ptr nonnull @__dso_handle) #16
@@ -8268,7 +8268,7 @@ __cxx_global_var_init.1096.exit:                  ; preds = %12
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %.ptr.i5, i8 0, i64 60, i1 false)
   %.add.i6 = add nuw nsw i64 %.idx.i4, 88
   %22 = icmp eq i64 %.add.i6, 3960
-  br i1 %22, label %__cxx_global_var_init.1098.exit, label %18, !llvm.loop !14
+  br i1 %22, label %__cxx_global_var_init.1098.exit, label %18
 
 __cxx_global_var_init.1098.exit:                  ; preds = %18
   %23 = tail call i32 @__cxa_atexit(ptr nonnull @__cxx_global_array_dtor.1099, ptr null, ptr nonnull @__dso_handle) #16
@@ -8286,7 +8286,7 @@ __cxx_global_var_init.1098.exit:                  ; preds = %18
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %27, i8 0, i64 24, i1 false)
   %.add.i9 = add nuw nsw i64 %.idx.i7, 40
   %28 = icmp eq i64 %.add.i9, 1720
-  br i1 %28, label %__cxx_global_var_init.1100.exit, label %24, !llvm.loop !15
+  br i1 %28, label %__cxx_global_var_init.1100.exit, label %24
 
 __cxx_global_var_init.1100.exit:                  ; preds = %24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(320) @_ZN3spv19ExecutionModeParamsE, i8 0, i64 320, i1 false)
@@ -8345,14 +8345,6 @@ attributes #18 = { builtin nounwind allocsize(0) }
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
 !4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.estimated_trip_count"}
+!5 = !{!"llvm.loop.mustprogress"}
 !6 = distinct !{!6, !5}
 !7 = distinct !{!7, !5}
-!8 = distinct !{!8, !9, !5}
-!9 = !{!"llvm.loop.mustprogress"}
-!10 = distinct !{!10, !9, !5}
-!11 = distinct !{!11, !9, !5}
-!12 = distinct !{!12, !5}
-!13 = distinct !{!13, !5}
-!14 = distinct !{!14, !5}
-!15 = distinct !{!15, !5}

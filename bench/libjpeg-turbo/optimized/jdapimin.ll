@@ -561,7 +561,7 @@ define range(i32 0, 2) i32 @jpeg_finish_decompress(ptr noundef %0) local_unnamed
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %42 = load ptr, ptr %41, align 8, !tbaa !39
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 48
-  %44 = load ptr, ptr %43, align 8, !tbaa !89
+  %44 = load ptr, ptr %43, align 8, !tbaa !88
   tail call void %44(ptr noundef nonnull %0) #3
   tail call void @jpeg_abort(ptr noundef nonnull %0) #3
   br label %.loopexit
@@ -664,7 +664,6 @@ attributes #3 = { nounwind }
 !83 = !{!4, !11, i64 168}
 !84 = !{!4, !11, i64 140}
 !85 = !{!62, !6, i64 8}
-!86 = distinct !{!86, !87, !88}
+!86 = distinct !{!86, !87}
 !87 = !{!"llvm.loop.mustprogress"}
-!88 = !{!"llvm.loop.estimated_trip_count"}
-!89 = !{!50, !6, i64 48}
+!88 = !{!50, !6, i64 48}

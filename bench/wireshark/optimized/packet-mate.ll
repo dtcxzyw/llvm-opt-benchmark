@@ -361,7 +361,7 @@ define internal i32 @mate_tree(ptr noundef %0, ptr noundef %1, ptr noundef %2, p
 gog_attrs_tree.exit.i.i:                          ; preds = %112, %74
   %115 = load ptr, ptr %75, align 8
   %116 = getelementptr inbounds nuw i8, ptr %115, i64 60
-  %117 = load i8, ptr %116, align 4, !range !9, !noundef !10
+  %117 = load i8, ptr %116, align 4, !range !8, !noundef !9
   %118 = trunc nuw i8 %117 to i1
   br i1 %118, label %119, label %138
 
@@ -454,7 +454,7 @@ gog_attrs_tree.exit.i.i:                          ; preds = %112, %74
   %184 = load ptr, ptr %183, align 8
   %185 = tail call ptr (ptr, i32, ptr, i32, i32, double, ptr, ...) @proto_tree_add_double_format(ptr noundef %173, i32 noundef %178, ptr noundef %0, i32 noundef 0, i32 noundef 0, double noundef %182, ptr noundef nonnull @.str.32, ptr noundef %184, double noundef %182)
   %186 = getelementptr inbounds nuw i8, ptr %.08897.i.i, i64 136
-  %187 = load i8, ptr %186, align 8, !range !9, !noundef !10
+  %187 = load i8, ptr %186, align 8, !range !8, !noundef !9
   %188 = trunc nuw i8 %187 to i1
   br i1 %188, label %189, label %198
 
@@ -506,9 +506,9 @@ gog_attrs_tree.exit.i.i:                          ; preds = %112, %74
 
 219:                                              ; preds = %218
   %220 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 74
-  %221 = load i8, ptr %220, align 2, !range !9, !noundef !10
+  %221 = load i8, ptr %220, align 2, !range !8, !noundef !9
   %222 = trunc nuw i8 %221 to i1
-  br i1 %222, label %223, label %218, !llvm.loop !11
+  br i1 %222, label %223, label %218, !llvm.loop !10
 
 223:                                              ; preds = %219
   %224 = load ptr, ptr %75, align 8
@@ -532,7 +532,7 @@ gog_attrs_tree.exit.i.i:                          ; preds = %112, %74
   %237 = getelementptr inbounds nuw i8, ptr %.08897.i.i, i64 48
   %.088.i.i = load ptr, ptr %237, align 8
   %.not.i.i = icmp eq ptr %.088.i.i, null
-  br i1 %.not.i.i, label %mate_gog_tree.exit.i, label %152, !llvm.loop !12
+  br i1 %.not.i.i, label %mate_gog_tree.exit.i, label %152, !llvm.loop !11
 
 mate_gog_tree.exit.i:                             ; preds = %.loopexit.i.i, %138, %63, %45
   %238 = getelementptr inbounds nuw i8, ptr %.017, i64 16
@@ -585,13 +585,13 @@ mate_gog_tree.exit.i:                             ; preds = %.loopexit.i.i, %138
   %.0.i60.i = load ptr, ptr %268, align 8
   %269 = load ptr, ptr %.0.i60.i, align 8
   %.not.i61.i = icmp eq ptr %269, null
-  br i1 %.not.i61.i, label %mate_pdu_tree.exit, label %.lr.ph.i59.i, !llvm.loop !13
+  br i1 %.not.i61.i, label %mate_pdu_tree.exit, label %.lr.ph.i59.i, !llvm.loop !12
 
 mate_pdu_tree.exit:                               ; preds = %267, %mate_gog_tree.exit.i, %240
   %270 = getelementptr inbounds nuw i8, ptr %.017, i64 32
   %271 = load ptr, ptr %270, align 8
   %.old1.not = icmp eq ptr %271, null
-  br i1 %.old1.not, label %.sink.split, label %.preheader, !llvm.loop !14
+  br i1 %.old1.not, label %.sink.split, label %.preheader
 
 .sink.split:                                      ; preds = %mate_pdu_tree.exit, %9, %7
   %272 = tail call i32 @tvb_captured_length(ptr noundef %0)
@@ -706,12 +706,12 @@ define internal fastcc void @mate_gop_tree(ptr noundef %0, ptr noundef %1, ptr n
   %.0.i = load ptr, ptr %49, align 8
   %50 = load ptr, ptr %.0.i, align 8
   %.not.i = icmp eq ptr %50, null
-  br i1 %.not.i, label %gop_attrs_tree.exit, label %.lr.ph.i, !llvm.loop !15
+  br i1 %.not.i, label %gop_attrs_tree.exit, label %.lr.ph.i, !llvm.loop !13
 
 gop_attrs_tree.exit:                              ; preds = %48, %20
   %51 = load ptr, ptr %5, align 8
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 104
-  %53 = load i8, ptr %52, align 8, !range !9, !noundef !10
+  %53 = load i8, ptr %52, align 8, !range !8, !noundef !9
   %54 = trunc nuw i8 %53 to i1
   br i1 %54, label %55, label %93
 
@@ -727,7 +727,7 @@ gop_attrs_tree.exit:                              ; preds = %48, %20
   %64 = load double, ptr %63, align 8
   %65 = tail call ptr @proto_tree_add_double(ptr noundef %59, i32 noundef %62, ptr noundef %2, i32 noundef 0, i32 noundef 0, double noundef %64)
   %66 = getelementptr inbounds nuw i8, ptr %3, i64 136
-  %67 = load i8, ptr %66, align 8, !range !9, !noundef !10
+  %67 = load i8, ptr %66, align 8, !range !8, !noundef !9
   %68 = trunc nuw i8 %67 to i1
   %69 = load ptr, ptr %5, align 8
   %70 = load double, ptr %63, align 8
@@ -802,19 +802,19 @@ gop_attrs_tree.exit:                              ; preds = %48, %20
   %.in = getelementptr inbounds nuw i8, ptr %.078, i64 %.in.idx
   %118 = load i32, ptr %.in, align 8
   %119 = getelementptr inbounds nuw i8, ptr %.078, i64 73
-  %120 = load i8, ptr %119, align 1, !range !9, !noundef !10
+  %120 = load i8, ptr %119, align 1, !range !8, !noundef !9
   %121 = trunc nuw i8 %120 to i1
   br i1 %121, label %130, label %122
 
 122:                                              ; preds = %.lr.ph
   %123 = getelementptr inbounds nuw i8, ptr %.078, i64 74
-  %124 = load i8, ptr %123, align 2, !range !9, !noundef !10
+  %124 = load i8, ptr %123, align 2, !range !8, !noundef !9
   %125 = trunc nuw i8 %124 to i1
   br i1 %125, label %130, label %126
 
 126:                                              ; preds = %122
   %127 = getelementptr inbounds nuw i8, ptr %.078, i64 75
-  %128 = load i8, ptr %127, align 1, !range !9, !noundef !10
+  %128 = load i8, ptr %127, align 1, !range !8, !noundef !9
   %129 = trunc nuw i8 %128 to i1
   %.str.28..str.19 = select i1 %129, ptr @.str.28, ptr @.str.19
   br label %130
@@ -832,7 +832,7 @@ gop_attrs_tree.exit:                              ; preds = %48, %20
   %139 = getelementptr inbounds nuw i8, ptr %.078, i64 56
   %.0 = load ptr, ptr %139, align 8
   %.not74 = icmp eq ptr %.0, null
-  br i1 %.not74, label %.loopexit, label %.lr.ph, !llvm.loop !16
+  br i1 %.not74, label %.loopexit, label %.lr.ph, !llvm.loop !14
 
 .loopexit:                                        ; preds = %130, %103, %93
   ret void
@@ -869,14 +869,12 @@ attributes #3 = { nofree nounwind null_pointer_is_valid "no-trapping-math"="true
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = !{i8 0, i8 2}
-!10 = !{}
-!11 = distinct !{!11, !7, !8}
-!12 = distinct !{!12, !7, !8}
-!13 = distinct !{!13, !7, !8}
-!14 = distinct !{!14, !8}
-!15 = distinct !{!15, !7, !8}
-!16 = distinct !{!16, !7, !8}
+!8 = !{i8 0, i8 2}
+!9 = !{}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7}
+!12 = distinct !{!12, !7}
+!13 = distinct !{!13, !7}
+!14 = distinct !{!14, !7}

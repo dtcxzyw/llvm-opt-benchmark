@@ -731,7 +731,7 @@ define range(i32 -1, 1) i32 @H5EA__iblock_delete(ptr noundef %0) local_unnamed_a
   %66 = phi ptr [ %48, %46 ], [ %62, %61 ]
   %67 = add nuw i64 %.073, 1
   %68 = icmp ult i64 %67, %65
-  br i1 %68, label %46, label %.loopexit, !llvm.loop !68
+  br i1 %68, label %46, label %.loopexit, !llvm.loop !67
 
 69:                                               ; preds = %8
   %70 = load i64, ptr @H5E_EARRAY_g, align 8, !tbaa !10
@@ -861,7 +861,6 @@ attributes #3 = { nounwind }
 !62 = !{!63, !11, i64 8}
 !63 = !{!"H5EA_sblk_info_t", !11, i64 0, !11, i64 8, !11, i64 16, !11, i64 24}
 !64 = !{!63, !11, i64 0}
-!65 = distinct !{!65, !66, !67}
+!65 = distinct !{!65, !66}
 !66 = !{!"llvm.loop.mustprogress"}
-!67 = !{!"llvm.loop.estimated_trip_count"}
-!68 = distinct !{!68, !66, !67}
+!67 = distinct !{!67, !66}

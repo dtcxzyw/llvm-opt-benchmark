@@ -272,7 +272,7 @@ _calc_assoc_fs.exit:                              ; preds = %39, %40, %43, %45
   %49 = getelementptr inbounds nuw ptr, ptr %0, i64 %48
   %50 = load ptr, ptr %49, align 8
   %.not43 = icmp eq ptr %50, null
-  br i1 %.not43, label %._crit_edge, label %.lr.ph, !llvm.loop !12
+  br i1 %.not43, label %._crit_edge, label %.lr.ph, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %_calc_assoc_fs.exit, %.preheader
   %.0.lcssa = phi i64 [ 0, %.preheader ], [ %48, %_calc_assoc_fs.exit ]
@@ -424,7 +424,7 @@ _ft_debug.exit:                                   ; preds = %88, %87, %84, %83, 
   %133 = getelementptr inbounds nuw ptr, ptr %0, i64 %132
   %134 = load ptr, ptr %133, align 8
   %.not.i48 = icmp eq ptr %134, null
-  br i1 %.not.i48, label %_count_tied_accounts.exit, label %.lr.ph.i, !llvm.loop !13
+  br i1 %.not.i48, label %_count_tied_accounts.exit, label %.lr.ph.i, !llvm.loop !12
 
 _count_tied_accounts.exit:                        ; preds = %.lr.ph.i, %121, %130, %111
   %.0.lcssa.i = phi i64 [ 0, %111 ], [ %131, %130 ], [ %.013.i, %.lr.ph.i ], [ %.013.i, %121 ]
@@ -510,7 +510,7 @@ _ft_debug.exit.i:                                 ; preds = %164, %163, %160, %1
   %.1.i = phi ptr [ %173, %172 ], [ %.01622.i, %170 ], [ %.01622.i, %_ft_debug.exit.i ]
   %175 = add i64 %.023.i, 1
   %.not.i50 = icmp ugt i64 %175, %135
-  br i1 %.not.i50, label %_merge_accounts.exit, label %.lr.ph.i49, !llvm.loop !14
+  br i1 %.not.i50, label %_merge_accounts.exit, label %.lr.ph.i49, !llvm.loop !13
 
 _merge_accounts.exit:                             ; preds = %174, %_count_tied_accounts.exit
   %.016.lcssa.i = phi ptr [ %136, %_count_tied_accounts.exit ], [ %.1.i, %174 ]
@@ -531,7 +531,7 @@ _merge_accounts.exit:                             ; preds = %174, %_count_tied_a
   %182 = getelementptr inbounds nuw ptr, ptr %0, i64 %181
   %183 = load ptr, ptr %182, align 8
   %.not44 = icmp eq ptr %183, null
-  br i1 %.not44, label %.loopexit, label %56, !llvm.loop !15
+  br i1 %.not44, label %.loopexit, label %56, !llvm.loop !14
 
 .loopexit:                                        ; preds = %176, %._crit_edge, %9
   ret void
@@ -615,11 +615,10 @@ attributes #6 = { nounwind }
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i32 7, !"frame-pointer", i32 2}
 !7 = !{i32 7, !"debug-info-assignment-tracking", i1 true}
-!8 = distinct !{!8, !9, !10, !11}
+!8 = distinct !{!8, !9, !10}
 !9 = !{!"llvm.loop.mustprogress"}
 !10 = !{!"llvm.loop.unroll.disable"}
-!11 = !{!"llvm.loop.estimated_trip_count"}
-!12 = distinct !{!12, !9, !10, !11}
-!13 = distinct !{!13, !9, !10, !11}
-!14 = distinct !{!14, !9, !10, !11}
-!15 = distinct !{!15, !9, !10, !11}
+!11 = distinct !{!11, !9, !10}
+!12 = distinct !{!12, !9, !10}
+!13 = distinct !{!13, !9, !10}
+!14 = distinct !{!14, !9, !10}

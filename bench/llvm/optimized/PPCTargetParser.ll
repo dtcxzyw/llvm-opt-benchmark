@@ -289,7 +289,7 @@ define dso_local void @_ZN4llvm3PPC16fillValidCPUListERNS_15SmallVectorImplINS_9
 _ZN4llvm15SmallVectorImplINS_9StringRefEE12emplace_backIJRKNS_13StringLiteralEEEERS1_DpOT_.exit: ; preds = %8, %10
   %.0.add = add nuw nsw i64 %.0.idx6, 16
   %.not = icmp eq i64 %.0.add, 1040
-  br i1 %.not, label %4, label %5, !llvm.loop !17
+  br i1 %.not, label %4, label %5
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -326,7 +326,7 @@ define dso_local void @_ZN4llvm3PPC20fillValidTuneCPUListERNS_15SmallVectorImplI
 _ZN4llvm15SmallVectorImplINS_9StringRefEE12emplace_backIJRKNS_13StringLiteralEEEERS1_DpOT_.exit: ; preds = %8, %10
   %.0.add = add nuw nsw i64 %.0.idx6, 16
   %.not = icmp eq i64 %.0.add, 1040
-  br i1 %.not, label %4, label %5, !llvm.loop !19
+  br i1 %.not, label %4, label %5
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(read, inaccessiblemem: none) uwtable
@@ -337,13 +337,14 @@ define dso_local noundef zeroext i1 @_ZN4llvm3PPC10isValidCPUENS_9StringRefE(ptr
 
 .split.us:                                        ; preds = %2, %.split.us
   %.012.idx21.i.us = phi i64 [ %.012.add.i.us, %.split.us ], [ 0, %2 ]
-  %gep = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm3PPCL10PPCCPUInfoE, i64 8), i64 %.012.idx21.i.us
-  %.sroa.22.0.copyload.i.us = load i64, ptr %gep, align 8, !tbaa !15
+  %.012.ptr22.i.us = getelementptr inbounds nuw i8, ptr @_ZN4llvm3PPCL10PPCCPUInfoE, i64 %.012.idx21.i.us
+  %.sroa.22.0..sroa_idx.i.us = getelementptr inbounds nuw i8, ptr %.012.ptr22.i.us, i64 8
+  %.sroa.22.0.copyload.i.us = load i64, ptr %.sroa.22.0..sroa_idx.i.us, align 8, !tbaa !15
   %.not.i.i.us = icmp eq i64 %.sroa.22.0.copyload.i.us, 0
   %.012.add.i.us = add nuw nsw i64 %.012.idx21.i.us, 16
   %.not.i.us = icmp eq i64 %.012.add.i.us, 1040
   %or.cond = select i1 %.not.i.i.us, i1 true, i1 %.not.i.us
-  br i1 %or.cond, label %_ZN4llvm3PPCL16getCPUInfoByNameENS_9StringRefE.exit, label %.split.us, !llvm.loop !20
+  br i1 %or.cond, label %_ZN4llvm3PPCL16getCPUInfoByNameENS_9StringRefE.exit, label %.split.us, !llvm.loop !17
 
 .split:                                           ; preds = %2, %_ZN4llvmeqENS_9StringRefES0_.exit.thread18.i
   %.012.idx21.i = phi i64 [ %.012.add.i, %_ZN4llvmeqENS_9StringRefES0_.exit.thread18.i ], [ 0, %2 ]
@@ -362,7 +363,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit.i:              ; preds = %.split
 _ZN4llvmeqENS_9StringRefES0_.exit.thread18.i:     ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i, %.split
   %.012.add.i = add nuw nsw i64 %.012.idx21.i, 16
   %.not.i = icmp eq i64 %.012.add.i, 1040
-  br i1 %.not.i, label %_ZN4llvm3PPCL16getCPUInfoByNameENS_9StringRefE.exit, label %.split, !llvm.loop !22
+  br i1 %.not.i, label %_ZN4llvm3PPCL16getCPUInfoByNameENS_9StringRefE.exit, label %.split
 
 _ZN4llvm3PPCL16getCPUInfoByNameENS_9StringRefE.exit: ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.thread18.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i, %.split.us
   %.us-phi = phi i1 [ %.not.i.i.us, %.split.us ], [ false, %_ZN4llvmeqENS_9StringRefES0_.exit.thread18.i ], [ true, %_ZN4llvmeqENS_9StringRefES0_.exit.i ]
@@ -416,13 +417,13 @@ _ZN4llvmneENS_9StringRefES0_.exit18:              ; preds = %_ZN4llvmeqENS_9Stri
 
 _ZN4llvmneENS_9StringRefES0_.exit14.thread35:     ; preds = %3, %_ZN4llvmneENS_9StringRefES0_.exit14, %_ZN4llvmneENS_9StringRefES0_.exit18
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  %13 = load i32, ptr %12, align 4, !tbaa !23
+  %13 = load i32, ptr %12, align 4, !tbaa !19
   %14 = icmp eq i32 %13, 19
   br i1 %14, label %_ZN4llvmneENS_9StringRefES0_.exit.thread, label %15
 
 15:                                               ; preds = %_ZN4llvmneENS_9StringRefES0_.exit14.thread35
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %17 = load i32, ptr %16, align 8, !tbaa !33
+  %17 = load i32, ptr %16, align 8, !tbaa !29
   switch i32 %17, label %19 [
     i32 24, label %_ZN4llvmneENS_9StringRefES0_.exit.thread
     i32 23, label %18
@@ -521,19 +522,15 @@ attributes #6 = { nounwind }
 !15 = !{!16, !16, i64 0}
 !16 = !{!"long", !6, i64 0}
 !17 = distinct !{!17, !18}
-!18 = !{!"llvm.loop.estimated_trip_count"}
-!19 = distinct !{!19, !18}
-!20 = distinct !{!20, !18, !21}
-!21 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!22 = distinct !{!22, !18}
-!23 = !{!24, !30, i64 44}
-!24 = !{!"_ZTSN4llvm6TripleE", !25, i64 0, !27, i64 32, !28, i64 36, !29, i64 40, !30, i64 44, !31, i64 48, !32, i64 52}
-!25 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE", !26, i64 0, !16, i64 8, !6, i64 16}
-!26 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderE", !14, i64 0}
-!27 = !{!"_ZTSN4llvm6Triple8ArchTypeE", !6, i64 0}
-!28 = !{!"_ZTSN4llvm6Triple11SubArchTypeE", !6, i64 0}
-!29 = !{!"_ZTSN4llvm6Triple10VendorTypeE", !6, i64 0}
-!30 = !{!"_ZTSN4llvm6Triple6OSTypeE", !6, i64 0}
-!31 = !{!"_ZTSN4llvm6Triple15EnvironmentTypeE", !6, i64 0}
-!32 = !{!"_ZTSN4llvm6Triple16ObjectFormatTypeE", !6, i64 0}
-!33 = !{!24, !27, i64 32}
+!18 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!19 = !{!20, !26, i64 44}
+!20 = !{!"_ZTSN4llvm6TripleE", !21, i64 0, !23, i64 32, !24, i64 36, !25, i64 40, !26, i64 44, !27, i64 48, !28, i64 52}
+!21 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE", !22, i64 0, !16, i64 8, !6, i64 16}
+!22 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderE", !14, i64 0}
+!23 = !{!"_ZTSN4llvm6Triple8ArchTypeE", !6, i64 0}
+!24 = !{!"_ZTSN4llvm6Triple11SubArchTypeE", !6, i64 0}
+!25 = !{!"_ZTSN4llvm6Triple10VendorTypeE", !6, i64 0}
+!26 = !{!"_ZTSN4llvm6Triple6OSTypeE", !6, i64 0}
+!27 = !{!"_ZTSN4llvm6Triple15EnvironmentTypeE", !6, i64 0}
+!28 = !{!"_ZTSN4llvm6Triple16ObjectFormatTypeE", !6, i64 0}
+!29 = !{!20, !23, i64 32}

@@ -103,7 +103,7 @@ declare void @RC2_cbc_encrypt(ptr noundef, ptr noundef, i64 noundef, ptr noundef
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @cipher_hw_rc2_ecb_cipher(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3) #1 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %6 = load i64, ptr %5, align 8, !tbaa !18
+  %6 = load i64, ptr %5, align 8, !tbaa !17
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %8 = icmp ult i64 %3, %6
   br i1 %8, label %.loopexit, label %9
@@ -124,7 +124,7 @@ define internal noundef i32 @cipher_hw_rc2_ecb_cipher(ptr noundef %0, ptr nounde
   tail call void @RC2_ecb_encrypt(ptr noundef %13, ptr noundef %14, ptr noundef nonnull %7, i32 noundef %18) #5
   %19 = add i64 %.01618, %6
   %.not = icmp ugt i64 %19, %10
-  br i1 %.not, label %.loopexit, label %12, !llvm.loop !19
+  br i1 %.not, label %.loopexit, label %12, !llvm.loop !18
 
 .loopexit:                                        ; preds = %12, %4
   ret i32 1
@@ -137,8 +137,8 @@ define internal noundef i32 @cipher_hw_rc2_ofb64_cipher(ptr noundef %0, ptr noun
   %5 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #5
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 160
-  %7 = load i32, ptr %6, align 8, !tbaa !20
-  store i32 %7, ptr %5, align 4, !tbaa !21
+  %7 = load i32, ptr %6, align 8, !tbaa !19
+  store i32 %7, ptr %5, align 4, !tbaa !20
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %9 = icmp ugt i64 %3, 1073741823
   br i1 %9, label %.lr.ph, label %._crit_edge
@@ -156,7 +156,7 @@ define internal noundef i32 @cipher_hw_rc2_ofb64_cipher(ptr noundef %0, ptr noun
   %13 = getelementptr inbounds nuw i8, ptr %.01718, i64 1073741824
   %14 = getelementptr inbounds nuw i8, ptr %.020, i64 1073741824
   %15 = icmp ugt i64 %12, 1073741823
-  br i1 %15, label %11, label %._crit_edge, !llvm.loop !22
+  br i1 %15, label %11, label %._crit_edge, !llvm.loop !21
 
 ._crit_edge:                                      ; preds = %11, %4
   %.017.lcssa = phi ptr [ %2, %4 ], [ %13, %11 ]
@@ -171,8 +171,8 @@ define internal noundef i32 @cipher_hw_rc2_ofb64_cipher(ptr noundef %0, ptr noun
   br label %18
 
 18:                                               ; preds = %16, %._crit_edge
-  %19 = load i32, ptr %5, align 4, !tbaa !21
-  store i32 %19, ptr %6, align 8, !tbaa !20
+  %19 = load i32, ptr %5, align 4, !tbaa !20
+  store i32 %19, ptr %6, align 8, !tbaa !19
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #5
   ret i32 1
 }
@@ -185,8 +185,8 @@ define internal noundef i32 @cipher_hw_rc2_cfb64_cipher(ptr noundef %0, ptr noun
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 192
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #5
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 160
-  %8 = load i32, ptr %7, align 8, !tbaa !20
-  store i32 %8, ptr %5, align 4, !tbaa !21
+  %8 = load i32, ptr %7, align 8, !tbaa !19
+  store i32 %8, ptr %5, align 4, !tbaa !20
   %.not = icmp eq i64 %3, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
@@ -211,15 +211,15 @@ define internal noundef i32 @cipher_hw_rc2_cfb64_cipher(ptr noundef %0, ptr noun
   %18 = getelementptr inbounds nuw i8, ptr %.032, i64 %.131
   %spec.select28 = call i64 @llvm.umin.i64(i64 %16, i64 %.131)
   %.not33 = icmp eq i64 %16, 0
-  br i1 %.not33, label %._crit_edge.loopexit, label %11, !llvm.loop !23
+  br i1 %.not33, label %._crit_edge.loopexit, label %11, !llvm.loop !22
 
 ._crit_edge.loopexit:                             ; preds = %11
-  %.pre = load i32, ptr %5, align 4, !tbaa !21
+  %.pre = load i32, ptr %5, align 4, !tbaa !20
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %4
   %19 = phi i32 [ %.pre, %._crit_edge.loopexit ], [ %8, %4 ]
-  store i32 %19, ptr %7, align 8, !tbaa !20
+  store i32 %19, ptr %7, align 8, !tbaa !19
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #5
   ret i32 1
 }
@@ -253,12 +253,11 @@ attributes #5 = { nounwind }
 !12 = !{!"p1 _ZTS15ossl_lib_ctx_st", !7, i64 0}
 !13 = !{!14, !9, i64 448}
 !14 = !{!"prov_rc2_ctx_st", !4, i64 0, !5, i64 192, !9, i64 448}
-!15 = distinct !{!15, !16, !17}
+!15 = distinct !{!15, !16}
 !16 = !{!"llvm.loop.mustprogress"}
-!17 = !{!"llvm.loop.estimated_trip_count"}
-!18 = !{!4, !9, i64 88}
-!19 = distinct !{!19, !16, !17}
-!20 = !{!4, !8, i64 160}
-!21 = !{!8, !8, i64 0}
-!22 = distinct !{!22, !16, !17}
-!23 = distinct !{!23, !16, !17}
+!17 = !{!4, !9, i64 88}
+!18 = distinct !{!18, !16}
+!19 = !{!4, !8, i64 160}
+!20 = !{!8, !8, i64 0}
+!21 = distinct !{!21, !16}
+!22 = distinct !{!22, !16}

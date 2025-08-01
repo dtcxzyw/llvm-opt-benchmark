@@ -1077,7 +1077,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit172: ; preds = %_Z
   %359 = getelementptr inbounds i8, ptr %358, i64 -96
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %359) #14
   %360 = icmp eq ptr %359, %18
-  br i1 %360, label %361, label %357, !llvm.loop !60
+  br i1 %360, label %361, label %357
 
 361:                                              ; preds = %357
   call void @llvm.lifetime.end.p0(i64 192, ptr nonnull %18) #14
@@ -1090,7 +1090,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit172: ; preds = %_Z
   %364 = getelementptr inbounds i8, ptr %363, i64 -96
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %364) #14
   %365 = icmp eq ptr %364, %18
-  br i1 %365, label %.loopexit, label %362, !llvm.loop !62
+  br i1 %365, label %.loopexit, label %362
 
 .loopexit:                                        ; preds = %362, %.body156, %.body156.thread
   %.pn114.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %160, %.body156.thread ], [ %.pn79, %.body156 ], [ %.pn114.pn.pn.pn.pn.pn.pn.pn, %362 ]
@@ -1307,7 +1307,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZN2
 21:                                               ; preds = %18
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %3) #14
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %23 = load i32, ptr %22, align 4, !tbaa !63
+  %23 = load i32, ptr %22, align 4, !tbaa !60
   call void @_ZNK2cv3Mat7reshapeEiiPKi(ptr dead_on_unwind nonnull writable sret(%"class.cv::Mat") align 8 %3, ptr noundef nonnull align 8 dereferenceable(96) %1, i32 noundef 1, i32 noundef %23, ptr noundef null)
   %24 = invoke noundef nonnull align 8 dereferenceable(96) ptr @_ZN2cv4Mat_IfEaSEONS_3MatE(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull align 8 dereferenceable(96) %3)
           to label %25 unwind label %26
@@ -1433,7 +1433,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZN2
 19:                                               ; preds = %16
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %3) #14
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %21 = load i32, ptr %20, align 4, !tbaa !63
+  %21 = load i32, ptr %20, align 4, !tbaa !60
   call void @_ZNK2cv3Mat7reshapeEiiPKi(ptr dead_on_unwind nonnull writable sret(%"class.cv::Mat") align 8 %3, ptr noundef nonnull align 8 dereferenceable(96) %1, i32 noundef 1, i32 noundef %21, ptr noundef null)
   %22 = invoke noundef nonnull align 8 dereferenceable(96) ptr @_ZN2cv3MataSEOS0_(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull align 8 dereferenceable(96) %3)
           to label %23 unwind label %24
@@ -1558,7 +1558,4 @@ attributes #16 = { builtin nounwind }
 !57 = !{!56, !22, i64 4}
 !58 = !{!56, !22, i64 8}
 !59 = !{!56, !22, i64 12}
-!60 = distinct !{!60, !61}
-!61 = !{!"llvm.loop.estimated_trip_count"}
-!62 = distinct !{!62, !61}
-!63 = !{!21, !22, i64 4}
+!60 = !{!21, !22, i64 4}

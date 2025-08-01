@@ -2261,7 +2261,7 @@ Py_DECREF.exit79.i:                               ; preds = %Py_DECREF.exit79.i.
   %61 = getelementptr i8, ptr %56, i64 %.051.i
   %62 = load i8, ptr %61, align 1, !tbaa !9
   %63 = icmp eq i8 %62, 10
-  br i1 %63, label %.loopexit.i, label %58, !llvm.loop !47
+  br i1 %63, label %.loopexit.i, label %58
 
 .preheader134.i:                                  ; preds = %55, %64
   %.2.i = phi i64 [ %65, %64 ], [ 0, %55 ]
@@ -2273,7 +2273,7 @@ Py_DECREF.exit79.i:                               ; preds = %Py_DECREF.exit79.i.
   %66 = getelementptr i8, ptr %56, i64 %.2.i
   %67 = load i8, ptr %66, align 1, !tbaa !9
   %68 = icmp eq i8 %67, 10
-  br i1 %68, label %.loopexit.i, label %.preheader134.i, !llvm.loop !49
+  br i1 %68, label %.loopexit.i, label %.preheader134.i
 
 .loopexit.i:                                      ; preds = %64, %.preheader134.i, %59, %58, %52
   %.256.i = phi i64 [ 1, %52 ], [ %57, %58 ], [ %60, %59 ], [ %.val96.i, %.preheader134.i ], [ %65, %64 ]
@@ -2371,7 +2371,7 @@ Py_DECREF.exit83.i:                               ; preds = %73, %70, %.loopexit
   br i1 %.not.i107.i, label %PyByteArray_AS_STRING.exit.i, label %110
 
 110:                                              ; preds = %109
-  %111 = load ptr, ptr %23, align 8, !tbaa !50
+  %111 = load ptr, ptr %23, align 8, !tbaa !47
   br label %PyByteArray_AS_STRING.exit.i
 
 PyByteArray_AS_STRING.exit.i:                     ; preds = %110, %109
@@ -2400,7 +2400,7 @@ Py_DECREF.exit73.i:                               ; preds = %118, %115, %PyByteA
   br i1 %.not.i109.i, label %PyByteArray_AS_STRING.exit111.i, label %119
 
 119:                                              ; preds = %Py_DECREF.exit73.i
-  %120 = load ptr, ptr %23, align 8, !tbaa !50
+  %120 = load ptr, ptr %23, align 8, !tbaa !47
   br label %PyByteArray_AS_STRING.exit111.i
 
 PyByteArray_AS_STRING.exit111.i:                  ; preds = %119, %Py_DECREF.exit73.i
@@ -2424,7 +2424,7 @@ Py_DECREF.exit79.thread128.i:                     ; preds = %31, %Py_DECREF.exit
   br i1 %.not.i113.i, label %PyByteArray_AS_STRING.exit115.i, label %125
 
 125:                                              ; preds = %Py_DECREF.exit79.thread128.i
-  %126 = load ptr, ptr %23, align 8, !tbaa !50
+  %126 = load ptr, ptr %23, align 8, !tbaa !47
   br label %PyByteArray_AS_STRING.exit115.i
 
 PyByteArray_AS_STRING.exit115.i:                  ; preds = %125, %Py_DECREF.exit79.thread128.i
@@ -2764,7 +2764,7 @@ iobase_check_closed.exit:                         ; preds = %2, %Py_DECREF.exit.
 33:                                               ; preds = %30
   %34 = call i32 @_PyIO_trap_eintr() #6
   %.not18 = icmp eq i32 %34, 0
-  br i1 %.not18, label %.critedge, label %30, !llvm.loop !52
+  br i1 %.not18, label %.critedge, label %30, !llvm.loop !49
 
 .critedge:                                        ; preds = %33
   %35 = load i32, ptr %22, align 8, !tbaa !9
@@ -3346,10 +3346,7 @@ attributes #6 = { nounwind }
 !44 = !{!18, !19, i64 16}
 !45 = !{!19, !19, i64 0}
 !46 = !{!17, !20, i64 24}
-!47 = distinct !{!47, !48}
-!48 = !{!"llvm.loop.estimated_trip_count"}
-!49 = distinct !{!49, !48}
-!50 = !{!51, !20, i64 40}
-!51 = !{!"", !18, i64 0, !19, i64 24, !20, i64 32, !20, i64 40, !19, i64 48}
-!52 = distinct !{!52, !53, !48}
-!53 = !{!"llvm.loop.mustprogress"}
+!47 = !{!48, !20, i64 40}
+!48 = !{!"", !18, i64 0, !19, i64 24, !20, i64 32, !20, i64 40, !19, i64 48}
+!49 = distinct !{!49, !50}
+!50 = !{!"llvm.loop.mustprogress"}

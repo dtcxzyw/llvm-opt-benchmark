@@ -370,22 +370,22 @@ _ZNK4llvm13CodeGenTarget26getInstructionsByEnumValueEv.exit: ; preds = %_ZN4llvm
   %100 = add i16 %.sroa.7.084, 1
   %101 = getelementptr inbounds nuw i8, ptr %.sroa.058.083, i64 8
   %.not = icmp eq ptr %101, %94
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !50
+  br i1 %.not, label %._crit_edge, label %.lr.ph
 
 102:                                              ; preds = %._crit_edge
   %103 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %104 = load ptr, ptr %103, align 8, !tbaa !52
+  %104 = load ptr, ptr %103, align 8, !tbaa !50
   %105 = getelementptr inbounds nuw i8, ptr %104, i64 8
-  %106 = load ptr, ptr %105, align 8, !tbaa !106
+  %106 = load ptr, ptr %105, align 8, !tbaa !104
   %107 = getelementptr inbounds nuw i8, ptr %104, i64 16
-  %108 = load i32, ptr %107, align 8, !tbaa !107
+  %108 = load i32, ptr %107, align 8, !tbaa !105
   %109 = zext i32 %108 to i64
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %10) #11
   %110 = getelementptr inbounds nuw i8, ptr %10, i64 32
   %111 = getelementptr inbounds nuw i8, ptr %10, i64 33
-  store i8 1, ptr %111, align 1, !tbaa !108
+  store i8 1, ptr %111, align 1, !tbaa !106
   store ptr @.str.8, ptr %10, align 8, !tbaa !15
-  store i8 3, ptr %110, align 8, !tbaa !111
+  store i8 3, ptr %110, align 8, !tbaa !109
   call void @_ZN4llvm10PrintErrorENS_8ArrayRefINS_5SMLocEEERKNS_5TwineE(ptr %106, i64 %109, ptr noundef nonnull align 8 dereferenceable(34) %10) #11
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %10) #11
   br label %113
@@ -527,15 +527,15 @@ define linkonce_odr hidden void @_ZN4llvm12function_refIFvRKNS_12RecordKeeperERN
 ; Function Attrs: nounwind uwtable
 define internal void @_GLOBAL__sub_I_DisassemblerEmitter.cpp() #7 section ".text.startup" {
   %1 = alloca %"class.llvm::StringRef", align 8
-  store ptr @.str, ptr @DisassemblerEmitterCat, align 8, !tbaa !112
+  store ptr @.str, ptr @DisassemblerEmitterCat, align 8, !tbaa !110
   store i64 29, ptr getelementptr inbounds nuw (i8, ptr @DisassemblerEmitterCat, i64 8), align 8, !tbaa !16
-  store ptr @.str.1, ptr getelementptr inbounds nuw (i8, ptr @DisassemblerEmitterCat, i64 16), align 8, !tbaa !112
+  store ptr @.str.1, ptr getelementptr inbounds nuw (i8, ptr @DisassemblerEmitterCat, i64 16), align 8, !tbaa !110
   store i64 0, ptr getelementptr inbounds nuw (i8, ptr @DisassemblerEmitterCat, i64 24), align 8, !tbaa !16
   tail call void @_ZN4llvm2cl14OptionCategory16registerCategoryEv(ptr noundef nonnull align 8 dereferenceable(32) @DisassemblerEmitterCat) #11
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %1)
-  store ptr @.str.4, ptr %1, align 8, !tbaa !113
+  store ptr @.str.4, ptr %1, align 8, !tbaa !111
   %2 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i64 21, ptr %2, align 8, !tbaa !114
+  store i64 21, ptr %2, align 8, !tbaa !112
   tail call void @_ZN4llvm8TableGen7Emitter3OptC1ENS_9StringRefENS_12function_refIFvRKNS_12RecordKeeperERNS_11raw_ostreamEEEES3_b(ptr noundef nonnull align 1 dereferenceable(1) @_ZL1X, ptr nonnull @.str.3, i64 16, ptr nonnull @_ZN4llvm12function_refIFvRKNS_12RecordKeeperERNS_11raw_ostreamEEE11callback_fnIS6_EEvlS3_S5_, i64 ptrtoint (ptr @_ZL16emitDisassemblerRKN4llvm12RecordKeeperERNS_11raw_ostreamE to i64), ptr noundef nonnull byval(%"class.llvm::StringRef") align 8 %1, i1 noundef zeroext false) #11
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %1)
   ret void
@@ -617,68 +617,66 @@ attributes #13 = { builtin nounwind }
 !47 = !{}
 !48 = !{!49, !49, i64 0}
 !49 = !{!"p1 _ZTSN4llvm18CodeGenInstructionE", !9, i64 0}
-!50 = distinct !{!50, !51}
-!51 = !{!"llvm.loop.estimated_trip_count"}
-!52 = !{!53, !55, i64 8}
-!53 = !{!"_ZTSN4llvm13CodeGenTargetE", !54, i64 0, !55, i64 8, !56, i64 16, !59, i64 40, !66, i64 48, !68, i64 64, !74, i64 528, !66, i64 632, !45, i64 648, !87, i64 656, !94, i64 664, !95, i64 680, !98, i64 704, !58, i64 760}
-!54 = !{!"p1 _ZTSN4llvm12RecordKeeperE", !9, i64 0}
-!55 = !{!"p1 _ZTSN4llvm6RecordE", !9, i64 0}
-!56 = !{!"_ZTSN4llvm8DenseMapIPKNS_6RecordESt10unique_ptrINS_18CodeGenInstructionESt14default_deleteIS5_EENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S8_EEEE", !57, i64 0, !58, i64 8, !58, i64 12, !58, i64 16}
-!57 = !{!"p1 _ZTSN4llvm6detail12DenseMapPairIPKNS_6RecordESt10unique_ptrINS_18CodeGenInstructionESt14default_deleteIS6_EEEE", !9, i64 0}
-!58 = !{!"int", !10, i64 0}
-!59 = !{!"_ZTSSt10unique_ptrIN4llvm14CodeGenRegBankESt14default_deleteIS1_EE", !60, i64 0}
-!60 = !{!"_ZTSSt15__uniq_ptr_dataIN4llvm14CodeGenRegBankESt14default_deleteIS1_ELb1ELb1EE", !61, i64 0}
-!61 = !{!"_ZTSSt15__uniq_ptr_implIN4llvm14CodeGenRegBankESt14default_deleteIS1_EE", !62, i64 0}
-!62 = !{!"_ZTSSt5tupleIJPN4llvm14CodeGenRegBankESt14default_deleteIS1_EEE", !63, i64 0}
-!63 = !{!"_ZTSSt11_Tuple_implILm0EJPN4llvm14CodeGenRegBankESt14default_deleteIS1_EEE", !64, i64 0}
-!64 = !{!"_ZTSSt10_Head_baseILm0EPN4llvm14CodeGenRegBankELb0EE", !65, i64 0}
-!65 = !{!"p1 _ZTSN4llvm14CodeGenRegBankE", !9, i64 0}
-!66 = !{!"_ZTSN4llvm8ArrayRefIPKNS_6RecordEEE", !67, i64 0, !14, i64 8}
-!67 = !{!"p2 _ZTSN4llvm6RecordE", !9, i64 0}
-!68 = !{!"_ZTSN4llvm11SmallVectorINS_17ValueTypeByHwModeELj8EEE", !69, i64 0, !73, i64 16}
-!69 = !{!"_ZTSN4llvm15SmallVectorImplINS_17ValueTypeByHwModeEEE", !70, i64 0}
-!70 = !{!"_ZTSN4llvm23SmallVectorTemplateBaseINS_17ValueTypeByHwModeELb0EEE", !71, i64 0}
-!71 = !{!"_ZTSN4llvm25SmallVectorTemplateCommonINS_17ValueTypeByHwModeEvEE", !72, i64 0}
-!72 = !{!"_ZTSN4llvm15SmallVectorBaseIjEE", !9, i64 0, !58, i64 8, !58, i64 12}
-!73 = !{!"_ZTSN4llvm18SmallVectorStorageINS_17ValueTypeByHwModeELj8EEE", !10, i64 0}
-!74 = !{!"_ZTSN4llvm14CodeGenHwModesE", !54, i64 0, !75, i64 8, !77, i64 32, !82, i64 56}
-!75 = !{!"_ZTSN4llvm8DenseMapIPKNS_6RecordEjNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEE", !76, i64 0, !58, i64 8, !58, i64 12, !58, i64 16}
-!76 = !{!"p1 _ZTSN4llvm6detail12DenseMapPairIPKNS_6RecordEjEE", !9, i64 0}
-!77 = !{!"_ZTSSt6vectorIN4llvm6HwModeESaIS1_EE", !78, i64 0}
-!78 = !{!"_ZTSSt12_Vector_baseIN4llvm6HwModeESaIS1_EE", !79, i64 0}
-!79 = !{!"_ZTSNSt12_Vector_baseIN4llvm6HwModeESaIS1_EE12_Vector_implE", !80, i64 0}
-!80 = !{!"_ZTSNSt12_Vector_baseIN4llvm6HwModeESaIS1_EE17_Vector_impl_dataE", !81, i64 0, !81, i64 8, !81, i64 16}
-!81 = !{!"p1 _ZTSN4llvm6HwModeE", !9, i64 0}
-!82 = !{!"_ZTSSt3mapIPKN4llvm6RecordENS0_12HwModeSelectESt4lessIS3_ESaISt4pairIKS3_S4_EEE", !83, i64 0}
-!83 = !{!"_ZTSSt8_Rb_treeIPKN4llvm6RecordESt4pairIKS3_NS0_12HwModeSelectEESt10_Select1stIS7_ESt4lessIS3_ESaIS7_EE", !84, i64 0}
-!84 = !{!"_ZTSNSt8_Rb_treeIPKN4llvm6RecordESt4pairIKS3_NS0_12HwModeSelectEESt10_Select1stIS7_ESt4lessIS3_ESaIS7_EE13_Rb_tree_implISB_Lb1EEE", !85, i64 0, !36, i64 8}
-!85 = !{!"_ZTSSt20_Rb_tree_key_compareISt4lessIPKN4llvm6RecordEEE", !86, i64 0}
-!86 = !{!"_ZTSSt4lessIPKN4llvm6RecordEE"}
-!87 = !{!"_ZTSSt10unique_ptrIN4llvm18CodeGenSchedModelsESt14default_deleteIS1_EE", !88, i64 0}
-!88 = !{!"_ZTSSt15__uniq_ptr_dataIN4llvm18CodeGenSchedModelsESt14default_deleteIS1_ELb1ELb1EE", !89, i64 0}
-!89 = !{!"_ZTSSt15__uniq_ptr_implIN4llvm18CodeGenSchedModelsESt14default_deleteIS1_EE", !90, i64 0}
-!90 = !{!"_ZTSSt5tupleIJPN4llvm18CodeGenSchedModelsESt14default_deleteIS1_EEE", !91, i64 0}
-!91 = !{!"_ZTSSt11_Tuple_implILm0EJPN4llvm18CodeGenSchedModelsESt14default_deleteIS1_EEE", !92, i64 0}
-!92 = !{!"_ZTSSt10_Head_baseILm0EPN4llvm18CodeGenSchedModelsELb0EE", !93, i64 0}
-!93 = !{!"p1 _ZTSN4llvm18CodeGenSchedModelsE", !9, i64 0}
-!94 = !{!"_ZTSN4llvm9StringRefE", !8, i64 0, !14, i64 8}
-!95 = !{!"_ZTSSt6vectorIPKN4llvm18CodeGenInstructionESaIS3_EE", !96, i64 0}
-!96 = !{!"_ZTSSt12_Vector_baseIPKN4llvm18CodeGenInstructionESaIS3_EE", !97, i64 0}
-!97 = !{!"_ZTSNSt12_Vector_baseIPKN4llvm18CodeGenInstructionESaIS3_EE12_Vector_implE", !27, i64 0}
-!98 = !{!"_ZTSN4llvm19CodeGenIntrinsicMapE", !99, i64 0, !101, i64 24}
-!99 = !{!"_ZTSN4llvm8DenseMapIPKNS_6RecordESt10unique_ptrINS_16CodeGenIntrinsicESt14default_deleteIS5_EENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S8_EEEE", !100, i64 0, !58, i64 8, !58, i64 12, !58, i64 16}
-!100 = !{!"p1 _ZTSN4llvm6detail12DenseMapPairIPKNS_6RecordESt10unique_ptrINS_16CodeGenIntrinsicESt14default_deleteIS6_EEEE", !9, i64 0}
-!101 = !{!"_ZTSN4llvm23CodeGenIntrinsicContextE", !102, i64 0, !58, i64 24}
-!102 = !{!"_ZTSSt6vectorIPKN4llvm6RecordESaIS3_EE", !103, i64 0}
-!103 = !{!"_ZTSSt12_Vector_baseIPKN4llvm6RecordESaIS3_EE", !104, i64 0}
-!104 = !{!"_ZTSNSt12_Vector_baseIPKN4llvm6RecordESaIS3_EE12_Vector_implE", !105, i64 0}
-!105 = !{!"_ZTSNSt12_Vector_baseIPKN4llvm6RecordESaIS3_EE17_Vector_impl_dataE", !67, i64 0, !67, i64 8, !67, i64 16}
-!106 = !{!72, !9, i64 0}
-!107 = !{!72, !58, i64 8}
-!108 = !{!109, !110, i64 33}
-!109 = !{!"_ZTSN4llvm5TwineE", !10, i64 0, !10, i64 16, !110, i64 32, !110, i64 33}
-!110 = !{!"_ZTSN4llvm5Twine8NodeKindE", !10, i64 0}
-!111 = !{!109, !110, i64 32}
-!112 = !{!8, !8, i64 0}
-!113 = !{!94, !8, i64 0}
-!114 = !{!94, !14, i64 8}
+!50 = !{!51, !53, i64 8}
+!51 = !{!"_ZTSN4llvm13CodeGenTargetE", !52, i64 0, !53, i64 8, !54, i64 16, !57, i64 40, !64, i64 48, !66, i64 64, !72, i64 528, !64, i64 632, !45, i64 648, !85, i64 656, !92, i64 664, !93, i64 680, !96, i64 704, !56, i64 760}
+!52 = !{!"p1 _ZTSN4llvm12RecordKeeperE", !9, i64 0}
+!53 = !{!"p1 _ZTSN4llvm6RecordE", !9, i64 0}
+!54 = !{!"_ZTSN4llvm8DenseMapIPKNS_6RecordESt10unique_ptrINS_18CodeGenInstructionESt14default_deleteIS5_EENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S8_EEEE", !55, i64 0, !56, i64 8, !56, i64 12, !56, i64 16}
+!55 = !{!"p1 _ZTSN4llvm6detail12DenseMapPairIPKNS_6RecordESt10unique_ptrINS_18CodeGenInstructionESt14default_deleteIS6_EEEE", !9, i64 0}
+!56 = !{!"int", !10, i64 0}
+!57 = !{!"_ZTSSt10unique_ptrIN4llvm14CodeGenRegBankESt14default_deleteIS1_EE", !58, i64 0}
+!58 = !{!"_ZTSSt15__uniq_ptr_dataIN4llvm14CodeGenRegBankESt14default_deleteIS1_ELb1ELb1EE", !59, i64 0}
+!59 = !{!"_ZTSSt15__uniq_ptr_implIN4llvm14CodeGenRegBankESt14default_deleteIS1_EE", !60, i64 0}
+!60 = !{!"_ZTSSt5tupleIJPN4llvm14CodeGenRegBankESt14default_deleteIS1_EEE", !61, i64 0}
+!61 = !{!"_ZTSSt11_Tuple_implILm0EJPN4llvm14CodeGenRegBankESt14default_deleteIS1_EEE", !62, i64 0}
+!62 = !{!"_ZTSSt10_Head_baseILm0EPN4llvm14CodeGenRegBankELb0EE", !63, i64 0}
+!63 = !{!"p1 _ZTSN4llvm14CodeGenRegBankE", !9, i64 0}
+!64 = !{!"_ZTSN4llvm8ArrayRefIPKNS_6RecordEEE", !65, i64 0, !14, i64 8}
+!65 = !{!"p2 _ZTSN4llvm6RecordE", !9, i64 0}
+!66 = !{!"_ZTSN4llvm11SmallVectorINS_17ValueTypeByHwModeELj8EEE", !67, i64 0, !71, i64 16}
+!67 = !{!"_ZTSN4llvm15SmallVectorImplINS_17ValueTypeByHwModeEEE", !68, i64 0}
+!68 = !{!"_ZTSN4llvm23SmallVectorTemplateBaseINS_17ValueTypeByHwModeELb0EEE", !69, i64 0}
+!69 = !{!"_ZTSN4llvm25SmallVectorTemplateCommonINS_17ValueTypeByHwModeEvEE", !70, i64 0}
+!70 = !{!"_ZTSN4llvm15SmallVectorBaseIjEE", !9, i64 0, !56, i64 8, !56, i64 12}
+!71 = !{!"_ZTSN4llvm18SmallVectorStorageINS_17ValueTypeByHwModeELj8EEE", !10, i64 0}
+!72 = !{!"_ZTSN4llvm14CodeGenHwModesE", !52, i64 0, !73, i64 8, !75, i64 32, !80, i64 56}
+!73 = !{!"_ZTSN4llvm8DenseMapIPKNS_6RecordEjNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEE", !74, i64 0, !56, i64 8, !56, i64 12, !56, i64 16}
+!74 = !{!"p1 _ZTSN4llvm6detail12DenseMapPairIPKNS_6RecordEjEE", !9, i64 0}
+!75 = !{!"_ZTSSt6vectorIN4llvm6HwModeESaIS1_EE", !76, i64 0}
+!76 = !{!"_ZTSSt12_Vector_baseIN4llvm6HwModeESaIS1_EE", !77, i64 0}
+!77 = !{!"_ZTSNSt12_Vector_baseIN4llvm6HwModeESaIS1_EE12_Vector_implE", !78, i64 0}
+!78 = !{!"_ZTSNSt12_Vector_baseIN4llvm6HwModeESaIS1_EE17_Vector_impl_dataE", !79, i64 0, !79, i64 8, !79, i64 16}
+!79 = !{!"p1 _ZTSN4llvm6HwModeE", !9, i64 0}
+!80 = !{!"_ZTSSt3mapIPKN4llvm6RecordENS0_12HwModeSelectESt4lessIS3_ESaISt4pairIKS3_S4_EEE", !81, i64 0}
+!81 = !{!"_ZTSSt8_Rb_treeIPKN4llvm6RecordESt4pairIKS3_NS0_12HwModeSelectEESt10_Select1stIS7_ESt4lessIS3_ESaIS7_EE", !82, i64 0}
+!82 = !{!"_ZTSNSt8_Rb_treeIPKN4llvm6RecordESt4pairIKS3_NS0_12HwModeSelectEESt10_Select1stIS7_ESt4lessIS3_ESaIS7_EE13_Rb_tree_implISB_Lb1EEE", !83, i64 0, !36, i64 8}
+!83 = !{!"_ZTSSt20_Rb_tree_key_compareISt4lessIPKN4llvm6RecordEEE", !84, i64 0}
+!84 = !{!"_ZTSSt4lessIPKN4llvm6RecordEE"}
+!85 = !{!"_ZTSSt10unique_ptrIN4llvm18CodeGenSchedModelsESt14default_deleteIS1_EE", !86, i64 0}
+!86 = !{!"_ZTSSt15__uniq_ptr_dataIN4llvm18CodeGenSchedModelsESt14default_deleteIS1_ELb1ELb1EE", !87, i64 0}
+!87 = !{!"_ZTSSt15__uniq_ptr_implIN4llvm18CodeGenSchedModelsESt14default_deleteIS1_EE", !88, i64 0}
+!88 = !{!"_ZTSSt5tupleIJPN4llvm18CodeGenSchedModelsESt14default_deleteIS1_EEE", !89, i64 0}
+!89 = !{!"_ZTSSt11_Tuple_implILm0EJPN4llvm18CodeGenSchedModelsESt14default_deleteIS1_EEE", !90, i64 0}
+!90 = !{!"_ZTSSt10_Head_baseILm0EPN4llvm18CodeGenSchedModelsELb0EE", !91, i64 0}
+!91 = !{!"p1 _ZTSN4llvm18CodeGenSchedModelsE", !9, i64 0}
+!92 = !{!"_ZTSN4llvm9StringRefE", !8, i64 0, !14, i64 8}
+!93 = !{!"_ZTSSt6vectorIPKN4llvm18CodeGenInstructionESaIS3_EE", !94, i64 0}
+!94 = !{!"_ZTSSt12_Vector_baseIPKN4llvm18CodeGenInstructionESaIS3_EE", !95, i64 0}
+!95 = !{!"_ZTSNSt12_Vector_baseIPKN4llvm18CodeGenInstructionESaIS3_EE12_Vector_implE", !27, i64 0}
+!96 = !{!"_ZTSN4llvm19CodeGenIntrinsicMapE", !97, i64 0, !99, i64 24}
+!97 = !{!"_ZTSN4llvm8DenseMapIPKNS_6RecordESt10unique_ptrINS_16CodeGenIntrinsicESt14default_deleteIS5_EENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S8_EEEE", !98, i64 0, !56, i64 8, !56, i64 12, !56, i64 16}
+!98 = !{!"p1 _ZTSN4llvm6detail12DenseMapPairIPKNS_6RecordESt10unique_ptrINS_16CodeGenIntrinsicESt14default_deleteIS6_EEEE", !9, i64 0}
+!99 = !{!"_ZTSN4llvm23CodeGenIntrinsicContextE", !100, i64 0, !56, i64 24}
+!100 = !{!"_ZTSSt6vectorIPKN4llvm6RecordESaIS3_EE", !101, i64 0}
+!101 = !{!"_ZTSSt12_Vector_baseIPKN4llvm6RecordESaIS3_EE", !102, i64 0}
+!102 = !{!"_ZTSNSt12_Vector_baseIPKN4llvm6RecordESaIS3_EE12_Vector_implE", !103, i64 0}
+!103 = !{!"_ZTSNSt12_Vector_baseIPKN4llvm6RecordESaIS3_EE17_Vector_impl_dataE", !65, i64 0, !65, i64 8, !65, i64 16}
+!104 = !{!70, !9, i64 0}
+!105 = !{!70, !56, i64 8}
+!106 = !{!107, !108, i64 33}
+!107 = !{!"_ZTSN4llvm5TwineE", !10, i64 0, !10, i64 16, !108, i64 32, !108, i64 33}
+!108 = !{!"_ZTSN4llvm5Twine8NodeKindE", !10, i64 0}
+!109 = !{!107, !108, i64 32}
+!110 = !{!8, !8, i64 0}
+!111 = !{!92, !8, i64 0}
+!112 = !{!92, !14, i64 8}

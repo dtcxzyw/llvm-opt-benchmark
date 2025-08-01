@@ -725,40 +725,40 @@ define weak_odr void @_ZN5boost7archive21basic_text_oprimitiveISoE11save_binaryE
   %25 = load ptr, ptr %0, align 8, !tbaa !3
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 %2
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #14
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4), !noalias !46
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5), !noalias !46
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6), !noalias !46
-  store ptr %1, ptr %4, align 8, !tbaa !53, !noalias !55
+  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4), !noalias !45
+  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5), !noalias !45
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6), !noalias !45
+  store ptr %1, ptr %4, align 8, !tbaa !52, !noalias !54
   %27 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store i8 0, ptr %27, align 8, !tbaa !58, !noalias !55
+  store i8 0, ptr %27, align 8, !tbaa !57, !noalias !54
   %28 = getelementptr inbounds nuw i8, ptr %4, i64 9
-  store i8 0, ptr %28, align 1, !tbaa !60, !noalias !55
+  store i8 0, ptr %28, align 1, !tbaa !59, !noalias !54
   %29 = getelementptr inbounds nuw i8, ptr %4, i64 10
-  store i8 0, ptr %29, align 2, !tbaa !61, !noalias !55
+  store i8 0, ptr %29, align 2, !tbaa !60, !noalias !54
   %30 = getelementptr inbounds nuw i8, ptr %4, i64 12
-  store i32 0, ptr %30, align 4, !tbaa !62, !noalias !55
+  store i32 0, ptr %30, align 4, !tbaa !61, !noalias !54
   %31 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store i8 0, ptr %31, align 8, !tbaa !63, !noalias !55
+  store i8 0, ptr %31, align 8, !tbaa !62, !noalias !54
   %32 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  store i32 0, ptr %32, align 8, !tbaa !64, !noalias !55
-  store ptr %26, ptr %5, align 8, !tbaa !53, !noalias !55
+  store i32 0, ptr %32, align 8, !tbaa !63, !noalias !54
+  store ptr %26, ptr %5, align 8, !tbaa !52, !noalias !54
   %33 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store i8 0, ptr %33, align 8, !tbaa !58, !noalias !55
+  store i8 0, ptr %33, align 8, !tbaa !57, !noalias !54
   %34 = getelementptr inbounds nuw i8, ptr %5, i64 9
-  store i8 0, ptr %34, align 1, !tbaa !60, !noalias !55
+  store i8 0, ptr %34, align 1, !tbaa !59, !noalias !54
   %35 = getelementptr inbounds nuw i8, ptr %5, i64 10
-  store i8 0, ptr %35, align 2, !tbaa !61, !noalias !55
+  store i8 0, ptr %35, align 2, !tbaa !60, !noalias !54
   %36 = getelementptr inbounds nuw i8, ptr %5, i64 12
-  store i32 0, ptr %36, align 4, !tbaa !62, !noalias !55
+  store i32 0, ptr %36, align 4, !tbaa !61, !noalias !54
   %37 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store i8 0, ptr %37, align 8, !tbaa !63, !noalias !55
+  store i8 0, ptr %37, align 8, !tbaa !62, !noalias !54
   %38 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  store i32 0, ptr %38, align 8, !tbaa !64, !noalias !55
-  store ptr %25, ptr %6, align 8, !tbaa !71, !noalias !55
+  store i32 0, ptr %38, align 8, !tbaa !63, !noalias !54
+  store ptr %25, ptr %6, align 8, !tbaa !70, !noalias !54
   call void @_ZNSt11__copy_moveILb0ELb0ESt18input_iterator_tagE8__copy_mIN5boost7archive9iterators17insert_linebreaksINS5_18base64_from_binaryINS5_15transform_widthIPKcLi6ELi8EcEEcEELi76ES9_EENS5_16ostream_iteratorIcEEEET0_T_SH_SG_(ptr dead_on_unwind nonnull writable sret(%"class.boost::archive::iterators::ostream_iterator") align 8 %8, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4), !noalias !46
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5), !noalias !46
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6), !noalias !46
+  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4), !noalias !45
+  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5), !noalias !45
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6), !noalias !45
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #14
   %39 = urem i64 %2, 3
   %.not = icmp eq i64 %39, 0
@@ -846,9 +846,9 @@ define linkonce_odr hidden void @_ZNSt6locale5_Impl19_M_remove_referenceEv(ptr n
   br i1 %.not1, label %6, label %3
 
 3:                                                ; preds = %1
-  %4 = load i32, ptr %0, align 8, !tbaa !73
+  %4 = load i32, ptr %0, align 8, !tbaa !72
   %5 = add nsw i32 %4, -1
-  store i32 %5, ptr %0, align 8, !tbaa !73
+  store i32 %5, ptr %0, align 8, !tbaa !72
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit
 
 6:                                                ; preds = %1
@@ -901,32 +901,32 @@ define linkonce_odr hidden void @_ZNSt11__copy_moveILb0ELb0ESt18input_iterator_t
   br i1 %13, label %_ZN5boost9iteratorsneINS_7archive9iterators17insert_linebreaksINS3_18base64_from_binaryINS3_15transform_widthIPKcLi6ELi8EcEEcEELi76ES7_EES7_NS0_25single_pass_traversal_tagES7_lSB_S7_SC_S7_lEENS0_6detail23enable_if_interoperableIT_T4_NS_3mpl6apply2INSD_12always_bool2ESF_SG_E4typeEE4typeERKNS0_15iterator_facadeISF_T0_T1_T2_T3_EERKNSO_ISG_T5_T6_T7_T8_EE.exit, label %_ZN5boost9iteratorsneINS_7archive9iterators17insert_linebreaksINS3_18base64_from_binaryINS3_15transform_widthIPKcLi6ELi8EcEEcEELi76ES7_EES7_NS0_25single_pass_traversal_tagES7_lSB_S7_SC_S7_lEENS0_6detail23enable_if_interoperableIT_T4_NS_3mpl6apply2INSD_12always_bool2ESF_SG_E4typeEE4typeERKNS0_15iterator_facadeISF_T0_T1_T2_T3_EERKNSO_ISG_T5_T6_T7_T8_EE.exit.thread
 
 _ZN5boost9iteratorsneINS_7archive9iterators17insert_linebreaksINS3_18base64_from_binaryINS3_15transform_widthIPKcLi6ELi8EcEEcEELi76ES7_EES7_NS0_25single_pass_traversal_tagES7_lSB_S7_SC_S7_lEENS0_6detail23enable_if_interoperableIT_T4_NS_3mpl6apply2INSD_12always_bool2ESF_SG_E4typeEE4typeERKNS0_15iterator_facadeISF_T0_T1_T2_T3_EERKNSO_ISG_T5_T6_T7_T8_EE.exit: ; preds = %10
-  store i8 1, ptr %5, align 8, !tbaa !63
-  %14 = load i32, ptr %6, align 4, !tbaa !62
+  store i8 1, ptr %5, align 8, !tbaa !62
+  %14 = load i32, ptr %6, align 4, !tbaa !61
   %.not = icmp eq i32 %14, 0
   br i1 %.not, label %83, label %_ZN5boost9iteratorsneINS_7archive9iterators17insert_linebreaksINS3_18base64_from_binaryINS3_15transform_widthIPKcLi6ELi8EcEEcEELi76ES7_EES7_NS0_25single_pass_traversal_tagES7_lSB_S7_SC_S7_lEENS0_6detail23enable_if_interoperableIT_T4_NS_3mpl6apply2INSD_12always_bool2ESF_SG_E4typeEE4typeERKNS0_15iterator_facadeISF_T0_T1_T2_T3_EERKNSO_ISG_T5_T6_T7_T8_EE.exit.thread
 
 _ZN5boost9iteratorsneINS_7archive9iterators17insert_linebreaksINS3_18base64_from_binaryINS3_15transform_widthIPKcLi6ELi8EcEEcEELi76ES7_EES7_NS0_25single_pass_traversal_tagES7_lSB_S7_SC_S7_lEENS0_6detail23enable_if_interoperableIT_T4_NS_3mpl6apply2INSD_12always_bool2ESF_SG_E4typeEE4typeERKNS0_15iterator_facadeISF_T0_T1_T2_T3_EERKNSO_ISG_T5_T6_T7_T8_EE.exit.thread: ; preds = %10, %_ZN5boost9iteratorsneINS_7archive9iterators17insert_linebreaksINS3_18base64_from_binaryINS3_15transform_widthIPKcLi6ELi8EcEEcEELi76ES7_EES7_NS0_25single_pass_traversal_tagES7_lSB_S7_SC_S7_lEENS0_6detail23enable_if_interoperableIT_T4_NS_3mpl6apply2INSD_12always_bool2ESF_SG_E4typeEE4typeERKNS0_15iterator_facadeISF_T0_T1_T2_T3_EERKNSO_ISG_T5_T6_T7_T8_EE.exit
-  %15 = load i32, ptr %7, align 8, !tbaa !64
+  %15 = load i32, ptr %7, align 8, !tbaa !63
   %16 = icmp eq i32 %15, 76
   br i1 %16, label %_ZNK5boost9iterators6detail20iterator_facade_baseINS_7archive9iterators17insert_linebreaksINS4_18base64_from_binaryINS4_15transform_widthIPKcLi6ELi8EcEEcEELi76ES8_EES8_NS0_25single_pass_traversal_tagES8_lLb0ELb0EEdeEv.exit, label %17
 
 17:                                               ; preds = %_ZN5boost9iteratorsneINS_7archive9iterators17insert_linebreaksINS3_18base64_from_binaryINS3_15transform_widthIPKcLi6ELi8EcEEcEELi76ES7_EES7_NS0_25single_pass_traversal_tagES7_lSB_S7_SC_S7_lEENS0_6detail23enable_if_interoperableIT_T4_NS_3mpl6apply2INSD_12always_bool2ESF_SG_E4typeEE4typeERKNS0_15iterator_facadeISF_T0_T1_T2_T3_EERKNSO_ISG_T5_T6_T7_T8_EE.exit.thread
-  %18 = load i8, ptr %8, align 8, !tbaa !58, !range !74, !noundef !75
+  %18 = load i8, ptr %8, align 8, !tbaa !57, !range !73, !noundef !74
   %19 = trunc nuw i8 %18 to i1
   br i1 %19, label %._crit_edge.i.i.i.i.i.i.i.i.i, label %20
 
 ._crit_edge.i.i.i.i.i.i.i.i.i:                    ; preds = %17
-  %.pre.i.i.i.i.i.i.i.i.i = load i8, ptr %.phi.trans.insert.i.i.i.i.i.i.i.i.i, align 1, !tbaa !60
+  %.pre.i.i.i.i.i.i.i.i.i = load i8, ptr %.phi.trans.insert.i.i.i.i.i.i.i.i.i, align 1, !tbaa !59
   br label %_ZNK5boost9iterators6detail20iterator_facade_baseINS0_18transform_iteratorINS_7archive9iterators6detail10from_6_bitIcEENS5_15transform_widthIPKcLi6ELi8EcEENS_11use_defaultESD_EEcNS0_25single_pass_traversal_tagEclLb0ELb0EEdeEv.exit.i.i.i
 
 20:                                               ; preds = %17
-  store i8 0, ptr %.phi.trans.insert.i.i.i.i.i.i.i.i.i, align 1, !tbaa !60
-  %.promoted.i.i.i.i.i.i.i.i.i.i = load i32, ptr %6, align 4, !tbaa !73
-  %21 = load i8, ptr %5, align 8, !range !74
+  store i8 0, ptr %.phi.trans.insert.i.i.i.i.i.i.i.i.i, align 1, !tbaa !59
+  %.promoted.i.i.i.i.i.i.i.i.i.i = load i32, ptr %6, align 4, !tbaa !72
+  %21 = load i8, ptr %5, align 8, !range !73
   %.fr20.i.i.i.i.i.i.i.i.i.i = freeze i8 %21
   %22 = trunc i8 %.fr20.i.i.i.i.i.i.i.i.i.i to i1
-  %.promoted16.i.i.i.i.i.i.i.i.i.i = load i8, ptr %9, align 2, !tbaa !61
+  %.promoted16.i.i.i.i.i.i.i.i.i.i = load i8, ptr %9, align 2, !tbaa !60
   br i1 %22, label %.split.us.i.i.i.i.i.i.i.i.i.i, label %.split.i.i.i.i.i.i.i.i.i.i
 
 .split.us.i.i.i.i.i.i.i.i.i.i:                    ; preds = %20, %28
@@ -938,7 +938,7 @@ _ZN5boost9iteratorsneINS_7archive9iterators17insert_linebreaksINS3_18base64_from
   br i1 %26, label %27, label %28
 
 27:                                               ; preds = %.split.us.i.i.i.i.i.i.i.i.i.i
-  store i8 0, ptr %9, align 2, !tbaa !61
+  store i8 0, ptr %9, align 2, !tbaa !60
   br label %28
 
 28:                                               ; preds = %27, %.split.us.i.i.i.i.i.i.i.i.i.i
@@ -956,12 +956,12 @@ _ZN5boost9iteratorsneINS_7archive9iterators17insert_linebreaksINS3_18base64_from
   %sext78.us.i.i.i.i.i.i.i.i.i.i = or i32 %35, %37
   %38 = sub i32 %.0.us.i.i.i.i.i.i.i.i.i.i, %.sroa.speculated.us.i.i.i.i.i.i.i.i.i.i
   %.not.not.us.i.i.i.i.i.i.i.i.i.i = icmp ugt i32 %.0.us.i.i.i.i.i.i.i.i.i.i, %30
-  br i1 %.not.not.us.i.i.i.i.i.i.i.i.i.i, label %.split.us.i.i.i.i.i.i.i.i.i.i, label %.split18.us.i.i.i.i.i.i.i.i.i.i, !llvm.loop !76
+  br i1 %.not.not.us.i.i.i.i.i.i.i.i.i.i, label %.split.us.i.i.i.i.i.i.i.i.i.i, label %.split18.us.i.i.i.i.i.i.i.i.i.i, !llvm.loop !75
 
 .split18.us.i.i.i.i.i.i.i.i.i.i:                  ; preds = %28
   %39 = trunc i32 %sext78.us.i.i.i.i.i.i.i.i.i.i to i8
-  store i32 %32, ptr %6, align 4, !tbaa !62
-  store i8 %39, ptr %.phi.trans.insert.i.i.i.i.i.i.i.i.i, align 1, !tbaa !60
+  store i32 %32, ptr %6, align 4, !tbaa !61
+  store i8 %39, ptr %.phi.trans.insert.i.i.i.i.i.i.i.i.i, align 1, !tbaa !59
   br label %_ZN5boost7archive9iterators15transform_widthIPKcLi6ELi8EcE4fillEv.exit.i.i.i.i.i.i.i.i.i
 
 .split.i.i.i.i.i.i.i.i.i.i:                       ; preds = %20, %48
@@ -977,7 +977,7 @@ _ZN5boost9iteratorsneINS_7archive9iterators17insert_linebreaksINS3_18base64_from
   %46 = getelementptr inbounds nuw i8, ptr %42, i64 1
   store ptr %46, ptr %1, align 8, !tbaa !25
   %47 = load i8, ptr %42, align 1, !tbaa !42
-  store i8 %47, ptr %9, align 2, !tbaa !61
+  store i8 %47, ptr %9, align 2, !tbaa !60
   br label %48
 
 48:                                               ; preds = %45, %.split.i.i.i.i.i.i.i.i.i.i
@@ -995,15 +995,15 @@ _ZN5boost9iteratorsneINS_7archive9iterators17insert_linebreaksINS3_18base64_from
   %58 = shl i32 %57, %.sroa.speculated.i.i.i.i.i.i.i.i.i.i
   %sext78.i.i.i.i.i.i.i.i.i.i = or i32 %56, %58
   %59 = trunc i32 %sext78.i.i.i.i.i.i.i.i.i.i to i8
-  store i8 %59, ptr %.phi.trans.insert.i.i.i.i.i.i.i.i.i, align 1, !tbaa !60
+  store i8 %59, ptr %.phi.trans.insert.i.i.i.i.i.i.i.i.i, align 1, !tbaa !59
   %60 = sub i32 %.0.i.i.i.i.i.i.i.i.i.i1, %.sroa.speculated.i.i.i.i.i.i.i.i.i.i
-  store i32 %53, ptr %6, align 4, !tbaa !62
+  store i32 %53, ptr %6, align 4, !tbaa !61
   %.not.not.i.i.i.i.i.i.i.i.i.i = icmp ugt i32 %.0.i.i.i.i.i.i.i.i.i.i1, %51
-  br i1 %.not.not.i.i.i.i.i.i.i.i.i.i, label %.split.i.i.i.i.i.i.i.i.i.i, label %_ZN5boost7archive9iterators15transform_widthIPKcLi6ELi8EcE4fillEv.exit.i.i.i.i.i.i.i.i.i, !llvm.loop !78
+  br i1 %.not.not.i.i.i.i.i.i.i.i.i.i, label %.split.i.i.i.i.i.i.i.i.i.i, label %_ZN5boost7archive9iterators15transform_widthIPKcLi6ELi8EcE4fillEv.exit.i.i.i.i.i.i.i.i.i, !llvm.loop !77
 
 _ZN5boost7archive9iterators15transform_widthIPKcLi6ELi8EcE4fillEv.exit.i.i.i.i.i.i.i.i.i: ; preds = %48, %.split18.us.i.i.i.i.i.i.i.i.i.i
   %61 = phi i8 [ %39, %.split18.us.i.i.i.i.i.i.i.i.i.i ], [ %59, %48 ]
-  store i8 1, ptr %8, align 8, !tbaa !58
+  store i8 1, ptr %8, align 8, !tbaa !57
   br label %_ZNK5boost9iterators6detail20iterator_facade_baseINS0_18transform_iteratorINS_7archive9iterators6detail10from_6_bitIcEENS5_15transform_widthIPKcLi6ELi8EcEENS_11use_defaultESD_EEcNS0_25single_pass_traversal_tagEclLb0ELb0EEdeEv.exit.i.i.i
 
 _ZNK5boost9iterators6detail20iterator_facade_baseINS0_18transform_iteratorINS_7archive9iterators6detail10from_6_bitIcEENS5_15transform_widthIPKcLi6ELi8EcEENS_11use_defaultESD_EEcNS0_25single_pass_traversal_tagEclLb0ELb0EEdeEv.exit.i.i.i: ; preds = %_ZN5boost7archive9iterators15transform_widthIPKcLi6ELi8EcE4fillEv.exit.i.i.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i.i.i
@@ -1016,13 +1016,13 @@ _ZNK5boost9iterators6detail20iterator_facade_baseINS0_18transform_iteratorINS_7a
 
 _ZNK5boost9iterators6detail20iterator_facade_baseINS_7archive9iterators17insert_linebreaksINS4_18base64_from_binaryINS4_15transform_widthIPKcLi6ELi8EcEEcEELi76ES8_EES8_NS0_25single_pass_traversal_tagES8_lLb0ELb0EEdeEv.exit: ; preds = %_ZN5boost9iteratorsneINS_7archive9iterators17insert_linebreaksINS3_18base64_from_binaryINS3_15transform_widthIPKcLi6ELi8EcEEcEELi76ES7_EES7_NS0_25single_pass_traversal_tagES7_lSB_S7_SC_S7_lEENS0_6detail23enable_if_interoperableIT_T4_NS_3mpl6apply2INSD_12always_bool2ESF_SG_E4typeEE4typeERKNS0_15iterator_facadeISF_T0_T1_T2_T3_EERKNSO_ISG_T5_T6_T7_T8_EE.exit.thread, %_ZNK5boost9iterators6detail20iterator_facade_baseINS0_18transform_iteratorINS_7archive9iterators6detail10from_6_bitIcEENS5_15transform_widthIPKcLi6ELi8EcEENS_11use_defaultESD_EEcNS0_25single_pass_traversal_tagEclLb0ELb0EEdeEv.exit.i.i.i
   %.0.i.i.i = phi i8 [ %66, %_ZNK5boost9iterators6detail20iterator_facade_baseINS0_18transform_iteratorINS_7archive9iterators6detail10from_6_bitIcEENS5_15transform_widthIPKcLi6ELi8EcEENS_11use_defaultESD_EEcNS0_25single_pass_traversal_tagEclLb0ELb0EEdeEv.exit.i.i.i ], [ 10, %_ZN5boost9iteratorsneINS_7archive9iterators17insert_linebreaksINS3_18base64_from_binaryINS3_15transform_widthIPKcLi6ELi8EcEEcEELi76ES7_EES7_NS0_25single_pass_traversal_tagES7_lSB_S7_SC_S7_lEENS0_6detail23enable_if_interoperableIT_T4_NS_3mpl6apply2INSD_12always_bool2ESF_SG_E4typeEE4typeERKNS0_15iterator_facadeISF_T0_T1_T2_T3_EERKNSO_ISG_T5_T6_T7_T8_EE.exit.thread ]
-  %67 = load ptr, ptr %3, align 8, !tbaa !71
+  %67 = load ptr, ptr %3, align 8, !tbaa !70
   %.not.i.i = icmp eq ptr %67, null
   br i1 %.not.i.i, label %_ZN5boost7archive9iterators16ostream_iteratorIcEaSEc.exit, label %68
 
 68:                                               ; preds = %_ZNK5boost9iterators6detail20iterator_facade_baseINS_7archive9iterators17insert_linebreaksINS4_18base64_from_binaryINS4_15transform_widthIPKcLi6ELi8EcEEcEELi76ES8_EES8_NS0_25single_pass_traversal_tagES8_lLb0ELb0EEdeEv.exit
   %69 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo3putEc(ptr noundef nonnull align 8 dereferenceable(8) %67, i8 noundef signext %.0.i.i.i)
-  %70 = load ptr, ptr %3, align 8, !tbaa !71
+  %70 = load ptr, ptr %3, align 8, !tbaa !70
   %71 = load ptr, ptr %70, align 8, !tbaa !19
   %72 = getelementptr i8, ptr %71, i64 -24
   %73 = load i64, ptr %72, align 8
@@ -1033,27 +1033,27 @@ _ZNK5boost9iterators6detail20iterator_facade_baseINS_7archive9iterators17insert_
   br i1 %77, label %_ZN5boost7archive9iterators16ostream_iteratorIcEaSEc.exit, label %78
 
 78:                                               ; preds = %68
-  store ptr null, ptr %3, align 8, !tbaa !71
+  store ptr null, ptr %3, align 8, !tbaa !70
   br label %_ZN5boost7archive9iterators16ostream_iteratorIcEaSEc.exit
 
 _ZN5boost7archive9iterators16ostream_iteratorIcEaSEc.exit: ; preds = %_ZNK5boost9iterators6detail20iterator_facade_baseINS_7archive9iterators17insert_linebreaksINS4_18base64_from_binaryINS4_15transform_widthIPKcLi6ELi8EcEEcEELi76ES8_EES8_NS0_25single_pass_traversal_tagES8_lLb0ELb0EEdeEv.exit, %68, %78
-  %79 = load i32, ptr %7, align 8, !tbaa !64
+  %79 = load i32, ptr %7, align 8, !tbaa !63
   %80 = icmp eq i32 %79, 76
   br i1 %80, label %_ZN5boost9iterators6detail20iterator_facade_baseINS_7archive9iterators17insert_linebreaksINS4_18base64_from_binaryINS4_15transform_widthIPKcLi6ELi8EcEEcEELi76ES8_EES8_NS0_25single_pass_traversal_tagES8_lLb0ELb0EEppEv.exit, label %81
 
 81:                                               ; preds = %_ZN5boost7archive9iterators16ostream_iteratorIcEaSEc.exit
   %82 = add i32 %79, 1
-  store i8 0, ptr %8, align 8, !tbaa !58
+  store i8 0, ptr %8, align 8, !tbaa !57
   br label %_ZN5boost9iterators6detail20iterator_facade_baseINS_7archive9iterators17insert_linebreaksINS4_18base64_from_binaryINS4_15transform_widthIPKcLi6ELi8EcEEcEELi76ES8_EES8_NS0_25single_pass_traversal_tagES8_lLb0ELb0EEppEv.exit
 
 _ZN5boost9iterators6detail20iterator_facade_baseINS_7archive9iterators17insert_linebreaksINS4_18base64_from_binaryINS4_15transform_widthIPKcLi6ELi8EcEEcEELi76ES8_EES8_NS0_25single_pass_traversal_tagES8_lLb0ELb0EEppEv.exit: ; preds = %_ZN5boost7archive9iterators16ostream_iteratorIcEaSEc.exit, %81
   %.sink.i.i.i = phi i32 [ %82, %81 ], [ 0, %_ZN5boost7archive9iterators16ostream_iteratorIcEaSEc.exit ]
-  store i32 %.sink.i.i.i, ptr %7, align 8, !tbaa !64
-  br label %10, !llvm.loop !79
+  store i32 %.sink.i.i.i, ptr %7, align 8, !tbaa !63
+  br label %10, !llvm.loop !78
 
 83:                                               ; preds = %_ZN5boost9iteratorsneINS_7archive9iterators17insert_linebreaksINS3_18base64_from_binaryINS3_15transform_widthIPKcLi6ELi8EcEEcEELi76ES7_EES7_NS0_25single_pass_traversal_tagES7_lSB_S7_SC_S7_lEENS0_6detail23enable_if_interoperableIT_T4_NS_3mpl6apply2INSD_12always_bool2ESF_SG_E4typeEE4typeERKNS0_15iterator_facadeISF_T0_T1_T2_T3_EERKNSO_ISG_T5_T6_T7_T8_EE.exit
-  %84 = load ptr, ptr %3, align 8, !tbaa !71
-  store ptr %84, ptr %0, align 8, !tbaa !71
+  %84 = load ptr, ptr %3, align 8, !tbaa !70
+  store ptr %84, ptr %0, align 8, !tbaa !70
   ret void
 }
 
@@ -1126,40 +1126,39 @@ attributes #19 = { nounwind willreturn memory(read) }
 !40 = !{!41, !6, i64 56}
 !41 = !{!"_ZTSSt5ctypeIcE", !15, i64 0, !5, i64 16, !39, i64 24, !5, i64 32, !5, i64 40, !5, i64 48, !6, i64 56, !6, i64 57, !6, i64 313, !6, i64 569}
 !42 = !{!6, !6, i64 0}
-!43 = distinct !{!43, !44, !45}
+!43 = distinct !{!43, !44}
 !44 = !{!"llvm.loop.mustprogress"}
-!45 = !{!"llvm.loop.estimated_trip_count"}
-!46 = !{!47, !49, !51}
-!47 = distinct !{!47, !48, !"_ZSt14__copy_move_a1ILb0EN5boost7archive9iterators17insert_linebreaksINS2_18base64_from_binaryINS2_15transform_widthIPKcLi6ELi8EcEEcEELi76ES6_EENS2_16ostream_iteratorIcEEET1_T0_SE_SD_: argument 0"}
-!48 = distinct !{!48, !"_ZSt14__copy_move_a1ILb0EN5boost7archive9iterators17insert_linebreaksINS2_18base64_from_binaryINS2_15transform_widthIPKcLi6ELi8EcEEcEELi76ES6_EENS2_16ostream_iteratorIcEEET1_T0_SE_SD_"}
-!49 = distinct !{!49, !50, !"_ZSt13__copy_move_aILb0EN5boost7archive9iterators17insert_linebreaksINS2_18base64_from_binaryINS2_15transform_widthIPKcLi6ELi8EcEEcEELi76ES6_EENS2_16ostream_iteratorIcEEET1_T0_SE_SD_: argument 0"}
-!50 = distinct !{!50, !"_ZSt13__copy_move_aILb0EN5boost7archive9iterators17insert_linebreaksINS2_18base64_from_binaryINS2_15transform_widthIPKcLi6ELi8EcEEcEELi76ES6_EENS2_16ostream_iteratorIcEEET1_T0_SE_SD_"}
-!51 = distinct !{!51, !52, !"_ZSt4copyIN5boost7archive9iterators17insert_linebreaksINS2_18base64_from_binaryINS2_15transform_widthIPKcLi6ELi8EcEEcEELi76ES6_EENS2_16ostream_iteratorIcEEET0_T_SE_SD_: argument 0"}
-!52 = distinct !{!52, !"_ZSt4copyIN5boost7archive9iterators17insert_linebreaksINS2_18base64_from_binaryINS2_15transform_widthIPKcLi6ELi8EcEEcEELi76ES6_EENS2_16ostream_iteratorIcEEET0_T_SE_SD_"}
-!53 = !{!54, !5, i64 0}
-!54 = !{!"_ZTSN5boost9iterators16iterator_adaptorINS_7archive9iterators15transform_widthIPKcLi6ELi8EcEES6_cNS0_25single_pass_traversal_tagEcNS_11use_defaultEEE", !5, i64 0}
-!55 = !{!56, !47, !49, !51}
-!56 = distinct !{!56, !57, !"_ZSt14__copy_move_a2ILb0EN5boost7archive9iterators17insert_linebreaksINS2_18base64_from_binaryINS2_15transform_widthIPKcLi6ELi8EcEEcEELi76ES6_EENS2_16ostream_iteratorIcEEET1_T0_SE_SD_: argument 0"}
-!57 = distinct !{!57, !"_ZSt14__copy_move_a2ILb0EN5boost7archive9iterators17insert_linebreaksINS2_18base64_from_binaryINS2_15transform_widthIPKcLi6ELi8EcEEcEELi76ES6_EENS2_16ostream_iteratorIcEEET1_T0_SE_SD_"}
-!58 = !{!59, !39, i64 8}
-!59 = !{!"_ZTSN5boost7archive9iterators15transform_widthIPKcLi6ELi8EcEE", !54, i64 0, !39, i64 8, !6, i64 9, !6, i64 10, !16, i64 12, !39, i64 16}
-!60 = !{!59, !6, i64 9}
-!61 = !{!59, !6, i64 10}
-!62 = !{!59, !16, i64 12}
-!63 = !{!59, !39, i64 16}
-!64 = !{!65, !16, i64 32}
-!65 = !{!"_ZTSN5boost7archive9iterators17insert_linebreaksINS1_18base64_from_binaryINS1_15transform_widthIPKcLi6ELi8EcEEcEELi76ES5_EE", !66, i64 0, !16, i64 32}
-!66 = !{!"_ZTSN5boost9iterators16iterator_adaptorINS_7archive9iterators17insert_linebreaksINS3_18base64_from_binaryINS3_15transform_widthIPKcLi6ELi8EcEEcEELi76ES7_EESA_S7_NS0_25single_pass_traversal_tagES7_NS_11use_defaultEEE", !67, i64 0}
-!67 = !{!"_ZTSN5boost7archive9iterators18base64_from_binaryINS1_15transform_widthIPKcLi6ELi8EcEEcEE", !68, i64 0}
-!68 = !{!"_ZTSN5boost9iterators18transform_iteratorINS_7archive9iterators6detail10from_6_bitIcEENS3_15transform_widthIPKcLi6ELi8EcEENS_11use_defaultESB_EE", !69, i64 0, !70, i64 24}
-!69 = !{!"_ZTSN5boost9iterators16iterator_adaptorINS0_18transform_iteratorINS_7archive9iterators6detail10from_6_bitIcEENS4_15transform_widthIPKcLi6ELi8EcEENS_11use_defaultESC_EESB_cSC_cSC_EE", !59, i64 0}
-!70 = !{!"_ZTSN5boost7archive9iterators6detail10from_6_bitIcEE"}
-!71 = !{!72, !5, i64 0}
-!72 = !{!"_ZTSN5boost7archive9iterators16ostream_iteratorIcEE", !5, i64 0}
-!73 = !{!16, !16, i64 0}
-!74 = !{i8 0, i8 2}
-!75 = !{}
-!76 = distinct !{!76, !44, !45, !77}
-!77 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!78 = distinct !{!78, !44, !45}
-!79 = distinct !{!79, !44, !45}
+!45 = !{!46, !48, !50}
+!46 = distinct !{!46, !47, !"_ZSt14__copy_move_a1ILb0EN5boost7archive9iterators17insert_linebreaksINS2_18base64_from_binaryINS2_15transform_widthIPKcLi6ELi8EcEEcEELi76ES6_EENS2_16ostream_iteratorIcEEET1_T0_SE_SD_: argument 0"}
+!47 = distinct !{!47, !"_ZSt14__copy_move_a1ILb0EN5boost7archive9iterators17insert_linebreaksINS2_18base64_from_binaryINS2_15transform_widthIPKcLi6ELi8EcEEcEELi76ES6_EENS2_16ostream_iteratorIcEEET1_T0_SE_SD_"}
+!48 = distinct !{!48, !49, !"_ZSt13__copy_move_aILb0EN5boost7archive9iterators17insert_linebreaksINS2_18base64_from_binaryINS2_15transform_widthIPKcLi6ELi8EcEEcEELi76ES6_EENS2_16ostream_iteratorIcEEET1_T0_SE_SD_: argument 0"}
+!49 = distinct !{!49, !"_ZSt13__copy_move_aILb0EN5boost7archive9iterators17insert_linebreaksINS2_18base64_from_binaryINS2_15transform_widthIPKcLi6ELi8EcEEcEELi76ES6_EENS2_16ostream_iteratorIcEEET1_T0_SE_SD_"}
+!50 = distinct !{!50, !51, !"_ZSt4copyIN5boost7archive9iterators17insert_linebreaksINS2_18base64_from_binaryINS2_15transform_widthIPKcLi6ELi8EcEEcEELi76ES6_EENS2_16ostream_iteratorIcEEET0_T_SE_SD_: argument 0"}
+!51 = distinct !{!51, !"_ZSt4copyIN5boost7archive9iterators17insert_linebreaksINS2_18base64_from_binaryINS2_15transform_widthIPKcLi6ELi8EcEEcEELi76ES6_EENS2_16ostream_iteratorIcEEET0_T_SE_SD_"}
+!52 = !{!53, !5, i64 0}
+!53 = !{!"_ZTSN5boost9iterators16iterator_adaptorINS_7archive9iterators15transform_widthIPKcLi6ELi8EcEES6_cNS0_25single_pass_traversal_tagEcNS_11use_defaultEEE", !5, i64 0}
+!54 = !{!55, !46, !48, !50}
+!55 = distinct !{!55, !56, !"_ZSt14__copy_move_a2ILb0EN5boost7archive9iterators17insert_linebreaksINS2_18base64_from_binaryINS2_15transform_widthIPKcLi6ELi8EcEEcEELi76ES6_EENS2_16ostream_iteratorIcEEET1_T0_SE_SD_: argument 0"}
+!56 = distinct !{!56, !"_ZSt14__copy_move_a2ILb0EN5boost7archive9iterators17insert_linebreaksINS2_18base64_from_binaryINS2_15transform_widthIPKcLi6ELi8EcEEcEELi76ES6_EENS2_16ostream_iteratorIcEEET1_T0_SE_SD_"}
+!57 = !{!58, !39, i64 8}
+!58 = !{!"_ZTSN5boost7archive9iterators15transform_widthIPKcLi6ELi8EcEE", !53, i64 0, !39, i64 8, !6, i64 9, !6, i64 10, !16, i64 12, !39, i64 16}
+!59 = !{!58, !6, i64 9}
+!60 = !{!58, !6, i64 10}
+!61 = !{!58, !16, i64 12}
+!62 = !{!58, !39, i64 16}
+!63 = !{!64, !16, i64 32}
+!64 = !{!"_ZTSN5boost7archive9iterators17insert_linebreaksINS1_18base64_from_binaryINS1_15transform_widthIPKcLi6ELi8EcEEcEELi76ES5_EE", !65, i64 0, !16, i64 32}
+!65 = !{!"_ZTSN5boost9iterators16iterator_adaptorINS_7archive9iterators17insert_linebreaksINS3_18base64_from_binaryINS3_15transform_widthIPKcLi6ELi8EcEEcEELi76ES7_EESA_S7_NS0_25single_pass_traversal_tagES7_NS_11use_defaultEEE", !66, i64 0}
+!66 = !{!"_ZTSN5boost7archive9iterators18base64_from_binaryINS1_15transform_widthIPKcLi6ELi8EcEEcEE", !67, i64 0}
+!67 = !{!"_ZTSN5boost9iterators18transform_iteratorINS_7archive9iterators6detail10from_6_bitIcEENS3_15transform_widthIPKcLi6ELi8EcEENS_11use_defaultESB_EE", !68, i64 0, !69, i64 24}
+!68 = !{!"_ZTSN5boost9iterators16iterator_adaptorINS0_18transform_iteratorINS_7archive9iterators6detail10from_6_bitIcEENS4_15transform_widthIPKcLi6ELi8EcEENS_11use_defaultESC_EESB_cSC_cSC_EE", !58, i64 0}
+!69 = !{!"_ZTSN5boost7archive9iterators6detail10from_6_bitIcEE"}
+!70 = !{!71, !5, i64 0}
+!71 = !{!"_ZTSN5boost7archive9iterators16ostream_iteratorIcEE", !5, i64 0}
+!72 = !{!16, !16, i64 0}
+!73 = !{i8 0, i8 2}
+!74 = !{}
+!75 = distinct !{!75, !44, !76}
+!76 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!77 = distinct !{!77, !44}
+!78 = distinct !{!78, !44}

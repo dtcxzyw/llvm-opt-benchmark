@@ -164,7 +164,7 @@ define void @_Z11global_statRK15gmx_global_statPK9t_commrecP14gmx_enerdata_tPA3_
   %.223.us35.i = phi i32 [ %.02126.us31.i, %44 ], [ %.02126.us31.i, %.split.split.us.i ], [ %.02126.us31.i, %.split.split.us.i ], [ %.02126.us31.i, %.split.split.us.i ], [ %.02126.us31.i, %.split.split.us.i ], [ %47, %.sink.split66.i ]
   %indvars.iv.next377 = add nuw nsw i64 %indvars.iv376, 1
   %exitcond59.not.i = icmp eq i64 %indvars.iv.next377, 95
-  br i1 %exitcond59.not.i, label %_ZL16filter_enerdtermPKfbPfbbb.exit, label %.split.split.us.i, !llvm.loop !113
+  br i1 %exitcond59.not.i, label %_ZL16filter_enerdtermPKfbPfbbb.exit, label %.split.split.us.i, !llvm.loop !112
 
 .split.split.i:                                   ; preds = %.split.i
   br i1 %.not349, label %_ZL16filter_enerdtermPKfbPfbbb.exit, label %.split.split.split.us.i
@@ -196,7 +196,7 @@ define void @_Z11global_statRK15gmx_global_statPK9t_commrecP14gmx_enerdata_tPA3_
   %.223.us44.i = phi i32 [ %55, %52 ], [ %.02126.us40.i, %.split.split.split.us.i ], [ %.02126.us40.i, %.split.split.split.us.i ], [ %.02126.us40.i, %.split.split.split.us.i ], [ %.02126.us40.i, %.split.split.split.us.i ], [ %.02126.us40.i, %.split.split.split.us.i ], [ %.02126.us40.i, %.split.split.split.us.i ], [ %.02126.us40.i, %.split.split.split.us.i ]
   %indvars.iv.next374 = add nuw nsw i64 %indvars.iv373, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next374, 95
-  br i1 %exitcond.not.i, label %_ZL16filter_enerdtermPKfbPfbbb.exit, label %.split.split.split.us.i, !llvm.loop !114
+  br i1 %exitcond.not.i, label %_ZL16filter_enerdtermPKfbPfbbb.exit, label %.split.split.split.us.i, !llvm.loop !113
 
 _ZL16filter_enerdtermPKfbPfbbb.exit:              ; preds = %42, %58, %50, %.split.split.i
   %.us-phi.i = phi i32 [ 0, %.split.split.i ], [ %.223.us35.i, %50 ], [ %.223.us44.i, %58 ], [ %.223.us.i, %42 ]
@@ -234,18 +234,18 @@ _ZL16filter_enerdtermPKfbPfbbb.exit:              ; preds = %42, %58, %50, %.spl
   br i1 %9, label %70, label %75
 
 70:                                               ; preds = %69
-  %71 = load ptr, ptr %66, align 8, !tbaa !115
+  %71 = load ptr, ptr %66, align 8, !tbaa !114
   %72 = getelementptr inbounds nuw %struct.t_grp_tcstat, ptr %71, i64 %indvars.iv379, i32 3
   %73 = tail call noundef i32 @_Z8add_binrP5t_biniPKf(ptr noundef %29, i32 noundef 9, ptr noundef nonnull %72)
   %74 = getelementptr inbounds nuw i32, ptr %31, i64 %indvars.iv379
-  store i32 %73, ptr %74, align 4, !tbaa !118
+  store i32 %73, ptr %74, align 4, !tbaa !117
   br label %75
 
 75:                                               ; preds = %70, %69
   br i1 %or.cond4, label %79, label %76
 
 76:                                               ; preds = %75
-  %77 = load ptr, ptr %66, align 8, !tbaa !115
+  %77 = load ptr, ptr %66, align 8, !tbaa !114
   %78 = getelementptr inbounds nuw %struct.t_grp_tcstat, ptr %77, i64 %indvars.iv379, i32 4
   br label %.sink.split
 
@@ -253,7 +253,7 @@ _ZL16filter_enerdtermPKfbPfbbb.exit:              ; preds = %42, %58, %50, %.spl
   br i1 %28, label %85, label %80
 
 80:                                               ; preds = %79
-  %81 = load ptr, ptr %66, align 8, !tbaa !115
+  %81 = load ptr, ptr %66, align 8, !tbaa !114
   %82 = getelementptr inbounds nuw %struct.t_grp_tcstat, ptr %81, i64 %indvars.iv379, i32 2
   br label %.sink.split
 
@@ -261,7 +261,7 @@ _ZL16filter_enerdtermPKfbPfbbb.exit:              ; preds = %42, %58, %50, %.spl
   %.sink405 = phi ptr [ %78, %76 ], [ %82, %80 ]
   %83 = tail call noundef i32 @_Z8add_binrP5t_biniPKf(ptr noundef %29, i32 noundef 9, ptr noundef nonnull %.sink405)
   %84 = getelementptr inbounds nuw i32, ptr %33, i64 %indvars.iv379
-  store i32 %83, ptr %84, align 4, !tbaa !118
+  store i32 %83, ptr %84, align 4, !tbaa !117
   br label %85
 
 85:                                               ; preds = %.sink.split, %79
@@ -269,7 +269,7 @@ _ZL16filter_enerdtermPKfbPfbbb.exit:              ; preds = %42, %58, %50, %.spl
   %86 = load i32, ptr %63, align 8, !tbaa !10
   %87 = sext i32 %86 to i64
   %88 = icmp slt i64 %indvars.iv.next380, %87
-  br i1 %88, label %69, label %._crit_edge, !llvm.loop !119
+  br i1 %88, label %69, label %._crit_edge, !llvm.loop !118
 
 89:                                               ; preds = %._crit_edge
   %90 = getelementptr inbounds nuw i8, ptr %6, i64 156
@@ -279,7 +279,7 @@ _ZL16filter_enerdtermPKfbPfbbb.exit:              ; preds = %42, %58, %50, %.spl
 92:                                               ; preds = %89, %._crit_edge
   %.1 = phi i32 [ %91, %89 ], [ 0, %._crit_edge ]
   %93 = getelementptr inbounds nuw i8, ptr %6, i64 192
-  %94 = load float, ptr %93, align 8, !tbaa !120
+  %94 = load float, ptr %93, align 8, !tbaa !119
   %95 = fcmp une float %94, 0.000000e+00
   br i1 %95, label %96, label %99
 
@@ -291,7 +291,7 @@ _ZL16filter_enerdtermPKfbPfbbb.exit:              ; preds = %42, %58, %50, %.spl
 99:                                               ; preds = %96, %92
   %.1258 = phi i32 [ %98, %96 ], [ 0, %92 ]
   %100 = getelementptr inbounds nuw i8, ptr %6, i64 160
-  %101 = load ptr, ptr %100, align 8, !tbaa !142
+  %101 = load ptr, ptr %100, align 8, !tbaa !141
   %.not353 = icmp eq ptr %101, null
   br i1 %.not353, label %114, label %102
 
@@ -309,7 +309,7 @@ _ZL16filter_enerdtermPKfbPfbbb.exit:              ; preds = %42, %58, %50, %.spl
   br i1 %or.cond7, label %110, label %107
 
 107:                                              ; preds = %106
-  %108 = load ptr, ptr %100, align 8, !tbaa !142
+  %108 = load ptr, ptr %100, align 8, !tbaa !141
   %109 = getelementptr inbounds nuw i8, ptr %108, i64 64
   br label %.sink.split406
 
@@ -317,7 +317,7 @@ _ZL16filter_enerdtermPKfbPfbbb.exit:              ; preds = %42, %58, %50, %.spl
   br i1 %28, label %114, label %111
 
 111:                                              ; preds = %110
-  %112 = load ptr, ptr %100, align 8, !tbaa !142
+  %112 = load ptr, ptr %100, align 8, !tbaa !141
   br label %.sink.split406
 
 .sink.split406:                                   ; preds = %111, %107
@@ -350,21 +350,21 @@ _ZL16filter_enerdtermPKfbPfbbb.exit:              ; preds = %42, %58, %50, %.spl
 
 122:                                              ; preds = %125
   %123 = getelementptr inbounds nuw i8, ptr %5, i64 420
-  %124 = load i32, ptr %123, align 4, !tbaa !143
+  %124 = load i32, ptr %123, align 4, !tbaa !142
   %.not = icmp eq i32 %124, 0
   br i1 %.not, label %150, label %131
 
 125:                                              ; preds = %118, %125
   %indvars.iv382 = phi i64 [ 0, %118 ], [ %indvars.iv.next383, %125 ]
-  %126 = load i32, ptr %120, align 8, !tbaa !144
+  %126 = load i32, ptr %120, align 8, !tbaa !143
   %127 = getelementptr inbounds nuw [5 x %"class.std::vector.55"], ptr %121, i64 0, i64 %indvars.iv382
-  %128 = load ptr, ptr %127, align 8, !tbaa !162
+  %128 = load ptr, ptr %127, align 8, !tbaa !161
   %129 = call noundef i32 @_Z8add_binrP5t_biniPKf(ptr noundef %29, i32 noundef %126, ptr noundef %128)
   %130 = getelementptr inbounds nuw [5 x i32], ptr %15, i64 0, i64 %indvars.iv382
-  store i32 %129, ptr %130, align 4, !tbaa !118
+  store i32 %129, ptr %130, align 4, !tbaa !117
   %indvars.iv.next383 = add nuw nsw i64 %indvars.iv382, 1
   %.not354 = icmp eq i64 %indvars.iv.next383, 5
-  br i1 %.not354, label %122, label %125, !llvm.loop !163
+  br i1 %.not354, label %122, label %125
 
 131:                                              ; preds = %122
   %132 = getelementptr inbounds nuw i8, ptr %2, i64 512
@@ -372,15 +372,15 @@ _ZL16filter_enerdtermPKfbPfbbb.exit:              ; preds = %42, %58, %50, %.spl
   %134 = call noundef i32 @_Z8add_bindP5t_binN3gmx8ArrayRefIKdEE(ptr noundef %29, ptr nonnull %132, ptr nonnull %133)
   %135 = getelementptr inbounds nuw i8, ptr %2, i64 624
   %136 = call noundef i32 @_Z8add_bindP5t_binN3gmx8ArrayRefIKdEE(ptr noundef %29, ptr nonnull %133, ptr nonnull %135)
-  %137 = load i32, ptr %135, align 8, !tbaa !164
+  %137 = load i32, ptr %135, align 8, !tbaa !162
   %138 = icmp sgt i32 %137, 0
   br i1 %138, label %139, label %150
 
 139:                                              ; preds = %131
   %140 = getelementptr inbounds nuw i8, ptr %2, i64 640
-  %141 = load ptr, ptr %140, align 8, !tbaa !165
+  %141 = load ptr, ptr %140, align 8, !tbaa !163
   %142 = getelementptr inbounds nuw i8, ptr %2, i64 648
-  %143 = load ptr, ptr %142, align 8, !tbaa !166
+  %143 = load ptr, ptr %142, align 8, !tbaa !164
   %144 = ptrtoint ptr %143 to i64
   %145 = ptrtoint ptr %141 to i64
   %146 = sub i64 %144, %145
@@ -398,35 +398,35 @@ _ZL16filter_enerdtermPKfbPfbbb.exit:              ; preds = %42, %58, %50, %.spl
   br i1 %.not277, label %180, label %151
 
 151:                                              ; preds = %150
-  %152 = load i32, ptr %7, align 8, !tbaa !167
+  %152 = load i32, ptr %7, align 8, !tbaa !165
   %153 = mul nsw i32 %152, 3
   %154 = getelementptr inbounds nuw i8, ptr %7, i64 72
-  %155 = load ptr, ptr %154, align 8, !tbaa !179
+  %155 = load ptr, ptr %154, align 8, !tbaa !177
   %156 = call noundef i32 @_Z8add_binrP5t_biniPKf(ptr noundef %29, i32 noundef %153, ptr noundef nonnull %155)
-  %157 = load i32, ptr %7, align 8, !tbaa !167
+  %157 = load i32, ptr %7, align 8, !tbaa !165
   %158 = getelementptr inbounds nuw i8, ptr %7, i64 48
-  %159 = load ptr, ptr %158, align 8, !tbaa !162
+  %159 = load ptr, ptr %158, align 8, !tbaa !161
   %160 = call noundef i32 @_Z8add_binrP5t_biniPKf(ptr noundef %29, i32 noundef %157, ptr noundef %159)
   %161 = getelementptr inbounds nuw i8, ptr %7, i64 12
-  %162 = load i32, ptr %161, align 4, !tbaa !180
+  %162 = load i32, ptr %161, align 4, !tbaa !178
   %163 = icmp eq i32 %162, 1
   br i1 %163, label %164, label %180
 
 164:                                              ; preds = %151
-  %165 = load i32, ptr %7, align 8, !tbaa !167
+  %165 = load i32, ptr %7, align 8, !tbaa !165
   %166 = mul nsw i32 %165, 3
   %167 = getelementptr inbounds nuw i8, ptr %7, i64 144
-  %168 = load ptr, ptr %167, align 8, !tbaa !179
+  %168 = load ptr, ptr %167, align 8, !tbaa !177
   %169 = call noundef i32 @_Z8add_binrP5t_biniPKf(ptr noundef %29, i32 noundef %166, ptr noundef nonnull %168)
-  %170 = load i32, ptr %7, align 8, !tbaa !167
+  %170 = load i32, ptr %7, align 8, !tbaa !165
   %171 = mul nsw i32 %170, 3
   %172 = getelementptr inbounds nuw i8, ptr %7, i64 120
-  %173 = load ptr, ptr %172, align 8, !tbaa !179
+  %173 = load ptr, ptr %172, align 8, !tbaa !177
   %174 = call noundef i32 @_Z8add_binrP5t_biniPKf(ptr noundef %29, i32 noundef %171, ptr noundef nonnull %173)
-  %175 = load i32, ptr %7, align 8, !tbaa !167
+  %175 = load i32, ptr %7, align 8, !tbaa !165
   %176 = mul nsw i32 %175, 9
   %177 = getelementptr inbounds nuw i8, ptr %7, i64 192
-  %178 = load ptr, ptr %177, align 8, !tbaa !181
+  %178 = load ptr, ptr %177, align 8, !tbaa !179
   %179 = call noundef i32 @_Z8add_binrP5t_biniPKf(ptr noundef %29, i32 noundef %176, ptr noundef %178)
   br label %180
 
@@ -501,8 +501,8 @@ _ZL16filter_enerdtermPKfbPfbbb.exit:              ; preds = %42, %58, %50, %.spl
 
 210:                                              ; preds = %209
   %211 = getelementptr inbounds nuw i32, ptr %31, i64 %indvars.iv385
-  %212 = load i32, ptr %211, align 4, !tbaa !118
-  %213 = load ptr, ptr %207, align 8, !tbaa !115
+  %212 = load i32, ptr %211, align 4, !tbaa !117
+  %213 = load ptr, ptr %207, align 8, !tbaa !114
   %214 = getelementptr inbounds nuw %struct.t_grp_tcstat, ptr %213, i64 %indvars.iv385, i32 3
   call void @_Z12extract_binrP5t_biniiPf(ptr noundef %29, i32 noundef %212, i32 noundef 9, ptr noundef nonnull %214)
   br label %215
@@ -512,8 +512,8 @@ _ZL16filter_enerdtermPKfbPfbbb.exit:              ; preds = %42, %58, %50, %.spl
 
 216:                                              ; preds = %215
   %217 = getelementptr inbounds nuw i32, ptr %33, i64 %indvars.iv385
-  %218 = load i32, ptr %217, align 4, !tbaa !118
-  %219 = load ptr, ptr %207, align 8, !tbaa !115
+  %218 = load i32, ptr %217, align 4, !tbaa !117
+  %219 = load ptr, ptr %207, align 8, !tbaa !114
   %220 = getelementptr inbounds nuw %struct.t_grp_tcstat, ptr %219, i64 %indvars.iv385, i32 4
   call void @_Z12extract_binrP5t_biniiPf(ptr noundef %29, i32 noundef %218, i32 noundef 9, ptr noundef nonnull %220)
   br label %227
@@ -523,8 +523,8 @@ _ZL16filter_enerdtermPKfbPfbbb.exit:              ; preds = %42, %58, %50, %.spl
 
 222:                                              ; preds = %221
   %223 = getelementptr inbounds nuw i32, ptr %33, i64 %indvars.iv385
-  %224 = load i32, ptr %223, align 4, !tbaa !118
-  %225 = load ptr, ptr %207, align 8, !tbaa !115
+  %224 = load i32, ptr %223, align 4, !tbaa !117
+  %225 = load ptr, ptr %207, align 8, !tbaa !114
   %226 = getelementptr inbounds nuw %struct.t_grp_tcstat, ptr %225, i64 %indvars.iv385, i32 2
   call void @_Z12extract_binrP5t_biniiPf(ptr noundef %29, i32 noundef %224, i32 noundef 9, ptr noundef nonnull %226)
   br label %227
@@ -534,7 +534,7 @@ _ZL16filter_enerdtermPKfbPfbbb.exit:              ; preds = %42, %58, %50, %.spl
   %228 = load i32, ptr %204, align 8, !tbaa !10
   %229 = sext i32 %228 to i64
   %230 = icmp slt i64 %indvars.iv.next386, %229
-  br i1 %230, label %209, label %._crit_edge366, !llvm.loop !182
+  br i1 %230, label %209, label %._crit_edge366, !llvm.loop !180
 
 231:                                              ; preds = %._crit_edge366
   %232 = getelementptr inbounds nuw i8, ptr %6, i64 156
@@ -543,7 +543,7 @@ _ZL16filter_enerdtermPKfbPfbbb.exit:              ; preds = %42, %58, %50, %.spl
 
 233:                                              ; preds = %231, %._crit_edge366
   %234 = getelementptr inbounds nuw i8, ptr %6, i64 192
-  %235 = load float, ptr %234, align 8, !tbaa !120
+  %235 = load float, ptr %234, align 8, !tbaa !119
   %236 = fcmp une float %235, 0.000000e+00
   br i1 %236, label %237, label %239
 
@@ -554,7 +554,7 @@ _ZL16filter_enerdtermPKfbPfbbb.exit:              ; preds = %42, %58, %50, %.spl
 
 239:                                              ; preds = %237, %233
   %240 = getelementptr inbounds nuw i8, ptr %6, i64 160
-  %241 = load ptr, ptr %240, align 8, !tbaa !142
+  %241 = load ptr, ptr %240, align 8, !tbaa !141
   %.not355 = icmp eq ptr %241, null
   br i1 %.not355, label %252, label %242
 
@@ -571,7 +571,7 @@ _ZL16filter_enerdtermPKfbPfbbb.exit:              ; preds = %42, %58, %50, %.spl
   br i1 %or.cond16, label %249, label %246
 
 246:                                              ; preds = %245
-  %247 = load ptr, ptr %240, align 8, !tbaa !142
+  %247 = load ptr, ptr %240, align 8, !tbaa !141
   %248 = getelementptr inbounds nuw i8, ptr %247, i64 64
   br label %.sink.split407
 
@@ -579,7 +579,7 @@ _ZL16filter_enerdtermPKfbPfbbb.exit:              ; preds = %42, %58, %50, %.spl
   br i1 %28, label %252, label %250
 
 250:                                              ; preds = %249
-  %251 = load ptr, ptr %240, align 8, !tbaa !142
+  %251 = load ptr, ptr %240, align 8, !tbaa !141
   br label %.sink.split407
 
 .sink.split407:                                   ; preds = %250, %246
@@ -605,21 +605,21 @@ _ZL16filter_enerdtermPKfbPfbbb.exit:              ; preds = %42, %58, %50, %.spl
 
 258:                                              ; preds = %261
   %259 = getelementptr inbounds nuw i8, ptr %5, i64 420
-  %260 = load i32, ptr %259, align 4, !tbaa !143
+  %260 = load i32, ptr %259, align 4, !tbaa !142
   %.not278 = icmp eq i32 %260, 0
   br i1 %.not278, label %283, label %267
 
 261:                                              ; preds = %255, %261
   %indvars.iv388 = phi i64 [ 0, %255 ], [ %indvars.iv.next389, %261 ]
   %262 = getelementptr inbounds nuw [5 x i32], ptr %15, i64 0, i64 %indvars.iv388
-  %263 = load i32, ptr %262, align 4, !tbaa !118
-  %264 = load i32, ptr %256, align 8, !tbaa !144
+  %263 = load i32, ptr %262, align 4, !tbaa !117
+  %264 = load i32, ptr %256, align 8, !tbaa !143
   %265 = getelementptr inbounds nuw [5 x %"class.std::vector.55"], ptr %257, i64 0, i64 %indvars.iv388
-  %266 = load ptr, ptr %265, align 8, !tbaa !162
+  %266 = load ptr, ptr %265, align 8, !tbaa !161
   call void @_Z12extract_binrP5t_biniiPf(ptr noundef %29, i32 noundef %263, i32 noundef %264, ptr noundef %266)
   %indvars.iv.next389 = add nuw nsw i64 %indvars.iv388, 1
   %.not356 = icmp eq i64 %indvars.iv.next389, 5
-  br i1 %.not356, label %258, label %261, !llvm.loop !183
+  br i1 %.not356, label %258, label %261
 
 267:                                              ; preds = %258
   %268 = getelementptr inbounds nuw i8, ptr %2, i64 512
@@ -627,15 +627,15 @@ _ZL16filter_enerdtermPKfbPfbbb.exit:              ; preds = %42, %58, %50, %.spl
   call void @_Z12extract_bindP5t_biniN3gmx8ArrayRefIdEE(ptr noundef %29, i32 noundef %.0250, ptr nonnull %268, ptr nonnull %269)
   %270 = getelementptr inbounds nuw i8, ptr %2, i64 624
   call void @_Z12extract_bindP5t_biniN3gmx8ArrayRefIdEE(ptr noundef %29, i32 noundef %.0253, ptr nonnull %269, ptr nonnull %270)
-  %271 = load i32, ptr %270, align 8, !tbaa !164
+  %271 = load i32, ptr %270, align 8, !tbaa !162
   %272 = icmp sgt i32 %271, 0
   br i1 %272, label %273, label %283
 
 273:                                              ; preds = %267
   %274 = getelementptr inbounds nuw i8, ptr %2, i64 640
-  %275 = load ptr, ptr %274, align 8, !tbaa !165
+  %275 = load ptr, ptr %274, align 8, !tbaa !163
   %276 = getelementptr inbounds nuw i8, ptr %2, i64 648
-  %277 = load ptr, ptr %276, align 8, !tbaa !166
+  %277 = load ptr, ptr %276, align 8, !tbaa !164
   %278 = ptrtoint ptr %277 to i64
   %279 = ptrtoint ptr %275 to i64
   %280 = sub i64 %278, %279
@@ -704,7 +704,7 @@ _ZL16filter_enerdtermPKfbPfbbb.exit:              ; preds = %42, %58, %50, %.spl
   %.2.us36.i304 = phi i32 [ %.027.us30.i300, %.split.split.us.i299 ], [ %.027.us30.i300, %.split.split.us.i299 ], [ %.027.us30.i300, %.split.split.us.i299 ], [ %.027.us30.i300, %.split.split.us.i299 ], [ %293, %.sink.split66.i306 ]
   %indvars.iv.next398 = add nuw nsw i64 %indvars.iv397, 1
   %exitcond59.not.i305 = icmp eq i64 %indvars.iv.next398, 95
-  br i1 %exitcond59.not.i305, label %_ZL16filter_enerdtermPKfbPfbbb.exit315, label %.split.split.us.i299, !llvm.loop !113
+  br i1 %exitcond59.not.i305, label %_ZL16filter_enerdtermPKfbPfbbb.exit315, label %.split.split.us.i299, !llvm.loop !112
 
 .split.split.split.us.i291:                       ; preds = %.split.i289, %306
   %indvars.iv394 = phi i64 [ %indvars.iv.next395, %306 ], [ 0, %.split.i289 ]
@@ -733,41 +733,41 @@ _ZL16filter_enerdtermPKfbPfbbb.exit:              ; preds = %42, %58, %50, %.spl
   %.2.us45.i296 = phi i32 [ %301, %300 ], [ %.027.us39.i292, %.split.split.split.us.i291 ], [ %.027.us39.i292, %.split.split.split.us.i291 ], [ %.027.us39.i292, %.split.split.split.us.i291 ], [ %.027.us39.i292, %.split.split.split.us.i291 ], [ %.027.us39.i292, %.split.split.split.us.i291 ], [ %.027.us39.i292, %.split.split.split.us.i291 ], [ %.027.us39.i292, %.split.split.split.us.i291 ]
   %indvars.iv.next395 = add nuw nsw i64 %indvars.iv394, 1
   %exitcond.not.i297 = icmp eq i64 %indvars.iv.next395, 95
-  br i1 %exitcond.not.i297, label %_ZL16filter_enerdtermPKfbPfbbb.exit315, label %.split.split.split.us.i291, !llvm.loop !114
+  br i1 %exitcond.not.i297, label %_ZL16filter_enerdtermPKfbPfbbb.exit315, label %.split.split.split.us.i291, !llvm.loop !113
 
 _ZL16filter_enerdtermPKfbPfbbb.exit315:           ; preds = %291, %306, %298, %254
   br i1 %.not277, label %331, label %307
 
 307:                                              ; preds = %_ZL16filter_enerdtermPKfbPfbbb.exit315
-  %308 = load i32, ptr %7, align 8, !tbaa !167
+  %308 = load i32, ptr %7, align 8, !tbaa !165
   %309 = mul nsw i32 %308, 3
   %310 = getelementptr inbounds nuw i8, ptr %7, i64 72
-  %311 = load ptr, ptr %310, align 8, !tbaa !179
+  %311 = load ptr, ptr %310, align 8, !tbaa !177
   call void @_Z12extract_binrP5t_biniiPf(ptr noundef %29, i32 noundef %.0255, i32 noundef %309, ptr noundef nonnull %311)
-  %312 = load i32, ptr %7, align 8, !tbaa !167
+  %312 = load i32, ptr %7, align 8, !tbaa !165
   %313 = getelementptr inbounds nuw i8, ptr %7, i64 48
-  %314 = load ptr, ptr %313, align 8, !tbaa !162
+  %314 = load ptr, ptr %313, align 8, !tbaa !161
   call void @_Z12extract_binrP5t_biniiPf(ptr noundef %29, i32 noundef %.0256, i32 noundef %312, ptr noundef %314)
   %315 = getelementptr inbounds nuw i8, ptr %7, i64 12
-  %316 = load i32, ptr %315, align 4, !tbaa !180
+  %316 = load i32, ptr %315, align 4, !tbaa !178
   %317 = icmp eq i32 %316, 1
   br i1 %317, label %318, label %331
 
 318:                                              ; preds = %307
-  %319 = load i32, ptr %7, align 8, !tbaa !167
+  %319 = load i32, ptr %7, align 8, !tbaa !165
   %320 = mul nsw i32 %319, 3
   %321 = getelementptr inbounds nuw i8, ptr %7, i64 144
-  %322 = load ptr, ptr %321, align 8, !tbaa !179
+  %322 = load ptr, ptr %321, align 8, !tbaa !177
   call void @_Z12extract_binrP5t_biniiPf(ptr noundef %29, i32 noundef %.0265, i32 noundef %320, ptr noundef nonnull %322)
-  %323 = load i32, ptr %7, align 8, !tbaa !167
+  %323 = load i32, ptr %7, align 8, !tbaa !165
   %324 = mul nsw i32 %323, 3
   %325 = getelementptr inbounds nuw i8, ptr %7, i64 120
-  %326 = load ptr, ptr %325, align 8, !tbaa !179
+  %326 = load ptr, ptr %325, align 8, !tbaa !177
   call void @_Z12extract_binrP5t_biniiPf(ptr noundef %29, i32 noundef %.0267, i32 noundef %324, ptr noundef nonnull %326)
-  %327 = load i32, ptr %7, align 8, !tbaa !167
+  %327 = load i32, ptr %7, align 8, !tbaa !165
   %328 = mul nsw i32 %327, 9
   %329 = getelementptr inbounds nuw i8, ptr %7, i64 192
-  %330 = load ptr, ptr %329, align 8, !tbaa !181
+  %330 = load ptr, ptr %329, align 8, !tbaa !179
   call void @_Z12extract_binrP5t_biniiPf(ptr noundef %29, i32 noundef %.0266, i32 noundef %328, ptr noundef %330)
   br label %331
 
@@ -941,78 +941,75 @@ attributes #3 = { nounwind }
 !106 = !{!5, !9, i64 16}
 !107 = !{!11, !13, i64 4}
 !108 = !{!24, !24, i64 0}
-!109 = distinct !{!109, !110, !111, !112}
+!109 = distinct !{!109, !110, !111}
 !110 = !{!"llvm.loop.mustprogress"}
-!111 = !{!"llvm.loop.estimated_trip_count"}
-!112 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!113 = distinct !{!113, !110, !111, !112}
-!114 = distinct !{!114, !110, !111, !112}
-!115 = !{!116, !117, i64 0}
-!116 = !{!"_ZTSNSt12_Vector_baseI12t_grp_tcstatSaIS0_EE17_Vector_impl_dataE", !117, i64 0, !117, i64 8, !117, i64 16}
-!117 = !{!"p1 _ZTS12t_grp_tcstat", !6, i64 0}
-!118 = !{!12, !12, i64 0}
-!119 = distinct !{!119, !110, !111}
-!120 = !{!121, !24, i64 192}
-!121 = !{!"_ZTS14gmx_ekindata_t", !122, i64 0, !28, i64 24, !24, i64 28, !126, i64 32, !95, i64 56, !95, i64 64, !95, i64 72, !7, i64 80, !7, i64 116, !24, i64 152, !24, i64 156, !129, i64 160, !136, i64 168, !141, i64 192, !18, i64 204, !12, i64 208}
-!122 = !{!"_ZTSSt6vectorIfSaIfEE", !123, i64 0}
-!123 = !{!"_ZTSSt12_Vector_baseIfSaIfEE", !124, i64 0}
-!124 = !{!"_ZTSNSt12_Vector_baseIfSaIfEE12_Vector_implE", !125, i64 0}
-!125 = !{!"_ZTSNSt12_Vector_baseIfSaIfEE17_Vector_impl_dataE", !94, i64 0, !94, i64 8, !94, i64 16}
-!126 = !{!"_ZTSSt6vectorI12t_grp_tcstatSaIS0_EE", !127, i64 0}
-!127 = !{!"_ZTSSt12_Vector_baseI12t_grp_tcstatSaIS0_EE", !128, i64 0}
-!128 = !{!"_ZTSNSt12_Vector_baseI12t_grp_tcstatSaIS0_EE12_Vector_implE", !116, i64 0}
-!129 = !{!"_ZTSSt10unique_ptrI13SystemMomentaSt14default_deleteIS0_EE", !130, i64 0}
-!130 = !{!"_ZTSSt15__uniq_ptr_dataI13SystemMomentaSt14default_deleteIS0_ELb1ELb1EE", !131, i64 0}
-!131 = !{!"_ZTSSt15__uniq_ptr_implI13SystemMomentaSt14default_deleteIS0_EE", !132, i64 0}
-!132 = !{!"_ZTSSt5tupleIJP13SystemMomentaSt14default_deleteIS0_EEE", !133, i64 0}
-!133 = !{!"_ZTSSt11_Tuple_implILm0EJP13SystemMomentaSt14default_deleteIS0_EEE", !134, i64 0}
-!134 = !{!"_ZTSSt10_Head_baseILm0EP13SystemMomentaLb0EE", !135, i64 0}
-!135 = !{!"p1 _ZTS13SystemMomenta", !6, i64 0}
-!136 = !{!"_ZTSSt6vectorISt10unique_ptrI14SystemMomentumSt14default_deleteIS1_EESaIS4_EE", !137, i64 0}
-!137 = !{!"_ZTSSt12_Vector_baseISt10unique_ptrI14SystemMomentumSt14default_deleteIS1_EESaIS4_EE", !138, i64 0}
-!138 = !{!"_ZTSNSt12_Vector_baseISt10unique_ptrI14SystemMomentumSt14default_deleteIS1_EESaIS4_EE12_Vector_implE", !139, i64 0}
-!139 = !{!"_ZTSNSt12_Vector_baseISt10unique_ptrI14SystemMomentumSt14default_deleteIS1_EESaIS4_EE17_Vector_impl_dataE", !140, i64 0, !140, i64 8, !140, i64 16}
-!140 = !{!"p1 _ZTSSt10unique_ptrI14SystemMomentumSt14default_deleteIS0_EE", !6, i64 0}
-!141 = !{!"_ZTS9t_cos_acc", !24, i64 0, !24, i64 4, !24, i64 8}
-!142 = !{!135, !135, i64 0}
-!143 = !{!11, !43, i64 420}
-!144 = !{!145, !12, i64 384}
-!145 = !{!"_ZTS14gmx_enerdata_t", !146, i64 0, !147, i64 384, !149, i64 512, !149, i64 568, !150, i64 624}
-!146 = !{!"_ZTSSt5arrayIfLm95EE", !7, i64 0}
-!147 = !{!"_ZTS17gmx_grppairener_t", !12, i64 0, !148, i64 8}
-!148 = !{!"_ZTSN3gmx16EnumerationArrayI20NonBondedEnergyTermsSt6vectorIfSaIfEELS1_5EEE", !7, i64 0}
-!149 = !{!"_ZTSN3gmx16EnumerationArrayI34FreeEnergyPerturbationCouplingTypedLS1_7EEE", !7, i64 0}
-!150 = !{!"_ZTS18ForeignLambdaTerms", !12, i64 0, !151, i64 8, !152, i64 16, !157, i64 40, !18, i64 64}
-!151 = !{!"p1 _ZTSN3gmx16EnumerationArrayI34FreeEnergyPerturbationCouplingTypeSt6vectorIdSaIdEELS1_7EEE", !6, i64 0}
-!152 = !{!"_ZTSSt6vectorIdSaIdEE", !153, i64 0}
-!153 = !{!"_ZTSSt12_Vector_baseIdSaIdEE", !154, i64 0}
-!154 = !{!"_ZTSNSt12_Vector_baseIdSaIdEE12_Vector_implE", !155, i64 0}
-!155 = !{!"_ZTSNSt12_Vector_baseIdSaIdEE17_Vector_impl_dataE", !156, i64 0, !156, i64 8, !156, i64 16}
-!156 = !{!"p1 double", !6, i64 0}
-!157 = !{!"_ZTSSt6vectorIN3gmx16EnumerationArrayI34FreeEnergyPerturbationCouplingTypedLS2_7EEESaIS3_EE", !158, i64 0}
-!158 = !{!"_ZTSSt12_Vector_baseIN3gmx16EnumerationArrayI34FreeEnergyPerturbationCouplingTypedLS2_7EEESaIS3_EE", !159, i64 0}
-!159 = !{!"_ZTSNSt12_Vector_baseIN3gmx16EnumerationArrayI34FreeEnergyPerturbationCouplingTypedLS2_7EEESaIS3_EE12_Vector_implE", !160, i64 0}
-!160 = !{!"_ZTSNSt12_Vector_baseIN3gmx16EnumerationArrayI34FreeEnergyPerturbationCouplingTypedLS2_7EEESaIS3_EE17_Vector_impl_dataE", !161, i64 0, !161, i64 8, !161, i64 16}
-!161 = !{!"p1 _ZTSN3gmx16EnumerationArrayI34FreeEnergyPerturbationCouplingTypedLS1_7EEE", !6, i64 0}
-!162 = !{!125, !94, i64 0}
-!163 = distinct !{!163, !111}
-!164 = !{!150, !12, i64 0}
-!165 = !{!155, !156, i64 0}
-!166 = !{!155, !156, i64 8}
-!167 = !{!168, !12, i64 0}
-!168 = !{!"_ZTS5t_vcm", !12, i64 0, !12, i64 4, !12, i64 8, !16, i64 12, !12, i64 16, !24, i64 20, !122, i64 24, !122, i64 48, !34, i64 72, !34, i64 96, !34, i64 120, !34, i64 144, !34, i64 168, !94, i64 192, !169, i64 200, !9, i64 224, !174, i64 232, !18, i64 256}
-!169 = !{!"_ZTSSt6vectorIPcSaIS0_EE", !170, i64 0}
-!170 = !{!"_ZTSSt12_Vector_baseIPcSaIS0_EE", !171, i64 0}
-!171 = !{!"_ZTSNSt12_Vector_baseIPcSaIS0_EE12_Vector_implE", !172, i64 0}
-!172 = !{!"_ZTSNSt12_Vector_baseIPcSaIS0_EE17_Vector_impl_dataE", !173, i64 0, !173, i64 8, !173, i64 16}
-!173 = !{!"p2 omnipotent char", !96, i64 0}
-!174 = !{!"_ZTSSt6vectorI12t_vcm_threadSaIS0_EE", !175, i64 0}
-!175 = !{!"_ZTSSt12_Vector_baseI12t_vcm_threadSaIS0_EE", !176, i64 0}
-!176 = !{!"_ZTSNSt12_Vector_baseI12t_vcm_threadSaIS0_EE12_Vector_implE", !177, i64 0}
-!177 = !{!"_ZTSNSt12_Vector_baseI12t_vcm_threadSaIS0_EE17_Vector_impl_dataE", !178, i64 0, !178, i64 8, !178, i64 16}
-!178 = !{!"p1 _ZTS12t_vcm_thread", !6, i64 0}
-!179 = !{!37, !38, i64 0}
-!180 = !{!168, !16, i64 12}
-!181 = !{!168, !94, i64 192}
-!182 = distinct !{!182, !110, !111}
-!183 = distinct !{!183, !111}
+!111 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!112 = distinct !{!112, !110, !111}
+!113 = distinct !{!113, !110, !111}
+!114 = !{!115, !116, i64 0}
+!115 = !{!"_ZTSNSt12_Vector_baseI12t_grp_tcstatSaIS0_EE17_Vector_impl_dataE", !116, i64 0, !116, i64 8, !116, i64 16}
+!116 = !{!"p1 _ZTS12t_grp_tcstat", !6, i64 0}
+!117 = !{!12, !12, i64 0}
+!118 = distinct !{!118, !110}
+!119 = !{!120, !24, i64 192}
+!120 = !{!"_ZTS14gmx_ekindata_t", !121, i64 0, !28, i64 24, !24, i64 28, !125, i64 32, !95, i64 56, !95, i64 64, !95, i64 72, !7, i64 80, !7, i64 116, !24, i64 152, !24, i64 156, !128, i64 160, !135, i64 168, !140, i64 192, !18, i64 204, !12, i64 208}
+!121 = !{!"_ZTSSt6vectorIfSaIfEE", !122, i64 0}
+!122 = !{!"_ZTSSt12_Vector_baseIfSaIfEE", !123, i64 0}
+!123 = !{!"_ZTSNSt12_Vector_baseIfSaIfEE12_Vector_implE", !124, i64 0}
+!124 = !{!"_ZTSNSt12_Vector_baseIfSaIfEE17_Vector_impl_dataE", !94, i64 0, !94, i64 8, !94, i64 16}
+!125 = !{!"_ZTSSt6vectorI12t_grp_tcstatSaIS0_EE", !126, i64 0}
+!126 = !{!"_ZTSSt12_Vector_baseI12t_grp_tcstatSaIS0_EE", !127, i64 0}
+!127 = !{!"_ZTSNSt12_Vector_baseI12t_grp_tcstatSaIS0_EE12_Vector_implE", !115, i64 0}
+!128 = !{!"_ZTSSt10unique_ptrI13SystemMomentaSt14default_deleteIS0_EE", !129, i64 0}
+!129 = !{!"_ZTSSt15__uniq_ptr_dataI13SystemMomentaSt14default_deleteIS0_ELb1ELb1EE", !130, i64 0}
+!130 = !{!"_ZTSSt15__uniq_ptr_implI13SystemMomentaSt14default_deleteIS0_EE", !131, i64 0}
+!131 = !{!"_ZTSSt5tupleIJP13SystemMomentaSt14default_deleteIS0_EEE", !132, i64 0}
+!132 = !{!"_ZTSSt11_Tuple_implILm0EJP13SystemMomentaSt14default_deleteIS0_EEE", !133, i64 0}
+!133 = !{!"_ZTSSt10_Head_baseILm0EP13SystemMomentaLb0EE", !134, i64 0}
+!134 = !{!"p1 _ZTS13SystemMomenta", !6, i64 0}
+!135 = !{!"_ZTSSt6vectorISt10unique_ptrI14SystemMomentumSt14default_deleteIS1_EESaIS4_EE", !136, i64 0}
+!136 = !{!"_ZTSSt12_Vector_baseISt10unique_ptrI14SystemMomentumSt14default_deleteIS1_EESaIS4_EE", !137, i64 0}
+!137 = !{!"_ZTSNSt12_Vector_baseISt10unique_ptrI14SystemMomentumSt14default_deleteIS1_EESaIS4_EE12_Vector_implE", !138, i64 0}
+!138 = !{!"_ZTSNSt12_Vector_baseISt10unique_ptrI14SystemMomentumSt14default_deleteIS1_EESaIS4_EE17_Vector_impl_dataE", !139, i64 0, !139, i64 8, !139, i64 16}
+!139 = !{!"p1 _ZTSSt10unique_ptrI14SystemMomentumSt14default_deleteIS0_EE", !6, i64 0}
+!140 = !{!"_ZTS9t_cos_acc", !24, i64 0, !24, i64 4, !24, i64 8}
+!141 = !{!134, !134, i64 0}
+!142 = !{!11, !43, i64 420}
+!143 = !{!144, !12, i64 384}
+!144 = !{!"_ZTS14gmx_enerdata_t", !145, i64 0, !146, i64 384, !148, i64 512, !148, i64 568, !149, i64 624}
+!145 = !{!"_ZTSSt5arrayIfLm95EE", !7, i64 0}
+!146 = !{!"_ZTS17gmx_grppairener_t", !12, i64 0, !147, i64 8}
+!147 = !{!"_ZTSN3gmx16EnumerationArrayI20NonBondedEnergyTermsSt6vectorIfSaIfEELS1_5EEE", !7, i64 0}
+!148 = !{!"_ZTSN3gmx16EnumerationArrayI34FreeEnergyPerturbationCouplingTypedLS1_7EEE", !7, i64 0}
+!149 = !{!"_ZTS18ForeignLambdaTerms", !12, i64 0, !150, i64 8, !151, i64 16, !156, i64 40, !18, i64 64}
+!150 = !{!"p1 _ZTSN3gmx16EnumerationArrayI34FreeEnergyPerturbationCouplingTypeSt6vectorIdSaIdEELS1_7EEE", !6, i64 0}
+!151 = !{!"_ZTSSt6vectorIdSaIdEE", !152, i64 0}
+!152 = !{!"_ZTSSt12_Vector_baseIdSaIdEE", !153, i64 0}
+!153 = !{!"_ZTSNSt12_Vector_baseIdSaIdEE12_Vector_implE", !154, i64 0}
+!154 = !{!"_ZTSNSt12_Vector_baseIdSaIdEE17_Vector_impl_dataE", !155, i64 0, !155, i64 8, !155, i64 16}
+!155 = !{!"p1 double", !6, i64 0}
+!156 = !{!"_ZTSSt6vectorIN3gmx16EnumerationArrayI34FreeEnergyPerturbationCouplingTypedLS2_7EEESaIS3_EE", !157, i64 0}
+!157 = !{!"_ZTSSt12_Vector_baseIN3gmx16EnumerationArrayI34FreeEnergyPerturbationCouplingTypedLS2_7EEESaIS3_EE", !158, i64 0}
+!158 = !{!"_ZTSNSt12_Vector_baseIN3gmx16EnumerationArrayI34FreeEnergyPerturbationCouplingTypedLS2_7EEESaIS3_EE12_Vector_implE", !159, i64 0}
+!159 = !{!"_ZTSNSt12_Vector_baseIN3gmx16EnumerationArrayI34FreeEnergyPerturbationCouplingTypedLS2_7EEESaIS3_EE17_Vector_impl_dataE", !160, i64 0, !160, i64 8, !160, i64 16}
+!160 = !{!"p1 _ZTSN3gmx16EnumerationArrayI34FreeEnergyPerturbationCouplingTypedLS1_7EEE", !6, i64 0}
+!161 = !{!124, !94, i64 0}
+!162 = !{!149, !12, i64 0}
+!163 = !{!154, !155, i64 0}
+!164 = !{!154, !155, i64 8}
+!165 = !{!166, !12, i64 0}
+!166 = !{!"_ZTS5t_vcm", !12, i64 0, !12, i64 4, !12, i64 8, !16, i64 12, !12, i64 16, !24, i64 20, !121, i64 24, !121, i64 48, !34, i64 72, !34, i64 96, !34, i64 120, !34, i64 144, !34, i64 168, !94, i64 192, !167, i64 200, !9, i64 224, !172, i64 232, !18, i64 256}
+!167 = !{!"_ZTSSt6vectorIPcSaIS0_EE", !168, i64 0}
+!168 = !{!"_ZTSSt12_Vector_baseIPcSaIS0_EE", !169, i64 0}
+!169 = !{!"_ZTSNSt12_Vector_baseIPcSaIS0_EE12_Vector_implE", !170, i64 0}
+!170 = !{!"_ZTSNSt12_Vector_baseIPcSaIS0_EE17_Vector_impl_dataE", !171, i64 0, !171, i64 8, !171, i64 16}
+!171 = !{!"p2 omnipotent char", !96, i64 0}
+!172 = !{!"_ZTSSt6vectorI12t_vcm_threadSaIS0_EE", !173, i64 0}
+!173 = !{!"_ZTSSt12_Vector_baseI12t_vcm_threadSaIS0_EE", !174, i64 0}
+!174 = !{!"_ZTSNSt12_Vector_baseI12t_vcm_threadSaIS0_EE12_Vector_implE", !175, i64 0}
+!175 = !{!"_ZTSNSt12_Vector_baseI12t_vcm_threadSaIS0_EE17_Vector_impl_dataE", !176, i64 0, !176, i64 8, !176, i64 16}
+!176 = !{!"p1 _ZTS12t_vcm_thread", !6, i64 0}
+!177 = !{!37, !38, i64 0}
+!178 = !{!166, !16, i64 12}
+!179 = !{!166, !94, i64 192}
+!180 = distinct !{!180, !110}

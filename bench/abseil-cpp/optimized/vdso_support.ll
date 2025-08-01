@@ -118,7 +118,7 @@ define dso_local noundef ptr @_ZN4absl18debugging_internal11VDSOSupport4InitEv()
 
 24:                                               ; preds = %21
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %26 = load i64, ptr %25, align 8, !tbaa !15
+  %26 = load i64, ptr %25, align 8, !tbaa !14
   store atomic i64 %26, ptr @_ZN4absl18debugging_internal11VDSOSupport10vdso_base_E monotonic, align 8
   br label %.loopexit
 
@@ -292,7 +292,6 @@ attributes #8 = { nounwind }
 !9 = !{!10, !11, i64 0}
 !10 = !{!"_ZTS12Elf64_auxv_t", !11, i64 0, !7, i64 8}
 !11 = !{!"long", !7, i64 0}
-!12 = distinct !{!12, !13, !14}
+!12 = distinct !{!12, !13}
 !13 = !{!"llvm.loop.mustprogress"}
-!14 = !{!"llvm.loop.estimated_trip_count"}
-!15 = !{!7, !7, i64 0}
+!14 = !{!7, !7, i64 0}

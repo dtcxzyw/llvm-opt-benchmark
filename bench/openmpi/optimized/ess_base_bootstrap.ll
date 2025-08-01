@@ -99,13 +99,13 @@ define range(i32 -46, 1) i32 @prte_ess_base_bootstrap() local_unnamed_addr #0 {
   br label %274
 
 22:                                               ; preds = %15
-  store i8 0, ptr %16, align 1, !tbaa !20
+  store i8 0, ptr %16, align 1, !tbaa !19
   %char0113 = load i8, ptr %12, align 1
   %23 = icmp eq i8 %char0113, 0
   br i1 %23, label %24, label %28
 
 24:                                               ; preds = %22
-  store i8 61, ptr %16, align 1, !tbaa !20
+  store i8 61, ptr %16, align 1, !tbaa !19
   %25 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @prte_process_info, i64 800), align 8, !tbaa !11
   %26 = tail call i32 (ptr, ptr, i32, ...) @pmix_show_help(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.5, i32 noundef 1, ptr noundef %25, ptr noundef %3, ptr noundef nonnull %16) #14
   tail call void @free(ptr noundef %3) #14
@@ -273,7 +273,7 @@ define range(i32 -46, 1) i32 @prte_ess_base_bootstrap() local_unnamed_addr #0 {
   call void @free(ptr noundef nonnull %90) #14
   %91 = call ptr @pmix_getline(ptr noundef nonnull %87) #14
   %.not.i.i = icmp eq ptr %91, null
-  br i1 %.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !21
+  br i1 %.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !20
 
 92:                                               ; preds = %.lr.ph.i.i
   %93 = call i32 @PMIx_Argv_append_nosize(ptr noundef nonnull %1, ptr noundef nonnull %90) #14
@@ -294,14 +294,14 @@ define range(i32 -46, 1) i32 @prte_ess_base_bootstrap() local_unnamed_addr #0 {
   br label %239
 
 100:                                              ; preds = %95
-  %101 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prte_ess_base_framework, i64 76), align 4, !tbaa !22
+  %101 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prte_ess_base_framework, i64 76), align 4, !tbaa !21
   %or.cond.i = icmp ult i32 %101, 64
   br i1 %or.cond.i, label %102, label %.backedge.i.preheader
 
 102:                                              ; preds = %100
   %103 = zext nneg i32 %101 to i64
   %104 = getelementptr inbounds nuw [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %103, i32 2
-  %105 = load i32, ptr %104, align 4, !tbaa !32
+  %105 = load i32, ptr %104, align 4, !tbaa !31
   %106 = icmp sgt i32 %105, 0
   br i1 %106, label %107, label %.backedge.i.preheader
 
@@ -329,7 +329,7 @@ define range(i32 -46, 1) i32 @prte_ess_base_bootstrap() local_unnamed_addr #0 {
 .lr.ph.i:                                         ; preds = %119, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %119 ]
   %112 = getelementptr inbounds nuw i8, ptr %.0113.i, i64 %indvars.iv.i
-  %113 = load i8, ptr %112, align 1, !tbaa !20
+  %113 = load i8, ptr %112, align 1, !tbaa !19
   switch i8 %113, label %119 [
     i8 91, label %.thread146.i
     i8 44, label %116
@@ -339,19 +339,19 @@ define range(i32 -46, 1) i32 @prte_ess_base_bootstrap() local_unnamed_addr #0 {
 .thread146.i:                                     ; preds = %.lr.ph.i
   %114 = getelementptr inbounds nuw i8, ptr %.0113.i, i64 %indvars.iv.i
   %115 = trunc nuw nsw i64 %indvars.iv.i to i32
-  store i8 0, ptr %114, align 1, !tbaa !20
+  store i8 0, ptr %114, align 1, !tbaa !19
   br label %124
 
 116:                                              ; preds = %.lr.ph.i
   %117 = getelementptr inbounds nuw i8, ptr %.0113.i, i64 %indvars.iv.i
   %118 = trunc nuw nsw i64 %indvars.iv.i to i32
-  store i8 0, ptr %117, align 1, !tbaa !20
+  store i8 0, ptr %117, align 1, !tbaa !19
   br label %.loopexit.i
 
 119:                                              ; preds = %.lr.ph.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.i, %110
-  br i1 %exitcond.not.i, label %.loopexit.thread.i, label %.lr.ph.i, !llvm.loop !34
+  br i1 %exitcond.not.i, label %.loopexit.thread.i, label %.lr.ph.i, !llvm.loop !33
 
 .loopexit.thread.i:                               ; preds = %119
   br i1 %.0109.i, label %124, label %234
@@ -393,7 +393,7 @@ define range(i32 -46, 1) i32 @prte_ess_base_bootstrap() local_unnamed_addr #0 {
   %indvars.iv216.i = phi i32 [ %129, %.lr.ph182.preheader.i ], [ %indvars.iv.next217.i, %134 ]
   %indvars.iv213.i = phi i64 [ %128, %.lr.ph182.preheader.i ], [ %indvars.iv.next214.i, %134 ]
   %131 = getelementptr inbounds nuw i8, ptr %.0113.i, i64 %indvars.iv213.i
-  %132 = load i8, ptr %131, align 1, !tbaa !20
+  %132 = load i8, ptr %131, align 1, !tbaa !19
   %133 = icmp eq i8 %132, 58
   br i1 %133, label %137, label %134
 
@@ -403,7 +403,7 @@ define range(i32 -46, 1) i32 @prte_ess_base_bootstrap() local_unnamed_addr #0 {
   %136 = icmp slt i32 %135, %109
   %indvars.iv.next217.i = add i32 %indvars.iv216.i, 1
   %indvars.iv.next223.i = add i32 %indvars.iv222.i, 1
-  br i1 %136, label %.lr.ph182.i, label %._crit_edge.i, !llvm.loop !35
+  br i1 %136, label %.lr.ph182.i, label %._crit_edge.i, !llvm.loop !34
 
 ._crit_edge.i:                                    ; preds = %124, %134
   call void @free(ptr noundef %96) #14
@@ -412,7 +412,7 @@ define range(i32 -46, 1) i32 @prte_ess_base_bootstrap() local_unnamed_addr #0 {
 137:                                              ; preds = %.lr.ph182.i
   %138 = getelementptr inbounds nuw i8, ptr %.0113.i, i64 %indvars.iv213.i
   %139 = trunc nuw i64 %indvars.iv213.i to i32
-  store i8 0, ptr %138, align 1, !tbaa !20
+  store i8 0, ptr %138, align 1, !tbaa !19
   %140 = zext nneg i32 %125 to i64
   %141 = getelementptr inbounds nuw i8, ptr %.0113.i, i64 %140
   %142 = call i64 @strtol(ptr noundef nonnull captures(none) %141, ptr noundef null, i32 noundef 10) #14
@@ -430,7 +430,7 @@ define range(i32 -46, 1) i32 @prte_ess_base_bootstrap() local_unnamed_addr #0 {
   %indvars.iv225.i = phi i64 [ %147, %.lr.ph187.preheader.i ], [ %indvars.iv.next226.i, %151 ]
   %indvars.iv219.i = phi i64 [ %146, %.lr.ph187.preheader.i ], [ %indvars.iv.next220.i, %151 ]
   %148 = getelementptr inbounds nuw i8, ptr %.0113.i, i64 %indvars.iv219.i
-  %149 = load i8, ptr %148, align 1, !tbaa !20
+  %149 = load i8, ptr %148, align 1, !tbaa !19
   %150 = icmp eq i8 %149, 93
   br i1 %150, label %154, label %151
 
@@ -439,7 +439,7 @@ define range(i32 -46, 1) i32 @prte_ess_base_bootstrap() local_unnamed_addr #0 {
   %152 = trunc nuw i64 %indvars.iv.next220.i to i32
   %153 = icmp slt i32 %152, %109
   %indvars.iv.next226.i = add nsw i64 %indvars.iv225.i, 1
-  br i1 %153, label %.lr.ph187.i, label %._crit_edge188.i, !llvm.loop !36
+  br i1 %153, label %.lr.ph187.i, label %._crit_edge188.i, !llvm.loop !35
 
 ._crit_edge188.i:                                 ; preds = %137, %151
   call void @free(ptr noundef %96) #14
@@ -448,7 +448,7 @@ define range(i32 -46, 1) i32 @prte_ess_base_bootstrap() local_unnamed_addr #0 {
 154:                                              ; preds = %.lr.ph187.i
   %155 = getelementptr inbounds nuw i8, ptr %.0113.i, i64 %indvars.iv219.i
   %156 = trunc nuw i64 %indvars.iv219.i to i32
-  store i8 0, ptr %155, align 1, !tbaa !20
+  store i8 0, ptr %155, align 1, !tbaa !19
   %157 = add nuw nsw i32 %156, 1
   %158 = icmp slt i32 %157, %109
   br i1 %158, label %159, label %177
@@ -456,7 +456,7 @@ define range(i32 -46, 1) i32 @prte_ess_base_bootstrap() local_unnamed_addr #0 {
 159:                                              ; preds = %154
   %160 = zext nneg i32 %157 to i64
   %161 = getelementptr inbounds nuw i8, ptr %.0113.i, i64 %160
-  %162 = load i8, ptr %161, align 1, !tbaa !20
+  %162 = load i8, ptr %161, align 1, !tbaa !19
   %.not133.i = icmp eq i8 %162, 44
   br i1 %.not133.i, label %177, label %.lr.ph192.preheader.i
 
@@ -468,14 +468,14 @@ define range(i32 -46, 1) i32 @prte_ess_base_bootstrap() local_unnamed_addr #0 {
 .lr.ph192.i:                                      ; preds = %166, %.lr.ph192.preheader.i
   %indvars.iv228.i = phi i64 [ %indvars.iv225.i, %.lr.ph192.preheader.i ], [ %indvars.iv.next229.i, %166 ]
   %164 = getelementptr inbounds i8, ptr %.0113.i, i64 %indvars.iv228.i
-  %165 = load i8, ptr %164, align 1, !tbaa !20
+  %165 = load i8, ptr %164, align 1, !tbaa !19
   %.not134.i = icmp eq i8 %165, 44
   br i1 %.not134.i, label %169, label %166
 
 166:                                              ; preds = %.lr.ph192.i
   %indvars.iv.next229.i = add nsw i64 %indvars.iv228.i, 1
   %167 = icmp slt i64 %indvars.iv.next229.i, %163
-  br i1 %167, label %.lr.ph192.i, label %.critedge137.i, !llvm.loop !37
+  br i1 %167, label %.lr.ph192.i, label %.critedge137.i, !llvm.loop !36
 
 .critedge137.i:                                   ; preds = %166
   %168 = call noalias ptr @strdup(ptr noundef nonnull %161) #14
@@ -483,12 +483,12 @@ define range(i32 -46, 1) i32 @prte_ess_base_bootstrap() local_unnamed_addr #0 {
 
 169:                                              ; preds = %.lr.ph192.i
   %170 = getelementptr inbounds i8, ptr %.0113.i, i64 %indvars.iv228.i
-  store i8 0, ptr %170, align 1, !tbaa !20
+  store i8 0, ptr %170, align 1, !tbaa !19
   %171 = call noalias ptr @strdup(ptr noundef nonnull %161) #14
   %sext231.i = shl i64 %indvars.iv228.i, 32
   %172 = ashr exact i64 %sext231.i, 32
   %173 = getelementptr inbounds i8, ptr %.0113.i, i64 %172
-  store i8 44, ptr %173, align 1, !tbaa !20
+  store i8 44, ptr %173, align 1, !tbaa !19
   br label %174
 
 174:                                              ; preds = %169, %.critedge137.i
@@ -501,14 +501,14 @@ define range(i32 -46, 1) i32 @prte_ess_base_bootstrap() local_unnamed_addr #0 {
 177:                                              ; preds = %174, %159, %154
   %.2119.i = phi i32 [ %176, %174 ], [ %156, %159 ], [ %156, %154 ]
   %.0111.i = phi ptr [ %175, %174 ], [ null, %159 ], [ null, %154 ]
-  %178 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prte_ess_base_framework, i64 76), align 4, !tbaa !22
+  %178 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prte_ess_base_framework, i64 76), align 4, !tbaa !21
   %or.cond5.i = icmp ult i32 %178, 64
   br i1 %or.cond5.i, label %179, label %187
 
 179:                                              ; preds = %177
   %180 = zext nneg i32 %178 to i64
   %181 = getelementptr inbounds nuw [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %180, i32 2
-  %182 = load i32, ptr %181, align 4, !tbaa !32
+  %182 = load i32, ptr %181, align 4, !tbaa !31
   %183 = icmp sgt i32 %182, 0
   br i1 %183, label %184, label %187
 
@@ -534,12 +534,12 @@ define range(i32 -46, 1) i32 @prte_ess_base_bootstrap() local_unnamed_addr #0 {
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %202 ]
   %.03447.i.i = phi ptr [ %189, %.lr.ph.preheader.i.i ], [ %.1.i.i, %202 ]
   %193 = getelementptr inbounds nuw i8, ptr %189, i64 %indvars.iv.i.i
-  %194 = load i8, ptr %193, align 1, !tbaa !20
+  %194 = load i8, ptr %193, align 1, !tbaa !19
   %195 = icmp eq i8 %194, 44
   br i1 %195, label %196, label %202
 
 196:                                              ; preds = %.lr.ph.i140.i
-  store i8 0, ptr %193, align 1, !tbaa !20
+  store i8 0, ptr %193, align 1, !tbaa !19
   %197 = call fastcc i32 @regex_parse_value_range(ptr noundef nonnull readonly %.0113.i, ptr noundef %.03447.i.i, i32 noundef %143, ptr noundef readonly %.0111.i, ptr noundef nonnull %1)
   switch i32 %197, label %198 [
     i32 0, label %200
@@ -559,7 +559,7 @@ define range(i32 -46, 1) i32 @prte_ess_base_bootstrap() local_unnamed_addr #0 {
   %.1.i.i = phi ptr [ %201, %200 ], [ %.03447.i.i, %.lr.ph.i140.i ]
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %._crit_edge.i138.i, label %.lr.ph.i140.i, !llvm.loop !38
+  br i1 %exitcond.not.i.i, label %._crit_edge.i138.i, label %.lr.ph.i140.i, !llvm.loop !37
 
 ._crit_edge.i138.i:                               ; preds = %202, %187
   %.034.lcssa.i.i = phi ptr [ %189, %187 ], [ %.1.i.i, %202 ]
@@ -570,14 +570,14 @@ define range(i32 -46, 1) i32 @prte_ess_base_bootstrap() local_unnamed_addr #0 {
   br i1 %205, label %206, label %218
 
 206:                                              ; preds = %._crit_edge.i138.i
-  %207 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prte_ess_base_framework, i64 76), align 4, !tbaa !22
+  %207 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prte_ess_base_framework, i64 76), align 4, !tbaa !21
   %or.cond.i.i = icmp ult i32 %207, 64
   br i1 %or.cond.i.i, label %208, label %214
 
 208:                                              ; preds = %206
   %209 = zext nneg i32 %207 to i64
   %210 = getelementptr inbounds nuw [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %209, i32 2
-  %211 = load i32, ptr %210, align 4, !tbaa !32
+  %211 = load i32, ptr %210, align 4, !tbaa !31
   %212 = icmp sgt i32 %211, 0
   br i1 %212, label %213, label %214
 
@@ -625,7 +625,7 @@ regex_parse_value_ranges.exit.i:                  ; preds = %196, %218, %216, %2
 225:                                              ; preds = %222
   %226 = sext i32 %223 to i64
   %227 = getelementptr inbounds i8, ptr %.0113.i, i64 %226
-  %228 = load i8, ptr %227, align 1, !tbaa !20
+  %228 = load i8, ptr %227, align 1, !tbaa !19
   %229 = icmp eq i8 %228, 44
   br i1 %229, label %230, label %.thread153.i
 
@@ -647,7 +647,7 @@ regex_parse_value_ranges.exit.i:                  ; preds = %196, %218, %216, %2
 .backedge.i.backedge:                             ; preds = %234, %230
   %.0113.i.be = phi ptr [ %238, %234 ], [ %233, %230 ]
   %.0109.i.be = phi i1 [ false, %234 ], [ true, %230 ]
-  br label %.backedge.i, !llvm.loop !39
+  br label %.backedge.i, !llvm.loop !38
 
 .thread153.i:                                     ; preds = %234, %225, %222
   call void @free(ptr noundef %96) #14
@@ -675,7 +675,7 @@ regex_extract_nodes.exit:                         ; preds = %.thread153.i, %._cr
 
 .preheader:                                       ; preds = %247
   %249 = load ptr, ptr %1, align 8, !tbaa !3
-  %250 = load ptr, ptr %249, align 8, !tbaa !40
+  %250 = load ptr, ptr %249, align 8, !tbaa !39
   %.not102198 = icmp eq ptr %250, null
   br i1 %.not102198, label %.loopexit, label %.lr.ph200
 
@@ -692,9 +692,9 @@ regex_extract_nodes.exit:                         ; preds = %.thread153.i, %._cr
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %256 = load ptr, ptr %1, align 8, !tbaa !3
   %257 = getelementptr inbounds nuw ptr, ptr %256, i64 %indvars.iv.next
-  %258 = load ptr, ptr %257, align 8, !tbaa !40
+  %258 = load ptr, ptr %257, align 8, !tbaa !39
   %.not102 = icmp eq ptr %258, null
-  br i1 %.not102, label %.loopexit, label %.lr.ph200, !llvm.loop !41
+  br i1 %.not102, label %.loopexit, label %.lr.ph200, !llvm.loop !40
 
 .loopexit:                                        ; preds = %.lr.ph200, %.preheader, %251, %244, %239, %79
   %259 = phi i1 [ true, %79 ], [ false, %239 ], [ false, %244 ], [ false, %251 ], [ false, %.preheader ], [ false, %.lr.ph200 ]
@@ -827,16 +827,16 @@ define internal fastcc range(i32 -46, 1) i32 @regex_parse_value_range(ptr nounde
 
 .lr.ph:                                           ; preds = %5
   %9 = tail call ptr @__ctype_b_loc() #16
-  %10 = load ptr, ptr %9, align 8, !tbaa !42
+  %10 = load ptr, ptr %9, align 8, !tbaa !41
   br label %11
 
 11:                                               ; preds = %.lr.ph, %24
   %.07392 = phi i64 [ 0, %.lr.ph ], [ %25, %24 ]
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 %.07392
-  %13 = load i8, ptr %12, align 1, !tbaa !20
+  %13 = load i8, ptr %12, align 1, !tbaa !19
   %14 = sext i8 %13 to i64
   %15 = getelementptr inbounds i16, ptr %10, i64 %14
-  %16 = load i16, ptr %15, align 2, !tbaa !44
+  %16 = load i16, ptr %15, align 2, !tbaa !43
   %17 = and i16 %16, 2048
   %18 = icmp eq i16 %17, 0
   br i1 %18, label %24, label %19
@@ -848,13 +848,13 @@ define internal fastcc range(i32 -46, 1) i32 @regex_parse_value_range(ptr nounde
   br i1 %22, label %.lr.ph94, label %.thread
 
 .lr.ph94:                                         ; preds = %19
-  %23 = load ptr, ptr %9, align 8, !tbaa !42
+  %23 = load ptr, ptr %9, align 8, !tbaa !41
   br label %27
 
 24:                                               ; preds = %11
   %25 = add nuw i64 %.07392, 1
   %exitcond.not = icmp eq i64 %25, %7
-  br i1 %exitcond.not, label %.critedge86, label %11, !llvm.loop !45
+  br i1 %exitcond.not, label %.critedge86, label %11, !llvm.loop !44
 
 .critedge86:                                      ; preds = %24, %5
   %26 = tail call ptr @PMIx_Error_string(i32 noundef -46) #14
@@ -864,10 +864,10 @@ define internal fastcc range(i32 -46, 1) i32 @regex_parse_value_range(ptr nounde
 27:                                               ; preds = %.lr.ph94, %35
   %.17493 = phi i64 [ %.07392, %.lr.ph94 ], [ %36, %35 ]
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 %.17493
-  %29 = load i8, ptr %28, align 1, !tbaa !20
+  %29 = load i8, ptr %28, align 1, !tbaa !19
   %30 = sext i8 %29 to i64
   %31 = getelementptr inbounds i16, ptr %23, i64 %30
-  %32 = load i16, ptr %31, align 2, !tbaa !44
+  %32 = load i16, ptr %31, align 2, !tbaa !43
   %33 = and i16 %32, 2048
   %.not = icmp eq i16 %33, 0
   br i1 %.not, label %.preheader87, label %35
@@ -879,15 +879,15 @@ define internal fastcc range(i32 -46, 1) i32 @regex_parse_value_range(ptr nounde
 35:                                               ; preds = %27
   %36 = add i64 %.17493, 1
   %exitcond113.not = icmp eq i64 %36, %7
-  br i1 %exitcond113.not, label %.thread, label %27, !llvm.loop !46
+  br i1 %exitcond113.not, label %.thread, label %27, !llvm.loop !45
 
 .lr.ph96:                                         ; preds = %.preheader87, %46
   %.295 = phi i64 [ %47, %46 ], [ %.17493, %.preheader87 ]
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 %.295
-  %38 = load i8, ptr %37, align 1, !tbaa !20
+  %38 = load i8, ptr %37, align 1, !tbaa !19
   %39 = sext i8 %38 to i64
   %40 = getelementptr inbounds i16, ptr %23, i64 %39
-  %41 = load i16, ptr %40, align 2, !tbaa !44
+  %41 = load i16, ptr %40, align 2, !tbaa !43
   %42 = and i16 %41, 2048
   %.not82 = icmp eq i16 %42, 0
   br i1 %.not82, label %46, label %43
@@ -900,7 +900,7 @@ define internal fastcc range(i32 -46, 1) i32 @regex_parse_value_range(ptr nounde
 46:                                               ; preds = %.lr.ph96
   %47 = add i64 %.295, 1
   %exitcond114.not = icmp eq i64 %47, %7
-  br i1 %exitcond114.not, label %.critedge, label %.lr.ph96, !llvm.loop !47
+  br i1 %exitcond114.not, label %.critedge, label %.lr.ph96, !llvm.loop !46
 
 .critedge:                                        ; preds = %46, %.preheader87
   %48 = tail call ptr @PMIx_Error_string(i32 noundef -46) #14
@@ -948,7 +948,7 @@ define internal fastcc range(i32 -46, 1) i32 @regex_parse_value_range(ptr nounde
   br i1 %.not108, label %._crit_edge, label %.lr.ph98.preheader
 
 .lr.ph98.preheader:                               ; preds = %60
-  call void @llvm.memset.p0.i64(ptr align 1 %invariant.gep, i8 48, i64 %49, i1 false), !tbaa !20
+  call void @llvm.memset.p0.i64(ptr align 1 %invariant.gep, i8 48, i64 %49, i1 false), !tbaa !19
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph98.preheader, %60
@@ -961,7 +961,7 @@ define internal fastcc range(i32 -46, 1) i32 @regex_parse_value_range(ptr nounde
 .lr.ph101.preheader:                              ; preds = %._crit_edge
   %64 = sub i64 0, %63
   %scevgep115 = getelementptr i8, ptr %scevgep, i64 %64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %scevgep115, ptr nonnull align 16 %6, i64 %63, i1 false), !tbaa !20
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %scevgep115, ptr nonnull align 16 %6, i64 %63, i1 false), !tbaa !19
   br label %._crit_edge102
 
 ._crit_edge102:                                   ; preds = %.lr.ph101.preheader, %._crit_edge
@@ -975,7 +975,7 @@ define internal fastcc range(i32 -46, 1) i32 @regex_parse_value_range(ptr nounde
   %68 = call i32 @PMIx_Argv_append_nosize(ptr noundef nonnull %4, ptr noundef nonnull %56) #14
   %69 = add i64 %.3104, 1
   %.not84 = icmp ugt i64 %69, %.069
-  br i1 %.not84, label %._crit_edge106, label %60, !llvm.loop !48
+  br i1 %.not84, label %._crit_edge106, label %60, !llvm.loop !47
 
 ._crit_edge106:                                   ; preds = %67, %.preheader
   call void @free(ptr noundef nonnull %56) #14
@@ -1045,35 +1045,34 @@ attributes #17 = { nounwind allocsize(0) }
 !14 = !{!"int", !6, i64 0}
 !15 = !{!"short", !6, i64 0}
 !16 = !{!"_Bool", !6, i64 0}
-!17 = distinct !{!17, !18, !19}
+!17 = distinct !{!17, !18}
 !18 = !{!"llvm.loop.mustprogress"}
-!19 = !{!"llvm.loop.estimated_trip_count"}
-!20 = !{!6, !6, i64 0}
-!21 = distinct !{!21, !18, !19}
-!22 = !{!23, !14, i64 76}
-!23 = !{!"pmix_mca_base_framework_t", !10, i64 0, !10, i64 8, !10, i64 16, !5, i64 24, !5, i64 32, !5, i64 40, !14, i64 48, !14, i64 52, !24, i64 56, !10, i64 64, !14, i64 72, !14, i64 76, !25, i64 80, !25, i64 352}
-!24 = !{!"p2 _ZTS31pmix_mca_base_component_2_1_0_t", !5, i64 0}
-!25 = !{!"pmix_list_t", !26, i64 0, !29, i64 120, !31, i64 264}
-!26 = !{!"pmix_object_t", !6, i64 0, !27, i64 40, !14, i64 48, !28, i64 56}
-!27 = !{!"p1 _ZTS12pmix_class_t", !5, i64 0}
-!28 = !{!"pmix_tma", !5, i64 0, !5, i64 8, !5, i64 16, !5, i64 24, !5, i64 32, !5, i64 40, !5, i64 48, !5, i64 56}
-!29 = !{!"pmix_list_item_t", !26, i64 0, !30, i64 120, !30, i64 128, !14, i64 136}
-!30 = !{!"p1 _ZTS16pmix_list_item_t", !5, i64 0}
-!31 = !{!"long", !6, i64 0}
-!32 = !{!33, !14, i64 4}
-!33 = !{!"", !16, i64 0, !16, i64 1, !14, i64 4, !16, i64 8, !14, i64 12, !10, i64 16, !10, i64 24, !14, i64 32, !10, i64 40, !14, i64 48, !16, i64 52, !16, i64 53, !16, i64 54, !16, i64 55, !10, i64 56, !14, i64 64, !14, i64 68}
-!34 = distinct !{!34, !18, !19}
-!35 = distinct !{!35, !18, !19}
-!36 = distinct !{!36, !18, !19}
-!37 = distinct !{!37, !18, !19}
-!38 = distinct !{!38, !18, !19}
-!39 = distinct !{!39, !18, !19}
-!40 = !{!10, !10, i64 0}
-!41 = distinct !{!41, !18, !19}
-!42 = !{!43, !43, i64 0}
-!43 = !{!"p1 short", !5, i64 0}
-!44 = !{!15, !15, i64 0}
-!45 = distinct !{!45, !18, !19}
-!46 = distinct !{!46, !18, !19}
-!47 = distinct !{!47, !18, !19}
-!48 = distinct !{!48, !18, !19}
+!19 = !{!6, !6, i64 0}
+!20 = distinct !{!20, !18}
+!21 = !{!22, !14, i64 76}
+!22 = !{!"pmix_mca_base_framework_t", !10, i64 0, !10, i64 8, !10, i64 16, !5, i64 24, !5, i64 32, !5, i64 40, !14, i64 48, !14, i64 52, !23, i64 56, !10, i64 64, !14, i64 72, !14, i64 76, !24, i64 80, !24, i64 352}
+!23 = !{!"p2 _ZTS31pmix_mca_base_component_2_1_0_t", !5, i64 0}
+!24 = !{!"pmix_list_t", !25, i64 0, !28, i64 120, !30, i64 264}
+!25 = !{!"pmix_object_t", !6, i64 0, !26, i64 40, !14, i64 48, !27, i64 56}
+!26 = !{!"p1 _ZTS12pmix_class_t", !5, i64 0}
+!27 = !{!"pmix_tma", !5, i64 0, !5, i64 8, !5, i64 16, !5, i64 24, !5, i64 32, !5, i64 40, !5, i64 48, !5, i64 56}
+!28 = !{!"pmix_list_item_t", !25, i64 0, !29, i64 120, !29, i64 128, !14, i64 136}
+!29 = !{!"p1 _ZTS16pmix_list_item_t", !5, i64 0}
+!30 = !{!"long", !6, i64 0}
+!31 = !{!32, !14, i64 4}
+!32 = !{!"", !16, i64 0, !16, i64 1, !14, i64 4, !16, i64 8, !14, i64 12, !10, i64 16, !10, i64 24, !14, i64 32, !10, i64 40, !14, i64 48, !16, i64 52, !16, i64 53, !16, i64 54, !16, i64 55, !10, i64 56, !14, i64 64, !14, i64 68}
+!33 = distinct !{!33, !18}
+!34 = distinct !{!34, !18}
+!35 = distinct !{!35, !18}
+!36 = distinct !{!36, !18}
+!37 = distinct !{!37, !18}
+!38 = distinct !{!38, !18}
+!39 = !{!10, !10, i64 0}
+!40 = distinct !{!40, !18}
+!41 = !{!42, !42, i64 0}
+!42 = !{!"p1 short", !5, i64 0}
+!43 = !{!15, !15, i64 0}
+!44 = distinct !{!44, !18}
+!45 = distinct !{!45, !18}
+!46 = distinct !{!46, !18}
+!47 = distinct !{!47, !18}

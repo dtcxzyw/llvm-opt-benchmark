@@ -673,7 +673,7 @@ split:                                            ; preds = %thread-pre-split
 123:                                              ; preds = %115, %121
   %124 = call i32 @pthread_mutex_lock(ptr noundef nonnull @state_save_lock) #6
   %.not63 = icmp eq i32 %124, 0
-  br i1 %.not63, label %.preheader, label %._crit_edge, !llvm.loop !11
+  br i1 %.not63, label %.preheader, label %._crit_edge, !llvm.loop !10
 }
 
 ; Function Attrs: nounwind
@@ -721,7 +721,6 @@ attributes #8 = { noreturn nounwind }
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i32 7, !"frame-pointer", i32 2}
 !7 = !{i32 7, !"debug-info-assignment-tracking", i1 true}
-!8 = distinct !{!8, !9, !10}
+!8 = distinct !{!8, !9}
 !9 = !{!"llvm.loop.unroll.disable"}
-!10 = !{!"llvm.loop.estimated_trip_count"}
-!11 = distinct !{!11, !9, !10}
+!10 = distinct !{!10, !9}

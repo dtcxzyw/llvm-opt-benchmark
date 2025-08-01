@@ -473,7 +473,7 @@ sdsalloc.exit:                                    ; preds = %41, %45, %48, %52, 
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !22
 
 ._crit_edge:                                      ; preds = %65, %3
-  %66 = load ptr, ptr @lua_argv, align 8, !tbaa !25
+  %66 = load ptr, ptr @lua_argv, align 8, !tbaa !24
   %.not = icmp eq ptr %0, %66
   %67 = load i32, ptr @lua_argv_size, align 4
   %.not22 = icmp eq i32 %2, %67
@@ -482,7 +482,7 @@ sdsalloc.exit:                                    ; preds = %41, %45, %48, %52, 
 
 68:                                               ; preds = %._crit_edge
   tail call void @zfree(ptr noundef %0) #11
-  store ptr null, ptr @lua_argv, align 8, !tbaa !25
+  store ptr null, ptr @lua_argv, align 8, !tbaa !24
   store i32 0, ptr @lua_argv_size, align 4, !tbaa !19
   br label %69
 
@@ -585,7 +585,7 @@ define internal noundef i32 @luaProtectedTableError(ptr noundef %0) #0 {
   br i1 %.not, label %9, label %3
 
 3:                                                ; preds = %1
-  %4 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6288), align 8, !tbaa !27
+  %4 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6288), align 8, !tbaa !26
   %5 = icmp sgt i32 %4, 3
   br i1 %5, label %7, label %6
 
@@ -637,7 +637,7 @@ define internal noundef i32 @luaNewIndexAllowList(ptr noundef %0) #0 {
   br i1 %.not, label %9, label %3
 
 3:                                                ; preds = %1
-  %4 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6288), align 8, !tbaa !27
+  %4 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6288), align 8, !tbaa !26
   %5 = icmp sgt i32 %4, 3
   br i1 %5, label %7, label %6
 
@@ -679,15 +679,15 @@ define internal noundef i32 @luaNewIndexAllowList(ptr noundef %0) #0 {
 .preheader:                                       ; preds = %20, %._crit_edge
   %22 = phi ptr [ @libraries_allow_list, %20 ], [ %31, %._crit_edge ]
   %.02843 = phi ptr [ @allow_lists, %20 ], [ %30, %._crit_edge ]
-  %23 = load ptr, ptr %22, align 8, !tbaa !55
+  %23 = load ptr, ptr %22, align 8, !tbaa !54
   %.not3541 = icmp eq ptr %23, null
   br i1 %.not3541, label %._crit_edge, label %.lr.ph
 
 24:                                               ; preds = %.lr.ph
   %25 = getelementptr inbounds nuw i8, ptr %.02742, i64 8
-  %26 = load ptr, ptr %25, align 8, !tbaa !55
+  %26 = load ptr, ptr %25, align 8, !tbaa !54
   %.not35 = icmp eq ptr %26, null
-  br i1 %.not35, label %._crit_edge, label %.lr.ph, !llvm.loop !56
+  br i1 %.not35, label %._crit_edge, label %.lr.ph, !llvm.loop !55
 
 .lr.ph:                                           ; preds = %.preheader, %24
   %27 = phi ptr [ %26, %24 ], [ %23, %.preheader ]
@@ -698,15 +698,15 @@ define internal noundef i32 @luaNewIndexAllowList(ptr noundef %0) #0 {
 
 ._crit_edge:                                      ; preds = %24, %.preheader
   %30 = getelementptr inbounds nuw i8, ptr %.02843, i64 8
-  %31 = load ptr, ptr %30, align 8, !tbaa !57
+  %31 = load ptr, ptr %30, align 8, !tbaa !56
   %.not34 = icmp eq ptr %31, null
-  br i1 %.not34, label %.critedge.preheader, label %.preheader, !llvm.loop !58
+  br i1 %.not34, label %.critedge.preheader, label %.preheader, !llvm.loop !57
 
 .critedge:                                        ; preds = %.critedge.preheader
   %32 = getelementptr inbounds nuw i8, ptr %.044, i64 8
-  %33 = load ptr, ptr %32, align 8, !tbaa !55
+  %33 = load ptr, ptr %32, align 8, !tbaa !54
   %.not38 = icmp eq ptr %33, null
-  br i1 %.not38, label %37, label %.critedge.preheader, !llvm.loop !59
+  br i1 %.not38, label %37, label %.critedge.preheader, !llvm.loop !58
 
 .critedge.preheader:                              ; preds = %._crit_edge, %.critedge
   %34 = phi ptr [ %33, %.critedge ], [ @.str.91, %._crit_edge ]
@@ -759,7 +759,7 @@ define dso_local void @luaSetTableProtectionRecursively(ptr noundef %0) local_un
   tail call void @lua_settop(ptr noundef %0, i32 noundef -2) #11
   %10 = tail call i32 @lua_next(ptr noundef %0, i32 noundef -2) #11
   %.not11 = icmp eq i32 %10, 0
-  br i1 %.not11, label %._crit_edge, label %.lr.ph, !llvm.loop !60
+  br i1 %.not11, label %._crit_edge, label %.lr.ph, !llvm.loop !59
 
 ._crit_edge:                                      ; preds = %9, %3
   %11 = tail call i32 @lua_getmetatable(ptr noundef %0, i32 noundef -1) #11
@@ -856,7 +856,7 @@ define internal i32 @luaLogCommand(ptr noundef %0) #0 {
   br label %34
 
 20:                                               ; preds = %14
-  %21 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6288), align 8, !tbaa !27
+  %21 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6288), align 8, !tbaa !26
   %22 = icmp sgt i32 %21, %16
   br i1 %22, label %34, label %.lr.ph.preheader
 
@@ -892,7 +892,7 @@ define internal i32 @luaLogCommand(ptr noundef %0) #0 {
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #11
   %33 = add nuw nsw i32 %.03137, 1
   %exitcond.not = icmp eq i32 %33, %3
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !61
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !60
 
 ._crit_edge:                                      ; preds = %32
   call void @serverLogRaw(i32 noundef %16, ptr noundef %.1) #11
@@ -1267,9 +1267,9 @@ define internal i32 @luaRedisAclCheckCmdPermissionsCommand(ptr noundef %0) #0 {
 15:                                               ; preds = %12
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #11
   %16 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %17 = load ptr, ptr %16, align 8, !tbaa !62
+  %17 = load ptr, ptr %16, align 8, !tbaa !61
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 160
-  %19 = load ptr, ptr %18, align 8, !tbaa !64
+  %19 = load ptr, ptr %18, align 8, !tbaa !63
   %20 = call i32 @ACLCheckAllUserCommandPerm(ptr noundef %19, ptr noundef nonnull %14, ptr noundef nonnull %8, i32 noundef %13, ptr noundef nonnull %4) #11
   %.not19 = icmp eq i32 %20, 0
   %. = zext i1 %.not19 to i32
@@ -1373,7 +1373,7 @@ define internal noundef i32 @redis_math_randomseed(ptr noundef %0) #0 {
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @luaErrorInformationDiscard(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !73
+  %2 = load ptr, ptr %0, align 8, !tbaa !72
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %4, label %3
 
@@ -1383,7 +1383,7 @@ define dso_local void @luaErrorInformationDiscard(ptr noundef readonly captures(
 
 4:                                                ; preds = %3, %1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %6 = load ptr, ptr %5, align 8, !tbaa !75
+  %6 = load ptr, ptr %5, align 8, !tbaa !74
   %.not8 = icmp eq ptr %6, null
   br i1 %.not8, label %8, label %7
 
@@ -1393,7 +1393,7 @@ define dso_local void @luaErrorInformationDiscard(ptr noundef readonly captures(
 
 8:                                                ; preds = %7, %4
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %10 = load ptr, ptr %9, align 8, !tbaa !76
+  %10 = load ptr, ptr %9, align 8, !tbaa !75
   %.not9 = icmp eq ptr %10, null
   br i1 %.not9, label %12, label %11
 
@@ -1415,7 +1415,7 @@ define dso_local void @luaExtractErrorInformation(ptr noundef %0, ptr noundef wr
   %5 = tail call ptr @sdsempty() #11
   %6 = tail call ptr @lua_tolstring(ptr noundef %0, i32 noundef -1, ptr noundef null) #11
   %7 = tail call ptr (ptr, ptr, ...) @sdscatfmt(ptr noundef %5, ptr noundef nonnull @.str.36, ptr noundef %6) #11
-  store ptr %7, ptr %1, align 8, !tbaa !73
+  store ptr %7, ptr %1, align 8, !tbaa !72
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %8, i8 0, i64 20, i1 false)
   br label %33
@@ -1429,7 +1429,7 @@ define dso_local void @luaExtractErrorInformation(ptr noundef %0, ptr noundef wr
 11:                                               ; preds = %9
   %12 = tail call ptr @lua_tolstring(ptr noundef %0, i32 noundef -1, ptr noundef null) #11
   %13 = tail call ptr @sdsnew(ptr noundef %12) #11
-  store ptr %13, ptr %1, align 8, !tbaa !73
+  store ptr %13, ptr %1, align 8, !tbaa !72
   br label %14
 
 14:                                               ; preds = %11, %9
@@ -1443,7 +1443,7 @@ define dso_local void @luaExtractErrorInformation(ptr noundef %0, ptr noundef wr
   %17 = tail call ptr @lua_tolstring(ptr noundef %0, i32 noundef -1, ptr noundef null) #11
   %18 = tail call ptr @sdsnew(ptr noundef %17) #11
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store ptr %18, ptr %19, align 8, !tbaa !75
+  store ptr %18, ptr %19, align 8, !tbaa !74
   br label %20
 
 20:                                               ; preds = %16, %14
@@ -1457,7 +1457,7 @@ define dso_local void @luaExtractErrorInformation(ptr noundef %0, ptr noundef wr
   %23 = tail call ptr @lua_tolstring(ptr noundef %0, i32 noundef -1, ptr noundef null) #11
   %24 = tail call ptr @sdsnew(ptr noundef %23) #11
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  store ptr %24, ptr %25, align 8, !tbaa !76
+  store ptr %24, ptr %25, align 8, !tbaa !75
   br label %26
 
 26:                                               ; preds = %22, %20
@@ -1470,7 +1470,7 @@ define dso_local void @luaExtractErrorInformation(ptr noundef %0, ptr noundef wr
 29:                                               ; preds = %26
   %30 = tail call i32 @lua_toboolean(ptr noundef %0, i32 noundef -1) #11
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  store i32 %30, ptr %31, align 8, !tbaa !77
+  store i32 %30, ptr %31, align 8, !tbaa !76
   br label %32
 
 32:                                               ; preds = %29, %26
@@ -1488,11 +1488,11 @@ define dso_local void @luaCallFunction(ptr noundef %0, ptr noundef %1, ptr nound
 luaSaveOnRegistry.exit:
   %7 = alloca %struct.errorInfo, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %9 = load ptr, ptr %8, align 8, !tbaa !62
+  %9 = load ptr, ptr %8, align 8, !tbaa !61
   tail call void @lua_pushstring(ptr noundef %1, ptr noundef nonnull @.str.40) #11
   tail call void @lua_pushlightuserdata(ptr noundef %1, ptr noundef nonnull %0) #11
   tail call void @lua_settable(ptr noundef %1, i32 noundef -10000) #11
-  %10 = load i64, ptr getelementptr inbounds nuw (i8, ptr @server, i64 8024), align 8, !tbaa !78
+  %10 = load i64, ptr getelementptr inbounds nuw (i8, ptr @server, i64 8024), align 8, !tbaa !77
   %11 = icmp slt i64 %10, 1
   %12 = icmp ne i32 %6, 0
   %or.cond = or i1 %12, %11
@@ -1573,11 +1573,11 @@ sdslen.exit.i:                                    ; preds = %44, %40, %36, %32, 
   %47 = trunc nuw nsw i64 %indvars.iv.next.i to i32
   tail call void @lua_rawseti(ptr noundef %1, i32 noundef -2, i32 noundef %47) #11
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %luaCreateArray.exit, label %.lr.ph.i, !llvm.loop !79
+  br i1 %exitcond.not.i, label %luaCreateArray.exit, label %.lr.ph.i, !llvm.loop !78
 
 luaCreateArray.exit:                              ; preds = %sdslen.exit.i, %18
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %49 = load i32, ptr %48, align 8, !tbaa !80
+  %49 = load i32, ptr %48, align 8, !tbaa !79
   %50 = and i32 %49, 128
   %.not = icmp eq i32 %50, 0
   br i1 %.not, label %52, label %51
@@ -1651,10 +1651,10 @@ sdslen.exit.i62:                                  ; preds = %78, %74, %70, %66, 
   %81 = trunc nuw nsw i64 %indvars.iv.next.i64 to i32
   tail call void @lua_rawseti(ptr noundef %1, i32 noundef -2, i32 noundef %81) #11
   %exitcond.not.i65 = icmp eq i64 %indvars.iv.next.i64, %wide.trip.count.i59
-  br i1 %exitcond.not.i65, label %luaCreateArray.exit66, label %.lr.ph.i60, !llvm.loop !79
+  br i1 %exitcond.not.i65, label %luaCreateArray.exit66, label %.lr.ph.i60, !llvm.loop !78
 
 luaCreateArray.exit66:                            ; preds = %sdslen.exit.i62, %52
-  %82 = load i32, ptr %48, align 8, !tbaa !80
+  %82 = load i32, ptr %48, align 8, !tbaa !79
   %83 = and i32 %82, 128
   %.not52 = icmp eq i32 %83, 0
   br i1 %.not52, label %85, label %84
@@ -1663,7 +1663,7 @@ luaCreateArray.exit66:                            ; preds = %sdslen.exit.i62, %5
   tail call void @lua_enablereadonlytable(ptr noundef %1, i32 noundef -10002, i32 noundef 0) #11
   tail call void @lua_setfield(ptr noundef %1, i32 noundef -10002, ptr noundef nonnull @.str.42) #11
   tail call void @lua_enablereadonlytable(ptr noundef %1, i32 noundef -10002, i32 noundef 1) #11
-  %.pre = load i32, ptr %48, align 8, !tbaa !80
+  %.pre = load i32, ptr %48, align 8, !tbaa !79
   br label %85
 
 85:                                               ; preds = %84, %luaCreateArray.exit66
@@ -1701,7 +1701,7 @@ luaCreateArray.exit66:                            ; preds = %sdslen.exit.i62, %5
 
 100:                                              ; preds = %98, %96
   %.047 = phi ptr [ %99, %98 ], [ @.str.43, %96 ]
-  %101 = load ptr, ptr %0, align 8, !tbaa !81
+  %101 = load ptr, ptr %0, align 8, !tbaa !80
   tail call void (ptr, ptr, ...) @addReplyErrorFormat(ptr noundef %9, ptr noundef nonnull @.str.44, ptr noundef %101, ptr noundef %.047) #11
   br label %124
 
@@ -1710,10 +1710,10 @@ luaCreateArray.exit66:                            ; preds = %sdslen.exit.i62, %5
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, i8 0, i64 32, i1 false)
   %103 = tail call ptr @sdsempty() #11
   call void @luaExtractErrorInformation(ptr noundef %1, ptr noundef nonnull %7)
-  %104 = load ptr, ptr %7, align 8, !tbaa !73
+  %104 = load ptr, ptr %7, align 8, !tbaa !72
   %105 = tail call ptr (ptr, ptr, ...) @sdscatfmt(ptr noundef %103, ptr noundef nonnull @.str.45, ptr noundef %104) #11
   %106 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %107 = load ptr, ptr %106, align 8, !tbaa !76
+  %107 = load ptr, ptr %106, align 8, !tbaa !75
   %108 = icmp ne ptr %107, null
   %109 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %110 = load ptr, ptr %109, align 8
@@ -1722,14 +1722,14 @@ luaCreateArray.exit66:                            ; preds = %sdslen.exit.i62, %5
   br i1 %or.cond4, label %112, label %115
 
 112:                                              ; preds = %102
-  %113 = load ptr, ptr %0, align 8, !tbaa !81
+  %113 = load ptr, ptr %0, align 8, !tbaa !80
   %114 = tail call ptr (ptr, ptr, ...) @sdscatfmt(ptr noundef %105, ptr noundef nonnull @.str.46, ptr noundef %113, ptr noundef nonnull %110, ptr noundef nonnull %107) #11
   br label %115
 
 115:                                              ; preds = %112, %102
   %.0 = phi ptr [ %114, %112 ], [ %105, %102 ]
   %116 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  %117 = load i32, ptr %116, align 8, !tbaa !77
+  %117 = load i32, ptr %116, align 8, !tbaa !76
   %.not56 = icmp ne i32 %117, 0
   %118 = zext i1 %.not56 to i32
   tail call void @addReplyErrorSdsEx(ptr noundef %9, ptr noundef %.0, i32 noundef %118) #11
@@ -1766,7 +1766,7 @@ luaErrorInformationDiscard.exit:                  ; preds = %122, %123
 
 125:                                              ; preds = %92
   %126 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %127 = load ptr, ptr %126, align 8, !tbaa !82
+  %127 = load ptr, ptr %126, align 8, !tbaa !81
   tail call fastcc void @luaReplyToRedisReply(ptr noundef %9, ptr noundef %127, ptr noundef %1)
   br label %128
 
@@ -1803,7 +1803,7 @@ define internal void @luaMaskCountHook(ptr noundef %0, ptr readnone captures(non
   br i1 %7, label %8, label %16
 
 8:                                                ; preds = %5
-  %9 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6288), align 8, !tbaa !27
+  %9 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6288), align 8, !tbaa !26
   %10 = icmp sgt i32 %9, 2
   br i1 %10, label %12, label %11
 
@@ -1863,7 +1863,7 @@ define internal fastcc void @luaReplyToRedisReply(ptr noundef %0, ptr noundef %1
 
 13:                                               ; preds = %9
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 28
-  %15 = load i32, ptr %14, align 4, !tbaa !83
+  %15 = load i32, ptr %14, align 4, !tbaa !82
   %16 = icmp eq i32 %15, 2
   %17 = tail call i32 @lua_toboolean(ptr noundef %2, i32 noundef -1) #11
   br i1 %16, label %18, label %26
@@ -1874,7 +1874,7 @@ define internal fastcc void @luaReplyToRedisReply(ptr noundef %0, ptr noundef %1
 
 19:                                               ; preds = %18
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %21 = load i32, ptr %20, align 4, !tbaa !83
+  %21 = load i32, ptr %20, align 4, !tbaa !82
   %22 = sext i32 %21 to i64
   %23 = getelementptr inbounds [4 x ptr], ptr getelementptr inbounds nuw (i8, ptr @shared, i64 64), i64 0, i64 %22
   br label %24
@@ -1908,10 +1908,10 @@ define internal fastcc void @luaReplyToRedisReply(ptr noundef %0, ptr noundef %1
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, i8 0, i64 32, i1 false)
   call void @luaExtractErrorInformation(ptr noundef %2, ptr noundef nonnull %4)
   %34 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  %35 = load i32, ptr %34, align 8, !tbaa !77
+  %35 = load i32, ptr %34, align 8, !tbaa !76
   %.not140 = icmp ne i32 %35, 0
   %36 = zext i1 %.not140 to i32
-  %37 = load ptr, ptr %4, align 8, !tbaa !73
+  %37 = load ptr, ptr %4, align 8, !tbaa !72
   tail call void (ptr, i32, ptr, ...) @addReplyErrorFormatEx(ptr noundef %0, i32 noundef %36, ptr noundef nonnull @.str.45, ptr noundef %37) #11
   %.not.i = icmp eq ptr %37, null
   br i1 %.not.i, label %39, label %38
@@ -1922,7 +1922,7 @@ define internal fastcc void @luaReplyToRedisReply(ptr noundef %0, ptr noundef %1
 
 39:                                               ; preds = %38, %33
   %40 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %41 = load ptr, ptr %40, align 8, !tbaa !75
+  %41 = load ptr, ptr %40, align 8, !tbaa !74
   %.not8.i = icmp eq ptr %41, null
   br i1 %.not8.i, label %43, label %42
 
@@ -1932,7 +1932,7 @@ define internal fastcc void @luaReplyToRedisReply(ptr noundef %0, ptr noundef %1
 
 43:                                               ; preds = %42, %39
   %44 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %45 = load ptr, ptr %44, align 8, !tbaa !76
+  %45 = load ptr, ptr %44, align 8, !tbaa !75
   %.not9.i = icmp eq ptr %45, null
   br i1 %.not9.i, label %luaErrorInformationDiscard.exit, label %46
 
@@ -2099,7 +2099,7 @@ sdslen.exit:                                      ; preds = %50, %58, %61, %65, 
   %109 = add nuw nsw i32 %.0136151, 1
   %110 = tail call i32 @lua_next(ptr noundef %2, i32 noundef -2) #11
   %.not139 = icmp eq i32 %110, 0
-  br i1 %.not139, label %._crit_edge154.loopexit, label %.lr.ph153, !llvm.loop !84
+  br i1 %.not139, label %._crit_edge154.loopexit, label %.lr.ph153, !llvm.loop !83
 
 ._crit_edge154.loopexit:                          ; preds = %.lr.ph153
   %111 = zext nneg i32 %109 to i64
@@ -2134,7 +2134,7 @@ sdslen.exit:                                      ; preds = %50, %58, %61, %65, 
   %118 = add nuw nsw i32 %.0135145, 1
   %119 = tail call i32 @lua_next(ptr noundef %2, i32 noundef -2) #11
   %.not138 = icmp eq i32 %119, 0
-  br i1 %.not138, label %._crit_edge148.loopexit, label %.lr.ph147, !llvm.loop !85
+  br i1 %.not138, label %._crit_edge148.loopexit, label %.lr.ph147, !llvm.loop !84
 
 ._crit_edge148.loopexit:                          ; preds = %.lr.ph147
   %120 = zext nneg i32 %118 to i64
@@ -2176,7 +2176,7 @@ sdslen.exit:                                      ; preds = %50, %58, %61, %65, 
   tail call void @lua_rawget(ptr noundef %2, i32 noundef -2) #11
   %129 = tail call i32 @lua_type(ptr noundef %2, i32 noundef -1) #11
   %130 = icmp eq i32 %129, 0
-  br i1 %130, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !86
+  br i1 %130, label %._crit_edge.loopexit, label %.lr.ph
 
 131:                                              ; preds = %9
   tail call void @addReplyNull(ptr noundef %0) #11
@@ -2281,14 +2281,14 @@ define internal fastcc i32 @luaRedisGenericCommand(ptr noundef %0, i32 noundef r
 
 7:                                                ; preds = %2
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #11
-  store ptr null, ptr %4, align 8, !tbaa !55
+  store ptr null, ptr %4, align 8, !tbaa !54
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %9 = load ptr, ptr %8, align 8, !tbaa !82
+  %9 = load ptr, ptr %8, align 8, !tbaa !81
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 88
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 104
   %12 = tail call fastcc ptr @luaArgsToRedisArgv(ptr noundef %0, ptr noundef nonnull %10, ptr noundef nonnull %11)
   %13 = getelementptr inbounds nuw i8, ptr %9, i64 96
-  store ptr %12, ptr %13, align 8, !tbaa !87
+  store ptr %12, ptr %13, align 8, !tbaa !85
   %14 = icmp eq ptr %12, null
   br i1 %14, label %15, label %18
 
@@ -2306,7 +2306,7 @@ define internal fastcc i32 @luaRedisGenericCommand(ptr noundef %0, i32 noundef r
   br i1 %.not79, label %26, label %20
 
 20:                                               ; preds = %18
-  %21 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6288), align 8, !tbaa !27
+  %21 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6288), align 8, !tbaa !26
   %22 = icmp sgt i32 %21, 3
   br i1 %22, label %24, label %23
 
@@ -2327,13 +2327,13 @@ define internal fastcc i32 @luaRedisGenericCommand(ptr noundef %0, i32 noundef r
 
 28:                                               ; preds = %26
   %29 = tail call ptr @sdsnew(ptr noundef nonnull @.str.101) #11
-  %30 = load i32, ptr %10, align 8, !tbaa !88
+  %30 = load i32, ptr %10, align 8, !tbaa !86
   %31 = icmp sgt i32 %30, 0
   br i1 %31, label %.lr.ph.preheader, label %.loopexit89
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader
   %32 = icmp eq i64 %indvars.iv.next, 10
-  br i1 %32, label %33, label %.lr.ph.preheader, !llvm.loop !89
+  br i1 %32, label %33, label %.lr.ph.preheader, !llvm.loop !87
 
 33:                                               ; preds = %.lr.ph
   %34 = add nsw i32 %43, -11
@@ -2344,17 +2344,17 @@ define internal fastcc i32 @luaRedisGenericCommand(ptr noundef %0, i32 noundef r
   %.06693113 = phi ptr [ %42, %.lr.ph ], [ %29, %28 ]
   %indvars.iv112 = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %28 ]
   %36 = tail call ptr @sdscatlen(ptr noundef %.06693113, ptr noundef nonnull @.str.4, i64 noundef 1) #11
-  %37 = load ptr, ptr %13, align 8, !tbaa !87
+  %37 = load ptr, ptr %13, align 8, !tbaa !85
   %38 = getelementptr inbounds nuw ptr, ptr %37, i64 %indvars.iv112
   %39 = load ptr, ptr %38, align 8, !tbaa !10
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 8
   %41 = load ptr, ptr %40, align 8, !tbaa !16
   %42 = tail call ptr @sdscatsds(ptr noundef %36, ptr noundef %41) #11
   %indvars.iv.next = add nuw nsw i64 %indvars.iv112, 1
-  %43 = load i32, ptr %10, align 8, !tbaa !88
+  %43 = load i32, ptr %10, align 8, !tbaa !86
   %44 = sext i32 %43 to i64
   %45 = icmp slt i64 %indvars.iv.next, %44
-  br i1 %45, label %.lr.ph, label %.loopexit89, !llvm.loop !89
+  br i1 %45, label %.lr.ph, label %.loopexit89, !llvm.loop !87
 
 .loopexit89:                                      ; preds = %.lr.ph.preheader, %28, %33
   %.1 = phi ptr [ %35, %33 ], [ %29, %28 ], [ %42, %.lr.ph.preheader ]
@@ -2363,14 +2363,14 @@ define internal fastcc i32 @luaRedisGenericCommand(ptr noundef %0, i32 noundef r
 
 46:                                               ; preds = %.loopexit89, %26
   call void @scriptCall(ptr noundef nonnull %5, ptr noundef nonnull %4) #11
-  %47 = load ptr, ptr %4, align 8, !tbaa !55
+  %47 = load ptr, ptr %4, align 8, !tbaa !54
   %.not81 = icmp eq ptr %47, null
   br i1 %.not81, label %51, label %48
 
 48:                                               ; preds = %46
   %49 = call ptr @sdsnew(ptr noundef nonnull %47) #11
   call void @luaPushErrorBuff(ptr noundef %0, ptr noundef %49)
-  %50 = load ptr, ptr %4, align 8, !tbaa !55
+  %50 = load ptr, ptr %4, align 8, !tbaa !54
   call void @sdsfree(ptr noundef %50) #11
   call void @lua_pushstring(ptr noundef %0, ptr noundef nonnull @.str.39) #11
   call void @lua_pushboolean(ptr noundef %0, i32 noundef 1) #11
@@ -2379,60 +2379,60 @@ define internal fastcc i32 @luaRedisGenericCommand(ptr noundef %0, i32 noundef r
 
 51:                                               ; preds = %46
   %52 = getelementptr inbounds nuw i8, ptr %9, i64 184
-  %53 = load ptr, ptr %52, align 8, !tbaa !90
+  %53 = load ptr, ptr %52, align 8, !tbaa !88
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 40
-  %55 = load i64, ptr %54, align 8, !tbaa !91
+  %55 = load i64, ptr %54, align 8, !tbaa !89
   %56 = icmp eq i64 %55, 0
   %57 = getelementptr inbounds nuw i8, ptr %9, i64 776
-  %58 = load i32, ptr %57, align 8, !tbaa !93
+  %58 = load i32, ptr %57, align 8, !tbaa !91
   %59 = sext i32 %58 to i64
   br i1 %56, label %60, label %._crit_edge
 
 60:                                               ; preds = %51
   %61 = getelementptr inbounds nuw i8, ptr %9, i64 784
-  %62 = load i64, ptr %61, align 8, !tbaa !94
+  %62 = load i64, ptr %61, align 8, !tbaa !92
   %63 = icmp ugt i64 %62, %59
   br i1 %63, label %64, label %._crit_edge
 
 64:                                               ; preds = %60
   %65 = getelementptr inbounds nuw i8, ptr %9, i64 792
-  %66 = load ptr, ptr %65, align 8, !tbaa !95
+  %66 = load ptr, ptr %65, align 8, !tbaa !93
   %67 = getelementptr inbounds i8, ptr %66, i64 %59
   store i8 0, ptr %67, align 1, !tbaa !7
-  %68 = load ptr, ptr %65, align 8, !tbaa !95
-  store i32 0, ptr %57, align 8, !tbaa !93
+  %68 = load ptr, ptr %65, align 8, !tbaa !93
+  store i32 0, ptr %57, align 8, !tbaa !91
   br label %.loopexit
 
 ._crit_edge:                                      ; preds = %51, %60
   %69 = getelementptr inbounds nuw i8, ptr %9, i64 792
-  %70 = load ptr, ptr %69, align 8, !tbaa !95
+  %70 = load ptr, ptr %69, align 8, !tbaa !93
   %71 = getelementptr inbounds nuw i8, ptr %9, i64 776
   %72 = call ptr @sdsnewlen(ptr noundef %70, i64 noundef %59) #11
-  store i32 0, ptr %71, align 8, !tbaa !93
-  %73 = load ptr, ptr %52, align 8, !tbaa !90
+  store i32 0, ptr %71, align 8, !tbaa !91
+  %73 = load ptr, ptr %52, align 8, !tbaa !88
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 40
-  %75 = load i64, ptr %74, align 8, !tbaa !91
+  %75 = load i64, ptr %74, align 8, !tbaa !89
   %.not8294 = icmp eq i64 %75, 0
   br i1 %.not8294, label %.loopexit, label %.lr.ph96
 
 .lr.ph96:                                         ; preds = %._crit_edge, %.lr.ph96
   %76 = phi ptr [ %86, %.lr.ph96 ], [ %73, %._crit_edge ]
   %.17095 = phi ptr [ %83, %.lr.ph96 ], [ %72, %._crit_edge ]
-  %77 = load ptr, ptr %76, align 8, !tbaa !96
+  %77 = load ptr, ptr %76, align 8, !tbaa !94
   %78 = getelementptr inbounds nuw i8, ptr %77, i64 16
-  %79 = load ptr, ptr %78, align 8, !tbaa !97
+  %79 = load ptr, ptr %78, align 8, !tbaa !95
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 16
   %81 = getelementptr inbounds nuw i8, ptr %79, i64 8
   %82 = load i64, ptr %81, align 8, !tbaa !20
   %83 = call ptr @sdscatlen(ptr noundef %.17095, ptr noundef nonnull %80, i64 noundef %82) #11
-  %84 = load ptr, ptr %52, align 8, !tbaa !90
-  %85 = load ptr, ptr %84, align 8, !tbaa !96
+  %84 = load ptr, ptr %52, align 8, !tbaa !88
+  %85 = load ptr, ptr %84, align 8, !tbaa !94
   call void @listDelNode(ptr noundef nonnull %84, ptr noundef %85) #11
-  %86 = load ptr, ptr %52, align 8, !tbaa !90
+  %86 = load ptr, ptr %52, align 8, !tbaa !88
   %87 = getelementptr inbounds nuw i8, ptr %86, i64 40
-  %88 = load i64, ptr %87, align 8, !tbaa !91
+  %88 = load i64, ptr %87, align 8, !tbaa !89
   %.not82 = icmp eq i64 %88, 0
-  br i1 %.not82, label %.loopexit, label %.lr.ph96, !llvm.loop !98
+  br i1 %.not82, label %.loopexit, label %.lr.ph96, !llvm.loop !96
 
 .loopexit:                                        ; preds = %.lr.ph96, %._crit_edge, %64
   %.069 = phi ptr [ %68, %64 ], [ %72, %._crit_edge ], [ %83, %.lr.ph96 ]
@@ -2448,9 +2448,9 @@ define internal fastcc i32 @luaRedisGenericCommand(ptr noundef %0, i32 noundef r
 91:                                               ; preds = %89, %.loopexit
   %.168 = phi i32 [ 0, %.loopexit ], [ %spec.select, %89 ]
   call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %3) #11
-  store ptr %.069, ptr %3, align 8, !tbaa !99
+  store ptr %.069, ptr %3, align 8, !tbaa !97
   %92 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %92, ptr noundef nonnull align 8 dereferenceable(128) @DefaultLuaTypeParserCallbacks, i64 128, i1 false), !tbaa.struct !102
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %92, ptr noundef nonnull align 8 dereferenceable(128) @DefaultLuaTypeParserCallbacks, i64 128, i1 false), !tbaa.struct !100
   %93 = call i32 @parseReply(ptr noundef nonnull %3, ptr noundef %0) #11
   call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %3) #11
   %94 = call i32 @ldbIsEnabled() #11
@@ -2463,7 +2463,7 @@ define internal fastcc i32 @luaRedisGenericCommand(ptr noundef %0, i32 noundef r
 
 96:                                               ; preds = %95, %91
   %97 = getelementptr inbounds nuw i8, ptr %9, i64 792
-  %98 = load ptr, ptr %97, align 8, !tbaa !95
+  %98 = load ptr, ptr %97, align 8, !tbaa !93
   %.not86 = icmp eq ptr %.069, %98
   br i1 %.not86, label %100, label %99
 
@@ -2473,20 +2473,20 @@ define internal fastcc i32 @luaRedisGenericCommand(ptr noundef %0, i32 noundef r
 
 100:                                              ; preds = %99, %96
   %101 = getelementptr inbounds nuw i8, ptr %9, i64 192
-  store i64 0, ptr %101, align 8, !tbaa !104
+  store i64 0, ptr %101, align 8, !tbaa !102
   br label %102
 
 102:                                              ; preds = %100, %48
   %.067 = phi i32 [ %1, %48 ], [ %.168, %100 ]
-  %103 = load ptr, ptr %13, align 8, !tbaa !87
-  %104 = load i32, ptr %10, align 8, !tbaa !88
-  %105 = load i32, ptr %11, align 8, !tbaa !105
+  %103 = load ptr, ptr %13, align 8, !tbaa !85
+  %104 = load i32, ptr %10, align 8, !tbaa !86
+  %105 = load i32, ptr %11, align 8, !tbaa !103
   call void @freeLuaRedisArgv(ptr noundef %103, i32 noundef %104, i32 noundef %105)
-  store i32 0, ptr %11, align 8, !tbaa !105
-  store i32 0, ptr %10, align 8, !tbaa !88
+  store i32 0, ptr %11, align 8, !tbaa !103
+  store i32 0, ptr %10, align 8, !tbaa !86
   %106 = getelementptr inbounds nuw i8, ptr %9, i64 160
-  store ptr null, ptr %106, align 8, !tbaa !64
-  store ptr null, ptr %13, align 8, !tbaa !87
+  store ptr null, ptr %106, align 8, !tbaa !63
+  store ptr null, ptr %13, align 8, !tbaa !85
   call void @resetClient(ptr noundef nonnull %9) #11
   %107 = load i32, ptr @luaRedisGenericCommand.inuse, align 4, !tbaa !19
   %108 = add nsw i32 %107, -1
@@ -2525,11 +2525,11 @@ define internal fastcc ptr @luaArgsToRedisArgv(ptr noundef %0, ptr noundef captu
   br i1 %13, label %14, label %20
 
 14:                                               ; preds = %11
-  %15 = load ptr, ptr @lua_argv, align 8, !tbaa !25
+  %15 = load ptr, ptr @lua_argv, align 8, !tbaa !24
   %16 = sext i32 %7 to i64
   %17 = shl nsw i64 %16, 3
   %18 = tail call ptr @zrealloc(ptr noundef %15, i64 noundef %17) #14
-  store ptr %18, ptr @lua_argv, align 8, !tbaa !25
+  store ptr %18, ptr @lua_argv, align 8, !tbaa !24
   %19 = load i32, ptr %1, align 4, !tbaa !19
   store i32 %19, ptr @lua_argv_size, align 4, !tbaa !19
   br label %20
@@ -2559,7 +2559,7 @@ define internal fastcc ptr @luaArgsToRedisArgv(ptr noundef %0, ptr noundef captu
   br i1 %.not, label %34, label %30
 
 30:                                               ; preds = %27
-  %31 = load i64, ptr %6, align 8, !tbaa !106
+  %31 = load i64, ptr %6, align 8, !tbaa !104
   %32 = call i32 @ll2string(ptr noundef nonnull %5, i64 noundef 64, i64 noundef %31) #11
   %33 = sext i32 %32 to i64
   br label %38
@@ -2614,7 +2614,7 @@ sdssetlen.exit.thread:                            ; preds = %39
 51:                                               ; preds = %48
   %52 = getelementptr inbounds nuw i8, ptr %47, i64 8
   %53 = load ptr, ptr %52, align 8, !tbaa !16
-  %54 = load ptr, ptr @lua_argv, align 8, !tbaa !25
+  %54 = load ptr, ptr @lua_argv, align 8, !tbaa !24
   %55 = getelementptr inbounds nuw ptr, ptr %54, i64 %indvars.iv
   store ptr %47, ptr %55, align 8, !tbaa !10
   store ptr null, ptr %46, align 8, !tbaa !10
@@ -2664,7 +2664,7 @@ sdssetlen.exit.thread:                            ; preds = %39
 74:                                               ; preds = %._crit_edge, %48, %45
   %75 = phi i64 [ %.pre, %._crit_edge ], [ %.pre56, %48 ], [ %.pre56, %45 ]
   %76 = call ptr @createStringObject(ptr noundef nonnull %.040, i64 noundef %75) #11
-  %77 = load ptr, ptr @lua_argv, align 8, !tbaa !25
+  %77 = load ptr, ptr @lua_argv, align 8, !tbaa !24
   %78 = getelementptr inbounds nuw ptr, ptr %77, i64 %indvars.iv
   store ptr %76, ptr %78, align 8, !tbaa !10
   br label %sdssetlen.exit
@@ -2675,7 +2675,7 @@ sdssetlen.exit:                                   ; preds = %72, %69, %66, %63, 
   %79 = load i32, ptr %1, align 4, !tbaa !19
   %80 = sext i32 %79 to i64
   %81 = icmp slt i64 %indvars.iv.next, %80
-  br i1 %81, label %.lr.ph, label %.loopexit, !llvm.loop !107
+  br i1 %81, label %.lr.ph, label %.loopexit, !llvm.loop !105
 
 .loopexit:                                        ; preds = %sdssetlen.exit, %20, %sdssetlen.exit.thread
   %82 = phi i32 [ %.pre57, %sdssetlen.exit.thread ], [ %22, %20 ], [ %79, %sdssetlen.exit ]
@@ -2684,7 +2684,7 @@ sdssetlen.exit:                                   ; preds = %72, %69, %66, %63, 
   call void @lua_settop(ptr noundef %0, i32 noundef %83) #11
   %84 = load i32, ptr %1, align 4, !tbaa !19
   %.not47 = icmp eq i32 %.03951, %84
-  %85 = load ptr, ptr @lua_argv, align 8, !tbaa !25
+  %85 = load ptr, ptr @lua_argv, align 8, !tbaa !24
   br i1 %.not47, label %89, label %86
 
 86:                                               ; preds = %.loopexit
@@ -2901,7 +2901,7 @@ define internal void @redisProtocolToLuaType_Array(ptr noundef %0, ptr noundef %
   %9 = tail call i32 @parseReply(ptr noundef %0, ptr noundef null) #11
   %10 = add nuw i64 %.015.us, 1
   %exitcond18.not = icmp eq i64 %10, %2
-  br i1 %exitcond18.not, label %._crit_edge, label %.critedge.us, !llvm.loop !108
+  br i1 %exitcond18.not, label %._crit_edge, label %.critedge.us, !llvm.loop !106
 
 ._crit_edge:                                      ; preds = %.lr.ph.split, %.critedge.us, %.thread, %8
   ret void
@@ -2914,7 +2914,7 @@ define internal void @redisProtocolToLuaType_Array(ptr noundef %0, ptr noundef %
   %13 = tail call i32 @parseReply(ptr noundef %0, ptr noundef nonnull %1) #11
   tail call void @lua_settable(ptr noundef nonnull %1, i32 noundef -3) #11
   %exitcond.not = icmp eq i64 %11, %2
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !110
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !108
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2948,7 +2948,7 @@ define internal void @redisProtocolToLuaType_Set(ptr noundef %0, ptr noundef %1,
   %9 = tail call i32 @parseReply(ptr noundef %0, ptr noundef null) #11
   %10 = add nuw i64 %.019.us, 1
   %exitcond22.not = icmp eq i64 %10, %2
-  br i1 %exitcond22.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !111
+  br i1 %exitcond22.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !109
 
 .lr.ph.split:                                     ; preds = %.thread, %14
   %.019 = phi i64 [ %15, %14 ], [ 0, %.thread ]
@@ -2967,7 +2967,7 @@ define internal void @redisProtocolToLuaType_Set(ptr noundef %0, ptr noundef %1,
   tail call void @lua_settable(ptr noundef nonnull %1, i32 noundef -3) #11
   %15 = add nuw i64 %.019, 1
   %exitcond.not = icmp eq i64 %15, %2
-  br i1 %exitcond.not, label %._crit_edge.thread, label %.lr.ph.split, !llvm.loop !112
+  br i1 %exitcond.not, label %._crit_edge.thread, label %.lr.ph.split, !llvm.loop !110
 
 ._crit_edge.thread:                               ; preds = %14, %.thread
   tail call void @lua_settable(ptr noundef nonnull %1, i32 noundef -3) #11
@@ -3009,7 +3009,7 @@ define internal void @redisProtocolToLuaType_Map(ptr noundef %0, ptr noundef %1,
   %10 = tail call i32 @parseReply(ptr noundef %0, ptr noundef null) #11
   %11 = add nuw i64 %.018.us, 1
   %exitcond21.not = icmp eq i64 %11, %2
-  br i1 %exitcond21.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !113
+  br i1 %exitcond21.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !111
 
 .lr.ph.split:                                     ; preds = %.thread, %.lr.ph.split
   %.018 = phi i64 [ %14, %.lr.ph.split ], [ 0, %.thread ]
@@ -3018,7 +3018,7 @@ define internal void @redisProtocolToLuaType_Map(ptr noundef %0, ptr noundef %1,
   tail call void @lua_settable(ptr noundef nonnull %1, i32 noundef -3) #11
   %14 = add nuw i64 %.018, 1
   %exitcond.not = icmp eq i64 %14, %2
-  br i1 %exitcond.not, label %._crit_edge.thread, label %.lr.ph.split, !llvm.loop !114
+  br i1 %exitcond.not, label %._crit_edge.thread, label %.lr.ph.split, !llvm.loop !112
 
 ._crit_edge.thread:                               ; preds = %.lr.ph.split, %.thread
   tail call void @lua_settable(ptr noundef nonnull %1, i32 noundef -3) #11
@@ -3150,7 +3150,7 @@ define internal void @redisProtocolToLuaType_Attribute(ptr noundef %0, ptr nound
   %7 = tail call i32 @parseReply(ptr noundef %0, ptr noundef null) #11
   %8 = add nuw i64 %.06, 1
   %exitcond.not = icmp eq i64 %8, %2
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !115
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !113
 }
 
 ; Function Attrs: nounwind uwtable
@@ -3284,97 +3284,95 @@ attributes #14 = { nounwind allocsize(1) }
 !19 = !{!15, !15, i64 0}
 !20 = !{!21, !21, i64 0}
 !21 = !{!"long", !8, i64 0}
-!22 = distinct !{!22, !23, !24}
+!22 = distinct !{!22, !23}
 !23 = !{!"llvm.loop.mustprogress"}
-!24 = !{!"llvm.loop.estimated_trip_count"}
-!25 = !{!26, !26, i64 0}
-!26 = !{!"p2 _ZTS11redisObject", !12, i64 0}
-!27 = !{!28, !15, i64 6288}
-!28 = !{!"redisServer", !15, i64 0, !21, i64 8, !29, i64 16, !29, i64 24, !30, i64 32, !15, i64 40, !15, i64 44, !15, i64 48, !15, i64 52, !15, i64 56, !31, i64 64, !32, i64 72, !32, i64 80, !33, i64 88, !34, i64 96, !15, i64 104, !15, i64 108, !15, i64 112, !15, i64 116, !35, i64 120, !15, i64 128, !15, i64 132, !15, i64 136, !15, i64 140, !29, i64 144, !15, i64 152, !15, i64 156, !8, i64 160, !15, i64 204, !21, i64 208, !15, i64 216, !15, i64 220, !15, i64 224, !29, i64 232, !29, i64 240, !15, i64 248, !15, i64 252, !21, i64 256, !32, i64 264, !32, i64 272, !32, i64 280, !36, i64 288, !8, i64 296, !15, i64 304, !15, i64 308, !8, i64 312, !15, i64 316, !15, i64 320, !15, i64 324, !8, i64 328, !15, i64 456, !29, i64 464, !29, i64 472, !15, i64 480, !8, i64 488, !15, i64 1320, !37, i64 1328, !36, i64 1432, !36, i64 1440, !36, i64 1448, !36, i64 1456, !36, i64 1464, !36, i64 1472, !39, i64 1480, !39, i64 1488, !12, i64 1496, !34, i64 1504, !15, i64 1512, !34, i64 1520, !15, i64 1528, !36, i64 1536, !8, i64 1544, !8, i64 1592, !32, i64 1848, !8, i64 1856, !15, i64 1864, !15, i64 1868, !8, i64 1872, !15, i64 2384, !15, i64 2388, !35, i64 2392, !15, i64 2400, !15, i64 2404, !15, i64 2408, !15, i64 2412, !15, i64 2416, !21, i64 2424, !21, i64 2432, !21, i64 2440, !21, i64 2448, !21, i64 2456, !21, i64 2464, !35, i64 2472, !35, i64 2480, !35, i64 2488, !35, i64 2496, !40, i64 2504, !35, i64 2512, !35, i64 2520, !35, i64 2528, !35, i64 2536, !35, i64 2544, !35, i64 2552, !21, i64 2560, !35, i64 2568, !35, i64 2576, !35, i64 2584, !35, i64 2592, !35, i64 2600, !35, i64 2608, !35, i64 2616, !35, i64 2624, !21, i64 2632, !21, i64 2640, !35, i64 2648, !35, i64 2656, !35, i64 2664, !35, i64 2672, !40, i64 2680, !35, i64 2688, !35, i64 2696, !35, i64 2704, !35, i64 2712, !35, i64 2720, !36, i64 2728, !35, i64 2736, !35, i64 2744, !21, i64 2752, !41, i64 2760, !8, i64 2848, !8, i64 2856, !8, i64 2864, !8, i64 2872, !21, i64 2880, !21, i64 2888, !21, i64 2896, !21, i64 2904, !21, i64 2912, !21, i64 2920, !21, i64 2928, !21, i64 2936, !40, i64 2944, !8, i64 2952, !21, i64 2984, !35, i64 2992, !35, i64 3000, !35, i64 3008, !8, i64 3016, !8, i64 4040, !8, i64 5064, !35, i64 5072, !8, i64 5080, !35, i64 6144, !35, i64 6152, !21, i64 6160, !35, i64 6168, !35, i64 6176, !21, i64 6184, !8, i64 6192, !15, i64 6288, !15, i64 6292, !15, i64 6296, !15, i64 6300, !15, i64 6304, !15, i64 6308, !15, i64 6312, !15, i64 6316, !15, i64 6320, !15, i64 6324, !15, i64 6328, !15, i64 6332, !21, i64 6336, !15, i64 6344, !15, i64 6348, !15, i64 6352, !15, i64 6356, !21, i64 6360, !21, i64 6368, !15, i64 6376, !15, i64 6380, !15, i64 6384, !15, i64 6388, !15, i64 6392, !29, i64 6400, !8, i64 6408, !15, i64 6480, !15, i64 6484, !15, i64 6488, !42, i64 6496, !15, i64 6504, !15, i64 6508, !15, i64 6512, !15, i64 6516, !15, i64 6520, !15, i64 6524, !29, i64 6528, !29, i64 6536, !15, i64 6544, !15, i64 6548, !21, i64 6552, !21, i64 6560, !21, i64 6568, !21, i64 6576, !21, i64 6584, !15, i64 6592, !15, i64 6596, !29, i64 6600, !15, i64 6608, !15, i64 6612, !35, i64 6616, !35, i64 6624, !21, i64 6632, !21, i64 6640, !21, i64 6648, !15, i64 6656, !15, i64 6660, !21, i64 6664, !15, i64 6672, !15, i64 6676, !15, i64 6680, !15, i64 6684, !15, i64 6688, !15, i64 6692, !8, i64 6696, !8, i64 6700, !12, i64 6704, !15, i64 6712, !35, i64 6720, !35, i64 6728, !35, i64 6736, !35, i64 6744, !15, i64 6752, !43, i64 6760, !15, i64 6768, !29, i64 6776, !15, i64 6784, !15, i64 6788, !15, i64 6792, !21, i64 6800, !21, i64 6808, !21, i64 6816, !21, i64 6824, !15, i64 6832, !15, i64 6836, !15, i64 6840, !15, i64 6844, !15, i64 6848, !15, i64 6852, !44, i64 6856, !15, i64 6864, !15, i64 6868, !29, i64 6872, !15, i64 6880, !15, i64 6884, !15, i64 6888, !8, i64 6892, !15, i64 6900, !45, i64 6904, !15, i64 6920, !29, i64 6928, !15, i64 6936, !29, i64 6944, !15, i64 6952, !15, i64 6956, !15, i64 6960, !15, i64 6964, !15, i64 6968, !15, i64 6972, !15, i64 6976, !8, i64 6980, !8, i64 7021, !35, i64 7064, !35, i64 7072, !8, i64 7080, !35, i64 7088, !15, i64 7096, !15, i64 7100, !47, i64 7104, !35, i64 7112, !35, i64 7120, !48, i64 7128, !21, i64 7168, !21, i64 7176, !15, i64 7184, !15, i64 7188, !15, i64 7192, !15, i64 7196, !15, i64 7200, !15, i64 7204, !15, i64 7208, !15, i64 7212, !15, i64 7216, !21, i64 7224, !36, i64 7232, !21, i64 7240, !29, i64 7248, !29, i64 7256, !29, i64 7264, !15, i64 7272, !15, i64 7276, !39, i64 7280, !39, i64 7288, !15, i64 7296, !15, i64 7300, !15, i64 7304, !21, i64 7312, !21, i64 7320, !21, i64 7328, !21, i64 7336, !49, i64 7344, !49, i64 7352, !15, i64 7360, !29, i64 7368, !21, i64 7376, !15, i64 7384, !15, i64 7388, !15, i64 7392, !21, i64 7400, !15, i64 7408, !15, i64 7412, !15, i64 7416, !15, i64 7420, !29, i64 7424, !15, i64 7432, !15, i64 7436, !8, i64 7440, !35, i64 7488, !15, i64 7496, !36, i64 7504, !15, i64 7512, !15, i64 7516, !35, i64 7520, !21, i64 7528, !15, i64 7536, !15, i64 7540, !15, i64 7544, !15, i64 7548, !15, i64 7552, !35, i64 7560, !8, i64 7568, !15, i64 7580, !15, i64 7584, !15, i64 7588, !8, i64 7592, !36, i64 7632, !36, i64 7640, !15, i64 7648, !21, i64 7656, !36, i64 7664, !36, i64 7672, !15, i64 7680, !15, i64 7684, !15, i64 7688, !15, i64 7692, !21, i64 7696, !21, i64 7704, !21, i64 7712, !21, i64 7720, !21, i64 7728, !21, i64 7736, !21, i64 7744, !21, i64 7752, !21, i64 7760, !35, i64 7768, !15, i64 7776, !15, i64 7780, !8, i64 7784, !21, i64 7792, !8, i64 7800, !35, i64 7808, !35, i64 7816, !35, i64 7824, !21, i64 7832, !35, i64 7840, !50, i64 7848, !32, i64 7856, !15, i64 7864, !50, i64 7872, !15, i64 7880, !15, i64 7884, !15, i64 7888, !15, i64 7892, !35, i64 7896, !35, i64 7904, !29, i64 7912, !51, i64 7920, !15, i64 7928, !15, i64 7932, !15, i64 7936, !15, i64 7940, !15, i64 7944, !29, i64 7952, !29, i64 7960, !29, i64 7968, !15, i64 7976, !15, i64 7980, !15, i64 7984, !15, i64 7988, !15, i64 7992, !15, i64 7996, !15, i64 8000, !35, i64 8008, !15, i64 8016, !15, i64 8020, !35, i64 8024, !15, i64 8032, !15, i64 8036, !15, i64 8040, !15, i64 8044, !15, i64 8048, !15, i64 8052, !15, i64 8056, !35, i64 8064, !32, i64 8072, !29, i64 8080, !21, i64 8088, !29, i64 8096, !15, i64 8104, !52, i64 8112, !15, i64 8144, !21, i64 8152, !15, i64 8160, !15, i64 8164, !15, i64 8168, !53, i64 8176, !29, i64 8288, !29, i64 8296, !29, i64 8304, !29, i64 8312, !54, i64 8320, !35, i64 8328, !15, i64 8336, !29, i64 8344, !15, i64 8352, !15, i64 8356, !15, i64 8360, !21, i64 8368, !15, i64 8376, !29, i64 8384}
-!29 = !{!"p1 omnipotent char", !12, i64 0}
-!30 = !{!"p2 omnipotent char", !12, i64 0}
-!31 = !{!"p1 _ZTS7redisDb", !12, i64 0}
-!32 = !{!"p1 _ZTS4dict", !12, i64 0}
-!33 = !{!"p1 _ZTS11aeEventLoop", !12, i64 0}
-!34 = !{!"p1 _ZTS3rax", !12, i64 0}
-!35 = !{!"long long", !8, i64 0}
-!36 = !{!"p1 _ZTS4list", !12, i64 0}
-!37 = !{!"connListener", !8, i64 0, !15, i64 64, !30, i64 72, !15, i64 80, !15, i64 84, !38, i64 88, !12, i64 96}
-!38 = !{!"p1 _ZTS14ConnectionType", !12, i64 0}
-!39 = !{!"p1 _ZTS6client", !12, i64 0}
-!40 = !{!"double", !8, i64 0}
-!41 = !{!"malloc_stats", !21, i64 0, !21, i64 8, !21, i64 16, !21, i64 24, !21, i64 32, !21, i64 40, !21, i64 48, !21, i64 56, !21, i64 64, !21, i64 72, !21, i64 80}
-!42 = !{!"p1 double", !12, i64 0}
-!43 = !{!"p1 _ZTS9saveparam", !12, i64 0}
-!44 = !{!"p2 _ZTS10connection", !12, i64 0}
-!45 = !{!"redisOpArray", !46, i64 0, !15, i64 8, !15, i64 12}
-!46 = !{!"p1 _ZTS7redisOp", !12, i64 0}
-!47 = !{!"p1 _ZTS11replBacklog", !12, i64 0}
-!48 = !{!"replDataBuf", !36, i64 0, !21, i64 8, !21, i64 16, !21, i64 24, !21, i64 32}
-!49 = !{!"p1 _ZTS10connection", !12, i64 0}
-!50 = !{!"p1 _ZTS8_kvstore", !12, i64 0}
-!51 = !{!"p1 _ZTS12clusterState", !12, i64 0}
-!52 = !{!"aclInfo", !35, i64 0, !35, i64 8, !35, i64 16, !35, i64 24}
-!53 = !{!"redisTLSContextConfig", !29, i64 0, !29, i64 8, !29, i64 16, !29, i64 24, !29, i64 32, !29, i64 40, !29, i64 48, !29, i64 56, !29, i64 64, !29, i64 72, !29, i64 80, !29, i64 88, !15, i64 96, !15, i64 100, !15, i64 104, !15, i64 108}
-!54 = !{!"p1 _ZTS14sentinelConfig", !12, i64 0}
-!55 = !{!29, !29, i64 0}
-!56 = distinct !{!56, !23, !24}
-!57 = !{!30, !30, i64 0}
-!58 = distinct !{!58, !23, !24}
-!59 = distinct !{!59, !23, !24}
-!60 = distinct !{!60, !23, !24}
-!61 = distinct !{!61, !23, !24}
-!62 = !{!63, !39, i64 16}
-!63 = !{!"scriptRunCtx", !29, i64 0, !39, i64 8, !39, i64 16, !15, i64 24, !15, i64 28, !21, i64 32, !15, i64 40}
-!64 = !{!65, !12, i64 160}
-!65 = !{!"client", !21, i64 0, !21, i64 8, !49, i64 16, !8, i64 24, !8, i64 25, !8, i64 26, !8, i64 27, !15, i64 28, !31, i64 32, !11, i64 40, !11, i64 48, !11, i64 56, !29, i64 64, !21, i64 72, !21, i64 80, !15, i64 88, !26, i64 96, !15, i64 104, !15, i64 108, !26, i64 112, !21, i64 120, !66, i64 128, !66, i64 136, !66, i64 144, !66, i64 152, !12, i64 160, !15, i64 168, !15, i64 172, !21, i64 176, !36, i64 184, !35, i64 192, !36, i64 200, !21, i64 208, !21, i64 216, !21, i64 224, !15, i64 232, !67, i64 240, !21, i64 248, !21, i64 256, !15, i64 264, !15, i64 268, !15, i64 272, !15, i64 276, !21, i64 280, !21, i64 288, !29, i64 296, !35, i64 304, !35, i64 312, !35, i64 320, !35, i64 328, !35, i64 336, !35, i64 344, !35, i64 352, !35, i64 360, !8, i64 368, !15, i64 412, !29, i64 416, !15, i64 424, !15, i64 428, !21, i64 432, !68, i64 440, !70, i64 480, !35, i64 552, !36, i64 560, !32, i64 568, !32, i64 576, !32, i64 584, !29, i64 592, !29, i64 600, !71, i64 608, !71, i64 616, !71, i64 624, !12, i64 632, !12, i64 640, !12, i64 648, !12, i64 656, !12, i64 664, !21, i64 672, !34, i64 680, !21, i64 688, !15, i64 696, !71, i64 704, !12, i64 712, !71, i64 720, !21, i64 728, !72, i64 736, !21, i64 760, !35, i64 768, !15, i64 776, !21, i64 784, !29, i64 792}
-!66 = !{!"p1 _ZTS12redisCommand", !12, i64 0}
-!67 = !{!"p1 _ZTS9dictEntry", !12, i64 0}
-!68 = !{!"multiState", !69, i64 0, !15, i64 8, !15, i64 12, !15, i64 16, !21, i64 24, !15, i64 32}
-!69 = !{!"p1 _ZTS8multiCmd", !12, i64 0}
-!70 = !{!"blockingState", !15, i64 0, !35, i64 8, !15, i64 16, !32, i64 24, !15, i64 32, !15, i64 36, !35, i64 40, !12, i64 48, !12, i64 56, !21, i64 64}
-!71 = !{!"p1 _ZTS8listNode", !12, i64 0}
-!72 = !{!"listNode", !71, i64 0, !71, i64 8, !12, i64 16}
-!73 = !{!74, !29, i64 0}
-!74 = !{!"errorInfo", !29, i64 0, !29, i64 8, !29, i64 16, !15, i64 24}
-!75 = !{!74, !29, i64 8}
-!76 = !{!74, !29, i64 16}
-!77 = !{!74, !15, i64 24}
-!78 = !{!28, !35, i64 8024}
-!79 = distinct !{!79, !23, !24}
-!80 = !{!63, !15, i64 24}
-!81 = !{!63, !29, i64 0}
-!82 = !{!63, !39, i64 8}
-!83 = !{!65, !15, i64 28}
-!84 = distinct !{!84, !23, !24}
-!85 = distinct !{!85, !23, !24}
-!86 = distinct !{!86, !24}
-!87 = !{!65, !26, i64 96}
-!88 = !{!65, !15, i64 88}
-!89 = distinct !{!89, !23, !24}
-!90 = !{!65, !36, i64 184}
-!91 = !{!92, !21, i64 40}
-!92 = !{!"list", !71, i64 0, !71, i64 8, !12, i64 16, !12, i64 24, !12, i64 32, !21, i64 40}
-!93 = !{!65, !15, i64 776}
-!94 = !{!65, !21, i64 784}
-!95 = !{!65, !29, i64 792}
-!96 = !{!92, !71, i64 0}
-!97 = !{!72, !12, i64 16}
-!98 = distinct !{!98, !23, !24}
-!99 = !{!100, !29, i64 0}
-!100 = !{!"ReplyParser", !29, i64 0, !101, i64 8}
-!101 = !{!"ReplyParserCallbacks", !12, i64 0, !12, i64 8, !12, i64 16, !12, i64 24, !12, i64 32, !12, i64 40, !12, i64 48, !12, i64 56, !12, i64 64, !12, i64 72, !12, i64 80, !12, i64 88, !12, i64 96, !12, i64 104, !12, i64 112, !12, i64 120}
-!102 = !{i64 0, i64 8, !103, i64 8, i64 8, !103, i64 16, i64 8, !103, i64 24, i64 8, !103, i64 32, i64 8, !103, i64 40, i64 8, !103, i64 48, i64 8, !103, i64 56, i64 8, !103, i64 64, i64 8, !103, i64 72, i64 8, !103, i64 80, i64 8, !103, i64 88, i64 8, !103, i64 96, i64 8, !103, i64 104, i64 8, !103, i64 112, i64 8, !103, i64 120, i64 8, !103}
-!103 = !{!12, !12, i64 0}
-!104 = !{!65, !35, i64 192}
-!105 = !{!65, !15, i64 104}
-!106 = !{!35, !35, i64 0}
-!107 = distinct !{!107, !23, !24}
-!108 = distinct !{!108, !23, !24, !109}
-!109 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!110 = distinct !{!110, !23, !24}
-!111 = distinct !{!111, !23, !24, !109}
-!112 = distinct !{!112, !23, !24}
-!113 = distinct !{!113, !23, !24, !109}
-!114 = distinct !{!114, !23, !24}
-!115 = distinct !{!115, !23, !24}
+!24 = !{!25, !25, i64 0}
+!25 = !{!"p2 _ZTS11redisObject", !12, i64 0}
+!26 = !{!27, !15, i64 6288}
+!27 = !{!"redisServer", !15, i64 0, !21, i64 8, !28, i64 16, !28, i64 24, !29, i64 32, !15, i64 40, !15, i64 44, !15, i64 48, !15, i64 52, !15, i64 56, !30, i64 64, !31, i64 72, !31, i64 80, !32, i64 88, !33, i64 96, !15, i64 104, !15, i64 108, !15, i64 112, !15, i64 116, !34, i64 120, !15, i64 128, !15, i64 132, !15, i64 136, !15, i64 140, !28, i64 144, !15, i64 152, !15, i64 156, !8, i64 160, !15, i64 204, !21, i64 208, !15, i64 216, !15, i64 220, !15, i64 224, !28, i64 232, !28, i64 240, !15, i64 248, !15, i64 252, !21, i64 256, !31, i64 264, !31, i64 272, !31, i64 280, !35, i64 288, !8, i64 296, !15, i64 304, !15, i64 308, !8, i64 312, !15, i64 316, !15, i64 320, !15, i64 324, !8, i64 328, !15, i64 456, !28, i64 464, !28, i64 472, !15, i64 480, !8, i64 488, !15, i64 1320, !36, i64 1328, !35, i64 1432, !35, i64 1440, !35, i64 1448, !35, i64 1456, !35, i64 1464, !35, i64 1472, !38, i64 1480, !38, i64 1488, !12, i64 1496, !33, i64 1504, !15, i64 1512, !33, i64 1520, !15, i64 1528, !35, i64 1536, !8, i64 1544, !8, i64 1592, !31, i64 1848, !8, i64 1856, !15, i64 1864, !15, i64 1868, !8, i64 1872, !15, i64 2384, !15, i64 2388, !34, i64 2392, !15, i64 2400, !15, i64 2404, !15, i64 2408, !15, i64 2412, !15, i64 2416, !21, i64 2424, !21, i64 2432, !21, i64 2440, !21, i64 2448, !21, i64 2456, !21, i64 2464, !34, i64 2472, !34, i64 2480, !34, i64 2488, !34, i64 2496, !39, i64 2504, !34, i64 2512, !34, i64 2520, !34, i64 2528, !34, i64 2536, !34, i64 2544, !34, i64 2552, !21, i64 2560, !34, i64 2568, !34, i64 2576, !34, i64 2584, !34, i64 2592, !34, i64 2600, !34, i64 2608, !34, i64 2616, !34, i64 2624, !21, i64 2632, !21, i64 2640, !34, i64 2648, !34, i64 2656, !34, i64 2664, !34, i64 2672, !39, i64 2680, !34, i64 2688, !34, i64 2696, !34, i64 2704, !34, i64 2712, !34, i64 2720, !35, i64 2728, !34, i64 2736, !34, i64 2744, !21, i64 2752, !40, i64 2760, !8, i64 2848, !8, i64 2856, !8, i64 2864, !8, i64 2872, !21, i64 2880, !21, i64 2888, !21, i64 2896, !21, i64 2904, !21, i64 2912, !21, i64 2920, !21, i64 2928, !21, i64 2936, !39, i64 2944, !8, i64 2952, !21, i64 2984, !34, i64 2992, !34, i64 3000, !34, i64 3008, !8, i64 3016, !8, i64 4040, !8, i64 5064, !34, i64 5072, !8, i64 5080, !34, i64 6144, !34, i64 6152, !21, i64 6160, !34, i64 6168, !34, i64 6176, !21, i64 6184, !8, i64 6192, !15, i64 6288, !15, i64 6292, !15, i64 6296, !15, i64 6300, !15, i64 6304, !15, i64 6308, !15, i64 6312, !15, i64 6316, !15, i64 6320, !15, i64 6324, !15, i64 6328, !15, i64 6332, !21, i64 6336, !15, i64 6344, !15, i64 6348, !15, i64 6352, !15, i64 6356, !21, i64 6360, !21, i64 6368, !15, i64 6376, !15, i64 6380, !15, i64 6384, !15, i64 6388, !15, i64 6392, !28, i64 6400, !8, i64 6408, !15, i64 6480, !15, i64 6484, !15, i64 6488, !41, i64 6496, !15, i64 6504, !15, i64 6508, !15, i64 6512, !15, i64 6516, !15, i64 6520, !15, i64 6524, !28, i64 6528, !28, i64 6536, !15, i64 6544, !15, i64 6548, !21, i64 6552, !21, i64 6560, !21, i64 6568, !21, i64 6576, !21, i64 6584, !15, i64 6592, !15, i64 6596, !28, i64 6600, !15, i64 6608, !15, i64 6612, !34, i64 6616, !34, i64 6624, !21, i64 6632, !21, i64 6640, !21, i64 6648, !15, i64 6656, !15, i64 6660, !21, i64 6664, !15, i64 6672, !15, i64 6676, !15, i64 6680, !15, i64 6684, !15, i64 6688, !15, i64 6692, !8, i64 6696, !8, i64 6700, !12, i64 6704, !15, i64 6712, !34, i64 6720, !34, i64 6728, !34, i64 6736, !34, i64 6744, !15, i64 6752, !42, i64 6760, !15, i64 6768, !28, i64 6776, !15, i64 6784, !15, i64 6788, !15, i64 6792, !21, i64 6800, !21, i64 6808, !21, i64 6816, !21, i64 6824, !15, i64 6832, !15, i64 6836, !15, i64 6840, !15, i64 6844, !15, i64 6848, !15, i64 6852, !43, i64 6856, !15, i64 6864, !15, i64 6868, !28, i64 6872, !15, i64 6880, !15, i64 6884, !15, i64 6888, !8, i64 6892, !15, i64 6900, !44, i64 6904, !15, i64 6920, !28, i64 6928, !15, i64 6936, !28, i64 6944, !15, i64 6952, !15, i64 6956, !15, i64 6960, !15, i64 6964, !15, i64 6968, !15, i64 6972, !15, i64 6976, !8, i64 6980, !8, i64 7021, !34, i64 7064, !34, i64 7072, !8, i64 7080, !34, i64 7088, !15, i64 7096, !15, i64 7100, !46, i64 7104, !34, i64 7112, !34, i64 7120, !47, i64 7128, !21, i64 7168, !21, i64 7176, !15, i64 7184, !15, i64 7188, !15, i64 7192, !15, i64 7196, !15, i64 7200, !15, i64 7204, !15, i64 7208, !15, i64 7212, !15, i64 7216, !21, i64 7224, !35, i64 7232, !21, i64 7240, !28, i64 7248, !28, i64 7256, !28, i64 7264, !15, i64 7272, !15, i64 7276, !38, i64 7280, !38, i64 7288, !15, i64 7296, !15, i64 7300, !15, i64 7304, !21, i64 7312, !21, i64 7320, !21, i64 7328, !21, i64 7336, !48, i64 7344, !48, i64 7352, !15, i64 7360, !28, i64 7368, !21, i64 7376, !15, i64 7384, !15, i64 7388, !15, i64 7392, !21, i64 7400, !15, i64 7408, !15, i64 7412, !15, i64 7416, !15, i64 7420, !28, i64 7424, !15, i64 7432, !15, i64 7436, !8, i64 7440, !34, i64 7488, !15, i64 7496, !35, i64 7504, !15, i64 7512, !15, i64 7516, !34, i64 7520, !21, i64 7528, !15, i64 7536, !15, i64 7540, !15, i64 7544, !15, i64 7548, !15, i64 7552, !34, i64 7560, !8, i64 7568, !15, i64 7580, !15, i64 7584, !15, i64 7588, !8, i64 7592, !35, i64 7632, !35, i64 7640, !15, i64 7648, !21, i64 7656, !35, i64 7664, !35, i64 7672, !15, i64 7680, !15, i64 7684, !15, i64 7688, !15, i64 7692, !21, i64 7696, !21, i64 7704, !21, i64 7712, !21, i64 7720, !21, i64 7728, !21, i64 7736, !21, i64 7744, !21, i64 7752, !21, i64 7760, !34, i64 7768, !15, i64 7776, !15, i64 7780, !8, i64 7784, !21, i64 7792, !8, i64 7800, !34, i64 7808, !34, i64 7816, !34, i64 7824, !21, i64 7832, !34, i64 7840, !49, i64 7848, !31, i64 7856, !15, i64 7864, !49, i64 7872, !15, i64 7880, !15, i64 7884, !15, i64 7888, !15, i64 7892, !34, i64 7896, !34, i64 7904, !28, i64 7912, !50, i64 7920, !15, i64 7928, !15, i64 7932, !15, i64 7936, !15, i64 7940, !15, i64 7944, !28, i64 7952, !28, i64 7960, !28, i64 7968, !15, i64 7976, !15, i64 7980, !15, i64 7984, !15, i64 7988, !15, i64 7992, !15, i64 7996, !15, i64 8000, !34, i64 8008, !15, i64 8016, !15, i64 8020, !34, i64 8024, !15, i64 8032, !15, i64 8036, !15, i64 8040, !15, i64 8044, !15, i64 8048, !15, i64 8052, !15, i64 8056, !34, i64 8064, !31, i64 8072, !28, i64 8080, !21, i64 8088, !28, i64 8096, !15, i64 8104, !51, i64 8112, !15, i64 8144, !21, i64 8152, !15, i64 8160, !15, i64 8164, !15, i64 8168, !52, i64 8176, !28, i64 8288, !28, i64 8296, !28, i64 8304, !28, i64 8312, !53, i64 8320, !34, i64 8328, !15, i64 8336, !28, i64 8344, !15, i64 8352, !15, i64 8356, !15, i64 8360, !21, i64 8368, !15, i64 8376, !28, i64 8384}
+!28 = !{!"p1 omnipotent char", !12, i64 0}
+!29 = !{!"p2 omnipotent char", !12, i64 0}
+!30 = !{!"p1 _ZTS7redisDb", !12, i64 0}
+!31 = !{!"p1 _ZTS4dict", !12, i64 0}
+!32 = !{!"p1 _ZTS11aeEventLoop", !12, i64 0}
+!33 = !{!"p1 _ZTS3rax", !12, i64 0}
+!34 = !{!"long long", !8, i64 0}
+!35 = !{!"p1 _ZTS4list", !12, i64 0}
+!36 = !{!"connListener", !8, i64 0, !15, i64 64, !29, i64 72, !15, i64 80, !15, i64 84, !37, i64 88, !12, i64 96}
+!37 = !{!"p1 _ZTS14ConnectionType", !12, i64 0}
+!38 = !{!"p1 _ZTS6client", !12, i64 0}
+!39 = !{!"double", !8, i64 0}
+!40 = !{!"malloc_stats", !21, i64 0, !21, i64 8, !21, i64 16, !21, i64 24, !21, i64 32, !21, i64 40, !21, i64 48, !21, i64 56, !21, i64 64, !21, i64 72, !21, i64 80}
+!41 = !{!"p1 double", !12, i64 0}
+!42 = !{!"p1 _ZTS9saveparam", !12, i64 0}
+!43 = !{!"p2 _ZTS10connection", !12, i64 0}
+!44 = !{!"redisOpArray", !45, i64 0, !15, i64 8, !15, i64 12}
+!45 = !{!"p1 _ZTS7redisOp", !12, i64 0}
+!46 = !{!"p1 _ZTS11replBacklog", !12, i64 0}
+!47 = !{!"replDataBuf", !35, i64 0, !21, i64 8, !21, i64 16, !21, i64 24, !21, i64 32}
+!48 = !{!"p1 _ZTS10connection", !12, i64 0}
+!49 = !{!"p1 _ZTS8_kvstore", !12, i64 0}
+!50 = !{!"p1 _ZTS12clusterState", !12, i64 0}
+!51 = !{!"aclInfo", !34, i64 0, !34, i64 8, !34, i64 16, !34, i64 24}
+!52 = !{!"redisTLSContextConfig", !28, i64 0, !28, i64 8, !28, i64 16, !28, i64 24, !28, i64 32, !28, i64 40, !28, i64 48, !28, i64 56, !28, i64 64, !28, i64 72, !28, i64 80, !28, i64 88, !15, i64 96, !15, i64 100, !15, i64 104, !15, i64 108}
+!53 = !{!"p1 _ZTS14sentinelConfig", !12, i64 0}
+!54 = !{!28, !28, i64 0}
+!55 = distinct !{!55, !23}
+!56 = !{!29, !29, i64 0}
+!57 = distinct !{!57, !23}
+!58 = distinct !{!58, !23}
+!59 = distinct !{!59, !23}
+!60 = distinct !{!60, !23}
+!61 = !{!62, !38, i64 16}
+!62 = !{!"scriptRunCtx", !28, i64 0, !38, i64 8, !38, i64 16, !15, i64 24, !15, i64 28, !21, i64 32, !15, i64 40}
+!63 = !{!64, !12, i64 160}
+!64 = !{!"client", !21, i64 0, !21, i64 8, !48, i64 16, !8, i64 24, !8, i64 25, !8, i64 26, !8, i64 27, !15, i64 28, !30, i64 32, !11, i64 40, !11, i64 48, !11, i64 56, !28, i64 64, !21, i64 72, !21, i64 80, !15, i64 88, !25, i64 96, !15, i64 104, !15, i64 108, !25, i64 112, !21, i64 120, !65, i64 128, !65, i64 136, !65, i64 144, !65, i64 152, !12, i64 160, !15, i64 168, !15, i64 172, !21, i64 176, !35, i64 184, !34, i64 192, !35, i64 200, !21, i64 208, !21, i64 216, !21, i64 224, !15, i64 232, !66, i64 240, !21, i64 248, !21, i64 256, !15, i64 264, !15, i64 268, !15, i64 272, !15, i64 276, !21, i64 280, !21, i64 288, !28, i64 296, !34, i64 304, !34, i64 312, !34, i64 320, !34, i64 328, !34, i64 336, !34, i64 344, !34, i64 352, !34, i64 360, !8, i64 368, !15, i64 412, !28, i64 416, !15, i64 424, !15, i64 428, !21, i64 432, !67, i64 440, !69, i64 480, !34, i64 552, !35, i64 560, !31, i64 568, !31, i64 576, !31, i64 584, !28, i64 592, !28, i64 600, !70, i64 608, !70, i64 616, !70, i64 624, !12, i64 632, !12, i64 640, !12, i64 648, !12, i64 656, !12, i64 664, !21, i64 672, !33, i64 680, !21, i64 688, !15, i64 696, !70, i64 704, !12, i64 712, !70, i64 720, !21, i64 728, !71, i64 736, !21, i64 760, !34, i64 768, !15, i64 776, !21, i64 784, !28, i64 792}
+!65 = !{!"p1 _ZTS12redisCommand", !12, i64 0}
+!66 = !{!"p1 _ZTS9dictEntry", !12, i64 0}
+!67 = !{!"multiState", !68, i64 0, !15, i64 8, !15, i64 12, !15, i64 16, !21, i64 24, !15, i64 32}
+!68 = !{!"p1 _ZTS8multiCmd", !12, i64 0}
+!69 = !{!"blockingState", !15, i64 0, !34, i64 8, !15, i64 16, !31, i64 24, !15, i64 32, !15, i64 36, !34, i64 40, !12, i64 48, !12, i64 56, !21, i64 64}
+!70 = !{!"p1 _ZTS8listNode", !12, i64 0}
+!71 = !{!"listNode", !70, i64 0, !70, i64 8, !12, i64 16}
+!72 = !{!73, !28, i64 0}
+!73 = !{!"errorInfo", !28, i64 0, !28, i64 8, !28, i64 16, !15, i64 24}
+!74 = !{!73, !28, i64 8}
+!75 = !{!73, !28, i64 16}
+!76 = !{!73, !15, i64 24}
+!77 = !{!27, !34, i64 8024}
+!78 = distinct !{!78, !23}
+!79 = !{!62, !15, i64 24}
+!80 = !{!62, !28, i64 0}
+!81 = !{!62, !38, i64 8}
+!82 = !{!64, !15, i64 28}
+!83 = distinct !{!83, !23}
+!84 = distinct !{!84, !23}
+!85 = !{!64, !25, i64 96}
+!86 = !{!64, !15, i64 88}
+!87 = distinct !{!87, !23}
+!88 = !{!64, !35, i64 184}
+!89 = !{!90, !21, i64 40}
+!90 = !{!"list", !70, i64 0, !70, i64 8, !12, i64 16, !12, i64 24, !12, i64 32, !21, i64 40}
+!91 = !{!64, !15, i64 776}
+!92 = !{!64, !21, i64 784}
+!93 = !{!64, !28, i64 792}
+!94 = !{!90, !70, i64 0}
+!95 = !{!71, !12, i64 16}
+!96 = distinct !{!96, !23}
+!97 = !{!98, !28, i64 0}
+!98 = !{!"ReplyParser", !28, i64 0, !99, i64 8}
+!99 = !{!"ReplyParserCallbacks", !12, i64 0, !12, i64 8, !12, i64 16, !12, i64 24, !12, i64 32, !12, i64 40, !12, i64 48, !12, i64 56, !12, i64 64, !12, i64 72, !12, i64 80, !12, i64 88, !12, i64 96, !12, i64 104, !12, i64 112, !12, i64 120}
+!100 = !{i64 0, i64 8, !101, i64 8, i64 8, !101, i64 16, i64 8, !101, i64 24, i64 8, !101, i64 32, i64 8, !101, i64 40, i64 8, !101, i64 48, i64 8, !101, i64 56, i64 8, !101, i64 64, i64 8, !101, i64 72, i64 8, !101, i64 80, i64 8, !101, i64 88, i64 8, !101, i64 96, i64 8, !101, i64 104, i64 8, !101, i64 112, i64 8, !101, i64 120, i64 8, !101}
+!101 = !{!12, !12, i64 0}
+!102 = !{!64, !34, i64 192}
+!103 = !{!64, !15, i64 104}
+!104 = !{!34, !34, i64 0}
+!105 = distinct !{!105, !23}
+!106 = distinct !{!106, !23, !107}
+!107 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!108 = distinct !{!108, !23}
+!109 = distinct !{!109, !23, !107}
+!110 = distinct !{!110, !23}
+!111 = distinct !{!111, !23, !107}
+!112 = distinct !{!112, !23}
+!113 = distinct !{!113, !23}

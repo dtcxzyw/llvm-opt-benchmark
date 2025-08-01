@@ -387,27 +387,27 @@ define dso_local void @_ZN4i18n12phonenumbers16SplitStringUsingERKNSt7__cxx1112b
 
 _ZN4absl7debian216strings_internal23ConvertibleToStringViewC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %3
   %12 = load ptr, ptr %0, align 8, !tbaa !14
-  store ptr %12, ptr %5, align 8, !tbaa !32, !alias.scope !33
+  store ptr %12, ptr %5, align 8, !tbaa !31, !alias.scope !32
   %.sroa.2.0..sroa_idx.i3.i = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store i64 %9, ptr %.sroa.2.0..sroa_idx.i3.i, align 8, !tbaa !22, !alias.scope !33
+  store i64 %9, ptr %.sroa.2.0..sroa_idx.i3.i, align 8, !tbaa !22, !alias.scope !32
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store i8 %1, ptr %13, align 8, !tbaa !13, !alias.scope !33
+  store i8 %1, ptr %13, align 8, !tbaa !13, !alias.scope !32
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %6) #19
-  store i64 0, ptr %6, align 8, !tbaa !36, !alias.scope !42
+  store i64 0, ptr %6, align 8, !tbaa !35, !alias.scope !41
   %14 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store i32 0, ptr %14, align 8, !tbaa !45, !alias.scope !42
+  store i32 0, ptr %14, align 8, !tbaa !44, !alias.scope !41
   %15 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %15, i8 0, i64 16, i1 false), !alias.scope !42
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %15, i8 0, i64 16, i1 false), !alias.scope !41
   %16 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  store ptr %5, ptr %16, align 8, !tbaa !46, !alias.scope !42
+  store ptr %5, ptr %16, align 8, !tbaa !45, !alias.scope !41
   %17 = getelementptr inbounds nuw i8, ptr %6, i64 40
-  store i8 %1, ptr %17, align 8, !tbaa !13, !alias.scope !42
+  store i8 %1, ptr %17, align 8, !tbaa !13, !alias.scope !41
   %18 = icmp eq ptr %12, null
   br i1 %18, label %19, label %20
 
 19:                                               ; preds = %_ZN4absl7debian216strings_internal23ConvertibleToStringViewC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
-  store i32 2, ptr %14, align 8, !tbaa !45, !alias.scope !42
-  store i64 %9, ptr %6, align 8, !tbaa !36, !alias.scope !42
+  store i32 2, ptr %14, align 8, !tbaa !44, !alias.scope !41
+  store i64 %9, ptr %6, align 8, !tbaa !35, !alias.scope !41
   br label %_ZNK4absl7debian216strings_internal8SplitterINS0_6ByCharENS0_9SkipEmptyENS0_11string_viewEE5beginEv.exit
 
 20:                                               ; preds = %_ZN4absl7debian216strings_internal23ConvertibleToStringViewC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
@@ -416,17 +416,17 @@ _ZN4absl7debian216strings_internal23ConvertibleToStringViewC2ERKNSt7__cxx1112bas
 
 21:                                               ; preds = %_ZNK4absl7debian211string_view6substrEmm.exit.i.i.i, %20
   %22 = phi i64 [ %48, %_ZNK4absl7debian211string_view6substrEmm.exit.i.i.i ], [ 0, %20 ]
-  %23 = load i32, ptr %14, align 8, !tbaa !45, !alias.scope !42
+  %23 = load i32, ptr %14, align 8, !tbaa !44, !alias.scope !41
   %24 = icmp eq i32 %23, 1
   br i1 %24, label %25, label %26
 
 25:                                               ; preds = %21
-  store i32 2, ptr %14, align 8, !tbaa !45, !alias.scope !42
+  store i32 2, ptr %14, align 8, !tbaa !44, !alias.scope !41
   br label %_ZNK4absl7debian216strings_internal8SplitterINS0_6ByCharENS0_9SkipEmptyENS0_11string_viewEE5beginEv.exit
 
 26:                                               ; preds = %21
-  %27 = load ptr, ptr %16, align 8, !tbaa !46, !alias.scope !42
-  %.sroa.0.0.copyload.i.i.i.i = load ptr, ptr %27, align 8, !tbaa !32
+  %27 = load ptr, ptr %16, align 8, !tbaa !45, !alias.scope !41
+  %.sroa.0.0.copyload.i.i.i.i = load ptr, ptr %27, align 8, !tbaa !31
   %.sroa.2.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %27, i64 8
   %.sroa.2.0.copyload.i.i.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i.i.i, align 8, !tbaa !22
   %28 = call { ptr, i64 } @_ZNK4absl7debian26ByChar4FindENS0_11string_viewEm(ptr noundef nonnull align 1 dereferenceable(1) %17, ptr %.sroa.0.0.copyload.i.i.i.i, i64 %.sroa.2.0.copyload.i.i.i.i, i64 noundef %22)
@@ -437,14 +437,14 @@ _ZN4absl7debian216strings_internal23ConvertibleToStringViewC2ERKNSt7__cxx1112bas
   br i1 %32, label %33, label %34
 
 33:                                               ; preds = %26
-  store i32 1, ptr %14, align 8, !tbaa !45, !alias.scope !42
+  store i32 1, ptr %14, align 8, !tbaa !44, !alias.scope !41
   br label %34
 
 34:                                               ; preds = %33, %26
-  %35 = load i64, ptr %6, align 8, !tbaa !36, !alias.scope !42
+  %35 = load i64, ptr %6, align 8, !tbaa !35, !alias.scope !41
   %36 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i.i.i.i, i64 %35
   %37 = icmp ugt i64 %35, %.sroa.2.0.copyload.i.i.i.i
-  br i1 %37, label %38, label %39, !prof !47
+  br i1 %37, label %38, label %39, !prof !46
 
 38:                                               ; preds = %34
   call void @_ZN4absl7debian213base_internal18ThrowStdOutOfRangeEPKc(ptr noundef nonnull @.str.2) #21
@@ -464,23 +464,23 @@ _ZN4absl7debian216strings_internal23ConvertibleToStringViewC2ERKNSt7__cxx1112bas
   unreachable
 
 _ZNK4absl7debian211string_view6substrEmm.exit.i.i.i: ; preds = %39
-  store ptr %36, ptr %15, align 8, !tbaa !32, !alias.scope !42
-  store i64 %44, ptr %.sroa.4.0..sroa_idx.i.i.i, align 8, !tbaa !22, !alias.scope !42
+  store ptr %36, ptr %15, align 8, !tbaa !31, !alias.scope !41
+  store i64 %44, ptr %.sroa.4.0..sroa_idx.i.i.i, align 8, !tbaa !22, !alias.scope !41
   %47 = add i64 %35, %30
   %48 = add i64 %47, %44
-  store i64 %48, ptr %6, align 8, !tbaa !36, !alias.scope !42
+  store i64 %48, ptr %6, align 8, !tbaa !35, !alias.scope !41
   %.not.i.i.i = icmp eq i64 %44, 0
-  br i1 %.not.i.i.i, label %21, label %_ZNK4absl7debian216strings_internal8SplitterINS0_6ByCharENS0_9SkipEmptyENS0_11string_viewEE5beginEv.exit.loopexit, !llvm.loop !48
+  br i1 %.not.i.i.i, label %21, label %_ZNK4absl7debian216strings_internal8SplitterINS0_6ByCharENS0_9SkipEmptyENS0_11string_viewEE5beginEv.exit.loopexit, !llvm.loop !47
 
 _ZNK4absl7debian216strings_internal8SplitterINS0_6ByCharENS0_9SkipEmptyENS0_11string_viewEE5beginEv.exit.loopexit: ; preds = %_ZNK4absl7debian211string_view6substrEmm.exit.i.i.i
-  %.pre = load i32, ptr %14, align 8, !tbaa !45
+  %.pre = load i32, ptr %14, align 8, !tbaa !44
   %49 = icmp ne i32 %.pre, 2
   br label %_ZNK4absl7debian216strings_internal8SplitterINS0_6ByCharENS0_9SkipEmptyENS0_11string_viewEE5beginEv.exit
 
 _ZNK4absl7debian216strings_internal8SplitterINS0_6ByCharENS0_9SkipEmptyENS0_11string_viewEE5beginEv.exit: ; preds = %_ZNK4absl7debian216strings_internal8SplitterINS0_6ByCharENS0_9SkipEmptyENS0_11string_viewEE5beginEv.exit.loopexit, %19, %25
   %50 = phi i64 [ %48, %_ZNK4absl7debian216strings_internal8SplitterINS0_6ByCharENS0_9SkipEmptyENS0_11string_viewEE5beginEv.exit.loopexit ], [ %9, %19 ], [ %22, %25 ]
   %51 = phi i1 [ %49, %_ZNK4absl7debian216strings_internal8SplitterINS0_6ByCharENS0_9SkipEmptyENS0_11string_viewEE5beginEv.exit.loopexit ], [ false, %19 ], [ false, %25 ]
-  %.sroa.2.0.copyload.i.i.i7 = load i64, ptr %.sroa.2.0..sroa_idx.i3.i, align 8, !tbaa !22, !noalias !49
+  %.sroa.2.0.copyload.i.i.i7 = load i64, ptr %.sroa.2.0..sroa_idx.i3.i, align 8, !tbaa !22, !noalias !48
   %52 = icmp ne i64 %50, %.sroa.2.0.copyload.i.i.i7
   %.not3.i16 = select i1 %51, i1 true, i1 %52
   br i1 %.not3.i16, label %.lr.ph, label %._crit_edge
@@ -499,30 +499,30 @@ _ZNK4absl7debian216strings_internal8SplitterINS0_6ByCharENS0_9SkipEmptyENS0_11st
   ret void
 
 57:                                               ; preds = %.lr.ph, %_ZN4absl7debian216strings_internal13SplitIteratorINS1_8SplitterINS0_6ByCharENS0_9SkipEmptyENS0_11string_viewEEEEppEv.exit
-  %.sroa.0.0.copyload = load ptr, ptr %15, align 8, !tbaa !32
+  %.sroa.0.0.copyload = load ptr, ptr %15, align 8, !tbaa !31
   %.sroa.5.0.copyload = load i64, ptr %.sroa.5.0..sroa_idx, align 8, !tbaa !22
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #19
-  call void @llvm.experimental.noalias.scope.decl(metadata !52)
+  call void @llvm.experimental.noalias.scope.decl(metadata !51)
   %.not.i = icmp eq ptr %.sroa.0.0.copyload, null
-  store ptr %53, ptr %7, align 8, !tbaa !4, !alias.scope !52
+  store ptr %53, ptr %7, align 8, !tbaa !4, !alias.scope !51
   br i1 %.not.i, label %58, label %59
 
 58:                                               ; preds = %57
-  store i64 0, ptr %54, align 8, !tbaa !10, !alias.scope !52
-  store i8 0, ptr %53, align 8, !tbaa !13, !alias.scope !52
+  store i64 0, ptr %54, align 8, !tbaa !10, !alias.scope !51
+  store i8 0, ptr %53, align 8, !tbaa !13, !alias.scope !51
   br label %_ZNK4absl7debian211string_viewcvNSt7__cxx1112basic_stringIcSt11char_traitsIcET_EEISaIcEEEv.exit
 
 59:                                               ; preds = %57
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #19, !noalias !52
-  store i64 %.sroa.5.0.copyload, ptr %4, align 8, !tbaa !22, !noalias !52
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #19, !noalias !51
+  store i64 %.sroa.5.0.copyload, ptr %4, align 8, !tbaa !22, !noalias !51
   %60 = icmp ugt i64 %.sroa.5.0.copyload, 15
   br i1 %60, label %.noexc.i.i, label %._crit_edge.i.i.i
 
 .noexc.i.i:                                       ; preds = %59
   %61 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(8) %4, i64 noundef 0)
-  store ptr %61, ptr %7, align 8, !tbaa !14, !alias.scope !52
-  %62 = load i64, ptr %4, align 8, !tbaa !22, !noalias !52
-  store i64 %62, ptr %53, align 8, !tbaa !13, !alias.scope !52
+  store ptr %61, ptr %7, align 8, !tbaa !14, !alias.scope !51
+  %62 = load i64, ptr %4, align 8, !tbaa !22, !noalias !51
+  store i64 %62, ptr %53, align 8, !tbaa !13, !alias.scope !51
   br label %._crit_edge.i.i.i
 
 ._crit_edge.i.i.i:                                ; preds = %.noexc.i.i, %59
@@ -542,17 +542,17 @@ _ZNK4absl7debian216strings_internal8SplitterINS0_6ByCharENS0_9SkipEmptyENS0_11st
   br label %67
 
 67:                                               ; preds = %66, %64, %._crit_edge.i.i.i
-  %68 = load i64, ptr %4, align 8, !tbaa !22, !noalias !52
-  store i64 %68, ptr %54, align 8, !tbaa !10, !alias.scope !52
-  %69 = load ptr, ptr %7, align 8, !tbaa !14, !alias.scope !52
+  %68 = load i64, ptr %4, align 8, !tbaa !22, !noalias !51
+  store i64 %68, ptr %54, align 8, !tbaa !10, !alias.scope !51
+  %69 = load ptr, ptr %7, align 8, !tbaa !14, !alias.scope !51
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 %68
   store i8 0, ptr %70, align 1, !tbaa !13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #19, !noalias !52
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #19, !noalias !51
   br label %_ZNK4absl7debian211string_viewcvNSt7__cxx1112basic_stringIcSt11char_traitsIcET_EEISaIcEEEv.exit
 
 _ZNK4absl7debian211string_viewcvNSt7__cxx1112basic_stringIcSt11char_traitsIcET_EEISaIcEEEv.exit: ; preds = %58, %67
-  %71 = load ptr, ptr %55, align 8, !tbaa !55
-  %72 = load ptr, ptr %56, align 8, !tbaa !58
+  %71 = load ptr, ptr %55, align 8, !tbaa !54
+  %72 = load ptr, ptr %56, align 8, !tbaa !57
   %.not.i.i = icmp eq ptr %71, %72
   br i1 %.not.i.i, label %86, label %73
 
@@ -584,9 +584,9 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_b
   store i64 %82, ptr %83, align 8, !tbaa !10
   store ptr %53, ptr %7, align 8, !tbaa !14
   store i64 0, ptr %54, align 8, !tbaa !10
-  %84 = load ptr, ptr %55, align 8, !tbaa !55
+  %84 = load ptr, ptr %55, align 8, !tbaa !54
   %85 = getelementptr inbounds nuw i8, ptr %84, i64 32
-  store ptr %85, ptr %55, align 8, !tbaa !55
+  store ptr %85, ptr %55, align 8, !tbaa !54
   br label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i
 
 86:                                               ; preds = %_ZNK4absl7debian211string_viewcvNSt7__cxx1112basic_stringIcSt11char_traitsIcET_EEISaIcEEEv.exit
@@ -615,21 +615,21 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   br label %92
 
 92:                                               ; preds = %_ZNK4absl7debian211string_view6substrEmm.exit.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
-  %93 = load i32, ptr %14, align 8, !tbaa !45
+  %93 = load i32, ptr %14, align 8, !tbaa !44
   %94 = icmp eq i32 %93, 1
   br i1 %94, label %95, label %96
 
 95:                                               ; preds = %92
-  store i32 2, ptr %14, align 8, !tbaa !45
+  store i32 2, ptr %14, align 8, !tbaa !44
   %.pre20 = load i64, ptr %6, align 8
   br label %_ZN4absl7debian216strings_internal13SplitIteratorINS1_8SplitterINS0_6ByCharENS0_9SkipEmptyENS0_11string_viewEEEEppEv.exit
 
 96:                                               ; preds = %92
-  %97 = load ptr, ptr %16, align 8, !tbaa !46
-  %.sroa.0.0.copyload.i.i = load ptr, ptr %97, align 8, !tbaa !32
+  %97 = load ptr, ptr %16, align 8, !tbaa !45
+  %.sroa.0.0.copyload.i.i = load ptr, ptr %97, align 8, !tbaa !31
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %97, i64 8
   %.sroa.2.0.copyload.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i, align 8, !tbaa !22
-  %98 = load i64, ptr %6, align 8, !tbaa !36
+  %98 = load i64, ptr %6, align 8, !tbaa !35
   %99 = call { ptr, i64 } @_ZNK4absl7debian26ByChar4FindENS0_11string_viewEm(ptr noundef nonnull align 1 dereferenceable(1) %17, ptr %.sroa.0.0.copyload.i.i, i64 %.sroa.2.0.copyload.i.i, i64 noundef %98)
   %100 = extractvalue { ptr, i64 } %99, 0
   %101 = extractvalue { ptr, i64 } %99, 1
@@ -638,14 +638,14 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   br i1 %103, label %104, label %105
 
 104:                                              ; preds = %96
-  store i32 1, ptr %14, align 8, !tbaa !45
+  store i32 1, ptr %14, align 8, !tbaa !44
   br label %105
 
 105:                                              ; preds = %104, %96
-  %106 = load i64, ptr %6, align 8, !tbaa !36
+  %106 = load i64, ptr %6, align 8, !tbaa !35
   %107 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i.i, i64 %106
   %108 = icmp ugt i64 %106, %.sroa.2.0.copyload.i.i
-  br i1 %108, label %109, label %110, !prof !47
+  br i1 %108, label %109, label %110, !prof !46
 
 109:                                              ; preds = %105
   call void @_ZN4absl7debian213base_internal18ThrowStdOutOfRangeEPKc(ptr noundef nonnull @.str.2) #21
@@ -665,16 +665,16 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   unreachable
 
 _ZNK4absl7debian211string_view6substrEmm.exit.i:  ; preds = %110
-  store ptr %107, ptr %15, align 8, !tbaa !32
+  store ptr %107, ptr %15, align 8, !tbaa !31
   store i64 %115, ptr %.sroa.5.0..sroa_idx, align 8, !tbaa !22
   %118 = add i64 %106, %101
   %119 = add i64 %118, %115
-  store i64 %119, ptr %6, align 8, !tbaa !36
+  store i64 %119, ptr %6, align 8, !tbaa !35
   %.not.i8 = icmp eq i64 %115, 0
-  br i1 %.not.i8, label %92, label %_ZN4absl7debian216strings_internal13SplitIteratorINS1_8SplitterINS0_6ByCharENS0_9SkipEmptyENS0_11string_viewEEEEppEv.exit.loopexit, !llvm.loop !48
+  br i1 %.not.i8, label %92, label %_ZN4absl7debian216strings_internal13SplitIteratorINS1_8SplitterINS0_6ByCharENS0_9SkipEmptyENS0_11string_viewEEEEppEv.exit.loopexit, !llvm.loop !47
 
 _ZN4absl7debian216strings_internal13SplitIteratorINS1_8SplitterINS0_6ByCharENS0_9SkipEmptyENS0_11string_viewEEEEppEv.exit.loopexit: ; preds = %_ZNK4absl7debian211string_view6substrEmm.exit.i
-  %.pre19 = load i32, ptr %14, align 8, !tbaa !45
+  %.pre19 = load i32, ptr %14, align 8, !tbaa !44
   %120 = icmp ne i32 %.pre19, 2
   br label %_ZN4absl7debian216strings_internal13SplitIteratorINS1_8SplitterINS0_6ByCharENS0_9SkipEmptyENS0_11string_viewEEEEppEv.exit
 
@@ -683,7 +683,7 @@ _ZN4absl7debian216strings_internal13SplitIteratorINS1_8SplitterINS0_6ByCharENS0_
   %122 = phi i1 [ %120, %_ZN4absl7debian216strings_internal13SplitIteratorINS1_8SplitterINS0_6ByCharENS0_9SkipEmptyENS0_11string_viewEEEEppEv.exit.loopexit ], [ false, %95 ]
   %123 = icmp ne i64 %121, %.sroa.2.0.copyload.i.i.i7
   %.not3.i = select i1 %122, i1 true, i1 %123
-  br i1 %.not3.i, label %57, label %._crit_edge, !llvm.loop !59
+  br i1 %.not3.i, label %57, label %._crit_edge
 
 124:                                              ; preds = %86
   %125 = landingpad { ptr, i32 }
@@ -728,32 +728,32 @@ define dso_local noundef zeroext i1 @_ZN4i18n12phonenumbers20TryStripPrefixStrin
 
 11:                                               ; preds = %3
   %12 = load i64, ptr %7, align 8, !tbaa !10
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !60)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !58)
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %14 = load i64, ptr %13, align 8, !tbaa !10, !noalias !60
+  %14 = load i64, ptr %13, align 8, !tbaa !10, !noalias !58
   %15 = icmp ugt i64 %12, %14
   br i1 %15, label %16, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8_M_checkEmPKc.exit.i.i
 
 16:                                               ; preds = %11
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.4, i64 noundef %12, i64 noundef %14) #21, !noalias !60
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.4, i64 noundef %12, i64 noundef %14) #21, !noalias !58
   unreachable
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8_M_checkEmPKc.exit.i.i: ; preds = %11
   %17 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  store ptr %17, ptr %6, align 8, !tbaa !4, !alias.scope !60
-  %18 = load ptr, ptr %0, align 8, !tbaa !14, !noalias !60
+  store ptr %17, ptr %6, align 8, !tbaa !4, !alias.scope !58
+  %18 = load ptr, ptr %0, align 8, !tbaa !14, !noalias !58
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 %12
   %20 = sub nuw i64 %14, %12
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #19, !noalias !60
-  store i64 %20, ptr %5, align 8, !tbaa !22, !noalias !60
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #19, !noalias !58
+  store i64 %20, ptr %5, align 8, !tbaa !22, !noalias !58
   %21 = icmp ugt i64 %20, 15
   br i1 %21, label %.noexc10.i.i, label %._crit_edge.i.i.i
 
 .noexc10.i.i:                                     ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8_M_checkEmPKc.exit.i.i
   %22 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(8) %5, i64 noundef 0)
-  store ptr %22, ptr %6, align 8, !tbaa !14, !alias.scope !60
-  %23 = load i64, ptr %5, align 8, !tbaa !22, !noalias !60
-  store i64 %23, ptr %17, align 8, !tbaa !13, !alias.scope !60
+  store ptr %22, ptr %6, align 8, !tbaa !14, !alias.scope !58
+  %23 = load i64, ptr %5, align 8, !tbaa !22, !noalias !58
+  store i64 %23, ptr %17, align 8, !tbaa !13, !alias.scope !58
   br label %._crit_edge.i.i.i
 
 ._crit_edge.i.i.i:                                ; preds = %.noexc10.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8_M_checkEmPKc.exit.i.i
@@ -773,13 +773,13 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8_M_checkEmPKc.exit.i.i: ;
   br label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6substrEmm.exit
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6substrEmm.exit: ; preds = %._crit_edge.i.i.i, %25, %27
-  %28 = load i64, ptr %5, align 8, !tbaa !22, !noalias !60
+  %28 = load i64, ptr %5, align 8, !tbaa !22, !noalias !58
   %29 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store i64 %28, ptr %29, align 8, !tbaa !10, !alias.scope !60
-  %30 = load ptr, ptr %6, align 8, !tbaa !14, !alias.scope !60
+  store i64 %28, ptr %29, align 8, !tbaa !10, !alias.scope !58
+  %30 = load ptr, ptr %6, align 8, !tbaa !14, !alias.scope !58
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 %28
   store i8 0, ptr %31, align 1, !tbaa !13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #19, !noalias !60
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #19, !noalias !58
   br label %48
 
 32:                                               ; preds = %3
@@ -940,13 +940,13 @@ _ZN4absl7debian211string_viewC2ISaIcEEERKNSt7__cxx1112basic_stringIcSt11char_tra
   %8 = load ptr, ptr %0, align 8, !tbaa !14
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #19
   %9 = call noundef zeroext i1 @_ZN4absl7debian216numbers_internal17safe_strto32_baseENS0_11string_viewEPii(ptr %8, i64 %5, ptr noundef nonnull %3, i32 noundef 10)
-  %10 = load i32, ptr %3, align 4, !tbaa !63
-  store i32 %10, ptr %1, align 4, !tbaa !63
+  %10 = load i32, ptr %3, align 4, !tbaa !61
+  store i32 %10, ptr %1, align 4, !tbaa !61
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #19
   br i1 %9, label %_ZN4i18n12phonenumbers11GenericAtoiIiEEvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPT_.exit, label %11
 
 11:                                               ; preds = %_ZN4absl7debian211string_viewC2ISaIcEEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcET_EE.exit.i
-  store i32 0, ptr %1, align 4, !tbaa !63
+  store i32 0, ptr %1, align 4, !tbaa !61
   br label %_ZN4i18n12phonenumbers11GenericAtoiIiEEvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPT_.exit
 
 _ZN4i18n12phonenumbers11GenericAtoiIiEEvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPT_.exit: ; preds = %_ZN4absl7debian211string_viewC2ISaIcEEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcET_EE.exit.i, %11
@@ -1053,7 +1053,7 @@ define dso_local void @_ZN4i18n12phonenumbers6strrmmEPNSt7__cxx1112basic_stringI
   %19 = load i64, ptr %3, align 8, !tbaa !10
   %20 = getelementptr inbounds nuw i8, ptr %18, i64 %19
   %.not9 = icmp eq ptr %.sroa.05.1, %20
-  br i1 %.not9, label %._crit_edge, label %.lr.ph, !llvm.loop !65
+  br i1 %.not9, label %._crit_edge, label %.lr.ph, !llvm.loop !63
 }
 
 ; Function Attrs: nounwind
@@ -1168,7 +1168,7 @@ define dso_local void @_ZN4i18n12phonenumbers12StringHolderD2Ev(ptr nonnull read
 
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef nonnull align 8 dereferenceable(32) ptr @_ZN4i18n12phonenumberspLERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_12StringHolderE(ptr noundef nonnull returned align 8 dereferenceable(32) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %1) local_unnamed_addr #0 {
-  %.sroa.0.0.copyload.i.i = load ptr, ptr %1, align 8, !tbaa !32
+  %.sroa.0.0.copyload.i.i = load ptr, ptr %1, align 8, !tbaa !31
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.2.0.copyload.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i, align 8, !tbaa !22
   %.not = icmp eq i64 %.sroa.2.0.copyload.i.i, 0
@@ -1226,150 +1226,150 @@ declare void @_ZN4absl7debian26StrCatB5cxx11ERKNS0_8AlphaNumES3_S3_S3_(ptr dead_
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN4i18n12phonenumbers6StrCatB5cxx11ERKNS0_12StringHolderES3_S3_S3_S3_(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %3, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %4, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %5) local_unnamed_addr #0 {
   %7 = alloca [5 x %"class.absl::debian2::string_view"], align 8
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %7) #19, !noalias !66
-  %.sroa.0.0.copyload.i.i = load ptr, ptr %1, align 8, !tbaa !32, !noalias !66
+  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %7) #19, !noalias !64
+  %.sroa.0.0.copyload.i.i = load ptr, ptr %1, align 8, !tbaa !31, !noalias !64
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %.sroa.2.0.copyload.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i, align 8, !tbaa !22, !noalias !66
-  store ptr %.sroa.0.0.copyload.i.i, ptr %7, align 8, !noalias !66
+  %.sroa.2.0.copyload.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i, align 8, !tbaa !22, !noalias !64
+  store ptr %.sroa.0.0.copyload.i.i, ptr %7, align 8, !noalias !64
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store i64 %.sroa.2.0.copyload.i.i, ptr %8, align 8, !noalias !66
+  store i64 %.sroa.2.0.copyload.i.i, ptr %8, align 8, !noalias !64
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %.sroa.0.0.copyload.i5.i = load ptr, ptr %2, align 8, !tbaa !32, !noalias !66
+  %.sroa.0.0.copyload.i5.i = load ptr, ptr %2, align 8, !tbaa !31, !noalias !64
   %.sroa.2.0..sroa_idx.i6.i = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %.sroa.2.0.copyload.i7.i = load i64, ptr %.sroa.2.0..sroa_idx.i6.i, align 8, !tbaa !22, !noalias !66
-  store ptr %.sroa.0.0.copyload.i5.i, ptr %9, align 8, !noalias !66
+  %.sroa.2.0.copyload.i7.i = load i64, ptr %.sroa.2.0..sroa_idx.i6.i, align 8, !tbaa !22, !noalias !64
+  store ptr %.sroa.0.0.copyload.i5.i, ptr %9, align 8, !noalias !64
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  store i64 %.sroa.2.0.copyload.i7.i, ptr %10, align 8, !noalias !66
+  store i64 %.sroa.2.0.copyload.i7.i, ptr %10, align 8, !noalias !64
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 32
-  %.sroa.0.0.copyload.i10.i = load ptr, ptr %3, align 8, !tbaa !32, !noalias !66
+  %.sroa.0.0.copyload.i10.i = load ptr, ptr %3, align 8, !tbaa !31, !noalias !64
   %.sroa.2.0..sroa_idx.i11.i = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %.sroa.2.0.copyload.i12.i = load i64, ptr %.sroa.2.0..sroa_idx.i11.i, align 8, !tbaa !22, !noalias !66
-  store ptr %.sroa.0.0.copyload.i10.i, ptr %11, align 8, !noalias !66
+  %.sroa.2.0.copyload.i12.i = load i64, ptr %.sroa.2.0..sroa_idx.i11.i, align 8, !tbaa !22, !noalias !64
+  store ptr %.sroa.0.0.copyload.i10.i, ptr %11, align 8, !noalias !64
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 40
-  store i64 %.sroa.2.0.copyload.i12.i, ptr %12, align 8, !noalias !66
+  store i64 %.sroa.2.0.copyload.i12.i, ptr %12, align 8, !noalias !64
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 48
-  %.sroa.0.0.copyload.i15.i = load ptr, ptr %4, align 8, !tbaa !32, !noalias !66
+  %.sroa.0.0.copyload.i15.i = load ptr, ptr %4, align 8, !tbaa !31, !noalias !64
   %.sroa.2.0..sroa_idx.i16.i = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %.sroa.2.0.copyload.i17.i = load i64, ptr %.sroa.2.0..sroa_idx.i16.i, align 8, !tbaa !22, !noalias !66
-  store ptr %.sroa.0.0.copyload.i15.i, ptr %13, align 8, !noalias !66
+  %.sroa.2.0.copyload.i17.i = load i64, ptr %.sroa.2.0..sroa_idx.i16.i, align 8, !tbaa !22, !noalias !64
+  store ptr %.sroa.0.0.copyload.i15.i, ptr %13, align 8, !noalias !64
   %14 = getelementptr inbounds nuw i8, ptr %7, i64 56
-  store i64 %.sroa.2.0.copyload.i17.i, ptr %14, align 8, !noalias !66
+  store i64 %.sroa.2.0.copyload.i17.i, ptr %14, align 8, !noalias !64
   %15 = getelementptr inbounds nuw i8, ptr %7, i64 64
-  %.sroa.0.0.copyload.i20.i = load ptr, ptr %5, align 8, !tbaa !32, !noalias !66
+  %.sroa.0.0.copyload.i20.i = load ptr, ptr %5, align 8, !tbaa !31, !noalias !64
   %.sroa.2.0..sroa_idx.i21.i = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %.sroa.2.0.copyload.i22.i = load i64, ptr %.sroa.2.0..sroa_idx.i21.i, align 8, !tbaa !22, !noalias !66
-  store ptr %.sroa.0.0.copyload.i20.i, ptr %15, align 8, !noalias !66
+  %.sroa.2.0.copyload.i22.i = load i64, ptr %.sroa.2.0..sroa_idx.i21.i, align 8, !tbaa !22, !noalias !64
+  store ptr %.sroa.0.0.copyload.i20.i, ptr %15, align 8, !noalias !64
   %16 = getelementptr inbounds nuw i8, ptr %7, i64 72
-  store i64 %.sroa.2.0.copyload.i22.i, ptr %16, align 8, !noalias !66
+  store i64 %.sroa.2.0.copyload.i22.i, ptr %16, align 8, !noalias !64
   call void @_ZN4absl7debian216strings_internal9CatPiecesB5cxx11ESt16initializer_listINS0_11string_viewEE(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nonnull %7, i64 5)
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %7) #19, !noalias !66
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %7) #19, !noalias !64
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN4i18n12phonenumbers6StrCatB5cxx11ERKNS0_12StringHolderES3_S3_S3_S3_S3_(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %3, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %4, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %5, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %6) local_unnamed_addr #0 {
   %8 = alloca [6 x %"class.absl::debian2::string_view"], align 8
-  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %8) #19, !noalias !69
-  %.sroa.0.0.copyload.i.i = load ptr, ptr %1, align 8, !tbaa !32, !noalias !69
+  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %8) #19, !noalias !67
+  %.sroa.0.0.copyload.i.i = load ptr, ptr %1, align 8, !tbaa !31, !noalias !67
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %.sroa.2.0.copyload.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i, align 8, !tbaa !22, !noalias !69
-  store ptr %.sroa.0.0.copyload.i.i, ptr %8, align 8, !noalias !69
+  %.sroa.2.0.copyload.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i, align 8, !tbaa !22, !noalias !67
+  store ptr %.sroa.0.0.copyload.i.i, ptr %8, align 8, !noalias !67
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store i64 %.sroa.2.0.copyload.i.i, ptr %9, align 8, !noalias !69
+  store i64 %.sroa.2.0.copyload.i.i, ptr %9, align 8, !noalias !67
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  %.sroa.0.0.copyload.i6.i = load ptr, ptr %2, align 8, !tbaa !32, !noalias !69
+  %.sroa.0.0.copyload.i6.i = load ptr, ptr %2, align 8, !tbaa !31, !noalias !67
   %.sroa.2.0..sroa_idx.i7.i = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %.sroa.2.0.copyload.i8.i = load i64, ptr %.sroa.2.0..sroa_idx.i7.i, align 8, !tbaa !22, !noalias !69
-  store ptr %.sroa.0.0.copyload.i6.i, ptr %10, align 8, !noalias !69
+  %.sroa.2.0.copyload.i8.i = load i64, ptr %.sroa.2.0..sroa_idx.i7.i, align 8, !tbaa !22, !noalias !67
+  store ptr %.sroa.0.0.copyload.i6.i, ptr %10, align 8, !noalias !67
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  store i64 %.sroa.2.0.copyload.i8.i, ptr %11, align 8, !noalias !69
+  store i64 %.sroa.2.0.copyload.i8.i, ptr %11, align 8, !noalias !67
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 32
-  %.sroa.0.0.copyload.i11.i = load ptr, ptr %3, align 8, !tbaa !32, !noalias !69
+  %.sroa.0.0.copyload.i11.i = load ptr, ptr %3, align 8, !tbaa !31, !noalias !67
   %.sroa.2.0..sroa_idx.i12.i = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %.sroa.2.0.copyload.i13.i = load i64, ptr %.sroa.2.0..sroa_idx.i12.i, align 8, !tbaa !22, !noalias !69
-  store ptr %.sroa.0.0.copyload.i11.i, ptr %12, align 8, !noalias !69
+  %.sroa.2.0.copyload.i13.i = load i64, ptr %.sroa.2.0..sroa_idx.i12.i, align 8, !tbaa !22, !noalias !67
+  store ptr %.sroa.0.0.copyload.i11.i, ptr %12, align 8, !noalias !67
   %13 = getelementptr inbounds nuw i8, ptr %8, i64 40
-  store i64 %.sroa.2.0.copyload.i13.i, ptr %13, align 8, !noalias !69
+  store i64 %.sroa.2.0.copyload.i13.i, ptr %13, align 8, !noalias !67
   %14 = getelementptr inbounds nuw i8, ptr %8, i64 48
-  %.sroa.0.0.copyload.i16.i = load ptr, ptr %4, align 8, !tbaa !32, !noalias !69
+  %.sroa.0.0.copyload.i16.i = load ptr, ptr %4, align 8, !tbaa !31, !noalias !67
   %.sroa.2.0..sroa_idx.i17.i = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %.sroa.2.0.copyload.i18.i = load i64, ptr %.sroa.2.0..sroa_idx.i17.i, align 8, !tbaa !22, !noalias !69
-  store ptr %.sroa.0.0.copyload.i16.i, ptr %14, align 8, !noalias !69
+  %.sroa.2.0.copyload.i18.i = load i64, ptr %.sroa.2.0..sroa_idx.i17.i, align 8, !tbaa !22, !noalias !67
+  store ptr %.sroa.0.0.copyload.i16.i, ptr %14, align 8, !noalias !67
   %15 = getelementptr inbounds nuw i8, ptr %8, i64 56
-  store i64 %.sroa.2.0.copyload.i18.i, ptr %15, align 8, !noalias !69
+  store i64 %.sroa.2.0.copyload.i18.i, ptr %15, align 8, !noalias !67
   %16 = getelementptr inbounds nuw i8, ptr %8, i64 64
-  %.sroa.0.0.copyload.i21.i = load ptr, ptr %5, align 8, !tbaa !32, !noalias !69
+  %.sroa.0.0.copyload.i21.i = load ptr, ptr %5, align 8, !tbaa !31, !noalias !67
   %.sroa.2.0..sroa_idx.i22.i = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %.sroa.2.0.copyload.i23.i = load i64, ptr %.sroa.2.0..sroa_idx.i22.i, align 8, !tbaa !22, !noalias !69
-  store ptr %.sroa.0.0.copyload.i21.i, ptr %16, align 8, !noalias !69
+  %.sroa.2.0.copyload.i23.i = load i64, ptr %.sroa.2.0..sroa_idx.i22.i, align 8, !tbaa !22, !noalias !67
+  store ptr %.sroa.0.0.copyload.i21.i, ptr %16, align 8, !noalias !67
   %17 = getelementptr inbounds nuw i8, ptr %8, i64 72
-  store i64 %.sroa.2.0.copyload.i23.i, ptr %17, align 8, !noalias !69
+  store i64 %.sroa.2.0.copyload.i23.i, ptr %17, align 8, !noalias !67
   %18 = getelementptr inbounds nuw i8, ptr %8, i64 80
-  %.sroa.0.0.copyload.i26.i = load ptr, ptr %6, align 8, !tbaa !32, !noalias !69
+  %.sroa.0.0.copyload.i26.i = load ptr, ptr %6, align 8, !tbaa !31, !noalias !67
   %.sroa.2.0..sroa_idx.i27.i = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %.sroa.2.0.copyload.i28.i = load i64, ptr %.sroa.2.0..sroa_idx.i27.i, align 8, !tbaa !22, !noalias !69
-  store ptr %.sroa.0.0.copyload.i26.i, ptr %18, align 8, !noalias !69
+  %.sroa.2.0.copyload.i28.i = load i64, ptr %.sroa.2.0..sroa_idx.i27.i, align 8, !tbaa !22, !noalias !67
+  store ptr %.sroa.0.0.copyload.i26.i, ptr %18, align 8, !noalias !67
   %19 = getelementptr inbounds nuw i8, ptr %8, i64 88
-  store i64 %.sroa.2.0.copyload.i28.i, ptr %19, align 8, !noalias !69
+  store i64 %.sroa.2.0.copyload.i28.i, ptr %19, align 8, !noalias !67
   call void @_ZN4absl7debian216strings_internal9CatPiecesB5cxx11ESt16initializer_listINS0_11string_viewEE(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nonnull %8, i64 6)
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %8) #19, !noalias !69
+  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %8) #19, !noalias !67
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN4i18n12phonenumbers6StrCatB5cxx11ERKNS0_12StringHolderES3_S3_S3_S3_S3_S3_(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %3, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %4, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %5, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %6, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %7) local_unnamed_addr #0 {
   %9 = alloca [7 x %"class.absl::debian2::string_view"], align 8
-  call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %9) #19, !noalias !72
-  %.sroa.0.0.copyload.i.i = load ptr, ptr %1, align 8, !tbaa !32, !noalias !72
+  call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %9) #19, !noalias !70
+  %.sroa.0.0.copyload.i.i = load ptr, ptr %1, align 8, !tbaa !31, !noalias !70
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %.sroa.2.0.copyload.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i, align 8, !tbaa !22, !noalias !72
-  store ptr %.sroa.0.0.copyload.i.i, ptr %9, align 8, !noalias !72
+  %.sroa.2.0.copyload.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i, align 8, !tbaa !22, !noalias !70
+  store ptr %.sroa.0.0.copyload.i.i, ptr %9, align 8, !noalias !70
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  store i64 %.sroa.2.0.copyload.i.i, ptr %10, align 8, !noalias !72
+  store i64 %.sroa.2.0.copyload.i.i, ptr %10, align 8, !noalias !70
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  %.sroa.0.0.copyload.i7.i = load ptr, ptr %2, align 8, !tbaa !32, !noalias !72
+  %.sroa.0.0.copyload.i7.i = load ptr, ptr %2, align 8, !tbaa !31, !noalias !70
   %.sroa.2.0..sroa_idx.i8.i = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %.sroa.2.0.copyload.i9.i = load i64, ptr %.sroa.2.0..sroa_idx.i8.i, align 8, !tbaa !22, !noalias !72
-  store ptr %.sroa.0.0.copyload.i7.i, ptr %11, align 8, !noalias !72
+  %.sroa.2.0.copyload.i9.i = load i64, ptr %.sroa.2.0..sroa_idx.i8.i, align 8, !tbaa !22, !noalias !70
+  store ptr %.sroa.0.0.copyload.i7.i, ptr %11, align 8, !noalias !70
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 24
-  store i64 %.sroa.2.0.copyload.i9.i, ptr %12, align 8, !noalias !72
+  store i64 %.sroa.2.0.copyload.i9.i, ptr %12, align 8, !noalias !70
   %13 = getelementptr inbounds nuw i8, ptr %9, i64 32
-  %.sroa.0.0.copyload.i12.i = load ptr, ptr %3, align 8, !tbaa !32, !noalias !72
+  %.sroa.0.0.copyload.i12.i = load ptr, ptr %3, align 8, !tbaa !31, !noalias !70
   %.sroa.2.0..sroa_idx.i13.i = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %.sroa.2.0.copyload.i14.i = load i64, ptr %.sroa.2.0..sroa_idx.i13.i, align 8, !tbaa !22, !noalias !72
-  store ptr %.sroa.0.0.copyload.i12.i, ptr %13, align 8, !noalias !72
+  %.sroa.2.0.copyload.i14.i = load i64, ptr %.sroa.2.0..sroa_idx.i13.i, align 8, !tbaa !22, !noalias !70
+  store ptr %.sroa.0.0.copyload.i12.i, ptr %13, align 8, !noalias !70
   %14 = getelementptr inbounds nuw i8, ptr %9, i64 40
-  store i64 %.sroa.2.0.copyload.i14.i, ptr %14, align 8, !noalias !72
+  store i64 %.sroa.2.0.copyload.i14.i, ptr %14, align 8, !noalias !70
   %15 = getelementptr inbounds nuw i8, ptr %9, i64 48
-  %.sroa.0.0.copyload.i17.i = load ptr, ptr %4, align 8, !tbaa !32, !noalias !72
+  %.sroa.0.0.copyload.i17.i = load ptr, ptr %4, align 8, !tbaa !31, !noalias !70
   %.sroa.2.0..sroa_idx.i18.i = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %.sroa.2.0.copyload.i19.i = load i64, ptr %.sroa.2.0..sroa_idx.i18.i, align 8, !tbaa !22, !noalias !72
-  store ptr %.sroa.0.0.copyload.i17.i, ptr %15, align 8, !noalias !72
+  %.sroa.2.0.copyload.i19.i = load i64, ptr %.sroa.2.0..sroa_idx.i18.i, align 8, !tbaa !22, !noalias !70
+  store ptr %.sroa.0.0.copyload.i17.i, ptr %15, align 8, !noalias !70
   %16 = getelementptr inbounds nuw i8, ptr %9, i64 56
-  store i64 %.sroa.2.0.copyload.i19.i, ptr %16, align 8, !noalias !72
+  store i64 %.sroa.2.0.copyload.i19.i, ptr %16, align 8, !noalias !70
   %17 = getelementptr inbounds nuw i8, ptr %9, i64 64
-  %.sroa.0.0.copyload.i22.i = load ptr, ptr %5, align 8, !tbaa !32, !noalias !72
+  %.sroa.0.0.copyload.i22.i = load ptr, ptr %5, align 8, !tbaa !31, !noalias !70
   %.sroa.2.0..sroa_idx.i23.i = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %.sroa.2.0.copyload.i24.i = load i64, ptr %.sroa.2.0..sroa_idx.i23.i, align 8, !tbaa !22, !noalias !72
-  store ptr %.sroa.0.0.copyload.i22.i, ptr %17, align 8, !noalias !72
+  %.sroa.2.0.copyload.i24.i = load i64, ptr %.sroa.2.0..sroa_idx.i23.i, align 8, !tbaa !22, !noalias !70
+  store ptr %.sroa.0.0.copyload.i22.i, ptr %17, align 8, !noalias !70
   %18 = getelementptr inbounds nuw i8, ptr %9, i64 72
-  store i64 %.sroa.2.0.copyload.i24.i, ptr %18, align 8, !noalias !72
+  store i64 %.sroa.2.0.copyload.i24.i, ptr %18, align 8, !noalias !70
   %19 = getelementptr inbounds nuw i8, ptr %9, i64 80
-  %.sroa.0.0.copyload.i27.i = load ptr, ptr %6, align 8, !tbaa !32, !noalias !72
+  %.sroa.0.0.copyload.i27.i = load ptr, ptr %6, align 8, !tbaa !31, !noalias !70
   %.sroa.2.0..sroa_idx.i28.i = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %.sroa.2.0.copyload.i29.i = load i64, ptr %.sroa.2.0..sroa_idx.i28.i, align 8, !tbaa !22, !noalias !72
-  store ptr %.sroa.0.0.copyload.i27.i, ptr %19, align 8, !noalias !72
+  %.sroa.2.0.copyload.i29.i = load i64, ptr %.sroa.2.0..sroa_idx.i28.i, align 8, !tbaa !22, !noalias !70
+  store ptr %.sroa.0.0.copyload.i27.i, ptr %19, align 8, !noalias !70
   %20 = getelementptr inbounds nuw i8, ptr %9, i64 88
-  store i64 %.sroa.2.0.copyload.i29.i, ptr %20, align 8, !noalias !72
+  store i64 %.sroa.2.0.copyload.i29.i, ptr %20, align 8, !noalias !70
   %21 = getelementptr inbounds nuw i8, ptr %9, i64 96
-  %.sroa.0.0.copyload.i32.i = load ptr, ptr %7, align 8, !tbaa !32, !noalias !72
+  %.sroa.0.0.copyload.i32.i = load ptr, ptr %7, align 8, !tbaa !31, !noalias !70
   %.sroa.2.0..sroa_idx.i33.i = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %.sroa.2.0.copyload.i34.i = load i64, ptr %.sroa.2.0..sroa_idx.i33.i, align 8, !tbaa !22, !noalias !72
-  store ptr %.sroa.0.0.copyload.i32.i, ptr %21, align 8, !noalias !72
+  %.sroa.2.0.copyload.i34.i = load i64, ptr %.sroa.2.0..sroa_idx.i33.i, align 8, !tbaa !22, !noalias !70
+  store ptr %.sroa.0.0.copyload.i32.i, ptr %21, align 8, !noalias !70
   %22 = getelementptr inbounds nuw i8, ptr %9, i64 104
-  store i64 %.sroa.2.0.copyload.i34.i, ptr %22, align 8, !noalias !72
+  store i64 %.sroa.2.0.copyload.i34.i, ptr %22, align 8, !noalias !70
   call void @_ZN4absl7debian216strings_internal9CatPiecesB5cxx11ESt16initializer_listINS0_11string_viewEE(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nonnull %9, i64 7)
-  call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %9) #19, !noalias !72
+  call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %9) #19, !noalias !70
   ret void
 }
 
@@ -1411,59 +1411,59 @@ define dso_local void @_ZN4i18n12phonenumbers6StrCatB5cxx11ERKNS0_12StringHolder
           to label %38 unwind label %61
 
 38:                                               ; preds = %9
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %10) #19, !noalias !75
-  %.sroa.0.0.copyload.i.i = load ptr, ptr %1, align 8, !tbaa !32, !noalias !75
-  %.sroa.2.0.copyload.i.i = load i64, ptr %14, align 8, !tbaa !22, !noalias !75
-  store ptr %.sroa.0.0.copyload.i.i, ptr %10, align 8, !noalias !75
+  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %10) #19, !noalias !73
+  %.sroa.0.0.copyload.i.i = load ptr, ptr %1, align 8, !tbaa !31, !noalias !73
+  %.sroa.2.0.copyload.i.i = load i64, ptr %14, align 8, !tbaa !22, !noalias !73
+  store ptr %.sroa.0.0.copyload.i.i, ptr %10, align 8, !noalias !73
   %39 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  store i64 %.sroa.2.0.copyload.i.i, ptr %39, align 8, !noalias !75
+  store i64 %.sroa.2.0.copyload.i.i, ptr %39, align 8, !noalias !73
   %40 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  %.sroa.0.0.copyload.i8.i = load ptr, ptr %2, align 8, !tbaa !32, !noalias !75
-  %.sroa.2.0.copyload.i10.i = load i64, ptr %16, align 8, !tbaa !22, !noalias !75
-  store ptr %.sroa.0.0.copyload.i8.i, ptr %40, align 8, !noalias !75
+  %.sroa.0.0.copyload.i8.i = load ptr, ptr %2, align 8, !tbaa !31, !noalias !73
+  %.sroa.2.0.copyload.i10.i = load i64, ptr %16, align 8, !tbaa !22, !noalias !73
+  store ptr %.sroa.0.0.copyload.i8.i, ptr %40, align 8, !noalias !73
   %41 = getelementptr inbounds nuw i8, ptr %10, i64 24
-  store i64 %.sroa.2.0.copyload.i10.i, ptr %41, align 8, !noalias !75
+  store i64 %.sroa.2.0.copyload.i10.i, ptr %41, align 8, !noalias !73
   %42 = getelementptr inbounds nuw i8, ptr %10, i64 32
-  %.sroa.0.0.copyload.i13.i = load ptr, ptr %3, align 8, !tbaa !32, !noalias !75
-  %.sroa.2.0.copyload.i15.i = load i64, ptr %18, align 8, !tbaa !22, !noalias !75
-  store ptr %.sroa.0.0.copyload.i13.i, ptr %42, align 8, !noalias !75
+  %.sroa.0.0.copyload.i13.i = load ptr, ptr %3, align 8, !tbaa !31, !noalias !73
+  %.sroa.2.0.copyload.i15.i = load i64, ptr %18, align 8, !tbaa !22, !noalias !73
+  store ptr %.sroa.0.0.copyload.i13.i, ptr %42, align 8, !noalias !73
   %43 = getelementptr inbounds nuw i8, ptr %10, i64 40
-  store i64 %.sroa.2.0.copyload.i15.i, ptr %43, align 8, !noalias !75
+  store i64 %.sroa.2.0.copyload.i15.i, ptr %43, align 8, !noalias !73
   %44 = getelementptr inbounds nuw i8, ptr %10, i64 48
-  %.sroa.0.0.copyload.i18.i = load ptr, ptr %4, align 8, !tbaa !32, !noalias !75
-  %.sroa.2.0.copyload.i20.i = load i64, ptr %20, align 8, !tbaa !22, !noalias !75
-  store ptr %.sroa.0.0.copyload.i18.i, ptr %44, align 8, !noalias !75
+  %.sroa.0.0.copyload.i18.i = load ptr, ptr %4, align 8, !tbaa !31, !noalias !73
+  %.sroa.2.0.copyload.i20.i = load i64, ptr %20, align 8, !tbaa !22, !noalias !73
+  store ptr %.sroa.0.0.copyload.i18.i, ptr %44, align 8, !noalias !73
   %45 = getelementptr inbounds nuw i8, ptr %10, i64 56
-  store i64 %.sroa.2.0.copyload.i20.i, ptr %45, align 8, !noalias !75
+  store i64 %.sroa.2.0.copyload.i20.i, ptr %45, align 8, !noalias !73
   %46 = getelementptr inbounds nuw i8, ptr %10, i64 64
-  %.sroa.0.0.copyload.i23.i = load ptr, ptr %5, align 8, !tbaa !32, !noalias !75
-  %.sroa.2.0.copyload.i25.i = load i64, ptr %22, align 8, !tbaa !22, !noalias !75
-  store ptr %.sroa.0.0.copyload.i23.i, ptr %46, align 8, !noalias !75
+  %.sroa.0.0.copyload.i23.i = load ptr, ptr %5, align 8, !tbaa !31, !noalias !73
+  %.sroa.2.0.copyload.i25.i = load i64, ptr %22, align 8, !tbaa !22, !noalias !73
+  store ptr %.sroa.0.0.copyload.i23.i, ptr %46, align 8, !noalias !73
   %47 = getelementptr inbounds nuw i8, ptr %10, i64 72
-  store i64 %.sroa.2.0.copyload.i25.i, ptr %47, align 8, !noalias !75
+  store i64 %.sroa.2.0.copyload.i25.i, ptr %47, align 8, !noalias !73
   %48 = getelementptr inbounds nuw i8, ptr %10, i64 80
-  %.sroa.0.0.copyload.i28.i = load ptr, ptr %6, align 8, !tbaa !32, !noalias !75
-  %.sroa.2.0.copyload.i30.i = load i64, ptr %24, align 8, !tbaa !22, !noalias !75
-  store ptr %.sroa.0.0.copyload.i28.i, ptr %48, align 8, !noalias !75
+  %.sroa.0.0.copyload.i28.i = load ptr, ptr %6, align 8, !tbaa !31, !noalias !73
+  %.sroa.2.0.copyload.i30.i = load i64, ptr %24, align 8, !tbaa !22, !noalias !73
+  store ptr %.sroa.0.0.copyload.i28.i, ptr %48, align 8, !noalias !73
   %49 = getelementptr inbounds nuw i8, ptr %10, i64 88
-  store i64 %.sroa.2.0.copyload.i30.i, ptr %49, align 8, !noalias !75
+  store i64 %.sroa.2.0.copyload.i30.i, ptr %49, align 8, !noalias !73
   %50 = getelementptr inbounds nuw i8, ptr %10, i64 96
-  %.sroa.0.0.copyload.i33.i = load ptr, ptr %7, align 8, !tbaa !32, !noalias !75
-  %.sroa.2.0.copyload.i35.i = load i64, ptr %26, align 8, !tbaa !22, !noalias !75
-  store ptr %.sroa.0.0.copyload.i33.i, ptr %50, align 8, !noalias !75
+  %.sroa.0.0.copyload.i33.i = load ptr, ptr %7, align 8, !tbaa !31, !noalias !73
+  %.sroa.2.0.copyload.i35.i = load i64, ptr %26, align 8, !tbaa !22, !noalias !73
+  store ptr %.sroa.0.0.copyload.i33.i, ptr %50, align 8, !noalias !73
   %51 = getelementptr inbounds nuw i8, ptr %10, i64 104
-  store i64 %.sroa.2.0.copyload.i35.i, ptr %51, align 8, !noalias !75
+  store i64 %.sroa.2.0.copyload.i35.i, ptr %51, align 8, !noalias !73
   %52 = getelementptr inbounds nuw i8, ptr %10, i64 112
-  %.sroa.0.0.copyload.i38.i = load ptr, ptr %8, align 8, !tbaa !32, !noalias !75
-  %.sroa.2.0.copyload.i40.i = load i64, ptr %28, align 8, !tbaa !22, !noalias !75
-  store ptr %.sroa.0.0.copyload.i38.i, ptr %52, align 8, !noalias !75
+  %.sroa.0.0.copyload.i38.i = load ptr, ptr %8, align 8, !tbaa !31, !noalias !73
+  %.sroa.2.0.copyload.i40.i = load i64, ptr %28, align 8, !tbaa !22, !noalias !73
+  store ptr %.sroa.0.0.copyload.i38.i, ptr %52, align 8, !noalias !73
   %53 = getelementptr inbounds nuw i8, ptr %10, i64 120
-  store i64 %.sroa.2.0.copyload.i40.i, ptr %53, align 8, !noalias !75
+  store i64 %.sroa.2.0.copyload.i40.i, ptr %53, align 8, !noalias !73
   invoke void @_ZN4absl7debian216strings_internal9CatPiecesB5cxx11ESt16initializer_listINS0_11string_viewEE(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nonnull %10, i64 8)
           to label %54 unwind label %61
 
 54:                                               ; preds = %38
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %10) #19, !noalias !75
+  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %10) #19, !noalias !73
   %55 = load ptr, ptr %11, align 8, !tbaa !14
   %56 = icmp eq ptr %55, %12
   br i1 %56, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
@@ -1513,686 +1513,686 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7reserveEm(pt
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN4i18n12phonenumbers6StrCatB5cxx11ERKNS0_12StringHolderES3_S3_S3_S3_S3_S3_S3_S3_(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %3, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %4, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %5, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %6, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %7, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %8, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %9) local_unnamed_addr #0 {
   %11 = alloca [9 x %"class.absl::debian2::string_view"], align 8
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %11) #19, !noalias !78
-  %.sroa.0.0.copyload.i.i = load ptr, ptr %1, align 8, !tbaa !32, !noalias !78
+  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %11) #19, !noalias !76
+  %.sroa.0.0.copyload.i.i = load ptr, ptr %1, align 8, !tbaa !31, !noalias !76
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %.sroa.2.0.copyload.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i, align 8, !tbaa !22, !noalias !78
-  store ptr %.sroa.0.0.copyload.i.i, ptr %11, align 8, !noalias !78
+  %.sroa.2.0.copyload.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i, align 8, !tbaa !22, !noalias !76
+  store ptr %.sroa.0.0.copyload.i.i, ptr %11, align 8, !noalias !76
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  store i64 %.sroa.2.0.copyload.i.i, ptr %12, align 8, !noalias !78
+  store i64 %.sroa.2.0.copyload.i.i, ptr %12, align 8, !noalias !76
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 16
-  %.sroa.0.0.copyload.i9.i = load ptr, ptr %2, align 8, !tbaa !32, !noalias !78
+  %.sroa.0.0.copyload.i9.i = load ptr, ptr %2, align 8, !tbaa !31, !noalias !76
   %.sroa.2.0..sroa_idx.i10.i = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %.sroa.2.0.copyload.i11.i = load i64, ptr %.sroa.2.0..sroa_idx.i10.i, align 8, !tbaa !22, !noalias !78
-  store ptr %.sroa.0.0.copyload.i9.i, ptr %13, align 8, !noalias !78
+  %.sroa.2.0.copyload.i11.i = load i64, ptr %.sroa.2.0..sroa_idx.i10.i, align 8, !tbaa !22, !noalias !76
+  store ptr %.sroa.0.0.copyload.i9.i, ptr %13, align 8, !noalias !76
   %14 = getelementptr inbounds nuw i8, ptr %11, i64 24
-  store i64 %.sroa.2.0.copyload.i11.i, ptr %14, align 8, !noalias !78
+  store i64 %.sroa.2.0.copyload.i11.i, ptr %14, align 8, !noalias !76
   %15 = getelementptr inbounds nuw i8, ptr %11, i64 32
-  %.sroa.0.0.copyload.i14.i = load ptr, ptr %3, align 8, !tbaa !32, !noalias !78
+  %.sroa.0.0.copyload.i14.i = load ptr, ptr %3, align 8, !tbaa !31, !noalias !76
   %.sroa.2.0..sroa_idx.i15.i = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %.sroa.2.0.copyload.i16.i = load i64, ptr %.sroa.2.0..sroa_idx.i15.i, align 8, !tbaa !22, !noalias !78
-  store ptr %.sroa.0.0.copyload.i14.i, ptr %15, align 8, !noalias !78
+  %.sroa.2.0.copyload.i16.i = load i64, ptr %.sroa.2.0..sroa_idx.i15.i, align 8, !tbaa !22, !noalias !76
+  store ptr %.sroa.0.0.copyload.i14.i, ptr %15, align 8, !noalias !76
   %16 = getelementptr inbounds nuw i8, ptr %11, i64 40
-  store i64 %.sroa.2.0.copyload.i16.i, ptr %16, align 8, !noalias !78
+  store i64 %.sroa.2.0.copyload.i16.i, ptr %16, align 8, !noalias !76
   %17 = getelementptr inbounds nuw i8, ptr %11, i64 48
-  %.sroa.0.0.copyload.i19.i = load ptr, ptr %4, align 8, !tbaa !32, !noalias !78
+  %.sroa.0.0.copyload.i19.i = load ptr, ptr %4, align 8, !tbaa !31, !noalias !76
   %.sroa.2.0..sroa_idx.i20.i = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %.sroa.2.0.copyload.i21.i = load i64, ptr %.sroa.2.0..sroa_idx.i20.i, align 8, !tbaa !22, !noalias !78
-  store ptr %.sroa.0.0.copyload.i19.i, ptr %17, align 8, !noalias !78
+  %.sroa.2.0.copyload.i21.i = load i64, ptr %.sroa.2.0..sroa_idx.i20.i, align 8, !tbaa !22, !noalias !76
+  store ptr %.sroa.0.0.copyload.i19.i, ptr %17, align 8, !noalias !76
   %18 = getelementptr inbounds nuw i8, ptr %11, i64 56
-  store i64 %.sroa.2.0.copyload.i21.i, ptr %18, align 8, !noalias !78
+  store i64 %.sroa.2.0.copyload.i21.i, ptr %18, align 8, !noalias !76
   %19 = getelementptr inbounds nuw i8, ptr %11, i64 64
-  %.sroa.0.0.copyload.i24.i = load ptr, ptr %5, align 8, !tbaa !32, !noalias !78
+  %.sroa.0.0.copyload.i24.i = load ptr, ptr %5, align 8, !tbaa !31, !noalias !76
   %.sroa.2.0..sroa_idx.i25.i = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %.sroa.2.0.copyload.i26.i = load i64, ptr %.sroa.2.0..sroa_idx.i25.i, align 8, !tbaa !22, !noalias !78
-  store ptr %.sroa.0.0.copyload.i24.i, ptr %19, align 8, !noalias !78
+  %.sroa.2.0.copyload.i26.i = load i64, ptr %.sroa.2.0..sroa_idx.i25.i, align 8, !tbaa !22, !noalias !76
+  store ptr %.sroa.0.0.copyload.i24.i, ptr %19, align 8, !noalias !76
   %20 = getelementptr inbounds nuw i8, ptr %11, i64 72
-  store i64 %.sroa.2.0.copyload.i26.i, ptr %20, align 8, !noalias !78
+  store i64 %.sroa.2.0.copyload.i26.i, ptr %20, align 8, !noalias !76
   %21 = getelementptr inbounds nuw i8, ptr %11, i64 80
-  %.sroa.0.0.copyload.i29.i = load ptr, ptr %6, align 8, !tbaa !32, !noalias !78
+  %.sroa.0.0.copyload.i29.i = load ptr, ptr %6, align 8, !tbaa !31, !noalias !76
   %.sroa.2.0..sroa_idx.i30.i = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %.sroa.2.0.copyload.i31.i = load i64, ptr %.sroa.2.0..sroa_idx.i30.i, align 8, !tbaa !22, !noalias !78
-  store ptr %.sroa.0.0.copyload.i29.i, ptr %21, align 8, !noalias !78
+  %.sroa.2.0.copyload.i31.i = load i64, ptr %.sroa.2.0..sroa_idx.i30.i, align 8, !tbaa !22, !noalias !76
+  store ptr %.sroa.0.0.copyload.i29.i, ptr %21, align 8, !noalias !76
   %22 = getelementptr inbounds nuw i8, ptr %11, i64 88
-  store i64 %.sroa.2.0.copyload.i31.i, ptr %22, align 8, !noalias !78
+  store i64 %.sroa.2.0.copyload.i31.i, ptr %22, align 8, !noalias !76
   %23 = getelementptr inbounds nuw i8, ptr %11, i64 96
-  %.sroa.0.0.copyload.i34.i = load ptr, ptr %7, align 8, !tbaa !32, !noalias !78
+  %.sroa.0.0.copyload.i34.i = load ptr, ptr %7, align 8, !tbaa !31, !noalias !76
   %.sroa.2.0..sroa_idx.i35.i = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %.sroa.2.0.copyload.i36.i = load i64, ptr %.sroa.2.0..sroa_idx.i35.i, align 8, !tbaa !22, !noalias !78
-  store ptr %.sroa.0.0.copyload.i34.i, ptr %23, align 8, !noalias !78
+  %.sroa.2.0.copyload.i36.i = load i64, ptr %.sroa.2.0..sroa_idx.i35.i, align 8, !tbaa !22, !noalias !76
+  store ptr %.sroa.0.0.copyload.i34.i, ptr %23, align 8, !noalias !76
   %24 = getelementptr inbounds nuw i8, ptr %11, i64 104
-  store i64 %.sroa.2.0.copyload.i36.i, ptr %24, align 8, !noalias !78
+  store i64 %.sroa.2.0.copyload.i36.i, ptr %24, align 8, !noalias !76
   %25 = getelementptr inbounds nuw i8, ptr %11, i64 112
-  %.sroa.0.0.copyload.i39.i = load ptr, ptr %8, align 8, !tbaa !32, !noalias !78
+  %.sroa.0.0.copyload.i39.i = load ptr, ptr %8, align 8, !tbaa !31, !noalias !76
   %.sroa.2.0..sroa_idx.i40.i = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %.sroa.2.0.copyload.i41.i = load i64, ptr %.sroa.2.0..sroa_idx.i40.i, align 8, !tbaa !22, !noalias !78
-  store ptr %.sroa.0.0.copyload.i39.i, ptr %25, align 8, !noalias !78
+  %.sroa.2.0.copyload.i41.i = load i64, ptr %.sroa.2.0..sroa_idx.i40.i, align 8, !tbaa !22, !noalias !76
+  store ptr %.sroa.0.0.copyload.i39.i, ptr %25, align 8, !noalias !76
   %26 = getelementptr inbounds nuw i8, ptr %11, i64 120
-  store i64 %.sroa.2.0.copyload.i41.i, ptr %26, align 8, !noalias !78
+  store i64 %.sroa.2.0.copyload.i41.i, ptr %26, align 8, !noalias !76
   %27 = getelementptr inbounds nuw i8, ptr %11, i64 128
-  %.sroa.0.0.copyload.i44.i = load ptr, ptr %9, align 8, !tbaa !32, !noalias !78
+  %.sroa.0.0.copyload.i44.i = load ptr, ptr %9, align 8, !tbaa !31, !noalias !76
   %.sroa.2.0..sroa_idx.i45.i = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %.sroa.2.0.copyload.i46.i = load i64, ptr %.sroa.2.0..sroa_idx.i45.i, align 8, !tbaa !22, !noalias !78
-  store ptr %.sroa.0.0.copyload.i44.i, ptr %27, align 8, !noalias !78
+  %.sroa.2.0.copyload.i46.i = load i64, ptr %.sroa.2.0..sroa_idx.i45.i, align 8, !tbaa !22, !noalias !76
+  store ptr %.sroa.0.0.copyload.i44.i, ptr %27, align 8, !noalias !76
   %28 = getelementptr inbounds nuw i8, ptr %11, i64 136
-  store i64 %.sroa.2.0.copyload.i46.i, ptr %28, align 8, !noalias !78
+  store i64 %.sroa.2.0.copyload.i46.i, ptr %28, align 8, !noalias !76
   call void @_ZN4absl7debian216strings_internal9CatPiecesB5cxx11ESt16initializer_listINS0_11string_viewEE(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nonnull %11, i64 9)
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %11) #19, !noalias !78
+  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %11) #19, !noalias !76
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN4i18n12phonenumbers6StrCatB5cxx11ERKNS0_12StringHolderES3_S3_S3_S3_S3_S3_S3_S3_S3_S3_(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %3, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %4, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %5, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %6, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %7, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %8, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %9, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %10, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %11) local_unnamed_addr #0 {
   %13 = alloca [11 x %"class.absl::debian2::string_view"], align 8
-  call void @llvm.lifetime.start.p0(i64 176, ptr nonnull %13) #19, !noalias !81
-  %.sroa.0.0.copyload.i.i = load ptr, ptr %1, align 8, !tbaa !32, !noalias !81
+  call void @llvm.lifetime.start.p0(i64 176, ptr nonnull %13) #19, !noalias !79
+  %.sroa.0.0.copyload.i.i = load ptr, ptr %1, align 8, !tbaa !31, !noalias !79
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %.sroa.2.0.copyload.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i, align 8, !tbaa !22, !noalias !81
-  store ptr %.sroa.0.0.copyload.i.i, ptr %13, align 8, !noalias !81
+  %.sroa.2.0.copyload.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i, align 8, !tbaa !22, !noalias !79
+  store ptr %.sroa.0.0.copyload.i.i, ptr %13, align 8, !noalias !79
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  store i64 %.sroa.2.0.copyload.i.i, ptr %14, align 8, !noalias !81
+  store i64 %.sroa.2.0.copyload.i.i, ptr %14, align 8, !noalias !79
   %15 = getelementptr inbounds nuw i8, ptr %13, i64 16
-  %.sroa.0.0.copyload.i11.i = load ptr, ptr %2, align 8, !tbaa !32, !noalias !81
+  %.sroa.0.0.copyload.i11.i = load ptr, ptr %2, align 8, !tbaa !31, !noalias !79
   %.sroa.2.0..sroa_idx.i12.i = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %.sroa.2.0.copyload.i13.i = load i64, ptr %.sroa.2.0..sroa_idx.i12.i, align 8, !tbaa !22, !noalias !81
-  store ptr %.sroa.0.0.copyload.i11.i, ptr %15, align 8, !noalias !81
+  %.sroa.2.0.copyload.i13.i = load i64, ptr %.sroa.2.0..sroa_idx.i12.i, align 8, !tbaa !22, !noalias !79
+  store ptr %.sroa.0.0.copyload.i11.i, ptr %15, align 8, !noalias !79
   %16 = getelementptr inbounds nuw i8, ptr %13, i64 24
-  store i64 %.sroa.2.0.copyload.i13.i, ptr %16, align 8, !noalias !81
+  store i64 %.sroa.2.0.copyload.i13.i, ptr %16, align 8, !noalias !79
   %17 = getelementptr inbounds nuw i8, ptr %13, i64 32
-  %.sroa.0.0.copyload.i16.i = load ptr, ptr %3, align 8, !tbaa !32, !noalias !81
+  %.sroa.0.0.copyload.i16.i = load ptr, ptr %3, align 8, !tbaa !31, !noalias !79
   %.sroa.2.0..sroa_idx.i17.i = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %.sroa.2.0.copyload.i18.i = load i64, ptr %.sroa.2.0..sroa_idx.i17.i, align 8, !tbaa !22, !noalias !81
-  store ptr %.sroa.0.0.copyload.i16.i, ptr %17, align 8, !noalias !81
+  %.sroa.2.0.copyload.i18.i = load i64, ptr %.sroa.2.0..sroa_idx.i17.i, align 8, !tbaa !22, !noalias !79
+  store ptr %.sroa.0.0.copyload.i16.i, ptr %17, align 8, !noalias !79
   %18 = getelementptr inbounds nuw i8, ptr %13, i64 40
-  store i64 %.sroa.2.0.copyload.i18.i, ptr %18, align 8, !noalias !81
+  store i64 %.sroa.2.0.copyload.i18.i, ptr %18, align 8, !noalias !79
   %19 = getelementptr inbounds nuw i8, ptr %13, i64 48
-  %.sroa.0.0.copyload.i21.i = load ptr, ptr %4, align 8, !tbaa !32, !noalias !81
+  %.sroa.0.0.copyload.i21.i = load ptr, ptr %4, align 8, !tbaa !31, !noalias !79
   %.sroa.2.0..sroa_idx.i22.i = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %.sroa.2.0.copyload.i23.i = load i64, ptr %.sroa.2.0..sroa_idx.i22.i, align 8, !tbaa !22, !noalias !81
-  store ptr %.sroa.0.0.copyload.i21.i, ptr %19, align 8, !noalias !81
+  %.sroa.2.0.copyload.i23.i = load i64, ptr %.sroa.2.0..sroa_idx.i22.i, align 8, !tbaa !22, !noalias !79
+  store ptr %.sroa.0.0.copyload.i21.i, ptr %19, align 8, !noalias !79
   %20 = getelementptr inbounds nuw i8, ptr %13, i64 56
-  store i64 %.sroa.2.0.copyload.i23.i, ptr %20, align 8, !noalias !81
+  store i64 %.sroa.2.0.copyload.i23.i, ptr %20, align 8, !noalias !79
   %21 = getelementptr inbounds nuw i8, ptr %13, i64 64
-  %.sroa.0.0.copyload.i26.i = load ptr, ptr %5, align 8, !tbaa !32, !noalias !81
+  %.sroa.0.0.copyload.i26.i = load ptr, ptr %5, align 8, !tbaa !31, !noalias !79
   %.sroa.2.0..sroa_idx.i27.i = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %.sroa.2.0.copyload.i28.i = load i64, ptr %.sroa.2.0..sroa_idx.i27.i, align 8, !tbaa !22, !noalias !81
-  store ptr %.sroa.0.0.copyload.i26.i, ptr %21, align 8, !noalias !81
+  %.sroa.2.0.copyload.i28.i = load i64, ptr %.sroa.2.0..sroa_idx.i27.i, align 8, !tbaa !22, !noalias !79
+  store ptr %.sroa.0.0.copyload.i26.i, ptr %21, align 8, !noalias !79
   %22 = getelementptr inbounds nuw i8, ptr %13, i64 72
-  store i64 %.sroa.2.0.copyload.i28.i, ptr %22, align 8, !noalias !81
+  store i64 %.sroa.2.0.copyload.i28.i, ptr %22, align 8, !noalias !79
   %23 = getelementptr inbounds nuw i8, ptr %13, i64 80
-  %.sroa.0.0.copyload.i31.i = load ptr, ptr %6, align 8, !tbaa !32, !noalias !81
+  %.sroa.0.0.copyload.i31.i = load ptr, ptr %6, align 8, !tbaa !31, !noalias !79
   %.sroa.2.0..sroa_idx.i32.i = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %.sroa.2.0.copyload.i33.i = load i64, ptr %.sroa.2.0..sroa_idx.i32.i, align 8, !tbaa !22, !noalias !81
-  store ptr %.sroa.0.0.copyload.i31.i, ptr %23, align 8, !noalias !81
+  %.sroa.2.0.copyload.i33.i = load i64, ptr %.sroa.2.0..sroa_idx.i32.i, align 8, !tbaa !22, !noalias !79
+  store ptr %.sroa.0.0.copyload.i31.i, ptr %23, align 8, !noalias !79
   %24 = getelementptr inbounds nuw i8, ptr %13, i64 88
-  store i64 %.sroa.2.0.copyload.i33.i, ptr %24, align 8, !noalias !81
+  store i64 %.sroa.2.0.copyload.i33.i, ptr %24, align 8, !noalias !79
   %25 = getelementptr inbounds nuw i8, ptr %13, i64 96
-  %.sroa.0.0.copyload.i36.i = load ptr, ptr %7, align 8, !tbaa !32, !noalias !81
+  %.sroa.0.0.copyload.i36.i = load ptr, ptr %7, align 8, !tbaa !31, !noalias !79
   %.sroa.2.0..sroa_idx.i37.i = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %.sroa.2.0.copyload.i38.i = load i64, ptr %.sroa.2.0..sroa_idx.i37.i, align 8, !tbaa !22, !noalias !81
-  store ptr %.sroa.0.0.copyload.i36.i, ptr %25, align 8, !noalias !81
+  %.sroa.2.0.copyload.i38.i = load i64, ptr %.sroa.2.0..sroa_idx.i37.i, align 8, !tbaa !22, !noalias !79
+  store ptr %.sroa.0.0.copyload.i36.i, ptr %25, align 8, !noalias !79
   %26 = getelementptr inbounds nuw i8, ptr %13, i64 104
-  store i64 %.sroa.2.0.copyload.i38.i, ptr %26, align 8, !noalias !81
+  store i64 %.sroa.2.0.copyload.i38.i, ptr %26, align 8, !noalias !79
   %27 = getelementptr inbounds nuw i8, ptr %13, i64 112
-  %.sroa.0.0.copyload.i41.i = load ptr, ptr %8, align 8, !tbaa !32, !noalias !81
+  %.sroa.0.0.copyload.i41.i = load ptr, ptr %8, align 8, !tbaa !31, !noalias !79
   %.sroa.2.0..sroa_idx.i42.i = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %.sroa.2.0.copyload.i43.i = load i64, ptr %.sroa.2.0..sroa_idx.i42.i, align 8, !tbaa !22, !noalias !81
-  store ptr %.sroa.0.0.copyload.i41.i, ptr %27, align 8, !noalias !81
+  %.sroa.2.0.copyload.i43.i = load i64, ptr %.sroa.2.0..sroa_idx.i42.i, align 8, !tbaa !22, !noalias !79
+  store ptr %.sroa.0.0.copyload.i41.i, ptr %27, align 8, !noalias !79
   %28 = getelementptr inbounds nuw i8, ptr %13, i64 120
-  store i64 %.sroa.2.0.copyload.i43.i, ptr %28, align 8, !noalias !81
+  store i64 %.sroa.2.0.copyload.i43.i, ptr %28, align 8, !noalias !79
   %29 = getelementptr inbounds nuw i8, ptr %13, i64 128
-  %.sroa.0.0.copyload.i46.i = load ptr, ptr %9, align 8, !tbaa !32, !noalias !81
+  %.sroa.0.0.copyload.i46.i = load ptr, ptr %9, align 8, !tbaa !31, !noalias !79
   %.sroa.2.0..sroa_idx.i47.i = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %.sroa.2.0.copyload.i48.i = load i64, ptr %.sroa.2.0..sroa_idx.i47.i, align 8, !tbaa !22, !noalias !81
-  store ptr %.sroa.0.0.copyload.i46.i, ptr %29, align 8, !noalias !81
+  %.sroa.2.0.copyload.i48.i = load i64, ptr %.sroa.2.0..sroa_idx.i47.i, align 8, !tbaa !22, !noalias !79
+  store ptr %.sroa.0.0.copyload.i46.i, ptr %29, align 8, !noalias !79
   %30 = getelementptr inbounds nuw i8, ptr %13, i64 136
-  store i64 %.sroa.2.0.copyload.i48.i, ptr %30, align 8, !noalias !81
+  store i64 %.sroa.2.0.copyload.i48.i, ptr %30, align 8, !noalias !79
   %31 = getelementptr inbounds nuw i8, ptr %13, i64 144
-  %.sroa.0.0.copyload.i51.i = load ptr, ptr %10, align 8, !tbaa !32, !noalias !81
+  %.sroa.0.0.copyload.i51.i = load ptr, ptr %10, align 8, !tbaa !31, !noalias !79
   %.sroa.2.0..sroa_idx.i52.i = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %.sroa.2.0.copyload.i53.i = load i64, ptr %.sroa.2.0..sroa_idx.i52.i, align 8, !tbaa !22, !noalias !81
-  store ptr %.sroa.0.0.copyload.i51.i, ptr %31, align 8, !noalias !81
+  %.sroa.2.0.copyload.i53.i = load i64, ptr %.sroa.2.0..sroa_idx.i52.i, align 8, !tbaa !22, !noalias !79
+  store ptr %.sroa.0.0.copyload.i51.i, ptr %31, align 8, !noalias !79
   %32 = getelementptr inbounds nuw i8, ptr %13, i64 152
-  store i64 %.sroa.2.0.copyload.i53.i, ptr %32, align 8, !noalias !81
+  store i64 %.sroa.2.0.copyload.i53.i, ptr %32, align 8, !noalias !79
   %33 = getelementptr inbounds nuw i8, ptr %13, i64 160
-  %.sroa.0.0.copyload.i56.i = load ptr, ptr %11, align 8, !tbaa !32, !noalias !81
+  %.sroa.0.0.copyload.i56.i = load ptr, ptr %11, align 8, !tbaa !31, !noalias !79
   %.sroa.2.0..sroa_idx.i57.i = getelementptr inbounds nuw i8, ptr %11, i64 8
-  %.sroa.2.0.copyload.i58.i = load i64, ptr %.sroa.2.0..sroa_idx.i57.i, align 8, !tbaa !22, !noalias !81
-  store ptr %.sroa.0.0.copyload.i56.i, ptr %33, align 8, !noalias !81
+  %.sroa.2.0.copyload.i58.i = load i64, ptr %.sroa.2.0..sroa_idx.i57.i, align 8, !tbaa !22, !noalias !79
+  store ptr %.sroa.0.0.copyload.i56.i, ptr %33, align 8, !noalias !79
   %34 = getelementptr inbounds nuw i8, ptr %13, i64 168
-  store i64 %.sroa.2.0.copyload.i58.i, ptr %34, align 8, !noalias !81
+  store i64 %.sroa.2.0.copyload.i58.i, ptr %34, align 8, !noalias !79
   call void @_ZN4absl7debian216strings_internal9CatPiecesB5cxx11ESt16initializer_listINS0_11string_viewEE(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nonnull %13, i64 11)
-  call void @llvm.lifetime.end.p0(i64 176, ptr nonnull %13) #19, !noalias !81
+  call void @llvm.lifetime.end.p0(i64 176, ptr nonnull %13) #19, !noalias !79
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN4i18n12phonenumbers6StrCatB5cxx11ERKNS0_12StringHolderES3_S3_S3_S3_S3_S3_S3_S3_S3_S3_S3_(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %3, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %4, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %5, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %6, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %7, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %8, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %9, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %10, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %11, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %12) local_unnamed_addr #0 {
   %14 = alloca [12 x %"class.absl::debian2::string_view"], align 8
-  call void @llvm.lifetime.start.p0(i64 192, ptr nonnull %14) #19, !noalias !84
-  %.sroa.0.0.copyload.i.i = load ptr, ptr %1, align 8, !tbaa !32, !noalias !84
+  call void @llvm.lifetime.start.p0(i64 192, ptr nonnull %14) #19, !noalias !82
+  %.sroa.0.0.copyload.i.i = load ptr, ptr %1, align 8, !tbaa !31, !noalias !82
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %.sroa.2.0.copyload.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i, align 8, !tbaa !22, !noalias !84
-  store ptr %.sroa.0.0.copyload.i.i, ptr %14, align 8, !noalias !84
+  %.sroa.2.0.copyload.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i, align 8, !tbaa !22, !noalias !82
+  store ptr %.sroa.0.0.copyload.i.i, ptr %14, align 8, !noalias !82
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  store i64 %.sroa.2.0.copyload.i.i, ptr %15, align 8, !noalias !84
+  store i64 %.sroa.2.0.copyload.i.i, ptr %15, align 8, !noalias !82
   %16 = getelementptr inbounds nuw i8, ptr %14, i64 16
-  %.sroa.0.0.copyload.i12.i = load ptr, ptr %2, align 8, !tbaa !32, !noalias !84
+  %.sroa.0.0.copyload.i12.i = load ptr, ptr %2, align 8, !tbaa !31, !noalias !82
   %.sroa.2.0..sroa_idx.i13.i = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %.sroa.2.0.copyload.i14.i = load i64, ptr %.sroa.2.0..sroa_idx.i13.i, align 8, !tbaa !22, !noalias !84
-  store ptr %.sroa.0.0.copyload.i12.i, ptr %16, align 8, !noalias !84
+  %.sroa.2.0.copyload.i14.i = load i64, ptr %.sroa.2.0..sroa_idx.i13.i, align 8, !tbaa !22, !noalias !82
+  store ptr %.sroa.0.0.copyload.i12.i, ptr %16, align 8, !noalias !82
   %17 = getelementptr inbounds nuw i8, ptr %14, i64 24
-  store i64 %.sroa.2.0.copyload.i14.i, ptr %17, align 8, !noalias !84
+  store i64 %.sroa.2.0.copyload.i14.i, ptr %17, align 8, !noalias !82
   %18 = getelementptr inbounds nuw i8, ptr %14, i64 32
-  %.sroa.0.0.copyload.i17.i = load ptr, ptr %3, align 8, !tbaa !32, !noalias !84
+  %.sroa.0.0.copyload.i17.i = load ptr, ptr %3, align 8, !tbaa !31, !noalias !82
   %.sroa.2.0..sroa_idx.i18.i = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %.sroa.2.0.copyload.i19.i = load i64, ptr %.sroa.2.0..sroa_idx.i18.i, align 8, !tbaa !22, !noalias !84
-  store ptr %.sroa.0.0.copyload.i17.i, ptr %18, align 8, !noalias !84
+  %.sroa.2.0.copyload.i19.i = load i64, ptr %.sroa.2.0..sroa_idx.i18.i, align 8, !tbaa !22, !noalias !82
+  store ptr %.sroa.0.0.copyload.i17.i, ptr %18, align 8, !noalias !82
   %19 = getelementptr inbounds nuw i8, ptr %14, i64 40
-  store i64 %.sroa.2.0.copyload.i19.i, ptr %19, align 8, !noalias !84
+  store i64 %.sroa.2.0.copyload.i19.i, ptr %19, align 8, !noalias !82
   %20 = getelementptr inbounds nuw i8, ptr %14, i64 48
-  %.sroa.0.0.copyload.i22.i = load ptr, ptr %4, align 8, !tbaa !32, !noalias !84
+  %.sroa.0.0.copyload.i22.i = load ptr, ptr %4, align 8, !tbaa !31, !noalias !82
   %.sroa.2.0..sroa_idx.i23.i = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %.sroa.2.0.copyload.i24.i = load i64, ptr %.sroa.2.0..sroa_idx.i23.i, align 8, !tbaa !22, !noalias !84
-  store ptr %.sroa.0.0.copyload.i22.i, ptr %20, align 8, !noalias !84
+  %.sroa.2.0.copyload.i24.i = load i64, ptr %.sroa.2.0..sroa_idx.i23.i, align 8, !tbaa !22, !noalias !82
+  store ptr %.sroa.0.0.copyload.i22.i, ptr %20, align 8, !noalias !82
   %21 = getelementptr inbounds nuw i8, ptr %14, i64 56
-  store i64 %.sroa.2.0.copyload.i24.i, ptr %21, align 8, !noalias !84
+  store i64 %.sroa.2.0.copyload.i24.i, ptr %21, align 8, !noalias !82
   %22 = getelementptr inbounds nuw i8, ptr %14, i64 64
-  %.sroa.0.0.copyload.i27.i = load ptr, ptr %5, align 8, !tbaa !32, !noalias !84
+  %.sroa.0.0.copyload.i27.i = load ptr, ptr %5, align 8, !tbaa !31, !noalias !82
   %.sroa.2.0..sroa_idx.i28.i = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %.sroa.2.0.copyload.i29.i = load i64, ptr %.sroa.2.0..sroa_idx.i28.i, align 8, !tbaa !22, !noalias !84
-  store ptr %.sroa.0.0.copyload.i27.i, ptr %22, align 8, !noalias !84
+  %.sroa.2.0.copyload.i29.i = load i64, ptr %.sroa.2.0..sroa_idx.i28.i, align 8, !tbaa !22, !noalias !82
+  store ptr %.sroa.0.0.copyload.i27.i, ptr %22, align 8, !noalias !82
   %23 = getelementptr inbounds nuw i8, ptr %14, i64 72
-  store i64 %.sroa.2.0.copyload.i29.i, ptr %23, align 8, !noalias !84
+  store i64 %.sroa.2.0.copyload.i29.i, ptr %23, align 8, !noalias !82
   %24 = getelementptr inbounds nuw i8, ptr %14, i64 80
-  %.sroa.0.0.copyload.i32.i = load ptr, ptr %6, align 8, !tbaa !32, !noalias !84
+  %.sroa.0.0.copyload.i32.i = load ptr, ptr %6, align 8, !tbaa !31, !noalias !82
   %.sroa.2.0..sroa_idx.i33.i = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %.sroa.2.0.copyload.i34.i = load i64, ptr %.sroa.2.0..sroa_idx.i33.i, align 8, !tbaa !22, !noalias !84
-  store ptr %.sroa.0.0.copyload.i32.i, ptr %24, align 8, !noalias !84
+  %.sroa.2.0.copyload.i34.i = load i64, ptr %.sroa.2.0..sroa_idx.i33.i, align 8, !tbaa !22, !noalias !82
+  store ptr %.sroa.0.0.copyload.i32.i, ptr %24, align 8, !noalias !82
   %25 = getelementptr inbounds nuw i8, ptr %14, i64 88
-  store i64 %.sroa.2.0.copyload.i34.i, ptr %25, align 8, !noalias !84
+  store i64 %.sroa.2.0.copyload.i34.i, ptr %25, align 8, !noalias !82
   %26 = getelementptr inbounds nuw i8, ptr %14, i64 96
-  %.sroa.0.0.copyload.i37.i = load ptr, ptr %7, align 8, !tbaa !32, !noalias !84
+  %.sroa.0.0.copyload.i37.i = load ptr, ptr %7, align 8, !tbaa !31, !noalias !82
   %.sroa.2.0..sroa_idx.i38.i = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %.sroa.2.0.copyload.i39.i = load i64, ptr %.sroa.2.0..sroa_idx.i38.i, align 8, !tbaa !22, !noalias !84
-  store ptr %.sroa.0.0.copyload.i37.i, ptr %26, align 8, !noalias !84
+  %.sroa.2.0.copyload.i39.i = load i64, ptr %.sroa.2.0..sroa_idx.i38.i, align 8, !tbaa !22, !noalias !82
+  store ptr %.sroa.0.0.copyload.i37.i, ptr %26, align 8, !noalias !82
   %27 = getelementptr inbounds nuw i8, ptr %14, i64 104
-  store i64 %.sroa.2.0.copyload.i39.i, ptr %27, align 8, !noalias !84
+  store i64 %.sroa.2.0.copyload.i39.i, ptr %27, align 8, !noalias !82
   %28 = getelementptr inbounds nuw i8, ptr %14, i64 112
-  %.sroa.0.0.copyload.i42.i = load ptr, ptr %8, align 8, !tbaa !32, !noalias !84
+  %.sroa.0.0.copyload.i42.i = load ptr, ptr %8, align 8, !tbaa !31, !noalias !82
   %.sroa.2.0..sroa_idx.i43.i = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %.sroa.2.0.copyload.i44.i = load i64, ptr %.sroa.2.0..sroa_idx.i43.i, align 8, !tbaa !22, !noalias !84
-  store ptr %.sroa.0.0.copyload.i42.i, ptr %28, align 8, !noalias !84
+  %.sroa.2.0.copyload.i44.i = load i64, ptr %.sroa.2.0..sroa_idx.i43.i, align 8, !tbaa !22, !noalias !82
+  store ptr %.sroa.0.0.copyload.i42.i, ptr %28, align 8, !noalias !82
   %29 = getelementptr inbounds nuw i8, ptr %14, i64 120
-  store i64 %.sroa.2.0.copyload.i44.i, ptr %29, align 8, !noalias !84
+  store i64 %.sroa.2.0.copyload.i44.i, ptr %29, align 8, !noalias !82
   %30 = getelementptr inbounds nuw i8, ptr %14, i64 128
-  %.sroa.0.0.copyload.i47.i = load ptr, ptr %9, align 8, !tbaa !32, !noalias !84
+  %.sroa.0.0.copyload.i47.i = load ptr, ptr %9, align 8, !tbaa !31, !noalias !82
   %.sroa.2.0..sroa_idx.i48.i = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %.sroa.2.0.copyload.i49.i = load i64, ptr %.sroa.2.0..sroa_idx.i48.i, align 8, !tbaa !22, !noalias !84
-  store ptr %.sroa.0.0.copyload.i47.i, ptr %30, align 8, !noalias !84
+  %.sroa.2.0.copyload.i49.i = load i64, ptr %.sroa.2.0..sroa_idx.i48.i, align 8, !tbaa !22, !noalias !82
+  store ptr %.sroa.0.0.copyload.i47.i, ptr %30, align 8, !noalias !82
   %31 = getelementptr inbounds nuw i8, ptr %14, i64 136
-  store i64 %.sroa.2.0.copyload.i49.i, ptr %31, align 8, !noalias !84
+  store i64 %.sroa.2.0.copyload.i49.i, ptr %31, align 8, !noalias !82
   %32 = getelementptr inbounds nuw i8, ptr %14, i64 144
-  %.sroa.0.0.copyload.i52.i = load ptr, ptr %10, align 8, !tbaa !32, !noalias !84
+  %.sroa.0.0.copyload.i52.i = load ptr, ptr %10, align 8, !tbaa !31, !noalias !82
   %.sroa.2.0..sroa_idx.i53.i = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %.sroa.2.0.copyload.i54.i = load i64, ptr %.sroa.2.0..sroa_idx.i53.i, align 8, !tbaa !22, !noalias !84
-  store ptr %.sroa.0.0.copyload.i52.i, ptr %32, align 8, !noalias !84
+  %.sroa.2.0.copyload.i54.i = load i64, ptr %.sroa.2.0..sroa_idx.i53.i, align 8, !tbaa !22, !noalias !82
+  store ptr %.sroa.0.0.copyload.i52.i, ptr %32, align 8, !noalias !82
   %33 = getelementptr inbounds nuw i8, ptr %14, i64 152
-  store i64 %.sroa.2.0.copyload.i54.i, ptr %33, align 8, !noalias !84
+  store i64 %.sroa.2.0.copyload.i54.i, ptr %33, align 8, !noalias !82
   %34 = getelementptr inbounds nuw i8, ptr %14, i64 160
-  %.sroa.0.0.copyload.i57.i = load ptr, ptr %11, align 8, !tbaa !32, !noalias !84
+  %.sroa.0.0.copyload.i57.i = load ptr, ptr %11, align 8, !tbaa !31, !noalias !82
   %.sroa.2.0..sroa_idx.i58.i = getelementptr inbounds nuw i8, ptr %11, i64 8
-  %.sroa.2.0.copyload.i59.i = load i64, ptr %.sroa.2.0..sroa_idx.i58.i, align 8, !tbaa !22, !noalias !84
-  store ptr %.sroa.0.0.copyload.i57.i, ptr %34, align 8, !noalias !84
+  %.sroa.2.0.copyload.i59.i = load i64, ptr %.sroa.2.0..sroa_idx.i58.i, align 8, !tbaa !22, !noalias !82
+  store ptr %.sroa.0.0.copyload.i57.i, ptr %34, align 8, !noalias !82
   %35 = getelementptr inbounds nuw i8, ptr %14, i64 168
-  store i64 %.sroa.2.0.copyload.i59.i, ptr %35, align 8, !noalias !84
+  store i64 %.sroa.2.0.copyload.i59.i, ptr %35, align 8, !noalias !82
   %36 = getelementptr inbounds nuw i8, ptr %14, i64 176
-  %.sroa.0.0.copyload.i62.i = load ptr, ptr %12, align 8, !tbaa !32, !noalias !84
+  %.sroa.0.0.copyload.i62.i = load ptr, ptr %12, align 8, !tbaa !31, !noalias !82
   %.sroa.2.0..sroa_idx.i63.i = getelementptr inbounds nuw i8, ptr %12, i64 8
-  %.sroa.2.0.copyload.i64.i = load i64, ptr %.sroa.2.0..sroa_idx.i63.i, align 8, !tbaa !22, !noalias !84
-  store ptr %.sroa.0.0.copyload.i62.i, ptr %36, align 8, !noalias !84
+  %.sroa.2.0.copyload.i64.i = load i64, ptr %.sroa.2.0..sroa_idx.i63.i, align 8, !tbaa !22, !noalias !82
+  store ptr %.sroa.0.0.copyload.i62.i, ptr %36, align 8, !noalias !82
   %37 = getelementptr inbounds nuw i8, ptr %14, i64 184
-  store i64 %.sroa.2.0.copyload.i64.i, ptr %37, align 8, !noalias !84
+  store i64 %.sroa.2.0.copyload.i64.i, ptr %37, align 8, !noalias !82
   call void @_ZN4absl7debian216strings_internal9CatPiecesB5cxx11ESt16initializer_listINS0_11string_viewEE(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nonnull %14, i64 12)
-  call void @llvm.lifetime.end.p0(i64 192, ptr nonnull %14) #19, !noalias !84
+  call void @llvm.lifetime.end.p0(i64 192, ptr nonnull %14) #19, !noalias !82
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN4i18n12phonenumbers6StrCatB5cxx11ERKNS0_12StringHolderES3_S3_S3_S3_S3_S3_S3_S3_S3_S3_S3_S3_(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %3, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %4, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %5, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %6, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %7, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %8, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %9, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %10, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %11, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %12, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %13) local_unnamed_addr #0 {
   %15 = alloca [13 x %"class.absl::debian2::string_view"], align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %15) #19, !noalias !87
-  %.sroa.0.0.copyload.i.i = load ptr, ptr %1, align 8, !tbaa !32, !noalias !87
+  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %15) #19, !noalias !85
+  %.sroa.0.0.copyload.i.i = load ptr, ptr %1, align 8, !tbaa !31, !noalias !85
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %.sroa.2.0.copyload.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i, align 8, !tbaa !22, !noalias !87
-  store ptr %.sroa.0.0.copyload.i.i, ptr %15, align 8, !noalias !87
+  %.sroa.2.0.copyload.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i, align 8, !tbaa !22, !noalias !85
+  store ptr %.sroa.0.0.copyload.i.i, ptr %15, align 8, !noalias !85
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  store i64 %.sroa.2.0.copyload.i.i, ptr %16, align 8, !noalias !87
+  store i64 %.sroa.2.0.copyload.i.i, ptr %16, align 8, !noalias !85
   %17 = getelementptr inbounds nuw i8, ptr %15, i64 16
-  %.sroa.0.0.copyload.i13.i = load ptr, ptr %2, align 8, !tbaa !32, !noalias !87
+  %.sroa.0.0.copyload.i13.i = load ptr, ptr %2, align 8, !tbaa !31, !noalias !85
   %.sroa.2.0..sroa_idx.i14.i = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %.sroa.2.0.copyload.i15.i = load i64, ptr %.sroa.2.0..sroa_idx.i14.i, align 8, !tbaa !22, !noalias !87
-  store ptr %.sroa.0.0.copyload.i13.i, ptr %17, align 8, !noalias !87
+  %.sroa.2.0.copyload.i15.i = load i64, ptr %.sroa.2.0..sroa_idx.i14.i, align 8, !tbaa !22, !noalias !85
+  store ptr %.sroa.0.0.copyload.i13.i, ptr %17, align 8, !noalias !85
   %18 = getelementptr inbounds nuw i8, ptr %15, i64 24
-  store i64 %.sroa.2.0.copyload.i15.i, ptr %18, align 8, !noalias !87
+  store i64 %.sroa.2.0.copyload.i15.i, ptr %18, align 8, !noalias !85
   %19 = getelementptr inbounds nuw i8, ptr %15, i64 32
-  %.sroa.0.0.copyload.i18.i = load ptr, ptr %3, align 8, !tbaa !32, !noalias !87
+  %.sroa.0.0.copyload.i18.i = load ptr, ptr %3, align 8, !tbaa !31, !noalias !85
   %.sroa.2.0..sroa_idx.i19.i = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %.sroa.2.0.copyload.i20.i = load i64, ptr %.sroa.2.0..sroa_idx.i19.i, align 8, !tbaa !22, !noalias !87
-  store ptr %.sroa.0.0.copyload.i18.i, ptr %19, align 8, !noalias !87
+  %.sroa.2.0.copyload.i20.i = load i64, ptr %.sroa.2.0..sroa_idx.i19.i, align 8, !tbaa !22, !noalias !85
+  store ptr %.sroa.0.0.copyload.i18.i, ptr %19, align 8, !noalias !85
   %20 = getelementptr inbounds nuw i8, ptr %15, i64 40
-  store i64 %.sroa.2.0.copyload.i20.i, ptr %20, align 8, !noalias !87
+  store i64 %.sroa.2.0.copyload.i20.i, ptr %20, align 8, !noalias !85
   %21 = getelementptr inbounds nuw i8, ptr %15, i64 48
-  %.sroa.0.0.copyload.i23.i = load ptr, ptr %4, align 8, !tbaa !32, !noalias !87
+  %.sroa.0.0.copyload.i23.i = load ptr, ptr %4, align 8, !tbaa !31, !noalias !85
   %.sroa.2.0..sroa_idx.i24.i = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %.sroa.2.0.copyload.i25.i = load i64, ptr %.sroa.2.0..sroa_idx.i24.i, align 8, !tbaa !22, !noalias !87
-  store ptr %.sroa.0.0.copyload.i23.i, ptr %21, align 8, !noalias !87
+  %.sroa.2.0.copyload.i25.i = load i64, ptr %.sroa.2.0..sroa_idx.i24.i, align 8, !tbaa !22, !noalias !85
+  store ptr %.sroa.0.0.copyload.i23.i, ptr %21, align 8, !noalias !85
   %22 = getelementptr inbounds nuw i8, ptr %15, i64 56
-  store i64 %.sroa.2.0.copyload.i25.i, ptr %22, align 8, !noalias !87
+  store i64 %.sroa.2.0.copyload.i25.i, ptr %22, align 8, !noalias !85
   %23 = getelementptr inbounds nuw i8, ptr %15, i64 64
-  %.sroa.0.0.copyload.i28.i = load ptr, ptr %5, align 8, !tbaa !32, !noalias !87
+  %.sroa.0.0.copyload.i28.i = load ptr, ptr %5, align 8, !tbaa !31, !noalias !85
   %.sroa.2.0..sroa_idx.i29.i = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %.sroa.2.0.copyload.i30.i = load i64, ptr %.sroa.2.0..sroa_idx.i29.i, align 8, !tbaa !22, !noalias !87
-  store ptr %.sroa.0.0.copyload.i28.i, ptr %23, align 8, !noalias !87
+  %.sroa.2.0.copyload.i30.i = load i64, ptr %.sroa.2.0..sroa_idx.i29.i, align 8, !tbaa !22, !noalias !85
+  store ptr %.sroa.0.0.copyload.i28.i, ptr %23, align 8, !noalias !85
   %24 = getelementptr inbounds nuw i8, ptr %15, i64 72
-  store i64 %.sroa.2.0.copyload.i30.i, ptr %24, align 8, !noalias !87
+  store i64 %.sroa.2.0.copyload.i30.i, ptr %24, align 8, !noalias !85
   %25 = getelementptr inbounds nuw i8, ptr %15, i64 80
-  %.sroa.0.0.copyload.i33.i = load ptr, ptr %6, align 8, !tbaa !32, !noalias !87
+  %.sroa.0.0.copyload.i33.i = load ptr, ptr %6, align 8, !tbaa !31, !noalias !85
   %.sroa.2.0..sroa_idx.i34.i = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %.sroa.2.0.copyload.i35.i = load i64, ptr %.sroa.2.0..sroa_idx.i34.i, align 8, !tbaa !22, !noalias !87
-  store ptr %.sroa.0.0.copyload.i33.i, ptr %25, align 8, !noalias !87
+  %.sroa.2.0.copyload.i35.i = load i64, ptr %.sroa.2.0..sroa_idx.i34.i, align 8, !tbaa !22, !noalias !85
+  store ptr %.sroa.0.0.copyload.i33.i, ptr %25, align 8, !noalias !85
   %26 = getelementptr inbounds nuw i8, ptr %15, i64 88
-  store i64 %.sroa.2.0.copyload.i35.i, ptr %26, align 8, !noalias !87
+  store i64 %.sroa.2.0.copyload.i35.i, ptr %26, align 8, !noalias !85
   %27 = getelementptr inbounds nuw i8, ptr %15, i64 96
-  %.sroa.0.0.copyload.i38.i = load ptr, ptr %7, align 8, !tbaa !32, !noalias !87
+  %.sroa.0.0.copyload.i38.i = load ptr, ptr %7, align 8, !tbaa !31, !noalias !85
   %.sroa.2.0..sroa_idx.i39.i = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %.sroa.2.0.copyload.i40.i = load i64, ptr %.sroa.2.0..sroa_idx.i39.i, align 8, !tbaa !22, !noalias !87
-  store ptr %.sroa.0.0.copyload.i38.i, ptr %27, align 8, !noalias !87
+  %.sroa.2.0.copyload.i40.i = load i64, ptr %.sroa.2.0..sroa_idx.i39.i, align 8, !tbaa !22, !noalias !85
+  store ptr %.sroa.0.0.copyload.i38.i, ptr %27, align 8, !noalias !85
   %28 = getelementptr inbounds nuw i8, ptr %15, i64 104
-  store i64 %.sroa.2.0.copyload.i40.i, ptr %28, align 8, !noalias !87
+  store i64 %.sroa.2.0.copyload.i40.i, ptr %28, align 8, !noalias !85
   %29 = getelementptr inbounds nuw i8, ptr %15, i64 112
-  %.sroa.0.0.copyload.i43.i = load ptr, ptr %8, align 8, !tbaa !32, !noalias !87
+  %.sroa.0.0.copyload.i43.i = load ptr, ptr %8, align 8, !tbaa !31, !noalias !85
   %.sroa.2.0..sroa_idx.i44.i = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %.sroa.2.0.copyload.i45.i = load i64, ptr %.sroa.2.0..sroa_idx.i44.i, align 8, !tbaa !22, !noalias !87
-  store ptr %.sroa.0.0.copyload.i43.i, ptr %29, align 8, !noalias !87
+  %.sroa.2.0.copyload.i45.i = load i64, ptr %.sroa.2.0..sroa_idx.i44.i, align 8, !tbaa !22, !noalias !85
+  store ptr %.sroa.0.0.copyload.i43.i, ptr %29, align 8, !noalias !85
   %30 = getelementptr inbounds nuw i8, ptr %15, i64 120
-  store i64 %.sroa.2.0.copyload.i45.i, ptr %30, align 8, !noalias !87
+  store i64 %.sroa.2.0.copyload.i45.i, ptr %30, align 8, !noalias !85
   %31 = getelementptr inbounds nuw i8, ptr %15, i64 128
-  %.sroa.0.0.copyload.i48.i = load ptr, ptr %9, align 8, !tbaa !32, !noalias !87
+  %.sroa.0.0.copyload.i48.i = load ptr, ptr %9, align 8, !tbaa !31, !noalias !85
   %.sroa.2.0..sroa_idx.i49.i = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %.sroa.2.0.copyload.i50.i = load i64, ptr %.sroa.2.0..sroa_idx.i49.i, align 8, !tbaa !22, !noalias !87
-  store ptr %.sroa.0.0.copyload.i48.i, ptr %31, align 8, !noalias !87
+  %.sroa.2.0.copyload.i50.i = load i64, ptr %.sroa.2.0..sroa_idx.i49.i, align 8, !tbaa !22, !noalias !85
+  store ptr %.sroa.0.0.copyload.i48.i, ptr %31, align 8, !noalias !85
   %32 = getelementptr inbounds nuw i8, ptr %15, i64 136
-  store i64 %.sroa.2.0.copyload.i50.i, ptr %32, align 8, !noalias !87
+  store i64 %.sroa.2.0.copyload.i50.i, ptr %32, align 8, !noalias !85
   %33 = getelementptr inbounds nuw i8, ptr %15, i64 144
-  %.sroa.0.0.copyload.i53.i = load ptr, ptr %10, align 8, !tbaa !32, !noalias !87
+  %.sroa.0.0.copyload.i53.i = load ptr, ptr %10, align 8, !tbaa !31, !noalias !85
   %.sroa.2.0..sroa_idx.i54.i = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %.sroa.2.0.copyload.i55.i = load i64, ptr %.sroa.2.0..sroa_idx.i54.i, align 8, !tbaa !22, !noalias !87
-  store ptr %.sroa.0.0.copyload.i53.i, ptr %33, align 8, !noalias !87
+  %.sroa.2.0.copyload.i55.i = load i64, ptr %.sroa.2.0..sroa_idx.i54.i, align 8, !tbaa !22, !noalias !85
+  store ptr %.sroa.0.0.copyload.i53.i, ptr %33, align 8, !noalias !85
   %34 = getelementptr inbounds nuw i8, ptr %15, i64 152
-  store i64 %.sroa.2.0.copyload.i55.i, ptr %34, align 8, !noalias !87
+  store i64 %.sroa.2.0.copyload.i55.i, ptr %34, align 8, !noalias !85
   %35 = getelementptr inbounds nuw i8, ptr %15, i64 160
-  %.sroa.0.0.copyload.i58.i = load ptr, ptr %11, align 8, !tbaa !32, !noalias !87
+  %.sroa.0.0.copyload.i58.i = load ptr, ptr %11, align 8, !tbaa !31, !noalias !85
   %.sroa.2.0..sroa_idx.i59.i = getelementptr inbounds nuw i8, ptr %11, i64 8
-  %.sroa.2.0.copyload.i60.i = load i64, ptr %.sroa.2.0..sroa_idx.i59.i, align 8, !tbaa !22, !noalias !87
-  store ptr %.sroa.0.0.copyload.i58.i, ptr %35, align 8, !noalias !87
+  %.sroa.2.0.copyload.i60.i = load i64, ptr %.sroa.2.0..sroa_idx.i59.i, align 8, !tbaa !22, !noalias !85
+  store ptr %.sroa.0.0.copyload.i58.i, ptr %35, align 8, !noalias !85
   %36 = getelementptr inbounds nuw i8, ptr %15, i64 168
-  store i64 %.sroa.2.0.copyload.i60.i, ptr %36, align 8, !noalias !87
+  store i64 %.sroa.2.0.copyload.i60.i, ptr %36, align 8, !noalias !85
   %37 = getelementptr inbounds nuw i8, ptr %15, i64 176
-  %.sroa.0.0.copyload.i63.i = load ptr, ptr %12, align 8, !tbaa !32, !noalias !87
+  %.sroa.0.0.copyload.i63.i = load ptr, ptr %12, align 8, !tbaa !31, !noalias !85
   %.sroa.2.0..sroa_idx.i64.i = getelementptr inbounds nuw i8, ptr %12, i64 8
-  %.sroa.2.0.copyload.i65.i = load i64, ptr %.sroa.2.0..sroa_idx.i64.i, align 8, !tbaa !22, !noalias !87
-  store ptr %.sroa.0.0.copyload.i63.i, ptr %37, align 8, !noalias !87
+  %.sroa.2.0.copyload.i65.i = load i64, ptr %.sroa.2.0..sroa_idx.i64.i, align 8, !tbaa !22, !noalias !85
+  store ptr %.sroa.0.0.copyload.i63.i, ptr %37, align 8, !noalias !85
   %38 = getelementptr inbounds nuw i8, ptr %15, i64 184
-  store i64 %.sroa.2.0.copyload.i65.i, ptr %38, align 8, !noalias !87
+  store i64 %.sroa.2.0.copyload.i65.i, ptr %38, align 8, !noalias !85
   %39 = getelementptr inbounds nuw i8, ptr %15, i64 192
-  %.sroa.0.0.copyload.i68.i = load ptr, ptr %13, align 8, !tbaa !32, !noalias !87
+  %.sroa.0.0.copyload.i68.i = load ptr, ptr %13, align 8, !tbaa !31, !noalias !85
   %.sroa.2.0..sroa_idx.i69.i = getelementptr inbounds nuw i8, ptr %13, i64 8
-  %.sroa.2.0.copyload.i70.i = load i64, ptr %.sroa.2.0..sroa_idx.i69.i, align 8, !tbaa !22, !noalias !87
-  store ptr %.sroa.0.0.copyload.i68.i, ptr %39, align 8, !noalias !87
+  %.sroa.2.0.copyload.i70.i = load i64, ptr %.sroa.2.0..sroa_idx.i69.i, align 8, !tbaa !22, !noalias !85
+  store ptr %.sroa.0.0.copyload.i68.i, ptr %39, align 8, !noalias !85
   %40 = getelementptr inbounds nuw i8, ptr %15, i64 200
-  store i64 %.sroa.2.0.copyload.i70.i, ptr %40, align 8, !noalias !87
+  store i64 %.sroa.2.0.copyload.i70.i, ptr %40, align 8, !noalias !85
   call void @_ZN4absl7debian216strings_internal9CatPiecesB5cxx11ESt16initializer_listINS0_11string_viewEE(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nonnull %15, i64 13)
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %15) #19, !noalias !87
+  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %15) #19, !noalias !85
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN4i18n12phonenumbers6StrCatB5cxx11ERKNS0_12StringHolderES3_S3_S3_S3_S3_S3_S3_S3_S3_S3_S3_S3_S3_(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %3, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %4, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %5, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %6, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %7, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %8, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %9, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %10, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %11, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %12, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %13, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %14) local_unnamed_addr #0 {
   %16 = alloca [14 x %"class.absl::debian2::string_view"], align 8
-  call void @llvm.lifetime.start.p0(i64 224, ptr nonnull %16) #19, !noalias !90
-  %.sroa.0.0.copyload.i.i = load ptr, ptr %1, align 8, !tbaa !32, !noalias !90
+  call void @llvm.lifetime.start.p0(i64 224, ptr nonnull %16) #19, !noalias !88
+  %.sroa.0.0.copyload.i.i = load ptr, ptr %1, align 8, !tbaa !31, !noalias !88
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %.sroa.2.0.copyload.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i, align 8, !tbaa !22, !noalias !90
-  store ptr %.sroa.0.0.copyload.i.i, ptr %16, align 8, !noalias !90
+  %.sroa.2.0.copyload.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i, align 8, !tbaa !22, !noalias !88
+  store ptr %.sroa.0.0.copyload.i.i, ptr %16, align 8, !noalias !88
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  store i64 %.sroa.2.0.copyload.i.i, ptr %17, align 8, !noalias !90
+  store i64 %.sroa.2.0.copyload.i.i, ptr %17, align 8, !noalias !88
   %18 = getelementptr inbounds nuw i8, ptr %16, i64 16
-  %.sroa.0.0.copyload.i14.i = load ptr, ptr %2, align 8, !tbaa !32, !noalias !90
+  %.sroa.0.0.copyload.i14.i = load ptr, ptr %2, align 8, !tbaa !31, !noalias !88
   %.sroa.2.0..sroa_idx.i15.i = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %.sroa.2.0.copyload.i16.i = load i64, ptr %.sroa.2.0..sroa_idx.i15.i, align 8, !tbaa !22, !noalias !90
-  store ptr %.sroa.0.0.copyload.i14.i, ptr %18, align 8, !noalias !90
+  %.sroa.2.0.copyload.i16.i = load i64, ptr %.sroa.2.0..sroa_idx.i15.i, align 8, !tbaa !22, !noalias !88
+  store ptr %.sroa.0.0.copyload.i14.i, ptr %18, align 8, !noalias !88
   %19 = getelementptr inbounds nuw i8, ptr %16, i64 24
-  store i64 %.sroa.2.0.copyload.i16.i, ptr %19, align 8, !noalias !90
+  store i64 %.sroa.2.0.copyload.i16.i, ptr %19, align 8, !noalias !88
   %20 = getelementptr inbounds nuw i8, ptr %16, i64 32
-  %.sroa.0.0.copyload.i19.i = load ptr, ptr %3, align 8, !tbaa !32, !noalias !90
+  %.sroa.0.0.copyload.i19.i = load ptr, ptr %3, align 8, !tbaa !31, !noalias !88
   %.sroa.2.0..sroa_idx.i20.i = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %.sroa.2.0.copyload.i21.i = load i64, ptr %.sroa.2.0..sroa_idx.i20.i, align 8, !tbaa !22, !noalias !90
-  store ptr %.sroa.0.0.copyload.i19.i, ptr %20, align 8, !noalias !90
+  %.sroa.2.0.copyload.i21.i = load i64, ptr %.sroa.2.0..sroa_idx.i20.i, align 8, !tbaa !22, !noalias !88
+  store ptr %.sroa.0.0.copyload.i19.i, ptr %20, align 8, !noalias !88
   %21 = getelementptr inbounds nuw i8, ptr %16, i64 40
-  store i64 %.sroa.2.0.copyload.i21.i, ptr %21, align 8, !noalias !90
+  store i64 %.sroa.2.0.copyload.i21.i, ptr %21, align 8, !noalias !88
   %22 = getelementptr inbounds nuw i8, ptr %16, i64 48
-  %.sroa.0.0.copyload.i24.i = load ptr, ptr %4, align 8, !tbaa !32, !noalias !90
+  %.sroa.0.0.copyload.i24.i = load ptr, ptr %4, align 8, !tbaa !31, !noalias !88
   %.sroa.2.0..sroa_idx.i25.i = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %.sroa.2.0.copyload.i26.i = load i64, ptr %.sroa.2.0..sroa_idx.i25.i, align 8, !tbaa !22, !noalias !90
-  store ptr %.sroa.0.0.copyload.i24.i, ptr %22, align 8, !noalias !90
+  %.sroa.2.0.copyload.i26.i = load i64, ptr %.sroa.2.0..sroa_idx.i25.i, align 8, !tbaa !22, !noalias !88
+  store ptr %.sroa.0.0.copyload.i24.i, ptr %22, align 8, !noalias !88
   %23 = getelementptr inbounds nuw i8, ptr %16, i64 56
-  store i64 %.sroa.2.0.copyload.i26.i, ptr %23, align 8, !noalias !90
+  store i64 %.sroa.2.0.copyload.i26.i, ptr %23, align 8, !noalias !88
   %24 = getelementptr inbounds nuw i8, ptr %16, i64 64
-  %.sroa.0.0.copyload.i29.i = load ptr, ptr %5, align 8, !tbaa !32, !noalias !90
+  %.sroa.0.0.copyload.i29.i = load ptr, ptr %5, align 8, !tbaa !31, !noalias !88
   %.sroa.2.0..sroa_idx.i30.i = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %.sroa.2.0.copyload.i31.i = load i64, ptr %.sroa.2.0..sroa_idx.i30.i, align 8, !tbaa !22, !noalias !90
-  store ptr %.sroa.0.0.copyload.i29.i, ptr %24, align 8, !noalias !90
+  %.sroa.2.0.copyload.i31.i = load i64, ptr %.sroa.2.0..sroa_idx.i30.i, align 8, !tbaa !22, !noalias !88
+  store ptr %.sroa.0.0.copyload.i29.i, ptr %24, align 8, !noalias !88
   %25 = getelementptr inbounds nuw i8, ptr %16, i64 72
-  store i64 %.sroa.2.0.copyload.i31.i, ptr %25, align 8, !noalias !90
+  store i64 %.sroa.2.0.copyload.i31.i, ptr %25, align 8, !noalias !88
   %26 = getelementptr inbounds nuw i8, ptr %16, i64 80
-  %.sroa.0.0.copyload.i34.i = load ptr, ptr %6, align 8, !tbaa !32, !noalias !90
+  %.sroa.0.0.copyload.i34.i = load ptr, ptr %6, align 8, !tbaa !31, !noalias !88
   %.sroa.2.0..sroa_idx.i35.i = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %.sroa.2.0.copyload.i36.i = load i64, ptr %.sroa.2.0..sroa_idx.i35.i, align 8, !tbaa !22, !noalias !90
-  store ptr %.sroa.0.0.copyload.i34.i, ptr %26, align 8, !noalias !90
+  %.sroa.2.0.copyload.i36.i = load i64, ptr %.sroa.2.0..sroa_idx.i35.i, align 8, !tbaa !22, !noalias !88
+  store ptr %.sroa.0.0.copyload.i34.i, ptr %26, align 8, !noalias !88
   %27 = getelementptr inbounds nuw i8, ptr %16, i64 88
-  store i64 %.sroa.2.0.copyload.i36.i, ptr %27, align 8, !noalias !90
+  store i64 %.sroa.2.0.copyload.i36.i, ptr %27, align 8, !noalias !88
   %28 = getelementptr inbounds nuw i8, ptr %16, i64 96
-  %.sroa.0.0.copyload.i39.i = load ptr, ptr %7, align 8, !tbaa !32, !noalias !90
+  %.sroa.0.0.copyload.i39.i = load ptr, ptr %7, align 8, !tbaa !31, !noalias !88
   %.sroa.2.0..sroa_idx.i40.i = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %.sroa.2.0.copyload.i41.i = load i64, ptr %.sroa.2.0..sroa_idx.i40.i, align 8, !tbaa !22, !noalias !90
-  store ptr %.sroa.0.0.copyload.i39.i, ptr %28, align 8, !noalias !90
+  %.sroa.2.0.copyload.i41.i = load i64, ptr %.sroa.2.0..sroa_idx.i40.i, align 8, !tbaa !22, !noalias !88
+  store ptr %.sroa.0.0.copyload.i39.i, ptr %28, align 8, !noalias !88
   %29 = getelementptr inbounds nuw i8, ptr %16, i64 104
-  store i64 %.sroa.2.0.copyload.i41.i, ptr %29, align 8, !noalias !90
+  store i64 %.sroa.2.0.copyload.i41.i, ptr %29, align 8, !noalias !88
   %30 = getelementptr inbounds nuw i8, ptr %16, i64 112
-  %.sroa.0.0.copyload.i44.i = load ptr, ptr %8, align 8, !tbaa !32, !noalias !90
+  %.sroa.0.0.copyload.i44.i = load ptr, ptr %8, align 8, !tbaa !31, !noalias !88
   %.sroa.2.0..sroa_idx.i45.i = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %.sroa.2.0.copyload.i46.i = load i64, ptr %.sroa.2.0..sroa_idx.i45.i, align 8, !tbaa !22, !noalias !90
-  store ptr %.sroa.0.0.copyload.i44.i, ptr %30, align 8, !noalias !90
+  %.sroa.2.0.copyload.i46.i = load i64, ptr %.sroa.2.0..sroa_idx.i45.i, align 8, !tbaa !22, !noalias !88
+  store ptr %.sroa.0.0.copyload.i44.i, ptr %30, align 8, !noalias !88
   %31 = getelementptr inbounds nuw i8, ptr %16, i64 120
-  store i64 %.sroa.2.0.copyload.i46.i, ptr %31, align 8, !noalias !90
+  store i64 %.sroa.2.0.copyload.i46.i, ptr %31, align 8, !noalias !88
   %32 = getelementptr inbounds nuw i8, ptr %16, i64 128
-  %.sroa.0.0.copyload.i49.i = load ptr, ptr %9, align 8, !tbaa !32, !noalias !90
+  %.sroa.0.0.copyload.i49.i = load ptr, ptr %9, align 8, !tbaa !31, !noalias !88
   %.sroa.2.0..sroa_idx.i50.i = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %.sroa.2.0.copyload.i51.i = load i64, ptr %.sroa.2.0..sroa_idx.i50.i, align 8, !tbaa !22, !noalias !90
-  store ptr %.sroa.0.0.copyload.i49.i, ptr %32, align 8, !noalias !90
+  %.sroa.2.0.copyload.i51.i = load i64, ptr %.sroa.2.0..sroa_idx.i50.i, align 8, !tbaa !22, !noalias !88
+  store ptr %.sroa.0.0.copyload.i49.i, ptr %32, align 8, !noalias !88
   %33 = getelementptr inbounds nuw i8, ptr %16, i64 136
-  store i64 %.sroa.2.0.copyload.i51.i, ptr %33, align 8, !noalias !90
+  store i64 %.sroa.2.0.copyload.i51.i, ptr %33, align 8, !noalias !88
   %34 = getelementptr inbounds nuw i8, ptr %16, i64 144
-  %.sroa.0.0.copyload.i54.i = load ptr, ptr %10, align 8, !tbaa !32, !noalias !90
+  %.sroa.0.0.copyload.i54.i = load ptr, ptr %10, align 8, !tbaa !31, !noalias !88
   %.sroa.2.0..sroa_idx.i55.i = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %.sroa.2.0.copyload.i56.i = load i64, ptr %.sroa.2.0..sroa_idx.i55.i, align 8, !tbaa !22, !noalias !90
-  store ptr %.sroa.0.0.copyload.i54.i, ptr %34, align 8, !noalias !90
+  %.sroa.2.0.copyload.i56.i = load i64, ptr %.sroa.2.0..sroa_idx.i55.i, align 8, !tbaa !22, !noalias !88
+  store ptr %.sroa.0.0.copyload.i54.i, ptr %34, align 8, !noalias !88
   %35 = getelementptr inbounds nuw i8, ptr %16, i64 152
-  store i64 %.sroa.2.0.copyload.i56.i, ptr %35, align 8, !noalias !90
+  store i64 %.sroa.2.0.copyload.i56.i, ptr %35, align 8, !noalias !88
   %36 = getelementptr inbounds nuw i8, ptr %16, i64 160
-  %.sroa.0.0.copyload.i59.i = load ptr, ptr %11, align 8, !tbaa !32, !noalias !90
+  %.sroa.0.0.copyload.i59.i = load ptr, ptr %11, align 8, !tbaa !31, !noalias !88
   %.sroa.2.0..sroa_idx.i60.i = getelementptr inbounds nuw i8, ptr %11, i64 8
-  %.sroa.2.0.copyload.i61.i = load i64, ptr %.sroa.2.0..sroa_idx.i60.i, align 8, !tbaa !22, !noalias !90
-  store ptr %.sroa.0.0.copyload.i59.i, ptr %36, align 8, !noalias !90
+  %.sroa.2.0.copyload.i61.i = load i64, ptr %.sroa.2.0..sroa_idx.i60.i, align 8, !tbaa !22, !noalias !88
+  store ptr %.sroa.0.0.copyload.i59.i, ptr %36, align 8, !noalias !88
   %37 = getelementptr inbounds nuw i8, ptr %16, i64 168
-  store i64 %.sroa.2.0.copyload.i61.i, ptr %37, align 8, !noalias !90
+  store i64 %.sroa.2.0.copyload.i61.i, ptr %37, align 8, !noalias !88
   %38 = getelementptr inbounds nuw i8, ptr %16, i64 176
-  %.sroa.0.0.copyload.i64.i = load ptr, ptr %12, align 8, !tbaa !32, !noalias !90
+  %.sroa.0.0.copyload.i64.i = load ptr, ptr %12, align 8, !tbaa !31, !noalias !88
   %.sroa.2.0..sroa_idx.i65.i = getelementptr inbounds nuw i8, ptr %12, i64 8
-  %.sroa.2.0.copyload.i66.i = load i64, ptr %.sroa.2.0..sroa_idx.i65.i, align 8, !tbaa !22, !noalias !90
-  store ptr %.sroa.0.0.copyload.i64.i, ptr %38, align 8, !noalias !90
+  %.sroa.2.0.copyload.i66.i = load i64, ptr %.sroa.2.0..sroa_idx.i65.i, align 8, !tbaa !22, !noalias !88
+  store ptr %.sroa.0.0.copyload.i64.i, ptr %38, align 8, !noalias !88
   %39 = getelementptr inbounds nuw i8, ptr %16, i64 184
-  store i64 %.sroa.2.0.copyload.i66.i, ptr %39, align 8, !noalias !90
+  store i64 %.sroa.2.0.copyload.i66.i, ptr %39, align 8, !noalias !88
   %40 = getelementptr inbounds nuw i8, ptr %16, i64 192
-  %.sroa.0.0.copyload.i69.i = load ptr, ptr %13, align 8, !tbaa !32, !noalias !90
+  %.sroa.0.0.copyload.i69.i = load ptr, ptr %13, align 8, !tbaa !31, !noalias !88
   %.sroa.2.0..sroa_idx.i70.i = getelementptr inbounds nuw i8, ptr %13, i64 8
-  %.sroa.2.0.copyload.i71.i = load i64, ptr %.sroa.2.0..sroa_idx.i70.i, align 8, !tbaa !22, !noalias !90
-  store ptr %.sroa.0.0.copyload.i69.i, ptr %40, align 8, !noalias !90
+  %.sroa.2.0.copyload.i71.i = load i64, ptr %.sroa.2.0..sroa_idx.i70.i, align 8, !tbaa !22, !noalias !88
+  store ptr %.sroa.0.0.copyload.i69.i, ptr %40, align 8, !noalias !88
   %41 = getelementptr inbounds nuw i8, ptr %16, i64 200
-  store i64 %.sroa.2.0.copyload.i71.i, ptr %41, align 8, !noalias !90
+  store i64 %.sroa.2.0.copyload.i71.i, ptr %41, align 8, !noalias !88
   %42 = getelementptr inbounds nuw i8, ptr %16, i64 208
-  %.sroa.0.0.copyload.i74.i = load ptr, ptr %14, align 8, !tbaa !32, !noalias !90
+  %.sroa.0.0.copyload.i74.i = load ptr, ptr %14, align 8, !tbaa !31, !noalias !88
   %.sroa.2.0..sroa_idx.i75.i = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %.sroa.2.0.copyload.i76.i = load i64, ptr %.sroa.2.0..sroa_idx.i75.i, align 8, !tbaa !22, !noalias !90
-  store ptr %.sroa.0.0.copyload.i74.i, ptr %42, align 8, !noalias !90
+  %.sroa.2.0.copyload.i76.i = load i64, ptr %.sroa.2.0..sroa_idx.i75.i, align 8, !tbaa !22, !noalias !88
+  store ptr %.sroa.0.0.copyload.i74.i, ptr %42, align 8, !noalias !88
   %43 = getelementptr inbounds nuw i8, ptr %16, i64 216
-  store i64 %.sroa.2.0.copyload.i76.i, ptr %43, align 8, !noalias !90
+  store i64 %.sroa.2.0.copyload.i76.i, ptr %43, align 8, !noalias !88
   call void @_ZN4absl7debian216strings_internal9CatPiecesB5cxx11ESt16initializer_listINS0_11string_viewEE(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nonnull %16, i64 14)
-  call void @llvm.lifetime.end.p0(i64 224, ptr nonnull %16) #19, !noalias !90
+  call void @llvm.lifetime.end.p0(i64 224, ptr nonnull %16) #19, !noalias !88
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN4i18n12phonenumbers6StrCatB5cxx11ERKNS0_12StringHolderES3_S3_S3_S3_S3_S3_S3_S3_S3_S3_S3_S3_S3_S3_(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %3, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %4, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %5, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %6, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %7, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %8, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %9, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %10, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %11, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %12, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %13, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %14, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %15) local_unnamed_addr #0 {
   %17 = alloca [15 x %"class.absl::debian2::string_view"], align 8
-  call void @llvm.lifetime.start.p0(i64 240, ptr nonnull %17) #19, !noalias !93
-  %.sroa.0.0.copyload.i.i = load ptr, ptr %1, align 8, !tbaa !32, !noalias !93
+  call void @llvm.lifetime.start.p0(i64 240, ptr nonnull %17) #19, !noalias !91
+  %.sroa.0.0.copyload.i.i = load ptr, ptr %1, align 8, !tbaa !31, !noalias !91
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %.sroa.2.0.copyload.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i, align 8, !tbaa !22, !noalias !93
-  store ptr %.sroa.0.0.copyload.i.i, ptr %17, align 8, !noalias !93
+  %.sroa.2.0.copyload.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i, align 8, !tbaa !22, !noalias !91
+  store ptr %.sroa.0.0.copyload.i.i, ptr %17, align 8, !noalias !91
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
-  store i64 %.sroa.2.0.copyload.i.i, ptr %18, align 8, !noalias !93
+  store i64 %.sroa.2.0.copyload.i.i, ptr %18, align 8, !noalias !91
   %19 = getelementptr inbounds nuw i8, ptr %17, i64 16
-  %.sroa.0.0.copyload.i15.i = load ptr, ptr %2, align 8, !tbaa !32, !noalias !93
+  %.sroa.0.0.copyload.i15.i = load ptr, ptr %2, align 8, !tbaa !31, !noalias !91
   %.sroa.2.0..sroa_idx.i16.i = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %.sroa.2.0.copyload.i17.i = load i64, ptr %.sroa.2.0..sroa_idx.i16.i, align 8, !tbaa !22, !noalias !93
-  store ptr %.sroa.0.0.copyload.i15.i, ptr %19, align 8, !noalias !93
+  %.sroa.2.0.copyload.i17.i = load i64, ptr %.sroa.2.0..sroa_idx.i16.i, align 8, !tbaa !22, !noalias !91
+  store ptr %.sroa.0.0.copyload.i15.i, ptr %19, align 8, !noalias !91
   %20 = getelementptr inbounds nuw i8, ptr %17, i64 24
-  store i64 %.sroa.2.0.copyload.i17.i, ptr %20, align 8, !noalias !93
+  store i64 %.sroa.2.0.copyload.i17.i, ptr %20, align 8, !noalias !91
   %21 = getelementptr inbounds nuw i8, ptr %17, i64 32
-  %.sroa.0.0.copyload.i20.i = load ptr, ptr %3, align 8, !tbaa !32, !noalias !93
+  %.sroa.0.0.copyload.i20.i = load ptr, ptr %3, align 8, !tbaa !31, !noalias !91
   %.sroa.2.0..sroa_idx.i21.i = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %.sroa.2.0.copyload.i22.i = load i64, ptr %.sroa.2.0..sroa_idx.i21.i, align 8, !tbaa !22, !noalias !93
-  store ptr %.sroa.0.0.copyload.i20.i, ptr %21, align 8, !noalias !93
+  %.sroa.2.0.copyload.i22.i = load i64, ptr %.sroa.2.0..sroa_idx.i21.i, align 8, !tbaa !22, !noalias !91
+  store ptr %.sroa.0.0.copyload.i20.i, ptr %21, align 8, !noalias !91
   %22 = getelementptr inbounds nuw i8, ptr %17, i64 40
-  store i64 %.sroa.2.0.copyload.i22.i, ptr %22, align 8, !noalias !93
+  store i64 %.sroa.2.0.copyload.i22.i, ptr %22, align 8, !noalias !91
   %23 = getelementptr inbounds nuw i8, ptr %17, i64 48
-  %.sroa.0.0.copyload.i25.i = load ptr, ptr %4, align 8, !tbaa !32, !noalias !93
+  %.sroa.0.0.copyload.i25.i = load ptr, ptr %4, align 8, !tbaa !31, !noalias !91
   %.sroa.2.0..sroa_idx.i26.i = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %.sroa.2.0.copyload.i27.i = load i64, ptr %.sroa.2.0..sroa_idx.i26.i, align 8, !tbaa !22, !noalias !93
-  store ptr %.sroa.0.0.copyload.i25.i, ptr %23, align 8, !noalias !93
+  %.sroa.2.0.copyload.i27.i = load i64, ptr %.sroa.2.0..sroa_idx.i26.i, align 8, !tbaa !22, !noalias !91
+  store ptr %.sroa.0.0.copyload.i25.i, ptr %23, align 8, !noalias !91
   %24 = getelementptr inbounds nuw i8, ptr %17, i64 56
-  store i64 %.sroa.2.0.copyload.i27.i, ptr %24, align 8, !noalias !93
+  store i64 %.sroa.2.0.copyload.i27.i, ptr %24, align 8, !noalias !91
   %25 = getelementptr inbounds nuw i8, ptr %17, i64 64
-  %.sroa.0.0.copyload.i30.i = load ptr, ptr %5, align 8, !tbaa !32, !noalias !93
+  %.sroa.0.0.copyload.i30.i = load ptr, ptr %5, align 8, !tbaa !31, !noalias !91
   %.sroa.2.0..sroa_idx.i31.i = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %.sroa.2.0.copyload.i32.i = load i64, ptr %.sroa.2.0..sroa_idx.i31.i, align 8, !tbaa !22, !noalias !93
-  store ptr %.sroa.0.0.copyload.i30.i, ptr %25, align 8, !noalias !93
+  %.sroa.2.0.copyload.i32.i = load i64, ptr %.sroa.2.0..sroa_idx.i31.i, align 8, !tbaa !22, !noalias !91
+  store ptr %.sroa.0.0.copyload.i30.i, ptr %25, align 8, !noalias !91
   %26 = getelementptr inbounds nuw i8, ptr %17, i64 72
-  store i64 %.sroa.2.0.copyload.i32.i, ptr %26, align 8, !noalias !93
+  store i64 %.sroa.2.0.copyload.i32.i, ptr %26, align 8, !noalias !91
   %27 = getelementptr inbounds nuw i8, ptr %17, i64 80
-  %.sroa.0.0.copyload.i35.i = load ptr, ptr %6, align 8, !tbaa !32, !noalias !93
+  %.sroa.0.0.copyload.i35.i = load ptr, ptr %6, align 8, !tbaa !31, !noalias !91
   %.sroa.2.0..sroa_idx.i36.i = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %.sroa.2.0.copyload.i37.i = load i64, ptr %.sroa.2.0..sroa_idx.i36.i, align 8, !tbaa !22, !noalias !93
-  store ptr %.sroa.0.0.copyload.i35.i, ptr %27, align 8, !noalias !93
+  %.sroa.2.0.copyload.i37.i = load i64, ptr %.sroa.2.0..sroa_idx.i36.i, align 8, !tbaa !22, !noalias !91
+  store ptr %.sroa.0.0.copyload.i35.i, ptr %27, align 8, !noalias !91
   %28 = getelementptr inbounds nuw i8, ptr %17, i64 88
-  store i64 %.sroa.2.0.copyload.i37.i, ptr %28, align 8, !noalias !93
+  store i64 %.sroa.2.0.copyload.i37.i, ptr %28, align 8, !noalias !91
   %29 = getelementptr inbounds nuw i8, ptr %17, i64 96
-  %.sroa.0.0.copyload.i40.i = load ptr, ptr %7, align 8, !tbaa !32, !noalias !93
+  %.sroa.0.0.copyload.i40.i = load ptr, ptr %7, align 8, !tbaa !31, !noalias !91
   %.sroa.2.0..sroa_idx.i41.i = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %.sroa.2.0.copyload.i42.i = load i64, ptr %.sroa.2.0..sroa_idx.i41.i, align 8, !tbaa !22, !noalias !93
-  store ptr %.sroa.0.0.copyload.i40.i, ptr %29, align 8, !noalias !93
+  %.sroa.2.0.copyload.i42.i = load i64, ptr %.sroa.2.0..sroa_idx.i41.i, align 8, !tbaa !22, !noalias !91
+  store ptr %.sroa.0.0.copyload.i40.i, ptr %29, align 8, !noalias !91
   %30 = getelementptr inbounds nuw i8, ptr %17, i64 104
-  store i64 %.sroa.2.0.copyload.i42.i, ptr %30, align 8, !noalias !93
+  store i64 %.sroa.2.0.copyload.i42.i, ptr %30, align 8, !noalias !91
   %31 = getelementptr inbounds nuw i8, ptr %17, i64 112
-  %.sroa.0.0.copyload.i45.i = load ptr, ptr %8, align 8, !tbaa !32, !noalias !93
+  %.sroa.0.0.copyload.i45.i = load ptr, ptr %8, align 8, !tbaa !31, !noalias !91
   %.sroa.2.0..sroa_idx.i46.i = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %.sroa.2.0.copyload.i47.i = load i64, ptr %.sroa.2.0..sroa_idx.i46.i, align 8, !tbaa !22, !noalias !93
-  store ptr %.sroa.0.0.copyload.i45.i, ptr %31, align 8, !noalias !93
+  %.sroa.2.0.copyload.i47.i = load i64, ptr %.sroa.2.0..sroa_idx.i46.i, align 8, !tbaa !22, !noalias !91
+  store ptr %.sroa.0.0.copyload.i45.i, ptr %31, align 8, !noalias !91
   %32 = getelementptr inbounds nuw i8, ptr %17, i64 120
-  store i64 %.sroa.2.0.copyload.i47.i, ptr %32, align 8, !noalias !93
+  store i64 %.sroa.2.0.copyload.i47.i, ptr %32, align 8, !noalias !91
   %33 = getelementptr inbounds nuw i8, ptr %17, i64 128
-  %.sroa.0.0.copyload.i50.i = load ptr, ptr %9, align 8, !tbaa !32, !noalias !93
+  %.sroa.0.0.copyload.i50.i = load ptr, ptr %9, align 8, !tbaa !31, !noalias !91
   %.sroa.2.0..sroa_idx.i51.i = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %.sroa.2.0.copyload.i52.i = load i64, ptr %.sroa.2.0..sroa_idx.i51.i, align 8, !tbaa !22, !noalias !93
-  store ptr %.sroa.0.0.copyload.i50.i, ptr %33, align 8, !noalias !93
+  %.sroa.2.0.copyload.i52.i = load i64, ptr %.sroa.2.0..sroa_idx.i51.i, align 8, !tbaa !22, !noalias !91
+  store ptr %.sroa.0.0.copyload.i50.i, ptr %33, align 8, !noalias !91
   %34 = getelementptr inbounds nuw i8, ptr %17, i64 136
-  store i64 %.sroa.2.0.copyload.i52.i, ptr %34, align 8, !noalias !93
+  store i64 %.sroa.2.0.copyload.i52.i, ptr %34, align 8, !noalias !91
   %35 = getelementptr inbounds nuw i8, ptr %17, i64 144
-  %.sroa.0.0.copyload.i55.i = load ptr, ptr %10, align 8, !tbaa !32, !noalias !93
+  %.sroa.0.0.copyload.i55.i = load ptr, ptr %10, align 8, !tbaa !31, !noalias !91
   %.sroa.2.0..sroa_idx.i56.i = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %.sroa.2.0.copyload.i57.i = load i64, ptr %.sroa.2.0..sroa_idx.i56.i, align 8, !tbaa !22, !noalias !93
-  store ptr %.sroa.0.0.copyload.i55.i, ptr %35, align 8, !noalias !93
+  %.sroa.2.0.copyload.i57.i = load i64, ptr %.sroa.2.0..sroa_idx.i56.i, align 8, !tbaa !22, !noalias !91
+  store ptr %.sroa.0.0.copyload.i55.i, ptr %35, align 8, !noalias !91
   %36 = getelementptr inbounds nuw i8, ptr %17, i64 152
-  store i64 %.sroa.2.0.copyload.i57.i, ptr %36, align 8, !noalias !93
+  store i64 %.sroa.2.0.copyload.i57.i, ptr %36, align 8, !noalias !91
   %37 = getelementptr inbounds nuw i8, ptr %17, i64 160
-  %.sroa.0.0.copyload.i60.i = load ptr, ptr %11, align 8, !tbaa !32, !noalias !93
+  %.sroa.0.0.copyload.i60.i = load ptr, ptr %11, align 8, !tbaa !31, !noalias !91
   %.sroa.2.0..sroa_idx.i61.i = getelementptr inbounds nuw i8, ptr %11, i64 8
-  %.sroa.2.0.copyload.i62.i = load i64, ptr %.sroa.2.0..sroa_idx.i61.i, align 8, !tbaa !22, !noalias !93
-  store ptr %.sroa.0.0.copyload.i60.i, ptr %37, align 8, !noalias !93
+  %.sroa.2.0.copyload.i62.i = load i64, ptr %.sroa.2.0..sroa_idx.i61.i, align 8, !tbaa !22, !noalias !91
+  store ptr %.sroa.0.0.copyload.i60.i, ptr %37, align 8, !noalias !91
   %38 = getelementptr inbounds nuw i8, ptr %17, i64 168
-  store i64 %.sroa.2.0.copyload.i62.i, ptr %38, align 8, !noalias !93
+  store i64 %.sroa.2.0.copyload.i62.i, ptr %38, align 8, !noalias !91
   %39 = getelementptr inbounds nuw i8, ptr %17, i64 176
-  %.sroa.0.0.copyload.i65.i = load ptr, ptr %12, align 8, !tbaa !32, !noalias !93
+  %.sroa.0.0.copyload.i65.i = load ptr, ptr %12, align 8, !tbaa !31, !noalias !91
   %.sroa.2.0..sroa_idx.i66.i = getelementptr inbounds nuw i8, ptr %12, i64 8
-  %.sroa.2.0.copyload.i67.i = load i64, ptr %.sroa.2.0..sroa_idx.i66.i, align 8, !tbaa !22, !noalias !93
-  store ptr %.sroa.0.0.copyload.i65.i, ptr %39, align 8, !noalias !93
+  %.sroa.2.0.copyload.i67.i = load i64, ptr %.sroa.2.0..sroa_idx.i66.i, align 8, !tbaa !22, !noalias !91
+  store ptr %.sroa.0.0.copyload.i65.i, ptr %39, align 8, !noalias !91
   %40 = getelementptr inbounds nuw i8, ptr %17, i64 184
-  store i64 %.sroa.2.0.copyload.i67.i, ptr %40, align 8, !noalias !93
+  store i64 %.sroa.2.0.copyload.i67.i, ptr %40, align 8, !noalias !91
   %41 = getelementptr inbounds nuw i8, ptr %17, i64 192
-  %.sroa.0.0.copyload.i70.i = load ptr, ptr %13, align 8, !tbaa !32, !noalias !93
+  %.sroa.0.0.copyload.i70.i = load ptr, ptr %13, align 8, !tbaa !31, !noalias !91
   %.sroa.2.0..sroa_idx.i71.i = getelementptr inbounds nuw i8, ptr %13, i64 8
-  %.sroa.2.0.copyload.i72.i = load i64, ptr %.sroa.2.0..sroa_idx.i71.i, align 8, !tbaa !22, !noalias !93
-  store ptr %.sroa.0.0.copyload.i70.i, ptr %41, align 8, !noalias !93
+  %.sroa.2.0.copyload.i72.i = load i64, ptr %.sroa.2.0..sroa_idx.i71.i, align 8, !tbaa !22, !noalias !91
+  store ptr %.sroa.0.0.copyload.i70.i, ptr %41, align 8, !noalias !91
   %42 = getelementptr inbounds nuw i8, ptr %17, i64 200
-  store i64 %.sroa.2.0.copyload.i72.i, ptr %42, align 8, !noalias !93
+  store i64 %.sroa.2.0.copyload.i72.i, ptr %42, align 8, !noalias !91
   %43 = getelementptr inbounds nuw i8, ptr %17, i64 208
-  %.sroa.0.0.copyload.i75.i = load ptr, ptr %14, align 8, !tbaa !32, !noalias !93
+  %.sroa.0.0.copyload.i75.i = load ptr, ptr %14, align 8, !tbaa !31, !noalias !91
   %.sroa.2.0..sroa_idx.i76.i = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %.sroa.2.0.copyload.i77.i = load i64, ptr %.sroa.2.0..sroa_idx.i76.i, align 8, !tbaa !22, !noalias !93
-  store ptr %.sroa.0.0.copyload.i75.i, ptr %43, align 8, !noalias !93
+  %.sroa.2.0.copyload.i77.i = load i64, ptr %.sroa.2.0..sroa_idx.i76.i, align 8, !tbaa !22, !noalias !91
+  store ptr %.sroa.0.0.copyload.i75.i, ptr %43, align 8, !noalias !91
   %44 = getelementptr inbounds nuw i8, ptr %17, i64 216
-  store i64 %.sroa.2.0.copyload.i77.i, ptr %44, align 8, !noalias !93
+  store i64 %.sroa.2.0.copyload.i77.i, ptr %44, align 8, !noalias !91
   %45 = getelementptr inbounds nuw i8, ptr %17, i64 224
-  %.sroa.0.0.copyload.i80.i = load ptr, ptr %15, align 8, !tbaa !32, !noalias !93
+  %.sroa.0.0.copyload.i80.i = load ptr, ptr %15, align 8, !tbaa !31, !noalias !91
   %.sroa.2.0..sroa_idx.i81.i = getelementptr inbounds nuw i8, ptr %15, i64 8
-  %.sroa.2.0.copyload.i82.i = load i64, ptr %.sroa.2.0..sroa_idx.i81.i, align 8, !tbaa !22, !noalias !93
-  store ptr %.sroa.0.0.copyload.i80.i, ptr %45, align 8, !noalias !93
+  %.sroa.2.0.copyload.i82.i = load i64, ptr %.sroa.2.0..sroa_idx.i81.i, align 8, !tbaa !22, !noalias !91
+  store ptr %.sroa.0.0.copyload.i80.i, ptr %45, align 8, !noalias !91
   %46 = getelementptr inbounds nuw i8, ptr %17, i64 232
-  store i64 %.sroa.2.0.copyload.i82.i, ptr %46, align 8, !noalias !93
+  store i64 %.sroa.2.0.copyload.i82.i, ptr %46, align 8, !noalias !91
   call void @_ZN4absl7debian216strings_internal9CatPiecesB5cxx11ESt16initializer_listINS0_11string_viewEE(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nonnull %17, i64 15)
-  call void @llvm.lifetime.end.p0(i64 240, ptr nonnull %17) #19, !noalias !93
+  call void @llvm.lifetime.end.p0(i64 240, ptr nonnull %17) #19, !noalias !91
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN4i18n12phonenumbers6StrCatB5cxx11ERKNS0_12StringHolderES3_S3_S3_S3_S3_S3_S3_S3_S3_S3_S3_S3_S3_S3_S3_(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %3, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %4, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %5, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %6, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %7, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %8, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %9, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %10, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %11, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %12, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %13, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %14, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %15, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %16) local_unnamed_addr #0 {
   %18 = alloca [16 x %"class.absl::debian2::string_view"], align 8
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %18) #19, !noalias !96
-  %.sroa.0.0.copyload.i.i = load ptr, ptr %1, align 8, !tbaa !32, !noalias !96
+  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %18) #19, !noalias !94
+  %.sroa.0.0.copyload.i.i = load ptr, ptr %1, align 8, !tbaa !31, !noalias !94
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %.sroa.2.0.copyload.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i, align 8, !tbaa !22, !noalias !96
-  store ptr %.sroa.0.0.copyload.i.i, ptr %18, align 8, !noalias !96
+  %.sroa.2.0.copyload.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i, align 8, !tbaa !22, !noalias !94
+  store ptr %.sroa.0.0.copyload.i.i, ptr %18, align 8, !noalias !94
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 8
-  store i64 %.sroa.2.0.copyload.i.i, ptr %19, align 8, !noalias !96
+  store i64 %.sroa.2.0.copyload.i.i, ptr %19, align 8, !noalias !94
   %20 = getelementptr inbounds nuw i8, ptr %18, i64 16
-  %.sroa.0.0.copyload.i16.i = load ptr, ptr %2, align 8, !tbaa !32, !noalias !96
+  %.sroa.0.0.copyload.i16.i = load ptr, ptr %2, align 8, !tbaa !31, !noalias !94
   %.sroa.2.0..sroa_idx.i17.i = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %.sroa.2.0.copyload.i18.i = load i64, ptr %.sroa.2.0..sroa_idx.i17.i, align 8, !tbaa !22, !noalias !96
-  store ptr %.sroa.0.0.copyload.i16.i, ptr %20, align 8, !noalias !96
+  %.sroa.2.0.copyload.i18.i = load i64, ptr %.sroa.2.0..sroa_idx.i17.i, align 8, !tbaa !22, !noalias !94
+  store ptr %.sroa.0.0.copyload.i16.i, ptr %20, align 8, !noalias !94
   %21 = getelementptr inbounds nuw i8, ptr %18, i64 24
-  store i64 %.sroa.2.0.copyload.i18.i, ptr %21, align 8, !noalias !96
+  store i64 %.sroa.2.0.copyload.i18.i, ptr %21, align 8, !noalias !94
   %22 = getelementptr inbounds nuw i8, ptr %18, i64 32
-  %.sroa.0.0.copyload.i21.i = load ptr, ptr %3, align 8, !tbaa !32, !noalias !96
+  %.sroa.0.0.copyload.i21.i = load ptr, ptr %3, align 8, !tbaa !31, !noalias !94
   %.sroa.2.0..sroa_idx.i22.i = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %.sroa.2.0.copyload.i23.i = load i64, ptr %.sroa.2.0..sroa_idx.i22.i, align 8, !tbaa !22, !noalias !96
-  store ptr %.sroa.0.0.copyload.i21.i, ptr %22, align 8, !noalias !96
+  %.sroa.2.0.copyload.i23.i = load i64, ptr %.sroa.2.0..sroa_idx.i22.i, align 8, !tbaa !22, !noalias !94
+  store ptr %.sroa.0.0.copyload.i21.i, ptr %22, align 8, !noalias !94
   %23 = getelementptr inbounds nuw i8, ptr %18, i64 40
-  store i64 %.sroa.2.0.copyload.i23.i, ptr %23, align 8, !noalias !96
+  store i64 %.sroa.2.0.copyload.i23.i, ptr %23, align 8, !noalias !94
   %24 = getelementptr inbounds nuw i8, ptr %18, i64 48
-  %.sroa.0.0.copyload.i26.i = load ptr, ptr %4, align 8, !tbaa !32, !noalias !96
+  %.sroa.0.0.copyload.i26.i = load ptr, ptr %4, align 8, !tbaa !31, !noalias !94
   %.sroa.2.0..sroa_idx.i27.i = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %.sroa.2.0.copyload.i28.i = load i64, ptr %.sroa.2.0..sroa_idx.i27.i, align 8, !tbaa !22, !noalias !96
-  store ptr %.sroa.0.0.copyload.i26.i, ptr %24, align 8, !noalias !96
+  %.sroa.2.0.copyload.i28.i = load i64, ptr %.sroa.2.0..sroa_idx.i27.i, align 8, !tbaa !22, !noalias !94
+  store ptr %.sroa.0.0.copyload.i26.i, ptr %24, align 8, !noalias !94
   %25 = getelementptr inbounds nuw i8, ptr %18, i64 56
-  store i64 %.sroa.2.0.copyload.i28.i, ptr %25, align 8, !noalias !96
+  store i64 %.sroa.2.0.copyload.i28.i, ptr %25, align 8, !noalias !94
   %26 = getelementptr inbounds nuw i8, ptr %18, i64 64
-  %.sroa.0.0.copyload.i31.i = load ptr, ptr %5, align 8, !tbaa !32, !noalias !96
+  %.sroa.0.0.copyload.i31.i = load ptr, ptr %5, align 8, !tbaa !31, !noalias !94
   %.sroa.2.0..sroa_idx.i32.i = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %.sroa.2.0.copyload.i33.i = load i64, ptr %.sroa.2.0..sroa_idx.i32.i, align 8, !tbaa !22, !noalias !96
-  store ptr %.sroa.0.0.copyload.i31.i, ptr %26, align 8, !noalias !96
+  %.sroa.2.0.copyload.i33.i = load i64, ptr %.sroa.2.0..sroa_idx.i32.i, align 8, !tbaa !22, !noalias !94
+  store ptr %.sroa.0.0.copyload.i31.i, ptr %26, align 8, !noalias !94
   %27 = getelementptr inbounds nuw i8, ptr %18, i64 72
-  store i64 %.sroa.2.0.copyload.i33.i, ptr %27, align 8, !noalias !96
+  store i64 %.sroa.2.0.copyload.i33.i, ptr %27, align 8, !noalias !94
   %28 = getelementptr inbounds nuw i8, ptr %18, i64 80
-  %.sroa.0.0.copyload.i36.i = load ptr, ptr %6, align 8, !tbaa !32, !noalias !96
+  %.sroa.0.0.copyload.i36.i = load ptr, ptr %6, align 8, !tbaa !31, !noalias !94
   %.sroa.2.0..sroa_idx.i37.i = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %.sroa.2.0.copyload.i38.i = load i64, ptr %.sroa.2.0..sroa_idx.i37.i, align 8, !tbaa !22, !noalias !96
-  store ptr %.sroa.0.0.copyload.i36.i, ptr %28, align 8, !noalias !96
+  %.sroa.2.0.copyload.i38.i = load i64, ptr %.sroa.2.0..sroa_idx.i37.i, align 8, !tbaa !22, !noalias !94
+  store ptr %.sroa.0.0.copyload.i36.i, ptr %28, align 8, !noalias !94
   %29 = getelementptr inbounds nuw i8, ptr %18, i64 88
-  store i64 %.sroa.2.0.copyload.i38.i, ptr %29, align 8, !noalias !96
+  store i64 %.sroa.2.0.copyload.i38.i, ptr %29, align 8, !noalias !94
   %30 = getelementptr inbounds nuw i8, ptr %18, i64 96
-  %.sroa.0.0.copyload.i41.i = load ptr, ptr %7, align 8, !tbaa !32, !noalias !96
+  %.sroa.0.0.copyload.i41.i = load ptr, ptr %7, align 8, !tbaa !31, !noalias !94
   %.sroa.2.0..sroa_idx.i42.i = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %.sroa.2.0.copyload.i43.i = load i64, ptr %.sroa.2.0..sroa_idx.i42.i, align 8, !tbaa !22, !noalias !96
-  store ptr %.sroa.0.0.copyload.i41.i, ptr %30, align 8, !noalias !96
+  %.sroa.2.0.copyload.i43.i = load i64, ptr %.sroa.2.0..sroa_idx.i42.i, align 8, !tbaa !22, !noalias !94
+  store ptr %.sroa.0.0.copyload.i41.i, ptr %30, align 8, !noalias !94
   %31 = getelementptr inbounds nuw i8, ptr %18, i64 104
-  store i64 %.sroa.2.0.copyload.i43.i, ptr %31, align 8, !noalias !96
+  store i64 %.sroa.2.0.copyload.i43.i, ptr %31, align 8, !noalias !94
   %32 = getelementptr inbounds nuw i8, ptr %18, i64 112
-  %.sroa.0.0.copyload.i46.i = load ptr, ptr %8, align 8, !tbaa !32, !noalias !96
+  %.sroa.0.0.copyload.i46.i = load ptr, ptr %8, align 8, !tbaa !31, !noalias !94
   %.sroa.2.0..sroa_idx.i47.i = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %.sroa.2.0.copyload.i48.i = load i64, ptr %.sroa.2.0..sroa_idx.i47.i, align 8, !tbaa !22, !noalias !96
-  store ptr %.sroa.0.0.copyload.i46.i, ptr %32, align 8, !noalias !96
+  %.sroa.2.0.copyload.i48.i = load i64, ptr %.sroa.2.0..sroa_idx.i47.i, align 8, !tbaa !22, !noalias !94
+  store ptr %.sroa.0.0.copyload.i46.i, ptr %32, align 8, !noalias !94
   %33 = getelementptr inbounds nuw i8, ptr %18, i64 120
-  store i64 %.sroa.2.0.copyload.i48.i, ptr %33, align 8, !noalias !96
+  store i64 %.sroa.2.0.copyload.i48.i, ptr %33, align 8, !noalias !94
   %34 = getelementptr inbounds nuw i8, ptr %18, i64 128
-  %.sroa.0.0.copyload.i51.i = load ptr, ptr %9, align 8, !tbaa !32, !noalias !96
+  %.sroa.0.0.copyload.i51.i = load ptr, ptr %9, align 8, !tbaa !31, !noalias !94
   %.sroa.2.0..sroa_idx.i52.i = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %.sroa.2.0.copyload.i53.i = load i64, ptr %.sroa.2.0..sroa_idx.i52.i, align 8, !tbaa !22, !noalias !96
-  store ptr %.sroa.0.0.copyload.i51.i, ptr %34, align 8, !noalias !96
+  %.sroa.2.0.copyload.i53.i = load i64, ptr %.sroa.2.0..sroa_idx.i52.i, align 8, !tbaa !22, !noalias !94
+  store ptr %.sroa.0.0.copyload.i51.i, ptr %34, align 8, !noalias !94
   %35 = getelementptr inbounds nuw i8, ptr %18, i64 136
-  store i64 %.sroa.2.0.copyload.i53.i, ptr %35, align 8, !noalias !96
+  store i64 %.sroa.2.0.copyload.i53.i, ptr %35, align 8, !noalias !94
   %36 = getelementptr inbounds nuw i8, ptr %18, i64 144
-  %.sroa.0.0.copyload.i56.i = load ptr, ptr %10, align 8, !tbaa !32, !noalias !96
+  %.sroa.0.0.copyload.i56.i = load ptr, ptr %10, align 8, !tbaa !31, !noalias !94
   %.sroa.2.0..sroa_idx.i57.i = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %.sroa.2.0.copyload.i58.i = load i64, ptr %.sroa.2.0..sroa_idx.i57.i, align 8, !tbaa !22, !noalias !96
-  store ptr %.sroa.0.0.copyload.i56.i, ptr %36, align 8, !noalias !96
+  %.sroa.2.0.copyload.i58.i = load i64, ptr %.sroa.2.0..sroa_idx.i57.i, align 8, !tbaa !22, !noalias !94
+  store ptr %.sroa.0.0.copyload.i56.i, ptr %36, align 8, !noalias !94
   %37 = getelementptr inbounds nuw i8, ptr %18, i64 152
-  store i64 %.sroa.2.0.copyload.i58.i, ptr %37, align 8, !noalias !96
+  store i64 %.sroa.2.0.copyload.i58.i, ptr %37, align 8, !noalias !94
   %38 = getelementptr inbounds nuw i8, ptr %18, i64 160
-  %.sroa.0.0.copyload.i61.i = load ptr, ptr %11, align 8, !tbaa !32, !noalias !96
+  %.sroa.0.0.copyload.i61.i = load ptr, ptr %11, align 8, !tbaa !31, !noalias !94
   %.sroa.2.0..sroa_idx.i62.i = getelementptr inbounds nuw i8, ptr %11, i64 8
-  %.sroa.2.0.copyload.i63.i = load i64, ptr %.sroa.2.0..sroa_idx.i62.i, align 8, !tbaa !22, !noalias !96
-  store ptr %.sroa.0.0.copyload.i61.i, ptr %38, align 8, !noalias !96
+  %.sroa.2.0.copyload.i63.i = load i64, ptr %.sroa.2.0..sroa_idx.i62.i, align 8, !tbaa !22, !noalias !94
+  store ptr %.sroa.0.0.copyload.i61.i, ptr %38, align 8, !noalias !94
   %39 = getelementptr inbounds nuw i8, ptr %18, i64 168
-  store i64 %.sroa.2.0.copyload.i63.i, ptr %39, align 8, !noalias !96
+  store i64 %.sroa.2.0.copyload.i63.i, ptr %39, align 8, !noalias !94
   %40 = getelementptr inbounds nuw i8, ptr %18, i64 176
-  %.sroa.0.0.copyload.i66.i = load ptr, ptr %12, align 8, !tbaa !32, !noalias !96
+  %.sroa.0.0.copyload.i66.i = load ptr, ptr %12, align 8, !tbaa !31, !noalias !94
   %.sroa.2.0..sroa_idx.i67.i = getelementptr inbounds nuw i8, ptr %12, i64 8
-  %.sroa.2.0.copyload.i68.i = load i64, ptr %.sroa.2.0..sroa_idx.i67.i, align 8, !tbaa !22, !noalias !96
-  store ptr %.sroa.0.0.copyload.i66.i, ptr %40, align 8, !noalias !96
+  %.sroa.2.0.copyload.i68.i = load i64, ptr %.sroa.2.0..sroa_idx.i67.i, align 8, !tbaa !22, !noalias !94
+  store ptr %.sroa.0.0.copyload.i66.i, ptr %40, align 8, !noalias !94
   %41 = getelementptr inbounds nuw i8, ptr %18, i64 184
-  store i64 %.sroa.2.0.copyload.i68.i, ptr %41, align 8, !noalias !96
+  store i64 %.sroa.2.0.copyload.i68.i, ptr %41, align 8, !noalias !94
   %42 = getelementptr inbounds nuw i8, ptr %18, i64 192
-  %.sroa.0.0.copyload.i71.i = load ptr, ptr %13, align 8, !tbaa !32, !noalias !96
+  %.sroa.0.0.copyload.i71.i = load ptr, ptr %13, align 8, !tbaa !31, !noalias !94
   %.sroa.2.0..sroa_idx.i72.i = getelementptr inbounds nuw i8, ptr %13, i64 8
-  %.sroa.2.0.copyload.i73.i = load i64, ptr %.sroa.2.0..sroa_idx.i72.i, align 8, !tbaa !22, !noalias !96
-  store ptr %.sroa.0.0.copyload.i71.i, ptr %42, align 8, !noalias !96
+  %.sroa.2.0.copyload.i73.i = load i64, ptr %.sroa.2.0..sroa_idx.i72.i, align 8, !tbaa !22, !noalias !94
+  store ptr %.sroa.0.0.copyload.i71.i, ptr %42, align 8, !noalias !94
   %43 = getelementptr inbounds nuw i8, ptr %18, i64 200
-  store i64 %.sroa.2.0.copyload.i73.i, ptr %43, align 8, !noalias !96
+  store i64 %.sroa.2.0.copyload.i73.i, ptr %43, align 8, !noalias !94
   %44 = getelementptr inbounds nuw i8, ptr %18, i64 208
-  %.sroa.0.0.copyload.i76.i = load ptr, ptr %14, align 8, !tbaa !32, !noalias !96
+  %.sroa.0.0.copyload.i76.i = load ptr, ptr %14, align 8, !tbaa !31, !noalias !94
   %.sroa.2.0..sroa_idx.i77.i = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %.sroa.2.0.copyload.i78.i = load i64, ptr %.sroa.2.0..sroa_idx.i77.i, align 8, !tbaa !22, !noalias !96
-  store ptr %.sroa.0.0.copyload.i76.i, ptr %44, align 8, !noalias !96
+  %.sroa.2.0.copyload.i78.i = load i64, ptr %.sroa.2.0..sroa_idx.i77.i, align 8, !tbaa !22, !noalias !94
+  store ptr %.sroa.0.0.copyload.i76.i, ptr %44, align 8, !noalias !94
   %45 = getelementptr inbounds nuw i8, ptr %18, i64 216
-  store i64 %.sroa.2.0.copyload.i78.i, ptr %45, align 8, !noalias !96
+  store i64 %.sroa.2.0.copyload.i78.i, ptr %45, align 8, !noalias !94
   %46 = getelementptr inbounds nuw i8, ptr %18, i64 224
-  %.sroa.0.0.copyload.i81.i = load ptr, ptr %15, align 8, !tbaa !32, !noalias !96
+  %.sroa.0.0.copyload.i81.i = load ptr, ptr %15, align 8, !tbaa !31, !noalias !94
   %.sroa.2.0..sroa_idx.i82.i = getelementptr inbounds nuw i8, ptr %15, i64 8
-  %.sroa.2.0.copyload.i83.i = load i64, ptr %.sroa.2.0..sroa_idx.i82.i, align 8, !tbaa !22, !noalias !96
-  store ptr %.sroa.0.0.copyload.i81.i, ptr %46, align 8, !noalias !96
+  %.sroa.2.0.copyload.i83.i = load i64, ptr %.sroa.2.0..sroa_idx.i82.i, align 8, !tbaa !22, !noalias !94
+  store ptr %.sroa.0.0.copyload.i81.i, ptr %46, align 8, !noalias !94
   %47 = getelementptr inbounds nuw i8, ptr %18, i64 232
-  store i64 %.sroa.2.0.copyload.i83.i, ptr %47, align 8, !noalias !96
+  store i64 %.sroa.2.0.copyload.i83.i, ptr %47, align 8, !noalias !94
   %48 = getelementptr inbounds nuw i8, ptr %18, i64 240
-  %.sroa.0.0.copyload.i86.i = load ptr, ptr %16, align 8, !tbaa !32, !noalias !96
+  %.sroa.0.0.copyload.i86.i = load ptr, ptr %16, align 8, !tbaa !31, !noalias !94
   %.sroa.2.0..sroa_idx.i87.i = getelementptr inbounds nuw i8, ptr %16, i64 8
-  %.sroa.2.0.copyload.i88.i = load i64, ptr %.sroa.2.0..sroa_idx.i87.i, align 8, !tbaa !22, !noalias !96
-  store ptr %.sroa.0.0.copyload.i86.i, ptr %48, align 8, !noalias !96
+  %.sroa.2.0.copyload.i88.i = load i64, ptr %.sroa.2.0..sroa_idx.i87.i, align 8, !tbaa !22, !noalias !94
+  store ptr %.sroa.0.0.copyload.i86.i, ptr %48, align 8, !noalias !94
   %49 = getelementptr inbounds nuw i8, ptr %18, i64 248
-  store i64 %.sroa.2.0.copyload.i88.i, ptr %49, align 8, !noalias !96
+  store i64 %.sroa.2.0.copyload.i88.i, ptr %49, align 8, !noalias !94
   call void @_ZN4absl7debian216strings_internal9CatPiecesB5cxx11ESt16initializer_listINS0_11string_viewEE(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nonnull %18, i64 16)
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %18) #19, !noalias !96
+  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %18) #19, !noalias !94
   ret void
 }
 
@@ -2230,35 +2230,35 @@ declare void @_ZN4absl7debian29StrAppendEPNSt7__cxx1112basic_stringIcSt11char_tr
 define dso_local void @_ZN4i18n12phonenumbers9StrAppendEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_12StringHolderESA_SA_SA_SA_(ptr noundef %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %3, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %4, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %5) local_unnamed_addr #0 {
   %7 = alloca [5 x %"class.absl::debian2::string_view"], align 8
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %7) #19
-  %.sroa.0.0.copyload.i.i = load ptr, ptr %1, align 8, !tbaa !32
+  %.sroa.0.0.copyload.i.i = load ptr, ptr %1, align 8, !tbaa !31
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.2.0.copyload.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i, align 8, !tbaa !22
   store ptr %.sroa.0.0.copyload.i.i, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i64 %.sroa.2.0.copyload.i.i, ptr %8, align 8
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %.sroa.0.0.copyload.i6.i = load ptr, ptr %2, align 8, !tbaa !32
+  %.sroa.0.0.copyload.i6.i = load ptr, ptr %2, align 8, !tbaa !31
   %.sroa.2.0..sroa_idx.i7.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.sroa.2.0.copyload.i8.i = load i64, ptr %.sroa.2.0..sroa_idx.i7.i, align 8, !tbaa !22
   store ptr %.sroa.0.0.copyload.i6.i, ptr %9, align 8
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store i64 %.sroa.2.0.copyload.i8.i, ptr %10, align 8
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 32
-  %.sroa.0.0.copyload.i11.i = load ptr, ptr %3, align 8, !tbaa !32
+  %.sroa.0.0.copyload.i11.i = load ptr, ptr %3, align 8, !tbaa !31
   %.sroa.2.0..sroa_idx.i12.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   %.sroa.2.0.copyload.i13.i = load i64, ptr %.sroa.2.0..sroa_idx.i12.i, align 8, !tbaa !22
   store ptr %.sroa.0.0.copyload.i11.i, ptr %11, align 8
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 40
   store i64 %.sroa.2.0.copyload.i13.i, ptr %12, align 8
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 48
-  %.sroa.0.0.copyload.i16.i = load ptr, ptr %4, align 8, !tbaa !32
+  %.sroa.0.0.copyload.i16.i = load ptr, ptr %4, align 8, !tbaa !31
   %.sroa.2.0..sroa_idx.i17.i = getelementptr inbounds nuw i8, ptr %4, i64 8
   %.sroa.2.0.copyload.i18.i = load i64, ptr %.sroa.2.0..sroa_idx.i17.i, align 8, !tbaa !22
   store ptr %.sroa.0.0.copyload.i16.i, ptr %13, align 8
   %14 = getelementptr inbounds nuw i8, ptr %7, i64 56
   store i64 %.sroa.2.0.copyload.i18.i, ptr %14, align 8
   %15 = getelementptr inbounds nuw i8, ptr %7, i64 64
-  %.sroa.0.0.copyload.i21.i = load ptr, ptr %5, align 8, !tbaa !32
+  %.sroa.0.0.copyload.i21.i = load ptr, ptr %5, align 8, !tbaa !31
   %.sroa.2.0..sroa_idx.i22.i = getelementptr inbounds nuw i8, ptr %5, i64 8
   %.sroa.2.0.copyload.i23.i = load i64, ptr %.sroa.2.0..sroa_idx.i22.i, align 8, !tbaa !22
   store ptr %.sroa.0.0.copyload.i21.i, ptr %15, align 8
@@ -2299,8 +2299,8 @@ declare void @_ZN4absl7debian213base_internal18ThrowStdOutOfRangeEPKc(ptr nounde
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %1, ptr noundef nonnull align 8 dereferenceable(32) %2) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = load ptr, ptr %4, align 8, !tbaa !55
-  %6 = load ptr, ptr %0, align 8, !tbaa !99
+  %5 = load ptr, ptr %4, align 8, !tbaa !54
+  %6 = load ptr, ptr %0, align 8, !tbaa !97
   %7 = ptrtoint ptr %5 to i64
   %8 = ptrtoint ptr %6 to i64
   %9 = sub i64 %7, %8
@@ -2369,44 +2369,44 @@ _ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE
 .lr.ph.i.i.i:                                     ; preds = %_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE9constructIS5_JS5_EEEvRS6_PT_DpOT0_.exit, %_ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_SaIS5_EEvPT_PT0_RT1_.exit.i.i.i
   %.012.i.i.i = phi ptr [ %51, %_ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_SaIS5_EEvPT_PT0_RT1_.exit.i.i.i ], [ %22, %_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE9constructIS5_JS5_EEEvRS6_PT_DpOT0_.exit ]
   %.0911.i.i.i = phi ptr [ %50, %_ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_SaIS5_EEvPT_PT0_RT1_.exit.i.i.i ], [ %6, %_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE9constructIS5_JS5_EEEvRS6_PT_DpOT0_.exit ]
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !100)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !103)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !98)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !101)
   %37 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 16
-  store ptr %37, ptr %.012.i.i.i, align 8, !tbaa !4, !alias.scope !100, !noalias !103
-  %38 = load ptr, ptr %.0911.i.i.i, align 8, !tbaa !14, !alias.scope !103, !noalias !100
+  store ptr %37, ptr %.012.i.i.i, align 8, !tbaa !4, !alias.scope !98, !noalias !101
+  %38 = load ptr, ptr %.0911.i.i.i, align 8, !tbaa !14, !alias.scope !101, !noalias !98
   %39 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 16
   %40 = icmp eq ptr %38, %39
   br i1 %40, label %41, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i
 
 41:                                               ; preds = %.lr.ph.i.i.i
   %42 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 8
-  %43 = load i64, ptr %42, align 8, !tbaa !10, !alias.scope !103, !noalias !100
+  %43 = load i64, ptr %42, align 8, !tbaa !10, !alias.scope !101, !noalias !98
   %44 = icmp ult i64 %43, 16
   tail call void @llvm.assume(i1 %44)
   %45 = add nuw nsw i64 %43, 1
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %37, ptr noundef nonnull align 8 dereferenceable(1) %39, i64 %45, i1 false), !alias.scope !105
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %37, ptr noundef nonnull align 8 dereferenceable(1) %39, i64 %45, i1 false), !alias.scope !103
   br label %_ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_SaIS5_EEvPT_PT0_RT1_.exit.i.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i: ; preds = %.lr.ph.i.i.i
-  store ptr %38, ptr %.012.i.i.i, align 8, !tbaa !14, !alias.scope !100, !noalias !103
-  %46 = load i64, ptr %39, align 8, !tbaa !13, !alias.scope !103, !noalias !100
-  store i64 %46, ptr %37, align 8, !tbaa !13, !alias.scope !100, !noalias !103
+  store ptr %38, ptr %.012.i.i.i, align 8, !tbaa !14, !alias.scope !98, !noalias !101
+  %46 = load i64, ptr %39, align 8, !tbaa !13, !alias.scope !101, !noalias !98
+  store i64 %46, ptr %37, align 8, !tbaa !13, !alias.scope !98, !noalias !101
   %.phi.trans.insert.i.i.i.i = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 8
-  %.pre.i.i.i.i = load i64, ptr %.phi.trans.insert.i.i.i.i, align 8, !tbaa !10, !alias.scope !103, !noalias !100
+  %.pre.i.i.i.i = load i64, ptr %.phi.trans.insert.i.i.i.i, align 8, !tbaa !10, !alias.scope !101, !noalias !98
   br label %_ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_SaIS5_EEvPT_PT0_RT1_.exit.i.i.i
 
 _ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_SaIS5_EEvPT_PT0_RT1_.exit.i.i.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i, %41
   %47 = phi i64 [ %43, %41 ], [ %.pre.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i ]
   %48 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 8
   %49 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 8
-  store i64 %47, ptr %49, align 8, !tbaa !10, !alias.scope !100, !noalias !103
-  store ptr %39, ptr %.0911.i.i.i, align 8, !tbaa !14, !alias.scope !103, !noalias !100
-  store i64 0, ptr %48, align 8, !tbaa !10, !alias.scope !103, !noalias !100
-  store i8 0, ptr %39, align 1, !tbaa !13, !alias.scope !103, !noalias !100
+  store i64 %47, ptr %49, align 8, !tbaa !10, !alias.scope !98, !noalias !101
+  store ptr %39, ptr %.0911.i.i.i, align 8, !tbaa !14, !alias.scope !101, !noalias !98
+  store i64 0, ptr %48, align 8, !tbaa !10, !alias.scope !101, !noalias !98
+  store i8 0, ptr %39, align 1, !tbaa !13, !alias.scope !101, !noalias !98
   %50 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 32
   %51 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 32
   %.not.i.i.i = icmp eq ptr %50, %1
-  br i1 %.not.i.i.i, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit, label %.lr.ph.i.i.i, !llvm.loop !106
+  br i1 %.not.i.i.i, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit, label %.lr.ph.i.i.i, !llvm.loop !104
 
 _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit: ; preds = %_ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_SaIS5_EEvPT_PT0_RT1_.exit.i.i.i, %_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE9constructIS5_JS5_EEEvRS6_PT_DpOT0_.exit
   %.0.lcssa.i.i.i = phi ptr [ %22, %_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE9constructIS5_JS5_EEEvRS6_PT_DpOT0_.exit ], [ %51, %_ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_SaIS5_EEvPT_PT0_RT1_.exit.i.i.i ]
@@ -2417,44 +2417,44 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_re
 .lr.ph.i.i.i17:                                   ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit, %_ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_SaIS5_EEvPT_PT0_RT1_.exit.i.i.i23
   %.012.i.i.i18 = phi ptr [ %67, %_ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_SaIS5_EEvPT_PT0_RT1_.exit.i.i.i23 ], [ %52, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit ]
   %.0911.i.i.i19 = phi ptr [ %66, %_ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_SaIS5_EEvPT_PT0_RT1_.exit.i.i.i23 ], [ %1, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit ]
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !107)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !110)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !105)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !108)
   %53 = getelementptr inbounds nuw i8, ptr %.012.i.i.i18, i64 16
-  store ptr %53, ptr %.012.i.i.i18, align 8, !tbaa !4, !alias.scope !107, !noalias !110
-  %54 = load ptr, ptr %.0911.i.i.i19, align 8, !tbaa !14, !alias.scope !110, !noalias !107
+  store ptr %53, ptr %.012.i.i.i18, align 8, !tbaa !4, !alias.scope !105, !noalias !108
+  %54 = load ptr, ptr %.0911.i.i.i19, align 8, !tbaa !14, !alias.scope !108, !noalias !105
   %55 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i19, i64 16
   %56 = icmp eq ptr %54, %55
   br i1 %56, label %57, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i20
 
 57:                                               ; preds = %.lr.ph.i.i.i17
   %58 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i19, i64 8
-  %59 = load i64, ptr %58, align 8, !tbaa !10, !alias.scope !110, !noalias !107
+  %59 = load i64, ptr %58, align 8, !tbaa !10, !alias.scope !108, !noalias !105
   %60 = icmp ult i64 %59, 16
   tail call void @llvm.assume(i1 %60)
   %61 = add nuw nsw i64 %59, 1
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %53, ptr noundef nonnull align 8 dereferenceable(1) %55, i64 %61, i1 false), !alias.scope !112
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %53, ptr noundef nonnull align 8 dereferenceable(1) %55, i64 %61, i1 false), !alias.scope !110
   br label %_ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_SaIS5_EEvPT_PT0_RT1_.exit.i.i.i23
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i20: ; preds = %.lr.ph.i.i.i17
-  store ptr %54, ptr %.012.i.i.i18, align 8, !tbaa !14, !alias.scope !107, !noalias !110
-  %62 = load i64, ptr %55, align 8, !tbaa !13, !alias.scope !110, !noalias !107
-  store i64 %62, ptr %53, align 8, !tbaa !13, !alias.scope !107, !noalias !110
+  store ptr %54, ptr %.012.i.i.i18, align 8, !tbaa !14, !alias.scope !105, !noalias !108
+  %62 = load i64, ptr %55, align 8, !tbaa !13, !alias.scope !108, !noalias !105
+  store i64 %62, ptr %53, align 8, !tbaa !13, !alias.scope !105, !noalias !108
   %.phi.trans.insert.i.i.i.i21 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i19, i64 8
-  %.pre.i.i.i.i22 = load i64, ptr %.phi.trans.insert.i.i.i.i21, align 8, !tbaa !10, !alias.scope !110, !noalias !107
+  %.pre.i.i.i.i22 = load i64, ptr %.phi.trans.insert.i.i.i.i21, align 8, !tbaa !10, !alias.scope !108, !noalias !105
   br label %_ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_SaIS5_EEvPT_PT0_RT1_.exit.i.i.i23
 
 _ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_SaIS5_EEvPT_PT0_RT1_.exit.i.i.i23: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i20, %57
   %63 = phi i64 [ %59, %57 ], [ %.pre.i.i.i.i22, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i20 ]
   %64 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i19, i64 8
   %65 = getelementptr inbounds nuw i8, ptr %.012.i.i.i18, i64 8
-  store i64 %63, ptr %65, align 8, !tbaa !10, !alias.scope !107, !noalias !110
-  store ptr %55, ptr %.0911.i.i.i19, align 8, !tbaa !14, !alias.scope !110, !noalias !107
-  store i64 0, ptr %64, align 8, !tbaa !10, !alias.scope !110, !noalias !107
-  store i8 0, ptr %55, align 1, !tbaa !13, !alias.scope !110, !noalias !107
+  store i64 %63, ptr %65, align 8, !tbaa !10, !alias.scope !105, !noalias !108
+  store ptr %55, ptr %.0911.i.i.i19, align 8, !tbaa !14, !alias.scope !108, !noalias !105
+  store i64 0, ptr %64, align 8, !tbaa !10, !alias.scope !108, !noalias !105
+  store i8 0, ptr %55, align 1, !tbaa !13, !alias.scope !108, !noalias !105
   %66 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i19, i64 32
   %67 = getelementptr inbounds nuw i8, ptr %.012.i.i.i18, i64 32
   %.not.i.i.i24 = icmp eq ptr %66, %5
-  br i1 %.not.i.i.i24, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit26, label %.lr.ph.i.i.i17, !llvm.loop !106
+  br i1 %.not.i.i.i24, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit26, label %.lr.ph.i.i.i17, !llvm.loop !104
 
 _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit26: ; preds = %_ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_SaIS5_EEvPT_PT0_RT1_.exit.i.i.i23, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit
   %.0.lcssa.i.i.i25 = phi ptr [ %52, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit ], [ %67, %_ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_SaIS5_EEvPT_PT0_RT1_.exit.i.i.i23 ]
@@ -2463,17 +2463,17 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_re
   br i1 %.not.i27, label %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit, label %69
 
 69:                                               ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit26
-  %70 = load ptr, ptr %68, align 8, !tbaa !58
+  %70 = load ptr, ptr %68, align 8, !tbaa !57
   %71 = ptrtoint ptr %70 to i64
   %72 = sub i64 %71, %8
   tail call void @_ZdlPvm(ptr noundef nonnull %6, i64 noundef %72) #20
   br label %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit
 
 _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit26, %69
-  store ptr %22, ptr %0, align 8, !tbaa !99
-  store ptr %.0.lcssa.i.i.i25, ptr %4, align 8, !tbaa !55
+  store ptr %22, ptr %0, align 8, !tbaa !97
+  store ptr %.0.lcssa.i.i.i25, ptr %4, align 8, !tbaa !54
   %73 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %22, i64 %16
-  store ptr %73, ptr %68, align 8, !tbaa !58
+  store ptr %73, ptr %68, align 8, !tbaa !57
   ret void
 }
 
@@ -2570,87 +2570,85 @@ attributes #22 = { builtin allocsize(0) }
 !26 = !{!27}
 !27 = distinct !{!27, !28, !"_ZN4absl7debian26StrCatB5cxx11ERKNS0_8AlphaNumE: argument 0"}
 !28 = distinct !{!28, !"_ZN4absl7debian26StrCatB5cxx11ERKNS0_8AlphaNumE"}
-!29 = distinct !{!29, !30, !31}
+!29 = distinct !{!29, !30}
 !30 = !{!"llvm.loop.mustprogress"}
-!31 = !{!"llvm.loop.estimated_trip_count"}
-!32 = !{!6, !6, i64 0}
-!33 = !{!34}
-!34 = distinct !{!34, !35, !"_ZN4absl7debian28StrSplitINS0_6ByCharENS0_9SkipEmptyEEENS0_16strings_internal8SplitterINS4_15SelectDelimiterIT_E4typeET0_NS0_11string_viewEEENS4_23ConvertibleToStringViewES7_SA_: argument 0"}
-!35 = distinct !{!35, !"_ZN4absl7debian28StrSplitINS0_6ByCharENS0_9SkipEmptyEEENS0_16strings_internal8SplitterINS4_15SelectDelimiterIT_E4typeET0_NS0_11string_viewEEENS4_23ConvertibleToStringViewES7_SA_"}
-!36 = !{!37, !12, i64 0}
-!37 = !{!"_ZTSN4absl7debian216strings_internal13SplitIteratorINS1_8SplitterINS0_6ByCharENS0_9SkipEmptyENS0_11string_viewEEEEE", !12, i64 0, !38, i64 8, !16, i64 16, !39, i64 32, !40, i64 40, !41, i64 41}
-!38 = !{!"_ZTSN4absl7debian216strings_internal13SplitIteratorINS1_8SplitterINS0_6ByCharENS0_9SkipEmptyENS0_11string_viewEEEE5StateE", !8, i64 0}
-!39 = !{!"p1 _ZTSN4absl7debian216strings_internal8SplitterINS0_6ByCharENS0_9SkipEmptyENS0_11string_viewEEE", !7, i64 0}
-!40 = !{!"_ZTSN4absl7debian26ByCharE", !8, i64 0}
-!41 = !{!"_ZTSN4absl7debian29SkipEmptyE"}
-!42 = !{!43}
-!43 = distinct !{!43, !44, !"_ZNK4absl7debian216strings_internal8SplitterINS0_6ByCharENS0_9SkipEmptyENS0_11string_viewEE5beginEv: argument 0"}
-!44 = distinct !{!44, !"_ZNK4absl7debian216strings_internal8SplitterINS0_6ByCharENS0_9SkipEmptyENS0_11string_viewEE5beginEv"}
-!45 = !{!37, !38, i64 8}
-!46 = !{!37, !39, i64 32}
-!47 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!48 = distinct !{!48, !30, !31}
-!49 = !{!50}
-!50 = distinct !{!50, !51, !"_ZNK4absl7debian216strings_internal8SplitterINS0_6ByCharENS0_9SkipEmptyENS0_11string_viewEE3endEv: argument 0"}
-!51 = distinct !{!51, !"_ZNK4absl7debian216strings_internal8SplitterINS0_6ByCharENS0_9SkipEmptyENS0_11string_viewEE3endEv"}
-!52 = !{!53}
-!53 = distinct !{!53, !54, !"_ZNK4absl7debian211string_viewcvNSt7__cxx1112basic_stringIcSt11char_traitsIcET_EEISaIcEEEv: argument 0"}
-!54 = distinct !{!54, !"_ZNK4absl7debian211string_viewcvNSt7__cxx1112basic_stringIcSt11char_traitsIcET_EEISaIcEEEv"}
-!55 = !{!56, !57, i64 8}
-!56 = !{!"_ZTSNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE17_Vector_impl_dataE", !57, i64 0, !57, i64 8, !57, i64 16}
-!57 = !{!"p1 _ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE", !7, i64 0}
-!58 = !{!56, !57, i64 16}
-!59 = distinct !{!59, !31}
-!60 = !{!61}
-!61 = distinct !{!61, !62, !"_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6substrEmm: argument 0"}
-!62 = distinct !{!62, !"_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6substrEmm"}
-!63 = !{!64, !64, i64 0}
-!64 = !{!"int", !8, i64 0}
-!65 = distinct !{!65, !30, !31}
-!66 = !{!67}
-!67 = distinct !{!67, !68, !"_ZN4absl7debian26StrCatIJEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_8AlphaNumESA_SA_SA_SA_DpRKT_: argument 0"}
-!68 = distinct !{!68, !"_ZN4absl7debian26StrCatIJEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_8AlphaNumESA_SA_SA_SA_DpRKT_"}
-!69 = !{!70}
-!70 = distinct !{!70, !71, !"_ZN4absl7debian26StrCatIJN4i18n12phonenumbers12StringHolderEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_8AlphaNumESD_SD_SD_SD_DpRKT_: argument 0"}
-!71 = distinct !{!71, !"_ZN4absl7debian26StrCatIJN4i18n12phonenumbers12StringHolderEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_8AlphaNumESD_SD_SD_SD_DpRKT_"}
-!72 = !{!73}
-!73 = distinct !{!73, !74, !"_ZN4absl7debian26StrCatIJN4i18n12phonenumbers12StringHolderES4_EEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_8AlphaNumESD_SD_SD_SD_DpRKT_: argument 0"}
-!74 = distinct !{!74, !"_ZN4absl7debian26StrCatIJN4i18n12phonenumbers12StringHolderES4_EEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_8AlphaNumESD_SD_SD_SD_DpRKT_"}
-!75 = !{!76}
-!76 = distinct !{!76, !77, !"_ZN4absl7debian26StrCatIJN4i18n12phonenumbers12StringHolderES4_S4_EEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_8AlphaNumESD_SD_SD_SD_DpRKT_: argument 0"}
-!77 = distinct !{!77, !"_ZN4absl7debian26StrCatIJN4i18n12phonenumbers12StringHolderES4_S4_EEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_8AlphaNumESD_SD_SD_SD_DpRKT_"}
-!78 = !{!79}
-!79 = distinct !{!79, !80, !"_ZN4absl7debian26StrCatIJN4i18n12phonenumbers12StringHolderES4_S4_S4_EEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_8AlphaNumESD_SD_SD_SD_DpRKT_: argument 0"}
-!80 = distinct !{!80, !"_ZN4absl7debian26StrCatIJN4i18n12phonenumbers12StringHolderES4_S4_S4_EEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_8AlphaNumESD_SD_SD_SD_DpRKT_"}
-!81 = !{!82}
-!82 = distinct !{!82, !83, !"_ZN4absl7debian26StrCatIJN4i18n12phonenumbers12StringHolderES4_S4_S4_S4_S4_EEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_8AlphaNumESD_SD_SD_SD_DpRKT_: argument 0"}
-!83 = distinct !{!83, !"_ZN4absl7debian26StrCatIJN4i18n12phonenumbers12StringHolderES4_S4_S4_S4_S4_EEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_8AlphaNumESD_SD_SD_SD_DpRKT_"}
-!84 = !{!85}
-!85 = distinct !{!85, !86, !"_ZN4absl7debian26StrCatIJN4i18n12phonenumbers12StringHolderES4_S4_S4_S4_S4_S4_EEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_8AlphaNumESD_SD_SD_SD_DpRKT_: argument 0"}
-!86 = distinct !{!86, !"_ZN4absl7debian26StrCatIJN4i18n12phonenumbers12StringHolderES4_S4_S4_S4_S4_S4_EEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_8AlphaNumESD_SD_SD_SD_DpRKT_"}
-!87 = !{!88}
-!88 = distinct !{!88, !89, !"_ZN4absl7debian26StrCatIJN4i18n12phonenumbers12StringHolderES4_S4_S4_S4_S4_S4_S4_EEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_8AlphaNumESD_SD_SD_SD_DpRKT_: argument 0"}
-!89 = distinct !{!89, !"_ZN4absl7debian26StrCatIJN4i18n12phonenumbers12StringHolderES4_S4_S4_S4_S4_S4_S4_EEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_8AlphaNumESD_SD_SD_SD_DpRKT_"}
-!90 = !{!91}
-!91 = distinct !{!91, !92, !"_ZN4absl7debian26StrCatIJN4i18n12phonenumbers12StringHolderES4_S4_S4_S4_S4_S4_S4_S4_EEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_8AlphaNumESD_SD_SD_SD_DpRKT_: argument 0"}
-!92 = distinct !{!92, !"_ZN4absl7debian26StrCatIJN4i18n12phonenumbers12StringHolderES4_S4_S4_S4_S4_S4_S4_S4_EEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_8AlphaNumESD_SD_SD_SD_DpRKT_"}
-!93 = !{!94}
-!94 = distinct !{!94, !95, !"_ZN4absl7debian26StrCatIJN4i18n12phonenumbers12StringHolderES4_S4_S4_S4_S4_S4_S4_S4_S4_EEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_8AlphaNumESD_SD_SD_SD_DpRKT_: argument 0"}
-!95 = distinct !{!95, !"_ZN4absl7debian26StrCatIJN4i18n12phonenumbers12StringHolderES4_S4_S4_S4_S4_S4_S4_S4_S4_EEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_8AlphaNumESD_SD_SD_SD_DpRKT_"}
-!96 = !{!97}
-!97 = distinct !{!97, !98, !"_ZN4absl7debian26StrCatIJN4i18n12phonenumbers12StringHolderES4_S4_S4_S4_S4_S4_S4_S4_S4_S4_EEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_8AlphaNumESD_SD_SD_SD_DpRKT_: argument 0"}
-!98 = distinct !{!98, !"_ZN4absl7debian26StrCatIJN4i18n12phonenumbers12StringHolderES4_S4_S4_S4_S4_S4_S4_S4_S4_S4_EEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_8AlphaNumESD_SD_SD_SD_DpRKT_"}
-!99 = !{!56, !57, i64 0}
-!100 = !{!101}
-!101 = distinct !{!101, !102, !"_ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_SaIS5_EEvPT_PT0_RT1_: argument 0"}
-!102 = distinct !{!102, !"_ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_SaIS5_EEvPT_PT0_RT1_"}
-!103 = !{!104}
-!104 = distinct !{!104, !102, !"_ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_SaIS5_EEvPT_PT0_RT1_: argument 1"}
-!105 = !{!101, !104}
-!106 = distinct !{!106, !30, !31}
-!107 = !{!108}
-!108 = distinct !{!108, !109, !"_ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_SaIS5_EEvPT_PT0_RT1_: argument 0"}
-!109 = distinct !{!109, !"_ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_SaIS5_EEvPT_PT0_RT1_"}
-!110 = !{!111}
-!111 = distinct !{!111, !109, !"_ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_SaIS5_EEvPT_PT0_RT1_: argument 1"}
-!112 = !{!108, !111}
+!31 = !{!6, !6, i64 0}
+!32 = !{!33}
+!33 = distinct !{!33, !34, !"_ZN4absl7debian28StrSplitINS0_6ByCharENS0_9SkipEmptyEEENS0_16strings_internal8SplitterINS4_15SelectDelimiterIT_E4typeET0_NS0_11string_viewEEENS4_23ConvertibleToStringViewES7_SA_: argument 0"}
+!34 = distinct !{!34, !"_ZN4absl7debian28StrSplitINS0_6ByCharENS0_9SkipEmptyEEENS0_16strings_internal8SplitterINS4_15SelectDelimiterIT_E4typeET0_NS0_11string_viewEEENS4_23ConvertibleToStringViewES7_SA_"}
+!35 = !{!36, !12, i64 0}
+!36 = !{!"_ZTSN4absl7debian216strings_internal13SplitIteratorINS1_8SplitterINS0_6ByCharENS0_9SkipEmptyENS0_11string_viewEEEEE", !12, i64 0, !37, i64 8, !16, i64 16, !38, i64 32, !39, i64 40, !40, i64 41}
+!37 = !{!"_ZTSN4absl7debian216strings_internal13SplitIteratorINS1_8SplitterINS0_6ByCharENS0_9SkipEmptyENS0_11string_viewEEEE5StateE", !8, i64 0}
+!38 = !{!"p1 _ZTSN4absl7debian216strings_internal8SplitterINS0_6ByCharENS0_9SkipEmptyENS0_11string_viewEEE", !7, i64 0}
+!39 = !{!"_ZTSN4absl7debian26ByCharE", !8, i64 0}
+!40 = !{!"_ZTSN4absl7debian29SkipEmptyE"}
+!41 = !{!42}
+!42 = distinct !{!42, !43, !"_ZNK4absl7debian216strings_internal8SplitterINS0_6ByCharENS0_9SkipEmptyENS0_11string_viewEE5beginEv: argument 0"}
+!43 = distinct !{!43, !"_ZNK4absl7debian216strings_internal8SplitterINS0_6ByCharENS0_9SkipEmptyENS0_11string_viewEE5beginEv"}
+!44 = !{!36, !37, i64 8}
+!45 = !{!36, !38, i64 32}
+!46 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!47 = distinct !{!47, !30}
+!48 = !{!49}
+!49 = distinct !{!49, !50, !"_ZNK4absl7debian216strings_internal8SplitterINS0_6ByCharENS0_9SkipEmptyENS0_11string_viewEE3endEv: argument 0"}
+!50 = distinct !{!50, !"_ZNK4absl7debian216strings_internal8SplitterINS0_6ByCharENS0_9SkipEmptyENS0_11string_viewEE3endEv"}
+!51 = !{!52}
+!52 = distinct !{!52, !53, !"_ZNK4absl7debian211string_viewcvNSt7__cxx1112basic_stringIcSt11char_traitsIcET_EEISaIcEEEv: argument 0"}
+!53 = distinct !{!53, !"_ZNK4absl7debian211string_viewcvNSt7__cxx1112basic_stringIcSt11char_traitsIcET_EEISaIcEEEv"}
+!54 = !{!55, !56, i64 8}
+!55 = !{!"_ZTSNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE17_Vector_impl_dataE", !56, i64 0, !56, i64 8, !56, i64 16}
+!56 = !{!"p1 _ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE", !7, i64 0}
+!57 = !{!55, !56, i64 16}
+!58 = !{!59}
+!59 = distinct !{!59, !60, !"_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6substrEmm: argument 0"}
+!60 = distinct !{!60, !"_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6substrEmm"}
+!61 = !{!62, !62, i64 0}
+!62 = !{!"int", !8, i64 0}
+!63 = distinct !{!63, !30}
+!64 = !{!65}
+!65 = distinct !{!65, !66, !"_ZN4absl7debian26StrCatIJEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_8AlphaNumESA_SA_SA_SA_DpRKT_: argument 0"}
+!66 = distinct !{!66, !"_ZN4absl7debian26StrCatIJEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_8AlphaNumESA_SA_SA_SA_DpRKT_"}
+!67 = !{!68}
+!68 = distinct !{!68, !69, !"_ZN4absl7debian26StrCatIJN4i18n12phonenumbers12StringHolderEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_8AlphaNumESD_SD_SD_SD_DpRKT_: argument 0"}
+!69 = distinct !{!69, !"_ZN4absl7debian26StrCatIJN4i18n12phonenumbers12StringHolderEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_8AlphaNumESD_SD_SD_SD_DpRKT_"}
+!70 = !{!71}
+!71 = distinct !{!71, !72, !"_ZN4absl7debian26StrCatIJN4i18n12phonenumbers12StringHolderES4_EEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_8AlphaNumESD_SD_SD_SD_DpRKT_: argument 0"}
+!72 = distinct !{!72, !"_ZN4absl7debian26StrCatIJN4i18n12phonenumbers12StringHolderES4_EEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_8AlphaNumESD_SD_SD_SD_DpRKT_"}
+!73 = !{!74}
+!74 = distinct !{!74, !75, !"_ZN4absl7debian26StrCatIJN4i18n12phonenumbers12StringHolderES4_S4_EEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_8AlphaNumESD_SD_SD_SD_DpRKT_: argument 0"}
+!75 = distinct !{!75, !"_ZN4absl7debian26StrCatIJN4i18n12phonenumbers12StringHolderES4_S4_EEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_8AlphaNumESD_SD_SD_SD_DpRKT_"}
+!76 = !{!77}
+!77 = distinct !{!77, !78, !"_ZN4absl7debian26StrCatIJN4i18n12phonenumbers12StringHolderES4_S4_S4_EEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_8AlphaNumESD_SD_SD_SD_DpRKT_: argument 0"}
+!78 = distinct !{!78, !"_ZN4absl7debian26StrCatIJN4i18n12phonenumbers12StringHolderES4_S4_S4_EEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_8AlphaNumESD_SD_SD_SD_DpRKT_"}
+!79 = !{!80}
+!80 = distinct !{!80, !81, !"_ZN4absl7debian26StrCatIJN4i18n12phonenumbers12StringHolderES4_S4_S4_S4_S4_EEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_8AlphaNumESD_SD_SD_SD_DpRKT_: argument 0"}
+!81 = distinct !{!81, !"_ZN4absl7debian26StrCatIJN4i18n12phonenumbers12StringHolderES4_S4_S4_S4_S4_EEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_8AlphaNumESD_SD_SD_SD_DpRKT_"}
+!82 = !{!83}
+!83 = distinct !{!83, !84, !"_ZN4absl7debian26StrCatIJN4i18n12phonenumbers12StringHolderES4_S4_S4_S4_S4_S4_EEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_8AlphaNumESD_SD_SD_SD_DpRKT_: argument 0"}
+!84 = distinct !{!84, !"_ZN4absl7debian26StrCatIJN4i18n12phonenumbers12StringHolderES4_S4_S4_S4_S4_S4_EEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_8AlphaNumESD_SD_SD_SD_DpRKT_"}
+!85 = !{!86}
+!86 = distinct !{!86, !87, !"_ZN4absl7debian26StrCatIJN4i18n12phonenumbers12StringHolderES4_S4_S4_S4_S4_S4_S4_EEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_8AlphaNumESD_SD_SD_SD_DpRKT_: argument 0"}
+!87 = distinct !{!87, !"_ZN4absl7debian26StrCatIJN4i18n12phonenumbers12StringHolderES4_S4_S4_S4_S4_S4_S4_EEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_8AlphaNumESD_SD_SD_SD_DpRKT_"}
+!88 = !{!89}
+!89 = distinct !{!89, !90, !"_ZN4absl7debian26StrCatIJN4i18n12phonenumbers12StringHolderES4_S4_S4_S4_S4_S4_S4_S4_EEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_8AlphaNumESD_SD_SD_SD_DpRKT_: argument 0"}
+!90 = distinct !{!90, !"_ZN4absl7debian26StrCatIJN4i18n12phonenumbers12StringHolderES4_S4_S4_S4_S4_S4_S4_S4_EEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_8AlphaNumESD_SD_SD_SD_DpRKT_"}
+!91 = !{!92}
+!92 = distinct !{!92, !93, !"_ZN4absl7debian26StrCatIJN4i18n12phonenumbers12StringHolderES4_S4_S4_S4_S4_S4_S4_S4_S4_EEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_8AlphaNumESD_SD_SD_SD_DpRKT_: argument 0"}
+!93 = distinct !{!93, !"_ZN4absl7debian26StrCatIJN4i18n12phonenumbers12StringHolderES4_S4_S4_S4_S4_S4_S4_S4_S4_EEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_8AlphaNumESD_SD_SD_SD_DpRKT_"}
+!94 = !{!95}
+!95 = distinct !{!95, !96, !"_ZN4absl7debian26StrCatIJN4i18n12phonenumbers12StringHolderES4_S4_S4_S4_S4_S4_S4_S4_S4_S4_EEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_8AlphaNumESD_SD_SD_SD_DpRKT_: argument 0"}
+!96 = distinct !{!96, !"_ZN4absl7debian26StrCatIJN4i18n12phonenumbers12StringHolderES4_S4_S4_S4_S4_S4_S4_S4_S4_S4_EEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_8AlphaNumESD_SD_SD_SD_DpRKT_"}
+!97 = !{!55, !56, i64 0}
+!98 = !{!99}
+!99 = distinct !{!99, !100, !"_ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_SaIS5_EEvPT_PT0_RT1_: argument 0"}
+!100 = distinct !{!100, !"_ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_SaIS5_EEvPT_PT0_RT1_"}
+!101 = !{!102}
+!102 = distinct !{!102, !100, !"_ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_SaIS5_EEvPT_PT0_RT1_: argument 1"}
+!103 = !{!99, !102}
+!104 = distinct !{!104, !30}
+!105 = !{!106}
+!106 = distinct !{!106, !107, !"_ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_SaIS5_EEvPT_PT0_RT1_: argument 0"}
+!107 = distinct !{!107, !"_ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_SaIS5_EEvPT_PT0_RT1_"}
+!108 = !{!109}
+!109 = distinct !{!109, !107, !"_ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_SaIS5_EEvPT_PT0_RT1_: argument 1"}
+!110 = !{!106, !109}

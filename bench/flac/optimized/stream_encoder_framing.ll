@@ -266,7 +266,7 @@ define hidden range(i32 0, 2) i32 @FLAC__add_metadata_block(ptr noundef %0, ptr 
   %indvars.iv268 = phi i64 [ 0, %.lr.ph251 ], [ %indvars.iv.next269, %103 ]
   %108 = load ptr, ptr %35, align 8, !tbaa !14
   %109 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_SeekPoint, ptr %108, i64 %indvars.iv268
-  %110 = load i64, ptr %109, align 8, !tbaa !18
+  %110 = load i64, ptr %109, align 8, !tbaa !17
   %111 = tail call i32 @FLAC__bitwriter_write_raw_uint64(ptr noundef %1, i64 noundef %110, i32 noundef %36) #6
   %.not210 = icmp eq i32 %111, 0
   br i1 %.not210, label %.critedge230, label %112
@@ -274,7 +274,7 @@ define hidden range(i32 0, 2) i32 @FLAC__add_metadata_block(ptr noundef %0, ptr 
 112:                                              ; preds = %107
   %113 = load ptr, ptr %35, align 8, !tbaa !14
   %114 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_SeekPoint, ptr %113, i64 %indvars.iv268, i32 1
-  %115 = load i64, ptr %114, align 8, !tbaa !21
+  %115 = load i64, ptr %114, align 8, !tbaa !20
   %116 = tail call i32 @FLAC__bitwriter_write_raw_uint64(ptr noundef %1, i64 noundef %115, i32 noundef %37) #6
   %.not211 = icmp eq i32 %116, 0
   br i1 %.not211, label %.critedge230, label %117
@@ -282,7 +282,7 @@ define hidden range(i32 0, 2) i32 @FLAC__add_metadata_block(ptr noundef %0, ptr 
 117:                                              ; preds = %112
   %118 = load ptr, ptr %35, align 8, !tbaa !14
   %119 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_SeekPoint, ptr %118, i64 %indvars.iv268, i32 2
-  %120 = load i32, ptr %119, align 8, !tbaa !22
+  %120 = load i32, ptr %119, align 8, !tbaa !21
   %121 = tail call i32 @FLAC__bitwriter_write_raw_uint32(ptr noundef %1, i32 noundef %120, i32 noundef %38) #6
   %.not212 = icmp eq i32 %121, 0
   br i1 %.not212, label %.critedge230, label %103
@@ -337,13 +337,13 @@ define hidden range(i32 0, 2) i32 @FLAC__add_metadata_block(ptr noundef %0, ptr 
   %144 = load i32, ptr %138, align 8, !tbaa !14
   %145 = zext i32 %144 to i64
   %146 = icmp samesign ult i64 %indvars.iv.next266, %145
-  br i1 %146, label %147, label %.loopexit, !llvm.loop !23
+  br i1 %146, label %147, label %.loopexit, !llvm.loop !22
 
 147:                                              ; preds = %.lr.ph249, %143
   %indvars.iv265 = phi i64 [ 0, %.lr.ph249 ], [ %indvars.iv.next266, %143 ]
   %148 = load ptr, ptr %142, align 8, !tbaa !14
   %149 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_VorbisComment_Entry, ptr %148, i64 %indvars.iv265
-  %150 = load i32, ptr %149, align 8, !tbaa !24
+  %150 = load i32, ptr %149, align 8, !tbaa !23
   %151 = tail call i32 @FLAC__bitwriter_write_raw_uint32_little_endian(ptr noundef %1, i32 noundef %150) #6
   %.not208 = icmp eq i32 %151, 0
   br i1 %.not208, label %.critedge230, label %152
@@ -352,8 +352,8 @@ define hidden range(i32 0, 2) i32 @FLAC__add_metadata_block(ptr noundef %0, ptr 
   %153 = load ptr, ptr %142, align 8, !tbaa !14
   %154 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_VorbisComment_Entry, ptr %153, i64 %indvars.iv265
   %155 = getelementptr inbounds nuw i8, ptr %154, i64 8
-  %156 = load ptr, ptr %155, align 8, !tbaa !26
-  %157 = load i32, ptr %154, align 8, !tbaa !24
+  %156 = load ptr, ptr %155, align 8, !tbaa !25
+  %157 = load i32, ptr %154, align 8, !tbaa !23
   %158 = tail call i32 @FLAC__bitwriter_write_byte_block(ptr noundef %1, ptr noundef %156, i32 noundef %157) #6
   %.not209 = icmp eq i32 %158, 0
   br i1 %.not209, label %.critedge230, label %143
@@ -422,14 +422,14 @@ define hidden range(i32 0, 2) i32 @FLAC__add_metadata_block(ptr noundef %0, ptr 
   %indvars.iv262 = phi i64 [ 0, %.lr.ph247 ], [ %indvars.iv.next263, %.critedge ]
   %197 = load ptr, ptr %184, align 8, !tbaa !14
   %198 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_CueSheet_Track, ptr %197, i64 %indvars.iv262
-  %199 = load i64, ptr %198, align 8, !tbaa !27
+  %199 = load i64, ptr %198, align 8, !tbaa !26
   %200 = tail call i32 @FLAC__bitwriter_write_raw_uint64(ptr noundef %1, i64 noundef %199, i32 noundef %185) #6
   %.not193 = icmp eq i32 %200, 0
   br i1 %.not193, label %.critedge230, label %201
 
 201:                                              ; preds = %196
   %202 = getelementptr inbounds nuw i8, ptr %198, i64 8
-  %203 = load i8, ptr %202, align 8, !tbaa !29
+  %203 = load i8, ptr %202, align 8, !tbaa !28
   %204 = zext i8 %203 to i32
   %205 = tail call i32 @FLAC__bitwriter_write_raw_uint32(ptr noundef %1, i32 noundef %204, i32 noundef %186) #6
   %.not194 = icmp eq i32 %205, 0
@@ -466,14 +466,14 @@ define hidden range(i32 0, 2) i32 @FLAC__add_metadata_block(ptr noundef %0, ptr 
 
 223:                                              ; preds = %221
   %224 = getelementptr inbounds nuw i8, ptr %198, i64 23
-  %225 = load i8, ptr %224, align 1, !tbaa !30
+  %225 = load i8, ptr %224, align 1, !tbaa !29
   %226 = zext i8 %225 to i32
   %227 = tail call i32 @FLAC__bitwriter_write_raw_uint32(ptr noundef %1, i32 noundef %226, i32 noundef %192) #6
   %.not199 = icmp eq i32 %227, 0
   br i1 %.not199, label %.critedge230, label %.preheader240
 
 .preheader240:                                    ; preds = %223
-  %228 = load i8, ptr %224, align 1, !tbaa !30
+  %228 = load i8, ptr %224, align 1, !tbaa !29
   %.not253 = icmp eq i8 %228, 0
   br i1 %.not253, label %.critedge, label %.lr.ph
 
@@ -483,23 +483,23 @@ define hidden range(i32 0, 2) i32 @FLAC__add_metadata_block(ptr noundef %0, ptr 
 
 230:                                              ; preds = %244
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %231 = load i8, ptr %224, align 1, !tbaa !30
+  %231 = load i8, ptr %224, align 1, !tbaa !29
   %232 = zext i8 %231 to i64
   %233 = icmp samesign ult i64 %indvars.iv.next, %232
-  br i1 %233, label %234, label %.critedge, !llvm.loop !31
+  br i1 %233, label %234, label %.critedge, !llvm.loop !30
 
 234:                                              ; preds = %.lr.ph, %230
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %230 ]
-  %235 = load ptr, ptr %229, align 8, !tbaa !32
+  %235 = load ptr, ptr %229, align 8, !tbaa !31
   %236 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_CueSheet_Index, ptr %235, i64 %indvars.iv
-  %237 = load i64, ptr %236, align 8, !tbaa !33
+  %237 = load i64, ptr %236, align 8, !tbaa !32
   %238 = tail call i32 @FLAC__bitwriter_write_raw_uint64(ptr noundef %1, i64 noundef %237, i32 noundef %193) #6
   %.not200 = icmp eq i32 %238, 0
   br i1 %.not200, label %.critedge230, label %239
 
 239:                                              ; preds = %234
   %240 = getelementptr inbounds nuw i8, ptr %236, i64 8
-  %241 = load i8, ptr %240, align 8, !tbaa !35
+  %241 = load i8, ptr %240, align 8, !tbaa !34
   %242 = zext i8 %241 to i32
   %243 = tail call i32 @FLAC__bitwriter_write_raw_uint32(ptr noundef %1, i32 noundef %242, i32 noundef %194) #6
   %.not201 = icmp eq i32 %243, 0
@@ -515,7 +515,7 @@ define hidden range(i32 0, 2) i32 @FLAC__add_metadata_block(ptr noundef %0, ptr 
   %246 = load i32, ptr %179, align 4, !tbaa !14
   %247 = zext i32 %246 to i64
   %248 = icmp samesign ult i64 %indvars.iv.next263, %247
-  br i1 %248, label %196, label %.loopexit, !llvm.loop !36
+  br i1 %248, label %196, label %.loopexit, !llvm.loop !35
 
 249:                                              ; preds = %31
   %250 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -676,7 +676,7 @@ define hidden range(i32 0, 2) i32 @FLAC__frame_add_header(ptr noundef readonly c
 
 10:                                               ; preds = %7
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %12 = load i32, ptr %11, align 4, !tbaa !37
+  %12 = load i32, ptr %11, align 4, !tbaa !36
   %13 = icmp ne i32 %12, 0
   %14 = zext i1 %13 to i32
   %15 = load i32, ptr @FLAC__FRAME_HEADER_BLOCKING_STRATEGY_LEN, align 4, !tbaa !11
@@ -685,7 +685,7 @@ define hidden range(i32 0, 2) i32 @FLAC__frame_add_header(ptr noundef readonly c
   br i1 %.not48, label %123, label %17
 
 17:                                               ; preds = %10
-  %18 = load i32, ptr %0, align 8, !tbaa !39
+  %18 = load i32, ptr %0, align 8, !tbaa !38
   switch i32 %18, label %31 [
     i32 192, label %33
     i32 576, label %19
@@ -755,7 +755,7 @@ define hidden range(i32 0, 2) i32 @FLAC__frame_add_header(ptr noundef readonly c
 
 37:                                               ; preds = %33
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %39 = load i32, ptr %38, align 4, !tbaa !40
+  %39 = load i32, ptr %38, align 4, !tbaa !39
   switch i32 %39, label %50 [
     i32 88200, label %60
     i32 176400, label %40
@@ -829,7 +829,7 @@ define hidden range(i32 0, 2) i32 @FLAC__frame_add_header(ptr noundef readonly c
 
 63:                                               ; preds = %60
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %65 = load i32, ptr %64, align 4, !tbaa !41
+  %65 = load i32, ptr %64, align 4, !tbaa !40
   switch i32 %65, label %73 [
     i32 0, label %66
     i32 1, label %70
@@ -839,7 +839,7 @@ define hidden range(i32 0, 2) i32 @FLAC__frame_add_header(ptr noundef readonly c
 
 66:                                               ; preds = %63
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %68 = load i32, ptr %67, align 8, !tbaa !42
+  %68 = load i32, ptr %67, align 8, !tbaa !41
   %69 = add i32 %68, -1
   br label %73
 
@@ -861,7 +861,7 @@ define hidden range(i32 0, 2) i32 @FLAC__frame_add_header(ptr noundef readonly c
 
 76:                                               ; preds = %73
   %77 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %78 = load i32, ptr %77, align 8, !tbaa !43
+  %78 = load i32, ptr %77, align 8, !tbaa !42
   %79 = add i32 %78, -8
   %80 = tail call i32 @llvm.fshl.i32(i32 %79, i32 %79, i32 30)
   %81 = icmp ult i32 %80, 7
@@ -887,7 +887,7 @@ switch.lookup:                                    ; preds = %76
   br i1 %.not53, label %123, label %89
 
 89:                                               ; preds = %86
-  %90 = load i32, ptr %11, align 4, !tbaa !37
+  %90 = load i32, ptr %11, align 4, !tbaa !36
   %91 = icmp eq i32 %90, 0
   %92 = getelementptr inbounds nuw i8, ptr %0, i64 24
   br i1 %91, label %93, label %96
@@ -908,7 +908,7 @@ switch.lookup:                                    ; preds = %76
   br i1 %.not56, label %104, label %100
 
 100:                                              ; preds = %99
-  %101 = load i32, ptr %0, align 8, !tbaa !39
+  %101 = load i32, ptr %0, align 8, !tbaa !38
   %102 = add i32 %101, -1
   %103 = tail call i32 @FLAC__bitwriter_write_raw_uint32(ptr noundef %1, i32 noundef %102, i32 noundef %34) #6
   %.not57 = icmp eq i32 %103, 0
@@ -922,20 +922,20 @@ switch.lookup:                                    ; preds = %76
   ]
 
 105:                                              ; preds = %104
-  %106 = load i32, ptr %38, align 4, !tbaa !40
+  %106 = load i32, ptr %38, align 4, !tbaa !39
   %107 = udiv i32 %106, 1000
   %108 = tail call i32 @FLAC__bitwriter_write_raw_uint32(ptr noundef %1, i32 noundef %107, i32 noundef 8) #6
   %.not60 = icmp eq i32 %108, 0
   br i1 %.not60, label %123, label %116
 
 109:                                              ; preds = %104
-  %110 = load i32, ptr %38, align 4, !tbaa !40
+  %110 = load i32, ptr %38, align 4, !tbaa !39
   %111 = tail call i32 @FLAC__bitwriter_write_raw_uint32(ptr noundef %1, i32 noundef %110, i32 noundef 16) #6
   %.not59 = icmp eq i32 %111, 0
   br i1 %.not59, label %123, label %116
 
 112:                                              ; preds = %104
-  %113 = load i32, ptr %38, align 4, !tbaa !40
+  %113 = load i32, ptr %38, align 4, !tbaa !39
   %114 = udiv i32 %113, 10
   %115 = tail call i32 @FLAC__bitwriter_write_raw_uint32(ptr noundef %1, i32 noundef %114, i32 noundef 16) #6
   %.not58 = icmp eq i32 %115, 0
@@ -992,7 +992,7 @@ define hidden range(i32 0, 2) i32 @FLAC__subframe_add_constant(ptr noundef reado
   br i1 %.not9, label %23, label %18
 
 18:                                               ; preds = %14, %15
-  %19 = load i64, ptr %0, align 8, !tbaa !44
+  %19 = load i64, ptr %0, align 8, !tbaa !43
   %20 = tail call i32 @FLAC__bitwriter_write_raw_int64(ptr noundef %3, i64 noundef %19, i32 noundef %1) #6
   %21 = icmp ne i32 %20, 0
   %22 = zext i1 %21 to i32
@@ -1011,7 +1011,7 @@ declare i32 @FLAC__bitwriter_write_raw_int64(ptr noundef, i64 noundef, i32 nound
 define hidden range(i32 0, 2) i32 @FLAC__subframe_add_fixed(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4) local_unnamed_addr #0 {
   %6 = load i32, ptr @FLAC__SUBFRAME_TYPE_FIXED_BYTE_ALIGNED_MASK, align 4, !tbaa !11
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %8 = load i32, ptr %7, align 8, !tbaa !46
+  %8 = load i32, ptr %7, align 8, !tbaa !45
   %9 = shl i32 %8, 1
   %.not = icmp ne i32 %3, 0
   %10 = zext i1 %.not to i32
@@ -1036,7 +1036,7 @@ define hidden range(i32 0, 2) i32 @FLAC__subframe_add_fixed(ptr noundef readonly
   br i1 %.not27, label %add_entropy_coding_method_.exit.thread, label %23
 
 23:                                               ; preds = %20, %19
-  %24 = load i32, ptr %7, align 8, !tbaa !46
+  %24 = load i32, ptr %7, align 8, !tbaa !45
   %.not36 = icmp eq i32 %24, 0
   br i1 %.not36, label %._crit_edge, label %.lr.ph
 
@@ -1046,28 +1046,28 @@ define hidden range(i32 0, 2) i32 @FLAC__subframe_add_fixed(ptr noundef readonly
 
 26:                                               ; preds = %30
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %27 = load i32, ptr %7, align 8, !tbaa !46
+  %27 = load i32, ptr %7, align 8, !tbaa !45
   %28 = zext i32 %27 to i64
   %29 = icmp samesign ult i64 %indvars.iv.next, %28
-  br i1 %29, label %30, label %._crit_edge, !llvm.loop !50
+  br i1 %29, label %30, label %._crit_edge, !llvm.loop !49
 
 30:                                               ; preds = %.lr.ph, %26
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %26 ]
   %31 = getelementptr inbounds nuw [4 x i64], ptr %25, i64 0, i64 %indvars.iv
-  %32 = load i64, ptr %31, align 8, !tbaa !51
+  %32 = load i64, ptr %31, align 8, !tbaa !50
   %33 = tail call i32 @FLAC__bitwriter_write_raw_int64(ptr noundef %4, i64 noundef %32, i32 noundef %2) #6
   %.not30 = icmp eq i32 %33, 0
   br i1 %.not30, label %add_entropy_coding_method_.exit.thread, label %26
 
 ._crit_edge:                                      ; preds = %26, %23
-  %34 = load i32, ptr %0, align 8, !tbaa !52
+  %34 = load i32, ptr %0, align 8, !tbaa !51
   %35 = load i32, ptr @FLAC__ENTROPY_CODING_METHOD_TYPE_LEN, align 4, !tbaa !11
   %36 = tail call i32 @FLAC__bitwriter_write_raw_uint32(ptr noundef %4, i32 noundef %34, i32 noundef %35) #6
   %.not.i = icmp eq i32 %36, 0
   br i1 %.not.i, label %add_entropy_coding_method_.exit.thread, label %37
 
 37:                                               ; preds = %._crit_edge
-  %38 = load i32, ptr %0, align 8, !tbaa !52
+  %38 = load i32, ptr %0, align 8, !tbaa !51
   %switch.i = icmp ult i32 %38, 2
   br i1 %switch.i, label %39, label %add_entropy_coding_method_.exit.thread33
 
@@ -1080,19 +1080,19 @@ define hidden range(i32 0, 2) i32 @FLAC__subframe_add_fixed(ptr noundef readonly
   br i1 %.not5.i, label %add_entropy_coding_method_.exit.thread, label %add_entropy_coding_method_.exit
 
 add_entropy_coding_method_.exit:                  ; preds = %39
-  %.pr = load i32, ptr %0, align 8, !tbaa !53
+  %.pr = load i32, ptr %0, align 8, !tbaa !52
   %switch = icmp ult i32 %.pr, 2
   br i1 %switch, label %44, label %add_entropy_coding_method_.exit.thread33
 
 44:                                               ; preds = %add_entropy_coding_method_.exit
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %46 = load ptr, ptr %45, align 8, !tbaa !54
-  %47 = load i32, ptr %7, align 8, !tbaa !46
+  %46 = load ptr, ptr %45, align 8, !tbaa !53
+  %47 = load i32, ptr %7, align 8, !tbaa !45
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %49 = load ptr, ptr %48, align 8, !tbaa !14
-  %50 = load ptr, ptr %49, align 8, !tbaa !55
+  %50 = load ptr, ptr %49, align 8, !tbaa !54
   %51 = getelementptr inbounds nuw i8, ptr %49, i64 8
-  %52 = load ptr, ptr %51, align 8, !tbaa !57
+  %52 = load ptr, ptr %51, align 8, !tbaa !56
   %53 = load i32, ptr %40, align 8, !tbaa !14
   %54 = icmp eq i32 %.pr, 1
   %55 = zext i1 %54 to i32
@@ -1160,7 +1160,7 @@ define internal fastcc range(i32 0, 2) i32 @add_residual_partitioned_rice_(ptr n
 31:                                               ; preds = %.lr.ph90
   %indvars.iv.next96 = add nuw nsw i64 %indvars.iv95, 1
   %exitcond98.not = icmp eq i64 %indvars.iv.next96, %wide.trip.count
-  br i1 %exitcond98.not, label %.loopexit, label %.lr.ph90, !llvm.loop !58
+  br i1 %exitcond98.not, label %.loopexit, label %.lr.ph90, !llvm.loop !57
 
 .lr.ph90:                                         ; preds = %.lr.ph90.preheader, %31
   %indvars.iv95 = phi i64 [ 0, %.lr.ph90.preheader ], [ %indvars.iv.next96, %31 ]
@@ -1231,7 +1231,7 @@ define internal fastcc range(i32 0, 2) i32 @add_residual_partitioned_rice_(ptr n
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
   %exitcond.not = icmp eq i32 %43, %lftr.wideiv
-  br i1 %exitcond.not, label %.loopexit83, label %.lr.ph, !llvm.loop !59
+  br i1 %exitcond.not, label %.loopexit83, label %.lr.ph, !llvm.loop !58
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %64
   %indvars.iv = phi i64 [ %63, %.lr.ph.preheader ], [ %indvars.iv.next, %64 ]
@@ -1246,7 +1246,7 @@ define internal fastcc range(i32 0, 2) i32 @add_residual_partitioned_rice_(ptr n
   %69 = add i32 %.06887, 1
   %.068.highbits = lshr i32 %69, %6
   %70 = icmp eq i32 %.068.highbits, 0
-  br i1 %70, label %40, label %.loopexit81, !llvm.loop !60
+  br i1 %70, label %40, label %.loopexit81, !llvm.loop !59
 
 .loopexit81:                                      ; preds = %48, %52, %57, %59, %.loopexit83, %.lr.ph, %.lr.ph90, %.loopexit, %19, %22, %25, %27
   %.1 = phi i32 [ 1, %.loopexit ], [ 0, %19 ], [ 0, %22 ], [ 0, %25 ], [ 0, %27 ], [ 0, %.lr.ph90 ], [ 0, %.lr.ph ], [ 1, %.loopexit83 ], [ 0, %59 ], [ 0, %57 ], [ 0, %52 ], [ 0, %48 ]
@@ -1257,7 +1257,7 @@ define internal fastcc range(i32 0, 2) i32 @add_residual_partitioned_rice_(ptr n
 define hidden range(i32 0, 2) i32 @FLAC__subframe_add_lpc(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4) local_unnamed_addr #0 {
   %6 = load i32, ptr @FLAC__SUBFRAME_TYPE_LPC_BYTE_ALIGNED_MASK, align 4, !tbaa !11
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %8 = load i32, ptr %7, align 8, !tbaa !61
+  %8 = load i32, ptr %7, align 8, !tbaa !60
   %9 = shl i32 %8, 1
   %10 = add i32 %9, -2
   %.not = icmp ne i32 %3, 0
@@ -1283,7 +1283,7 @@ define hidden range(i32 0, 2) i32 @FLAC__subframe_add_lpc(ptr noundef readonly c
   br i1 %.not38, label %add_entropy_coding_method_.exit.thread, label %24
 
 24:                                               ; preds = %21, %20
-  %25 = load i32, ptr %7, align 8, !tbaa !61
+  %25 = load i32, ptr %7, align 8, !tbaa !60
   %.not54 = icmp eq i32 %25, 0
   br i1 %.not54, label %._crit_edge, label %.lr.ph
 
@@ -1293,22 +1293,22 @@ define hidden range(i32 0, 2) i32 @FLAC__subframe_add_lpc(ptr noundef readonly c
 
 27:                                               ; preds = %31
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %28 = load i32, ptr %7, align 8, !tbaa !61
+  %28 = load i32, ptr %7, align 8, !tbaa !60
   %29 = zext i32 %28 to i64
   %30 = icmp samesign ult i64 %indvars.iv.next, %29
-  br i1 %30, label %31, label %._crit_edge, !llvm.loop !63
+  br i1 %30, label %31, label %._crit_edge, !llvm.loop !62
 
 31:                                               ; preds = %.lr.ph, %27
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %27 ]
   %32 = getelementptr inbounds nuw [32 x i64], ptr %26, i64 0, i64 %indvars.iv
-  %33 = load i64, ptr %32, align 8, !tbaa !51
+  %33 = load i64, ptr %32, align 8, !tbaa !50
   %34 = tail call i32 @FLAC__bitwriter_write_raw_int64(ptr noundef %4, i64 noundef %33, i32 noundef %2) #6
   %.not44 = icmp eq i32 %34, 0
   br i1 %.not44, label %add_entropy_coding_method_.exit.thread, label %27
 
 ._crit_edge:                                      ; preds = %27, %24
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %36 = load i32, ptr %35, align 4, !tbaa !64
+  %36 = load i32, ptr %35, align 4, !tbaa !63
   %37 = add i32 %36, -1
   %38 = load i32, ptr @FLAC__SUBFRAME_LPC_QLP_COEFF_PRECISION_LEN, align 4, !tbaa !11
   %39 = tail call i32 @FLAC__bitwriter_write_raw_uint32(ptr noundef %4, i32 noundef %37, i32 noundef %38) #6
@@ -1317,14 +1317,14 @@ define hidden range(i32 0, 2) i32 @FLAC__subframe_add_lpc(ptr noundef readonly c
 
 40:                                               ; preds = %._crit_edge
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %42 = load i32, ptr %41, align 8, !tbaa !65
+  %42 = load i32, ptr %41, align 8, !tbaa !64
   %43 = load i32, ptr @FLAC__SUBFRAME_LPC_QLP_SHIFT_LEN, align 4, !tbaa !11
   %44 = tail call i32 @FLAC__bitwriter_write_raw_int32(ptr noundef %4, i32 noundef %42, i32 noundef %43) #6
   %.not40 = icmp eq i32 %44, 0
   br i1 %.not40, label %add_entropy_coding_method_.exit.thread, label %.preheader
 
 .preheader:                                       ; preds = %40
-  %45 = load i32, ptr %7, align 8, !tbaa !61
+  %45 = load i32, ptr %7, align 8, !tbaa !60
   %.not55 = icmp eq i32 %45, 0
   br i1 %.not55, label %._crit_edge53, label %.lr.ph52
 
@@ -1334,29 +1334,29 @@ define hidden range(i32 0, 2) i32 @FLAC__subframe_add_lpc(ptr noundef readonly c
 
 47:                                               ; preds = %51
   %indvars.iv.next59 = add nuw nsw i64 %indvars.iv58, 1
-  %48 = load i32, ptr %7, align 8, !tbaa !61
+  %48 = load i32, ptr %7, align 8, !tbaa !60
   %49 = zext i32 %48 to i64
   %50 = icmp samesign ult i64 %indvars.iv.next59, %49
-  br i1 %50, label %51, label %._crit_edge53, !llvm.loop !66
+  br i1 %50, label %51, label %._crit_edge53, !llvm.loop !65
 
 51:                                               ; preds = %.lr.ph52, %47
   %indvars.iv58 = phi i64 [ 0, %.lr.ph52 ], [ %indvars.iv.next59, %47 ]
   %52 = getelementptr inbounds nuw [32 x i32], ptr %46, i64 0, i64 %indvars.iv58
   %53 = load i32, ptr %52, align 4, !tbaa !11
-  %54 = load i32, ptr %35, align 4, !tbaa !64
+  %54 = load i32, ptr %35, align 4, !tbaa !63
   %55 = tail call i32 @FLAC__bitwriter_write_raw_int32(ptr noundef %4, i32 noundef %53, i32 noundef %54) #6
   %.not43 = icmp eq i32 %55, 0
   br i1 %.not43, label %add_entropy_coding_method_.exit.thread, label %47
 
 ._crit_edge53:                                    ; preds = %47, %.preheader
-  %56 = load i32, ptr %0, align 8, !tbaa !52
+  %56 = load i32, ptr %0, align 8, !tbaa !51
   %57 = load i32, ptr @FLAC__ENTROPY_CODING_METHOD_TYPE_LEN, align 4, !tbaa !11
   %58 = tail call i32 @FLAC__bitwriter_write_raw_uint32(ptr noundef %4, i32 noundef %56, i32 noundef %57) #6
   %.not.i = icmp eq i32 %58, 0
   br i1 %.not.i, label %add_entropy_coding_method_.exit.thread, label %59
 
 59:                                               ; preds = %._crit_edge53
-  %60 = load i32, ptr %0, align 8, !tbaa !52
+  %60 = load i32, ptr %0, align 8, !tbaa !51
   %switch.i = icmp ult i32 %60, 2
   br i1 %switch.i, label %61, label %add_entropy_coding_method_.exit.thread47
 
@@ -1369,19 +1369,19 @@ define hidden range(i32 0, 2) i32 @FLAC__subframe_add_lpc(ptr noundef readonly c
   br i1 %.not5.i, label %add_entropy_coding_method_.exit.thread, label %add_entropy_coding_method_.exit
 
 add_entropy_coding_method_.exit:                  ; preds = %61
-  %.pr = load i32, ptr %0, align 8, !tbaa !67
+  %.pr = load i32, ptr %0, align 8, !tbaa !66
   %switch = icmp ult i32 %.pr, 2
   br i1 %switch, label %66, label %add_entropy_coding_method_.exit.thread47
 
 66:                                               ; preds = %add_entropy_coding_method_.exit
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 424
-  %68 = load ptr, ptr %67, align 8, !tbaa !68
-  %69 = load i32, ptr %7, align 8, !tbaa !61
+  %68 = load ptr, ptr %67, align 8, !tbaa !67
+  %69 = load i32, ptr %7, align 8, !tbaa !60
   %70 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %71 = load ptr, ptr %70, align 8, !tbaa !14
-  %72 = load ptr, ptr %71, align 8, !tbaa !55
+  %72 = load ptr, ptr %71, align 8, !tbaa !54
   %73 = getelementptr inbounds nuw i8, ptr %71, i64 8
-  %74 = load ptr, ptr %73, align 8, !tbaa !57
+  %74 = load ptr, ptr %73, align 8, !tbaa !56
   %75 = load i32, ptr %62, align 8, !tbaa !14
   %76 = icmp eq i32 %.pr, 1
   %77 = zext i1 %76 to i32
@@ -1425,7 +1425,7 @@ define hidden range(i32 0, 2) i32 @FLAC__subframe_add_verbatim(ptr noundef reado
 
 19:                                               ; preds = %16, %15
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %21 = load i32, ptr %20, align 8, !tbaa !69
+  %21 = load i32, ptr %20, align 8, !tbaa !68
   %22 = icmp eq i32 %21, 0
   %23 = load ptr, ptr %0, align 8, !tbaa !14
   %.not3544.not = icmp eq i32 %1, 0
@@ -1441,7 +1441,7 @@ define hidden range(i32 0, 2) i32 @FLAC__subframe_add_verbatim(ptr noundef reado
 25:                                               ; preds = %.lr.ph46
   %indvars.iv.next54 = add nuw nsw i64 %indvars.iv53, 1
   %exitcond57.not = icmp eq i64 %indvars.iv.next54, %wide.trip.count56
-  br i1 %exitcond57.not, label %.critedge, label %.lr.ph46, !llvm.loop !71
+  br i1 %exitcond57.not, label %.critedge, label %.lr.ph46, !llvm.loop !70
 
 .lr.ph46:                                         ; preds = %.lr.ph46.preheader, %25
   %indvars.iv53 = phi i64 [ 0, %.lr.ph46.preheader ], [ %indvars.iv.next54, %25 ]
@@ -1461,12 +1461,12 @@ define hidden range(i32 0, 2) i32 @FLAC__subframe_add_verbatim(ptr noundef reado
 30:                                               ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.critedge, label %.lr.ph, !llvm.loop !72
+  br i1 %exitcond.not, label %.critedge, label %.lr.ph, !llvm.loop !71
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %30
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %30 ]
   %31 = getelementptr inbounds nuw i64, ptr %23, i64 %indvars.iv
-  %32 = load i64, ptr %31, align 8, !tbaa !51
+  %32 = load i64, ptr %31, align 8, !tbaa !50
   %33 = tail call i32 @FLAC__bitwriter_write_raw_int64(ptr noundef %4, i64 noundef %32, i32 noundef %2) #6
   %.not32 = icmp eq i32 %33, 0
   br i1 %.not32, label %.critedge, label %30
@@ -1506,61 +1506,60 @@ attributes #6 = { nounwind }
 !12 = !{!9, !10, i64 0}
 !13 = !{!9, !10, i64 8}
 !14 = !{!6, !6, i64 0}
-!15 = distinct !{!15, !16, !17}
+!15 = distinct !{!15, !16}
 !16 = !{!"llvm.loop.mustprogress"}
-!17 = !{!"llvm.loop.estimated_trip_count"}
-!18 = !{!19, !20, i64 0}
-!19 = !{!"", !20, i64 0, !20, i64 8, !10, i64 16}
-!20 = !{!"long", !6, i64 0}
-!21 = !{!19, !20, i64 8}
-!22 = !{!19, !10, i64 16}
-!23 = distinct !{!23, !16, !17}
-!24 = !{!25, !10, i64 0}
-!25 = !{!"", !10, i64 0, !4, i64 8}
-!26 = !{!25, !4, i64 8}
-!27 = !{!28, !20, i64 0}
-!28 = !{!"", !20, i64 0, !6, i64 8, !6, i64 9, !10, i64 22, !10, i64 22, !6, i64 23, !5, i64 24}
-!29 = !{!28, !6, i64 8}
-!30 = !{!28, !6, i64 23}
-!31 = distinct !{!31, !16, !17}
-!32 = !{!28, !5, i64 24}
-!33 = !{!34, !20, i64 0}
-!34 = !{!"", !20, i64 0, !6, i64 8}
-!35 = !{!34, !6, i64 8}
-!36 = distinct !{!36, !16, !17}
-!37 = !{!38, !10, i64 20}
-!38 = !{!"", !10, i64 0, !10, i64 4, !10, i64 8, !10, i64 12, !10, i64 16, !10, i64 20, !6, i64 24, !6, i64 32}
-!39 = !{!38, !10, i64 0}
-!40 = !{!38, !10, i64 4}
-!41 = !{!38, !10, i64 12}
-!42 = !{!38, !10, i64 8}
-!43 = !{!38, !10, i64 16}
-!44 = !{!45, !20, i64 0}
-!45 = !{!"", !20, i64 0}
-!46 = !{!47, !10, i64 24}
-!47 = !{!"", !48, i64 0, !10, i64 24, !6, i64 32, !49, i64 64}
-!48 = !{!"", !10, i64 0, !6, i64 8}
-!49 = !{!"p1 int", !5, i64 0}
-!50 = distinct !{!50, !16, !17}
-!51 = !{!20, !20, i64 0}
-!52 = !{!48, !10, i64 0}
-!53 = !{!47, !10, i64 0}
-!54 = !{!47, !49, i64 64}
-!55 = !{!56, !49, i64 0}
-!56 = !{!"", !49, i64 0, !49, i64 8, !10, i64 16}
-!57 = !{!56, !49, i64 8}
-!58 = distinct !{!58, !16, !17}
-!59 = distinct !{!59, !16, !17}
-!60 = distinct !{!60, !16, !17}
-!61 = !{!62, !10, i64 24}
-!62 = !{!"", !48, i64 0, !10, i64 24, !10, i64 28, !10, i64 32, !6, i64 36, !6, i64 168, !49, i64 424}
-!63 = distinct !{!63, !16, !17}
-!64 = !{!62, !10, i64 28}
-!65 = !{!62, !10, i64 32}
-!66 = distinct !{!66, !16, !17}
-!67 = !{!62, !10, i64 0}
-!68 = !{!62, !49, i64 424}
-!69 = !{!70, !10, i64 8}
-!70 = !{!"", !6, i64 0, !10, i64 8}
-!71 = distinct !{!71, !16, !17}
-!72 = distinct !{!72, !16, !17}
+!17 = !{!18, !19, i64 0}
+!18 = !{!"", !19, i64 0, !19, i64 8, !10, i64 16}
+!19 = !{!"long", !6, i64 0}
+!20 = !{!18, !19, i64 8}
+!21 = !{!18, !10, i64 16}
+!22 = distinct !{!22, !16}
+!23 = !{!24, !10, i64 0}
+!24 = !{!"", !10, i64 0, !4, i64 8}
+!25 = !{!24, !4, i64 8}
+!26 = !{!27, !19, i64 0}
+!27 = !{!"", !19, i64 0, !6, i64 8, !6, i64 9, !10, i64 22, !10, i64 22, !6, i64 23, !5, i64 24}
+!28 = !{!27, !6, i64 8}
+!29 = !{!27, !6, i64 23}
+!30 = distinct !{!30, !16}
+!31 = !{!27, !5, i64 24}
+!32 = !{!33, !19, i64 0}
+!33 = !{!"", !19, i64 0, !6, i64 8}
+!34 = !{!33, !6, i64 8}
+!35 = distinct !{!35, !16}
+!36 = !{!37, !10, i64 20}
+!37 = !{!"", !10, i64 0, !10, i64 4, !10, i64 8, !10, i64 12, !10, i64 16, !10, i64 20, !6, i64 24, !6, i64 32}
+!38 = !{!37, !10, i64 0}
+!39 = !{!37, !10, i64 4}
+!40 = !{!37, !10, i64 12}
+!41 = !{!37, !10, i64 8}
+!42 = !{!37, !10, i64 16}
+!43 = !{!44, !19, i64 0}
+!44 = !{!"", !19, i64 0}
+!45 = !{!46, !10, i64 24}
+!46 = !{!"", !47, i64 0, !10, i64 24, !6, i64 32, !48, i64 64}
+!47 = !{!"", !10, i64 0, !6, i64 8}
+!48 = !{!"p1 int", !5, i64 0}
+!49 = distinct !{!49, !16}
+!50 = !{!19, !19, i64 0}
+!51 = !{!47, !10, i64 0}
+!52 = !{!46, !10, i64 0}
+!53 = !{!46, !48, i64 64}
+!54 = !{!55, !48, i64 0}
+!55 = !{!"", !48, i64 0, !48, i64 8, !10, i64 16}
+!56 = !{!55, !48, i64 8}
+!57 = distinct !{!57, !16}
+!58 = distinct !{!58, !16}
+!59 = distinct !{!59, !16}
+!60 = !{!61, !10, i64 24}
+!61 = !{!"", !47, i64 0, !10, i64 24, !10, i64 28, !10, i64 32, !6, i64 36, !6, i64 168, !48, i64 424}
+!62 = distinct !{!62, !16}
+!63 = !{!61, !10, i64 28}
+!64 = !{!61, !10, i64 32}
+!65 = distinct !{!65, !16}
+!66 = !{!61, !10, i64 0}
+!67 = !{!61, !48, i64 424}
+!68 = !{!69, !10, i64 8}
+!69 = !{!"", !6, i64 0, !10, i64 8}
+!70 = distinct !{!70, !16}
+!71 = distinct !{!71, !16}

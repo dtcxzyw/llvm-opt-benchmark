@@ -38,7 +38,7 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 define dso_local range(i32 0, 28) i32 @Curl_idn_decode(ptr noundef %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #2 {
   %3 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #5
-  store ptr null, ptr %3, align 8, !tbaa !10
+  store ptr null, ptr %3, align 8, !tbaa !9
   %4 = tail call ptr @idn2_check_version(ptr noundef nonnull @.str) #6
   %.not.i = icmp eq ptr %4, null
   br i1 %.not.i, label %idn_decode.exit.thread, label %5
@@ -60,16 +60,16 @@ idn_decode.exit.thread:                           ; preds = %7, %2
   br label %.thread
 
 10:                                               ; preds = %7, %5
-  %11 = load ptr, ptr %3, align 8, !tbaa !10
+  %11 = load ptr, ptr %3, align 8, !tbaa !9
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #5
-  %12 = load ptr, ptr @Curl_cstrdup, align 8, !tbaa !13
+  %12 = load ptr, ptr @Curl_cstrdup, align 8, !tbaa !12
   %13 = call ptr %12(ptr noundef %11) #5
   call void @idn2_free(ptr noundef %11) #5
   %.not9 = icmp eq ptr %13, null
   br i1 %.not9, label %.thread, label %14
 
 14:                                               ; preds = %10
-  store ptr %13, ptr %1, align 8, !tbaa !10
+  store ptr %13, ptr %1, align 8, !tbaa !9
   br label %.thread
 
 .thread:                                          ; preds = %idn_decode.exit.thread, %10, %14
@@ -83,15 +83,15 @@ declare void @idn2_free(ptr noundef) local_unnamed_addr #3
 define dso_local range(i32 0, 28) i32 @Curl_idn_encode(ptr noundef %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #2 {
   %3 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #5
-  store ptr null, ptr %3, align 8, !tbaa !10
+  store ptr null, ptr %3, align 8, !tbaa !9
   %4 = call i32 @idn2_to_unicode_8z8z(ptr noundef %0, ptr noundef nonnull %3, i32 noundef 0) #5
   %.not.i = icmp eq i32 %4, 0
   br i1 %.not.i, label %idn_encode.exit.thread, label %idn_encode.exit
 
 idn_encode.exit.thread:                           ; preds = %2
-  %5 = load ptr, ptr %3, align 8, !tbaa !10
+  %5 = load ptr, ptr %3, align 8, !tbaa !9
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #5
-  %6 = load ptr, ptr @Curl_cstrdup, align 8, !tbaa !13
+  %6 = load ptr, ptr @Curl_cstrdup, align 8, !tbaa !12
   %7 = call ptr %6(ptr noundef %5) #5
   call void @idn2_free(ptr noundef %5) #5
   %.not9 = icmp eq ptr %7, null
@@ -104,7 +104,7 @@ idn_encode.exit:                                  ; preds = %2
   br label %.thread
 
 10:                                               ; preds = %idn_encode.exit.thread
-  store ptr %7, ptr %1, align 8, !tbaa !10
+  store ptr %7, ptr %1, align 8, !tbaa !9
   br label %.thread
 
 .thread:                                          ; preds = %idn_encode.exit, %idn_encode.exit.thread, %10
@@ -114,11 +114,11 @@ idn_encode.exit:                                  ; preds = %2
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @Curl_free_idnconverted_hostname(ptr noundef captures(none) %0) local_unnamed_addr #2 {
-  %2 = load ptr, ptr @Curl_cfree, align 8, !tbaa !13
+  %2 = load ptr, ptr @Curl_cfree, align 8, !tbaa !12
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !tbaa !14
+  %4 = load ptr, ptr %3, align 8, !tbaa !13
   tail call void %2(ptr noundef %4) #5
-  store ptr null, ptr %3, align 8, !tbaa !14
+  store ptr null, ptr %3, align 8, !tbaa !13
   ret void
 }
 
@@ -126,9 +126,9 @@ define dso_local void @Curl_free_idnconverted_hostname(ptr noundef captures(none
 define dso_local range(i32 0, 28) i32 @Curl_idnconvert_hostname(ptr noundef captures(none) initializes((24, 32)) %0) local_unnamed_addr #2 {
   %2 = alloca ptr, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %4 = load ptr, ptr %3, align 8, !tbaa !16
+  %4 = load ptr, ptr %3, align 8, !tbaa !15
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr %4, ptr %5, align 8, !tbaa !17
+  store ptr %4, ptr %5, align 8, !tbaa !16
   %.not.i = icmp eq ptr %4, null
   br i1 %.not.i, label %Curl_is_ASCII_name.exit.thread, label %.preheader.i
 
@@ -145,7 +145,7 @@ define dso_local range(i32 0, 28) i32 @Curl_idnconvert_hostname(ptr noundef capt
 
 Curl_is_ASCII_name.exit:                          ; preds = %7
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #5
-  store ptr null, ptr %2, align 8, !tbaa !10
+  store ptr null, ptr %2, align 8, !tbaa !9
   %9 = tail call ptr @idn2_check_version(ptr noundef nonnull @.str) #6
   %.not.i.i = icmp eq ptr %9, null
   br i1 %.not.i.i, label %idn_decode.exit.thread.i, label %10
@@ -167,9 +167,9 @@ idn_decode.exit.thread.i:                         ; preds = %12, %Curl_is_ASCII_
   br label %Curl_is_ASCII_name.exit.thread
 
 15:                                               ; preds = %12, %10
-  %16 = load ptr, ptr %2, align 8, !tbaa !10
+  %16 = load ptr, ptr %2, align 8, !tbaa !9
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #5
-  %17 = load ptr, ptr @Curl_cstrdup, align 8, !tbaa !13
+  %17 = load ptr, ptr @Curl_cstrdup, align 8, !tbaa !12
   %18 = call ptr %17(ptr noundef %16) #5
   call void @idn2_free(ptr noundef %16) #5
   %.not9.i10 = icmp eq ptr %18, null
@@ -177,8 +177,8 @@ idn_decode.exit.thread.i:                         ; preds = %12, %Curl_is_ASCII_
 
 .thread:                                          ; preds = %15
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %18, ptr %19, align 8, !tbaa !14
-  store ptr %18, ptr %3, align 8, !tbaa !16
+  store ptr %18, ptr %19, align 8, !tbaa !13
+  store ptr %18, ptr %3, align 8, !tbaa !15
   br label %Curl_is_ASCII_name.exit.thread
 
 Curl_is_ASCII_name.exit.thread:                   ; preds = %.preheader.i, %1, %.thread, %15, %idn_decode.exit.thread.i
@@ -210,14 +210,13 @@ attributes #6 = { nounwind willreturn memory(read) }
 !4 = !{!5, !5, i64 0}
 !5 = !{!"omnipotent char", !6, i64 0}
 !6 = !{!"Simple C/C++ TBAA"}
-!7 = distinct !{!7, !8, !9}
+!7 = distinct !{!7, !8}
 !8 = !{!"llvm.loop.mustprogress"}
-!9 = !{!"llvm.loop.estimated_trip_count"}
-!10 = !{!11, !11, i64 0}
-!11 = !{!"p1 omnipotent char", !12, i64 0}
-!12 = !{!"any pointer", !5, i64 0}
-!13 = !{!12, !12, i64 0}
-!14 = !{!15, !11, i64 8}
-!15 = !{!"hostname", !11, i64 0, !11, i64 8, !11, i64 16, !11, i64 24}
-!16 = !{!15, !11, i64 16}
-!17 = !{!15, !11, i64 24}
+!9 = !{!10, !10, i64 0}
+!10 = !{!"p1 omnipotent char", !11, i64 0}
+!11 = !{!"any pointer", !5, i64 0}
+!12 = !{!11, !11, i64 0}
+!13 = !{!14, !10, i64 8}
+!14 = !{!"hostname", !10, i64 0, !10, i64 8, !10, i64 16, !10, i64 24}
+!15 = !{!14, !10, i64 16}
+!16 = !{!14, !10, i64 24}

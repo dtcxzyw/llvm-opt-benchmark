@@ -322,7 +322,7 @@ _ZNKSt8weak_ptrIN17grpc_event_engine12experimental8ForkableEE4lockEv.exit: ; pre
   br i1 %.not31, label %57, label %49
 
 49:                                               ; preds = %_ZNKSt8weak_ptrIN17grpc_event_engine12experimental8ForkableEE4lockEv.exit
-  %50 = load ptr, ptr %48, align 8, !tbaa !52
+  %50 = load ptr, ptr %48, align 8, !tbaa !51
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 16
   %52 = load ptr, ptr %51, align 8
   invoke void %52(ptr noundef nonnull align 8 dereferenceable(8) %48)
@@ -366,7 +366,7 @@ _ZNKSt8weak_ptrIN17grpc_event_engine12experimental8ForkableEE4lockEv.exit: ; pre
   %72 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i.i.i, i64 8
   %73 = load ptr, ptr %72, align 8, !tbaa !42
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.0910.i.i.i.i.i.i.i, i8 0, i64 16, i1 false)
-  store ptr %71, ptr %.0811.i.i.i.i.i.i.i, align 8, !tbaa !54
+  store ptr %71, ptr %.0811.i.i.i.i.i.i.i, align 8, !tbaa !53
   %74 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i.i.i, i64 8
   %75 = load ptr, ptr %74, align 8, !tbaa !42
   store ptr %73, ptr %74, align 8, !tbaa !42
@@ -395,7 +395,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i.i.i: ; p
   br i1 %84, label %85, label %_ZNSt8weak_ptrIN17grpc_event_engine12experimental8ForkableEEaSEOS3_.exit.i.i.i.i.i.i.i
 
 85:                                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i.i.i
-  %86 = load ptr, ptr %75, align 8, !tbaa !52
+  %86 = load ptr, ptr %75, align 8, !tbaa !51
   %87 = getelementptr inbounds nuw i8, ptr %86, i64 24
   %88 = load ptr, ptr %87, align 8
   call void %88(ptr noundef nonnull align 8 dereferenceable(16) %75) #18
@@ -406,7 +406,7 @@ _ZNSt8weak_ptrIN17grpc_event_engine12experimental8ForkableEEaSEOS3_.exit.i.i.i.i
   %90 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i.i.i, i64 16
   %91 = add nsw i64 %.012.i.i.i.i.i.i.i, -1
   %92 = icmp sgt i64 %.012.i.i.i.i.i.i.i, 1
-  br i1 %92, label %.lr.ph.i.i.i.i.i.i.i, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt8weak_ptrIN17grpc_event_engine12experimental8ForkableEESt6vectorIS6_SaIS6_EEEESB_ET0_T_SD_SC_.exit.loopexit.i.i, !llvm.loop !55
+  br i1 %92, label %.lr.ph.i.i.i.i.i.i.i, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt8weak_ptrIN17grpc_event_engine12experimental8ForkableEESt6vectorIS6_SaIS6_EEEESB_ET0_T_SD_SC_.exit.loopexit.i.i, !llvm.loop !54
 
 _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt8weak_ptrIN17grpc_event_engine12experimental8ForkableEESt6vectorIS6_SaIS6_EEEESB_ET0_T_SD_SC_.exit.loopexit.i.i: ; preds = %_ZNSt8weak_ptrIN17grpc_event_engine12experimental8ForkableEEaSEOS3_.exit.i.i.i.i.i.i.i
   %.pre.i.i = load ptr, ptr %29, align 8, !tbaa !31
@@ -443,7 +443,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i: ; preds = %10
   br i1 %105, label %106, label %_ZNSt6vectorISt8weak_ptrIN17grpc_event_engine12experimental8ForkableEESaIS4_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS4_S6_EE.exit
 
 106:                                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i
-  %107 = load ptr, ptr %96, align 8, !tbaa !52
+  %107 = load ptr, ptr %96, align 8, !tbaa !51
   %108 = getelementptr inbounds nuw i8, ptr %107, i64 24
   %109 = load ptr, ptr %108, align 8
   call void %109(ptr noundef nonnull align 8 dereferenceable(16) %96) #18
@@ -463,14 +463,14 @@ _ZNSt6vectorISt8weak_ptrIN17grpc_event_engine12experimental8ForkableEESaIS4_EE5e
   br i1 %114, label %116, label %124
 
 116:                                              ; preds = %111
-  store i32 0, ptr %112, align 8, !tbaa !56
+  store i32 0, ptr %112, align 8, !tbaa !55
   %117 = getelementptr inbounds nuw i8, ptr %110, i64 12
-  store i32 0, ptr %117, align 4, !tbaa !58
-  %118 = load ptr, ptr %110, align 8, !tbaa !52
+  store i32 0, ptr %117, align 4, !tbaa !57
+  %118 = load ptr, ptr %110, align 8, !tbaa !51
   %119 = getelementptr inbounds nuw i8, ptr %118, i64 16
   %120 = load ptr, ptr %119, align 8
   call void %120(ptr noundef nonnull align 8 dereferenceable(16) %110) #18
-  %121 = load ptr, ptr %110, align 8, !tbaa !52
+  %121 = load ptr, ptr %110, align 8, !tbaa !51
   %122 = getelementptr inbounds nuw i8, ptr %121, i64 24
   %123 = load ptr, ptr %122, align 8
   call void %123(ptr noundef nonnull align 8 dereferenceable(16) %110) #18
@@ -503,7 +503,7 @@ _ZNSt12__shared_ptrIN17grpc_event_engine12experimental8ForkableELN9__gnu_cxx12_L
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #18
   %132 = load ptr, ptr %29, align 8, !tbaa !45
   %.not = icmp eq ptr %.sroa.024.1, %132
-  br i1 %.not, label %.loopexit, label %34, !llvm.loop !59
+  br i1 %.not, label %.loopexit, label %34, !llvm.loop !58
 
 .loopexit:                                        ; preds = %_ZNSt12__shared_ptrIN17grpc_event_engine12experimental8ForkableELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, %.critedge18, %_ZN17grpc_event_engine12experimental12_GLOBAL__N_113IsForkEnabledEv.exit
   ret void
@@ -530,14 +530,14 @@ define linkonce_odr void @_ZNSt12__shared_ptrIN17grpc_event_engine12experimental
   br i1 %7, label %9, label %17
 
 9:                                                ; preds = %4
-  store i32 0, ptr %5, align 8, !tbaa !56
+  store i32 0, ptr %5, align 8, !tbaa !55
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 12
-  store i32 0, ptr %10, align 4, !tbaa !58
-  %11 = load ptr, ptr %3, align 8, !tbaa !52
+  store i32 0, ptr %10, align 4, !tbaa !57
+  %11 = load ptr, ptr %3, align 8, !tbaa !51
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %13 = load ptr, ptr %12, align 8
   tail call void %13(ptr noundef nonnull align 8 dereferenceable(16) %3) #18
-  %14 = load ptr, ptr %3, align 8, !tbaa !52
+  %14 = load ptr, ptr %3, align 8, !tbaa !51
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 24
   %16 = load ptr, ptr %15, align 8
   tail call void %16(ptr noundef nonnull align 8 dereferenceable(16) %3) #18
@@ -621,7 +621,7 @@ _ZN17grpc_event_engine12experimental12_GLOBAL__N_113IsForkEnabledEv.exit: ; pred
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %21 = load i8, ptr %20, align 1, !tbaa !23, !range !20, !noundef !21
   %22 = trunc nuw i8 %21 to i1
-  br i1 %22, label %.critedge, label %23, !prof !60
+  br i1 %22, label %.critedge, label %23, !prof !59
 
 23:                                               ; preds = %19
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #18
@@ -671,16 +671,16 @@ _ZN17grpc_event_engine12experimental12_GLOBAL__N_113IsForkEnabledEv.exit: ; pred
 34:                                               ; preds = %.lr.ph, %_ZNSt12__shared_ptrIN17grpc_event_engine12experimental8ForkableELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
   %.sroa.024.033 = phi ptr [ %28, %.lr.ph ], [ %.sroa.024.1, %_ZNSt12__shared_ptrIN17grpc_event_engine12experimental8ForkableELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #18
-  call void @llvm.experimental.noalias.scope.decl(metadata !61)
+  call void @llvm.experimental.noalias.scope.decl(metadata !60)
   %35 = getelementptr inbounds nuw i8, ptr %.sroa.024.033, i64 8
-  %36 = load ptr, ptr %35, align 8, !tbaa !42, !noalias !61
-  store ptr %36, ptr %31, align 8, !tbaa !41, !alias.scope !61
+  %36 = load ptr, ptr %35, align 8, !tbaa !42, !noalias !60
+  store ptr %36, ptr %31, align 8, !tbaa !41, !alias.scope !60
   %.not.i.i.i.i = icmp eq ptr %36, null
   br i1 %.not.i.i.i.i, label %_ZNKSt8weak_ptrIN17grpc_event_engine12experimental8ForkableEE4lockEv.exit.thread, label %37
 
 37:                                               ; preds = %34
   %38 = getelementptr inbounds nuw i8, ptr %36, i64 8
-  %39 = load atomic i32, ptr %38 monotonic, align 8, !noalias !61
+  %39 = load atomic i32, ptr %38 monotonic, align 8, !noalias !60
   br label %40
 
 40:                                               ; preds = %41, %37
@@ -690,39 +690,39 @@ _ZN17grpc_event_engine12experimental12_GLOBAL__N_113IsForkEnabledEv.exit: ; pred
 
 41:                                               ; preds = %40
   %42 = add nsw i32 %.06.i.i.i.i.i, 1
-  %43 = cmpxchg weak ptr %38, i32 %.06.i.i.i.i.i, i32 %42 acq_rel monotonic, align 8, !noalias !61
+  %43 = cmpxchg weak ptr %38, i32 %.06.i.i.i.i.i, i32 %42 acq_rel monotonic, align 8, !noalias !60
   %44 = extractvalue { i32, i1 } %43, 1
   %45 = extractvalue { i32, i1 } %43, 0
   br i1 %44, label %_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2ERKSt12__weak_countILS1_2EESt9nothrow_t.exit.i.i.i, label %40, !llvm.loop !49
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE23_M_add_ref_lock_nothrowEv.exit.i.i.i.i: ; preds = %40
-  store ptr null, ptr %31, align 8, !tbaa !41, !alias.scope !61
+  store ptr null, ptr %31, align 8, !tbaa !41, !alias.scope !60
   br label %_ZNKSt8weak_ptrIN17grpc_event_engine12experimental8ForkableEE4lockEv.exit.thread
 
 _ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2ERKSt12__weak_countILS1_2EESt9nothrow_t.exit.i.i.i: ; preds = %41
-  %.pr.i.i.i = load ptr, ptr %31, align 8, !tbaa !41, !alias.scope !61
+  %.pr.i.i.i = load ptr, ptr %31, align 8, !tbaa !41, !alias.scope !60
   %.not.i3.i.i.i = icmp eq ptr %.pr.i.i.i, null
   br i1 %.not.i3.i.i.i, label %_ZNKSt8weak_ptrIN17grpc_event_engine12experimental8ForkableEE4lockEv.exit.thread, label %_ZNKSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EE16_M_get_use_countEv.exit.i.i.i
 
 _ZNKSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EE16_M_get_use_countEv.exit.i.i.i: ; preds = %_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2ERKSt12__weak_countILS1_2EESt9nothrow_t.exit.i.i.i
   %46 = getelementptr inbounds nuw i8, ptr %.pr.i.i.i, i64 8
-  %47 = load atomic i32, ptr %46 monotonic, align 8, !noalias !61
+  %47 = load atomic i32, ptr %46 monotonic, align 8, !noalias !60
   %.fr.i.i.i = freeze i32 %47
   %.not.i.i.i = icmp eq i32 %.fr.i.i.i, 0
-  %48 = load ptr, ptr %.sroa.024.033, align 8, !noalias !61
+  %48 = load ptr, ptr %.sroa.024.033, align 8, !noalias !60
   br i1 %.not.i.i.i, label %_ZNKSt8weak_ptrIN17grpc_event_engine12experimental8ForkableEE4lockEv.exit.thread, label %_ZNKSt8weak_ptrIN17grpc_event_engine12experimental8ForkableEE4lockEv.exit
 
 _ZNKSt8weak_ptrIN17grpc_event_engine12experimental8ForkableEE4lockEv.exit.thread: ; preds = %34, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE23_M_add_ref_lock_nothrowEv.exit.i.i.i.i, %_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2ERKSt12__weak_countILS1_2EESt9nothrow_t.exit.i.i.i, %_ZNKSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EE16_M_get_use_countEv.exit.i.i.i
-  store ptr null, ptr %4, align 8, !tbaa !33, !alias.scope !61
+  store ptr null, ptr %4, align 8, !tbaa !33, !alias.scope !60
   br label %57
 
 _ZNKSt8weak_ptrIN17grpc_event_engine12experimental8ForkableEE4lockEv.exit: ; preds = %_ZNKSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EE16_M_get_use_countEv.exit.i.i.i
-  store ptr %48, ptr %4, align 8, !tbaa !33, !alias.scope !61
+  store ptr %48, ptr %4, align 8, !tbaa !33, !alias.scope !60
   %.not31 = icmp eq ptr %48, null
   br i1 %.not31, label %57, label %49
 
 49:                                               ; preds = %_ZNKSt8weak_ptrIN17grpc_event_engine12experimental8ForkableEE4lockEv.exit
-  %50 = load ptr, ptr %48, align 8, !tbaa !52
+  %50 = load ptr, ptr %48, align 8, !tbaa !51
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 24
   %52 = load ptr, ptr %51, align 8
   invoke void %52(ptr noundef nonnull align 8 dereferenceable(8) %48)
@@ -766,7 +766,7 @@ _ZNKSt8weak_ptrIN17grpc_event_engine12experimental8ForkableEE4lockEv.exit: ; pre
   %72 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i.i.i, i64 8
   %73 = load ptr, ptr %72, align 8, !tbaa !42
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.0910.i.i.i.i.i.i.i, i8 0, i64 16, i1 false)
-  store ptr %71, ptr %.0811.i.i.i.i.i.i.i, align 8, !tbaa !54
+  store ptr %71, ptr %.0811.i.i.i.i.i.i.i, align 8, !tbaa !53
   %74 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i.i.i, i64 8
   %75 = load ptr, ptr %74, align 8, !tbaa !42
   store ptr %73, ptr %74, align 8, !tbaa !42
@@ -795,7 +795,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i.i.i: ; p
   br i1 %84, label %85, label %_ZNSt8weak_ptrIN17grpc_event_engine12experimental8ForkableEEaSEOS3_.exit.i.i.i.i.i.i.i
 
 85:                                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i.i.i
-  %86 = load ptr, ptr %75, align 8, !tbaa !52
+  %86 = load ptr, ptr %75, align 8, !tbaa !51
   %87 = getelementptr inbounds nuw i8, ptr %86, i64 24
   %88 = load ptr, ptr %87, align 8
   call void %88(ptr noundef nonnull align 8 dereferenceable(16) %75) #18
@@ -806,7 +806,7 @@ _ZNSt8weak_ptrIN17grpc_event_engine12experimental8ForkableEEaSEOS3_.exit.i.i.i.i
   %90 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i.i.i, i64 16
   %91 = add nsw i64 %.012.i.i.i.i.i.i.i, -1
   %92 = icmp sgt i64 %.012.i.i.i.i.i.i.i, 1
-  br i1 %92, label %.lr.ph.i.i.i.i.i.i.i, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt8weak_ptrIN17grpc_event_engine12experimental8ForkableEESt6vectorIS6_SaIS6_EEEESB_ET0_T_SD_SC_.exit.loopexit.i.i, !llvm.loop !55
+  br i1 %92, label %.lr.ph.i.i.i.i.i.i.i, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt8weak_ptrIN17grpc_event_engine12experimental8ForkableEESt6vectorIS6_SaIS6_EEEESB_ET0_T_SD_SC_.exit.loopexit.i.i, !llvm.loop !54
 
 _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt8weak_ptrIN17grpc_event_engine12experimental8ForkableEESt6vectorIS6_SaIS6_EEEESB_ET0_T_SD_SC_.exit.loopexit.i.i: ; preds = %_ZNSt8weak_ptrIN17grpc_event_engine12experimental8ForkableEEaSEOS3_.exit.i.i.i.i.i.i.i
   %.pre.i.i = load ptr, ptr %29, align 8, !tbaa !31
@@ -843,7 +843,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i: ; preds = %10
   br i1 %105, label %106, label %_ZNSt6vectorISt8weak_ptrIN17grpc_event_engine12experimental8ForkableEESaIS4_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS4_S6_EE.exit
 
 106:                                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i
-  %107 = load ptr, ptr %96, align 8, !tbaa !52
+  %107 = load ptr, ptr %96, align 8, !tbaa !51
   %108 = getelementptr inbounds nuw i8, ptr %107, i64 24
   %109 = load ptr, ptr %108, align 8
   call void %109(ptr noundef nonnull align 8 dereferenceable(16) %96) #18
@@ -863,14 +863,14 @@ _ZNSt6vectorISt8weak_ptrIN17grpc_event_engine12experimental8ForkableEESaIS4_EE5e
   br i1 %114, label %116, label %124
 
 116:                                              ; preds = %111
-  store i32 0, ptr %112, align 8, !tbaa !56
+  store i32 0, ptr %112, align 8, !tbaa !55
   %117 = getelementptr inbounds nuw i8, ptr %110, i64 12
-  store i32 0, ptr %117, align 4, !tbaa !58
-  %118 = load ptr, ptr %110, align 8, !tbaa !52
+  store i32 0, ptr %117, align 4, !tbaa !57
+  %118 = load ptr, ptr %110, align 8, !tbaa !51
   %119 = getelementptr inbounds nuw i8, ptr %118, i64 16
   %120 = load ptr, ptr %119, align 8
   call void %120(ptr noundef nonnull align 8 dereferenceable(16) %110) #18
-  %121 = load ptr, ptr %110, align 8, !tbaa !52
+  %121 = load ptr, ptr %110, align 8, !tbaa !51
   %122 = getelementptr inbounds nuw i8, ptr %121, i64 24
   %123 = load ptr, ptr %122, align 8
   call void %123(ptr noundef nonnull align 8 dereferenceable(16) %110) #18
@@ -903,7 +903,7 @@ _ZNSt12__shared_ptrIN17grpc_event_engine12experimental8ForkableELN9__gnu_cxx12_L
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #18
   %132 = load ptr, ptr %29, align 8, !tbaa !45
   %.not = icmp eq ptr %.sroa.024.1, %132
-  br i1 %.not, label %._crit_edge, label %34, !llvm.loop !64
+  br i1 %.not, label %._crit_edge, label %34, !llvm.loop !63
 
 133:                                              ; preds = %._crit_edge, %_ZN17grpc_event_engine12experimental12_GLOBAL__N_113IsForkEnabledEv.exit
   ret void
@@ -960,7 +960,7 @@ _ZN17grpc_event_engine12experimental12_GLOBAL__N_113IsForkEnabledEv.exit: ; pred
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %21 = load i8, ptr %20, align 1, !tbaa !23, !range !20, !noundef !21
   %22 = trunc nuw i8 %21 to i1
-  br i1 %22, label %.critedge, label %23, !prof !60
+  br i1 %22, label %.critedge, label %23, !prof !59
 
 23:                                               ; preds = %19
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #18
@@ -1010,16 +1010,16 @@ _ZN17grpc_event_engine12experimental12_GLOBAL__N_113IsForkEnabledEv.exit: ; pred
 34:                                               ; preds = %.lr.ph, %_ZNSt12__shared_ptrIN17grpc_event_engine12experimental8ForkableELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
   %.sroa.024.033 = phi ptr [ %28, %.lr.ph ], [ %.sroa.024.1, %_ZNSt12__shared_ptrIN17grpc_event_engine12experimental8ForkableELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #18
-  call void @llvm.experimental.noalias.scope.decl(metadata !65)
+  call void @llvm.experimental.noalias.scope.decl(metadata !64)
   %35 = getelementptr inbounds nuw i8, ptr %.sroa.024.033, i64 8
-  %36 = load ptr, ptr %35, align 8, !tbaa !42, !noalias !65
-  store ptr %36, ptr %31, align 8, !tbaa !41, !alias.scope !65
+  %36 = load ptr, ptr %35, align 8, !tbaa !42, !noalias !64
+  store ptr %36, ptr %31, align 8, !tbaa !41, !alias.scope !64
   %.not.i.i.i.i = icmp eq ptr %36, null
   br i1 %.not.i.i.i.i, label %_ZNKSt8weak_ptrIN17grpc_event_engine12experimental8ForkableEE4lockEv.exit.thread, label %37
 
 37:                                               ; preds = %34
   %38 = getelementptr inbounds nuw i8, ptr %36, i64 8
-  %39 = load atomic i32, ptr %38 monotonic, align 8, !noalias !65
+  %39 = load atomic i32, ptr %38 monotonic, align 8, !noalias !64
   br label %40
 
 40:                                               ; preds = %41, %37
@@ -1029,39 +1029,39 @@ _ZN17grpc_event_engine12experimental12_GLOBAL__N_113IsForkEnabledEv.exit: ; pred
 
 41:                                               ; preds = %40
   %42 = add nsw i32 %.06.i.i.i.i.i, 1
-  %43 = cmpxchg weak ptr %38, i32 %.06.i.i.i.i.i, i32 %42 acq_rel monotonic, align 8, !noalias !65
+  %43 = cmpxchg weak ptr %38, i32 %.06.i.i.i.i.i, i32 %42 acq_rel monotonic, align 8, !noalias !64
   %44 = extractvalue { i32, i1 } %43, 1
   %45 = extractvalue { i32, i1 } %43, 0
   br i1 %44, label %_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2ERKSt12__weak_countILS1_2EESt9nothrow_t.exit.i.i.i, label %40, !llvm.loop !49
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE23_M_add_ref_lock_nothrowEv.exit.i.i.i.i: ; preds = %40
-  store ptr null, ptr %31, align 8, !tbaa !41, !alias.scope !65
+  store ptr null, ptr %31, align 8, !tbaa !41, !alias.scope !64
   br label %_ZNKSt8weak_ptrIN17grpc_event_engine12experimental8ForkableEE4lockEv.exit.thread
 
 _ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2ERKSt12__weak_countILS1_2EESt9nothrow_t.exit.i.i.i: ; preds = %41
-  %.pr.i.i.i = load ptr, ptr %31, align 8, !tbaa !41, !alias.scope !65
+  %.pr.i.i.i = load ptr, ptr %31, align 8, !tbaa !41, !alias.scope !64
   %.not.i3.i.i.i = icmp eq ptr %.pr.i.i.i, null
   br i1 %.not.i3.i.i.i, label %_ZNKSt8weak_ptrIN17grpc_event_engine12experimental8ForkableEE4lockEv.exit.thread, label %_ZNKSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EE16_M_get_use_countEv.exit.i.i.i
 
 _ZNKSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EE16_M_get_use_countEv.exit.i.i.i: ; preds = %_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2ERKSt12__weak_countILS1_2EESt9nothrow_t.exit.i.i.i
   %46 = getelementptr inbounds nuw i8, ptr %.pr.i.i.i, i64 8
-  %47 = load atomic i32, ptr %46 monotonic, align 8, !noalias !65
+  %47 = load atomic i32, ptr %46 monotonic, align 8, !noalias !64
   %.fr.i.i.i = freeze i32 %47
   %.not.i.i.i = icmp eq i32 %.fr.i.i.i, 0
-  %48 = load ptr, ptr %.sroa.024.033, align 8, !noalias !65
+  %48 = load ptr, ptr %.sroa.024.033, align 8, !noalias !64
   br i1 %.not.i.i.i, label %_ZNKSt8weak_ptrIN17grpc_event_engine12experimental8ForkableEE4lockEv.exit.thread, label %_ZNKSt8weak_ptrIN17grpc_event_engine12experimental8ForkableEE4lockEv.exit
 
 _ZNKSt8weak_ptrIN17grpc_event_engine12experimental8ForkableEE4lockEv.exit.thread: ; preds = %34, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE23_M_add_ref_lock_nothrowEv.exit.i.i.i.i, %_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2ERKSt12__weak_countILS1_2EESt9nothrow_t.exit.i.i.i, %_ZNKSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EE16_M_get_use_countEv.exit.i.i.i
-  store ptr null, ptr %4, align 8, !tbaa !33, !alias.scope !65
+  store ptr null, ptr %4, align 8, !tbaa !33, !alias.scope !64
   br label %57
 
 _ZNKSt8weak_ptrIN17grpc_event_engine12experimental8ForkableEE4lockEv.exit: ; preds = %_ZNKSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EE16_M_get_use_countEv.exit.i.i.i
-  store ptr %48, ptr %4, align 8, !tbaa !33, !alias.scope !65
+  store ptr %48, ptr %4, align 8, !tbaa !33, !alias.scope !64
   %.not31 = icmp eq ptr %48, null
   br i1 %.not31, label %57, label %49
 
 49:                                               ; preds = %_ZNKSt8weak_ptrIN17grpc_event_engine12experimental8ForkableEE4lockEv.exit
-  %50 = load ptr, ptr %48, align 8, !tbaa !52
+  %50 = load ptr, ptr %48, align 8, !tbaa !51
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 32
   %52 = load ptr, ptr %51, align 8
   invoke void %52(ptr noundef nonnull align 8 dereferenceable(8) %48)
@@ -1105,7 +1105,7 @@ _ZNKSt8weak_ptrIN17grpc_event_engine12experimental8ForkableEE4lockEv.exit: ; pre
   %72 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i.i.i, i64 8
   %73 = load ptr, ptr %72, align 8, !tbaa !42
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.0910.i.i.i.i.i.i.i, i8 0, i64 16, i1 false)
-  store ptr %71, ptr %.0811.i.i.i.i.i.i.i, align 8, !tbaa !54
+  store ptr %71, ptr %.0811.i.i.i.i.i.i.i, align 8, !tbaa !53
   %74 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i.i.i, i64 8
   %75 = load ptr, ptr %74, align 8, !tbaa !42
   store ptr %73, ptr %74, align 8, !tbaa !42
@@ -1134,7 +1134,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i.i.i: ; p
   br i1 %84, label %85, label %_ZNSt8weak_ptrIN17grpc_event_engine12experimental8ForkableEEaSEOS3_.exit.i.i.i.i.i.i.i
 
 85:                                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i.i.i
-  %86 = load ptr, ptr %75, align 8, !tbaa !52
+  %86 = load ptr, ptr %75, align 8, !tbaa !51
   %87 = getelementptr inbounds nuw i8, ptr %86, i64 24
   %88 = load ptr, ptr %87, align 8
   call void %88(ptr noundef nonnull align 8 dereferenceable(16) %75) #18
@@ -1145,7 +1145,7 @@ _ZNSt8weak_ptrIN17grpc_event_engine12experimental8ForkableEEaSEOS3_.exit.i.i.i.i
   %90 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i.i.i, i64 16
   %91 = add nsw i64 %.012.i.i.i.i.i.i.i, -1
   %92 = icmp sgt i64 %.012.i.i.i.i.i.i.i, 1
-  br i1 %92, label %.lr.ph.i.i.i.i.i.i.i, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt8weak_ptrIN17grpc_event_engine12experimental8ForkableEESt6vectorIS6_SaIS6_EEEESB_ET0_T_SD_SC_.exit.loopexit.i.i, !llvm.loop !55
+  br i1 %92, label %.lr.ph.i.i.i.i.i.i.i, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt8weak_ptrIN17grpc_event_engine12experimental8ForkableEESt6vectorIS6_SaIS6_EEEESB_ET0_T_SD_SC_.exit.loopexit.i.i, !llvm.loop !54
 
 _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt8weak_ptrIN17grpc_event_engine12experimental8ForkableEESt6vectorIS6_SaIS6_EEEESB_ET0_T_SD_SC_.exit.loopexit.i.i: ; preds = %_ZNSt8weak_ptrIN17grpc_event_engine12experimental8ForkableEEaSEOS3_.exit.i.i.i.i.i.i.i
   %.pre.i.i = load ptr, ptr %29, align 8, !tbaa !31
@@ -1182,7 +1182,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i: ; preds = %10
   br i1 %105, label %106, label %_ZNSt6vectorISt8weak_ptrIN17grpc_event_engine12experimental8ForkableEESaIS4_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS4_S6_EE.exit
 
 106:                                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i
-  %107 = load ptr, ptr %96, align 8, !tbaa !52
+  %107 = load ptr, ptr %96, align 8, !tbaa !51
   %108 = getelementptr inbounds nuw i8, ptr %107, i64 24
   %109 = load ptr, ptr %108, align 8
   call void %109(ptr noundef nonnull align 8 dereferenceable(16) %96) #18
@@ -1202,14 +1202,14 @@ _ZNSt6vectorISt8weak_ptrIN17grpc_event_engine12experimental8ForkableEESaIS4_EE5e
   br i1 %114, label %116, label %124
 
 116:                                              ; preds = %111
-  store i32 0, ptr %112, align 8, !tbaa !56
+  store i32 0, ptr %112, align 8, !tbaa !55
   %117 = getelementptr inbounds nuw i8, ptr %110, i64 12
-  store i32 0, ptr %117, align 4, !tbaa !58
-  %118 = load ptr, ptr %110, align 8, !tbaa !52
+  store i32 0, ptr %117, align 4, !tbaa !57
+  %118 = load ptr, ptr %110, align 8, !tbaa !51
   %119 = getelementptr inbounds nuw i8, ptr %118, i64 16
   %120 = load ptr, ptr %119, align 8
   call void %120(ptr noundef nonnull align 8 dereferenceable(16) %110) #18
-  %121 = load ptr, ptr %110, align 8, !tbaa !52
+  %121 = load ptr, ptr %110, align 8, !tbaa !51
   %122 = getelementptr inbounds nuw i8, ptr %121, i64 24
   %123 = load ptr, ptr %122, align 8
   call void %123(ptr noundef nonnull align 8 dereferenceable(16) %110) #18
@@ -1242,7 +1242,7 @@ _ZNSt12__shared_ptrIN17grpc_event_engine12experimental8ForkableELN9__gnu_cxx12_L
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #18
   %132 = load ptr, ptr %29, align 8, !tbaa !45
   %.not = icmp eq ptr %.sroa.024.1, %132
-  br i1 %.not, label %._crit_edge, label %34, !llvm.loop !68
+  br i1 %.not, label %._crit_edge, label %34, !llvm.loop !67
 
 133:                                              ; preds = %._crit_edge, %_ZN17grpc_event_engine12experimental12_GLOBAL__N_113IsForkEnabledEv.exit
   ret void
@@ -1261,7 +1261,7 @@ declare noundef nonnull align 8 dereferenceable(280) ptr @_ZN9grpc_core10ConfigV
 
 ; Function Attrs: mustprogress noinline nounwind uwtable
 define linkonce_odr void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !52
+  %2 = load ptr, ptr %0, align 8, !tbaa !51
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %4 = load ptr, ptr %3, align 8
   tail call void %4(ptr noundef nonnull align 8 dereferenceable(16) %0) #18
@@ -1286,7 +1286,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i: ; preds = %10, %7
   br i1 %12, label %13, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE19_M_release_last_useEv.exit
 
 13:                                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i
-  %14 = load ptr, ptr %0, align 8, !tbaa !52
+  %14 = load ptr, ptr %0, align 8, !tbaa !51
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 24
   %16 = load ptr, ptr %15, align 8
   tail call void %16(ptr noundef nonnull align 8 dereferenceable(16) %0) #18
@@ -1300,7 +1300,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE19_M_release_last_useEv.ex
 define linkonce_odr void @_ZNSt6vectorISt8weak_ptrIN17grpc_event_engine12experimental8ForkableEESaIS4_EE17_M_realloc_insertIJRSt10shared_ptrIS3_EEEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %1, ptr noundef nonnull align 8 dereferenceable(16) %2) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8, !tbaa !31
-  %6 = load ptr, ptr %0, align 8, !tbaa !69
+  %6 = load ptr, ptr %0, align 8, !tbaa !68
   %7 = ptrtoint ptr %5 to i64
   %8 = ptrtoint ptr %6 to i64
   %9 = sub i64 %7, %8
@@ -1357,19 +1357,19 @@ _ZNSt16allocator_traitsISaISt8weak_ptrIN17grpc_event_engine12experimental8Forkab
 .lr.ph.i.i.i:                                     ; preds = %_ZNSt16allocator_traitsISaISt8weak_ptrIN17grpc_event_engine12experimental8ForkableEEEE9constructIS4_JRSt10shared_ptrIS3_EEEEvRS5_PT_DpOT0_.exit, %.lr.ph.i.i.i
   %.012.i.i.i = phi ptr [ %39, %.lr.ph.i.i.i ], [ %20, %_ZNSt16allocator_traitsISaISt8weak_ptrIN17grpc_event_engine12experimental8ForkableEEEE9constructIS4_JRSt10shared_ptrIS3_EEEEvRS5_PT_DpOT0_.exit ]
   %.0911.i.i.i = phi ptr [ %38, %.lr.ph.i.i.i ], [ %6, %_ZNSt16allocator_traitsISaISt8weak_ptrIN17grpc_event_engine12experimental8ForkableEEEE9constructIS4_JRSt10shared_ptrIS3_EEEEvRS5_PT_DpOT0_.exit ]
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !70)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !73)
-  %34 = load ptr, ptr %.0911.i.i.i, align 8, !tbaa !38, !alias.scope !73, !noalias !70
-  store ptr %34, ptr %.012.i.i.i, align 8, !tbaa !38, !alias.scope !70, !noalias !73
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !69)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !72)
+  %34 = load ptr, ptr %.0911.i.i.i, align 8, !tbaa !38, !alias.scope !72, !noalias !69
+  store ptr %34, ptr %.012.i.i.i, align 8, !tbaa !38, !alias.scope !69, !noalias !72
   %35 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 8
   %36 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 8
-  %37 = load ptr, ptr %36, align 8, !tbaa !42, !alias.scope !73, !noalias !70
-  store ptr %37, ptr %35, align 8, !tbaa !42, !alias.scope !70, !noalias !73
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.0911.i.i.i, i8 0, i64 16, i1 false), !alias.scope !73, !noalias !70
+  %37 = load ptr, ptr %36, align 8, !tbaa !42, !alias.scope !72, !noalias !69
+  store ptr %37, ptr %35, align 8, !tbaa !42, !alias.scope !69, !noalias !72
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.0911.i.i.i, i8 0, i64 16, i1 false), !alias.scope !72, !noalias !69
   %38 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 16
   %39 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 16
   %.not.i.i.i = icmp eq ptr %38, %1
-  br i1 %.not.i.i.i, label %_ZNSt6vectorISt8weak_ptrIN17grpc_event_engine12experimental8ForkableEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit, label %.lr.ph.i.i.i, !llvm.loop !75
+  br i1 %.not.i.i.i, label %_ZNSt6vectorISt8weak_ptrIN17grpc_event_engine12experimental8ForkableEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit, label %.lr.ph.i.i.i, !llvm.loop !74
 
 _ZNSt6vectorISt8weak_ptrIN17grpc_event_engine12experimental8ForkableEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit: ; preds = %.lr.ph.i.i.i, %_ZNSt16allocator_traitsISaISt8weak_ptrIN17grpc_event_engine12experimental8ForkableEEEE9constructIS4_JRSt10shared_ptrIS3_EEEEvRS5_PT_DpOT0_.exit
   %.0.lcssa.i.i.i = phi ptr [ %20, %_ZNSt16allocator_traitsISaISt8weak_ptrIN17grpc_event_engine12experimental8ForkableEEEE9constructIS4_JRSt10shared_ptrIS3_EEEEvRS5_PT_DpOT0_.exit ], [ %39, %.lr.ph.i.i.i ]
@@ -1380,19 +1380,19 @@ _ZNSt6vectorISt8weak_ptrIN17grpc_event_engine12experimental8ForkableEESaIS4_EE11
 .lr.ph.i.i.i17:                                   ; preds = %_ZNSt6vectorISt8weak_ptrIN17grpc_event_engine12experimental8ForkableEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit, %.lr.ph.i.i.i17
   %.012.i.i.i18 = phi ptr [ %46, %.lr.ph.i.i.i17 ], [ %40, %_ZNSt6vectorISt8weak_ptrIN17grpc_event_engine12experimental8ForkableEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit ]
   %.0911.i.i.i19 = phi ptr [ %45, %.lr.ph.i.i.i17 ], [ %1, %_ZNSt6vectorISt8weak_ptrIN17grpc_event_engine12experimental8ForkableEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit ]
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !76)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !79)
-  %41 = load ptr, ptr %.0911.i.i.i19, align 8, !tbaa !38, !alias.scope !79, !noalias !76
-  store ptr %41, ptr %.012.i.i.i18, align 8, !tbaa !38, !alias.scope !76, !noalias !79
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !75)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !78)
+  %41 = load ptr, ptr %.0911.i.i.i19, align 8, !tbaa !38, !alias.scope !78, !noalias !75
+  store ptr %41, ptr %.012.i.i.i18, align 8, !tbaa !38, !alias.scope !75, !noalias !78
   %42 = getelementptr inbounds nuw i8, ptr %.012.i.i.i18, i64 8
   %43 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i19, i64 8
-  %44 = load ptr, ptr %43, align 8, !tbaa !42, !alias.scope !79, !noalias !76
-  store ptr %44, ptr %42, align 8, !tbaa !42, !alias.scope !76, !noalias !79
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.0911.i.i.i19, i8 0, i64 16, i1 false), !alias.scope !79, !noalias !76
+  %44 = load ptr, ptr %43, align 8, !tbaa !42, !alias.scope !78, !noalias !75
+  store ptr %44, ptr %42, align 8, !tbaa !42, !alias.scope !75, !noalias !78
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.0911.i.i.i19, i8 0, i64 16, i1 false), !alias.scope !78, !noalias !75
   %45 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i19, i64 16
   %46 = getelementptr inbounds nuw i8, ptr %.012.i.i.i18, i64 16
   %.not.i.i.i20 = icmp eq ptr %45, %5
-  br i1 %.not.i.i.i20, label %_ZNSt6vectorISt8weak_ptrIN17grpc_event_engine12experimental8ForkableEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit22, label %.lr.ph.i.i.i17, !llvm.loop !75
+  br i1 %.not.i.i.i20, label %_ZNSt6vectorISt8weak_ptrIN17grpc_event_engine12experimental8ForkableEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit22, label %.lr.ph.i.i.i17, !llvm.loop !74
 
 _ZNSt6vectorISt8weak_ptrIN17grpc_event_engine12experimental8ForkableEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit22: ; preds = %.lr.ph.i.i.i17, %_ZNSt6vectorISt8weak_ptrIN17grpc_event_engine12experimental8ForkableEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit
   %.0.lcssa.i.i.i21 = phi ptr [ %40, %_ZNSt6vectorISt8weak_ptrIN17grpc_event_engine12experimental8ForkableEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit ], [ %46, %.lr.ph.i.i.i17 ]
@@ -1408,7 +1408,7 @@ _ZNSt6vectorISt8weak_ptrIN17grpc_event_engine12experimental8ForkableEESaIS4_EE11
   br label %_ZNSt12_Vector_baseISt8weak_ptrIN17grpc_event_engine12experimental8ForkableEESaIS4_EE13_M_deallocateEPS4_m.exit
 
 _ZNSt12_Vector_baseISt8weak_ptrIN17grpc_event_engine12experimental8ForkableEESaIS4_EE13_M_deallocateEPS4_m.exit: ; preds = %_ZNSt6vectorISt8weak_ptrIN17grpc_event_engine12experimental8ForkableEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit22, %48
-  store ptr %20, ptr %0, align 8, !tbaa !69
+  store ptr %20, ptr %0, align 8, !tbaa !68
   store ptr %.0.lcssa.i.i.i21, ptr %4, align 8, !tbaa !31
   %52 = getelementptr inbounds nuw %"class.std::weak_ptr", ptr %20, i64 %16
   store ptr %52, ptr %47, align 8, !tbaa !32
@@ -1525,35 +1525,34 @@ attributes #24 = { builtin nounwind }
 !46 = !{!47}
 !47 = distinct !{!47, !48, !"_ZNKSt8weak_ptrIN17grpc_event_engine12experimental8ForkableEE4lockEv: argument 0"}
 !48 = distinct !{!48, !"_ZNKSt8weak_ptrIN17grpc_event_engine12experimental8ForkableEE4lockEv"}
-!49 = distinct !{!49, !50, !51}
+!49 = distinct !{!49, !50}
 !50 = !{!"llvm.loop.mustprogress"}
-!51 = !{!"llvm.loop.estimated_trip_count"}
-!52 = !{!53, !53, i64 0}
-!53 = !{!"vtable pointer", !8, i64 0}
-!54 = !{!35, !35, i64 0}
-!55 = distinct !{!55, !50, !51}
-!56 = !{!57, !6, i64 8}
-!57 = !{!"_ZTSSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE", !6, i64 8, !6, i64 12}
-!58 = !{!57, !6, i64 12}
-!59 = distinct !{!59, !50, !51}
-!60 = !{!"branch_weights", !"expected", i32 2000, i32 1}
-!61 = !{!62}
-!62 = distinct !{!62, !63, !"_ZNKSt8weak_ptrIN17grpc_event_engine12experimental8ForkableEE4lockEv: argument 0"}
-!63 = distinct !{!63, !"_ZNKSt8weak_ptrIN17grpc_event_engine12experimental8ForkableEE4lockEv"}
-!64 = distinct !{!64, !50, !51}
-!65 = !{!66}
-!66 = distinct !{!66, !67, !"_ZNKSt8weak_ptrIN17grpc_event_engine12experimental8ForkableEE4lockEv: argument 0"}
-!67 = distinct !{!67, !"_ZNKSt8weak_ptrIN17grpc_event_engine12experimental8ForkableEE4lockEv"}
-!68 = distinct !{!68, !50, !51}
-!69 = !{!28, !29, i64 0}
-!70 = !{!71}
-!71 = distinct !{!71, !72, !"_ZSt19__relocate_object_aISt8weak_ptrIN17grpc_event_engine12experimental8ForkableEES4_SaIS4_EEvPT_PT0_RT1_: argument 0"}
-!72 = distinct !{!72, !"_ZSt19__relocate_object_aISt8weak_ptrIN17grpc_event_engine12experimental8ForkableEES4_SaIS4_EEvPT_PT0_RT1_"}
-!73 = !{!74}
-!74 = distinct !{!74, !72, !"_ZSt19__relocate_object_aISt8weak_ptrIN17grpc_event_engine12experimental8ForkableEES4_SaIS4_EEvPT_PT0_RT1_: argument 1"}
-!75 = distinct !{!75, !50, !51}
-!76 = !{!77}
-!77 = distinct !{!77, !78, !"_ZSt19__relocate_object_aISt8weak_ptrIN17grpc_event_engine12experimental8ForkableEES4_SaIS4_EEvPT_PT0_RT1_: argument 0"}
-!78 = distinct !{!78, !"_ZSt19__relocate_object_aISt8weak_ptrIN17grpc_event_engine12experimental8ForkableEES4_SaIS4_EEvPT_PT0_RT1_"}
-!79 = !{!80}
-!80 = distinct !{!80, !78, !"_ZSt19__relocate_object_aISt8weak_ptrIN17grpc_event_engine12experimental8ForkableEES4_SaIS4_EEvPT_PT0_RT1_: argument 1"}
+!51 = !{!52, !52, i64 0}
+!52 = !{!"vtable pointer", !8, i64 0}
+!53 = !{!35, !35, i64 0}
+!54 = distinct !{!54, !50}
+!55 = !{!56, !6, i64 8}
+!56 = !{!"_ZTSSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE", !6, i64 8, !6, i64 12}
+!57 = !{!56, !6, i64 12}
+!58 = distinct !{!58, !50}
+!59 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!60 = !{!61}
+!61 = distinct !{!61, !62, !"_ZNKSt8weak_ptrIN17grpc_event_engine12experimental8ForkableEE4lockEv: argument 0"}
+!62 = distinct !{!62, !"_ZNKSt8weak_ptrIN17grpc_event_engine12experimental8ForkableEE4lockEv"}
+!63 = distinct !{!63, !50}
+!64 = !{!65}
+!65 = distinct !{!65, !66, !"_ZNKSt8weak_ptrIN17grpc_event_engine12experimental8ForkableEE4lockEv: argument 0"}
+!66 = distinct !{!66, !"_ZNKSt8weak_ptrIN17grpc_event_engine12experimental8ForkableEE4lockEv"}
+!67 = distinct !{!67, !50}
+!68 = !{!28, !29, i64 0}
+!69 = !{!70}
+!70 = distinct !{!70, !71, !"_ZSt19__relocate_object_aISt8weak_ptrIN17grpc_event_engine12experimental8ForkableEES4_SaIS4_EEvPT_PT0_RT1_: argument 0"}
+!71 = distinct !{!71, !"_ZSt19__relocate_object_aISt8weak_ptrIN17grpc_event_engine12experimental8ForkableEES4_SaIS4_EEvPT_PT0_RT1_"}
+!72 = !{!73}
+!73 = distinct !{!73, !71, !"_ZSt19__relocate_object_aISt8weak_ptrIN17grpc_event_engine12experimental8ForkableEES4_SaIS4_EEvPT_PT0_RT1_: argument 1"}
+!74 = distinct !{!74, !50}
+!75 = !{!76}
+!76 = distinct !{!76, !77, !"_ZSt19__relocate_object_aISt8weak_ptrIN17grpc_event_engine12experimental8ForkableEES4_SaIS4_EEvPT_PT0_RT1_: argument 0"}
+!77 = distinct !{!77, !"_ZSt19__relocate_object_aISt8weak_ptrIN17grpc_event_engine12experimental8ForkableEES4_SaIS4_EEvPT_PT0_RT1_"}
+!78 = !{!79}
+!79 = distinct !{!79, !77, !"_ZSt19__relocate_object_aISt8weak_ptrIN17grpc_event_engine12experimental8ForkableEES4_SaIS4_EEvPT_PT0_RT1_: argument 1"}

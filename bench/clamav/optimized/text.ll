@@ -41,7 +41,7 @@ define void @textDestroy(ptr noundef captures(address_is_null) %0) local_unnamed
 7:                                                ; preds = %5, %.lr.ph
   tail call void @free(ptr noundef nonnull %.010) #7
   %.not = icmp eq ptr %3, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !11
+  br i1 %.not, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %7, %1
   ret void
@@ -117,7 +117,7 @@ define ptr @textAddMessage(ptr noundef captures(address_is_null, ret: address, p
 25:                                               ; preds = %23, %.lr.ph.i.i.i
   tail call void @free(ptr noundef nonnull %.010.i.i.i) #7
   %.not.i.i.i = icmp eq ptr %21, null
-  br i1 %.not.i.i.i, label %textAdd.exit, label %.lr.ph.i.i.i, !llvm.loop !11
+  br i1 %.not.i.i.i, label %textAdd.exit, label %.lr.ph.i.i.i
 
 26:                                               ; preds = %17
   %27 = getelementptr inbounds nuw i8, ptr %14, i64 8
@@ -136,7 +136,7 @@ define ptr @textAddMessage(ptr noundef captures(address_is_null, ret: address, p
   %32 = getelementptr inbounds nuw i8, ptr %.01927.i.i, i64 8
   %33 = load ptr, ptr %32, align 8, !tbaa !3
   %.not.i.i = icmp eq ptr %33, null
-  br i1 %.not.i.i, label %34, label %.preheader.i, !llvm.loop !13
+  br i1 %.not.i.i, label %34, label %.preheader.i
 
 34:                                               ; preds = %31
   %.not22.i.i = icmp eq ptr %.118.i.i, null
@@ -157,7 +157,7 @@ define ptr @textAddMessage(ptr noundef captures(address_is_null, ret: address, p
   %39 = load ptr, ptr %38, align 8, !tbaa !3
   %.not.i = icmp eq ptr %39, null
   %40 = add nuw nsw i32 %.0.i, 1
-  br i1 %.not.i, label %41, label %.preheader33.i, !llvm.loop !14
+  br i1 %.not.i, label %41, label %.preheader33.i
 
 41:                                               ; preds = %.preheader33.i
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.12, i32 noundef %.0.i) #7
@@ -191,7 +191,7 @@ define ptr @textAddMessage(ptr noundef captures(address_is_null, ret: address, p
   %51 = getelementptr inbounds nuw i8, ptr %.02237.i, i64 8
   %52 = load ptr, ptr %51, align 8, !tbaa !3
   %.not30.i = icmp eq ptr %52, null
-  br i1 %.not30.i, label %53, label %42, !llvm.loop !15
+  br i1 %.not30.i, label %53, label %42
 
 53:                                               ; preds = %50
   %54 = getelementptr inbounds nuw i8, ptr %43, i64 8
@@ -211,7 +211,7 @@ define ptr @textAddMessage(ptr noundef captures(address_is_null, ret: address, p
   %59 = getelementptr inbounds nuw i8, ptr %.029.i, i64 8
   %60 = load ptr, ptr %59, align 8, !tbaa !3
   %.not.i16 = icmp eq ptr %60, null
-  br i1 %.not.i16, label %61, label %.preheader.i15, !llvm.loop !16
+  br i1 %.not.i16, label %61, label %.preheader.i15
 
 61:                                               ; preds = %.preheader.i15
   %62 = getelementptr inbounds nuw i8, ptr %.029.i, i64 8
@@ -300,7 +300,7 @@ define noundef ptr @textMove(ptr noundef captures(address_is_null, ret: address,
   %17 = getelementptr inbounds nuw i8, ptr %.029, i64 8
   %18 = load ptr, ptr %17, align 8, !tbaa !3
   %.not = icmp eq ptr %18, null
-  br i1 %.not, label %19, label %.preheader, !llvm.loop !16
+  br i1 %.not, label %19, label %.preheader
 
 19:                                               ; preds = %.preheader
   %20 = getelementptr inbounds nuw i8, ptr %.029, i64 8
@@ -369,7 +369,7 @@ getLength.exit:                                   ; preds = %6, %11
   %13 = getelementptr inbounds nuw i8, ptr %.121.i, i64 8
   %14 = load ptr, ptr %13, align 8, !tbaa !3
   %.not15.i = icmp eq ptr %14, null
-  br i1 %.not15.i, label %textIterate.exit, label %.preheader.i, !llvm.loop !17
+  br i1 %.not15.i, label %textIterate.exit, label %.preheader.i
 
 textIterate.exit:                                 ; preds = %getLength.exit
   %15 = icmp eq i64 %storemerge.i, 0
@@ -429,7 +429,7 @@ addToBlob.exit33:                                 ; preds = %.preheader18.i, %27
   %36 = getelementptr inbounds nuw i8, ptr %.020.i, i64 8
   %37 = load ptr, ptr %36, align 8, !tbaa !3
   %.not16.i = icmp eq ptr %37, null
-  br i1 %.not16.i, label %textIterate.exit28, label %.preheader18.i, !llvm.loop !18
+  br i1 %.not16.i, label %textIterate.exit28, label %.preheader18.i
 
 .preheader.i25:                                   ; preds = %25, %addToBlob.exit
   %.121.i26 = phi ptr [ %45, %addToBlob.exit ], [ %0, %25 ]
@@ -448,7 +448,7 @@ addToBlob.exit:                                   ; preds = %.preheader.i25, %39
   %44 = getelementptr inbounds nuw i8, ptr %.121.i26, i64 8
   %45 = load ptr, ptr %44, align 8, !tbaa !3
   %.not15.i27 = icmp eq ptr %45, null
-  br i1 %.not15.i27, label %textIterate.exit28, label %.preheader.i25, !llvm.loop !17
+  br i1 %.not15.i27, label %textIterate.exit28, label %.preheader.i25
 
 textIterate.exit28:                               ; preds = %35, %addToBlob.exit
   br i1 %.not.i, label %55, label %46
@@ -474,7 +474,7 @@ textIterate.exit28:                               ; preds = %35, %addToBlob.exit
 54:                                               ; preds = %52, %.lr.ph.i
   tail call void @free(ptr noundef nonnull %.010.i) #7
   %.not.i29 = icmp eq ptr %50, null
-  br i1 %.not.i29, label %textDestroy.exit, label %.lr.ph.i, !llvm.loop !11
+  br i1 %.not.i29, label %textDestroy.exit, label %.lr.ph.i
 
 textDestroy.exit:                                 ; preds = %54
   store ptr null, ptr %47, align 8, !tbaa !3
@@ -520,7 +520,7 @@ define nonnull ptr @textToFileblob(ptr noundef captures(address_is_null) %0, ptr
   %8 = tail call ptr @fileblobGetFilename(ptr noundef nonnull %1) #7
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.10, ptr noundef %8, i32 noundef %2) #7
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  store ptr null, ptr %9, align 8, !tbaa !19
+  store ptr null, ptr %9, align 8, !tbaa !11
   %.not.i = icmp eq i32 %2, 0
   br i1 %.not.i, label %.preheader.i, label %.preheader18.i
 
@@ -551,7 +551,7 @@ addToFileblob.exit27:                             ; preds = %.preheader18.i, %11
   %20 = getelementptr inbounds nuw i8, ptr %.020.i, i64 8
   %21 = load ptr, ptr %20, align 8, !tbaa !3
   %.not16.i = icmp eq ptr %21, null
-  br i1 %.not16.i, label %textIterate.exit, label %.preheader18.i, !llvm.loop !18
+  br i1 %.not16.i, label %textIterate.exit, label %.preheader18.i
 
 .preheader.i:                                     ; preds = %7, %addToFileblob.exit
   %.121.i = phi ptr [ %29, %addToFileblob.exit ], [ %0, %7 ]
@@ -570,7 +570,7 @@ addToFileblob.exit:                               ; preds = %.preheader.i, %23
   %28 = getelementptr inbounds nuw i8, ptr %.121.i, i64 8
   %29 = load ptr, ptr %28, align 8, !tbaa !3
   %.not15.i = icmp eq ptr %29, null
-  br i1 %.not15.i, label %textIterate.exit, label %.preheader.i, !llvm.loop !17
+  br i1 %.not15.i, label %textIterate.exit, label %.preheader.i
 
 textIterate.exit:                                 ; preds = %19, %addToFileblob.exit
   br i1 %.not.i, label %39, label %30
@@ -596,7 +596,7 @@ textIterate.exit:                                 ; preds = %19, %addToFileblob.
 38:                                               ; preds = %36, %.lr.ph.i
   tail call void @free(ptr noundef nonnull %.010.i) #7
   %.not.i24 = icmp eq ptr %34, null
-  br i1 %.not.i24, label %textDestroy.exit, label %.lr.ph.i, !llvm.loop !11
+  br i1 %.not.i24, label %textDestroy.exit, label %.lr.ph.i
 
 textDestroy.exit:                                 ; preds = %38
   store ptr null, ptr %31, align 8, !tbaa !3
@@ -649,18 +649,10 @@ attributes #10 = { nounwind willreturn memory(read) }
 !8 = !{!"Simple C/C++ TBAA"}
 !9 = !{!"p1 _ZTS4text", !6, i64 0}
 !10 = !{!4, !5, i64 0}
-!11 = distinct !{!11, !12}
-!12 = !{!"llvm.loop.estimated_trip_count"}
-!13 = distinct !{!13, !12}
-!14 = distinct !{!14, !12}
-!15 = distinct !{!15, !12}
-!16 = distinct !{!16, !12}
-!17 = distinct !{!17, !12}
-!18 = distinct !{!18, !12}
-!19 = !{!20, !25, i64 64}
-!20 = !{!"fileblob", !21, i64 0, !22, i64 8, !23, i64 16, !5, i64 56, !25, i64 64, !24, i64 72, !22, i64 80, !22, i64 80}
-!21 = !{!"p1 _ZTS8_IO_FILE", !6, i64 0}
-!22 = !{!"int", !7, i64 0}
-!23 = !{!"blob", !5, i64 0, !5, i64 8, !24, i64 16, !24, i64 24, !22, i64 32}
-!24 = !{!"long", !7, i64 0}
-!25 = !{!"p1 _ZTS11cli_ctx_tag", !6, i64 0}
+!11 = !{!12, !17, i64 64}
+!12 = !{!"fileblob", !13, i64 0, !14, i64 8, !15, i64 16, !5, i64 56, !17, i64 64, !16, i64 72, !14, i64 80, !14, i64 80}
+!13 = !{!"p1 _ZTS8_IO_FILE", !6, i64 0}
+!14 = !{!"int", !7, i64 0}
+!15 = !{!"blob", !5, i64 0, !5, i64 8, !16, i64 16, !16, i64 24, !14, i64 32}
+!16 = !{!"long", !7, i64 0}
+!17 = !{!"p1 _ZTS11cli_ctx_tag", !6, i64 0}

@@ -137,7 +137,7 @@ define internal fastcc void @_ZN3gmx12_GLOBAL__N_121doMrcDensityMapHeaderEPNS_11
   tail call void %15(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %.0.ptr.i)
   %.0.add.i = add nuw nsw i64 %.0.idx9.i, 4
   %.not.i = icmp eq i64 %.0.add.i, 12
-  br i1 %.not.i, label %_ZN3gmx12_GLOBAL__N_19serializeISt5arrayIiLm3EEEENSt9enable_ifIXsr3stdE9is_same_vINT_10value_typeEiEEvE4typeEPNS_11ISerializerEPS5_.exit, label %12, !llvm.loop !15
+  br i1 %.not.i, label %_ZN3gmx12_GLOBAL__N_19serializeISt5arrayIiLm3EEEENSt9enable_ifIXsr3stdE9is_same_vINT_10value_typeEiEEvE4typeEPNS_11ISerializerEPS5_.exit, label %12
 
 _ZN3gmx12_GLOBAL__N_19serializeISt5arrayIiLm3EEEENSt9enable_ifIXsr3stdE9is_same_vINT_10value_typeEiEEvE4typeEPNS_11ISerializerEPS5_.exit: ; preds = %12
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 4
@@ -149,8 +149,8 @@ _ZN3gmx12_GLOBAL__N_19serializeISt5arrayIiLm3EEEENSt9enable_ifIXsr3stdE9is_same_
   br i1 %20, label %23, label %21
 
 21:                                               ; preds = %_ZN3gmx12_GLOBAL__N_19serializeISt5arrayIiLm3EEEENSt9enable_ifIXsr3stdE9is_same_vINT_10value_typeEiEEvE4typeEPNS_11ISerializerEPS5_.exit
-  %22 = load i32, ptr %16, align 4, !tbaa !17
-  store i32 %22, ptr %9, align 4, !tbaa !19
+  %22 = load i32, ptr %16, align 4, !tbaa !15
+  store i32 %22, ptr %9, align 4, !tbaa !17
   br label %23
 
 23:                                               ; preds = %21, %_ZN3gmx12_GLOBAL__N_19serializeISt5arrayIiLm3EEEENSt9enable_ifIXsr3stdE9is_same_vINT_10value_typeEiEEvE4typeEPNS_11ISerializerEPS5_.exit
@@ -165,8 +165,8 @@ _ZN3gmx12_GLOBAL__N_19serializeISt5arrayIiLm3EEEENSt9enable_ifIXsr3stdE9is_same_
   br i1 %30, label %31, label %_ZN3gmx12_GLOBAL__N_116serializeAsInt32INS_11MrcDataModeEEENSt9enable_ifIXoosr3stdE13is_integral_vIT_Esr3stdE9is_enum_vIS4_EEvE4typeEPNS_11ISerializerEPS4_.exit
 
 31:                                               ; preds = %23
-  %32 = load i32, ptr %9, align 4, !tbaa !19
-  store i32 %32, ptr %16, align 4, !tbaa !17
+  %32 = load i32, ptr %9, align 4, !tbaa !17
+  store i32 %32, ptr %16, align 4, !tbaa !15
   br label %_ZN3gmx12_GLOBAL__N_116serializeAsInt32INS_11MrcDataModeEEENSt9enable_ifIXoosr3stdE13is_integral_vIT_Esr3stdE9is_enum_vIS4_EEvE4typeEPNS_11ISerializerEPS4_.exit
 
 _ZN3gmx12_GLOBAL__N_116serializeAsInt32INS_11MrcDataModeEEENSt9enable_ifIXoosr3stdE13is_integral_vIT_Esr3stdE9is_enum_vIS4_EEvE4typeEPNS_11ISerializerEPS4_.exit: ; preds = %23, %31
@@ -183,7 +183,7 @@ _ZN3gmx12_GLOBAL__N_116serializeAsInt32INS_11MrcDataModeEEENSt9enable_ifIXoosr3s
   call void %37(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %.0.ptr.i80)
   %.0.add.i81 = add nuw nsw i64 %.0.idx9.i79, 4
   %.not.i82 = icmp eq i64 %.0.add.i81, 12
-  br i1 %.not.i82, label %_ZN3gmx12_GLOBAL__N_19serializeISt5arrayIiLm3EEEENSt9enable_ifIXsr3stdE9is_same_vINT_10value_typeEiEEvE4typeEPNS_11ISerializerEPS5_.exit83, label %34, !llvm.loop !15
+  br i1 %.not.i82, label %_ZN3gmx12_GLOBAL__N_19serializeISt5arrayIiLm3EEEENSt9enable_ifIXsr3stdE9is_same_vINT_10value_typeEiEEvE4typeEPNS_11ISerializerEPS5_.exit83, label %34
 
 _ZN3gmx12_GLOBAL__N_19serializeISt5arrayIiLm3EEEENSt9enable_ifIXsr3stdE9is_same_vINT_10value_typeEiEEvE4typeEPNS_11ISerializerEPS5_.exit83: ; preds = %34
   %38 = getelementptr inbounds nuw i8, ptr %1, i64 936
@@ -198,7 +198,7 @@ _ZN3gmx12_GLOBAL__N_19serializeISt5arrayIiLm3EEEENSt9enable_ifIXsr3stdE9is_same_
   call void %42(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %.0.ptr.i85)
   %.0.add.i86 = add nuw nsw i64 %.0.idx9.i84, 4
   %.not.i87 = icmp eq i64 %.0.add.i86, 12
-  br i1 %.not.i87, label %_ZN3gmx12_GLOBAL__N_19serializeISt5arrayIiLm3EEEENSt9enable_ifIXsr3stdE9is_same_vINT_10value_typeEiEEvE4typeEPNS_11ISerializerEPS5_.exit88, label %39, !llvm.loop !15
+  br i1 %.not.i87, label %_ZN3gmx12_GLOBAL__N_19serializeISt5arrayIiLm3EEEENSt9enable_ifIXsr3stdE9is_same_vINT_10value_typeEiEEvE4typeEPNS_11ISerializerEPS5_.exit88, label %39
 
 _ZN3gmx12_GLOBAL__N_19serializeISt5arrayIiLm3EEEENSt9enable_ifIXsr3stdE9is_same_vINT_10value_typeEiEEvE4typeEPNS_11ISerializerEPS5_.exit88: ; preds = %39
   %43 = getelementptr inbounds nuw i8, ptr %1, i64 876
@@ -213,7 +213,7 @@ _ZN3gmx12_GLOBAL__N_19serializeISt5arrayIiLm3EEEENSt9enable_ifIXsr3stdE9is_same_
   call void %47(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %.0.ptr.i90)
   %.0.add.i91 = add nuw nsw i64 %.0.idx9.i89, 4
   %.not.i92 = icmp eq i64 %.0.add.i91, 12
-  br i1 %.not.i92, label %_ZN3gmx12_GLOBAL__N_19serializeISt5arrayIfLm3EEEENSt9enable_ifIXsr3stdE9is_same_vINT_10value_typeEfEEvE4typeEPNS_11ISerializerEPS5_.exit, label %44, !llvm.loop !21
+  br i1 %.not.i92, label %_ZN3gmx12_GLOBAL__N_19serializeISt5arrayIfLm3EEEENSt9enable_ifIXsr3stdE9is_same_vINT_10value_typeEfEEvE4typeEPNS_11ISerializerEPS5_.exit, label %44
 
 _ZN3gmx12_GLOBAL__N_19serializeISt5arrayIfLm3EEEENSt9enable_ifIXsr3stdE9is_same_vINT_10value_typeEfEEvE4typeEPNS_11ISerializerEPS5_.exit: ; preds = %44
   %48 = getelementptr inbounds nuw i8, ptr %1, i64 888
@@ -228,7 +228,7 @@ _ZN3gmx12_GLOBAL__N_19serializeISt5arrayIfLm3EEEENSt9enable_ifIXsr3stdE9is_same_
   call void %52(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %.0.ptr.i94)
   %.0.add.i95 = add nuw nsw i64 %.0.idx9.i93, 4
   %.not.i96 = icmp eq i64 %.0.add.i95, 12
-  br i1 %.not.i96, label %_ZN3gmx12_GLOBAL__N_19serializeISt5arrayIfLm3EEEENSt9enable_ifIXsr3stdE9is_same_vINT_10value_typeEfEEvE4typeEPNS_11ISerializerEPS5_.exit97, label %49, !llvm.loop !21
+  br i1 %.not.i96, label %_ZN3gmx12_GLOBAL__N_19serializeISt5arrayIfLm3EEEENSt9enable_ifIXsr3stdE9is_same_vINT_10value_typeEfEEvE4typeEPNS_11ISerializerEPS5_.exit97, label %49
 
 _ZN3gmx12_GLOBAL__N_19serializeISt5arrayIfLm3EEEENSt9enable_ifIXsr3stdE9is_same_vINT_10value_typeEfEEvE4typeEPNS_11ISerializerEPS5_.exit97: ; preds = %49
   %53 = getelementptr inbounds nuw i8, ptr %1, i64 900
@@ -245,9 +245,9 @@ _ZN3gmx12_GLOBAL__N_19serializeISt5arrayIfLm3EEEENSt9enable_ifIXsr3stdE9is_same_
   br i1 %58, label %62, label %59
 
 59:                                               ; preds = %54
-  %60 = load i32, ptr %.0.ptr10.i, align 4, !tbaa !19
+  %60 = load i32, ptr %.0.ptr10.i, align 4, !tbaa !17
   %61 = add nsw i32 %60, 1
-  store i32 %61, ptr %8, align 4, !tbaa !19
+  store i32 %61, ptr %8, align 4, !tbaa !17
   br label %62
 
 62:                                               ; preds = %59, %54
@@ -262,16 +262,16 @@ _ZN3gmx12_GLOBAL__N_19serializeISt5arrayIfLm3EEEENSt9enable_ifIXsr3stdE9is_same_
   br i1 %69, label %70, label %_ZN3gmx12_GLOBAL__N_114serializeIndexEPNS_11ISerializerEPi.exit.i
 
 70:                                               ; preds = %62
-  %71 = load i32, ptr %8, align 4, !tbaa !19
+  %71 = load i32, ptr %8, align 4, !tbaa !17
   %72 = add nsw i32 %71, -1
-  store i32 %72, ptr %.0.ptr10.i, align 4, !tbaa !19
+  store i32 %72, ptr %.0.ptr10.i, align 4, !tbaa !17
   br label %_ZN3gmx12_GLOBAL__N_114serializeIndexEPNS_11ISerializerEPi.exit.i
 
 _ZN3gmx12_GLOBAL__N_114serializeIndexEPNS_11ISerializerEPi.exit.i: ; preds = %70, %62
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #9
   %.0.add.i99 = add nuw nsw i64 %.0.idx9.i98, 4
   %.not.i100 = icmp eq i64 %.0.add.i99, 12
-  br i1 %.not.i100, label %_ZN3gmx12_GLOBAL__N_116serializeIndicesEPNS_11ISerializerEPSt5arrayIiLm3EE.exit, label %54, !llvm.loop !22
+  br i1 %.not.i100, label %_ZN3gmx12_GLOBAL__N_116serializeIndicesEPNS_11ISerializerEPSt5arrayIiLm3EE.exit, label %54
 
 _ZN3gmx12_GLOBAL__N_116serializeIndicesEPNS_11ISerializerEPSt5arrayIiLm3EE.exit: ; preds = %_ZN3gmx12_GLOBAL__N_114serializeIndexEPNS_11ISerializerEPi.exit.i
   %73 = getelementptr inbounds nuw i8, ptr %1, i64 948
@@ -297,8 +297,8 @@ _ZN3gmx12_GLOBAL__N_116serializeIndicesEPNS_11ISerializerEPSt5arrayIiLm3EE.exit:
   br i1 %88, label %91, label %89
 
 89:                                               ; preds = %_ZN3gmx12_GLOBAL__N_116serializeIndicesEPNS_11ISerializerEPSt5arrayIiLm3EE.exit
-  %90 = load i32, ptr %1, align 4, !tbaa !23
-  store i32 %90, ptr %7, align 4, !tbaa !19
+  %90 = load i32, ptr %1, align 4, !tbaa !19
+  store i32 %90, ptr %7, align 4, !tbaa !17
   br label %91
 
 91:                                               ; preds = %89, %_ZN3gmx12_GLOBAL__N_116serializeIndicesEPNS_11ISerializerEPSt5arrayIiLm3EE.exit
@@ -313,8 +313,8 @@ _ZN3gmx12_GLOBAL__N_116serializeIndicesEPNS_11ISerializerEPSt5arrayIiLm3EE.exit:
   br i1 %98, label %99, label %_ZN3gmx12_GLOBAL__N_116serializeAsInt32INS_10SpaceGroupEEENSt9enable_ifIXoosr3stdE13is_integral_vIT_Esr3stdE9is_enum_vIS4_EEvE4typeEPNS_11ISerializerEPS4_.exit
 
 99:                                               ; preds = %91
-  %100 = load i32, ptr %7, align 4, !tbaa !19
-  store i32 %100, ptr %1, align 4, !tbaa !23
+  %100 = load i32, ptr %7, align 4, !tbaa !17
+  store i32 %100, ptr %1, align 4, !tbaa !19
   br label %_ZN3gmx12_GLOBAL__N_116serializeAsInt32INS_10SpaceGroupEEENSt9enable_ifIXoosr3stdE13is_integral_vIT_Esr3stdE9is_enum_vIS4_EEvE4typeEPNS_11ISerializerEPS4_.exit
 
 _ZN3gmx12_GLOBAL__N_116serializeAsInt32INS_10SpaceGroupEEENSt9enable_ifIXoosr3stdE13is_integral_vIT_Esr3stdE9is_enum_vIS4_EEvE4typeEPNS_11ISerializerEPS4_.exit: ; preds = %91, %99
@@ -335,7 +335,7 @@ _ZN3gmx12_GLOBAL__N_116serializeAsInt32INS_10SpaceGroupEEENSt9enable_ifIXoosr3st
   %111 = ptrtoint ptr %109 to i64
   %112 = sub i64 %110, %111
   %113 = trunc i64 %112 to i32
-  store i32 %113, ptr %10, align 4, !tbaa !19
+  store i32 %113, ptr %10, align 4, !tbaa !17
   br label %114
 
 114:                                              ; preds = %105, %_ZN3gmx12_GLOBAL__N_116serializeAsInt32INS_10SpaceGroupEEENSt9enable_ifIXoosr3stdE13is_integral_vIT_Esr3stdE9is_enum_vIS4_EEvE4typeEPNS_11ISerializerEPS4_.exit
@@ -351,7 +351,7 @@ _ZN3gmx12_GLOBAL__N_116serializeAsInt32INS_10SpaceGroupEEENSt9enable_ifIXoosr3st
 
 122:                                              ; preds = %114
   %123 = getelementptr inbounds nuw i8, ptr %1, i64 1016
-  %124 = load i32, ptr %10, align 4, !tbaa !19
+  %124 = load i32, ptr %10, align 4, !tbaa !17
   %125 = sext i32 %124 to i64
   call void @_ZNSt6vectorIhSaIhEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %123, i64 noundef %125)
   br label %126
@@ -366,9 +366,9 @@ _ZN3gmx12_GLOBAL__N_116serializeAsInt32INS_10SpaceGroupEEENSt9enable_ifIXoosr3st
   br i1 %131, label %135, label %132
 
 132:                                              ; preds = %126
-  %133 = load i8, ptr %127, align 1, !tbaa !25, !range !27, !noundef !28
+  %133 = load i8, ptr %127, align 1, !tbaa !21, !range !23, !noundef !24
   %134 = zext nneg i8 %133 to i32
-  store i32 %134, ptr %6, align 4, !tbaa !19
+  store i32 %134, ptr %6, align 4, !tbaa !17
   br label %135
 
 135:                                              ; preds = %132, %126
@@ -383,10 +383,10 @@ _ZN3gmx12_GLOBAL__N_116serializeAsInt32INS_10SpaceGroupEEENSt9enable_ifIXoosr3st
   br i1 %142, label %143, label %_ZN3gmx12_GLOBAL__N_116serializeAsInt32IbEENSt9enable_ifIXoosr3stdE13is_integral_vIT_Esr3stdE9is_enum_vIS3_EEvE4typeEPNS_11ISerializerEPS3_.exit.i
 
 143:                                              ; preds = %135
-  %144 = load i32, ptr %6, align 4, !tbaa !19
+  %144 = load i32, ptr %6, align 4, !tbaa !17
   %145 = icmp ne i32 %144, 0
   %146 = zext i1 %145 to i8
-  store i8 %146, ptr %127, align 1, !tbaa !25
+  store i8 %146, ptr %127, align 1, !tbaa !21
   br label %_ZN3gmx12_GLOBAL__N_116serializeAsInt32IbEENSt9enable_ifIXoosr3stdE13is_integral_vIT_Esr3stdE9is_enum_vIS3_EEvE4typeEPNS_11ISerializerEPS3_.exit.i
 
 _ZN3gmx12_GLOBAL__N_116serializeAsInt32IbEENSt9enable_ifIXoosr3stdE13is_integral_vIT_Esr3stdE9is_enum_vIS3_EEvE4typeEPNS_11ISerializerEPS3_.exit.i: ; preds = %143, %135
@@ -409,9 +409,9 @@ _ZN3gmx12_GLOBAL__N_116serializeAsInt32IbEENSt9enable_ifIXoosr3stdE13is_integral
   br i1 %151, label %155, label %152
 
 152:                                              ; preds = %147
-  %153 = load float, ptr %.0.ptr26.i, align 4, !tbaa !29
+  %153 = load float, ptr %.0.ptr26.i, align 4, !tbaa !25
   %154 = fmul float %153, 1.000000e+01
-  store float %154, ptr %5, align 4, !tbaa !29
+  store float %154, ptr %5, align 4, !tbaa !25
   br label %155
 
 155:                                              ; preds = %152, %147
@@ -426,9 +426,9 @@ _ZN3gmx12_GLOBAL__N_116serializeAsInt32IbEENSt9enable_ifIXoosr3stdE13is_integral
   br i1 %162, label %163, label %_ZN3gmx12_GLOBAL__N_117serializeDistanceEPNS_11ISerializerEPf.exit.i
 
 163:                                              ; preds = %155
-  %164 = load float, ptr %5, align 4, !tbaa !29
+  %164 = load float, ptr %5, align 4, !tbaa !25
   %165 = fdiv float %164, 1.000000e+01
-  store float %165, ptr %.0.ptr26.i, align 4, !tbaa !29
+  store float %165, ptr %.0.ptr26.i, align 4, !tbaa !25
   br label %_ZN3gmx12_GLOBAL__N_117serializeDistanceEPNS_11ISerializerEPf.exit.i
 
 _ZN3gmx12_GLOBAL__N_117serializeDistanceEPNS_11ISerializerEPf.exit.i: ; preds = %163, %155
@@ -436,7 +436,7 @@ _ZN3gmx12_GLOBAL__N_117serializeDistanceEPNS_11ISerializerEPf.exit.i: ; preds = 
   %.pn.add.i = add nuw nsw i64 %.pn.add25.i, 4
   %.0.ptr.i101 = getelementptr inbounds nuw i8, ptr %127, i64 %.pn.add.i
   %.not.i102 = icmp eq i64 %.pn.add.i, 40
-  br i1 %.not.i102, label %.preheader.i, label %147, !llvm.loop !31
+  br i1 %.not.i102, label %.preheader.i, label %147
 
 166:                                              ; preds = %_ZN3gmx12_GLOBAL__N_117serializeDistanceEPNS_11ISerializerEPf.exit22.i, %.preheader.i
   %.020.ptr29.i = phi ptr [ %.020.ptr27.i, %.preheader.i ], [ %.020.ptr.i, %_ZN3gmx12_GLOBAL__N_117serializeDistanceEPNS_11ISerializerEPf.exit22.i ]
@@ -449,9 +449,9 @@ _ZN3gmx12_GLOBAL__N_117serializeDistanceEPNS_11ISerializerEPf.exit.i: ; preds = 
   br i1 %170, label %174, label %171
 
 171:                                              ; preds = %166
-  %172 = load float, ptr %.020.ptr29.i, align 4, !tbaa !29
+  %172 = load float, ptr %.020.ptr29.i, align 4, !tbaa !25
   %173 = fmul float %172, 1.000000e+01
-  store float %173, ptr %4, align 4, !tbaa !29
+  store float %173, ptr %4, align 4, !tbaa !25
   br label %174
 
 174:                                              ; preds = %171, %166
@@ -466,9 +466,9 @@ _ZN3gmx12_GLOBAL__N_117serializeDistanceEPNS_11ISerializerEPf.exit.i: ; preds = 
   br i1 %181, label %182, label %_ZN3gmx12_GLOBAL__N_117serializeDistanceEPNS_11ISerializerEPf.exit22.i
 
 182:                                              ; preds = %174
-  %183 = load float, ptr %4, align 4, !tbaa !29
+  %183 = load float, ptr %4, align 4, !tbaa !25
   %184 = fdiv float %183, 1.000000e+01
-  store float %184, ptr %.020.ptr29.i, align 4, !tbaa !29
+  store float %184, ptr %.020.ptr29.i, align 4, !tbaa !25
   br label %_ZN3gmx12_GLOBAL__N_117serializeDistanceEPNS_11ISerializerEPf.exit22.i
 
 _ZN3gmx12_GLOBAL__N_117serializeDistanceEPNS_11ISerializerEPf.exit22.i: ; preds = %182, %174
@@ -476,7 +476,7 @@ _ZN3gmx12_GLOBAL__N_117serializeDistanceEPNS_11ISerializerEPf.exit22.i: ; preds 
   %.020.add.i = add nuw nsw i64 %.020.idx28.i, 4
   %.020.ptr.i = getelementptr inbounds nuw i8, ptr %127, i64 %.020.add.i
   %.not21.i = icmp eq i64 %.020.add.i, 52
-  br i1 %.not21.i, label %_ZN3gmx12_GLOBAL__N_133serializeCrystallographicSkewDataEPNS_11ISerializerEPNS_18MrcDensitySkewDataE.exit, label %166, !llvm.loop !32
+  br i1 %.not21.i, label %_ZN3gmx12_GLOBAL__N_133serializeCrystallographicSkewDataEPNS_11ISerializerEPNS_18MrcDensitySkewDataE.exit, label %166
 
 _ZN3gmx12_GLOBAL__N_133serializeCrystallographicSkewDataEPNS_11ISerializerEPNS_18MrcDensitySkewDataE.exit: ; preds = %_ZN3gmx12_GLOBAL__N_117serializeDistanceEPNS_11ISerializerEPf.exit22.i, %_ZN3gmx12_GLOBAL__N_133serializeCrystallographicSkewDataEPNS_11ISerializerEPNS_18MrcDensitySkewDataE.exit
   %.0.idx110 = phi i64 [ %.0.add, %_ZN3gmx12_GLOBAL__N_133serializeCrystallographicSkewDataEPNS_11ISerializerEPNS_18MrcDensitySkewDataE.exit ], [ 12, %_ZN3gmx12_GLOBAL__N_117serializeDistanceEPNS_11ISerializerEPf.exit22.i ]
@@ -487,7 +487,7 @@ _ZN3gmx12_GLOBAL__N_133serializeCrystallographicSkewDataEPNS_11ISerializerEPNS_1
   call void %187(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %.0.ptr)
   %.0.add = add nuw nsw i64 %.0.idx110, 4
   %.not = icmp eq i64 %.0.add, 72
-  br i1 %.not, label %.preheader, label %_ZN3gmx12_GLOBAL__N_133serializeCrystallographicSkewDataEPNS_11ISerializerEPNS_18MrcDensitySkewDataE.exit, !llvm.loop !33
+  br i1 %.not, label %.preheader, label %_ZN3gmx12_GLOBAL__N_133serializeCrystallographicSkewDataEPNS_11ISerializerEPNS_18MrcDensitySkewDataE.exit
 
 188:                                              ; preds = %.preheader
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #9
@@ -498,7 +498,7 @@ _ZN3gmx12_GLOBAL__N_133serializeCrystallographicSkewDataEPNS_11ISerializerEPNS_1
   br i1 %192, label %_ZN3gmx12_GLOBAL__N_116serializeAsInt32INS0_12MachineStampEEENSt9enable_ifIXoosr3stdE13is_integral_vIT_Esr3stdE9is_enum_vIS4_EEvE4typeEPNS_11ISerializerEPS4_.exit, label %193
 
 193:                                              ; preds = %188
-  store i32 1145307136, ptr %3, align 4, !tbaa !19
+  store i32 1145307136, ptr %3, align 4, !tbaa !17
   br label %_ZN3gmx12_GLOBAL__N_116serializeAsInt32INS0_12MachineStampEEENSt9enable_ifIXoosr3stdE13is_integral_vIT_Esr3stdE9is_enum_vIS4_EEvE4typeEPNS_11ISerializerEPS4_.exit
 
 _ZN3gmx12_GLOBAL__N_116serializeAsInt32INS0_12MachineStampEEENSt9enable_ifIXoosr3stdE13is_integral_vIT_Esr3stdE9is_enum_vIS4_EEvE4typeEPNS_11ISerializerEPS4_.exit: ; preds = %193, %188
@@ -532,17 +532,17 @@ _ZN3gmx12_GLOBAL__N_116serializeAsInt32INS0_12MachineStampEEENSt9enable_ifIXoosr
   call void %211(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %.073.ptr)
   %.073.add = add nuw nsw i64 %.073.idx111, 1
   %.not76 = icmp eq i64 %.073.add, 12
-  br i1 %.not76, label %188, label %.preheader, !llvm.loop !34
+  br i1 %.not76, label %188, label %.preheader
 
 .loopexit:                                        ; preds = %.lr.ph
   %.not77 = icmp eq i64 %.074.add, 876
-  br i1 %.not77, label %212, label %.lr.ph.preheader, !llvm.loop !35
+  br i1 %.not77, label %212, label %.lr.ph.preheader
 
 212:                                              ; preds = %.loopexit
   %213 = getelementptr inbounds nuw i8, ptr %1, i64 1016
-  %214 = load ptr, ptr %213, align 8, !tbaa !36
+  %214 = load ptr, ptr %213, align 8, !tbaa !27
   %215 = getelementptr inbounds nuw i8, ptr %1, i64 1024
-  %216 = load ptr, ptr %215, align 8, !tbaa !36
+  %216 = load ptr, ptr %215, align 8, !tbaa !27
   %.not109115 = icmp eq ptr %214, %216
   br i1 %.not109115, label %._crit_edge, label %.lr.ph117
 
@@ -561,7 +561,7 @@ _ZN3gmx12_GLOBAL__N_116serializeAsInt32INS0_12MachineStampEEENSt9enable_ifIXoosr
   call void %219(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %.075113)
   %220 = getelementptr inbounds nuw i8, ptr %.075113, i64 1
   %.not78 = icmp eq ptr %220, %.ptr
-  br i1 %.not78, label %.loopexit, label %.lr.ph, !llvm.loop !37
+  br i1 %.not78, label %.loopexit, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph117, %212
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #9
@@ -575,7 +575,7 @@ _ZN3gmx12_GLOBAL__N_116serializeAsInt32INS0_12MachineStampEEENSt9enable_ifIXoosr
   call void %223(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %.sroa.0103.0116)
   %224 = getelementptr inbounds nuw i8, ptr %.sroa.0103.0116, i64 1
   %.not109 = icmp eq ptr %224, %216
-  br i1 %.not109, label %._crit_edge, label %.lr.ph117, !llvm.loop !38
+  br i1 %.not109, label %._crit_edge, label %.lr.ph117
 }
 
 declare i32 @__gxx_personality_v0(...)
@@ -624,7 +624,7 @@ define linkonce_odr void @_ZNSt6vectorIhSaIhEE6resizeEm(ptr noundef nonnull alig
   br i1 %.not28.i, label %25, label %19
 
 19:                                               ; preds = %10
-  store i8 0, ptr %4, align 1, !tbaa !39
+  store i8 0, ptr %4, align 1, !tbaa !28
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 1
   %21 = add i64 %11, -1
   %22 = icmp eq i64 %21, 0
@@ -654,7 +654,7 @@ _ZNKSt6vectorIhSaIhEE12_M_check_lenEmPKc.exit.i:  ; preds = %25
   %29 = tail call i64 @llvm.umin.i64(i64 %28, i64 9223372036854775807)
   %30 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %29) #11
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 %8
-  store i8 0, ptr %31, align 1, !tbaa !39
+  store i8 0, ptr %31, align 1, !tbaa !28
   %32 = add nsw i64 %11, -1
   %33 = icmp eq i64 %32, 0
   br i1 %33, label %_ZSt27__uninitialized_default_n_aIPhmhET_S1_T0_RSaIT1_E.exit31.i, label %34
@@ -714,37 +714,37 @@ declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN3gmx30deserializeMrcDensityMapHeaderEPNS_11ISerializerE(ptr dead_on_unwind noalias writable sret(%"struct.gmx::MrcDensityMapHeader") align 8 initializes((0, 965), (968, 1040)) %0, ptr noundef %1) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
-  store i32 1, ptr %0, align 8, !tbaa !40
+  store i32 1, ptr %0, align 8, !tbaa !29
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 2, ptr %3, align 4, !tbaa !54
+  store i32 2, ptr %3, align 4, !tbaa !43
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i8 77, ptr %4, align 8, !tbaa !39
+  store i8 77, ptr %4, align 8, !tbaa !28
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 9
-  store i8 65, ptr %5, align 1, !tbaa !39
+  store i8 65, ptr %5, align 1, !tbaa !28
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 10
-  store i8 80, ptr %6, align 2, !tbaa !39
+  store i8 80, ptr %6, align 2, !tbaa !28
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 11
-  store i8 32, ptr %7, align 1, !tbaa !39
+  store i8 32, ptr %7, align 1, !tbaa !28
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 876
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(864) %8, i8 0, i64 864, i1 false)
-  store float 1.000000e+00, ptr %9, align 4, !tbaa !29
+  store float 1.000000e+00, ptr %9, align 4, !tbaa !25
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 880
-  store float 1.000000e+00, ptr %10, align 8, !tbaa !29
+  store float 1.000000e+00, ptr %10, align 8, !tbaa !25
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 884
-  store float 1.000000e+00, ptr %11, align 4, !tbaa !29
+  store float 1.000000e+00, ptr %11, align 4, !tbaa !25
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 888
-  store float 9.000000e+01, ptr %12, align 8, !tbaa !29
+  store float 9.000000e+01, ptr %12, align 8, !tbaa !25
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 892
-  store float 9.000000e+01, ptr %13, align 4, !tbaa !29
+  store float 9.000000e+01, ptr %13, align 4, !tbaa !25
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 896
-  store float 9.000000e+01, ptr %14, align 8, !tbaa !29
+  store float 9.000000e+01, ptr %14, align 8, !tbaa !25
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 900
-  store i32 0, ptr %15, align 4, !tbaa !19
+  store i32 0, ptr %15, align 4, !tbaa !17
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 904
-  store i32 1, ptr %16, align 8, !tbaa !19
+  store i32 1, ptr %16, align 8, !tbaa !17
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 908
-  store i32 2, ptr %17, align 4, !tbaa !19
+  store i32 2, ptr %17, align 4, !tbaa !17
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 912
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 968
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(53) %18, i8 0, i64 53, i1 false)
@@ -816,43 +816,32 @@ attributes #12 = { builtin nounwind }
 !12 = !{!"branch_weights", !"expected", i32 1, i32 2000}
 !13 = !{!14, !14, i64 0}
 !14 = !{!"vtable pointer", !9, i64 0}
-!15 = distinct !{!15, !16}
-!16 = !{!"llvm.loop.estimated_trip_count"}
+!15 = !{!16, !16, i64 0}
+!16 = !{!"_ZTSN3gmx11MrcDataModeE", !8, i64 0}
 !17 = !{!18, !18, i64 0}
-!18 = !{!"_ZTSN3gmx11MrcDataModeE", !8, i64 0}
+!18 = !{!"int", !8, i64 0}
 !19 = !{!20, !20, i64 0}
-!20 = !{!"int", !8, i64 0}
-!21 = distinct !{!21, !16}
-!22 = distinct !{!22, !16}
-!23 = !{!24, !24, i64 0}
-!24 = !{!"_ZTSN3gmx10SpaceGroupE", !8, i64 0}
+!20 = !{!"_ZTSN3gmx10SpaceGroupE", !8, i64 0}
+!21 = !{!22, !22, i64 0}
+!22 = !{!"bool", !8, i64 0}
+!23 = !{i8 0, i8 2}
+!24 = !{}
 !25 = !{!26, !26, i64 0}
-!26 = !{!"bool", !8, i64 0}
-!27 = !{i8 0, i8 2}
-!28 = !{}
-!29 = !{!30, !30, i64 0}
-!30 = !{!"float", !8, i64 0}
-!31 = distinct !{!31, !16}
-!32 = distinct !{!32, !16}
-!33 = distinct !{!33, !16}
-!34 = distinct !{!34, !16}
-!35 = distinct !{!35, !16}
-!36 = !{!6, !6, i64 0}
-!37 = distinct !{!37, !16}
-!38 = distinct !{!38, !16}
-!39 = !{!8, !8, i64 0}
-!40 = !{!41, !24, i64 0}
-!41 = !{!"_ZTSN3gmx19MrcDensityMapHeaderE", !24, i64 0, !18, i64 4, !42, i64 8, !43, i64 12, !44, i64 72, !46, i64 876, !46, i64 888, !47, i64 900, !47, i64 912, !47, i64 924, !47, i64 936, !48, i64 948, !49, i64 964, !51, i64 1016}
-!42 = !{!"_ZTSSt5arrayIhLm4EE", !8, i64 0}
-!43 = !{!"_ZTSSt5arrayIfLm15EE", !8, i64 0}
-!44 = !{!"_ZTSN3gmx22CrystallographicLabelsE", !20, i64 0, !45, i64 4}
-!45 = !{!"_ZTSSt5arrayIS_IhLm80EELm10EE", !8, i64 0}
-!46 = !{!"_ZTSSt5arrayIfLm3EE", !8, i64 0}
-!47 = !{!"_ZTSSt5arrayIiLm3EE", !8, i64 0}
-!48 = !{!"_ZTSN3gmx17MrcDataStatisticsE", !30, i64 0, !30, i64 4, !30, i64 8, !30, i64 12}
-!49 = !{!"_ZTSN3gmx18MrcDensitySkewDataE", !26, i64 0, !50, i64 4, !46, i64 40}
-!50 = !{!"_ZTSSt5arrayIfLm9EE", !8, i64 0}
-!51 = !{!"_ZTSSt6vectorIhSaIhEE", !52, i64 0}
-!52 = !{!"_ZTSSt12_Vector_baseIhSaIhEE", !53, i64 0}
-!53 = !{!"_ZTSNSt12_Vector_baseIhSaIhEE12_Vector_implE", !5, i64 0}
-!54 = !{!41, !18, i64 4}
+!26 = !{!"float", !8, i64 0}
+!27 = !{!6, !6, i64 0}
+!28 = !{!8, !8, i64 0}
+!29 = !{!30, !20, i64 0}
+!30 = !{!"_ZTSN3gmx19MrcDensityMapHeaderE", !20, i64 0, !16, i64 4, !31, i64 8, !32, i64 12, !33, i64 72, !35, i64 876, !35, i64 888, !36, i64 900, !36, i64 912, !36, i64 924, !36, i64 936, !37, i64 948, !38, i64 964, !40, i64 1016}
+!31 = !{!"_ZTSSt5arrayIhLm4EE", !8, i64 0}
+!32 = !{!"_ZTSSt5arrayIfLm15EE", !8, i64 0}
+!33 = !{!"_ZTSN3gmx22CrystallographicLabelsE", !18, i64 0, !34, i64 4}
+!34 = !{!"_ZTSSt5arrayIS_IhLm80EELm10EE", !8, i64 0}
+!35 = !{!"_ZTSSt5arrayIfLm3EE", !8, i64 0}
+!36 = !{!"_ZTSSt5arrayIiLm3EE", !8, i64 0}
+!37 = !{!"_ZTSN3gmx17MrcDataStatisticsE", !26, i64 0, !26, i64 4, !26, i64 8, !26, i64 12}
+!38 = !{!"_ZTSN3gmx18MrcDensitySkewDataE", !22, i64 0, !39, i64 4, !35, i64 40}
+!39 = !{!"_ZTSSt5arrayIfLm9EE", !8, i64 0}
+!40 = !{!"_ZTSSt6vectorIhSaIhEE", !41, i64 0}
+!41 = !{!"_ZTSSt12_Vector_baseIhSaIhEE", !42, i64 0}
+!42 = !{!"_ZTSNSt12_Vector_baseIhSaIhEE12_Vector_implE", !5, i64 0}
+!43 = !{!30, !16, i64 4}

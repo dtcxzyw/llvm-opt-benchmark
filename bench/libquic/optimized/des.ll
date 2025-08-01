@@ -201,7 +201,7 @@ define hidden void @DES_set_odd_parity(ptr noundef captures(none) %0) local_unna
   store i8 %7, ptr %3, align 1, !tbaa !6
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond.not, label %8, label %2, !llvm.loop !14
+  br i1 %exitcond.not, label %8, label %2, !llvm.loop !13
 
 8:                                                ; preds = %2
   ret void
@@ -3826,7 +3826,7 @@ define hidden void @DES_ncbc_encrypt(ptr noundef readonly captures(none) %0, ptr
   %24 = getelementptr inbounds nuw i8, ptr %.0243257, i64 8
   %25 = add i64 %.0252256, -8
   %26 = icmp ugt i64 %25, 7
-  br i1 %26, label %14, label %._crit_edge, !llvm.loop !15
+  br i1 %26, label %14, label %._crit_edge, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %14, %12
   %.0252.lcssa = phi i64 [ %2, %12 ], [ %25, %14 ]
@@ -3982,7 +3982,7 @@ default.unreachable:                              ; preds = %110, %27
   %107 = getelementptr inbounds nuw i8, ptr %.1244266, i64 8
   %108 = add i64 %.1253265, -8
   %109 = icmp ugt i64 %108, 7
-  br i1 %109, label %75, label %._crit_edge272, !llvm.loop !16
+  br i1 %109, label %75, label %._crit_edge272, !llvm.loop !15
 
 ._crit_edge272:                                   ; preds = %75, %73
   %.1253.lcssa = phi i64 [ %2, %73 ], [ %108, %75 ]
@@ -4172,7 +4172,7 @@ define hidden void @DES_ede3_cbc_encrypt(ptr noundef readonly captures(none) %0,
   %26 = getelementptr inbounds nuw i8, ptr %.0259273, i64 8
   %27 = add i64 %.0268272, -8
   %28 = icmp ugt i64 %27, 7
-  br i1 %28, label %16, label %._crit_edge, !llvm.loop !17
+  br i1 %28, label %16, label %._crit_edge, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %16, %14
   %.0268.lcssa = phi i64 [ %2, %14 ], [ %27, %16 ]
@@ -4328,7 +4328,7 @@ default.unreachable:                              ; preds = %112, %29
   %109 = getelementptr inbounds nuw i8, ptr %.1260282, i64 8
   %110 = add i64 %.1269281, -8
   %111 = icmp ugt i64 %110, 7
-  br i1 %111, label %77, label %._crit_edge288, !llvm.loop !18
+  br i1 %111, label %77, label %._crit_edge288, !llvm.loop !17
 
 ._crit_edge288:                                   ; preds = %77, %75
   %.1269.lcssa = phi i64 [ %2, %75 ], [ %110, %77 ]
@@ -4481,11 +4481,10 @@ attributes #5 = { nounwind }
 !8 = !{!"Simple C/C++ TBAA"}
 !9 = !{!10, !10, i64 0}
 !10 = !{!"int", !7, i64 0}
-!11 = distinct !{!11, !12, !13}
+!11 = distinct !{!11, !12}
 !12 = !{!"llvm.loop.mustprogress"}
-!13 = !{!"llvm.loop.estimated_trip_count"}
-!14 = distinct !{!14, !12, !13}
-!15 = distinct !{!15, !12, !13}
-!16 = distinct !{!16, !12, !13}
-!17 = distinct !{!17, !12, !13}
-!18 = distinct !{!18, !12, !13}
+!13 = distinct !{!13, !12}
+!14 = distinct !{!14, !12}
+!15 = distinct !{!15, !12}
+!16 = distinct !{!16, !12}
+!17 = distinct !{!17, !12}

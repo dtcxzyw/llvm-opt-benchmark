@@ -770,38 +770,38 @@ _ZN5draco13DecoderBuffer6DecodeEPvm.exit40:       ; preds = %_ZN5draco13DecoderB
   br label %149
 
 _ZNSt10unique_ptrIN5draco4MeshESt14default_deleteIS1_EED2Ev.exit: ; preds = %._crit_edge
-  store i32 0, ptr %0, align 8, !tbaa !16, !alias.scope !38
+  store i32 0, ptr %0, align 8, !tbaa !16, !alias.scope !37
   %130 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %131 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr %131, ptr %130, align 8, !tbaa !4, !alias.scope !38
+  store ptr %131, ptr %130, align 8, !tbaa !4, !alias.scope !37
   %132 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 0, ptr %132, align 8, !tbaa !15, !alias.scope !38
-  store i8 0, ptr %131, align 8, !tbaa !14, !alias.scope !38
+  store i64 0, ptr %132, align 8, !tbaa !15, !alias.scope !37
+  store i8 0, ptr %131, align 8, !tbaa !14, !alias.scope !37
   %133 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %134 = load i64, ptr %14, align 8, !tbaa !41
-  store i64 %134, ptr %133, align 8, !tbaa !41
+  %134 = load i64, ptr %14, align 8, !tbaa !40
+  store i64 %134, ptr %133, align 8, !tbaa !40
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #12
   %135 = getelementptr inbounds nuw i8, ptr %9, i64 24
-  %136 = load ptr, ptr %135, align 8, !tbaa !41
+  %136 = load ptr, ptr %135, align 8, !tbaa !40
   %.not.i.i = icmp eq ptr %136, null
   br i1 %.not.i.i, label %_ZNSt10unique_ptrIN5draco4MeshESt14default_deleteIS1_EED2Ev.exit.i, label %_ZNKSt14default_deleteIN5draco4MeshEEclEPS1_.exit.i.i
 
 _ZNKSt14default_deleteIN5draco4MeshEEclEPS1_.exit.i.i: ; preds = %_ZNSt10unique_ptrIN5draco4MeshESt14default_deleteIS1_EED2Ev.exit
-  %137 = load ptr, ptr %136, align 8, !tbaa !42
+  %137 = load ptr, ptr %136, align 8, !tbaa !41
   %138 = getelementptr inbounds nuw i8, ptr %137, i64 8
   %139 = load ptr, ptr %138, align 8
   call void %139(ptr noundef nonnull align 8 dereferenceable(216) %136) #12
   br label %_ZNSt10unique_ptrIN5draco4MeshESt14default_deleteIS1_EED2Ev.exit.i
 
 _ZNSt10unique_ptrIN5draco4MeshESt14default_deleteIS1_EED2Ev.exit.i: ; preds = %_ZNKSt14default_deleteIN5draco4MeshEEclEPS1_.exit.i.i, %_ZNSt10unique_ptrIN5draco4MeshESt14default_deleteIS1_EED2Ev.exit
-  store ptr null, ptr %135, align 8, !tbaa !41
-  %140 = load ptr, ptr %9, align 8, !tbaa !44
+  store ptr null, ptr %135, align 8, !tbaa !40
+  %140 = load ptr, ptr %9, align 8, !tbaa !43
   %.not.i.i.i.i = icmp eq ptr %140, null
   br i1 %.not.i.i.i.i, label %_ZN5draco23TriangleSoupMeshBuilderD2Ev.exit, label %141
 
 141:                                              ; preds = %_ZNSt10unique_ptrIN5draco4MeshESt14default_deleteIS1_EED2Ev.exit.i
   %142 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  %143 = load ptr, ptr %142, align 8, !tbaa !46
+  %143 = load ptr, ptr %142, align 8, !tbaa !45
   %144 = ptrtoint ptr %143 to i64
   %145 = ptrtoint ptr %140 to i64
   %146 = sub i64 %144, %145
@@ -848,26 +848,26 @@ declare void @_ZN5draco23TriangleSoupMeshBuilder8FinalizeEv(ptr dead_on_unwind w
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN5draco23TriangleSoupMeshBuilderD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %3 = load ptr, ptr %2, align 8, !tbaa !41
+  %3 = load ptr, ptr %2, align 8, !tbaa !40
   %.not.i = icmp eq ptr %3, null
   br i1 %.not.i, label %_ZNSt10unique_ptrIN5draco4MeshESt14default_deleteIS1_EED2Ev.exit, label %_ZNKSt14default_deleteIN5draco4MeshEEclEPS1_.exit.i
 
 _ZNKSt14default_deleteIN5draco4MeshEEclEPS1_.exit.i: ; preds = %1
-  %4 = load ptr, ptr %3, align 8, !tbaa !42
+  %4 = load ptr, ptr %3, align 8, !tbaa !41
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load ptr, ptr %5, align 8
   tail call void %6(ptr noundef nonnull align 8 dereferenceable(216) %3) #12
   br label %_ZNSt10unique_ptrIN5draco4MeshESt14default_deleteIS1_EED2Ev.exit
 
 _ZNSt10unique_ptrIN5draco4MeshESt14default_deleteIS1_EED2Ev.exit: ; preds = %1, %_ZNKSt14default_deleteIN5draco4MeshEEclEPS1_.exit.i
-  store ptr null, ptr %2, align 8, !tbaa !41
-  %7 = load ptr, ptr %0, align 8, !tbaa !44
+  store ptr null, ptr %2, align 8, !tbaa !40
+  %7 = load ptr, ptr %0, align 8, !tbaa !43
   %.not.i.i.i = icmp eq ptr %7, null
   br i1 %.not.i.i.i, label %_ZNSt6vectorIaSaIaEED2Ev.exit, label %8
 
 8:                                                ; preds = %_ZNSt10unique_ptrIN5draco4MeshESt14default_deleteIS1_EED2Ev.exit
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %10 = load ptr, ptr %9, align 8, !tbaa !46
+  %10 = load ptr, ptr %9, align 8, !tbaa !45
   %11 = ptrtoint ptr %10 to i64
   %12 = ptrtoint ptr %7 to i64
   %13 = sub i64 %11, %12
@@ -955,15 +955,14 @@ attributes #14 = { nounwind willreturn memory(read) }
 !32 = !{!27, !11, i64 8}
 !33 = !{!34, !34, i64 0}
 !34 = !{!"float", !8, i64 0}
-!35 = distinct !{!35, !36, !37}
+!35 = distinct !{!35, !36}
 !36 = !{!"llvm.loop.mustprogress"}
-!37 = !{!"llvm.loop.estimated_trip_count"}
-!38 = !{!39}
-!39 = distinct !{!39, !40, !"_ZN5draco8OkStatusEv: argument 0"}
-!40 = distinct !{!40, !"_ZN5draco8OkStatusEv"}
-!41 = !{!21, !21, i64 0}
-!42 = !{!43, !43, i64 0}
-!43 = !{!"vtable pointer", !9, i64 0}
-!44 = !{!45, !6, i64 0}
-!45 = !{!"_ZTSNSt12_Vector_baseIaSaIaEE17_Vector_impl_dataE", !6, i64 0, !6, i64 8, !6, i64 16}
-!46 = !{!45, !6, i64 16}
+!37 = !{!38}
+!38 = distinct !{!38, !39, !"_ZN5draco8OkStatusEv: argument 0"}
+!39 = distinct !{!39, !"_ZN5draco8OkStatusEv"}
+!40 = !{!21, !21, i64 0}
+!41 = !{!42, !42, i64 0}
+!42 = !{!"vtable pointer", !9, i64 0}
+!43 = !{!44, !6, i64 0}
+!44 = !{!"_ZTSNSt12_Vector_baseIaSaIaEE17_Vector_impl_dataE", !6, i64 0, !6, i64 8, !6, i64 16}
+!45 = !{!44, !6, i64 16}

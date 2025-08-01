@@ -89,7 +89,7 @@ define void @ff_aptx_generate_dither(ptr noundef captures(none) %0) local_unname
   %34 = lshr i32 %25, 25
   %35 = and i32 %34, 1
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 %35, ptr %36, align 4, !tbaa !16
+  store i32 %35, ptr %36, align 4, !tbaa !15
   ret void
 }
 
@@ -116,7 +116,7 @@ define void @ff_aptx_invert_quantize_and_prediction(ptr noundef captures(none) %
   %.lobit.neg.i.i = ashr i32 %13, 31
   %18 = xor i32 %.lobit.neg.i.i, %13
   %19 = add nsw i32 %18, 1
-  %20 = load ptr, ptr %16, align 16, !tbaa !17
+  %20 = load ptr, ptr %16, align 16, !tbaa !16
   %21 = sext i32 %19 to i64
   %22 = getelementptr inbounds i32, ptr %20, i64 %21
   %23 = load i32, ptr %22, align 4, !tbaa !12
@@ -127,7 +127,7 @@ define void @ff_aptx_invert_quantize_and_prediction(ptr noundef captures(none) %
   %27 = shl nsw i64 %26, 32
   %28 = sext i32 %15 to i64
   %29 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  %30 = load ptr, ptr %29, align 8, !tbaa !22
+  %30 = load ptr, ptr %29, align 8, !tbaa !21
   %31 = getelementptr inbounds i32, ptr %30, i64 %21
   %32 = load i32, ptr %31, align 4, !tbaa !12
   %33 = sext i32 %32 to i64
@@ -149,14 +149,14 @@ define void @ff_aptx_invert_quantize_and_prediction(ptr noundef captures(none) %
   %47 = lshr i64 %46, 19
   %48 = trunc i64 %47 to i32
   %49 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  store i32 %48, ptr %49, align 4, !tbaa !23
+  store i32 %48, ptr %49, align 4, !tbaa !22
   %50 = getelementptr inbounds nuw i8, ptr %10, i64 4
-  %51 = load i32, ptr %50, align 4, !tbaa !24
+  %51 = load i32, ptr %50, align 4, !tbaa !23
   %52 = mul nsw i32 %51, 32620
   %53 = getelementptr inbounds nuw i8, ptr %16, i64 24
-  %54 = load ptr, ptr %53, align 8, !tbaa !25
+  %54 = load ptr, ptr %53, align 8, !tbaa !24
   %55 = getelementptr inbounds i16, ptr %54, i64 %21
-  %56 = load i16, ptr %55, align 2, !tbaa !26
+  %56 = load i16, ptr %55, align 2, !tbaa !25
   %57 = sext i16 %56 to i32
   %58 = shl nsw i32 %57, 15
   %59 = add nsw i32 %58, %52
@@ -167,24 +167,24 @@ define void @ff_aptx_invert_quantize_and_prediction(ptr noundef captures(none) %
   %.neg.i.i.i = sext i1 %63 to i32
   %64 = add nsw i32 %61, %.neg.i.i.i
   %65 = getelementptr inbounds nuw i8, ptr %16, i64 36
-  %66 = load i32, ptr %65, align 4, !tbaa !28
+  %66 = load i32, ptr %65, align 4, !tbaa !27
   %67 = icmp slt i32 %64, 0
   %..i.i.i = tail call i32 @llvm.smin.i32(i32 %64, i32 %66)
   %.0.i.i.i = select i1 %67, i32 0, i32 %..i.i.i
-  store i32 %.0.i.i.i, ptr %50, align 4, !tbaa !24
+  store i32 %.0.i.i.i, ptr %50, align 4, !tbaa !23
   %68 = lshr i32 %.0.i.i.i, 3
   %69 = and i32 %68, 31
   %70 = sub nsw i32 %66, %.0.i.i.i
   %71 = ashr i32 %70, 8
   %72 = zext nneg i32 %69 to i64
   %73 = getelementptr inbounds nuw [32 x i16], ptr @quantization_factors, i64 0, i64 %72
-  %74 = load i16, ptr %73, align 2, !tbaa !26
+  %74 = load i16, ptr %73, align 2, !tbaa !25
   %75 = sext i16 %74 to i32
   %76 = shl nsw i32 %75, 11
   %77 = ashr i32 %76, %71
   store i32 %77, ptr %10, align 4, !tbaa !4
   %78 = getelementptr inbounds nuw i8, ptr %11, i64 312
-  %79 = load i32, ptr %78, align 4, !tbaa !29
+  %79 = load i32, ptr %78, align 4, !tbaa !28
   %80 = sub nsw i32 0, %79
   %81 = tail call i32 @llvm.scmp.i32.i32(i32 %48, i32 %80)
   %82 = load i32, ptr %11, align 4, !tbaa !12
@@ -240,20 +240,20 @@ define void @ff_aptx_invert_quantize_and_prediction(ptr noundef captures(none) %
   %.0.i40.i = select i1 %121, i32 %.neg.i, i32 %..i39.i
   store i32 %.0.i40.i, ptr %88, align 4, !tbaa !12
   %122 = getelementptr inbounds nuw i8, ptr %16, i64 40
-  %123 = load i32, ptr %122, align 8, !tbaa !31
+  %123 = load i32, ptr %122, align 8, !tbaa !30
   %124 = getelementptr inbounds nuw i8, ptr %11, i64 316
-  %125 = load i32, ptr %124, align 4, !tbaa !32
+  %125 = load i32, ptr %124, align 4, !tbaa !31
   %126 = add nsw i32 %125, %48
   %127 = tail call i32 @llvm.smax.i32(i32 %126, i32 -8388608)
   %.0.i.i41.i = tail call i32 @llvm.smin.i32(i32 %127, i32 8388607)
   %128 = getelementptr inbounds nuw i8, ptr %11, i64 308
-  %129 = load i32, ptr %128, align 4, !tbaa !33
-  store i32 %.0.i.i41.i, ptr %128, align 4, !tbaa !33
+  %129 = load i32, ptr %128, align 4, !tbaa !32
+  store i32 %.0.i.i41.i, ptr %128, align 4, !tbaa !32
   %130 = getelementptr inbounds nuw i8, ptr %11, i64 116
   %131 = sext i32 %123 to i64
   %132 = getelementptr inbounds i32, ptr %130, i64 %131
   %133 = getelementptr inbounds nuw i8, ptr %11, i64 112
-  %134 = load i32, ptr %133, align 4, !tbaa !34
+  %134 = load i32, ptr %133, align 4, !tbaa !33
   %135 = sext i32 %134 to i64
   %136 = getelementptr inbounds i32, ptr %132, i64 %135
   %137 = load i32, ptr %136, align 4, !tbaa !12
@@ -261,7 +261,7 @@ define void @ff_aptx_invert_quantize_and_prediction(ptr noundef captures(none) %
   store i32 %137, ptr %138, align 4, !tbaa !12
   %139 = add nsw i32 %134, 1
   %140 = srem i32 %139, %123
-  store i32 %140, ptr %133, align 4, !tbaa !34
+  store i32 %140, ptr %133, align 4, !tbaa !33
   %141 = sext i32 %140 to i64
   %142 = getelementptr inbounds i32, ptr %132, i64 %141
   store i32 %48, ptr %142, align 4, !tbaa !12
@@ -307,7 +307,7 @@ define void @ff_aptx_invert_quantize_and_prediction(ptr noundef captures(none) %
   %167 = add nsw i64 %166, %.043.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %._crit_edge.loopexit.i.i, label %147, !llvm.loop !35
+  br i1 %exitcond.not.i.i, label %._crit_edge.loopexit.i.i, label %147, !llvm.loop !34
 
 ._crit_edge.loopexit.i.i:                         ; preds = %147
   %168 = lshr i64 %167, 22
@@ -329,14 +329,14 @@ aptx_process_subband.exit:                        ; preds = %9, %._crit_edge.loo
   %180 = trunc i64 %179 to i32
   %181 = tail call i32 @llvm.smax.i32(i32 %180, i32 -8388608)
   %.0.i35.i.i = tail call i32 @llvm.smin.i32(i32 %181, i32 8388607)
-  store i32 %.0.lcssa.i.i, ptr %78, align 4, !tbaa !29
+  store i32 %.0.lcssa.i.i, ptr %78, align 4, !tbaa !28
   %182 = add nsw i32 %.0.lcssa.i.i, %.0.i35.i.i
   %183 = tail call i32 @llvm.smax.i32(i32 %182, i32 -8388608)
   %.0.i39.i.i = tail call i32 @llvm.smin.i32(i32 %183, i32 8388607)
-  store i32 %.0.i39.i.i, ptr %124, align 4, !tbaa !32
+  store i32 %.0.i39.i.i, ptr %124, align 4, !tbaa !31
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %184, label %9, !llvm.loop !36
+  br i1 %exitcond.not, label %184, label %9, !llvm.loop !35
 
 184:                                              ; preds = %aptx_process_subband.exit
   ret void
@@ -345,47 +345,48 @@ aptx_process_subband.exit:                        ; preds = %9, %._crit_edge.loo
 ; Function Attrs: cold nofree norecurse nosync nounwind optsize memory(readwrite, inaccessiblemem: none) uwtable
 define range(i32 -1094995529, 1) i32 @ff_aptx_init(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 356
-  %3 = load i32, ptr %2, align 4, !tbaa !37
+  %3 = load i32, ptr %2, align 4, !tbaa !36
   %.not = icmp eq i32 %3, 2
   br i1 %.not, label %4, label %.loopexit
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %6 = load ptr, ptr %5, align 8, !tbaa !54
+  %6 = load ptr, ptr %5, align 8, !tbaa !53
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %8 = load ptr, ptr %7, align 8, !tbaa !55
+  %8 = load ptr, ptr %7, align 8, !tbaa !54
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 20
-  %10 = load i32, ptr %9, align 4, !tbaa !56
+  %10 = load i32, ptr %9, align 4, !tbaa !55
   %11 = icmp eq i32 %10, 86102
   %12 = zext i1 %11 to i32
-  store i32 %12, ptr %6, align 4, !tbaa !61
+  store i32 %12, ptr %6, align 4, !tbaa !60
   %13 = select i1 %11, i32 6, i32 4
   %14 = getelementptr inbounds nuw i8, ptr %6, i64 4
-  store i32 %13, ptr %14, align 4, !tbaa !63
-  %invariant.gep = getelementptr inbounds nuw i8, ptr %6, i64 924
-  br label %15
+  store i32 %13, ptr %14, align 4, !tbaa !62
+  %15 = getelementptr inbounds nuw i8, ptr %6, i64 12
+  br label %16
 
-15:                                               ; preds = %4, %20
-  %16 = phi i1 [ true, %4 ], [ false, %20 ]
-  %indvars.iv22 = phi i64 [ 0, %4 ], [ 2192, %20 ]
-  %gep = getelementptr inbounds nuw i8, ptr %invariant.gep, i64 %indvars.iv22
-  br label %17
+16:                                               ; preds = %4, %23
+  %17 = phi i1 [ true, %4 ], [ false, %23 ]
+  %indvars.iv22 = phi i64 [ 0, %4 ], [ 2192, %23 ]
+  %18 = getelementptr inbounds nuw i8, ptr %15, i64 %indvars.iv22
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 912
+  br label %20
 
-17:                                               ; preds = %15, %17
-  %indvars.iv = phi i64 [ 0, %15 ], [ %indvars.iv.next, %17 ]
-  %18 = getelementptr inbounds nuw [4 x %struct.Prediction], ptr %gep, i64 0, i64 %indvars.iv
-  store i32 1, ptr %18, align 4, !tbaa !12
-  %19 = getelementptr inbounds nuw i8, ptr %18, i64 4
-  store i32 1, ptr %19, align 4, !tbaa !12
+20:                                               ; preds = %16, %20
+  %indvars.iv = phi i64 [ 0, %16 ], [ %indvars.iv.next, %20 ]
+  %21 = getelementptr inbounds nuw [4 x %struct.Prediction], ptr %19, i64 0, i64 %indvars.iv
+  store i32 1, ptr %21, align 4, !tbaa !12
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 4
+  store i32 1, ptr %22, align 4, !tbaa !12
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %20, label %17, !llvm.loop !64
+  br i1 %exitcond.not, label %23, label %20, !llvm.loop !63
 
-20:                                               ; preds = %17
-  br i1 %16, label %15, label %.loopexit, !llvm.loop !65
+23:                                               ; preds = %20
+  br i1 %17, label %16, label %.loopexit, !llvm.loop !64
 
-.loopexit:                                        ; preds = %20, %1
-  %.0 = phi i32 [ -1094995529, %1 ], [ 0, %20 ]
+.loopexit:                                        ; preds = %23, %1
+  %.0 = phi i32 [ -1094995529, %1 ], [ 0, %23 ]
   ret i32 %.0
 }
 
@@ -418,56 +419,55 @@ attributes #3 = { nocallback nofree nosync nounwind speculatable willreturn memo
 !10 = !{!"", !6, i64 0, !6, i64 4, !7, i64 8, !11, i64 24, !7, i64 816, !7, i64 864, !7, i64 912}
 !11 = !{!"", !7, i64 0, !7, i64 264}
 !12 = !{!6, !6, i64 0}
-!13 = distinct !{!13, !14, !15}
+!13 = distinct !{!13, !14}
 !14 = !{!"llvm.loop.mustprogress"}
-!15 = !{!"llvm.loop.estimated_trip_count"}
-!16 = !{!10, !6, i64 4}
-!17 = !{!18, !19, i64 0}
-!18 = !{!"", !19, i64 0, !19, i64 8, !19, i64 16, !21, i64 24, !6, i64 32, !6, i64 36, !6, i64 40}
-!19 = !{!"p1 int", !20, i64 0}
-!20 = !{!"any pointer", !7, i64 0}
-!21 = !{!"p1 short", !20, i64 0}
-!22 = !{!18, !19, i64 8}
-!23 = !{!5, !6, i64 8}
-!24 = !{!5, !6, i64 4}
-!25 = !{!18, !21, i64 24}
-!26 = !{!27, !27, i64 0}
-!27 = !{!"short", !7, i64 0}
-!28 = !{!18, !6, i64 36}
-!29 = !{!30, !6, i64 312}
-!30 = !{!"", !7, i64 0, !7, i64 8, !7, i64 16, !6, i64 112, !7, i64 116, !6, i64 308, !6, i64 312, !6, i64 316}
-!31 = !{!18, !6, i64 40}
-!32 = !{!30, !6, i64 316}
-!33 = !{!30, !6, i64 308}
-!34 = !{!30, !6, i64 112}
-!35 = distinct !{!35, !14, !15}
-!36 = distinct !{!36, !14, !15}
-!37 = !{!38, !6, i64 356}
-!38 = !{!"AVCodecContext", !39, i64 0, !6, i64 8, !6, i64 12, !40, i64 16, !6, i64 24, !6, i64 28, !20, i64 32, !41, i64 40, !20, i64 48, !42, i64 56, !6, i64 64, !6, i64 68, !43, i64 72, !6, i64 80, !44, i64 84, !44, i64 92, !44, i64 100, !6, i64 108, !6, i64 112, !6, i64 116, !6, i64 120, !6, i64 124, !44, i64 128, !6, i64 136, !6, i64 140, !6, i64 144, !6, i64 148, !6, i64 152, !6, i64 156, !6, i64 160, !6, i64 164, !6, i64 168, !6, i64 172, !6, i64 176, !20, i64 184, !20, i64 192, !6, i64 200, !45, i64 204, !45, i64 208, !45, i64 212, !45, i64 216, !45, i64 220, !45, i64 224, !45, i64 228, !45, i64 232, !45, i64 236, !6, i64 240, !6, i64 244, !6, i64 248, !6, i64 252, !6, i64 256, !6, i64 260, !6, i64 264, !6, i64 268, !6, i64 272, !6, i64 276, !6, i64 280, !6, i64 284, !21, i64 288, !21, i64 296, !21, i64 304, !6, i64 312, !6, i64 316, !6, i64 320, !6, i64 324, !6, i64 328, !6, i64 332, !6, i64 336, !6, i64 340, !6, i64 344, !6, i64 348, !46, i64 352, !6, i64 376, !6, i64 380, !6, i64 384, !6, i64 388, !6, i64 392, !6, i64 396, !6, i64 400, !6, i64 404, !20, i64 408, !6, i64 416, !6, i64 420, !6, i64 424, !45, i64 428, !45, i64 432, !6, i64 436, !6, i64 440, !6, i64 444, !6, i64 448, !6, i64 452, !47, i64 456, !42, i64 464, !42, i64 472, !45, i64 480, !45, i64 484, !6, i64 488, !6, i64 492, !43, i64 496, !43, i64 504, !6, i64 512, !6, i64 516, !6, i64 520, !6, i64 524, !6, i64 528, !48, i64 536, !20, i64 544, !49, i64 552, !49, i64 560, !6, i64 568, !6, i64 572, !7, i64 576, !6, i64 640, !6, i64 644, !6, i64 648, !6, i64 652, !6, i64 656, !6, i64 660, !6, i64 664, !20, i64 672, !20, i64 680, !6, i64 688, !6, i64 692, !6, i64 696, !6, i64 700, !6, i64 704, !6, i64 708, !6, i64 712, !6, i64 716, !6, i64 720, !6, i64 724, !50, i64 728, !43, i64 736, !6, i64 744, !6, i64 748, !43, i64 752, !43, i64 760, !43, i64 768, !51, i64 776, !6, i64 784, !6, i64 788, !42, i64 792, !6, i64 800, !6, i64 804, !42, i64 808, !20, i64 816, !42, i64 824, !19, i64 832, !6, i64 840, !52, i64 848, !6, i64 856}
-!39 = !{!"p1 _ZTS7AVClass", !20, i64 0}
-!40 = !{!"p1 _ZTS7AVCodec", !20, i64 0}
-!41 = !{!"p1 _ZTS15AVCodecInternal", !20, i64 0}
-!42 = !{!"long", !7, i64 0}
-!43 = !{!"p1 omnipotent char", !20, i64 0}
-!44 = !{!"AVRational", !6, i64 0, !6, i64 4}
-!45 = !{!"float", !7, i64 0}
-!46 = !{!"AVChannelLayout", !6, i64 0, !6, i64 4, !7, i64 8, !20, i64 16}
-!47 = !{!"p1 _ZTS10RcOverride", !20, i64 0}
-!48 = !{!"p1 _ZTS9AVHWAccel", !20, i64 0}
-!49 = !{!"p1 _ZTS11AVBufferRef", !20, i64 0}
-!50 = !{!"p1 _ZTS17AVCodecDescriptor", !20, i64 0}
-!51 = !{!"p1 _ZTS16AVPacketSideData", !20, i64 0}
-!52 = !{!"p2 _ZTS15AVFrameSideData", !53, i64 0}
-!53 = !{!"any p2 pointer", !20, i64 0}
-!54 = !{!38, !20, i64 32}
-!55 = !{!38, !40, i64 16}
-!56 = !{!57, !6, i64 20}
-!57 = !{!"AVCodec", !43, i64 0, !43, i64 8, !6, i64 16, !6, i64 20, !6, i64 24, !7, i64 28, !58, i64 32, !20, i64 40, !19, i64 48, !20, i64 56, !39, i64 64, !59, i64 72, !43, i64 80, !60, i64 88}
-!58 = !{!"p1 _ZTS10AVRational", !20, i64 0}
-!59 = !{!"p1 _ZTS9AVProfile", !20, i64 0}
-!60 = !{!"p1 _ZTS15AVChannelLayout", !20, i64 0}
-!61 = !{!62, !6, i64 0}
-!62 = !{!"", !6, i64 0, !6, i64 4, !6, i64 8, !7, i64 12}
-!63 = !{!62, !6, i64 4}
-!64 = distinct !{!64, !14, !15}
-!65 = distinct !{!65, !14, !15}
+!15 = !{!10, !6, i64 4}
+!16 = !{!17, !18, i64 0}
+!17 = !{!"", !18, i64 0, !18, i64 8, !18, i64 16, !20, i64 24, !6, i64 32, !6, i64 36, !6, i64 40}
+!18 = !{!"p1 int", !19, i64 0}
+!19 = !{!"any pointer", !7, i64 0}
+!20 = !{!"p1 short", !19, i64 0}
+!21 = !{!17, !18, i64 8}
+!22 = !{!5, !6, i64 8}
+!23 = !{!5, !6, i64 4}
+!24 = !{!17, !20, i64 24}
+!25 = !{!26, !26, i64 0}
+!26 = !{!"short", !7, i64 0}
+!27 = !{!17, !6, i64 36}
+!28 = !{!29, !6, i64 312}
+!29 = !{!"", !7, i64 0, !7, i64 8, !7, i64 16, !6, i64 112, !7, i64 116, !6, i64 308, !6, i64 312, !6, i64 316}
+!30 = !{!17, !6, i64 40}
+!31 = !{!29, !6, i64 316}
+!32 = !{!29, !6, i64 308}
+!33 = !{!29, !6, i64 112}
+!34 = distinct !{!34, !14}
+!35 = distinct !{!35, !14}
+!36 = !{!37, !6, i64 356}
+!37 = !{!"AVCodecContext", !38, i64 0, !6, i64 8, !6, i64 12, !39, i64 16, !6, i64 24, !6, i64 28, !19, i64 32, !40, i64 40, !19, i64 48, !41, i64 56, !6, i64 64, !6, i64 68, !42, i64 72, !6, i64 80, !43, i64 84, !43, i64 92, !43, i64 100, !6, i64 108, !6, i64 112, !6, i64 116, !6, i64 120, !6, i64 124, !43, i64 128, !6, i64 136, !6, i64 140, !6, i64 144, !6, i64 148, !6, i64 152, !6, i64 156, !6, i64 160, !6, i64 164, !6, i64 168, !6, i64 172, !6, i64 176, !19, i64 184, !19, i64 192, !6, i64 200, !44, i64 204, !44, i64 208, !44, i64 212, !44, i64 216, !44, i64 220, !44, i64 224, !44, i64 228, !44, i64 232, !44, i64 236, !6, i64 240, !6, i64 244, !6, i64 248, !6, i64 252, !6, i64 256, !6, i64 260, !6, i64 264, !6, i64 268, !6, i64 272, !6, i64 276, !6, i64 280, !6, i64 284, !20, i64 288, !20, i64 296, !20, i64 304, !6, i64 312, !6, i64 316, !6, i64 320, !6, i64 324, !6, i64 328, !6, i64 332, !6, i64 336, !6, i64 340, !6, i64 344, !6, i64 348, !45, i64 352, !6, i64 376, !6, i64 380, !6, i64 384, !6, i64 388, !6, i64 392, !6, i64 396, !6, i64 400, !6, i64 404, !19, i64 408, !6, i64 416, !6, i64 420, !6, i64 424, !44, i64 428, !44, i64 432, !6, i64 436, !6, i64 440, !6, i64 444, !6, i64 448, !6, i64 452, !46, i64 456, !41, i64 464, !41, i64 472, !44, i64 480, !44, i64 484, !6, i64 488, !6, i64 492, !42, i64 496, !42, i64 504, !6, i64 512, !6, i64 516, !6, i64 520, !6, i64 524, !6, i64 528, !47, i64 536, !19, i64 544, !48, i64 552, !48, i64 560, !6, i64 568, !6, i64 572, !7, i64 576, !6, i64 640, !6, i64 644, !6, i64 648, !6, i64 652, !6, i64 656, !6, i64 660, !6, i64 664, !19, i64 672, !19, i64 680, !6, i64 688, !6, i64 692, !6, i64 696, !6, i64 700, !6, i64 704, !6, i64 708, !6, i64 712, !6, i64 716, !6, i64 720, !6, i64 724, !49, i64 728, !42, i64 736, !6, i64 744, !6, i64 748, !42, i64 752, !42, i64 760, !42, i64 768, !50, i64 776, !6, i64 784, !6, i64 788, !41, i64 792, !6, i64 800, !6, i64 804, !41, i64 808, !19, i64 816, !41, i64 824, !18, i64 832, !6, i64 840, !51, i64 848, !6, i64 856}
+!38 = !{!"p1 _ZTS7AVClass", !19, i64 0}
+!39 = !{!"p1 _ZTS7AVCodec", !19, i64 0}
+!40 = !{!"p1 _ZTS15AVCodecInternal", !19, i64 0}
+!41 = !{!"long", !7, i64 0}
+!42 = !{!"p1 omnipotent char", !19, i64 0}
+!43 = !{!"AVRational", !6, i64 0, !6, i64 4}
+!44 = !{!"float", !7, i64 0}
+!45 = !{!"AVChannelLayout", !6, i64 0, !6, i64 4, !7, i64 8, !19, i64 16}
+!46 = !{!"p1 _ZTS10RcOverride", !19, i64 0}
+!47 = !{!"p1 _ZTS9AVHWAccel", !19, i64 0}
+!48 = !{!"p1 _ZTS11AVBufferRef", !19, i64 0}
+!49 = !{!"p1 _ZTS17AVCodecDescriptor", !19, i64 0}
+!50 = !{!"p1 _ZTS16AVPacketSideData", !19, i64 0}
+!51 = !{!"p2 _ZTS15AVFrameSideData", !52, i64 0}
+!52 = !{!"any p2 pointer", !19, i64 0}
+!53 = !{!37, !19, i64 32}
+!54 = !{!37, !39, i64 16}
+!55 = !{!56, !6, i64 20}
+!56 = !{!"AVCodec", !42, i64 0, !42, i64 8, !6, i64 16, !6, i64 20, !6, i64 24, !7, i64 28, !57, i64 32, !19, i64 40, !18, i64 48, !19, i64 56, !38, i64 64, !58, i64 72, !42, i64 80, !59, i64 88}
+!57 = !{!"p1 _ZTS10AVRational", !19, i64 0}
+!58 = !{!"p1 _ZTS9AVProfile", !19, i64 0}
+!59 = !{!"p1 _ZTS15AVChannelLayout", !19, i64 0}
+!60 = !{!61, !6, i64 0}
+!61 = !{!"", !6, i64 0, !6, i64 4, !6, i64 8, !7, i64 12}
+!62 = !{!61, !6, i64 4}
+!63 = distinct !{!63, !14}
+!64 = distinct !{!64, !14}

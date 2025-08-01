@@ -389,7 +389,7 @@ define dso_local void @XLogRegisterBufData(i8 noundef zeroext %0, ptr noundef %1
   %4 = load ptr, ptr @registered_buffers, align 8
   %5 = zext i8 %0 to i64
   %6 = getelementptr inbounds nuw %struct.registered_buffer, ptr %4, i64 %5
-  %7 = load i8, ptr %6, align 8, !range !7, !noundef !8
+  %7 = load i8, ptr %6, align 8, !range !6, !noundef !7
   %8 = trunc nuw i8 %7 to i1
   br i1 %8, label %13, label %9
 
@@ -526,7 +526,7 @@ define dso_local range(i64 1, 0) i64 @XLogInsert(i8 noundef zeroext %0, i8 nound
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #10
   call void @GetFullPageWriteInfo(ptr noundef nonnull %4, ptr noundef nonnull %5) #10
   %28 = load i64, ptr %4, align 8
-  %29 = load i8, ptr %5, align 1, !range !7, !noundef !8
+  %29 = load i8, ptr %5, align 1, !range !6, !noundef !7
   %30 = trunc nuw i8 %29 to i1
   %31 = load ptr, ptr @hdr_scratch, align 8
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 24
@@ -534,7 +534,7 @@ define dso_local range(i64 1, 0) i64 @XLogInsert(i8 noundef zeroext %0, i8 nound
   store ptr %31, ptr getelementptr inbounds nuw (i8, ptr @hdr_rdt, i64 8), align 8
   %33 = load ptr, ptr @wal_consistency_checking, align 8
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 %19
-  %35 = load i8, ptr %34, align 1, !range !7, !noundef !8
+  %35 = load i8, ptr %34, align 1, !range !6, !noundef !7
   %36 = shl nuw nsw i8 %35, 1
   %spec.select.i = or i8 %36, %1
   %37 = load i32, ptr @max_registered_block_id, align 4
@@ -561,7 +561,7 @@ define dso_local range(i64 1, 0) i64 @XLogInsert(i8 noundef zeroext %0, i8 nound
   %.sroa.13.0217.i = phi i8 [ undef, %.lr.ph.i13 ], [ %.sroa.13.1.i, %202 ]
   %.0169216.i = phi ptr [ %32, %.lr.ph.i13 ], [ %.1170.i, %202 ]
   %44 = getelementptr inbounds nuw %struct.registered_buffer, ptr %43, i64 %indvars.iv.i14
-  %45 = load i8, ptr %44, align 8, !range !7, !noundef !8
+  %45 = load i8, ptr %44, align 8, !range !6, !noundef !7
   %46 = trunc nuw i8 %45 to i1
   br i1 %46, label %47, label %202
 
@@ -922,7 +922,7 @@ XLogCompressBackupBlock.exit.i:                   ; preds = %111, %104
   %indvars.iv.next.i15 = add nuw nsw i64 %indvars.iv.i14, 1
   %205 = sext i32 %203 to i64
   %206 = icmp slt i64 %indvars.iv.next.i15, %205
-  br i1 %206, label %41, label %._crit_edge.i, !llvm.loop !9
+  br i1 %206, label %41, label %._crit_edge.i, !llvm.loop !8
 
 ._crit_edge.i:                                    ; preds = %202, %27
   %.028 = phi i64 [ 0, %27 ], [ %.230, %202 ]
@@ -1041,7 +1041,7 @@ XLogCompressBackupBlock.exit.i:                   ; preds = %111, %104
   %265 = call i32 %259(i32 noundef %.0158228.i, ptr noundef %261, i64 noundef %264) #10
   %.0155.i = load ptr, ptr %.0155229.i, align 8
   %.not185.i = icmp eq ptr %.0155.i, null
-  br i1 %.not185.i, label %._crit_edge232.i, label %.lr.ph231.i, !llvm.loop !10
+  br i1 %.not185.i, label %._crit_edge232.i, label %.lr.ph231.i, !llvm.loop !9
 
 ._crit_edge232.i:                                 ; preds = %.lr.ph231.i, %247
   %.0158.lcssa.i = phi i32 [ %258, %247 ], [ %265, %.lr.ph231.i ]
@@ -1077,7 +1077,7 @@ XLogRecordAssemble.exit:                          ; preds = %._crit_edge232.i
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #10
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #10
   %282 = icmp eq i64 %281, 0
-  br i1 %282, label %27, label %283, !llvm.loop !11
+  br i1 %282, label %27, label %283, !llvm.loop !10
 
 283:                                              ; preds = %XLogRecordAssemble.exit
   %284 = load i32, ptr @max_registered_block_id, align 4
@@ -1140,7 +1140,7 @@ define dso_local noundef zeroext i1 @XLogCheckBufferNeedsBackup(i32 noundef %0) 
 
 BufferGetPage.exit:                               ; preds = %5, %11
   %.0.i.i = phi ptr [ %10, %5 ], [ %16, %11 ]
-  %17 = load i8, ptr %3, align 1, !range !7, !noundef !8
+  %17 = load i8, ptr %3, align 1, !range !6, !noundef !7
   %18 = trunc nuw i8 %17 to i1
   br i1 %18, label %19, label %22
 
@@ -1417,7 +1417,7 @@ XLogEnsureRecordSpace.exit:                       ; preds = %35, %38
 
 .loopexit:                                        ; preds = %90, %75
   %43 = icmp sgt i32 %2, %77
-  br i1 %43, label %.lr.ph36, label %._crit_edge, !llvm.loop !12
+  br i1 %43, label %.lr.ph36, label %._crit_edge, !llvm.loop !11
 
 .lr.ph36:                                         ; preds = %.lr.ph36.preheader, %.loopexit
   %.02835 = phi i32 [ %77, %.loopexit ], [ 0, %.lr.ph36.preheader ]
@@ -1483,7 +1483,7 @@ XLogRegisterBlock.exit:                           ; preds = %58
   %72 = icmp samesign ult i64 %indvars.iv, 31
   %73 = icmp slt i64 %indvars.iv.next39, %42
   %74 = select i1 %72, i1 %73, i1 false
-  br i1 %74, label %48, label %75, !llvm.loop !13
+  br i1 %74, label %48, label %75, !llvm.loop !12
 
 75:                                               ; preds = %XLogRegisterBlock.exit
   %76 = trunc nsw i64 %indvars.iv38 to i32
@@ -1518,7 +1518,7 @@ XLogRegisterBlock.exit:                           ; preds = %58
 90:                                               ; preds = %83, %88
   %indvars.iv.next44 = add nsw i64 %indvars.iv43, 1
   %91 = icmp slt i64 %indvars.iv43, %82
-  br i1 %91, label %83, label %.loopexit, !llvm.loop !14
+  br i1 %91, label %83, label %.loopexit, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %.loopexit, %XLogEnsureRecordSpace.exit
   ret void
@@ -1640,7 +1640,7 @@ XLogEnsureRecordSpace.exit:                       ; preds = %35, %38
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %6) #10
   %42 = load volatile i32, ptr @InterruptPending, align 4
   %.not = icmp eq i32 %42, 0
-  br i1 %.not, label %44, label %43, !prof !15
+  br i1 %.not, label %44, label %43, !prof !14
 
 43:                                               ; preds = %.lr.ph55
   tail call void @ProcessInterrupts() #10
@@ -1698,7 +1698,7 @@ BufferGetPage.exit:                               ; preds = %48, %54
   %69 = icmp slt i32 %.134, 32
   %70 = icmp ult i32 %68, %3
   %71 = select i1 %69, i1 %70, i1 false
-  br i1 %71, label %.lr.ph, label %._crit_edge, !llvm.loop !16
+  br i1 %71, label %.lr.ph, label %._crit_edge, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %67
   %72 = icmp eq i32 %.134, 0
@@ -1793,7 +1793,7 @@ XLogRegisterBuffer.exit:                          ; preds = %98, %104
   store i8 1, ptr %93, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge49, label %.lr.ph48, !llvm.loop !17
+  br i1 %exitcond.not, label %._crit_edge49, label %.lr.ph48, !llvm.loop !16
 
 ._crit_edge49:                                    ; preds = %XLogRegisterBuffer.exit
   %115 = tail call i64 @XLogInsert(i8 noundef zeroext 0, i8 noundef zeroext -80)
@@ -1834,7 +1834,7 @@ BufferGetPage.exit40:                             ; preds = %123, %129
   tail call void @UnlockReleaseBuffer(i32 noundef %121) #10
   %indvars.iv.next58 = add nuw nsw i64 %indvars.iv57, 1
   %exitcond61.not = icmp eq i64 %indvars.iv.next58, %wide.trip.count60
-  br i1 %exitcond61.not, label %._crit_edge53, label %119, !llvm.loop !18
+  br i1 %exitcond61.not, label %._crit_edge53, label %119, !llvm.loop !17
 
 ._crit_edge53:                                    ; preds = %BufferGetPage.exit40, %._crit_edge49.thread
   %136 = load volatile i32, ptr @CritSectionCount, align 4
@@ -1842,7 +1842,7 @@ BufferGetPage.exit40:                             ; preds = %123, %129
   store volatile i32 %137, ptr @CritSectionCount, align 4
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %6) #10
   %138 = icmp ult i32 %68, %3
-  br i1 %138, label %.lr.ph55, label %.loopexit, !llvm.loop !19
+  br i1 %138, label %.lr.ph55, label %.loopexit
 
 .loopexit:                                        ; preds = %._crit_edge53, %XLogEnsureRecordSpace.exit, %.thread
   ret void
@@ -1954,19 +1954,17 @@ attributes #11 = { cold nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = distinct !{!4, !5, !6}
+!4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{!"llvm.loop.estimated_trip_count"}
-!7 = !{i8 0, i8 2}
-!8 = !{}
-!9 = distinct !{!9, !5, !6}
-!10 = distinct !{!10, !5, !6}
-!11 = distinct !{!11, !5, !6}
-!12 = distinct !{!12, !5, !6}
-!13 = distinct !{!13, !5, !6}
-!14 = distinct !{!14, !5, !6}
-!15 = !{!"branch_weights", !"expected", i32 2000, i32 1}
-!16 = distinct !{!16, !5, !6}
-!17 = distinct !{!17, !5, !6}
-!18 = distinct !{!18, !5, !6}
-!19 = distinct !{!19, !6}
+!6 = !{i8 0, i8 2}
+!7 = !{}
+!8 = distinct !{!8, !5}
+!9 = distinct !{!9, !5}
+!10 = distinct !{!10, !5}
+!11 = distinct !{!11, !5}
+!12 = distinct !{!12, !5}
+!13 = distinct !{!13, !5}
+!14 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!15 = distinct !{!15, !5}
+!16 = distinct !{!16, !5}
+!17 = distinct !{!17, !5}

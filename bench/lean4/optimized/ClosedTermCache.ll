@@ -4235,7 +4235,7 @@ lean_alloc_ctor.exit:                             ; preds = %lean_inc.exit, %lea
   store ptr %.sink250, ptr %290, align 8, !tbaa !9
   %291 = getelementptr inbounds nuw i8, ptr %.sink258, i64 24
   store ptr %.sink, ptr %291, align 8, !tbaa !9
-  br label %5, !llvm.loop !15
+  br label %5
 }
 
 declare ptr @l_panic___at___private_Init_Prelude_0__Lean_assembleParts___spec__1(ptr noundef) local_unnamed_addr #2
@@ -4423,9 +4423,9 @@ lean_alloc_closure.exit:                          ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr @l_Lean_initFn____x40_Lean_Compiler_ClosedTermCache___hyg_63____lambda__1___boxed, ptr %6, align 8, !tbaa !9
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store i16 5, ptr %7, align 8, !tbaa !17
+  store i16 5, ptr %7, align 8, !tbaa !15
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 18
-  store i16 1, ptr %8, align 2, !tbaa !17
+  store i16 1, ptr %8, align 2, !tbaa !15
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store ptr inttoptr (i64 1 to ptr), ptr %9, align 8, !tbaa !9
   tail call void @lean_inc_heartbeat() #4
@@ -5019,16 +5019,16 @@ lean_alloc_closure.exit:                          ; preds = %3
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr @l_Lean_cacheClosedTermName___lambda__1, ptr %8, align 8, !tbaa !9
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store i16 3, ptr %9, align 8, !tbaa !17
+  store i16 3, ptr %9, align 8, !tbaa !15
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 18
-  store i16 2, ptr %10, align 2, !tbaa !17
+  store i16 2, ptr %10, align 2, !tbaa !15
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store ptr %1, ptr %11, align 8, !tbaa !9
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store ptr %2, ptr %12, align 8, !tbaa !9
   %13 = load ptr, ptr @l_Lean_closedTermCacheExt, align 8, !tbaa !9
   %14 = getelementptr i8, ptr %13, i64 32
-  %.val = load i8, ptr %14, align 1, !tbaa !19
+  %.val = load i8, ptr %14, align 1, !tbaa !17
   %15 = load ptr, ptr @l_Lean_cacheClosedTermName___closed__1, align 8, !tbaa !9
   %16 = tail call ptr @l_Lean_EnvExtension_modifyState___rarg(ptr noundef %15, ptr noundef %0, ptr noundef nonnull %4, i8 noundef zeroext %.val) #4
   ret ptr %16
@@ -5040,7 +5040,7 @@ declare ptr @l_Lean_EnvExtension_modifyState___rarg(ptr noundef, ptr noundef, pt
 define ptr @lean_get_closed_term_name(ptr noundef %0, ptr noundef %1) local_unnamed_addr #1 {
   %3 = load ptr, ptr @l_Lean_closedTermCacheExt, align 8, !tbaa !9
   %4 = getelementptr i8, ptr %3, i64 32
-  %.val = load i8, ptr %4, align 1, !tbaa !19
+  %.val = load i8, ptr %4, align 1, !tbaa !17
   %5 = load ptr, ptr @l_Lean_instInhabitedClosedTermCache, align 8, !tbaa !9
   %6 = load ptr, ptr @l_Lean_cacheClosedTermName___closed__1, align 8, !tbaa !9
   %7 = tail call ptr @l___private_Lean_Environment_0__Lean_EnvExtension_getStateUnsafe___rarg(ptr noundef %5, ptr noundef %6, ptr noundef %0, i8 noundef zeroext %.val) #4
@@ -5129,7 +5129,7 @@ declare ptr @l___private_Lean_Environment_0__Lean_EnvExtension_getStateUnsafe___
 define zeroext i8 @l_Lean_isClosedTermName(ptr noundef %0, ptr noundef %1) local_unnamed_addr #1 {
   %3 = load ptr, ptr @l_Lean_closedTermCacheExt, align 8, !tbaa !9
   %4 = getelementptr i8, ptr %3, i64 32
-  %.val = load i8, ptr %4, align 1, !tbaa !19
+  %.val = load i8, ptr %4, align 1, !tbaa !17
   %5 = load ptr, ptr @l_Lean_instInhabitedClosedTermCache, align 8, !tbaa !9
   %6 = load ptr, ptr @l_Lean_cacheClosedTermName___closed__1, align 8, !tbaa !9
   %7 = tail call ptr @l___private_Lean_Environment_0__Lean_EnvExtension_getStateUnsafe___rarg(ptr noundef %5, ptr noundef %6, ptr noundef %0, i8 noundef zeroext %.val) #4
@@ -5370,9 +5370,9 @@ _init_l_Lean_initFn____x40_Lean_Compiler_ClosedTermCache___hyg_63____closed__1.e
   %48 = getelementptr inbounds nuw i8, ptr %44, i64 8
   store ptr @l_EStateM_pure___rarg, ptr %48, align 8, !tbaa !9
   %49 = getelementptr inbounds nuw i8, ptr %44, i64 16
-  store i16 2, ptr %49, align 8, !tbaa !17
+  store i16 2, ptr %49, align 8, !tbaa !15
   %50 = getelementptr inbounds nuw i8, ptr %44, i64 18
-  store i16 1, ptr %50, align 2, !tbaa !17
+  store i16 1, ptr %50, align 2, !tbaa !15
   %51 = getelementptr inbounds nuw i8, ptr %44, i64 24
   store ptr %43, ptr %51, align 8, !tbaa !9
   store ptr %44, ptr @l_Lean_initFn____x40_Lean_Compiler_ClosedTermCache___hyg_63____closed__1, align 8, !tbaa !9
@@ -5500,8 +5500,6 @@ attributes #5 = { noreturn nounwind }
 !12 = !{!13, !13, i64 0}
 !13 = !{!"long", !7, i64 0}
 !14 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!15 = distinct !{!15, !16}
-!16 = !{!"llvm.loop.estimated_trip_count"}
-!17 = !{!18, !18, i64 0}
-!18 = !{!"short", !7, i64 0}
-!19 = !{!7, !7, i64 0}
+!15 = !{!16, !16, i64 0}
+!16 = !{!"short", !7, i64 0}
+!17 = !{!7, !7, i64 0}

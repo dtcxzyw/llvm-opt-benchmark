@@ -1225,7 +1225,7 @@ mi_try_new_handler.exit.i:                        ; preds = %.lr.ph.i
   tail call void %6() #19
   %7 = tail call noalias ptr @mi_malloc_aligned(i64 noundef %0, i64 noundef %1) #19
   %8 = icmp eq ptr %7, null
-  br i1 %8, label %.lr.ph.i, label %mi_new_aligned_nothrow.exit, !llvm.loop !30
+  br i1 %8, label %.lr.ph.i, label %mi_new_aligned_nothrow.exit, !llvm.loop !29
 
 mi_new_aligned_nothrow.exit:                      ; preds = %mi_try_new_handler.exit.i, %3, %mi_try_new_handler.exit.thread.i
   %9 = phi ptr [ null, %mi_try_new_handler.exit.thread.i ], [ %4, %3 ], [ %7, %mi_try_new_handler.exit.i ]
@@ -1251,7 +1251,7 @@ mi_try_new_handler.exit:                          ; preds = %.lr.ph
   tail call void %5() #19
   %6 = tail call noalias ptr @mi_malloc_aligned(i64 noundef %0, i64 noundef %1) #19
   %7 = icmp eq ptr %6, null
-  br i1 %7, label %.lr.ph, label %.critedge, !llvm.loop !30
+  br i1 %7, label %.lr.ph, label %.critedge, !llvm.loop !29
 
 .critedge:                                        ; preds = %mi_try_new_handler.exit, %2, %mi_try_new_handler.exit.thread
   %8 = phi ptr [ null, %mi_try_new_handler.exit.thread ], [ %3, %2 ], [ %6, %mi_try_new_handler.exit ]
@@ -1277,7 +1277,7 @@ mi_try_new_handler.exit.i:                        ; preds = %.lr.ph.i
   tail call void %6() #19
   %7 = tail call noalias ptr @mi_malloc_aligned(i64 noundef %0, i64 noundef %1) #19
   %8 = icmp eq ptr %7, null
-  br i1 %8, label %.lr.ph.i, label %mi_new_aligned_nothrow.exit, !llvm.loop !30
+  br i1 %8, label %.lr.ph.i, label %mi_new_aligned_nothrow.exit, !llvm.loop !29
 
 mi_new_aligned_nothrow.exit:                      ; preds = %mi_try_new_handler.exit.i, %3, %mi_try_new_handler.exit.thread.i
   %9 = phi ptr [ null, %mi_try_new_handler.exit.thread.i ], [ %4, %3 ], [ %7, %mi_try_new_handler.exit.i ]
@@ -1556,12 +1556,12 @@ define i32 @__posix_memalign(ptr noundef %0, i64 noundef %1, i64 noundef %2) loc
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @_mi_page_ptr_unalign(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #6 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %4 = load ptr, ptr %3, align 8, !tbaa !31
+  %4 = load ptr, ptr %3, align 8, !tbaa !30
   %5 = ptrtoint ptr %1 to i64
   %6 = ptrtoint ptr %4 to i64
   %7 = sub i64 %5, %6
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 34
-  %9 = load i8, ptr %8, align 2, !tbaa !32
+  %9 = load i8, ptr %8, align 2, !tbaa !31
   %.not = icmp eq i8 %9, 0
   br i1 %.not, label %14, label %10, !prof !18
 
@@ -1611,12 +1611,12 @@ define internal fastcc void @mi_free_generic_local(ptr noundef %0, ptr noundef %
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %7 = load ptr, ptr %6, align 8, !tbaa !31
+  %7 = load ptr, ptr %6, align 8, !tbaa !30
   %8 = ptrtoint ptr %1 to i64
   %9 = ptrtoint ptr %7 to i64
   %10 = sub i64 %8, %9
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 34
-  %12 = load i8, ptr %11, align 2, !tbaa !32
+  %12 = load i8, ptr %11, align 2, !tbaa !31
   %.not.i = icmp eq i8 %12, 0
   br i1 %.not.i, label %17, label %13, !prof !18
 
@@ -1674,12 +1674,12 @@ mi_free_block_local.exit:                         ; preds = %31, %32, %34
 ; Function Attrs: noinline nounwind uwtable
 define internal fastcc void @mi_free_generic_mt(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #7 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %5 = load ptr, ptr %4, align 8, !tbaa !31
+  %5 = load ptr, ptr %4, align 8, !tbaa !30
   %6 = ptrtoint ptr %2 to i64
   %7 = ptrtoint ptr %5 to i64
   %8 = sub i64 %6, %7
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 34
-  %10 = load i8, ptr %9, align 2, !tbaa !32
+  %10 = load i8, ptr %9, align 2, !tbaa !31
   %.not.i = icmp eq i8 %10, 0
   br i1 %.not.i, label %15, label %11, !prof !18
 
@@ -2521,7 +2521,7 @@ _mi_usable_size.exit:                             ; preds = %24, %26
   %29 = add i64 %2, -1
   %30 = icmp uge i64 %29, %.0.i
   %or.cond39.not = or i1 %30, %.not35
-  br i1 %or.cond39.not, label %.critedge, label %mi_free.exit, !prof !33
+  br i1 %or.cond39.not, label %.critedge, label %mi_free.exit, !prof !32
 
 .critedge:                                        ; preds = %_mi_usable_size.exit.thread, %_mi_usable_size.exit
   %.not49 = phi i1 [ %.not45, %_mi_usable_size.exit.thread ], [ %.not, %_mi_usable_size.exit ]
@@ -2553,7 +2553,7 @@ mi_heap_malloc.exit.thread:                       ; preds = %32
 mi_heap_malloc.exit:                              ; preds = %.critedge, %32
   %45 = tail call noalias ptr @_mi_malloc_generic(ptr noundef %0, i64 noundef %2, i1 noundef zeroext false, i64 noundef 0) #19
   %.not36 = icmp eq ptr %45, null
-  br i1 %.not36, label %mi_free.exit, label %46, !prof !34
+  br i1 %.not36, label %mi_free.exit, label %46, !prof !33
 
 46:                                               ; preds = %mi_heap_malloc.exit.thread, %mi_heap_malloc.exit
   %.0.i.i.i42 = phi ptr [ %39, %mi_heap_malloc.exit.thread ], [ %45, %mi_heap_malloc.exit ]
@@ -3016,7 +3016,7 @@ define hidden ptr @mi_heap_try_new(ptr noundef %0, i64 noundef %1, i1 noundef ze
 10:                                               ; preds = %mi_heap_malloc.exit.us
   %11 = tail call ptr @_ZSt15get_new_handlerv() #20
   %.not.us = icmp eq ptr %11, null
-  br i1 %.not.us, label %.split8.us, label %.lr.ph, !llvm.loop !35
+  br i1 %.not.us, label %.split8.us, label %.lr.ph, !llvm.loop !34
 
 .lr.ph:                                           ; preds = %.split.us, %10
   %12 = phi ptr [ %11, %10 ], [ %9, %.split.us ]
@@ -3041,7 +3041,7 @@ mi_heap_malloc.exit.us.thread:                    ; preds = %.lr.ph
 mi_heap_malloc.exit.us:                           ; preds = %.lr.ph
   %22 = tail call noalias ptr @_mi_malloc_generic(ptr noundef nonnull %0, i64 noundef %1, i1 noundef zeroext false, i64 noundef 0) #19
   %23 = icmp eq ptr %22, null
-  br i1 %23, label %10, label %.critedge, !llvm.loop !35
+  br i1 %23, label %10, label %.critedge, !llvm.loop !34
 
 .split:                                           ; preds = %3
   br i1 %.not.us11, label %.split8.us, label %mi_heap_malloc.exit
@@ -3049,7 +3049,7 @@ mi_heap_malloc.exit.us:                           ; preds = %.lr.ph
 24:                                               ; preds = %mi_heap_malloc.exit
   %25 = tail call ptr @_ZSt15get_new_handlerv() #20
   %.not = icmp eq ptr %25, null
-  br i1 %.not, label %.split8.us, label %mi_heap_malloc.exit, !llvm.loop !37
+  br i1 %.not, label %.split8.us, label %mi_heap_malloc.exit, !llvm.loop !36
 
 .split8.us:                                       ; preds = %24, %10, %.split, %.split.us
   tail call void (i32, ptr, ...) @_mi_error_message(i32 noundef 12, ptr noundef nonnull @.str.4) #19
@@ -3064,7 +3064,7 @@ mi_heap_malloc.exit:                              ; preds = %.split, %24
   tail call void %27() #19
   %28 = tail call noalias ptr @_mi_malloc_generic(ptr noundef %0, i64 noundef %1, i1 noundef zeroext false, i64 noundef 0) #19
   %29 = icmp eq ptr %28, null
-  br i1 %29, label %24, label %.critedge, !llvm.loop !37
+  br i1 %29, label %24, label %.critedge, !llvm.loop !36
 
 .critedge:                                        ; preds = %mi_heap_malloc.exit, %mi_heap_malloc.exit.us, %mi_heap_malloc.exit.us.thread, %.split8.us
   %.05 = phi ptr [ null, %.split8.us ], [ %15, %mi_heap_malloc.exit.us.thread ], [ %22, %mi_heap_malloc.exit.us ], [ %28, %mi_heap_malloc.exit ]
@@ -3278,7 +3278,7 @@ mi_try_new_handler.exit:                          ; preds = %.lr.ph
   %9 = load ptr, ptr %3, align 8, !tbaa !3
   %10 = tail call ptr @_mi_heap_realloc_zero(ptr noundef %9, ptr noundef %0, i64 noundef %1, i1 noundef zeroext false) #20
   %11 = icmp eq ptr %10, null
-  br i1 %11, label %.lr.ph, label %.critedge, !llvm.loop !38
+  br i1 %11, label %.lr.ph, label %.critedge, !llvm.loop !37
 
 .critedge:                                        ; preds = %mi_try_new_handler.exit, %2
   %.lcssa = phi ptr [ %5, %2 ], [ %10, %mi_try_new_handler.exit ]
@@ -3323,7 +3323,7 @@ mi_try_new_handler.exit.i:                        ; preds = %.lr.ph.i
   %15 = load ptr, ptr %9, align 8, !tbaa !3
   %16 = tail call ptr @_mi_heap_realloc_zero(ptr noundef %15, ptr noundef %0, i64 noundef %storemerge.i.ph, i1 noundef zeroext false) #20
   %17 = icmp eq ptr %16, null
-  br i1 %17, label %.lr.ph.i, label %mi_new_realloc.exit, !llvm.loop !38
+  br i1 %17, label %.lr.ph.i, label %mi_new_realloc.exit, !llvm.loop !37
 
 mi_new_realloc.exit:                              ; preds = %mi_try_new_handler.exit.i, %8, %mi_count_size_overflow.exit
   %.0 = phi ptr [ null, %mi_count_size_overflow.exit ], [ %11, %8 ], [ %16, %mi_try_new_handler.exit.i ]
@@ -3411,7 +3411,7 @@ define internal fastcc void @mi_free_block_mt(ptr noundef %0, ptr noundef %1, pt
 
 52:                                               ; preds = %11, %5, %3
   %53 = getelementptr inbounds nuw i8, ptr %1, i64 264
-  %54 = load i32, ptr %53, align 8, !tbaa !39
+  %54 = load i32, ptr %53, align 8, !tbaa !38
   %55 = icmp eq i32 %54, 1
   br i1 %55, label %56, label %57
 
@@ -3457,7 +3457,7 @@ define internal fastcc void @mi_free_block_delayed_mt(ptr noundef captures(none)
 .backedge:                                        ; preds = %9, %.thread
   %.pn = phi { i64, i1 } [ %11, %9 ], [ %15, %.thread ]
   %.038.be = extractvalue { i64, i1 } %.pn, 0
-  br label %6, !llvm.loop !46
+  br label %6, !llvm.loop !45
 
 .thread:                                          ; preds = %6
   %13 = and i64 %.038, -4
@@ -3485,7 +3485,7 @@ define internal fastcc void @mi_free_block_delayed_mt(ptr noundef captures(none)
   %25 = cmpxchg weak ptr %22, i64 %.039.in, i64 %5 release monotonic, align 8
   %26 = extractvalue { i64, i1 } %25, 1
   %27 = extractvalue { i64, i1 } %25, 0
-  br i1 %26, label %.loopexit, label %24, !llvm.loop !47
+  br i1 %26, label %.loopexit, label %24, !llvm.loop !46
 
 .loopexit:                                        ; preds = %24, %17
   %28 = load atomic i64, ptr %3 monotonic, align 8
@@ -3498,7 +3498,7 @@ define internal fastcc void @mi_free_block_delayed_mt(ptr noundef captures(none)
   %32 = cmpxchg weak ptr %3, i64 %.2, i64 %31 release monotonic, align 8
   %33 = extractvalue { i64, i1 } %32, 1
   %34 = extractvalue { i64, i1 } %32, 0
-  br i1 %33, label %.thread45, label %29, !llvm.loop !48
+  br i1 %33, label %.thread45, label %29, !llvm.loop !47
 
 .thread45:                                        ; preds = %.thread, %29
   ret void
@@ -3511,12 +3511,12 @@ declare void @_mi_page_unfull(ptr noundef) local_unnamed_addr #5
 ; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define internal fastcc i64 @mi_page_usable_aligned_size_of(ptr noundef readonly captures(none) %0, ptr noundef %1) unnamed_addr #11 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %4 = load ptr, ptr %3, align 8, !tbaa !31
+  %4 = load ptr, ptr %3, align 8, !tbaa !30
   %5 = ptrtoint ptr %1 to i64
   %6 = ptrtoint ptr %4 to i64
   %7 = sub i64 %5, %6
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 34
-  %9 = load i8, ptr %8, align 2, !tbaa !32
+  %9 = load i8, ptr %8, align 2, !tbaa !31
   %.not.i = icmp eq i8 %9, 0
   br i1 %.not.i, label %14, label %10, !prof !18
 
@@ -3623,25 +3623,24 @@ attributes #21 = { noreturn nounwind "no-builtin-malloc" }
 !24 = !{!6, !6, i64 0}
 !25 = !{!12, !15, i64 24}
 !26 = !{!"branch_weights", !"expected", i32 1074010193, i32 1073473455}
-!27 = distinct !{!27, !28, !29}
+!27 = distinct !{!27, !28}
 !28 = !{!"llvm.loop.mustprogress"}
-!29 = !{!"llvm.loop.estimated_trip_count"}
-!30 = distinct !{!30, !28, !29}
-!31 = !{!12, !17, i64 48}
-!32 = !{!12, !6, i64 34}
-!33 = !{!"branch_weights", i32 2146946776, i32 536872}
-!34 = !{!"branch_weights", !"expected", i32 1074010192, i32 1073473456}
-!35 = distinct !{!35, !28, !29, !36}
-!36 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!37 = distinct !{!37, !28, !29}
-!38 = distinct !{!38, !28, !29}
-!39 = !{!40, !13, i64 264}
-!40 = !{!"mi_segment_s", !41, i64 0, !42, i64 24, !42, i64 25, !16, i64 32, !43, i64 40, !16, i64 48, !44, i64 56, !44, i64 120, !45, i64 184, !42, i64 192, !42, i64 193, !16, i64 200, !16, i64 208, !16, i64 216, !16, i64 224, !45, i64 232, !45, i64 240, !16, i64 248, !16, i64 256, !13, i64 264, !16, i64 272, !6, i64 280, !6, i64 288}
-!41 = !{!"mi_memid_s", !6, i64 0, !42, i64 16, !42, i64 17, !42, i64 18, !13, i64 20}
-!42 = !{!"_Bool", !6, i64 0}
-!43 = !{!"p1 _ZTS12mi_subproc_s", !5, i64 0}
-!44 = !{!"mi_commit_mask_s", !6, i64 0}
-!45 = !{!"p1 _ZTS12mi_segment_s", !5, i64 0}
-!46 = distinct !{!46, !28, !29}
-!47 = distinct !{!47, !28, !29}
-!48 = distinct !{!48, !28, !29}
+!29 = distinct !{!29, !28}
+!30 = !{!12, !17, i64 48}
+!31 = !{!12, !6, i64 34}
+!32 = !{!"branch_weights", i32 2146946776, i32 536872}
+!33 = !{!"branch_weights", !"expected", i32 1074010192, i32 1073473456}
+!34 = distinct !{!34, !28, !35}
+!35 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!36 = distinct !{!36, !28}
+!37 = distinct !{!37, !28}
+!38 = !{!39, !13, i64 264}
+!39 = !{!"mi_segment_s", !40, i64 0, !41, i64 24, !41, i64 25, !16, i64 32, !42, i64 40, !16, i64 48, !43, i64 56, !43, i64 120, !44, i64 184, !41, i64 192, !41, i64 193, !16, i64 200, !16, i64 208, !16, i64 216, !16, i64 224, !44, i64 232, !44, i64 240, !16, i64 248, !16, i64 256, !13, i64 264, !16, i64 272, !6, i64 280, !6, i64 288}
+!40 = !{!"mi_memid_s", !6, i64 0, !41, i64 16, !41, i64 17, !41, i64 18, !13, i64 20}
+!41 = !{!"_Bool", !6, i64 0}
+!42 = !{!"p1 _ZTS12mi_subproc_s", !5, i64 0}
+!43 = !{!"mi_commit_mask_s", !6, i64 0}
+!44 = !{!"p1 _ZTS12mi_segment_s", !5, i64 0}
+!45 = distinct !{!45, !28}
+!46 = distinct !{!46, !28}
+!47 = distinct !{!47, !28}

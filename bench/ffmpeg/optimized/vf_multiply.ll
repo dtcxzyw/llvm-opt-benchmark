@@ -388,14 +388,14 @@ multiply.exit.loopexit.us:                        ; preds = %.lr.ph.i.us
   %78 = getelementptr inbounds i8, ptr %.05963.us, i64 %30
   %79 = add nsw i32 %.065.us, 1
   %exitcond.not = icmp eq i32 %79, %43
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph.preheader.i.us, !llvm.loop !79
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph.preheader.i.us, !llvm.loop !78
 
 .loopexit:                                        ; preds = %multiply.exit.loopexit.us, %.lr.ph, %61, %57
   %80 = phi i32 [ %20, %61 ], [ %.pre, %57 ], [ %20, %.lr.ph ], [ %20, %multiply.exit.loopexit.us ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %81 = sext i32 %80 to i64
   %82 = icmp slt i64 %indvars.iv.next, %81
-  br i1 %82, label %19, label %._crit_edge, !llvm.loop !81
+  br i1 %82, label %19, label %._crit_edge, !llvm.loop !80
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
@@ -506,9 +506,8 @@ attributes #9 = { nounwind willreturn memory(none) }
 !73 = !{!11, !11, i64 0}
 !74 = !{!31, !15, i64 16}
 !75 = !{!32, !32, i64 0}
-!76 = distinct !{!76, !77, !78}
+!76 = distinct !{!76, !77}
 !77 = !{!"llvm.loop.mustprogress"}
-!78 = !{!"llvm.loop.estimated_trip_count"}
-!79 = distinct !{!79, !77, !78, !80}
-!80 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!81 = distinct !{!81, !77, !78}
+!78 = distinct !{!78, !77, !79}
+!79 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!80 = distinct !{!80, !77}

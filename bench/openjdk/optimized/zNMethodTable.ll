@@ -211,7 +211,7 @@ define hidden void @_ZN13ZNMethodTable16unregister_entryEP18ZNMethodTableEntrymP
   %38 = inttoptr i64 %37 to ptr
   %39 = icmp eq ptr %2, %38
   %or.cond = and i1 %36, %39
-  br i1 %or.cond, label %._crit_edge, label %30, !llvm.loop !9
+  br i1 %or.cond, label %._crit_edge, label %30, !llvm.loop !8
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -331,7 +331,7 @@ _ZN13ZNMethodTable14register_entryEP18ZNMethodTableEntrymP7nmethod.exit: ; preds
   %69 = phi ptr [ %32, %30 ], [ %.pre, %_ZN13ZNMethodTable14register_entryEP18ZNMethodTableEntrymP7nmethod.exit ]
   %70 = add nuw i64 %.018, 1
   %71 = icmp ult i64 %70, %68
-  br i1 %71, label %30, label %._crit_edge, !llvm.loop !10
+  br i1 %71, label %30, label %._crit_edge, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %67, %.loopexit
   %72 = phi ptr [ %.pre22, %.loopexit ], [ %69, %67 ]
@@ -575,7 +575,7 @@ define hidden void @_ZN13ZNMethodTable25wait_until_iteration_doneEv() local_unna
 .critedge:                                        ; preds = %1, %3
   %5 = load ptr, ptr @CodeCache_lock, align 8
   %6 = tail call noundef zeroext i1 @_ZN7Monitor28wait_without_safepoint_checkEm(ptr noundef nonnull align 8 dereferenceable(104) %5, i64 noundef 0) #13
-  br label %1, !llvm.loop !11
+  br label %1, !llvm.loop !10
 
 7:                                                ; preds = %3
   ret void
@@ -641,7 +641,7 @@ _ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit: ; preds = %1, %3
   %39 = inttoptr i64 %38 to ptr
   %40 = icmp eq ptr %0, %39
   %or.cond.i = and i1 %37, %40
-  br i1 %or.cond.i, label %_ZN13ZNMethodTable16unregister_entryEP18ZNMethodTableEntrymP7nmethod.exit, label %31, !llvm.loop !9
+  br i1 %or.cond.i, label %_ZN13ZNMethodTable16unregister_entryEP18ZNMethodTableEntrymP7nmethod.exit, label %31, !llvm.loop !8
 
 _ZN13ZNMethodTable16unregister_entryEP18ZNMethodTableEntrymP7nmethod.exit: ; preds = %31, %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit
   %.0.lcssa.i = phi i64 [ %22, %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit ], [ %33, %31 ]
@@ -776,7 +776,7 @@ _ZN7ZLockerI5ZLockED2Ev.exit.i.i:                 ; preds = %18, %17
 
 _ZN11ZSafeDeleteIA_18ZNMethodTableEntryE16immediate_deleteEPS0_.exit.i: ; preds = %24, %.lr.ph.i.i
   %.not.i.i1 = icmp eq i64 %20, %.sroa.04.0.i.i
-  br i1 %.not.i.i1, label %_ZN18ZArrayIteratorImplIP18ZNMethodTableEntryLb0EE4nextEPS1_.exit.i.i, label %.lr.ph.i.i, !llvm.loop !12
+  br i1 %.not.i.i1, label %_ZN18ZArrayIteratorImplIP18ZNMethodTableEntryLb0EE4nextEPS1_.exit.i.i, label %.lr.ph.i.i, !llvm.loop !11
 
 _ZN18ZArrayIteratorImplIP18ZNMethodTableEntryLb0EE4nextEPS1_.exit.i.i: ; preds = %_ZN11ZSafeDeleteIA_18ZNMethodTableEntryE16immediate_deleteEPS0_.exit.i, %_ZN7ZLockerI5ZLockED2Ev.exit.i.i
   %.not.i.i.i.i.i = icmp eq ptr %.sroa.9.0.i.i, null
@@ -919,7 +919,7 @@ define linkonce_odr hidden noundef i32 @_ZN26GrowableArrayWithAllocatorIP18ZNMet
   %28 = load i32, ptr %0, align 8
   %29 = sext i32 %28 to i64
   %30 = icmp slt i64 %indvars.iv.next.i.i, %29
-  br i1 %30, label %23, label %.preheader15.loopexit.i.i, !llvm.loop !13
+  br i1 %30, label %23, label %.preheader15.loopexit.i.i, !llvm.loop !12
 
 .preheader.i.i:                                   ; preds = %.lr.ph18.i.i, %.preheader15.i.i
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -935,7 +935,7 @@ define linkonce_odr hidden noundef i32 @_ZN26GrowableArrayWithAllocatorIP18ZNMet
   %34 = load i32, ptr %4, align 4
   %35 = trunc nuw i64 %indvars.iv.next21.i.i to i32
   %36 = icmp sgt i32 %34, %35
-  br i1 %36, label %.lr.ph18.i.i, label %.preheader.i.i, !llvm.loop !14
+  br i1 %36, label %.lr.ph18.i.i, label %.preheader.i.i, !llvm.loop !13
 
 37:                                               ; preds = %.preheader.i.i
   tail call void @_ZN27GrowableArrayCHeapAllocator10deallocateEPv(ptr noundef nonnull %32) #13
@@ -1008,12 +1008,11 @@ attributes #13 = { nounwind }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7, !8}
-!11 = distinct !{!11, !7, !8}
-!12 = distinct !{!12, !7, !8}
-!13 = distinct !{!13, !7, !8}
-!14 = distinct !{!14, !7, !8}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7}
+!12 = distinct !{!12, !7}
+!13 = distinct !{!13, !7}

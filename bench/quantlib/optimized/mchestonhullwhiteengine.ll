@@ -801,6 +801,5 @@ attributes #21 = { builtin allocsize(0) }
 !40 = !{!"_ZTSSt10_Head_baseILm0EPdLb0EE", !5, i64 0}
 !41 = !{!"branch_weights", !"expected", i32 1, i32 2000}
 !42 = !{!21, !21, i64 0}
-!43 = distinct !{!43, !44, !45}
+!43 = distinct !{!43, !44}
 !44 = !{!"llvm.loop.mustprogress"}
-!45 = !{!"llvm.loop.estimated_trip_count"}

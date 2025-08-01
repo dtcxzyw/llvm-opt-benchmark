@@ -130,7 +130,7 @@ define internal range(i32 0, 2) i32 @foreach(ptr noundef %0) #0 {
   tail call void @lua_settop(ptr noundef %0, i32 noundef -3) #3
   %6 = tail call i32 @lua_next(ptr noundef %0, i32 noundef 1) #3
   %.not = icmp eq i32 %6, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !11
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5, %1
   %.0 = phi i32 [ 0, %1 ], [ 0, %5 ], [ 1, %.lr.ph ]
@@ -166,7 +166,7 @@ define internal range(i32 0, 2) i32 @foreachi(ptr noundef %0) #0 {
   tail call void @lua_settop(ptr noundef %0, i32 noundef -2) #3
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !12
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %.lr.ph, %8, %1
   %.0 = phi i32 [ 0, %1 ], [ 0, %8 ], [ 1, %.lr.ph ]
@@ -208,7 +208,7 @@ define internal noundef i32 @maxn(ptr noundef %0) #0 {
   %.1 = phi double [ %.2, %5 ], [ %.013, %.lr.ph ]
   %9 = tail call i32 @lua_next(ptr noundef %0, i32 noundef 1) #3
   %.not = icmp eq i32 %9, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !13
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %8, %1
   %.0.lcssa = phi double [ 0.000000e+00, %1 ], [ %.1, %8 ]
@@ -240,7 +240,7 @@ define internal i32 @tinsert(ptr noundef %0) #0 {
   tail call void @lua_rawgeti(ptr noundef %0, i32 noundef 1, i32 noundef %9) #3
   tail call void @lua_rawseti(ptr noundef %0, i32 noundef 1, i32 noundef %.024) #3
   %10 = icmp sgt i32 %9, %8
-  br i1 %10, label %.lr.ph, label %.loopexit, !llvm.loop !14
+  br i1 %10, label %.lr.ph, label %.loopexit, !llvm.loop !13
 
 11:                                               ; preds = %1
   %12 = tail call i32 (ptr, ptr, ...) @luaL_error(ptr noundef %0, ptr noundef nonnull @.str.12) #3
@@ -281,7 +281,7 @@ define internal range(i32 0, 2) i32 @tremove(ptr noundef %0) #0 {
   tail call void @lua_rawgeti(ptr noundef %0, i32 noundef 1, i32 noundef %10) #3
   tail call void @lua_rawseti(ptr noundef %0, i32 noundef 1, i32 noundef %.022) #3
   %exitcond.not = icmp eq i32 %10, %3
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !15
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %.lr.ph, %8
   tail call void @lua_pushnil(ptr noundef %0) #3
@@ -490,7 +490,7 @@ sort_comp.exit:                                   ; preds = %29, %31
 
 36:                                               ; preds = %34, %33
   tail call void @lua_settop(ptr noundef %0, i32 noundef -2) #3
-  br label %25, !llvm.loop !16
+  br label %25, !llvm.loop !15
 
 .preheader:                                       ; preds = %sort_comp.exit, %47
   %.1 = phi i32 [ %37, %47 ], [ %.lcssa116.sink, %sort_comp.exit ]
@@ -528,11 +528,11 @@ sort_comp.exit105:                                ; preds = %40, %42
 
 47:                                               ; preds = %45, %44
   tail call void @lua_settop(ptr noundef %0, i32 noundef -2) #3
-  br label %.preheader, !llvm.loop !17
+  br label %.preheader, !llvm.loop !16
 
 48:                                               ; preds = %sort_comp.exit105
   %.not101 = icmp sgt i32 %.1, %26
-  br i1 %.not101, label %24, label %49, !llvm.loop !18
+  br i1 %.not101, label %24, label %49
 
 49:                                               ; preds = %48
   tail call void @lua_settop(ptr noundef %0, i32 noundef -4) #3
@@ -550,7 +550,7 @@ sort_comp.exit105:                                ; preds = %40, %42
   %.090. = select i1 %52, i32 %.090111, i32 %53
   tail call fastcc void @auxsort(ptr noundef %0, i32 noundef %.090., i32 noundef %.185..087)
   %54 = icmp slt i32 %..090, %.087..185
-  br i1 %54, label %.lr.ph, label %.thread, !llvm.loop !19
+  br i1 %54, label %.lr.ph, label %.thread
 
 .thread:                                          ; preds = %49, %8, %20, %3
   ret void
@@ -601,15 +601,12 @@ attributes #3 = { nounwind }
 !5 = !{!"long", !6, i64 0}
 !6 = !{!"omnipotent char", !7, i64 0}
 !7 = !{!"Simple C/C++ TBAA"}
-!8 = distinct !{!8, !9, !10}
+!8 = distinct !{!8, !9}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = !{!"llvm.loop.estimated_trip_count"}
-!11 = distinct !{!11, !9, !10}
-!12 = distinct !{!12, !9, !10}
-!13 = distinct !{!13, !9, !10}
-!14 = distinct !{!14, !9, !10}
-!15 = distinct !{!15, !9, !10}
-!16 = distinct !{!16, !9, !10}
-!17 = distinct !{!17, !9, !10}
-!18 = distinct !{!18, !10}
-!19 = distinct !{!19, !10}
+!10 = distinct !{!10, !9}
+!11 = distinct !{!11, !9}
+!12 = distinct !{!12, !9}
+!13 = distinct !{!13, !9}
+!14 = distinct !{!14, !9}
+!15 = distinct !{!15, !9}
+!16 = distinct !{!16, !9}

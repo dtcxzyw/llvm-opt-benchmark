@@ -606,7 +606,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_7MCFixupELb1EE9push_backERKS1_.exit: ; pred
   store i32 %80, ptr %29, align 8, !tbaa !82
   %81 = getelementptr inbounds nuw i8, ptr %.021, i64 24
   %.not = icmp eq ptr %81, %25
-  br i1 %.not, label %._crit_edge, label %57, !llvm.loop !101
+  br i1 %.not, label %._crit_edge, label %57
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -1141,5 +1141,3 @@ attributes #13 = { builtin nounwind }
 !98 = !{!"p1 _ZTSN4llvm9MCSectionE", !5, i64 0}
 !99 = !{!"_ZTSN4llvm10MCFragment12FragmentTypeE", !6, i64 0}
 !100 = !{!"p1 _ZTSN4llvm15MCSubtargetInfoE", !5, i64 0}
-!101 = distinct !{!101, !102}
-!102 = !{!"llvm.loop.estimated_trip_count"}

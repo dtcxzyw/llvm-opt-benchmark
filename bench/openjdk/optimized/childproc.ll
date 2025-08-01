@@ -67,7 +67,7 @@ define hidden noundef i64 @readFully(i32 noundef %0, ptr noundef captures(none) 
   %.1 = phi i64 [ %10, %12 ], [ %.01421, %14 ]
   %19 = tail call i64 @read(i32 noundef %0, ptr noundef %.116, i64 noundef %.1) #14
   %20 = icmp eq i64 %19, 0
-  br i1 %20, label %._crit_edge, label %.lr.ph, !llvm.loop !6
+  br i1 %20, label %._crit_edge, label %.lr.ph
 
 .loopexit:                                        ; preds = %14, %9, %._crit_edge
   %.0 = phi i64 [ %6, %._crit_edge ], [ -1, %14 ], [ %2, %9 ]
@@ -101,7 +101,7 @@ define hidden noundef i64 @writeFully(i32 noundef %0, ptr noundef readonly captu
 
 10:                                               ; preds = %7
   %11 = getelementptr inbounds nuw i8, ptr %.013.ph, i64 %5
-  br label %.outer, !llvm.loop !8
+  br label %.outer
 
 12:                                               ; preds = %4
   %13 = icmp eq i64 %5, -1
@@ -111,7 +111,7 @@ define hidden noundef i64 @writeFully(i32 noundef %0, ptr noundef readonly captu
   %15 = tail call ptr @__errno_location() #15
   %16 = load i32, ptr %15, align 4
   %17 = icmp eq i32 %16, 4
-  br i1 %17, label %4, label %.loopexit, !llvm.loop !8
+  br i1 %17, label %4, label %.loopexit
 
 .loopexit:                                        ; preds = %7, %12, %14
   %.0 = phi i64 [ -1, %14 ], [ -1, %12 ], [ %2, %7 ]
@@ -140,7 +140,7 @@ define hidden void @initVectorFromBlock(ptr noundef writeonly captures(none) %0,
   %scevgep13 = getelementptr i8, ptr %scevgep, i64 %strlen
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !9
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   %6 = sext i32 %2 to i64
@@ -182,7 +182,7 @@ define hidden noundef i32 @childProcess(ptr noundef readonly captures(none) %0) 
 
 16:                                               ; preds = %13
   %17 = getelementptr inbounds nuw i8, ptr %.013.i.ph, i64 %11
-  br label %.outer, !llvm.loop !8
+  br label %.outer
 
 18:                                               ; preds = %10
   %19 = icmp eq i64 %11, -1
@@ -192,7 +192,7 @@ define hidden noundef i32 @childProcess(ptr noundef readonly captures(none) %0) 
   %21 = tail call ptr @__errno_location() #15
   %22 = load i32, ptr %21, align 4
   %23 = icmp eq i32 %22, 4
-  br i1 %23, label %10, label %writeFully.exit.thread, !llvm.loop !8
+  br i1 %23, label %10, label %writeFully.exit.thread
 
 writeFully.exit:                                  ; preds = %13, %1
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -359,7 +359,7 @@ closeSafely.exit50.thread:                        ; preds = %76, %closeSafely.ex
 104:                                              ; preds = %.lr.ph, %101
   %105 = add nuw nsw i32 %.054, 1
   %exitcond.not = icmp eq i32 %105, %97
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !11
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !8
 
 .loopexit:                                        ; preds = %104, %95, %92
   %106 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -413,7 +413,7 @@ define internal fastcc range(i32 -1, 1) i32 @moveDescriptor(i32 noundef %0, i32 
   %6 = tail call ptr @__errno_location() #15
   %7 = load i32, ptr %6, align 4
   %8 = icmp eq i32 %7, 4
-  br i1 %8, label %.preheader, label %restartableDup2.exit.thread, !llvm.loop !12
+  br i1 %8, label %.preheader, label %restartableDup2.exit.thread, !llvm.loop !9
 
 restartableDup2.exit:                             ; preds = %.preheader
   %9 = tail call i32 @close(i32 noundef %0) #14
@@ -441,7 +441,7 @@ define internal fastcc i32 @restartableDup2(i32 noundef %0, i32 noundef range(i3
   %7 = tail call ptr @__errno_location() #15
   %8 = load i32, ptr %7, align 4
   %9 = icmp eq i32 %8, 4
-  br i1 %9, label %3, label %.critedge, !llvm.loop !12
+  br i1 %9, label %3, label %.critedge, !llvm.loop !9
 
 .critedge:                                        ; preds = %3, %6
   ret i32 %4
@@ -481,7 +481,7 @@ define internal fastcc range(i32 0, 2) i32 @closeDescriptors() unnamed_addr #0 {
 17:                                               ; preds = %15, %11, %.lr.ph
   %18 = tail call ptr @readdir64(ptr noundef nonnull %3) #14
   %.not = icmp eq ptr %18, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !13
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %17, %.preheader
   %19 = tail call i32 @closedir(ptr noundef nonnull %3)
@@ -549,7 +549,7 @@ define internal fastcc void @JDK_execvpe(i32 noundef %0, ptr noundef %1, ptr nou
   %27 = getelementptr inbounds nuw i8, ptr %.021.i.i, i64 8
   %.pr.i.i = load ptr, ptr %27, align 8
   %.not.i.i = icmp eq ptr %.pr.i.i, null
-  br i1 %.not.i.i, label %execve_as_traditional_shell_script.exit.i, label %.lr.ph.i.i, !llvm.loop !14
+  br i1 %.not.i.i, label %execve_as_traditional_shell_script.exit.i, label %.lr.ph.i.i, !llvm.loop !11
 
 execve_as_traditional_shell_script.exit.i:        ; preds = %.lr.ph.i.i, %25
   %.0.lcssa.i.i = phi ptr [ %2, %25 ], [ %27, %.lr.ph.i.i ]
@@ -643,7 +643,7 @@ execve_as_traditional_shell_script.exit.i:        ; preds = %.lr.ph.i.i, %25
   %70 = getelementptr inbounds nuw i8, ptr %.021.i.i43.us, i64 8
   %.pr.i.i44.us = load ptr, ptr %70, align 8
   %.not.i.i45.us = icmp eq ptr %.pr.i.i44.us, null
-  br i1 %.not.i.i45.us, label %execve_as_traditional_shell_script.exit.i46.us.loopexit, label %.lr.ph.i.i42.us, !llvm.loop !14
+  br i1 %.not.i.i45.us, label %execve_as_traditional_shell_script.exit.i46.us.loopexit, label %.lr.ph.i.i42.us, !llvm.loop !11
 
 execve_as_traditional_shell_script.exit.i46.us.loopexit: ; preds = %.lr.ph.i.i42.us
   %.pre58 = ptrtoint ptr %70 to i64
@@ -686,7 +686,7 @@ execve_with_shell_fallback.exit48.us:             ; preds = %execve_as_tradition
   %78 = getelementptr inbounds nuw i8, ptr %.03152.us, i64 8
   %79 = load ptr, ptr %78, align 8
   %.not35.us = icmp eq ptr %79, null
-  br i1 %.not35.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !15
+  br i1 %.not35.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !12
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %103
   %80 = phi ptr [ %105, %103 ], [ %40, %.lr.ph ]
@@ -753,7 +753,7 @@ execve_with_shell_fallback.exit48:                ; preds = %92, %87
   %104 = getelementptr inbounds nuw i8, ptr %.03152, i64 8
   %105 = load ptr, ptr %104, align 8
   %.not35 = icmp eq ptr %105, null
-  br i1 %.not35, label %._crit_edge, label %.lr.ph.split, !llvm.loop !17
+  br i1 %.not35, label %._crit_edge, label %.lr.ph.split, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %103, %77
   %.030.lcssa = phi i32 [ %.1.us, %77 ], [ %.1, %103 ]
@@ -832,14 +832,11 @@ attributes #17 = { nounwind willreturn memory(read) }
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
 !6 = distinct !{!6, !7}
-!7 = !{!"llvm.loop.estimated_trip_count"}
+!7 = !{!"llvm.loop.mustprogress"}
 !8 = distinct !{!8, !7}
-!9 = distinct !{!9, !10, !7}
-!10 = !{!"llvm.loop.mustprogress"}
-!11 = distinct !{!11, !10, !7}
-!12 = distinct !{!12, !10, !7}
-!13 = distinct !{!13, !10, !7}
-!14 = distinct !{!14, !10, !7}
-!15 = distinct !{!15, !10, !7, !16}
-!16 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!17 = distinct !{!17, !10, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7}
+!12 = distinct !{!12, !7, !13}
+!13 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!14 = distinct !{!14, !7}

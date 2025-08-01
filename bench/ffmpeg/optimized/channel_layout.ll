@@ -392,7 +392,7 @@ sub_1:                                            ; preds = %sub_0
 
 29:                                               ; preds = %24
   %30 = load ptr, ptr %2, align 8, !tbaa !14
-  %31 = load i8, ptr %30, align 1, !tbaa !18
+  %31 = load i8, ptr %30, align 1, !tbaa !17
   %.not28 = icmp eq i8 %31, 0
   br i1 %.not28, label %.loopexit, label %.thread
 
@@ -430,20 +430,20 @@ define range(i32 -22, 1) i32 @av_channel_layout_custom_init(ptr noundef writeonl
   br i1 %.not, label %10, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph
-  store i32 2, ptr %0, align 8, !tbaa !19
+  store i32 2, ptr %0, align 8, !tbaa !18
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 %1, ptr %7, align 4, !tbaa !21
+  store i32 %1, ptr %7, align 4, !tbaa !20
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %6, ptr %8, align 8, !tbaa !18
+  store ptr %6, ptr %8, align 8, !tbaa !17
   br label %10
 
 .lr.ph:                                           ; preds = %4, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %4 ]
   %9 = getelementptr inbounds nuw %struct.AVChannelCustom, ptr %6, i64 %indvars.iv
-  store i32 768, ptr %9, align 8, !tbaa !22
+  store i32 768, ptr %9, align 8, !tbaa !21
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %5
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !24
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !23
 
 10:                                               ; preds = %4, %2, %._crit_edge
   %.013 = phi i32 [ 0, %._crit_edge ], [ -22, %2 ], [ -12, %4 ]
@@ -458,7 +458,7 @@ define range(i32 -22, 1) i32 @av_channel_layout_from_mask(ptr noundef writeonly 
   br i1 %.not, label %40, label %3
 
 3:                                                ; preds = %2
-  store i32 1, ptr %0, align 8, !tbaa !19
+  store i32 1, ptr %0, align 8, !tbaa !18
   %4 = trunc i64 %1 to i32
   %5 = lshr i32 %4, 1
   %6 = and i32 %5, 1431655765
@@ -494,9 +494,9 @@ define range(i32 -22, 1) i32 @av_channel_layout_from_mask(ptr noundef writeonly 
   %36 = and i32 %35, 63
   %37 = add nuw nsw i32 %36, %19
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 %37, ptr %38, align 4, !tbaa !21
+  store i32 %37, ptr %38, align 4, !tbaa !20
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %1, ptr %39, align 8, !tbaa !18
+  store i64 %1, ptr %39, align 8, !tbaa !17
   br label %40
 
 40:                                               ; preds = %2, %3
@@ -518,7 +518,7 @@ define range(i32 -2147483648, 1) i32 @av_channel_layout_from_string(ptr noundef 
   %12 = alloca ptr, align 8
   %13 = alloca %struct.AVChannelLayout, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #16
-  store i32 0, ptr %9, align 4, !tbaa !25
+  store i32 0, ptr %9, align 4, !tbaa !24
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #16
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #16
   br label %14
@@ -526,7 +526,7 @@ define range(i32 -2147483648, 1) i32 @av_channel_layout_from_string(ptr noundef 
 14:                                               ; preds = %2, %21
   %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %21 ]
   %15 = getelementptr inbounds nuw [40 x %struct.channel_layout_name], ptr @channel_layout_map, i64 0, i64 %indvars.iv
-  %16 = load ptr, ptr %15, align 16, !tbaa !26
+  %16 = load ptr, ptr %15, align 16, !tbaa !25
   %.not118 = icmp eq ptr %16, null
   br i1 %.not118, label %21, label %17
 
@@ -537,13 +537,13 @@ define range(i32 -2147483648, 1) i32 @av_channel_layout_from_string(ptr noundef 
 
 19:                                               ; preds = %17
   %20 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %20, i64 24, i1 false), !tbaa.struct !28
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %20, i64 24, i1 false), !tbaa.struct !27
   br label %.thread130
 
 21:                                               ; preds = %14, %17
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 40
-  br i1 %exitcond.not, label %22, label %14, !llvm.loop !30
+  br i1 %exitcond.not, label %22, label %14, !llvm.loop !29
 
 22:                                               ; preds = %21
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
@@ -569,18 +569,18 @@ define range(i32 -2147483648, 1) i32 @av_channel_layout_from_string(ptr noundef 
 
 32:                                               ; preds = %29
   %33 = load ptr, ptr %12, align 8, !tbaa !14
-  %34 = load i8, ptr %33, align 1, !tbaa !18
+  %34 = load i8, ptr %33, align 1, !tbaa !17
   switch i8 %34, label %.thread126 [
     i8 0, label %35
     i8 43, label %35
   ]
 
 35:                                               ; preds = %32, %32
-  store i32 3, ptr %0, align 8, !tbaa !19
+  store i32 3, ptr %0, align 8, !tbaa !18
   %36 = mul nuw nsw i32 %30, %30
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 %36, ptr %37, align 4, !tbaa !21
-  %38 = load i8, ptr %33, align 1, !tbaa !18
+  store i32 %36, ptr %37, align 4, !tbaa !20
+  %38 = load i8, ptr %33, align 1, !tbaa !17
   %.not107 = icmp eq i8 %38, 0
   br i1 %.not107, label %.thread126, label %39
 
@@ -592,11 +592,11 @@ define range(i32 -2147483648, 1) i32 @av_channel_layout_from_string(ptr noundef 
 
 43:                                               ; preds = %39
   %44 = getelementptr inbounds nuw i8, ptr %13, i64 4
-  %45 = load i32, ptr %44, align 4, !tbaa !21
-  %46 = load i32, ptr %37, align 4, !tbaa !21
+  %45 = load i32, ptr %44, align 4, !tbaa !20
+  %46 = load i32, ptr %37, align 4, !tbaa !20
   %47 = sub nsw i32 2147483647, %46
   %.not108 = icmp slt i32 %45, %47
-  %48 = load i32, ptr %13, align 8, !tbaa !19
+  %48 = load i32, ptr %13, align 8, !tbaa !18
   br i1 %.not108, label %53, label %49
 
 49:                                               ; preds = %43
@@ -613,23 +613,23 @@ define range(i32 -2147483648, 1) i32 @av_channel_layout_from_string(ptr noundef 
 
 55:                                               ; preds = %53
   %56 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  %57 = load i64, ptr %56, align 8, !tbaa !18
+  %57 = load i64, ptr %56, align 8, !tbaa !17
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %57, ptr %58, align 8, !tbaa !18
+  store i64 %57, ptr %58, align 8, !tbaa !17
   br label %.loopexit
 
 59:                                               ; preds = %53
-  store i32 2, ptr %0, align 8, !tbaa !19
+  store i32 2, ptr %0, align 8, !tbaa !18
   %60 = add nsw i32 %46, %45
   %61 = sext i32 %60 to i64
   %62 = call noalias ptr @av_calloc(i64 noundef %61, i64 noundef 32) #16
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %62, ptr %63, align 8, !tbaa !18
+  store ptr %62, ptr %63, align 8, !tbaa !17
   %.not109 = icmp eq ptr %62, null
   br i1 %.not109, label %66, label %.preheader136
 
 .preheader136:                                    ; preds = %59
-  %64 = load i32, ptr %37, align 4, !tbaa !21
+  %64 = load i32, ptr %37, align 4, !tbaa !20
   %65 = icmp sgt i32 %64, 0
   br i1 %65, label %.lr.ph146.preheader, label %.preheader
 
@@ -638,7 +638,7 @@ define range(i32 -2147483648, 1) i32 @av_channel_layout_from_string(ptr noundef 
   br label %.lr.ph146
 
 66:                                               ; preds = %59
-  %67 = load i32, ptr %13, align 8, !tbaa !19
+  %67 = load i32, ptr %13, align 8, !tbaa !18
   %68 = icmp eq i32 %67, 2
   br i1 %68, label %69, label %.thread126
 
@@ -647,7 +647,7 @@ define range(i32 -2147483648, 1) i32 @av_channel_layout_from_string(ptr noundef 
   br label %.thread126.sink.split
 
 .preheader:                                       ; preds = %.lr.ph146, %.preheader136
-  %71 = load i32, ptr %44, align 4, !tbaa !21
+  %71 = load i32, ptr %44, align 4, !tbaa !20
   %72 = icmp sgt i32 %71, 0
   br i1 %72, label %.lr.ph148, label %.loopexit
 
@@ -657,14 +657,14 @@ define range(i32 -2147483648, 1) i32 @av_channel_layout_from_string(ptr noundef 
 
 .lr.ph146:                                        ; preds = %.lr.ph146.preheader, %.lr.ph146
   %indvars.iv157 = phi i64 [ 0, %.lr.ph146.preheader ], [ %indvars.iv.next158, %.lr.ph146 ]
-  %74 = load ptr, ptr %63, align 8, !tbaa !18
+  %74 = load ptr, ptr %63, align 8, !tbaa !17
   %75 = getelementptr inbounds nuw %struct.AVChannelCustom, ptr %74, i64 %indvars.iv157
   %76 = trunc i64 %indvars.iv157 to i32
   %77 = add i32 %76, 1024
-  store i32 %77, ptr %75, align 8, !tbaa !22
+  store i32 %77, ptr %75, align 8, !tbaa !21
   %indvars.iv.next158 = add nuw nsw i64 %indvars.iv157, 1
   %exitcond160.not = icmp eq i64 %indvars.iv.next158, %wide.trip.count
-  br i1 %exitcond160.not, label %.preheader, label %.lr.ph146, !llvm.loop !31
+  br i1 %exitcond160.not, label %.preheader, label %.lr.ph146, !llvm.loop !30
 
 78:                                               ; preds = %.lr.ph148, %105
   %79 = phi i32 [ %71, %.lr.ph148 ], [ %106, %105 ]
@@ -676,7 +676,7 @@ define range(i32 -2147483648, 1) i32 @av_channel_layout_from_string(ptr noundef 
   br i1 %or.cond.not, label %83, label %89
 
 83:                                               ; preds = %78
-  %84 = load i32, ptr %0, align 8, !tbaa !19
+  %84 = load i32, ptr %0, align 8, !tbaa !18
   %85 = icmp eq i32 %84, 2
   br i1 %85, label %86, label %av_channel_layout_uninit.exit121
 
@@ -686,33 +686,33 @@ define range(i32 -2147483648, 1) i32 @av_channel_layout_from_string(ptr noundef 
 
 av_channel_layout_uninit.exit121:                 ; preds = %83, %86
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
-  %87 = load i32, ptr %13, align 8, !tbaa !19
+  %87 = load i32, ptr %13, align 8, !tbaa !18
   %88 = icmp eq i32 %87, 2
   br i1 %88, label %.thread126.sink.split, label %.thread126
 
 89:                                               ; preds = %78
-  %90 = load ptr, ptr %63, align 8, !tbaa !18
-  %91 = load i32, ptr %37, align 4, !tbaa !21
+  %90 = load ptr, ptr %63, align 8, !tbaa !17
+  %91 = load i32, ptr %37, align 4, !tbaa !20
   %92 = add nsw i32 %91, %80
   %93 = sext i32 %92 to i64
   %94 = getelementptr inbounds %struct.AVChannelCustom, ptr %90, i64 %93
-  store i32 %81, ptr %94, align 8, !tbaa !22
-  %95 = load i32, ptr %13, align 8, !tbaa !19
+  store i32 %81, ptr %94, align 8, !tbaa !21
+  %95 = load i32, ptr %13, align 8, !tbaa !18
   %96 = icmp eq i32 %95, 2
   br i1 %96, label %97, label %105
 
 97:                                               ; preds = %89
-  %98 = load ptr, ptr %73, align 8, !tbaa !18
+  %98 = load ptr, ptr %73, align 8, !tbaa !17
   %99 = getelementptr inbounds nuw %struct.AVChannelCustom, ptr %98, i64 %indvars.iv161, i32 1
-  %100 = load i8, ptr %99, align 4, !tbaa !18
+  %100 = load i8, ptr %99, align 4, !tbaa !17
   %.not110 = icmp eq i8 %100, 0
   br i1 %.not110, label %105, label %101
 
 101:                                              ; preds = %97
-  %102 = load ptr, ptr %63, align 8, !tbaa !18
+  %102 = load ptr, ptr %63, align 8, !tbaa !17
   %103 = getelementptr inbounds %struct.AVChannelCustom, ptr %102, i64 %93, i32 1
   %104 = call i64 @av_strlcpy(ptr noundef nonnull %103, ptr noundef nonnull %99, i64 noundef 16) #16
-  %.pre164 = load i32, ptr %44, align 4, !tbaa !21
+  %.pre164 = load i32, ptr %44, align 4, !tbaa !20
   br label %105
 
 105:                                              ; preds = %89, %97, %101
@@ -720,18 +720,18 @@ av_channel_layout_uninit.exit121:                 ; preds = %83, %86
   %indvars.iv.next162 = add nuw nsw i64 %indvars.iv161, 1
   %107 = sext i32 %106 to i64
   %108 = icmp slt i64 %indvars.iv.next162, %107
-  br i1 %108, label %78, label %.loopexit.loopexit, !llvm.loop !32
+  br i1 %108, label %78, label %.loopexit.loopexit, !llvm.loop !31
 
 .loopexit.loopexit:                               ; preds = %105
-  %.pre165 = load i32, ptr %37, align 4, !tbaa !21
+  %.pre165 = load i32, ptr %37, align 4, !tbaa !20
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %.preheader, %55
   %109 = phi i32 [ %.pre165, %.loopexit.loopexit ], [ %64, %.preheader ], [ %46, %55 ]
   %110 = phi i32 [ %106, %.loopexit.loopexit ], [ %71, %.preheader ], [ %45, %55 ]
   %111 = add nsw i32 %109, %110
-  store i32 %111, ptr %37, align 4, !tbaa !21
-  %112 = load i32, ptr %13, align 8, !tbaa !19
+  store i32 %111, ptr %37, align 4, !tbaa !20
+  %112 = load i32, ptr %13, align 8, !tbaa !18
   %113 = icmp eq i32 %112, 2
   br i1 %113, label %114, label %.thread126
 
@@ -762,21 +762,21 @@ av_channel_layout_uninit.exit121:                 ; preds = %83, %86
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   store ptr %117, ptr %3, align 8, !tbaa !14
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #16
-  store i32 0, ptr %4, align 4, !tbaa !25
+  store i32 0, ptr %4, align 4, !tbaa !24
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #16
-  store ptr null, ptr %5, align 8, !tbaa !33
+  store ptr null, ptr %5, align 8, !tbaa !32
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, i8 0, i64 32, i1 false)
   %120 = getelementptr inbounds nuw i8, ptr %6, i64 4
-  %121 = load i8, ptr %117, align 1, !tbaa !18
+  %121 = load i8, ptr %117, align 1, !tbaa !17
   %.not.i144 = icmp eq i8 %121, 0
   br i1 %.not.i144, label %parse_channel_list.exit, label %.lr.ph
 
 122:                                              ; preds = %145
   %123 = load ptr, ptr %3, align 8, !tbaa !14
-  %124 = load i8, ptr %123, align 1, !tbaa !18
+  %124 = load i8, ptr %123, align 1, !tbaa !17
   %.not.i = icmp eq i8 %124, 0
-  br i1 %.not.i, label %._crit_edge, label %.lr.ph, !llvm.loop !35
+  br i1 %.not.i, label %._crit_edge, label %.lr.ph, !llvm.loop !34
 
 .lr.ph:                                           ; preds = %118, %122
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #16
@@ -787,7 +787,7 @@ av_channel_layout_uninit.exit121:                 ; preds = %83, %86
 
 127:                                              ; preds = %.lr.ph
   %128 = load ptr, ptr %3, align 8, !tbaa !14
-  %129 = load i8, ptr %128, align 1, !tbaa !18
+  %129 = load i8, ptr %128, align 1, !tbaa !17
   %.not11.i = icmp eq i8 %129, 0
   br i1 %.not11.i, label %132, label %130
 
@@ -814,12 +814,12 @@ av_channel_layout_uninit.exit121:                 ; preds = %83, %86
   %138 = call i64 @av_strlcpy(ptr noundef nonnull %120, ptr noundef nonnull %137, i64 noundef 16) #16
   %139 = load ptr, ptr %7, align 8, !tbaa !14
   %140 = call i32 @av_channel_from_string(ptr noundef %139)
-  store i32 %140, ptr %6, align 8, !tbaa !22
+  store i32 %140, ptr %6, align 8, !tbaa !21
   %141 = load ptr, ptr %7, align 8, !tbaa !14
   call void @av_free(ptr noundef %141) #16
   %142 = load ptr, ptr %8, align 8, !tbaa !14
   call void @av_free(ptr noundef %142) #16
-  %143 = load i32, ptr %6, align 8, !tbaa !22
+  %143 = load i32, ptr %6, align 8, !tbaa !21
   %144 = icmp eq i32 %143, -1
   br i1 %144, label %.thread.i, label %145
 
@@ -832,23 +832,23 @@ av_channel_layout_uninit.exit121:                 ; preds = %83, %86
 
 145:                                              ; preds = %135
   %146 = call ptr @av_dynarray2_add(ptr noundef nonnull %5, ptr noundef nonnull %4, i64 noundef 32, ptr noundef nonnull %6) #16
-  %147 = load ptr, ptr %5, align 8, !tbaa !33
+  %147 = load ptr, ptr %5, align 8, !tbaa !32
   %.not14.not.i = icmp eq ptr %147, null
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #16
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #16
-  br i1 %.not14.not.i, label %parse_channel_list.exit, label %122, !llvm.loop !35
+  br i1 %.not14.not.i, label %parse_channel_list.exit, label %122, !llvm.loop !34
 
 ._crit_edge:                                      ; preds = %122
-  %.pre = load i32, ptr %4, align 4, !tbaa !25
+  %.pre = load i32, ptr %4, align 4, !tbaa !24
   %.not10.i = icmp eq i32 %.pre, 0
   br i1 %.not10.i, label %parse_channel_list.exit, label %148
 
 148:                                              ; preds = %._crit_edge
-  store i32 2, ptr %0, align 8, !tbaa !19
+  store i32 2, ptr %0, align 8, !tbaa !18
   %149 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %147, ptr %149, align 8, !tbaa !18
+  store ptr %147, ptr %149, align 8, !tbaa !17
   %150 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 %.pre, ptr %150, align 4, !tbaa !21
+  store i32 %.pre, ptr %150, align 4, !tbaa !20
   %151 = call i32 @av_channel_layout_retype(ptr noundef nonnull %0, i32 noundef 0, i32 noundef 2)
   %152 = icmp eq i32 %151, 0
   br i1 %152, label %parse_channel_list.exit, label %153
@@ -880,9 +880,9 @@ parse_channel_list.exit:                          ; preds = %145, %118, %.thread
   br i1 %160, label %161, label %.thread130
 
 161:                                              ; preds = %158
-  %162 = load i32, ptr %9, align 4, !tbaa !25
+  %162 = load i32, ptr %9, align 4, !tbaa !24
   %163 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %164 = load i32, ptr %163, align 4, !tbaa !21
+  %164 = load i32, ptr %163, align 4, !tbaa !20
   %165 = icmp eq i32 %162, %164
   %166 = icmp ne ptr %159, null
   %or.cond6 = select i1 %165, i1 %166, i1 false
@@ -890,12 +890,12 @@ parse_channel_list.exit:                          ; preds = %145, %118, %.thread
 
 167:                                              ; preds = %161
   %168 = getelementptr inbounds nuw i8, ptr %159, i64 1
-  %169 = load i8, ptr %168, align 1, !tbaa !18
+  %169 = load i8, ptr %168, align 1, !tbaa !17
   %.not117 = icmp eq i8 %169, 0
   br i1 %.not117, label %.thread130, label %170
 
 170:                                              ; preds = %167, %161
-  %171 = load i32, ptr %0, align 8, !tbaa !19
+  %171 = load i32, ptr %0, align 8, !tbaa !18
   %172 = icmp eq i32 %171, 2
   br i1 %172, label %173, label %av_channel_layout_uninit.exit124
 
@@ -910,15 +910,15 @@ av_channel_layout_uninit.exit124:                 ; preds = %170, %173
 
 175:                                              ; preds = %156
   %176 = tail call ptr @__errno_location() #19
-  store i32 0, ptr %176, align 4, !tbaa !25
+  store i32 0, ptr %176, align 4, !tbaa !24
   %177 = call i64 @strtoull(ptr noundef nonnull %1, ptr noundef nonnull %11, i32 noundef 0) #16
-  %178 = load i32, ptr %176, align 4, !tbaa !25
+  %178 = load i32, ptr %176, align 4, !tbaa !24
   %.not112 = icmp eq i32 %178, 0
   br i1 %.not112, label %179, label %188
 
 179:                                              ; preds = %175
   %180 = load ptr, ptr %11, align 8, !tbaa !14
-  %181 = load i8, ptr %180, align 1, !tbaa !18
+  %181 = load i8, ptr %180, align 1, !tbaa !17
   %.not113 = icmp eq i8 %181, 0
   br i1 %.not113, label %182, label %188
 
@@ -934,10 +934,10 @@ av_channel_layout_uninit.exit124:                 ; preds = %170, %173
   br label %.thread130
 
 188:                                              ; preds = %182, %179, %175
-  store i32 0, ptr %176, align 4, !tbaa !25
+  store i32 0, ptr %176, align 4, !tbaa !24
   %189 = call i64 @strtol(ptr noundef nonnull %1, ptr noundef nonnull %11, i32 noundef 10) #16
   %190 = trunc i64 %189 to i32
-  %191 = load i32, ptr %176, align 4, !tbaa !25
+  %191 = load i32, ptr %176, align 4, !tbaa !24
   %.not114 = icmp eq i32 %191, 0
   br i1 %.not114, label %sub_0, label %.thread130
 
@@ -962,31 +962,31 @@ sub_0:                                            ; preds = %188
 199:                                              ; preds = %.preheader137
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 40
-  br i1 %exitcond.not.i, label %av_channel_layout_default.exit.thread, label %.preheader137, !llvm.loop !36
+  br i1 %exitcond.not.i, label %av_channel_layout_default.exit.thread, label %.preheader137, !llvm.loop !35
 
 .preheader137:                                    ; preds = %.tail, %199
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %199 ], [ 0, %.tail ]
   %200 = getelementptr inbounds nuw [40 x %struct.channel_layout_name], ptr @channel_layout_map, i64 0, i64 %indvars.iv.i, i32 1
   %201 = getelementptr inbounds nuw i8, ptr %200, i64 4
-  %202 = load i32, ptr %201, align 4, !tbaa !37
+  %202 = load i32, ptr %201, align 4, !tbaa !36
   %203 = icmp eq i32 %202, %190
   br i1 %203, label %av_channel_layout_default.exit, label %199
 
 av_channel_layout_default.exit.thread:            ; preds = %199
-  store i32 0, ptr %0, align 8, !tbaa !19
+  store i32 0, ptr %0, align 8, !tbaa !18
   %204 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 %190, ptr %204, align 4, !tbaa !21
+  store i32 %190, ptr %204, align 4, !tbaa !20
   br label %206
 
 av_channel_layout_default.exit:                   ; preds = %.preheader137
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %200, i64 24, i1 false), !tbaa.struct !28
-  %.pr = load i32, ptr %0, align 8, !tbaa !19
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %200, i64 24, i1 false), !tbaa.struct !27
+  %.pr = load i32, ptr %0, align 8, !tbaa !18
   %205 = icmp eq i32 %.pr, 1
   br i1 %205, label %.thread130, label %206
 
 206:                                              ; preds = %.tail.thread, %av_channel_layout_default.exit.thread, %av_channel_layout_default.exit, %.tail
   %207 = phi i1 [ %194, %.tail.thread ], [ %198, %av_channel_layout_default.exit.thread ], [ %198, %av_channel_layout_default.exit ], [ %198, %.tail ]
-  %.pr129 = load i32, ptr %176, align 4, !tbaa !25
+  %.pr129 = load i32, ptr %176, align 4, !tbaa !24
   %.not115 = icmp eq i32 %.pr129, 0
   br i1 %.not115, label %sub_0133, label %.thread130
 
@@ -1011,9 +1011,9 @@ sub_0133:                                         ; preds = %206
   br i1 %207, label %215, label %.thread130
 
 215:                                              ; preds = %.tail132.thread, %214
-  store i32 0, ptr %0, align 8, !tbaa !19
+  store i32 0, ptr %0, align 8, !tbaa !18
   %216 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 %190, ptr %216, align 4, !tbaa !21
+  store i32 %190, ptr %216, align 4, !tbaa !20
   br label %.thread130
 
 .thread130:                                       ; preds = %188, %206, %.tail132.thread, %214, %av_channel_layout_default.exit, %158, %167, %parse_channel_list.exit, %116, %215, %186, %av_channel_layout_uninit.exit124, %.thread126, %19
@@ -1032,7 +1032,7 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 
 ; Function Attrs: nounwind uwtable
 define void @av_channel_layout_uninit(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = load i32, ptr %0, align 8, !tbaa !19
+  %2 = load i32, ptr %0, align 8, !tbaa !18
   %3 = icmp eq i32 %2, 2
   br i1 %3, label %4, label %6
 
@@ -1049,12 +1049,12 @@ define void @av_channel_layout_uninit(ptr noundef %0) local_unnamed_addr #0 {
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
 define i32 @av_channel_layout_channel_from_index(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #9 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %4 = load i32, ptr %3, align 4, !tbaa !21
+  %4 = load i32, ptr %3, align 4, !tbaa !20
   %.not = icmp ult i32 %1, %4
   br i1 %.not, label %5, label %.loopexit
 
 5:                                                ; preds = %2
-  %6 = load i32, ptr %0, align 8, !tbaa !19
+  %6 = load i32, ptr %0, align 8, !tbaa !18
   switch i32 %6, label %.loopexit [
     i32 2, label %7
     i32 3, label %13
@@ -1063,20 +1063,20 @@ define i32 @av_channel_layout_channel_from_index(ptr noundef readonly captures(n
 
 ._crit_edge:                                      ; preds = %5
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %.pre = load i64, ptr %.phi.trans.insert, align 8, !tbaa !18
+  %.pre = load i64, ptr %.phi.trans.insert, align 8, !tbaa !17
   br label %53
 
 7:                                                ; preds = %5
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %9 = load ptr, ptr %8, align 8, !tbaa !18
+  %9 = load ptr, ptr %8, align 8, !tbaa !17
   %10 = zext i32 %1 to i64
   %11 = getelementptr inbounds nuw %struct.AVChannelCustom, ptr %9, i64 %10
-  %12 = load i32, ptr %11, align 8, !tbaa !22
+  %12 = load i32, ptr %11, align 8, !tbaa !21
   br label %.loopexit
 
 13:                                               ; preds = %5
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %15 = load i64, ptr %14, align 8, !tbaa !18
+  %15 = load i64, ptr %14, align 8, !tbaa !17
   %16 = trunc i64 %15 to i32
   %17 = lshr i32 %16, 1
   %18 = and i32 %17, 1431655765
@@ -1139,7 +1139,7 @@ define i32 @av_channel_layout_channel_from_index(ptr noundef readonly captures(n
   %.3 = phi i32 [ %59, %58 ], [ %.231, %55 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 64
-  br i1 %exitcond.not, label %.loopexit, label %55, !llvm.loop !38
+  br i1 %exitcond.not, label %.loopexit, label %55, !llvm.loop !37
 
 .loopexit.loopexit.split.loop.exit:               ; preds = %58
   %61 = trunc nuw nsw i64 %indvars.iv to i32
@@ -1174,24 +1174,24 @@ define void @av_channel_layout_default(ptr noundef writeonly captures(none) %0, 
 3:                                                ; preds = %4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 40
-  br i1 %exitcond.not, label %10, label %4, !llvm.loop !36
+  br i1 %exitcond.not, label %10, label %4, !llvm.loop !35
 
 4:                                                ; preds = %2, %3
   %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %3 ]
   %5 = getelementptr inbounds nuw [40 x %struct.channel_layout_name], ptr @channel_layout_map, i64 0, i64 %indvars.iv, i32 1
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  %7 = load i32, ptr %6, align 4, !tbaa !37
+  %7 = load i32, ptr %6, align 4, !tbaa !36
   %8 = icmp eq i32 %1, %7
   br i1 %8, label %9, label %3
 
 9:                                                ; preds = %4
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false), !tbaa.struct !28
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false), !tbaa.struct !27
   br label %12
 
 10:                                               ; preds = %3
-  store i32 0, ptr %0, align 8, !tbaa !19
+  store i32 0, ptr %0, align 8, !tbaa !18
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 %1, ptr %11, align 4, !tbaa !21
+  store i32 %1, ptr %11, align 4, !tbaa !20
   br label %12
 
 12:                                               ; preds = %10, %9
@@ -1200,7 +1200,7 @@ define void @av_channel_layout_default(ptr noundef writeonly captures(none) %0, 
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -12, 1) i32 @av_channel_layout_copy(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
-  %3 = load i32, ptr %0, align 8, !tbaa !19
+  %3 = load i32, ptr %0, align 8, !tbaa !18
   %4 = icmp eq i32 %3, 2
   br i1 %4, label %5, label %av_channel_layout_uninit.exit
 
@@ -1211,25 +1211,25 @@ define range(i32 -12, 1) i32 @av_channel_layout_copy(ptr noundef %0, ptr noundef
 
 av_channel_layout_uninit.exit:                    ; preds = %2, %5
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false), !tbaa.struct !28
-  %7 = load i32, ptr %1, align 8, !tbaa !19
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false), !tbaa.struct !27
+  %7 = load i32, ptr %1, align 8, !tbaa !18
   %8 = icmp eq i32 %7, 2
   br i1 %8, label %9, label %21
 
 9:                                                ; preds = %av_channel_layout_uninit.exit
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %11 = load i32, ptr %10, align 4, !tbaa !21
+  %11 = load i32, ptr %10, align 4, !tbaa !20
   %12 = sext i32 %11 to i64
   %13 = tail call ptr @av_malloc_array(i64 noundef %12, i64 noundef 32) #16
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %13, ptr %14, align 8, !tbaa !18
+  store ptr %13, ptr %14, align 8, !tbaa !17
   %.not = icmp eq ptr %13, null
   br i1 %.not, label %21, label %15
 
 15:                                               ; preds = %9
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %17 = load ptr, ptr %16, align 8, !tbaa !18
-  %18 = load i32, ptr %10, align 4, !tbaa !21
+  %17 = load ptr, ptr %16, align 8, !tbaa !17
+  %18 = load i32, ptr %10, align 4, !tbaa !20
   %19 = sext i32 %18 to i64
   %20 = shl nsw i64 %19, 5
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %13, ptr align 8 %17, i64 %20, i1 false)
@@ -1244,7 +1244,7 @@ declare ptr @av_malloc_array(i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
 define i32 @av_channel_layout_ambisonic_order(ptr noundef readonly captures(none) %0) local_unnamed_addr #9 {
-  %2 = load i32, ptr %0, align 8, !tbaa !19
+  %2 = load i32, ptr %0, align 8, !tbaa !18
   %3 = and i32 %2, -2
   %switch = icmp eq i32 %3, 2
   br i1 %switch, label %4, label %.thread59
@@ -1255,9 +1255,9 @@ define i32 @av_channel_layout_ambisonic_order(ptr noundef readonly captures(none
 
 6:                                                ; preds = %4
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %8 = load i32, ptr %7, align 4, !tbaa !21
+  %8 = load i32, ptr %7, align 4, !tbaa !20
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %10 = load i64, ptr %9, align 8, !tbaa !18
+  %10 = load i64, ptr %9, align 8, !tbaa !17
   %11 = trunc i64 %10 to i32
   %12 = lshr i32 %11, 1
   %13 = and i32 %12, 1431655765
@@ -1298,9 +1298,9 @@ define i32 @av_channel_layout_ambisonic_order(ptr noundef readonly captures(none
 
 47:                                               ; preds = %4
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %49 = load ptr, ptr %48, align 8, !tbaa !18
+  %49 = load ptr, ptr %48, align 8, !tbaa !17
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %51 = load i32, ptr %50, align 4, !tbaa !21
+  %51 = load i32, ptr %50, align 4, !tbaa !20
   %.not5362 = icmp sgt i32 %51, 0
   br i1 %.not5362, label %.lr.ph.preheader, label %.thread59
 
@@ -1312,7 +1312,7 @@ define i32 @av_channel_layout_ambisonic_order(ptr noundef readonly captures(none
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %63 ]
   %.14363 = phi i32 [ -1, %.lr.ph.preheader ], [ %.345, %63 ]
   %52 = getelementptr inbounds nuw %struct.AVChannelCustom, ptr %49, i64 %indvars.iv
-  %53 = load i32, ptr %52, align 8, !tbaa !22
+  %53 = load i32, ptr %52, align 8, !tbaa !21
   %54 = and i32 %53, -1024
   %spec.select = icmp eq i32 %54, 1024
   %55 = icmp ne i64 %indvars.iv, 0
@@ -1321,7 +1321,7 @@ define i32 @av_channel_layout_ambisonic_order(ptr noundef readonly captures(none
 
 56:                                               ; preds = %.lr.ph
   %57 = getelementptr i8, ptr %52, i64 -32
-  %58 = load i32, ptr %57, align 8, !tbaa !22
+  %58 = load i32, ptr %57, align 8, !tbaa !21
   %59 = and i32 %58, -1024
   %or.cond55 = icmp eq i32 %59, 1024
   br i1 %or.cond55, label %60, label %.thread59
@@ -1338,7 +1338,7 @@ define i32 @av_channel_layout_ambisonic_order(ptr noundef readonly captures(none
   %.345 = select i1 %spec.select, i32 %64, i32 %.14363
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !39
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !38
 
 .loopexit:                                        ; preds = %63, %6
   %.042 = phi i32 [ %46, %6 ], [ %.345, %63 ]
@@ -1376,7 +1376,7 @@ declare double @llvm.floor.f64(double) #13
 ; Function Attrs: nounwind uwtable
 define range(i32 -2147483648, 1) i32 @av_channel_layout_describe_bprint(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca %struct.AVChannelLayout, align 8
-  %4 = load i32, ptr %0, align 8, !tbaa !19
+  %4 = load i32, ptr %0, align 8, !tbaa !18
   switch i32 %4, label %has_channel_names.exit [
     i32 1, label %.preheader
     i32 2, label %.thread
@@ -1386,29 +1386,29 @@ define range(i32 -2147483648, 1) i32 @av_channel_layout_describe_bprint(ptr noun
 
 ._crit_edge81:                                    ; preds = %2
   %.phi.trans.insert82 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %.pre83 = load i32, ptr %.phi.trans.insert82, align 4, !tbaa !21
+  %.pre83 = load i32, ptr %.phi.trans.insert82, align 4, !tbaa !20
   br label %100
 
 .preheader:                                       ; preds = %2
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %6 = load i64, ptr %5, align 8, !tbaa !18
+  %6 = load i64, ptr %5, align 8, !tbaa !17
   br label %8
 
 7:                                                ; preds = %8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 40
-  br i1 %exitcond.not, label %has_channel_names.exit.thread61.loopexit, label %8, !llvm.loop !40
+  br i1 %exitcond.not, label %has_channel_names.exit.thread61.loopexit, label %8, !llvm.loop !39
 
 8:                                                ; preds = %.preheader, %7
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %7 ]
   %9 = getelementptr inbounds nuw [40 x %struct.channel_layout_name], ptr @channel_layout_map, i64 0, i64 %indvars.iv
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  %11 = load i64, ptr %10, align 16, !tbaa !18
+  %11 = load i64, ptr %10, align 16, !tbaa !17
   %12 = icmp eq i64 %6, %11
   br i1 %12, label %13, label %7
 
 13:                                               ; preds = %8
-  %14 = load ptr, ptr %9, align 16, !tbaa !26
+  %14 = load ptr, ptr %9, align 16, !tbaa !25
   tail call void (ptr, ptr, ...) @av_bprintf(ptr noundef %1, ptr noundef nonnull @.str.1, ptr noundef %14) #16
   br label %has_channel_names.exit
 
@@ -1418,10 +1418,10 @@ define range(i32 -2147483648, 1) i32 @av_channel_layout_describe_bprint(ptr noun
   br i1 %16, label %has_channel_names.exit, label %17
 
 17:                                               ; preds = %.thread
-  %18 = load i32, ptr %0, align 8, !tbaa !19
+  %18 = load i32, ptr %0, align 8, !tbaa !18
   %.not.i = icmp eq i32 %18, 2
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %20 = load i32, ptr %19, align 4, !tbaa !21
+  %20 = load i32, ptr %19, align 4, !tbaa !20
   br i1 %.not.i, label %.preheader.i, label %.loopexit
 
 .preheader.i:                                     ; preds = %17
@@ -1430,19 +1430,19 @@ define range(i32 -2147483648, 1) i32 @av_channel_layout_describe_bprint(ptr noun
 
 .lr.ph.i:                                         ; preds = %.preheader.i
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %22 = load ptr, ptr %21, align 8, !tbaa !18
+  %22 = load ptr, ptr %21, align 8, !tbaa !17
   %wide.trip.count.i = zext nneg i32 %20 to i64
   br label %24
 
 23:                                               ; preds = %24
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %.loopexit, label %24, !llvm.loop !41
+  br i1 %exitcond.not.i, label %.loopexit, label %24, !llvm.loop !40
 
 24:                                               ; preds = %23, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %23 ]
   %25 = getelementptr inbounds nuw %struct.AVChannelCustom, ptr %22, i64 %indvars.iv.i, i32 1
-  %26 = load i8, ptr %25, align 4, !tbaa !18
+  %26 = load i8, ptr %25, align 4, !tbaa !17
   %.not9.i = icmp eq i8 %26, 0
   br i1 %.not9.i, label %23, label %has_channel_names.exit.thread61
 
@@ -1452,7 +1452,7 @@ define range(i32 -2147483648, 1) i32 @av_channel_layout_describe_bprint(ptr noun
 
 .lr.ph.i52:                                       ; preds = %.loopexit
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %28 = load ptr, ptr %27, align 8, !tbaa !18
+  %28 = load ptr, ptr %27, align 8, !tbaa !17
   %wide.trip.count.i53 = zext nneg i32 %20 to i64
   br label %29
 
@@ -1460,7 +1460,7 @@ define range(i32 -2147483648, 1) i32 @av_channel_layout_describe_bprint(ptr noun
   %indvars.iv.i54 = phi i64 [ 0, %.lr.ph.i52 ], [ %indvars.iv.next.i55, %36 ]
   %.02030.i = phi i64 [ 0, %.lr.ph.i52 ], [ %37, %36 ]
   %30 = getelementptr inbounds nuw %struct.AVChannelCustom, ptr %28, i64 %indvars.iv.i54
-  %31 = load i32, ptr %30, align 8, !tbaa !22
+  %31 = load i32, ptr %30, align 8, !tbaa !21
   %or.cond.i = icmp ult i32 %31, 63
   br i1 %or.cond.i, label %32, label %has_channel_names.exit.thread61
 
@@ -1474,11 +1474,11 @@ define range(i32 -2147483648, 1) i32 @av_channel_layout_describe_bprint(ptr noun
   %37 = or i64 %34, %.02030.i
   %indvars.iv.next.i55 = add nuw nsw i64 %indvars.iv.i54, 1
   %exitcond.not.i56 = icmp eq i64 %indvars.iv.next.i55, %wide.trip.count.i53
-  br i1 %exitcond.not.i56, label %masked_description.exit, label %29, !llvm.loop !42
+  br i1 %exitcond.not.i56, label %masked_description.exit, label %29, !llvm.loop !41
 
 masked_description.exit:                          ; preds = %36
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #16
-  store i32 1, ptr %3, align 8, !tbaa !19
+  store i32 1, ptr %3, align 8, !tbaa !18
   %38 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %39 = trunc i64 %37 to i32
   %40 = lshr i32 %39, 1
@@ -1514,18 +1514,18 @@ masked_description.exit:                          ; preds = %36
   %70 = add nuw nsw i32 %69, %68
   %71 = and i32 %70, 63
   %72 = add nuw nsw i32 %71, %54
-  store i32 %72, ptr %38, align 4, !tbaa !21
+  store i32 %72, ptr %38, align 4, !tbaa !20
   %73 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store i64 %37, ptr %73, align 8, !tbaa !18
+  store i64 %37, ptr %73, align 8, !tbaa !17
   %74 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store ptr null, ptr %74, align 8, !tbaa !43
+  store ptr null, ptr %74, align 8, !tbaa !42
   %75 = call i32 @av_channel_layout_describe_bprint(ptr noundef nonnull %3, ptr noundef %1)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #16
   br label %has_channel_names.exit
 
 has_channel_names.exit.thread61.loopexit:         ; preds = %7
   %.phi.trans.insert79 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %.pre80 = load i32, ptr %.phi.trans.insert79, align 4, !tbaa !21
+  %.pre80 = load i32, ptr %.phi.trans.insert79, align 4, !tbaa !20
   br label %has_channel_names.exit.thread61
 
 has_channel_names.exit.thread61:                  ; preds = %24, %32, %29, %.preheader.i, %has_channel_names.exit.thread61.loopexit, %.loopexit
@@ -1539,7 +1539,7 @@ has_channel_names.exit.thread61:                  ; preds = %24, %32, %29, %.pre
   br label %79
 
 79:                                               ; preds = %78, %has_channel_names.exit.thread61
-  %80 = load i32, ptr %77, align 4, !tbaa !21
+  %80 = load i32, ptr %77, align 4, !tbaa !20
   %81 = icmp sgt i32 %80, 0
   br i1 %81, label %.lr.ph, label %._crit_edge
 
@@ -1560,14 +1560,14 @@ has_channel_names.exit.thread61:                  ; preds = %24, %32, %29, %.pre
 
 87:                                               ; preds = %86, %83
   tail call void @av_channel_name_bprint(ptr noundef %1, i32 noundef %85)
-  %88 = load i32, ptr %0, align 8, !tbaa !19
+  %88 = load i32, ptr %0, align 8, !tbaa !18
   %89 = icmp eq i32 %88, 2
   br i1 %89, label %90, label %95
 
 90:                                               ; preds = %87
-  %91 = load ptr, ptr %82, align 8, !tbaa !18
+  %91 = load ptr, ptr %82, align 8, !tbaa !17
   %92 = getelementptr inbounds nuw %struct.AVChannelCustom, ptr %91, i64 %indvars.iv76, i32 1
-  %93 = load i8, ptr %92, align 4, !tbaa !18
+  %93 = load i8, ptr %92, align 4, !tbaa !17
   %.not51 = icmp eq i8 %93, 0
   br i1 %.not51, label %95, label %94
 
@@ -1577,10 +1577,10 @@ has_channel_names.exit.thread61:                  ; preds = %24, %32, %29, %.pre
 
 95:                                               ; preds = %94, %90, %87
   %indvars.iv.next77 = add nuw nsw i64 %indvars.iv76, 1
-  %96 = load i32, ptr %77, align 4, !tbaa !21
+  %96 = load i32, ptr %77, align 4, !tbaa !20
   %97 = sext i32 %96 to i64
   %98 = icmp slt i64 %indvars.iv.next77, %97
-  br i1 %98, label %83, label %._crit_edge, !llvm.loop !44
+  br i1 %98, label %83, label %._crit_edge, !llvm.loop !43
 
 ._crit_edge:                                      ; preds = %95, %79
   %.lcssa = phi i32 [ %80, %79 ], [ %96, %95 ]
@@ -1617,14 +1617,14 @@ define internal fastcc range(i32 -2147483648, 1) i32 @try_describe_ambisonic(ptr
   %7 = add nuw nsw i32 %4, 1
   %8 = mul nuw nsw i32 %7, %7
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %10 = load i32, ptr %9, align 4, !tbaa !21
+  %10 = load i32, ptr %9, align 4, !tbaa !20
   %11 = icmp slt i32 %8, %10
   br i1 %11, label %12, label %113
 
 12:                                               ; preds = %6
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, i8 0, i64 24, i1 false)
-  %13 = load i32, ptr %1, align 8, !tbaa !19
+  %13 = load i32, ptr %1, align 8, !tbaa !18
   switch i32 %13, label %..lr.ph.i26_crit_edge [
     i32 3, label %14
     i32 2, label %.lr.ph.i
@@ -1632,14 +1632,14 @@ define internal fastcc range(i32 -2147483648, 1) i32 @try_describe_ambisonic(ptr
 
 ..lr.ph.i26_crit_edge:                            ; preds = %12
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %.pre = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !18
+  %.pre = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !17
   %.pre36 = zext nneg i32 %10 to i64
   br label %.lr.ph.i26
 
 14:                                               ; preds = %12
-  store i32 1, ptr %3, align 8, !tbaa !19
+  store i32 1, ptr %3, align 8, !tbaa !18
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %16 = load i64, ptr %15, align 8, !tbaa !18
+  %16 = load i64, ptr %15, align 8, !tbaa !17
   %17 = trunc i64 %16 to i32
   %18 = lshr i32 %17, 1
   %19 = and i32 %18, 1431655765
@@ -1675,26 +1675,26 @@ define internal fastcc range(i32 -2147483648, 1) i32 @try_describe_ambisonic(ptr
   %49 = and i32 %48, 63
   %50 = add nuw nsw i32 %49, %32
   %51 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  store i32 %50, ptr %51, align 4, !tbaa !21
+  store i32 %50, ptr %51, align 4, !tbaa !20
   %52 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store i64 %16, ptr %52, align 8, !tbaa !18
+  store i64 %16, ptr %52, align 8, !tbaa !17
   br label %111
 
 .lr.ph.i:                                         ; preds = %12
   %53 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %54 = load ptr, ptr %53, align 8, !tbaa !18
+  %54 = load ptr, ptr %53, align 8, !tbaa !17
   %wide.trip.count.i = zext nneg i32 %10 to i64
   br label %56
 
 55:                                               ; preds = %56
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %.lr.ph.i26, label %56, !llvm.loop !41
+  br i1 %exitcond.not.i, label %.lr.ph.i26, label %56, !llvm.loop !40
 
 56:                                               ; preds = %55, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %55 ]
   %57 = getelementptr inbounds nuw %struct.AVChannelCustom, ptr %54, i64 %indvars.iv.i, i32 1
-  %58 = load i8, ptr %57, align 4, !tbaa !18
+  %58 = load i8, ptr %57, align 4, !tbaa !17
   %.not9.i = icmp eq i8 %58, 0
   br i1 %.not9.i, label %55, label %has_channel_names.exit.loopexit35
 
@@ -1708,7 +1708,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @try_describe_ambisonic(ptr
   %indvars.iv.i28 = phi i64 [ %60, %.lr.ph.i26 ], [ %indvars.iv.next.i29, %68 ]
   %.02030.i = phi i64 [ 0, %.lr.ph.i26 ], [ %69, %68 ]
   %62 = getelementptr inbounds nuw %struct.AVChannelCustom, ptr %59, i64 %indvars.iv.i28
-  %63 = load i32, ptr %62, align 8, !tbaa !22
+  %63 = load i32, ptr %62, align 8, !tbaa !21
   %or.cond.i = icmp ult i32 %63, 63
   br i1 %or.cond.i, label %64, label %has_channel_names.exit
 
@@ -1722,10 +1722,10 @@ define internal fastcc range(i32 -2147483648, 1) i32 @try_describe_ambisonic(ptr
   %69 = or i64 %66, %.02030.i
   %indvars.iv.next.i29 = add nuw nsw i64 %indvars.iv.i28, 1
   %exitcond.not.i30 = icmp eq i64 %indvars.iv.next.i29, %wide.trip.count.i27.pre-phi
-  br i1 %exitcond.not.i30, label %masked_description.exit, label %61, !llvm.loop !42
+  br i1 %exitcond.not.i30, label %masked_description.exit, label %61, !llvm.loop !41
 
 masked_description.exit:                          ; preds = %68
-  store i32 1, ptr %3, align 8, !tbaa !19
+  store i32 1, ptr %3, align 8, !tbaa !18
   %70 = trunc i64 %69 to i32
   %71 = lshr i32 %70, 1
   %72 = and i32 %71, 1431655765
@@ -1761,9 +1761,9 @@ masked_description.exit:                          ; preds = %68
   %102 = and i32 %101, 63
   %103 = add nuw nsw i32 %102, %85
   %104 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  store i32 %103, ptr %104, align 4, !tbaa !21
+  store i32 %103, ptr %104, align 4, !tbaa !20
   %105 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store i64 %69, ptr %105, align 8, !tbaa !18
+  store i64 %69, ptr %105, align 8, !tbaa !17
   br label %111
 
 has_channel_names.exit.loopexit35:                ; preds = %56
@@ -1773,13 +1773,13 @@ has_channel_names.exit.loopexit35:                ; preds = %56
 has_channel_names.exit:                           ; preds = %64, %61, %has_channel_names.exit.loopexit35
   %.pre-phi = phi i64 [ %.pre37, %has_channel_names.exit.loopexit35 ], [ %60, %61 ], [ %60, %64 ]
   %106 = phi ptr [ %54, %has_channel_names.exit.loopexit35 ], [ %59, %61 ], [ %59, %64 ]
-  store i32 2, ptr %3, align 8, !tbaa !19
+  store i32 2, ptr %3, align 8, !tbaa !18
   %107 = sub nsw i32 %10, %8
   %108 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  store i32 %107, ptr %108, align 4, !tbaa !21
+  store i32 %107, ptr %108, align 4, !tbaa !20
   %109 = getelementptr inbounds nuw %struct.AVChannelCustom, ptr %106, i64 %.pre-phi
   %110 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store ptr %109, ptr %110, align 8, !tbaa !18
+  store ptr %109, ptr %110, align 8, !tbaa !17
   br label %111
 
 111:                                              ; preds = %masked_description.exit, %has_channel_names.exit, %14
@@ -1841,7 +1841,7 @@ define i32 @av_channel_layout_channel_from_string(ptr noundef readonly captures(
 ; Function Attrs: nounwind uwtable
 define i32 @av_channel_layout_index_from_string(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca [16 x i8], align 16
-  %4 = load i32, ptr %0, align 8, !tbaa !19
+  %4 = load i32, ptr %0, align 8, !tbaa !18
   switch i32 %4, label %.critedge [
     i32 2, label %5
     i32 3, label %.critedge.thread
@@ -1861,7 +1861,7 @@ define i32 @av_channel_layout_index_from_string(ptr noundef readonly captures(no
   %10 = sub i64 %8, %9
   %11 = tail call i64 @llvm.umin.i64(i64 %10, i64 16)
   %12 = call i64 @av_strlcpy(ptr noundef nonnull %3, ptr noundef nonnull %1, i64 noundef %11) #16
-  %13 = load i8, ptr %7, align 1, !tbaa !18
+  %13 = load i8, ptr %7, align 1, !tbaa !17
   %14 = call i32 @av_channel_from_string(ptr noundef nonnull %3)
   %.034.fr = freeze i32 %14
   %15 = icmp ne i32 %.034.fr, -1
@@ -1877,7 +1877,7 @@ define i32 @av_channel_layout_index_from_string(ptr noundef readonly captures(no
 
 .lr.ph:                                           ; preds = %18
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %20 = load i32, ptr %19, align 4, !tbaa !21
+  %20 = load i32, ptr %19, align 4, !tbaa !20
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %22 = icmp eq i32 %.034.fr, -1
   br i1 %22, label %.lr.ph.split.us.preheader, label %.lr.ph.split.split
@@ -1889,7 +1889,7 @@ define i32 @av_channel_layout_index_from_string(ptr noundef readonly captures(no
   br i1 %exitcond68.not79, label %.critedge.thread, label %.lr.ph81.preheader
 
 .lr.ph81.preheader:                               ; preds = %.lr.ph.split.us.preheader
-  %23 = load ptr, ptr %21, align 8, !tbaa !18
+  %23 = load ptr, ptr %21, align 8, !tbaa !17
   br label %.lr.ph81
 
 .lr.ph81:                                         ; preds = %.lr.ph81.preheader, %.lr.ph.split.us
@@ -1909,7 +1909,7 @@ define i32 @av_channel_layout_index_from_string(ptr noundef readonly captures(no
   br i1 %26, label %.lr.ph58, label %.critedge.thread
 
 .lr.ph58:                                         ; preds = %.lr.ph.split.split
-  %27 = load ptr, ptr %21, align 8, !tbaa !18
+  %27 = load ptr, ptr %21, align 8, !tbaa !17
   %wide.trip.count = zext nneg i32 %20 to i64
   br label %28
 
@@ -1922,7 +1922,7 @@ define i32 @av_channel_layout_index_from_string(ptr noundef readonly captures(no
   br i1 %.not45, label %32, label %35
 
 32:                                               ; preds = %28
-  %33 = load i32, ptr %29, align 8, !tbaa !22
+  %33 = load i32, ptr %29, align 8, !tbaa !21
   %34 = icmp eq i32 %.034.fr, %33
   br i1 %34, label %.critedge.loopexit59, label %35
 
@@ -1959,7 +1959,7 @@ define i32 @av_channel_layout_index_from_channel(ptr noundef readonly captures(n
   br i1 %3, label %.loopexit, label %4
 
 4:                                                ; preds = %2
-  %5 = load i32, ptr %0, align 8, !tbaa !19
+  %5 = load i32, ptr %0, align 8, !tbaa !18
   switch i32 %5, label %.loopexit [
     i32 2, label %.preheader
     i32 3, label %16
@@ -1968,33 +1968,33 @@ define i32 @av_channel_layout_index_from_channel(ptr noundef readonly captures(n
 
 .preheader:                                       ; preds = %4
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %7 = load i32, ptr %6, align 4, !tbaa !21
+  %7 = load i32, ptr %6, align 4, !tbaa !20
   %8 = icmp sgt i32 %7, 0
   br i1 %8, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %.preheader
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %10 = load ptr, ptr %9, align 8, !tbaa !18
+  %10 = load ptr, ptr %9, align 8, !tbaa !17
   %wide.trip.count = zext nneg i32 %7 to i64
   br label %11
 
 11:                                               ; preds = %.lr.ph, %15
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %15 ]
   %12 = getelementptr inbounds nuw %struct.AVChannelCustom, ptr %10, i64 %indvars.iv
-  %13 = load i32, ptr %12, align 8, !tbaa !22
+  %13 = load i32, ptr %12, align 8, !tbaa !21
   %14 = icmp eq i32 %13, %1
   br i1 %14, label %.loopexit.loopexit.split.loop.exit35, label %15
 
 15:                                               ; preds = %11
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %11, !llvm.loop !45
+  br i1 %exitcond.not, label %.loopexit, label %11, !llvm.loop !44
 
 16:                                               ; preds = %4, %4
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %18 = load i64, ptr %17, align 8, !tbaa !18
+  %18 = load i64, ptr %17, align 8, !tbaa !17
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %20 = load i32, ptr %19, align 4, !tbaa !21
+  %20 = load i32, ptr %19, align 4, !tbaa !20
   %21 = trunc i64 %18 to i32
   %22 = lshr i32 %21, 1
   %23 = and i32 %22, 1431655765
@@ -2104,12 +2104,12 @@ define i32 @av_channel_layout_index_from_channel(ptr noundef readonly captures(n
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
 define range(i32 0, 2) i32 @av_channel_layout_check(ptr noundef readonly captures(none) %0) local_unnamed_addr #9 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %3 = load i32, ptr %2, align 4, !tbaa !21
+  %3 = load i32, ptr %2, align 4, !tbaa !20
   %4 = icmp slt i32 %3, 1
   br i1 %4, label %.loopexit, label %5
 
 5:                                                ; preds = %1
-  %6 = load i32, ptr %0, align 8, !tbaa !19
+  %6 = load i32, ptr %0, align 8, !tbaa !18
   switch i32 %6, label %88 [
     i32 1, label %7
     i32 2, label %45
@@ -2119,7 +2119,7 @@ define range(i32 0, 2) i32 @av_channel_layout_check(ptr noundef readonly capture
 
 7:                                                ; preds = %5
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %9 = load i64, ptr %8, align 8, !tbaa !18
+  %9 = load i64, ptr %8, align 8, !tbaa !17
   %10 = trunc i64 %9 to i32
   %11 = lshr i32 %10, 1
   %12 = and i32 %11, 1431655765
@@ -2159,7 +2159,7 @@ define range(i32 0, 2) i32 @av_channel_layout_check(ptr noundef readonly capture
 
 45:                                               ; preds = %5
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %47 = load ptr, ptr %46, align 8, !tbaa !18
+  %47 = load ptr, ptr %46, align 8, !tbaa !17
   %.not = icmp eq ptr %47, null
   br i1 %.not, label %.loopexit, label %.lr.ph.preheader
 
@@ -2170,16 +2170,16 @@ define range(i32 0, 2) i32 @av_channel_layout_check(ptr noundef readonly capture
 .lr.ph:                                           ; preds = %.lr.ph, %.lr.ph.preheader
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %48 = getelementptr inbounds nuw %struct.AVChannelCustom, ptr %47, i64 %indvars.iv
-  %49 = load i32, ptr %48, align 8, !tbaa !22
+  %49 = load i32, ptr %48, align 8, !tbaa !21
   %.not21 = icmp ne i32 %49, -1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp ne i64 %indvars.iv.next, %wide.trip.count
   %or.cond.not = select i1 %.not21, i1 %exitcond.not, i1 false
-  br i1 %or.cond.not, label %.lr.ph, label %.loopexit, !llvm.loop !46
+  br i1 %or.cond.not, label %.lr.ph, label %.loopexit, !llvm.loop !45
 
 50:                                               ; preds = %5
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %52 = load i64, ptr %51, align 8, !tbaa !18
+  %52 = load i64, ptr %51, align 8, !tbaa !17
   %53 = trunc i64 %52 to i32
   %54 = lshr i32 %53, 1
   %55 = and i32 %54, 1431655765
@@ -2229,16 +2229,16 @@ define range(i32 0, 2) i32 @av_channel_layout_check(ptr noundef readonly capture
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
 define range(i32 0, 2) i32 @av_channel_layout_compare(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #9 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %4 = load i32, ptr %3, align 4, !tbaa !21
+  %4 = load i32, ptr %3, align 4, !tbaa !20
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %6 = load i32, ptr %5, align 4, !tbaa !21
+  %6 = load i32, ptr %5, align 4, !tbaa !20
   %.not = icmp eq i32 %4, %6
   br i1 %.not, label %7, label %.loopexit
 
 7:                                                ; preds = %2
-  %8 = load i32, ptr %0, align 8, !tbaa !19
+  %8 = load i32, ptr %0, align 8, !tbaa !18
   %9 = icmp eq i32 %8, 0
-  %10 = load i32, ptr %1, align 8, !tbaa !19
+  %10 = load i32, ptr %1, align 8, !tbaa !18
   %11 = icmp eq i32 %10, 0
   %.not20.not = xor i1 %9, %11
   %brmerge = or i1 %9, %11
@@ -2256,9 +2256,9 @@ define range(i32 0, 2) i32 @av_channel_layout_compare(ptr noundef readonly captu
 
 15:                                               ; preds = %13
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %17 = load i64, ptr %16, align 8, !tbaa !18
+  %17 = load i64, ptr %16, align 8, !tbaa !17
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %19 = load i64, ptr %18, align 8, !tbaa !18
+  %19 = load i64, ptr %18, align 8, !tbaa !17
   %20 = icmp ne i64 %17, %19
   br label %.loopexit
 
@@ -2274,7 +2274,7 @@ define range(i32 0, 2) i32 @av_channel_layout_compare(ptr noundef readonly captu
   %25 = add nuw nsw i32 %.022, 1
   %exitcond.not = icmp eq i32 %25, %4
   %or.cond = select i1 %.not21.not, i1 true, i1 %exitcond.not
-  br i1 %or.cond, label %.loopexit, label %.lr.ph, !llvm.loop !47
+  br i1 %or.cond, label %.loopexit, label %.lr.ph, !llvm.loop !46
 
 .loopexit:                                        ; preds = %.lr.ph, %21, %7, %2, %15
   %.018.shrunk = phi i1 [ %20, %15 ], [ true, %2 ], [ %.not20.not, %7 ], [ false, %21 ], [ %.not21.not, %.lr.ph ]
@@ -2284,7 +2284,7 @@ define range(i32 0, 2) i32 @av_channel_layout_compare(ptr noundef readonly captu
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define ptr @av_channel_layout_standard(ptr noundef captures(none) %0) local_unnamed_addr #14 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !29
+  %2 = load ptr, ptr %0, align 8, !tbaa !28
   %3 = icmp ult ptr %2, inttoptr (i64 40 to ptr)
   br i1 %3, label %4, label %9
 
@@ -2293,7 +2293,7 @@ define ptr @av_channel_layout_standard(ptr noundef captures(none) %0) local_unna
   %6 = getelementptr inbounds nuw [40 x %struct.channel_layout_name], ptr @channel_layout_map, i64 0, i64 %5, i32 1
   %7 = add nuw nsw i64 %5, 1
   %8 = inttoptr i64 %7 to ptr
-  store ptr %8, ptr %0, align 8, !tbaa !29
+  store ptr %8, ptr %0, align 8, !tbaa !28
   br label %9
 
 9:                                                ; preds = %4, %1
@@ -2303,7 +2303,7 @@ define ptr @av_channel_layout_standard(ptr noundef captures(none) %0) local_unna
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
 define i64 @av_channel_layout_subset(ptr noundef readonly captures(none) %0, i64 noundef %1) local_unnamed_addr #9 {
-  %3 = load i32, ptr %0, align 8, !tbaa !19
+  %3 = load i32, ptr %0, align 8, !tbaa !18
   switch i32 %3, label %.loopexit [
     i32 1, label %4
     i32 3, label %4
@@ -2312,7 +2312,7 @@ define i64 @av_channel_layout_subset(ptr noundef readonly captures(none) %0, i64
 
 4:                                                ; preds = %2, %2
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %6 = load i64, ptr %5, align 8, !tbaa !18
+  %6 = load i64, ptr %5, align 8, !tbaa !17
   %7 = and i64 %6, %1
   br label %.loopexit
 
@@ -2336,7 +2336,7 @@ define i64 @av_channel_layout_subset(ptr noundef readonly captures(none) %0, i64
   %.2 = phi i64 [ %.114, %.preheader ], [ %spec.select, %10 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 64
-  br i1 %exitcond.not, label %.loopexit, label %.preheader, !llvm.loop !48
+  br i1 %exitcond.not, label %.loopexit, label %.preheader, !llvm.loop !47
 
 .loopexit:                                        ; preds = %15, %2, %4
   %.013 = phi i64 [ %7, %4 ], [ 0, %2 ], [ %.2, %15 ]
@@ -2354,7 +2354,7 @@ define range(i32 -38, 2) i32 @av_channel_layout_retype(ptr noundef %0, i32 nound
 6:                                                ; preds = %3
   %7 = and i32 %2, 2
   %.not96 = icmp eq i32 %7, 0
-  %.pr.pre = load i32, ptr %0, align 8, !tbaa !19
+  %.pr.pre = load i32, ptr %0, align 8, !tbaa !18
   br i1 %.not96, label %canonical_order.exit, label %8
 
 8:                                                ; preds = %6
@@ -2363,30 +2363,30 @@ define range(i32 -38, 2) i32 @av_channel_layout_retype(ptr noundef %0, i32 nound
 
 .preheader.i.i:                                   ; preds = %8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %10 = load i32, ptr %9, align 4, !tbaa !21
+  %10 = load i32, ptr %9, align 4, !tbaa !20
   %.not1011.i.i = icmp sgt i32 %10, 0
   br i1 %.not1011.i.i, label %.lr.ph.i.i, label %.thread190
 
 .thread190:                                       ; preds = %.preheader.i.i
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %12 = load i32, ptr %11, align 4, !tbaa !21
+  %12 = load i32, ptr %11, align 4, !tbaa !20
   br label %.preheader
 
 .lr.ph.i.i:                                       ; preds = %.preheader.i.i
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %14 = load ptr, ptr %13, align 8, !tbaa !18
+  %14 = load ptr, ptr %13, align 8, !tbaa !17
   %wide.trip.count.i.i = zext nneg i32 %10 to i64
   br label %16
 
 15:                                               ; preds = %16
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %has_channel_names.exit.i, label %16, !llvm.loop !41
+  br i1 %exitcond.not.i.i, label %has_channel_names.exit.i, label %16, !llvm.loop !40
 
 16:                                               ; preds = %15, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %15 ]
   %17 = getelementptr inbounds nuw %struct.AVChannelCustom, ptr %14, i64 %indvars.iv.i.i, i32 1
-  %18 = load i8, ptr %17, align 4, !tbaa !18
+  %18 = load i8, ptr %17, align 4, !tbaa !17
   %.not9.i.i = icmp eq i8 %18, 0
   br i1 %.not9.i.i, label %15, label %canonical_order.exit
 
@@ -2396,18 +2396,18 @@ define range(i32 -38, 2) i32 @av_channel_layout_retype(ptr noundef %0, i32 nound
 has_channel_names.exit.i:                         ; preds = %15, %has_channel_names.exit.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %has_channel_names.exit.i ], [ 0, %15 ]
   %19 = getelementptr inbounds nuw %struct.AVChannelCustom, ptr %14, i64 %indvars.iv.i
-  %20 = load i32, ptr %19, align 8, !tbaa !22
+  %20 = load i32, ptr %19, align 8, !tbaa !21
   %.not22.i = icmp eq i32 %20, 768
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %21 = icmp samesign ult i64 %indvars.iv.next.i, %wide.trip.count.i.i
   %22 = select i1 %21, i1 %.not22.i, i1 false
-  br i1 %22, label %has_channel_names.exit.i, label %._crit_edge.i, !llvm.loop !49
+  br i1 %22, label %has_channel_names.exit.i, label %._crit_edge.i, !llvm.loop !48
 
 .lr.ph.i23.i:                                     ; preds = %._crit_edge.i, %29
   %indvars.iv.i25.i = phi i64 [ %indvars.iv.next.i26.i, %29 ], [ 0, %._crit_edge.i ]
   %.02030.i.i = phi i64 [ %30, %29 ], [ 0, %._crit_edge.i ]
   %23 = getelementptr inbounds nuw %struct.AVChannelCustom, ptr %14, i64 %indvars.iv.i25.i
-  %24 = load i32, ptr %23, align 8, !tbaa !22
+  %24 = load i32, ptr %23, align 8, !tbaa !21
   %or.cond.i.i = icmp ult i32 %24, 63
   br i1 %or.cond.i.i, label %25, label %.loopexit.i
 
@@ -2421,7 +2421,7 @@ has_channel_names.exit.i:                         ; preds = %15, %has_channel_na
   %30 = or i64 %27, %.02030.i.i
   %indvars.iv.next.i26.i = add nuw nsw i64 %indvars.iv.i25.i, 1
   %exitcond.not.i27.i = icmp eq i64 %indvars.iv.next.i26.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i27.i, label %canonical_order.exit, label %.lr.ph.i23.i, !llvm.loop !42
+  br i1 %exitcond.not.i27.i, label %canonical_order.exit, label %.lr.ph.i23.i, !llvm.loop !41
 
 .loopexit.i:                                      ; preds = %25, %.lr.ph.i23.i
   %31 = tail call i32 @av_channel_layout_ambisonic_order(ptr noundef nonnull readonly %0)
@@ -2442,7 +2442,7 @@ has_channel_names.exit.i:                         ; preds = %15, %has_channel_na
   %indvars.iv.i32.i = phi i64 [ %36, %.lr.ph.i30.i ], [ %indvars.iv.next.i35.i, %44 ]
   %.02030.i33.i = phi i64 [ 0, %.lr.ph.i30.i ], [ %45, %44 ]
   %38 = getelementptr inbounds nuw %struct.AVChannelCustom, ptr %14, i64 %indvars.iv.i32.i
-  %39 = load i32, ptr %38, align 8, !tbaa !22
+  %39 = load i32, ptr %38, align 8, !tbaa !21
   %or.cond.i34.i = icmp ult i32 %39, 63
   br i1 %or.cond.i34.i, label %40, label %canonical_order.exit
 
@@ -2456,7 +2456,7 @@ has_channel_names.exit.i:                         ; preds = %15, %has_channel_na
   %45 = or i64 %42, %.02030.i33.i
   %indvars.iv.next.i35.i = add nuw nsw i64 %indvars.iv.i32.i, 1
   %exitcond.not.i36.i = icmp eq i64 %indvars.iv.next.i35.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i36.i, label %canonical_order.exit, label %37, !llvm.loop !42
+  br i1 %exitcond.not.i36.i, label %canonical_order.exit, label %37, !llvm.loop !41
 
 canonical_order.exit:                             ; preds = %16, %29, %44, %40, %37, %33, %.loopexit.i, %._crit_edge.i, %6
   %.083.ph = phi i32 [ 3, %33 ], [ 2, %.loopexit.i ], [ 0, %._crit_edge.i ], [ %1, %6 ], [ 3, %44 ], [ 2, %37 ], [ 2, %40 ], [ 1, %29 ], [ 2, %16 ]
@@ -2473,7 +2473,7 @@ canonical_order.exit:                             ; preds = %16, %29, %44, %40, 
 
 48:                                               ; preds = %47
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %50 = load i32, ptr %49, align 4, !tbaa !21
+  %50 = load i32, ptr %49, align 4, !tbaa !20
   %51 = icmp eq i32 %.pr.pre, 2
   br i1 %51, label %.preheader, label %.loopexit
 
@@ -2485,25 +2485,25 @@ canonical_order.exit:                             ; preds = %16, %29, %44, %40, 
 
 .lr.ph175:                                        ; preds = %.preheader
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %56 = load ptr, ptr %55, align 8, !tbaa !18
+  %56 = load ptr, ptr %55, align 8, !tbaa !17
   %wide.trip.count184 = zext nneg i32 %52 to i64
   br label %58
 
 57:                                               ; preds = %61
   %indvars.iv.next182 = add nuw nsw i64 %indvars.iv181, 1
   %exitcond185.not = icmp eq i64 %indvars.iv.next182, %wide.trip.count184
-  br i1 %exitcond185.not, label %.thread, label %58, !llvm.loop !50
+  br i1 %exitcond185.not, label %.thread, label %58, !llvm.loop !49
 
 58:                                               ; preds = %.lr.ph175, %57
   %indvars.iv181 = phi i64 [ 0, %.lr.ph175 ], [ %indvars.iv.next182, %57 ]
   %59 = getelementptr inbounds nuw %struct.AVChannelCustom, ptr %56, i64 %indvars.iv181
-  %60 = load i32, ptr %59, align 8, !tbaa !22
+  %60 = load i32, ptr %59, align 8, !tbaa !21
   %.not98 = icmp eq i32 %60, 768
   br i1 %.not98, label %61, label %.loopexit
 
 61:                                               ; preds = %58
   %62 = getelementptr inbounds nuw i8, ptr %59, i64 4
-  %63 = load i8, ptr %62, align 4, !tbaa !18
+  %63 = load i8, ptr %62, align 4, !tbaa !17
   %.not99 = icmp eq i8 %63, 0
   br i1 %.not99, label %57, label %.loopexit
 
@@ -2519,7 +2519,7 @@ canonical_order.exit:                             ; preds = %16, %29, %44, %40, 
   %69 = phi ptr [ %66, %.loopexit ], [ %53, %.preheader ], [ %53, %57 ]
   %.185142 = phi i32 [ 1, %.loopexit ], [ 0, %.preheader ], [ 0, %57 ]
   %70 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %71 = load ptr, ptr %70, align 8, !tbaa !43
+  %71 = load ptr, ptr %70, align 8, !tbaa !42
   br i1 %67, label %72, label %av_channel_layout_uninit.exit
 
 72:                                               ; preds = %.thread
@@ -2529,8 +2529,8 @@ canonical_order.exit:                             ; preds = %16, %29, %44, %40, 
 
 av_channel_layout_uninit.exit:                    ; preds = %.thread, %72
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
-  store i32 %68, ptr %69, align 4, !tbaa !21
-  store ptr %71, ptr %70, align 8, !tbaa !43
+  store i32 %68, ptr %69, align 4, !tbaa !20
+  store ptr %71, ptr %70, align 8, !tbaa !42
   br label %.thread151
 
 74:                                               ; preds = %47
@@ -2539,13 +2539,13 @@ av_channel_layout_uninit.exit:                    ; preds = %.thread, %72
 
 76:                                               ; preds = %74
   %77 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %78 = load i32, ptr %77, align 4, !tbaa !21
+  %78 = load i32, ptr %77, align 4, !tbaa !20
   %.not29.i = icmp sgt i32 %78, 0
   br i1 %.not29.i, label %.lr.ph.i, label %av_channel_layout_uninit.exit109
 
 .lr.ph.i:                                         ; preds = %76
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %80 = load ptr, ptr %79, align 8, !tbaa !18
+  %80 = load ptr, ptr %79, align 8, !tbaa !17
   %wide.trip.count.i = zext nneg i32 %78 to i64
   br label %81
 
@@ -2553,7 +2553,7 @@ av_channel_layout_uninit.exit:                    ; preds = %.thread, %72
   %indvars.iv.i100 = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i101, %88 ]
   %.02030.i = phi i64 [ 0, %.lr.ph.i ], [ %89, %88 ]
   %82 = getelementptr inbounds nuw %struct.AVChannelCustom, ptr %80, i64 %indvars.iv.i100
-  %83 = load i32, ptr %82, align 8, !tbaa !22
+  %83 = load i32, ptr %82, align 8, !tbaa !21
   %or.cond.i = icmp ult i32 %83, 63
   br i1 %or.cond.i, label %84, label %.thread151
 
@@ -2567,17 +2567,17 @@ av_channel_layout_uninit.exit:                    ; preds = %.thread, %72
   %89 = or i64 %86, %.02030.i
   %indvars.iv.next.i101 = add nuw nsw i64 %indvars.iv.i100, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i101, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %.lr.ph.i104, label %81, !llvm.loop !42
+  br i1 %exitcond.not.i, label %.lr.ph.i104, label %81, !llvm.loop !41
 
 90:                                               ; preds = %.lr.ph.i104
   %indvars.iv.next.i107 = add nuw nsw i64 %indvars.iv.i106, 1
   %exitcond.not.i108 = icmp eq i64 %indvars.iv.next.i107, %wide.trip.count.i
-  br i1 %exitcond.not.i108, label %av_channel_layout_uninit.exit109, label %.lr.ph.i104, !llvm.loop !41
+  br i1 %exitcond.not.i108, label %av_channel_layout_uninit.exit109, label %.lr.ph.i104, !llvm.loop !40
 
 .lr.ph.i104:                                      ; preds = %88, %90
   %indvars.iv.i106 = phi i64 [ %indvars.iv.next.i107, %90 ], [ 0, %88 ]
   %91 = getelementptr inbounds nuw %struct.AVChannelCustom, ptr %80, i64 %indvars.iv.i106, i32 1
-  %92 = load i8, ptr %91, align 4, !tbaa !18
+  %92 = load i8, ptr %91, align 4, !tbaa !17
   %.not9.i = icmp eq i8 %92, 0
   br i1 %.not9.i, label %90, label %has_channel_names.exit
 
@@ -2588,17 +2588,17 @@ av_channel_layout_uninit.exit109:                 ; preds = %90, %76, %has_chann
   %.08.i150 = phi i32 [ 1, %has_channel_names.exit ], [ 0, %76 ], [ 0, %90 ]
   %spec.select.i145149 = phi i64 [ %89, %has_channel_names.exit ], [ 0, %76 ], [ %89, %90 ]
   %93 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %94 = load ptr, ptr %93, align 8, !tbaa !43
+  %94 = load ptr, ptr %93, align 8, !tbaa !42
   %95 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @av_freep(ptr noundef nonnull %95) #16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 16, i1 false)
   %96 = tail call i32 @av_channel_layout_from_mask(ptr noundef nonnull %0, i64 noundef %spec.select.i145149)
-  store ptr %94, ptr %93, align 8, !tbaa !43
+  store ptr %94, ptr %93, align 8, !tbaa !42
   br label %.thread151
 
 97:                                               ; preds = %47
   %98 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %99 = load i32, ptr %98, align 4, !tbaa !21
+  %99 = load i32, ptr %98, align 4, !tbaa !20
   %100 = icmp slt i32 %99, 1
   br i1 %100, label %.thread151, label %101
 
@@ -2611,20 +2611,20 @@ av_channel_layout_uninit.exit109:                 ; preds = %90, %76, %has_chann
 .lr.ph.i111:                                      ; preds = %101, %.lr.ph.i111
   %indvars.iv.i112 = phi i64 [ %indvars.iv.next.i113, %.lr.ph.i111 ], [ 0, %101 ]
   %104 = getelementptr inbounds nuw %struct.AVChannelCustom, ptr %103, i64 %indvars.iv.i112
-  store i32 768, ptr %104, align 8, !tbaa !22
+  store i32 768, ptr %104, align 8, !tbaa !21
   %indvars.iv.next.i113 = add nuw nsw i64 %indvars.iv.i112, 1
   %exitcond.not.i114 = icmp eq i64 %indvars.iv.next.i113, %102
-  br i1 %exitcond.not.i114, label %105, label %.lr.ph.i111, !llvm.loop !24
+  br i1 %exitcond.not.i114, label %105, label %.lr.ph.i111, !llvm.loop !23
 
 105:                                              ; preds = %.lr.ph.i111
   %106 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %107 = load ptr, ptr %106, align 8, !tbaa !43
-  %108 = load i32, ptr %0, align 8, !tbaa !19
+  %107 = load ptr, ptr %106, align 8, !tbaa !42
+  %108 = load i32, ptr %0, align 8, !tbaa !18
   %.not97 = icmp eq i32 %108, 0
   br i1 %.not97, label %av_channel_layout_uninit.exit116, label %.preheader168
 
 .preheader168:                                    ; preds = %105
-  %109 = load i32, ptr %98, align 4, !tbaa !21
+  %109 = load i32, ptr %98, align 4, !tbaa !20
   %110 = icmp sgt i32 %109, 0
   br i1 %110, label %.lr.ph.preheader, label %._crit_edge
 
@@ -2637,10 +2637,10 @@ av_channel_layout_uninit.exit109:                 ; preds = %90, %76, %has_chann
   %111 = trunc nuw nsw i64 %indvars.iv to i32
   %112 = tail call i32 @av_channel_layout_channel_from_index(ptr noundef nonnull %0, i32 noundef %111)
   %113 = getelementptr inbounds nuw %struct.AVChannelCustom, ptr %103, i64 %indvars.iv
-  store i32 %112, ptr %113, align 8, !tbaa !22
+  store i32 %112, ptr %113, align 8, !tbaa !21
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !51
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !50
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader168
   %114 = icmp eq i32 %108, 2
@@ -2652,11 +2652,11 @@ av_channel_layout_uninit.exit109:                 ; preds = %90, %76, %has_chann
   br label %av_channel_layout_uninit.exit116
 
 av_channel_layout_uninit.exit116:                 ; preds = %105, %._crit_edge, %115
-  store i32 2, ptr %0, align 8, !tbaa !25
-  store i32 %99, ptr %98, align 4, !tbaa !25
+  store i32 2, ptr %0, align 8, !tbaa !24
+  store i32 %99, ptr %98, align 4, !tbaa !24
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %103, ptr %.sroa.6.0..sroa_idx, align 8, !tbaa !18
-  store ptr %107, ptr %106, align 8, !tbaa !43
+  store ptr %103, ptr %.sroa.6.0..sroa_idx, align 8, !tbaa !17
+  store ptr %107, ptr %106, align 8, !tbaa !42
   br label %.thread151
 
 117:                                              ; preds = %47
@@ -2665,7 +2665,7 @@ av_channel_layout_uninit.exit116:                 ; preds = %105, %._crit_edge, 
 
 119:                                              ; preds = %117
   %120 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %121 = load i32, ptr %120, align 4, !tbaa !21
+  %121 = load i32, ptr %120, align 4, !tbaa !20
   %122 = tail call i32 @av_channel_layout_ambisonic_order(ptr noundef nonnull %0)
   %123 = icmp slt i32 %122, 0
   br i1 %123, label %.thread151, label %124
@@ -2678,7 +2678,7 @@ av_channel_layout_uninit.exit116:                 ; preds = %105, %._crit_edge, 
 
 .lr.ph.i119:                                      ; preds = %124
   %127 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %128 = load ptr, ptr %127, align 8, !tbaa !18
+  %128 = load ptr, ptr %127, align 8, !tbaa !17
   %129 = zext nneg i32 %126 to i64
   %wide.trip.count.i120 = zext nneg i32 %121 to i64
   br label %130
@@ -2687,7 +2687,7 @@ av_channel_layout_uninit.exit116:                 ; preds = %105, %._crit_edge, 
   %indvars.iv.i121 = phi i64 [ %129, %.lr.ph.i119 ], [ %indvars.iv.next.i124, %137 ]
   %.02030.i122 = phi i64 [ 0, %.lr.ph.i119 ], [ %138, %137 ]
   %131 = getelementptr inbounds nuw %struct.AVChannelCustom, ptr %128, i64 %indvars.iv.i121
-  %132 = load i32, ptr %131, align 8, !tbaa !22
+  %132 = load i32, ptr %131, align 8, !tbaa !21
   %or.cond.i123 = icmp ult i32 %132, 63
   br i1 %or.cond.i123, label %133, label %.thread151
 
@@ -2701,7 +2701,7 @@ av_channel_layout_uninit.exit116:                 ; preds = %105, %._crit_edge, 
   %138 = or i64 %135, %.02030.i122
   %indvars.iv.next.i124 = add nuw nsw i64 %indvars.iv.i121, 1
   %exitcond.not.i125 = icmp eq i64 %indvars.iv.next.i124, %wide.trip.count.i120
-  br i1 %exitcond.not.i125, label %.preheader.i130, label %130, !llvm.loop !42
+  br i1 %exitcond.not.i125, label %.preheader.i130, label %130, !llvm.loop !41
 
 .preheader.i130:                                  ; preds = %137, %124
   %spec.select.i118 = phi i64 [ 0, %124 ], [ %138, %137 ]
@@ -2710,19 +2710,19 @@ av_channel_layout_uninit.exit116:                 ; preds = %105, %._crit_edge, 
 
 .lr.ph.i132:                                      ; preds = %.preheader.i130
   %139 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %140 = load ptr, ptr %139, align 8, !tbaa !18
+  %140 = load ptr, ptr %139, align 8, !tbaa !17
   %wide.trip.count.i133 = zext nneg i32 %121 to i64
   br label %142
 
 141:                                              ; preds = %142
   %indvars.iv.next.i136 = add nuw nsw i64 %indvars.iv.i134, 1
   %exitcond.not.i137 = icmp eq i64 %indvars.iv.next.i136, %wide.trip.count.i133
-  br i1 %exitcond.not.i137, label %av_channel_layout_uninit.exit139, label %142, !llvm.loop !41
+  br i1 %exitcond.not.i137, label %av_channel_layout_uninit.exit139, label %142, !llvm.loop !40
 
 142:                                              ; preds = %141, %.lr.ph.i132
   %indvars.iv.i134 = phi i64 [ 0, %.lr.ph.i132 ], [ %indvars.iv.next.i136, %141 ]
   %143 = getelementptr inbounds nuw %struct.AVChannelCustom, ptr %140, i64 %indvars.iv.i134, i32 1
-  %144 = load i8, ptr %143, align 4, !tbaa !18
+  %144 = load i8, ptr %143, align 4, !tbaa !17
   %.not9.i135 = icmp eq i8 %144, 0
   br i1 %.not9.i135, label %141, label %has_channel_names.exit138
 
@@ -2732,13 +2732,13 @@ has_channel_names.exit138:                        ; preds = %142
 av_channel_layout_uninit.exit139:                 ; preds = %141, %.preheader.i130, %has_channel_names.exit138
   %.08.i129162 = phi i32 [ 1, %has_channel_names.exit138 ], [ 0, %.preheader.i130 ], [ 0, %141 ]
   %145 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %146 = load ptr, ptr %145, align 8, !tbaa !43
+  %146 = load ptr, ptr %145, align 8, !tbaa !42
   %147 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @av_freep(ptr noundef nonnull %147) #16
-  store i32 3, ptr %0, align 8, !tbaa !19
-  store i32 %121, ptr %120, align 4, !tbaa !21
-  store i64 %spec.select.i118, ptr %147, align 8, !tbaa !18
-  store ptr %146, ptr %145, align 8, !tbaa !43
+  store i32 3, ptr %0, align 8, !tbaa !18
+  store i32 %121, ptr %120, align 4, !tbaa !20
+  store i64 %spec.select.i118, ptr %147, align 8, !tbaa !17
+  store ptr %146, ptr %145, align 8, !tbaa !42
   br label %.thread151
 
 .thread151:                                       ; preds = %133, %130, %84, %81, %8, %119, %av_channel_layout_uninit.exit139, %101, %97, %av_channel_layout_uninit.exit109, %117, %has_channel_names.exit138, %av_channel_layout_uninit.exit116, %74, %has_channel_names.exit, %47, %av_channel_layout_uninit.exit, %.loopexit, %canonical_order.exit, %3
@@ -2798,40 +2798,39 @@ attributes #19 = { nounwind willreturn memory(none) }
 !12 = !{!"int", !8, i64 0}
 !13 = !{!5, !6, i64 8}
 !14 = !{!6, !6, i64 0}
-!15 = distinct !{!15, !16, !17}
+!15 = distinct !{!15, !16}
 !16 = !{!"llvm.loop.mustprogress"}
-!17 = !{!"llvm.loop.estimated_trip_count"}
-!18 = !{!8, !8, i64 0}
-!19 = !{!20, !12, i64 0}
-!20 = !{!"AVChannelLayout", !12, i64 0, !12, i64 4, !8, i64 8, !7, i64 16}
-!21 = !{!20, !12, i64 4}
-!22 = !{!23, !12, i64 0}
-!23 = !{!"AVChannelCustom", !12, i64 0, !8, i64 4, !7, i64 24}
-!24 = distinct !{!24, !16, !17}
-!25 = !{!12, !12, i64 0}
-!26 = !{!27, !6, i64 0}
-!27 = !{!"channel_layout_name", !6, i64 0, !20, i64 8}
-!28 = !{i64 0, i64 4, !25, i64 4, i64 4, !25, i64 8, i64 8, !18, i64 16, i64 8, !29}
-!29 = !{!7, !7, i64 0}
-!30 = distinct !{!30, !16, !17}
-!31 = distinct !{!31, !16, !17}
-!32 = distinct !{!32, !16, !17}
-!33 = !{!34, !34, i64 0}
-!34 = !{!"p1 _ZTS15AVChannelCustom", !7, i64 0}
-!35 = distinct !{!35, !16, !17}
-!36 = distinct !{!36, !16, !17}
-!37 = !{!27, !12, i64 12}
-!38 = distinct !{!38, !16, !17}
-!39 = distinct !{!39, !16, !17}
-!40 = distinct !{!40, !16, !17}
-!41 = distinct !{!41, !16, !17}
-!42 = distinct !{!42, !16, !17}
-!43 = !{!20, !7, i64 16}
-!44 = distinct !{!44, !16, !17}
-!45 = distinct !{!45, !16, !17}
-!46 = distinct !{!46, !16, !17}
-!47 = distinct !{!47, !16, !17}
-!48 = distinct !{!48, !16, !17}
-!49 = distinct !{!49, !16, !17}
-!50 = distinct !{!50, !16, !17}
-!51 = distinct !{!51, !16, !17}
+!17 = !{!8, !8, i64 0}
+!18 = !{!19, !12, i64 0}
+!19 = !{!"AVChannelLayout", !12, i64 0, !12, i64 4, !8, i64 8, !7, i64 16}
+!20 = !{!19, !12, i64 4}
+!21 = !{!22, !12, i64 0}
+!22 = !{!"AVChannelCustom", !12, i64 0, !8, i64 4, !7, i64 24}
+!23 = distinct !{!23, !16}
+!24 = !{!12, !12, i64 0}
+!25 = !{!26, !6, i64 0}
+!26 = !{!"channel_layout_name", !6, i64 0, !19, i64 8}
+!27 = !{i64 0, i64 4, !24, i64 4, i64 4, !24, i64 8, i64 8, !17, i64 16, i64 8, !28}
+!28 = !{!7, !7, i64 0}
+!29 = distinct !{!29, !16}
+!30 = distinct !{!30, !16}
+!31 = distinct !{!31, !16}
+!32 = !{!33, !33, i64 0}
+!33 = !{!"p1 _ZTS15AVChannelCustom", !7, i64 0}
+!34 = distinct !{!34, !16}
+!35 = distinct !{!35, !16}
+!36 = !{!26, !12, i64 12}
+!37 = distinct !{!37, !16}
+!38 = distinct !{!38, !16}
+!39 = distinct !{!39, !16}
+!40 = distinct !{!40, !16}
+!41 = distinct !{!41, !16}
+!42 = !{!19, !7, i64 16}
+!43 = distinct !{!43, !16}
+!44 = distinct !{!44, !16}
+!45 = distinct !{!45, !16}
+!46 = distinct !{!46, !16}
+!47 = distinct !{!47, !16}
+!48 = distinct !{!48, !16}
+!49 = distinct !{!49, !16}
+!50 = distinct !{!50, !16}

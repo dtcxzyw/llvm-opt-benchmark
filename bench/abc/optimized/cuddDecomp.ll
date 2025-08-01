@@ -332,7 +332,7 @@ define range(i32 0, 3) i32 @Cudd_bddIterConjDecomp(ptr noundef %0, ptr noundef %
   store ptr %85, ptr %15, align 8, !tbaa !27
   %86 = call ptr @Cudd_RemapOverApprox(ptr noundef %0, ptr noundef %85, i32 noundef %6, i32 noundef 0, double noundef 1.000000e+00) #8
   %87 = icmp eq ptr %86, null
-  br i1 %87, label %._crit_edge, label %29, !llvm.loop !31
+  br i1 %87, label %._crit_edge, label %29
 
 88:                                               ; preds = %73
   %89 = load ptr, ptr %5, align 16, !tbaa !27
@@ -467,7 +467,7 @@ define range(i32 0, 3) i32 @Cudd_bddIterDisjDecomp(ptr noundef %0, ptr noundef %
   store ptr %14, ptr %10, align 8, !tbaa !27
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %9, !llvm.loop !32
+  br i1 %exitcond.not, label %._crit_edge, label %9, !llvm.loop !30
 
 ._crit_edge:                                      ; preds = %9, %3
   ret i32 %7
@@ -494,7 +494,7 @@ define range(i32 0, 3) i32 @Cudd_bddGenConjDecomp(ptr noundef initializes((448, 
   br label %.backedge
 
 .backedge:                                        ; preds = %.backedge.backedge, %3
-  store i32 0, ptr %11, align 8, !tbaa !33
+  store i32 0, ptr %11, align 8, !tbaa !31
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #8
   %18 = call ptr @st__init_table(ptr noundef nonnull @st__ptrcmp, ptr noundef nonnull @st__ptrhash) #8
@@ -507,9 +507,9 @@ define range(i32 0, 3) i32 @Cudd_bddGenConjDecomp(ptr noundef initializes((448, 
   br i1 %22, label %.preheader154.i, label %23
 
 23:                                               ; preds = %20
-  store i32 0, ptr %21, align 4, !tbaa !34
+  store i32 0, ptr %21, align 4, !tbaa !32
   %24 = getelementptr inbounds nuw i8, ptr %21, i64 4
-  store i32 1, ptr %24, align 4, !tbaa !36
+  store i32 1, ptr %24, align 4, !tbaa !34
   %25 = load ptr, ptr @one, align 8, !tbaa !27
   %26 = call i32 @st__insert(ptr noundef nonnull %18, ptr noundef %25, ptr noundef nonnull %21) #8
   %27 = icmp eq i32 %26, -10000
@@ -521,7 +521,7 @@ define range(i32 0, 3) i32 @Cudd_bddGenConjDecomp(ptr noundef initializes((448, 
   br i1 %30, label %.preheader154.i, label %31
 
 31:                                               ; preds = %28
-  %32 = load i32, ptr %29, align 4, !tbaa !34
+  %32 = load i32, ptr %29, align 4, !tbaa !32
   %spec.select.i = call i32 @llvm.smax.i32(i32 %32, i32 5)
   %33 = icmp slt i32 %32, 5
   br i1 %33, label %34, label %51
@@ -548,19 +548,19 @@ define range(i32 0, 3) i32 @Cudd_bddGenConjDecomp(ptr noundef initializes((448, 
   br i1 %.not141180.i, label %cuddConjunctsAux.exit, label %.lr.ph181.i
 
 .lr.ph181.i:                                      ; preds = %.preheader162.i, %49
-  %47 = load ptr, ptr %5, align 8, !tbaa !37
+  %47 = load ptr, ptr %5, align 8, !tbaa !35
   %.not142.i = icmp eq ptr %47, null
   br i1 %.not142.i, label %49, label %48
 
 48:                                               ; preds = %.lr.ph181.i
   call void @free(ptr noundef nonnull %47) #8
-  store ptr null, ptr %5, align 8, !tbaa !37
+  store ptr null, ptr %5, align 8, !tbaa !35
   br label %49
 
 49:                                               ; preds = %48, %.lr.ph181.i
   %50 = call i32 @st__gen(ptr noundef nonnull %44, ptr noundef nonnull %4, ptr noundef nonnull %5) #8
   %.not141.i = icmp eq i32 %50, 0
-  br i1 %.not141.i, label %cuddConjunctsAux.exit, label %.lr.ph181.i, !llvm.loop !38
+  br i1 %.not141.i, label %cuddConjunctsAux.exit, label %.lr.ph181.i, !llvm.loop !36
 
 51:                                               ; preds = %31
   %52 = call ptr @st__init_gen(ptr noundef nonnull %18) #8
@@ -574,13 +574,13 @@ define range(i32 0, 3) i32 @Cudd_bddGenConjDecomp(ptr noundef initializes((448, 
 
 .lr.ph.i:                                         ; preds = %.preheader166.i, %.lr.ph.i
   %.0170.i = phi i32 [ %..0.i, %.lr.ph.i ], [ 0, %.preheader166.i ]
-  %55 = load ptr, ptr %5, align 8, !tbaa !37
+  %55 = load ptr, ptr %5, align 8, !tbaa !35
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 4
-  %57 = load i32, ptr %56, align 4, !tbaa !36
+  %57 = load i32, ptr %56, align 4, !tbaa !34
   %..0.i = call i32 @llvm.smax.i32(i32 %57, i32 %.0170.i)
   %58 = call i32 @st__gen(ptr noundef nonnull %52, ptr noundef nonnull %4, ptr noundef nonnull %5) #8
   %.not.i = icmp eq i32 %58, 0
-  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !39
+  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !37
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %.preheader166.i
   %.0.lcssa.i = phi i32 [ 0, %.preheader166.i ], [ %..0.i, %.lr.ph.i ]
@@ -592,7 +592,7 @@ define range(i32 0, 3) i32 @Cudd_bddGenConjDecomp(ptr noundef initializes((448, 
   br i1 %61, label %.preheader154.i, label %62
 
 62:                                               ; preds = %._crit_edge.i
-  %63 = load ptr, ptr %12, align 8, !tbaa !40
+  %63 = load ptr, ptr %12, align 8, !tbaa !38
   %64 = call fastcc double @CountMinterms(ptr noundef %1, double noundef %ldexp.i, ptr noundef %60, ptr noundef %63)
   %65 = fcmp oeq double %64, -1.000000e+00
   br i1 %65, label %.preheader154.i, label %66
@@ -600,7 +600,7 @@ define range(i32 0, 3) i32 @Cudd_bddGenConjDecomp(ptr noundef initializes((448, 
 66:                                               ; preds = %62
   %67 = call i64 @Cudd_Random() #8
   %68 = and i64 %67, 1
-  store i64 %68, ptr @lastTimeG, align 8, !tbaa !41
+  store i64 %68, ptr @lastTimeG, align 8, !tbaa !39
   %69 = call ptr @st__init_table(ptr noundef nonnull @st__ptrcmp, ptr noundef nonnull @st__ptrhash) #8
   %70 = icmp eq ptr %69, null
   br i1 %70, label %.preheader154.i, label %71
@@ -626,19 +626,19 @@ define range(i32 0, 3) i32 @Cudd_bddGenConjDecomp(ptr noundef initializes((448, 
   br i1 %.not134171.i, label %._crit_edge173.i, label %.lr.ph172.i
 
 .lr.ph172.i:                                      ; preds = %.preheader165.i, %83
-  %81 = load ptr, ptr %5, align 8, !tbaa !37
+  %81 = load ptr, ptr %5, align 8, !tbaa !35
   %.not140.i = icmp eq ptr %81, null
   br i1 %.not140.i, label %83, label %82
 
 82:                                               ; preds = %.lr.ph172.i
   call void @free(ptr noundef nonnull %81) #8
-  store ptr null, ptr %5, align 8, !tbaa !37
+  store ptr null, ptr %5, align 8, !tbaa !35
   br label %83
 
 83:                                               ; preds = %82, %.lr.ph172.i
   %84 = call i32 @st__gen(ptr noundef nonnull %78, ptr noundef nonnull %4, ptr noundef nonnull %5) #8
   %.not134.i = icmp eq i32 %84, 0
-  br i1 %.not134.i, label %._crit_edge173.i, label %.lr.ph172.i, !llvm.loop !42
+  br i1 %.not134.i, label %._crit_edge173.i, label %.lr.ph172.i, !llvm.loop !40
 
 ._crit_edge173.i:                                 ; preds = %83, %.preheader165.i
   call void @st__free_gen(ptr noundef nonnull %78) #8
@@ -654,19 +654,19 @@ define range(i32 0, 3) i32 @Cudd_bddGenConjDecomp(ptr noundef initializes((448, 
   br i1 %.not135174.i, label %._crit_edge176.i, label %.lr.ph175.i
 
 .lr.ph175.i:                                      ; preds = %.preheader164.i, %90
-  %88 = load ptr, ptr %5, align 8, !tbaa !37
+  %88 = load ptr, ptr %5, align 8, !tbaa !35
   %.not139.i = icmp eq ptr %88, null
   br i1 %.not139.i, label %90, label %89
 
 89:                                               ; preds = %.lr.ph175.i
   call void @free(ptr noundef nonnull %88) #8
-  store ptr null, ptr %5, align 8, !tbaa !37
+  store ptr null, ptr %5, align 8, !tbaa !35
   br label %90
 
 90:                                               ; preds = %89, %.lr.ph175.i
   %91 = call i32 @st__gen(ptr noundef nonnull %85, ptr noundef nonnull %4, ptr noundef nonnull %5) #8
   %.not135.i = icmp eq i32 %91, 0
-  br i1 %.not135.i, label %._crit_edge176.i, label %.lr.ph175.i, !llvm.loop !43
+  br i1 %.not135.i, label %._crit_edge176.i, label %.lr.ph175.i, !llvm.loop !41
 
 ._crit_edge176.i:                                 ; preds = %90, %.preheader164.i
   call void @st__free_gen(ptr noundef nonnull %85) #8
@@ -681,9 +681,9 @@ define range(i32 0, 3) i32 @Cudd_bddGenConjDecomp(ptr noundef initializes((448, 
   br i1 %.not137.i, label %114, label %97
 
 97:                                               ; preds = %._crit_edge176.i
-  %98 = load ptr, ptr %96, align 8, !tbaa !44
+  %98 = load ptr, ptr %96, align 8, !tbaa !42
   %99 = getelementptr inbounds nuw i8, ptr %96, i64 8
-  %100 = load ptr, ptr %99, align 8, !tbaa !46
+  %100 = load ptr, ptr %99, align 8, !tbaa !44
   %101 = ptrtoint ptr %98 to i64
   %102 = and i64 %101, -2
   %103 = inttoptr i64 %102 to ptr
@@ -727,21 +727,21 @@ define range(i32 0, 3) i32 @Cudd_bddGenConjDecomp(ptr noundef initializes((448, 
   br label %.outer.i
 
 .lr.ph178.i:                                      ; preds = %.preheader163.i, %.lr.ph178.i
-  %118 = load ptr, ptr %5, align 8, !tbaa !37
-  %119 = load ptr, ptr %118, align 8, !tbaa !44
+  %118 = load ptr, ptr %5, align 8, !tbaa !35
+  %119 = load ptr, ptr %118, align 8, !tbaa !42
   call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef %119) #8
   %120 = getelementptr inbounds nuw i8, ptr %118, i64 8
-  %121 = load ptr, ptr %120, align 8, !tbaa !46
+  %121 = load ptr, ptr %120, align 8, !tbaa !44
   call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef %121) #8
   call void @free(ptr noundef %118) #8
   %122 = call i32 @st__gen(ptr noundef nonnull %115, ptr noundef nonnull %4, ptr noundef nonnull %5) #8
   %.not138.i = icmp eq i32 %122, 0
-  br i1 %.not138.i, label %cuddConjunctsAux.exit, label %.lr.ph178.i, !llvm.loop !47
+  br i1 %.not138.i, label %cuddConjunctsAux.exit, label %.lr.ph178.i, !llvm.loop !45
 
 .outer159.split.i:                                ; preds = %.outer159.i, %.outer159.split.i
   %123 = call ptr @st__init_gen(ptr noundef nonnull %.0109.ph160.i) #8
   %124 = icmp eq ptr %123, null
-  br i1 %124, label %.outer159.split.i, label %.preheader153.i, !llvm.loop !48
+  br i1 %124, label %.outer159.split.i, label %.preheader153.i
 
 .preheader153.i:                                  ; preds = %.outer159.split.i
   %125 = call i32 @st__gen(ptr noundef nonnull %123, ptr noundef nonnull %4, ptr noundef nonnull %5) #8
@@ -749,19 +749,19 @@ define range(i32 0, 3) i32 @Cudd_bddGenConjDecomp(ptr noundef initializes((448, 
   br i1 %.not144183.i, label %._crit_edge185.i, label %.lr.ph184.i
 
 .lr.ph184.i:                                      ; preds = %.preheader153.i, %128
-  %126 = load ptr, ptr %5, align 8, !tbaa !37
+  %126 = load ptr, ptr %5, align 8, !tbaa !35
   %.not151.i = icmp eq ptr %126, null
   br i1 %.not151.i, label %128, label %127
 
 127:                                              ; preds = %.lr.ph184.i
   call void @free(ptr noundef nonnull %126) #8
-  store ptr null, ptr %5, align 8, !tbaa !37
+  store ptr null, ptr %5, align 8, !tbaa !35
   br label %128
 
 128:                                              ; preds = %127, %.lr.ph184.i
   %129 = call i32 @st__gen(ptr noundef nonnull %123, ptr noundef nonnull %4, ptr noundef nonnull %5) #8
   %.not144.i = icmp eq i32 %129, 0
-  br i1 %.not144.i, label %._crit_edge185.i, label %.lr.ph184.i, !llvm.loop !49
+  br i1 %.not144.i, label %._crit_edge185.i, label %.lr.ph184.i, !llvm.loop !46
 
 ._crit_edge185.i:                                 ; preds = %128, %.preheader153.i
   call void @st__free_gen(ptr noundef nonnull %123) #8
@@ -771,7 +771,7 @@ define range(i32 0, 3) i32 @Cudd_bddGenConjDecomp(ptr noundef initializes((448, 
 .loopexit161.i:                                   ; preds = %.outer159.i, %._crit_edge185.i
   %130 = call ptr @st__init_gen(ptr noundef nonnull %.0111.ph155.i) #8
   %131 = icmp eq ptr %130, null
-  br i1 %131, label %.outer159.i, label %.preheader152.i, !llvm.loop !48
+  br i1 %131, label %.outer159.i, label %.preheader152.i
 
 .outer159.i:                                      ; preds = %.outer.i, %.loopexit161.i
   %.0109.ph160.i = phi ptr [ null, %.loopexit161.i ], [ %.0109.ph157.i, %.outer.i ]
@@ -784,19 +784,19 @@ define range(i32 0, 3) i32 @Cudd_bddGenConjDecomp(ptr noundef initializes((448, 
   br i1 %.not146186.i, label %.loopexit158.split.us.sink.split.i, label %.lr.ph187.i
 
 .lr.ph187.i:                                      ; preds = %.preheader152.i, %135
-  %133 = load ptr, ptr %5, align 8, !tbaa !37
+  %133 = load ptr, ptr %5, align 8, !tbaa !35
   %.not150.i = icmp eq ptr %133, null
   br i1 %.not150.i, label %135, label %134
 
 134:                                              ; preds = %.lr.ph187.i
   call void @free(ptr noundef nonnull %133) #8
-  store ptr null, ptr %5, align 8, !tbaa !37
+  store ptr null, ptr %5, align 8, !tbaa !35
   br label %135
 
 135:                                              ; preds = %134, %.lr.ph187.i
   %136 = call i32 @st__gen(ptr noundef nonnull %130, ptr noundef nonnull %4, ptr noundef nonnull %5) #8
   %.not146.i = icmp eq i32 %136, 0
-  br i1 %.not146.i, label %.loopexit158.split.us.sink.split.i, label %.lr.ph187.i, !llvm.loop !50
+  br i1 %.not146.i, label %.loopexit158.split.us.sink.split.i, label %.lr.ph187.i, !llvm.loop !47
 
 .loopexit158.split.us.sink.split.i:               ; preds = %135, %144, %.preheader153.us.i, %.preheader152.i
   %.lcssa196.sink.i = phi ptr [ %147, %.preheader153.us.i ], [ %130, %.preheader152.i ], [ %147, %144 ], [ %130, %135 ]
@@ -818,7 +818,7 @@ define range(i32 0, 3) i32 @Cudd_bddGenConjDecomp(ptr noundef initializes((448, 
 139:                                              ; preds = %138
   %140 = call ptr @st__init_gen(ptr noundef nonnull %.0110.ph.i) #8
   %141 = icmp eq ptr %140, null
-  br i1 %141, label %.outer.i, label %.preheader.i, !llvm.loop !48
+  br i1 %141, label %.outer.i, label %.preheader.i
 
 .outer.i:                                         ; preds = %139, %.preheader154.i
   %.0111.ph155.i = phi ptr [ %.0111.ph.fr.i, %.preheader154.i ], [ null, %139 ]
@@ -831,19 +831,19 @@ define range(i32 0, 3) i32 @Cudd_bddGenConjDecomp(ptr noundef initializes((448, 
   br i1 %.not143.us.i, label %.loopexit158.split.us.i, label %.outer159.split.us.i
 
 .lr.ph184.us.i:                                   ; preds = %.preheader153.us.i, %144
-  %142 = load ptr, ptr %5, align 8, !tbaa !37
+  %142 = load ptr, ptr %5, align 8, !tbaa !35
   %.not151.us.i = icmp eq ptr %142, null
   br i1 %.not151.us.i, label %144, label %143
 
 143:                                              ; preds = %.lr.ph184.us.i
   call void @free(ptr noundef nonnull %142) #8
-  store ptr null, ptr %5, align 8, !tbaa !37
+  store ptr null, ptr %5, align 8, !tbaa !35
   br label %144
 
 144:                                              ; preds = %143, %.lr.ph184.us.i
   %145 = call i32 @st__gen(ptr noundef nonnull %147, ptr noundef nonnull %4, ptr noundef nonnull %5) #8
   %.not144.us.i = icmp eq i32 %145, 0
-  br i1 %.not144.us.i, label %.loopexit158.split.us.sink.split.i, label %.lr.ph184.us.i, !llvm.loop !51
+  br i1 %.not144.us.i, label %.loopexit158.split.us.sink.split.i, label %.lr.ph184.us.i, !llvm.loop !48
 
 .preheader153.us.i:                               ; preds = %.outer159.split.us.i
   %146 = call i32 @st__gen(ptr noundef nonnull %147, ptr noundef nonnull %4, ptr noundef nonnull %5) #8
@@ -853,7 +853,7 @@ define range(i32 0, 3) i32 @Cudd_bddGenConjDecomp(ptr noundef initializes((448, 
 .outer159.split.us.i:                             ; preds = %.outer.split.us.i, %.outer159.split.us.i
   %147 = call ptr @st__init_gen(ptr noundef nonnull %.0109.ph157.i) #8
   %148 = icmp eq ptr %147, null
-  br i1 %148, label %.outer159.split.us.i, label %.preheader153.us.i, !llvm.loop !53
+  br i1 %148, label %.outer159.split.us.i, label %.preheader153.us.i, !llvm.loop !50
 
 .preheader.i:                                     ; preds = %139
   %149 = call i32 @st__gen(ptr noundef nonnull %140, ptr noundef nonnull %4, ptr noundef nonnull %5) #8
@@ -861,16 +861,16 @@ define range(i32 0, 3) i32 @Cudd_bddGenConjDecomp(ptr noundef initializes((448, 
   br i1 %.not149189.i, label %._crit_edge191.i, label %.lr.ph190.i
 
 .lr.ph190.i:                                      ; preds = %.preheader.i, %.lr.ph190.i
-  %150 = load ptr, ptr %5, align 8, !tbaa !37
-  %151 = load ptr, ptr %150, align 8, !tbaa !44
+  %150 = load ptr, ptr %5, align 8, !tbaa !35
+  %151 = load ptr, ptr %150, align 8, !tbaa !42
   call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %151) #8
   %152 = getelementptr inbounds nuw i8, ptr %150, i64 8
-  %153 = load ptr, ptr %152, align 8, !tbaa !46
+  %153 = load ptr, ptr %152, align 8, !tbaa !44
   call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %153) #8
   call void @free(ptr noundef %150) #8
   %154 = call i32 @st__gen(ptr noundef nonnull %140, ptr noundef nonnull %4, ptr noundef nonnull %5) #8
   %.not149.i = icmp eq i32 %154, 0
-  br i1 %.not149.i, label %._crit_edge191.i, label %.lr.ph190.i, !llvm.loop !54
+  br i1 %.not149.i, label %._crit_edge191.i, label %.lr.ph190.i, !llvm.loop !51
 
 ._crit_edge191.i:                                 ; preds = %.lr.ph190.i, %.preheader.i
   call void @st__free_gen(ptr noundef nonnull %140) #8
@@ -886,18 +886,18 @@ cuddConjunctsAux.exit:                            ; preds = %.lr.ph178.i, %49, %
   call void @st__free_table(ptr noundef nonnull %.sink) #8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #8
-  %155 = load i32, ptr %11, align 8, !tbaa !33
+  %155 = load i32, ptr %11, align 8, !tbaa !31
   %156 = icmp eq i32 %155, 1
   br i1 %156, label %.backedge.backedge, label %159
 
 .backedge.backedge:                               ; preds = %cuddConjunctsAux.exit, %cuddConjunctsAux.exit.thread
-  br label %.backedge, !llvm.loop !55
+  br label %.backedge, !llvm.loop !52
 
 cuddConjunctsAux.exit.thread:                     ; preds = %138, %._crit_edge191.i
   store i32 1, ptr %17, align 8, !tbaa !26
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #8
-  %157 = load i32, ptr %11, align 8, !tbaa !33
+  %157 = load i32, ptr %11, align 8, !tbaa !31
   %158 = icmp eq i32 %157, 1
   br i1 %158, label %.backedge.backedge, label %.thread
 
@@ -989,7 +989,7 @@ define range(i32 0, 3) i32 @Cudd_bddGenDisjDecomp(ptr noundef initializes((448, 
   store ptr %14, ptr %10, align 8, !tbaa !27
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %9, !llvm.loop !56
+  br i1 %exitcond.not, label %._crit_edge, label %9, !llvm.loop !53
 
 ._crit_edge:                                      ; preds = %9, %3
   ret i32 %7
@@ -1005,7 +1005,7 @@ define range(i32 0, 3) i32 @Cudd_bddVarConjDecomp(ptr noundef %0, ptr noundef %1
   %7 = ptrtoint ptr %4 to i64
   %8 = and i64 %7, -2
   %9 = inttoptr i64 %8 to ptr
-  %10 = load i32, ptr %9, align 8, !tbaa !57
+  %10 = load i32, ptr %9, align 8, !tbaa !54
   %11 = icmp eq i32 %10, 2147483647
   br i1 %11, label %12, label %.lr.ph.preheader
 
@@ -1042,7 +1042,7 @@ define range(i32 0, 3) i32 @Cudd_bddVarConjDecomp(ptr noundef %0, ptr noundef %1
   %.07897 = phi i32 [ %spec.select93, %.lr.ph ], [ -1, %.lr.ph.preheader ]
   %.07996 = phi i32 [ %spec.select, %.lr.ph ], [ 1000000000, %.lr.ph.preheader ]
   %.08195 = phi ptr [ %33, %.lr.ph ], [ %4, %.lr.ph.preheader ]
-  %27 = load i32, ptr %.08195, align 8, !tbaa !57
+  %27 = load i32, ptr %.08195, align 8, !tbaa !54
   %28 = tail call i32 @Cudd_EstimateCofactor(ptr noundef %0, ptr noundef %1, i32 noundef %27, i32 noundef 1) #8
   %29 = tail call i32 @Cudd_EstimateCofactor(ptr noundef %0, ptr noundef %1, i32 noundef %27, i32 noundef 0) #8
   %30 = tail call i32 @llvm.smax.i32(i32 %28, i32 %29)
@@ -1050,13 +1050,13 @@ define range(i32 0, 3) i32 @Cudd_bddVarConjDecomp(ptr noundef %0, ptr noundef %1
   %spec.select = tail call i32 @llvm.smin.i32(i32 %30, i32 %.07996)
   %spec.select93 = select i1 %31, i32 %27, i32 %.07897
   %32 = getelementptr inbounds nuw i8, ptr %.08195, i64 16
-  %33 = load ptr, ptr %32, align 8, !tbaa !58
+  %33 = load ptr, ptr %32, align 8, !tbaa !55
   %34 = ptrtoint ptr %33 to i64
   %35 = and i64 %34, -2
   %36 = inttoptr i64 %35 to ptr
-  %37 = load i32, ptr %36, align 8, !tbaa !57
+  %37 = load i32, ptr %36, align 8, !tbaa !54
   %.not = icmp eq i32 %37, 2147483647
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !59
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !56
 
 ._crit_edge:                                      ; preds = %.lr.ph
   tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef nonnull %4) #8
@@ -1191,7 +1191,7 @@ define range(i32 0, 3) i32 @Cudd_bddVarDisjDecomp(ptr noundef %0, ptr noundef %1
   store ptr %14, ptr %10, align 8, !tbaa !27
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %9, !llvm.loop !60
+  br i1 %exitcond.not, label %._crit_edge, label %9, !llvm.loop !57
 
 ._crit_edge:                                      ; preds = %9, %3
   ret i32 %7
@@ -1217,18 +1217,18 @@ define internal fastcc ptr @CreateBotDist(ptr noundef %0, ptr noundef nonnull %1
   br i1 %.not, label %13, label %8
 
 8:                                                ; preds = %2
-  %9 = load ptr, ptr %3, align 8, !tbaa !61
+  %9 = load ptr, ptr %3, align 8, !tbaa !58
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 4
-  %11 = load i32, ptr %10, align 4, !tbaa !36
+  %11 = load i32, ptr %10, align 4, !tbaa !34
   %12 = add nsw i32 %11, 1
-  store i32 %12, ptr %10, align 4, !tbaa !36
+  store i32 %12, ptr %10, align 4, !tbaa !34
   br label %41
 
 13:                                               ; preds = %2
   %14 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %15 = load ptr, ptr %14, align 8, !tbaa !58
+  %15 = load ptr, ptr %14, align 8, !tbaa !55
   %16 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  %17 = load ptr, ptr %16, align 8, !tbaa !58
+  %17 = load ptr, ptr %16, align 8, !tbaa !55
   %18 = ptrtoint ptr %15 to i64
   %19 = and i64 %4, 1
   %20 = xor i64 %19, %18
@@ -1241,24 +1241,24 @@ define internal fastcc ptr @CreateBotDist(ptr noundef %0, ptr noundef nonnull %1
   %25 = ptrtoint ptr %17 to i64
   %26 = xor i64 %19, %25
   %27 = inttoptr i64 %26 to ptr
-  %28 = load i32, ptr %22, align 4, !tbaa !34
+  %28 = load i32, ptr %22, align 4, !tbaa !32
   %29 = call fastcc ptr @CreateBotDist(ptr noundef %27, ptr noundef %1)
   %30 = icmp eq ptr %29, null
   br i1 %30, label %41, label %31
 
 31:                                               ; preds = %24
-  %32 = load i32, ptr %29, align 4, !tbaa !34
+  %32 = load i32, ptr %29, align 4, !tbaa !32
   %33 = call noalias dereferenceable_or_null(8) ptr @malloc(i64 noundef 8) #9
-  store ptr %33, ptr %3, align 8, !tbaa !61
+  store ptr %33, ptr %3, align 8, !tbaa !58
   %34 = icmp eq ptr %33, null
   br i1 %34, label %41, label %35
 
 35:                                               ; preds = %31
   %.v = call i32 @llvm.smax.i32(i32 %28, i32 %32)
   %36 = add nsw i32 %.v, 1
-  store i32 %36, ptr %33, align 4, !tbaa !34
+  store i32 %36, ptr %33, align 4, !tbaa !32
   %37 = getelementptr inbounds nuw i8, ptr %33, i64 4
-  store i32 1, ptr %37, align 4, !tbaa !36
+  store i32 1, ptr %37, align 4, !tbaa !34
   %38 = call i32 @st__insert(ptr noundef nonnull %1, ptr noundef nonnull %6, ptr noundef nonnull %33) #8
   %39 = icmp eq i32 %38, -10000
   %40 = load ptr, ptr %3, align 8
@@ -1289,7 +1289,7 @@ define internal fastcc double @CountMinterms(ptr noundef %0, double noundef %1, 
   %6 = ptrtoint ptr %0 to i64
   %7 = and i64 %6, -2
   %8 = inttoptr i64 %7 to ptr
-  %9 = load i32, ptr %8, align 8, !tbaa !57
+  %9 = load i32, ptr %8, align 8, !tbaa !54
   %10 = icmp eq i32 %9, 2147483647
   br i1 %10, label %11, label %14
 
@@ -1305,15 +1305,15 @@ define internal fastcc double @CountMinterms(ptr noundef %0, double noundef %1, 
   br i1 %.not, label %19, label %16
 
 16:                                               ; preds = %14
-  %17 = load ptr, ptr %5, align 8, !tbaa !63
-  %18 = load double, ptr %17, align 8, !tbaa !65
+  %17 = load ptr, ptr %5, align 8, !tbaa !60
+  %18 = load double, ptr %17, align 8, !tbaa !62
   br label %47
 
 19:                                               ; preds = %14
   %20 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  %21 = load ptr, ptr %20, align 8, !tbaa !58
+  %21 = load ptr, ptr %20, align 8, !tbaa !55
   %22 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  %23 = load ptr, ptr %22, align 8, !tbaa !58
+  %23 = load ptr, ptr %22, align 8, !tbaa !55
   %24 = ptrtoint ptr %21 to i64
   %25 = and i64 %6, 1
   %26 = xor i64 %25, %24
@@ -1335,12 +1335,12 @@ define internal fastcc double @CountMinterms(ptr noundef %0, double noundef %1, 
   %38 = fmul double %34, 5.000000e-01
   %39 = fadd double %37, %38
   %40 = call noalias dereferenceable_or_null(8) ptr @malloc(i64 noundef 8) #9
-  store ptr %40, ptr %5, align 8, !tbaa !63
+  store ptr %40, ptr %5, align 8, !tbaa !60
   %41 = icmp eq ptr %40, null
   br i1 %41, label %47, label %42
 
 42:                                               ; preds = %36
-  store double %39, ptr %40, align 8, !tbaa !65
+  store double %39, ptr %40, align 8, !tbaa !62
   %43 = call i32 @st__insert(ptr noundef nonnull %2, ptr noundef %0, ptr noundef nonnull %40) #8
   %44 = icmp eq i32 %43, -10000
   br i1 %44, label %45, label %47
@@ -1372,7 +1372,7 @@ define internal fastcc ptr @BuildConjuncts(ptr noundef %0, ptr noundef %1, ptr n
   %14 = ptrtoint ptr %1 to i64
   %15 = and i64 %14, -2
   %16 = inttoptr i64 %15 to ptr
-  %17 = load i32, ptr %16, align 8, !tbaa !57
+  %17 = load i32, ptr %16, align 8, !tbaa !54
   %18 = icmp eq i32 %17, 2147483647
   br i1 %18, label %19, label %29
 
@@ -1387,9 +1387,9 @@ define internal fastcc ptr @BuildConjuncts(ptr noundef %0, ptr noundef %1, ptr n
   br label %323
 
 24:                                               ; preds = %19
-  store ptr %1, ptr %20, align 8, !tbaa !44
+  store ptr %1, ptr %20, align 8, !tbaa !42
   %25 = getelementptr inbounds nuw i8, ptr %20, i64 8
-  store ptr %1, ptr %25, align 8, !tbaa !46
+  store ptr %1, ptr %25, align 8, !tbaa !44
   %26 = ptrtoint ptr %20 to i64
   %27 = or i64 %26, 1
   %28 = inttoptr i64 %27 to ptr
@@ -1401,7 +1401,7 @@ define internal fastcc ptr @BuildConjuncts(ptr noundef %0, ptr noundef %1, ptr n
   br i1 %.not, label %33, label %31
 
 31:                                               ; preds = %29
-  %32 = load ptr, ptr %9, align 8, !tbaa !66
+  %32 = load ptr, ptr %9, align 8, !tbaa !63
   br label %323
 
 33:                                               ; preds = %29
@@ -1411,17 +1411,17 @@ define internal fastcc ptr @BuildConjuncts(ptr noundef %0, ptr noundef %1, ptr n
 
 35:                                               ; preds = %33
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 616
-  %37 = load ptr, ptr %36, align 8, !tbaa !40
+  %37 = load ptr, ptr %36, align 8, !tbaa !38
   %38 = call i64 @fwrite(ptr nonnull @.str.1, i64 30, i64 1, ptr %37)
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 624
   store i32 5, ptr %39, align 8, !tbaa !26
   br label %323
 
 40:                                               ; preds = %33
-  %41 = load ptr, ptr %12, align 8, !tbaa !61
-  %42 = load i32, ptr %41, align 4, !tbaa !34
+  %41 = load ptr, ptr %12, align 8, !tbaa !58
+  %42 = load i32, ptr %41, align 4, !tbaa !32
   %43 = getelementptr inbounds nuw i8, ptr %41, i64 4
-  %44 = load i32, ptr %43, align 4, !tbaa !36
+  %44 = load i32, ptr %43, align 4, !tbaa !34
   %45 = shl nuw nsw i32 %5, 1
   %46 = udiv i32 %45, 3
   %47 = icmp sgt i32 %44, %46
@@ -1452,13 +1452,13 @@ define internal fastcc ptr @BuildConjuncts(ptr noundef %0, ptr noundef %1, ptr n
   br label %323
 
 59:                                               ; preds = %54
-  store i32 0, ptr %13, align 4, !tbaa !68
+  store i32 0, ptr %13, align 4, !tbaa !65
   %60 = call i32 @st__lookup_int(ptr noundef nonnull %6, ptr noundef nonnull %16, ptr noundef nonnull %13) #8
   %.not384 = icmp eq i32 %60, 0
   br i1 %.not384, label %74, label %61
 
 61:                                               ; preds = %59
-  %62 = load i32, ptr %13, align 4, !tbaa !68
+  %62 = load i32, ptr %13, align 4, !tbaa !65
   %63 = getelementptr inbounds nuw i8, ptr %55, i64 8
   switch i32 %62, label %72 [
     i32 3, label %64
@@ -1466,48 +1466,48 @@ define internal fastcc ptr @BuildConjuncts(ptr noundef %0, ptr noundef %1, ptr n
   ]
 
 64:                                               ; preds = %61
-  %65 = load i64, ptr @lastTimeG, align 8, !tbaa !41
+  %65 = load i64, ptr @lastTimeG, align 8, !tbaa !39
   %.not386 = icmp eq i64 %65, 0
   br i1 %.not386, label %66, label %68
 
 66:                                               ; preds = %64
-  store ptr %1, ptr %55, align 8, !tbaa !44
+  store ptr %1, ptr %55, align 8, !tbaa !42
   %67 = load ptr, ptr @one, align 8, !tbaa !27
-  store ptr %67, ptr %63, align 8, !tbaa !46
-  store i64 1, ptr @lastTimeG, align 8, !tbaa !41
+  store ptr %67, ptr %63, align 8, !tbaa !44
+  store i64 1, ptr @lastTimeG, align 8, !tbaa !39
   br label %89
 
 68:                                               ; preds = %64
   %69 = load ptr, ptr @one, align 8, !tbaa !27
-  store ptr %69, ptr %55, align 8, !tbaa !44
-  store ptr %1, ptr %63, align 8, !tbaa !46
-  store i64 0, ptr @lastTimeG, align 8, !tbaa !41
+  store ptr %69, ptr %55, align 8, !tbaa !42
+  store ptr %1, ptr %63, align 8, !tbaa !44
+  store i64 0, ptr @lastTimeG, align 8, !tbaa !39
   br label %89
 
 70:                                               ; preds = %61
-  store ptr %1, ptr %55, align 8, !tbaa !44
+  store ptr %1, ptr %55, align 8, !tbaa !42
   %71 = load ptr, ptr @one, align 8, !tbaa !27
-  store ptr %71, ptr %63, align 8, !tbaa !46
+  store ptr %71, ptr %63, align 8, !tbaa !44
   br label %89
 
 72:                                               ; preds = %61
   %73 = load ptr, ptr @one, align 8, !tbaa !27
-  store ptr %73, ptr %55, align 8, !tbaa !44
-  store ptr %1, ptr %63, align 8, !tbaa !46
+  store ptr %73, ptr %55, align 8, !tbaa !42
+  store ptr %1, ptr %63, align 8, !tbaa !44
   br label %89
 
 74:                                               ; preds = %59
-  %75 = load i64, ptr @lastTimeG, align 8, !tbaa !41
+  %75 = load i64, ptr @lastTimeG, align 8, !tbaa !39
   %.not385 = icmp eq i64 %75, 0
   %76 = getelementptr inbounds nuw i8, ptr %55, i64 8
   br i1 %.not385, label %77, label %83
 
 77:                                               ; preds = %74
-  store ptr %1, ptr %55, align 8, !tbaa !44
+  store ptr %1, ptr %55, align 8, !tbaa !42
   %78 = load ptr, ptr @one, align 8, !tbaa !27
-  store ptr %78, ptr %76, align 8, !tbaa !46
-  store i64 1, ptr @lastTimeG, align 8, !tbaa !41
-  store i32 1, ptr %13, align 4, !tbaa !68
+  store ptr %78, ptr %76, align 8, !tbaa !44
+  store i64 1, ptr @lastTimeG, align 8, !tbaa !39
+  store i32 1, ptr %13, align 4, !tbaa !65
   %79 = call i32 @st__insert(ptr noundef nonnull %6, ptr noundef nonnull %16, ptr noundef nonnull inttoptr (i64 1 to ptr)) #8
   %80 = icmp eq i32 %79, -10000
   br i1 %80, label %81, label %89
@@ -1520,10 +1520,10 @@ define internal fastcc ptr @BuildConjuncts(ptr noundef %0, ptr noundef %1, ptr n
 
 83:                                               ; preds = %74
   %84 = load ptr, ptr @one, align 8, !tbaa !27
-  store ptr %84, ptr %55, align 8, !tbaa !44
-  store ptr %1, ptr %76, align 8, !tbaa !46
-  store i64 0, ptr @lastTimeG, align 8, !tbaa !41
-  store i32 2, ptr %13, align 4, !tbaa !68
+  store ptr %84, ptr %55, align 8, !tbaa !42
+  store ptr %1, ptr %76, align 8, !tbaa !44
+  store i64 0, ptr @lastTimeG, align 8, !tbaa !39
+  store i32 2, ptr %13, align 4, !tbaa !65
   %85 = call i32 @st__insert(ptr noundef nonnull %6, ptr noundef nonnull %16, ptr noundef nonnull inttoptr (i64 2 to ptr)) #8
   %86 = icmp eq i32 %85, -10000
   br i1 %86, label %87, label %89
@@ -1542,9 +1542,9 @@ define internal fastcc ptr @BuildConjuncts(ptr noundef %0, ptr noundef %1, ptr n
 
 93:                                               ; preds = %48, %53
   %94 = getelementptr inbounds nuw i8, ptr %16, i64 16
-  %95 = load ptr, ptr %94, align 8, !tbaa !58
+  %95 = load ptr, ptr %94, align 8, !tbaa !55
   %96 = getelementptr inbounds nuw i8, ptr %16, i64 24
-  %97 = load ptr, ptr %96, align 8, !tbaa !58
+  %97 = load ptr, ptr %96, align 8, !tbaa !55
   %98 = ptrtoint ptr %95 to i64
   %99 = and i64 %14, 1
   %100 = xor i64 %99, %98
@@ -1554,7 +1554,7 @@ define internal fastcc ptr @BuildConjuncts(ptr noundef %0, ptr noundef %1, ptr n
   %104 = inttoptr i64 %103 to ptr
   %105 = and i64 %98, -2
   %106 = inttoptr i64 %105 to ptr
-  %107 = load i32, ptr %106, align 8, !tbaa !57
+  %107 = load i32, ptr %106, align 8, !tbaa !54
   %108 = icmp eq i32 %107, 2147483647
   br i1 %108, label %119, label %109
 
@@ -1565,22 +1565,22 @@ define internal fastcc ptr @BuildConjuncts(ptr noundef %0, ptr noundef %1, ptr n
 
 111:                                              ; preds = %109
   %112 = getelementptr inbounds nuw i8, ptr %0, i64 616
-  %113 = load ptr, ptr %112, align 8, !tbaa !40
+  %113 = load ptr, ptr %112, align 8, !tbaa !38
   %114 = call i64 @fwrite(ptr nonnull @.str.2, i64 30, i64 1, ptr %113)
   %115 = getelementptr inbounds nuw i8, ptr %0, i64 624
   store i32 5, ptr %115, align 8, !tbaa !26
   br label %323
 
 116:                                              ; preds = %109
-  %117 = load ptr, ptr %10, align 8, !tbaa !63
-  %118 = load double, ptr %117, align 8, !tbaa !65
+  %117 = load ptr, ptr %10, align 8, !tbaa !60
+  %118 = load double, ptr %117, align 8, !tbaa !62
   br label %119
 
 119:                                              ; preds = %116, %93
   %.0342 = phi double [ 0.000000e+00, %93 ], [ %118, %116 ]
   %120 = and i64 %102, -2
   %121 = inttoptr i64 %120 to ptr
-  %122 = load i32, ptr %121, align 8, !tbaa !57
+  %122 = load i32, ptr %121, align 8, !tbaa !54
   %123 = icmp eq i32 %122, 2147483647
   br i1 %123, label %134, label %124
 
@@ -1591,15 +1591,15 @@ define internal fastcc ptr @BuildConjuncts(ptr noundef %0, ptr noundef %1, ptr n
 
 126:                                              ; preds = %124
   %127 = getelementptr inbounds nuw i8, ptr %0, i64 616
-  %128 = load ptr, ptr %127, align 8, !tbaa !40
+  %128 = load ptr, ptr %127, align 8, !tbaa !38
   %129 = call i64 @fwrite(ptr nonnull @.str.2, i64 30, i64 1, ptr %128)
   %130 = getelementptr inbounds nuw i8, ptr %0, i64 624
   store i32 5, ptr %130, align 8, !tbaa !26
   br label %323
 
 131:                                              ; preds = %124
-  %132 = load ptr, ptr %10, align 8, !tbaa !63
-  %133 = load double, ptr %132, align 8, !tbaa !65
+  %132 = load ptr, ptr %10, align 8, !tbaa !60
+  %133 = load double, ptr %132, align 8, !tbaa !62
   br label %134
 
 134:                                              ; preds = %131, %119
@@ -1625,7 +1625,7 @@ define internal fastcc ptr @BuildConjuncts(ptr noundef %0, ptr noundef %1, ptr n
   %144 = xor i64 %141, 1
   %145 = inttoptr i64 %144 to ptr
   %146 = select i1 %.not367, ptr %138, ptr %145
-  %147 = load ptr, ptr %146, align 8, !tbaa !44
+  %147 = load ptr, ptr %146, align 8, !tbaa !42
   %148 = ptrtoint ptr %147 to i64
   %149 = and i64 %148, -2
   %150 = inttoptr i64 %149 to ptr
@@ -1634,7 +1634,7 @@ define internal fastcc ptr @BuildConjuncts(ptr noundef %0, ptr noundef %1, ptr n
   %153 = add i32 %152, 1
   store i32 %153, ptr %151, align 4, !tbaa !3
   %154 = getelementptr inbounds nuw i8, ptr %146, i64 8
-  %155 = load ptr, ptr %154, align 8, !tbaa !46
+  %155 = load ptr, ptr %154, align 8, !tbaa !44
   %156 = ptrtoint ptr %155 to i64
   %157 = and i64 %156, -2
   %158 = inttoptr i64 %157 to ptr
@@ -1667,10 +1667,10 @@ define internal fastcc ptr @BuildConjuncts(ptr noundef %0, ptr noundef %1, ptr n
   br i1 %171, label %172, label %177
 
 172:                                              ; preds = %169
-  %173 = load ptr, ptr %.0343, align 8, !tbaa !44
+  %173 = load ptr, ptr %.0343, align 8, !tbaa !42
   call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %173) #8
   %174 = getelementptr inbounds nuw i8, ptr %.0343, i64 8
-  %175 = load ptr, ptr %174, align 8, !tbaa !46
+  %175 = load ptr, ptr %174, align 8, !tbaa !44
   call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %175) #8
   %.not383 = icmp eq i32 %.0338, 0
   br i1 %.not383, label %323, label %176
@@ -1687,7 +1687,7 @@ define internal fastcc ptr @BuildConjuncts(ptr noundef %0, ptr noundef %1, ptr n
   %181 = xor i64 %178, 1
   %182 = inttoptr i64 %181 to ptr
   %183 = select i1 %.not369, ptr %170, ptr %182
-  %184 = load ptr, ptr %183, align 8, !tbaa !44
+  %184 = load ptr, ptr %183, align 8, !tbaa !42
   %185 = ptrtoint ptr %184 to i64
   %186 = and i64 %185, -2
   %187 = inttoptr i64 %186 to ptr
@@ -1696,7 +1696,7 @@ define internal fastcc ptr @BuildConjuncts(ptr noundef %0, ptr noundef %1, ptr n
   %190 = add i32 %189, 1
   store i32 %190, ptr %188, align 4, !tbaa !3
   %191 = getelementptr inbounds nuw i8, ptr %183, i64 8
-  %192 = load ptr, ptr %191, align 8, !tbaa !46
+  %192 = load ptr, ptr %191, align 8, !tbaa !44
   %193 = ptrtoint ptr %192 to i64
   %194 = and i64 %193, -2
   %195 = inttoptr i64 %194 to ptr
@@ -1729,28 +1729,28 @@ define internal fastcc ptr @BuildConjuncts(ptr noundef %0, ptr noundef %1, ptr n
   %.1344 = phi ptr [ %.0345, %205 ], [ %.0343, %204 ]
   %.1339 = phi i32 [ %.0337, %205 ], [ %.0338, %204 ]
   %.1 = phi i32 [ %.0338, %205 ], [ %.0337, %204 ]
-  %207 = load i32, ptr %16, align 8, !tbaa !57
+  %207 = load i32, ptr %16, align 8, !tbaa !54
   %208 = getelementptr inbounds nuw i8, ptr %0, i64 344
-  %209 = load ptr, ptr %208, align 8, !tbaa !69
+  %209 = load ptr, ptr %208, align 8, !tbaa !66
   %210 = sext i32 %207 to i64
   %211 = getelementptr inbounds ptr, ptr %209, i64 %210
   %212 = load ptr, ptr %211, align 8, !tbaa !27
-  %213 = load ptr, ptr %.1344, align 8, !tbaa !44
-  %214 = load ptr, ptr %.1346, align 8, !tbaa !44
+  %213 = load ptr, ptr %.1344, align 8, !tbaa !42
+  %214 = load ptr, ptr %.1346, align 8, !tbaa !42
   %215 = call ptr @cuddBddIteRecur(ptr noundef %0, ptr noundef %212, ptr noundef %213, ptr noundef %214) #8
   %216 = icmp eq ptr %215, null
   br i1 %216, label %217, label %227
 
 217:                                              ; preds = %206
-  %218 = load ptr, ptr %.1344, align 8, !tbaa !44
+  %218 = load ptr, ptr %.1344, align 8, !tbaa !42
   call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef %218) #8
   %219 = getelementptr inbounds nuw i8, ptr %.1344, i64 8
-  %220 = load ptr, ptr %219, align 8, !tbaa !46
+  %220 = load ptr, ptr %219, align 8, !tbaa !44
   call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef %220) #8
-  %221 = load ptr, ptr %.1346, align 8, !tbaa !44
+  %221 = load ptr, ptr %.1346, align 8, !tbaa !42
   call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef %221) #8
   %222 = getelementptr inbounds nuw i8, ptr %.1346, i64 8
-  %223 = load ptr, ptr %222, align 8, !tbaa !46
+  %223 = load ptr, ptr %222, align 8, !tbaa !44
   call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef %223) #8
   %.not381 = icmp eq i32 %.1339, 0
   br i1 %.not381, label %225, label %224
@@ -1776,21 +1776,21 @@ define internal fastcc ptr @BuildConjuncts(ptr noundef %0, ptr noundef %1, ptr n
   %233 = add i32 %232, 1
   store i32 %233, ptr %231, align 4, !tbaa !3
   %234 = getelementptr inbounds nuw i8, ptr %.1344, i64 8
-  %235 = load ptr, ptr %234, align 8, !tbaa !46
+  %235 = load ptr, ptr %234, align 8, !tbaa !44
   %236 = getelementptr inbounds nuw i8, ptr %.1346, i64 8
-  %237 = load ptr, ptr %236, align 8, !tbaa !46
+  %237 = load ptr, ptr %236, align 8, !tbaa !44
   %238 = call ptr @cuddBddIteRecur(ptr noundef nonnull %0, ptr noundef %212, ptr noundef %235, ptr noundef %237) #8
   %239 = icmp eq ptr %238, null
   br i1 %239, label %240, label %248
 
 240:                                              ; preds = %227
-  %241 = load ptr, ptr %.1344, align 8, !tbaa !44
+  %241 = load ptr, ptr %.1344, align 8, !tbaa !42
   call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef %241) #8
-  %242 = load ptr, ptr %234, align 8, !tbaa !46
+  %242 = load ptr, ptr %234, align 8, !tbaa !44
   call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef %242) #8
-  %243 = load ptr, ptr %.1346, align 8, !tbaa !44
+  %243 = load ptr, ptr %.1346, align 8, !tbaa !42
   call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef %243) #8
-  %244 = load ptr, ptr %236, align 8, !tbaa !46
+  %244 = load ptr, ptr %236, align 8, !tbaa !44
   call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef %244) #8
   call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef nonnull %215) #8
   %.not379 = icmp eq i32 %.1339, 0
@@ -1816,20 +1816,20 @@ define internal fastcc ptr @BuildConjuncts(ptr noundef %0, ptr noundef %1, ptr n
   %253 = load i32, ptr %252, align 4, !tbaa !3
   %254 = add i32 %253, 1
   store i32 %254, ptr %252, align 4, !tbaa !3
-  %255 = load ptr, ptr %.1344, align 8, !tbaa !44
-  %256 = load ptr, ptr %236, align 8, !tbaa !46
+  %255 = load ptr, ptr %.1344, align 8, !tbaa !42
+  %256 = load ptr, ptr %236, align 8, !tbaa !44
   %257 = call ptr @cuddBddIteRecur(ptr noundef nonnull %0, ptr noundef %212, ptr noundef %255, ptr noundef %256) #8
   %258 = icmp eq ptr %257, null
   br i1 %258, label %259, label %267
 
 259:                                              ; preds = %248
-  %260 = load ptr, ptr %234, align 8, !tbaa !46
+  %260 = load ptr, ptr %234, align 8, !tbaa !44
   call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef %260) #8
-  %261 = load ptr, ptr %.1344, align 8, !tbaa !44
+  %261 = load ptr, ptr %.1344, align 8, !tbaa !42
   call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef %261) #8
-  %262 = load ptr, ptr %.1346, align 8, !tbaa !44
+  %262 = load ptr, ptr %.1346, align 8, !tbaa !42
   call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef %262) #8
-  %263 = load ptr, ptr %236, align 8, !tbaa !46
+  %263 = load ptr, ptr %236, align 8, !tbaa !44
   call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef %263) #8
   call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef nonnull %215) #8
   call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef nonnull %238) #8
@@ -1856,25 +1856,25 @@ define internal fastcc ptr @BuildConjuncts(ptr noundef %0, ptr noundef %1, ptr n
   %272 = load i32, ptr %271, align 4, !tbaa !3
   %273 = add i32 %272, 1
   store i32 %273, ptr %271, align 4, !tbaa !3
-  %274 = load ptr, ptr %.1344, align 8, !tbaa !44
+  %274 = load ptr, ptr %.1344, align 8, !tbaa !42
   call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef %274) #8
-  %275 = load ptr, ptr %236, align 8, !tbaa !46
+  %275 = load ptr, ptr %236, align 8, !tbaa !44
   call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef %275) #8
-  %276 = load ptr, ptr %234, align 8, !tbaa !46
-  %277 = load ptr, ptr %.1346, align 8, !tbaa !44
+  %276 = load ptr, ptr %234, align 8, !tbaa !44
+  %277 = load ptr, ptr %.1346, align 8, !tbaa !42
   %278 = call ptr @cuddBddIteRecur(ptr noundef nonnull %0, ptr noundef %212, ptr noundef %276, ptr noundef %277) #8
   %279 = icmp eq ptr %278, null
   %.not375 = icmp eq i32 %.1339, 0
   br i1 %279, label %280, label %288
 
 280:                                              ; preds = %267
-  %281 = load ptr, ptr %.1344, align 8, !tbaa !44
+  %281 = load ptr, ptr %.1344, align 8, !tbaa !42
   call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef %281) #8
-  %282 = load ptr, ptr %234, align 8, !tbaa !46
+  %282 = load ptr, ptr %234, align 8, !tbaa !44
   call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef %282) #8
-  %283 = load ptr, ptr %.1346, align 8, !tbaa !44
+  %283 = load ptr, ptr %.1346, align 8, !tbaa !42
   call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef %283) #8
-  %284 = load ptr, ptr %236, align 8, !tbaa !46
+  %284 = load ptr, ptr %236, align 8, !tbaa !44
   call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef %284) #8
   call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef nonnull %215) #8
   call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef nonnull %238) #8
@@ -1901,9 +1901,9 @@ define internal fastcc ptr @BuildConjuncts(ptr noundef %0, ptr noundef %1, ptr n
   %293 = load i32, ptr %292, align 4, !tbaa !3
   %294 = add i32 %293, 1
   store i32 %294, ptr %292, align 4, !tbaa !3
-  %295 = load ptr, ptr %234, align 8, !tbaa !46
+  %295 = load ptr, ptr %234, align 8, !tbaa !44
   call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef %295) #8
-  %296 = load ptr, ptr %.1346, align 8, !tbaa !44
+  %296 = load ptr, ptr %.1346, align 8, !tbaa !42
   call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef %296) #8
   br i1 %.not375, label %298, label %297
 
@@ -1921,7 +1921,7 @@ define internal fastcc ptr @BuildConjuncts(ptr noundef %0, ptr noundef %1, ptr n
 
 300:                                              ; preds = %299, %298
   %301 = call fastcc ptr @CheckInTables(ptr noundef %1, ptr noundef %215, ptr noundef nonnull %238, ptr noundef nonnull %257, ptr noundef %278, ptr noundef %6, ptr noundef %3, ptr noundef %11)
-  %302 = load i32, ptr %11, align 4, !tbaa !68
+  %302 = load i32, ptr %11, align 4, !tbaa !65
   %.not373 = icmp eq i32 %302, 0
   br i1 %.not373, label %305, label %303
 
@@ -1939,7 +1939,7 @@ define internal fastcc ptr @BuildConjuncts(ptr noundef %0, ptr noundef %1, ptr n
   br i1 %.not374, label %312, label %306
 
 306:                                              ; preds = %305
-  %307 = load ptr, ptr %301, align 8, !tbaa !44
+  %307 = load ptr, ptr %301, align 8, !tbaa !42
   %308 = icmp eq ptr %307, %215
   %309 = icmp eq ptr %307, %238
   %or.cond388 = or i1 %308, %309
@@ -1970,7 +1970,7 @@ define internal fastcc ptr @BuildConjuncts(ptr noundef %0, ptr noundef %1, ptr n
   br label %323
 
 317:                                              ; preds = %312
-  %318 = load ptr, ptr %313, align 8, !tbaa !44
+  %318 = load ptr, ptr %313, align 8, !tbaa !42
   %319 = icmp eq ptr %318, %215
   %320 = icmp eq ptr %318, %238
   %or.cond390 = or i1 %319, %320
@@ -2009,9 +2009,9 @@ define internal fastcc noundef ptr @ZeroCase(ptr noundef %0, ptr noundef %1, ptr
   %9 = ptrtoint ptr %1 to i64
   %10 = and i64 %9, -2
   %11 = inttoptr i64 %10 to ptr
-  %12 = load i32, ptr %11, align 8, !tbaa !57
+  %12 = load i32, ptr %11, align 8, !tbaa !54
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 344
-  %14 = load ptr, ptr %13, align 8, !tbaa !69
+  %14 = load ptr, ptr %13, align 8, !tbaa !66
   %15 = sext i32 %12 to i64
   %16 = getelementptr inbounds ptr, ptr %14, i64 %15
   %17 = load ptr, ptr %16, align 8, !tbaa !27
@@ -2027,7 +2027,7 @@ define internal fastcc noundef ptr @ZeroCase(ptr noundef %0, ptr noundef %1, ptr
   %26 = load i32, ptr %25, align 4, !tbaa !3
   %27 = add i32 %26, 1
   store i32 %27, ptr %25, align 4, !tbaa !3
-  %28 = load ptr, ptr %2, align 8, !tbaa !44
+  %28 = load ptr, ptr %2, align 8, !tbaa !42
   %29 = load ptr, ptr @one, align 8, !tbaa !27
   %30 = icmp eq ptr %28, %29
   br i1 %30, label %31, label %57
@@ -2042,17 +2042,17 @@ define internal fastcc noundef ptr @ZeroCase(ptr noundef %0, ptr noundef %1, ptr
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 624
   store i32 1, ptr %35, align 8, !tbaa !26
   %36 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %37 = load ptr, ptr %36, align 8, !tbaa !46
+  %37 = load ptr, ptr %36, align 8, !tbaa !44
   tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef %37) #8
   tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef %21) #8
   br label %200
 
 38:                                               ; preds = %31
-  store ptr %21, ptr %32, align 8, !tbaa !44
+  store ptr %21, ptr %32, align 8, !tbaa !42
   %39 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %40 = load ptr, ptr %39, align 8, !tbaa !46
+  %40 = load ptr, ptr %39, align 8, !tbaa !44
   %41 = getelementptr inbounds nuw i8, ptr %32, i64 8
-  store ptr %40, ptr %41, align 8, !tbaa !46
+  store ptr %40, ptr %41, align 8, !tbaa !44
   %42 = tail call i32 @st__insert(ptr noundef nonnull %4, ptr noundef %1, ptr noundef nonnull %32) #8
   %43 = icmp eq i32 %42, -10000
   br i1 %43, label %44, label %47
@@ -2060,7 +2060,7 @@ define internal fastcc noundef ptr @ZeroCase(ptr noundef %0, ptr noundef %1, ptr
 44:                                               ; preds = %38
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 624
   store i32 1, ptr %45, align 8, !tbaa !26
-  %46 = load ptr, ptr %39, align 8, !tbaa !46
+  %46 = load ptr, ptr %39, align 8, !tbaa !44
   tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef %46) #8
   tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef %21) #8
   tail call void @free(ptr noundef nonnull %32) #8
@@ -2072,7 +2072,7 @@ define internal fastcc noundef ptr @ZeroCase(ptr noundef %0, ptr noundef %1, ptr
   %49 = load i32, ptr %7, align 4
   %50 = or i32 %49, 1
   %storemerge247 = select i1 %.not246, i32 1, i32 %50
-  store i32 %storemerge247, ptr %7, align 4, !tbaa !68
+  store i32 %storemerge247, ptr %7, align 4, !tbaa !65
   %51 = sext i32 %storemerge247 to i64
   %52 = inttoptr i64 %51 to ptr
   %53 = call i32 @st__insert(ptr noundef nonnull %3, ptr noundef nonnull %24, ptr noundef nonnull %52) #8
@@ -2086,7 +2086,7 @@ define internal fastcc noundef ptr @ZeroCase(ptr noundef %0, ptr noundef %1, ptr
 
 57:                                               ; preds = %6
   %58 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %59 = load ptr, ptr %58, align 8, !tbaa !46
+  %59 = load ptr, ptr %58, align 8, !tbaa !44
   %60 = icmp eq ptr %59, %29
   br i1 %60, label %61, label %85
 
@@ -2099,16 +2099,16 @@ define internal fastcc noundef ptr @ZeroCase(ptr noundef %0, ptr noundef %1, ptr
 64:                                               ; preds = %61
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 624
   store i32 1, ptr %65, align 8, !tbaa !26
-  %66 = load ptr, ptr %2, align 8, !tbaa !44
+  %66 = load ptr, ptr %2, align 8, !tbaa !42
   tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef %66) #8
   tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef %21) #8
   br label %200
 
 67:                                               ; preds = %61
-  %68 = load ptr, ptr %2, align 8, !tbaa !44
-  store ptr %68, ptr %62, align 8, !tbaa !44
+  %68 = load ptr, ptr %2, align 8, !tbaa !42
+  store ptr %68, ptr %62, align 8, !tbaa !42
   %69 = getelementptr inbounds nuw i8, ptr %62, i64 8
-  store ptr %21, ptr %69, align 8, !tbaa !46
+  store ptr %21, ptr %69, align 8, !tbaa !44
   %70 = tail call i32 @st__insert(ptr noundef nonnull %4, ptr noundef %1, ptr noundef nonnull %62) #8
   %71 = icmp eq i32 %70, -10000
   br i1 %71, label %72, label %75
@@ -2116,7 +2116,7 @@ define internal fastcc noundef ptr @ZeroCase(ptr noundef %0, ptr noundef %1, ptr
 72:                                               ; preds = %67
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 624
   store i32 1, ptr %73, align 8, !tbaa !26
-  %74 = load ptr, ptr %2, align 8, !tbaa !44
+  %74 = load ptr, ptr %2, align 8, !tbaa !42
   tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef %74) #8
   tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef %21) #8
   tail call void @free(ptr noundef nonnull %62) #8
@@ -2128,7 +2128,7 @@ define internal fastcc noundef ptr @ZeroCase(ptr noundef %0, ptr noundef %1, ptr
   %77 = load i32, ptr %7, align 4
   %78 = or i32 %77, 2
   %storemerge = select i1 %.not245, i32 2, i32 %78
-  store i32 %storemerge, ptr %7, align 4, !tbaa !68
+  store i32 %storemerge, ptr %7, align 4, !tbaa !65
   %79 = sext i32 %storemerge to i64
   %80 = inttoptr i64 %79 to ptr
   %81 = call i32 @st__insert(ptr noundef nonnull %3, ptr noundef nonnull %24, ptr noundef nonnull %80) #8
@@ -2145,7 +2145,7 @@ define internal fastcc noundef ptr @ZeroCase(ptr noundef %0, ptr noundef %1, ptr
   %87 = and i64 %86, -2
   %88 = inttoptr i64 %87 to ptr
   %89 = getelementptr inbounds nuw i8, ptr %88, i64 16
-  %90 = load ptr, ptr %89, align 8, !tbaa !58
+  %90 = load ptr, ptr %89, align 8, !tbaa !55
   %91 = ptrtoint ptr %90 to i64
   %92 = and i64 %9, 1
   %93 = xor i64 %92, %91
@@ -2156,7 +2156,7 @@ define internal fastcc noundef ptr @ZeroCase(ptr noundef %0, ptr noundef %1, ptr
 
 97:                                               ; preds = %85
   %98 = getelementptr inbounds nuw i8, ptr %88, i64 24
-  %99 = load ptr, ptr %98, align 8, !tbaa !58
+  %99 = load ptr, ptr %98, align 8, !tbaa !55
   %100 = ptrtoint ptr %99 to i64
   %101 = xor i64 %92, %100
   %102 = inttoptr i64 %101 to ptr
@@ -2176,7 +2176,7 @@ define internal fastcc noundef ptr @ZeroCase(ptr noundef %0, ptr noundef %1, ptr
   %111 = load i32, ptr %110, align 4, !tbaa !3
   %112 = add i32 %111, 1
   store i32 %112, ptr %110, align 4, !tbaa !3
-  %113 = load ptr, ptr %2, align 8, !tbaa !44
+  %113 = load ptr, ptr %2, align 8, !tbaa !42
   tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef %113) #8
   tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef %21) #8
   %114 = tail call fastcc ptr @CheckTablesCacheAndReturn(ptr noundef %1, ptr noundef nonnull %105, ptr noundef %59, ptr noundef %3, ptr noundef %4)
@@ -2184,10 +2184,10 @@ define internal fastcc noundef ptr @ZeroCase(ptr noundef %0, ptr noundef %1, ptr
   br i1 %115, label %118, label %200
 
 .critedge:                                        ; preds = %104
-  %116 = load ptr, ptr %2, align 8, !tbaa !44
+  %116 = load ptr, ptr %2, align 8, !tbaa !42
   tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef %116) #8
   tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef %21) #8
-  %117 = load ptr, ptr %58, align 8, !tbaa !46
+  %117 = load ptr, ptr %58, align 8, !tbaa !44
   tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef %117) #8
   br label %200
 
@@ -2203,7 +2203,7 @@ define internal fastcc noundef ptr @ZeroCase(ptr noundef %0, ptr noundef %1, ptr
   %122 = and i64 %121, -2
   %123 = inttoptr i64 %122 to ptr
   %124 = getelementptr inbounds nuw i8, ptr %123, i64 16
-  %125 = load ptr, ptr %124, align 8, !tbaa !58
+  %125 = load ptr, ptr %124, align 8, !tbaa !55
   %126 = ptrtoint ptr %125 to i64
   %127 = xor i64 %92, %126
   %128 = inttoptr i64 %127 to ptr
@@ -2212,7 +2212,7 @@ define internal fastcc noundef ptr @ZeroCase(ptr noundef %0, ptr noundef %1, ptr
 
 130:                                              ; preds = %120
   %131 = getelementptr inbounds nuw i8, ptr %123, i64 24
-  %132 = load ptr, ptr %131, align 8, !tbaa !58
+  %132 = load ptr, ptr %131, align 8, !tbaa !55
   %133 = ptrtoint ptr %132 to i64
   %134 = xor i64 %92, %133
   %135 = inttoptr i64 %134 to ptr
@@ -2232,7 +2232,7 @@ define internal fastcc noundef ptr @ZeroCase(ptr noundef %0, ptr noundef %1, ptr
   %144 = load i32, ptr %143, align 4, !tbaa !3
   %145 = add i32 %144, 1
   store i32 %145, ptr %143, align 4, !tbaa !3
-  %146 = load ptr, ptr %58, align 8, !tbaa !46
+  %146 = load ptr, ptr %58, align 8, !tbaa !44
   tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef %146) #8
   tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef %21) #8
   %147 = tail call fastcc ptr @CheckTablesCacheAndReturn(ptr noundef %1, ptr noundef %28, ptr noundef nonnull %138, ptr noundef %3, ptr noundef %4)
@@ -2240,10 +2240,10 @@ define internal fastcc noundef ptr @ZeroCase(ptr noundef %0, ptr noundef %1, ptr
   br i1 %148, label %151, label %200
 
 .critedge252:                                     ; preds = %137
-  %149 = load ptr, ptr %58, align 8, !tbaa !46
+  %149 = load ptr, ptr %58, align 8, !tbaa !44
   tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef %149) #8
   tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef %21) #8
-  %150 = load ptr, ptr %2, align 8, !tbaa !44
+  %150 = load ptr, ptr %2, align 8, !tbaa !42
   tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef %150) #8
   br label %200
 
@@ -2256,8 +2256,8 @@ define internal fastcc noundef ptr @ZeroCase(ptr noundef %0, ptr noundef %1, ptr
 
 153:                                              ; preds = %130
   tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef %21) #8
-  %154 = load ptr, ptr %58, align 8, !tbaa !46
-  %155 = load ptr, ptr %2, align 8, !tbaa !44
+  %154 = load ptr, ptr %58, align 8, !tbaa !44
+  %155 = load ptr, ptr %2, align 8, !tbaa !42
   %156 = tail call ptr @cuddBddAndRecur(ptr noundef nonnull %0, ptr noundef %21, ptr noundef %155) #8
   %cond = icmp eq ptr %156, null
   br i1 %cond, label %166, label %157
@@ -2270,16 +2270,16 @@ define internal fastcc noundef ptr @ZeroCase(ptr noundef %0, ptr noundef %1, ptr
   %161 = load i32, ptr %160, align 4, !tbaa !3
   %162 = add i32 %161, 1
   store i32 %162, ptr %160, align 4, !tbaa !3
-  %163 = load ptr, ptr %2, align 8, !tbaa !44
-  %164 = load ptr, ptr %58, align 8, !tbaa !46
+  %163 = load ptr, ptr %2, align 8, !tbaa !42
+  %164 = load ptr, ptr %58, align 8, !tbaa !44
   %165 = tail call ptr @cuddBddAndRecur(ptr noundef nonnull %0, ptr noundef %21, ptr noundef %164) #8
   %cond250 = icmp eq ptr %165, null
   br i1 %cond250, label %177, label %169
 
 166:                                              ; preds = %153
-  %167 = load ptr, ptr %2, align 8, !tbaa !44
+  %167 = load ptr, ptr %2, align 8, !tbaa !42
   tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef %167) #8
-  %168 = load ptr, ptr %58, align 8, !tbaa !46
+  %168 = load ptr, ptr %58, align 8, !tbaa !44
   tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef %168) #8
   br label %200
 
@@ -2292,14 +2292,14 @@ define internal fastcc noundef ptr @ZeroCase(ptr noundef %0, ptr noundef %1, ptr
   %174 = add i32 %173, 1
   store i32 %174, ptr %172, align 4, !tbaa !3
   %175 = call fastcc ptr @CheckInTables(ptr noundef %1, ptr noundef %156, ptr noundef %154, ptr noundef %163, ptr noundef %165, ptr noundef %3, ptr noundef %4, ptr noundef %8)
-  %176 = load i32, ptr %8, align 4, !tbaa !68
+  %176 = load i32, ptr %8, align 4, !tbaa !65
   %.not241 = icmp eq i32 %176, 0
   br i1 %.not241, label %182, label %180
 
 177:                                              ; preds = %157
-  %178 = load ptr, ptr %58, align 8, !tbaa !46
+  %178 = load ptr, ptr %58, align 8, !tbaa !44
   tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef %178) #8
-  %179 = load ptr, ptr %2, align 8, !tbaa !44
+  %179 = load ptr, ptr %2, align 8, !tbaa !42
   tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef %179) #8
   br label %200
 
@@ -2317,7 +2317,7 @@ define internal fastcc noundef ptr @ZeroCase(ptr noundef %0, ptr noundef %1, ptr
   br i1 %.not242, label %189, label %183
 
 183:                                              ; preds = %182
-  %184 = load ptr, ptr %175, align 8, !tbaa !44
+  %184 = load ptr, ptr %175, align 8, !tbaa !42
   %185 = icmp eq ptr %184, %156
   %186 = icmp eq ptr %184, %154
   %or.cond = select i1 %185, i1 true, i1 %186
@@ -2348,7 +2348,7 @@ define internal fastcc noundef ptr @ZeroCase(ptr noundef %0, ptr noundef %1, ptr
   br label %200
 
 194:                                              ; preds = %189
-  %195 = load ptr, ptr %190, align 8, !tbaa !44
+  %195 = load ptr, ptr %190, align 8, !tbaa !42
   %196 = icmp eq ptr %195, %156
   %197 = icmp eq ptr %195, %154
   %or.cond249 = select i1 %196, i1 true, i1 %197
@@ -2375,7 +2375,7 @@ declare ptr @cuddBddIteRecur(ptr noundef, ptr noundef, ptr noundef, ptr noundef)
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc noundef ptr @CheckInTables(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull writeonly captures(none) initializes((0, 4)) %7) unnamed_addr #0 {
-  store i32 0, ptr %7, align 4, !tbaa !68
+  store i32 0, ptr %7, align 4, !tbaa !65
   %9 = tail call fastcc i32 @PairInTables(ptr noundef nonnull %1, ptr noundef %2, ptr noundef %5)
   %10 = tail call fastcc i32 @PairInTables(ptr noundef %3, ptr noundef nonnull %4, ptr noundef %5)
   %11 = icmp eq i32 %9, 0
@@ -2389,7 +2389,7 @@ define internal fastcc noundef ptr @CheckInTables(ptr noundef %0, ptr noundef no
   br i1 %15, label %16, label %17
 
 16:                                               ; preds = %13
-  store i32 1, ptr %7, align 4, !tbaa !68
+  store i32 1, ptr %7, align 4, !tbaa !65
   br label %154
 
 17:                                               ; preds = %13
@@ -2417,9 +2417,9 @@ define internal fastcc noundef ptr @CheckInTables(ptr noundef %0, ptr noundef no
   ]
 
 26:                                               ; preds = %25
-  store ptr %1, ptr %14, align 8, !tbaa !44
+  store ptr %1, ptr %14, align 8, !tbaa !42
   %27 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  store ptr %2, ptr %27, align 8, !tbaa !46
+  store ptr %2, ptr %27, align 8, !tbaa !44
   %28 = load ptr, ptr @one, align 8, !tbaa !27
   %.not206 = icmp eq ptr %2, %28
   br i1 %.not206, label %150, label %29
@@ -2433,14 +2433,14 @@ define internal fastcc noundef ptr @CheckInTables(ptr noundef %0, ptr noundef no
   br i1 %34, label %35, label %150
 
 35:                                               ; preds = %29
-  store i32 1, ptr %7, align 4, !tbaa !68
+  store i32 1, ptr %7, align 4, !tbaa !65
   tail call void @free(ptr noundef nonnull %14) #8
   br label %154
 
 36:                                               ; preds = %25
-  store ptr %1, ptr %14, align 8, !tbaa !44
+  store ptr %1, ptr %14, align 8, !tbaa !42
   %37 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  store ptr %2, ptr %37, align 8, !tbaa !46
+  store ptr %2, ptr %37, align 8, !tbaa !44
   %38 = load ptr, ptr @one, align 8, !tbaa !27
   %.not205 = icmp eq ptr %2, %38
   br i1 %.not205, label %150, label %39
@@ -2454,14 +2454,14 @@ define internal fastcc noundef ptr @CheckInTables(ptr noundef %0, ptr noundef no
   br i1 %44, label %45, label %150
 
 45:                                               ; preds = %39
-  store i32 1, ptr %7, align 4, !tbaa !68
+  store i32 1, ptr %7, align 4, !tbaa !65
   tail call void @free(ptr noundef nonnull %14) #8
   br label %154
 
 46:                                               ; preds = %25
-  store ptr %1, ptr %14, align 8, !tbaa !44
+  store ptr %1, ptr %14, align 8, !tbaa !42
   %47 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  store ptr %2, ptr %47, align 8, !tbaa !46
+  store ptr %2, ptr %47, align 8, !tbaa !44
   %48 = load ptr, ptr @one, align 8, !tbaa !27
   %.not204 = icmp eq ptr %1, %48
   br i1 %.not204, label %150, label %49
@@ -2475,14 +2475,14 @@ define internal fastcc noundef ptr @CheckInTables(ptr noundef %0, ptr noundef no
   br i1 %54, label %55, label %150
 
 55:                                               ; preds = %49
-  store i32 1, ptr %7, align 4, !tbaa !68
+  store i32 1, ptr %7, align 4, !tbaa !65
   tail call void @free(ptr noundef nonnull %14) #8
   br label %154
 
 56:                                               ; preds = %25
-  store ptr %1, ptr %14, align 8, !tbaa !44
+  store ptr %1, ptr %14, align 8, !tbaa !42
   %57 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  store ptr %2, ptr %57, align 8, !tbaa !46
+  store ptr %2, ptr %57, align 8, !tbaa !44
   %58 = load ptr, ptr @one, align 8, !tbaa !27
   %.not203 = icmp eq ptr %1, %58
   br i1 %.not203, label %150, label %59
@@ -2496,7 +2496,7 @@ define internal fastcc noundef ptr @CheckInTables(ptr noundef %0, ptr noundef no
   br i1 %64, label %65, label %150
 
 65:                                               ; preds = %59
-  store i32 1, ptr %7, align 4, !tbaa !68
+  store i32 1, ptr %7, align 4, !tbaa !65
   tail call void @free(ptr noundef nonnull %14) #8
   br label %154
 
@@ -2509,9 +2509,9 @@ define internal fastcc noundef ptr @CheckInTables(ptr noundef %0, ptr noundef no
   ]
 
 67:                                               ; preds = %66
-  store ptr %3, ptr %14, align 8, !tbaa !44
+  store ptr %3, ptr %14, align 8, !tbaa !42
   %68 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  store ptr %4, ptr %68, align 8, !tbaa !46
+  store ptr %4, ptr %68, align 8, !tbaa !44
   %69 = load ptr, ptr @one, align 8, !tbaa !27
   %.not202 = icmp eq ptr %4, %69
   br i1 %.not202, label %150, label %70
@@ -2525,14 +2525,14 @@ define internal fastcc noundef ptr @CheckInTables(ptr noundef %0, ptr noundef no
   br i1 %75, label %76, label %150
 
 76:                                               ; preds = %70
-  store i32 1, ptr %7, align 4, !tbaa !68
+  store i32 1, ptr %7, align 4, !tbaa !65
   tail call void @free(ptr noundef nonnull %14) #8
   br label %154
 
 77:                                               ; preds = %66
-  store ptr %3, ptr %14, align 8, !tbaa !44
+  store ptr %3, ptr %14, align 8, !tbaa !42
   %78 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  store ptr %4, ptr %78, align 8, !tbaa !46
+  store ptr %4, ptr %78, align 8, !tbaa !44
   %79 = load ptr, ptr @one, align 8, !tbaa !27
   %.not201 = icmp eq ptr %4, %79
   br i1 %.not201, label %150, label %80
@@ -2546,14 +2546,14 @@ define internal fastcc noundef ptr @CheckInTables(ptr noundef %0, ptr noundef no
   br i1 %85, label %86, label %150
 
 86:                                               ; preds = %80
-  store i32 1, ptr %7, align 4, !tbaa !68
+  store i32 1, ptr %7, align 4, !tbaa !65
   tail call void @free(ptr noundef nonnull %14) #8
   br label %154
 
 87:                                               ; preds = %66
-  store ptr %3, ptr %14, align 8, !tbaa !44
+  store ptr %3, ptr %14, align 8, !tbaa !42
   %88 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  store ptr %4, ptr %88, align 8, !tbaa !46
+  store ptr %4, ptr %88, align 8, !tbaa !44
   %89 = load ptr, ptr @one, align 8, !tbaa !27
   %.not200 = icmp eq ptr %3, %89
   br i1 %.not200, label %150, label %90
@@ -2567,14 +2567,14 @@ define internal fastcc noundef ptr @CheckInTables(ptr noundef %0, ptr noundef no
   br i1 %95, label %96, label %150
 
 96:                                               ; preds = %90
-  store i32 1, ptr %7, align 4, !tbaa !68
+  store i32 1, ptr %7, align 4, !tbaa !65
   tail call void @free(ptr noundef nonnull %14) #8
   br label %154
 
 97:                                               ; preds = %66
-  store ptr %3, ptr %14, align 8, !tbaa !44
+  store ptr %3, ptr %14, align 8, !tbaa !42
   %98 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  store ptr %4, ptr %98, align 8, !tbaa !46
+  store ptr %4, ptr %98, align 8, !tbaa !44
   %99 = load ptr, ptr @one, align 8, !tbaa !27
   %.not199 = icmp eq ptr %3, %99
   br i1 %.not199, label %150, label %100
@@ -2588,7 +2588,7 @@ define internal fastcc noundef ptr @CheckInTables(ptr noundef %0, ptr noundef no
   br i1 %105, label %106, label %150
 
 106:                                              ; preds = %100
-  store i32 1, ptr %7, align 4, !tbaa !68
+  store i32 1, ptr %7, align 4, !tbaa !65
   tail call void @free(ptr noundef nonnull %14) #8
   br label %154
 
@@ -2599,9 +2599,9 @@ define internal fastcc noundef ptr @CheckInTables(ptr noundef %0, ptr noundef no
   ]
 
 108:                                              ; preds = %107
-  store ptr %2, ptr %14, align 8, !tbaa !44
+  store ptr %2, ptr %14, align 8, !tbaa !42
   %109 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  store ptr %1, ptr %109, align 8, !tbaa !46
+  store ptr %1, ptr %109, align 8, !tbaa !44
   %110 = load ptr, ptr @one, align 8, !tbaa !27
   %.not198 = icmp eq ptr %2, %110
   br i1 %.not198, label %150, label %111
@@ -2615,14 +2615,14 @@ define internal fastcc noundef ptr @CheckInTables(ptr noundef %0, ptr noundef no
   br i1 %116, label %117, label %150
 
 117:                                              ; preds = %111
-  store i32 1, ptr %7, align 4, !tbaa !68
+  store i32 1, ptr %7, align 4, !tbaa !65
   tail call void @free(ptr noundef nonnull %14) #8
   br label %154
 
 118:                                              ; preds = %107
-  store ptr %2, ptr %14, align 8, !tbaa !44
+  store ptr %2, ptr %14, align 8, !tbaa !42
   %119 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  store ptr %1, ptr %119, align 8, !tbaa !46
+  store ptr %1, ptr %119, align 8, !tbaa !44
   %120 = load ptr, ptr @one, align 8, !tbaa !27
   %.not197 = icmp eq ptr %1, %120
   br i1 %.not197, label %150, label %121
@@ -2636,7 +2636,7 @@ define internal fastcc noundef ptr @CheckInTables(ptr noundef %0, ptr noundef no
   br i1 %126, label %127, label %150
 
 127:                                              ; preds = %121
-  store i32 1, ptr %7, align 4, !tbaa !68
+  store i32 1, ptr %7, align 4, !tbaa !65
   tail call void @free(ptr noundef nonnull %14) #8
   br label %154
 
@@ -2647,9 +2647,9 @@ define internal fastcc noundef ptr @CheckInTables(ptr noundef %0, ptr noundef no
   ]
 
 129:                                              ; preds = %128
-  store ptr %4, ptr %14, align 8, !tbaa !44
+  store ptr %4, ptr %14, align 8, !tbaa !42
   %130 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  store ptr %3, ptr %130, align 8, !tbaa !46
+  store ptr %3, ptr %130, align 8, !tbaa !44
   %131 = load ptr, ptr @one, align 8, !tbaa !27
   %.not196 = icmp eq ptr %4, %131
   br i1 %.not196, label %150, label %132
@@ -2663,14 +2663,14 @@ define internal fastcc noundef ptr @CheckInTables(ptr noundef %0, ptr noundef no
   br i1 %137, label %138, label %150
 
 138:                                              ; preds = %132
-  store i32 1, ptr %7, align 4, !tbaa !68
+  store i32 1, ptr %7, align 4, !tbaa !65
   tail call void @free(ptr noundef nonnull %14) #8
   br label %154
 
 139:                                              ; preds = %128
-  store ptr %4, ptr %14, align 8, !tbaa !44
+  store ptr %4, ptr %14, align 8, !tbaa !42
   %140 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  store ptr %3, ptr %140, align 8, !tbaa !46
+  store ptr %3, ptr %140, align 8, !tbaa !44
   %141 = load ptr, ptr @one, align 8, !tbaa !27
   %.not = icmp eq ptr %3, %141
   br i1 %.not, label %150, label %142
@@ -2684,16 +2684,16 @@ define internal fastcc noundef ptr @CheckInTables(ptr noundef %0, ptr noundef no
   br i1 %147, label %148, label %150
 
 148:                                              ; preds = %142
-  store i32 1, ptr %7, align 4, !tbaa !68
+  store i32 1, ptr %7, align 4, !tbaa !65
   tail call void @free(ptr noundef nonnull %14) #8
   br label %154
 
 .sink.split:                                      ; preds = %23, %21, %19, %17
   %.sink208 = phi ptr [ %1, %17 ], [ %3, %19 ], [ %2, %21 ], [ %4, %23 ]
   %.sink = phi ptr [ %2, %17 ], [ %4, %19 ], [ %1, %21 ], [ %3, %23 ]
-  store ptr %.sink208, ptr %14, align 8, !tbaa !44
+  store ptr %.sink208, ptr %14, align 8, !tbaa !42
   %149 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  store ptr %.sink, ptr %149, align 8, !tbaa !46
+  store ptr %.sink, ptr %149, align 8, !tbaa !44
   br label %150
 
 150:                                              ; preds = %.sink.split, %128, %39, %36, %59, %56, %80, %77, %100, %97, %121, %118, %142, %139, %129, %132, %108, %111, %87, %90, %67, %70, %46, %49, %26, %29
@@ -2702,7 +2702,7 @@ define internal fastcc noundef ptr @CheckInTables(ptr noundef %0, ptr noundef no
   br i1 %152, label %153, label %154
 
 153:                                              ; preds = %150
-  store i32 1, ptr %7, align 4, !tbaa !68
+  store i32 1, ptr %7, align 4, !tbaa !65
   tail call void @free(ptr noundef nonnull %14) #8
   br label %154
 
@@ -2804,14 +2804,14 @@ define internal fastcc noundef ptr @PickOnePair(ptr noundef %0, ptr noundef nonn
   %.not = icmp slt i32 %.051, %.0
   %spec.select = select i1 %.not, ptr %3, ptr %1
   %spec.select67 = select i1 %.not, ptr %4, ptr %2
-  store ptr %spec.select, ptr %9, align 8, !tbaa !44
+  store ptr %spec.select, ptr %9, align 8, !tbaa !42
   %71 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  store ptr %spec.select67, ptr %71, align 8, !tbaa !46
+  store ptr %spec.select67, ptr %71, align 8, !tbaa !44
   %.not62 = icmp eq ptr %spec.select, %12
   br i1 %.not62, label %86, label %72
 
 72:                                               ; preds = %70
-  store i32 0, ptr %8, align 4, !tbaa !68
+  store i32 0, ptr %8, align 4, !tbaa !65
   %73 = ptrtoint ptr %spec.select to i64
   %74 = and i64 %73, -2
   %75 = inttoptr i64 %74 to ptr
@@ -2820,30 +2820,30 @@ define internal fastcc noundef ptr @PickOnePair(ptr noundef %0, ptr noundef nonn
   br i1 %.not63, label %83, label %77
 
 77:                                               ; preds = %72
-  %78 = load i32, ptr %8, align 4, !tbaa !68
+  %78 = load i32, ptr %8, align 4, !tbaa !65
   %79 = icmp eq i32 %78, 2
   br i1 %79, label %80, label %86
 
 80:                                               ; preds = %77
-  store i32 3, ptr %8, align 4, !tbaa !68
+  store i32 3, ptr %8, align 4, !tbaa !65
   %81 = call i32 @st__insert(ptr noundef nonnull %5, ptr noundef %75, ptr noundef nonnull inttoptr (i64 3 to ptr)) #8
   %82 = icmp eq i32 %81, -10000
   br i1 %82, label %.sink.split, label %86
 
 83:                                               ; preds = %72
-  store i32 1, ptr %8, align 4, !tbaa !68
+  store i32 1, ptr %8, align 4, !tbaa !65
   %84 = call i32 @st__insert(ptr noundef nonnull %5, ptr noundef %75, ptr noundef nonnull inttoptr (i64 1 to ptr)) #8
   %85 = icmp eq i32 %84, -10000
   br i1 %85, label %.sink.split, label %86
 
 86:                                               ; preds = %80, %77, %83, %70
-  %87 = load ptr, ptr %71, align 8, !tbaa !46
+  %87 = load ptr, ptr %71, align 8, !tbaa !44
   %88 = load ptr, ptr @one, align 8, !tbaa !27
   %.not64 = icmp eq ptr %87, %88
   br i1 %.not64, label %103, label %89
 
 89:                                               ; preds = %86
-  store i32 0, ptr %8, align 4, !tbaa !68
+  store i32 0, ptr %8, align 4, !tbaa !65
   %90 = ptrtoint ptr %87 to i64
   %91 = and i64 %90, -2
   %92 = inttoptr i64 %91 to ptr
@@ -2852,18 +2852,18 @@ define internal fastcc noundef ptr @PickOnePair(ptr noundef %0, ptr noundef nonn
   br i1 %.not65, label %100, label %94
 
 94:                                               ; preds = %89
-  %95 = load i32, ptr %8, align 4, !tbaa !68
+  %95 = load i32, ptr %8, align 4, !tbaa !65
   %96 = icmp eq i32 %95, 1
   br i1 %96, label %97, label %103
 
 97:                                               ; preds = %94
-  store i32 3, ptr %8, align 4, !tbaa !68
+  store i32 3, ptr %8, align 4, !tbaa !65
   %98 = call i32 @st__insert(ptr noundef nonnull %5, ptr noundef %92, ptr noundef nonnull inttoptr (i64 3 to ptr)) #8
   %99 = icmp eq i32 %98, -10000
   br i1 %99, label %.sink.split, label %103
 
 100:                                              ; preds = %89
-  store i32 2, ptr %8, align 4, !tbaa !68
+  store i32 2, ptr %8, align 4, !tbaa !65
   %101 = call i32 @st__insert(ptr noundef nonnull %5, ptr noundef %92, ptr noundef nonnull inttoptr (i64 2 to ptr)) #8
   %102 = icmp eq i32 %101, -10000
   br i1 %102, label %.sink.split, label %103
@@ -2889,7 +2889,7 @@ declare ptr @cuddBddAndRecur(ptr noundef, ptr noundef, ptr noundef) local_unname
 define internal fastcc noundef ptr @CheckTablesCacheAndReturn(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %3, ptr noundef nonnull %4) unnamed_addr #0 {
   %6 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #8
-  store i32 0, ptr %6, align 4, !tbaa !68
+  store i32 0, ptr %6, align 4, !tbaa !65
   %7 = tail call fastcc i32 @PairInTables(ptr noundef %1, ptr noundef %2, ptr noundef %3)
   %8 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #9
   %9 = icmp eq ptr %8, null
@@ -2907,7 +2907,7 @@ define internal fastcc noundef ptr @CheckTablesCacheAndReturn(ptr noundef %0, pt
   br i1 %.not69, label %.sink.split, label %13
 
 13:                                               ; preds = %11
-  store i32 0, ptr %6, align 4, !tbaa !68
+  store i32 0, ptr %6, align 4, !tbaa !65
   %14 = ptrtoint ptr %1 to i64
   %15 = and i64 %14, -2
   %16 = inttoptr i64 %15 to ptr
@@ -2916,7 +2916,7 @@ define internal fastcc noundef ptr @CheckTablesCacheAndReturn(ptr noundef %0, pt
   %18 = load i32, ptr %6, align 4
   %19 = or i32 %18, 1
   %storemerge71 = select i1 %.not70, i32 1, i32 %19
-  store i32 %storemerge71, ptr %6, align 4, !tbaa !68
+  store i32 %storemerge71, ptr %6, align 4, !tbaa !65
   %20 = sext i32 %storemerge71 to i64
   %21 = inttoptr i64 %20 to ptr
   %22 = call i32 @st__insert(ptr noundef nonnull %3, ptr noundef %16, ptr noundef nonnull %21) #8
@@ -2934,7 +2934,7 @@ define internal fastcc noundef ptr @CheckTablesCacheAndReturn(ptr noundef %0, pt
   br i1 %.not67, label %.sink.split, label %28
 
 28:                                               ; preds = %26
-  store i32 0, ptr %6, align 4, !tbaa !68
+  store i32 0, ptr %6, align 4, !tbaa !65
   %29 = ptrtoint ptr %2 to i64
   %30 = and i64 %29, -2
   %31 = inttoptr i64 %30 to ptr
@@ -2943,7 +2943,7 @@ define internal fastcc noundef ptr @CheckTablesCacheAndReturn(ptr noundef %0, pt
   %33 = load i32, ptr %6, align 4
   %34 = or i32 %33, 2
   %storemerge = select i1 %.not68, i32 2, i32 %34
-  store i32 %storemerge, ptr %6, align 4, !tbaa !68
+  store i32 %storemerge, ptr %6, align 4, !tbaa !65
   %35 = sext i32 %storemerge to i64
   %36 = inttoptr i64 %35 to ptr
   %37 = call i32 @st__insert(ptr noundef nonnull %3, ptr noundef %31, ptr noundef nonnull %36) #8
@@ -2964,7 +2964,7 @@ define internal fastcc noundef ptr @CheckTablesCacheAndReturn(ptr noundef %0, pt
   br i1 %.not66, label %.sink.split, label %42
 
 42:                                               ; preds = %40
-  store i32 2, ptr %6, align 4, !tbaa !68
+  store i32 2, ptr %6, align 4, !tbaa !65
   %43 = ptrtoint ptr %1 to i64
   %44 = and i64 %43, -2
   %45 = inttoptr i64 %44 to ptr
@@ -2978,7 +2978,7 @@ define internal fastcc noundef ptr @CheckTablesCacheAndReturn(ptr noundef %0, pt
   br i1 %.not, label %.sink.split, label %50
 
 50:                                               ; preds = %48
-  store i32 1, ptr %6, align 4, !tbaa !68
+  store i32 1, ptr %6, align 4, !tbaa !65
   %51 = ptrtoint ptr %2 to i64
   %52 = and i64 %51, -2
   %53 = inttoptr i64 %52 to ptr
@@ -2992,9 +2992,9 @@ define internal fastcc noundef ptr @CheckTablesCacheAndReturn(ptr noundef %0, pt
 .sink.split:                                      ; preds = %39, %48, %50, %40, %42, %26, %28, %11, %13, %56
   %.sink73 = phi ptr [ %1, %56 ], [ %1, %13 ], [ %1, %11 ], [ %1, %28 ], [ %1, %26 ], [ %2, %42 ], [ %2, %40 ], [ %2, %50 ], [ %2, %48 ], [ %2, %39 ]
   %.sink = phi ptr [ %2, %56 ], [ %2, %13 ], [ %2, %11 ], [ %2, %28 ], [ %2, %26 ], [ %1, %42 ], [ %1, %40 ], [ %1, %50 ], [ %1, %48 ], [ %1, %39 ]
-  store ptr %.sink73, ptr %8, align 8, !tbaa !44
+  store ptr %.sink73, ptr %8, align 8, !tbaa !42
   %57 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store ptr %.sink, ptr %57, align 8, !tbaa !46
+  store ptr %.sink, ptr %57, align 8, !tbaa !44
   br label %58
 
 58:                                               ; preds = %.sink.split, %39
@@ -3018,8 +3018,8 @@ define internal fastcc range(i32 0, 9) i32 @PairInTables(ptr noundef %0, ptr nou
   %5 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #8
-  store i32 0, ptr %5, align 4, !tbaa !68
-  store i32 0, ptr %4, align 4, !tbaa !68
+  store i32 0, ptr %5, align 4, !tbaa !65
+  store i32 0, ptr %4, align 4, !tbaa !65
   %6 = ptrtoint ptr %0 to i64
   %7 = and i64 %6, -2
   %8 = inttoptr i64 %7 to ptr
@@ -3037,7 +3037,7 @@ define internal fastcc range(i32 0, 9) i32 @PairInTables(ptr noundef %0, ptr nou
   br i1 %15, label %22, label %17
 
 17:                                               ; preds = %16
-  %18 = load i32, ptr %4, align 4, !tbaa !68
+  %18 = load i32, ptr %4, align 4, !tbaa !65
   %19 = and i32 %18, 1
   %.not = icmp eq i32 %19, 0
   br i1 %.not, label %20, label %40
@@ -3051,7 +3051,7 @@ define internal fastcc range(i32 0, 9) i32 @PairInTables(ptr noundef %0, ptr nou
   br i1 %14, label %28, label %23
 
 23:                                               ; preds = %22
-  %24 = load i32, ptr %5, align 4, !tbaa !68
+  %24 = load i32, ptr %5, align 4, !tbaa !65
   %25 = and i32 %24, 1
   %.not10 = icmp eq i32 %25, 0
   br i1 %.not10, label %26, label %40
@@ -3062,13 +3062,13 @@ define internal fastcc range(i32 0, 9) i32 @PairInTables(ptr noundef %0, ptr nou
   br i1 %.not11, label %28, label %40
 
 28:                                               ; preds = %26, %22
-  %29 = load i32, ptr %4, align 4, !tbaa !68
+  %29 = load i32, ptr %4, align 4, !tbaa !65
   %30 = and i32 %29, 1
   %.not12 = icmp eq i32 %30, 0
   br i1 %.not12, label %34, label %31
 
 31:                                               ; preds = %28
-  %32 = load i32, ptr %5, align 4, !tbaa !68
+  %32 = load i32, ptr %5, align 4, !tbaa !65
   %33 = and i32 %32, 2
   %.not13 = icmp eq i32 %33, 0
   br i1 %.not13, label %34, label %40
@@ -3079,7 +3079,7 @@ define internal fastcc range(i32 0, 9) i32 @PairInTables(ptr noundef %0, ptr nou
   br i1 %.not14, label %39, label %36
 
 36:                                               ; preds = %34
-  %37 = load i32, ptr %5, align 4, !tbaa !68
+  %37 = load i32, ptr %5, align 4, !tbaa !65
   %38 = and i32 %37, 1
   %.not15 = icmp eq i32 %38, 0
   br i1 %.not15, label %39, label %40
@@ -3148,45 +3148,42 @@ attributes #9 = { nounwind allocsize(0) }
 !25 = !{!17, !17, i64 0}
 !26 = !{!12, !5, i64 624}
 !27 = !{!8, !8, i64 0}
-!28 = distinct !{!28, !29, !30}
+!28 = distinct !{!28, !29}
 !29 = !{!"llvm.loop.mustprogress"}
-!30 = !{!"llvm.loop.estimated_trip_count"}
-!31 = distinct !{!31, !30}
-!32 = distinct !{!32, !29, !30}
-!33 = !{!12, !5, i64 448}
-!34 = !{!35, !5, i64 0}
-!35 = !{!"NodeStat", !5, i64 0, !5, i64 4}
-!36 = !{!35, !5, i64 4}
-!37 = !{!20, !20, i64 0}
-!38 = distinct !{!38, !29, !30}
-!39 = distinct !{!39, !29, !30}
-!40 = !{!12, !24, i64 616}
-!41 = !{!10, !10, i64 0}
-!42 = distinct !{!42, !29, !30}
-!43 = distinct !{!43, !29, !30}
-!44 = !{!45, !8, i64 0}
-!45 = !{!"Conjuncts", !8, i64 0, !8, i64 8}
-!46 = !{!45, !8, i64 8}
-!47 = distinct !{!47, !29, !30}
-!48 = distinct !{!48, !30}
-!49 = distinct !{!49, !29, !30}
-!50 = distinct !{!50, !29, !30}
-!51 = distinct !{!51, !29, !30, !52}
-!52 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!53 = distinct !{!53, !30, !52}
-!54 = distinct !{!54, !29, !30}
-!55 = distinct !{!55, !29, !30}
-!56 = distinct !{!56, !29, !30}
-!57 = !{!4, !5, i64 0}
-!58 = !{!6, !6, i64 0}
-!59 = distinct !{!59, !29, !30}
-!60 = distinct !{!60, !29, !30}
-!61 = !{!62, !62, i64 0}
-!62 = !{!"p1 _ZTS8NodeStat", !9, i64 0}
+!30 = distinct !{!30, !29}
+!31 = !{!12, !5, i64 448}
+!32 = !{!33, !5, i64 0}
+!33 = !{!"NodeStat", !5, i64 0, !5, i64 4}
+!34 = !{!33, !5, i64 4}
+!35 = !{!20, !20, i64 0}
+!36 = distinct !{!36, !29}
+!37 = distinct !{!37, !29}
+!38 = !{!12, !24, i64 616}
+!39 = !{!10, !10, i64 0}
+!40 = distinct !{!40, !29}
+!41 = distinct !{!41, !29}
+!42 = !{!43, !8, i64 0}
+!43 = !{!"Conjuncts", !8, i64 0, !8, i64 8}
+!44 = !{!43, !8, i64 8}
+!45 = distinct !{!45, !29}
+!46 = distinct !{!46, !29}
+!47 = distinct !{!47, !29}
+!48 = distinct !{!48, !29, !49}
+!49 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!50 = distinct !{!50, !49}
+!51 = distinct !{!51, !29}
+!52 = distinct !{!52, !29}
+!53 = distinct !{!53, !29}
+!54 = !{!4, !5, i64 0}
+!55 = !{!6, !6, i64 0}
+!56 = distinct !{!56, !29}
+!57 = distinct !{!57, !29}
+!58 = !{!59, !59, i64 0}
+!59 = !{!"p1 _ZTS8NodeStat", !9, i64 0}
+!60 = !{!61, !61, i64 0}
+!61 = !{!"p1 double", !9, i64 0}
+!62 = !{!14, !14, i64 0}
 !63 = !{!64, !64, i64 0}
-!64 = !{!"p1 double", !9, i64 0}
-!65 = !{!14, !14, i64 0}
-!66 = !{!67, !67, i64 0}
-!67 = !{!"p1 _ZTS9Conjuncts", !9, i64 0}
-!68 = !{!5, !5, i64 0}
-!69 = !{!12, !17, i64 344}
+!64 = !{!"p1 _ZTS9Conjuncts", !9, i64 0}
+!65 = !{!5, !5, i64 0}
+!66 = !{!12, !17, i64 344}

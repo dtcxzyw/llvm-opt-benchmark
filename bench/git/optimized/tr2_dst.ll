@@ -386,7 +386,7 @@ tr2_dst_too_many_files.exit:                      ; preds = %37, %72
 75:                                               ; preds = %87
   %76 = add nuw nsw i32 %.049, 1
   %exitcond.not = icmp eq i32 %76, 10
-  br i1 %exitcond.not, label %.loopexit.thread, label %78, !llvm.loop !22
+  br i1 %exitcond.not, label %.loopexit.thread, label %78, !llvm.loop !21
 
 .loopexit.thread:                                 ; preds = %75
   %77 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -684,7 +684,7 @@ define internal fastcc range(i32 0, -1) i32 @tr2_dst_try_unix_domain_socket(ptr 
   %9 = load i8, ptr %.07.i, align 1, !tbaa !10
   %.06.i.add = add nuw nsw i64 %.06.i.idx, 1
   %10 = icmp eq i8 %9, %6
-  br i1 %10, label %5, label %skip_prefix.exit.preheader, !llvm.loop !23
+  br i1 %10, label %5, label %skip_prefix.exit.preheader, !llvm.loop !22
 
 skip_prefix.exit.preheader:                       ; preds = %7
   %scevgep100 = getelementptr i8, ptr %1, i64 14
@@ -703,7 +703,7 @@ skip_prefix.exit:                                 ; preds = %skip_prefix.exit.pr
   %14 = load i8, ptr %.07.i32, align 1, !tbaa !10
   %.06.i33.add = add nuw nsw i64 %.06.i33.idx, 1
   %15 = icmp eq i8 %14, %12
-  br i1 %15, label %skip_prefix.exit, label %skip_prefix.exit35.preheader, !llvm.loop !23
+  br i1 %15, label %skip_prefix.exit, label %skip_prefix.exit35.preheader, !llvm.loop !22
 
 skip_prefix.exit35.preheader:                     ; preds = %11
   %scevgep102 = getelementptr i8, ptr %1, i64 8
@@ -722,7 +722,7 @@ skip_prefix.exit35:                               ; preds = %skip_prefix.exit35.
   %19 = load i8, ptr %.07.i36, align 1, !tbaa !10
   %.06.i37.add = add nuw nsw i64 %.06.i37.idx, 1
   %20 = icmp eq i8 %19, %17
-  br i1 %20, label %skip_prefix.exit35, label %.thread77, !llvm.loop !23
+  br i1 %20, label %skip_prefix.exit35, label %.thread77, !llvm.loop !22
 
 .thread:                                          ; preds = %5, %skip_prefix.exit, %skip_prefix.exit35
   %.not2476 = phi i1 [ false, %skip_prefix.exit35 ], [ true, %skip_prefix.exit ], [ false, %5 ]
@@ -875,7 +875,7 @@ tr2_dst_trace_disable.exit48:                     ; preds = %70, %74
   br label %95
 
 86:                                               ; preds = %83
-  store i16 1, ptr %4, align 2, !tbaa !24
+  store i16 1, ptr %4, align 2, !tbaa !23
   %87 = getelementptr inbounds nuw i8, ptr %4, i64 2
   %88 = call i64 @gitstrlcpy(ptr noundef nonnull %87, ptr noundef nonnull %.072, i64 noundef 108) #13
   %89 = call i32 @connect(i32 noundef %84, ptr nonnull %4, i32 noundef 110) #13
@@ -911,7 +911,7 @@ tr2_dst_try_uds_connect.exit:                     ; preds = %86
   br i1 %100, label %tr2_dst_try_uds_connect.exit50.thread, label %101
 
 101:                                              ; preds = %98
-  store i16 1, ptr %3, align 2, !tbaa !24
+  store i16 1, ptr %3, align 2, !tbaa !23
   %102 = getelementptr inbounds nuw i8, ptr %3, i64 2
   %103 = call i64 @gitstrlcpy(ptr noundef nonnull %102, ptr noundef nonnull %.072, i64 noundef 108) #13
   %104 = call i32 @connect(i32 noundef %99, ptr nonnull %3, i32 noundef 110) #13
@@ -1247,11 +1247,10 @@ attributes #16 = { nounwind willreturn memory(none) }
 !16 = !{!12, !13, i64 8}
 !17 = !{!12, !13, i64 0}
 !18 = !{!6, !6, i64 0}
-!19 = distinct !{!19, !20, !21}
+!19 = distinct !{!19, !20}
 !20 = !{!"llvm.loop.mustprogress"}
-!21 = !{!"llvm.loop.estimated_trip_count"}
-!22 = distinct !{!22, !20, !21}
-!23 = distinct !{!23, !20, !21}
-!24 = !{!25, !26, i64 0}
-!25 = !{!"sockaddr_un", !26, i64 0, !7, i64 2}
-!26 = !{!"short", !7, i64 0}
+!21 = distinct !{!21, !20}
+!22 = distinct !{!22, !20}
+!23 = !{!24, !25, i64 0}
+!24 = !{!"sockaddr_un", !25, i64 0, !7, i64 2}
+!25 = !{!"short", !7, i64 0}

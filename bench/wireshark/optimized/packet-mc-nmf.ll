@@ -441,7 +441,7 @@ define internal i32 @dissect_mc_nmf(ptr noundef %0, ptr noundef %1, ptr noundef 
   %179 = add i32 %.7250, %173
   %180 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %179)
   %.not119 = icmp eq i8 %180, 0
-  br i1 %.not119, label %181, label %154, !llvm.loop !11
+  br i1 %.not119, label %181, label %154, !llvm.loop !10
 
 181:                                              ; preds = %171
   %182 = load i32, ptr @hf_mc_nmf_terminator, align 4
@@ -631,7 +631,7 @@ define internal i32 @dissect_mc_nmf(ptr noundef %0, ptr noundef %1, ptr noundef 
   %.1244 = phi i32 [ %65, %62 ], [ %78, %70 ], [ %84, %79 ], [ %114, %106 ], [ %120, %115 ], [ %150, %142 ], [ %184, %181 ], [ %214, %206 ], [ %244, %236 ], [ %276, %284 ], [ %65, %288 ], [ %65, %285 ]
   %291 = call i32 @tvb_reported_length(ptr noundef %0)
   %292 = icmp ugt i32 %291, %.1244
-  br i1 %292, label %62, label %.loopexit, !llvm.loop !12
+  br i1 %292, label %62, label %.loopexit, !llvm.loop !11
 
 .loopexit:                                        ; preds = %290, %56, %4, %263, %233, %203, %168, %139, %103, %47, %34
   %.0112 = phi i32 [ %42, %34 ], [ %55, %47 ], [ %105, %103 ], [ %141, %139 ], [ %170, %168 ], [ %205, %203 ], [ %235, %233 ], [ %265, %263 ], [ 0, %4 ], [ 0, %56 ], [ %.1244, %290 ]
@@ -742,8 +742,7 @@ attributes #7 = { nounwind willreturn memory(read) }
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i8 0, i8 2}
 !7 = !{}
-!8 = distinct !{!8, !9, !10}
+!8 = distinct !{!8, !9}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = !{!"llvm.loop.estimated_trip_count"}
-!11 = distinct !{!11, !9, !10}
-!12 = distinct !{!12, !9, !10}
+!10 = distinct !{!10, !9}
+!11 = distinct !{!11, !9}

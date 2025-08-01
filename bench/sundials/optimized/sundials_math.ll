@@ -14,7 +14,7 @@ define i32 @SUNIpowerI(i32 noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = mul nsw i32 %.09, %0
   %4 = add nuw i32 %.068, 1
   %exitcond.not = icmp eq i32 %.068, %1
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !3
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   %.0.lcssa = phi i32 [ 1, %2 ], [ %3, %.lr.ph ]
@@ -42,7 +42,7 @@ define double @SUNRpowerI(double noundef %0, i32 noundef %1) local_unnamed_addr 
   %3 = fmul double %0, %.011
   %4 = add nuw i32 %.0810, 1
   %exitcond.not = icmp eq i32 %.0810, %smax
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !5
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   %.0.lcssa = phi double [ 1.000000e+00, %2 ], [ %3, %.lr.ph ]
@@ -61,7 +61,7 @@ define double @SUNRpowerR(double noundef %0, double noundef %1) local_unnamed_ad
   br i1 %3, label %4, label %6
 
 4:                                                ; preds = %2
-  %5 = tail call double @pow(double noundef %0, double noundef %1) #8, !tbaa !6
+  %5 = tail call double @pow(double noundef %0, double noundef %1) #8, !tbaa !3
   br label %6
 
 6:                                                ; preds = %2, %4
@@ -175,10 +175,7 @@ attributes #9 = { memory(none) }
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = distinct !{!3, !4}
-!4 = !{!"llvm.loop.estimated_trip_count"}
-!5 = distinct !{!5, !4}
-!6 = !{!7, !7, i64 0}
-!7 = !{!"int", !8, i64 0}
-!8 = !{!"omnipotent char", !9, i64 0}
-!9 = !{!"Simple C/C++ TBAA"}
+!3 = !{!4, !4, i64 0}
+!4 = !{!"int", !5, i64 0}
+!5 = !{!"omnipotent char", !6, i64 0}
+!6 = !{!"Simple C/C++ TBAA"}

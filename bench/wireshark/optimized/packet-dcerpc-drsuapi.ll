@@ -6936,7 +6936,7 @@ define hidden i32 @drsuapi_dissect_struct_DsReplicaAddRequest2(ptr noundef %0, i
   %44 = tail call i32 @PIDL_dissect_uint8(ptr noundef %0, i32 noundef %.089.i, ptr noundef %2, ptr noundef %.061, ptr noundef %4, ptr noundef %5, i32 noundef %43, i32 noundef 0)
   %45 = add nuw nsw i32 %.010.i, 1
   %exitcond.not.i = icmp eq i32 %45, 84
-  br i1 %exitcond.not.i, label %drsuapi_dissect_element_DsReplicaAddRequest2_schedule.exit, label %42, !llvm.loop !11
+  br i1 %exitcond.not.i, label %drsuapi_dissect_element_DsReplicaAddRequest2_schedule.exit, label %42, !llvm.loop !10
 
 drsuapi_dissect_element_DsReplicaAddRequest2_schedule.exit: ; preds = %42
   %46 = load i32, ptr @hf_drsuapi_drsuapi_DsReplicaAddRequest2_options, align 4
@@ -7169,7 +7169,7 @@ define hidden i32 @drsuapi_dissect_struct_DsReplicaModRequest1(ptr noundef %0, i
   %43 = tail call i32 @PIDL_dissect_uint8(ptr noundef %0, i32 noundef %.089.i, ptr noundef %2, ptr noundef %.067, ptr noundef %4, ptr noundef %5, i32 noundef %42, i32 noundef 0)
   %44 = add nuw nsw i32 %.010.i, 1
   %exitcond.not.i = icmp eq i32 %44, 84
-  br i1 %exitcond.not.i, label %drsuapi_dissect_element_DsReplicaModRequest1_schedule.exit, label %41, !llvm.loop !12
+  br i1 %exitcond.not.i, label %drsuapi_dissect_element_DsReplicaModRequest1_schedule.exit, label %41, !llvm.loop !11
 
 drsuapi_dissect_element_DsReplicaModRequest1_schedule.exit: ; preds = %41
   %45 = load i32, ptr @hf_drsuapi_drsuapi_DsReplicaModRequest1_replica_flags, align 4
@@ -19115,8 +19115,7 @@ attributes #5 = { nounwind }
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i8 0, i8 2}
 !7 = !{}
-!8 = distinct !{!8, !9, !10}
+!8 = distinct !{!8, !9}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = !{!"llvm.loop.estimated_trip_count"}
-!11 = distinct !{!11, !9, !10}
-!12 = distinct !{!12, !9, !10}
+!10 = distinct !{!10, !9}
+!11 = distinct !{!11, !9}

@@ -371,7 +371,7 @@ define internal fastcc void @__linkwatch_run_queue(i32 noundef range(i32 0, 2) %
   %87 = getelementptr inbounds nuw i8, ptr %84, i64 16
   %88 = load volatile ptr, ptr %87, align 16
   %89 = icmp eq ptr %86, %88
-  br i1 %89, label %79, label %linkwatch_urgent_event.exit, !llvm.loop !10
+  br i1 %89, label %79, label %linkwatch_urgent_event.exit, !llvm.loop !7
 
 linkwatch_urgent_event.exit:                      ; preds = %83
   %90 = icmp samesign ult i64 %81, %78
@@ -383,7 +383,7 @@ linkwatch_urgent_event.exit.thread8:              ; preds = %79, %66, %62, %39, 
   store ptr @lweventlist, ptr %27, align 8
   store ptr %91, ptr %30, align 8
   store volatile ptr %27, ptr %91, align 8
-  br label %110, !llvm.loop !12
+  br label %110, !llvm.loop !10
 
 linkwatch_urgent_event.exit.thread:               ; preds = %48, %57, %69, %43, %linkwatch_urgent_event.exit, %38
   call void @_raw_spin_unlock_irq(ptr noundef nonnull @lweventlist_lock) #4
@@ -434,7 +434,7 @@ linkwatch_urgent_event.exit.thread:               ; preds = %48, %57, %69, %43, 
   %113 = icmp ne ptr %112, %2
   %114 = icmp sgt i32 %111, 0
   %115 = select i1 %113, i1 %114, i1 false
-  br i1 %115, label %.preheader, label %.loopexit, !llvm.loop !13
+  br i1 %115, label %.preheader, label %.loopexit
 
 .loopexit:                                        ; preds = %110, %24
   %116 = load volatile ptr, ptr %2, align 8
@@ -568,7 +568,7 @@ define dso_local void @linkwatch_fire_event(ptr noundef %0) #0 align 16 {
   %50 = getelementptr inbounds nuw i8, ptr %47, i64 16
   %51 = load volatile ptr, ptr %50, align 16
   %52 = icmp eq ptr %49, %51
-  br i1 %52, label %42, label %53, !llvm.loop !10
+  br i1 %52, label %42, label %53, !llvm.loop !7
 
 53:                                               ; preds = %46, %42
   %.lcssa.i = phi i64 [ %44, %46 ], [ %41, %42 ]
@@ -577,7 +577,7 @@ define dso_local void @linkwatch_fire_event(ptr noundef %0) #0 align 16 {
 
 linkwatch_urgent_event.exit:                      ; preds = %1, %6, %11, %20, %25, %29, %32, %53
   %55 = phi i1 [ false, %1 ], [ true, %6 ], [ false, %25 ], [ false, %29 ], [ true, %32 ], [ %54, %53 ], [ true, %20 ], [ true, %11 ]
-  %56 = tail call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $2, $0\0A\09/* output condition code c*/\0A", "=*m,={@ccc},Ir,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %2, i64 3, ptr nonnull elementtype(i64) %2) #4, !srcloc !14
+  %56 = tail call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $2, $0\0A\09/* output condition code c*/\0A", "=*m,={@ccc},Ir,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %2, i64 3, ptr nonnull elementtype(i64) %2) #4, !srcloc !11
   %57 = icmp ult i8 %56, 2
   tail call void @llvm.assume(i1 %57)
   %58 = icmp eq i8 %56, 0
@@ -603,7 +603,7 @@ linkwatch_urgent_event.exit:                      ; preds = %1, %6, %11, %20, %2
 68:                                               ; preds = %64
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 1280
   %70 = load ptr, ptr %69, align 8
-  tail call void asm sideeffect "incl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %70, ptr elementtype(i32) %70) #4, !srcloc !15
+  tail call void asm sideeffect "incl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %70, ptr elementtype(i32) %70) #4, !srcloc !12
   br label %72
 
 71:                                               ; preds = %linkwatch_urgent_event.exit
@@ -630,7 +630,7 @@ linkwatch_urgent_event.exit:                      ; preds = %1, %6, %11, %20, %2
   br i1 %55, label %.thread2, label %87
 
 .thread2:                                         ; preds = %.thread, %82
-  %84 = tail call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $2, $0\0A\09/* output condition code c*/\0A", "=*m,={@ccc},Ir,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @linkwatch_flags, i64 0, ptr nonnull elementtype(i64) @linkwatch_flags) #4, !srcloc !14
+  %84 = tail call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $2, $0\0A\09/* output condition code c*/\0A", "=*m,={@ccc},Ir,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @linkwatch_flags, i64 0, ptr nonnull elementtype(i64) @linkwatch_flags) #4, !srcloc !11
   %85 = icmp ult i8 %84, 2
   tail call void @llvm.assume(i1 %85)
   %86 = icmp eq i8 %84, 0
@@ -737,9 +737,6 @@ attributes #4 = { nounwind }
 !7 = distinct !{!7, !8, !9}
 !8 = !{!"llvm.loop.mustprogress"}
 !9 = !{!"llvm.loop.unroll.disable"}
-!10 = distinct !{!10, !8, !9, !11}
-!11 = !{!"llvm.loop.estimated_trip_count"}
-!12 = distinct !{!12, !8, !9}
-!13 = distinct !{!13, !11}
-!14 = !{i64 2148468689, i64 2148468728, i64 2148468749, i64 2148468786, i64 2148468809, i64 2148468818, i64 2148468921}
-!15 = !{i64 2156404180}
+!10 = distinct !{!10, !8, !9}
+!11 = !{i64 2148468689, i64 2148468728, i64 2148468749, i64 2148468786, i64 2148468809, i64 2148468818, i64 2148468921}
+!12 = !{i64 2156404180}

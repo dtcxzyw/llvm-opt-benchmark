@@ -163,7 +163,7 @@ aom_rb_read_bit.exit:                             ; preds = %16, %24, %26
   %28 = shl nuw i32 %.0.i, %.0
   %29 = or i32 %28, %.067
   %30 = icmp samesign ugt i32 %.0.in8, 1
-  br i1 %30, label %8, label %._crit_edge, !llvm.loop !7
+  br i1 %30, label %8, label %._crit_edge, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %aom_rb_read_bit.exit, %2
   %.06.lcssa = phi i32 [ 0, %2 ], [ %29, %aom_rb_read_bit.exit ]
@@ -276,7 +276,7 @@ aom_rb_read_bit.exit:                             ; preds = %6
 aom_rb_read_bit.exit.thread:                      ; preds = %14, %16, %aom_rb_read_bit.exit
   %25 = add nuw nsw i32 %.0916, 1
   %exitcond.not = icmp eq i32 %25, 32
-  br i1 %exitcond.not, label %.critedge, label %6, !llvm.loop !8
+  br i1 %exitcond.not, label %.critedge, label %6, !llvm.loop !7
 
 .critedge.thread:                                 ; preds = %aom_rb_read_bit.exit
   %notmask = shl nsw i32 -1, %.0916
@@ -569,7 +569,7 @@ aom_rb_read_literal.exit.i.i:                     ; preds = %aom_rb_read_bit.exi
   %132 = shl i32 3, %131
   %133 = add nsw i32 %132, %130
   %.not22.i.i = icmp slt i32 %133, %10
-  br i1 %.not22.i.i, label %79, label %._crit_edge.loopexit.i.i, !llvm.loop !9
+  br i1 %.not22.i.i, label %79, label %._crit_edge.loopexit.i.i
 
 aom_rb_read_primitive_subexpfin.exit.i:           ; preds = %aom_rb_read_literal.exit.i.i, %aom_rb_read_primitive_quniform.exit.i.i
   %.0.i.i = phi i16 [ %78, %aom_rb_read_primitive_quniform.exit.i.i ], [ %127, %aom_rb_read_literal.exit.i.i ]
@@ -652,9 +652,7 @@ attributes #3 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5, !6}
+!4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{!"llvm.loop.estimated_trip_count"}
-!7 = distinct !{!7, !5, !6}
-!8 = distinct !{!8, !5, !6}
-!9 = distinct !{!9, !6}
+!6 = distinct !{!6, !5}
+!7 = distinct !{!7, !5}

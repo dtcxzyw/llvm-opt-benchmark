@@ -332,7 +332,7 @@ define internal noundef i32 @mincore_pte_range(ptr noundef %0, i64 noundef %1, i
 32:                                               ; preds = %22
   %33 = load ptr, ptr %18, align 8
   %34 = icmp eq ptr %33, null
-  br i1 %34, label %__mincore_unmapped_range.exit, label %35, !llvm.loop !18
+  br i1 %34, label %__mincore_unmapped_range.exit, label %35, !llvm.loop !17
 
 35:                                               ; preds = %32
   %36 = load i64, ptr %8, align 8
@@ -344,7 +344,7 @@ define internal noundef i32 @mincore_pte_range(ptr noundef %0, i64 noundef %1, i
   %42 = load ptr, ptr %41, align 8
   %43 = call ptr @filemap_get_incore_folio(ptr noundef %42, i64 noundef %40) #7
   %44 = icmp ugt ptr %43, inttoptr (i64 -4096 to ptr)
-  br i1 %44, label %__mincore_unmapped_range.exit, label %45, !llvm.loop !19
+  br i1 %44, label %__mincore_unmapped_range.exit, label %45, !llvm.loop !18
 
 45:                                               ; preds = %35
   %46 = load volatile i64, ptr %43, align 8
@@ -353,21 +353,21 @@ define internal noundef i32 @mincore_pte_range(ptr noundef %0, i64 noundef %1, i
   br i1 %48, label %50, label %49
 
 49:                                               ; preds = %45
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !20
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !19
   br label %50
 
 50:                                               ; preds = %49, %45
   %51 = lshr exact i64 %47, 3
   %52 = trunc nuw nsw i64 %51 to i8
   %53 = getelementptr inbounds nuw i8, ptr %43, i64 52
-  %54 = call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %53, ptr nonnull elementtype(i32) %53) #7, !srcloc !21
+  %54 = call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %53, ptr nonnull elementtype(i32) %53) #7, !srcloc !20
   %55 = icmp ult i8 %54, 2
   call void @llvm.assume(i1 %55)
   %56 = icmp eq i8 %54, 0
-  br i1 %56, label %__mincore_unmapped_range.exit, label %57, !llvm.loop !19
+  br i1 %56, label %__mincore_unmapped_range.exit, label %57, !llvm.loop !18
 
 57:                                               ; preds = %50
-  br label %__mincore_unmapped_range.exit.sink.split, !llvm.loop !19
+  br label %__mincore_unmapped_range.exit.sink.split, !llvm.loop !18
 
 58:                                               ; preds = %22
   %59 = and i64 %26, 257
@@ -396,14 +396,14 @@ define internal noundef i32 @mincore_pte_range(ptr noundef %0, i64 noundef %1, i
   br i1 %76, label %78, label %77
 
 77:                                               ; preds = %73
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !20
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !19
   br label %78
 
 78:                                               ; preds = %77, %73
   %79 = lshr exact i64 %75, 3
   %80 = trunc nuw nsw i64 %79 to i8
   %81 = getelementptr inbounds nuw i8, ptr %71, i64 52
-  %82 = call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %81, ptr nonnull elementtype(i32) %81) #7, !srcloc !21
+  %82 = call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %81, ptr nonnull elementtype(i32) %81) #7, !srcloc !20
   %83 = icmp ult i8 %82, 2
   call void @llvm.assume(i1 %83)
   %84 = icmp eq i8 %82, 0
@@ -422,7 +422,7 @@ __mincore_unmapped_range.exit:                    ; preds = %__mincore_unmapped_
   %86 = getelementptr i8, ptr %24, i64 8
   %87 = add i64 %25, 4096
   %88 = icmp eq i64 %87, %2
-  br i1 %88, label %.loopexit, label %22, !llvm.loop !22
+  br i1 %88, label %.loopexit, label %22, !llvm.loop !21
 
 .loopexit:                                        ; preds = %__mincore_unmapped_range.exit, %16
   %89 = load ptr, ptr %6, align 8
@@ -488,14 +488,14 @@ define internal noundef i32 @mincore_unmapped_range(i64 noundef %0, i64 noundef 
   br i1 %36, label %38, label %37
 
 37:                                               ; preds = %33
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !20
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !19
   br label %38
 
 38:                                               ; preds = %37, %33
   %39 = lshr exact i64 %35, 3
   %40 = trunc nuw nsw i64 %39 to i8
   %41 = getelementptr inbounds nuw i8, ptr %31, i64 52
-  %42 = tail call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %41, ptr nonnull elementtype(i32) %41) #7, !srcloc !21
+  %42 = tail call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %41, ptr nonnull elementtype(i32) %41) #7, !srcloc !20
   %43 = icmp ult i8 %42, 2
   tail call void @llvm.assume(i1 %43)
   %44 = icmp eq i8 %42, 0
@@ -513,7 +513,7 @@ define internal noundef i32 @mincore_unmapped_range(i64 noundef %0, i64 noundef 
   %50 = add i64 %26, 1
   %51 = sext i32 %49 to i64
   %52 = icmp ugt i64 %10, %51
-  br i1 %52, label %24, label %__mincore_unmapped_range.exit, !llvm.loop !19
+  br i1 %52, label %24, label %__mincore_unmapped_range.exit, !llvm.loop !18
 
 .preheader.i:                                     ; preds = %15, %.preheader.i
   %53 = phi i64 [ %57, %.preheader.i ], [ 0, %15 ]
@@ -523,7 +523,7 @@ define internal noundef i32 @mincore_unmapped_range(i64 noundef %0, i64 noundef 
   %56 = add i32 %54, 1
   %57 = sext i32 %56 to i64
   %58 = icmp ugt i64 %10, %57
-  br i1 %58, label %.preheader.i, label %__mincore_unmapped_range.exit, !llvm.loop !18
+  br i1 %58, label %.preheader.i, label %__mincore_unmapped_range.exit, !llvm.loop !17
 
 __mincore_unmapped_range.exit:                    ; preds = %46, %.preheader.i, %15, %16
   %59 = load ptr, ptr %7, align 8
@@ -637,12 +637,11 @@ attributes #8 = { nounwind memory(none) }
 !11 = !{i64 2149648122, i64 2149647936, i64 2149647988, i64 2149648034, i64 2149648062}
 !12 = !{i64 2149648193, i64 2149648222, i64 2149648268, i64 2149648326, i64 2149648380, i64 2149648434, i64 2149648489, i64 2149648520, i64 2149648828, i64 2149648834, i64 2149648881, i64 2149648904, i64 2149648930}
 !13 = !{i64 2149649385, i64 2149649201, i64 2149649251, i64 2149649297, i64 2149649325}
-!14 = distinct !{!14, !15, !16, !17}
+!14 = distinct !{!14, !15, !16}
 !15 = !{!"llvm.loop.mustprogress"}
 !16 = !{!"llvm.loop.unroll.disable"}
-!17 = !{!"llvm.loop.estimated_trip_count"}
-!18 = distinct !{!18, !15, !16, !17}
-!19 = distinct !{!19, !15, !16, !17}
-!20 = !{i64 2151181656}
-!21 = !{i64 2149030335, i64 2149030374, i64 2149030395, i64 2149030432, i64 2149030455, i64 2149030464, i64 2149030538}
-!22 = distinct !{!22, !15, !16, !17}
+!17 = distinct !{!17, !15, !16}
+!18 = distinct !{!18, !15, !16}
+!19 = !{i64 2151181656}
+!20 = !{i64 2149030335, i64 2149030374, i64 2149030395, i64 2149030432, i64 2149030455, i64 2149030464, i64 2149030538}
+!21 = distinct !{!21, !15, !16}

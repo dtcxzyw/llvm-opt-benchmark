@@ -156,7 +156,7 @@ default.unreachable:                              ; preds = %17
   %.1 = phi i32 [ %.07196, %29 ], [ %43, %42 ], [ 0, %44 ], [ %.07196, %41 ]
   %indvars.iv.next104 = add nuw nsw i64 %indvars.iv103, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next104, 80
-  br i1 %exitcond.not, label %.critedge2, label %.lr.ph, !llvm.loop !7
+  br i1 %exitcond.not, label %.critedge2, label %.lr.ph, !llvm.loop !6
 
 .critedge2:                                       ; preds = %46, %.lr.ph, %.critedge
   %.070 = phi i32 [ 0, %.critedge ], [ 1, %.lr.ph ], [ 1, %46 ]
@@ -287,7 +287,7 @@ define noundef range(i32 -98, 2) i32 @_Z18ConvertPlayFromPBNRK12playTracePBNR12p
   store i32 %20, ptr %23, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
   %24 = icmp samesign ult i64 %indvars.iv.next, %9
-  br i1 %24, label %10, label %.loopexit, !llvm.loop !8
+  br i1 %24, label %10, label %.loopexit, !llvm.loop !7
 
 .loopexit:                                        ; preds = %14, %22, %10, %4, %2
   %.0 = phi i32 [ -98, %2 ], [ 1, %4 ], [ -98, %14 ], [ 1, %22 ], [ -98, %10 ]
@@ -308,8 +308,7 @@ attributes #3 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5, !6}
+!4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{!"llvm.loop.estimated_trip_count"}
-!7 = distinct !{!7, !5, !6}
-!8 = distinct !{!8, !5, !6}
+!6 = distinct !{!6, !5}
+!7 = distinct !{!7, !5}

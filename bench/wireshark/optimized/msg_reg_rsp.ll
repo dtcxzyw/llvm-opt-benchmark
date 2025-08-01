@@ -253,7 +253,7 @@ define internal i32 @dissect_mac_mgmt_msg_reg_rsp_decoder(ptr noundef %0, ptr no
 77:                                               ; preds = %28
   %78 = load i32, ptr @hf_reg_rsp_system_resource_retain_time, align 4
   %79 = call ptr @add_tlv_subtree(ptr noundef nonnull %5, ptr noundef %11, i32 noundef %78, ptr noundef %0, i32 noundef %.0168, i32 noundef 0)
-  %80 = load i8, ptr @include_cor2_changes, align 1, !range !9, !noundef !10
+  %80 = load i8, ptr @include_cor2_changes, align 1, !range !8, !noundef !9
   %81 = trunc nuw i8 %80 to i1
   br i1 %81, label %82, label %83
 
@@ -298,7 +298,7 @@ define internal i32 @dissect_mac_mgmt_msg_reg_rsp_decoder(ptr noundef %0, ptr no
   br label %.loopexit
 
 104:                                              ; preds = %28, %28
-  %105 = load i8, ptr @include_cor2_changes, align 1, !range !9, !noundef !10
+  %105 = load i8, ptr @include_cor2_changes, align 1, !range !8, !noundef !9
   %106 = trunc nuw i8 %105 to i1
   %or.cond.v = select i1 %106, i32 140, i32 150
   %or.cond = icmp eq i32 %18, %or.cond.v
@@ -331,7 +331,7 @@ define internal i32 @dissect_mac_mgmt_msg_reg_rsp_decoder(ptr noundef %0, ptr no
   %.1 = phi i1 [ %.0155167, %118 ], [ %.0155167, %31 ], [ %.0155167, %33 ], [ %.0155167, %36 ], [ %.0155167, %50 ], [ %.0155167, %82 ], [ %.0155167, %83 ], [ %.0155167, %84 ], [ %.0155167, %89 ], [ true, %94 ], [ %.0155167, %99 ], [ %.0155167, %107 ], [ %.0155167, %111 ], [ %.0155167, %114 ], [ %.0155167, %39 ], [ %.0155167, %74 ]
   %121 = add i32 %30, %19
   %122 = icmp ult i32 %121, %7
-  br i1 %122, label %16, label %.loopexit162, !llvm.loop !11
+  br i1 %122, label %16, label %.loopexit162, !llvm.loop !10
 
 .loopexit162:                                     ; preds = %.loopexit
   br i1 %.1, label %123, label %.critedge
@@ -444,9 +444,8 @@ attributes #3 = { nounwind }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = !{i8 0, i8 2}
-!10 = !{}
-!11 = distinct !{!11, !7, !8}
+!8 = !{i8 0, i8 2}
+!9 = !{}
+!10 = distinct !{!10, !7}

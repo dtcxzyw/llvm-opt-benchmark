@@ -641,7 +641,7 @@ define internal void @ws_evhttp_read_cb(ptr readnone captures(none) %0, ptr noun
   %42 = or i64 %41, %.07289.i
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -8
   %exitcond.not.i = icmp eq i64 %37, 10
-  br i1 %exitcond.not.i, label %43, label %.preheader.i, !llvm.loop !8
+  br i1 %exitcond.not.i, label %43, label %.preheader.i, !llvm.loop !7
 
 43:                                               ; preds = %.preheader.i
   %44 = icmp ugt i64 %42, 10485760
@@ -683,7 +683,7 @@ define internal void @ws_evhttp_read_cb(ptr readnone captures(none) %0, ptr noun
   store i8 %62, ptr %57, align 1
   %63 = add nuw nsw i64 %.090.i, 1
   %exitcond94.not.i = icmp eq i64 %63, %.069.i
-  br i1 %exitcond94.not.i, label %.loopexit.i, label %.lr.ph.i, !llvm.loop !9
+  br i1 %exitcond94.not.i, label %.loopexit.i, label %.lr.ph.i, !llvm.loop !8
 
 .loopexit.i:                                      ; preds = %.lr.ph.i, %53, %52
   %.4.i = phi i64 [ %.074.i, %52 ], [ %55, %53 ], [ %55, %.lr.ph.i ]
@@ -760,7 +760,7 @@ get_ws_frame.exit:                                ; preds = %67
 96:                                               ; preds = %94, %get_ws_frame.exit.thread66
   %97 = phi ptr [ %95, %94 ], [ %73, %get_ws_frame.exit.thread66 ]
   %98 = call i32 @evbuffer_remove_buffer(ptr noundef %7, ptr noundef %97, i64 noundef %.069.i) #9
-  br label %117, !llvm.loop !10
+  br label %117, !llvm.loop !9
 
 99:                                               ; preds = %get_ws_frame.exit.thread58, %get_ws_frame.exit
   %.265 = phi i64 [ %.2.ph, %get_ws_frame.exit.thread58 ], [ %.069.i, %get_ws_frame.exit ]
@@ -887,7 +887,7 @@ define internal fastcc void @evws_send(ptr noundef readonly captures(none) %0, i
   store i8 %22, ptr %24, align 1
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -8
   %exitcond.not.i = icmp eq i64 %23, 10
-  br i1 %exitcond.not.i, label %make_ws_frame.exit, label %20, !llvm.loop !11
+  br i1 %exitcond.not.i, label %make_ws_frame.exit, label %20, !llvm.loop !10
 
 .loopexit.sink.split.i:                           ; preds = %15, %4
   %.sink29.i.sroa.phi = phi ptr [ %.sink29.i.sroa.gep, %15 ], [ %.sink29.i.sroa.gep6, %4 ]
@@ -978,10 +978,9 @@ attributes #10 = { nounwind willreturn memory(read) }
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i8 0, i8 2}
 !4 = !{}
-!5 = distinct !{!5, !6, !7}
+!5 = distinct !{!5, !6}
 !6 = !{!"llvm.loop.mustprogress"}
-!7 = !{!"llvm.loop.estimated_trip_count"}
-!8 = distinct !{!8, !6, !7}
-!9 = distinct !{!9, !6, !7}
+!7 = distinct !{!7, !6}
+!8 = distinct !{!8, !6}
+!9 = distinct !{!9, !6}
 !10 = distinct !{!10, !6}
-!11 = distinct !{!11, !6, !7}

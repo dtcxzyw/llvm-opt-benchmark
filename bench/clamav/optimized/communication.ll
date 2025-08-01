@@ -88,7 +88,7 @@ define dso_local range(i32 0, 2) i32 @onas_sendln(ptr noundef %0, ptr noundef %1
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %6) #9
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #9
   %37 = icmp slt i32 %36, 1
-  br i1 %37, label %38, label %19, !llvm.loop !13
+  br i1 %37, label %38, label %19
 
 38:                                               ; preds = %22
   %39 = call i32 (i32, ptr, ...) @logg(i32 noundef 5, ptr noundef nonnull @.str.1) #9
@@ -119,7 +119,7 @@ define dso_local range(i32 0, 2) i32 @onas_sendln(ptr noundef %0, ptr noundef %1
   %53 = getelementptr inbounds nuw i8, ptr %.01320, i64 %40
   %54 = sub i64 %.01221, %40
   %.not17 = icmp eq i64 %54, 0
-  br i1 %.not17, label %.loopexit, label %.preheader, !llvm.loop !15
+  br i1 %.not17, label %.loopexit, label %.preheader
 
 .loopexit:                                        ; preds = %52, %.preheader18, %49, %46, %38, %16
   %.0 = phi i32 [ 1, %16 ], [ 1, %38 ], [ 1, %46 ], [ 1, %49 ], [ 0, %.preheader18 ], [ 0, %52 ]
@@ -151,17 +151,17 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define dso_local void @onas_recvlninit(ptr noundef initializes((5128, 5140)) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #5 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 5128
-  store ptr %1, ptr %4, align 8, !tbaa !16
+  store ptr %1, ptr %4, align 8, !tbaa !13
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 5136
-  store i32 0, ptr %5, align 8, !tbaa !20
+  store i32 0, ptr %5, align 8, !tbaa !17
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 5152
-  store ptr %0, ptr %6, align 8, !tbaa !21
+  store ptr %0, ptr %6, align 8, !tbaa !18
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 5160
-  store ptr %0, ptr %7, align 8, !tbaa !22
+  store ptr %0, ptr %7, align 8, !tbaa !19
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 5144
-  store i64 0, ptr %8, align 8, !tbaa !23
+  store i64 0, ptr %8, align 8, !tbaa !20
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 5120
-  store i32 %2, ptr %9, align 8, !tbaa !24
+  store i32 %2, ptr %9, align 8, !tbaa !21
   ret void
 }
 
@@ -174,10 +174,10 @@ define dso_local i32 @onas_recvln(ptr noundef initializes((5136, 5140)) %0, ptr 
   %9 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #9
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 5128
-  %11 = load ptr, ptr %10, align 8, !tbaa !16
+  %11 = load ptr, ptr %10, align 8, !tbaa !13
   %12 = call i32 (ptr, i32, ...) @curl_easy_getinfo(ptr noundef %11, i32 noundef 5242924, ptr noundef nonnull %9) #9
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 5136
-  store i32 %12, ptr %13, align 8, !tbaa !20
+  store i32 %12, ptr %13, align 8, !tbaa !17
   %.not = icmp eq i32 %12, 0
   br i1 %.not, label %.preheader76, label %22
 
@@ -191,7 +191,7 @@ define dso_local i32 @onas_recvln(ptr noundef initializes((5136, 5140)) %0, ptr 
   %19 = mul nuw nsw i64 %18, 1000
   %20 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 5160
-  %.pre = load i64, ptr %14, align 8, !tbaa !23
+  %.pre = load i64, ptr %14, align 8, !tbaa !20
   br label %25
 
 22:                                               ; preds = %4
@@ -205,16 +205,16 @@ define dso_local i32 @onas_recvln(ptr noundef initializes((5136, 5140)) %0, ptr 
   br i1 %.not65, label %.preheader, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %25
-  %.pre97 = load ptr, ptr %15, align 8, !tbaa !21
+  %.pre97 = load ptr, ptr %15, align 8, !tbaa !18
   br label %62
 
 .preheader:                                       ; preds = %25, %51
-  %27 = load ptr, ptr %10, align 8, !tbaa !16
-  %28 = load ptr, ptr %15, align 8, !tbaa !21
+  %27 = load ptr, ptr %10, align 8, !tbaa !13
+  %28 = load ptr, ptr %15, align 8, !tbaa !18
   %29 = ptrtoint ptr %28 to i64
   %30 = sub i64 %.neg, %29
   %31 = call i32 @curl_easy_recv(ptr noundef %27, ptr noundef %28, i64 noundef %30, ptr noundef nonnull %14) #9
-  store i32 %31, ptr %13, align 8, !tbaa !20
+  store i32 %31, ptr %13, align 8, !tbaa !17
   %32 = icmp eq i32 %31, 81
   br i1 %32, label %33, label %.thread
 
@@ -256,14 +256,14 @@ define dso_local i32 @onas_recvln(ptr noundef initializes((5136, 5140)) %0, ptr 
   br label %93
 
 51:                                               ; preds = %33
-  %.pr = load i32, ptr %13, align 8, !tbaa !20
+  %.pr = load i32, ptr %13, align 8, !tbaa !17
   %52 = icmp eq i32 %.pr, 81
-  br i1 %52, label %.preheader, label %.thread, !llvm.loop !25
+  br i1 %52, label %.preheader, label %.thread
 
 .thread:                                          ; preds = %.preheader, %51
-  %53 = load i64, ptr %14, align 8, !tbaa !23
+  %53 = load i64, ptr %14, align 8, !tbaa !20
   %54 = icmp eq i64 %53, 0
-  %.pre98 = load ptr, ptr %15, align 8, !tbaa !21
+  %.pre98 = load ptr, ptr %15, align 8, !tbaa !18
   br i1 %54, label %55, label %62
 
 55:                                               ; preds = %.thread
@@ -271,7 +271,7 @@ define dso_local i32 @onas_recvln(ptr noundef initializes((5136, 5140)) %0, ptr 
   br i1 %.not67, label %93, label %56
 
 56:                                               ; preds = %55
-  store i8 0, ptr %.pre98, align 1, !tbaa !26
+  store i8 0, ptr %.pre98, align 1, !tbaa !22
   %57 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(17) @.str.4) #11
   %.not68 = icmp eq i32 %57, 0
   br i1 %.not68, label %60, label %58
@@ -297,15 +297,15 @@ define dso_local i32 @onas_recvln(ptr noundef initializes((5136, 5140)) %0, ptr 
   %69 = ptrtoint ptr %63 to i64
   %.neg71 = sub i64 %69, %68
   %70 = add i64 %.neg71, %64
-  store i64 %70, ptr %14, align 8, !tbaa !23
-  %71 = load ptr, ptr %21, align 8, !tbaa !22
-  store ptr %71, ptr %1, align 8, !tbaa !27
+  store i64 %70, ptr %14, align 8, !tbaa !20
+  %71 = load ptr, ptr %21, align 8, !tbaa !19
+  store ptr %71, ptr %1, align 8, !tbaa !23
   %.not72 = icmp eq ptr %2, null
   br i1 %.not72, label %73, label %72
 
 72:                                               ; preds = %66
-  store ptr %67, ptr %2, align 8, !tbaa !27
-  %.pre95 = load ptr, ptr %21, align 8, !tbaa !22
+  store ptr %67, ptr %2, align 8, !tbaa !23
+  %.pre95 = load ptr, ptr %21, align 8, !tbaa !19
   br label %73
 
 73:                                               ; preds = %72, %66
@@ -315,17 +315,17 @@ define dso_local i32 @onas_recvln(ptr noundef initializes((5136, 5140)) %0, ptr 
   %77 = trunc i64 %76 to i32
   %.not73 = icmp eq i64 %70, 0
   %. = select i1 %.not73, ptr %0, ptr %67
-  store ptr %., ptr %15, align 8, !tbaa !21
-  store ptr %., ptr %21, align 8, !tbaa !22
+  store ptr %., ptr %15, align 8, !tbaa !18
+  store ptr %., ptr %21, align 8, !tbaa !19
   br label %93
 
 78:                                               ; preds = %62
-  %79 = load ptr, ptr %21, align 8, !tbaa !22
+  %79 = load ptr, ptr %21, align 8, !tbaa !19
   %80 = ptrtoint ptr %63 to i64
   %81 = ptrtoint ptr %79 to i64
   %82 = sub i64 %80, %81
   %83 = add i64 %82, %64
-  store i64 %83, ptr %14, align 8, !tbaa !23
+  store i64 %83, ptr %14, align 8, !tbaa !20
   %84 = icmp eq i64 %83, 5120
   br i1 %84, label %85, label %87
 
@@ -339,17 +339,17 @@ define dso_local i32 @onas_recvln(ptr noundef initializes((5136, 5140)) %0, ptr 
 
 88:                                               ; preds = %87
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %0, ptr align 1 %79, i64 %83, i1 false)
-  store ptr %0, ptr %21, align 8, !tbaa !22
-  %.pre96 = load i64, ptr %14, align 8, !tbaa !23
+  store ptr %0, ptr %21, align 8, !tbaa !19
+  %.pre96 = load i64, ptr %14, align 8, !tbaa !20
   br label %89
 
 89:                                               ; preds = %88, %87
   %90 = phi i64 [ %.pre96, %88 ], [ %83, %87 ]
   %91 = phi ptr [ %0, %88 ], [ %79, %87 ]
   %92 = getelementptr inbounds nuw i8, ptr %91, i64 %90
-  store ptr %92, ptr %15, align 8, !tbaa !21
-  store i64 0, ptr %14, align 8, !tbaa !23
-  br label %25, !llvm.loop !28
+  store ptr %92, ptr %15, align 8, !tbaa !18
+  store i64 0, ptr %14, align 8, !tbaa !20
+  br label %25
 
 93:                                               ; preds = %55, %58, %60, %85, %73, %49, %22
   %.0 = phi i32 [ -1, %22 ], [ %77, %73 ], [ -1, %85 ], [ -1, %49 ], [ -1, %60 ], [ -1, %58 ], [ 0, %55 ]
@@ -376,8 +376,8 @@ define dso_local i32 @onas_fd_recvln(ptr noundef %0, ptr noundef writeonly captu
   %8 = ptrtoint ptr %0 to i64
   %.neg = add i64 %8, 5120
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 5160
-  %.pre = load i64, ptr %5, align 8, !tbaa !23
-  %.pre83.pre = load ptr, ptr %7, align 8, !tbaa !21
+  %.pre = load i64, ptr %5, align 8, !tbaa !20
+  %.pre83.pre = load ptr, ptr %7, align 8, !tbaa !18
   br label %10
 
 10:                                               ; preds = %52, %4
@@ -387,13 +387,13 @@ define dso_local i32 @onas_fd_recvln(ptr noundef %0, ptr noundef writeonly captu
   br i1 %.not, label %12, label %._crit_edge
 
 12:                                               ; preds = %10
-  %13 = load i32, ptr %6, align 8, !tbaa !24
+  %13 = load i32, ptr %6, align 8, !tbaa !21
   %14 = ptrtoint ptr %.pre83 to i64
   %15 = sub i64 %.neg, %14
   %16 = tail call i64 @recv(i32 noundef %13, ptr noundef %.pre83, i64 noundef %15, i32 noundef 0) #9
-  store i64 %16, ptr %5, align 8, !tbaa !23
+  store i64 %16, ptr %5, align 8, !tbaa !20
   %17 = icmp eq i64 %16, 0
-  %18 = load ptr, ptr %7, align 8, !tbaa !21
+  %18 = load ptr, ptr %7, align 8, !tbaa !18
   br i1 %17, label %19, label %._crit_edge
 
 19:                                               ; preds = %12
@@ -401,7 +401,7 @@ define dso_local i32 @onas_fd_recvln(ptr noundef %0, ptr noundef writeonly captu
   br i1 %.not57, label %56, label %20
 
 20:                                               ; preds = %19
-  store i8 0, ptr %18, align 1, !tbaa !26
+  store i8 0, ptr %18, align 1, !tbaa !22
   %21 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(17) @.str.4) #11
   %.not58 = icmp eq i32 %21, 0
   br i1 %.not58, label %24, label %22
@@ -427,15 +427,15 @@ define dso_local i32 @onas_fd_recvln(ptr noundef %0, ptr noundef writeonly captu
   %32 = ptrtoint ptr %27 to i64
   %.neg61 = sub i64 %32, %31
   %33 = add i64 %.neg61, %26
-  store i64 %33, ptr %5, align 8, !tbaa !23
-  %34 = load ptr, ptr %9, align 8, !tbaa !22
-  store ptr %34, ptr %1, align 8, !tbaa !27
+  store i64 %33, ptr %5, align 8, !tbaa !20
+  %34 = load ptr, ptr %9, align 8, !tbaa !19
+  store ptr %34, ptr %1, align 8, !tbaa !23
   %.not62 = icmp eq ptr %2, null
   br i1 %.not62, label %36, label %35
 
 35:                                               ; preds = %29
-  store ptr %30, ptr %2, align 8, !tbaa !27
-  %.pre84 = load ptr, ptr %9, align 8, !tbaa !22
+  store ptr %30, ptr %2, align 8, !tbaa !23
+  %.pre84 = load ptr, ptr %9, align 8, !tbaa !19
   br label %36
 
 36:                                               ; preds = %35, %29
@@ -445,17 +445,17 @@ define dso_local i32 @onas_fd_recvln(ptr noundef %0, ptr noundef writeonly captu
   %40 = trunc i64 %39 to i32
   %.not63 = icmp eq i64 %33, 0
   %. = select i1 %.not63, ptr %0, ptr %30
-  store ptr %., ptr %7, align 8, !tbaa !21
-  store ptr %., ptr %9, align 8, !tbaa !22
+  store ptr %., ptr %7, align 8, !tbaa !18
+  store ptr %., ptr %9, align 8, !tbaa !19
   br label %56
 
 41:                                               ; preds = %._crit_edge
-  %42 = load ptr, ptr %9, align 8, !tbaa !22
+  %42 = load ptr, ptr %9, align 8, !tbaa !19
   %43 = ptrtoint ptr %27 to i64
   %44 = ptrtoint ptr %42 to i64
   %45 = sub i64 %43, %44
   %46 = add i64 %45, %26
-  store i64 %46, ptr %5, align 8, !tbaa !23
+  store i64 %46, ptr %5, align 8, !tbaa !20
   %47 = icmp eq i64 %46, 5120
   br i1 %47, label %48, label %50
 
@@ -469,17 +469,17 @@ define dso_local i32 @onas_fd_recvln(ptr noundef %0, ptr noundef writeonly captu
 
 51:                                               ; preds = %50
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %0, ptr align 1 %42, i64 %46, i1 false)
-  store ptr %0, ptr %9, align 8, !tbaa !22
-  %.pre85 = load i64, ptr %5, align 8, !tbaa !23
+  store ptr %0, ptr %9, align 8, !tbaa !19
+  %.pre85 = load i64, ptr %5, align 8, !tbaa !20
   br label %52
 
 52:                                               ; preds = %51, %50
   %53 = phi i64 [ %.pre85, %51 ], [ %46, %50 ]
   %54 = phi ptr [ %0, %51 ], [ %42, %50 ]
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 %53
-  store ptr %55, ptr %7, align 8, !tbaa !21
-  store i64 0, ptr %5, align 8, !tbaa !23
-  br label %10, !llvm.loop !29
+  store ptr %55, ptr %7, align 8, !tbaa !18
+  store i64 0, ptr %5, align 8, !tbaa !20
+  br label %10
 
 56:                                               ; preds = %19, %22, %24, %48, %36
   %.0 = phi i32 [ %40, %36 ], [ -1, %48 ], [ -1, %24 ], [ -1, %22 ], [ 0, %19 ]
@@ -521,20 +521,14 @@ attributes #11 = { nounwind willreturn memory(read) }
 !10 = !{!11, !5, i64 0}
 !11 = !{!"timeval", !5, i64 0, !5, i64 8}
 !12 = !{!11, !5, i64 8}
-!13 = distinct !{!13, !14}
-!14 = !{!"llvm.loop.estimated_trip_count"}
-!15 = distinct !{!15, !14}
-!16 = !{!17, !18, i64 5128}
-!17 = !{!"onas_rcvln", !6, i64 0, !9, i64 5120, !18, i64 5128, !9, i64 5136, !5, i64 5144, !19, i64 5152, !19, i64 5160}
-!18 = !{!"any pointer", !6, i64 0}
-!19 = !{!"p1 omnipotent char", !18, i64 0}
-!20 = !{!17, !9, i64 5136}
-!21 = !{!17, !19, i64 5152}
-!22 = !{!17, !19, i64 5160}
-!23 = !{!17, !5, i64 5144}
-!24 = !{!17, !9, i64 5120}
-!25 = distinct !{!25, !14}
-!26 = !{!6, !6, i64 0}
-!27 = !{!19, !19, i64 0}
-!28 = distinct !{!28, !14}
-!29 = distinct !{!29, !14}
+!13 = !{!14, !15, i64 5128}
+!14 = !{!"onas_rcvln", !6, i64 0, !9, i64 5120, !15, i64 5128, !9, i64 5136, !5, i64 5144, !16, i64 5152, !16, i64 5160}
+!15 = !{!"any pointer", !6, i64 0}
+!16 = !{!"p1 omnipotent char", !15, i64 0}
+!17 = !{!14, !9, i64 5136}
+!18 = !{!14, !16, i64 5152}
+!19 = !{!14, !16, i64 5160}
+!20 = !{!14, !5, i64 5144}
+!21 = !{!14, !9, i64 5120}
+!22 = !{!6, !6, i64 0}
+!23 = !{!16, !16, i64 0}

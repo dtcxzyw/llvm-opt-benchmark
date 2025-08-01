@@ -395,7 +395,7 @@ for.body:                                         ; preds = %entry, %for.body
   %add = add i64 %call3, %pos.010
   %call4 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findERKS4_m(ptr noundef nonnull align 8 dereferenceable(32) %target, ptr noundef nonnull align 8 dereferenceable(32) %search, i64 noundef %add) #12
   %cmp.not = icmp eq i64 %call4, -1
-  br i1 %cmp.not, label %for.end, label %for.body, !llvm.loop !8
+  br i1 %cmp.not, label %for.end, label %for.body, !llvm.loop !7
 
 for.end:                                          ; preds = %for.body, %entry
   ret void
@@ -444,7 +444,7 @@ for.body.i:                                       ; preds = %entry, %for.body.i
   %add.i = add i64 %call3.i, %pos.010.i
   %call4.i = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findERKS4_m(ptr noundef nonnull align 8 dereferenceable(32) %filepath, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, i64 noundef %add.i) #12
   %cmp.not.i = icmp eq i64 %call4.i, -1
-  br i1 %cmp.not.i, label %_ZN4node7tracing17replace_substringEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKS6_S9_.exit, label %for.body.i, !llvm.loop !8
+  br i1 %cmp.not.i, label %_ZN4node7tracing17replace_substringEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKS6_S9_.exit, label %for.body.i, !llvm.loop !7
 
 _ZN4node7tracing17replace_substringEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKS6_S9_.exit: ; preds = %for.body.i, %entry
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp3) #12
@@ -468,7 +468,7 @@ for.body.i7:                                      ; preds = %_ZN4node7tracing17r
   %add.i12 = add i64 %call3.i11, %pos.010.i8
   %call4.i13 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findERKS4_m(ptr noundef nonnull align 8 dereferenceable(32) %filepath, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp4, i64 noundef %add.i12) #12
   %cmp.not.i14 = icmp eq i64 %call4.i13, -1
-  br i1 %cmp.not.i14, label %_ZN4node7tracing17replace_substringEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKS6_S9_.exit15, label %for.body.i7, !llvm.loop !8
+  br i1 %cmp.not.i14, label %_ZN4node7tracing17replace_substringEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKS6_S9_.exit15, label %for.body.i7, !llvm.loop !7
 
 _ZN4node7tracing17replace_substringEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKS6_S9_.exit15: ; preds = %for.body.i7, %_ZN4node7tracing17replace_substringEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKS6_S9_.exit
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp6) #12
@@ -557,7 +557,7 @@ if.end14.i:                                       ; preds = %if.end9.i
   %0 = udiv i32 %__value.addr.021.i, 10000
   %add17.i = add i32 %__n.020.i, 4
   %cmp.i = icmp ult i32 %__value.addr.021.i, 100000
-  br i1 %cmp.i, label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit, label %if.end.i, !llvm.loop !9
+  br i1 %cmp.i, label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit, label %if.end.i, !llvm.loop !8
 
 _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit:      ; preds = %if.end14.i, %entry, %if.then4.i, %if.then7.i, %if.then12.i
   %retval.0.i = phi i32 [ %add.i, %if.then4.i ], [ %add8.i, %if.then7.i ], [ %add13.i, %if.then12.i ], [ 1, %entry ], [ %add17.i, %if.end14.i ]
@@ -600,7 +600,7 @@ while.body.i:                                     ; preds = %while.body.i, %whil
   store i8 %2, ptr %arrayidx7.i, align 1
   %sub8.i = add i32 %__pos.015.i, -2
   %cmp.i10 = icmp ugt i32 %__val.addr.016.i, 9999
-  br i1 %cmp.i10, label %while.body.i, label %while.end.i, !llvm.loop !10
+  br i1 %cmp.i10, label %while.body.i, label %while.end.i, !llvm.loop !9
 
 while.end.i:                                      ; preds = %while.body.i, %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit
   %__val.addr.0.lcssa.i = phi i32 [ %cond, %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit ], [ %div.i, %while.body.i ]
@@ -835,7 +835,7 @@ if.end.i.i:                                       ; preds = %if.else.i.i, %if.th
 
 if.then8:                                         ; preds = %if.end.i.i
   %call13 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %10) #12
-  %11 = load ptr, ptr %_M_start.i.i, align 8, !noalias !11
+  %11 = load ptr, ptr %_M_start.i.i, align 8, !noalias !10
   %call17 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %11) #12
   %conv = trunc i64 %call17 to i32
   %call18 = call { ptr, i64 } @uv_buf_init(ptr noundef %call13, i32 noundef %conv) #12
@@ -920,7 +920,7 @@ while.body:                                       ; preds = %while.body.preheade
   tail call void @uv_cond_wait(ptr noundef nonnull align 8 dereferenceable(48) %request_cond_, ptr noundef nonnull %request_mutex_) #12
   %.old = load i32, ptr %highest_request_id_completed_, align 4
   %cmp11.not.old = icmp slt i32 %1, %.old
-  br i1 %cmp11.not.old, label %cleanup13, label %while.body, !llvm.loop !14
+  br i1 %cmp11.not.old, label %cleanup13, label %while.body
 
 cleanup13:                                        ; preds = %while.body, %do.end9, %entry
   tail call void @uv_mutex_unlock(ptr noundef nonnull %request_mutex_) #12
@@ -983,7 +983,7 @@ do.end5:                                          ; preds = %entry
   %request_mutex_ = getelementptr inbounds nuw i8, ptr %this, i64 312
   tail call void @uv_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %request_mutex_) #12
   %_M_start.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 912
-  %1 = load ptr, ptr %_M_start.i.i.i, align 8, !noalias !15
+  %1 = load ptr, ptr %_M_start.i.i.i, align 8, !noalias !13
   %highest_request_id8 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %2 = load i32, ptr %highest_request_id8, align 8
   %_M_last.i.i = getelementptr inbounds nuw i8, ptr %this, i64 928
@@ -1027,7 +1027,7 @@ _ZNSt5queueIN4node7tracing15NodeTraceWriter12WriteRequestESt5dequeIS3_SaIS3_EEE3
 
 if.then12:                                        ; preds = %_ZNSt5queueIN4node7tracing15NodeTraceWriter12WriteRequestESt5dequeIS3_SaIS3_EEE3popEv.exit
   %call15 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %9) #12
-  %10 = load ptr, ptr %_M_start.i.i.i, align 8, !noalias !18
+  %10 = load ptr, ptr %_M_start.i.i.i, align 8, !noalias !16
   %call19 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %10) #12
   %conv = trunc i64 %call19 to i32
   %call20 = tail call { ptr, i64 } @uv_buf_init(ptr noundef %call15, i32 noundef %conv) #12
@@ -1088,17 +1088,17 @@ entry:
 define linkonce_odr dso_local void @_ZNSt5dequeIN4node7tracing15NodeTraceWriter12WriteRequestESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) unnamed_addr #0 comdat align 2 {
 entry:
   %_M_start.i = getelementptr inbounds nuw i8, ptr %this, i64 16
-  %0 = load ptr, ptr %_M_start.i, align 8, !noalias !21
+  %0 = load ptr, ptr %_M_start.i, align 8, !noalias !19
   %_M_last4.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
-  %1 = load ptr, ptr %_M_last4.i.i, align 8, !noalias !21
+  %1 = load ptr, ptr %_M_last4.i.i, align 8, !noalias !19
   %_M_node5.i.i = getelementptr inbounds nuw i8, ptr %this, i64 40
-  %2 = load ptr, ptr %_M_node5.i.i, align 8, !noalias !21
+  %2 = load ptr, ptr %_M_node5.i.i, align 8, !noalias !19
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %this, i64 48
-  %3 = load ptr, ptr %_M_finish.i, align 8, !noalias !24
+  %3 = load ptr, ptr %_M_finish.i, align 8, !noalias !22
   %_M_first3.i.i2 = getelementptr inbounds nuw i8, ptr %this, i64 56
-  %4 = load ptr, ptr %_M_first3.i.i2, align 8, !noalias !24
+  %4 = load ptr, ptr %_M_first3.i.i2, align 8, !noalias !22
   %_M_node5.i.i6 = getelementptr inbounds nuw i8, ptr %this, i64 72
-  %5 = load ptr, ptr %_M_node5.i.i6, align 8, !noalias !24
+  %5 = load ptr, ptr %_M_node5.i.i6, align 8, !noalias !22
   %__node.022.i.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   %cmp23.i.i = icmp ult ptr %__node.022.i.i, %5
   br i1 %cmp23.i.i, label %for.body.i.i, label %for.end.i.i
@@ -1114,12 +1114,12 @@ for.body.i.i.i.i.i:                               ; preds = %for.body.i.i.i.i.i,
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(36) %__first.addr.04.i.i.i.ptr.i.i) #12
   %__first.addr.04.i.i.i.add.i.i = add nuw nsw i64 %__first.addr.04.i.i.i.idx.i.i, 40
   %cmp.not.i.i.i.i.i = icmp eq i64 %__first.addr.04.i.i.i.add.i.i, 480
-  br i1 %cmp.not.i.i.i.i.i, label %_ZSt8_DestroyIPN4node7tracing15NodeTraceWriter12WriteRequestES3_EvT_S5_RSaIT0_E.exit.i.i, label %for.body.i.i.i.i.i, !llvm.loop !27
+  br i1 %cmp.not.i.i.i.i.i, label %_ZSt8_DestroyIPN4node7tracing15NodeTraceWriter12WriteRequestES3_EvT_S5_RSaIT0_E.exit.i.i, label %for.body.i.i.i.i.i, !llvm.loop !25
 
 _ZSt8_DestroyIPN4node7tracing15NodeTraceWriter12WriteRequestES3_EvT_S5_RSaIT0_E.exit.i.i: ; preds = %for.body.i.i.i.i.i
   %__node.0.i.i = getelementptr inbounds nuw i8, ptr %__node.024.i.i, i64 8
   %cmp.i.i = icmp ult ptr %__node.0.i.i, %5
-  br i1 %cmp.i.i, label %for.body.i.i, label %for.end.i.i, !llvm.loop !28
+  br i1 %cmp.i.i, label %for.body.i.i, label %for.end.i.i, !llvm.loop !26
 
 for.end.i.i:                                      ; preds = %_ZSt8_DestroyIPN4node7tracing15NodeTraceWriter12WriteRequestES3_EvT_S5_RSaIT0_E.exit.i.i, %entry
   %cmp7.not.i.i = icmp eq ptr %2, %5
@@ -1134,7 +1134,7 @@ for.body.i.i.i4.i.i:                              ; preds = %if.then.i.i, %for.b
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(36) %__first.addr.04.i.i.i5.i.i) #12
   %incdec.ptr.i.i.i6.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.04.i.i.i5.i.i, i64 40
   %cmp.not.i.i.i7.i.i = icmp eq ptr %incdec.ptr.i.i.i6.i.i, %1
-  br i1 %cmp.not.i.i.i7.i.i, label %_ZSt8_DestroyIPN4node7tracing15NodeTraceWriter12WriteRequestES3_EvT_S5_RSaIT0_E.exit8.i.i, label %for.body.i.i.i4.i.i, !llvm.loop !27
+  br i1 %cmp.not.i.i.i7.i.i, label %_ZSt8_DestroyIPN4node7tracing15NodeTraceWriter12WriteRequestES3_EvT_S5_RSaIT0_E.exit8.i.i, label %for.body.i.i.i4.i.i, !llvm.loop !25
 
 _ZSt8_DestroyIPN4node7tracing15NodeTraceWriter12WriteRequestES3_EvT_S5_RSaIT0_E.exit8.i.i: ; preds = %for.body.i.i.i4.i.i, %if.then.i.i
   %cmp.not3.i.i.i9.i.i = icmp eq ptr %4, %3
@@ -1145,7 +1145,7 @@ for.body.i.i.i10.i.i:                             ; preds = %_ZSt8_DestroyIPN4no
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(36) %__first.addr.04.i.i.i11.i.i) #12
   %incdec.ptr.i.i.i12.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.04.i.i.i11.i.i, i64 40
   %cmp.not.i.i.i13.i.i = icmp eq ptr %incdec.ptr.i.i.i12.i.i, %3
-  br i1 %cmp.not.i.i.i13.i.i, label %_ZNSt5dequeIN4node7tracing15NodeTraceWriter12WriteRequestESaIS3_EE15_M_destroy_dataESt15_Deque_iteratorIS3_RS3_PS3_ES9_RKS4_.exit, label %for.body.i.i.i10.i.i, !llvm.loop !27
+  br i1 %cmp.not.i.i.i13.i.i, label %_ZNSt5dequeIN4node7tracing15NodeTraceWriter12WriteRequestESaIS3_EE15_M_destroy_dataESt15_Deque_iteratorIS3_RS3_PS3_ES9_RKS4_.exit, label %for.body.i.i.i10.i.i, !llvm.loop !25
 
 if.else.i.i:                                      ; preds = %for.end.i.i
   %cmp.not3.i.i.i15.i.i = icmp eq ptr %0, %3
@@ -1156,7 +1156,7 @@ for.body.i.i.i16.i.i:                             ; preds = %if.else.i.i, %for.b
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(36) %__first.addr.04.i.i.i17.i.i) #12
   %incdec.ptr.i.i.i18.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.04.i.i.i17.i.i, i64 40
   %cmp.not.i.i.i19.i.i = icmp eq ptr %incdec.ptr.i.i.i18.i.i, %3
-  br i1 %cmp.not.i.i.i19.i.i, label %_ZNSt5dequeIN4node7tracing15NodeTraceWriter12WriteRequestESaIS3_EE15_M_destroy_dataESt15_Deque_iteratorIS3_RS3_PS3_ES9_RKS4_.exit, label %for.body.i.i.i16.i.i, !llvm.loop !27
+  br i1 %cmp.not.i.i.i19.i.i, label %_ZNSt5dequeIN4node7tracing15NodeTraceWriter12WriteRequestESaIS3_EE15_M_destroy_dataESt15_Deque_iteratorIS3_RS3_PS3_ES9_RKS4_.exit, label %for.body.i.i.i16.i.i, !llvm.loop !25
 
 _ZNSt5dequeIN4node7tracing15NodeTraceWriter12WriteRequestESaIS3_EE15_M_destroy_dataESt15_Deque_iteratorIS3_RS3_PS3_ES9_RKS4_.exit: ; preds = %for.body.i.i.i10.i.i, %for.body.i.i.i16.i.i, %_ZSt8_DestroyIPN4node7tracing15NodeTraceWriter12WriteRequestES3_EvT_S5_RSaIT0_E.exit8.i.i, %if.else.i.i
   %7 = load ptr, ptr %this, align 8
@@ -1176,7 +1176,7 @@ for.body.i.i9:                                    ; preds = %if.then.i, %for.bod
   tail call void @_ZdlPv(ptr noundef %10) #15
   %incdec.ptr.i.i = getelementptr inbounds nuw i8, ptr %__n.04.i.i, i64 8
   %cmp.i.i10 = icmp ult ptr %__n.04.i.i, %9
-  br i1 %cmp.i.i10, label %for.body.i.i9, label %_ZNSt11_Deque_baseIN4node7tracing15NodeTraceWriter12WriteRequestESaIS3_EE16_M_destroy_nodesEPPS3_S7_.exit.loopexit.i, !llvm.loop !29
+  br i1 %cmp.i.i10, label %for.body.i.i9, label %_ZNSt11_Deque_baseIN4node7tracing15NodeTraceWriter12WriteRequestESaIS3_EE16_M_destroy_nodesEPPS3_S7_.exit.loopexit.i, !llvm.loop !27
 
 _ZNSt11_Deque_baseIN4node7tracing15NodeTraceWriter12WriteRequestESaIS3_EE16_M_destroy_nodesEPPS3_S7_.exit.loopexit.i: ; preds = %for.body.i.i9
   %.pre.i = load ptr, ptr %this, align 8
@@ -1546,28 +1546,26 @@ attributes #16 = { cold }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6, !7}
+!5 = distinct !{!5, !6}
 !6 = !{!"llvm.loop.mustprogress"}
-!7 = !{!"llvm.loop.estimated_trip_count"}
-!8 = distinct !{!8, !6, !7}
-!9 = distinct !{!9, !6, !7}
-!10 = distinct !{!10, !6, !7}
-!11 = !{!12}
-!12 = distinct !{!12, !13, !"_ZNSt5dequeIN4node7tracing15NodeTraceWriter12WriteRequestESaIS3_EE5beginEv: %agg.result"}
-!13 = distinct !{!13, !"_ZNSt5dequeIN4node7tracing15NodeTraceWriter12WriteRequestESaIS3_EE5beginEv"}
-!14 = distinct !{!14, !7}
-!15 = !{!16}
-!16 = distinct !{!16, !17, !"_ZNSt5dequeIN4node7tracing15NodeTraceWriter12WriteRequestESaIS3_EE5beginEv: %agg.result"}
-!17 = distinct !{!17, !"_ZNSt5dequeIN4node7tracing15NodeTraceWriter12WriteRequestESaIS3_EE5beginEv"}
-!18 = !{!19}
-!19 = distinct !{!19, !20, !"_ZNSt5dequeIN4node7tracing15NodeTraceWriter12WriteRequestESaIS3_EE5beginEv: %agg.result"}
-!20 = distinct !{!20, !"_ZNSt5dequeIN4node7tracing15NodeTraceWriter12WriteRequestESaIS3_EE5beginEv"}
-!21 = !{!22}
-!22 = distinct !{!22, !23, !"_ZNSt5dequeIN4node7tracing15NodeTraceWriter12WriteRequestESaIS3_EE5beginEv: %agg.result"}
-!23 = distinct !{!23, !"_ZNSt5dequeIN4node7tracing15NodeTraceWriter12WriteRequestESaIS3_EE5beginEv"}
-!24 = !{!25}
-!25 = distinct !{!25, !26, !"_ZNSt5dequeIN4node7tracing15NodeTraceWriter12WriteRequestESaIS3_EE3endEv: %agg.result"}
-!26 = distinct !{!26, !"_ZNSt5dequeIN4node7tracing15NodeTraceWriter12WriteRequestESaIS3_EE3endEv"}
-!27 = distinct !{!27, !6, !7}
-!28 = distinct !{!28, !6, !7}
-!29 = distinct !{!29, !6, !7}
+!7 = distinct !{!7, !6}
+!8 = distinct !{!8, !6}
+!9 = distinct !{!9, !6}
+!10 = !{!11}
+!11 = distinct !{!11, !12, !"_ZNSt5dequeIN4node7tracing15NodeTraceWriter12WriteRequestESaIS3_EE5beginEv: %agg.result"}
+!12 = distinct !{!12, !"_ZNSt5dequeIN4node7tracing15NodeTraceWriter12WriteRequestESaIS3_EE5beginEv"}
+!13 = !{!14}
+!14 = distinct !{!14, !15, !"_ZNSt5dequeIN4node7tracing15NodeTraceWriter12WriteRequestESaIS3_EE5beginEv: %agg.result"}
+!15 = distinct !{!15, !"_ZNSt5dequeIN4node7tracing15NodeTraceWriter12WriteRequestESaIS3_EE5beginEv"}
+!16 = !{!17}
+!17 = distinct !{!17, !18, !"_ZNSt5dequeIN4node7tracing15NodeTraceWriter12WriteRequestESaIS3_EE5beginEv: %agg.result"}
+!18 = distinct !{!18, !"_ZNSt5dequeIN4node7tracing15NodeTraceWriter12WriteRequestESaIS3_EE5beginEv"}
+!19 = !{!20}
+!20 = distinct !{!20, !21, !"_ZNSt5dequeIN4node7tracing15NodeTraceWriter12WriteRequestESaIS3_EE5beginEv: %agg.result"}
+!21 = distinct !{!21, !"_ZNSt5dequeIN4node7tracing15NodeTraceWriter12WriteRequestESaIS3_EE5beginEv"}
+!22 = !{!23}
+!23 = distinct !{!23, !24, !"_ZNSt5dequeIN4node7tracing15NodeTraceWriter12WriteRequestESaIS3_EE3endEv: %agg.result"}
+!24 = distinct !{!24, !"_ZNSt5dequeIN4node7tracing15NodeTraceWriter12WriteRequestESaIS3_EE3endEv"}
+!25 = distinct !{!25, !6}
+!26 = distinct !{!26, !6}
+!27 = distinct !{!27, !6}

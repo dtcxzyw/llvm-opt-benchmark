@@ -538,9 +538,9 @@ _ZN2cv3Mat2atIdEERT_i.exit315:                    ; preds = %151, %158, %164
   br i1 %exitcond.not, label %.critedge283, label %101, !llvm.loop !54
 
 180:                                              ; preds = %77
-  %181 = load ptr, ptr @opencv_ARRAY_API, align 8, !tbaa !57
+  %181 = load ptr, ptr @opencv_ARRAY_API, align 8, !tbaa !56
   %182 = getelementptr inbounds nuw i8, ptr %181, i64 16
-  %183 = load ptr, ptr %182, align 8, !tbaa !59
+  %183 = load ptr, ptr %182, align 8, !tbaa !58
   %.not.i316 = icmp eq ptr %78, %183
   br i1 %.not.i316, label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit317.thread, label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit317
 
@@ -556,13 +556,13 @@ _ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit317: ; preds = %180
 
 _ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit317.thread: ; preds = %180, %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit317
   %188 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %189 = load i8, ptr %188, align 8, !tbaa !60, !range !39, !noundef !40
+  %189 = load i8, ptr %188, align 8, !tbaa !59, !range !39, !noundef !40
   %190 = trunc nuw i8 %189 to i1
   br i1 %190, label %191, label %197
 
 191:                                              ; preds = %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit317.thread
   %192 = getelementptr i8, ptr %0, i64 64
-  %.val302 = load i32, ptr %192, align 8, !tbaa !61
+  %.val302 = load i32, ptr %192, align 8, !tbaa !60
   %193 = and i32 %.val302, 1024
   %.not259 = icmp eq i32 %193, 0
   br i1 %.not259, label %194, label %197
@@ -574,9 +574,9 @@ _ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit317.thread: ; preds = %180, 
 
 197:                                              ; preds = %191, %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit317.thread
   %198 = getelementptr i8, ptr %0, i64 56
-  %.val304 = load ptr, ptr %198, align 8, !tbaa !64
+  %.val304 = load ptr, ptr %198, align 8, !tbaa !63
   %199 = getelementptr i8, ptr %.val304, i64 28
-  %.val304.val = load i32, ptr %199, align 4, !tbaa !65
+  %.val304.val = load i32, ptr %199, align 4, !tbaa !64
   switch i32 %.val304.val, label %200 [
     i32 2, label %.thread
     i32 1, label %.fold.split
@@ -609,19 +609,19 @@ _ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit317.thread: ; preds = %180, 
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11) #18
   call fastcc void @_ZL16getArrayTypeNameB5cxx11P16tagPyArrayObject(ptr dead_on_unwind noalias writable align 8 %11, ptr noundef nonnull %0)
   %203 = load ptr, ptr %2, align 8, !tbaa !53
-  %204 = load ptr, ptr %11, align 8, !tbaa !69
+  %204 = load ptr, ptr %11, align 8, !tbaa !68
   %205 = invoke noundef i32 (ptr, ...) @_Z7failmsgPKcz(ptr noundef nonnull @.str.3, ptr noundef %203, ptr noundef %204)
           to label %206 unwind label %213
 
 206:                                              ; preds = %202
-  %207 = load ptr, ptr %11, align 8, !tbaa !69
+  %207 = load ptr, ptr %11, align 8, !tbaa !68
   %208 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %209 = icmp eq ptr %207, %208
   br i1 %209, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i: ; preds = %206
   %210 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  %211 = load i64, ptr %210, align 8, !tbaa !72
+  %211 = load i64, ptr %210, align 8, !tbaa !71
   %212 = icmp ult i64 %211, 16
   call void @llvm.assume(i1 %212)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
@@ -637,14 +637,14 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 213:                                              ; preds = %202
   %214 = landingpad { ptr, i32 }
           cleanup
-  %215 = load ptr, ptr %11, align 8, !tbaa !69
+  %215 = load ptr, ptr %11, align 8, !tbaa !68
   %216 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %217 = icmp eq ptr %215, %216
   br i1 %217, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i319, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i318
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i319: ; preds = %213
   %218 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  %219 = load i64, ptr %218, align 8, !tbaa !72
+  %219 = load i64, ptr %218, align 8, !tbaa !71
   %220 = icmp ult i64 %219, 16
   call void @llvm.assume(i1 %220)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit320
@@ -668,7 +668,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit320: ; preds = %_Z
   %.0237 = phi i32 [ 5, %200 ], [ %.val304.val, %197 ], [ %.val304.val, %.fold.split ], [ %.val304.val, %.fold.split284 ], [ %.val304.val, %.fold.split286 ], [ %.val304.val, %.fold.split287 ], [ %.val304.val, %.thread.fold.split ], [ %.val304.val, %.thread.fold.split391 ]
   %.0234 = phi i32 [ 4, %200 ], [ 0, %197 ], [ %.val304.val, %.fold.split ], [ 2, %.fold.split284 ], [ 4, %.fold.split286 ], [ 7, %.fold.split287 ], [ 5, %.thread.fold.split ], [ 6, %.thread.fold.split391 ]
   %221 = getelementptr i8, ptr %0, i64 24
-  %.val305 = load i32, ptr %221, align 8, !tbaa !73
+  %.val305 = load i32, ptr %221, align 8, !tbaa !72
   %222 = icmp sgt i32 %.val305, 31
   br i1 %222, label %223, label %226
 
@@ -683,9 +683,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit320: ; preds = %_Z
   %229 = and i32 %228, 15
   %230 = zext nneg i32 %229 to i64
   %231 = getelementptr i8, ptr %0, i64 32
-  %.val306 = load ptr, ptr %231, align 8, !tbaa !74
+  %.val306 = load ptr, ptr %231, align 8, !tbaa !73
   %232 = getelementptr i8, ptr %0, i64 40
-  %.val307 = load ptr, ptr %232, align 8, !tbaa !75
+  %.val307 = load ptr, ptr %232, align 8, !tbaa !74
   %233 = icmp eq i32 %.val305, 3
   br i1 %233, label %234, label %242
 
@@ -697,13 +697,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit320: ; preds = %_Z
 
 238:                                              ; preds = %234
   %239 = getelementptr inbounds nuw i8, ptr %2, i64 11
-  %240 = load i8, ptr %239, align 1, !tbaa !76, !range !39, !noundef !40
+  %240 = load i8, ptr %239, align 1, !tbaa !75, !range !39, !noundef !40
   %241 = xor i8 %240, 1
   br label %242
 
 242:                                              ; preds = %238, %234, %226
   %243 = phi i8 [ 0, %234 ], [ 0, %226 ], [ %241, %238 ]
-  %244 = load ptr, ptr @pyopencv_Mat_TypePtr, align 8, !tbaa !77
+  %244 = load ptr, ptr @pyopencv_Mat_TypePtr, align 8, !tbaa !76
   %.not260 = icmp eq ptr %244, null
   br i1 %.not260, label %261, label %245
 
@@ -719,7 +719,7 @@ _ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit322: ; preds = %245
 
 _ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit322.thread: ; preds = %245, %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit322
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %12) #18
-  store i8 0, ptr %12, align 1, !tbaa !78
+  store i8 0, ptr %12, align 1, !tbaa !77
   %247 = tail call ptr @PyObject_GetAttrString(ptr noundef nonnull %0, ptr noundef nonnull @.str.5)
   %.not262 = icmp eq ptr %247, null
   br i1 %.not262, label %_ZL10_Py_DECREFP7_object.exit325, label %248
@@ -731,9 +731,9 @@ _ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit322.thread: ; preds = %245, 
   store i32 0, ptr %249, align 8
   %250 = call fastcc noundef zeroext i1 @_ZL16pyopencv_to_safeIbEbP7_objectRT_RK7ArgInfo(ptr noundef %247, ptr noundef nonnull align 1 dereferenceable(1) %12, ptr noundef nonnull align 8 dereferenceable(12) %13)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13) #18
-  %251 = load i64, ptr %247, align 8, !tbaa !79
+  %251 = load i64, ptr %247, align 8, !tbaa !78
   %252 = add nsw i64 %251, -1
-  store i64 %252, ptr %247, align 8, !tbaa !79
+  store i64 %252, ptr %247, align 8, !tbaa !78
   %.not.i324 = icmp eq i64 %252, 0
   br i1 %250, label %254, label %.critedge289
 
@@ -756,7 +756,7 @@ _ZL10_Py_DECREFP7_object.exit:                    ; preds = %.critedge289, %253
   br label %_ZL10_Py_DECREFP7_object.exit325
 
 _ZL10_Py_DECREFP7_object.exit325:                 ; preds = %255, %254, %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit322.thread
-  %256 = load i8, ptr %12, align 1, !tbaa !78, !range !39, !noundef !40
+  %256 = load i8, ptr %12, align 1, !tbaa !77, !range !39, !noundef !40
   %257 = trunc nuw i8 %256 to i1
   %258 = icmp sgt i32 %.val305, 0
   %259 = and i1 %258, %257
@@ -820,7 +820,7 @@ _ZL10_Py_DECREFP7_object.exit325:                 ; preds = %255, %254, %_ZL19_P
 288:                                              ; preds = %276, %278, %282
   %indvars.iv.next372 = add nsw i64 %indvars.iv371, -1
   %289 = icmp eq i64 %indvars.iv371, 0
-  br i1 %289, label %._crit_edge, label %.lr.ph359, !llvm.loop !80
+  br i1 %289, label %._crit_edge, label %.lr.ph359, !llvm.loop !79
 
 290:                                              ; preds = %._crit_edge
   %291 = icmp sgt i32 %.val305, 0
@@ -877,7 +877,7 @@ _ZL10_Py_DECREFP7_object.exit325:                 ; preds = %255, %254, %_ZL19_P
   br i1 %320, label %321, label %349
 
 321:                                              ; preds = %319
-  %322 = load i8, ptr %188, align 8, !tbaa !60, !range !39, !noundef !40
+  %322 = load i8, ptr %188, align 8, !tbaa !59, !range !39, !noundef !40
   %323 = trunc nuw i8 %322 to i1
   br i1 %323, label %324, label %327
 
@@ -890,39 +890,39 @@ _ZL10_Py_DECREFP7_object.exit325:                 ; preds = %255, %254, %_ZL19_P
   br i1 %264, label %328, label %336
 
 328:                                              ; preds = %327
-  %329 = load ptr, ptr @opencv_ARRAY_API, align 8, !tbaa !57
+  %329 = load ptr, ptr @opencv_ARRAY_API, align 8, !tbaa !56
   %330 = getelementptr inbounds nuw i8, ptr %329, i64 392
-  %331 = load ptr, ptr %330, align 8, !tbaa !59
+  %331 = load ptr, ptr %330, align 8, !tbaa !58
   %332 = getelementptr inbounds nuw i8, ptr %329, i64 360
-  %333 = load ptr, ptr %332, align 8, !tbaa !59
+  %333 = load ptr, ptr %332, align 8, !tbaa !58
   %334 = tail call noundef ptr %333(i32 noundef %.0237)
   %335 = tail call noundef ptr %331(ptr noundef %0, ptr noundef %334, i32 noundef 0)
   br label %347
 
 336:                                              ; preds = %327
   %337 = getelementptr i8, ptr %0, i64 64
-  %.val303 = load i32, ptr %337, align 8, !tbaa !61
+  %.val303 = load i32, ptr %337, align 8, !tbaa !60
   %338 = and i32 %.val303, 1
   %.not266 = icmp eq i32 %338, 0
   br i1 %.not266, label %342, label %339
 
 339:                                              ; preds = %336
-  %340 = load i64, ptr %0, align 8, !tbaa !79
+  %340 = load i64, ptr %0, align 8, !tbaa !78
   %341 = add nsw i64 %340, 1
-  store i64 %341, ptr %0, align 8, !tbaa !79
+  store i64 %341, ptr %0, align 8, !tbaa !78
   br label %347
 
 342:                                              ; preds = %336
-  %343 = load ptr, ptr @opencv_ARRAY_API, align 8, !tbaa !57
+  %343 = load ptr, ptr @opencv_ARRAY_API, align 8, !tbaa !56
   %344 = getelementptr inbounds nuw i8, ptr %343, i64 680
-  %345 = load ptr, ptr %344, align 8, !tbaa !59
+  %345 = load ptr, ptr %344, align 8, !tbaa !58
   %346 = tail call noundef ptr %345(ptr noundef nonnull %0, i32 noundef 0)
   br label %347
 
 347:                                              ; preds = %339, %342, %328
   %.1202 = phi ptr [ %335, %328 ], [ %0, %339 ], [ %346, %342 ]
   %348 = getelementptr i8, ptr %.1202, i64 40
-  %.1202.val = load ptr, ptr %348, align 8, !tbaa !75
+  %.1202.val = load ptr, ptr %348, align 8, !tbaa !74
   br label %349
 
 349:                                              ; preds = %347, %319
@@ -981,7 +981,7 @@ _ZL10_Py_DECREFP7_object.exit325:                 ; preds = %255, %254, %_ZL19_P
   %371 = getelementptr inbounds nuw [33 x i64], ptr %15, i64 0, i64 %indvars.iv.next375
   store i64 %.0214362.sink, ptr %371, align 8, !tbaa !51
   %372 = icmp samesign ugt i64 %indvars.iv374, 1
-  br i1 %372, label %.lr.ph365, label %._crit_edge366, !llvm.loop !81
+  br i1 %372, label %.lr.ph365, label %._crit_edge366, !llvm.loop !80
 
 373:                                              ; preds = %._crit_edge366
   call void @llvm.lifetime.start.p0(i64 352, ptr nonnull %16) #18
@@ -997,7 +997,7 @@ _ZN2cv3MataSERKNS_7MatExprE.exit326:              ; preds = %373
   call void @_ZN2cv7MatExprD2Ev(ptr noundef nonnull align 8 dereferenceable(352) %16) #18
   call void @llvm.lifetime.end.p0(i64 352, ptr nonnull %16) #18
   %378 = getelementptr i8, ptr %.0201, i64 16
-  %.0201.val = load ptr, ptr %378, align 8, !tbaa !82
+  %.0201.val = load ptr, ptr %378, align 8, !tbaa !81
   %.not271.not367 = icmp sgt i32 %.pre382, 0
   br i1 %.not271.not367, label %.lr.ph369, label %.critedge293
 
@@ -1018,11 +1018,11 @@ _ZN2cv3MataSERKNS_7MatExprE.exit326:              ; preds = %373
   %383 = load i64, ptr %15, align 16, !tbaa !51
   %384 = mul i64 %383, %indvars.iv377
   %385 = getelementptr inbounds nuw i8, ptr %.0201.val, i64 %384
-  %386 = load ptr, ptr %379, align 8, !tbaa !64
+  %386 = load ptr, ptr %379, align 8, !tbaa !63
   %387 = getelementptr inbounds nuw i8, ptr %386, i64 64
-  %388 = load ptr, ptr %387, align 8, !tbaa !83
+  %388 = load ptr, ptr %387, align 8, !tbaa !82
   %389 = getelementptr inbounds nuw i8, ptr %388, i64 168
-  %390 = load ptr, ptr %389, align 8, !tbaa !84
+  %390 = load ptr, ptr %389, align 8, !tbaa !83
   %391 = call noundef ptr %390(ptr noundef %385, ptr noundef nonnull %.0201)
   %392 = getelementptr inbounds nuw i8, ptr %391, i64 8
   %393 = load ptr, ptr %392, align 8, !tbaa !23
@@ -1063,7 +1063,7 @@ _ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit328.thread: ; preds = %399, 
   store double %.sink, ptr %406, align 8, !tbaa !34
   %indvars.iv.next378 = add nuw nsw i64 %indvars.iv377, 1
   %exitcond381.not = icmp eq i64 %indvars.iv.next378, %wide.trip.count380
-  br i1 %exitcond381.not, label %.critedge293, label %382, !llvm.loop !87
+  br i1 %exitcond381.not, label %.critedge293, label %382, !llvm.loop !86
 
 ._crit_edge366.thread:                            ; preds = %349, %._crit_edge366
   %407 = icmp eq i32 %.0231, 0
@@ -1078,7 +1078,7 @@ _ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit328.thread: ; preds = %399, 
   %.2233 = phi i32 [ 1, %408 ], [ %.0231, %._crit_edge366.thread ]
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %17) #18
   %410 = getelementptr i8, ptr %.0201, i64 16
-  %.0201.val308 = load ptr, ptr %410, align 8, !tbaa !82
+  %.0201.val308 = load ptr, ptr %410, align 8, !tbaa !81
   call void @_ZN2cv3MatC1EiPKiiPvPKm(ptr noundef nonnull align 8 dereferenceable(96) %17, i32 noundef %.2233, ptr noundef nonnull %14, i32 noundef %.1235, ptr noundef %.0201.val308, ptr noundef nonnull %15)
   %411 = invoke noundef nonnull align 8 dereferenceable(96) ptr @_ZN2cv3MataSEOS0_(ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef nonnull align 8 dereferenceable(96) %17)
           to label %412 unwind label %419
@@ -1089,14 +1089,14 @@ _ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit328.thread: ; preds = %399, 
   %413 = call noundef nonnull align 8 dereferenceable(16) ptr @_Z17GetNumpyAllocatorv()
   %414 = call noundef ptr @_ZNK14NumpyAllocator8allocateEP7_objectiPKiiPm(ptr noundef nonnull align 8 dereferenceable(16) %413, ptr noundef nonnull %.0201, i32 noundef %.2233, ptr noundef nonnull %14, i32 noundef %.1235, ptr noundef nonnull %15)
   %415 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  store ptr %414, ptr %415, align 8, !tbaa !88
+  store ptr %414, ptr %415, align 8, !tbaa !87
   call void @_ZN2cv3Mat6addrefEv(ptr noundef nonnull align 8 dereferenceable(96) %1)
   br i1 %320, label %421, label %416
 
 416:                                              ; preds = %412
-  %417 = load i64, ptr %.0201, align 8, !tbaa !79
+  %417 = load i64, ptr %.0201, align 8, !tbaa !78
   %418 = add nsw i64 %417, 1
-  store i64 %418, ptr %.0201, align 8, !tbaa !79
+  store i64 %418, ptr %.0201, align 8, !tbaa !78
   br label %421
 
 419:                                              ; preds = %409
@@ -1271,17 +1271,17 @@ define internal fastcc void @_ZL16getArrayTypeNameB5cxx11P16tagPyArrayObject(ptr
   %3 = alloca %class.PySafeObject, align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = getelementptr i8, ptr %1, i64 56
-  %.val8 = load ptr, ptr %5, align 8, !tbaa !64
+  %.val8 = load ptr, ptr %5, align 8, !tbaa !63
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #18
   %6 = tail call ptr @PyObject_Str(ptr noundef %.val8)
-  store ptr %6, ptr %3, align 8, !tbaa !89
+  store ptr %6, ptr %3, align 8, !tbaa !88
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %7, label %11
 
 7:                                                ; preds = %2
-  %.val7 = load ptr, ptr %5, align 8, !tbaa !64
+  %.val7 = load ptr, ptr %5, align 8, !tbaa !63
   %8 = getelementptr i8, ptr %.val7, i64 28
-  %.val7.val = load i32, ptr %8, align 4, !tbaa !65
+  %.val7.val = load i32, ptr %8, align 4, !tbaa !64
   invoke void (ptr, ptr, ...) @_ZN2cv6formatB5cxx11EPKcz(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull @.str.75, i32 noundef %.val7.val)
           to label %_ZN12PySafeObjectD2Ev.exit unwind label %9
 
@@ -1293,10 +1293,10 @@ define internal fastcc void @_ZL16getArrayTypeNameB5cxx11P16tagPyArrayObject(ptr
 11:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #18
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store ptr %12, ptr %4, align 8, !tbaa !91
+  store ptr %12, ptr %4, align 8, !tbaa !90
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store i64 0, ptr %13, align 8, !tbaa !72
-  store i8 0, ptr %12, align 8, !tbaa !92
+  store i64 0, ptr %13, align 8, !tbaa !71
+  store i8 0, ptr %12, align 8, !tbaa !91
   %14 = invoke fastcc noundef zeroext i1 @_ZL16getUnicodeStringP7_objectRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull %6, ptr noundef nonnull align 8 dereferenceable(32) %4)
           to label %15 unwind label %19
 
@@ -1308,21 +1308,21 @@ define internal fastcc void @_ZL16getArrayTypeNameB5cxx11P16tagPyArrayObject(ptr
           to label %17 unwind label %19
 
 17:                                               ; preds = %16
-  %.val = load ptr, ptr %5, align 8, !tbaa !64
+  %.val = load ptr, ptr %5, align 8, !tbaa !63
   %18 = getelementptr i8, ptr %.val, i64 28
-  %.val.val = load i32, ptr %18, align 4, !tbaa !65
+  %.val.val = load i32, ptr %18, align 4, !tbaa !64
   invoke void (ptr, ptr, ...) @_ZN2cv6formatB5cxx11EPKcz(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull @.str.75, i32 noundef %.val.val)
           to label %36 unwind label %19
 
 19:                                               ; preds = %17, %16, %11
   %20 = landingpad { ptr, i32 }
           cleanup
-  %21 = load ptr, ptr %4, align 8, !tbaa !69
+  %21 = load ptr, ptr %4, align 8, !tbaa !68
   %22 = icmp eq ptr %21, %12
   br i1 %22, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i: ; preds = %19
-  %23 = load i64, ptr %13, align 8, !tbaa !72
+  %23 = load i64, ptr %13, align 8, !tbaa !71
   %24 = icmp ult i64 %23, 16
   call void @llvm.assume(i1 %24)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
@@ -1337,13 +1337,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 
 25:                                               ; preds = %15
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %26, ptr %0, align 8, !tbaa !91
-  %27 = load ptr, ptr %4, align 8, !tbaa !69
+  store ptr %26, ptr %0, align 8, !tbaa !90
+  %27 = load ptr, ptr %4, align 8, !tbaa !68
   %28 = icmp eq ptr %27, %12
   br i1 %28, label %29, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i
 
 29:                                               ; preds = %25
-  %30 = load i64, ptr %13, align 8, !tbaa !72
+  %30 = load i64, ptr %13, align 8, !tbaa !71
   %31 = icmp ult i64 %30, 16
   call void @llvm.assume(i1 %31)
   %32 = add nuw nsw i64 %30, 1
@@ -1351,27 +1351,27 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   br label %.thread
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i: ; preds = %25
-  store ptr %27, ptr %0, align 8, !tbaa !69
-  %33 = load i64, ptr %12, align 8, !tbaa !92
-  store i64 %33, ptr %26, align 8, !tbaa !92
-  %.pre = load i64, ptr %13, align 8, !tbaa !72
+  store ptr %27, ptr %0, align 8, !tbaa !68
+  %33 = load i64, ptr %12, align 8, !tbaa !91
+  store i64 %33, ptr %26, align 8, !tbaa !91
+  %.pre = load i64, ptr %13, align 8, !tbaa !71
   br label %.thread
 
 .thread:                                          ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i, %29
   %34 = phi i64 [ %30, %29 ], [ %.pre, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i ]
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %34, ptr %35, align 8, !tbaa !72
-  store ptr %12, ptr %4, align 8, !tbaa !69
-  store i64 0, ptr %13, align 8, !tbaa !72
+  store i64 %34, ptr %35, align 8, !tbaa !71
+  store ptr %12, ptr %4, align 8, !tbaa !68
+  store i64 0, ptr %13, align 8, !tbaa !71
   br label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i10
 
 36:                                               ; preds = %17
-  %.pre12 = load ptr, ptr %4, align 8, !tbaa !69
+  %.pre12 = load ptr, ptr %4, align 8, !tbaa !68
   %37 = icmp eq ptr %.pre12, %12
   br i1 %37, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i10, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i9
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i10: ; preds = %.thread, %36
-  %38 = load i64, ptr %13, align 8, !tbaa !72
+  %38 = load i64, ptr %13, align 8, !tbaa !71
   %39 = icmp ult i64 %38, 16
   call void @llvm.assume(i1 %39)
   br label %40
@@ -1382,9 +1382,9 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i9:
 
 40:                                               ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i10, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i9
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #18
-  %41 = load i64, ptr %6, align 8, !tbaa !79
+  %41 = load i64, ptr %6, align 8, !tbaa !78
   %42 = add nsw i64 %41, -1
-  store i64 %42, ptr %6, align 8, !tbaa !79
+  store i64 %42, ptr %6, align 8, !tbaa !78
   %.not.i.i = icmp eq i64 %42, 0
   br i1 %.not.i.i, label %43, label %_ZN12PySafeObjectD2Ev.exit
 
@@ -1428,7 +1428,7 @@ define internal fastcc noundef zeroext i1 @_ZL16pyopencv_to_safeIbEbP7_objectRT_
   %11 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #18
   %12 = icmp eq i32 %10, %11
   %13 = tail call ptr @__cxa_begin_catch(ptr %9) #18
-  %14 = load ptr, ptr @opencv_error, align 8, !tbaa !93
+  %14 = load ptr, ptr @opencv_error, align 8, !tbaa !92
   br i1 %12, label %15, label %30
 
 15:                                               ; preds = %7
@@ -1442,19 +1442,19 @@ define internal fastcc noundef zeroext i1 @_ZL16pyopencv_to_safeIbEbP7_objectRT_
           to label %21 unwind label %51
 
 21:                                               ; preds = %15
-  %22 = load ptr, ptr %5, align 8, !tbaa !69
+  %22 = load ptr, ptr %5, align 8, !tbaa !68
   invoke void @PyErr_SetString(ptr noundef %14, ptr noundef %22)
           to label %23 unwind label %53
 
 23:                                               ; preds = %21
-  %24 = load ptr, ptr %5, align 8, !tbaa !69
+  %24 = load ptr, ptr %5, align 8, !tbaa !68
   %25 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %26 = icmp eq ptr %24, %25
   br i1 %26, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i: ; preds = %23
   %27 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %28 = load i64, ptr %27, align 8, !tbaa !72
+  %28 = load i64, ptr %27, align 8, !tbaa !71
   %29 = icmp ult i64 %28, 16
   call void @llvm.assume(i1 %29)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
@@ -1474,19 +1474,19 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
           to label %32 unwind label %41
 
 32:                                               ; preds = %30
-  %33 = load ptr, ptr %4, align 8, !tbaa !69
+  %33 = load ptr, ptr %4, align 8, !tbaa !68
   invoke void @PyErr_SetString(ptr noundef %14, ptr noundef %33)
           to label %34 unwind label %43
 
 34:                                               ; preds = %32
-  %35 = load ptr, ptr %4, align 8, !tbaa !69
+  %35 = load ptr, ptr %4, align 8, !tbaa !68
   %36 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %37 = icmp eq ptr %35, %36
   br i1 %37, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i20, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i19
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i20: ; preds = %34
   %38 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %39 = load i64, ptr %38, align 8, !tbaa !72
+  %39 = load i64, ptr %38, align 8, !tbaa !71
   %40 = icmp ult i64 %39, 16
   call void @llvm.assume(i1 %40)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit21
@@ -1507,14 +1507,14 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit21: ; preds = %_ZN
 43:                                               ; preds = %32
   %44 = landingpad { ptr, i32 }
           cleanup
-  %45 = load ptr, ptr %4, align 8, !tbaa !69
+  %45 = load ptr, ptr %4, align 8, !tbaa !68
   %46 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %47 = icmp eq ptr %45, %46
   br i1 %47, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i23, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i22
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i23: ; preds = %43
   %48 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %49 = load i64, ptr %48, align 8, !tbaa !72
+  %49 = load i64, ptr %48, align 8, !tbaa !71
   %50 = icmp ult i64 %49, 16
   call void @llvm.assume(i1 %50)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit24
@@ -1537,14 +1537,14 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit24: ; preds = %_ZN
 53:                                               ; preds = %21
   %54 = landingpad { ptr, i32 }
           cleanup
-  %55 = load ptr, ptr %5, align 8, !tbaa !69
+  %55 = load ptr, ptr %5, align 8, !tbaa !68
   %56 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %57 = icmp eq ptr %55, %56
   br i1 %57, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i26, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i25
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i26: ; preds = %53
   %58 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %59 = load i64, ptr %58, align 8, !tbaa !72
+  %59 = load i64, ptr %58, align 8, !tbaa !71
   %60 = icmp ult i64 %59, 16
   call void @llvm.assume(i1 %60)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit27
@@ -1597,15 +1597,15 @@ define hidden noundef ptr @_Z13pyopencv_fromIN2cv3MatEEP7_objectRKT_(ptr noundef
   br i1 %.not, label %6, label %9
 
 6:                                                ; preds = %1
-  %7 = load i64, ptr @_Py_NoneStruct, align 8, !tbaa !79
+  %7 = load i64, ptr @_Py_NoneStruct, align 8, !tbaa !78
   %8 = add nsw i64 %7, 1
-  store i64 %8, ptr @_Py_NoneStruct, align 8, !tbaa !79
+  store i64 %8, ptr @_Py_NoneStruct, align 8, !tbaa !78
   br label %85
 
 9:                                                ; preds = %1
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %2) #18
   call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %2) #18
-  %10 = load ptr, ptr %.016.sroa.gep24, align 8, !tbaa !88
+  %10 = load ptr, ptr %.016.sroa.gep24, align 8, !tbaa !87
   %.not25 = icmp eq ptr %10, null
   br i1 %.not25, label %23, label %11
 
@@ -1678,8 +1678,8 @@ _Z17GetNumpyAllocatorv.exit37:                    ; preds = %30, %26, %23
   %36 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %37 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i64 0, ptr %37, align 8
-  store i32 33619968, ptr %3, align 8, !tbaa !94
-  store ptr %2, ptr %36, align 8, !tbaa !97
+  store i32 33619968, ptr %3, align 8, !tbaa !93
+  store ptr %2, ptr %36, align 8, !tbaa !96
   invoke void @_ZNK2cv3Mat6copyToERKNS_12_OutputArrayE(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull align 8 dereferenceable(24) %3)
           to label %38 unwind label %46
 
@@ -1744,7 +1744,7 @@ _ZN14PyAllowThreadsD2Ev.exit38:                   ; preds = %46, %44
   %57 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #18
   %58 = icmp eq i32 %.120, %57
   %59 = call ptr @__cxa_begin_catch(ptr %.118) #18
-  %60 = load ptr, ptr @opencv_error, align 8, !tbaa !93
+  %60 = load ptr, ptr @opencv_error, align 8, !tbaa !92
   br i1 %58, label %61, label %67
 
 61:                                               ; preds = %56
@@ -1797,12 +1797,12 @@ _ZN14PyAllowThreadsD2Ev.exit38:                   ; preds = %46, %44
 
 _ZN14PyAllowThreadsD2Ev.exit:                     ; preds = %38, %_Z17GetNumpyAllocatorv.exit
   %.016.sroa.phi = phi ptr [ %.016.sroa.gep24, %_Z17GetNumpyAllocatorv.exit ], [ %.016.sroa.gep, %38 ]
-  %79 = load ptr, ptr %.016.sroa.phi, align 8, !tbaa !88
+  %79 = load ptr, ptr %.016.sroa.phi, align 8, !tbaa !87
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 64
-  %81 = load ptr, ptr %80, align 8, !tbaa !98
-  %82 = load i64, ptr %81, align 8, !tbaa !79
+  %81 = load ptr, ptr %80, align 8, !tbaa !97
+  %82 = load i64, ptr %81, align 8, !tbaa !78
   %83 = add nsw i64 %82, 1
-  store i64 %83, ptr %81, align 8, !tbaa !79
+  store i64 %83, ptr %81, align 8, !tbaa !78
   br label %84
 
 84:                                               ; preds = %55, %66, %68, %_ZN14PyAllowThreadsD2Ev.exit
@@ -1864,9 +1864,9 @@ define hidden noundef zeroext i1 @_Z11pyopencv_toIbEbP7_objectRT_RK7ArgInfo(ptr 
   br i1 %or.cond, label %38, label %7
 
 7:                                                ; preds = %3
-  %8 = load ptr, ptr @opencv_ARRAY_API, align 8, !tbaa !57
+  %8 = load ptr, ptr @opencv_ARRAY_API, align 8, !tbaa !56
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 64
-  %10 = load ptr, ptr %9, align 8, !tbaa !59
+  %10 = load ptr, ptr %9, align 8, !tbaa !58
   %11 = getelementptr i8, ptr %0, i64 8
   %.val2.i = load ptr, ptr %11, align 8, !tbaa !23
   %.not.i.i = icmp eq ptr %.val2.i, %10
@@ -1900,9 +1900,9 @@ _Z6isBoolP7_object.exit:                          ; preds = %_ZL19_PyObject_Type
   br i1 %.not, label %21, label %_Z6isBoolP7_object.exit.thread
 
 21:                                               ; preds = %18
-  %22 = load ptr, ptr @opencv_ARRAY_API, align 8, !tbaa !57
+  %22 = load ptr, ptr @opencv_ARRAY_API, align 8, !tbaa !56
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 96
-  %24 = load ptr, ptr %23, align 8, !tbaa !59
+  %24 = load ptr, ptr %23, align 8, !tbaa !58
   %.not.i = icmp eq ptr %.val.i, %24
   br i1 %.not.i, label %_Z6isBoolP7_object.exit.thread, label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit
 
@@ -1913,10 +1913,10 @@ _ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit: ; preds = %21
 
 _Z6isBoolP7_object.exit.thread:                   ; preds = %21, %7, %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.i, %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit, %18, %_Z6isBoolP7_object.exit
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #18
-  store i8 0, ptr %4, align 1, !tbaa !92
-  %26 = load ptr, ptr @opencv_ARRAY_API, align 8, !tbaa !57
+  store i8 0, ptr %4, align 1, !tbaa !91
+  %26 = load ptr, ptr @opencv_ARRAY_API, align 8, !tbaa !56
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 1432
-  %28 = load ptr, ptr %27, align 8, !tbaa !59
+  %28 = load ptr, ptr %27, align 8, !tbaa !58
   %29 = call noundef i32 %28(ptr noundef nonnull %0, ptr noundef nonnull %4)
   %30 = icmp sgt i32 %29, -1
   br i1 %30, label %31, label %.thread
@@ -1926,10 +1926,10 @@ _Z6isBoolP7_object.exit.thread:                   ; preds = %21, %7, %_ZL19_PyOb
   br label %35
 
 31:                                               ; preds = %_Z6isBoolP7_object.exit.thread
-  %32 = load i8, ptr %4, align 1, !tbaa !92
+  %32 = load i8, ptr %4, align 1, !tbaa !91
   %33 = icmp eq i8 %32, 1
   %34 = zext i1 %33 to i8
-  store i8 %34, ptr %1, align 1, !tbaa !78
+  store i8 %34, ptr %1, align 1, !tbaa !77
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #18
   br label %38
 
@@ -1945,7 +1945,7 @@ _Z6isBoolP7_object.exit.thread:                   ; preds = %21, %7, %_ZL19_PyOb
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef ptr @_Z13pyopencv_fromIbEP7_objectRKT_(ptr noundef nonnull readonly align 1 captures(none) dereferenceable(1) %0) local_unnamed_addr #3 {
-  %2 = load i8, ptr %0, align 1, !tbaa !78, !range !39, !noundef !40
+  %2 = load i8, ptr %0, align 1, !tbaa !77, !range !39, !noundef !40
   %3 = zext nneg i8 %2 to i64
   %4 = tail call ptr @PyBool_FromLong(i64 noundef %3)
   ret ptr %4
@@ -1971,7 +1971,7 @@ define hidden noundef zeroext i1 @_Z11pyopencv_toIPvEbP7_objectRT_RK7ArgInfo(ptr
 
 11:                                               ; preds = %6
   %12 = tail call ptr @PyLong_AsVoidPtr(ptr noundef nonnull %0)
-  store ptr %12, ptr %1, align 8, !tbaa !59
+  store ptr %12, ptr %1, align 8, !tbaa !58
   %.not9 = icmp eq ptr %12, null
   br i1 %.not9, label %15, label %13
 
@@ -1991,7 +1991,7 @@ declare ptr @PyErr_Occurred() local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef ptr @_Z13pyopencv_fromRPv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0) local_unnamed_addr #3 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !59
+  %2 = load ptr, ptr %0, align 8, !tbaa !58
   %3 = tail call ptr @PyLong_FromVoidPtr(ptr noundef %2)
   ret ptr %3
 }
@@ -2058,9 +2058,9 @@ _ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.thread: ; preds = %.lr.ph, 
   %26 = ashr exact i64 %sext, 32
   %27 = getelementptr inbounds [4 x double], ptr %1, i64 0, i64 %26
   store double %24, ptr %27, align 8, !tbaa !34
-  %28 = load i64, ptr %16, align 8, !tbaa !79
+  %28 = load i64, ptr %16, align 8, !tbaa !78
   %29 = add nsw i64 %28, -1
-  store i64 %29, ptr %16, align 8, !tbaa !79
+  store i64 %29, ptr %16, align 8, !tbaa !78
   %.not.i.i.i = icmp eq i64 %29, 0
   br i1 %.not.i.i.i, label %30, label %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit
 
@@ -2079,7 +2079,7 @@ _ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit:          ; preds = %25, %30
   %34 = add nuw nsw i64 %.02655, 1
   %35 = tail call i64 @PySequence_Size(ptr noundef nonnull %0)
   %36 = icmp slt i64 %34, %35
-  br i1 %36, label %.lr.ph, label %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit42.thread, !llvm.loop !105
+  br i1 %36, label %.lr.ph, label %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit42.thread, !llvm.loop !104
 
 .loopexit:                                        ; preds = %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.thread, %18
   %lpad.loopexit = landingpad { ptr, i32 }
@@ -2102,9 +2102,9 @@ _ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit:          ; preds = %25, %30
           to label %41 unwind label %.loopexit.split-lp
 
 41:                                               ; preds = %38
-  %42 = load i64, ptr %16, align 8, !tbaa !79
+  %42 = load i64, ptr %16, align 8, !tbaa !78
   %43 = add nsw i64 %42, -1
-  store i64 %43, ptr %16, align 8, !tbaa !79
+  store i64 %43, ptr %16, align 8, !tbaa !78
   %.not.i.i.i41 = icmp eq i64 %43, 0
   br i1 %.not.i.i.i41, label %44, label %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit42.thread
 
@@ -2165,9 +2165,9 @@ define internal fastcc void @_ZN12_GLOBAL__N_111SafeSeqItemD2Ev(ptr %.0.val) unn
   br i1 %.not.i, label %_ZL11_Py_XDECREFP7_object.exit, label %1
 
 1:                                                ; preds = %0
-  %2 = load i64, ptr %.0.val, align 8, !tbaa !79
+  %2 = load i64, ptr %.0.val, align 8, !tbaa !78
   %3 = add nsw i64 %2, -1
-  store i64 %3, ptr %.0.val, align 8, !tbaa !79
+  store i64 %3, ptr %.0.val, align 8, !tbaa !78
   %.not.i.i = icmp eq i64 %3, 0
   br i1 %.not.i.i, label %4, label %_ZL11_Py_XDECREFP7_object.exit
 
@@ -2211,9 +2211,9 @@ define hidden noundef zeroext i1 @_Z11pyopencv_toImEbP7_objectRT_RK7ArgInfo(ptr 
   br i1 %or.cond, label %88, label %8
 
 8:                                                ; preds = %3
-  %9 = load ptr, ptr @opencv_ARRAY_API, align 8, !tbaa !57
+  %9 = load ptr, ptr @opencv_ARRAY_API, align 8, !tbaa !56
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 64
-  %11 = load ptr, ptr %10, align 8, !tbaa !59
+  %11 = load ptr, ptr %10, align 8, !tbaa !58
   %12 = getelementptr i8, ptr %0, i64 8
   %.val2.i = load ptr, ptr %12, align 8, !tbaa !23
   %.not.i.i = icmp eq ptr %.val2.i, %11
@@ -2252,9 +2252,9 @@ _Z6isBoolP7_object.exit.thread:                   ; preds = %8, %_ZL19_PyObject_
   br i1 %.not, label %24, label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.thread
 
 24:                                               ; preds = %21
-  %25 = load ptr, ptr @opencv_ARRAY_API, align 8, !tbaa !57
+  %25 = load ptr, ptr @opencv_ARRAY_API, align 8, !tbaa !56
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 96
-  %27 = load ptr, ptr %26, align 8, !tbaa !59
+  %27 = load ptr, ptr %26, align 8, !tbaa !58
   %.not.i = icmp eq ptr %.val.i, %27
   br i1 %.not.i, label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.thread, label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit
 
@@ -2282,21 +2282,21 @@ _ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.thread: ; preds = %_ZL19_Py
   br label %86
 
 33:                                               ; preds = %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.thread
-  %34 = load ptr, ptr @opencv_ARRAY_API, align 8, !tbaa !57
+  %34 = load ptr, ptr @opencv_ARRAY_API, align 8, !tbaa !56
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 80
-  %36 = load ptr, ptr %35, align 8, !tbaa !59
+  %36 = load ptr, ptr %35, align 8, !tbaa !58
   %.not.i.i23 = icmp eq ptr %29, %36
   br i1 %.not.i.i23, label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.thread.i, label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.i24
 
 _ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.i24: ; preds = %33
   %37 = tail call i32 @PyType_IsSubtype(ptr noundef nonnull %29, ptr noundef %36)
   %.not23.i = icmp eq i32 %37, 0
-  %.pre24.i = load ptr, ptr @opencv_ARRAY_API, align 8, !tbaa !57
+  %.pre24.i = load ptr, ptr @opencv_ARRAY_API, align 8, !tbaa !56
   br i1 %.not23.i, label %38, label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.thread.i
 
 38:                                               ; preds = %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.i24
   %39 = getelementptr inbounds nuw i8, ptr %.pre24.i, i64 16
-  %40 = load ptr, ptr %39, align 8, !tbaa !59
+  %40 = load ptr, ptr %39, align 8, !tbaa !58
   %.val.i25 = load ptr, ptr %12, align 8, !tbaa !23
   %.not.i13.i = icmp eq ptr %.val.i25, %40
   br i1 %.not.i13.i, label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit14.thread.i, label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit14.i
@@ -2308,33 +2308,33 @@ _ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit14.i: ; preds = %38
 
 _ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit14.thread.i: ; preds = %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit14.i, %38
   %42 = getelementptr i8, ptr %0, i64 24
-  %.val12.i = load i32, ptr %42, align 8, !tbaa !73
+  %.val12.i = load i32, ptr %42, align 8, !tbaa !72
   %43 = icmp eq i32 %.val12.i, 0
   br i1 %43, label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit14.thread._ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.thread_crit_edge.i, label %80
 
 _ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit14.thread._ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.thread_crit_edge.i: ; preds = %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit14.thread.i
-  %.pre.i = load ptr, ptr @opencv_ARRAY_API, align 8, !tbaa !57
+  %.pre.i = load ptr, ptr @opencv_ARRAY_API, align 8, !tbaa !56
   br label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.thread.i
 
 _ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.thread.i: ; preds = %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit14.thread._ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.thread_crit_edge.i, %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.i24, %33
   %44 = phi ptr [ %.pre.i, %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit14.thread._ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.thread_crit_edge.i ], [ %34, %33 ], [ %.pre24.i, %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.i24 ]
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 360
-  %46 = load ptr, ptr %45, align 8, !tbaa !59
+  %46 = load ptr, ptr %45, align 8, !tbaa !58
   %47 = tail call noundef ptr %46(i32 noundef 8)
-  %48 = load ptr, ptr @opencv_ARRAY_API, align 8, !tbaa !57
+  %48 = load ptr, ptr @opencv_ARRAY_API, align 8, !tbaa !56
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 456
-  %50 = load ptr, ptr %49, align 8, !tbaa !59
+  %50 = load ptr, ptr %49, align 8, !tbaa !58
   %51 = tail call noundef ptr %50(ptr noundef nonnull %0)
-  %52 = load ptr, ptr @opencv_ARRAY_API, align 8, !tbaa !57
+  %52 = load ptr, ptr @opencv_ARRAY_API, align 8, !tbaa !56
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 424
-  %54 = load ptr, ptr %53, align 8, !tbaa !59
+  %54 = load ptr, ptr %53, align 8, !tbaa !58
   %55 = tail call noundef zeroext i8 %54(ptr noundef %51, ptr noundef %47)
   %.not.i15.i = icmp eq i8 %55, 0
   br i1 %.not.i15.i, label %56, label %.thread
 
 56:                                               ; preds = %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.thread.i
   %57 = getelementptr inbounds nuw i8, ptr %51, i64 28
-  %58 = load i32, ptr %57, align 4, !tbaa !65
+  %58 = load i32, ptr %57, align 4, !tbaa !64
   switch i32 %58, label %59 [
     i32 1, label %_ZN12_GLOBAL__N_117canBeSafelyCastedImEEbP7_objectP14_PyArray_Descr.exit.i
     i32 3, label %_ZN12_GLOBAL__N_117canBeSafelyCastedImEEbP7_objectP14_PyArray_Descr.exit.i
@@ -2346,11 +2346,11 @@ _ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.thread.i: ; preds = %_ZL19_
 59:                                               ; preds = %56
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #18
   store i64 0, ptr %5, align 8, !tbaa !51
-  %60 = load ptr, ptr @opencv_ARRAY_API, align 8, !tbaa !57
+  %60 = load ptr, ptr @opencv_ARRAY_API, align 8, !tbaa !56
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 504
-  %62 = load ptr, ptr %61, align 8, !tbaa !59
+  %62 = load ptr, ptr %61, align 8, !tbaa !58
   %63 = getelementptr inbounds nuw i8, ptr %60, i64 360
-  %64 = load ptr, ptr %63, align 8, !tbaa !59
+  %64 = load ptr, ptr %63, align 8, !tbaa !58
   %65 = tail call noundef ptr %64(i32 noundef 8)
   %66 = call noundef i32 %62(ptr noundef nonnull %0, ptr noundef nonnull %5, ptr noundef %65)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #18
@@ -2359,11 +2359,11 @@ _ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.thread.i: ; preds = %_ZL19_
 _ZN12_GLOBAL__N_117canBeSafelyCastedImEEbP7_objectP14_PyArray_Descr.exit.i: ; preds = %56, %56, %56, %56, %56
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #18
   store i64 0, ptr %4, align 8, !tbaa !51
-  %67 = load ptr, ptr @opencv_ARRAY_API, align 8, !tbaa !57
+  %67 = load ptr, ptr @opencv_ARRAY_API, align 8, !tbaa !56
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 504
-  %69 = load ptr, ptr %68, align 8, !tbaa !59
+  %69 = load ptr, ptr %68, align 8, !tbaa !58
   %70 = getelementptr inbounds nuw i8, ptr %67, i64 360
-  %71 = load ptr, ptr %70, align 8, !tbaa !59
+  %71 = load ptr, ptr %70, align 8, !tbaa !58
   %72 = tail call noundef ptr %71(i32 noundef 7)
   %73 = call noundef i32 %69(ptr noundef nonnull %0, ptr noundef nonnull %4, ptr noundef %72)
   %74 = load i64, ptr %4, align 8, !tbaa !51
@@ -2372,9 +2372,9 @@ _ZN12_GLOBAL__N_117canBeSafelyCastedImEEbP7_objectP14_PyArray_Descr.exit.i: ; pr
   br i1 %75, label %.thread, label %80
 
 .thread:                                          ; preds = %_ZN12_GLOBAL__N_117canBeSafelyCastedImEEbP7_objectP14_PyArray_Descr.exit.i, %59, %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.thread.i
-  %76 = load ptr, ptr @opencv_ARRAY_API, align 8, !tbaa !57
+  %76 = load ptr, ptr @opencv_ARRAY_API, align 8, !tbaa !56
   %77 = getelementptr inbounds nuw i8, ptr %76, i64 504
-  %78 = load ptr, ptr %77, align 8, !tbaa !59
+  %78 = load ptr, ptr %77, align 8, !tbaa !58
   %79 = call noundef i32 %78(ptr noundef nonnull %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %47)
   br label %86
 
@@ -2417,9 +2417,9 @@ define hidden noundef zeroext i1 @_Z11pyopencv_toIiEbP7_objectRT_RK7ArgInfo(ptr 
   br i1 %or.cond, label %37, label %6
 
 6:                                                ; preds = %3
-  %7 = load ptr, ptr @opencv_ARRAY_API, align 8, !tbaa !57
+  %7 = load ptr, ptr @opencv_ARRAY_API, align 8, !tbaa !56
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 64
-  %9 = load ptr, ptr %8, align 8, !tbaa !59
+  %9 = load ptr, ptr %8, align 8, !tbaa !58
   %10 = getelementptr i8, ptr %0, i64 8
   %.val2.i = load ptr, ptr %10, align 8, !tbaa !23
   %.not.i.i = icmp eq ptr %.val2.i, %9
@@ -2455,12 +2455,12 @@ _Z6isBoolP7_object.exit.thread:                   ; preds = %6, %_ZL19_PyObject_
   %.val = load i64, ptr %20, align 8, !tbaa !27
   %21 = and i64 %.val, 16777216
   %.not = icmp eq i64 %21, 0
-  %.pre17 = load ptr, ptr @opencv_ARRAY_API, align 8, !tbaa !57
+  %.pre17 = load ptr, ptr @opencv_ARRAY_API, align 8, !tbaa !56
   br i1 %.not, label %22, label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.thread
 
 22:                                               ; preds = %19
   %23 = getelementptr inbounds nuw i8, ptr %.pre17, i64 96
-  %24 = load ptr, ptr %23, align 8, !tbaa !59
+  %24 = load ptr, ptr %23, align 8, !tbaa !58
   %.not.i = icmp eq ptr %.val.i, %24
   br i1 %.not.i, label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.thread, label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit
 
@@ -2470,13 +2470,13 @@ _ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit: ; preds = %22
   br i1 %.not16, label %31, label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit._ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.thread_crit_edge
 
 _ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit._ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.thread_crit_edge: ; preds = %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit
-  %.pre = load ptr, ptr @opencv_ARRAY_API, align 8, !tbaa !57
+  %.pre = load ptr, ptr @opencv_ARRAY_API, align 8, !tbaa !56
   br label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.thread
 
 _ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.thread: ; preds = %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit._ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.thread_crit_edge, %22, %19
   %26 = phi ptr [ %.pre, %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit._ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.thread_crit_edge ], [ %.pre17, %22 ], [ %.pre17, %19 ]
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 800
-  %28 = load ptr, ptr %27, align 8, !tbaa !59
+  %28 = load ptr, ptr %27, align 8, !tbaa !58
   %29 = tail call noundef i32 %28(ptr noundef nonnull %0)
   store i32 %29, ptr %1, align 4, !tbaa !49
   %30 = icmp eq i32 %29, -1
@@ -2515,9 +2515,9 @@ define hidden noundef zeroext i1 @_Z11pyopencv_toIlEbP7_objectRT_RK7ArgInfo(ptr 
   br i1 %or.cond, label %35, label %6
 
 6:                                                ; preds = %3
-  %7 = load ptr, ptr @opencv_ARRAY_API, align 8, !tbaa !57
+  %7 = load ptr, ptr @opencv_ARRAY_API, align 8, !tbaa !56
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 64
-  %9 = load ptr, ptr %8, align 8, !tbaa !59
+  %9 = load ptr, ptr %8, align 8, !tbaa !58
   %10 = getelementptr i8, ptr %0, i64 8
   %.val2.i = load ptr, ptr %10, align 8, !tbaa !23
   %.not.i.i = icmp eq ptr %.val2.i, %9
@@ -2556,9 +2556,9 @@ _Z6isBoolP7_object.exit.thread:                   ; preds = %6, %_ZL19_PyObject_
   br i1 %.not, label %22, label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.thread
 
 22:                                               ; preds = %19
-  %23 = load ptr, ptr @opencv_ARRAY_API, align 8, !tbaa !57
+  %23 = load ptr, ptr @opencv_ARRAY_API, align 8, !tbaa !56
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 96
-  %25 = load ptr, ptr %24, align 8, !tbaa !59
+  %25 = load ptr, ptr %24, align 8, !tbaa !58
   %.not.i = icmp eq ptr %.val.i, %25
   br i1 %.not.i, label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.thread, label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit
 
@@ -2612,7 +2612,7 @@ define hidden noundef zeroext i1 @_Z11pyopencv_toIhEbP7_objectRT_RK7ArgInfo(ptr 
   %9 = tail call i32 @llvm.smax.i32(i32 %8, i32 0)
   %10 = tail call i32 @llvm.umin.i32(i32 %9, i32 255)
   %11 = trunc nuw i32 %10 to i8
-  store i8 %11, ptr %1, align 1, !tbaa !92
+  store i8 %11, ptr %1, align 1, !tbaa !91
   %.not = icmp eq i32 %8, -1
   br i1 %.not, label %12, label %14
 
@@ -2628,7 +2628,7 @@ define hidden noundef zeroext i1 @_Z11pyopencv_toIhEbP7_objectRT_RK7ArgInfo(ptr 
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef ptr @_Z13pyopencv_fromIhEP7_objectRKT_(ptr noundef nonnull readonly align 1 captures(none) dereferenceable(1) %0) local_unnamed_addr #3 {
-  %2 = load i8, ptr %0, align 1, !tbaa !92
+  %2 = load i8, ptr %0, align 1, !tbaa !91
   %3 = zext i8 %2 to i64
   %4 = tail call ptr @PyLong_FromLong(i64 noundef %3)
   ret ptr %4
@@ -2642,9 +2642,9 @@ define hidden noundef zeroext i1 @_Z11pyopencv_toIcEbP7_objectRT_RK7ArgInfo(ptr 
   br i1 %or.cond, label %38, label %6
 
 6:                                                ; preds = %3
-  %7 = load ptr, ptr @opencv_ARRAY_API, align 8, !tbaa !57
+  %7 = load ptr, ptr @opencv_ARRAY_API, align 8, !tbaa !56
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 64
-  %9 = load ptr, ptr %8, align 8, !tbaa !59
+  %9 = load ptr, ptr %8, align 8, !tbaa !58
   %10 = getelementptr i8, ptr %0, i64 8
   %.val2.i = load ptr, ptr %10, align 8, !tbaa !23
   %.not.i.i = icmp eq ptr %.val2.i, %9
@@ -2680,12 +2680,12 @@ _Z6isBoolP7_object.exit.thread:                   ; preds = %6, %_ZL19_PyObject_
   %.val = load i64, ptr %20, align 8, !tbaa !27
   %21 = and i64 %.val, 16777216
   %.not = icmp eq i64 %21, 0
-  %.pre17 = load ptr, ptr @opencv_ARRAY_API, align 8, !tbaa !57
+  %.pre17 = load ptr, ptr @opencv_ARRAY_API, align 8, !tbaa !56
   br i1 %.not, label %22, label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.thread
 
 22:                                               ; preds = %19
   %23 = getelementptr inbounds nuw i8, ptr %.pre17, i64 96
-  %24 = load ptr, ptr %23, align 8, !tbaa !59
+  %24 = load ptr, ptr %23, align 8, !tbaa !58
   %.not.i = icmp eq ptr %.val.i, %24
   br i1 %.not.i, label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.thread, label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit
 
@@ -2695,16 +2695,16 @@ _ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit: ; preds = %22
   br i1 %.not16, label %32, label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit._ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.thread_crit_edge
 
 _ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit._ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.thread_crit_edge: ; preds = %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit
-  %.pre = load ptr, ptr @opencv_ARRAY_API, align 8, !tbaa !57
+  %.pre = load ptr, ptr @opencv_ARRAY_API, align 8, !tbaa !56
   br label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.thread
 
 _ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.thread: ; preds = %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit._ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.thread_crit_edge, %22, %19
   %26 = phi ptr [ %.pre, %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit._ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.thread_crit_edge ], [ %.pre17, %22 ], [ %.pre17, %19 ]
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 800
-  %28 = load ptr, ptr %27, align 8, !tbaa !59
+  %28 = load ptr, ptr %27, align 8, !tbaa !58
   %29 = tail call noundef i32 %28(ptr noundef nonnull %0)
   %30 = trunc i32 %29 to i8
-  store i8 %30, ptr %1, align 1, !tbaa !92
+  store i8 %30, ptr %1, align 1, !tbaa !91
   %31 = icmp eq i8 %30, -1
   br i1 %31, label %35, label %38
 
@@ -2731,9 +2731,9 @@ define hidden noundef zeroext i1 @_Z11pyopencv_toIdEbP7_objectRT_RK7ArgInfo(ptr 
   br i1 %or.cond, label %53, label %6
 
 6:                                                ; preds = %3
-  %7 = load ptr, ptr @opencv_ARRAY_API, align 8, !tbaa !57
+  %7 = load ptr, ptr @opencv_ARRAY_API, align 8, !tbaa !56
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 64
-  %9 = load ptr, ptr %8, align 8, !tbaa !59
+  %9 = load ptr, ptr %8, align 8, !tbaa !58
   %10 = getelementptr i8, ptr %0, i64 8
   %.val2.i = load ptr, ptr %10, align 8, !tbaa !23
   %.not.i.i = icmp eq ptr %.val2.i, %9
@@ -2810,9 +2810,9 @@ _ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.thread: ; preds = %21, %19,
   br label %.thread.sink.split
 
 33:                                               ; preds = %23
-  %34 = load ptr, ptr @opencv_ARRAY_API, align 8, !tbaa !57
+  %34 = load ptr, ptr @opencv_ARRAY_API, align 8, !tbaa !56
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 80
-  %36 = load ptr, ptr %35, align 8, !tbaa !59
+  %36 = load ptr, ptr %35, align 8, !tbaa !58
   %.not.i41 = icmp eq ptr %.pre, %36
   br i1 %.not.i41, label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit42.thread, label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit42
 
@@ -2822,9 +2822,9 @@ _ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit42: ; preds = %33
   br i1 %.not52, label %38, label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit42.thread
 
 38:                                               ; preds = %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit42
-  %39 = load ptr, ptr @opencv_ARRAY_API, align 8, !tbaa !57
+  %39 = load ptr, ptr @opencv_ARRAY_API, align 8, !tbaa !56
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 16
-  %41 = load ptr, ptr %40, align 8, !tbaa !59
+  %41 = load ptr, ptr %40, align 8, !tbaa !58
   %.val34 = load ptr, ptr %10, align 8, !tbaa !23
   %.not.i43 = icmp eq ptr %.val34, %41
   br i1 %.not.i43, label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit44.thread, label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit44
@@ -2836,7 +2836,7 @@ _ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit44: ; preds = %38
 
 _ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit44.thread: ; preds = %38, %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit44
   %43 = getelementptr i8, ptr %0, i64 24
-  %.val38 = load i32, ptr %43, align 8, !tbaa !73
+  %.val38 = load i32, ptr %43, align 8, !tbaa !72
   %44 = icmp eq i32 %.val38, 0
   br i1 %44, label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit42.thread, label %49
 
@@ -2873,9 +2873,9 @@ declare double @PyLong_AsDouble(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
 define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_116parseNumpyScalarIdEEbP7_objectRT_(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(8) %1) unnamed_addr #3 {
-  %3 = load ptr, ptr @opencv_ARRAY_API, align 8, !tbaa !57
+  %3 = load ptr, ptr @opencv_ARRAY_API, align 8, !tbaa !56
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 80
-  %5 = load ptr, ptr %4, align 8, !tbaa !59
+  %5 = load ptr, ptr %4, align 8, !tbaa !58
   %6 = getelementptr i8, ptr %0, i64 8
   %.val11 = load ptr, ptr %6, align 8, !tbaa !23
   %.not.i = icmp eq ptr %.val11, %5
@@ -2884,12 +2884,12 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_116parseNumpyScalarId
 _ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit: ; preds = %2
   %7 = tail call i32 @PyType_IsSubtype(ptr noundef %.val11, ptr noundef %5)
   %.not18 = icmp eq i32 %7, 0
-  %.pre20 = load ptr, ptr @opencv_ARRAY_API, align 8, !tbaa !57
+  %.pre20 = load ptr, ptr @opencv_ARRAY_API, align 8, !tbaa !56
   br i1 %.not18, label %8, label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.thread
 
 8:                                                ; preds = %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit
   %9 = getelementptr inbounds nuw i8, ptr %.pre20, i64 16
-  %10 = load ptr, ptr %9, align 8, !tbaa !59
+  %10 = load ptr, ptr %9, align 8, !tbaa !58
   %.val = load ptr, ptr %6, align 8, !tbaa !23
   %.not.i13 = icmp eq ptr %.val, %10
   br i1 %.not.i13, label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit14.thread, label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit14
@@ -2901,33 +2901,33 @@ _ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit14: ; preds = %8
 
 _ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit14.thread: ; preds = %8, %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit14
   %12 = getelementptr i8, ptr %0, i64 24
-  %.val12 = load i32, ptr %12, align 8, !tbaa !73
+  %.val12 = load i32, ptr %12, align 8, !tbaa !72
   %13 = icmp eq i32 %.val12, 0
   br i1 %13, label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit14.thread._ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.thread_crit_edge, label %.thread
 
 _ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit14.thread._ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.thread_crit_edge: ; preds = %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit14.thread
-  %.pre = load ptr, ptr @opencv_ARRAY_API, align 8, !tbaa !57
+  %.pre = load ptr, ptr @opencv_ARRAY_API, align 8, !tbaa !56
   br label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.thread
 
 _ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.thread: ; preds = %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit14.thread._ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.thread_crit_edge, %2, %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit
   %14 = phi ptr [ %.pre, %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit14.thread._ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.thread_crit_edge ], [ %3, %2 ], [ %.pre20, %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit ]
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 360
-  %16 = load ptr, ptr %15, align 8, !tbaa !59
+  %16 = load ptr, ptr %15, align 8, !tbaa !58
   %17 = tail call noundef ptr %16(i32 noundef 12)
-  %18 = load ptr, ptr @opencv_ARRAY_API, align 8, !tbaa !57
+  %18 = load ptr, ptr @opencv_ARRAY_API, align 8, !tbaa !56
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 424
-  %20 = load ptr, ptr %19, align 8, !tbaa !59
+  %20 = load ptr, ptr %19, align 8, !tbaa !58
   %21 = getelementptr inbounds nuw i8, ptr %18, i64 456
-  %22 = load ptr, ptr %21, align 8, !tbaa !59
+  %22 = load ptr, ptr %21, align 8, !tbaa !58
   %23 = tail call noundef ptr %22(ptr noundef nonnull %0)
   %24 = tail call noundef zeroext i8 %20(ptr noundef %23, ptr noundef %17)
   %.not19 = icmp eq i8 %24, 0
   br i1 %.not19, label %.thread, label %25
 
 25:                                               ; preds = %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.thread
-  %26 = load ptr, ptr @opencv_ARRAY_API, align 8, !tbaa !57
+  %26 = load ptr, ptr @opencv_ARRAY_API, align 8, !tbaa !56
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 504
-  %28 = load ptr, ptr %27, align 8, !tbaa !59
+  %28 = load ptr, ptr %27, align 8, !tbaa !58
   %29 = tail call noundef i32 %28(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %17)
   br label %.thread
 
@@ -2953,9 +2953,9 @@ define hidden noundef zeroext i1 @_Z11pyopencv_toIfEbP7_objectRT_RK7ArgInfo(ptr 
   br i1 %or.cond, label %54, label %6
 
 6:                                                ; preds = %3
-  %7 = load ptr, ptr @opencv_ARRAY_API, align 8, !tbaa !57
+  %7 = load ptr, ptr @opencv_ARRAY_API, align 8, !tbaa !56
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 64
-  %9 = load ptr, ptr %8, align 8, !tbaa !59
+  %9 = load ptr, ptr %8, align 8, !tbaa !58
   %10 = getelementptr i8, ptr %0, i64 8
   %.val2.i = load ptr, ptr %10, align 8, !tbaa !23
   %.not.i.i = icmp eq ptr %.val2.i, %9
@@ -3032,9 +3032,9 @@ _ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.thread: ; preds = %21, %19,
   br label %.thread.sink.split
 
 33:                                               ; preds = %23
-  %34 = load ptr, ptr @opencv_ARRAY_API, align 8, !tbaa !57
+  %34 = load ptr, ptr @opencv_ARRAY_API, align 8, !tbaa !56
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 80
-  %36 = load ptr, ptr %35, align 8, !tbaa !59
+  %36 = load ptr, ptr %35, align 8, !tbaa !58
   %.not.i43 = icmp eq ptr %.pre, %36
   br i1 %.not.i43, label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit44.thread, label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit44
 
@@ -3044,9 +3044,9 @@ _ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit44: ; preds = %33
   br i1 %.not54, label %38, label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit44.thread
 
 38:                                               ; preds = %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit44
-  %39 = load ptr, ptr @opencv_ARRAY_API, align 8, !tbaa !57
+  %39 = load ptr, ptr @opencv_ARRAY_API, align 8, !tbaa !56
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 16
-  %41 = load ptr, ptr %40, align 8, !tbaa !59
+  %41 = load ptr, ptr %40, align 8, !tbaa !58
   %.val36 = load ptr, ptr %10, align 8, !tbaa !23
   %.not.i45 = icmp eq ptr %.val36, %41
   br i1 %.not.i45, label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit46.thread, label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit46
@@ -3058,7 +3058,7 @@ _ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit46: ; preds = %38
 
 _ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit46.thread: ; preds = %38, %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit46
   %43 = getelementptr i8, ptr %0, i64 24
-  %.val40 = load i32, ptr %43, align 8, !tbaa !73
+  %.val40 = load i32, ptr %43, align 8, !tbaa !72
   %44 = icmp eq i32 %.val40, 0
   br i1 %44, label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit44.thread, label %49
 
@@ -3079,7 +3079,7 @@ _ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit44.thread: ; preds = %33, %_
 .thread.sink.split:                               ; preds = %31, %29
   %.sink58 = phi double [ %30, %29 ], [ %32, %31 ]
   %52 = fptrunc double %.sink58 to float
-  store float %52, ptr %1, align 4, !tbaa !106
+  store float %52, ptr %1, align 4, !tbaa !105
   br label %.thread
 
 .thread:                                          ; preds = %.thread.sink.split, %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit44.thread
@@ -3094,9 +3094,9 @@ _ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit44.thread: ; preds = %33, %_
 
 ; Function Attrs: mustprogress uwtable
 define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_116parseNumpyScalarIfEEbP7_objectRT_(ptr noundef %0, ptr noundef nonnull align 4 dereferenceable(4) %1) unnamed_addr #3 {
-  %3 = load ptr, ptr @opencv_ARRAY_API, align 8, !tbaa !57
+  %3 = load ptr, ptr @opencv_ARRAY_API, align 8, !tbaa !56
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 80
-  %5 = load ptr, ptr %4, align 8, !tbaa !59
+  %5 = load ptr, ptr %4, align 8, !tbaa !58
   %6 = getelementptr i8, ptr %0, i64 8
   %.val11 = load ptr, ptr %6, align 8, !tbaa !23
   %.not.i = icmp eq ptr %.val11, %5
@@ -3105,12 +3105,12 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_116parseNumpyScalarIf
 _ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit: ; preds = %2
   %7 = tail call i32 @PyType_IsSubtype(ptr noundef %.val11, ptr noundef %5)
   %.not18 = icmp eq i32 %7, 0
-  %.pre20 = load ptr, ptr @opencv_ARRAY_API, align 8, !tbaa !57
+  %.pre20 = load ptr, ptr @opencv_ARRAY_API, align 8, !tbaa !56
   br i1 %.not18, label %8, label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.thread
 
 8:                                                ; preds = %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit
   %9 = getelementptr inbounds nuw i8, ptr %.pre20, i64 16
-  %10 = load ptr, ptr %9, align 8, !tbaa !59
+  %10 = load ptr, ptr %9, align 8, !tbaa !58
   %.val = load ptr, ptr %6, align 8, !tbaa !23
   %.not.i13 = icmp eq ptr %.val, %10
   br i1 %.not.i13, label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit14.thread, label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit14
@@ -3122,33 +3122,33 @@ _ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit14: ; preds = %8
 
 _ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit14.thread: ; preds = %8, %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit14
   %12 = getelementptr i8, ptr %0, i64 24
-  %.val12 = load i32, ptr %12, align 8, !tbaa !73
+  %.val12 = load i32, ptr %12, align 8, !tbaa !72
   %13 = icmp eq i32 %.val12, 0
   br i1 %13, label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit14.thread._ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.thread_crit_edge, label %.thread
 
 _ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit14.thread._ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.thread_crit_edge: ; preds = %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit14.thread
-  %.pre = load ptr, ptr @opencv_ARRAY_API, align 8, !tbaa !57
+  %.pre = load ptr, ptr @opencv_ARRAY_API, align 8, !tbaa !56
   br label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.thread
 
 _ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.thread: ; preds = %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit14.thread._ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.thread_crit_edge, %2, %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit
   %14 = phi ptr [ %.pre, %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit14.thread._ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.thread_crit_edge ], [ %3, %2 ], [ %.pre20, %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit ]
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 360
-  %16 = load ptr, ptr %15, align 8, !tbaa !59
+  %16 = load ptr, ptr %15, align 8, !tbaa !58
   %17 = tail call noundef ptr %16(i32 noundef 11)
-  %18 = load ptr, ptr @opencv_ARRAY_API, align 8, !tbaa !57
+  %18 = load ptr, ptr @opencv_ARRAY_API, align 8, !tbaa !56
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 424
-  %20 = load ptr, ptr %19, align 8, !tbaa !59
+  %20 = load ptr, ptr %19, align 8, !tbaa !58
   %21 = getelementptr inbounds nuw i8, ptr %18, i64 456
-  %22 = load ptr, ptr %21, align 8, !tbaa !59
+  %22 = load ptr, ptr %21, align 8, !tbaa !58
   %23 = tail call noundef ptr %22(ptr noundef nonnull %0)
   %24 = tail call noundef zeroext i8 %20(ptr noundef %23, ptr noundef %17)
   %.not19 = icmp eq i8 %24, 0
   br i1 %.not19, label %.thread, label %25
 
 25:                                               ; preds = %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.thread
-  %26 = load ptr, ptr @opencv_ARRAY_API, align 8, !tbaa !57
+  %26 = load ptr, ptr @opencv_ARRAY_API, align 8, !tbaa !56
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 504
-  %28 = load ptr, ptr %27, align 8, !tbaa !59
+  %28 = load ptr, ptr %27, align 8, !tbaa !58
   %29 = tail call noundef i32 %28(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %17)
   br label %.thread
 
@@ -3159,7 +3159,7 @@ _ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.thread: ; preds = %_ZL19_Py
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef ptr @_Z13pyopencv_fromIfEP7_objectRKT_(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %0) local_unnamed_addr #3 {
-  %2 = load float, ptr %0, align 4, !tbaa !106
+  %2 = load float, ptr %0, align 4, !tbaa !105
   %3 = fpext float %2 to double
   %4 = tail call ptr @PyFloat_FromDouble(double noundef %3)
   ret ptr %4
@@ -3176,12 +3176,12 @@ define hidden noundef zeroext i1 @_Z11pyopencv_toINSt7__cxx1112basic_stringIcSt1
 7:                                                ; preds = %3
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #18
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store ptr %8, ptr %4, align 8, !tbaa !91
+  store ptr %8, ptr %4, align 8, !tbaa !90
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store i64 0, ptr %9, align 8, !tbaa !72
-  store i8 0, ptr %8, align 8, !tbaa !92
+  store i64 0, ptr %9, align 8, !tbaa !71
+  store i8 0, ptr %8, align 8, !tbaa !91
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 10
-  %11 = load i8, ptr %10, align 2, !tbaa !108, !range !39, !noundef !40
+  %11 = load i8, ptr %10, align 2, !tbaa !107, !range !39, !noundef !40
   %12 = trunc nuw i8 %11 to i1
   br i1 %12, label %13, label %27
 
@@ -3205,12 +3205,12 @@ define hidden noundef zeroext i1 @_Z11pyopencv_toINSt7__cxx1112basic_stringIcSt1
 21:                                               ; preds = %30, %34, %31, %27, %18, %15, %13
   %22 = landingpad { ptr, i32 }
           cleanup
-  %23 = load ptr, ptr %4, align 8, !tbaa !69
+  %23 = load ptr, ptr %4, align 8, !tbaa !68
   %24 = icmp eq ptr %23, %8
   br i1 %24, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i: ; preds = %21
-  %25 = load i64, ptr %9, align 8, !tbaa !72
+  %25 = load i64, ptr %9, align 8, !tbaa !71
   %26 = icmp ult i64 %25, 16
   call void @llvm.assume(i1 %26)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
@@ -3247,19 +3247,19 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %35 = getelementptr inbounds nuw i8, ptr %.012, i64 8
   %36 = load ptr, ptr %35, align 8, !tbaa !23
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 24
-  %38 = load ptr, ptr %37, align 8, !tbaa !109
+  %38 = load ptr, ptr %37, align 8, !tbaa !108
   %39 = load ptr, ptr %2, align 8, !tbaa !53
   %40 = invoke noundef i32 (ptr, ...) @_Z7failmsgPKcz(ptr noundef nonnull @.str.27, ptr noundef %38, ptr noundef %39)
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_.exit unwind label %21
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_.exit: ; preds = %30, %34, %33, %18
   %.1 = phi i1 [ false, %18 ], [ false, %33 ], [ false, %34 ], [ true, %30 ]
-  %41 = load ptr, ptr %4, align 8, !tbaa !69
+  %41 = load ptr, ptr %4, align 8, !tbaa !68
   %42 = icmp eq ptr %41, %8
   br i1 %42, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i16, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i15
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i16: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_.exit
-  %43 = load i64, ptr %9, align 8, !tbaa !72
+  %43 = load i64, ptr %9, align 8, !tbaa !71
   %44 = icmp ult i64 %43, 16
   call void @llvm.assume(i1 %44)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit17
@@ -3309,7 +3309,7 @@ define internal fastcc noundef zeroext i1 @_ZL16getUnicodeStringP7_objectRNSt7__
 17:                                               ; preds = %15
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #18
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store ptr %18, ptr %4, align 8, !tbaa !91
+  store ptr %18, ptr %4, align 8, !tbaa !90
   %19 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %16) #18
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #18
   store i64 %19, ptr %3, align 8, !tbaa !51
@@ -3318,9 +3318,9 @@ define internal fastcc noundef zeroext i1 @_ZL16getUnicodeStringP7_objectRNSt7__
 
 .noexc.i:                                         ; preds = %17
   %21 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(8) %3, i64 noundef 0)
-  store ptr %21, ptr %4, align 8, !tbaa !69
+  store ptr %21, ptr %4, align 8, !tbaa !68
   %22 = load i64, ptr %3, align 8, !tbaa !51
-  store i64 %22, ptr %18, align 8, !tbaa !92
+  store i64 %22, ptr %18, align 8, !tbaa !91
   br label %._crit_edge.i.i
 
 ._crit_edge.i.i:                                  ; preds = %.noexc.i, %17
@@ -3331,8 +3331,8 @@ define internal fastcc noundef zeroext i1 @_ZL16getUnicodeStringP7_objectRNSt7__
   ]
 
 24:                                               ; preds = %._crit_edge.i.i
-  %25 = load i8, ptr %16, align 1, !tbaa !92
-  store i8 %25, ptr %23, align 1, !tbaa !92
+  %25 = load i8, ptr %16, align 1, !tbaa !91
+  store i8 %25, ptr %23, align 1, !tbaa !91
   br label %27
 
 26:                                               ; preds = %._crit_edge.i.i
@@ -3342,37 +3342,37 @@ define internal fastcc noundef zeroext i1 @_ZL16getUnicodeStringP7_objectRNSt7__
 27:                                               ; preds = %26, %24, %._crit_edge.i.i
   %28 = load i64, ptr %3, align 8, !tbaa !51
   %29 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store i64 %28, ptr %29, align 8, !tbaa !72
-  %30 = load ptr, ptr %4, align 8, !tbaa !69
+  store i64 %28, ptr %29, align 8, !tbaa !71
+  %30 = load ptr, ptr %4, align 8, !tbaa !68
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 %28
-  store i8 0, ptr %31, align 1, !tbaa !92
+  store i8 0, ptr %31, align 1, !tbaa !91
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #18
-  %32 = load ptr, ptr %1, align 8, !tbaa !69
+  %32 = load ptr, ptr %1, align 8, !tbaa !68
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %34 = icmp eq ptr %32, %33
   br i1 %34, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread29.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i: ; preds = %27
   %35 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %36 = load i64, ptr %35, align 8, !tbaa !72
+  %36 = load i64, ptr %35, align 8, !tbaa !71
   %37 = icmp ult i64 %36, 16
   call void @llvm.assume(i1 %37)
-  %38 = load ptr, ptr %4, align 8, !tbaa !69
+  %38 = load ptr, ptr %4, align 8, !tbaa !68
   %39 = icmp eq ptr %38, %18
   br i1 %39, label %42, label %.thread.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread29.i: ; preds = %27
-  %40 = load ptr, ptr %4, align 8, !tbaa !69
+  %40 = load ptr, ptr %4, align 8, !tbaa !68
   %41 = icmp eq ptr %40, %18
   br i1 %41, label %42, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit24.thread.i
 
 42:                                               ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread29.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i
   %43 = phi ptr [ %40, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread29.i ], [ %38, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i ]
-  %44 = load i64, ptr %29, align 8, !tbaa !72
+  %44 = load i64, ptr %29, align 8, !tbaa !71
   %45 = icmp ult i64 %44, 16
   call void @llvm.assume(i1 %45)
   %.not22.i = icmp eq ptr %4, %1
-  br i1 %.not22.i, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_.exit, label %46, !prof !110
+  br i1 %.not22.i, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_.exit, label %46, !prof !109
 
 46:                                               ; preds = %42
   switch i64 %44, label %49 [
@@ -3381,8 +3381,8 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   ]
 
 47:                                               ; preds = %46
-  %48 = load i8, ptr %43, align 1, !tbaa !92
-  store i8 %48, ptr %32, align 1, !tbaa !92
+  %48 = load i8, ptr %43, align 1, !tbaa !91
+  store i8 %48, ptr %32, align 1, !tbaa !91
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_S_copyEPcPKcm.exit.i
 
 49:                                               ; preds = %46
@@ -3390,53 +3390,53 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_S_copyEPcPKcm.exit.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_S_copyEPcPKcm.exit.i: ; preds = %49, %47, %46
-  %50 = load i64, ptr %29, align 8, !tbaa !72
+  %50 = load i64, ptr %29, align 8, !tbaa !71
   %51 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i64 %50, ptr %51, align 8, !tbaa !72
-  %52 = load ptr, ptr %1, align 8, !tbaa !69
+  store i64 %50, ptr %51, align 8, !tbaa !71
+  %52 = load ptr, ptr %1, align 8, !tbaa !68
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 %50
-  store i8 0, ptr %53, align 1, !tbaa !92
-  %.pre.i = load ptr, ptr %4, align 8, !tbaa !69
+  store i8 0, ptr %53, align 1, !tbaa !91
+  %.pre.i = load ptr, ptr %4, align 8, !tbaa !68
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_.exit
 
 .thread.i:                                        ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i
-  store ptr %38, ptr %1, align 8, !tbaa !69
-  %54 = load i64, ptr %29, align 8, !tbaa !72
-  store i64 %54, ptr %35, align 8, !tbaa !72
-  %55 = load i64, ptr %18, align 8, !tbaa !92
-  store i64 %55, ptr %33, align 8, !tbaa !92
+  store ptr %38, ptr %1, align 8, !tbaa !68
+  %54 = load i64, ptr %29, align 8, !tbaa !71
+  store i64 %54, ptr %35, align 8, !tbaa !71
+  %55 = load i64, ptr %18, align 8, !tbaa !91
+  store i64 %55, ptr %33, align 8, !tbaa !91
   br label %61
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit24.thread.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread29.i
-  %56 = load i64, ptr %33, align 8, !tbaa !92
-  store ptr %40, ptr %1, align 8, !tbaa !69
-  %57 = load i64, ptr %29, align 8, !tbaa !72
+  %56 = load i64, ptr %33, align 8, !tbaa !91
+  store ptr %40, ptr %1, align 8, !tbaa !68
+  %57 = load i64, ptr %29, align 8, !tbaa !71
   %58 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i64 %57, ptr %58, align 8, !tbaa !72
-  %59 = load i64, ptr %18, align 8, !tbaa !92
-  store i64 %59, ptr %33, align 8, !tbaa !92
+  store i64 %57, ptr %58, align 8, !tbaa !71
+  %59 = load i64, ptr %18, align 8, !tbaa !91
+  store i64 %59, ptr %33, align 8, !tbaa !91
   %.not.i = icmp eq ptr %32, null
   br i1 %.not.i, label %61, label %60
 
 60:                                               ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit24.thread.i
-  store ptr %32, ptr %4, align 8, !tbaa !69
-  store i64 %56, ptr %18, align 8, !tbaa !92
+  store ptr %32, ptr %4, align 8, !tbaa !68
+  store i64 %56, ptr %18, align 8, !tbaa !91
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_.exit
 
 61:                                               ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit24.thread.i, %.thread.i
-  store ptr %18, ptr %4, align 8, !tbaa !69
+  store ptr %18, ptr %4, align 8, !tbaa !68
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_.exit: ; preds = %42, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_S_copyEPcPKcm.exit.i, %60, %61
   %62 = phi ptr [ %32, %60 ], [ %18, %61 ], [ %43, %42 ], [ %.pre.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_S_copyEPcPKcm.exit.i ]
-  store i64 0, ptr %29, align 8, !tbaa !72
-  store i8 0, ptr %62, align 1, !tbaa !92
-  %63 = load ptr, ptr %4, align 8, !tbaa !69
+  store i64 0, ptr %29, align 8, !tbaa !71
+  store i8 0, ptr %62, align 1, !tbaa !91
+  %63 = load ptr, ptr %4, align 8, !tbaa !68
   %64 = icmp eq ptr %63, %18
   br i1 %64, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_.exit
-  %65 = load i64, ptr %29, align 8, !tbaa !72
+  %65 = load i64, ptr %29, align 8, !tbaa !71
   %66 = icmp ult i64 %65, 16
   call void @llvm.assume(i1 %66)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
@@ -3451,9 +3451,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 
 67:                                               ; preds = %9, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %15
   %.1 = phi i1 [ false, %9 ], [ true, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ false, %15 ]
-  %68 = load i64, ptr %10, align 8, !tbaa !79
+  %68 = load i64, ptr %10, align 8, !tbaa !78
   %69 = add nsw i64 %68, -1
-  store i64 %69, ptr %10, align 8, !tbaa !79
+  store i64 %69, ptr %10, align 8, !tbaa !78
   %.not.i.i = icmp eq i64 %69, 0
   br i1 %.not.i.i, label %70, label %_ZL11_Py_XDECREFP7_object.exit
 
@@ -3469,7 +3469,7 @@ _ZL11_Py_XDECREFP7_object.exit:                   ; preds = %70, %67, %2
 ; Function Attrs: mustprogress uwtable
 define hidden noundef ptr @_Z13pyopencv_fromINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEP7_objectRKT_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load i64, ptr %2, align 8, !tbaa !72
+  %3 = load i64, ptr %2, align 8, !tbaa !71
   %4 = icmp eq i64 %3, 0
   %5 = load ptr, ptr %0, align 8
   %spec.select = select i1 %4, ptr @.str.28, ptr %5
@@ -3483,10 +3483,10 @@ declare ptr @PyUnicode_FromString(ptr noundef) local_unnamed_addr #0
 define hidden noundef zeroext i1 @_Z11pyopencv_toIN2cv5Size_IiEEEbP7_objectRT_RK7ArgInfo(ptr noundef %0, ptr noundef nonnull align 4 dereferenceable(8) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(12) %2) local_unnamed_addr #3 {
   %4 = alloca [2 x %"class.(anonymous namespace)::RefWrapper"], align 16
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #18
-  store ptr %1, ptr %4, align 16, !tbaa !111
+  store ptr %1, ptr %4, align 16, !tbaa !110
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  store ptr %6, ptr %5, align 8, !tbaa !111
+  store ptr %6, ptr %5, align 8, !tbaa !110
   %7 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_113parseSequenceIiLm2EEEbP7_objectRAT0__NS_10RefWrapperIT_EERK7ArgInfo(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(12) %2)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #18
   ret i1 %7
@@ -3524,7 +3524,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_113parseSequenceIiLm2
   %.02540 = phi i64 [ 1, %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit34 ], [ 0, %11 ]
   %16 = tail call ptr @PySequence_GetItem(ptr noundef nonnull %0, i64 noundef %.02540)
   %17 = getelementptr inbounds nuw [2 x %"class.(anonymous namespace)::RefWrapper"], ptr %1, i64 0, i64 %.02540
-  %.val31 = load ptr, ptr %17, align 8, !tbaa !112
+  %.val31 = load ptr, ptr %17, align 8, !tbaa !111
   %18 = invoke noundef zeroext i1 @_Z11pyopencv_toIiEbP7_objectRT_RK7ArgInfo(ptr noundef %16, ptr noundef nonnull align 4 dereferenceable(4) %.val31, ptr noundef nonnull align 8 dereferenceable(12) %2)
           to label %19 unwind label %.loopexit
 
@@ -3556,9 +3556,9 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_113parseSequenceIiLm2
   br i1 %.not.i.i, label %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit, label %25
 
 25:                                               ; preds = %24
-  %26 = load i64, ptr %16, align 8, !tbaa !79
+  %26 = load i64, ptr %16, align 8, !tbaa !78
   %27 = add nsw i64 %26, -1
-  store i64 %27, ptr %16, align 8, !tbaa !79
+  store i64 %27, ptr %16, align 8, !tbaa !78
   %.not.i.i.i = icmp eq i64 %27, 0
   br i1 %.not.i.i.i, label %28, label %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit
 
@@ -3578,9 +3578,9 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_113parseSequenceIiLm2
   br i1 %.not.i.i32, label %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit34, label %32
 
 32:                                               ; preds = %.critedge
-  %33 = load i64, ptr %16, align 8, !tbaa !79
+  %33 = load i64, ptr %16, align 8, !tbaa !78
   %34 = add nsw i64 %33, -1
-  store i64 %34, ptr %16, align 8, !tbaa !79
+  store i64 %34, ptr %16, align 8, !tbaa !78
   %.not.i.i.i33 = icmp eq i64 %34, 0
   br i1 %.not.i.i.i33, label %35, label %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit34
 
@@ -3596,7 +3596,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_113parseSequenceIiLm2
   unreachable
 
 _ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit34:        ; preds = %35, %32, %.critedge
-  br i1 %.not41, label %.preheader, label %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit, !llvm.loop !114
+  br i1 %.not41, label %.preheader, label %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit, !llvm.loop !113
 
 _ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit:          ; preds = %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit34, %24, %25, %28, %13, %3, %8
   %.0 = phi i1 [ false, %8 ], [ true, %3 ], [ false, %13 ], [ false, %28 ], [ false, %25 ], [ false, %24 ], [ true, %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit34 ]
@@ -3605,9 +3605,9 @@ _ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit:          ; preds = %_ZN12_GLOBAL__N_111
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef ptr @_Z13pyopencv_fromIN2cv5Size_IiEEEP7_objectRKT_(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %0) local_unnamed_addr #3 {
-  %2 = load i32, ptr %0, align 4, !tbaa !115
+  %2 = load i32, ptr %0, align 4, !tbaa !114
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %4 = load i32, ptr %3, align 4, !tbaa !116
+  %4 = load i32, ptr %3, align 4, !tbaa !115
   %5 = tail call ptr (ptr, ...) @Py_BuildValue(ptr noundef nonnull @.str.29, i32 noundef %2, i32 noundef %4)
   ret ptr %5
 }
@@ -3616,10 +3616,10 @@ define hidden noundef ptr @_Z13pyopencv_fromIN2cv5Size_IiEEEP7_objectRKT_(ptr no
 define hidden noundef zeroext i1 @_Z11pyopencv_toIN2cv5Size_IfEEEbP7_objectRT_RK7ArgInfo(ptr noundef %0, ptr noundef nonnull align 4 dereferenceable(8) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(12) %2) local_unnamed_addr #3 {
   %4 = alloca [2 x %"class.(anonymous namespace)::RefWrapper.0"], align 16
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #18
-  store ptr %1, ptr %4, align 16, !tbaa !117
+  store ptr %1, ptr %4, align 16, !tbaa !116
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  store ptr %6, ptr %5, align 8, !tbaa !117
+  store ptr %6, ptr %5, align 8, !tbaa !116
   %7 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_113parseSequenceIfLm2EEEbP7_objectRAT0__NS_10RefWrapperIT_EERK7ArgInfo(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(12) %2)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #18
   ret i1 %7
@@ -3657,7 +3657,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_113parseSequenceIfLm2
   %.02540 = phi i64 [ 1, %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit34 ], [ 0, %11 ]
   %16 = tail call ptr @PySequence_GetItem(ptr noundef nonnull %0, i64 noundef %.02540)
   %17 = getelementptr inbounds nuw [2 x %"class.(anonymous namespace)::RefWrapper.0"], ptr %1, i64 0, i64 %.02540
-  %.val31 = load ptr, ptr %17, align 8, !tbaa !119
+  %.val31 = load ptr, ptr %17, align 8, !tbaa !118
   %18 = invoke noundef zeroext i1 @_Z11pyopencv_toIfEbP7_objectRT_RK7ArgInfo(ptr noundef %16, ptr noundef nonnull align 4 dereferenceable(4) %.val31, ptr noundef nonnull align 8 dereferenceable(12) %2)
           to label %19 unwind label %.loopexit
 
@@ -3689,9 +3689,9 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_113parseSequenceIfLm2
   br i1 %.not.i.i, label %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit, label %25
 
 25:                                               ; preds = %24
-  %26 = load i64, ptr %16, align 8, !tbaa !79
+  %26 = load i64, ptr %16, align 8, !tbaa !78
   %27 = add nsw i64 %26, -1
-  store i64 %27, ptr %16, align 8, !tbaa !79
+  store i64 %27, ptr %16, align 8, !tbaa !78
   %.not.i.i.i = icmp eq i64 %27, 0
   br i1 %.not.i.i.i, label %28, label %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit
 
@@ -3711,9 +3711,9 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_113parseSequenceIfLm2
   br i1 %.not.i.i32, label %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit34, label %32
 
 32:                                               ; preds = %.critedge
-  %33 = load i64, ptr %16, align 8, !tbaa !79
+  %33 = load i64, ptr %16, align 8, !tbaa !78
   %34 = add nsw i64 %33, -1
-  store i64 %34, ptr %16, align 8, !tbaa !79
+  store i64 %34, ptr %16, align 8, !tbaa !78
   %.not.i.i.i33 = icmp eq i64 %34, 0
   br i1 %.not.i.i.i33, label %35, label %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit34
 
@@ -3729,7 +3729,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_113parseSequenceIfLm2
   unreachable
 
 _ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit34:        ; preds = %35, %32, %.critedge
-  br i1 %.not41, label %.preheader, label %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit, !llvm.loop !121
+  br i1 %.not41, label %.preheader, label %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit, !llvm.loop !120
 
 _ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit:          ; preds = %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit34, %24, %25, %28, %13, %3, %8
   %.0 = phi i1 [ false, %8 ], [ true, %3 ], [ false, %13 ], [ false, %28 ], [ false, %25 ], [ false, %24 ], [ true, %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit34 ]
@@ -3738,10 +3738,10 @@ _ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit:          ; preds = %_ZN12_GLOBAL__N_111
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef ptr @_Z13pyopencv_fromIN2cv5Size_IfEEEP7_objectRKT_(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %0) local_unnamed_addr #3 {
-  %2 = load float, ptr %0, align 4, !tbaa !122
+  %2 = load float, ptr %0, align 4, !tbaa !121
   %3 = fpext float %2 to double
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %5 = load float, ptr %4, align 4, !tbaa !124
+  %5 = load float, ptr %4, align 4, !tbaa !123
   %6 = fpext float %5 to double
   %7 = tail call ptr (ptr, ...) @Py_BuildValue(ptr noundef nonnull @.str.30, double noundef %3, double noundef %6)
   ret ptr %7
@@ -3751,16 +3751,16 @@ define hidden noundef ptr @_Z13pyopencv_fromIN2cv5Size_IfEEEP7_objectRKT_(ptr no
 define hidden noundef zeroext i1 @_Z11pyopencv_toIN2cv5Rect_IiEEEbP7_objectRT_RK7ArgInfo(ptr noundef %0, ptr noundef nonnull align 4 dereferenceable(16) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(12) %2) local_unnamed_addr #3 {
   %4 = alloca [4 x %"class.(anonymous namespace)::RefWrapper"], align 16
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #18
-  store ptr %1, ptr %4, align 16, !tbaa !111
+  store ptr %1, ptr %4, align 16, !tbaa !110
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  store ptr %6, ptr %5, align 8, !tbaa !111
+  store ptr %6, ptr %5, align 8, !tbaa !110
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store ptr %8, ptr %7, align 16, !tbaa !111
+  store ptr %8, ptr %7, align 16, !tbaa !110
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  store ptr %10, ptr %9, align 8, !tbaa !111
+  store ptr %10, ptr %9, align 8, !tbaa !110
   %11 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_113parseSequenceIiLm4EEEbP7_objectRAT0__NS_10RefWrapperIT_EERK7ArgInfo(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(12) %2)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #18
   ret i1 %11
@@ -3797,7 +3797,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_113parseSequenceIiLm4
   %.02540 = phi i64 [ %39, %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit34 ], [ 0, %11 ]
   %16 = tail call ptr @PySequence_GetItem(ptr noundef nonnull %0, i64 noundef %.02540)
   %17 = getelementptr inbounds nuw [4 x %"class.(anonymous namespace)::RefWrapper"], ptr %1, i64 0, i64 %.02540
-  %.val31 = load ptr, ptr %17, align 8, !tbaa !112
+  %.val31 = load ptr, ptr %17, align 8, !tbaa !111
   %18 = invoke noundef zeroext i1 @_Z11pyopencv_toIiEbP7_objectRT_RK7ArgInfo(ptr noundef %16, ptr noundef nonnull align 4 dereferenceable(4) %.val31, ptr noundef nonnull align 8 dereferenceable(12) %2)
           to label %19 unwind label %.loopexit
 
@@ -3829,9 +3829,9 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_113parseSequenceIiLm4
   br i1 %.not.i.i, label %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit, label %25
 
 25:                                               ; preds = %24
-  %26 = load i64, ptr %16, align 8, !tbaa !79
+  %26 = load i64, ptr %16, align 8, !tbaa !78
   %27 = add nsw i64 %26, -1
-  store i64 %27, ptr %16, align 8, !tbaa !79
+  store i64 %27, ptr %16, align 8, !tbaa !78
   %.not.i.i.i = icmp eq i64 %27, 0
   br i1 %.not.i.i.i, label %28, label %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit
 
@@ -3851,9 +3851,9 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_113parseSequenceIiLm4
   br i1 %.not.i.i32, label %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit34, label %32
 
 32:                                               ; preds = %.critedge
-  %33 = load i64, ptr %16, align 8, !tbaa !79
+  %33 = load i64, ptr %16, align 8, !tbaa !78
   %34 = add nsw i64 %33, -1
-  store i64 %34, ptr %16, align 8, !tbaa !79
+  store i64 %34, ptr %16, align 8, !tbaa !78
   %.not.i.i.i33 = icmp eq i64 %34, 0
   br i1 %.not.i.i.i33, label %35, label %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit34
 
@@ -3871,7 +3871,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_113parseSequenceIiLm4
 _ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit34:        ; preds = %35, %32, %.critedge
   %39 = add nuw nsw i64 %.02540, 1
   %exitcond = icmp eq i64 %39, 4
-  br i1 %exitcond, label %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit, label %.preheader, !llvm.loop !125
+  br i1 %exitcond, label %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit, label %.preheader, !llvm.loop !124
 
 _ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit:          ; preds = %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit34, %24, %25, %28, %13, %3, %8
   %.0 = phi i1 [ false, %8 ], [ true, %3 ], [ false, %13 ], [ false, %28 ], [ false, %25 ], [ false, %24 ], [ true, %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit34 ]
@@ -3880,13 +3880,13 @@ _ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit:          ; preds = %_ZN12_GLOBAL__N_111
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef ptr @_Z13pyopencv_fromIN2cv5Rect_IiEEEP7_objectRKT_(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %0) local_unnamed_addr #3 {
-  %2 = load i32, ptr %0, align 4, !tbaa !126
+  %2 = load i32, ptr %0, align 4, !tbaa !125
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %4 = load i32, ptr %3, align 4, !tbaa !128
+  %4 = load i32, ptr %3, align 4, !tbaa !127
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %6 = load i32, ptr %5, align 4, !tbaa !129
+  %6 = load i32, ptr %5, align 4, !tbaa !128
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %8 = load i32, ptr %7, align 4, !tbaa !130
+  %8 = load i32, ptr %7, align 4, !tbaa !129
   %9 = tail call ptr (ptr, ...) @Py_BuildValue(ptr noundef nonnull @.str.31, i32 noundef %2, i32 noundef %4, i32 noundef %6, i32 noundef %8)
   ret ptr %9
 }
@@ -3895,16 +3895,16 @@ define hidden noundef ptr @_Z13pyopencv_fromIN2cv5Rect_IiEEEP7_objectRKT_(ptr no
 define hidden noundef zeroext i1 @_Z11pyopencv_toIN2cv5Rect_IfEEEbP7_objectRT_RK7ArgInfo(ptr noundef %0, ptr noundef nonnull align 4 dereferenceable(16) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(12) %2) local_unnamed_addr #3 {
   %4 = alloca [4 x %"class.(anonymous namespace)::RefWrapper.0"], align 16
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #18
-  store ptr %1, ptr %4, align 16, !tbaa !117
+  store ptr %1, ptr %4, align 16, !tbaa !116
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  store ptr %6, ptr %5, align 8, !tbaa !117
+  store ptr %6, ptr %5, align 8, !tbaa !116
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store ptr %8, ptr %7, align 16, !tbaa !117
+  store ptr %8, ptr %7, align 16, !tbaa !116
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  store ptr %10, ptr %9, align 8, !tbaa !117
+  store ptr %10, ptr %9, align 8, !tbaa !116
   %11 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_113parseSequenceIfLm4EEEbP7_objectRAT0__NS_10RefWrapperIT_EERK7ArgInfo(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(12) %2)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #18
   ret i1 %11
@@ -3941,7 +3941,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_113parseSequenceIfLm4
   %.02540 = phi i64 [ %39, %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit34 ], [ 0, %11 ]
   %16 = tail call ptr @PySequence_GetItem(ptr noundef nonnull %0, i64 noundef %.02540)
   %17 = getelementptr inbounds nuw [4 x %"class.(anonymous namespace)::RefWrapper.0"], ptr %1, i64 0, i64 %.02540
-  %.val31 = load ptr, ptr %17, align 8, !tbaa !119
+  %.val31 = load ptr, ptr %17, align 8, !tbaa !118
   %18 = invoke noundef zeroext i1 @_Z11pyopencv_toIfEbP7_objectRT_RK7ArgInfo(ptr noundef %16, ptr noundef nonnull align 4 dereferenceable(4) %.val31, ptr noundef nonnull align 8 dereferenceable(12) %2)
           to label %19 unwind label %.loopexit
 
@@ -3973,9 +3973,9 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_113parseSequenceIfLm4
   br i1 %.not.i.i, label %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit, label %25
 
 25:                                               ; preds = %24
-  %26 = load i64, ptr %16, align 8, !tbaa !79
+  %26 = load i64, ptr %16, align 8, !tbaa !78
   %27 = add nsw i64 %26, -1
-  store i64 %27, ptr %16, align 8, !tbaa !79
+  store i64 %27, ptr %16, align 8, !tbaa !78
   %.not.i.i.i = icmp eq i64 %27, 0
   br i1 %.not.i.i.i, label %28, label %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit
 
@@ -3995,9 +3995,9 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_113parseSequenceIfLm4
   br i1 %.not.i.i32, label %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit34, label %32
 
 32:                                               ; preds = %.critedge
-  %33 = load i64, ptr %16, align 8, !tbaa !79
+  %33 = load i64, ptr %16, align 8, !tbaa !78
   %34 = add nsw i64 %33, -1
-  store i64 %34, ptr %16, align 8, !tbaa !79
+  store i64 %34, ptr %16, align 8, !tbaa !78
   %.not.i.i.i33 = icmp eq i64 %34, 0
   br i1 %.not.i.i.i33, label %35, label %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit34
 
@@ -4015,7 +4015,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_113parseSequenceIfLm4
 _ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit34:        ; preds = %35, %32, %.critedge
   %39 = add nuw nsw i64 %.02540, 1
   %exitcond = icmp eq i64 %39, 4
-  br i1 %exitcond, label %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit, label %.preheader, !llvm.loop !131
+  br i1 %exitcond, label %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit, label %.preheader, !llvm.loop !130
 
 _ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit:          ; preds = %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit34, %24, %25, %28, %13, %3, %8
   %.0 = phi i1 [ false, %8 ], [ true, %3 ], [ false, %13 ], [ false, %28 ], [ false, %25 ], [ false, %24 ], [ true, %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit34 ]
@@ -4024,16 +4024,16 @@ _ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit:          ; preds = %_ZN12_GLOBAL__N_111
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef ptr @_Z13pyopencv_fromIN2cv5Rect_IfEEEP7_objectRKT_(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %0) local_unnamed_addr #3 {
-  %2 = load float, ptr %0, align 4, !tbaa !132
+  %2 = load float, ptr %0, align 4, !tbaa !131
   %3 = fpext float %2 to double
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %5 = load float, ptr %4, align 4, !tbaa !134
+  %5 = load float, ptr %4, align 4, !tbaa !133
   %6 = fpext float %5 to double
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %8 = load float, ptr %7, align 4, !tbaa !135
+  %8 = load float, ptr %7, align 4, !tbaa !134
   %9 = fpext float %8 to double
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %11 = load float, ptr %10, align 4, !tbaa !136
+  %11 = load float, ptr %10, align 4, !tbaa !135
   %12 = fpext float %11 to double
   %13 = tail call ptr (ptr, ...) @Py_BuildValue(ptr noundef nonnull @.str.32, double noundef %3, double noundef %6, double noundef %9, double noundef %12)
   ret ptr %13
@@ -4043,16 +4043,16 @@ define hidden noundef ptr @_Z13pyopencv_fromIN2cv5Rect_IfEEEP7_objectRKT_(ptr no
 define hidden noundef zeroext i1 @_Z11pyopencv_toIN2cv5Rect_IdEEEbP7_objectRT_RK7ArgInfo(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(12) %2) local_unnamed_addr #3 {
   %4 = alloca [4 x %"class.(anonymous namespace)::RefWrapper.3"], align 16
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #18
-  store ptr %1, ptr %4, align 16, !tbaa !137
+  store ptr %1, ptr %4, align 16, !tbaa !136
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store ptr %6, ptr %5, align 8, !tbaa !137
+  store ptr %6, ptr %5, align 8, !tbaa !136
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  store ptr %8, ptr %7, align 16, !tbaa !137
+  store ptr %8, ptr %7, align 16, !tbaa !136
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  store ptr %10, ptr %9, align 8, !tbaa !137
+  store ptr %10, ptr %9, align 8, !tbaa !136
   %11 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_113parseSequenceIdLm4EEEbP7_objectRAT0__NS_10RefWrapperIT_EERK7ArgInfo(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(12) %2)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #18
   ret i1 %11
@@ -4089,7 +4089,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_113parseSequenceIdLm4
   %.02540 = phi i64 [ %39, %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit34 ], [ 0, %11 ]
   %16 = tail call ptr @PySequence_GetItem(ptr noundef nonnull %0, i64 noundef %.02540)
   %17 = getelementptr inbounds nuw [4 x %"class.(anonymous namespace)::RefWrapper.3"], ptr %1, i64 0, i64 %.02540
-  %.val31 = load ptr, ptr %17, align 8, !tbaa !139
+  %.val31 = load ptr, ptr %17, align 8, !tbaa !138
   %18 = invoke noundef zeroext i1 @_Z11pyopencv_toIdEbP7_objectRT_RK7ArgInfo(ptr noundef %16, ptr noundef nonnull align 8 dereferenceable(8) %.val31, ptr noundef nonnull align 8 dereferenceable(12) %2)
           to label %19 unwind label %.loopexit
 
@@ -4121,9 +4121,9 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_113parseSequenceIdLm4
   br i1 %.not.i.i, label %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit, label %25
 
 25:                                               ; preds = %24
-  %26 = load i64, ptr %16, align 8, !tbaa !79
+  %26 = load i64, ptr %16, align 8, !tbaa !78
   %27 = add nsw i64 %26, -1
-  store i64 %27, ptr %16, align 8, !tbaa !79
+  store i64 %27, ptr %16, align 8, !tbaa !78
   %.not.i.i.i = icmp eq i64 %27, 0
   br i1 %.not.i.i.i, label %28, label %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit
 
@@ -4143,9 +4143,9 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_113parseSequenceIdLm4
   br i1 %.not.i.i32, label %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit34, label %32
 
 32:                                               ; preds = %.critedge
-  %33 = load i64, ptr %16, align 8, !tbaa !79
+  %33 = load i64, ptr %16, align 8, !tbaa !78
   %34 = add nsw i64 %33, -1
-  store i64 %34, ptr %16, align 8, !tbaa !79
+  store i64 %34, ptr %16, align 8, !tbaa !78
   %.not.i.i.i33 = icmp eq i64 %34, 0
   br i1 %.not.i.i.i33, label %35, label %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit34
 
@@ -4163,7 +4163,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_113parseSequenceIdLm4
 _ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit34:        ; preds = %35, %32, %.critedge
   %39 = add nuw nsw i64 %.02540, 1
   %exitcond = icmp eq i64 %39, 4
-  br i1 %exitcond, label %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit, label %.preheader, !llvm.loop !141
+  br i1 %exitcond, label %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit, label %.preheader, !llvm.loop !140
 
 _ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit:          ; preds = %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit34, %24, %25, %28, %13, %3, %8
   %.0 = phi i1 [ false, %8 ], [ true, %3 ], [ false, %13 ], [ false, %28 ], [ false, %25 ], [ false, %24 ], [ true, %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit34 ]
@@ -4172,13 +4172,13 @@ _ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit:          ; preds = %_ZN12_GLOBAL__N_111
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef ptr @_Z13pyopencv_fromIN2cv5Rect_IdEEEP7_objectRKT_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0) local_unnamed_addr #3 {
-  %2 = load double, ptr %0, align 8, !tbaa !142
+  %2 = load double, ptr %0, align 8, !tbaa !141
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load double, ptr %3, align 8, !tbaa !144
+  %4 = load double, ptr %3, align 8, !tbaa !143
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %6 = load double, ptr %5, align 8, !tbaa !145
+  %6 = load double, ptr %5, align 8, !tbaa !144
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %8 = load double, ptr %7, align 8, !tbaa !146
+  %8 = load double, ptr %7, align 8, !tbaa !145
   %9 = tail call ptr (ptr, ...) @Py_BuildValue(ptr noundef nonnull @.str.14, double noundef %2, double noundef %4, double noundef %6, double noundef %8)
   ret ptr %9
 }
@@ -4216,14 +4216,14 @@ define hidden noundef zeroext i1 @_Z11pyopencv_toIN2cv11RotatedRectEEbP7_objectR
 21:                                               ; preds = %20
   %22 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull @.str.79) #18
   %23 = icmp eq i32 %22, 0
-  %24 = load ptr, ptr %7, align 8, !tbaa !69
+  %24 = load ptr, ptr %7, align 8, !tbaa !68
   %25 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %26 = icmp eq ptr %24, %25
   br i1 %26, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i: ; preds = %21
   %27 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %28 = load i64, ptr %27, align 8, !tbaa !72
+  %28 = load i64, ptr %27, align 8, !tbaa !71
   %29 = icmp ult i64 %28, 16
   call void @llvm.assume(i1 %29)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i
@@ -4238,14 +4238,14 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i: ; preds = %_ZN
 
 .critedge.i:                                      ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i, %16
   %30 = phi i1 [ %23, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i ], [ false, %16 ]
-  %31 = load ptr, ptr %6, align 8, !tbaa !69
+  %31 = load ptr, ptr %6, align 8, !tbaa !68
   %32 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %33 = icmp eq ptr %31, %32
   br i1 %33, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i15.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i14.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i15.i: ; preds = %.critedge.i
   %34 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %35 = load i64, ptr %34, align 8, !tbaa !72
+  %35 = load i64, ptr %34, align 8, !tbaa !71
   %36 = icmp ult i64 %35, 16
   call void @llvm.assume(i1 %36)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit16.i
@@ -4260,10 +4260,10 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit16.i: ; preds = %_
 
 37:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit16.i
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %1, ptr noundef nonnull align 8 dereferenceable(20) %38, i64 20, i1 false), !tbaa.struct !147
-  %39 = load i64, ptr %17, align 8, !tbaa !79
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %1, ptr noundef nonnull align 8 dereferenceable(20) %38, i64 20, i1 false), !tbaa.struct !146
+  %39 = load i64, ptr %17, align 8, !tbaa !78
   %40 = add nsw i64 %39, -1
-  store i64 %40, ptr %17, align 8, !tbaa !79
+  store i64 %40, ptr %17, align 8, !tbaa !78
   %.not.i.i = icmp eq i64 %40, 0
   br i1 %.not.i.i, label %_ZL20convertToRotatedRectP7_objectRN2cv11RotatedRectE.exit.thread76, label %_ZL20convertToRotatedRectP7_objectRN2cv11RotatedRectE.exit.thread
 
@@ -4275,14 +4275,14 @@ _ZL20convertToRotatedRectP7_objectRN2cv11RotatedRectE.exit.thread76: ; preds = %
   %42 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #18
-  %43 = load ptr, ptr %6, align 8, !tbaa !69
+  %43 = load ptr, ptr %6, align 8, !tbaa !68
   %44 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %45 = icmp eq ptr %43, %44
   br i1 %45, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i18.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i17.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i18.i: ; preds = %41
   %46 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %47 = load i64, ptr %46, align 8, !tbaa !72
+  %47 = load i64, ptr %46, align 8, !tbaa !71
   %48 = icmp ult i64 %47, 16
   call void @llvm.assume(i1 %48)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit19.i
@@ -4300,9 +4300,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit19.i: ; preds = %_
   br label %common.resume
 
 49:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit16.i
-  %50 = load i64, ptr %17, align 8, !tbaa !79
+  %50 = load i64, ptr %17, align 8, !tbaa !78
   %51 = add nsw i64 %50, -1
-  store i64 %51, ptr %17, align 8, !tbaa !79
+  store i64 %51, ptr %17, align 8, !tbaa !78
   %.not.i20.i = icmp eq i64 %51, 0
   br i1 %.not.i20.i, label %_ZL20convertToRotatedRectP7_objectRN2cv11RotatedRectE.exit, label %_ZL20convertToRotatedRectP7_objectRN2cv11RotatedRectE.exit.thread75
 
@@ -4335,7 +4335,7 @@ _ZL20convertToRotatedRectP7_objectRN2cv11RotatedRectE.exit.thread75: ; preds = %
   %62 = load ptr, ptr %2, align 8, !tbaa !53
   call void (ptr, ptr, ...) @_ZN2cv6formatB5cxx11EPKcz(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %8, ptr noundef nonnull @.str.35, ptr noundef %62)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #18
-  %63 = load ptr, ptr %8, align 8, !tbaa !69
+  %63 = load ptr, ptr %8, align 8, !tbaa !68
   store ptr %63, ptr %9, align 8, !tbaa !53
   %64 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i32 0, ptr %64, align 8
@@ -4344,10 +4344,10 @@ _ZL20convertToRotatedRectP7_objectRN2cv11RotatedRectE.exit.thread75: ; preds = %
 
 _ZN12_GLOBAL__N_111SafeSeqItemC2EP7_objectm.exit: ; preds = %61
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #18
-  store ptr %1, ptr %5, align 16, !tbaa !117
+  store ptr %1, ptr %5, align 16, !tbaa !116
   %66 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %67 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  store ptr %67, ptr %66, align 8, !tbaa !117
+  store ptr %67, ptr %66, align 8, !tbaa !116
   %68 = invoke fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_113parseSequenceIfLm2EEEbP7_objectRAT0__NS_10RefWrapperIT_EERK7ArgInfo(ptr noundef %65, ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull readonly align 8 dereferenceable(12) %9)
           to label %73 unwind label %71
 
@@ -4368,9 +4368,9 @@ _ZN12_GLOBAL__N_111SafeSeqItemC2EP7_objectm.exit: ; preds = %61
   br i1 %.not.i.i52, label %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit, label %74
 
 74:                                               ; preds = %73
-  %75 = load i64, ptr %65, align 8, !tbaa !79
+  %75 = load i64, ptr %65, align 8, !tbaa !78
   %76 = add nsw i64 %75, -1
-  store i64 %76, ptr %65, align 8, !tbaa !79
+  store i64 %76, ptr %65, align 8, !tbaa !78
   %.not.i.i.i = icmp eq i64 %76, 0
   br i1 %.not.i.i.i, label %77, label %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit
 
@@ -4387,14 +4387,14 @@ _ZN12_GLOBAL__N_111SafeSeqItemC2EP7_objectm.exit: ; preds = %61
 
 _ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit:          ; preds = %73, %74, %77
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #18
-  %81 = load ptr, ptr %8, align 8, !tbaa !69
+  %81 = load ptr, ptr %8, align 8, !tbaa !68
   %82 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %83 = icmp eq ptr %81, %82
   br i1 %83, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i: ; preds = %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit
   %84 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %85 = load i64, ptr %84, align 8, !tbaa !72
+  %85 = load i64, ptr %84, align 8, !tbaa !71
   %86 = icmp ult i64 %85, 16
   call void @llvm.assume(i1 %86)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
@@ -4412,7 +4412,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %88 = load ptr, ptr %2, align 8, !tbaa !53
   call void (ptr, ptr, ...) @_ZN2cv6formatB5cxx11EPKcz(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %10, ptr noundef nonnull @.str.36, ptr noundef %88)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11) #18
-  %89 = load ptr, ptr %10, align 8, !tbaa !69
+  %89 = load ptr, ptr %10, align 8, !tbaa !68
   store ptr %89, ptr %11, align 8, !tbaa !53
   %90 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store i32 0, ptr %90, align 8
@@ -4422,24 +4422,24 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 _ZN12_GLOBAL__N_111SafeSeqItemC2EP7_objectm.exit53: ; preds = %87
   %92 = getelementptr inbounds nuw i8, ptr %1, i64 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #18
-  store ptr %92, ptr %4, align 16, !tbaa !117
+  store ptr %92, ptr %4, align 16, !tbaa !116
   %93 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %94 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  store ptr %94, ptr %93, align 8, !tbaa !117
+  store ptr %94, ptr %93, align 8, !tbaa !116
   %95 = invoke fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_113parseSequenceIfLm2EEEbP7_objectRAT0__NS_10RefWrapperIT_EERK7ArgInfo(ptr noundef %91, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull readonly align 8 dereferenceable(12) %11)
           to label %107 unwind label %105
 
 96:                                               ; preds = %71, %69
   %.pn = phi { ptr, i32 } [ %72, %71 ], [ %70, %69 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #18
-  %97 = load ptr, ptr %8, align 8, !tbaa !69
+  %97 = load ptr, ptr %8, align 8, !tbaa !68
   %98 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %99 = icmp eq ptr %97, %98
   br i1 %99, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i55, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i54
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i55: ; preds = %96
   %100 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %101 = load i64, ptr %100, align 8, !tbaa !72
+  %101 = load i64, ptr %100, align 8, !tbaa !71
   %102 = icmp ult i64 %101, 16
   call void @llvm.assume(i1 %102)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit56
@@ -4469,9 +4469,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit56: ; preds = %_ZN
   br i1 %.not.i.i57, label %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit59, label %108
 
 108:                                              ; preds = %107
-  %109 = load i64, ptr %91, align 8, !tbaa !79
+  %109 = load i64, ptr %91, align 8, !tbaa !78
   %110 = add nsw i64 %109, -1
-  store i64 %110, ptr %91, align 8, !tbaa !79
+  store i64 %110, ptr %91, align 8, !tbaa !78
   %.not.i.i.i58 = icmp eq i64 %110, 0
   br i1 %.not.i.i.i58, label %111, label %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit59
 
@@ -4488,14 +4488,14 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit56: ; preds = %_ZN
 
 _ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit59:        ; preds = %107, %108, %111
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11) #18
-  %115 = load ptr, ptr %10, align 8, !tbaa !69
+  %115 = load ptr, ptr %10, align 8, !tbaa !68
   %116 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %117 = icmp eq ptr %115, %116
   br i1 %117, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i61, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i60
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i61: ; preds = %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit59
   %118 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %119 = load i64, ptr %118, align 8, !tbaa !72
+  %119 = load i64, ptr %118, align 8, !tbaa !71
   %120 = icmp ult i64 %119, 16
   call void @llvm.assume(i1 %120)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit62
@@ -4513,7 +4513,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit62: ; preds = %_ZN
   %122 = load ptr, ptr %2, align 8, !tbaa !53
   call void (ptr, ptr, ...) @_ZN2cv6formatB5cxx11EPKcz(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %12, ptr noundef nonnull @.str.37, ptr noundef %122)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %13) #18
-  %123 = load ptr, ptr %12, align 8, !tbaa !69
+  %123 = load ptr, ptr %12, align 8, !tbaa !68
   store ptr %123, ptr %13, align 8, !tbaa !53
   %124 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store i32 0, ptr %124, align 8
@@ -4528,14 +4528,14 @@ _ZN12_GLOBAL__N_111SafeSeqItemC2EP7_objectm.exit63: ; preds = %121
 128:                                              ; preds = %105, %103
   %.pn42 = phi { ptr, i32 } [ %106, %105 ], [ %104, %103 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11) #18
-  %129 = load ptr, ptr %10, align 8, !tbaa !69
+  %129 = load ptr, ptr %10, align 8, !tbaa !68
   %130 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %131 = icmp eq ptr %129, %130
   br i1 %131, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i65, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i64
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i65: ; preds = %128
   %132 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %133 = load i64, ptr %132, align 8, !tbaa !72
+  %133 = load i64, ptr %132, align 8, !tbaa !71
   %134 = icmp ult i64 %133, 16
   call void @llvm.assume(i1 %134)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit66
@@ -4562,14 +4562,14 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit66: ; preds = %_ZN
 139:                                              ; preds = %_ZN12_GLOBAL__N_111SafeSeqItemC2EP7_objectm.exit63
   call fastcc void @_ZN12_GLOBAL__N_111SafeSeqItemD2Ev(ptr %125) #18
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13) #18
-  %140 = load ptr, ptr %12, align 8, !tbaa !69
+  %140 = load ptr, ptr %12, align 8, !tbaa !68
   %141 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %142 = icmp eq ptr %140, %141
   br i1 %142, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i68, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i67
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i68: ; preds = %139
   %143 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  %144 = load i64, ptr %143, align 8, !tbaa !72
+  %144 = load i64, ptr %143, align 8, !tbaa !71
   %145 = icmp ult i64 %144, 16
   call void @llvm.assume(i1 %145)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit69
@@ -4585,14 +4585,14 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit69: ; preds = %_ZN
 146:                                              ; preds = %137, %135
   %.pn44 = phi { ptr, i32 } [ %138, %137 ], [ %136, %135 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13) #18
-  %147 = load ptr, ptr %12, align 8, !tbaa !69
+  %147 = load ptr, ptr %12, align 8, !tbaa !68
   %148 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %149 = icmp eq ptr %147, %148
   br i1 %149, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i71, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i70
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i71: ; preds = %146
   %150 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  %151 = load i64, ptr %150, align 8, !tbaa !72
+  %151 = load i64, ptr %150, align 8, !tbaa !71
   %152 = icmp ult i64 %151, 16
   call void @llvm.assume(i1 %152)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit72
@@ -4616,10 +4616,10 @@ declare void @_ZN2cv6formatB5cxx11EPKcz(ptr dead_on_unwind writable sret(%"class
 define hidden noundef zeroext i1 @_Z11pyopencv_toIN2cv6Point_IfEEEbP7_objectRT_RK7ArgInfo(ptr noundef %0, ptr noundef nonnull align 4 dereferenceable(8) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(12) %2) local_unnamed_addr #3 {
   %4 = alloca [2 x %"class.(anonymous namespace)::RefWrapper.0"], align 16
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #18
-  store ptr %1, ptr %4, align 16, !tbaa !117
+  store ptr %1, ptr %4, align 16, !tbaa !116
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  store ptr %6, ptr %5, align 8, !tbaa !117
+  store ptr %6, ptr %5, align 8, !tbaa !116
   %7 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_113parseSequenceIfLm2EEEbP7_objectRAT0__NS_10RefWrapperIT_EERK7ArgInfo(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(12) %2)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #18
   ret i1 %7
@@ -4627,19 +4627,19 @@ define hidden noundef zeroext i1 @_Z11pyopencv_toIN2cv6Point_IfEEEbP7_objectRT_R
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef ptr @_Z13pyopencv_fromIN2cv11RotatedRectEEP7_objectRKT_(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(20) %0) local_unnamed_addr #3 {
-  %2 = load float, ptr %0, align 4, !tbaa !148
+  %2 = load float, ptr %0, align 4, !tbaa !147
   %3 = fpext float %2 to double
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %5 = load float, ptr %4, align 4, !tbaa !151
+  %5 = load float, ptr %4, align 4, !tbaa !150
   %6 = fpext float %5 to double
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %8 = load float, ptr %7, align 4, !tbaa !152
+  %8 = load float, ptr %7, align 4, !tbaa !151
   %9 = fpext float %8 to double
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %11 = load float, ptr %10, align 4, !tbaa !153
+  %11 = load float, ptr %10, align 4, !tbaa !152
   %12 = fpext float %11 to double
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %14 = load float, ptr %13, align 4, !tbaa !154
+  %14 = load float, ptr %13, align 4, !tbaa !153
   %15 = fpext float %14 to double
   %16 = tail call ptr (ptr, ...) @Py_BuildValue(ptr noundef nonnull @.str.38, double noundef %3, double noundef %6, double noundef %9, double noundef %12, double noundef %15)
   ret ptr %16
@@ -4664,10 +4664,10 @@ define hidden noundef zeroext i1 @_Z11pyopencv_toIN2cv5RangeEEbP7_objectRT_RK7Ar
 
 11:                                               ; preds = %7
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #18
-  store ptr %1, ptr %4, align 16, !tbaa !111
+  store ptr %1, ptr %4, align 16, !tbaa !110
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  store ptr %13, ptr %12, align 8, !tbaa !111
+  store ptr %13, ptr %12, align 8, !tbaa !110
   %14 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_113parseSequenceIiLm2EEEbP7_objectRAT0__NS_10RefWrapperIT_EERK7ArgInfo(ptr noundef nonnull %0, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(12) %2)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #18
   br label %15
@@ -4684,9 +4684,9 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr no
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef ptr @_Z13pyopencv_fromIN2cv5RangeEEP7_objectRKT_(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %0) local_unnamed_addr #3 {
-  %2 = load i32, ptr %0, align 4, !tbaa !155
+  %2 = load i32, ptr %0, align 4, !tbaa !154
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %4 = load i32, ptr %3, align 4, !tbaa !157
+  %4 = load i32, ptr %3, align 4, !tbaa !156
   %5 = tail call ptr (ptr, ...) @Py_BuildValue(ptr noundef nonnull @.str.29, i32 noundef %2, i32 noundef %4)
   ret ptr %5
 }
@@ -4695,10 +4695,10 @@ define hidden noundef ptr @_Z13pyopencv_fromIN2cv5RangeEEP7_objectRKT_(ptr nound
 define hidden noundef zeroext i1 @_Z11pyopencv_toIN2cv6Point_IiEEEbP7_objectRT_RK7ArgInfo(ptr noundef %0, ptr noundef nonnull align 4 dereferenceable(8) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(12) %2) local_unnamed_addr #3 {
   %4 = alloca [2 x %"class.(anonymous namespace)::RefWrapper"], align 16
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #18
-  store ptr %1, ptr %4, align 16, !tbaa !111
+  store ptr %1, ptr %4, align 16, !tbaa !110
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  store ptr %6, ptr %5, align 8, !tbaa !111
+  store ptr %6, ptr %5, align 8, !tbaa !110
   %7 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_113parseSequenceIiLm2EEEbP7_objectRAT0__NS_10RefWrapperIT_EERK7ArgInfo(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(12) %2)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #18
   ret i1 %7
@@ -4706,19 +4706,19 @@ define hidden noundef zeroext i1 @_Z11pyopencv_toIN2cv6Point_IiEEEbP7_objectRT_R
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef ptr @_Z13pyopencv_fromIN2cv6Point_IiEEEP7_objectRKT_(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %0) local_unnamed_addr #3 {
-  %2 = load i32, ptr %0, align 4, !tbaa !158
+  %2 = load i32, ptr %0, align 4, !tbaa !157
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %4 = load i32, ptr %3, align 4, !tbaa !160
+  %4 = load i32, ptr %3, align 4, !tbaa !159
   %5 = tail call ptr (ptr, ...) @Py_BuildValue(ptr noundef nonnull @.str.29, i32 noundef %2, i32 noundef %4)
   ret ptr %5
 }
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef ptr @_Z13pyopencv_fromIN2cv6Point_IfEEEP7_objectRKT_(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %0) local_unnamed_addr #3 {
-  %2 = load float, ptr %0, align 4, !tbaa !161
+  %2 = load float, ptr %0, align 4, !tbaa !160
   %3 = fpext float %2 to double
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %5 = load float, ptr %4, align 4, !tbaa !162
+  %5 = load float, ptr %4, align 4, !tbaa !161
   %6 = fpext float %5 to double
   %7 = tail call ptr (ptr, ...) @Py_BuildValue(ptr noundef nonnull @.str.39, double noundef %3, double noundef %6)
   ret ptr %7
@@ -4728,10 +4728,10 @@ define hidden noundef ptr @_Z13pyopencv_fromIN2cv6Point_IfEEEP7_objectRKT_(ptr n
 define hidden noundef zeroext i1 @_Z11pyopencv_toIN2cv6Point_IdEEEbP7_objectRT_RK7ArgInfo(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(12) %2) local_unnamed_addr #3 {
   %4 = alloca [2 x %"class.(anonymous namespace)::RefWrapper.3"], align 16
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #18
-  store ptr %1, ptr %4, align 16, !tbaa !137
+  store ptr %1, ptr %4, align 16, !tbaa !136
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store ptr %6, ptr %5, align 8, !tbaa !137
+  store ptr %6, ptr %5, align 8, !tbaa !136
   %7 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_113parseSequenceIdLm2EEEbP7_objectRAT0__NS_10RefWrapperIT_EERK7ArgInfo(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(12) %2)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #18
   ret i1 %7
@@ -4769,7 +4769,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_113parseSequenceIdLm2
   %.02540 = phi i64 [ 1, %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit34 ], [ 0, %11 ]
   %16 = tail call ptr @PySequence_GetItem(ptr noundef nonnull %0, i64 noundef %.02540)
   %17 = getelementptr inbounds nuw [2 x %"class.(anonymous namespace)::RefWrapper.3"], ptr %1, i64 0, i64 %.02540
-  %.val31 = load ptr, ptr %17, align 8, !tbaa !139
+  %.val31 = load ptr, ptr %17, align 8, !tbaa !138
   %18 = invoke noundef zeroext i1 @_Z11pyopencv_toIdEbP7_objectRT_RK7ArgInfo(ptr noundef %16, ptr noundef nonnull align 8 dereferenceable(8) %.val31, ptr noundef nonnull align 8 dereferenceable(12) %2)
           to label %19 unwind label %.loopexit
 
@@ -4801,9 +4801,9 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_113parseSequenceIdLm2
   br i1 %.not.i.i, label %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit, label %25
 
 25:                                               ; preds = %24
-  %26 = load i64, ptr %16, align 8, !tbaa !79
+  %26 = load i64, ptr %16, align 8, !tbaa !78
   %27 = add nsw i64 %26, -1
-  store i64 %27, ptr %16, align 8, !tbaa !79
+  store i64 %27, ptr %16, align 8, !tbaa !78
   %.not.i.i.i = icmp eq i64 %27, 0
   br i1 %.not.i.i.i, label %28, label %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit
 
@@ -4823,9 +4823,9 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_113parseSequenceIdLm2
   br i1 %.not.i.i32, label %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit34, label %32
 
 32:                                               ; preds = %.critedge
-  %33 = load i64, ptr %16, align 8, !tbaa !79
+  %33 = load i64, ptr %16, align 8, !tbaa !78
   %34 = add nsw i64 %33, -1
-  store i64 %34, ptr %16, align 8, !tbaa !79
+  store i64 %34, ptr %16, align 8, !tbaa !78
   %.not.i.i.i33 = icmp eq i64 %34, 0
   br i1 %.not.i.i.i33, label %35, label %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit34
 
@@ -4841,7 +4841,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_113parseSequenceIdLm2
   unreachable
 
 _ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit34:        ; preds = %35, %32, %.critedge
-  br i1 %.not41, label %.preheader, label %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit, !llvm.loop !163
+  br i1 %.not41, label %.preheader, label %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit, !llvm.loop !162
 
 _ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit:          ; preds = %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit34, %24, %25, %28, %13, %3, %8
   %.0 = phi i1 [ false, %8 ], [ true, %3 ], [ false, %13 ], [ false, %28 ], [ false, %25 ], [ false, %24 ], [ true, %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit34 ]
@@ -4850,9 +4850,9 @@ _ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit:          ; preds = %_ZN12_GLOBAL__N_111
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef ptr @_Z13pyopencv_fromIN2cv6Point_IdEEEP7_objectRKT_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0) local_unnamed_addr #3 {
-  %2 = load double, ptr %0, align 8, !tbaa !164
+  %2 = load double, ptr %0, align 8, !tbaa !163
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load double, ptr %3, align 8, !tbaa !166
+  %4 = load double, ptr %3, align 8, !tbaa !165
   %5 = tail call ptr (ptr, ...) @Py_BuildValue(ptr noundef nonnull @.str.39, double noundef %2, double noundef %4)
   ret ptr %5
 }
@@ -4861,13 +4861,13 @@ define hidden noundef ptr @_Z13pyopencv_fromIN2cv6Point_IdEEEP7_objectRKT_(ptr n
 define hidden noundef zeroext i1 @_Z11pyopencv_toIN2cv7Point3_IiEEEbP7_objectRT_RK7ArgInfo(ptr noundef %0, ptr noundef nonnull align 4 dereferenceable(12) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(12) %2) local_unnamed_addr #3 {
   %4 = alloca [3 x %"class.(anonymous namespace)::RefWrapper"], align 16
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #18
-  store ptr %1, ptr %4, align 16, !tbaa !111
+  store ptr %1, ptr %4, align 16, !tbaa !110
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  store ptr %6, ptr %5, align 8, !tbaa !111
+  store ptr %6, ptr %5, align 8, !tbaa !110
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store ptr %8, ptr %7, align 16, !tbaa !111
+  store ptr %8, ptr %7, align 16, !tbaa !110
   %9 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_113parseSequenceIiLm3EEEbP7_objectRAT0__NS_10RefWrapperIT_EERK7ArgInfo(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(12) %2)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #18
   ret i1 %9
@@ -4904,7 +4904,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_113parseSequenceIiLm3
   %.02540 = phi i64 [ %39, %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit34 ], [ 0, %11 ]
   %16 = tail call ptr @PySequence_GetItem(ptr noundef nonnull %0, i64 noundef %.02540)
   %17 = getelementptr inbounds nuw [3 x %"class.(anonymous namespace)::RefWrapper"], ptr %1, i64 0, i64 %.02540
-  %.val31 = load ptr, ptr %17, align 8, !tbaa !112
+  %.val31 = load ptr, ptr %17, align 8, !tbaa !111
   %18 = invoke noundef zeroext i1 @_Z11pyopencv_toIiEbP7_objectRT_RK7ArgInfo(ptr noundef %16, ptr noundef nonnull align 4 dereferenceable(4) %.val31, ptr noundef nonnull align 8 dereferenceable(12) %2)
           to label %19 unwind label %.loopexit
 
@@ -4936,9 +4936,9 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_113parseSequenceIiLm3
   br i1 %.not.i.i, label %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit, label %25
 
 25:                                               ; preds = %24
-  %26 = load i64, ptr %16, align 8, !tbaa !79
+  %26 = load i64, ptr %16, align 8, !tbaa !78
   %27 = add nsw i64 %26, -1
-  store i64 %27, ptr %16, align 8, !tbaa !79
+  store i64 %27, ptr %16, align 8, !tbaa !78
   %.not.i.i.i = icmp eq i64 %27, 0
   br i1 %.not.i.i.i, label %28, label %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit
 
@@ -4958,9 +4958,9 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_113parseSequenceIiLm3
   br i1 %.not.i.i32, label %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit34, label %32
 
 32:                                               ; preds = %.critedge
-  %33 = load i64, ptr %16, align 8, !tbaa !79
+  %33 = load i64, ptr %16, align 8, !tbaa !78
   %34 = add nsw i64 %33, -1
-  store i64 %34, ptr %16, align 8, !tbaa !79
+  store i64 %34, ptr %16, align 8, !tbaa !78
   %.not.i.i.i33 = icmp eq i64 %34, 0
   br i1 %.not.i.i.i33, label %35, label %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit34
 
@@ -4978,7 +4978,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_113parseSequenceIiLm3
 _ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit34:        ; preds = %35, %32, %.critedge
   %39 = add nuw nsw i64 %.02540, 1
   %exitcond = icmp eq i64 %39, 3
-  br i1 %exitcond, label %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit, label %.preheader, !llvm.loop !167
+  br i1 %exitcond, label %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit, label %.preheader, !llvm.loop !166
 
 _ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit:          ; preds = %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit34, %24, %25, %28, %13, %3, %8
   %.0 = phi i1 [ false, %8 ], [ true, %3 ], [ false, %13 ], [ false, %28 ], [ false, %25 ], [ false, %24 ], [ true, %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit34 ]
@@ -4987,11 +4987,11 @@ _ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit:          ; preds = %_ZN12_GLOBAL__N_111
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef ptr @_Z13pyopencv_fromIN2cv7Point3_IiEEEP7_objectRKT_(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(12) %0) local_unnamed_addr #3 {
-  %2 = load i32, ptr %0, align 4, !tbaa !168
+  %2 = load i32, ptr %0, align 4, !tbaa !167
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %4 = load i32, ptr %3, align 4, !tbaa !170
+  %4 = load i32, ptr %3, align 4, !tbaa !169
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %6 = load i32, ptr %5, align 4, !tbaa !171
+  %6 = load i32, ptr %5, align 4, !tbaa !170
   %7 = tail call ptr (ptr, ...) @Py_BuildValue(ptr noundef nonnull @.str.40, i32 noundef %2, i32 noundef %4, i32 noundef %6)
   ret ptr %7
 }
@@ -5000,13 +5000,13 @@ define hidden noundef ptr @_Z13pyopencv_fromIN2cv7Point3_IiEEEP7_objectRKT_(ptr 
 define hidden noundef zeroext i1 @_Z11pyopencv_toIN2cv7Point3_IfEEEbP7_objectRT_RK7ArgInfo(ptr noundef %0, ptr noundef nonnull align 4 dereferenceable(12) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(12) %2) local_unnamed_addr #3 {
   %4 = alloca [3 x %"class.(anonymous namespace)::RefWrapper.0"], align 16
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #18
-  store ptr %1, ptr %4, align 16, !tbaa !117
+  store ptr %1, ptr %4, align 16, !tbaa !116
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  store ptr %6, ptr %5, align 8, !tbaa !117
+  store ptr %6, ptr %5, align 8, !tbaa !116
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store ptr %8, ptr %7, align 16, !tbaa !117
+  store ptr %8, ptr %7, align 16, !tbaa !116
   %9 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_113parseSequenceIfLm3EEEbP7_objectRAT0__NS_10RefWrapperIT_EERK7ArgInfo(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(12) %2)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #18
   ret i1 %9
@@ -5043,7 +5043,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_113parseSequenceIfLm3
   %.02540 = phi i64 [ %39, %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit34 ], [ 0, %11 ]
   %16 = tail call ptr @PySequence_GetItem(ptr noundef nonnull %0, i64 noundef %.02540)
   %17 = getelementptr inbounds nuw [3 x %"class.(anonymous namespace)::RefWrapper.0"], ptr %1, i64 0, i64 %.02540
-  %.val31 = load ptr, ptr %17, align 8, !tbaa !119
+  %.val31 = load ptr, ptr %17, align 8, !tbaa !118
   %18 = invoke noundef zeroext i1 @_Z11pyopencv_toIfEbP7_objectRT_RK7ArgInfo(ptr noundef %16, ptr noundef nonnull align 4 dereferenceable(4) %.val31, ptr noundef nonnull align 8 dereferenceable(12) %2)
           to label %19 unwind label %.loopexit
 
@@ -5075,9 +5075,9 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_113parseSequenceIfLm3
   br i1 %.not.i.i, label %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit, label %25
 
 25:                                               ; preds = %24
-  %26 = load i64, ptr %16, align 8, !tbaa !79
+  %26 = load i64, ptr %16, align 8, !tbaa !78
   %27 = add nsw i64 %26, -1
-  store i64 %27, ptr %16, align 8, !tbaa !79
+  store i64 %27, ptr %16, align 8, !tbaa !78
   %.not.i.i.i = icmp eq i64 %27, 0
   br i1 %.not.i.i.i, label %28, label %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit
 
@@ -5097,9 +5097,9 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_113parseSequenceIfLm3
   br i1 %.not.i.i32, label %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit34, label %32
 
 32:                                               ; preds = %.critedge
-  %33 = load i64, ptr %16, align 8, !tbaa !79
+  %33 = load i64, ptr %16, align 8, !tbaa !78
   %34 = add nsw i64 %33, -1
-  store i64 %34, ptr %16, align 8, !tbaa !79
+  store i64 %34, ptr %16, align 8, !tbaa !78
   %.not.i.i.i33 = icmp eq i64 %34, 0
   br i1 %.not.i.i.i33, label %35, label %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit34
 
@@ -5117,7 +5117,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_113parseSequenceIfLm3
 _ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit34:        ; preds = %35, %32, %.critedge
   %39 = add nuw nsw i64 %.02540, 1
   %exitcond = icmp eq i64 %39, 3
-  br i1 %exitcond, label %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit, label %.preheader, !llvm.loop !172
+  br i1 %exitcond, label %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit, label %.preheader, !llvm.loop !171
 
 _ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit:          ; preds = %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit34, %24, %25, %28, %13, %3, %8
   %.0 = phi i1 [ false, %8 ], [ true, %3 ], [ false, %13 ], [ false, %28 ], [ false, %25 ], [ false, %24 ], [ true, %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit34 ]
@@ -5126,13 +5126,13 @@ _ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit:          ; preds = %_ZN12_GLOBAL__N_111
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef ptr @_Z13pyopencv_fromIN2cv7Point3_IfEEEP7_objectRKT_(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(12) %0) local_unnamed_addr #3 {
-  %2 = load float, ptr %0, align 4, !tbaa !173
+  %2 = load float, ptr %0, align 4, !tbaa !172
   %3 = fpext float %2 to double
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %5 = load float, ptr %4, align 4, !tbaa !175
+  %5 = load float, ptr %4, align 4, !tbaa !174
   %6 = fpext float %5 to double
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %8 = load float, ptr %7, align 4, !tbaa !176
+  %8 = load float, ptr %7, align 4, !tbaa !175
   %9 = fpext float %8 to double
   %10 = tail call ptr (ptr, ...) @Py_BuildValue(ptr noundef nonnull @.str.41, double noundef %3, double noundef %6, double noundef %9)
   ret ptr %10
@@ -5142,13 +5142,13 @@ define hidden noundef ptr @_Z13pyopencv_fromIN2cv7Point3_IfEEEP7_objectRKT_(ptr 
 define hidden noundef zeroext i1 @_Z11pyopencv_toIN2cv7Point3_IdEEEbP7_objectRT_RK7ArgInfo(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(12) %2) local_unnamed_addr #3 {
   %4 = alloca [3 x %"class.(anonymous namespace)::RefWrapper.3"], align 16
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #18
-  store ptr %1, ptr %4, align 16, !tbaa !137
+  store ptr %1, ptr %4, align 16, !tbaa !136
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store ptr %6, ptr %5, align 8, !tbaa !137
+  store ptr %6, ptr %5, align 8, !tbaa !136
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  store ptr %8, ptr %7, align 16, !tbaa !137
+  store ptr %8, ptr %7, align 16, !tbaa !136
   %9 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_113parseSequenceIdLm3EEEbP7_objectRAT0__NS_10RefWrapperIT_EERK7ArgInfo(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(12) %2)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #18
   ret i1 %9
@@ -5185,7 +5185,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_113parseSequenceIdLm3
   %.02540 = phi i64 [ %39, %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit34 ], [ 0, %11 ]
   %16 = tail call ptr @PySequence_GetItem(ptr noundef nonnull %0, i64 noundef %.02540)
   %17 = getelementptr inbounds nuw [3 x %"class.(anonymous namespace)::RefWrapper.3"], ptr %1, i64 0, i64 %.02540
-  %.val31 = load ptr, ptr %17, align 8, !tbaa !139
+  %.val31 = load ptr, ptr %17, align 8, !tbaa !138
   %18 = invoke noundef zeroext i1 @_Z11pyopencv_toIdEbP7_objectRT_RK7ArgInfo(ptr noundef %16, ptr noundef nonnull align 8 dereferenceable(8) %.val31, ptr noundef nonnull align 8 dereferenceable(12) %2)
           to label %19 unwind label %.loopexit
 
@@ -5217,9 +5217,9 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_113parseSequenceIdLm3
   br i1 %.not.i.i, label %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit, label %25
 
 25:                                               ; preds = %24
-  %26 = load i64, ptr %16, align 8, !tbaa !79
+  %26 = load i64, ptr %16, align 8, !tbaa !78
   %27 = add nsw i64 %26, -1
-  store i64 %27, ptr %16, align 8, !tbaa !79
+  store i64 %27, ptr %16, align 8, !tbaa !78
   %.not.i.i.i = icmp eq i64 %27, 0
   br i1 %.not.i.i.i, label %28, label %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit
 
@@ -5239,9 +5239,9 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_113parseSequenceIdLm3
   br i1 %.not.i.i32, label %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit34, label %32
 
 32:                                               ; preds = %.critedge
-  %33 = load i64, ptr %16, align 8, !tbaa !79
+  %33 = load i64, ptr %16, align 8, !tbaa !78
   %34 = add nsw i64 %33, -1
-  store i64 %34, ptr %16, align 8, !tbaa !79
+  store i64 %34, ptr %16, align 8, !tbaa !78
   %.not.i.i.i33 = icmp eq i64 %34, 0
   br i1 %.not.i.i.i33, label %35, label %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit34
 
@@ -5259,7 +5259,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_113parseSequenceIdLm3
 _ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit34:        ; preds = %35, %32, %.critedge
   %39 = add nuw nsw i64 %.02540, 1
   %exitcond = icmp eq i64 %39, 3
-  br i1 %exitcond, label %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit, label %.preheader, !llvm.loop !177
+  br i1 %exitcond, label %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit, label %.preheader, !llvm.loop !176
 
 _ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit:          ; preds = %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit34, %24, %25, %28, %13, %3, %8
   %.0 = phi i1 [ false, %8 ], [ true, %3 ], [ false, %13 ], [ false, %28 ], [ false, %25 ], [ false, %24 ], [ true, %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit34 ]
@@ -5268,11 +5268,11 @@ _ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit:          ; preds = %_ZN12_GLOBAL__N_111
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef ptr @_Z13pyopencv_fromIN2cv7Point3_IdEEEP7_objectRKT_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0) local_unnamed_addr #3 {
-  %2 = load double, ptr %0, align 8, !tbaa !178
+  %2 = load double, ptr %0, align 8, !tbaa !177
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load double, ptr %3, align 8, !tbaa !180
+  %4 = load double, ptr %3, align 8, !tbaa !179
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %6 = load double, ptr %5, align 8, !tbaa !181
+  %6 = load double, ptr %5, align 8, !tbaa !180
   %7 = tail call ptr (ptr, ...) @Py_BuildValue(ptr noundef nonnull @.str.41, double noundef %2, double noundef %4, double noundef %6)
   ret ptr %7
 }
@@ -5281,16 +5281,16 @@ define hidden noundef ptr @_Z13pyopencv_fromIN2cv7Point3_IdEEEP7_objectRKT_(ptr 
 define hidden noundef zeroext i1 @_Z11pyopencv_toP7_objectRN2cv3VecIdLi4EEER7ArgInfo(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(12) %2) local_unnamed_addr #3 {
   %4 = alloca [4 x %"class.(anonymous namespace)::RefWrapper.3"], align 16
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #18
-  store ptr %1, ptr %4, align 16, !tbaa !137
+  store ptr %1, ptr %4, align 16, !tbaa !136
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store ptr %6, ptr %5, align 8, !tbaa !137
+  store ptr %6, ptr %5, align 8, !tbaa !136
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  store ptr %8, ptr %7, align 16, !tbaa !137
+  store ptr %8, ptr %7, align 16, !tbaa !136
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  store ptr %10, ptr %9, align 8, !tbaa !137
+  store ptr %10, ptr %9, align 8, !tbaa !136
   %11 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_113parseSequenceIdLm4EEEbP7_objectRAT0__NS_10RefWrapperIT_EERK7ArgInfo(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(12) %2)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #18
   ret i1 %11
@@ -5313,16 +5313,16 @@ define hidden noundef ptr @_Z13pyopencv_fromRKN2cv3VecIdLi4EEE(ptr noundef nonnu
 define hidden noundef zeroext i1 @_Z11pyopencv_toP7_objectRN2cv3VecIfLi4EEER7ArgInfo(ptr noundef %0, ptr noundef nonnull align 4 dereferenceable(16) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(12) %2) local_unnamed_addr #3 {
   %4 = alloca [4 x %"class.(anonymous namespace)::RefWrapper.0"], align 16
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #18
-  store ptr %1, ptr %4, align 16, !tbaa !117
+  store ptr %1, ptr %4, align 16, !tbaa !116
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  store ptr %6, ptr %5, align 8, !tbaa !117
+  store ptr %6, ptr %5, align 8, !tbaa !116
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store ptr %8, ptr %7, align 16, !tbaa !117
+  store ptr %8, ptr %7, align 16, !tbaa !116
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  store ptr %10, ptr %9, align 8, !tbaa !117
+  store ptr %10, ptr %9, align 8, !tbaa !116
   %11 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_113parseSequenceIfLm4EEEbP7_objectRAT0__NS_10RefWrapperIT_EERK7ArgInfo(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(12) %2)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #18
   ret i1 %11
@@ -5330,16 +5330,16 @@ define hidden noundef zeroext i1 @_Z11pyopencv_toP7_objectRN2cv3VecIfLi4EEER7Arg
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef ptr @_Z13pyopencv_fromRKN2cv3VecIfLi4EEE(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %0) local_unnamed_addr #3 {
-  %2 = load float, ptr %0, align 4, !tbaa !106
+  %2 = load float, ptr %0, align 4, !tbaa !105
   %3 = fpext float %2 to double
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %5 = load float, ptr %4, align 4, !tbaa !106
+  %5 = load float, ptr %4, align 4, !tbaa !105
   %6 = fpext float %5 to double
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %8 = load float, ptr %7, align 4, !tbaa !106
+  %8 = load float, ptr %7, align 4, !tbaa !105
   %9 = fpext float %8 to double
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %11 = load float, ptr %10, align 4, !tbaa !106
+  %11 = load float, ptr %10, align 4, !tbaa !105
   %12 = fpext float %11 to double
   %13 = tail call ptr (ptr, ...) @Py_BuildValue(ptr noundef nonnull @.str.32, double noundef %3, double noundef %6, double noundef %9, double noundef %12)
   ret ptr %13
@@ -5349,16 +5349,16 @@ define hidden noundef ptr @_Z13pyopencv_fromRKN2cv3VecIfLi4EEE(ptr noundef nonnu
 define hidden noundef zeroext i1 @_Z11pyopencv_toP7_objectRN2cv3VecIiLi4EEER7ArgInfo(ptr noundef %0, ptr noundef nonnull align 4 dereferenceable(16) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(12) %2) local_unnamed_addr #3 {
   %4 = alloca [4 x %"class.(anonymous namespace)::RefWrapper"], align 16
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #18
-  store ptr %1, ptr %4, align 16, !tbaa !111
+  store ptr %1, ptr %4, align 16, !tbaa !110
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  store ptr %6, ptr %5, align 8, !tbaa !111
+  store ptr %6, ptr %5, align 8, !tbaa !110
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store ptr %8, ptr %7, align 16, !tbaa !111
+  store ptr %8, ptr %7, align 16, !tbaa !110
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  store ptr %10, ptr %9, align 8, !tbaa !111
+  store ptr %10, ptr %9, align 8, !tbaa !110
   %11 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_113parseSequenceIiLm4EEEbP7_objectRAT0__NS_10RefWrapperIT_EERK7ArgInfo(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(12) %2)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #18
   ret i1 %11
@@ -5381,13 +5381,13 @@ define hidden noundef ptr @_Z13pyopencv_fromRKN2cv3VecIiLi4EEE(ptr noundef nonnu
 define hidden noundef zeroext i1 @_Z11pyopencv_toP7_objectRN2cv3VecIdLi3EEER7ArgInfo(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(12) %2) local_unnamed_addr #3 {
   %4 = alloca [3 x %"class.(anonymous namespace)::RefWrapper.3"], align 16
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #18
-  store ptr %1, ptr %4, align 16, !tbaa !137
+  store ptr %1, ptr %4, align 16, !tbaa !136
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store ptr %6, ptr %5, align 8, !tbaa !137
+  store ptr %6, ptr %5, align 8, !tbaa !136
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  store ptr %8, ptr %7, align 16, !tbaa !137
+  store ptr %8, ptr %7, align 16, !tbaa !136
   %9 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_113parseSequenceIdLm3EEEbP7_objectRAT0__NS_10RefWrapperIT_EERK7ArgInfo(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(12) %2)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #18
   ret i1 %9
@@ -5408,13 +5408,13 @@ define hidden noundef ptr @_Z13pyopencv_fromRKN2cv3VecIdLi3EEE(ptr noundef nonnu
 define hidden noundef zeroext i1 @_Z11pyopencv_toP7_objectRN2cv3VecIfLi3EEER7ArgInfo(ptr noundef %0, ptr noundef nonnull align 4 dereferenceable(12) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(12) %2) local_unnamed_addr #3 {
   %4 = alloca [3 x %"class.(anonymous namespace)::RefWrapper.0"], align 16
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #18
-  store ptr %1, ptr %4, align 16, !tbaa !117
+  store ptr %1, ptr %4, align 16, !tbaa !116
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  store ptr %6, ptr %5, align 8, !tbaa !117
+  store ptr %6, ptr %5, align 8, !tbaa !116
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store ptr %8, ptr %7, align 16, !tbaa !117
+  store ptr %8, ptr %7, align 16, !tbaa !116
   %9 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_113parseSequenceIfLm3EEEbP7_objectRAT0__NS_10RefWrapperIT_EERK7ArgInfo(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(12) %2)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #18
   ret i1 %9
@@ -5422,13 +5422,13 @@ define hidden noundef zeroext i1 @_Z11pyopencv_toP7_objectRN2cv3VecIfLi3EEER7Arg
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef ptr @_Z13pyopencv_fromRKN2cv3VecIfLi3EEE(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(12) %0) local_unnamed_addr #3 {
-  %2 = load float, ptr %0, align 4, !tbaa !106
+  %2 = load float, ptr %0, align 4, !tbaa !105
   %3 = fpext float %2 to double
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %5 = load float, ptr %4, align 4, !tbaa !106
+  %5 = load float, ptr %4, align 4, !tbaa !105
   %6 = fpext float %5 to double
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %8 = load float, ptr %7, align 4, !tbaa !106
+  %8 = load float, ptr %7, align 4, !tbaa !105
   %9 = fpext float %8 to double
   %10 = tail call ptr (ptr, ...) @Py_BuildValue(ptr noundef nonnull @.str.42, double noundef %3, double noundef %6, double noundef %9)
   ret ptr %10
@@ -5438,13 +5438,13 @@ define hidden noundef ptr @_Z13pyopencv_fromRKN2cv3VecIfLi3EEE(ptr noundef nonnu
 define hidden noundef zeroext i1 @_Z11pyopencv_toP7_objectRN2cv3VecIiLi3EEER7ArgInfo(ptr noundef %0, ptr noundef nonnull align 4 dereferenceable(12) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(12) %2) local_unnamed_addr #3 {
   %4 = alloca [3 x %"class.(anonymous namespace)::RefWrapper"], align 16
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #18
-  store ptr %1, ptr %4, align 16, !tbaa !111
+  store ptr %1, ptr %4, align 16, !tbaa !110
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  store ptr %6, ptr %5, align 8, !tbaa !111
+  store ptr %6, ptr %5, align 8, !tbaa !110
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store ptr %8, ptr %7, align 16, !tbaa !111
+  store ptr %8, ptr %7, align 16, !tbaa !110
   %9 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_113parseSequenceIiLm3EEEbP7_objectRAT0__NS_10RefWrapperIT_EERK7ArgInfo(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(12) %2)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #18
   ret i1 %9
@@ -5465,10 +5465,10 @@ define hidden noundef ptr @_Z13pyopencv_fromRKN2cv3VecIiLi3EEE(ptr noundef nonnu
 define hidden noundef zeroext i1 @_Z11pyopencv_toP7_objectRN2cv3VecIdLi2EEER7ArgInfo(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(12) %2) local_unnamed_addr #3 {
   %4 = alloca [2 x %"class.(anonymous namespace)::RefWrapper.3"], align 16
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #18
-  store ptr %1, ptr %4, align 16, !tbaa !137
+  store ptr %1, ptr %4, align 16, !tbaa !136
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store ptr %6, ptr %5, align 8, !tbaa !137
+  store ptr %6, ptr %5, align 8, !tbaa !136
   %7 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_113parseSequenceIdLm2EEEbP7_objectRAT0__NS_10RefWrapperIT_EERK7ArgInfo(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(12) %2)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #18
   ret i1 %7
@@ -5487,10 +5487,10 @@ define hidden noundef ptr @_Z13pyopencv_fromRKN2cv3VecIdLi2EEE(ptr noundef nonnu
 define hidden noundef zeroext i1 @_Z11pyopencv_toP7_objectRN2cv3VecIfLi2EEER7ArgInfo(ptr noundef %0, ptr noundef nonnull align 4 dereferenceable(8) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(12) %2) local_unnamed_addr #3 {
   %4 = alloca [2 x %"class.(anonymous namespace)::RefWrapper.0"], align 16
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #18
-  store ptr %1, ptr %4, align 16, !tbaa !117
+  store ptr %1, ptr %4, align 16, !tbaa !116
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  store ptr %6, ptr %5, align 8, !tbaa !117
+  store ptr %6, ptr %5, align 8, !tbaa !116
   %7 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_113parseSequenceIfLm2EEEbP7_objectRAT0__NS_10RefWrapperIT_EERK7ArgInfo(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(12) %2)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #18
   ret i1 %7
@@ -5498,10 +5498,10 @@ define hidden noundef zeroext i1 @_Z11pyopencv_toP7_objectRN2cv3VecIfLi2EEER7Arg
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef ptr @_Z13pyopencv_fromRKN2cv3VecIfLi2EEE(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %0) local_unnamed_addr #3 {
-  %2 = load float, ptr %0, align 4, !tbaa !106
+  %2 = load float, ptr %0, align 4, !tbaa !105
   %3 = fpext float %2 to double
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %5 = load float, ptr %4, align 4, !tbaa !106
+  %5 = load float, ptr %4, align 4, !tbaa !105
   %6 = fpext float %5 to double
   %7 = tail call ptr (ptr, ...) @Py_BuildValue(ptr noundef nonnull @.str.30, double noundef %3, double noundef %6)
   ret ptr %7
@@ -5511,10 +5511,10 @@ define hidden noundef ptr @_Z13pyopencv_fromRKN2cv3VecIfLi2EEE(ptr noundef nonnu
 define hidden noundef zeroext i1 @_Z11pyopencv_toP7_objectRN2cv3VecIiLi2EEER7ArgInfo(ptr noundef %0, ptr noundef nonnull align 4 dereferenceable(8) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(12) %2) local_unnamed_addr #3 {
   %4 = alloca [2 x %"class.(anonymous namespace)::RefWrapper"], align 16
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #18
-  store ptr %1, ptr %4, align 16, !tbaa !111
+  store ptr %1, ptr %4, align 16, !tbaa !110
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  store ptr %6, ptr %5, align 8, !tbaa !111
+  store ptr %6, ptr %5, align 8, !tbaa !110
   %7 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_113parseSequenceIiLm2EEEbP7_objectRAT0__NS_10RefWrapperIT_EERK7ArgInfo(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(12) %2)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #18
   ret i1 %7
@@ -5567,7 +5567,7 @@ define hidden noundef zeroext i1 @_Z11pyopencv_toIN2cv12TermCriteriaEEbP7_object
   %23 = load ptr, ptr %2, align 8, !tbaa !53
   call void (ptr, ptr, ...) @_ZN2cv6formatB5cxx11EPKcz(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %4, ptr noundef nonnull @.str.45, ptr noundef %23)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #18
-  %24 = load ptr, ptr %4, align 8, !tbaa !69
+  %24 = load ptr, ptr %4, align 8, !tbaa !68
   store ptr %24, ptr %5, align 8, !tbaa !53
   %25 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 0, ptr %25, align 8
@@ -5594,9 +5594,9 @@ _ZN12_GLOBAL__N_111SafeSeqItemC2EP7_objectm.exit: ; preds = %22
   br i1 %.not.i.i, label %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit, label %33
 
 33:                                               ; preds = %32
-  %34 = load i64, ptr %26, align 8, !tbaa !79
+  %34 = load i64, ptr %26, align 8, !tbaa !78
   %35 = add nsw i64 %34, -1
-  store i64 %35, ptr %26, align 8, !tbaa !79
+  store i64 %35, ptr %26, align 8, !tbaa !78
   %.not.i.i.i = icmp eq i64 %35, 0
   br i1 %.not.i.i.i, label %36, label %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit
 
@@ -5613,14 +5613,14 @@ _ZN12_GLOBAL__N_111SafeSeqItemC2EP7_objectm.exit: ; preds = %22
 
 _ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit:          ; preds = %32, %33, %36
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #18
-  %40 = load ptr, ptr %4, align 8, !tbaa !69
+  %40 = load ptr, ptr %4, align 8, !tbaa !68
   %41 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %42 = icmp eq ptr %40, %41
   br i1 %42, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i: ; preds = %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit
   %43 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %44 = load i64, ptr %43, align 8, !tbaa !72
+  %44 = load i64, ptr %43, align 8, !tbaa !71
   %45 = icmp ult i64 %44, 16
   call void @llvm.assume(i1 %45)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
@@ -5638,7 +5638,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %47 = load ptr, ptr %2, align 8, !tbaa !53
   call void (ptr, ptr, ...) @_ZN2cv6formatB5cxx11EPKcz(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %6, ptr noundef nonnull @.str.46, ptr noundef %47)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #18
-  %48 = load ptr, ptr %6, align 8, !tbaa !69
+  %48 = load ptr, ptr %6, align 8, !tbaa !68
   store ptr %48, ptr %7, align 8, !tbaa !53
   %49 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i32 0, ptr %49, align 8
@@ -5653,14 +5653,14 @@ _ZN12_GLOBAL__N_111SafeSeqItemC2EP7_objectm.exit50: ; preds = %46
 53:                                               ; preds = %30, %28
   %.pn = phi { ptr, i32 } [ %31, %30 ], [ %29, %28 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #18
-  %54 = load ptr, ptr %4, align 8, !tbaa !69
+  %54 = load ptr, ptr %4, align 8, !tbaa !68
   %55 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %56 = icmp eq ptr %54, %55
   br i1 %56, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i52, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i51
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i52: ; preds = %53
   %57 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %58 = load i64, ptr %57, align 8, !tbaa !72
+  %58 = load i64, ptr %57, align 8, !tbaa !71
   %59 = icmp ult i64 %58, 16
   call void @llvm.assume(i1 %59)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit53
@@ -5689,9 +5689,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit53: ; preds = %_ZN
   br i1 %.not.i.i54, label %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit56, label %65
 
 65:                                               ; preds = %64
-  %66 = load i64, ptr %50, align 8, !tbaa !79
+  %66 = load i64, ptr %50, align 8, !tbaa !78
   %67 = add nsw i64 %66, -1
-  store i64 %67, ptr %50, align 8, !tbaa !79
+  store i64 %67, ptr %50, align 8, !tbaa !78
   %.not.i.i.i55 = icmp eq i64 %67, 0
   br i1 %.not.i.i.i55, label %68, label %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit56
 
@@ -5708,14 +5708,14 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit53: ; preds = %_ZN
 
 _ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit56:        ; preds = %64, %65, %68
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #18
-  %72 = load ptr, ptr %6, align 8, !tbaa !69
+  %72 = load ptr, ptr %6, align 8, !tbaa !68
   %73 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %74 = icmp eq ptr %72, %73
   br i1 %74, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i58, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i57
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i58: ; preds = %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit56
   %75 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %76 = load i64, ptr %75, align 8, !tbaa !72
+  %76 = load i64, ptr %75, align 8, !tbaa !71
   %77 = icmp ult i64 %76, 16
   call void @llvm.assume(i1 %77)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit59
@@ -5733,7 +5733,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit59: ; preds = %_ZN
   %79 = load ptr, ptr %2, align 8, !tbaa !53
   call void (ptr, ptr, ...) @_ZN2cv6formatB5cxx11EPKcz(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %8, ptr noundef nonnull @.str.47, ptr noundef %79)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #18
-  %80 = load ptr, ptr %8, align 8, !tbaa !69
+  %80 = load ptr, ptr %8, align 8, !tbaa !68
   store ptr %80, ptr %9, align 8, !tbaa !53
   %81 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i32 0, ptr %81, align 8
@@ -5748,14 +5748,14 @@ _ZN12_GLOBAL__N_111SafeSeqItemC2EP7_objectm.exit60: ; preds = %78
 85:                                               ; preds = %62, %60
   %.pn40 = phi { ptr, i32 } [ %63, %62 ], [ %61, %60 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #18
-  %86 = load ptr, ptr %6, align 8, !tbaa !69
+  %86 = load ptr, ptr %6, align 8, !tbaa !68
   %87 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %88 = icmp eq ptr %86, %87
   br i1 %88, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i62, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i61
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i62: ; preds = %85
   %89 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %90 = load i64, ptr %89, align 8, !tbaa !72
+  %90 = load i64, ptr %89, align 8, !tbaa !71
   %91 = icmp ult i64 %90, 16
   call void @llvm.assume(i1 %91)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit63
@@ -5784,9 +5784,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit63: ; preds = %_ZN
   br i1 %.not.i.i64, label %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit66, label %97
 
 97:                                               ; preds = %96
-  %98 = load i64, ptr %82, align 8, !tbaa !79
+  %98 = load i64, ptr %82, align 8, !tbaa !78
   %99 = add nsw i64 %98, -1
-  store i64 %99, ptr %82, align 8, !tbaa !79
+  store i64 %99, ptr %82, align 8, !tbaa !78
   %.not.i.i.i65 = icmp eq i64 %99, 0
   br i1 %.not.i.i.i65, label %100, label %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit66
 
@@ -5803,14 +5803,14 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit63: ; preds = %_ZN
 
 _ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit66:        ; preds = %96, %97, %100
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #18
-  %104 = load ptr, ptr %8, align 8, !tbaa !69
+  %104 = load ptr, ptr %8, align 8, !tbaa !68
   %105 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %106 = icmp eq ptr %104, %105
   br i1 %106, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i68, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i67
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i68: ; preds = %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit66
   %107 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %108 = load i64, ptr %107, align 8, !tbaa !72
+  %108 = load i64, ptr %107, align 8, !tbaa !71
   %109 = icmp ult i64 %108, 16
   call void @llvm.assume(i1 %109)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit69
@@ -5826,14 +5826,14 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit69: ; preds = %_ZN
 110:                                              ; preds = %94, %92
   %.pn42 = phi { ptr, i32 } [ %95, %94 ], [ %93, %92 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #18
-  %111 = load ptr, ptr %8, align 8, !tbaa !69
+  %111 = load ptr, ptr %8, align 8, !tbaa !68
   %112 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %113 = icmp eq ptr %111, %112
   br i1 %113, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i71, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i70
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i71: ; preds = %110
   %114 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %115 = load i64, ptr %114, align 8, !tbaa !72
+  %115 = load i64, ptr %114, align 8, !tbaa !71
   %116 = icmp ult i64 %115, 16
   call void @llvm.assume(i1 %116)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit72
@@ -5857,73 +5857,73 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit72: ; preds = %_ZN
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef ptr @_Z13pyopencv_fromIN2cv12TermCriteriaEEP7_objectRKT_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0) local_unnamed_addr #3 {
-  %2 = load i32, ptr %0, align 8, !tbaa !182
+  %2 = load i32, ptr %0, align 8, !tbaa !181
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %4 = load i32, ptr %3, align 4, !tbaa !184
+  %4 = load i32, ptr %3, align 4, !tbaa !183
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %6 = load double, ptr %5, align 8, !tbaa !185
+  %6 = load double, ptr %5, align 8, !tbaa !184
   %7 = tail call ptr (ptr, ...) @Py_BuildValue(ptr noundef nonnull @.str.48, i32 noundef %2, i32 noundef %4, double noundef %6)
   ret ptr %7
 }
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef ptr @_Z13pyopencv_fromIN2cv7MomentsEEP7_objectRKT_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(192) %0) local_unnamed_addr #3 {
-  %2 = load double, ptr %0, align 8, !tbaa !186
+  %2 = load double, ptr %0, align 8, !tbaa !185
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load double, ptr %3, align 8, !tbaa !188
+  %4 = load double, ptr %3, align 8, !tbaa !187
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %6 = load double, ptr %5, align 8, !tbaa !189
+  %6 = load double, ptr %5, align 8, !tbaa !188
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %8 = load double, ptr %7, align 8, !tbaa !190
+  %8 = load double, ptr %7, align 8, !tbaa !189
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %10 = load double, ptr %9, align 8, !tbaa !191
+  %10 = load double, ptr %9, align 8, !tbaa !190
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %12 = load double, ptr %11, align 8, !tbaa !192
+  %12 = load double, ptr %11, align 8, !tbaa !191
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %14 = load double, ptr %13, align 8, !tbaa !193
+  %14 = load double, ptr %13, align 8, !tbaa !192
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %16 = load double, ptr %15, align 8, !tbaa !194
+  %16 = load double, ptr %15, align 8, !tbaa !193
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %18 = load double, ptr %17, align 8, !tbaa !195
+  %18 = load double, ptr %17, align 8, !tbaa !194
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %20 = load double, ptr %19, align 8, !tbaa !196
+  %20 = load double, ptr %19, align 8, !tbaa !195
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %22 = load double, ptr %21, align 8, !tbaa !197
+  %22 = load double, ptr %21, align 8, !tbaa !196
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %24 = load double, ptr %23, align 8, !tbaa !198
+  %24 = load double, ptr %23, align 8, !tbaa !197
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %26 = load double, ptr %25, align 8, !tbaa !199
+  %26 = load double, ptr %25, align 8, !tbaa !198
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %28 = load double, ptr %27, align 8, !tbaa !200
+  %28 = load double, ptr %27, align 8, !tbaa !199
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %30 = load double, ptr %29, align 8, !tbaa !201
+  %30 = load double, ptr %29, align 8, !tbaa !200
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  %32 = load double, ptr %31, align 8, !tbaa !202
+  %32 = load double, ptr %31, align 8, !tbaa !201
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %34 = load double, ptr %33, align 8, !tbaa !203
+  %34 = load double, ptr %33, align 8, !tbaa !202
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  %36 = load double, ptr %35, align 8, !tbaa !204
+  %36 = load double, ptr %35, align 8, !tbaa !203
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  %38 = load double, ptr %37, align 8, !tbaa !205
+  %38 = load double, ptr %37, align 8, !tbaa !204
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  %40 = load double, ptr %39, align 8, !tbaa !206
+  %40 = load double, ptr %39, align 8, !tbaa !205
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 160
-  %42 = load double, ptr %41, align 8, !tbaa !207
+  %42 = load double, ptr %41, align 8, !tbaa !206
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 168
-  %44 = load double, ptr %43, align 8, !tbaa !208
+  %44 = load double, ptr %43, align 8, !tbaa !207
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %46 = load double, ptr %45, align 8, !tbaa !209
+  %46 = load double, ptr %45, align 8, !tbaa !208
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 184
-  %48 = load double, ptr %47, align 8, !tbaa !210
+  %48 = load double, ptr %47, align 8, !tbaa !209
   %49 = tail call ptr (ptr, ...) @Py_BuildValue(ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.50, double noundef %2, ptr noundef nonnull @.str.51, double noundef %4, ptr noundef nonnull @.str.52, double noundef %6, ptr noundef nonnull @.str.53, double noundef %8, ptr noundef nonnull @.str.54, double noundef %10, ptr noundef nonnull @.str.55, double noundef %12, ptr noundef nonnull @.str.56, double noundef %14, ptr noundef nonnull @.str.57, double noundef %16, ptr noundef nonnull @.str.58, double noundef %18, ptr noundef nonnull @.str.59, double noundef %20, ptr noundef nonnull @.str.60, double noundef %22, ptr noundef nonnull @.str.61, double noundef %24, ptr noundef nonnull @.str.62, double noundef %26, ptr noundef nonnull @.str.63, double noundef %28, ptr noundef nonnull @.str.64, double noundef %30, ptr noundef nonnull @.str.65, double noundef %32, ptr noundef nonnull @.str.66, double noundef %34, ptr noundef nonnull @.str.67, double noundef %36, ptr noundef nonnull @.str.68, double noundef %38, ptr noundef nonnull @.str.69, double noundef %40, ptr noundef nonnull @.str.70, double noundef %42, ptr noundef nonnull @.str.71, double noundef %44, ptr noundef nonnull @.str.72, double noundef %46, ptr noundef nonnull @.str.73, double noundef %48)
   ret ptr %49
 }
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef ptr @_Z13pyopencv_fromISt4pairIidEEP7_objectRKT_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0) local_unnamed_addr #3 {
-  %2 = load i32, ptr %0, align 8, !tbaa !211
+  %2 = load i32, ptr %0, align 8, !tbaa !210
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load double, ptr %3, align 8, !tbaa !213
+  %4 = load double, ptr %3, align 8, !tbaa !212
   %5 = tail call ptr (ptr, ...) @Py_BuildValue(ptr noundef nonnull @.str.74, i32 noundef %2, double noundef %4)
   ret ptr %5
 }
@@ -5947,15 +5947,15 @@ declare void @PyErr_Clear() local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN12PySafeObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #11 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !89
+  %2 = load ptr, ptr %0, align 8, !tbaa !88
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %_ZL10_Py_DECREFP7_object.exit, label %3
 
 3:                                                ; preds = %1
-  store ptr null, ptr %0, align 8, !tbaa !89
-  %4 = load i64, ptr %2, align 8, !tbaa !79
+  store ptr null, ptr %0, align 8, !tbaa !88
+  %4 = load i64, ptr %2, align 8, !tbaa !78
   %5 = add nsw i64 %4, -1
-  store i64 %5, ptr %2, align 8, !tbaa !79
+  store i64 %5, ptr %2, align 8, !tbaa !78
   %.not.i = icmp eq i64 %5, 0
   br i1 %.not.i, label %6, label %_ZL10_Py_DECREFP7_object.exit
 
@@ -5999,10 +5999,10 @@ declare ptr @PyObject_Type(ptr noundef) local_unnamed_addr #0
 ; Function Attrs: inlinehint mustprogress uwtable
 define internal fastcc void @_ZL15getPyObjectAttrB5cxx11P7_objectPKc(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef %1, ptr noundef %2) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %4, ptr %0, align 8, !tbaa !91
+  store ptr %4, ptr %0, align 8, !tbaa !90
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 0, ptr %5, align 8, !tbaa !72
-  store i8 0, ptr %4, align 8, !tbaa !92
+  store i64 0, ptr %5, align 8, !tbaa !71
+  store i8 0, ptr %4, align 8, !tbaa !91
   %6 = invoke ptr @PyObject_GetAttrString(ptr noundef %1, ptr noundef %2)
           to label %7 unwind label %13
 
@@ -6018,20 +6018,20 @@ define internal fastcc void @_ZL15getPyObjectAttrB5cxx11P7_objectPKc(ptr dead_on
   br i1 %9, label %19, label %11
 
 11:                                               ; preds = %10
-  store i64 0, ptr %5, align 8, !tbaa !72
-  %12 = load ptr, ptr %0, align 8, !tbaa !69
-  store i8 0, ptr %12, align 1, !tbaa !92
+  store i64 0, ptr %5, align 8, !tbaa !71
+  %12 = load ptr, ptr %0, align 8, !tbaa !68
+  store i8 0, ptr %12, align 1, !tbaa !91
   br label %19
 
 13:                                               ; preds = %30, %24, %8, %3
   %14 = landingpad { ptr, i32 }
           cleanup
-  %15 = load ptr, ptr %0, align 8, !tbaa !69
+  %15 = load ptr, ptr %0, align 8, !tbaa !68
   %16 = icmp eq ptr %15, %4
   br i1 %16, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i: ; preds = %13
-  %17 = load i64, ptr %5, align 8, !tbaa !72
+  %17 = load i64, ptr %5, align 8, !tbaa !71
   %18 = icmp ult i64 %17, 16
   tail call void @llvm.assume(i1 %18)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
@@ -6050,19 +6050,19 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   br i1 %.not10, label %21, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit
 
 21:                                               ; preds = %19
-  %22 = load i64, ptr %5, align 8, !tbaa !72
+  %22 = load i64, ptr %5, align 8, !tbaa !71
   %23 = icmp eq i64 %22, 0
   br i1 %23, label %24, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit9
 
 24:                                               ; preds = %21
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %26 = load ptr, ptr %25, align 8, !tbaa !109
+  %26 = load ptr, ptr %25, align 8, !tbaa !108
   %27 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %26) #18
   %28 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef 0, i64 noundef 0, ptr noundef nonnull %26, i64 noundef %27)
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit unwind label %13
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit: ; preds = %24, %19
-  %.pr = load i64, ptr %5, align 8, !tbaa !72
+  %.pr = load i64, ptr %5, align 8, !tbaa !71
   %29 = icmp eq i64 %.pr, 0
   br i1 %29, label %30, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit9
 
@@ -6175,163 +6175,162 @@ attributes #20 = { noreturn nounwind }
 !51 = !{!25, !25, i64 0}
 !52 = !{!4, !5, i64 12}
 !53 = !{!37, !8, i64 0}
-!54 = distinct !{!54, !55, !56}
+!54 = distinct !{!54, !55}
 !55 = !{!"llvm.loop.mustprogress"}
-!56 = !{!"llvm.loop.estimated_trip_count"}
-!57 = !{!58, !58, i64 0}
-!58 = !{!"any p2 pointer", !9, i64 0}
-!59 = !{!9, !9, i64 0}
-!60 = !{!37, !38, i64 8}
-!61 = !{!62, !5, i64 64}
-!62 = !{!"_ZTS23tagPyArrayObject_fields", !24, i64 0, !8, i64 16, !5, i64 24, !15, i64 32, !15, i64 40, !33, i64 48, !63, i64 56, !5, i64 64, !33, i64 72, !9, i64 80}
-!63 = !{!"p1 _ZTS14_PyArray_Descr", !9, i64 0}
-!64 = !{!62, !63, i64 56}
-!65 = !{!66, !5, i64 28}
-!66 = !{!"_ZTS14_PyArray_Descr", !24, i64 0, !26, i64 16, !6, i64 24, !6, i64 25, !6, i64 26, !6, i64 27, !5, i64 28, !5, i64 32, !5, i64 36, !67, i64 40, !33, i64 48, !33, i64 56, !9, i64 64, !33, i64 72, !68, i64 80, !25, i64 88}
-!67 = !{!"p1 _ZTS10_arr_descr", !9, i64 0}
-!68 = !{!"p1 _ZTS14NpyAuxData_tag", !9, i64 0}
-!69 = !{!70, !8, i64 0}
-!70 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE", !71, i64 0, !25, i64 8, !6, i64 16}
-!71 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderE", !8, i64 0}
-!72 = !{!70, !25, i64 8}
-!73 = !{!62, !5, i64 24}
-!74 = !{!62, !15, i64 32}
-!75 = !{!62, !15, i64 40}
-!76 = !{!37, !38, i64 11}
-!77 = !{!26, !26, i64 0}
-!78 = !{!38, !38, i64 0}
-!79 = !{!24, !25, i64 0}
-!80 = distinct !{!80, !55, !56}
-!81 = distinct !{!81, !55, !56}
-!82 = !{!62, !8, i64 16}
-!83 = !{!66, !9, i64 64}
-!84 = !{!85, !9, i64 168}
-!85 = !{!"_ZTS16PyArray_ArrFuncs", !6, i64 0, !9, i64 168, !9, i64 176, !9, i64 184, !9, i64 192, !9, i64 200, !9, i64 208, !9, i64 216, !9, i64 224, !9, i64 232, !9, i64 240, !9, i64 248, !9, i64 256, !6, i64 264, !6, i64 288, !33, i64 312, !9, i64 320, !86, i64 328, !13, i64 336, !9, i64 344, !9, i64 352, !9, i64 360, !9, i64 368}
-!86 = !{!"p2 int", !58, i64 0}
-!87 = distinct !{!87, !55, !56}
-!88 = !{!4, !11, i64 56}
-!89 = !{!90, !33, i64 0}
-!90 = !{!"_ZTS12PySafeObject", !33, i64 0}
-!91 = !{!71, !8, i64 0}
-!92 = !{!6, !6, i64 0}
-!93 = !{!33, !33, i64 0}
-!94 = !{!95, !5, i64 0}
-!95 = !{!"_ZTSN2cv11_InputArrayE", !5, i64 0, !9, i64 8, !96, i64 16}
-!96 = !{!"_ZTSN2cv5Size_IiEE", !5, i64 0, !5, i64 4}
-!97 = !{!95, !9, i64 8}
-!98 = !{!99, !9, i64 64}
-!99 = !{!"_ZTSN2cv8UMatDataE", !10, i64 0, !10, i64 8, !5, i64 16, !5, i64 20, !8, i64 24, !8, i64 32, !25, i64 40, !100, i64 48, !9, i64 56, !9, i64 64, !5, i64 72, !5, i64 76, !11, i64 80, !101, i64 88}
-!100 = !{!"_ZTSN2cv8UMatData10MemoryFlagE", !6, i64 0}
-!101 = !{!"_ZTSSt10shared_ptrIvE", !102, i64 0}
-!102 = !{!"_ZTSSt12__shared_ptrIvLN9__gnu_cxx12_Lock_policyE2EE", !9, i64 0, !103, i64 8}
-!103 = !{!"_ZTSSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EE", !104, i64 0}
-!104 = !{!"p1 _ZTSSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE", !9, i64 0}
-!105 = distinct !{!105, !55, !56}
-!106 = !{!107, !107, i64 0}
-!107 = !{!"float", !6, i64 0}
-!108 = !{!37, !38, i64 10}
-!109 = !{!28, !8, i64 24}
-!110 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!111 = !{!13, !13, i64 0}
-!112 = !{!113, !13, i64 0}
-!113 = !{!"_ZTSN12_GLOBAL__N_110RefWrapperIiEE", !13, i64 0}
-!114 = distinct !{!114, !55, !56}
-!115 = !{!96, !5, i64 0}
-!116 = !{!96, !5, i64 4}
-!117 = !{!118, !118, i64 0}
-!118 = !{!"p1 float", !9, i64 0}
-!119 = !{!120, !118, i64 0}
-!120 = !{!"_ZTSN12_GLOBAL__N_110RefWrapperIfEE", !118, i64 0}
-!121 = distinct !{!121, !55, !56}
-!122 = !{!123, !107, i64 0}
-!123 = !{!"_ZTSN2cv5Size_IfEE", !107, i64 0, !107, i64 4}
-!124 = !{!123, !107, i64 4}
-!125 = distinct !{!125, !55, !56}
-!126 = !{!127, !5, i64 0}
-!127 = !{!"_ZTSN2cv5Rect_IiEE", !5, i64 0, !5, i64 4, !5, i64 8, !5, i64 12}
-!128 = !{!127, !5, i64 4}
-!129 = !{!127, !5, i64 8}
-!130 = !{!127, !5, i64 12}
-!131 = distinct !{!131, !55, !56}
-!132 = !{!133, !107, i64 0}
-!133 = !{!"_ZTSN2cv5Rect_IfEE", !107, i64 0, !107, i64 4, !107, i64 8, !107, i64 12}
-!134 = !{!133, !107, i64 4}
-!135 = !{!133, !107, i64 8}
-!136 = !{!133, !107, i64 12}
-!137 = !{!138, !138, i64 0}
-!138 = !{!"p1 double", !9, i64 0}
-!139 = !{!140, !138, i64 0}
-!140 = !{!"_ZTSN12_GLOBAL__N_110RefWrapperIdEE", !138, i64 0}
-!141 = distinct !{!141, !55, !56}
-!142 = !{!143, !35, i64 0}
-!143 = !{!"_ZTSN2cv5Rect_IdEE", !35, i64 0, !35, i64 8, !35, i64 16, !35, i64 24}
-!144 = !{!143, !35, i64 8}
-!145 = !{!143, !35, i64 16}
-!146 = !{!143, !35, i64 24}
-!147 = !{i64 0, i64 4, !106, i64 4, i64 4, !106, i64 8, i64 4, !106, i64 12, i64 4, !106, i64 16, i64 4, !106}
-!148 = !{!149, !107, i64 0}
-!149 = !{!"_ZTSN2cv11RotatedRectE", !150, i64 0, !123, i64 8, !107, i64 16}
-!150 = !{!"_ZTSN2cv6Point_IfEE", !107, i64 0, !107, i64 4}
-!151 = !{!149, !107, i64 4}
-!152 = !{!149, !107, i64 8}
-!153 = !{!149, !107, i64 12}
-!154 = !{!149, !107, i64 16}
-!155 = !{!156, !5, i64 0}
-!156 = !{!"_ZTSN2cv5RangeE", !5, i64 0, !5, i64 4}
-!157 = !{!156, !5, i64 4}
-!158 = !{!159, !5, i64 0}
-!159 = !{!"_ZTSN2cv6Point_IiEE", !5, i64 0, !5, i64 4}
-!160 = !{!159, !5, i64 4}
-!161 = !{!150, !107, i64 0}
-!162 = !{!150, !107, i64 4}
-!163 = distinct !{!163, !55, !56}
-!164 = !{!165, !35, i64 0}
-!165 = !{!"_ZTSN2cv6Point_IdEE", !35, i64 0, !35, i64 8}
-!166 = !{!165, !35, i64 8}
-!167 = distinct !{!167, !55, !56}
-!168 = !{!169, !5, i64 0}
-!169 = !{!"_ZTSN2cv7Point3_IiEE", !5, i64 0, !5, i64 4, !5, i64 8}
-!170 = !{!169, !5, i64 4}
-!171 = !{!169, !5, i64 8}
-!172 = distinct !{!172, !55, !56}
-!173 = !{!174, !107, i64 0}
-!174 = !{!"_ZTSN2cv7Point3_IfEE", !107, i64 0, !107, i64 4, !107, i64 8}
-!175 = !{!174, !107, i64 4}
-!176 = !{!174, !107, i64 8}
-!177 = distinct !{!177, !55, !56}
-!178 = !{!179, !35, i64 0}
-!179 = !{!"_ZTSN2cv7Point3_IdEE", !35, i64 0, !35, i64 8, !35, i64 16}
-!180 = !{!179, !35, i64 8}
-!181 = !{!179, !35, i64 16}
-!182 = !{!183, !5, i64 0}
-!183 = !{!"_ZTSN2cv12TermCriteriaE", !5, i64 0, !5, i64 4, !35, i64 8}
-!184 = !{!183, !5, i64 4}
-!185 = !{!183, !35, i64 8}
-!186 = !{!187, !35, i64 0}
-!187 = !{!"_ZTSN2cv7MomentsE", !35, i64 0, !35, i64 8, !35, i64 16, !35, i64 24, !35, i64 32, !35, i64 40, !35, i64 48, !35, i64 56, !35, i64 64, !35, i64 72, !35, i64 80, !35, i64 88, !35, i64 96, !35, i64 104, !35, i64 112, !35, i64 120, !35, i64 128, !35, i64 136, !35, i64 144, !35, i64 152, !35, i64 160, !35, i64 168, !35, i64 176, !35, i64 184}
-!188 = !{!187, !35, i64 8}
-!189 = !{!187, !35, i64 16}
-!190 = !{!187, !35, i64 24}
-!191 = !{!187, !35, i64 32}
-!192 = !{!187, !35, i64 40}
-!193 = !{!187, !35, i64 48}
-!194 = !{!187, !35, i64 56}
-!195 = !{!187, !35, i64 64}
-!196 = !{!187, !35, i64 72}
-!197 = !{!187, !35, i64 80}
-!198 = !{!187, !35, i64 88}
-!199 = !{!187, !35, i64 96}
-!200 = !{!187, !35, i64 104}
-!201 = !{!187, !35, i64 112}
-!202 = !{!187, !35, i64 120}
-!203 = !{!187, !35, i64 128}
-!204 = !{!187, !35, i64 136}
-!205 = !{!187, !35, i64 144}
-!206 = !{!187, !35, i64 152}
-!207 = !{!187, !35, i64 160}
-!208 = !{!187, !35, i64 168}
-!209 = !{!187, !35, i64 176}
-!210 = !{!187, !35, i64 184}
-!211 = !{!212, !5, i64 0}
-!212 = !{!"_ZTSSt4pairIidE", !5, i64 0, !35, i64 8}
-!213 = !{!212, !35, i64 8}
+!56 = !{!57, !57, i64 0}
+!57 = !{!"any p2 pointer", !9, i64 0}
+!58 = !{!9, !9, i64 0}
+!59 = !{!37, !38, i64 8}
+!60 = !{!61, !5, i64 64}
+!61 = !{!"_ZTS23tagPyArrayObject_fields", !24, i64 0, !8, i64 16, !5, i64 24, !15, i64 32, !15, i64 40, !33, i64 48, !62, i64 56, !5, i64 64, !33, i64 72, !9, i64 80}
+!62 = !{!"p1 _ZTS14_PyArray_Descr", !9, i64 0}
+!63 = !{!61, !62, i64 56}
+!64 = !{!65, !5, i64 28}
+!65 = !{!"_ZTS14_PyArray_Descr", !24, i64 0, !26, i64 16, !6, i64 24, !6, i64 25, !6, i64 26, !6, i64 27, !5, i64 28, !5, i64 32, !5, i64 36, !66, i64 40, !33, i64 48, !33, i64 56, !9, i64 64, !33, i64 72, !67, i64 80, !25, i64 88}
+!66 = !{!"p1 _ZTS10_arr_descr", !9, i64 0}
+!67 = !{!"p1 _ZTS14NpyAuxData_tag", !9, i64 0}
+!68 = !{!69, !8, i64 0}
+!69 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE", !70, i64 0, !25, i64 8, !6, i64 16}
+!70 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderE", !8, i64 0}
+!71 = !{!69, !25, i64 8}
+!72 = !{!61, !5, i64 24}
+!73 = !{!61, !15, i64 32}
+!74 = !{!61, !15, i64 40}
+!75 = !{!37, !38, i64 11}
+!76 = !{!26, !26, i64 0}
+!77 = !{!38, !38, i64 0}
+!78 = !{!24, !25, i64 0}
+!79 = distinct !{!79, !55}
+!80 = distinct !{!80, !55}
+!81 = !{!61, !8, i64 16}
+!82 = !{!65, !9, i64 64}
+!83 = !{!84, !9, i64 168}
+!84 = !{!"_ZTS16PyArray_ArrFuncs", !6, i64 0, !9, i64 168, !9, i64 176, !9, i64 184, !9, i64 192, !9, i64 200, !9, i64 208, !9, i64 216, !9, i64 224, !9, i64 232, !9, i64 240, !9, i64 248, !9, i64 256, !6, i64 264, !6, i64 288, !33, i64 312, !9, i64 320, !85, i64 328, !13, i64 336, !9, i64 344, !9, i64 352, !9, i64 360, !9, i64 368}
+!85 = !{!"p2 int", !57, i64 0}
+!86 = distinct !{!86, !55}
+!87 = !{!4, !11, i64 56}
+!88 = !{!89, !33, i64 0}
+!89 = !{!"_ZTS12PySafeObject", !33, i64 0}
+!90 = !{!70, !8, i64 0}
+!91 = !{!6, !6, i64 0}
+!92 = !{!33, !33, i64 0}
+!93 = !{!94, !5, i64 0}
+!94 = !{!"_ZTSN2cv11_InputArrayE", !5, i64 0, !9, i64 8, !95, i64 16}
+!95 = !{!"_ZTSN2cv5Size_IiEE", !5, i64 0, !5, i64 4}
+!96 = !{!94, !9, i64 8}
+!97 = !{!98, !9, i64 64}
+!98 = !{!"_ZTSN2cv8UMatDataE", !10, i64 0, !10, i64 8, !5, i64 16, !5, i64 20, !8, i64 24, !8, i64 32, !25, i64 40, !99, i64 48, !9, i64 56, !9, i64 64, !5, i64 72, !5, i64 76, !11, i64 80, !100, i64 88}
+!99 = !{!"_ZTSN2cv8UMatData10MemoryFlagE", !6, i64 0}
+!100 = !{!"_ZTSSt10shared_ptrIvE", !101, i64 0}
+!101 = !{!"_ZTSSt12__shared_ptrIvLN9__gnu_cxx12_Lock_policyE2EE", !9, i64 0, !102, i64 8}
+!102 = !{!"_ZTSSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EE", !103, i64 0}
+!103 = !{!"p1 _ZTSSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE", !9, i64 0}
+!104 = distinct !{!104, !55}
+!105 = !{!106, !106, i64 0}
+!106 = !{!"float", !6, i64 0}
+!107 = !{!37, !38, i64 10}
+!108 = !{!28, !8, i64 24}
+!109 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!110 = !{!13, !13, i64 0}
+!111 = !{!112, !13, i64 0}
+!112 = !{!"_ZTSN12_GLOBAL__N_110RefWrapperIiEE", !13, i64 0}
+!113 = distinct !{!113, !55}
+!114 = !{!95, !5, i64 0}
+!115 = !{!95, !5, i64 4}
+!116 = !{!117, !117, i64 0}
+!117 = !{!"p1 float", !9, i64 0}
+!118 = !{!119, !117, i64 0}
+!119 = !{!"_ZTSN12_GLOBAL__N_110RefWrapperIfEE", !117, i64 0}
+!120 = distinct !{!120, !55}
+!121 = !{!122, !106, i64 0}
+!122 = !{!"_ZTSN2cv5Size_IfEE", !106, i64 0, !106, i64 4}
+!123 = !{!122, !106, i64 4}
+!124 = distinct !{!124, !55}
+!125 = !{!126, !5, i64 0}
+!126 = !{!"_ZTSN2cv5Rect_IiEE", !5, i64 0, !5, i64 4, !5, i64 8, !5, i64 12}
+!127 = !{!126, !5, i64 4}
+!128 = !{!126, !5, i64 8}
+!129 = !{!126, !5, i64 12}
+!130 = distinct !{!130, !55}
+!131 = !{!132, !106, i64 0}
+!132 = !{!"_ZTSN2cv5Rect_IfEE", !106, i64 0, !106, i64 4, !106, i64 8, !106, i64 12}
+!133 = !{!132, !106, i64 4}
+!134 = !{!132, !106, i64 8}
+!135 = !{!132, !106, i64 12}
+!136 = !{!137, !137, i64 0}
+!137 = !{!"p1 double", !9, i64 0}
+!138 = !{!139, !137, i64 0}
+!139 = !{!"_ZTSN12_GLOBAL__N_110RefWrapperIdEE", !137, i64 0}
+!140 = distinct !{!140, !55}
+!141 = !{!142, !35, i64 0}
+!142 = !{!"_ZTSN2cv5Rect_IdEE", !35, i64 0, !35, i64 8, !35, i64 16, !35, i64 24}
+!143 = !{!142, !35, i64 8}
+!144 = !{!142, !35, i64 16}
+!145 = !{!142, !35, i64 24}
+!146 = !{i64 0, i64 4, !105, i64 4, i64 4, !105, i64 8, i64 4, !105, i64 12, i64 4, !105, i64 16, i64 4, !105}
+!147 = !{!148, !106, i64 0}
+!148 = !{!"_ZTSN2cv11RotatedRectE", !149, i64 0, !122, i64 8, !106, i64 16}
+!149 = !{!"_ZTSN2cv6Point_IfEE", !106, i64 0, !106, i64 4}
+!150 = !{!148, !106, i64 4}
+!151 = !{!148, !106, i64 8}
+!152 = !{!148, !106, i64 12}
+!153 = !{!148, !106, i64 16}
+!154 = !{!155, !5, i64 0}
+!155 = !{!"_ZTSN2cv5RangeE", !5, i64 0, !5, i64 4}
+!156 = !{!155, !5, i64 4}
+!157 = !{!158, !5, i64 0}
+!158 = !{!"_ZTSN2cv6Point_IiEE", !5, i64 0, !5, i64 4}
+!159 = !{!158, !5, i64 4}
+!160 = !{!149, !106, i64 0}
+!161 = !{!149, !106, i64 4}
+!162 = distinct !{!162, !55}
+!163 = !{!164, !35, i64 0}
+!164 = !{!"_ZTSN2cv6Point_IdEE", !35, i64 0, !35, i64 8}
+!165 = !{!164, !35, i64 8}
+!166 = distinct !{!166, !55}
+!167 = !{!168, !5, i64 0}
+!168 = !{!"_ZTSN2cv7Point3_IiEE", !5, i64 0, !5, i64 4, !5, i64 8}
+!169 = !{!168, !5, i64 4}
+!170 = !{!168, !5, i64 8}
+!171 = distinct !{!171, !55}
+!172 = !{!173, !106, i64 0}
+!173 = !{!"_ZTSN2cv7Point3_IfEE", !106, i64 0, !106, i64 4, !106, i64 8}
+!174 = !{!173, !106, i64 4}
+!175 = !{!173, !106, i64 8}
+!176 = distinct !{!176, !55}
+!177 = !{!178, !35, i64 0}
+!178 = !{!"_ZTSN2cv7Point3_IdEE", !35, i64 0, !35, i64 8, !35, i64 16}
+!179 = !{!178, !35, i64 8}
+!180 = !{!178, !35, i64 16}
+!181 = !{!182, !5, i64 0}
+!182 = !{!"_ZTSN2cv12TermCriteriaE", !5, i64 0, !5, i64 4, !35, i64 8}
+!183 = !{!182, !5, i64 4}
+!184 = !{!182, !35, i64 8}
+!185 = !{!186, !35, i64 0}
+!186 = !{!"_ZTSN2cv7MomentsE", !35, i64 0, !35, i64 8, !35, i64 16, !35, i64 24, !35, i64 32, !35, i64 40, !35, i64 48, !35, i64 56, !35, i64 64, !35, i64 72, !35, i64 80, !35, i64 88, !35, i64 96, !35, i64 104, !35, i64 112, !35, i64 120, !35, i64 128, !35, i64 136, !35, i64 144, !35, i64 152, !35, i64 160, !35, i64 168, !35, i64 176, !35, i64 184}
+!187 = !{!186, !35, i64 8}
+!188 = !{!186, !35, i64 16}
+!189 = !{!186, !35, i64 24}
+!190 = !{!186, !35, i64 32}
+!191 = !{!186, !35, i64 40}
+!192 = !{!186, !35, i64 48}
+!193 = !{!186, !35, i64 56}
+!194 = !{!186, !35, i64 64}
+!195 = !{!186, !35, i64 72}
+!196 = !{!186, !35, i64 80}
+!197 = !{!186, !35, i64 88}
+!198 = !{!186, !35, i64 96}
+!199 = !{!186, !35, i64 104}
+!200 = !{!186, !35, i64 112}
+!201 = !{!186, !35, i64 120}
+!202 = !{!186, !35, i64 128}
+!203 = !{!186, !35, i64 136}
+!204 = !{!186, !35, i64 144}
+!205 = !{!186, !35, i64 152}
+!206 = !{!186, !35, i64 160}
+!207 = !{!186, !35, i64 168}
+!208 = !{!186, !35, i64 176}
+!209 = !{!186, !35, i64 184}
+!210 = !{!211, !5, i64 0}
+!211 = !{!"_ZTSSt4pairIidE", !5, i64 0, !35, i64 8}
+!212 = !{!211, !35, i64 8}

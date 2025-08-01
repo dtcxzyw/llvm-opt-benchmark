@@ -314,7 +314,7 @@ _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne210000INS_1
   %.018.i.i = phi ptr [ %40, %37 ], [ %.017.i.i, %41 ], [ %22, %.thread14 ]
   %42 = getelementptr inbounds nuw i8, ptr %.018.i.i, i64 %.sroa.12.0.i513
   store i8 0, ptr %42, align 1, !tbaa !4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false), !tbaa.struct !13
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false), !tbaa.struct !12
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #19
   ret void
 }
@@ -340,15 +340,15 @@ define dso_local { ptr, i64 } @_ZNKSt3__14__fs10filesystem4path11__root_nameEv(p
   %11 = lshr i8 %3, 1
   %12 = zext nneg i8 %11 to i64
   %13 = select i1 %.not.i.i.i, i64 %12, i64 %10
-  store ptr %8, ptr %2, align 8, !tbaa !14, !alias.scope !17
+  store ptr %8, ptr %2, align 8, !tbaa !13, !alias.scope !16
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store i64 %13, ptr %.sroa.2.0..sroa_idx.i.i, align 8, !tbaa !20, !alias.scope !17
+  store i64 %13, ptr %.sroa.2.0..sroa_idx.i.i, align 8, !tbaa !19, !alias.scope !16
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %14, i8 0, i64 16, i1 false), !alias.scope !17
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %14, i8 0, i64 16, i1 false), !alias.scope !16
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  store i8 1, ptr %15, align 8, !tbaa !22, !alias.scope !17
+  store i8 1, ptr %15, align 8, !tbaa !21, !alias.scope !16
   call void @_ZNSt3__14__fs10filesystem6parser10PathParser9incrementB8ne210000Ev(ptr noundef nonnull align 8 dereferenceable(33) %2) #19
-  %16 = load i8, ptr %15, align 8, !tbaa !22
+  %16 = load i8, ptr %15, align 8, !tbaa !21
   %17 = icmp eq i8 %16, 2
   %.sroa.0.0.copyload.i = load ptr, ptr %14, align 8
   %.sroa.6.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %2, i64 24
@@ -377,21 +377,21 @@ define dso_local { ptr, i64 } @_ZNKSt3__14__fs10filesystem4path16__root_director
   %11 = lshr i8 %3, 1
   %12 = zext nneg i8 %11 to i64
   %13 = select i1 %.not.i.i.i, i64 %12, i64 %10
-  store ptr %8, ptr %2, align 8, !tbaa !14, !alias.scope !26
+  store ptr %8, ptr %2, align 8, !tbaa !13, !alias.scope !25
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store i64 %13, ptr %.sroa.2.0..sroa_idx.i.i, align 8, !tbaa !20, !alias.scope !26
+  store i64 %13, ptr %.sroa.2.0..sroa_idx.i.i, align 8, !tbaa !19, !alias.scope !25
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %14, i8 0, i64 16, i1 false), !alias.scope !26
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %14, i8 0, i64 16, i1 false), !alias.scope !25
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  store i8 1, ptr %15, align 8, !tbaa !22, !alias.scope !26
+  store i8 1, ptr %15, align 8, !tbaa !21, !alias.scope !25
   call void @_ZNSt3__14__fs10filesystem6parser10PathParser9incrementB8ne210000Ev(ptr noundef nonnull align 8 dereferenceable(33) %2) #19
-  %16 = load i8, ptr %15, align 8, !tbaa !22
+  %16 = load i8, ptr %15, align 8, !tbaa !21
   %17 = icmp eq i8 %16, 2
   br i1 %17, label %18, label %19
 
 18:                                               ; preds = %1
   call void @_ZNSt3__14__fs10filesystem6parser10PathParser9incrementB8ne210000Ev(ptr noundef nonnull align 8 dereferenceable(33) %2) #19
-  %.pr = load i8, ptr %15, align 8, !tbaa !22
+  %.pr = load i8, ptr %15, align 8, !tbaa !21
   br label %19
 
 19:                                               ; preds = %18, %1
@@ -400,7 +400,7 @@ define dso_local { ptr, i64 } @_ZNKSt3__14__fs10filesystem4path16__root_director
   br i1 %21, label %_ZNKSt3__14__fs10filesystem6parser10PathParserdeB8ne210000Ev.exit, label %25
 
 _ZNKSt3__14__fs10filesystem6parser10PathParserdeB8ne210000Ev.exit: ; preds = %19
-  %22 = load ptr, ptr %14, align 8, !tbaa !29
+  %22 = load ptr, ptr %14, align 8, !tbaa !28
   %23 = load i8, ptr %22, align 1, !tbaa !4
   %24 = icmp eq i8 %23, 92
   %.str.5..str.3.i = select i1 %24, ptr @.str.5, ptr @.str.3
@@ -431,27 +431,27 @@ define dso_local { ptr, i64 } @_ZNKSt3__14__fs10filesystem4path15__root_path_raw
   %11 = lshr i8 %3, 1
   %12 = zext nneg i8 %11 to i64
   %13 = select i1 %.not.i.i.i, i64 %12, i64 %10
-  store ptr %8, ptr %2, align 8, !tbaa !14, !alias.scope !30
+  store ptr %8, ptr %2, align 8, !tbaa !13, !alias.scope !29
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store i64 %13, ptr %.sroa.2.0..sroa_idx.i.i, align 8, !tbaa !20, !alias.scope !30
+  store i64 %13, ptr %.sroa.2.0..sroa_idx.i.i, align 8, !tbaa !19, !alias.scope !29
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %14, i8 0, i64 16, i1 false), !alias.scope !30
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %14, i8 0, i64 16, i1 false), !alias.scope !29
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  store i8 1, ptr %15, align 8, !tbaa !22, !alias.scope !30
+  store i8 1, ptr %15, align 8, !tbaa !21, !alias.scope !29
   call void @_ZNSt3__14__fs10filesystem6parser10PathParser9incrementB8ne210000Ev(ptr noundef nonnull align 8 dereferenceable(33) %2) #19
-  %16 = load i8, ptr %15, align 8, !tbaa !22
+  %16 = load i8, ptr %15, align 8, !tbaa !21
   switch i8 %16, label %42 [
     i8 2, label %_ZNKSt3__14__fs10filesystem6parser10PathParser4peekB8ne210000Ev.exit
     i8 3, label %_ZNKSt3__14__fs10filesystem6parser10PathParserdeB8ne210000Ev.exit
   ]
 
 _ZNKSt3__14__fs10filesystem6parser10PathParser4peekB8ne210000Ev.exit: ; preds = %1
-  %17 = load ptr, ptr %14, align 8, !tbaa !29
+  %17 = load ptr, ptr %14, align 8, !tbaa !28
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %19 = load i64, ptr %18, align 8, !tbaa !33
+  %19 = load i64, ptr %18, align 8, !tbaa !32
   %20 = getelementptr i8, ptr %17, i64 %19
-  %.pre.i = load ptr, ptr %2, align 8, !tbaa !29
-  %21 = load i64, ptr %.sroa.2.0..sroa_idx.i.i, align 8, !tbaa !33
+  %.pre.i = load ptr, ptr %2, align 8, !tbaa !28
+  %21 = load i64, ptr %.sroa.2.0..sroa_idx.i.i, align 8, !tbaa !32
   %22 = getelementptr inbounds nuw i8, ptr %.pre.i, i64 %21
   %23 = icmp eq ptr %20, %22
   %.not8 = icmp eq ptr %20, null
@@ -470,8 +470,8 @@ _ZNKSt3__14__fs10filesystem6parser10PathParser4peekB8ne210000Ev.exit: ; preds = 
   %.not.i.i = icmp eq i8 %29, 0
   %30 = load ptr, ptr %5, align 8
   %31 = select i1 %.not.i.i, ptr %7, ptr %30
-  %32 = load ptr, ptr %14, align 8, !tbaa !29
-  %33 = load i64, ptr %18, align 8, !tbaa !33
+  %32 = load ptr, ptr %14, align 8, !tbaa !28
+  %33 = load i64, ptr %18, align 8, !tbaa !32
   %34 = getelementptr i8, ptr %32, i64 %33
   %35 = getelementptr i8, ptr %34, i64 -1
   %36 = ptrtoint ptr %35 to i64
@@ -481,7 +481,7 @@ _ZNKSt3__14__fs10filesystem6parser10PathParser4peekB8ne210000Ev.exit: ; preds = 
   br label %42
 
 _ZNKSt3__14__fs10filesystem6parser10PathParserdeB8ne210000Ev.exit: ; preds = %1
-  %39 = load ptr, ptr %14, align 8, !tbaa !29
+  %39 = load ptr, ptr %14, align 8, !tbaa !28
   %40 = load i8, ptr %39, align 1, !tbaa !4
   %41 = icmp eq i8 %40, 92
   %.str.5..str.3.i = select i1 %41, ptr @.str.5, ptr @.str.3
@@ -515,23 +515,23 @@ define dso_local { ptr, i64 } @_ZNKSt3__14__fs10filesystem4path15__relative_path
   %11 = lshr i8 %3, 1
   %12 = zext nneg i8 %11 to i64
   %13 = select i1 %.not.i.i.i, i64 %12, i64 %10
-  store ptr %8, ptr %2, align 8, !tbaa !14, !alias.scope !34
+  store ptr %8, ptr %2, align 8, !tbaa !13, !alias.scope !33
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store i64 %13, ptr %.sroa.2.0..sroa_idx.i.i, align 8, !tbaa !20, !alias.scope !34
+  store i64 %13, ptr %.sroa.2.0..sroa_idx.i.i, align 8, !tbaa !19, !alias.scope !33
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %14, i8 0, i64 16, i1 false), !alias.scope !34
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %14, i8 0, i64 16, i1 false), !alias.scope !33
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  store i8 1, ptr %15, align 8, !tbaa !22, !alias.scope !34
+  store i8 1, ptr %15, align 8, !tbaa !21, !alias.scope !33
   call void @_ZNSt3__14__fs10filesystem6parser10PathParser9incrementB8ne210000Ev(ptr noundef nonnull align 8 dereferenceable(33) %2) #19
-  %16 = load i8, ptr %15, align 8, !tbaa !22
+  %16 = load i8, ptr %15, align 8, !tbaa !21
   %17 = icmp ult i8 %16, 4
   br i1 %17, label %.lr.ph.i, label %_ZNSt3__14__fs10filesystemL14ConsumeRootDirEPNS1_6parser10PathParserE.exit
 
 .lr.ph.i:                                         ; preds = %1, %.lr.ph.i
   call void @_ZNSt3__14__fs10filesystem6parser10PathParser9incrementB8ne210000Ev(ptr noundef nonnull align 8 dereferenceable(33) %2) #19
-  %18 = load i8, ptr %15, align 8, !tbaa !22
+  %18 = load i8, ptr %15, align 8, !tbaa !21
   %19 = icmp ult i8 %18, 4
-  br i1 %19, label %.lr.ph.i, label %_ZNSt3__14__fs10filesystemL14ConsumeRootDirEPNS1_6parser10PathParserE.exit, !llvm.loop !37
+  br i1 %19, label %.lr.ph.i, label %_ZNSt3__14__fs10filesystemL14ConsumeRootDirEPNS1_6parser10PathParserE.exit, !llvm.loop !36
 
 _ZNSt3__14__fs10filesystemL14ConsumeRootDirEPNS1_6parser10PathParserE.exit: ; preds = %.lr.ph.i, %1
   %.lcssa.i = phi i8 [ %16, %1 ], [ %18, %.lr.ph.i ]
@@ -539,7 +539,7 @@ _ZNSt3__14__fs10filesystemL14ConsumeRootDirEPNS1_6parser10PathParserE.exit: ; pr
   br i1 %20, label %36, label %21
 
 21:                                               ; preds = %_ZNSt3__14__fs10filesystemL14ConsumeRootDirEPNS1_6parser10PathParserE.exit
-  %22 = load ptr, ptr %14, align 8, !tbaa !29
+  %22 = load ptr, ptr %14, align 8, !tbaa !28
   %23 = load i8, ptr %0, align 8
   %24 = and i8 %23, 1
   %.not.i.i.i1 = icmp eq i8 %24, 0
@@ -587,23 +587,23 @@ define dso_local { ptr, i64 } @_ZNKSt3__14__fs10filesystem4path13__parent_pathEv
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %16 = select i1 %.not.i.i.i, ptr %15, ptr %14
-  store ptr %16, ptr %2, align 8, !tbaa !14, !alias.scope !38
+  store ptr %16, ptr %2, align 8, !tbaa !13, !alias.scope !37
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store i64 %10, ptr %.sroa.2.0..sroa_idx.i.i, align 8, !tbaa !20, !alias.scope !38
+  store i64 %10, ptr %.sroa.2.0..sroa_idx.i.i, align 8, !tbaa !19, !alias.scope !37
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %17, i8 0, i64 16, i1 false), !alias.scope !38
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %17, i8 0, i64 16, i1 false), !alias.scope !37
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  store i8 1, ptr %18, align 8, !tbaa !22, !alias.scope !38
+  store i8 1, ptr %18, align 8, !tbaa !21, !alias.scope !37
   call void @_ZNSt3__14__fs10filesystem6parser10PathParser9incrementB8ne210000Ev(ptr noundef nonnull align 8 dereferenceable(33) %2) #19
-  %19 = load i8, ptr %18, align 8, !tbaa !22
+  %19 = load i8, ptr %18, align 8, !tbaa !21
   %20 = icmp ult i8 %19, 4
   br i1 %20, label %.lr.ph.i, label %_ZNSt3__14__fs10filesystemL14ConsumeRootDirEPNS1_6parser10PathParserE.exit
 
 .lr.ph.i:                                         ; preds = %12, %.lr.ph.i
   call void @_ZNSt3__14__fs10filesystem6parser10PathParser9incrementB8ne210000Ev(ptr noundef nonnull align 8 dereferenceable(33) %2) #19
-  %21 = load i8, ptr %18, align 8, !tbaa !22
+  %21 = load i8, ptr %18, align 8, !tbaa !21
   %22 = icmp ult i8 %21, 4
-  br i1 %22, label %.lr.ph.i, label %_ZNSt3__14__fs10filesystemL14ConsumeRootDirEPNS1_6parser10PathParserE.exit, !llvm.loop !37
+  br i1 %22, label %.lr.ph.i, label %_ZNSt3__14__fs10filesystemL14ConsumeRootDirEPNS1_6parser10PathParserE.exit, !llvm.loop !36
 
 _ZNSt3__14__fs10filesystemL14ConsumeRootDirEPNS1_6parser10PathParserE.exit: ; preds = %.lr.ph.i, %12
   %.lcssa.i = phi i8 [ %19, %12 ], [ %21, %.lr.ph.i ]
@@ -635,15 +635,15 @@ _ZNSt3__14__fs10filesystemL14ConsumeRootDirEPNS1_6parser10PathParserE.exit: ; pr
   %39 = lshr i8 %34, 1
   %40 = zext nneg i8 %39 to i64
   %41 = select i1 %.not.i.i.i7, i64 %40, i64 %38
-  store ptr %37, ptr %3, align 8, !tbaa !14, !alias.scope !41
+  store ptr %37, ptr %3, align 8, !tbaa !13, !alias.scope !40
   %.sroa.2.0..sroa_idx.i.i10 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store i64 %41, ptr %.sroa.2.0..sroa_idx.i.i10, align 8, !tbaa !20, !alias.scope !41
+  store i64 %41, ptr %.sroa.2.0..sroa_idx.i.i10, align 8, !tbaa !19, !alias.scope !40
   %42 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %42, i8 0, i64 16, i1 false), !alias.scope !41
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %42, i8 0, i64 16, i1 false), !alias.scope !40
   %43 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  store i8 6, ptr %43, align 8, !tbaa !22, !alias.scope !41
+  store i8 6, ptr %43, align 8, !tbaa !21, !alias.scope !40
   call void @_ZNSt3__14__fs10filesystem6parser10PathParser9decrementB8ne210000Ev(ptr noundef nonnull align 8 dereferenceable(33) %3) #19
-  %44 = load ptr, ptr %42, align 8, !tbaa !29
+  %44 = load ptr, ptr %42, align 8, !tbaa !28
   %45 = load i8, ptr %0, align 8
   %46 = and i8 %45, 1
   %.not.i.i = icmp eq i8 %46, 0
@@ -659,9 +659,9 @@ _ZNSt3__14__fs10filesystemL14ConsumeRootDirEPNS1_6parser10PathParserE.exit: ; pr
   %.not.i.i11 = icmp eq i8 %52, 0
   %53 = load ptr, ptr %13, align 8
   %54 = select i1 %.not.i.i11, ptr %15, ptr %53
-  %55 = load ptr, ptr %42, align 8, !tbaa !29
+  %55 = load ptr, ptr %42, align 8, !tbaa !28
   %56 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %57 = load i64, ptr %56, align 8, !tbaa !33
+  %57 = load i64, ptr %56, align 8, !tbaa !32
   %58 = getelementptr i8, ptr %55, i64 %57
   %59 = getelementptr i8, ptr %58, i64 -1
   %60 = ptrtoint ptr %59 to i64
@@ -705,23 +705,23 @@ define dso_local { ptr, i64 } @_ZNKSt3__14__fs10filesystem4path10__filenameEv(pt
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %16 = select i1 %.not.i.i.i, ptr %15, ptr %14
-  store ptr %16, ptr %2, align 8, !tbaa !14, !alias.scope !44
+  store ptr %16, ptr %2, align 8, !tbaa !13, !alias.scope !43
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store i64 %10, ptr %.sroa.2.0..sroa_idx.i.i, align 8, !tbaa !20, !alias.scope !44
+  store i64 %10, ptr %.sroa.2.0..sroa_idx.i.i, align 8, !tbaa !19, !alias.scope !43
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %17, i8 0, i64 16, i1 false), !alias.scope !44
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %17, i8 0, i64 16, i1 false), !alias.scope !43
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  store i8 1, ptr %18, align 8, !tbaa !22, !alias.scope !44
+  store i8 1, ptr %18, align 8, !tbaa !21, !alias.scope !43
   call void @_ZNSt3__14__fs10filesystem6parser10PathParser9incrementB8ne210000Ev(ptr noundef nonnull align 8 dereferenceable(33) %2) #19
-  %19 = load i8, ptr %18, align 8, !tbaa !22
+  %19 = load i8, ptr %18, align 8, !tbaa !21
   %20 = icmp ult i8 %19, 4
   br i1 %20, label %.lr.ph.i, label %_ZNSt3__14__fs10filesystemL14ConsumeRootDirEPNS1_6parser10PathParserE.exit
 
 .lr.ph.i:                                         ; preds = %12, %.lr.ph.i
   call void @_ZNSt3__14__fs10filesystem6parser10PathParser9incrementB8ne210000Ev(ptr noundef nonnull align 8 dereferenceable(33) %2) #19
-  %21 = load i8, ptr %18, align 8, !tbaa !22
+  %21 = load i8, ptr %18, align 8, !tbaa !21
   %22 = icmp ult i8 %21, 4
-  br i1 %22, label %.lr.ph.i, label %_ZNSt3__14__fs10filesystemL14ConsumeRootDirEPNS1_6parser10PathParserE.exit, !llvm.loop !37
+  br i1 %22, label %.lr.ph.i, label %_ZNSt3__14__fs10filesystemL14ConsumeRootDirEPNS1_6parser10PathParserE.exit, !llvm.loop !36
 
 _ZNSt3__14__fs10filesystemL14ConsumeRootDirEPNS1_6parser10PathParserE.exit: ; preds = %.lr.ph.i, %12
   %.lcssa.i = phi i8 [ %19, %12 ], [ %21, %.lr.ph.i ]
@@ -740,15 +740,15 @@ _ZNSt3__14__fs10filesystemL14ConsumeRootDirEPNS1_6parser10PathParserE.exit: ; pr
   %29 = lshr i8 %24, 1
   %30 = zext nneg i8 %29 to i64
   %31 = select i1 %.not.i.i.i4, i64 %30, i64 %28
-  store ptr %27, ptr %3, align 8, !tbaa !14, !alias.scope !47
+  store ptr %27, ptr %3, align 8, !tbaa !13, !alias.scope !46
   %.sroa.2.0..sroa_idx.i.i7 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store i64 %31, ptr %.sroa.2.0..sroa_idx.i.i7, align 8, !tbaa !20, !alias.scope !47
+  store i64 %31, ptr %.sroa.2.0..sroa_idx.i.i7, align 8, !tbaa !19, !alias.scope !46
   %32 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %32, i8 0, i64 16, i1 false), !alias.scope !47
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %32, i8 0, i64 16, i1 false), !alias.scope !46
   %33 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  store i8 6, ptr %33, align 8, !tbaa !22, !alias.scope !47
+  store i8 6, ptr %33, align 8, !tbaa !21, !alias.scope !46
   call void @_ZNSt3__14__fs10filesystem6parser10PathParser9decrementB8ne210000Ev(ptr noundef nonnull align 8 dereferenceable(33) %3) #19
-  %34 = load i8, ptr %33, align 8, !tbaa !22
+  %34 = load i8, ptr %33, align 8, !tbaa !21
   switch i8 %34, label %40 [
     i8 1, label %_ZNKSt3__14__fs10filesystem6parser10PathParserdeB8ne210000Ev.exit
     i8 6, label %_ZNKSt3__14__fs10filesystem6parser10PathParserdeB8ne210000Ev.exit
@@ -759,16 +759,16 @@ _ZNSt3__14__fs10filesystemL14ConsumeRootDirEPNS1_6parser10PathParserE.exit: ; pr
   ]
 
 35:                                               ; preds = %23
-  %36 = load ptr, ptr %32, align 8, !tbaa !29
+  %36 = load ptr, ptr %32, align 8, !tbaa !28
   %37 = load i8, ptr %36, align 1, !tbaa !4
   %38 = icmp eq i8 %37, 92
   %.str.5..str.3.i = select i1 %38, ptr @.str.5, ptr @.str.3
   br label %_ZNKSt3__14__fs10filesystem6parser10PathParserdeB8ne210000Ev.exit
 
 39:                                               ; preds = %23, %23
-  %.sroa.0.0.copyload.i = load ptr, ptr %32, align 8, !tbaa !14
+  %.sroa.0.0.copyload.i = load ptr, ptr %32, align 8, !tbaa !13
   %.sroa.6.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %.sroa.6.0.copyload.i = load i64, ptr %.sroa.6.0..sroa_idx.i, align 8, !tbaa !20
+  %.sroa.6.0.copyload.i = load i64, ptr %.sroa.6.0..sroa_idx.i, align 8, !tbaa !19
   br label %_ZNKSt3__14__fs10filesystem6parser10PathParserdeB8ne210000Ev.exit
 
 40:                                               ; preds = %23
@@ -800,12 +800,12 @@ define dso_local { ptr, i64 } @_ZNKSt3__14__fs10filesystem4path6__stemEv(ptr nou
   ]
 
 _ZNSt3__1eqB8ne210000IcNS_11char_traitsIcEELi1EEEbNS_17basic_string_viewIT_T0_EENS_15__type_identityIS6_E4typeE.exit.i: ; preds = %1
-  %lhsc.i = load i8, ptr %3, align 1, !noalias !50
+  %lhsc.i = load i8, ptr %3, align 1, !noalias !49
   %5 = icmp eq i8 %lhsc.i, 46
   br i1 %5, label %_ZNSt3__14__fs10filesystem6parser17separate_filenameB8ne210000ERKNS_17basic_string_viewIcNS_11char_traitsIcEEEE.exit, label %_ZNSt3__1eqB8ne210000IcNS_11char_traitsIcEELi1EEEbNS_17basic_string_viewIT_T0_EENS_15__type_identityIS6_E4typeE.exit.thread.i
 
 _ZNSt3__1eqB8ne210000IcNS_11char_traitsIcEELi1EEEbNS_17basic_string_viewIT_T0_EENS_15__type_identityIS6_E4typeE.exit18.i: ; preds = %1
-  %bcmp.i17.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(2) %3, ptr noundef nonnull dereferenceable(2) @.str.1, i64 2), !noalias !50
+  %bcmp.i17.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(2) %3, ptr noundef nonnull dereferenceable(2) @.str.1, i64 2), !noalias !49
   %6 = icmp eq i32 %bcmp.i17.i, 0
   br i1 %6, label %_ZNSt3__14__fs10filesystem6parser17separate_filenameB8ne210000ERKNS_17basic_string_viewIcNS_11char_traitsIcEEEE.exit, label %_ZNSt3__1eqB8ne210000IcNS_11char_traitsIcEELi1EEEbNS_17basic_string_viewIT_T0_EENS_15__type_identityIS6_E4typeE.exit.thread.i
 
@@ -820,7 +820,7 @@ _ZNSt3__1eqB8ne210000IcNS_11char_traitsIcEELi1EEEbNS_17basic_string_viewIT_T0_EE
 
 9:                                                ; preds = %8
   %10 = getelementptr inbounds i8, ptr %.014.i.i.i.i, i64 -1
-  %11 = load i8, ptr %10, align 1, !tbaa !4, !noalias !50
+  %11 = load i8, ptr %10, align 1, !tbaa !4, !noalias !49
   %12 = icmp eq i8 %11, 46
   br i1 %12, label %_ZNKSt3__117basic_string_viewIcNS_11char_traitsIcEEE12find_last_ofB8ne210000Ecm.exit.i, label %8, !llvm.loop !10
 
@@ -837,7 +837,7 @@ _ZNKSt3__117basic_string_viewIcNS_11char_traitsIcEEE12find_last_ofB8ne210000Ecm.
   br i1 %18, label %19, label %_ZNSt3__14__fs10filesystem6parser17separate_filenameB8ne210000ERKNS_17basic_string_viewIcNS_11char_traitsIcEEEE.exit
 
 19:                                               ; preds = %17
-  tail call void @_ZNSt3__120__throw_out_of_rangeB8ne210000EPKc(ptr noundef nonnull @.str.6) #20, !noalias !50
+  tail call void @_ZNSt3__120__throw_out_of_rangeB8ne210000EPKc(ptr noundef nonnull @.str.6) #20, !noalias !49
   unreachable
 
 _ZNSt3__14__fs10filesystem6parser17separate_filenameB8ne210000ERKNS_17basic_string_viewIcNS_11char_traitsIcEEEE.exit: ; preds = %8, %17, %_ZNKSt3__117basic_string_viewIcNS_11char_traitsIcEEE12find_last_ofB8ne210000Ecm.exit.i, %1, %_ZNSt3__1eqB8ne210000IcNS_11char_traitsIcEELi1EEEbNS_17basic_string_viewIT_T0_EENS_15__type_identityIS6_E4typeE.exit.i, %_ZNSt3__1eqB8ne210000IcNS_11char_traitsIcEELi1EEEbNS_17basic_string_viewIT_T0_EENS_15__type_identityIS6_E4typeE.exit18.i
@@ -858,12 +858,12 @@ define dso_local { ptr, i64 } @_ZNKSt3__14__fs10filesystem4path11__extensionEv(p
   ]
 
 _ZNSt3__1eqB8ne210000IcNS_11char_traitsIcEELi1EEEbNS_17basic_string_viewIT_T0_EENS_15__type_identityIS6_E4typeE.exit.i: ; preds = %1
-  %lhsc.i = load i8, ptr %3, align 1, !noalias !53
+  %lhsc.i = load i8, ptr %3, align 1, !noalias !52
   %5 = icmp eq i8 %lhsc.i, 46
   br i1 %5, label %_ZNSt3__14__fs10filesystem6parser17separate_filenameB8ne210000ERKNS_17basic_string_viewIcNS_11char_traitsIcEEEE.exit, label %_ZNSt3__1eqB8ne210000IcNS_11char_traitsIcEELi1EEEbNS_17basic_string_viewIT_T0_EENS_15__type_identityIS6_E4typeE.exit.thread.i
 
 _ZNSt3__1eqB8ne210000IcNS_11char_traitsIcEELi1EEEbNS_17basic_string_viewIT_T0_EENS_15__type_identityIS6_E4typeE.exit18.i: ; preds = %1
-  %bcmp.i17.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(2) %3, ptr noundef nonnull dereferenceable(2) @.str.1, i64 2), !noalias !53
+  %bcmp.i17.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(2) %3, ptr noundef nonnull dereferenceable(2) @.str.1, i64 2), !noalias !52
   %6 = icmp eq i32 %bcmp.i17.i, 0
   br i1 %6, label %_ZNSt3__14__fs10filesystem6parser17separate_filenameB8ne210000ERKNS_17basic_string_viewIcNS_11char_traitsIcEEEE.exit, label %_ZNSt3__1eqB8ne210000IcNS_11char_traitsIcEELi1EEEbNS_17basic_string_viewIT_T0_EENS_15__type_identityIS6_E4typeE.exit.thread.i
 
@@ -878,7 +878,7 @@ _ZNSt3__1eqB8ne210000IcNS_11char_traitsIcEELi1EEEbNS_17basic_string_viewIT_T0_EE
 
 9:                                                ; preds = %8
   %10 = getelementptr inbounds i8, ptr %.014.i.i.i.i, i64 -1
-  %11 = load i8, ptr %10, align 1, !tbaa !4, !noalias !53
+  %11 = load i8, ptr %10, align 1, !tbaa !4, !noalias !52
   %12 = icmp eq i8 %11, 46
   br i1 %12, label %_ZNKSt3__117basic_string_viewIcNS_11char_traitsIcEEE12find_last_ofB8ne210000Ecm.exit.i, label %8, !llvm.loop !10
 
@@ -895,7 +895,7 @@ _ZNKSt3__117basic_string_viewIcNS_11char_traitsIcEEE12find_last_ofB8ne210000Ecm.
   br i1 %18, label %19, label %_ZNKSt3__117basic_string_viewIcNS_11char_traitsIcEEE6substrB8ne210000Emm.exit.i
 
 19:                                               ; preds = %17
-  tail call void @_ZNSt3__120__throw_out_of_rangeB8ne210000EPKc(ptr noundef nonnull @.str.6) #20, !noalias !53
+  tail call void @_ZNSt3__120__throw_out_of_rangeB8ne210000EPKc(ptr noundef nonnull @.str.6) #20, !noalias !52
   unreachable
 
 _ZNKSt3__117basic_string_viewIcNS_11char_traitsIcEEE6substrB8ne210000Emm.exit.i: ; preds = %17
@@ -929,7 +929,7 @@ define dso_local void @_ZNKSt3__14__fs10filesystem4path16lexically_normalEv(ptr 
   br i1 %.not.i.i, label %13, label %14
 
 13:                                               ; preds = %12
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false), !tbaa.struct !13
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false), !tbaa.struct !12
   br label %_ZNSt3__14__fs10filesystem4pathC2B8ne210000ERKS2_.exit
 
 14:                                               ; preds = %12
@@ -946,13 +946,13 @@ define dso_local void @_ZNKSt3__14__fs10filesystem4path16lexically_normalEv(ptr 
   %21 = load ptr, ptr %20, align 8
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %23 = select i1 %.not.i.i, ptr %22, ptr %21
-  store ptr %23, ptr %3, align 8, !tbaa !14, !alias.scope !56
+  store ptr %23, ptr %3, align 8, !tbaa !13, !alias.scope !55
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store i64 %10, ptr %.sroa.2.0..sroa_idx.i.i, align 8, !tbaa !20, !alias.scope !56
+  store i64 %10, ptr %.sroa.2.0..sroa_idx.i.i, align 8, !tbaa !19, !alias.scope !55
   %24 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %24, i8 0, i64 16, i1 false), !alias.scope !56
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %24, i8 0, i64 16, i1 false), !alias.scope !55
   %25 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  store i8 1, ptr %25, align 8, !tbaa !22, !alias.scope !56
+  store i8 1, ptr %25, align 8, !tbaa !21, !alias.scope !55
   call void @_ZNSt3__14__fs10filesystem6parser10PathParser9incrementB8ne210000Ev(ptr noundef nonnull align 8 dereferenceable(33) %3) #19
   %.sroa.6.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 24
   br label %26
@@ -963,7 +963,7 @@ define dso_local void @_ZNKSt3__14__fs10filesystem4path16lexically_normalEv(ptr 
   %.sroa.35.0 = phi ptr [ %19, %17 ], [ %.sroa.35.2, %"_ZZNKSt3__14__fs10filesystem4path16lexically_normalEvENK3$_0clENS1_12PathPartKindENS_17basic_string_viewIcNS_11char_traitsIcEEEE.exit" ]
   %.0 = phi i64 [ 0, %17 ], [ %.1, %"_ZZNKSt3__14__fs10filesystem4path16lexically_normalEvENK3$_0clENS1_12PathPartKindENS_17basic_string_viewIcNS_11char_traitsIcEEEE.exit" ]
   %.024 = phi i1 [ false, %17 ], [ %.125, %"_ZZNKSt3__14__fs10filesystem4path16lexically_normalEvENK3$_0clENS1_12PathPartKindENS_17basic_string_viewIcNS_11char_traitsIcEEEE.exit" ]
-  %27 = load i8, ptr %25, align 8, !tbaa !22
+  %27 = load i8, ptr %25, align 8, !tbaa !21
   switch i8 %27, label %33 [
     i8 6, label %28
     i8 1, label %28
@@ -979,7 +979,7 @@ define dso_local void @_ZNKSt3__14__fs10filesystem4path16lexically_normalEv(ptr 
   br i1 %29, label %102, label %113
 
 _ZNKSt3__14__fs10filesystem6parser10PathParserdeB8ne210000Ev.exit.thread110: ; preds = %26
-  %30 = load ptr, ptr %24, align 8, !tbaa !29
+  %30 = load ptr, ptr %24, align 8, !tbaa !28
   %31 = load i8, ptr %30, align 1, !tbaa !4
   %32 = icmp eq i8 %31, 92
   %.str.5..str.3.i = select i1 %32, ptr @.str.5, ptr @.str.3
@@ -989,8 +989,8 @@ _ZNKSt3__14__fs10filesystem6parser10PathParserdeB8ne210000Ev.exit.thread110: ; p
   unreachable
 
 _ZNKSt3__14__fs10filesystem6parser10PathParserdeB8ne210000Ev.exit: ; preds = %26, %26
-  %.sroa.0.0.copyload.i = load ptr, ptr %24, align 8, !tbaa !14
-  %.sroa.6.0.copyload.i = load i64, ptr %.sroa.6.0..sroa_idx.i, align 8, !tbaa !20
+  %.sroa.0.0.copyload.i = load ptr, ptr %24, align 8, !tbaa !13
+  %.sroa.6.0.copyload.i = load i64, ptr %.sroa.6.0..sroa_idx.i, align 8, !tbaa !19
   switch i64 %.sroa.6.0.copyload.i, label %_ZNSt3__1eqB8ne210000IcNS_11char_traitsIcEELi1EEEbNS_17basic_string_viewIT_T0_EENS_15__type_identityIS6_E4typeE.exit14.thread.fold.split.i [
     i64 0, label %"_ZZNKSt3__14__fs10filesystem4path16lexically_normalEvENK3$_0clENS1_12PathPartKindENS_17basic_string_viewIcNS_11char_traitsIcEEEE.exit"
     i64 1, label %_ZNSt3__1eqB8ne210000IcNS_11char_traitsIcEELi1EEEbNS_17basic_string_viewIT_T0_EENS_15__type_identityIS6_E4typeE.exit.i
@@ -1033,11 +1033,11 @@ _ZNSt3__1eqB8ne210000IcNS_11char_traitsIcEELi1EEEbNS_17basic_string_viewIT_T0_EE
   br i1 %38, label %39, label %42
 
 39:                                               ; preds = %_ZNSt3__1eqB8ne210000IcNS_11char_traitsIcEELi1EEEbNS_17basic_string_viewIT_T0_EENS_15__type_identityIS6_E4typeE.exit14.thread.fold.split.i
-  store ptr %.sroa.0.0.i109.ph, ptr %.sroa.17.0, align 8, !tbaa !14
+  store ptr %.sroa.0.0.i109.ph, ptr %.sroa.17.0, align 8, !tbaa !13
   %.sroa.3.0..sroa_idx3.i = getelementptr inbounds nuw i8, ptr %.sroa.17.0, i64 8
-  store i64 %.sroa.6.0.i108.ph, ptr %.sroa.3.0..sroa_idx3.i, align 8, !tbaa !20
+  store i64 %.sroa.6.0.i108.ph, ptr %.sroa.3.0..sroa_idx3.i, align 8, !tbaa !19
   %40 = getelementptr inbounds nuw i8, ptr %.sroa.17.0, i64 16
-  store i8 %.0.i.ph, ptr %40, align 8, !tbaa !59
+  store i8 %.0.i.ph, ptr %40, align 8, !tbaa !58
   %41 = getelementptr i8, ptr %.sroa.17.0, i64 24
   br label %"_ZZNKSt3__14__fs10filesystem4path16lexically_normalEvENK3$_0clENS1_12PathPartKindENS_17basic_string_viewIcNS_11char_traitsIcEEEE.exit"
 
@@ -1085,11 +1085,11 @@ _ZNSt3__119__allocate_at_leastB8ne210000INS_9allocatorINS_4pairINS_17basic_strin
 .noexc46:                                         ; preds = %_ZNSt3__119__allocate_at_leastB8ne210000INS_9allocatorINS_4pairINS_17basic_string_viewIcNS_11char_traitsIcEEEENS_4__fs10filesystem12PathPartKindEEEEEEEDaRT_m.exit.i.i.i.i
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 %45
   %60 = getelementptr inbounds nuw %"struct.std::__1::pair.2", ptr %58, i64 %.0.i.i.i.i
-  store ptr %.sroa.0.0.i109.ph, ptr %59, align 8, !tbaa !14
+  store ptr %.sroa.0.0.i109.ph, ptr %59, align 8, !tbaa !13
   %.sroa.3.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %59, i64 8
-  store i64 %.sroa.6.0.i108.ph, ptr %.sroa.3.0..sroa_idx.i, align 8, !tbaa !20
+  store i64 %.sroa.6.0.i108.ph, ptr %.sroa.3.0..sroa_idx.i, align 8, !tbaa !19
   %61 = getelementptr inbounds nuw i8, ptr %59, i64 16
-  store i8 %.0.i.ph, ptr %61, align 8, !tbaa !59
+  store i8 %.0.i.ph, ptr %61, align 8, !tbaa !58
   %62 = getelementptr i8, ptr %59, i64 24
   %.neg.i.i.i.i = sdiv i64 %45, -24
   %63 = getelementptr %"struct.std::__1::pair.2", ptr %59, i64 %.neg.i.i.i.i
@@ -1107,7 +1107,7 @@ _ZNSt3__14__fs10filesystemL16ClassifyPathPartENS_17basic_string_viewIcNS_11char_
 
 "_ZZNKSt3__14__fs10filesystem4path16lexically_normalEvENK3$_1clEv.exit": ; preds = %_ZNSt3__14__fs10filesystemL16ClassifyPathPartENS_17basic_string_viewIcNS_11char_traitsIcEEEE.exit
   %66 = getelementptr inbounds i8, ptr %.sroa.17.0, i64 -8
-  %67 = load i8, ptr %66, align 8, !tbaa !59
+  %67 = load i8, ptr %66, align 8, !tbaa !58
   switch i8 %67, label %.thread [
     i8 2, label %68
     i8 1, label %"_ZZNKSt3__14__fs10filesystem4path16lexically_normalEvENK3$_0clENS1_12PathPartKindENS_17basic_string_viewIcNS_11char_traitsIcEEEE.exit"
@@ -1116,7 +1116,7 @@ _ZNSt3__14__fs10filesystemL16ClassifyPathPartENS_17basic_string_viewIcNS_11char_
 68:                                               ; preds = %"_ZZNKSt3__14__fs10filesystem4path16lexically_normalEvENK3$_1clEv.exit"
   %69 = getelementptr i8, ptr %.sroa.17.0, i64 -24
   %70 = getelementptr inbounds i8, ptr %.sroa.17.0, i64 -16
-  %71 = load i64, ptr %70, align 8, !tbaa !33
+  %71 = load i64, ptr %70, align 8, !tbaa !32
   %72 = sub i64 %.0, %71
   br label %"_ZZNKSt3__14__fs10filesystem4path16lexically_normalEvENK3$_0clENS1_12PathPartKindENS_17basic_string_viewIcNS_11char_traitsIcEEEE.exit"
 
@@ -1136,11 +1136,11 @@ _ZNSt3__14__fs10filesystemL16ClassifyPathPartENS_17basic_string_viewIcNS_11char_
   br i1 %74, label %75, label %78
 
 75:                                               ; preds = %.thread
-  store ptr @.str.1, ptr %.sroa.17.0, align 8, !tbaa !14
+  store ptr @.str.1, ptr %.sroa.17.0, align 8, !tbaa !13
   %.sroa.3.0..sroa_idx3.i58 = getelementptr inbounds nuw i8, ptr %.sroa.17.0, i64 8
-  store i64 2, ptr %.sroa.3.0..sroa_idx3.i58, align 8, !tbaa !20
+  store i64 2, ptr %.sroa.3.0..sroa_idx3.i58, align 8, !tbaa !19
   %76 = getelementptr inbounds nuw i8, ptr %.sroa.17.0, i64 16
-  store i8 4, ptr %76, align 8, !tbaa !59
+  store i8 4, ptr %76, align 8, !tbaa !58
   %77 = getelementptr i8, ptr %.sroa.17.0, i64 24
   br label %"_ZZNKSt3__14__fs10filesystem4path16lexically_normalEvENK3$_0clENS1_12PathPartKindENS_17basic_string_viewIcNS_11char_traitsIcEEEE.exit"
 
@@ -1188,11 +1188,11 @@ _ZNSt3__119__allocate_at_leastB8ne210000INS_9allocatorINS_4pairINS_17basic_strin
 .noexc61:                                         ; preds = %_ZNSt3__119__allocate_at_leastB8ne210000INS_9allocatorINS_4pairINS_17basic_string_viewIcNS_11char_traitsIcEEEENS_4__fs10filesystem12PathPartKindEEEEEEEDaRT_m.exit.i.i.i.i53
   %95 = getelementptr inbounds nuw i8, ptr %94, i64 %81
   %96 = getelementptr inbounds nuw %"struct.std::__1::pair.2", ptr %94, i64 %.0.i.i.i.i52
-  store ptr @.str.1, ptr %95, align 8, !tbaa !14
+  store ptr @.str.1, ptr %95, align 8, !tbaa !13
   %.sroa.3.0..sroa_idx.i54 = getelementptr inbounds nuw i8, ptr %95, i64 8
-  store i64 2, ptr %.sroa.3.0..sroa_idx.i54, align 8, !tbaa !20
+  store i64 2, ptr %.sroa.3.0..sroa_idx.i54, align 8, !tbaa !19
   %97 = getelementptr inbounds nuw i8, ptr %95, i64 16
-  store i8 4, ptr %97, align 8, !tbaa !59
+  store i8 4, ptr %97, align 8, !tbaa !58
   %98 = getelementptr i8, ptr %95, i64 24
   %.neg.i.i.i.i55 = sdiv i64 %81, -24
   %99 = getelementptr %"struct.std::__1::pair.2", ptr %95, i64 %.neg.i.i.i.i55
@@ -1211,7 +1211,7 @@ _ZNSt3__119__allocate_at_leastB8ne210000INS_9allocatorINS_4pairINS_17basic_strin
   %.1 = phi i64 [ %72, %68 ], [ %37, %39 ], [ %37, %.noexc46 ], [ %37, %64 ], [ %73, %75 ], [ %73, %.noexc61 ], [ %73, %100 ], [ %.0, %_ZNKSt3__14__fs10filesystem6parser10PathParserdeB8ne210000Ev.exit ], [ %.0, %_ZNSt3__1eqB8ne210000IcNS_11char_traitsIcEELi1EEEbNS_17basic_string_viewIT_T0_EENS_15__type_identityIS6_E4typeE.exit.i ], [ %.0, %26 ], [ %.0, %"_ZZNKSt3__14__fs10filesystem4path16lexically_normalEvENK3$_1clEv.exit" ]
   %.125 = phi i1 [ true, %68 ], [ false, %39 ], [ false, %.noexc46 ], [ false, %64 ], [ false, %75 ], [ false, %.noexc61 ], [ false, %100 ], [ true, %_ZNKSt3__14__fs10filesystem6parser10PathParserdeB8ne210000Ev.exit ], [ true, %_ZNSt3__1eqB8ne210000IcNS_11char_traitsIcEELi1EEEbNS_17basic_string_viewIT_T0_EENS_15__type_identityIS6_E4typeE.exit.i ], [ true, %26 ], [ false, %"_ZZNKSt3__14__fs10filesystem4path16lexically_normalEvENK3$_1clEv.exit" ]
   call void @_ZNSt3__14__fs10filesystem6parser10PathParser9incrementB8ne210000Ev(ptr noundef nonnull align 8 dereferenceable(33) %3) #19
-  br label %26, !llvm.loop !62
+  br label %26, !llvm.loop !61
 
 101:                                              ; preds = %.loopexit, %.loopexit.split-lp, %.loopexit141, %.loopexit.split-lp142
   %.pn28 = phi { ptr, i32 } [ %lpad.loopexit143, %.loopexit141 ], [ %lpad.loopexit.split-lp144, %.loopexit.split-lp142 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
@@ -1244,7 +1244,7 @@ _ZNSt3__119__allocate_at_leastB8ne210000INS_9allocatorINS_4pairINS_17basic_strin
 
 "_ZZNKSt3__14__fs10filesystem4path16lexically_normalEvENK3$_1clEv.exit65": ; preds = %113
   %114 = getelementptr inbounds i8, ptr %.sroa.17.0, i64 -8
-  %115 = load i8, ptr %114, align 8, !tbaa !59
+  %115 = load i8, ptr %114, align 8, !tbaa !58
   %116 = icmp eq i8 %115, 2
   br label %117
 
@@ -1313,7 +1313,7 @@ _ZNSt3__119__allocate_at_leastB8ne210000INS_9allocatorINS_4pairINS_17basic_strin
 _ZNSt3__14__fs10filesystem4pathdVB8ne210000INS_17basic_string_viewIcNS_11char_traitsIcEEEEEENS_9enable_ifIXsr13__is_pathableIT_EE5valueERS2_E4typeERKS9_.exit: ; preds = %.lr.ph
   %144 = getelementptr inbounds nuw i8, ptr %.sroa.077.0193, i64 24
   %145 = icmp eq ptr %144, %.sroa.17.0
-  br i1 %145, label %._crit_edge, label %.lr.ph, !llvm.loop !63
+  br i1 %145, label %._crit_edge, label %.lr.ph
 
 146:                                              ; preds = %.lr.ph
   %147 = landingpad { ptr, i32 }
@@ -1390,13 +1390,13 @@ define dso_local void @_ZNKSt3__14__fs10filesystem4path18lexically_relativeERKS2
   %18 = lshr i8 %10, 1
   %19 = zext nneg i8 %18 to i64
   %20 = select i1 %.not.i.i.i, i64 %19, i64 %17
-  store ptr %15, ptr %5, align 8, !tbaa !14, !alias.scope !64
+  store ptr %15, ptr %5, align 8, !tbaa !13, !alias.scope !62
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store i64 %20, ptr %.sroa.2.0..sroa_idx.i.i, align 8, !tbaa !20, !alias.scope !64
+  store i64 %20, ptr %.sroa.2.0..sroa_idx.i.i, align 8, !tbaa !19, !alias.scope !62
   %21 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %21, i8 0, i64 16, i1 false), !alias.scope !64
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %21, i8 0, i64 16, i1 false), !alias.scope !62
   %22 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  store i8 1, ptr %22, align 8, !tbaa !22, !alias.scope !64
+  store i8 1, ptr %22, align 8, !tbaa !21, !alias.scope !62
   call void @_ZNSt3__14__fs10filesystem6parser10PathParser9incrementB8ne210000Ev(ptr noundef nonnull align 8 dereferenceable(33) %5) #19
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6) #19
   %23 = load i8, ptr %2, align 8
@@ -1411,15 +1411,15 @@ define dso_local void @_ZNKSt3__14__fs10filesystem4path18lexically_relativeERKS2
   %31 = lshr i8 %23, 1
   %32 = zext nneg i8 %31 to i64
   %33 = select i1 %.not.i.i.i35, i64 %32, i64 %30
-  store ptr %28, ptr %6, align 8, !tbaa !14, !alias.scope !67
+  store ptr %28, ptr %6, align 8, !tbaa !13, !alias.scope !65
   %.sroa.2.0..sroa_idx.i.i38 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store i64 %33, ptr %.sroa.2.0..sroa_idx.i.i38, align 8, !tbaa !20, !alias.scope !67
+  store i64 %33, ptr %.sroa.2.0..sroa_idx.i.i38, align 8, !tbaa !19, !alias.scope !65
   %34 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %34, i8 0, i64 16, i1 false), !alias.scope !67
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %34, i8 0, i64 16, i1 false), !alias.scope !65
   %35 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  store i8 1, ptr %35, align 8, !tbaa !22, !alias.scope !67
+  store i8 1, ptr %35, align 8, !tbaa !21, !alias.scope !65
   call void @_ZNSt3__14__fs10filesystem6parser10PathParser9incrementB8ne210000Ev(ptr noundef nonnull align 8 dereferenceable(33) %6) #19
-  %36 = load i8, ptr %22, align 8, !tbaa !22
+  %36 = load i8, ptr %22, align 8, !tbaa !21
   %37 = icmp eq i8 %36, 2
   %38 = load i8, ptr %35, align 8
   %39 = icmp eq i8 %38, 2
@@ -1428,15 +1428,15 @@ define dso_local void @_ZNKSt3__14__fs10filesystem4path18lexically_relativeERKS2
 
 _ZNKSt3__14__fs10filesystem6parser10PathParserdeB8ne210000Ev.exit49: ; preds = %3
   %.sroa.6.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %5, i64 24
-  %.sroa.6.0.copyload.i = load i64, ptr %.sroa.6.0..sroa_idx.i, align 8, !tbaa !20
+  %.sroa.6.0.copyload.i = load i64, ptr %.sroa.6.0..sroa_idx.i, align 8, !tbaa !19
   %.sroa.6.0..sroa_idx.i42 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  %.sroa.6.0.copyload.i43 = load i64, ptr %.sroa.6.0..sroa_idx.i42, align 8, !tbaa !20
+  %.sroa.6.0.copyload.i43 = load i64, ptr %.sroa.6.0..sroa_idx.i42, align 8, !tbaa !19
   %.not.i = icmp eq i64 %.sroa.6.0.copyload.i, %.sroa.6.0.copyload.i43
   br i1 %.not.i, label %_ZNSt3__1eqB8ne210000IcNS_11char_traitsIcEELi1EEEbNS_17basic_string_viewIT_T0_EENS_15__type_identityIS6_E4typeE.exit, label %.thread133
 
 _ZNSt3__1eqB8ne210000IcNS_11char_traitsIcEELi1EEEbNS_17basic_string_viewIT_T0_EENS_15__type_identityIS6_E4typeE.exit: ; preds = %_ZNKSt3__14__fs10filesystem6parser10PathParserdeB8ne210000Ev.exit49
-  %.sroa.0.0.copyload.i41 = load ptr, ptr %34, align 8, !tbaa !14
-  %.sroa.0.0.copyload.i = load ptr, ptr %21, align 8, !tbaa !14
+  %.sroa.0.0.copyload.i41 = load ptr, ptr %34, align 8, !tbaa !13
+  %.sroa.0.0.copyload.i = load ptr, ptr %21, align 8, !tbaa !13
   %bcmp.i = call i32 @bcmp(ptr %.sroa.0.0.copyload.i, ptr %.sroa.0.0.copyload.i41, i64 %.sroa.6.0.copyload.i)
   %40 = icmp eq i32 %bcmp.i, 0
   br i1 %40, label %.thread, label %.thread133
@@ -1458,7 +1458,7 @@ _ZNSt3__1eqB8ne210000IcNS_11char_traitsIcEELi1EEEbNS_17basic_string_viewIT_T0_EE
 
 .thread:                                          ; preds = %_ZNSt3__1eqB8ne210000IcNS_11char_traitsIcEELi1EEEbNS_17basic_string_viewIT_T0_EENS_15__type_identityIS6_E4typeE.exit, %"_ZZNKSt3__14__fs10filesystem4path18lexically_relativeERKS2_ENK3$_0clEv.exit.thread130"
   call void @_ZNSt3__14__fs10filesystem6parser10PathParser9incrementB8ne210000Ev(ptr noundef nonnull align 8 dereferenceable(33) %5) #19
-  %.pre = load i8, ptr %35, align 8, !tbaa !22
+  %.pre = load i8, ptr %35, align 8, !tbaa !21
   br label %"_ZZNKSt3__14__fs10filesystem4path18lexically_relativeERKS2_ENK3$_0clEv.exit.thread130.thread"
 
 "_ZZNKSt3__14__fs10filesystem4path18lexically_relativeERKS2_ENK3$_0clEv.exit.thread130.thread": ; preds = %43, %.thread, %"_ZZNKSt3__14__fs10filesystem4path18lexically_relativeERKS2_ENK3$_0clEv.exit.thread130"
@@ -1469,12 +1469,12 @@ _ZNSt3__1eqB8ne210000IcNS_11char_traitsIcEELi1EEEbNS_17basic_string_viewIT_T0_EE
 
 47:                                               ; preds = %"_ZZNKSt3__14__fs10filesystem4path18lexically_relativeERKS2_ENK3$_0clEv.exit.thread130.thread"
   call void @_ZNSt3__14__fs10filesystem6parser10PathParser9incrementB8ne210000Ev(ptr noundef nonnull align 8 dereferenceable(33) %6) #19
-  %.val34.val.pre = load i8, ptr %35, align 8, !tbaa !22
+  %.val34.val.pre = load i8, ptr %35, align 8, !tbaa !21
   br label %48
 
 48:                                               ; preds = %47, %"_ZZNKSt3__14__fs10filesystem4path18lexically_relativeERKS2_ENK3$_0clEv.exit.thread130.thread"
   %.val34.val = phi i8 [ %.val34.val.pre, %47 ], [ %45, %"_ZZNKSt3__14__fs10filesystem4path18lexically_relativeERKS2_ENK3$_0clEv.exit.thread130.thread" ]
-  %.val33.val = load i8, ptr %22, align 8, !tbaa !22
+  %.val33.val = load i8, ptr %22, align 8, !tbaa !21
   %.not.i52 = icmp eq i8 %.val33.val, %.val34.val
   br i1 %.not.i52, label %"_ZZNKSt3__14__fs10filesystem4path18lexically_relativeERKS2_ENK3$_0clEv.exit55.thread132", label %49
 
@@ -1505,13 +1505,13 @@ _ZNSt3__1eqB8ne210000IcNS_11char_traitsIcEELi1EEEbNS_17basic_string_viewIT_T0_EE
   %57 = lshr i8 %52, 1
   %58 = zext nneg i8 %57 to i64
   %59 = select i1 %.not.i.i.i56, i64 %58, i64 %56
-  store ptr %55, ptr %7, align 8, !tbaa !14, !alias.scope !70
+  store ptr %55, ptr %7, align 8, !tbaa !13, !alias.scope !68
   %.sroa.2.0..sroa_idx.i.i59 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store i64 %59, ptr %.sroa.2.0..sroa_idx.i.i59, align 8, !tbaa !20, !alias.scope !70
+  store i64 %59, ptr %.sroa.2.0..sroa_idx.i.i59, align 8, !tbaa !19, !alias.scope !68
   %60 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %60, i8 0, i64 16, i1 false), !alias.scope !70
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %60, i8 0, i64 16, i1 false), !alias.scope !68
   %61 = getelementptr inbounds nuw i8, ptr %7, i64 32
-  store i8 1, ptr %61, align 8, !tbaa !22, !alias.scope !70
+  store i8 1, ptr %61, align 8, !tbaa !21, !alias.scope !68
   call void @_ZNSt3__14__fs10filesystem6parser10PathParser9incrementB8ne210000Ev(ptr noundef nonnull align 8 dereferenceable(33) %7) #19
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %8) #19
   %62 = load i8, ptr %2, align 8
@@ -1523,27 +1523,27 @@ _ZNSt3__1eqB8ne210000IcNS_11char_traitsIcEELi1EEEbNS_17basic_string_viewIT_T0_EE
   %67 = lshr i8 %62, 1
   %68 = zext nneg i8 %67 to i64
   %69 = select i1 %.not.i.i.i60, i64 %68, i64 %66
-  store ptr %65, ptr %8, align 8, !tbaa !14, !alias.scope !73
+  store ptr %65, ptr %8, align 8, !tbaa !13, !alias.scope !71
   %.sroa.2.0..sroa_idx.i.i63 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store i64 %69, ptr %.sroa.2.0..sroa_idx.i.i63, align 8, !tbaa !20, !alias.scope !73
+  store i64 %69, ptr %.sroa.2.0..sroa_idx.i.i63, align 8, !tbaa !19, !alias.scope !71
   %70 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %70, i8 0, i64 16, i1 false), !alias.scope !73
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %70, i8 0, i64 16, i1 false), !alias.scope !71
   %71 = getelementptr inbounds nuw i8, ptr %8, i64 32
-  store i8 1, ptr %71, align 8, !tbaa !22, !alias.scope !73
+  store i8 1, ptr %71, align 8, !tbaa !21, !alias.scope !71
   call void @_ZNSt3__14__fs10filesystem6parser10PathParser9incrementB8ne210000Ev(ptr noundef nonnull align 8 dereferenceable(33) %8) #19
   %.sroa.6.0..sroa_idx.i69 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %.sroa.6.0..sroa_idx.i78 = getelementptr inbounds nuw i8, ptr %8, i64 24
   br label %72
 
 72:                                               ; preds = %.critedge2, %"_ZZNKSt3__14__fs10filesystem4path18lexically_relativeERKS2_ENK3$_0clEv.exit55.thread132"
-  %73 = load i8, ptr %61, align 8, !tbaa !22
+  %73 = load i8, ptr %61, align 8, !tbaa !21
   switch i8 %73, label %74 [
     i8 6, label %.critedge
     i8 1, label %.critedge
   ]
 
 74:                                               ; preds = %72
-  %75 = load i8, ptr %71, align 8, !tbaa !22
+  %75 = load i8, ptr %71, align 8, !tbaa !21
   switch i8 %75, label %76 [
     i8 6, label %.critedge.thread
     i8 1, label %.critedge.thread
@@ -1562,19 +1562,19 @@ _ZNSt3__1eqB8ne210000IcNS_11char_traitsIcEELi1EEEbNS_17basic_string_viewIT_T0_EE
   ]
 
 _ZNKSt3__14__fs10filesystem6parser10PathParserdeB8ne210000Ev.exit85.thread.thread: ; preds = %78
-  %79 = load ptr, ptr %60, align 8, !tbaa !29
+  %79 = load ptr, ptr %60, align 8, !tbaa !28
   %80 = load i8, ptr %79, align 1, !tbaa !4
   %81 = icmp eq i8 %80, 92
   %.str.5..str.3.i75 = select i1 %81, ptr @.str.5, ptr @.str.3
-  %82 = load ptr, ptr %70, align 8, !tbaa !29
+  %82 = load ptr, ptr %70, align 8, !tbaa !28
   %83 = load i8, ptr %82, align 1, !tbaa !4
   %84 = icmp eq i8 %83, 92
   %.str.5..str.3.i84169 = select i1 %84, ptr @.str.5, ptr @.str.3
   br label %_ZNSt3__1eqB8ne210000IcNS_11char_traitsIcEELi1EEEbNS_17basic_string_viewIT_T0_EENS_15__type_identityIS6_E4typeE.exit90
 
 85:                                               ; preds = %78, %78
-  %.sroa.0.0.copyload.i68 = load ptr, ptr %60, align 8, !tbaa !14
-  %.sroa.6.0.copyload.i70 = load i64, ptr %.sroa.6.0..sroa_idx.i69, align 8, !tbaa !20
+  %.sroa.0.0.copyload.i68 = load ptr, ptr %60, align 8, !tbaa !13
+  %.sroa.6.0.copyload.i70 = load i64, ptr %.sroa.6.0..sroa_idx.i69, align 8, !tbaa !19
   br label %_ZNKSt3__14__fs10filesystem6parser10PathParserdeB8ne210000Ev.exit76
 
 86:                                               ; preds = %78
@@ -1591,8 +1591,8 @@ _ZNKSt3__14__fs10filesystem6parser10PathParserdeB8ne210000Ev.exit76: ; preds = %
   ]
 
 87:                                               ; preds = %_ZNKSt3__14__fs10filesystem6parser10PathParserdeB8ne210000Ev.exit76, %_ZNKSt3__14__fs10filesystem6parser10PathParserdeB8ne210000Ev.exit76
-  %.sroa.0.0.copyload.i77 = load ptr, ptr %70, align 8, !tbaa !14
-  %.sroa.6.0.copyload.i79 = load i64, ptr %.sroa.6.0..sroa_idx.i78, align 8, !tbaa !20
+  %.sroa.0.0.copyload.i77 = load ptr, ptr %70, align 8, !tbaa !13
+  %.sroa.6.0.copyload.i79 = load i64, ptr %.sroa.6.0..sroa_idx.i78, align 8, !tbaa !19
   br label %_ZNKSt3__14__fs10filesystem6parser10PathParserdeB8ne210000Ev.exit85
 
 88:                                               ; preds = %_ZNKSt3__14__fs10filesystem6parser10PathParserdeB8ne210000Ev.exit76
@@ -1605,7 +1605,7 @@ _ZNKSt3__14__fs10filesystem6parser10PathParserdeB8ne210000Ev.exit85: ; preds = %
   br i1 %.not.i86, label %_ZNSt3__1eqB8ne210000IcNS_11char_traitsIcEELi1EEEbNS_17basic_string_viewIT_T0_EENS_15__type_identityIS6_E4typeE.exit90, label %_ZNSt3__1eqB8ne210000IcNS_11char_traitsIcEELi1EEEbNS_17basic_string_viewIT_T0_EENS_15__type_identityIS6_E4typeE.exit90.thread
 
 _ZNKSt3__14__fs10filesystem6parser10PathParserdeB8ne210000Ev.exit85.thread: ; preds = %_ZNKSt3__14__fs10filesystem6parser10PathParserdeB8ne210000Ev.exit76
-  %89 = load ptr, ptr %70, align 8, !tbaa !29
+  %89 = load ptr, ptr %70, align 8, !tbaa !28
   %90 = load i8, ptr %89, align 1, !tbaa !4
   %91 = icmp eq i8 %90, 92
   %.str.5..str.3.i84 = select i1 %91, ptr @.str.5, ptr @.str.3
@@ -1629,10 +1629,10 @@ _ZNSt3__1eqB8ne210000IcNS_11char_traitsIcEELi1EEEbNS_17basic_string_viewIT_T0_EE
 .critedge2:                                       ; preds = %_ZNKSt3__14__fs10filesystem6parser10PathParserdeB8ne210000Ev.exit85.thread, %_ZNSt3__1eqB8ne210000IcNS_11char_traitsIcEELi1EEEbNS_17basic_string_viewIT_T0_EENS_15__type_identityIS6_E4typeE.exit90, %_ZNSt3__1eqB8ne210000IcNS_11char_traitsIcEELi1EEEbNS_17basic_string_viewIT_T0_EENS_15__type_identityIS6_E4typeE.exit90.thread
   call void @_ZNSt3__14__fs10filesystem6parser10PathParser9incrementB8ne210000Ev(ptr noundef nonnull align 8 dereferenceable(33) %7) #19
   call void @_ZNSt3__14__fs10filesystem6parser10PathParser9incrementB8ne210000Ev(ptr noundef nonnull align 8 dereferenceable(33) %8) #19
-  br label %72, !llvm.loop !76
+  br label %72, !llvm.loop !74
 
 .critedge:                                        ; preds = %72, %72
-  %94 = load i8, ptr %71, align 8, !tbaa !22
+  %94 = load i8, ptr %71, align 8, !tbaa !21
   switch i8 %94, label %.critedge.thread [
     i8 6, label %95
     i8 1, label %95
@@ -1673,7 +1673,7 @@ common.resume:                                    ; preds = %128, %132, %97, %10
 
 108:                                              ; preds = %_ZNSt3__1eqB8ne210000IcNS_11char_traitsIcEELi1EEEbNS_17basic_string_viewIT_T0_EENS_15__type_identityIS6_E4typeE.exit20.i, %.critedge.thread
   %.0.i95 = phi i32 [ 0, %.critedge.thread ], [ %.1.i, %_ZNSt3__1eqB8ne210000IcNS_11char_traitsIcEELi1EEEbNS_17basic_string_viewIT_T0_EENS_15__type_identityIS6_E4typeE.exit20.i ]
-  %109 = load i8, ptr %106, align 8, !tbaa !22
+  %109 = load i8, ptr %106, align 8, !tbaa !21
   switch i8 %109, label %113 [
     i8 6, label %_ZNSt3__14__fs10filesystemL28DetermineLexicalElementCountENS1_6parser10PathParserE.exit
     i8 1, label %_ZNSt3__14__fs10filesystemL28DetermineLexicalElementCountENS1_6parser10PathParserE.exit
@@ -1684,7 +1684,7 @@ common.resume:                                    ; preds = %128, %132, %97, %10
   ]
 
 _ZNKSt3__14__fs10filesystem6parser10PathParserdeB8ne210000Ev.exit.thread.i: ; preds = %108
-  %110 = load ptr, ptr %107, align 8, !tbaa !29
+  %110 = load ptr, ptr %107, align 8, !tbaa !28
   %111 = load i8, ptr %110, align 1, !tbaa !4
   %112 = icmp eq i8 %111, 92
   %.str.5..str.3.i.i = select i1 %112, ptr @.str.5, ptr @.str.3
@@ -1694,8 +1694,8 @@ _ZNKSt3__14__fs10filesystem6parser10PathParserdeB8ne210000Ev.exit.thread.i: ; pr
   unreachable
 
 _ZNKSt3__14__fs10filesystem6parser10PathParserdeB8ne210000Ev.exit.i: ; preds = %108, %108
-  %.sroa.0.0.copyload.i.i = load ptr, ptr %107, align 8, !tbaa !14
-  %.sroa.6.0.copyload.i.i = load i64, ptr %.sroa.6.0..sroa_idx.i.i, align 8, !tbaa !20
+  %.sroa.0.0.copyload.i.i = load ptr, ptr %107, align 8, !tbaa !13
+  %.sroa.6.0.copyload.i.i = load i64, ptr %.sroa.6.0..sroa_idx.i.i, align 8, !tbaa !19
   switch i64 %.sroa.6.0.copyload.i.i, label %_ZNSt3__1eqB8ne210000IcNS_11char_traitsIcEELi1EEEbNS_17basic_string_viewIT_T0_EENS_15__type_identityIS6_E4typeE.exit20.thread.i [
     i64 2, label %_ZNSt3__1eqB8ne210000IcNS_11char_traitsIcEELi1EEEbNS_17basic_string_viewIT_T0_EENS_15__type_identityIS6_E4typeE.exit.i
     i64 1, label %_ZNSt3__1eqB8ne210000IcNS_11char_traitsIcEELi1EEEbNS_17basic_string_viewIT_T0_EENS_15__type_identityIS6_E4typeE.exit15.i
@@ -1724,7 +1724,7 @@ _ZNSt3__1eqB8ne210000IcNS_11char_traitsIcEELi1EEEbNS_17basic_string_viewIT_T0_EE
 _ZNSt3__1eqB8ne210000IcNS_11char_traitsIcEELi1EEEbNS_17basic_string_viewIT_T0_EENS_15__type_identityIS6_E4typeE.exit20.i: ; preds = %108, %_ZNKSt3__14__fs10filesystem6parser10PathParserdeB8ne210000Ev.exit.i, %_ZNSt3__1eqB8ne210000IcNS_11char_traitsIcEELi1EEEbNS_17basic_string_viewIT_T0_EENS_15__type_identityIS6_E4typeE.exit20.thread.i, %_ZNSt3__1eqB8ne210000IcNS_11char_traitsIcEELi1EEEbNS_17basic_string_viewIT_T0_EENS_15__type_identityIS6_E4typeE.exit15.i, %115
   %.1.i = phi i32 [ %116, %115 ], [ %.0.i95, %_ZNSt3__1eqB8ne210000IcNS_11char_traitsIcEELi1EEEbNS_17basic_string_viewIT_T0_EENS_15__type_identityIS6_E4typeE.exit15.i ], [ %118, %_ZNSt3__1eqB8ne210000IcNS_11char_traitsIcEELi1EEEbNS_17basic_string_viewIT_T0_EENS_15__type_identityIS6_E4typeE.exit20.thread.i ], [ %.0.i95, %_ZNKSt3__14__fs10filesystem6parser10PathParserdeB8ne210000Ev.exit.i ], [ %.0.i95, %108 ]
   call void @_ZNSt3__14__fs10filesystem6parser10PathParser9incrementB8ne210000Ev(ptr noundef nonnull align 8 dereferenceable(33) %4) #19
-  br label %108, !llvm.loop !77
+  br label %108, !llvm.loop !75
 
 _ZNSt3__14__fs10filesystemL28DetermineLexicalElementCountENS1_6parser10PathParserE.exit: ; preds = %108, %108
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4)
@@ -1740,7 +1740,7 @@ _ZNSt3__14__fs10filesystemL28DetermineLexicalElementCountENS1_6parser10PathParse
   br i1 %122, label %123, label %_ZNSt3__1eqB8ne210000IcNS_11char_traitsIcEELi1EEEbNS_17basic_string_viewIT_T0_EENS_15__type_identityIS6_E4typeE.exit109.thread
 
 123:                                              ; preds = %121
-  %124 = load i8, ptr %61, align 8, !tbaa !22
+  %124 = load i8, ptr %61, align 8, !tbaa !21
   switch i8 %124, label %125 [
     i8 6, label %_ZNSt3__1eqB8ne210000IcNS_11char_traitsIcEELi1EEEbNS_17basic_string_viewIT_T0_EENS_15__type_identityIS6_E4typeE.exit109
     i8 1, label %_ZNSt3__1eqB8ne210000IcNS_11char_traitsIcEELi1EEEbNS_17basic_string_viewIT_T0_EENS_15__type_identityIS6_E4typeE.exit109
@@ -1754,7 +1754,7 @@ _ZNSt3__14__fs10filesystemL28DetermineLexicalElementCountENS1_6parser10PathParse
   unreachable
 
 _ZNKSt3__14__fs10filesystem6parser10PathParserdeB8ne210000Ev.exit104: ; preds = %123, %123
-  %.sroa.6.0.copyload.i98 = load i64, ptr %.sroa.6.0..sroa_idx.i69, align 8, !tbaa !20
+  %.sroa.6.0.copyload.i98 = load i64, ptr %.sroa.6.0..sroa_idx.i69, align 8, !tbaa !19
   %126 = icmp eq i64 %.sroa.6.0.copyload.i98, 0
   br i1 %126, label %_ZNSt3__1eqB8ne210000IcNS_11char_traitsIcEELi1EEEbNS_17basic_string_viewIT_T0_EENS_15__type_identityIS6_E4typeE.exit109, label %_ZNSt3__1eqB8ne210000IcNS_11char_traitsIcEELi1EEEbNS_17basic_string_viewIT_T0_EENS_15__type_identityIS6_E4typeE.exit109.thread
 
@@ -1803,7 +1803,7 @@ _ZNSt3__14__fs10filesystem4pathdVB8ne210000IA3_cEENS_9enable_ifIXsr13__is_pathab
   br label %155
 
 143:                                              ; preds = %.preheader, %_ZNSt3__14__fs10filesystem4pathdVB8ne210000INS_17basic_string_viewIcNS_11char_traitsIcEEEEEENS_9enable_ifIXsr13__is_pathableIT_EE5valueERS2_E4typeERKS9_.exit
-  %144 = load i8, ptr %61, align 8, !tbaa !22
+  %144 = load i8, ptr %61, align 8, !tbaa !21
   switch i8 %144, label %145 [
     i8 6, label %_ZNSt3__14__fs10filesystem4pathC2B8ne210000IA2_cvEERKT_NS2_6formatE.exit
     i8 1, label %_ZNSt3__14__fs10filesystem4pathC2B8ne210000IA2_cvEERKT_NS2_6formatE.exit
@@ -1819,15 +1819,15 @@ _ZNSt3__14__fs10filesystem4pathdVB8ne210000IA3_cEENS_9enable_ifIXsr13__is_pathab
   ]
 
 146:                                              ; preds = %145
-  %147 = load ptr, ptr %60, align 8, !tbaa !29
+  %147 = load ptr, ptr %60, align 8, !tbaa !28
   %148 = load i8, ptr %147, align 1, !tbaa !4
   %149 = icmp eq i8 %148, 92
   %.str.5..str.3.i124 = select i1 %149, ptr @.str.5, ptr @.str.3
   br label %_ZNKSt3__14__fs10filesystem6parser10PathParserdeB8ne210000Ev.exit125
 
 150:                                              ; preds = %145, %145
-  %.sroa.0.0.copyload.i117 = load ptr, ptr %60, align 8, !tbaa !14
-  %.sroa.6.0.copyload.i119 = load i64, ptr %.sroa.6.0..sroa_idx.i69, align 8, !tbaa !20
+  %.sroa.0.0.copyload.i117 = load ptr, ptr %60, align 8, !tbaa !13
+  %.sroa.6.0.copyload.i119 = load i64, ptr %.sroa.6.0..sroa_idx.i69, align 8, !tbaa !19
   br label %_ZNKSt3__14__fs10filesystem6parser10PathParserdeB8ne210000Ev.exit125
 
 151:                                              ; preds = %145
@@ -1844,7 +1844,7 @@ _ZNKSt3__14__fs10filesystem6parser10PathParserdeB8ne210000Ev.exit125: ; preds = 
 _ZNSt3__14__fs10filesystem4pathdVB8ne210000INS_17basic_string_viewIcNS_11char_traitsIcEEEEEENS_9enable_ifIXsr13__is_pathableIT_EE5valueERS2_E4typeERKS9_.exit: ; preds = %_ZNKSt3__14__fs10filesystem6parser10PathParserdeB8ne210000Ev.exit125
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #19
   call void @_ZNSt3__14__fs10filesystem6parser10PathParser9incrementB8ne210000Ev(ptr noundef nonnull align 8 dereferenceable(33) %7) #19
-  br label %143, !llvm.loop !78
+  br label %143, !llvm.loop !76
 
 153:                                              ; preds = %_ZNKSt3__14__fs10filesystem6parser10PathParserdeB8ne210000Ev.exit125
   %154 = landingpad { ptr, i32 }
@@ -1898,46 +1898,46 @@ define dso_local noundef i32 @_ZNKSt3__14__fs10filesystem4path9__compareENS_17ba
   %14 = lshr i8 %6, 1
   %15 = zext nneg i8 %14 to i64
   %16 = select i1 %.not.i.i.i, i64 %15, i64 %13
-  store ptr %11, ptr %4, align 8, !tbaa !14, !alias.scope !79
+  store ptr %11, ptr %4, align 8, !tbaa !13, !alias.scope !77
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store i64 %16, ptr %.sroa.2.0..sroa_idx.i.i, align 8, !tbaa !20, !alias.scope !79
+  store i64 %16, ptr %.sroa.2.0..sroa_idx.i.i, align 8, !tbaa !19, !alias.scope !77
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %17, i8 0, i64 16, i1 false), !alias.scope !79
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %17, i8 0, i64 16, i1 false), !alias.scope !77
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  store i8 1, ptr %18, align 8, !tbaa !22, !alias.scope !79
+  store i8 1, ptr %18, align 8, !tbaa !21, !alias.scope !77
   call void @_ZNSt3__14__fs10filesystem6parser10PathParser9incrementB8ne210000Ev(ptr noundef nonnull align 8 dereferenceable(33) %4) #19
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5) #19
-  store ptr %1, ptr %5, align 8, !tbaa !14, !alias.scope !82
+  store ptr %1, ptr %5, align 8, !tbaa !13, !alias.scope !80
   %.sroa.2.0..sroa_idx.i.i14 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store i64 %2, ptr %.sroa.2.0..sroa_idx.i.i14, align 8, !tbaa !20, !alias.scope !82
+  store i64 %2, ptr %.sroa.2.0..sroa_idx.i.i14, align 8, !tbaa !19, !alias.scope !80
   %19 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %19, i8 0, i64 16, i1 false), !alias.scope !82
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %19, i8 0, i64 16, i1 false), !alias.scope !80
   %20 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  store i8 1, ptr %20, align 8, !tbaa !22, !alias.scope !82
+  store i8 1, ptr %20, align 8, !tbaa !21, !alias.scope !80
   call void @_ZNSt3__14__fs10filesystem6parser10PathParser9incrementB8ne210000Ev(ptr noundef nonnull align 8 dereferenceable(33) %5) #19
-  %21 = load i8, ptr %18, align 8, !tbaa !22
+  %21 = load i8, ptr %18, align 8, !tbaa !21
   %22 = icmp eq i8 %21, 2
   br i1 %22, label %"_ZZNSt3__14__fs10filesystemL15CompareRootNameEPNS1_6parser10PathParserES4_ENK3$_0clES4_.exit.i", label %23
 
 23:                                               ; preds = %3
-  %24 = load i8, ptr %20, align 8, !tbaa !22
+  %24 = load i8, ptr %20, align 8, !tbaa !21
   %25 = icmp eq i8 %24, 2
   br i1 %25, label %_ZNKSt3__14__fs10filesystem6parser10PathParserdeB8ne210000Ev.exit.i11.i, label %_ZNSt3__14__fs10filesystemL15CompareRootNameEPNS1_6parser10PathParserES4_.exit.thread
 
 "_ZZNSt3__14__fs10filesystemL15CompareRootNameEPNS1_6parser10PathParserES4_ENK3$_0clES4_.exit.i": ; preds = %3
-  %.sroa.0.0.copyload.i.i.i = load ptr, ptr %17, align 8, !tbaa !14
+  %.sroa.0.0.copyload.i.i.i = load ptr, ptr %17, align 8, !tbaa !13
   %.sroa.6.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %4, i64 24
-  %.sroa.6.0.copyload.i.i.i = load i64, ptr %.sroa.6.0..sroa_idx.i.i.i, align 8, !tbaa !20
-  %.pre.i = load i8, ptr %20, align 8, !tbaa !22
+  %.sroa.6.0.copyload.i.i.i = load i64, ptr %.sroa.6.0..sroa_idx.i.i.i, align 8, !tbaa !19
+  %.pre.i = load i8, ptr %20, align 8, !tbaa !21
   %26 = icmp eq i8 %.pre.i, 2
   br i1 %26, label %_ZNKSt3__14__fs10filesystem6parser10PathParserdeB8ne210000Ev.exit.i11.i, label %"_ZZNSt3__14__fs10filesystemL15CompareRootNameEPNS1_6parser10PathParserES4_ENK3$_0clES4_.exit15.i"
 
 _ZNKSt3__14__fs10filesystem6parser10PathParserdeB8ne210000Ev.exit.i11.i: ; preds = %23, %"_ZZNSt3__14__fs10filesystemL15CompareRootNameEPNS1_6parser10PathParserES4_ENK3$_0clES4_.exit.i"
   %.sroa.0.0.i25.i = phi ptr [ %.sroa.0.0.copyload.i.i.i, %"_ZZNSt3__14__fs10filesystemL15CompareRootNameEPNS1_6parser10PathParserES4_ENK3$_0clES4_.exit.i" ], [ @.str.2, %23 ]
   %.sroa.3.0.i23.i = phi i64 [ %.sroa.6.0.copyload.i.i.i, %"_ZZNSt3__14__fs10filesystemL15CompareRootNameEPNS1_6parser10PathParserES4_ENK3$_0clES4_.exit.i" ], [ 0, %23 ]
-  %.sroa.0.0.copyload.i.i12.i = load ptr, ptr %19, align 8, !tbaa !14
+  %.sroa.0.0.copyload.i.i12.i = load ptr, ptr %19, align 8, !tbaa !13
   %.sroa.6.0..sroa_idx.i.i13.i = getelementptr inbounds nuw i8, ptr %5, i64 24
-  %.sroa.6.0.copyload.i.i14.i = load i64, ptr %.sroa.6.0..sroa_idx.i.i13.i, align 8, !tbaa !20
+  %.sroa.6.0.copyload.i.i14.i = load i64, ptr %.sroa.6.0..sroa_idx.i.i13.i, align 8, !tbaa !19
   br label %"_ZZNSt3__14__fs10filesystemL15CompareRootNameEPNS1_6parser10PathParserES4_ENK3$_0clES4_.exit15.i"
 
 "_ZZNSt3__14__fs10filesystemL15CompareRootNameEPNS1_6parser10PathParserES4_ENK3$_0clES4_.exit15.i": ; preds = %_ZNKSt3__14__fs10filesystem6parser10PathParserdeB8ne210000Ev.exit.i11.i, %"_ZZNSt3__14__fs10filesystemL15CompareRootNameEPNS1_6parser10PathParserES4_ENK3$_0clES4_.exit.i"
@@ -1967,12 +1967,12 @@ _ZNKSt3__117basic_string_viewIcNS_11char_traitsIcEEE7compareB8ne210000ES3_.exit.
 
 .lr.ph.i.i:                                       ; preds = %_ZNKSt3__117basic_string_viewIcNS_11char_traitsIcEEE7compareB8ne210000ES3_.exit.i, %.lr.ph.i.i
   call void @_ZNSt3__14__fs10filesystem6parser10PathParser9incrementB8ne210000Ev(ptr noundef nonnull align 8 dereferenceable(33) %4) #19
-  %36 = load i8, ptr %18, align 8, !tbaa !22
+  %36 = load i8, ptr %18, align 8, !tbaa !21
   %37 = icmp ult i8 %36, 3
-  br i1 %37, label %.lr.ph.i.i, label %_ZNSt3__14__fs10filesystemL15ConsumeRootNameEPNS1_6parser10PathParserE.exit.i.loopexit, !llvm.loop !85
+  br i1 %37, label %.lr.ph.i.i, label %_ZNSt3__14__fs10filesystemL15ConsumeRootNameEPNS1_6parser10PathParserE.exit.i.loopexit, !llvm.loop !83
 
 _ZNSt3__14__fs10filesystemL15ConsumeRootNameEPNS1_6parser10PathParserE.exit.i.loopexit: ; preds = %.lr.ph.i.i
-  %.pre = load i8, ptr %20, align 8, !tbaa !22
+  %.pre = load i8, ptr %20, align 8, !tbaa !21
   br label %_ZNSt3__14__fs10filesystemL15ConsumeRootNameEPNS1_6parser10PathParserE.exit.i
 
 _ZNSt3__14__fs10filesystemL15ConsumeRootNameEPNS1_6parser10PathParserE.exit.i: ; preds = %_ZNSt3__14__fs10filesystemL15ConsumeRootNameEPNS1_6parser10PathParserE.exit.i.loopexit, %_ZNKSt3__117basic_string_viewIcNS_11char_traitsIcEEE7compareB8ne210000ES3_.exit.i
@@ -1982,9 +1982,9 @@ _ZNSt3__14__fs10filesystemL15ConsumeRootNameEPNS1_6parser10PathParserE.exit.i: ;
 
 .lr.ph.i17.i:                                     ; preds = %_ZNSt3__14__fs10filesystemL15ConsumeRootNameEPNS1_6parser10PathParserE.exit.i, %.lr.ph.i17.i
   call void @_ZNSt3__14__fs10filesystem6parser10PathParser9incrementB8ne210000Ev(ptr noundef nonnull align 8 dereferenceable(33) %5) #19
-  %40 = load i8, ptr %20, align 8, !tbaa !22
+  %40 = load i8, ptr %20, align 8, !tbaa !21
   %41 = icmp ult i8 %40, 3
-  br i1 %41, label %.lr.ph.i17.i, label %_ZNSt3__14__fs10filesystemL15CompareRootNameEPNS1_6parser10PathParserES4_.exit, !llvm.loop !85
+  br i1 %41, label %.lr.ph.i17.i, label %_ZNSt3__14__fs10filesystemL15CompareRootNameEPNS1_6parser10PathParserES4_.exit, !llvm.loop !83
 
 _ZNSt3__14__fs10filesystemL15CompareRootNameEPNS1_6parser10PathParserES4_.exit: ; preds = %.lr.ph.i17.i, %_ZNSt3__14__fs10filesystemL15ConsumeRootNameEPNS1_6parser10PathParserE.exit.i
   %.pr = phi i8 [ %38, %_ZNSt3__14__fs10filesystemL15ConsumeRootNameEPNS1_6parser10PathParserE.exit.i ], [ %40, %.lr.ph.i17.i ]
@@ -1992,7 +1992,7 @@ _ZNSt3__14__fs10filesystemL15CompareRootNameEPNS1_6parser10PathParserES4_.exit: 
   br i1 %.not, label %thread-pre-split, label %_ZNSt3__14__fs10filesystemL14CompareRootDirEPNS1_6parser10PathParserES4_.exit
 
 thread-pre-split:                                 ; preds = %_ZNSt3__14__fs10filesystemL15CompareRootNameEPNS1_6parser10PathParserES4_.exit
-  %.pr30 = load i8, ptr %18, align 8, !tbaa !22
+  %.pr30 = load i8, ptr %18, align 8, !tbaa !21
   br label %_ZNSt3__14__fs10filesystemL15CompareRootNameEPNS1_6parser10PathParserES4_.exit.thread
 
 _ZNSt3__14__fs10filesystemL15CompareRootNameEPNS1_6parser10PathParserES4_.exit.thread: ; preds = %23, %thread-pre-split
@@ -2017,12 +2017,12 @@ _ZNSt3__14__fs10filesystemL15CompareRootNameEPNS1_6parser10PathParserES4_.exit.t
 
 .lr.ph.i.i16:                                     ; preds = %.lr.ph.i.i16.preheader, %.lr.ph.i.i16
   call void @_ZNSt3__14__fs10filesystem6parser10PathParser9incrementB8ne210000Ev(ptr noundef nonnull align 8 dereferenceable(33) %4) #19
-  %50 = load i8, ptr %18, align 8, !tbaa !22
+  %50 = load i8, ptr %18, align 8, !tbaa !21
   %51 = icmp ult i8 %50, 4
-  br i1 %51, label %.lr.ph.i.i16, label %_ZNSt3__14__fs10filesystemL14ConsumeRootDirEPNS1_6parser10PathParserE.exit.loopexit.i, !llvm.loop !37
+  br i1 %51, label %.lr.ph.i.i16, label %_ZNSt3__14__fs10filesystemL14ConsumeRootDirEPNS1_6parser10PathParserE.exit.loopexit.i, !llvm.loop !36
 
 _ZNSt3__14__fs10filesystemL14ConsumeRootDirEPNS1_6parser10PathParserE.exit.loopexit.i: ; preds = %.lr.ph.i.i16
-  %.pre.i18 = load i8, ptr %20, align 8, !tbaa !22
+  %.pre.i18 = load i8, ptr %20, align 8, !tbaa !21
   br label %_ZNSt3__14__fs10filesystemL14ConsumeRootDirEPNS1_6parser10PathParserE.exit.i
 
 _ZNSt3__14__fs10filesystemL14ConsumeRootDirEPNS1_6parser10PathParserE.exit.i: ; preds = %_ZNSt3__14__fs10filesystemL14ConsumeRootDirEPNS1_6parser10PathParserE.exit.loopexit.i, %48
@@ -2032,9 +2032,9 @@ _ZNSt3__14__fs10filesystemL14ConsumeRootDirEPNS1_6parser10PathParserE.exit.i: ; 
 
 .lr.ph.i7.i:                                      ; preds = %_ZNSt3__14__fs10filesystemL14ConsumeRootDirEPNS1_6parser10PathParserE.exit.i, %.lr.ph.i7.i
   call void @_ZNSt3__14__fs10filesystem6parser10PathParser9incrementB8ne210000Ev(ptr noundef nonnull align 8 dereferenceable(33) %5) #19
-  %54 = load i8, ptr %20, align 8, !tbaa !22
+  %54 = load i8, ptr %20, align 8, !tbaa !21
   %55 = icmp ult i8 %54, 4
-  br i1 %55, label %.lr.ph.i7.i, label %.loopexit31, !llvm.loop !37
+  br i1 %55, label %.lr.ph.i7.i, label %.loopexit31, !llvm.loop !36
 
 .loopexit31:                                      ; preds = %.lr.ph.i7.i, %_ZNSt3__14__fs10filesystemL14ConsumeRootDirEPNS1_6parser10PathParserE.exit.i
   %.sroa.6.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %4, i64 24
@@ -2042,7 +2042,7 @@ _ZNSt3__14__fs10filesystemL14ConsumeRootDirEPNS1_6parser10PathParserE.exit.i: ; 
   br label %56
 
 56:                                               ; preds = %_ZNKSt3__117basic_string_viewIcNS_11char_traitsIcEEE7compareB8ne210000ES3_.exit.i21, %.loopexit31
-  %57 = load i8, ptr %18, align 8, !tbaa !22
+  %57 = load i8, ptr %18, align 8, !tbaa !21
   switch i8 %57, label %58 [
     i8 6, label %thread-pre-split29
     i8 1, label %thread-pre-split29
@@ -2064,15 +2064,15 @@ _ZNSt3__14__fs10filesystemL14ConsumeRootDirEPNS1_6parser10PathParserE.exit.i: ; 
   ]
 
 61:                                               ; preds = %60
-  %62 = load ptr, ptr %17, align 8, !tbaa !29
+  %62 = load ptr, ptr %17, align 8, !tbaa !28
   %63 = load i8, ptr %62, align 1, !tbaa !4
   %64 = icmp eq i8 %63, 92
   %.str.5..str.3.i.i = select i1 %64, ptr @.str.5, ptr @.str.3
   br label %_ZNKSt3__14__fs10filesystem6parser10PathParserdeB8ne210000Ev.exit.i
 
 65:                                               ; preds = %60, %60
-  %.sroa.0.0.copyload.i.i = load ptr, ptr %17, align 8, !tbaa !14
-  %.sroa.6.0.copyload.i.i = load i64, ptr %.sroa.6.0..sroa_idx.i.i, align 8, !tbaa !20
+  %.sroa.0.0.copyload.i.i = load ptr, ptr %17, align 8, !tbaa !13
+  %.sroa.6.0.copyload.i.i = load i64, ptr %.sroa.6.0..sroa_idx.i.i, align 8, !tbaa !19
   br label %_ZNKSt3__14__fs10filesystem6parser10PathParserdeB8ne210000Ev.exit.i
 
 66:                                               ; preds = %60
@@ -2089,15 +2089,15 @@ _ZNKSt3__14__fs10filesystem6parser10PathParserdeB8ne210000Ev.exit.i: ; preds = %
   ]
 
 67:                                               ; preds = %_ZNKSt3__14__fs10filesystem6parser10PathParserdeB8ne210000Ev.exit.i
-  %68 = load ptr, ptr %19, align 8, !tbaa !29
+  %68 = load ptr, ptr %19, align 8, !tbaa !28
   %69 = load i8, ptr %68, align 1, !tbaa !4
   %70 = icmp eq i8 %69, 92
   %.str.5..str.3.i19.i = select i1 %70, ptr @.str.5, ptr @.str.3
   br label %_ZNKSt3__14__fs10filesystem6parser10PathParserdeB8ne210000Ev.exit20.i
 
 71:                                               ; preds = %_ZNKSt3__14__fs10filesystem6parser10PathParserdeB8ne210000Ev.exit.i, %_ZNKSt3__14__fs10filesystem6parser10PathParserdeB8ne210000Ev.exit.i
-  %.sroa.0.0.copyload.i12.i = load ptr, ptr %19, align 8, !tbaa !14
-  %.sroa.6.0.copyload.i14.i = load i64, ptr %.sroa.6.0..sroa_idx.i13.i, align 8, !tbaa !20
+  %.sroa.0.0.copyload.i12.i = load ptr, ptr %19, align 8, !tbaa !13
+  %.sroa.6.0.copyload.i14.i = load i64, ptr %.sroa.6.0..sroa_idx.i13.i, align 8, !tbaa !19
   br label %_ZNKSt3__14__fs10filesystem6parser10PathParserdeB8ne210000Ev.exit20.i
 
 72:                                               ; preds = %_ZNKSt3__14__fs10filesystem6parser10PathParserdeB8ne210000Ev.exit.i
@@ -2123,7 +2123,7 @@ _ZNKSt3__14__fs10filesystem6parser10PathParserdeB8ne210000Ev.exit20.i: ; preds =
 _ZNKSt3__117basic_string_viewIcNS_11char_traitsIcEEE7compareB8ne210000ES3_.exit.i21: ; preds = %75
   call void @_ZNSt3__14__fs10filesystem6parser10PathParser9incrementB8ne210000Ev(ptr noundef nonnull align 8 dereferenceable(33) %4) #19
   call void @_ZNSt3__14__fs10filesystem6parser10PathParser9incrementB8ne210000Ev(ptr noundef nonnull align 8 dereferenceable(33) %5) #19
-  br label %56, !llvm.loop !86
+  br label %56, !llvm.loop !84
 
 thread-pre-split29:                               ; preds = %56, %56
   %.val13.pr = load i8, ptr %20, align 8
@@ -2168,13 +2168,13 @@ define dso_local noundef i64 @_ZNSt3__14__fs10filesystem10hash_valueERKNS1_4path
   %12 = lshr i8 %4, 1
   %13 = zext nneg i8 %12 to i64
   %14 = select i1 %.not.i.i.i, i64 %13, i64 %11
-  store ptr %9, ptr %3, align 8, !tbaa !14, !alias.scope !87
+  store ptr %9, ptr %3, align 8, !tbaa !13, !alias.scope !85
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store i64 %14, ptr %.sroa.2.0..sroa_idx.i.i, align 8, !tbaa !20, !alias.scope !87
+  store i64 %14, ptr %.sroa.2.0..sroa_idx.i.i, align 8, !tbaa !19, !alias.scope !85
   %15 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %15, i8 0, i64 16, i1 false), !alias.scope !87
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %15, i8 0, i64 16, i1 false), !alias.scope !85
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  store i8 1, ptr %16, align 8, !tbaa !22, !alias.scope !87
+  store i8 1, ptr %16, align 8, !tbaa !21, !alias.scope !85
   call void @_ZNSt3__14__fs10filesystem6parser10PathParser9incrementB8ne210000Ev(ptr noundef nonnull align 8 dereferenceable(33) %3) #19
   %.sroa.6.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 24
   %.sroa.2.0..sroa_idx.i.i6 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -2182,7 +2182,7 @@ define dso_local noundef i64 @_ZNSt3__14__fs10filesystem10hash_valueERKNS1_4path
 
 17:                                               ; preds = %21, %1
   %.0 = phi i64 [ 0, %1 ], [ %23, %21 ]
-  %18 = load i8, ptr %16, align 8, !tbaa !22
+  %18 = load i8, ptr %16, align 8, !tbaa !21
   switch i8 %18, label %20 [
     i8 6, label %24
     i8 1, label %24
@@ -2193,8 +2193,8 @@ define dso_local noundef i64 @_ZNSt3__14__fs10filesystem10hash_valueERKNS1_4path
   ]
 
 19:                                               ; preds = %17, %17
-  %.sroa.0.0.copyload.i = load ptr, ptr %15, align 8, !tbaa !14
-  %.sroa.6.0.copyload.i = load i64, ptr %.sroa.6.0..sroa_idx.i, align 8, !tbaa !20
+  %.sroa.0.0.copyload.i = load ptr, ptr %15, align 8, !tbaa !13
+  %.sroa.6.0.copyload.i = load i64, ptr %.sroa.6.0..sroa_idx.i, align 8, !tbaa !19
   br label %21
 
 20:                                               ; preds = %17
@@ -2208,12 +2208,12 @@ _ZNKSt3__14__fs10filesystem6parser10PathParserdeB8ne210000Ev.exit: ; preds = %17
   %.sroa.0.0 = phi ptr [ @.str.3, %17 ], [ %.sroa.0.0.copyload.i, %19 ], [ @.str.2, %_ZNKSt3__14__fs10filesystem6parser10PathParserdeB8ne210000Ev.exit ]
   %22 = call noundef i64 @_ZNSt3__113__hash_memoryEPKvm(ptr noundef captures(none) %.sroa.0.0, i64 noundef %.sroa.5.0) #23
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #19
-  store i64 %.0, ptr %2, align 8, !tbaa !20
-  store i64 %22, ptr %.sroa.2.0..sroa_idx.i.i6, align 8, !tbaa !20
+  store i64 %.0, ptr %2, align 8, !tbaa !19
+  store i64 %22, ptr %.sroa.2.0..sroa_idx.i.i6, align 8, !tbaa !19
   %23 = call noundef i64 @_ZNSt3__113__hash_memoryEPKvm(ptr noundef nonnull captures(none) %2, i64 noundef 16) #23
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #19
   call void @_ZNSt3__14__fs10filesystem6parser10PathParser9incrementB8ne210000Ev(ptr noundef nonnull align 8 dereferenceable(33) %3) #19
-  br label %17, !llvm.loop !90
+  br label %17, !llvm.loop !88
 
 24:                                               ; preds = %17, %17
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3) #19
@@ -2237,22 +2237,22 @@ define dso_local void @_ZNKSt3__14__fs10filesystem4path5beginEv(ptr dead_on_unwi
   %13 = lshr i8 %5, 1
   %14 = zext nneg i8 %13 to i64
   %15 = select i1 %.not.i.i.i, i64 %14, i64 %12
-  store ptr %10, ptr %4, align 8, !tbaa !14, !alias.scope !91
+  store ptr %10, ptr %4, align 8, !tbaa !13, !alias.scope !89
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store i64 %15, ptr %.sroa.2.0..sroa_idx.i.i, align 8, !tbaa !20, !alias.scope !91
+  store i64 %15, ptr %.sroa.2.0..sroa_idx.i.i, align 8, !tbaa !19, !alias.scope !89
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %16, i8 0, i64 16, i1 false), !alias.scope !91
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %16, i8 0, i64 16, i1 false), !alias.scope !89
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  store i8 1, ptr %17, align 8, !tbaa !22, !alias.scope !91
+  store i8 1, ptr %17, align 8, !tbaa !21, !alias.scope !89
   call void @_ZNSt3__14__fs10filesystem6parser10PathParser9incrementB8ne210000Ev(ptr noundef nonnull align 8 dereferenceable(33) %4) #19
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(49) %0, i8 0, i64 24, i1 false)
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr %1, ptr %18, align 8, !tbaa !94
-  %19 = load i8, ptr %17, align 8, !tbaa !22
+  store ptr %1, ptr %18, align 8, !tbaa !92
+  %19 = load i8, ptr %17, align 8, !tbaa !21
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store i8 %19, ptr %20, align 8, !tbaa !100
+  store i8 %19, ptr %20, align 8, !tbaa !98
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %21, ptr noundef nonnull align 8 dereferenceable(16) %16, i64 16, i1 false), !tbaa.struct !101
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %21, ptr noundef nonnull align 8 dereferenceable(16) %16, i64 16, i1 false), !tbaa.struct !99
   switch i8 %19, label %26 [
     i8 1, label %.thread
     i8 6, label %.thread
@@ -2263,7 +2263,7 @@ define dso_local void @_ZNKSt3__14__fs10filesystem4path5beginEv(ptr dead_on_unwi
   ]
 
 22:                                               ; preds = %2
-  %23 = load ptr, ptr %16, align 8, !tbaa !29
+  %23 = load ptr, ptr %16, align 8, !tbaa !28
   %24 = load i8, ptr %23, align 1, !tbaa !4
   %25 = icmp eq i8 %24, 92
   %.str.5..str.3.i = select i1 %25, ptr @.str.5, ptr @.str.3
@@ -2279,9 +2279,9 @@ define dso_local void @_ZNKSt3__14__fs10filesystem4path5beginEv(ptr dead_on_unwi
   br label %38
 
 _ZNKSt3__14__fs10filesystem6parser10PathParserdeB8ne210000Ev.exit: ; preds = %2, %2
-  %.sroa.0.0.copyload.i = load ptr, ptr %16, align 8, !tbaa !14
+  %.sroa.0.0.copyload.i = load ptr, ptr %16, align 8, !tbaa !13
   %.sroa.6.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %4, i64 24
-  %.sroa.6.0.copyload.i = load i64, ptr %.sroa.6.0..sroa_idx.i, align 8, !tbaa !20
+  %.sroa.6.0.copyload.i = load i64, ptr %.sroa.6.0..sroa_idx.i, align 8, !tbaa !19
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #19
   %27 = icmp ugt i64 %.sroa.6.0.copyload.i, -10
   br i1 %27, label %.noexc, label %28
@@ -2344,7 +2344,7 @@ _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne210000INS_1
   br label %51
 
 51:                                               ; preds = %46, %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne210000INS_17basic_string_viewIcS2_EETnNS_9enable_ifIXaasr33__can_be_converted_to_string_viewIcS2_T_EE5valuentsr17__is_same_uncvrefISA_S5_EE5valueEiE4typeELi0EEERKSA_.exit.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false), !tbaa.struct !13
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false), !tbaa.struct !12
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #19
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #19
   ret void
@@ -2354,9 +2354,9 @@ _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne210000INS_1
 define dso_local void @_ZNKSt3__14__fs10filesystem4path3endEv(ptr dead_on_unwind noalias writable writeonly sret(%"class.std::__1::__fs::filesystem::path::iterator") align 8 captures(none) initializes((0, 49)) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(49) %0, i8 0, i64 48, i1 false)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store i8 6, ptr %3, align 8, !tbaa !100
+  store i8 6, ptr %3, align 8, !tbaa !98
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr %1, ptr %4, align 8, !tbaa !94
+  store ptr %1, ptr %4, align 8, !tbaa !92
   ret void
 }
 
@@ -2366,7 +2366,7 @@ define dso_local noundef nonnull align 8 dereferenceable(49) ptr @_ZNSt3__14__fs
   %3 = alloca %"struct.std::__1::__fs::filesystem::parser::PathParser", align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3) #19
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %5 = load ptr, ptr %4, align 8, !tbaa !94
+  %5 = load ptr, ptr %4, align 8, !tbaa !92
   %6 = load i8, ptr %5, align 8
   %7 = and i8 %6, 1
   %.not.i.i.i = icmp eq i8 %7, 0
@@ -2380,24 +2380,24 @@ define dso_local noundef nonnull align 8 dereferenceable(49) ptr @_ZNSt3__14__fs
   %15 = zext nneg i8 %14 to i64
   %16 = select i1 %.not.i.i.i, i64 %15, i64 %13
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %.sroa.0.0.copyload = load ptr, ptr %17, align 8, !tbaa !14
+  %.sroa.0.0.copyload = load ptr, ptr %17, align 8, !tbaa !13
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %.sroa.2.0.copyload = load i64, ptr %.sroa.2.0..sroa_idx, align 8, !tbaa !20
+  %.sroa.2.0.copyload = load i64, ptr %.sroa.2.0..sroa_idx, align 8, !tbaa !19
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %19 = load i8, ptr %18, align 8, !tbaa !100
-  store ptr %11, ptr %3, align 8, !tbaa !14
+  %19 = load i8, ptr %18, align 8, !tbaa !98
+  store ptr %11, ptr %3, align 8, !tbaa !13
   %.sroa.22.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store i64 %16, ptr %.sroa.22.0..sroa_idx.i, align 8, !tbaa !20
+  store i64 %16, ptr %.sroa.22.0..sroa_idx.i, align 8, !tbaa !19
   %20 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store ptr %.sroa.0.0.copyload, ptr %20, align 8, !tbaa !14
+  store ptr %.sroa.0.0.copyload, ptr %20, align 8, !tbaa !13
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 24
-  store i64 %.sroa.2.0.copyload, ptr %.sroa.2.0..sroa_idx.i, align 8, !tbaa !20
+  store i64 %.sroa.2.0.copyload, ptr %.sroa.2.0..sroa_idx.i, align 8, !tbaa !19
   %21 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  store i8 %19, ptr %21, align 8, !tbaa !22
+  store i8 %19, ptr %21, align 8, !tbaa !21
   call void @_ZNSt3__14__fs10filesystem6parser10PathParser9incrementB8ne210000Ev(ptr noundef nonnull align 8 dereferenceable(33) %3) #19
-  %22 = load i8, ptr %21, align 8, !tbaa !22
-  store i8 %22, ptr %18, align 8, !tbaa !100
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %17, ptr noundef nonnull align 8 dereferenceable(16) %20, i64 16, i1 false), !tbaa.struct !101
+  %22 = load i8, ptr %21, align 8, !tbaa !21
+  store i8 %22, ptr %18, align 8, !tbaa !98
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %17, ptr noundef nonnull align 8 dereferenceable(16) %20, i64 16, i1 false), !tbaa.struct !99
   switch i8 %22, label %27 [
     i8 1, label %.thread
     i8 6, label %.thread
@@ -2408,7 +2408,7 @@ define dso_local noundef nonnull align 8 dereferenceable(49) ptr @_ZNSt3__14__fs
   ]
 
 23:                                               ; preds = %1
-  %24 = load ptr, ptr %20, align 8, !tbaa !29
+  %24 = load ptr, ptr %20, align 8, !tbaa !28
   %25 = load i8, ptr %24, align 1, !tbaa !4
   %26 = icmp eq i8 %25, 92
   %.str.5..str.3.i = select i1 %26, ptr @.str.5, ptr @.str.3
@@ -2424,8 +2424,8 @@ define dso_local noundef nonnull align 8 dereferenceable(49) ptr @_ZNSt3__14__fs
   br label %40
 
 _ZNKSt3__14__fs10filesystem6parser10PathParserdeB8ne210000Ev.exit: ; preds = %1, %1
-  %.sroa.0.0.copyload.i = load ptr, ptr %20, align 8, !tbaa !14
-  %.sroa.6.0.copyload.i = load i64, ptr %.sroa.2.0..sroa_idx.i, align 8, !tbaa !20
+  %.sroa.0.0.copyload.i = load ptr, ptr %20, align 8, !tbaa !13
+  %.sroa.6.0.copyload.i = load i64, ptr %.sroa.2.0..sroa_idx.i, align 8, !tbaa !19
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2) #19
   %28 = icmp ugt i64 %.sroa.6.0.copyload.i, -10
   br i1 %28, label %29, label %30
@@ -2488,7 +2488,7 @@ _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne210000INS_1
   br label %_ZNSt3__14__fs10filesystem4path13__assign_viewB8ne210000ERKNS_17basic_string_viewIcNS_11char_traitsIcEEEE.exit
 
 _ZNSt3__14__fs10filesystem4path13__assign_viewB8ne210000ERKNS_17basic_string_viewIcNS_11char_traitsIcEEEE.exit: ; preds = %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne210000INS_17basic_string_viewIcS2_EETnNS_9enable_ifIXaasr33__can_be_converted_to_string_viewIcS2_T_EE5valuentsr17__is_same_uncvrefISA_S5_EE5valueEiE4typeELi0EEERKSA_.exit.i, %48
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false), !tbaa.struct !13
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false), !tbaa.struct !12
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2) #19
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3) #19
   ret ptr %0
@@ -2500,7 +2500,7 @@ define dso_local noundef nonnull align 8 dereferenceable(49) ptr @_ZNSt3__14__fs
   %3 = alloca %"struct.std::__1::__fs::filesystem::parser::PathParser", align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3) #19
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %5 = load ptr, ptr %4, align 8, !tbaa !94
+  %5 = load ptr, ptr %4, align 8, !tbaa !92
   %6 = load i8, ptr %5, align 8
   %7 = and i8 %6, 1
   %.not.i.i.i = icmp eq i8 %7, 0
@@ -2514,24 +2514,24 @@ define dso_local noundef nonnull align 8 dereferenceable(49) ptr @_ZNSt3__14__fs
   %15 = zext nneg i8 %14 to i64
   %16 = select i1 %.not.i.i.i, i64 %15, i64 %13
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %.sroa.0.0.copyload = load ptr, ptr %17, align 8, !tbaa !14
+  %.sroa.0.0.copyload = load ptr, ptr %17, align 8, !tbaa !13
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %.sroa.2.0.copyload = load i64, ptr %.sroa.2.0..sroa_idx, align 8, !tbaa !20
+  %.sroa.2.0.copyload = load i64, ptr %.sroa.2.0..sroa_idx, align 8, !tbaa !19
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %19 = load i8, ptr %18, align 8, !tbaa !100
-  store ptr %11, ptr %3, align 8, !tbaa !14
+  %19 = load i8, ptr %18, align 8, !tbaa !98
+  store ptr %11, ptr %3, align 8, !tbaa !13
   %.sroa.22.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store i64 %16, ptr %.sroa.22.0..sroa_idx.i, align 8, !tbaa !20
+  store i64 %16, ptr %.sroa.22.0..sroa_idx.i, align 8, !tbaa !19
   %20 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store ptr %.sroa.0.0.copyload, ptr %20, align 8, !tbaa !14
+  store ptr %.sroa.0.0.copyload, ptr %20, align 8, !tbaa !13
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 24
-  store i64 %.sroa.2.0.copyload, ptr %.sroa.2.0..sroa_idx.i, align 8, !tbaa !20
+  store i64 %.sroa.2.0.copyload, ptr %.sroa.2.0..sroa_idx.i, align 8, !tbaa !19
   %21 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  store i8 %19, ptr %21, align 8, !tbaa !22
+  store i8 %19, ptr %21, align 8, !tbaa !21
   call void @_ZNSt3__14__fs10filesystem6parser10PathParser9decrementB8ne210000Ev(ptr noundef nonnull align 8 dereferenceable(33) %3) #19
-  %22 = load i8, ptr %21, align 8, !tbaa !22
-  store i8 %22, ptr %18, align 8, !tbaa !100
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %17, ptr noundef nonnull align 8 dereferenceable(16) %20, i64 16, i1 false), !tbaa.struct !101
+  %22 = load i8, ptr %21, align 8, !tbaa !21
+  store i8 %22, ptr %18, align 8, !tbaa !98
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %17, ptr noundef nonnull align 8 dereferenceable(16) %20, i64 16, i1 false), !tbaa.struct !99
   switch i8 %22, label %27 [
     i8 1, label %.thread
     i8 6, label %.thread
@@ -2542,7 +2542,7 @@ define dso_local noundef nonnull align 8 dereferenceable(49) ptr @_ZNSt3__14__fs
   ]
 
 23:                                               ; preds = %1
-  %24 = load ptr, ptr %20, align 8, !tbaa !29
+  %24 = load ptr, ptr %20, align 8, !tbaa !28
   %25 = load i8, ptr %24, align 1, !tbaa !4
   %26 = icmp eq i8 %25, 92
   %.str.5..str.3.i = select i1 %26, ptr @.str.5, ptr @.str.3
@@ -2558,8 +2558,8 @@ define dso_local noundef nonnull align 8 dereferenceable(49) ptr @_ZNSt3__14__fs
   br label %40
 
 _ZNKSt3__14__fs10filesystem6parser10PathParserdeB8ne210000Ev.exit: ; preds = %1, %1
-  %.sroa.0.0.copyload.i = load ptr, ptr %20, align 8, !tbaa !14
-  %.sroa.6.0.copyload.i = load i64, ptr %.sroa.2.0..sroa_idx.i, align 8, !tbaa !20
+  %.sroa.0.0.copyload.i = load ptr, ptr %20, align 8, !tbaa !13
+  %.sroa.6.0.copyload.i = load i64, ptr %.sroa.2.0..sroa_idx.i, align 8, !tbaa !19
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2) #19
   %28 = icmp ugt i64 %.sroa.6.0.copyload.i, -10
   br i1 %28, label %29, label %30
@@ -2622,7 +2622,7 @@ _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne210000INS_1
   br label %_ZNSt3__14__fs10filesystem4path13__assign_viewB8ne210000ERKNS_17basic_string_viewIcNS_11char_traitsIcEEEE.exit
 
 _ZNSt3__14__fs10filesystem4path13__assign_viewB8ne210000ERKNS_17basic_string_viewIcNS_11char_traitsIcEEEE.exit: ; preds = %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne210000INS_17basic_string_viewIcS2_EETnNS_9enable_ifIXaasr33__can_be_converted_to_string_viewIcS2_T_EE5valuentsr17__is_same_uncvrefISA_S5_EE5valueEiE4typeELi0EEERKSA_.exit.i, %48
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false), !tbaa.struct !13
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false), !tbaa.struct !12
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2) #19
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3) #19
   ret ptr %0
@@ -2656,7 +2656,7 @@ declare ptr @__cxa_allocate_exception(i64) local_unnamed_addr
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZNSt12length_errorC2B8ne210000EPKc(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) unnamed_addr #0 comdat align 2 {
   tail call void @_ZNSt11logic_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1)
-  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVSt12length_error, i64 16), ptr %0, align 8, !tbaa !102
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVSt12length_error, i64 16), ptr %0, align 8, !tbaa !100
   ret void
 }
 
@@ -2725,7 +2725,7 @@ define linkonce_odr hidden void @_ZNSt3__120__throw_out_of_rangeB8ne210000EPKc(p
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZNSt12out_of_rangeC2B8ne210000EPKc(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) unnamed_addr #0 comdat align 2 {
   tail call void @_ZNSt11logic_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1)
-  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVSt12out_of_range, i64 16), ptr %0, align 8, !tbaa !102
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVSt12out_of_range, i64 16), ptr %0, align 8, !tbaa !100
   ret void
 }
 
@@ -2740,12 +2740,12 @@ declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #14
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt3__14__fs10filesystem6parser10PathParser9incrementB8ne210000Ev(ptr noundef nonnull align 8 dereferenceable(33) %0) local_unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !29
+  %2 = load ptr, ptr %0, align 8, !tbaa !28
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load i64, ptr %3, align 8, !tbaa !33
+  %4 = load i64, ptr %3, align 8, !tbaa !32
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 %4
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %7 = load i8, ptr %6, align 8, !tbaa !22
+  %7 = load i8, ptr %6, align 8, !tbaa !21
   switch i8 %7, label %14 [
     i8 1, label %_ZNKSt3__14__fs10filesystem6parser10PathParser20getNextTokenStartPosB8ne210000Ev.exit
     i8 2, label %8
@@ -2757,9 +2757,9 @@ define linkonce_odr hidden void @_ZNSt3__14__fs10filesystem6parser10PathParser9i
 
 8:                                                ; preds = %1, %1, %1
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %10 = load ptr, ptr %9, align 8, !tbaa !29
+  %10 = load ptr, ptr %9, align 8, !tbaa !28
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %12 = load i64, ptr %11, align 8, !tbaa !33
+  %12 = load i64, ptr %11, align 8, !tbaa !32
   %13 = getelementptr i8, ptr %10, i64 %12
   br label %_ZNKSt3__14__fs10filesystem6parser10PathParser20getNextTokenStartPosB8ne210000Ev.exit
 
@@ -2772,7 +2772,7 @@ _ZNKSt3__14__fs10filesystem6parser10PathParser20getNextTokenStartPosB8ne210000Ev
   br i1 %15, label %_ZNKSt3__14__fs10filesystem6parser10PathParser20getNextTokenStartPosB8ne210000Ev.exit.thread, label %17
 
 _ZNKSt3__14__fs10filesystem6parser10PathParser20getNextTokenStartPosB8ne210000Ev.exit.thread: ; preds = %1, %1, %_ZNKSt3__14__fs10filesystem6parser10PathParser20getNextTokenStartPosB8ne210000Ev.exit
-  store i8 6, ptr %6, align 8, !tbaa !22
+  store i8 6, ptr %6, align 8, !tbaa !21
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %16, i8 0, i64 16, i1 false)
   br label %82
@@ -2805,18 +2805,18 @@ _ZNKSt3__14__fs10filesystem6parser10PathParser20getNextTokenStartPosB8ne210000Ev
 24:                                               ; preds = %.preheader
   %25 = load i8, ptr %.014.i, align 1, !tbaa !4
   %26 = icmp eq i8 %25, 47
-  br i1 %26, label %.preheader, label %_ZNKSt3__14__fs10filesystem6parser10PathParser20consumeAllSeparatorsB8ne210000EPKcS5_.exit, !llvm.loop !104
+  br i1 %26, label %.preheader, label %_ZNKSt3__14__fs10filesystem6parser10PathParser20consumeAllSeparatorsB8ne210000EPKcS5_.exit, !llvm.loop !102
 
 _ZNKSt3__14__fs10filesystem6parser10PathParser20consumeAllSeparatorsB8ne210000EPKcS5_.exit: ; preds = %24, %.preheader
   %.014.i.lcssa = phi ptr [ %.014.i, %24 ], [ %5, %.preheader ]
-  store i8 3, ptr %6, align 8, !tbaa !22
+  store i8 3, ptr %6, align 8, !tbaa !21
   %27 = ptrtoint ptr %.014.i.lcssa to i64
   %28 = ptrtoint ptr %.0.i to i64
   %29 = sub i64 %27, %28
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %.0.i, ptr %30, align 8, !tbaa !14
+  store ptr %.0.i, ptr %30, align 8, !tbaa !13
   %.sroa.4.0..sroa_idx.i44 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i64 %29, ptr %.sroa.4.0..sroa_idx.i44, align 8, !tbaa !20
+  store i64 %29, ptr %.sroa.4.0..sroa_idx.i44, align 8, !tbaa !19
   br label %82
 
 .preheader81:                                     ; preds = %19, %31
@@ -2828,7 +2828,7 @@ _ZNKSt3__14__fs10filesystem6parser10PathParser20consumeAllSeparatorsB8ne210000EP
 31:                                               ; preds = %.preheader81
   %32 = load i8, ptr %.025.i, align 1, !tbaa !4
   %33 = icmp eq i8 %32, 47
-  br i1 %33, label %_ZNKSt3__14__fs10filesystem6parser10PathParser11consumeNameB8ne210000EPKcS5_.exit.loopexit, label %.preheader81, !llvm.loop !105
+  br i1 %33, label %_ZNKSt3__14__fs10filesystem6parser10PathParser11consumeNameB8ne210000EPKcS5_.exit.loopexit, label %.preheader81, !llvm.loop !103
 
 _ZNKSt3__14__fs10filesystem6parser10PathParser11consumeNameB8ne210000EPKcS5_.exit.loopexit: ; preds = %31, %.preheader81
   %.025.i.lcssa = phi ptr [ %.025.i, %31 ], [ %5, %.preheader81 ]
@@ -2837,13 +2837,13 @@ _ZNKSt3__14__fs10filesystem6parser10PathParser11consumeNameB8ne210000EPKcS5_.exi
 
 _ZNKSt3__14__fs10filesystem6parser10PathParser11consumeNameB8ne210000EPKcS5_.exit: ; preds = %_ZNKSt3__14__fs10filesystem6parser10PathParser11consumeNameB8ne210000EPKcS5_.exit.loopexit, %.critedge
   %.0.i47 = phi i64 [ 0, %.critedge ], [ %34, %_ZNKSt3__14__fs10filesystem6parser10PathParser11consumeNameB8ne210000EPKcS5_.exit.loopexit ]
-  store i8 4, ptr %6, align 8, !tbaa !22
+  store i8 4, ptr %6, align 8, !tbaa !21
   %35 = ptrtoint ptr %.0.i to i64
   %36 = sub i64 %.0.i47, %35
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %.0.i, ptr %37, align 8, !tbaa !14
+  store ptr %.0.i, ptr %37, align 8, !tbaa !13
   %.sroa.4.0..sroa_idx.i48 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i64 %36, ptr %.sroa.4.0..sroa_idx.i48, align 8, !tbaa !20
+  store i64 %36, ptr %.sroa.4.0..sroa_idx.i48, align 8, !tbaa !19
   br label %82
 
 38:                                               ; preds = %17
@@ -2869,7 +2869,7 @@ _ZNKSt3__14__fs10filesystem6parser10PathParser11consumeNameB8ne210000EPKcS5_.exi
 46:                                               ; preds = %45
   %47 = load i8, ptr %.025.i52, align 1, !tbaa !4
   %48 = icmp eq i8 %47, 47
-  br i1 %48, label %_ZNKSt3__14__fs10filesystem6parser10PathParser11consumeNameB8ne210000EPKcS5_.exit55.loopexit, label %45, !llvm.loop !105
+  br i1 %48, label %_ZNKSt3__14__fs10filesystem6parser10PathParser11consumeNameB8ne210000EPKcS5_.exit55.loopexit, label %45, !llvm.loop !103
 
 _ZNKSt3__14__fs10filesystem6parser10PathParser11consumeNameB8ne210000EPKcS5_.exit55.loopexit: ; preds = %46, %45
   %.025.i52.lcssa = phi ptr [ %.025.i52, %46 ], [ %5, %45 ]
@@ -2878,13 +2878,13 @@ _ZNKSt3__14__fs10filesystem6parser10PathParser11consumeNameB8ne210000EPKcS5_.exi
 
 _ZNKSt3__14__fs10filesystem6parser10PathParser11consumeNameB8ne210000EPKcS5_.exit55: ; preds = %_ZNKSt3__14__fs10filesystem6parser10PathParser11consumeNameB8ne210000EPKcS5_.exit55.loopexit, %38, %40
   %.0.i54 = phi i64 [ 0, %40 ], [ 0, %38 ], [ %49, %_ZNKSt3__14__fs10filesystem6parser10PathParser11consumeNameB8ne210000EPKcS5_.exit55.loopexit ]
-  store i8 4, ptr %6, align 8, !tbaa !22
+  store i8 4, ptr %6, align 8, !tbaa !21
   %50 = ptrtoint ptr %.0.i to i64
   %51 = sub i64 %.0.i54, %50
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %.0.i, ptr %52, align 8, !tbaa !14
+  store ptr %.0.i, ptr %52, align 8, !tbaa !13
   %.sroa.4.0..sroa_idx.i56 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i64 %51, ptr %.sroa.4.0..sroa_idx.i56, align 8, !tbaa !20
+  store i64 %51, ptr %.sroa.4.0..sroa_idx.i56, align 8, !tbaa !19
   br label %82
 
 53:                                               ; preds = %17
@@ -2910,7 +2910,7 @@ _ZNKSt3__14__fs10filesystem6parser10PathParser11consumeNameB8ne210000EPKcS5_.exi
 62:                                               ; preds = %61
   %63 = load i8, ptr %.014.i60, align 1, !tbaa !4
   %64 = icmp eq i8 %63, 47
-  br i1 %64, label %61, label %_ZNKSt3__14__fs10filesystem6parser10PathParser20consumeAllSeparatorsB8ne210000EPKcS5_.exit62, !llvm.loop !104
+  br i1 %64, label %61, label %_ZNKSt3__14__fs10filesystem6parser10PathParser20consumeAllSeparatorsB8ne210000EPKcS5_.exit62, !llvm.loop !102
 
 _ZNKSt3__14__fs10filesystem6parser10PathParser20consumeAllSeparatorsB8ne210000EPKcS5_.exit62: ; preds = %61, %62
   %.not = icmp eq ptr %.014.i60, %5
@@ -2935,30 +2935,30 @@ _ZNKSt3__14__fs10filesystem6parser10PathParser20consumeAllSeparatorsB8ne210000EP
 71:                                               ; preds = %70
   %72 = load i8, ptr %.025.i66, align 1, !tbaa !4
   %73 = icmp eq i8 %72, 47
-  br i1 %73, label %_ZNKSt3__14__fs10filesystem6parser10PathParser11consumeNameB8ne210000EPKcS5_.exit69, label %70, !llvm.loop !105
+  br i1 %73, label %_ZNKSt3__14__fs10filesystem6parser10PathParser11consumeNameB8ne210000EPKcS5_.exit69, label %70, !llvm.loop !103
 
 _ZNKSt3__14__fs10filesystem6parser10PathParser11consumeNameB8ne210000EPKcS5_.exit69: ; preds = %71, %70
   %.025.i66.lcssa = phi ptr [ %.025.i66, %71 ], [ %5, %70 ]
-  store i8 4, ptr %6, align 8, !tbaa !22
+  store i8 4, ptr %6, align 8, !tbaa !21
   %74 = ptrtoint ptr %.025.i66.lcssa to i64
   %75 = ptrtoint ptr %.014.i60 to i64
   %76 = sub i64 %74, %75
   %77 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %.014.i60, ptr %77, align 8, !tbaa !14
+  store ptr %.014.i60, ptr %77, align 8, !tbaa !13
   %.sroa.4.0..sroa_idx.i70 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i64 %76, ptr %.sroa.4.0..sroa_idx.i70, align 8, !tbaa !20
+  store i64 %76, ptr %.sroa.4.0..sroa_idx.i70, align 8, !tbaa !19
   br label %82
 
 .critedge42:                                      ; preds = %53, %55, %65, %_ZNKSt3__14__fs10filesystem6parser10PathParser20consumeAllSeparatorsB8ne210000EPKcS5_.exit62
   %.0.i5880 = phi ptr [ %.014.i60, %65 ], [ %.014.i60, %_ZNKSt3__14__fs10filesystem6parser10PathParser20consumeAllSeparatorsB8ne210000EPKcS5_.exit62 ], [ null, %55 ], [ null, %53 ]
-  store i8 5, ptr %6, align 8, !tbaa !22
+  store i8 5, ptr %6, align 8, !tbaa !21
   %78 = ptrtoint ptr %.0.i5880 to i64
   %79 = ptrtoint ptr %.0.i to i64
   %80 = sub i64 %78, %79
   %81 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %.0.i, ptr %81, align 8, !tbaa !14
+  store ptr %.0.i, ptr %81, align 8, !tbaa !13
   %.sroa.4.0..sroa_idx.i71 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i64 %80, ptr %.sroa.4.0..sroa_idx.i71, align 8, !tbaa !20
+  store i64 %80, ptr %.sroa.4.0..sroa_idx.i71, align 8, !tbaa !19
   br label %82
 
 default.unreachable:                              ; preds = %17
@@ -2970,10 +2970,10 @@ default.unreachable:                              ; preds = %17
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt3__14__fs10filesystem6parser10PathParser9decrementB8ne210000Ev(ptr noundef nonnull align 8 dereferenceable(33) %0) local_unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !29
+  %2 = load ptr, ptr %0, align 8, !tbaa !28
   %3 = getelementptr inbounds i8, ptr %2, i64 -1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %5 = load i8, ptr %4, align 8, !tbaa !22
+  %5 = load i8, ptr %4, align 8, !tbaa !21
   switch i8 %5, label %13 [
     i8 1, label %_ZNKSt3__14__fs10filesystem6parser10PathParser23getCurrentTokenStartPosB8ne210000Ev.exit.thread
     i8 2, label %_ZNKSt3__14__fs10filesystem6parser10PathParser23getCurrentTokenStartPosB8ne210000Ev.exit.thread
@@ -2985,12 +2985,12 @@ define linkonce_odr hidden void @_ZNSt3__14__fs10filesystem6parser10PathParser9d
 
 6:                                                ; preds = %1, %1, %1
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %8 = load ptr, ptr %7, align 8, !tbaa !29
+  %8 = load ptr, ptr %7, align 8, !tbaa !28
   br label %_ZNKSt3__14__fs10filesystem6parser10PathParser23getCurrentTokenStartPosB8ne210000Ev.exit
 
 9:                                                ; preds = %1
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %11 = load i64, ptr %10, align 8, !tbaa !33
+  %11 = load i64, ptr %10, align 8, !tbaa !32
   %12 = getelementptr i8, ptr %2, i64 %11
   br label %_ZNKSt3__14__fs10filesystem6parser10PathParser23getCurrentTokenStartPosB8ne210000Ev.exit
 
@@ -3004,7 +3004,7 @@ _ZNKSt3__14__fs10filesystem6parser10PathParser23getCurrentTokenStartPosB8ne21000
   br i1 %15, label %_ZNKSt3__14__fs10filesystem6parser10PathParser23getCurrentTokenStartPosB8ne210000Ev.exit.thread, label %17
 
 _ZNKSt3__14__fs10filesystem6parser10PathParser23getCurrentTokenStartPosB8ne210000Ev.exit.thread: ; preds = %1, %1, %_ZNKSt3__14__fs10filesystem6parser10PathParser23getCurrentTokenStartPosB8ne210000Ev.exit
-  store i8 1, ptr %4, align 8, !tbaa !22
+  store i8 1, ptr %4, align 8, !tbaa !21
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %16, i8 0, i64 16, i1 false)
   br label %93
@@ -3033,29 +3033,29 @@ _ZNKSt3__14__fs10filesystem6parser10PathParser23getCurrentTokenStartPosB8ne21000
 23:                                               ; preds = %.preheader
   %24 = load i8, ptr %.014.i, align 1, !tbaa !4
   %25 = icmp eq i8 %24, 47
-  br i1 %25, label %.preheader, label %31, !llvm.loop !104
+  br i1 %25, label %.preheader, label %31, !llvm.loop !102
 
 26:                                               ; preds = %.preheader
-  store i8 3, ptr %4, align 8, !tbaa !22
+  store i8 3, ptr %4, align 8, !tbaa !21
   %27 = ptrtoint ptr %.0.i to i64
   %28 = ptrtoint ptr %2 to i64
   %29 = sub i64 %27, %28
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %2, ptr %30, align 8, !tbaa !14
+  store ptr %2, ptr %30, align 8, !tbaa !13
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i64 %29, ptr %.sroa.4.0..sroa_idx.i, align 8, !tbaa !20
+  store i64 %29, ptr %.sroa.4.0..sroa_idx.i, align 8, !tbaa !19
   br label %93
 
 31:                                               ; preds = %23
   %32 = getelementptr inbounds nuw i8, ptr %.014.i, i64 1
-  store i8 5, ptr %4, align 8, !tbaa !22
+  store i8 5, ptr %4, align 8, !tbaa !21
   %33 = ptrtoint ptr %.0.i to i64
   %34 = ptrtoint ptr %32 to i64
   %35 = sub i64 %33, %34
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %32, ptr %36, align 8, !tbaa !14
+  store ptr %32, ptr %36, align 8, !tbaa !13
   %.sroa.4.0..sroa_idx.i59 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i64 %35, ptr %.sroa.4.0..sroa_idx.i59, align 8, !tbaa !20
+  store i64 %35, ptr %.sroa.4.0..sroa_idx.i59, align 8, !tbaa !19
   br label %93
 
 _ZNKSt3__14__fs10filesystem6parser10PathParser20consumeAllSeparatorsB8ne210000EPKcS5_.exit: ; preds = %18, %37
@@ -3067,18 +3067,18 @@ _ZNKSt3__14__fs10filesystem6parser10PathParser20consumeAllSeparatorsB8ne210000EP
 37:                                               ; preds = %_ZNKSt3__14__fs10filesystem6parser10PathParser20consumeAllSeparatorsB8ne210000EPKcS5_.exit
   %38 = load i8, ptr %.025.i, align 1, !tbaa !4
   %39 = icmp eq i8 %38, 47
-  br i1 %39, label %_ZNKSt3__14__fs10filesystem6parser10PathParser11consumeNameB8ne210000EPKcS5_.exit, label %_ZNKSt3__14__fs10filesystem6parser10PathParser20consumeAllSeparatorsB8ne210000EPKcS5_.exit, !llvm.loop !105
+  br i1 %39, label %_ZNKSt3__14__fs10filesystem6parser10PathParser11consumeNameB8ne210000EPKcS5_.exit, label %_ZNKSt3__14__fs10filesystem6parser10PathParser20consumeAllSeparatorsB8ne210000EPKcS5_.exit, !llvm.loop !103
 
 _ZNKSt3__14__fs10filesystem6parser10PathParser11consumeNameB8ne210000EPKcS5_.exit: ; preds = %_ZNKSt3__14__fs10filesystem6parser10PathParser20consumeAllSeparatorsB8ne210000EPKcS5_.exit, %37
   %40 = getelementptr inbounds nuw i8, ptr %.025.i, i64 1
-  store i8 4, ptr %4, align 8, !tbaa !22
+  store i8 4, ptr %4, align 8, !tbaa !21
   %41 = ptrtoint ptr %.0.i to i64
   %42 = ptrtoint ptr %40 to i64
   %43 = sub i64 %41, %42
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %40, ptr %44, align 8, !tbaa !14
+  store ptr %40, ptr %44, align 8, !tbaa !13
   %.sroa.4.0..sroa_idx.i64 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i64 %43, ptr %.sroa.4.0..sroa_idx.i64, align 8, !tbaa !20
+  store i64 %43, ptr %.sroa.4.0..sroa_idx.i64, align 8, !tbaa !19
   br label %93
 
 45:                                               ; preds = %17
@@ -3100,19 +3100,19 @@ _ZNKSt3__14__fs10filesystem6parser10PathParser11consumeNameB8ne210000EPKcS5_.exi
 51:                                               ; preds = %50
   %52 = load i8, ptr %.025.i67, align 1, !tbaa !4
   %53 = icmp eq i8 %52, 47
-  br i1 %53, label %_ZNKSt3__14__fs10filesystem6parser10PathParser11consumeNameB8ne210000EPKcS5_.exit70, label %50, !llvm.loop !105
+  br i1 %53, label %_ZNKSt3__14__fs10filesystem6parser10PathParser11consumeNameB8ne210000EPKcS5_.exit70, label %50, !llvm.loop !103
 
 _ZNKSt3__14__fs10filesystem6parser10PathParser11consumeNameB8ne210000EPKcS5_.exit70: ; preds = %50, %51, %45
   %.0.i69 = phi ptr [ null, %45 ], [ %.025.i67, %51 ], [ %.025.i67, %50 ]
   %54 = getelementptr inbounds nuw i8, ptr %.0.i69, i64 1
-  store i8 4, ptr %4, align 8, !tbaa !22
+  store i8 4, ptr %4, align 8, !tbaa !21
   %55 = ptrtoint ptr %.0.i to i64
   %56 = ptrtoint ptr %54 to i64
   %57 = sub i64 %55, %56
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %54, ptr %58, align 8, !tbaa !14
+  store ptr %54, ptr %58, align 8, !tbaa !13
   %.sroa.4.0..sroa_idx.i71 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i64 %57, ptr %.sroa.4.0..sroa_idx.i71, align 8, !tbaa !20
+  store i64 %57, ptr %.sroa.4.0..sroa_idx.i71, align 8, !tbaa !19
   br label %93
 
 59:                                               ; preds = %17
@@ -3134,17 +3134,17 @@ _ZNKSt3__14__fs10filesystem6parser10PathParser11consumeNameB8ne210000EPKcS5_.exi
 66:                                               ; preds = %65
   %67 = load i8, ptr %.014.i74, align 1, !tbaa !4
   %68 = icmp eq i8 %67, 47
-  br i1 %68, label %65, label %_ZNKSt3__14__fs10filesystem6parser10PathParser20consumeAllSeparatorsB8ne210000EPKcS5_.exit76, !llvm.loop !104
+  br i1 %68, label %65, label %_ZNKSt3__14__fs10filesystem6parser10PathParser20consumeAllSeparatorsB8ne210000EPKcS5_.exit76, !llvm.loop !102
 
 69:                                               ; preds = %65
-  store i8 3, ptr %4, align 8, !tbaa !22
+  store i8 3, ptr %4, align 8, !tbaa !21
   %70 = ptrtoint ptr %.0.i to i64
   %71 = ptrtoint ptr %2 to i64
   %72 = sub i64 %70, %71
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %2, ptr %73, align 8, !tbaa !14
+  store ptr %2, ptr %73, align 8, !tbaa !13
   %.sroa.4.0..sroa_idx.i77 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i64 %72, ptr %.sroa.4.0..sroa_idx.i77, align 8, !tbaa !20
+  store i64 %72, ptr %.sroa.4.0..sroa_idx.i77, align 8, !tbaa !19
   br label %93
 
 _ZNKSt3__14__fs10filesystem6parser10PathParser20consumeAllSeparatorsB8ne210000EPKcS5_.exit76: ; preds = %66
@@ -3166,32 +3166,32 @@ _ZNKSt3__14__fs10filesystem6parser10PathParser20consumeAllSeparatorsB8ne210000EP
 79:                                               ; preds = %78
   %80 = load i8, ptr %.025.i82, align 1, !tbaa !4
   %81 = icmp eq i8 %80, 47
-  br i1 %81, label %_ZNKSt3__14__fs10filesystem6parser10PathParser11consumeNameB8ne210000EPKcS5_.exit85, label %78, !llvm.loop !105
+  br i1 %81, label %_ZNKSt3__14__fs10filesystem6parser10PathParser11consumeNameB8ne210000EPKcS5_.exit85, label %78, !llvm.loop !103
 
 _ZNKSt3__14__fs10filesystem6parser10PathParser11consumeNameB8ne210000EPKcS5_.exit85: ; preds = %78, %79, %59, %_ZNKSt3__14__fs10filesystem6parser10PathParser20consumeAllSeparatorsB8ne210000EPKcS5_.exit76
   %.0.i729295 = phi ptr [ %.014.i74, %_ZNKSt3__14__fs10filesystem6parser10PathParser20consumeAllSeparatorsB8ne210000EPKcS5_.exit76 ], [ null, %59 ], [ %.014.i74, %79 ], [ %.014.i74, %78 ]
   %.0.i84 = phi ptr [ null, %_ZNKSt3__14__fs10filesystem6parser10PathParser20consumeAllSeparatorsB8ne210000EPKcS5_.exit76 ], [ null, %59 ], [ %.025.i82, %79 ], [ %.025.i82, %78 ]
   %82 = getelementptr inbounds nuw i8, ptr %.0.i84, i64 1
   %83 = getelementptr inbounds nuw i8, ptr %.0.i729295, i64 1
-  store i8 4, ptr %4, align 8, !tbaa !22
+  store i8 4, ptr %4, align 8, !tbaa !21
   %84 = ptrtoint ptr %83 to i64
   %85 = ptrtoint ptr %82 to i64
   %86 = sub i64 %84, %85
   %87 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %82, ptr %87, align 8, !tbaa !14
+  store ptr %82, ptr %87, align 8, !tbaa !13
   %.sroa.4.0..sroa_idx.i86 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i64 %86, ptr %.sroa.4.0..sroa_idx.i86, align 8, !tbaa !20
+  store i64 %86, ptr %.sroa.4.0..sroa_idx.i86, align 8, !tbaa !19
   br label %93
 
 88:                                               ; preds = %17
-  store i8 2, ptr %4, align 8, !tbaa !22
+  store i8 2, ptr %4, align 8, !tbaa !21
   %89 = ptrtoint ptr %.0.i to i64
   %90 = ptrtoint ptr %2 to i64
   %91 = sub i64 %89, %90
   %92 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %2, ptr %92, align 8, !tbaa !14
+  store ptr %2, ptr %92, align 8, !tbaa !13
   %.sroa.4.0..sroa_idx.i87 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i64 %91, ptr %.sroa.4.0..sroa_idx.i87, align 8, !tbaa !20
+  store i64 %91, ptr %.sroa.4.0..sroa_idx.i87, align 8, !tbaa !19
   br label %93
 
 default.unreachable:                              ; preds = %17
@@ -3473,12 +3473,12 @@ _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE10__set_sizeB8ne2
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt3__14__fs10filesystem4path6appendB8ne210000INS_17basic_string_viewIcNS_11char_traitsIcEEEEEENS_9enable_ifIXsr13__is_pathableIT_EE5valueERS2_E4typeERKS9_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %4 = load i64, ptr %3, align 8, !tbaa !33
+  %4 = load i64, ptr %3, align 8, !tbaa !32
   %5 = icmp eq i64 %4, 0
   br i1 %5, label %_ZNSt3__14__fs10filesystem20__is_pathable_stringINS_17basic_string_viewIcNS_11char_traitsIcEEEEvE15__first_or_nullB8ne210000ERKS6_.exit.thread, label %_ZNSt3__14__fs10filesystem20__is_pathable_stringINS_17basic_string_viewIcNS_11char_traitsIcEEEEvE15__first_or_nullB8ne210000ERKS6_.exit
 
 _ZNSt3__14__fs10filesystem20__is_pathable_stringINS_17basic_string_viewIcNS_11char_traitsIcEEEEvE15__first_or_nullB8ne210000ERKS6_.exit: ; preds = %2
-  %6 = load ptr, ptr %1, align 8, !tbaa !29
+  %6 = load ptr, ptr %1, align 8, !tbaa !28
   %7 = load i8, ptr %6, align 1, !tbaa !4
   %8 = icmp eq i8 %7, 47
   br i1 %8, label %9, label %_ZNSt3__14__fs10filesystem20__is_pathable_stringINS_17basic_string_viewIcNS_11char_traitsIcEEEEvE15__first_or_nullB8ne210000ERKS6_.exit.thread
@@ -3606,8 +3606,8 @@ _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEpLB8ne210000Ec.ex
   br label %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE5clearB8ne210000Ev.exit
 
 _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE5clearB8ne210000Ev.exit: ; preds = %16, %12, %_ZNSt3__14__fs10filesystem20__is_pathable_stringINS_17basic_string_viewIcNS_11char_traitsIcEEEEvE15__first_or_nullB8ne210000ERKS6_.exit.thread, %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEpLB8ne210000Ec.exit
-  %64 = load ptr, ptr %1, align 8, !tbaa !29
-  %65 = load i64, ptr %3, align 8, !tbaa !33
+  %64 = load ptr, ptr %1, align 8, !tbaa !28
+  %65 = load i64, ptr %3, align 8, !tbaa !32
   %66 = getelementptr inbounds nuw i8, ptr %64, i64 %65
   %67 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE6appendB8ne210000IPKcTnNS_9enable_ifIXsr31__has_forward_iterator_categoryIT_EE5valueEiE4typeELi0EEERS5_SA_SA_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %64, ptr noundef %66)
   ret ptr %0
@@ -3930,99 +3930,97 @@ attributes #23 = { nounwind willreturn memory(read) }
 !7 = !{!8}
 !8 = distinct !{!8, !9, !"_ZNSt3__14__fs10filesystem6parser17separate_filenameB8ne210000ERKNS_17basic_string_viewIcNS_11char_traitsIcEEEE: argument 0"}
 !9 = distinct !{!9, !"_ZNSt3__14__fs10filesystem6parser17separate_filenameB8ne210000ERKNS_17basic_string_viewIcNS_11char_traitsIcEEEE"}
-!10 = distinct !{!10, !11, !12}
+!10 = distinct !{!10, !11}
 !11 = !{!"llvm.loop.mustprogress"}
-!12 = !{!"llvm.loop.estimated_trip_count"}
-!13 = !{i64 0, i64 24, !4}
-!14 = !{!15, !15, i64 0}
-!15 = !{!"p1 omnipotent char", !16, i64 0}
-!16 = !{!"any pointer", !5, i64 0}
-!17 = !{!18}
-!18 = distinct !{!18, !19, !"_ZNSt3__14__fs10filesystem6parser10PathParser11CreateBeginB8ne210000ENS_17basic_string_viewIcNS_11char_traitsIcEEEE: argument 0"}
-!19 = distinct !{!19, !"_ZNSt3__14__fs10filesystem6parser10PathParser11CreateBeginB8ne210000ENS_17basic_string_viewIcNS_11char_traitsIcEEEE"}
-!20 = !{!21, !21, i64 0}
-!21 = !{!"long", !5, i64 0}
-!22 = !{!23, !25, i64 32}
-!23 = !{!"_ZTSNSt3__14__fs10filesystem6parser10PathParserE", !24, i64 0, !24, i64 16, !25, i64 32}
-!24 = !{!"_ZTSNSt3__117basic_string_viewIcNS_11char_traitsIcEEEE", !15, i64 0, !21, i64 8}
-!25 = !{!"_ZTSNSt3__14__fs10filesystem6parser10PathParser11ParserStateE", !5, i64 0}
-!26 = !{!27}
-!27 = distinct !{!27, !28, !"_ZNSt3__14__fs10filesystem6parser10PathParser11CreateBeginB8ne210000ENS_17basic_string_viewIcNS_11char_traitsIcEEEE: argument 0"}
-!28 = distinct !{!28, !"_ZNSt3__14__fs10filesystem6parser10PathParser11CreateBeginB8ne210000ENS_17basic_string_viewIcNS_11char_traitsIcEEEE"}
-!29 = !{!24, !15, i64 0}
-!30 = !{!31}
-!31 = distinct !{!31, !32, !"_ZNSt3__14__fs10filesystem6parser10PathParser11CreateBeginB8ne210000ENS_17basic_string_viewIcNS_11char_traitsIcEEEE: argument 0"}
-!32 = distinct !{!32, !"_ZNSt3__14__fs10filesystem6parser10PathParser11CreateBeginB8ne210000ENS_17basic_string_viewIcNS_11char_traitsIcEEEE"}
-!33 = !{!24, !21, i64 8}
-!34 = !{!35}
-!35 = distinct !{!35, !36, !"_ZNSt3__14__fs10filesystem6parser10PathParser11CreateBeginB8ne210000ENS_17basic_string_viewIcNS_11char_traitsIcEEEE: argument 0"}
-!36 = distinct !{!36, !"_ZNSt3__14__fs10filesystem6parser10PathParser11CreateBeginB8ne210000ENS_17basic_string_viewIcNS_11char_traitsIcEEEE"}
-!37 = distinct !{!37, !11, !12}
-!38 = !{!39}
-!39 = distinct !{!39, !40, !"_ZNSt3__14__fs10filesystem6parser10PathParser11CreateBeginB8ne210000ENS_17basic_string_viewIcNS_11char_traitsIcEEEE: argument 0"}
-!40 = distinct !{!40, !"_ZNSt3__14__fs10filesystem6parser10PathParser11CreateBeginB8ne210000ENS_17basic_string_viewIcNS_11char_traitsIcEEEE"}
-!41 = !{!42}
-!42 = distinct !{!42, !43, !"_ZNSt3__14__fs10filesystem6parser10PathParser9CreateEndB8ne210000ENS_17basic_string_viewIcNS_11char_traitsIcEEEE: argument 0"}
-!43 = distinct !{!43, !"_ZNSt3__14__fs10filesystem6parser10PathParser9CreateEndB8ne210000ENS_17basic_string_viewIcNS_11char_traitsIcEEEE"}
-!44 = !{!45}
-!45 = distinct !{!45, !46, !"_ZNSt3__14__fs10filesystem6parser10PathParser11CreateBeginB8ne210000ENS_17basic_string_viewIcNS_11char_traitsIcEEEE: argument 0"}
-!46 = distinct !{!46, !"_ZNSt3__14__fs10filesystem6parser10PathParser11CreateBeginB8ne210000ENS_17basic_string_viewIcNS_11char_traitsIcEEEE"}
-!47 = !{!48}
-!48 = distinct !{!48, !49, !"_ZNSt3__14__fs10filesystem6parser10PathParser9CreateEndB8ne210000ENS_17basic_string_viewIcNS_11char_traitsIcEEEE: argument 0"}
-!49 = distinct !{!49, !"_ZNSt3__14__fs10filesystem6parser10PathParser9CreateEndB8ne210000ENS_17basic_string_viewIcNS_11char_traitsIcEEEE"}
-!50 = !{!51}
-!51 = distinct !{!51, !52, !"_ZNSt3__14__fs10filesystem6parser17separate_filenameB8ne210000ERKNS_17basic_string_viewIcNS_11char_traitsIcEEEE: argument 0"}
-!52 = distinct !{!52, !"_ZNSt3__14__fs10filesystem6parser17separate_filenameB8ne210000ERKNS_17basic_string_viewIcNS_11char_traitsIcEEEE"}
-!53 = !{!54}
-!54 = distinct !{!54, !55, !"_ZNSt3__14__fs10filesystem6parser17separate_filenameB8ne210000ERKNS_17basic_string_viewIcNS_11char_traitsIcEEEE: argument 0"}
-!55 = distinct !{!55, !"_ZNSt3__14__fs10filesystem6parser17separate_filenameB8ne210000ERKNS_17basic_string_viewIcNS_11char_traitsIcEEEE"}
-!56 = !{!57}
-!57 = distinct !{!57, !58, !"_ZNSt3__14__fs10filesystem6parser10PathParser11CreateBeginB8ne210000ENS_17basic_string_viewIcNS_11char_traitsIcEEEE: argument 0"}
-!58 = distinct !{!58, !"_ZNSt3__14__fs10filesystem6parser10PathParser11CreateBeginB8ne210000ENS_17basic_string_viewIcNS_11char_traitsIcEEEE"}
-!59 = !{!60, !61, i64 16}
-!60 = !{!"_ZTSNSt3__14pairINS_17basic_string_viewIcNS_11char_traitsIcEEEENS_4__fs10filesystem12PathPartKindEEE", !24, i64 0, !61, i64 16}
-!61 = !{!"_ZTSNSt3__14__fs10filesystem12PathPartKindE", !5, i64 0}
-!62 = distinct !{!62, !11, !12}
-!63 = distinct !{!63, !12}
-!64 = !{!65}
-!65 = distinct !{!65, !66, !"_ZNSt3__14__fs10filesystem6parser10PathParser11CreateBeginB8ne210000ENS_17basic_string_viewIcNS_11char_traitsIcEEEE: argument 0"}
-!66 = distinct !{!66, !"_ZNSt3__14__fs10filesystem6parser10PathParser11CreateBeginB8ne210000ENS_17basic_string_viewIcNS_11char_traitsIcEEEE"}
-!67 = !{!68}
-!68 = distinct !{!68, !69, !"_ZNSt3__14__fs10filesystem6parser10PathParser11CreateBeginB8ne210000ENS_17basic_string_viewIcNS_11char_traitsIcEEEE: argument 0"}
-!69 = distinct !{!69, !"_ZNSt3__14__fs10filesystem6parser10PathParser11CreateBeginB8ne210000ENS_17basic_string_viewIcNS_11char_traitsIcEEEE"}
-!70 = !{!71}
-!71 = distinct !{!71, !72, !"_ZNSt3__14__fs10filesystem6parser10PathParser11CreateBeginB8ne210000ENS_17basic_string_viewIcNS_11char_traitsIcEEEE: argument 0"}
-!72 = distinct !{!72, !"_ZNSt3__14__fs10filesystem6parser10PathParser11CreateBeginB8ne210000ENS_17basic_string_viewIcNS_11char_traitsIcEEEE"}
-!73 = !{!74}
-!74 = distinct !{!74, !75, !"_ZNSt3__14__fs10filesystem6parser10PathParser11CreateBeginB8ne210000ENS_17basic_string_viewIcNS_11char_traitsIcEEEE: argument 0"}
-!75 = distinct !{!75, !"_ZNSt3__14__fs10filesystem6parser10PathParser11CreateBeginB8ne210000ENS_17basic_string_viewIcNS_11char_traitsIcEEEE"}
-!76 = distinct !{!76, !11, !12}
-!77 = distinct !{!77, !11, !12}
-!78 = distinct !{!78, !11, !12}
-!79 = !{!80}
-!80 = distinct !{!80, !81, !"_ZNSt3__14__fs10filesystem6parser10PathParser11CreateBeginB8ne210000ENS_17basic_string_viewIcNS_11char_traitsIcEEEE: argument 0"}
-!81 = distinct !{!81, !"_ZNSt3__14__fs10filesystem6parser10PathParser11CreateBeginB8ne210000ENS_17basic_string_viewIcNS_11char_traitsIcEEEE"}
-!82 = !{!83}
-!83 = distinct !{!83, !84, !"_ZNSt3__14__fs10filesystem6parser10PathParser11CreateBeginB8ne210000ENS_17basic_string_viewIcNS_11char_traitsIcEEEE: argument 0"}
-!84 = distinct !{!84, !"_ZNSt3__14__fs10filesystem6parser10PathParser11CreateBeginB8ne210000ENS_17basic_string_viewIcNS_11char_traitsIcEEEE"}
-!85 = distinct !{!85, !11, !12}
-!86 = distinct !{!86, !11, !12}
-!87 = !{!88}
-!88 = distinct !{!88, !89, !"_ZNSt3__14__fs10filesystem6parser10PathParser11CreateBeginB8ne210000ENS_17basic_string_viewIcNS_11char_traitsIcEEEE: argument 0"}
-!89 = distinct !{!89, !"_ZNSt3__14__fs10filesystem6parser10PathParser11CreateBeginB8ne210000ENS_17basic_string_viewIcNS_11char_traitsIcEEEE"}
-!90 = distinct !{!90, !11, !12}
-!91 = !{!92}
-!92 = distinct !{!92, !93, !"_ZNSt3__14__fs10filesystem6parser10PathParser11CreateBeginB8ne210000ENS_17basic_string_viewIcNS_11char_traitsIcEEEE: argument 0"}
-!93 = distinct !{!93, !"_ZNSt3__14__fs10filesystem6parser10PathParser11CreateBeginB8ne210000ENS_17basic_string_viewIcNS_11char_traitsIcEEEE"}
-!94 = !{!95, !98, i64 24}
-!95 = !{!"_ZTSNSt3__14__fs10filesystem4path8iteratorE", !96, i64 0, !98, i64 24, !24, i64 32, !99, i64 48}
-!96 = !{!"_ZTSNSt3__14__fs10filesystem4pathE", !97, i64 0}
-!97 = !{!"_ZTSNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEE", !5, i64 0}
-!98 = !{!"p1 _ZTSNSt3__14__fs10filesystem4pathE", !16, i64 0}
-!99 = !{!"_ZTSNSt3__14__fs10filesystem4path8iterator12_ParserStateE", !5, i64 0}
-!100 = !{!95, !99, i64 48}
-!101 = !{i64 0, i64 8, !14, i64 8, i64 8, !20}
-!102 = !{!103, !103, i64 0}
-!103 = !{!"vtable pointer", !6, i64 0}
-!104 = distinct !{!104, !11, !12}
-!105 = distinct !{!105, !11, !12}
+!12 = !{i64 0, i64 24, !4}
+!13 = !{!14, !14, i64 0}
+!14 = !{!"p1 omnipotent char", !15, i64 0}
+!15 = !{!"any pointer", !5, i64 0}
+!16 = !{!17}
+!17 = distinct !{!17, !18, !"_ZNSt3__14__fs10filesystem6parser10PathParser11CreateBeginB8ne210000ENS_17basic_string_viewIcNS_11char_traitsIcEEEE: argument 0"}
+!18 = distinct !{!18, !"_ZNSt3__14__fs10filesystem6parser10PathParser11CreateBeginB8ne210000ENS_17basic_string_viewIcNS_11char_traitsIcEEEE"}
+!19 = !{!20, !20, i64 0}
+!20 = !{!"long", !5, i64 0}
+!21 = !{!22, !24, i64 32}
+!22 = !{!"_ZTSNSt3__14__fs10filesystem6parser10PathParserE", !23, i64 0, !23, i64 16, !24, i64 32}
+!23 = !{!"_ZTSNSt3__117basic_string_viewIcNS_11char_traitsIcEEEE", !14, i64 0, !20, i64 8}
+!24 = !{!"_ZTSNSt3__14__fs10filesystem6parser10PathParser11ParserStateE", !5, i64 0}
+!25 = !{!26}
+!26 = distinct !{!26, !27, !"_ZNSt3__14__fs10filesystem6parser10PathParser11CreateBeginB8ne210000ENS_17basic_string_viewIcNS_11char_traitsIcEEEE: argument 0"}
+!27 = distinct !{!27, !"_ZNSt3__14__fs10filesystem6parser10PathParser11CreateBeginB8ne210000ENS_17basic_string_viewIcNS_11char_traitsIcEEEE"}
+!28 = !{!23, !14, i64 0}
+!29 = !{!30}
+!30 = distinct !{!30, !31, !"_ZNSt3__14__fs10filesystem6parser10PathParser11CreateBeginB8ne210000ENS_17basic_string_viewIcNS_11char_traitsIcEEEE: argument 0"}
+!31 = distinct !{!31, !"_ZNSt3__14__fs10filesystem6parser10PathParser11CreateBeginB8ne210000ENS_17basic_string_viewIcNS_11char_traitsIcEEEE"}
+!32 = !{!23, !20, i64 8}
+!33 = !{!34}
+!34 = distinct !{!34, !35, !"_ZNSt3__14__fs10filesystem6parser10PathParser11CreateBeginB8ne210000ENS_17basic_string_viewIcNS_11char_traitsIcEEEE: argument 0"}
+!35 = distinct !{!35, !"_ZNSt3__14__fs10filesystem6parser10PathParser11CreateBeginB8ne210000ENS_17basic_string_viewIcNS_11char_traitsIcEEEE"}
+!36 = distinct !{!36, !11}
+!37 = !{!38}
+!38 = distinct !{!38, !39, !"_ZNSt3__14__fs10filesystem6parser10PathParser11CreateBeginB8ne210000ENS_17basic_string_viewIcNS_11char_traitsIcEEEE: argument 0"}
+!39 = distinct !{!39, !"_ZNSt3__14__fs10filesystem6parser10PathParser11CreateBeginB8ne210000ENS_17basic_string_viewIcNS_11char_traitsIcEEEE"}
+!40 = !{!41}
+!41 = distinct !{!41, !42, !"_ZNSt3__14__fs10filesystem6parser10PathParser9CreateEndB8ne210000ENS_17basic_string_viewIcNS_11char_traitsIcEEEE: argument 0"}
+!42 = distinct !{!42, !"_ZNSt3__14__fs10filesystem6parser10PathParser9CreateEndB8ne210000ENS_17basic_string_viewIcNS_11char_traitsIcEEEE"}
+!43 = !{!44}
+!44 = distinct !{!44, !45, !"_ZNSt3__14__fs10filesystem6parser10PathParser11CreateBeginB8ne210000ENS_17basic_string_viewIcNS_11char_traitsIcEEEE: argument 0"}
+!45 = distinct !{!45, !"_ZNSt3__14__fs10filesystem6parser10PathParser11CreateBeginB8ne210000ENS_17basic_string_viewIcNS_11char_traitsIcEEEE"}
+!46 = !{!47}
+!47 = distinct !{!47, !48, !"_ZNSt3__14__fs10filesystem6parser10PathParser9CreateEndB8ne210000ENS_17basic_string_viewIcNS_11char_traitsIcEEEE: argument 0"}
+!48 = distinct !{!48, !"_ZNSt3__14__fs10filesystem6parser10PathParser9CreateEndB8ne210000ENS_17basic_string_viewIcNS_11char_traitsIcEEEE"}
+!49 = !{!50}
+!50 = distinct !{!50, !51, !"_ZNSt3__14__fs10filesystem6parser17separate_filenameB8ne210000ERKNS_17basic_string_viewIcNS_11char_traitsIcEEEE: argument 0"}
+!51 = distinct !{!51, !"_ZNSt3__14__fs10filesystem6parser17separate_filenameB8ne210000ERKNS_17basic_string_viewIcNS_11char_traitsIcEEEE"}
+!52 = !{!53}
+!53 = distinct !{!53, !54, !"_ZNSt3__14__fs10filesystem6parser17separate_filenameB8ne210000ERKNS_17basic_string_viewIcNS_11char_traitsIcEEEE: argument 0"}
+!54 = distinct !{!54, !"_ZNSt3__14__fs10filesystem6parser17separate_filenameB8ne210000ERKNS_17basic_string_viewIcNS_11char_traitsIcEEEE"}
+!55 = !{!56}
+!56 = distinct !{!56, !57, !"_ZNSt3__14__fs10filesystem6parser10PathParser11CreateBeginB8ne210000ENS_17basic_string_viewIcNS_11char_traitsIcEEEE: argument 0"}
+!57 = distinct !{!57, !"_ZNSt3__14__fs10filesystem6parser10PathParser11CreateBeginB8ne210000ENS_17basic_string_viewIcNS_11char_traitsIcEEEE"}
+!58 = !{!59, !60, i64 16}
+!59 = !{!"_ZTSNSt3__14pairINS_17basic_string_viewIcNS_11char_traitsIcEEEENS_4__fs10filesystem12PathPartKindEEE", !23, i64 0, !60, i64 16}
+!60 = !{!"_ZTSNSt3__14__fs10filesystem12PathPartKindE", !5, i64 0}
+!61 = distinct !{!61, !11}
+!62 = !{!63}
+!63 = distinct !{!63, !64, !"_ZNSt3__14__fs10filesystem6parser10PathParser11CreateBeginB8ne210000ENS_17basic_string_viewIcNS_11char_traitsIcEEEE: argument 0"}
+!64 = distinct !{!64, !"_ZNSt3__14__fs10filesystem6parser10PathParser11CreateBeginB8ne210000ENS_17basic_string_viewIcNS_11char_traitsIcEEEE"}
+!65 = !{!66}
+!66 = distinct !{!66, !67, !"_ZNSt3__14__fs10filesystem6parser10PathParser11CreateBeginB8ne210000ENS_17basic_string_viewIcNS_11char_traitsIcEEEE: argument 0"}
+!67 = distinct !{!67, !"_ZNSt3__14__fs10filesystem6parser10PathParser11CreateBeginB8ne210000ENS_17basic_string_viewIcNS_11char_traitsIcEEEE"}
+!68 = !{!69}
+!69 = distinct !{!69, !70, !"_ZNSt3__14__fs10filesystem6parser10PathParser11CreateBeginB8ne210000ENS_17basic_string_viewIcNS_11char_traitsIcEEEE: argument 0"}
+!70 = distinct !{!70, !"_ZNSt3__14__fs10filesystem6parser10PathParser11CreateBeginB8ne210000ENS_17basic_string_viewIcNS_11char_traitsIcEEEE"}
+!71 = !{!72}
+!72 = distinct !{!72, !73, !"_ZNSt3__14__fs10filesystem6parser10PathParser11CreateBeginB8ne210000ENS_17basic_string_viewIcNS_11char_traitsIcEEEE: argument 0"}
+!73 = distinct !{!73, !"_ZNSt3__14__fs10filesystem6parser10PathParser11CreateBeginB8ne210000ENS_17basic_string_viewIcNS_11char_traitsIcEEEE"}
+!74 = distinct !{!74, !11}
+!75 = distinct !{!75, !11}
+!76 = distinct !{!76, !11}
+!77 = !{!78}
+!78 = distinct !{!78, !79, !"_ZNSt3__14__fs10filesystem6parser10PathParser11CreateBeginB8ne210000ENS_17basic_string_viewIcNS_11char_traitsIcEEEE: argument 0"}
+!79 = distinct !{!79, !"_ZNSt3__14__fs10filesystem6parser10PathParser11CreateBeginB8ne210000ENS_17basic_string_viewIcNS_11char_traitsIcEEEE"}
+!80 = !{!81}
+!81 = distinct !{!81, !82, !"_ZNSt3__14__fs10filesystem6parser10PathParser11CreateBeginB8ne210000ENS_17basic_string_viewIcNS_11char_traitsIcEEEE: argument 0"}
+!82 = distinct !{!82, !"_ZNSt3__14__fs10filesystem6parser10PathParser11CreateBeginB8ne210000ENS_17basic_string_viewIcNS_11char_traitsIcEEEE"}
+!83 = distinct !{!83, !11}
+!84 = distinct !{!84, !11}
+!85 = !{!86}
+!86 = distinct !{!86, !87, !"_ZNSt3__14__fs10filesystem6parser10PathParser11CreateBeginB8ne210000ENS_17basic_string_viewIcNS_11char_traitsIcEEEE: argument 0"}
+!87 = distinct !{!87, !"_ZNSt3__14__fs10filesystem6parser10PathParser11CreateBeginB8ne210000ENS_17basic_string_viewIcNS_11char_traitsIcEEEE"}
+!88 = distinct !{!88, !11}
+!89 = !{!90}
+!90 = distinct !{!90, !91, !"_ZNSt3__14__fs10filesystem6parser10PathParser11CreateBeginB8ne210000ENS_17basic_string_viewIcNS_11char_traitsIcEEEE: argument 0"}
+!91 = distinct !{!91, !"_ZNSt3__14__fs10filesystem6parser10PathParser11CreateBeginB8ne210000ENS_17basic_string_viewIcNS_11char_traitsIcEEEE"}
+!92 = !{!93, !96, i64 24}
+!93 = !{!"_ZTSNSt3__14__fs10filesystem4path8iteratorE", !94, i64 0, !96, i64 24, !23, i64 32, !97, i64 48}
+!94 = !{!"_ZTSNSt3__14__fs10filesystem4pathE", !95, i64 0}
+!95 = !{!"_ZTSNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEE", !5, i64 0}
+!96 = !{!"p1 _ZTSNSt3__14__fs10filesystem4pathE", !15, i64 0}
+!97 = !{!"_ZTSNSt3__14__fs10filesystem4path8iterator12_ParserStateE", !5, i64 0}
+!98 = !{!93, !97, i64 48}
+!99 = !{i64 0, i64 8, !13, i64 8, i64 8, !19}
+!100 = !{!101, !101, i64 0}
+!101 = !{!"vtable pointer", !6, i64 0}
+!102 = distinct !{!102, !11}
+!103 = distinct !{!103, !11}

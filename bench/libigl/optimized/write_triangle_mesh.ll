@@ -92,7 +92,7 @@ _ZSteqIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_.exi
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %37 = load i64, ptr %36, align 8, !tbaa !10
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #8
-  store i64 %37, ptr %5, align 8, !tbaa !18
+  store i64 %37, ptr %5, align 8, !tbaa !17
   %38 = icmp ugt i64 %37, 15
   br i1 %38, label %.noexc.i, label %._crit_edge.i.i
 
@@ -102,7 +102,7 @@ _ZSteqIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_.exi
 
 .noexc:                                           ; preds = %.noexc.i
   store ptr %39, ptr %10, align 8, !tbaa !14
-  %40 = load i64, ptr %5, align 8, !tbaa !18
+  %40 = load i64, ptr %5, align 8, !tbaa !17
   store i64 %40, ptr %34, align 8, !tbaa !13
   br label %._crit_edge.i.i
 
@@ -123,7 +123,7 @@ _ZSteqIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_.exi
   br label %45
 
 45:                                               ; preds = %44, %42, %._crit_edge.i.i
-  %46 = load i64, ptr %5, align 8, !tbaa !18
+  %46 = load i64, ptr %5, align 8, !tbaa !17
   %47 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store i64 %46, ptr %47, align 8, !tbaa !10
   %48 = load ptr, ptr %10, align 8, !tbaa !14
@@ -381,7 +381,6 @@ attributes #9 = { builtin nounwind }
 !12 = !{!"long", !8, i64 0}
 !13 = !{!8, !8, i64 0}
 !14 = !{!11, !6, i64 0}
-!15 = distinct !{!15, !16, !17}
+!15 = distinct !{!15, !16}
 !16 = !{!"llvm.loop.mustprogress"}
-!17 = !{!"llvm.loop.estimated_trip_count"}
-!18 = !{!12, !12, i64 0}
+!17 = !{!12, !12, i64 0}

@@ -496,10 +496,10 @@ define dso_local i64 @getnanotime() local_unnamed_addr #0 {
   br i1 %.not.i, label %9, label %highres_nanos.exit
 
 9:                                                ; preds = %7
-  %10 = load i64, ptr %4, align 8, !tbaa !30
+  %10 = load i64, ptr %4, align 8, !tbaa !29
   %11 = mul i64 %10, 1000000000
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %13 = load i64, ptr %12, align 8, !tbaa !32
+  %13 = load i64, ptr %12, align 8, !tbaa !31
   %14 = add i64 %11, %13
   br label %highres_nanos.exit
 
@@ -545,10 +545,10 @@ highres_nanos.exit9.thread:                       ; preds = %26
   br label %41
 
 highres_nanos.exit9:                              ; preds = %26
-  %35 = load i64, ptr %1, align 8, !tbaa !30
+  %35 = load i64, ptr %1, align 8, !tbaa !29
   %36 = mul i64 %35, 1000000000
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %38 = load i64, ptr %37, align 8, !tbaa !32
+  %38 = load i64, ptr %37, align 8, !tbaa !31
   %39 = add i64 %36, %38
   %.fr = freeze i64 %39
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %1) #15
@@ -864,9 +864,9 @@ define dso_local void @trace_performance_leave_fl(ptr noundef %0, i32 noundef %1
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @trace_repo_setup(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = load ptr, ptr @startup_info, align 8, !tbaa !33
+  %2 = load ptr, ptr @startup_info, align 8, !tbaa !32
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %4 = load ptr, ptr %3, align 8, !tbaa !35
+  %4 = load ptr, ptr %3, align 8, !tbaa !34
   %5 = tail call fastcc i32 @get_trace_fd(ptr noundef nonnull @trace_setup_key, ptr noundef null)
   %.not27 = icmp eq i32 %5, 0
   br i1 %.not27, label %37, label %6
@@ -876,9 +876,9 @@ define dso_local void @trace_repo_setup(ptr noundef %0) local_unnamed_addr #0 {
   %8 = tail call ptr @repo_get_work_tree(ptr noundef %0) #15
   %.not7 = icmp eq ptr %8, null
   %spec.store.select = select i1 %.not7, ptr @.str.5, ptr %8
-  %9 = load ptr, ptr @startup_info, align 8, !tbaa !33
+  %9 = load ptr, ptr @startup_info, align 8, !tbaa !32
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %11 = load ptr, ptr %10, align 8, !tbaa !35
+  %11 = load ptr, ptr %10, align 8, !tbaa !34
   %.not8 = icmp eq ptr %11, null
   %spec.select = select i1 %.not8, ptr @.str.5, ptr %4
   %trace_setup_key.val = load i32, ptr getelementptr inbounds nuw (i8, ptr @trace_setup_key, i64 8), align 8, !tbaa !4
@@ -1024,7 +1024,7 @@ strbuf_addch.exit:                                ; preds = %strbuf_avail.exit.i
 
 18:                                               ; preds = %strbuf_addch.exit, %8, %7, %6
   %19 = getelementptr inbounds nuw i8, ptr %.0, i64 1
-  br label %strbuf_setlen.exit, !llvm.loop !37
+  br label %strbuf_setlen.exit, !llvm.loop !36
 
 20:                                               ; preds = %strbuf_setlen.exit
   %21 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @quote_crnl.new_path, i64 16), align 8, !tbaa !17
@@ -1211,14 +1211,13 @@ attributes #18 = { noreturn nounwind }
 !24 = !{!23, !10, i64 4}
 !25 = !{!23, !10, i64 0}
 !26 = !{!20, !16, i64 8}
-!27 = distinct !{!27, !28, !29}
+!27 = distinct !{!27, !28}
 !28 = !{!"llvm.loop.mustprogress"}
-!29 = !{!"llvm.loop.estimated_trip_count"}
-!30 = !{!31, !16, i64 0}
-!31 = !{!"timespec", !16, i64 0, !16, i64 8}
-!32 = !{!31, !16, i64 8}
-!33 = !{!34, !34, i64 0}
-!34 = !{!"p1 _ZTS12startup_info", !7, i64 0}
-!35 = !{!36, !6, i64 8}
-!36 = !{!"startup_info", !10, i64 0, !6, i64 8, !6, i64 16}
-!37 = distinct !{!37, !28, !29}
+!29 = !{!30, !16, i64 0}
+!30 = !{!"timespec", !16, i64 0, !16, i64 8}
+!31 = !{!30, !16, i64 8}
+!32 = !{!33, !33, i64 0}
+!33 = !{!"p1 _ZTS12startup_info", !7, i64 0}
+!34 = !{!35, !6, i64 8}
+!35 = !{!"startup_info", !10, i64 0, !6, i64 8, !6, i64 16}
+!36 = distinct !{!36, !28}

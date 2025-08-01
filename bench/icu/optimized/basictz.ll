@@ -367,7 +367,7 @@ define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7713BasicTimeZone24hasEquival
   %143 = getelementptr inbounds nuw i8, ptr %142, i64 112
   %144 = load ptr, ptr %143, align 8
   %145 = invoke noundef signext i8 %144(ptr noundef nonnull align 8 dereferenceable(72) %1, double noundef %140, i8 noundef signext 0, ptr noundef nonnull align 8 dereferenceable(32) %12)
-          to label %.split.split unwind label %.loopexit81, !llvm.loop !14
+          to label %.split.split unwind label %.loopexit81, !llvm.loop !13
 
 .loopexit.split:                                  ; preds = %107, %126, %133, %138, %.split, %61
   %.not64 = icmp eq i8 %55, 0
@@ -631,9 +631,9 @@ define void @_ZNK6icu_7713BasicTimeZone18getSimpleRulesNearEdRPNS_19InitialTimeZ
   %15 = alloca i8, align 1
   %16 = alloca i8, align 1
   %17 = alloca double, align 8
-  store ptr null, ptr %2, align 8, !tbaa !15
-  store ptr null, ptr %3, align 8, !tbaa !18
-  store ptr null, ptr %4, align 8, !tbaa !18
+  store ptr null, ptr %2, align 8, !tbaa !14
+  store ptr null, ptr %3, align 8, !tbaa !17
+  store ptr null, ptr %4, align 8, !tbaa !17
   %18 = load i32, ptr %5, align 4, !tbaa !6
   %19 = icmp slt i32 %18, 1
   br i1 %19, label %20, label %402
@@ -644,11 +644,11 @@ define void @_ZNK6icu_7713BasicTimeZone18getSimpleRulesNearEdRPNS_19InitialTimeZ
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %9) #12
   store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN6icu_7713UnicodeStringE, i64 16), ptr %9, align 8, !tbaa !3
   %21 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  store i16 2, ptr %21, align 8, !tbaa !20
+  store i16 2, ptr %21, align 8, !tbaa !19
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %10) #12
   store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN6icu_7713UnicodeStringE, i64 16), ptr %10, align 8, !tbaa !3
   %22 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  store i16 2, ptr %22, align 8, !tbaa !20
+  store i16 2, ptr %22, align 8, !tbaa !19
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11) #12
   invoke void @_ZN6icu_7718TimeZoneTransitionC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %11)
           to label %23 unwind label %76
@@ -791,9 +791,9 @@ define void @_ZNK6icu_7713BasicTimeZone18getSimpleRulesNearEdRPNS_19InitialTimeZ
 
 84:                                               ; preds = %73
   %85 = load i32, ptr %12, align 4, !tbaa !9
-  %86 = load i8, ptr %14, align 1, !tbaa !20
+  %86 = load i8, ptr %14, align 1, !tbaa !19
   %87 = sext i8 %86 to i32
-  %88 = load i8, ptr %15, align 1, !tbaa !20
+  %88 = load i8, ptr %15, align 1, !tbaa !19
   %89 = sext i8 %88 to i32
   %90 = invoke noundef i32 @_ZN6icu_775Grego16dayOfWeekInMonthEiii(i32 noundef %85, i32 noundef %87, i32 noundef %89)
           to label %91 unwind label %171
@@ -804,9 +804,9 @@ define void @_ZNK6icu_7713BasicTimeZone18getSimpleRulesNearEdRPNS_19InitialTimeZ
   br i1 %93, label %100, label %94
 
 94:                                               ; preds = %91
-  %95 = load i8, ptr %14, align 1, !tbaa !20
+  %95 = load i8, ptr %14, align 1, !tbaa !19
   %96 = sext i8 %95 to i32
-  %97 = load i8, ptr %16, align 1, !tbaa !20
+  %97 = load i8, ptr %16, align 1, !tbaa !19
   %98 = sext i8 %97 to i32
   %99 = load i32, ptr %13, align 4, !tbaa !9
   invoke void @_ZN6icu_7712DateTimeRuleC1EiiiiNS0_12TimeRuleTypeE(ptr noundef nonnull align 8 dereferenceable(36) %92, i32 noundef %96, i32 noundef %90, i32 noundef %98, i32 noundef %99, i32 noundef 0)
@@ -976,9 +976,9 @@ define void @_ZNK6icu_7713BasicTimeZone18getSimpleRulesNearEdRPNS_19InitialTimeZ
 
 179:                                              ; preds = %168
   %180 = load i32, ptr %12, align 4, !tbaa !9
-  %181 = load i8, ptr %14, align 1, !tbaa !20
+  %181 = load i8, ptr %14, align 1, !tbaa !19
   %182 = sext i8 %181 to i32
-  %183 = load i8, ptr %15, align 1, !tbaa !20
+  %183 = load i8, ptr %15, align 1, !tbaa !19
   %184 = sext i8 %183 to i32
   %185 = invoke noundef i32 @_ZN6icu_775Grego16dayOfWeekInMonthEiii(i32 noundef %180, i32 noundef %182, i32 noundef %184)
           to label %186 unwind label %175
@@ -989,9 +989,9 @@ define void @_ZNK6icu_7713BasicTimeZone18getSimpleRulesNearEdRPNS_19InitialTimeZ
   br i1 %188, label %195, label %189
 
 189:                                              ; preds = %186
-  %190 = load i8, ptr %14, align 1, !tbaa !20
+  %190 = load i8, ptr %14, align 1, !tbaa !19
   %191 = sext i8 %190 to i32
-  %192 = load i8, ptr %16, align 1, !tbaa !20
+  %192 = load i8, ptr %16, align 1, !tbaa !19
   %193 = sext i8 %192 to i32
   %194 = load i32, ptr %13, align 4, !tbaa !9
   invoke void @_ZN6icu_7712DateTimeRuleC1EiiiiNS0_12TimeRuleTypeE(ptr noundef nonnull align 8 dereferenceable(36) %187, i32 noundef %191, i32 noundef %185, i32 noundef %193, i32 noundef %194, i32 noundef 0)
@@ -1200,9 +1200,9 @@ define void @_ZNK6icu_7713BasicTimeZone18getSimpleRulesNearEdRPNS_19InitialTimeZ
 
 294:                                              ; preds = %291
   %295 = load i32, ptr %12, align 4, !tbaa !9
-  %296 = load i8, ptr %14, align 1, !tbaa !20
+  %296 = load i8, ptr %14, align 1, !tbaa !19
   %297 = sext i8 %296 to i32
-  %298 = load i8, ptr %15, align 1, !tbaa !20
+  %298 = load i8, ptr %15, align 1, !tbaa !19
   %299 = sext i8 %298 to i32
   %300 = invoke noundef i32 @_ZN6icu_775Grego16dayOfWeekInMonthEiii(i32 noundef %295, i32 noundef %297, i32 noundef %299)
           to label %301 unwind label %175
@@ -1213,9 +1213,9 @@ define void @_ZNK6icu_7713BasicTimeZone18getSimpleRulesNearEdRPNS_19InitialTimeZ
   br i1 %303, label %310, label %304
 
 304:                                              ; preds = %301
-  %305 = load i8, ptr %14, align 1, !tbaa !20
+  %305 = load i8, ptr %14, align 1, !tbaa !19
   %306 = sext i8 %305 to i32
-  %307 = load i8, ptr %16, align 1, !tbaa !20
+  %307 = load i8, ptr %16, align 1, !tbaa !19
   %308 = sext i8 %307 to i32
   %309 = load i32, ptr %13, align 4, !tbaa !9
   invoke void @_ZN6icu_7712DateTimeRuleC1EiiiiNS0_12TimeRuleTypeE(ptr noundef nonnull align 8 dereferenceable(36) %302, i32 noundef %306, i32 noundef %300, i32 noundef %308, i32 noundef %309, i32 noundef 0)
@@ -1417,7 +1417,7 @@ define void @_ZNK6icu_7713BasicTimeZone18getSimpleRulesNearEdRPNS_19InitialTimeZ
           to label %392 unwind label %399
 
 392:                                              ; preds = %389, %386
-  store ptr %387, ptr %2, align 8, !tbaa !15
+  store ptr %387, ptr %2, align 8, !tbaa !14
   %393 = icmp ne ptr %.5, null
   %394 = icmp ne ptr %.6, null
   %or.cond = and i1 %394, %393
@@ -1432,8 +1432,8 @@ define void @_ZNK6icu_7713BasicTimeZone18getSimpleRulesNearEdRPNS_19InitialTimeZ
   br i1 %.not138, label %401, label %398
 
 398:                                              ; preds = %397
-  store ptr %.5, ptr %4, align 8, !tbaa !18
-  store ptr %.6, ptr %3, align 8, !tbaa !18
+  store ptr %.5, ptr %4, align 8, !tbaa !17
+  store ptr %.6, ptr %3, align 8, !tbaa !17
   br label %.critedge
 
 399:                                              ; preds = %389
@@ -1443,8 +1443,8 @@ define void @_ZNK6icu_7713BasicTimeZone18getSimpleRulesNearEdRPNS_19InitialTimeZ
   br label %403
 
 401:                                              ; preds = %397
-  store ptr %.5, ptr %3, align 8, !tbaa !18
-  store ptr %.6, ptr %4, align 8, !tbaa !18
+  store ptr %.5, ptr %3, align 8, !tbaa !17
+  store ptr %.6, ptr %4, align 8, !tbaa !17
   br label %.critedge
 
 .critedge:                                        ; preds = %358, %392, %401, %398, %383
@@ -1523,12 +1523,12 @@ define void @_ZNK6icu_7713BasicTimeZone21getTimeZoneRulesAfterEdRPNS_19InitialTi
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %9) #12
   store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN6icu_7713UnicodeStringE, i64 16), ptr %9, align 8, !tbaa !3
   %17 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  store i16 2, ptr %17, align 8, !tbaa !20
+  store i16 2, ptr %17, align 8, !tbaa !19
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #12
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #12
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #12
-  store ptr null, ptr %2, align 8, !tbaa !15
-  store ptr null, ptr %3, align 8, !tbaa !21
+  store ptr null, ptr %2, align 8, !tbaa !14
+  store ptr null, ptr %3, align 8, !tbaa !20
   %18 = load ptr, ptr %0, align 8, !tbaa !3
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 136
   %20 = load ptr, ptr %19, align 8
@@ -1623,12 +1623,12 @@ _ZN6icu_7711LocalMemoryIPKNS_12TimeZoneRuleEED2Ev.exit290.thread: ; preds = %39
   %59 = load i32, ptr %8, align 4, !tbaa !9
   %60 = sext i32 %59 to i64
   %61 = icmp slt i64 %indvars.iv.next, %60
-  br i1 %61, label %.lr.ph, label %._crit_edge, !llvm.loop !23
+  br i1 %61, label %.lr.ph, label %._crit_edge, !llvm.loop !22
 
 .lr.ph:                                           ; preds = %.preheader391, %58
   %indvars.iv = phi i64 [ %indvars.iv.next, %58 ], [ 0, %.preheader391 ]
   %62 = getelementptr inbounds nuw ptr, ptr %43, i64 %indvars.iv
-  %63 = load ptr, ptr %62, align 8, !tbaa !24
+  %63 = load ptr, ptr %62, align 8, !tbaa !23
   %64 = load ptr, ptr %63, align 8, !tbaa !3
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 24
   %66 = load ptr, ptr %65, align 8
@@ -1677,7 +1677,7 @@ _ZN6icu_7712LocalPointerINS_12TimeZoneRuleEED2Ev.exit268: ; preds = %_ZN6icu_771
   br i1 %.not210, label %83, label %93
 
 83:                                               ; preds = %82
-  %84 = load ptr, ptr %6, align 8, !tbaa !15
+  %84 = load ptr, ptr %6, align 8, !tbaa !14
   %85 = load ptr, ptr %84, align 8, !tbaa !3
   %86 = getelementptr inbounds nuw i8, ptr %85, i64 24
   %87 = load ptr, ptr %86, align 8
@@ -1685,7 +1685,7 @@ _ZN6icu_7712LocalPointerINS_12TimeZoneRuleEED2Ev.exit268: ; preds = %_ZN6icu_771
           to label %89 unwind label %47
 
 89:                                               ; preds = %83
-  store ptr %88, ptr %2, align 8, !tbaa !15
+  store ptr %88, ptr %2, align 8, !tbaa !14
   %90 = icmp eq ptr %88, null
   br i1 %90, label %91, label %92
 
@@ -1694,7 +1694,7 @@ _ZN6icu_7712LocalPointerINS_12TimeZoneRuleEED2Ev.exit268: ; preds = %_ZN6icu_771
   br label %_ZN6icu_7711LocalMemoryIbED2Ev.exit
 
 92:                                               ; preds = %89
-  store ptr %28, ptr %3, align 8, !tbaa !21
+  store ptr %28, ptr %3, align 8, !tbaa !20
   br label %_ZN6icu_7711LocalMemoryIbED2Ev.exit
 
 93:                                               ; preds = %82
@@ -1843,22 +1843,22 @@ _ZN6icu_7712LocalPointerINS_19InitialTimeZoneRuleEEC2EPS1_R10UErrorCode.exit: ; 
   %.not251 = icmp eq i8 %149, 0
   %151 = getelementptr inbounds nuw i8, ptr %96, i64 %indvars.iv435
   %152 = zext i1 %.not251 to i8
-  store i8 %152, ptr %151, align 1, !tbaa !26
+  store i8 %152, ptr %151, align 1, !tbaa !25
   %indvars.iv.next436 = add nuw nsw i64 %indvars.iv435, 1
   %153 = load i32, ptr %8, align 4, !tbaa !9
   %154 = sext i32 %153 to i64
   %155 = icmp slt i64 %indvars.iv.next436, %154
-  br i1 %155, label %.lr.ph406, label %._crit_edge407, !llvm.loop !28
+  br i1 %155, label %.lr.ph406, label %._crit_edge407, !llvm.loop !27
 
 ._crit_edge407:                                   ; preds = %150, %.preheader390
-  store double %1, ptr %10, align 8, !tbaa !29
+  store double %1, ptr %10, align 8, !tbaa !28
   %156 = load i32, ptr @_ZN6icu_7718AnnualTimeZoneRule8MAX_YEARE, align 4
   br label %157
 
 157:                                              ; preds = %._crit_edge407, %.critedge266
   %.0171423 = phi i8 [ 0, %._crit_edge407 ], [ %.1172, %.critedge266 ]
   %.0176422 = phi i8 [ 0, %._crit_edge407 ], [ %.1177, %.critedge266 ]
-  %158 = load double, ptr %10, align 8, !tbaa !29
+  %158 = load double, ptr %10, align 8, !tbaa !28
   %159 = load ptr, ptr %0, align 8, !tbaa !3
   %160 = getelementptr inbounds nuw i8, ptr %159, i64 112
   %161 = load ptr, ptr %160, align 8
@@ -1874,7 +1874,7 @@ _ZN6icu_7712LocalPointerINS_19InitialTimeZoneRuleEEC2EPS1_R10UErrorCode.exit: ; 
           to label %166 unwind label %170
 
 166:                                              ; preds = %164
-  %167 = load double, ptr %10, align 8, !tbaa !29
+  %167 = load double, ptr %10, align 8, !tbaa !28
   %168 = fcmp oeq double %165, %167
   br i1 %168, label %169, label %172
 
@@ -1888,7 +1888,7 @@ _ZN6icu_7712LocalPointerINS_19InitialTimeZoneRuleEEC2EPS1_R10UErrorCode.exit: ; 
   br label %.thread363
 
 172:                                              ; preds = %166
-  store double %165, ptr %10, align 8, !tbaa !29
+  store double %165, ptr %10, align 8, !tbaa !28
   %173 = invoke noundef ptr @_ZNK6icu_7718TimeZoneTransition5getToEv(ptr noundef nonnull align 8 dereferenceable(32) %7)
           to label %.preheader379 unwind label %.loopexit.split-lp381
 
@@ -1926,7 +1926,7 @@ _ZN6icu_7712LocalPointerINS_19InitialTimeZoneRuleEEC2EPS1_R10UErrorCode.exit: ; 
 183:                                              ; preds = %182
   %184 = add nuw nsw i32 %.2170408, 1
   %185 = icmp slt i32 %184, %.pre444.pre
-  br i1 %185, label %.lr.ph409, label %._crit_edge410, !llvm.loop !31
+  br i1 %185, label %.lr.ph409, label %._crit_edge410, !llvm.loop !30
 
 ._crit_edge410:                                   ; preds = %183, %182
   %.2170.lcssa.ph = phi i32 [ %184, %183 ], [ %.2170408, %182 ]
@@ -1940,9 +1940,9 @@ _ZN6icu_7712LocalPointerINS_19InitialTimeZoneRuleEEC2EPS1_R10UErrorCode.exit: ; 
 187:                                              ; preds = %._crit_edge410
   %188 = zext nneg i32 %.2170.lcssa.ph to i64
   %189 = getelementptr inbounds nuw i8, ptr %96, i64 %188
-  %190 = load i8, ptr %189, align 1, !tbaa !26, !range !32, !noundef !33
+  %190 = load i8, ptr %189, align 1, !tbaa !25, !range !31, !noundef !32
   %191 = trunc nuw i8 %190 to i1
-  br i1 %191, label %.critedge266, label %192, !llvm.loop !34
+  br i1 %191, label %.critedge266, label %192, !llvm.loop !33
 
 192:                                              ; preds = %187
   %193 = call ptr @__dynamic_cast(ptr nonnull %173, ptr nonnull @_ZTIN6icu_7712TimeZoneRuleE, ptr nonnull @_ZTIN6icu_7721TimeArrayTimeZoneRuleE, i64 0) #12
@@ -1956,7 +1956,7 @@ _ZN6icu_7712LocalPointerINS_19InitialTimeZoneRuleEEC2EPS1_R10UErrorCode.exit: ; 
 
 .preheader373:                                    ; preds = %194, %210
   %storemerge = phi double [ %211, %210 ], [ %1, %194 ]
-  store double %storemerge, ptr %11, align 8, !tbaa !29
+  store double %storemerge, ptr %11, align 8, !tbaa !28
   %195 = load ptr, ptr %0, align 8, !tbaa !3
   %196 = getelementptr inbounds nuw i8, ptr %195, i64 112
   %197 = load ptr, ptr %196, align 8
@@ -1998,7 +1998,7 @@ _ZN6icu_7712LocalPointerINS_19InitialTimeZoneRuleEEC2EPS1_R10UErrorCode.exit: ; 
 
 210:                                              ; preds = %209
   %211 = invoke noundef double @_ZNK6icu_7718TimeZoneTransition7getTimeEv(ptr noundef nonnull align 8 dereferenceable(32) %13)
-          to label %.preheader373 unwind label %.loopexit374, !llvm.loop !35
+          to label %.preheader373 unwind label %.loopexit374, !llvm.loop !34
 
 212:                                              ; preds = %209
   %213 = invoke noundef ptr @_ZNK6icu_7718TimeZoneTransition7getFromEv(ptr noundef nonnull align 8 dereferenceable(32) %7)
@@ -2024,7 +2024,7 @@ _ZN6icu_7712LocalPointerINS_19InitialTimeZoneRuleEEC2EPS1_R10UErrorCode.exit: ; 
           to label %225 unwind label %.loopexit.split-lp375
 
 225:                                              ; preds = %220
-  %226 = load double, ptr %12, align 8, !tbaa !29
+  %226 = load double, ptr %12, align 8, !tbaa !28
   %227 = fcmp ogt double %226, %1
   br i1 %227, label %228, label %243
 
@@ -2089,7 +2089,7 @@ _ZN6icu_7712LocalPointerINS_21TimeArrayTimeZoneRuleEED2Ev.exit273: ; preds = %_Z
   ]
 
 ._crit_edge445:                                   ; preds = %249
-  %.pre446 = load double, ptr %11, align 8, !tbaa !29
+  %.pre446 = load double, ptr %11, align 8, !tbaa !28
   br label %266
 
 250:                                              ; preds = %249
@@ -2102,9 +2102,9 @@ _ZN6icu_7712LocalPointerINS_21TimeArrayTimeZoneRuleEED2Ev.exit273: ; preds = %_Z
 
 254:                                              ; preds = %252
   %255 = sitofp i32 %253 to double
-  %256 = load double, ptr %11, align 8, !tbaa !29
+  %256 = load double, ptr %11, align 8, !tbaa !28
   %257 = fsub double %256, %255
-  store double %257, ptr %11, align 8, !tbaa !29
+  store double %257, ptr %11, align 8, !tbaa !28
   br label %266
 
 .loopexit:                                        ; preds = %.lr.ph414, %250, %252, %258, %260
@@ -2127,9 +2127,9 @@ _ZN6icu_7712LocalPointerINS_21TimeArrayTimeZoneRuleEED2Ev.exit273: ; preds = %_Z
 
 262:                                              ; preds = %260
   %263 = sitofp i32 %261 to double
-  %264 = load double, ptr %11, align 8, !tbaa !29
+  %264 = load double, ptr %11, align 8, !tbaa !28
   %265 = fsub double %264, %263
-  store double %265, ptr %11, align 8, !tbaa !29
+  store double %265, ptr %11, align 8, !tbaa !28
   br label %266
 
 266:                                              ; preds = %._crit_edge445, %254, %262
@@ -2140,7 +2140,7 @@ _ZN6icu_7712LocalPointerINS_21TimeArrayTimeZoneRuleEED2Ev.exit273: ; preds = %_Z
 269:                                              ; preds = %266
   %270 = add nuw nsw i32 %.0167413, 1
   %exitcond.not = icmp eq i32 %270, %244
-  br i1 %exitcond.not, label %._crit_edge415, label %.lr.ph414, !llvm.loop !36
+  br i1 %exitcond.not, label %._crit_edge415, label %.lr.ph414, !llvm.loop !35
 
 ._crit_edge415:                                   ; preds = %269, %266, %.preheader372
   %.0167.lcssa = phi i32 [ 0, %.preheader372 ], [ %.0167413, %266 ], [ %244, %269 ]
@@ -2200,7 +2200,7 @@ _ZN6icu_7712LocalPointerINS_21TimeArrayTimeZoneRuleEED2Ev.exit273: ; preds = %_Z
 293:                                              ; preds = %.lr.ph420
   %indvars.iv.next439 = add nuw nsw i64 %indvars.iv438, 1
   %exitcond441.not = icmp eq i64 %indvars.iv.next439, %277
-  br i1 %exitcond441.not, label %._crit_edge421, label %.lr.ph420, !llvm.loop !37
+  br i1 %exitcond441.not, label %._crit_edge421, label %.lr.ph420, !llvm.loop !36
 
 294:                                              ; preds = %.lr.ph420
   %295 = landingpad { ptr, i32 }
@@ -2325,7 +2325,7 @@ _ZN6icu_7711LocalMemoryIdED2Ev.exit279:           ; preds = %.loopexit, %.loopex
           to label %336 unwind label %353
 
 336:                                              ; preds = %331
-  %337 = load double, ptr %12, align 8, !tbaa !29
+  %337 = load double, ptr %12, align 8, !tbaa !28
   %338 = invoke noundef double @_ZNK6icu_7718TimeZoneTransition7getTimeEv(ptr noundef nonnull align 8 dereferenceable(32) %7)
           to label %339 unwind label %353
 
@@ -2472,7 +2472,7 @@ _ZN6icu_7712LocalPointerINS_18AnnualTimeZoneRuleEED2Ev.exit285: ; preds = %_ZN6i
 .thread351:                                       ; preds = %396, %.critedge, %321, %392
   %.4180 = phi i8 [ %.0176422, %392 ], [ %.0176422, %321 ], [ %.0176422, %.critedge ], [ %.0176., %396 ]
   %.4175 = phi i8 [ %.0171423, %392 ], [ %.0171423, %321 ], [ %.0171423, %.critedge ], [ %..0171, %396 ]
-  store i8 1, ptr %189, align 1, !tbaa !26
+  store i8 1, ptr %189, align 1, !tbaa !25
   br label %.critedge266
 
 .critedge266:                                     ; preds = %187, %.thread351
@@ -2484,8 +2484,8 @@ _ZN6icu_7712LocalPointerINS_18AnnualTimeZoneRuleEED2Ev.exit285: ; preds = %_ZN6i
   br i1 %398, label %157, label %_ZN6icu_7712LocalPointerINS_19InitialTimeZoneRuleEED2Ev.exit.thread
 
 _ZN6icu_7712LocalPointerINS_19InitialTimeZoneRuleEED2Ev.exit.thread: ; preds = %163, %.critedge266
-  store ptr %119, ptr %2, align 8, !tbaa !15
-  store ptr %102, ptr %3, align 8, !tbaa !21
+  store ptr %119, ptr %2, align 8, !tbaa !14
+  store ptr %102, ptr %3, align 8, !tbaa !20
   br label %_ZN6icu_7712LocalPointerINS_7UVectorEED2Ev.exit
 
 .critedge266.thread.thread449:                    ; preds = %_ZN6icu_7712LocalPointerINS_18AnnualTimeZoneRuleEED2Ev.exit, %_ZN6icu_7712LocalPointerINS_18AnnualTimeZoneRuleEED2Ev.exit284, %362, %169, %._crit_edge410.thread, %.critedge263, %_ZN6icu_7712LocalPointerINS_19InitialTimeZoneRuleEEC2EPS1_R10UErrorCode.exit
@@ -2722,30 +2722,29 @@ attributes #14 = { allocsize(0) }
 !8 = !{!"omnipotent char", !5, i64 0}
 !9 = !{!10, !10, i64 0}
 !10 = !{!"int", !8, i64 0}
-!11 = distinct !{!11, !12, !13}
+!11 = distinct !{!11, !12}
 !12 = !{!"llvm.loop.mustprogress"}
-!13 = !{!"llvm.loop.estimated_trip_count"}
-!14 = distinct !{!14, !12, !13}
-!15 = !{!16, !16, i64 0}
-!16 = !{!"p1 _ZTSN6icu_7719InitialTimeZoneRuleE", !17, i64 0}
-!17 = !{!"any pointer", !8, i64 0}
-!18 = !{!19, !19, i64 0}
-!19 = !{!"p1 _ZTSN6icu_7718AnnualTimeZoneRuleE", !17, i64 0}
-!20 = !{!8, !8, i64 0}
-!21 = !{!22, !22, i64 0}
-!22 = !{!"p1 _ZTSN6icu_777UVectorE", !17, i64 0}
-!23 = distinct !{!23, !12, !13}
-!24 = !{!25, !25, i64 0}
-!25 = !{!"p1 _ZTSN6icu_7712TimeZoneRuleE", !17, i64 0}
-!26 = !{!27, !27, i64 0}
-!27 = !{!"bool", !8, i64 0}
-!28 = distinct !{!28, !12, !13}
-!29 = !{!30, !30, i64 0}
-!30 = !{!"double", !8, i64 0}
-!31 = distinct !{!31, !12, !13}
-!32 = !{i8 0, i8 2}
-!33 = !{}
+!13 = distinct !{!13, !12}
+!14 = !{!15, !15, i64 0}
+!15 = !{!"p1 _ZTSN6icu_7719InitialTimeZoneRuleE", !16, i64 0}
+!16 = !{!"any pointer", !8, i64 0}
+!17 = !{!18, !18, i64 0}
+!18 = !{!"p1 _ZTSN6icu_7718AnnualTimeZoneRuleE", !16, i64 0}
+!19 = !{!8, !8, i64 0}
+!20 = !{!21, !21, i64 0}
+!21 = !{!"p1 _ZTSN6icu_777UVectorE", !16, i64 0}
+!22 = distinct !{!22, !12}
+!23 = !{!24, !24, i64 0}
+!24 = !{!"p1 _ZTSN6icu_7712TimeZoneRuleE", !16, i64 0}
+!25 = !{!26, !26, i64 0}
+!26 = !{!"bool", !8, i64 0}
+!27 = distinct !{!27, !12}
+!28 = !{!29, !29, i64 0}
+!29 = !{!"double", !8, i64 0}
+!30 = distinct !{!30, !12}
+!31 = !{i8 0, i8 2}
+!32 = !{}
+!33 = distinct !{!33, !12}
 !34 = distinct !{!34, !12}
-!35 = distinct !{!35, !12, !13}
-!36 = distinct !{!36, !12, !13}
-!37 = distinct !{!37, !12, !13}
+!35 = distinct !{!35, !12}
+!36 = distinct !{!36, !12}

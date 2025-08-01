@@ -77,7 +77,7 @@ define void @_ZN8nanobind6detail14trampoline_newEPPvmS1_(ptr noundef writeonly c
   %.sroa.09.0.i.i.i.i.i = phi ptr [ %33, %._crit_edge.i.i.i.i.i ], [ %21, %.loopexit.loopexit ]
   %35 = getelementptr inbounds nuw %"class.tsl::detail_robin_hash::bucket_entry", ptr %17, i64 %34
   %.not = icmp eq ptr %.sroa.09.0.i.i.i.i.i, %35
-  br i1 %.not, label %.critedge, label %36, !prof !7
+  br i1 %.not, label %.critedge, label %36, !prof !6
 
 36:                                               ; preds = %.loopexit
   %37 = getelementptr inbounds nuw i8, ptr %.sroa.09.0.i.i.i.i.i, i64 16
@@ -121,7 +121,6 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN8nanobind6detail18trampoline_releaseEPPvm(ptr noundef readonly captures(none) %0, i64 noundef %1) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
-  %invariant.gep = getelementptr i8, ptr %0, i64 16
   %.not = icmp eq i64 %1, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
@@ -129,34 +128,35 @@ define void @_ZN8nanobind6detail18trampoline_releaseEPPvm(ptr noundef readonly c
   ret void
 
 .lr.ph:                                           ; preds = %2, %_ZL11_Py_XDECREFP7_object.exit
-  %.04 = phi i64 [ %8, %_ZL11_Py_XDECREFP7_object.exit ], [ 0, %2 ]
+  %.04 = phi i64 [ %10, %_ZL11_Py_XDECREFP7_object.exit ], [ 0, %2 ]
   %.idx = shl i64 %.04, 4
-  %gep = getelementptr i8, ptr %invariant.gep, i64 %.idx
-  %3 = load ptr, ptr %gep, align 8
-  %.not.i = icmp eq ptr %3, null
-  br i1 %.not.i, label %_ZL11_Py_XDECREFP7_object.exit, label %4
+  %3 = getelementptr i8, ptr %0, i64 %.idx
+  %4 = getelementptr i8, ptr %3, i64 16
+  %5 = load ptr, ptr %4, align 8
+  %.not.i = icmp eq ptr %5, null
+  br i1 %.not.i, label %_ZL11_Py_XDECREFP7_object.exit, label %6
 
-4:                                                ; preds = %.lr.ph
-  %5 = load i64, ptr %3, align 8
-  %6 = add nsw i64 %5, -1
-  store i64 %6, ptr %3, align 8
-  %.not.i.i = icmp eq i64 %6, 0
-  br i1 %.not.i.i, label %7, label %_ZL11_Py_XDECREFP7_object.exit
+6:                                                ; preds = %.lr.ph
+  %7 = load i64, ptr %5, align 8
+  %8 = add nsw i64 %7, -1
+  store i64 %8, ptr %5, align 8
+  %.not.i.i = icmp eq i64 %8, 0
+  br i1 %.not.i.i, label %9, label %_ZL11_Py_XDECREFP7_object.exit
 
-7:                                                ; preds = %4
-  invoke void @_Py_Dealloc(ptr noundef nonnull %3)
-          to label %_ZL11_Py_XDECREFP7_object.exit unwind label %9
+9:                                                ; preds = %6
+  invoke void @_Py_Dealloc(ptr noundef nonnull %5)
+          to label %_ZL11_Py_XDECREFP7_object.exit unwind label %11
 
-_ZL11_Py_XDECREFP7_object.exit:                   ; preds = %4, %.lr.ph, %7
-  %8 = add nuw i64 %.04, 1
-  %exitcond.not = icmp eq i64 %8, %1
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !8
+_ZL11_Py_XDECREFP7_object.exit:                   ; preds = %6, %.lr.ph, %9
+  %10 = add nuw i64 %.04, 1
+  %exitcond.not = icmp eq i64 %10, %1
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !7
 
-9:                                                ; preds = %7
-  %10 = landingpad { ptr, i32 }
+11:                                               ; preds = %9
+  %12 = landingpad { ptr, i32 }
           catch ptr null
-  %11 = extractvalue { ptr, i32 } %10, 0
-  tail call void @__clang_call_terminate(ptr %11) #9
+  %13 = extractvalue { ptr, i32 } %12, 0
+  tail call void @__clang_call_terminate(ptr %13) #9
   unreachable
 }
 
@@ -173,7 +173,7 @@ define void @_ZN8nanobind6detail16trampoline_enterEPPvmPKcbPNS0_6ticketE(ptr nou
 8:                                                ; preds = %.lr.ph.i
   %9 = add nuw i64 %.093147.i, 1
   %exitcond.not.i = icmp eq i64 %9, %1
-  br i1 %exitcond.not.i, label %.lr.ph150.preheader.i, label %.lr.ph.i, !llvm.loop !9
+  br i1 %exitcond.not.i, label %.lr.ph150.preheader.i, label %.lr.ph.i, !llvm.loop !8
 
 .lr.ph.i:                                         ; preds = %5, %8
   %.093147.i = phi i64 [ %9, %8 ], [ 0, %5 ]
@@ -215,7 +215,7 @@ define void @_ZN8nanobind6detail16trampoline_enterEPPvmPKcbPNS0_6ticketE(ptr nou
 26:                                               ; preds = %.lr.ph150.i
   %27 = add nuw i64 %.087149.i, 1
   %exitcond160.not.i = icmp eq i64 %27, %1
-  br i1 %exitcond160.not.i, label %.lr.ph152.i, label %.lr.ph150.i, !llvm.loop !10
+  br i1 %exitcond160.not.i, label %.lr.ph152.i, label %.lr.ph150.i, !llvm.loop !9
 
 .lr.ph150.i:                                      ; preds = %26, %.lr.ph150.preheader.i
   %.087149.i = phi i64 [ %27, %26 ], [ 0, %.lr.ph150.preheader.i ]
@@ -267,7 +267,7 @@ define void @_ZN8nanobind6detail16trampoline_enterEPPvmPKcbPNS0_6ticketE(ptr nou
 .thread127.i:                                     ; preds = %46, %.lr.ph152.i
   %50 = add nuw i64 %.088151.i, 1
   %exitcond161.not.i = icmp eq i64 %50, %1
-  br i1 %exitcond161.not.i, label %.thread127.thread135.i, label %.lr.ph152.i, !llvm.loop !11
+  br i1 %exitcond161.not.i, label %.thread127.thread135.i, label %.lr.ph152.i, !llvm.loop !10
 
 ._crit_edge.i:                                    ; preds = %46, %.thread127.preheader.thread.i
   %51 = phi i32 [ %7, %.thread127.preheader.thread.i ], [ %25, %46 ]
@@ -486,11 +486,10 @@ attributes #11 = { noreturn }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{!"branch_weights", !"expected", i32 2000, i32 1}
-!4 = distinct !{!4, !5, !6}
+!4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{!"llvm.loop.estimated_trip_count"}
-!7 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!8 = distinct !{!8, !5, !6}
-!9 = distinct !{!9, !5, !6}
-!10 = distinct !{!10, !5, !6}
-!11 = distinct !{!11, !5, !6}
+!6 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!7 = distinct !{!7, !5}
+!8 = distinct !{!8, !5}
+!9 = distinct !{!9, !5}
+!10 = distinct !{!10, !5}

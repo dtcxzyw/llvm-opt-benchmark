@@ -315,8 +315,8 @@ define internal i32 @read_header(ptr noundef %0) #1 {
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -2147483648, 1) i32 @read_packet(ptr noundef readonly captures(none) %0, ptr noundef %1) #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %4 = load ptr, ptr %3, align 8, !tbaa !53
-  %5 = load ptr, ptr %4, align 8, !tbaa !54
+  %4 = load ptr, ptr %3, align 8, !tbaa !52
+  %5 = load ptr, ptr %4, align 8, !tbaa !53
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %7 = load ptr, ptr %6, align 8, !tbaa !28
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -333,9 +333,9 @@ define internal range(i32 -2147483648, 1) i32 @read_packet(ptr noundef readonly 
 
 17:                                               ; preds = %2
   %18 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %19 = load i32, ptr %18, align 4, !tbaa !56
+  %19 = load i32, ptr %18, align 4, !tbaa !55
   %20 = add i32 %19, 1
-  store i32 %20, ptr %18, align 4, !tbaa !56
+  store i32 %20, ptr %18, align 4, !tbaa !55
   %21 = load i32, ptr %9, align 4, !tbaa !44
   %22 = icmp ugt i32 %20, %21
   br i1 %22, label %35, label %23
@@ -353,9 +353,9 @@ define internal range(i32 -2147483648, 1) i32 @read_packet(ptr noundef readonly 
 31:                                               ; preds = %23
   %32 = zext i32 %13 to i64
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  store i64 %32, ptr %33, align 8, !tbaa !57
+  store i64 %32, ptr %33, align 8, !tbaa !56
   %34 = getelementptr inbounds nuw i8, ptr %1, i64 36
-  store i32 0, ptr %34, align 4, !tbaa !58
+  store i32 0, ptr %34, align 4, !tbaa !57
   br label %35
 
 35:                                               ; preds = %23, %17, %2, %31
@@ -366,10 +366,10 @@ define internal range(i32 -2147483648, 1) i32 @read_packet(ptr noundef readonly 
 ; Function Attrs: nounwind uwtable
 define internal i32 @read_seek(ptr noundef %0, i32 noundef %1, i64 noundef %2, i32 %3) #1 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %6 = load ptr, ptr %5, align 8, !tbaa !53
+  %6 = load ptr, ptr %5, align 8, !tbaa !52
   %7 = sext i32 %1 to i64
   %8 = getelementptr inbounds ptr, ptr %6, i64 %7
-  %9 = load ptr, ptr %8, align 8, !tbaa !54
+  %9 = load ptr, ptr %8, align 8, !tbaa !53
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %11 = load ptr, ptr %10, align 8, !tbaa !12
   %spec.store.select = tail call i64 @llvm.smax.i64(i64 %2, i64 0)
@@ -410,7 +410,7 @@ define internal i32 @read_seek(ptr noundef %0, i32 noundef %1, i64 noundef %2, i
 40:                                               ; preds = %4
   %41 = trunc i64 %.022 to i32
   %42 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  store i32 %41, ptr %42, align 4, !tbaa !56
+  store i32 %41, ptr %42, align 4, !tbaa !55
   %43 = load i32, ptr %12, align 4, !tbaa !43
   %44 = zext i32 %43 to i64
   %45 = mul nuw nsw i64 %.022, %44
@@ -523,12 +523,11 @@ attributes #6 = { nounwind willreturn memory(none) }
 !47 = !{!29, !22, i64 40}
 !48 = !{!36, !10, i64 4}
 !49 = !{!36, !6, i64 16}
-!50 = distinct !{!50, !51, !52}
+!50 = distinct !{!50, !51}
 !51 = !{!"llvm.loop.mustprogress"}
-!52 = !{!"llvm.loop.estimated_trip_count"}
-!53 = !{!13, !18, i64 48}
-!54 = !{!55, !55, i64 0}
-!55 = !{!"p1 _ZTS8AVStream", !7, i64 0}
-!56 = !{!40, !10, i64 8}
-!57 = !{!32, !22, i64 64}
-!58 = !{!32, !10, i64 36}
+!52 = !{!13, !18, i64 48}
+!53 = !{!54, !54, i64 0}
+!54 = !{!"p1 _ZTS8AVStream", !7, i64 0}
+!55 = !{!40, !10, i64 8}
+!56 = !{!32, !22, i64 64}
+!57 = !{!32, !10, i64 36}

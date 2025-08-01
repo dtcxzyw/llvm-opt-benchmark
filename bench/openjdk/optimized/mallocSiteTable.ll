@@ -124,14 +124,14 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN15MallocSiteTable13allocation_
 
 7:                                                ; preds = %4
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 40
-  %9 = tail call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 1, ptr nonnull align 8 dereferenceable(32) %8) #14, !srcloc !10
+  %9 = tail call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 1, ptr nonnull align 8 dereferenceable(32) %8) #14, !srcloc !9
   %.not.i.i = icmp eq i64 %1, 0
   br i1 %.not.i.i, label %_ZN10MallocSite8allocateEm.exit, label %10
 
 10:                                               ; preds = %7
   %11 = add i64 %9, 1
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 48
-  %13 = tail call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %1, ptr nonnull %12) #14, !srcloc !10
+  %13 = tail call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %1, ptr nonnull %12) #14, !srcloc !9
   %14 = add i64 %13, %1
   tail call void @_ZN13MemoryCounter11update_peakEmm(ptr noundef nonnull align 8 dereferenceable(32) %8, i64 noundef %14, i64 noundef %11) #14
   br label %_ZN10MallocSite8allocateEm.exit
@@ -206,7 +206,7 @@ _ZNK15NativeCallStack14calculate_hashEv.exit:     ; preds = %6
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
   %35 = load ptr, ptr @_ZN15MallocSiteTable6_tableE, align 8
   %36 = getelementptr inbounds nuw ptr, ptr %35, i64 %14
-  %37 = tail call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %20, ptr null, ptr %36) #14, !srcloc !11
+  %37 = tail call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %20, ptr null, ptr %36) #14, !srcloc !10
   %38 = icmp eq ptr %37, null
   br i1 %38, label %39, label %41
 
@@ -294,7 +294,7 @@ _ZNK15NativeCallStack14calculate_hashEv.exit:     ; preds = %6
   %75 = getelementptr inbounds nuw i8, ptr %61, i64 80
   store volatile ptr null, ptr %75, align 8
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
-  %76 = tail call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %61, ptr null, ptr nonnull %55) #14, !srcloc !11
+  %76 = tail call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %61, ptr null, ptr nonnull %55) #14, !srcloc !10
   %77 = icmp eq ptr %76, null
   br i1 %77, label %78, label %82
 
@@ -313,7 +313,7 @@ _ZNK15NativeCallStack14calculate_hashEv.exit:     ; preds = %6
   %85 = add nuw nsw i32 %.04360, 1
   %86 = icmp ne ptr %84, null
   %87 = select i1 %86, i1 %58, i1 false
-  br i1 %87, label %.lr.ph, label %.loopexit, !llvm.loop !12
+  br i1 %87, label %.lr.ph, label %.loopexit, !llvm.loop !11
 
 .loopexit.sink.split:                             ; preds = %39, %51, %78
   %.sink = phi i32 [ %81, %78 ], [ %53, %51 ], [ %40, %39 ]
@@ -401,12 +401,12 @@ define hidden noundef zeroext i1 @_ZN15MallocSiteTable4walkEP16MallocSiteWalker(
   %10 = getelementptr inbounds nuw i8, ptr %.0712, i64 80
   %11 = load volatile ptr, ptr %10, align 8
   %.not = icmp eq ptr %11, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !13
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %9, %2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond = icmp eq i64 %indvars.iv.next, 4099
-  br i1 %exitcond, label %.loopexit, label %2, !llvm.loop !14
+  br i1 %exitcond, label %.loopexit, label %2, !llvm.loop !13
 
 .loopexit:                                        ; preds = %._crit_edge, %.lr.ph
   %12 = phi i1 [ false, %.lr.ph ], [ true, %._crit_edge ]
@@ -416,7 +416,7 @@ define hidden noundef zeroext i1 @_ZN15MallocSiteTable4walkEP16MallocSiteWalker(
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef zeroext i1 @_ZN24MallocSiteHashtableEntry13atomic_insertEPS_(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %4 = tail call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %1, ptr null, ptr nonnull %3) #14, !srcloc !11
+  %4 = tail call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %1, ptr null, ptr nonnull %3) #14, !srcloc !10
   %5 = icmp eq ptr %4, null
   ret i1 %5
 }
@@ -444,7 +444,7 @@ define hidden noundef ptr @_ZN15MallocSiteTable11malloc_siteEj(i32 noundef %0) l
   %15 = icmp samesign ult i64 %12, %8
   %16 = icmp ne ptr %14, null
   %17 = select i1 %15, i1 %16, i1 false
-  br i1 %17, label %.lr.ph, label %._crit_edge, !llvm.loop !15
+  br i1 %17, label %.lr.ph, label %._crit_edge, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
   %.08.lcssa = phi ptr [ %6, %1 ], [ %14, %.lr.ph ]
@@ -476,12 +476,12 @@ define hidden noundef zeroext i1 @_ZN15MallocSiteTable16walk_malloc_siteEP16Mall
   %10 = getelementptr inbounds nuw i8, ptr %.0712.i, i64 80
   %11 = load volatile ptr, ptr %10, align 8
   %.not.i = icmp eq ptr %11, null
-  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !13
+  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !12
 
 ._crit_edge.i:                                    ; preds = %9, %2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.i = icmp eq i64 %indvars.iv.next.i, 4099
-  br i1 %exitcond.i, label %_ZN15MallocSiteTable4walkEP16MallocSiteWalker.exit, label %2, !llvm.loop !14
+  br i1 %exitcond.i, label %_ZN15MallocSiteTable4walkEP16MallocSiteWalker.exit, label %2, !llvm.loop !13
 
 _ZN15MallocSiteTable4walkEP16MallocSiteWalker.exit: ; preds = %._crit_edge.i, %.lr.ph.i
   %12 = phi i1 [ false, %.lr.ph.i ], [ true, %._crit_edge.i ]
@@ -530,7 +530,7 @@ define hidden void @_ZN15MallocSiteTable23print_tuning_statisticsEP12outputStrea
   %21 = getelementptr inbounds nuw i8, ptr %.03647, i64 80
   %22 = load volatile ptr, ptr %21, align 8
   %.not = icmp eq ptr %22, null
-  br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !16
+  br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !15
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
   %23 = tail call i32 @llvm.smin.i32(i32 %11, i32 65535)
@@ -545,7 +545,7 @@ define hidden void @_ZN15MallocSiteTable23print_tuning_statisticsEP12outputStrea
   store i16 %.037.lcssa, ptr %25, align 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4099
-  br i1 %exitcond.not, label %26, label %4, !llvm.loop !17
+  br i1 %exitcond.not, label %26, label %4, !llvm.loop !16
 
 26:                                               ; preds = %._crit_edge
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str) #14
@@ -580,7 +580,7 @@ define hidden void @_ZN15MallocSiteTable23print_tuning_statisticsEP12outputStrea
   call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.11, i32 noundef %41, i32 noundef %40) #14
   %indvars.iv.next59 = add nuw nsw i64 %indvars.iv58, 1
   %exitcond61.not = icmp eq i64 %indvars.iv.next59, 5
-  br i1 %exitcond61.not, label %42, label %38, !llvm.loop !18
+  br i1 %exitcond61.not, label %42, label %38, !llvm.loop !17
 
 42:                                               ; preds = %38
   call void @_ZN12outputStream2crEv(ptr noundef nonnull align 8 dereferenceable(56) %0) #14
@@ -653,15 +653,14 @@ attributes #14 = { nounwind }
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
 !6 = !{!"branch_weights", i32 1, i32 1048575}
-!7 = distinct !{!7, !8, !9}
+!7 = distinct !{!7, !8}
 !8 = !{!"llvm.loop.mustprogress"}
-!9 = !{!"llvm.loop.estimated_trip_count"}
-!10 = !{i64 2145411697}
-!11 = !{i64 2145412694}
-!12 = distinct !{!12, !8, !9}
-!13 = distinct !{!13, !8, !9}
-!14 = distinct !{!14, !8, !9}
-!15 = distinct !{!15, !8, !9}
-!16 = distinct !{!16, !8, !9}
-!17 = distinct !{!17, !8, !9}
-!18 = distinct !{!18, !8, !9}
+!9 = !{i64 2145411697}
+!10 = !{i64 2145412694}
+!11 = distinct !{!11, !8}
+!12 = distinct !{!12, !8}
+!13 = distinct !{!13, !8}
+!14 = distinct !{!14, !8}
+!15 = distinct !{!15, !8}
+!16 = distinct !{!16, !8}
+!17 = distinct !{!17, !8}

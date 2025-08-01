@@ -38,7 +38,7 @@ crc16_for_byte.exit:                              ; preds = %8
   %18 = xor i16 %14, %17
   %19 = add nuw i64 %.09, 1
   %exitcond.not = icmp eq i64 %19, %2
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !6
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !5
 
 ._crit_edge:                                      ; preds = %crc16_for_byte.exit, %3
   %.07.lcssa = phi i16 [ %0, %3 ], [ %18, %crc16_for_byte.exit ]
@@ -52,7 +52,6 @@ attributes #0 = { nofree norecurse nosync nounwind memory(argmem: read) uwtable 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = distinct !{!3, !4, !5}
+!3 = distinct !{!3, !4}
 !4 = !{!"llvm.loop.mustprogress"}
-!5 = !{!"llvm.loop.estimated_trip_count"}
-!6 = distinct !{!6, !4, !5}
+!5 = distinct !{!5, !4}

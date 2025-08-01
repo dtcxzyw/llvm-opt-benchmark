@@ -84,9 +84,9 @@ define dso_local i32 @versioncmp(ptr noundef %0, ptr noundef %1) local_unnamed_a
 37:                                               ; preds = %._crit_edge
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #4
-  %38 = load ptr, ptr @the_repository, align 8, !tbaa !10
+  %38 = load ptr, ptr @the_repository, align 8, !tbaa !9
   %39 = call i32 @repo_config_get_string_multi(ptr noundef %38, ptr noundef nonnull @.str, ptr noundef nonnull %3) #4
-  %40 = load ptr, ptr @the_repository, align 8, !tbaa !10
+  %40 = load ptr, ptr @the_repository, align 8, !tbaa !9
   %41 = call i32 @repo_config_get_string_multi(ptr noundef %40, ptr noundef nonnull @.str.1, ptr noundef nonnull %4) #4
   %42 = icmp ne i32 %39, 0
   %43 = icmp ne i32 %41, 0
@@ -104,8 +104,8 @@ define dso_local i32 @versioncmp(ptr noundef %0, ptr noundef %1) local_unnamed_a
 
 .sink.split:                                      ; preds = %44, %.thread
   %.sink95 = phi ptr [ %3, %.thread ], [ %.mux, %44 ]
-  %46 = load ptr, ptr %.sink95, align 8, !tbaa !13
-  store ptr %46, ptr @prereleases, align 8, !tbaa !13
+  %46 = load ptr, ptr %.sink95, align 8, !tbaa !12
+  store ptr %46, ptr @prereleases, align 8, !tbaa !12
   br label %47
 
 47:                                               ; preds = %44, %.sink.split
@@ -115,7 +115,7 @@ define dso_local i32 @versioncmp(ptr noundef %0, ptr noundef %1) local_unnamed_a
   br label %48
 
 48:                                               ; preds = %47, %._crit_edge
-  %49 = load ptr, ptr @prereleases, align 8, !tbaa !13
+  %49 = load ptr, ptr @prereleases, align 8, !tbaa !12
   %.not = icmp eq ptr %49, null
   br i1 %.not, label %swap_prereleases.exit.thread, label %50
 
@@ -126,7 +126,7 @@ define dso_local i32 @versioncmp(ptr noundef %0, ptr noundef %1) local_unnamed_a
   %54 = add i64 %51, %53
   %55 = trunc i64 %54 to i32
   %56 = getelementptr inbounds nuw i8, ptr %49, i64 8
-  %57 = load i64, ptr %56, align 8, !tbaa !15
+  %57 = load i64, ptr %56, align 8, !tbaa !14
   %.not.i = icmp eq i64 %57, 0
   br i1 %.not.i, label %swap_prereleases.exit.thread, label %.lr.ph.i
 
@@ -147,9 +147,9 @@ define dso_local i32 @versioncmp(ptr noundef %0, ptr noundef %1) local_unnamed_a
   %.sroa.044.051.i = phi i32 [ %.sroa.044.1.i, %find_better_matching_suffix.exit43.i ], [ -1, %50 ]
   %.sroa.545.050.i = phi i32 [ %.sroa.545.1.i, %find_better_matching_suffix.exit43.i ], [ %55, %50 ]
   %.sroa.846.049.i = phi i32 [ %.sroa.846.1.i, %find_better_matching_suffix.exit43.i ], [ -1, %50 ]
-  %62 = load ptr, ptr %61, align 8, !tbaa !20
+  %62 = load ptr, ptr %61, align 8, !tbaa !19
   %63 = getelementptr inbounds nuw %struct.string_list_item, ptr %62, i64 %.02955.i
-  %64 = load ptr, ptr %63, align 8, !tbaa !21
+  %64 = load ptr, ptr %63, align 8, !tbaa !20
   %65 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %64) #5
   %66 = trunc i64 %65 to i32
   %67 = icmp sgt i32 %55, %66
@@ -182,7 +182,7 @@ define dso_local i32 @versioncmp(ptr noundef %0, ptr noundef %1) local_unnamed_a
   %indvars.iv.next.i.i = add nsw i64 %indvars.iv.i.i, 1
   %lftr.wideiv.i.i = trunc i64 %indvars.iv.next.i.i to i32
   %exitcond.not.i.i = icmp eq i32 %74, %lftr.wideiv.i.i
-  br i1 %exitcond.not.i.i, label %find_better_matching_suffix.exit.i, label %.lr.ph.i.i, !llvm.loop !24
+  br i1 %exitcond.not.i.i, label %find_better_matching_suffix.exit.i, label %.lr.ph.i.i, !llvm.loop !23
 
 find_better_matching_suffix.exit.i:               ; preds = %79, %77, %.lr.ph.i
   %.sroa.846.1.i = phi i32 [ %.sroa.846.049.i, %.lr.ph.i ], [ %66, %77 ], [ %.sroa.846.049.i, %79 ]
@@ -214,18 +214,18 @@ find_better_matching_suffix.exit.i:               ; preds = %79, %77, %.lr.ph.i
   %indvars.iv.next.i40.i = add nsw i64 %indvars.iv.i38.i, 1
   %lftr.wideiv.i41.i = trunc i64 %indvars.iv.next.i40.i to i32
   %exitcond.not.i42.i = icmp eq i32 %84, %lftr.wideiv.i41.i
-  br i1 %exitcond.not.i42.i, label %find_better_matching_suffix.exit43.i, label %.lr.ph.i37.i, !llvm.loop !24
+  br i1 %exitcond.not.i42.i, label %find_better_matching_suffix.exit43.i, label %.lr.ph.i37.i, !llvm.loop !23
 
 find_better_matching_suffix.exit43.i:             ; preds = %89, %87, %find_better_matching_suffix.exit.i
   %.sroa.8.1.i = phi i32 [ %.sroa.8.052.i, %find_better_matching_suffix.exit.i ], [ %66, %87 ], [ %.sroa.8.052.i, %89 ]
   %.sroa.5.1.i = phi i32 [ %.sroa.5.053.i, %find_better_matching_suffix.exit.i ], [ %88, %87 ], [ %.sroa.5.053.i, %89 ]
   %.sroa.0.1.i = phi i32 [ %.sroa.0.054.i, %find_better_matching_suffix.exit.i ], [ %69, %87 ], [ %.sroa.0.054.i, %89 ]
   %90 = add nuw i64 %.02955.i, 1
-  %91 = load ptr, ptr @prereleases, align 8, !tbaa !13
+  %91 = load ptr, ptr @prereleases, align 8, !tbaa !12
   %92 = getelementptr inbounds nuw i8, ptr %91, i64 8
-  %93 = load i64, ptr %92, align 8, !tbaa !15
+  %93 = load i64, ptr %92, align 8, !tbaa !14
   %94 = icmp ult i64 %90, %93
-  br i1 %94, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !25
+  br i1 %94, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !24
 
 95:                                               ; preds = %._crit_edge.i
   %96 = icmp sgt i32 %.sroa.044.1.i, -1
@@ -275,7 +275,7 @@ swap_prereleases.exit.thread:                     ; preds = %50, %._crit_edge.i,
   %123 = load i8, ptr %122, align 1, !tbaa !4
   %124 = and i8 %123, 2
   %.not47 = icmp eq i8 %124, 0
-  br i1 %.not47, label %.loopexit, label %.preheader, !llvm.loop !26
+  br i1 %.not47, label %.loopexit, label %.preheader, !llvm.loop !25
 
 125:                                              ; preds = %.preheader
   %126 = load i8, ptr %.136, align 1, !tbaa !4
@@ -327,23 +327,22 @@ attributes #5 = { nounwind willreturn memory(read) }
 !4 = !{!5, !5, i64 0}
 !5 = !{!"omnipotent char", !6, i64 0}
 !6 = !{!"Simple C/C++ TBAA"}
-!7 = distinct !{!7, !8, !9}
+!7 = distinct !{!7, !8}
 !8 = !{!"llvm.loop.mustprogress"}
-!9 = !{!"llvm.loop.estimated_trip_count"}
-!10 = !{!11, !11, i64 0}
-!11 = !{!"p1 _ZTS10repository", !12, i64 0}
-!12 = !{!"any pointer", !5, i64 0}
-!13 = !{!14, !14, i64 0}
-!14 = !{!"p1 _ZTS11string_list", !12, i64 0}
-!15 = !{!16, !18, i64 8}
-!16 = !{!"string_list", !17, i64 0, !18, i64 8, !18, i64 16, !19, i64 24, !12, i64 32}
-!17 = !{!"p1 _ZTS16string_list_item", !12, i64 0}
-!18 = !{!"long", !5, i64 0}
-!19 = !{!"int", !5, i64 0}
-!20 = !{!16, !17, i64 0}
-!21 = !{!22, !23, i64 0}
-!22 = !{!"string_list_item", !23, i64 0, !12, i64 8}
-!23 = !{!"p1 omnipotent char", !12, i64 0}
-!24 = distinct !{!24, !8, !9}
-!25 = distinct !{!25, !8, !9}
-!26 = distinct !{!26, !8, !9}
+!9 = !{!10, !10, i64 0}
+!10 = !{!"p1 _ZTS10repository", !11, i64 0}
+!11 = !{!"any pointer", !5, i64 0}
+!12 = !{!13, !13, i64 0}
+!13 = !{!"p1 _ZTS11string_list", !11, i64 0}
+!14 = !{!15, !17, i64 8}
+!15 = !{!"string_list", !16, i64 0, !17, i64 8, !17, i64 16, !18, i64 24, !11, i64 32}
+!16 = !{!"p1 _ZTS16string_list_item", !11, i64 0}
+!17 = !{!"long", !5, i64 0}
+!18 = !{!"int", !5, i64 0}
+!19 = !{!15, !16, i64 0}
+!20 = !{!21, !22, i64 0}
+!21 = !{!"string_list_item", !22, i64 0, !11, i64 8}
+!22 = !{!"p1 omnipotent char", !11, i64 0}
+!23 = distinct !{!23, !8}
+!24 = distinct !{!24, !8}
+!25 = distinct !{!25, !8}

@@ -264,32 +264,32 @@ define hidden void @_ZN19OpenColorIO_v2_5dev20applyTetrahedralAVX2EPKfiS1_Pfi(pt
   %219 = call <8 x i32> @llvm.x86.avx.cvtt.ps2dq.256(<8 x float> %203)
   %220 = call <8 x i32> @llvm.x86.avx.cvtt.ps2dq.256(<8 x float> %207)
   %221 = call <8 x i32> @llvm.x86.avx.cvtt.ps2dq.256(<8 x float> %211)
-  %222 = call <8 x float> @llvm.x86.avx2.gather.d.ps.256(<8 x float> zeroinitializer, ptr %0, <8 x i32> %218, <8 x float> splat (float 0xFFFFFFFFE0000000), i8 4), !noalias !12
+  %222 = call <8 x float> @llvm.x86.avx2.gather.d.ps.256(<8 x float> zeroinitializer, ptr %0, <8 x i32> %218, <8 x float> splat (float 0xFFFFFFFFE0000000), i8 4), !noalias !11
   %223 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %224 = call <8 x float> @llvm.x86.avx2.gather.d.ps.256(<8 x float> zeroinitializer, ptr nonnull %223, <8 x i32> %218, <8 x float> splat (float 0xFFFFFFFFE0000000), i8 4), !noalias !12
+  %224 = call <8 x float> @llvm.x86.avx2.gather.d.ps.256(<8 x float> zeroinitializer, ptr nonnull %223, <8 x i32> %218, <8 x float> splat (float 0xFFFFFFFFE0000000), i8 4), !noalias !11
   %225 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %226 = call <8 x float> @llvm.x86.avx2.gather.d.ps.256(<8 x float> zeroinitializer, ptr nonnull %225, <8 x i32> %218, <8 x float> splat (float 0xFFFFFFFFE0000000), i8 4), !noalias !12
+  %226 = call <8 x float> @llvm.x86.avx2.gather.d.ps.256(<8 x float> zeroinitializer, ptr nonnull %225, <8 x i32> %218, <8 x float> splat (float 0xFFFFFFFFE0000000), i8 4), !noalias !11
   %227 = fsub <8 x float> splat (float 1.000000e+00), %216
   %228 = fmul <8 x float> %227, %222
   %229 = fmul <8 x float> %227, %224
   %230 = fmul <8 x float> %227, %226
-  %231 = call <8 x float> @llvm.x86.avx2.gather.d.ps.256(<8 x float> zeroinitializer, ptr %0, <8 x i32> %219, <8 x float> splat (float 0xFFFFFFFFE0000000), i8 4), !noalias !12
-  %232 = call <8 x float> @llvm.x86.avx2.gather.d.ps.256(<8 x float> zeroinitializer, ptr nonnull %223, <8 x i32> %219, <8 x float> splat (float 0xFFFFFFFFE0000000), i8 4), !noalias !12
-  %233 = call <8 x float> @llvm.x86.avx2.gather.d.ps.256(<8 x float> zeroinitializer, ptr nonnull %225, <8 x i32> %219, <8 x float> splat (float 0xFFFFFFFFE0000000), i8 4), !noalias !12
+  %231 = call <8 x float> @llvm.x86.avx2.gather.d.ps.256(<8 x float> zeroinitializer, ptr %0, <8 x i32> %219, <8 x float> splat (float 0xFFFFFFFFE0000000), i8 4), !noalias !11
+  %232 = call <8 x float> @llvm.x86.avx2.gather.d.ps.256(<8 x float> zeroinitializer, ptr nonnull %223, <8 x i32> %219, <8 x float> splat (float 0xFFFFFFFFE0000000), i8 4), !noalias !11
+  %233 = call <8 x float> @llvm.x86.avx2.gather.d.ps.256(<8 x float> zeroinitializer, ptr nonnull %225, <8 x i32> %219, <8 x float> splat (float 0xFFFFFFFFE0000000), i8 4), !noalias !11
   %234 = fsub <8 x float> %216, %217
   %235 = call noundef <8 x float> @llvm.fma.v8f32(<8 x float> %234, <8 x float> %231, <8 x float> %228)
   %236 = call noundef <8 x float> @llvm.fma.v8f32(<8 x float> %234, <8 x float> %232, <8 x float> %229)
   %237 = call noundef <8 x float> @llvm.fma.v8f32(<8 x float> %234, <8 x float> %233, <8 x float> %230)
-  %238 = call <8 x float> @llvm.x86.avx2.gather.d.ps.256(<8 x float> zeroinitializer, ptr %0, <8 x i32> %220, <8 x float> splat (float 0xFFFFFFFFE0000000), i8 4), !noalias !12
-  %239 = call <8 x float> @llvm.x86.avx2.gather.d.ps.256(<8 x float> zeroinitializer, ptr nonnull %223, <8 x i32> %220, <8 x float> splat (float 0xFFFFFFFFE0000000), i8 4), !noalias !12
-  %240 = call <8 x float> @llvm.x86.avx2.gather.d.ps.256(<8 x float> zeroinitializer, ptr nonnull %225, <8 x i32> %220, <8 x float> splat (float 0xFFFFFFFFE0000000), i8 4), !noalias !12
+  %238 = call <8 x float> @llvm.x86.avx2.gather.d.ps.256(<8 x float> zeroinitializer, ptr %0, <8 x i32> %220, <8 x float> splat (float 0xFFFFFFFFE0000000), i8 4), !noalias !11
+  %239 = call <8 x float> @llvm.x86.avx2.gather.d.ps.256(<8 x float> zeroinitializer, ptr nonnull %223, <8 x i32> %220, <8 x float> splat (float 0xFFFFFFFFE0000000), i8 4), !noalias !11
+  %240 = call <8 x float> @llvm.x86.avx2.gather.d.ps.256(<8 x float> zeroinitializer, ptr nonnull %225, <8 x i32> %220, <8 x float> splat (float 0xFFFFFFFFE0000000), i8 4), !noalias !11
   %241 = fsub <8 x float> %217, %214
   %242 = call noundef <8 x float> @llvm.fma.v8f32(<8 x float> %241, <8 x float> %238, <8 x float> %235)
   %243 = call noundef <8 x float> @llvm.fma.v8f32(<8 x float> %241, <8 x float> %239, <8 x float> %236)
   %244 = call noundef <8 x float> @llvm.fma.v8f32(<8 x float> %241, <8 x float> %240, <8 x float> %237)
-  %245 = call <8 x float> @llvm.x86.avx2.gather.d.ps.256(<8 x float> zeroinitializer, ptr %0, <8 x i32> %221, <8 x float> splat (float 0xFFFFFFFFE0000000), i8 4), !noalias !12
-  %246 = call <8 x float> @llvm.x86.avx2.gather.d.ps.256(<8 x float> zeroinitializer, ptr nonnull %223, <8 x i32> %221, <8 x float> splat (float 0xFFFFFFFFE0000000), i8 4), !noalias !12
-  %247 = call <8 x float> @llvm.x86.avx2.gather.d.ps.256(<8 x float> zeroinitializer, ptr nonnull %225, <8 x i32> %221, <8 x float> splat (float 0xFFFFFFFFE0000000), i8 4), !noalias !12
+  %245 = call <8 x float> @llvm.x86.avx2.gather.d.ps.256(<8 x float> zeroinitializer, ptr %0, <8 x i32> %221, <8 x float> splat (float 0xFFFFFFFFE0000000), i8 4), !noalias !11
+  %246 = call <8 x float> @llvm.x86.avx2.gather.d.ps.256(<8 x float> zeroinitializer, ptr nonnull %223, <8 x i32> %221, <8 x float> splat (float 0xFFFFFFFFE0000000), i8 4), !noalias !11
+  %247 = call <8 x float> @llvm.x86.avx2.gather.d.ps.256(<8 x float> zeroinitializer, ptr nonnull %225, <8 x i32> %221, <8 x float> splat (float 0xFFFFFFFFE0000000), i8 4), !noalias !11
   %248 = call noundef <8 x float> @llvm.fma.v8f32(<8 x float> %214, <8 x float> %245, <8 x float> %242)
   %249 = call noundef <8 x float> @llvm.fma.v8f32(<8 x float> %214, <8 x float> %246, <8 x float> %243)
   %250 = call noundef <8 x float> @llvm.fma.v8f32(<8 x float> %214, <8 x float> %247, <8 x float> %244)
@@ -317,28 +317,28 @@ define hidden void @_ZN19OpenColorIO_v2_5dev20applyTetrahedralAVX2EPKfiS1_Pfi(pt
 .lr.ph128.i:                                      ; preds = %.lr.ph128.i, %.lr.ph128.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph128.preheader.i ], [ %indvars.iv.next.i, %.lr.ph128.i ]
   %.1125.i = phi ptr [ %.068.lcssa.i, %.lr.ph128.preheader.i ], [ %277, %.lr.ph128.i ]
-  %263 = load float, ptr %.1125.i, align 4, !tbaa !15
+  %263 = load float, ptr %.1125.i, align 4, !tbaa !14
   %264 = getelementptr inbounds nuw [32 x float], ptr %6, i64 0, i64 %indvars.iv.i
-  store float %263, ptr %264, align 16, !tbaa !15
+  store float %263, ptr %264, align 16, !tbaa !14
   %265 = getelementptr inbounds nuw i8, ptr %.1125.i, i64 4
-  %266 = load float, ptr %265, align 4, !tbaa !15
+  %266 = load float, ptr %265, align 4, !tbaa !14
   %267 = or disjoint i64 %indvars.iv.i, 1
   %268 = getelementptr inbounds nuw [32 x float], ptr %6, i64 0, i64 %267
-  store float %266, ptr %268, align 4, !tbaa !15
+  store float %266, ptr %268, align 4, !tbaa !14
   %269 = getelementptr inbounds nuw i8, ptr %.1125.i, i64 8
-  %270 = load float, ptr %269, align 4, !tbaa !15
+  %270 = load float, ptr %269, align 4, !tbaa !14
   %271 = or disjoint i64 %indvars.iv.i, 2
   %272 = getelementptr inbounds nuw [32 x float], ptr %6, i64 0, i64 %271
-  store float %270, ptr %272, align 8, !tbaa !15
+  store float %270, ptr %272, align 8, !tbaa !14
   %273 = getelementptr inbounds nuw i8, ptr %.1125.i, i64 12
-  %274 = load float, ptr %273, align 4, !tbaa !15
+  %274 = load float, ptr %273, align 4, !tbaa !14
   %275 = or disjoint i64 %indvars.iv.i, 3
   %276 = getelementptr inbounds nuw [32 x float], ptr %6, i64 0, i64 %275
-  store float %274, ptr %276, align 4, !tbaa !15
+  store float %274, ptr %276, align 4, !tbaa !14
   %277 = getelementptr inbounds nuw i8, ptr %.1125.i, i64 16
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 4
   %278 = icmp samesign ult i64 %indvars.iv.next.i, %146
-  br i1 %278, label %.lr.ph128.i, label %._crit_edge129.i, !llvm.loop !17
+  br i1 %278, label %.lr.ph128.i, label %._crit_edge129.i, !llvm.loop !16
 
 ._crit_edge135.i:                                 ; preds = %.lr.ph134.i, %._crit_edge129.i
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %7) #10
@@ -349,27 +349,27 @@ define hidden void @_ZN19OpenColorIO_v2_5dev20applyTetrahedralAVX2EPKfiS1_Pfi(pt
   %indvars.iv138.i = phi i64 [ 0, %.lr.ph134.preheader.i ], [ %indvars.iv.next139.i, %.lr.ph134.i ]
   %.170131.i = phi ptr [ %.069.lcssa.i, %.lr.ph134.preheader.i ], [ %293, %.lr.ph134.i ]
   %279 = getelementptr inbounds nuw [32 x float], ptr %7, i64 0, i64 %indvars.iv138.i
-  %280 = load float, ptr %279, align 16, !tbaa !15
-  store float %280, ptr %.170131.i, align 4, !tbaa !15
+  %280 = load float, ptr %279, align 16, !tbaa !14
+  store float %280, ptr %.170131.i, align 4, !tbaa !14
   %281 = or disjoint i64 %indvars.iv138.i, 1
   %282 = getelementptr inbounds nuw [32 x float], ptr %7, i64 0, i64 %281
-  %283 = load float, ptr %282, align 4, !tbaa !15
+  %283 = load float, ptr %282, align 4, !tbaa !14
   %284 = getelementptr inbounds nuw i8, ptr %.170131.i, i64 4
-  store float %283, ptr %284, align 4, !tbaa !15
+  store float %283, ptr %284, align 4, !tbaa !14
   %285 = or disjoint i64 %indvars.iv138.i, 2
   %286 = getelementptr inbounds nuw [32 x float], ptr %7, i64 0, i64 %285
-  %287 = load float, ptr %286, align 8, !tbaa !15
+  %287 = load float, ptr %286, align 8, !tbaa !14
   %288 = getelementptr inbounds nuw i8, ptr %.170131.i, i64 8
-  store float %287, ptr %288, align 4, !tbaa !15
+  store float %287, ptr %288, align 4, !tbaa !14
   %289 = or disjoint i64 %indvars.iv138.i, 3
   %290 = getelementptr inbounds nuw [32 x float], ptr %7, i64 0, i64 %289
-  %291 = load float, ptr %290, align 4, !tbaa !15
+  %291 = load float, ptr %290, align 4, !tbaa !14
   %292 = getelementptr inbounds nuw i8, ptr %.170131.i, i64 12
-  store float %291, ptr %292, align 4, !tbaa !15
+  store float %291, ptr %292, align 4, !tbaa !14
   %293 = getelementptr inbounds nuw i8, ptr %.170131.i, i64 16
   %indvars.iv.next139.i = add nuw nsw i64 %indvars.iv138.i, 4
   %294 = icmp samesign ult i64 %indvars.iv.next139.i, %262
-  br i1 %294, label %.lr.ph134.i, label %._crit_edge135.i, !llvm.loop !18
+  br i1 %294, label %.lr.ph134.i, label %._crit_edge135.i, !llvm.loop !17
 
 _ZN19OpenColorIO_v2_5dev12_GLOBAL__N_124applyTetrahedralAVX2FuncILNS_8BitDepthE8ELS2_8EEEvPKfiPKvPvi.exit: ; preds = %._crit_edge.i, %._crit_edge135.i
   ret void
@@ -435,13 +435,12 @@ attributes #10 = { nounwind }
 !6 = !{!7, !7, i64 0}
 !7 = !{!"omnipotent char", !8, i64 0}
 !8 = !{!"Simple C++ TBAA"}
-!9 = distinct !{!9, !10, !11}
+!9 = distinct !{!9, !10}
 !10 = !{!"llvm.loop.mustprogress"}
-!11 = !{!"llvm.loop.estimated_trip_count"}
-!12 = !{!13}
-!13 = distinct !{!13, !14, !"_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_123interp_tetrahedral_avx2ERKNS0_16Lut3DContextAVX2ERDv8_fS5_S5_S5_: argument 0"}
-!14 = distinct !{!14, !"_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_123interp_tetrahedral_avx2ERKNS0_16Lut3DContextAVX2ERDv8_fS5_S5_S5_"}
-!15 = !{!16, !16, i64 0}
-!16 = !{!"float", !7, i64 0}
-!17 = distinct !{!17, !10, !11}
-!18 = distinct !{!18, !10, !11}
+!11 = !{!12}
+!12 = distinct !{!12, !13, !"_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_123interp_tetrahedral_avx2ERKNS0_16Lut3DContextAVX2ERDv8_fS5_S5_S5_: argument 0"}
+!13 = distinct !{!13, !"_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_123interp_tetrahedral_avx2ERKNS0_16Lut3DContextAVX2ERDv8_fS5_S5_S5_"}
+!14 = !{!15, !15, i64 0}
+!15 = !{!"float", !7, i64 0}
+!16 = distinct !{!16, !10}
+!17 = distinct !{!17, !10}

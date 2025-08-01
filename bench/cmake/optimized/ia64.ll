@@ -33,11 +33,11 @@ define internal range(i64 -15, -16) i64 @ia64_code(ptr readnone captures(none) %
   %7 = phi i64 [ %6, %.loopexit63 ], [ 16, %5 ]
   %.05872 = phi i64 [ %7, %.loopexit63 ], [ 0, %5 ]
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 %.05872
-  %9 = load i8, ptr %8, align 1, !tbaa !7
+  %9 = load i8, ptr %8, align 1, !tbaa !6
   %10 = and i8 %9, 31
   %11 = zext nneg i8 %10 to i64
   %12 = getelementptr inbounds nuw [32 x i32], ptr @ia64_code.BRANCH_TABLE, i64 0, i64 %11
-  %13 = load i32, ptr %12, align 4, !tbaa !10
+  %13 = load i32, ptr %12, align 4, !tbaa !9
   %14 = trunc i64 %.05872 to i32
   %15 = add i32 %1, %14
   %16 = sub i32 0, %15
@@ -71,14 +71,14 @@ define internal range(i64 -15, -16) i64 @ia64_code(ptr readnone captures(none) %
   %.05665 = phi i64 [ 0, %23 ], [ %36, %30 ]
   %.05764 = phi i64 [ 0, %23 ], [ %35, %30 ]
   %gep = getelementptr i8, ptr %invariant.gep, i64 %.05665
-  %31 = load i8, ptr %gep, align 1, !tbaa !7
+  %31 = load i8, ptr %gep, align 1, !tbaa !6
   %32 = zext i8 %31 to i64
   %33 = shl nuw nsw i64 %.05665, 3
   %34 = shl nuw nsw i64 %32, %33
   %35 = add i64 %34, %.05764
   %36 = add nuw nsw i64 %.05665, 1
   %exitcond.not = icmp eq i64 %36, 6
-  br i1 %exitcond.not, label %26, label %30, !llvm.loop !12
+  br i1 %exitcond.not, label %26, label %30, !llvm.loop !11
 
 37:                                               ; preds = %26
   %38 = lshr i64 %28, 13
@@ -112,16 +112,16 @@ define internal range(i64 -15, -16) i64 @ia64_code(ptr readnone captures(none) %
   %62 = lshr i64 %59, %61
   %63 = trunc i64 %62 to i8
   %gep67 = getelementptr i8, ptr %invariant.gep, i64 %.068
-  store i8 %63, ptr %gep67, align 1, !tbaa !7
+  store i8 %63, ptr %gep67, align 1, !tbaa !6
   %64 = add nuw nsw i64 %.068, 1
   %exitcond74.not = icmp eq i64 %64, 6
-  br i1 %exitcond74.not, label %.loopexit, label %60, !llvm.loop !13
+  br i1 %exitcond74.not, label %.loopexit, label %60, !llvm.loop !12
 
 .loopexit:                                        ; preds = %60, %26, %18
   %65 = add nuw nsw i64 %.06069, 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 41
   %exitcond76.not = icmp eq i64 %65, 3
-  br i1 %exitcond76.not, label %.loopexit63, label %18, !llvm.loop !14
+  br i1 %exitcond76.not, label %.loopexit63, label %18, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %.loopexit63, %5
   %.058.lcssa = phi i64 [ 0, %5 ], [ %7, %.loopexit63 ]
@@ -139,14 +139,13 @@ attributes #3 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = distinct !{!4, !5, !6}
+!4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{!"llvm.loop.estimated_trip_count"}
-!7 = !{!8, !8, i64 0}
-!8 = !{!"omnipotent char", !9, i64 0}
-!9 = !{!"Simple C/C++ TBAA"}
-!10 = !{!11, !11, i64 0}
-!11 = !{!"int", !8, i64 0}
-!12 = distinct !{!12, !5, !6}
-!13 = distinct !{!13, !5, !6}
-!14 = distinct !{!14, !5, !6}
+!6 = !{!7, !7, i64 0}
+!7 = !{!"omnipotent char", !8, i64 0}
+!8 = !{!"Simple C/C++ TBAA"}
+!9 = !{!10, !10, i64 0}
+!10 = !{!"int", !7, i64 0}
+!11 = distinct !{!11, !5}
+!12 = distinct !{!12, !5}
+!13 = distinct !{!13, !5}

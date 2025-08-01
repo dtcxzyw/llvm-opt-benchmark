@@ -83,22 +83,22 @@ define internal range(i32 0, 2) i32 @i2r_USER_NOTICE_SYNTAX(ptr readnone capture
 14:                                               ; preds = %.lr.ph, %10
   %.01119 = phi i32 [ 0, %.lr.ph ], [ %11, %10 ]
   %15 = tail call ptr @OPENSSL_sk_value(ptr noundef %1, i32 noundef %.01119) #3
-  %16 = load ptr, ptr %15, align 8, !tbaa !6
+  %16 = load ptr, ptr %15, align 8, !tbaa !5
   %.not.i = icmp eq ptr %16, null
   br i1 %.not.i, label %62, label %17
 
 17:                                               ; preds = %14
-  %18 = load ptr, ptr %16, align 8, !tbaa !13
-  %19 = load i32, ptr %18, align 8, !tbaa !16
+  %18 = load ptr, ptr %16, align 8, !tbaa !12
+  %19 = load i32, ptr %18, align 8, !tbaa !15
   %20 = getelementptr inbounds nuw i8, ptr %18, i64 8
-  %21 = load ptr, ptr %20, align 8, !tbaa !21
+  %21 = load ptr, ptr %20, align 8, !tbaa !20
   %22 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %2, ptr noundef nonnull @.str.4, i32 noundef range(i32 -2147483644, -2147483648) %9, ptr noundef nonnull @.str.2, i32 noundef %19, ptr noundef %21) #3
   %23 = icmp slt i32 %22, 1
   br i1 %23, label %print_notice.exit.thread, label %24
 
 24:                                               ; preds = %17
   %25 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  %26 = load ptr, ptr %25, align 8, !tbaa !22
+  %26 = load ptr, ptr %25, align 8, !tbaa !21
   %27 = tail call i32 @OPENSSL_sk_num(ptr noundef %26) #3
   %28 = icmp sgt i32 %27, 1
   %29 = select i1 %28, ptr @.str.6, ptr @.str.2
@@ -107,14 +107,14 @@ define internal range(i32 0, 2) i32 @i2r_USER_NOTICE_SYNTAX(ptr readnone capture
   br i1 %31, label %print_notice.exit.thread, label %.preheader.i
 
 .preheader.i:                                     ; preds = %24
-  %32 = load ptr, ptr %25, align 8, !tbaa !22
+  %32 = load ptr, ptr %25, align 8, !tbaa !21
   %33 = tail call i32 @OPENSSL_sk_num(ptr noundef %32) #3
   %34 = icmp sgt i32 %33, 0
   br i1 %34, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %.preheader.i, %52
   %.03339.i = phi i32 [ %53, %52 ], [ 0, %.preheader.i ]
-  %35 = load ptr, ptr %25, align 8, !tbaa !22
+  %35 = load ptr, ptr %25, align 8, !tbaa !21
   %36 = tail call ptr @OPENSSL_sk_value(ptr noundef %35, i32 noundef %.03339.i) #3
   %.not38.i = icmp eq i32 %.03339.i, 0
   br i1 %.not38.i, label %40, label %37
@@ -150,14 +150,14 @@ define internal range(i32 0, 2) i32 @i2r_USER_NOTICE_SYNTAX(ptr readnone capture
 52:                                               ; preds = %48
   tail call void @CRYPTO_free(ptr noundef nonnull %46, ptr noundef nonnull @.str.9, i32 noundef 50) #3
   %53 = add nuw nsw i32 %.03339.i, 1
-  %54 = load ptr, ptr %25, align 8, !tbaa !22
+  %54 = load ptr, ptr %25, align 8, !tbaa !21
   %55 = tail call i32 @OPENSSL_sk_num(ptr noundef %54) #3
   %56 = icmp slt i32 %53, %55
-  br i1 %56, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !23
+  br i1 %56, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !22
 
 ._crit_edge.i:                                    ; preds = %52, %.preheader.i
   %57 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  %58 = load ptr, ptr %57, align 8, !tbaa !24
+  %58 = load ptr, ptr %57, align 8, !tbaa !23
   %.not37.i = icmp eq ptr %58, null
   br i1 %.not37.i, label %62, label %59
 
@@ -168,14 +168,14 @@ define internal range(i32 0, 2) i32 @i2r_USER_NOTICE_SYNTAX(ptr readnone capture
 
 62:                                               ; preds = %59, %._crit_edge.i, %14
   %63 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  %64 = load ptr, ptr %63, align 8, !tbaa !24
+  %64 = load ptr, ptr %63, align 8, !tbaa !23
   %65 = icmp eq ptr %64, null
   br i1 %65, label %print_notice.exit.thread14, label %print_notice.exit
 
 print_notice.exit:                                ; preds = %62
-  %66 = load i32, ptr %64, align 8, !tbaa !16
+  %66 = load i32, ptr %64, align 8, !tbaa !15
   %67 = getelementptr inbounds nuw i8, ptr %64, i64 8
-  %68 = load ptr, ptr %67, align 8, !tbaa !21
+  %68 = load ptr, ptr %67, align 8, !tbaa !20
   %69 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %2, ptr noundef nonnull @.str.11, i32 noundef range(i32 -2147483644, -2147483648) %9, ptr noundef nonnull @.str.2, i32 noundef %66, ptr noundef %68) #3
   %70 = icmp slt i32 %69, 0
   br i1 %70, label %print_notice.exit.thread, label %print_notice.exit.thread14
@@ -214,25 +214,24 @@ attributes #3 = { nounwind }
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = distinct !{!3, !4, !5}
+!3 = distinct !{!3, !4}
 !4 = !{!"llvm.loop.mustprogress"}
-!5 = !{!"llvm.loop.estimated_trip_count"}
-!6 = !{!7, !8, i64 0}
-!7 = !{!"USERNOTICE_st", !8, i64 0, !12, i64 8}
-!8 = !{!"p1 _ZTS12NOTICEREF_st", !9, i64 0}
-!9 = !{!"any pointer", !10, i64 0}
-!10 = !{!"omnipotent char", !11, i64 0}
-!11 = !{!"Simple C/C++ TBAA"}
-!12 = !{!"p1 _ZTS14asn1_string_st", !9, i64 0}
-!13 = !{!14, !12, i64 0}
-!14 = !{!"NOTICEREF_st", !12, i64 0, !15, i64 8}
-!15 = !{!"p1 _ZTS21stack_st_ASN1_INTEGER", !9, i64 0}
-!16 = !{!17, !18, i64 0}
-!17 = !{!"asn1_string_st", !18, i64 0, !18, i64 4, !19, i64 8, !20, i64 16}
-!18 = !{!"int", !10, i64 0}
-!19 = !{!"p1 omnipotent char", !9, i64 0}
-!20 = !{!"long", !10, i64 0}
-!21 = !{!17, !19, i64 8}
-!22 = !{!14, !15, i64 8}
-!23 = distinct !{!23, !4, !5}
-!24 = !{!7, !12, i64 8}
+!5 = !{!6, !7, i64 0}
+!6 = !{!"USERNOTICE_st", !7, i64 0, !11, i64 8}
+!7 = !{!"p1 _ZTS12NOTICEREF_st", !8, i64 0}
+!8 = !{!"any pointer", !9, i64 0}
+!9 = !{!"omnipotent char", !10, i64 0}
+!10 = !{!"Simple C/C++ TBAA"}
+!11 = !{!"p1 _ZTS14asn1_string_st", !8, i64 0}
+!12 = !{!13, !11, i64 0}
+!13 = !{!"NOTICEREF_st", !11, i64 0, !14, i64 8}
+!14 = !{!"p1 _ZTS21stack_st_ASN1_INTEGER", !8, i64 0}
+!15 = !{!16, !17, i64 0}
+!16 = !{!"asn1_string_st", !17, i64 0, !17, i64 4, !18, i64 8, !19, i64 16}
+!17 = !{!"int", !9, i64 0}
+!18 = !{!"p1 omnipotent char", !8, i64 0}
+!19 = !{!"long", !9, i64 0}
+!20 = !{!16, !18, i64 8}
+!21 = !{!13, !14, i64 8}
+!22 = distinct !{!22, !4}
+!23 = !{!6, !11, i64 8}

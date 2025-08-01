@@ -131,7 +131,7 @@ _ZNK4ncnn3Mat5emptyEv.exit:                       ; preds = %17
 ._crit_edge.us:                                   ; preds = %.noexc.us
   %indvars.iv.next80 = add nuw nsw i64 %indvars.iv79, 1
   %exitcond83.not = icmp eq i64 %indvars.iv.next80, %41
-  br i1 %exitcond83.not, label %_ZNK4ncnn3Mat5emptyEv.exit.thread, label %.preheader.us, !llvm.loop !46
+  br i1 %exitcond83.not, label %_ZNK4ncnn3Mat5emptyEv.exit.thread, label %.preheader.us, !llvm.loop !45
 
 _ZNK4ncnn3Mat5emptyEv.exit.thread:                ; preds = %._crit_edge.us, %.preheader.lr.ph, %32, %17, %_ZNK4ncnn3Mat5emptyEv.exit, %4
   %.0 = phi i32 [ -100, %4 ], [ -100, %_ZNK4ncnn3Mat5emptyEv.exit ], [ -100, %17 ], [ 0, %32 ], [ 0, %.preheader.lr.ph ], [ 0, %._crit_edge.us ]
@@ -145,11 +145,11 @@ declare noundef i32 @_ZNK4ncnn5Layer15forward_inplaceERNS_3MatERKNS_6OptionE(ptr
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN4ncnn14ShuffleChannelC2Ev(ptr noundef nonnull align 8 dereferenceable(216) %0) unnamed_addr #2 align 2 {
   tail call void @_ZN4ncnn5LayerC2Ev(ptr noundef nonnull align 8 dereferenceable(208) %0)
-  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTVN4ncnn14ShuffleChannelE, i64 16), ptr %0, align 8, !tbaa !48
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTVN4ncnn14ShuffleChannelE, i64 16), ptr %0, align 8, !tbaa !47
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i8 1, ptr %2, align 8, !tbaa !50
+  store i8 1, ptr %2, align 8, !tbaa !49
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 9
-  store i8 0, ptr %3, align 1, !tbaa !51
+  store i8 0, ptr %3, align 1, !tbaa !50
   ret void
 }
 
@@ -221,12 +221,11 @@ attributes #7 = { builtin nounwind }
 !40 = !{!41}
 !41 = distinct !{!41, !42, !"_ZNK4ncnn3Mat7channelEi: argument 0"}
 !42 = distinct !{!42, !"_ZNK4ncnn3Mat7channelEi"}
-!43 = distinct !{!43, !44, !45}
+!43 = distinct !{!43, !44}
 !44 = !{!"llvm.loop.mustprogress"}
-!45 = !{!"llvm.loop.estimated_trip_count"}
-!46 = distinct !{!46, !44, !45, !47}
-!47 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!48 = !{!49, !49, i64 0}
-!49 = !{!"vtable pointer", !9, i64 0}
-!50 = !{!6, !7, i64 8}
-!51 = !{!6, !7, i64 9}
+!45 = distinct !{!45, !44, !46}
+!46 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!47 = !{!48, !48, i64 0}
+!48 = !{!"vtable pointer", !9, i64 0}
+!49 = !{!6, !7, i64 8}
+!50 = !{!6, !7, i64 9}

@@ -187,15 +187,15 @@ define range(i32 -173, 1) i32 @wc_Chacha_Process(ptr noundef captures(address_is
   %.sroa.0.0.i.i = phi ptr [ %42, %.lr.ph.i.i.i ], [ %.1.lcssa.i.i, %._crit_edge.i.i ]
   %.05.i.i.i = phi i32 [ %46, %.lr.ph.i.i.i ], [ 0, %._crit_edge.i.i ]
   %40 = getelementptr inbounds nuw i8, ptr %.sroa.037.0.i.i, i64 8
-  %41 = load i64, ptr %.sroa.037.0.i.i, align 8, !tbaa !13
+  %41 = load i64, ptr %.sroa.037.0.i.i, align 8, !tbaa !12
   %42 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i, i64 8
-  %43 = load i64, ptr %.sroa.0.0.i.i, align 8, !tbaa !13
+  %43 = load i64, ptr %.sroa.0.0.i.i, align 8, !tbaa !12
   %44 = xor i64 %43, %41
   %45 = getelementptr inbounds nuw i8, ptr %.sroa.039.0.i.i, i64 8
-  store i64 %44, ptr %.sroa.039.0.i.i, align 8, !tbaa !13
+  store i64 %44, ptr %.sroa.039.0.i.i, align 8, !tbaa !12
   %46 = add nuw nsw i32 %.05.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i32 %46, %39
-  br i1 %exitcond.not.i.i.i, label %.loopexit147.i, label %.lr.ph.i.i.i, !llvm.loop !15
+  br i1 %exitcond.not.i.i.i, label %.loopexit147.i, label %.lr.ph.i.i.i, !llvm.loop !14
 
 .loopexit147.i:                                   ; preds = %.lr.ph.i.i.i, %._crit_edge.i.i
   %.sroa.039.1.i.i = phi ptr [ %.129.lcssa.i.i, %._crit_edge.i.i ], [ %45, %.lr.ph.i.i.i ]
@@ -224,7 +224,7 @@ define range(i32 -173, 1) i32 @wc_Chacha_Process(ptr noundef captures(address_is
   store i8 %52, ptr %53, align 1, !tbaa !9
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %xorbufout.exit.i, label %.lr.ph52.i.i, !llvm.loop !16
+  br i1 %exitcond.not.i.i, label %xorbufout.exit.i, label %.lr.ph52.i.i, !llvm.loop !15
 
 xorbufout.exit.i:                                 ; preds = %.lr.ph52.i.i, %.loopexit147.i
   %54 = load i32, ptr %11, align 4, !tbaa !3
@@ -318,15 +318,15 @@ xorbufout.exit.i:                                 ; preds = %.lr.ph52.i.i, %.loo
   %.sroa.0.0.i66.i = phi ptr [ %90, %.lr.ph.i.i63.i ], [ %.1.lcssa.i61214.i, %.lr.ph.i.i63.preheader.i ]
   %.05.i.i67.i = phi i32 [ %94, %.lr.ph.i.i63.i ], [ 0, %.lr.ph.i.i63.preheader.i ]
   %88 = getelementptr inbounds nuw i8, ptr %.sroa.037.0.i65.i, i64 8
-  %89 = load i64, ptr %.sroa.037.0.i65.i, align 8, !tbaa !13
+  %89 = load i64, ptr %.sroa.037.0.i65.i, align 8, !tbaa !12
   %90 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i66.i, i64 8
-  %91 = load i64, ptr %.sroa.0.0.i66.i, align 8, !tbaa !13
+  %91 = load i64, ptr %.sroa.0.0.i66.i, align 8, !tbaa !12
   %92 = xor i64 %91, %89
   %93 = getelementptr inbounds nuw i8, ptr %.sroa.039.0.i64.i, i64 8
-  store i64 %92, ptr %.sroa.039.0.i64.i, align 8, !tbaa !13
+  store i64 %92, ptr %.sroa.039.0.i64.i, align 8, !tbaa !12
   %94 = add nuw nsw i32 %.05.i.i67.i, 1
   %exitcond.not.i.i68.i = icmp eq i32 %94, %87
-  br i1 %exitcond.not.i.i68.i, label %.loopexit146.i, label %.lr.ph.i.i63.i, !llvm.loop !15
+  br i1 %exitcond.not.i.i68.i, label %.loopexit146.i, label %.lr.ph.i.i63.i, !llvm.loop !14
 
 .loopexit146.i:                                   ; preds = %.lr.ph.i.i63.i, %._crit_edge.i57.i
   %.132.lcssa.i58211.i = phi i32 [ %85, %._crit_edge.i57.i ], [ %.132.lcssa.i58210.i, %.lr.ph.i.i63.i ]
@@ -356,14 +356,14 @@ xorbufout.exit.i:                                 ; preds = %.lr.ph52.i.i, %.loo
   store i8 %100, ptr %101, align 1, !tbaa !9
   %indvars.iv.next.i54.i = add nuw nsw i64 %indvars.iv.i53.i, 1
   %exitcond.not.i55.i = icmp eq i64 %indvars.iv.next.i54.i, %wide.trip.count.i51.i
-  br i1 %exitcond.not.i55.i, label %xorbufout.exit78.i, label %.lr.ph52.i52.i, !llvm.loop !16
+  br i1 %exitcond.not.i55.i, label %xorbufout.exit78.i, label %.lr.ph52.i52.i, !llvm.loop !15
 
 xorbufout.exit78.i:                               ; preds = %.lr.ph52.i52.i, %.loopexit146.i
   %102 = add i32 %.136171.i, -64
   %103 = getelementptr inbounds nuw i8, ptr %.138168.i, i64 64
   %104 = getelementptr inbounds nuw i8, ptr %.1172.i, i64 64
   %105 = icmp ugt i32 %102, 63
-  br i1 %105, label %72, label %._crit_edge.i, !llvm.loop !17
+  br i1 %105, label %72, label %._crit_edge.i, !llvm.loop !16
 
 ._crit_edge.i:                                    ; preds = %xorbufout.exit78.i, %66
   %.138.lcssa.i = phi ptr [ %.037.i, %66 ], [ %103, %xorbufout.exit78.i ]
@@ -421,15 +421,15 @@ xorbufout.exit78.i:                               ; preds = %.lr.ph52.i52.i, %.l
   %.sroa.0.0.i101.i = phi ptr [ %127, %.lr.ph.i.i98.i ], [ %.1.lcssa.i96.i, %._crit_edge.i92.i ]
   %.05.i.i102.i = phi i32 [ %131, %.lr.ph.i.i98.i ], [ 0, %._crit_edge.i92.i ]
   %125 = getelementptr inbounds nuw i8, ptr %.sroa.037.0.i100.i, i64 8
-  %126 = load i64, ptr %.sroa.037.0.i100.i, align 8, !tbaa !13
+  %126 = load i64, ptr %.sroa.037.0.i100.i, align 8, !tbaa !12
   %127 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i101.i, i64 8
-  %128 = load i64, ptr %.sroa.0.0.i101.i, align 8, !tbaa !13
+  %128 = load i64, ptr %.sroa.0.0.i101.i, align 8, !tbaa !12
   %129 = xor i64 %128, %126
   %130 = getelementptr inbounds nuw i8, ptr %.sroa.039.0.i99.i, i64 8
-  store i64 %129, ptr %.sroa.039.0.i99.i, align 8, !tbaa !13
+  store i64 %129, ptr %.sroa.039.0.i99.i, align 8, !tbaa !12
   %131 = add nuw nsw i32 %.05.i.i102.i, 1
   %exitcond.not.i.i103.i = icmp eq i32 %131, %124
-  br i1 %exitcond.not.i.i103.i, label %.loopexit.i, label %.lr.ph.i.i98.i, !llvm.loop !15
+  br i1 %exitcond.not.i.i103.i, label %.loopexit.i, label %.lr.ph.i.i98.i, !llvm.loop !14
 
 .loopexit.i:                                      ; preds = %.lr.ph.i.i98.i, %._crit_edge.i92.i
   %.sroa.039.1.i105.i = phi ptr [ %.129.lcssa.i94.i, %._crit_edge.i92.i ], [ %130, %.lr.ph.i.i98.i ]
@@ -458,7 +458,7 @@ xorbufout.exit78.i:                               ; preds = %.lr.ph52.i52.i, %.l
   store i8 %137, ptr %138, align 1, !tbaa !9
   %indvars.iv.next.i89.i = add nuw nsw i64 %indvars.iv.i88.i, 1
   %exitcond.not.i90.i = icmp eq i64 %indvars.iv.next.i89.i, %wide.trip.count.i86.i
-  br i1 %exitcond.not.i90.i, label %xorbufout.exit113.i, label %.lr.ph52.i87.i, !llvm.loop !16
+  br i1 %exitcond.not.i90.i, label %xorbufout.exit113.i, label %.lr.ph52.i87.i, !llvm.loop !15
 
 xorbufout.exit113.i:                              ; preds = %.lr.ph52.i87.i, %.loopexit.i
   %139 = sub nuw nsw i32 64, %.136.lcssa.i
@@ -645,7 +645,7 @@ define internal fastcc void @wc_Chacha_wordtobyte(ptr noundef nonnull captures(n
   %130 = tail call noundef i32 @llvm.fshl.i32(i32 %129, i32 %129, i32 7)
   %131 = add nsw i32 %.0233, -2
   %.not = icmp eq i32 %131, 0
-  br i1 %.not, label %.preheader, label %18, !llvm.loop !18
+  br i1 %.not, label %.preheader, label %18, !llvm.loop !17
 
 132:                                              ; preds = %.preheader, %132
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %132 ]
@@ -657,7 +657,7 @@ define internal fastcc void @wc_Chacha_wordtobyte(ptr noundef nonnull captures(n
   store i32 %137, ptr %133, align 4, !tbaa !8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
-  br i1 %exitcond.not, label %138, label %132, !llvm.loop !19
+  br i1 %exitcond.not, label %138, label %132, !llvm.loop !18
 
 138:                                              ; preds = %132
   ret void
@@ -689,13 +689,12 @@ attributes #6 = { nounwind }
 !7 = !{!"int", !5, i64 0}
 !8 = !{!7, !7, i64 0}
 !9 = !{!5, !5, i64 0}
-!10 = distinct !{!10, !11, !12}
+!10 = distinct !{!10, !11}
 !11 = !{!"llvm.loop.mustprogress"}
-!12 = !{!"llvm.loop.estimated_trip_count"}
-!13 = !{!14, !14, i64 0}
-!14 = !{!"long", !5, i64 0}
-!15 = distinct !{!15, !11, !12}
-!16 = distinct !{!16, !11, !12}
-!17 = distinct !{!17, !11, !12}
-!18 = distinct !{!18, !11, !12}
-!19 = distinct !{!19, !11, !12}
+!12 = !{!13, !13, i64 0}
+!13 = !{!"long", !5, i64 0}
+!14 = distinct !{!14, !11}
+!15 = distinct !{!15, !11}
+!16 = distinct !{!16, !11}
+!17 = distinct !{!17, !11}
+!18 = distinct !{!18, !11}

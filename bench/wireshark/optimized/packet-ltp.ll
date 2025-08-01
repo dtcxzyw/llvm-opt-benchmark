@@ -475,7 +475,7 @@ define internal i32 @dissect_ltp(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %11 = tail call fastcc i32 @dissect_ltp_segment(ptr noundef %0, i32 noundef %.012, ptr noundef %1, ptr noundef %2)
   %12 = icmp eq i32 %11, 0
   %13 = add i32 %11, %.012
-  br i1 %12, label %14, label %8, !llvm.loop !6
+  br i1 %12, label %14, label %8
 
 14:                                               ; preds = %10, %8
   %.1 = phi i32 [ %13, %10 ], [ %.012, %8 ]
@@ -628,7 +628,7 @@ define internal ptr @ltp_build_filter(ptr noundef %0, ptr readnone captures(none
   %20 = tail call ptr @wmem_list_frame_next(ptr noundef nonnull %.01926)
   %21 = add i32 %.01827, 1
   %.not = icmp eq ptr %20, null
-  br i1 %.not, label %._crit_edge, label %7, !llvm.loop !8
+  br i1 %.not, label %._crit_edge, label %7, !llvm.loop !6
 }
 
 ; Function Attrs: null_pointer_is_valid
@@ -768,7 +768,7 @@ define internal noundef zeroext i1 @dissect_ltp_heur_udp(ptr noundef %0, ptr nou
   %25 = call fastcc i32 @dissect_ltp_segment(ptr noundef %0, i32 noundef %.134, ptr noundef %1, ptr noundef null)
   %26 = icmp eq i32 %25, 0
   %27 = add i32 %25, %.134
-  br i1 %26, label %.loopexit, label %.preheader, !llvm.loop !10
+  br i1 %26, label %.loopexit, label %.preheader
 
 .loopexit:                                        ; preds = %24, %.preheader, %21, %18
   %.033 = phi i32 [ 0, %21 ], [ 0, %18 ], [ %.134, %.preheader ], [ 0, %24 ]
@@ -867,7 +867,7 @@ define internal noundef zeroext i1 @dissect_ltp_heur_udp(ptr noundef %0, ptr nou
   %67 = call fastcc i32 @dissect_ltp_segment(ptr noundef %0, i32 noundef %.012.i, ptr noundef %1, ptr noundef %2)
   %68 = icmp eq i32 %67, 0
   %69 = add i32 %67, %.012.i
-  br i1 %68, label %dissect_ltp.exit, label %64, !llvm.loop !6
+  br i1 %68, label %dissect_ltp.exit, label %64
 
 dissect_ltp.exit:                                 ; preds = %66, %64, %56, %4
   %.0 = phi i1 [ false, %4 ], [ false, %56 ], [ true, %64 ], [ true, %66 ]
@@ -902,7 +902,7 @@ define internal noundef i32 @ltp_stats_tree_packet(ptr noundef %0, ptr noundef %
   %11 = load i32, ptr %10, align 8
   %12 = tail call i32 @stats_tree_manip_node_int(i32 noundef 2, ptr noundef %0, ptr noundef nonnull @.str.242, i32 noundef 0, i1 noundef zeroext false, i32 noundef %11)
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 48
-  %14 = load i8, ptr %13, align 8, !range !11, !noundef !12
+  %14 = load i8, ptr %13, align 8, !range !8, !noundef !9
   %15 = trunc nuw i8 %14 to i1
   %16 = select i1 %15, ptr @.str.243, ptr @.str.244
   %17 = load i32, ptr @st_node_red, align 4
@@ -921,7 +921,7 @@ define internal noundef i32 @ltp_stats_tree_packet(ptr noundef %0, ptr noundef %
   %26 = load i32, ptr %25, align 8
   %27 = tail call i32 @stats_tree_manip_node_int(i32 noundef 2, ptr noundef %0, ptr noundef nonnull @.str.246, i32 noundef 0, i1 noundef zeroext false, i32 noundef %26)
   %28 = getelementptr inbounds nuw i8, ptr %3, i64 48
-  %29 = load i8, ptr %28, align 8, !range !11, !noundef !12
+  %29 = load i8, ptr %28, align 8, !range !8, !noundef !9
   %30 = trunc nuw i8 %29 to i1
   %31 = select i1 %30, ptr @.str.243, ptr @.str.244
   %32 = load i32, ptr @st_node_rpt, align 4
@@ -1172,7 +1172,7 @@ proto_item_set_generated.exit:                    ; preds = %add_sdnv64_to_tree.
   %109 = zext i8 %108 to i32
   call void @p_add_proto_data(ptr noundef %105, ptr noundef %2, i32 noundef %106, i32 noundef %109, ptr noundef %90)
   %110 = icmp ne ptr %3, null
-  %111 = load i8, ptr @ltp_analyze_sequence, align 1, !range !11
+  %111 = load i8, ptr @ltp_analyze_sequence, align 1, !range !8
   %112 = trunc nuw i8 %111 to i1
   %or.cond = select i1 %110, i1 %112, i1 false
   br i1 %or.cond, label %113, label %159
@@ -1310,7 +1310,7 @@ add_sdnv64_to_tree.exit.i:                        ; preds = %187, %178
   %198 = add i32 %190, %197
   %199 = add nuw nsw i32 %.027.i, 1
   %exitcond.not.i = icmp eq i32 %199, %164
-  br i1 %exitcond.not.i, label %dissect_header_extn.exit, label %178, !llvm.loop !13
+  br i1 %exitcond.not.i, label %dissect_header_extn.exit, label %178, !llvm.loop !10
 
 dissect_header_extn.exit:                         ; preds = %add_sdnv64_to_tree.exit.i
   %200 = load ptr, ptr %39, align 8
@@ -1394,7 +1394,7 @@ add_sdnv64_to_tree.exit251.thread.i:              ; preds = %add_sdnv64_to_tree.
   %238 = load i64, ptr %30, align 8
   %239 = add i64 %235, -1
   %240 = add i64 %239, %238
-  %241 = load i8, ptr @ltp_analyze_sequence, align 1, !range !11, !noundef !12
+  %241 = load i8, ptr @ltp_analyze_sequence, align 1, !range !8, !noundef !9
   %242 = trunc nuw i8 %241 to i1
   %243 = icmp ne ptr %204, null
   %or.cond.i = select i1 %242, i1 %243, i1 false
@@ -1451,7 +1451,7 @@ proto_item_set_generated.exit.i:                  ; preds = %262, %259, %256, %2
   %.3219.i = phi i1 [ %.2218297.i, %251 ], [ false, %256 ], [ false, %259 ], [ false, %262 ]
   %266 = call ptr @wmem_list_frame_next(ptr noundef nonnull %.0220296.i)
   %.not240.i = icmp eq ptr %266, null
-  br i1 %.not240.i, label %._crit_edge.i, label %251, !llvm.loop !14
+  br i1 %.not240.i, label %._crit_edge.i, label %251, !llvm.loop !11
 
 .critedge.i:                                      ; preds = %._crit_edge.i, %245
   %267 = call ptr @wmem_file_scope()
@@ -1517,7 +1517,7 @@ add_sdnv64_to_tree.exit252.thread.i:              ; preds = %add_sdnv64_to_tree.
   br label %298
 
 298:                                              ; preds = %296, %add_sdnv64_to_tree.exit252.thread.i
-  %299 = load i8, ptr @ltp_analyze_sequence, align 1, !range !11, !noundef !12
+  %299 = load i8, ptr @ltp_analyze_sequence, align 1, !range !8, !noundef !9
   %300 = trunc nuw i8 %299 to i1
   %or.cond6.i = select i1 %300, i1 %243, i1 false
   br i1 %or.cond6.i, label %301, label %312
@@ -1565,7 +1565,7 @@ add_sdnv64_to_tree.exit253.thread.i:              ; preds = %add_sdnv64_to_tree.
 
 326:                                              ; preds = %324, %add_sdnv64_to_tree.exit253.thread.i
   %327 = phi i64 [ %322, %add_sdnv64_to_tree.exit253.thread.i ], [ %.pre306.i, %324 ]
-  %328 = load i8, ptr @ltp_analyze_sequence, align 1, !range !11, !noundef !12
+  %328 = load i8, ptr @ltp_analyze_sequence, align 1, !range !8, !noundef !9
   %329 = trunc nuw i8 %328 to i1
   %or.cond8.i = select i1 %329, i1 %243, i1 false
   %330 = icmp ne i64 %327, 0
@@ -1670,7 +1670,7 @@ add_sdnv64_to_tree.exit253.thread.i:              ; preds = %add_sdnv64_to_tree.
   %385 = call ptr @proto_tree_add_item(ptr noundef %208, i32 noundef %382, ptr noundef %0, i32 noundef %.0205271.i, i32 noundef %384, i32 noundef 0)
   %386 = load ptr, ptr %171, align 8
   call void (ptr, i32, ptr, ptr, ...) @col_append_sep_fstr(ptr noundef %386, i32 noundef 25, ptr noundef null, ptr noundef nonnull @.str.219, i64 noundef %238, i64 noundef %240)
-  %387 = load i8, ptr @ltp_reassemble_block, align 1, !range !11, !noundef !12
+  %387 = load i8, ptr @ltp_reassemble_block, align 1, !range !8, !noundef !9
   %388 = trunc nuw i8 %387 to i1
   br i1 %388, label %389, label %.thread276.thread.i
 
@@ -1685,7 +1685,7 @@ add_sdnv64_to_tree.exit253.thread.i:              ; preds = %add_sdnv64_to_tree.
   br i1 %.not290.i, label %..thread276.thread_crit_edge.i, label %397
 
 ..thread276.thread_crit_edge.i:                   ; preds = %389
-  %.pre308.i = load i8, ptr @ltp_reassemble_block, align 1, !range !11
+  %.pre308.i = load i8, ptr @ltp_reassemble_block, align 1, !range !8
   %396 = trunc nuw i8 %.pre308.i to i1
   br label %.thread276.thread.i
 
@@ -1826,7 +1826,7 @@ add_sdnv64_to_tree.exit260.i:                     ; preds = %455, %449
   %469 = add i32 %463, %.1210.i
   %470 = add i64 %.0214299.i, 1
   %.not249.i = icmp slt i32 %469, %412
-  br i1 %.not249.i, label %.lr.ph301.i, label %._crit_edge302.i, !llvm.loop !15
+  br i1 %.not249.i, label %.lr.ph301.i, label %._crit_edge302.i, !llvm.loop !12
 
 ._crit_edge302.i:                                 ; preds = %465, %proto_item_set_generated.exit259.i
   %.0214.lcssa.i = phi i64 [ 0, %proto_item_set_generated.exit259.i ], [ %470, %465 ]
@@ -1850,7 +1850,7 @@ add_sdnv64_to_tree.exit260.i:                     ; preds = %455, %449
   br label %dissect_data_segment.exit
 
 .thread276.i:                                     ; preds = %410, %397
-  %480 = load i8, ptr @ltp_reassemble_block, align 1, !range !11, !noundef !12
+  %480 = load i8, ptr @ltp_reassemble_block, align 1, !range !8, !noundef !9
   %481 = trunc nuw i8 %480 to i1
   br i1 %481, label %482, label %.thread276.thread.i
 
@@ -1961,7 +1961,7 @@ dissect_data_segment.exit:                        ; preds = %._crit_edge302.i, %
 
 add_sdnv64_to_tree.exit.i197:                     ; preds = %506, %498
   %508 = phi i32 [ %504, %498 ], [ %.pre.i207, %506 ]
-  %509 = load i8, ptr @ltp_analyze_sequence, align 1, !range !11, !noundef !12
+  %509 = load i8, ptr @ltp_analyze_sequence, align 1, !range !8, !noundef !9
   %510 = trunc nuw i8 %509 to i1
   %511 = icmp ne ptr %499, null
   %or.cond.i198 = select i1 %510, i1 %511, i1 false
@@ -2004,7 +2004,7 @@ add_sdnv64_to_tree.exit.i197:                     ; preds = %506, %498
 add_sdnv64_to_tree.exit187.i:                     ; preds = %534, %528
   %536 = phi i32 [ %532, %528 ], [ %.pre225.i, %534 ]
   %537 = add i32 %536, %508
-  %538 = load i8, ptr @ltp_analyze_sequence, align 1, !range !11, !noundef !12
+  %538 = load i8, ptr @ltp_analyze_sequence, align 1, !range !8, !noundef !9
   %539 = trunc nuw i8 %538 to i1
   %or.cond3.i = select i1 %539, i1 %511, i1 false
   br i1 %or.cond3.i, label %540, label %556
@@ -2091,7 +2091,7 @@ proto_item_set_generated.exit.i201:               ; preds = %583, %580, %add_sdn
   %589 = load i64, ptr %13, align 8
   %590 = add i64 %589, -1
   call void (ptr, i32, ptr, ptr, ...) @col_append_sep_fstr(ptr noundef %587, i32 noundef 25, ptr noundef null, ptr noundef nonnull @.str.219, i64 noundef %588, i64 noundef %590)
-  %591 = load i8, ptr @ltp_analyze_sequence, align 1, !range !11, !noundef !12
+  %591 = load i8, ptr @ltp_analyze_sequence, align 1, !range !8, !noundef !9
   %592 = trunc nuw i8 %591 to i1
   %or.cond5.i = select i1 %592, i1 %511, i1 false
   br i1 %or.cond5.i, label %593, label %636
@@ -2168,7 +2168,7 @@ proto_item_set_generated.exit192.i:               ; preds = %625, %622, %619, %6
   %.3.i = phi i1 [ %.2210.i, %614 ], [ false, %619 ], [ false, %622 ], [ false, %625 ]
   %629 = call ptr @wmem_list_frame_next(ptr noundef nonnull %.0169209.i)
   %.not183.i = icmp eq ptr %629, null
-  br i1 %.not183.i, label %._crit_edge.i205, label %614, !llvm.loop !16
+  br i1 %.not183.i, label %._crit_edge.i205, label %614, !llvm.loop !13
 
 .critedge.i206:                                   ; preds = %._crit_edge.i205, %609
   %630 = call ptr @wmem_file_scope()
@@ -2360,7 +2360,7 @@ proto_item_set_generated.exit204.i:               ; preds = %716, %713, %proto_i
   %722 = load ptr, ptr %28, align 8
   %723 = add i32 %698, %.0180
   call void @proto_item_set_end(ptr noundef %722, ptr noundef %0, i32 noundef %723)
-  %724 = load i8, ptr @ltp_analyze_sequence, align 1, !range !11, !noundef !12
+  %724 = load i8, ptr @ltp_analyze_sequence, align 1, !range !8, !noundef !9
   %725 = trunc nuw i8 %724 to i1
   %or.cond7.i = select i1 %725, i1 %511, i1 false
   %.not184.i = icmp ule i64 %679, %710
@@ -2405,13 +2405,13 @@ proto_item_set_generated.exit204.i:               ; preds = %716, %713, %proto_i
 proto_item_set_generated.exit207.i:               ; preds = %741, %738, %735, %.lr.ph214.i
   %745 = call ptr @wmem_list_frame_next(ptr noundef nonnull %.0164212.i)
   %.not185.i = icmp eq ptr %745, null
-  br i1 %.not185.i, label %.loopexit.i, label %.lr.ph214.i, !llvm.loop !17
+  br i1 %.not185.i, label %.loopexit.i, label %.lr.ph214.i, !llvm.loop !14
 
 .loopexit.i:                                      ; preds = %proto_item_set_generated.exit207.i, %726, %proto_item_set_generated.exit204.i
   %746 = add nuw i64 %.0166216.i, 1
   %747 = load i64, ptr %15, align 8
   %748 = icmp ult i64 %746, %747
-  br i1 %748, label %674, label %._crit_edge220.i, !llvm.loop !18
+  br i1 %748, label %674, label %._crit_edge220.i, !llvm.loop !15
 
 dissect_report_segment.exit:                      ; preds = %._crit_edge220.i, %667, %670
   %749 = load ptr, ptr %171, align 8
@@ -2467,7 +2467,7 @@ add_sdnv64_to_tree.exit.i208:                     ; preds = %763, %755
   %766 = load ptr, ptr %10, align 8
   %767 = add i32 %765, %.0180
   call void @proto_item_set_end(ptr noundef %766, ptr noundef %0, i32 noundef %767)
-  %768 = load i8, ptr @ltp_analyze_sequence, align 1, !range !11, !noundef !12
+  %768 = load i8, ptr @ltp_analyze_sequence, align 1, !range !8, !noundef !9
   %769 = trunc nuw i8 %768 to i1
   %770 = icmp ne ptr %756, null
   %or.cond.i209 = select i1 %769, i1 %770, i1 false
@@ -2519,7 +2519,7 @@ dissect_report_ack_segment.exit:                  ; preds = %add_sdnv64_to_tree.
   %795 = load i32, ptr @hf_ltp_cancel_code, align 4
   %796 = zext i8 %792 to i32
   %797 = call ptr @proto_tree_add_uint(ptr noundef %794, i32 noundef %795, ptr noundef %0, i32 noundef %.0180, i32 noundef 1, i32 noundef %796)
-  %798 = load i8, ptr @ltp_analyze_sequence, align 1, !range !11, !noundef !12
+  %798 = load i8, ptr @ltp_analyze_sequence, align 1, !range !8, !noundef !9
   %799 = trunc nuw i8 %798 to i1
   %800 = icmp ne ptr %791, null
   %or.cond.i211 = select i1 %799, i1 %800, i1 false
@@ -2547,7 +2547,7 @@ dissect_report_ack_segment.exit:                  ; preds = %add_sdnv64_to_tree.
   %815 = call ptr @proto_tree_add_item(ptr noundef %49, i32 noundef %814, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef 0)
   %816 = load i32, ptr @ett_session_mgmt, align 4
   %817 = call ptr @proto_item_add_subtree(ptr noundef %815, i32 noundef %816)
-  %818 = load i8, ptr @ltp_analyze_sequence, align 1, !range !11, !noundef !12
+  %818 = load i8, ptr @ltp_analyze_sequence, align 1, !range !8, !noundef !9
   %819 = trunc nuw i8 %818 to i1
   %820 = icmp ne ptr %813, null
   %or.cond.i212 = select i1 %819, i1 %820, i1 false
@@ -2614,7 +2614,7 @@ add_sdnv64_to_tree.exit.i215:                     ; preds = %846, %838
   %856 = add i32 %849, %855
   %857 = add nuw nsw i32 %.027.i213, 1
   %exitcond.not.i216 = icmp eq i32 %857, %169
-  br i1 %exitcond.not.i216, label %dissect_trailer_extn.exit, label %838, !llvm.loop !19
+  br i1 %exitcond.not.i216, label %dissect_trailer_extn.exit, label %838, !llvm.loop !16
 
 dissect_trailer_extn.exit:                        ; preds = %add_sdnv64_to_tree.exit.i215
   %858 = load ptr, ptr %7, align 8
@@ -2806,7 +2806,7 @@ define internal void @ltp_data_seg_find_report(ptr readnone captures(none) %0, p
 proto_item_set_generated.exit:                    ; preds = %29, %26, %22, %15
   %33 = tail call ptr @wmem_list_frame_next(ptr noundef nonnull %.021)
   %.not19 = icmp eq ptr %33, null
-  br i1 %.not19, label %.loopexit, label %15, !llvm.loop !20
+  br i1 %.not19, label %.loopexit, label %15, !llvm.loop !17
 
 .loopexit:                                        ; preds = %proto_item_set_generated.exit, %8, %3
   ret void
@@ -2938,7 +2938,7 @@ proto_item_set_generated.exit35.us:               ; preds = %39, %36, %proto_ite
 43:                                               ; preds = %proto_item_set_generated.exit35.us, %.lr.ph.split.us
   %44 = call ptr @wmem_list_frame_next(ptr noundef nonnull %.02537.us)
   %.not31.us = icmp eq ptr %44, null
-  br i1 %.not31.us, label %.loopexit, label %.lr.ph.split.us, !llvm.loop !21
+  br i1 %.not31.us, label %.loopexit, label %.lr.ph.split.us, !llvm.loop !18
 
 .lr.ph.split:                                     ; preds = %.lr.ph
   br i1 %.not32, label %.lr.ph.split.split.us, label %.lr.ph.split.split
@@ -2979,7 +2979,7 @@ proto_item_set_generated.exit.us41:               ; preds = %54, %51, %49
 59:                                               ; preds = %proto_item_set_generated.exit.us41, %.lr.ph.split.split.us
   %60 = call ptr @wmem_list_frame_next(ptr noundef nonnull %.02537.us38)
   %.not31.us42 = icmp eq ptr %60, null
-  br i1 %.not31.us42, label %.loopexit, label %.lr.ph.split.split.us, !llvm.loop !23
+  br i1 %.not31.us42, label %.loopexit, label %.lr.ph.split.split.us, !llvm.loop !20
 
 .lr.ph.split.split:                               ; preds = %.lr.ph.split, %75
   %.02537 = phi ptr [ %76, %75 ], [ %17, %.lr.ph.split ]
@@ -3017,7 +3017,7 @@ proto_item_set_generated.exit:                    ; preds = %65, %67, %70
 75:                                               ; preds = %.lr.ph.split.split, %proto_item_set_generated.exit
   %76 = call ptr @wmem_list_frame_next(ptr noundef nonnull %.02537)
   %.not31 = icmp eq ptr %76, null
-  br i1 %.not31, label %.loopexit, label %.lr.ph.split.split, !llvm.loop !24
+  br i1 %.not31, label %.loopexit, label %.lr.ph.split.split, !llvm.loop !21
 
 .loopexit:                                        ; preds = %75, %59, %43, %16, %12, %13
   ret void
@@ -3129,7 +3129,7 @@ proto_item_set_generated.exit:                    ; preds = %10, %15, %18
   %24 = load i64, ptr %6, align 8
   %25 = add i64 %24, %11
   store i64 %25, ptr %6, align 8
-  %26 = load i8, ptr @ltp_analyze_sequence, align 1, !range !11, !noundef !12
+  %26 = load i8, ptr @ltp_analyze_sequence, align 1, !range !8, !noundef !9
   %27 = trunc nuw i8 %26 to i1
   %28 = icmp ne ptr %2, null
   %or.cond = and i1 %28, %27
@@ -3218,7 +3218,7 @@ proto_item_set_generated.exit40:                  ; preds = %proto_item_set_gene
 proto_item_set_generated.exit43:                  ; preds = %67, %64, %61, %56
   %71 = tail call ptr @wmem_list_frame_next(ptr noundef nonnull %.045)
   %.not = icmp eq ptr %71, null
-  br i1 %.not, label %.loopexit, label %56, !llvm.loop !25
+  br i1 %.not, label %.loopexit, label %56, !llvm.loop !22
 
 .loopexit:                                        ; preds = %proto_item_set_generated.exit43, %proto_item_set_generated.exit40, %proto_item_set_generated.exit, %7
   ret void
@@ -3347,22 +3347,19 @@ attributes #16 = { noreturn }
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = distinct !{!6, !7}
-!7 = !{!"llvm.loop.estimated_trip_count"}
-!8 = distinct !{!8, !9, !7}
-!9 = !{!"llvm.loop.mustprogress"}
+!7 = !{!"llvm.loop.mustprogress"}
+!8 = !{i8 0, i8 2}
+!9 = !{}
 !10 = distinct !{!10, !7}
-!11 = !{i8 0, i8 2}
-!12 = !{}
-!13 = distinct !{!13, !9, !7}
-!14 = distinct !{!14, !9, !7}
-!15 = distinct !{!15, !9, !7}
-!16 = distinct !{!16, !9, !7}
-!17 = distinct !{!17, !9, !7}
-!18 = distinct !{!18, !9, !7}
-!19 = distinct !{!19, !9, !7}
-!20 = distinct !{!20, !9, !7}
-!21 = distinct !{!21, !9, !7, !22}
-!22 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!23 = distinct !{!23, !9, !7, !22}
-!24 = distinct !{!24, !9, !7}
-!25 = distinct !{!25, !9, !7}
+!11 = distinct !{!11, !7}
+!12 = distinct !{!12, !7}
+!13 = distinct !{!13, !7}
+!14 = distinct !{!14, !7}
+!15 = distinct !{!15, !7}
+!16 = distinct !{!16, !7}
+!17 = distinct !{!17, !7}
+!18 = distinct !{!18, !7, !19}
+!19 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!20 = distinct !{!20, !7, !19}
+!21 = distinct !{!21, !7}
+!22 = distinct !{!22, !7}

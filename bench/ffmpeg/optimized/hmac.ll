@@ -347,7 +347,7 @@ define i32 @av_hmac_final(ptr noundef readonly captures(none) %0, ptr noundef %1
   store i8 %30, ptr %31, align 1, !tbaa !16
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.preheader, label %27, !llvm.loop !20
+  br i1 %exitcond.not, label %.preheader, label %27, !llvm.loop !19
 
 ._crit_edge:                                      ; preds = %.lr.ph35.preheader, %.preheader
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -508,7 +508,7 @@ av_hmac_init.exit:                                ; preds = %.preheader.i, %.lr.
   store i8 %79, ptr %80, align 1, !tbaa !16
   %indvars.iv.next.i13 = add nuw nsw i64 %indvars.iv.i12, 1
   %exitcond.not.i14 = icmp eq i64 %indvars.iv.next.i13, %wide.trip.count.i11
-  br i1 %exitcond.not.i14, label %.preheader.i8, label %76, !llvm.loop !20
+  br i1 %exitcond.not.i14, label %.preheader.i8, label %76, !llvm.loop !19
 
 ._crit_edge.i:                                    ; preds = %.lr.ph35.preheader.i, %.preheader.i8
   %81 = load ptr, ptr %50, align 8, !tbaa !12
@@ -566,7 +566,6 @@ attributes #6 = { nounwind }
 !14 = !{!5, !6, i64 0}
 !15 = !{!5, !9, i64 168}
 !16 = !{!7, !7, i64 0}
-!17 = distinct !{!17, !18, !19}
+!17 = distinct !{!17, !18}
 !18 = !{!"llvm.loop.mustprogress"}
-!19 = !{!"llvm.loop.estimated_trip_count"}
-!20 = distinct !{!20, !18, !19}
+!19 = distinct !{!19, !18}

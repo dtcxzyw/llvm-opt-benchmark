@@ -128,23 +128,23 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exi
   %sext = shl i64 %39, 32
   %40 = ashr exact i64 %sext, 32
   %41 = getelementptr inbounds i32, ptr %.pre, i64 %40
-  %42 = load i32, ptr %41, align 4, !tbaa !19
+  %42 = load i32, ptr %41, align 4, !tbaa !18
   %43 = mul nsw i64 %19, %indvars.iv
   %44 = getelementptr i32, ptr %25, i64 %43
-  store i32 %42, ptr %44, align 4, !tbaa !19
+  store i32 %42, ptr %44, align 4, !tbaa !18
   %45 = sext i32 %42 to i64
   %46 = getelementptr i32, ptr %20, i64 %45
-  %47 = load i32, ptr %46, align 4, !tbaa !19
+  %47 = load i32, ptr %46, align 4, !tbaa !18
   %48 = getelementptr i32, ptr %21, i64 %40
-  %49 = load i32, ptr %48, align 4, !tbaa !19
+  %49 = load i32, ptr %48, align 4, !tbaa !18
   %50 = mul nsw i64 %24, %indvars.iv
   %51 = getelementptr i32, ptr %26, i64 %50
   %52 = icmp eq i32 %47, %49
   %53 = select i1 %52, i32 1, i32 -1
-  store i32 %53, ptr %51, align 4, !tbaa !19
+  store i32 %53, ptr %51, align 4, !tbaa !18
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %_ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exit43, label %37, !llvm.loop !21
+  br i1 %exitcond.not, label %_ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exit43, label %37, !llvm.loop !20
 
 54:                                               ; preds = %32, %30
   %55 = phi ptr [ %.pre48, %32 ], [ null, %30 ]
@@ -177,7 +177,7 @@ define linkonce_odr dso_local void @_ZN5Eigen12DenseStorageIiLin1ELin1ELin1ELi0E
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8, !tbaa !4
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %8 = load i64, ptr %7, align 8, !tbaa !22
+  %8 = load i64, ptr %7, align 8, !tbaa !21
   %9 = mul nsw i64 %8, %6
   %.not = icmp eq i64 %1, %9
   br i1 %.not, label %22, label %10
@@ -217,7 +217,7 @@ _ZN5Eigen8internal23check_size_for_overflowIiEEvm.exit.i: ; preds = %13
 
 22:                                               ; preds = %.sink.split, %4
   store i64 %2, ptr %5, align 8, !tbaa !4
-  store i64 %3, ptr %7, align 8, !tbaa !22
+  store i64 %3, ptr %7, align 8, !tbaa !21
   ret void
 }
 
@@ -265,10 +265,9 @@ attributes #10 = { nounwind allocsize(0) }
 !13 = !{!14, !6, i64 0}
 !14 = !{!"_ZTSN5Eigen12DenseStorageIiLin1ELin1ELi1ELi0EEE", !6, i64 0, !10, i64 8}
 !15 = !{!5, !6, i64 0}
-!16 = distinct !{!16, !17, !18}
+!16 = distinct !{!16, !17}
 !17 = !{!"llvm.loop.mustprogress"}
-!18 = !{!"llvm.loop.estimated_trip_count"}
-!19 = !{!20, !20, i64 0}
-!20 = !{!"int", !8, i64 0}
-!21 = distinct !{!21, !17, !18}
-!22 = !{!5, !10, i64 16}
+!18 = !{!19, !19, i64 0}
+!19 = !{!"int", !8, i64 0}
+!20 = distinct !{!20, !17}
+!21 = !{!5, !10, i64 16}

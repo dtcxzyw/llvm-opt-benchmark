@@ -117,7 +117,7 @@ _ZN13GlobalCounter18CounterThreadCheck9do_threadEP6Thread.exit: ; preds = %.lr.p
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 4
   %50 = load i32, ptr %49, align 4
   %.not.i = icmp ult i32 %47, %50
-  br i1 %.not.i, label %_ZN28JavaThreadIteratorWithHandle4nextEv.exit, label %_ZN28JavaThreadIteratorWithHandle4nextEv.exit.thread, !llvm.loop !11
+  br i1 %.not.i, label %_ZN28JavaThreadIteratorWithHandle4nextEv.exit, label %_ZN28JavaThreadIteratorWithHandle4nextEv.exit.thread, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %_ZN13GlobalCounter18CounterThreadCheck9do_threadEP6Thread.exit7, %_ZN28JavaThreadIteratorWithHandle4nextEv.exit.thread
   call void @_ZN13NonJavaThread8IteratorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #5
@@ -168,7 +168,7 @@ _ZN13GlobalCounter18CounterThreadCheck9do_threadEP6Thread.exit7: ; preds = %.lr.
   call void @_ZN13NonJavaThread8Iterator4stepEv(ptr noundef nonnull align 8 dereferenceable(16) %4) #5
   %69 = load ptr, ptr %25, align 8
   %70 = icmp eq ptr %69, null
-  br i1 %70, label %._crit_edge, label %51, !llvm.loop !12
+  br i1 %70, label %._crit_edge, label %51, !llvm.loop !11
 }
 
 declare void @_ZN13NonJavaThread8IteratorC1Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #1
@@ -215,8 +215,7 @@ attributes #5 = { nounwind }
 !5 = !{i32 7, !"frame-pointer", i32 2}
 !6 = !{i64 2145411697}
 !7 = !{i64 2145392468}
-!8 = distinct !{!8, !9, !10}
+!8 = distinct !{!8, !9}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = !{!"llvm.loop.estimated_trip_count"}
-!11 = distinct !{!11, !9, !10}
-!12 = distinct !{!12, !9, !10}
+!10 = distinct !{!10, !9}
+!11 = distinct !{!11, !9}

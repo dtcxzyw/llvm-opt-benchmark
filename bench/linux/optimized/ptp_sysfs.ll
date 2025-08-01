@@ -187,7 +187,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @ptp_pin_show(ptr noundef
 21:                                               ; preds = %16
   %22 = add nuw nsw i64 %17, 1
   %23 = icmp eq i64 %22, %15
-  br i1 %23, label %.thread, label %16, !llvm.loop !10
+  br i1 %23, label %.thread, label %16, !llvm.loop !9
 
 24:                                               ; preds = %16
   %25 = and i64 %17, 2147483648
@@ -227,9 +227,9 @@ define internal i64 @ptp_pin_store(ptr noundef readonly captures(none) %0, ptr n
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %8 = load ptr, ptr %7, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #13
-  store i32 0, ptr %5, align 4, !annotation !11
+  store i32 0, ptr %5, align 4, !annotation !10
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #13
-  store i32 0, ptr %6, align 4, !annotation !11
+  store i32 0, ptr %6, align 4, !annotation !10
   %9 = call i32 (ptr, ptr, ...) @sscanf(ptr noundef %2, ptr noundef nonnull @.str.29, ptr noundef nonnull %5, ptr noundef nonnull %6)
   %10 = icmp eq i32 %9, 2
   br i1 %10, label %11, label %.thread
@@ -259,7 +259,7 @@ define internal i64 @ptp_pin_store(ptr noundef readonly captures(none) %0, ptr n
 27:                                               ; preds = %22
   %28 = add nuw nsw i64 %23, 1
   %29 = icmp eq i64 %28, %21
-  br i1 %29, label %.thread, label %22, !llvm.loop !12
+  br i1 %29, label %.thread, label %22, !llvm.loop !9
 
 30:                                               ; preds = %22
   %31 = trunc i64 %23 to i32
@@ -356,7 +356,7 @@ define internal zeroext i16 @ptp_is_attribute_visible(ptr noundef readonly captu
 
 36:                                               ; preds = %32
   %37 = getelementptr inbounds nuw i8, ptr %5, i64 1296
-  %38 = load i8, ptr %37, align 8, !range !13, !noundef !14
+  %38 = load i8, ptr %37, align 8, !range !11, !noundef !12
   %39 = icmp eq i8 %38, 0
   %40 = select i1 %39, i16 %9, i16 0
   br label %52
@@ -396,7 +396,7 @@ define internal i64 @extts_enable_store(ptr noundef readonly captures(none) %0, 
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5) #13
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %5, i8 0, i64 64, i1 false)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #13
-  store i32 0, ptr %6, align 4, !annotation !11
+  store i32 0, ptr %6, align 4, !annotation !10
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %12 = call i32 (ptr, ptr, ...) @sscanf(ptr noundef %2, ptr noundef nonnull @.str.2, ptr noundef nonnull %11, ptr noundef nonnull %6)
   %13 = icmp eq i32 %12, 2
@@ -450,7 +450,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @extts_fifo_show(ptr noun
   %10 = load ptr, ptr %8, align 8
   %11 = icmp eq ptr %10, %6
   %12 = add i32 %9, 1
-  br i1 %11, label %13, label %7, !llvm.loop !15
+  br i1 %11, label %13, label %7, !llvm.loop !13
 
 13:                                               ; preds = %7
   %14 = icmp slt i32 %9, 1
@@ -575,7 +575,7 @@ define internal i64 @pps_enable_store(ptr noundef readonly captures(none) %0, pt
   br i1 %11, label %12, label %26
 
 12:                                               ; preds = %4
-  store i32 0, ptr %6, align 4, !annotation !11
+  store i32 0, ptr %6, align 4, !annotation !10
   %13 = call i32 (ptr, ptr, ...) @sscanf(ptr noundef %2, ptr noundef nonnull @.str.8, ptr noundef nonnull %6)
   %14 = icmp eq i32 %13, 1
   br i1 %14, label %15, label %23
@@ -634,9 +634,9 @@ define internal noundef i64 @n_vclocks_store(ptr noundef %0, ptr readnone captur
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %8 = load ptr, ptr %7, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #13
-  store i32 0, ptr %5, align 4, !annotation !11
+  store i32 0, ptr %5, align 4, !annotation !10
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #13
-  store i32 0, ptr %6, align 4, !annotation !11
+  store i32 0, ptr %6, align 4, !annotation !10
   %9 = call i32 @kstrtouint(ptr noundef %2, i32 noundef 0, ptr noundef nonnull %5) #13
   %10 = icmp eq i32 %9, 0
   br i1 %10, label %11, label %86
@@ -697,7 +697,7 @@ define internal noundef i64 @n_vclocks_store(ptr noundef %0, ptr readnone captur
   %47 = load i32, ptr %22, align 4
   %48 = sub i32 %46, %47
   %49 = icmp ult i32 %45, %48
-  br i1 %49, label %27, label %.loopexit7, !llvm.loop !16
+  br i1 %49, label %27, label %.loopexit7, !llvm.loop !14
 
 .loopexit7:                                       ; preds = %31, %21
   %50 = phi i32 [ %23, %21 ], [ %47, %31 ]
@@ -736,12 +736,12 @@ define internal noundef i64 @n_vclocks_store(ptr noundef %0, ptr readnone captur
   %73 = load i32, ptr %5, align 4
   %74 = sub i32 %72, %73
   %75 = icmp ugt i32 %71, %74
-  br i1 %75, label %.loopexit, label %61, !llvm.loop !17
+  br i1 %75, label %.loopexit, label %61, !llvm.loop !15
 
 .loopexit:                                        ; preds = %61, %53, %.loopexit7
   %76 = phi i32 [ %56, %53 ], [ %51, %.loopexit7 ], [ %73, %61 ]
   %77 = getelementptr inbounds nuw i8, ptr %8, i64 1297
-  %78 = load i8, ptr %77, align 1, !range !13, !noundef !14
+  %78 = load i8, ptr %77, align 1, !range !11, !noundef !12
   %79 = icmp eq i8 %78, 0
   br i1 %79, label %80, label %83
 
@@ -833,7 +833,7 @@ define internal noundef i64 @max_vclocks_store(ptr noundef readonly captures(non
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %7 = load ptr, ptr %6, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #13
-  store i32 0, ptr %5, align 4, !annotation !11
+  store i32 0, ptr %5, align 4, !annotation !10
   %8 = call i32 @kstrtouint(ptr noundef %2, i32 noundef 0, ptr noundef nonnull %5) #13
   %9 = icmp ne i32 %8, 0
   %10 = load i32, ptr %5, align 4
@@ -1031,15 +1031,13 @@ attributes #14 = { cold nounwind }
 !3 = !{i32 4, !"indirect_branch_cs_prefix", i32 1}
 !4 = !{i32 4, !"SkipRaxSetup", i32 1}
 !5 = !{!"branch_weights", i32 1, i32 2000}
-!6 = distinct !{!6, !7, !8, !9}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
 !8 = !{!"llvm.loop.unroll.disable"}
-!9 = !{!"llvm.loop.estimated_trip_count"}
-!10 = distinct !{!10, !7, !8, !9}
-!11 = !{!"auto-init"}
-!12 = distinct !{!12, !7, !8, !9}
-!13 = !{i8 0, i8 2}
-!14 = !{}
-!15 = distinct !{!15, !7, !8, !9}
-!16 = distinct !{!16, !7, !8, !9}
-!17 = distinct !{!17, !7, !8, !9}
+!9 = distinct !{!9, !7, !8}
+!10 = !{!"auto-init"}
+!11 = !{i8 0, i8 2}
+!12 = !{}
+!13 = distinct !{!13, !7, !8}
+!14 = distinct !{!14, !7, !8}
+!15 = distinct !{!15, !7, !8}

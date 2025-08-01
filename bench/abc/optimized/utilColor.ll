@@ -41,11 +41,11 @@ define void @Abc_ColorTest() local_unnamed_addr #0 {
   %10 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.4, i32 noundef %.029, i32 noundef 0, i32 noundef %.12128)
   %11 = add nuw nsw i32 %.12128, 1
   %exitcond32.not = icmp eq i32 %11, 8
-  br i1 %exitcond32.not, label %12, label %9, !llvm.loop !6
+  br i1 %exitcond32.not, label %12, label %9, !llvm.loop !5
 
 12:                                               ; preds = %9
   %putchar26 = tail call i32 @putchar(i32 10)
-  br i1 %7, label %6, label %.preheader, !llvm.loop !7
+  br i1 %7, label %6, label %.preheader, !llvm.loop !6
 
 .preheader:                                       ; preds = %12, %19
   %.131 = phi i32 [ %20, %19 ], [ 0, %12 ]
@@ -59,13 +59,13 @@ define void @Abc_ColorTest() local_unnamed_addr #0 {
   %17 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.6, i32 noundef %13, i32 noundef %14, i32 noundef %.230)
   %18 = add nuw nsw i32 %.230, 1
   %exitcond33.not = icmp eq i32 %18, 8
-  br i1 %exitcond33.not, label %19, label %16, !llvm.loop !8
+  br i1 %exitcond33.not, label %19, label %16, !llvm.loop !7
 
 19:                                               ; preds = %16
   %putchar25 = tail call i32 @putchar(i32 10)
   %20 = add nuw nsw i32 %.131, 1
   %exitcond34.not = icmp eq i32 %20, 16
-  br i1 %exitcond34.not, label %21, label %.preheader, !llvm.loop !9
+  br i1 %exitcond34.not, label %21, label %.preheader, !llvm.loop !8
 
 21:                                               ; preds = %19
   %puts = tail call i32 @puts(ptr nonnull dereferenceable(1) @str)
@@ -93,10 +93,9 @@ attributes #2 = { nofree nounwind }
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = distinct !{!3, !4, !5}
+!3 = distinct !{!3, !4}
 !4 = !{!"llvm.loop.mustprogress"}
-!5 = !{!"llvm.loop.estimated_trip_count"}
-!6 = distinct !{!6, !4, !5}
-!7 = distinct !{!7, !4, !5}
-!8 = distinct !{!8, !4, !5}
-!9 = distinct !{!9, !4, !5}
+!5 = distinct !{!5, !4}
+!6 = distinct !{!6, !4}
+!7 = distinct !{!7, !4}
+!8 = distinct !{!8, !4}

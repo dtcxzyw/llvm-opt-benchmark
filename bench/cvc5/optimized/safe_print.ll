@@ -28,7 +28,7 @@ define void @_ZN4cvc58internal10safe_printINSt7__cxx1112basic_stringIcSt11char_t
 
 .lr.ph:                                           ; preds = %2, %5
   %.05 = phi i64 [ %6, %5 ], [ 0, %2 ]
-  %9 = load ptr, ptr %1, align 8, !tbaa !14
+  %9 = load ptr, ptr %1, align 8, !tbaa !13
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 %.05
   %11 = tail call i64 @write(i32 noundef %0, ptr noundef nonnull %10, i64 noundef 1)
   %.not = icmp eq i64 %11, 1
@@ -55,7 +55,7 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 define void @_ZN4cvc58internal10safe_printIlEEviRKT_(i32 noundef %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %1) local_unnamed_addr #0 {
   %3 = alloca [20 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %3) #7
-  %4 = load i64, ptr %1, align 8, !tbaa !15
+  %4 = load i64, ptr %1, align 8, !tbaa !14
   %5 = icmp eq i64 %4, 0
   br i1 %5, label %6, label %9
 
@@ -96,13 +96,13 @@ _ZN4cvc58internal10safe_printILm2EEEviRAT__Kc.exit19: ; preds = %11
   %17 = trunc nuw nsw i64 %16 to i8
   %18 = or disjoint i8 %17, 48
   %19 = getelementptr inbounds nuw [20 x i8], ptr %3, i64 0, i64 %.01620
-  store i8 %18, ptr %19, align 1, !tbaa !16
+  store i8 %18, ptr %19, align 1, !tbaa !15
   %20 = udiv i64 %.121, 10
   %21 = add nsw i64 %.01620, -1
   %22 = icmp ugt i64 %.121, 9
   %23 = icmp ne i64 %.01620, 0
   %24 = and i1 %22, %23
-  br i1 %24, label %15, label %25, !llvm.loop !17
+  br i1 %24, label %15, label %25, !llvm.loop !16
 
 25:                                               ; preds = %15
   %26 = sub i64 20, %.01620
@@ -125,9 +125,9 @@ _ZN4cvc58internal10safe_printILm2EEEviRAT__Kc.exit: ; preds = %6, %25
 define void @_ZN4cvc58internal10safe_printIiEEviRKT_(i32 noundef %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %1) local_unnamed_addr #0 {
   %3 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #7
-  %4 = load i32, ptr %1, align 4, !tbaa !18
+  %4 = load i32, ptr %1, align 4, !tbaa !17
   %5 = sext i32 %4 to i64
-  store i64 %5, ptr %3, align 8, !tbaa !15
+  store i64 %5, ptr %3, align 8, !tbaa !14
   call void @_ZN4cvc58internal10safe_printIlEEviRKT_(i32 noundef %0, ptr noundef nonnull align 8 dereferenceable(8) %3)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #7
   ret void
@@ -137,7 +137,7 @@ define void @_ZN4cvc58internal10safe_printIiEEviRKT_(i32 noundef %0, ptr noundef
 define void @_ZN4cvc58internal10safe_printImEEviRKT_(i32 noundef %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %1) local_unnamed_addr #0 {
   %3 = alloca [20 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %3) #7
-  %4 = load i64, ptr %1, align 8, !tbaa !15
+  %4 = load i64, ptr %1, align 8, !tbaa !14
   %5 = icmp eq i64 %4, 0
   br i1 %5, label %6, label %.preheader
 
@@ -157,13 +157,13 @@ define void @_ZN4cvc58internal10safe_printImEEviRKT_(i32 noundef %0, ptr noundef
   %10 = trunc nuw nsw i64 %9 to i8
   %11 = or disjoint i8 %10, 48
   %12 = getelementptr inbounds nuw [20 x i8], ptr %3, i64 0, i64 %.01315
-  store i8 %11, ptr %12, align 1, !tbaa !16
+  store i8 %11, ptr %12, align 1, !tbaa !15
   %13 = udiv i64 %.016, 10
   %14 = add nsw i64 %.01315, -1
   %15 = icmp ugt i64 %.016, 9
   %16 = icmp ne i64 %.01315, 0
   %17 = and i1 %15, %16
-  br i1 %17, label %.preheader, label %18, !llvm.loop !20
+  br i1 %17, label %.preheader, label %18, !llvm.loop !19
 
 18:                                               ; preds = %.preheader
   %19 = sub i64 20, %.01315
@@ -185,7 +185,7 @@ _ZN4cvc58internal10safe_printILm2EEEviRAT__Kc.exit: ; preds = %6, %18
 ; Function Attrs: mustprogress nofree uwtable
 define void @_ZN4cvc58internal10safe_printIjEEviRKT_(i32 noundef %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %1) local_unnamed_addr #0 {
   %3 = alloca [20 x i8], align 16
-  %4 = load i32, ptr %1, align 4, !tbaa !18
+  %4 = load i32, ptr %1, align 4, !tbaa !17
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %3) #7
   %5 = icmp eq i32 %4, 0
   br i1 %5, label %7, label %.preheader.i.preheader
@@ -210,13 +210,13 @@ define void @_ZN4cvc58internal10safe_printIjEEviRKT_(i32 noundef %0, ptr noundef
   %11 = trunc nuw nsw i64 %10 to i8
   %12 = or disjoint i8 %11, 48
   %13 = getelementptr inbounds nuw [20 x i8], ptr %3, i64 0, i64 %.01315.i
-  store i8 %12, ptr %13, align 1, !tbaa !16
+  store i8 %12, ptr %13, align 1, !tbaa !15
   %14 = udiv i64 %.016.i, 10
   %15 = add nsw i64 %.01315.i, -1
   %16 = icmp samesign ugt i64 %.016.i, 9
   %17 = icmp ne i64 %.01315.i, 0
   %18 = and i1 %16, %17
-  br i1 %18, label %.preheader.i, label %19, !llvm.loop !20
+  br i1 %18, label %.preheader.i, label %19, !llvm.loop !19
 
 19:                                               ; preds = %.preheader.i
   %20 = sub i64 20, %.01315.i
@@ -240,10 +240,10 @@ define void @_ZN4cvc58internal10safe_printIdEEviRKT_(i32 noundef %0, ptr noundef
   %3 = alloca [20 x i8], align 16
   %4 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %3) #7
-  %5 = load double, ptr %1, align 8, !tbaa !21
+  %5 = load double, ptr %1, align 8, !tbaa !20
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #7
   %6 = fptosi double %5 to i64
-  store i64 %6, ptr %4, align 8, !tbaa !15
+  store i64 %6, ptr %4, align 8, !tbaa !14
   call void @_ZN4cvc58internal10safe_printIlEEviRKT_(i32 noundef %0, ptr noundef nonnull align 8 dereferenceable(8) %4)
   %7 = tail call i64 @write(i32 noundef %0, ptr noundef nonnull @.str.2, i64 noundef 1)
   %.not.i = icmp eq i64 %7, 1
@@ -278,11 +278,11 @@ _ZN4cvc58internal10safe_printILm2EEEviRAT__Kc.exit: ; preds = %_ZN4cvc58internal
   %19 = fptosi double %18 to i8
   %20 = add i8 %19, 48
   %21 = getelementptr inbounds nuw [20 x i8], ptr %3, i64 0, i64 %.019
-  store i8 %20, ptr %21, align 1, !tbaa !16
+  store i8 %20, ptr %21, align 1, !tbaa !15
   %22 = sitofp i8 %19 to double
   %23 = fsub double %18, %22
   %24 = add nuw nsw i64 %.019, 1
-  br label %_ZN4cvc58internal10safe_printILm2EEEviRAT__Kc.exit, !llvm.loop !23
+  br label %_ZN4cvc58internal10safe_printILm2EEEviRAT__Kc.exit, !llvm.loop !22
 
 25:                                               ; preds = %14
   %26 = call i64 @write(i32 noundef %0, ptr noundef nonnull %3, i64 noundef %.019)
@@ -303,9 +303,9 @@ _ZN4cvc58internal10safe_printILm2EEEviRAT__Kc.exit: ; preds = %_ZN4cvc58internal
 define void @_ZN4cvc58internal10safe_printIfEEviRKT_(i32 noundef %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %1) local_unnamed_addr #0 {
   %3 = alloca double, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #7
-  %4 = load float, ptr %1, align 4, !tbaa !24
+  %4 = load float, ptr %1, align 4, !tbaa !23
   %5 = fpext float %4 to double
-  store double %5, ptr %3, align 8, !tbaa !21
+  store double %5, ptr %3, align 8, !tbaa !20
   call void @_ZN4cvc58internal10safe_printIdEEviRKT_(i32 noundef %0, ptr noundef nonnull align 8 dereferenceable(8) %3)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #7
   ret void
@@ -313,7 +313,7 @@ define void @_ZN4cvc58internal10safe_printIfEEviRKT_(i32 noundef %0, ptr noundef
 
 ; Function Attrs: mustprogress nofree uwtable
 define void @_ZN4cvc58internal10safe_printIbEEviRKT_(i32 noundef %0, ptr noundef nonnull readonly align 1 captures(none) dereferenceable(1) %1) local_unnamed_addr #0 {
-  %3 = load i8, ptr %1, align 1, !tbaa !26, !range !28, !noundef !29
+  %3 = load i8, ptr %1, align 1, !tbaa !25, !range !27, !noundef !28
   %4 = trunc nuw i8 %3 to i1
   br i1 %4, label %5, label %8
 
@@ -341,7 +341,7 @@ _ZN4cvc58internal10safe_printILm5EEEviRAT__Kc.exit: ; preds = %8, %5
 
 ; Function Attrs: mustprogress nofree uwtable
 define void @_ZN4cvc58internal10safe_printIPvEEviRKT_(i32 noundef %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %1) local_unnamed_addr #0 {
-  %3 = load ptr, ptr %1, align 8, !tbaa !30
+  %3 = load ptr, ptr %1, align 8, !tbaa !29
   %4 = ptrtoint ptr %3 to i64
   tail call void @_ZN4cvc58internal14safe_print_hexEim(i32 noundef %0, i64 noundef %4)
   ret void
@@ -383,13 +383,13 @@ _ZN4cvc58internal10safe_printILm3EEEviRAT__Kc.exit: ; preds = %2
   %15 = add nuw nsw i8 %13, 87
   %.sink = select i1 %12, i8 %14, i8 %15
   %16 = getelementptr inbounds nuw [20 x i8], ptr %3, i64 0, i64 %.01822
-  store i8 %.sink, ptr %16, align 1, !tbaa !16
+  store i8 %.sink, ptr %16, align 1, !tbaa !15
   %17 = lshr i64 %.023, 4
   %18 = add nsw i64 %.01822, -1
   %19 = icmp ugt i64 %.023, 15
   %20 = icmp ne i64 %.01822, 0
   %21 = and i1 %19, %20
-  br i1 %21, label %.preheader, label %22, !llvm.loop !31
+  br i1 %21, label %.preheader, label %22, !llvm.loop !30
 
 22:                                               ; preds = %.preheader
   %23 = sub i64 20, %.01822
@@ -412,7 +412,7 @@ _ZN4cvc58internal10safe_printILm2EEEviRAT__Kc.exit: ; preds = %7, %22
 define void @_ZN4cvc58internal10safe_printI8timespecEEviRKT_(i32 noundef %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1) local_unnamed_addr #0 {
   %3 = alloca [20 x i8], align 16
   %4 = alloca [20 x i8], align 16
-  %5 = load i64, ptr %1, align 8, !tbaa !32
+  %5 = load i64, ptr %1, align 8, !tbaa !31
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %4) #7
   %6 = icmp eq i64 %5, 0
   br i1 %6, label %7, label %.preheader.i
@@ -433,13 +433,13 @@ define void @_ZN4cvc58internal10safe_printI8timespecEEviRKT_(i32 noundef %0, ptr
   %11 = trunc nuw nsw i64 %10 to i8
   %12 = or disjoint i8 %11, 48
   %13 = getelementptr inbounds nuw [20 x i8], ptr %4, i64 0, i64 %.01315.i
-  store i8 %12, ptr %13, align 1, !tbaa !16
+  store i8 %12, ptr %13, align 1, !tbaa !15
   %14 = udiv i64 %.016.i, 10
   %15 = add nsw i64 %.01315.i, -1
   %16 = icmp ugt i64 %.016.i, 9
   %17 = icmp ne i64 %.01315.i, 0
   %18 = and i1 %16, %17
-  br i1 %18, label %.preheader.i, label %19, !llvm.loop !20
+  br i1 %18, label %.preheader.i, label %19, !llvm.loop !19
 
 19:                                               ; preds = %.preheader.i
   %20 = sub i64 20, %.01315.i
@@ -465,9 +465,9 @@ _ZN4cvc58internal10safe_printImEEviRKT_.exit:     ; preds = %7, %19
 
 _ZN4cvc58internal10safe_printILm2EEEviRAT__Kc.exit: ; preds = %_ZN4cvc58internal10safe_printImEEviRKT_.exit
   %27 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %28 = load i64, ptr %27, align 8, !tbaa !34
+  %28 = load i64, ptr %27, align 8, !tbaa !33
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %3) #7
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(9) %3, i8 48, i64 9, i1 false), !tbaa !16
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(9) %3, i8 48, i64 9, i1 false), !tbaa !15
   %.not23.i = icmp eq i64 %28, 0
   br i1 %.not23.i, label %._crit_edge.i, label %.lr.ph22.i
 
@@ -479,12 +479,12 @@ _ZN4cvc58internal10safe_printILm2EEEviRAT__Kc.exit: ; preds = %_ZN4cvc58internal
   %30 = trunc nuw nsw i64 %29 to i8
   %31 = or disjoint i8 %30, 48
   %32 = getelementptr inbounds nuw [20 x i8], ptr %3, i64 0, i64 %.0.i
-  store i8 %31, ptr %32, align 1, !tbaa !16
+  store i8 %31, ptr %32, align 1, !tbaa !15
   %33 = udiv i64 %.01720.i, 10
   %34 = icmp ugt i64 %.01720.i, 9
   %35 = icmp samesign ugt i64 %.0.in21.i, 1
   %36 = and i1 %35, %34
-  br i1 %36, label %.lr.ph22.i, label %._crit_edge.i, !llvm.loop !35
+  br i1 %36, label %.lr.ph22.i, label %._crit_edge.i, !llvm.loop !34
 
 ._crit_edge.i:                                    ; preds = %.lr.ph22.i, %_ZN4cvc58internal10safe_printILm2EEEviRAT__Kc.exit
   %37 = call i64 @write(i32 noundef %0, ptr noundef nonnull %3, i64 noundef 9)
@@ -509,7 +509,7 @@ define hidden void @_ZN4cvc58internal24safe_print_right_alignedEiml(i32 noundef 
   br i1 %6, label %.preheader, label %._crit_edge
 
 .preheader:                                       ; preds = %3
-  call void @llvm.memset.p0.i64(ptr nonnull align 16 %4, i8 48, i64 %5, i1 false), !tbaa !16
+  call void @llvm.memset.p0.i64(ptr nonnull align 16 %4, i8 48, i64 %5, i1 false), !tbaa !15
   %.not23 = icmp eq i64 %1, 0
   br i1 %.not23, label %._crit_edge, label %.lr.ph22
 
@@ -521,12 +521,12 @@ define hidden void @_ZN4cvc58internal24safe_print_right_alignedEiml(i32 noundef 
   %8 = trunc nuw nsw i64 %7 to i8
   %9 = or disjoint i8 %8, 48
   %10 = getelementptr inbounds nuw [20 x i8], ptr %4, i64 0, i64 %.0
-  store i8 %9, ptr %10, align 1, !tbaa !16
+  store i8 %9, ptr %10, align 1, !tbaa !15
   %11 = udiv i64 %.01720, 10
   %12 = icmp ugt i64 %.01720, 9
   %13 = icmp sgt i64 %.0.in21, 1
   %14 = and i1 %12, %13
-  br i1 %14, label %.lr.ph22, label %._crit_edge, !llvm.loop !35
+  br i1 %14, label %.lr.ph22, label %._crit_edge, !llvm.loop !34
 
 ._crit_edge:                                      ; preds = %.lr.ph22, %3, %.preheader
   %15 = call i64 @write(i32 noundef %0, ptr noundef nonnull %4, i64 noundef %5)
@@ -572,28 +572,27 @@ attributes #7 = { nounwind }
 !8 = !{!"omnipotent char", !9, i64 0}
 !9 = !{!"Simple C++ TBAA"}
 !10 = !{!"long", !8, i64 0}
-!11 = distinct !{!11, !12, !13}
+!11 = distinct !{!11, !12}
 !12 = !{!"llvm.loop.mustprogress"}
-!13 = !{!"llvm.loop.estimated_trip_count"}
-!14 = !{!4, !6, i64 0}
-!15 = !{!10, !10, i64 0}
-!16 = !{!8, !8, i64 0}
-!17 = distinct !{!17, !12, !13}
-!18 = !{!19, !19, i64 0}
-!19 = !{!"int", !8, i64 0}
-!20 = distinct !{!20, !12, !13}
-!21 = !{!22, !22, i64 0}
-!22 = !{!"double", !8, i64 0}
-!23 = distinct !{!23, !12, !13}
-!24 = !{!25, !25, i64 0}
-!25 = !{!"float", !8, i64 0}
-!26 = !{!27, !27, i64 0}
-!27 = !{!"bool", !8, i64 0}
-!28 = !{i8 0, i8 2}
-!29 = !{}
-!30 = !{!7, !7, i64 0}
-!31 = distinct !{!31, !12, !13}
-!32 = !{!33, !10, i64 0}
-!33 = !{!"_ZTS8timespec", !10, i64 0, !10, i64 8}
-!34 = !{!33, !10, i64 8}
-!35 = distinct !{!35, !12, !13}
+!13 = !{!4, !6, i64 0}
+!14 = !{!10, !10, i64 0}
+!15 = !{!8, !8, i64 0}
+!16 = distinct !{!16, !12}
+!17 = !{!18, !18, i64 0}
+!18 = !{!"int", !8, i64 0}
+!19 = distinct !{!19, !12}
+!20 = !{!21, !21, i64 0}
+!21 = !{!"double", !8, i64 0}
+!22 = distinct !{!22, !12}
+!23 = !{!24, !24, i64 0}
+!24 = !{!"float", !8, i64 0}
+!25 = !{!26, !26, i64 0}
+!26 = !{!"bool", !8, i64 0}
+!27 = !{i8 0, i8 2}
+!28 = !{}
+!29 = !{!7, !7, i64 0}
+!30 = distinct !{!30, !12}
+!31 = !{!32, !10, i64 0}
+!32 = !{!"_ZTS8timespec", !10, i64 0, !10, i64 8}
+!33 = !{!32, !10, i64 8}
+!34 = distinct !{!34, !12}

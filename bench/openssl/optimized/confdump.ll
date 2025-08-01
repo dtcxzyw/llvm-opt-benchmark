@@ -55,14 +55,14 @@ dump_section.exit:                                ; preds = %.lr.ph.i, %.lr.ph
   %28 = add nuw nsw i32 %.015, 1
   %29 = call i32 @OPENSSL_sk_num(ptr noundef %11) #4
   %30 = icmp slt i32 %28, %29
-  br i1 %30, label %.lr.ph, label %._crit_edge, !llvm.loop !15
+  br i1 %30, label %.lr.ph, label %._crit_edge, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %dump_section.exit, %10
   call void @OPENSSL_sk_free(ptr noundef %11) #4
   br label %33
 
 31:                                               ; preds = %6, %2
-  %32 = load ptr, ptr @stderr, align 8, !tbaa !16
+  %32 = load ptr, ptr @stderr, align 8, !tbaa !15
   call void @ERR_print_errors_fp(ptr noundef %32) #4
   br label %33
 
@@ -122,9 +122,8 @@ attributes #4 = { nounwind }
 !9 = !{!10, !5, i64 8}
 !10 = !{!"", !5, i64 0, !5, i64 8, !5, i64 16}
 !11 = !{!10, !5, i64 16}
-!12 = distinct !{!12, !13, !14}
+!12 = distinct !{!12, !13}
 !13 = !{!"llvm.loop.mustprogress"}
-!14 = !{!"llvm.loop.estimated_trip_count"}
-!15 = distinct !{!15, !13, !14}
-!16 = !{!17, !17, i64 0}
-!17 = !{!"p1 _ZTS8_IO_FILE", !6, i64 0}
+!14 = distinct !{!14, !13}
+!15 = !{!16, !16, i64 0}
+!16 = !{!"p1 _ZTS8_IO_FILE", !6, i64 0}

@@ -77,10 +77,10 @@ define i32 @av_int_list_length_for_size(i32 noundef %0, ptr noundef readonly cap
   %.2 = phi i32 [ %16, %12 ], [ 0, %.preheader33 ]
   %13 = zext i32 %.2 to i64
   %14 = getelementptr inbounds nuw i16, ptr %1, i64 %13
-  %15 = load i16, ptr %14, align 2, !tbaa !10
+  %15 = load i16, ptr %14, align 2, !tbaa !9
   %.not31 = icmp eq i16 %15, %5
   %16 = add i32 %.2, 1
-  br i1 %.not31, label %.loopexit, label %12, !llvm.loop !12
+  br i1 %.not31, label %.loopexit, label %12, !llvm.loop !11
 
 17:                                               ; preds = %4
   %18 = trunc i64 %2 to i32
@@ -90,19 +90,19 @@ define i32 @av_int_list_length_for_size(i32 noundef %0, ptr noundef readonly cap
   %.3 = phi i32 [ 0, %17 ], [ %23, %19 ]
   %20 = zext i32 %.3 to i64
   %21 = getelementptr inbounds nuw i32, ptr %1, i64 %20
-  %22 = load i32, ptr %21, align 4, !tbaa !13
+  %22 = load i32, ptr %21, align 4, !tbaa !12
   %.not30 = icmp eq i32 %22, %18
   %23 = add i32 %.3, 1
-  br i1 %.not30, label %.loopexit, label %19, !llvm.loop !15
+  br i1 %.not30, label %.loopexit, label %19, !llvm.loop !14
 
 .preheader36:                                     ; preds = %4, %.preheader36
   %.4 = phi i32 [ %27, %.preheader36 ], [ 0, %4 ]
   %24 = zext i32 %.4 to i64
   %25 = getelementptr inbounds nuw i64, ptr %1, i64 %24
-  %26 = load i64, ptr %25, align 8, !tbaa !16
+  %26 = load i64, ptr %25, align 8, !tbaa !15
   %.not29 = icmp eq i64 %26, %2
   %27 = add i32 %.4, 1
-  br i1 %.not29, label %.loopexit, label %.preheader36, !llvm.loop !18
+  br i1 %.not29, label %.loopexit, label %.preheader36, !llvm.loop !17
 
 28:                                               ; preds = %4
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, i32 noundef 69) #8
@@ -162,7 +162,7 @@ define noundef ptr @av_fourcc_make_string(ptr noundef returned writeonly capture
   %19 = lshr i32 %.03151, 8
   %20 = add nuw nsw i32 %.03350, 1
   %exitcond.not = icmp eq i32 %20, 4
-  br i1 %exitcond.not, label %21, label %3, !llvm.loop !19
+  br i1 %exitcond.not, label %21, label %3, !llvm.loop !18
 
 21:                                               ; preds = %11, %15
   ret ptr %0
@@ -207,16 +207,15 @@ attributes #9 = { noreturn nounwind }
 !4 = !{!5, !5, i64 0}
 !5 = !{!"omnipotent char", !6, i64 0}
 !6 = !{!"Simple C/C++ TBAA"}
-!7 = distinct !{!7, !8, !9}
+!7 = distinct !{!7, !8}
 !8 = !{!"llvm.loop.mustprogress"}
-!9 = !{!"llvm.loop.estimated_trip_count"}
-!10 = !{!11, !11, i64 0}
-!11 = !{!"short", !5, i64 0}
-!12 = distinct !{!12, !8, !9}
-!13 = !{!14, !14, i64 0}
-!14 = !{!"int", !5, i64 0}
-!15 = distinct !{!15, !8, !9}
-!16 = !{!17, !17, i64 0}
-!17 = !{!"long", !5, i64 0}
-!18 = distinct !{!18, !8, !9}
-!19 = distinct !{!19, !8, !9}
+!9 = !{!10, !10, i64 0}
+!10 = !{!"short", !5, i64 0}
+!11 = distinct !{!11, !8}
+!12 = !{!13, !13, i64 0}
+!13 = !{!"int", !5, i64 0}
+!14 = distinct !{!14, !8}
+!15 = !{!16, !16, i64 0}
+!16 = !{!"long", !5, i64 0}
+!17 = distinct !{!17, !8}
+!18 = distinct !{!18, !8}

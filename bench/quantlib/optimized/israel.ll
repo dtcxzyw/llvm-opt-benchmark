@@ -2401,12 +2401,12 @@ unreachable.i:                                    ; preds = %lpad.i
 
 _ZN5boost6detail12shared_countC2IN8QuantLib6Israel11TelAvivImplEEEPT_.exit: ; preds = %entry
   %use_count_.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 8
-  store i32 1, ptr %use_count_.i.i.i, align 8, !tbaa !37
+  store i32 1, ptr %use_count_.i.i.i, align 8, !tbaa !36
   %weak_count_.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 12
-  store i32 1, ptr %weak_count_.i.i.i, align 4, !tbaa !40
+  store i32 1, ptr %weak_count_.i.i.i, align 4, !tbaa !39
   store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN5boost6detail17sp_counted_impl_pIN8QuantLib6Israel11TelAvivImplEEE, i64 16), ptr %call.i, align 8, !tbaa !16
   %px_.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 16
-  store ptr %p, ptr %px_.i.i, align 8, !tbaa !41
+  store ptr %p, ptr %px_.i.i, align 8, !tbaa !40
   %5 = load ptr, ptr %pn, align 8, !tbaa !21
   store ptr %call.i, ptr %pn, align 8, !tbaa !21
   %cmp.not.i = icmp eq ptr %5, null
@@ -2513,7 +2513,7 @@ entry:
 define linkonce_odr void @_ZN5boost6detail17sp_counted_impl_pIN8QuantLib6Israel11TelAvivImplEE7disposeEv(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %px_ = getelementptr inbounds nuw i8, ptr %this, i64 16
-  %0 = load ptr, ptr %px_, align 8, !tbaa !41
+  %0 = load ptr, ptr %px_, align 8, !tbaa !40
   %isnull.i = icmp eq ptr %0, null
   br i1 %isnull.i, label %_ZN5boost14checked_deleteIN8QuantLib6Israel11TelAvivImplEEEvPT_.exit, label %delete.notnull.i
 
@@ -2650,12 +2650,11 @@ attributes #24 = { builtin nounwind }
 !31 = !{!"_ZTSN8QuantLib4DateE", !11, i64 0}
 !32 = !{!6, !10, i64 24}
 !33 = !{!6, !10, i64 16}
-!34 = distinct !{!34, !35, !36}
+!34 = distinct !{!34, !35}
 !35 = !{!"llvm.loop.mustprogress"}
-!36 = !{!"llvm.loop.estimated_trip_count"}
-!37 = !{!38, !39, i64 8}
-!38 = !{!"_ZTSN5boost6detail15sp_counted_baseE", !39, i64 8, !39, i64 12}
-!39 = !{!"int", !8, i64 0}
-!40 = !{!38, !39, i64 12}
-!41 = !{!42, !10, i64 16}
-!42 = !{!"_ZTSN5boost6detail17sp_counted_impl_pIN8QuantLib6Israel11TelAvivImplEEE", !38, i64 0, !10, i64 16}
+!36 = !{!37, !38, i64 8}
+!37 = !{!"_ZTSN5boost6detail15sp_counted_baseE", !38, i64 8, !38, i64 12}
+!38 = !{!"int", !8, i64 0}
+!39 = !{!37, !38, i64 12}
+!40 = !{!41, !10, i64 16}
+!41 = !{!"_ZTSN5boost6detail17sp_counted_impl_pIN8QuantLib6Israel11TelAvivImplEEE", !37, i64 0, !10, i64 16}

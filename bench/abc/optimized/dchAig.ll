@@ -107,12 +107,12 @@ define ptr @Dch_DeriveTotalAig(ptr noundef readonly captures(none) %0) local_unn
 
 .lr.ph86:                                         ; preds = %.critedge
   %16 = getelementptr i8, ptr %14, i64 48
-  %.val77.pre = load ptr, ptr %16, align 8, !tbaa !20
+  %.val77.pre = load ptr, ptr %16, align 8, !tbaa !19
   br label %21
 
 .critedge2.preheader:                             ; preds = %21, %.critedge
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %18 = load ptr, ptr %17, align 8, !tbaa !32
+  %18 = load ptr, ptr %17, align 8, !tbaa !31
   %19 = getelementptr i8, ptr %18, i64 4
   %.val7190 = load i32, ptr %19, align 4, !tbaa !15
   %20 = icmp sgt i32 %.val7190, 0
@@ -124,18 +124,18 @@ define ptr @Dch_DeriveTotalAig(ptr noundef readonly captures(none) %0) local_unn
   %22 = getelementptr inbounds nuw ptr, ptr %.val64, i64 %indvars.iv100
   %23 = load ptr, ptr %22, align 8, !tbaa !14
   %24 = getelementptr i8, ptr %23, i64 48
-  %.val78 = load ptr, ptr %24, align 8, !tbaa !20
+  %.val78 = load ptr, ptr %24, align 8, !tbaa !19
   %25 = getelementptr inbounds nuw i8, ptr %.val78, i64 40
   store ptr %.val77.pre, ptr %25, align 8, !tbaa !3
   %indvars.iv.next101 = add nuw nsw i64 %indvars.iv100, 1
   %.val70 = load i32, ptr %4, align 4, !tbaa !15
   %26 = sext i32 %.val70 to i64
   %27 = icmp slt i64 %indvars.iv.next101, %26
-  br i1 %27, label %21, label %.critedge2.preheader, !llvm.loop !33
+  br i1 %27, label %21, label %.critedge2.preheader, !llvm.loop !32
 
 .critedge4.preheader:                             ; preds = %.critedge6, %.critedge2.preheader
   %28 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %29 = load ptr, ptr %28, align 8, !tbaa !34
+  %29 = load ptr, ptr %28, align 8, !tbaa !33
   %30 = getelementptr i8, ptr %29, i64 4
   %.val7396 = load i32, ptr %30, align 4, !tbaa !15
   %31 = icmp sgt i32 %.val7396, 0
@@ -154,7 +154,7 @@ define ptr @Dch_DeriveTotalAig(ptr noundef readonly captures(none) %0) local_unn
   %34 = getelementptr inbounds nuw ptr, ptr %.val66, i64 %indvars.iv103
   %35 = load ptr, ptr %34, align 8, !tbaa !14
   %36 = getelementptr i8, ptr %35, i64 16
-  %.val79 = load ptr, ptr %36, align 8, !tbaa !32
+  %.val79 = load ptr, ptr %36, align 8, !tbaa !31
   %37 = getelementptr i8, ptr %.val79, i64 8
   %.val79.val = load ptr, ptr %37, align 8, !tbaa !12
   %38 = getelementptr inbounds nuw ptr, ptr %.val79.val, i64 %indvars.iv106
@@ -165,16 +165,16 @@ define ptr @Dch_DeriveTotalAig(ptr noundef readonly captures(none) %0) local_unn
   %.val72 = load i32, ptr %4, align 4, !tbaa !15
   %41 = sext i32 %.val72 to i64
   %42 = icmp slt i64 %indvars.iv.next104, %41
-  br i1 %42, label %.lr.ph89, label %.critedge6, !llvm.loop !35
+  br i1 %42, label %.lr.ph89, label %.critedge6, !llvm.loop !34
 
 .critedge6:                                       ; preds = %.lr.ph89, %.lr.ph92
   %indvars.iv.next107 = add nuw nsw i64 %indvars.iv106, 1
-  %43 = load ptr, ptr %17, align 8, !tbaa !32
+  %43 = load ptr, ptr %17, align 8, !tbaa !31
   %44 = getelementptr i8, ptr %43, i64 4
   %.val71 = load i32, ptr %44, align 4, !tbaa !15
   %45 = sext i32 %.val71 to i64
   %46 = icmp slt i64 %indvars.iv.next107, %45
-  br i1 %46, label %.lr.ph92, label %.critedge4.preheader, !llvm.loop !36
+  br i1 %46, label %.lr.ph92, label %.critedge4.preheader, !llvm.loop !35
 
 .lr.ph98:                                         ; preds = %.critedge4.preheader, %Aig_ObjChild0Copy.exit
   %indvars.iv112 = phi i64 [ %indvars.iv.next113, %Aig_ObjChild0Copy.exit ], [ 0, %.critedge4.preheader ]
@@ -193,7 +193,7 @@ define ptr @Dch_DeriveTotalAig(ptr noundef readonly captures(none) %0) local_unn
   %52 = getelementptr inbounds nuw ptr, ptr %.val68, i64 %indvars.iv109
   %53 = load ptr, ptr %52, align 8, !tbaa !14
   %54 = getelementptr i8, ptr %53, i64 24
-  %.val80 = load ptr, ptr %54, align 8, !tbaa !34
+  %.val80 = load ptr, ptr %54, align 8, !tbaa !33
   %55 = getelementptr i8, ptr %.val80, i64 8
   %.val80.val = load ptr, ptr %55, align 8, !tbaa !12
   %56 = getelementptr inbounds nuw ptr, ptr %.val80.val, i64 %indvars.iv112
@@ -208,7 +208,7 @@ define ptr @Dch_DeriveTotalAig(ptr noundef readonly captures(none) %0) local_unn
   %.val74 = load i32, ptr %4, align 4, !tbaa !15
   %62 = sext i32 %.val74 to i64
   %63 = icmp slt i64 %indvars.iv.next110, %62
-  br i1 %63, label %.lr.ph95, label %.critedge10, !llvm.loop !37
+  br i1 %63, label %.lr.ph95, label %.critedge10, !llvm.loop !36
 
 .critedge10:                                      ; preds = %.lr.ph95, %.lr.ph98
   %64 = getelementptr i8, ptr %50, i64 8
@@ -232,12 +232,12 @@ Aig_ObjChild0Copy.exit:                           ; preds = %.critedge10, %67
   %75 = phi ptr [ %74, %67 ], [ null, %.critedge10 ]
   %76 = tail call ptr @Aig_ObjCreateCo(ptr noundef %14, ptr noundef %75) #2
   %indvars.iv.next113 = add nuw nsw i64 %indvars.iv112, 1
-  %77 = load ptr, ptr %28, align 8, !tbaa !34
+  %77 = load ptr, ptr %28, align 8, !tbaa !33
   %78 = getelementptr i8, ptr %77, i64 4
   %.val73 = load i32, ptr %78, align 4, !tbaa !15
   %79 = sext i32 %.val73 to i64
   %80 = icmp slt i64 %indvars.iv.next113, %79
-  br i1 %80, label %.lr.ph98, label %.critedge8, !llvm.loop !38
+  br i1 %80, label %.lr.ph98, label %.critedge8, !llvm.loop !37
 
 .critedge8:                                       ; preds = %Aig_ObjChild0Copy.exit, %.critedge4.preheader
   ret ptr %14
@@ -274,25 +274,24 @@ attributes #2 = { nounwind }
 !14 = !{!9, !9, i64 0}
 !15 = !{!13, !10, i64 4}
 !16 = !{!10, !10, i64 0}
-!17 = distinct !{!17, !18, !19}
+!17 = distinct !{!17, !18}
 !18 = !{!"llvm.loop.mustprogress"}
-!19 = !{!"llvm.loop.estimated_trip_count"}
-!20 = !{!21, !8, i64 48}
-!21 = !{!"Aig_Man_t_", !22, i64 0, !22, i64 8, !23, i64 16, !23, i64 24, !23, i64 32, !23, i64 40, !8, i64 48, !7, i64 56, !10, i64 104, !10, i64 108, !10, i64 112, !10, i64 116, !10, i64 120, !10, i64 124, !4, i64 128, !10, i64 156, !24, i64 160, !10, i64 168, !25, i64 176, !10, i64 184, !26, i64 192, !10, i64 200, !10, i64 204, !10, i64 208, !25, i64 216, !10, i64 224, !10, i64 228, !10, i64 232, !10, i64 236, !10, i64 240, !24, i64 248, !24, i64 256, !10, i64 264, !27, i64 272, !28, i64 280, !10, i64 288, !9, i64 296, !9, i64 304, !10, i64 312, !10, i64 316, !10, i64 320, !24, i64 328, !9, i64 336, !9, i64 344, !9, i64 352, !9, i64 360, !25, i64 368, !25, i64 376, !23, i64 384, !28, i64 392, !28, i64 400, !29, i64 408, !23, i64 416, !30, i64 424, !23, i64 432, !10, i64 440, !28, i64 448, !26, i64 456, !28, i64 464, !28, i64 472, !10, i64 480, !31, i64 488, !31, i64 496, !31, i64 504, !23, i64 512, !23, i64 520}
-!22 = !{!"p1 omnipotent char", !9, i64 0}
-!23 = !{!"p1 _ZTS10Vec_Ptr_t_", !9, i64 0}
-!24 = !{!"p2 _ZTS10Aig_Obj_t_", !9, i64 0}
-!25 = !{!"p1 int", !9, i64 0}
-!26 = !{!"p1 _ZTS10Vec_Vec_t_", !9, i64 0}
-!27 = !{!"p1 _ZTS14Aig_MmFixed_t_", !9, i64 0}
-!28 = !{!"p1 _ZTS10Vec_Int_t_", !9, i64 0}
-!29 = !{!"p1 _ZTS10Abc_Cex_t_", !9, i64 0}
-!30 = !{!"p1 _ZTS10Aig_Man_t_", !9, i64 0}
-!31 = !{!"long", !4, i64 0}
-!32 = !{!21, !23, i64 16}
-!33 = distinct !{!33, !18, !19}
-!34 = !{!21, !23, i64 24}
-!35 = distinct !{!35, !18, !19}
-!36 = distinct !{!36, !18, !19}
-!37 = distinct !{!37, !18, !19}
-!38 = distinct !{!38, !18, !19}
+!19 = !{!20, !8, i64 48}
+!20 = !{!"Aig_Man_t_", !21, i64 0, !21, i64 8, !22, i64 16, !22, i64 24, !22, i64 32, !22, i64 40, !8, i64 48, !7, i64 56, !10, i64 104, !10, i64 108, !10, i64 112, !10, i64 116, !10, i64 120, !10, i64 124, !4, i64 128, !10, i64 156, !23, i64 160, !10, i64 168, !24, i64 176, !10, i64 184, !25, i64 192, !10, i64 200, !10, i64 204, !10, i64 208, !24, i64 216, !10, i64 224, !10, i64 228, !10, i64 232, !10, i64 236, !10, i64 240, !23, i64 248, !23, i64 256, !10, i64 264, !26, i64 272, !27, i64 280, !10, i64 288, !9, i64 296, !9, i64 304, !10, i64 312, !10, i64 316, !10, i64 320, !23, i64 328, !9, i64 336, !9, i64 344, !9, i64 352, !9, i64 360, !24, i64 368, !24, i64 376, !22, i64 384, !27, i64 392, !27, i64 400, !28, i64 408, !22, i64 416, !29, i64 424, !22, i64 432, !10, i64 440, !27, i64 448, !25, i64 456, !27, i64 464, !27, i64 472, !10, i64 480, !30, i64 488, !30, i64 496, !30, i64 504, !22, i64 512, !22, i64 520}
+!21 = !{!"p1 omnipotent char", !9, i64 0}
+!22 = !{!"p1 _ZTS10Vec_Ptr_t_", !9, i64 0}
+!23 = !{!"p2 _ZTS10Aig_Obj_t_", !9, i64 0}
+!24 = !{!"p1 int", !9, i64 0}
+!25 = !{!"p1 _ZTS10Vec_Vec_t_", !9, i64 0}
+!26 = !{!"p1 _ZTS14Aig_MmFixed_t_", !9, i64 0}
+!27 = !{!"p1 _ZTS10Vec_Int_t_", !9, i64 0}
+!28 = !{!"p1 _ZTS10Abc_Cex_t_", !9, i64 0}
+!29 = !{!"p1 _ZTS10Aig_Man_t_", !9, i64 0}
+!30 = !{!"long", !4, i64 0}
+!31 = !{!20, !22, i64 16}
+!32 = distinct !{!32, !18}
+!33 = !{!20, !22, i64 24}
+!34 = distinct !{!34, !18}
+!35 = distinct !{!35, !18}
+!36 = distinct !{!36, !18}
+!37 = distinct !{!37, !18}

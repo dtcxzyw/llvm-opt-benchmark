@@ -155,7 +155,7 @@ define internal ptr @addDoIthBit(ptr noundef %0, ptr noundef %1, ptr noundef %2)
   %15 = icmp eq i32 %14, 0
   %.in.v = select i1 %15, i64 48, i64 40
   %.in = getelementptr inbounds nuw i8, ptr %0, i64 %.in.v
-  %16 = load ptr, ptr %.in, align 8, !tbaa !32
+  %16 = load ptr, ptr %.in, align 8, !tbaa !31
   br label %54
 
 17:                                               ; preds = %3
@@ -269,7 +269,6 @@ attributes #2 = { nounwind }
 !26 = !{!13, !8, i64 64}
 !27 = !{!4, !5, i64 4}
 !28 = !{!13, !5, i64 448}
-!29 = distinct !{!29, !30, !31}
+!29 = distinct !{!29, !30}
 !30 = !{!"llvm.loop.mustprogress"}
-!31 = !{!"llvm.loop.estimated_trip_count"}
-!32 = !{!8, !8, i64 0}
+!31 = !{!8, !8, i64 0}

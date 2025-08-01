@@ -357,7 +357,7 @@ define internal void @rtd_draw(ptr noundef readonly captures(none) %0) #0 {
   %150 = load i32, ptr %149, align 8
   %151 = zext i32 %150 to i64
   %152 = icmp samesign ult i64 %indvars.iv.next, %151
-  br i1 %152, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !10
+  br i1 %152, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !9
 
 ._crit_edge.loopexit:                             ; preds = %147
   %.pre117 = load i32, ptr %11, align 8
@@ -370,7 +370,7 @@ define internal void @rtd_draw(ptr noundef readonly captures(none) %0) #0 {
   %indvars.iv.next111 = add nuw nsw i64 %indvars.iv110, 1
   %156 = zext i32 %153 to i64
   %157 = icmp samesign ult i64 %indvars.iv.next111, %156
-  br i1 %157, label %.preheader, label %.loopexit, !llvm.loop !11
+  br i1 %157, label %.preheader, label %.loopexit, !llvm.loop !10
 
 .loopexit:                                        ; preds = %._crit_edge, %75, %80, %14
   %158 = tail call i32 (i32, ptr, ...) @__printf_chk(i32 noundef 2, ptr noundef nonnull @.str.3)
@@ -420,8 +420,7 @@ attributes #8 = { allocsize(0) }
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"PIE Level", i32 2}
 !6 = !{i32 7, !"uwtable", i32 2}
-!7 = distinct !{!7, !8, !9}
+!7 = distinct !{!7, !8}
 !8 = !{!"llvm.loop.mustprogress"}
-!9 = !{!"llvm.loop.estimated_trip_count"}
-!10 = distinct !{!10, !8, !9}
-!11 = distinct !{!11, !8, !9}
+!9 = distinct !{!9, !8}
+!10 = distinct !{!10, !8}

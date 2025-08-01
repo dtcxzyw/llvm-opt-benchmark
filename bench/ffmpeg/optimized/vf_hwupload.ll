@@ -132,14 +132,14 @@ define internal range(i32 -2147483648, 1) i32 @hwupload_query_formats(ptr nounde
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %.preheader, %16
   %25 = phi ptr [ %.pre, %.loopexit.loopexit ], [ %15, %.preheader ], [ %15, %16 ]
-  %26 = load ptr, ptr %1, align 8, !tbaa !36
+  %26 = load ptr, ptr %1, align 8, !tbaa !35
   %27 = call i32 @ff_formats_ref(ptr noundef %25, ptr noundef %26) #5
   %28 = icmp slt i32 %27, 0
   br i1 %28, label %.loopexit25, label %29
 
 29:                                               ; preds = %.loopexit
   %30 = call ptr @ff_make_format_list(ptr noundef %14) #5
-  %31 = load ptr, ptr %2, align 8, !tbaa !36
+  %31 = load ptr, ptr %2, align 8, !tbaa !35
   %32 = call i32 @ff_formats_ref(ptr noundef %30, ptr noundef %31) #5
   %spec.select = call i32 @llvm.smin.i32(i32 %32, i32 0)
   br label %.loopexit25
@@ -156,19 +156,19 @@ define internal range(i32 -2147483648, 1) i32 @hwupload_query_formats(ptr nounde
 define internal i32 @hwupload_filter_frame(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %1, ptr %3, align 8, !tbaa !38
+  store ptr %1, ptr %3, align 8, !tbaa !37
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %6 = load ptr, ptr %5, align 8, !tbaa !40
+  %6 = load ptr, ptr %5, align 8, !tbaa !39
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 56
-  %8 = load ptr, ptr %7, align 8, !tbaa !48
-  %9 = load ptr, ptr %8, align 8, !tbaa !49
+  %8 = load ptr, ptr %7, align 8, !tbaa !47
+  %9 = load ptr, ptr %8, align 8, !tbaa !48
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 72
   %11 = load ptr, ptr %10, align 8, !tbaa !4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #5
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 116
-  %13 = load i32, ptr %12, align 4, !tbaa !51
+  %13 = load i32, ptr %12, align 4, !tbaa !50
   %14 = getelementptr inbounds nuw i8, ptr %9, i64 36
-  %15 = load i32, ptr %14, align 4, !tbaa !57
+  %15 = load i32, ptr %14, align 4, !tbaa !56
   %16 = icmp eq i32 %13, %15
   br i1 %16, label %17, label %19
 
@@ -178,11 +178,11 @@ define internal i32 @hwupload_filter_frame(ptr noundef readonly captures(none) %
 
 19:                                               ; preds = %2
   %20 = getelementptr inbounds nuw i8, ptr %9, i64 40
-  %21 = load i32, ptr %20, align 8, !tbaa !58
+  %21 = load i32, ptr %20, align 8, !tbaa !57
   %22 = getelementptr inbounds nuw i8, ptr %9, i64 44
-  %23 = load i32, ptr %22, align 4, !tbaa !59
+  %23 = load i32, ptr %22, align 4, !tbaa !58
   %24 = tail call ptr @ff_get_video_buffer(ptr noundef nonnull %9, i32 noundef %21, i32 noundef %23) #5
-  store ptr %24, ptr %4, align 8, !tbaa !38
+  store ptr %24, ptr %4, align 8, !tbaa !37
   %.not = icmp eq ptr %24, null
   br i1 %.not, label %25, label %26
 
@@ -192,13 +192,13 @@ define internal i32 @hwupload_filter_frame(ptr noundef readonly captures(none) %
 
 26:                                               ; preds = %19
   %27 = getelementptr inbounds nuw i8, ptr %1, i64 104
-  %28 = load i32, ptr %27, align 8, !tbaa !60
+  %28 = load i32, ptr %27, align 8, !tbaa !59
   %29 = getelementptr inbounds nuw i8, ptr %24, i64 104
-  store i32 %28, ptr %29, align 8, !tbaa !60
+  store i32 %28, ptr %29, align 8, !tbaa !59
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 108
-  %31 = load i32, ptr %30, align 4, !tbaa !61
+  %31 = load i32, ptr %30, align 4, !tbaa !60
   %32 = getelementptr inbounds nuw i8, ptr %24, i64 108
-  store i32 %31, ptr %32, align 4, !tbaa !61
+  store i32 %31, ptr %32, align 4, !tbaa !60
   %33 = tail call i32 @av_hwframe_transfer_data(ptr noundef nonnull %24, ptr noundef nonnull %1, i32 noundef 0) #5
   %34 = icmp slt i32 %33, 0
   br i1 %34, label %35, label %36
@@ -249,24 +249,24 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -2147483648, 1) i32 @hwupload_config_output(ptr noundef captures(none) %0) #0 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !62
+  %2 = load ptr, ptr %0, align 8, !tbaa !61
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %4 = load ptr, ptr %3, align 8, !tbaa !63
-  %5 = load ptr, ptr %4, align 8, !tbaa !49
+  %4 = load ptr, ptr %3, align 8, !tbaa !62
+  %5 = load ptr, ptr %4, align 8, !tbaa !48
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 72
   %7 = load ptr, ptr %6, align 8, !tbaa !4
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
   tail call void @av_buffer_unref(ptr noundef nonnull %8) #5
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 36
-  %10 = load i32, ptr %9, align 4, !tbaa !57
+  %10 = load i32, ptr %9, align 4, !tbaa !56
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 36
-  %12 = load i32, ptr %11, align 4, !tbaa !57
+  %12 = load i32, ptr %11, align 4, !tbaa !56
   %13 = icmp eq i32 %10, %12
   br i1 %13, label %14, label %21
 
 14:                                               ; preds = %1
   %15 = getelementptr inbounds nuw i8, ptr %5, i64 272
-  %16 = load ptr, ptr %15, align 8, !tbaa !64
+  %16 = load ptr, ptr %15, align 8, !tbaa !63
   %.not50 = icmp eq ptr %16, null
   br i1 %.not50, label %17, label %18
 
@@ -277,7 +277,7 @@ define internal range(i32 -2147483648, 1) i32 @hwupload_config_output(ptr nounde
 18:                                               ; preds = %14
   %19 = tail call ptr @av_buffer_ref(ptr noundef nonnull %16) #5
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 272
-  store ptr %19, ptr %20, align 8, !tbaa !64
+  store ptr %19, ptr %20, align 8, !tbaa !63
   %.not51 = icmp eq ptr %19, null
   %. = select i1 %.not51, i32 -12, i32 0
   br label %63
@@ -286,30 +286,30 @@ define internal range(i32 -2147483648, 1) i32 @hwupload_config_output(ptr nounde
   %22 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %23 = load ptr, ptr %22, align 8, !tbaa !24
   %24 = tail call ptr @av_hwframe_ctx_alloc(ptr noundef %23) #5
-  store ptr %24, ptr %8, align 8, !tbaa !66
+  store ptr %24, ptr %8, align 8, !tbaa !65
   %.not = icmp eq ptr %24, null
   br i1 %.not, label %63, label %25
 
 25:                                               ; preds = %21
   %26 = getelementptr inbounds nuw i8, ptr %24, i64 8
-  %27 = load ptr, ptr %26, align 8, !tbaa !67
+  %27 = load ptr, ptr %26, align 8, !tbaa !66
   %28 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  store ptr %27, ptr %28, align 8, !tbaa !70
-  %29 = load i32, ptr %9, align 4, !tbaa !57
+  store ptr %27, ptr %28, align 8, !tbaa !69
+  %29 = load i32, ptr %9, align 4, !tbaa !56
   %30 = tail call ptr @av_get_pix_fmt_name(i32 noundef %29) #5
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %7, i32 noundef 48, ptr noundef nonnull @.str.6, ptr noundef %30) #5
-  %31 = load i32, ptr %11, align 4, !tbaa !57
-  %32 = load ptr, ptr %28, align 8, !tbaa !70
+  %31 = load i32, ptr %11, align 4, !tbaa !56
+  %32 = load ptr, ptr %28, align 8, !tbaa !69
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 60
-  store i32 %31, ptr %33, align 4, !tbaa !71
+  store i32 %31, ptr %33, align 4, !tbaa !70
   %34 = getelementptr inbounds nuw i8, ptr %5, i64 272
-  %35 = load ptr, ptr %34, align 8, !tbaa !64
+  %35 = load ptr, ptr %34, align 8, !tbaa !63
   %.not48 = icmp eq ptr %35, null
   br i1 %.not48, label %40, label %36
 
 36:                                               ; preds = %25
   %37 = getelementptr inbounds nuw i8, ptr %35, i64 8
-  %38 = load ptr, ptr %37, align 8, !tbaa !67
+  %38 = load ptr, ptr %37, align 8, !tbaa !66
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 64
   br label %40
 
@@ -317,37 +317,37 @@ define internal range(i32 -2147483648, 1) i32 @hwupload_config_output(ptr nounde
   %.sink.in = phi ptr [ %39, %36 ], [ %9, %25 ]
   %.sink = load i32, ptr %.sink.in, align 4, !tbaa !32
   %41 = getelementptr inbounds nuw i8, ptr %32, i64 64
-  store i32 %.sink, ptr %41, align 8, !tbaa !75
+  store i32 %.sink, ptr %41, align 8, !tbaa !74
   %42 = getelementptr inbounds nuw i8, ptr %5, i64 40
-  %43 = load i32, ptr %42, align 8, !tbaa !58
+  %43 = load i32, ptr %42, align 8, !tbaa !57
   %44 = getelementptr inbounds nuw i8, ptr %32, i64 68
-  store i32 %43, ptr %44, align 4, !tbaa !76
+  store i32 %43, ptr %44, align 4, !tbaa !75
   %45 = getelementptr inbounds nuw i8, ptr %5, i64 44
-  %46 = load i32, ptr %45, align 4, !tbaa !59
+  %46 = load i32, ptr %45, align 4, !tbaa !58
   %47 = getelementptr inbounds nuw i8, ptr %32, i64 72
-  store i32 %46, ptr %47, align 8, !tbaa !77
+  store i32 %46, ptr %47, align 8, !tbaa !76
   %48 = getelementptr inbounds nuw i8, ptr %2, i64 148
-  %49 = load i32, ptr %48, align 4, !tbaa !78
+  %49 = load i32, ptr %48, align 4, !tbaa !77
   %50 = icmp sgt i32 %49, -1
   br i1 %50, label %51, label %54
 
 51:                                               ; preds = %40
   %52 = add nuw nsw i32 %49, 2
   %53 = getelementptr inbounds nuw i8, ptr %32, i64 56
-  store i32 %52, ptr %53, align 8, !tbaa !79
+  store i32 %52, ptr %53, align 8, !tbaa !78
   br label %54
 
 54:                                               ; preds = %51, %40
-  %55 = load ptr, ptr %8, align 8, !tbaa !66
+  %55 = load ptr, ptr %8, align 8, !tbaa !65
   %56 = tail call i32 @av_hwframe_ctx_init(ptr noundef %55) #5
   %57 = icmp slt i32 %56, 0
   br i1 %57, label %62, label %58
 
 58:                                               ; preds = %54
-  %59 = load ptr, ptr %8, align 8, !tbaa !66
+  %59 = load ptr, ptr %8, align 8, !tbaa !65
   %60 = tail call ptr @av_buffer_ref(ptr noundef %59) #5
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 272
-  store ptr %60, ptr %61, align 8, !tbaa !64
+  store ptr %60, ptr %61, align 8, !tbaa !63
   %.not49 = icmp eq ptr %60, null
   br i1 %.not49, label %62, label %63
 
@@ -432,50 +432,49 @@ attributes #5 = { nounwind }
 !30 = !{!"AVHWFramesConstraints", !7, i64 0, !7, i64 8, !15, i64 16, !15, i64 20, !15, i64 24, !15, i64 28}
 !31 = !{!30, !7, i64 0}
 !32 = !{!15, !15, i64 0}
-!33 = distinct !{!33, !34, !35}
+!33 = distinct !{!33, !34}
 !34 = !{!"llvm.loop.mustprogress"}
-!35 = !{!"llvm.loop.estimated_trip_count"}
-!36 = !{!37, !37, i64 0}
-!37 = !{!"p1 _ZTS21AVFilterFormatsConfig", !7, i64 0}
-!38 = !{!39, !39, i64 0}
-!39 = !{!"p1 _ZTS7AVFrame", !7, i64 0}
-!40 = !{!41, !42, i64 16}
-!41 = !{!"AVFilterLink", !42, i64 0, !12, i64 8, !42, i64 16, !12, i64 24, !15, i64 32, !15, i64 36, !15, i64 40, !15, i64 44, !43, i64 48, !15, i64 56, !15, i64 60, !15, i64 64, !44, i64 72, !43, i64 96, !45, i64 104, !15, i64 112, !46, i64 120, !46, i64 160}
-!42 = !{!"p1 _ZTS15AVFilterContext", !7, i64 0}
-!43 = !{!"AVRational", !15, i64 0, !15, i64 4}
-!44 = !{!"AVChannelLayout", !15, i64 0, !15, i64 4, !8, i64 8, !7, i64 16}
-!45 = !{!"p2 _ZTS15AVFrameSideData", !14, i64 0}
-!46 = !{!"AVFilterFormatsConfig", !26, i64 0, !26, i64 8, !47, i64 16, !26, i64 24, !26, i64 32}
-!47 = !{!"p1 _ZTS22AVFilterChannelLayouts", !7, i64 0}
-!48 = !{!5, !13, i64 56}
-!49 = !{!50, !50, i64 0}
-!50 = !{!"p1 _ZTS12AVFilterLink", !7, i64 0}
-!51 = !{!52, !15, i64 116}
-!52 = !{!"AVFrame", !8, i64 0, !8, i64 64, !53, i64 96, !15, i64 104, !15, i64 108, !15, i64 112, !15, i64 116, !15, i64 120, !43, i64 124, !54, i64 136, !54, i64 144, !43, i64 152, !15, i64 160, !7, i64 168, !15, i64 176, !15, i64 180, !8, i64 184, !55, i64 248, !15, i64 256, !45, i64 264, !15, i64 272, !15, i64 276, !15, i64 280, !15, i64 284, !15, i64 288, !15, i64 292, !15, i64 296, !54, i64 304, !56, i64 312, !15, i64 320, !19, i64 328, !19, i64 336, !54, i64 344, !54, i64 352, !54, i64 360, !54, i64 368, !7, i64 376, !44, i64 384, !54, i64 408}
-!53 = !{!"p2 omnipotent char", !14, i64 0}
-!54 = !{!"long", !8, i64 0}
-!55 = !{!"p2 _ZTS11AVBufferRef", !14, i64 0}
-!56 = !{!"p1 _ZTS12AVDictionary", !7, i64 0}
-!57 = !{!41, !15, i64 36}
-!58 = !{!41, !15, i64 40}
-!59 = !{!41, !15, i64 44}
-!60 = !{!52, !15, i64 104}
-!61 = !{!52, !15, i64 108}
-!62 = !{!41, !42, i64 0}
-!63 = !{!5, !13, i64 32}
-!64 = !{!65, !19, i64 272}
-!65 = !{!"FilterLink", !41, i64 0, !16, i64 200, !54, i64 208, !54, i64 216, !15, i64 224, !15, i64 228, !54, i64 232, !54, i64 240, !54, i64 248, !54, i64 256, !43, i64 264, !19, i64 272}
-!66 = !{!22, !19, i64 16}
-!67 = !{!68, !11, i64 8}
-!68 = !{!"AVBufferRef", !69, i64 0, !11, i64 8, !54, i64 16}
-!69 = !{!"p1 _ZTS8AVBuffer", !7, i64 0}
-!70 = !{!22, !23, i64 24}
-!71 = !{!72, !15, i64 60}
-!72 = !{!"AVHWFramesContext", !6, i64 0, !19, i64 8, !73, i64 16, !7, i64 24, !7, i64 32, !7, i64 40, !74, i64 48, !15, i64 56, !15, i64 60, !15, i64 64, !15, i64 68, !15, i64 72}
-!73 = !{!"p1 _ZTS17AVHWDeviceContext", !7, i64 0}
-!74 = !{!"p1 _ZTS12AVBufferPool", !7, i64 0}
-!75 = !{!72, !15, i64 64}
-!76 = !{!72, !15, i64 68}
-!77 = !{!72, !15, i64 72}
-!78 = !{!5, !15, i64 148}
-!79 = !{!72, !15, i64 56}
+!35 = !{!36, !36, i64 0}
+!36 = !{!"p1 _ZTS21AVFilterFormatsConfig", !7, i64 0}
+!37 = !{!38, !38, i64 0}
+!38 = !{!"p1 _ZTS7AVFrame", !7, i64 0}
+!39 = !{!40, !41, i64 16}
+!40 = !{!"AVFilterLink", !41, i64 0, !12, i64 8, !41, i64 16, !12, i64 24, !15, i64 32, !15, i64 36, !15, i64 40, !15, i64 44, !42, i64 48, !15, i64 56, !15, i64 60, !15, i64 64, !43, i64 72, !42, i64 96, !44, i64 104, !15, i64 112, !45, i64 120, !45, i64 160}
+!41 = !{!"p1 _ZTS15AVFilterContext", !7, i64 0}
+!42 = !{!"AVRational", !15, i64 0, !15, i64 4}
+!43 = !{!"AVChannelLayout", !15, i64 0, !15, i64 4, !8, i64 8, !7, i64 16}
+!44 = !{!"p2 _ZTS15AVFrameSideData", !14, i64 0}
+!45 = !{!"AVFilterFormatsConfig", !26, i64 0, !26, i64 8, !46, i64 16, !26, i64 24, !26, i64 32}
+!46 = !{!"p1 _ZTS22AVFilterChannelLayouts", !7, i64 0}
+!47 = !{!5, !13, i64 56}
+!48 = !{!49, !49, i64 0}
+!49 = !{!"p1 _ZTS12AVFilterLink", !7, i64 0}
+!50 = !{!51, !15, i64 116}
+!51 = !{!"AVFrame", !8, i64 0, !8, i64 64, !52, i64 96, !15, i64 104, !15, i64 108, !15, i64 112, !15, i64 116, !15, i64 120, !42, i64 124, !53, i64 136, !53, i64 144, !42, i64 152, !15, i64 160, !7, i64 168, !15, i64 176, !15, i64 180, !8, i64 184, !54, i64 248, !15, i64 256, !44, i64 264, !15, i64 272, !15, i64 276, !15, i64 280, !15, i64 284, !15, i64 288, !15, i64 292, !15, i64 296, !53, i64 304, !55, i64 312, !15, i64 320, !19, i64 328, !19, i64 336, !53, i64 344, !53, i64 352, !53, i64 360, !53, i64 368, !7, i64 376, !43, i64 384, !53, i64 408}
+!52 = !{!"p2 omnipotent char", !14, i64 0}
+!53 = !{!"long", !8, i64 0}
+!54 = !{!"p2 _ZTS11AVBufferRef", !14, i64 0}
+!55 = !{!"p1 _ZTS12AVDictionary", !7, i64 0}
+!56 = !{!40, !15, i64 36}
+!57 = !{!40, !15, i64 40}
+!58 = !{!40, !15, i64 44}
+!59 = !{!51, !15, i64 104}
+!60 = !{!51, !15, i64 108}
+!61 = !{!40, !41, i64 0}
+!62 = !{!5, !13, i64 32}
+!63 = !{!64, !19, i64 272}
+!64 = !{!"FilterLink", !40, i64 0, !16, i64 200, !53, i64 208, !53, i64 216, !15, i64 224, !15, i64 228, !53, i64 232, !53, i64 240, !53, i64 248, !53, i64 256, !42, i64 264, !19, i64 272}
+!65 = !{!22, !19, i64 16}
+!66 = !{!67, !11, i64 8}
+!67 = !{!"AVBufferRef", !68, i64 0, !11, i64 8, !53, i64 16}
+!68 = !{!"p1 _ZTS8AVBuffer", !7, i64 0}
+!69 = !{!22, !23, i64 24}
+!70 = !{!71, !15, i64 60}
+!71 = !{!"AVHWFramesContext", !6, i64 0, !19, i64 8, !72, i64 16, !7, i64 24, !7, i64 32, !7, i64 40, !73, i64 48, !15, i64 56, !15, i64 60, !15, i64 64, !15, i64 68, !15, i64 72}
+!72 = !{!"p1 _ZTS17AVHWDeviceContext", !7, i64 0}
+!73 = !{!"p1 _ZTS12AVBufferPool", !7, i64 0}
+!74 = !{!71, !15, i64 64}
+!75 = !{!71, !15, i64 68}
+!76 = !{!71, !15, i64 72}
+!77 = !{!5, !15, i64 148}
+!78 = !{!71, !15, i64 56}

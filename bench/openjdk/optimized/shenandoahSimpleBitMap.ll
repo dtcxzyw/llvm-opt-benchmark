@@ -78,7 +78,7 @@ define hidden noundef i64 @_ZNK22ShenandoahSimpleBitMap18count_leading_onesEl(pt
   %.018.in = getelementptr inbounds i64, ptr %5, i64 %8
   %.018 = load i64, ptr %.018.in, align 8
   %9 = icmp eq i64 %.018, -1
-  br i1 %9, label %.lr.ph, label %._crit_edge, !llvm.loop !9
+  br i1 %9, label %.lr.ph, label %._crit_edge, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   %.020.lcssa = phi i64 [ 0, %2 ], [ %7, %.lr.ph ]
@@ -116,7 +116,7 @@ define hidden noundef i64 @_ZNK22ShenandoahSimpleBitMap19count_trailing_onesEl(p
   %.018.in = getelementptr inbounds i64, ptr %5, i64 %13
   %.018 = load i64, ptr %.018.in, align 8
   %14 = icmp eq i64 %.018, -1
-  br i1 %14, label %.lr.ph, label %._crit_edge, !llvm.loop !10
+  br i1 %14, label %.lr.ph, label %._crit_edge, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   %.020.lcssa = phi i64 [ 0, %2 ], [ %12, %.lr.ph ]
@@ -164,7 +164,7 @@ define hidden noundef zeroext i1 @_ZNK22ShenandoahSimpleBitMap27is_forward_conse
   %19 = add i64 %12, %.02127
   %20 = sub nsw i64 %.02226, %12
   %21 = icmp sgt i64 %20, 0
-  br i1 %21, label %7, label %._crit_edge, !llvm.loop !11
+  br i1 %21, label %7, label %._crit_edge, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %7, %16, %18, %3
   %.020 = phi i1 [ true, %3 ], [ true, %18 ], [ false, %16 ], [ true, %7 ]
@@ -206,7 +206,7 @@ define hidden noundef zeroext i1 @_ZNK22ShenandoahSimpleBitMap28is_backward_cons
   %20 = sub i64 %.02126, %12
   %21 = sub nsw i64 %.02225, %12
   %22 = icmp sgt i64 %21, 0
-  br i1 %22, label %7, label %._crit_edge, !llvm.loop !12
+  br i1 %22, label %7, label %._crit_edge, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %7, %17, %19, %3
   %.020 = phi i1 [ true, %3 ], [ true, %19 ], [ false, %17 ], [ true, %7 ]
@@ -289,7 +289,7 @@ _ZNK22ShenandoahSimpleBitMap27is_forward_consecutive_onesEll.exit.us: ; preds = 
   %.018.in.i.us = getelementptr inbounds i64, ptr %11, i64 %39
   %.018.i.us = load i64, ptr %.018.in.i.us, align 8
   %40 = icmp eq i64 %.018.i.us, -1
-  br i1 %40, label %.lr.ph.i62.us, label %_ZNK22ShenandoahSimpleBitMap19count_trailing_onesEl.exit.us, !llvm.loop !10
+  br i1 %40, label %.lr.ph.i62.us, label %_ZNK22ShenandoahSimpleBitMap19count_trailing_onesEl.exit.us, !llvm.loop !9
 
 _ZNK22ShenandoahSimpleBitMap19count_trailing_onesEl.exit.us: ; preds = %.lr.ph.i62.us, %_ZNK22ShenandoahSimpleBitMap27is_forward_consecutive_onesEll.exit.us
   %.020.lcssa.i.us = phi i64 [ 0, %_ZNK22ShenandoahSimpleBitMap27is_forward_consecutive_onesEll.exit.us ], [ %38, %.lr.ph.i62.us ]
@@ -351,7 +351,7 @@ _ZNK22ShenandoahSimpleBitMap19count_trailing_onesEl.exit.us: ; preds = %.lr.ph.i
   %.049.us.be = phi i64 [ 0, %69 ], [ %53, %54 ], [ 0, %49 ]
   %.047.us.be = phi i64 [ %70, %69 ], [ %50, %54 ], [ %50, %49 ]
   %.046.us.be = phi i64 [ %67, %69 ], [ %47, %54 ], [ %47, %49 ]
-  br label %.split.us, !llvm.loop !13
+  br label %.split.us, !llvm.loop !12
 
 .split:                                           ; preds = %7
   %73 = icmp eq i64 %14, 0
@@ -371,7 +371,7 @@ _ZNK22ShenandoahSimpleBitMap19count_trailing_onesEl.exit.us: ; preds = %.lr.ph.i
   %78 = getelementptr inbounds i64, ptr %11, i64 %77
   %79 = load i64, ptr %78, align 8
   %80 = icmp eq i64 %79, 0
-  br i1 %80, label %.lr.ph, label %_ZNK22ShenandoahSimpleBitMap27is_forward_consecutive_onesEll.exit.thread, !llvm.loop !15
+  br i1 %80, label %.lr.ph, label %_ZNK22ShenandoahSimpleBitMap27is_forward_consecutive_onesEll.exit.thread, !llvm.loop !14
 
 _ZNK22ShenandoahSimpleBitMap27is_forward_consecutive_onesEll.exit.thread: ; preds = %.lr.ph, %76, %66, %_ZNK22ShenandoahSimpleBitMap19count_trailing_onesEl.exit.us, %.lr.ph.i.preheader.us, %.lr.ph.i.us, %.split, %4
   %.0 = phi i64 [ %2, %4 ], [ %1, %.split ], [ %.046.us, %.lr.ph.i.us ], [ %.046.us, %.lr.ph.i.preheader.us ], [ %2, %_ZNK22ShenandoahSimpleBitMap19count_trailing_onesEl.exit.us ], [ %2, %66 ], [ %74, %76 ], [ %2, %.lr.ph ]
@@ -455,7 +455,7 @@ _ZNK22ShenandoahSimpleBitMap28is_backward_consecutive_onesEll.exit.us: ; preds =
   %.018.in.i.us = getelementptr inbounds i64, ptr %11, i64 %38
   %.018.i.us = load i64, ptr %.018.in.i.us, align 8
   %39 = icmp eq i64 %.018.i.us, -1
-  br i1 %39, label %.lr.ph.i64.us, label %_ZNK22ShenandoahSimpleBitMap18count_leading_onesEl.exit.us, !llvm.loop !9
+  br i1 %39, label %.lr.ph.i64.us, label %_ZNK22ShenandoahSimpleBitMap18count_leading_onesEl.exit.us, !llvm.loop !8
 
 _ZNK22ShenandoahSimpleBitMap18count_leading_onesEl.exit.us: ; preds = %.lr.ph.i64.us, %_ZNK22ShenandoahSimpleBitMap28is_backward_consecutive_onesEll.exit.us
   %.020.lcssa.i.us = phi i64 [ 0, %_ZNK22ShenandoahSimpleBitMap28is_backward_consecutive_onesEll.exit.us ], [ %37, %.lr.ph.i64.us ]
@@ -518,7 +518,7 @@ _ZNK22ShenandoahSimpleBitMap18count_leading_onesEl.exit.us: ; preds = %.lr.ph.i6
   %.050.us.be = phi i64 [ 63, %69 ], [ %48, %51 ], [ 63, %46 ]
   %.048.us.be = phi i64 [ %70, %69 ], [ %47, %51 ], [ %47, %46 ]
   %.047.us.be = phi i64 [ %67, %69 ], [ %44, %51 ], [ %44, %46 ]
-  br label %.split.us, !llvm.loop !16
+  br label %.split.us, !llvm.loop !15
 
 .split:                                           ; preds = %7
   %73 = icmp eq i64 %.052, 0
@@ -541,7 +541,7 @@ _ZNK22ShenandoahSimpleBitMap18count_leading_onesEl.exit.us: ; preds = %.lr.ph.i6
   %79 = getelementptr inbounds i64, ptr %11, i64 %78
   %80 = load i64, ptr %79, align 8
   %81 = icmp eq i64 %80, 0
-  br i1 %81, label %.lr.ph, label %.loopexit, !llvm.loop !17
+  br i1 %81, label %.lr.ph, label %.loopexit, !llvm.loop !16
 
 .loopexit:                                        ; preds = %77, %.lr.ph.i.preheader.us, %.lr.ph.i.us, %.split
   %.04772 = phi i64 [ %2, %.split ], [ %.047.us, %.lr.ph.i.us ], [ %.047.us, %.lr.ph.i.preheader.us ], [ %75, %77 ]
@@ -581,15 +581,14 @@ attributes #5 = { nounwind }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7, !8}
-!11 = distinct !{!11, !7, !8}
-!12 = distinct !{!12, !7, !8}
-!13 = distinct !{!13, !7, !8, !14}
-!14 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!15 = distinct !{!15, !7, !8}
-!16 = distinct !{!16, !7, !8, !14}
-!17 = distinct !{!17, !7, !8}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7}
+!12 = distinct !{!12, !7, !13}
+!13 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!14 = distinct !{!14, !7}
+!15 = distinct !{!15, !7, !13}
+!16 = distinct !{!16, !7}

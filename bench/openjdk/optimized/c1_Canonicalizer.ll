@@ -5066,7 +5066,7 @@ _ZNK6Switch6lengthEv.exit:                        ; preds = %2
   %.125 = select i1 %45, i32 %46, i32 %.02432
   %.1 = select i1 %45, i32 %.02333, i32 %47
   %.not = icmp sgt i32 %.1, %.125
-  br i1 %.not, label %.loopexit, label %33, !llvm.loop !9
+  br i1 %.not, label %.loopexit, label %33, !llvm.loop !8
 
 .loopexit:                                        ; preds = %44, %_ZNK6Switch6lengthEv.exit, %41
   %.0 = phi ptr [ %43, %41 ], [ %27, %_ZNK6Switch6lengthEv.exit ], [ %27, %44 ]
@@ -6063,7 +6063,7 @@ _ZN13GrowableArrayIP10BlockBeginE8allocateEv.exit: ; preds = %7, %11, %15
   %30 = load i32, ptr %0, align 8
   %31 = sext i32 %30 to i64
   %32 = icmp slt i64 %indvars.iv.next, %31
-  br i1 %32, label %25, label %.preheader16.loopexit, !llvm.loop !10
+  br i1 %32, label %25, label %.preheader16.loopexit, !llvm.loop !9
 
 .preheader:                                       ; preds = %.lr.ph19, %.preheader16
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -6079,7 +6079,7 @@ _ZN13GrowableArrayIP10BlockBeginE8allocateEv.exit: ; preds = %7, %11, %15
   %36 = load i32, ptr %3, align 4
   %37 = trunc nuw i64 %indvars.iv.next22 to i32
   %38 = icmp sgt i32 %36, %37
-  br i1 %38, label %.lr.ph19, label %.preheader, !llvm.loop !11
+  br i1 %38, label %.lr.ph19, label %.preheader, !llvm.loop !10
 
 39:                                               ; preds = %.preheader
   %40 = load i64, ptr %4, align 8
@@ -6168,9 +6168,8 @@ attributes #10 = { noreturn nounwind }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7, !8}
-!11 = distinct !{!11, !7, !8}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}

@@ -365,7 +365,7 @@ _ZN6icu_775MutexD2Ev.exit:                        ; preds = %29
 .critedge:                                        ; preds = %17
   %33 = add nuw nsw i32 %.029, 1
   %exitcond.not = icmp eq i32 %33, %14
-  br i1 %exitcond.not, label %.critedge23, label %.lr.ph, !llvm.loop !21
+  br i1 %exitcond.not, label %.critedge23, label %.lr.ph, !llvm.loop !20
 
 .critedge23:                                      ; preds = %.critedge, %12, %25, %20, %9
   invoke void @umtx_unlock_77(ptr noundef nonnull @_ZN6icu_77L10notifyLockE)
@@ -414,7 +414,7 @@ define void @_ZN6icu_7711ICUNotifier13notifyChangedEv(ptr noundef nonnull align 
 14:                                               ; preds = %10
   %15 = add nuw nsw i32 %.010, 1
   %exitcond.not = icmp eq i32 %15, %6
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !22
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !21
 
 16:                                               ; preds = %10, %.lr.ph
   %17 = landingpad { ptr, i32 }
@@ -486,8 +486,7 @@ attributes #11 = { noreturn nounwind }
 !15 = !{!"_ZTSN6icu_777UObjectE"}
 !16 = !{!"int", !10, i64 0}
 !17 = !{!"p1 _ZTS8UElement", !9, i64 0}
-!18 = distinct !{!18, !19, !20}
+!18 = distinct !{!18, !19}
 !19 = !{!"llvm.loop.mustprogress"}
-!20 = !{!"llvm.loop.estimated_trip_count"}
-!21 = distinct !{!21, !19, !20}
-!22 = distinct !{!22, !19, !20}
+!20 = distinct !{!20, !19}
+!21 = distinct !{!21, !19}

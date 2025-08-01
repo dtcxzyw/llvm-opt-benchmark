@@ -201,7 +201,7 @@ define linkonce_odr void @_ZN6icu_778numparse4impl14DecimalMatcherD2Ev(ptr nound
   %11 = getelementptr inbounds i8, ptr %10, i64 -64
   tail call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %11) #5
   %12 = icmp eq ptr %11, %3
-  br i1 %12, label %.loopexit.i, label %.preheader.i, !llvm.loop !12
+  br i1 %12, label %.loopexit.i, label %.preheader.i
 
 .loopexit.i:                                      ; preds = %.preheader.i, %5
   tail call void @_ZN6icu_777UMemorydaEPv(ptr noundef nonnull %6) #5
@@ -209,7 +209,7 @@ define linkonce_odr void @_ZN6icu_778numparse4impl14DecimalMatcherD2Ev(ptr nound
 
 _ZN6icu_7710LocalArrayIKNS_13UnicodeStringEED2Ev.exit: ; preds = %1, %.loopexit.i
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 184
-  %14 = load ptr, ptr %13, align 8, !tbaa !14
+  %14 = load ptr, ptr %13, align 8, !tbaa !12
   %15 = icmp eq ptr %14, null
   br i1 %15, label %_ZN6icu_7712LocalPointerIKNS_10UnicodeSetEED2Ev.exit, label %16
 
@@ -220,7 +220,7 @@ _ZN6icu_7710LocalArrayIKNS_13UnicodeStringEED2Ev.exit: ; preds = %1, %.loopexit.
 
 _ZN6icu_7712LocalPointerIKNS_10UnicodeSetEED2Ev.exit: ; preds = %_ZN6icu_7710LocalArrayIKNS_13UnicodeStringEED2Ev.exit, %16
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %18 = load ptr, ptr %17, align 8, !tbaa !14
+  %18 = load ptr, ptr %17, align 8, !tbaa !12
   %19 = icmp eq ptr %18, null
   br i1 %19, label %_ZN6icu_7712LocalPointerIKNS_10UnicodeSetEED2Ev.exit1, label %20
 
@@ -248,7 +248,7 @@ define noundef zeroext i1 @_ZNK6icu_778numparse4impl17ScientificMatcher5matchERN
 
 6:                                                ; preds = %4
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 76
-  %8 = load i32, ptr %7, align 4, !tbaa !17
+  %8 = load i32, ptr %7, align 4, !tbaa !15
   %9 = and i32 %8, 8
   %.not = icmp eq i32 %9, 0
   br i1 %.not, label %10, label %89
@@ -377,20 +377,20 @@ define noundef zeroext i1 @_ZNK6icu_778numparse4impl17ScientificMatcher5matchERN
 
 78:                                               ; preds = %73
   %79 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %80 = load i8, ptr %79, align 8, !tbaa !27, !range !28, !noundef !29
-  store i8 0, ptr %79, align 8, !tbaa !27
+  %80 = load i8, ptr %79, align 8, !tbaa !25, !range !26, !noundef !27
+  store i8 0, ptr %79, align 8, !tbaa !25
   %81 = tail call noundef i32 @_ZNK6icu_7713StringSegment9getOffsetEv(ptr noundef nonnull align 8 dereferenceable(17) %1)
   %82 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %83 = tail call noundef zeroext i1 @_ZNK6icu_778numparse4impl14DecimalMatcher5matchERNS_13StringSegmentERNS1_12ParsedNumberEaR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(200) %82, ptr noundef nonnull align 8 dereferenceable(17) %1, ptr noundef nonnull align 8 dereferenceable(216) %2, i8 noundef signext %.060, ptr noundef nonnull align 4 dereferenceable(4) %3)
-  store i8 %80, ptr %79, align 8, !tbaa !27
+  store i8 %80, ptr %79, align 8, !tbaa !25
   %84 = tail call noundef i32 @_ZNK6icu_7713StringSegment9getOffsetEv(ptr noundef nonnull align 8 dereferenceable(17) %1)
   %.not67 = icmp eq i32 %84, %81
   br i1 %.not67, label %88, label %85
 
 85:                                               ; preds = %78
-  %86 = load i32, ptr %7, align 4, !tbaa !17
+  %86 = load i32, ptr %7, align 4, !tbaa !15
   %87 = or i32 %86, 8
-  store i32 %87, ptr %7, align 4, !tbaa !17
+  store i32 %87, ptr %7, align 4, !tbaa !15
   br label %89
 
 88:                                               ; preds = %78
@@ -537,21 +537,19 @@ attributes #5 = { nounwind }
 !9 = !{!"_ZTSN6icu_7716LocalPointerBaseIKNS_13UnicodeStringEEE", !10, i64 0}
 !10 = !{!"p1 _ZTSN6icu_7713UnicodeStringE", !11, i64 0}
 !11 = !{!"any pointer", !7, i64 0}
-!12 = distinct !{!12, !13}
-!13 = !{!"llvm.loop.estimated_trip_count"}
-!14 = !{!15, !16, i64 0}
-!15 = !{!"_ZTSN6icu_7716LocalPointerBaseIKNS_10UnicodeSetEEE", !16, i64 0}
-!16 = !{!"p1 _ZTSN6icu_7710UnicodeSetE", !11, i64 0}
-!17 = !{!18, !22, i64 76}
-!18 = !{!"_ZTSN6icu_778numparse4impl12ParsedNumberE", !19, i64 0, !22, i64 72, !22, i64 76, !24, i64 80, !24, i64 144, !7, i64 208}
-!19 = !{!"_ZTSN6icu_776number4impl15DecimalQuantityE", !20, i64 0, !21, i64 8, !22, i64 12, !22, i64 16, !7, i64 20, !7, i64 21, !23, i64 24, !22, i64 32, !22, i64 36, !22, i64 40, !22, i64 44, !7, i64 48, !21, i64 64, !21, i64 65}
-!20 = !{!"_ZTSN6icu_7713IFixedDecimalE"}
-!21 = !{!"bool", !7, i64 0}
-!22 = !{!"int", !7, i64 0}
-!23 = !{!"double", !7, i64 0}
-!24 = !{!"_ZTSN6icu_7713UnicodeStringE", !25, i64 0, !7, i64 8}
-!25 = !{!"_ZTSN6icu_7711ReplaceableE", !26, i64 0}
-!26 = !{!"_ZTSN6icu_777UObjectE"}
-!27 = !{!18, !21, i64 8}
-!28 = !{i8 0, i8 2}
-!29 = !{}
+!12 = !{!13, !14, i64 0}
+!13 = !{!"_ZTSN6icu_7716LocalPointerBaseIKNS_10UnicodeSetEEE", !14, i64 0}
+!14 = !{!"p1 _ZTSN6icu_7710UnicodeSetE", !11, i64 0}
+!15 = !{!16, !20, i64 76}
+!16 = !{!"_ZTSN6icu_778numparse4impl12ParsedNumberE", !17, i64 0, !20, i64 72, !20, i64 76, !22, i64 80, !22, i64 144, !7, i64 208}
+!17 = !{!"_ZTSN6icu_776number4impl15DecimalQuantityE", !18, i64 0, !19, i64 8, !20, i64 12, !20, i64 16, !7, i64 20, !7, i64 21, !21, i64 24, !20, i64 32, !20, i64 36, !20, i64 40, !20, i64 44, !7, i64 48, !19, i64 64, !19, i64 65}
+!18 = !{!"_ZTSN6icu_7713IFixedDecimalE"}
+!19 = !{!"bool", !7, i64 0}
+!20 = !{!"int", !7, i64 0}
+!21 = !{!"double", !7, i64 0}
+!22 = !{!"_ZTSN6icu_7713UnicodeStringE", !23, i64 0, !7, i64 8}
+!23 = !{!"_ZTSN6icu_7711ReplaceableE", !24, i64 0}
+!24 = !{!"_ZTSN6icu_777UObjectE"}
+!25 = !{!16, !19, i64 8}
+!26 = !{i8 0, i8 2}
+!27 = !{}

@@ -258,7 +258,7 @@ define internal noundef i32 @consume_markers(ptr noundef %0) #0 {
   %142 = getelementptr inbounds nuw i8, ptr %.188.i, i64 96
   %143 = load i32, ptr %42, align 8
   %144 = icmp slt i32 %141, %143
-  br i1 %144, label %93, label %._crit_edge91.loopexit.i, !llvm.loop !9
+  br i1 %144, label %93, label %._crit_edge91.loopexit.i, !llvm.loop !8
 
 ._crit_edge91.loopexit.i:                         ; preds = %93
   %.pre96.i = load i32, ptr %58, align 4
@@ -543,14 +543,14 @@ define internal void @start_input_pass(ptr noundef %0) #0 {
   %106 = getelementptr inbounds [10 x i32], ptr %65, i64 0, i64 %105
   store i32 %101, ptr %106, align 4
   %107 = icmp samesign ugt i32 %.07178.i, 1
-  br i1 %107, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !10
+  br i1 %107, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !9
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %99
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %108 = load i32, ptr %2, align 8
   %109 = sext i32 %108 to i64
   %110 = icmp slt i64 %indvars.iv.next.i, %109
-  br i1 %110, label %66, label %per_scan_setup.exit, !llvm.loop !11
+  br i1 %110, label %66, label %per_scan_setup.exit, !llvm.loop !10
 
 per_scan_setup.exit:                              ; preds = %._crit_edge.i, %5
   %111 = phi i32 [ %.pr, %5 ], [ %108, %._crit_edge.i ]
@@ -615,7 +615,7 @@ per_scan_setup.exit:                              ; preds = %._crit_edge.i, %5
   %indvars.iv.next.i11 = add nuw nsw i64 %indvars.iv.i10, 1
   %146 = sext i32 %145 to i64
   %147 = icmp slt i64 %indvars.iv.next.i11, %146
-  br i1 %147, label %116, label %latch_quant_tables.exit, !llvm.loop !12
+  br i1 %147, label %116, label %latch_quant_tables.exit, !llvm.loop !11
 
 latch_quant_tables.exit:                          ; preds = %144, %40, %per_scan_setup.exit
   %148 = getelementptr inbounds nuw i8, ptr %0, i64 592
@@ -666,10 +666,9 @@ attributes #5 = { nounwind }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7, !8}
-!11 = distinct !{!11, !7, !8}
-!12 = distinct !{!12, !7, !8}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7}

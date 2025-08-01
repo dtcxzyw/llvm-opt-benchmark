@@ -372,7 +372,7 @@ define dso_local ptr @gres_p_prep_build_env(ptr noundef readonly captures(none) 
   %34 = load i32, ptr %5, align 4
   %35 = zext i32 %34 to i64
   %36 = icmp samesign ult i64 %indvars.iv.next, %35
-  br i1 %36, label %.lr.ph.splitthread-pre-split, label %._crit_edge, !llvm.loop !12
+  br i1 %36, label %.lr.ph.splitthread-pre-split, label %._crit_edge, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %.thread, %.lr.ph, %1
   ret ptr %2
@@ -425,7 +425,7 @@ define dso_local void @gres_p_prep_set_env(ptr noundef %0, ptr noundef %1, i32 n
 22:                                               ; preds = %20
   %23 = add nsw i32 %.030, 1
   %24 = icmp eq i32 %23, %15
-  br i1 %24, label %25, label %20, !llvm.loop !14
+  br i1 %24, label %25, label %20, !llvm.loop !13
 
 25:                                               ; preds = %22
   %26 = getelementptr inbounds nuw i8, ptr %21, i64 20
@@ -548,10 +548,9 @@ attributes #8 = { nounwind }
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i32 7, !"frame-pointer", i32 2}
 !7 = !{i32 7, !"debug-info-assignment-tracking", i1 true}
-!8 = distinct !{!8, !9, !10, !11}
+!8 = distinct !{!8, !9, !10}
 !9 = !{!"llvm.loop.mustprogress"}
 !10 = !{!"llvm.loop.unroll.disable"}
-!11 = !{!"llvm.loop.estimated_trip_count"}
-!12 = distinct !{!12, !9, !10, !11, !13}
-!13 = !{!"llvm.loop.unswitch.partial.disable"}
-!14 = distinct !{!14, !9, !10, !11}
+!11 = distinct !{!11, !9, !10, !12}
+!12 = !{!"llvm.loop.unswitch.partial.disable"}
+!13 = distinct !{!13, !9, !10}

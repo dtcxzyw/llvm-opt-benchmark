@@ -80,7 +80,7 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 72
   %7 = load ptr, ptr %6, align 8, !tbaa !19
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 4
-  %9 = load i32, ptr %8, align 4, !tbaa !39
+  %9 = load i32, ptr %8, align 4, !tbaa !38
   %.not = icmp eq i32 %9, 0
   br i1 %.not, label %.preheader, label %12
 
@@ -91,23 +91,23 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
 
 12:                                               ; preds = %2
   %13 = getelementptr i8, ptr %0, i64 36
-  %.val32 = load i32, ptr %13, align 4, !tbaa !40
+  %.val32 = load i32, ptr %13, align 4, !tbaa !39
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
-  store ptr %1, ptr %3, align 8, !tbaa !41
+  store ptr %1, ptr %3, align 8, !tbaa !40
   %14 = getelementptr inbounds nuw i8, ptr %5, i64 56
   %15 = load ptr, ptr %14, align 8, !tbaa !29
   %16 = load ptr, ptr %15, align 8, !tbaa !30
   %17 = load ptr, ptr %1, align 8, !tbaa !34
   %18 = getelementptr inbounds nuw i8, ptr %16, i64 40
-  %19 = load i32, ptr %18, align 8, !tbaa !43
+  %19 = load i32, ptr %18, align 8, !tbaa !42
   %20 = tail call ptr @av_pix_fmt_desc_get(i32 noundef %.val32) #4
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 28
-  %22 = load i32, ptr %21, align 4, !tbaa !44
+  %22 = load i32, ptr %21, align 4, !tbaa !43
   %23 = icmp sgt i32 %22, 1
   %24 = zext i1 %23 to i32
   %25 = shl i32 %19, %24
   %26 = getelementptr inbounds nuw i8, ptr %16, i64 44
-  %27 = load i32, ptr %26, align 4, !tbaa !46
+  %27 = load i32, ptr %26, align 4, !tbaa !45
   %28 = and i32 %27, 1
   %.not.i = icmp eq i32 %28, 0
   br i1 %.not.i, label %30, label %29
@@ -117,7 +117,7 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
   br label %flip_bayer.exit
 
 30:                                               ; preds = %12
-  %31 = load i32, ptr %18, align 8, !tbaa !43
+  %31 = load i32, ptr %18, align 8, !tbaa !42
   %32 = tail call ptr @ff_get_video_buffer(ptr noundef nonnull %16, i32 noundef %31, i32 noundef %27) #4
   %.not33.i = icmp eq ptr %32, null
   br i1 %.not33.i, label %33, label %34
@@ -129,7 +129,7 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
 34:                                               ; preds = %30
   %35 = tail call i32 @av_frame_copy_props(ptr noundef nonnull %32, ptr noundef nonnull %1) #4
   %36 = getelementptr inbounds nuw i8, ptr %32, i64 64
-  %37 = load i32, ptr %26, align 4, !tbaa !46
+  %37 = load i32, ptr %26, align 4, !tbaa !45
   %38 = icmp sgt i32 %37, 1
   br i1 %38, label %.lr.ph.i, label %._crit_edge.i
 
@@ -166,10 +166,10 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
   %61 = sub nsw i64 0, %60
   %62 = getelementptr inbounds i8, ptr %.0302.i, i64 %61
   %63 = add nuw nsw i32 %.0293.i, 1
-  %64 = load i32, ptr %26, align 4, !tbaa !46
+  %64 = load i32, ptr %26, align 4, !tbaa !45
   %65 = ashr i32 %64, 1
   %66 = icmp slt i32 %63, %65
-  br i1 %66, label %47, label %._crit_edge.i, !llvm.loop !47
+  br i1 %66, label %47, label %._crit_edge.i, !llvm.loop !46
 
 ._crit_edge.i:                                    ; preds = %47, %34
   call void @av_frame_free(ptr noundef nonnull %3) #4
@@ -200,7 +200,7 @@ flip_bayer.exit:                                  ; preds = %29, %33, %._crit_ed
   br i1 %.not31, label %87, label %77
 
 77:                                               ; preds = %73
-  %78 = load i32, ptr %10, align 4, !tbaa !46
+  %78 = load i32, ptr %10, align 4, !tbaa !45
   %79 = add i32 %78, -1
   %80 = ashr i32 %79, %74
   %81 = getelementptr inbounds nuw [8 x i32], ptr %11, i64 0, i64 %indvars.iv
@@ -216,7 +216,7 @@ flip_bayer.exit:                                  ; preds = %29, %33, %._crit_ed
 87:                                               ; preds = %77, %73
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %88, label %68, !llvm.loop !48
+  br i1 %exitcond.not, label %88, label %68, !llvm.loop !47
 
 88:                                               ; preds = %87
   %89 = getelementptr inbounds nuw i8, ptr %5, i64 56
@@ -237,19 +237,19 @@ define internal noundef i32 @config_input(ptr noundef readonly captures(none) %0
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 72
   %5 = load ptr, ptr %4, align 8, !tbaa !19
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 36
-  %7 = load i32, ptr %6, align 4, !tbaa !40
+  %7 = load i32, ptr %6, align 4, !tbaa !39
   %8 = tail call ptr @av_pix_fmt_desc_get(i32 noundef %7) #4
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 10
-  %10 = load i8, ptr %9, align 2, !tbaa !49
+  %10 = load i8, ptr %9, align 2, !tbaa !48
   %11 = zext i8 %10 to i32
   store i32 %11, ptr %5, align 4, !tbaa !32
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  %13 = load i64, ptr %12, align 8, !tbaa !52
+  %13 = load i64, ptr %12, align 8, !tbaa !51
   %14 = trunc i64 %13 to i32
   %15 = lshr i32 %14, 8
   %16 = and i32 %15, 1
   %17 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  store i32 %16, ptr %17, align 4, !tbaa !39
+  store i32 %16, ptr %17, align 4, !tbaa !38
   ret i32 0
 }
 
@@ -318,20 +318,19 @@ attributes #4 = { nounwind }
 !33 = !{!"FlipContext", !11, i64 0, !11, i64 4}
 !34 = !{!23, !23, i64 0}
 !35 = !{!11, !11, i64 0}
-!36 = distinct !{!36, !37, !38}
+!36 = distinct !{!36, !37}
 !37 = !{!"llvm.loop.mustprogress"}
-!38 = !{!"llvm.loop.estimated_trip_count"}
-!39 = !{!33, !11, i64 4}
-!40 = !{!5, !11, i64 36}
-!41 = !{!42, !42, i64 0}
-!42 = !{!"p1 _ZTS7AVFrame", !7, i64 0}
-!43 = !{!5, !11, i64 40}
-!44 = !{!45, !11, i64 4}
-!45 = !{!"AVComponentDescriptor", !11, i64 0, !11, i64 4, !11, i64 8, !11, i64 12, !11, i64 16}
-!46 = !{!5, !11, i64 44}
-!47 = distinct !{!47, !37, !38}
-!48 = distinct !{!48, !37, !38}
-!49 = !{!50, !8, i64 10}
-!50 = !{!"AVPixFmtDescriptor", !23, i64 0, !8, i64 8, !8, i64 9, !8, i64 10, !51, i64 16, !8, i64 24, !23, i64 104}
-!51 = !{!"long", !8, i64 0}
-!52 = !{!50, !51, i64 16}
+!38 = !{!33, !11, i64 4}
+!39 = !{!5, !11, i64 36}
+!40 = !{!41, !41, i64 0}
+!41 = !{!"p1 _ZTS7AVFrame", !7, i64 0}
+!42 = !{!5, !11, i64 40}
+!43 = !{!44, !11, i64 4}
+!44 = !{!"AVComponentDescriptor", !11, i64 0, !11, i64 4, !11, i64 8, !11, i64 12, !11, i64 16}
+!45 = !{!5, !11, i64 44}
+!46 = distinct !{!46, !37}
+!47 = distinct !{!47, !37}
+!48 = !{!49, !8, i64 10}
+!49 = !{!"AVPixFmtDescriptor", !23, i64 0, !8, i64 8, !8, i64 9, !8, i64 10, !50, i64 16, !8, i64 24, !23, i64 104}
+!50 = !{!"long", !8, i64 0}
+!51 = !{!49, !50, i64 16}

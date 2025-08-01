@@ -334,132 +334,132 @@ define dso_local noundef range(i32 -22, 1) i32 @__ip_options_echo(ptr noundef %0
   %149 = add nsw i32 %142, -8
   %150 = getelementptr i8, ptr %133, i64 -1
   %151 = icmp samesign ugt i32 %142, 11
-  br i1 %151, label %152, label %165
+  br i1 %151, label %152, label %167
 
 152:                                              ; preds = %144
   %153 = zext nneg i32 %149 to i64
-  %invariant.gep = getelementptr i8, ptr %127, i64 -1
   br label %154
 
 154:                                              ; preds = %154, %152
-  %155 = phi i64 [ %153, %152 ], [ %159, %154 ]
-  %156 = phi i64 [ 4, %152 ], [ %160, %154 ]
-  %gep = getelementptr i8, ptr %invariant.gep, i64 %156
-  %157 = getelementptr i8, ptr %150, i64 %155
-  %158 = load i32, ptr %157, align 1
-  store i32 %158, ptr %gep, align 1
-  %159 = add nsw i64 %155, -4
-  %160 = add nuw nsw i64 %156, 4
-  %161 = icmp samesign ugt i64 %155, 7
-  br i1 %161, label %154, label %162, !llvm.loop !5
+  %155 = phi i64 [ %153, %152 ], [ %161, %154 ]
+  %156 = phi i64 [ 4, %152 ], [ %162, %154 ]
+  %157 = getelementptr i8, ptr %127, i64 %156
+  %158 = getelementptr i8, ptr %157, i64 -1
+  %159 = getelementptr i8, ptr %150, i64 %155
+  %160 = load i32, ptr %159, align 1
+  store i32 %160, ptr %158, align 1
+  %161 = add nsw i64 %155, -4
+  %162 = add nuw nsw i64 %156, 4
+  %163 = icmp samesign ugt i64 %155, 7
+  br i1 %163, label %154, label %164, !llvm.loop !5
 
-162:                                              ; preds = %154
-  %163 = trunc nuw nsw i64 %159 to i32
-  %164 = trunc i64 %160 to i32
-  br label %165
+164:                                              ; preds = %154
+  %165 = trunc nuw nsw i64 %161 to i32
+  %166 = trunc i64 %162 to i32
+  br label %167
 
-165:                                              ; preds = %144, %162
-  %166 = phi i32 [ %149, %144 ], [ %163, %162 ]
-  %167 = phi i32 [ 4, %144 ], [ %164, %162 ]
-  %168 = load ptr, ptr %9, align 8
-  %169 = load i16, ptr %11, align 4
-  %170 = zext i16 %169 to i64
-  %171 = getelementptr i8, ptr %168, i64 %170
-  %172 = getelementptr inbounds nuw i8, ptr %171, i64 12
-  %173 = zext nneg i32 %166 to i64
-  %174 = getelementptr i8, ptr %133, i64 %173
-  %175 = getelementptr i8, ptr %174, i64 3
-  %176 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %172, ptr noundef dereferenceable(4) %175, i64 4)
-  %177 = icmp eq i32 %176, 0
-  %178 = add i32 %167, -4
-  %179 = select i1 %177, i32 %178, i32 %167
-  %180 = icmp sgt i32 %179, 3
-  br i1 %180, label %181, label %.thread
+167:                                              ; preds = %144, %164
+  %168 = phi i32 [ %149, %144 ], [ %165, %164 ]
+  %169 = phi i32 [ 4, %144 ], [ %166, %164 ]
+  %170 = load ptr, ptr %9, align 8
+  %171 = load i16, ptr %11, align 4
+  %172 = zext i16 %171 to i64
+  %173 = getelementptr i8, ptr %170, i64 %172
+  %174 = getelementptr inbounds nuw i8, ptr %173, i64 12
+  %175 = zext nneg i32 %168 to i64
+  %176 = getelementptr i8, ptr %133, i64 %175
+  %177 = getelementptr i8, ptr %176, i64 3
+  %178 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %174, ptr noundef dereferenceable(4) %177, i64 4)
+  %179 = icmp eq i32 %178, 0
+  %180 = add i32 %169, -4
+  %181 = select i1 %179, i32 %180, i32 %169
+  %182 = icmp sgt i32 %181, 3
+  br i1 %182, label %183, label %.thread
 
-181:                                              ; preds = %165
+183:                                              ; preds = %167
   store i32 %148, ptr %1, align 4
-  %182 = load i8, ptr %133, align 1
-  store i8 %182, ptr %127, align 1
-  %183 = add nuw i32 %179, 3
-  %184 = trunc i32 %183 to i8
-  %185 = getelementptr i8, ptr %127, i64 1
-  store i8 %184, ptr %185, align 1
-  %186 = getelementptr i8, ptr %127, i64 2
-  store i8 4, ptr %186, align 1
-  %187 = sext i32 %183 to i64
-  %188 = getelementptr i8, ptr %127, i64 %187
-  %189 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %190 = load i8, ptr %189, align 4
-  %191 = add i8 %190, 20
-  %192 = getelementptr inbounds nuw i8, ptr %1, i64 9
-  store i8 %191, ptr %192, align 1
-  %193 = add i8 %190, %184
-  store i8 %193, ptr %189, align 4
-  %194 = getelementptr inbounds nuw i8, ptr %3, i64 12
-  %195 = load i8, ptr %194, align 4
-  %196 = and i8 %195, 1
-  %197 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %198 = load i8, ptr %197, align 4
-  %199 = and i8 %198, -2
-  %200 = or disjoint i8 %199, %196
-  store i8 %200, ptr %197, align 4
+  %184 = load i8, ptr %133, align 1
+  store i8 %184, ptr %127, align 1
+  %185 = add nuw i32 %181, 3
+  %186 = trunc i32 %185 to i8
+  %187 = getelementptr i8, ptr %127, i64 1
+  store i8 %186, ptr %187, align 1
+  %188 = getelementptr i8, ptr %127, i64 2
+  store i8 4, ptr %188, align 1
+  %189 = sext i32 %185 to i64
+  %190 = getelementptr i8, ptr %127, i64 %189
+  %191 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %192 = load i8, ptr %191, align 4
+  %193 = add i8 %192, 20
+  %194 = getelementptr inbounds nuw i8, ptr %1, i64 9
+  store i8 %193, ptr %194, align 1
+  %195 = add i8 %192, %186
+  store i8 %195, ptr %191, align 4
+  %196 = getelementptr inbounds nuw i8, ptr %3, i64 12
+  %197 = load i8, ptr %196, align 4
+  %198 = and i8 %197, 1
+  %199 = getelementptr inbounds nuw i8, ptr %1, i64 12
+  %200 = load i8, ptr %199, align 4
+  %201 = and i8 %200, -2
+  %202 = or disjoint i8 %201, %198
+  store i8 %202, ptr %199, align 4
   br label %.thread
 
-.thread:                                          ; preds = %131, %181, %165, %126
-  %201 = phi ptr [ %127, %126 ], [ %188, %181 ], [ %127, %165 ], [ %127, %131 ]
-  %202 = getelementptr inbounds nuw i8, ptr %3, i64 14
-  %203 = load i8, ptr %202, align 2
-  %204 = icmp eq i8 %203, 0
-  br i1 %204, label %.thread._crit_edge, label %205
+.thread:                                          ; preds = %131, %183, %167, %126
+  %203 = phi ptr [ %127, %126 ], [ %190, %183 ], [ %127, %167 ], [ %127, %131 ]
+  %204 = getelementptr inbounds nuw i8, ptr %3, i64 14
+  %205 = load i8, ptr %204, align 2
+  %206 = icmp eq i8 %205, 0
+  br i1 %206, label %.thread._crit_edge, label %207
 
 .thread._crit_edge:                               ; preds = %.thread
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.pre11 = load i8, ptr %.phi.trans.insert, align 4
-  br label %221
+  br label %223
 
-205:                                              ; preds = %.thread
-  %206 = zext i8 %203 to i64
-  %207 = getelementptr i8, ptr %14, i64 %206
-  %208 = getelementptr i8, ptr %207, i64 1
-  %209 = load i8, ptr %208, align 1
-  %210 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %211 = load i8, ptr %210, align 4
-  %212 = add i8 %211, 20
-  %213 = getelementptr inbounds nuw i8, ptr %1, i64 14
-  store i8 %212, ptr %213, align 2
-  %214 = load i8, ptr %202, align 2
-  %215 = zext i8 %214 to i64
-  %216 = getelementptr i8, ptr %14, i64 %215
-  %217 = zext i8 %209 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %201, ptr align 1 %216, i64 %217, i1 false)
-  %218 = getelementptr i8, ptr %201, i64 %217
-  %219 = load i8, ptr %210, align 4
-  %220 = add i8 %219, %209
-  store i8 %220, ptr %210, align 4
-  br label %221
+207:                                              ; preds = %.thread
+  %208 = zext i8 %205 to i64
+  %209 = getelementptr i8, ptr %14, i64 %208
+  %210 = getelementptr i8, ptr %209, i64 1
+  %211 = load i8, ptr %210, align 1
+  %212 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %213 = load i8, ptr %212, align 4
+  %214 = add i8 %213, 20
+  %215 = getelementptr inbounds nuw i8, ptr %1, i64 14
+  store i8 %214, ptr %215, align 2
+  %216 = load i8, ptr %204, align 2
+  %217 = zext i8 %216 to i64
+  %218 = getelementptr i8, ptr %14, i64 %217
+  %219 = zext i8 %211 to i64
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %203, ptr align 1 %218, i64 %219, i1 false)
+  %220 = getelementptr i8, ptr %203, i64 %219
+  %221 = load i8, ptr %212, align 4
+  %222 = add i8 %221, %211
+  store i8 %222, ptr %212, align 4
+  br label %223
 
-221:                                              ; preds = %.thread._crit_edge, %205
-  %222 = phi i8 [ %220, %205 ], [ %.pre11, %.thread._crit_edge ]
-  %223 = phi ptr [ %218, %205 ], [ %201, %.thread._crit_edge ]
-  %224 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %225 = and i8 %222, 3
-  %226 = icmp eq i8 %225, 0
-  br i1 %226, label %.loopexit, label %.preheader
+223:                                              ; preds = %.thread._crit_edge, %207
+  %224 = phi i8 [ %222, %207 ], [ %.pre11, %.thread._crit_edge ]
+  %225 = phi ptr [ %220, %207 ], [ %203, %.thread._crit_edge ]
+  %226 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %227 = and i8 %224, 3
+  %228 = icmp eq i8 %227, 0
+  br i1 %228, label %.loopexit, label %.preheader
 
-.preheader:                                       ; preds = %221, %.preheader
-  %227 = phi ptr [ %228, %.preheader ], [ %223, %221 ]
-  %228 = getelementptr i8, ptr %227, i64 1
-  store i8 0, ptr %227, align 1
-  %229 = load i8, ptr %224, align 4
-  %230 = add i8 %229, 1
-  store i8 %230, ptr %224, align 4
-  %231 = and i8 %230, 3
-  %232 = icmp eq i8 %231, 0
-  br i1 %232, label %.loopexit, label %.preheader, !llvm.loop !9
+.preheader:                                       ; preds = %223, %.preheader
+  %229 = phi ptr [ %230, %.preheader ], [ %225, %223 ]
+  %230 = getelementptr i8, ptr %229, i64 1
+  store i8 0, ptr %229, align 1
+  %231 = load i8, ptr %226, align 4
+  %232 = add i8 %231, 1
+  store i8 %232, ptr %226, align 4
+  %233 = and i8 %232, 3
+  %234 = icmp eq i8 %233, 0
+  br i1 %234, label %.loopexit, label %.preheader, !llvm.loop !8
 
-.loopexit:                                        ; preds = %.preheader, %221, %90, %77, %38, %4
-  %233 = phi i32 [ 0, %4 ], [ -22, %38 ], [ -22, %77 ], [ -22, %90 ], [ 0, %221 ], [ 0, %.preheader ]
-  ret i32 %233
+.loopexit:                                        ; preds = %.preheader, %223, %90, %77, %38, %4
+  %235 = phi i32 [ 0, %4 ], [ -22, %38 ], [ -22, %77 ], [ -22, %90 ], [ 0, %223 ], [ 0, %.preheader ]
+  ret i32 %235
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
@@ -504,7 +504,7 @@ define dso_local void @ip_options_fragment(ptr noundef captures(none) %0) local_
   %22 = phi i32 [ %19, %18 ], [ %36, %._crit_edge ]
   %23 = getelementptr i8, ptr %16, i64 %21
   %24 = icmp sgt i32 %22, 0
-  br i1 %24, label %14, label %.loopexit5, !llvm.loop !10
+  br i1 %24, label %14, label %.loopexit5, !llvm.loop !9
 
 25:                                               ; preds = %14
   %26 = getelementptr i8, ptr %16, i64 1
@@ -631,18 +631,18 @@ define dso_local range(i32 -22, 1) i32 @__ip_options_compile(ptr noundef %0, ptr
   %58 = getelementptr i8, ptr %57, i64 1
   store ptr %58, ptr %5, align 8
   %59 = icmp samesign ugt i32 %48, 2
-  br i1 %59, label %.preheader, label %.thread21, !llvm.loop !11
+  br i1 %59, label %.preheader, label %.thread21, !llvm.loop !10
 
 60:                                               ; preds = %41
   %61 = add nsw i32 %42, -1
   %62 = getelementptr i8, ptr %43, i64 1
   store ptr %62, ptr %5, align 8
   %63 = icmp sgt i32 %42, 1
-  br i1 %63, label %41, label %.thread21, !llvm.loop !12
+  br i1 %63, label %41, label %.thread21, !llvm.loop !11
 
 64:                                               ; preds = %41
   %65 = icmp eq i32 %42, 1
-  br i1 %65, label %.loopexit26, label %66, !prof !13
+  br i1 %65, label %.loopexit26, label %66, !prof !12
 
 66:                                               ; preds = %64
   %67 = getelementptr i8, ptr %43, i64 1
@@ -1057,7 +1057,7 @@ define dso_local range(i32 -22, 1) i32 @__ip_options_compile(ptr noundef %0, ptr
   %296 = getelementptr i8, ptr %292, i64 %295
   store ptr %296, ptr %5, align 8
   %297 = icmp sgt i32 %294, 0
-  br i1 %297, label %37, label %.thread21, !llvm.loop !14
+  br i1 %297, label %37, label %.thread21, !llvm.loop !11
 
 .loopexit26.loopexit.split.loop.exit165:          ; preds = %76
   %298 = getelementptr i8, ptr %43, i64 2
@@ -1123,7 +1123,7 @@ declare dso_local i32 @cipso_v4_validate(ptr noundef, ptr noundef) local_unnamed
 define dso_local range(i32 -22, 1) i32 @ip_options_compile(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 align 16 {
   %4 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #11
-  store i32 0, ptr %4, align 4, !annotation !15
+  store i32 0, ptr %4, align 4, !annotation !13
   %5 = call i32 @__ip_options_compile(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %4)
   %6 = icmp ne i32 %5, 0
   %7 = icmp ne ptr %2, null
@@ -1274,12 +1274,12 @@ define dso_local noundef range(i32 -22, 1) i32 @ip_options_get(ptr noundef %0, p
 
 21:                                               ; preds = %16
   %22 = icmp slt i32 %4, 0
-  br i1 %22, label %23, label %24, !prof !13
+  br i1 %22, label %23, label %24, !prof !12
 
 23:                                               ; preds = %21
-  tail call void asm sideeffect "42: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 42b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 42) #11, !srcloc !16
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.3, i32 249, i32 2307, i64 12) #11, !srcloc !17
-  tail call void asm sideeffect "43: nop\0A\09.pushsection .discard.instr_end\0A\09.long 43b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 43) #11, !srcloc !18
+  tail call void asm sideeffect "42: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 42b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 42) #11, !srcloc !14
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.3, i32 249, i32 2307, i64 12) #11, !srcloc !15
+  tail call void asm sideeffect "43: nop\0A\09.pushsection .discard.instr_end\0A\09.long 43b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 43) #11, !srcloc !16
   br label %29
 
 24:                                               ; preds = %21
@@ -1315,7 +1315,7 @@ define dso_local noundef range(i32 -22, 1) i32 @ip_options_get(ptr noundef %0, p
   store i8 0, ptr %38, align 1
   %39 = and i32 %36, 3
   %40 = icmp eq i32 %39, 0
-  br i1 %40, label %41, label %.preheader, !llvm.loop !19
+  br i1 %40, label %41, label %.preheader, !llvm.loop !17
 
 41:                                               ; preds = %.preheader
   %42 = trunc i32 %36 to i8
@@ -1327,7 +1327,7 @@ define dso_local noundef range(i32 -22, 1) i32 @ip_options_get(ptr noundef %0, p
 45:                                               ; preds = %.thread3, %41
   %46 = getelementptr inbounds nuw i8, ptr %11, i64 16
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #11
-  store i32 0, ptr %6, align 4, !annotation !15
+  store i32 0, ptr %6, align 4, !annotation !13
   %47 = call i32 @__ip_options_compile(ptr noundef %0, ptr noundef nonnull %46, ptr noundef null, ptr noundef nonnull %6)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #11
   %48 = icmp eq i32 %47, 0
@@ -1422,7 +1422,7 @@ define dso_local void @ip_forward_options(ptr noundef %0) local_unnamed_addr #0 
   %56 = getelementptr i8, ptr %44, i64 %60
   %57 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %43, ptr noundef dereferenceable(4) %56, i64 4)
   %58 = icmp eq i32 %57, 0
-  br i1 %58, label %.thread.loopexit, label %.preheader, !llvm.loop !20
+  br i1 %58, label %.thread.loopexit, label %.preheader, !llvm.loop !18
 
 .preheader:                                       ; preds = %49, %55
   %59 = phi i64 [ %60, %55 ], [ %50, %49 ]
@@ -1431,7 +1431,7 @@ define dso_local void @ip_forward_options(ptr noundef %0) local_unnamed_addr #0 
   %62 = add nuw nsw i64 %59, 7
   %63 = icmp samesign ugt i64 %62, %51
   %64 = select i1 %61, i1 true, i1 %63
-  br i1 %64, label %.loopexit.loopexit, label %55, !llvm.loop !21
+  br i1 %64, label %.loopexit.loopexit, label %55, !llvm.loop !18
 
 .loopexit.loopexit:                               ; preds = %.preheader
   %indvars.le17 = trunc i64 %60 to i32
@@ -1634,11 +1634,11 @@ define dso_local noundef range(i32 -22, 1) i32 @ip_options_rcv_srr(ptr noundef %
   %73 = and i64 %67, -2
   %74 = inttoptr i64 %73 to ptr
   %75 = getelementptr inbounds nuw i8, ptr %74, i64 64
-  %76 = tail call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; addl $2, $0\0A\09/* output condition code s*/\0A", "=*m,={@ccs},er,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %75, i32 1, ptr nonnull elementtype(i32) %75) #11, !srcloc !22
+  %76 = tail call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; addl $2, $0\0A\09/* output condition code s*/\0A", "=*m,={@ccs},er,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %75, i32 1, ptr nonnull elementtype(i32) %75) #11, !srcloc !19
   %77 = icmp ult i8 %76, 2
   tail call void @llvm.assume(i1 %77)
   %78 = icmp eq i8 %76, 0
-  br i1 %78, label %82, label %79, !prof !23
+  br i1 %78, label %82, label %79, !prof !20
 
 79:                                               ; preds = %72
   %80 = tail call zeroext i1 @rcuref_get_slowpath(ptr noundef nonnull %75) #11
@@ -1716,7 +1716,7 @@ define dso_local noundef range(i32 -22, 1) i32 @ip_options_rcv_srr(ptr noundef %
   store i8 %121, ptr %45, align 4
   %122 = add nuw nsw i64 %49, 4
   %123 = icmp samesign ugt i64 %122, %47
-  br i1 %123, label %.critedge, label %48, !llvm.loop !24
+  br i1 %123, label %.critedge, label %48, !llvm.loop !21
 
 124:                                              ; preds = %116
   %125 = load i8, ptr %45, align 4
@@ -1786,23 +1786,20 @@ attributes #13 = { cold nounwind }
 !2 = !{i32 4, !"function_return_thunk_extern", i32 1}
 !3 = !{i32 4, !"indirect_branch_cs_prefix", i32 1}
 !4 = !{i32 4, !"SkipRaxSetup", i32 1}
-!5 = distinct !{!5, !6, !7, !8}
+!5 = distinct !{!5, !6, !7}
 !6 = !{!"llvm.loop.mustprogress"}
 !7 = !{!"llvm.loop.unroll.disable"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !6, !7, !8}
-!10 = distinct !{!10, !6, !7, !8}
-!11 = distinct !{!11, !6, !7, !8}
-!12 = distinct !{!12, !6, !7, !8}
-!13 = !{!"branch_weights", i32 1, i32 2000}
-!14 = distinct !{!14, !6, !7, !8}
-!15 = !{!"auto-init"}
-!16 = !{i64 2149737396, i64 2149737210, i64 2149737262, i64 2149737308, i64 2149737336}
-!17 = !{i64 2149737467, i64 2149737496, i64 2149737542, i64 2149737600, i64 2149737654, i64 2149737708, i64 2149737763, i64 2149737794, i64 2149738102, i64 2149738108, i64 2149738155, i64 2149738178, i64 2149738204}
-!18 = !{i64 2149738659, i64 2149738475, i64 2149738525, i64 2149738571, i64 2149738599}
-!19 = distinct !{!19, !6, !7, !8}
-!20 = distinct !{!20, !6, !7, !8}
+!8 = distinct !{!8, !6, !7}
+!9 = distinct !{!9, !6, !7}
+!10 = distinct !{!10, !6, !7}
+!11 = distinct !{!11, !6, !7}
+!12 = !{!"branch_weights", i32 1, i32 2000}
+!13 = !{!"auto-init"}
+!14 = !{i64 2149737396, i64 2149737210, i64 2149737262, i64 2149737308, i64 2149737336}
+!15 = !{i64 2149737467, i64 2149737496, i64 2149737542, i64 2149737600, i64 2149737654, i64 2149737708, i64 2149737763, i64 2149737794, i64 2149738102, i64 2149738108, i64 2149738155, i64 2149738178, i64 2149738204}
+!16 = !{i64 2149738659, i64 2149738475, i64 2149738525, i64 2149738571, i64 2149738599}
+!17 = distinct !{!17, !6, !7}
+!18 = distinct !{!18, !6, !7}
+!19 = !{i64 2148869498, i64 2148869537, i64 2148869558, i64 2148869595, i64 2148869618, i64 2148869627, i64 2148869726}
+!20 = !{!"branch_weights", i32 2000, i32 1}
 !21 = distinct !{!21, !6, !7}
-!22 = !{i64 2148869498, i64 2148869537, i64 2148869558, i64 2148869595, i64 2148869618, i64 2148869627, i64 2148869726}
-!23 = !{!"branch_weights", i32 2000, i32 1}
-!24 = distinct !{!24, !6, !7, !8}

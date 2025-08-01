@@ -141,7 +141,7 @@ define internal range(i32 -2147483648, 1) i32 @pam_encode_frame(ptr noundef %0, 
   %62 = getelementptr inbounds i8, ptr %.05576.us, i64 %48
   %63 = add nuw nsw i32 %.05974.us, 1
   %exitcond80.not = icmp eq i32 %63, %7
-  br i1 %exitcond80.not, label %.loopexit, label %.preheader.us, !llvm.loop !37
+  br i1 %exitcond80.not, label %.loopexit, label %.preheader.us, !llvm.loop !36
 
 64:                                               ; preds = %.lr.ph, %64
   %.170 = phi ptr [ %39, %.lr.ph ], [ %66, %64 ]
@@ -152,7 +152,7 @@ define internal range(i32 -2147483648, 1) i32 @pam_encode_frame(ptr noundef %0, 
   %66 = getelementptr inbounds i8, ptr %.170, i64 %46
   %67 = add nuw nsw i32 %.16068, 1
   %exitcond.not = icmp eq i32 %67, %7
-  br i1 %exitcond.not, label %.loopexit, label %64, !llvm.loop !39
+  br i1 %exitcond.not, label %.loopexit, label %64, !llvm.loop !38
 
 .loopexit:                                        ; preds = %64, %._crit_edge.us, %.preheader.lr.ph, %.preheader66, %.preheader65
   store i32 1, ptr %3, align 4, !tbaa !32
@@ -221,9 +221,8 @@ attributes #5 = { nounwind }
 !31 = !{!14, !14, i64 0}
 !32 = !{!10, !10, i64 0}
 !33 = !{!8, !8, i64 0}
-!34 = distinct !{!34, !35, !36}
+!34 = distinct !{!34, !35}
 !35 = !{!"llvm.loop.mustprogress"}
-!36 = !{!"llvm.loop.estimated_trip_count"}
-!37 = distinct !{!37, !35, !36, !38}
-!38 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!39 = distinct !{!39, !35, !36}
+!36 = distinct !{!36, !35, !37}
+!37 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!38 = distinct !{!38, !35}

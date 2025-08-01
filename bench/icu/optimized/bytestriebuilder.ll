@@ -1359,7 +1359,7 @@ _ZNK6icu_7716BytesTrieElement15getStringLengthERKNS_10CharStringE.exit: ; preds 
   %49 = getelementptr inbounds i8, ptr %48, i64 %indvars.iv.next
   %50 = load i8, ptr %49, align 1, !tbaa !20
   %51 = icmp eq i8 %45, %50
-  br i1 %51, label %41, label %.critedge.split.loop.exit14, !llvm.loop !44
+  br i1 %51, label %41, label %.critedge.split.loop.exit14, !llvm.loop !43
 
 .critedge.split.loop.exit14:                      ; preds = %43
   %52 = trunc nsw i64 %indvars.iv.next to i32
@@ -1410,7 +1410,7 @@ define noundef range(i32 -2147483647, -2147483648) i32 @_ZNK6icu_7716BytesTrieBu
   %gep = getelementptr i8, ptr %invariant.gep17, i64 %23
   %24 = load i8, ptr %gep, align 1, !tbaa !20
   %25 = icmp eq i8 %17, %24
-  br i1 %25, label %18, label %.critedge, !llvm.loop !45
+  br i1 %25, label %18, label %.critedge, !llvm.loop !44
 
 .critedge:                                        ; preds = %20
   %26 = trunc nsw i64 %indvars.iv.next to i32
@@ -1457,13 +1457,13 @@ define noundef range(i32 -2147483647, -2147483648) i32 @_ZNK6icu_7716BytesTrieBu
   %gep = getelementptr i8, ptr %invariant.gep12, i64 %20
   %21 = load i8, ptr %gep, align 1, !tbaa !20
   %22 = icmp eq i8 %16, %21
-  br i1 %22, label %17, label %23, !llvm.loop !46
+  br i1 %22, label %17, label %23, !llvm.loop !45
 
 23:                                               ; preds = %17
   %24 = trunc nsw i64 %indvars.iv.next to i32
   %25 = add nsw i32 %.08, -1
   %26 = icmp sgt i32 %.08, 1
-  br i1 %26, label %11, label %27, !llvm.loop !47
+  br i1 %26, label %11, label %27, !llvm.loop !46
 
 27:                                               ; preds = %23
   ret i32 %24
@@ -1496,7 +1496,7 @@ define noundef i32 @_ZNK6icu_7716BytesTrieBuilder26indexOfElementWithNextUnitEii
   %19 = sext i8 %18 to i32
   %20 = icmp eq i32 %6, %19
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
-  br i1 %20, label %14, label %21, !llvm.loop !48
+  br i1 %20, label %14, label %21, !llvm.loop !47
 
 21:                                               ; preds = %14
   %22 = trunc nsw i64 %indvars.iv to i32
@@ -1510,7 +1510,7 @@ define void @_ZN6icu_7716BytesTrieBuilder17BTLinearMatchNodeC2EPKciPNS_17StringT
 
 6:                                                ; preds = %4
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %8 = load i32, ptr %7, align 8, !tbaa !49
+  %8 = load i32, ptr %7, align 8, !tbaa !48
   br label %_ZN6icu_7717StringTrieBuilder15LinearMatchNodeC2EiPNS0_4NodeE.exit
 
 _ZN6icu_7717StringTrieBuilder15LinearMatchNodeC2EiPNS0_4NodeE.exit: ; preds = %4, %6
@@ -1519,27 +1519,27 @@ _ZN6icu_7717StringTrieBuilder15LinearMatchNodeC2EiPNS0_4NodeE.exit: ; preds = %4
   %11 = add i32 %10, 298634171
   %12 = add i32 %11, %9
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 %12, ptr %13, align 8, !tbaa !49
+  store i32 %12, ptr %13, align 8, !tbaa !48
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store i32 0, ptr %14, align 4, !tbaa !51
+  store i32 0, ptr %14, align 4, !tbaa !50
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i8 0, ptr %15, align 8, !tbaa !52
+  store i8 0, ptr %15, align 8, !tbaa !51
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  store i32 0, ptr %16, align 4, !tbaa !54
+  store i32 0, ptr %16, align 4, !tbaa !53
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i32 %2, ptr %17, align 8, !tbaa !55
+  store i32 %2, ptr %17, align 8, !tbaa !54
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr %3, ptr %18, align 8, !tbaa !58
+  store ptr %3, ptr %18, align 8, !tbaa !57
   store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN6icu_7716BytesTrieBuilder17BTLinearMatchNodeE, i64 16), ptr %0, align 8, !tbaa !21
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store ptr %1, ptr %19, align 8, !tbaa !59
+  store ptr %1, ptr %19, align 8, !tbaa !58
   %20 = invoke i32 @ustr_hashCharsN_77(ptr noundef %1, i32 noundef %2)
           to label %21 unwind label %24
 
 21:                                               ; preds = %_ZN6icu_7717StringTrieBuilder15LinearMatchNodeC2EiPNS0_4NodeE.exit
   %22 = mul i32 %12, 37
   %23 = add i32 %20, %22
-  store i32 %23, ptr %13, align 8, !tbaa !49
+  store i32 %23, ptr %13, align 8, !tbaa !48
   ret void
 
 24:                                               ; preds = %_ZN6icu_7717StringTrieBuilder15LinearMatchNodeC2EiPNS0_4NodeE.exit
@@ -1562,11 +1562,11 @@ define noundef zeroext i1 @_ZNK6icu_7716BytesTrieBuilder17BTLinearMatchNodeeqERK
 
 6:                                                ; preds = %4
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %8 = load ptr, ptr %7, align 8, !tbaa !59
+  %8 = load ptr, ptr %7, align 8, !tbaa !58
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %10 = load ptr, ptr %9, align 8, !tbaa !59
+  %10 = load ptr, ptr %9, align 8, !tbaa !58
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %12 = load i32, ptr %11, align 8, !tbaa !55
+  %12 = load i32, ptr %11, align 8, !tbaa !54
   %13 = sext i32 %12 to i64
   %bcmp = tail call i32 @bcmp(ptr %8, ptr %10, i64 %13)
   %14 = icmp eq i32 %bcmp, 0
@@ -1582,15 +1582,15 @@ declare noundef zeroext i1 @_ZNK6icu_7717StringTrieBuilder15LinearMatchNodeeqERK
 ; Function Attrs: mustprogress uwtable
 define void @_ZN6icu_7716BytesTrieBuilder17BTLinearMatchNode5writeERNS_17StringTrieBuilderE(ptr noundef nonnull align 8 captures(none) dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %4 = load ptr, ptr %3, align 8, !tbaa !58
+  %4 = load ptr, ptr %3, align 8, !tbaa !57
   %5 = load ptr, ptr %4, align 8, !tbaa !21
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 40
   %7 = load ptr, ptr %6, align 8
   tail call void %7(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %1)
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %9 = load ptr, ptr %8, align 8, !tbaa !59
+  %9 = load ptr, ptr %8, align 8, !tbaa !58
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %11 = load i32, ptr %10, align 8, !tbaa !55
+  %11 = load i32, ptr %10, align 8, !tbaa !54
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 52
   %13 = load i32, ptr %12, align 4, !tbaa !32
   %14 = add nsw i32 %13, %11
@@ -1609,7 +1609,7 @@ define void @_ZN6icu_7716BytesTrieBuilder17BTLinearMatchNode5writeERNS_17StringT
   %.013.i.i = phi i32 [ %22, %.preheader.i.i ], [ %20, %18 ]
   %22 = shl nsw i32 %.013.i.i, 1
   %.not.i.i = icmp sgt i32 %22, %14
-  br i1 %.not.i.i, label %23, label %.preheader.i.i, !llvm.loop !61
+  br i1 %.not.i.i, label %23, label %.preheader.i.i, !llvm.loop !60
 
 23:                                               ; preds = %.preheader.i.i
   %24 = sext i32 %22 to i64
@@ -1657,7 +1657,7 @@ _ZN6icu_7716BytesTrieBuilder5writeEPKci.exit:     ; preds = %2, %_ZN6icu_7716Byt
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 96
   %46 = load ptr, ptr %45, align 8
   %47 = tail call noundef i32 %46(ptr noundef nonnull align 8 dereferenceable(56) %1)
-  %48 = load i32, ptr %10, align 8, !tbaa !55
+  %48 = load i32, ptr %10, align 8, !tbaa !54
   %49 = add i32 %47, -1
   %50 = add i32 %49, %48
   %51 = load ptr, ptr %1, align 8, !tbaa !21
@@ -1665,7 +1665,7 @@ _ZN6icu_7716BytesTrieBuilder5writeEPKci.exit:     ; preds = %2, %_ZN6icu_7716Byt
   %53 = load ptr, ptr %52, align 8
   %54 = tail call noundef i32 %53(ptr noundef nonnull align 8 dereferenceable(56) %1, i32 noundef %50)
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store i32 %54, ptr %55, align 4, !tbaa !51
+  store i32 %54, ptr %55, align 4, !tbaa !50
   ret void
 }
 
@@ -1689,7 +1689,7 @@ define noundef i32 @_ZN6icu_7716BytesTrieBuilder5writeEPKci(ptr noundef nonnull 
   %.013.i = phi i32 [ %14, %.preheader.i ], [ %12, %10 ]
   %14 = shl nsw i32 %.013.i, 1
   %.not.i = icmp sgt i32 %14, %6
-  br i1 %.not.i, label %15, label %.preheader.i, !llvm.loop !61
+  br i1 %.not.i, label %15, label %.preheader.i, !llvm.loop !60
 
 15:                                               ; preds = %.preheader.i
   %16 = sext i32 %14 to i64
@@ -1788,7 +1788,7 @@ define noundef signext range(i8 0, 2) i8 @_ZN6icu_7716BytesTrieBuilder14ensureCa
   %.013 = phi i32 [ %10, %.preheader ], [ %8, %6 ]
   %10 = shl nsw i32 %.013, 1
   %.not = icmp sgt i32 %10, %1
-  br i1 %.not, label %11, label %.preheader, !llvm.loop !61
+  br i1 %.not, label %11, label %.preheader, !llvm.loop !60
 
 11:                                               ; preds = %.preheader
   %12 = sext i32 %10 to i64
@@ -1850,7 +1850,7 @@ define noundef i32 @_ZN6icu_7716BytesTrieBuilder5writeEi(ptr noundef nonnull ali
   %.013.i = phi i32 [ %12, %.preheader.i ], [ %11, %9 ]
   %12 = shl nsw i32 %.013.i, 1
   %.not.i = icmp sgt i32 %12, %5
-  br i1 %.not.i, label %13, label %.preheader.i, !llvm.loop !61
+  br i1 %.not.i, label %13, label %.preheader.i, !llvm.loop !60
 
 13:                                               ; preds = %.preheader.i
   %14 = sext i32 %12 to i64
@@ -1933,7 +1933,7 @@ _ZNK6icu_7716BytesTrieElement9getStringERKNS_10CharStringE.exit:
   %.013.i.i = phi i32 [ %26, %.preheader.i.i ], [ %24, %22 ]
   %26 = shl nsw i32 %.013.i.i, 1
   %.not.i.i = icmp sgt i32 %26, %18
-  br i1 %.not.i.i, label %27, label %.preheader.i.i, !llvm.loop !61
+  br i1 %.not.i.i, label %27, label %.preheader.i.i, !llvm.loop !60
 
 27:                                               ; preds = %.preheader.i.i
   %28 = sext i32 %26 to i64
@@ -2091,7 +2091,7 @@ define noundef i32 @_ZN6icu_7716BytesTrieBuilder18writeValueAndFinalEia(ptr noun
   %.013.i.i = phi i32 [ %67, %.preheader.i.i ], [ %65, %63 ]
   %67 = shl nsw i32 %.013.i.i, 1
   %.not.i.i = icmp sgt i32 %67, %59
-  br i1 %.not.i.i, label %68, label %.preheader.i.i, !llvm.loop !61
+  br i1 %.not.i.i, label %68, label %.preheader.i.i, !llvm.loop !60
 
 68:                                               ; preds = %.preheader.i.i
   %69 = sext i32 %67 to i64
@@ -2260,7 +2260,7 @@ _ZN6icu_7716BytesTrieBuilder19internalEncodeDeltaEiPc.exit: ; preds = %15, %37
   %.013.i.i = phi i32 [ %55, %.preheader.i.i ], [ %53, %51 ]
   %55 = shl nsw i32 %.013.i.i, 1
   %.not.i.i = icmp sgt i32 %55, %47
-  br i1 %.not.i.i, label %56, label %.preheader.i.i, !llvm.loop !61
+  br i1 %.not.i.i, label %56, label %.preheader.i.i, !llvm.loop !60
 
 56:                                               ; preds = %.preheader.i.i
   %57 = sext i32 %55 to i64
@@ -2510,24 +2510,23 @@ attributes #22 = { nounwind willreturn memory(read) }
 !38 = !{!37, !5, i64 8}
 !39 = !{!37, !5, i64 16}
 !40 = !{!37, !9, i64 24}
-!41 = distinct !{!41, !42, !43}
+!41 = distinct !{!41, !42}
 !42 = !{!"llvm.loop.mustprogress"}
-!43 = !{!"llvm.loop.estimated_trip_count"}
-!44 = distinct !{!44, !42, !43}
-!45 = distinct !{!45, !42, !43}
-!46 = distinct !{!46, !42, !43}
-!47 = distinct !{!47, !42, !43}
-!48 = distinct !{!48, !42, !43}
-!49 = !{!50, !9, i64 8}
-!50 = !{!"_ZTSN6icu_7717StringTrieBuilder4NodeE", !26, i64 0, !9, i64 8, !9, i64 12}
-!51 = !{!50, !9, i64 12}
-!52 = !{!53, !7, i64 16}
-!53 = !{!"_ZTSN6icu_7717StringTrieBuilder9ValueNodeE", !50, i64 0, !7, i64 16, !9, i64 20}
-!54 = !{!53, !9, i64 20}
-!55 = !{!56, !9, i64 24}
-!56 = !{!"_ZTSN6icu_7717StringTrieBuilder15LinearMatchNodeE", !53, i64 0, !9, i64 24, !57, i64 32}
-!57 = !{!"p1 _ZTSN6icu_7717StringTrieBuilder4NodeE", !6, i64 0}
-!58 = !{!56, !57, i64 32}
-!59 = !{!60, !5, i64 40}
-!60 = !{!"_ZTSN6icu_7716BytesTrieBuilder17BTLinearMatchNodeE", !56, i64 0, !5, i64 40}
-!61 = distinct !{!61, !42, !43}
+!43 = distinct !{!43, !42}
+!44 = distinct !{!44, !42}
+!45 = distinct !{!45, !42}
+!46 = distinct !{!46, !42}
+!47 = distinct !{!47, !42}
+!48 = !{!49, !9, i64 8}
+!49 = !{!"_ZTSN6icu_7717StringTrieBuilder4NodeE", !26, i64 0, !9, i64 8, !9, i64 12}
+!50 = !{!49, !9, i64 12}
+!51 = !{!52, !7, i64 16}
+!52 = !{!"_ZTSN6icu_7717StringTrieBuilder9ValueNodeE", !49, i64 0, !7, i64 16, !9, i64 20}
+!53 = !{!52, !9, i64 20}
+!54 = !{!55, !9, i64 24}
+!55 = !{!"_ZTSN6icu_7717StringTrieBuilder15LinearMatchNodeE", !52, i64 0, !9, i64 24, !56, i64 32}
+!56 = !{!"p1 _ZTSN6icu_7717StringTrieBuilder4NodeE", !6, i64 0}
+!57 = !{!55, !56, i64 32}
+!58 = !{!59, !5, i64 40}
+!59 = !{!"_ZTSN6icu_7716BytesTrieBuilder17BTLinearMatchNodeE", !55, i64 0, !5, i64 40}
+!60 = distinct !{!60, !42}

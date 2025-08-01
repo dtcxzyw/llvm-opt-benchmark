@@ -179,7 +179,7 @@ define hidden void @jFDislow(ptr noundef captures(none) %0) local_unnamed_addr #
   %146 = getelementptr inbounds nuw i8, ptr %.1160163, i64 4
   %147 = add nsw i32 %.1164, -1
   %.not165 = icmp eq i32 %.1164, 0
-  br i1 %.not165, label %148, label %.preheader, !llvm.loop !9
+  br i1 %.not165, label %148, label %.preheader, !llvm.loop !8
 
 148:                                              ; preds = %.preheader
   ret void
@@ -195,7 +195,6 @@ attributes #0 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwt
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
+!8 = distinct !{!8, !7}

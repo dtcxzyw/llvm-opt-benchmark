@@ -194,7 +194,7 @@ define hidden noundef zeroext i1 @_ZNK2OT4cff213accelerator_t11get_extentsEP9hb_
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.ptr.i.i.i, i8 0, i64 16, i1 false)
   %.add.i.i.i = add nuw nsw i64 %.idx.i.i.i, 24
   %41 = icmp eq i64 %.add.i.i.i, 248
-  br i1 %41, label %_ZN3CFF12call_stack_tC2Ev.exit.i, label %40, !llvm.loop !6
+  br i1 %41, label %_ZN3CFF12call_stack_tC2Ev.exit.i, label %40
 
 _ZN3CFF12call_stack_tC2Ev.exit.i:                 ; preds = %40
   %42 = getelementptr inbounds nuw i8, ptr %5, i64 4448
@@ -406,7 +406,7 @@ _ZNK3CFF15cs_interp_env_tINS_8number_tENS_5SubrsIN2OT7IntTypeIjLj4EEEEEE8in_erro
 152:                                              ; preds = %150
   %153 = load i8, ptr %119, align 8
   %154 = trunc i8 %153 to i1
-  br i1 %154, label %163, label %121, !llvm.loop !8
+  br i1 %154, label %163, label %121, !llvm.loop !6
 
 _ZN3CFF16cs_interpreter_tINS_20cff2_cs_interp_env_tINS_8number_tEEE23cff2_cs_opset_extents_t20cff2_extents_param_tE9interpretERS5_.exit: ; preds = %_ZNK3CFF15cs_interp_env_tINS_8number_tENS_5SubrsIN2OT7IntTypeIjLj4EEEEEE8in_errorEv.exit.i, %150, %_ZN3CFF20cff2_cs_interp_env_tINS_8number_tEE8fetch_opEv.exit._ZNK3CFF15cs_interp_env_tINS_8number_tENS_5SubrsIN2OT7IntTypeIjLj4EEEEEE8in_errorEv.exit.thread_crit_edge.i
   %155 = phi i32 [ %.pre11.i, %_ZN3CFF20cff2_cs_interp_env_tINS_8number_tEE8fetch_opEv.exit._ZNK3CFF15cs_interp_env_tINS_8number_tENS_5SubrsIN2OT7IntTypeIjLj4EEEEEE8in_errorEv.exit.thread_crit_edge.i ], [ %145, %150 ], [ %145, %_ZNK3CFF15cs_interp_env_tINS_8number_tENS_5SubrsIN2OT7IntTypeIjLj4EEEEEE8in_errorEv.exit.i ]
@@ -544,7 +544,7 @@ define linkonce_odr hidden noundef i32 @_ZNK3CFF12CFF2FDSelect6get_fdEj(ptr noun
   br i1 %18, label %_ZNK2OT7ArrayOfIN3CFF17FDSelect3_4_RangeINS_7IntTypeItLj2EEENS3_IhLj1EEEEES4_EixEi.exit.i, label %19
 
 19:                                               ; preds = %12
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !10
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !8
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 3
   br label %_ZNK2OT7ArrayOfIN3CFF17FDSelect3_4_RangeINS_7IntTypeItLj2EEENS3_IhLj1EEEEES4_EixEi.exit.i
 
@@ -603,14 +603,14 @@ _ZN3CFF11FDSelect3_4IN2OT7IntTypeItLj2EEENS2_IhLj1EEEE10_cmp_rangeEPKvS7_.exit.t
   %.121.i.i.i = phi i32 [ %45, %_ZN3CFF11FDSelect3_4IN2OT7IntTypeItLj2EEENS2_IhLj1EEEE10_cmp_rangeEPKvS7_.exit.thread.i.i.i ], [ %.0204.i.i.i, %46 ]
   %.1.i.i.i = phi i32 [ %.0195.i.i.i, %_ZN3CFF11FDSelect3_4IN2OT7IntTypeItLj2EEENS2_IhLj1EEEE10_cmp_rangeEPKvS7_.exit.thread.i.i.i ], [ %47, %46 ]
   %.not.not.i.i.i = icmp sgt i32 %.1.i.i.i, %.121.i.i.i
-  br i1 %.not.not.i.i.i, label %.loopexit.i, label %.lr.ph.i.i.i, !llvm.loop !11
+  br i1 %.not.not.i.i.i, label %.loopexit.i, label %.lr.ph.i.i.i, !llvm.loop !9
 
 .loopexit.i:                                      ; preds = %48, %_ZNK2OT7ArrayOfIN3CFF17FDSelect3_4_RangeINS_7IntTypeItLj2EEENS3_IhLj1EEEEES4_EixEi.exit.i
   %.not.i4.i.not = icmp eq i16 %.sroa.0.0.copyload.i.i, 0
   br i1 %.not.i4.i.not, label %_ZNK3CFF11FDSelect3_4IN2OT7IntTypeItLj2EEENS2_IhLj1EEEE6get_fdEj.exit, label %49
 
 49:                                               ; preds = %.loopexit.i
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !10
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !8
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 3
   %51 = zext nneg i32 %22 to i64
   %52 = getelementptr inbounds nuw [1 x %"struct.CFF::FDSelect3_4_Range"], ptr %50, i64 0, i64 %51
@@ -639,7 +639,7 @@ _ZNK3CFF11FDSelect3_4IN2OT7IntTypeItLj2EEENS2_IhLj1EEEE6get_fdEj.exit: ; preds =
   br i1 %68, label %_ZNK2OT7ArrayOfIN3CFF17FDSelect3_4_RangeINS_7IntTypeIjLj4EEENS3_ItLj2EEEEES4_EixEi.exit.i, label %69
 
 69:                                               ; preds = %56
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !10
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !8
   %70 = getelementptr inbounds nuw i8, ptr %0, i64 5
   br label %_ZNK2OT7ArrayOfIN3CFF17FDSelect3_4_RangeINS_7IntTypeIjLj4EEENS3_ItLj2EEEEES4_EixEi.exit.i
 
@@ -717,14 +717,14 @@ _ZN3CFF11FDSelect3_4IN2OT7IntTypeIjLj4EEENS2_ItLj2EEEE10_cmp_rangeEPKvS7_.exit.t
   %.121.i.i.i16 = phi i32 [ %115, %_ZN3CFF11FDSelect3_4IN2OT7IntTypeIjLj4EEENS2_ItLj2EEEE10_cmp_rangeEPKvS7_.exit.thread.i.i.i ], [ %.0204.i.i.i14, %116 ]
   %.1.i.i.i17 = phi i32 [ %.0195.i.i.i13, %_ZN3CFF11FDSelect3_4IN2OT7IntTypeIjLj4EEENS2_ItLj2EEEE10_cmp_rangeEPKvS7_.exit.thread.i.i.i ], [ %117, %116 ]
   %.not.not.i.i.i18 = icmp sgt i32 %.1.i.i.i17, %.121.i.i.i16
-  br i1 %.not.not.i.i.i18, label %.loopexit.i8, label %.lr.ph.i.i.i12, !llvm.loop !12
+  br i1 %.not.not.i.i.i18, label %.loopexit.i8, label %.lr.ph.i.i.i12, !llvm.loop !10
 
 .loopexit.i8:                                     ; preds = %118, %_ZNK2OT7ArrayOfIN3CFF17FDSelect3_4_RangeINS_7IntTypeIjLj4EEENS3_ItLj2EEEEES4_EixEi.exit.i
   %.not.i4.i9.not = icmp eq i32 %.sroa.0.0.copyload.i.i6, 0
   br i1 %.not.i4.i9.not, label %_ZNK3CFF11FDSelect3_4IN2OT7IntTypeIjLj4EEENS2_ItLj2EEEE6get_fdEj.exit, label %119
 
 119:                                              ; preds = %.loopexit.i8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !10
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !8
   %120 = getelementptr inbounds nuw i8, ptr %0, i64 5
   %121 = zext i32 %72 to i64
   %122 = getelementptr inbounds nuw [1 x %"struct.CFF::FDSelect3_4_Range.8"], ptr %120, i64 0, i64 %121
@@ -770,7 +770,7 @@ define linkonce_odr hidden { ptr, i64 } @_ZNK3CFF8CFFIndexIN2OT7IntTypeIjLj4EEEE
   br i1 %.not, label %20, label %205
 
 20:                                               ; preds = %2
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !13
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !11
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %22 = load i8, ptr %21, align 1
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 5
@@ -1230,7 +1230,7 @@ define hidden noundef zeroext i1 @_ZNK2OT4cff213accelerator_t8get_pathEP9hb_font
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.ptr.i.i.i, i8 0, i64 16, i1 false)
   %.add.i.i.i = add nuw nsw i64 %.idx.i.i.i, 24
   %41 = icmp eq i64 %.add.i.i.i, 248
-  br i1 %41, label %_ZN3CFF12call_stack_tC2Ev.exit.i, label %40, !llvm.loop !6
+  br i1 %41, label %_ZN3CFF12call_stack_tC2Ev.exit.i, label %40
 
 _ZN3CFF12call_stack_tC2Ev.exit.i:                 ; preds = %40
   %42 = getelementptr inbounds nuw i8, ptr %5, i64 4448
@@ -1442,7 +1442,7 @@ _ZNK3CFF15cs_interp_env_tINS_8number_tENS_5SubrsIN2OT7IntTypeIjLj4EEEEEE8in_erro
 150:                                              ; preds = %146
   %151 = load i8, ptr %115, align 8
   %152 = trunc i8 %151 to i1
-  br i1 %152, label %_ZN3CFF16cs_interpreter_tINS_20cff2_cs_interp_env_tINS_8number_tEEE20cff2_cs_opset_path_t17cff2_path_param_tE9interpretERS5_.exit, label %117, !llvm.loop !14
+  br i1 %152, label %_ZN3CFF16cs_interpreter_tINS_20cff2_cs_interp_env_tINS_8number_tEEE20cff2_cs_opset_path_t17cff2_path_param_tE9interpretERS5_.exit, label %117, !llvm.loop !12
 
 153:                                              ; preds = %_ZN3CFF20cff2_cs_interp_env_tINS_8number_tEE8fetch_opEv.exit.i
   %154 = landingpad { ptr, i32 }
@@ -2236,7 +2236,7 @@ _ZN3CFF11cff_stack_tINS_8number_tELi513EEixEj.exit: ; preds = %41, %42
   %59 = tail call double @llvm.fmuladd.f64(double %56, double %58, double %.19.i.i)
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %.sroa.3.8.insert.ext.i.i.i
-  br i1 %exitcond.not.i.i, label %_ZN3CFF15cff2_cs_opset_tI23cff2_cs_opset_extents_t20cff2_extents_param_tNS_8number_tE25cff2_path_procs_extents_tE17process_arg_blendIS3_TnPN12hb_enable_ifIXntsr10hb_is_sameIT_NS_11blend_arg_tEEE5valueEvE4typeELPv0EEEvRNS_20cff2_cs_interp_env_tIS3_EERS3_10hb_array_tIKS3_Ejj.exit, label %53, !llvm.loop !15
+  br i1 %exitcond.not.i.i, label %_ZN3CFF15cff2_cs_opset_tI23cff2_cs_opset_extents_t20cff2_extents_param_tNS_8number_tE25cff2_path_procs_extents_tE17process_arg_blendIS3_TnPN12hb_enable_ifIXntsr10hb_is_sameIT_NS_11blend_arg_tEEE5valueEvE4typeELPv0EEEvRNS_20cff2_cs_interp_env_tIS3_EERS3_10hb_array_tIKS3_Ejj.exit, label %53, !llvm.loop !13
 
 _ZN3CFF15cff2_cs_opset_tI23cff2_cs_opset_extents_t20cff2_extents_param_tNS_8number_tE25cff2_path_procs_extents_tE17process_arg_blendIS3_TnPN12hb_enable_ifIXntsr10hb_is_sameIT_NS_11blend_arg_tEEE5valueEvE4typeELPv0EEEvRNS_20cff2_cs_interp_env_tIS3_EERS3_10hb_array_tIKS3_Ejj.exit: ; preds = %53, %_ZN3CFF11cff_stack_tINS_8number_tELi513EEixEj.exit, %48
   %.07.i.i = phi double [ 0.000000e+00, %48 ], [ 0.000000e+00, %_ZN3CFF11cff_stack_tINS_8number_tELi513EEixEj.exit ], [ %59, %53 ]
@@ -2244,7 +2244,7 @@ _ZN3CFF15cff2_cs_opset_tI23cff2_cs_opset_extents_t20cff2_extents_param_tNS_8numb
   store double %60, ptr %.0.i31, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %34, !llvm.loop !16
+  br i1 %exitcond.not, label %._crit_edge, label %34, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %_ZN3CFF15cff2_cs_opset_tI23cff2_cs_opset_extents_t20cff2_extents_param_tNS_8number_tE25cff2_path_procs_extents_tE17process_arg_blendIS3_TnPN12hb_enable_ifIXntsr10hb_is_sameIT_NS_11blend_arg_tEEE5valueEvE4typeELPv0EEEvRNS_20cff2_cs_interp_env_tIS3_EERS3_10hb_array_tIKS3_Ejj.exit, %.preheader.thread, %.preheader
   %.0.i3841 = phi i32 [ 0, %.preheader.thread ], [ 0, %.preheader ], [ %18, %_ZN3CFF15cff2_cs_opset_tI23cff2_cs_opset_extents_t20cff2_extents_param_tNS_8number_tE25cff2_path_procs_extents_tE17process_arg_blendIS3_TnPN12hb_enable_ifIXntsr10hb_is_sameIT_NS_11blend_arg_tEEE5valueEvE4typeELPv0EEEvRNS_20cff2_cs_interp_env_tIS3_EERS3_10hb_array_tIKS3_Ejj.exit ]
@@ -2551,7 +2551,7 @@ _ZN25cff2_path_procs_extents_t4lineERN3CFF20cff2_cs_interp_env_tINS0_8number_tEE
   %70 = add i32 %16, 2
   %71 = load i32, ptr %4, align 4
   %.not = icmp ugt i32 %70, %71
-  br i1 %.not, label %._crit_edge, label %14, !llvm.loop !17
+  br i1 %.not, label %._crit_edge, label %14, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %_ZN25cff2_path_procs_extents_t4lineERN3CFF20cff2_cs_interp_env_tINS0_8number_tEEER20cff2_extents_param_tRKNS0_7point_tE.exit, %2
   ret void
@@ -2805,7 +2805,7 @@ _ZN25cff2_path_procs_extents_t4lineERN3CFF20cff2_cs_interp_env_tINS0_8number_tEE
   %112 = add i32 %17, 2
   %113 = load i32, ptr %4, align 4
   %.not = icmp ugt i32 %112, %113
-  br i1 %.not, label %._crit_edge, label %15, !llvm.loop !18
+  br i1 %.not, label %._crit_edge, label %15, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %_ZN25cff2_path_procs_extents_t4lineERN3CFF20cff2_cs_interp_env_tINS0_8number_tEEER20cff2_extents_param_tRKNS0_7point_tE.exit27, %2
   %.0.lcssa = phi i32 [ 0, %2 ], [ %17, %_ZN25cff2_path_procs_extents_t4lineERN3CFF20cff2_cs_interp_env_tINS0_8number_tEEER20cff2_extents_param_tRKNS0_7point_tE.exit27 ]
@@ -3173,7 +3173,7 @@ _ZN25cff2_path_procs_extents_t4lineERN3CFF20cff2_cs_interp_env_tINS0_8number_tEE
   %112 = add i32 %17, 2
   %113 = load i32, ptr %4, align 4
   %.not = icmp ugt i32 %112, %113
-  br i1 %.not, label %._crit_edge, label %15, !llvm.loop !19
+  br i1 %.not, label %._crit_edge, label %15, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %_ZN25cff2_path_procs_extents_t4lineERN3CFF20cff2_cs_interp_env_tINS0_8number_tEEER20cff2_extents_param_tRKNS0_7point_tE.exit27, %2
   %.0.lcssa = phi i32 [ 0, %2 ], [ %17, %_ZN25cff2_path_procs_extents_t4lineERN3CFF20cff2_cs_interp_env_tINS0_8number_tEEER20cff2_extents_param_tRKNS0_7point_tE.exit27 ]
@@ -3446,7 +3446,7 @@ _ZN3CFF20cff2_cs_interp_env_tINS_8number_tEE8eval_argEj.exit32: ; preds = %58, %
   %68 = add i32 %20, 6
   %69 = load i32, ptr %7, align 4
   %.not = icmp ugt i32 %68, %69
-  br i1 %.not, label %._crit_edge, label %18, !llvm.loop !20
+  br i1 %.not, label %._crit_edge, label %18, !llvm.loop !18
 
 ._crit_edge:                                      ; preds = %_ZN3CFF20cff2_cs_interp_env_tINS_8number_tEE8eval_argEj.exit32, %2
   ret void
@@ -3605,7 +3605,7 @@ _ZN3CFF20cff2_cs_interp_env_tINS_8number_tEE8eval_argEj.exit43: ; preds = %60, %
   call void @_ZN25cff2_path_procs_extents_t5curveERN3CFF20cff2_cs_interp_env_tINS0_8number_tEEER20cff2_extents_param_tRKNS0_7point_tES9_S9_(ptr noundef nonnull align 8 dereferenceable(4515) %0, ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %5)
   %70 = add i32 %21, 6
   %.not = icmp ugt i32 %70, %10
-  br i1 %.not, label %._crit_edge, label %20, !llvm.loop !21
+  br i1 %.not, label %._crit_edge, label %20, !llvm.loop !19
 
 ._crit_edge:                                      ; preds = %_ZN3CFF20cff2_cs_interp_env_tINS_8number_tEE8eval_argEj.exit43
   %.pre57 = load i32, ptr %7, align 4
@@ -3913,7 +3913,7 @@ _ZN20cff2_extents_param_t13update_boundsERKN3CFF7point_tE.exit.i: ; preds = %56,
 _ZN25cff2_path_procs_extents_t4lineERN3CFF20cff2_cs_interp_env_tINS0_8number_tEEER20cff2_extents_param_tRKNS0_7point_tE.exit: ; preds = %70, %74
   %75 = add i32 %20, 2
   %.not = icmp ugt i32 %75, %10
-  br i1 %.not, label %._crit_edge, label %19, !llvm.loop !22
+  br i1 %.not, label %._crit_edge, label %19, !llvm.loop !20
 
 ._crit_edge:                                      ; preds = %_ZN25cff2_path_procs_extents_t4lineERN3CFF20cff2_cs_interp_env_tINS0_8number_tEEER20cff2_extents_param_tRKNS0_7point_tE.exit
   %.pre58 = load i32, ptr %7, align 4
@@ -4193,7 +4193,7 @@ _ZN3CFF20cff2_cs_interp_env_tINS_8number_tEE8eval_argEj.exit30: ; preds = %51, %
   %58 = add i32 %26, 4
   %59 = load i32, ptr %8, align 4
   %.not18 = icmp ugt i32 %58, %59
-  br i1 %.not18, label %._crit_edge, label %24, !llvm.loop !23
+  br i1 %.not18, label %._crit_edge, label %24, !llvm.loop !21
 
 ._crit_edge:                                      ; preds = %_ZN3CFF20cff2_cs_interp_env_tINS_8number_tEE8eval_argEj.exit30, %14
   ret void
@@ -4327,7 +4327,7 @@ _ZN3CFF20cff2_cs_interp_env_tINS_8number_tEE8eval_argEj.exit30: ; preds = %50, %
   %57 = add i32 %25, 4
   %58 = load i32, ptr %8, align 4
   %.not18 = icmp ugt i32 %57, %58
-  br i1 %.not18, label %._crit_edge, label %23, !llvm.loop !24
+  br i1 %.not18, label %._crit_edge, label %23, !llvm.loop !22
 
 ._crit_edge:                                      ; preds = %_ZN3CFF20cff2_cs_interp_env_tINS_8number_tEE8eval_argEj.exit30, %15
   ret void
@@ -4585,7 +4585,7 @@ _ZN3CFF20cff2_cs_interp_env_tINS_8number_tEE8eval_argEj.exit106: ; preds = %111,
   store double %117, ptr %8, align 8
   %118 = add i32 %52, 8
   %.not73 = icmp ugt i32 %118, %86
-  br i1 %.not73, label %._crit_edge, label %51, !llvm.loop !25
+  br i1 %.not73, label %._crit_edge, label %51, !llvm.loop !23
 
 ._crit_edge:                                      ; preds = %_ZN3CFF20cff2_cs_interp_env_tINS_8number_tEE8eval_argEj.exit106, %_ZN3CFF20cff2_cs_interp_env_tINS_8number_tEE8eval_argEj.exit82
   %.0.lcssa = phi i32 [ 4, %_ZN3CFF20cff2_cs_interp_env_tINS_8number_tEE8eval_argEj.exit82 ], [ %52, %_ZN3CFF20cff2_cs_interp_env_tINS_8number_tEE8eval_argEj.exit106 ]
@@ -4813,7 +4813,7 @@ _ZN3CFF20cff2_cs_interp_env_tINS_8number_tEE8eval_argEj.exit136: ; preds = %200,
   %208 = add i32 %131, 8
   %209 = load i32, ptr %10, align 4
   %.not71 = icmp ugt i32 %208, %209
-  br i1 %.not71, label %.loopexit, label %129, !llvm.loop !26
+  br i1 %.not71, label %.loopexit, label %129, !llvm.loop !24
 
 .loopexit:                                        ; preds = %207, %.preheader, %128
   ret void
@@ -5071,7 +5071,7 @@ _ZN3CFF20cff2_cs_interp_env_tINS_8number_tEE8eval_argEj.exit106: ; preds = %111,
   store double %117, ptr %39, align 8
   %118 = add i32 %52, 8
   %.not73 = icmp ugt i32 %118, %86
-  br i1 %.not73, label %._crit_edge, label %51, !llvm.loop !27
+  br i1 %.not73, label %._crit_edge, label %51, !llvm.loop !25
 
 ._crit_edge:                                      ; preds = %_ZN3CFF20cff2_cs_interp_env_tINS_8number_tEE8eval_argEj.exit106, %_ZN3CFF20cff2_cs_interp_env_tINS_8number_tEE8eval_argEj.exit82
   %.0.lcssa = phi i32 [ 4, %_ZN3CFF20cff2_cs_interp_env_tINS_8number_tEE8eval_argEj.exit82 ], [ %52, %_ZN3CFF20cff2_cs_interp_env_tINS_8number_tEE8eval_argEj.exit106 ]
@@ -5298,7 +5298,7 @@ _ZN3CFF20cff2_cs_interp_env_tINS_8number_tEE8eval_argEj.exit136: ; preds = %199,
   %207 = add i32 %130, 8
   %208 = load i32, ptr %10, align 4
   %.not71 = icmp ugt i32 %207, %208
-  br i1 %.not71, label %.loopexit, label %128, !llvm.loop !28
+  br i1 %.not71, label %.loopexit, label %128, !llvm.loop !26
 
 .loopexit:                                        ; preds = %206, %.preheader, %127
   ret void
@@ -5603,7 +5603,7 @@ _ZN3CFF20cff2_cs_interp_env_tINS_8number_tEE8eval_argEj.exit: ; preds = %.prehea
   %18 = fadd double %.sroa.4.066, %.pre
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
   %19 = icmp samesign ult i64 %indvars.iv, 8
-  br i1 %19, label %_ZN3CFF20cff2_cs_interp_env_tINS_8number_tEE8eval_argEj.exit, label %_ZN3CFF20cff2_cs_interp_env_tINS_8number_tEE8eval_argEj.exit56, !llvm.loop !29
+  br i1 %19, label %_ZN3CFF20cff2_cs_interp_env_tINS_8number_tEE8eval_argEj.exit, label %_ZN3CFF20cff2_cs_interp_env_tINS_8number_tEE8eval_argEj.exit56, !llvm.loop !27
 
 _ZN3CFF20cff2_cs_interp_env_tINS_8number_tEE8eval_argEj.exit56: ; preds = %_ZN3CFF20cff2_cs_interp_env_tINS_8number_tEE8eval_argEj.exit
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 4448
@@ -6188,7 +6188,7 @@ define linkonce_odr hidden void @_ZN3CFF20cff2_cs_interp_env_tINS_8number_tEE13p
   br i1 %.not.i.i, label %19, label %_ZNK2OT14VariationStore22get_region_index_countEj.exit
 
 19:                                               ; preds = %5
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !10
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !8
   %20 = getelementptr inbounds nuw i8, ptr %7, i64 10
   %21 = zext nneg i32 %10 to i64
   %22 = getelementptr inbounds nuw [1 x %"struct.OT::OffsetTo.26"], ptr %20, i64 0, i64 %21
@@ -6378,7 +6378,7 @@ define linkonce_odr hidden void @_ZNK2OT14VariationStore18get_region_scalarsEjPK
   br i1 %.not.i, label %15, label %_ZNK2OT7ArrayOfINS_8OffsetToINS_7VarDataENS_7IntTypeIjLj4EEELb1EEENS3_ItLj2EEEEixEi.exit
 
 15:                                               ; preds = %6
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !10
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !8
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %17 = zext nneg i32 %1 to i64
   %18 = getelementptr inbounds nuw [1 x %"struct.OT::OffsetTo.26"], ptr %16, i64 0, i64 %17
@@ -6481,7 +6481,7 @@ _ZNK2OT7ArrayOfINS_8OffsetToINS_7VarDataENS_7IntTypeIjLj4EEELb1EEENS3_ItLj2EEEEi
   store float %88, ptr %89, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %.preheader.i, label %79, !llvm.loop !30
+  br i1 %exitcond.not.i, label %.preheader.i, label %79, !llvm.loop !28
 
 _ZNK2OT7VarData18get_region_scalarsEPKijRKNS_13VarRegionListEPfj.exit: ; preds = %.preheader.i, %.lr.ph21.preheader.i
   ret void
@@ -6620,7 +6620,7 @@ _ZNK2OT13VarRegionAxis8evaluateEi.exit.thread:    ; preds = %71, %51, %37, %_ZNK
   %83 = fmul float %.02940, %.0.i36
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !31
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !29
 
 ._crit_edge:                                      ; preds = %_ZNK2OT13VarRegionAxis8evaluateEi.exit.thread, %20
   %.029.lcssa = phi float [ 1.000000e+00, %20 ], [ %83, %_ZNK2OT13VarRegionAxis8evaluateEi.exit.thread ]
@@ -7241,7 +7241,7 @@ _ZN3CFF20cff2_cs_interp_env_tINS_8number_tEE8eval_argEj.exit12.i: ; preds = %248
   %257 = add i32 %241, 2
   %258 = load i32, ptr %232, align 4
   %.not.i144 = icmp ugt i32 %257, %258
-  br i1 %.not.i144, label %_ZN3CFF12path_procs_tI22cff2_path_procs_path_tNS_20cff2_cs_interp_env_tINS_8number_tEEE17cff2_path_param_tE7rlinetoERS4_RS5_.exit, label %239, !llvm.loop !32
+  br i1 %.not.i144, label %_ZN3CFF12path_procs_tI22cff2_path_procs_path_tNS_20cff2_cs_interp_env_tINS_8number_tEEE17cff2_path_param_tE7rlinetoERS4_RS5_.exit, label %239, !llvm.loop !30
 
 _ZN3CFF12path_procs_tI22cff2_path_procs_path_tNS_20cff2_cs_interp_env_tINS_8number_tEEE17cff2_path_param_tE7rlinetoERS4_RS5_.exit: ; preds = %_ZN3CFF20cff2_cs_interp_env_tINS_8number_tEE8eval_argEj.exit12.i, %230
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
@@ -7456,7 +7456,7 @@ _ZN3CFF11cff_stack_tINS_8number_tELi513EEixEj.exit: ; preds = %41, %42
   %59 = tail call double @llvm.fmuladd.f64(double %56, double %58, double %.19.i.i)
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %.sroa.3.8.insert.ext.i.i.i
-  br i1 %exitcond.not.i.i, label %_ZN3CFF15cff2_cs_opset_tI20cff2_cs_opset_path_t17cff2_path_param_tNS_8number_tE22cff2_path_procs_path_tE17process_arg_blendIS3_TnPN12hb_enable_ifIXntsr10hb_is_sameIT_NS_11blend_arg_tEEE5valueEvE4typeELPv0EEEvRNS_20cff2_cs_interp_env_tIS3_EERS3_10hb_array_tIKS3_Ejj.exit, label %53, !llvm.loop !15
+  br i1 %exitcond.not.i.i, label %_ZN3CFF15cff2_cs_opset_tI20cff2_cs_opset_path_t17cff2_path_param_tNS_8number_tE22cff2_path_procs_path_tE17process_arg_blendIS3_TnPN12hb_enable_ifIXntsr10hb_is_sameIT_NS_11blend_arg_tEEE5valueEvE4typeELPv0EEEvRNS_20cff2_cs_interp_env_tIS3_EERS3_10hb_array_tIKS3_Ejj.exit, label %53, !llvm.loop !13
 
 _ZN3CFF15cff2_cs_opset_tI20cff2_cs_opset_path_t17cff2_path_param_tNS_8number_tE22cff2_path_procs_path_tE17process_arg_blendIS3_TnPN12hb_enable_ifIXntsr10hb_is_sameIT_NS_11blend_arg_tEEE5valueEvE4typeELPv0EEEvRNS_20cff2_cs_interp_env_tIS3_EERS3_10hb_array_tIKS3_Ejj.exit: ; preds = %53, %_ZN3CFF11cff_stack_tINS_8number_tELi513EEixEj.exit, %48
   %.07.i.i = phi double [ 0.000000e+00, %48 ], [ 0.000000e+00, %_ZN3CFF11cff_stack_tINS_8number_tELi513EEixEj.exit ], [ %59, %53 ]
@@ -7464,7 +7464,7 @@ _ZN3CFF15cff2_cs_opset_tI20cff2_cs_opset_path_t17cff2_path_param_tNS_8number_tE2
   store double %60, ptr %.0.i31, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %34, !llvm.loop !33
+  br i1 %exitcond.not, label %._crit_edge, label %34, !llvm.loop !31
 
 ._crit_edge:                                      ; preds = %_ZN3CFF15cff2_cs_opset_tI20cff2_cs_opset_path_t17cff2_path_param_tNS_8number_tE22cff2_path_procs_path_tE17process_arg_blendIS3_TnPN12hb_enable_ifIXntsr10hb_is_sameIT_NS_11blend_arg_tEEE5valueEvE4typeELPv0EEEvRNS_20cff2_cs_interp_env_tIS3_EERS3_10hb_array_tIKS3_Ejj.exit, %.preheader.thread, %.preheader
   %.0.i3841 = phi i32 [ 0, %.preheader.thread ], [ 0, %.preheader ], [ %18, %_ZN3CFF15cff2_cs_opset_tI20cff2_cs_opset_path_t17cff2_path_param_tNS_8number_tE22cff2_path_procs_path_tE17process_arg_blendIS3_TnPN12hb_enable_ifIXntsr10hb_is_sameIT_NS_11blend_arg_tEEE5valueEvE4typeELPv0EEEvRNS_20cff2_cs_interp_env_tIS3_EERS3_10hb_array_tIKS3_Ejj.exit ]
@@ -7555,7 +7555,7 @@ _ZN3CFF20cff2_cs_interp_env_tINS_8number_tEE8eval_argEj.exit21: ; preds = %25, %
   %32 = add i32 %15, 2
   %33 = load i32, ptr %5, align 4
   %.not = icmp ugt i32 %32, %33
-  br i1 %.not, label %._crit_edge, label %13, !llvm.loop !34
+  br i1 %.not, label %._crit_edge, label %13, !llvm.loop !32
 
 ._crit_edge:                                      ; preds = %_ZN3CFF20cff2_cs_interp_env_tINS_8number_tEE8eval_argEj.exit21, %2
   %.0.lcssa = phi i32 [ 0, %2 ], [ %15, %_ZN3CFF20cff2_cs_interp_env_tINS_8number_tEE8eval_argEj.exit21 ]
@@ -7651,7 +7651,7 @@ _ZN3CFF20cff2_cs_interp_env_tINS_8number_tEE8eval_argEj.exit21: ; preds = %25, %
   %32 = add i32 %15, 2
   %33 = load i32, ptr %5, align 4
   %.not = icmp ugt i32 %32, %33
-  br i1 %.not, label %._crit_edge, label %13, !llvm.loop !35
+  br i1 %.not, label %._crit_edge, label %13, !llvm.loop !33
 
 ._crit_edge:                                      ; preds = %_ZN3CFF20cff2_cs_interp_env_tINS_8number_tEE8eval_argEj.exit21, %2
   %.0.lcssa = phi i32 [ 0, %2 ], [ %15, %_ZN3CFF20cff2_cs_interp_env_tINS_8number_tEE8eval_argEj.exit21 ]
@@ -7832,7 +7832,7 @@ _ZN3CFF20cff2_cs_interp_env_tINS_8number_tEE8eval_argEj.exit32: ; preds = %58, %
   %68 = add i32 %20, 6
   %69 = load i32, ptr %7, align 4
   %.not = icmp ugt i32 %68, %69
-  br i1 %.not, label %._crit_edge, label %18, !llvm.loop !36
+  br i1 %.not, label %._crit_edge, label %18, !llvm.loop !34
 
 ._crit_edge:                                      ; preds = %_ZN3CFF20cff2_cs_interp_env_tINS_8number_tEE8eval_argEj.exit32, %2
   ret void
@@ -7993,7 +7993,7 @@ _ZN3CFF20cff2_cs_interp_env_tINS_8number_tEE8eval_argEj.exit43: ; preds = %61, %
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull align 8 dereferenceable(16) %5, i64 16, i1 false)
   %71 = add i32 %22, 6
   %.not = icmp ugt i32 %71, %11
-  br i1 %.not, label %._crit_edge, label %21, !llvm.loop !37
+  br i1 %.not, label %._crit_edge, label %21, !llvm.loop !35
 
 ._crit_edge:                                      ; preds = %_ZN3CFF20cff2_cs_interp_env_tINS_8number_tEE8eval_argEj.exit43
   %.pre54 = load i32, ptr %8, align 4
@@ -8122,7 +8122,7 @@ _ZN3CFF20cff2_cs_interp_env_tINS_8number_tEE8eval_argEj.exit31: ; preds = %24, %
   %indvars = trunc i64 %indvars.iv.next to i32
   %.not = icmp ult i32 %11, %indvars
   %indvars.iv.next56 = add nuw nsw i64 %indvars.iv55, 2
-  br i1 %.not, label %._crit_edge, label %17, !llvm.loop !38
+  br i1 %.not, label %._crit_edge, label %17, !llvm.loop !36
 
 ._crit_edge:                                      ; preds = %_ZN3CFF20cff2_cs_interp_env_tINS_8number_tEE8eval_argEj.exit31
   %33 = and i32 %9, -2
@@ -8407,7 +8407,7 @@ _ZN3CFF20cff2_cs_interp_env_tINS_8number_tEE8eval_argEj.exit30: ; preds = %51, %
   %58 = add i32 %26, 4
   %59 = load i32, ptr %8, align 4
   %.not18 = icmp ugt i32 %58, %59
-  br i1 %.not18, label %._crit_edge, label %24, !llvm.loop !39
+  br i1 %.not18, label %._crit_edge, label %24, !llvm.loop !37
 
 ._crit_edge:                                      ; preds = %_ZN3CFF20cff2_cs_interp_env_tINS_8number_tEE8eval_argEj.exit30, %14
   ret void
@@ -8542,7 +8542,7 @@ _ZN3CFF20cff2_cs_interp_env_tINS_8number_tEE8eval_argEj.exit30: ; preds = %50, %
   %57 = add i32 %25, 4
   %58 = load i32, ptr %8, align 4
   %.not18 = icmp ugt i32 %57, %58
-  br i1 %.not18, label %._crit_edge, label %23, !llvm.loop !40
+  br i1 %.not18, label %._crit_edge, label %23, !llvm.loop !38
 
 ._crit_edge:                                      ; preds = %_ZN3CFF20cff2_cs_interp_env_tINS_8number_tEE8eval_argEj.exit30, %15
   ret void
@@ -8802,7 +8802,7 @@ _ZN3CFF20cff2_cs_interp_env_tINS_8number_tEE8eval_argEj.exit106: ; preds = %111,
   store double %117, ptr %8, align 8
   %118 = add i32 %52, 8
   %.not73 = icmp ugt i32 %118, %86
-  br i1 %.not73, label %._crit_edge, label %51, !llvm.loop !41
+  br i1 %.not73, label %._crit_edge, label %51, !llvm.loop !39
 
 ._crit_edge:                                      ; preds = %_ZN3CFF20cff2_cs_interp_env_tINS_8number_tEE8eval_argEj.exit106, %_ZN3CFF20cff2_cs_interp_env_tINS_8number_tEE8eval_argEj.exit82
   %.0.lcssa = phi i32 [ 4, %_ZN3CFF20cff2_cs_interp_env_tINS_8number_tEE8eval_argEj.exit82 ], [ %52, %_ZN3CFF20cff2_cs_interp_env_tINS_8number_tEE8eval_argEj.exit106 ]
@@ -9033,7 +9033,7 @@ _ZN3CFF20cff2_cs_interp_env_tINS_8number_tEE8eval_argEj.exit136: ; preds = %200,
   %208 = add i32 %131, 8
   %209 = load i32, ptr %10, align 4
   %.not71 = icmp ugt i32 %208, %209
-  br i1 %.not71, label %.loopexit, label %129, !llvm.loop !42
+  br i1 %.not71, label %.loopexit, label %129, !llvm.loop !40
 
 .loopexit:                                        ; preds = %207, %.preheader, %128
   ret void
@@ -9293,7 +9293,7 @@ _ZN3CFF20cff2_cs_interp_env_tINS_8number_tEE8eval_argEj.exit106: ; preds = %111,
   store double %117, ptr %39, align 8
   %118 = add i32 %52, 8
   %.not73 = icmp ugt i32 %118, %86
-  br i1 %.not73, label %._crit_edge, label %51, !llvm.loop !43
+  br i1 %.not73, label %._crit_edge, label %51, !llvm.loop !41
 
 ._crit_edge:                                      ; preds = %_ZN3CFF20cff2_cs_interp_env_tINS_8number_tEE8eval_argEj.exit106, %_ZN3CFF20cff2_cs_interp_env_tINS_8number_tEE8eval_argEj.exit82
   %.0.lcssa = phi i32 [ 4, %_ZN3CFF20cff2_cs_interp_env_tINS_8number_tEE8eval_argEj.exit82 ], [ %52, %_ZN3CFF20cff2_cs_interp_env_tINS_8number_tEE8eval_argEj.exit106 ]
@@ -9523,7 +9523,7 @@ _ZN3CFF20cff2_cs_interp_env_tINS_8number_tEE8eval_argEj.exit136: ; preds = %199,
   %207 = add i32 %130, 8
   %208 = load i32, ptr %10, align 4
   %.not71 = icmp ugt i32 %207, %208
-  br i1 %.not71, label %.loopexit, label %128, !llvm.loop !44
+  br i1 %.not71, label %.loopexit, label %128, !llvm.loop !42
 
 .loopexit:                                        ; preds = %206, %.preheader, %127
   ret void
@@ -9834,7 +9834,7 @@ _ZN3CFF20cff2_cs_interp_env_tINS_8number_tEE8eval_argEj.exit: ; preds = %.prehea
   %18 = fadd double %.sroa.4.066, %.pre
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
   %19 = icmp samesign ult i64 %indvars.iv, 8
-  br i1 %19, label %_ZN3CFF20cff2_cs_interp_env_tINS_8number_tEE8eval_argEj.exit, label %_ZN3CFF20cff2_cs_interp_env_tINS_8number_tEE8eval_argEj.exit56, !llvm.loop !45
+  br i1 %19, label %_ZN3CFF20cff2_cs_interp_env_tINS_8number_tEE8eval_argEj.exit, label %_ZN3CFF20cff2_cs_interp_env_tINS_8number_tEE8eval_argEj.exit56, !llvm.loop !43
 
 _ZN3CFF20cff2_cs_interp_env_tINS_8number_tEE8eval_argEj.exit56: ; preds = %_ZN3CFF20cff2_cs_interp_env_tINS_8number_tEE8eval_argEj.exit
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 4448
@@ -10443,42 +10443,40 @@ attributes #10 = { nounwind allocsize(1) }
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
 !6 = distinct !{!6, !7}
-!7 = !{!"llvm.loop.estimated_trip_count"}
-!8 = distinct !{!8, !9, !7}
-!9 = !{!"llvm.loop.mustprogress"}
-!10 = !{i64 2152608440}
-!11 = distinct !{!11, !9, !7}
-!12 = distinct !{!12, !9, !7}
-!13 = !{i64 2152902386}
-!14 = distinct !{!14, !9, !7}
-!15 = distinct !{!15, !9, !7}
-!16 = distinct !{!16, !9, !7}
-!17 = distinct !{!17, !9, !7}
-!18 = distinct !{!18, !9, !7}
-!19 = distinct !{!19, !9, !7}
-!20 = distinct !{!20, !9, !7}
-!21 = distinct !{!21, !9, !7}
-!22 = distinct !{!22, !9, !7}
-!23 = distinct !{!23, !9, !7}
-!24 = distinct !{!24, !9, !7}
-!25 = distinct !{!25, !9, !7}
-!26 = distinct !{!26, !9, !7}
-!27 = distinct !{!27, !9, !7}
-!28 = distinct !{!28, !9, !7}
-!29 = distinct !{!29, !9, !7}
-!30 = distinct !{!30, !9, !7}
-!31 = distinct !{!31, !9, !7}
-!32 = distinct !{!32, !9, !7}
-!33 = distinct !{!33, !9, !7}
-!34 = distinct !{!34, !9, !7}
-!35 = distinct !{!35, !9, !7}
-!36 = distinct !{!36, !9, !7}
-!37 = distinct !{!37, !9, !7}
-!38 = distinct !{!38, !9, !7}
-!39 = distinct !{!39, !9, !7}
-!40 = distinct !{!40, !9, !7}
-!41 = distinct !{!41, !9, !7}
-!42 = distinct !{!42, !9, !7}
-!43 = distinct !{!43, !9, !7}
-!44 = distinct !{!44, !9, !7}
-!45 = distinct !{!45, !9, !7}
+!7 = !{!"llvm.loop.mustprogress"}
+!8 = !{i64 2152608440}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}
+!11 = !{i64 2152902386}
+!12 = distinct !{!12, !7}
+!13 = distinct !{!13, !7}
+!14 = distinct !{!14, !7}
+!15 = distinct !{!15, !7}
+!16 = distinct !{!16, !7}
+!17 = distinct !{!17, !7}
+!18 = distinct !{!18, !7}
+!19 = distinct !{!19, !7}
+!20 = distinct !{!20, !7}
+!21 = distinct !{!21, !7}
+!22 = distinct !{!22, !7}
+!23 = distinct !{!23, !7}
+!24 = distinct !{!24, !7}
+!25 = distinct !{!25, !7}
+!26 = distinct !{!26, !7}
+!27 = distinct !{!27, !7}
+!28 = distinct !{!28, !7}
+!29 = distinct !{!29, !7}
+!30 = distinct !{!30, !7}
+!31 = distinct !{!31, !7}
+!32 = distinct !{!32, !7}
+!33 = distinct !{!33, !7}
+!34 = distinct !{!34, !7}
+!35 = distinct !{!35, !7}
+!36 = distinct !{!36, !7}
+!37 = distinct !{!37, !7}
+!38 = distinct !{!38, !7}
+!39 = distinct !{!39, !7}
+!40 = distinct !{!40, !7}
+!41 = distinct !{!41, !7}
+!42 = distinct !{!42, !7}
+!43 = distinct !{!43, !7}

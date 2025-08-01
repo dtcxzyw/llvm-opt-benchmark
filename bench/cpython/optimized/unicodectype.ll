@@ -3120,7 +3120,7 @@ gettyperecord.exit:                               ; preds = %2, %4
   store i32 %30, ptr %31, align 4, !tbaa !12
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !20
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !19
 
 32:                                               ; preds = %gettyperecord.exit
   %33 = add i32 %22, %0
@@ -3182,7 +3182,7 @@ gettyperecord.exit:                               ; preds = %2, %4
   store i32 %29, ptr %30, align 4, !tbaa !12
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !21
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !20
 
 31:                                               ; preds = %gettyperecord.exit
   %32 = add i32 %21, %0
@@ -3248,7 +3248,7 @@ gettyperecord.exit:                               ; preds = %2, %4
   store i32 %34, ptr %35, align 4, !tbaa !12
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %_PyUnicode_ToLowerFull.exit, label %31, !llvm.loop !22
+  br i1 %exitcond.not, label %_PyUnicode_ToLowerFull.exit, label %31, !llvm.loop !21
 
 36:                                               ; preds = %21, %gettyperecord.exit
   br i1 %3, label %gettyperecord.exit.i, label %37
@@ -3422,9 +3422,8 @@ attributes #1 = { nofree norecurse nosync nounwind memory(argmem: write) uwtable
 !14 = !{!9, !6, i64 13}
 !15 = !{!9, !10, i64 0}
 !16 = !{!9, !10, i64 4}
-!17 = distinct !{!17, !18, !19}
+!17 = distinct !{!17, !18}
 !18 = !{!"llvm.loop.mustprogress"}
-!19 = !{!"llvm.loop.estimated_trip_count"}
-!20 = distinct !{!20, !18, !19}
-!21 = distinct !{!21, !18, !19}
-!22 = distinct !{!22, !18, !19}
+!19 = distinct !{!19, !18}
+!20 = distinct !{!20, !18}
+!21 = distinct !{!21, !18}

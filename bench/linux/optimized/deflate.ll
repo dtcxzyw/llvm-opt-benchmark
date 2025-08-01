@@ -1546,7 +1546,7 @@ thread-pre-split:                                 ; preds = %60, %63, %69
   %123 = add i32 %122, -1
   store i32 %123, ptr %15, align 8
   %124 = icmp eq i32 %123, 0
-  br i1 %124, label %125, label %92, !llvm.loop !12
+  br i1 %124, label %125, label %92, !llvm.loop !11
 
 125:                                              ; preds = %92
   %126 = zext i16 %110 to i32
@@ -1742,7 +1742,7 @@ thread-pre-split:                                 ; preds = %60, %63, %69
   br i1 %259, label %.loopexit, label %.backedge
 
 .backedge:                                        ; preds = %255, %159
-  br label %19, !llvm.loop !14
+  br label %19, !llvm.loop !13
 
 260:                                              ; preds = %27
   %261 = load i64, ptr %18, align 8
@@ -2114,7 +2114,7 @@ thread-pre-split16:                               ; preds = %77, %68, %71, %thre
   %150 = add i32 %148, -1
   store i32 %150, ptr %14, align 8
   %151 = icmp eq i32 %150, 0
-  br i1 %151, label %152, label %112, !llvm.loop !15
+  br i1 %151, label %152, label %112, !llvm.loop !14
 
 152:                                              ; preds = %147
   store i32 0, ptr %20, align 8
@@ -2439,7 +2439,7 @@ thread-pre-split16:                               ; preds = %77, %68, %71, %thre
 
 .backedge:                                        ; preds = %366, %357, %247, %152
   %.be = phi i32 [ %64, %357 ], [ %64, %366 ], [ %149, %247 ], [ %149, %152 ]
-  br label %22, !llvm.loop !16
+  br label %22, !llvm.loop !15
 
 371:                                              ; preds = %30
   %372 = load i32, ptr %20, align 8
@@ -2688,7 +2688,7 @@ define internal fastcc void @fill_window(ptr noundef captures(none) %0) unnamed_
   store i16 %56, ptr %52, align 2
   %57 = add i32 %50, -1
   %58 = icmp eq i32 %57, 0
-  br i1 %58, label %59, label %49, !llvm.loop !17
+  br i1 %58, label %59, label %49, !llvm.loop !16
 
 59:                                               ; preds = %49
   %60 = load ptr, ptr %14, align 8
@@ -2706,7 +2706,7 @@ define internal fastcc void @fill_window(ptr noundef captures(none) %0) unnamed_
   store i16 %69, ptr %65, align 2
   %70 = add i32 %63, -1
   %71 = icmp eq i32 %70, 0
-  br i1 %71, label %72, label %62, !llvm.loop !18
+  br i1 %71, label %72, label %62, !llvm.loop !17
 
 72:                                               ; preds = %62
   %73 = add i32 %3, %26
@@ -2854,7 +2854,7 @@ define internal fastcc void @fill_window(ptr noundef captures(none) %0) unnamed_
   %198 = getelementptr i8, ptr %118, i64 16
   %199 = add nsw i32 %115, -16
   %200 = icmp samesign ugt i32 %115, 31
-  br i1 %200, label %.preheader8, label %.loopexit, !llvm.loop !19
+  br i1 %200, label %.preheader8, label %.loopexit, !llvm.loop !18
 
 .loopexit:                                        ; preds = %.preheader8
   %201 = icmp eq i32 %199, 0
@@ -2879,7 +2879,7 @@ define internal fastcc void @fill_window(ptr noundef captures(none) %0) unnamed_
   %214 = add i64 %213, %208
   %215 = add i32 %209, -1
   %216 = icmp eq i32 %215, 0
-  br i1 %216, label %217, label %.preheader, !llvm.loop !20
+  br i1 %216, label %217, label %.preheader, !llvm.loop !19
 
 217:                                              ; preds = %.preheader
   %218 = add nsw i32 %202, -1
@@ -2895,7 +2895,7 @@ define internal fastcc void @fill_window(ptr noundef captures(none) %0) unnamed_
   %226 = urem i64 %224, 65521
   %227 = urem i64 %225, 65521
   %228 = icmp eq i32 %113, 0
-  br i1 %228, label %229, label %107, !llvm.loop !21
+  br i1 %228, label %229, label %107, !llvm.loop !20
 
 229:                                              ; preds = %222
   %230 = shl nuw nsw i64 %227, 16
@@ -2953,7 +2953,7 @@ define internal fastcc void @fill_window(ptr noundef captures(none) %0) unnamed_
   %263 = getelementptr inbounds nuw i8, ptr %262, i64 8
   %264 = load i64, ptr %263, align 8
   %265 = icmp eq i64 %264, 0
-  br i1 %265, label %266, label %18, !llvm.loop !22
+  br i1 %265, label %266, label %18, !llvm.loop !21
 
 266:                                              ; preds = %.thread, %244, %74
   ret void
@@ -3111,7 +3111,7 @@ define internal fastcc i32 @longest_match(ptr noundef captures(none) %0, i32 nou
   %121 = icmp eq i8 %118, %120
   %122 = icmp ult ptr %117, %23
   %123 = and i1 %122, %121
-  br i1 %123, label %72, label %.split.loop.exit20, !llvm.loop !23
+  br i1 %123, label %72, label %.split.loop.exit20, !llvm.loop !22
 
 .split.loop.exit20.split.loop.exit36:             ; preds = %110
   %124 = getelementptr i8, ptr %73, i64 7
@@ -3179,7 +3179,7 @@ define internal fastcc i32 @longest_match(ptr noundef captures(none) %0, i32 nou
   %158 = add i32 %45, -1
   %159 = icmp eq i32 %158, 0
   %160 = select i1 %157, i1 true, i1 %159
-  br i1 %160, label %161, label %43, !llvm.loop !24
+  br i1 %160, label %161, label %43, !llvm.loop !23
 
 161:                                              ; preds = %148, %137
   %162 = phi i32 [ %149, %148 ], [ %135, %137 ]
@@ -3225,19 +3225,18 @@ attributes #10 = { nounwind }
 !6 = !{!"branch_weights", i32 7818360, i32 -388717296}
 !7 = !{i64 2153840455, i64 2153840264, i64 2153840316, i64 2153840362, i64 2153840390}
 !8 = !{i64 2153840529, i64 2153840558, i64 2153840604, i64 2153840662, i64 2153840716, i64 2153840770, i64 2153840825, i64 2153840856}
-!9 = distinct !{!9, !10, !11}
+!9 = distinct !{!9, !10}
 !10 = !{!"llvm.loop.unroll.disable"}
-!11 = !{!"llvm.loop.estimated_trip_count"}
-!12 = distinct !{!12, !13, !10, !11}
-!13 = !{!"llvm.loop.mustprogress"}
-!14 = distinct !{!14, !10, !11}
-!15 = distinct !{!15, !13, !10, !11}
-!16 = distinct !{!16, !10, !11}
-!17 = distinct !{!17, !13, !10, !11}
-!18 = distinct !{!18, !13, !10, !11}
-!19 = distinct !{!19, !13, !10, !11}
-!20 = distinct !{!20, !13, !10, !11}
-!21 = distinct !{!21, !13, !10, !11}
-!22 = distinct !{!22, !13, !10, !11}
-!23 = distinct !{!23, !13, !10, !11}
-!24 = distinct !{!24, !13, !10, !11}
+!11 = distinct !{!11, !12, !10}
+!12 = !{!"llvm.loop.mustprogress"}
+!13 = distinct !{!13, !10}
+!14 = distinct !{!14, !12, !10}
+!15 = distinct !{!15, !10}
+!16 = distinct !{!16, !12, !10}
+!17 = distinct !{!17, !12, !10}
+!18 = distinct !{!18, !12, !10}
+!19 = distinct !{!19, !12, !10}
+!20 = distinct !{!20, !12, !10}
+!21 = distinct !{!21, !12, !10}
+!22 = distinct !{!22, !12, !10}
+!23 = distinct !{!23, !12, !10}

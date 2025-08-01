@@ -430,7 +430,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit37: ; preds = %.invo
 77:                                               ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit37, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit39
   %78 = getelementptr inbounds nuw i8, ptr %.sroa.042.050, i64 16
   %.not48 = icmp eq ptr %78, %26
-  br i1 %.not48, label %._crit_edge, label %29, !llvm.loop !28
+  br i1 %.not48, label %._crit_edge, label %29
 
 79:                                               ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit37
   %80 = landingpad { ptr, i32 }
@@ -550,14 +550,14 @@ declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_st
 define void @_ZN5faiss19demangle_cpp_symbolB5cxx11EPKc(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef %1) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
   %3 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #20
-  store i32 -1, ptr %3, align 4, !tbaa !30
+  store i32 -1, ptr %3, align 4, !tbaa !28
   %4 = call ptr @__cxa_demangle(ptr noundef %1, ptr noundef null, ptr noundef null, ptr noundef nonnull %3)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %5, ptr %0, align 8, !tbaa !16
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %6, align 8, !tbaa !14
   store i8 0, ptr %5, align 8, !tbaa !15
-  %7 = load i32, ptr %3, align 4, !tbaa !30
+  %7 = load i32, ptr %3, align 4, !tbaa !28
   %8 = icmp eq i32 %7, 0
   br i1 %8, label %9, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit
 
@@ -657,6 +657,4 @@ attributes #22 = { noreturn }
 !25 = !{!26, !27, i64 0}
 !26 = !{!"_ZTSSt4pairIiNSt15__exception_ptr13exception_ptrEE", !27, i64 0, !23, i64 8}
 !27 = !{!"int", !12, i64 0}
-!28 = distinct !{!28, !29}
-!29 = !{!"llvm.loop.estimated_trip_count"}
-!30 = !{!27, !27, i64 0}
+!28 = !{!27, !27, i64 0}

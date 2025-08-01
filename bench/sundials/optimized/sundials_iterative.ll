@@ -47,7 +47,7 @@ define noundef i32 @SUNModifiedGS(ptr noundef readonly captures(none) %0, ptr no
   tail call void @N_VLinearSum(double noundef 1.000000e+00, ptr noundef %30, double noundef %31, ptr noundef %32, ptr noundef %30) #7
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %22, !llvm.loop !14
+  br i1 %exitcond.not, label %._crit_edge, label %22
 
 ._crit_edge:                                      ; preds = %22, %14
   %33 = load ptr, ptr %7, align 8, !tbaa !3
@@ -103,7 +103,7 @@ define noundef i32 @SUNModifiedGS(ptr noundef readonly captures(none) %0, ptr no
   %.1 = phi double [ %.090, %44 ], [ %61, %56 ]
   %indvars.iv.next95 = add nuw nsw i64 %indvars.iv94, 1
   %exitcond98.not = icmp eq i64 %indvars.iv.next95, %wide.trip.count97
-  br i1 %exitcond98.not, label %._crit_edge92, label %44, !llvm.loop !16
+  br i1 %exitcond98.not, label %._crit_edge92, label %44
 
 ._crit_edge92:                                    ; preds = %62
   %63 = fcmp une double %.1, 0.000000e+00
@@ -189,7 +189,7 @@ define noundef i32 @SUNClassicalGS(ptr noundef %0, ptr noundef readonly captures
   %40 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv
   store ptr %39, ptr %40, align 8, !tbaa !3
   %41 = icmp samesign ugt i64 %indvars.iv, 1
-  br i1 %41, label %30, label %._crit_edge, !llvm.loop !17
+  br i1 %41, label %30, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %30, %25
   store double 1.000000e+00, ptr %5, align 8, !tbaa !12
@@ -251,7 +251,7 @@ define noundef i32 @SUNClassicalGS(ptr noundef %0, ptr noundef readonly captures
   store ptr %76, ptr %77, align 8, !tbaa !3
   %indvars.iv.next112 = add nuw nsw i64 %indvars.iv111, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next112, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge109.loopexit, label %63, !llvm.loop !18
+  br i1 %exitcond.not, label %._crit_edge109.loopexit, label %63
 
 ._crit_edge109.loopexit:                          ; preds = %63
   %.pre = load ptr, ptr %14, align 8, !tbaa !3
@@ -335,7 +335,7 @@ define i32 @SUNQRfact(i32 noundef %0, ptr noundef readonly captures(none) %1, pt
   %23 = tail call double @llvm.fmuladd.f64(double %18, double %8, double %22)
   store double %23, ptr %13, align 8, !tbaa !12
   %exitcond173.not = icmp eq i64 %indvars.iv.next168, %wide.trip.count172
-  br i1 %exitcond173.not, label %._crit_edge163, label %7, !llvm.loop !19
+  br i1 %exitcond173.not, label %._crit_edge163, label %7
 
 ._crit_edge163:                                   ; preds = %7, %.preheader
   %24 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv174
@@ -395,7 +395,7 @@ define i32 @SUNQRfact(i32 noundef %0, ptr noundef readonly captures(none) %1, pt
   %.1 = select i1 %59, i32 %60, i32 %.0165
   %indvars.iv.next171 = add nsw i32 %indvars.iv170, 1
   %exitcond178.not = icmp eq i64 %indvars.iv.next175, %wide.trip.count177
-  br i1 %exitcond178.not, label %.loopexit, label %.preheader, !llvm.loop !20
+  br i1 %exitcond178.not, label %.loopexit, label %.preheader
 
 61:                                               ; preds = %4
   %62 = add i32 %0, -1
@@ -437,7 +437,7 @@ define i32 @SUNQRfact(i32 noundef %0, ptr noundef readonly captures(none) %1, pt
   %81 = tail call double @llvm.fmuladd.f64(double %76, double %66, double %80)
   store double %81, ptr %71, align 8, !tbaa !12
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %65, !llvm.loop !21
+  br i1 %exitcond.not, label %._crit_edge, label %65
 
 ._crit_edge:                                      ; preds = %65, %.._crit_edge_crit_edge
   %.pre-phi = phi i64 [ %.pre183, %.._crit_edge_crit_edge ], [ %64, %65 ]
@@ -553,7 +553,7 @@ define range(i32 0, -2147483648) i32 @SUNQRsol(i32 noundef %0, ptr noundef reado
   %26 = tail call double @llvm.fmuladd.f64(double %18, double %14, double %25)
   store double %26, ptr %20, align 8, !tbaa !12
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.lr.ph56.preheader, label %.lr.ph, !llvm.loop !22
+  br i1 %exitcond.not, label %.lr.ph56.preheader, label %.lr.ph
 
 .loopexit:                                        ; preds = %.lr.ph52
   %indvars.iv.next68 = add nsw i64 %indvars.iv6780, -1
@@ -563,7 +563,7 @@ define range(i32 0, -2147483648) i32 @SUNQRsol(i32 noundef %0, ptr noundef reado
   %29 = getelementptr inbounds nuw double, ptr %28, i64 %indvars.iv.next70
   %30 = load double, ptr %29, align 8, !tbaa !12
   %31 = fcmp oeq double %30, 0.000000e+00
-  br i1 %31, label %.lr.ph56.._crit_edge.loopexit.split.loop.exit75_crit_edge, label %32, !llvm.loop !23
+  br i1 %31, label %.lr.ph56.._crit_edge.loopexit.split.loop.exit75_crit_edge, label %32
 
 32:                                               ; preds = %.lr.ph82, %.loopexit
   %33 = phi double [ %10, %.lr.ph82 ], [ %30, %.loopexit ]
@@ -591,7 +591,7 @@ define range(i32 0, -2147483648) i32 @SUNQRsol(i32 noundef %0, ptr noundef reado
   store double %46, ptr %43, align 8, !tbaa !12
   %indvars.iv.next61 = add nuw nsw i64 %indvars.iv60, 1
   %exitcond66.not = icmp eq i64 %indvars.iv.next61, %indvars.iv6780
-  br i1 %exitcond66.not, label %.loopexit, label %.lr.ph52, !llvm.loop !24
+  br i1 %exitcond66.not, label %.loopexit, label %.lr.ph52
 
 .lr.ph56.._crit_edge.loopexit.split.loop.exit75_crit_edge: ; preds = %.loopexit
   %47 = trunc nuw nsw i64 %indvars.iv.next7081 to i32
@@ -604,7 +604,7 @@ define range(i32 0, -2147483648) i32 @SUNQRsol(i32 noundef %0, ptr noundef reado
 
 ; Function Attrs: nounwind uwtable
 define noundef i32 @SUNQRAdd_MGS(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef readonly captures(none) %5) local_unnamed_addr #0 {
-  %7 = load ptr, ptr %5, align 8, !tbaa !25
+  %7 = load ptr, ptr %5, align 8, !tbaa !14
   tail call void @N_VScale(double noundef 1.000000e+00, ptr noundef %2, ptr noundef %7) #7
   %8 = sext i32 %3 to i64
   %9 = icmp sgt i32 %3, 0
@@ -620,20 +620,20 @@ define noundef i32 @SUNQRAdd_MGS(ptr noundef readonly captures(none) %0, ptr nou
   %.048 = phi i64 [ 0, %.lr.ph ], [ %20, %12 ]
   %13 = getelementptr inbounds nuw ptr, ptr %0, i64 %.048
   %14 = load ptr, ptr %13, align 8, !tbaa !3
-  %15 = load ptr, ptr %5, align 8, !tbaa !25
+  %15 = load ptr, ptr %5, align 8, !tbaa !14
   %16 = tail call double @N_VDotProd(ptr noundef %14, ptr noundef %15) #7
   %gep = getelementptr double, ptr %invariant.gep, i64 %.048
   store double %16, ptr %gep, align 8, !tbaa !12
-  %17 = load ptr, ptr %5, align 8, !tbaa !25
+  %17 = load ptr, ptr %5, align 8, !tbaa !14
   %18 = fneg double %16
   %19 = load ptr, ptr %13, align 8, !tbaa !3
   tail call void @N_VLinearSum(double noundef 1.000000e+00, ptr noundef %17, double noundef %18, ptr noundef %19, ptr noundef %17) #7
   %20 = add nuw nsw i64 %.048, 1
   %exitcond.not = icmp eq i64 %20, %8
-  br i1 %exitcond.not, label %._crit_edge, label %12, !llvm.loop !27
+  br i1 %exitcond.not, label %._crit_edge, label %12
 
 ._crit_edge:                                      ; preds = %12, %6
-  %21 = load ptr, ptr %5, align 8, !tbaa !25
+  %21 = load ptr, ptr %5, align 8, !tbaa !14
   %22 = tail call double @N_VDotProd(ptr noundef %21, ptr noundef %21) #7
   %23 = fcmp ugt double %22, 0.000000e+00
   br i1 %23, label %24, label %26
@@ -650,7 +650,7 @@ define noundef i32 @SUNQRAdd_MGS(ptr noundef readonly captures(none) %0, ptr nou
   %31 = getelementptr inbounds double, ptr %1, i64 %30
   store double %27, ptr %31, align 8, !tbaa !12
   %32 = fdiv double 1.000000e+00, %27
-  %33 = load ptr, ptr %5, align 8, !tbaa !25
+  %33 = load ptr, ptr %5, align 8, !tbaa !14
   %34 = getelementptr inbounds ptr, ptr %0, i64 %8
   %35 = load ptr, ptr %34, align 8, !tbaa !3
   tail call void @N_VScale(double noundef %32, ptr noundef %33, ptr noundef %35) #7
@@ -661,7 +661,7 @@ declare void @N_VScale(double noundef, ptr noundef, ptr noundef) local_unnamed_a
 
 ; Function Attrs: nounwind uwtable
 define noundef i32 @SUNQRAdd_ICWY(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef readonly captures(none) %5) local_unnamed_addr #0 {
-  %7 = load ptr, ptr %5, align 8, !tbaa !25
+  %7 = load ptr, ptr %5, align 8, !tbaa !14
   tail call void @N_VScale(double noundef 1.000000e+00, ptr noundef %2, ptr noundef %7) #7
   %8 = icmp sgt i32 %3, 0
   br i1 %8, label %9, label %49
@@ -672,17 +672,17 @@ define noundef i32 @SUNQRAdd_ICWY(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %12 = getelementptr inbounds nuw ptr, ptr %0, i64 %11
   %13 = load ptr, ptr %12, align 8, !tbaa !3
   %14 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %15 = load ptr, ptr %14, align 8, !tbaa !28
+  %15 = load ptr, ptr %14, align 8, !tbaa !16
   %16 = mul nsw i32 %10, %4
   %17 = sext i32 %16 to i64
   %18 = getelementptr inbounds double, ptr %15, i64 %17
   %19 = tail call i32 @N_VDotProdMulti(i32 noundef %3, ptr noundef %13, ptr noundef %0, ptr noundef %18) #7
-  %20 = load ptr, ptr %14, align 8, !tbaa !28
+  %20 = load ptr, ptr %14, align 8, !tbaa !16
   %21 = add nsw i32 %16, %10
   %22 = sext i32 %21 to i64
   %23 = getelementptr inbounds double, ptr %20, i64 %22
   store double 1.000000e+00, ptr %23, align 8, !tbaa !12
-  %24 = load ptr, ptr %5, align 8, !tbaa !25
+  %24 = load ptr, ptr %5, align 8, !tbaa !14
   %25 = mul nsw i32 %4, %3
   %26 = sext i32 %25 to i64
   %27 = getelementptr double, ptr %1, i64 %26
@@ -693,7 +693,7 @@ define noundef i32 @SUNQRAdd_ICWY(ptr noundef %0, ptr noundef %1, ptr noundef %2
 
 .loopexit:                                        ; preds = %35, %31
   %exitcond84.not = icmp eq i64 %32, %29
-  br i1 %exitcond84.not, label %43, label %31, !llvm.loop !29
+  br i1 %exitcond84.not, label %43, label %31
 
 31:                                               ; preds = %9, %.loopexit
   %.07483 = phi i64 [ 0, %9 ], [ %32, %.loopexit ]
@@ -703,7 +703,7 @@ define noundef i32 @SUNQRAdd_ICWY(ptr noundef %0, ptr noundef %1, ptr noundef %2
 
 .lr.ph:                                           ; preds = %31
   %gep82 = getelementptr double, ptr %27, i64 %.07483
-  %34 = load ptr, ptr %14, align 8, !tbaa !28
+  %34 = load ptr, ptr %14, align 8, !tbaa !16
   %invariant.gep79 = getelementptr double, ptr %34, i64 %.07483
   br label %35
 
@@ -720,19 +720,19 @@ define noundef i32 @SUNQRAdd_ICWY(ptr noundef %0, ptr noundef %1, ptr noundef %2
   store double %41, ptr %gep, align 8, !tbaa !12
   %42 = add nuw nsw i64 %.078, 1
   %exitcond.not = icmp eq i64 %42, %29
-  br i1 %exitcond.not, label %.loopexit, label %35, !llvm.loop !30
+  br i1 %exitcond.not, label %.loopexit, label %35
 
 43:                                               ; preds = %.loopexit
   %44 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %45 = load ptr, ptr %44, align 8, !tbaa !31
+  %45 = load ptr, ptr %44, align 8, !tbaa !17
   %46 = tail call i32 @N_VLinearCombination(i32 noundef %3, ptr noundef %27, ptr noundef %0, ptr noundef %45) #7
-  %47 = load ptr, ptr %5, align 8, !tbaa !25
-  %48 = load ptr, ptr %44, align 8, !tbaa !31
+  %47 = load ptr, ptr %5, align 8, !tbaa !14
+  %48 = load ptr, ptr %44, align 8, !tbaa !17
   tail call void @N_VLinearSum(double noundef 1.000000e+00, ptr noundef %47, double noundef -1.000000e+00, ptr noundef %48, ptr noundef %47) #7
   br label %49
 
 49:                                               ; preds = %43, %6
-  %50 = load ptr, ptr %5, align 8, !tbaa !25
+  %50 = load ptr, ptr %5, align 8, !tbaa !14
   %51 = tail call double @N_VDotProd(ptr noundef %50, ptr noundef %50) #7
   %52 = fcmp ugt double %51, 0.000000e+00
   br i1 %52, label %53, label %55
@@ -749,7 +749,7 @@ define noundef i32 @SUNQRAdd_ICWY(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %60 = getelementptr inbounds double, ptr %1, i64 %59
   store double %56, ptr %60, align 8, !tbaa !12
   %61 = fdiv double 1.000000e+00, %56
-  %62 = load ptr, ptr %5, align 8, !tbaa !25
+  %62 = load ptr, ptr %5, align 8, !tbaa !14
   %63 = sext i32 %3 to i64
   %64 = getelementptr inbounds ptr, ptr %0, i64 %63
   %65 = load ptr, ptr %64, align 8, !tbaa !3
@@ -759,7 +759,7 @@ define noundef i32 @SUNQRAdd_ICWY(ptr noundef %0, ptr noundef %1, ptr noundef %2
 
 ; Function Attrs: nounwind uwtable
 define noundef i32 @SUNQRAdd_ICWY_SB(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef readonly captures(none) %5) local_unnamed_addr #0 {
-  %7 = load ptr, ptr %5, align 8, !tbaa !25
+  %7 = load ptr, ptr %5, align 8, !tbaa !14
   tail call void @N_VScale(double noundef 1.000000e+00, ptr noundef %2, ptr noundef %7) #7
   %8 = icmp sgt i32 %3, 0
   br i1 %8, label %9, label %61
@@ -770,23 +770,23 @@ define noundef i32 @SUNQRAdd_ICWY_SB(ptr noundef %0, ptr noundef %1, ptr noundef
   %12 = getelementptr inbounds nuw ptr, ptr %0, i64 %11
   %13 = load ptr, ptr %12, align 8, !tbaa !3
   %14 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %15 = load ptr, ptr %14, align 8, !tbaa !28
+  %15 = load ptr, ptr %14, align 8, !tbaa !16
   %16 = mul nsw i32 %10, %4
   %17 = sext i32 %16 to i64
   %18 = getelementptr inbounds double, ptr %15, i64 %17
   %19 = tail call i32 @N_VDotProdMultiLocal(i32 noundef %3, ptr noundef %13, ptr noundef %0, ptr noundef %18) #7
-  %20 = load ptr, ptr %5, align 8, !tbaa !25
-  %21 = load ptr, ptr %14, align 8, !tbaa !28
+  %20 = load ptr, ptr %5, align 8, !tbaa !14
+  %21 = load ptr, ptr %14, align 8, !tbaa !16
   %22 = getelementptr inbounds double, ptr %21, i64 %17
   %23 = zext nneg i32 %3 to i64
   %24 = getelementptr inbounds nuw double, ptr %22, i64 %23
   %25 = tail call i32 @N_VDotProdMultiLocal(i32 noundef %3, ptr noundef %20, ptr noundef %0, ptr noundef nonnull %24) #7
   %26 = shl nuw nsw i32 %3, 1
-  %27 = load ptr, ptr %5, align 8, !tbaa !25
-  %28 = load ptr, ptr %14, align 8, !tbaa !28
+  %27 = load ptr, ptr %5, align 8, !tbaa !14
+  %28 = load ptr, ptr %14, align 8, !tbaa !16
   %29 = getelementptr inbounds double, ptr %28, i64 %17
   %30 = tail call i32 @N_VDotProdMultiAllReduce(i32 noundef %26, ptr noundef %27, ptr noundef %29) #7
-  %31 = load ptr, ptr %14, align 8, !tbaa !28
+  %31 = load ptr, ptr %14, align 8, !tbaa !16
   %32 = add nsw i32 %16, %3
   %33 = sext i32 %32 to i64
   %invariant.gep = getelementptr double, ptr %31, i64 %33
@@ -803,7 +803,7 @@ define noundef i32 @SUNQRAdd_ICWY_SB(ptr noundef %0, ptr noundef %1, ptr noundef
   store double %37, ptr %gep98, align 8, !tbaa !12
   %38 = add nuw nsw i64 %.09399, 1
   %exitcond.not = icmp eq i64 %38, %23
-  br i1 %exitcond.not, label %39, label %36, !llvm.loop !32
+  br i1 %exitcond.not, label %39, label %36
 
 39:                                               ; preds = %36
   %40 = add nsw i32 %16, %10
@@ -815,7 +815,7 @@ define noundef i32 @SUNQRAdd_ICWY_SB(ptr noundef %0, ptr noundef %1, ptr noundef
 
 .loopexit:                                        ; preds = %47, %44
   %exitcond109.not = icmp eq i64 %45, %23
-  br i1 %exitcond109.not, label %55, label %44, !llvm.loop !33
+  br i1 %exitcond109.not, label %55, label %44
 
 44:                                               ; preds = %39, %.loopexit
   %.1105 = phi i64 [ 0, %39 ], [ %45, %.loopexit ]
@@ -841,19 +841,19 @@ define noundef i32 @SUNQRAdd_ICWY_SB(ptr noundef %0, ptr noundef %1, ptr noundef
   store double %53, ptr %gep104, align 8, !tbaa !12
   %54 = add nuw nsw i64 %.0102, 1
   %exitcond108.not = icmp eq i64 %54, %23
-  br i1 %exitcond108.not, label %.loopexit, label %47, !llvm.loop !34
+  br i1 %exitcond108.not, label %.loopexit, label %47
 
 55:                                               ; preds = %.loopexit
   %56 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %57 = load ptr, ptr %56, align 8, !tbaa !31
+  %57 = load ptr, ptr %56, align 8, !tbaa !17
   %58 = tail call i32 @N_VLinearCombination(i32 noundef %3, ptr noundef %invariant.gep97, ptr noundef %0, ptr noundef %57) #7
-  %59 = load ptr, ptr %5, align 8, !tbaa !25
-  %60 = load ptr, ptr %56, align 8, !tbaa !31
+  %59 = load ptr, ptr %5, align 8, !tbaa !14
+  %60 = load ptr, ptr %56, align 8, !tbaa !17
   tail call void @N_VLinearSum(double noundef 1.000000e+00, ptr noundef %59, double noundef -1.000000e+00, ptr noundef %60, ptr noundef %59) #7
   br label %61
 
 61:                                               ; preds = %55, %6
-  %62 = load ptr, ptr %5, align 8, !tbaa !25
+  %62 = load ptr, ptr %5, align 8, !tbaa !14
   %63 = tail call double @N_VDotProd(ptr noundef %62, ptr noundef %62) #7
   %64 = fcmp ugt double %63, 0.000000e+00
   br i1 %64, label %65, label %67
@@ -870,7 +870,7 @@ define noundef i32 @SUNQRAdd_ICWY_SB(ptr noundef %0, ptr noundef %1, ptr noundef
   %72 = getelementptr inbounds double, ptr %1, i64 %71
   store double %68, ptr %72, align 8, !tbaa !12
   %73 = fdiv double 1.000000e+00, %68
-  %74 = load ptr, ptr %5, align 8, !tbaa !25
+  %74 = load ptr, ptr %5, align 8, !tbaa !14
   %75 = sext i32 %3 to i64
   %76 = getelementptr inbounds ptr, ptr %0, i64 %75
   %77 = load ptr, ptr %76, align 8, !tbaa !3
@@ -884,37 +884,37 @@ declare i32 @N_VDotProdMultiAllReduce(i32 noundef, ptr noundef, ptr noundef) loc
 
 ; Function Attrs: nounwind uwtable
 define noundef i32 @SUNQRAdd_CGS2(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef readonly captures(none) %5) local_unnamed_addr #0 {
-  %7 = load ptr, ptr %5, align 8, !tbaa !25
+  %7 = load ptr, ptr %5, align 8, !tbaa !14
   tail call void @N_VScale(double noundef 1.000000e+00, ptr noundef %2, ptr noundef %7) #7
   %8 = icmp sgt i32 %3, 0
   br i1 %8, label %9, label %.loopexit
 
 9:                                                ; preds = %6
-  %10 = load ptr, ptr %5, align 8, !tbaa !25
+  %10 = load ptr, ptr %5, align 8, !tbaa !14
   %11 = mul nsw i32 %4, %3
   %12 = sext i32 %11 to i64
   %13 = getelementptr double, ptr %1, i64 %12
   %14 = tail call i32 @N_VDotProdMulti(i32 noundef %3, ptr noundef %10, ptr noundef %0, ptr noundef %13) #7
   %15 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %16 = load ptr, ptr %15, align 8, !tbaa !31
+  %16 = load ptr, ptr %15, align 8, !tbaa !17
   %17 = tail call i32 @N_VLinearCombination(i32 noundef %3, ptr noundef %13, ptr noundef %0, ptr noundef %16) #7
-  %18 = load ptr, ptr %5, align 8, !tbaa !25
-  %19 = load ptr, ptr %15, align 8, !tbaa !31
+  %18 = load ptr, ptr %5, align 8, !tbaa !14
+  %19 = load ptr, ptr %15, align 8, !tbaa !17
   tail call void @N_VLinearSum(double noundef 1.000000e+00, ptr noundef %18, double noundef -1.000000e+00, ptr noundef %19, ptr noundef %19) #7
-  %20 = load ptr, ptr %15, align 8, !tbaa !31
+  %20 = load ptr, ptr %15, align 8, !tbaa !17
   %21 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %22 = load ptr, ptr %21, align 8, !tbaa !28
+  %22 = load ptr, ptr %21, align 8, !tbaa !16
   %23 = tail call i32 @N_VDotProdMulti(i32 noundef %3, ptr noundef %20, ptr noundef %0, ptr noundef %22) #7
-  %24 = load ptr, ptr %21, align 8, !tbaa !28
+  %24 = load ptr, ptr %21, align 8, !tbaa !16
   %25 = zext nneg i32 %3 to i64
   %26 = getelementptr inbounds nuw ptr, ptr %0, i64 %25
   %27 = load ptr, ptr %26, align 8, !tbaa !3
   %28 = tail call i32 @N_VLinearCombination(i32 noundef %3, ptr noundef %24, ptr noundef %0, ptr noundef %27) #7
-  %29 = load ptr, ptr %15, align 8, !tbaa !31
+  %29 = load ptr, ptr %15, align 8, !tbaa !17
   %30 = load ptr, ptr %26, align 8, !tbaa !3
-  %31 = load ptr, ptr %5, align 8, !tbaa !25
+  %31 = load ptr, ptr %5, align 8, !tbaa !14
   tail call void @N_VLinearSum(double noundef 1.000000e+00, ptr noundef %29, double noundef -1.000000e+00, ptr noundef %30, ptr noundef %31) #7
-  %32 = load ptr, ptr %21, align 8, !tbaa !28
+  %32 = load ptr, ptr %21, align 8, !tbaa !16
   br label %33
 
 33:                                               ; preds = %9, %33
@@ -927,10 +927,10 @@ define noundef i32 @SUNQRAdd_CGS2(ptr noundef %0, ptr noundef %1, ptr noundef %2
   store double %37, ptr %gep, align 8, !tbaa !12
   %38 = add nuw nsw i64 %.072, 1
   %exitcond.not = icmp eq i64 %38, %25
-  br i1 %exitcond.not, label %.loopexit, label %33, !llvm.loop !35
+  br i1 %exitcond.not, label %.loopexit, label %33
 
 .loopexit:                                        ; preds = %33, %6
-  %39 = load ptr, ptr %5, align 8, !tbaa !25
+  %39 = load ptr, ptr %5, align 8, !tbaa !14
   %40 = tail call double @N_VDotProd(ptr noundef %39, ptr noundef %39) #7
   %41 = fcmp ugt double %40, 0.000000e+00
   br i1 %41, label %42, label %44
@@ -947,7 +947,7 @@ define noundef i32 @SUNQRAdd_CGS2(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %49 = getelementptr inbounds double, ptr %1, i64 %48
   store double %45, ptr %49, align 8, !tbaa !12
   %50 = fdiv double 1.000000e+00, %45
-  %51 = load ptr, ptr %5, align 8, !tbaa !25
+  %51 = load ptr, ptr %5, align 8, !tbaa !14
   %52 = sext i32 %3 to i64
   %53 = getelementptr inbounds ptr, ptr %0, i64 %52
   %54 = load ptr, ptr %53, align 8, !tbaa !3
@@ -957,13 +957,13 @@ define noundef i32 @SUNQRAdd_CGS2(ptr noundef %0, ptr noundef %1, ptr noundef %2
 
 ; Function Attrs: nounwind uwtable
 define noundef i32 @SUNQRAdd_DCGS2(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef readonly captures(none) %5) local_unnamed_addr #0 {
-  %7 = load ptr, ptr %5, align 8, !tbaa !25
+  %7 = load ptr, ptr %5, align 8, !tbaa !14
   tail call void @N_VScale(double noundef 1.000000e+00, ptr noundef %2, ptr noundef %7) #7
   %8 = icmp sgt i32 %3, 0
   br i1 %8, label %9, label %42
 
 9:                                                ; preds = %6
-  %10 = load ptr, ptr %5, align 8, !tbaa !25
+  %10 = load ptr, ptr %5, align 8, !tbaa !14
   %11 = mul nsw i32 %4, %3
   %12 = sext i32 %11 to i64
   %13 = getelementptr inbounds double, ptr %1, i64 %12
@@ -977,19 +977,19 @@ define noundef i32 @SUNQRAdd_DCGS2(ptr noundef %0, ptr noundef %1, ptr noundef %
   %17 = getelementptr inbounds nuw ptr, ptr %0, i64 %16
   %18 = load ptr, ptr %17, align 8, !tbaa !3
   %19 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %20 = load ptr, ptr %19, align 8, !tbaa !28
+  %20 = load ptr, ptr %19, align 8, !tbaa !16
   %21 = tail call i32 @N_VDotProdMulti(i32 noundef %15, ptr noundef %18, ptr noundef %0, ptr noundef %20) #7
-  %22 = load ptr, ptr %19, align 8, !tbaa !28
+  %22 = load ptr, ptr %19, align 8, !tbaa !16
   %23 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %24 = load ptr, ptr %23, align 8, !tbaa !31
+  %24 = load ptr, ptr %23, align 8, !tbaa !17
   %25 = tail call i32 @N_VLinearCombination(i32 noundef %15, ptr noundef %22, ptr noundef %0, ptr noundef %24) #7
   %26 = load ptr, ptr %17, align 8, !tbaa !3
-  %27 = load ptr, ptr %23, align 8, !tbaa !31
+  %27 = load ptr, ptr %23, align 8, !tbaa !17
   tail call void @N_VLinearSum(double noundef 1.000000e+00, ptr noundef %26, double noundef -1.000000e+00, ptr noundef %27, ptr noundef %26) #7
   %28 = mul nsw i32 %15, %4
   %29 = sext i32 %28 to i64
   %invariant.gep = getelementptr double, ptr %1, i64 %29
-  %30 = load ptr, ptr %19, align 8, !tbaa !28
+  %30 = load ptr, ptr %19, align 8, !tbaa !16
   br label %31
 
 31:                                               ; preds = %.lr.ph, %31
@@ -1002,19 +1002,19 @@ define noundef i32 @SUNQRAdd_DCGS2(ptr noundef %0, ptr noundef %1, ptr noundef %
   store double %35, ptr %gep, align 8, !tbaa !12
   %36 = add nuw nsw i64 %.074, 1
   %exitcond.not = icmp eq i64 %36, %16
-  br i1 %exitcond.not, label %.loopexit, label %31, !llvm.loop !36
+  br i1 %exitcond.not, label %.loopexit, label %31
 
 .loopexit:                                        ; preds = %31, %9
   %37 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %38 = load ptr, ptr %37, align 8, !tbaa !31
+  %38 = load ptr, ptr %37, align 8, !tbaa !17
   %39 = tail call i32 @N_VLinearCombination(i32 noundef %3, ptr noundef %13, ptr noundef %0, ptr noundef %38) #7
-  %40 = load ptr, ptr %5, align 8, !tbaa !25
-  %41 = load ptr, ptr %37, align 8, !tbaa !31
+  %40 = load ptr, ptr %5, align 8, !tbaa !14
+  %41 = load ptr, ptr %37, align 8, !tbaa !17
   tail call void @N_VLinearSum(double noundef 1.000000e+00, ptr noundef %40, double noundef -1.000000e+00, ptr noundef %41, ptr noundef %40) #7
   br label %42
 
 42:                                               ; preds = %.loopexit, %6
-  %43 = load ptr, ptr %5, align 8, !tbaa !25
+  %43 = load ptr, ptr %5, align 8, !tbaa !14
   %44 = tail call double @N_VDotProd(ptr noundef %43, ptr noundef %43) #7
   %45 = fcmp ugt double %44, 0.000000e+00
   br i1 %45, label %46, label %48
@@ -1031,7 +1031,7 @@ define noundef i32 @SUNQRAdd_DCGS2(ptr noundef %0, ptr noundef %1, ptr noundef %
   %53 = getelementptr inbounds double, ptr %1, i64 %52
   store double %49, ptr %53, align 8, !tbaa !12
   %54 = fdiv double 1.000000e+00, %49
-  %55 = load ptr, ptr %5, align 8, !tbaa !25
+  %55 = load ptr, ptr %5, align 8, !tbaa !14
   %56 = sext i32 %3 to i64
   %57 = getelementptr inbounds ptr, ptr %0, i64 %56
   %58 = load ptr, ptr %57, align 8, !tbaa !3
@@ -1041,14 +1041,14 @@ define noundef i32 @SUNQRAdd_DCGS2(ptr noundef %0, ptr noundef %1, ptr noundef %
 
 ; Function Attrs: nounwind uwtable
 define noundef i32 @SUNQRAdd_DCGS2_SB(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef readonly captures(none) %5) local_unnamed_addr #0 {
-  %7 = load ptr, ptr %5, align 8, !tbaa !25
+  %7 = load ptr, ptr %5, align 8, !tbaa !14
   tail call void @N_VScale(double noundef 1.000000e+00, ptr noundef %2, ptr noundef %7) #7
   %8 = icmp sgt i32 %3, 0
   br i1 %8, label %9, label %60
 
 9:                                                ; preds = %6
   %10 = icmp eq i32 %3, 1
-  %11 = load ptr, ptr %5, align 8, !tbaa !25
+  %11 = load ptr, ptr %5, align 8, !tbaa !14
   br i1 %10, label %12, label %16
 
 12:                                               ; preds = %9
@@ -1061,22 +1061,22 @@ define noundef i32 @SUNQRAdd_DCGS2_SB(ptr noundef %0, ptr noundef %1, ptr nounde
 
 16:                                               ; preds = %9
   %17 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %18 = load ptr, ptr %17, align 8, !tbaa !28
+  %18 = load ptr, ptr %17, align 8, !tbaa !16
   %19 = tail call i32 @N_VDotProdMultiLocal(i32 noundef %3, ptr noundef %11, ptr noundef %0, ptr noundef %18) #7
   %20 = add nsw i32 %3, -1
   %21 = zext nneg i32 %20 to i64
   %22 = getelementptr inbounds nuw ptr, ptr %0, i64 %21
   %23 = load ptr, ptr %22, align 8, !tbaa !3
-  %24 = load ptr, ptr %17, align 8, !tbaa !28
+  %24 = load ptr, ptr %17, align 8, !tbaa !16
   %25 = zext nneg i32 %3 to i64
   %26 = getelementptr inbounds nuw double, ptr %24, i64 %25
   %27 = tail call i32 @N_VDotProdMultiLocal(i32 noundef %20, ptr noundef %23, ptr noundef %0, ptr noundef nonnull %26) #7
   %28 = shl nuw nsw i32 %3, 1
   %29 = add nsw i32 %28, -1
-  %30 = load ptr, ptr %5, align 8, !tbaa !25
-  %31 = load ptr, ptr %17, align 8, !tbaa !28
+  %30 = load ptr, ptr %5, align 8, !tbaa !14
+  %31 = load ptr, ptr %17, align 8, !tbaa !16
   %32 = tail call i32 @N_VDotProdMultiAllReduce(i32 noundef %29, ptr noundef %30, ptr noundef %31) #7
-  %33 = load ptr, ptr %17, align 8, !tbaa !28
+  %33 = load ptr, ptr %17, align 8, !tbaa !16
   %34 = mul nsw i32 %4, %3
   %35 = sext i32 %34 to i64
   %invariant.gep = getelementptr double, ptr %1, i64 %35
@@ -1090,20 +1090,20 @@ define noundef i32 @SUNQRAdd_DCGS2_SB(ptr noundef %0, ptr noundef %1, ptr nounde
   store double %38, ptr %gep, align 8, !tbaa !12
   %39 = add nuw nsw i64 %.096, 1
   %exitcond.not = icmp eq i64 %39, %25
-  br i1 %exitcond.not, label %.lr.ph, label %36, !llvm.loop !37
+  br i1 %exitcond.not, label %.lr.ph, label %36
 
 .lr.ph:                                           ; preds = %36
   %40 = getelementptr inbounds nuw double, ptr %33, i64 %25
   %41 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %42 = load ptr, ptr %41, align 8, !tbaa !31
+  %42 = load ptr, ptr %41, align 8, !tbaa !17
   %43 = tail call i32 @N_VLinearCombination(i32 noundef %20, ptr noundef nonnull %40, ptr noundef nonnull %0, ptr noundef %42) #7
   %44 = load ptr, ptr %22, align 8, !tbaa !3
-  %45 = load ptr, ptr %41, align 8, !tbaa !31
+  %45 = load ptr, ptr %41, align 8, !tbaa !17
   tail call void @N_VLinearSum(double noundef 1.000000e+00, ptr noundef %44, double noundef -1.000000e+00, ptr noundef %45, ptr noundef %44) #7
   %46 = mul nsw i32 %20, %4
   %47 = sext i32 %46 to i64
   %invariant.gep98 = getelementptr double, ptr %1, i64 %47
-  %48 = load ptr, ptr %17, align 8, !tbaa !28
+  %48 = load ptr, ptr %17, align 8, !tbaa !16
   %invariant.gep100 = getelementptr inbounds nuw double, ptr %48, i64 %25
   br label %49
 
@@ -1117,21 +1117,21 @@ define noundef i32 @SUNQRAdd_DCGS2_SB(ptr noundef %0, ptr noundef %1, ptr nounde
   store double %52, ptr %gep99, align 8, !tbaa !12
   %53 = add nuw nsw i64 %.197, 1
   %exitcond102.not = icmp eq i64 %53, %21
-  br i1 %exitcond102.not, label %.loopexit, label %49, !llvm.loop !38
+  br i1 %exitcond102.not, label %.loopexit, label %49
 
 .loopexit:                                        ; preds = %49, %12
   %.pre-phi104 = phi i64 [ %.pre103, %12 ], [ %35, %49 ]
   %54 = getelementptr inbounds double, ptr %1, i64 %.pre-phi104
   %55 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %56 = load ptr, ptr %55, align 8, !tbaa !31
+  %56 = load ptr, ptr %55, align 8, !tbaa !17
   %57 = tail call i32 @N_VLinearCombination(i32 noundef %3, ptr noundef %54, ptr noundef %0, ptr noundef %56) #7
-  %58 = load ptr, ptr %5, align 8, !tbaa !25
-  %59 = load ptr, ptr %55, align 8, !tbaa !31
+  %58 = load ptr, ptr %5, align 8, !tbaa !14
+  %59 = load ptr, ptr %55, align 8, !tbaa !17
   tail call void @N_VLinearSum(double noundef 1.000000e+00, ptr noundef %58, double noundef -1.000000e+00, ptr noundef %59, ptr noundef %58) #7
   br label %60
 
 60:                                               ; preds = %.loopexit, %6
-  %61 = load ptr, ptr %5, align 8, !tbaa !25
+  %61 = load ptr, ptr %5, align 8, !tbaa !14
   %62 = tail call double @N_VDotProd(ptr noundef %61, ptr noundef %61) #7
   %63 = fcmp ugt double %62, 0.000000e+00
   br i1 %63, label %64, label %66
@@ -1148,7 +1148,7 @@ define noundef i32 @SUNQRAdd_DCGS2_SB(ptr noundef %0, ptr noundef %1, ptr nounde
   %71 = getelementptr inbounds double, ptr %1, i64 %70
   store double %67, ptr %71, align 8, !tbaa !12
   %72 = fdiv double 1.000000e+00, %67
-  %73 = load ptr, ptr %5, align 8, !tbaa !25
+  %73 = load ptr, ptr %5, align 8, !tbaa !14
   %74 = sext i32 %3 to i64
   %75 = getelementptr inbounds ptr, ptr %0, i64 %74
   %76 = load ptr, ptr %75, align 8, !tbaa !3
@@ -1190,28 +1190,7 @@ attributes #7 = { nounwind }
 !11 = !{!"p1 double", !5, i64 0}
 !12 = !{!13, !13, i64 0}
 !13 = !{!"double", !6, i64 0}
-!14 = distinct !{!14, !15}
-!15 = !{!"llvm.loop.estimated_trip_count"}
-!16 = distinct !{!16, !15}
-!17 = distinct !{!17, !15}
-!18 = distinct !{!18, !15}
-!19 = distinct !{!19, !15}
-!20 = distinct !{!20, !15}
-!21 = distinct !{!21, !15}
-!22 = distinct !{!22, !15}
-!23 = distinct !{!23, !15}
-!24 = distinct !{!24, !15}
-!25 = !{!26, !4, i64 0}
-!26 = !{!"_SUNQRData", !4, i64 0, !4, i64 8, !11, i64 16}
-!27 = distinct !{!27, !15}
-!28 = !{!26, !11, i64 16}
-!29 = distinct !{!29, !15}
-!30 = distinct !{!30, !15}
-!31 = !{!26, !4, i64 8}
-!32 = distinct !{!32, !15}
-!33 = distinct !{!33, !15}
-!34 = distinct !{!34, !15}
-!35 = distinct !{!35, !15}
-!36 = distinct !{!36, !15}
-!37 = distinct !{!37, !15}
-!38 = distinct !{!38, !15}
+!14 = !{!15, !4, i64 0}
+!15 = !{!"_SUNQRData", !4, i64 0, !4, i64 8, !11, i64 16}
+!16 = !{!15, !11, i64 16}
+!17 = !{!15, !4, i64 8}

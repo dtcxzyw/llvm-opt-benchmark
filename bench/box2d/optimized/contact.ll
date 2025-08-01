@@ -1281,20 +1281,20 @@ b2GetShapeRadius.exit123:                         ; preds = %b2GetShapeRadius.ex
 
 161:                                              ; preds = %.critedge.us
   %162 = getelementptr inbounds nuw i8, ptr %158, i64 28
-  %163 = load float, ptr %162, align 4, !tbaa !168
-  store float %163, ptr %152, align 4, !tbaa !168
+  %163 = load float, ptr %162, align 4, !tbaa !167
+  store float %163, ptr %152, align 4, !tbaa !167
   %164 = getelementptr inbounds nuw i8, ptr %158, i64 32
-  %165 = load float, ptr %164, align 4, !tbaa !169
-  store float %165, ptr %153, align 4, !tbaa !169
+  %165 = load float, ptr %164, align 4, !tbaa !168
+  store float %165, ptr %153, align 4, !tbaa !168
   store i8 1, ptr %154, align 2, !tbaa !163
-  store float 0.000000e+00, ptr %162, align 4, !tbaa !168
-  store float 0.000000e+00, ptr %164, align 4, !tbaa !169
+  store float 0.000000e+00, ptr %162, align 4, !tbaa !167
+  store float 0.000000e+00, ptr %164, align 4, !tbaa !168
   br label %..loopexit_crit_edge.us
 
 ..loopexit_crit_edge.us:                          ; preds = %157, %161
   %indvars.iv.next155 = add nuw nsw i64 %indvars.iv154, 1
   %exitcond158.not = icmp eq i64 %indvars.iv.next155, %wide.trip.count157
-  br i1 %exitcond158.not, label %._crit_edge, label %.critedge.lr.ph.us, !llvm.loop !170
+  br i1 %exitcond158.not, label %._crit_edge, label %.critedge.lr.ph.us, !llvm.loop !169
 
 ._crit_edge:                                      ; preds = %.loopexit, %..loopexit_crit_edge.us, %137
   %166 = getelementptr inbounds nuw i8, ptr %1, i64 164
@@ -1323,7 +1323,7 @@ b2GetShapeRadius.exit123:                         ; preds = %b2GetShapeRadius.ex
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count157
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %174, i8 0, i64 16, i1 false)
-  br i1 %exitcond.not, label %._crit_edge, label %.loopexit, !llvm.loop !172
+  br i1 %exitcond.not, label %._crit_edge, label %.loopexit, !llvm.loop !171
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1549,11 +1549,10 @@ attributes #9 = { nounwind }
 !162 = !{!113, !9, i64 108}
 !163 = !{!156, !17, i64 46}
 !164 = !{!156, !26, i64 44}
-!165 = distinct !{!165, !166, !167}
+!165 = distinct !{!165, !166}
 !166 = !{!"llvm.loop.mustprogress"}
-!167 = !{!"llvm.loop.estimated_trip_count"}
-!168 = !{!156, !21, i64 28}
-!169 = !{!156, !21, i64 32}
-!170 = distinct !{!170, !166, !167, !171}
-!171 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!172 = distinct !{!172, !166, !167}
+!167 = !{!156, !21, i64 28}
+!168 = !{!156, !21, i64 32}
+!169 = distinct !{!169, !166, !170}
+!170 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!171 = distinct !{!171, !166}

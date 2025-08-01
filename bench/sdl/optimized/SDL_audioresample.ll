@@ -46,7 +46,7 @@ BesselI0.exit.i.i:                                ; preds = %.preheader
   store float %16, ptr %17, align 4
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, 24
-  br i1 %exitcond.not.i.i.i, label %SincTable.exit.i.i, label %11, !llvm.loop !6
+  br i1 %exitcond.not.i.i.i, label %SincTable.exit.i.i, label %11, !llvm.loop !5
 
 SincTable.exit.i.i:                               ; preds = %11
   call void @llvm.lifetime.start.p0(i64 484, ptr nonnull %2) #8
@@ -100,7 +100,7 @@ BesselI0.exit32.i.i:                              ; preds = %28
   store float %49, ptr %50, align 4
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 121
-  br i1 %exitcond.not.i.i, label %.preheader.i.i, label %18, !llvm.loop !7
+  br i1 %exitcond.not.i.i, label %.preheader.i.i, label %18, !llvm.loop !6
 
 .preheader.i.i:                                   ; preds = %BesselI0.exit32.i.i, %100
   %indvars.iv46.i.i = phi i64 [ %indvars.iv.next47.i.i, %100 ], [ 0, %BesselI0.exit32.i.i ]
@@ -166,12 +166,12 @@ BesselI0.exit32.i.i:                              ; preds = %28
   store float %98, ptr %99, align 4
   %indvars.iv.next43.i.i = add nuw nsw i64 %indvars.iv42.i.i, 1
   %exitcond45.not.i.i = icmp eq i64 %indvars.iv.next43.i.i, 5
-  br i1 %exitcond45.not.i.i, label %100, label %54, !llvm.loop !8
+  br i1 %exitcond45.not.i.i, label %100, label %54, !llvm.loop !7
 
 100:                                              ; preds = %54
   %indvars.iv.next47.i.i = add nuw nsw i64 %indvars.iv46.i.i, 1
   %exitcond49.not.i.i = icmp eq i64 %indvars.iv.next47.i.i, 8
-  br i1 %exitcond49.not.i.i, label %GenerateResamplerFilter.exit.i, label %.preheader.i.i, !llvm.loop !9
+  br i1 %exitcond49.not.i.i, label %GenerateResamplerFilter.exit.i, label %.preheader.i.i, !llvm.loop !8
 
 GenerateResamplerFilter.exit.i:                   ; preds = %100
   call void @llvm.lifetime.end.p0(i64 484, ptr nonnull %2) #8
@@ -184,7 +184,7 @@ GenerateResamplerFilter.exit.i:                   ; preds = %100
   store ptr @ResampleFrame_Generic, ptr %102, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %SetupAudioResampler.exit, label %101, !llvm.loop !10
+  br i1 %exitcond.not.i, label %SetupAudioResampler.exit, label %101, !llvm.loop !9
 
 SetupAudioResampler.exit:                         ; preds = %101
   store ptr @ResampleFrame_Mono, ptr @ResampleFrame, align 16
@@ -332,7 +332,7 @@ define hidden void @SDL_ResampleAudio(i32 noundef %0, ptr noundef %1, i32 nounde
   %33 = getelementptr inbounds float, ptr %.030, i64 %18
   %34 = add nuw nsw i32 %.02629, 1
   %exitcond.not = icmp eq i32 %34, %4
-  br i1 %exitcond.not, label %._crit_edge, label %19, !llvm.loop !11
+  br i1 %exitcond.not, label %._crit_edge, label %19, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %19, %7
   %.027.lcssa = phi i64 [ %8, %7 ], [ %23, %19 ]
@@ -377,7 +377,7 @@ define internal void @ResampleFrame_Generic(ptr noundef readonly captures(none) 
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %23 = getelementptr inbounds nuw i8, ptr %.03033, i64 16
   %exitcond.not = icmp eq i64 %indvars.iv.next, 10
-  br i1 %exitcond.not, label %.preheader32, label %11, !llvm.loop !12
+  br i1 %exitcond.not, label %.preheader32, label %11, !llvm.loop !11
 
 .preheader:                                       ; preds = %.preheader.preheader, %30
   %indvars.iv43 = phi i64 [ 0, %.preheader.preheader ], [ %indvars.iv.next44, %30 ]
@@ -395,14 +395,14 @@ define internal void @ResampleFrame_Generic(ptr noundef readonly captures(none) 
   %29 = tail call float @llvm.fmuladd.f32(float %26, float %28, float %.036)
   %indvars.iv.next40 = add nuw nsw i64 %indvars.iv39, 1
   %exitcond42.not = icmp eq i64 %indvars.iv.next40, 10
-  br i1 %exitcond42.not, label %30, label %24, !llvm.loop !13
+  br i1 %exitcond42.not, label %30, label %24, !llvm.loop !12
 
 30:                                               ; preds = %24
   %31 = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv43
   store float %29, ptr %31, align 4
   %indvars.iv.next44 = add nuw nsw i64 %indvars.iv43, 1
   %exitcond46.not = icmp eq i64 %indvars.iv.next44, %10
-  br i1 %exitcond46.not, label %._crit_edge, label %.preheader, !llvm.loop !14
+  br i1 %exitcond46.not, label %._crit_edge, label %.preheader, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %30, %.preheader32
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6) #8
@@ -435,7 +435,7 @@ define internal void @ResampleFrame_Mono(ptr noundef readonly captures(none) %0,
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %22 = getelementptr inbounds nuw i8, ptr %.023, i64 16
   %exitcond.not = icmp eq i64 %indvars.iv.next, 10
-  br i1 %exitcond.not, label %23, label %8, !llvm.loop !15
+  br i1 %exitcond.not, label %23, label %8, !llvm.loop !14
 
 23:                                               ; preds = %8
   store float %21, ptr %1, align 4
@@ -473,7 +473,7 @@ define internal void @ResampleFrame_Stereo(ptr noundef readonly captures(none) %
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %25 = getelementptr inbounds nuw i8, ptr %.031, i64 16
   %exitcond.not = icmp eq i64 %indvars.iv.next, 10
-  br i1 %exitcond.not, label %26, label %8, !llvm.loop !16
+  br i1 %exitcond.not, label %26, label %8, !llvm.loop !15
 
 26:                                               ; preds = %8
   store float %21, ptr %1, align 4
@@ -507,17 +507,16 @@ attributes #8 = { nounwind }
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = distinct !{!3, !4, !5}
+!3 = distinct !{!3, !4}
 !4 = !{!"llvm.loop.mustprogress"}
-!5 = !{!"llvm.loop.estimated_trip_count"}
-!6 = distinct !{!6, !4, !5}
-!7 = distinct !{!7, !4, !5}
-!8 = distinct !{!8, !4, !5}
-!9 = distinct !{!9, !4, !5}
-!10 = distinct !{!10, !4, !5}
-!11 = distinct !{!11, !4, !5}
-!12 = distinct !{!12, !4, !5}
-!13 = distinct !{!13, !4, !5}
-!14 = distinct !{!14, !4, !5}
-!15 = distinct !{!15, !4, !5}
-!16 = distinct !{!16, !4, !5}
+!5 = distinct !{!5, !4}
+!6 = distinct !{!6, !4}
+!7 = distinct !{!7, !4}
+!8 = distinct !{!8, !4}
+!9 = distinct !{!9, !4}
+!10 = distinct !{!10, !4}
+!11 = distinct !{!11, !4}
+!12 = distinct !{!12, !4}
+!13 = distinct !{!13, !4}
+!14 = distinct !{!14, !4}
+!15 = distinct !{!15, !4}

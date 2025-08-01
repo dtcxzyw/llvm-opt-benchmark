@@ -306,7 +306,7 @@ define hidden range(i32 0, 2) i32 @ssl_write_buffer_is_pending(ptr noundef reado
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %3 = load ptr, ptr %2, align 8, !tbaa !6
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 114
-  %5 = load i16, ptr %4, align 2, !tbaa !63
+  %5 = load i16, ptr %4, align 2, !tbaa !62
   %6 = icmp ne i16 %5, 0
   %7 = zext i1 %6 to i32
   ret i32 %7
@@ -335,7 +335,7 @@ define hidden range(i32 0, 2) i32 @ssl_write_buffer_init(ptr noundef %0, ptr nou
 
 14:                                               ; preds = %9
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 268
-  %16 = load i32, ptr %15, align 4, !tbaa !64
+  %16 = load i32, ptr %15, align 4, !tbaa !63
   %17 = and i32 %16, 256
   %.not18 = icmp eq i32 %17, 0
   %spec.select = select i1 %.not18, i64 16469, i64 16554
@@ -385,7 +385,7 @@ define hidden range(i32 0, 2) i32 @ssl_write_buffer_init(ptr noundef %0, ptr nou
   store i16 %37, ptr %38, align 4, !tbaa !57
   %39 = zext nneg i16 %34 to i64
   %40 = getelementptr inbounds nuw i8, ptr %26, i64 %39
-  store ptr %40, ptr %1, align 8, !tbaa !65
+  store ptr %40, ptr %1, align 8, !tbaa !64
   br label %setup_buffer.exit.thread
 
 setup_buffer.exit.thread:                         ; preds = %28, %23, %20, %29, %8
@@ -422,7 +422,7 @@ declare void @abort() local_unnamed_addr #5
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 -2147483648, 2) i32 @ssl_write_buffer_flush(ptr noundef captures(none) %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %3 = load ptr, ptr %2, align 8, !tbaa !66
+  %3 = load ptr, ptr %2, align 8, !tbaa !65
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %6
 
@@ -449,7 +449,7 @@ define hidden range(i32 -2147483648, 2) i32 @ssl_write_buffer_flush(ptr noundef 
 16:                                               ; preds = %12
   %17 = zext i16 %14 to i32
   %18 = getelementptr inbounds nuw i8, ptr %11, i64 104
-  %19 = load ptr, ptr %2, align 8, !tbaa !66
+  %19 = load ptr, ptr %2, align 8, !tbaa !65
   %20 = load ptr, ptr %18, align 8, !tbaa !51
   %21 = getelementptr inbounds nuw i8, ptr %11, i64 112
   %22 = load i16, ptr %21, align 8, !tbaa !55
@@ -490,7 +490,7 @@ define hidden range(i32 -2147483648, 2) i32 @ssl_write_buffer_flush(ptr noundef 
   %39 = phi i16 [ %.pre.i, %.lr.ph.i ], [ %57, %54 ]
   %40 = phi i16 [ %35, %.lr.ph.i ], [ %58, %54 ]
   %41 = zext i16 %40 to i32
-  %42 = load ptr, ptr %2, align 8, !tbaa !66
+  %42 = load ptr, ptr %2, align 8, !tbaa !65
   %43 = load ptr, ptr %33, align 8, !tbaa !51
   %44 = zext i16 %39 to i64
   %45 = getelementptr inbounds nuw i8, ptr %43, i64 %44
@@ -524,7 +524,7 @@ define hidden range(i32 -2147483648, 2) i32 @ssl_write_buffer_flush(ptr noundef 
   %60 = sub i16 %59, %55
   store i16 %60, ptr %37, align 4, !tbaa !57
   %.not.i = icmp eq i16 %58, 0
-  br i1 %.not.i, label %._crit_edge.loopexit.i, label %38, !llvm.loop !67
+  br i1 %.not.i, label %._crit_edge.loopexit.i, label %38, !llvm.loop !66
 
 ._crit_edge.loopexit.i:                           ; preds = %54
   %.pre22.i = load ptr, ptr %10, align 8, !tbaa !6
@@ -644,11 +644,10 @@ attributes #11 = { noreturn nounwind }
 !57 = !{!37, !11, i64 12}
 !58 = !{!7, !14, i64 16}
 !59 = !{!7, !8, i64 144}
-!60 = distinct !{!60, !61, !62}
+!60 = distinct !{!60, !61}
 !61 = !{!"llvm.loop.mustprogress"}
-!62 = !{!"llvm.loop.estimated_trip_count"}
-!63 = !{!36, !11, i64 114}
-!64 = !{!7, !8, i64 268}
-!65 = !{!16, !16, i64 0}
-!66 = !{!7, !14, i64 24}
-!67 = distinct !{!67, !61, !62}
+!62 = !{!36, !11, i64 114}
+!63 = !{!7, !8, i64 268}
+!64 = !{!16, !16, i64 0}
+!65 = !{!7, !14, i64 24}
+!66 = distinct !{!66, !61}

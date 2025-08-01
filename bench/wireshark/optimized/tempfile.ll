@@ -90,7 +90,7 @@ sanitize_prefix.exit:                             ; preds = %5, %6
   %55 = tail call ptr @__errno_location() #4
   %56 = load i32, ptr %55, align 4
   %.not31 = icmp eq i32 %56, 17
-  br i1 %.not31, label %20, label %57, !llvm.loop !6
+  br i1 %.not31, label %20, label %57
 
 57:                                               ; preds = %54
   %58 = tail call i32 @g_file_error_quark()
@@ -234,5 +234,3 @@ attributes #4 = { nounwind willreturn memory(none) }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7}
-!7 = !{!"llvm.loop.estimated_trip_count"}

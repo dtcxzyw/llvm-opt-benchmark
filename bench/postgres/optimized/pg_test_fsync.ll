@@ -251,7 +251,7 @@ handle_args.exit:                                 ; preds = %57
   store i8 %73, ptr %74, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 16777216
-  br i1 %exitcond.not.i, label %prepare_buf.exit, label %71, !llvm.loop !7
+  br i1 %exitcond.not.i, label %prepare_buf.exit, label %71, !llvm.loop !6
 
 prepare_buf.exit:                                 ; preds = %71
   %75 = and i64 add (i64 ptrtoint (ptr @full_buf to i64), i64 8191), -8192
@@ -360,7 +360,7 @@ test_open.exit:                                   ; preds = %84
   %116 = call i32 @close(i32 noundef %112) #14
   %117 = add i32 %.029.i, 1
   %.b16.i = load i1, ptr @alarm_triggered, align 4
-  br i1 %.b16.i, label %._crit_edge.loopexit.i, label %.lr.ph.i, !llvm.loop !8
+  br i1 %.b16.i, label %._crit_edge.loopexit.i, label %.lr.ph.i, !llvm.loop !7
 
 ._crit_edge.loopexit.i:                           ; preds = %115
   %118 = sitofp i32 %117 to double
@@ -441,7 +441,7 @@ test_open.exit:                                   ; preds = %84
   %157 = call i32 @close(i32 noundef %150) #14
   %158 = add i32 %.131.i, 1
   %.b.i = load i1, ptr @alarm_triggered, align 4
-  br i1 %.b.i, label %._crit_edge34.loopexit.i, label %.lr.ph33.i, !llvm.loop !9
+  br i1 %.b.i, label %._crit_edge34.loopexit.i, label %.lr.ph33.i, !llvm.loop !8
 
 ._crit_edge34.loopexit.i:                         ; preds = %156
   %159 = sitofp i32 %158 to double
@@ -500,7 +500,7 @@ test_file_descriptor_sync.exit:                   ; preds = %._crit_edge.i, %._c
 189:                                              ; preds = %.lr.ph.i6
   %190 = add i32 %.07.i, 1
   %.b.i8 = load i1, ptr @alarm_triggered, align 4
-  br i1 %.b.i8, label %._crit_edge.loopexit.i9, label %.lr.ph.i6, !llvm.loop !10
+  br i1 %.b.i8, label %._crit_edge.loopexit.i9, label %.lr.ph.i6, !llvm.loop !9
 
 ._crit_edge.loopexit.i9:                          ; preds = %189
   %191 = sitofp i32 %190 to double
@@ -600,7 +600,7 @@ define internal fastcc void @test_sync(i32 noundef range(i32 1, 3) %0) unnamed_a
 17:                                               ; preds = %18
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %23, label %18, !llvm.loop !11
+  br i1 %exitcond.not, label %23, label %18, !llvm.loop !10
 
 18:                                               ; preds = %.preheader55, %17
   %indvars.iv = phi i64 [ 0, %.preheader55 ], [ %indvars.iv.next, %17 ]
@@ -618,7 +618,7 @@ define internal fastcc void @test_sync(i32 noundef range(i32 1, 3) %0) unnamed_a
 23:                                               ; preds = %17
   %24 = add i32 %.03863, 1
   %.b48 = load i1, ptr @alarm_triggered, align 4
-  br i1 %.b48, label %._crit_edge.loopexit, label %.preheader55, !llvm.loop !12
+  br i1 %.b48, label %._crit_edge.loopexit, label %.preheader55, !llvm.loop !11
 
 ._crit_edge.loopexit:                             ; preds = %23
   %25 = sitofp i32 %24 to double
@@ -676,7 +676,7 @@ define internal fastcc void @test_sync(i32 noundef range(i32 1, 3) %0) unnamed_a
 53:                                               ; preds = %54
   %indvars.iv.next84 = add nuw nsw i64 %indvars.iv83, 1
   %exitcond87.not = icmp eq i64 %indvars.iv.next84, %wide.trip.count86
-  br i1 %exitcond87.not, label %59, label %54, !llvm.loop !13
+  br i1 %exitcond87.not, label %59, label %54, !llvm.loop !12
 
 54:                                               ; preds = %.preheader54, %53
   %indvars.iv83 = phi i64 [ 0, %.preheader54 ], [ %indvars.iv.next84, %53 ]
@@ -695,7 +695,7 @@ define internal fastcc void @test_sync(i32 noundef range(i32 1, 3) %0) unnamed_a
   %60 = tail call i32 @fdatasync(i32 noundef %46) #14
   %61 = add i32 %.13966, 1
   %.b47 = load i1, ptr @alarm_triggered, align 4
-  br i1 %.b47, label %._crit_edge67.loopexit, label %.preheader54, !llvm.loop !14
+  br i1 %.b47, label %._crit_edge67.loopexit, label %.preheader54, !llvm.loop !13
 
 ._crit_edge67.loopexit:                           ; preds = %59
   %62 = sitofp i32 %61 to double
@@ -750,7 +750,7 @@ define internal fastcc void @test_sync(i32 noundef range(i32 1, 3) %0) unnamed_a
 89:                                               ; preds = %90
   %indvars.iv.next89 = add nuw nsw i64 %indvars.iv88, 1
   %exitcond92.not = icmp eq i64 %indvars.iv.next89, %wide.trip.count91
-  br i1 %exitcond92.not, label %95, label %90, !llvm.loop !15
+  br i1 %exitcond92.not, label %95, label %90, !llvm.loop !14
 
 90:                                               ; preds = %.preheader53, %89
   %indvars.iv88 = phi i64 [ 0, %.preheader53 ], [ %indvars.iv.next89, %89 ]
@@ -778,7 +778,7 @@ define internal fastcc void @test_sync(i32 noundef range(i32 1, 3) %0) unnamed_a
 98:                                               ; preds = %95
   %99 = add i32 %.24071, 1
   %.b46 = load i1, ptr @alarm_triggered, align 4
-  br i1 %.b46, label %._crit_edge72.loopexit, label %.preheader53, !llvm.loop !16
+  br i1 %.b46, label %._crit_edge72.loopexit, label %.preheader53, !llvm.loop !15
 
 ._crit_edge72.loopexit:                           ; preds = %98
   %100 = sitofp i32 %99 to double
@@ -836,7 +836,7 @@ define internal fastcc void @test_sync(i32 noundef range(i32 1, 3) %0) unnamed_a
 131:                                              ; preds = %132
   %indvars.iv.next94 = add nuw nsw i64 %indvars.iv93, 1
   %exitcond97.not = icmp eq i64 %indvars.iv.next94, %wide.trip.count96
-  br i1 %exitcond97.not, label %137, label %132, !llvm.loop !17
+  br i1 %exitcond97.not, label %137, label %132, !llvm.loop !16
 
 132:                                              ; preds = %.preheader, %131
   %indvars.iv93 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next94, %131 ]
@@ -854,7 +854,7 @@ define internal fastcc void @test_sync(i32 noundef range(i32 1, 3) %0) unnamed_a
 137:                                              ; preds = %131
   %138 = add i32 %.34176, 1
   %.b = load i1, ptr @alarm_triggered, align 4
-  br i1 %.b, label %._crit_edge77.loopexit, label %.preheader, !llvm.loop !18
+  br i1 %.b, label %._crit_edge77.loopexit, label %.preheader, !llvm.loop !17
 
 ._crit_edge77.loopexit:                           ; preds = %137
   %139 = sitofp i32 %138 to double
@@ -987,7 +987,7 @@ define internal fastcc void @test_open_sync(ptr noundef %0, i32 noundef range(i3
 19:                                               ; preds = %20
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us, label %20, !llvm.loop !19
+  br i1 %exitcond.not, label %._crit_edge.us, label %20, !llvm.loop !18
 
 20:                                               ; preds = %.preheader.us, %19
   %indvars.iv = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next, %19 ]
@@ -1000,7 +1000,7 @@ define internal fastcc void @test_open_sync(ptr noundef %0, i32 noundef range(i3
 ._crit_edge.us:                                   ; preds = %19
   %24 = add i32 %.01116.us, 1
   %.b.us = load i1, ptr @alarm_triggered, align 4
-  br i1 %.b.us, label %._crit_edge17.loopexit, label %.preheader.us, !llvm.loop !20
+  br i1 %.b.us, label %._crit_edge17.loopexit, label %.preheader.us, !llvm.loop !19
 
 .split.us:                                        ; preds = %20
   tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.21) #14
@@ -1063,21 +1063,20 @@ attributes #18 = { cold noreturn nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = distinct !{!4, !5, !6}
+!4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{!"llvm.loop.estimated_trip_count"}
-!7 = distinct !{!7, !5, !6}
-!8 = distinct !{!8, !5, !6}
-!9 = distinct !{!9, !5, !6}
-!10 = distinct !{!10, !5, !6}
-!11 = distinct !{!11, !5, !6}
-!12 = distinct !{!12, !5, !6}
-!13 = distinct !{!13, !5, !6}
-!14 = distinct !{!14, !5, !6}
-!15 = distinct !{!15, !5, !6}
-!16 = distinct !{!16, !5, !6}
-!17 = distinct !{!17, !5, !6}
-!18 = distinct !{!18, !5, !6}
-!19 = distinct !{!19, !5, !6}
-!20 = distinct !{!20, !5, !6, !21}
-!21 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!6 = distinct !{!6, !5}
+!7 = distinct !{!7, !5}
+!8 = distinct !{!8, !5}
+!9 = distinct !{!9, !5}
+!10 = distinct !{!10, !5}
+!11 = distinct !{!11, !5}
+!12 = distinct !{!12, !5}
+!13 = distinct !{!13, !5}
+!14 = distinct !{!14, !5}
+!15 = distinct !{!15, !5}
+!16 = distinct !{!16, !5}
+!17 = distinct !{!17, !5}
+!18 = distinct !{!18, !5}
+!19 = distinct !{!19, !5, !20}
+!20 = !{!"llvm.loop.unswitch.nontrivial.disable"}

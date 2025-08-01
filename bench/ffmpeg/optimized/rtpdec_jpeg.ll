@@ -278,9 +278,9 @@ create_default_qtables.exit:                      ; preds = %124, %88, %108, %91
   br i1 %136, label %.thread174, label %137
 
 137:                                              ; preds = %create_default_qtables.exit
-  %138 = load i32, ptr %4, align 4, !tbaa !10
+  %138 = load i32, ptr %4, align 4, !tbaa !9
   %139 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i32 %138, ptr %139, align 8, !tbaa !12
+  store i32 %138, ptr %139, align 8, !tbaa !11
   %140 = lshr i16 %.2129, 6
   %141 = getelementptr inbounds nuw i8, ptr %11, i64 1024
   store i8 -1, ptr %11, align 16, !tbaa !4
@@ -397,7 +397,7 @@ bytestream2_put_buffer.exit52.i:                  ; preds = %184, %180
   %.sroa.0.15.i = phi ptr [ %193, %184 ], [ %.sroa.0.1682.i, %180 ]
   %indvars.iv.next.i164 = add nuw nsw i64 %indvars.iv.i163, 1
   %exitcond.not.i165 = icmp eq i64 %indvars.iv.next.i164, %wide.trip.count.i
-  br i1 %exitcond.not.i165, label %._crit_edge.i, label %180, !llvm.loop !16
+  br i1 %exitcond.not.i165, label %._crit_edge.i, label %180, !llvm.loop !15
 
 ._crit_edge.i:                                    ; preds = %bytestream2_put_buffer.exit52.i, %bytestream2_put_be16.exit37.i
   %.sroa.263.1.lcssa.i = phi i32 [ %.sroa.263.8.i, %bytestream2_put_be16.exit37.i ], [ %.sroa.263.17.i, %bytestream2_put_buffer.exit52.i ]
@@ -478,7 +478,7 @@ bytestream2_put_byte.exit19.i.i:                  ; preds = %222, %214
   %.sroa.0.53.i = phi ptr [ %223, %222 ], [ %.sroa.0.52.i, %214 ]
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 17
-  br i1 %exitcond.not.i.i, label %.preheader.i.i, label %214, !llvm.loop !17
+  br i1 %exitcond.not.i.i, label %.preheader.i.i, label %214, !llvm.loop !16
 
 224:                                              ; preds = %bytestream2_put_byte.exit.i128.i, %.lr.ph.i.i
   %.sroa.263.50.i = phi i32 [ %.sroa.263.49.i, %.lr.ph.i.i ], [ %.sroa.263.51.i, %bytestream2_put_byte.exit.i128.i ]
@@ -503,7 +503,7 @@ bytestream2_put_byte.exit.i128.i:                 ; preds = %228, %224
   %.sroa.0.55.i = phi ptr [ %231, %228 ], [ %.sroa.0.54.i, %224 ]
   %indvars.iv.next27.i.i = add nuw nsw i64 %indvars.iv26.i.i, 1
   %exitcond29.not.i.i = icmp eq i64 %indvars.iv.next27.i.i, %wide.trip.count.i.i
-  br i1 %exitcond29.not.i.i, label %jpeg_create_huffman_table.exit.i, label %224, !llvm.loop !18
+  br i1 %exitcond29.not.i.i, label %jpeg_create_huffman_table.exit.i, label %224, !llvm.loop !17
 
 jpeg_create_huffman_table.exit.i:                 ; preds = %bytestream2_put_byte.exit.i128.i, %.preheader.i.i
   %.sroa.263.52.i = phi i32 [ %.sroa.263.49.i, %.preheader.i.i ], [ %.sroa.263.51.i, %bytestream2_put_byte.exit.i128.i ]
@@ -559,7 +559,7 @@ bytestream2_put_byte.exit19.i134.i:               ; preds = %244, %bytestream2_p
   %.sroa.0.59.i = phi ptr [ %245, %244 ], [ %.sroa.0.58.i, %bytestream2_put_byte.exit21.i130.i ]
   %indvars.iv.next.i135.i = add nuw nsw i64 %indvars.iv.i131.i, 1
   %exitcond.not.i136.i = icmp eq i64 %indvars.iv.next.i135.i, 17
-  br i1 %exitcond.not.i136.i, label %.preheader.i137.i, label %bytestream2_put_byte.exit21.i130.i, !llvm.loop !17
+  br i1 %exitcond.not.i136.i, label %.preheader.i137.i, label %bytestream2_put_byte.exit21.i130.i, !llvm.loop !16
 
 246:                                              ; preds = %bytestream2_put_byte.exit.i143.i, %.lr.ph.i139.i
   %.sroa.263.56.i = phi i32 [ %.sroa.263.55.i, %.lr.ph.i139.i ], [ %.sroa.263.57.i, %bytestream2_put_byte.exit.i143.i ]
@@ -584,7 +584,7 @@ bytestream2_put_byte.exit.i143.i:                 ; preds = %250, %246
   %.sroa.0.61.i = phi ptr [ %253, %250 ], [ %.sroa.0.60.i, %246 ]
   %indvars.iv.next27.i144.i = add nuw nsw i64 %indvars.iv26.i141.i, 1
   %exitcond29.not.i145.i = icmp eq i64 %indvars.iv.next27.i144.i, %wide.trip.count.i140.i
-  br i1 %exitcond29.not.i145.i, label %jpeg_create_huffman_table.exit146.i, label %246, !llvm.loop !18
+  br i1 %exitcond29.not.i145.i, label %jpeg_create_huffman_table.exit146.i, label %246, !llvm.loop !17
 
 jpeg_create_huffman_table.exit146.i:              ; preds = %bytestream2_put_byte.exit.i143.i, %.preheader.i137.i
   %.sroa.263.58.i = phi i32 [ %.sroa.263.55.i, %.preheader.i137.i ], [ %.sroa.263.57.i, %bytestream2_put_byte.exit.i143.i ]
@@ -641,7 +641,7 @@ bytestream2_put_byte.exit19.i152.i:               ; preds = %267, %bytestream2_p
   %.sroa.0.65.i = phi ptr [ %268, %267 ], [ %.sroa.0.64.i, %bytestream2_put_byte.exit21.i148.i ]
   %indvars.iv.next.i153.i = add nuw nsw i64 %indvars.iv.i149.i, 1
   %exitcond.not.i154.i = icmp eq i64 %indvars.iv.next.i153.i, 17
-  br i1 %exitcond.not.i154.i, label %.preheader.i155.i, label %bytestream2_put_byte.exit21.i148.i, !llvm.loop !17
+  br i1 %exitcond.not.i154.i, label %.preheader.i155.i, label %bytestream2_put_byte.exit21.i148.i, !llvm.loop !16
 
 269:                                              ; preds = %bytestream2_put_byte.exit.i161.i, %.lr.ph.i157.i
   %.sroa.263.62.i = phi i32 [ %.sroa.263.61.i, %.lr.ph.i157.i ], [ %.sroa.263.63.i, %bytestream2_put_byte.exit.i161.i ]
@@ -666,7 +666,7 @@ bytestream2_put_byte.exit.i161.i:                 ; preds = %273, %269
   %.sroa.0.67.i = phi ptr [ %276, %273 ], [ %.sroa.0.66.i, %269 ]
   %indvars.iv.next27.i162.i = add nuw nsw i64 %indvars.iv26.i159.i, 1
   %exitcond29.not.i163.i = icmp eq i64 %indvars.iv.next27.i162.i, %wide.trip.count.i158.i
-  br i1 %exitcond29.not.i163.i, label %jpeg_create_huffman_table.exit164.i, label %269, !llvm.loop !18
+  br i1 %exitcond29.not.i163.i, label %jpeg_create_huffman_table.exit164.i, label %269, !llvm.loop !17
 
 jpeg_create_huffman_table.exit164.i:              ; preds = %bytestream2_put_byte.exit.i161.i, %.preheader.i155.i
   %.sroa.263.64.i = phi i32 [ %.sroa.263.61.i, %.preheader.i155.i ], [ %.sroa.263.63.i, %bytestream2_put_byte.exit.i161.i ]
@@ -723,7 +723,7 @@ bytestream2_put_byte.exit19.i170.i:               ; preds = %290, %bytestream2_p
   %.sroa.0.71.i = phi ptr [ %291, %290 ], [ %.sroa.0.70.i, %bytestream2_put_byte.exit21.i166.i ]
   %indvars.iv.next.i171.i = add nuw nsw i64 %indvars.iv.i167.i, 1
   %exitcond.not.i172.i = icmp eq i64 %indvars.iv.next.i171.i, 17
-  br i1 %exitcond.not.i172.i, label %.preheader.i173.i, label %bytestream2_put_byte.exit21.i166.i, !llvm.loop !17
+  br i1 %exitcond.not.i172.i, label %.preheader.i173.i, label %bytestream2_put_byte.exit21.i166.i, !llvm.loop !16
 
 292:                                              ; preds = %bytestream2_put_byte.exit.i179.i, %.lr.ph.i175.i
   %.sroa.263.68.i = phi i32 [ %.sroa.263.67.i, %.lr.ph.i175.i ], [ %.sroa.263.69.i, %bytestream2_put_byte.exit.i179.i ]
@@ -748,7 +748,7 @@ bytestream2_put_byte.exit.i179.i:                 ; preds = %296, %292
   %.sroa.0.73.i = phi ptr [ %299, %296 ], [ %.sroa.0.72.i, %292 ]
   %indvars.iv.next27.i180.i = add nuw nsw i64 %indvars.iv26.i177.i, 1
   %exitcond29.not.i181.i = icmp eq i64 %indvars.iv.next27.i180.i, %wide.trip.count.i176.i
-  br i1 %exitcond29.not.i181.i, label %jpeg_create_huffman_table.exit182.i, label %292, !llvm.loop !18
+  br i1 %exitcond29.not.i181.i, label %jpeg_create_huffman_table.exit182.i, label %292, !llvm.loop !17
 
 jpeg_create_huffman_table.exit182.i:              ; preds = %bytestream2_put_byte.exit.i179.i, %.preheader.i173.i
   %.sroa.263.70.i = phi i32 [ %.sroa.263.67.i, %.preheader.i173.i ], [ %.sroa.263.69.i, %bytestream2_put_byte.exit.i179.i ]
@@ -1017,8 +1017,8 @@ jpeg_create_huffman_table.exit182.i:              ; preds = %bytestream2_put_byt
   %458 = sub i64 %.pre-phi, %457
   %459 = trunc i64 %458 to i32
   %460 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  store i32 %459, ptr %460, align 4, !tbaa !19
-  %461 = load ptr, ptr %1, align 8, !tbaa !20
+  store i32 %459, ptr %460, align 4, !tbaa !18
+  %461 = load ptr, ptr %1, align 8, !tbaa !19
   call void @avio_write(ptr noundef %461, ptr noundef nonnull %11, i32 noundef %459) #6
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %11) #6
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %10) #6
@@ -1027,7 +1027,7 @@ jpeg_create_huffman_table.exit182.i:              ; preds = %bytestream2_put_byt
 462:                                              ; preds = %456, %54
   %.1134 = phi i32 [ %.5138, %456 ], [ %.0133, %54 ]
   %.1123 = phi ptr [ %.5, %456 ], [ %.0122, %54 ]
-  %463 = load ptr, ptr %1, align 8, !tbaa !20
+  %463 = load ptr, ptr %1, align 8, !tbaa !19
   %.not159 = icmp eq ptr %463, null
   br i1 %.not159, label %464, label %465
 
@@ -1037,8 +1037,8 @@ jpeg_create_huffman_table.exit182.i:              ; preds = %bytestream2_put_byt
 
 465:                                              ; preds = %462
   %466 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %467 = load i32, ptr %466, align 8, !tbaa !12
-  %468 = load i32, ptr %4, align 4, !tbaa !10
+  %467 = load i32, ptr %466, align 8, !tbaa !11
+  %468 = load i32, ptr %4, align 4, !tbaa !9
   %.not160 = icmp eq i32 %467, %468
   br i1 %.not160, label %470, label %469
 
@@ -1051,7 +1051,7 @@ jpeg_create_huffman_table.exit182.i:              ; preds = %bytestream2_put_byt
   %471 = zext nneg i32 %28 to i64
   %472 = call i64 @avio_seek(ptr noundef nonnull %463, i64 noundef 0, i32 noundef 1) #6
   %473 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %474 = load i32, ptr %473, align 4, !tbaa !19
+  %474 = load i32, ptr %473, align 4, !tbaa !18
   %475 = sext i32 %474 to i64
   %476 = sub nsw i64 %472, %475
   %.not161 = icmp eq i64 %476, %471
@@ -1062,7 +1062,7 @@ jpeg_create_huffman_table.exit182.i:              ; preds = %bytestream2_put_byt
   br label %489
 
 478:                                              ; preds = %470
-  %479 = load ptr, ptr %1, align 8, !tbaa !20
+  %479 = load ptr, ptr %1, align 8, !tbaa !19
   call void @avio_write(ptr noundef %479, ptr noundef %.1123, i32 noundef %.1134) #6
   %480 = and i32 %8, 2
   %.not162 = icmp eq i32 %480, 0
@@ -1071,10 +1071,10 @@ jpeg_create_huffman_table.exit182.i:              ; preds = %bytestream2_put_byt
 481:                                              ; preds = %478
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %12) #6
   store i16 -9729, ptr %12, align 2
-  %482 = load ptr, ptr %1, align 8, !tbaa !20
+  %482 = load ptr, ptr %1, align 8, !tbaa !19
   call void @avio_write(ptr noundef %482, ptr noundef nonnull %12, i32 noundef 2) #6
   %483 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %484 = load i32, ptr %483, align 8, !tbaa !21
+  %484 = load i32, ptr %483, align 8, !tbaa !20
   %485 = call i32 @ff_rtp_finalize_packet(ptr noundef %3, ptr noundef nonnull %1, i32 noundef %484) #6
   %486 = icmp slt i32 %485, 0
   br i1 %486, label %487, label %488
@@ -1145,28 +1145,27 @@ attributes #6 = { nounwind }
 !4 = !{!5, !5, i64 0}
 !5 = !{!"omnipotent char", !6, i64 0}
 !6 = !{!"Simple C/C++ TBAA"}
-!7 = distinct !{!7, !8, !9}
+!7 = distinct !{!7, !8}
 !8 = !{!"llvm.loop.mustprogress"}
-!9 = !{!"llvm.loop.estimated_trip_count"}
-!10 = !{!11, !11, i64 0}
-!11 = !{!"int", !5, i64 0}
-!12 = !{!13, !11, i64 8}
-!13 = !{!"PayloadContext", !14, i64 0, !11, i64 8, !11, i64 12, !5, i64 16, !5, i64 16400}
-!14 = !{!"p1 _ZTS11AVIOContext", !15, i64 0}
-!15 = !{!"any pointer", !5, i64 0}
-!16 = distinct !{!16, !8, !9}
-!17 = distinct !{!17, !8, !9}
-!18 = distinct !{!18, !8, !9}
-!19 = !{!13, !11, i64 12}
-!20 = !{!13, !14, i64 0}
-!21 = !{!22, !11, i64 8}
-!22 = !{!"AVStream", !23, i64 0, !11, i64 8, !11, i64 12, !24, i64 16, !15, i64 24, !25, i64 32, !26, i64 40, !26, i64 48, !26, i64 56, !11, i64 64, !11, i64 68, !25, i64 72, !27, i64 80, !25, i64 88, !28, i64 96, !11, i64 200, !25, i64 204, !11, i64 212}
-!23 = !{!"p1 _ZTS7AVClass", !15, i64 0}
-!24 = !{!"p1 _ZTS17AVCodecParameters", !15, i64 0}
-!25 = !{!"AVRational", !11, i64 0, !11, i64 4}
-!26 = !{!"long", !5, i64 0}
-!27 = !{!"p1 _ZTS12AVDictionary", !15, i64 0}
-!28 = !{!"AVPacket", !29, i64 0, !26, i64 8, !26, i64 16, !30, i64 24, !11, i64 32, !11, i64 36, !11, i64 40, !31, i64 48, !11, i64 56, !26, i64 64, !26, i64 72, !15, i64 80, !29, i64 88, !25, i64 96}
-!29 = !{!"p1 _ZTS11AVBufferRef", !15, i64 0}
-!30 = !{!"p1 omnipotent char", !15, i64 0}
-!31 = !{!"p1 _ZTS16AVPacketSideData", !15, i64 0}
+!9 = !{!10, !10, i64 0}
+!10 = !{!"int", !5, i64 0}
+!11 = !{!12, !10, i64 8}
+!12 = !{!"PayloadContext", !13, i64 0, !10, i64 8, !10, i64 12, !5, i64 16, !5, i64 16400}
+!13 = !{!"p1 _ZTS11AVIOContext", !14, i64 0}
+!14 = !{!"any pointer", !5, i64 0}
+!15 = distinct !{!15, !8}
+!16 = distinct !{!16, !8}
+!17 = distinct !{!17, !8}
+!18 = !{!12, !10, i64 12}
+!19 = !{!12, !13, i64 0}
+!20 = !{!21, !10, i64 8}
+!21 = !{!"AVStream", !22, i64 0, !10, i64 8, !10, i64 12, !23, i64 16, !14, i64 24, !24, i64 32, !25, i64 40, !25, i64 48, !25, i64 56, !10, i64 64, !10, i64 68, !24, i64 72, !26, i64 80, !24, i64 88, !27, i64 96, !10, i64 200, !24, i64 204, !10, i64 212}
+!22 = !{!"p1 _ZTS7AVClass", !14, i64 0}
+!23 = !{!"p1 _ZTS17AVCodecParameters", !14, i64 0}
+!24 = !{!"AVRational", !10, i64 0, !10, i64 4}
+!25 = !{!"long", !5, i64 0}
+!26 = !{!"p1 _ZTS12AVDictionary", !14, i64 0}
+!27 = !{!"AVPacket", !28, i64 0, !25, i64 8, !25, i64 16, !29, i64 24, !10, i64 32, !10, i64 36, !10, i64 40, !30, i64 48, !10, i64 56, !25, i64 64, !25, i64 72, !14, i64 80, !28, i64 88, !24, i64 96}
+!28 = !{!"p1 _ZTS11AVBufferRef", !14, i64 0}
+!29 = !{!"p1 omnipotent char", !14, i64 0}
+!30 = !{!"p1 _ZTS16AVPacketSideData", !14, i64 0}

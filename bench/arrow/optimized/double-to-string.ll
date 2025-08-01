@@ -254,7 +254,7 @@ define void @_ZNK14arrow_vendored17double_conversion23DoubleToStringConverter31C
 .loopexit:                                        ; preds = %.loopexit.loopexit, %73
   %.0 = phi i32 [ 4, %73 ], [ %80, %.loopexit.loopexit ]
   %81 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  %82 = load i32, ptr %81, align 4, !tbaa !27
+  %82 = load i32, ptr %81, align 4, !tbaa !26
   %.sroa.speculated = tail call i32 @llvm.smin.i32(i32 %82, i32 5)
   %83 = sub nsw i32 5, %.0
   %84 = icmp slt i32 %83, %.sroa.speculated
@@ -279,7 +279,7 @@ define void @_ZNK14arrow_vendored17double_conversion23DoubleToStringConverter31C
   %indvars.iv.next46 = add nsw i64 %indvars.iv45, -1
   %94 = sub nsw i64 6, %indvars.iv45
   %95 = icmp slt i64 %94, %93
-  br i1 %95, label %.lr.ph37, label %._crit_edge.loopexit, !llvm.loop !28
+  br i1 %95, label %.lr.ph37, label %._crit_edge.loopexit, !llvm.loop !27
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph37
   %96 = trunc nsw i64 %94 to i32
@@ -344,7 +344,7 @@ define void @_ZNK14arrow_vendored17double_conversion23DoubleToStringConverter27C
   store i8 48, ptr %27, align 1, !tbaa !23
   %28 = add nuw nsw i32 %.04.i, 1
   %exitcond.not.i = icmp eq i32 %28, %22
-  br i1 %exitcond.not.i, label %_ZN14arrow_vendored17double_conversion13StringBuilder10AddPaddingEci.exit, label %.lr.ph.i, !llvm.loop !29
+  br i1 %exitcond.not.i, label %_ZN14arrow_vendored17double_conversion13StringBuilder10AddPaddingEci.exit, label %.lr.ph.i, !llvm.loop !28
 
 _ZN14arrow_vendored17double_conversion13StringBuilder10AddPaddingEci.exit: ; preds = %.lr.ph.i, %16
   %29 = load i32, ptr %9, align 8, !tbaa !19
@@ -372,7 +372,7 @@ _ZN14arrow_vendored17double_conversion13StringBuilder10AddPaddingEci.exit: ; pre
   store i8 48, ptr %43, align 1, !tbaa !23
   %44 = add nuw nsw i32 %.04.i50, 1
   %exitcond.not.i51 = icmp eq i32 %44, %37
-  br i1 %exitcond.not.i51, label %_ZN14arrow_vendored17double_conversion13StringBuilder10AddPaddingEci.exit52.thread, label %.lr.ph.i49, !llvm.loop !29
+  br i1 %exitcond.not.i51, label %_ZN14arrow_vendored17double_conversion13StringBuilder10AddPaddingEci.exit52.thread, label %.lr.ph.i49, !llvm.loop !28
 
 45:                                               ; preds = %6
   %.not = icmp slt i32 %3, %2
@@ -404,7 +404,7 @@ _ZN14arrow_vendored17double_conversion13StringBuilder10AddPaddingEci.exit: ; pre
   store i8 48, ptr %61, align 1, !tbaa !23
   %62 = add nuw nsw i32 %.04.i54, 1
   %exitcond.not.i55 = icmp eq i32 %62, %55
-  br i1 %exitcond.not.i55, label %_ZN14arrow_vendored17double_conversion13StringBuilder10AddPaddingEci.exit56, label %.lr.ph.i53, !llvm.loop !29
+  br i1 %exitcond.not.i55, label %_ZN14arrow_vendored17double_conversion13StringBuilder10AddPaddingEci.exit56, label %.lr.ph.i53, !llvm.loop !28
 
 _ZN14arrow_vendored17double_conversion13StringBuilder10AddPaddingEci.exit56: ; preds = %.lr.ph.i53, %51
   %63 = icmp sgt i32 %4, 0
@@ -431,7 +431,7 @@ _ZN14arrow_vendored17double_conversion13StringBuilder10AddPaddingEci.exit56: ; p
   store i8 48, ptr %74, align 1, !tbaa !23
   %75 = add nuw nsw i32 %.04.i58, 1
   %exitcond.not.i59 = icmp eq i32 %75, %4
-  br i1 %exitcond.not.i59, label %_ZN14arrow_vendored17double_conversion13StringBuilder10AddPaddingEci.exit52.thread, label %69, !llvm.loop !29
+  br i1 %exitcond.not.i59, label %_ZN14arrow_vendored17double_conversion13StringBuilder10AddPaddingEci.exit52.thread, label %69, !llvm.loop !28
 
 76:                                               ; preds = %45
   %77 = zext nneg i32 %3 to i64
@@ -470,7 +470,7 @@ _ZN14arrow_vendored17double_conversion13StringBuilder10AddPaddingEci.exit56: ; p
   store i8 48, ptr %99, align 1, !tbaa !23
   %100 = add nuw nsw i32 %.04.i62, 1
   %exitcond.not.i63 = icmp eq i32 %100, %93
-  br i1 %exitcond.not.i63, label %_ZN14arrow_vendored17double_conversion13StringBuilder10AddPaddingEci.exit52, label %.lr.ph.i61, !llvm.loop !29
+  br i1 %exitcond.not.i63, label %_ZN14arrow_vendored17double_conversion13StringBuilder10AddPaddingEci.exit52, label %.lr.ph.i61, !llvm.loop !28
 
 _ZN14arrow_vendored17double_conversion13StringBuilder10AddPaddingEci.exit52: ; preds = %.lr.ph.i61, %76, %_ZN14arrow_vendored17double_conversion13StringBuilder10AddPaddingEci.exit56, %8
   %101 = icmp eq i32 %4, 0
@@ -580,7 +580,7 @@ define noundef zeroext i1 @_ZNK14arrow_vendored17double_conversion23DoubleToStri
   call void @llvm.lifetime.start.p0(i64 18, ptr nonnull %7) #13
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #13
   call void @_ZN14arrow_vendored17double_conversion23DoubleToStringConverter13DoubleToAsciiEdNS1_8DtoaModeEiPciPbPiS5_(double noundef %1, i32 noundef %3, i32 noundef 0, ptr noundef nonnull %7, i32 noundef 18, ptr noundef nonnull %6, ptr noundef nonnull %8, ptr noundef nonnull %5)
-  %41 = load i8, ptr %6, align 1, !tbaa !30, !range !32, !noundef !33
+  %41 = load i8, ptr %6, align 1, !tbaa !29, !range !31, !noundef !32
   %42 = trunc nuw i8 %41 to i1
   br i1 %42, label %43, label %55
 
@@ -604,7 +604,7 @@ define noundef zeroext i1 @_ZNK14arrow_vendored17double_conversion23DoubleToStri
   br label %55
 
 55:                                               ; preds = %43, %48, %40
-  %56 = load i32, ptr %5, align 4, !tbaa !27
+  %56 = load i32, ptr %5, align 4, !tbaa !26
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %58 = load i32, ptr %57, align 4, !tbaa !14
   %.not.not = icmp sge i32 %58, %56
@@ -615,7 +615,7 @@ define noundef zeroext i1 @_ZNK14arrow_vendored17double_conversion23DoubleToStri
   br i1 %or.cond17, label %64, label %61
 
 61:                                               ; preds = %55
-  %62 = load i32, ptr %8, align 4, !tbaa !27
+  %62 = load i32, ptr %8, align 4, !tbaa !26
   %63 = sub nsw i32 %62, %56
   %.sroa.speculated = call i32 @llvm.smax.i32(i32 %63, i32 0)
   call void @_ZNK14arrow_vendored17double_conversion23DoubleToStringConverter27CreateDecimalRepresentationEPKciiiPNS0_13StringBuilderE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull %7, i32 noundef %62, i32 noundef %56, i32 noundef %.sroa.speculated, ptr noundef %2)
@@ -623,7 +623,7 @@ define noundef zeroext i1 @_ZNK14arrow_vendored17double_conversion23DoubleToStri
 
 64:                                               ; preds = %55
   %65 = add nsw i32 %56, -1
-  %66 = load i32, ptr %8, align 4, !tbaa !27
+  %66 = load i32, ptr %8, align 4, !tbaa !26
   call void @_ZNK14arrow_vendored17double_conversion23DoubleToStringConverter31CreateExponentialRepresentationEPKciiPNS0_13StringBuilderE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull %7, i32 noundef %66, i32 noundef %65, ptr noundef %2)
   br label %67
 
@@ -645,7 +645,7 @@ define void @_ZN14arrow_vendored17double_conversion23DoubleToStringConverter13Do
   %.lobit = lshr i64 %9, 63
   %.sink = trunc nuw nsw i64 %.lobit to i8
   %.0 = tail call double @llvm.fabs.f64(double %0)
-  store i8 %.sink, ptr %5, align 1, !tbaa !30
+  store i8 %.sink, ptr %5, align 1, !tbaa !29
   %10 = icmp eq i32 %1, 3
   %11 = icmp eq i32 %2, 0
   %or.cond = and i1 %10, %11
@@ -653,7 +653,7 @@ define void @_ZN14arrow_vendored17double_conversion23DoubleToStringConverter13Do
 
 12:                                               ; preds = %8
   store i8 0, ptr %3, align 1, !tbaa !23
-  store i32 0, ptr %6, align 4, !tbaa !27
+  store i32 0, ptr %6, align 4, !tbaa !26
   br label %30
 
 13:                                               ; preds = %8
@@ -664,8 +664,8 @@ define void @_ZN14arrow_vendored17double_conversion23DoubleToStringConverter13Do
   store i8 48, ptr %3, align 1, !tbaa !23
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 1
   store i8 0, ptr %16, align 1, !tbaa !23
-  store i32 1, ptr %6, align 4, !tbaa !27
-  store i32 1, ptr %7, align 4, !tbaa !27
+  store i32 1, ptr %6, align 4, !tbaa !26
+  store i32 1, ptr %7, align 4, !tbaa !26
   br label %30
 
 17:                                               ; preds = %13
@@ -698,7 +698,7 @@ define void @_ZN14arrow_vendored17double_conversion23DoubleToStringConverter13Do
 
 _ZN14arrow_vendored17double_conversionL20DtoaToBignumDtoaModeENS0_23DoubleToStringConverter8DtoaModeE.exit: ; preds = %25, %18, %20, %22
   tail call void @_ZN14arrow_vendored17double_conversion10BignumDtoaEdNS0_14BignumDtoaModeEiNS0_6VectorIcEEPiS4_(double noundef %.0, i32 noundef %1, i32 noundef %2, ptr %3, i32 %4, ptr noundef %6, ptr noundef %7)
-  %27 = load i32, ptr %6, align 4, !tbaa !27
+  %27 = load i32, ptr %6, align 4, !tbaa !26
   %28 = sext i32 %27 to i64
   %29 = getelementptr inbounds i8, ptr %3, i64 %28
   store i8 0, ptr %29, align 1, !tbaa !23
@@ -788,8 +788,8 @@ define noundef zeroext i1 @_ZNK14arrow_vendored17double_conversion23DoubleToStri
   store i8 48, ptr %6, align 16, !tbaa !23
   %48 = getelementptr inbounds nuw i8, ptr %6, i64 1
   store i8 0, ptr %48, align 1, !tbaa !23
-  store i32 1, ptr %7, align 4, !tbaa !27
-  store i32 1, ptr %5, align 4, !tbaa !27
+  store i32 1, ptr %7, align 4, !tbaa !26
+  store i32 1, ptr %5, align 4, !tbaa !26
   br label %_ZN14arrow_vendored17double_conversion23DoubleToStringConverter13DoubleToAsciiEdNS1_8DtoaModeEiPciPbPiS5_.exit
 
 49:                                               ; preds = %45
@@ -798,7 +798,7 @@ define noundef zeroext i1 @_ZNK14arrow_vendored17double_conversion23DoubleToStri
 
 _ZN14arrow_vendored17double_conversionL20DtoaToBignumDtoaModeENS0_23DoubleToStringConverter8DtoaModeE.exit.i: ; preds = %49
   call void @_ZN14arrow_vendored17double_conversion10BignumDtoaEdNS0_14BignumDtoaModeEiNS0_6VectorIcEEPiS4_(double noundef %44, i32 noundef 2, i32 noundef %2, ptr nonnull %6, i32 161, ptr noundef nonnull %7, ptr noundef nonnull %5)
-  %51 = load i32, ptr %7, align 4, !tbaa !27
+  %51 = load i32, ptr %7, align 4, !tbaa !26
   %52 = sext i32 %51 to i64
   %53 = getelementptr inbounds i8, ptr %6, i64 %52
   store i8 0, ptr %53, align 1, !tbaa !23
@@ -827,8 +827,8 @@ _ZN14arrow_vendored17double_conversion23DoubleToStringConverter13DoubleToAsciiEd
   br label %66
 
 66:                                               ; preds = %55, %59, %_ZN14arrow_vendored17double_conversion23DoubleToStringConverter13DoubleToAsciiEdNS1_8DtoaModeEiPciPbPiS5_.exit
-  %67 = load i32, ptr %7, align 4, !tbaa !27
-  %68 = load i32, ptr %5, align 4, !tbaa !27
+  %67 = load i32, ptr %7, align 4, !tbaa !26
+  %68 = load i32, ptr %5, align 4, !tbaa !26
   call void @_ZNK14arrow_vendored17double_conversion23DoubleToStringConverter27CreateDecimalRepresentationEPKciiiPNS0_13StringBuilderE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull %6, i32 noundef %67, i32 noundef %68, i32 noundef %2, ptr noundef %3)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #13
   call void @llvm.lifetime.end.p0(i64 161, ptr nonnull %6) #13
@@ -923,8 +923,8 @@ define noundef zeroext i1 @_ZNK14arrow_vendored17double_conversion23DoubleToStri
   store i8 48, ptr %6, align 16, !tbaa !23
   %49 = getelementptr inbounds nuw i8, ptr %6, i64 1
   store i8 0, ptr %49, align 1, !tbaa !23
-  store i32 1, ptr %7, align 4, !tbaa !27
-  store i32 1, ptr %5, align 4, !tbaa !27
+  store i32 1, ptr %7, align 4, !tbaa !26
+  store i32 1, ptr %5, align 4, !tbaa !26
   br label %_ZN14arrow_vendored17double_conversion23DoubleToStringConverter13DoubleToAsciiEdNS1_8DtoaModeEiPciPbPiS5_.exit
 
 50:                                               ; preds = %46
@@ -933,7 +933,7 @@ define noundef zeroext i1 @_ZNK14arrow_vendored17double_conversion23DoubleToStri
 
 _ZN14arrow_vendored17double_conversionL20DtoaToBignumDtoaModeENS0_23DoubleToStringConverter8DtoaModeE.exit.i: ; preds = %50
   call void @_ZN14arrow_vendored17double_conversion10BignumDtoaEdNS0_14BignumDtoaModeEiNS0_6VectorIcEEPiS4_(double noundef %.0.i25, i32 noundef 0, i32 noundef 0, ptr nonnull %6, i32 122, ptr noundef nonnull %7, ptr noundef nonnull %5)
-  %52 = load i32, ptr %7, align 4, !tbaa !27
+  %52 = load i32, ptr %7, align 4, !tbaa !26
   %53 = sext i32 %52 to i64
   %54 = getelementptr inbounds i8, ptr %6, i64 %53
   store i8 0, ptr %54, align 1, !tbaa !23
@@ -949,7 +949,7 @@ _ZN14arrow_vendored17double_conversionL20DtoaToBignumDtoaModeENS0_23DoubleToStri
   store i8 48, ptr %6, align 16, !tbaa !23
   %59 = getelementptr inbounds nuw i8, ptr %6, i64 1
   store i8 0, ptr %59, align 1, !tbaa !23
-  store i32 1, ptr %5, align 4, !tbaa !27
+  store i32 1, ptr %5, align 4, !tbaa !26
   br label %_ZN14arrow_vendored17double_conversion23DoubleToStringConverter13DoubleToAsciiEdNS1_8DtoaModeEiPciPbPiS5_.exit31
 
 60:                                               ; preds = %55
@@ -957,12 +957,12 @@ _ZN14arrow_vendored17double_conversionL20DtoaToBignumDtoaModeENS0_23DoubleToStri
   br i1 %61, label %._ZN14arrow_vendored17double_conversion23DoubleToStringConverter13DoubleToAsciiEdNS1_8DtoaModeEiPciPbPiS5_.exit31_crit_edge, label %_ZN14arrow_vendored17double_conversionL20DtoaToBignumDtoaModeENS0_23DoubleToStringConverter8DtoaModeE.exit.i30
 
 ._ZN14arrow_vendored17double_conversion23DoubleToStringConverter13DoubleToAsciiEdNS1_8DtoaModeEiPciPbPiS5_.exit31_crit_edge: ; preds = %60
-  %.pre = load i32, ptr %7, align 4, !tbaa !27
+  %.pre = load i32, ptr %7, align 4, !tbaa !26
   br label %_ZN14arrow_vendored17double_conversion23DoubleToStringConverter13DoubleToAsciiEdNS1_8DtoaModeEiPciPbPiS5_.exit31
 
 _ZN14arrow_vendored17double_conversionL20DtoaToBignumDtoaModeENS0_23DoubleToStringConverter8DtoaModeE.exit.i30: ; preds = %60
   call void @_ZN14arrow_vendored17double_conversion10BignumDtoaEdNS0_14BignumDtoaModeEiNS0_6VectorIcEEPiS4_(double noundef %.0.i28, i32 noundef 3, i32 noundef %56, ptr nonnull %6, i32 122, ptr noundef nonnull %7, ptr noundef nonnull %5)
-  %62 = load i32, ptr %7, align 4, !tbaa !27
+  %62 = load i32, ptr %7, align 4, !tbaa !26
   %63 = sext i32 %62 to i64
   %64 = getelementptr inbounds i8, ptr %6, i64 %63
   store i8 0, ptr %64, align 1, !tbaa !23
@@ -983,7 +983,7 @@ _ZN14arrow_vendored17double_conversion23DoubleToStringConverter13DoubleToAsciiEd
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph.preheader, %_ZN14arrow_vendored17double_conversion23DoubleToStringConverter13DoubleToAsciiEdNS1_8DtoaModeEiPciPbPiS5_.exit31
-  store i32 %56, ptr %7, align 4, !tbaa !27
+  store i32 %56, ptr %7, align 4, !tbaa !26
   br label %_ZN14arrow_vendored17double_conversion23DoubleToStringConverter13DoubleToAsciiEdNS1_8DtoaModeEiPciPbPiS5_.exit
 
 _ZN14arrow_vendored17double_conversion23DoubleToStringConverter13DoubleToAsciiEdNS1_8DtoaModeEiPciPbPiS5_.exit: ; preds = %_ZN14arrow_vendored17double_conversionL20DtoaToBignumDtoaModeENS0_23DoubleToStringConverter8DtoaModeE.exit.i, %50, %48, %._crit_edge
@@ -1010,9 +1010,9 @@ _ZN14arrow_vendored17double_conversion23DoubleToStringConverter13DoubleToAsciiEd
   br label %83
 
 83:                                               ; preds = %71, %76, %_ZN14arrow_vendored17double_conversion23DoubleToStringConverter13DoubleToAsciiEdNS1_8DtoaModeEiPciPbPiS5_.exit
-  %84 = load i32, ptr %5, align 4, !tbaa !27
+  %84 = load i32, ptr %5, align 4, !tbaa !26
   %85 = add nsw i32 %84, -1
-  %86 = load i32, ptr %7, align 4, !tbaa !27
+  %86 = load i32, ptr %7, align 4, !tbaa !26
   call void @_ZNK14arrow_vendored17double_conversion23DoubleToStringConverter31CreateExponentialRepresentationEPKciiPNS0_13StringBuilderE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull %6, i32 noundef %86, i32 noundef %85, ptr noundef %3)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #13
   call void @llvm.lifetime.end.p0(i64 122, ptr nonnull %6) #13
@@ -1103,8 +1103,8 @@ define noundef zeroext i1 @_ZNK14arrow_vendored17double_conversion23DoubleToStri
   store i8 48, ptr %6, align 16, !tbaa !23
   %47 = getelementptr inbounds nuw i8, ptr %6, i64 1
   store i8 0, ptr %47, align 1, !tbaa !23
-  store i32 1, ptr %7, align 4, !tbaa !27
-  store i32 1, ptr %5, align 4, !tbaa !27
+  store i32 1, ptr %7, align 4, !tbaa !26
+  store i32 1, ptr %5, align 4, !tbaa !26
   br label %_ZN14arrow_vendored17double_conversion23DoubleToStringConverter13DoubleToAsciiEdNS1_8DtoaModeEiPciPbPiS5_.exit
 
 48:                                               ; preds = %44
@@ -1113,7 +1113,7 @@ define noundef zeroext i1 @_ZNK14arrow_vendored17double_conversion23DoubleToStri
 
 _ZN14arrow_vendored17double_conversionL20DtoaToBignumDtoaModeENS0_23DoubleToStringConverter8DtoaModeE.exit.i: ; preds = %48
   call void @_ZN14arrow_vendored17double_conversion10BignumDtoaEdNS0_14BignumDtoaModeEiNS0_6VectorIcEEPiS4_(double noundef %.0.i24, i32 noundef 3, i32 noundef %2, ptr nonnull %6, i32 121, ptr noundef nonnull %7, ptr noundef nonnull %5)
-  %50 = load i32, ptr %7, align 4, !tbaa !27
+  %50 = load i32, ptr %7, align 4, !tbaa !26
   %51 = sext i32 %50 to i64
   %52 = getelementptr inbounds i8, ptr %6, i64 %51
   store i8 0, ptr %52, align 1, !tbaa !23
@@ -1142,7 +1142,7 @@ _ZN14arrow_vendored17double_conversion23DoubleToStringConverter13DoubleToAsciiEd
   br label %65
 
 65:                                               ; preds = %54, %58, %_ZN14arrow_vendored17double_conversion23DoubleToStringConverter13DoubleToAsciiEdNS1_8DtoaModeEiPciPbPiS5_.exit
-  %66 = load i32, ptr %5, align 4, !tbaa !27
+  %66 = load i32, ptr %5, align 4, !tbaa !26
   %67 = add nsw i32 %66, -1
   %68 = sub i32 1, %66
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 36
@@ -1169,7 +1169,7 @@ _ZN14arrow_vendored17double_conversion23DoubleToStringConverter13DoubleToAsciiEd
   br i1 %.not50, label %.thread..thread52_crit_edge, label %.thread51
 
 .thread..thread52_crit_edge:                      ; preds = %.thread
-  %.pre65 = load i32, ptr %7, align 4, !tbaa !27
+  %.pre65 = load i32, ptr %7, align 4, !tbaa !26
   br label %.thread52
 
 82:                                               ; preds = %73
@@ -1182,7 +1182,7 @@ _ZN14arrow_vendored17double_conversion23DoubleToStringConverter13DoubleToAsciiEd
 .thread51:                                        ; preds = %.thread, %82, %83
   %84 = phi i1 [ false, %83 ], [ true, %82 ], [ true, %.thread ]
   %85 = phi i32 [ %.sroa.speculated31, %83 ], [ 1, %82 ], [ 1, %.thread ]
-  %.promoted = load i32, ptr %7, align 4, !tbaa !27
+  %.promoted = load i32, ptr %7, align 4, !tbaa !26
   %86 = icmp sgt i32 %.promoted, %85
   br i1 %86, label %.lr.ph.preheader, label %.critedge
 
@@ -1200,21 +1200,21 @@ _ZN14arrow_vendored17double_conversion23DoubleToStringConverter13DoubleToAsciiEd
   %92 = getelementptr inbounds [121 x i8], ptr %6, i64 0, i64 %indvars.iv.next
   %93 = load i8, ptr %92, align 1, !tbaa !23
   %94 = icmp eq i8 %93, 48
-  br i1 %94, label %.lr.ph76, label %.lr.ph..critedge.loopexit.split.loop.exit67_crit_edge, !llvm.loop !34
+  br i1 %94, label %.lr.ph76, label %.lr.ph..critedge.loopexit.split.loop.exit67_crit_edge, !llvm.loop !33
 
 .lr.ph76:                                         ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv.next75 = phi i64 [ %indvars.iv.next, %.lr.ph ], [ %indvars.iv.next74, %.lr.ph.preheader ]
   %95 = trunc nsw i64 %indvars.iv.next75 to i32
   %96 = icmp sgt i64 %indvars.iv.next75, %88
-  br i1 %96, label %.lr.ph, label %.critedge.loopexit, !llvm.loop !34
+  br i1 %96, label %.lr.ph, label %.critedge.loopexit, !llvm.loop !33
 
 .lr.ph..critedge.loopexit.split.loop.exit67_crit_edge: ; preds = %.lr.ph
-  store i32 %95, ptr %7, align 4, !tbaa !27
+  store i32 %95, ptr %7, align 4, !tbaa !26
   %97 = trunc nuw nsw i64 %indvars.iv.next75 to i32
   br label %.critedge
 
 .critedge.loopexit:                               ; preds = %.lr.ph76
-  store i32 %95, ptr %7, align 4, !tbaa !27
+  store i32 %95, ptr %7, align 4, !tbaa !26
   br label %.critedge
 
 .critedge:                                        ; preds = %.critedge.loopexit, %.lr.ph.preheader, %.lr.ph..critedge.loopexit.split.loop.exit67_crit_edge, %.thread51
@@ -1224,7 +1224,7 @@ _ZN14arrow_vendored17double_conversion23DoubleToStringConverter13DoubleToAsciiEd
   br i1 %84, label %.thread52, label %._crit_edge64
 
 99:                                               ; preds = %73
-  %.pre66 = load i32, ptr %7, align 4, !tbaa !27
+  %.pre66 = load i32, ptr %7, align 4, !tbaa !26
   br i1 %79, label %.thread52, label %._crit_edge64
 
 .thread52:                                        ; preds = %.thread..thread52_crit_edge, %.critedge, %99
@@ -1339,14 +1339,13 @@ attributes #15 = { noreturn nounwind }
 !21 = !{!"_ZTSN14arrow_vendored17double_conversion6VectorIcEE", !9, i64 0, !6, i64 8}
 !22 = !{!21, !9, i64 0}
 !23 = !{!7, !7, i64 0}
-!24 = distinct !{!24, !25, !26}
+!24 = distinct !{!24, !25}
 !25 = !{!"llvm.loop.mustprogress"}
-!26 = !{!"llvm.loop.estimated_trip_count"}
-!27 = !{!6, !6, i64 0}
-!28 = distinct !{!28, !25, !26}
-!29 = distinct !{!29, !25, !26}
-!30 = !{!31, !31, i64 0}
-!31 = !{!"bool", !7, i64 0}
-!32 = !{i8 0, i8 2}
-!33 = !{}
-!34 = distinct !{!34, !25, !26}
+!26 = !{!6, !6, i64 0}
+!27 = distinct !{!27, !25}
+!28 = distinct !{!28, !25}
+!29 = !{!30, !30, i64 0}
+!30 = !{!"bool", !7, i64 0}
+!31 = !{i8 0, i8 2}
+!32 = !{}
+!33 = distinct !{!33, !25}

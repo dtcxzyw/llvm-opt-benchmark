@@ -99,7 +99,7 @@ define dso_local range(i32 -1, 256) i32 @gdb_get_char() local_unnamed_addr #0 {
 12:                                               ; preds = %11, %7
   %13 = phi i32 [ %.pr, %11 ], [ %9, %7 ]
   %.not = icmp eq i32 %13, 4
-  br i1 %.not, label %2, label %.loopexit, !llvm.loop !5
+  br i1 %.not, label %2, label %.loopexit
 
 14:                                               ; preds = %2
   %15 = icmp eq i32 %5, 0
@@ -163,7 +163,7 @@ define dso_local zeroext i1 @gdb_got_immediate_ack() local_unnamed_addr #0 {
 12:                                               ; preds = %11, %7
   %13 = phi i32 [ %.pr.i, %11 ], [ %9, %7 ]
   %.not.i = icmp eq i32 %13, 4
-  br i1 %.not.i, label %2, label %gdb_get_char.exit.thread, !llvm.loop !5
+  br i1 %.not.i, label %2, label %gdb_get_char.exit.thread
 
 14:                                               ; preds = %2
   %15 = icmp eq i32 %5, 0
@@ -221,7 +221,7 @@ define dso_local void @gdb_put_buffer(ptr noundef %0, i32 noundef %1) local_unna
   %.18 = phi ptr [ %.0710, %9 ], [ %14, %12 ]
   %.1 = phi i32 [ %.011, %9 ], [ %15, %12 ]
   %17 = icmp sgt i32 %.1, 0
-  br i1 %17, label %.lr.ph, label %._crit_edge, !llvm.loop !7
+  br i1 %17, label %.lr.ph, label %._crit_edge, !llvm.loop !5
 
 ._crit_edge:                                      ; preds = %9, %16, %2
   ret void
@@ -234,7 +234,7 @@ define dso_local void @gdb_exit(i32 noundef %0) local_unnamed_addr #0 {
   %2 = alloca %struct.timeval, align 8
   %3 = alloca [4 x i8], align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #16
-  %4 = load i8, ptr @gdbserver_state, align 8, !range !9, !noundef !10
+  %4 = load i8, ptr @gdbserver_state, align 8, !range !7, !noundef !8
   %5 = trunc nuw i8 %4 to i1
   br i1 %5, label %6, label %38
 
@@ -256,7 +256,7 @@ define dso_local void @gdb_exit(i32 noundef %0) local_unnamed_addr #0 {
   store i32 0, ptr %3, align 4, !annotation !4
   %14 = load i32, ptr @trace_events_enabled_count, align 4
   %.not.i.i = icmp eq i32 %14, 0
-  br i1 %.not.i.i, label %trace_gdbstub_op_exiting.exit, label %15, !prof !11
+  br i1 %.not.i.i, label %trace_gdbstub_op_exiting.exit, label %15, !prof !9
 
 15:                                               ; preds = %13
   %16 = load i16, ptr @_TRACE_GDBSTUB_OP_EXITING_DSTATE, align 2
@@ -270,7 +270,7 @@ define dso_local void @gdb_exit(i32 noundef %0) local_unnamed_addr #0 {
   br i1 %.not3.i.i, label %trace_gdbstub_op_exiting.exit, label %20
 
 20:                                               ; preds = %17
-  %21 = load i8, ptr @message_with_timestamp, align 1, !range !9, !noundef !10
+  %21 = load i8, ptr @message_with_timestamp, align 1, !range !7, !noundef !8
   %22 = trunc nuw i8 %21 to i1
   br i1 %22, label %23, label %30
 
@@ -293,7 +293,7 @@ define dso_local void @gdb_exit(i32 noundef %0) local_unnamed_addr #0 {
   br label %trace_gdbstub_op_exiting.exit
 
 trace_gdbstub_op_exiting.exit:                    ; preds = %13, %15, %17, %23, %30
-  %32 = load i8, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_state, i64 4200), align 8, !range !9, !noundef !10
+  %32 = load i8, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_state, i64 4200), align 8, !range !7, !noundef !8
   %33 = trunc nuw i8 %32 to i1
   br i1 %33, label %34, label %38
 
@@ -333,7 +333,7 @@ declare void @exit(i32 noundef) local_unnamed_addr #8
 define dso_local i32 @gdb_handlesig(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef readonly captures(address_is_null) %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = alloca [256 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %6) #16
-  %7 = load i8, ptr @gdbserver_state, align 8, !range !9, !noundef !10
+  %7 = load i8, ptr @gdbserver_state, align 8, !range !7, !noundef !8
   %8 = trunc nuw i8 %7 to i1
   %9 = load i32, ptr @gdbserver_user_state, align 8
   %10 = icmp sgt i32 %9, -1
@@ -346,7 +346,7 @@ define dso_local i32 @gdb_handlesig(ptr noundef %0, i32 noundef %1, ptr noundef 
 
 12:                                               ; preds = %11
   %13 = sext i32 %4 to i64
-  %14 = tail call ptr @__memcpy_chk(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @gdbserver_user_state, i64 176), ptr noundef nonnull %3, i64 noundef range(i64 -2147483648, 2147483648) %13, i64 noundef 136) #16, !alias.scope !12
+  %14 = tail call ptr @__memcpy_chk(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @gdbserver_user_state, i64 176), ptr noundef nonnull %3, i64 noundef range(i64 -2147483648, 2147483648) %13, i64 noundef 136) #16, !alias.scope !10
   store i64 %13, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_user_state, i64 304), align 8
   br label %15
 
@@ -358,7 +358,7 @@ define dso_local i32 @gdb_handlesig(ptr noundef %0, i32 noundef %1, ptr noundef 
 
 16:                                               ; preds = %15
   tail call void @gdb_set_stop_cpu(ptr noundef %0) #16
-  %17 = load i8, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_state, i64 4200), align 8, !range !9, !noundef !10
+  %17 = load i8, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_state, i64 4200), align 8, !range !7, !noundef !8
   %18 = trunc nuw i8 %17 to i1
   br i1 %18, label %19, label %42
 
@@ -440,7 +440,7 @@ thread-pre-split:                                 ; preds = %.preheader
   tail call void @gdb_read_byte(i8 noundef zeroext %53) #16
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %thread-pre-split, label %.preheader, !llvm.loop !16
+  br i1 %exitcond.not, label %thread-pre-split, label %.preheader, !llvm.loop !14
 
 54:                                               ; preds = %47
   %55 = icmp eq i32 %50, 0
@@ -491,12 +491,12 @@ declare void @gdb_read_byte(i8 noundef zeroext) local_unnamed_addr #2
 define dso_local void @gdb_signalled(ptr noundef readnone captures(none) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = alloca [4 x i8], align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #16
-  %4 = load i8, ptr @gdbserver_state, align 8, !range !9, !noundef !10
+  %4 = load i8, ptr @gdbserver_state, align 8, !range !7, !noundef !8
   %5 = trunc nuw i8 %4 to i1
   %6 = load i32, ptr @gdbserver_user_state, align 8
   %7 = icmp sgt i32 %6, -1
   %or.cond.not5 = select i1 %5, i1 %7, i1 false
-  %8 = load i8, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_state, i64 4200), align 8, !range !9
+  %8 = load i8, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_state, i64 4200), align 8, !range !7
   %9 = trunc nuw i8 %8 to i1
   %or.cond3 = select i1 %or.cond.not5, i1 %9, i1 false
   br i1 %or.cond3, label %10, label %14
@@ -566,7 +566,7 @@ glib_auto_cleanup_GStrv.exit:                     ; preds = %21, %18
   %24 = getelementptr inbounds nuw i8, ptr %.03355, i64 8
   %25 = load ptr, ptr %24, align 8
   %.not = icmp eq ptr %25, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !17
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %glib_auto_cleanup_GStrv.exit
   %.not37 = icmp eq ptr %.130, null
@@ -669,7 +669,7 @@ gdbserver_open_socket.exit:                       ; preds = %69, %67, %gdbserver
   br i1 %72, label %glib_auto_cleanup_GStrv.exit45, label %73
 
 73:                                               ; preds = %gdbserver_open_socket.exit
-  %74 = load i8, ptr %4, align 1, !range !9, !noundef !10
+  %74 = load i8, ptr %4, align 1, !range !7, !noundef !8
   %75 = trunc nuw i8 %74 to i1
   br i1 %75, label %76, label %83
 
@@ -680,7 +680,7 @@ gdbserver_open_socket.exit:                       ; preds = %69, %67, %gdbserver
 78:                                               ; preds = %76
   %79 = load atomic i64, ptr @cpus_queue monotonic, align 8
   %80 = inttoptr i64 %79 to ptr
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !18
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !16
   %81 = call i32 @gdb_handlesig(ptr noundef %80, i32 noundef 0, ptr noundef null, ptr noundef null, i32 noundef 0)
   br label %glib_auto_cleanup_GStrv.exit45
 
@@ -743,7 +743,7 @@ define internal fastcc noundef zeroext i1 @gdbserver_accept(i32 noundef %0, i32 
   %12 = tail call ptr @__errno_location() #17
   %13 = load i32, ptr %12, align 4
   %.not.i = icmp eq i32 %13, 4
-  br i1 %.not.i, label %8, label %14, !llvm.loop !19
+  br i1 %.not.i, label %8, label %14
 
 14:                                               ; preds = %11
   call void @perror(ptr noundef nonnull @.str.34) #20
@@ -769,7 +769,7 @@ define internal fastcc noundef zeroext i1 @gdbserver_accept(i32 noundef %0, i32 
   %22 = tail call ptr @__errno_location() #17
   %23 = load i32, ptr %22, align 4
   %.not.i7 = icmp eq i32 %23, 4
-  br i1 %.not.i7, label %.preheader, label %.thread10, !llvm.loop !20
+  br i1 %.not.i7, label %.preheader, label %.thread10
 
 .thread10:                                        ; preds = %21
   tail call void @perror(ptr noundef nonnull @.str.36) #20
@@ -833,7 +833,7 @@ define internal noalias noundef ptr @gdbserver_accept_thread(ptr readnone captur
 6:                                                ; preds = %1
   %7 = load atomic i64, ptr @cpus_queue monotonic, align 8
   %8 = inttoptr i64 %7 to ptr
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !21
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !17
   tail call void @async_safe_run_on_cpu(ptr noundef %8, ptr noundef nonnull @do_gdb_handlesig, i64 0) #16
   %9 = tail call i32 @gdb_get_cpu_index(ptr noundef %8) #16
   %10 = load i32, ptr @host_interrupt_signal, align 4
@@ -849,7 +849,7 @@ define internal noalias noundef ptr @gdbserver_accept_thread(ptr readnone captur
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @gdbserver_fork_start() local_unnamed_addr #0 {
-  %1 = load i8, ptr @gdbserver_state, align 8, !range !9, !noundef !10
+  %1 = load i8, ptr @gdbserver_state, align 8, !range !7, !noundef !8
   %2 = trunc nuw i8 %1 to i1
   %3 = load i32, ptr @gdbserver_user_state, align 8
   %4 = icmp sgt i32 %3, -1
@@ -857,7 +857,7 @@ define dso_local void @gdbserver_fork_start() local_unnamed_addr #0 {
   br i1 %or.cond.not, label %5, label %15
 
 5:                                                ; preds = %0
-  %6 = load i8, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_user_state, i64 152), align 8, !range !9, !noundef !10
+  %6 = load i8, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_user_state, i64 152), align 8, !range !7, !noundef !8
   %7 = trunc nuw i8 %6 to i1
   br i1 %7, label %8, label %11
 
@@ -893,7 +893,7 @@ declare i32 @qemu_get_thread_id() local_unnamed_addr #2
 define dso_local void @gdbserver_fork_end(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = alloca i8, align 1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3) #16
-  %4 = load i8, ptr @gdbserver_state, align 8, !range !9, !noundef !10
+  %4 = load i8, ptr @gdbserver_state, align 8, !range !7, !noundef !8
   %5 = trunc nuw i8 %4 to i1
   %6 = load i32, ptr @gdbserver_user_state, align 8
   %7 = icmp sgt i32 %6, -1
@@ -909,7 +909,7 @@ define dso_local void @gdbserver_fork_end(ptr noundef %0, i32 noundef %1) local_
   switch i32 %11, label %12 [
     i32 6, label %101
     i32 3, label %13
-  ], !prof !22
+  ], !prof !18
 
 12:                                               ; preds = %10
   tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.6, i32 noundef 556, ptr noundef nonnull @__func__.gdbserver_fork_end, ptr noundef nonnull @.str.12) #18
@@ -936,7 +936,7 @@ define dso_local void @gdbserver_fork_end(ptr noundef %0, i32 noundef %1) local_
   %24 = tail call i32 @close(i32 noundef %6) #16
   store i32 -1, ptr @gdbserver_user_state, align 8
   %25 = load atomic i64, ptr @cpus_queue monotonic, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !23
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !19
   %.not9.i = icmp eq i64 %25, 0
   br i1 %.not9.i, label %disable_gdbstub.exit, label %.lr.ph.i
 
@@ -947,9 +947,9 @@ define dso_local void @gdbserver_fork_end(ptr noundef %0, i32 noundef %1) local_
   tail call void @cpu_single_step(ptr noundef nonnull %.0.i, i32 noundef 0) #16
   %26 = getelementptr inbounds nuw i8, ptr %.0.i, i64 560
   %27 = load atomic i64, ptr %26 monotonic, align 16
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !24
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !20
   %.not.i = icmp eq i64 %27, 0
-  br i1 %.not.i, label %disable_gdbstub.exit, label %.lr.ph.i, !llvm.loop !25
+  br i1 %.not.i, label %disable_gdbstub.exit, label %.lr.ph.i, !llvm.loop !21
 
 disable_gdbstub.exit:                             ; preds = %.lr.ph.i, %23
   tail call void @tb_flush(ptr noundef %0) #16
@@ -964,7 +964,7 @@ disable_gdbstub.exit:                             ; preds = %.lr.ph.i, %23
   %32 = load i32, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_user_state, i64 164), align 4
   %33 = load i32, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_state, i64 4168), align 8
   %.not = icmp eq i32 %33, 1
-  br i1 %.not, label %35, label %34, !prof !11
+  br i1 %.not, label %35, label %34, !prof !9
 
 34:                                               ; preds = %29
   tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.6, i32 noundef 573, ptr noundef nonnull @__func__.gdbserver_fork_end, ptr noundef nonnull @.str.13) #18
@@ -975,7 +975,7 @@ disable_gdbstub.exit:                             ; preds = %.lr.ph.i, %23
   %37 = load i32, ptr %36, align 8
   %38 = load i32, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_user_state, i64 168), align 8
   %.not34 = icmp eq i32 %37, %38
-  br i1 %.not34, label %40, label %39, !prof !11
+  br i1 %.not34, label %40, label %39, !prof !9
 
 39:                                               ; preds = %35
   tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.6, i32 noundef 575, ptr noundef nonnull @__func__.gdbserver_fork_end, ptr noundef nonnull @.str.14) #18
@@ -983,9 +983,9 @@ disable_gdbstub.exit:                             ; preds = %.lr.ph.i, %23
 
 40:                                               ; preds = %35
   %41 = getelementptr inbounds nuw i8, ptr %36, i64 4
-  %42 = load i8, ptr %41, align 4, !range !9, !noundef !10
+  %42 = load i8, ptr %41, align 4, !range !7, !noundef !8
   %43 = trunc nuw i8 %42 to i1
-  br i1 %43, label %45, label %44, !prof !11
+  br i1 %43, label %45, label %44, !prof !9
 
 44:                                               ; preds = %40
   tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.6, i32 noundef 576, ptr noundef nonnull @__func__.gdbserver_fork_end, ptr noundef nonnull @.str.15) #18
@@ -1004,7 +1004,7 @@ disable_gdbstub.exit:                             ; preds = %.lr.ph.i, %23
   store i32 1, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_user_state, i64 156), align 4
   store i32 %1, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_user_state, i64 168), align 8
   store i32 %1, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_user_state, i64 172), align 4
-  %52 = load i8, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_state, i64 4200), align 8, !range !9, !noundef !10
+  %52 = load i8, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_state, i64 4200), align 8, !range !7, !noundef !8
   %53 = trunc nuw i8 %52 to i1
   br i1 %53, label %55, label %.thread
 
@@ -1092,7 +1092,7 @@ disable_gdbstub.exit:                             ; preds = %.lr.ph.i, %23
 
 .backedge:                                        ; preds = %80, %81, %82, %89, %86, %75, %71
   %.be = phi i32 [ 1, %80 ], [ 0, %81 ], [ 6, %82 ], [ 6, %89 ], [ 0, %86 ], [ 3, %75 ], [ %.pre, %71 ]
-  br label %62, !llvm.loop !26
+  br label %62
 
 81:                                               ; preds = %78
   store i32 0, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_user_state, i64 156), align 4
@@ -1144,7 +1144,7 @@ disable_gdbstub.exit:                             ; preds = %.lr.ph.i, %23
   %97 = tail call i32 @close(i32 noundef %96) #16
   store i32 -1, ptr @gdbserver_user_state, align 8
   %98 = load atomic i64, ptr @cpus_queue monotonic, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !23
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !19
   %.not9.i45 = icmp eq i64 %98, 0
   br i1 %.not9.i45, label %disable_gdbstub.exit50, label %.lr.ph.i46
 
@@ -1155,9 +1155,9 @@ disable_gdbstub.exit:                             ; preds = %.lr.ph.i, %23
   tail call void @cpu_single_step(ptr noundef nonnull %.0.i48, i32 noundef 0) #16
   %99 = getelementptr inbounds nuw i8, ptr %.0.i48, i64 560
   %100 = load atomic i64, ptr %99 monotonic, align 16
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !24
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !20
   %.not.i49 = icmp eq i64 %100, 0
-  br i1 %.not.i49, label %disable_gdbstub.exit50, label %.lr.ph.i46, !llvm.loop !25
+  br i1 %.not.i49, label %disable_gdbstub.exit50, label %.lr.ph.i46, !llvm.loop !21
 
 disable_gdbstub.exit50:                           ; preds = %.lr.ph.i46, %95
   tail call void @tb_flush(ptr noundef %0) #16
@@ -1177,7 +1177,7 @@ define internal fastcc void @disable_gdbstub(ptr noundef %0) unnamed_addr #0 {
   %3 = tail call i32 @close(i32 noundef %2) #16
   store i32 -1, ptr @gdbserver_user_state, align 8
   %4 = load atomic i64, ptr @cpus_queue monotonic, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !23
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !19
   %.not9 = icmp eq i64 %4, 0
   br i1 %.not9, label %._crit_edge, label %.lr.ph
 
@@ -1188,9 +1188,9 @@ define internal fastcc void @disable_gdbstub(ptr noundef %0) unnamed_addr #0 {
   tail call void @cpu_single_step(ptr noundef nonnull %.0, i32 noundef 0) #16
   %5 = getelementptr inbounds nuw i8, ptr %.0, i64 560
   %6 = load atomic i64, ptr %5 monotonic, align 16
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !24
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !20
   %.not = icmp eq i64 %6, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !25
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !21
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
   tail call void @tb_flush(ptr noundef %0) #16
@@ -1281,7 +1281,7 @@ define dso_local void @gdb_continue() local_unnamed_addr #0 {
   store i32 1, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_user_state, i64 16), align 8
   %2 = load i32, ptr @trace_events_enabled_count, align 4
   %.not.i.i = icmp eq i32 %2, 0
-  br i1 %.not.i.i, label %trace_gdbstub_op_continue.exit, label %3, !prof !11
+  br i1 %.not.i.i, label %trace_gdbstub_op_continue.exit, label %3, !prof !9
 
 3:                                                ; preds = %0
   %4 = load i16, ptr @_TRACE_GDBSTUB_OP_CONTINUE_DSTATE, align 2
@@ -1295,7 +1295,7 @@ define dso_local void @gdb_continue() local_unnamed_addr #0 {
   br i1 %.not2.i.i, label %trace_gdbstub_op_continue.exit, label %8
 
 8:                                                ; preds = %5
-  %9 = load i8, ptr @message_with_timestamp, align 1, !range !9, !noundef !10
+  %9 = load i8, ptr @message_with_timestamp, align 1, !range !7, !noundef !8
   %10 = trunc nuw i8 %9 to i1
   br i1 %10, label %11, label %17
 
@@ -1323,7 +1323,7 @@ trace_gdbstub_op_continue.exit:                   ; preds = %0, %3, %5, %11, %17
 define dso_local noundef i32 @gdb_continue_partial(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca %struct.timeval, align 8
   %3 = load atomic i64, ptr @cpus_queue monotonic, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !27
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !22
   %.not11 = icmp eq i64 %3, 0
   br i1 %.not11, label %._crit_edge, label %.lr.ph
 
@@ -1345,7 +1345,7 @@ define dso_local noundef i32 @gdb_continue_partial(ptr noundef readonly captures
 12:                                               ; preds = %5
   %13 = load i32, ptr @trace_events_enabled_count, align 4
   %.not.i.i = icmp eq i32 %13, 0
-  br i1 %.not.i.i, label %trace_gdbstub_op_stepping.exit, label %14, !prof !11
+  br i1 %.not.i.i, label %trace_gdbstub_op_stepping.exit, label %14, !prof !9
 
 14:                                               ; preds = %12
   %15 = load i16, ptr @_TRACE_GDBSTUB_OP_STEPPING_DSTATE, align 2
@@ -1359,7 +1359,7 @@ define dso_local noundef i32 @gdb_continue_partial(ptr noundef readonly captures
   br i1 %.not3.i.i, label %trace_gdbstub_op_stepping.exit, label %19
 
 19:                                               ; preds = %16
-  %20 = load i8, ptr @message_with_timestamp, align 1, !range !9, !noundef !10
+  %20 = load i8, ptr @message_with_timestamp, align 1, !range !7, !noundef !8
   %21 = trunc nuw i8 %20 to i1
   br i1 %21, label %22, label %27
 
@@ -1386,9 +1386,9 @@ trace_gdbstub_op_stepping.exit:                   ; preds = %12, %14, %16, %22, 
 29:                                               ; preds = %5, %trace_gdbstub_op_stepping.exit
   %30 = getelementptr inbounds nuw i8, ptr %.012, i64 560
   %31 = load atomic i64, ptr %30 monotonic, align 16
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !28
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !23
   %.not = icmp eq i64 %31, 0
-  br i1 %.not, label %._crit_edge, label %5, !llvm.loop !29
+  br i1 %.not, label %._crit_edge, label %5, !llvm.loop !24
 
 ._crit_edge:                                      ; preds = %29, %1
   store i32 1, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_user_state, i64 16), align 8
@@ -1423,7 +1423,7 @@ declare i32 @cpu_memory_rw_debug(ptr noundef, i64 noundef, ptr noundef, i64 noun
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i32 @gdb_get_max_cpus() local_unnamed_addr #0 {
   %1 = load atomic i64, ptr @cpus_queue monotonic, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !30
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !25
   %.not13 = icmp eq i64 %1, 0
   br i1 %.not13, label %._crit_edge, label %.lr.ph
 
@@ -1438,9 +1438,9 @@ define dso_local i32 @gdb_get_max_cpus() local_unnamed_addr #0 {
   %5 = select i1 %.not12, i32 %.01014, i32 %4
   %6 = getelementptr inbounds nuw i8, ptr %.0, i64 560
   %7 = load atomic i64, ptr %6 monotonic, align 16
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !31
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !26
   %.not = icmp eq i64 %7, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !32
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !27
 
 ._crit_edge:                                      ; preds = %.lr.ph, %0
   %.010.lcssa = phi i32 [ 1, %0 ], [ %5, %.lr.ph ]
@@ -1464,7 +1464,7 @@ define dso_local i32 @gdb_breakpoint_insert(ptr noundef readnone captures(none) 
 
 5:                                                ; preds = %4
   %6 = load atomic i64, ptr @cpus_queue monotonic, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !33
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !28
   %.not17 = icmp eq i64 %6, 0
   br i1 %.not17, label %.loopexit, label %.lr.ph
 
@@ -1478,9 +1478,9 @@ define dso_local i32 @gdb_breakpoint_insert(ptr noundef readnone captures(none) 
 8:                                                ; preds = %.lr.ph
   %9 = getelementptr inbounds nuw i8, ptr %.01118, i64 560
   %10 = load atomic i64, ptr %9 monotonic, align 16
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !34
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !29
   %.not = icmp eq i64 %10, 0
-  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !35
+  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !30
 
 .loopexit:                                        ; preds = %.lr.ph, %8, %5, %4
   %.0 = phi i32 [ -38, %4 ], [ 0, %5 ], [ %7, %.lr.ph ], [ 0, %8 ]
@@ -1496,7 +1496,7 @@ define dso_local i32 @gdb_breakpoint_remove(ptr noundef readnone captures(none) 
 
 5:                                                ; preds = %4
   %6 = load atomic i64, ptr @cpus_queue monotonic, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !36
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !31
   %.not17 = icmp eq i64 %6, 0
   br i1 %.not17, label %.loopexit, label %.lr.ph
 
@@ -1510,9 +1510,9 @@ define dso_local i32 @gdb_breakpoint_remove(ptr noundef readnone captures(none) 
 8:                                                ; preds = %.lr.ph
   %9 = getelementptr inbounds nuw i8, ptr %.01118, i64 560
   %10 = load atomic i64, ptr %9 monotonic, align 16
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !37
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !32
   %.not = icmp eq i64 %10, 0
-  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !38
+  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !33
 
 .loopexit:                                        ; preds = %.lr.ph, %8, %5, %4
   %.0 = phi i32 [ -38, %4 ], [ 0, %5 ], [ %7, %.lr.ph ], [ 0, %8 ]
@@ -1539,7 +1539,7 @@ define dso_local void @gdb_syscall_handling(ptr noundef %0) local_unnamed_addr #
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @gdb_syscall_entry(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
-  %3 = load i8, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_user_state, i64 20), align 4, !range !9, !noundef !10
+  %3 = load i8, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_user_state, i64 20), align 4, !range !7, !noundef !8
   %4 = trunc nuw i8 %3 to i1
   br i1 %4, label %should_catch_syscall.exit.thread, label %5
 
@@ -1573,7 +1573,7 @@ declare noalias ptr @g_strdup_printf(ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @gdb_syscall_return(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
-  %3 = load i8, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_user_state, i64 20), align 4, !range !9, !noundef !10
+  %3 = load i8, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_user_state, i64 20), align 4, !range !7, !noundef !8
   %4 = trunc nuw i8 %3 to i1
   br i1 %4, label %should_catch_syscall.exit.thread, label %5
 
@@ -1664,7 +1664,7 @@ sub_0:
   store ptr %26, ptr %4, align 8
   %27 = call i32 @qemu_strtoui(ptr noundef nonnull %26, ptr noundef nonnull %4, i32 noundef 16, ptr noundef nonnull %3) #16
   %.not = icmp eq i32 %27, 0
-  br i1 %.not, label %.lr.ph, label %.loopexit, !llvm.loop !39
+  br i1 %.not, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %22, %25
   %.017 = phi i8 [ %.1, %25 ], [ 0, %22 ]
@@ -1879,37 +1879,31 @@ attributes #20 = { cold }
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{!"auto-init"}
 !5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.estimated_trip_count"}
-!7 = distinct !{!7, !8, !6}
-!8 = !{!"llvm.loop.mustprogress"}
-!9 = !{i8 0, i8 2}
-!10 = !{}
-!11 = !{!"branch_weights", !"expected", i32 2000, i32 1}
-!12 = !{!13, !15}
-!13 = distinct !{!13, !14, !"memcpy.inline: argument 0"}
-!14 = distinct !{!14, !"memcpy.inline"}
-!15 = distinct !{!15, !14, !"memcpy.inline: argument 1"}
-!16 = distinct !{!16, !8, !6}
-!17 = distinct !{!17, !8, !6}
-!18 = !{i64 2150936430}
-!19 = distinct !{!19, !6}
-!20 = distinct !{!20, !6}
-!21 = !{i64 2150930757}
-!22 = !{!"branch_weights", i32 1, i32 2001, i32 2000}
-!23 = !{i64 2150941234}
-!24 = !{i64 2150945447}
-!25 = distinct !{!25, !8, !6}
-!26 = distinct !{!26, !6}
-!27 = !{i64 2150954670}
-!28 = !{i64 2150958883}
-!29 = distinct !{!29, !8, !6}
-!30 = !{i64 2150963439}
-!31 = !{i64 2150967652}
-!32 = distinct !{!32, !8, !6}
-!33 = !{i64 2150972222}
-!34 = !{i64 2150976435}
-!35 = distinct !{!35, !8, !6}
-!36 = !{i64 2150981016}
-!37 = !{i64 2150985237}
-!38 = distinct !{!38, !8, !6}
-!39 = distinct !{!39, !6}
+!6 = !{!"llvm.loop.mustprogress"}
+!7 = !{i8 0, i8 2}
+!8 = !{}
+!9 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!10 = !{!11, !13}
+!11 = distinct !{!11, !12, !"memcpy.inline: argument 0"}
+!12 = distinct !{!12, !"memcpy.inline"}
+!13 = distinct !{!13, !12, !"memcpy.inline: argument 1"}
+!14 = distinct !{!14, !6}
+!15 = distinct !{!15, !6}
+!16 = !{i64 2150936430}
+!17 = !{i64 2150930757}
+!18 = !{!"branch_weights", i32 1, i32 2001, i32 2000}
+!19 = !{i64 2150941234}
+!20 = !{i64 2150945447}
+!21 = distinct !{!21, !6}
+!22 = !{i64 2150954670}
+!23 = !{i64 2150958883}
+!24 = distinct !{!24, !6}
+!25 = !{i64 2150963439}
+!26 = !{i64 2150967652}
+!27 = distinct !{!27, !6}
+!28 = !{i64 2150972222}
+!29 = !{i64 2150976435}
+!30 = distinct !{!30, !6}
+!31 = !{i64 2150981016}
+!32 = !{i64 2150985237}
+!33 = distinct !{!33, !6}

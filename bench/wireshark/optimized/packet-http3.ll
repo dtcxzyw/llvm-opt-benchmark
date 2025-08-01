@@ -484,7 +484,7 @@ default.unreachable59:                            ; preds = %44
   %94 = call fastcc i32 @dissect_http3_frame(ptr noundef %0, ptr noundef %1, ptr noundef %65, i32 noundef %.158.i, ptr noundef %.0)
   %95 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %94)
   %.not.i56 = icmp eq i32 %95, 0
-  br i1 %.not.i56, label %dissect_http3_uni_stream.exit, label %.lr.ph.i55, !llvm.loop !9
+  br i1 %.not.i56, label %dissect_http3_uni_stream.exit, label %.lr.ph.i55, !llvm.loop !8
 
 96:                                               ; preds = %87
   %97 = load i32, ptr %66, align 8
@@ -1028,7 +1028,7 @@ dissect_http3_data.exit:                          ; preds = %http3_find_inner_co
   %121 = add i32 %120, %106
   %122 = call i32 @tvb_reported_length_remaining(ptr noundef %88, i32 noundef %121)
   %123 = icmp sgt i32 %122, 0
-  br i1 %123, label %.lr.ph.i, label %dissect_http3_settings.exit, !llvm.loop !10
+  br i1 %123, label %.lr.ph.i, label %dissect_http3_settings.exit, !llvm.loop !9
 
 dissect_http3_settings.exit:                      ; preds = %119, %87
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #15
@@ -1131,7 +1131,7 @@ define internal fastcc i32 @dissect_http3_qpack_encoder_stream(ptr noundef %0, p
 
 14:                                               ; preds = %.lr.ph, %302
   %.045 = phi i32 [ 0, %.lr.ph ], [ %.2, %302 ]
-  %.0..0..0..0.58 = load volatile i8, ptr %5, align 1, !range !11, !noundef !12
+  %.0..0..0..0.58 = load volatile i8, ptr %5, align 1, !range !10, !noundef !11
   %15 = trunc nuw i8 %.0..0..0..0.58 to i1
   br i1 %15, label %16, label %.critedge
 
@@ -1199,7 +1199,7 @@ define internal fastcc i32 @dissect_http3_qpack_encoder_stream(ptr noundef %0, p
   %40 = add nuw nsw i64 %.05276.i, 7
   %.0.i = getelementptr i8, ptr %.078.i, i64 1
   %.not63.i = icmp eq ptr %.0.i, %33
-  br i1 %.not63.i, label %read_qpack_prefixed_integer.exit, label %.lr.ph.i, !llvm.loop !13
+  br i1 %.not63.i, label %read_qpack_prefixed_integer.exit, label %.lr.ph.i, !llvm.loop !12
 
 .lr.ph.i:                                         ; preds = %39, %.lr.ph.preheader.i
   %.078.i = phi ptr [ %.0.i, %39 ], [ %.073.i, %.lr.ph.preheader.i ]
@@ -1261,7 +1261,7 @@ read_qpack_prefixed_integer.exit:                 ; preds = %39, %.lr.ph.i, %47,
   %72 = add nuw nsw i64 %.05276.i191, 7
   %.0.i194 = getelementptr i8, ptr %.078.i189, i64 1
   %.not63.i195 = icmp eq ptr %.0.i194, %65
-  br i1 %.not63.i195, label %read_qpack_prefixed_integer.exit197, label %.lr.ph.i188, !llvm.loop !13
+  br i1 %.not63.i195, label %read_qpack_prefixed_integer.exit197, label %.lr.ph.i188, !llvm.loop !12
 
 .lr.ph.i188:                                      ; preds = %71, %.lr.ph.preheader.i186
   %.078.i189 = phi ptr [ %.0.i194, %71 ], [ %.073.i187, %.lr.ph.preheader.i186 ]
@@ -1364,7 +1364,7 @@ read_qpack_prefixed_integer.exit197:              ; preds = %71, %.lr.ph.i188, %
   %129 = add nuw nsw i64 %.05276.i205, 7
   %.0.i208 = getelementptr i8, ptr %.078.i203, i64 1
   %.not63.i209 = icmp eq ptr %.0.i208, %122
-  br i1 %.not63.i209, label %read_qpack_prefixed_integer.exit211, label %.lr.ph.i202, !llvm.loop !13
+  br i1 %.not63.i209, label %read_qpack_prefixed_integer.exit211, label %.lr.ph.i202, !llvm.loop !12
 
 .lr.ph.i202:                                      ; preds = %128, %.lr.ph.preheader.i200
   %.078.i203 = phi ptr [ %.0.i208, %128 ], [ %.073.i201, %.lr.ph.preheader.i200 ]
@@ -1430,7 +1430,7 @@ read_qpack_prefixed_integer.exit211:              ; preds = %128, %.lr.ph.i202, 
   %165 = add nuw nsw i64 %.05276.i219, 7
   %.0.i222 = getelementptr i8, ptr %.078.i217, i64 1
   %.not63.i223 = icmp eq ptr %.0.i222, %158
-  br i1 %.not63.i223, label %read_qpack_prefixed_integer.exit225, label %.lr.ph.i216, !llvm.loop !13
+  br i1 %.not63.i223, label %read_qpack_prefixed_integer.exit225, label %.lr.ph.i216, !llvm.loop !12
 
 .lr.ph.i216:                                      ; preds = %164, %.lr.ph.preheader.i214
   %.078.i217 = phi ptr [ %.0.i222, %164 ], [ %.073.i215, %.lr.ph.preheader.i214 ]
@@ -1555,7 +1555,7 @@ read_qpack_prefixed_integer.exit225:              ; preds = %164, %.lr.ph.i216, 
   %233 = add nuw nsw i64 %.05276.i233, 7
   %.0.i236 = getelementptr i8, ptr %.078.i231, i64 1
   %.not63.i237 = icmp eq ptr %.0.i236, %225
-  br i1 %.not63.i237, label %read_qpack_prefixed_integer.exit239, label %.lr.ph.i230, !llvm.loop !13
+  br i1 %.not63.i237, label %read_qpack_prefixed_integer.exit239, label %.lr.ph.i230, !llvm.loop !12
 
 .lr.ph.i230:                                      ; preds = %232, %.lr.ph.preheader.i228
   %.078.i231 = phi ptr [ %.0.i236, %232 ], [ %.073.i229, %.lr.ph.preheader.i228 ]
@@ -1618,7 +1618,7 @@ read_qpack_prefixed_integer.exit239:              ; preds = %232, %.lr.ph.i230, 
   %264 = add nuw nsw i64 %.05276.i247, 7
   %.0.i250 = getelementptr i8, ptr %.078.i245, i64 1
   %.not63.i251 = icmp eq ptr %.0.i250, %225
-  br i1 %.not63.i251, label %read_qpack_prefixed_integer.exit253, label %.lr.ph.i244, !llvm.loop !13
+  br i1 %.not63.i251, label %read_qpack_prefixed_integer.exit253, label %.lr.ph.i244, !llvm.loop !12
 
 .lr.ph.i244:                                      ; preds = %262, %.lr.ph.preheader.i242
   %.078.i245 = phi ptr [ %.0.i250, %262 ], [ %.073.i243, %.lr.ph.preheader.i242 ]
@@ -1727,7 +1727,7 @@ read_qpack_prefixed_integer.exit253.thread:       ; preds = %260, %read_qpack_pr
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   %305 = icmp ult i32 %.2, %10
-  br i1 %305, label %14, label %.critedge, !llvm.loop !14
+  br i1 %305, label %14, label %.critedge, !llvm.loop !13
 
 .critedge:                                        ; preds = %14, %302, %4
   %.0.lcssa = phi i32 [ 0, %4 ], [ %.2, %302 ], [ %.045, %14 ]
@@ -1775,7 +1775,7 @@ define internal i32 @http3_conn_info_hash(ptr noundef readonly captures(address_
   %5 = load i8, ptr %0, align 8
   %narrow = tail call i8 @llvm.umin.i8(i8 %5, i8 20)
   %spec.select = zext nneg i8 %narrow to i64
-  %6 = call ptr @__memcpy_chk(ptr noundef nonnull %2, ptr noundef nonnull %4, i64 noundef range(i64 0, 21) %spec.select, i64 noundef 20) #15, !alias.scope !15
+  %6 = call ptr @__memcpy_chk(ptr noundef nonnull %2, ptr noundef nonnull %4, i64 noundef range(i64 0, 21) %spec.select, i64 noundef 20) #15, !alias.scope !14
   %7 = call i32 @wmem_strong_hash(ptr noundef nonnull %2, i64 noundef 20)
   br label %8
 
@@ -1885,16 +1885,15 @@ attributes #18 = { nounwind returns_twice }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7, !8}
-!11 = !{i8 0, i8 2}
-!12 = !{}
-!13 = distinct !{!13, !7, !8}
-!14 = distinct !{!14, !7, !8}
-!15 = !{!16, !18}
-!16 = distinct !{!16, !17, !"memcpy.inline: argument 0"}
-!17 = distinct !{!17, !"memcpy.inline"}
-!18 = distinct !{!18, !17, !"memcpy.inline: argument 1"}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = !{i8 0, i8 2}
+!11 = !{}
+!12 = distinct !{!12, !7}
+!13 = distinct !{!13, !7}
+!14 = !{!15, !17}
+!15 = distinct !{!15, !16, !"memcpy.inline: argument 0"}
+!16 = distinct !{!16, !"memcpy.inline"}
+!17 = distinct !{!17, !16, !"memcpy.inline: argument 1"}

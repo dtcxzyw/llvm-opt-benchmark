@@ -323,7 +323,7 @@ iface_append_unicast.exit:                        ; preds = %74, %76
 85:                                               ; preds = %81, %iface_append_unicast.exit
   %.0 = load ptr, ptr %.049, align 8, !tbaa !17
   %.not41 = icmp eq ptr %.0, null
-  br i1 %.not41, label %._crit_edge.loopexit, label %23, !llvm.loop !29
+  br i1 %.not41, label %._crit_edge.loopexit, label %23
 
 ._crit_edge.loopexit:                             ; preds = %85
   %.pre = load ptr, ptr %4, align 8, !tbaa !17
@@ -418,5 +418,3 @@ attributes #8 = { nounwind willreturn memory(none) }
 !26 = !{!23, !11, i64 16}
 !27 = !{!23, !25, i64 24}
 !28 = !{!23, !25, i64 32}
-!29 = distinct !{!29, !30}
-!30 = !{!"llvm.loop.estimated_trip_count"}

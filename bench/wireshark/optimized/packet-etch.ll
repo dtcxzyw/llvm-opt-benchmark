@@ -344,7 +344,7 @@ gbl_symbols_new.exit.i:                           ; preds = %37
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #10
   %54 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #9
   %55 = icmp ult i64 %54, 10
-  br i1 %55, label %74, label %.lr.ph.preheader.i.i, !llvm.loop !9
+  br i1 %55, label %74, label %.lr.ph.preheader.i.i, !llvm.loop !8
 
 .lr.ph.preheader.i.i:                             ; preds = %.lr.ph30.i.i
   %.023.i.i = add i64 %54, -1
@@ -363,7 +363,7 @@ gbl_symbols_new.exit.i:                           ; preds = %37
 .critedge2.i.i:                                   ; preds = %.lr.ph.i19.i, %.lr.ph.i19.i
   %.0.i.i = add i64 %.026.i.i, -1
   %.not19.i.i = icmp eq i64 %.0.i.i, 0
-  br i1 %.not19.i.i, label %.critedge.i.i, label %.lr.ph.i19.i, !llvm.loop !10
+  br i1 %.not19.i.i, label %.critedge.i.i, label %.lr.ph.i19.i, !llvm.loop !9
 
 .critedge.i.i:                                    ; preds = %.critedge2.i.i, %.lr.ph.i19.i
   %.0.in.lcssa.i.i = phi i64 [ 1, %.critedge2.i.i ], [ %.0.in25.i.i, %.lr.ph.i19.i ]
@@ -371,7 +371,7 @@ gbl_symbols_new.exit.i:                           ; preds = %37
   store i8 0, ptr %58, align 1
   %59 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %2, ptr noundef nonnull @.str.82, ptr noundef nonnull %3) #10
   %.not20.i.i = icmp eq i32 %59, 1
-  br i1 %.not20.i.i, label %60, label %74, !llvm.loop !9
+  br i1 %.not20.i.i, label %60, label %74, !llvm.loop !8
 
 60:                                               ; preds = %.critedge.i.i
   %61 = call i64 @strcspn(ptr noundef nonnull %2, ptr noundef nonnull @.str.83) #9
@@ -411,7 +411,7 @@ gbl_symbols_array_append.exit.i.i:                ; preds = %68
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #10
   %75 = call ptr @fgets(ptr noundef nonnull %2, i32 noundef 256, ptr noundef nonnull %51)
   %.not18.i.i = icmp eq ptr %75, null
-  br i1 %.not18.i.i, label %._crit_edge.i20.i, label %.lr.ph30.i.i, !llvm.loop !11
+  br i1 %.not18.i.i, label %._crit_edge.i20.i, label %.lr.ph30.i.i
 
 ._crit_edge.i20.i:                                ; preds = %74, %52
   %76 = call i32 @fclose(ptr noundef nonnull %51)
@@ -425,7 +425,7 @@ add_symbols_of_file.exit.i:                       ; preds = %._crit_edge.i20.i, 
 77:                                               ; preds = %add_symbols_of_file.exit.i, %46
   %78 = call ptr @g_dir_read_name(ptr noundef nonnull %36)
   %.not16.i = icmp eq ptr %78, null
-  br i1 %.not16.i, label %._crit_edge.i, label %46, !llvm.loop !12
+  br i1 %.not16.i, label %._crit_edge.i, label %46, !llvm.loop !10
 
 ._crit_edge.i:                                    ; preds = %77, %gbl_symbols_new.exit.i
   call void @g_dir_close(ptr noundef nonnull %36)
@@ -716,7 +716,7 @@ read_key_value.exit:                              ; preds = %.lr.ph, %39
   %48 = tail call fastcc i32 @read_value(ptr noundef %0, ptr noundef %1, ptr noundef %46, ptr noundef %3, i32 noundef %47)
   %49 = add nuw nsw i32 %.027, 1
   %exitcond.not = icmp eq i32 %49, %26
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !13
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %read_key_value.exit, %22
   %50 = load i32, ptr %0, align 4
@@ -830,7 +830,7 @@ read_array_type.exit:                             ; preds = %16, %33
   %52 = tail call fastcc i32 @read_value(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %51)
   %53 = add nsw i32 %.0.i59, -1
   %54 = icmp samesign ugt i32 %.0.i59, 1
-  br i1 %54, label %.lr.ph, label %read_array.exit, !llvm.loop !14
+  br i1 %54, label %.lr.ph, label %read_array.exit, !llvm.loop !12
 
 read_array.exit:                                  ; preds = %.lr.ph, %read_array_type.exit
   %55 = load i32, ptr %0, align 4
@@ -1232,12 +1232,10 @@ attributes #11 = { noreturn }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
+!8 = distinct !{!8, !7}
 !9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7, !8}
-!11 = distinct !{!11, !8}
-!12 = distinct !{!12, !7, !8}
-!13 = distinct !{!13, !7, !8}
-!14 = distinct !{!14, !7, !8}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7}
+!12 = distinct !{!12, !7}

@@ -407,7 +407,7 @@ hwm_energy.exit5:                                 ; preds = %136, %152
   br label %169
 
 169:                                              ; preds = %hwm_energy.exit5, %130
-  br i1 %131, label %130, label %.loopexit6, !llvm.loop !9
+  br i1 %131, label %130, label %.loopexit6, !llvm.loop !8
 
 .loopexit6:                                       ; preds = %169, %124
   %170 = tail call ptr @devm_hwmon_device_register_with_info(ptr noundef %3, ptr noundef nonnull %18, ptr noundef nonnull %11, ptr noundef nonnull @hwm_chip_info, ptr noundef nonnull @hwm_groups) #10
@@ -455,7 +455,7 @@ hwm_energy.exit5:                                 ; preds = %136, %152
   br label %197
 
 197:                                              ; preds = %195, %191, %181, %175
-  br i1 %176, label %175, label %.loopexit, !llvm.loop !10
+  br i1 %176, label %175, label %.loopexit, !llvm.loop !9
 
 .loopexit:                                        ; preds = %197, %172, %10, %1
   ret void
@@ -610,7 +610,7 @@ define internal zeroext range(i16 0, 437) i16 @hwm_is_visible(ptr noundef readon
   %27 = load ptr, ptr %26, align 8
   %28 = load ptr, ptr %0, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #10
-  store i32 0, ptr %6, align 4, !annotation !11
+  store i32 0, ptr %6, align 4, !annotation !10
   switch i32 %2, label %51 [
     i32 19, label %29
     i32 30, label %34
@@ -675,7 +675,7 @@ define internal zeroext range(i16 0, 437) i16 @hwm_is_visible(ptr noundef readon
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 8
   %69 = load ptr, ptr %68, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #10
-  store i32 0, ptr %5, align 4, !annotation !11
+  store i32 0, ptr %5, align 4, !annotation !10
   %70 = icmp eq i32 %2, 5
   br i1 %70, label %71, label %83
 
@@ -760,7 +760,7 @@ define internal i32 @hwm_read(ptr noundef readonly captures(none) %0, i32 nounde
 37:                                               ; preds = %5
   %38 = load ptr, ptr %9, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #10
-  store i32 0, ptr %7, align 4, !annotation !11
+  store i32 0, ptr %7, align 4, !annotation !10
   switch i32 %2, label %.thread6 [
     i32 19, label %39
     i32 30, label %120
@@ -947,7 +947,7 @@ define internal i32 @hwm_read(ptr noundef readonly captures(none) %0, i32 nounde
 
 169:                                              ; preds = %5
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #10
-  store i32 0, ptr %6, align 4, !annotation !11
+  store i32 0, ptr %6, align 4, !annotation !10
   %170 = icmp eq i32 %2, 5
   br i1 %170, label %171, label %.thread7
 
@@ -1011,7 +1011,7 @@ define internal i32 @hwm_write(ptr noundef readonly captures(none) %0, i32 nound
   %11 = load ptr, ptr %8, align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6) #10
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %13 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #12, !srcloc !12
+  %13 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #12, !srcloc !11
   %14 = inttoptr i64 %13 to ptr
   store i64 0, ptr %6, align 8
   store ptr %14, ptr %12, align 8
@@ -1026,7 +1026,7 @@ define internal i32 @hwm_write(ptr noundef readonly captures(none) %0, i32 nound
   %19 = getelementptr inbounds nuw i8, ptr %8, i64 64
   call void @prepare_to_wait(ptr noundef nonnull %19, ptr noundef nonnull %6, i32 noundef 1) #10
   %20 = getelementptr inbounds nuw i8, ptr %11, i64 56
-  %21 = load i8, ptr %20, align 8, !range !13, !noundef !14
+  %21 = load i8, ptr %20, align 8, !range !12, !noundef !13
   %22 = icmp eq i8 %21, 0
   br i1 %22, label %.loopexit, label %.preheader
 
@@ -1034,7 +1034,7 @@ define internal i32 @hwm_write(ptr noundef readonly captures(none) %0, i32 nound
   %23 = load volatile i64, ptr %14, align 8
   %24 = and i64 %23, 131072
   %25 = icmp eq i64 %24, 0
-  br i1 %25, label %26, label %.critedge, !prof !15
+  br i1 %25, label %26, label %.critedge, !prof !14
 
 26:                                               ; preds = %.preheader
   %27 = load volatile i64, ptr %14, align 8
@@ -1047,9 +1047,9 @@ define internal i32 @hwm_write(ptr noundef readonly captures(none) %0, i32 nound
   call void @schedule() #10
   call void @mutex_lock(ptr noundef nonnull %18) #10
   call void @prepare_to_wait(ptr noundef nonnull %19, ptr noundef nonnull %6, i32 noundef 1) #10
-  %31 = load i8, ptr %20, align 8, !range !13, !noundef !14
+  %31 = load i8, ptr %20, align 8, !range !12, !noundef !13
   %32 = icmp eq i8 %31, 0
-  br i1 %32, label %.loopexit, label %.preheader, !llvm.loop !16
+  br i1 %32, label %.loopexit, label %.preheader, !llvm.loop !15
 
 .critedge:                                        ; preds = %.preheader, %26
   call void @finish_wait(ptr noundef nonnull %19, ptr noundef nonnull %6) #10
@@ -1253,7 +1253,7 @@ define internal i64 @hwm_power1_max_interval_store(ptr noundef readonly captures
   %7 = load ptr, ptr %6, align 8
   %8 = load ptr, ptr %7, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #10
-  store i64 0, ptr %5, align 8, !annotation !11
+  store i64 0, ptr %5, align 8, !annotation !10
   %9 = call i32 @kstrtoull(ptr noundef %2, i32 noundef 0, ptr noundef nonnull %5) #10
   %10 = icmp eq i32 %9, 0
   br i1 %10, label %13, label %11
@@ -1283,7 +1283,7 @@ define internal i64 @hwm_power1_max_interval_store(ptr noundef readonly captures
   br i1 %27, label %41, label %28
 
 28:                                               ; preds = %22
-  %29 = call i32 asm "bsrq $1,${0:q}", "=r,rm,0,~{dirflag},~{fpsr},~{flags}"(i64 %26, i32 -1) #13, !srcloc !17
+  %29 = call i32 asm "bsrq $1,${0:q}", "=r,rm,0,~{dirflag},~{fpsr},~{flags}"(i64 %26, i32 -1) #13, !srcloc !16
   %30 = zext i32 %29 to i64
   %31 = shl nsw i64 -1, %30
   %32 = add nsw i64 %31, %26
@@ -1387,16 +1387,15 @@ attributes #13 = { nounwind memory(read) }
 !2 = !{i32 4, !"function_return_thunk_extern", i32 1}
 !3 = !{i32 4, !"indirect_branch_cs_prefix", i32 1}
 !4 = !{i32 4, !"SkipRaxSetup", i32 1}
-!5 = distinct !{!5, !6, !7, !8}
+!5 = distinct !{!5, !6, !7}
 !6 = !{!"llvm.loop.mustprogress"}
 !7 = !{!"llvm.loop.unroll.disable"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !6, !7, !8}
-!10 = distinct !{!10, !6, !7, !8}
-!11 = !{!"auto-init"}
-!12 = !{i64 2148159112}
-!13 = !{i8 0, i8 2}
-!14 = !{}
-!15 = !{!"branch_weights", i32 2000, i32 1}
-!16 = distinct !{!16, !7, !8}
-!17 = !{i64 286015}
+!8 = distinct !{!8, !6, !7}
+!9 = distinct !{!9, !6, !7}
+!10 = !{!"auto-init"}
+!11 = !{i64 2148159112}
+!12 = !{i8 0, i8 2}
+!13 = !{}
+!14 = !{!"branch_weights", i32 2000, i32 1}
+!15 = distinct !{!15, !7}
+!16 = !{i64 286015}

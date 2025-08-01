@@ -171,7 +171,7 @@ define void @_ZN6Assimp12ScaleProcess7ExecuteEP7aiScene(ptr noundef nonnull read
   %indvars.iv.next213 = add nuw nsw i64 %indvars.iv212, 1
   %47 = zext i32 %46 to i64
   %48 = icmp samesign ult i64 %indvars.iv.next213, %47
-  br i1 %48, label %38, label %._crit_edge186.loopexit, !llvm.loop !6
+  br i1 %48, label %38, label %._crit_edge186.loopexit, !llvm.loop !5
 
 49:                                               ; preds = %.lr.ph, %49
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %49 ]
@@ -193,7 +193,7 @@ define void @_ZN6Assimp12ScaleProcess7ExecuteEP7aiScene(ptr noundef nonnull read
   %61 = load i32, ptr %43, align 4
   %62 = zext i32 %61 to i64
   %63 = icmp samesign ult i64 %indvars.iv.next, %62
-  br i1 %63, label %49, label %._crit_edge.loopexit, !llvm.loop !7
+  br i1 %63, label %49, label %._crit_edge.loopexit, !llvm.loop !6
 
 ._crit_edge203:                                   ; preds = %._crit_edge200, %.preheader180
   %64 = load ptr, ptr %11, align 8
@@ -244,7 +244,7 @@ define void @_ZN6Assimp12ScaleProcess7ExecuteEP7aiScene(ptr noundef nonnull read
   %87 = load i32, ptr %69, align 4
   %88 = zext i32 %87 to i64
   %89 = icmp samesign ult i64 %indvars.iv.next219, %88
-  br i1 %89, label %75, label %.preheader179, !llvm.loop !8
+  br i1 %89, label %75, label %.preheader179, !llvm.loop !7
 
 .preheader:                                       ; preds = %93, %.preheader179
   %90 = getelementptr inbounds nuw i8, ptr %68, i64 1264
@@ -286,13 +286,13 @@ define void @_ZN6Assimp12ScaleProcess7ExecuteEP7aiScene(ptr noundef nonnull read
   %.sroa.0123.0.copyload = load float, ptr %4, align 4
   %.sroa.4124.0.copyload = load float, ptr %22, align 4
   %.sroa.5.0.copyload = load float, ptr %23, align 4
-  %105 = load float, ptr %25, align 4, !noalias !9
-  %106 = load float, ptr %26, align 4, !noalias !9
+  %105 = load float, ptr %25, align 4, !noalias !8
+  %106 = load float, ptr %26, align 4, !noalias !8
   %107 = fmul float %106, %106
   %108 = call float @llvm.fmuladd.f32(float %105, float %105, float %107)
   %109 = call float @llvm.fmuladd.f32(float %108, float -2.000000e+00, float 1.000000e+00)
-  %110 = load float, ptr %24, align 4, !noalias !9
-  %111 = load float, ptr %5, align 4, !noalias !9
+  %110 = load float, ptr %24, align 4, !noalias !8
+  %111 = load float, ptr %5, align 4, !noalias !8
   %112 = fneg float %111
   %113 = fmul float %106, %112
   %114 = call float @llvm.fmuladd.f32(float %110, float %105, float %113)
@@ -446,14 +446,14 @@ define void @_ZN6Assimp12ScaleProcess7ExecuteEP7aiScene(ptr noundef nonnull read
   %227 = load i32, ptr %72, align 8
   %228 = zext i32 %227 to i64
   %229 = icmp samesign ult i64 %indvars.iv.next222, %228
-  br i1 %229, label %93, label %.preheader, !llvm.loop !12
+  br i1 %229, label %93, label %.preheader, !llvm.loop !11
 
 ._crit_edge200:                                   ; preds = %._crit_edge197, %.preheader
   %indvars.iv.next231 = add nuw nsw i64 %indvars.iv230, 1
   %230 = load i32, ptr %17, align 8
   %231 = zext i32 %230 to i64
   %232 = icmp samesign ult i64 %indvars.iv.next231, %231
-  br i1 %232, label %65, label %._crit_edge203, !llvm.loop !13
+  br i1 %232, label %65, label %._crit_edge203, !llvm.loop !12
 
 233:                                              ; preds = %.lr.ph199, %._crit_edge197
   %234 = phi i32 [ %91, %.lr.ph199 ], [ %241, %._crit_edge197 ]
@@ -479,7 +479,7 @@ define void @_ZN6Assimp12ScaleProcess7ExecuteEP7aiScene(ptr noundef nonnull read
   %indvars.iv.next228 = add nuw nsw i64 %indvars.iv227, 1
   %242 = zext i32 %241 to i64
   %243 = icmp samesign ult i64 %indvars.iv.next228, %242
-  br i1 %243, label %233, label %._crit_edge200, !llvm.loop !14
+  br i1 %243, label %233, label %._crit_edge200, !llvm.loop !13
 
 244:                                              ; preds = %.lr.ph196, %244
   %indvars.iv224 = phi i64 [ 0, %.lr.ph196 ], [ %indvars.iv.next225, %244 ]
@@ -501,7 +501,7 @@ define void @_ZN6Assimp12ScaleProcess7ExecuteEP7aiScene(ptr noundef nonnull read
   %256 = load i32, ptr %238, align 8
   %257 = zext i32 %256 to i64
   %258 = icmp samesign ult i64 %indvars.iv.next225, %257
-  br i1 %258, label %244, label %._crit_edge197.loopexit, !llvm.loop !15
+  br i1 %258, label %244, label %._crit_edge197.loopexit, !llvm.loop !14
 
 259:                                              ; preds = %10, %2, %._crit_edge203
   ret void
@@ -798,7 +798,7 @@ define void @_ZN6Assimp12ScaleProcess13traverseNodesEP6aiNodej(ptr noundef nonnu
   %13 = load i32, ptr %4, align 8
   %14 = zext i32 %13 to i64
   %15 = icmp samesign ult i64 %12, %14
-  br i1 %15, label %8, label %._crit_edge, !llvm.loop !16
+  br i1 %15, label %8, label %._crit_edge, !llvm.loop !15
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -843,13 +843,13 @@ define void @_ZN6Assimp12ScaleProcess12applyScalingEP6aiNode(ptr noundef nonnull
   %23 = load float, ptr %4, align 4
   %24 = load float, ptr %9, align 4
   %25 = load float, ptr %10, align 4
-  %26 = load float, ptr %12, align 4, !noalias !17
-  %27 = load float, ptr %13, align 4, !noalias !17
+  %26 = load float, ptr %12, align 4, !noalias !16
+  %27 = load float, ptr %13, align 4, !noalias !16
   %28 = fmul float %27, %27
   %29 = call float @llvm.fmuladd.f32(float %26, float %26, float %28)
   %30 = call float @llvm.fmuladd.f32(float %29, float -2.000000e+00, float 1.000000e+00)
-  %31 = load float, ptr %11, align 4, !noalias !17
-  %32 = load float, ptr %5, align 4, !noalias !17
+  %31 = load float, ptr %11, align 4, !noalias !16
+  %32 = load float, ptr %5, align 4, !noalias !16
   %33 = fneg float %32
   %34 = fmul float %27, %33
   %35 = call float @llvm.fmuladd.f32(float %31, float %26, float %34)
@@ -1052,20 +1052,19 @@ attributes #15 = { builtin nounwind }
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = distinct !{!3, !4, !5}
+!3 = distinct !{!3, !4}
 !4 = !{!"llvm.loop.mustprogress"}
-!5 = !{!"llvm.loop.estimated_trip_count"}
-!6 = distinct !{!6, !4, !5}
-!7 = distinct !{!7, !4, !5}
-!8 = distinct !{!8, !4, !5}
-!9 = !{!10}
-!10 = distinct !{!10, !11, !"_ZNK13aiQuaterniontIfE9GetMatrixEv: argument 0"}
-!11 = distinct !{!11, !"_ZNK13aiQuaterniontIfE9GetMatrixEv"}
-!12 = distinct !{!12, !4, !5}
-!13 = distinct !{!13, !4, !5}
-!14 = distinct !{!14, !4, !5}
-!15 = distinct !{!15, !4, !5}
-!16 = distinct !{!16, !4, !5}
-!17 = !{!18}
-!18 = distinct !{!18, !19, !"_ZNK13aiQuaterniontIfE9GetMatrixEv: argument 0"}
-!19 = distinct !{!19, !"_ZNK13aiQuaterniontIfE9GetMatrixEv"}
+!5 = distinct !{!5, !4}
+!6 = distinct !{!6, !4}
+!7 = distinct !{!7, !4}
+!8 = !{!9}
+!9 = distinct !{!9, !10, !"_ZNK13aiQuaterniontIfE9GetMatrixEv: argument 0"}
+!10 = distinct !{!10, !"_ZNK13aiQuaterniontIfE9GetMatrixEv"}
+!11 = distinct !{!11, !4}
+!12 = distinct !{!12, !4}
+!13 = distinct !{!13, !4}
+!14 = distinct !{!14, !4}
+!15 = distinct !{!15, !4}
+!16 = !{!17}
+!17 = distinct !{!17, !18, !"_ZNK13aiQuaterniontIfE9GetMatrixEv: argument 0"}
+!18 = distinct !{!18, !"_ZNK13aiQuaterniontIfE9GetMatrixEv"}

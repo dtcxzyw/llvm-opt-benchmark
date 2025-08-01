@@ -1534,9 +1534,9 @@ define noundef range(i32 -1, 1) i32 @_ZN3zmq13ip_resolver_t16resolve_nic_nameEPN
 
 19:                                               ; preds = %.thread41
   %20 = call ptr @strerror(i32 noundef %17) #21
-  %21 = load ptr, ptr @stderr, align 8, !tbaa !57
+  %21 = load ptr, ptr @stderr, align 8, !tbaa !56
   %22 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %21, ptr noundef nonnull @.str.6, ptr noundef %20, ptr noundef nonnull @.str.4, i32 noundef 542) #26
-  %23 = load ptr, ptr @stderr, align 8, !tbaa !57
+  %23 = load ptr, ptr @stderr, align 8, !tbaa !56
   %24 = call i32 @fflush(ptr noundef %23)
   call void @_ZN3zmq9zmq_abortEPKc(ptr noundef %20)
   br label %.thread
@@ -1544,12 +1544,12 @@ define noundef range(i32 -1, 1) i32 @_ZN3zmq13ip_resolver_t16resolve_nic_nameEPN
 .thread:                                          ; preds = %5, %19
   %25 = load ptr, ptr %4, align 8, !tbaa !52
   %.not35 = icmp eq ptr %25, null
-  br i1 %.not35, label %26, label %.lr.ph, !prof !59
+  br i1 %.not35, label %26, label %.lr.ph, !prof !58
 
 26:                                               ; preds = %.thread
-  %27 = load ptr, ptr @stderr, align 8, !tbaa !57
+  %27 = load ptr, ptr @stderr, align 8, !tbaa !56
   %28 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %27, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.4, i32 noundef 543) #26
-  %29 = load ptr, ptr @stderr, align 8, !tbaa !57
+  %29 = load ptr, ptr @stderr, align 8, !tbaa !56
   %30 = call i32 @fflush(ptr noundef %29)
   call void @_ZN3zmq9zmq_abortEPKc(ptr noundef nonnull @.str.7)
   %.02253.pre = load ptr, ptr %4, align 8, !tbaa !52
@@ -1567,19 +1567,19 @@ define noundef range(i32 -1, 1) i32 @_ZN3zmq13ip_resolver_t16resolve_nic_nameEPN
 36:                                               ; preds = %.lr.ph, %.thread44
   %.02255 = phi ptr [ %31, %.lr.ph ], [ %.022, %.thread44 ]
   %37 = getelementptr inbounds nuw i8, ptr %.02255, i64 24
-  %38 = load ptr, ptr %37, align 8, !tbaa !60
+  %38 = load ptr, ptr %37, align 8, !tbaa !59
   %39 = icmp eq ptr %38, null
   br i1 %39, label %.thread44, label %40
 
 40:                                               ; preds = %36
-  %41 = load i16, ptr %38, align 2, !tbaa !63
+  %41 = load i16, ptr %38, align 2, !tbaa !62
   %42 = zext i16 %41 to i32
   %43 = icmp eq i32 %35, %42
   br i1 %43, label %44, label %.thread44
 
 44:                                               ; preds = %40
   %45 = getelementptr inbounds nuw i8, ptr %.02255, i64 8
-  %46 = load ptr, ptr %45, align 8, !tbaa !65
+  %46 = load ptr, ptr %45, align 8, !tbaa !64
   %47 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(1) %46) #22
   %.not37 = icmp eq i32 %47, 0
   br i1 %.not37, label %.thread47, label %.thread44
@@ -1594,7 +1594,7 @@ define noundef range(i32 -1, 1) i32 @_ZN3zmq13ip_resolver_t16resolve_nic_nameEPN
 .thread44:                                        ; preds = %40, %44, %36
   %.022 = load ptr, ptr %.02255, align 8, !tbaa !52
   %.not36 = icmp eq ptr %.022, null
-  br i1 %.not36, label %._crit_edge, label %36, !llvm.loop !66
+  br i1 %.not36, label %._crit_edge, label %36, !llvm.loop !65
 
 ._crit_edge:                                      ; preds = %.thread44, %26
   %50 = phi ptr [ null, %26 ], [ %31, %.thread44 ]
@@ -1614,7 +1614,7 @@ define noundef range(i32 -1, 1) i32 @_ZN3zmq13ip_resolver_t19resolve_getaddrinfo
   %4 = alloca ptr, align 8
   %5 = alloca %struct.addrinfo, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #21
-  store ptr null, ptr %4, align 8, !tbaa !67
+  store ptr null, ptr %4, align 8, !tbaa !66
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5) #21
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %6, i8 0, i64 40, i1 false)
@@ -1624,9 +1624,9 @@ define noundef range(i32 -1, 1) i32 @_ZN3zmq13ip_resolver_t19resolve_getaddrinfo
   %10 = trunc nuw i8 %9 to i1
   %11 = select i1 %10, i32 10, i32 2
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  store i32 %11, ptr %12, align 4, !tbaa !69
+  store i32 %11, ptr %12, align 4, !tbaa !68
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store i32 1, ptr %13, align 8, !tbaa !71
+  store i32 1, ptr %13, align 8, !tbaa !70
   %14 = load i8, ptr %7, align 8, !tbaa !14, !range !22, !noundef !23
   %spec.store.select = zext nneg i8 %14 to i32
   store i32 %spec.store.select, ptr %5, align 8
@@ -1642,7 +1642,7 @@ define noundef range(i32 -1, 1) i32 @_ZN3zmq13ip_resolver_t19resolve_getaddrinfo
   %22 = select i1 %17, i32 %spec.store.select, i32 %21
   %23 = or disjoint i32 %22, 8
   %simplifycfg.merge = select i1 %10, i32 %23, i32 %22
-  store i32 %simplifycfg.merge, ptr %5, align 8, !tbaa !72
+  store i32 %simplifycfg.merge, ptr %5, align 8, !tbaa !71
   br label %24
 
 24:                                               ; preds = %3, %20
@@ -1654,14 +1654,14 @@ define noundef range(i32 -1, 1) i32 @_ZN3zmq13ip_resolver_t19resolve_getaddrinfo
   br i1 %29, label %30, label %39
 
 30:                                               ; preds = %24
-  %31 = load i32, ptr %5, align 8, !tbaa !72
+  %31 = load i32, ptr %5, align 8, !tbaa !71
   %32 = and i32 %31, 8
   %.not = icmp eq i32 %32, 0
   br i1 %.not, label %.thread, label %33
 
 33:                                               ; preds = %30
   %34 = and i32 %31, -9
-  store i32 %34, ptr %5, align 8, !tbaa !72
+  store i32 %34, ptr %5, align 8, !tbaa !71
   %35 = load ptr, ptr %0, align 8, !tbaa !24
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 16
   %37 = load ptr, ptr %36, align 8
@@ -1695,42 +1695,42 @@ define noundef range(i32 -1, 1) i32 @_ZN3zmq13ip_resolver_t19resolve_getaddrinfo
   br label %73
 
 47:                                               ; preds = %39
-  %48 = load ptr, ptr %4, align 8, !tbaa !67
+  %48 = load ptr, ptr %4, align 8, !tbaa !66
   %.not10 = icmp eq ptr %48, null
-  br i1 %.not10, label %49, label %54, !prof !59
+  br i1 %.not10, label %49, label %54, !prof !58
 
 49:                                               ; preds = %47
-  %50 = load ptr, ptr @stderr, align 8, !tbaa !57
+  %50 = load ptr, ptr @stderr, align 8, !tbaa !56
   %51 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %50, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4, i32 noundef 394) #26
-  %52 = load ptr, ptr @stderr, align 8, !tbaa !57
+  %52 = load ptr, ptr @stderr, align 8, !tbaa !56
   %53 = call i32 @fflush(ptr noundef %52)
   call void @_ZN3zmq9zmq_abortEPKc(ptr noundef nonnull @.str.3)
-  %.pre = load ptr, ptr %4, align 8, !tbaa !67
+  %.pre = load ptr, ptr %4, align 8, !tbaa !66
   br label %54
 
 54:                                               ; preds = %47, %49
   %55 = phi ptr [ %48, %47 ], [ %.pre, %49 ]
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 16
-  %57 = load i32, ptr %56, align 8, !tbaa !73
+  %57 = load i32, ptr %56, align 8, !tbaa !72
   %58 = icmp ugt i32 %57, 28
-  br i1 %58, label %59, label %64, !prof !59
+  br i1 %58, label %59, label %64, !prof !58
 
 59:                                               ; preds = %54
-  %60 = load ptr, ptr @stderr, align 8, !tbaa !57
+  %60 = load ptr, ptr @stderr, align 8, !tbaa !56
   %61 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %60, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.4, i32 noundef 395) #26
-  %62 = load ptr, ptr @stderr, align 8, !tbaa !57
+  %62 = load ptr, ptr @stderr, align 8, !tbaa !56
   %63 = call i32 @fflush(ptr noundef %62)
   call void @_ZN3zmq9zmq_abortEPKc(ptr noundef nonnull @.str.5)
-  %.pre12 = load ptr, ptr %4, align 8, !tbaa !67
+  %.pre12 = load ptr, ptr %4, align 8, !tbaa !66
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre12, i64 16
-  %.pre13 = load i32, ptr %.phi.trans.insert, align 8, !tbaa !73
+  %.pre13 = load i32, ptr %.phi.trans.insert, align 8, !tbaa !72
   br label %64
 
 64:                                               ; preds = %59, %54
   %65 = phi i32 [ %.pre13, %59 ], [ %57, %54 ]
   %66 = phi ptr [ %.pre12, %59 ], [ %55, %54 ]
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 24
-  %68 = load ptr, ptr %67, align 8, !tbaa !74
+  %68 = load ptr, ptr %67, align 8, !tbaa !73
   %69 = zext i32 %65 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %1, ptr align 2 %68, i64 %69, i1 false)
   %70 = load ptr, ptr %0, align 8, !tbaa !24
@@ -1921,24 +1921,23 @@ attributes #26 = { cold nounwind }
 !51 = !{i64 0, i64 26, !3}
 !52 = !{!53, !53, i64 0}
 !53 = !{!"p1 _ZTS7ifaddrs", !29, i64 0}
-!54 = distinct !{!54, !55, !56}
+!54 = distinct !{!54, !55}
 !55 = !{!"llvm.loop.mustprogress"}
-!56 = !{!"llvm.loop.estimated_trip_count"}
-!57 = !{!58, !58, i64 0}
-!58 = !{!"p1 _ZTS8_IO_FILE", !29, i64 0}
-!59 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!60 = !{!61, !62, i64 24}
-!61 = !{!"_ZTS7ifaddrs", !53, i64 0, !28, i64 8, !10, i64 16, !62, i64 24, !62, i64 32, !4, i64 40, !29, i64 48}
-!62 = !{!"p1 _ZTS8sockaddr", !29, i64 0}
-!63 = !{!64, !8, i64 0}
-!64 = !{!"_ZTS8sockaddr", !8, i64 0, !4, i64 2}
-!65 = !{!61, !28, i64 8}
-!66 = distinct !{!66, !55, !56}
-!67 = !{!68, !68, i64 0}
-!68 = !{!"p1 _ZTS8addrinfo", !29, i64 0}
-!69 = !{!70, !10, i64 4}
-!70 = !{!"_ZTS8addrinfo", !10, i64 0, !10, i64 4, !10, i64 8, !10, i64 12, !10, i64 16, !62, i64 24, !28, i64 32, !68, i64 40}
-!71 = !{!70, !10, i64 8}
-!72 = !{!70, !10, i64 0}
-!73 = !{!70, !10, i64 16}
-!74 = !{!70, !62, i64 24}
+!56 = !{!57, !57, i64 0}
+!57 = !{!"p1 _ZTS8_IO_FILE", !29, i64 0}
+!58 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!59 = !{!60, !61, i64 24}
+!60 = !{!"_ZTS7ifaddrs", !53, i64 0, !28, i64 8, !10, i64 16, !61, i64 24, !61, i64 32, !4, i64 40, !29, i64 48}
+!61 = !{!"p1 _ZTS8sockaddr", !29, i64 0}
+!62 = !{!63, !8, i64 0}
+!63 = !{!"_ZTS8sockaddr", !8, i64 0, !4, i64 2}
+!64 = !{!60, !28, i64 8}
+!65 = distinct !{!65, !55}
+!66 = !{!67, !67, i64 0}
+!67 = !{!"p1 _ZTS8addrinfo", !29, i64 0}
+!68 = !{!69, !10, i64 4}
+!69 = !{!"_ZTS8addrinfo", !10, i64 0, !10, i64 4, !10, i64 8, !10, i64 12, !10, i64 16, !61, i64 24, !28, i64 32, !67, i64 40}
+!70 = !{!69, !10, i64 8}
+!71 = !{!69, !10, i64 0}
+!72 = !{!69, !10, i64 16}
+!73 = !{!69, !61, i64 24}

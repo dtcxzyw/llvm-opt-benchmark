@@ -77,13 +77,13 @@ define range(i32 -2147483647, -2147483648) i32 @av_strerror(i32 noundef %0, ptr 
 5:                                                ; preds = %3, %4
   %indvars.iv = phi i64 [ 0, %3 ], [ %indvars.iv.next, %4 ]
   %6 = getelementptr inbounds nuw [29 x %struct.error_entry], ptr @error_entries, i64 0, i64 %indvars.iv
-  %7 = load i32, ptr %6, align 8, !tbaa !7
+  %7 = load i32, ptr %6, align 8, !tbaa !6
   %8 = icmp eq i32 %0, %7
   br i1 %8, label %9, label %4
 
 9:                                                ; preds = %5
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %11 = load ptr, ptr %10, align 8, !tbaa !14
+  %11 = load ptr, ptr %10, align 8, !tbaa !13
   %12 = tail call i64 @av_strlcpy(ptr noundef %1, ptr noundef %11, i64 noundef %2) #4
   br label %20
 
@@ -123,14 +123,13 @@ attributes #4 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 1, !"override-stack-alignment", i32 16}
-!4 = distinct !{!4, !5, !6}
+!4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{!"llvm.loop.estimated_trip_count"}
-!7 = !{!8, !9, i64 0}
-!8 = !{!"error_entry", !9, i64 0, !12, i64 8, !12, i64 16}
-!9 = !{!"int", !10, i64 0}
-!10 = !{!"omnipotent char", !11, i64 0}
-!11 = !{!"Simple C/C++ TBAA"}
-!12 = !{!"p1 omnipotent char", !13, i64 0}
-!13 = !{!"any pointer", !10, i64 0}
-!14 = !{!8, !12, i64 16}
+!6 = !{!7, !8, i64 0}
+!7 = !{!"error_entry", !8, i64 0, !11, i64 8, !11, i64 16}
+!8 = !{!"int", !9, i64 0}
+!9 = !{!"omnipotent char", !10, i64 0}
+!10 = !{!"Simple C/C++ TBAA"}
+!11 = !{!"p1 omnipotent char", !12, i64 0}
+!12 = !{!"any pointer", !9, i64 0}
+!13 = !{!7, !11, i64 16}

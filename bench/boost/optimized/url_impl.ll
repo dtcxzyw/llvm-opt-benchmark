@@ -105,7 +105,7 @@ _ZNK5boost4urls6detail8url_impl3lenEi.exit:       ; preds = %_ZNK5boost4urls6det
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define void @_ZN5boost4urls6detail8url_impl14apply_userinfoERKNS0_15pct_string_viewEPS4_(ptr noundef nonnull align 8 captures(none) dereferenceable(171) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #3 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %5 = load i64, ptr %4, align 8, !tbaa !17
+  %5 = load i64, ptr %4, align 8, !tbaa !16
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load i64, ptr %7, align 8, !tbaa !13
@@ -126,7 +126,7 @@ define void @_ZN5boost4urls6detail8url_impl14apply_userinfoERKNS0_15pct_string_v
 
 _ZN5boost4urls6detail8url_impl8set_sizeEim.exit:  ; preds = %11
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %16 = load i64, ptr %15, align 8, !tbaa !19
+  %16 = load i64, ptr %15, align 8, !tbaa !18
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store i64 %16, ptr %17, align 8, !tbaa !13
   %.not = icmp eq ptr %2, null
@@ -134,7 +134,7 @@ _ZN5boost4urls6detail8url_impl8set_sizeEim.exit:  ; preds = %11
 
 18:                                               ; preds = %_ZN5boost4urls6detail8url_impl8set_sizeEim.exit
   %19 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %20 = load i64, ptr %19, align 8, !tbaa !17
+  %20 = load i64, ptr %19, align 8, !tbaa !16
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %22 = load i64, ptr %21, align 8, !tbaa !13
   %23 = load i64, ptr %7, align 8, !tbaa !13
@@ -155,7 +155,7 @@ _ZN5boost4urls6detail8url_impl8set_sizeEim.exit:  ; preds = %11
 
 _ZN5boost4urls6detail8url_impl8set_sizeEim.exit10: ; preds = %26
   %30 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %31 = load i64, ptr %30, align 8, !tbaa !19
+  %31 = load i64, ptr %30, align 8, !tbaa !18
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store i64 %31, ptr %32, align 8, !tbaa !13
   br label %_ZN5boost4urls6detail8url_impl8set_sizeEim.exit15
@@ -185,9 +185,9 @@ _ZN5boost4urls6detail8url_impl8set_sizeEim.exit15: ; preds = %38, %_ZN5boost4url
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define void @_ZN5boost4urls6detail8url_impl10apply_hostENS0_9host_typeENS0_15pct_string_viewEPKh(ptr noundef nonnull align 8 captures(none) dereferenceable(171) initializes((164, 168)) %0, i32 noundef %1, ptr noundef readonly byval(%"class.boost::urls::pct_string_view") align 8 captures(none) %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #3 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 164
-  store i32 %1, ptr %5, align 4, !tbaa !22
+  store i32 %1, ptr %5, align 4, !tbaa !21
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %7 = load i64, ptr %6, align 8, !tbaa !17
+  %7 = load i64, ptr %6, align 8, !tbaa !16
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %10 = load i64, ptr %9, align 8, !tbaa !13
@@ -209,7 +209,7 @@ define void @_ZN5boost4urls6detail8url_impl10apply_hostENS0_9host_typeENS0_15pct
 
 _ZN5boost4urls6detail8url_impl8set_sizeEim.exit:  ; preds = %14
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %19 = load i64, ptr %18, align 8, !tbaa !19
+  %19 = load i64, ptr %18, align 8, !tbaa !18
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 88
   store i64 %19, ptr %20, align 8, !tbaa !13
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 144
@@ -220,7 +220,7 @@ _ZN5boost4urls6detail8url_impl8set_sizeEim.exit:  ; preds = %14
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define void @_ZN5boost4urls6detail8url_impl10apply_portENS_4core17basic_string_viewIcEEt(ptr noundef nonnull align 8 captures(none) dereferenceable(171) initializes((160, 162)) %0, ptr readnone captures(none) %1, i64 %2, i16 noundef zeroext %3) local_unnamed_addr #3 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 160
-  store i16 %3, ptr %5, align 8, !tbaa !23
+  store i16 %3, ptr %5, align 8, !tbaa !22
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %8 = load i64, ptr %7, align 8, !tbaa !13
@@ -252,7 +252,7 @@ define void @_ZN5boost4urls6detail8url_impl15apply_authorityERKNS0_14authority_v
   %5 = load i64, ptr %4, align 8, !tbaa !13
   %6 = load i64, ptr %3, align 8, !tbaa !13
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 170
-  %8 = load i8, ptr %7, align 2, !tbaa !24
+  %8 = load i8, ptr %7, align 2, !tbaa !23
   %9 = icmp eq i8 %8, 2
   %10 = select i1 %9, i64 0, i64 2
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -307,13 +307,13 @@ _ZN5boost4urls6detail8url_impl8set_sizeEim.exit15: ; preds = %31
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store i64 %39, ptr %40, align 8, !tbaa !13
   %41 = getelementptr inbounds nuw i8, ptr %1, i64 172
-  %42 = load i32, ptr %41, align 4, !tbaa !25
+  %42 = load i32, ptr %41, align 4, !tbaa !24
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 164
-  store i32 %42, ptr %43, align 4, !tbaa !22
+  store i32 %42, ptr %43, align 4, !tbaa !21
   %44 = getelementptr inbounds nuw i8, ptr %1, i64 168
-  %45 = load i16, ptr %44, align 8, !tbaa !27
+  %45 = load i16, ptr %44, align 8, !tbaa !26
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 160
-  store i16 %45, ptr %46, align 8, !tbaa !23
+  store i16 %45, ptr %46, align 8, !tbaa !22
   %47 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %48 = load i64, ptr %47, align 8, !tbaa !13
   %49 = load i64, ptr %22, align 8, !tbaa !13
@@ -408,7 +408,7 @@ _ZNK5boost4urls6detail8url_impl6offsetEi.exit3:   ; preds = %_ZNK5boost4urls6det
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define void @_ZN5boost4urls6detail8url_impl10apply_pathENS0_15pct_string_viewEm(ptr noundef nonnull align 8 captures(none) dereferenceable(171) %0, ptr noundef readonly byval(%"class.boost::urls::pct_string_view") align 8 captures(none) %1, i64 noundef %2) local_unnamed_addr #5 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %5 = load i64, ptr %4, align 8, !tbaa !17
+  %5 = load i64, ptr %4, align 8, !tbaa !16
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %8 = load i64, ptr %7, align 8, !tbaa !13
@@ -430,10 +430,10 @@ define void @_ZN5boost4urls6detail8url_impl10apply_pathENS0_15pct_string_viewEm(
 
 _ZN5boost4urls6detail8url_impl8set_sizeEim.exit:  ; preds = %12
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %17 = load i64, ptr %16, align 8, !tbaa !19
+  %17 = load i64, ptr %16, align 8, !tbaa !18
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store i64 %17, ptr %18, align 8, !tbaa !13
-  %.sroa.0.0.copyload.i = load ptr, ptr %1, align 8, !tbaa !28
+  %.sroa.0.0.copyload.i = load ptr, ptr %1, align 8, !tbaa !27
   switch i64 %5, label %29 [
     i64 0, label %_ZN5boost4urls6detail13path_segmentsENS_4core17basic_string_viewIcEEm.exit
     i64 1, label %19
@@ -441,26 +441,26 @@ _ZN5boost4urls6detail8url_impl8set_sizeEim.exit:  ; preds = %12
   ]
 
 19:                                               ; preds = %_ZN5boost4urls6detail8url_impl8set_sizeEim.exit
-  %20 = load i8, ptr %.sroa.0.0.copyload.i, align 1, !tbaa !29
+  %20 = load i8, ptr %.sroa.0.0.copyload.i, align 1, !tbaa !28
   %21 = icmp ne i8 %20, 47
   %..i = zext i1 %21 to i64
   br label %_ZN5boost4urls6detail13path_segmentsENS_4core17basic_string_viewIcEEm.exit
 
 22:                                               ; preds = %_ZN5boost4urls6detail8url_impl8set_sizeEim.exit
-  %23 = load i8, ptr %.sroa.0.0.copyload.i, align 1, !tbaa !29
+  %23 = load i8, ptr %.sroa.0.0.copyload.i, align 1, !tbaa !28
   %cond.i = icmp eq i8 %23, 46
   br i1 %cond.i, label %24, label %_ZN5boost4urls6detail13path_segmentsENS_4core17basic_string_viewIcEEm.exit
 
 24:                                               ; preds = %22
   %25 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i, i64 1
-  %26 = load i8, ptr %25, align 1, !tbaa !29
+  %26 = load i8, ptr %25, align 1, !tbaa !28
   %27 = icmp eq i8 %26, 47
   %28 = sext i1 %27 to i64
   %spec.select.i = add i64 %2, %28
   br label %_ZN5boost4urls6detail13path_segmentsENS_4core17basic_string_viewIcEEm.exit
 
 29:                                               ; preds = %_ZN5boost4urls6detail8url_impl8set_sizeEim.exit
-  %30 = load i8, ptr %.sroa.0.0.copyload.i, align 1, !tbaa !29
+  %30 = load i8, ptr %.sroa.0.0.copyload.i, align 1, !tbaa !28
   switch i8 %30, label %_ZN5boost4urls6detail13path_segmentsENS_4core17basic_string_viewIcEEm.exit [
     i8 47, label %31
     i8 46, label %40
@@ -468,13 +468,13 @@ _ZN5boost4urls6detail8url_impl8set_sizeEim.exit:  ; preds = %12
 
 31:                                               ; preds = %29
   %32 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i, i64 1
-  %33 = load i8, ptr %32, align 1, !tbaa !29
+  %33 = load i8, ptr %32, align 1, !tbaa !28
   %34 = icmp eq i8 %33, 46
   br i1 %34, label %35, label %_ZN5boost4urls6detail13path_segmentsENS_4core17basic_string_viewIcEEm.exit
 
 35:                                               ; preds = %31
   %36 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i, i64 2
-  %37 = load i8, ptr %36, align 1, !tbaa !29
+  %37 = load i8, ptr %36, align 1, !tbaa !28
   %38 = icmp eq i8 %37, 47
   %39 = sext i1 %38 to i64
   %spec.select8.i = add i64 %2, %39
@@ -482,7 +482,7 @@ _ZN5boost4urls6detail8url_impl8set_sizeEim.exit:  ; preds = %12
 
 40:                                               ; preds = %29
   %41 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i, i64 1
-  %42 = load i8, ptr %41, align 1, !tbaa !29
+  %42 = load i8, ptr %41, align 1, !tbaa !28
   %43 = icmp eq i8 %42, 47
   %44 = sext i1 %43 to i64
   %spec.select9.i = add i64 %2, %44
@@ -491,16 +491,16 @@ _ZN5boost4urls6detail8url_impl8set_sizeEim.exit:  ; preds = %12
 _ZN5boost4urls6detail13path_segmentsENS_4core17basic_string_viewIcEEm.exit: ; preds = %_ZN5boost4urls6detail8url_impl8set_sizeEim.exit, %19, %22, %24, %29, %31, %35, %40
   %.0.i = phi i64 [ %5, %_ZN5boost4urls6detail8url_impl8set_sizeEim.exit ], [ %..i, %19 ], [ %2, %31 ], [ %spec.select.i, %24 ], [ %spec.select8.i, %35 ], [ %spec.select9.i, %40 ], [ %2, %22 ], [ %2, %29 ]
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  store i64 %.0.i, ptr %45, align 8, !tbaa !30
+  store i64 %.0.i, ptr %45, align 8, !tbaa !29
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define void @_ZN5boost4urls6detail8url_impl11apply_queryENS0_15pct_string_viewEm(ptr noundef nonnull align 8 captures(none) dereferenceable(171) initializes((136, 144)) %0, ptr noundef readonly byval(%"class.boost::urls::pct_string_view") align 8 captures(none) %1, i64 noundef %2) local_unnamed_addr #3 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  store i64 %2, ptr %4, align 8, !tbaa !31
+  store i64 %2, ptr %4, align 8, !tbaa !30
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %6 = load i64, ptr %5, align 8, !tbaa !17
+  %6 = load i64, ptr %5, align 8, !tbaa !16
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %9 = load i64, ptr %8, align 8, !tbaa !13
@@ -523,7 +523,7 @@ define void @_ZN5boost4urls6detail8url_impl11apply_queryENS0_15pct_string_viewEm
 
 _ZN5boost4urls6detail8url_impl8set_sizeEim.exit:  ; preds = %14
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %19 = load i64, ptr %18, align 8, !tbaa !19
+  %19 = load i64, ptr %18, align 8, !tbaa !18
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store i64 %19, ptr %20, align 8, !tbaa !13
   ret void
@@ -533,7 +533,7 @@ _ZN5boost4urls6detail8url_impl8set_sizeEim.exit:  ; preds = %14
 define void @_ZN5boost4urls6detail8url_impl10apply_fragENS0_15pct_string_viewE(ptr noundef nonnull align 8 captures(none) dereferenceable(171) initializes((64, 72), (120, 128)) %0, ptr noundef readonly byval(%"class.boost::urls::pct_string_view") align 8 captures(none) %1) local_unnamed_addr #6 align 2 {
 _ZN5boost4urls6detail8url_impl8set_sizeEim.exit:
   %2 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %3 = load i64, ptr %2, align 8, !tbaa !17
+  %3 = load i64, ptr %2, align 8, !tbaa !16
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %5 = load i64, ptr %4, align 8, !tbaa !13
   %.neg.i = add i64 %3, 1
@@ -541,7 +541,7 @@ _ZN5boost4urls6detail8url_impl8set_sizeEim.exit:
   %7 = add i64 %.neg.i, %5
   store i64 %7, ptr %6, align 8, !tbaa !13
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %9 = load i64, ptr %8, align 8, !tbaa !19
+  %9 = load i64, ptr %8, align 8, !tbaa !18
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 120
   store i64 %9, ptr %10, align 8, !tbaa !13
   ret void
@@ -596,7 +596,7 @@ define noundef i64 @_ZNK5boost4urls6detail8url_impl6offsetEi(ptr noundef nonnull
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define { ptr, i64 } @_ZNK5boost4urls6detail8url_impl3getEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(171) %0, i32 noundef %1) local_unnamed_addr #4 align 2 {
-  %3 = load ptr, ptr %0, align 8, !tbaa !32
+  %3 = load ptr, ptr %0, align 8, !tbaa !31
   %4 = icmp eq i32 %1, -1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br i1 %4, label %_ZNK5boost4urls6detail8url_impl6offsetEi.exit.i.thread, label %_ZNK5boost4urls6detail8url_impl6offsetEi.exit
@@ -641,7 +641,7 @@ _ZNK5boost4urls6detail8url_impl3lenEi.exit:       ; preds = %_ZNK5boost4urls6det
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define { ptr, i64 } @_ZNK5boost4urls6detail8url_impl3getEii(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(171) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #4 align 2 {
-  %4 = load ptr, ptr %0, align 8, !tbaa !32
+  %4 = load ptr, ptr %0, align 8, !tbaa !31
   %5 = icmp eq i32 %1, -1
   br i1 %5, label %_ZNK5boost4urls6detail8url_impl6offsetEi.exit, label %6
 
@@ -686,7 +686,7 @@ _ZNK5boost4urls6detail8url_impl6offsetEi.exit4:   ; preds = %_ZNK5boost4urls6det
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define void @_ZNK5boost4urls6detail8url_impl7pct_getEi(ptr dead_on_unwind noalias writable writeonly sret(%"class.boost::urls::pct_string_view") align 8 captures(none) initializes((0, 24)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(171) %1, i32 noundef %2) local_unnamed_addr #6 align 2 {
-  %4 = load ptr, ptr %1, align 8, !tbaa !32
+  %4 = load ptr, ptr %1, align 8, !tbaa !31
   %5 = icmp eq i32 %2, -1
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   br i1 %5, label %_ZNK5boost4urls6detail8url_impl6offsetEi.exit.i.thread, label %_ZNK5boost4urls6detail8url_impl6offsetEi.exit
@@ -729,11 +729,11 @@ _ZNK5boost4urls6detail8url_impl3lenEi.exit:       ; preds = %_ZNK5boost4urls6det
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %26 = getelementptr inbounds [7 x i64], ptr %25, i64 0, i64 %.pre-phi
   %27 = load i64, ptr %26, align 8, !tbaa !13
-  store ptr %23, ptr %0, align 8, !tbaa !33, !alias.scope !34
+  store ptr %23, ptr %0, align 8, !tbaa !32, !alias.scope !33
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %24, ptr %28, align 8, !tbaa !17, !alias.scope !34
+  store i64 %24, ptr %28, align 8, !tbaa !16, !alias.scope !33
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %27, ptr %29, align 8, !tbaa !19, !alias.scope !34
+  store i64 %27, ptr %29, align 8, !tbaa !18, !alias.scope !33
   ret void
 }
 
@@ -762,7 +762,7 @@ _ZNK5boost4urls6detail8url_impl6offsetEi.exit:    ; preds = %4, %6
 
 ._crit_edge:                                      ; preds = %27, %_ZNK5boost4urls6detail8url_impl6offsetEi.exit
   %.010.lcssa = phi i64 [ 0, %_ZNK5boost4urls6detail8url_impl6offsetEi.exit ], [ %30, %27 ]
-  %15 = load ptr, ptr %1, align 8, !tbaa !32
+  %15 = load ptr, ptr %1, align 8, !tbaa !31
   %16 = icmp eq i32 %3, -1
   br i1 %16, label %_ZNK5boost4urls6detail8url_impl6offsetEi.exit12, label %17
 
@@ -777,11 +777,11 @@ _ZNK5boost4urls6detail8url_impl6offsetEi.exit12:  ; preds = %._crit_edge, %17
   %22 = phi i64 [ %21, %17 ], [ 0, %._crit_edge ]
   %23 = getelementptr inbounds nuw i8, ptr %15, i64 %11
   %24 = sub i64 %22, %11
-  store ptr %23, ptr %0, align 8, !tbaa !33, !alias.scope !37
+  store ptr %23, ptr %0, align 8, !tbaa !32, !alias.scope !36
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %24, ptr %25, align 8, !tbaa !17, !alias.scope !37
+  store i64 %24, ptr %25, align 8, !tbaa !16, !alias.scope !36
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %.010.lcssa, ptr %26, align 8, !tbaa !19, !alias.scope !37
+  store i64 %.010.lcssa, ptr %26, align 8, !tbaa !18, !alias.scope !36
   ret void
 
 27:                                               ; preds = %.lr.ph, %27
@@ -792,7 +792,7 @@ _ZNK5boost4urls6detail8url_impl6offsetEi.exit12:  ; preds = %._crit_edge, %17
   %29 = load i64, ptr %28, align 8, !tbaa !13
   %30 = add i64 %29, %.01013
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %27, !llvm.loop !40
+  br i1 %exitcond.not, label %._crit_edge, label %27, !llvm.loop !39
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
@@ -841,7 +841,7 @@ define void @_ZN5boost4urls6detail8url_impl12adjust_rightEiim(ptr noundef nonnul
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
   %exitcond.not = icmp eq i32 %7, %lftr.wideiv
-  br i1 %exitcond.not, label %._crit_edge, label %8, !llvm.loop !41
+  br i1 %exitcond.not, label %._crit_edge, label %8, !llvm.loop !40
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
@@ -867,7 +867,7 @@ define void @_ZN5boost4urls6detail8url_impl11adjust_leftEiim(ptr noundef nonnull
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
   %exitcond.not = icmp eq i32 %7, %lftr.wideiv
-  br i1 %exitcond.not, label %._crit_edge, label %8, !llvm.loop !42
+  br i1 %exitcond.not, label %._crit_edge, label %8, !llvm.loop !41
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: write) uwtable
@@ -892,19 +892,19 @@ define void @_ZN5boost4urls6detail8url_impl8collapseEiim(ptr noundef nonnull wri
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
   %exitcond.not = icmp eq i32 %2, %lftr.wideiv
-  br i1 %exitcond.not, label %._crit_edge, label %9, !llvm.loop !43
+  br i1 %exitcond.not, label %._crit_edge, label %9, !llvm.loop !42
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define hidden void @_ZN5boost4urls6detail8path_refC2ERKNS1_8url_implE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(40) initializes((0, 40)) %0, ptr noundef nonnull align 8 dereferenceable(171) %1) unnamed_addr #6 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 170
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, i8 0, i64 40, i1 false)
-  %4 = load i8, ptr %3, align 2, !tbaa !24
+  %4 = load i8, ptr %3, align 2, !tbaa !23
   %5 = icmp eq i8 %4, 1
   br i1 %5, label %6, label %7
 
 6:                                                ; preds = %2
-  store ptr %1, ptr %0, align 8, !tbaa !44
+  store ptr %1, ptr %0, align 8, !tbaa !43
   br label %23
 
 7:                                                ; preds = %2
@@ -912,21 +912,21 @@ define hidden void @_ZN5boost4urls6detail8path_refC2ERKNS1_8url_implE(ptr nounde
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %12 = load ptr, ptr %1, align 8, !tbaa !32
+  %12 = load ptr, ptr %1, align 8, !tbaa !31
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %14 = load i64, ptr %13, align 8, !tbaa !13
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 %14
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %17 = load i64, ptr %16, align 8, !tbaa !13
   %18 = sub i64 %17, %14
-  store ptr %15, ptr %11, align 8, !tbaa !46
-  store i64 %18, ptr %10, align 8, !tbaa !47
+  store ptr %15, ptr %11, align 8, !tbaa !45
+  store i64 %18, ptr %10, align 8, !tbaa !46
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 128
-  %20 = load i64, ptr %19, align 8, !tbaa !30
-  store i64 %20, ptr %9, align 8, !tbaa !48
+  %20 = load i64, ptr %19, align 8, !tbaa !29
+  store i64 %20, ptr %9, align 8, !tbaa !47
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 104
   %22 = load i64, ptr %21, align 8, !tbaa !13
-  store i64 %22, ptr %8, align 8, !tbaa !49
+  store i64 %22, ptr %8, align 8, !tbaa !48
   br label %23
 
 23:                                               ; preds = %7, %6
@@ -935,26 +935,26 @@ define hidden void @_ZN5boost4urls6detail8path_refC2ERKNS1_8url_implE(ptr nounde
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define hidden void @_ZN5boost4urls6detail8path_refC2ENS_4core17basic_string_viewIcEEmm(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(40) initializes((0, 40)) %0, ptr %1, i64 %2, i64 noundef %3, i64 noundef %4) unnamed_addr #8 align 2 {
-  store ptr null, ptr %0, align 8, !tbaa !44
+  store ptr null, ptr %0, align 8, !tbaa !43
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %1, ptr %6, align 8, !tbaa !46
+  store ptr %1, ptr %6, align 8, !tbaa !45
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %2, ptr %7, align 8, !tbaa !47
+  store i64 %2, ptr %7, align 8, !tbaa !46
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i64 %4, ptr %8, align 8, !tbaa !48
+  store i64 %4, ptr %8, align 8, !tbaa !47
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i64 %3, ptr %9, align 8, !tbaa !49
+  store i64 %3, ptr %9, align 8, !tbaa !48
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define hidden void @_ZNK5boost4urls6detail8path_ref6bufferEv(ptr dead_on_unwind noalias writable writeonly sret(%"class.boost::urls::pct_string_view") align 8 captures(none) initializes((0, 24)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %1) local_unnamed_addr #9 align 2 {
-  %3 = load ptr, ptr %1, align 8, !tbaa !44
+  %3 = load ptr, ptr %1, align 8, !tbaa !43
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %13, label %4
 
 4:                                                ; preds = %2
-  %5 = load ptr, ptr %3, align 8, !tbaa !32
+  %5 = load ptr, ptr %3, align 8, !tbaa !31
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %7 = load i64, ptr %6, align 8, !tbaa !13
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 %7
@@ -966,9 +966,9 @@ define hidden void @_ZNK5boost4urls6detail8path_ref6bufferEv(ptr dead_on_unwind 
 
 13:                                               ; preds = %2
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %15 = load ptr, ptr %14, align 8, !tbaa !46
+  %15 = load ptr, ptr %14, align 8, !tbaa !45
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %17 = load i64, ptr %16, align 8, !tbaa !47
+  %17 = load i64, ptr %16, align 8, !tbaa !46
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 32
   br label %19
 
@@ -977,17 +977,17 @@ define hidden void @_ZNK5boost4urls6detail8path_ref6bufferEv(ptr dead_on_unwind 
   %.sink1 = phi i64 [ %17, %13 ], [ %11, %4 ]
   %.sink.in = phi ptr [ %18, %13 ], [ %12, %4 ]
   %.sink = load i64, ptr %.sink.in, align 8, !tbaa !13
-  store ptr %.sink2, ptr %0, align 8, !tbaa !33
+  store ptr %.sink2, ptr %0, align 8, !tbaa !32
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %.sink1, ptr %20, align 8, !tbaa !17
+  store i64 %.sink1, ptr %20, align 8, !tbaa !16
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %.sink, ptr %21, align 8, !tbaa !19
+  store i64 %.sink, ptr %21, align 8, !tbaa !18
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define hidden noundef i64 @_ZNK5boost4urls6detail8path_ref4sizeEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0) local_unnamed_addr #10 align 2 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !44
+  %2 = load ptr, ptr %0, align 8, !tbaa !43
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %9, label %3
 
@@ -1001,7 +1001,7 @@ define hidden noundef i64 @_ZNK5boost4urls6detail8path_ref4sizeEv(ptr noundef no
 
 9:                                                ; preds = %1
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %11 = load i64, ptr %10, align 8, !tbaa !47
+  %11 = load i64, ptr %10, align 8, !tbaa !46
   br label %12
 
 12:                                               ; preds = %9, %3
@@ -1011,12 +1011,12 @@ define hidden noundef i64 @_ZNK5boost4urls6detail8path_ref4sizeEv(ptr noundef no
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define hidden noundef ptr @_ZNK5boost4urls6detail8path_ref4dataEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0) local_unnamed_addr #10 align 2 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !44
+  %2 = load ptr, ptr %0, align 8, !tbaa !43
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %8, label %3
 
 3:                                                ; preds = %1
-  %4 = load ptr, ptr %2, align 8, !tbaa !32
+  %4 = load ptr, ptr %2, align 8, !tbaa !31
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %6 = load i64, ptr %5, align 8, !tbaa !13
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 %6
@@ -1024,7 +1024,7 @@ define hidden noundef ptr @_ZNK5boost4urls6detail8path_ref4dataEv(ptr noundef no
 
 8:                                                ; preds = %1
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %10 = load ptr, ptr %9, align 8, !tbaa !46
+  %10 = load ptr, ptr %9, align 8, !tbaa !45
   br label %11
 
 11:                                               ; preds = %8, %3
@@ -1034,12 +1034,12 @@ define hidden noundef ptr @_ZNK5boost4urls6detail8path_ref4dataEv(ptr noundef no
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define hidden noundef ptr @_ZNK5boost4urls6detail8path_ref3endEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0) local_unnamed_addr #10 align 2 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !44
+  %2 = load ptr, ptr %0, align 8, !tbaa !43
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %8, label %3
 
 3:                                                ; preds = %1
-  %4 = load ptr, ptr %2, align 8, !tbaa !32
+  %4 = load ptr, ptr %2, align 8, !tbaa !31
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %6 = load i64, ptr %5, align 8, !tbaa !13
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 %6
@@ -1047,9 +1047,9 @@ define hidden noundef ptr @_ZNK5boost4urls6detail8path_ref3endEv(ptr noundef non
 
 8:                                                ; preds = %1
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %10 = load ptr, ptr %9, align 8, !tbaa !46
+  %10 = load ptr, ptr %9, align 8, !tbaa !45
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %12 = load i64, ptr %11, align 8, !tbaa !47
+  %12 = load i64, ptr %11, align 8, !tbaa !46
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 %12
   br label %14
 
@@ -1060,7 +1060,7 @@ define hidden noundef ptr @_ZNK5boost4urls6detail8path_ref3endEv(ptr noundef non
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define hidden noundef i64 @_ZNK5boost4urls6detail8path_ref4nsegEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0) local_unnamed_addr #10 align 2 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !44
+  %2 = load ptr, ptr %0, align 8, !tbaa !43
   %.not = icmp eq ptr %2, null
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 128
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -1071,17 +1071,17 @@ define hidden noundef i64 @_ZNK5boost4urls6detail8path_ref4nsegEv(ptr noundef no
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_ZN5boost4urls6detail9query_refC2ENS_4core17basic_string_viewIcEEmm(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(41) initializes((0, 41)) %0, ptr %1, i64 %2, i64 noundef %3, i64 noundef %4) unnamed_addr #8 align 2 {
-  store ptr null, ptr %0, align 8, !tbaa !50
+  store ptr null, ptr %0, align 8, !tbaa !49
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %1, ptr %6, align 8, !tbaa !53
+  store ptr %1, ptr %6, align 8, !tbaa !52
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %2, ptr %7, align 8, !tbaa !54
+  store i64 %2, ptr %7, align 8, !tbaa !53
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i64 %4, ptr %8, align 8, !tbaa !55
+  store i64 %4, ptr %8, align 8, !tbaa !54
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i64 %3, ptr %9, align 8, !tbaa !56
+  store i64 %3, ptr %9, align 8, !tbaa !55
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store i8 0, ptr %10, align 8, !tbaa !57
+  store i8 0, ptr %10, align 8, !tbaa !56
   ret void
 }
 
@@ -1094,16 +1094,16 @@ define void @_ZN5boost4urls6detail9query_refC2ERKNS1_8url_implE(ptr noundef nonn
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 170
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(41) %0, i8 0, i64 41, i1 false)
-  %9 = load i8, ptr %8, align 2, !tbaa !24
+  %9 = load i8, ptr %8, align 2, !tbaa !23
   %10 = icmp eq i8 %9, 1
   br i1 %10, label %11, label %12
 
 11:                                               ; preds = %2
-  store ptr %1, ptr %0, align 8, !tbaa !50
+  store ptr %1, ptr %0, align 8, !tbaa !49
   br label %29
 
 12:                                               ; preds = %2
-  %13 = load ptr, ptr %1, align 8, !tbaa !32
+  %13 = load ptr, ptr %1, align 8, !tbaa !31
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %15 = load i64, ptr %14, align 8, !tbaa !13
   %16 = getelementptr inbounds nuw i8, ptr %13, i64 %15
@@ -1116,20 +1116,20 @@ define void @_ZN5boost4urls6detail9query_refC2ERKNS1_8url_implE(ptr noundef nonn
   %21 = getelementptr inbounds nuw i8, ptr %16, i64 1
   %22 = xor i64 %15, -1
   %23 = add i64 %18, %22
-  store i8 1, ptr %7, align 8, !tbaa !57
+  store i8 1, ptr %7, align 8, !tbaa !56
   br label %24
 
 24:                                               ; preds = %20, %12
   %.sroa.6.0 = phi i64 [ 0, %12 ], [ %23, %20 ]
   %.sroa.0.0 = phi ptr [ %16, %12 ], [ %21, %20 ]
-  store ptr %.sroa.0.0, ptr %3, align 8, !tbaa !53
-  store i64 %.sroa.6.0, ptr %4, align 8, !tbaa !54
+  store ptr %.sroa.0.0, ptr %3, align 8, !tbaa !52
+  store i64 %.sroa.6.0, ptr %4, align 8, !tbaa !53
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 136
-  %26 = load i64, ptr %25, align 8, !tbaa !31
-  store i64 %26, ptr %5, align 8, !tbaa !55
+  %26 = load i64, ptr %25, align 8, !tbaa !30
+  store i64 %26, ptr %5, align 8, !tbaa !54
   %27 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %28 = load i64, ptr %27, align 8, !tbaa !13
-  store i64 %28, ptr %6, align 8, !tbaa !56
+  store i64 %28, ptr %6, align 8, !tbaa !55
   br label %29
 
 29:                                               ; preds = %24, %11
@@ -1138,7 +1138,7 @@ define void @_ZN5boost4urls6detail9query_refC2ERKNS1_8url_implE(ptr noundef nonn
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define void @_ZNK5boost4urls6detail9query_ref6bufferEv(ptr dead_on_unwind noalias writable writeonly sret(%"class.boost::urls::pct_string_view") align 8 captures(none) initializes((0, 24)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(41) %1) local_unnamed_addr #9 align 2 {
-  %3 = load ptr, ptr %1, align 8, !tbaa !50
+  %3 = load ptr, ptr %1, align 8, !tbaa !49
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %23, label %4
 
@@ -1152,38 +1152,38 @@ define void @_ZNK5boost4urls6detail9query_ref6bufferEv(ptr dead_on_unwind noalia
 
 10:                                               ; preds = %4
   %11 = add nuw i64 %6, 1
-  %12 = load ptr, ptr %3, align 8, !tbaa !32
+  %12 = load ptr, ptr %3, align 8, !tbaa !31
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 %11
   %14 = sub i64 %8, %11
   %15 = getelementptr inbounds nuw i8, ptr %3, i64 112
   %16 = load i64, ptr %15, align 8, !tbaa !13
-  store ptr %13, ptr %0, align 8, !tbaa !33, !alias.scope !58
+  store ptr %13, ptr %0, align 8, !tbaa !32, !alias.scope !57
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %14, ptr %17, align 8, !tbaa !17, !alias.scope !58
+  store i64 %14, ptr %17, align 8, !tbaa !16, !alias.scope !57
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %16, ptr %18, align 8, !tbaa !19, !alias.scope !58
+  store i64 %16, ptr %18, align 8, !tbaa !18, !alias.scope !57
   br label %32
 
 19:                                               ; preds = %4
-  %20 = load ptr, ptr %3, align 8, !tbaa !32
+  %20 = load ptr, ptr %3, align 8, !tbaa !31
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 %6
-  store ptr %21, ptr %0, align 8, !tbaa !33, !alias.scope !61
+  store ptr %21, ptr %0, align 8, !tbaa !32, !alias.scope !60
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %22, i8 0, i64 16, i1 false)
   br label %32
 
 23:                                               ; preds = %2
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %25 = load ptr, ptr %24, align 8, !tbaa !53
+  %25 = load ptr, ptr %24, align 8, !tbaa !52
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %27 = load i64, ptr %26, align 8, !tbaa !54
+  %27 = load i64, ptr %26, align 8, !tbaa !53
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %29 = load i64, ptr %28, align 8, !tbaa !56
-  store ptr %25, ptr %0, align 8, !tbaa !33, !alias.scope !64
+  %29 = load i64, ptr %28, align 8, !tbaa !55
+  store ptr %25, ptr %0, align 8, !tbaa !32, !alias.scope !63
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %27, ptr %30, align 8, !tbaa !17, !alias.scope !64
+  store i64 %27, ptr %30, align 8, !tbaa !16, !alias.scope !63
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %29, ptr %31, align 8, !tbaa !19, !alias.scope !64
+  store i64 %29, ptr %31, align 8, !tbaa !18, !alias.scope !63
   br label %32
 
 32:                                               ; preds = %10, %19, %23
@@ -1192,7 +1192,7 @@ define void @_ZNK5boost4urls6detail9query_ref6bufferEv(ptr dead_on_unwind noalia
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define noundef i64 @_ZNK5boost4urls6detail9query_ref4sizeEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(41) %0) local_unnamed_addr #10 align 2 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !50
+  %2 = load ptr, ptr %0, align 8, !tbaa !49
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %9, label %3
 
@@ -1206,7 +1206,7 @@ define noundef i64 @_ZNK5boost4urls6detail9query_ref4sizeEv(ptr noundef nonnull 
 
 9:                                                ; preds = %1
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %11 = load i64, ptr %10, align 8, !tbaa !54
+  %11 = load i64, ptr %10, align 8, !tbaa !53
   %.not3 = icmp eq i64 %11, 0
   br i1 %.not3, label %14, label %12
 
@@ -1216,7 +1216,7 @@ define noundef i64 @_ZNK5boost4urls6detail9query_ref4sizeEv(ptr noundef nonnull 
 
 14:                                               ; preds = %9
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %16 = load i8, ptr %15, align 8, !tbaa !57, !range !67, !noundef !68
+  %16 = load i8, ptr %15, align 8, !tbaa !56, !range !66, !noundef !67
   %17 = zext nneg i8 %16 to i64
   br label %18
 
@@ -1227,7 +1227,7 @@ define noundef i64 @_ZNK5boost4urls6detail9query_ref4sizeEv(ptr noundef nonnull 
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define noundef ptr @_ZNK5boost4urls6detail9query_ref5beginEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(41) %0) local_unnamed_addr #10 align 2 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !50
+  %2 = load ptr, ptr %0, align 8, !tbaa !49
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %11, label %3
 
@@ -1237,7 +1237,7 @@ define noundef ptr @_ZNK5boost4urls6detail9query_ref5beginEv(ptr noundef nonnull
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %7 = load i64, ptr %6, align 8, !tbaa !13
   %8 = icmp ult i64 %5, %7
-  %9 = load ptr, ptr %2, align 8, !tbaa !32
+  %9 = load ptr, ptr %2, align 8, !tbaa !31
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 %5
   %spec.select.idx = zext i1 %8 to i64
   %spec.select = getelementptr inbounds nuw i8, ptr %10, i64 %spec.select.idx
@@ -1245,7 +1245,7 @@ define noundef ptr @_ZNK5boost4urls6detail9query_ref5beginEv(ptr noundef nonnull
 
 11:                                               ; preds = %1
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %13 = load ptr, ptr %12, align 8, !tbaa !53
+  %13 = load ptr, ptr %12, align 8, !tbaa !52
   br label %14
 
 14:                                               ; preds = %3, %11
@@ -1255,12 +1255,12 @@ define noundef ptr @_ZNK5boost4urls6detail9query_ref5beginEv(ptr noundef nonnull
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define noundef ptr @_ZNK5boost4urls6detail9query_ref3endEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(41) %0) local_unnamed_addr #10 align 2 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !50
+  %2 = load ptr, ptr %0, align 8, !tbaa !49
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %8, label %3
 
 3:                                                ; preds = %1
-  %4 = load ptr, ptr %2, align 8, !tbaa !32
+  %4 = load ptr, ptr %2, align 8, !tbaa !31
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %6 = load i64, ptr %5, align 8, !tbaa !13
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 %6
@@ -1268,9 +1268,9 @@ define noundef ptr @_ZNK5boost4urls6detail9query_ref3endEv(ptr noundef nonnull r
 
 8:                                                ; preds = %1
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %10 = load ptr, ptr %9, align 8, !tbaa !53
+  %10 = load ptr, ptr %9, align 8, !tbaa !52
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %12 = load i64, ptr %11, align 8, !tbaa !54
+  %12 = load i64, ptr %11, align 8, !tbaa !53
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 %12
   br label %14
 
@@ -1281,7 +1281,7 @@ define noundef ptr @_ZNK5boost4urls6detail9query_ref3endEv(ptr noundef nonnull r
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define noundef i64 @_ZNK5boost4urls6detail9query_ref6nparamEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(41) %0) local_unnamed_addr #10 align 2 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !50
+  %2 = load ptr, ptr %0, align 8, !tbaa !49
   %.not = icmp eq ptr %2, null
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 136
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -1323,58 +1323,57 @@ attributes #12 = { nounwind }
 !11 = !{!"_ZTSN5boost4urls6schemeE", !6, i64 0}
 !12 = !{!"_ZTSN5boost4urls6detail10parts_base4fromE", !6, i64 0}
 !13 = !{!8, !8, i64 0}
-!14 = distinct !{!14, !15, !16}
+!14 = distinct !{!14, !15}
 !15 = !{!"llvm.loop.mustprogress"}
-!16 = !{!"llvm.loop.estimated_trip_count"}
-!17 = !{!18, !8, i64 8}
-!18 = !{!"_ZTSN5boost4core17basic_string_viewIcEE", !5, i64 0, !8, i64 8}
-!19 = !{!20, !8, i64 16}
-!20 = !{!"_ZTSN5boost4urls15pct_string_viewE", !21, i64 0, !8, i64 16}
-!21 = !{!"_ZTSN5boost4urls7grammar16string_view_baseE", !18, i64 0}
-!22 = !{!4, !10, i64 164}
-!23 = !{!4, !9, i64 160}
-!24 = !{!4, !12, i64 170}
-!25 = !{!26, !10, i64 172}
-!26 = !{!"_ZTSN5boost4urls14authority_viewE", !4, i64 8}
-!27 = !{!26, !9, i64 168}
-!28 = !{!5, !5, i64 0}
-!29 = !{!6, !6, i64 0}
-!30 = !{!4, !8, i64 128}
-!31 = !{!4, !8, i64 136}
-!32 = !{!4, !5, i64 0}
-!33 = !{!18, !5, i64 0}
-!34 = !{!35}
-!35 = distinct !{!35, !36, !"_ZN5boost4urls27make_pct_string_view_unsafeEPKcmm: argument 0"}
-!36 = distinct !{!36, !"_ZN5boost4urls27make_pct_string_view_unsafeEPKcmm"}
-!37 = !{!38}
-!38 = distinct !{!38, !39, !"_ZN5boost4urls27make_pct_string_view_unsafeEPKcmm: argument 0"}
-!39 = distinct !{!39, !"_ZN5boost4urls27make_pct_string_view_unsafeEPKcmm"}
-!40 = distinct !{!40, !15, !16}
-!41 = distinct !{!41, !15, !16}
-!42 = distinct !{!42, !15, !16}
-!43 = distinct !{!43, !15, !16}
-!44 = !{!45, !5, i64 0}
-!45 = !{!"_ZTSN5boost4urls6detail8path_refE", !5, i64 0, !5, i64 8, !8, i64 16, !8, i64 24, !8, i64 32}
-!46 = !{!45, !5, i64 8}
-!47 = !{!45, !8, i64 16}
-!48 = !{!45, !8, i64 24}
-!49 = !{!45, !8, i64 32}
-!50 = !{!51, !5, i64 0}
-!51 = !{!"_ZTSN5boost4urls6detail9query_refE", !5, i64 0, !5, i64 8, !8, i64 16, !8, i64 24, !8, i64 32, !52, i64 40}
-!52 = !{!"bool", !6, i64 0}
-!53 = !{!51, !5, i64 8}
-!54 = !{!51, !8, i64 16}
-!55 = !{!51, !8, i64 24}
-!56 = !{!51, !8, i64 32}
-!57 = !{!51, !52, i64 40}
-!58 = !{!59}
-!59 = distinct !{!59, !60, !"_ZN5boost4urls27make_pct_string_view_unsafeEPKcmm: argument 0"}
-!60 = distinct !{!60, !"_ZN5boost4urls27make_pct_string_view_unsafeEPKcmm"}
-!61 = !{!62}
-!62 = distinct !{!62, !63, !"_ZN5boost4urls27make_pct_string_view_unsafeEPKcmm: argument 0"}
-!63 = distinct !{!63, !"_ZN5boost4urls27make_pct_string_view_unsafeEPKcmm"}
-!64 = !{!65}
-!65 = distinct !{!65, !66, !"_ZN5boost4urls27make_pct_string_view_unsafeEPKcmm: argument 0"}
-!66 = distinct !{!66, !"_ZN5boost4urls27make_pct_string_view_unsafeEPKcmm"}
-!67 = !{i8 0, i8 2}
-!68 = !{}
+!16 = !{!17, !8, i64 8}
+!17 = !{!"_ZTSN5boost4core17basic_string_viewIcEE", !5, i64 0, !8, i64 8}
+!18 = !{!19, !8, i64 16}
+!19 = !{!"_ZTSN5boost4urls15pct_string_viewE", !20, i64 0, !8, i64 16}
+!20 = !{!"_ZTSN5boost4urls7grammar16string_view_baseE", !17, i64 0}
+!21 = !{!4, !10, i64 164}
+!22 = !{!4, !9, i64 160}
+!23 = !{!4, !12, i64 170}
+!24 = !{!25, !10, i64 172}
+!25 = !{!"_ZTSN5boost4urls14authority_viewE", !4, i64 8}
+!26 = !{!25, !9, i64 168}
+!27 = !{!5, !5, i64 0}
+!28 = !{!6, !6, i64 0}
+!29 = !{!4, !8, i64 128}
+!30 = !{!4, !8, i64 136}
+!31 = !{!4, !5, i64 0}
+!32 = !{!17, !5, i64 0}
+!33 = !{!34}
+!34 = distinct !{!34, !35, !"_ZN5boost4urls27make_pct_string_view_unsafeEPKcmm: argument 0"}
+!35 = distinct !{!35, !"_ZN5boost4urls27make_pct_string_view_unsafeEPKcmm"}
+!36 = !{!37}
+!37 = distinct !{!37, !38, !"_ZN5boost4urls27make_pct_string_view_unsafeEPKcmm: argument 0"}
+!38 = distinct !{!38, !"_ZN5boost4urls27make_pct_string_view_unsafeEPKcmm"}
+!39 = distinct !{!39, !15}
+!40 = distinct !{!40, !15}
+!41 = distinct !{!41, !15}
+!42 = distinct !{!42, !15}
+!43 = !{!44, !5, i64 0}
+!44 = !{!"_ZTSN5boost4urls6detail8path_refE", !5, i64 0, !5, i64 8, !8, i64 16, !8, i64 24, !8, i64 32}
+!45 = !{!44, !5, i64 8}
+!46 = !{!44, !8, i64 16}
+!47 = !{!44, !8, i64 24}
+!48 = !{!44, !8, i64 32}
+!49 = !{!50, !5, i64 0}
+!50 = !{!"_ZTSN5boost4urls6detail9query_refE", !5, i64 0, !5, i64 8, !8, i64 16, !8, i64 24, !8, i64 32, !51, i64 40}
+!51 = !{!"bool", !6, i64 0}
+!52 = !{!50, !5, i64 8}
+!53 = !{!50, !8, i64 16}
+!54 = !{!50, !8, i64 24}
+!55 = !{!50, !8, i64 32}
+!56 = !{!50, !51, i64 40}
+!57 = !{!58}
+!58 = distinct !{!58, !59, !"_ZN5boost4urls27make_pct_string_view_unsafeEPKcmm: argument 0"}
+!59 = distinct !{!59, !"_ZN5boost4urls27make_pct_string_view_unsafeEPKcmm"}
+!60 = !{!61}
+!61 = distinct !{!61, !62, !"_ZN5boost4urls27make_pct_string_view_unsafeEPKcmm: argument 0"}
+!62 = distinct !{!62, !"_ZN5boost4urls27make_pct_string_view_unsafeEPKcmm"}
+!63 = !{!64}
+!64 = distinct !{!64, !65, !"_ZN5boost4urls27make_pct_string_view_unsafeEPKcmm: argument 0"}
+!65 = distinct !{!65, !"_ZN5boost4urls27make_pct_string_view_unsafeEPKcmm"}
+!66 = !{i8 0, i8 2}
+!67 = !{}

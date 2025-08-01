@@ -194,7 +194,7 @@ define hidden range(i32 0, 2) i32 @X509_REQ_extension_nid(i32 noundef %0) local_
   %6 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv.next
   %7 = load i32, ptr %6, align 4, !tbaa !33
   %8 = icmp eq i32 %7, 0
-  br i1 %8, label %._crit_edge, label %.lr.ph, !llvm.loop !34
+  br i1 %8, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1, %5
   %indvars.iv = phi i64 [ %indvars.iv.next, %5 ], [ 0, %1 ]
@@ -243,14 +243,14 @@ define hidden ptr @X509_REQ_get_extensions(ptr noundef readonly captures(address
   %11 = getelementptr inbounds nuw i8, ptr %.031, i64 4
   %12 = load i32, ptr %11, align 4, !tbaa !33
   %.not = icmp eq i32 %12, 0
-  br i1 %.not, label %.thread, label %.lr.ph, !llvm.loop !36
+  br i1 %.not, label %.thread, label %.lr.ph, !llvm.loop !34
 
 .lr.ph:                                           ; preds = %.preheader, %10
   %13 = phi i32 [ %12, %10 ], [ %9, %.preheader ]
   %.031 = phi ptr [ %11, %10 ], [ %7, %.preheader ]
   %14 = load ptr, ptr %0, align 8, !tbaa !6
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 48
-  %16 = load ptr, ptr %15, align 8, !tbaa !38
+  %16 = load ptr, ptr %15, align 8, !tbaa !36
   %17 = tail call i32 @X509at_get_attr_by_NID(ptr noundef %16, i32 noundef %13, i32 noundef -1) #7
   %18 = icmp eq i32 %17, -1
   br i1 %18, label %10, label %19
@@ -258,10 +258,10 @@ define hidden ptr @X509_REQ_get_extensions(ptr noundef readonly captures(address
 19:                                               ; preds = %.lr.ph
   %20 = load ptr, ptr %0, align 8, !tbaa !6
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 48
-  %22 = load ptr, ptr %21, align 8, !tbaa !38
+  %22 = load ptr, ptr %21, align 8, !tbaa !36
   %23 = tail call ptr @X509at_get_attr(ptr noundef %22, i32 noundef %17) #7
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 8
-  %25 = load i32, ptr %24, align 8, !tbaa !39
+  %25 = load i32, ptr %24, align 8, !tbaa !37
   %.not24 = icmp eq i32 %25, 0
   %26 = getelementptr inbounds nuw i8, ptr %23, i64 16
   %27 = load ptr, ptr %26, align 8, !tbaa !26
@@ -283,7 +283,7 @@ define hidden ptr @X509_REQ_get_extensions(ptr noundef readonly captures(address
   br i1 %.not26, label %.thread, label %34
 
 34:                                               ; preds = %33
-  %35 = load i32, ptr %.019, align 8, !tbaa !42
+  %35 = load i32, ptr %.019, align 8, !tbaa !40
   %.not27 = icmp eq i32 %35, 16
   br i1 %.not27, label %36, label %.thread
 
@@ -292,7 +292,7 @@ define hidden ptr @X509_REQ_get_extensions(ptr noundef readonly captures(address
   %38 = load ptr, ptr %37, align 8, !tbaa !26
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 8
   %40 = load ptr, ptr %39, align 8, !tbaa !25
-  store ptr %40, ptr %2, align 8, !tbaa !44
+  store ptr %40, ptr %2, align 8, !tbaa !42
   %41 = load i32, ptr %38, align 8, !tbaa !23
   %42 = sext i32 %41 to i64
   %43 = call ptr @ASN1_item_d2i(ptr noundef null, ptr noundef nonnull %2, i64 noundef %42, ptr noundef nonnull @X509_EXTENSIONS_it) #7
@@ -308,7 +308,7 @@ define hidden ptr @X509_REQ_get_extensions(ptr noundef readonly captures(address
 define hidden i32 @X509_REQ_get_attr_by_NID(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = load ptr, ptr %0, align 8, !tbaa !6
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 48
-  %6 = load ptr, ptr %5, align 8, !tbaa !38
+  %6 = load ptr, ptr %5, align 8, !tbaa !36
   %7 = tail call i32 @X509at_get_attr_by_NID(ptr noundef %6, i32 noundef %1, i32 noundef %2) #7
   ret i32 %7
 }
@@ -317,7 +317,7 @@ define hidden i32 @X509_REQ_get_attr_by_NID(ptr noundef readonly captures(none) 
 define hidden ptr @X509_REQ_get_attr(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr %0, align 8, !tbaa !6
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 48
-  %5 = load ptr, ptr %4, align 8, !tbaa !38
+  %5 = load ptr, ptr %4, align 8, !tbaa !36
   %6 = tail call ptr @X509at_get_attr(ptr noundef %5, i32 noundef %1) #7
   ret ptr %6
 }
@@ -342,7 +342,7 @@ define hidden range(i32 0, 2) i32 @X509_REQ_add_extensions_nid(ptr noundef reado
   br i1 %.not23, label %31, label %8
 
 8:                                                ; preds = %5
-  store i32 16, ptr %4, align 8, !tbaa !42
+  store i32 16, ptr %4, align 8, !tbaa !40
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %10 = tail call i32 @ASN1_item_i2d(ptr noundef %1, ptr noundef nonnull %9, ptr noundef nonnull @X509_EXTENSIONS_it) #7
   %11 = load ptr, ptr %7, align 8, !tbaa !26
@@ -365,12 +365,12 @@ define hidden range(i32 0, 2) i32 @X509_REQ_add_extensions_nid(ptr noundef reado
 
 18:                                               ; preds = %16
   %19 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  store i32 0, ptr %19, align 8, !tbaa !39
+  store i32 0, ptr %19, align 8, !tbaa !37
   %20 = tail call ptr @OBJ_nid2obj(i32 noundef %2) #7
-  store ptr %20, ptr %12, align 8, !tbaa !45
+  store ptr %20, ptr %12, align 8, !tbaa !43
   %21 = load ptr, ptr %0, align 8, !tbaa !6
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 48
-  %23 = load ptr, ptr %22, align 8, !tbaa !38
+  %23 = load ptr, ptr %22, align 8, !tbaa !36
   %.not27 = icmp eq ptr %23, null
   br i1 %.not27, label %24, label %28
 
@@ -378,7 +378,7 @@ define hidden range(i32 0, 2) i32 @X509_REQ_add_extensions_nid(ptr noundef reado
   %25 = tail call ptr @sk_new_null() #7
   %26 = load ptr, ptr %0, align 8, !tbaa !6
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 48
-  store ptr %25, ptr %27, align 8, !tbaa !38
+  store ptr %25, ptr %27, align 8, !tbaa !36
   %.not28 = icmp eq ptr %25, null
   br i1 %.not28, label %31, label %28
 
@@ -428,7 +428,7 @@ define hidden range(i32 0, 2) i32 @X509_REQ_add_extensions(ptr noundef readonly 
 define hidden i32 @X509_REQ_get_attr_count(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr %0, align 8, !tbaa !6
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 48
-  %4 = load ptr, ptr %3, align 8, !tbaa !38
+  %4 = load ptr, ptr %3, align 8, !tbaa !36
   %5 = tail call i32 @X509at_get_attr_count(ptr noundef %4) #7
   ret i32 %5
 }
@@ -441,7 +441,7 @@ declare i32 @X509at_get_attr_by_NID(ptr noundef, i32 noundef, i32 noundef) local
 define hidden i32 @X509_REQ_get_attr_by_OBJ(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = load ptr, ptr %0, align 8, !tbaa !6
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 48
-  %6 = load ptr, ptr %5, align 8, !tbaa !38
+  %6 = load ptr, ptr %5, align 8, !tbaa !36
   %7 = tail call i32 @X509at_get_attr_by_OBJ(ptr noundef %6, ptr noundef %1, i32 noundef %2) #7
   ret i32 %7
 }
@@ -454,7 +454,7 @@ declare ptr @X509at_get_attr(ptr noundef, i32 noundef) local_unnamed_addr #2
 define hidden ptr @X509_REQ_delete_attr(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr %0, align 8, !tbaa !6
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 48
-  %5 = load ptr, ptr %4, align 8, !tbaa !38
+  %5 = load ptr, ptr %4, align 8, !tbaa !36
   %6 = tail call ptr @X509at_delete_attr(ptr noundef %5, i32 noundef %1) #7
   ret ptr %6
 }
@@ -556,14 +556,12 @@ attributes #8 = { nounwind allocsize(0) }
 !32 = !{!"p1 int", !9, i64 0}
 !33 = !{!14, !14, i64 0}
 !34 = distinct !{!34, !35}
-!35 = !{!"llvm.loop.estimated_trip_count"}
-!36 = distinct !{!36, !37, !35}
-!37 = !{!"llvm.loop.mustprogress"}
-!38 = !{!16, !22, i64 48}
-!39 = !{!40, !14, i64 8}
-!40 = !{!"x509_attributes_st", !41, i64 0, !14, i64 8, !10, i64 16}
-!41 = !{!"p1 _ZTS14asn1_object_st", !9, i64 0}
-!42 = !{!43, !14, i64 0}
-!43 = !{!"asn1_type_st", !14, i64 0, !10, i64 8}
-!44 = !{!18, !18, i64 0}
-!45 = !{!40, !41, i64 0}
+!35 = !{!"llvm.loop.mustprogress"}
+!36 = !{!16, !22, i64 48}
+!37 = !{!38, !14, i64 8}
+!38 = !{!"x509_attributes_st", !39, i64 0, !14, i64 8, !10, i64 16}
+!39 = !{!"p1 _ZTS14asn1_object_st", !9, i64 0}
+!40 = !{!41, !14, i64 0}
+!41 = !{!"asn1_type_st", !14, i64 0, !10, i64 8}
+!42 = !{!18, !18, i64 0}
+!43 = !{!38, !39, i64 0}

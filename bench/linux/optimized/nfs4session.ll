@@ -194,7 +194,7 @@ define dso_local range(i32 -110, 1) i32 @nfs4_slot_wait_on_seqid(ptr noundef %0,
 
 13:                                               ; preds = %4
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5) #8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %5, i8 0, i64 40, i1 false), !annotation !11
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %5, i8 0, i64 40, i1 false), !annotation !10
   call void @init_wait_entry(ptr noundef nonnull %5, i32 noundef 0) #8
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 352
   %15 = call i64 @prepare_to_wait_event(ptr noundef nonnull %14, ptr noundef nonnull %5, i32 noundef 2) #8
@@ -279,7 +279,7 @@ define internal fastcc noundef zeroext i1 @nfs4_slot_seqid_in_use(ptr noundef %0
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 24
   %30 = load i32, ptr %29, align 8
   %31 = icmp eq i32 %30, %1
-  br i1 %31, label %.loopexit, label %10, !llvm.loop !12
+  br i1 %31, label %.loopexit, label %10, !llvm.loop !8
 
 32:                                               ; preds = %15
   store ptr null, ptr %12, align 8
@@ -383,7 +383,7 @@ define dso_local ptr @nfs4_alloc_slot(ptr noundef %0) local_unnamed_addr #0 alig
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 24
   %33 = load i32, ptr %32, align 8
   %34 = icmp eq i32 %33, %8
-  br i1 %34, label %35, label %13, !llvm.loop !13
+  br i1 %34, label %35, label %13, !llvm.loop !8
 
 .thread:                                          ; preds = %18
   store ptr null, ptr %15, align 8
@@ -443,7 +443,7 @@ define dso_local void @nfs4_shutdown_slot_table(ptr noundef %0) local_unnamed_ad
   store i32 %13, ptr %2, align 8
   %14 = load ptr, ptr %6, align 8
   %15 = icmp eq ptr %14, null
-  br i1 %15, label %.loopexit, label %.preheader, !llvm.loop !14
+  br i1 %15, label %.loopexit, label %.preheader, !llvm.loop !11
 
 .loopexit:                                        ; preds = %.preheader, %5, %1
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 152
@@ -512,7 +512,7 @@ define dso_local range(i32 -12, 1) i32 @nfs4_setup_slot_table(ptr noundef initia
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 24
   %35 = load i32, ptr %34, align 8
   %36 = icmp eq i32 %35, %14
-  br i1 %36, label %38, label %.preheader18, !llvm.loop !16
+  br i1 %36, label %38, label %.preheader18, !llvm.loop !8
 
 37:                                               ; preds = %20
   store ptr null, ptr %17, align 8
@@ -546,7 +546,7 @@ define dso_local range(i32 -12, 1) i32 @nfs4_setup_slot_table(ptr noundef initia
   %51 = load ptr, ptr %48, align 8
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 8
   %53 = icmp eq i32 %50, 0
-  br i1 %53, label %.loopexit8, label %.preheader7, !llvm.loop !17
+  br i1 %53, label %.loopexit8, label %.preheader7, !llvm.loop !13
 
 .preheader5:                                      ; preds = %.loopexit8, %.preheader5
   %54 = phi ptr [ %59, %.preheader5 ], [ %46, %.loopexit8 ]
@@ -559,7 +559,7 @@ define dso_local range(i32 -12, 1) i32 @nfs4_setup_slot_table(ptr noundef initia
   store i32 %58, ptr %11, align 8
   %59 = load ptr, ptr %45, align 8
   %60 = icmp eq ptr %59, null
-  br i1 %60, label %.loopexit6, label %.preheader5, !llvm.loop !18
+  br i1 %60, label %.loopexit6, label %.preheader5, !llvm.loop !11
 
 .loopexit6:                                       ; preds = %.preheader5, %.loopexit8, %._crit_edge
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -582,7 +582,7 @@ define dso_local range(i32 -12, 1) i32 @nfs4_setup_slot_table(ptr noundef initia
   %72 = getelementptr inbounds nuw i8, ptr %71, i64 8
   %73 = load ptr, ptr %72, align 8
   %74 = icmp eq ptr %73, null
-  br i1 %74, label %.loopexit, label %.preheader, !llvm.loop !19
+  br i1 %74, label %.loopexit, label %.preheader, !llvm.loop !14
 
 .loopexit:                                        ; preds = %.preheader, %.loopexit6
   store i32 -1, ptr %4, align 8
@@ -637,7 +637,7 @@ define dso_local void @nfs41_wake_slot_table(ptr noundef %0) local_unnamed_addr 
 6:                                                ; preds = %3
   %7 = tail call ptr @rpc_wake_up_first(ptr noundef nonnull %2, ptr noundef nonnull @nfs41_assign_slot, ptr noundef %4) #8
   %8 = icmp eq ptr %7, null
-  br i1 %8, label %9, label %3, !llvm.loop !20
+  br i1 %8, label %9, label %3
 
 9:                                                ; preds = %6
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 24
@@ -778,16 +778,10 @@ attributes #9 = { nounwind allocsize(2) }
 !5 = !{i64 2147802935}
 !6 = !{i64 2147814088, i64 2147814162}
 !7 = !{i64 2147801402}
-!8 = distinct !{!8, !9, !10}
+!8 = distinct !{!8, !9}
 !9 = !{!"llvm.loop.unroll.disable"}
-!10 = !{!"llvm.loop.estimated_trip_count"}
-!11 = !{!"auto-init"}
-!12 = distinct !{!12, !9, !10}
-!13 = distinct !{!13, !9, !10}
-!14 = distinct !{!14, !15, !9, !10}
-!15 = !{!"llvm.loop.mustprogress"}
-!16 = distinct !{!16, !9, !10}
-!17 = distinct !{!17, !15, !9, !10}
-!18 = distinct !{!18, !15, !9, !10}
-!19 = distinct !{!19, !15, !9, !10}
-!20 = distinct !{!20, !10}
+!10 = !{!"auto-init"}
+!11 = distinct !{!11, !12, !9}
+!12 = !{!"llvm.loop.mustprogress"}
+!13 = distinct !{!13, !12, !9}
+!14 = distinct !{!14, !12, !9}

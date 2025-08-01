@@ -278,7 +278,7 @@ read_until.exit.thread:                           ; preds = %21, %19
   %56 = ptrtoint ptr %55 to i64
   %57 = sub i64 %46, %56
   %58 = icmp ult i64 %57, 4294967296
-  br i1 %58, label %._crit_edge, label %.lr.ph, !prof !9
+  br i1 %58, label %._crit_edge, label %.lr.ph, !prof !8
 
 .lr.ph:                                           ; preds = %42, %.lr.ph
   %.04349 = phi i64 [ %61, %.lr.ph ], [ %57, %42 ]
@@ -286,7 +286,7 @@ read_until.exit.thread:                           ; preds = %21, %19
   %60 = call ptr @g_byte_array_remove_range(ptr noundef %59, i32 noundef 0, i32 noundef -1)
   %61 = add i64 %.04349, -4294967295
   %62 = icmp ult i64 %61, 4294967296
-  br i1 %62, label %._crit_edge.loopexit, label %.lr.ph, !prof !10, !llvm.loop !11
+  br i1 %62, label %._crit_edge.loopexit, label %.lr.ph, !prof !9, !llvm.loop !10
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
   %.pre = load ptr, ptr %8, align 8
@@ -945,7 +945,7 @@ thread-pre-split:                                 ; preds = %155, %151
   store i8 %258, ptr %.0197281, align 1
   %260 = add nuw nsw i32 %.0199280, 1
   %exitcond.not = icmp eq i32 %260, %237
-  br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !12
+  br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !11
 
 ._crit_edge.loopexit:                             ; preds = %254
   %.pre294 = load i64, ptr %239, align 8
@@ -1246,10 +1246,9 @@ attributes #14 = { nounwind willreturn memory(none) }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = !{!"branch_weights", i32 1999, i32 1}
-!10 = !{!"branch_weights", i32 1, i32 0}
-!11 = distinct !{!11, !7, !8}
-!12 = distinct !{!12, !7, !8}
+!8 = !{!"branch_weights", i32 1999, i32 1}
+!9 = !{!"branch_weights", i32 1, i32 0}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7}

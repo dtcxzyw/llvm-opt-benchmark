@@ -748,7 +748,7 @@ define i32 @dt_tag_remove_list(ptr noundef readonly captures(address_is_null) %0
   %13 = getelementptr inbounds nuw i8, ptr %.01527, i64 8
   %14 = load ptr, ptr %13, align 8, !tbaa !62
   %.not23 = icmp eq ptr %14, null
-  br i1 %.not23, label %4, label %5, !llvm.loop !63
+  br i1 %.not23, label %4, label %5
 
 .thread:                                          ; preds = %5
   %15 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %9) #13
@@ -764,7 +764,7 @@ define i32 @dt_tag_remove_list(ptr noundef readonly captures(address_is_null) %0
   %21 = getelementptr inbounds nuw i8, ptr %.01527, i64 8
   %22 = load ptr, ptr %21, align 8, !tbaa !62
   %.not2330 = icmp eq ptr %22, null
-  br i1 %.not2330, label %.thread33, label %.outer, !llvm.loop !63
+  br i1 %.not2330, label %.thread33, label %.outer
 
 23:                                               ; preds = %4
   %24 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %9) #13
@@ -1024,7 +1024,7 @@ define range(i32 0, 2) i32 @dt_tag_attach_images(i32 noundef %0, ptr noundef rea
 
 5:                                                ; preds = %3
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #11
-  store ptr null, ptr %4, align 8, !tbaa !65
+  store ptr null, ptr %4, align 8, !tbaa !63
   %6 = zext i32 %0 to i64
   %7 = inttoptr i64 %6 to ptr
   %8 = tail call ptr @g_list_prepend(ptr noundef null, ptr noundef %7) #11
@@ -1037,14 +1037,14 @@ define range(i32 0, 2) i32 @dt_tag_attach_images(i32 noundef %0, ptr noundef rea
   br label %16
 
 10:                                               ; preds = %5
-  %11 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 208), align 8, !tbaa !66
+  %11 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 208), align 8, !tbaa !64
   tail call void @dt_undo_start_group(ptr noundef %11, i32 noundef 32) #11
   %12 = call fastcc i32 @_tag_execute(ptr noundef %8, ptr noundef %1, ptr noundef %4, i32 noundef %2, i32 noundef 0)
   tail call void @g_list_free(ptr noundef %8) #11
-  %13 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 208), align 8, !tbaa !66
-  %14 = load ptr, ptr %4, align 8, !tbaa !65
+  %13 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 208), align 8, !tbaa !64
+  %14 = load ptr, ptr %4, align 8, !tbaa !63
   tail call void @dt_undo_record(ptr noundef %13, ptr noundef null, i32 noundef 32, ptr noundef %14, ptr noundef nonnull @_pop_undo, ptr noundef nonnull @_tags_undo_data_free) #11
-  %15 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 208), align 8, !tbaa !66
+  %15 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 208), align 8, !tbaa !64
   tail call void @dt_undo_end_group(ptr noundef %15) #11
   br label %16
 
@@ -1078,10 +1078,10 @@ define internal fastcc range(i32 0, 2) i32 @_tag_execute(ptr noundef %0, ptr nou
   %9 = ptrtoint ptr %8 to i64
   %10 = trunc i64 %9 to i32
   %11 = tail call noalias dereferenceable_or_null(24) ptr @malloc(i64 noundef 24) #14
-  store i32 %10, ptr %11, align 8, !tbaa !67
+  store i32 %10, ptr %11, align 8, !tbaa !65
   %12 = tail call fastcc ptr @_tag_get_tags(i32 noundef %10, i32 noundef 2)
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  store ptr %12, ptr %13, align 8, !tbaa !69
+  store ptr %12, ptr %13, align 8, !tbaa !67
   %14 = getelementptr inbounds nuw i8, ptr %11, i64 16
   switch i32 %4, label %default.unreachable53 [
     i32 0, label %15
@@ -1092,7 +1092,7 @@ define internal fastcc range(i32 0, 2) i32 @_tag_execute(ptr noundef %0, ptr nou
 
 15:                                               ; preds = %7
   %16 = tail call ptr @g_list_copy(ptr noundef %12) #11
-  store ptr %16, ptr %14, align 8, !tbaa !70
+  store ptr %16, ptr %14, align 8, !tbaa !68
   br i1 %.not9.i, label %_tag_add_tags_to_list.exit.thread, label %.lr.ph.i.outer
 
 .lr.ph.i.outer:                                   ; preds = %15, %.thread
@@ -1102,7 +1102,7 @@ define internal fastcc range(i32 0, 2) i32 @_tag_execute(ptr noundef %0, ptr nou
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.outer, %20
   %.013.i = phi ptr [ %22, %20 ], [ %.013.i.ph, %.lr.ph.i.outer ]
-  %17 = load ptr, ptr %14, align 8, !tbaa !65
+  %17 = load ptr, ptr %14, align 8, !tbaa !63
   %18 = load ptr, ptr %.013.i, align 8, !tbaa !58
   %19 = tail call ptr @g_list_find(ptr noundef %17, ptr noundef %18) #11
   %.not10.i = icmp eq ptr %19, null
@@ -1112,17 +1112,17 @@ define internal fastcc range(i32 0, 2) i32 @_tag_execute(ptr noundef %0, ptr nou
   %21 = getelementptr inbounds nuw i8, ptr %.013.i, i64 8
   %22 = load ptr, ptr %21, align 8, !tbaa !62
   %.not.i = icmp eq ptr %22, null
-  br i1 %.not.i, label %_tag_add_tags_to_list.exit, label %.lr.ph.i, !llvm.loop !71
+  br i1 %.not.i, label %_tag_add_tags_to_list.exit, label %.lr.ph.i
 
 .thread:                                          ; preds = %.lr.ph.i
-  %23 = load ptr, ptr %14, align 8, !tbaa !65
+  %23 = load ptr, ptr %14, align 8, !tbaa !63
   %24 = load ptr, ptr %.013.i, align 8, !tbaa !58
   %25 = tail call ptr @g_list_prepend(ptr noundef %23, ptr noundef %24) #11
-  store ptr %25, ptr %14, align 8, !tbaa !65
+  store ptr %25, ptr %14, align 8, !tbaa !63
   %26 = getelementptr inbounds nuw i8, ptr %.013.i, i64 8
   %27 = load ptr, ptr %26, align 8, !tbaa !62
   %.not.i55 = icmp eq ptr %27, null
-  br i1 %.not.i55, label %_tag_add_tags_to_list.exit.thread57, label %.lr.ph.i.outer, !llvm.loop !71
+  br i1 %.not.i55, label %_tag_add_tags_to_list.exit.thread57, label %.lr.ph.i.outer
 
 _tag_add_tags_to_list.exit:                       ; preds = %20
   br i1 %.not41, label %_tag_add_tags_to_list.exit.thread, label %_tag_add_tags_to_list.exit.thread57
@@ -1132,9 +1132,9 @@ _tag_add_tags_to_list.exit.thread:                ; preds = %15, %_tag_add_tags_
 
 28:                                               ; preds = %7
   %29 = tail call ptr @g_list_copy(ptr noundef %12) #11
-  store ptr %29, ptr %14, align 8, !tbaa !70
+  store ptr %29, ptr %14, align 8, !tbaa !68
   %30 = tail call i32 @g_list_length(ptr noundef %29) #11
-  %.pre11.i = load ptr, ptr %14, align 8, !tbaa !65
+  %.pre11.i = load ptr, ptr %14, align 8, !tbaa !63
   br i1 %.not9.i, label %_tag_remove_tags_from_list.exit, label %.lr.ph.i44
 
 .lr.ph.i44:                                       ; preds = %28, %.lr.ph.i44
@@ -1142,11 +1142,11 @@ _tag_add_tags_to_list.exit.thread:                ; preds = %15, %_tag_add_tags_
   %.010.i = phi ptr [ %35, %.lr.ph.i44 ], [ %0, %28 ]
   %32 = load ptr, ptr %.010.i, align 8, !tbaa !58
   %33 = tail call ptr @g_list_remove(ptr noundef %31, ptr noundef %32) #11
-  store ptr %33, ptr %14, align 8, !tbaa !65
+  store ptr %33, ptr %14, align 8, !tbaa !63
   %34 = getelementptr inbounds nuw i8, ptr %.010.i, i64 8
   %35 = load ptr, ptr %34, align 8, !tbaa !62
   %.not.i45 = icmp eq ptr %35, null
-  br i1 %.not.i45, label %_tag_remove_tags_from_list.exit, label %.lr.ph.i44, !llvm.loop !72
+  br i1 %.not.i45, label %_tag_remove_tags_from_list.exit, label %.lr.ph.i44
 
 _tag_remove_tags_from_list.exit:                  ; preds = %.lr.ph.i44, %28
   %36 = phi ptr [ %.pre11.i, %28 ], [ %33, %.lr.ph.i44 ]
@@ -1157,20 +1157,20 @@ _tag_remove_tags_from_list.exit:                  ; preds = %.lr.ph.i44, %28
 
 38:                                               ; preds = %7
   %39 = tail call ptr @g_list_copy(ptr noundef %0) #11
-  store ptr %39, ptr %14, align 8, !tbaa !70
+  store ptr %39, ptr %14, align 8, !tbaa !68
   %40 = tail call fastcc ptr @_tag_get_tags(i32 noundef %10, i32 noundef 0)
   %.not39 = icmp eq ptr %40, null
   br i1 %.not39, label %_tag_add_tags_to_list.exit.thread57, label %41
 
 41:                                               ; preds = %38
-  %42 = load ptr, ptr %14, align 8, !tbaa !70
+  %42 = load ptr, ptr %14, align 8, !tbaa !68
   %43 = tail call ptr @g_list_concat(ptr noundef %42, ptr noundef nonnull %40) #11
-  store ptr %43, ptr %14, align 8, !tbaa !70
+  store ptr %43, ptr %14, align 8, !tbaa !68
   br label %_tag_add_tags_to_list.exit.thread57
 
 44:                                               ; preds = %7
   %45 = tail call ptr @g_list_copy(ptr noundef %0) #11
-  store ptr %45, ptr %14, align 8, !tbaa !70
+  store ptr %45, ptr %14, align 8, !tbaa !68
   br label %_tag_add_tags_to_list.exit.thread57
 
 default.unreachable53:                            ; preds = %7
@@ -1178,22 +1178,22 @@ default.unreachable53:                            ; preds = %7
 
 _tag_add_tags_to_list.exit.thread57:              ; preds = %.thread, %_tag_add_tags_to_list.exit.thread, %_tag_add_tags_to_list.exit, %_tag_remove_tags_from_list.exit, %38, %41, %44
   %.1 = phi i32 [ 1, %44 ], [ %spec.select43, %_tag_remove_tags_from_list.exit ], [ 1, %41 ], [ 1, %38 ], [ %.052, %_tag_add_tags_to_list.exit.thread ], [ 1, %_tag_add_tags_to_list.exit ], [ 1, %.thread ]
-  %46 = load ptr, ptr %13, align 8, !tbaa !69
+  %46 = load ptr, ptr %13, align 8, !tbaa !67
   %47 = getelementptr inbounds nuw i8, ptr %11, i64 16
-  %48 = load ptr, ptr %47, align 8, !tbaa !70
+  %48 = load ptr, ptr %47, align 8, !tbaa !68
   tail call fastcc void @_pop_undo_execute(i32 noundef %10, ptr noundef %46, ptr noundef %48)
   br i1 %.not42, label %52, label %49
 
 49:                                               ; preds = %_tag_add_tags_to_list.exit.thread57
-  %50 = load ptr, ptr %2, align 8, !tbaa !65
+  %50 = load ptr, ptr %2, align 8, !tbaa !63
   %51 = tail call ptr @g_list_append(ptr noundef %50, ptr noundef nonnull %11) #11
-  store ptr %51, ptr %2, align 8, !tbaa !65
+  store ptr %51, ptr %2, align 8, !tbaa !63
   br label %55
 
 52:                                               ; preds = %_tag_add_tags_to_list.exit.thread57
-  %53 = load ptr, ptr %13, align 8, !tbaa !69
+  %53 = load ptr, ptr %13, align 8, !tbaa !67
   tail call void @g_list_free(ptr noundef %53) #11
-  %54 = load ptr, ptr %47, align 8, !tbaa !70
+  %54 = load ptr, ptr %47, align 8, !tbaa !68
   tail call void @g_list_free(ptr noundef %54) #11
   tail call void @g_free(ptr noundef nonnull %11) #11
   br label %55
@@ -1202,7 +1202,7 @@ _tag_add_tags_to_list.exit.thread57:              ; preds = %.thread, %_tag_add_
   %56 = getelementptr inbounds nuw i8, ptr %.03751, i64 8
   %57 = load ptr, ptr %56, align 8, !tbaa !62
   %.not = icmp eq ptr %57, null
-  br i1 %.not, label %6, label %7, !llvm.loop !73
+  br i1 %.not, label %6, label %7
 }
 
 declare void @g_list_free(ptr noundef) local_unnamed_addr #2
@@ -1227,20 +1227,20 @@ define internal void @_pop_undo(ptr readnone captures(none) %0, i32 noundef %1, 
   %8 = load ptr, ptr %.021.us, align 8, !tbaa !58
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %11 = load ptr, ptr %9, align 8, !tbaa !65
-  %12 = load ptr, ptr %10, align 8, !tbaa !65
-  %13 = load i32, ptr %8, align 8, !tbaa !67
+  %11 = load ptr, ptr %9, align 8, !tbaa !63
+  %12 = load ptr, ptr %10, align 8, !tbaa !63
+  %13 = load i32, ptr %8, align 8, !tbaa !65
   tail call fastcc void @_pop_undo_execute(i32 noundef %13, ptr noundef %11, ptr noundef %12)
-  %14 = load ptr, ptr %4, align 8, !tbaa !65
-  %15 = load i32, ptr %8, align 8, !tbaa !67
+  %14 = load ptr, ptr %4, align 8, !tbaa !63
+  %15 = load i32, ptr %8, align 8, !tbaa !65
   %16 = sext i32 %15 to i64
   %17 = inttoptr i64 %16 to ptr
   %18 = tail call ptr @g_list_prepend(ptr noundef %14, ptr noundef %17) #11
-  store ptr %18, ptr %4, align 8, !tbaa !65
+  store ptr %18, ptr %4, align 8, !tbaa !63
   %19 = getelementptr inbounds nuw i8, ptr %.021.us, i64 8
   %20 = load ptr, ptr %19, align 8, !tbaa !62
   %.not.us = icmp eq ptr %20, null
-  br i1 %.not.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !74
+  br i1 %.not.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !69
 
 ._crit_edge:                                      ; preds = %.lr.ph.split, %.lr.ph.split.us, %.preheader
   %21 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3128), align 8, !tbaa !55
@@ -1256,20 +1256,20 @@ define internal void @_pop_undo(ptr readnone captures(none) %0, i32 noundef %1, 
   %26 = load ptr, ptr %.021, align 8, !tbaa !58
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %28 = getelementptr inbounds nuw i8, ptr %26, i64 8
-  %29 = load ptr, ptr %28, align 8, !tbaa !65
-  %30 = load ptr, ptr %27, align 8, !tbaa !65
-  %31 = load i32, ptr %26, align 8, !tbaa !67
+  %29 = load ptr, ptr %28, align 8, !tbaa !63
+  %30 = load ptr, ptr %27, align 8, !tbaa !63
+  %31 = load i32, ptr %26, align 8, !tbaa !65
   tail call fastcc void @_pop_undo_execute(i32 noundef %31, ptr noundef %29, ptr noundef %30)
-  %32 = load ptr, ptr %4, align 8, !tbaa !65
-  %33 = load i32, ptr %26, align 8, !tbaa !67
+  %32 = load ptr, ptr %4, align 8, !tbaa !63
+  %33 = load i32, ptr %26, align 8, !tbaa !65
   %34 = sext i32 %33 to i64
   %35 = inttoptr i64 %34 to ptr
   %36 = tail call ptr @g_list_prepend(ptr noundef %32, ptr noundef %35) #11
-  store ptr %36, ptr %4, align 8, !tbaa !65
+  store ptr %36, ptr %4, align 8, !tbaa !63
   %37 = getelementptr inbounds nuw i8, ptr %.021, i64 8
   %38 = load ptr, ptr %37, align 8, !tbaa !62
   %.not = icmp eq ptr %38, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !76
+  br i1 %.not, label %._crit_edge, label %.lr.ph.split
 
 39:                                               ; preds = %._crit_edge
   %40 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !9
@@ -1410,7 +1410,7 @@ define range(i32 0, 2) i32 @dt_tag_set_tags(ptr noundef %0, ptr noundef readonly
 
 7:                                                ; preds = %5
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #11
-  store ptr null, ptr %6, align 8, !tbaa !65
+  store ptr null, ptr %6, align 8, !tbaa !63
   %.not13 = icmp eq i32 %4, 0
   br i1 %.not13, label %.thread, label %11
 
@@ -1423,17 +1423,17 @@ define range(i32 0, 2) i32 @dt_tag_set_tags(ptr noundef %0, ptr noundef readonly
   br label %19
 
 11:                                               ; preds = %7
-  %12 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 208), align 8, !tbaa !66
+  %12 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 208), align 8, !tbaa !64
   tail call void @dt_undo_start_group(ptr noundef %12, i32 noundef 32) #11
   %.not16 = icmp eq i32 %3, 0
   %.not17 = icmp eq i32 %2, 0
   %13 = select i1 %.not17, i32 3, i32 2
   %14 = select i1 %.not16, i32 0, i32 %13
   %15 = call fastcc i32 @_tag_execute(ptr noundef %0, ptr noundef %1, ptr noundef %6, i32 noundef %4, i32 noundef %14)
-  %16 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 208), align 8, !tbaa !66
-  %17 = load ptr, ptr %6, align 8, !tbaa !65
+  %16 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 208), align 8, !tbaa !64
+  %17 = load ptr, ptr %6, align 8, !tbaa !63
   tail call void @dt_undo_record(ptr noundef %16, ptr noundef null, i32 noundef 32, ptr noundef %17, ptr noundef nonnull @_pop_undo, ptr noundef nonnull @_tags_undo_data_free) #11
-  %18 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 208), align 8, !tbaa !66
+  %18 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 208), align 8, !tbaa !64
   tail call void @dt_undo_end_group(ptr noundef %18) #11
   br label %19
 
@@ -1486,7 +1486,7 @@ define range(i32 0, 2) i32 @dt_tag_attach_string_list(ptr noundef %0, ptr nounde
   %19 = getelementptr inbounds nuw i8, ptr %.01734, i64 8
   %20 = load ptr, ptr %19, align 8, !tbaa !57
   %.not26 = icmp eq ptr %20, null
-  br i1 %.not26, label %._crit_edge, label %.lr.ph, !llvm.loop !77
+  br i1 %.not26, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %18, %.preheader
   %.018.lcssa = phi ptr [ null, %.preheader ], [ %.119, %18 ]
@@ -1495,7 +1495,7 @@ define range(i32 0, 2) i32 @dt_tag_attach_string_list(ptr noundef %0, ptr nounde
 
 21:                                               ; preds = %._crit_edge
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #11
-  store ptr null, ptr %5, align 8, !tbaa !65
+  store ptr null, ptr %5, align 8, !tbaa !63
   %.not28 = icmp eq i32 %2, 0
   br i1 %.not28, label %.thread, label %23
 
@@ -1504,13 +1504,13 @@ define range(i32 0, 2) i32 @dt_tag_attach_string_list(ptr noundef %0, ptr nounde
   br label %29
 
 23:                                               ; preds = %21
-  %24 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 208), align 8, !tbaa !66
+  %24 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 208), align 8, !tbaa !64
   call void @dt_undo_start_group(ptr noundef %24, i32 noundef 32) #11
   %25 = call fastcc i32 @_tag_execute(ptr noundef %.018.lcssa, ptr noundef %1, ptr noundef %5, i32 noundef %2, i32 noundef 0)
-  %26 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 208), align 8, !tbaa !66
-  %27 = load ptr, ptr %5, align 8, !tbaa !65
+  %26 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 208), align 8, !tbaa !64
+  %27 = load ptr, ptr %5, align 8, !tbaa !63
   call void @dt_undo_record(ptr noundef %26, ptr noundef null, i32 noundef 32, ptr noundef %27, ptr noundef nonnull @_pop_undo, ptr noundef nonnull @_tags_undo_data_free) #11
-  %28 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 208), align 8, !tbaa !66
+  %28 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 208), align 8, !tbaa !64
   call void @dt_undo_end_group(ptr noundef %28) #11
   br label %29
 
@@ -1549,7 +1549,7 @@ define range(i32 0, 2) i32 @dt_tag_detach_images(i32 noundef %0, ptr noundef rea
   %7 = inttoptr i64 %6 to ptr
   %8 = tail call ptr @g_list_prepend(ptr noundef null, ptr noundef %7) #11
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #11
-  store ptr null, ptr %4, align 8, !tbaa !65
+  store ptr null, ptr %4, align 8, !tbaa !63
   %.not14 = icmp eq i32 %2, 0
   br i1 %.not14, label %.thread, label %10
 
@@ -1559,14 +1559,14 @@ define range(i32 0, 2) i32 @dt_tag_detach_images(i32 noundef %0, ptr noundef rea
   br label %16
 
 10:                                               ; preds = %5
-  %11 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 208), align 8, !tbaa !66
+  %11 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 208), align 8, !tbaa !64
   tail call void @dt_undo_start_group(ptr noundef %11, i32 noundef 32) #11
   %12 = call fastcc i32 @_tag_execute(ptr noundef %8, ptr noundef %1, ptr noundef %4, i32 noundef %2, i32 noundef 1)
   tail call void @g_list_free(ptr noundef %8) #11
-  %13 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 208), align 8, !tbaa !66
-  %14 = load ptr, ptr %4, align 8, !tbaa !65
+  %13 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 208), align 8, !tbaa !64
+  %14 = load ptr, ptr %4, align 8, !tbaa !63
   tail call void @dt_undo_record(ptr noundef %13, ptr noundef null, i32 noundef 32, ptr noundef %14, ptr noundef nonnull @_pop_undo, ptr noundef nonnull @_tags_undo_data_free) #11
-  %15 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 208), align 8, !tbaa !66
+  %15 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 208), align 8, !tbaa !64
   tail call void @dt_undo_end_group(ptr noundef %15) #11
   br label %16
 
@@ -1601,19 +1601,19 @@ define range(i32 0, 2) i32 @dt_tag_detach(i32 noundef %0, i32 noundef %1, i32 no
 
 14:                                               ; preds = %10, %7
   %storemerge = phi ptr [ %9, %7 ], [ %13, %10 ]
-  store ptr %storemerge, ptr %5, align 8, !tbaa !65
+  store ptr %storemerge, ptr %5, align 8, !tbaa !63
   %.not7 = icmp eq i32 %3, 0
   br i1 %.not7, label %16, label %15
 
 15:                                               ; preds = %14
   call void @dt_grouping_add_grouped_images(ptr noundef nonnull %5) #11
-  %.pre = load ptr, ptr %5, align 8, !tbaa !65
+  %.pre = load ptr, ptr %5, align 8, !tbaa !63
   br label %16
 
 16:                                               ; preds = %15, %14
   %17 = phi ptr [ %.pre, %15 ], [ %storemerge, %14 ]
   %18 = call i32 @dt_tag_detach_images(i32 noundef %0, ptr noundef %17, i32 noundef %2)
-  %19 = load ptr, ptr %5, align 8, !tbaa !65
+  %19 = load ptr, ptr %5, align 8, !tbaa !63
   call void @g_list_free(ptr noundef %19) #11
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #11
   ret i32 %18
@@ -1677,7 +1677,7 @@ define range(i32 0, 2) i32 @dt_tag_detach_by_string(ptr noundef %0, i32 noundef 
 
 28:                                               ; preds = %25, %27
   %29 = getelementptr inbounds nuw i8, ptr %.020, i64 1
-  br label %25, !llvm.loop !78
+  br label %25
 
 30:                                               ; preds = %25
   %31 = load ptr, ptr %6, align 8, !tbaa !52
@@ -1726,24 +1726,24 @@ define range(i32 0, 2) i32 @dt_tag_detach_by_string(ptr noundef %0, i32 noundef 
   %57 = call i32 @sqlite3_column_int(ptr noundef %56, i32 noundef 0) #11
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #11
   %58 = call ptr @g_list_prepend(ptr noundef null, ptr noundef nonnull %55) #11
-  store ptr %58, ptr %5, align 8, !tbaa !65
+  store ptr %58, ptr %5, align 8, !tbaa !63
   br i1 %.not.i, label %dt_tag_detach.exit.us, label %59
 
 59:                                               ; preds = %.lr.ph.split.us
   call void @dt_grouping_add_grouped_images(ptr noundef nonnull %5) #11
-  %.pre.i.us = load ptr, ptr %5, align 8, !tbaa !65
+  %.pre.i.us = load ptr, ptr %5, align 8, !tbaa !63
   br label %dt_tag_detach.exit.us
 
 dt_tag_detach.exit.us:                            ; preds = %59, %.lr.ph.split.us
   %60 = phi ptr [ %.pre.i.us, %59 ], [ %58, %.lr.ph.split.us ]
   %61 = call i32 @dt_tag_detach_images(i32 noundef %57, ptr noundef %60, i32 noundef %2)
-  %62 = load ptr, ptr %5, align 8, !tbaa !65
+  %62 = load ptr, ptr %5, align 8, !tbaa !63
   call void @g_list_free(ptr noundef %62) #11
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #11
   %63 = load ptr, ptr %6, align 8, !tbaa !52
   %64 = call i32 @sqlite3_step(ptr noundef %63) #11
   %65 = icmp eq i32 %64, 100
-  br i1 %65, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !79
+  br i1 %65, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !71
 
 .lr.ph.split:                                     ; preds = %.lr.ph
   br i1 %.not.i, label %dt_tag_detach.exit.us29, label %dt_tag_detach.exit
@@ -1753,32 +1753,32 @@ dt_tag_detach.exit.us29:                          ; preds = %.lr.ph.split, %dt_t
   %67 = call i32 @sqlite3_column_int(ptr noundef %66, i32 noundef 0) #11
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #11
   %68 = call ptr @dt_act_on_get_images(i32 noundef %53, i32 noundef 1, i32 noundef 0) #11
-  store ptr %68, ptr %5, align 8, !tbaa !65
+  store ptr %68, ptr %5, align 8, !tbaa !63
   %69 = call i32 @dt_tag_detach_images(i32 noundef %67, ptr noundef %68, i32 noundef %2)
-  %70 = load ptr, ptr %5, align 8, !tbaa !65
+  %70 = load ptr, ptr %5, align 8, !tbaa !63
   call void @g_list_free(ptr noundef %70) #11
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #11
   %71 = load ptr, ptr %6, align 8, !tbaa !52
   %72 = call i32 @sqlite3_step(ptr noundef %71) #11
   %73 = icmp eq i32 %72, 100
-  br i1 %73, label %dt_tag_detach.exit.us29, label %._crit_edge, !llvm.loop !80
+  br i1 %73, label %dt_tag_detach.exit.us29, label %._crit_edge, !llvm.loop !72
 
 dt_tag_detach.exit:                               ; preds = %.lr.ph.split, %dt_tag_detach.exit
   %74 = load ptr, ptr %6, align 8, !tbaa !52
   %75 = call i32 @sqlite3_column_int(ptr noundef %74, i32 noundef 0) #11
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #11
   %76 = call ptr @dt_act_on_get_images(i32 noundef %53, i32 noundef 1, i32 noundef 0) #11
-  store ptr %76, ptr %5, align 8, !tbaa !65
+  store ptr %76, ptr %5, align 8, !tbaa !63
   call void @dt_grouping_add_grouped_images(ptr noundef nonnull %5) #11
-  %.pre.i = load ptr, ptr %5, align 8, !tbaa !65
+  %.pre.i = load ptr, ptr %5, align 8, !tbaa !63
   %77 = call i32 @dt_tag_detach_images(i32 noundef %75, ptr noundef %.pre.i, i32 noundef %2)
-  %78 = load ptr, ptr %5, align 8, !tbaa !65
+  %78 = load ptr, ptr %5, align 8, !tbaa !63
   call void @g_list_free(ptr noundef %78) #11
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #11
   %79 = load ptr, ptr %6, align 8, !tbaa !52
   %80 = call i32 @sqlite3_step(ptr noundef %79) #11
   %81 = icmp eq i32 %80, 100
-  br i1 %81, label %dt_tag_detach.exit, label %._crit_edge, !llvm.loop !81
+  br i1 %81, label %dt_tag_detach.exit, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %dt_tag_detach.exit, %dt_tag_detach.exit.us29, %dt_tag_detach.exit.us, %48
   %.019.lcssa = phi i32 [ 0, %48 ], [ 1, %dt_tag_detach.exit.us ], [ 1, %dt_tag_detach.exit.us29 ], [ 1, %dt_tag_detach.exit ]
@@ -1928,7 +1928,7 @@ define i32 @dt_tag_get_attached(i32 noundef %0, ptr noundef captures(none) %1, i
   br label %35
 
 8:                                                ; preds = %3
-  %9 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 168), align 8, !tbaa !82
+  %9 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 168), align 8, !tbaa !73
   %10 = tail call ptr @dt_selection_get_list_query(ptr noundef %9, i32 noundef 0, i32 noundef 0) #11
   %11 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.28, ptr noundef %10) #11
   %12 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !9
@@ -2009,7 +2009,7 @@ define i32 @dt_tag_get_attached(i32 noundef %0, ptr noundef captures(none) %1, i
 
 52:                                               ; preds = %46, %42
   call void @g_free(ptr noundef nonnull %.039) #11
-  store ptr null, ptr %1, align 8, !tbaa !65
+  store ptr null, ptr %1, align 8, !tbaa !63
   %53 = load ptr, ptr %4, align 8, !tbaa !52
   %54 = call i32 @sqlite3_step(ptr noundef %53) #11
   %55 = icmp eq i32 %54, 100
@@ -2029,7 +2029,7 @@ define i32 @dt_tag_get_attached(i32 noundef %0, ptr noundef captures(none) %1, i
   %62 = call ptr @sqlite3_column_text(ptr noundef %61, i32 noundef 1) #11
   %63 = call noalias ptr @g_strdup(ptr noundef %62) #11
   %64 = getelementptr inbounds nuw i8, ptr %58, i64 8
-  store ptr %63, ptr %64, align 8, !tbaa !83
+  store ptr %63, ptr %64, align 8, !tbaa !74
   %65 = call ptr @g_strrstr(ptr noundef %63, ptr noundef nonnull @.str.31) #11
   %66 = getelementptr inbounds nuw i8, ptr %58, i64 16
   %.not49 = icmp eq ptr %65, null
@@ -2040,40 +2040,40 @@ define i32 @dt_tag_get_attached(i32 noundef %0, ptr noundef captures(none) %1, i
   br label %71
 
 69:                                               ; preds = %57
-  %70 = load ptr, ptr %64, align 8, !tbaa !83
+  %70 = load ptr, ptr %64, align 8, !tbaa !74
   br label %71
 
 71:                                               ; preds = %69, %67
   %72 = phi ptr [ %68, %67 ], [ %70, %69 ]
-  store ptr %72, ptr %66, align 8, !tbaa !84
+  store ptr %72, ptr %66, align 8, !tbaa !75
   %73 = load ptr, ptr %4, align 8, !tbaa !52
   %74 = call i32 @sqlite3_column_int(ptr noundef %73, i32 noundef 2) #11
   %75 = getelementptr inbounds nuw i8, ptr %58, i64 40
-  store i32 %74, ptr %75, align 8, !tbaa !85
+  store i32 %74, ptr %75, align 8, !tbaa !76
   %76 = load ptr, ptr %4, align 8, !tbaa !52
   %77 = call ptr @sqlite3_column_text(ptr noundef %76, i32 noundef 3) #11
   %78 = call noalias ptr @g_strdup(ptr noundef %77) #11
   %79 = getelementptr inbounds nuw i8, ptr %58, i64 24
-  store ptr %78, ptr %79, align 8, !tbaa !86
+  store ptr %78, ptr %79, align 8, !tbaa !77
   %80 = load ptr, ptr %4, align 8, !tbaa !52
   %81 = call i32 @sqlite3_column_int(ptr noundef %80, i32 noundef 4) #11
   %82 = getelementptr inbounds nuw i8, ptr %58, i64 32
-  store i32 %81, ptr %82, align 8, !tbaa !87
+  store i32 %81, ptr %82, align 8, !tbaa !78
   %83 = icmp eq i32 %81, %.0
   %84 = icmp ne i32 %81, 0
   %85 = zext i1 %84 to i32
   %86 = select i1 %83, i32 2, i32 %85
   %87 = select i1 %56, i32 0, i32 %86
   %88 = getelementptr inbounds nuw i8, ptr %58, i64 36
-  store i32 %87, ptr %88, align 4, !tbaa !88
-  %89 = load ptr, ptr %1, align 8, !tbaa !65
+  store i32 %87, ptr %88, align 4, !tbaa !79
+  %89 = load ptr, ptr %1, align 8, !tbaa !63
   %90 = call ptr @g_list_append(ptr noundef %89, ptr noundef nonnull %58) #11
-  store ptr %90, ptr %1, align 8, !tbaa !65
+  store ptr %90, ptr %1, align 8, !tbaa !63
   %91 = add i32 %.14150, 1
   %92 = load ptr, ptr %4, align 8, !tbaa !52
   %93 = call i32 @sqlite3_step(ptr noundef %92) #11
   %94 = icmp eq i32 %93, 100
-  br i1 %94, label %57, label %._crit_edge, !llvm.loop !89
+  br i1 %94, label %57, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %71, %52
   %.141.lcssa = phi i32 [ 0, %52 ], [ %91, %71 ]
@@ -2115,7 +2115,7 @@ define ptr @dt_sort_tag(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %.02736 = phi ptr [ %16, %14 ], [ %0, %.preheader ]
   %6 = load ptr, ptr %.02736, align 8, !tbaa !58
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %8 = load ptr, ptr %7, align 8, !tbaa !83
+  %8 = load ptr, ptr %7, align 8, !tbaa !74
   br label %9
 
 9:                                                ; preds = %12, %.lr.ph
@@ -2132,19 +2132,19 @@ define ptr @dt_sort_tag(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
 
 12:                                               ; preds = %9, %11
   %13 = getelementptr inbounds nuw i8, ptr %.026, i64 1
-  br label %9, !llvm.loop !90
+  br label %9
 
 14:                                               ; preds = %9
   %15 = getelementptr inbounds nuw i8, ptr %.02736, i64 8
   %16 = load ptr, ptr %15, align 8, !tbaa !62
   %.not = icmp eq ptr %16, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !91
+  br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph40:                                         ; preds = %._crit_edge, %25
   %.02538 = phi ptr [ %27, %25 ], [ %5, %._crit_edge ]
   %17 = load ptr, ptr %.02538, align 8, !tbaa !58
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
-  %19 = load ptr, ptr %18, align 8, !tbaa !83
+  %19 = load ptr, ptr %18, align 8, !tbaa !74
   br label %20
 
 20:                                               ; preds = %23, %.lr.ph40
@@ -2161,13 +2161,13 @@ define ptr @dt_sort_tag(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
 
 23:                                               ; preds = %20, %22
   %24 = getelementptr inbounds nuw i8, ptr %.0, i64 1
-  br label %20, !llvm.loop !92
+  br label %20
 
 25:                                               ; preds = %20
   %26 = getelementptr inbounds nuw i8, ptr %.02538, i64 8
   %27 = load ptr, ptr %26, align 8, !tbaa !62
   %.not32 = icmp eq ptr %27, null
-  br i1 %.not32, label %.loopexit, label %.lr.ph40, !llvm.loop !93
+  br i1 %.not32, label %.loopexit, label %.lr.ph40
 
 28:                                               ; preds = %2
   %29 = tail call ptr @g_list_sort(ptr noundef %0, ptr noundef nonnull @sort_tag_by_count) #11
@@ -2183,9 +2183,9 @@ declare ptr @g_list_sort(ptr noundef, ptr noundef) local_unnamed_addr #2
 ; Function Attrs: nounwind uwtable
 define internal i32 @sort_tag_by_path(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !tbaa !83
+  %4 = load ptr, ptr %3, align 8, !tbaa !74
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %6 = load ptr, ptr %5, align 8, !tbaa !83
+  %6 = load ptr, ptr %5, align 8, !tbaa !74
   %7 = tail call i32 @g_strcmp0(ptr noundef %4, ptr noundef %6) #11
   ret i32 %7
 }
@@ -2193,9 +2193,9 @@ define internal i32 @sort_tag_by_path(ptr noundef readonly captures(none) %0, pt
 ; Function Attrs: nounwind uwtable
 define internal i32 @sort_tag_by_leave(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %4 = load ptr, ptr %3, align 8, !tbaa !84
+  %4 = load ptr, ptr %3, align 8, !tbaa !75
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %6 = load ptr, ptr %5, align 8, !tbaa !84
+  %6 = load ptr, ptr %5, align 8, !tbaa !75
   %7 = tail call i32 @g_strcmp0(ptr noundef %4, ptr noundef %6) #11
   ret i32 %7
 }
@@ -2203,9 +2203,9 @@ define internal i32 @sort_tag_by_leave(ptr noundef readonly captures(none) %0, p
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define internal i32 @sort_tag_by_count(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #6 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %4 = load i32, ptr %3, align 8, !tbaa !87
+  %4 = load i32, ptr %3, align 8, !tbaa !78
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %6 = load i32, ptr %5, align 8, !tbaa !87
+  %6 = load i32, ptr %5, align 8, !tbaa !78
   %7 = sub i32 %4, %6
   ret i32 %7
 }
@@ -2214,14 +2214,14 @@ define internal i32 @sort_tag_by_count(ptr noundef readonly captures(none) %0, p
 define ptr @dt_tag_get_list(i32 noundef %0) local_unnamed_addr #0 {
   %2 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #11
-  store ptr null, ptr %2, align 8, !tbaa !65
+  store ptr null, ptr %2, align 8, !tbaa !63
   %3 = tail call i32 @dt_conf_get_bool(ptr noundef nonnull @.str.32) #11
   %4 = call i32 @dt_tag_get_attached(i32 noundef %0, ptr noundef nonnull %2, i32 noundef 0)
   %5 = icmp eq i32 %4, 0
   br i1 %5, label %37, label %thread-pre-split
 
 thread-pre-split:                                 ; preds = %1
-  %.pr = load ptr, ptr %2, align 8, !tbaa !65
+  %.pr = load ptr, ptr %2, align 8, !tbaa !63
   %.not43 = icmp eq ptr %.pr, null
   br i1 %.not43, label %dt_tag_free_result.exit, label %.lr.ph45
 
@@ -2235,7 +2235,7 @@ thread-pre-split:                                 ; preds = %1
   %6 = phi ptr [ %20, %18 ], [ %.pr, %.lr.ph45 ]
   %7 = load ptr, ptr %6, align 8, !tbaa !58
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %9 = load ptr, ptr %8, align 8, !tbaa !83
+  %9 = load ptr, ptr %8, align 8, !tbaa !74
   %10 = tail call ptr @g_strsplit(ptr noundef %9, ptr noundef nonnull @.str.31, i32 noundef -1) #11
   %.not29.us = icmp eq ptr %10, null
   br i1 %.not29.us, label %18, label %.preheader.us
@@ -2255,14 +2255,14 @@ thread-pre-split:                                 ; preds = %1
   %16 = getelementptr inbounds nuw ptr, ptr %10, i64 %15
   %17 = load ptr, ptr %16, align 8, !tbaa !57
   %.not31.us = icmp eq ptr %17, null
-  br i1 %.not31.us, label %.critedge.thread.loopexit.us, label %.lr.ph.us, !llvm.loop !94
+  br i1 %.not31.us, label %.critedge.thread.loopexit.us, label %.lr.ph.us
 
 18:                                               ; preds = %.critedge.thread.loopexit.us, %.lr.ph45.split.us
   %.1.us = phi ptr [ %.4.lcssa.us, %.critedge.thread.loopexit.us ], [ %.02344.us, %.lr.ph45.split.us ]
   %19 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %20 = load ptr, ptr %19, align 8, !tbaa !62
   %.not.us = icmp eq ptr %20, null
-  br i1 %.not.us, label %dt_tag_free_result.exit, label %.lr.ph45.split.us, !llvm.loop !95
+  br i1 %.not.us, label %dt_tag_free_result.exit, label %.lr.ph45.split.us, !llvm.loop !80
 
 .critedge.thread.loopexit.us:                     ; preds = %.lr.ph.us, %.preheader.us
   %.4.lcssa.us = phi ptr [ %.02344.us, %.preheader.us ], [ %14, %.lr.ph.us ]
@@ -2274,7 +2274,7 @@ thread-pre-split:                                 ; preds = %1
   %21 = phi ptr [ %35, %33 ], [ %.pr, %.lr.ph45 ]
   %22 = load ptr, ptr %21, align 8, !tbaa !58
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
-  %24 = load ptr, ptr %23, align 8, !tbaa !83
+  %24 = load ptr, ptr %23, align 8, !tbaa !74
   %25 = tail call ptr @g_strsplit(ptr noundef %24, ptr noundef nonnull @.str.31, i32 noundef -1) #11
   %.not29 = icmp eq ptr %25, null
   br i1 %.not29, label %33, label %thread-pre-split36
@@ -2293,7 +2293,7 @@ thread-pre-split36:                               ; preds = %.lr.ph45.split
   %29 = getelementptr inbounds nuw i8, ptr %.021, i64 8
   %30 = load ptr, ptr %29, align 8, !tbaa !57
   %.not33 = icmp eq ptr %30, null
-  br i1 %.not33, label %.critedge, label %26, !llvm.loop !96
+  br i1 %.not33, label %.critedge, label %26
 
 .critedge:                                        ; preds = %28
   %31 = tail call noalias ptr @g_strdup(ptr noundef nonnull %27) #11
@@ -2310,7 +2310,7 @@ thread-pre-split36:                               ; preds = %.lr.ph45.split
   %34 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %35 = load ptr, ptr %34, align 8, !tbaa !62
   %.not = icmp eq ptr %35, null
-  br i1 %.not, label %dt_tag_free_result.exit, label %.lr.ph45.split, !llvm.loop !97
+  br i1 %.not, label %dt_tag_free_result.exit, label %.lr.ph45.split
 
 dt_tag_free_result.exit:                          ; preds = %33, %18, %thread-pre-split
   %.023.lcssa = phi ptr [ null, %thread-pre-split ], [ %.1.us, %18 ], [ %.1, %33 ]
@@ -2331,7 +2331,7 @@ define void @dt_tag_free_result(ptr noundef readonly captures(address_is_null) %
   br i1 %.not, label %5, label %2
 
 2:                                                ; preds = %1
-  %3 = load ptr, ptr %0, align 8, !tbaa !65
+  %3 = load ptr, ptr %0, align 8, !tbaa !63
   %.not4 = icmp eq ptr %3, null
   br i1 %.not4, label %5, label %4
 
@@ -2349,13 +2349,13 @@ declare ptr @dt_util_glist_uniq(ptr noundef) local_unnamed_addr #2
 define ptr @dt_tag_get_hierarchical(i32 noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #11
-  store ptr null, ptr %3, align 8, !tbaa !65
+  store ptr null, ptr %3, align 8, !tbaa !63
   %4 = call i32 @dt_tag_get_attached(i32 noundef %0, ptr noundef nonnull %3, i32 noundef %1)
   %5 = icmp eq i32 %4, 0
   br i1 %5, label %13, label %.preheader
 
 .preheader:                                       ; preds = %2
-  %.01113 = load ptr, ptr %3, align 8, !tbaa !65
+  %.01113 = load ptr, ptr %3, align 8, !tbaa !63
   %.not14 = icmp eq ptr %.01113, null
   br i1 %.not14, label %dt_tag_free_result.exit, label %.lr.ph
 
@@ -2373,13 +2373,13 @@ dt_tag_free_result.exit:                          ; preds = %.preheader, %._crit
   %.01215 = phi ptr [ %11, %.lr.ph ], [ null, %.preheader ]
   %7 = load ptr, ptr %.01116, align 8, !tbaa !58
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %9 = load ptr, ptr %8, align 8, !tbaa !83
+  %9 = load ptr, ptr %8, align 8, !tbaa !74
   %10 = tail call noalias ptr @g_strdup(ptr noundef %9) #11
   %11 = tail call ptr @g_list_prepend(ptr noundef %.01215, ptr noundef %10) #11
   %12 = getelementptr inbounds nuw i8, ptr %.01116, i64 8
-  %.011 = load ptr, ptr %12, align 8, !tbaa !65
+  %.011 = load ptr, ptr %12, align 8, !tbaa !63
   %.not = icmp eq ptr %.011, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !98
+  br i1 %.not, label %._crit_edge, label %.lr.ph
 
 13:                                               ; preds = %2, %dt_tag_free_result.exit
   %.0 = phi ptr [ %6, %dt_tag_free_result.exit ], [ null, %2 ]
@@ -2409,7 +2409,7 @@ define internal fastcc ptr @_tag_get_tags(i32 noundef %0, i32 noundef range(i32 
   br label %11
 
 8:                                                ; preds = %2
-  %9 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 168), align 8, !tbaa !82
+  %9 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 168), align 8, !tbaa !73
   %10 = tail call ptr @dt_selection_get_list_query(ptr noundef %9, i32 noundef 0, i32 noundef 0) #11
   br label %11
 
@@ -2463,7 +2463,7 @@ define internal fastcc ptr @_tag_get_tags(i32 noundef %0, i32 noundef range(i32 
   %39 = load ptr, ptr %3, align 8, !tbaa !52
   %40 = call i32 @sqlite3_step(ptr noundef %39) #11
   %41 = icmp eq i32 %40, 100
-  br i1 %41, label %.lr.ph, label %._crit_edge, !llvm.loop !99
+  br i1 %41, label %.lr.ph, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph, %30
   %.0.lcssa = phi ptr [ null, %30 ], [ %38, %.lr.ph ]
@@ -2546,7 +2546,7 @@ _tag_get_attached_export.exit.thread90:           ; preds = %30
   %40 = call ptr @sqlite3_column_text(ptr noundef %39, i32 noundef 1) #11
   %41 = call noalias ptr @g_strdup(ptr noundef %40) #11
   %42 = getelementptr inbounds nuw i8, ptr %36, i64 8
-  store ptr %41, ptr %42, align 8, !tbaa !83
+  store ptr %41, ptr %42, align 8, !tbaa !74
   %43 = call ptr @g_strrstr(ptr noundef %41, ptr noundef nonnull @.str.31) #11
   %44 = getelementptr inbounds nuw i8, ptr %36, i64 16
   %.not24.i = icmp eq ptr %43, null
@@ -2557,27 +2557,27 @@ _tag_get_attached_export.exit.thread90:           ; preds = %30
   br label %49
 
 47:                                               ; preds = %.lr.ph.i
-  %48 = load ptr, ptr %42, align 8, !tbaa !83
+  %48 = load ptr, ptr %42, align 8, !tbaa !74
   br label %49
 
 49:                                               ; preds = %47, %45
   %50 = phi ptr [ %46, %45 ], [ %48, %47 ]
-  store ptr %50, ptr %44, align 8, !tbaa !84
+  store ptr %50, ptr %44, align 8, !tbaa !75
   %51 = load ptr, ptr %3, align 8, !tbaa !52
   %52 = call i32 @sqlite3_column_int(ptr noundef %51, i32 noundef 2) #11
   %53 = getelementptr inbounds nuw i8, ptr %36, i64 40
-  store i32 %52, ptr %53, align 8, !tbaa !85
+  store i32 %52, ptr %53, align 8, !tbaa !76
   %54 = load ptr, ptr %3, align 8, !tbaa !52
   %55 = call ptr @sqlite3_column_text(ptr noundef %54, i32 noundef 3) #11
   %56 = call noalias ptr @g_strdup(ptr noundef %55) #11
   %57 = getelementptr inbounds nuw i8, ptr %36, i64 24
-  store ptr %56, ptr %57, align 8, !tbaa !86
+  store ptr %56, ptr %57, align 8, !tbaa !77
   %58 = call ptr @g_list_append(ptr noundef %.186, ptr noundef nonnull %36) #11
   %59 = add i32 %.01925.i, 1
   %60 = load ptr, ptr %3, align 8, !tbaa !52
   %61 = call i32 @sqlite3_step(ptr noundef %60) #11
   %62 = icmp eq i32 %61, 100
-  br i1 %62, label %.lr.ph.i, label %_tag_get_attached_export.exit, !llvm.loop !100
+  br i1 %62, label %.lr.ph.i, label %_tag_get_attached_export.exit
 
 _tag_get_attached_export.exit:                    ; preds = %49
   %63 = load ptr, ptr %3, align 8, !tbaa !52
@@ -2600,7 +2600,7 @@ _tag_get_attached_export.exit:                    ; preds = %49
   %.02736.i = phi ptr [ %79, %77 ], [ %58, %66 ]
   %69 = load ptr, ptr %.02736.i, align 8, !tbaa !58
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 8
-  %71 = load ptr, ptr %70, align 8, !tbaa !83
+  %71 = load ptr, ptr %70, align 8, !tbaa !74
   br label %72
 
 72:                                               ; preds = %75, %.lr.ph.i79
@@ -2617,19 +2617,19 @@ _tag_get_attached_export.exit:                    ; preds = %49
 
 75:                                               ; preds = %74, %72
   %76 = getelementptr inbounds nuw i8, ptr %.026.i, i64 1
-  br label %72, !llvm.loop !90
+  br label %72
 
 77:                                               ; preds = %72
   %78 = getelementptr inbounds nuw i8, ptr %.02736.i, i64 8
   %79 = load ptr, ptr %78, align 8, !tbaa !62
   %.not.i80 = icmp eq ptr %79, null
-  br i1 %.not.i80, label %._crit_edge.i81, label %.lr.ph.i79, !llvm.loop !91
+  br i1 %.not.i80, label %._crit_edge.i81, label %.lr.ph.i79
 
 .lr.ph40.i:                                       ; preds = %._crit_edge.i81, %88
   %.02538.i = phi ptr [ %90, %88 ], [ %68, %._crit_edge.i81 ]
   %80 = load ptr, ptr %.02538.i, align 8, !tbaa !58
   %81 = getelementptr inbounds nuw i8, ptr %80, i64 8
-  %82 = load ptr, ptr %81, align 8, !tbaa !83
+  %82 = load ptr, ptr %81, align 8, !tbaa !74
   br label %83
 
 83:                                               ; preds = %86, %.lr.ph40.i
@@ -2646,13 +2646,13 @@ _tag_get_attached_export.exit:                    ; preds = %49
 
 86:                                               ; preds = %85, %83
   %87 = getelementptr inbounds nuw i8, ptr %.0.i82, i64 1
-  br label %83, !llvm.loop !92
+  br label %83
 
 88:                                               ; preds = %83
   %89 = getelementptr inbounds nuw i8, ptr %.02538.i, i64 8
   %90 = load ptr, ptr %89, align 8, !tbaa !62
   %.not32.i = icmp eq ptr %90, null
-  br i1 %.not32.i, label %dt_sort_tag.exit, label %.lr.ph40.i, !llvm.loop !93
+  br i1 %.not32.i, label %dt_sort_tag.exit, label %.lr.ph40.i
 
 dt_sort_tag.exit:                                 ; preds = %88, %._crit_edge.i81
   %91 = call ptr @g_list_reverse(ptr noundef %68) #11
@@ -2666,7 +2666,7 @@ dt_sort_tag.exit:                                 ; preds = %88, %._crit_edge.i8
 .lr.ph:                                           ; preds = %.preheader94
   %92 = load ptr, ptr %91, align 8, !tbaa !58
   %93 = getelementptr inbounds nuw i8, ptr %92, i64 40
-  %.promoted = load i32, ptr %93, align 8, !tbaa !85
+  %.promoted = load i32, ptr %93, align 8, !tbaa !76
   br label %94
 
 94:                                               ; preds = %.lr.ph, %94
@@ -2674,11 +2674,11 @@ dt_sort_tag.exit:                                 ; preds = %88, %._crit_edge.i8
   %95 = getelementptr inbounds nuw i8, ptr %.05998, i64 8
   %96 = load ptr, ptr %95, align 8, !tbaa !62
   %.not65 = icmp eq ptr %96, null
-  br i1 %.not65, label %.loopexit95.thread, label %94, !llvm.loop !101
+  br i1 %.not65, label %.loopexit95.thread, label %94
 
 .loopexit95.thread:                               ; preds = %94
   %97 = and i32 %.promoted, -3
-  store i32 %97, ptr %93, align 8, !tbaa !85
+  store i32 %97, ptr %93, align 8, !tbaa !76
   br label %.lr.ph112
 
 .loopexit95:                                      ; preds = %dt_sort_tag.exit
@@ -2694,7 +2694,7 @@ dt_sort_tag.exit:                                 ; preds = %88, %._crit_edge.i8
   %.058110 = phi ptr [ %91, %.lr.ph112 ], [ %155, %153 ]
   %99 = load ptr, ptr %.058110, align 8, !tbaa !58
   %100 = getelementptr inbounds nuw i8, ptr %99, i64 40
-  %101 = load i32, ptr %100, align 8, !tbaa !85
+  %101 = load i32, ptr %100, align 8, !tbaa !76
   %102 = and i32 %101, 2
   %.not67 = icmp eq i32 %102, 0
   %or.cond = select i1 %.not, i1 true, i1 %.not67
@@ -2705,7 +2705,7 @@ dt_sort_tag.exit:                                 ; preds = %88, %._crit_edge.i8
 
 104:                                              ; preds = %98
   %105 = getelementptr inbounds nuw i8, ptr %99, i64 16
-  %106 = load ptr, ptr %105, align 8, !tbaa !84
+  %106 = load ptr, ptr %105, align 8, !tbaa !75
   %107 = call noalias ptr @g_strdup(ptr noundef %106) #11
   %108 = call ptr @g_list_prepend(ptr noundef %.056111, ptr noundef %107) #11
   br i1 %.not69, label %109, label %.loopexit93
@@ -2715,7 +2715,7 @@ dt_sort_tag.exit:                                 ; preds = %88, %._crit_edge.i8
   %111 = load ptr, ptr %110, align 8, !tbaa !62
   %.fr = freeze ptr %111
   %112 = getelementptr inbounds nuw i8, ptr %99, i64 8
-  %113 = load ptr, ptr %112, align 8, !tbaa !83
+  %113 = load ptr, ptr %112, align 8, !tbaa !74
   %114 = call ptr @g_strrstr(ptr noundef %113, ptr noundef nonnull @.str.31) #11
   %.not70100 = icmp eq ptr %114, null
   br i1 %.not70100, label %.loopexit93, label %.lr.ph103
@@ -2728,7 +2728,7 @@ dt_sort_tag.exit:                                 ; preds = %88, %._crit_edge.i8
   %.3102.us = phi ptr [ %124, %121 ], [ %108, %.lr.ph103 ]
   %.057101.us = phi ptr [ %116, %121 ], [ %114, %.lr.ph103 ]
   store i8 0, ptr %.057101.us, align 1, !tbaa !6
-  %115 = load ptr, ptr %112, align 8, !tbaa !83
+  %115 = load ptr, ptr %112, align 8, !tbaa !74
   %116 = call ptr @g_strrstr(ptr noundef %115, ptr noundef nonnull @.str.31) #11
   %.not73.us = icmp eq ptr %116, null
   br i1 %.not73.us, label %119, label %117
@@ -2738,20 +2738,20 @@ dt_sort_tag.exit:                                 ; preds = %88, %._crit_edge.i8
   br label %121
 
 119:                                              ; preds = %.lr.ph103.split.us
-  %120 = load ptr, ptr %112, align 8, !tbaa !83
+  %120 = load ptr, ptr %112, align 8, !tbaa !74
   br label %121
 
 121:                                              ; preds = %119, %117
   %122 = phi ptr [ %118, %117 ], [ %120, %119 ]
   %123 = call noalias ptr @g_strdup(ptr noundef %122) #11
   %124 = call ptr @g_list_prepend(ptr noundef %.3102.us, ptr noundef %123) #11
-  br i1 %.not73.us, label %.loopexit93, label %.lr.ph103.split.us, !llvm.loop !102
+  br i1 %.not73.us, label %.loopexit93, label %.lr.ph103.split.us, !llvm.loop !81
 
 .lr.ph103.split:                                  ; preds = %.lr.ph103, %137
   %.3102 = phi ptr [ %.4, %137 ], [ %108, %.lr.ph103 ]
   %.057101 = phi ptr [ %126, %137 ], [ %114, %.lr.ph103 ]
   store i8 0, ptr %.057101, align 1, !tbaa !6
-  %125 = load ptr, ptr %112, align 8, !tbaa !83
+  %125 = load ptr, ptr %112, align 8, !tbaa !74
   %126 = call ptr @g_strrstr(ptr noundef %125, ptr noundef nonnull @.str.31) #11
   %127 = call ptr @g_list_find_custom(ptr noundef nonnull %.fr, ptr noundef nonnull %99, ptr noundef nonnull @_is_not_exportable_tag) #11
   %.not72 = icmp eq ptr %127, null
@@ -2766,7 +2766,7 @@ dt_sort_tag.exit:                                 ; preds = %88, %._crit_edge.i8
   br label %133
 
 131:                                              ; preds = %128
-  %132 = load ptr, ptr %112, align 8, !tbaa !83
+  %132 = load ptr, ptr %112, align 8, !tbaa !74
   br label %133
 
 133:                                              ; preds = %131, %129
@@ -2778,7 +2778,7 @@ dt_sort_tag.exit:                                 ; preds = %88, %._crit_edge.i8
 137:                                              ; preds = %133, %.lr.ph103.split
   %.4 = phi ptr [ %.3102, %.lr.ph103.split ], [ %136, %133 ]
   %.not70 = icmp eq ptr %126, null
-  br i1 %.not70, label %.loopexit93, label %.lr.ph103.split, !llvm.loop !103
+  br i1 %.not70, label %.loopexit93, label %.lr.ph103.split
 
 .loopexit93:                                      ; preds = %137, %121, %109, %104
   %.2 = phi ptr [ %108, %104 ], [ %108, %109 ], [ %124, %121 ], [ %.4, %137 ]
@@ -2786,7 +2786,7 @@ dt_sort_tag.exit:                                 ; preds = %88, %._crit_edge.i8
 
 138:                                              ; preds = %.loopexit93
   %139 = getelementptr inbounds nuw i8, ptr %99, i64 24
-  %140 = load ptr, ptr %139, align 8, !tbaa !86
+  %140 = load ptr, ptr %139, align 8, !tbaa !77
   %.not75 = icmp eq ptr %140, null
   br i1 %.not75, label %153, label %141
 
@@ -2818,7 +2818,7 @@ dt_sort_tag.exit:                                 ; preds = %88, %._crit_edge.i8
   %151 = getelementptr inbounds nuw i8, ptr %.054106, i64 8
   %152 = load ptr, ptr %151, align 8, !tbaa !57
   %.not78 = icmp eq ptr %152, null
-  br i1 %.not78, label %.loopexit, label %.lr.ph107, !llvm.loop !104
+  br i1 %.not78, label %.loopexit, label %.lr.ph107
 
 .loopexit:                                        ; preds = %.lr.ph107, %.preheader, %143
   %.7 = phi ptr [ %.2, %143 ], [ %.2, %.preheader ], [ %150, %.lr.ph107 ]
@@ -2830,7 +2830,7 @@ dt_sort_tag.exit:                                 ; preds = %88, %._crit_edge.i8
   %154 = getelementptr inbounds nuw i8, ptr %.058110, i64 8
   %155 = load ptr, ptr %154, align 8, !tbaa !62
   %.not66 = icmp eq ptr %155, null
-  br i1 %.not66, label %._crit_edge, label %98, !llvm.loop !105
+  br i1 %.not66, label %._crit_edge, label %98
 
 ._crit_edge:                                      ; preds = %153, %.preheader94, %.loopexit95
   %.056.lcssa = phi ptr [ null, %.loopexit95 ], [ null, %.preheader94 ], [ %.1, %153 ]
@@ -2854,16 +2854,16 @@ declare ptr @g_list_find_custom(ptr noundef, ptr noundef, ptr noundef) local_unn
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -1, 1) i32 @_is_not_exportable_tag(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !tbaa !83
+  %4 = load ptr, ptr %3, align 8, !tbaa !74
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %6 = load ptr, ptr %5, align 8, !tbaa !83
+  %6 = load ptr, ptr %5, align 8, !tbaa !74
   %7 = tail call i32 @g_strcmp0(ptr noundef %4, ptr noundef %6) #11
   %8 = icmp eq i32 %7, 0
   br i1 %8, label %9, label %15
 
 9:                                                ; preds = %2
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %11 = load i32, ptr %10, align 8, !tbaa !85
+  %11 = load i32, ptr %10, align 8, !tbaa !76
   %12 = and i32 %11, 3
   %13 = icmp eq i32 %12, 0
   %14 = sext i1 %13 to i32
@@ -2878,13 +2878,13 @@ define internal range(i32 -1, 1) i32 @_is_not_exportable_tag(ptr noundef readonl
 define ptr @dt_tag_get_hierarchical_export(i32 noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #11
-  store ptr null, ptr %3, align 8, !tbaa !65
+  store ptr null, ptr %3, align 8, !tbaa !63
   %4 = call i32 @dt_tag_get_attached(i32 noundef %0, ptr noundef nonnull %3, i32 noundef 1)
   %5 = icmp eq i32 %4, 0
   br i1 %5, label %26, label %6
 
 6:                                                ; preds = %2
-  %.01216 = load ptr, ptr %3, align 8, !tbaa !65
+  %.01216 = load ptr, ptr %3, align 8, !tbaa !63
   %.not17 = icmp eq ptr %.01216, null
   br i1 %.not17, label %dt_tag_free_result.exit, label %.lr.ph
 
@@ -2898,14 +2898,14 @@ define ptr @dt_tag_get_hierarchical_export(i32 noundef %0, i32 noundef %1) local
   %.01318.us = phi ptr [ %.1.us, %17 ], [ null, %.lr.ph ]
   %8 = load ptr, ptr %.01219.us, align 8, !tbaa !58
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 40
-  %10 = load i32, ptr %9, align 8, !tbaa !85
+  %10 = load i32, ptr %9, align 8, !tbaa !76
   %11 = and i32 %10, 2
   %.not15.us = icmp eq i32 %11, 0
   br i1 %.not15.us, label %12, label %17
 
 12:                                               ; preds = %.lr.ph.split.us
   %13 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %14 = load ptr, ptr %13, align 8, !tbaa !83
+  %14 = load ptr, ptr %13, align 8, !tbaa !74
   %15 = tail call noalias ptr @g_strdup(ptr noundef %14) #11
   %16 = tail call ptr @g_list_prepend(ptr noundef %.01318.us, ptr noundef %15) #11
   br label %17
@@ -2913,9 +2913,9 @@ define ptr @dt_tag_get_hierarchical_export(i32 noundef %0, i32 noundef %1) local
 17:                                               ; preds = %12, %.lr.ph.split.us
   %.1.us = phi ptr [ %16, %12 ], [ %.01318.us, %.lr.ph.split.us ]
   %18 = getelementptr inbounds nuw i8, ptr %.01219.us, i64 8
-  %.012.us = load ptr, ptr %18, align 8, !tbaa !65
+  %.012.us = load ptr, ptr %18, align 8, !tbaa !63
   %.not.us = icmp eq ptr %.012.us, null
-  br i1 %.not.us, label %._crit_edge.thread23, label %.lr.ph.split.us, !llvm.loop !106
+  br i1 %.not.us, label %._crit_edge.thread23, label %.lr.ph.split.us, !llvm.loop !82
 
 ._crit_edge.thread23:                             ; preds = %.lr.ph.split, %17
   %.013.lcssa25 = phi ptr [ %.1.us, %17 ], [ %24, %.lr.ph.split ]
@@ -2932,13 +2932,13 @@ dt_tag_free_result.exit:                          ; preds = %6, %._crit_edge.thr
   %.01318 = phi ptr [ %24, %.lr.ph.split ], [ null, %.lr.ph ]
   %20 = load ptr, ptr %.01219, align 8, !tbaa !58
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
-  %22 = load ptr, ptr %21, align 8, !tbaa !83
+  %22 = load ptr, ptr %21, align 8, !tbaa !74
   %23 = tail call noalias ptr @g_strdup(ptr noundef %22) #11
   %24 = tail call ptr @g_list_prepend(ptr noundef %.01318, ptr noundef %23) #11
   %25 = getelementptr inbounds nuw i8, ptr %.01219, i64 8
-  %.012 = load ptr, ptr %25, align 8, !tbaa !65
+  %.012 = load ptr, ptr %25, align 8, !tbaa !63
   %.not = icmp eq ptr %.012, null
-  br i1 %.not, label %._crit_edge.thread23, label %.lr.ph.split, !llvm.loop !107
+  br i1 %.not, label %._crit_edge.thread23, label %.lr.ph.split
 
 26:                                               ; preds = %2, %dt_tag_free_result.exit
   %.0 = phi ptr [ %19, %dt_tag_free_result.exit ], [ null, %2 ]
@@ -3004,7 +3004,7 @@ define ptr @dt_tag_get_images(i32 noundef %0) local_unnamed_addr #0 {
   %34 = load ptr, ptr %2, align 8, !tbaa !52
   %35 = call i32 @sqlite3_step(ptr noundef %34) #11
   %36 = icmp eq i32 %35, 100
-  br i1 %36, label %.lr.ph, label %._crit_edge, !llvm.loop !108
+  br i1 %36, label %.lr.ph, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph, %25
   %.0.lcssa = phi ptr [ null, %25 ], [ %33, %.lr.ph ]
@@ -3038,7 +3038,7 @@ define ptr @dt_tag_get_images_from_list(ptr noundef readonly captures(address_is
   %8 = getelementptr inbounds nuw i8, ptr %.01319, i64 8
   %9 = load ptr, ptr %8, align 8, !tbaa !62
   %.not = icmp eq ptr %9, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !109
+  br i1 %.not, label %._crit_edge, label %.lr.ph
 
 10:                                               ; preds = %._crit_edge
   %11 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.pre) #13
@@ -3088,7 +3088,7 @@ define ptr @dt_tag_get_images_from_list(ptr noundef readonly captures(address_is
   %38 = load ptr, ptr %4, align 8, !tbaa !52
   %39 = call i32 @sqlite3_step(ptr noundef %38) #11
   %40 = icmp eq i32 %39, 100
-  br i1 %40, label %.lr.ph22, label %._crit_edge23, !llvm.loop !110
+  br i1 %40, label %.lr.ph22, label %._crit_edge23
 
 ._crit_edge23:                                    ; preds = %.lr.ph22, %29
   %.1.lcssa = phi ptr [ null, %29 ], [ %37, %.lr.ph22 ]
@@ -3198,7 +3198,7 @@ define i32 @dt_tag_get_suggestions(ptr noundef captures(none) %0) local_unnamed_
   %51 = call ptr @sqlite3_column_text(ptr noundef %50, i32 noundef 0) #11
   %52 = call noalias ptr @g_strdup(ptr noundef %51) #11
   %53 = getelementptr inbounds nuw i8, ptr %49, i64 8
-  store ptr %52, ptr %53, align 8, !tbaa !83
+  store ptr %52, ptr %53, align 8, !tbaa !74
   %54 = call ptr @g_strrstr(ptr noundef %52, ptr noundef nonnull @.str.31) #11
   %55 = getelementptr inbounds nuw i8, ptr %49, i64 16
   %.not46 = icmp eq ptr %54, null
@@ -3209,19 +3209,19 @@ define i32 @dt_tag_get_suggestions(ptr noundef captures(none) %0) local_unnamed_
   br label %60
 
 58:                                               ; preds = %48
-  %59 = load ptr, ptr %53, align 8, !tbaa !83
+  %59 = load ptr, ptr %53, align 8, !tbaa !74
   br label %60
 
 60:                                               ; preds = %58, %56
   %61 = phi ptr [ %57, %56 ], [ %59, %58 ]
-  store ptr %61, ptr %55, align 8, !tbaa !84
+  store ptr %61, ptr %55, align 8, !tbaa !75
   %62 = load ptr, ptr %2, align 8, !tbaa !52
   %63 = call i32 @sqlite3_column_int(ptr noundef %62, i32 noundef 1) #11
   store i32 %63, ptr %49, align 8, !tbaa !60
   %64 = load ptr, ptr %2, align 8, !tbaa !52
   %65 = call i32 @sqlite3_column_int(ptr noundef %64, i32 noundef 2) #11
   %66 = getelementptr inbounds nuw i8, ptr %49, i64 32
-  store i32 %65, ptr %66, align 8, !tbaa !87
+  store i32 %65, ptr %66, align 8, !tbaa !78
   %67 = load ptr, ptr %2, align 8, !tbaa !52
   %68 = call i32 @sqlite3_column_int(ptr noundef %67, i32 noundef 3) #11
   %69 = icmp eq i32 %68, %3
@@ -3230,24 +3230,24 @@ define i32 @dt_tag_get_suggestions(ptr noundef captures(none) %0) local_unnamed_
   %72 = select i1 %69, i32 2, i32 %71
   %73 = select i1 %47, i32 0, i32 %72
   %74 = getelementptr inbounds nuw i8, ptr %49, i64 36
-  store i32 %73, ptr %74, align 4, !tbaa !88
+  store i32 %73, ptr %74, align 4, !tbaa !79
   %75 = load ptr, ptr %2, align 8, !tbaa !52
   %76 = call i32 @sqlite3_column_int(ptr noundef %75, i32 noundef 4) #11
   %77 = getelementptr inbounds nuw i8, ptr %49, i64 40
-  store i32 %76, ptr %77, align 8, !tbaa !85
+  store i32 %76, ptr %77, align 8, !tbaa !76
   %78 = load ptr, ptr %2, align 8, !tbaa !52
   %79 = call ptr @sqlite3_column_text(ptr noundef %78, i32 noundef 5) #11
   %80 = call noalias ptr @g_strdup(ptr noundef %79) #11
   %81 = getelementptr inbounds nuw i8, ptr %49, i64 24
-  store ptr %80, ptr %81, align 8, !tbaa !86
-  %82 = load ptr, ptr %0, align 8, !tbaa !65
+  store ptr %80, ptr %81, align 8, !tbaa !77
+  %82 = load ptr, ptr %0, align 8, !tbaa !63
   %83 = call ptr @g_list_append(ptr noundef %82, ptr noundef nonnull %49) #11
-  store ptr %83, ptr %0, align 8, !tbaa !65
+  store ptr %83, ptr %0, align 8, !tbaa !63
   %84 = add i32 %.03647, 1
   %85 = load ptr, ptr %2, align 8, !tbaa !52
   %86 = call i32 @sqlite3_step(ptr noundef %85) #11
   %87 = icmp eq i32 %86, 100
-  br i1 %87, label %48, label %._crit_edge, !llvm.loop !111
+  br i1 %87, label %48, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %60, %43
   %.036.lcssa = phi i32 [ 0, %43 ], [ %84, %60 ]
@@ -3555,14 +3555,14 @@ define void @dt_tag_get_tags_images(ptr noundef %0, ptr noundef captures(none) %
   %64 = call ptr @sqlite3_column_text(ptr noundef %63, i32 noundef 1) #11
   %65 = call noalias ptr @g_strdup(ptr noundef %64) #11
   %66 = getelementptr inbounds nuw i8, ptr %60, i64 8
-  store ptr %65, ptr %66, align 8, !tbaa !83
-  %67 = load ptr, ptr %1, align 8, !tbaa !65
+  store ptr %65, ptr %66, align 8, !tbaa !74
+  %67 = load ptr, ptr %1, align 8, !tbaa !63
   %68 = call ptr @g_list_append(ptr noundef %67, ptr noundef nonnull %60) #11
-  store ptr %68, ptr %1, align 8, !tbaa !65
+  store ptr %68, ptr %1, align 8, !tbaa !63
   %69 = load ptr, ptr %4, align 8, !tbaa !52
   %70 = call i32 @sqlite3_step(ptr noundef %69) #11
   %71 = icmp eq i32 %70, 100
-  br i1 %71, label %.lr.ph, label %._crit_edge, !llvm.loop !112
+  br i1 %71, label %.lr.ph, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph, %56
   %72 = load ptr, ptr %4, align 8, !tbaa !52
@@ -3598,17 +3598,17 @@ define void @dt_tag_get_tags_images(ptr noundef %0, ptr noundef captures(none) %
   br i1 %90, label %.lr.ph28, label %._crit_edge29
 
 .lr.ph28:                                         ; preds = %87, %.lr.ph28
-  %91 = load ptr, ptr %2, align 8, !tbaa !65
+  %91 = load ptr, ptr %2, align 8, !tbaa !63
   %92 = load ptr, ptr %4, align 8, !tbaa !52
   %93 = call i32 @sqlite3_column_int(ptr noundef %92, i32 noundef 0) #11
   %94 = sext i32 %93 to i64
   %95 = inttoptr i64 %94 to ptr
   %96 = call ptr @g_list_append(ptr noundef %91, ptr noundef %95) #11
-  store ptr %96, ptr %2, align 8, !tbaa !65
+  store ptr %96, ptr %2, align 8, !tbaa !63
   %97 = load ptr, ptr %4, align 8, !tbaa !52
   %98 = call i32 @sqlite3_step(ptr noundef %97) #11
   %99 = icmp eq i32 %98, 100
-  br i1 %99, label %.lr.ph28, label %._crit_edge29, !llvm.loop !113
+  br i1 %99, label %.lr.ph28, label %._crit_edge29
 
 ._crit_edge29:                                    ; preds = %.lr.ph28, %87
   %100 = load ptr, ptr %4, align 8, !tbaa !52
@@ -3809,7 +3809,7 @@ define i32 @dt_tag_get_with_usage(ptr noundef captures(none) %0) local_unnamed_a
   %43 = call ptr @sqlite3_column_text(ptr noundef %42, i32 noundef 0) #11
   %44 = call noalias ptr @g_strdup(ptr noundef %43) #11
   %45 = getelementptr inbounds nuw i8, ptr %41, i64 8
-  store ptr %44, ptr %45, align 8, !tbaa !83
+  store ptr %44, ptr %45, align 8, !tbaa !74
   %46 = call ptr @g_strrstr(ptr noundef %44, ptr noundef nonnull @.str.31) #11
   %47 = getelementptr inbounds nuw i8, ptr %41, i64 16
   %.not30 = icmp eq ptr %46, null
@@ -3820,19 +3820,19 @@ define i32 @dt_tag_get_with_usage(ptr noundef captures(none) %0) local_unnamed_a
   br label %52
 
 50:                                               ; preds = %40
-  %51 = load ptr, ptr %45, align 8, !tbaa !83
+  %51 = load ptr, ptr %45, align 8, !tbaa !74
   br label %52
 
 52:                                               ; preds = %50, %48
   %53 = phi ptr [ %49, %48 ], [ %51, %50 ]
-  store ptr %53, ptr %47, align 8, !tbaa !84
+  store ptr %53, ptr %47, align 8, !tbaa !75
   %54 = load ptr, ptr %2, align 8, !tbaa !52
   %55 = call i32 @sqlite3_column_int(ptr noundef %54, i32 noundef 1) #11
   store i32 %55, ptr %41, align 8, !tbaa !60
   %56 = load ptr, ptr %2, align 8, !tbaa !52
   %57 = call i32 @sqlite3_column_int(ptr noundef %56, i32 noundef 2) #11
   %58 = getelementptr inbounds nuw i8, ptr %41, i64 32
-  store i32 %57, ptr %58, align 8, !tbaa !87
+  store i32 %57, ptr %58, align 8, !tbaa !78
   %59 = load ptr, ptr %2, align 8, !tbaa !52
   %60 = call i32 @sqlite3_column_int(ptr noundef %59, i32 noundef 3) #11
   %61 = icmp eq i32 %60, %21
@@ -3841,24 +3841,24 @@ define i32 @dt_tag_get_with_usage(ptr noundef captures(none) %0) local_unnamed_a
   %64 = select i1 %61, i32 2, i32 %63
   %65 = select i1 %39, i32 0, i32 %64
   %66 = getelementptr inbounds nuw i8, ptr %41, i64 36
-  store i32 %65, ptr %66, align 4, !tbaa !88
+  store i32 %65, ptr %66, align 4, !tbaa !79
   %67 = load ptr, ptr %2, align 8, !tbaa !52
   %68 = call i32 @sqlite3_column_int(ptr noundef %67, i32 noundef 4) #11
   %69 = getelementptr inbounds nuw i8, ptr %41, i64 40
-  store i32 %68, ptr %69, align 8, !tbaa !85
+  store i32 %68, ptr %69, align 8, !tbaa !76
   %70 = load ptr, ptr %2, align 8, !tbaa !52
   %71 = call ptr @sqlite3_column_text(ptr noundef %70, i32 noundef 5) #11
   %72 = call noalias ptr @g_strdup(ptr noundef %71) #11
   %73 = getelementptr inbounds nuw i8, ptr %41, i64 24
-  store ptr %72, ptr %73, align 8, !tbaa !86
-  %74 = load ptr, ptr %0, align 8, !tbaa !65
+  store ptr %72, ptr %73, align 8, !tbaa !77
+  %74 = load ptr, ptr %0, align 8, !tbaa !63
   %75 = call ptr @g_list_append(ptr noundef %74, ptr noundef nonnull %41) #11
-  store ptr %75, ptr %0, align 8, !tbaa !65
+  store ptr %75, ptr %0, align 8, !tbaa !63
   %76 = add i32 %.031, 1
   %77 = load ptr, ptr %2, align 8, !tbaa !52
   %78 = call i32 @sqlite3_step(ptr noundef %77) #11
   %79 = icmp eq i32 %78, 100
-  br i1 %79, label %40, label %._crit_edge, !llvm.loop !114
+  br i1 %79, label %40, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %52, %35
   %.0.lcssa = phi i32 [ 0, %35 ], [ %76, %52 ]
@@ -3997,7 +3997,7 @@ define void @dt_tag_set_synonyms(i32 noundef %0, ptr noundef %1) local_unnamed_a
 
 12:                                               ; preds = %.sink.split.i, %6
   %13 = getelementptr inbounds nuw i8, ptr %.0.i, i64 1
-  br label %6, !llvm.loop !115
+  br label %6
 
 .lr.ph.i:                                         ; preds = %.preheader.i, %19
   %14 = phi ptr [ %21, %19 ], [ %10, %.preheader.i ]
@@ -4016,7 +4016,7 @@ define void @dt_tag_set_synonyms(i32 noundef %0, ptr noundef %1) local_unnamed_a
   %20 = getelementptr inbounds nuw i8, ptr %.01728.i, i64 8
   %21 = load ptr, ptr %20, align 8, !tbaa !57
   %.not24.i = icmp eq ptr %21, null
-  br i1 %.not24.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !116
+  br i1 %.not24.i, label %._crit_edge.i, label %.lr.ph.i
 
 ._crit_edge.i:                                    ; preds = %19
   %.pre.i = load ptr, ptr %3, align 8, !tbaa !57
@@ -4317,10 +4317,10 @@ declare void @g_list_free_full(ptr noundef, ptr noundef) local_unnamed_addr #2
 ; Function Attrs: nounwind uwtable
 define internal void @_free_result_item(ptr noundef %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load ptr, ptr %2, align 8, !tbaa !83
+  %3 = load ptr, ptr %2, align 8, !tbaa !74
   tail call void @g_free(ptr noundef %3) #11
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %5 = load ptr, ptr %4, align 8, !tbaa !86
+  %5 = load ptr, ptr %4, align 8, !tbaa !77
   tail call void @g_free(ptr noundef %5) #11
   tail call void @g_free(ptr noundef %0) #11
   ret void
@@ -4344,7 +4344,7 @@ define i64 @dt_tag_import(ptr noundef readonly captures(none) %0) local_unnamed_
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #11
   store ptr null, ptr %2, align 8, !tbaa !57
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #11
-  store i64 0, ptr %3, align 8, !tbaa !117
+  store i64 0, ptr %3, align 8, !tbaa !83
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #11
   store i32 0, ptr %4, align 4, !tbaa !54
   %7 = call i64 @getline(ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull %5) #11
@@ -4372,7 +4372,7 @@ define i64 @dt_tag_import(ptr noundef readonly captures(none) %0) local_unnamed_
 
 .critedge:                                        ; preds = %9, %9, %9, %9
   %11 = getelementptr inbounds nuw i8, ptr %.072, i64 1
-  br label %9, !llvm.loop !118
+  br label %9
 
 12:                                               ; preds = %9
   %13 = ptrtoint ptr %.072 to i64
@@ -4400,7 +4400,7 @@ define i64 @dt_tag_import(ptr noundef readonly captures(none) %0) local_unnamed_
 
 22:                                               ; preds = %21
   store i8 0, ptr %.068, align 1, !tbaa !6
-  br label %19, !llvm.loop !119
+  br label %19
 
 .critedge2:                                       ; preds = %19, %21
   %23 = load i8, ptr %.072, align 1, !tbaa !6
@@ -4468,7 +4468,7 @@ define i64 @dt_tag_import(ptr noundef readonly captures(none) %0) local_unnamed_
   %42 = load ptr, ptr %41, align 8, !tbaa !62
   %43 = call ptr @g_list_delete_link(ptr noundef %.2132, ptr noundef nonnull %.063133) #11
   %.not85 = icmp eq ptr %42, null
-  br i1 %.not85, label %._crit_edge, label %.lr.ph, !llvm.loop !120
+  br i1 %.not85, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.thread
   %.2.lcssa = phi ptr [ %.064139, %.thread ], [ %43, %.lr.ph ]
@@ -4526,7 +4526,7 @@ define i64 @dt_tag_import(ptr noundef readonly captures(none) %0) local_unnamed_
   %60 = phi i32 [ %16, %58 ], [ 0, %.thread128 ], [ 0, %38 ], [ 0, %30 ], [ %spec.select130, %59 ]
   %61 = call i64 @getline(ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull %5) #11
   %.not81 = icmp eq i64 %61, -1
-  br i1 %.not81, label %._crit_edge142, label %.lr.ph141, !llvm.loop !121
+  br i1 %.not81, label %._crit_edge142, label %.lr.ph141
 
 ._crit_edge142:                                   ; preds = %.thread113, %6
   %.069.lcssa = phi i64 [ 0, %6 ], [ %.170123, %.thread113 ]
@@ -4592,9 +4592,9 @@ define range(i64 -2147483648, 2147483648) i64 @dt_tag_export(ptr noundef readonl
 
 4:                                                ; preds = %1
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #11
-  store ptr null, ptr %2, align 8, !tbaa !65
+  store ptr null, ptr %2, align 8, !tbaa !63
   %5 = call i32 @dt_tag_get_with_usage(ptr noundef nonnull %2)
-  %6 = load ptr, ptr %2, align 8, !tbaa !65
+  %6 = load ptr, ptr %2, align 8, !tbaa !63
   %.not35.i = icmp eq ptr %6, null
   br i1 %.not35.i, label %._crit_edge.i, label %.lr.ph.i
 
@@ -4607,7 +4607,7 @@ define range(i64 -2147483648, 2147483648) i64 @dt_tag_export(ptr noundef readonl
   %.02736.i = phi ptr [ %18, %16 ], [ %6, %4 ]
   %8 = load ptr, ptr %.02736.i, align 8, !tbaa !58
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %10 = load ptr, ptr %9, align 8, !tbaa !83
+  %10 = load ptr, ptr %9, align 8, !tbaa !74
   br label %11
 
 11:                                               ; preds = %14, %.lr.ph.i
@@ -4624,19 +4624,19 @@ define range(i64 -2147483648, 2147483648) i64 @dt_tag_export(ptr noundef readonl
 
 14:                                               ; preds = %13, %11
   %15 = getelementptr inbounds nuw i8, ptr %.026.i, i64 1
-  br label %11, !llvm.loop !90
+  br label %11
 
 16:                                               ; preds = %11
   %17 = getelementptr inbounds nuw i8, ptr %.02736.i, i64 8
   %18 = load ptr, ptr %17, align 8, !tbaa !62
   %.not.i = icmp eq ptr %18, null
-  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !91
+  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph40.i:                                       ; preds = %._crit_edge.i, %27
   %.02538.i = phi ptr [ %29, %27 ], [ %7, %._crit_edge.i ]
   %19 = load ptr, ptr %.02538.i, align 8, !tbaa !58
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  %21 = load ptr, ptr %20, align 8, !tbaa !83
+  %21 = load ptr, ptr %20, align 8, !tbaa !74
   br label %22
 
 22:                                               ; preds = %25, %.lr.ph40.i
@@ -4653,13 +4653,13 @@ define range(i64 -2147483648, 2147483648) i64 @dt_tag_export(ptr noundef readonl
 
 25:                                               ; preds = %24, %22
   %26 = getelementptr inbounds nuw i8, ptr %.0.i, i64 1
-  br label %22, !llvm.loop !92
+  br label %22
 
 27:                                               ; preds = %22
   %28 = getelementptr inbounds nuw i8, ptr %.02538.i, i64 8
   %29 = load ptr, ptr %28, align 8, !tbaa !62
   %.not32.i = icmp eq ptr %29, null
-  br i1 %.not32.i, label %.lr.ph141, label %.lr.ph40.i, !llvm.loop !93
+  br i1 %.not32.i, label %.lr.ph141, label %.lr.ph40.i
 
 ._crit_edge142.loopexit:                          ; preds = %.critedge3
   %30 = sext i32 %.1.lcssa to i64
@@ -4686,11 +4686,11 @@ dt_tag_free_result.exit:                          ; preds = %._crit_edge142, %31
   %.079135 = phi ptr [ %86, %.critedge3 ], [ %7, %27 ]
   %33 = load ptr, ptr %.079135, align 8, !tbaa !58
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 8
-  %35 = load ptr, ptr %34, align 8, !tbaa !83
+  %35 = load ptr, ptr %34, align 8, !tbaa !74
   %36 = getelementptr inbounds nuw i8, ptr %33, i64 24
-  %37 = load ptr, ptr %36, align 8, !tbaa !86
+  %37 = load ptr, ptr %36, align 8, !tbaa !77
   %38 = getelementptr inbounds nuw i8, ptr %33, i64 40
-  %39 = load i32, ptr %38, align 8, !tbaa !85
+  %39 = load i32, ptr %38, align 8, !tbaa !76
   %40 = tail call ptr @g_strsplit(ptr noundef %35, ptr noundef nonnull @.str.31, i32 noundef -1) #11
   %.fr146 = freeze ptr %40
   %.not89 = icmp eq ptr %.078136, null
@@ -4781,7 +4781,7 @@ dt_tag_free_result.exit:                          ; preds = %._crit_edge142, %31
   %58 = tail call i32 @fputc(i32 noundef 9, ptr noundef nonnull %3)
   %59 = add nuw i32 %.073119, 1
   %exitcond.not = icmp eq i32 %59, %indvars156170
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph120, !llvm.loop !122
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph120
 
 60:                                               ; preds = %._crit_edge
   %61 = add nsw i32 %.1125168, 1
@@ -4818,14 +4818,14 @@ dt_tag_free_result.exit:                          ; preds = %._crit_edge142, %31
   %74 = getelementptr inbounds nuw i8, ptr %.071123, i64 8
   %75 = load ptr, ptr %74, align 8, !tbaa !57
   %.not99 = icmp eq ptr %75, null
-  br i1 %.not99, label %.loopexit, label %.lr.ph124, !llvm.loop !123
+  br i1 %.not99, label %.loopexit, label %.lr.ph124
 
 76:                                               ; preds = %.lr.ph124, %76
   %.0121 = phi i32 [ 0, %.lr.ph124 ], [ %78, %76 ]
   %77 = tail call i32 @fputc(i32 noundef 9, ptr noundef nonnull %3)
   %78 = add nuw i32 %.0121, 1
   %exitcond154.not = icmp eq i32 %.0121, %indvars.iv152.in166
-  br i1 %exitcond154.not, label %71, label %76, !llvm.loop !124
+  br i1 %exitcond154.not, label %71, label %76
 
 .loopexit:                                        ; preds = %71, %.preheader, %66
   tail call void @g_strfreev(ptr noundef %67) #11
@@ -4849,7 +4849,7 @@ dt_tag_free_result.exit:                          ; preds = %._crit_edge142, %31
   %85 = getelementptr inbounds nuw i8, ptr %.079135, i64 8
   %86 = load ptr, ptr %85, align 8, !tbaa !62
   %.not88 = icmp eq ptr %86, null
-  br i1 %.not88, label %._crit_edge142.loopexit, label %.lr.ph141, !llvm.loop !125
+  br i1 %.not88, label %._crit_edge142.loopexit, label %.lr.ph141
 
 87:                                               ; preds = %1, %dt_tag_free_result.exit
   %.072 = phi i64 [ %.077.lcssa, %dt_tag_free_result.exit ], [ -1, %1 ]
@@ -4982,7 +4982,7 @@ define ptr @dt_tag_get_subtags(i32 noundef %0, ptr noundef %1, i32 noundef %2) l
   %67 = load ptr, ptr %5, align 8, !tbaa !52
   %68 = call i32 @sqlite3_step(ptr noundef %67) #11
   %69 = icmp eq i32 %68, 100
-  br i1 %69, label %45, label %._crit_edge, !llvm.loop !126
+  br i1 %69, label %45, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %66, %39
   %70 = load ptr, ptr %4, align 8, !tbaa !57
@@ -5126,7 +5126,7 @@ define internal fastcc void @_pop_undo_execute(i32 noundef %0, ptr noundef %1, p
   %15 = getelementptr inbounds nuw i8, ptr %.012.i, i64 8
   %16 = load ptr, ptr %15, align 8, !tbaa !62
   %.not.i = icmp eq ptr %16, null
-  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !127
+  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i
 
 17:                                               ; preds = %._crit_edge.i
   %18 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.pre.i) #13
@@ -5167,7 +5167,7 @@ _get_tb_removed_tag_string_values.exit:           ; preds = %3, %._crit_edge.i, 
   %29 = getelementptr inbounds nuw i8, ptr %.012.i11, i64 8
   %30 = load ptr, ptr %29, align 8, !tbaa !62
   %.not.i13 = icmp eq ptr %30, null
-  br i1 %.not.i13, label %._crit_edge.i14, label %.lr.ph.i10, !llvm.loop !128
+  br i1 %.not.i13, label %._crit_edge.i14, label %.lr.ph.i10
 
 31:                                               ; preds = %._crit_edge.i14
   %32 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.pre.i15) #13
@@ -5270,10 +5270,10 @@ _bulk_add_tags.exit:                              ; preds = %_bulk_remove_tags.e
 ; Function Attrs: nounwind uwtable
 define internal void @_undo_tags_free(ptr noundef %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load ptr, ptr %2, align 8, !tbaa !69
+  %3 = load ptr, ptr %2, align 8, !tbaa !67
   tail call void @g_list_free(ptr noundef %3) #11
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %5 = load ptr, ptr %4, align 8, !tbaa !70
+  %5 = load ptr, ptr %4, align 8, !tbaa !68
   tail call void @g_list_free(ptr noundef %5) #11
   tail call void @g_free(ptr noundef %0) #11
   ret void
@@ -5372,69 +5372,24 @@ attributes #14 = { nounwind allocsize(0) }
 !60 = !{!61, !12, i64 0}
 !61 = !{!"dt_tag_t", !12, i64 0, !39, i64 8, !39, i64 16, !39, i64 24, !12, i64 32, !12, i64 36, !12, i64 40}
 !62 = !{!59, !13, i64 8}
-!63 = distinct !{!63, !64}
-!64 = !{!"llvm.loop.estimated_trip_count"}
-!65 = !{!13, !13, i64 0}
-!66 = !{!10, !35, i64 208}
-!67 = !{!68, !12, i64 0}
-!68 = !{!"dt_undo_tags_t", !12, i64 0, !13, i64 8, !13, i64 16}
-!69 = !{!68, !13, i64 8}
-!70 = !{!68, !13, i64 16}
-!71 = distinct !{!71, !64}
-!72 = distinct !{!72, !64}
-!73 = distinct !{!73, !64}
-!74 = distinct !{!74, !64, !75}
-!75 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!76 = distinct !{!76, !64}
-!77 = distinct !{!77, !64}
-!78 = distinct !{!78, !64}
-!79 = distinct !{!79, !64, !75}
-!80 = distinct !{!80, !64, !75}
-!81 = distinct !{!81, !64}
-!82 = !{!10, !30, i64 168}
-!83 = !{!61, !39, i64 8}
-!84 = !{!61, !39, i64 16}
-!85 = !{!61, !12, i64 40}
-!86 = !{!61, !39, i64 24}
-!87 = !{!61, !12, i64 32}
-!88 = !{!61, !12, i64 36}
-!89 = distinct !{!89, !64}
-!90 = distinct !{!90, !64}
-!91 = distinct !{!91, !64}
-!92 = distinct !{!92, !64}
-!93 = distinct !{!93, !64}
-!94 = distinct !{!94, !64}
-!95 = distinct !{!95, !64, !75}
-!96 = distinct !{!96, !64}
-!97 = distinct !{!97, !64}
-!98 = distinct !{!98, !64}
-!99 = distinct !{!99, !64}
-!100 = distinct !{!100, !64}
-!101 = distinct !{!101, !64}
-!102 = distinct !{!102, !64, !75}
-!103 = distinct !{!103, !64}
-!104 = distinct !{!104, !64}
-!105 = distinct !{!105, !64}
-!106 = distinct !{!106, !64, !75}
-!107 = distinct !{!107, !64}
-!108 = distinct !{!108, !64}
-!109 = distinct !{!109, !64}
-!110 = distinct !{!110, !64}
-!111 = distinct !{!111, !64}
-!112 = distinct !{!112, !64}
-!113 = distinct !{!113, !64}
-!114 = distinct !{!114, !64}
-!115 = distinct !{!115, !64}
-!116 = distinct !{!116, !64}
-!117 = !{!45, !45, i64 0}
-!118 = distinct !{!118, !64}
-!119 = distinct !{!119, !64}
-!120 = distinct !{!120, !64}
-!121 = distinct !{!121, !64}
-!122 = distinct !{!122, !64}
-!123 = distinct !{!123, !64}
-!124 = distinct !{!124, !64}
-!125 = distinct !{!125, !64}
-!126 = distinct !{!126, !64}
-!127 = distinct !{!127, !64}
-!128 = distinct !{!128, !64}
+!63 = !{!13, !13, i64 0}
+!64 = !{!10, !35, i64 208}
+!65 = !{!66, !12, i64 0}
+!66 = !{!"dt_undo_tags_t", !12, i64 0, !13, i64 8, !13, i64 16}
+!67 = !{!66, !13, i64 8}
+!68 = !{!66, !13, i64 16}
+!69 = distinct !{!69, !70}
+!70 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!71 = distinct !{!71, !70}
+!72 = distinct !{!72, !70}
+!73 = !{!10, !30, i64 168}
+!74 = !{!61, !39, i64 8}
+!75 = !{!61, !39, i64 16}
+!76 = !{!61, !12, i64 40}
+!77 = !{!61, !39, i64 24}
+!78 = !{!61, !12, i64 32}
+!79 = !{!61, !12, i64 36}
+!80 = distinct !{!80, !70}
+!81 = distinct !{!81, !70}
+!82 = distinct !{!82, !70}
+!83 = !{!45, !45, i64 0}

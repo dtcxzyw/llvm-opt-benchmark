@@ -123,7 +123,7 @@ define void @reoReorderSift(ptr noundef %0) local_unnamed_addr #0 {
   %52 = sdiv i32 %32, 2
   %53 = icmp slt i32 %.0275.lcssa, %52
   %54 = getelementptr inbounds nuw i8, ptr %.pre, i64 32
-  store double 0.000000e+00, ptr %54, align 8, !tbaa !32
+  store double 0.000000e+00, ptr %54, align 8, !tbaa !31
   %.not349436 = icmp slt i32 %.0275.lcssa, 1
   br i1 %53, label %55, label %194
 
@@ -139,20 +139,20 @@ define void @reoReorderSift(ptr noundef %0) local_unnamed_addr #0 {
   %indvars.iv536 = phi i64 [ 1, %.lr.ph439.preheader ], [ %indvars.iv.next537, %.lr.ph439 ]
   %57 = getelementptr %struct._reo_plane, ptr %.pre, i64 %indvars.iv536
   %58 = getelementptr i8, ptr %57, i64 -24
-  %59 = load double, ptr %58, align 8, !tbaa !32
+  %59 = load double, ptr %58, align 8, !tbaa !31
   %60 = getelementptr i8, ptr %57, i64 -32
-  %61 = load double, ptr %60, align 8, !tbaa !33
+  %61 = load double, ptr %60, align 8, !tbaa !32
   %62 = fadd double %59, %61
   %63 = getelementptr inbounds nuw %struct._reo_plane, ptr %.pre, i64 %indvars.iv536, i32 5
-  store double %62, ptr %63, align 8, !tbaa !32
+  store double %62, ptr %63, align 8, !tbaa !31
   %indvars.iv.next537 = add nuw nsw i64 %indvars.iv536, 1
   %exitcond540.not = icmp eq i64 %indvars.iv.next537, %wide.trip.count539
-  br i1 %exitcond540.not, label %._crit_edge440, label %.lr.ph439, !llvm.loop !34
+  br i1 %exitcond540.not, label %._crit_edge440, label %.lr.ph439, !llvm.loop !33
 
 ._crit_edge440:                                   ; preds = %.lr.ph439, %55
   %64 = sext i32 %32 to i64
   %65 = getelementptr inbounds %struct._reo_plane, ptr %.pre, i64 %64, i32 6
-  store double 0.000000e+00, ptr %65, align 8, !tbaa !35
+  store double 0.000000e+00, ptr %65, align 8, !tbaa !34
   %.not350.not441 = icmp sgt i32 %32, %.0275.lcssa
   br i1 %.not350.not441, label %.lr.ph444, label %.preheader364
 
@@ -169,14 +169,14 @@ define void @reoReorderSift(ptr noundef %0) local_unnamed_addr #0 {
   %indvars.iv.next542 = add nsw i64 %indvars.iv541, -1
   %68 = getelementptr inbounds %struct._reo_plane, ptr %.pre, i64 %indvars.iv541
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 40
-  %70 = load double, ptr %69, align 8, !tbaa !35
+  %70 = load double, ptr %69, align 8, !tbaa !34
   %71 = getelementptr inbounds nuw i8, ptr %68, i64 24
-  %72 = load double, ptr %71, align 8, !tbaa !33
+  %72 = load double, ptr %71, align 8, !tbaa !32
   %73 = fadd double %70, %72
   %74 = getelementptr inbounds %struct._reo_plane, ptr %.pre, i64 %indvars.iv.next542, i32 6
-  store double %73, ptr %74, align 8, !tbaa !35
+  store double %73, ptr %74, align 8, !tbaa !34
   %.not350.not = icmp sgt i64 %indvars.iv.next542, %49
-  br i1 %.not350.not, label %.lr.ph444, label %.preheader364, !llvm.loop !36
+  br i1 %.not350.not, label %.lr.ph444, label %.preheader364, !llvm.loop !35
 
 .lr.ph452:                                        ; preds = %.lr.ph452.preheader, %113
   %indvars.iv544 = phi i64 [ %67, %.lr.ph452.preheader ], [ %indvars.iv.next545, %113 ]
@@ -194,18 +194,18 @@ define void @reoReorderSift(ptr noundef %0) local_unnamed_addr #0 {
   %80 = load ptr, ptr %26, align 8, !tbaa !23
   %81 = getelementptr inbounds nuw %struct._reo_plane, ptr %80, i64 %indvars.iv544
   %82 = getelementptr inbounds nuw i8, ptr %81, i64 40
-  %83 = load double, ptr %82, align 8, !tbaa !35
+  %83 = load double, ptr %82, align 8, !tbaa !34
   %84 = getelementptr inbounds nuw i8, ptr %81, i64 24
-  %85 = load double, ptr %84, align 8, !tbaa !33
+  %85 = load double, ptr %84, align 8, !tbaa !32
   %86 = fadd double %83, %85
   %87 = getelementptr inbounds nuw %struct._reo_plane, ptr %80, i64 %indvars.iv.next545, i32 6
-  store double %86, ptr %87, align 8, !tbaa !35
+  store double %86, ptr %87, align 8, !tbaa !34
   %88 = fcmp ult double %77, %.1296447
   br i1 %88, label %89, label %._crit_edge453.loopexit.split.loop.exit585
 
 89:                                               ; preds = %.lr.ph452
   %90 = getelementptr inbounds nuw %struct._reo_plane, ptr %80, i64 %indvars.iv.next545, i32 5
-  %91 = load double, ptr %90, align 8, !tbaa !32
+  %91 = load double, ptr %90, align 8, !tbaa !31
   %92 = fmul double %91, 2.000000e+00
   %93 = fdiv double %92, 3.000000e+00
   %94 = fadd double %86, %93
@@ -240,7 +240,7 @@ define void @reoReorderSift(ptr noundef %0) local_unnamed_addr #0 {
 
 108:                                              ; preds = %106, %104
   %109 = load i32, ptr %28, align 4, !tbaa !21
-  %110 = load i32, ptr %29, align 8, !tbaa !37
+  %110 = load i32, ptr %29, align 8, !tbaa !36
   %111 = shl nsw i32 %110, 1
   %.not353 = icmp slt i32 %109, %111
   br i1 %.not353, label %113, label %112
@@ -251,7 +251,7 @@ define void @reoReorderSift(ptr noundef %0) local_unnamed_addr #0 {
 
 113:                                              ; preds = %106, %112, %108
   %114 = icmp samesign ugt i64 %indvars.iv544, 1
-  br i1 %114, label %.lr.ph452, label %._crit_edge453.loopexit, !llvm.loop !38
+  br i1 %114, label %.lr.ph452, label %._crit_edge453.loopexit, !llvm.loop !37
 
 ._crit_edge453.loopexit.split.loop.exit:          ; preds = %89
   %115 = trunc nuw nsw i64 %indvars.iv544 to i32
@@ -319,12 +319,12 @@ define void @reoReorderSift(ptr noundef %0) local_unnamed_addr #0 {
   %136 = load ptr, ptr %26, align 8, !tbaa !23
   %137 = getelementptr inbounds %struct._reo_plane, ptr %136, i64 %indvars.iv547
   %138 = getelementptr inbounds nuw i8, ptr %137, i64 32
-  %139 = load double, ptr %138, align 8, !tbaa !32
+  %139 = load double, ptr %138, align 8, !tbaa !31
   %140 = getelementptr inbounds nuw i8, ptr %137, i64 24
-  %141 = load double, ptr %140, align 8, !tbaa !33
+  %141 = load double, ptr %140, align 8, !tbaa !32
   %142 = fadd double %139, %141
   %143 = getelementptr inbounds %struct._reo_plane, ptr %136, i64 %indvars.iv.next548, i32 5
-  store double %142, ptr %143, align 8, !tbaa !32
+  store double %142, ptr %143, align 8, !tbaa !31
   %144 = sext i32 %.2279474 to i64
   %.not355 = icmp slt i64 %indvars.iv.next548, %144
   %145 = trunc nsw i64 %indvars.iv.next548 to i32
@@ -336,7 +336,7 @@ define void @reoReorderSift(ptr noundef %0) local_unnamed_addr #0 {
 
 148:                                              ; preds = %146
   %149 = getelementptr inbounds %struct._reo_plane, ptr %136, i64 %indvars.iv.next548, i32 6
-  %150 = load double, ptr %149, align 8, !tbaa !35
+  %150 = load double, ptr %149, align 8, !tbaa !34
   %151 = fmul double %150, 2.000000e+00
   %152 = fdiv double %151, 3.000000e+00
   %153 = fadd double %142, %152
@@ -371,7 +371,7 @@ define void @reoReorderSift(ptr noundef %0) local_unnamed_addr #0 {
 
 167:                                              ; preds = %165, %163
   %168 = load i32, ptr %28, align 4, !tbaa !21
-  %169 = load i32, ptr %29, align 8, !tbaa !37
+  %169 = load i32, ptr %29, align 8, !tbaa !36
   %170 = shl nsw i32 %169, 1
   %.not358 = icmp slt i32 %168, %170
   br i1 %.not358, label %172, label %171
@@ -385,7 +385,7 @@ define void @reoReorderSift(ptr noundef %0) local_unnamed_addr #0 {
   %174 = add nsw i32 %173, -1
   %175 = sext i32 %174 to i64
   %176 = icmp slt i64 %indvars.iv.next548, %175
-  br i1 %176, label %.lr.ph477, label %._crit_edge478, !llvm.loop !39
+  br i1 %176, label %.lr.ph477, label %._crit_edge478, !llvm.loop !38
 
 ._crit_edge478:                                   ; preds = %172, %146, %148, %._crit_edge453
   %.3298.lcssa = phi double [ %.1296.lcssa, %._crit_edge453 ], [ %.3298472, %148 ], [ %.3298472, %146 ], [ %.4299, %172 ]
@@ -418,13 +418,13 @@ define void @reoReorderSift(ptr noundef %0) local_unnamed_addr #0 {
 
 189:                                              ; preds = %.lr.ph499
   %puts361 = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.3)
-  %190 = load ptr, ptr @stdout, align 8, !tbaa !40
+  %190 = load ptr, ptr @stdout, align 8, !tbaa !39
   %191 = tail call i32 @fflush(ptr noundef %190)
   br label %192
 
 192:                                              ; preds = %.lr.ph499, %189
   %193 = icmp sgt i64 %indvars.iv.next551, %179
-  br i1 %193, label %.lr.ph499, label %.loopexit, !llvm.loop !42
+  br i1 %193, label %.lr.ph499, label %.loopexit, !llvm.loop !41
 
 194:                                              ; preds = %._crit_edge
   br i1 %.not349436, label %._crit_edge375, label %.lr.ph374.preheader
@@ -438,20 +438,20 @@ define void @reoReorderSift(ptr noundef %0) local_unnamed_addr #0 {
   %indvars.iv519 = phi i64 [ 1, %.lr.ph374.preheader ], [ %indvars.iv.next520, %.lr.ph374 ]
   %196 = getelementptr %struct._reo_plane, ptr %.pre, i64 %indvars.iv519
   %197 = getelementptr i8, ptr %196, i64 -24
-  %198 = load double, ptr %197, align 8, !tbaa !32
+  %198 = load double, ptr %197, align 8, !tbaa !31
   %199 = getelementptr i8, ptr %196, i64 -32
-  %200 = load double, ptr %199, align 8, !tbaa !33
+  %200 = load double, ptr %199, align 8, !tbaa !32
   %201 = fadd double %198, %200
   %202 = getelementptr inbounds nuw %struct._reo_plane, ptr %.pre, i64 %indvars.iv519, i32 5
-  store double %201, ptr %202, align 8, !tbaa !32
+  store double %201, ptr %202, align 8, !tbaa !31
   %indvars.iv.next520 = add nuw nsw i64 %indvars.iv519, 1
   %exitcond523.not = icmp eq i64 %indvars.iv.next520, %wide.trip.count522
-  br i1 %exitcond523.not, label %._crit_edge375, label %.lr.ph374, !llvm.loop !43
+  br i1 %exitcond523.not, label %._crit_edge375, label %.lr.ph374, !llvm.loop !42
 
 ._crit_edge375:                                   ; preds = %.lr.ph374, %194
   %203 = sext i32 %32 to i64
   %204 = getelementptr inbounds %struct._reo_plane, ptr %.pre, i64 %203, i32 6
-  store double 0.000000e+00, ptr %204, align 8, !tbaa !35
+  store double 0.000000e+00, ptr %204, align 8, !tbaa !34
   %.not340.not376 = icmp sgt i32 %32, %.0275.lcssa
   br i1 %.not340.not376, label %.lr.ph379, label %.preheader366
 
@@ -465,14 +465,14 @@ define void @reoReorderSift(ptr noundef %0) local_unnamed_addr #0 {
   %indvars.iv.next525 = add nsw i64 %indvars.iv524, -1
   %207 = getelementptr inbounds %struct._reo_plane, ptr %.pre, i64 %indvars.iv524
   %208 = getelementptr inbounds nuw i8, ptr %207, i64 40
-  %209 = load double, ptr %208, align 8, !tbaa !35
+  %209 = load double, ptr %208, align 8, !tbaa !34
   %210 = getelementptr inbounds nuw i8, ptr %207, i64 24
-  %211 = load double, ptr %210, align 8, !tbaa !33
+  %211 = load double, ptr %210, align 8, !tbaa !32
   %212 = fadd double %209, %211
   %213 = getelementptr inbounds %struct._reo_plane, ptr %.pre, i64 %indvars.iv.next525, i32 6
-  store double %212, ptr %213, align 8, !tbaa !35
+  store double %212, ptr %213, align 8, !tbaa !34
   %.not340.not = icmp sgt i64 %indvars.iv.next525, %49
-  br i1 %.not340.not, label %.lr.ph379, label %.preheader366, !llvm.loop !44
+  br i1 %.not340.not, label %.lr.ph379, label %.preheader366, !llvm.loop !43
 
 .lr.ph385:                                        ; preds = %.preheader366, %253
   %indvars.iv527 = phi i64 [ %indvars.iv.next528, %253 ], [ %49, %.preheader366 ]
@@ -490,19 +490,19 @@ define void @reoReorderSift(ptr noundef %0) local_unnamed_addr #0 {
   %219 = load ptr, ptr %26, align 8, !tbaa !23
   %220 = getelementptr inbounds %struct._reo_plane, ptr %219, i64 %indvars.iv527
   %221 = getelementptr inbounds nuw i8, ptr %220, i64 32
-  %222 = load double, ptr %221, align 8, !tbaa !32
+  %222 = load double, ptr %221, align 8, !tbaa !31
   %223 = getelementptr inbounds nuw i8, ptr %220, i64 24
-  %224 = load double, ptr %223, align 8, !tbaa !33
+  %224 = load double, ptr %223, align 8, !tbaa !32
   %225 = fadd double %222, %224
   %226 = getelementptr inbounds %struct._reo_plane, ptr %219, i64 %indvars.iv.next528, i32 5
-  store double %225, ptr %226, align 8, !tbaa !32
+  store double %225, ptr %226, align 8, !tbaa !31
   %227 = fcmp ult double %216, %.6301381
   %228 = trunc nsw i64 %indvars.iv.next528 to i32
   br i1 %227, label %229, label %._crit_edge386
 
 229:                                              ; preds = %.lr.ph385
   %230 = getelementptr inbounds %struct._reo_plane, ptr %219, i64 %indvars.iv.next528, i32 6
-  %231 = load double, ptr %230, align 8, !tbaa !35
+  %231 = load double, ptr %230, align 8, !tbaa !34
   %232 = fmul double %231, 2.000000e+00
   %233 = fdiv double %232, 3.000000e+00
   %234 = fadd double %225, %233
@@ -537,7 +537,7 @@ define void @reoReorderSift(ptr noundef %0) local_unnamed_addr #0 {
 
 248:                                              ; preds = %246, %244
   %249 = load i32, ptr %28, align 4, !tbaa !21
-  %250 = load i32, ptr %29, align 8, !tbaa !37
+  %250 = load i32, ptr %29, align 8, !tbaa !36
   %251 = shl nsw i32 %250, 1
   %.not343 = icmp slt i32 %249, %251
   br i1 %.not343, label %253, label %252
@@ -551,7 +551,7 @@ define void @reoReorderSift(ptr noundef %0) local_unnamed_addr #0 {
   %255 = add nsw i32 %254, -1
   %256 = sext i32 %255 to i64
   %257 = icmp slt i64 %indvars.iv.next528, %256
-  br i1 %257, label %.lr.ph385, label %._crit_edge386, !llvm.loop !45
+  br i1 %257, label %.lr.ph385, label %._crit_edge386, !llvm.loop !44
 
 ._crit_edge386:                                   ; preds = %253, %.lr.ph385, %229, %.preheader366
   %.6301.lcssa = phi double [ %.0295502, %.preheader366 ], [ %.6301381, %229 ], [ %.6301381, %.lr.ph385 ], [ %.7302, %253 ]
@@ -600,12 +600,12 @@ define void @reoReorderSift(ptr noundef %0) local_unnamed_addr #0 {
   %275 = load ptr, ptr %26, align 8, !tbaa !23
   %276 = getelementptr inbounds nuw %struct._reo_plane, ptr %275, i64 %indvars.iv530
   %277 = getelementptr inbounds nuw i8, ptr %276, i64 40
-  %278 = load double, ptr %277, align 8, !tbaa !35
+  %278 = load double, ptr %277, align 8, !tbaa !34
   %279 = getelementptr inbounds nuw i8, ptr %276, i64 24
-  %280 = load double, ptr %279, align 8, !tbaa !33
+  %280 = load double, ptr %279, align 8, !tbaa !32
   %281 = fadd double %278, %280
   %282 = getelementptr inbounds nuw %struct._reo_plane, ptr %275, i64 %indvars.iv.next531, i32 6
-  store double %281, ptr %282, align 8, !tbaa !35
+  store double %281, ptr %282, align 8, !tbaa !34
   %283 = sext i32 %.6283408 to i64
   %.not344 = icmp sgt i64 %indvars.iv.next531, %283
   br i1 %.not344, label %293, label %284
@@ -616,7 +616,7 @@ define void @reoReorderSift(ptr noundef %0) local_unnamed_addr #0 {
 
 286:                                              ; preds = %284
   %287 = getelementptr inbounds nuw %struct._reo_plane, ptr %275, i64 %indvars.iv.next531, i32 5
-  %288 = load double, ptr %287, align 8, !tbaa !32
+  %288 = load double, ptr %287, align 8, !tbaa !31
   %289 = fmul double %288, 2.000000e+00
   %290 = fdiv double %289, 3.000000e+00
   %291 = fadd double %281, %290
@@ -651,7 +651,7 @@ define void @reoReorderSift(ptr noundef %0) local_unnamed_addr #0 {
 
 305:                                              ; preds = %303, %301
   %306 = load i32, ptr %28, align 4, !tbaa !21
-  %307 = load i32, ptr %29, align 8, !tbaa !37
+  %307 = load i32, ptr %29, align 8, !tbaa !36
   %308 = shl nsw i32 %307, 1
   %.not347 = icmp slt i32 %306, %308
   br i1 %.not347, label %310, label %309
@@ -662,7 +662,7 @@ define void @reoReorderSift(ptr noundef %0) local_unnamed_addr #0 {
 
 310:                                              ; preds = %303, %309, %305
   %311 = icmp samesign ugt i64 %indvars.iv530, 1
-  br i1 %311, label %.lr.ph412, label %._crit_edge413, !llvm.loop !46
+  br i1 %311, label %.lr.ph412, label %._crit_edge413, !llvm.loop !45
 
 ._crit_edge413.loopexit.split.loop.exit:          ; preds = %286
   %312 = trunc nuw nsw i64 %indvars.iv530 to i32
@@ -704,13 +704,13 @@ define void @reoReorderSift(ptr noundef %0) local_unnamed_addr #0 {
 
 326:                                              ; preds = %.lr.ph434
   %puts348 = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.1)
-  %327 = load ptr, ptr @stdout, align 8, !tbaa !40
+  %327 = load ptr, ptr @stdout, align 8, !tbaa !39
   %328 = tail call i32 @fflush(ptr noundef %327)
   br label %329
 
 329:                                              ; preds = %.lr.ph434, %326
   %330 = icmp slt i64 %indvars.iv.next534, %316
-  br i1 %330, label %.lr.ph434, label %.loopexit, !llvm.loop !47
+  br i1 %330, label %.lr.ph434, label %.loopexit, !llvm.loop !46
 
 .loopexit:                                        ; preds = %329, %192, %._crit_edge413, %._crit_edge478
   %.7312 = phi double [ %.5310, %._crit_edge478 ], [ %.11, %._crit_edge413 ], [ %182, %192 ], [ %319, %329 ]
@@ -743,7 +743,7 @@ define void @reoReorderSift(ptr noundef %0) local_unnamed_addr #0 {
   %340 = add nuw nsw i32 %.0268503, 1
   %341 = load i32, ptr %18, align 4, !tbaa !22
   %342 = icmp slt i32 %340, %341
-  br i1 %342, label %.preheader367, label %.preheader, !llvm.loop !48
+  br i1 %342, label %.preheader367, label %.preheader, !llvm.loop !47
 
 343:                                              ; preds = %.lr.ph506, %343
   %indvars.iv553 = phi i64 [ 0, %.lr.ph506 ], [ %indvars.iv.next554, %343 ]
@@ -751,7 +751,7 @@ define void @reoReorderSift(ptr noundef %0) local_unnamed_addr #0 {
   store i32 0, ptr %344, align 8, !tbaa !26
   %indvars.iv.next554 = add nuw nsw i64 %indvars.iv553, 1
   %exitcond557.not = icmp eq i64 %indvars.iv.next554, %wide.trip.count556
-  br i1 %exitcond557.not, label %._crit_edge507, label %343, !llvm.loop !49
+  br i1 %exitcond557.not, label %._crit_edge507, label %343, !llvm.loop !48
 
 ._crit_edge507:                                   ; preds = %343, %17, %.preheader
   ret void
@@ -812,24 +812,23 @@ attributes #6 = { nounwind }
 !26 = !{!27, !5, i64 0}
 !27 = !{!"_reo_plane", !5, i64 0, !5, i64 4, !5, i64 8, !13, i64 16, !13, i64 24, !13, i64 32, !13, i64 40, !17, i64 48}
 !28 = !{!27, !5, i64 4}
-!29 = distinct !{!29, !30, !31}
+!29 = distinct !{!29, !30}
 !30 = !{!"llvm.loop.mustprogress"}
-!31 = !{!"llvm.loop.estimated_trip_count"}
-!32 = !{!27, !13, i64 32}
-!33 = !{!27, !13, i64 24}
-!34 = distinct !{!34, !30, !31}
-!35 = !{!27, !13, i64 40}
-!36 = distinct !{!36, !30, !31}
-!37 = !{!4, !5, i64 216}
-!38 = distinct !{!38, !30, !31}
-!39 = distinct !{!39, !30, !31}
-!40 = !{!41, !41, i64 0}
-!41 = !{!"p1 _ZTS8_IO_FILE", !9, i64 0}
-!42 = distinct !{!42, !30, !31}
-!43 = distinct !{!43, !30, !31}
-!44 = distinct !{!44, !30, !31}
-!45 = distinct !{!45, !30, !31}
-!46 = distinct !{!46, !30, !31}
-!47 = distinct !{!47, !30, !31}
-!48 = distinct !{!48, !30, !31}
-!49 = distinct !{!49, !30, !31}
+!31 = !{!27, !13, i64 32}
+!32 = !{!27, !13, i64 24}
+!33 = distinct !{!33, !30}
+!34 = !{!27, !13, i64 40}
+!35 = distinct !{!35, !30}
+!36 = !{!4, !5, i64 216}
+!37 = distinct !{!37, !30}
+!38 = distinct !{!38, !30}
+!39 = !{!40, !40, i64 0}
+!40 = !{!"p1 _ZTS8_IO_FILE", !9, i64 0}
+!41 = distinct !{!41, !30}
+!42 = distinct !{!42, !30}
+!43 = distinct !{!43, !30}
+!44 = distinct !{!44, !30}
+!45 = distinct !{!45, !30}
+!46 = distinct !{!46, !30}
+!47 = distinct !{!47, !30}
+!48 = distinct !{!48, !30}

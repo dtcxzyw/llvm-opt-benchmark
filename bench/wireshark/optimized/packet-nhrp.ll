@@ -1258,7 +1258,7 @@ dissect_nhrp_mand.exit:                           ; preds = %267, %268, %269, %2
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #4
   %449 = add i32 %.1159.i, 4
   %.not.i28 = icmp sgt i32 %449, %319
-  br i1 %.not.i28, label %dissect_nhrp_ext.exit, label %322, !llvm.loop !8
+  br i1 %.not.i28, label %dissect_nhrp_ext.exit, label %322
 
 dissect_nhrp_ext.exit:                            ; preds = %448, %.thread.i, %318, %dissect_nhrp_hdr.exit, %317
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %20) #4
@@ -1478,7 +1478,7 @@ define internal fastcc void @dissect_cie_list(ptr noundef %0, ptr noundef readon
   %.2 = phi i32 [ %97, %94 ], [ %.1, %92 ]
   %99 = add i32 %.2, 12
   %.not = icmp sgt i32 %99, %4
-  br i1 %.not, label %._crit_edge, label %11, !llvm.loop !10
+  br i1 %.not, label %._crit_edge, label %11, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %98, %8
   ret void
@@ -1537,6 +1537,4 @@ attributes #4 = { nounwind }
 !6 = !{i8 0, i8 2}
 !7 = !{}
 !8 = distinct !{!8, !9}
-!9 = !{!"llvm.loop.estimated_trip_count"}
-!10 = distinct !{!10, !11, !9}
-!11 = !{!"llvm.loop.mustprogress"}
+!9 = !{!"llvm.loop.mustprogress"}

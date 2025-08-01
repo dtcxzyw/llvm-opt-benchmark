@@ -521,7 +521,7 @@ _ZNK5VLoop5in_bbEPK4Node.exit.i.i:                ; preds = %_ZN14PhaseIdealLoop
   %72 = load i32, ptr %5, align 4
   %73 = sext i32 %72 to i64
   %74 = icmp slt i64 %indvars.iv.next.i.i, %73
-  br i1 %74, label %12, label %_ZN14VLoopVPointers15count_vpointersEv.exit, !llvm.loop !10
+  br i1 %74, label %12, label %_ZN14VLoopVPointers15count_vpointersEv.exit, !llvm.loop !9
 
 _ZN14VLoopVPointers15count_vpointersEv.exit:      ; preds = %71
   %.pre = load i32, ptr %2, align 8
@@ -830,7 +830,7 @@ _ZN13GrowableArrayIiE8allocateEv.exit.i:          ; preds = %_ZNK8VPointer3cmpER
   store i32 %182, ptr %180, align 4
   %indvars.iv.next.i34 = add nuw nsw i64 %indvars.iv.i33, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next.i34, %171
-  br i1 %exitcond.not, label %.preheader16.i, label %.lr.ph.i32, !llvm.loop !11
+  br i1 %exitcond.not, label %.preheader16.i, label %.lr.ph.i32, !llvm.loop !10
 
 _ZN26GrowableArrayWithAllocatorIi13GrowableArrayIiEE6appendERKi.exit: ; preds = %_ZNK8VPointer3cmpERKS_.exit.thread, %.lr.ph19.preheader.i, %.preheader16.i
   %.sroa.12.4 = phi i32 [ %.0.i.i.i.i, %.lr.ph19.preheader.i ], [ %.0.i.i.i.i, %.preheader16.i ], [ %.sroa.12.294, %_ZNK8VPointer3cmpERKS_.exit.thread ]
@@ -845,7 +845,7 @@ _ZNK8VPointer3cmpERKS_.exit:                      ; preds = %144, %133, %_ZN26Gr
   %.sroa.0.1 = phi i32 [ %.sroa.0.095, %84 ], [ %162, %_ZN26GrowableArrayWithAllocatorIi13GrowableArrayIiEE6appendERKi.exit ], [ %.sroa.0.095, %133 ], [ %.sroa.0.095, %144 ]
   %.sroa.19.3 = phi ptr [ %.sroa.19.297, %84 ], [ %.sroa.19.4, %_ZN26GrowableArrayWithAllocatorIi13GrowableArrayIiEE6appendERKi.exit ], [ %.sroa.19.297, %133 ], [ %.sroa.19.297, %144 ]
   %185 = icmp sgt i64 %indvars.iv.next, %indvars.iv118
-  br i1 %185, label %77, label %._crit_edge, !llvm.loop !12
+  br i1 %185, label %77, label %._crit_edge, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %_ZNK8VPointer3cmpERKS_.exit
   %.not = icmp eq i32 %.sroa.0.1, 0
@@ -978,7 +978,7 @@ _ZN13GrowableArrayIPN20VLoopDependencyGraph14DependencyNodeEE8allocateEv.exit.i:
   %253 = load i32, ptr %29, align 8
   %254 = sext i32 %253 to i64
   %255 = icmp slt i64 %indvars.iv.next.i48, %254
-  br i1 %255, label %.lr.ph.i46, label %.preheader16.loopexit.i49, !llvm.loop !13
+  br i1 %255, label %.lr.ph.i46, label %.preheader16.loopexit.i49, !llvm.loop !12
 
 .preheader.i39:                                   ; preds = %.lr.ph19.i43, %.preheader16.i37
   %256 = load ptr, ptr %32, align 8
@@ -993,7 +993,7 @@ _ZN13GrowableArrayIPN20VLoopDependencyGraph14DependencyNodeEE8allocateEv.exit.i:
   %258 = load i32, ptr %30, align 4
   %259 = trunc nuw i64 %indvars.iv.next22.i45 to i32
   %260 = icmp sgt i32 %258, %259
-  br i1 %260, label %.lr.ph19.i43, label %.preheader.i39, !llvm.loop !14
+  br i1 %260, label %.lr.ph19.i43, label %.preheader.i39, !llvm.loop !13
 
 261:                                              ; preds = %.preheader.i39
   %262 = load i64, ptr %31, align 8
@@ -1027,7 +1027,7 @@ _ZN26GrowableArrayWithAllocatorIPN20VLoopDependencyGraph14DependencyNodeE13Growa
   store ptr null, ptr %271, align 8
   %indvars.iv.next.i.i = add nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %269, !llvm.loop !15
+  br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %269, !llvm.loop !14
 
 ._crit_edge.i.i:                                  ; preds = %269, %265
   %272 = add nsw i32 %218, 1
@@ -1045,7 +1045,7 @@ _ZN20VLoopDependencyGraph8add_nodeEP7MemNodeR13GrowableArrayIiE.exit: ; preds = 
   %.sroa.19.2.lcssa132 = phi ptr [ %.sroa.19.3, %._crit_edge ], [ %.sroa.19.3, %_ZN20VLoopDependencyGraph8add_nodeEP7MemNodeR13GrowableArrayIiE.exit ], [ %.sroa.19.1103, %.lr.ph107 ]
   %.sroa.12.2.lcssa131 = phi i32 [ %.sroa.12.3, %._crit_edge ], [ %.sroa.12.3, %_ZN20VLoopDependencyGraph8add_nodeEP7MemNodeR13GrowableArrayIiE.exit ], [ %.sroa.12.1102, %.lr.ph107 ]
   %276 = icmp sgt i64 %indvars.iv118, 1
-  br i1 %276, label %.lr.ph107, label %._crit_edge108, !llvm.loop !16
+  br i1 %276, label %.lr.ph107, label %._crit_edge108, !llvm.loop !15
 
 ._crit_edge108:                                   ; preds = %._crit_edge.thread, %33
   %.sroa.12.1.lcssa = phi i32 [ %.sroa.12.0111, %33 ], [ %.sroa.12.2.lcssa131, %._crit_edge.thread ]
@@ -1055,7 +1055,7 @@ _ZN20VLoopDependencyGraph8add_nodeEP7MemNodeR13GrowableArrayIiE.exit: ; preds = 
   %277 = load i32, ptr %5, align 4
   %278 = sext i32 %277 to i64
   %279 = icmp slt i64 %indvars.iv.next122, %278
-  br i1 %279, label %33, label %._crit_edge116, !llvm.loop !17
+  br i1 %279, label %33, label %._crit_edge116, !llvm.loop !16
 
 ._crit_edge116:                                   ; preds = %._crit_edge108, %1
   %280 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -1098,7 +1098,7 @@ _ZN20VLoopDependencyGraph8add_nodeEP7MemNodeR13GrowableArrayIiE.exit: ; preds = 
   %309 = load i32, ptr %308, align 4
   %310 = sext i32 %309 to i64
   %311 = icmp slt i64 %indvars.iv.next.i, %310
-  br i1 %311, label %286, label %_ZN13GrowableArrayIiED2Ev.exit, !llvm.loop !18
+  br i1 %311, label %286, label %_ZN13GrowableArrayIiED2Ev.exit, !llvm.loop !17
 
 _ZN13GrowableArrayIiED2Ev.exit:                   ; preds = %286, %._crit_edge116
   %312 = load i64, ptr %21, align 8
@@ -1265,7 +1265,7 @@ _ZNK5VLoop5in_bbEPK4Node.exit.i:                  ; preds = %_ZN14PhaseIdealLoop
   %69 = load i32, ptr %5, align 4
   %70 = sext i32 %69 to i64
   %71 = icmp slt i64 %indvars.iv.next.i, %70
-  br i1 %71, label %9, label %"_ZNK9VLoopBody12for_each_memIZN14VLoopVPointers15count_vpointersEvE3$_0EEvT_.exit", !llvm.loop !10
+  br i1 %71, label %9, label %"_ZNK9VLoopBody12for_each_memIZN14VLoopVPointers15count_vpointersEvE3$_0EEvT_.exit", !llvm.loop !9
 
 "_ZNK9VLoopBody12for_each_memIZN14VLoopVPointers15count_vpointersEvE3$_0EEvT_.exit": ; preds = %68, %1
   ret void
@@ -1427,7 +1427,7 @@ _ZNK5VLoop5in_bbEPK4Node.exit.i:                  ; preds = %_ZN14PhaseIdealLoop
   %76 = load i32, ptr %4, align 4
   %77 = sext i32 %76 to i64
   %78 = icmp slt i64 %indvars.iv.next.i, %77
-  br i1 %78, label %11, label %"_ZNK9VLoopBody12for_each_memIZN14VLoopVPointers27compute_and_cache_vpointersEvE3$_0EEvT_.exit", !llvm.loop !19
+  br i1 %78, label %11, label %"_ZNK9VLoopBody12for_each_memIZN14VLoopVPointers27compute_and_cache_vpointersEvE3$_0EEvT_.exit", !llvm.loop !18
 
 "_ZNK9VLoopBody12for_each_memIZN14VLoopVPointers27compute_and_cache_vpointersEvE3$_0EEvT_.exit": ; preds = %75, %1
   ret void
@@ -1562,7 +1562,7 @@ _ZN20VLoopDependencyGraph14DependencyNodeC2EP7MemNodeR13GrowableArrayIiEP5Arena.
   store ptr null, ptr %62, align 8
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %60, !llvm.loop !15
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %60, !llvm.loop !14
 
 ._crit_edge.i:                                    ; preds = %60, %55
   %63 = add nsw i32 %42, 1
@@ -1620,7 +1620,7 @@ define hidden void @_ZN20VLoopDependencyGraph13compute_depthEv(ptr noundef nonnu
   %31 = load i32, ptr %30, align 4
   %32 = sext i32 %31 to i64
   %33 = icmp slt i64 %indvars.iv.next, %32
-  br i1 %33, label %8, label %._crit_edge, !llvm.loop !18
+  br i1 %33, label %8, label %._crit_edge, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %8, %1
   ret void
@@ -1843,7 +1843,7 @@ _ZN20VLoopDependencyGraph13PredsIterator4nextEv.exit: ; preds = %123, %130
   %.sink.i.in = phi ptr [ %127, %123 ], [ %140, %130 ]
   %.sink.i = load ptr, ptr %.sink.i.in, align 8
   %141 = icmp eq ptr %.sink.i, null
-  br i1 %141, label %.loopexit, label %58, !llvm.loop !20
+  br i1 %141, label %.loopexit, label %58, !llvm.loop !19
 
 .loopexit:                                        ; preds = %128, %_ZN20VLoopDependencyGraph13PredsIterator4nextEv.exit, %43, %_ZN20VLoopDependencyGraph13PredsIteratorC2ERKS_PK4Node.exit, %2
   %.0 = phi i32 [ 0, %2 ], [ 0, %_ZN20VLoopDependencyGraph13PredsIteratorC2ERKS_PK4Node.exit ], [ 0, %43 ], [ %.2, %_ZN20VLoopDependencyGraph13PredsIterator4nextEv.exit ], [ %.2, %128 ]
@@ -2176,7 +2176,7 @@ _ZNK8VPointer14is_loop_memberEP4Node.exit:        ; preds = %_ZNK14PhaseIdealLoo
   %97 = load i32, ptr %96, align 4
   %98 = and i32 %97, 1023
   %99 = icmp eq i32 %98, 512
-  br i1 %99, label %84, label %100, !llvm.loop !21
+  br i1 %99, label %84, label %100, !llvm.loop !20
 
 100:                                              ; preds = %90, %95
   %101 = tail call noundef zeroext i1 @_ZNK8VPointer9invariantEP4Node(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %93)
@@ -4697,7 +4697,7 @@ _ZN13GrowableArrayIPN20VLoopDependencyGraph14DependencyNodeEE8allocateEv.exit: ;
   %30 = load i32, ptr %0, align 8
   %31 = sext i32 %30 to i64
   %32 = icmp slt i64 %indvars.iv.next, %31
-  br i1 %32, label %25, label %.preheader16.loopexit, !llvm.loop !13
+  br i1 %32, label %25, label %.preheader16.loopexit, !llvm.loop !12
 
 .preheader:                                       ; preds = %.lr.ph19, %.preheader16
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -4713,7 +4713,7 @@ _ZN13GrowableArrayIPN20VLoopDependencyGraph14DependencyNodeEE8allocateEv.exit: ;
   %36 = load i32, ptr %3, align 4
   %37 = trunc nuw i64 %indvars.iv.next22 to i32
   %38 = icmp sgt i32 %36, %37
-  br i1 %38, label %.lr.ph19, label %.preheader, !llvm.loop !14
+  br i1 %38, label %.lr.ph19, label %.preheader, !llvm.loop !13
 
 39:                                               ; preds = %.preheader
   %40 = load i64, ptr %4, align 8
@@ -4770,18 +4770,17 @@ attributes #14 = { noreturn nounwind }
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
 !6 = !{}
-!7 = distinct !{!7, !8, !9}
+!7 = distinct !{!7, !8}
 !8 = !{!"llvm.loop.mustprogress"}
-!9 = !{!"llvm.loop.estimated_trip_count"}
-!10 = distinct !{!10, !8, !9}
-!11 = distinct !{!11, !8, !9}
-!12 = distinct !{!12, !8, !9}
-!13 = distinct !{!13, !8, !9}
-!14 = distinct !{!14, !8, !9}
-!15 = distinct !{!15, !8, !9}
-!16 = distinct !{!16, !8, !9}
-!17 = distinct !{!17, !8, !9}
-!18 = distinct !{!18, !8, !9}
-!19 = distinct !{!19, !8, !9}
-!20 = distinct !{!20, !8, !9}
-!21 = distinct !{!21, !8, !9}
+!9 = distinct !{!9, !8}
+!10 = distinct !{!10, !8}
+!11 = distinct !{!11, !8}
+!12 = distinct !{!12, !8}
+!13 = distinct !{!13, !8}
+!14 = distinct !{!14, !8}
+!15 = distinct !{!15, !8}
+!16 = distinct !{!16, !8}
+!17 = distinct !{!17, !8}
+!18 = distinct !{!18, !8}
+!19 = distinct !{!19, !8}
+!20 = distinct !{!20, !8}

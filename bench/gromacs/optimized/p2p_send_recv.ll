@@ -255,9 +255,9 @@ define noundef i32 @_Z10tMPI_IsendPKviP14tmpi_datatype_iiP10tmpi_comm_PP9tmpi_re
 
 25:                                               ; preds = %22
   tail call void @_Z13tMPI_Req_initP9tmpi_req_P8envelope(ptr noundef %10, ptr noundef nonnull %23)
-  store ptr %10, ptr %6, align 8, !tbaa !41
+  store ptr %10, ptr %6, align 8, !tbaa !40
   %26 = getelementptr inbounds nuw i8, ptr %23, i64 124
-  %27 = load i32, ptr %26, align 4, !tbaa !42
+  %27 = load i32, ptr %26, align 4, !tbaa !41
   br label %28
 
 28:                                               ; preds = %22, %25, %20, %11
@@ -309,9 +309,9 @@ define noundef i32 @_Z10tMPI_IrecvPviP14tmpi_datatype_iiP10tmpi_comm_PP9tmpi_req
 
 26:                                               ; preds = %23
   tail call void @_Z13tMPI_Req_initP9tmpi_req_P8envelope(ptr noundef %10, ptr noundef nonnull %24)
-  store ptr %10, ptr %6, align 8, !tbaa !41
+  store ptr %10, ptr %6, align 8, !tbaa !40
   %27 = getelementptr inbounds nuw i8, ptr %24, i64 124
-  %28 = load i32, ptr %27, align 4, !tbaa !42
+  %28 = load i32, ptr %27, align 4, !tbaa !41
   br label %29
 
 29:                                               ; preds = %23, %26, %21, %11
@@ -364,12 +364,11 @@ attributes #3 = { nounwind }
 !35 = !{!"p1 _ZTS9tmpi_req_", !5, i64 0}
 !36 = !{!32, !35, i64 56}
 !37 = !{!32, !35, i64 64}
-!38 = distinct !{!38, !39, !40}
+!38 = distinct !{!38, !39}
 !39 = !{!"llvm.loop.mustprogress"}
-!40 = !{!"llvm.loop.estimated_trip_count"}
-!41 = !{!35, !35, i64 0}
-!42 = !{!43, !11, i64 124}
-!43 = !{!"_ZTS8envelope", !11, i64 0, !4, i64 8, !30, i64 16, !30, i64 24, !5, i64 32, !34, i64 40, !44, i64 48, !11, i64 56, !15, i64 60, !11, i64 124, !33, i64 128, !33, i64 136, !11, i64 144, !33, i64 152, !33, i64 160, !45, i64 168, !46, i64 176}
-!44 = !{!"p1 _ZTS14tmpi_datatype_", !5, i64 0}
-!45 = !{!"p1 _ZTS18recv_envelope_list", !5, i64 0}
-!46 = !{!"p1 _ZTS18send_envelope_list", !5, i64 0}
+!40 = !{!35, !35, i64 0}
+!41 = !{!42, !11, i64 124}
+!42 = !{!"_ZTS8envelope", !11, i64 0, !4, i64 8, !30, i64 16, !30, i64 24, !5, i64 32, !34, i64 40, !43, i64 48, !11, i64 56, !15, i64 60, !11, i64 124, !33, i64 128, !33, i64 136, !11, i64 144, !33, i64 152, !33, i64 160, !44, i64 168, !45, i64 176}
+!43 = !{!"p1 _ZTS14tmpi_datatype_", !5, i64 0}
+!44 = !{!"p1 _ZTS18recv_envelope_list", !5, i64 0}
+!45 = !{!"p1 _ZTS18send_envelope_list", !5, i64 0}

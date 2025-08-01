@@ -200,7 +200,7 @@ mXactCacheGetBySet.exit:                          ; preds = %15, %dlist_push_hea
   %.0.mux = select i1 %35, i1 true, i1 %.034
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !7
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !6
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %32
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %32 ]
@@ -263,7 +263,7 @@ mXactCacheGetBySet.exit:                          ; preds = %15, %dlist_push_hea
   %67 = load ptr, ptr @MainLWLockArray, align 8
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 1664
   tail call void @LWLockRelease(ptr noundef nonnull %68) #13
-  %69 = load i8, ptr @IsUnderPostmaster, align 1, !range !8, !noundef !9
+  %69 = load i8, ptr @IsUnderPostmaster, align 1, !range !7, !noundef !8
   %70 = trunc nuw i8 %69 to i1
   br i1 %70, label %71, label %.thread.i
 
@@ -388,7 +388,7 @@ ExtendMultiXactOffset.exit.i:                     ; preds = %115, %110
   %130 = zext i1 %129 to i32
   %spec.select66.i = add i32 %0, %130
   %131 = getelementptr inbounds nuw i8, ptr %126, i64 24
-  %132 = load i8, ptr %131, align 4, !range !8, !noundef !9
+  %132 = load i8, ptr %131, align 4, !range !7, !noundef !8
   %133 = trunc nuw i8 %132 to i1
   br i1 %133, label %134, label %._crit_edge.i
 
@@ -455,7 +455,7 @@ MultiXactOffsetWouldWrap.exit.i:                  ; preds = %134
   call void @SendPostmasterSignal(i32 noundef 3) #13
   %.pre61.i = load ptr, ptr @MultiXactState, align 8
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %.pre61.i, i64 24
-  %.pre62.i = load i8, ptr %.phi.trans.insert.i, align 4, !range !8
+  %.pre62.i = load i8, ptr %.phi.trans.insert.i, align 4, !range !7
   br label %170
 
 170:                                              ; preds = %169, %166
@@ -564,7 +564,7 @@ MultiXactOffsetWouldWrap.exit55.i:                ; preds = %.thread64.i
   %222 = sub nsw i32 %.01821.i.i, %.019.i.i
   %223 = add i32 %.019.i.i, %.022.i.i
   %224 = icmp sgt i32 %222, 0
-  br i1 %224, label %.lr.ph.i.i, label %GetNewMultiXactId.exit, !llvm.loop !10
+  br i1 %224, label %.lr.ph.i.i, label %GetNewMultiXactId.exit, !llvm.loop !9
 
 GetNewMultiXactId.exit:                           ; preds = %221, %198
   %225 = load volatile i32, ptr @CritSectionCount, align 4
@@ -654,7 +654,7 @@ define dso_local i32 @MultiXactIdExpand(i32 noundef %0, i32 noundef %1, i32 noun
 20:                                               ; preds = %11, %15
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %11, !llvm.loop !11
+  br i1 %exitcond.not, label %._crit_edge, label %11, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %20, %.preheader
   %21 = add nuw i32 %6, 1
@@ -703,7 +703,7 @@ define dso_local i32 @MultiXactIdExpand(i32 noundef %0, i32 noundef %1, i32 noun
   %.1 = phi i32 [ %42, %36 ], [ %.042, %33 ], [ %.042, %29 ]
   %indvars.iv.next49 = add nuw nsw i64 %indvars.iv48, 1
   %exitcond52.not = icmp eq i64 %indvars.iv.next49, %wide.trip.count51
-  br i1 %exitcond52.not, label %._crit_edge45, label %25, !llvm.loop !12
+  br i1 %exitcond52.not, label %._crit_edge45, label %25, !llvm.loop !11
 
 ._crit_edge45:                                    ; preds = %44, %._crit_edge
   %.0.lcssa = phi i32 [ 0, %._crit_edge ], [ %.1, %44 ]
@@ -784,7 +784,7 @@ select.unfold.i:                                  ; preds = %.lr.ph.i
   %29 = getelementptr inbounds nuw i8, ptr %.sroa.0.024.i, i64 8
   %30 = load ptr, ptr %29, align 8
   %.not19.i = icmp eq ptr %30, @MXactCache
-  br i1 %.not19.i, label %mXactCacheGetById.exit.thread, label %.lr.ph.i, !llvm.loop !13
+  br i1 %.not19.i, label %mXactCacheGetById.exit.thread, label %.lr.ph.i, !llvm.loop !12
 
 mXactCacheGetById.exit:                           ; preds = %10, %dlist_push_head.exit.i.i.i
   store ptr %15, ptr %1, align 8
@@ -831,7 +831,7 @@ mXactCacheGetById.exit.thread:                    ; preds = %select.unfold.i, %6
   %.1.i = select i1 %.not11.i, i32 %.013.i, i32 %spec.select.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %49, !llvm.loop !14
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %49, !llvm.loop !13
 
 ._crit_edge.i:                                    ; preds = %49, %38
   %.0.lcssa.i = phi i32 [ %spec.store.select.i, %38 ], [ %.1.i, %49 ]
@@ -1000,7 +1000,7 @@ MultiXactIdSetOldestVisible.exit:                 ; preds = %mXactCacheGetById.e
   tail call void @LWLockRelease(ptr noundef %.1111) #13
   %149 = load volatile i32, ptr @InterruptPending, align 4
   %.not128 = icmp eq i32 %149, 0
-  br i1 %.not128, label %151, label %150, !prof !15
+  br i1 %.not128, label %151, label %150, !prof !14
 
 150:                                              ; preds = %148
   tail call void @ProcessInterrupts() #13
@@ -1010,7 +1010,7 @@ MultiXactIdSetOldestVisible.exit:                 ; preds = %mXactCacheGetById.e
   %152 = load ptr, ptr @MultiXactState, align 8
   %153 = getelementptr inbounds nuw i8, ptr %152, i64 48
   tail call void @ConditionVariableSleep(ptr noundef nonnull %153, i32 noundef 134217765) #13
-  br label %.preheader.split, !llvm.loop !16
+  br label %.preheader.split
 
 .thread:                                          ; preds = %143
   %.1104 = sub i32 %146, %132
@@ -1131,7 +1131,7 @@ MultiXactIdSetOldestVisible.exit:                 ; preds = %mXactCacheGetById.e
   %202 = add nuw nsw i32 %.0101160, 1
   %203 = add i32 %.0102159, 1
   %exitcond.not = icmp eq i32 %202, %.1104185
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !17
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !15
 
 .sink.split:                                      ; preds = %60, %4, %._crit_edge
   %.sink = phi ptr [ %159, %._crit_edge ], [ null, %4 ], [ null, %60 ]
@@ -1168,7 +1168,7 @@ define dso_local noundef zeroext i1 @MultiXactIdIsRunning(i32 noundef %0, i1 nou
 7:                                                ; preds = %8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.lr.ph, label %8, !llvm.loop !18
+  br i1 %exitcond.not, label %.lr.ph, label %8, !llvm.loop !16
 
 8:                                                ; preds = %.preheader13, %7
   %indvars.iv = phi i64 [ 0, %.preheader13 ], [ %indvars.iv.next, %7 ]
@@ -1185,7 +1185,7 @@ define dso_local noundef zeroext i1 @MultiXactIdIsRunning(i32 noundef %0, i1 nou
   %indvars.iv.next19 = add nuw nsw i64 %indvars.iv18, 1
   %exitcond22.not = icmp eq i64 %indvars.iv.next19, %wide.trip.count
   %or.cond = select i1 %14, i1 true, i1 %exitcond22.not
-  br i1 %or.cond, label %.sink.split, label %.lr.ph, !llvm.loop !19
+  br i1 %or.cond, label %.sink.split, label %.lr.ph, !llvm.loop !17
 
 .sink.split:                                      ; preds = %8, %.lr.ph
   %.011.ph = phi i1 [ %14, %.lr.ph ], [ true, %8 ]
@@ -1353,7 +1353,7 @@ switch.lookup18:                                  ; preds = %.lr.ph
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef nonnull %4, ptr noundef nonnull @.str.7, i32 noundef %24, ptr noundef nonnull %switch.load20) #13
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !20
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !18
 
 ._crit_edge:                                      ; preds = %switch.lookup18, %switch.lookup
   call void @appendStringInfoChar(ptr noundef nonnull %4, i8 noundef signext 93) #13
@@ -1506,7 +1506,7 @@ define internal fastcc void @RecordNewMultiXact(i32 noundef %0, i32 noundef %1, 
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %81 = add i32 %.072, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !21
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !19
 
 ._crit_edge:                                      ; preds = %51
   %.not = icmp eq ptr %.156, null
@@ -1773,7 +1773,7 @@ define dso_local void @MultiXactShmemInit() local_unnamed_addr #0 {
   %9 = tail call i64 @add_size(i64 noundef 60, i64 noundef %8) #13
   %10 = call ptr @ShmemInitStruct(ptr noundef nonnull @.str.12, i64 noundef %9, ptr noundef nonnull %1) #13
   store ptr %10, ptr @MultiXactState, align 8
-  %11 = load i8, ptr @IsUnderPostmaster, align 1, !range !8, !noundef !9
+  %11 = load i8, ptr @IsUnderPostmaster, align 1, !range !7, !noundef !8
   %12 = trunc nuw i8 %11 to i1
   br i1 %12, label %36, label %13
 
@@ -2147,7 +2147,7 @@ define dso_local void @SetMultiXactIdLimit(i32 noundef %0, i32 noundef %1, i1 no
 27:                                               ; preds = %25, %3
   %28 = load ptr, ptr @MultiXactState, align 8
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 8
-  %30 = load i8, ptr %29, align 4, !range !8, !noundef !9
+  %30 = load i8, ptr %29, align 4, !range !7, !noundef !8
   %31 = trunc nuw i8 %30 to i1
   br i1 %31, label %32, label %137
 
@@ -2165,7 +2165,7 @@ define dso_local void @SetMultiXactIdLimit(i32 noundef %0, i32 noundef %1, i1 no
   %43 = getelementptr inbounds nuw i8, ptr %39, i64 4
   %44 = load i32, ptr %43, align 4
   %45 = getelementptr inbounds nuw i8, ptr %39, i64 24
-  %46 = load i8, ptr %45, align 4, !range !8, !noundef !9
+  %46 = load i8, ptr %45, align 4, !range !7, !noundef !8
   %47 = trunc nuw i8 %46 to i1
   %48 = getelementptr inbounds nuw i8, ptr %39, i64 20
   %49 = load i32, ptr %48, align 4
@@ -2286,7 +2286,7 @@ SetOffsetVacuumLimit.exit:                        ; preds = %92, %94, %96, %99
   %113 = icmp slt i32 %112, 0
   %114 = or i1 %113, %not..1.shrunk.i
   %or.cond = select i1 %114, i1 true, i1 %111
-  %115 = load i8, ptr @IsUnderPostmaster, align 1, !range !8
+  %115 = load i8, ptr @IsUnderPostmaster, align 1, !range !7
   %116 = trunc nuw i8 %115 to i1
   %or.cond3 = select i1 %or.cond, i1 %116, i1 false
   br i1 %or.cond3, label %117, label %118
@@ -2383,7 +2383,7 @@ define dso_local void @MultiXactSetNextMXact(i32 noundef %0, i32 noundef %1) loc
   %8 = load ptr, ptr @MainLWLockArray, align 8
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 1664
   tail call void @LWLockRelease(ptr noundef nonnull %9) #13
-  %10 = load i8, ptr @IsBinaryUpgrade, align 1, !range !8, !noundef !9
+  %10 = load i8, ptr @IsBinaryUpgrade, align 1, !range !7, !noundef !8
   %11 = trunc nuw i8 %10 to i1
   br i1 %11, label %12, label %26
 
@@ -2517,7 +2517,7 @@ define dso_local i32 @GetOldestMultiXactId() local_unnamed_addr #0 {
   %.2 = select i1 %.not18, i32 %.1, i32 %spec.select19
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %12, !llvm.loop !22
+  br i1 %exitcond.not, label %._crit_edge, label %12, !llvm.loop !20
 
 ._crit_edge:                                      ; preds = %12, %0
   %.015.lcssa = phi i32 [ %spec.store.select, %0 ], [ %.2, %12 ]
@@ -2541,7 +2541,7 @@ define dso_local i32 @MultiXactMemberFreezeThreshold() local_unnamed_addr #0 {
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 20
   %11 = load i32, ptr %10, align 4
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  %13 = load i8, ptr %12, align 4, !range !8, !noundef !9
+  %13 = load i8, ptr %12, align 4, !range !7, !noundef !8
   %14 = trunc nuw i8 %13 to i1
   %15 = load ptr, ptr @MainLWLockArray, align 8
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 1664
@@ -2816,7 +2816,7 @@ find_multixact_start.exit31:                      ; preds = %63
   %129 = add i64 %.011.i, 1
   %.1.i = select i1 %128, i64 0, i64 %129
   %.not.i = icmp eq i64 %.1.i, %.pre-phi49
-  br i1 %.not.i, label %PerformMembersTruncation.exit, label %.lr.ph.i, !llvm.loop !23
+  br i1 %.not.i, label %PerformMembersTruncation.exit, label %.lr.ph.i, !llvm.loop !21
 
 PerformMembersTruncation.exit:                    ; preds = %127, %103
   %130 = icmp eq i32 %0, 1
@@ -2990,7 +2990,7 @@ MultiXactAdvanceNextMXact.exit:                   ; preds = %49, %54
   %68 = load i32, ptr %33, align 4
   %69 = sext i32 %68 to i64
   %70 = icmp slt i64 %indvars.iv.next, %69
-  br i1 %70, label %.lr.ph, label %._crit_edge, !llvm.loop !24
+  br i1 %70, label %.lr.ph, label %._crit_edge, !llvm.loop !22
 
 ._crit_edge:                                      ; preds = %67, %MultiXactAdvanceNextMXact.exit
   %.0.lcssa = phi i32 [ %59, %MultiXactAdvanceNextMXact.exit ], [ %.1, %67 ]
@@ -3066,7 +3066,7 @@ MultiXactAdvanceNextMXact.exit:                   ; preds = %49, %54
   %97 = add i64 %.011.i, 1
   %.1.i = select i1 %96, i64 0, i64 %97
   %.not.i = icmp eq i64 %.1.i, %.pre-phi63
-  br i1 %.not.i, label %PerformMembersTruncation.exit, label %.lr.ph.i, !llvm.loop !23
+  br i1 %.not.i, label %PerformMembersTruncation.exit, label %.lr.ph.i, !llvm.loop !21
 
 PerformMembersTruncation.exit:                    ; preds = %95, %87
   %98 = lshr i32 %.sroa.7.0.copyload, 11
@@ -3366,24 +3366,22 @@ attributes #14 = { cold nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = distinct !{!4, !5, !6}
+!4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{!"llvm.loop.estimated_trip_count"}
-!7 = distinct !{!7, !5, !6}
-!8 = !{i8 0, i8 2}
-!9 = !{}
-!10 = distinct !{!10, !5, !6}
-!11 = distinct !{!11, !5, !6}
-!12 = distinct !{!12, !5, !6}
-!13 = distinct !{!13, !5, !6}
-!14 = distinct !{!14, !5, !6}
-!15 = !{!"branch_weights", !"expected", i32 2000, i32 1}
-!16 = distinct !{!16, !6}
-!17 = distinct !{!17, !5, !6}
-!18 = distinct !{!18, !5, !6}
-!19 = distinct !{!19, !5, !6}
-!20 = distinct !{!20, !5, !6}
-!21 = distinct !{!21, !5, !6}
-!22 = distinct !{!22, !5, !6}
-!23 = distinct !{!23, !5, !6}
-!24 = distinct !{!24, !5, !6}
+!6 = distinct !{!6, !5}
+!7 = !{i8 0, i8 2}
+!8 = !{}
+!9 = distinct !{!9, !5}
+!10 = distinct !{!10, !5}
+!11 = distinct !{!11, !5}
+!12 = distinct !{!12, !5}
+!13 = distinct !{!13, !5}
+!14 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!15 = distinct !{!15, !5}
+!16 = distinct !{!16, !5}
+!17 = distinct !{!17, !5}
+!18 = distinct !{!18, !5}
+!19 = distinct !{!19, !5}
+!20 = distinct !{!20, !5}
+!21 = distinct !{!21, !5}
+!22 = distinct !{!22, !5}

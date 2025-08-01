@@ -93,7 +93,7 @@ define hidden ptr @get_profile_parent(ptr noundef readonly captures(ret: address
   %23 = tail call ptr @g_list_first(ptr noundef %22)
   %24 = add nuw i32 %.030, 1
   %exitcond.not = icmp eq i32 %24, %5
-  br i1 %exitcond.not, label %.loopexit, label %.preheader, !llvm.loop !9
+  br i1 %exitcond.not, label %.loopexit, label %.preheader, !llvm.loop !8
 
 .loopexit:                                        ; preds = %._crit_edge, %11, %15, %1
   %.014 = phi ptr [ %0, %1 ], [ null, %15 ], [ null, %11 ], [ %.2.lcssa, %._crit_edge ]
@@ -156,7 +156,7 @@ profile_name_is_valid.exit.thread:                ; preds = %.lr.ph, %12, %profi
   %17 = getelementptr inbounds nuw i8, ptr %.07593, i64 8
   %18 = load ptr, ptr %17, align 8
   %.not = icmp eq ptr %18, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !10
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %profile_name_is_valid.exit.thread, %0
   %19 = tail call zeroext i1 @write_profile_recent()
@@ -202,7 +202,7 @@ profile_name_is_valid.exit.thread:                ; preds = %.lr.ph, %12, %profi
 43:                                               ; preds = %40
   %44 = load ptr, ptr %22, align 8
   %45 = getelementptr inbounds nuw i8, ptr %22, i64 21
-  %46 = load i8, ptr %45, align 1, !range !11, !noundef !12
+  %46 = load i8, ptr %45, align 1, !range !10, !noundef !11
   %47 = trunc nuw i8 %46 to i1
   %48 = call i32 @copy_persconffile_profile(ptr noundef %44, ptr noundef nonnull %42, i1 noundef zeroext %47, ptr noundef nonnull %3, ptr noundef nonnull %1, ptr noundef nonnull %2)
   %49 = icmp eq i32 %48, -1
@@ -236,7 +236,7 @@ profile_name_is_valid.exit.thread:                ; preds = %.lr.ph, %12, %profi
   %66 = getelementptr inbounds nuw i8, ptr %.17695, i64 8
   %67 = load ptr, ptr %66, align 8
   %.not81 = icmp eq ptr %67, null
-  br i1 %.not81, label %._crit_edge98, label %.lr.ph97, !llvm.loop !13
+  br i1 %.not81, label %._crit_edge98, label %.lr.ph97, !llvm.loop !12
 
 ._crit_edge98:                                    ; preds = %65, %._crit_edge
   %68 = load ptr, ptr @edited_profiles, align 8
@@ -262,7 +262,7 @@ profile_name_is_valid.exit.thread:                ; preds = %.lr.ph, %12, %profi
   %78 = call i32 @strcmp(ptr noundef %77, ptr noundef nonnull dereferenceable(8) @.str.3) #7
   %.not87 = icmp eq i32 %78, 0
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %70, i64 22
-  %.pre = load i8, ptr %.phi.trans.insert, align 2, !range !11
+  %.pre = load i8, ptr %.phi.trans.insert, align 2, !range !10
   %79 = trunc nuw i8 %.pre to i1
   br i1 %.not87, label %96, label %80
 
@@ -343,7 +343,7 @@ profile_name_is_valid.exit.thread:                ; preds = %.lr.ph, %12, %profi
   %121 = getelementptr inbounds nuw i8, ptr %.2100, i64 8
   %122 = load ptr, ptr %121, align 8
   %.not82 = icmp eq ptr %122, null
-  br i1 %.not82, label %._crit_edge103, label %.lr.ph102, !llvm.loop !14
+  br i1 %.not82, label %._crit_edge103, label %.lr.ph102, !llvm.loop !13
 
 ._crit_edge103:                                   ; preds = %120, %._crit_edge98
   %123 = load ptr, ptr @current_profiles, align 8
@@ -364,7 +364,7 @@ profile_name_is_valid.exit.thread:                ; preds = %.lr.ph, %12, %profi
   %.077105 = phi ptr [ %147, %145 ], [ %127, %.lr.ph113 ]
   %128 = load ptr, ptr %.077105, align 8
   %129 = getelementptr inbounds nuw i8, ptr %128, i64 20
-  %130 = load i8, ptr %129, align 4, !range !11, !noundef !12
+  %130 = load i8, ptr %129, align 4, !range !10, !noundef !11
   %131 = trunc nuw i8 %130 to i1
   br i1 %131, label %145, label %132
 
@@ -394,7 +394,7 @@ profile_name_is_valid.exit.thread:                ; preds = %.lr.ph, %12, %profi
   %146 = getelementptr inbounds nuw i8, ptr %.077105, i64 8
   %147 = load ptr, ptr %146, align 8
   %.not85 = icmp eq ptr %147, null
-  br i1 %.not85, label %._crit_edge109, label %.lr.ph108, !llvm.loop !15
+  br i1 %.not85, label %._crit_edge109, label %.lr.ph108, !llvm.loop !14
 
 ._crit_edge109:                                   ; preds = %145
   br i1 %.1, label %158, label %.critedge
@@ -419,7 +419,7 @@ profile_name_is_valid.exit.thread:                ; preds = %.lr.ph, %12, %profi
   %159 = getelementptr inbounds nuw i8, ptr %.3111, i64 8
   %160 = load ptr, ptr %159, align 8
   %.not83 = icmp eq ptr %160, null
-  br i1 %.not83, label %._crit_edge114, label %.lr.ph113, !llvm.loop !16
+  br i1 %.not83, label %._crit_edge114, label %.lr.ph113, !llvm.loop !15
 
 ._crit_edge114:                                   ; preds = %158, %._crit_edge103
   %161 = load ptr, ptr @edited_profiles, align 8
@@ -431,13 +431,13 @@ profile_name_is_valid.exit.thread:                ; preds = %.lr.ph, %12, %profi
   %.4116 = phi ptr [ %192, %save_profile_settings.exit ], [ %162, %._crit_edge114 ]
   %163 = load ptr, ptr %.4116, align 8
   %164 = getelementptr inbounds nuw i8, ptr %163, i64 20
-  %165 = load i8, ptr %164, align 4, !range !11, !noundef !12
+  %165 = load i8, ptr %164, align 4, !range !10, !noundef !11
   %166 = trunc nuw i8 %165 to i1
   br i1 %166, label %save_profile_settings.exit, label %167
 
 167:                                              ; preds = %.lr.ph118
   %168 = getelementptr inbounds nuw i8, ptr %163, i64 23
-  %169 = load i8, ptr %168, align 1, !range !11, !noundef !12
+  %169 = load i8, ptr %168, align 1, !range !10, !noundef !11
   %170 = trunc nuw i8 %169 to i1
   br i1 %170, label %171, label %save_profile_settings.exit
 
@@ -474,7 +474,7 @@ save_profile_settings.exit:                       ; preds = %182, %177, %167, %.
   %191 = getelementptr inbounds nuw i8, ptr %.4116, i64 8
   %192 = load ptr, ptr %191, align 8
   %.not84 = icmp eq ptr %192, null
-  br i1 %.not84, label %._crit_edge119, label %.lr.ph118, !llvm.loop !17
+  br i1 %.not84, label %._crit_edge119, label %.lr.ph118, !llvm.loop !16
 
 ._crit_edge119:                                   ; preds = %save_profile_settings.exit, %._crit_edge114
   call void @copy_profile_list()
@@ -569,9 +569,9 @@ define hidden void @copy_profile_list() local_unnamed_addr #0 {
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %8 = load i32, ptr %7, align 8
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 20
-  %10 = load i8, ptr %9, align 4, !range !11, !noundef !12
+  %10 = load i8, ptr %9, align 4, !range !10, !noundef !11
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 21
-  %12 = load i8, ptr %11, align 1, !range !11, !noundef !12
+  %12 = load i8, ptr %11, align 1, !range !10, !noundef !11
   %13 = tail call noalias dereferenceable_or_null(32) ptr @g_malloc0(i64 noundef 32) #10
   %14 = tail call noalias ptr @g_strdup(ptr noundef %4)
   store ptr %14, ptr %13, align 8
@@ -608,7 +608,7 @@ define hidden void @copy_profile_list() local_unnamed_addr #0 {
   %32 = getelementptr inbounds nuw i8, ptr %.014, i64 8
   %33 = load ptr, ptr %32, align 8
   %.not = icmp eq ptr %33, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !18
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %30, %0
   ret void
@@ -688,7 +688,7 @@ thread-pre-split:                                 ; preds = %1
   tail call void @g_list_free_1(ptr noundef %3)
   store ptr %10, ptr @edited_profiles, align 8
   %.not = icmp eq ptr %10, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !19
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !18
 
 ._crit_edge:                                      ; preds = %.lr.ph, %thread-pre-split
   store ptr null, ptr @edited_profiles, align 8
@@ -716,7 +716,7 @@ thread-pre-split:                                 ; preds = %1
   tail call void @g_list_free_1(ptr noundef %13)
   store ptr %20, ptr @current_profiles, align 8
   %.not9 = icmp eq ptr %20, null
-  br i1 %.not9, label %._crit_edge15, label %.lr.ph14, !llvm.loop !20
+  br i1 %.not9, label %._crit_edge15, label %.lr.ph14, !llvm.loop !19
 
 ._crit_edge15:                                    ; preds = %.lr.ph14, %11
   store ptr null, ptr @current_profiles, align 8
@@ -774,7 +774,7 @@ define hidden void @init_profile_list() local_unnamed_addr #0 {
   tail call void @g_free(ptr noundef %17)
   %24 = tail call ptr @g_dir_read_name(ptr noundef nonnull %14)
   %.not49 = icmp eq ptr %24, null
-  br i1 %.not49, label %._crit_edge, label %.lr.ph, !llvm.loop !21
+  br i1 %.not49, label %._crit_edge, label %.lr.ph, !llvm.loop !20
 
 ._crit_edge:                                      ; preds = %23, %.preheader54
   %.145.lcssa = phi ptr [ null, %.preheader54 ], [ %.246, %23 ]
@@ -815,7 +815,7 @@ define hidden void @init_profile_list() local_unnamed_addr #0 {
   %41 = getelementptr inbounds nuw i8, ptr %.058, i64 8
   %42 = load ptr, ptr %41, align 8
   %.not50 = icmp eq ptr %42, null
-  br i1 %.not50, label %._crit_edge61, label %.lr.ph60, !llvm.loop !22
+  br i1 %.not50, label %._crit_edge61, label %.lr.ph60, !llvm.loop !21
 
 ._crit_edge61:                                    ; preds = %.lr.ph60, %25
   tail call void @g_list_free_full(ptr noundef %26, ptr noundef nonnull @g_free)
@@ -847,7 +847,7 @@ define hidden void @init_profile_list() local_unnamed_addr #0 {
   tail call void @g_free(ptr noundef %47)
   %54 = tail call ptr @g_dir_read_name(ptr noundef nonnull %44)
   %.not52 = icmp eq ptr %54, null
-  br i1 %.not52, label %._crit_edge65, label %.lr.ph64, !llvm.loop !23
+  br i1 %.not52, label %._crit_edge65, label %.lr.ph64, !llvm.loop !22
 
 ._crit_edge65:                                    ; preds = %53, %.preheader
   %.143.lcssa = phi ptr [ null, %.preheader ], [ %.2, %53 ]
@@ -886,7 +886,7 @@ define hidden void @init_profile_list() local_unnamed_addr #0 {
   %70 = getelementptr inbounds nuw i8, ptr %.168, i64 8
   %71 = load ptr, ptr %70, align 8
   %.not53 = icmp eq ptr %71, null
-  br i1 %.not53, label %._crit_edge71, label %.lr.ph70, !llvm.loop !24
+  br i1 %.not53, label %._crit_edge71, label %.lr.ph70, !llvm.loop !23
 
 ._crit_edge71:                                    ; preds = %.lr.ph70, %55
   tail call void @g_list_free_full(ptr noundef %56, ptr noundef nonnull @g_free)
@@ -1058,22 +1058,21 @@ attributes #10 = { allocsize(0) }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7, !8}
-!11 = !{i8 0, i8 2}
-!12 = !{}
-!13 = distinct !{!13, !7, !8}
-!14 = distinct !{!14, !7, !8}
-!15 = distinct !{!15, !7, !8}
-!16 = distinct !{!16, !7, !8}
-!17 = distinct !{!17, !7, !8}
-!18 = distinct !{!18, !7, !8}
-!19 = distinct !{!19, !7, !8}
-!20 = distinct !{!20, !7, !8}
-!21 = distinct !{!21, !7, !8}
-!22 = distinct !{!22, !7, !8}
-!23 = distinct !{!23, !7, !8}
-!24 = distinct !{!24, !7, !8}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = !{i8 0, i8 2}
+!11 = !{}
+!12 = distinct !{!12, !7}
+!13 = distinct !{!13, !7}
+!14 = distinct !{!14, !7}
+!15 = distinct !{!15, !7}
+!16 = distinct !{!16, !7}
+!17 = distinct !{!17, !7}
+!18 = distinct !{!18, !7}
+!19 = distinct !{!19, !7}
+!20 = distinct !{!20, !7}
+!21 = distinct !{!21, !7}
+!22 = distinct !{!22, !7}
+!23 = distinct !{!23, !7}

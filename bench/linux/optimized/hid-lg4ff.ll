@@ -332,7 +332,7 @@ define dso_local i32 @lg4ff_init(ptr noundef %0) local_unnamed_addr #0 align 16 
 50:                                               ; preds = %53, %60
   %51 = add nuw nsw i64 %54, 1
   %52 = icmp eq i64 %51, 6
-  br i1 %52, label %.thread28, label %53, !llvm.loop !9
+  br i1 %52, label %.thread28, label %53, !llvm.loop !8
 
 53:                                               ; preds = %50, %47
   %54 = phi i64 [ 0, %47 ], [ %51, %50 ]
@@ -398,7 +398,7 @@ lg4ff_get_mode_switch_command.exit.thread31:      ; preds = %79
 
 lg4ff_get_mode_switch_command.exit.thread:        ; preds = %lg4ff_get_mode_switch_command.exit, %79, %select.unfold, %80, %81
   %83 = phi ptr [ @lg4ff_mode_switch_ext16_g25, %lg4ff_get_mode_switch_command.exit ], [ @lg4ff_mode_switch_ext01_dfp, %select.unfold ], [ @lg4ff_mode_switch_ext09_g29, %80 ], [ @lg4ff_mode_switch_ext09_dfgt, %81 ], [ @lg4ff_mode_switch_ext09_g27, %79 ]
-  %84 = tail call fastcc i32 @lg4ff_switch_compatibility_mode(ptr noundef %0, ptr noundef nonnull %83), !range !10
+  %84 = tail call fastcc i32 @lg4ff_switch_compatibility_mode(ptr noundef %0, ptr noundef nonnull %83), !range !9
   %85 = icmp eq i32 %84, 0
   br i1 %85, label %271, label %86
 
@@ -422,7 +422,7 @@ lg4ff_get_mode_switch_command.exit.thread:        ; preds = %lg4ff_get_mode_swit
 93:                                               ; preds = %88
   %94 = add nuw nsw i64 %89, 1
   %95 = icmp eq i64 %94, 11
-  br i1 %95, label %.critedge, label %88, !llvm.loop !11
+  br i1 %95, label %.critedge, label %88, !llvm.loop !10
 
 96:                                               ; preds = %88
   %97 = and i64 %89, 4294967295
@@ -446,7 +446,7 @@ lg4ff_get_mode_switch_command.exit.thread:        ; preds = %lg4ff_get_mode_swit
 104:                                              ; preds = %.preheader
   %105 = add nuw nsw i64 %100, 1
   %106 = icmp eq i64 %105, 5
-  br i1 %106, label %.thread36, label %.preheader, !llvm.loop !12
+  br i1 %106, label %.thread36, label %.preheader, !llvm.loop !11
 
 107:                                              ; preds = %.preheader
   %108 = trunc i64 %100 to i32
@@ -474,13 +474,13 @@ lg4ff_get_mode_switch_command.exit.thread:        ; preds = %lg4ff_get_mode_swit
   %120 = phi i16 [ %115, %117 ], [ %126, %119 ]
   %121 = phi i32 [ 0, %117 ], [ %123, %119 ]
   %122 = zext nneg i16 %120 to i64
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %118, i64 %122) #15, !srcloc !13
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %118, i64 %122) #15, !srcloc !12
   %123 = add i32 %121, 1
   %124 = sext i32 %123 to i64
   %125 = getelementptr i16, ptr %114, i64 %124
   %126 = load i16, ptr %125, align 2
   %127 = icmp sgt i16 %126, -1
-  br i1 %127, label %119, label %.loopexit39, !llvm.loop !14
+  br i1 %127, label %119, label %.loopexit39, !llvm.loop !13
 
 .loopexit39:                                      ; preds = %119, %111
   %128 = tail call i32 @input_ff_create_memless(ptr noundef %18, ptr noundef null, ptr noundef nonnull @lg4ff_play) #15
@@ -492,11 +492,11 @@ lg4ff_get_mode_switch_command.exit.thread:        ; preds = %lg4ff_get_mode_swit
 
 131:                                              ; preds = %130
   %132 = icmp eq i32 %112, -1
-  br i1 %132, label %133, label %134, !prof !15
+  br i1 %132, label %133, label %134, !prof !14
 
 133:                                              ; preds = %131
-  tail call void asm sideeffect "424: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 424b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 424) #15, !srcloc !16
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.6, i32 1353, i32 0, i64 12) #15, !srcloc !17
+  tail call void asm sideeffect "424: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 424b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 424) #15, !srcloc !15
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.6, i32 1353, i32 0, i64 12) #15, !srcloc !16
   unreachable
 
 134:                                              ; preds = %131
@@ -725,7 +725,7 @@ lg4ff_set_leds.exit:                              ; preds = %206, %211, %212
   store ptr %237, ptr %254, align 8
   %255 = tail call i32 @led_classdev_register_ext(ptr noundef nonnull %5, ptr noundef nonnull %237, ptr noundef null) #15
   %256 = icmp eq i32 %255, 0
-  br i1 %256, label %233, label %257, !llvm.loop !18
+  br i1 %256, label %233, label %257, !llvm.loop !17
 
 257:                                              ; preds = %245, %236
   %258 = phi ptr [ @.str.11, %236 ], [ @.str.13, %245 ]
@@ -749,7 +749,7 @@ lg4ff_set_leds.exit:                              ; preds = %206, %211, %212
 266:                                              ; preds = %265, %260
   %267 = add nuw nsw i64 %261, 1
   %268 = icmp eq i64 %267, 5
-  br i1 %268, label %.loopexit, label %260, !llvm.loop !19
+  br i1 %268, label %.loopexit, label %260, !llvm.loop !18
 
 .loopexit:                                        ; preds = %233, %266, %201
   tail call void (ptr, ptr, ...) @_dev_info(ptr noundef nonnull %5, ptr noundef nonnull @.str.14) #14
@@ -1092,7 +1092,7 @@ define internal range(i32 0, 256) i32 @lg4ff_led_get_brightness(ptr noundef read
 31:                                               ; preds = %17
   %32 = add nuw nsw i64 %18, 1
   %33 = icmp eq i64 %32, 5
-  br i1 %33, label %.loopexit, label %17, !llvm.loop !20
+  br i1 %33, label %.loopexit, label %17, !llvm.loop !19
 
 .loopexit:                                        ; preds = %31, %22, %16, %9
   %34 = phi i32 [ 0, %16 ], [ 0, %9 ], [ %30, %22 ], [ 0, %31 ]
@@ -1242,7 +1242,7 @@ define internal void @lg4ff_led_set_brightness(ptr noundef readonly captures(add
 85:                                               ; preds = %19
   %86 = add nuw nsw i64 %20, 1
   %87 = icmp eq i64 %86, 5
-  br i1 %87, label %lg4ff_set_leds.exit, label %19, !llvm.loop !21
+  br i1 %87, label %lg4ff_set_leds.exit, label %19, !llvm.loop !20
 
 lg4ff_set_leds.exit:                              ; preds = %85, %72, %71, %66, %46, %45, %40, %59, %18, %11
   ret void
@@ -1310,7 +1310,7 @@ define dso_local noundef range(i32 -1, 1) i32 @lg4ff_deinit(ptr noundef %0) loca
 26:                                               ; preds = %25, %20
   %27 = add nuw nsw i64 %21, 1
   %28 = icmp eq i64 %27, 5
-  br i1 %28, label %29, label %20, !llvm.loop !22
+  br i1 %28, label %29, label %20, !llvm.loop !21
 
 29:                                               ; preds = %26
   store ptr null, ptr %8, align 8
@@ -1385,7 +1385,7 @@ define internal fastcc noundef range(i32 -22, 1) i32 @lg4ff_switch_compatibility
   store i32 %34, ptr %35, align 4
   %36 = add nuw nsw i64 %30, 1
   %37 = icmp eq i64 %36, 7
-  br i1 %37, label %38, label %29, !llvm.loop !23
+  br i1 %37, label %38, label %29, !llvm.loop !22
 
 38:                                               ; preds = %29
   %39 = load ptr, ptr %15, align 8
@@ -1394,7 +1394,7 @@ define internal fastcc noundef range(i32 -22, 1) i32 @lg4ff_switch_compatibility
   %41 = load i8, ptr %1, align 1
   %42 = zext i8 %41 to i64
   %43 = icmp samesign ult i64 %40, %42
-  br i1 %43, label %26, label %.loopexit, !llvm.loop !24
+  br i1 %43, label %26, label %.loopexit, !llvm.loop !23
 
 .loopexit:                                        ; preds = %38, %14
   tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull %10, i64 noundef %21) #15
@@ -1879,7 +1879,7 @@ define internal range(i64 -2147483648, 2147487742) i64 @lg4ff_alternate_modes_sh
   %61 = phi i64 [ %58, %52 ], [ %21, %19 ]
   %62 = add nuw nsw i64 %20, 1
   %63 = icmp eq i64 %62, 7
-  br i1 %63, label %.loopexit, label %19, !llvm.loop !25
+  br i1 %63, label %.loopexit, label %19, !llvm.loop !24
 
 64:                                               ; preds = %11, %7, %3
   %65 = phi ptr [ @.str.41, %3 ], [ @.str.42, %7 ], [ @.str.47, %11 ]
@@ -1983,7 +1983,7 @@ define internal noundef i64 @lg4ff_alternate_modes_store(ptr noundef %0, ptr rea
 55:                                               ; preds = %44, %39
   %56 = add nuw nsw i64 %40, 1
   %57 = icmp eq i64 %56, 7
-  br i1 %57, label %.thread10, label %39, !llvm.loop !26
+  br i1 %57, label %.thread10, label %39, !llvm.loop !25
 
 58:                                               ; preds = %53, %50
   %59 = phi i16 [ %54, %53 ], [ %51, %50 ]
@@ -2112,7 +2112,7 @@ lg4ff_get_mode_switch_command.exit.thread.fold.split: ; preds = %89
 
 lg4ff_get_mode_switch_command.exit.thread:        ; preds = %89, %lg4ff_get_mode_switch_command.exit.thread.fold.split, %87, %99, %94, %90, %91, %92, %93, %95, %96, %97, %98, %100, %101
   %102 = phi ptr [ @lg4ff_mode_switch_ext09_dfex, %99 ], [ @lg4ff_mode_switch_ext09_dfp, %94 ], [ @lg4ff_mode_switch_ext09_dfex, %90 ], [ @lg4ff_mode_switch_ext09_dfp, %91 ], [ @lg4ff_mode_switch_ext09_g25, %92 ], [ @lg4ff_mode_switch_ext09_g27, %93 ], [ @lg4ff_mode_switch_ext09_dfgt, %95 ], [ @lg4ff_mode_switch_ext09_g25, %96 ], [ @lg4ff_mode_switch_ext09_g27, %97 ], [ @lg4ff_mode_switch_ext09_g29, %98 ], [ @lg4ff_mode_switch_ext09_dfp, %100 ], [ @lg4ff_mode_switch_ext09_dfgt, %101 ], [ @lg4ff_mode_switch_ext01_dfp, %87 ], [ @lg4ff_mode_switch_ext01_dfp, %89 ], [ @lg4ff_mode_switch_ext16_g25, %lg4ff_get_mode_switch_command.exit.thread.fold.split ]
-  %103 = tail call fastcc i32 @lg4ff_switch_compatibility_mode(ptr noundef %5, ptr noundef nonnull %102), !range !10
+  %103 = tail call fastcc i32 @lg4ff_switch_compatibility_mode(ptr noundef %5, ptr noundef nonnull %102), !range !9
   %104 = icmp eq i32 %103, 0
   %105 = sext i32 %103 to i64
   %106 = select i1 %104, i64 %3, i64 %105
@@ -2164,25 +2164,24 @@ attributes #17 = { nounwind allocsize(0) }
 !2 = !{i32 4, !"function_return_thunk_extern", i32 1}
 !3 = !{i32 4, !"indirect_branch_cs_prefix", i32 1}
 !4 = !{i32 4, !"SkipRaxSetup", i32 1}
-!5 = distinct !{!5, !6, !7, !8}
+!5 = distinct !{!5, !6, !7}
 !6 = !{!"llvm.loop.mustprogress"}
 !7 = !{!"llvm.loop.unroll.disable"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !6, !7, !8}
-!10 = !{i32 -22, i32 1}
-!11 = distinct !{!11, !6, !7, !8}
-!12 = distinct !{!12, !6, !7, !8}
-!13 = !{i64 2148366861, i64 2148366900, i64 2148366921, i64 2148366958, i64 2148366981, i64 2148366851}
-!14 = distinct !{!14, !6, !7, !8}
-!15 = !{!"branch_weights", i32 1, i32 2000}
-!16 = !{i64 2156361528, i64 2156361337, i64 2156361389, i64 2156361435, i64 2156361463}
-!17 = !{i64 2156361602, i64 2156361631, i64 2156361677, i64 2156361735, i64 2156361789, i64 2156361843, i64 2156361898, i64 2156361929}
-!18 = distinct !{!18, !6, !7, !8}
-!19 = distinct !{!19, !6, !7, !8}
-!20 = distinct !{!20, !6, !7, !8}
-!21 = distinct !{!21, !6, !7, !8}
-!22 = distinct !{!22, !6, !7, !8}
-!23 = distinct !{!23, !6, !7, !8}
-!24 = distinct !{!24, !6, !7, !8}
-!25 = distinct !{!25, !6, !7, !8}
-!26 = distinct !{!26, !6, !7, !8}
+!8 = distinct !{!8, !6, !7}
+!9 = !{i32 -22, i32 1}
+!10 = distinct !{!10, !6, !7}
+!11 = distinct !{!11, !6, !7}
+!12 = !{i64 2148366861, i64 2148366900, i64 2148366921, i64 2148366958, i64 2148366981, i64 2148366851}
+!13 = distinct !{!13, !6, !7}
+!14 = !{!"branch_weights", i32 1, i32 2000}
+!15 = !{i64 2156361528, i64 2156361337, i64 2156361389, i64 2156361435, i64 2156361463}
+!16 = !{i64 2156361602, i64 2156361631, i64 2156361677, i64 2156361735, i64 2156361789, i64 2156361843, i64 2156361898, i64 2156361929}
+!17 = distinct !{!17, !6, !7}
+!18 = distinct !{!18, !6, !7}
+!19 = distinct !{!19, !6, !7}
+!20 = distinct !{!20, !6, !7}
+!21 = distinct !{!21, !6, !7}
+!22 = distinct !{!22, !6, !7}
+!23 = distinct !{!23, !6, !7}
+!24 = distinct !{!24, !6, !7}
+!25 = distinct !{!25, !6, !7}

@@ -199,7 +199,7 @@ define internal i32 @dissect_mcpe(ptr noundef %0, ptr noundef %1, ptr noundef %2
 
 mcpe_get_session_state.exit:                      ; preds = %4, %9
   %.0.i = phi ptr [ %11, %9 ], [ %7, %4 ]
-  %14 = load i8, ptr %.0.i, align 4, !range !9, !noundef !10
+  %14 = load i8, ptr %.0.i, align 4, !range !8, !noundef !9
   %15 = trunc nuw i8 %14 to i1
   br i1 %15, label %16, label %30
 
@@ -265,7 +265,7 @@ define hidden void @proto_reg_handoff_mcpe() #0 {
   tail call void @dissector_add_uint(ptr noundef nonnull @.str.3, i32 noundef %5, ptr noundef %9)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %10, label %.preheader, !llvm.loop !11
+  br i1 %exitcond.not, label %10, label %.preheader, !llvm.loop !10
 
 10:                                               ; preds = %.preheader
   %11 = load i32, ptr @proto_mcpe, align 4
@@ -647,7 +647,7 @@ proto_item_set_generated.exit:                    ; preds = %16, %22, %25
   call void @col_append_str(ptr noundef %58, i32 noundef 25, ptr noundef nonnull @.str.66)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #6
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #6
-  br label %31, !llvm.loop !12
+  br label %31
 
 59:                                               ; preds = %55
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #6
@@ -755,10 +755,8 @@ attributes #7 = { noreturn }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = !{i8 0, i8 2}
-!10 = !{}
-!11 = distinct !{!11, !7, !8}
-!12 = distinct !{!12, !8}
+!8 = !{i8 0, i8 2}
+!9 = !{}
+!10 = distinct !{!10, !7}

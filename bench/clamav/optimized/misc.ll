@@ -424,7 +424,7 @@ define ptr @filelist(ptr noundef %0, ptr noundef writeonly captures(address_is_n
   store i8 0, ptr %27, align 1, !tbaa !22
   %.0 = add i64 %.030, -1
   %.not26 = icmp eq i64 %.0, 0
-  br i1 %.not26, label %.critedge, label %.lr.ph, !llvm.loop !23
+  br i1 %.not26, label %.critedge, label %.lr.ph
 
 29:                                               ; preds = %19
   %30 = load ptr, ptr @filelist.fs, align 8, !tbaa !16
@@ -433,7 +433,7 @@ define ptr @filelist(ptr noundef %0, ptr noundef writeonly captures(address_is_n
 
 32:                                               ; preds = %4, %2
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %34 = load ptr, ptr %33, align 8, !tbaa !25
+  %34 = load ptr, ptr %33, align 8, !tbaa !23
   %.not27 = icmp eq ptr %34, null
   br i1 %.not27, label %.critedge, label %35
 
@@ -443,7 +443,7 @@ define ptr @filelist(ptr noundef %0, ptr noundef writeonly captures(address_is_n
   store i32 %37, ptr @filelist.cnt, align 4, !tbaa !21
   %38 = zext i32 %36 to i64
   %39 = getelementptr inbounds nuw ptr, ptr %34, i64 %38
-  %40 = load ptr, ptr %39, align 8, !tbaa !26
+  %40 = load ptr, ptr %39, align 8, !tbaa !24
   br label %.critedge
 
 .critedge:                                        ; preds = %.lr.ph, %.critedge2, %.preheader, %35, %32, %14, %18, %29, %24
@@ -506,7 +506,7 @@ define range(i32 -1, 1) i32 @close_std_descriptors() local_unnamed_addr #1 {
 18:                                               ; preds = %13, %16
   %indvars.iv.next51 = add nuw nsw i64 %indvars.iv50, 1
   %exitcond53.not = icmp eq i64 %indvars.iv.next51, 3
-  br i1 %exitcond53.not, label %.loopexit, label %13, !llvm.loop !27
+  br i1 %exitcond53.not, label %.loopexit, label %13
 
 .preheader31:                                     ; preds = %0, %33
   %indvars.iv = phi i64 [ %indvars.iv.next, %33 ], [ 0, %0 ]
@@ -536,12 +536,12 @@ define range(i32 -1, 1) i32 @close_std_descriptors() local_unnamed_addr #1 {
 32:                                               ; preds = %27, %30
   %indvars.iv.next47 = add nuw nsw i64 %indvars.iv46, 1
   %exitcond49.not = icmp eq i64 %indvars.iv.next47, 3
-  br i1 %exitcond49.not, label %.loopexit, label %27, !llvm.loop !28
+  br i1 %exitcond49.not, label %.loopexit, label %27
 
 33:                                               ; preds = %.preheader31
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %.preheader, label %.preheader31, !llvm.loop !29
+  br i1 %exitcond.not, label %.preheader, label %.preheader31
 
 .preheader:                                       ; preds = %33, %39
   %indvars.iv42 = phi i64 [ %indvars.iv.next43, %39 ], [ 0, %33 ]
@@ -557,7 +557,7 @@ define range(i32 -1, 1) i32 @close_std_descriptors() local_unnamed_addr #1 {
 39:                                               ; preds = %.preheader, %37
   %indvars.iv.next43 = add nuw nsw i64 %indvars.iv42, 1
   %exitcond45.not = icmp eq i64 %indvars.iv.next43, 3
-  br i1 %exitcond45.not, label %.loopexit, label %.preheader, !llvm.loop !30
+  br i1 %exitcond45.not, label %.loopexit, label %.preheader
 
 .loopexit:                                        ; preds = %39, %32, %18
   %.024 = phi i32 [ -1, %18 ], [ -1, %32 ], [ 0, %39 ]
@@ -729,7 +729,7 @@ define range(i32 0, 2) i32 @drop_privileges(ptr noundef %0, ptr noundef %1) loca
 
 13:                                               ; preds = %6
   %14 = getelementptr inbounds nuw i8, ptr %7, i64 20
-  %15 = load i32, ptr %14, align 4, !tbaa !31
+  %15 = load i32, ptr %14, align 4, !tbaa !25
   %16 = tail call i32 @initgroups(ptr noundef nonnull %0, i32 noundef %15) #19
   %.not = icmp eq i32 %16, 0
   br i1 %.not, label %21, label %17
@@ -746,15 +746,15 @@ define range(i32 0, 2) i32 @drop_privileges(ptr noundef %0, ptr noundef %1) loca
 
 22:                                               ; preds = %21
   %23 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %24 = load i32, ptr %23, align 8, !tbaa !33
-  %25 = load i32, ptr %14, align 4, !tbaa !31
+  %24 = load i32, ptr %23, align 8, !tbaa !27
+  %25 = load i32, ptr %14, align 4, !tbaa !25
   %26 = tail call i32 @lchown(ptr noundef nonnull %1, i32 noundef %24, i32 noundef %25) #19
   %.not31 = icmp eq i32 %26, 0
   br i1 %.not31, label %.thread, label %27
 
 27:                                               ; preds = %22
   %28 = load ptr, ptr @stderr, align 8, !tbaa !16
-  %29 = load ptr, ptr %7, align 8, !tbaa !34
+  %29 = load ptr, ptr %7, align 8, !tbaa !28
   %30 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %28, ptr noundef nonnull @.str.20, ptr noundef %29) #23
   %31 = load ptr, ptr @stderr, align 8, !tbaa !16
   %32 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %31, ptr noundef nonnull @.str.21, ptr noundef nonnull %1) #23
@@ -763,38 +763,38 @@ define range(i32 0, 2) i32 @drop_privileges(ptr noundef %0, ptr noundef %1) loca
   %35 = load i32, ptr %34, align 4, !tbaa !21
   %36 = tail call ptr @strerror(i32 noundef %35) #19
   %37 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %33, ptr noundef nonnull @.str.22, ptr noundef %36) #23
-  %38 = load ptr, ptr %7, align 8, !tbaa !34
+  %38 = load ptr, ptr %7, align 8, !tbaa !28
   %39 = load i32, ptr %34, align 4, !tbaa !21
   %40 = tail call ptr @strerror(i32 noundef %39) #19
   %41 = tail call i32 (i32, ptr, ...) @logg(i32 noundef 4, ptr noundef nonnull @.str.23, ptr noundef %38, ptr noundef nonnull %1, ptr noundef %40) #19
   br label %.thread35
 
 .thread:                                          ; preds = %22, %21
-  %42 = load i32, ptr %14, align 4, !tbaa !31
+  %42 = load i32, ptr %14, align 4, !tbaa !25
   %43 = tail call i32 @setgid(i32 noundef %42) #19
   %.not32 = icmp eq i32 %43, 0
   br i1 %.not32, label %50, label %44
 
 44:                                               ; preds = %.thread
   %45 = load ptr, ptr @stderr, align 8, !tbaa !16
-  %46 = load i32, ptr %14, align 4, !tbaa !31
+  %46 = load i32, ptr %14, align 4, !tbaa !25
   %47 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %45, ptr noundef nonnull @.str.24, i32 noundef %46) #23
-  %48 = load i32, ptr %14, align 4, !tbaa !31
+  %48 = load i32, ptr %14, align 4, !tbaa !25
   %49 = tail call i32 (i32, ptr, ...) @logg(i32 noundef 4, ptr noundef nonnull @.str.25, i32 noundef %48) #19
   br label %.thread35
 
 50:                                               ; preds = %.thread
   %51 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %52 = load i32, ptr %51, align 8, !tbaa !33
+  %52 = load i32, ptr %51, align 8, !tbaa !27
   %53 = tail call i32 @setuid(i32 noundef %52) #19
   %.not33 = icmp eq i32 %53, 0
   br i1 %.not33, label %.thread35, label %54
 
 54:                                               ; preds = %50
   %55 = load ptr, ptr @stderr, align 8, !tbaa !16
-  %56 = load i32, ptr %51, align 8, !tbaa !33
+  %56 = load i32, ptr %51, align 8, !tbaa !27
   %57 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %55, ptr noundef nonnull @.str.26, i32 noundef %56) #23
-  %58 = load i32, ptr %51, align 8, !tbaa !33
+  %58 = load i32, ptr %51, align 8, !tbaa !27
   %59 = tail call i32 (i32, ptr, ...) @logg(i32 noundef 4, ptr noundef nonnull @.str.27, i32 noundef %58) #19
   br label %.thread35
 
@@ -926,7 +926,7 @@ define i32 @countlines(ptr noundef readonly captures(none) %0) local_unnamed_add
 8:                                                ; preds = %6
   %9 = load i8, ptr %2, align 16, !tbaa !22
   %10 = icmp eq i8 %9, 35
-  br i1 %10, label %6, label %11, !llvm.loop !35
+  br i1 %10, label %6, label %11
 
 11:                                               ; preds = %8
   %12 = icmp ne i8 %9, 13
@@ -937,7 +937,7 @@ define i32 @countlines(ptr noundef readonly captures(none) %0) local_unnamed_add
   %or.cond7.not = and i1 %15, %or.cond.not17
   %16 = zext i1 %or.cond7.not to i32
   %spec.select = add i32 %.0.ph, %16
-  br label %.outer, !llvm.loop !35
+  br label %.outer
 
 17:                                               ; preds = %6
   %18 = call i32 @fclose(ptr noundef nonnull %3)
@@ -1037,16 +1037,9 @@ attributes #25 = { nounwind willreturn memory(none) }
 !20 = !{!"long", !7, i64 0}
 !21 = !{!10, !10, i64 0}
 !22 = !{!7, !7, i64 0}
-!23 = distinct !{!23, !24}
-!24 = !{!"llvm.loop.estimated_trip_count"}
-!25 = !{!4, !12, i64 64}
-!26 = !{!5, !5, i64 0}
-!27 = distinct !{!27, !24}
-!28 = distinct !{!28, !24}
-!29 = distinct !{!29, !24}
-!30 = distinct !{!30, !24}
-!31 = !{!32, !10, i64 20}
-!32 = !{!"passwd", !5, i64 0, !5, i64 8, !10, i64 16, !10, i64 20, !5, i64 24, !5, i64 32, !5, i64 40}
-!33 = !{!32, !10, i64 16}
-!34 = !{!32, !5, i64 0}
-!35 = distinct !{!35, !24}
+!23 = !{!4, !12, i64 64}
+!24 = !{!5, !5, i64 0}
+!25 = !{!26, !10, i64 20}
+!26 = !{!"passwd", !5, i64 0, !5, i64 8, !10, i64 16, !10, i64 20, !5, i64 24, !5, i64 32, !5, i64 40}
+!27 = !{!26, !10, i64 16}
+!28 = !{!26, !5, i64 0}

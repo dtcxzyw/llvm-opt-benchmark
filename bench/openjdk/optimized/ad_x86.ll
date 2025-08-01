@@ -3685,7 +3685,7 @@ _ZN7OptoReg10as_OptoRegEP9VMRegImpl.exit12:       ; preds = %123, %125, %127
   %158 = add i32 %.012.i, 1
   %159 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_STACK_OR_PTR_REG_mask, i64 92), align 4
   %.not.i13 = icmp ugt i32 %158, %159
-  br i1 %.not.i13, label %_ZN7RegMask2ORERKS_.exit, label %.lr.ph.i, !llvm.loop !9
+  br i1 %.not.i13, label %_ZN7RegMask2ORERKS_.exit, label %.lr.ph.i, !llvm.loop !8
 
 _ZN7RegMask2ORERKS_.exit:                         ; preds = %.lr.ph.i, %150
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) @_PTR_REG_NO_RBP_mask, ptr noundef nonnull align 8 dereferenceable(96) @_PTR_REG_mask, i64 96, i1 false)
@@ -3794,7 +3794,7 @@ _ZN7RegMask2ORERKS_.exit:                         ; preds = %.lr.ph.i, %150
   %236 = add i32 %.012.i22, 1
   %237 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_STACK_OR_LONG_REG_mask, i64 92), align 4
   %.not.i23 = icmp ugt i32 %236, %237
-  br i1 %.not.i23, label %_ZN7RegMask2ORERKS_.exit24, label %.lr.ph.i21, !llvm.loop !9
+  br i1 %.not.i23, label %_ZN7RegMask2ORERKS_.exit24, label %.lr.ph.i21, !llvm.loop !8
 
 _ZN7RegMask2ORERKS_.exit24:                       ; preds = %.lr.ph.i21, %228
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) @_LONG_NO_RAX_RDX_REG_mask, ptr noundef nonnull align 8 dereferenceable(96) @_PTR_REG_mask, i64 96, i1 false)
@@ -3928,7 +3928,7 @@ _ZN7OptoReg10as_OptoRegEP9VMRegImpl.exit38:       ; preds = %323, %325
   store i64 %338, ptr %336, align 8
   %indvars.iv.next57 = add nuw nsw i64 %indvars.iv56, 1
   %exitcond59.not = icmp eq i64 %indvars.iv.next57, 16
-  br i1 %exitcond59.not, label %.loopexit, label %.preheader, !llvm.loop !10
+  br i1 %exitcond59.not, label %.loopexit, label %.preheader, !llvm.loop !9
 
 .loopexit:                                        ; preds = %_ZN7OptoReg10as_OptoRegEP9VMRegImpl.exit38, %_ZN7RegMask2ORERKS_.exit24
   br i1 %2, label %339, label %343
@@ -3994,7 +3994,7 @@ _ZN7OptoReg10as_OptoRegEP9VMRegImpl.exit38:       ; preds = %323, %325
   %372 = add i32 %.012.i43, 1
   %373 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_STACK_OR_INT_REG_mask, i64 92), align 4
   %.not.i44 = icmp ugt i32 %372, %373
-  br i1 %.not.i44, label %_ZN7RegMask2ORERKS_.exit45, label %.lr.ph.i42, !llvm.loop !9
+  br i1 %.not.i44, label %_ZN7RegMask2ORERKS_.exit45, label %.lr.ph.i42, !llvm.loop !8
 
 _ZN7RegMask2ORERKS_.exit45:                       ; preds = %.lr.ph.i42, %364
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) @_INT_NO_RAX_RDX_REG_mask, ptr noundef nonnull align 8 dereferenceable(96) @_INT_REG_mask, i64 96, i1 false)
@@ -6982,7 +6982,7 @@ define hidden void @_ZNK11BoxLockNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc(
 22:                                               ; preds = %.lr.ph.i
   %23 = add i32 %.0712.i, 1
   %.not.i = icmp ugt i32 %23, %13
-  br i1 %.not.i, label %_ZNK7RegMask15find_first_elemEv.exit, label %.lr.ph.i, !llvm.loop !11
+  br i1 %.not.i, label %_ZNK7RegMask15find_first_elemEv.exit, label %.lr.ph.i, !llvm.loop !10
 
 _ZNK7RegMask15find_first_elemEv.exit:             ; preds = %22, %3, %17
   %.0.i = phi i32 [ %21, %17 ], [ -1, %3 ], [ -1, %22 ]
@@ -7058,7 +7058,7 @@ define hidden noundef range(i32 5, 9) i32 @_ZNK11BoxLockNode4sizeEP13PhaseRegAll
 19:                                               ; preds = %.lr.ph.i
   %20 = add i32 %.0712.i, 1
   %.not.i = icmp ugt i32 %20, %10
-  br i1 %.not.i, label %_ZNK7RegMask15find_first_elemEv.exit, label %.lr.ph.i, !llvm.loop !11
+  br i1 %.not.i, label %_ZNK7RegMask15find_first_elemEv.exit, label %.lr.ph.i, !llvm.loop !10
 
 _ZNK7RegMask15find_first_elemEv.exit:             ; preds = %19, %2, %14
   %.0.i = phi i32 [ %18, %14 ], [ -1, %2 ], [ -1, %19 ]
@@ -64225,7 +64225,7 @@ _ZN26GrowableArrayWithAllocatorI6jvalue13GrowableArrayIS0_EE6appendERKS0_.exit: 
   store i32 %.sroa.0.sroa.7.0, ptr %.sroa_idx, align 4
   %43 = add nuw nsw i32 %.046, 1
   %exitcond.not = icmp eq i32 %43, %2
-  br i1 %exitcond.not, label %._crit_edge, label %26, !llvm.loop !12
+  br i1 %exitcond.not, label %._crit_edge, label %26, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %_ZN26GrowableArrayWithAllocatorI6jvalue13GrowableArrayIS0_EE6appendERKS0_.exit, %25
   ret ptr %4
@@ -65059,7 +65059,7 @@ _ZN26GrowableArrayWithAllocatorI6jvalue13GrowableArrayIS0_EE6appendERKS0_.exit.i
   store float %11, ptr %38, align 8
   %39 = add nuw nsw i32 %.013.i, 1
   %exitcond.not.i = icmp eq i32 %39, %14
-  br i1 %exitcond.not.i, label %_ZL14vreplicate_immIfEP13GrowableArrayI6jvalueE9BasicTypeT_i.exit, label %22, !llvm.loop !13
+  br i1 %exitcond.not.i, label %_ZL14vreplicate_immIfEP13GrowableArrayI6jvalueE9BasicTypeT_i.exit, label %22, !llvm.loop !12
 
 _ZL14vreplicate_immIfEP13GrowableArrayI6jvalueE9BasicTypeT_i.exit: ; preds = %_ZN26GrowableArrayWithAllocatorI6jvalue13GrowableArrayIS0_EE6appendERKS0_.exit.i
   %40 = getelementptr inbounds nuw i8, ptr %5, i64 632
@@ -114243,10 +114243,10 @@ define hidden void @_ZNK10zLoadPNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc(p
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %7)
   call void @_ZN9Assembler5testlE8Registeri(ptr noundef nonnull align 8 dereferenceable(40) %1, i32 %spec.select.i.i21, i32 noundef 0) #23
   %93 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store ptr null, ptr %93, align 8, !alias.scope !14
+  store ptr null, ptr %93, align 8, !alias.scope !13
   %94 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  store i32 18, ptr %94, align 8, !alias.scope !14
-  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV18barrier_Relocation, i64 16), ptr %6, align 8, !alias.scope !14
+  store i32 18, ptr %94, align 8, !alias.scope !13
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV18barrier_Relocation, i64 16), ptr %6, align 8, !alias.scope !13
   %95 = load ptr, ptr %81, align 8
   %96 = getelementptr inbounds nuw i8, ptr %95, i64 16
   %97 = load ptr, ptr %96, align 8
@@ -114263,10 +114263,10 @@ define hidden void @_ZNK10zLoadPNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc(p
   call void @_ZN9Assembler3jccENS_9ConditionER5Labelb(ptr noundef nonnull align 8 dereferenceable(40) %1, i32 noundef 5, ptr noundef nonnull align 8 dereferenceable(33) %104, i1 noundef zeroext true) #23
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5)
   %105 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store ptr null, ptr %105, align 8, !alias.scope !19
+  store ptr null, ptr %105, align 8, !alias.scope !18
   %106 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store i32 18, ptr %106, align 8, !alias.scope !19
-  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV18barrier_Relocation, i64 16), ptr %5, align 8, !alias.scope !19
+  store i32 18, ptr %106, align 8, !alias.scope !18
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV18barrier_Relocation, i64 16), ptr %5, align 8, !alias.scope !18
   %107 = load ptr, ptr %81, align 8
   %108 = getelementptr inbounds nuw i8, ptr %107, i64 16
   %109 = load ptr, ptr %108, align 8
@@ -114282,10 +114282,10 @@ define hidden void @_ZNK10zLoadPNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc(p
 111:                                              ; preds = %3
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4)
   %112 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store ptr null, ptr %112, align 8, !alias.scope !24
+  store ptr null, ptr %112, align 8, !alias.scope !23
   %113 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store i32 18, ptr %113, align 8, !alias.scope !24
-  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV18barrier_Relocation, i64 16), ptr %4, align 8, !alias.scope !24
+  store i32 18, ptr %113, align 8, !alias.scope !23
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV18barrier_Relocation, i64 16), ptr %4, align 8, !alias.scope !23
   call void @_ZN11CodeSection8relocateEPhRK16RelocationHolderi(ptr noundef nonnull align 8 dereferenceable(88) %82, ptr noundef %84, ptr noundef nonnull align 8 dereferenceable(40) %4, i32 noundef 0) #23
   call void @_ZN9Assembler4shrqE8Registeri(ptr noundef nonnull align 8 dereferenceable(40) %1, i32 %spec.select.i.i21, i32 noundef 0) #23
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4)
@@ -114489,10 +114489,10 @@ define internal fastcc void @_ZL15z_store_barrierP14MacroAssemblerPK8MachNode7Ad
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %8)
   %20 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store ptr null, ptr %20, align 8, !alias.scope !29
+  store ptr null, ptr %20, align 8, !alias.scope !28
   %21 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  store i32 18, ptr %21, align 8, !alias.scope !29
-  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV18barrier_Relocation, i64 16), ptr %7, align 8, !alias.scope !29
+  store i32 18, ptr %21, align 8, !alias.scope !28
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV18barrier_Relocation, i64 16), ptr %7, align 8, !alias.scope !28
   %22 = load ptr, ptr %11, align 8
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 16
   %24 = load ptr, ptr %23, align 8
@@ -114500,10 +114500,10 @@ define internal fastcc void @_ZL15z_store_barrierP14MacroAssemblerPK8MachNode7Ad
   call void @_ZN9Assembler4shlqE8Registeri(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %4, i32 noundef 0) #23
   call void @_ZN9Assembler9orq_imm32E8Registeri(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %4, i32 noundef 0) #23
   %25 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store ptr null, ptr %25, align 8, !alias.scope !34
+  store ptr null, ptr %25, align 8, !alias.scope !33
   %26 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  store i32 18, ptr %26, align 8, !alias.scope !34
-  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV18barrier_Relocation, i64 16), ptr %8, align 8, !alias.scope !34
+  store i32 18, ptr %26, align 8, !alias.scope !33
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV18barrier_Relocation, i64 16), ptr %8, align 8, !alias.scope !33
   %27 = load ptr, ptr %11, align 8
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 16
   %29 = load ptr, ptr %28, align 8
@@ -114638,10 +114638,10 @@ define hidden void @_ZNK15zStorePNullNode4emitEP17C2_MacroAssemblerP13PhaseRegAl
   %80 = load ptr, ptr %79, align 8
   %81 = getelementptr inbounds i8, ptr %80, i64 -1
   %82 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store ptr null, ptr %82, align 8, !alias.scope !39
+  store ptr null, ptr %82, align 8, !alias.scope !38
   %83 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  store i32 18, ptr %83, align 8, !alias.scope !39
-  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV18barrier_Relocation, i64 16), ptr %6, align 8, !alias.scope !39
+  store i32 18, ptr %83, align 8, !alias.scope !38
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV18barrier_Relocation, i64 16), ptr %6, align 8, !alias.scope !38
   call void @_ZN11CodeSection8relocateEPhRK16RelocationHolderi(ptr noundef nonnull align 8 dereferenceable(88) %78, ptr noundef nonnull %81, ptr noundef nonnull align 8 dereferenceable(40) %6, i32 noundef 6) #23
   ret void
 }
@@ -114751,10 +114751,10 @@ define hidden void @_ZNK24zCompareAndExchangePNode4emitEP17C2_MacroAssemblerP13P
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6)
   %82 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store ptr null, ptr %82, align 8, !alias.scope !44
+  store ptr null, ptr %82, align 8, !alias.scope !43
   %83 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store i32 18, ptr %83, align 8, !alias.scope !44
-  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV18barrier_Relocation, i64 16), ptr %5, align 8, !alias.scope !44
+  store i32 18, ptr %83, align 8, !alias.scope !43
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV18barrier_Relocation, i64 16), ptr %5, align 8, !alias.scope !43
   %84 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %85 = load ptr, ptr %84, align 8
   %86 = getelementptr inbounds nuw i8, ptr %85, i64 16
@@ -114763,10 +114763,10 @@ define hidden void @_ZNK24zCompareAndExchangePNode4emitEP17C2_MacroAssemblerP13P
   call void @_ZN9Assembler4shlqE8Registeri(ptr noundef nonnull align 8 dereferenceable(40) %1, i32 %spec.select.i.i50, i32 noundef 0) #23
   call void @_ZN9Assembler9orq_imm32E8Registeri(ptr noundef nonnull align 8 dereferenceable(40) %1, i32 %spec.select.i.i50, i32 noundef 0) #23
   %88 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store ptr null, ptr %88, align 8, !alias.scope !49
+  store ptr null, ptr %88, align 8, !alias.scope !48
   %89 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  store i32 18, ptr %89, align 8, !alias.scope !49
-  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV18barrier_Relocation, i64 16), ptr %6, align 8, !alias.scope !49
+  store i32 18, ptr %89, align 8, !alias.scope !48
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV18barrier_Relocation, i64 16), ptr %6, align 8, !alias.scope !48
   %90 = load ptr, ptr %84, align 8
   %91 = getelementptr inbounds nuw i8, ptr %90, i64 16
   %92 = load ptr, ptr %91, align 8
@@ -114797,10 +114797,10 @@ define hidden void @_ZNK24zCompareAndExchangePNode4emitEP17C2_MacroAssemblerP13P
   %spec.select.i.i54 = select i1 %or.cond.i.i53, i32 %106, i32 -1
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4)
   %107 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store ptr null, ptr %107, align 8, !alias.scope !54
+  store ptr null, ptr %107, align 8, !alias.scope !53
   %108 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store i32 18, ptr %108, align 8, !alias.scope !54
-  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV18barrier_Relocation, i64 16), ptr %4, align 8, !alias.scope !54
+  store i32 18, ptr %108, align 8, !alias.scope !53
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV18barrier_Relocation, i64 16), ptr %4, align 8, !alias.scope !53
   %109 = load ptr, ptr %84, align 8
   %110 = getelementptr inbounds nuw i8, ptr %109, i64 16
   %111 = load ptr, ptr %110, align 8
@@ -114905,10 +114905,10 @@ define hidden void @_ZNK20zCompareAndSwapPNode4emitEP17C2_MacroAssemblerP13Phase
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5)
   %72 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store ptr null, ptr %72, align 8, !alias.scope !59
+  store ptr null, ptr %72, align 8, !alias.scope !58
   %73 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store i32 18, ptr %73, align 8, !alias.scope !59
-  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV18barrier_Relocation, i64 16), ptr %4, align 8, !alias.scope !59
+  store i32 18, ptr %73, align 8, !alias.scope !58
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV18barrier_Relocation, i64 16), ptr %4, align 8, !alias.scope !58
   %74 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %75 = load ptr, ptr %74, align 8
   %76 = getelementptr inbounds nuw i8, ptr %75, i64 16
@@ -114917,10 +114917,10 @@ define hidden void @_ZNK20zCompareAndSwapPNode4emitEP17C2_MacroAssemblerP13Phase
   call void @_ZN9Assembler4shlqE8Registeri(ptr noundef nonnull align 8 dereferenceable(40) %1, i32 %spec.select.i.i44, i32 noundef 0) #23
   call void @_ZN9Assembler9orq_imm32E8Registeri(ptr noundef nonnull align 8 dereferenceable(40) %1, i32 %spec.select.i.i44, i32 noundef 0) #23
   %78 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store ptr null, ptr %78, align 8, !alias.scope !64
+  store ptr null, ptr %78, align 8, !alias.scope !63
   %79 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store i32 18, ptr %79, align 8, !alias.scope !64
-  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV18barrier_Relocation, i64 16), ptr %5, align 8, !alias.scope !64
+  store i32 18, ptr %79, align 8, !alias.scope !63
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV18barrier_Relocation, i64 16), ptr %5, align 8, !alias.scope !63
   %80 = load ptr, ptr %74, align 8
   %81 = getelementptr inbounds nuw i8, ptr %80, i64 16
   %82 = load ptr, ptr %81, align 8
@@ -115061,10 +115061,10 @@ define hidden void @_ZNK22zCompareAndSwapP_0Node4emitEP17C2_MacroAssemblerP13Pha
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5)
   %72 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store ptr null, ptr %72, align 8, !alias.scope !69
+  store ptr null, ptr %72, align 8, !alias.scope !68
   %73 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store i32 18, ptr %73, align 8, !alias.scope !69
-  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV18barrier_Relocation, i64 16), ptr %4, align 8, !alias.scope !69
+  store i32 18, ptr %73, align 8, !alias.scope !68
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV18barrier_Relocation, i64 16), ptr %4, align 8, !alias.scope !68
   %74 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %75 = load ptr, ptr %74, align 8
   %76 = getelementptr inbounds nuw i8, ptr %75, i64 16
@@ -115073,10 +115073,10 @@ define hidden void @_ZNK22zCompareAndSwapP_0Node4emitEP17C2_MacroAssemblerP13Pha
   call void @_ZN9Assembler4shlqE8Registeri(ptr noundef nonnull align 8 dereferenceable(40) %1, i32 %spec.select.i.i44, i32 noundef 0) #23
   call void @_ZN9Assembler9orq_imm32E8Registeri(ptr noundef nonnull align 8 dereferenceable(40) %1, i32 %spec.select.i.i44, i32 noundef 0) #23
   %78 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store ptr null, ptr %78, align 8, !alias.scope !74
+  store ptr null, ptr %78, align 8, !alias.scope !73
   %79 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store i32 18, ptr %79, align 8, !alias.scope !74
-  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV18barrier_Relocation, i64 16), ptr %5, align 8, !alias.scope !74
+  store i32 18, ptr %79, align 8, !alias.scope !73
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV18barrier_Relocation, i64 16), ptr %5, align 8, !alias.scope !73
   %80 = load ptr, ptr %74, align 8
   %81 = getelementptr inbounds nuw i8, ptr %80, i64 16
   %82 = load ptr, ptr %81, align 8
@@ -115245,10 +115245,10 @@ define hidden void @_ZNK10zXChgPNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc(p
   %spec.select.i.i47 = select i1 %or.cond.i.i46, i32 %86, i32 -1
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4)
   %87 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store ptr null, ptr %87, align 8, !alias.scope !79
+  store ptr null, ptr %87, align 8, !alias.scope !78
   %88 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store i32 18, ptr %88, align 8, !alias.scope !79
-  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV18barrier_Relocation, i64 16), ptr %4, align 8, !alias.scope !79
+  store i32 18, ptr %88, align 8, !alias.scope !78
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV18barrier_Relocation, i64 16), ptr %4, align 8, !alias.scope !78
   %89 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %90 = load ptr, ptr %89, align 8
   %91 = getelementptr inbounds nuw i8, ptr %90, i64 16
@@ -122271,7 +122271,7 @@ _ZN13GrowableArrayIP10C2CodeStubE8allocateEv.exit: ; preds = %7, %11, %15
   %30 = load i32, ptr %0, align 8
   %31 = sext i32 %30 to i64
   %32 = icmp slt i64 %indvars.iv.next, %31
-  br i1 %32, label %25, label %.preheader16.loopexit, !llvm.loop !84
+  br i1 %32, label %25, label %.preheader16.loopexit, !llvm.loop !83
 
 .preheader:                                       ; preds = %.lr.ph19, %.preheader16
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -122287,7 +122287,7 @@ _ZN13GrowableArrayIP10C2CodeStubE8allocateEv.exit: ; preds = %7, %11, %15
   %36 = load i32, ptr %3, align 4
   %37 = trunc nuw i64 %indvars.iv.next22 to i32
   %38 = icmp sgt i32 %36, %37
-  br i1 %38, label %.lr.ph19, label %.preheader, !llvm.loop !85
+  br i1 %38, label %.lr.ph19, label %.preheader, !llvm.loop !84
 
 39:                                               ; preds = %.preheader
   %40 = load i64, ptr %4, align 8
@@ -122966,7 +122966,7 @@ _ZN13GrowableArrayI6jvalueE8allocateEv.exit:      ; preds = %7, %11, %15
   %30 = load i32, ptr %0, align 8
   %31 = sext i32 %30 to i64
   %32 = icmp slt i64 %indvars.iv.next, %31
-  br i1 %32, label %25, label %.preheader16.loopexit, !llvm.loop !86
+  br i1 %32, label %25, label %.preheader16.loopexit, !llvm.loop !85
 
 .preheader:                                       ; preds = %.lr.ph19, %.preheader16
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -122982,7 +122982,7 @@ _ZN13GrowableArrayI6jvalueE8allocateEv.exit:      ; preds = %7, %11, %15
   %36 = load i32, ptr %3, align 4
   %37 = trunc nuw i64 %indvars.iv.next22 to i32
   %38 = icmp sgt i32 %36, %37
-  br i1 %38, label %.lr.ph19, label %.preheader, !llvm.loop !87
+  br i1 %38, label %.lr.ph19, label %.preheader, !llvm.loop !86
 
 39:                                               ; preds = %.preheader
   %40 = load i64, ptr %4, align 8
@@ -123054,85 +123054,84 @@ attributes #24 = { noreturn nounwind }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7, !8}
-!11 = distinct !{!11, !7, !8}
-!12 = distinct !{!12, !7, !8}
-!13 = distinct !{!13, !7, !8}
-!14 = !{!15, !17}
-!15 = distinct !{!15, !16, !"_ZN16RelocationHolder9constructI18barrier_RelocationJEEES_DpRKT0_: argument 0"}
-!16 = distinct !{!16, !"_ZN16RelocationHolder9constructI18barrier_RelocationJEEES_DpRKT0_"}
-!17 = distinct !{!17, !18, !"_ZN18barrier_Relocation4specEv: argument 0"}
-!18 = distinct !{!18, !"_ZN18barrier_Relocation4specEv"}
-!19 = !{!20, !22}
-!20 = distinct !{!20, !21, !"_ZN16RelocationHolder9constructI18barrier_RelocationJEEES_DpRKT0_: argument 0"}
-!21 = distinct !{!21, !"_ZN16RelocationHolder9constructI18barrier_RelocationJEEES_DpRKT0_"}
-!22 = distinct !{!22, !23, !"_ZN18barrier_Relocation4specEv: argument 0"}
-!23 = distinct !{!23, !"_ZN18barrier_Relocation4specEv"}
-!24 = !{!25, !27}
-!25 = distinct !{!25, !26, !"_ZN16RelocationHolder9constructI18barrier_RelocationJEEES_DpRKT0_: argument 0"}
-!26 = distinct !{!26, !"_ZN16RelocationHolder9constructI18barrier_RelocationJEEES_DpRKT0_"}
-!27 = distinct !{!27, !28, !"_ZN18barrier_Relocation4specEv: argument 0"}
-!28 = distinct !{!28, !"_ZN18barrier_Relocation4specEv"}
-!29 = !{!30, !32}
-!30 = distinct !{!30, !31, !"_ZN16RelocationHolder9constructI18barrier_RelocationJEEES_DpRKT0_: argument 0"}
-!31 = distinct !{!31, !"_ZN16RelocationHolder9constructI18barrier_RelocationJEEES_DpRKT0_"}
-!32 = distinct !{!32, !33, !"_ZN18barrier_Relocation4specEv: argument 0"}
-!33 = distinct !{!33, !"_ZN18barrier_Relocation4specEv"}
-!34 = !{!35, !37}
-!35 = distinct !{!35, !36, !"_ZN16RelocationHolder9constructI18barrier_RelocationJEEES_DpRKT0_: argument 0"}
-!36 = distinct !{!36, !"_ZN16RelocationHolder9constructI18barrier_RelocationJEEES_DpRKT0_"}
-!37 = distinct !{!37, !38, !"_ZN18barrier_Relocation4specEv: argument 0"}
-!38 = distinct !{!38, !"_ZN18barrier_Relocation4specEv"}
-!39 = !{!40, !42}
-!40 = distinct !{!40, !41, !"_ZN16RelocationHolder9constructI18barrier_RelocationJEEES_DpRKT0_: argument 0"}
-!41 = distinct !{!41, !"_ZN16RelocationHolder9constructI18barrier_RelocationJEEES_DpRKT0_"}
-!42 = distinct !{!42, !43, !"_ZN18barrier_Relocation4specEv: argument 0"}
-!43 = distinct !{!43, !"_ZN18barrier_Relocation4specEv"}
-!44 = !{!45, !47}
-!45 = distinct !{!45, !46, !"_ZN16RelocationHolder9constructI18barrier_RelocationJEEES_DpRKT0_: argument 0"}
-!46 = distinct !{!46, !"_ZN16RelocationHolder9constructI18barrier_RelocationJEEES_DpRKT0_"}
-!47 = distinct !{!47, !48, !"_ZN18barrier_Relocation4specEv: argument 0"}
-!48 = distinct !{!48, !"_ZN18barrier_Relocation4specEv"}
-!49 = !{!50, !52}
-!50 = distinct !{!50, !51, !"_ZN16RelocationHolder9constructI18barrier_RelocationJEEES_DpRKT0_: argument 0"}
-!51 = distinct !{!51, !"_ZN16RelocationHolder9constructI18barrier_RelocationJEEES_DpRKT0_"}
-!52 = distinct !{!52, !53, !"_ZN18barrier_Relocation4specEv: argument 0"}
-!53 = distinct !{!53, !"_ZN18barrier_Relocation4specEv"}
-!54 = !{!55, !57}
-!55 = distinct !{!55, !56, !"_ZN16RelocationHolder9constructI18barrier_RelocationJEEES_DpRKT0_: argument 0"}
-!56 = distinct !{!56, !"_ZN16RelocationHolder9constructI18barrier_RelocationJEEES_DpRKT0_"}
-!57 = distinct !{!57, !58, !"_ZN18barrier_Relocation4specEv: argument 0"}
-!58 = distinct !{!58, !"_ZN18barrier_Relocation4specEv"}
-!59 = !{!60, !62}
-!60 = distinct !{!60, !61, !"_ZN16RelocationHolder9constructI18barrier_RelocationJEEES_DpRKT0_: argument 0"}
-!61 = distinct !{!61, !"_ZN16RelocationHolder9constructI18barrier_RelocationJEEES_DpRKT0_"}
-!62 = distinct !{!62, !63, !"_ZN18barrier_Relocation4specEv: argument 0"}
-!63 = distinct !{!63, !"_ZN18barrier_Relocation4specEv"}
-!64 = !{!65, !67}
-!65 = distinct !{!65, !66, !"_ZN16RelocationHolder9constructI18barrier_RelocationJEEES_DpRKT0_: argument 0"}
-!66 = distinct !{!66, !"_ZN16RelocationHolder9constructI18barrier_RelocationJEEES_DpRKT0_"}
-!67 = distinct !{!67, !68, !"_ZN18barrier_Relocation4specEv: argument 0"}
-!68 = distinct !{!68, !"_ZN18barrier_Relocation4specEv"}
-!69 = !{!70, !72}
-!70 = distinct !{!70, !71, !"_ZN16RelocationHolder9constructI18barrier_RelocationJEEES_DpRKT0_: argument 0"}
-!71 = distinct !{!71, !"_ZN16RelocationHolder9constructI18barrier_RelocationJEEES_DpRKT0_"}
-!72 = distinct !{!72, !73, !"_ZN18barrier_Relocation4specEv: argument 0"}
-!73 = distinct !{!73, !"_ZN18barrier_Relocation4specEv"}
-!74 = !{!75, !77}
-!75 = distinct !{!75, !76, !"_ZN16RelocationHolder9constructI18barrier_RelocationJEEES_DpRKT0_: argument 0"}
-!76 = distinct !{!76, !"_ZN16RelocationHolder9constructI18barrier_RelocationJEEES_DpRKT0_"}
-!77 = distinct !{!77, !78, !"_ZN18barrier_Relocation4specEv: argument 0"}
-!78 = distinct !{!78, !"_ZN18barrier_Relocation4specEv"}
-!79 = !{!80, !82}
-!80 = distinct !{!80, !81, !"_ZN16RelocationHolder9constructI18barrier_RelocationJEEES_DpRKT0_: argument 0"}
-!81 = distinct !{!81, !"_ZN16RelocationHolder9constructI18barrier_RelocationJEEES_DpRKT0_"}
-!82 = distinct !{!82, !83, !"_ZN18barrier_Relocation4specEv: argument 0"}
-!83 = distinct !{!83, !"_ZN18barrier_Relocation4specEv"}
-!84 = distinct !{!84, !7, !8}
-!85 = distinct !{!85, !7, !8}
-!86 = distinct !{!86, !7, !8}
-!87 = distinct !{!87, !7, !8}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7}
+!12 = distinct !{!12, !7}
+!13 = !{!14, !16}
+!14 = distinct !{!14, !15, !"_ZN16RelocationHolder9constructI18barrier_RelocationJEEES_DpRKT0_: argument 0"}
+!15 = distinct !{!15, !"_ZN16RelocationHolder9constructI18barrier_RelocationJEEES_DpRKT0_"}
+!16 = distinct !{!16, !17, !"_ZN18barrier_Relocation4specEv: argument 0"}
+!17 = distinct !{!17, !"_ZN18barrier_Relocation4specEv"}
+!18 = !{!19, !21}
+!19 = distinct !{!19, !20, !"_ZN16RelocationHolder9constructI18barrier_RelocationJEEES_DpRKT0_: argument 0"}
+!20 = distinct !{!20, !"_ZN16RelocationHolder9constructI18barrier_RelocationJEEES_DpRKT0_"}
+!21 = distinct !{!21, !22, !"_ZN18barrier_Relocation4specEv: argument 0"}
+!22 = distinct !{!22, !"_ZN18barrier_Relocation4specEv"}
+!23 = !{!24, !26}
+!24 = distinct !{!24, !25, !"_ZN16RelocationHolder9constructI18barrier_RelocationJEEES_DpRKT0_: argument 0"}
+!25 = distinct !{!25, !"_ZN16RelocationHolder9constructI18barrier_RelocationJEEES_DpRKT0_"}
+!26 = distinct !{!26, !27, !"_ZN18barrier_Relocation4specEv: argument 0"}
+!27 = distinct !{!27, !"_ZN18barrier_Relocation4specEv"}
+!28 = !{!29, !31}
+!29 = distinct !{!29, !30, !"_ZN16RelocationHolder9constructI18barrier_RelocationJEEES_DpRKT0_: argument 0"}
+!30 = distinct !{!30, !"_ZN16RelocationHolder9constructI18barrier_RelocationJEEES_DpRKT0_"}
+!31 = distinct !{!31, !32, !"_ZN18barrier_Relocation4specEv: argument 0"}
+!32 = distinct !{!32, !"_ZN18barrier_Relocation4specEv"}
+!33 = !{!34, !36}
+!34 = distinct !{!34, !35, !"_ZN16RelocationHolder9constructI18barrier_RelocationJEEES_DpRKT0_: argument 0"}
+!35 = distinct !{!35, !"_ZN16RelocationHolder9constructI18barrier_RelocationJEEES_DpRKT0_"}
+!36 = distinct !{!36, !37, !"_ZN18barrier_Relocation4specEv: argument 0"}
+!37 = distinct !{!37, !"_ZN18barrier_Relocation4specEv"}
+!38 = !{!39, !41}
+!39 = distinct !{!39, !40, !"_ZN16RelocationHolder9constructI18barrier_RelocationJEEES_DpRKT0_: argument 0"}
+!40 = distinct !{!40, !"_ZN16RelocationHolder9constructI18barrier_RelocationJEEES_DpRKT0_"}
+!41 = distinct !{!41, !42, !"_ZN18barrier_Relocation4specEv: argument 0"}
+!42 = distinct !{!42, !"_ZN18barrier_Relocation4specEv"}
+!43 = !{!44, !46}
+!44 = distinct !{!44, !45, !"_ZN16RelocationHolder9constructI18barrier_RelocationJEEES_DpRKT0_: argument 0"}
+!45 = distinct !{!45, !"_ZN16RelocationHolder9constructI18barrier_RelocationJEEES_DpRKT0_"}
+!46 = distinct !{!46, !47, !"_ZN18barrier_Relocation4specEv: argument 0"}
+!47 = distinct !{!47, !"_ZN18barrier_Relocation4specEv"}
+!48 = !{!49, !51}
+!49 = distinct !{!49, !50, !"_ZN16RelocationHolder9constructI18barrier_RelocationJEEES_DpRKT0_: argument 0"}
+!50 = distinct !{!50, !"_ZN16RelocationHolder9constructI18barrier_RelocationJEEES_DpRKT0_"}
+!51 = distinct !{!51, !52, !"_ZN18barrier_Relocation4specEv: argument 0"}
+!52 = distinct !{!52, !"_ZN18barrier_Relocation4specEv"}
+!53 = !{!54, !56}
+!54 = distinct !{!54, !55, !"_ZN16RelocationHolder9constructI18barrier_RelocationJEEES_DpRKT0_: argument 0"}
+!55 = distinct !{!55, !"_ZN16RelocationHolder9constructI18barrier_RelocationJEEES_DpRKT0_"}
+!56 = distinct !{!56, !57, !"_ZN18barrier_Relocation4specEv: argument 0"}
+!57 = distinct !{!57, !"_ZN18barrier_Relocation4specEv"}
+!58 = !{!59, !61}
+!59 = distinct !{!59, !60, !"_ZN16RelocationHolder9constructI18barrier_RelocationJEEES_DpRKT0_: argument 0"}
+!60 = distinct !{!60, !"_ZN16RelocationHolder9constructI18barrier_RelocationJEEES_DpRKT0_"}
+!61 = distinct !{!61, !62, !"_ZN18barrier_Relocation4specEv: argument 0"}
+!62 = distinct !{!62, !"_ZN18barrier_Relocation4specEv"}
+!63 = !{!64, !66}
+!64 = distinct !{!64, !65, !"_ZN16RelocationHolder9constructI18barrier_RelocationJEEES_DpRKT0_: argument 0"}
+!65 = distinct !{!65, !"_ZN16RelocationHolder9constructI18barrier_RelocationJEEES_DpRKT0_"}
+!66 = distinct !{!66, !67, !"_ZN18barrier_Relocation4specEv: argument 0"}
+!67 = distinct !{!67, !"_ZN18barrier_Relocation4specEv"}
+!68 = !{!69, !71}
+!69 = distinct !{!69, !70, !"_ZN16RelocationHolder9constructI18barrier_RelocationJEEES_DpRKT0_: argument 0"}
+!70 = distinct !{!70, !"_ZN16RelocationHolder9constructI18barrier_RelocationJEEES_DpRKT0_"}
+!71 = distinct !{!71, !72, !"_ZN18barrier_Relocation4specEv: argument 0"}
+!72 = distinct !{!72, !"_ZN18barrier_Relocation4specEv"}
+!73 = !{!74, !76}
+!74 = distinct !{!74, !75, !"_ZN16RelocationHolder9constructI18barrier_RelocationJEEES_DpRKT0_: argument 0"}
+!75 = distinct !{!75, !"_ZN16RelocationHolder9constructI18barrier_RelocationJEEES_DpRKT0_"}
+!76 = distinct !{!76, !77, !"_ZN18barrier_Relocation4specEv: argument 0"}
+!77 = distinct !{!77, !"_ZN18barrier_Relocation4specEv"}
+!78 = !{!79, !81}
+!79 = distinct !{!79, !80, !"_ZN16RelocationHolder9constructI18barrier_RelocationJEEES_DpRKT0_: argument 0"}
+!80 = distinct !{!80, !"_ZN16RelocationHolder9constructI18barrier_RelocationJEEES_DpRKT0_"}
+!81 = distinct !{!81, !82, !"_ZN18barrier_Relocation4specEv: argument 0"}
+!82 = distinct !{!82, !"_ZN18barrier_Relocation4specEv"}
+!83 = distinct !{!83, !7}
+!84 = distinct !{!84, !7}
+!85 = distinct !{!85, !7}
+!86 = distinct !{!86, !7}

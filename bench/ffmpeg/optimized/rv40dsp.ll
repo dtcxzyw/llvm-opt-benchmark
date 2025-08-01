@@ -628,7 +628,7 @@ define internal void @put_rv40_qpel16_mc33_c(ptr noundef writeonly captures(none
 57:                                               ; preds = %20
   %58 = getelementptr inbounds i8, ptr %.149.i.i, i64 %4
   %59 = getelementptr inbounds i8, ptr %54, i64 %6
-  br i1 %8, label %7, label %put_pixels8_xy2_8_c.exit.i, !llvm.loop !14
+  br i1 %8, label %7, label %put_pixels8_xy2_8_c.exit.i, !llvm.loop !13
 
 put_pixels8_xy2_8_c.exit.i:                       ; preds = %57
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -706,7 +706,7 @@ put_pixels8_xy2_8_c.exit.i:                       ; preds = %57
 112:                                              ; preds = %75
   %113 = getelementptr inbounds i8, ptr %.149.i18.i, i64 %4
   %114 = getelementptr inbounds i8, ptr %109, i64 %6
-  br i1 %63, label %62, label %put_pixels16_xy2_8_c.exit, !llvm.loop !14
+  br i1 %63, label %62, label %put_pixels16_xy2_8_c.exit, !llvm.loop !13
 
 put_pixels16_xy2_8_c.exit:                        ; preds = %112
   ret void
@@ -1142,12 +1142,12 @@ define internal void @avg_rv40_qpel16_mc33_c(ptr noundef captures(none) %0, ptr 
   %67 = add nuw nsw i32 %.05362.i.i, 2
   %.151.i.i = getelementptr inbounds i8, ptr %42, i64 %2
   %68 = icmp samesign ult i32 %.05362.i.i, 14
-  br i1 %68, label %20, label %69, !llvm.loop !15
+  br i1 %68, label %20, label %69, !llvm.loop !14
 
 69:                                               ; preds = %20
   %70 = getelementptr inbounds i8, ptr %.151.i.i, i64 %4
   %71 = getelementptr inbounds i8, ptr %66, i64 %6
-  br i1 %8, label %7, label %avg_pixels8_xy2_8_c.exit.i, !llvm.loop !16
+  br i1 %8, label %7, label %avg_pixels8_xy2_8_c.exit.i, !llvm.loop !15
 
 avg_pixels8_xy2_8_c.exit.i:                       ; preds = %69
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1232,12 +1232,12 @@ avg_pixels8_xy2_8_c.exit.i:                       ; preds = %69
   %134 = add nuw nsw i32 %.05362.i13.i, 2
   %.151.i18.i = getelementptr inbounds i8, ptr %109, i64 %2
   %135 = icmp samesign ult i32 %.05362.i13.i, 14
-  br i1 %135, label %87, label %136, !llvm.loop !15
+  br i1 %135, label %87, label %136, !llvm.loop !14
 
 136:                                              ; preds = %87
   %137 = getelementptr inbounds i8, ptr %.151.i18.i, i64 %4
   %138 = getelementptr inbounds i8, ptr %133, i64 %6
-  br i1 %75, label %74, label %avg_pixels16_xy2_8_c.exit, !llvm.loop !16
+  br i1 %75, label %74, label %avg_pixels16_xy2_8_c.exit, !llvm.loop !15
 
 avg_pixels16_xy2_8_c.exit:                        ; preds = %136
   ret void
@@ -1462,7 +1462,7 @@ define internal void @put_rv40_qpel8_mc33_c(ptr noundef writeonly captures(none)
   %57 = getelementptr i8, ptr %.149.i, i64 %.neg
   %58 = getelementptr i8, ptr %57, i64 4
   %59 = getelementptr inbounds i8, ptr %53, i64 %5
-  br i1 %7, label %6, label %put_pixels8_xy2_8_c.exit, !llvm.loop !14
+  br i1 %7, label %6, label %put_pixels8_xy2_8_c.exit, !llvm.loop !13
 
 put_pixels8_xy2_8_c.exit:                         ; preds = %56
   ret void
@@ -1693,13 +1693,13 @@ define internal void @avg_rv40_qpel8_mc33_c(ptr noundef captures(none) %0, ptr n
   %66 = add nuw nsw i32 %.05362.i, 2
   %.151.i = getelementptr inbounds i8, ptr %41, i64 %2
   %67 = icmp samesign ult i32 %.05362.i, 6
-  br i1 %67, label %19, label %68, !llvm.loop !15
+  br i1 %67, label %19, label %68, !llvm.loop !14
 
 68:                                               ; preds = %19
   %69 = getelementptr i8, ptr %.151.i, i64 %.neg
   %70 = getelementptr i8, ptr %69, i64 4
   %71 = getelementptr inbounds i8, ptr %65, i64 %5
-  br i1 %7, label %6, label %avg_pixels8_xy2_8_c.exit, !llvm.loop !16
+  br i1 %7, label %6, label %avg_pixels8_xy2_8_c.exit, !llvm.loop !15
 
 avg_pixels8_xy2_8_c.exit:                         ; preds = %68
   ret void
@@ -1910,7 +1910,7 @@ define internal void @put_rv40_chroma_mc8_c(ptr noundef writeonly captures(none)
   %189 = getelementptr inbounds i8, ptr %.0189, i64 %2
   %190 = add nuw nsw i32 %.0182187, 1
   %exitcond.not = icmp eq i32 %190, %3
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !17
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !16
 
 191:                                              ; preds = %6
   %192 = add nsw i32 %10, %11
@@ -2037,7 +2037,7 @@ define internal void @put_rv40_chroma_mc8_c(ptr noundef writeonly captures(none)
   %298 = getelementptr inbounds i8, ptr %.1181191, i64 %2
   %299 = add nuw nsw i32 %.1183190, 1
   %exitcond195.not = icmp eq i32 %299, %3
-  br i1 %exitcond195.not, label %.loopexit, label %.lr.ph193, !llvm.loop !18
+  br i1 %exitcond195.not, label %.loopexit, label %.lr.ph193, !llvm.loop !17
 
 .loopexit:                                        ; preds = %.lr.ph, %.lr.ph193, %.preheader, %191
   ret void
@@ -2160,7 +2160,7 @@ define internal void @put_rv40_chroma_mc4_c(ptr noundef writeonly captures(none)
   %105 = getelementptr inbounds i8, ptr %.0113, i64 %2
   %106 = add nuw nsw i32 %.0106111, 1
   %exitcond.not = icmp eq i32 %106, %3
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !19
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !18
 
 107:                                              ; preds = %6
   %108 = add nsw i32 %10, %11
@@ -2231,7 +2231,7 @@ define internal void @put_rv40_chroma_mc4_c(ptr noundef writeonly captures(none)
   %162 = getelementptr inbounds i8, ptr %.1105115, i64 %2
   %163 = add nuw nsw i32 %.1107114, 1
   %exitcond119.not = icmp eq i32 %163, %3
-  br i1 %exitcond119.not, label %.loopexit, label %.lr.ph117, !llvm.loop !20
+  br i1 %exitcond119.not, label %.loopexit, label %.lr.ph117, !llvm.loop !19
 
 .loopexit:                                        ; preds = %.lr.ph, %.lr.ph117, %.preheader, %107
   ret void
@@ -2486,7 +2486,7 @@ define internal void @avg_rv40_chroma_mc8_c(ptr noundef captures(none) %0, ptr n
   %229 = getelementptr inbounds i8, ptr %.0205.lver.orig, i64 %2
   %230 = add nuw nsw i32 %.0198203.lver.orig, 1
   %exitcond.not.lver.orig = icmp eq i32 %230, %3
-  br i1 %exitcond.not.lver.orig, label %.loopexit, label %.lr.ph.lver.orig, !llvm.loop !21
+  br i1 %exitcond.not.lver.orig, label %.loopexit, label %.lr.ph.lver.orig, !llvm.loop !20
 
 .lr.ph.ph:                                        ; preds = %.lr.ph.lver.check
   %scevgep217 = getelementptr i8, ptr %0, i64 6
@@ -2716,7 +2716,7 @@ define internal void @avg_rv40_chroma_mc8_c(ptr noundef captures(none) %0, ptr n
   %438 = getelementptr inbounds nuw i8, ptr %.0205, i64 %2
   %439 = add nuw nsw i32 %.0198203, 1
   %exitcond.not = icmp eq i32 %439, %3
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !21
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !20
 
 440:                                              ; preds = %6
   %441 = add nsw i32 %10, %11
@@ -2887,7 +2887,7 @@ define internal void @avg_rv40_chroma_mc8_c(ptr noundef captures(none) %0, ptr n
   %587 = getelementptr inbounds i8, ptr %.1197207.lver.orig, i64 %2
   %588 = add nuw nsw i32 %.1199206.lver.orig, 1
   %exitcond211.not.lver.orig = icmp eq i32 %588, %3
-  br i1 %exitcond211.not.lver.orig, label %.loopexit, label %.lr.ph209.lver.orig, !llvm.loop !22
+  br i1 %exitcond211.not.lver.orig, label %.loopexit, label %.lr.ph209.lver.orig, !llvm.loop !21
 
 .lr.ph209.ph:                                     ; preds = %.lr.ph209.lver.check
   %scevgep = getelementptr i8, ptr %0, i64 6
@@ -3052,7 +3052,7 @@ define internal void @avg_rv40_chroma_mc8_c(ptr noundef captures(none) %0, ptr n
   %731 = getelementptr inbounds nuw i8, ptr %.1197207, i64 %2
   %732 = add nuw nsw i32 %.1199206, 1
   %exitcond211.not = icmp eq i32 %732, %3
-  br i1 %exitcond211.not, label %.loopexit, label %.lr.ph209, !llvm.loop !22
+  br i1 %exitcond211.not, label %.loopexit, label %.lr.ph209, !llvm.loop !21
 
 .loopexit:                                        ; preds = %.lr.ph.lver.orig, %.lr.ph, %.lr.ph209.lver.orig, %.lr.ph209, %.preheader, %440
   ret void
@@ -3199,7 +3199,7 @@ define internal void @avg_rv40_chroma_mc4_c(ptr noundef captures(none) %0, ptr n
   %125 = getelementptr inbounds i8, ptr %.0121.lver.orig, i64 %2
   %126 = add nuw nsw i32 %.0114119.lver.orig, 1
   %exitcond.not.lver.orig = icmp eq i32 %126, %3
-  br i1 %exitcond.not.lver.orig, label %.loopexit, label %.lr.ph.lver.orig, !llvm.loop !23
+  br i1 %exitcond.not.lver.orig, label %.loopexit, label %.lr.ph.lver.orig, !llvm.loop !22
 
 .lr.ph.ph:                                        ; preds = %.lr.ph.lver.check
   %scevgep133 = getelementptr i8, ptr %0, i64 2
@@ -3321,7 +3321,7 @@ define internal void @avg_rv40_chroma_mc4_c(ptr noundef captures(none) %0, ptr n
   %230 = getelementptr inbounds nuw i8, ptr %.0121, i64 %2
   %231 = add nuw nsw i32 %.0114119, 1
   %exitcond.not = icmp eq i32 %231, %3
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !23
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !22
 
 232:                                              ; preds = %6
   %233 = add nsw i32 %10, %11
@@ -3416,7 +3416,7 @@ define internal void @avg_rv40_chroma_mc4_c(ptr noundef captures(none) %0, ptr n
   %307 = getelementptr inbounds i8, ptr %.1113123.lver.orig, i64 %2
   %308 = add nuw nsw i32 %.1115122.lver.orig, 1
   %exitcond127.not.lver.orig = icmp eq i32 %308, %3
-  br i1 %exitcond127.not.lver.orig, label %.loopexit, label %.lr.ph125.lver.orig, !llvm.loop !24
+  br i1 %exitcond127.not.lver.orig, label %.loopexit, label %.lr.ph125.lver.orig, !llvm.loop !23
 
 .lr.ph125.ph:                                     ; preds = %.lr.ph125.lver.check
   %scevgep = getelementptr i8, ptr %0, i64 2
@@ -3505,7 +3505,7 @@ define internal void @avg_rv40_chroma_mc4_c(ptr noundef captures(none) %0, ptr n
   %379 = getelementptr inbounds nuw i8, ptr %.1113123, i64 %2
   %380 = add nuw nsw i32 %.1115122, 1
   %exitcond127.not = icmp eq i32 %380, %3
-  br i1 %exitcond127.not, label %.loopexit, label %.lr.ph125, !llvm.loop !24
+  br i1 %exitcond127.not, label %.loopexit, label %.lr.ph125, !llvm.loop !23
 
 .loopexit:                                        ; preds = %.lr.ph.lver.orig, %.lr.ph, %.lr.ph125.lver.orig, %.lr.ph125, %.preheader, %232
   ret void
@@ -3542,7 +3542,7 @@ define internal void @rv40_weight_func_rnd_16(ptr noundef writeonly captures(non
   store i8 %21, ptr %22, align 1, !tbaa !8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
-  br i1 %exitcond.not, label %23, label %7, !llvm.loop !25
+  br i1 %exitcond.not, label %23, label %7, !llvm.loop !24
 
 23:                                               ; preds = %7
   %24 = getelementptr inbounds i8, ptr %.01923, i64 %5
@@ -3550,7 +3550,7 @@ define internal void @rv40_weight_func_rnd_16(ptr noundef writeonly captures(non
   %26 = getelementptr inbounds i8, ptr %.01824, i64 %5
   %27 = add nuw nsw i32 %.025, 1
   %exitcond27.not = icmp eq i32 %27, 16
-  br i1 %exitcond27.not, label %28, label %.preheader, !llvm.loop !26
+  br i1 %exitcond27.not, label %28, label %.preheader, !llvm.loop !25
 
 28:                                               ; preds = %23
   ret void
@@ -3587,7 +3587,7 @@ define internal void @rv40_weight_func_rnd_8(ptr noundef writeonly captures(none
   store i8 %21, ptr %22, align 1, !tbaa !8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond.not, label %23, label %7, !llvm.loop !27
+  br i1 %exitcond.not, label %23, label %7, !llvm.loop !26
 
 23:                                               ; preds = %7
   %24 = getelementptr inbounds i8, ptr %.01923, i64 %5
@@ -3595,7 +3595,7 @@ define internal void @rv40_weight_func_rnd_8(ptr noundef writeonly captures(none
   %26 = getelementptr inbounds i8, ptr %.01824, i64 %5
   %27 = add nuw nsw i32 %.025, 1
   %exitcond27.not = icmp eq i32 %27, 8
-  br i1 %exitcond27.not, label %28, label %.preheader, !llvm.loop !28
+  br i1 %exitcond27.not, label %28, label %.preheader, !llvm.loop !27
 
 28:                                               ; preds = %23
   ret void
@@ -3630,7 +3630,7 @@ define internal void @rv40_weight_func_nornd_16(ptr noundef writeonly captures(n
   store i8 %19, ptr %20, align 1, !tbaa !8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
-  br i1 %exitcond.not, label %21, label %7, !llvm.loop !29
+  br i1 %exitcond.not, label %21, label %7, !llvm.loop !28
 
 21:                                               ; preds = %7
   %22 = getelementptr inbounds i8, ptr %.01923, i64 %5
@@ -3638,7 +3638,7 @@ define internal void @rv40_weight_func_nornd_16(ptr noundef writeonly captures(n
   %24 = getelementptr inbounds i8, ptr %.01824, i64 %5
   %25 = add nuw nsw i32 %.025, 1
   %exitcond27.not = icmp eq i32 %25, 16
-  br i1 %exitcond27.not, label %26, label %.preheader, !llvm.loop !30
+  br i1 %exitcond27.not, label %26, label %.preheader, !llvm.loop !29
 
 26:                                               ; preds = %21
   ret void
@@ -3673,7 +3673,7 @@ define internal void @rv40_weight_func_nornd_8(ptr noundef writeonly captures(no
   store i8 %19, ptr %20, align 1, !tbaa !8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond.not, label %21, label %7, !llvm.loop !31
+  br i1 %exitcond.not, label %21, label %7, !llvm.loop !30
 
 21:                                               ; preds = %7
   %22 = getelementptr inbounds i8, ptr %.01923, i64 %5
@@ -3681,7 +3681,7 @@ define internal void @rv40_weight_func_nornd_8(ptr noundef writeonly captures(no
   %24 = getelementptr inbounds i8, ptr %.01824, i64 %5
   %25 = add nuw nsw i32 %.025, 1
   %exitcond27.not = icmp eq i32 %25, 8
-  br i1 %exitcond27.not, label %26, label %.preheader, !llvm.loop !32
+  br i1 %exitcond27.not, label %26, label %.preheader, !llvm.loop !31
 
 26:                                               ; preds = %21
   ret void
@@ -3812,7 +3812,7 @@ define internal void @rv40_h_weak_loop_filter(ptr noundef captures(none) %0, i64
   %94 = add nuw nsw i32 %.087.i18, 1
   %95 = getelementptr inbounds nuw i8, ptr %.0.i19, i64 1
   %exitcond.not = icmp eq i32 %94, 4
-  br i1 %exitcond.not, label %rv40_weak_loop_filter.exit, label %24, !llvm.loop !33
+  br i1 %exitcond.not, label %rv40_weak_loop_filter.exit, label %24, !llvm.loop !32
 
 rv40_weak_loop_filter.exit:                       ; preds = %93
   ret void
@@ -3926,7 +3926,7 @@ define internal void @rv40_v_weak_loop_filter(ptr noundef captures(none) %0, i64
   %81 = add nuw nsw i32 %.087.i14, 1
   %82 = getelementptr inbounds i8, ptr %.0.i15, i64 %1
   %exitcond.not = icmp eq i32 %81, 4
-  br i1 %exitcond.not, label %rv40_weak_loop_filter.exit, label %17, !llvm.loop !33
+  br i1 %exitcond.not, label %rv40_weak_loop_filter.exit, label %17, !llvm.loop !32
 
 rv40_weak_loop_filter.exit:                       ; preds = %80
   ret void
@@ -4119,7 +4119,7 @@ define internal void @rv40_h_strong_loop_filter(ptr noundef captures(none) %0, i
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %126 = getelementptr inbounds nuw i8, ptr %.0.i24, i64 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %rv40_strong_loop_filter.exit, label %17, !llvm.loop !34
+  br i1 %exitcond.not, label %rv40_strong_loop_filter.exit, label %17, !llvm.loop !33
 
 rv40_strong_loop_filter.exit:                     ; preds = %125
   ret void
@@ -4293,7 +4293,7 @@ define internal void @rv40_v_strong_loop_filter(ptr noundef captures(none) %0, i
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %113 = getelementptr inbounds i8, ptr %.0.i20, i64 %1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %rv40_strong_loop_filter.exit, label %8, !llvm.loop !34
+  br i1 %exitcond.not, label %rv40_strong_loop_filter.exit, label %8, !llvm.loop !33
 
 rv40_strong_loop_filter.exit:                     ; preds = %112
   ret void
@@ -4332,7 +4332,7 @@ define internal range(i32 0, 2) i32 @rv40_h_loop_filter_strength(ptr noundef rea
   %27 = add nuw nsw i32 %.0.i18, 1
   %28 = getelementptr inbounds nuw i8, ptr %.055.i17, i64 1
   %exitcond.not = icmp eq i32 %27, 4
-  br i1 %exitcond.not, label %29, label %11, !llvm.loop !35
+  br i1 %exitcond.not, label %29, label %11, !llvm.loop !34
 
 29:                                               ; preds = %11
   %30 = tail call i32 @llvm.abs.i32(i32 %19, i1 true)
@@ -4383,7 +4383,7 @@ define internal range(i32 0, 2) i32 @rv40_h_loop_filter_strength(ptr noundef rea
   %59 = add nuw nsw i32 %.1.i22, 1
   %60 = getelementptr inbounds nuw i8, ptr %.156.i21, i64 1
   %exitcond26.not = icmp eq i32 %59, 4
-  br i1 %exitcond26.not, label %61, label %42, !llvm.loop !36
+  br i1 %exitcond26.not, label %61, label %42, !llvm.loop !35
 
 61:                                               ; preds = %42
   %62 = tail call i32 @llvm.abs.i32(i32 %50, i1 true)
@@ -4428,7 +4428,7 @@ define internal range(i32 0, 2) i32 @rv40_v_loop_filter_strength(ptr noundef rea
   %24 = add nuw nsw i32 %.0.i12, 1
   %25 = getelementptr inbounds i8, ptr %.055.i11, i64 %1
   %exitcond.not = icmp eq i32 %24, 4
-  br i1 %exitcond.not, label %26, label %8, !llvm.loop !35
+  br i1 %exitcond.not, label %26, label %8, !llvm.loop !34
 
 26:                                               ; preds = %8
   %27 = tail call i32 @llvm.abs.i32(i32 %16, i1 true)
@@ -4471,7 +4471,7 @@ define internal range(i32 0, 2) i32 @rv40_v_loop_filter_strength(ptr noundef rea
   %51 = add nuw nsw i32 %.1.i16, 1
   %52 = getelementptr inbounds i8, ptr %.156.i15, i64 %1
   %exitcond20.not = icmp eq i32 %51, 4
-  br i1 %exitcond20.not, label %53, label %.preheader, !llvm.loop !36
+  br i1 %exitcond20.not, label %53, label %.preheader, !llvm.loop !35
 
 53:                                               ; preds = %.preheader
   %54 = tail call i32 @llvm.abs.i32(i32 %42, i1 true)
@@ -4735,7 +4735,7 @@ define internal fastcc void @put_rv40_qpel8_h_lowpass(ptr noundef writeonly capt
   %226 = getelementptr inbounds i8, ptr %.0103111, i64 %12
   %227 = add nuw nsw i32 %.0113, 1
   %exitcond.not = icmp eq i32 %227, %4
-  br i1 %exitcond.not, label %228, label %13, !llvm.loop !37
+  br i1 %exitcond.not, label %228, label %13, !llvm.loop !36
 
 228:                                              ; preds = %13
   ret void
@@ -4945,7 +4945,7 @@ define internal fastcc void @put_rv40_qpel8_v_lowpass(ptr noundef writeonly capt
   %186 = getelementptr inbounds nuw i8, ptr %.0134144, i64 1
   %187 = add nuw nsw i32 %.0135143, 1
   %exitcond.not = icmp eq i32 %187, 8
-  br i1 %exitcond.not, label %188, label %46, !llvm.loop !38
+  br i1 %exitcond.not, label %188, label %46, !llvm.loop !37
 
 188:                                              ; preds = %46
   ret void
@@ -5248,7 +5248,7 @@ define internal fastcc void @avg_rv40_qpel8_h_lowpass(ptr noundef captures(none)
   %278 = getelementptr inbounds i8, ptr %.0111119, i64 %8
   %279 = add nuw nsw i32 %.0121, 1
   %exitcond.not = icmp eq i32 %279, 8
-  br i1 %exitcond.not, label %280, label %9, !llvm.loop !39
+  br i1 %exitcond.not, label %280, label %9, !llvm.loop !38
 
 280:                                              ; preds = %9
   ret void
@@ -5514,7 +5514,7 @@ define internal fastcc void @avg_rv40_qpel8_v_lowpass(ptr noundef captures(none)
   %242 = getelementptr inbounds nuw i8, ptr %.0150160, i64 1
   %243 = add nuw nsw i32 %.0151159, 1
   %exitcond.not = icmp eq i32 %243, 8
-  br i1 %exitcond.not, label %244, label %46, !llvm.loop !40
+  br i1 %exitcond.not, label %244, label %46, !llvm.loop !39
 
 244:                                              ; preds = %46
   ret void
@@ -5546,33 +5546,32 @@ attributes #5 = { nounwind }
 !8 = !{!6, !6, i64 0}
 !9 = !{!10, !10, i64 0}
 !10 = !{!"int", !6, i64 0}
-!11 = distinct !{!11, !12, !13}
+!11 = distinct !{!11, !12}
 !12 = !{!"llvm.loop.mustprogress"}
-!13 = !{!"llvm.loop.estimated_trip_count"}
-!14 = distinct !{!14, !12, !13}
-!15 = distinct !{!15, !12, !13}
-!16 = distinct !{!16, !12, !13}
-!17 = distinct !{!17, !12, !13}
-!18 = distinct !{!18, !12, !13}
-!19 = distinct !{!19, !12, !13}
-!20 = distinct !{!20, !12, !13}
-!21 = distinct !{!21, !12, !13}
-!22 = distinct !{!22, !12, !13}
-!23 = distinct !{!23, !12, !13}
-!24 = distinct !{!24, !12, !13}
-!25 = distinct !{!25, !12, !13}
-!26 = distinct !{!26, !12, !13}
-!27 = distinct !{!27, !12, !13}
-!28 = distinct !{!28, !12, !13}
-!29 = distinct !{!29, !12, !13}
-!30 = distinct !{!30, !12, !13}
-!31 = distinct !{!31, !12, !13}
-!32 = distinct !{!32, !12, !13}
-!33 = distinct !{!33, !12, !13}
-!34 = distinct !{!34, !12, !13}
-!35 = distinct !{!35, !12, !13}
-!36 = distinct !{!36, !12, !13}
-!37 = distinct !{!37, !12, !13}
-!38 = distinct !{!38, !12, !13}
-!39 = distinct !{!39, !12, !13}
-!40 = distinct !{!40, !12, !13}
+!13 = distinct !{!13, !12}
+!14 = distinct !{!14, !12}
+!15 = distinct !{!15, !12}
+!16 = distinct !{!16, !12}
+!17 = distinct !{!17, !12}
+!18 = distinct !{!18, !12}
+!19 = distinct !{!19, !12}
+!20 = distinct !{!20, !12}
+!21 = distinct !{!21, !12}
+!22 = distinct !{!22, !12}
+!23 = distinct !{!23, !12}
+!24 = distinct !{!24, !12}
+!25 = distinct !{!25, !12}
+!26 = distinct !{!26, !12}
+!27 = distinct !{!27, !12}
+!28 = distinct !{!28, !12}
+!29 = distinct !{!29, !12}
+!30 = distinct !{!30, !12}
+!31 = distinct !{!31, !12}
+!32 = distinct !{!32, !12}
+!33 = distinct !{!33, !12}
+!34 = distinct !{!34, !12}
+!35 = distinct !{!35, !12}
+!36 = distinct !{!36, !12}
+!37 = distinct !{!37, !12}
+!38 = distinct !{!38, !12}
+!39 = distinct !{!39, !12}

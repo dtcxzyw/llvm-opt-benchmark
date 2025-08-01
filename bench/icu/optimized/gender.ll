@@ -500,7 +500,7 @@ define void @_ZN6icu_7720GenderInfo_initCacheER10UErrorCode(ptr noundef nonnull 
   tail call void @ucln_i18n_registerCleanup_77(i32 noundef 32, ptr noundef nonnull @_ZL14gender_cleanupv)
   %2 = load i32, ptr %0, align 4, !tbaa !13
   %3 = icmp slt i32 %2, 1
-  br i1 %3, label %4, label %37
+  br i1 %3, label %4, label %39
 
 4:                                                ; preds = %1
   %5 = tail call noundef ptr @_ZN6icu_777UMemorynaEm(i64 noundef 56) #17
@@ -521,17 +521,16 @@ define void @_ZN6icu_7720GenderInfo_initCacheER10UErrorCode(ptr noundef nonnull 
 9:                                                ; preds = %8
   %.add = add nuw nsw i64 %.idx, 16
   %10 = icmp samesign eq i64 %.add, 56
-  br i1 %10, label %11, label %8, !llvm.loop !15
+  br i1 %10, label %11, label %8
 
 11:                                               ; preds = %9
-  store ptr %.ptr20, ptr @_ZL5gObjs, align 8, !tbaa !17
-  %invariant.gep = getelementptr inbounds nuw i8, ptr %5, i64 16
+  store ptr %.ptr20, ptr @_ZL5gObjs, align 8, !tbaa !15
   br label %21
 
 12:                                               ; preds = %4
-  store ptr null, ptr @_ZL5gObjs, align 8, !tbaa !17
+  store ptr null, ptr @_ZL5gObjs, align 8, !tbaa !15
   store i32 7, ptr %0, align 4, !tbaa !13
-  br label %37
+  br label %39
 
 13:                                               ; preds = %8
   %14 = landingpad { ptr, i32 }
@@ -545,7 +544,7 @@ define void @_ZN6icu_7720GenderInfo_initCacheER10UErrorCode(ptr noundef nonnull 
   %.ptr24 = getelementptr inbounds i8, ptr %5, i64 %.add22
   tail call void @_ZN6icu_7710GenderInfoD1Ev(ptr noundef nonnull align 8 dereferenceable(12) %.ptr24) #17
   %16 = icmp eq i64 %.add22, 8
-  br i1 %16, label %.loopexit29, label %.preheader28, !llvm.loop !19
+  br i1 %16, label %.loopexit29, label %.preheader28
 
 .loopexit29:                                      ; preds = %.preheader28, %13
   tail call void @_ZN6icu_777UMemorydaEPv(ptr noundef nonnull %5) #17
@@ -553,53 +552,54 @@ define void @_ZN6icu_7720GenderInfo_initCacheER10UErrorCode(ptr noundef nonnull 
 
 17:                                               ; preds = %21
   %18 = tail call ptr @uhash_open_77(ptr noundef nonnull @uhash_hashChars_77, ptr noundef nonnull @uhash_compareChars_77, ptr noundef null, ptr noundef nonnull %0)
-  store ptr %18, ptr @_ZL16gGenderInfoCache, align 8, !tbaa !20
+  store ptr %18, ptr @_ZL16gGenderInfoCache, align 8, !tbaa !17
   %19 = load i32, ptr %0, align 4, !tbaa !13
   %20 = icmp slt i32 %19, 1
-  br i1 %20, label %35, label %24
+  br i1 %20, label %37, label %26
 
 21:                                               ; preds = %11, %21
   %indvars.iv = phi i64 [ 0, %11 ], [ %indvars.iv.next, %21 ]
   %22 = shl nuw nsw i64 %indvars.iv, 4
-  %gep = getelementptr inbounds nuw i8, ptr %invariant.gep, i64 %22
-  %23 = trunc nuw nsw i64 %indvars.iv to i32
-  store i32 %23, ptr %gep, align 8, !tbaa !22
+  %23 = getelementptr inbounds nuw i8, ptr %.ptr20, i64 %22
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 8
+  %25 = trunc nuw nsw i64 %indvars.iv to i32
+  store i32 %25, ptr %24, align 8, !tbaa !19
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %17, label %21, !llvm.loop !25
+  br i1 %exitcond.not, label %17, label %21, !llvm.loop !22
 
-24:                                               ; preds = %17
-  %25 = load ptr, ptr @_ZL5gObjs, align 8, !tbaa !17
-  %26 = icmp eq ptr %25, null
-  br i1 %26, label %37, label %27
+26:                                               ; preds = %17
+  %27 = load ptr, ptr @_ZL5gObjs, align 8, !tbaa !15
+  %28 = icmp eq ptr %27, null
+  br i1 %28, label %39, label %29
 
-27:                                               ; preds = %24
-  %28 = getelementptr inbounds i8, ptr %25, i64 -8
-  %29 = load i64, ptr %28, align 8
-  %30 = icmp eq i64 %29, 0
-  br i1 %30, label %.loopexit, label %.preheader.preheader
+29:                                               ; preds = %26
+  %30 = getelementptr inbounds i8, ptr %27, i64 -8
+  %31 = load i64, ptr %30, align 8
+  %32 = icmp eq i64 %31, 0
+  br i1 %32, label %.loopexit, label %.preheader.preheader
 
-.preheader.preheader:                             ; preds = %27
-  %.idx26 = shl nsw i64 %29, 4
-  %31 = getelementptr inbounds i8, ptr %25, i64 %.idx26
+.preheader.preheader:                             ; preds = %29
+  %.idx26 = shl nsw i64 %31, 4
+  %33 = getelementptr inbounds i8, ptr %27, i64 %.idx26
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.preheader, %.preheader
-  %32 = phi ptr [ %33, %.preheader ], [ %31, %.preheader.preheader ]
-  %33 = getelementptr inbounds i8, ptr %32, i64 -16
-  tail call void @_ZN6icu_7710GenderInfoD1Ev(ptr noundef nonnull align 8 dereferenceable(12) %33) #17
-  %34 = icmp eq ptr %33, %25
-  br i1 %34, label %.loopexit, label %.preheader, !llvm.loop !27
+  %34 = phi ptr [ %35, %.preheader ], [ %33, %.preheader.preheader ]
+  %35 = getelementptr inbounds i8, ptr %34, i64 -16
+  tail call void @_ZN6icu_7710GenderInfoD1Ev(ptr noundef nonnull align 8 dereferenceable(12) %35) #17
+  %36 = icmp eq ptr %35, %27
+  br i1 %36, label %.loopexit, label %.preheader
 
-.loopexit:                                        ; preds = %.preheader, %27
-  tail call void @_ZN6icu_777UMemorydaEPv(ptr noundef nonnull %28) #17
-  br label %37
+.loopexit:                                        ; preds = %.preheader, %29
+  tail call void @_ZN6icu_777UMemorydaEPv(ptr noundef nonnull %30) #17
+  br label %39
 
-35:                                               ; preds = %17
-  %36 = tail call ptr @uhash_setKeyDeleter_77(ptr noundef %18, ptr noundef nonnull @uprv_free_77)
-  br label %37
+37:                                               ; preds = %17
+  %38 = tail call ptr @uhash_setKeyDeleter_77(ptr noundef %18, ptr noundef nonnull @uprv_free_77)
+  br label %39
 
-37:                                               ; preds = %24, %.loopexit, %1, %35, %12
+39:                                               ; preds = %26, %.loopexit, %1, %37, %12
   ret void
 }
 
@@ -607,14 +607,14 @@ declare void @ucln_i18n_registerCleanup_77(i32 noundef, ptr noundef) local_unnam
 
 ; Function Attrs: mustprogress uwtable
 define internal noundef signext i8 @_ZL14gender_cleanupv() #1 personality ptr @__gxx_personality_v0 {
-  %1 = load ptr, ptr @_ZL16gGenderInfoCache, align 8, !tbaa !20
+  %1 = load ptr, ptr @_ZL16gGenderInfoCache, align 8, !tbaa !17
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %13, label %2
 
 2:                                                ; preds = %0
   tail call void @uhash_close_77(ptr noundef nonnull %1)
-  store ptr null, ptr @_ZL16gGenderInfoCache, align 8, !tbaa !20
-  %3 = load ptr, ptr @_ZL5gObjs, align 8, !tbaa !17
+  store ptr null, ptr @_ZL16gGenderInfoCache, align 8, !tbaa !17
+  %3 = load ptr, ptr @_ZL5gObjs, align 8, !tbaa !15
   %4 = icmp eq ptr %3, null
   br i1 %4, label %13, label %5
 
@@ -634,7 +634,7 @@ define internal noundef signext i8 @_ZL14gender_cleanupv() #1 personality ptr @_
   %11 = getelementptr inbounds i8, ptr %10, i64 -16
   tail call void @_ZN6icu_7710GenderInfoD1Ev(ptr noundef nonnull align 8 dereferenceable(12) %11) #17
   %12 = icmp eq ptr %11, %3
-  br i1 %12, label %.loopexit, label %.preheader, !llvm.loop !28
+  br i1 %12, label %.loopexit, label %.preheader
 
 .loopexit:                                        ; preds = %.preheader, %5
   tail call void @_ZN6icu_777UMemorydaEPv(ptr noundef nonnull %6) #17
@@ -661,7 +661,7 @@ declare ptr @uhash_setKeyDeleter_77(ptr noundef, ptr noundef) local_unnamed_addr
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_ZN6icu_7710GenderInfoC2Ev(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(12) initializes((0, 8)) %0) unnamed_addr #11 align 2 {
-  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN6icu_7710GenderInfoE, i64 16), ptr %0, align 8, !tbaa !29
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN6icu_7710GenderInfoE, i64 16), ptr %0, align 8, !tbaa !24
   ret void
 }
 
@@ -703,12 +703,12 @@ define noundef ptr @_ZN6icu_7710GenderInfo11getInstanceERKNS_6LocaleER10UErrorCo
 9:                                                ; preds = %7
   tail call void @_ZN6icu_7720GenderInfo_initCacheER10UErrorCode(ptr noundef nonnull align 4 dereferenceable(4) %1)
   %10 = load i32, ptr %1, align 4, !tbaa !13
-  store i32 %10, ptr getelementptr inbounds nuw (i8, ptr @_ZL15gGenderInitOnce, i64 4), align 4, !tbaa !31
+  store i32 %10, ptr getelementptr inbounds nuw (i8, ptr @_ZL15gGenderInitOnce, i64 4), align 4, !tbaa !26
   tail call void @_ZN6icu_7721umtx_initImplPostInitERNS_9UInitOnceE(ptr noundef nonnull align 4 dereferenceable(8) @_ZL15gGenderInitOnce)
   br label %_ZN6icu_7713umtx_initOnceERNS_9UInitOnceEPFvR10UErrorCodeES3_.exit
 
 11:                                               ; preds = %7, %5
-  %12 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZL15gGenderInitOnce, i64 4), align 4, !tbaa !31
+  %12 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZL15gGenderInitOnce, i64 4), align 4, !tbaa !26
   %13 = icmp slt i32 %12, 1
   br i1 %13, label %_ZN6icu_7713umtx_initOnceERNS_9UInitOnceEPFvR10UErrorCodeES3_.exit, label %14
 
@@ -723,9 +723,9 @@ _ZN6icu_7713umtx_initOnceERNS_9UInitOnceEPFvR10UErrorCodeES3_.exit: ; preds = %9
 
 16:                                               ; preds = %_ZN6icu_7713umtx_initOnceERNS_9UInitOnceEPFvR10UErrorCodeES3_.exit
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %18 = load ptr, ptr %17, align 8, !tbaa !35
+  %18 = load ptr, ptr %17, align 8, !tbaa !30
   tail call void @umtx_lock_77(ptr noundef nonnull @_ZZN6icu_7710GenderInfo11getInstanceERKNS_6LocaleER10UErrorCodeE15gGenderMetaLock)
-  %19 = load ptr, ptr @_ZL16gGenderInfoCache, align 8, !tbaa !20
+  %19 = load ptr, ptr @_ZL16gGenderInfoCache, align 8, !tbaa !17
   %20 = invoke ptr @uhash_get_77(ptr noundef %19, ptr noundef %18)
           to label %21 unwind label %25
 
@@ -765,7 +765,7 @@ _ZN6icu_775MutexD2Ev.exit:                        ; preds = %21
 
 34:                                               ; preds = %30
   tail call void @umtx_lock_77(ptr noundef nonnull @_ZZN6icu_7710GenderInfo11getInstanceERKNS_6LocaleER10UErrorCodeE15gGenderMetaLock)
-  %35 = load ptr, ptr @_ZL16gGenderInfoCache, align 8, !tbaa !20
+  %35 = load ptr, ptr @_ZL16gGenderInfoCache, align 8, !tbaa !17
   %36 = invoke ptr @uhash_get_77(ptr noundef %35, ptr noundef %18)
           to label %37 unwind label %38
 
@@ -787,7 +787,7 @@ _ZN6icu_775MutexD2Ev.exit:                        ; preds = %21
   unreachable
 
 43:                                               ; preds = %37
-  %44 = load ptr, ptr @_ZL16gGenderInfoCache, align 8, !tbaa !20
+  %44 = load ptr, ptr @_ZL16gGenderInfoCache, align 8, !tbaa !17
   %45 = invoke ptr @uprv_strdup_77(ptr noundef %18)
           to label %46 unwind label %38
 
@@ -836,7 +836,7 @@ define noundef ptr @_ZN6icu_7710GenderInfo12loadInstanceERKNS_6LocaleER10UErrorC
   %10 = alloca [256 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #17
   %11 = tail call ptr @ures_openDirect_77(ptr noundef null, ptr noundef nonnull @.str, ptr noundef nonnull %1)
-  store ptr %11, ptr %3, align 8, !tbaa !37
+  store ptr %11, ptr %3, align 8, !tbaa !32
   %12 = load i32, ptr %1, align 4, !tbaa !13
   %13 = icmp slt i32 %12, 1
   br i1 %13, label %14, label %83
@@ -847,7 +847,7 @@ define noundef ptr @_ZN6icu_7710GenderInfo12loadInstanceERKNS_6LocaleER10UErrorC
           to label %16 unwind label %19
 
 16:                                               ; preds = %14
-  store ptr %15, ptr %4, align 8, !tbaa !37
+  store ptr %15, ptr %4, align 8, !tbaa !32
   %17 = load i32, ptr %1, align 4, !tbaa !13
   %18 = icmp slt i32 %17, 1
   br i1 %18, label %21, label %77
@@ -861,7 +861,7 @@ define noundef ptr @_ZN6icu_7710GenderInfo12loadInstanceERKNS_6LocaleER10UErrorC
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #17
   store i32 0, ptr %5, align 4, !tbaa !12
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %23 = load ptr, ptr %22, align 8, !tbaa !35
+  %23 = load ptr, ptr %22, align 8, !tbaa !30
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #17
   store i32 0, ptr %6, align 4, !tbaa !13
   %24 = invoke ptr @ures_getStringByKey_77(ptr noundef %15, ptr noundef %23, ptr noundef nonnull %5, ptr noundef nonnull %6)
@@ -886,9 +886,9 @@ define noundef ptr @_ZN6icu_7710GenderInfo12loadInstanceERKNS_6LocaleER10UErrorC
 
 .noexc:                                           ; preds = %28
   %32 = getelementptr inbounds nuw i8, ptr %7, i64 56
-  store i32 0, ptr %32, align 8, !tbaa !40
+  store i32 0, ptr %32, align 8, !tbaa !35
   %33 = load ptr, ptr %7, align 8, !tbaa !3
-  store i8 0, ptr %33, align 1, !tbaa !42
+  store i8 0, ptr %33, align 1, !tbaa !37
   %34 = invoke noundef nonnull align 8 dereferenceable(60) ptr @_ZN6icu_7710CharString6appendEPKciR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(60) %7, ptr noundef %29, i32 noundef %31, ptr noundef nonnull align 4 dereferenceable(4) %6)
           to label %_ZN6icu_7710CharStringC2ENS_11StringPieceER10UErrorCode.exit.preheader unwind label %36
 
@@ -909,7 +909,7 @@ _ZN6icu_7710CharStringC2ENS_11StringPieceER10UErrorCode.exit.preheader: ; preds 
           to label %40 unwind label %46
 
 40:                                               ; preds = %38
-  %41 = load i32, ptr %35, align 8, !tbaa !40
+  %41 = load i32, ptr %35, align 8, !tbaa !35
   %.not = icmp eq i32 %41, 0
   br i1 %.not, label %57, label %48
 
@@ -942,7 +942,7 @@ _ZN6icu_7710CharStringC2ENS_11StringPieceER10UErrorCode.exit.preheader: ; preds 
 _ZN6icu_7710CharStringC2ENS_11StringPieceER10UErrorCode.exit: ; preds = %48
   store i32 0, ptr %6, align 4, !tbaa !13
   %52 = icmp eq ptr %51, null
-  br i1 %52, label %38, label %56, !llvm.loop !43
+  br i1 %52, label %38, label %56, !llvm.loop !38
 
 53:                                               ; preds = %48
   %54 = landingpad { ptr, i32 }
@@ -969,7 +969,7 @@ _ZN6icu_7710CharStringC2ENS_11StringPieceER10UErrorCode.exit: ; preds = %48
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %9) #17
   call void @_ZN6icu_7715MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %7) #17
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %7) #17
-  %58 = load ptr, ptr @_ZL5gObjs, align 8, !tbaa !17
+  %58 = load ptr, ptr @_ZL5gObjs, align 8, !tbaa !15
   br label %75
 
 .thread41:                                        ; preds = %25, %56
@@ -987,7 +987,7 @@ _ZN6icu_7710CharStringC2ENS_11StringPieceER10UErrorCode.exit: ; preds = %48
   br i1 %.not31, label %62, label %66
 
 62:                                               ; preds = %61
-  %63 = load ptr, ptr @_ZL5gObjs, align 8, !tbaa !17
+  %63 = load ptr, ptr @_ZL5gObjs, align 8, !tbaa !15
   br label %74
 
 64:                                               ; preds = %.thread41
@@ -1002,14 +1002,14 @@ _ZN6icu_7710CharStringC2ENS_11StringPieceER10UErrorCode.exit: ; preds = %48
   br i1 %67, label %68, label %71
 
 68:                                               ; preds = %66
-  %69 = load ptr, ptr @_ZL5gObjs, align 8, !tbaa !17
+  %69 = load ptr, ptr @_ZL5gObjs, align 8, !tbaa !15
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 16
   br label %74
 
 71:                                               ; preds = %66
   %bcmp32 = call i32 @bcmp(ptr noundef nonnull dereferenceable(11) %10, ptr noundef nonnull dereferenceable(11) @.str.4, i64 11)
   %72 = icmp eq i32 %bcmp32, 0
-  %73 = load ptr, ptr @_ZL5gObjs, align 8, !tbaa !17
+  %73 = load ptr, ptr @_ZL5gObjs, align 8, !tbaa !15
   %spec.select.idx = select i1 %72, i64 32, i64 0
   %spec.select = getelementptr inbounds nuw i8, ptr %73, i64 %spec.select.idx
   br label %74
@@ -1104,7 +1104,7 @@ declare void @u_UCharsToChars_77(ptr noundef, ptr noundef, i32 noundef) local_un
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6icu_778internal16LocalOpenPointerI15UResourceBundleXadL_Z13ures_close_77EEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !37
+  %2 = load ptr, ptr %0, align 8, !tbaa !32
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %4, label %3
 
@@ -1136,12 +1136,12 @@ define noundef i32 @_ZNK6icu_7710GenderInfo13getListGenderEPK7UGenderiR10UErrorC
   ]
 
 8:                                                ; preds = %7
-  %9 = load i32, ptr %1, align 4, !tbaa !44
+  %9 = load i32, ptr %1, align 4, !tbaa !39
   br label %.loopexit
 
 10:                                               ; preds = %7
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %12 = load i32, ptr %11, align 8, !tbaa !22
+  %12 = load i32, ptr %11, align 8, !tbaa !19
   switch i32 %12, label %.loopexit [
     i32 2, label %.preheader
     i32 1, label %.preheader36
@@ -1168,7 +1168,7 @@ define noundef i32 @_ZNK6icu_7710GenderInfo13getListGenderEPK7UGenderiR10UErrorC
   %.02340 = phi i8 [ 0, %.lr.ph.preheader ], [ %.124, %17 ]
   %.02539 = phi i8 [ 0, %.lr.ph.preheader ], [ %.126, %17 ]
   %13 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
-  %14 = load i32, ptr %13, align 4, !tbaa !44
+  %14 = load i32, ptr %13, align 4, !tbaa !39
   switch i32 %14, label %17 [
     i32 2, label %.loopexit
     i32 1, label %15
@@ -1188,7 +1188,7 @@ define noundef i32 @_ZNK6icu_7710GenderInfo13getListGenderEPK7UGenderiR10UErrorC
   %.124 = phi i8 [ %.02340, %.lr.ph ], [ 0, %15 ], [ 1, %16 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.critedge.loopexit, label %.lr.ph, !llvm.loop !46
+  br i1 %exitcond.not, label %.critedge.loopexit, label %.lr.ph, !llvm.loop !41
 
 .critedge.loopexit:                               ; preds = %17
   %18 = xor i8 %.124, 1
@@ -1198,12 +1198,12 @@ define noundef i32 @_ZNK6icu_7710GenderInfo13getListGenderEPK7UGenderiR10UErrorC
 20:                                               ; preds = %.lr.ph45
   %indvars.iv.next50 = add nuw nsw i64 %indvars.iv49, 1
   %exitcond53.not = icmp eq i64 %indvars.iv.next50, %wide.trip.count52
-  br i1 %exitcond53.not, label %.loopexit, label %.lr.ph45, !llvm.loop !47
+  br i1 %exitcond53.not, label %.loopexit, label %.lr.ph45, !llvm.loop !42
 
 .lr.ph45:                                         ; preds = %.lr.ph45.preheader, %20
   %indvars.iv49 = phi i64 [ 0, %.lr.ph45.preheader ], [ %indvars.iv.next50, %20 ]
   %21 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv49
-  %22 = load i32, ptr %21, align 4, !tbaa !44
+  %22 = load i32, ptr %21, align 4, !tbaa !39
   %.not30 = icmp eq i32 %22, 1
   br i1 %.not30, label %20, label %.loopexit
 
@@ -1214,20 +1214,20 @@ define noundef i32 @_ZNK6icu_7710GenderInfo13getListGenderEPK7UGenderiR10UErrorC
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define noundef ptr @_ZN6icu_7710GenderInfo18getNeutralInstanceEv() local_unnamed_addr #14 align 2 {
-  %1 = load ptr, ptr @_ZL5gObjs, align 8, !tbaa !17
+  %1 = load ptr, ptr @_ZL5gObjs, align 8, !tbaa !15
   ret ptr %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define noundef nonnull ptr @_ZN6icu_7710GenderInfo23getMixedNeutralInstanceEv() local_unnamed_addr #14 align 2 {
-  %1 = load ptr, ptr @_ZL5gObjs, align 8, !tbaa !17
+  %1 = load ptr, ptr @_ZL5gObjs, align 8, !tbaa !15
   %2 = getelementptr inbounds nuw i8, ptr %1, i64 16
   ret ptr %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define noundef nonnull ptr @_ZN6icu_7710GenderInfo21getMaleTaintsInstanceEv() local_unnamed_addr #14 align 2 {
-  %1 = load ptr, ptr @_ZL5gObjs, align 8, !tbaa !17
+  %1 = load ptr, ptr @_ZL5gObjs, align 8, !tbaa !15
   %2 = getelementptr inbounds nuw i8, ptr %1, i64 32
   ret ptr %2
 }
@@ -1271,12 +1271,12 @@ define i32 @ugender_getListGender_77(ptr noundef readonly captures(none) %0, ptr
   ]
 
 8:                                                ; preds = %7
-  %9 = load i32, ptr %1, align 4, !tbaa !44
+  %9 = load i32, ptr %1, align 4, !tbaa !39
   br label %_ZNK6icu_7710GenderInfo13getListGenderEPK7UGenderiR10UErrorCode.exit
 
 10:                                               ; preds = %7
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %12 = load i32, ptr %11, align 8, !tbaa !22
+  %12 = load i32, ptr %11, align 8, !tbaa !19
   switch i32 %12, label %_ZNK6icu_7710GenderInfo13getListGenderEPK7UGenderiR10UErrorCode.exit [
     i32 2, label %.preheader.i
     i32 1, label %.preheader36.i
@@ -1303,7 +1303,7 @@ define i32 @ugender_getListGender_77(ptr noundef readonly captures(none) %0, ptr
   %.02340.i = phi i8 [ 0, %.lr.ph.preheader.i ], [ %.124.i, %17 ]
   %.02539.i = phi i8 [ 0, %.lr.ph.preheader.i ], [ %.126.i, %17 ]
   %13 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv.i
-  %14 = load i32, ptr %13, align 4, !tbaa !44
+  %14 = load i32, ptr %13, align 4, !tbaa !39
   switch i32 %14, label %17 [
     i32 2, label %_ZNK6icu_7710GenderInfo13getListGenderEPK7UGenderiR10UErrorCode.exit
     i32 1, label %15
@@ -1323,7 +1323,7 @@ define i32 @ugender_getListGender_77(ptr noundef readonly captures(none) %0, ptr
   %.124.i = phi i8 [ %.02340.i, %.lr.ph.i ], [ 0, %15 ], [ 1, %16 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %.critedge.loopexit.i, label %.lr.ph.i, !llvm.loop !46
+  br i1 %exitcond.not.i, label %.critedge.loopexit.i, label %.lr.ph.i, !llvm.loop !41
 
 .critedge.loopexit.i:                             ; preds = %17
   %18 = xor i8 %.124.i, 1
@@ -1333,12 +1333,12 @@ define i32 @ugender_getListGender_77(ptr noundef readonly captures(none) %0, ptr
 20:                                               ; preds = %.lr.ph45.i
   %indvars.iv.next50.i = add nuw nsw i64 %indvars.iv49.i, 1
   %exitcond53.not.i = icmp eq i64 %indvars.iv.next50.i, %wide.trip.count52.i
-  br i1 %exitcond53.not.i, label %_ZNK6icu_7710GenderInfo13getListGenderEPK7UGenderiR10UErrorCode.exit, label %.lr.ph45.i, !llvm.loop !47
+  br i1 %exitcond53.not.i, label %_ZNK6icu_7710GenderInfo13getListGenderEPK7UGenderiR10UErrorCode.exit, label %.lr.ph45.i, !llvm.loop !42
 
 .lr.ph45.i:                                       ; preds = %20, %.lr.ph45.preheader.i
   %indvars.iv49.i = phi i64 [ 0, %.lr.ph45.preheader.i ], [ %indvars.iv.next50.i, %20 ]
   %21 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv49.i
-  %22 = load i32, ptr %21, align 4, !tbaa !44
+  %22 = load i32, ptr %21, align 4, !tbaa !39
   %.not30.i = icmp eq i32 %22, 1
   br i1 %.not30.i, label %20, label %_ZNK6icu_7710GenderInfo13getListGenderEPK7UGenderiR10UErrorCode.exit
 
@@ -1407,36 +1407,31 @@ attributes #19 = { noreturn nounwind }
 !12 = !{!9, !9, i64 0}
 !13 = !{!14, !14, i64 0}
 !14 = !{!"_ZTS10UErrorCode", !7, i64 0}
-!15 = distinct !{!15, !16}
-!16 = !{!"llvm.loop.estimated_trip_count"}
+!15 = !{!16, !16, i64 0}
+!16 = !{!"p1 _ZTSN6icu_7710GenderInfoE", !6, i64 0}
 !17 = !{!18, !18, i64 0}
-!18 = !{!"p1 _ZTSN6icu_7710GenderInfoE", !6, i64 0}
-!19 = distinct !{!19, !16}
-!20 = !{!21, !21, i64 0}
-!21 = !{!"p1 _ZTS10UHashtable", !6, i64 0}
-!22 = !{!23, !9, i64 8}
-!23 = !{!"_ZTSN6icu_7710GenderInfoE", !24, i64 0, !9, i64 8}
-!24 = !{!"_ZTSN6icu_777UObjectE"}
-!25 = distinct !{!25, !26, !16}
-!26 = !{!"llvm.loop.mustprogress"}
-!27 = distinct !{!27, !16}
-!28 = distinct !{!28, !16}
-!29 = !{!30, !30, i64 0}
-!30 = !{!"vtable pointer", !8, i64 0}
-!31 = !{!32, !14, i64 4}
-!32 = !{!"_ZTSN6icu_779UInitOnceE", !33, i64 0, !14, i64 4}
-!33 = !{!"_ZTSSt6atomicIiE", !34, i64 0}
-!34 = !{!"_ZTSSt13__atomic_baseIiE", !9, i64 0}
-!35 = !{!36, !5, i64 40}
-!36 = !{!"_ZTSN6icu_776LocaleE", !24, i64 0, !7, i64 8, !7, i64 20, !7, i64 26, !9, i64 32, !5, i64 40, !7, i64 48, !5, i64 208, !7, i64 216}
-!37 = !{!38, !39, i64 0}
-!38 = !{!"_ZTSN6icu_7716LocalPointerBaseI15UResourceBundleEE", !39, i64 0}
-!39 = !{!"p1 _ZTS15UResourceBundle", !6, i64 0}
-!40 = !{!41, !9, i64 56}
-!41 = !{!"_ZTSN6icu_7710CharStringE", !4, i64 0, !9, i64 56}
-!42 = !{!7, !7, i64 0}
-!43 = distinct !{!43, !26, !16}
-!44 = !{!45, !45, i64 0}
-!45 = !{!"_ZTS7UGender", !7, i64 0}
-!46 = distinct !{!46, !26, !16}
-!47 = distinct !{!47, !26, !16}
+!18 = !{!"p1 _ZTS10UHashtable", !6, i64 0}
+!19 = !{!20, !9, i64 8}
+!20 = !{!"_ZTSN6icu_7710GenderInfoE", !21, i64 0, !9, i64 8}
+!21 = !{!"_ZTSN6icu_777UObjectE"}
+!22 = distinct !{!22, !23}
+!23 = !{!"llvm.loop.mustprogress"}
+!24 = !{!25, !25, i64 0}
+!25 = !{!"vtable pointer", !8, i64 0}
+!26 = !{!27, !14, i64 4}
+!27 = !{!"_ZTSN6icu_779UInitOnceE", !28, i64 0, !14, i64 4}
+!28 = !{!"_ZTSSt6atomicIiE", !29, i64 0}
+!29 = !{!"_ZTSSt13__atomic_baseIiE", !9, i64 0}
+!30 = !{!31, !5, i64 40}
+!31 = !{!"_ZTSN6icu_776LocaleE", !21, i64 0, !7, i64 8, !7, i64 20, !7, i64 26, !9, i64 32, !5, i64 40, !7, i64 48, !5, i64 208, !7, i64 216}
+!32 = !{!33, !34, i64 0}
+!33 = !{!"_ZTSN6icu_7716LocalPointerBaseI15UResourceBundleEE", !34, i64 0}
+!34 = !{!"p1 _ZTS15UResourceBundle", !6, i64 0}
+!35 = !{!36, !9, i64 56}
+!36 = !{!"_ZTSN6icu_7710CharStringE", !4, i64 0, !9, i64 56}
+!37 = !{!7, !7, i64 0}
+!38 = distinct !{!38, !23}
+!39 = !{!40, !40, i64 0}
+!40 = !{!"_ZTS7UGender", !7, i64 0}
+!41 = distinct !{!41, !23}
+!42 = distinct !{!42, !23}

@@ -106,7 +106,7 @@ define dso_local noundef i32 @diffcore_count_changes(ptr noundef %0, ptr noundef
   %39 = getelementptr inbounds nuw i8, ptr %.163.pn, i64 20
   %40 = load i32, ptr %39, align 4, !tbaa !8
   %.not80.not = icmp eq i32 %40, 0
-  br i1 %.not80.not, label %.preheader, label %.preheader94, !llvm.loop !15
+  br i1 %.not80.not, label %.preheader, label %.preheader94
 
 .preheader:                                       ; preds = %.loopexit, %19
   %.064.lcssa = phi ptr [ %20, %19 ], [ %.367, %.loopexit ]
@@ -127,7 +127,7 @@ define dso_local noundef i32 @diffcore_count_changes(ptr noundef %0, ptr noundef
   %47 = getelementptr inbounds nuw i8, ptr %.468104, i64 12
   %48 = load i32, ptr %47, align 4, !tbaa !8
   %.not84 = icmp eq i32 %48, 0
-  br i1 %.not84, label %._crit_edge, label %.lr.ph106, !llvm.loop !16
+  br i1 %.not84, label %._crit_edge, label %.lr.ph106, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %.lr.ph106, %.preheader
   %.4.lcssa = phi i64 [ %.055.lcssa, %.preheader ], [ %45, %.lr.ph106 ]
@@ -145,23 +145,23 @@ define dso_local noundef i32 @diffcore_count_changes(ptr noundef %0, ptr noundef
   br label %52
 
 52:                                               ; preds = %51, %50
-  store i64 %.057.lcssa, ptr %5, align 8, !tbaa !17
-  store i64 %.4.lcssa, ptr %6, align 8, !tbaa !17
+  store i64 %.057.lcssa, ptr %5, align 8, !tbaa !15
+  store i64 %.4.lcssa, ptr %6, align 8, !tbaa !15
   ret i32 0
 }
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc noundef ptr @hash_chars(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %4 = load ptr, ptr %3, align 8, !tbaa !19
+  %4 = load ptr, ptr %3, align 8, !tbaa !17
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  %6 = load i64, ptr %5, align 8, !tbaa !25
+  %6 = load i64, ptr %5, align 8, !tbaa !23
   %7 = trunc i64 %6 to i32
   %8 = tail call i32 @diff_filespec_is_binary(ptr noundef %0, ptr noundef %1) #8
   %9 = tail call ptr @xmalloc(i64 noundef 4104) #8
-  store i32 9, ptr %9, align 4, !tbaa !26
+  store i32 9, ptr %9, align 4, !tbaa !24
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 4
-  store i32 341, ptr %10, align 4, !tbaa !26
+  store i32 341, ptr %10, align 4, !tbaa !24
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(4096) %11, i8 0, i64 4096, i1 false)
   %.not5658 = icmp eq i32 %7, 0
@@ -180,7 +180,7 @@ define internal fastcc noundef ptr @hash_chars(ptr noundef %0, ptr noundef %1) u
   %.05260.us = phi ptr [ %12, %27 ], [ %4, %.lr.ph ]
   %.05359.us = phi ptr [ %.154.us, %27 ], [ %9, %.lr.ph ]
   %12 = getelementptr inbounds nuw i8, ptr %.05260.us, i64 1
-  %13 = load i8, ptr %.05260.us, align 1, !tbaa !27
+  %13 = load i8, ptr %.05260.us, align 1, !tbaa !25
   %14 = zext i8 %13 to i32
   %15 = add i32 %.05161.us, -1
   %16 = tail call i32 @llvm.fshl.i32(i32 %.04763.us, i32 %.04962.us, i32 7)
@@ -190,7 +190,7 @@ define internal fastcc noundef ptr @hash_chars(ptr noundef %0, ptr noundef %1) u
   %20 = icmp slt i32 %.064.us, 63
   %21 = icmp ne i8 %13, 10
   %or.cond5.us = select i1 %20, i1 %21, i1 false
-  br i1 %or.cond5.us, label %27, label %22, !llvm.loop !28
+  br i1 %or.cond5.us, label %27, label %22, !llvm.loop !26
 
 22:                                               ; preds = %.lr.ph.split.us
   %23 = mul i32 %17, 97
@@ -205,7 +205,7 @@ define internal fastcc noundef ptr @hash_chars(ptr noundef %0, ptr noundef %1) u
   %.148.us = phi i32 [ 0, %22 ], [ %18, %.lr.ph.split.us ]
   %.1.us = phi i32 [ 0, %22 ], [ %19, %.lr.ph.split.us ]
   %.not56.us = icmp eq i32 %15, 0
-  br i1 %.not56.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !29
+  br i1 %.not56.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !27
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %49
   %.064 = phi i32 [ %.1, %49 ], [ 0, %.lr.ph ]
@@ -215,7 +215,7 @@ define internal fastcc noundef ptr @hash_chars(ptr noundef %0, ptr noundef %1) u
   %.05260 = phi ptr [ %28, %49 ], [ %4, %.lr.ph ]
   %.05359 = phi ptr [ %.154, %49 ], [ %9, %.lr.ph ]
   %28 = getelementptr inbounds nuw i8, ptr %.05260, i64 1
-  %29 = load i8, ptr %.05260, align 1, !tbaa !27
+  %29 = load i8, ptr %.05260, align 1, !tbaa !25
   %30 = zext i8 %29 to i32
   %31 = add i32 %.05161, -1
   %32 = icmp eq i8 %29, 13
@@ -224,9 +224,9 @@ define internal fastcc noundef ptr @hash_chars(ptr noundef %0, ptr noundef %1) u
   br i1 %or.cond3, label %34, label %37
 
 34:                                               ; preds = %.lr.ph.split
-  %35 = load i8, ptr %28, align 1, !tbaa !27
+  %35 = load i8, ptr %28, align 1, !tbaa !25
   %36 = icmp eq i8 %35, 10
-  br i1 %36, label %49, label %37, !llvm.loop !28
+  br i1 %36, label %49, label %37, !llvm.loop !26
 
 37:                                               ; preds = %34, %.lr.ph.split
   %38 = tail call i32 @llvm.fshl.i32(i32 %.04763, i32 %.04962, i32 7)
@@ -236,7 +236,7 @@ define internal fastcc noundef ptr @hash_chars(ptr noundef %0, ptr noundef %1) u
   %42 = icmp slt i32 %.064, 63
   %43 = icmp ne i8 %29, 10
   %or.cond5 = and i1 %42, %43
-  br i1 %or.cond5, label %49, label %44, !llvm.loop !28
+  br i1 %or.cond5, label %49, label %44, !llvm.loop !26
 
 44:                                               ; preds = %37
   %45 = mul i32 %39, 97
@@ -251,7 +251,7 @@ define internal fastcc noundef ptr @hash_chars(ptr noundef %0, ptr noundef %1) u
   %.148 = phi i32 [ 0, %44 ], [ %.04763, %34 ], [ %40, %37 ]
   %.1 = phi i32 [ 0, %44 ], [ %.064, %34 ], [ %41, %37 ]
   %.not56 = icmp eq i32 %31, 0
-  br i1 %.not56, label %._crit_edge, label %.lr.ph.split, !llvm.loop !31
+  br i1 %.not56, label %._crit_edge, label %.lr.ph.split
 
 ._crit_edge:                                      ; preds = %27, %49
   %.053.lcssa = phi ptr [ %.154, %49 ], [ %.154.us, %27 ]
@@ -270,7 +270,7 @@ define internal fastcc noundef ptr @hash_chars(ptr noundef %0, ptr noundef %1) u
 
 ._crit_edge.thread:                               ; preds = %2, %51, %._crit_edge
   %.2 = phi ptr [ %55, %51 ], [ %.053.lcssa, %._crit_edge ], [ %9, %2 ]
-  %56 = load i32, ptr %.2, align 4, !tbaa !26
+  %56 = load i32, ptr %.2, align 4, !tbaa !24
   %.not57 = icmp eq i32 %56, 0
   br i1 %.not57, label %sane_qsort.exit, label %57
 
@@ -297,7 +297,7 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc noundef ptr @add_spanhash(ptr noundef captures(ret: address, provenance) %0, i32 noundef range(i32 0, 107927) %1, i32 noundef range(i32 -2147483647, -2147483648) %2) unnamed_addr #0 {
-  %4 = load i32, ptr %0, align 4, !tbaa !26
+  %4 = load i32, ptr %0, align 4, !tbaa !24
   %5 = shl nuw i32 1, %4
   %6 = add nuw i32 %5, 131071
   %7 = and i32 %6, %1
@@ -320,14 +320,14 @@ define internal fastcc noundef ptr @add_spanhash(ptr noundef captures(ret: addre
   store i32 %1, ptr %.lcssa33, align 4, !tbaa !11
   store i32 %2, ptr %15, align 4, !tbaa !8
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %17 = load i32, ptr %16, align 4, !tbaa !26
+  %17 = load i32, ptr %16, align 4, !tbaa !24
   %18 = add nsw i32 %17, -1
-  store i32 %18, ptr %16, align 4, !tbaa !26
+  store i32 %18, ptr %16, align 4, !tbaa !24
   %19 = icmp slt i32 %17, 1
   br i1 %19, label %20, label %69
 
 20:                                               ; preds = %._crit_edge
-  %21 = load i32, ptr %0, align 4, !tbaa !26
+  %21 = load i32, ptr %0, align 4, !tbaa !24
   %22 = shl nuw i32 1, %21
   %23 = shl i32 2, %21
   %24 = sext i32 %23 to i64
@@ -342,14 +342,14 @@ st_mult.exit.i:                                   ; preds = %20
   %27 = shl nuw nsw i64 %24, 3
   %28 = or disjoint i64 %27, 8
   %29 = tail call ptr @xmalloc(i64 noundef %28) #8
-  %30 = load i32, ptr %0, align 4, !tbaa !26
+  %30 = load i32, ptr %0, align 4, !tbaa !24
   %31 = add nsw i32 %30, 1
-  store i32 %31, ptr %29, align 4, !tbaa !26
+  store i32 %31, ptr %29, align 4, !tbaa !24
   %32 = add nsw i32 %30, -2
   %33 = shl i32 %32, %31
   %34 = sdiv i32 %33, %31
   %35 = getelementptr inbounds nuw i8, ptr %29, i64 4
-  store i32 %34, ptr %35, align 4, !tbaa !26
+  store i32 %34, ptr %35, align 4, !tbaa !24
   %36 = getelementptr inbounds nuw i8, ptr %29, i64 8
   tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %36, i8 0, i64 %27, i1 false)
   %.not45.i = icmp eq i32 %21, 31
@@ -384,9 +384,9 @@ st_mult.exit.i:                                   ; preds = %20
   %49 = getelementptr inbounds nuw i8, ptr %.lcssa39.i, i64 4
   store i32 %43, ptr %.lcssa39.i, align 4, !tbaa !11
   store i32 %41, ptr %49, align 4, !tbaa !8
-  %50 = load i32, ptr %35, align 4, !tbaa !26
+  %50 = load i32, ptr %35, align 4, !tbaa !24
   %51 = add nsw i32 %50, -1
-  store i32 %51, ptr %35, align 4, !tbaa !26
+  store i32 %51, ptr %35, align 4, !tbaa !24
   br label %57
 
 .lr.ph.i:                                         ; preds = %42, %.lr.ph.i
@@ -399,12 +399,12 @@ st_mult.exit.i:                                   ; preds = %20
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 4
   %56 = load i32, ptr %55, align 4, !tbaa !8
   %.not33.i = icmp eq i32 %56, 0
-  br i1 %.not33.i, label %.thread.i, label %.lr.ph.i, !llvm.loop !32
+  br i1 %.not33.i, label %.thread.i, label %.lr.ph.i
 
 57:                                               ; preds = %.thread.i, %38
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %spanhash_rehash.exit, label %38, !llvm.loop !33
+  br i1 %exitcond.not.i, label %spanhash_rehash.exit, label %38, !llvm.loop !29
 
 spanhash_rehash.exit:                             ; preds = %57, %st_mult.exit.i
   tail call void @free(ptr noundef nonnull %0) #8
@@ -413,7 +413,7 @@ spanhash_rehash.exit:                             ; preds = %57, %st_mult.exit.i
 .lr.ph:                                           ; preds = %.lr.ph53
   %58 = load i32, ptr %66, align 4, !tbaa !11
   %59 = icmp eq i32 %58, %1
-  br i1 %59, label %.lr.ph._crit_edge, label %.lr.ph53, !llvm.loop !34
+  br i1 %59, label %.lr.ph._crit_edge, label %.lr.ph53
 
 .lr.ph._crit_edge:                                ; preds = %.lr.ph, %.lr.ph.preheader
   %.lcssa49 = phi i32 [ %12, %.lr.ph.preheader ], [ %68, %.lr.ph ]
@@ -435,7 +435,7 @@ spanhash_rehash.exit:                             ; preds = %57, %st_mult.exit.i
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 4
   %68 = load i32, ptr %67, align 4, !tbaa !8
   %.not = icmp eq i32 %68, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !34
+  br i1 %.not, label %._crit_edge, label %.lr.ph
 
 69:                                               ; preds = %._crit_edge, %.lr.ph._crit_edge, %spanhash_rehash.exit
   %.0 = phi ptr [ %0, %.lr.ph._crit_edge ], [ %29, %spanhash_rehash.exit ], [ %0, %._crit_edge ]
@@ -517,26 +517,21 @@ attributes #9 = { noreturn nounwind }
 !9 = !{!"spanhash", !10, i64 0, !10, i64 4}
 !10 = !{!"int", !6, i64 0}
 !11 = !{!9, !10, i64 0}
-!12 = distinct !{!12, !13, !14}
+!12 = distinct !{!12, !13}
 !13 = !{!"llvm.loop.mustprogress"}
-!14 = !{!"llvm.loop.estimated_trip_count"}
-!15 = distinct !{!15, !14}
-!16 = distinct !{!16, !13, !14}
-!17 = !{!18, !18, i64 0}
-!18 = !{!"long", !6, i64 0}
-!19 = !{!20, !5, i64 48}
-!20 = !{!"diff_filespec", !21, i64 0, !22, i64 40, !5, i64 48, !5, i64 56, !18, i64 64, !10, i64 72, !10, i64 76, !23, i64 80, !10, i64 82, !10, i64 82, !10, i64 82, !10, i64 82, !10, i64 82, !10, i64 82, !10, i64 82, !24, i64 88}
-!21 = !{!"object_id", !6, i64 0, !10, i64 32}
-!22 = !{!"p1 omnipotent char", !5, i64 0}
-!23 = !{!"short", !6, i64 0}
-!24 = !{!"p1 _ZTS15userdiff_driver", !5, i64 0}
-!25 = !{!20, !18, i64 64}
-!26 = !{!10, !10, i64 0}
-!27 = !{!6, !6, i64 0}
-!28 = distinct !{!28, !13}
-!29 = distinct !{!29, !14, !30}
-!30 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!31 = distinct !{!31, !14}
-!32 = distinct !{!32, !14}
-!33 = distinct !{!33, !13, !14}
-!34 = distinct !{!34, !14}
+!14 = distinct !{!14, !13}
+!15 = !{!16, !16, i64 0}
+!16 = !{!"long", !6, i64 0}
+!17 = !{!18, !5, i64 48}
+!18 = !{!"diff_filespec", !19, i64 0, !20, i64 40, !5, i64 48, !5, i64 56, !16, i64 64, !10, i64 72, !10, i64 76, !21, i64 80, !10, i64 82, !10, i64 82, !10, i64 82, !10, i64 82, !10, i64 82, !10, i64 82, !10, i64 82, !22, i64 88}
+!19 = !{!"object_id", !6, i64 0, !10, i64 32}
+!20 = !{!"p1 omnipotent char", !5, i64 0}
+!21 = !{!"short", !6, i64 0}
+!22 = !{!"p1 _ZTS15userdiff_driver", !5, i64 0}
+!23 = !{!18, !16, i64 64}
+!24 = !{!10, !10, i64 0}
+!25 = !{!6, !6, i64 0}
+!26 = distinct !{!26, !13}
+!27 = distinct !{!27, !28}
+!28 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!29 = distinct !{!29, !13}

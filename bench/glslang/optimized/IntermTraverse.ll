@@ -686,9 +686,9 @@ _ZN7glslang16TIntermTraverser14incrementDepthEP11TIntermNode.exit: ; preds = %22
 
 50:                                               ; preds = %_ZN7glslang16TIntermTraverser14incrementDepthEP11TIntermNode.exit
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 208
-  %52 = load ptr, ptr %51, align 8, !noalias !7
+  %52 = load ptr, ptr %51, align 8, !noalias !6
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 200
-  %54 = load ptr, ptr %53, align 8, !noalias !10
+  %54 = load ptr, ptr %53, align 8, !noalias !9
   %.not3237 = icmp eq ptr %52, %54
   br i1 %.not3237, label %.loopexit.thread, label %.lr.ph40
 
@@ -730,9 +730,9 @@ _ZN7glslang16TIntermTraverser14incrementDepthEP11TIntermNode.exit: ; preds = %22
 
 76:                                               ; preds = %56, %63, %70, %66
   %.3 = phi i8 [ %75, %70 ], [ 1, %66 ], [ 1, %63 ], [ 0, %56 ]
-  %77 = load ptr, ptr %53, align 8, !noalias !10
+  %77 = load ptr, ptr %53, align 8, !noalias !9
   %.not32 = icmp eq ptr %57, %77
-  br i1 %.not32, label %.loopexit, label %56, !llvm.loop !13
+  br i1 %.not32, label %.loopexit, label %56, !llvm.loop !12
 
 78:                                               ; preds = %_ZN7glslang16TIntermTraverser14incrementDepthEP11TIntermNode.exit
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 200
@@ -783,7 +783,7 @@ _ZN7glslang16TIntermTraverser14incrementDepthEP11TIntermNode.exit: ; preds = %22
   %105 = getelementptr inbounds nuw i8, ptr %.sroa.018.035, i64 8
   %106 = load ptr, ptr %81, align 8
   %.not31 = icmp eq ptr %105, %106
-  br i1 %.not31, label %.loopexit, label %84, !llvm.loop !14
+  br i1 %.not31, label %.loopexit, label %84, !llvm.loop !13
 
 .loopexit.thread:                                 ; preds = %50, %78
   %107 = load i32, ptr %11, align 4
@@ -2315,14 +2315,13 @@ attributes #8 = { noreturn nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5, !6}
+!4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{!"llvm.loop.estimated_trip_count"}
-!7 = !{!8}
-!8 = distinct !{!8, !9, !"_ZNSt6vectorIP11TIntermNodeN7glslang14pool_allocatorIS1_EEE6rbeginEv: argument 0"}
-!9 = distinct !{!9, !"_ZNSt6vectorIP11TIntermNodeN7glslang14pool_allocatorIS1_EEE6rbeginEv"}
-!10 = !{!11}
-!11 = distinct !{!11, !12, !"_ZNSt6vectorIP11TIntermNodeN7glslang14pool_allocatorIS1_EEE4rendEv: argument 0"}
-!12 = distinct !{!12, !"_ZNSt6vectorIP11TIntermNodeN7glslang14pool_allocatorIS1_EEE4rendEv"}
-!13 = distinct !{!13, !5, !6}
-!14 = distinct !{!14, !5, !6}
+!6 = !{!7}
+!7 = distinct !{!7, !8, !"_ZNSt6vectorIP11TIntermNodeN7glslang14pool_allocatorIS1_EEE6rbeginEv: argument 0"}
+!8 = distinct !{!8, !"_ZNSt6vectorIP11TIntermNodeN7glslang14pool_allocatorIS1_EEE6rbeginEv"}
+!9 = !{!10}
+!10 = distinct !{!10, !11, !"_ZNSt6vectorIP11TIntermNodeN7glslang14pool_allocatorIS1_EEE4rendEv: argument 0"}
+!11 = distinct !{!11, !"_ZNSt6vectorIP11TIntermNodeN7glslang14pool_allocatorIS1_EEE4rendEv"}
+!12 = distinct !{!12, !5}
+!13 = distinct !{!13, !5}

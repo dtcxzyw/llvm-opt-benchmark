@@ -121,7 +121,7 @@ define dso_local range(i64 -44, 1) i64 @FSE_buildCTable_wksp(ptr noundef writeon
   %67 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv217
   %68 = load i16, ptr %67, align 2, !tbaa !4
   %69 = getelementptr inbounds nuw i8, ptr %60, i64 %.0157195
-  store i64 %.0159194, ptr %69, align 1, !tbaa !12
+  store i64 %.0159194, ptr %69, align 1, !tbaa !11
   %70 = icmp sgt i16 %68, 8
   br i1 %70, label %.lr.ph191.preheader, label %._crit_edge192
 
@@ -132,10 +132,10 @@ define dso_local range(i64 -44, 1) i64 @FSE_buildCTable_wksp(ptr noundef writeon
 .lr.ph191:                                        ; preds = %.lr.ph191.preheader, %.lr.ph191
   %indvars.iv214 = phi i64 [ 8, %.lr.ph191.preheader ], [ %indvars.iv.next215, %.lr.ph191 ]
   %72 = getelementptr inbounds nuw i8, ptr %69, i64 %indvars.iv214
-  store i64 %.0159194, ptr %72, align 1, !tbaa !12
+  store i64 %.0159194, ptr %72, align 1, !tbaa !11
   %indvars.iv.next215 = add nuw nsw i64 %indvars.iv214, 8
   %73 = icmp samesign ult i64 %indvars.iv.next215, %71
-  br i1 %73, label %.lr.ph191, label %._crit_edge192, !llvm.loop !14
+  br i1 %73, label %.lr.ph191, label %._crit_edge192, !llvm.loop !13
 
 ._crit_edge192:                                   ; preds = %.lr.ph191, %.lr.ph197
   %74 = sext i16 %68 to i64
@@ -143,7 +143,7 @@ define dso_local range(i64 -44, 1) i64 @FSE_buildCTable_wksp(ptr noundef writeon
   %indvars.iv.next218 = add nuw nsw i64 %indvars.iv217, 1
   %76 = add i64 %.0159194, 72340172838076673
   %exitcond221.not = icmp eq i64 %indvars.iv.next218, %55
-  br i1 %exitcond221.not, label %.preheader173, label %.lr.ph197, !llvm.loop !15
+  br i1 %exitcond221.not, label %.preheader173, label %.lr.ph197, !llvm.loop !14
 
 .preheader172:                                    ; preds = %.preheader173, %.preheader172
   %.0160200 = phi i64 [ 0, %.preheader173 ], [ %88, %.preheader172 ]
@@ -163,7 +163,7 @@ define dso_local range(i64 -44, 1) i64 @FSE_buildCTable_wksp(ptr noundef writeon
   %87 = and i64 %86, %63
   %88 = add nuw nsw i64 %.0160200, 2
   %89 = icmp samesign ult i64 %88, %61
-  br i1 %89, label %.preheader172, label %.loopexit174, !llvm.loop !16
+  br i1 %89, label %.preheader172, label %.loopexit174, !llvm.loop !15
 
 .lr.ph188:                                        ; preds = %._crit_edge, %._crit_edge184
   %indvars.iv209 = phi i64 [ %indvars.iv.next210, %._crit_edge184 ], [ 0, %._crit_edge ]
@@ -191,18 +191,18 @@ define dso_local range(i64 -44, 1) i64 @FSE_buildCTable_wksp(ptr noundef writeon
   %.pn = add nuw i32 %.1156.pn, %16
   %.2 = and i32 %.pn, %8
   %99 = icmp ugt i32 %.2, %.1
-  br i1 %99, label %98, label %100, !llvm.loop !17
+  br i1 %99, label %98, label %100, !llvm.loop !16
 
 100:                                              ; preds = %98
   %101 = add nuw nsw i32 %.0153181, 1
   %exitcond208.not = icmp eq i32 %101, %92
-  br i1 %exitcond208.not, label %._crit_edge184, label %95, !llvm.loop !18
+  br i1 %exitcond208.not, label %._crit_edge184, label %95, !llvm.loop !17
 
 ._crit_edge184:                                   ; preds = %100, %.lr.ph188
   %.1156.lcssa = phi i32 [ %.0155186, %.lr.ph188 ], [ %.2, %100 ]
   %indvars.iv.next210 = add nuw nsw i64 %indvars.iv209, 1
   %exitcond213.not = icmp eq i64 %indvars.iv.next210, %55
-  br i1 %exitcond213.not, label %.loopexit174, label %.lr.ph188, !llvm.loop !19
+  br i1 %exitcond213.not, label %.loopexit174, label %.lr.ph188, !llvm.loop !18
 
 .loopexit174:                                     ; preds = %._crit_edge184, %.preheader172
   %wide.trip.count226 = zext i32 %7 to i64
@@ -234,7 +234,7 @@ define dso_local range(i64 -44, 1) i64 @FSE_buildCTable_wksp(ptr noundef writeon
   store i16 %111, ptr %117, align 2, !tbaa !4
   %indvars.iv.next223 = add nuw nsw i64 %indvars.iv222, 1
   %exitcond227.not = icmp eq i64 %indvars.iv.next223, %wide.trip.count226
-  br i1 %exitcond227.not, label %.preheader, label %106, !llvm.loop !20
+  br i1 %exitcond227.not, label %.preheader, label %106, !llvm.loop !19
 
 118:                                              ; preds = %.preheader, %141
   %indvars.iv228 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next229, %141 ]
@@ -249,15 +249,15 @@ define dso_local range(i64 -44, 1) i64 @FSE_buildCTable_wksp(ptr noundef writeon
 
 121:                                              ; preds = %118
   %122 = getelementptr inbounds nuw %struct.FSE_symbolCompressionTransform, ptr %13, i64 %indvars.iv228, i32 1
-  store i32 %105, ptr %122, align 4, !tbaa !21
+  store i32 %105, ptr %122, align 4, !tbaa !20
   br label %141
 
 123:                                              ; preds = %118, %118
   %124 = getelementptr inbounds nuw %struct.FSE_symbolCompressionTransform, ptr %13, i64 %indvars.iv228
   %125 = getelementptr inbounds nuw i8, ptr %124, i64 4
-  store i32 %103, ptr %125, align 4, !tbaa !21
+  store i32 %103, ptr %125, align 4, !tbaa !20
   %126 = add i32 %.0149202, -1
-  store i32 %126, ptr %124, align 4, !tbaa !24
+  store i32 %126, ptr %124, align 4, !tbaa !23
   %127 = add i32 %.0149202, 1
   br label %141
 
@@ -272,9 +272,9 @@ define dso_local range(i64 -44, 1) i64 @FSE_buildCTable_wksp(ptr noundef writeon
   %136 = sub i32 %135, %134
   %137 = getelementptr inbounds nuw %struct.FSE_symbolCompressionTransform, ptr %13, i64 %indvars.iv228
   %138 = getelementptr inbounds nuw i8, ptr %137, i64 4
-  store i32 %136, ptr %138, align 4, !tbaa !21
+  store i32 %136, ptr %138, align 4, !tbaa !20
   %139 = sub i32 %.0149202, %129
-  store i32 %139, ptr %137, align 4, !tbaa !24
+  store i32 %139, ptr %137, align 4, !tbaa !23
   %140 = add i32 %.0149202, %129
   br label %141
 
@@ -282,7 +282,7 @@ define dso_local range(i64 -44, 1) i64 @FSE_buildCTable_wksp(ptr noundef writeon
   %.1150 = phi i32 [ %140, %128 ], [ %.0149202, %121 ], [ %127, %123 ]
   %indvars.iv.next229 = add nuw nsw i64 %indvars.iv228, 1
   %exitcond233 = icmp eq i64 %indvars.iv.next229, %wide.trip.count232
-  br i1 %exitcond233, label %.loopexit, label %118, !llvm.loop !25
+  br i1 %exitcond233, label %.loopexit, label %118, !llvm.loop !24
 
 .loopexit:                                        ; preds = %141, %6
   %.0 = phi i64 [ -44, %6 ], [ 0, %141 ]
@@ -376,7 +376,7 @@ define internal fastcc i64 @FSE_writeNCount_generic(ptr noundef %0, i64 noundef 
 20:                                               ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %14
-  br i1 %exitcond.not, label %.critedge._crit_edge, label %.lr.ph, !llvm.loop !26
+  br i1 %exitcond.not, label %.critedge._crit_edge, label %.lr.ph, !llvm.loop !25
 
 .critedge.loopexit:                               ; preds = %.lr.ph
   %21 = trunc nuw i64 %indvars.iv to i32
@@ -407,7 +407,7 @@ define internal fastcc i64 @FSE_writeNCount_generic(ptr noundef %0, i64 noundef 
   %29 = lshr i32 %26, 16
   %30 = add i32 %25, 24
   %.not157.us = icmp ult i32 %.2126.lcssa, %30
-  br i1 %.not157.us, label %.preheader188, label %.lr.ph209.split.us, !llvm.loop !27
+  br i1 %.not157.us, label %.preheader188, label %.lr.ph209.split.us, !llvm.loop !26
 
 .preheader188:                                    ; preds = %.lr.ph209.split.us, %34, %.preheader189
   %.4138.lcssa = phi i32 [ %.0134231, %.preheader189 ], [ %38, %34 ], [ %29, %.lr.ph209.split.us ]
@@ -432,7 +432,7 @@ define internal fastcc i64 @FSE_writeNCount_generic(ptr noundef %0, i64 noundef 
   %38 = lshr i32 %35, 16
   %39 = add i32 %32, 24
   %.not157 = icmp ult i32 %.2126.lcssa, %39
-  br i1 %.not157, label %.preheader188, label %.lr.ph209.split, !llvm.loop !29
+  br i1 %.not157, label %.preheader188, label %.lr.ph209.split, !llvm.loop !28
 
 .lr.ph218:                                        ; preds = %.preheader188, %.lr.ph218
   %40 = phi i32 [ %44, %.lr.ph218 ], [ %31, %.preheader188 ]
@@ -443,7 +443,7 @@ define internal fastcc i64 @FSE_writeNCount_generic(ptr noundef %0, i64 noundef 
   %43 = add nsw i32 %.4131217, 2
   %44 = add i32 %40, 3
   %.not158 = icmp ult i32 %.2126.lcssa, %44
-  br i1 %.not158, label %._crit_edge, label %.lr.ph218, !llvm.loop !30
+  br i1 %.not158, label %._crit_edge, label %.lr.ph218, !llvm.loop !29
 
 ._crit_edge:                                      ; preds = %.lr.ph218, %.preheader188
   %.5139.lcssa = phi i32 [ %.4138.lcssa, %.preheader188 ], [ %42, %.lr.ph218 ]
@@ -508,7 +508,7 @@ define internal fastcc i64 @FSE_writeNCount_generic(ptr noundef %0, i64 noundef 
   %77 = add nsw i32 %.2147222, -1
   %78 = ashr i32 %.2143223, 1
   %79 = icmp slt i32 %66, %78
-  br i1 %79, label %.lr.ph224, label %._crit_edge225, !llvm.loop !31
+  br i1 %79, label %.lr.ph224, label %._crit_edge225, !llvm.loop !30
 
 ._crit_edge225:                                   ; preds = %.lr.ph224, %.preheader
   %.2147.lcssa = phi i32 [ %.0145228, %.preheader ], [ %77, %.lr.ph224 ]
@@ -536,7 +536,7 @@ define internal fastcc i64 @FSE_writeNCount_generic(ptr noundef %0, i64 noundef 
   %89 = icmp ult i32 %57, %8
   %90 = icmp ne i32 %66, 1
   %91 = and i1 %89, %90
-  br i1 %91, label %15, label %.critedge._crit_edge, !llvm.loop !32
+  br i1 %91, label %15, label %.critedge._crit_edge, !llvm.loop !31
 
 .critedge._crit_edge:                             ; preds = %88, %.critedge, %20
   %.0144.lcssa.ph = phi i32 [ %.0144229, %20 ], [ %.0144229, %.critedge ], [ %66, %88 ]
@@ -653,7 +653,7 @@ define dso_local range(i64 -44, 4294967296) i64 @FSE_normalizeCount(ptr noundef 
   %.081103 = phi i32 [ 0, %19 ], [ %69, %68 ]
   %31 = zext i32 %.081103 to i64
   %32 = getelementptr inbounds nuw i32, ptr %2, i64 %31
-  %33 = load i32, ptr %32, align 4, !tbaa !33
+  %33 = load i32, ptr %32, align 4, !tbaa !32
   %34 = zext i32 %33 to i64
   %35 = icmp eq i64 %3, %34
   br i1 %35, label %select.unfold, label %36
@@ -689,7 +689,7 @@ define dso_local range(i64 -44, 4294967296) i64 @FSE_normalizeCount(ptr noundef 
 51:                                               ; preds = %44
   %52 = and i64 %46, 65535
   %53 = getelementptr inbounds nuw [8 x i32], ptr @FSE_normalizeCount.rtbTable, i64 0, i64 %52
-  %54 = load i32, ptr %53, align 4, !tbaa !33
+  %54 = load i32, ptr %53, align 4, !tbaa !32
   %55 = zext i32 %54 to i64
   %56 = shl i64 %55, %25
   %57 = shl i64 %52, %22
@@ -717,7 +717,7 @@ define dso_local range(i64 -44, 4294967296) i64 @FSE_normalizeCount(ptr noundef 
   %.174 = phi i32 [ %.073106, %38 ], [ %43, %41 ], [ %67, %63 ]
   %69 = add i32 %.081103, 1
   %.not86 = icmp ugt i32 %69, %4
-  br i1 %.not86, label %70, label %30, !llvm.loop !34
+  br i1 %.not86, label %70, label %30, !llvm.loop !33
 
 70:                                               ; preds = %68
   %71 = sub nsw i32 0, %.174
@@ -744,7 +744,7 @@ define dso_local range(i64 -44, 4294967296) i64 @FSE_normalizeCount(ptr noundef 
   %.0109156.i = phi i64 [ %3, %77 ], [ %.1110.i, %103 ]
   %.0119154.i = phi i32 [ 0, %77 ], [ %.1120.i, %103 ]
   %85 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv.i
-  %86 = load i32, ptr %85, align 4, !tbaa !33
+  %86 = load i32, ptr %85, align 4, !tbaa !32
   %87 = icmp eq i32 %86, 0
   br i1 %87, label %88, label %90
 
@@ -786,7 +786,7 @@ define dso_local range(i64 -44, 4294967296) i64 @FSE_normalizeCount(ptr noundef 
   %.1110.i = phi i64 [ %.0109156.i, %88 ], [ %95, %91 ], [ %101, %98 ], [ %.0109156.i, %102 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.i, label %104, label %84, !llvm.loop !35
+  br i1 %exitcond.i, label %104, label %84, !llvm.loop !34
 
 104:                                              ; preds = %103
   %105 = sub i32 %26, %.1120.i
@@ -819,7 +819,7 @@ define dso_local range(i64 -44, 4294967296) i64 @FSE_normalizeCount(ptr noundef 
 
 122:                                              ; preds = %118
   %123 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv170.i
-  %124 = load i32, ptr %123, align 4, !tbaa !33
+  %124 = load i32, ptr %123, align 4, !tbaa !32
   %.not147.i = icmp ugt i32 %124, %117
   br i1 %.not147.i, label %129, label %125
 
@@ -835,7 +835,7 @@ define dso_local range(i64 -44, 4294967296) i64 @FSE_normalizeCount(ptr noundef 
   %.4113.i = phi i64 [ %128, %125 ], [ %.3112159.i, %122 ], [ %.3112159.i, %118 ]
   %indvars.iv.next171.i = add nuw nsw i64 %indvars.iv170.i, 1
   %exitcond174.i = icmp eq i64 %indvars.iv.next171.i, %wide.trip.count.i
-  br i1 %exitcond174.i, label %130, label %118, !llvm.loop !36
+  br i1 %exitcond174.i, label %130, label %118, !llvm.loop !35
 
 130:                                              ; preds = %129
   %131 = sub i32 %26, %.4123.i
@@ -853,14 +853,14 @@ define dso_local range(i64 -44, 4294967296) i64 @FSE_normalizeCount(ptr noundef 
   %.0132167.i = phi i32 [ %spec.select150.i, %.preheader.i ], [ 0, %132 ]
   %.0134166.i = phi i32 [ %spec.select.i, %.preheader.i ], [ 0, %132 ]
   %134 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv175.i
-  %135 = load i32, ptr %134, align 4, !tbaa !33
+  %135 = load i32, ptr %134, align 4, !tbaa !32
   %136 = icmp ugt i32 %135, %.0132167.i
   %137 = trunc nuw i64 %indvars.iv175.i to i32
   %spec.select.i = select i1 %136, i32 %137, i32 %.0134166.i
   %spec.select150.i = tail call i32 @llvm.umax.i32(i32 %135, i32 %.0132167.i)
   %indvars.iv.next176.i = add nuw nsw i64 %indvars.iv175.i, 1
   %exitcond179.i = icmp eq i64 %indvars.iv.next176.i, %wide.trip.count.i
-  br i1 %exitcond179.i, label %138, label %.preheader.i, !llvm.loop !37
+  br i1 %exitcond179.i, label %138, label %.preheader.i, !llvm.loop !36
 
 138:                                              ; preds = %.preheader.i
   %139 = zext i32 %spec.select.i to i64
@@ -900,7 +900,7 @@ define dso_local range(i64 -44, 4294967296) i64 @FSE_normalizeCount(ptr noundef 
   %155 = icmp eq i32 %.3117165.i, %4
   %156 = select i1 %155, i32 0, i32 %154
   %.not145.i = icmp eq i32 %.2129.i, 0
-  br i1 %.not145.i, label %select.unfold, label %.lr.ph.i, !llvm.loop !38
+  br i1 %.not145.i, label %select.unfold, label %.lr.ph.i, !llvm.loop !37
 
 157:                                              ; preds = %144
   %158 = add nsw i64 %22, -1
@@ -924,7 +924,7 @@ define dso_local range(i64 -44, 4294967296) i64 @FSE_normalizeCount(ptr noundef 
 
 170:                                              ; preds = %165
   %171 = getelementptr inbounds nuw i32, ptr %2, i64 %166
-  %172 = load i32, ptr %171, align 4, !tbaa !33
+  %172 = load i32, ptr %171, align 4, !tbaa !32
   %173 = zext i32 %172 to i64
   %174 = mul i64 %164, %173
   %175 = add i64 %174, %.0124160.i
@@ -944,7 +944,7 @@ define dso_local range(i64 -44, 4294967296) i64 @FSE_normalizeCount(ptr noundef 
   %.2126.i = phi i64 [ %175, %178 ], [ %.0124160.i, %165 ]
   %183 = add i32 %.4118161.i, 1
   %.not143.not.i = icmp ugt i32 %183, %4
-  br i1 %.not143.not.i, label %select.unfold, label %165, !llvm.loop !39
+  br i1 %.not143.not.i, label %select.unfold, label %165, !llvm.loop !38
 
 184:                                              ; preds = %70
   %185 = trunc i32 %.174 to i16
@@ -971,8 +971,8 @@ define dso_local noundef i64 @FSE_buildCTable_rle(ptr noundef writeonly captures
   %8 = zext i8 %1 to i64
   %9 = getelementptr inbounds nuw %struct.FSE_symbolCompressionTransform, ptr %4, i64 %8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 4
-  store i32 0, ptr %10, align 4, !tbaa !21
-  store i32 0, ptr %9, align 4, !tbaa !24
+  store i32 0, ptr %10, align 4, !tbaa !20
+  store i32 0, ptr %9, align 4, !tbaa !23
   ret i64 0
 }
 
@@ -1015,9 +1015,9 @@ define internal fastcc i64 @FSE_compress_usingCTable_generic(ptr noundef %0, i64
   %23 = getelementptr inbounds i32, ptr %18, i64 %22
   %24 = zext i8 %16 to i64
   %25 = getelementptr inbounds nuw %struct.FSE_symbolCompressionTransform, ptr %23, i64 %24
-  %.sroa.0.0.copyload.i54 = load i32, ptr %25, align 4, !tbaa !33
+  %.sroa.0.0.copyload.i54 = load i32, ptr %25, align 4, !tbaa !32
   %.sroa.4.0..sroa_idx.i55 = getelementptr inbounds nuw i8, ptr %25, i64 4
-  %.sroa.4.0.copyload.i56 = load i32, ptr %.sroa.4.0..sroa_idx.i55, align 4, !tbaa !33
+  %.sroa.4.0.copyload.i56 = load i32, ptr %.sroa.4.0..sroa_idx.i55, align 4, !tbaa !32
   %26 = add i32 %.sroa.4.0.copyload.i56, 32768
   %27 = lshr i32 %26, 16
   %28 = and i32 %26, -65536
@@ -1037,9 +1037,9 @@ define internal fastcc i64 @FSE_compress_usingCTable_generic(ptr noundef %0, i64
   %40 = load i8, ptr %39, align 1, !tbaa !8
   %41 = zext i8 %40 to i64
   %42 = getelementptr inbounds nuw %struct.FSE_symbolCompressionTransform, ptr %23, i64 %41
-  %.sroa.0.0.copyload.i46 = load i32, ptr %42, align 4, !tbaa !33
+  %.sroa.0.0.copyload.i46 = load i32, ptr %42, align 4, !tbaa !32
   %.sroa.4.0..sroa_idx.i47 = getelementptr inbounds nuw i8, ptr %42, i64 4
-  %.sroa.4.0.copyload.i48 = load i32, ptr %.sroa.4.0..sroa_idx.i47, align 4, !tbaa !33
+  %.sroa.4.0.copyload.i48 = load i32, ptr %.sroa.4.0..sroa_idx.i47, align 4, !tbaa !32
   %43 = add i32 %.sroa.4.0.copyload.i48, 32768
   %44 = lshr i32 %43, 16
   %45 = and i32 %43, -65536
@@ -1055,15 +1055,15 @@ define internal fastcc i64 @FSE_compress_usingCTable_generic(ptr noundef %0, i64
   %55 = load i8, ptr %54, align 1, !tbaa !8
   %56 = zext i8 %55 to i64
   %57 = getelementptr inbounds nuw %struct.FSE_symbolCompressionTransform, ptr %23, i64 %56
-  %.sroa.0.0.copyload.i49 = load i32, ptr %57, align 4, !tbaa !33
+  %.sroa.0.0.copyload.i49 = load i32, ptr %57, align 4, !tbaa !32
   %.sroa.4.0..sroa_idx.i50 = getelementptr inbounds nuw i8, ptr %57, i64 4
-  %.sroa.4.0.copyload.i51 = load i32, ptr %.sroa.4.0..sroa_idx.i50, align 4, !tbaa !33
+  %.sroa.4.0.copyload.i51 = load i32, ptr %.sroa.4.0..sroa_idx.i50, align 4, !tbaa !32
   %58 = zext i32 %.sroa.4.0.copyload.i51 to i64
   %59 = add nuw nsw i64 %58, %38
   %60 = lshr i64 %59, 16
   %61 = trunc nuw nsw i64 %60 to i32
   %62 = getelementptr inbounds nuw [32 x i32], ptr @BIT_mask, i64 0, i64 %60
-  %63 = load i32, ptr %62, align 4, !tbaa !33
+  %63 = load i32, ptr %62, align 4, !tbaa !32
   %64 = zext i32 %63 to i64
   %65 = and i64 %64, %38
   %66 = lshr i64 %38, %60
@@ -1073,7 +1073,7 @@ define internal fastcc i64 @FSE_compress_usingCTable_generic(ptr noundef %0, i64
   %70 = load i16, ptr %69, align 2, !tbaa !4
   %.not37 = icmp eq i32 %5, 0
   %71 = lshr i64 %59, 19
-  store i64 %65, ptr %0, align 1, !tbaa !12
+  store i64 %65, ptr %0, align 1, !tbaa !11
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 %71
   br i1 %.not37, label %77, label %73
 
@@ -1096,9 +1096,9 @@ define internal fastcc i64 @FSE_compress_usingCTable_generic(ptr noundef %0, i64
   %84 = load i8, ptr %83, align 1, !tbaa !8
   %85 = zext i8 %84 to i64
   %86 = getelementptr inbounds nuw %struct.FSE_symbolCompressionTransform, ptr %23, i64 %85
-  %.sroa.0.0.copyload.i59 = load i32, ptr %86, align 4, !tbaa !33
+  %.sroa.0.0.copyload.i59 = load i32, ptr %86, align 4, !tbaa !32
   %.sroa.4.0..sroa_idx.i60 = getelementptr inbounds nuw i8, ptr %86, i64 4
-  %.sroa.4.0.copyload.i61 = load i32, ptr %.sroa.4.0..sroa_idx.i60, align 4, !tbaa !33
+  %.sroa.4.0.copyload.i61 = load i32, ptr %.sroa.4.0..sroa_idx.i60, align 4, !tbaa !32
   %87 = add i32 %.sroa.4.0.copyload.i61, 32768
   %88 = lshr i32 %87, 16
   %89 = and i32 %87, -65536
@@ -1131,15 +1131,15 @@ define internal fastcc i64 @FSE_compress_usingCTable_generic(ptr noundef %0, i64
   %103 = load i8, ptr %102, align 1, !tbaa !8
   %104 = zext i8 %103 to i64
   %105 = getelementptr inbounds nuw %struct.FSE_symbolCompressionTransform, ptr %23, i64 %104
-  %.sroa.0.0.copyload.i62 = load i32, ptr %105, align 4, !tbaa !33
+  %.sroa.0.0.copyload.i62 = load i32, ptr %105, align 4, !tbaa !32
   %.sroa.4.0..sroa_idx.i63 = getelementptr inbounds nuw i8, ptr %105, i64 4
-  %.sroa.4.0.copyload.i64 = load i32, ptr %.sroa.4.0..sroa_idx.i63, align 4, !tbaa !33
+  %.sroa.4.0.copyload.i64 = load i32, ptr %.sroa.4.0..sroa_idx.i63, align 4, !tbaa !32
   %106 = zext i32 %.sroa.4.0.copyload.i64 to i64
   %107 = add nuw nsw i64 %106, %.sroa.0.0
   %108 = lshr i64 %107, 16
   %109 = trunc nuw nsw i64 %108 to i32
   %110 = getelementptr inbounds nuw [32 x i32], ptr @BIT_mask, i64 0, i64 %108
-  %111 = load i32, ptr %110, align 4, !tbaa !33
+  %111 = load i32, ptr %110, align 4, !tbaa !32
   %112 = zext i32 %111 to i64
   %113 = and i64 %112, %.sroa.0.0
   %114 = zext nneg i32 %.sroa.47.0 to i64
@@ -1155,15 +1155,15 @@ define internal fastcc i64 @FSE_compress_usingCTable_generic(ptr noundef %0, i64
   %124 = load i8, ptr %123, align 1, !tbaa !8
   %125 = zext i8 %124 to i64
   %126 = getelementptr inbounds nuw %struct.FSE_symbolCompressionTransform, ptr %23, i64 %125
-  %.sroa.0.0.copyload.i65 = load i32, ptr %126, align 4, !tbaa !33
+  %.sroa.0.0.copyload.i65 = load i32, ptr %126, align 4, !tbaa !32
   %.sroa.4.0..sroa_idx.i66 = getelementptr inbounds nuw i8, ptr %126, i64 4
-  %.sroa.4.0.copyload.i67 = load i32, ptr %.sroa.4.0..sroa_idx.i66, align 4, !tbaa !33
+  %.sroa.4.0.copyload.i67 = load i32, ptr %.sroa.4.0..sroa_idx.i66, align 4, !tbaa !32
   %127 = zext i32 %.sroa.4.0.copyload.i67 to i64
   %128 = add nuw nsw i64 %127, %.sroa.091.0
   %129 = lshr i64 %128, 16
   %130 = trunc nuw nsw i64 %129 to i32
   %131 = getelementptr inbounds nuw [32 x i32], ptr @BIT_mask, i64 0, i64 %129
-  %132 = load i32, ptr %131, align 4, !tbaa !33
+  %132 = load i32, ptr %131, align 4, !tbaa !32
   %133 = zext i32 %132 to i64
   %134 = and i64 %133, %.sroa.091.0
   %135 = zext nneg i32 %116 to i64
@@ -1180,7 +1180,7 @@ define internal fastcc i64 @FSE_compress_usingCTable_generic(ptr noundef %0, i64
   %.not39 = icmp eq i32 %5, 0
   %146 = lshr i32 %139, 3
   %147 = zext nneg i32 %146 to i64
-  store i64 %138, ptr %.sroa.82.0, align 1, !tbaa !12
+  store i64 %138, ptr %.sroa.82.0, align 1, !tbaa !11
   %148 = getelementptr inbounds nuw i8, ptr %.sroa.82.0, i64 %147
   br i1 %.not39, label %153, label %149
 
@@ -1224,15 +1224,15 @@ define internal fastcc i64 @FSE_compress_usingCTable_generic(ptr noundef %0, i64
   %163 = load i8, ptr %162, align 1, !tbaa !8
   %164 = zext i8 %163 to i64
   %165 = getelementptr inbounds nuw %struct.FSE_symbolCompressionTransform, ptr %23, i64 %164
-  %.sroa.0.0.copyload.i69 = load i32, ptr %165, align 4, !tbaa !33
+  %.sroa.0.0.copyload.i69 = load i32, ptr %165, align 4, !tbaa !32
   %.sroa.4.0..sroa_idx.i70 = getelementptr inbounds nuw i8, ptr %165, i64 4
-  %.sroa.4.0.copyload.i71 = load i32, ptr %.sroa.4.0..sroa_idx.i70, align 4, !tbaa !33
+  %.sroa.4.0.copyload.i71 = load i32, ptr %.sroa.4.0..sroa_idx.i70, align 4, !tbaa !32
   %166 = zext i32 %.sroa.4.0.copyload.i71 to i64
   %167 = add nuw nsw i64 %.sroa.0.2160, %166
   %168 = lshr i64 %167, 16
   %169 = trunc nuw nsw i64 %168 to i32
   %170 = getelementptr inbounds nuw [32 x i32], ptr @BIT_mask, i64 0, i64 %168
-  %171 = load i32, ptr %170, align 4, !tbaa !33
+  %171 = load i32, ptr %170, align 4, !tbaa !32
   %172 = zext i32 %171 to i64
   %173 = and i64 %.sroa.0.2160, %172
   %174 = zext nneg i32 %.sroa.47.2157 to i64
@@ -1248,15 +1248,15 @@ define internal fastcc i64 @FSE_compress_usingCTable_generic(ptr noundef %0, i64
   %184 = load i8, ptr %183, align 1, !tbaa !8
   %185 = zext i8 %184 to i64
   %186 = getelementptr inbounds nuw %struct.FSE_symbolCompressionTransform, ptr %23, i64 %185
-  %.sroa.0.0.copyload.i72 = load i32, ptr %186, align 4, !tbaa !33
+  %.sroa.0.0.copyload.i72 = load i32, ptr %186, align 4, !tbaa !32
   %.sroa.4.0..sroa_idx.i73 = getelementptr inbounds nuw i8, ptr %186, i64 4
-  %.sroa.4.0.copyload.i74 = load i32, ptr %.sroa.4.0..sroa_idx.i73, align 4, !tbaa !33
+  %.sroa.4.0.copyload.i74 = load i32, ptr %.sroa.4.0..sroa_idx.i73, align 4, !tbaa !32
   %187 = zext i32 %.sroa.4.0.copyload.i74 to i64
   %188 = add nuw nsw i64 %.sroa.091.2158, %187
   %189 = lshr i64 %188, 16
   %190 = trunc nuw nsw i64 %189 to i32
   %191 = getelementptr inbounds nuw [32 x i32], ptr @BIT_mask, i64 0, i64 %189
-  %192 = load i32, ptr %191, align 4, !tbaa !33
+  %192 = load i32, ptr %191, align 4, !tbaa !32
   %193 = zext i32 %192 to i64
   %194 = and i64 %.sroa.091.2158, %193
   %195 = zext nneg i32 %176 to i64
@@ -1272,15 +1272,15 @@ define internal fastcc i64 @FSE_compress_usingCTable_generic(ptr noundef %0, i64
   %205 = load i8, ptr %204, align 1, !tbaa !8
   %206 = zext i8 %205 to i64
   %207 = getelementptr inbounds nuw %struct.FSE_symbolCompressionTransform, ptr %23, i64 %206
-  %.sroa.0.0.copyload.i75 = load i32, ptr %207, align 4, !tbaa !33
+  %.sroa.0.0.copyload.i75 = load i32, ptr %207, align 4, !tbaa !32
   %.sroa.4.0..sroa_idx.i76 = getelementptr inbounds nuw i8, ptr %207, i64 4
-  %.sroa.4.0.copyload.i77 = load i32, ptr %.sroa.4.0..sroa_idx.i76, align 4, !tbaa !33
+  %.sroa.4.0.copyload.i77 = load i32, ptr %.sroa.4.0..sroa_idx.i76, align 4, !tbaa !32
   %208 = zext i32 %.sroa.4.0.copyload.i77 to i64
   %209 = add nuw nsw i64 %208, %182
   %210 = lshr i64 %209, 16
   %211 = trunc nuw nsw i64 %210 to i32
   %212 = getelementptr inbounds nuw [32 x i32], ptr @BIT_mask, i64 0, i64 %210
-  %213 = load i32, ptr %212, align 4, !tbaa !33
+  %213 = load i32, ptr %212, align 4, !tbaa !32
   %214 = zext i32 %213 to i64
   %215 = and i64 %214, %182
   %216 = zext nneg i32 %197 to i64
@@ -1296,15 +1296,15 @@ define internal fastcc i64 @FSE_compress_usingCTable_generic(ptr noundef %0, i64
   %226 = load i8, ptr %225, align 1, !tbaa !8
   %227 = zext i8 %226 to i64
   %228 = getelementptr inbounds nuw %struct.FSE_symbolCompressionTransform, ptr %23, i64 %227
-  %.sroa.0.0.copyload.i78 = load i32, ptr %228, align 4, !tbaa !33
+  %.sroa.0.0.copyload.i78 = load i32, ptr %228, align 4, !tbaa !32
   %.sroa.4.0..sroa_idx.i79 = getelementptr inbounds nuw i8, ptr %228, i64 4
-  %.sroa.4.0.copyload.i80 = load i32, ptr %.sroa.4.0..sroa_idx.i79, align 4, !tbaa !33
+  %.sroa.4.0.copyload.i80 = load i32, ptr %.sroa.4.0..sroa_idx.i79, align 4, !tbaa !32
   %229 = zext i32 %.sroa.4.0.copyload.i80 to i64
   %230 = add nuw nsw i64 %229, %203
   %231 = lshr i64 %230, 16
   %232 = trunc nuw nsw i64 %231 to i32
   %233 = getelementptr inbounds nuw [32 x i32], ptr @BIT_mask, i64 0, i64 %231
-  %234 = load i32, ptr %233, align 4, !tbaa !33
+  %234 = load i32, ptr %233, align 4, !tbaa !32
   %235 = zext i32 %234 to i64
   %236 = and i64 %235, %203
   %237 = zext nneg i32 %218 to i64
@@ -1326,12 +1326,12 @@ define internal fastcc i64 @FSE_compress_usingCTable_generic(ptr noundef %0, i64
   %253 = icmp ugt ptr %252, %11
   %254 = select i1 %.not40, i1 %253, i1 false
   %.sroa.82.3 = select i1 %254, ptr %11, ptr %252
-  store i64 %242, ptr %.sroa.82.2159, align 1, !tbaa !12
+  store i64 %242, ptr %.sroa.82.2159, align 1, !tbaa !11
   %.sroa.47.3 = and i32 %243, 7
   %.pn = shl nuw nsw i64 %251, 3
   %.sroa.0102.3 = lshr i64 %242, %.pn
   %255 = icmp ugt ptr %225, %2
-  br i1 %255, label %161, label %._crit_edge, !llvm.loop !40
+  br i1 %255, label %161, label %._crit_edge, !llvm.loop !39
 
 ._crit_edge:                                      ; preds = %161, %158
   %.sroa.0102.2.lcssa = phi i64 [ %.sroa.0102.1, %158 ], [ %.sroa.0102.3, %161 ]
@@ -1341,7 +1341,7 @@ define internal fastcc i64 @FSE_compress_usingCTable_generic(ptr noundef %0, i64
   %.sroa.0.2.lcssa = phi i64 [ %.sroa.0.1, %158 ], [ %224, %161 ]
   %256 = zext i16 %.val.i.i52 to i64
   %257 = getelementptr inbounds nuw [32 x i32], ptr @BIT_mask, i64 0, i64 %256
-  %258 = load i32, ptr %257, align 4, !tbaa !33
+  %258 = load i32, ptr %257, align 4, !tbaa !32
   %259 = zext i32 %258 to i64
   %260 = and i64 %.sroa.0.2.lcssa, %259
   %261 = zext nneg i32 %.sroa.47.2.lcssa to i64
@@ -1350,7 +1350,7 @@ define internal fastcc i64 @FSE_compress_usingCTable_generic(ptr noundef %0, i64
   %264 = add nuw nsw i32 %.sroa.47.2.lcssa, %17
   %265 = lshr i32 %264, 3
   %266 = zext nneg i32 %265 to i64
-  store i64 %263, ptr %.sroa.82.2.lcssa, align 1, !tbaa !12
+  store i64 %263, ptr %.sroa.82.2.lcssa, align 1, !tbaa !11
   %267 = getelementptr inbounds nuw i8, ptr %.sroa.82.2.lcssa, i64 %266
   %268 = icmp ugt ptr %267, %11
   %spec.store.select.i.i = select i1 %268, ptr %11, ptr %267
@@ -1364,7 +1364,7 @@ define internal fastcc i64 @FSE_compress_usingCTable_generic(ptr noundef %0, i64
   %276 = add nuw nsw i32 %269, %17
   %277 = lshr i32 %276, 3
   %278 = zext nneg i32 %277 to i64
-  store i64 %275, ptr %spec.store.select.i.i, align 1, !tbaa !12
+  store i64 %275, ptr %spec.store.select.i.i, align 1, !tbaa !11
   %279 = getelementptr inbounds nuw i8, ptr %spec.store.select.i.i, i64 %278
   %280 = icmp ugt ptr %279, %11
   %spec.store.select.i.i82 = select i1 %280, ptr %11, ptr %279
@@ -1377,7 +1377,7 @@ define internal fastcc i64 @FSE_compress_usingCTable_generic(ptr noundef %0, i64
   %287 = add nuw nsw i32 %281, 1
   %288 = lshr i32 %287, 3
   %289 = zext nneg i32 %288 to i64
-  store i64 %286, ptr %spec.store.select.i.i82, align 1, !tbaa !12
+  store i64 %286, ptr %spec.store.select.i.i82, align 1, !tbaa !11
   %290 = getelementptr inbounds nuw i8, ptr %spec.store.select.i.i82, i64 %289
   %291 = icmp ugt ptr %290, %11
   %spec.store.select.i.i83 = select i1 %291, ptr %11, ptr %290
@@ -1441,35 +1441,34 @@ attributes #6 = { nocallback nofree nosync nounwind speculatable willreturn memo
 !6 = !{!"omnipotent char", !7, i64 0}
 !7 = !{!"Simple C/C++ TBAA"}
 !8 = !{!6, !6, i64 0}
-!9 = distinct !{!9, !10, !11}
+!9 = distinct !{!9, !10}
 !10 = !{!"llvm.loop.mustprogress"}
-!11 = !{!"llvm.loop.estimated_trip_count"}
-!12 = !{!13, !13, i64 0}
-!13 = !{!"long", !6, i64 0}
-!14 = distinct !{!14, !10, !11}
-!15 = distinct !{!15, !10, !11}
-!16 = distinct !{!16, !10, !11}
-!17 = distinct !{!17, !10, !11}
-!18 = distinct !{!18, !10, !11}
-!19 = distinct !{!19, !10, !11}
-!20 = distinct !{!20, !10, !11}
-!21 = !{!22, !23, i64 4}
-!22 = !{!"", !23, i64 0, !23, i64 4}
-!23 = !{!"int", !6, i64 0}
-!24 = !{!22, !23, i64 0}
-!25 = distinct !{!25, !10, !11}
-!26 = distinct !{!26, !10, !11}
-!27 = distinct !{!27, !10, !11, !28}
-!28 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!29 = distinct !{!29, !10, !11}
-!30 = distinct !{!30, !10, !11}
-!31 = distinct !{!31, !10, !11}
-!32 = distinct !{!32, !10, !11}
-!33 = !{!23, !23, i64 0}
-!34 = distinct !{!34, !10, !11}
-!35 = distinct !{!35, !10, !11}
-!36 = distinct !{!36, !10, !11}
-!37 = distinct !{!37, !10, !11}
-!38 = distinct !{!38, !10, !11}
-!39 = distinct !{!39, !10, !11}
-!40 = distinct !{!40, !10, !11}
+!11 = !{!12, !12, i64 0}
+!12 = !{!"long", !6, i64 0}
+!13 = distinct !{!13, !10}
+!14 = distinct !{!14, !10}
+!15 = distinct !{!15, !10}
+!16 = distinct !{!16, !10}
+!17 = distinct !{!17, !10}
+!18 = distinct !{!18, !10}
+!19 = distinct !{!19, !10}
+!20 = !{!21, !22, i64 4}
+!21 = !{!"", !22, i64 0, !22, i64 4}
+!22 = !{!"int", !6, i64 0}
+!23 = !{!21, !22, i64 0}
+!24 = distinct !{!24, !10}
+!25 = distinct !{!25, !10}
+!26 = distinct !{!26, !10, !27}
+!27 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!28 = distinct !{!28, !10}
+!29 = distinct !{!29, !10}
+!30 = distinct !{!30, !10}
+!31 = distinct !{!31, !10}
+!32 = !{!22, !22, i64 0}
+!33 = distinct !{!33, !10}
+!34 = distinct !{!34, !10}
+!35 = distinct !{!35, !10}
+!36 = distinct !{!36, !10}
+!37 = distinct !{!37, !10}
+!38 = distinct !{!38, !10}
+!39 = distinct !{!39, !10}

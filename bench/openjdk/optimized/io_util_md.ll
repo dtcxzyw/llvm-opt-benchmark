@@ -37,7 +37,7 @@ define hidden noundef i32 @handleOpen(ptr noundef readonly captures(none) %0, i3
   %13 = tail call ptr @__errno_location() #9
   %14 = load i32, ptr %13, align 4
   %15 = icmp eq i32 %14, 4
-  br i1 %15, label %.preheader, label %.critedge2, !llvm.loop !9
+  br i1 %15, label %.preheader, label %.critedge2, !llvm.loop !8
 
 16:                                               ; preds = %.preheader
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 24
@@ -128,7 +128,7 @@ define hidden void @fileOpen(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr
   store i8 0, ptr %.039, align 1
   %.0 = getelementptr inbounds i8, ptr %.039, i64 -1
   %18 = icmp ugt ptr %.0, %9
-  br i1 %18, label %.lr.ph, label %.critedge, !llvm.loop !10
+  br i1 %18, label %.lr.ph, label %.critedge, !llvm.loop !9
 
 .critedge:                                        ; preds = %.lr.ph, %17, %11
   %19 = tail call i32 @handleOpen(ptr noundef nonnull %9, i32 noundef %4, i32 noundef 438)
@@ -272,7 +272,7 @@ define hidden noundef i64 @handleRead(i32 noundef %0, ptr noundef captures(none)
   %9 = tail call ptr @__errno_location() #9
   %10 = load i32, ptr %9, align 4
   %11 = icmp eq i32 %10, 4
-  br i1 %11, label %5, label %.critedge, !llvm.loop !11
+  br i1 %11, label %5, label %.critedge, !llvm.loop !10
 
 .critedge:                                        ; preds = %5, %8
   ret i64 %6
@@ -295,7 +295,7 @@ define hidden noundef i64 @handleWrite(i32 noundef %0, ptr noundef readonly capt
   %9 = tail call ptr @__errno_location() #9
   %10 = load i32, ptr %9, align 4
   %11 = icmp eq i32 %10, 4
-  br i1 %11, label %5, label %.critedge, !llvm.loop !12
+  br i1 %11, label %5, label %.critedge, !llvm.loop !11
 
 .critedge:                                        ; preds = %5, %8
   ret i64 %6
@@ -319,7 +319,7 @@ define hidden range(i32 0, 2) i32 @handleAvailable(i32 noundef %0, ptr noundef w
   %8 = tail call ptr @__errno_location() #9
   %9 = load i32, ptr %8, align 4
   %10 = icmp eq i32 %9, 4
-  br i1 %10, label %5, label %.critedge, !llvm.loop !13
+  br i1 %10, label %5, label %.critedge, !llvm.loop !12
 
 11:                                               ; preds = %5
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 24
@@ -345,7 +345,7 @@ define hidden range(i32 0, 2) i32 @handleAvailable(i32 noundef %0, ptr noundef w
   %19 = tail call ptr @__errno_location() #9
   %20 = load i32, ptr %19, align 4
   %21 = icmp eq i32 %20, 4
-  br i1 %21, label %15, label %.critedge, !llvm.loop !14
+  br i1 %21, label %15, label %.critedge, !llvm.loop !13
 
 .critedge2:                                       ; preds = %15
   %22 = icmp sgt i32 %16, -1
@@ -415,7 +415,7 @@ define hidden i32 @handleSetLength(i32 noundef %0, i64 noundef %1) local_unnamed
   %7 = tail call ptr @__errno_location() #9
   %8 = load i32, ptr %7, align 4
   %9 = icmp eq i32 %8, 4
-  br i1 %9, label %3, label %.critedge, !llvm.loop !15
+  br i1 %9, label %3, label %.critedge, !llvm.loop !14
 
 .critedge:                                        ; preds = %3, %6
   ret i32 %4
@@ -439,7 +439,7 @@ define hidden i64 @handleGetLength(i32 noundef %0) local_unnamed_addr #0 {
   %8 = tail call ptr @__errno_location() #9
   %9 = load i32, ptr %8, align 4
   %10 = icmp eq i32 %9, 4
-  br i1 %10, label %4, label %.critedge.thread, !llvm.loop !16
+  br i1 %10, label %4, label %.critedge.thread, !llvm.loop !15
 
 .critedge:                                        ; preds = %4
   %11 = icmp slt i32 %5, 0
@@ -489,14 +489,13 @@ attributes #10 = { nounwind willreturn memory(read) }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7, !8}
-!11 = distinct !{!11, !7, !8}
-!12 = distinct !{!12, !7, !8}
-!13 = distinct !{!13, !7, !8}
-!14 = distinct !{!14, !7, !8}
-!15 = distinct !{!15, !7, !8}
-!16 = distinct !{!16, !7, !8}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7}
+!12 = distinct !{!12, !7}
+!13 = distinct !{!13, !7}
+!14 = distinct !{!14, !7}
+!15 = distinct !{!15, !7}

@@ -789,20 +789,20 @@ define noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7717UCharsTrieBu
   %15 = sub nsw i32 %12, %14
   %16 = sext i32 %15 to i64
   %17 = getelementptr inbounds i16, ptr %10, i64 %16
-  store ptr %17, ptr %5, align 8, !tbaa !48
+  store ptr %17, ptr %5, align 8, !tbaa !47
   %18 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeString5setToEaNS_14ConstChar16PtrEi(ptr noundef nonnull align 8 dereferenceable(64) %2, i8 noundef signext 0, ptr noundef nonnull %5, i32 noundef %14)
           to label %19 unwind label %21
 
 19:                                               ; preds = %8
-  %20 = load ptr, ptr %5, align 8, !tbaa !48
-  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %20) #13, !srcloc !50
+  %20 = load ptr, ptr %5, align 8, !tbaa !47
+  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %20) #13, !srcloc !49
   br label %24
 
 21:                                               ; preds = %8
   %22 = landingpad { ptr, i32 }
           cleanup
-  %23 = load ptr, ptr %5, align 8, !tbaa !48
-  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %23) #13, !srcloc !50
+  %23 = load ptr, ptr %5, align 8, !tbaa !47
+  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %23) #13, !srcloc !49
   resume { ptr, i32 } %22
 
 24:                                               ; preds = %19, %4
@@ -998,7 +998,7 @@ _ZNK6icu_7717UCharsTrieElement6charAtEiRKNS_13UnicodeStringE.exit: ; preds = %39
 _ZNK6icu_7717UCharsTrieElement6charAtEiRKNS_13UnicodeStringE.exit15: ; preds = %_ZNK6icu_7717UCharsTrieElement6charAtEiRKNS_13UnicodeStringE.exit, %51
   %.0.i.i.i13 = phi i16 [ %54, %51 ], [ -1, %_ZNK6icu_7717UCharsTrieElement6charAtEiRKNS_13UnicodeStringE.exit ]
   %55 = icmp eq i16 %.0.i.i.i11, %.0.i.i.i13
-  br i1 %55, label %37, label %.critedge.split.loop.exit18, !llvm.loop !51
+  br i1 %55, label %37, label %.critedge.split.loop.exit18, !llvm.loop !50
 
 .critedge.split.loop.exit18:                      ; preds = %_ZNK6icu_7717UCharsTrieElement6charAtEiRKNS_13UnicodeStringE.exit15
   %56 = trunc nsw i64 %indvars.iv.next to i32
@@ -1073,7 +1073,7 @@ _ZNK6icu_7717UCharsTrieElement6charAtEiRKNS_13UnicodeStringE.exit: ; preds = %22
 _ZNK6icu_7717UCharsTrieElement6charAtEiRKNS_13UnicodeStringE.exit16: ; preds = %34, %39
   %.0.i.i.i14 = phi i16 [ %42, %39 ], [ -1, %34 ]
   %43 = icmp eq i16 %.0.i.i.i, %.0.i.i.i14
-  br i1 %43, label %32, label %.critedge, !llvm.loop !52
+  br i1 %43, label %32, label %.critedge, !llvm.loop !51
 
 .critedge:                                        ; preds = %_ZNK6icu_7717UCharsTrieElement6charAtEiRKNS_13UnicodeStringE.exit16
   %44 = trunc nsw i64 %indvars.iv.next to i32
@@ -1144,13 +1144,13 @@ _ZNK6icu_7717UCharsTrieElement6charAtEiRKNS_13UnicodeStringE.exit: ; preds = %21
 _ZNK6icu_7717UCharsTrieElement6charAtEiRKNS_13UnicodeStringE.exit12: ; preds = %31, %36
   %.0.i.i.i10 = phi i16 [ %39, %36 ], [ -1, %31 ]
   %40 = icmp eq i16 %.0.i.i.i, %.0.i.i.i10
-  br i1 %40, label %31, label %41, !llvm.loop !53
+  br i1 %40, label %31, label %41, !llvm.loop !52
 
 41:                                               ; preds = %_ZNK6icu_7717UCharsTrieElement6charAtEiRKNS_13UnicodeStringE.exit12
   %42 = trunc nsw i64 %indvars.iv.next to i32
   %43 = add nsw i32 %.08, -1
   %44 = icmp sgt i32 %.08, 1
-  br i1 %44, label %21, label %45, !llvm.loop !54
+  br i1 %44, label %21, label %45, !llvm.loop !53
 
 45:                                               ; preds = %41
   ret i32 %42
@@ -1196,7 +1196,7 @@ _ZNK6icu_7717UCharsTrieElement6charAtEiRKNS_13UnicodeStringE.exit: ; preds = %22
   %.0.i.i.i = phi i16 [ %30, %27 ], [ -1, %22 ]
   %31 = icmp eq i16 %3, %.0.i.i.i
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
-  br i1 %31, label %22, label %32, !llvm.loop !55
+  br i1 %31, label %22, label %32, !llvm.loop !54
 
 32:                                               ; preds = %_ZNK6icu_7717UCharsTrieElement6charAtEiRKNS_13UnicodeStringE.exit
   %33 = trunc nsw i64 %indvars.iv to i32
@@ -1210,7 +1210,7 @@ define void @_ZN6icu_7717UCharsTrieBuilder18UCTLinearMatchNodeC2EPKDsiPNS_17Stri
 
 6:                                                ; preds = %4
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %8 = load i32, ptr %7, align 8, !tbaa !56
+  %8 = load i32, ptr %7, align 8, !tbaa !55
   br label %_ZN6icu_7717StringTrieBuilder15LinearMatchNodeC2EiPNS0_4NodeE.exit
 
 _ZN6icu_7717StringTrieBuilder15LinearMatchNodeC2EiPNS0_4NodeE.exit: ; preds = %4, %6
@@ -1219,27 +1219,27 @@ _ZN6icu_7717StringTrieBuilder15LinearMatchNodeC2EiPNS0_4NodeE.exit: ; preds = %4
   %11 = add i32 %10, 298634171
   %12 = add i32 %11, %9
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 %12, ptr %13, align 8, !tbaa !56
+  store i32 %12, ptr %13, align 8, !tbaa !55
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store i32 0, ptr %14, align 4, !tbaa !58
+  store i32 0, ptr %14, align 4, !tbaa !57
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i8 0, ptr %15, align 8, !tbaa !59
+  store i8 0, ptr %15, align 8, !tbaa !58
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  store i32 0, ptr %16, align 4, !tbaa !61
+  store i32 0, ptr %16, align 4, !tbaa !60
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i32 %2, ptr %17, align 8, !tbaa !62
+  store i32 %2, ptr %17, align 8, !tbaa !61
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr %3, ptr %18, align 8, !tbaa !65
+  store ptr %3, ptr %18, align 8, !tbaa !64
   store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN6icu_7717UCharsTrieBuilder18UCTLinearMatchNodeE, i64 16), ptr %0, align 8, !tbaa !20
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store ptr %1, ptr %19, align 8, !tbaa !66
+  store ptr %1, ptr %19, align 8, !tbaa !65
   %20 = invoke i32 @ustr_hashUCharsN_77(ptr noundef %1, i32 noundef %2)
           to label %21 unwind label %24
 
 21:                                               ; preds = %_ZN6icu_7717StringTrieBuilder15LinearMatchNodeC2EiPNS0_4NodeE.exit
   %22 = mul i32 %12, 37
   %23 = add i32 %20, %22
-  store i32 %23, ptr %13, align 8, !tbaa !56
+  store i32 %23, ptr %13, align 8, !tbaa !55
   ret void
 
 24:                                               ; preds = %_ZN6icu_7717StringTrieBuilder15LinearMatchNodeC2EiPNS0_4NodeE.exit
@@ -1262,11 +1262,11 @@ define noundef zeroext i1 @_ZNK6icu_7717UCharsTrieBuilder18UCTLinearMatchNodeeqE
 
 6:                                                ; preds = %4
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %8 = load ptr, ptr %7, align 8, !tbaa !66
+  %8 = load ptr, ptr %7, align 8, !tbaa !65
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %10 = load ptr, ptr %9, align 8, !tbaa !66
+  %10 = load ptr, ptr %9, align 8, !tbaa !65
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %12 = load i32, ptr %11, align 8, !tbaa !62
+  %12 = load i32, ptr %11, align 8, !tbaa !61
   %13 = tail call i32 @u_memcmp_77(ptr noundef %8, ptr noundef %10, i32 noundef %12)
   %14 = icmp eq i32 %13, 0
   br label %15
@@ -1283,25 +1283,25 @@ declare i32 @u_memcmp_77(ptr noundef, ptr noundef, i32 noundef) local_unnamed_ad
 ; Function Attrs: mustprogress uwtable
 define void @_ZN6icu_7717UCharsTrieBuilder18UCTLinearMatchNode5writeERNS_17StringTrieBuilderE(ptr noundef nonnull align 8 captures(none) dereferenceable(48) initializes((12, 16)) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %4 = load ptr, ptr %3, align 8, !tbaa !65
+  %4 = load ptr, ptr %3, align 8, !tbaa !64
   %5 = load ptr, ptr %4, align 8, !tbaa !20
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 40
   %7 = load ptr, ptr %6, align 8
   tail call void %7(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %1)
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %9 = load ptr, ptr %8, align 8, !tbaa !66
+  %9 = load ptr, ptr %8, align 8, !tbaa !65
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %11 = load i32, ptr %10, align 8, !tbaa !62
+  %11 = load i32, ptr %10, align 8, !tbaa !61
   %12 = tail call noundef i32 @_ZN6icu_7717UCharsTrieBuilder5writeEPKDsi(ptr noundef nonnull align 8 dereferenceable(112) %1, ptr noundef %9, i32 noundef %11)
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %14 = load i8, ptr %13, align 8, !tbaa !59
+  %14 = load i8, ptr %13, align 8, !tbaa !58
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %16 = load i32, ptr %15, align 4, !tbaa !61
+  %16 = load i32, ptr %15, align 4, !tbaa !60
   %17 = load ptr, ptr %1, align 8, !tbaa !20
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 96
   %19 = load ptr, ptr %18, align 8
   %20 = tail call noundef i32 %19(ptr noundef nonnull align 8 dereferenceable(112) %1)
-  %21 = load i32, ptr %10, align 8, !tbaa !62
+  %21 = load i32, ptr %10, align 8, !tbaa !61
   %22 = add i32 %20, -1
   %23 = add i32 %22, %21
   %24 = load ptr, ptr %1, align 8, !tbaa !20
@@ -1309,7 +1309,7 @@ define void @_ZN6icu_7717UCharsTrieBuilder18UCTLinearMatchNode5writeERNS_17Strin
   %26 = load ptr, ptr %25, align 8
   %27 = tail call noundef i32 %26(ptr noundef nonnull align 8 dereferenceable(112) %1, i8 noundef signext %14, i32 noundef %16, i32 noundef %23)
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store i32 %27, ptr %28, align 4, !tbaa !58
+  store i32 %27, ptr %28, align 4, !tbaa !57
   ret void
 }
 
@@ -1333,7 +1333,7 @@ define noundef i32 @_ZN6icu_7717UCharsTrieBuilder5writeEPKDsi(ptr noundef nonnul
   %.013.i = phi i32 [ %14, %.preheader.i ], [ %12, %10 ]
   %14 = shl nsw i32 %.013.i, 1
   %.not.i = icmp sgt i32 %14, %6
-  br i1 %.not.i, label %15, label %.preheader.i, !llvm.loop !68
+  br i1 %.not.i, label %15, label %.preheader.i, !llvm.loop !67
 
 15:                                               ; preds = %.preheader.i
   %16 = shl nsw i32 %.013.i, 2
@@ -1395,14 +1395,14 @@ define noundef ptr @_ZNK6icu_7717UCharsTrieBuilder21createLinearMatchNodeEiiiPNS
   %11 = sext i32 %1 to i64
   %12 = getelementptr inbounds %"class.icu_77::UCharsTrieElement", ptr %10, i64 %11
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %14 = load i32, ptr %12, align 4, !tbaa !8, !noalias !69
+  %14 = load i32, ptr %12, align 4, !tbaa !8, !noalias !68
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %16 = load i16, ptr %15, align 8, !tbaa !7, !noalias !69
+  %16 = load i16, ptr %15, align 8, !tbaa !7, !noalias !68
   %17 = icmp slt i16 %16, 0
   %18 = ashr i16 %16, 5
   %19 = sext i16 %18 to i32
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %21 = load i32, ptr %20, align 4, !noalias !69
+  %21 = load i32, ptr %20, align 4, !noalias !68
   %22 = select i1 %17, i32 %21, i32 %19
   %23 = icmp ult i32 %14, %22
   br i1 %23, label %24, label %_ZNK6icu_7713UnicodeStringixEi.exit.i
@@ -1412,11 +1412,11 @@ define noundef ptr @_ZNK6icu_7717UCharsTrieBuilder21createLinearMatchNodeEiiiPNS
   %.not.i.i.i.i = icmp eq i16 %25, 0
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 26
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %28 = load ptr, ptr %27, align 8, !noalias !69
+  %28 = load ptr, ptr %27, align 8, !noalias !68
   %29 = select i1 %.not.i.i.i.i, ptr %28, ptr %26
   %30 = sext i32 %14 to i64
   %31 = getelementptr inbounds i16, ptr %29, i64 %30
-  %32 = load i16, ptr %31, align 2, !tbaa !11, !noalias !69
+  %32 = load i16, ptr %31, align 2, !tbaa !11, !noalias !68
   %33 = zext i16 %32 to i32
   br label %_ZNK6icu_7713UnicodeStringixEi.exit.i
 
@@ -1497,7 +1497,7 @@ define noundef signext range(i8 0, 2) i8 @_ZN6icu_7717UCharsTrieBuilder14ensureC
   %.013 = phi i32 [ %10, %.preheader ], [ %8, %6 ]
   %10 = shl nsw i32 %.013, 1
   %.not = icmp sgt i32 %10, %1
-  br i1 %.not, label %11, label %.preheader, !llvm.loop !68
+  br i1 %.not, label %11, label %.preheader, !llvm.loop !67
 
 11:                                               ; preds = %.preheader
   %12 = shl nsw i32 %.013, 2
@@ -1557,7 +1557,7 @@ define noundef i32 @_ZN6icu_7717UCharsTrieBuilder5writeEi(ptr noundef nonnull al
   %.013.i = phi i32 [ %12, %.preheader.i ], [ %11, %9 ]
   %12 = shl nsw i32 %.013.i, 1
   %.not.i = icmp sgt i32 %12, %5
-  br i1 %.not.i, label %13, label %.preheader.i, !llvm.loop !68
+  br i1 %.not.i, label %13, label %.preheader.i, !llvm.loop !67
 
 13:                                               ; preds = %.preheader.i
   %14 = shl nsw i32 %.013.i, 2
@@ -1616,14 +1616,14 @@ define noundef i32 @_ZN6icu_7717UCharsTrieBuilder17writeElementUnitsEiii(ptr nou
   %8 = sext i32 %1 to i64
   %9 = getelementptr inbounds %"class.icu_77::UCharsTrieElement", ptr %7, i64 %8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %11 = load i32, ptr %9, align 4, !tbaa !8, !noalias !72
+  %11 = load i32, ptr %9, align 4, !tbaa !8, !noalias !71
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %13 = load i16, ptr %12, align 8, !tbaa !7, !noalias !72
+  %13 = load i16, ptr %12, align 8, !tbaa !7, !noalias !71
   %14 = icmp slt i16 %13, 0
   %15 = ashr i16 %13, 5
   %16 = sext i16 %15 to i32
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %18 = load i32, ptr %17, align 4, !noalias !72
+  %18 = load i32, ptr %17, align 4, !noalias !71
   %19 = select i1 %14, i32 %18, i32 %16
   %20 = icmp ult i32 %11, %19
   br i1 %20, label %21, label %_ZNK6icu_7717UCharsTrieElement9getStringERKNS_13UnicodeStringE.exit
@@ -1633,11 +1633,11 @@ define noundef i32 @_ZN6icu_7717UCharsTrieBuilder17writeElementUnitsEiii(ptr nou
   %.not.i.i.i.i = icmp eq i16 %22, 0
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 26
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %25 = load ptr, ptr %24, align 8, !noalias !72
+  %25 = load ptr, ptr %24, align 8, !noalias !71
   %26 = select i1 %.not.i.i.i.i, ptr %25, ptr %23
   %27 = sext i32 %11 to i64
   %28 = getelementptr inbounds i16, ptr %26, i64 %27
-  %29 = load i16, ptr %28, align 2, !tbaa !11, !noalias !72
+  %29 = load i16, ptr %28, align 2, !tbaa !11, !noalias !71
   %30 = zext i16 %29 to i32
   br label %_ZNK6icu_7717UCharsTrieElement9getStringERKNS_13UnicodeStringE.exit
 
@@ -1968,33 +1968,32 @@ attributes #15 = { allocsize(0) }
 !42 = !{!43}
 !43 = distinct !{!43, !44, !"_ZNK6icu_7717UCharsTrieElement9getStringERKNS_13UnicodeStringE: argument 0"}
 !44 = distinct !{!44, !"_ZNK6icu_7717UCharsTrieElement9getStringERKNS_13UnicodeStringE"}
-!45 = distinct !{!45, !46, !47}
+!45 = distinct !{!45, !46}
 !46 = !{!"llvm.loop.mustprogress"}
-!47 = !{!"llvm.loop.estimated_trip_count"}
-!48 = !{!49, !31, i64 0}
-!49 = !{!"_ZTSN6icu_7714ConstChar16PtrE", !31, i64 0}
-!50 = !{i64 2148858577}
-!51 = distinct !{!51, !46, !47}
-!52 = distinct !{!52, !46, !47}
-!53 = distinct !{!53, !46, !47}
-!54 = distinct !{!54, !46, !47}
-!55 = distinct !{!55, !46, !47}
-!56 = !{!57, !10, i64 8}
-!57 = !{!"_ZTSN6icu_7717StringTrieBuilder4NodeE", !25, i64 0, !10, i64 8, !10, i64 12}
-!58 = !{!57, !10, i64 12}
-!59 = !{!60, !5, i64 16}
-!60 = !{!"_ZTSN6icu_7717StringTrieBuilder9ValueNodeE", !57, i64 0, !5, i64 16, !10, i64 20}
-!61 = !{!60, !10, i64 20}
-!62 = !{!63, !10, i64 24}
-!63 = !{!"_ZTSN6icu_7717StringTrieBuilder15LinearMatchNodeE", !60, i64 0, !10, i64 24, !64, i64 32}
-!64 = !{!"p1 _ZTSN6icu_7717StringTrieBuilder4NodeE", !27, i64 0}
-!65 = !{!63, !64, i64 32}
-!66 = !{!67, !31, i64 40}
-!67 = !{!"_ZTSN6icu_7717UCharsTrieBuilder18UCTLinearMatchNodeE", !63, i64 0, !31, i64 40}
-!68 = distinct !{!68, !46, !47}
-!69 = !{!70}
-!70 = distinct !{!70, !71, !"_ZNK6icu_7717UCharsTrieElement9getStringERKNS_13UnicodeStringE: argument 0"}
-!71 = distinct !{!71, !"_ZNK6icu_7717UCharsTrieElement9getStringERKNS_13UnicodeStringE"}
-!72 = !{!73}
-!73 = distinct !{!73, !74, !"_ZNK6icu_7717UCharsTrieElement9getStringERKNS_13UnicodeStringE: argument 0"}
-!74 = distinct !{!74, !"_ZNK6icu_7717UCharsTrieElement9getStringERKNS_13UnicodeStringE"}
+!47 = !{!48, !31, i64 0}
+!48 = !{!"_ZTSN6icu_7714ConstChar16PtrE", !31, i64 0}
+!49 = !{i64 2148858577}
+!50 = distinct !{!50, !46}
+!51 = distinct !{!51, !46}
+!52 = distinct !{!52, !46}
+!53 = distinct !{!53, !46}
+!54 = distinct !{!54, !46}
+!55 = !{!56, !10, i64 8}
+!56 = !{!"_ZTSN6icu_7717StringTrieBuilder4NodeE", !25, i64 0, !10, i64 8, !10, i64 12}
+!57 = !{!56, !10, i64 12}
+!58 = !{!59, !5, i64 16}
+!59 = !{!"_ZTSN6icu_7717StringTrieBuilder9ValueNodeE", !56, i64 0, !5, i64 16, !10, i64 20}
+!60 = !{!59, !10, i64 20}
+!61 = !{!62, !10, i64 24}
+!62 = !{!"_ZTSN6icu_7717StringTrieBuilder15LinearMatchNodeE", !59, i64 0, !10, i64 24, !63, i64 32}
+!63 = !{!"p1 _ZTSN6icu_7717StringTrieBuilder4NodeE", !27, i64 0}
+!64 = !{!62, !63, i64 32}
+!65 = !{!66, !31, i64 40}
+!66 = !{!"_ZTSN6icu_7717UCharsTrieBuilder18UCTLinearMatchNodeE", !62, i64 0, !31, i64 40}
+!67 = distinct !{!67, !46}
+!68 = !{!69}
+!69 = distinct !{!69, !70, !"_ZNK6icu_7717UCharsTrieElement9getStringERKNS_13UnicodeStringE: argument 0"}
+!70 = distinct !{!70, !"_ZNK6icu_7717UCharsTrieElement9getStringERKNS_13UnicodeStringE"}
+!71 = !{!72}
+!72 = distinct !{!72, !73, !"_ZNK6icu_7717UCharsTrieElement9getStringERKNS_13UnicodeStringE: argument 0"}
+!73 = distinct !{!73, !"_ZNK6icu_7717UCharsTrieElement9getStringERKNS_13UnicodeStringE"}

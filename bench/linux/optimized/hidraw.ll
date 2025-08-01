@@ -150,7 +150,7 @@ define dso_local i32 @hidraw_connect(ptr noundef %0) #0 align 16 {
   %9 = getelementptr [64 x ptr], ptr @hidraw_table, i64 0, i64 %17
   %10 = load ptr, ptr %9, align 8
   %11 = icmp eq ptr %10, null
-  br i1 %11, label %12, label %.preheader, !llvm.loop !10
+  br i1 %11, label %12, label %.preheader, !llvm.loop !9
 
 12:                                               ; preds = %8
   %13 = getelementptr [64 x ptr], ptr @hidraw_table, i64 0, i64 %17
@@ -163,7 +163,7 @@ define dso_local i32 @hidraw_connect(ptr noundef %0) #0 align 16 {
   %16 = phi i64 [ %17, %8 ], [ 0, %5 ]
   %17 = add nuw nsw i64 %16, 1
   %18 = icmp eq i64 %17, 64
-  br i1 %18, label %.loopexit, label %8, !llvm.loop !11
+  br i1 %18, label %.loopexit, label %8, !llvm.loop !9
 
 .loopexit:                                        ; preds = %.preheader, %12
   %19 = phi i32 [ 0, %12 ], [ -22, %.preheader ]
@@ -301,7 +301,7 @@ drop_ref.exit:                                    ; preds = %13, %23, %27, %36
 define dso_local i32 @hidraw_init() local_unnamed_addr #4 section ".init.text" align 16 {
   %1 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #13
-  store i32 0, ptr %1, align 4, !annotation !12
+  store i32 0, ptr %1, align 4, !annotation !10
   %2 = call i32 @alloc_chrdev_region(ptr noundef nonnull %1, i32 noundef 0, i32 noundef 64, ptr noundef nonnull @.str.1) #13
   %3 = icmp slt i32 %2, 0
   br i1 %3, label %4, label %6
@@ -404,7 +404,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @hidraw_read(ptr noundef 
   %7 = load ptr, ptr %6, align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5) #13
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %9 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #17, !srcloc !13
+  %9 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #17, !srcloc !11
   %10 = inttoptr i64 %9 to ptr
   store i64 0, ptr %5, align 8
   store ptr %10, ptr %8, align 8
@@ -432,7 +432,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @hidraw_read(ptr noundef 
   %24 = load ptr, ptr %16, align 8
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 16
   call void @add_wait_queue(ptr noundef nonnull %25, ptr noundef nonnull %5) #13
-  %26 = call i32 asm sideeffect "xchgl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %17, i32 1, ptr nonnull elementtype(i32) %17) #13, !srcloc !14
+  %26 = call i32 asm sideeffect "xchgl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %17, i32 1, ptr nonnull elementtype(i32) %17) #13, !srcloc !12
   %27 = load i32, ptr %14, align 8
   %28 = load i32, ptr %15, align 4
   %29 = icmp eq i32 %27, %28
@@ -442,7 +442,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @hidraw_read(ptr noundef 
   %30 = load volatile i64, ptr %10, align 8
   %31 = and i64 %30, 131072
   %32 = icmp eq i64 %31, 0
-  br i1 %32, label %33, label %.loopexit, !prof !15
+  br i1 %32, label %33, label %.loopexit, !prof !13
 
 33:                                               ; preds = %.preheader
   %34 = load volatile i64, ptr %10, align 8
@@ -467,16 +467,16 @@ define internal range(i64 -2147483648, 2147483648) i64 @hidraw_read(ptr noundef 
   call void @mutex_unlock(ptr noundef nonnull %13) #13
   call void @schedule() #13
   call void @mutex_lock(ptr noundef nonnull %13) #13
-  %47 = call i32 asm sideeffect "xchgl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %17, i32 1, ptr nonnull elementtype(i32) %17) #13, !srcloc !16
+  %47 = call i32 asm sideeffect "xchgl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %17, i32 1, ptr nonnull elementtype(i32) %17) #13, !srcloc !14
   %48 = load i32, ptr %14, align 8
   %49 = load i32, ptr %15, align 4
   %50 = icmp eq i32 %48, %49
-  br i1 %50, label %.preheader, label %.loopexit, !llvm.loop !17
+  br i1 %50, label %.preheader, label %.loopexit, !llvm.loop !15
 
 .loopexit:                                        ; preds = %33, %37, %42, %46, %.preheader, %23
   %51 = phi i1 [ true, %23 ], [ false, %.preheader ], [ false, %42 ], [ false, %37 ], [ false, %33 ], [ true, %46 ]
   %52 = phi i32 [ 0, %23 ], [ -512, %.preheader ], [ -11, %42 ], [ -5, %37 ], [ -512, %33 ], [ 0, %46 ]
-  %53 = call i32 asm sideeffect "xchgl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %17, i32 0, ptr nonnull elementtype(i32) %17) #13, !srcloc !18
+  %53 = call i32 asm sideeffect "xchgl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %17, i32 0, ptr nonnull elementtype(i32) %17) #13, !srcloc !16
   %54 = load ptr, ptr %16, align 8
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 16
   call void @remove_wait_queue(ptr noundef nonnull %55, ptr noundef nonnull %5) #13
@@ -503,12 +503,12 @@ define internal range(i64 -2147483648, 2147483648) i64 @hidraw_read(ptr noundef 
   %67 = shl i64 %61, 32
   %68 = ashr exact i64 %67, 32
   %69 = icmp ugt i64 %68, 2147483647
-  br i1 %69, label %.critedge5, label %70, !prof !19
+  br i1 %69, label %.critedge5, label %70, !prof !17
 
 .critedge5:                                       ; preds = %66
-  call void asm sideeffect "42: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 42b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 42) #13, !srcloc !20
-  call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.6, i32 249, i32 2307, i64 12) #13, !srcloc !21
-  call void asm sideeffect "43: nop\0A\09.pushsection .discard.instr_end\0A\09.long 43b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 43) #13, !srcloc !22
+  call void asm sideeffect "42: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 42b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 42) #13, !srcloc !18
+  call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.6, i32 249, i32 2307, i64 12) #13, !srcloc !19
+  call void asm sideeffect "43: nop\0A\09.pushsection .discard.instr_end\0A\09.long 43b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 43) #13, !srcloc !20
   br label %.loopexit7
 
 70:                                               ; preds = %66
@@ -536,7 +536,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @hidraw_read(ptr noundef 
   %81 = and i32 %80, 63
   store i32 %81, ptr %15, align 4
   %82 = icmp eq i32 %75, 0
-  br i1 %82, label %19, label %.loopexit7.loopexit, !llvm.loop !23
+  br i1 %82, label %19, label %.loopexit7.loopexit, !llvm.loop !21
 
 .loopexit7.loopexit:                              ; preds = %.loopexit, %70, %73
   %.ph10 = phi i32 [ %52, %.loopexit ], [ %75, %73 ], [ -14, %70 ]
@@ -633,7 +633,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @hidraw_ioctl(ptr noundef
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 24
   %24 = load i32, ptr %23, align 8
   %25 = tail call i64 @llvm.read_register.i64(metadata !0)
-  %26 = tail call { ptr, i64 } asm sideeffect "call __put_user_${4:P}", "={cx},={rsp},0,{rax},i,{rsp},~{ebx},~{dirflag},~{fpsr},~{flags}"(ptr %10, i32 %24, i64 4, i64 %25) #13, !srcloc !24
+  %26 = tail call { ptr, i64 } asm sideeffect "call __put_user_${4:P}", "={cx},={rsp},0,{rax},i,{rsp},~{ebx},~{dirflag},~{fpsr},~{flags}"(ptr %10, i32 %24, i64 4, i64 %25) #13, !srcloc !22
   %27 = extractvalue { ptr, i64 } %26, 0
   %28 = extractvalue { ptr, i64 } %26, 1
   %29 = ptrtoint ptr %27 to i64
@@ -645,7 +645,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @hidraw_ioctl(ptr noundef
 
 33:                                               ; preds = %19
   %34 = tail call i64 @llvm.read_register.i64(metadata !0)
-  %35 = tail call { ptr, i32, i64 } asm sideeffect "call __get_user_${4:P}", "={ax},={rdx},={rsp},0,i,{rsp},~{dirflag},~{fpsr},~{flags}"(ptr %10, i64 4, i64 %34) #13, !srcloc !25
+  %35 = tail call { ptr, i32, i64 } asm sideeffect "call __get_user_${4:P}", "={ax},={rdx},={rsp},0,i,{rsp},~{dirflag},~{fpsr},~{flags}"(ptr %10, i64 4, i64 %34) #13, !srcloc !23
   %36 = extractvalue { ptr, i32, i64 } %35, 0
   %37 = extractvalue { ptr, i32, i64 } %35, 1
   %38 = extractvalue { ptr, i32, i64 } %35, 2
@@ -997,7 +997,7 @@ define internal noundef i32 @hidraw_release(ptr noundef readonly captures(none) 
   store i32 %27, ptr %13, align 4
   %28 = load i32, ptr %14, align 8
   %29 = icmp eq i32 %27, %28
-  br i1 %29, label %.loopexit, label %.preheader, !llvm.loop !26
+  br i1 %29, label %.loopexit, label %.preheader, !llvm.loop !24
 
 .loopexit:                                        ; preds = %.preheader, %2
   %30 = getelementptr inbounds nuw i8, ptr %7, i64 1048
@@ -1115,7 +1115,7 @@ define internal fastcc range(i64 -2147483648, 2147483648) i64 @hidraw_send_repor
 
 17:                                               ; preds = %13
   %18 = getelementptr inbounds nuw i8, ptr %15, i64 6352
-  %19 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #17, !srcloc !13
+  %19 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #17, !srcloc !11
   %20 = inttoptr i64 %19 to ptr
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 1320
   %22 = load i32, ptr %21, align 8
@@ -1128,7 +1128,7 @@ define internal fastcc range(i64 -2147483648, 2147483648) i64 @hidraw_send_repor
 
 25:                                               ; preds = %23
   %26 = getelementptr inbounds nuw i8, ptr %15, i64 6352
-  %27 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #17, !srcloc !13
+  %27 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #17, !srcloc !11
   %28 = inttoptr i64 %27 to ptr
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 1320
   %30 = load i32, ptr %29, align 8
@@ -1232,7 +1232,7 @@ define internal fastcc range(i64 -2147483648, 16384) i64 @hidraw_get_report(i32 
 
 24:                                               ; preds = %22
   %25 = getelementptr inbounds nuw i8, ptr %16, i64 6352
-  %26 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #17, !srcloc !13
+  %26 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #17, !srcloc !11
   %27 = inttoptr i64 %26 to ptr
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 1320
   %29 = load i32, ptr %28, align 8
@@ -1245,7 +1245,7 @@ define internal fastcc range(i64 -2147483648, 16384) i64 @hidraw_get_report(i32 
   br i1 %32, label %51, label %33
 
 33:                                               ; preds = %30
-  store i8 0, ptr %4, align 1, !annotation !12
+  store i8 0, ptr %4, align 1, !annotation !10
   %34 = call i64 @_copy_from_user(ptr noundef nonnull %4, ptr noundef %0, i64 noundef 1) #13
   %35 = icmp eq i64 %34, 0
   br i1 %35, label %36, label %48
@@ -1328,24 +1328,22 @@ attributes #18 = { nounwind allocsize(0) }
 !3 = !{i32 4, !"function_return_thunk_extern", i32 1}
 !4 = !{i32 4, !"indirect_branch_cs_prefix", i32 1}
 !5 = !{i32 4, !"SkipRaxSetup", i32 1}
-!6 = distinct !{!6, !7, !8, !9}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
 !8 = !{!"llvm.loop.unroll.disable"}
-!9 = !{!"llvm.loop.estimated_trip_count"}
-!10 = distinct !{!10, !7, !8, !9}
-!11 = distinct !{!11, !7, !8}
-!12 = !{!"auto-init"}
-!13 = !{i64 2148137211}
-!14 = !{i64 2156036872}
-!15 = !{!"branch_weights", i32 2000, i32 1}
-!16 = !{i64 2156038591}
-!17 = distinct !{!17, !7, !8, !9}
-!18 = !{i64 2156040278}
-!19 = !{!"branch_weights", i32 1, i32 2000}
-!20 = !{i64 2149677518, i64 2149677332, i64 2149677384, i64 2149677430, i64 2149677458}
-!21 = !{i64 2149677589, i64 2149677618, i64 2149677664, i64 2149677722, i64 2149677776, i64 2149677830, i64 2149677885, i64 2149677916, i64 2149678224, i64 2149678230, i64 2149678277, i64 2149678300, i64 2149678326}
-!22 = !{i64 2149678781, i64 2149678597, i64 2149678647, i64 2149678693, i64 2149678721}
-!23 = distinct !{!23, !7, !8, !9}
-!24 = !{i64 2156046563}
-!25 = !{i64 2156048509}
-!26 = distinct !{!26, !7, !8, !9}
+!9 = distinct !{!9, !7, !8}
+!10 = !{!"auto-init"}
+!11 = !{i64 2148137211}
+!12 = !{i64 2156036872}
+!13 = !{!"branch_weights", i32 2000, i32 1}
+!14 = !{i64 2156038591}
+!15 = distinct !{!15, !7, !8}
+!16 = !{i64 2156040278}
+!17 = !{!"branch_weights", i32 1, i32 2000}
+!18 = !{i64 2149677518, i64 2149677332, i64 2149677384, i64 2149677430, i64 2149677458}
+!19 = !{i64 2149677589, i64 2149677618, i64 2149677664, i64 2149677722, i64 2149677776, i64 2149677830, i64 2149677885, i64 2149677916, i64 2149678224, i64 2149678230, i64 2149678277, i64 2149678300, i64 2149678326}
+!20 = !{i64 2149678781, i64 2149678597, i64 2149678647, i64 2149678693, i64 2149678721}
+!21 = distinct !{!21, !7, !8}
+!22 = !{i64 2156046563}
+!23 = !{i64 2156048509}
+!24 = distinct !{!24, !7, !8}

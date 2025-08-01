@@ -1854,7 +1854,7 @@ dissect_cntr_event.exit:                          ; preds = %288, %279
   %345 = add nuw i32 %.03335.i.i, 1
   %346 = load i32, ptr %19, align 4
   %347 = icmp ult i32 %345, %346
-  br i1 %347, label %.lr.ph.i.i, label %dissect_get_axis_attr_list_request.exit.i, !llvm.loop !9
+  br i1 %347, label %.lr.ph.i.i, label %dissect_get_axis_attr_list_request.exit.i, !llvm.loop !8
 
 dissect_get_axis_attr_list_request.exit.i:        ; preds = %343, %309
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %19) #4
@@ -1940,7 +1940,7 @@ dissect_get_axis_attr_list_request.exit.i:        ; preds = %343, %309
 
 dissect_motion_attribute.exit.i.i:                ; preds = %390, %385, %379
   %.0.i.i.i = phi i32 [ %391, %390 ], [ 0, %385 ], [ 0, %379 ]
-  %392 = load i8, ptr @display_full_attribute_data, align 1, !range !10, !noundef !11
+  %392 = load i8, ptr @display_full_attribute_data, align 1, !range !9, !noundef !10
   %393 = trunc nuw i8 %392 to i1
   br i1 %393, label %394, label %398
 
@@ -1973,7 +1973,7 @@ dissect_motion_attribute.exit.i.i:                ; preds = %390, %385, %379
   %409 = add nuw i32 %.04953.i.i, 1
   %410 = load i32, ptr %14, align 4
   %411 = icmp ult i32 %409, %410
-  br i1 %411, label %.lr.ph.i59.i, label %dissect_set_axis_attr_list_request.exit.i, !llvm.loop !12
+  br i1 %411, label %.lr.ph.i59.i, label %dissect_set_axis_attr_list_request.exit.i, !llvm.loop !11
 
 dissect_set_axis_attr_list_request.exit.i:        ; preds = %405, %348
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14) #4
@@ -2333,7 +2333,7 @@ dissect_cyclic_rd.exit:                           ; preds = %588, %602
   %638 = add nuw nsw i32 %.03940.i, 16
   %639 = add nuw nsw i64 %.041.i, 1
   %exitcond.not.i124 = icmp eq i64 %639, %617
-  br i1 %exitcond.not.i124, label %dissect_devce_event.exit, label %622, !llvm.loop !13
+  br i1 %exitcond.not.i124, label %dissect_devce_event.exit, label %622, !llvm.loop !12
 
 dissect_devce_event.exit:                         ; preds = %622, %609
   %640 = add i32 %.9, %185
@@ -2461,7 +2461,7 @@ dissect_devce_event.exit:                         ; preds = %622, %609
 
 dissect_motion_attribute.exit.i.i128:             ; preds = %707, %703, %699
   %.0.i.i.i129 = phi i32 [ %708, %707 ], [ 0, %703 ], [ 0, %699 ]
-  %709 = load i8, ptr @display_full_attribute_data, align 1, !range !10, !noundef !11
+  %709 = load i8, ptr @display_full_attribute_data, align 1, !range !9, !noundef !10
   %710 = trunc nuw i8 %709 to i1
   br i1 %710, label %711, label %714
 
@@ -2494,7 +2494,7 @@ dissect_motion_attribute.exit.i.i128:             ; preds = %707, %703, %699
   %723 = add nuw i32 %.07077.i.i, 1
   %724 = load i32, ptr %7, align 4
   %725 = icmp ult i32 %723, %724
-  br i1 %725, label %.lr.ph.i.i126, label %dissect_get_axis_attr_list_response.exit.i, !llvm.loop !14
+  br i1 %725, label %.lr.ph.i.i126, label %dissect_get_axis_attr_list_response.exit.i, !llvm.loop !13
 
 dissect_get_axis_attr_list_response.exit.i:       ; preds = %721, %658
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #4
@@ -2540,7 +2540,7 @@ dissect_get_axis_attr_list_response.exit.i:       ; preds = %721, %658
   %747 = add nuw i32 %.02124.i.i, 1
   %748 = load i32, ptr %5, align 4
   %749 = icmp ult i32 %747, %748
-  br i1 %749, label %.lr.ph.i53.i, label %dissect_set_axis_attr_list_response.exit.i, !llvm.loop !15
+  br i1 %749, label %.lr.ph.i53.i, label %dissect_set_axis_attr_list_response.exit.i, !llvm.loop !14
 
 dissect_set_axis_attr_list_response.exit.i:       ; preds = %746, %726
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #4
@@ -2594,7 +2594,7 @@ dissect_devce_service.exit:                       ; preds = %642, %dissect_get_a
   %773 = add nuw i32 %.083146, 1
   %774 = load i32, ptr %26, align 4
   %775 = icmp ult i32 %773, %774
-  br i1 %775, label %157, label %._crit_edge, !llvm.loop !16
+  br i1 %775, label %157, label %._crit_edge, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %772, %151
   %.3.lcssa = phi i32 [ %.2, %151 ], [ %.4, %772 ]
@@ -2733,7 +2733,7 @@ define internal fastcc void @dissect_set_cyclic_list_request(ptr noundef %0, ptr
   %24 = add nuw i32 %.01820, 1
   %25 = load i32, ptr %7, align 4
   %26 = icmp ult i32 %24, %25
-  br i1 %26, label %.lr.ph, label %._crit_edge, !llvm.loop !17
+  br i1 %26, label %.lr.ph, label %._crit_edge, !llvm.loop !16
 }
 
 ; Function Attrs: null_pointer_is_valid
@@ -2797,7 +2797,7 @@ define internal fastcc void @dissect_set_cyclic_list_respone(ptr noundef %0, ptr
   %28 = add nuw i32 %.02528, 1
   %29 = load i32, ptr %7, align 4
   %30 = icmp ult i32 %28, %29
-  br i1 %30, label %.lr.ph, label %._crit_edge, !llvm.loop !18
+  br i1 %30, label %.lr.ph, label %._crit_edge, !llvm.loop !17
 }
 
 ; Function Attrs: null_pointer_is_valid
@@ -2823,16 +2823,15 @@ attributes #4 = { nounwind }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = !{i8 0, i8 2}
-!11 = !{}
-!12 = distinct !{!12, !7, !8}
-!13 = distinct !{!13, !7, !8}
-!14 = distinct !{!14, !7, !8}
-!15 = distinct !{!15, !7, !8}
-!16 = distinct !{!16, !7, !8}
-!17 = distinct !{!17, !7, !8}
-!18 = distinct !{!18, !7, !8}
+!8 = distinct !{!8, !7}
+!9 = !{i8 0, i8 2}
+!10 = !{}
+!11 = distinct !{!11, !7}
+!12 = distinct !{!12, !7}
+!13 = distinct !{!13, !7}
+!14 = distinct !{!14, !7}
+!15 = distinct !{!15, !7}
+!16 = distinct !{!16, !7}
+!17 = distinct !{!17, !7}

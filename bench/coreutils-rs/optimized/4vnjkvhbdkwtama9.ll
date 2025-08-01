@@ -180,35 +180,35 @@ define hidden noundef range(i32 0, 135) i32 @_ZN6uucore8features5pipes12splice_e
   %20 = sub i64 %.013, %13
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   %21 = icmp eq i64 %20, 0
-  br i1 %21, label %.loopexit, label %11, !llvm.loop !33
+  br i1 %21, label %.loopexit, label %11
 }
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @_ZN6uucore8features5pipes6splice17h2dfdbdacd482ceeaE(ptr noalias noundef sret({ i32, [3 x i32] }) align 8 captures(none) dereferenceable(16) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %1, ptr noalias noundef readonly align 4 captures(none) dereferenceable(4) %2, i64 noundef %3) unnamed_addr #0 {
-  %5 = load i32, ptr %2, align 4, !alias.scope !35, !noundef !4
+  %5 = load i32, ptr %2, align 4, !alias.scope !33, !noundef !4
   tail call void @_ZN3nix5fcntl6splice17h5e98b3398fbb50c9E(ptr noalias noundef nonnull sret({ i32, [3 x i32] }) align 8 captures(none) dereferenceable(16) %0, i32 noundef 0, ptr noalias noundef align 8 dereferenceable_or_null(8) null, i32 noundef %5, ptr noalias noundef align 8 dereferenceable_or_null(8) null, i64 noundef %3, i32 noundef 0)
   ret void
 }
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @_ZN6uucore8features5pipes6splice17h690e02e2cac05c80E(ptr noalias noundef sret({ i32, [3 x i32] }) align 8 captures(none) dereferenceable(16) %0, ptr noalias noundef readonly align 4 captures(none) dereferenceable(4) %1, ptr noalias noundef readonly align 4 captures(none) dereferenceable(4) %2, i64 noundef %3) unnamed_addr #0 {
-  %5 = load i32, ptr %1, align 4, !alias.scope !38, !noundef !4
-  %6 = load i32, ptr %2, align 4, !alias.scope !41, !noundef !4
+  %5 = load i32, ptr %1, align 4, !alias.scope !36, !noundef !4
+  %6 = load i32, ptr %2, align 4, !alias.scope !39, !noundef !4
   tail call void @_ZN3nix5fcntl6splice17h5e98b3398fbb50c9E(ptr noalias noundef nonnull sret({ i32, [3 x i32] }) align 8 captures(none) dereferenceable(16) %0, i32 noundef %5, ptr noalias noundef align 8 dereferenceable_or_null(8) null, i32 noundef %6, ptr noalias noundef align 8 dereferenceable_or_null(8) null, i64 noundef %3, i32 noundef 0)
   ret void
 }
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @_ZN6uucore8features5pipes6splice17h89e87719b628bfc7E.llvm.12736379047329743416(ptr noalias noundef sret({ i32, [3 x i32] }) align 8 captures(none) dereferenceable(16) %0, ptr noalias noundef readonly align 4 captures(none) dereferenceable(4) %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %2, i64 noundef %3) unnamed_addr #0 {
-  %5 = load i32, ptr %1, align 4, !alias.scope !44, !noundef !4
+  %5 = load i32, ptr %1, align 4, !alias.scope !42, !noundef !4
   tail call void @_ZN3nix5fcntl6splice17h5e98b3398fbb50c9E(ptr noalias noundef nonnull sret({ i32, [3 x i32] }) align 8 captures(none) dereferenceable(16) %0, i32 noundef %5, ptr noalias noundef align 8 dereferenceable_or_null(8) null, i32 noundef 1, ptr noalias noundef align 8 dereferenceable_or_null(8) null, i64 noundef %3, i32 noundef 0)
   ret void
 }
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @_ZN6uucore8features5pipes6splice17hcf172bb570a53b9cE(ptr noalias noundef sret({ i32, [3 x i32] }) align 8 captures(none) dereferenceable(16) %0, ptr noalias noundef readonly align 4 captures(none) dereferenceable(4) %1, ptr noalias noundef readonly align 4 captures(none) dereferenceable(4) %2, i64 noundef %3) unnamed_addr #0 {
-  %5 = load i32, ptr %1, align 4, !alias.scope !47, !noundef !4
-  %6 = load i32, ptr %2, align 4, !alias.scope !50, !noundef !4
+  %5 = load i32, ptr %1, align 4, !alias.scope !45, !noundef !4
+  %6 = load i32, ptr %2, align 4, !alias.scope !48, !noundef !4
   tail call void @_ZN3nix5fcntl6splice17h5e98b3398fbb50c9E(ptr noalias noundef nonnull sret({ i32, [3 x i32] }) align 8 captures(none) dereferenceable(16) %0, i32 noundef %5, ptr noalias noundef align 8 dereferenceable_or_null(8) null, i32 noundef %6, ptr noalias noundef align 8 dereferenceable_or_null(8) null, i64 noundef %3, i32 noundef 0)
   ret void
 }
@@ -326,23 +326,21 @@ attributes #7 = { noreturn }
 !30 = !{!26}
 !31 = !{i32 0, i32 2}
 !32 = !{i32 0, i32 134}
-!33 = distinct !{!33, !34}
-!34 = !{!"llvm.loop.estimated_trip_count"}
-!35 = !{!36}
-!36 = distinct !{!36, !37, !"_ZN59_$LT$std..fs..File$u20$as$u20$std..os..fd..raw..AsRawFd$GT$9as_raw_fd17h62e3ec25fda5c4daE.llvm.12736379047329743416: argument 0"}
-!37 = distinct !{!37, !"_ZN59_$LT$std..fs..File$u20$as$u20$std..os..fd..raw..AsRawFd$GT$9as_raw_fd17h62e3ec25fda5c4daE.llvm.12736379047329743416"}
-!38 = !{!39}
-!39 = distinct !{!39, !40, !"_ZN59_$LT$std..fs..File$u20$as$u20$std..os..fd..raw..AsRawFd$GT$9as_raw_fd17h62e3ec25fda5c4daE.llvm.12736379047329743416: argument 0"}
-!40 = distinct !{!40, !"_ZN59_$LT$std..fs..File$u20$as$u20$std..os..fd..raw..AsRawFd$GT$9as_raw_fd17h62e3ec25fda5c4daE.llvm.12736379047329743416"}
-!41 = !{!42}
-!42 = distinct !{!42, !43, !"_ZN59_$LT$std..fs..File$u20$as$u20$std..os..fd..raw..AsRawFd$GT$9as_raw_fd17h62e3ec25fda5c4daE.llvm.12736379047329743416: argument 0"}
-!43 = distinct !{!43, !"_ZN59_$LT$std..fs..File$u20$as$u20$std..os..fd..raw..AsRawFd$GT$9as_raw_fd17h62e3ec25fda5c4daE.llvm.12736379047329743416"}
-!44 = !{!45}
-!45 = distinct !{!45, !46, !"_ZN59_$LT$std..fs..File$u20$as$u20$std..os..fd..raw..AsRawFd$GT$9as_raw_fd17h62e3ec25fda5c4daE.llvm.12736379047329743416: argument 0"}
-!46 = distinct !{!46, !"_ZN59_$LT$std..fs..File$u20$as$u20$std..os..fd..raw..AsRawFd$GT$9as_raw_fd17h62e3ec25fda5c4daE.llvm.12736379047329743416"}
-!47 = !{!48}
-!48 = distinct !{!48, !49, !"_ZN84_$LT$std..os..unix..net..stream..UnixStream$u20$as$u20$std..os..fd..raw..AsRawFd$GT$9as_raw_fd17h6c423c5d6ac75ff9E.llvm.12736379047329743416: argument 0"}
-!49 = distinct !{!49, !"_ZN84_$LT$std..os..unix..net..stream..UnixStream$u20$as$u20$std..os..fd..raw..AsRawFd$GT$9as_raw_fd17h6c423c5d6ac75ff9E.llvm.12736379047329743416"}
-!50 = !{!51}
-!51 = distinct !{!51, !52, !"_ZN59_$LT$std..fs..File$u20$as$u20$std..os..fd..raw..AsRawFd$GT$9as_raw_fd17h62e3ec25fda5c4daE.llvm.12736379047329743416: argument 0"}
-!52 = distinct !{!52, !"_ZN59_$LT$std..fs..File$u20$as$u20$std..os..fd..raw..AsRawFd$GT$9as_raw_fd17h62e3ec25fda5c4daE.llvm.12736379047329743416"}
+!33 = !{!34}
+!34 = distinct !{!34, !35, !"_ZN59_$LT$std..fs..File$u20$as$u20$std..os..fd..raw..AsRawFd$GT$9as_raw_fd17h62e3ec25fda5c4daE.llvm.12736379047329743416: argument 0"}
+!35 = distinct !{!35, !"_ZN59_$LT$std..fs..File$u20$as$u20$std..os..fd..raw..AsRawFd$GT$9as_raw_fd17h62e3ec25fda5c4daE.llvm.12736379047329743416"}
+!36 = !{!37}
+!37 = distinct !{!37, !38, !"_ZN59_$LT$std..fs..File$u20$as$u20$std..os..fd..raw..AsRawFd$GT$9as_raw_fd17h62e3ec25fda5c4daE.llvm.12736379047329743416: argument 0"}
+!38 = distinct !{!38, !"_ZN59_$LT$std..fs..File$u20$as$u20$std..os..fd..raw..AsRawFd$GT$9as_raw_fd17h62e3ec25fda5c4daE.llvm.12736379047329743416"}
+!39 = !{!40}
+!40 = distinct !{!40, !41, !"_ZN59_$LT$std..fs..File$u20$as$u20$std..os..fd..raw..AsRawFd$GT$9as_raw_fd17h62e3ec25fda5c4daE.llvm.12736379047329743416: argument 0"}
+!41 = distinct !{!41, !"_ZN59_$LT$std..fs..File$u20$as$u20$std..os..fd..raw..AsRawFd$GT$9as_raw_fd17h62e3ec25fda5c4daE.llvm.12736379047329743416"}
+!42 = !{!43}
+!43 = distinct !{!43, !44, !"_ZN59_$LT$std..fs..File$u20$as$u20$std..os..fd..raw..AsRawFd$GT$9as_raw_fd17h62e3ec25fda5c4daE.llvm.12736379047329743416: argument 0"}
+!44 = distinct !{!44, !"_ZN59_$LT$std..fs..File$u20$as$u20$std..os..fd..raw..AsRawFd$GT$9as_raw_fd17h62e3ec25fda5c4daE.llvm.12736379047329743416"}
+!45 = !{!46}
+!46 = distinct !{!46, !47, !"_ZN84_$LT$std..os..unix..net..stream..UnixStream$u20$as$u20$std..os..fd..raw..AsRawFd$GT$9as_raw_fd17h6c423c5d6ac75ff9E.llvm.12736379047329743416: argument 0"}
+!47 = distinct !{!47, !"_ZN84_$LT$std..os..unix..net..stream..UnixStream$u20$as$u20$std..os..fd..raw..AsRawFd$GT$9as_raw_fd17h6c423c5d6ac75ff9E.llvm.12736379047329743416"}
+!48 = !{!49}
+!49 = distinct !{!49, !50, !"_ZN59_$LT$std..fs..File$u20$as$u20$std..os..fd..raw..AsRawFd$GT$9as_raw_fd17h62e3ec25fda5c4daE.llvm.12736379047329743416: argument 0"}
+!50 = distinct !{!50, !"_ZN59_$LT$std..fs..File$u20$as$u20$std..os..fd..raw..AsRawFd$GT$9as_raw_fd17h62e3ec25fda5c4daE.llvm.12736379047329743416"}

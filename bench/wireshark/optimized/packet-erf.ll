@@ -1575,7 +1575,7 @@ define hidden void @proto_register_erf() local_unnamed_addr #2 {
   call void @wmem_array_append(ptr noundef %68, ptr noundef nonnull %14, i32 noundef 1)
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, 2
-  br i1 %exitcond.not.i.i.i, label %.thread.i, label %83, !llvm.loop !9
+  br i1 %exitcond.not.i.i.i, label %.thread.i, label %83, !llvm.loop !8
 
 .thread.i:                                        ; preds = %83
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %14) #11
@@ -1622,7 +1622,7 @@ define hidden void @proto_register_erf() local_unnamed_addr #2 {
   call void @wmem_array_append(ptr noundef %68, ptr noundef nonnull %12, i32 noundef 1)
   %indvars.iv.next.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i, 1
   %exitcond.not.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i.i, 2
-  br i1 %exitcond.not.i.i.i.i, label %init_ns_addr_tag_value_fields.exit.i.i, label %105, !llvm.loop !9
+  br i1 %exitcond.not.i.i.i.i, label %init_ns_addr_tag_value_fields.exit.i.i, label %105, !llvm.loop !8
 
 init_ns_addr_tag_value_fields.exit.i.i:           ; preds = %105
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %12) #11
@@ -1688,7 +1688,7 @@ init_ns_addr_tag_value_fields.exit.i.i:           ; preds = %105
   call void @wmem_array_append(ptr noundef %68, ptr noundef nonnull %10, i32 noundef 1)
   %indvars.iv.next.i28.i.i = add nuw nsw i64 %indvars.iv.i27.i.i, 1
   %exitcond.not.i29.i.i = icmp eq i64 %indvars.iv.next.i28.i.i, 5
-  br i1 %exitcond.not.i29.i.i, label %init_tag_value_subfields.exit30.i.i, label %133, !llvm.loop !9
+  br i1 %exitcond.not.i29.i.i, label %init_tag_value_subfields.exit30.i.i, label %133, !llvm.loop !8
 
 init_tag_value_subfields.exit30.i.i:              ; preds = %133
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %10) #11
@@ -1746,7 +1746,7 @@ init_tag_value_subfields.exit34.i.i:              ; preds = %129
   call void @wmem_array_append(ptr noundef %68, ptr noundef nonnull %8, i32 noundef 1)
   %indvars.iv.next.i36.i.i = add nuw nsw i64 %indvars.iv.i35.i.i, 1
   %exitcond.not.i37.i.i = icmp eq i64 %indvars.iv.next.i36.i.i, 6
-  br i1 %exitcond.not.i37.i.i, label %init_tag_value_subfields.exit38.i.i, label %162, !llvm.loop !9
+  br i1 %exitcond.not.i37.i.i, label %init_tag_value_subfields.exit38.i.i, label %162, !llvm.loop !8
 
 init_tag_value_subfields.exit38.i.i:              ; preds = %162
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %8) #11
@@ -1782,7 +1782,7 @@ init_tag_value_subfields.exit38.i.i:              ; preds = %162
   call void @wmem_array_append(ptr noundef %68, ptr noundef nonnull %7, i32 noundef 1)
   %indvars.iv.next.i40.i.i = add nuw nsw i64 %indvars.iv.i39.i.i, 1
   %exitcond.not.i41.i.i = icmp eq i64 %indvars.iv.next.i40.i.i, 3
-  br i1 %exitcond.not.i41.i.i, label %init_tag_value_subfields.exit42.i.i, label %180, !llvm.loop !9
+  br i1 %exitcond.not.i41.i.i, label %init_tag_value_subfields.exit42.i.i, label %180, !llvm.loop !8
 
 init_tag_value_subfields.exit42.i.i:              ; preds = %180
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %7) #11
@@ -1818,7 +1818,7 @@ init_tag_value_subfields.exit42.i.i:              ; preds = %180
   call void @wmem_array_append(ptr noundef %68, ptr noundef nonnull %6, i32 noundef 1)
   %indvars.iv.next.i44.i.i = add nuw nsw i64 %indvars.iv.i43.i.i, 1
   %exitcond.not.i45.i.i = icmp eq i64 %indvars.iv.next.i44.i.i, 2
-  br i1 %exitcond.not.i45.i.i, label %init_tag_value_subfields.exit46.i.i, label %198, !llvm.loop !9
+  br i1 %exitcond.not.i45.i.i, label %init_tag_value_subfields.exit46.i.i, label %198, !llvm.loop !8
 
 init_tag_value_subfields.exit46.i.i:              ; preds = %198
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %6) #11
@@ -1883,7 +1883,7 @@ init_tag_value_subfields.exit50.i.i:              ; preds = %129
   call void @wmem_array_append(ptr noundef %68, ptr noundef nonnull %3, i32 noundef 1)
   %indvars.iv.next.i.i52.i.i = add nuw nsw i64 %indvars.iv.i.i51.i.i, 1
   %exitcond.not.i.i53.i.i = icmp eq i64 %indvars.iv.next.i.i52.i.i, 4
-  br i1 %exitcond.not.i.i53.i.i, label %init_tag_value_subfields.exit.i.i.i, label %227, !llvm.loop !9
+  br i1 %exitcond.not.i.i53.i.i, label %init_tag_value_subfields.exit.i.i.i, label %227, !llvm.loop !8
 
 init_tag_value_subfields.exit.i.i.i:              ; preds = %227
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %3) #11
@@ -1924,7 +1924,7 @@ init_tag_value_subfields.exit.i.i.i:              ; preds = %227
   call void @wmem_array_append(ptr noundef %68, ptr noundef nonnull %4, i32 noundef 1)
   %264 = add nuw nsw i64 %.016.i.i.i, 1
   %exitcond.not.i54.i.i = icmp eq i64 %264, 11
-  br i1 %exitcond.not.i54.i.i, label %init_ext_hdrs_tag_value_subfields.exit.i.i, label %.preheader.i.i.i, !llvm.loop !10
+  br i1 %exitcond.not.i54.i.i, label %init_ext_hdrs_tag_value_subfields.exit.i.i, label %.preheader.i.i.i, !llvm.loop !9
 
 init_ext_hdrs_tag_value_subfields.exit.i.i:       ; preds = %.preheader.i.i.i
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %4) #11
@@ -1941,7 +1941,7 @@ init_tag_fields.exit.i:                           ; preds = %init_ext_hdrs_tag_v
   %269 = call ptr @wmem_map_insert(ptr noundef %265, ptr noundef %268, ptr noundef %71)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 18
-  br i1 %exitcond.not.i, label %270, label %66, !llvm.loop !11
+  br i1 %exitcond.not.i, label %270, label %66, !llvm.loop !10
 
 270:                                              ; preds = %init_tag_fields.exit.i
   %271 = zext i16 %72 to i32
@@ -1958,7 +1958,7 @@ init_tag_fields.exit.i:                           ; preds = %init_ext_hdrs_tag_v
   call void @wmem_array_append(ptr noundef %276, ptr noundef nonnull %16, i32 noundef 1)
   %indvars.iv.next36.i = add nuw nsw i64 %indvars.iv35.i, 1
   %exitcond38.not.i = icmp eq i64 %indvars.iv.next36.i, 251
-  br i1 %exitcond38.not.i, label %.preheader.i, label %63, !llvm.loop !12
+  br i1 %exitcond38.not.i, label %.preheader.i, label %63, !llvm.loop !11
 
 277:                                              ; preds = %317, %.preheader.i
   %indvars.iv39.i = phi i64 [ 1, %.preheader.i ], [ %indvars.iv.next40.i, %317 ]
@@ -2043,7 +2043,7 @@ init_tag_fields.exit.i:                           ; preds = %init_ext_hdrs_tag_v
 317:                                              ; preds = %316, %305
   %indvars.iv.next40.i = add nuw nsw i64 %indvars.iv39.i, 1
   %exitcond42.not.i = icmp eq i64 %indvars.iv.next40.i, 18
-  br i1 %exitcond42.not.i, label %init_meta_tags.exit, label %277, !llvm.loop !13
+  br i1 %exitcond42.not.i, label %init_meta_tags.exit, label %277, !llvm.loop !12
 
 init_meta_tags.exit:                              ; preds = %317
   store i32 0, ptr %16, align 8
@@ -2352,7 +2352,7 @@ dissect_erf_pseudo_header.exit:                   ; preds = %erf_type_has_color.
   %182 = icmp slt i64 %172, 0
   %183 = icmp samesign ult i64 %indvars.iv.i.i, 15
   %184 = select i1 %182, i1 %183, i1 false
-  br i1 %184, label %170, label %find_host_id.exit.i, !llvm.loop !14
+  br i1 %184, label %170, label %find_host_id.exit.i, !llvm.loop !13
 
 find_host_id.exit.i:                              ; preds = %181
   %.not115.i = icmp eq i64 %.116.i.i, -1
@@ -2544,7 +2544,7 @@ find_host_id.exit.i:                              ; preds = %181
   store i8 %.0.i.i.i, ptr %315, align 1
   %indvars.iv.next.i.i.i = add nsw i64 %indvars.iv.i.i.i, -1
   %.not32.i.i.i = icmp eq i64 %indvars.iv.i.i.i, 0
-  br i1 %.not32.i.i.i, label %channelised_fill_sdh_g707_format.exit.loopexit.i.i, label %309, !llvm.loop !15
+  br i1 %.not32.i.i.i, label %channelised_fill_sdh_g707_format.exit.loopexit.i.i, label %309, !llvm.loop !14
 
 channelised_fill_sdh_g707_format.exit.loopexit.i.i: ; preds = %309
   %.pre.i.i = load i8, ptr %191, align 1
@@ -2594,7 +2594,7 @@ channelised_fill_sdh_g707_format.exit.i.i:        ; preds = %channelised_fill_sd
   %.1.i.i.i = phi i8 [ 1, %329 ], [ 0, %.preheader36.i.i.i ]
   %indvars.iv.next49.i.i.i = add nsw i64 %indvars.iv48.i.i.i, -1
   %.not50.i.i.i = icmp eq i64 %indvars.iv48.i.i.i, 0
-  br i1 %.not50.i.i.i, label %.loopexit37.i.i.i, label %.preheader36.i.i.i, !llvm.loop !16
+  br i1 %.not50.i.i.i, label %.loopexit37.i.i.i, label %.preheader36.i.i.i, !llvm.loop !15
 
 .lr.ph.i36.i.i:                                   ; preds = %321
   %333 = zext nneg i8 %317 to i64
@@ -2611,7 +2611,7 @@ channelised_fill_sdh_g707_format.exit.i.i:        ; preds = %channelised_fill_sd
   call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef %295, ptr noundef nonnull @.str.413, ptr noundef nonnull %.340.i.i.i, i32 noundef %339)
   %indvars.iv.next.i38.i.i = add nsw i64 %indvars.iv.i37.i.i, -1
   %.not.i39.i.i = icmp eq i64 %indvars.iv.i37.i.i, 0
-  br i1 %.not.i39.i.i, label %.loopexit.i.i.i, label %336, !llvm.loop !17
+  br i1 %.not.i39.i.i, label %.loopexit.i.i.i, label %336, !llvm.loop !16
 
 .loopexit37.i.i.i:                                ; preds = %332
   %340 = trunc nuw i8 %.1.i.i.i to i1
@@ -2634,7 +2634,7 @@ channelised_fill_sdh_g707_format.exit.i.i:        ; preds = %channelised_fill_sd
   call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef %295, ptr noundef nonnull @.str.415, ptr noundef nonnull %.444.i.i.i)
   %344 = add nuw nsw i32 %.23343.i.i.i, 1
   %exitcond.not.i.i = icmp eq i32 %.23343.i.i.i, %343
-  br i1 %exitcond.not.i.i, label %.loopexit.i.i.i, label %.lr.ph45.i.i.i, !llvm.loop !18
+  br i1 %exitcond.not.i.i, label %.loopexit.i.i.i, label %.lr.ph45.i.i.i, !llvm.loop !17
 
 .loopexit.i.i.i:                                  ; preds = %.lr.ph45.i.i.i, %336, %.preheader.i.i.i, %.loopexit37.i.i.i
   call void @wmem_strbuf_append_c(ptr noundef %295, i8 noundef signext 41)
@@ -2977,7 +2977,7 @@ proto_item_set_generated.exit36.i.i:              ; preds = %550, %547, %544
 556:                                              ; preds = %proto_item_set_generated.exit36.i.i, %.lr.ph.i134.i
   %557 = call ptr @wmem_list_frame_next(ptr noundef nonnull %.038.i.i)
   %.not26.i.i = icmp eq ptr %557, null
-  br i1 %.not26.i.i, label %dissect_host_anchor_id.exit.i, label %.lr.ph.i134.i, !llvm.loop !19
+  br i1 %.not26.i.i, label %dissect_host_anchor_id.exit.i, label %.lr.ph.i134.i, !llvm.loop !18
 
 dissect_host_anchor_id.exit.i:                    ; preds = %556, %537, %proto_item_set_generated.exit33.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16) #11
@@ -3030,7 +3030,7 @@ dissect_host_anchor_id.exit.i:                    ; preds = %556, %537, %proto_i
   %591 = icmp ne i8 %.0112.i, 0
   %592 = icmp samesign ult i64 %indvars.iv.i, 15
   %593 = select i1 %591, i1 %592, i1 false
-  br i1 %593, label %193, label %._crit_edge.i, !llvm.loop !20
+  br i1 %593, label %193, label %._crit_edge.i, !llvm.loop !19
 
 ._crit_edge.i:                                    ; preds = %589
   %594 = icmp eq i8 %.0112.i, 0
@@ -3258,7 +3258,7 @@ dissect_erf_pseudo_extension_header.exit:         ; preds = %614, %598, %597, %5
   %738 = zext nneg i8 %737 to i16
   %739 = getelementptr inbounds nuw i8, ptr %19, i64 14
   store i16 %738, ptr %739, align 2
-  %740 = load i8, ptr @erf_rawcell_first, align 1, !range !21, !noundef !22
+  %740 = load i8, ptr @erf_rawcell_first, align 1, !range !20, !noundef !21
   %741 = trunc nuw i8 %740 to i1
   br i1 %741, label %742, label %759
 
@@ -4082,7 +4082,7 @@ check_section_length.exit.i:                      ; preds = %1045, %1044, %1043,
   %1188 = getelementptr [32 x i32], ptr %1180, i64 0, i64 %1187
   %1189 = load i32, ptr %1188, align 4
   %.not17.i.i = icmp eq i32 %1189, -1
-  br i1 %.not17.i.i, label %dissect_meta_tag_bitfield.exit.i, label %.lr.ph.i.i153, !llvm.loop !23
+  br i1 %.not17.i.i, label %dissect_meta_tag_bitfield.exit.i, label %.lr.ph.i.i153, !llvm.loop !22
 
 dissect_meta_tag_bitfield.exit.i:                 ; preds = %.lr.ph.i.i153, %.preheader.i.i
   %.lcssa.i.i = phi i64 [ 0, %.preheader.i.i ], [ %1187, %.lr.ph.i.i153 ]
@@ -4291,7 +4291,7 @@ dissect_relative_time.exit.i:                     ; preds = %1256, %1254
   %spec.select74.i.i = select i1 %.not73.i.i, i1 %.076.i.i, i1 false
   %indvars.iv.next.i.i146 = add nuw nsw i64 %indvars.iv.i.i145, 1
   %exitcond.not.i.i147 = icmp eq i64 %indvars.iv.next.i.i146, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i147, label %._crit_edge.i.i, label %.lr.ph.i455.i, !llvm.loop !24
+  br i1 %exitcond.not.i.i147, label %._crit_edge.i.i, label %.lr.ph.i455.i, !llvm.loop !23
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph.i455.i
   br i1 %spec.select74.i.i, label %.lr.ph91.split.us.preheader.i.i, label %.lr.ph91.split.preheader.i.i
@@ -4342,7 +4342,7 @@ dissect_relative_time.exit.i:                     ; preds = %1256, %1254
   %1310 = getelementptr [32 x i32], ptr %1308, i64 0, i64 %1309
   %1311 = load i32, ptr %1310, align 4
   %.not71.us.i.i = icmp eq i32 %1311, -1
-  br i1 %.not71.us.i.i, label %.split.us.us.i.i, label %.lr.ph80.us.i.i, !llvm.loop !25
+  br i1 %.not71.us.i.i, label %.split.us.us.i.i, label %.lr.ph80.us.i.i, !llvm.loop !24
 
 .split.us.us.i.i:                                 ; preds = %.lr.ph80.us.i.i, %1298, %.lr.ph91.split.us.i.i
   %1312 = getelementptr [4 x i32], ptr %5, i64 0, i64 %indvars.iv105.i.i
@@ -4368,12 +4368,12 @@ dissect_relative_time.exit.i:                     ; preds = %1256, %1254
   %1320 = add i32 %.16282.us.us.i.i, 1
   %1321 = add nuw nsw i32 %.06381.us.us.i.i, 1
   %exitcond104.not.i.i = icmp eq i32 %1321, 32
-  br i1 %exitcond104.not.i.i, label %.split85.us.us.i.i, label %1314, !llvm.loop !26
+  br i1 %exitcond104.not.i.i, label %.split85.us.us.i.i, label %1314, !llvm.loop !25
 
 .split85.us.us.i.i:                               ; preds = %1319
   %indvars.iv.next106.i.i = add nuw nsw i64 %indvars.iv105.i.i, 1
   %exitcond108.not.i.i = icmp eq i64 %indvars.iv.next106.i.i, %wide.trip.count.i.i
-  br i1 %exitcond108.not.i.i, label %._crit_edge92.i.i, label %.lr.ph91.split.us.i.i, !llvm.loop !28
+  br i1 %exitcond108.not.i.i, label %._crit_edge92.i.i, label %.lr.ph91.split.us.i.i, !llvm.loop !27
 
 .lr.ph91.split.i.i:                               ; preds = %.split85.i.i, %.lr.ph91.split.preheader.i.i
   %indvars.iv100.i.i = phi i64 [ 0, %.lr.ph91.split.preheader.i.i ], [ %indvars.iv.next101.i.i, %.split85.i.i ]
@@ -4410,7 +4410,7 @@ dissect_relative_time.exit.i:                     ; preds = %1256, %1254
   %1342 = getelementptr [32 x i32], ptr %1340, i64 0, i64 %1341
   %1343 = load i32, ptr %1342, align 4
   %.not71.i.i = icmp eq i32 %1343, -1
-  br i1 %.not71.i.i, label %.split.i.i, label %.lr.ph80.i.i, !llvm.loop !25
+  br i1 %.not71.i.i, label %.split.i.i, label %.lr.ph80.i.i, !llvm.loop !24
 
 .split.i.i:                                       ; preds = %.lr.ph80.i.i, %1330, %.lr.ph91.split.i.i
   %1344 = getelementptr [4 x i32], ptr %5, i64 0, i64 %indvars.iv100.i.i
@@ -4440,12 +4440,12 @@ dissect_relative_time.exit.i:                     ; preds = %1256, %1254
   %1355 = add i32 %.16282.i.i, 1
   %1356 = add nuw nsw i32 %.06381.i.i, 1
   %exitcond99.not.i.i = icmp eq i32 %1356, 32
-  br i1 %exitcond99.not.i.i, label %.split85.i.i, label %1346, !llvm.loop !29
+  br i1 %exitcond99.not.i.i, label %.split85.i.i, label %1346, !llvm.loop !28
 
 .split85.i.i:                                     ; preds = %1354
   %indvars.iv.next101.i.i = add nuw nsw i64 %indvars.iv100.i.i, 1
   %exitcond103.not.i.i = icmp eq i64 %indvars.iv.next101.i.i, %wide.trip.count.i.i
-  br i1 %exitcond103.not.i.i, label %._crit_edge92.i.i, label %.lr.ph91.split.i.i, !llvm.loop !30
+  br i1 %exitcond103.not.i.i, label %._crit_edge92.i.i, label %.lr.ph91.split.i.i, !llvm.loop !29
 
 ._crit_edge92.i.i:                                ; preds = %.split85.i.i, %.split85.us.us.i.i
   %.059.lcssa.i.i = phi i8 [ %.2.us.us.i.i, %.split85.us.us.i.i ], [ %.2.i.i, %.split85.i.i ]
@@ -4648,7 +4648,7 @@ erf_ts_to_nstime.exit.i:                          ; preds = %1394, %1390
   %1433 = add i32 %1432, %.0410615.i
   %1434 = sub i32 %997, %1433
   %1435 = icmp sgt i32 %1434, 3
-  br i1 %1435, label %1005, label %._crit_edge.i138, !llvm.loop !31
+  br i1 %1435, label %1005, label %._crit_edge.i138, !llvm.loop !30
 
 ._crit_edge.i138:                                 ; preds = %1430, %988
   %.0410.lcssa.i = phi i32 [ 0, %988 ], [ %1433, %1430 ]
@@ -5481,29 +5481,28 @@ attributes #13 = { noreturn }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7, !8}
-!11 = distinct !{!11, !7, !8}
-!12 = distinct !{!12, !7, !8}
-!13 = distinct !{!13, !7, !8}
-!14 = distinct !{!14, !7, !8}
-!15 = distinct !{!15, !7, !8}
-!16 = distinct !{!16, !7, !8}
-!17 = distinct !{!17, !7, !8}
-!18 = distinct !{!18, !7, !8}
-!19 = distinct !{!19, !7, !8}
-!20 = distinct !{!20, !7, !8}
-!21 = !{i8 0, i8 2}
-!22 = !{}
-!23 = distinct !{!23, !7, !8}
-!24 = distinct !{!24, !7, !8}
-!25 = distinct !{!25, !7, !8}
-!26 = distinct !{!26, !7, !8, !27}
-!27 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!28 = distinct !{!28, !7, !8, !27}
-!29 = distinct !{!29, !7, !8}
-!30 = distinct !{!30, !7, !8}
-!31 = distinct !{!31, !7, !8}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7}
+!12 = distinct !{!12, !7}
+!13 = distinct !{!13, !7}
+!14 = distinct !{!14, !7}
+!15 = distinct !{!15, !7}
+!16 = distinct !{!16, !7}
+!17 = distinct !{!17, !7}
+!18 = distinct !{!18, !7}
+!19 = distinct !{!19, !7}
+!20 = !{i8 0, i8 2}
+!21 = !{}
+!22 = distinct !{!22, !7}
+!23 = distinct !{!23, !7}
+!24 = distinct !{!24, !7}
+!25 = distinct !{!25, !7, !26}
+!26 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!27 = distinct !{!27, !7, !26}
+!28 = distinct !{!28, !7}
+!29 = distinct !{!29, !7}
+!30 = distinct !{!30, !7}

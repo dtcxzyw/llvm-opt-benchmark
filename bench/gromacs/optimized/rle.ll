@@ -72,7 +72,7 @@ define void @Ptngc_comp_conv_to_rle(ptr noundef readonly captures(none) %0, i32 
   %25 = getelementptr inbounds i32, ptr %2, i64 %indvars.iv54
   store i32 %21, ptr %25, align 4, !tbaa !3
   %.not.i = icmp eq i32 %24, 0
-  br i1 %.not.i, label %add_rle.exit, label %23, !llvm.loop !10
+  br i1 %.not.i, label %add_rle.exit, label %23, !llvm.loop !9
 
 add_rle.exit:                                     ; preds = %23
   %26 = trunc nsw i64 %indvars.iv.next55 to i32
@@ -85,7 +85,7 @@ add_rle.exit:                                     ; preds = %23
   %.1 = phi i32 [ %.047, %11 ], [ %27, %add_rle.exit ], [ %8, %.lr.ph ]
   %indvars.iv.next58 = add nuw nsw i64 %indvars.iv57, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next58, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !11
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %28
   %29 = add nsw i32 %.1, 2
@@ -133,7 +133,7 @@ add_rle.exit:                                     ; preds = %23
   %41 = getelementptr inbounds i32, ptr %2, i64 %indvars.iv63
   store i32 %29, ptr %41, align 4, !tbaa !3
   %.not.i28 = icmp eq i32 %40, 0
-  br i1 %.not.i28, label %add_rle.exit32.loopexit, label %39, !llvm.loop !10
+  br i1 %.not.i28, label %add_rle.exit32.loopexit, label %39, !llvm.loop !9
 
 add_rle.exit32.loopexit:                          ; preds = %39
   %42 = trunc nsw i64 %indvars.iv.next64 to i32
@@ -158,7 +158,7 @@ define void @Ptngc_comp_conv_from_rle(ptr noundef readonly captures(none) %0, pt
   %.124.lcssa60 = phi i32 [ %12, %._crit_edge ], [ %.124.lcssa61, %.loopexit.loopexit ]
   %.126.lcssa = phi i32 [ %.02545, %._crit_edge ], [ %5, %.loopexit.loopexit ]
   %6 = icmp slt i32 %.126.lcssa, %2
-  br i1 %6, label %.preheader, label %._crit_edge47, !llvm.loop !12
+  br i1 %6, label %.preheader, label %._crit_edge47, !llvm.loop !11
 
 .preheader:                                       ; preds = %3, %.loopexit
   %.02346 = phi i32 [ %.124.lcssa60, %.loopexit ], [ 0, %3 ]
@@ -187,7 +187,7 @@ define void @Ptngc_comp_conv_from_rle(ptr noundef readonly captures(none) %0, pt
   %.019 = load i32, ptr %.019.in, align 4, !tbaa !3
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %11 = icmp ult i32 %.019, 2
-  br i1 %11, label %.lr.ph, label %._crit_edge, !llvm.loop !13
+  br i1 %11, label %.lr.ph, label %._crit_edge, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %.lr.ph
   %12 = trunc nsw i64 %indvars.iv.next to i32
@@ -211,7 +211,7 @@ define void @Ptngc_comp_conv_from_rle(ptr noundef readonly captures(none) %0, pt
   store i32 %15, ptr %18, align 4, !tbaa !3
   %19 = add nuw nsw i32 %.02241, 1
   %exitcond.not = icmp eq i32 %19, %.258
-  br i1 %exitcond.not, label %.loopexit.loopexit, label %17, !llvm.loop !14
+  br i1 %exitcond.not, label %.loopexit.loopexit, label %17, !llvm.loop !13
 
 ._crit_edge47:                                    ; preds = %.loopexit, %3
   ret void
@@ -228,11 +228,10 @@ attributes #0 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwt
 !4 = !{!"int", !5, i64 0}
 !5 = !{!"omnipotent char", !6, i64 0}
 !6 = !{!"Simple C/C++ TBAA"}
-!7 = distinct !{!7, !8, !9}
+!7 = distinct !{!7, !8}
 !8 = !{!"llvm.loop.mustprogress"}
-!9 = !{!"llvm.loop.estimated_trip_count"}
-!10 = distinct !{!10, !8, !9}
-!11 = distinct !{!11, !8, !9}
-!12 = distinct !{!12, !8, !9}
-!13 = distinct !{!13, !8, !9}
-!14 = distinct !{!14, !8, !9}
+!9 = distinct !{!9, !8}
+!10 = distinct !{!10, !8}
+!11 = distinct !{!11, !8}
+!12 = distinct !{!12, !8}
+!13 = distinct !{!13, !8}

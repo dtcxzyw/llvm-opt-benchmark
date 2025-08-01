@@ -38,7 +38,7 @@ for.inc:                                          ; preds = %if.end, %for.body
   %res.1 = phi ptr [ %res.012, %for.body ], [ %call.i, %if.end ]
   %incdec.ptr = getelementptr inbounds nuw i8, ptr %__begin1.011, i64 8
   %cmp.not = icmp eq ptr %incdec.ptr, %add.ptr.i
-  br i1 %cmp.not, label %return, label %for.body, !llvm.loop !4
+  br i1 %cmp.not, label %return, label %for.body
 
 return:                                           ; preds = %if.end, %for.inc, %entry
   %retval.0 = phi ptr [ null, %entry ], [ %res.1, %for.inc ], [ null, %if.end ]
@@ -91,7 +91,7 @@ for.inc:                                          ; preds = %if.end9, %if.end, %
   %res.1 = phi ptr [ %res.015, %for.body ], [ %res.015, %if.end ], [ %call.i10, %if.end9 ]
   %incdec.ptr = getelementptr inbounds nuw i8, ptr %__begin1.014, i64 8
   %cmp.not = icmp eq ptr %incdec.ptr, %add.ptr.i
-  br i1 %cmp.not, label %return, label %for.body, !llvm.loop !6
+  br i1 %cmp.not, label %return, label %for.body
 
 return:                                           ; preds = %if.end9, %for.inc, %entry
   %retval.0 = phi ptr [ null, %entry ], [ %res.1, %for.inc ], [ null, %if.end9 ]
@@ -161,7 +161,7 @@ for.inc.i:                                        ; preds = %if.end.i, %for.body
   %res.1.i = phi ptr [ %res.012.i, %for.body.i ], [ %call.i.i, %if.end.i ]
   %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %__begin1.011.i, i64 8
   %cmp.not.i = icmp eq ptr %incdec.ptr.i, %add.ptr.i.i
-  br i1 %cmp.not.i, label %_ZN6hermes19isStoreOnceVariableEPNS_8VariableE.exit, label %for.body.i, !llvm.loop !4
+  br i1 %cmp.not.i, label %_ZN6hermes19isStoreOnceVariableEPNS_8VariableE.exit, label %for.body.i
 
 _ZN6hermes19isStoreOnceVariableEPNS_8VariableE.exit: ; preds = %for.inc.i
   %tobool11.not = icmp eq ptr %res.1.i, null
@@ -198,7 +198,7 @@ for.body:                                         ; preds = %if.end4, %for.body
   %inc = add nuw nsw i32 %i.012, 1
   %exitcond.not = icmp ne i32 %inc, %sub.i
   %or.cond.not = select i1 %cmp8.not, i1 %exitcond.not, i1 false
-  br i1 %or.cond.not, label %for.body, label %return, !llvm.loop !7
+  br i1 %or.cond.not, label %for.body, label %return, !llvm.loop !4
 
 return:                                           ; preds = %for.body, %if.end4, %if.end, %entry
   %retval.0 = phi i1 [ false, %entry ], [ false, %if.end ], [ true, %if.end4 ], [ %cmp8.not, %for.body ]
@@ -269,7 +269,7 @@ if.end4.i:                                        ; preds = %if.end.i
 for.cond.i:                                       ; preds = %for.body.i
   %inc.i = add nuw nsw i32 %i.012.i, 1
   %exitcond.not.i = icmp eq i32 %inc.i, %sub.i.i
-  br i1 %exitcond.not.i, label %if.then, label %for.body.i, !llvm.loop !7
+  br i1 %exitcond.not.i, label %if.then, label %for.body.i, !llvm.loop !4
 
 for.body.i:                                       ; preds = %if.end4.i, %for.cond.i
   %i.012.i = phi i32 [ %inc.i, %for.cond.i ], [ 0, %if.end4.i ]
@@ -341,7 +341,7 @@ for.inc.i:                                        ; preds = %if.end.i32, %for.bo
   %res.1.i = phi ptr [ %res.012.i, %for.body.i29 ], [ %call.i.i33, %if.end.i32 ]
   %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %__begin1.011.i, i64 8
   %cmp.not.i36 = icmp eq ptr %incdec.ptr.i, %add.ptr.i.i28
-  br i1 %cmp.not.i36, label %_ZN6hermes19isStoreOnceVariableEPNS_8VariableE.exit, label %for.body.i29, !llvm.loop !4
+  br i1 %cmp.not.i36, label %_ZN6hermes19isStoreOnceVariableEPNS_8VariableE.exit, label %for.body.i29
 
 _ZN6hermes19isStoreOnceVariableEPNS_8VariableE.exit: ; preds = %for.inc.i
   %tobool20.not = icmp eq ptr %res.1.i, null
@@ -404,7 +404,7 @@ if.end4.i49:                                      ; preds = %if.end.i46
 for.cond.i58:                                     ; preds = %for.body.i53
   %inc.i59 = add nuw nsw i32 %i.012.i54, 1
   %exitcond.not.i60 = icmp eq i32 %inc.i59, %sub.i.i51
-  br i1 %exitcond.not.i60, label %if.then53, label %for.body.i53, !llvm.loop !7
+  br i1 %exitcond.not.i60, label %if.then53, label %for.body.i53, !llvm.loop !4
 
 for.body.i53:                                     ; preds = %if.end4.i49, %for.cond.i58
   %i.012.i54 = phi i32 [ %inc.i59, %for.cond.i58 ], [ 0, %if.end4.i49 ]
@@ -439,17 +439,17 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes8CallInstELb1EE9push_backERKS3_.exit7
 for.inc:                                          ; preds = %for.body28, %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes8CallInstELb1EE9push_backERKS3_.exit72
   %incdec.ptr = getelementptr inbounds nuw i8, ptr %__begin3.090, i64 8
   %cmp27.not = icmp eq ptr %incdec.ptr, %add.ptr.i
-  br i1 %cmp27.not, label %for.inc57, label %for.body28, !llvm.loop !9
+  br i1 %cmp27.not, label %for.inc57, label %for.body28
 
 for.inc57:                                        ; preds = %for.inc, %if.end22, %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes8CallInstELb1EE9push_backERKS3_.exit
   %incdec.ptr58 = getelementptr inbounds nuw i8, ptr %__begin2.092, i64 8
   %cmp9.not = icmp eq ptr %incdec.ptr58, %add.ptr.i74
-  br i1 %cmp9.not, label %for.inc60, label %for.body10, !llvm.loop !10
+  br i1 %cmp9.not, label %for.inc60, label %for.body10
 
 for.inc60:                                        ; preds = %for.inc57, %for.body
   %incdec.ptr61 = getelementptr inbounds nuw i8, ptr %__begin1.094, i64 8
   %cmp.not = icmp eq ptr %incdec.ptr61, %add.ptr.i80
-  br i1 %cmp.not, label %return, label %for.body, !llvm.loop !11
+  br i1 %cmp.not, label %return, label %for.body
 
 return:                                           ; preds = %for.inc60, %if.end17, %_ZN6hermes19isStoreOnceVariableEPNS_8VariableE.exit, %if.end, %if.end.i32, %if.end.i46, %land.lhs.true47, %if.end35, %if.then31, %for.body.i53, %entry
   %cmp.not88 = phi i1 [ true, %entry ], [ false, %for.body.i53 ], [ false, %if.then31 ], [ false, %if.end35 ], [ false, %land.lhs.true47 ], [ false, %if.end.i46 ], [ false, %if.end.i32 ], [ false, %if.end ], [ false, %_ZN6hermes19isStoreOnceVariableEPNS_8VariableE.exit ], [ false, %if.end17 ], [ true, %for.inc60 ]
@@ -498,14 +498,14 @@ if.end13:                                         ; preds = %for.body8
 for.inc:                                          ; preds = %for.body8, %if.end13
   %changed.2 = phi i1 [ %changed.113, %for.body8 ], [ true, %if.end13 ]
   %cmp = icmp samesign ugt i32 %i.014.in, 1
-  br i1 %cmp, label %for.body8, label %for.inc14, !llvm.loop !12
+  br i1 %cmp, label %for.body8, label %for.inc14, !llvm.loop !6
 
 for.inc14:                                        ; preds = %for.inc, %if.end
   %changed.1.lcssa = phi i1 [ %changed.017, %if.end ], [ %changed.2, %for.inc ]
   %Next.i.i.i = getelementptr inbounds nuw i8, ptr %__begin1.sroa.0.018, i64 8
   %__begin1.sroa.0.0 = load ptr, ptr %Next.i.i.i, align 8
   %cmp.i.not = icmp eq ptr %__begin1.sroa.0.0, %InstList.i
-  br i1 %cmp.i.not, label %for.end16, label %for.body, !llvm.loop !13
+  br i1 %cmp.i.not, label %for.end16, label %for.body
 
 for.end16:                                        ; preds = %for.inc14, %for.body, %entry
   %changed.0.lcssa = phi i1 [ false, %entry ], [ %changed.017, %for.body ], [ %changed.1.lcssa, %for.inc14 ]
@@ -605,13 +605,13 @@ if.end38:                                         ; preds = %for.body33
 for.inc:                                          ; preds = %for.body33, %if.end38
   %inc = add nuw nsw i32 %j.037, 1
   %exitcond.not = icmp eq i32 %inc, %call30
-  br i1 %exitcond.not, label %for.inc39, label %for.body33, !llvm.loop !14
+  br i1 %exitcond.not, label %for.inc39, label %for.body33, !llvm.loop !7
 
 for.inc39:                                        ; preds = %for.inc, %if.end29
   %Next.i.i.i = getelementptr inbounds nuw i8, ptr %__begin3.sroa.0.040, i64 8
   %__begin3.sroa.0.0 = load ptr, ptr %Next.i.i.i, align 8
   %cmp.i.not = icmp eq ptr %__begin3.sroa.0.0, %InstList.i
-  br i1 %cmp.i.not, label %for.end41, label %for.body24, !llvm.loop !15
+  br i1 %cmp.i.not, label %for.end41, label %for.body24
 
 for.end41:                                        ; preds = %for.inc39, %for.body24, %if.then14
   %inc42 = add nsw i32 %updates.043, 1
@@ -621,7 +621,7 @@ for.inc44:                                        ; preds = %for.body, %for.end4
   %updates.1 = phi i32 [ %inc42, %for.end41 ], [ %updates.043, %for.body ]
   %inc45 = add nuw nsw i32 %i.042, 1
   %exitcond44.not = icmp eq i32 %inc45, %call10
-  br i1 %exitcond44.not, label %for.end46.loopexit, label %for.body, !llvm.loop !16
+  br i1 %exitcond44.not, label %for.end46.loopexit, label %for.body, !llvm.loop !8
 
 for.end46.loopexit:                               ; preds = %for.inc44
   %10 = icmp ne i32 %updates.1, 0
@@ -699,15 +699,7 @@ attributes #3 = { nounwind }
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
 !4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.estimated_trip_count"}
+!5 = !{!"llvm.loop.mustprogress"}
 !6 = distinct !{!6, !5}
-!7 = distinct !{!7, !8, !5}
-!8 = !{!"llvm.loop.mustprogress"}
-!9 = distinct !{!9, !5}
-!10 = distinct !{!10, !5}
-!11 = distinct !{!11, !5}
-!12 = distinct !{!12, !8, !5}
-!13 = distinct !{!13, !5}
-!14 = distinct !{!14, !8, !5}
-!15 = distinct !{!15, !5}
-!16 = distinct !{!16, !8, !5}
+!7 = distinct !{!7, !5}
+!8 = distinct !{!8, !5}

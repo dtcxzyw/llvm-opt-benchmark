@@ -325,14 +325,14 @@ _ZN6bufferISt4pairIP4exprjELb0ELj16EE6expandEv.exit.i77.i.i: ; preds = %.noexc82
 
 97:                                               ; preds = %93
   %98 = getelementptr i8, ptr %54, i64 16
-  %.val56.i.i = load ptr, ptr %98, align 8, !tbaa !33
+  %.val56.i.i = load ptr, ptr %98, align 8, !tbaa !32
   %99 = getelementptr i8, ptr %.val56.i.i, i64 24
-  %.val56.val.i.i = load ptr, ptr %99, align 8, !tbaa !34
+  %.val56.val.i.i = load ptr, ptr %99, align 8, !tbaa !33
   %100 = icmp eq ptr %.val56.val.i.i, null
   br i1 %100, label %_ZNK3app13get_family_idEv.exit.i.i.i, label %101
 
 101:                                              ; preds = %97
-  %102 = load i32, ptr %.val56.val.i.i, align 8, !tbaa !39
+  %102 = load i32, ptr %.val56.val.i.i, align 8, !tbaa !38
   br label %_ZNK3app13get_family_idEv.exit.i.i.i
 
 _ZNK3app13get_family_idEv.exit.i.i.i:             ; preds = %101, %97
@@ -432,14 +432,14 @@ _ZN12_GLOBAL__N_14procclEP3app.exit.i.i:          ; preds = %124, %_ZNK3app13get
   %.pre-phi251.i.i = phi i32 [ %.pre250.i.i, %._crit_edge.loopexit.i.i ], [ %33, %43 ]
   store i32 %.pre-phi251.i.i, ptr %27, align 8, !tbaa !18
   %127 = getelementptr i8, ptr %37, i64 16
-  %.val58.i.i = load ptr, ptr %127, align 8, !tbaa !33
+  %.val58.i.i = load ptr, ptr %127, align 8, !tbaa !32
   %128 = getelementptr i8, ptr %.val58.i.i, i64 24
-  %.val58.val.i.i = load ptr, ptr %128, align 8, !tbaa !34
+  %.val58.val.i.i = load ptr, ptr %128, align 8, !tbaa !33
   %129 = icmp eq ptr %.val58.val.i.i, null
   br i1 %129, label %_ZNK3app13get_family_idEv.exit.i104.i.i, label %130
 
 130:                                              ; preds = %._crit_edge.i.i
-  %131 = load i32, ptr %.val58.val.i.i, align 8, !tbaa !39
+  %131 = load i32, ptr %.val58.val.i.i, align 8, !tbaa !38
   br label %_ZNK3app13get_family_idEv.exit.i104.i.i
 
 _ZNK3app13get_family_idEv.exit.i104.i.i:          ; preds = %130, %._crit_edge.i.i
@@ -457,10 +457,10 @@ _ZNK3app13get_family_idEv.exit.i104.i.i:          ; preds = %130, %._crit_edge.i
 
 136:                                              ; preds = %32
   %137 = getelementptr inbounds nuw i8, ptr %37, i64 72
-  %138 = load i32, ptr %137, align 8, !tbaa !44
+  %138 = load i32, ptr %137, align 8, !tbaa !43
   %139 = add i32 %138, 1
   %140 = getelementptr inbounds nuw i8, ptr %37, i64 76
-  %141 = load i32, ptr %140, align 4, !tbaa !48
+  %141 = load i32, ptr %140, align 4, !tbaa !47
   %142 = add i32 %139, %141
   %143 = getelementptr inbounds nuw i8, ptr %36, i64 8
   %.promoted.i.i = load i32, ptr %143, align 8, !tbaa !27
@@ -490,7 +490,7 @@ _ZNK3app13get_family_idEv.exit.i104.i.i:          ; preds = %130, %._crit_edge.i
   br i1 %.not.i107.i.i, label %163, label %156
 
 156:                                              ; preds = %155
-  %157 = load i32, ptr %145, align 4, !tbaa !49
+  %157 = load i32, ptr %145, align 4, !tbaa !48
   %158 = zext i32 %157 to i64
   %159 = getelementptr inbounds nuw ptr, ptr %144, i64 %158
   %160 = getelementptr inbounds nuw %class.symbol, ptr %159, i64 %158
@@ -501,7 +501,7 @@ _ZNK3app13get_family_idEv.exit.i104.i.i:          ; preds = %130, %._crit_edge.i
 163:                                              ; preds = %155
   %164 = trunc nuw i64 %indvars.iv.i.i to i32
   %165 = add i32 %164, %151
-  %166 = load i32, ptr %145, align 4, !tbaa !49
+  %166 = load i32, ptr %145, align 4, !tbaa !48
   %167 = zext i32 %166 to i64
   %168 = getelementptr inbounds nuw ptr, ptr %144, i64 %167
   %169 = getelementptr inbounds nuw %class.symbol, ptr %168, i64 %167
@@ -528,7 +528,7 @@ _ZNK8obj_markI4expr10bit_vector14default_t2uintIS0_EE9is_markedEPS0_.exit108.i.i
   %181 = shl nuw i32 1, %180
   %182 = and i32 %179, %181
   %.not168.i.i = icmp eq i32 %182, 0
-  br i1 %.not168.i.i, label %.thread159.i.i, label %152, !llvm.loop !50
+  br i1 %.not168.i.i, label %.thread159.i.i, label %152, !llvm.loop !49
 
 183:                                              ; preds = %185
   %184 = landingpad { ptr, i32 }
@@ -645,7 +645,7 @@ _ZN12_GLOBAL__N_14procclEP3app.exit106.i.i:       ; preds = %_ZN6bufferISt4pairI
   %210 = load i32, ptr %27, align 8, !tbaa !18
   %211 = add i32 %210, 1
   store i32 %211, ptr %27, align 8, !tbaa !18
-  br label %32, !llvm.loop !51
+  br label %32
 
 212:                                              ; preds = %thread-pre-split.i.i
   %213 = load ptr, ptr %4, align 8, !tbaa !14
@@ -851,24 +851,22 @@ attributes #17 = { noreturn }
 !28 = !{!21, !21, i64 0}
 !29 = distinct !{!29, !30}
 !30 = !{!"llvm.loop.mustprogress"}
-!31 = distinct !{!31, !30, !32}
-!32 = !{!"llvm.loop.estimated_trip_count"}
-!33 = !{!23, !25, i64 16}
-!34 = !{!35, !38, i64 24}
-!35 = !{!"_ZTS4decl", !11, i64 0, !36, i64 16, !38, i64 24}
-!36 = !{!"_ZTS6symbol", !37, i64 0}
-!37 = !{!"p1 omnipotent char", !9, i64 0}
-!38 = !{!"p1 _ZTS9decl_info", !9, i64 0}
-!39 = !{!40, !5, i64 0}
-!40 = !{!"_ZTS9decl_info", !5, i64 0, !5, i64 4, !41, i64 8, !43, i64 16}
-!41 = !{!"_ZTS6vectorI9parameterLb1EjE", !42, i64 0}
-!42 = !{!"p1 _ZTS9parameter", !9, i64 0}
-!43 = !{!"bool", !6, i64 0}
-!44 = !{!45, !5, i64 72}
-!45 = !{!"_ZTS10quantifier", !24, i64 0, !46, i64 16, !5, i64 20, !21, i64 24, !47, i64 32, !5, i64 40, !5, i64 44, !43, i64 48, !43, i64 49, !36, i64 56, !36, i64 64, !5, i64 72, !5, i64 76, !6, i64 80}
-!46 = !{!"_ZTS15quantifier_kind", !6, i64 0}
-!47 = !{!"p1 _ZTS4sort", !9, i64 0}
-!48 = !{!45, !5, i64 76}
-!49 = !{!45, !5, i64 20}
-!50 = distinct !{!50, !30}
-!51 = distinct !{!51, !32}
+!31 = distinct !{!31, !30}
+!32 = !{!23, !25, i64 16}
+!33 = !{!34, !37, i64 24}
+!34 = !{!"_ZTS4decl", !11, i64 0, !35, i64 16, !37, i64 24}
+!35 = !{!"_ZTS6symbol", !36, i64 0}
+!36 = !{!"p1 omnipotent char", !9, i64 0}
+!37 = !{!"p1 _ZTS9decl_info", !9, i64 0}
+!38 = !{!39, !5, i64 0}
+!39 = !{!"_ZTS9decl_info", !5, i64 0, !5, i64 4, !40, i64 8, !42, i64 16}
+!40 = !{!"_ZTS6vectorI9parameterLb1EjE", !41, i64 0}
+!41 = !{!"p1 _ZTS9parameter", !9, i64 0}
+!42 = !{!"bool", !6, i64 0}
+!43 = !{!44, !5, i64 72}
+!44 = !{!"_ZTS10quantifier", !24, i64 0, !45, i64 16, !5, i64 20, !21, i64 24, !46, i64 32, !5, i64 40, !5, i64 44, !42, i64 48, !42, i64 49, !35, i64 56, !35, i64 64, !5, i64 72, !5, i64 76, !6, i64 80}
+!45 = !{!"_ZTS15quantifier_kind", !6, i64 0}
+!46 = !{!"p1 _ZTS4sort", !9, i64 0}
+!47 = !{!44, !5, i64 76}
+!48 = !{!44, !5, i64 20}
+!49 = distinct !{!49, !30}

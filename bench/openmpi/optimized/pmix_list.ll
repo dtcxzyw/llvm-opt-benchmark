@@ -181,7 +181,7 @@ define void @pmix_list_splice(ptr noundef %0, ptr noundef %1, ptr noundef %2, pt
 10:                                               ; preds = %.preheader, %7
   %11 = phi ptr [ %9, %7 ], [ null, %.preheader ]
   %.not17 = icmp eq ptr %11, %4
-  br i1 %.not17, label %12, label %.preheader, !llvm.loop !23
+  br i1 %.not17, label %12, label %.preheader, !llvm.loop !22
 
 12:                                               ; preds = %10
   %.not.i = icmp eq ptr %1, %4
@@ -264,10 +264,10 @@ define range(i32 -29, 1) i32 @pmix_list_sort(ptr noundef %0, ptr noundef capture
   store ptr %23, ptr %13, align 8, !tbaa !13
   %24 = add i64 %.022, 1
   %25 = getelementptr inbounds nuw ptr, ptr %9, i64 %.022
-  store ptr %17, ptr %25, align 8, !tbaa !24
+  store ptr %17, ptr %25, align 8, !tbaa !23
   %26 = load volatile i64, ptr %3, align 8, !tbaa !17
   %27 = icmp eq i64 %26, 0
-  br i1 %27, label %._crit_edge, label %14, !llvm.loop !25
+  br i1 %27, label %._crit_edge, label %14, !llvm.loop !24
 
 ._crit_edge:                                      ; preds = %14
   tail call void @qsort(ptr noundef nonnull %9, i64 noundef %24, i64 noundef 8, ptr noundef %1) #10
@@ -284,7 +284,7 @@ define range(i32 -29, 1) i32 @pmix_list_sort(ptr noundef %0, ptr noundef capture
   %31 = phi ptr [ %.pre, %.lr.ph25 ], [ %33, %30 ]
   %.01723 = phi i64 [ 0, %.lr.ph25 ], [ %39, %30 ]
   %32 = getelementptr inbounds nuw ptr, ptr %9, i64 %.01723
-  %33 = load ptr, ptr %32, align 8, !tbaa !24
+  %33 = load ptr, ptr %32, align 8, !tbaa !23
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 128
   store ptr %31, ptr %34, align 8, !tbaa !19
   %35 = getelementptr inbounds nuw i8, ptr %31, i64 120
@@ -297,7 +297,7 @@ define range(i32 -29, 1) i32 @pmix_list_sort(ptr noundef %0, ptr noundef capture
   store volatile i64 %38, ptr %3, align 8, !tbaa !17
   %39 = add nuw i64 %.01723, 1
   %exitcond.not = icmp eq i64 %.01723, %.022
-  br i1 %exitcond.not, label %._crit_edge26, label %30, !llvm.loop !26
+  br i1 %exitcond.not, label %._crit_edge26, label %30, !llvm.loop !25
 
 ._crit_edge26:                                    ; preds = %30, %._crit_edge.thread, %._crit_edge
   tail call void @free(ptr noundef nonnull %9) #10
@@ -354,10 +354,9 @@ attributes #10 = { nounwind }
 !17 = !{!14, !15, i64 264}
 !18 = !{!4, !12, i64 120}
 !19 = !{!4, !12, i64 128}
-!20 = distinct !{!20, !21, !22}
+!20 = distinct !{!20, !21}
 !21 = !{!"llvm.loop.mustprogress"}
-!22 = !{!"llvm.loop.estimated_trip_count"}
-!23 = distinct !{!23, !21, !22}
-!24 = !{!12, !12, i64 0}
-!25 = distinct !{!25, !21, !22}
-!26 = distinct !{!26, !21, !22}
+!22 = distinct !{!22, !21}
+!23 = !{!12, !12, i64 0}
+!24 = distinct !{!24, !21}
+!25 = distinct !{!25, !21}

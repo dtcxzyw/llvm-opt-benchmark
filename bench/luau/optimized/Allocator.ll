@@ -1426,6 +1426,5 @@ attributes #10 = { nounwind }
 !13 = !{!9, !12, i64 8}
 !14 = !{!15, !10, i64 0}
 !15 = !{!"_ZTSN4Luau9Allocator4PageE", !10, i64 0, !6, i64 8}
-!16 = distinct !{!16, !17, !18}
+!16 = distinct !{!16, !17}
 !17 = !{!"llvm.loop.mustprogress"}
-!18 = !{!"llvm.loop.estimated_trip_count"}

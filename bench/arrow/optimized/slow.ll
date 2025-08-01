@@ -203,34 +203,34 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 define void @_ZN5arrow2io16LatencyGenerator4MakeEd(ptr dead_on_unwind noalias writable writeonly sret(%"class.std::shared_ptr") align 8 captures(none) initializes((0, 16)) %0, double noundef %1) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 _ZNSt12__shared_ptrIN5arrow2io20LatencyGeneratorImplELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit:
   %2 = tail call noundef i64 @_ZN5arrow8internal13GetRandomSeedEv()
-  %3 = tail call noalias noundef nonnull dereferenceable(104) ptr @_Znwm(i64 noundef 104) #27, !noalias !16
+  %3 = tail call noalias noundef nonnull dereferenceable(104) ptr @_Znwm(i64 noundef 104) #27, !noalias !15
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store i32 1, ptr %4, align 8, !tbaa !19, !noalias !16
+  store i32 1, ptr %4, align 8, !tbaa !18, !noalias !15
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 12
-  store i32 1, ptr %5, align 4, !tbaa !21, !noalias !16
-  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow2io20LatencyGeneratorImplESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %3, align 8, !tbaa !3, !noalias !16
+  store i32 1, ptr %5, align 4, !tbaa !20, !noalias !15
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow2io20LatencyGeneratorImplESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %3, align 8, !tbaa !3, !noalias !15
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5arrow2io20LatencyGeneratorImplE, i64 16), ptr %6, align 8, !tbaa !3, !noalias !16
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5arrow2io20LatencyGeneratorImplE, i64 16), ptr %6, align 8, !tbaa !3, !noalias !15
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %sext = shl i64 %2, 32
   %8 = ashr exact i64 %sext, 32
   %9 = urem i64 %8, 2147483647
   %storemerge.i.i.i.i.i.i.i.i.i.i = tail call i64 @llvm.umax.i64(i64 %9, i64 1)
-  store i64 %storemerge.i.i.i.i.i.i.i.i.i.i, ptr %7, align 8, !tbaa !22, !noalias !16
+  store i64 %storemerge.i.i.i.i.i.i.i.i.i.i, ptr %7, align 8, !tbaa !21, !noalias !15
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %11 = fmul double %1, 1.000000e-01
-  store double %1, ptr %10, align 8, !tbaa !24, !noalias !16
+  store double %1, ptr %10, align 8, !tbaa !23, !noalias !15
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 40
-  store double %11, ptr %12, align 8, !tbaa !27, !noalias !16
+  store double %11, ptr %12, align 8, !tbaa !26, !noalias !15
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 48
-  store double 0.000000e+00, ptr %13, align 8, !tbaa !28, !noalias !16
+  store double 0.000000e+00, ptr %13, align 8, !tbaa !27, !noalias !15
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 56
-  store i8 0, ptr %14, align 8, !tbaa !31, !noalias !16
+  store i8 0, ptr %14, align 8, !tbaa !30, !noalias !15
   %15 = getelementptr inbounds nuw i8, ptr %3, i64 64
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %15, i8 0, i64 40, i1 false), !noalias !16
-  store ptr %6, ptr %0, align 8, !tbaa !32
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %15, i8 0, i64 40, i1 false), !noalias !15
+  store ptr %6, ptr %0, align 8, !tbaa !31
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %3, ptr %16, align 8, !tbaa !38
+  store ptr %3, ptr %16, align 8, !tbaa !37
   ret void
 }
 
@@ -239,33 +239,33 @@ declare noundef i64 @_ZN5arrow8internal13GetRandomSeedEv() local_unnamed_addr #4
 ; Function Attrs: mustprogress uwtable
 define void @_ZN5arrow2io16LatencyGenerator4MakeEdi(ptr dead_on_unwind noalias writable writeonly sret(%"class.std::shared_ptr") align 8 captures(none) initializes((0, 16)) %0, double noundef %1, i32 noundef %2) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 _ZNSt12__shared_ptrIN5arrow2io20LatencyGeneratorImplELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit:
-  %3 = tail call noalias noundef nonnull dereferenceable(104) ptr @_Znwm(i64 noundef 104) #27, !noalias !39
+  %3 = tail call noalias noundef nonnull dereferenceable(104) ptr @_Znwm(i64 noundef 104) #27, !noalias !38
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store i32 1, ptr %4, align 8, !tbaa !19, !noalias !39
+  store i32 1, ptr %4, align 8, !tbaa !18, !noalias !38
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 12
-  store i32 1, ptr %5, align 4, !tbaa !21, !noalias !39
-  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow2io20LatencyGeneratorImplESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %3, align 8, !tbaa !3, !noalias !39
+  store i32 1, ptr %5, align 4, !tbaa !20, !noalias !38
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow2io20LatencyGeneratorImplESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %3, align 8, !tbaa !3, !noalias !38
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5arrow2io20LatencyGeneratorImplE, i64 16), ptr %6, align 8, !tbaa !3, !noalias !39
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5arrow2io20LatencyGeneratorImplE, i64 16), ptr %6, align 8, !tbaa !3, !noalias !38
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %8 = sext i32 %2 to i64
   %9 = urem i64 %8, 2147483647
   %storemerge.i.i.i.i.i.i.i.i.i.i = tail call i64 @llvm.umax.i64(i64 %9, i64 1)
-  store i64 %storemerge.i.i.i.i.i.i.i.i.i.i, ptr %7, align 8, !tbaa !22, !noalias !39
+  store i64 %storemerge.i.i.i.i.i.i.i.i.i.i, ptr %7, align 8, !tbaa !21, !noalias !38
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %11 = fmul double %1, 1.000000e-01
-  store double %1, ptr %10, align 8, !tbaa !24, !noalias !39
+  store double %1, ptr %10, align 8, !tbaa !23, !noalias !38
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 40
-  store double %11, ptr %12, align 8, !tbaa !27, !noalias !39
+  store double %11, ptr %12, align 8, !tbaa !26, !noalias !38
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 48
-  store double 0.000000e+00, ptr %13, align 8, !tbaa !28, !noalias !39
+  store double 0.000000e+00, ptr %13, align 8, !tbaa !27, !noalias !38
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 56
-  store i8 0, ptr %14, align 8, !tbaa !31, !noalias !39
+  store i8 0, ptr %14, align 8, !tbaa !30, !noalias !38
   %15 = getelementptr inbounds nuw i8, ptr %3, i64 64
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %15, i8 0, i64 40, i1 false), !noalias !39
-  store ptr %6, ptr %0, align 8, !tbaa !32
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %15, i8 0, i64 40, i1 false), !noalias !38
+  store ptr %6, ptr %0, align 8, !tbaa !31
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %3, ptr %16, align 8, !tbaa !38
+  store ptr %3, ptr %16, align 8, !tbaa !37
   ret void
 }
 
@@ -311,7 +311,7 @@ define void @_ZN5arrow2io15SlowInputStreamD2Ev(ptr noundef nonnull align 8 deref
   %32 = getelementptr inbounds i8, ptr %0, i64 %31
   store ptr %28, ptr %32, align 8, !tbaa !3
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %34 = load ptr, ptr %33, align 8, !tbaa !38
+  %34 = load ptr, ptr %33, align 8, !tbaa !37
   %.not.i.i.i = icmp eq ptr %34, null
   br i1 %.not.i.i.i, label %_ZNSt12__shared_ptrIN5arrow2io16LatencyGeneratorELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i, label %35
 
@@ -323,9 +323,9 @@ define void @_ZN5arrow2io15SlowInputStreamD2Ev(ptr noundef nonnull align 8 deref
   br i1 %38, label %40, label %48
 
 40:                                               ; preds = %35
-  store i32 0, ptr %36, align 8, !tbaa !19
+  store i32 0, ptr %36, align 8, !tbaa !18
   %41 = getelementptr inbounds nuw i8, ptr %34, i64 12
-  store i32 0, ptr %41, align 4, !tbaa !21
+  store i32 0, ptr %41, align 4, !tbaa !20
   %42 = load ptr, ptr %34, align 8, !tbaa !3
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 16
   %44 = load ptr, ptr %43, align 8
@@ -337,7 +337,7 @@ define void @_ZN5arrow2io15SlowInputStreamD2Ev(ptr noundef nonnull align 8 deref
   br label %_ZNSt12__shared_ptrIN5arrow2io16LatencyGeneratorELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i
 
 48:                                               ; preds = %35
-  %49 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !42
+  %49 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !41
   %.not.i.i.i.i = icmp eq i8 %49, 0
   br i1 %.not.i.i.i.i, label %52, label %50
 
@@ -353,7 +353,7 @@ define void @_ZN5arrow2io15SlowInputStreamD2Ev(ptr noundef nonnull align 8 deref
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i: ; preds = %52, %50
   %.0.i.i.i.i.i = phi i32 [ %39, %50 ], [ %53, %52 ]
   %54 = icmp eq i32 %.0.i.i.i.i.i, 1
-  br i1 %54, label %55, label %_ZNSt12__shared_ptrIN5arrow2io16LatencyGeneratorELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i, !prof !43
+  br i1 %54, label %55, label %_ZNSt12__shared_ptrIN5arrow2io16LatencyGeneratorELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i, !prof !42
 
 55:                                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i
   tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %34) #25
@@ -361,7 +361,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i: ; preds = %52, %50
 
 _ZNSt12__shared_ptrIN5arrow2io16LatencyGeneratorELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i: ; preds = %55, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i, %40, %19
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %57 = load ptr, ptr %56, align 8, !tbaa !38
+  %57 = load ptr, ptr %56, align 8, !tbaa !37
   %.not.i.i2.i = icmp eq ptr %57, null
   br i1 %.not.i.i2.i, label %_ZN5arrow2io19SlowInputStreamBaseINS0_11InputStreamEED2Ev.exit, label %58
 
@@ -373,9 +373,9 @@ _ZNSt12__shared_ptrIN5arrow2io16LatencyGeneratorELN9__gnu_cxx12_Lock_policyE2EED
   br i1 %61, label %63, label %71
 
 63:                                               ; preds = %58
-  store i32 0, ptr %59, align 8, !tbaa !19
+  store i32 0, ptr %59, align 8, !tbaa !18
   %64 = getelementptr inbounds nuw i8, ptr %57, i64 12
-  store i32 0, ptr %64, align 4, !tbaa !21
+  store i32 0, ptr %64, align 4, !tbaa !20
   %65 = load ptr, ptr %57, align 8, !tbaa !3
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 16
   %67 = load ptr, ptr %66, align 8
@@ -387,7 +387,7 @@ _ZNSt12__shared_ptrIN5arrow2io16LatencyGeneratorELN9__gnu_cxx12_Lock_policyE2EED
   br label %_ZN5arrow2io19SlowInputStreamBaseINS0_11InputStreamEED2Ev.exit
 
 71:                                               ; preds = %58
-  %72 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !42
+  %72 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !41
   %.not.i.i.i3.i = icmp eq i8 %72, 0
   br i1 %.not.i.i.i3.i, label %75, label %73
 
@@ -403,7 +403,7 @@ _ZNSt12__shared_ptrIN5arrow2io16LatencyGeneratorELN9__gnu_cxx12_Lock_policyE2EED
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i4.i: ; preds = %75, %73
   %.0.i.i.i.i5.i = phi i32 [ %62, %73 ], [ %76, %75 ]
   %77 = icmp eq i32 %.0.i.i.i.i5.i, 1
-  br i1 %77, label %78, label %_ZN5arrow2io19SlowInputStreamBaseINS0_11InputStreamEED2Ev.exit, !prof !43
+  br i1 %77, label %78, label %_ZN5arrow2io19SlowInputStreamBaseINS0_11InputStreamEED2Ev.exit, !prof !42
 
 78:                                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i4.i
   tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %57) #25
@@ -487,7 +487,7 @@ define void @_ZTv0_n24_N5arrow2io15SlowInputStreamD0Ev(ptr noundef %0) unnamed_a
 ; Function Attrs: mustprogress uwtable
 define void @_ZN5arrow2io15SlowInputStream5CloseEv(ptr dead_on_unwind noalias writable sret(%"class.arrow::Status") align 8 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %1) unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %4 = load ptr, ptr %3, align 8, !tbaa !44
+  %4 = load ptr, ptr %3, align 8, !tbaa !43
   %5 = load ptr, ptr %4, align 8, !tbaa !3
   %6 = getelementptr i8, ptr %5, i64 -56
   %7 = load i64, ptr %6, align 8
@@ -506,14 +506,14 @@ define void @_ZTv0_n32_N5arrow2io15SlowInputStream5CloseEv(ptr dead_on_unwind no
   %5 = load i64, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %1, i64 %5
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %8 = load ptr, ptr %7, align 8, !tbaa !44, !noalias !47
-  %9 = load ptr, ptr %8, align 8, !tbaa !3, !noalias !47
+  %8 = load ptr, ptr %7, align 8, !tbaa !43, !noalias !46
+  %9 = load ptr, ptr %8, align 8, !tbaa !3, !noalias !46
   %10 = getelementptr i8, ptr %9, i64 -56
-  %11 = load i64, ptr %10, align 8, !noalias !47
+  %11 = load i64, ptr %10, align 8, !noalias !46
   %12 = getelementptr inbounds i8, ptr %8, i64 %11
-  %13 = load ptr, ptr %12, align 8, !tbaa !3, !noalias !47
+  %13 = load ptr, ptr %12, align 8, !tbaa !3, !noalias !46
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
-  %15 = load ptr, ptr %14, align 8, !noalias !47
+  %15 = load ptr, ptr %14, align 8, !noalias !46
   tail call void %15(ptr dead_on_unwind writable sret(%"class.arrow::Status") align 8 %0, ptr noundef nonnull align 8 dereferenceable(28) %12)
   ret void
 }
@@ -521,7 +521,7 @@ define void @_ZTv0_n32_N5arrow2io15SlowInputStream5CloseEv(ptr dead_on_unwind no
 ; Function Attrs: mustprogress uwtable
 define void @_ZN5arrow2io15SlowInputStream5AbortEv(ptr dead_on_unwind noalias writable sret(%"class.arrow::Status") align 8 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %1) unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %4 = load ptr, ptr %3, align 8, !tbaa !44
+  %4 = load ptr, ptr %3, align 8, !tbaa !43
   %5 = load ptr, ptr %4, align 8, !tbaa !3
   %6 = getelementptr i8, ptr %5, i64 -56
   %7 = load i64, ptr %6, align 8
@@ -540,14 +540,14 @@ define void @_ZTv0_n48_N5arrow2io15SlowInputStream5AbortEv(ptr dead_on_unwind no
   %5 = load i64, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %1, i64 %5
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %8 = load ptr, ptr %7, align 8, !tbaa !44, !noalias !50
-  %9 = load ptr, ptr %8, align 8, !tbaa !3, !noalias !50
+  %8 = load ptr, ptr %7, align 8, !tbaa !43, !noalias !49
+  %9 = load ptr, ptr %8, align 8, !tbaa !3, !noalias !49
   %10 = getelementptr i8, ptr %9, i64 -56
-  %11 = load i64, ptr %10, align 8, !noalias !50
+  %11 = load i64, ptr %10, align 8, !noalias !49
   %12 = getelementptr inbounds i8, ptr %8, i64 %11
-  %13 = load ptr, ptr %12, align 8, !tbaa !3, !noalias !50
+  %13 = load ptr, ptr %12, align 8, !tbaa !3, !noalias !49
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 32
-  %15 = load ptr, ptr %14, align 8, !noalias !50
+  %15 = load ptr, ptr %14, align 8, !noalias !49
   tail call void %15(ptr dead_on_unwind writable sret(%"class.arrow::Status") align 8 %0, ptr noundef nonnull align 8 dereferenceable(28) %12)
   ret void
 }
@@ -555,7 +555,7 @@ define void @_ZTv0_n48_N5arrow2io15SlowInputStream5AbortEv(ptr dead_on_unwind no
 ; Function Attrs: mustprogress uwtable
 define noundef zeroext i1 @_ZNK5arrow2io15SlowInputStream6closedEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0) unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load ptr, ptr %2, align 8, !tbaa !44
+  %3 = load ptr, ptr %2, align 8, !tbaa !43
   %4 = load ptr, ptr %3, align 8, !tbaa !3
   %5 = getelementptr i8, ptr %4, i64 -56
   %6 = load i64, ptr %5, align 8
@@ -574,7 +574,7 @@ define noundef zeroext i1 @_ZTv0_n64_NK5arrow2io15SlowInputStream6closedEv(ptr n
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %7 = load ptr, ptr %6, align 8, !tbaa !44
+  %7 = load ptr, ptr %6, align 8, !tbaa !43
   %8 = load ptr, ptr %7, align 8, !tbaa !3
   %9 = getelementptr i8, ptr %8, i64 -56
   %10 = load i64, ptr %9, align 8
@@ -589,7 +589,7 @@ define noundef zeroext i1 @_ZTv0_n64_NK5arrow2io15SlowInputStream6closedEv(ptr n
 ; Function Attrs: mustprogress uwtable
 define void @_ZNK5arrow2io15SlowInputStream4TellEv(ptr dead_on_unwind noalias writable sret(%"class.arrow::Result") align 8 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %1) unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %4 = load ptr, ptr %3, align 8, !tbaa !44
+  %4 = load ptr, ptr %3, align 8, !tbaa !43
   %5 = load ptr, ptr %4, align 8, !tbaa !3
   %6 = getelementptr i8, ptr %5, i64 -56
   %7 = load i64, ptr %6, align 8
@@ -608,14 +608,14 @@ define void @_ZTv0_n56_NK5arrow2io15SlowInputStream4TellEv(ptr dead_on_unwind no
   %5 = load i64, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %1, i64 %5
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %8 = load ptr, ptr %7, align 8, !tbaa !44, !noalias !53
-  %9 = load ptr, ptr %8, align 8, !tbaa !3, !noalias !53
+  %8 = load ptr, ptr %7, align 8, !tbaa !43, !noalias !52
+  %9 = load ptr, ptr %8, align 8, !tbaa !3, !noalias !52
   %10 = getelementptr i8, ptr %9, i64 -56
-  %11 = load i64, ptr %10, align 8, !noalias !53
+  %11 = load i64, ptr %10, align 8, !noalias !52
   %12 = getelementptr inbounds i8, ptr %8, i64 %11
-  %13 = load ptr, ptr %12, align 8, !tbaa !3, !noalias !53
+  %13 = load ptr, ptr %12, align 8, !tbaa !3, !noalias !52
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 40
-  %15 = load ptr, ptr %14, align 8, !noalias !53
+  %15 = load ptr, ptr %14, align 8, !noalias !52
   tail call void %15(ptr dead_on_unwind writable sret(%"class.arrow::Result") align 8 %0, ptr noundef nonnull align 8 dereferenceable(28) %12)
   ret void
 }
@@ -624,7 +624,7 @@ define void @_ZTv0_n56_NK5arrow2io15SlowInputStream4TellEv(ptr dead_on_unwind no
 define void @_ZN5arrow2io15SlowInputStream4ReadElPv(ptr dead_on_unwind noalias writable sret(%"class.arrow::Result") align 8 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %1, i64 noundef %2, ptr noundef %3) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %struct.timespec, align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %7 = load ptr, ptr %6, align 8, !tbaa !32
+  %7 = load ptr, ptr %6, align 8, !tbaa !31
   %8 = load ptr, ptr %7, align 8, !tbaa !3
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %10 = load ptr, ptr %9, align 8
@@ -661,7 +661,7 @@ define void @_ZN5arrow2io15SlowInputStream4ReadElPv(ptr dead_on_unwind noalias w
 
 _ZN5arrow2io16LatencyGenerator5SleepEv.exit:      ; preds = %4, %.critedge.i.i
   %27 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %28 = load ptr, ptr %27, align 8, !tbaa !44
+  %28 = load ptr, ptr %27, align 8, !tbaa !43
   %29 = load ptr, ptr %28, align 8, !tbaa !3
   %30 = getelementptr i8, ptr %29, i64 -64
   %31 = load i64, ptr %30, align 8
@@ -681,11 +681,11 @@ define void @_ZTv0_n32_N5arrow2io15SlowInputStream4ReadElPv(ptr dead_on_unwind n
   %8 = load i64, ptr %7, align 8
   %9 = getelementptr inbounds i8, ptr %1, i64 %8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 24
-  %11 = load ptr, ptr %10, align 8, !tbaa !32, !noalias !56
-  %12 = load ptr, ptr %11, align 8, !tbaa !3, !noalias !56
+  %11 = load ptr, ptr %10, align 8, !tbaa !31, !noalias !55
+  %12 = load ptr, ptr %11, align 8, !tbaa !3, !noalias !55
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
-  %14 = load ptr, ptr %13, align 8, !noalias !56
-  %15 = tail call noundef double %14(ptr noundef nonnull align 8 dereferenceable(8) %11), !noalias !56
+  %14 = load ptr, ptr %13, align 8, !noalias !55
+  %15 = tail call noundef double %14(ptr noundef nonnull align 8 dereferenceable(8) %11), !noalias !55
   %16 = fcmp ule double %15, 0.000000e+00
   br i1 %16, label %_ZN5arrow2io15SlowInputStream4ReadElPv.exit, label %17
 
@@ -695,37 +695,37 @@ define void @_ZTv0_n32_N5arrow2io15SlowInputStream4ReadElPv(ptr dead_on_unwind n
   %20 = fsub double %15, %19
   %21 = fmul double %20, 1.000000e+09
   %22 = fptosi double %21 to i64
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #25, !noalias !56
-  store i64 %18, ptr %5, align 8, !tbaa !6, !noalias !56
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #25, !noalias !55
+  store i64 %18, ptr %5, align 8, !tbaa !6, !noalias !55
   %23 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store i64 %22, ptr %23, align 8, !tbaa !10, !noalias !56
+  store i64 %22, ptr %23, align 8, !tbaa !10, !noalias !55
   br label %24
 
 24:                                               ; preds = %27, %17
-  %25 = call i32 @nanosleep(ptr noundef nonnull %5, ptr noundef nonnull %5), !noalias !56
+  %25 = call i32 @nanosleep(ptr noundef nonnull %5, ptr noundef nonnull %5), !noalias !55
   %26 = icmp eq i32 %25, -1
   br i1 %26, label %27, label %.critedge.i.i.i
 
 27:                                               ; preds = %24
   %28 = tail call ptr @__errno_location() #26
-  %29 = load i32, ptr %28, align 4, !tbaa !11, !noalias !56
+  %29 = load i32, ptr %28, align 4, !tbaa !11, !noalias !55
   %30 = icmp eq i32 %29, 4
   br i1 %30, label %24, label %.critedge.i.i.i, !llvm.loop !13
 
 .critedge.i.i.i:                                  ; preds = %27, %24
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #25, !noalias !56
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #25, !noalias !55
   br label %_ZN5arrow2io15SlowInputStream4ReadElPv.exit
 
 _ZN5arrow2io15SlowInputStream4ReadElPv.exit:      ; preds = %4, %.critedge.i.i.i
   %31 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %32 = load ptr, ptr %31, align 8, !tbaa !44, !noalias !56
-  %33 = load ptr, ptr %32, align 8, !tbaa !3, !noalias !56
+  %32 = load ptr, ptr %31, align 8, !tbaa !43, !noalias !55
+  %33 = load ptr, ptr %32, align 8, !tbaa !3, !noalias !55
   %34 = getelementptr i8, ptr %33, i64 -64
-  %35 = load i64, ptr %34, align 8, !noalias !56
+  %35 = load i64, ptr %34, align 8, !noalias !55
   %36 = getelementptr inbounds i8, ptr %32, i64 %35
-  %37 = load ptr, ptr %36, align 8, !tbaa !3, !noalias !56
+  %37 = load ptr, ptr %36, align 8, !tbaa !3, !noalias !55
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 16
-  %39 = load ptr, ptr %38, align 8, !noalias !56
+  %39 = load ptr, ptr %38, align 8, !noalias !55
   call void %39(ptr dead_on_unwind writable sret(%"class.arrow::Result") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %36, i64 noundef %2, ptr noundef %3)
   ret void
 }
@@ -734,7 +734,7 @@ _ZN5arrow2io15SlowInputStream4ReadElPv.exit:      ; preds = %4, %.critedge.i.i.i
 define void @_ZN5arrow2io15SlowInputStream4ReadEl(ptr dead_on_unwind noalias writable sret(%"class.arrow::Result.8") align 8 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %1, i64 noundef %2) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %struct.timespec, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %6 = load ptr, ptr %5, align 8, !tbaa !32
+  %6 = load ptr, ptr %5, align 8, !tbaa !31
   %7 = load ptr, ptr %6, align 8, !tbaa !3
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %9 = load ptr, ptr %8, align 8
@@ -771,7 +771,7 @@ define void @_ZN5arrow2io15SlowInputStream4ReadEl(ptr dead_on_unwind noalias wri
 
 _ZN5arrow2io16LatencyGenerator5SleepEv.exit:      ; preds = %3, %.critedge.i.i
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %27 = load ptr, ptr %26, align 8, !tbaa !44
+  %27 = load ptr, ptr %26, align 8, !tbaa !43
   %28 = load ptr, ptr %27, align 8, !tbaa !3
   %29 = getelementptr i8, ptr %28, i64 -64
   %30 = load i64, ptr %29, align 8
@@ -791,11 +791,11 @@ define void @_ZTv0_n40_N5arrow2io15SlowInputStream4ReadEl(ptr dead_on_unwind noa
   %7 = load i64, ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %1, i64 %7
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  %10 = load ptr, ptr %9, align 8, !tbaa !32, !noalias !59
-  %11 = load ptr, ptr %10, align 8, !tbaa !3, !noalias !59
+  %10 = load ptr, ptr %9, align 8, !tbaa !31, !noalias !58
+  %11 = load ptr, ptr %10, align 8, !tbaa !3, !noalias !58
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
-  %13 = load ptr, ptr %12, align 8, !noalias !59
-  %14 = tail call noundef double %13(ptr noundef nonnull align 8 dereferenceable(8) %10), !noalias !59
+  %13 = load ptr, ptr %12, align 8, !noalias !58
+  %14 = tail call noundef double %13(ptr noundef nonnull align 8 dereferenceable(8) %10), !noalias !58
   %15 = fcmp ule double %14, 0.000000e+00
   br i1 %15, label %_ZN5arrow2io15SlowInputStream4ReadEl.exit, label %16
 
@@ -805,37 +805,37 @@ define void @_ZTv0_n40_N5arrow2io15SlowInputStream4ReadEl(ptr dead_on_unwind noa
   %19 = fsub double %14, %18
   %20 = fmul double %19, 1.000000e+09
   %21 = fptosi double %20 to i64
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #25, !noalias !59
-  store i64 %17, ptr %4, align 8, !tbaa !6, !noalias !59
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #25, !noalias !58
+  store i64 %17, ptr %4, align 8, !tbaa !6, !noalias !58
   %22 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store i64 %21, ptr %22, align 8, !tbaa !10, !noalias !59
+  store i64 %21, ptr %22, align 8, !tbaa !10, !noalias !58
   br label %23
 
 23:                                               ; preds = %26, %16
-  %24 = call i32 @nanosleep(ptr noundef nonnull %4, ptr noundef nonnull %4), !noalias !59
+  %24 = call i32 @nanosleep(ptr noundef nonnull %4, ptr noundef nonnull %4), !noalias !58
   %25 = icmp eq i32 %24, -1
   br i1 %25, label %26, label %.critedge.i.i.i
 
 26:                                               ; preds = %23
   %27 = tail call ptr @__errno_location() #26
-  %28 = load i32, ptr %27, align 4, !tbaa !11, !noalias !59
+  %28 = load i32, ptr %27, align 4, !tbaa !11, !noalias !58
   %29 = icmp eq i32 %28, 4
   br i1 %29, label %23, label %.critedge.i.i.i, !llvm.loop !13
 
 .critedge.i.i.i:                                  ; preds = %26, %23
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #25, !noalias !59
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #25, !noalias !58
   br label %_ZN5arrow2io15SlowInputStream4ReadEl.exit
 
 _ZN5arrow2io15SlowInputStream4ReadEl.exit:        ; preds = %3, %.critedge.i.i.i
   %30 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %31 = load ptr, ptr %30, align 8, !tbaa !44, !noalias !59
-  %32 = load ptr, ptr %31, align 8, !tbaa !3, !noalias !59
+  %31 = load ptr, ptr %30, align 8, !tbaa !43, !noalias !58
+  %32 = load ptr, ptr %31, align 8, !tbaa !3, !noalias !58
   %33 = getelementptr i8, ptr %32, i64 -64
-  %34 = load i64, ptr %33, align 8, !noalias !59
+  %34 = load i64, ptr %33, align 8, !noalias !58
   %35 = getelementptr inbounds i8, ptr %31, i64 %34
-  %36 = load ptr, ptr %35, align 8, !tbaa !3, !noalias !59
+  %36 = load ptr, ptr %35, align 8, !tbaa !3, !noalias !58
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 24
-  %38 = load ptr, ptr %37, align 8, !noalias !59
+  %38 = load ptr, ptr %37, align 8, !noalias !58
   call void %38(ptr dead_on_unwind writable sret(%"class.arrow::Result.8") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %35, i64 noundef %2)
   ret void
 }
@@ -843,7 +843,7 @@ _ZN5arrow2io15SlowInputStream4ReadEl.exit:        ; preds = %3, %.critedge.i.i.i
 ; Function Attrs: mustprogress uwtable
 define void @_ZN5arrow2io15SlowInputStream4PeekEl(ptr dead_on_unwind noalias writable sret(%"class.arrow::Result.12") align 8 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %1, i64 noundef %2) unnamed_addr #2 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %5 = load ptr, ptr %4, align 8, !tbaa !44
+  %5 = load ptr, ptr %4, align 8, !tbaa !43
   %6 = load ptr, ptr %5, align 8, !tbaa !3
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 40
   %8 = load ptr, ptr %7, align 8
@@ -910,7 +910,7 @@ define linkonce_odr void @_ZN5arrow2io19SlowInputStreamBaseINS0_16RandomAccessFi
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5arrow2io19SlowInputStreamBaseINS0_16RandomAccessFileEEE, i64 200), ptr %15, align 8, !tbaa !3
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %17 = load ptr, ptr %16, align 8, !tbaa !38
+  %17 = load ptr, ptr %16, align 8, !tbaa !37
   %.not.i.i = icmp eq ptr %17, null
   br i1 %.not.i.i, label %_ZNSt12__shared_ptrIN5arrow2io16LatencyGeneratorELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, label %18
 
@@ -922,9 +922,9 @@ define linkonce_odr void @_ZN5arrow2io19SlowInputStreamBaseINS0_16RandomAccessFi
   br i1 %21, label %23, label %31
 
 23:                                               ; preds = %18
-  store i32 0, ptr %19, align 8, !tbaa !19
+  store i32 0, ptr %19, align 8, !tbaa !18
   %24 = getelementptr inbounds nuw i8, ptr %17, i64 12
-  store i32 0, ptr %24, align 4, !tbaa !21
+  store i32 0, ptr %24, align 4, !tbaa !20
   %25 = load ptr, ptr %17, align 8, !tbaa !3
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 16
   %27 = load ptr, ptr %26, align 8
@@ -936,7 +936,7 @@ define linkonce_odr void @_ZN5arrow2io19SlowInputStreamBaseINS0_16RandomAccessFi
   br label %_ZNSt12__shared_ptrIN5arrow2io16LatencyGeneratorELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
 31:                                               ; preds = %18
-  %32 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !42
+  %32 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !41
   %.not.i.i.i = icmp eq i8 %32, 0
   br i1 %.not.i.i.i, label %35, label %33
 
@@ -952,7 +952,7 @@ define linkonce_odr void @_ZN5arrow2io19SlowInputStreamBaseINS0_16RandomAccessFi
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i: ; preds = %35, %33
   %.0.i.i.i.i = phi i32 [ %22, %33 ], [ %36, %35 ]
   %37 = icmp eq i32 %.0.i.i.i.i, 1
-  br i1 %37, label %38, label %_ZNSt12__shared_ptrIN5arrow2io16LatencyGeneratorELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, !prof !43
+  br i1 %37, label %38, label %_ZNSt12__shared_ptrIN5arrow2io16LatencyGeneratorELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, !prof !42
 
 38:                                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i
   tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %17) #25
@@ -960,7 +960,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i: ; preds = %35, %33
 
 _ZNSt12__shared_ptrIN5arrow2io16LatencyGeneratorELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %2, %23, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i, %38
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %40 = load ptr, ptr %39, align 8, !tbaa !38
+  %40 = load ptr, ptr %39, align 8, !tbaa !37
   %.not.i.i2 = icmp eq ptr %40, null
   br i1 %.not.i.i2, label %_ZNSt12__shared_ptrIN5arrow2io16RandomAccessFileELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, label %41
 
@@ -972,9 +972,9 @@ _ZNSt12__shared_ptrIN5arrow2io16LatencyGeneratorELN9__gnu_cxx12_Lock_policyE2EED
   br i1 %44, label %46, label %54
 
 46:                                               ; preds = %41
-  store i32 0, ptr %42, align 8, !tbaa !19
+  store i32 0, ptr %42, align 8, !tbaa !18
   %47 = getelementptr inbounds nuw i8, ptr %40, i64 12
-  store i32 0, ptr %47, align 4, !tbaa !21
+  store i32 0, ptr %47, align 4, !tbaa !20
   %48 = load ptr, ptr %40, align 8, !tbaa !3
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 16
   %50 = load ptr, ptr %49, align 8
@@ -986,7 +986,7 @@ _ZNSt12__shared_ptrIN5arrow2io16LatencyGeneratorELN9__gnu_cxx12_Lock_policyE2EED
   br label %_ZNSt12__shared_ptrIN5arrow2io16RandomAccessFileELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
 54:                                               ; preds = %41
-  %55 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !42
+  %55 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !41
   %.not.i.i.i3 = icmp eq i8 %55, 0
   br i1 %.not.i.i.i3, label %58, label %56
 
@@ -1002,7 +1002,7 @@ _ZNSt12__shared_ptrIN5arrow2io16LatencyGeneratorELN9__gnu_cxx12_Lock_policyE2EED
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i4: ; preds = %58, %56
   %.0.i.i.i.i5 = phi i32 [ %45, %56 ], [ %59, %58 ]
   %60 = icmp eq i32 %.0.i.i.i.i5, 1
-  br i1 %60, label %61, label %_ZNSt12__shared_ptrIN5arrow2io16RandomAccessFileELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, !prof !43
+  br i1 %60, label %61, label %_ZNSt12__shared_ptrIN5arrow2io16RandomAccessFileELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, !prof !42
 
 61:                                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i4
   tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %40) #25
@@ -1166,7 +1166,7 @@ _ZN5arrow2io20SlowRandomAccessFileD0Ev.exit:      ; preds = %1
 ; Function Attrs: mustprogress uwtable
 define void @_ZN5arrow2io20SlowRandomAccessFile5CloseEv(ptr dead_on_unwind noalias writable sret(%"class.arrow::Status") align 8 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %1) unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %4 = load ptr, ptr %3, align 8, !tbaa !62
+  %4 = load ptr, ptr %3, align 8, !tbaa !61
   %5 = load ptr, ptr %4, align 8, !tbaa !3
   %6 = getelementptr i8, ptr %5, i64 -56
   %7 = load i64, ptr %6, align 8
@@ -1185,14 +1185,14 @@ define void @_ZTv0_n32_N5arrow2io20SlowRandomAccessFile5CloseEv(ptr dead_on_unwi
   %5 = load i64, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %1, i64 %5
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  %8 = load ptr, ptr %7, align 8, !tbaa !62, !noalias !65
-  %9 = load ptr, ptr %8, align 8, !tbaa !3, !noalias !65
+  %8 = load ptr, ptr %7, align 8, !tbaa !61, !noalias !64
+  %9 = load ptr, ptr %8, align 8, !tbaa !3, !noalias !64
   %10 = getelementptr i8, ptr %9, i64 -56
-  %11 = load i64, ptr %10, align 8, !noalias !65
+  %11 = load i64, ptr %10, align 8, !noalias !64
   %12 = getelementptr inbounds i8, ptr %8, i64 %11
-  %13 = load ptr, ptr %12, align 8, !tbaa !3, !noalias !65
+  %13 = load ptr, ptr %12, align 8, !tbaa !3, !noalias !64
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
-  %15 = load ptr, ptr %14, align 8, !noalias !65
+  %15 = load ptr, ptr %14, align 8, !noalias !64
   tail call void %15(ptr dead_on_unwind writable sret(%"class.arrow::Status") align 8 %0, ptr noundef nonnull align 8 dereferenceable(28) %12)
   ret void
 }
@@ -1200,7 +1200,7 @@ define void @_ZTv0_n32_N5arrow2io20SlowRandomAccessFile5CloseEv(ptr dead_on_unwi
 ; Function Attrs: mustprogress uwtable
 define void @_ZN5arrow2io20SlowRandomAccessFile5AbortEv(ptr dead_on_unwind noalias writable sret(%"class.arrow::Status") align 8 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %1) unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %4 = load ptr, ptr %3, align 8, !tbaa !62
+  %4 = load ptr, ptr %3, align 8, !tbaa !61
   %5 = load ptr, ptr %4, align 8, !tbaa !3
   %6 = getelementptr i8, ptr %5, i64 -56
   %7 = load i64, ptr %6, align 8
@@ -1219,14 +1219,14 @@ define void @_ZTv0_n48_N5arrow2io20SlowRandomAccessFile5AbortEv(ptr dead_on_unwi
   %5 = load i64, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %1, i64 %5
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  %8 = load ptr, ptr %7, align 8, !tbaa !62, !noalias !68
-  %9 = load ptr, ptr %8, align 8, !tbaa !3, !noalias !68
+  %8 = load ptr, ptr %7, align 8, !tbaa !61, !noalias !67
+  %9 = load ptr, ptr %8, align 8, !tbaa !3, !noalias !67
   %10 = getelementptr i8, ptr %9, i64 -56
-  %11 = load i64, ptr %10, align 8, !noalias !68
+  %11 = load i64, ptr %10, align 8, !noalias !67
   %12 = getelementptr inbounds i8, ptr %8, i64 %11
-  %13 = load ptr, ptr %12, align 8, !tbaa !3, !noalias !68
+  %13 = load ptr, ptr %12, align 8, !tbaa !3, !noalias !67
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 32
-  %15 = load ptr, ptr %14, align 8, !noalias !68
+  %15 = load ptr, ptr %14, align 8, !noalias !67
   tail call void %15(ptr dead_on_unwind writable sret(%"class.arrow::Status") align 8 %0, ptr noundef nonnull align 8 dereferenceable(28) %12)
   ret void
 }
@@ -1234,7 +1234,7 @@ define void @_ZTv0_n48_N5arrow2io20SlowRandomAccessFile5AbortEv(ptr dead_on_unwi
 ; Function Attrs: mustprogress uwtable
 define noundef zeroext i1 @_ZNK5arrow2io20SlowRandomAccessFile6closedEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %0) unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %3 = load ptr, ptr %2, align 8, !tbaa !62
+  %3 = load ptr, ptr %2, align 8, !tbaa !61
   %4 = load ptr, ptr %3, align 8, !tbaa !3
   %5 = getelementptr i8, ptr %4, i64 -56
   %6 = load i64, ptr %5, align 8
@@ -1253,7 +1253,7 @@ define noundef zeroext i1 @_ZTv0_n64_NK5arrow2io20SlowRandomAccessFile6closedEv(
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  %7 = load ptr, ptr %6, align 8, !tbaa !62
+  %7 = load ptr, ptr %6, align 8, !tbaa !61
   %8 = load ptr, ptr %7, align 8, !tbaa !3
   %9 = getelementptr i8, ptr %8, i64 -56
   %10 = load i64, ptr %9, align 8
@@ -1268,7 +1268,7 @@ define noundef zeroext i1 @_ZTv0_n64_NK5arrow2io20SlowRandomAccessFile6closedEv(
 ; Function Attrs: mustprogress uwtable
 define void @_ZN5arrow2io20SlowRandomAccessFile7GetSizeEv(ptr dead_on_unwind noalias writable sret(%"class.arrow::Result") align 8 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %1) unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %4 = load ptr, ptr %3, align 8, !tbaa !62
+  %4 = load ptr, ptr %3, align 8, !tbaa !61
   %5 = load ptr, ptr %4, align 8, !tbaa !3
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 72
   %7 = load ptr, ptr %6, align 8
@@ -1279,7 +1279,7 @@ define void @_ZN5arrow2io20SlowRandomAccessFile7GetSizeEv(ptr dead_on_unwind noa
 ; Function Attrs: mustprogress uwtable
 define void @_ZN5arrow2io20SlowRandomAccessFile4SeekEl(ptr dead_on_unwind noalias writable sret(%"class.arrow::Status") align 8 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %1, i64 noundef %2) unnamed_addr #2 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %5 = load ptr, ptr %4, align 8, !tbaa !62
+  %5 = load ptr, ptr %4, align 8, !tbaa !61
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = load ptr, ptr %6, align 8, !tbaa !3
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
@@ -1291,11 +1291,11 @@ define void @_ZN5arrow2io20SlowRandomAccessFile4SeekEl(ptr dead_on_unwind noalia
 ; Function Attrs: uwtable
 define void @_ZThn8_N5arrow2io20SlowRandomAccessFile4SeekEl(ptr dead_on_unwind noalias writable sret(%"class.arrow::Status") align 8 %0, ptr noundef readonly captures(none) %1, i64 noundef %2) unnamed_addr #11 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %5 = load ptr, ptr %4, align 8, !tbaa !62, !noalias !71
+  %5 = load ptr, ptr %4, align 8, !tbaa !61, !noalias !70
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %7 = load ptr, ptr %6, align 8, !tbaa !3, !noalias !71
+  %7 = load ptr, ptr %6, align 8, !tbaa !3, !noalias !70
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %9 = load ptr, ptr %8, align 8, !noalias !71
+  %9 = load ptr, ptr %8, align 8, !noalias !70
   tail call void %9(ptr dead_on_unwind writable sret(%"class.arrow::Status") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %6, i64 noundef %2)
   ret void
 }
@@ -1303,7 +1303,7 @@ define void @_ZThn8_N5arrow2io20SlowRandomAccessFile4SeekEl(ptr dead_on_unwind n
 ; Function Attrs: mustprogress uwtable
 define void @_ZNK5arrow2io20SlowRandomAccessFile4TellEv(ptr dead_on_unwind noalias writable sret(%"class.arrow::Result") align 8 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %1) unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %4 = load ptr, ptr %3, align 8, !tbaa !62
+  %4 = load ptr, ptr %3, align 8, !tbaa !61
   %5 = load ptr, ptr %4, align 8, !tbaa !3
   %6 = getelementptr i8, ptr %5, i64 -56
   %7 = load i64, ptr %6, align 8
@@ -1322,14 +1322,14 @@ define void @_ZTv0_n56_NK5arrow2io20SlowRandomAccessFile4TellEv(ptr dead_on_unwi
   %5 = load i64, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %1, i64 %5
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  %8 = load ptr, ptr %7, align 8, !tbaa !62, !noalias !74
-  %9 = load ptr, ptr %8, align 8, !tbaa !3, !noalias !74
+  %8 = load ptr, ptr %7, align 8, !tbaa !61, !noalias !73
+  %9 = load ptr, ptr %8, align 8, !tbaa !3, !noalias !73
   %10 = getelementptr i8, ptr %9, i64 -56
-  %11 = load i64, ptr %10, align 8, !noalias !74
+  %11 = load i64, ptr %10, align 8, !noalias !73
   %12 = getelementptr inbounds i8, ptr %8, i64 %11
-  %13 = load ptr, ptr %12, align 8, !tbaa !3, !noalias !74
+  %13 = load ptr, ptr %12, align 8, !tbaa !3, !noalias !73
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 40
-  %15 = load ptr, ptr %14, align 8, !noalias !74
+  %15 = load ptr, ptr %14, align 8, !noalias !73
   tail call void %15(ptr dead_on_unwind writable sret(%"class.arrow::Result") align 8 %0, ptr noundef nonnull align 8 dereferenceable(28) %12)
   ret void
 }
@@ -1338,7 +1338,7 @@ define void @_ZTv0_n56_NK5arrow2io20SlowRandomAccessFile4TellEv(ptr dead_on_unwi
 define void @_ZN5arrow2io20SlowRandomAccessFile4ReadElPv(ptr dead_on_unwind noalias writable sret(%"class.arrow::Result") align 8 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %1, i64 noundef %2, ptr noundef %3) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %struct.timespec, align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %7 = load ptr, ptr %6, align 8, !tbaa !32
+  %7 = load ptr, ptr %6, align 8, !tbaa !31
   %8 = load ptr, ptr %7, align 8, !tbaa !3
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %10 = load ptr, ptr %9, align 8
@@ -1375,7 +1375,7 @@ define void @_ZN5arrow2io20SlowRandomAccessFile4ReadElPv(ptr dead_on_unwind noal
 
 _ZN5arrow2io16LatencyGenerator5SleepEv.exit:      ; preds = %4, %.critedge.i.i
   %27 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %28 = load ptr, ptr %27, align 8, !tbaa !62
+  %28 = load ptr, ptr %27, align 8, !tbaa !61
   %29 = load ptr, ptr %28, align 8, !tbaa !3
   %30 = getelementptr i8, ptr %29, i64 -64
   %31 = load i64, ptr %30, align 8
@@ -1395,11 +1395,11 @@ define void @_ZTv0_n32_N5arrow2io20SlowRandomAccessFile4ReadElPv(ptr dead_on_unw
   %8 = load i64, ptr %7, align 8
   %9 = getelementptr inbounds i8, ptr %1, i64 %8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 40
-  %11 = load ptr, ptr %10, align 8, !tbaa !32, !noalias !77
-  %12 = load ptr, ptr %11, align 8, !tbaa !3, !noalias !77
+  %11 = load ptr, ptr %10, align 8, !tbaa !31, !noalias !76
+  %12 = load ptr, ptr %11, align 8, !tbaa !3, !noalias !76
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
-  %14 = load ptr, ptr %13, align 8, !noalias !77
-  %15 = tail call noundef double %14(ptr noundef nonnull align 8 dereferenceable(8) %11), !noalias !77
+  %14 = load ptr, ptr %13, align 8, !noalias !76
+  %15 = tail call noundef double %14(ptr noundef nonnull align 8 dereferenceable(8) %11), !noalias !76
   %16 = fcmp ule double %15, 0.000000e+00
   br i1 %16, label %_ZN5arrow2io20SlowRandomAccessFile4ReadElPv.exit, label %17
 
@@ -1409,37 +1409,37 @@ define void @_ZTv0_n32_N5arrow2io20SlowRandomAccessFile4ReadElPv(ptr dead_on_unw
   %20 = fsub double %15, %19
   %21 = fmul double %20, 1.000000e+09
   %22 = fptosi double %21 to i64
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #25, !noalias !77
-  store i64 %18, ptr %5, align 8, !tbaa !6, !noalias !77
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #25, !noalias !76
+  store i64 %18, ptr %5, align 8, !tbaa !6, !noalias !76
   %23 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store i64 %22, ptr %23, align 8, !tbaa !10, !noalias !77
+  store i64 %22, ptr %23, align 8, !tbaa !10, !noalias !76
   br label %24
 
 24:                                               ; preds = %27, %17
-  %25 = call i32 @nanosleep(ptr noundef nonnull %5, ptr noundef nonnull %5), !noalias !77
+  %25 = call i32 @nanosleep(ptr noundef nonnull %5, ptr noundef nonnull %5), !noalias !76
   %26 = icmp eq i32 %25, -1
   br i1 %26, label %27, label %.critedge.i.i.i
 
 27:                                               ; preds = %24
   %28 = tail call ptr @__errno_location() #26
-  %29 = load i32, ptr %28, align 4, !tbaa !11, !noalias !77
+  %29 = load i32, ptr %28, align 4, !tbaa !11, !noalias !76
   %30 = icmp eq i32 %29, 4
   br i1 %30, label %24, label %.critedge.i.i.i, !llvm.loop !13
 
 .critedge.i.i.i:                                  ; preds = %27, %24
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #25, !noalias !77
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #25, !noalias !76
   br label %_ZN5arrow2io20SlowRandomAccessFile4ReadElPv.exit
 
 _ZN5arrow2io20SlowRandomAccessFile4ReadElPv.exit: ; preds = %4, %.critedge.i.i.i
   %31 = getelementptr inbounds nuw i8, ptr %9, i64 24
-  %32 = load ptr, ptr %31, align 8, !tbaa !62, !noalias !77
-  %33 = load ptr, ptr %32, align 8, !tbaa !3, !noalias !77
+  %32 = load ptr, ptr %31, align 8, !tbaa !61, !noalias !76
+  %33 = load ptr, ptr %32, align 8, !tbaa !3, !noalias !76
   %34 = getelementptr i8, ptr %33, i64 -64
-  %35 = load i64, ptr %34, align 8, !noalias !77
+  %35 = load i64, ptr %34, align 8, !noalias !76
   %36 = getelementptr inbounds i8, ptr %32, i64 %35
-  %37 = load ptr, ptr %36, align 8, !tbaa !3, !noalias !77
+  %37 = load ptr, ptr %36, align 8, !tbaa !3, !noalias !76
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 16
-  %39 = load ptr, ptr %38, align 8, !noalias !77
+  %39 = load ptr, ptr %38, align 8, !noalias !76
   call void %39(ptr dead_on_unwind writable sret(%"class.arrow::Result") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %36, i64 noundef %2, ptr noundef %3)
   ret void
 }
@@ -1448,7 +1448,7 @@ _ZN5arrow2io20SlowRandomAccessFile4ReadElPv.exit: ; preds = %4, %.critedge.i.i.i
 define void @_ZN5arrow2io20SlowRandomAccessFile4ReadEl(ptr dead_on_unwind noalias writable sret(%"class.arrow::Result.8") align 8 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %1, i64 noundef %2) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %struct.timespec, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %6 = load ptr, ptr %5, align 8, !tbaa !32
+  %6 = load ptr, ptr %5, align 8, !tbaa !31
   %7 = load ptr, ptr %6, align 8, !tbaa !3
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %9 = load ptr, ptr %8, align 8
@@ -1485,7 +1485,7 @@ define void @_ZN5arrow2io20SlowRandomAccessFile4ReadEl(ptr dead_on_unwind noalia
 
 _ZN5arrow2io16LatencyGenerator5SleepEv.exit:      ; preds = %3, %.critedge.i.i
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %27 = load ptr, ptr %26, align 8, !tbaa !62
+  %27 = load ptr, ptr %26, align 8, !tbaa !61
   %28 = load ptr, ptr %27, align 8, !tbaa !3
   %29 = getelementptr i8, ptr %28, i64 -64
   %30 = load i64, ptr %29, align 8
@@ -1505,11 +1505,11 @@ define void @_ZTv0_n40_N5arrow2io20SlowRandomAccessFile4ReadEl(ptr dead_on_unwin
   %7 = load i64, ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %1, i64 %7
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 40
-  %10 = load ptr, ptr %9, align 8, !tbaa !32, !noalias !80
-  %11 = load ptr, ptr %10, align 8, !tbaa !3, !noalias !80
+  %10 = load ptr, ptr %9, align 8, !tbaa !31, !noalias !79
+  %11 = load ptr, ptr %10, align 8, !tbaa !3, !noalias !79
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
-  %13 = load ptr, ptr %12, align 8, !noalias !80
-  %14 = tail call noundef double %13(ptr noundef nonnull align 8 dereferenceable(8) %10), !noalias !80
+  %13 = load ptr, ptr %12, align 8, !noalias !79
+  %14 = tail call noundef double %13(ptr noundef nonnull align 8 dereferenceable(8) %10), !noalias !79
   %15 = fcmp ule double %14, 0.000000e+00
   br i1 %15, label %_ZN5arrow2io20SlowRandomAccessFile4ReadEl.exit, label %16
 
@@ -1519,37 +1519,37 @@ define void @_ZTv0_n40_N5arrow2io20SlowRandomAccessFile4ReadEl(ptr dead_on_unwin
   %19 = fsub double %14, %18
   %20 = fmul double %19, 1.000000e+09
   %21 = fptosi double %20 to i64
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #25, !noalias !80
-  store i64 %17, ptr %4, align 8, !tbaa !6, !noalias !80
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #25, !noalias !79
+  store i64 %17, ptr %4, align 8, !tbaa !6, !noalias !79
   %22 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store i64 %21, ptr %22, align 8, !tbaa !10, !noalias !80
+  store i64 %21, ptr %22, align 8, !tbaa !10, !noalias !79
   br label %23
 
 23:                                               ; preds = %26, %16
-  %24 = call i32 @nanosleep(ptr noundef nonnull %4, ptr noundef nonnull %4), !noalias !80
+  %24 = call i32 @nanosleep(ptr noundef nonnull %4, ptr noundef nonnull %4), !noalias !79
   %25 = icmp eq i32 %24, -1
   br i1 %25, label %26, label %.critedge.i.i.i
 
 26:                                               ; preds = %23
   %27 = tail call ptr @__errno_location() #26
-  %28 = load i32, ptr %27, align 4, !tbaa !11, !noalias !80
+  %28 = load i32, ptr %27, align 4, !tbaa !11, !noalias !79
   %29 = icmp eq i32 %28, 4
   br i1 %29, label %23, label %.critedge.i.i.i, !llvm.loop !13
 
 .critedge.i.i.i:                                  ; preds = %26, %23
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #25, !noalias !80
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #25, !noalias !79
   br label %_ZN5arrow2io20SlowRandomAccessFile4ReadEl.exit
 
 _ZN5arrow2io20SlowRandomAccessFile4ReadEl.exit:   ; preds = %3, %.critedge.i.i.i
   %30 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  %31 = load ptr, ptr %30, align 8, !tbaa !62, !noalias !80
-  %32 = load ptr, ptr %31, align 8, !tbaa !3, !noalias !80
+  %31 = load ptr, ptr %30, align 8, !tbaa !61, !noalias !79
+  %32 = load ptr, ptr %31, align 8, !tbaa !3, !noalias !79
   %33 = getelementptr i8, ptr %32, i64 -64
-  %34 = load i64, ptr %33, align 8, !noalias !80
+  %34 = load i64, ptr %33, align 8, !noalias !79
   %35 = getelementptr inbounds i8, ptr %31, i64 %34
-  %36 = load ptr, ptr %35, align 8, !tbaa !3, !noalias !80
+  %36 = load ptr, ptr %35, align 8, !tbaa !3, !noalias !79
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 24
-  %38 = load ptr, ptr %37, align 8, !noalias !80
+  %38 = load ptr, ptr %37, align 8, !noalias !79
   call void %38(ptr dead_on_unwind writable sret(%"class.arrow::Result.8") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %35, i64 noundef %2)
   ret void
 }
@@ -1558,7 +1558,7 @@ _ZN5arrow2io20SlowRandomAccessFile4ReadEl.exit:   ; preds = %3, %.critedge.i.i.i
 define void @_ZN5arrow2io20SlowRandomAccessFile6ReadAtEllPv(ptr dead_on_unwind noalias writable sret(%"class.arrow::Result") align 8 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %1, i64 noundef %2, i64 noundef %3, ptr noundef %4) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %struct.timespec, align 8
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %8 = load ptr, ptr %7, align 8, !tbaa !32
+  %8 = load ptr, ptr %7, align 8, !tbaa !31
   %9 = load ptr, ptr %8, align 8, !tbaa !3
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %11 = load ptr, ptr %10, align 8
@@ -1595,7 +1595,7 @@ define void @_ZN5arrow2io20SlowRandomAccessFile6ReadAtEllPv(ptr dead_on_unwind n
 
 _ZN5arrow2io16LatencyGenerator5SleepEv.exit:      ; preds = %5, %.critedge.i.i
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %29 = load ptr, ptr %28, align 8, !tbaa !62
+  %29 = load ptr, ptr %28, align 8, !tbaa !61
   %30 = load ptr, ptr %29, align 8, !tbaa !3
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 80
   %32 = load ptr, ptr %31, align 8
@@ -1607,7 +1607,7 @@ _ZN5arrow2io16LatencyGenerator5SleepEv.exit:      ; preds = %5, %.critedge.i.i
 define void @_ZN5arrow2io20SlowRandomAccessFile6ReadAtEll(ptr dead_on_unwind noalias writable sret(%"class.arrow::Result.8") align 8 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %1, i64 noundef %2, i64 noundef %3) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %struct.timespec, align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %7 = load ptr, ptr %6, align 8, !tbaa !32
+  %7 = load ptr, ptr %6, align 8, !tbaa !31
   %8 = load ptr, ptr %7, align 8, !tbaa !3
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %10 = load ptr, ptr %9, align 8
@@ -1644,7 +1644,7 @@ define void @_ZN5arrow2io20SlowRandomAccessFile6ReadAtEll(ptr dead_on_unwind noa
 
 _ZN5arrow2io16LatencyGenerator5SleepEv.exit:      ; preds = %4, %.critedge.i.i
   %27 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %28 = load ptr, ptr %27, align 8, !tbaa !62
+  %28 = load ptr, ptr %27, align 8, !tbaa !61
   %29 = load ptr, ptr %28, align 8, !tbaa !3
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 88
   %31 = load ptr, ptr %30, align 8
@@ -1655,7 +1655,7 @@ _ZN5arrow2io16LatencyGenerator5SleepEv.exit:      ; preds = %4, %.critedge.i.i
 ; Function Attrs: mustprogress uwtable
 define void @_ZN5arrow2io20SlowRandomAccessFile4PeekEl(ptr dead_on_unwind noalias writable sret(%"class.arrow::Result.12") align 8 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %1, i64 noundef %2) unnamed_addr #2 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %5 = load ptr, ptr %4, align 8, !tbaa !62
+  %5 = load ptr, ptr %4, align 8, !tbaa !61
   %6 = load ptr, ptr %5, align 8, !tbaa !3
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 40
   %8 = load ptr, ptr %7, align 8
@@ -1780,7 +1780,7 @@ define linkonce_odr void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE
   %4 = load ptr, ptr %3, align 8
   tail call void %4(ptr noundef nonnull align 8 dereferenceable(16) %0) #25
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %6 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !42
+  %6 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !41
   %.not.i = icmp eq i8 %6, 0
   br i1 %.not.i, label %10, label %7
 
@@ -1868,12 +1868,12 @@ define linkonce_odr noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN5arrow2io20Late
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %7 = load ptr, ptr %6, align 8, !tbaa !83
+  %7 = load ptr, ptr %6, align 8, !tbaa !82
   %8 = icmp eq ptr %7, @_ZTSSt19_Sp_make_shared_tag
   br i1 %8, label %_ZNKSt9type_infoeqERKS_.exit.thread, label %9
 
 9:                                                ; preds = %5
-  %10 = load i8, ptr %7, align 1, !tbaa !42
+  %10 = load i8, ptr %7, align 1, !tbaa !41
   %.not.i = icmp eq i8 %10, 42
   br i1 %.not.i, label %_ZNKSt9type_infoeqERKS_.exit.thread8, label %_ZNKSt9type_infoeqERKS_.exit
 
@@ -1944,7 +1944,7 @@ declare i32 @pthread_mutex_lock(ptr noundef) local_unnamed_addr #8
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef double @_ZNSt19normal_distributionIdEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEdRT_RKNS0_10param_typeE(ptr noundef nonnull align 8 dereferenceable(25) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(16) %2) local_unnamed_addr #2 comdat align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %5 = load i8, ptr %4, align 8, !tbaa !31, !range !86, !noundef !87
+  %5 = load i8, ptr %4, align 8, !tbaa !30, !range !85, !noundef !86
   %6 = trunc nuw i8 %5 to i1
   br i1 %6, label %13, label %.preheader
 
@@ -1956,19 +1956,19 @@ define linkonce_odr noundef double @_ZNSt19normal_distributionIdEclISt26linear_c
   %11 = add i64 %10, 52
   %12 = udiv i64 %11, %10
   %spec.select.i.i = tail call i64 @llvm.umax.i64(i64 %12, i64 1)
-  %.promoted = load i64, ptr %1, align 8, !tbaa !22
+  %.promoted = load i64, ptr %1, align 8, !tbaa !21
   br label %select.unfold.i.i
 
 13:                                               ; preds = %3
-  store i8 0, ptr %4, align 8, !tbaa !31
+  store i8 0, ptr %4, align 8, !tbaa !30
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %15 = load double, ptr %14, align 8, !tbaa !28
+  %15 = load double, ptr %14, align 8, !tbaa !27
   br label %61
 
 16:                                               ; preds = %select.unfold.i.i
   %17 = fdiv double %24, %27
   %18 = fcmp ult double %17, 1.000000e+00
-  br i1 %18, label %_ZNSt8__detail8_AdaptorISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEdEclEv.exit, label %29, !prof !88
+  br i1 %18, label %_ZNSt8__detail8_AdaptorISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEdEclEv.exit, label %29, !prof !87
 
 select.unfold.i.i:                                ; preds = %select.unfold.i.i.backedge, %.preheader
   %.023.i.i = phi i64 [ %spec.select.i.i, %.preheader ], [ %.023.i.i.be, %select.unfold.i.i.backedge ]
@@ -1992,7 +1992,7 @@ select.unfold.i.i.backedge:                       ; preds = %select.unfold.i.i, 
   %.01422.i.i.be = phi double [ %27, %select.unfold.i.i ], [ 1.000000e+00, %_ZNSt8__detail8_AdaptorISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEdEclEv.exit27 ]
   %.01521.i.i.be = phi double [ %24, %select.unfold.i.i ], [ 0.000000e+00, %_ZNSt8__detail8_AdaptorISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEdEclEv.exit27 ]
   %.be = phi i64 [ %21, %select.unfold.i.i ], [ %37, %_ZNSt8__detail8_AdaptorISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEdEclEv.exit27 ]
-  br label %select.unfold.i.i, !llvm.loop !89
+  br label %select.unfold.i.i, !llvm.loop !88
 
 29:                                               ; preds = %16
   %30 = tail call double @nextafter(double noundef 1.000000e+00, double noundef 0.000000e+00) #25, !tbaa !11
@@ -2004,10 +2004,10 @@ _ZNSt8__detail8_AdaptorISt26linear_congruential_engineImLm16807ELm0ELm2147483647
 
 31:                                               ; preds = %select.unfold.i.i21
   %32 = tail call double @llvm.fmuladd.f64(double %.016.i.i, double 2.000000e+00, double -1.000000e+00)
-  store i64 %37, ptr %1, align 8, !tbaa !22
+  store i64 %37, ptr %1, align 8, !tbaa !21
   %33 = fdiv double %40, %43
   %34 = fcmp ult double %33, 1.000000e+00
-  br i1 %34, label %_ZNSt8__detail8_AdaptorISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEdEclEv.exit27, label %45, !prof !88
+  br i1 %34, label %_ZNSt8__detail8_AdaptorISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEdEclEv.exit27, label %45, !prof !87
 
 select.unfold.i.i21:                              ; preds = %select.unfold.i.i21, %_ZNSt8__detail8_AdaptorISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEdEclEv.exit
   %.023.i.i22 = phi i64 [ %spec.select.i.i, %_ZNSt8__detail8_AdaptorISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEdEclEv.exit ], [ %44, %select.unfold.i.i21 ]
@@ -2024,7 +2024,7 @@ select.unfold.i.i21:                              ; preds = %select.unfold.i.i21
   %43 = fptrunc x86_fp80 %42 to double
   %44 = add i64 %.023.i.i22, -1
   %.not.i.i25 = icmp eq i64 %44, 0
-  br i1 %.not.i.i25, label %31, label %select.unfold.i.i21, !llvm.loop !90
+  br i1 %.not.i.i25, label %31, label %select.unfold.i.i21, !llvm.loop !89
 
 45:                                               ; preds = %31
   %46 = tail call double @nextafter(double noundef 1.000000e+00, double noundef 0.000000e+00) #25, !tbaa !11
@@ -2047,16 +2047,16 @@ _ZNSt8__detail8_AdaptorISt26linear_congruential_engineImLm16807ELm0ELm2147483647
   %57 = tail call double @sqrt(double noundef %56) #25, !tbaa !11
   %58 = fmul double %32, %57
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store double %58, ptr %59, align 8, !tbaa !28
-  store i8 1, ptr %4, align 8, !tbaa !31
+  store double %58, ptr %59, align 8, !tbaa !27
+  store i8 1, ptr %4, align 8, !tbaa !30
   %60 = fmul double %47, %57
   br label %61
 
 61:                                               ; preds = %53, %13
   %.0 = phi double [ %15, %13 ], [ %60, %53 ]
   %62 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %63 = load double, ptr %62, align 8, !tbaa !27
-  %64 = load double, ptr %2, align 8, !tbaa !24
+  %63 = load double, ptr %62, align 8, !tbaa !26
+  %64 = load double, ptr %2, align 8, !tbaa !23
   %65 = tail call double @llvm.fmuladd.f64(double %.0, double %63, double %64)
   ret double %65
 }
@@ -2131,81 +2131,80 @@ attributes #29 = { noreturn }
 !10 = !{!7, !8, i64 8}
 !11 = !{!12, !12, i64 0}
 !12 = !{!"int", !9, i64 0}
-!13 = distinct !{!13, !14, !15}
+!13 = distinct !{!13, !14}
 !14 = !{!"llvm.loop.mustprogress"}
-!15 = !{!"llvm.loop.estimated_trip_count"}
-!16 = !{!17}
-!17 = distinct !{!17, !18, !"_ZSt11make_sharedIN5arrow2io20LatencyGeneratorImplEJRdiEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES6_E4typeEEDpOT0_: argument 0"}
-!18 = distinct !{!18, !"_ZSt11make_sharedIN5arrow2io20LatencyGeneratorImplEJRdiEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES6_E4typeEEDpOT0_"}
-!19 = !{!20, !12, i64 8}
-!20 = !{!"_ZTSSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE", !12, i64 8, !12, i64 12}
-!21 = !{!20, !12, i64 12}
-!22 = !{!23, !8, i64 0}
-!23 = !{!"_ZTSSt26linear_congruential_engineImLm16807ELm0ELm2147483647EE", !8, i64 0}
-!24 = !{!25, !26, i64 0}
-!25 = !{!"_ZTSNSt19normal_distributionIdE10param_typeE", !26, i64 0, !26, i64 8}
-!26 = !{!"double", !9, i64 0}
-!27 = !{!25, !26, i64 8}
-!28 = !{!29, !26, i64 16}
-!29 = !{!"_ZTSSt19normal_distributionIdE", !25, i64 0, !26, i64 16, !30, i64 24}
-!30 = !{!"bool", !9, i64 0}
-!31 = !{!29, !30, i64 24}
-!32 = !{!33, !34, i64 0}
-!33 = !{!"_ZTSSt12__shared_ptrIN5arrow2io16LatencyGeneratorELN9__gnu_cxx12_Lock_policyE2EE", !34, i64 0, !36, i64 8}
-!34 = !{!"p1 _ZTSN5arrow2io16LatencyGeneratorE", !35, i64 0}
-!35 = !{!"any pointer", !9, i64 0}
-!36 = !{!"_ZTSSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EE", !37, i64 0}
-!37 = !{!"p1 _ZTSSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE", !35, i64 0}
-!38 = !{!36, !37, i64 0}
-!39 = !{!40}
-!40 = distinct !{!40, !41, !"_ZSt11make_sharedIN5arrow2io20LatencyGeneratorImplEJRdRiEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES7_E4typeEEDpOT0_: argument 0"}
-!41 = distinct !{!41, !"_ZSt11make_sharedIN5arrow2io20LatencyGeneratorImplEJRdRiEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES7_E4typeEEDpOT0_"}
-!42 = !{!9, !9, i64 0}
-!43 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!44 = !{!45, !46, i64 0}
-!45 = !{!"_ZTSSt12__shared_ptrIN5arrow2io11InputStreamELN9__gnu_cxx12_Lock_policyE2EE", !46, i64 0, !36, i64 8}
-!46 = !{!"p1 _ZTSN5arrow2io11InputStreamE", !35, i64 0}
-!47 = !{!48}
-!48 = distinct !{!48, !49, !"_ZN5arrow2io15SlowInputStream5CloseEv: argument 0"}
-!49 = distinct !{!49, !"_ZN5arrow2io15SlowInputStream5CloseEv"}
-!50 = !{!51}
-!51 = distinct !{!51, !52, !"_ZN5arrow2io15SlowInputStream5AbortEv: argument 0"}
-!52 = distinct !{!52, !"_ZN5arrow2io15SlowInputStream5AbortEv"}
-!53 = !{!54}
-!54 = distinct !{!54, !55, !"_ZNK5arrow2io15SlowInputStream4TellEv: argument 0"}
-!55 = distinct !{!55, !"_ZNK5arrow2io15SlowInputStream4TellEv"}
-!56 = !{!57}
-!57 = distinct !{!57, !58, !"_ZN5arrow2io15SlowInputStream4ReadElPv: argument 0"}
-!58 = distinct !{!58, !"_ZN5arrow2io15SlowInputStream4ReadElPv"}
-!59 = !{!60}
-!60 = distinct !{!60, !61, !"_ZN5arrow2io15SlowInputStream4ReadEl: argument 0"}
-!61 = distinct !{!61, !"_ZN5arrow2io15SlowInputStream4ReadEl"}
-!62 = !{!63, !64, i64 0}
-!63 = !{!"_ZTSSt12__shared_ptrIN5arrow2io16RandomAccessFileELN9__gnu_cxx12_Lock_policyE2EE", !64, i64 0, !36, i64 8}
-!64 = !{!"p1 _ZTSN5arrow2io16RandomAccessFileE", !35, i64 0}
-!65 = !{!66}
-!66 = distinct !{!66, !67, !"_ZN5arrow2io20SlowRandomAccessFile5CloseEv: argument 0"}
-!67 = distinct !{!67, !"_ZN5arrow2io20SlowRandomAccessFile5CloseEv"}
-!68 = !{!69}
-!69 = distinct !{!69, !70, !"_ZN5arrow2io20SlowRandomAccessFile5AbortEv: argument 0"}
-!70 = distinct !{!70, !"_ZN5arrow2io20SlowRandomAccessFile5AbortEv"}
-!71 = !{!72}
-!72 = distinct !{!72, !73, !"_ZN5arrow2io20SlowRandomAccessFile4SeekEl: argument 0"}
-!73 = distinct !{!73, !"_ZN5arrow2io20SlowRandomAccessFile4SeekEl"}
-!74 = !{!75}
-!75 = distinct !{!75, !76, !"_ZNK5arrow2io20SlowRandomAccessFile4TellEv: argument 0"}
-!76 = distinct !{!76, !"_ZNK5arrow2io20SlowRandomAccessFile4TellEv"}
-!77 = !{!78}
-!78 = distinct !{!78, !79, !"_ZN5arrow2io20SlowRandomAccessFile4ReadElPv: argument 0"}
-!79 = distinct !{!79, !"_ZN5arrow2io20SlowRandomAccessFile4ReadElPv"}
-!80 = !{!81}
-!81 = distinct !{!81, !82, !"_ZN5arrow2io20SlowRandomAccessFile4ReadEl: argument 0"}
-!82 = distinct !{!82, !"_ZN5arrow2io20SlowRandomAccessFile4ReadEl"}
-!83 = !{!84, !85, i64 8}
-!84 = !{!"_ZTSSt9type_info", !85, i64 8}
-!85 = !{!"p1 omnipotent char", !35, i64 0}
-!86 = !{i8 0, i8 2}
-!87 = !{}
-!88 = !{!"branch_weights", !"expected", i32 2000, i32 1}
-!89 = distinct !{!89, !14, !15}
-!90 = distinct !{!90, !14, !15}
+!15 = !{!16}
+!16 = distinct !{!16, !17, !"_ZSt11make_sharedIN5arrow2io20LatencyGeneratorImplEJRdiEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES6_E4typeEEDpOT0_: argument 0"}
+!17 = distinct !{!17, !"_ZSt11make_sharedIN5arrow2io20LatencyGeneratorImplEJRdiEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES6_E4typeEEDpOT0_"}
+!18 = !{!19, !12, i64 8}
+!19 = !{!"_ZTSSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE", !12, i64 8, !12, i64 12}
+!20 = !{!19, !12, i64 12}
+!21 = !{!22, !8, i64 0}
+!22 = !{!"_ZTSSt26linear_congruential_engineImLm16807ELm0ELm2147483647EE", !8, i64 0}
+!23 = !{!24, !25, i64 0}
+!24 = !{!"_ZTSNSt19normal_distributionIdE10param_typeE", !25, i64 0, !25, i64 8}
+!25 = !{!"double", !9, i64 0}
+!26 = !{!24, !25, i64 8}
+!27 = !{!28, !25, i64 16}
+!28 = !{!"_ZTSSt19normal_distributionIdE", !24, i64 0, !25, i64 16, !29, i64 24}
+!29 = !{!"bool", !9, i64 0}
+!30 = !{!28, !29, i64 24}
+!31 = !{!32, !33, i64 0}
+!32 = !{!"_ZTSSt12__shared_ptrIN5arrow2io16LatencyGeneratorELN9__gnu_cxx12_Lock_policyE2EE", !33, i64 0, !35, i64 8}
+!33 = !{!"p1 _ZTSN5arrow2io16LatencyGeneratorE", !34, i64 0}
+!34 = !{!"any pointer", !9, i64 0}
+!35 = !{!"_ZTSSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EE", !36, i64 0}
+!36 = !{!"p1 _ZTSSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE", !34, i64 0}
+!37 = !{!35, !36, i64 0}
+!38 = !{!39}
+!39 = distinct !{!39, !40, !"_ZSt11make_sharedIN5arrow2io20LatencyGeneratorImplEJRdRiEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES7_E4typeEEDpOT0_: argument 0"}
+!40 = distinct !{!40, !"_ZSt11make_sharedIN5arrow2io20LatencyGeneratorImplEJRdRiEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES7_E4typeEEDpOT0_"}
+!41 = !{!9, !9, i64 0}
+!42 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!43 = !{!44, !45, i64 0}
+!44 = !{!"_ZTSSt12__shared_ptrIN5arrow2io11InputStreamELN9__gnu_cxx12_Lock_policyE2EE", !45, i64 0, !35, i64 8}
+!45 = !{!"p1 _ZTSN5arrow2io11InputStreamE", !34, i64 0}
+!46 = !{!47}
+!47 = distinct !{!47, !48, !"_ZN5arrow2io15SlowInputStream5CloseEv: argument 0"}
+!48 = distinct !{!48, !"_ZN5arrow2io15SlowInputStream5CloseEv"}
+!49 = !{!50}
+!50 = distinct !{!50, !51, !"_ZN5arrow2io15SlowInputStream5AbortEv: argument 0"}
+!51 = distinct !{!51, !"_ZN5arrow2io15SlowInputStream5AbortEv"}
+!52 = !{!53}
+!53 = distinct !{!53, !54, !"_ZNK5arrow2io15SlowInputStream4TellEv: argument 0"}
+!54 = distinct !{!54, !"_ZNK5arrow2io15SlowInputStream4TellEv"}
+!55 = !{!56}
+!56 = distinct !{!56, !57, !"_ZN5arrow2io15SlowInputStream4ReadElPv: argument 0"}
+!57 = distinct !{!57, !"_ZN5arrow2io15SlowInputStream4ReadElPv"}
+!58 = !{!59}
+!59 = distinct !{!59, !60, !"_ZN5arrow2io15SlowInputStream4ReadEl: argument 0"}
+!60 = distinct !{!60, !"_ZN5arrow2io15SlowInputStream4ReadEl"}
+!61 = !{!62, !63, i64 0}
+!62 = !{!"_ZTSSt12__shared_ptrIN5arrow2io16RandomAccessFileELN9__gnu_cxx12_Lock_policyE2EE", !63, i64 0, !35, i64 8}
+!63 = !{!"p1 _ZTSN5arrow2io16RandomAccessFileE", !34, i64 0}
+!64 = !{!65}
+!65 = distinct !{!65, !66, !"_ZN5arrow2io20SlowRandomAccessFile5CloseEv: argument 0"}
+!66 = distinct !{!66, !"_ZN5arrow2io20SlowRandomAccessFile5CloseEv"}
+!67 = !{!68}
+!68 = distinct !{!68, !69, !"_ZN5arrow2io20SlowRandomAccessFile5AbortEv: argument 0"}
+!69 = distinct !{!69, !"_ZN5arrow2io20SlowRandomAccessFile5AbortEv"}
+!70 = !{!71}
+!71 = distinct !{!71, !72, !"_ZN5arrow2io20SlowRandomAccessFile4SeekEl: argument 0"}
+!72 = distinct !{!72, !"_ZN5arrow2io20SlowRandomAccessFile4SeekEl"}
+!73 = !{!74}
+!74 = distinct !{!74, !75, !"_ZNK5arrow2io20SlowRandomAccessFile4TellEv: argument 0"}
+!75 = distinct !{!75, !"_ZNK5arrow2io20SlowRandomAccessFile4TellEv"}
+!76 = !{!77}
+!77 = distinct !{!77, !78, !"_ZN5arrow2io20SlowRandomAccessFile4ReadElPv: argument 0"}
+!78 = distinct !{!78, !"_ZN5arrow2io20SlowRandomAccessFile4ReadElPv"}
+!79 = !{!80}
+!80 = distinct !{!80, !81, !"_ZN5arrow2io20SlowRandomAccessFile4ReadEl: argument 0"}
+!81 = distinct !{!81, !"_ZN5arrow2io20SlowRandomAccessFile4ReadEl"}
+!82 = !{!83, !84, i64 8}
+!83 = !{!"_ZTSSt9type_info", !84, i64 8}
+!84 = !{!"p1 omnipotent char", !34, i64 0}
+!85 = !{i8 0, i8 2}
+!86 = !{}
+!87 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!88 = distinct !{!88, !14}
+!89 = distinct !{!89, !14}

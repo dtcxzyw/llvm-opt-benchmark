@@ -239,7 +239,7 @@ lean_inc.exit26:                                  ; preds = %66, %65, %63, %56
 
 lean_dec.exit22.backedge:                         ; preds = %lean_inc.exit26, %70, %72, %73, %lean_dec.exit23
   %.019.be = phi ptr [ %12, %lean_dec.exit23 ], [ %58, %73 ], [ %58, %72 ], [ %58, %70 ], [ %58, %lean_inc.exit26 ]
-  br label %lean_dec.exit22, !llvm.loop !12
+  br label %lean_dec.exit22
 
 67:                                               ; preds = %lean_inc.exit26
   %68 = load i32, ptr %.019, align 4, !tbaa !8
@@ -714,7 +714,7 @@ lean_inc.exit:                                    ; preds = %52, %51, %49, %42
 
 lean_dec.exit49:                                  ; preds = %59, %58, %56, %lean_inc.exit
   %60 = getelementptr i8, ptr %44, i64 32
-  %.val = load i8, ptr %60, align 1, !tbaa !14
+  %.val = load i8, ptr %60, align 1, !tbaa !12
   br i1 %.not78, label %61, label %lean_dec.exit48
 
 61:                                               ; preds = %lean_dec.exit49
@@ -983,9 +983,9 @@ lean_dec.exit19:                                  ; preds = %35, %34, %32, %lean
 
 38:                                               ; preds = %lean_dec.exit19
   %39 = getelementptr i8, ptr %20, i64 8
-  %.val.i.i = load i64, ptr %39, align 8, !tbaa !15
+  %.val.i.i = load i64, ptr %39, align 8, !tbaa !13
   %40 = getelementptr i8, ptr %36, i64 8
-  %.val7.i.i = load i64, ptr %40, align 8, !tbaa !15
+  %.val7.i.i = load i64, ptr %40, align 8, !tbaa !13
   %41 = icmp eq i64 %.val.i.i, %.val7.i.i
   br i1 %41, label %42, label %lean_string_dec_eq.exit
 
@@ -1146,9 +1146,9 @@ _init_l_Lean_Compiler_checkIsDefinition___closed__1.exit: ; preds = %lean_dec_re
   %24 = getelementptr inbounds nuw i8, ptr %20, i64 8
   store ptr @l_Lean_Compiler_checkIsDefinition___lambda__1___boxed, ptr %24, align 8, !tbaa !4
   %25 = getelementptr inbounds nuw i8, ptr %20, i64 16
-  store i16 1, ptr %25, align 8, !tbaa !17
+  store i16 1, ptr %25, align 8, !tbaa !15
   %26 = getelementptr inbounds nuw i8, ptr %20, i64 18
-  store i16 0, ptr %26, align 2, !tbaa !17
+  store i16 0, ptr %26, align 2, !tbaa !15
   store ptr %20, ptr @l_Lean_Compiler_checkIsDefinition___closed__1, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef nonnull %20) #4
   %27 = tail call ptr @lean_mk_string_unchecked(ptr noundef nonnull @.str.2, i64 noundef 33, i64 noundef 33) #4
@@ -1245,10 +1245,8 @@ attributes #5 = { noreturn nounwind }
 !9 = !{!"", !10, i64 0, !10, i64 4, !10, i64 6, !10, i64 7}
 !10 = !{!"int", !6, i64 0}
 !11 = !{!"branch_weights", !"expected", i32 2000, i32 1}
-!12 = distinct !{!12, !13}
-!13 = !{!"llvm.loop.estimated_trip_count"}
-!14 = !{!6, !6, i64 0}
+!12 = !{!6, !6, i64 0}
+!13 = !{!14, !14, i64 0}
+!14 = !{!"long", !6, i64 0}
 !15 = !{!16, !16, i64 0}
-!16 = !{!"long", !6, i64 0}
-!17 = !{!18, !18, i64 0}
-!18 = !{!"short", !6, i64 0}
+!16 = !{!"short", !6, i64 0}

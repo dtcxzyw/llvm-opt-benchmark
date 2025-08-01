@@ -479,8 +479,8 @@ define internal range(i32 0, 2) i32 @run_param_file_tests(i32 noundef %0) #1 {
   br label %param_conversion_load_stanza.exit.thread
 
 141:                                              ; preds = %135
-  store i32 %.sroa.14.2, ptr @param_conversion_load_stanza.ref_i32, align 4, !tbaa !22
-  store i32 %.sroa.14.2, ptr @param_conversion_load_stanza.datum_i32, align 4, !tbaa !22
+  store i32 %.sroa.14.2, ptr @param_conversion_load_stanza.ref_i32, align 4, !tbaa !21
+  store i32 %.sroa.14.2, ptr @param_conversion_load_stanza.datum_i32, align 4, !tbaa !21
   br label %192
 
 142:                                              ; preds = %130
@@ -506,8 +506,8 @@ define internal range(i32 0, 2) i32 @run_param_file_tests(i32 noundef %0) #1 {
   br label %param_conversion_load_stanza.exit.thread
 
 153:                                              ; preds = %147
-  store i64 %.sroa.1732.2, ptr @param_conversion_load_stanza.ref_i64, align 8, !tbaa !23
-  store i64 %.sroa.1732.2, ptr @param_conversion_load_stanza.datum_i64, align 8, !tbaa !23
+  store i64 %.sroa.1732.2, ptr @param_conversion_load_stanza.ref_i64, align 8, !tbaa !22
+  store i64 %.sroa.1732.2, ptr @param_conversion_load_stanza.datum_i64, align 8, !tbaa !22
   br label %192
 
 154:                                              ; preds = %142
@@ -533,8 +533,8 @@ define internal range(i32 0, 2) i32 @run_param_file_tests(i32 noundef %0) #1 {
   br label %param_conversion_load_stanza.exit.thread
 
 165:                                              ; preds = %159
-  store i32 %.sroa.20.2, ptr @param_conversion_load_stanza.ref_u32, align 4, !tbaa !22
-  store i32 %.sroa.20.2, ptr @param_conversion_load_stanza.datum_u32, align 4, !tbaa !22
+  store i32 %.sroa.20.2, ptr @param_conversion_load_stanza.ref_u32, align 4, !tbaa !21
+  store i32 %.sroa.20.2, ptr @param_conversion_load_stanza.datum_u32, align 4, !tbaa !21
   br label %192
 
 166:                                              ; preds = %154
@@ -560,8 +560,8 @@ define internal range(i32 0, 2) i32 @run_param_file_tests(i32 noundef %0) #1 {
   br label %param_conversion_load_stanza.exit.thread
 
 177:                                              ; preds = %171
-  store i64 %.sroa.2335.2, ptr @param_conversion_load_stanza.ref_u64, align 8, !tbaa !23
-  store i64 %.sroa.2335.2, ptr @param_conversion_load_stanza.datum_u64, align 8, !tbaa !23
+  store i64 %.sroa.2335.2, ptr @param_conversion_load_stanza.ref_u64, align 8, !tbaa !22
+  store i64 %.sroa.2335.2, ptr @param_conversion_load_stanza.datum_u64, align 8, !tbaa !22
   br label %192
 
 178:                                              ; preds = %166
@@ -587,8 +587,8 @@ define internal range(i32 0, 2) i32 @run_param_file_tests(i32 noundef %0) #1 {
   br label %param_conversion_load_stanza.exit.thread
 
 189:                                              ; preds = %183
-  store double %.sroa.26.2, ptr @param_conversion_load_stanza.ref_d, align 8, !tbaa !25
-  store double %.sroa.26.2, ptr @param_conversion_load_stanza.datum_d, align 8, !tbaa !25
+  store double %.sroa.26.2, ptr @param_conversion_load_stanza.ref_d, align 8, !tbaa !24
+  store double %.sroa.26.2, ptr @param_conversion_load_stanza.datum_d, align 8, !tbaa !24
   br label %192
 
 190:                                              ; preds = %178
@@ -634,7 +634,7 @@ param_conversion_load_stanza.exit.thread:         ; preds = %32, %39, %119, %46,
   br i1 %.not76.i, label %param_conversion_test.exit, label %204
 
 204:                                              ; preds = %202
-  %205 = load i32, ptr %2, align 4, !tbaa !22
+  %205 = load i32, ptr %2, align 4, !tbaa !21
   %206 = icmp eq i32 %205, %.sroa.14.2
   %207 = zext i1 %206 to i32
   %208 = call i32 @test_true(ptr noundef nonnull @.str.14, i32 noundef 200, ptr noundef nonnull @.str.56, i32 noundef %207) #7
@@ -643,7 +643,7 @@ param_conversion_load_stanza.exit.thread:         ; preds = %32, %39, %119, %46,
 
 209:                                              ; preds = %204
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %.sroa.54.2, i8 44, i64 %.sroa.69.2, i1 false)
-  %210 = load i32, ptr %2, align 4, !tbaa !22
+  %210 = load i32, ptr %2, align 4, !tbaa !21
   %211 = call i32 @OSSL_PARAM_set_int32(ptr noundef %.sroa.0.2, i32 noundef %210) #7
   %212 = icmp ne i32 %211, 0
   %213 = zext i1 %212 to i32
@@ -680,7 +680,7 @@ param_conversion_load_stanza.exit.thread:         ; preds = %32, %39, %119, %46,
   br i1 %.not83.i, label %param_conversion_test.exit, label %228
 
 228:                                              ; preds = %226
-  %229 = load i64, ptr %3, align 8, !tbaa !23
+  %229 = load i64, ptr %3, align 8, !tbaa !22
   %230 = icmp eq i64 %229, %.sroa.1732.2
   %231 = zext i1 %230 to i32
   %232 = call i32 @test_true(ptr noundef nonnull @.str.14, i32 noundef 221, ptr noundef nonnull @.str.64, i32 noundef %231) #7
@@ -689,7 +689,7 @@ param_conversion_load_stanza.exit.thread:         ; preds = %32, %39, %119, %46,
 
 233:                                              ; preds = %228
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %.sroa.54.2, i8 44, i64 %.sroa.69.2, i1 false)
-  %234 = load i64, ptr %3, align 8, !tbaa !23
+  %234 = load i64, ptr %3, align 8, !tbaa !22
   %235 = call i32 @OSSL_PARAM_set_int64(ptr noundef %.sroa.0.2, i64 noundef %234) #7
   %236 = icmp ne i32 %235, 0
   %237 = zext i1 %236 to i32
@@ -726,7 +726,7 @@ param_conversion_load_stanza.exit.thread:         ; preds = %32, %39, %119, %46,
   br i1 %.not90.i, label %param_conversion_test.exit, label %252
 
 252:                                              ; preds = %250
-  %253 = load i32, ptr %4, align 4, !tbaa !22
+  %253 = load i32, ptr %4, align 4, !tbaa !21
   %254 = icmp eq i32 %253, %.sroa.20.2
   %255 = zext i1 %254 to i32
   %256 = call i32 @test_true(ptr noundef nonnull @.str.14, i32 noundef 242, ptr noundef nonnull @.str.70, i32 noundef %255) #7
@@ -735,7 +735,7 @@ param_conversion_load_stanza.exit.thread:         ; preds = %32, %39, %119, %46,
 
 257:                                              ; preds = %252
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %.sroa.54.2, i8 44, i64 %.sroa.69.2, i1 false)
-  %258 = load i32, ptr %4, align 4, !tbaa !22
+  %258 = load i32, ptr %4, align 4, !tbaa !21
   %259 = call i32 @OSSL_PARAM_set_uint32(ptr noundef %.sroa.0.2, i32 noundef %258) #7
   %260 = icmp ne i32 %259, 0
   %261 = zext i1 %260 to i32
@@ -772,7 +772,7 @@ param_conversion_load_stanza.exit.thread:         ; preds = %32, %39, %119, %46,
   br i1 %.not97.i, label %param_conversion_test.exit, label %276
 
 276:                                              ; preds = %274
-  %277 = load i64, ptr %5, align 8, !tbaa !23
+  %277 = load i64, ptr %5, align 8, !tbaa !22
   %278 = icmp eq i64 %277, %.sroa.2335.2
   %279 = zext i1 %278 to i32
   %280 = call i32 @test_true(ptr noundef nonnull @.str.14, i32 noundef 263, ptr noundef nonnull @.str.76, i32 noundef %279) #7
@@ -781,7 +781,7 @@ param_conversion_load_stanza.exit.thread:         ; preds = %32, %39, %119, %46,
 
 281:                                              ; preds = %276
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %.sroa.54.2, i8 44, i64 %.sroa.69.2, i1 false)
-  %282 = load i64, ptr %5, align 8, !tbaa !23
+  %282 = load i64, ptr %5, align 8, !tbaa !22
   %283 = call i32 @OSSL_PARAM_set_uint64(ptr noundef %.sroa.0.2, i64 noundef %282) #7
   %284 = icmp ne i32 %283, 0
   %285 = zext i1 %284 to i32
@@ -818,7 +818,7 @@ param_conversion_load_stanza.exit.thread:         ; preds = %32, %39, %119, %46,
   br i1 %.not104.i, label %param_conversion_test.exit, label %300
 
 300:                                              ; preds = %298
-  %301 = load double, ptr %6, align 8, !tbaa !25
+  %301 = load double, ptr %6, align 8, !tbaa !24
   %302 = fcmp ord double %301, 0.000000e+00
   br i1 %302, label %307, label %303
 
@@ -838,7 +838,7 @@ param_conversion_load_stanza.exit.thread:         ; preds = %32, %39, %119, %46,
 
 311:                                              ; preds = %307, %303
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %.sroa.54.2, i8 44, i64 %.sroa.69.2, i1 false)
-  %312 = load double, ptr %6, align 8, !tbaa !25
+  %312 = load double, ptr %6, align 8, !tbaa !24
   %313 = call i32 @OSSL_PARAM_set_double(ptr noundef %.sroa.0.2, double noundef %312) #7
   %314 = icmp ne i32 %313, 0
   %315 = zext i1 %314 to i32
@@ -876,7 +876,7 @@ param_conversion_test.exit:                       ; preds = %197, %199, %202, %2
   %321 = call i64 @BIO_ctrl(ptr noundef %320, i32 noundef 2, i64 noundef 0, ptr noundef null) #7
   %322 = and i64 %321, 4294967295
   %.not15 = icmp eq i64 %322, 0
-  br i1 %.not15, label %22, label %._crit_edge, !llvm.loop !27
+  br i1 %.not15, label %22, label %._crit_edge, !llvm.loop !26
 
 ._crit_edge:                                      ; preds = %319, %22, %.preheader
   %.1 = phi i32 [ 1, %.preheader ], [ 0, %22 ], [ %.2, %319 ]
@@ -990,12 +990,11 @@ attributes #7 = { nounwind }
 !16 = !{!5, !11, i64 16}
 !17 = !{!15, !6, i64 8}
 !18 = !{!8, !8, i64 0}
-!19 = distinct !{!19, !20, !21}
+!19 = distinct !{!19, !20}
 !20 = !{!"llvm.loop.mustprogress"}
-!21 = !{!"llvm.loop.estimated_trip_count"}
-!22 = !{!11, !11, i64 0}
-!23 = !{!24, !24, i64 0}
-!24 = !{!"long", !8, i64 0}
-!25 = !{!26, !26, i64 0}
-!26 = !{!"double", !8, i64 0}
-!27 = distinct !{!27, !20, !21}
+!21 = !{!11, !11, i64 0}
+!22 = !{!23, !23, i64 0}
+!23 = !{!"long", !8, i64 0}
+!24 = !{!25, !25, i64 0}
+!25 = !{!"double", !8, i64 0}
+!26 = distinct !{!26, !20}

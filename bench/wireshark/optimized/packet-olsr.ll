@@ -428,7 +428,7 @@ define internal i32 @dissect_olsr(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br label %139
 
 112:                                              ; preds = %103
-  %113 = load i8, ptr @global_olsr_olsrorg, align 1, !range !9, !noundef !10
+  %113 = load i8, ptr @global_olsr_olsrorg, align 1, !range !8, !noundef !9
   %114 = trunc nuw i8 %113 to i1
   %115 = icmp eq i8 %44, -55
   %or.cond = select i1 %114, i1 %115, i1 false
@@ -457,7 +457,7 @@ define internal i32 @dissect_olsr(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br label %139
 
 126:                                              ; preds = %122
-  %127 = load i8, ptr @global_olsr_nrlolsr, align 1, !range !9, !noundef !10
+  %127 = load i8, ptr @global_olsr_nrlolsr, align 1, !range !8, !noundef !9
   %128 = trunc nuw i8 %127 to i1
   %129 = icmp eq i8 %44, -15
   %or.cond7 = select i1 %128, i1 %129, i1 false
@@ -481,7 +481,7 @@ define internal i32 @dissect_olsr(ptr noundef %0, ptr noundef %1, ptr noundef %2
 
 139:                                              ; preds = %89, %106, %110, %120, %130, %132, %124, %116, %108, %104
   %140 = icmp slt i32 %82, %13
-  br i1 %140, label %38, label %.thread, !llvm.loop !11
+  br i1 %140, label %38, label %.thread
 
 .thread:                                          ; preds = %139, %86, %26, %137, %84, %79, %41
   %141 = tail call i32 @tvb_captured_length(ptr noundef %0)
@@ -618,7 +618,7 @@ define internal fastcc noundef range(i32 -2147483648, 65536) i32 @dissect_olsr_t
   %28 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %27, ptr noundef %0, i32 noundef %.03641, i32 noundef %.sink48, i32 noundef 0)
   %29 = add nsw i32 %.03641, %.sink48
   %30 = icmp slt i32 %29, %4
-  br i1 %30, label %17, label %.loopexit, !llvm.loop !12
+  br i1 %30, label %17, label %.loopexit, !llvm.loop !10
 
 .loopexit:                                        ; preds = %23, %26, %10, %21, %8
   ret i32 %4
@@ -687,9 +687,9 @@ define internal fastcc noundef range(i32 -2147483648, 65536) i32 @dissect_olsr_h
   %49 = zext i16 %42 to i32
   %50 = add nsw i32 %.05563, 4
   %51 = add i32 %.05563, %49
-  %52 = tail call i32 %5(ptr noundef %0, ptr noundef %1, ptr noundef %40, i32 noundef %50, i32 noundef %51), !callees !13
+  %52 = tail call i32 %5(ptr noundef %0, ptr noundef %1, ptr noundef %40, i32 noundef %50, i32 noundef %51), !callees !11
   %53 = icmp slt i32 %52, %4
-  br i1 %53, label %.lr.ph, label %.loopexit, !llvm.loop !14
+  br i1 %53, label %.lr.ph, label %.loopexit, !llvm.loop !12
 
 .loopexit:                                        ; preds = %48, %11, %46, %34, %9
   ret i32 %4
@@ -733,7 +733,7 @@ define internal noundef i32 @handle_olsr_hello_rfc(ptr noundef %0, ptr noundef %
   %20 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %19, ptr noundef %0, i32 noundef %.02327, i32 noundef %.sink34, i32 noundef 0)
   %21 = add i32 %.02327, %.sink34
   %22 = icmp slt i32 %21, %4
-  br i1 %22, label %9, label %.loopexit, !llvm.loop !15
+  br i1 %22, label %9, label %.loopexit, !llvm.loop !13
 
 .loopexit:                                        ; preds = %15, %18, %5, %13
   ret i32 %4
@@ -777,7 +777,7 @@ define internal fastcc noundef range(i32 -2147483648, 65536) i32 @dissect_olsr_m
   %20 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %19, ptr noundef %0, i32 noundef %.02327, i32 noundef %.sink34, i32 noundef 0)
   %21 = add nsw i32 %.02327, %.sink34
   %22 = icmp slt i32 %21, %4
-  br i1 %22, label %9, label %.loopexit, !llvm.loop !16
+  br i1 %22, label %9, label %.loopexit, !llvm.loop !14
 
 .loopexit:                                        ; preds = %15, %18, %5, %13
   ret i32 %4
@@ -827,7 +827,7 @@ define internal fastcc noundef range(i32 -2147483648, 65536) i32 @dissect_olsr_h
   %24 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %23, ptr noundef %0, i32 noundef %22, i32 noundef 4, i32 noundef 0)
   %25 = add nsw i32 %.03135, %.sink
   %26 = icmp slt i32 %25, %4
-  br i1 %26, label %9, label %.loopexit, !llvm.loop !17
+  br i1 %26, label %9, label %.loopexit, !llvm.loop !15
 
 .loopexit:                                        ; preds = %16, %19, %5, %14
   ret i32 %4
@@ -1143,7 +1143,7 @@ define internal fastcc noundef range(i32 -2147483648, 65536) i32 @dissect_nrlols
   %38 = add nsw i32 %.04652, 1
   %39 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %37, ptr noundef %0, i32 noundef %.04652, i32 noundef 1, i32 noundef 0)
   %40 = icmp slt i32 %38, %24
-  br i1 %40, label %.lr.ph, label %.loopexit, !llvm.loop !18
+  br i1 %40, label %.lr.ph, label %.loopexit, !llvm.loop !16
 
 .loopexit:                                        ; preds = %.lr.ph, %30, %10, %8
   ret i32 %4
@@ -1175,16 +1175,14 @@ attributes #4 = { nounwind }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = !{i8 0, i8 2}
-!10 = !{}
-!11 = distinct !{!11, !8}
-!12 = distinct !{!12, !7, !8}
-!13 = !{ptr @handle_olsr_hello_olsrorg, ptr @handle_olsr_hello_rfc}
-!14 = distinct !{!14, !7, !8}
-!15 = distinct !{!15, !7, !8}
-!16 = distinct !{!16, !7, !8}
-!17 = distinct !{!17, !7, !8}
-!18 = distinct !{!18, !7, !8}
+!8 = !{i8 0, i8 2}
+!9 = !{}
+!10 = distinct !{!10, !7}
+!11 = !{ptr @handle_olsr_hello_olsrorg, ptr @handle_olsr_hello_rfc}
+!12 = distinct !{!12, !7}
+!13 = distinct !{!13, !7}
+!14 = distinct !{!14, !7}
+!15 = distinct !{!15, !7}
+!16 = distinct !{!16, !7}

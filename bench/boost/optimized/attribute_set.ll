@@ -172,7 +172,7 @@ define void @_ZN5boost3log11v2_mt_posix13attribute_setD2Ev(ptr noundef nonnull r
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %7 = load ptr, ptr %6, align 8, !tbaa !6, !noalias !32
+  %7 = load ptr, ptr %6, align 8, !tbaa !6, !noalias !31
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.not8.i.i = icmp eq ptr %7, %8
   br i1 %.not8.i.i, label %_ZN5boost9intrusive9list_implINS0_23derivation_value_traitsINS_3log11v2_mt_posix13attribute_set4nodeENS5_14implementation11node_traitsELNS0_14link_mode_typeE0EEEmLb1EvE17clear_and_disposeINS7_8disposerEEEvT_.exit.i, label %.lr.ph.i.i
@@ -206,7 +206,7 @@ define void @_ZN5boost3log11v2_mt_posix13attribute_setD2Ev(ptr noundef nonnull r
 _ZN5boost3log11v2_mt_posix13attribute_set4nodeD2Ev.exit.i.i.i: ; preds = %19, %15, %10
   %23 = load i64, ptr %9, align 8, !tbaa !13
   %24 = icmp ult i64 %23, 8
-  br i1 %24, label %25, label %28, !prof !35
+  br i1 %24, label %25, label %28, !prof !34
 
 25:                                               ; preds = %_ZN5boost3log11v2_mt_posix13attribute_set4nodeD2Ev.exit.i.i.i
   %26 = getelementptr inbounds nuw [8 x ptr], ptr %5, i64 0, i64 %23
@@ -240,7 +240,7 @@ _ZN5boost9intrusive9list_implINS0_23derivation_value_traitsINS_3log11v2_mt_posix
   %33 = add nuw i64 %.03.i.i, 1
   %34 = load i64, ptr %29, align 8, !tbaa !13
   %35 = icmp ult i64 %33, %34
-  br i1 %35, label %.lr.ph.i2.i, label %_ZN5boost3log11v2_mt_posix13attribute_set14implementationD2Ev.exit, !llvm.loop !36
+  br i1 %35, label %.lr.ph.i2.i, label %_ZN5boost3log11v2_mt_posix13attribute_set14implementationD2Ev.exit, !llvm.loop !35
 
 _ZN5boost3log11v2_mt_posix13attribute_set14implementationD2Ev.exit: ; preds = %.lr.ph.i2.i, %_ZN5boost9intrusive9list_implINS0_23derivation_value_traitsINS_3log11v2_mt_posix13attribute_set4nodeENS5_14implementation11node_traitsELNS0_14link_mode_typeE0EEEmLb1EvE17clear_and_disposeINS7_8disposerEEEvT_.exit.i
   tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 352) #16
@@ -254,7 +254,7 @@ _ZN5boost3log11v2_mt_posix13attribute_set14implementationD2Ev.exit: ; preds = %.
 define ptr @_ZN5boost3log11v2_mt_posix13attribute_set5beginEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8, !tbaa !11
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %4 = load ptr, ptr %3, align 8, !tbaa !6, !noalias !37
+  %4 = load ptr, ptr %3, align 8, !tbaa !6, !noalias !36
   ret ptr %4
 }
 
@@ -269,7 +269,7 @@ define nonnull ptr @_ZN5boost3log11v2_mt_posix13attribute_set3endEv(ptr noundef 
 define ptr @_ZNK5boost3log11v2_mt_posix13attribute_set5beginEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8, !tbaa !11
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %4 = load ptr, ptr %3, align 8, !tbaa !6, !noalias !40
+  %4 = load ptr, ptr %3, align 8, !tbaa !6, !noalias !39
   ret ptr %4
 }
 
@@ -321,7 +321,7 @@ define linkonce_odr hidden { ptr, i8 } @_ZN5boost3log11v2_mt_posix13attribute_se
   %16 = getelementptr inbounds nuw i8, ptr %.08.i, i64 8
   %.0.i = load ptr, ptr %16, align 8, !tbaa !17
   %.not.i = icmp eq ptr %.0.i, %11
-  br i1 %.not.i, label %_ZN5boost3log11v2_mt_posix13attribute_set14implementation14find_in_bucketENS1_14attribute_nameERKNS3_6bucketE.exit, label %.lr.ph.i, !llvm.loop !43
+  br i1 %.not.i, label %_ZN5boost3log11v2_mt_posix13attribute_set14implementation14find_in_bucketENS1_14attribute_nameERKNS3_6bucketE.exit, label %.lr.ph.i, !llvm.loop !42
 
 _ZN5boost3log11v2_mt_posix13attribute_set14implementation14find_in_bucketENS1_14attribute_nameERKNS3_6bucketE.exit: ; preds = %.lr.ph.i, %15, %9
   %.0.lcssa.i = phi ptr [ %8, %9 ], [ %.08.i, %.lr.ph.i ], [ %.0.i, %15 ]
@@ -404,16 +404,16 @@ _ZN5boost3log11v2_mt_posix13attribute_set4nodeC2ERKNS1_14attribute_nameERKNS1_9a
 
 54:                                               ; preds = %51, %48, %53, %39
   %.sroa.044.0 = phi ptr [ %40, %39 ], [ %50, %48 ], [ %.0, %53 ], [ %.0, %51 ]
-  %55 = load ptr, ptr %.sroa.044.0, align 8, !tbaa !10, !noalias !44
-  store ptr %55, ptr %.0.i35, align 8, !tbaa !10, !noalias !44
+  %55 = load ptr, ptr %.sroa.044.0, align 8, !tbaa !10, !noalias !43
+  store ptr %55, ptr %.0.i35, align 8, !tbaa !10, !noalias !43
   %56 = getelementptr inbounds nuw i8, ptr %.0.i35, i64 8
-  store ptr %.sroa.044.0, ptr %56, align 8, !tbaa !6, !noalias !44
-  store ptr %.0.i35, ptr %.sroa.044.0, align 8, !tbaa !10, !noalias !44
+  store ptr %.sroa.044.0, ptr %56, align 8, !tbaa !6, !noalias !43
+  store ptr %.0.i35, ptr %.sroa.044.0, align 8, !tbaa !10, !noalias !43
   %57 = getelementptr inbounds nuw i8, ptr %55, i64 8
-  store ptr %.0.i35, ptr %57, align 8, !tbaa !6, !noalias !44
-  %58 = load i64, ptr %0, align 8, !tbaa !24, !noalias !44
+  store ptr %.0.i35, ptr %57, align 8, !tbaa !6, !noalias !43
+  %58 = load i64, ptr %0, align 8, !tbaa !24, !noalias !43
   %59 = add i64 %58, 1
-  store i64 %59, ptr %0, align 8, !tbaa !24, !noalias !44
+  store i64 %59, ptr %0, align 8, !tbaa !24, !noalias !43
   br label %60
 
 60:                                               ; preds = %_ZN5boost3log11v2_mt_posix13attribute_set14implementation14find_in_bucketENS1_14attribute_nameERKNS3_6bucketE.exit, %54
@@ -452,7 +452,7 @@ define noundef range(i64 0, 2) i64 @_ZN5boost3log11v2_mt_posix13attribute_set5er
   %16 = getelementptr inbounds nuw i8, ptr %.08.i.i, i64 8
   %.0.i.i = load ptr, ptr %16, align 8, !tbaa !17
   %.not.i.i = icmp eq ptr %.0.i.i, %11
-  br i1 %.not.i.i, label %_ZN5boost3log11v2_mt_posix13attribute_set14implementation14find_in_bucketENS1_14attribute_nameERKNS3_6bucketE.exit.i, label %.lr.ph.i.i, !llvm.loop !43
+  br i1 %.not.i.i, label %_ZN5boost3log11v2_mt_posix13attribute_set14implementation14find_in_bucketENS1_14attribute_nameERKNS3_6bucketE.exit.i, label %.lr.ph.i.i, !llvm.loop !42
 
 _ZN5boost3log11v2_mt_posix13attribute_set14implementation14find_in_bucketENS1_14attribute_nameERKNS3_6bucketE.exit.i: ; preds = %15, %.lr.ph.i.i, %9
   %.0.lcssa.i.i = phi ptr [ %8, %9 ], [ %.0.i.i, %15 ], [ %.08.i.i, %.lr.ph.i.i ]
@@ -493,47 +493,47 @@ _ZN5boost3log11v2_mt_posix13attribute_set14implementation14find_in_bucketENS1_14
 33:                                               ; preds = %31, %30, %27, %26
   %34 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %35 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i, i64 8
-  %36 = load ptr, ptr %35, align 8, !tbaa !6, !noalias !47
-  %37 = load ptr, ptr %.0.lcssa.i.i, align 8, !tbaa !10, !noalias !47
+  %36 = load ptr, ptr %35, align 8, !tbaa !6, !noalias !46
+  %37 = load ptr, ptr %.0.lcssa.i.i, align 8, !tbaa !10, !noalias !46
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 8
-  store ptr %36, ptr %38, align 8, !tbaa !6, !noalias !47
-  store ptr %37, ptr %36, align 8, !tbaa !10, !noalias !47
-  %39 = load i64, ptr %3, align 8, !tbaa !24, !noalias !47
+  store ptr %36, ptr %38, align 8, !tbaa !6, !noalias !46
+  store ptr %37, ptr %36, align 8, !tbaa !10, !noalias !46
+  %39 = load i64, ptr %3, align 8, !tbaa !24, !noalias !46
   %40 = add i64 %39, -1
-  store i64 %40, ptr %3, align 8, !tbaa !24, !noalias !47
+  store i64 %40, ptr %3, align 8, !tbaa !24, !noalias !46
   %41 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i, i64 24
-  %42 = load ptr, ptr %41, align 8, !tbaa !20, !noalias !47
+  %42 = load ptr, ptr %41, align 8, !tbaa !20, !noalias !46
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %42, null
   br i1 %.not.i.i.i.i.i.i.i.i, label %_ZN5boost3log11v2_mt_posix13attribute_set4nodeD2Ev.exit.i.i.i.i, label %43
 
 43:                                               ; preds = %33
   %44 = getelementptr inbounds nuw i8, ptr %42, i64 8
-  %45 = atomicrmw add ptr %44, i32 -1 acq_rel, align 4, !noalias !47
+  %45 = atomicrmw add ptr %44, i32 -1 acq_rel, align 4, !noalias !46
   %46 = icmp eq i32 %45, 1
   br i1 %46, label %47, label %_ZN5boost3log11v2_mt_posix13attribute_set4nodeD2Ev.exit.i.i.i.i
 
 47:                                               ; preds = %43
-  %48 = load ptr, ptr %42, align 8, !tbaa !3, !noalias !47
+  %48 = load ptr, ptr %42, align 8, !tbaa !3, !noalias !46
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 8
-  %50 = load ptr, ptr %49, align 8, !noalias !47
-  tail call void %50(ptr noundef nonnull align 8 dereferenceable(12) %42) #13, !noalias !47
+  %50 = load ptr, ptr %49, align 8, !noalias !46
+  tail call void %50(ptr noundef nonnull align 8 dereferenceable(12) %42) #13, !noalias !46
   br label %_ZN5boost3log11v2_mt_posix13attribute_set4nodeD2Ev.exit.i.i.i.i
 
 _ZN5boost3log11v2_mt_posix13attribute_set4nodeD2Ev.exit.i.i.i.i: ; preds = %47, %43, %33
   %51 = getelementptr inbounds nuw i8, ptr %3, i64 88
-  %52 = load i64, ptr %51, align 8, !tbaa !13, !noalias !47
+  %52 = load i64, ptr %51, align 8, !tbaa !13, !noalias !46
   %53 = icmp ult i64 %52, 8
-  br i1 %53, label %54, label %57, !prof !35
+  br i1 %53, label %54, label %57, !prof !34
 
 54:                                               ; preds = %_ZN5boost3log11v2_mt_posix13attribute_set4nodeD2Ev.exit.i.i.i.i
   %55 = getelementptr inbounds nuw [8 x ptr], ptr %34, i64 0, i64 %52
-  store ptr %.0.lcssa.i.i, ptr %55, align 8, !tbaa !17, !noalias !47
+  store ptr %.0.lcssa.i.i, ptr %55, align 8, !tbaa !17, !noalias !46
   %56 = add nuw nsw i64 %52, 1
-  store i64 %56, ptr %51, align 8, !tbaa !13, !noalias !47
+  store i64 %56, ptr %51, align 8, !tbaa !13, !noalias !46
   br label %_ZN5boost3log11v2_mt_posix13attribute_set14implementation5eraseENS2_4iterILb0EEE.exit
 
 57:                                               ; preds = %_ZN5boost3log11v2_mt_posix13attribute_set4nodeD2Ev.exit.i.i.i.i
-  tail call void @_ZdlPvm(ptr noundef nonnull %.0.lcssa.i.i, i64 noundef 32) #16, !noalias !47
+  tail call void @_ZdlPvm(ptr noundef nonnull %.0.lcssa.i.i, i64 noundef 32) #16, !noalias !46
   br label %_ZN5boost3log11v2_mt_posix13attribute_set14implementation5eraseENS2_4iterILb0EEE.exit
 
 _ZN5boost3log11v2_mt_posix13attribute_set14implementation5eraseENS2_4iterILb0EEE.exit: ; preds = %_ZN5boost3log11v2_mt_posix13attribute_set14implementation14find_in_bucketENS1_14attribute_nameERKNS3_6bucketE.exit.i, %2, %57, %54
@@ -581,47 +581,47 @@ define void @_ZN5boost3log11v2_mt_posix13attribute_set5eraseENS2_4iterILb0EEE(pt
 23:                                               ; preds = %21, %20, %17, %16
   %24 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %26 = load ptr, ptr %25, align 8, !tbaa !6, !noalias !52
-  %27 = load ptr, ptr %1, align 8, !tbaa !10, !noalias !52
+  %26 = load ptr, ptr %25, align 8, !tbaa !6, !noalias !51
+  %27 = load ptr, ptr %1, align 8, !tbaa !10, !noalias !51
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
-  store ptr %26, ptr %28, align 8, !tbaa !6, !noalias !52
-  store ptr %27, ptr %26, align 8, !tbaa !10, !noalias !52
-  %29 = load i64, ptr %3, align 8, !tbaa !24, !noalias !52
+  store ptr %26, ptr %28, align 8, !tbaa !6, !noalias !51
+  store ptr %27, ptr %26, align 8, !tbaa !10, !noalias !51
+  %29 = load i64, ptr %3, align 8, !tbaa !24, !noalias !51
   %30 = add i64 %29, -1
-  store i64 %30, ptr %3, align 8, !tbaa !24, !noalias !52
+  store i64 %30, ptr %3, align 8, !tbaa !24, !noalias !51
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %32 = load ptr, ptr %31, align 8, !tbaa !20, !noalias !52
+  %32 = load ptr, ptr %31, align 8, !tbaa !20, !noalias !51
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %32, null
   br i1 %.not.i.i.i.i.i.i.i.i, label %_ZN5boost3log11v2_mt_posix13attribute_set4nodeD2Ev.exit.i.i.i.i, label %33
 
 33:                                               ; preds = %23
   %34 = getelementptr inbounds nuw i8, ptr %32, i64 8
-  %35 = atomicrmw add ptr %34, i32 -1 acq_rel, align 4, !noalias !52
+  %35 = atomicrmw add ptr %34, i32 -1 acq_rel, align 4, !noalias !51
   %36 = icmp eq i32 %35, 1
   br i1 %36, label %37, label %_ZN5boost3log11v2_mt_posix13attribute_set4nodeD2Ev.exit.i.i.i.i
 
 37:                                               ; preds = %33
-  %38 = load ptr, ptr %32, align 8, !tbaa !3, !noalias !52
+  %38 = load ptr, ptr %32, align 8, !tbaa !3, !noalias !51
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 8
-  %40 = load ptr, ptr %39, align 8, !noalias !52
-  tail call void %40(ptr noundef nonnull align 8 dereferenceable(12) %32) #13, !noalias !52
+  %40 = load ptr, ptr %39, align 8, !noalias !51
+  tail call void %40(ptr noundef nonnull align 8 dereferenceable(12) %32) #13, !noalias !51
   br label %_ZN5boost3log11v2_mt_posix13attribute_set4nodeD2Ev.exit.i.i.i.i
 
 _ZN5boost3log11v2_mt_posix13attribute_set4nodeD2Ev.exit.i.i.i.i: ; preds = %37, %33, %23
   %41 = getelementptr inbounds nuw i8, ptr %3, i64 88
-  %42 = load i64, ptr %41, align 8, !tbaa !13, !noalias !52
+  %42 = load i64, ptr %41, align 8, !tbaa !13, !noalias !51
   %43 = icmp ult i64 %42, 8
-  br i1 %43, label %44, label %47, !prof !35
+  br i1 %43, label %44, label %47, !prof !34
 
 44:                                               ; preds = %_ZN5boost3log11v2_mt_posix13attribute_set4nodeD2Ev.exit.i.i.i.i
   %45 = getelementptr inbounds nuw [8 x ptr], ptr %24, i64 0, i64 %42
-  store ptr %1, ptr %45, align 8, !tbaa !17, !noalias !52
+  store ptr %1, ptr %45, align 8, !tbaa !17, !noalias !51
   %46 = add nuw nsw i64 %42, 1
-  store i64 %46, ptr %41, align 8, !tbaa !13, !noalias !52
+  store i64 %46, ptr %41, align 8, !tbaa !13, !noalias !51
   br label %_ZN5boost3log11v2_mt_posix13attribute_set14implementation5eraseENS2_4iterILb0EEE.exit
 
 47:                                               ; preds = %_ZN5boost3log11v2_mt_posix13attribute_set4nodeD2Ev.exit.i.i.i.i
-  tail call void @_ZdlPvm(ptr noundef nonnull %1, i64 noundef 32) #16, !noalias !52
+  tail call void @_ZdlPvm(ptr noundef nonnull %1, i64 noundef 32) #16, !noalias !51
   br label %_ZN5boost3log11v2_mt_posix13attribute_set14implementation5eraseENS2_4iterILb0EEE.exit
 
 _ZN5boost3log11v2_mt_posix13attribute_set14implementation5eraseENS2_4iterILb0EEE.exit: ; preds = %47, %44
@@ -674,47 +674,47 @@ define void @_ZN5boost3log11v2_mt_posix13attribute_set5eraseENS2_4iterILb0EEES4_
 
 26:                                               ; preds = %24, %23, %20, %19
   %27 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  %28 = load ptr, ptr %5, align 8, !tbaa !6, !noalias !57
-  %29 = load ptr, ptr %.sroa.01.03, align 8, !tbaa !10, !noalias !57
+  %28 = load ptr, ptr %5, align 8, !tbaa !6, !noalias !56
+  %29 = load ptr, ptr %.sroa.01.03, align 8, !tbaa !10, !noalias !56
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 8
-  store ptr %28, ptr %30, align 8, !tbaa !6, !noalias !57
-  store ptr %29, ptr %28, align 8, !tbaa !10, !noalias !57
-  %31 = load i64, ptr %4, align 8, !tbaa !24, !noalias !57
+  store ptr %28, ptr %30, align 8, !tbaa !6, !noalias !56
+  store ptr %29, ptr %28, align 8, !tbaa !10, !noalias !56
+  %31 = load i64, ptr %4, align 8, !tbaa !24, !noalias !56
   %32 = add i64 %31, -1
-  store i64 %32, ptr %4, align 8, !tbaa !24, !noalias !57
+  store i64 %32, ptr %4, align 8, !tbaa !24, !noalias !56
   %33 = getelementptr inbounds nuw i8, ptr %.sroa.01.03, i64 24
-  %34 = load ptr, ptr %33, align 8, !tbaa !20, !noalias !57
+  %34 = load ptr, ptr %33, align 8, !tbaa !20, !noalias !56
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %34, null
   br i1 %.not.i.i.i.i.i.i.i.i, label %_ZN5boost3log11v2_mt_posix13attribute_set4nodeD2Ev.exit.i.i.i.i, label %35
 
 35:                                               ; preds = %26
   %36 = getelementptr inbounds nuw i8, ptr %34, i64 8
-  %37 = atomicrmw add ptr %36, i32 -1 acq_rel, align 4, !noalias !57
+  %37 = atomicrmw add ptr %36, i32 -1 acq_rel, align 4, !noalias !56
   %38 = icmp eq i32 %37, 1
   br i1 %38, label %39, label %_ZN5boost3log11v2_mt_posix13attribute_set4nodeD2Ev.exit.i.i.i.i
 
 39:                                               ; preds = %35
-  %40 = load ptr, ptr %34, align 8, !tbaa !3, !noalias !57
+  %40 = load ptr, ptr %34, align 8, !tbaa !3, !noalias !56
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 8
-  %42 = load ptr, ptr %41, align 8, !noalias !57
-  tail call void %42(ptr noundef nonnull align 8 dereferenceable(12) %34) #13, !noalias !57
+  %42 = load ptr, ptr %41, align 8, !noalias !56
+  tail call void %42(ptr noundef nonnull align 8 dereferenceable(12) %34) #13, !noalias !56
   br label %_ZN5boost3log11v2_mt_posix13attribute_set4nodeD2Ev.exit.i.i.i.i
 
 _ZN5boost3log11v2_mt_posix13attribute_set4nodeD2Ev.exit.i.i.i.i: ; preds = %39, %35, %26
   %43 = getelementptr inbounds nuw i8, ptr %4, i64 88
-  %44 = load i64, ptr %43, align 8, !tbaa !13, !noalias !57
+  %44 = load i64, ptr %43, align 8, !tbaa !13, !noalias !56
   %45 = icmp ult i64 %44, 8
-  br i1 %45, label %46, label %49, !prof !35
+  br i1 %45, label %46, label %49, !prof !34
 
 46:                                               ; preds = %_ZN5boost3log11v2_mt_posix13attribute_set4nodeD2Ev.exit.i.i.i.i
   %47 = getelementptr inbounds nuw [8 x ptr], ptr %27, i64 0, i64 %44
-  store ptr %.sroa.01.03, ptr %47, align 8, !tbaa !17, !noalias !57
+  store ptr %.sroa.01.03, ptr %47, align 8, !tbaa !17, !noalias !56
   %48 = add nuw nsw i64 %44, 1
-  store i64 %48, ptr %43, align 8, !tbaa !13, !noalias !57
+  store i64 %48, ptr %43, align 8, !tbaa !13, !noalias !56
   br label %_ZN5boost3log11v2_mt_posix13attribute_set14implementation5eraseENS2_4iterILb0EEE.exit
 
 49:                                               ; preds = %_ZN5boost3log11v2_mt_posix13attribute_set4nodeD2Ev.exit.i.i.i.i
-  tail call void @_ZdlPvm(ptr noundef nonnull %.sroa.01.03, i64 noundef 32) #16, !noalias !57
+  tail call void @_ZdlPvm(ptr noundef nonnull %.sroa.01.03, i64 noundef 32) #16, !noalias !56
   br label %_ZN5boost3log11v2_mt_posix13attribute_set14implementation5eraseENS2_4iterILb0EEE.exit
 
 _ZN5boost3log11v2_mt_posix13attribute_set14implementation5eraseENS2_4iterILb0EEE.exit: ; preds = %46, %49
@@ -730,7 +730,7 @@ define void @_ZN5boost3log11v2_mt_posix13attribute_set5clearEv(ptr noundef nonnu
   %2 = load ptr, ptr %0, align 8, !tbaa !11
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %5 = load ptr, ptr %4, align 8, !tbaa !6, !noalias !62
+  %5 = load ptr, ptr %4, align 8, !tbaa !6, !noalias !61
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.not8.i.i = icmp eq ptr %5, %6
   br i1 %.not8.i.i, label %_ZN5boost9intrusive9list_implINS0_23derivation_value_traitsINS_3log11v2_mt_posix13attribute_set4nodeENS5_14implementation11node_traitsELNS0_14link_mode_typeE0EEEmLb1EvE17clear_and_disposeINS7_8disposerEEEvT_.exit.i, label %.lr.ph.i.i
@@ -764,7 +764,7 @@ define void @_ZN5boost3log11v2_mt_posix13attribute_set5clearEv(ptr noundef nonnu
 _ZN5boost3log11v2_mt_posix13attribute_set4nodeD2Ev.exit.i.i.i: ; preds = %17, %13, %8
   %21 = load i64, ptr %7, align 8, !tbaa !13
   %22 = icmp ult i64 %21, 8
-  br i1 %22, label %23, label %26, !prof !35
+  br i1 %22, label %23, label %26, !prof !34
 
 23:                                               ; preds = %_ZN5boost3log11v2_mt_posix13attribute_set4nodeD2Ev.exit.i.i.i
   %24 = getelementptr inbounds nuw [8 x ptr], ptr %3, i64 0, i64 %21
@@ -818,7 +818,7 @@ define ptr @_ZN5boost3log11v2_mt_posix13attribute_set4findENS1_14attribute_nameE
   %16 = getelementptr inbounds nuw i8, ptr %.08.i.i, i64 8
   %.0.i.i = load ptr, ptr %16, align 8, !tbaa !17
   %.not.i.i = icmp eq ptr %.0.i.i, %11
-  br i1 %.not.i.i, label %_ZN5boost3log11v2_mt_posix13attribute_set14implementation14find_in_bucketENS1_14attribute_nameERKNS3_6bucketE.exit.i, label %.lr.ph.i.i, !llvm.loop !43
+  br i1 %.not.i.i, label %_ZN5boost3log11v2_mt_posix13attribute_set14implementation14find_in_bucketENS1_14attribute_nameERKNS3_6bucketE.exit.i, label %.lr.ph.i.i, !llvm.loop !42
 
 _ZN5boost3log11v2_mt_posix13attribute_set14implementation14find_in_bucketENS1_14attribute_nameERKNS3_6bucketE.exit.i: ; preds = %15, %.lr.ph.i.i, %9
   %.0.lcssa.i.i = phi ptr [ %8, %9 ], [ %.0.i.i, %15 ], [ %.08.i.i, %.lr.ph.i.i ]
@@ -854,7 +854,7 @@ define linkonce_odr hidden void @_ZN5boost3log11v2_mt_posix14pool_allocatorINS1_
   %6 = add nuw i64 %.03, 1
   %7 = load i64, ptr %2, align 8, !tbaa !13
   %8 = icmp ult i64 %6, %7
-  br i1 %8, label %.lr.ph, label %._crit_edge, !llvm.loop !36
+  br i1 %8, label %.lr.ph, label %._crit_edge, !llvm.loop !35
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
@@ -923,39 +923,38 @@ attributes #16 = { builtin nounwind }
 !26 = !{!27, !8, i64 0}
 !27 = !{!"_ZTSN5boost3log11v2_mt_posix13attribute_set14implementation6bucketE", !8, i64 0, !8, i64 8}
 !28 = !{!27, !8, i64 8}
-!29 = distinct !{!29, !30, !31}
+!29 = distinct !{!29, !30}
 !30 = !{!"llvm.loop.mustprogress"}
-!31 = !{!"llvm.loop.estimated_trip_count"}
-!32 = !{!33}
-!33 = distinct !{!33, !34, !"_ZN5boost9intrusive9list_implINS0_23derivation_value_traitsINS_3log11v2_mt_posix13attribute_set4nodeENS5_14implementation11node_traitsELNS0_14link_mode_typeE0EEEmLb1EvE5beginEv: argument 0"}
-!34 = distinct !{!34, !"_ZN5boost9intrusive9list_implINS0_23derivation_value_traitsINS_3log11v2_mt_posix13attribute_set4nodeENS5_14implementation11node_traitsELNS0_14link_mode_typeE0EEEmLb1EvE5beginEv"}
-!35 = !{!"branch_weights", !"expected", i32 2000, i32 1}
-!36 = distinct !{!36, !30, !31}
-!37 = !{!38}
-!38 = distinct !{!38, !39, !"_ZN5boost9intrusive9list_implINS0_23derivation_value_traitsINS_3log11v2_mt_posix13attribute_set4nodeENS5_14implementation11node_traitsELNS0_14link_mode_typeE0EEEmLb1EvE5beginEv: argument 0"}
-!39 = distinct !{!39, !"_ZN5boost9intrusive9list_implINS0_23derivation_value_traitsINS_3log11v2_mt_posix13attribute_set4nodeENS5_14implementation11node_traitsELNS0_14link_mode_typeE0EEEmLb1EvE5beginEv"}
-!40 = !{!41}
-!41 = distinct !{!41, !42, !"_ZN5boost9intrusive9list_implINS0_23derivation_value_traitsINS_3log11v2_mt_posix13attribute_set4nodeENS5_14implementation11node_traitsELNS0_14link_mode_typeE0EEEmLb1EvE5beginEv: argument 0"}
-!42 = distinct !{!42, !"_ZN5boost9intrusive9list_implINS0_23derivation_value_traitsINS_3log11v2_mt_posix13attribute_set4nodeENS5_14implementation11node_traitsELNS0_14link_mode_typeE0EEEmLb1EvE5beginEv"}
-!43 = distinct !{!43, !30, !31}
-!44 = !{!45}
-!45 = distinct !{!45, !46, !"_ZN5boost9intrusive9list_implINS0_23derivation_value_traitsINS_3log11v2_mt_posix13attribute_set4nodeENS5_14implementation11node_traitsELNS0_14link_mode_typeE0EEEmLb1EvE6insertENS0_13list_iteratorISA_Lb1EEERS6_: argument 0"}
-!46 = distinct !{!46, !"_ZN5boost9intrusive9list_implINS0_23derivation_value_traitsINS_3log11v2_mt_posix13attribute_set4nodeENS5_14implementation11node_traitsELNS0_14link_mode_typeE0EEEmLb1EvE6insertENS0_13list_iteratorISA_Lb1EEERS6_"}
-!47 = !{!48, !50}
-!48 = distinct !{!48, !49, !"_ZN5boost9intrusive9list_implINS0_23derivation_value_traitsINS_3log11v2_mt_posix13attribute_set4nodeENS5_14implementation11node_traitsELNS0_14link_mode_typeE0EEEmLb1EvE17erase_and_disposeINS7_8disposerEEENS0_13list_iteratorISA_Lb0EEENSE_ISA_Lb1EEET_: argument 0"}
-!49 = distinct !{!49, !"_ZN5boost9intrusive9list_implINS0_23derivation_value_traitsINS_3log11v2_mt_posix13attribute_set4nodeENS5_14implementation11node_traitsELNS0_14link_mode_typeE0EEEmLb1EvE17erase_and_disposeINS7_8disposerEEENS0_13list_iteratorISA_Lb0EEENSE_ISA_Lb1EEET_"}
-!50 = distinct !{!50, !51, !"_ZN5boost9intrusive9list_implINS0_23derivation_value_traitsINS_3log11v2_mt_posix13attribute_set4nodeENS5_14implementation11node_traitsELNS0_14link_mode_typeE0EEEmLb1EvE17erase_and_disposeINS7_8disposerEEENS0_13list_iteratorISA_Lb0EEESF_T_: argument 0"}
-!51 = distinct !{!51, !"_ZN5boost9intrusive9list_implINS0_23derivation_value_traitsINS_3log11v2_mt_posix13attribute_set4nodeENS5_14implementation11node_traitsELNS0_14link_mode_typeE0EEEmLb1EvE17erase_and_disposeINS7_8disposerEEENS0_13list_iteratorISA_Lb0EEESF_T_"}
-!52 = !{!53, !55}
-!53 = distinct !{!53, !54, !"_ZN5boost9intrusive9list_implINS0_23derivation_value_traitsINS_3log11v2_mt_posix13attribute_set4nodeENS5_14implementation11node_traitsELNS0_14link_mode_typeE0EEEmLb1EvE17erase_and_disposeINS7_8disposerEEENS0_13list_iteratorISA_Lb0EEENSE_ISA_Lb1EEET_: argument 0"}
-!54 = distinct !{!54, !"_ZN5boost9intrusive9list_implINS0_23derivation_value_traitsINS_3log11v2_mt_posix13attribute_set4nodeENS5_14implementation11node_traitsELNS0_14link_mode_typeE0EEEmLb1EvE17erase_and_disposeINS7_8disposerEEENS0_13list_iteratorISA_Lb0EEENSE_ISA_Lb1EEET_"}
-!55 = distinct !{!55, !56, !"_ZN5boost9intrusive9list_implINS0_23derivation_value_traitsINS_3log11v2_mt_posix13attribute_set4nodeENS5_14implementation11node_traitsELNS0_14link_mode_typeE0EEEmLb1EvE17erase_and_disposeINS7_8disposerEEENS0_13list_iteratorISA_Lb0EEESF_T_: argument 0"}
-!56 = distinct !{!56, !"_ZN5boost9intrusive9list_implINS0_23derivation_value_traitsINS_3log11v2_mt_posix13attribute_set4nodeENS5_14implementation11node_traitsELNS0_14link_mode_typeE0EEEmLb1EvE17erase_and_disposeINS7_8disposerEEENS0_13list_iteratorISA_Lb0EEESF_T_"}
-!57 = !{!58, !60}
-!58 = distinct !{!58, !59, !"_ZN5boost9intrusive9list_implINS0_23derivation_value_traitsINS_3log11v2_mt_posix13attribute_set4nodeENS5_14implementation11node_traitsELNS0_14link_mode_typeE0EEEmLb1EvE17erase_and_disposeINS7_8disposerEEENS0_13list_iteratorISA_Lb0EEENSE_ISA_Lb1EEET_: argument 0"}
-!59 = distinct !{!59, !"_ZN5boost9intrusive9list_implINS0_23derivation_value_traitsINS_3log11v2_mt_posix13attribute_set4nodeENS5_14implementation11node_traitsELNS0_14link_mode_typeE0EEEmLb1EvE17erase_and_disposeINS7_8disposerEEENS0_13list_iteratorISA_Lb0EEENSE_ISA_Lb1EEET_"}
-!60 = distinct !{!60, !61, !"_ZN5boost9intrusive9list_implINS0_23derivation_value_traitsINS_3log11v2_mt_posix13attribute_set4nodeENS5_14implementation11node_traitsELNS0_14link_mode_typeE0EEEmLb1EvE17erase_and_disposeINS7_8disposerEEENS0_13list_iteratorISA_Lb0EEESF_T_: argument 0"}
-!61 = distinct !{!61, !"_ZN5boost9intrusive9list_implINS0_23derivation_value_traitsINS_3log11v2_mt_posix13attribute_set4nodeENS5_14implementation11node_traitsELNS0_14link_mode_typeE0EEEmLb1EvE17erase_and_disposeINS7_8disposerEEENS0_13list_iteratorISA_Lb0EEESF_T_"}
-!62 = !{!63}
-!63 = distinct !{!63, !64, !"_ZN5boost9intrusive9list_implINS0_23derivation_value_traitsINS_3log11v2_mt_posix13attribute_set4nodeENS5_14implementation11node_traitsELNS0_14link_mode_typeE0EEEmLb1EvE5beginEv: argument 0"}
-!64 = distinct !{!64, !"_ZN5boost9intrusive9list_implINS0_23derivation_value_traitsINS_3log11v2_mt_posix13attribute_set4nodeENS5_14implementation11node_traitsELNS0_14link_mode_typeE0EEEmLb1EvE5beginEv"}
+!31 = !{!32}
+!32 = distinct !{!32, !33, !"_ZN5boost9intrusive9list_implINS0_23derivation_value_traitsINS_3log11v2_mt_posix13attribute_set4nodeENS5_14implementation11node_traitsELNS0_14link_mode_typeE0EEEmLb1EvE5beginEv: argument 0"}
+!33 = distinct !{!33, !"_ZN5boost9intrusive9list_implINS0_23derivation_value_traitsINS_3log11v2_mt_posix13attribute_set4nodeENS5_14implementation11node_traitsELNS0_14link_mode_typeE0EEEmLb1EvE5beginEv"}
+!34 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!35 = distinct !{!35, !30}
+!36 = !{!37}
+!37 = distinct !{!37, !38, !"_ZN5boost9intrusive9list_implINS0_23derivation_value_traitsINS_3log11v2_mt_posix13attribute_set4nodeENS5_14implementation11node_traitsELNS0_14link_mode_typeE0EEEmLb1EvE5beginEv: argument 0"}
+!38 = distinct !{!38, !"_ZN5boost9intrusive9list_implINS0_23derivation_value_traitsINS_3log11v2_mt_posix13attribute_set4nodeENS5_14implementation11node_traitsELNS0_14link_mode_typeE0EEEmLb1EvE5beginEv"}
+!39 = !{!40}
+!40 = distinct !{!40, !41, !"_ZN5boost9intrusive9list_implINS0_23derivation_value_traitsINS_3log11v2_mt_posix13attribute_set4nodeENS5_14implementation11node_traitsELNS0_14link_mode_typeE0EEEmLb1EvE5beginEv: argument 0"}
+!41 = distinct !{!41, !"_ZN5boost9intrusive9list_implINS0_23derivation_value_traitsINS_3log11v2_mt_posix13attribute_set4nodeENS5_14implementation11node_traitsELNS0_14link_mode_typeE0EEEmLb1EvE5beginEv"}
+!42 = distinct !{!42, !30}
+!43 = !{!44}
+!44 = distinct !{!44, !45, !"_ZN5boost9intrusive9list_implINS0_23derivation_value_traitsINS_3log11v2_mt_posix13attribute_set4nodeENS5_14implementation11node_traitsELNS0_14link_mode_typeE0EEEmLb1EvE6insertENS0_13list_iteratorISA_Lb1EEERS6_: argument 0"}
+!45 = distinct !{!45, !"_ZN5boost9intrusive9list_implINS0_23derivation_value_traitsINS_3log11v2_mt_posix13attribute_set4nodeENS5_14implementation11node_traitsELNS0_14link_mode_typeE0EEEmLb1EvE6insertENS0_13list_iteratorISA_Lb1EEERS6_"}
+!46 = !{!47, !49}
+!47 = distinct !{!47, !48, !"_ZN5boost9intrusive9list_implINS0_23derivation_value_traitsINS_3log11v2_mt_posix13attribute_set4nodeENS5_14implementation11node_traitsELNS0_14link_mode_typeE0EEEmLb1EvE17erase_and_disposeINS7_8disposerEEENS0_13list_iteratorISA_Lb0EEENSE_ISA_Lb1EEET_: argument 0"}
+!48 = distinct !{!48, !"_ZN5boost9intrusive9list_implINS0_23derivation_value_traitsINS_3log11v2_mt_posix13attribute_set4nodeENS5_14implementation11node_traitsELNS0_14link_mode_typeE0EEEmLb1EvE17erase_and_disposeINS7_8disposerEEENS0_13list_iteratorISA_Lb0EEENSE_ISA_Lb1EEET_"}
+!49 = distinct !{!49, !50, !"_ZN5boost9intrusive9list_implINS0_23derivation_value_traitsINS_3log11v2_mt_posix13attribute_set4nodeENS5_14implementation11node_traitsELNS0_14link_mode_typeE0EEEmLb1EvE17erase_and_disposeINS7_8disposerEEENS0_13list_iteratorISA_Lb0EEESF_T_: argument 0"}
+!50 = distinct !{!50, !"_ZN5boost9intrusive9list_implINS0_23derivation_value_traitsINS_3log11v2_mt_posix13attribute_set4nodeENS5_14implementation11node_traitsELNS0_14link_mode_typeE0EEEmLb1EvE17erase_and_disposeINS7_8disposerEEENS0_13list_iteratorISA_Lb0EEESF_T_"}
+!51 = !{!52, !54}
+!52 = distinct !{!52, !53, !"_ZN5boost9intrusive9list_implINS0_23derivation_value_traitsINS_3log11v2_mt_posix13attribute_set4nodeENS5_14implementation11node_traitsELNS0_14link_mode_typeE0EEEmLb1EvE17erase_and_disposeINS7_8disposerEEENS0_13list_iteratorISA_Lb0EEENSE_ISA_Lb1EEET_: argument 0"}
+!53 = distinct !{!53, !"_ZN5boost9intrusive9list_implINS0_23derivation_value_traitsINS_3log11v2_mt_posix13attribute_set4nodeENS5_14implementation11node_traitsELNS0_14link_mode_typeE0EEEmLb1EvE17erase_and_disposeINS7_8disposerEEENS0_13list_iteratorISA_Lb0EEENSE_ISA_Lb1EEET_"}
+!54 = distinct !{!54, !55, !"_ZN5boost9intrusive9list_implINS0_23derivation_value_traitsINS_3log11v2_mt_posix13attribute_set4nodeENS5_14implementation11node_traitsELNS0_14link_mode_typeE0EEEmLb1EvE17erase_and_disposeINS7_8disposerEEENS0_13list_iteratorISA_Lb0EEESF_T_: argument 0"}
+!55 = distinct !{!55, !"_ZN5boost9intrusive9list_implINS0_23derivation_value_traitsINS_3log11v2_mt_posix13attribute_set4nodeENS5_14implementation11node_traitsELNS0_14link_mode_typeE0EEEmLb1EvE17erase_and_disposeINS7_8disposerEEENS0_13list_iteratorISA_Lb0EEESF_T_"}
+!56 = !{!57, !59}
+!57 = distinct !{!57, !58, !"_ZN5boost9intrusive9list_implINS0_23derivation_value_traitsINS_3log11v2_mt_posix13attribute_set4nodeENS5_14implementation11node_traitsELNS0_14link_mode_typeE0EEEmLb1EvE17erase_and_disposeINS7_8disposerEEENS0_13list_iteratorISA_Lb0EEENSE_ISA_Lb1EEET_: argument 0"}
+!58 = distinct !{!58, !"_ZN5boost9intrusive9list_implINS0_23derivation_value_traitsINS_3log11v2_mt_posix13attribute_set4nodeENS5_14implementation11node_traitsELNS0_14link_mode_typeE0EEEmLb1EvE17erase_and_disposeINS7_8disposerEEENS0_13list_iteratorISA_Lb0EEENSE_ISA_Lb1EEET_"}
+!59 = distinct !{!59, !60, !"_ZN5boost9intrusive9list_implINS0_23derivation_value_traitsINS_3log11v2_mt_posix13attribute_set4nodeENS5_14implementation11node_traitsELNS0_14link_mode_typeE0EEEmLb1EvE17erase_and_disposeINS7_8disposerEEENS0_13list_iteratorISA_Lb0EEESF_T_: argument 0"}
+!60 = distinct !{!60, !"_ZN5boost9intrusive9list_implINS0_23derivation_value_traitsINS_3log11v2_mt_posix13attribute_set4nodeENS5_14implementation11node_traitsELNS0_14link_mode_typeE0EEEmLb1EvE17erase_and_disposeINS7_8disposerEEENS0_13list_iteratorISA_Lb0EEESF_T_"}
+!61 = !{!62}
+!62 = distinct !{!62, !63, !"_ZN5boost9intrusive9list_implINS0_23derivation_value_traitsINS_3log11v2_mt_posix13attribute_set4nodeENS5_14implementation11node_traitsELNS0_14link_mode_typeE0EEEmLb1EvE5beginEv: argument 0"}
+!63 = distinct !{!63, !"_ZN5boost9intrusive9list_implINS0_23derivation_value_traitsINS_3log11v2_mt_posix13attribute_set4nodeENS5_14implementation11node_traitsELNS0_14link_mode_typeE0EEEmLb1EvE5beginEv"}

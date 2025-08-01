@@ -198,19 +198,19 @@ define hidden range(i32 0, 2) i32 @X509_print_ex(ptr noundef %0, ptr noundef %1,
 
 72:                                               ; preds = %.loopexit
   %73 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  %74 = load ptr, ptr %73, align 8, !tbaa !40
+  %74 = load ptr, ptr %73, align 8, !tbaa !39
   %75 = tail call i32 @BIO_puts(ptr noundef %0, ptr noundef nonnull @.str.26) #5
   %76 = icmp slt i32 %75, 1
   br i1 %76, label %X509_signature_print.exit.thread, label %77
 
 77:                                               ; preds = %72
-  %78 = load ptr, ptr %74, align 8, !tbaa !41
+  %78 = load ptr, ptr %74, align 8, !tbaa !40
   %79 = tail call i32 @i2a_ASN1_OBJECT(ptr noundef %0, ptr noundef %78) #5
   %80 = icmp slt i32 %79, 1
   br i1 %80, label %X509_signature_print.exit.thread, label %81
 
 81:                                               ; preds = %77
-  %82 = load ptr, ptr %74, align 8, !tbaa !41
+  %82 = load ptr, ptr %74, align 8, !tbaa !40
   %83 = tail call i32 @OBJ_obj2nid(ptr noundef %82) #5
   %84 = icmp eq i32 %83, 912
   br i1 %84, label %85, label %X509_signature_print.exit
@@ -264,8 +264,8 @@ X509_signature_print.exit:                        ; preds = %81, %85
 109:                                              ; preds = %106
   %110 = load ptr, ptr %1, align 8, !tbaa !6
   %111 = getelementptr inbounds nuw i8, ptr %110, i64 32
-  %112 = load ptr, ptr %111, align 8, !tbaa !45
-  %113 = load ptr, ptr %112, align 8, !tbaa !46
+  %112 = load ptr, ptr %111, align 8, !tbaa !44
+  %113 = load ptr, ptr %112, align 8, !tbaa !45
   %114 = getelementptr inbounds nuw i8, ptr %113, i64 4
   %115 = load i32, ptr %114, align 4, !tbaa !36
   switch i32 %115, label %ASN1_TIME_print.exit.thread [
@@ -298,9 +298,9 @@ ASN1_TIME_print.exit:                             ; preds = %116, %118
 124:                                              ; preds = %121
   %125 = load ptr, ptr %1, align 8, !tbaa !6
   %126 = getelementptr inbounds nuw i8, ptr %125, i64 32
-  %127 = load ptr, ptr %126, align 8, !tbaa !45
+  %127 = load ptr, ptr %126, align 8, !tbaa !44
   %128 = getelementptr inbounds nuw i8, ptr %127, i64 8
-  %129 = load ptr, ptr %128, align 8, !tbaa !48
+  %129 = load ptr, ptr %128, align 8, !tbaa !47
   %130 = tail call i32 @ASN1_TIME_print(ptr noundef %0, ptr noundef %129)
   %.not113 = icmp eq i32 %130, 0
   br i1 %.not113, label %X509_signature_print.exit.thread, label %131
@@ -348,9 +348,9 @@ ASN1_TIME_print.exit:                             ; preds = %116, %118
 
 154:                                              ; preds = %151
   %155 = getelementptr inbounds nuw i8, ptr %8, i64 48
-  %156 = load ptr, ptr %155, align 8, !tbaa !49
-  %157 = load ptr, ptr %156, align 8, !tbaa !50
-  %158 = load ptr, ptr %157, align 8, !tbaa !41
+  %156 = load ptr, ptr %155, align 8, !tbaa !48
+  %157 = load ptr, ptr %156, align 8, !tbaa !49
+  %158 = load ptr, ptr %157, align 8, !tbaa !40
   %159 = tail call i32 @i2a_ASN1_OBJECT(ptr noundef %0, ptr noundef %158) #5
   %160 = icmp slt i32 %159, 1
   br i1 %160, label %X509_signature_print.exit.thread, label %161
@@ -382,7 +382,7 @@ ASN1_TIME_print.exit:                             ; preds = %116, %118
 
 173:                                              ; preds = %171
   %174 = getelementptr inbounds nuw i8, ptr %8, i64 56
-  %175 = load ptr, ptr %174, align 8, !tbaa !53
+  %175 = load ptr, ptr %174, align 8, !tbaa !52
   %.not117 = icmp eq ptr %175, null
   br i1 %.not117, label %182, label %176
 
@@ -392,14 +392,14 @@ ASN1_TIME_print.exit:                             ; preds = %116, %118
   br i1 %178, label %X509_signature_print.exit.thread, label %179
 
 179:                                              ; preds = %176
-  %180 = load ptr, ptr %174, align 8, !tbaa !53
+  %180 = load ptr, ptr %174, align 8, !tbaa !52
   %181 = tail call i32 @X509_signature_dump(ptr noundef %0, ptr noundef %180, i32 noundef 12) #5
   %.not118 = icmp eq i32 %181, 0
   br i1 %.not118, label %X509_signature_print.exit.thread, label %182
 
 182:                                              ; preds = %179, %173
   %183 = getelementptr inbounds nuw i8, ptr %8, i64 64
-  %184 = load ptr, ptr %183, align 8, !tbaa !54
+  %184 = load ptr, ptr %183, align 8, !tbaa !53
   %.not119 = icmp eq ptr %184, null
   br i1 %.not119, label %191, label %185
 
@@ -409,7 +409,7 @@ ASN1_TIME_print.exit:                             ; preds = %116, %118
   br i1 %187, label %X509_signature_print.exit.thread, label %188
 
 188:                                              ; preds = %185
-  %189 = load ptr, ptr %183, align 8, !tbaa !54
+  %189 = load ptr, ptr %183, align 8, !tbaa !53
   %190 = tail call i32 @X509_signature_dump(ptr noundef %0, ptr noundef %189, i32 noundef 12) #5
   %.not120 = icmp eq i32 %190, 0
   br i1 %.not120, label %X509_signature_print.exit.thread, label %191
@@ -421,7 +421,7 @@ ASN1_TIME_print.exit:                             ; preds = %116, %118
 
 193:                                              ; preds = %191
   %194 = getelementptr inbounds nuw i8, ptr %8, i64 72
-  %195 = load ptr, ptr %194, align 8, !tbaa !55
+  %195 = load ptr, ptr %194, align 8, !tbaa !54
   %196 = tail call i32 @X509V3_extensions_print(ptr noundef %0, ptr noundef nonnull @.str.22, ptr noundef %195, i64 noundef %3, i32 noundef 8) #5
   br label %197
 
@@ -432,9 +432,9 @@ ASN1_TIME_print.exit:                             ; preds = %116, %118
 
 199:                                              ; preds = %197
   %200 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %201 = load ptr, ptr %200, align 8, !tbaa !56
+  %201 = load ptr, ptr %200, align 8, !tbaa !55
   %202 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %203 = load ptr, ptr %202, align 8, !tbaa !57
+  %203 = load ptr, ptr %202, align 8, !tbaa !56
   %204 = tail call i32 @X509_signature_print(ptr noundef %0, ptr noundef %201, ptr noundef %203)
   %205 = icmp slt i32 %204, 1
   br i1 %205, label %X509_signature_print.exit.thread, label %206
@@ -446,7 +446,7 @@ ASN1_TIME_print.exit:                             ; preds = %116, %118
 
 208:                                              ; preds = %206
   %209 = getelementptr inbounds nuw i8, ptr %1, i64 168
-  %210 = load ptr, ptr %209, align 8, !tbaa !58
+  %210 = load ptr, ptr %209, align 8, !tbaa !57
   %211 = tail call i32 @X509_CERT_AUX_print(ptr noundef %0, ptr noundef %210, i32 noundef 0) #5
   %.not124 = icmp eq i32 %211, 0
   br i1 %.not124, label %X509_signature_print.exit.thread, label %212
@@ -507,13 +507,13 @@ define hidden i32 @X509_signature_print(ptr noundef %0, ptr noundef %1, ptr noun
   br i1 %5, label %22, label %6
 
 6:                                                ; preds = %3
-  %7 = load ptr, ptr %1, align 8, !tbaa !41
+  %7 = load ptr, ptr %1, align 8, !tbaa !40
   %8 = tail call i32 @i2a_ASN1_OBJECT(ptr noundef %0, ptr noundef %7) #5
   %9 = icmp slt i32 %8, 1
   br i1 %9, label %22, label %10
 
 10:                                               ; preds = %6
-  %11 = load ptr, ptr %1, align 8, !tbaa !41
+  %11 = load ptr, ptr %1, align 8, !tbaa !40
   %12 = tail call i32 @OBJ_obj2nid(ptr noundef %11) #5
   %13 = icmp eq i32 %12, 912
   br i1 %13, label %14, label %16
@@ -608,18 +608,18 @@ define hidden range(i32 0, 2) i32 @X509_ocspid_print(ptr noundef %0, ptr noundef
 7:                                                ; preds = %2
   %8 = load ptr, ptr %1, align 8, !tbaa !6
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 40
-  %10 = load ptr, ptr %9, align 8, !tbaa !59
+  %10 = load ptr, ptr %9, align 8, !tbaa !58
   %11 = tail call i32 @i2d_X509_NAME(ptr noundef %10, ptr noundef null) #5
   %12 = sext i32 %11 to i64
   %13 = tail call noalias ptr @malloc(i64 noundef %12) #6
-  store ptr %13, ptr %3, align 8, !tbaa !60
+  store ptr %13, ptr %3, align 8, !tbaa !59
   %14 = icmp eq ptr %13, null
   br i1 %14, label %.thread, label %15
 
 15:                                               ; preds = %7
   %16 = load ptr, ptr %1, align 8, !tbaa !6
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 40
-  %18 = load ptr, ptr %17, align 8, !tbaa !59
+  %18 = load ptr, ptr %17, align 8, !tbaa !58
   %19 = call i32 @i2d_X509_NAME(ptr noundef %18, ptr noundef nonnull %3) #5
   %20 = call ptr @EVP_sha1() #5
   %21 = call i32 @EVP_Digest(ptr noundef nonnull %13, i64 noundef %12, ptr noundef nonnull %4, ptr noundef null, ptr noundef %20, ptr noundef null) #5
@@ -629,7 +629,7 @@ define hidden range(i32 0, 2) i32 @X509_ocspid_print(ptr noundef %0, ptr noundef
 22:                                               ; preds = %.preheader33
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 20
-  br i1 %exitcond.not, label %28, label %.preheader33, !llvm.loop !61
+  br i1 %exitcond.not, label %28, label %.preheader33, !llvm.loop !60
 
 .preheader33:                                     ; preds = %15, %22
   %indvars.iv = phi i64 [ %indvars.iv.next, %22 ], [ 0, %15 ]
@@ -649,9 +649,9 @@ define hidden range(i32 0, 2) i32 @X509_ocspid_print(ptr noundef %0, ptr noundef
 31:                                               ; preds = %28
   %32 = load ptr, ptr %1, align 8, !tbaa !6
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 48
-  %34 = load ptr, ptr %33, align 8, !tbaa !49
+  %34 = load ptr, ptr %33, align 8, !tbaa !48
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 8
-  %36 = load ptr, ptr %35, align 8, !tbaa !62
+  %36 = load ptr, ptr %35, align 8, !tbaa !61
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 8
   %38 = load ptr, ptr %37, align 8, !tbaa !34
   %39 = load i32, ptr %36, align 8, !tbaa !32
@@ -664,7 +664,7 @@ define hidden range(i32 0, 2) i32 @X509_ocspid_print(ptr noundef %0, ptr noundef
 43:                                               ; preds = %.preheader
   %indvars.iv.next38 = add nuw nsw i64 %indvars.iv37, 1
   %exitcond40.not = icmp eq i64 %indvars.iv.next38, 20
-  br i1 %exitcond40.not, label %49, label %.preheader, !llvm.loop !63
+  br i1 %exitcond40.not, label %49, label %.preheader, !llvm.loop !62
 
 .preheader:                                       ; preds = %31, %43
   %indvars.iv37 = phi i64 [ %indvars.iv.next38, %43 ], [ 0, %31 ]
@@ -762,7 +762,7 @@ switch.early.test:                                ; preds = %14
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %26 = sext i32 %25 to i64
   %27 = icmp slt i64 %indvars.iv.next, %26
-  br i1 %27, label %.lr.ph, label %._crit_edge, !llvm.loop !64
+  br i1 %27, label %.lr.ph, label %._crit_edge, !llvm.loop !63
 
 ._crit_edge:                                      ; preds = %24
   %28 = icmp sgt i32 %.1, 0
@@ -801,7 +801,7 @@ define hidden range(i32 0, 2) i32 @ASN1_UTCTIME_print(ptr noundef %0, ptr nounde
 12:                                               ; preds = %13
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 10
-  br i1 %exitcond.not, label %17, label %13, !llvm.loop !65
+  br i1 %exitcond.not, label %17, label %13, !llvm.loop !64
 
 13:                                               ; preds = %7, %12
   %indvars.iv = phi i64 [ 0, %7 ], [ %indvars.iv.next, %12 ]
@@ -891,7 +891,7 @@ define hidden range(i32 0, 2) i32 @ASN1_UTCTIME_print(ptr noundef %0, ptr nounde
   %78 = add nsw i32 %33, -529
   %79 = zext nneg i32 %78 to i64
   %80 = getelementptr inbounds nuw [12 x ptr], ptr @mon, i64 0, i64 %79
-  %81 = load ptr, ptr %80, align 8, !tbaa !60
+  %81 = load ptr, ptr %80, align 8, !tbaa !59
   %spec.select = add nsw i32 %24, 1900
   %82 = add nsw i32 %spec.select, %spec.select.v
   %83 = select i1 %.not, ptr @.str.29, ptr @.str.4
@@ -928,7 +928,7 @@ define hidden range(i32 0, 2) i32 @ASN1_GENERALIZEDTIME_print(ptr noundef %0, pt
 12:                                               ; preds = %13
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 12
-  br i1 %exitcond.not, label %17, label %13, !llvm.loop !66
+  br i1 %exitcond.not, label %17, label %13, !llvm.loop !65
 
 13:                                               ; preds = %7, %12
   %indvars.iv = phi i64 [ 0, %7 ], [ %indvars.iv.next, %12 ]
@@ -1049,7 +1049,7 @@ define hidden range(i32 0, 2) i32 @ASN1_GENERALIZEDTIME_print(ptr noundef %0, pt
 96:                                               ; preds = %.lr.ph
   %indvars.iv.next81 = add nuw nsw i64 %indvars.iv80, 1
   %exitcond83.not = icmp eq i64 %indvars.iv.next81, %wide.trip.count
-  br i1 %exitcond83.not, label %.critedge, label %.lr.ph, !llvm.loop !67
+  br i1 %exitcond83.not, label %.critedge, label %.lr.ph, !llvm.loop !66
 
 .critedge.loopexit.split.loop.exit84:             ; preds = %.lr.ph
   %97 = trunc nuw nsw i64 %indvars.iv80 to i32
@@ -1062,7 +1062,7 @@ define hidden range(i32 0, 2) i32 @ASN1_GENERALIZEDTIME_print(ptr noundef %0, pt
   %98 = add nsw i32 %43, -529
   %99 = zext nneg i32 %98 to i64
   %100 = getelementptr inbounds nuw [12 x ptr], ptr @mon, i64 0, i64 %99
-  %101 = load ptr, ptr %100, align 8, !tbaa !60
+  %101 = load ptr, ptr %100, align 8, !tbaa !59
   %102 = select i1 %.not69, ptr @.str.29, ptr @.str.4
   %103 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.28, ptr noundef %101, i32 noundef %54, i32 noundef %63, i32 noundef %72, i32 noundef %.057, i32 noundef %.055, ptr noundef %.056, i32 noundef %35, ptr noundef nonnull %102) #5
   %104 = icmp sgt i32 %103, 0
@@ -1154,7 +1154,7 @@ thread-pre-split:                                 ; preds = %34
 thread-pre-split.thread:                          ; preds = %11, %19, %21, %9, %thread-pre-split
   %.13446 = phi ptr [ %32, %thread-pre-split ], [ %.033, %9 ], [ %.033, %21 ], [ %.033, %19 ], [ %.033, %11 ]
   %37 = getelementptr inbounds nuw i8, ptr %.032, i64 1
-  br label %9, !llvm.loop !68
+  br label %9
 
 38:                                               ; preds = %34, %25
   tail call void @ERR_put_error(i32 noundef 11, i32 noundef 0, i32 noundef 7, ptr noundef nonnull @.str, i32 noundef 502) #5
@@ -1219,35 +1219,33 @@ attributes #6 = { nounwind allocsize(0) }
 !34 = !{!33, !15, i64 8}
 !35 = !{!10, !10, i64 0}
 !36 = !{!33, !14, i64 4}
-!37 = distinct !{!37, !38, !39}
+!37 = distinct !{!37, !38}
 !38 = !{!"llvm.loop.mustprogress"}
-!39 = !{!"llvm.loop.estimated_trip_count"}
-!40 = !{!26, !12, i64 16}
-!41 = !{!42, !43, i64 0}
-!42 = !{!"X509_algor_st", !43, i64 0, !44, i64 8}
-!43 = !{!"p1 _ZTS14asn1_object_st", !9, i64 0}
-!44 = !{!"p1 _ZTS12asn1_type_st", !9, i64 0}
-!45 = !{!26, !28, i64 32}
-!46 = !{!47, !13, i64 0}
-!47 = !{!"X509_val_st", !13, i64 0, !13, i64 8}
-!48 = !{!47, !13, i64 8}
-!49 = !{!26, !29, i64 48}
-!50 = !{!51, !12, i64 0}
-!51 = !{!"X509_pubkey_st", !12, i64 0, !13, i64 8, !52, i64 16}
-!52 = !{!"p1 _ZTS11evp_pkey_st", !9, i64 0}
-!53 = !{!26, !13, i64 56}
-!54 = !{!26, !13, i64 64}
-!55 = !{!26, !30, i64 72}
-!56 = !{!7, !12, i64 8}
-!57 = !{!7, !13, i64 16}
-!58 = !{!7, !24, i64 168}
-!59 = !{!26, !27, i64 40}
-!60 = !{!15, !15, i64 0}
-!61 = distinct !{!61, !38, !39}
-!62 = !{!51, !13, i64 8}
-!63 = distinct !{!63, !38, !39}
-!64 = distinct !{!64, !38, !39}
-!65 = distinct !{!65, !38, !39}
-!66 = distinct !{!66, !38, !39}
-!67 = distinct !{!67, !38, !39}
-!68 = distinct !{!68, !39}
+!39 = !{!26, !12, i64 16}
+!40 = !{!41, !42, i64 0}
+!41 = !{!"X509_algor_st", !42, i64 0, !43, i64 8}
+!42 = !{!"p1 _ZTS14asn1_object_st", !9, i64 0}
+!43 = !{!"p1 _ZTS12asn1_type_st", !9, i64 0}
+!44 = !{!26, !28, i64 32}
+!45 = !{!46, !13, i64 0}
+!46 = !{!"X509_val_st", !13, i64 0, !13, i64 8}
+!47 = !{!46, !13, i64 8}
+!48 = !{!26, !29, i64 48}
+!49 = !{!50, !12, i64 0}
+!50 = !{!"X509_pubkey_st", !12, i64 0, !13, i64 8, !51, i64 16}
+!51 = !{!"p1 _ZTS11evp_pkey_st", !9, i64 0}
+!52 = !{!26, !13, i64 56}
+!53 = !{!26, !13, i64 64}
+!54 = !{!26, !30, i64 72}
+!55 = !{!7, !12, i64 8}
+!56 = !{!7, !13, i64 16}
+!57 = !{!7, !24, i64 168}
+!58 = !{!26, !27, i64 40}
+!59 = !{!15, !15, i64 0}
+!60 = distinct !{!60, !38}
+!61 = !{!50, !13, i64 8}
+!62 = distinct !{!62, !38}
+!63 = distinct !{!63, !38}
+!64 = distinct !{!64, !38}
+!65 = distinct !{!65, !38}
+!66 = distinct !{!66, !38}

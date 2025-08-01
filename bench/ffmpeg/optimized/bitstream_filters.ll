@@ -121,9 +121,9 @@ av_bsf_iterate.exit:                              ; preds = %2
   %8 = inttoptr i64 %7 to ptr
   store ptr %8, ptr %0, align 8, !tbaa !4
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %10 = load ptr, ptr %9, align 8, !tbaa !17
+  %10 = load ptr, ptr %9, align 8, !tbaa !16
   %.not6 = icmp eq ptr %10, null
-  br i1 %.not6, label %2, label %av_bsf_iterate.exit.thread, !llvm.loop !18
+  br i1 %.not6, label %2, label %av_bsf_iterate.exit.thread, !llvm.loop !17
 
 av_bsf_iterate.exit.thread:                       ; preds = %2, %av_bsf_iterate.exit
   %.0 = phi ptr [ %10, %av_bsf_iterate.exit ], [ null, %2 ]
@@ -152,8 +152,7 @@ attributes #4 = { nounwind willreturn memory(read) }
 !11 = !{!"AVBitStreamFilter", !12, i64 0, !5, i64 8, !13, i64 16}
 !12 = !{!"p1 omnipotent char", !5, i64 0}
 !13 = !{!"p1 _ZTS7AVClass", !5, i64 0}
-!14 = distinct !{!14, !15, !16}
+!14 = distinct !{!14, !15}
 !15 = !{!"llvm.loop.mustprogress"}
-!16 = !{!"llvm.loop.estimated_trip_count"}
-!17 = !{!11, !13, i64 16}
-!18 = distinct !{!18, !15, !16}
+!16 = !{!11, !13, i64 16}
+!17 = distinct !{!17, !15}

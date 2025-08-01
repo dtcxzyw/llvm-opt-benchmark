@@ -385,7 +385,7 @@ define internal void @SDL_BlendLine_RGB555(ptr noundef readonly %0, i32 noundef 
   store i16 %94, ptr %.213651847, align 2
   %95 = getelementptr inbounds nuw i8, ptr %.213651847, i64 2
   %.not1697 = icmp eq i32 %57, 0
-  br i1 %.not1697, label %.loopexit, label %.lr.ph1849, !llvm.loop !6
+  br i1 %.not1697, label %.loopexit, label %.lr.ph1849, !llvm.loop !5
 
 96:                                               ; preds = %31
   %97 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -479,7 +479,7 @@ define internal void @SDL_BlendLine_RGB555(ptr noundef readonly %0, i32 noundef 
   store i16 %158, ptr %.213711843, align 2
   %159 = getelementptr inbounds nuw i8, ptr %.213711843, i64 2
   %.not1695 = icmp eq i32 %121, 0
-  br i1 %.not1695, label %.loopexit, label %.lr.ph1845, !llvm.loop !7
+  br i1 %.not1695, label %.loopexit, label %.lr.ph1845, !llvm.loop !6
 
 160:                                              ; preds = %31, %31
   %161 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -561,7 +561,7 @@ define internal void @SDL_BlendLine_RGB555(ptr noundef readonly %0, i32 noundef 
   store i16 %216, ptr %.213761839, align 2
   %217 = getelementptr inbounds nuw i8, ptr %.213761839, i64 2
   %.not1693 = icmp eq i32 %185, 0
-  br i1 %.not1693, label %.loopexit, label %.lr.ph1841, !llvm.loop !8
+  br i1 %.not1693, label %.loopexit, label %.lr.ph1841, !llvm.loop !7
 
 218:                                              ; preds = %31
   %219 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -645,7 +645,7 @@ define internal void @SDL_BlendLine_RGB555(ptr noundef readonly %0, i32 noundef 
   store i16 %276, ptr %.213811835, align 2
   %277 = getelementptr inbounds nuw i8, ptr %.213811835, i64 2
   %.not1691 = icmp eq i32 %243, 0
-  br i1 %.not1691, label %.loopexit, label %.lr.ph1837, !llvm.loop !9
+  br i1 %.not1691, label %.loopexit, label %.lr.ph1837, !llvm.loop !8
 
 278:                                              ; preds = %31
   %279 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -744,7 +744,7 @@ define internal void @SDL_BlendLine_RGB555(ptr noundef readonly %0, i32 noundef 
   store i16 %345, ptr %.214051831, align 2
   %346 = getelementptr inbounds nuw i8, ptr %.214051831, i64 2
   %.not1689 = icmp eq i32 %303, 0
-  br i1 %.not1689, label %.loopexit, label %.lr.ph1833, !llvm.loop !10
+  br i1 %.not1689, label %.loopexit, label %.lr.ph1833, !llvm.loop !9
 
 347:                                              ; preds = %31
   %348 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -803,7 +803,7 @@ define internal void @SDL_BlendLine_RGB555(ptr noundef readonly %0, i32 noundef 
   store i16 %379, ptr %.214111851, align 2
   %382 = getelementptr inbounds nuw i8, ptr %.214111851, i64 2
   %.not1699 = icmp eq i32 %381, 0
-  br i1 %.not1699, label %.loopexit, label %380, !llvm.loop !11
+  br i1 %.not1699, label %.loopexit, label %380, !llvm.loop !10
 
 383:                                              ; preds = %28
   %384 = icmp eq i32 %1, %3
@@ -911,7 +911,7 @@ define internal void @SDL_BlendLine_RGB555(ptr noundef readonly %0, i32 noundef 
   store i16 %452, ptr %.214161823, align 2
   %453 = getelementptr inbounds i16, ptr %.214161823, i64 %413
   %.not1685 = icmp eq i32 %415, 0
-  br i1 %.not1685, label %.loopexit, label %414, !llvm.loop !12
+  br i1 %.not1685, label %.loopexit, label %414, !llvm.loop !11
 
 454:                                              ; preds = %385
   %455 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -1008,7 +1008,7 @@ define internal void @SDL_BlendLine_RGB555(ptr noundef readonly %0, i32 noundef 
   store i16 %520, ptr %.214401819, align 2
   %521 = getelementptr inbounds i16, ptr %.214401819, i64 %481
   %.not1683 = icmp eq i32 %483, 0
-  br i1 %.not1683, label %.loopexit, label %482, !llvm.loop !13
+  br i1 %.not1683, label %.loopexit, label %482, !llvm.loop !12
 
 522:                                              ; preds = %385, %385
   %523 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -1093,7 +1093,7 @@ define internal void @SDL_BlendLine_RGB555(ptr noundef readonly %0, i32 noundef 
   store i16 %582, ptr %.214461815, align 2
   %583 = getelementptr inbounds i16, ptr %.214461815, i64 %549
   %.not1681 = icmp eq i32 %551, 0
-  br i1 %.not1681, label %.loopexit, label %550, !llvm.loop !14
+  br i1 %.not1681, label %.loopexit, label %550, !llvm.loop !13
 
 584:                                              ; preds = %385
   %585 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -1180,7 +1180,7 @@ define internal void @SDL_BlendLine_RGB555(ptr noundef readonly %0, i32 noundef 
   store i16 %646, ptr %.214511811, align 2
   %647 = getelementptr inbounds i16, ptr %.214511811, i64 %611
   %.not1679 = icmp eq i32 %613, 0
-  br i1 %.not1679, label %.loopexit, label %612, !llvm.loop !15
+  br i1 %.not1679, label %.loopexit, label %612, !llvm.loop !14
 
 648:                                              ; preds = %385
   %649 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -1282,7 +1282,7 @@ define internal void @SDL_BlendLine_RGB555(ptr noundef readonly %0, i32 noundef 
   store i16 %719, ptr %.214561807, align 2
   %720 = getelementptr inbounds i16, ptr %.214561807, i64 %675
   %.not1677 = icmp eq i32 %677, 0
-  br i1 %.not1677, label %.loopexit, label %676, !llvm.loop !16
+  br i1 %.not1677, label %.loopexit, label %676, !llvm.loop !15
 
 721:                                              ; preds = %385
   %722 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -1341,7 +1341,7 @@ define internal void @SDL_BlendLine_RGB555(ptr noundef readonly %0, i32 noundef 
   store i16 %755, ptr %.214801827, align 2
   %759 = getelementptr inbounds i16, ptr %.214801827, i64 %756
   %.not1687 = icmp eq i32 %758, 0
-  br i1 %.not1687, label %.loopexit, label %757, !llvm.loop !17
+  br i1 %.not1687, label %.loopexit, label %757, !llvm.loop !16
 
 760:                                              ; preds = %383
   %761 = sub nsw i32 %1, %3
@@ -1464,7 +1464,7 @@ define internal void @SDL_BlendLine_RGB555(ptr noundef readonly %0, i32 noundef 
   store i16 %833, ptr %.214901799, align 2
   %834 = getelementptr inbounds i16, ptr %.214901799, i64 %794
   %.not1671 = icmp eq i32 %796, 0
-  br i1 %.not1671, label %.loopexit, label %795, !llvm.loop !18
+  br i1 %.not1671, label %.loopexit, label %795, !llvm.loop !17
 
 835:                                              ; preds = %766
   %836 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -1572,7 +1572,7 @@ define internal void @SDL_BlendLine_RGB555(ptr noundef readonly %0, i32 noundef 
   store i16 %901, ptr %.215181795, align 2
   %902 = getelementptr inbounds i16, ptr %.215181795, i64 %862
   %.not1667 = icmp eq i32 %864, 0
-  br i1 %.not1667, label %.loopexit, label %863, !llvm.loop !19
+  br i1 %.not1667, label %.loopexit, label %863, !llvm.loop !18
 
 903:                                              ; preds = %766, %766
   %904 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -1668,7 +1668,7 @@ define internal void @SDL_BlendLine_RGB555(ptr noundef readonly %0, i32 noundef 
   store i16 %963, ptr %.215281791, align 2
   %964 = getelementptr inbounds i16, ptr %.215281791, i64 %930
   %.not1663 = icmp eq i32 %932, 0
-  br i1 %.not1663, label %.loopexit, label %931, !llvm.loop !20
+  br i1 %.not1663, label %.loopexit, label %931, !llvm.loop !19
 
 965:                                              ; preds = %766
   %966 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -1766,7 +1766,7 @@ define internal void @SDL_BlendLine_RGB555(ptr noundef readonly %0, i32 noundef 
   store i16 %1027, ptr %.215371787, align 2
   %1028 = getelementptr inbounds i16, ptr %.215371787, i64 %992
   %.not1659 = icmp eq i32 %994, 0
-  br i1 %.not1659, label %.loopexit, label %993, !llvm.loop !21
+  br i1 %.not1659, label %.loopexit, label %993, !llvm.loop !20
 
 1029:                                             ; preds = %766
   %1030 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -1879,7 +1879,7 @@ define internal void @SDL_BlendLine_RGB555(ptr noundef readonly %0, i32 noundef 
   store i16 %1100, ptr %.215661783, align 2
   %1101 = getelementptr inbounds i16, ptr %.215661783, i64 %1056
   %.not1655 = icmp eq i32 %1058, 0
-  br i1 %.not1655, label %.loopexit, label %1057, !llvm.loop !22
+  br i1 %.not1655, label %.loopexit, label %1057, !llvm.loop !21
 
 1102:                                             ; preds = %766
   %1103 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -1949,7 +1949,7 @@ define internal void @SDL_BlendLine_RGB555(ptr noundef readonly %0, i32 noundef 
   store i16 %1136, ptr %.215751803, align 2
   %1140 = getelementptr inbounds i16, ptr %.215751803, i64 %1137
   %.not1675 = icmp eq i32 %1139, 0
-  br i1 %.not1675, label %.loopexit, label %1138, !llvm.loop !23
+  br i1 %.not1675, label %.loopexit, label %1138, !llvm.loop !22
 
 1141:                                             ; preds = %760
   switch i32 %5, label %1477 [
@@ -2073,7 +2073,7 @@ define internal void @SDL_BlendLine_RGB555(ptr noundef readonly %0, i32 noundef 
   %.21554 = add nsw i32 %.01551..01550, %.115531773
   %1209 = add nuw nsw i32 %.015631772, 1
   %exitcond1886.not = icmp eq i32 %1209, %.11556
-  br i1 %exitcond1886.not, label %.loopexit, label %1162, !llvm.loop !24
+  br i1 %exitcond1886.not, label %.loopexit, label %1162, !llvm.loop !23
 
 1210:                                             ; preds = %1141
   %1211 = sub nsw i32 %3, %1
@@ -2190,7 +2190,7 @@ define internal void @SDL_BlendLine_RGB555(ptr noundef readonly %0, i32 noundef 
   %.21513 = add nsw i32 %.01510..01509, %.115121768
   %1277 = add nuw nsw i32 %.015221767, 1
   %exitcond1885.not = icmp eq i32 %1277, %.11515
-  br i1 %exitcond1885.not, label %.loopexit, label %1230, !llvm.loop !25
+  br i1 %exitcond1885.not, label %.loopexit, label %1230, !llvm.loop !24
 
 1278:                                             ; preds = %1141, %1141
   %1279 = sub nsw i32 %3, %1
@@ -2295,7 +2295,7 @@ define internal void @SDL_BlendLine_RGB555(ptr noundef readonly %0, i32 noundef 
   %.21473 = add nsw i32 %.01470..01469, %.114721763
   %1339 = add nuw nsw i32 %.014811762, 1
   %exitcond1884.not = icmp eq i32 %1339, %.11475
-  br i1 %exitcond1884.not, label %.loopexit, label %1298, !llvm.loop !26
+  br i1 %exitcond1884.not, label %.loopexit, label %1298, !llvm.loop !25
 
 1340:                                             ; preds = %1141
   %1341 = sub nsw i32 %3, %1
@@ -2402,7 +2402,7 @@ define internal void @SDL_BlendLine_RGB555(ptr noundef readonly %0, i32 noundef 
   %.21435 = add nsw i32 %.01432..01431, %.114341758
   %1403 = add nuw nsw i32 %.014431757, 1
   %exitcond1883.not = icmp eq i32 %1403, %.11437
-  br i1 %exitcond1883.not, label %.loopexit, label %1360, !llvm.loop !27
+  br i1 %exitcond1883.not, label %.loopexit, label %1360, !llvm.loop !26
 
 1404:                                             ; preds = %1141
   %1405 = sub nsw i32 %3, %1
@@ -2524,7 +2524,7 @@ define internal void @SDL_BlendLine_RGB555(ptr noundef readonly %0, i32 noundef 
   %.21398 = add nsw i32 %.01395..01394, %.113971754
   %1476 = add nuw nsw i32 %.014061753, 1
   %exitcond.not = icmp eq i32 %1476, %.11400
-  br i1 %exitcond.not, label %.loopexit, label %1424, !llvm.loop !28
+  br i1 %exitcond.not, label %.loopexit, label %1424, !llvm.loop !27
 
 1477:                                             ; preds = %1141
   %1478 = sub nsw i32 %3, %1
@@ -2603,7 +2603,7 @@ define internal void @SDL_BlendLine_RGB555(ptr noundef readonly %0, i32 noundef 
   %.2 = add nsw i32 %.01358..01357, %.113601778
   %1515 = add nuw nsw i32 %.013681777, 1
   %exitcond1887.not = icmp eq i32 %1515, %.11362
-  br i1 %exitcond1887.not, label %.loopexit, label %1505, !llvm.loop !29
+  br i1 %exitcond1887.not, label %.loopexit, label %1505, !llvm.loop !28
 
 .loopexit:                                        ; preds = %1424, %1360, %1298, %1230, %1162, %1505, %1057, %993, %931, %863, %795, %1138, %676, %612, %550, %482, %414, %757, %.lr.ph1833, %.lr.ph1837, %.lr.ph1841, %.lr.ph1845, %.lr.ph1849, %380, %1417, %1353, %1291, %1223, %1155, %1490, %1054, %990, %928, %860, %792, %1127, %300, %240, %182, %118, %54, %369
   ret void
@@ -2748,7 +2748,7 @@ define internal void @SDL_BlendLine_RGB565(ptr noundef readonly %0, i32 noundef 
   store i16 %94, ptr %.213651847, align 2
   %95 = getelementptr inbounds nuw i8, ptr %.213651847, i64 2
   %.not1697 = icmp eq i32 %57, 0
-  br i1 %.not1697, label %.loopexit, label %.lr.ph1849, !llvm.loop !30
+  br i1 %.not1697, label %.loopexit, label %.lr.ph1849, !llvm.loop !29
 
 96:                                               ; preds = %31
   %97 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -2842,7 +2842,7 @@ define internal void @SDL_BlendLine_RGB565(ptr noundef readonly %0, i32 noundef 
   store i16 %158, ptr %.213711843, align 2
   %159 = getelementptr inbounds nuw i8, ptr %.213711843, i64 2
   %.not1695 = icmp eq i32 %121, 0
-  br i1 %.not1695, label %.loopexit, label %.lr.ph1845, !llvm.loop !31
+  br i1 %.not1695, label %.loopexit, label %.lr.ph1845, !llvm.loop !30
 
 160:                                              ; preds = %31, %31
   %161 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -2924,7 +2924,7 @@ define internal void @SDL_BlendLine_RGB565(ptr noundef readonly %0, i32 noundef 
   store i16 %216, ptr %.213761839, align 2
   %217 = getelementptr inbounds nuw i8, ptr %.213761839, i64 2
   %.not1693 = icmp eq i32 %185, 0
-  br i1 %.not1693, label %.loopexit, label %.lr.ph1841, !llvm.loop !32
+  br i1 %.not1693, label %.loopexit, label %.lr.ph1841, !llvm.loop !31
 
 218:                                              ; preds = %31
   %219 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -3008,7 +3008,7 @@ define internal void @SDL_BlendLine_RGB565(ptr noundef readonly %0, i32 noundef 
   store i16 %276, ptr %.213811835, align 2
   %277 = getelementptr inbounds nuw i8, ptr %.213811835, i64 2
   %.not1691 = icmp eq i32 %243, 0
-  br i1 %.not1691, label %.loopexit, label %.lr.ph1837, !llvm.loop !33
+  br i1 %.not1691, label %.loopexit, label %.lr.ph1837, !llvm.loop !32
 
 278:                                              ; preds = %31
   %279 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -3107,7 +3107,7 @@ define internal void @SDL_BlendLine_RGB565(ptr noundef readonly %0, i32 noundef 
   store i16 %345, ptr %.214051831, align 2
   %346 = getelementptr inbounds nuw i8, ptr %.214051831, i64 2
   %.not1689 = icmp eq i32 %303, 0
-  br i1 %.not1689, label %.loopexit, label %.lr.ph1833, !llvm.loop !34
+  br i1 %.not1689, label %.loopexit, label %.lr.ph1833, !llvm.loop !33
 
 347:                                              ; preds = %31
   %348 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -3166,7 +3166,7 @@ define internal void @SDL_BlendLine_RGB565(ptr noundef readonly %0, i32 noundef 
   store i16 %379, ptr %.214111851, align 2
   %382 = getelementptr inbounds nuw i8, ptr %.214111851, i64 2
   %.not1699 = icmp eq i32 %381, 0
-  br i1 %.not1699, label %.loopexit, label %380, !llvm.loop !35
+  br i1 %.not1699, label %.loopexit, label %380, !llvm.loop !34
 
 383:                                              ; preds = %28
   %384 = icmp eq i32 %1, %3
@@ -3274,7 +3274,7 @@ define internal void @SDL_BlendLine_RGB565(ptr noundef readonly %0, i32 noundef 
   store i16 %452, ptr %.214161823, align 2
   %453 = getelementptr inbounds i16, ptr %.214161823, i64 %413
   %.not1685 = icmp eq i32 %415, 0
-  br i1 %.not1685, label %.loopexit, label %414, !llvm.loop !36
+  br i1 %.not1685, label %.loopexit, label %414, !llvm.loop !35
 
 454:                                              ; preds = %385
   %455 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -3371,7 +3371,7 @@ define internal void @SDL_BlendLine_RGB565(ptr noundef readonly %0, i32 noundef 
   store i16 %520, ptr %.214401819, align 2
   %521 = getelementptr inbounds i16, ptr %.214401819, i64 %481
   %.not1683 = icmp eq i32 %483, 0
-  br i1 %.not1683, label %.loopexit, label %482, !llvm.loop !37
+  br i1 %.not1683, label %.loopexit, label %482, !llvm.loop !36
 
 522:                                              ; preds = %385, %385
   %523 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -3456,7 +3456,7 @@ define internal void @SDL_BlendLine_RGB565(ptr noundef readonly %0, i32 noundef 
   store i16 %582, ptr %.214461815, align 2
   %583 = getelementptr inbounds i16, ptr %.214461815, i64 %549
   %.not1681 = icmp eq i32 %551, 0
-  br i1 %.not1681, label %.loopexit, label %550, !llvm.loop !38
+  br i1 %.not1681, label %.loopexit, label %550, !llvm.loop !37
 
 584:                                              ; preds = %385
   %585 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -3543,7 +3543,7 @@ define internal void @SDL_BlendLine_RGB565(ptr noundef readonly %0, i32 noundef 
   store i16 %646, ptr %.214511811, align 2
   %647 = getelementptr inbounds i16, ptr %.214511811, i64 %611
   %.not1679 = icmp eq i32 %613, 0
-  br i1 %.not1679, label %.loopexit, label %612, !llvm.loop !39
+  br i1 %.not1679, label %.loopexit, label %612, !llvm.loop !38
 
 648:                                              ; preds = %385
   %649 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -3645,7 +3645,7 @@ define internal void @SDL_BlendLine_RGB565(ptr noundef readonly %0, i32 noundef 
   store i16 %719, ptr %.214561807, align 2
   %720 = getelementptr inbounds i16, ptr %.214561807, i64 %675
   %.not1677 = icmp eq i32 %677, 0
-  br i1 %.not1677, label %.loopexit, label %676, !llvm.loop !40
+  br i1 %.not1677, label %.loopexit, label %676, !llvm.loop !39
 
 721:                                              ; preds = %385
   %722 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -3704,7 +3704,7 @@ define internal void @SDL_BlendLine_RGB565(ptr noundef readonly %0, i32 noundef 
   store i16 %755, ptr %.214801827, align 2
   %759 = getelementptr inbounds i16, ptr %.214801827, i64 %756
   %.not1687 = icmp eq i32 %758, 0
-  br i1 %.not1687, label %.loopexit, label %757, !llvm.loop !41
+  br i1 %.not1687, label %.loopexit, label %757, !llvm.loop !40
 
 760:                                              ; preds = %383
   %761 = sub nsw i32 %1, %3
@@ -3827,7 +3827,7 @@ define internal void @SDL_BlendLine_RGB565(ptr noundef readonly %0, i32 noundef 
   store i16 %833, ptr %.214901799, align 2
   %834 = getelementptr inbounds i16, ptr %.214901799, i64 %794
   %.not1671 = icmp eq i32 %796, 0
-  br i1 %.not1671, label %.loopexit, label %795, !llvm.loop !42
+  br i1 %.not1671, label %.loopexit, label %795, !llvm.loop !41
 
 835:                                              ; preds = %766
   %836 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -3935,7 +3935,7 @@ define internal void @SDL_BlendLine_RGB565(ptr noundef readonly %0, i32 noundef 
   store i16 %901, ptr %.215181795, align 2
   %902 = getelementptr inbounds i16, ptr %.215181795, i64 %862
   %.not1667 = icmp eq i32 %864, 0
-  br i1 %.not1667, label %.loopexit, label %863, !llvm.loop !43
+  br i1 %.not1667, label %.loopexit, label %863, !llvm.loop !42
 
 903:                                              ; preds = %766, %766
   %904 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -4031,7 +4031,7 @@ define internal void @SDL_BlendLine_RGB565(ptr noundef readonly %0, i32 noundef 
   store i16 %963, ptr %.215281791, align 2
   %964 = getelementptr inbounds i16, ptr %.215281791, i64 %930
   %.not1663 = icmp eq i32 %932, 0
-  br i1 %.not1663, label %.loopexit, label %931, !llvm.loop !44
+  br i1 %.not1663, label %.loopexit, label %931, !llvm.loop !43
 
 965:                                              ; preds = %766
   %966 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -4129,7 +4129,7 @@ define internal void @SDL_BlendLine_RGB565(ptr noundef readonly %0, i32 noundef 
   store i16 %1027, ptr %.215371787, align 2
   %1028 = getelementptr inbounds i16, ptr %.215371787, i64 %992
   %.not1659 = icmp eq i32 %994, 0
-  br i1 %.not1659, label %.loopexit, label %993, !llvm.loop !45
+  br i1 %.not1659, label %.loopexit, label %993, !llvm.loop !44
 
 1029:                                             ; preds = %766
   %1030 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -4242,7 +4242,7 @@ define internal void @SDL_BlendLine_RGB565(ptr noundef readonly %0, i32 noundef 
   store i16 %1100, ptr %.215661783, align 2
   %1101 = getelementptr inbounds i16, ptr %.215661783, i64 %1056
   %.not1655 = icmp eq i32 %1058, 0
-  br i1 %.not1655, label %.loopexit, label %1057, !llvm.loop !46
+  br i1 %.not1655, label %.loopexit, label %1057, !llvm.loop !45
 
 1102:                                             ; preds = %766
   %1103 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -4312,7 +4312,7 @@ define internal void @SDL_BlendLine_RGB565(ptr noundef readonly %0, i32 noundef 
   store i16 %1136, ptr %.215751803, align 2
   %1140 = getelementptr inbounds i16, ptr %.215751803, i64 %1137
   %.not1675 = icmp eq i32 %1139, 0
-  br i1 %.not1675, label %.loopexit, label %1138, !llvm.loop !47
+  br i1 %.not1675, label %.loopexit, label %1138, !llvm.loop !46
 
 1141:                                             ; preds = %760
   switch i32 %5, label %1477 [
@@ -4436,7 +4436,7 @@ define internal void @SDL_BlendLine_RGB565(ptr noundef readonly %0, i32 noundef 
   %.21554 = add nsw i32 %.01551..01550, %.115531773
   %1209 = add nuw nsw i32 %.015631772, 1
   %exitcond1886.not = icmp eq i32 %1209, %.11556
-  br i1 %exitcond1886.not, label %.loopexit, label %1162, !llvm.loop !48
+  br i1 %exitcond1886.not, label %.loopexit, label %1162, !llvm.loop !47
 
 1210:                                             ; preds = %1141
   %1211 = sub nsw i32 %3, %1
@@ -4553,7 +4553,7 @@ define internal void @SDL_BlendLine_RGB565(ptr noundef readonly %0, i32 noundef 
   %.21513 = add nsw i32 %.01510..01509, %.115121768
   %1277 = add nuw nsw i32 %.015221767, 1
   %exitcond1885.not = icmp eq i32 %1277, %.11515
-  br i1 %exitcond1885.not, label %.loopexit, label %1230, !llvm.loop !49
+  br i1 %exitcond1885.not, label %.loopexit, label %1230, !llvm.loop !48
 
 1278:                                             ; preds = %1141, %1141
   %1279 = sub nsw i32 %3, %1
@@ -4658,7 +4658,7 @@ define internal void @SDL_BlendLine_RGB565(ptr noundef readonly %0, i32 noundef 
   %.21473 = add nsw i32 %.01470..01469, %.114721763
   %1339 = add nuw nsw i32 %.014811762, 1
   %exitcond1884.not = icmp eq i32 %1339, %.11475
-  br i1 %exitcond1884.not, label %.loopexit, label %1298, !llvm.loop !50
+  br i1 %exitcond1884.not, label %.loopexit, label %1298, !llvm.loop !49
 
 1340:                                             ; preds = %1141
   %1341 = sub nsw i32 %3, %1
@@ -4765,7 +4765,7 @@ define internal void @SDL_BlendLine_RGB565(ptr noundef readonly %0, i32 noundef 
   %.21435 = add nsw i32 %.01432..01431, %.114341758
   %1403 = add nuw nsw i32 %.014431757, 1
   %exitcond1883.not = icmp eq i32 %1403, %.11437
-  br i1 %exitcond1883.not, label %.loopexit, label %1360, !llvm.loop !51
+  br i1 %exitcond1883.not, label %.loopexit, label %1360, !llvm.loop !50
 
 1404:                                             ; preds = %1141
   %1405 = sub nsw i32 %3, %1
@@ -4887,7 +4887,7 @@ define internal void @SDL_BlendLine_RGB565(ptr noundef readonly %0, i32 noundef 
   %.21398 = add nsw i32 %.01395..01394, %.113971754
   %1476 = add nuw nsw i32 %.014061753, 1
   %exitcond.not = icmp eq i32 %1476, %.11400
-  br i1 %exitcond.not, label %.loopexit, label %1424, !llvm.loop !52
+  br i1 %exitcond.not, label %.loopexit, label %1424, !llvm.loop !51
 
 1477:                                             ; preds = %1141
   %1478 = sub nsw i32 %3, %1
@@ -4966,7 +4966,7 @@ define internal void @SDL_BlendLine_RGB565(ptr noundef readonly %0, i32 noundef 
   %.2 = add nsw i32 %.01358..01357, %.113601778
   %1515 = add nuw nsw i32 %.013681777, 1
   %exitcond1887.not = icmp eq i32 %1515, %.11362
-  br i1 %exitcond1887.not, label %.loopexit, label %1505, !llvm.loop !53
+  br i1 %exitcond1887.not, label %.loopexit, label %1505, !llvm.loop !52
 
 .loopexit:                                        ; preds = %1424, %1360, %1298, %1230, %1162, %1505, %1057, %993, %931, %863, %795, %1138, %676, %612, %550, %482, %414, %757, %.lr.ph1833, %.lr.ph1837, %.lr.ph1841, %.lr.ph1845, %.lr.ph1849, %380, %1417, %1353, %1291, %1223, %1155, %1490, %1054, %990, %928, %860, %792, %1127, %300, %240, %182, %118, %54, %369
   ret void
@@ -5154,7 +5154,7 @@ define internal void @SDL_BlendLine_RGB2(ptr noundef readonly captures(none) %0,
   store i16 %135, ptr %.217142196, align 2
   %136 = getelementptr inbounds nuw i8, ptr %.217142196, i64 2
   %.not2046 = icmp eq i32 %68, 0
-  br i1 %.not2046, label %.loopexit, label %67, !llvm.loop !54
+  br i1 %.not2046, label %.loopexit, label %67, !llvm.loop !53
 
 137:                                              ; preds = %33
   %138 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -5289,7 +5289,7 @@ define internal void @SDL_BlendLine_RGB2(ptr noundef readonly captures(none) %0,
   store i16 %238, ptr %.217202192, align 2
   %239 = getelementptr inbounds nuw i8, ptr %.217202192, i64 2
   %.not2044 = icmp eq i32 %171, 0
-  br i1 %.not2044, label %.loopexit, label %170, !llvm.loop !55
+  br i1 %.not2044, label %.loopexit, label %170, !llvm.loop !54
 
 240:                                              ; preds = %33, %33
   %241 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -5412,7 +5412,7 @@ define internal void @SDL_BlendLine_RGB2(ptr noundef readonly captures(none) %0,
   store i16 %335, ptr %.217252188, align 2
   %336 = getelementptr inbounds nuw i8, ptr %.217252188, i64 2
   %.not2042 = icmp eq i32 %274, 0
-  br i1 %.not2042, label %.loopexit, label %273, !llvm.loop !56
+  br i1 %.not2042, label %.loopexit, label %273, !llvm.loop !55
 
 337:                                              ; preds = %33
   %338 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -5541,7 +5541,7 @@ define internal void @SDL_BlendLine_RGB2(ptr noundef readonly captures(none) %0,
   store i16 %435, ptr %.217302184, align 2
   %436 = getelementptr inbounds nuw i8, ptr %.217302184, i64 2
   %.not2040 = icmp eq i32 %371, 0
-  br i1 %.not2040, label %.loopexit, label %370, !llvm.loop !57
+  br i1 %.not2040, label %.loopexit, label %370, !llvm.loop !56
 
 437:                                              ; preds = %33
   %438 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -5685,7 +5685,7 @@ define internal void @SDL_BlendLine_RGB2(ptr noundef readonly captures(none) %0,
   store i16 %544, ptr %.217542180, align 2
   %545 = getelementptr inbounds nuw i8, ptr %.217542180, i64 2
   %.not2038 = icmp eq i32 %471, 0
-  br i1 %.not2038, label %.loopexit, label %470, !llvm.loop !58
+  br i1 %.not2038, label %.loopexit, label %470, !llvm.loop !57
 
 546:                                              ; preds = %33
   %547 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -5767,7 +5767,7 @@ define internal void @SDL_BlendLine_RGB2(ptr noundef readonly captures(none) %0,
   store i16 %603, ptr %.217602200, align 2
   %604 = getelementptr inbounds nuw i8, ptr %.217602200, i64 2
   %.not2048 = icmp eq i32 %577, 0
-  br i1 %.not2048, label %.loopexit, label %576, !llvm.loop !59
+  br i1 %.not2048, label %.loopexit, label %576, !llvm.loop !58
 
 605:                                              ; preds = %30
   %606 = icmp eq i32 %1, %3
@@ -5913,7 +5913,7 @@ define internal void @SDL_BlendLine_RGB2(ptr noundef readonly captures(none) %0,
   store i16 %712, ptr %.217652172, align 2
   %713 = getelementptr inbounds i16, ptr %.217652172, i64 %643
   %.not2034 = icmp eq i32 %645, 0
-  br i1 %.not2034, label %.loopexit, label %644, !llvm.loop !60
+  br i1 %.not2034, label %.loopexit, label %644, !llvm.loop !59
 
 714:                                              ; preds = %607
   %715 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -6048,7 +6048,7 @@ define internal void @SDL_BlendLine_RGB2(ptr noundef readonly captures(none) %0,
   store i16 %818, ptr %.217892168, align 2
   %819 = getelementptr inbounds i16, ptr %.217892168, i64 %749
   %.not2032 = icmp eq i32 %751, 0
-  br i1 %.not2032, label %.loopexit, label %750, !llvm.loop !61
+  br i1 %.not2032, label %.loopexit, label %750, !llvm.loop !60
 
 820:                                              ; preds = %607, %607
   %821 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -6171,7 +6171,7 @@ define internal void @SDL_BlendLine_RGB2(ptr noundef readonly captures(none) %0,
   store i16 %918, ptr %.217952164, align 2
   %919 = getelementptr inbounds i16, ptr %.217952164, i64 %855
   %.not2030 = icmp eq i32 %857, 0
-  br i1 %.not2030, label %.loopexit, label %856, !llvm.loop !62
+  br i1 %.not2030, label %.loopexit, label %856, !llvm.loop !61
 
 920:                                              ; preds = %607
   %921 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -6300,7 +6300,7 @@ define internal void @SDL_BlendLine_RGB2(ptr noundef readonly captures(none) %0,
   store i16 %1021, ptr %.218002160, align 2
   %1022 = getelementptr inbounds i16, ptr %.218002160, i64 %955
   %.not2028 = icmp eq i32 %957, 0
-  br i1 %.not2028, label %.loopexit, label %956, !llvm.loop !63
+  br i1 %.not2028, label %.loopexit, label %956, !llvm.loop !62
 
 1023:                                             ; preds = %607
   %1024 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -6444,7 +6444,7 @@ define internal void @SDL_BlendLine_RGB2(ptr noundef readonly captures(none) %0,
   store i16 %1133, ptr %.218052156, align 2
   %1134 = getelementptr inbounds i16, ptr %.218052156, i64 %1058
   %.not2026 = icmp eq i32 %1060, 0
-  br i1 %.not2026, label %.loopexit, label %1059, !llvm.loop !64
+  br i1 %.not2026, label %.loopexit, label %1059, !llvm.loop !63
 
 1135:                                             ; preds = %607
   %1136 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -6526,7 +6526,7 @@ define internal void @SDL_BlendLine_RGB2(ptr noundef readonly captures(none) %0,
   store i16 %1195, ptr %.218292176, align 2
   %1196 = getelementptr inbounds i16, ptr %.218292176, i64 %1167
   %.not2036 = icmp eq i32 %1169, 0
-  br i1 %.not2036, label %.loopexit, label %1168, !llvm.loop !65
+  br i1 %.not2036, label %.loopexit, label %1168, !llvm.loop !64
 
 1197:                                             ; preds = %605
   %1198 = sub nsw i32 %1, %3
@@ -6687,7 +6687,7 @@ define internal void @SDL_BlendLine_RGB2(ptr noundef readonly captures(none) %0,
   store i16 %1308, ptr %.218392148, align 2
   %1309 = getelementptr inbounds i16, ptr %.218392148, i64 %1239
   %.not2020 = icmp eq i32 %1241, 0
-  br i1 %.not2020, label %.loopexit, label %1240, !llvm.loop !66
+  br i1 %.not2020, label %.loopexit, label %1240, !llvm.loop !65
 
 1310:                                             ; preds = %1203
   %1311 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -6833,7 +6833,7 @@ define internal void @SDL_BlendLine_RGB2(ptr noundef readonly captures(none) %0,
   store i16 %1414, ptr %.218672144, align 2
   %1415 = getelementptr inbounds i16, ptr %.218672144, i64 %1345
   %.not2016 = icmp eq i32 %1347, 0
-  br i1 %.not2016, label %.loopexit, label %1346, !llvm.loop !67
+  br i1 %.not2016, label %.loopexit, label %1346, !llvm.loop !66
 
 1416:                                             ; preds = %1203, %1203
   %1417 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -6967,7 +6967,7 @@ define internal void @SDL_BlendLine_RGB2(ptr noundef readonly captures(none) %0,
   store i16 %1514, ptr %.218772140, align 2
   %1515 = getelementptr inbounds i16, ptr %.218772140, i64 %1451
   %.not2012 = icmp eq i32 %1453, 0
-  br i1 %.not2012, label %.loopexit, label %1452, !llvm.loop !68
+  br i1 %.not2012, label %.loopexit, label %1452, !llvm.loop !67
 
 1516:                                             ; preds = %1203
   %1517 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -7107,7 +7107,7 @@ define internal void @SDL_BlendLine_RGB2(ptr noundef readonly captures(none) %0,
   store i16 %1617, ptr %.218862136, align 2
   %1618 = getelementptr inbounds i16, ptr %.218862136, i64 %1551
   %.not2008 = icmp eq i32 %1553, 0
-  br i1 %.not2008, label %.loopexit, label %1552, !llvm.loop !69
+  br i1 %.not2008, label %.loopexit, label %1552, !llvm.loop !68
 
 1619:                                             ; preds = %1203
   %1620 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -7262,7 +7262,7 @@ define internal void @SDL_BlendLine_RGB2(ptr noundef readonly captures(none) %0,
   store i16 %1729, ptr %.219152132, align 2
   %1730 = getelementptr inbounds i16, ptr %.219152132, i64 %1654
   %.not2004 = icmp eq i32 %1656, 0
-  br i1 %.not2004, label %.loopexit, label %1655, !llvm.loop !70
+  br i1 %.not2004, label %.loopexit, label %1655, !llvm.loop !69
 
 1731:                                             ; preds = %1203
   %1732 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -7355,7 +7355,7 @@ define internal void @SDL_BlendLine_RGB2(ptr noundef readonly captures(none) %0,
   store i16 %1791, ptr %.219242152, align 2
   %1792 = getelementptr inbounds i16, ptr %.219242152, i64 %1763
   %.not2024 = icmp eq i32 %1765, 0
-  br i1 %.not2024, label %.loopexit, label %1764, !llvm.loop !71
+  br i1 %.not2024, label %.loopexit, label %1764, !llvm.loop !70
 
 1793:                                             ; preds = %1197
   switch i32 %5, label %2331 [
@@ -7519,7 +7519,7 @@ define internal void @SDL_BlendLine_RGB2(ptr noundef readonly captures(none) %0,
   %.21903 = add nsw i32 %.01900..01899, %.119022122
   %1901 = add nuw nsw i32 %.019122121, 1
   %exitcond2235.not = icmp eq i32 %1901, %.11905
-  br i1 %exitcond2235.not, label %.loopexit, label %1824, !llvm.loop !72
+  br i1 %exitcond2235.not, label %.loopexit, label %1824, !llvm.loop !71
 
 1902:                                             ; preds = %1793
   %1903 = sub nsw i32 %3, %1
@@ -7676,7 +7676,7 @@ define internal void @SDL_BlendLine_RGB2(ptr noundef readonly captures(none) %0,
   %.21862 = add nsw i32 %.01859..01858, %.118612117
   %2009 = add nuw nsw i32 %.018712116, 1
   %exitcond2234.not = icmp eq i32 %2009, %.11864
-  br i1 %exitcond2234.not, label %.loopexit, label %1932, !llvm.loop !73
+  br i1 %exitcond2234.not, label %.loopexit, label %1932, !llvm.loop !72
 
 2010:                                             ; preds = %1793, %1793
   %2011 = sub nsw i32 %3, %1
@@ -7821,7 +7821,7 @@ define internal void @SDL_BlendLine_RGB2(ptr noundef readonly captures(none) %0,
   %.21822 = add nsw i32 %.01819..01818, %.118212112
   %2111 = add nuw nsw i32 %.018302111, 1
   %exitcond2233.not = icmp eq i32 %2111, %.11824
-  br i1 %exitcond2233.not, label %.loopexit, label %2040, !llvm.loop !74
+  br i1 %exitcond2233.not, label %.loopexit, label %2040, !llvm.loop !73
 
 2112:                                             ; preds = %1793
   %2113 = sub nsw i32 %3, %1
@@ -7972,7 +7972,7 @@ define internal void @SDL_BlendLine_RGB2(ptr noundef readonly captures(none) %0,
   %.21784 = add nsw i32 %.01781..01780, %.117832107
   %2216 = add nuw nsw i32 %.017922106, 1
   %exitcond2232.not = icmp eq i32 %2216, %.11786
-  br i1 %exitcond2232.not, label %.loopexit, label %2142, !llvm.loop !75
+  br i1 %exitcond2232.not, label %.loopexit, label %2142, !llvm.loop !74
 
 2217:                                             ; preds = %1793
   %2218 = sub nsw i32 %3, %1
@@ -8138,7 +8138,7 @@ define internal void @SDL_BlendLine_RGB2(ptr noundef readonly captures(none) %0,
   %.21747 = add nsw i32 %.01744..01743, %.117462103
   %2330 = add nuw nsw i32 %.017552102, 1
   %exitcond.not = icmp eq i32 %2330, %.11749
-  br i1 %exitcond.not, label %.loopexit, label %2247, !llvm.loop !76
+  br i1 %exitcond.not, label %.loopexit, label %2247, !llvm.loop !75
 
 2331:                                             ; preds = %1793
   %2332 = sub nsw i32 %3, %1
@@ -8242,7 +8242,7 @@ define internal void @SDL_BlendLine_RGB2(ptr noundef readonly captures(none) %0,
   %.2 = add nsw i32 %.01707..01706, %.117092127
   %2394 = add nuw nsw i32 %.017172126, 1
   %exitcond2236.not = icmp eq i32 %2394, %.11711
-  br i1 %exitcond2236.not, label %.loopexit, label %2358, !llvm.loop !77
+  br i1 %exitcond2236.not, label %.loopexit, label %2358, !llvm.loop !76
 
 .loopexit:                                        ; preds = %2247, %2142, %2040, %1932, %1824, %2358, %1655, %1552, %1452, %1346, %1240, %1764, %1059, %956, %856, %750, %644, %1168, %470, %370, %273, %170, %67, %576, %2230, %2125, %2023, %1915, %1807, %2344, %1642, %1539, %1439, %1333, %1227, %1754, %457, %357, %260, %157, %54, %566
   ret void
@@ -8377,7 +8377,7 @@ define internal void @SDL_BlendLine_ARGB8888(ptr noundef readonly %0, i32 nounde
   store i32 %82, ptr %.214091891, align 4
   %83 = getelementptr inbounds nuw i8, ptr %.214091891, i64 4
   %.not1741 = icmp eq i32 %57, 0
-  br i1 %.not1741, label %.loopexit, label %.lr.ph1893, !llvm.loop !78
+  br i1 %.not1741, label %.loopexit, label %.lr.ph1893, !llvm.loop !77
 
 84:                                               ; preds = %31
   %85 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -8462,7 +8462,7 @@ define internal void @SDL_BlendLine_ARGB8888(ptr noundef readonly %0, i32 nounde
   store i32 %134, ptr %.214151887, align 4
   %135 = getelementptr inbounds nuw i8, ptr %.214151887, i64 4
   %.not1739 = icmp eq i32 %109, 0
-  br i1 %.not1739, label %.loopexit, label %.lr.ph1889, !llvm.loop !79
+  br i1 %.not1739, label %.loopexit, label %.lr.ph1889, !llvm.loop !78
 
 136:                                              ; preds = %31, %31
   %137 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -8528,7 +8528,7 @@ define internal void @SDL_BlendLine_ARGB8888(ptr noundef readonly %0, i32 nounde
   store i32 %176, ptr %.214201883, align 4
   %177 = getelementptr inbounds nuw i8, ptr %.214201883, i64 4
   %.not1737 = icmp eq i32 %161, 0
-  br i1 %.not1737, label %.loopexit, label %.lr.ph1885, !llvm.loop !80
+  br i1 %.not1737, label %.loopexit, label %.lr.ph1885, !llvm.loop !79
 
 178:                                              ; preds = %31
   %179 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -8600,7 +8600,7 @@ define internal void @SDL_BlendLine_ARGB8888(ptr noundef readonly %0, i32 nounde
   store i32 %221, ptr %.214251879, align 4
   %222 = getelementptr inbounds nuw i8, ptr %.214251879, i64 4
   %.not1735 = icmp eq i32 %203, 0
-  br i1 %.not1735, label %.loopexit, label %.lr.ph1881, !llvm.loop !81
+  br i1 %.not1735, label %.loopexit, label %.lr.ph1881, !llvm.loop !80
 
 223:                                              ; preds = %31
   %224 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -8687,7 +8687,7 @@ define internal void @SDL_BlendLine_ARGB8888(ptr noundef readonly %0, i32 nounde
   store i32 %276, ptr %.214491875, align 4
   %277 = getelementptr inbounds nuw i8, ptr %.214491875, i64 4
   %.not1733 = icmp eq i32 %248, 0
-  br i1 %.not1733, label %.loopexit, label %.lr.ph1877, !llvm.loop !82
+  br i1 %.not1733, label %.loopexit, label %.lr.ph1877, !llvm.loop !81
 
 278:                                              ; preds = %31
   %279 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -8744,7 +8744,7 @@ define internal void @SDL_BlendLine_ARGB8888(ptr noundef readonly %0, i32 nounde
   store i32 %308, ptr %.214551895, align 4
   %311 = getelementptr inbounds nuw i8, ptr %.214551895, i64 4
   %.not1743 = icmp eq i32 %310, 0
-  br i1 %.not1743, label %.loopexit, label %309, !llvm.loop !83
+  br i1 %.not1743, label %.loopexit, label %309, !llvm.loop !82
 
 312:                                              ; preds = %28
   %313 = icmp eq i32 %1, %3
@@ -8842,7 +8842,7 @@ define internal void @SDL_BlendLine_ARGB8888(ptr noundef readonly %0, i32 nounde
   store i32 %369, ptr %.214601867, align 4
   %370 = getelementptr inbounds i32, ptr %.214601867, i64 %342
   %.not1729 = icmp eq i32 %344, 0
-  br i1 %.not1729, label %.loopexit, label %343, !llvm.loop !84
+  br i1 %.not1729, label %.loopexit, label %343, !llvm.loop !83
 
 371:                                              ; preds = %314
   %372 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -8930,7 +8930,7 @@ define internal void @SDL_BlendLine_ARGB8888(ptr noundef readonly %0, i32 nounde
   store i32 %425, ptr %.214841863, align 4
   %426 = getelementptr inbounds i32, ptr %.214841863, i64 %398
   %.not1727 = icmp eq i32 %400, 0
-  br i1 %.not1727, label %.loopexit, label %399, !llvm.loop !85
+  br i1 %.not1727, label %.loopexit, label %399, !llvm.loop !84
 
 427:                                              ; preds = %314, %314
   %428 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -8999,7 +8999,7 @@ define internal void @SDL_BlendLine_ARGB8888(ptr noundef readonly %0, i32 nounde
   store i32 %471, ptr %.214901859, align 4
   %472 = getelementptr inbounds i32, ptr %.214901859, i64 %454
   %.not1725 = icmp eq i32 %456, 0
-  br i1 %.not1725, label %.loopexit, label %455, !llvm.loop !86
+  br i1 %.not1725, label %.loopexit, label %455, !llvm.loop !85
 
 473:                                              ; preds = %314
   %474 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -9074,7 +9074,7 @@ define internal void @SDL_BlendLine_ARGB8888(ptr noundef readonly %0, i32 nounde
   store i32 %520, ptr %.214951855, align 4
   %521 = getelementptr inbounds i32, ptr %.214951855, i64 %500
   %.not1723 = icmp eq i32 %502, 0
-  br i1 %.not1723, label %.loopexit, label %501, !llvm.loop !87
+  br i1 %.not1723, label %.loopexit, label %501, !llvm.loop !86
 
 522:                                              ; preds = %314
   %523 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -9164,7 +9164,7 @@ define internal void @SDL_BlendLine_ARGB8888(ptr noundef readonly %0, i32 nounde
   store i32 %579, ptr %.215001851, align 4
   %580 = getelementptr inbounds i32, ptr %.215001851, i64 %549
   %.not1721 = icmp eq i32 %551, 0
-  br i1 %.not1721, label %.loopexit, label %550, !llvm.loop !88
+  br i1 %.not1721, label %.loopexit, label %550, !llvm.loop !87
 
 581:                                              ; preds = %314
   %582 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -9221,7 +9221,7 @@ define internal void @SDL_BlendLine_ARGB8888(ptr noundef readonly %0, i32 nounde
   store i32 %613, ptr %.215241871, align 4
   %617 = getelementptr inbounds i32, ptr %.215241871, i64 %614
   %.not1731 = icmp eq i32 %616, 0
-  br i1 %.not1731, label %.loopexit, label %615, !llvm.loop !89
+  br i1 %.not1731, label %.loopexit, label %615, !llvm.loop !88
 
 618:                                              ; preds = %312
   %619 = sub nsw i32 %1, %3
@@ -9334,7 +9334,7 @@ define internal void @SDL_BlendLine_ARGB8888(ptr noundef readonly %0, i32 nounde
   store i32 %679, ptr %.215341843, align 4
   %680 = getelementptr inbounds i32, ptr %.215341843, i64 %652
   %.not1715 = icmp eq i32 %654, 0
-  br i1 %.not1715, label %.loopexit, label %653, !llvm.loop !90
+  br i1 %.not1715, label %.loopexit, label %653, !llvm.loop !89
 
 681:                                              ; preds = %624
   %682 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -9433,7 +9433,7 @@ define internal void @SDL_BlendLine_ARGB8888(ptr noundef readonly %0, i32 nounde
   store i32 %735, ptr %.215621839, align 4
   %736 = getelementptr inbounds i32, ptr %.215621839, i64 %708
   %.not1711 = icmp eq i32 %710, 0
-  br i1 %.not1711, label %.loopexit, label %709, !llvm.loop !91
+  br i1 %.not1711, label %.loopexit, label %709, !llvm.loop !90
 
 737:                                              ; preds = %624, %624
   %738 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -9513,7 +9513,7 @@ define internal void @SDL_BlendLine_ARGB8888(ptr noundef readonly %0, i32 nounde
   store i32 %781, ptr %.215721835, align 4
   %782 = getelementptr inbounds i32, ptr %.215721835, i64 %764
   %.not1707 = icmp eq i32 %766, 0
-  br i1 %.not1707, label %.loopexit, label %765, !llvm.loop !92
+  br i1 %.not1707, label %.loopexit, label %765, !llvm.loop !91
 
 783:                                              ; preds = %624
   %784 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -9599,7 +9599,7 @@ define internal void @SDL_BlendLine_ARGB8888(ptr noundef readonly %0, i32 nounde
   store i32 %830, ptr %.215811831, align 4
   %831 = getelementptr inbounds i32, ptr %.215811831, i64 %810
   %.not1703 = icmp eq i32 %812, 0
-  br i1 %.not1703, label %.loopexit, label %811, !llvm.loop !93
+  br i1 %.not1703, label %.loopexit, label %811, !llvm.loop !92
 
 832:                                              ; preds = %624
   %833 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -9700,7 +9700,7 @@ define internal void @SDL_BlendLine_ARGB8888(ptr noundef readonly %0, i32 nounde
   store i32 %889, ptr %.216101827, align 4
   %890 = getelementptr inbounds i32, ptr %.216101827, i64 %859
   %.not1699 = icmp eq i32 %861, 0
-  br i1 %.not1699, label %.loopexit, label %860, !llvm.loop !94
+  br i1 %.not1699, label %.loopexit, label %860, !llvm.loop !93
 
 891:                                              ; preds = %624
   %892 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -9768,7 +9768,7 @@ define internal void @SDL_BlendLine_ARGB8888(ptr noundef readonly %0, i32 nounde
   store i32 %923, ptr %.216191847, align 4
   %927 = getelementptr inbounds i32, ptr %.216191847, i64 %924
   %.not1719 = icmp eq i32 %926, 0
-  br i1 %.not1719, label %.loopexit, label %925, !llvm.loop !95
+  br i1 %.not1719, label %.loopexit, label %925, !llvm.loop !94
 
 928:                                              ; preds = %618
   switch i32 %5, label %1195 [
@@ -9882,7 +9882,7 @@ define internal void @SDL_BlendLine_ARGB8888(ptr noundef readonly %0, i32 nounde
   %.21598 = add nsw i32 %.01595..01594, %.115971817
   %984 = add nuw nsw i32 %.016071816, 1
   %exitcond1930.not = icmp eq i32 %984, %.11600
-  br i1 %exitcond1930.not, label %.loopexit, label %949, !llvm.loop !96
+  br i1 %exitcond1930.not, label %.loopexit, label %949, !llvm.loop !95
 
 985:                                              ; preds = %928
   %986 = sub nsw i32 %3, %1
@@ -9990,7 +9990,7 @@ define internal void @SDL_BlendLine_ARGB8888(ptr noundef readonly %0, i32 nounde
   %.21557 = add nsw i32 %.01554..01553, %.115561812
   %1040 = add nuw nsw i32 %.015661811, 1
   %exitcond1929.not = icmp eq i32 %1040, %.11559
-  br i1 %exitcond1929.not, label %.loopexit, label %1005, !llvm.loop !97
+  br i1 %exitcond1929.not, label %.loopexit, label %1005, !llvm.loop !96
 
 1041:                                             ; preds = %928, %928
   %1042 = sub nsw i32 %3, %1
@@ -10079,7 +10079,7 @@ define internal void @SDL_BlendLine_ARGB8888(ptr noundef readonly %0, i32 nounde
   %.21517 = add nsw i32 %.01514..01513, %.115161807
   %1086 = add nuw nsw i32 %.015251806, 1
   %exitcond1928.not = icmp eq i32 %1086, %.11519
-  br i1 %exitcond1928.not, label %.loopexit, label %1061, !llvm.loop !98
+  br i1 %exitcond1928.not, label %.loopexit, label %1061, !llvm.loop !97
 
 1087:                                             ; preds = %928
   %1088 = sub nsw i32 %3, %1
@@ -10174,7 +10174,7 @@ define internal void @SDL_BlendLine_ARGB8888(ptr noundef readonly %0, i32 nounde
   %.21479 = add nsw i32 %.01476..01475, %.114781802
   %1135 = add nuw nsw i32 %.014871801, 1
   %exitcond1927.not = icmp eq i32 %1135, %.11481
-  br i1 %exitcond1927.not, label %.loopexit, label %1107, !llvm.loop !99
+  br i1 %exitcond1927.not, label %.loopexit, label %1107, !llvm.loop !98
 
 1136:                                             ; preds = %928
   %1137 = sub nsw i32 %3, %1
@@ -10284,7 +10284,7 @@ define internal void @SDL_BlendLine_ARGB8888(ptr noundef readonly %0, i32 nounde
   %.21442 = add nsw i32 %.01439..01438, %.114411798
   %1194 = add nuw nsw i32 %.014501797, 1
   %exitcond.not = icmp eq i32 %1194, %.11444
-  br i1 %exitcond.not, label %.loopexit, label %1156, !llvm.loop !100
+  br i1 %exitcond.not, label %.loopexit, label %1156, !llvm.loop !99
 
 1195:                                             ; preds = %928
   %1196 = sub nsw i32 %3, %1
@@ -10361,7 +10361,7 @@ define internal void @SDL_BlendLine_ARGB8888(ptr noundef readonly %0, i32 nounde
   %.2 = add nsw i32 %.01402..01401, %.114041822
   %1231 = add nuw nsw i32 %.014121821, 1
   %exitcond1931.not = icmp eq i32 %1231, %.11406
-  br i1 %exitcond1931.not, label %.loopexit, label %1221, !llvm.loop !101
+  br i1 %exitcond1931.not, label %.loopexit, label %1221, !llvm.loop !100
 
 .loopexit:                                        ; preds = %1156, %1107, %1061, %1005, %949, %1221, %860, %811, %765, %709, %653, %925, %550, %501, %455, %399, %343, %615, %.lr.ph1877, %.lr.ph1881, %.lr.ph1885, %.lr.ph1889, %.lr.ph1893, %309, %1149, %1100, %1054, %998, %942, %1208, %857, %808, %762, %706, %650, %916, %245, %200, %158, %106, %54, %300
   ret void
@@ -10488,7 +10488,7 @@ define internal void @SDL_BlendLine_XRGB8888(ptr noundef readonly %0, i32 nounde
   store i32 %76, ptr %.213651847, align 4
   %77 = getelementptr inbounds nuw i8, ptr %.213651847, i64 4
   %.not1697 = icmp eq i32 %57, 0
-  br i1 %.not1697, label %.loopexit, label %.lr.ph1849, !llvm.loop !102
+  br i1 %.not1697, label %.loopexit, label %.lr.ph1849, !llvm.loop !101
 
 78:                                               ; preds = %31
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -10564,7 +10564,7 @@ define internal void @SDL_BlendLine_XRGB8888(ptr noundef readonly %0, i32 nounde
   store i32 %122, ptr %.213711843, align 4
   %123 = getelementptr inbounds nuw i8, ptr %.213711843, i64 4
   %.not1695 = icmp eq i32 %103, 0
-  br i1 %.not1695, label %.loopexit, label %.lr.ph1845, !llvm.loop !103
+  br i1 %.not1695, label %.loopexit, label %.lr.ph1845, !llvm.loop !102
 
 124:                                              ; preds = %31, %31
   %125 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -10628,7 +10628,7 @@ define internal void @SDL_BlendLine_XRGB8888(ptr noundef readonly %0, i32 nounde
   store i32 %162, ptr %.213761839, align 4
   %163 = getelementptr inbounds nuw i8, ptr %.213761839, i64 4
   %.not1693 = icmp eq i32 %149, 0
-  br i1 %.not1693, label %.loopexit, label %.lr.ph1841, !llvm.loop !104
+  br i1 %.not1693, label %.loopexit, label %.lr.ph1841, !llvm.loop !103
 
 164:                                              ; preds = %31
   %165 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -10698,7 +10698,7 @@ define internal void @SDL_BlendLine_XRGB8888(ptr noundef readonly %0, i32 nounde
   store i32 %205, ptr %.213811835, align 4
   %206 = getelementptr inbounds nuw i8, ptr %.213811835, i64 4
   %.not1691 = icmp eq i32 %189, 0
-  br i1 %.not1691, label %.loopexit, label %.lr.ph1837, !llvm.loop !105
+  br i1 %.not1691, label %.loopexit, label %.lr.ph1837, !llvm.loop !104
 
 207:                                              ; preds = %31
   %208 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -10783,7 +10783,7 @@ define internal void @SDL_BlendLine_XRGB8888(ptr noundef readonly %0, i32 nounde
   store i32 %258, ptr %.214051831, align 4
   %259 = getelementptr inbounds nuw i8, ptr %.214051831, i64 4
   %.not1689 = icmp eq i32 %232, 0
-  br i1 %.not1689, label %.loopexit, label %.lr.ph1833, !llvm.loop !106
+  br i1 %.not1689, label %.loopexit, label %.lr.ph1833, !llvm.loop !105
 
 260:                                              ; preds = %31
   %261 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -10838,7 +10838,7 @@ define internal void @SDL_BlendLine_XRGB8888(ptr noundef readonly %0, i32 nounde
   store i32 %288, ptr %.214111851, align 4
   %291 = getelementptr inbounds nuw i8, ptr %.214111851, i64 4
   %.not1699 = icmp eq i32 %290, 0
-  br i1 %.not1699, label %.loopexit, label %289, !llvm.loop !107
+  br i1 %.not1699, label %.loopexit, label %289, !llvm.loop !106
 
 292:                                              ; preds = %28
   %293 = icmp eq i32 %1, %3
@@ -10928,7 +10928,7 @@ define internal void @SDL_BlendLine_XRGB8888(ptr noundef readonly %0, i32 nounde
   store i32 %343, ptr %.214161823, align 4
   %344 = getelementptr inbounds i32, ptr %.214161823, i64 %322
   %.not1685 = icmp eq i32 %324, 0
-  br i1 %.not1685, label %.loopexit, label %323, !llvm.loop !108
+  br i1 %.not1685, label %.loopexit, label %323, !llvm.loop !107
 
 345:                                              ; preds = %294
   %346 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -11007,7 +11007,7 @@ define internal void @SDL_BlendLine_XRGB8888(ptr noundef readonly %0, i32 nounde
   store i32 %393, ptr %.214401819, align 4
   %394 = getelementptr inbounds i32, ptr %.214401819, i64 %372
   %.not1683 = icmp eq i32 %374, 0
-  br i1 %.not1683, label %.loopexit, label %373, !llvm.loop !109
+  br i1 %.not1683, label %.loopexit, label %373, !llvm.loop !108
 
 395:                                              ; preds = %294, %294
   %396 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -11074,7 +11074,7 @@ define internal void @SDL_BlendLine_XRGB8888(ptr noundef readonly %0, i32 nounde
   store i32 %437, ptr %.214461815, align 4
   %438 = getelementptr inbounds i32, ptr %.214461815, i64 %422
   %.not1681 = icmp eq i32 %424, 0
-  br i1 %.not1681, label %.loopexit, label %423, !llvm.loop !110
+  br i1 %.not1681, label %.loopexit, label %423, !llvm.loop !109
 
 439:                                              ; preds = %294
   %440 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -11147,7 +11147,7 @@ define internal void @SDL_BlendLine_XRGB8888(ptr noundef readonly %0, i32 nounde
   store i32 %484, ptr %.214511811, align 4
   %485 = getelementptr inbounds i32, ptr %.214511811, i64 %466
   %.not1679 = icmp eq i32 %468, 0
-  br i1 %.not1679, label %.loopexit, label %467, !llvm.loop !111
+  br i1 %.not1679, label %.loopexit, label %467, !llvm.loop !110
 
 486:                                              ; preds = %294
   %487 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -11235,7 +11235,7 @@ define internal void @SDL_BlendLine_XRGB8888(ptr noundef readonly %0, i32 nounde
   store i32 %541, ptr %.214561807, align 4
   %542 = getelementptr inbounds i32, ptr %.214561807, i64 %513
   %.not1677 = icmp eq i32 %515, 0
-  br i1 %.not1677, label %.loopexit, label %514, !llvm.loop !112
+  br i1 %.not1677, label %.loopexit, label %514, !llvm.loop !111
 
 543:                                              ; preds = %294
   %544 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -11290,7 +11290,7 @@ define internal void @SDL_BlendLine_XRGB8888(ptr noundef readonly %0, i32 nounde
   store i32 %573, ptr %.214801827, align 4
   %577 = getelementptr inbounds i32, ptr %.214801827, i64 %574
   %.not1687 = icmp eq i32 %576, 0
-  br i1 %.not1687, label %.loopexit, label %575, !llvm.loop !113
+  br i1 %.not1687, label %.loopexit, label %575, !llvm.loop !112
 
 578:                                              ; preds = %292
   %579 = sub nsw i32 %1, %3
@@ -11395,7 +11395,7 @@ define internal void @SDL_BlendLine_XRGB8888(ptr noundef readonly %0, i32 nounde
   store i32 %633, ptr %.214901799, align 4
   %634 = getelementptr inbounds i32, ptr %.214901799, i64 %612
   %.not1671 = icmp eq i32 %614, 0
-  br i1 %.not1671, label %.loopexit, label %613, !llvm.loop !114
+  br i1 %.not1671, label %.loopexit, label %613, !llvm.loop !113
 
 635:                                              ; preds = %584
   %636 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -11485,7 +11485,7 @@ define internal void @SDL_BlendLine_XRGB8888(ptr noundef readonly %0, i32 nounde
   store i32 %683, ptr %.215181795, align 4
   %684 = getelementptr inbounds i32, ptr %.215181795, i64 %662
   %.not1667 = icmp eq i32 %664, 0
-  br i1 %.not1667, label %.loopexit, label %663, !llvm.loop !115
+  br i1 %.not1667, label %.loopexit, label %663, !llvm.loop !114
 
 685:                                              ; preds = %584, %584
   %686 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -11563,7 +11563,7 @@ define internal void @SDL_BlendLine_XRGB8888(ptr noundef readonly %0, i32 nounde
   store i32 %727, ptr %.215281791, align 4
   %728 = getelementptr inbounds i32, ptr %.215281791, i64 %712
   %.not1663 = icmp eq i32 %714, 0
-  br i1 %.not1663, label %.loopexit, label %713, !llvm.loop !116
+  br i1 %.not1663, label %.loopexit, label %713, !llvm.loop !115
 
 729:                                              ; preds = %584
   %730 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -11647,7 +11647,7 @@ define internal void @SDL_BlendLine_XRGB8888(ptr noundef readonly %0, i32 nounde
   store i32 %774, ptr %.215371787, align 4
   %775 = getelementptr inbounds i32, ptr %.215371787, i64 %756
   %.not1659 = icmp eq i32 %758, 0
-  br i1 %.not1659, label %.loopexit, label %757, !llvm.loop !117
+  br i1 %.not1659, label %.loopexit, label %757, !llvm.loop !116
 
 776:                                              ; preds = %584
   %777 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -11746,7 +11746,7 @@ define internal void @SDL_BlendLine_XRGB8888(ptr noundef readonly %0, i32 nounde
   store i32 %831, ptr %.215661783, align 4
   %832 = getelementptr inbounds i32, ptr %.215661783, i64 %803
   %.not1655 = icmp eq i32 %805, 0
-  br i1 %.not1655, label %.loopexit, label %804, !llvm.loop !118
+  br i1 %.not1655, label %.loopexit, label %804, !llvm.loop !117
 
 833:                                              ; preds = %584
   %834 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -11812,7 +11812,7 @@ define internal void @SDL_BlendLine_XRGB8888(ptr noundef readonly %0, i32 nounde
   store i32 %863, ptr %.215751803, align 4
   %867 = getelementptr inbounds i32, ptr %.215751803, i64 %864
   %.not1675 = icmp eq i32 %866, 0
-  br i1 %.not1675, label %.loopexit, label %865, !llvm.loop !119
+  br i1 %.not1675, label %.loopexit, label %865, !llvm.loop !118
 
 868:                                              ; preds = %578
   switch i32 %5, label %1117 [
@@ -11918,7 +11918,7 @@ define internal void @SDL_BlendLine_XRGB8888(ptr noundef readonly %0, i32 nounde
   %.21554 = add nsw i32 %.01551..01550, %.115531773
   %918 = add nuw nsw i32 %.015631772, 1
   %exitcond1886.not = icmp eq i32 %918, %.11556
-  br i1 %exitcond1886.not, label %.loopexit, label %889, !llvm.loop !120
+  br i1 %exitcond1886.not, label %.loopexit, label %889, !llvm.loop !119
 
 919:                                              ; preds = %868
   %920 = sub nsw i32 %3, %1
@@ -12017,7 +12017,7 @@ define internal void @SDL_BlendLine_XRGB8888(ptr noundef readonly %0, i32 nounde
   %.21513 = add nsw i32 %.01510..01509, %.115121768
   %968 = add nuw nsw i32 %.015221767, 1
   %exitcond1885.not = icmp eq i32 %968, %.11515
-  br i1 %exitcond1885.not, label %.loopexit, label %939, !llvm.loop !121
+  br i1 %exitcond1885.not, label %.loopexit, label %939, !llvm.loop !120
 
 969:                                              ; preds = %868, %868
   %970 = sub nsw i32 %3, %1
@@ -12104,7 +12104,7 @@ define internal void @SDL_BlendLine_XRGB8888(ptr noundef readonly %0, i32 nounde
   %.21473 = add nsw i32 %.01470..01469, %.114721763
   %1012 = add nuw nsw i32 %.014811762, 1
   %exitcond1884.not = icmp eq i32 %1012, %.11475
-  br i1 %exitcond1884.not, label %.loopexit, label %989, !llvm.loop !122
+  br i1 %exitcond1884.not, label %.loopexit, label %989, !llvm.loop !121
 
 1013:                                             ; preds = %868
   %1014 = sub nsw i32 %3, %1
@@ -12197,7 +12197,7 @@ define internal void @SDL_BlendLine_XRGB8888(ptr noundef readonly %0, i32 nounde
   %.21435 = add nsw i32 %.01432..01431, %.114341758
   %1059 = add nuw nsw i32 %.014431757, 1
   %exitcond1883.not = icmp eq i32 %1059, %.11437
-  br i1 %exitcond1883.not, label %.loopexit, label %1033, !llvm.loop !123
+  br i1 %exitcond1883.not, label %.loopexit, label %1033, !llvm.loop !122
 
 1060:                                             ; preds = %868
   %1061 = sub nsw i32 %3, %1
@@ -12305,7 +12305,7 @@ define internal void @SDL_BlendLine_XRGB8888(ptr noundef readonly %0, i32 nounde
   %.21398 = add nsw i32 %.01395..01394, %.113971754
   %1116 = add nuw nsw i32 %.014061753, 1
   %exitcond.not = icmp eq i32 %1116, %.11400
-  br i1 %exitcond.not, label %.loopexit, label %1080, !llvm.loop !124
+  br i1 %exitcond.not, label %.loopexit, label %1080, !llvm.loop !123
 
 1117:                                             ; preds = %868
   %1118 = sub nsw i32 %3, %1
@@ -12380,7 +12380,7 @@ define internal void @SDL_BlendLine_XRGB8888(ptr noundef readonly %0, i32 nounde
   %.2 = add nsw i32 %.01358..01357, %.113601778
   %1151 = add nuw nsw i32 %.013681777, 1
   %exitcond1887.not = icmp eq i32 %1151, %.11362
-  br i1 %exitcond1887.not, label %.loopexit, label %1141, !llvm.loop !125
+  br i1 %exitcond1887.not, label %.loopexit, label %1141, !llvm.loop !124
 
 .loopexit:                                        ; preds = %1080, %1033, %989, %939, %889, %1141, %804, %757, %713, %663, %613, %865, %514, %467, %423, %373, %323, %575, %.lr.ph1833, %.lr.ph1837, %.lr.ph1841, %.lr.ph1845, %.lr.ph1849, %289, %1073, %1026, %982, %932, %882, %1130, %801, %754, %710, %660, %610, %858, %229, %186, %146, %100, %54, %282
   ret void
@@ -12589,7 +12589,7 @@ define internal void @SDL_BlendLine_RGBA4(ptr noundef readonly captures(none) %0
   store i32 %154, ptr %.218422324, align 4
   %155 = getelementptr inbounds nuw i8, ptr %.218422324, i64 4
   %.not2174 = icmp eq i32 %70, 0
-  br i1 %.not2174, label %.loopexit, label %69, !llvm.loop !126
+  br i1 %.not2174, label %.loopexit, label %69, !llvm.loop !125
 
 156:                                              ; preds = %33
   %157 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -12746,7 +12746,7 @@ define internal void @SDL_BlendLine_RGBA4(ptr noundef readonly captures(none) %0
   store i32 %276, ptr %.218482320, align 4
   %277 = getelementptr inbounds nuw i8, ptr %.218482320, i64 4
   %.not2172 = icmp eq i32 %192, 0
-  br i1 %.not2172, label %.loopexit, label %191, !llvm.loop !127
+  br i1 %.not2172, label %.loopexit, label %191, !llvm.loop !126
 
 278:                                              ; preds = %33, %33
   %279 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -12885,7 +12885,7 @@ define internal void @SDL_BlendLine_RGBA4(ptr noundef readonly captures(none) %0
   store i32 %389, ptr %.218532316, align 4
   %390 = getelementptr inbounds nuw i8, ptr %.218532316, i64 4
   %.not2170 = icmp eq i32 %314, 0
-  br i1 %.not2170, label %.loopexit, label %313, !llvm.loop !128
+  br i1 %.not2170, label %.loopexit, label %313, !llvm.loop !127
 
 391:                                              ; preds = %33
   %392 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -13030,7 +13030,7 @@ define internal void @SDL_BlendLine_RGBA4(ptr noundef readonly captures(none) %0
   store i32 %505, ptr %.218582312, align 4
   %506 = getelementptr inbounds nuw i8, ptr %.218582312, i64 4
   %.not2168 = icmp eq i32 %427, 0
-  br i1 %.not2168, label %.loopexit, label %426, !llvm.loop !129
+  br i1 %.not2168, label %.loopexit, label %426, !llvm.loop !128
 
 507:                                              ; preds = %33
   %508 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -13190,7 +13190,7 @@ define internal void @SDL_BlendLine_RGBA4(ptr noundef readonly captures(none) %0
   store i32 %630, ptr %.218822308, align 4
   %631 = getelementptr inbounds nuw i8, ptr %.218822308, i64 4
   %.not2166 = icmp eq i32 %543, 0
-  br i1 %.not2166, label %.loopexit, label %542, !llvm.loop !130
+  br i1 %.not2166, label %.loopexit, label %542, !llvm.loop !129
 
 632:                                              ; preds = %33
   %633 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -13278,7 +13278,7 @@ define internal void @SDL_BlendLine_RGBA4(ptr noundef readonly captures(none) %0
   store i32 %695, ptr %.218882328, align 4
   %696 = getelementptr inbounds nuw i8, ptr %.218882328, i64 4
   %.not2176 = icmp eq i32 %664, 0
-  br i1 %.not2176, label %.loopexit, label %663, !llvm.loop !131
+  br i1 %.not2176, label %.loopexit, label %663, !llvm.loop !130
 
 697:                                              ; preds = %30
   %698 = icmp eq i32 %1, %3
@@ -13445,7 +13445,7 @@ define internal void @SDL_BlendLine_RGBA4(ptr noundef readonly captures(none) %0
   store i32 %823, ptr %.218932300, align 4
   %824 = getelementptr inbounds i32, ptr %.218932300, i64 %737
   %.not2162 = icmp eq i32 %739, 0
-  br i1 %.not2162, label %.loopexit, label %738, !llvm.loop !132
+  br i1 %.not2162, label %.loopexit, label %738, !llvm.loop !131
 
 825:                                              ; preds = %699
   %826 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -13602,7 +13602,7 @@ define internal void @SDL_BlendLine_RGBA4(ptr noundef readonly captures(none) %0
   store i32 %948, ptr %.219172296, align 4
   %949 = getelementptr inbounds i32, ptr %.219172296, i64 %862
   %.not2160 = icmp eq i32 %864, 0
-  br i1 %.not2160, label %.loopexit, label %863, !llvm.loop !133
+  br i1 %.not2160, label %.loopexit, label %863, !llvm.loop !132
 
 950:                                              ; preds = %699, %699
   %951 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -13741,7 +13741,7 @@ define internal void @SDL_BlendLine_RGBA4(ptr noundef readonly captures(none) %0
   store i32 %1064, ptr %.219232292, align 4
   %1065 = getelementptr inbounds i32, ptr %.219232292, i64 %987
   %.not2158 = icmp eq i32 %989, 0
-  br i1 %.not2158, label %.loopexit, label %988, !llvm.loop !134
+  br i1 %.not2158, label %.loopexit, label %988, !llvm.loop !133
 
 1066:                                             ; preds = %699
   %1067 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -13886,7 +13886,7 @@ define internal void @SDL_BlendLine_RGBA4(ptr noundef readonly captures(none) %0
   store i32 %1183, ptr %.219282288, align 4
   %1184 = getelementptr inbounds i32, ptr %.219282288, i64 %1103
   %.not2156 = icmp eq i32 %1105, 0
-  br i1 %.not2156, label %.loopexit, label %1104, !llvm.loop !135
+  br i1 %.not2156, label %.loopexit, label %1104, !llvm.loop !134
 
 1185:                                             ; preds = %699
   %1186 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -14046,7 +14046,7 @@ define internal void @SDL_BlendLine_RGBA4(ptr noundef readonly captures(none) %0
   store i32 %1311, ptr %.219332284, align 4
   %1312 = getelementptr inbounds i32, ptr %.219332284, i64 %1222
   %.not2154 = icmp eq i32 %1224, 0
-  br i1 %.not2154, label %.loopexit, label %1223, !llvm.loop !136
+  br i1 %.not2154, label %.loopexit, label %1223, !llvm.loop !135
 
 1313:                                             ; preds = %699
   %1314 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -14134,7 +14134,7 @@ define internal void @SDL_BlendLine_RGBA4(ptr noundef readonly captures(none) %0
   store i32 %1379, ptr %.219572304, align 4
   %1380 = getelementptr inbounds i32, ptr %.219572304, i64 %1346
   %.not2164 = icmp eq i32 %1348, 0
-  br i1 %.not2164, label %.loopexit, label %1347, !llvm.loop !137
+  br i1 %.not2164, label %.loopexit, label %1347, !llvm.loop !136
 
 1381:                                             ; preds = %697
   %1382 = sub nsw i32 %1, %3
@@ -14316,7 +14316,7 @@ define internal void @SDL_BlendLine_RGBA4(ptr noundef readonly captures(none) %0
   store i32 %1511, ptr %.219672276, align 4
   %1512 = getelementptr inbounds i32, ptr %.219672276, i64 %1425
   %.not2148 = icmp eq i32 %1427, 0
-  br i1 %.not2148, label %.loopexit, label %1426, !llvm.loop !138
+  br i1 %.not2148, label %.loopexit, label %1426, !llvm.loop !137
 
 1513:                                             ; preds = %1387
   %1514 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -14484,7 +14484,7 @@ define internal void @SDL_BlendLine_RGBA4(ptr noundef readonly captures(none) %0
   store i32 %1636, ptr %.219952272, align 4
   %1637 = getelementptr inbounds i32, ptr %.219952272, i64 %1550
   %.not2144 = icmp eq i32 %1552, 0
-  br i1 %.not2144, label %.loopexit, label %1551, !llvm.loop !139
+  br i1 %.not2144, label %.loopexit, label %1551, !llvm.loop !138
 
 1638:                                             ; preds = %1387, %1387
   %1639 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -14634,7 +14634,7 @@ define internal void @SDL_BlendLine_RGBA4(ptr noundef readonly captures(none) %0
   store i32 %1752, ptr %.220052268, align 4
   %1753 = getelementptr inbounds i32, ptr %.220052268, i64 %1675
   %.not2140 = icmp eq i32 %1677, 0
-  br i1 %.not2140, label %.loopexit, label %1676, !llvm.loop !140
+  br i1 %.not2140, label %.loopexit, label %1676, !llvm.loop !139
 
 1754:                                             ; preds = %1387
   %1755 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -14790,7 +14790,7 @@ define internal void @SDL_BlendLine_RGBA4(ptr noundef readonly captures(none) %0
   store i32 %1871, ptr %.220142264, align 4
   %1872 = getelementptr inbounds i32, ptr %.220142264, i64 %1791
   %.not2136 = icmp eq i32 %1793, 0
-  br i1 %.not2136, label %.loopexit, label %1792, !llvm.loop !141
+  br i1 %.not2136, label %.loopexit, label %1792, !llvm.loop !140
 
 1873:                                             ; preds = %1387
   %1874 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -14961,7 +14961,7 @@ define internal void @SDL_BlendLine_RGBA4(ptr noundef readonly captures(none) %0
   store i32 %1999, ptr %.220432260, align 4
   %2000 = getelementptr inbounds i32, ptr %.220432260, i64 %1910
   %.not2132 = icmp eq i32 %1912, 0
-  br i1 %.not2132, label %.loopexit, label %1911, !llvm.loop !142
+  br i1 %.not2132, label %.loopexit, label %1911, !llvm.loop !141
 
 2001:                                             ; preds = %1387
   %2002 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -15060,7 +15060,7 @@ define internal void @SDL_BlendLine_RGBA4(ptr noundef readonly captures(none) %0
   store i32 %2067, ptr %.220522280, align 4
   %2068 = getelementptr inbounds i32, ptr %.220522280, i64 %2034
   %.not2152 = icmp eq i32 %2036, 0
-  br i1 %.not2152, label %.loopexit, label %2035, !llvm.loop !143
+  br i1 %.not2152, label %.loopexit, label %2035, !llvm.loop !142
 
 2069:                                             ; preds = %1381
   switch i32 %5, label %2693 [
@@ -15245,7 +15245,7 @@ define internal void @SDL_BlendLine_RGBA4(ptr noundef readonly captures(none) %0
   %.22031 = add nsw i32 %.02028..02027, %.120302250
   %2196 = add nuw nsw i32 %.020402249, 1
   %exitcond2363.not = icmp eq i32 %2196, %.12033
-  br i1 %exitcond2363.not, label %.loopexit, label %2102, !llvm.loop !144
+  br i1 %exitcond2363.not, label %.loopexit, label %2102, !llvm.loop !143
 
 2197:                                             ; preds = %2069
   %2198 = sub nsw i32 %3, %1
@@ -15424,7 +15424,7 @@ define internal void @SDL_BlendLine_RGBA4(ptr noundef readonly captures(none) %0
   %.21990 = add nsw i32 %.01987..01986, %.119892245
   %2323 = add nuw nsw i32 %.019992244, 1
   %exitcond2362.not = icmp eq i32 %2323, %.11992
-  br i1 %exitcond2362.not, label %.loopexit, label %2229, !llvm.loop !145
+  br i1 %exitcond2362.not, label %.loopexit, label %2229, !llvm.loop !144
 
 2324:                                             ; preds = %2069, %2069
   %2325 = sub nsw i32 %3, %1
@@ -15585,7 +15585,7 @@ define internal void @SDL_BlendLine_RGBA4(ptr noundef readonly captures(none) %0
   %.21950 = add nsw i32 %.01947..01946, %.119492240
   %2441 = add nuw nsw i32 %.019582239, 1
   %exitcond2361.not = icmp eq i32 %2441, %.11952
-  br i1 %exitcond2361.not, label %.loopexit, label %2356, !llvm.loop !146
+  br i1 %exitcond2361.not, label %.loopexit, label %2356, !llvm.loop !145
 
 2442:                                             ; preds = %2069
   %2443 = sub nsw i32 %3, %1
@@ -15752,7 +15752,7 @@ define internal void @SDL_BlendLine_RGBA4(ptr noundef readonly captures(none) %0
   %.21912 = add nsw i32 %.01909..01908, %.119112235
   %2562 = add nuw nsw i32 %.019202234, 1
   %exitcond2360.not = icmp eq i32 %2562, %.11914
-  br i1 %exitcond2360.not, label %.loopexit, label %2474, !llvm.loop !147
+  br i1 %exitcond2360.not, label %.loopexit, label %2474, !llvm.loop !146
 
 2563:                                             ; preds = %2069
   %2564 = sub nsw i32 %3, %1
@@ -15934,7 +15934,7 @@ define internal void @SDL_BlendLine_RGBA4(ptr noundef readonly captures(none) %0
   %.21875 = add nsw i32 %.01872..01871, %.118742231
   %2692 = add nuw nsw i32 %.018832230, 1
   %exitcond.not = icmp eq i32 %2692, %.11877
-  br i1 %exitcond.not, label %.loopexit, label %2595, !llvm.loop !148
+  br i1 %exitcond.not, label %.loopexit, label %2595, !llvm.loop !147
 
 2693:                                             ; preds = %2069
   %2694 = sub nsw i32 %3, %1
@@ -16044,7 +16044,7 @@ define internal void @SDL_BlendLine_RGBA4(ptr noundef readonly captures(none) %0
   %.2 = add nsw i32 %.01835..01834, %.118372255
   %2762 = add nuw nsw i32 %.018452254, 1
   %exitcond2364.not = icmp eq i32 %2762, %.11839
-  br i1 %exitcond2364.not, label %.loopexit, label %2721, !llvm.loop !149
+  br i1 %exitcond2364.not, label %.loopexit, label %2721, !llvm.loop !148
 
 .loopexit:                                        ; preds = %2595, %2474, %2356, %2229, %2102, %2721, %1911, %1792, %1676, %1551, %1426, %2035, %1223, %1104, %988, %863, %738, %1347, %542, %426, %313, %191, %69, %663, %2576, %2455, %2337, %2210, %2083, %2706, %1896, %1777, %1661, %1536, %1411, %2024, %527, %411, %298, %176, %54, %652
   ret void
@@ -16230,7 +16230,7 @@ define internal void @SDL_BlendLine_RGB4(ptr noundef readonly captures(none) %0,
   store i32 %133, ptr %.217142196, align 4
   %134 = getelementptr inbounds nuw i8, ptr %.217142196, i64 4
   %.not2046 = icmp eq i32 %68, 0
-  br i1 %.not2046, label %.loopexit, label %67, !llvm.loop !150
+  br i1 %.not2046, label %.loopexit, label %67, !llvm.loop !149
 
 135:                                              ; preds = %33
   %136 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -16363,7 +16363,7 @@ define internal void @SDL_BlendLine_RGB4(ptr noundef readonly captures(none) %0,
   store i32 %234, ptr %.217202192, align 4
   %235 = getelementptr inbounds nuw i8, ptr %.217202192, i64 4
   %.not2044 = icmp eq i32 %169, 0
-  br i1 %.not2044, label %.loopexit, label %168, !llvm.loop !151
+  br i1 %.not2044, label %.loopexit, label %168, !llvm.loop !150
 
 236:                                              ; preds = %33, %33
   %237 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -16484,7 +16484,7 @@ define internal void @SDL_BlendLine_RGB4(ptr noundef readonly captures(none) %0,
   store i32 %329, ptr %.217252188, align 4
   %330 = getelementptr inbounds nuw i8, ptr %.217252188, i64 4
   %.not2042 = icmp eq i32 %270, 0
-  br i1 %.not2042, label %.loopexit, label %269, !llvm.loop !152
+  br i1 %.not2042, label %.loopexit, label %269, !llvm.loop !151
 
 331:                                              ; preds = %33
   %332 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -16611,7 +16611,7 @@ define internal void @SDL_BlendLine_RGB4(ptr noundef readonly captures(none) %0,
   store i32 %427, ptr %.217302184, align 4
   %428 = getelementptr inbounds nuw i8, ptr %.217302184, i64 4
   %.not2040 = icmp eq i32 %365, 0
-  br i1 %.not2040, label %.loopexit, label %364, !llvm.loop !153
+  br i1 %.not2040, label %.loopexit, label %364, !llvm.loop !152
 
 429:                                              ; preds = %33
   %430 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -16753,7 +16753,7 @@ define internal void @SDL_BlendLine_RGB4(ptr noundef readonly captures(none) %0,
   store i32 %534, ptr %.217542180, align 4
   %535 = getelementptr inbounds nuw i8, ptr %.217542180, i64 4
   %.not2038 = icmp eq i32 %463, 0
-  br i1 %.not2038, label %.loopexit, label %462, !llvm.loop !154
+  br i1 %.not2038, label %.loopexit, label %462, !llvm.loop !153
 
 536:                                              ; preds = %33
   %537 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -16834,7 +16834,7 @@ define internal void @SDL_BlendLine_RGB4(ptr noundef readonly captures(none) %0,
   store i32 %592, ptr %.217602200, align 4
   %593 = getelementptr inbounds nuw i8, ptr %.217602200, i64 4
   %.not2048 = icmp eq i32 %567, 0
-  br i1 %.not2048, label %.loopexit, label %566, !llvm.loop !155
+  br i1 %.not2048, label %.loopexit, label %566, !llvm.loop !154
 
 594:                                              ; preds = %30
   %595 = icmp eq i32 %1, %3
@@ -16978,7 +16978,7 @@ define internal void @SDL_BlendLine_RGB4(ptr noundef readonly captures(none) %0,
   store i32 %699, ptr %.217652172, align 4
   %700 = getelementptr inbounds i32, ptr %.217652172, i64 %632
   %.not2034 = icmp eq i32 %634, 0
-  br i1 %.not2034, label %.loopexit, label %633, !llvm.loop !156
+  br i1 %.not2034, label %.loopexit, label %633, !llvm.loop !155
 
 701:                                              ; preds = %596
   %702 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -17111,7 +17111,7 @@ define internal void @SDL_BlendLine_RGB4(ptr noundef readonly captures(none) %0,
   store i32 %803, ptr %.217892168, align 4
   %804 = getelementptr inbounds i32, ptr %.217892168, i64 %736
   %.not2032 = icmp eq i32 %738, 0
-  br i1 %.not2032, label %.loopexit, label %737, !llvm.loop !157
+  br i1 %.not2032, label %.loopexit, label %737, !llvm.loop !156
 
 805:                                              ; preds = %596, %596
   %806 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -17232,7 +17232,7 @@ define internal void @SDL_BlendLine_RGB4(ptr noundef readonly captures(none) %0,
   store i32 %901, ptr %.217952164, align 4
   %902 = getelementptr inbounds i32, ptr %.217952164, i64 %840
   %.not2030 = icmp eq i32 %842, 0
-  br i1 %.not2030, label %.loopexit, label %841, !llvm.loop !158
+  br i1 %.not2030, label %.loopexit, label %841, !llvm.loop !157
 
 903:                                              ; preds = %596
   %904 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -17359,7 +17359,7 @@ define internal void @SDL_BlendLine_RGB4(ptr noundef readonly captures(none) %0,
   store i32 %1002, ptr %.218002160, align 4
   %1003 = getelementptr inbounds i32, ptr %.218002160, i64 %938
   %.not2028 = icmp eq i32 %940, 0
-  br i1 %.not2028, label %.loopexit, label %939, !llvm.loop !159
+  br i1 %.not2028, label %.loopexit, label %939, !llvm.loop !158
 
 1004:                                             ; preds = %596
   %1005 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -17501,7 +17501,7 @@ define internal void @SDL_BlendLine_RGB4(ptr noundef readonly captures(none) %0,
   store i32 %1112, ptr %.218052156, align 4
   %1113 = getelementptr inbounds i32, ptr %.218052156, i64 %1039
   %.not2026 = icmp eq i32 %1041, 0
-  br i1 %.not2026, label %.loopexit, label %1040, !llvm.loop !160
+  br i1 %.not2026, label %.loopexit, label %1040, !llvm.loop !159
 
 1114:                                             ; preds = %596
   %1115 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -17582,7 +17582,7 @@ define internal void @SDL_BlendLine_RGB4(ptr noundef readonly captures(none) %0,
   store i32 %1173, ptr %.218292176, align 4
   %1174 = getelementptr inbounds i32, ptr %.218292176, i64 %1146
   %.not2036 = icmp eq i32 %1148, 0
-  br i1 %.not2036, label %.loopexit, label %1147, !llvm.loop !161
+  br i1 %.not2036, label %.loopexit, label %1147, !llvm.loop !160
 
 1175:                                             ; preds = %594
   %1176 = sub nsw i32 %1, %3
@@ -17741,7 +17741,7 @@ define internal void @SDL_BlendLine_RGB4(ptr noundef readonly captures(none) %0,
   store i32 %1284, ptr %.218392148, align 4
   %1285 = getelementptr inbounds i32, ptr %.218392148, i64 %1217
   %.not2020 = icmp eq i32 %1219, 0
-  br i1 %.not2020, label %.loopexit, label %1218, !llvm.loop !162
+  br i1 %.not2020, label %.loopexit, label %1218, !llvm.loop !161
 
 1286:                                             ; preds = %1181
   %1287 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -17885,7 +17885,7 @@ define internal void @SDL_BlendLine_RGB4(ptr noundef readonly captures(none) %0,
   store i32 %1388, ptr %.218672144, align 4
   %1389 = getelementptr inbounds i32, ptr %.218672144, i64 %1321
   %.not2016 = icmp eq i32 %1323, 0
-  br i1 %.not2016, label %.loopexit, label %1322, !llvm.loop !163
+  br i1 %.not2016, label %.loopexit, label %1322, !llvm.loop !162
 
 1390:                                             ; preds = %1181, %1181
   %1391 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -18017,7 +18017,7 @@ define internal void @SDL_BlendLine_RGB4(ptr noundef readonly captures(none) %0,
   store i32 %1486, ptr %.218772140, align 4
   %1487 = getelementptr inbounds i32, ptr %.218772140, i64 %1425
   %.not2012 = icmp eq i32 %1427, 0
-  br i1 %.not2012, label %.loopexit, label %1426, !llvm.loop !164
+  br i1 %.not2012, label %.loopexit, label %1426, !llvm.loop !163
 
 1488:                                             ; preds = %1181
   %1489 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -18155,7 +18155,7 @@ define internal void @SDL_BlendLine_RGB4(ptr noundef readonly captures(none) %0,
   store i32 %1587, ptr %.218862136, align 4
   %1588 = getelementptr inbounds i32, ptr %.218862136, i64 %1523
   %.not2008 = icmp eq i32 %1525, 0
-  br i1 %.not2008, label %.loopexit, label %1524, !llvm.loop !165
+  br i1 %.not2008, label %.loopexit, label %1524, !llvm.loop !164
 
 1589:                                             ; preds = %1181
   %1590 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -18308,7 +18308,7 @@ define internal void @SDL_BlendLine_RGB4(ptr noundef readonly captures(none) %0,
   store i32 %1697, ptr %.219152132, align 4
   %1698 = getelementptr inbounds i32, ptr %.219152132, i64 %1624
   %.not2004 = icmp eq i32 %1626, 0
-  br i1 %.not2004, label %.loopexit, label %1625, !llvm.loop !166
+  br i1 %.not2004, label %.loopexit, label %1625, !llvm.loop !165
 
 1699:                                             ; preds = %1181
   %1700 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -18400,7 +18400,7 @@ define internal void @SDL_BlendLine_RGB4(ptr noundef readonly captures(none) %0,
   store i32 %1758, ptr %.219242152, align 4
   %1759 = getelementptr inbounds i32, ptr %.219242152, i64 %1731
   %.not2024 = icmp eq i32 %1733, 0
-  br i1 %.not2024, label %.loopexit, label %1732, !llvm.loop !167
+  br i1 %.not2024, label %.loopexit, label %1732, !llvm.loop !166
 
 1760:                                             ; preds = %1175
   switch i32 %5, label %2288 [
@@ -18562,7 +18562,7 @@ define internal void @SDL_BlendLine_RGB4(ptr noundef readonly captures(none) %0,
   %.21903 = add nsw i32 %.01900..01899, %.119022122
   %1866 = add nuw nsw i32 %.019122121, 1
   %exitcond2235.not = icmp eq i32 %1866, %.11905
-  br i1 %exitcond2235.not, label %.loopexit, label %1791, !llvm.loop !168
+  br i1 %exitcond2235.not, label %.loopexit, label %1791, !llvm.loop !167
 
 1867:                                             ; preds = %1760
   %1868 = sub nsw i32 %3, %1
@@ -18717,7 +18717,7 @@ define internal void @SDL_BlendLine_RGB4(ptr noundef readonly captures(none) %0,
   %.21862 = add nsw i32 %.01859..01858, %.118612117
   %1972 = add nuw nsw i32 %.018712116, 1
   %exitcond2234.not = icmp eq i32 %1972, %.11864
-  br i1 %exitcond2234.not, label %.loopexit, label %1897, !llvm.loop !169
+  br i1 %exitcond2234.not, label %.loopexit, label %1897, !llvm.loop !168
 
 1973:                                             ; preds = %1760, %1760
   %1974 = sub nsw i32 %3, %1
@@ -18860,7 +18860,7 @@ define internal void @SDL_BlendLine_RGB4(ptr noundef readonly captures(none) %0,
   %.21822 = add nsw i32 %.01819..01818, %.118212112
   %2072 = add nuw nsw i32 %.018302111, 1
   %exitcond2233.not = icmp eq i32 %2072, %.11824
-  br i1 %exitcond2233.not, label %.loopexit, label %2003, !llvm.loop !170
+  br i1 %exitcond2233.not, label %.loopexit, label %2003, !llvm.loop !169
 
 2073:                                             ; preds = %1760
   %2074 = sub nsw i32 %3, %1
@@ -19009,7 +19009,7 @@ define internal void @SDL_BlendLine_RGB4(ptr noundef readonly captures(none) %0,
   %.21784 = add nsw i32 %.01781..01780, %.117832107
   %2175 = add nuw nsw i32 %.017922106, 1
   %exitcond2232.not = icmp eq i32 %2175, %.11786
-  br i1 %exitcond2232.not, label %.loopexit, label %2103, !llvm.loop !171
+  br i1 %exitcond2232.not, label %.loopexit, label %2103, !llvm.loop !170
 
 2176:                                             ; preds = %1760
   %2177 = sub nsw i32 %3, %1
@@ -19173,7 +19173,7 @@ define internal void @SDL_BlendLine_RGB4(ptr noundef readonly captures(none) %0,
   %.21747 = add nsw i32 %.01744..01743, %.117462103
   %2287 = add nuw nsw i32 %.017552102, 1
   %exitcond.not = icmp eq i32 %2287, %.11749
-  br i1 %exitcond.not, label %.loopexit, label %2206, !llvm.loop !172
+  br i1 %exitcond.not, label %.loopexit, label %2206, !llvm.loop !171
 
 2288:                                             ; preds = %1760
   %2289 = sub nsw i32 %3, %1
@@ -19276,7 +19276,7 @@ define internal void @SDL_BlendLine_RGB4(ptr noundef readonly captures(none) %0,
   %.2 = add nsw i32 %.01707..01706, %.117092127
   %2350 = add nuw nsw i32 %.017172126, 1
   %exitcond2236.not = icmp eq i32 %2350, %.11711
-  br i1 %exitcond2236.not, label %.loopexit, label %2315, !llvm.loop !173
+  br i1 %exitcond2236.not, label %.loopexit, label %2315, !llvm.loop !172
 
 .loopexit:                                        ; preds = %2206, %2103, %2003, %1897, %1791, %2315, %1625, %1524, %1426, %1322, %1218, %1732, %1040, %939, %841, %737, %633, %1147, %462, %364, %269, %168, %67, %566, %2189, %2086, %1986, %1880, %1774, %2301, %1612, %1511, %1413, %1309, %1205, %1722, %449, %351, %256, %155, %54, %556
   ret void
@@ -19303,174 +19303,173 @@ attributes #5 = { nounwind }
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = distinct !{!3, !4, !5}
+!3 = distinct !{!3, !4}
 !4 = !{!"llvm.loop.mustprogress"}
-!5 = !{!"llvm.loop.estimated_trip_count"}
-!6 = distinct !{!6, !4, !5}
-!7 = distinct !{!7, !4, !5}
-!8 = distinct !{!8, !4, !5}
-!9 = distinct !{!9, !4, !5}
-!10 = distinct !{!10, !4, !5}
-!11 = distinct !{!11, !4, !5}
-!12 = distinct !{!12, !4, !5}
-!13 = distinct !{!13, !4, !5}
-!14 = distinct !{!14, !4, !5}
-!15 = distinct !{!15, !4, !5}
-!16 = distinct !{!16, !4, !5}
-!17 = distinct !{!17, !4, !5}
-!18 = distinct !{!18, !4, !5}
-!19 = distinct !{!19, !4, !5}
-!20 = distinct !{!20, !4, !5}
-!21 = distinct !{!21, !4, !5}
-!22 = distinct !{!22, !4, !5}
-!23 = distinct !{!23, !4, !5}
-!24 = distinct !{!24, !4, !5}
-!25 = distinct !{!25, !4, !5}
-!26 = distinct !{!26, !4, !5}
-!27 = distinct !{!27, !4, !5}
-!28 = distinct !{!28, !4, !5}
-!29 = distinct !{!29, !4, !5}
-!30 = distinct !{!30, !4, !5}
-!31 = distinct !{!31, !4, !5}
-!32 = distinct !{!32, !4, !5}
-!33 = distinct !{!33, !4, !5}
-!34 = distinct !{!34, !4, !5}
-!35 = distinct !{!35, !4, !5}
-!36 = distinct !{!36, !4, !5}
-!37 = distinct !{!37, !4, !5}
-!38 = distinct !{!38, !4, !5}
-!39 = distinct !{!39, !4, !5}
-!40 = distinct !{!40, !4, !5}
-!41 = distinct !{!41, !4, !5}
-!42 = distinct !{!42, !4, !5}
-!43 = distinct !{!43, !4, !5}
-!44 = distinct !{!44, !4, !5}
-!45 = distinct !{!45, !4, !5}
-!46 = distinct !{!46, !4, !5}
-!47 = distinct !{!47, !4, !5}
-!48 = distinct !{!48, !4, !5}
-!49 = distinct !{!49, !4, !5}
-!50 = distinct !{!50, !4, !5}
-!51 = distinct !{!51, !4, !5}
-!52 = distinct !{!52, !4, !5}
-!53 = distinct !{!53, !4, !5}
-!54 = distinct !{!54, !4, !5}
-!55 = distinct !{!55, !4, !5}
-!56 = distinct !{!56, !4, !5}
-!57 = distinct !{!57, !4, !5}
-!58 = distinct !{!58, !4, !5}
-!59 = distinct !{!59, !4, !5}
-!60 = distinct !{!60, !4, !5}
-!61 = distinct !{!61, !4, !5}
-!62 = distinct !{!62, !4, !5}
-!63 = distinct !{!63, !4, !5}
-!64 = distinct !{!64, !4, !5}
-!65 = distinct !{!65, !4, !5}
-!66 = distinct !{!66, !4, !5}
-!67 = distinct !{!67, !4, !5}
-!68 = distinct !{!68, !4, !5}
-!69 = distinct !{!69, !4, !5}
-!70 = distinct !{!70, !4, !5}
-!71 = distinct !{!71, !4, !5}
-!72 = distinct !{!72, !4, !5}
-!73 = distinct !{!73, !4, !5}
-!74 = distinct !{!74, !4, !5}
-!75 = distinct !{!75, !4, !5}
-!76 = distinct !{!76, !4, !5}
-!77 = distinct !{!77, !4, !5}
-!78 = distinct !{!78, !4, !5}
-!79 = distinct !{!79, !4, !5}
-!80 = distinct !{!80, !4, !5}
-!81 = distinct !{!81, !4, !5}
-!82 = distinct !{!82, !4, !5}
-!83 = distinct !{!83, !4, !5}
-!84 = distinct !{!84, !4, !5}
-!85 = distinct !{!85, !4, !5}
-!86 = distinct !{!86, !4, !5}
-!87 = distinct !{!87, !4, !5}
-!88 = distinct !{!88, !4, !5}
-!89 = distinct !{!89, !4, !5}
-!90 = distinct !{!90, !4, !5}
-!91 = distinct !{!91, !4, !5}
-!92 = distinct !{!92, !4, !5}
-!93 = distinct !{!93, !4, !5}
-!94 = distinct !{!94, !4, !5}
-!95 = distinct !{!95, !4, !5}
-!96 = distinct !{!96, !4, !5}
-!97 = distinct !{!97, !4, !5}
-!98 = distinct !{!98, !4, !5}
-!99 = distinct !{!99, !4, !5}
-!100 = distinct !{!100, !4, !5}
-!101 = distinct !{!101, !4, !5}
-!102 = distinct !{!102, !4, !5}
-!103 = distinct !{!103, !4, !5}
-!104 = distinct !{!104, !4, !5}
-!105 = distinct !{!105, !4, !5}
-!106 = distinct !{!106, !4, !5}
-!107 = distinct !{!107, !4, !5}
-!108 = distinct !{!108, !4, !5}
-!109 = distinct !{!109, !4, !5}
-!110 = distinct !{!110, !4, !5}
-!111 = distinct !{!111, !4, !5}
-!112 = distinct !{!112, !4, !5}
-!113 = distinct !{!113, !4, !5}
-!114 = distinct !{!114, !4, !5}
-!115 = distinct !{!115, !4, !5}
-!116 = distinct !{!116, !4, !5}
-!117 = distinct !{!117, !4, !5}
-!118 = distinct !{!118, !4, !5}
-!119 = distinct !{!119, !4, !5}
-!120 = distinct !{!120, !4, !5}
-!121 = distinct !{!121, !4, !5}
-!122 = distinct !{!122, !4, !5}
-!123 = distinct !{!123, !4, !5}
-!124 = distinct !{!124, !4, !5}
-!125 = distinct !{!125, !4, !5}
-!126 = distinct !{!126, !4, !5}
-!127 = distinct !{!127, !4, !5}
-!128 = distinct !{!128, !4, !5}
-!129 = distinct !{!129, !4, !5}
-!130 = distinct !{!130, !4, !5}
-!131 = distinct !{!131, !4, !5}
-!132 = distinct !{!132, !4, !5}
-!133 = distinct !{!133, !4, !5}
-!134 = distinct !{!134, !4, !5}
-!135 = distinct !{!135, !4, !5}
-!136 = distinct !{!136, !4, !5}
-!137 = distinct !{!137, !4, !5}
-!138 = distinct !{!138, !4, !5}
-!139 = distinct !{!139, !4, !5}
-!140 = distinct !{!140, !4, !5}
-!141 = distinct !{!141, !4, !5}
-!142 = distinct !{!142, !4, !5}
-!143 = distinct !{!143, !4, !5}
-!144 = distinct !{!144, !4, !5}
-!145 = distinct !{!145, !4, !5}
-!146 = distinct !{!146, !4, !5}
-!147 = distinct !{!147, !4, !5}
-!148 = distinct !{!148, !4, !5}
-!149 = distinct !{!149, !4, !5}
-!150 = distinct !{!150, !4, !5}
-!151 = distinct !{!151, !4, !5}
-!152 = distinct !{!152, !4, !5}
-!153 = distinct !{!153, !4, !5}
-!154 = distinct !{!154, !4, !5}
-!155 = distinct !{!155, !4, !5}
-!156 = distinct !{!156, !4, !5}
-!157 = distinct !{!157, !4, !5}
-!158 = distinct !{!158, !4, !5}
-!159 = distinct !{!159, !4, !5}
-!160 = distinct !{!160, !4, !5}
-!161 = distinct !{!161, !4, !5}
-!162 = distinct !{!162, !4, !5}
-!163 = distinct !{!163, !4, !5}
-!164 = distinct !{!164, !4, !5}
-!165 = distinct !{!165, !4, !5}
-!166 = distinct !{!166, !4, !5}
-!167 = distinct !{!167, !4, !5}
-!168 = distinct !{!168, !4, !5}
-!169 = distinct !{!169, !4, !5}
-!170 = distinct !{!170, !4, !5}
-!171 = distinct !{!171, !4, !5}
-!172 = distinct !{!172, !4, !5}
-!173 = distinct !{!173, !4, !5}
+!5 = distinct !{!5, !4}
+!6 = distinct !{!6, !4}
+!7 = distinct !{!7, !4}
+!8 = distinct !{!8, !4}
+!9 = distinct !{!9, !4}
+!10 = distinct !{!10, !4}
+!11 = distinct !{!11, !4}
+!12 = distinct !{!12, !4}
+!13 = distinct !{!13, !4}
+!14 = distinct !{!14, !4}
+!15 = distinct !{!15, !4}
+!16 = distinct !{!16, !4}
+!17 = distinct !{!17, !4}
+!18 = distinct !{!18, !4}
+!19 = distinct !{!19, !4}
+!20 = distinct !{!20, !4}
+!21 = distinct !{!21, !4}
+!22 = distinct !{!22, !4}
+!23 = distinct !{!23, !4}
+!24 = distinct !{!24, !4}
+!25 = distinct !{!25, !4}
+!26 = distinct !{!26, !4}
+!27 = distinct !{!27, !4}
+!28 = distinct !{!28, !4}
+!29 = distinct !{!29, !4}
+!30 = distinct !{!30, !4}
+!31 = distinct !{!31, !4}
+!32 = distinct !{!32, !4}
+!33 = distinct !{!33, !4}
+!34 = distinct !{!34, !4}
+!35 = distinct !{!35, !4}
+!36 = distinct !{!36, !4}
+!37 = distinct !{!37, !4}
+!38 = distinct !{!38, !4}
+!39 = distinct !{!39, !4}
+!40 = distinct !{!40, !4}
+!41 = distinct !{!41, !4}
+!42 = distinct !{!42, !4}
+!43 = distinct !{!43, !4}
+!44 = distinct !{!44, !4}
+!45 = distinct !{!45, !4}
+!46 = distinct !{!46, !4}
+!47 = distinct !{!47, !4}
+!48 = distinct !{!48, !4}
+!49 = distinct !{!49, !4}
+!50 = distinct !{!50, !4}
+!51 = distinct !{!51, !4}
+!52 = distinct !{!52, !4}
+!53 = distinct !{!53, !4}
+!54 = distinct !{!54, !4}
+!55 = distinct !{!55, !4}
+!56 = distinct !{!56, !4}
+!57 = distinct !{!57, !4}
+!58 = distinct !{!58, !4}
+!59 = distinct !{!59, !4}
+!60 = distinct !{!60, !4}
+!61 = distinct !{!61, !4}
+!62 = distinct !{!62, !4}
+!63 = distinct !{!63, !4}
+!64 = distinct !{!64, !4}
+!65 = distinct !{!65, !4}
+!66 = distinct !{!66, !4}
+!67 = distinct !{!67, !4}
+!68 = distinct !{!68, !4}
+!69 = distinct !{!69, !4}
+!70 = distinct !{!70, !4}
+!71 = distinct !{!71, !4}
+!72 = distinct !{!72, !4}
+!73 = distinct !{!73, !4}
+!74 = distinct !{!74, !4}
+!75 = distinct !{!75, !4}
+!76 = distinct !{!76, !4}
+!77 = distinct !{!77, !4}
+!78 = distinct !{!78, !4}
+!79 = distinct !{!79, !4}
+!80 = distinct !{!80, !4}
+!81 = distinct !{!81, !4}
+!82 = distinct !{!82, !4}
+!83 = distinct !{!83, !4}
+!84 = distinct !{!84, !4}
+!85 = distinct !{!85, !4}
+!86 = distinct !{!86, !4}
+!87 = distinct !{!87, !4}
+!88 = distinct !{!88, !4}
+!89 = distinct !{!89, !4}
+!90 = distinct !{!90, !4}
+!91 = distinct !{!91, !4}
+!92 = distinct !{!92, !4}
+!93 = distinct !{!93, !4}
+!94 = distinct !{!94, !4}
+!95 = distinct !{!95, !4}
+!96 = distinct !{!96, !4}
+!97 = distinct !{!97, !4}
+!98 = distinct !{!98, !4}
+!99 = distinct !{!99, !4}
+!100 = distinct !{!100, !4}
+!101 = distinct !{!101, !4}
+!102 = distinct !{!102, !4}
+!103 = distinct !{!103, !4}
+!104 = distinct !{!104, !4}
+!105 = distinct !{!105, !4}
+!106 = distinct !{!106, !4}
+!107 = distinct !{!107, !4}
+!108 = distinct !{!108, !4}
+!109 = distinct !{!109, !4}
+!110 = distinct !{!110, !4}
+!111 = distinct !{!111, !4}
+!112 = distinct !{!112, !4}
+!113 = distinct !{!113, !4}
+!114 = distinct !{!114, !4}
+!115 = distinct !{!115, !4}
+!116 = distinct !{!116, !4}
+!117 = distinct !{!117, !4}
+!118 = distinct !{!118, !4}
+!119 = distinct !{!119, !4}
+!120 = distinct !{!120, !4}
+!121 = distinct !{!121, !4}
+!122 = distinct !{!122, !4}
+!123 = distinct !{!123, !4}
+!124 = distinct !{!124, !4}
+!125 = distinct !{!125, !4}
+!126 = distinct !{!126, !4}
+!127 = distinct !{!127, !4}
+!128 = distinct !{!128, !4}
+!129 = distinct !{!129, !4}
+!130 = distinct !{!130, !4}
+!131 = distinct !{!131, !4}
+!132 = distinct !{!132, !4}
+!133 = distinct !{!133, !4}
+!134 = distinct !{!134, !4}
+!135 = distinct !{!135, !4}
+!136 = distinct !{!136, !4}
+!137 = distinct !{!137, !4}
+!138 = distinct !{!138, !4}
+!139 = distinct !{!139, !4}
+!140 = distinct !{!140, !4}
+!141 = distinct !{!141, !4}
+!142 = distinct !{!142, !4}
+!143 = distinct !{!143, !4}
+!144 = distinct !{!144, !4}
+!145 = distinct !{!145, !4}
+!146 = distinct !{!146, !4}
+!147 = distinct !{!147, !4}
+!148 = distinct !{!148, !4}
+!149 = distinct !{!149, !4}
+!150 = distinct !{!150, !4}
+!151 = distinct !{!151, !4}
+!152 = distinct !{!152, !4}
+!153 = distinct !{!153, !4}
+!154 = distinct !{!154, !4}
+!155 = distinct !{!155, !4}
+!156 = distinct !{!156, !4}
+!157 = distinct !{!157, !4}
+!158 = distinct !{!158, !4}
+!159 = distinct !{!159, !4}
+!160 = distinct !{!160, !4}
+!161 = distinct !{!161, !4}
+!162 = distinct !{!162, !4}
+!163 = distinct !{!163, !4}
+!164 = distinct !{!164, !4}
+!165 = distinct !{!165, !4}
+!166 = distinct !{!166, !4}
+!167 = distinct !{!167, !4}
+!168 = distinct !{!168, !4}
+!169 = distinct !{!169, !4}
+!170 = distinct !{!170, !4}
+!171 = distinct !{!171, !4}
+!172 = distinct !{!172, !4}

@@ -418,7 +418,7 @@ define hidden void @_ZN21CompressedWriteStream11write_floatEf(ptr noundef nonnul
   %19 = icmp ule i32 %4, %18
   %20 = icmp eq i32 %16, 4
   %or.cond.i.i.i.i = select i1 %19, i1 true, i1 %20
-  br i1 %or.cond.i.i.i.i, label %._crit_edge.loopexit.i.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !9
+  br i1 %or.cond.i.i.i.i, label %._crit_edge.loopexit.i.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !8
 
 _ZN9UNSIGNED513fits_in_limitIiEEbjT_S1_.exit.i.i: ; preds = %._crit_edge.loopexit.i.i.i.i, %10
   %.0.lcssa.i.i.i.i = phi i32 [ 1, %10 ], [ %12, %._crit_edge.loopexit.i.i.i.i ]
@@ -469,7 +469,7 @@ _ZN9UNSIGNED513fits_in_limitIiEEbjT_S1_.exit.thread.i.i: ; preds = %22, %_ZN9UNS
   %40 = icmp ult i32 %36, 12224
   %41 = icmp eq i64 %indvars.iv.next.i.i.i, 4
   %or.cond.i.i.i = select i1 %40, i1 true, i1 %41
-  br i1 %or.cond.i.i.i, label %33, label %.preheader.i.i.i, !llvm.loop !10
+  br i1 %or.cond.i.i.i, label %33, label %.preheader.i.i.i, !llvm.loop !9
 
 _ZN21CompressedWriteStream9write_intEj.exit:      ; preds = %_ZN9UNSIGNED513fits_in_limitIiEEbjT_S1_.exit.thread.i.i, %33
   %.lcssa.sink.i.i.i = phi i32 [ %39, %33 ], [ %4, %_ZN9UNSIGNED513fits_in_limitIiEEbjT_S1_.exit.thread.i.i ]
@@ -521,7 +521,7 @@ define hidden void @_ZN21CompressedWriteStream12write_doubleEd(ptr noundef nonnu
   %23 = icmp ule i32 %7, %22
   %24 = icmp eq i32 %20, 4
   %or.cond.i.i.i.i = select i1 %23, i1 true, i1 %24
-  br i1 %or.cond.i.i.i.i, label %._crit_edge.loopexit.i.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !9
+  br i1 %or.cond.i.i.i.i, label %._crit_edge.loopexit.i.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !8
 
 _ZN9UNSIGNED513fits_in_limitIiEEbjT_S1_.exit.i.i: ; preds = %._crit_edge.loopexit.i.i.i.i, %14
   %.0.lcssa.i.i.i.i = phi i32 [ 1, %14 ], [ %16, %._crit_edge.loopexit.i.i.i.i ]
@@ -572,7 +572,7 @@ _ZN9UNSIGNED513fits_in_limitIiEEbjT_S1_.exit.thread.i.i: ; preds = %26, %_ZN9UNS
   %44 = icmp ult i32 %40, 12224
   %45 = icmp eq i64 %indvars.iv.next.i.i.i, 4
   %or.cond.i.i.i = select i1 %44, i1 true, i1 %45
-  br i1 %or.cond.i.i.i, label %37, label %.preheader.i.i.i, !llvm.loop !10
+  br i1 %or.cond.i.i.i, label %37, label %.preheader.i.i.i, !llvm.loop !9
 
 _ZN21CompressedWriteStream9write_intEj.exit:      ; preds = %_ZN9UNSIGNED513fits_in_limitIiEEbjT_S1_.exit.thread.i.i, %37
   %.lcssa.sink.i.i.i = phi i32 [ %43, %37 ], [ %7, %_ZN9UNSIGNED513fits_in_limitIiEEbjT_S1_.exit.thread.i.i ]
@@ -610,7 +610,7 @@ _ZN21CompressedWriteStream9write_intEj.exit:      ; preds = %_ZN9UNSIGNED513fits
   %61 = icmp ule i32 %8, %60
   %62 = icmp eq i32 %58, 4
   %or.cond.i.i.i.i23 = select i1 %61, i1 true, i1 %62
-  br i1 %or.cond.i.i.i.i23, label %._crit_edge.loopexit.i.i.i.i24, label %.lr.ph.i.i.i.i19, !llvm.loop !9
+  br i1 %or.cond.i.i.i.i23, label %._crit_edge.loopexit.i.i.i.i24, label %.lr.ph.i.i.i.i19, !llvm.loop !8
 
 _ZN9UNSIGNED513fits_in_limitIiEEbjT_S1_.exit.i.i25: ; preds = %._crit_edge.loopexit.i.i.i.i24, %52
   %.0.lcssa.i.i.i.i26 = phi i32 [ 1, %52 ], [ %54, %._crit_edge.loopexit.i.i.i.i24 ]
@@ -661,7 +661,7 @@ _ZN9UNSIGNED513fits_in_limitIiEEbjT_S1_.exit.thread.i.i7: ; preds = %64, %_ZN9UN
   %82 = icmp ult i32 %78, 12224
   %83 = icmp eq i64 %indvars.iv.next.i.i.i14, 4
   %or.cond.i.i.i15 = select i1 %82, i1 true, i1 %83
-  br i1 %or.cond.i.i.i15, label %75, label %.preheader.i.i.i10, !llvm.loop !10
+  br i1 %or.cond.i.i.i15, label %75, label %.preheader.i.i.i10, !llvm.loop !9
 
 _ZN21CompressedWriteStream9write_intEj.exit30:    ; preds = %_ZN9UNSIGNED513fits_in_limitIiEEbjT_S1_.exit.thread.i.i7, %75
   %.lcssa.sink.i.i.i16 = phi i32 [ %81, %75 ], [ %8, %_ZN9UNSIGNED513fits_in_limitIiEEbjT_S1_.exit.thread.i.i7 ]
@@ -720,7 +720,7 @@ define linkonce_odr hidden void @_ZN21CompressedWriteStream16write_signed_intEi(
   %20 = icmp ule i32 %5, %19
   %21 = icmp eq i32 %17, 4
   %or.cond.i.i.i.i = select i1 %20, i1 true, i1 %21
-  br i1 %or.cond.i.i.i.i, label %._crit_edge.loopexit.i.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !9
+  br i1 %or.cond.i.i.i.i, label %._crit_edge.loopexit.i.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !8
 
 _ZN9UNSIGNED513fits_in_limitIiEEbjT_S1_.exit.i.i: ; preds = %._crit_edge.loopexit.i.i.i.i, %11
   %.0.lcssa.i.i.i.i = phi i32 [ 1, %11 ], [ %13, %._crit_edge.loopexit.i.i.i.i ]
@@ -771,7 +771,7 @@ _ZN9UNSIGNED513fits_in_limitIiEEbjT_S1_.exit.thread.i.i: ; preds = %23, %_ZN9UNS
   %41 = icmp ult i32 %37, 12224
   %42 = icmp eq i64 %indvars.iv.next.i.i.i, 4
   %or.cond.i.i.i = select i1 %41, i1 true, i1 %42
-  br i1 %or.cond.i.i.i, label %34, label %.preheader.i.i.i, !llvm.loop !10
+  br i1 %or.cond.i.i.i, label %34, label %.preheader.i.i.i, !llvm.loop !9
 
 _ZN21CompressedWriteStream9write_intEj.exit:      ; preds = %_ZN9UNSIGNED513fits_in_limitIiEEbjT_S1_.exit.thread.i.i, %34
   %.lcssa.sink.i.i.i = phi i32 [ %40, %34 ], [ %5, %_ZN9UNSIGNED513fits_in_limitIiEEbjT_S1_.exit.thread.i.i ]
@@ -808,8 +808,7 @@ attributes #6 = { nounwind }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7, !8}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}

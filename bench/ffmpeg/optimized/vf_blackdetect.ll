@@ -195,7 +195,7 @@ av_ts_make_string.exit:                           ; preds = %62, %63
   store i32 1, ptr %75, align 8, !tbaa !20
   %84 = load i64, ptr %59, align 8, !tbaa !52
   %85 = getelementptr inbounds nuw i8, ptr %10, i64 24
-  store i64 %84, ptr %85, align 8, !tbaa !59
+  store i64 %84, ptr %85, align 8, !tbaa !58
   %86 = getelementptr inbounds nuw i8, ptr %1, i64 312
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %5, i8 0, i64 32, i1 false)
   %.val60 = load i64, ptr %66, align 4
@@ -229,8 +229,8 @@ av_ts_make_string.exit:                           ; preds = %62, %63
   store i32 0, ptr %98, align 4, !tbaa !47
   %101 = load ptr, ptr %7, align 8, !tbaa !28
   %102 = getelementptr inbounds nuw i8, ptr %101, i64 56
-  %103 = load ptr, ptr %102, align 8, !tbaa !60
-  %104 = load ptr, ptr %103, align 8, !tbaa !61
+  %103 = load ptr, ptr %102, align 8, !tbaa !59
+  %104 = load ptr, ptr %103, align 8, !tbaa !60
   %105 = call i32 @ff_filter_frame(ptr noundef %104, ptr noundef nonnull %1) #10
   ret i32 %105
 }
@@ -243,10 +243,10 @@ define internal range(i32 -12, 1) i32 @config_input(ptr noundef readonly capture
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %6 = load ptr, ptr %5, align 8, !tbaa !4
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 36
-  %8 = load i32, ptr %7, align 4, !tbaa !63
+  %8 = load i32, ptr %7, align 4, !tbaa !62
   %9 = tail call ptr @av_pix_fmt_desc_get(i32 noundef %8) #10
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 40
-  %11 = load i32, ptr %10, align 8, !tbaa !64
+  %11 = load i32, ptr %10, align 8, !tbaa !63
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 88
   store i32 %11, ptr %12, align 8, !tbaa !36
   %13 = tail call i32 @ff_filter_get_nb_threads(ptr noundef %4) #11
@@ -257,7 +257,7 @@ define internal range(i32 -12, 1) i32 @config_input(ptr noundef readonly capture
   %17 = load i64, ptr %16, align 8
   store i64 %17, ptr %15, align 8
   %18 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %19 = load double, ptr %18, align 8, !tbaa !66
+  %19 = load double, ptr %18, align 8, !tbaa !65
   %.sroa.0.0.extract.trunc.i = trunc i64 %17 to i32
   %.sroa.2.0.extract.shift.i = lshr i64 %17, 32
   %.sroa.2.0.extract.trunc.i = trunc nuw i64 %.sroa.2.0.extract.shift.i to i32
@@ -267,7 +267,7 @@ define internal range(i32 -12, 1) i32 @config_input(ptr noundef readonly capture
   %23 = fdiv nsz double %19, %22
   %24 = fptosi double %23 to i64
   %25 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  store i64 %24, ptr %25, align 8, !tbaa !67
+  store i64 %24, ptr %25, align 8, !tbaa !66
   %26 = sext i32 %13 to i64
   %27 = tail call noalias ptr @av_calloc(i64 noundef %26, i64 noundef 4) #10
   %28 = getelementptr inbounds nuw i8, ptr %6, i64 96
@@ -277,7 +277,7 @@ define internal range(i32 -12, 1) i32 @config_input(ptr noundef readonly capture
 
 29:                                               ; preds = %1
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %2, i8 0, i64 32, i1 false)
-  %30 = load i64, ptr %25, align 8, !tbaa !67
+  %30 = load i64, ptr %25, align 8, !tbaa !66
   %.val = load i64, ptr %15, align 4
   %31 = call ptr @av_ts_make_time_string2(ptr noundef nonnull %2, i64 noundef %30, i64 %.val) #10
   %32 = getelementptr inbounds nuw i8, ptr %6, i64 64
@@ -310,9 +310,9 @@ define internal noundef i32 @black_counter(ptr noundef readonly captures(none) %
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %12 = load i32, ptr %11, align 8, !tbaa !55
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 104
-  %14 = load i32, ptr %13, align 8, !tbaa !68
+  %14 = load i32, ptr %13, align 8, !tbaa !67
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 108
-  %16 = load i32, ptr %15, align 4, !tbaa !69
+  %16 = load i32, ptr %15, align 4, !tbaa !68
   %17 = mul nsw i32 %16, %2
   %18 = sdiv i32 %17, %3
   %19 = add nsw i32 %2, 1
@@ -334,7 +334,7 @@ define internal noundef i32 @black_counter(ptr noundef readonly captures(none) %
   br i1 %28, label %.preheader.us.preheader, label %.loopexit
 
 .preheader.us.preheader:                          ; preds = %.preheader.lr.ph
-  %30 = load ptr, ptr %1, align 8, !tbaa !70
+  %30 = load ptr, ptr %1, align 8, !tbaa !69
   %31 = mul nsw i32 %18, %12
   %32 = sext i32 %31 to i64
   %33 = getelementptr inbounds i8, ptr %30, i64 %32
@@ -351,20 +351,20 @@ define internal noundef i32 @black_counter(ptr noundef readonly captures(none) %
   %indvars.iv77 = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next78, %34 ]
   %.162.us = phi i32 [ %.05364.us, %.preheader.us ], [ %40, %34 ]
   %35 = getelementptr inbounds nuw i8, ptr %.05265.us, i64 %indvars.iv77
-  %36 = load i8, ptr %35, align 1, !tbaa !71
+  %36 = load i8, ptr %35, align 1, !tbaa !70
   %37 = zext i8 %36 to i32
   %38 = icmp uge i32 %8, %37
   %39 = zext i1 %38 to i32
   %40 = add i32 %.162.us, %39
   %indvars.iv.next78 = add nuw nsw i64 %indvars.iv77, 1
   %exitcond81.not = icmp eq i64 %indvars.iv.next78, %wide.trip.count80
-  br i1 %exitcond81.not, label %._crit_edge.us68, label %34, !llvm.loop !72
+  br i1 %exitcond81.not, label %._crit_edge.us68, label %34, !llvm.loop !71
 
 ._crit_edge.us68:                                 ; preds = %34
   %41 = getelementptr inbounds i8, ptr %.05265.us, i64 %29
   %42 = add nuw nsw i32 %.05166.us, 1
   %exitcond82.not = icmp eq i32 %42, %22
-  br i1 %exitcond82.not, label %.loopexit, label %.preheader.us, !llvm.loop !73
+  br i1 %exitcond82.not, label %.loopexit, label %.preheader.us, !llvm.loop !72
 
 43:                                               ; preds = %4
   br i1 %26, label %.preheader54.lr.ph, label %.loopexit
@@ -376,7 +376,7 @@ define internal noundef i32 @black_counter(ptr noundef readonly captures(none) %
   br i1 %44, label %.preheader54.us.preheader, label %.loopexit
 
 .preheader54.us.preheader:                        ; preds = %.preheader54.lr.ph
-  %47 = load ptr, ptr %1, align 8, !tbaa !70
+  %47 = load ptr, ptr %1, align 8, !tbaa !69
   %48 = mul nsw i32 %18, %12
   %49 = sext i32 %48 to i64
   %50 = getelementptr inbounds i8, ptr %47, i64 %49
@@ -393,20 +393,20 @@ define internal noundef i32 @black_counter(ptr noundef readonly captures(none) %
   %indvars.iv = phi i64 [ 0, %.preheader54.us ], [ %indvars.iv.next, %51 ]
   %.456.us = phi i32 [ %.358.us, %.preheader54.us ], [ %57, %51 ]
   %52 = getelementptr inbounds nuw i16, ptr %.04959.us, i64 %indvars.iv
-  %53 = load i16, ptr %52, align 2, !tbaa !75
+  %53 = load i16, ptr %52, align 2, !tbaa !74
   %54 = zext i16 %53 to i32
   %55 = icmp uge i32 %8, %54
   %56 = zext i1 %55 to i32
   %57 = add i32 %.456.us, %56
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us, label %51, !llvm.loop !77
+  br i1 %exitcond.not, label %._crit_edge.us, label %51, !llvm.loop !76
 
 ._crit_edge.us:                                   ; preds = %51
   %58 = getelementptr inbounds i16, ptr %.04959.us, i64 %46
   %59 = add nuw nsw i32 %.04860.us, 1
   %exitcond76.not = icmp eq i32 %59, %22
-  br i1 %exitcond76.not, label %.loopexit, label %.preheader54.us, !llvm.loop !78
+  br i1 %exitcond76.not, label %.loopexit, label %.preheader54.us, !llvm.loop !77
 
 .loopexit:                                        ; preds = %._crit_edge.us, %._crit_edge.us68, %.preheader54.lr.ph, %.preheader.lr.ph, %43, %27
   %.2 = phi i32 [ 0, %27 ], [ 0, %43 ], [ 0, %.preheader.lr.ph ], [ 0, %.preheader54.lr.ph ], [ %40, %._crit_edge.us68 ], [ %57, %._crit_edge.us ]
@@ -433,10 +433,10 @@ define internal fastcc void @check_black_end(ptr %.72.val) unnamed_addr #1 {
   %4 = getelementptr inbounds nuw i8, ptr %.72.val, i64 32
   %5 = load i64, ptr %4, align 8, !tbaa !27
   %6 = getelementptr inbounds nuw i8, ptr %.72.val, i64 24
-  %7 = load i64, ptr %6, align 8, !tbaa !59
+  %7 = load i64, ptr %6, align 8, !tbaa !58
   %8 = sub nsw i64 %5, %7
   %9 = getelementptr inbounds nuw i8, ptr %.72.val, i64 16
-  %10 = load i64, ptr %9, align 8, !tbaa !67
+  %10 = load i64, ptr %9, align 8, !tbaa !66
   %.not = icmp slt i64 %8, %10
   br i1 %.not, label %20, label %11
 
@@ -451,7 +451,7 @@ define internal fastcc void @check_black_end(ptr %.72.val) unnamed_addr #1 {
   %15 = call ptr @av_ts_make_time_string2(ptr noundef nonnull %2, i64 noundef %14, i64 %.val12) #10
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %3, i8 0, i64 32, i1 false)
   %16 = load i64, ptr %4, align 8, !tbaa !27
-  %17 = load i64, ptr %6, align 8, !tbaa !59
+  %17 = load i64, ptr %6, align 8, !tbaa !58
   %18 = sub nsw i64 %16, %17
   %.val = load i64, ptr %12, align 4
   %19 = call ptr @av_ts_make_time_string2(ptr noundef nonnull %3, i64 noundef %18, i64 %.val) #10
@@ -557,26 +557,25 @@ attributes #11 = { nounwind willreturn memory(read) }
 !53 = !{!38, !15, i64 120}
 !54 = !{!21, !22, i64 56}
 !55 = !{!15, !15, i64 0}
-!56 = distinct !{!56, !57, !58}
+!56 = distinct !{!56, !57}
 !57 = !{!"llvm.loop.mustprogress"}
-!58 = !{!"llvm.loop.estimated_trip_count"}
-!59 = !{!21, !23, i64 24}
-!60 = !{!5, !13, i64 56}
-!61 = !{!62, !62, i64 0}
-!62 = !{!"p1 _ZTS12AVFilterLink", !7, i64 0}
-!63 = !{!29, !15, i64 36}
-!64 = !{!65, !15, i64 16}
-!65 = !{!"AVComponentDescriptor", !15, i64 0, !15, i64 4, !15, i64 8, !15, i64 12, !15, i64 16}
-!66 = !{!21, !22, i64 8}
-!67 = !{!21, !23, i64 16}
-!68 = !{!38, !15, i64 104}
-!69 = !{!38, !15, i64 108}
-!70 = !{!11, !11, i64 0}
-!71 = !{!8, !8, i64 0}
-!72 = distinct !{!72, !57, !58}
-!73 = distinct !{!73, !57, !58, !74}
-!74 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!75 = !{!76, !76, i64 0}
-!76 = !{!"short", !8, i64 0}
-!77 = distinct !{!77, !57, !58}
-!78 = distinct !{!78, !57, !58, !74}
+!58 = !{!21, !23, i64 24}
+!59 = !{!5, !13, i64 56}
+!60 = !{!61, !61, i64 0}
+!61 = !{!"p1 _ZTS12AVFilterLink", !7, i64 0}
+!62 = !{!29, !15, i64 36}
+!63 = !{!64, !15, i64 16}
+!64 = !{!"AVComponentDescriptor", !15, i64 0, !15, i64 4, !15, i64 8, !15, i64 12, !15, i64 16}
+!65 = !{!21, !22, i64 8}
+!66 = !{!21, !23, i64 16}
+!67 = !{!38, !15, i64 104}
+!68 = !{!38, !15, i64 108}
+!69 = !{!11, !11, i64 0}
+!70 = !{!8, !8, i64 0}
+!71 = distinct !{!71, !57}
+!72 = distinct !{!72, !57, !73}
+!73 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!74 = !{!75, !75, i64 0}
+!75 = !{!"short", !8, i64 0}
+!76 = distinct !{!76, !57}
+!77 = distinct !{!77, !57, !73}

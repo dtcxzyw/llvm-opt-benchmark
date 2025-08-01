@@ -97,22 +97,22 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   %3 = alloca i32, align 4
   %4 = alloca [1 x %struct.RESULTS_S], align 16
   %5 = alloca [2000 x i8], align 16
-  store i32 %0, ptr %3, align 4, !tbaa !21
+  store i32 %0, ptr %3, align 4, !tbaa !20
   call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %4) #6
   call void @llvm.lifetime.start.p0(i64 2000, ptr nonnull %5) #6
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 106
   call void @portable_init(ptr noundef nonnull %6, ptr noundef nonnull %3, ptr noundef %1) #6
   %7 = call i32 @get_seed_32(i32 noundef 1) #6
   %8 = trunc i32 %7 to i16
-  store i16 %8, ptr %4, align 16, !tbaa !22
+  store i16 %8, ptr %4, align 16, !tbaa !21
   %9 = call i32 @get_seed_32(i32 noundef 2) #6
   %10 = trunc i32 %9 to i16
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 2
-  store i16 %10, ptr %11, align 2, !tbaa !23
+  store i16 %10, ptr %11, align 2, !tbaa !22
   %12 = call i32 @get_seed_32(i32 noundef 3) #6
   %13 = trunc i32 %12 to i16
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  store i16 %13, ptr %14, align 4, !tbaa !24
+  store i16 %13, ptr %14, align 4, !tbaa !23
   %15 = call i32 @get_seed_32(i32 noundef 4) #6
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 44
   store i32 %15, ptr %16, align 4, !tbaa !4
@@ -120,8 +120,8 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 48
   %19 = icmp eq i32 %17, 0
   %spec.select = select i1 %19, i32 7, i32 %17
-  store i32 %spec.select, ptr %18, align 16, !tbaa !25
-  %20 = load i16, ptr %4, align 16, !tbaa !22
+  store i32 %spec.select, ptr %18, align 16, !tbaa !24
+  %20 = load i16, ptr %4, align 16, !tbaa !21
   %21 = icmp eq i16 %20, 0
   %22 = load i16, ptr %11, align 2
   %23 = icmp eq i16 %22, 0
@@ -141,18 +141,18 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
 
 .critedge187.sink.split:                          ; preds = %26, %2
   %.sink238 = phi i16 [ 0, %2 ], [ 13333, %26 ]
-  store i16 %.sink238, ptr %4, align 16, !tbaa !22
-  store i16 %.sink238, ptr %11, align 2, !tbaa !23
-  store i16 102, ptr %14, align 4, !tbaa !24
+  store i16 %.sink238, ptr %4, align 16, !tbaa !21
+  store i16 %.sink238, ptr %11, align 2, !tbaa !22
+  store i16 102, ptr %14, align 4, !tbaa !23
   br label %.critedge187
 
 .critedge187:                                     ; preds = %.critedge187.sink.split, %26
   %30 = phi i16 [ %20, %26 ], [ %.sink238, %.critedge187.sink.split ]
   %31 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store ptr %5, ptr %31, align 8, !tbaa !26
+  store ptr %5, ptr %31, align 8, !tbaa !25
   %32 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %33 = getelementptr inbounds nuw i8, ptr %4, i64 104
-  store i16 0, ptr %33, align 8, !tbaa !27
+  store i16 0, ptr %33, align 8, !tbaa !26
   br label %34
 
 34:                                               ; preds = %.critedge187, %34
@@ -164,12 +164,12 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   %spec.select173 = add i16 %37, %.0136194
   %indvars.iv.next = add nuw nsw i32 %indvars.iv, 1
   %exitcond.not = icmp eq i32 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %.critedge, label %34, !llvm.loop !28
+  br i1 %exitcond.not, label %.critedge, label %34, !llvm.loop !27
 
 .critedge:                                        ; preds = %34
   %38 = udiv i16 2000, %spec.select173
   %39 = zext nneg i16 %38 to i32
-  store i32 %39, ptr %32, align 8, !tbaa !29
+  store i32 %39, ptr %32, align 8, !tbaa !28
   br label %40
 
 40:                                               ; preds = %.critedge, %51
@@ -192,7 +192,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   %47 = getelementptr inbounds nuw i8, ptr %5, i64 %46
   %48 = add nuw nsw i64 %indvars.iv218, 1
   %49 = getelementptr inbounds nuw [4 x ptr], ptr %31, i64 0, i64 %48
-  store ptr %47, ptr %49, align 8, !tbaa !26
+  store ptr %47, ptr %49, align 8, !tbaa !25
   %50 = add i16 %.0129196, 1
   br label %51
 
@@ -200,7 +200,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   %indvars.iv.next219.pre-phi = phi i64 [ %.pre230, %._crit_edge229 ], [ %48, %.critedge175 ]
   %.1130 = phi i16 [ %.0129196, %._crit_edge229 ], [ %50, %.critedge175 ]
   %exitcond223.not = icmp eq i64 %indvars.iv.next219.pre-phi, 3
-  br i1 %exitcond223.not, label %52, label %40, !llvm.loop !30
+  br i1 %exitcond223.not, label %52, label %40, !llvm.loop !29
 
 52:                                               ; preds = %51
   %53 = and i32 %spec.select, 1
@@ -209,11 +209,11 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
 
 54:                                               ; preds = %52
   %55 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %56 = load ptr, ptr %55, align 16, !tbaa !26
+  %56 = load ptr, ptr %55, align 16, !tbaa !25
   %57 = call ptr @core_list_init(i32 noundef %39, ptr noundef %56, i16 noundef signext %30) #6
   %58 = getelementptr inbounds nuw i8, ptr %4, i64 56
-  store ptr %57, ptr %58, align 8, !tbaa !31
-  %.pre = load i32, ptr %18, align 16, !tbaa !25
+  store ptr %57, ptr %58, align 8, !tbaa !30
+  %.pre = load i32, ptr %18, align 16, !tbaa !24
   br label %59
 
 59:                                               ; preds = %54, %52
@@ -223,18 +223,18 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   br i1 %.not169, label %74, label %62
 
 62:                                               ; preds = %59
-  %63 = load i32, ptr %32, align 8, !tbaa !29
+  %63 = load i32, ptr %32, align 8, !tbaa !28
   %64 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  %65 = load ptr, ptr %64, align 8, !tbaa !26
-  %66 = load i16, ptr %4, align 16, !tbaa !22
+  %65 = load ptr, ptr %64, align 8, !tbaa !25
+  %66 = load i16, ptr %4, align 16, !tbaa !21
   %67 = sext i16 %66 to i32
-  %68 = load i16, ptr %11, align 2, !tbaa !23
+  %68 = load i16, ptr %11, align 2, !tbaa !22
   %69 = sext i16 %68 to i32
   %70 = shl nsw i32 %69, 16
   %71 = or i32 %70, %67
   %72 = getelementptr inbounds nuw i8, ptr %4, i64 64
   %73 = call i32 @core_init_matrix(i32 noundef %63, ptr noundef %65, i32 noundef %71, ptr noundef nonnull %72) #6
-  %.pre224 = load i32, ptr %18, align 16, !tbaa !25
+  %.pre224 = load i32, ptr %18, align 16, !tbaa !24
   br label %74
 
 74:                                               ; preds = %62, %59
@@ -244,10 +244,10 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   br i1 %.not170, label %.critedge189, label %77
 
 77:                                               ; preds = %74
-  %78 = load i32, ptr %32, align 8, !tbaa !29
-  %79 = load i16, ptr %4, align 16, !tbaa !22
+  %78 = load i32, ptr %32, align 8, !tbaa !28
+  %79 = load i16, ptr %4, align 16, !tbaa !21
   %80 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  %81 = load ptr, ptr %80, align 16, !tbaa !26
+  %81 = load ptr, ptr %80, align 16, !tbaa !25
   call void @core_init_state(i32 noundef %78, i16 noundef signext %79, ptr noundef %81) #6
   br label %.critedge189
 
@@ -299,7 +299,7 @@ iterate.exit:                                     ; preds = %99, %87
   %101 = call i64 @get_time() #6
   %102 = call double @time_in_secs(i64 noundef %101) #6
   %103 = fcmp olt double %102, 1.000000e+00
-  br i1 %103, label %87, label %104, !llvm.loop !32
+  br i1 %103, label %87, label %104, !llvm.loop !31
 
 104:                                              ; preds = %iterate.exit
   %105 = fptoui double %102 to i32
@@ -345,13 +345,13 @@ iterate.exit:                                     ; preds = %99, %87
 iterate.exit180:                                  ; preds = %122, %110
   call void @stop_time() #6
   %124 = call i64 @get_time() #6
-  %125 = load i16, ptr %4, align 16, !tbaa !22
+  %125 = load i16, ptr %4, align 16, !tbaa !21
   %126 = call zeroext i16 @crc16(i16 noundef signext %125, i16 noundef zeroext 0) #6
-  %127 = load i16, ptr %11, align 2, !tbaa !23
+  %127 = load i16, ptr %11, align 2, !tbaa !22
   %128 = call zeroext i16 @crc16(i16 noundef signext %127, i16 noundef zeroext %126) #6
-  %129 = load i16, ptr %14, align 4, !tbaa !24
+  %129 = load i16, ptr %14, align 4, !tbaa !23
   %130 = call zeroext i16 @crc16(i16 noundef signext %129, i16 noundef zeroext %128) #6
-  %131 = load i32, ptr %32, align 8, !tbaa !29
+  %131 = load i32, ptr %32, align 8, !tbaa !28
   %132 = trunc i32 %131 to i16
   %133 = call zeroext i16 @crc16(i16 noundef signext %132, i16 noundef zeroext %130) #6
   %134 = zext i16 %133 to i32
@@ -380,7 +380,7 @@ iterate.exit180:                                  ; preds = %122, %110
   %140 = phi i1 [ false, %138 ], [ true, %137 ], [ false, %136 ], [ false, %135 ], [ false, %iterate.exit180 ]
   %.0135 = phi i64 [ 4, %138 ], [ 3, %137 ], [ 2, %136 ], [ 1, %135 ], [ 0, %iterate.exit180 ]
   %puts = call i32 @puts(ptr nonnull dereferenceable(1) %str.sink)
-  %141 = load i32, ptr @default_num_contexts, align 4, !tbaa !21
+  %141 = load i32, ptr @default_num_contexts, align 4, !tbaa !20
   %.not214 = icmp eq i32 %141, 0
   br i1 %.not214, label %.thread, label %.lr.ph
 
@@ -397,9 +397,9 @@ iterate.exit180:                                  ; preds = %122, %110
   %147 = zext i16 %.5199 to i64
   %148 = getelementptr inbounds nuw [1 x %struct.RESULTS_S], ptr %4, i64 0, i64 %147
   %149 = getelementptr inbounds nuw i8, ptr %148, i64 104
-  store i16 0, ptr %149, align 8, !tbaa !27
+  store i16 0, ptr %149, align 8, !tbaa !26
   %150 = getelementptr inbounds nuw i8, ptr %148, i64 48
-  %151 = load i32, ptr %150, align 16, !tbaa !25
+  %151 = load i32, ptr %150, align 16, !tbaa !24
   %152 = and i32 %151, 1
   %.not162 = icmp eq i32 %152, 0
   br i1 %.not162, label %163, label %153
@@ -407,7 +407,7 @@ iterate.exit180:                                  ; preds = %122, %110
 153:                                              ; preds = %145
   %154 = getelementptr inbounds nuw i8, ptr %148, i64 98
   %155 = load i16, ptr %154, align 2, !tbaa !17
-  %156 = load i16, ptr %142, align 2, !tbaa !33
+  %156 = load i16, ptr %142, align 2, !tbaa !32
   %.not163 = icmp eq i16 %155, %156
   br i1 %.not163, label %163, label %157
 
@@ -415,10 +415,10 @@ iterate.exit180:                                  ; preds = %122, %110
   %158 = zext i16 %156 to i32
   %159 = zext i16 %155 to i32
   %160 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.8, i32 noundef %146, i32 noundef %159, i32 noundef %158)
-  %161 = load i16, ptr %149, align 8, !tbaa !27
+  %161 = load i16, ptr %149, align 8, !tbaa !26
   %162 = add i16 %161, 1
-  store i16 %162, ptr %149, align 8, !tbaa !27
-  %.pre225 = load i32, ptr %150, align 16, !tbaa !25
+  store i16 %162, ptr %149, align 8, !tbaa !26
+  %.pre225 = load i32, ptr %150, align 16, !tbaa !24
   br label %163
 
 163:                                              ; preds = %157, %153, %145
@@ -430,8 +430,8 @@ iterate.exit180:                                  ; preds = %122, %110
 
 167:                                              ; preds = %163
   %168 = getelementptr inbounds nuw i8, ptr %148, i64 100
-  %169 = load i16, ptr %168, align 4, !tbaa !34
-  %170 = load i16, ptr %143, align 2, !tbaa !33
+  %169 = load i16, ptr %168, align 4, !tbaa !33
+  %170 = load i16, ptr %143, align 2, !tbaa !32
   %.not165 = icmp eq i16 %169, %170
   br i1 %.not165, label %177, label %171
 
@@ -439,10 +439,10 @@ iterate.exit180:                                  ; preds = %122, %110
   %172 = zext i16 %170 to i32
   %173 = zext i16 %169 to i32
   %174 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.9, i32 noundef %146, i32 noundef %173, i32 noundef %172)
-  %175 = load i16, ptr %149, align 8, !tbaa !27
+  %175 = load i16, ptr %149, align 8, !tbaa !26
   %176 = add i16 %175, 1
-  store i16 %176, ptr %149, align 8, !tbaa !27
-  %.pre226 = load i32, ptr %150, align 16, !tbaa !25
+  store i16 %176, ptr %149, align 8, !tbaa !26
+  %.pre226 = load i32, ptr %150, align 16, !tbaa !24
   br label %177
 
 177:                                              ; preds = %171, %167, %163
@@ -454,8 +454,8 @@ iterate.exit180:                                  ; preds = %122, %110
 
 181:                                              ; preds = %177
   %182 = getelementptr inbounds nuw i8, ptr %148, i64 102
-  %183 = load i16, ptr %182, align 2, !tbaa !35
-  %184 = load i16, ptr %144, align 2, !tbaa !33
+  %183 = load i16, ptr %182, align 2, !tbaa !34
+  %184 = load i16, ptr %144, align 2, !tbaa !32
   %.not167 = icmp eq i16 %183, %184
   br i1 %.not167, label %191, label %185
 
@@ -463,9 +463,9 @@ iterate.exit180:                                  ; preds = %122, %110
   %186 = zext i16 %184 to i32
   %187 = zext i16 %183 to i32
   %188 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.10, i32 noundef %146, i32 noundef %187, i32 noundef %186)
-  %189 = load i16, ptr %149, align 8, !tbaa !27
+  %189 = load i16, ptr %149, align 8, !tbaa !26
   %190 = add i16 %189, 1
-  store i16 %190, ptr %149, align 8, !tbaa !27
+  store i16 %190, ptr %149, align 8, !tbaa !26
   br label %191
 
 191:                                              ; preds = %185, %181, %177
@@ -473,9 +473,9 @@ iterate.exit180:                                  ; preds = %122, %110
   %193 = add i16 %192, %.2133198
   %194 = add i16 %.5199, 1
   %195 = zext i16 %194 to i32
-  %196 = load i32, ptr @default_num_contexts, align 4, !tbaa !21
+  %196 = load i32, ptr @default_num_contexts, align 4, !tbaa !20
   %197 = icmp ugt i32 %196, %195
-  br i1 %197, label %145, label %.thread, !llvm.loop !36
+  br i1 %197, label %145, label %.thread, !llvm.loop !35
 
 .thread:                                          ; preds = %191, %139, %iterate.exit180
   %198 = phi i1 [ false, %iterate.exit180 ], [ %140, %139 ], [ %140, %191 ]
@@ -483,7 +483,7 @@ iterate.exit180:                                  ; preds = %122, %110
   %199 = call zeroext i8 @check_data_types() #6
   %200 = zext i8 %199 to i16
   %201 = add i16 %.1132, %200
-  %202 = load i32, ptr %32, align 8, !tbaa !29
+  %202 = load i32, ptr %32, align 8, !tbaa !28
   %203 = zext i32 %202 to i64
   %204 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.11, i64 noundef %203)
   %205 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.12, i64 noundef %124)
@@ -494,7 +494,7 @@ iterate.exit180:                                  ; preds = %122, %110
   br i1 %209, label %210, label %218
 
 210:                                              ; preds = %.thread
-  %211 = load i32, ptr @default_num_contexts, align 4, !tbaa !21
+  %211 = load i32, ptr @default_num_contexts, align 4, !tbaa !20
   %212 = load i32, ptr %16, align 4, !tbaa !4
   %213 = mul i32 %212, %211
   %214 = uitofp i32 %213 to double
@@ -515,7 +515,7 @@ iterate.exit180:                                  ; preds = %122, %110
 
 223:                                              ; preds = %221, %218
   %.3134 = phi i16 [ %222, %221 ], [ %201, %218 ]
-  %224 = load i32, ptr @default_num_contexts, align 4, !tbaa !21
+  %224 = load i32, ptr @default_num_contexts, align 4, !tbaa !20
   %225 = zext i32 %224 to i64
   %226 = load i32, ptr %16, align 4, !tbaa !4
   %227 = zext i32 %226 to i64
@@ -525,7 +525,7 @@ iterate.exit180:                                  ; preds = %122, %110
   %231 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.19, ptr noundef nonnull @.str.20)
   %232 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.21, ptr noundef nonnull @.str.22)
   %233 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.23, i32 noundef %134)
-  %234 = load i32, ptr %18, align 16, !tbaa !25
+  %234 = load i32, ptr %18, align 16, !tbaa !24
   %235 = and i32 %234, 1
   %.not = icmp ne i32 %235, 0
   %236 = load i32, ptr @default_num_contexts, align 4
@@ -541,12 +541,12 @@ iterate.exit180:                                  ; preds = %122, %110
   %241 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.24, i32 noundef %238, i32 noundef %240)
   %242 = add i16 %.6200, 1
   %243 = zext i16 %242 to i32
-  %244 = load i32, ptr @default_num_contexts, align 4, !tbaa !21
+  %244 = load i32, ptr @default_num_contexts, align 4, !tbaa !20
   %245 = icmp ugt i32 %244, %243
-  br i1 %245, label %.lr.ph201, label %.loopexit193.loopexit, !llvm.loop !37
+  br i1 %245, label %.lr.ph201, label %.loopexit193.loopexit, !llvm.loop !36
 
 .loopexit193.loopexit:                            ; preds = %.lr.ph201
-  %.pre227 = load i32, ptr %18, align 16, !tbaa !25
+  %.pre227 = load i32, ptr %18, align 16, !tbaa !24
   br label %.loopexit193
 
 .loopexit193:                                     ; preds = %.loopexit193.loopexit, %223
@@ -565,17 +565,17 @@ iterate.exit180:                                  ; preds = %122, %110
 251:                                              ; preds = %.lr.ph203, %251
   %252 = phi i32 [ 0, %.lr.ph203 ], [ %257, %251 ]
   %.7202 = phi i16 [ 0, %.lr.ph203 ], [ %256, %251 ]
-  %253 = load i16, ptr %250, align 4, !tbaa !34
+  %253 = load i16, ptr %250, align 4, !tbaa !33
   %254 = zext i16 %253 to i32
   %255 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.25, i32 noundef %252, i32 noundef %254)
   %256 = add i16 %.7202, 1
   %257 = zext i16 %256 to i32
-  %258 = load i32, ptr @default_num_contexts, align 4, !tbaa !21
+  %258 = load i32, ptr @default_num_contexts, align 4, !tbaa !20
   %259 = icmp ugt i32 %258, %257
-  br i1 %259, label %251, label %.loopexit191.loopexit, !llvm.loop !38
+  br i1 %259, label %251, label %.loopexit191.loopexit, !llvm.loop !37
 
 .loopexit191.loopexit:                            ; preds = %251
-  %.pre228 = load i32, ptr %18, align 16, !tbaa !25
+  %.pre228 = load i32, ptr %18, align 16, !tbaa !24
   br label %.loopexit191
 
 .loopexit191:                                     ; preds = %.loopexit191.loopexit, %.loopexit193
@@ -594,14 +594,14 @@ iterate.exit180:                                  ; preds = %122, %110
 265:                                              ; preds = %.lr.ph205, %265
   %266 = phi i32 [ 0, %.lr.ph205 ], [ %271, %265 ]
   %.8204 = phi i16 [ 0, %.lr.ph205 ], [ %270, %265 ]
-  %267 = load i16, ptr %264, align 2, !tbaa !35
+  %267 = load i16, ptr %264, align 2, !tbaa !34
   %268 = zext i16 %267 to i32
   %269 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.26, i32 noundef %266, i32 noundef %268)
   %270 = add i16 %.8204, 1
   %271 = zext i16 %270 to i32
-  %272 = load i32, ptr @default_num_contexts, align 4, !tbaa !21
+  %272 = load i32, ptr @default_num_contexts, align 4, !tbaa !20
   %273 = icmp ugt i32 %272, %271
-  br i1 %273, label %265, label %.loopexit, !llvm.loop !39
+  br i1 %273, label %265, label %.loopexit, !llvm.loop !38
 
 .loopexit:                                        ; preds = %265, %.loopexit191
   %274 = phi i32 [ %260, %.loopexit191 ], [ %272, %265 ]
@@ -616,9 +616,9 @@ iterate.exit180:                                  ; preds = %122, %110
   %278 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.27, i32 noundef %275, i32 noundef %277)
   %279 = add i16 %.9206, 1
   %280 = zext i16 %279 to i32
-  %281 = load i32, ptr @default_num_contexts, align 4, !tbaa !21
+  %281 = load i32, ptr @default_num_contexts, align 4, !tbaa !20
   %282 = icmp ugt i32 %281, %280
-  br i1 %282, label %.lr.ph207, label %._crit_edge, !llvm.loop !40
+  br i1 %282, label %.lr.ph207, label %._crit_edge, !llvm.loop !39
 
 ._crit_edge:                                      ; preds = %.lr.ph207, %.loopexit
   %283 = icmp eq i16 %.3134, 0
@@ -629,7 +629,7 @@ iterate.exit180:                                  ; preds = %122, %110
   br i1 %198, label %285, label %.thread185
 
 285:                                              ; preds = %284
-  %286 = load i32, ptr @default_num_contexts, align 4, !tbaa !21
+  %286 = load i32, ptr @default_num_contexts, align 4, !tbaa !20
   %287 = load i32, ptr %16, align 4, !tbaa !4
   %288 = mul i32 %287, %286
   %289 = uitofp i32 %288 to double
@@ -723,26 +723,25 @@ attributes #6 = { nounwind }
 !15 = !{!"CORE_PORTABLE_S", !7, i64 0}
 !16 = !{!5, !6, i64 96}
 !17 = !{!5, !6, i64 98}
-!18 = distinct !{!18, !19, !20}
+!18 = distinct !{!18, !19}
 !19 = !{!"llvm.loop.mustprogress"}
-!20 = !{!"llvm.loop.estimated_trip_count"}
-!21 = !{!9, !9, i64 0}
-!22 = !{!5, !6, i64 0}
-!23 = !{!5, !6, i64 2}
-!24 = !{!5, !6, i64 4}
-!25 = !{!5, !9, i64 48}
-!26 = !{!11, !11, i64 0}
-!27 = !{!5, !6, i64 104}
-!28 = distinct !{!28, !19, !20}
-!29 = !{!5, !9, i64 40}
-!30 = distinct !{!30, !19, !20}
-!31 = !{!5, !10, i64 56}
-!32 = distinct !{!32, !19, !20}
-!33 = !{!6, !6, i64 0}
-!34 = !{!5, !6, i64 100}
-!35 = !{!5, !6, i64 102}
-!36 = distinct !{!36, !19, !20}
-!37 = distinct !{!37, !19, !20}
-!38 = distinct !{!38, !19, !20}
-!39 = distinct !{!39, !19, !20}
-!40 = distinct !{!40, !19, !20}
+!20 = !{!9, !9, i64 0}
+!21 = !{!5, !6, i64 0}
+!22 = !{!5, !6, i64 2}
+!23 = !{!5, !6, i64 4}
+!24 = !{!5, !9, i64 48}
+!25 = !{!11, !11, i64 0}
+!26 = !{!5, !6, i64 104}
+!27 = distinct !{!27, !19}
+!28 = !{!5, !9, i64 40}
+!29 = distinct !{!29, !19}
+!30 = !{!5, !10, i64 56}
+!31 = distinct !{!31, !19}
+!32 = !{!6, !6, i64 0}
+!33 = !{!5, !6, i64 100}
+!34 = !{!5, !6, i64 102}
+!35 = distinct !{!35, !19}
+!36 = distinct !{!36, !19}
+!37 = distinct !{!37, !19}
+!38 = distinct !{!38, !19}
+!39 = distinct !{!39, !19}

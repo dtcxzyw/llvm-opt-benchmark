@@ -253,7 +253,7 @@ define internal noundef i32 @_calc_part_tres(ptr noundef %0, ptr readnone captur
   %28 = load ptr, ptr %9, align 8
   %29 = call ptr @next_node_bitmap(ptr noundef %28, ptr noundef nonnull %3) #16
   %.not = icmp eq ptr %29, null
-  br i1 %.not, label %._crit_edge35, label %.preheader, !llvm.loop !12
+  br i1 %.not, label %._crit_edge35, label %.preheader, !llvm.loop !11
 
 ._crit_edge35:                                    ; preds = %._crit_edge, %2
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 316
@@ -303,7 +303,7 @@ define internal noundef i32 @_calc_part_tres(ptr noundef %0, ptr readnone captur
   store i32 %54, ptr %3, align 4
   %55 = load i32, ptr @slurmctld_tres_cnt, align 4
   %56 = icmp slt i32 %54, %55
-  br i1 %56, label %.lr.ph38, label %._crit_edge39, !llvm.loop !13
+  br i1 %56, label %.lr.ph38, label %._crit_edge39, !llvm.loop !12
 
 ._crit_edge39:                                    ; preds = %52, %._crit_edge35
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 88
@@ -472,12 +472,12 @@ _unlink_free_nodes.exit.thread:                   ; preds = %39
   %59 = load i16, ptr %44, align 2
   %60 = zext i16 %59 to i64
   %61 = icmp samesign ult i64 %indvars.iv.next40.i, %60
-  br i1 %61, label %.lr.ph32.i, label %.loopexit.i, !llvm.loop !14
+  br i1 %61, label %.lr.ph32.i, label %.loopexit.i, !llvm.loop !13
 
 62:                                               ; preds = %48
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %.loopexit.i, label %48, !llvm.loop !15
+  br i1 %exitcond.not.i, label %.loopexit.i, label %48, !llvm.loop !14
 
 .loopexit.i:                                      ; preds = %62, %.lr.ph32.i, %51, %.preheader.i
   %63 = load i32, ptr %3, align 4
@@ -485,7 +485,7 @@ _unlink_free_nodes.exit.thread:                   ; preds = %39
   store i32 %64, ptr %3, align 4
   %65 = call ptr @next_node_bitmap(ptr noundef nonnull %21, ptr noundef nonnull %3) #16
   %.not.i = icmp eq ptr %65, null
-  br i1 %.not.i, label %._crit_edge.i, label %.preheader.i, !llvm.loop !16
+  br i1 %.not.i, label %._crit_edge.i, label %.preheader.i, !llvm.loop !15
 
 ._crit_edge.i:                                    ; preds = %.loopexit.i
   %66 = call i64 @time(ptr noundef null) #16
@@ -540,7 +540,7 @@ _unlink_free_nodes.exit:                          ; preds = %.preheader24.i, %._
   tail call void @free(ptr noundef nonnull %71) #16
   %83 = tail call ptr @hostlist_shift(ptr noundef nonnull %25) #16
   %.not92129 = icmp eq ptr %83, null
-  br i1 %.not92129, label %.outer._crit_edge, label %.lr.ph130, !llvm.loop !17
+  br i1 %.not92129, label %.outer._crit_edge, label %.lr.ph130, !llvm.loop !16
 
 .lr.ph130:                                        ; preds = %.preheader, %.outer
   %84 = phi ptr [ %70, %.outer ], [ %21, %.preheader ]
@@ -592,7 +592,7 @@ _unlink_free_nodes.exit:                          ; preds = %.preheader24.i, %._
 111:                                              ; preds = %107
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.thread, label %107, !llvm.loop !18
+  br i1 %exitcond.not, label %._crit_edge.thread, label %107, !llvm.loop !17
 
 ._crit_edge.loopexit:                             ; preds = %107
   %112 = trunc nuw nsw i64 %indvars.iv to i32
@@ -639,7 +639,7 @@ _unlink_free_nodes.exit:                          ; preds = %.preheader24.i, %._
   tail call void @free(ptr noundef %71) #16
   %134 = tail call ptr @hostlist_shift(ptr noundef nonnull %25) #16
   %.not92 = icmp eq ptr %134, null
-  br i1 %.not92, label %.outer._crit_edge, label %69, !llvm.loop !17
+  br i1 %.not92, label %.outer._crit_edge, label %69, !llvm.loop !16
 
 .outer._crit_edge:                                ; preds = %.outer, %129, %.preheader
   %.079.ph.lcssa = phi i32 [ 0, %.preheader ], [ %.079.ph137, %129 ], [ 2018, %.outer ]
@@ -721,12 +721,12 @@ _unlink_free_nodes.exit:                          ; preds = %.preheader24.i, %._
   %166 = load i16, ptr %151, align 2
   %167 = zext i16 %166 to i64
   %168 = icmp samesign ult i64 %indvars.iv.next40.i111, %167
-  br i1 %168, label %.lr.ph32.i109, label %.loopexit.i106, !llvm.loop !14
+  br i1 %168, label %.lr.ph32.i109, label %.loopexit.i106, !llvm.loop !13
 
 169:                                              ; preds = %155
   %indvars.iv.next.i104 = add nuw nsw i64 %indvars.iv.i102, 1
   %exitcond.not.i105 = icmp eq i64 %indvars.iv.next.i104, %wide.trip.count.i101
-  br i1 %exitcond.not.i105, label %.loopexit.i106, label %155, !llvm.loop !15
+  br i1 %exitcond.not.i105, label %.loopexit.i106, label %155, !llvm.loop !14
 
 .loopexit.i106:                                   ; preds = %169, %.lr.ph32.i109, %158, %.preheader.i98
   %170 = load i32, ptr %2, align 4
@@ -734,7 +734,7 @@ _unlink_free_nodes.exit:                          ; preds = %.preheader24.i, %._
   store i32 %171, ptr %2, align 4
   %172 = call ptr @next_node_bitmap(ptr noundef nonnull %147, ptr noundef nonnull %2) #16
   %.not.i107 = icmp eq ptr %172, null
-  br i1 %.not.i107, label %._crit_edge.i108, label %.preheader.i98, !llvm.loop !16
+  br i1 %.not.i107, label %._crit_edge.i108, label %.preheader.i98, !llvm.loop !15
 
 ._crit_edge.i108:                                 ; preds = %.loopexit.i106
   %173 = call i64 @time(ptr noundef null) #16
@@ -994,7 +994,7 @@ define dso_local range(i32 0, 23) i32 @load_all_part_state(i16 noundef zeroext %
   br i1 %39, label %40, label %48
 
 40:                                               ; preds = %37
-  %41 = load i8, ptr @ignore_state_errors, align 1, !range !19, !noundef !20
+  %41 = load i8, ptr @ignore_state_errors, align 1, !range !18, !noundef !19
   %42 = trunc nuw i8 %41 to i1
   br i1 %42, label %44, label %43
 
@@ -1144,7 +1144,7 @@ define dso_local range(i32 0, 23) i32 @load_all_part_state(i16 noundef zeroext %
   %.pre181 = phi ptr [ %106, %.thread144 ], [ %.pre181.pre, %97 ], [ %.pre181.pre183, %94 ]
   %.091142 = phi ptr [ %.091147, %.thread144 ], [ null, %97 ], [ null, %94 ]
   %.3 = phi i32 [ %105, %.thread144 ], [ %.185170, %97 ], [ %.185170, %94 ]
-  br i1 %.not, label %238, label %.thread148, !llvm.loop !21
+  br i1 %.not, label %238, label %.thread148, !llvm.loop !20
 
 .thread148:                                       ; preds = %..thread148_crit_edge, %.thread139
   %110 = phi ptr [ %.pre181, %.thread139 ], [ %.pre180, %..thread148_crit_edge ]
@@ -1398,7 +1398,7 @@ define dso_local range(i32 0, 23) i32 @load_all_part_state(i16 noundef zeroext %
 
 245:                                              ; preds = %.thread157, %24, %48, %35
   %.084 = phi i32 [ 0, %48 ], [ 0, %35 ], [ 0, %24 ], [ %.185170, %.thread157 ]
-  %246 = load i8, ptr @ignore_state_errors, align 1, !range !19, !noundef !20
+  %246 = load i8, ptr @ignore_state_errors, align 1, !range !18, !noundef !19
   %247 = trunc nuw i8 %246 to i1
   br i1 %247, label %249, label %248
 
@@ -1504,7 +1504,7 @@ define dso_local ptr @part_list_copy(ptr noundef %0) local_unnamed_addr #0 {
   tail call void @list_append(ptr noundef %3, ptr noundef nonnull %6) #16
   %7 = tail call ptr @list_next(ptr noundef %4) #16
   %.not11 = icmp eq ptr %7, null
-  br i1 %.not11, label %._crit_edge, label %.lr.ph, !llvm.loop !22
+  br i1 %.not11, label %._crit_edge, label %.lr.ph, !llvm.loop !21
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   tail call void @list_iterator_destroy(ptr noundef %4) #16
@@ -1591,7 +1591,7 @@ define dso_local void @get_part_list(ptr noundef %0, ptr noundef captures(none) 
 27:                                               ; preds = %17, %20
   %28 = call ptr @strtok_r(ptr noundef null, ptr noundef nonnull @.str.21, ptr noundef nonnull %5) #16
   %.not = icmp eq ptr %28, null
-  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !23
+  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !22
 
 .loopexit:                                        ; preds = %27, %8, %25
   %.pr = load ptr, ptr %1, align 8
@@ -1722,12 +1722,12 @@ define internal void @_list_delete_part(ptr noundef initializes((0, 4)) %0) #0 {
   %20 = load i16, ptr %5, align 2
   %21 = zext i16 %20 to i64
   %22 = icmp samesign ult i64 %indvars.iv.next36, %21
-  br i1 %22, label %.lr.ph28, label %.loopexit, !llvm.loop !24
+  br i1 %22, label %.lr.ph28, label %.loopexit, !llvm.loop !23
 
 23:                                               ; preds = %9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %9, !llvm.loop !25
+  br i1 %exitcond.not, label %.loopexit, label %9, !llvm.loop !24
 
 .loopexit:                                        ; preds = %23, %.lr.ph28, %.preheader, %12
   %24 = load i32, ptr %2, align 4
@@ -1735,7 +1735,7 @@ define internal void @_list_delete_part(ptr noundef initializes((0, 4)) %0) #0 {
   store i32 %25, ptr %2, align 4
   %26 = call ptr @next_node(ptr noundef nonnull %2) #16
   %.not = icmp eq ptr %26, null
-  br i1 %.not, label %._crit_edge, label %.preheader, !llvm.loop !26
+  br i1 %.not, label %._crit_edge, label %.preheader, !llvm.loop !25
 
 ._crit_edge:                                      ; preds = %.loopexit, %1
   call void @part_record_delete(ptr noundef nonnull %0) #16
@@ -1824,7 +1824,7 @@ _part_is_visible.exit:                            ; preds = %2
   %27 = getelementptr inbounds nuw ptr, ptr %26, i64 %indvars.iv.next
   %28 = load ptr, ptr %27, align 8
   %.not = icmp eq ptr %28, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !27
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !26
 
 29:                                               ; preds = %._crit_edge
   %30 = load i32, ptr %1, align 8
@@ -1880,7 +1880,7 @@ define dso_local range(i32 0, 2) i32 @part_not_on_list(ptr noundef readonly capt
   %17 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv.next
   %18 = load ptr, ptr %17, align 8
   %.not = icmp eq ptr %18, null
-  br i1 %.not, label %.loopexit, label %5, !llvm.loop !28
+  br i1 %.not, label %.loopexit, label %5, !llvm.loop !27
 
 .loopexit:                                        ; preds = %16, %2, %10, %11
   %.not15 = phi i32 [ 0, %10 ], [ 0, %11 ], [ 1, %2 ], [ 1, %16 ]
@@ -1966,7 +1966,7 @@ define internal noundef i32 @_pack_part(ptr noundef %0, ptr noundef captures(non
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %8 = load i8, ptr %7, align 4, !range !19, !noundef !20
+  %8 = load i8, ptr %7, align 4, !range !18, !noundef !19
   %9 = trunc nuw i8 %8 to i1
   br i1 %9, label %part_not_on_list.exit.thread, label %10
 
@@ -2010,7 +2010,7 @@ define internal noundef i32 @_pack_part(ptr noundef %0, ptr noundef captures(non
   %27 = getelementptr inbounds nuw ptr, ptr %12, i64 %indvars.iv.next.i
   %28 = load ptr, ptr %27, align 8
   %.not.i = icmp eq ptr %28, null
-  br i1 %.not.i, label %part_not_on_list.exit, label %15, !llvm.loop !28
+  br i1 %.not.i, label %part_not_on_list.exit, label %15, !llvm.loop !27
 
 part_not_on_list.exit.thread:                     ; preds = %21, %20, %6, %2
   %29 = load ptr, ptr %1, align 8
@@ -3690,7 +3690,7 @@ set_partition_billing_weights.exit.thread:        ; preds = %54, %60, %47
 516:                                              ; preds = %515, %.lr.ph
   %517 = call ptr @list_next(ptr noundef %508) #16
   %.not481 = icmp eq ptr %517, null
-  br i1 %.not481, label %._crit_edge, label %.lr.ph, !llvm.loop !29
+  br i1 %.not481, label %._crit_edge, label %.lr.ph, !llvm.loop !28
 
 ._crit_edge:                                      ; preds = %516, %506
   call void @list_iterator_reset(ptr noundef %508) #16
@@ -3721,7 +3721,7 @@ set_partition_billing_weights.exit.thread:        ; preds = %54, %60, %47
   store double %531, ptr %532, align 8
   %533 = call ptr @list_next(ptr noundef %523) #16
   %.not482 = icmp eq ptr %533, null
-  br i1 %.not482, label %._crit_edge555, label %.lr.ph554, !llvm.loop !30
+  br i1 %.not482, label %._crit_edge555, label %.lr.ph554, !llvm.loop !29
 
 ._crit_edge555:                                   ; preds = %.lr.ph554, %522
   call void @list_iterator_destroy(ptr noundef %523) #16
@@ -4479,7 +4479,7 @@ set_partition_billing_weights.exit.thread:        ; preds = %54, %60, %47
 .critedge:                                        ; preds = %889, %886
   %892 = load i32, ptr %881, align 4
   %.not522 = icmp eq i32 %892, 0
-  br i1 %.not522, label %882, label %894, !llvm.loop !31
+  br i1 %.not522, label %882, label %894, !llvm.loop !30
 
 .thread541:                                       ; preds = %882
   call void @slurm_xfree(ptr noundef nonnull %12) #16
@@ -4693,7 +4693,7 @@ define dso_local range(i32 0, 2) i32 @validate_group(ptr noundef %0, i32 noundef
 16:                                               ; preds = %17
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.critedge, label %17, !llvm.loop !32
+  br i1 %exitcond.not, label %.critedge, label %17, !llvm.loop !31
 
 17:                                               ; preds = %.lr.ph, %16
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %16 ]
@@ -4754,7 +4754,7 @@ define dso_local range(i32 0, 2) i32 @validate_group(ptr noundef %0, i32 noundef
 45:                                               ; preds = %.lr.ph54
   %46 = call ptr @strtok_r(ptr noundef null, ptr noundef nonnull @.str.21, ptr noundef nonnull %5) #16
   %.not43.not = icmp eq ptr %46, null
-  br i1 %.not43.not, label %.critedge47, label %.lr.ph54, !llvm.loop !33
+  br i1 %.not43.not, label %.critedge47, label %.lr.ph54, !llvm.loop !32
 
 47:                                               ; preds = %.lr.ph54
   call void @slurm_xfree(ptr noundef nonnull %4) #16
@@ -4947,7 +4947,7 @@ define internal noundef i32 @_update_part_uid_access_list(ptr noundef %0, ptr no
 17:                                               ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !34
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !33
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %17
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %17 ]
@@ -5133,7 +5133,7 @@ define internal range(i32 0, 2) i32 @_find_acct_in_list(ptr noundef readnone cap
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 72
   %8 = load ptr, ptr %7, align 8
   %.not = icmp eq ptr %8, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !35
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !34
 
 ._crit_edge:                                      ; preds = %.lr.ph, %4, %2
   %.06 = phi i32 [ 0, %2 ], [ 0, %4 ], [ 1, %.lr.ph ]
@@ -5448,31 +5448,30 @@ attributes #19 = { nounwind willreturn memory(none) }
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i32 7, !"frame-pointer", i32 2}
 !7 = !{i32 7, !"debug-info-assignment-tracking", i1 true}
-!8 = distinct !{!8, !9, !10, !11}
+!8 = distinct !{!8, !9, !10}
 !9 = !{!"llvm.loop.mustprogress"}
 !10 = !{!"llvm.loop.unroll.disable"}
-!11 = !{!"llvm.loop.estimated_trip_count"}
-!12 = distinct !{!12, !9, !10, !11}
-!13 = distinct !{!13, !9, !10, !11}
-!14 = distinct !{!14, !9, !10, !11}
-!15 = distinct !{!15, !9, !10, !11}
-!16 = distinct !{!16, !9, !10, !11}
-!17 = distinct !{!17, !9, !10, !11}
-!18 = distinct !{!18, !9, !10, !11}
-!19 = !{i8 0, i8 2}
-!20 = !{}
+!11 = distinct !{!11, !9, !10}
+!12 = distinct !{!12, !9, !10}
+!13 = distinct !{!13, !9, !10}
+!14 = distinct !{!14, !9, !10}
+!15 = distinct !{!15, !9, !10}
+!16 = distinct !{!16, !9, !10}
+!17 = distinct !{!17, !9, !10}
+!18 = !{i8 0, i8 2}
+!19 = !{}
+!20 = distinct !{!20, !9, !10}
 !21 = distinct !{!21, !9, !10}
-!22 = distinct !{!22, !9, !10, !11}
-!23 = distinct !{!23, !9, !10, !11}
-!24 = distinct !{!24, !9, !10, !11}
-!25 = distinct !{!25, !9, !10, !11}
-!26 = distinct !{!26, !9, !10, !11}
-!27 = distinct !{!27, !9, !10, !11}
-!28 = distinct !{!28, !9, !10, !11}
-!29 = distinct !{!29, !9, !10, !11}
-!30 = distinct !{!30, !9, !10, !11}
-!31 = distinct !{!31, !9, !10, !11}
-!32 = distinct !{!32, !9, !10, !11}
-!33 = distinct !{!33, !9, !10, !11}
-!34 = distinct !{!34, !9, !10, !11}
-!35 = distinct !{!35, !9, !10, !11}
+!22 = distinct !{!22, !9, !10}
+!23 = distinct !{!23, !9, !10}
+!24 = distinct !{!24, !9, !10}
+!25 = distinct !{!25, !9, !10}
+!26 = distinct !{!26, !9, !10}
+!27 = distinct !{!27, !9, !10}
+!28 = distinct !{!28, !9, !10}
+!29 = distinct !{!29, !9, !10}
+!30 = distinct !{!30, !9, !10}
+!31 = distinct !{!31, !9, !10}
+!32 = distinct !{!32, !9, !10}
+!33 = distinct !{!33, !9, !10}
+!34 = distinct !{!34, !9, !10}

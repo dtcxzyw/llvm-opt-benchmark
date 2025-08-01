@@ -155,11 +155,11 @@ define dso_local noundef range(i32 -22, 1) i32 @unregister_filesystem(ptr nounde
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 56
   %8 = load ptr, ptr %7, align 8
   %9 = icmp eq ptr %8, null
-  br i1 %9, label %.loopexit, label %10, !llvm.loop !12
+  br i1 %9, label %.loopexit, label %10, !llvm.loop !11
 
 10:                                               ; preds = %.preheader
   %11 = icmp eq ptr %8, %0
-  br i1 %11, label %.loopexit2.loopexit, label %.preheader, !llvm.loop !13
+  br i1 %11, label %.loopexit2.loopexit, label %.preheader, !llvm.loop !11
 
 .loopexit2.loopexit:                              ; preds = %10
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 56
@@ -195,7 +195,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @__x64_sys_sysfs(ptr nou
   %5 = load i64, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %7 = load i64, ptr %6, align 8
-  %8 = tail call fastcc i64 @__se_sys_sysfs(i64 noundef %3, i64 noundef %5, i64 noundef %7), !range !14
+  %8 = tail call fastcc i64 @__se_sys_sysfs(i64 noundef %3, i64 noundef %5, i64 noundef %7), !range !12
   ret i64 %8
 }
 
@@ -242,7 +242,7 @@ define internal fastcc range(i64 -2147483648, 2147483648) i64 @__se_sys_sysfs(i6
   %25 = add i32 %19, 1
   %26 = load ptr, ptr %24, align 8
   %27 = icmp eq ptr %26, null
-  br i1 %27, label %.loopexit, label %17, !llvm.loop !15
+  br i1 %27, label %.loopexit, label %17, !llvm.loop !13
 
 .loopexit:                                        ; preds = %23, %17, %12
   %28 = phi i32 [ -22, %12 ], [ %19, %17 ], [ -22, %23 ]
@@ -278,7 +278,7 @@ define internal fastcc range(i64 -2147483648, 2147483648) i64 @__se_sys_sysfs(i6
   %45 = add i32 %37, -1
   %46 = load ptr, ptr %44, align 8
   %47 = icmp eq ptr %46, null
-  br i1 %47, label %.loopexit7, label %35, !llvm.loop !16
+  br i1 %47, label %.loopexit7, label %35, !llvm.loop !14
 
 48:                                               ; preds = %39
   %49 = getelementptr inbounds nuw i8, ptr %36, i64 48
@@ -289,16 +289,16 @@ define internal fastcc range(i64 -2147483648, 2147483648) i64 @__se_sys_sysfs(i6
   %53 = add i64 %52, 4294967296
   %54 = ashr exact i64 %53, 32
   %55 = icmp ugt i64 %54, 2147483647
-  br i1 %55, label %56, label %57, !prof !17
+  br i1 %55, label %56, label %57, !prof !15
 
 .loopexit7:                                       ; preds = %43, %29
   tail call void @_raw_read_unlock(ptr noundef nonnull @file_systems_lock) #6
   br label %74
 
 56:                                               ; preds = %48
-  tail call void asm sideeffect "42: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 42b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 42) #6, !srcloc !18
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.4, i32 249, i32 2307, i64 12) #6, !srcloc !19
-  tail call void asm sideeffect "43: nop\0A\09.pushsection .discard.instr_end\0A\09.long 43b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 43) #6, !srcloc !20
+  tail call void asm sideeffect "42: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 42b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 42) #6, !srcloc !16
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.4, i32 249, i32 2307, i64 12) #6, !srcloc !17
+  tail call void asm sideeffect "43: nop\0A\09.pushsection .discard.instr_end\0A\09.long 43b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 43) #6, !srcloc !18
   br label %61
 
 57:                                               ; preds = %48
@@ -326,7 +326,7 @@ define internal fastcc range(i64 -2147483648, 2147483648) i64 @__se_sys_sysfs(i6
   %70 = add i32 %68, 1
   %71 = load ptr, ptr %69, align 8
   %72 = icmp eq ptr %71, null
-  br i1 %72, label %.loopexit8, label %.preheader, !llvm.loop !21
+  br i1 %72, label %.loopexit8, label %.preheader, !llvm.loop !19
 
 .loopexit8:                                       ; preds = %.preheader, %64
   %73 = phi i32 [ 0, %64 ], [ %70, %.preheader ]
@@ -350,7 +350,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @__ia32_sys_sysfs(ptr no
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %9 = load i64, ptr %8, align 8
   %10 = and i64 %9, 4294967295
-  %11 = tail call fastcc i64 @__se_sys_sysfs(i64 noundef %4, i64 noundef %7, i64 noundef %10), !range !14
+  %11 = tail call fastcc i64 @__se_sys_sysfs(i64 noundef %4, i64 noundef %7, i64 noundef %10), !range !12
   ret i64 %11
 }
 
@@ -397,7 +397,7 @@ define dso_local i32 @list_bdev_fs_names(ptr noundef writeonly captures(none) %0
   %28 = getelementptr inbounds nuw i8, ptr %5, i64 56
   %29 = load ptr, ptr %28, align 8
   %30 = icmp eq ptr %29, null
-  br i1 %30, label %.loopexit, label %.preheader, !llvm.loop !22
+  br i1 %30, label %.loopexit, label %.preheader, !llvm.loop !20
 
 .loopexit:                                        ; preds = %24, %18, %2
   %31 = phi i32 [ %7, %18 ], [ 0, %2 ], [ %26, %24 ]
@@ -468,7 +468,7 @@ define dso_local noundef ptr @get_fs_type(ptr noundef %0) #0 align 16 {
   %25 = getelementptr inbounds nuw i8, ptr %.pr, i64 56
   %26 = load ptr, ptr %25, align 8
   %27 = icmp eq ptr %26, null
-  br i1 %27, label %.thread, label %16, !llvm.loop !23
+  br i1 %27, label %.thread, label %16, !llvm.loop !8
 
 28:                                               ; preds = %20
   %29 = getelementptr inbounds nuw i8, ptr %.pr, i64 48
@@ -509,7 +509,7 @@ define dso_local noundef ptr @get_fs_type(ptr noundef %0) #0 align 16 {
   %48 = getelementptr inbounds nuw i8, ptr %.pr14, i64 56
   %49 = load ptr, ptr %48, align 8
   %50 = icmp eq ptr %49, null
-  br i1 %50, label %.thread17, label %39, !llvm.loop !24
+  br i1 %50, label %.thread17, label %39, !llvm.loop !8
 
 51:                                               ; preds = %43
   %52 = getelementptr inbounds nuw i8, ptr %.pr14, i64 48
@@ -593,7 +593,7 @@ define internal noundef i32 @filesystems_proc_show(ptr noundef %0, ptr readnone 
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 56
   %13 = load ptr, ptr %12, align 8
   %14 = icmp eq ptr %13, null
-  br i1 %14, label %.loopexit, label %.preheader, !llvm.loop !25
+  br i1 %14, label %.loopexit, label %.preheader, !llvm.loop !21
 
 .loopexit:                                        ; preds = %.preheader, %2
   tail call void @_raw_read_unlock(ptr noundef nonnull @file_systems_lock) #6
@@ -622,21 +622,17 @@ attributes #7 = { cold nounwind }
 !5 = !{!"branch_weights", i32 2000, i32 1}
 !6 = !{i64 2155653849, i64 2155653658, i64 2155653710, i64 2155653756, i64 2155653784}
 !7 = !{i64 2155653923, i64 2155653952, i64 2155653998, i64 2155654056, i64 2155654110, i64 2155654164, i64 2155654219, i64 2155654250}
-!8 = distinct !{!8, !9, !10, !11}
+!8 = distinct !{!8, !9, !10}
 !9 = !{!"llvm.loop.mustprogress"}
 !10 = !{!"llvm.loop.unroll.disable"}
-!11 = !{!"llvm.loop.estimated_trip_count"}
-!12 = distinct !{!12, !9, !10}
-!13 = distinct !{!13, !9, !10, !11}
-!14 = !{i64 -2147483648, i64 2147483648}
-!15 = distinct !{!15, !9, !10, !11}
-!16 = distinct !{!16, !9, !10, !11}
-!17 = !{!"branch_weights", i32 1, i32 2000}
-!18 = !{i64 2149729221, i64 2149729035, i64 2149729087, i64 2149729133, i64 2149729161}
-!19 = !{i64 2149729292, i64 2149729321, i64 2149729367, i64 2149729425, i64 2149729479, i64 2149729533, i64 2149729588, i64 2149729619, i64 2149729927, i64 2149729933, i64 2149729980, i64 2149730003, i64 2149730029}
-!20 = !{i64 2149730484, i64 2149730300, i64 2149730350, i64 2149730396, i64 2149730424}
-!21 = distinct !{!21, !9, !10, !11}
-!22 = distinct !{!22, !9, !10, !11}
-!23 = distinct !{!23, !9, !10, !11}
-!24 = distinct !{!24, !9, !10, !11}
-!25 = distinct !{!25, !9, !10, !11}
+!11 = distinct !{!11, !9, !10}
+!12 = !{i64 -2147483648, i64 2147483648}
+!13 = distinct !{!13, !9, !10}
+!14 = distinct !{!14, !9, !10}
+!15 = !{!"branch_weights", i32 1, i32 2000}
+!16 = !{i64 2149729221, i64 2149729035, i64 2149729087, i64 2149729133, i64 2149729161}
+!17 = !{i64 2149729292, i64 2149729321, i64 2149729367, i64 2149729425, i64 2149729479, i64 2149729533, i64 2149729588, i64 2149729619, i64 2149729927, i64 2149729933, i64 2149729980, i64 2149730003, i64 2149730029}
+!18 = !{i64 2149730484, i64 2149730300, i64 2149730350, i64 2149730396, i64 2149730424}
+!19 = distinct !{!19, !9, !10}
+!20 = distinct !{!20, !9, !10}
+!21 = distinct !{!21, !9, !10}

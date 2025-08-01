@@ -261,7 +261,7 @@ _ZNK4llvh19SmallPtrSetImplBase13FindBucketForEPKv.exit: ; preds = %if.end.i, %if
 for.inc:                                          ; preds = %for.body, %_ZNK4llvh19SmallPtrSetImplBase13FindBucketForEPKv.exit
   %incdec.ptr = getelementptr inbounds nuw i8, ptr %BucketPtr.017, i64 8
   %cmp.not = icmp eq ptr %incdec.ptr, %cond.i
-  br i1 %cmp.not, label %for.end, label %for.body, !llvm.loop !7
+  br i1 %cmp.not, label %for.end, label %for.body, !llvm.loop !6
 
 for.end:                                          ; preds = %for.inc, %_ZN4llvh11safe_mallocEm.exit
   br i1 %cmp.i.i, label %if.end14, label %if.then13
@@ -830,7 +830,7 @@ for.body.i:                                       ; preds = %if.end49, %for.body
   %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %__first1.addr.06.i, i64 8
   %incdec.ptr1.i = getelementptr inbounds nuw i8, ptr %__first2.addr.07.i, i64 8
   %cmp.not.i = icmp eq ptr %incdec.ptr.i, %add.ptr56
-  br i1 %cmp.not.i, label %_ZSt11swap_rangesIPPKvS2_ET0_T_S4_S3_.exit.loopexit, label %for.body.i, !llvm.loop !8
+  br i1 %cmp.not.i, label %_ZSt11swap_rangesIPPKvS2_ET0_T_S4_S3_.exit.loopexit, label %for.body.i, !llvm.loop !7
 
 _ZSt11swap_rangesIPPKvS2_ET0_T_S4_S3_.exit.loopexit: ; preds = %for.body.i
   %.pre = load i32, ptr %NumNonEmpty50, align 4
@@ -928,8 +928,7 @@ attributes #15 = { nounwind allocsize(1) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5, !6}
+!4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{!"llvm.loop.estimated_trip_count"}
-!7 = distinct !{!7, !5, !6}
-!8 = distinct !{!8, !5, !6}
+!6 = distinct !{!6, !5}
+!7 = distinct !{!7, !5}

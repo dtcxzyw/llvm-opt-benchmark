@@ -87,7 +87,7 @@ define hidden noundef zeroext i1 @SDL_ChannelMapIsDefault(ptr noundef readonly c
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp ne i64 %indvars.iv.next, %wide.trip.count
   %or.cond19.not = select i1 %.not11, i1 %exitcond.not, i1 false
-  br i1 %or.cond19.not, label %.lr.ph, label %.thread, !llvm.loop !6
+  br i1 %or.cond19.not, label %.lr.ph, label %.thread, !llvm.loop !5
 
 .thread:                                          ; preds = %.lr.ph, %2
   %.1 = phi i1 [ true, %2 ], [ %.not11, %.lr.ph ]
@@ -225,7 +225,7 @@ define hidden void @ConvertAudio(i32 noundef %0, ptr noundef %1, i32 noundef %2,
   store float %54, ptr %52, align 4
   %indvars.iv.next176 = add nuw nsw i64 %indvars.iv175, 1
   %exitcond179.not = icmp eq i64 %indvars.iv.next176, %wide.trip.count178
-  br i1 %exitcond179.not, label %.loopexit, label %.lr.ph172, !llvm.loop !7
+  br i1 %exitcond179.not, label %.loopexit, label %.lr.ph172, !llvm.loop !6
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
@@ -236,7 +236,7 @@ define hidden void @ConvertAudio(i32 noundef %0, ptr noundef %1, i32 noundef %2,
   store float %57, ptr %58, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !8
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !7
 
 .loopexit:                                        ; preds = %.lr.ph, %.lr.ph172, %.preheader168, %.preheader, %45
   %.3 = phi ptr [ %.2, %45 ], [ %48, %.preheader ], [ %48, %.preheader168 ], [ %48, %.lr.ph172 ], [ %48, %.lr.ph ]
@@ -295,7 +295,7 @@ define internal fastcc void @SwizzleAudio(i32 noundef range(i32 1, 0) %0, ptr no
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   %or.cond = select i1 %10, i1 true, i1 %exitcond.not
-  br i1 %or.cond, label %._crit_edge, label %.lr.ph, !llvm.loop !9
+  br i1 %or.cond, label %._crit_edge, label %.lr.ph, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %.lr.ph, %6
   %.lcssa = phi i1 [ false, %6 ], [ %10, %.lr.ph ]
@@ -342,14 +342,14 @@ define internal fastcc void @SwizzleAudio(i32 noundef range(i32 1, 0) %0, ptr no
   store i8 %20, ptr %21, align 1
   %indvars.iv.next581 = add nuw nsw i64 %indvars.iv580, 1
   %exitcond584.not = icmp eq i64 %indvars.iv.next581, %wide.trip.count583
-  br i1 %exitcond584.not, label %._crit_edge479.us, label %15, !llvm.loop !10
+  br i1 %exitcond584.not, label %._crit_edge479.us, label %15, !llvm.loop !9
 
 ._crit_edge479.us:                                ; preds = %15
   %22 = add nuw nsw i32 %.0323480.us, 1
   %23 = getelementptr inbounds nuw i8, ptr %.1302481.us, i64 %14
   %24 = getelementptr inbounds nuw i8, ptr %.1482.us, i64 %14
   %exitcond585.not = icmp eq i32 %22, %0
-  br i1 %exitcond585.not, label %.loopexit390, label %.preheader391.us, !llvm.loop !11
+  br i1 %exitcond585.not, label %.loopexit390, label %.preheader391.us, !llvm.loop !10
 
 25:                                               ; preds = %12
   %26 = tail call i32 @SDL_GetSilenceValueForFormat_REAL(i32 noundef %5) #11
@@ -390,14 +390,14 @@ define internal fastcc void @SwizzleAudio(i32 noundef range(i32 1, 0) %0, ptr no
   store i8 %39, ptr %40, align 1
   %indvars.iv.next587 = add nuw nsw i64 %indvars.iv586, 1
   %exitcond590.not = icmp eq i64 %indvars.iv.next587, %wide.trip.count589
-  br i1 %exitcond590.not, label %._crit_edge485.us, label %30, !llvm.loop !13
+  br i1 %exitcond590.not, label %._crit_edge485.us, label %30, !llvm.loop !12
 
 ._crit_edge485.us:                                ; preds = %38
   %41 = add nuw nsw i32 %.0307486.us, 1
   %42 = getelementptr inbounds nuw i8, ptr %.0301487.us, i64 %29
   %43 = getelementptr inbounds nuw i8, ptr %.0298488.us, i64 %29
   %exitcond591.not = icmp eq i32 %41, %0
-  br i1 %exitcond591.not, label %.loopexit390, label %.preheader389.us, !llvm.loop !14
+  br i1 %exitcond591.not, label %.loopexit390, label %.preheader389.us, !llvm.loop !13
 
 44:                                               ; preds = %11
   %45 = sext i32 %3 to i64
@@ -465,14 +465,14 @@ define internal fastcc void @SwizzleAudio(i32 noundef range(i32 1, 0) %0, ptr no
   store i8 %68, ptr %69, align 1
   %indvars.iv.next602 = add nuw nsw i64 %indvars.iv601, 1
   %exitcond605.not = icmp eq i64 %indvars.iv.next602, %59
-  br i1 %exitcond605.not, label %.lr.ph500.preheader, label %.lr.ph498, !llvm.loop !15
+  br i1 %exitcond605.not, label %.lr.ph500.preheader, label %.lr.ph498, !llvm.loop !14
 
 ._crit_edge501:                                   ; preds = %.preheader384, %.lr.ph500.preheader
   %70 = add nuw nsw i32 %.0325502, 1
   %71 = getelementptr inbounds i8, ptr %.2303503, i64 %45
   %72 = getelementptr i8, ptr %.2504, i64 %45
   %exitcond609.not = icmp eq i32 %70, %0
-  br i1 %exitcond609.not, label %.loopexit, label %.preheader384, !llvm.loop !16
+  br i1 %exitcond609.not, label %.loopexit, label %.preheader384, !llvm.loop !15
 
 .preheader386:                                    ; preds = %.preheader386.lr.ph, %._crit_edge493
   %.3496 = phi ptr [ %1, %.preheader386.lr.ph ], [ %81, %._crit_edge493 ]
@@ -495,14 +495,14 @@ define internal fastcc void @SwizzleAudio(i32 noundef range(i32 1, 0) %0, ptr no
   store i8 %77, ptr %78, align 1
   %indvars.iv.next593 = add nuw nsw i64 %indvars.iv592, 1
   %exitcond596.not = icmp eq i64 %indvars.iv.next593, %54
-  br i1 %exitcond596.not, label %.lr.ph492.preheader, label %.lr.ph490, !llvm.loop !17
+  br i1 %exitcond596.not, label %.lr.ph492.preheader, label %.lr.ph490, !llvm.loop !16
 
 ._crit_edge493:                                   ; preds = %.preheader386, %.lr.ph492.preheader
   %79 = add nuw nsw i32 %.0342494, 1
   %80 = getelementptr inbounds i8, ptr %.3304495, i64 %45
   %81 = getelementptr i8, ptr %.3496, i64 %45
   %exitcond600.not = icmp eq i32 %79, %0
-  br i1 %exitcond600.not, label %.loopexit, label %.preheader386, !llvm.loop !18
+  br i1 %exitcond600.not, label %.loopexit, label %.preheader386, !llvm.loop !17
 
 .loopexit:                                        ; preds = %._crit_edge493, %._crit_edge501, %.preheader387, %55
   br i1 %47, label %.loopexit390, label %.loopexit390.sink.split
@@ -543,14 +543,14 @@ define internal fastcc void @SwizzleAudio(i32 noundef range(i32 1, 0) %0, ptr no
   store i16 %91, ptr %92, align 2
   %indvars.iv.next551 = add nuw nsw i64 %indvars.iv550, 1
   %exitcond554.not = icmp eq i64 %indvars.iv.next551, %wide.trip.count553
-  br i1 %exitcond554.not, label %._crit_edge451.us, label %86, !llvm.loop !19
+  br i1 %exitcond554.not, label %._crit_edge451.us, label %86, !llvm.loop !18
 
 ._crit_edge451.us:                                ; preds = %86
   %93 = add nuw nsw i32 %.0327454.us, 1
   %94 = getelementptr inbounds nuw i16, ptr %.1333453.us, i64 %85
   %95 = getelementptr inbounds nuw i16, ptr %.1337452.us, i64 %85
   %exitcond555.not = icmp eq i32 %93, %0
-  br i1 %exitcond555.not, label %.loopexit390, label %.preheader403.us, !llvm.loop !20
+  br i1 %exitcond555.not, label %.loopexit390, label %.preheader403.us, !llvm.loop !19
 
 96:                                               ; preds = %83
   %97 = tail call i32 @SDL_GetSilenceValueForFormat_REAL(i32 noundef %5) #11
@@ -591,14 +591,14 @@ define internal fastcc void @SwizzleAudio(i32 noundef range(i32 1, 0) %0, ptr no
   store i16 %110, ptr %111, align 2
   %indvars.iv.next557 = add nuw nsw i64 %indvars.iv556, 1
   %exitcond560.not = icmp eq i64 %indvars.iv.next557, %wide.trip.count559
-  br i1 %exitcond560.not, label %._crit_edge457.us, label %101, !llvm.loop !21
+  br i1 %exitcond560.not, label %._crit_edge457.us, label %101, !llvm.loop !20
 
 ._crit_edge457.us:                                ; preds = %109
   %112 = add nuw nsw i32 %.0330460.us, 1
   %113 = getelementptr inbounds nuw i16, ptr %.0332459.us, i64 %100
   %114 = getelementptr inbounds nuw i16, ptr %.0336458.us, i64 %100
   %exitcond561.not = icmp eq i32 %112, %0
-  br i1 %exitcond561.not, label %.loopexit390, label %.preheader401.us, !llvm.loop !22
+  br i1 %exitcond561.not, label %.loopexit390, label %.preheader401.us, !llvm.loop !21
 
 115:                                              ; preds = %82
   %116 = sext i32 %3 to i64
@@ -668,14 +668,14 @@ define internal fastcc void @SwizzleAudio(i32 noundef range(i32 1, 0) %0, ptr no
   store i16 %141, ptr %142, align 2
   %indvars.iv.next572 = add nuw nsw i64 %indvars.iv571, 1
   %exitcond575.not = icmp eq i64 %indvars.iv.next572, %131
-  br i1 %exitcond575.not, label %.lr.ph472.preheader, label %.lr.ph470, !llvm.loop !23
+  br i1 %exitcond575.not, label %.lr.ph472.preheader, label %.lr.ph470, !llvm.loop !22
 
 ._crit_edge473:                                   ; preds = %.preheader395, %.lr.ph472.preheader
   %143 = add nuw nsw i32 %.0322476, 1
   %144 = getelementptr inbounds i16, ptr %.2334475, i64 %116
   %145 = getelementptr i16, ptr %.2338474, i64 %116
   %exitcond579.not = icmp eq i32 %143, %0
-  br i1 %exitcond579.not, label %.loopexit396, label %.preheader395, !llvm.loop !24
+  br i1 %exitcond579.not, label %.loopexit396, label %.preheader395, !llvm.loop !23
 
 .preheader398:                                    ; preds = %.preheader398.lr.ph, %._crit_edge465
   %.0318468 = phi i32 [ 0, %.preheader398.lr.ph ], [ %152, %._crit_edge465 ]
@@ -698,14 +698,14 @@ define internal fastcc void @SwizzleAudio(i32 noundef range(i32 1, 0) %0, ptr no
   store i16 %150, ptr %151, align 2
   %indvars.iv.next563 = add nuw nsw i64 %indvars.iv562, 1
   %exitcond566.not = icmp eq i64 %indvars.iv.next563, %125
-  br i1 %exitcond566.not, label %.lr.ph464.preheader, label %.lr.ph462, !llvm.loop !25
+  br i1 %exitcond566.not, label %.lr.ph464.preheader, label %.lr.ph462, !llvm.loop !24
 
 ._crit_edge465:                                   ; preds = %.preheader398, %.lr.ph464.preheader
   %152 = add nuw nsw i32 %.0318468, 1
   %153 = getelementptr inbounds i16, ptr %.3335467, i64 %116
   %154 = getelementptr i16, ptr %.3339466, i64 %116
   %exitcond570.not = icmp eq i32 %152, %0
-  br i1 %exitcond570.not, label %.loopexit396, label %.preheader398, !llvm.loop !26
+  br i1 %exitcond570.not, label %.loopexit396, label %.preheader398, !llvm.loop !25
 
 .loopexit396:                                     ; preds = %._crit_edge465, %._crit_edge473, %.preheader399, %127
   br i1 %118, label %.loopexit390, label %.loopexit390.sink.split
@@ -746,14 +746,14 @@ define internal fastcc void @SwizzleAudio(i32 noundef range(i32 1, 0) %0, ptr no
   store i32 %164, ptr %165, align 4
   %indvars.iv.next521 = add nuw nsw i64 %indvars.iv520, 1
   %exitcond524.not = icmp eq i64 %indvars.iv.next521, %wide.trip.count523
-  br i1 %exitcond524.not, label %._crit_edge423.us, label %159, !llvm.loop !27
+  br i1 %exitcond524.not, label %._crit_edge423.us, label %159, !llvm.loop !26
 
 ._crit_edge423.us:                                ; preds = %159
   %166 = add nuw nsw i32 %.0300426.us, 1
   %167 = getelementptr inbounds nuw i32, ptr %.1309425.us, i64 %158
   %168 = getelementptr inbounds nuw i32, ptr %.1313424.us, i64 %158
   %exitcond525.not = icmp eq i32 %166, %0
-  br i1 %exitcond525.not, label %.loopexit390, label %.preheader415.us, !llvm.loop !28
+  br i1 %exitcond525.not, label %.loopexit390, label %.preheader415.us, !llvm.loop !27
 
 169:                                              ; preds = %156
   %170 = tail call i32 @SDL_GetSilenceValueForFormat_REAL(i32 noundef %5) #11
@@ -793,14 +793,14 @@ define internal fastcc void @SwizzleAudio(i32 noundef range(i32 1, 0) %0, ptr no
   store i32 %182, ptr %183, align 4
   %indvars.iv.next527 = add nuw nsw i64 %indvars.iv526, 1
   %exitcond530.not = icmp eq i64 %indvars.iv.next527, %wide.trip.count529
-  br i1 %exitcond530.not, label %._crit_edge429.us, label %173, !llvm.loop !29
+  br i1 %exitcond530.not, label %._crit_edge429.us, label %173, !llvm.loop !28
 
 ._crit_edge429.us:                                ; preds = %181
   %184 = add nuw nsw i32 %.0306432.us, 1
   %185 = getelementptr inbounds nuw i32, ptr %.0308431.us, i64 %172
   %186 = getelementptr inbounds nuw i32, ptr %.0312430.us, i64 %172
   %exitcond531.not = icmp eq i32 %184, %0
-  br i1 %exitcond531.not, label %.loopexit390, label %.preheader413.us, !llvm.loop !30
+  br i1 %exitcond531.not, label %.loopexit390, label %.preheader413.us, !llvm.loop !29
 
 187:                                              ; preds = %155
   %188 = sext i32 %3 to i64
@@ -869,14 +869,14 @@ define internal fastcc void @SwizzleAudio(i32 noundef range(i32 1, 0) %0, ptr no
   store i32 %212, ptr %213, align 4
   %indvars.iv.next542 = add nuw nsw i64 %indvars.iv541, 1
   %exitcond545.not = icmp eq i64 %indvars.iv.next542, %202
-  br i1 %exitcond545.not, label %.lr.ph444.preheader, label %.lr.ph442, !llvm.loop !31
+  br i1 %exitcond545.not, label %.lr.ph444.preheader, label %.lr.ph442, !llvm.loop !30
 
 ._crit_edge445:                                   ; preds = %.preheader407, %.lr.ph444.preheader
   %214 = add nuw nsw i32 %.0296448, 1
   %215 = getelementptr inbounds i32, ptr %.2310447, i64 %188
   %216 = getelementptr i32, ptr %.2314446, i64 %188
   %exitcond549.not = icmp eq i32 %214, %0
-  br i1 %exitcond549.not, label %.loopexit408, label %.preheader407, !llvm.loop !32
+  br i1 %exitcond549.not, label %.loopexit408, label %.preheader407, !llvm.loop !31
 
 .preheader410:                                    ; preds = %.preheader410.lr.ph, %._crit_edge437
   %.0292440 = phi i32 [ 0, %.preheader410.lr.ph ], [ %223, %._crit_edge437 ]
@@ -899,14 +899,14 @@ define internal fastcc void @SwizzleAudio(i32 noundef range(i32 1, 0) %0, ptr no
   store i32 %221, ptr %222, align 4
   %indvars.iv.next533 = add nuw nsw i64 %indvars.iv532, 1
   %exitcond536.not = icmp eq i64 %indvars.iv.next533, %197
-  br i1 %exitcond536.not, label %.lr.ph436.preheader, label %.lr.ph434, !llvm.loop !33
+  br i1 %exitcond536.not, label %.lr.ph436.preheader, label %.lr.ph434, !llvm.loop !32
 
 ._crit_edge437:                                   ; preds = %.preheader410, %.lr.ph436.preheader
   %223 = add nuw nsw i32 %.0292440, 1
   %224 = getelementptr inbounds i32, ptr %.3311439, i64 %188
   %225 = getelementptr i32, ptr %.3315438, i64 %188
   %exitcond540.not = icmp eq i32 %223, %0
-  br i1 %exitcond540.not, label %.loopexit408, label %.preheader410, !llvm.loop !34
+  br i1 %exitcond540.not, label %.loopexit408, label %.preheader410, !llvm.loop !33
 
 .loopexit408:                                     ; preds = %._crit_edge437, %._crit_edge445, %.preheader411, %199
   br i1 %190, label %.loopexit390, label %.loopexit390.sink.split
@@ -946,7 +946,7 @@ define internal void @SDL_ConvertStereoToMono(ptr noundef writeonly captures(non
   %10 = getelementptr inbounds nuw i8, ptr %.0810, i64 8
   %11 = getelementptr inbounds nuw i8, ptr %.0711, i64 4
   %.not = icmp eq i32 %9, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !35
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !34
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   ret void
@@ -978,7 +978,7 @@ define internal void @SDL_ConvertMonoToStereo(ptr noundef writeonly captures(non
   %13 = getelementptr inbounds i8, ptr %.01416, i64 -4
   %14 = getelementptr inbounds i8, ptr %.018, i64 -8
   %.not = icmp eq i32 %12, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !36
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !35
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   ret void
@@ -1155,7 +1155,7 @@ SDL_IsSupportedAudioFormat.exit43:                ; preds = %24
   %45 = getelementptr inbounds nuw i8, ptr %43, i64 8
   %46 = load ptr, ptr %45, align 8
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 148
-  %48 = load i8, ptr %47, align 4, !range !37, !noundef !38
+  %48 = load i8, ptr %47, align 4, !range !36, !noundef !37
   %49 = trunc nuw i8 %48 to i1
   br i1 %49, label %.thread, label %50
 
@@ -1229,7 +1229,7 @@ define hidden void @SDL_DestroyAudioStream_REAL(ptr noundef %0) local_unnamed_ad
   tail call void @SDL_DestroyProperties_REAL(i32 noundef %4) #11
   tail call void @OnAudioStreamDestroy(ptr noundef nonnull %0) #11
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 184
-  %6 = load i8, ptr %5, align 8, !range !37, !noundef !38
+  %6 = load i8, ptr %5, align 8, !range !36, !noundef !37
   %7 = trunc nuw i8 %6 to i1
   br i1 %7, label %8, label %13
 
@@ -1522,7 +1522,7 @@ SDL_ChannelMapIsBogus.exit:                       ; preds = %.critedge.i
 32:                                               ; preds = %.lr.ph.i
   %indvars.iv.next.i42 = add nuw nsw i64 %indvars.iv.i41, 1
   %exitcond.not.i43 = icmp eq i64 %indvars.iv.next.i42, %wide.trip.count.i
-  br i1 %exitcond.not.i43, label %.thread, label %.lr.ph.i, !llvm.loop !6
+  br i1 %exitcond.not.i43, label %.thread, label %.lr.ph.i, !llvm.loop !5
 
 .lr.ph.i:                                         ; preds = %27, %32
   %indvars.iv.i41 = phi i64 [ %indvars.iv.next.i42, %32 ], [ 0, %27 ]
@@ -2023,7 +2023,7 @@ CheckAudioStreamIsFullySetup.exit.thread._crit_edge: ; preds = %CheckAudioStream
 66:                                               ; preds = %.lr.ph.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !39
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !38
 
 .lr.ph.i:                                         ; preds = %66, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %66 ]
@@ -2076,12 +2076,12 @@ CheckAudioStreamIsFullySetup.exit.thread._crit_edge: ; preds = %CheckAudioStream
   store i8 %81, ptr %.118.us.i.i, align 1
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %._crit_edge.us.i.i, label %74, !llvm.loop !40
+  br i1 %exitcond.not.i.i, label %._crit_edge.us.i.i, label %74, !llvm.loop !39
 
 ._crit_edge.us.i.i:                               ; preds = %80
   %indvars.iv.next27.i.i = add nuw nsw i64 %indvars.iv26.i.i, 1
   %exitcond30.not.i.i = icmp eq i64 %indvars.iv.next27.i.i, %wide.trip.count29.i.i
-  br i1 %exitcond30.not.i.i, label %InterleaveAudioChannels.exit, label %.preheader.us.i.i, !llvm.loop !41
+  br i1 %exitcond30.not.i.i, label %InterleaveAudioChannels.exit, label %.preheader.us.i.i, !llvm.loop !40
 
 83:                                               ; preds = %.thread122.i
   %84 = icmp sgt i32 %.pre, 0
@@ -2117,12 +2117,12 @@ CheckAudioStreamIsFullySetup.exit.thread._crit_edge: ; preds = %CheckAudioStream
   store i16 %93, ptr %.118.us.i64.i, align 2
   %indvars.iv.next.i66.i = add nuw nsw i64 %indvars.iv.i63.i, 1
   %exitcond.not.i67.i = icmp eq i64 %indvars.iv.next.i66.i, %wide.trip.count.i59.i
-  br i1 %exitcond.not.i67.i, label %._crit_edge.us.i68.i, label %86, !llvm.loop !42
+  br i1 %exitcond.not.i67.i, label %._crit_edge.us.i68.i, label %86, !llvm.loop !41
 
 ._crit_edge.us.i68.i:                             ; preds = %92
   %indvars.iv.next27.i69.i = add nuw nsw i64 %indvars.iv26.i61.i, 1
   %exitcond30.not.i70.i = icmp eq i64 %indvars.iv.next27.i69.i, %wide.trip.count29.i58.i
-  br i1 %exitcond30.not.i70.i, label %InterleaveAudioChannels.exit, label %.preheader.us.i60.i, !llvm.loop !43
+  br i1 %exitcond30.not.i70.i, label %InterleaveAudioChannels.exit, label %.preheader.us.i60.i, !llvm.loop !42
 
 95:                                               ; preds = %.thread122.i
   %96 = icmp sgt i32 %.pre, 0
@@ -2157,12 +2157,12 @@ CheckAudioStreamIsFullySetup.exit.thread._crit_edge: ; preds = %CheckAudioStream
   store i32 %104, ptr %.118.us.i78.i, align 4
   %indvars.iv.next.i80.i = add nuw nsw i64 %indvars.iv.i77.i, 1
   %exitcond.not.i81.i = icmp eq i64 %indvars.iv.next.i80.i, %wide.trip.count.i73.i
-  br i1 %exitcond.not.i81.i, label %._crit_edge.us.i82.i, label %97, !llvm.loop !44
+  br i1 %exitcond.not.i81.i, label %._crit_edge.us.i82.i, label %97, !llvm.loop !43
 
 ._crit_edge.us.i82.i:                             ; preds = %103
   %indvars.iv.next27.i83.i = add nuw nsw i64 %indvars.iv26.i75.i, 1
   %exitcond30.not.i84.i = icmp eq i64 %indvars.iv.next27.i83.i, %wide.trip.count29.i72.i
-  br i1 %exitcond30.not.i84.i, label %InterleaveAudioChannels.exit, label %.preheader.us.i74.i, !llvm.loop !45
+  br i1 %exitcond30.not.i84.i, label %InterleaveAudioChannels.exit, label %.preheader.us.i74.i, !llvm.loop !44
 
 106:                                              ; preds = %.thread122.i
   %.pre66 = mul i32 %49, %3
@@ -2201,12 +2201,12 @@ CheckAudioStreamIsFullySetup.exit.thread._crit_edge: ; preds = %CheckAudioStream
   store i8 %112, ptr %.113.us.i.i, align 1
   %indvars.iv.next.i89.i = add nuw nsw i64 %indvars.iv.i88.i, 1
   %exitcond.not.i90.i = icmp eq i64 %indvars.iv.next.i89.i, %wide.trip.count.i86.i
-  br i1 %exitcond.not.i90.i, label %._crit_edge.us.i91.i, label %108, !llvm.loop !46
+  br i1 %exitcond.not.i90.i, label %._crit_edge.us.i91.i, label %108, !llvm.loop !45
 
 ._crit_edge.us.i91.i:                             ; preds = %108
   %indvars.iv.next22.i.i = add nuw nsw i64 %indvars.iv21.i.i, 1
   %exitcond25.not.i.i = icmp eq i64 %indvars.iv.next22.i.i, %wide.trip.count24.i.i
-  br i1 %exitcond25.not.i.i, label %InterleaveAudioChannels.exit, label %.preheader.us.i87.i, !llvm.loop !47
+  br i1 %exitcond25.not.i.i, label %InterleaveAudioChannels.exit, label %.preheader.us.i87.i, !llvm.loop !46
 
 114:                                              ; preds = %._crit_edge.i
   br i1 %65, label %.preheader.us.preheader.i92.i, label %InterleaveAudioChannels.exit
@@ -2232,12 +2232,12 @@ CheckAudioStreamIsFullySetup.exit.thread._crit_edge: ; preds = %CheckAudioStream
   store i16 %119, ptr %.113.us.i99.i, align 2
   %indvars.iv.next.i100.i = add nuw nsw i64 %indvars.iv.i98.i, 1
   %exitcond.not.i101.i = icmp eq i64 %indvars.iv.next.i100.i, %wide.trip.count.i94.i
-  br i1 %exitcond.not.i101.i, label %._crit_edge.us.i102.i, label %115, !llvm.loop !48
+  br i1 %exitcond.not.i101.i, label %._crit_edge.us.i102.i, label %115, !llvm.loop !47
 
 ._crit_edge.us.i102.i:                            ; preds = %115
   %indvars.iv.next22.i103.i = add nuw nsw i64 %indvars.iv21.i96.i, 1
   %exitcond25.not.i104.i = icmp eq i64 %indvars.iv.next22.i103.i, %wide.trip.count24.i93.i
-  br i1 %exitcond25.not.i104.i, label %InterleaveAudioChannels.exit, label %.preheader.us.i95.i, !llvm.loop !49
+  br i1 %exitcond25.not.i104.i, label %InterleaveAudioChannels.exit, label %.preheader.us.i95.i, !llvm.loop !48
 
 121:                                              ; preds = %._crit_edge.i
   br i1 %65, label %.preheader.us.preheader.i105.i, label %InterleaveAudioChannels.exit
@@ -2263,12 +2263,12 @@ CheckAudioStreamIsFullySetup.exit.thread._crit_edge: ; preds = %CheckAudioStream
   store i32 %126, ptr %.113.us.i112.i, align 4
   %indvars.iv.next.i113.i = add nuw nsw i64 %indvars.iv.i111.i, 1
   %exitcond.not.i114.i = icmp eq i64 %indvars.iv.next.i113.i, %wide.trip.count.i107.i
-  br i1 %exitcond.not.i114.i, label %._crit_edge.us.i115.i, label %122, !llvm.loop !50
+  br i1 %exitcond.not.i114.i, label %._crit_edge.us.i115.i, label %122, !llvm.loop !49
 
 ._crit_edge.us.i115.i:                            ; preds = %122
   %indvars.iv.next22.i116.i = add nuw nsw i64 %indvars.iv21.i109.i, 1
   %exitcond25.not.i117.i = icmp eq i64 %indvars.iv.next22.i116.i, %wide.trip.count24.i106.i
-  br i1 %exitcond25.not.i117.i, label %InterleaveAudioChannels.exit, label %.preheader.us.i108.i, !llvm.loop !51
+  br i1 %exitcond25.not.i117.i, label %InterleaveAudioChannels.exit, label %.preheader.us.i108.i, !llvm.loop !50
 
 InterleaveAudioChannelsWithNullsGeneric8.exit.sink.split.i: ; preds = %._crit_edge.i, %106
   %.pre-phi68 = phi i32 [ %.pre67, %106 ], [ %51, %._crit_edge.i ]
@@ -2494,10 +2494,10 @@ thread-pre-split.i:                               ; preds = %.lr.ph.i
   %57 = call fastcc i64 @NextAudioStreamIter(ptr noundef nonnull readonly %0, ptr noundef %7, ptr noundef %8, ptr noundef null, ptr noundef null, ptr noundef null)
   %58 = add nsw i64 %57, %.011.i
   %59 = icmp sgt i64 %58, 2147483646
-  br i1 %59, label %._crit_edge.i, label %thread-pre-split.i, !llvm.loop !52
+  br i1 %59, label %._crit_edge.i, label %thread-pre-split.i, !llvm.loop !51
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i
-  br label %GetAudioStreamAvailableFrames.exit, !llvm.loop !52
+  br label %GetAudioStreamAvailableFrames.exit, !llvm.loop !51
 
 GetAudioStreamAvailableFrames.exit:               ; preds = %thread-pre-split.i, %50, %._crit_edge.i
   %.1.i = phi i64 [ 2147483647, %._crit_edge.i ], [ 0, %50 ], [ %58, %thread-pre-split.i ]
@@ -2598,7 +2598,7 @@ GetAudioStreamHead.exit:                          ; preds = %109
   br i1 %114, label %115, label %119
 
 115:                                              ; preds = %GetAudioStreamHead.exit
-  %.pre156 = load i8, ptr %11, align 1, !range !37
+  %.pre156 = load i8, ptr %11, align 1, !range !36
   %116 = trunc nuw i8 %.pre156 to i1
   br i1 %116, label %117, label %.thread123
 
@@ -2608,7 +2608,7 @@ GetAudioStreamHead.exit:                          ; preds = %109
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %97, i8 0, i64 12, i1 false)
   store i64 0, ptr %96, align 8
   store ptr null, ptr %98, align 8
-  br label %235, !llvm.loop !53
+  br label %235, !llvm.loop !52
 
 119:                                              ; preds = %GetAudioStreamHead.exit
   %120 = load ptr, ptr %10, align 8
@@ -2933,10 +2933,10 @@ thread-pre-split.i:                               ; preds = %.lr.ph.i
   %23 = call fastcc i64 @NextAudioStreamIter(ptr noundef nonnull readonly %0, ptr noundef %2, ptr noundef %3, ptr noundef null, ptr noundef null, ptr noundef null)
   %24 = add nsw i64 %23, %.011.i
   %25 = icmp sgt i64 %24, 2147483646
-  br i1 %25, label %._crit_edge.i, label %thread-pre-split.i, !llvm.loop !52
+  br i1 %25, label %._crit_edge.i, label %thread-pre-split.i, !llvm.loop !51
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i
-  br label %GetAudioStreamAvailableFrames.exit, !llvm.loop !52
+  br label %GetAudioStreamAvailableFrames.exit, !llvm.loop !51
 
 GetAudioStreamAvailableFrames.exit:               ; preds = %thread-pre-split.i, %CheckAudioStreamIsFullySetup.exit.thread, %._crit_edge.i
   %.1.i = phi i64 [ 2147483647, %._crit_edge.i ], [ 0, %CheckAudioStreamIsFullySetup.exit.thread ], [ %24, %thread-pre-split.i ]
@@ -3170,7 +3170,7 @@ define internal void @SDL_ConvertMonoTo21(ptr noundef writeonly captures(none) %
   %14 = getelementptr inbounds i8, ptr %.01517, i64 -4
   %15 = getelementptr inbounds i8, ptr %.019, i64 -12
   %.not = icmp eq i32 %13, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !54
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !53
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   ret void
@@ -3206,7 +3206,7 @@ define internal void @SDL_ConvertMonoToQuad(ptr noundef writeonly captures(none)
   %15 = getelementptr inbounds i8, ptr %.01618, i64 -4
   %16 = getelementptr inbounds i8, ptr %.020, i64 -16
   %.not = icmp eq i32 %14, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !55
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !54
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   ret void
@@ -3244,7 +3244,7 @@ define internal void @SDL_ConvertMonoTo41(ptr noundef writeonly captures(none) %
   %16 = getelementptr inbounds i8, ptr %.01719, i64 -4
   %17 = getelementptr inbounds i8, ptr %.021, i64 -20
   %.not = icmp eq i32 %15, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !56
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !55
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   ret void
@@ -3278,7 +3278,7 @@ define internal void @SDL_ConvertMonoTo51(ptr noundef writeonly captures(none) %
   %14 = getelementptr inbounds i8, ptr %.01820, i64 -4
   %15 = getelementptr inbounds i8, ptr %.022, i64 -24
   %.not = icmp eq i32 %13, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !57
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !56
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   ret void
@@ -3312,7 +3312,7 @@ define internal void @SDL_ConvertMonoTo61(ptr noundef writeonly captures(none) %
   %14 = getelementptr inbounds i8, ptr %.01921, i64 -4
   %15 = getelementptr inbounds i8, ptr %.023, i64 -28
   %.not = icmp eq i32 %13, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !58
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !57
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   ret void
@@ -3346,7 +3346,7 @@ define internal void @SDL_ConvertMonoTo71(ptr noundef writeonly captures(none) %
   %14 = getelementptr inbounds i8, ptr %.02022, i64 -4
   %15 = getelementptr inbounds i8, ptr %.024, i64 -32
   %.not = icmp eq i32 %13, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !59
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !58
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   ret void
@@ -3383,7 +3383,7 @@ define internal void @SDL_ConvertStereoTo21(ptr noundef writeonly captures(none)
   %17 = getelementptr inbounds i8, ptr %.01416, i64 -8
   %18 = getelementptr inbounds i8, ptr %.01317, i64 -12
   %.not = icmp eq i32 %16, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !60
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !59
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   ret void
@@ -3422,7 +3422,7 @@ define internal void @SDL_ConvertStereoToQuad(ptr noundef writeonly captures(non
   %18 = getelementptr inbounds i8, ptr %.01517, i64 -8
   %19 = getelementptr inbounds i8, ptr %.01418, i64 -16
   %.not = icmp eq i32 %17, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !61
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !60
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   ret void
@@ -3463,7 +3463,7 @@ define internal void @SDL_ConvertStereoTo41(ptr noundef writeonly captures(none)
   %19 = getelementptr inbounds i8, ptr %.01618, i64 -8
   %20 = getelementptr inbounds i8, ptr %.01519, i64 -20
   %.not = icmp eq i32 %18, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !62
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !61
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   ret void
@@ -3500,7 +3500,7 @@ define internal void @SDL_ConvertStereoTo51(ptr noundef writeonly captures(none)
   %17 = getelementptr inbounds i8, ptr %.01719, i64 -8
   %18 = getelementptr inbounds i8, ptr %.01620, i64 -24
   %.not = icmp eq i32 %16, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !63
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !62
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   ret void
@@ -3537,7 +3537,7 @@ define internal void @SDL_ConvertStereoTo61(ptr noundef writeonly captures(none)
   %17 = getelementptr inbounds i8, ptr %.01820, i64 -8
   %18 = getelementptr inbounds i8, ptr %.01721, i64 -28
   %.not = icmp eq i32 %16, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !64
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !63
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   ret void
@@ -3574,7 +3574,7 @@ define internal void @SDL_ConvertStereoTo71(ptr noundef writeonly captures(none)
   %17 = getelementptr inbounds i8, ptr %.01921, i64 -8
   %18 = getelementptr inbounds i8, ptr %.01822, i64 -32
   %.not = icmp eq i32 %16, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !65
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !64
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   ret void
@@ -3602,7 +3602,7 @@ define internal void @SDL_Convert21ToMono(ptr noundef writeonly captures(none) %
   %13 = getelementptr inbounds nuw i8, ptr %.0911, i64 12
   %14 = getelementptr inbounds nuw i8, ptr %.0812, i64 4
   %.not = icmp eq i32 %12, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !66
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !65
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   ret void
@@ -3632,7 +3632,7 @@ define internal void @SDL_Convert21ToStereo(ptr noundef writeonly captures(none)
   %14 = getelementptr inbounds nuw i8, ptr %.01214, i64 12
   %15 = getelementptr inbounds nuw i8, ptr %.016, i64 8
   %.not = icmp eq i32 %13, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !67
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !66
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   ret void
@@ -3678,7 +3678,7 @@ define internal void @SDL_Convert21ToQuad(ptr noundef writeonly captures(none) %
   %25 = getelementptr inbounds i8, ptr %.02022, i64 -12
   %26 = getelementptr inbounds i8, ptr %.024, i64 -16
   %.not = icmp eq i32 %24, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !68
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !67
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   ret void
@@ -3721,7 +3721,7 @@ define internal void @SDL_Convert21To41(ptr noundef writeonly captures(none) %0,
   %21 = getelementptr inbounds i8, ptr %.01719, i64 -12
   %22 = getelementptr inbounds i8, ptr %.01620, i64 -20
   %.not = icmp eq i32 %20, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !69
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !68
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   ret void
@@ -3766,7 +3766,7 @@ define internal void @SDL_Convert21To51(ptr noundef writeonly captures(none) %0,
   %22 = getelementptr inbounds i8, ptr %.01820, i64 -12
   %23 = getelementptr inbounds i8, ptr %.01721, i64 -24
   %.not = icmp eq i32 %21, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !70
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !69
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   ret void
@@ -3813,7 +3813,7 @@ define internal void @SDL_Convert21To61(ptr noundef writeonly captures(none) %0,
   %23 = getelementptr inbounds i8, ptr %.01921, i64 -12
   %24 = getelementptr inbounds i8, ptr %.01822, i64 -28
   %.not = icmp eq i32 %22, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !71
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !70
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   ret void
@@ -3856,7 +3856,7 @@ define internal void @SDL_Convert21To71(ptr noundef writeonly captures(none) %0,
   %21 = getelementptr inbounds i8, ptr %.02022, i64 -12
   %22 = getelementptr inbounds i8, ptr %.01923, i64 -32
   %.not = icmp eq i32 %20, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !72
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !71
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   ret void
@@ -3887,7 +3887,7 @@ define internal void @SDL_ConvertQuadToMono(ptr noundef writeonly captures(none)
   %16 = getelementptr inbounds nuw i8, ptr %.01012, i64 16
   %17 = getelementptr inbounds nuw i8, ptr %.0913, i64 4
   %.not = icmp eq i32 %15, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !73
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !72
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   ret void
@@ -3922,7 +3922,7 @@ define internal void @SDL_ConvertQuadToStereo(ptr noundef writeonly captures(non
   %19 = getelementptr inbounds nuw i8, ptr %.01418, i64 16
   %20 = getelementptr inbounds nuw i8, ptr %.019, i64 8
   %.not = icmp eq i32 %18, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !74
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !73
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   ret void
@@ -3959,7 +3959,7 @@ define internal void @SDL_ConvertQuadTo21(ptr noundef writeonly captures(none) %
   %20 = getelementptr inbounds nuw i8, ptr %.01519, i64 16
   %21 = getelementptr inbounds nuw i8, ptr %.020, i64 12
   %.not = icmp eq i32 %19, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !75
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !74
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   ret void
@@ -4004,7 +4004,7 @@ define internal void @SDL_ConvertQuadTo41(ptr noundef writeonly captures(none) %
   %23 = getelementptr inbounds i8, ptr %.01820, i64 -16
   %24 = getelementptr inbounds i8, ptr %.01721, i64 -20
   %.not = icmp eq i32 %22, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !76
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !75
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   ret void
@@ -4051,7 +4051,7 @@ define internal void @SDL_ConvertQuadTo51(ptr noundef writeonly captures(none) %
   %24 = getelementptr inbounds i8, ptr %.01921, i64 -16
   %25 = getelementptr inbounds i8, ptr %.01822, i64 -24
   %.not = icmp eq i32 %23, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !77
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !76
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   ret void
@@ -4106,7 +4106,7 @@ define internal void @SDL_ConvertQuadTo61(ptr noundef writeonly captures(none) %
   %31 = getelementptr inbounds i8, ptr %.02327, i64 -16
   %32 = getelementptr inbounds i8, ptr %.028, i64 -28
   %.not = icmp eq i32 %30, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !78
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !77
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   ret void
@@ -4157,7 +4157,7 @@ define internal void @SDL_ConvertQuadTo71(ptr noundef writeonly captures(none) %
   %26 = getelementptr inbounds i8, ptr %.02123, i64 -16
   %27 = getelementptr inbounds i8, ptr %.02024, i64 -32
   %.not = icmp eq i32 %25, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !79
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !78
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   ret void
@@ -4191,7 +4191,7 @@ define internal void @SDL_Convert41ToMono(ptr noundef writeonly captures(none) %
   %19 = getelementptr inbounds nuw i8, ptr %.01113, i64 20
   %20 = getelementptr inbounds nuw i8, ptr %.01014, i64 4
   %.not = icmp eq i32 %18, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !80
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !79
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   ret void
@@ -4229,7 +4229,7 @@ define internal void @SDL_Convert41ToStereo(ptr noundef writeonly captures(none)
   %22 = getelementptr inbounds nuw i8, ptr %.01721, i64 20
   %23 = getelementptr inbounds nuw i8, ptr %.022, i64 8
   %.not = icmp eq i32 %21, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !81
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !80
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   ret void
@@ -4268,7 +4268,7 @@ define internal void @SDL_Convert41To21(ptr noundef writeonly captures(none) %0,
   %22 = getelementptr inbounds nuw i8, ptr %.01620, i64 20
   %23 = getelementptr inbounds nuw i8, ptr %.021, i64 12
   %.not = icmp eq i32 %21, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !82
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !81
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   ret void
@@ -4310,7 +4310,7 @@ define internal void @SDL_Convert41ToQuad(ptr noundef writeonly captures(none) %
   %24 = getelementptr inbounds nuw i8, ptr %.01820, i64 20
   %25 = getelementptr inbounds nuw i8, ptr %.022, i64 16
   %.not = icmp eq i32 %23, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !83
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !82
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   ret void
@@ -4359,7 +4359,7 @@ define internal void @SDL_Convert41To51(ptr noundef writeonly captures(none) %0,
   %26 = getelementptr inbounds i8, ptr %.02022, i64 -20
   %27 = getelementptr inbounds i8, ptr %.01923, i64 -24
   %.not = icmp eq i32 %25, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !84
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !83
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   ret void
@@ -4416,7 +4416,7 @@ define internal void @SDL_Convert41To61(ptr noundef writeonly captures(none) %0,
   %33 = getelementptr inbounds i8, ptr %.02428, i64 -20
   %34 = getelementptr inbounds i8, ptr %.029, i64 -28
   %.not = icmp eq i32 %32, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !85
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !84
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   ret void
@@ -4469,7 +4469,7 @@ define internal void @SDL_Convert41To71(ptr noundef writeonly captures(none) %0,
   %28 = getelementptr inbounds i8, ptr %.02224, i64 -20
   %29 = getelementptr inbounds i8, ptr %.02125, i64 -32
   %.not = icmp eq i32 %27, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !86
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !85
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   ret void
@@ -4506,7 +4506,7 @@ define internal void @SDL_Convert51ToMono(ptr noundef writeonly captures(none) %
   %22 = getelementptr inbounds nuw i8, ptr %.01214, i64 24
   %23 = getelementptr inbounds nuw i8, ptr %.01115, i64 4
   %.not = icmp eq i32 %21, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !87
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !86
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   ret void
@@ -4548,7 +4548,7 @@ define internal void @SDL_Convert51ToStereo(ptr noundef writeonly captures(none)
   %26 = getelementptr inbounds nuw i8, ptr %.02024, i64 24
   %27 = getelementptr inbounds nuw i8, ptr %.025, i64 8
   %.not = icmp eq i32 %25, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !88
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !87
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   ret void
@@ -4590,7 +4590,7 @@ define internal void @SDL_Convert51To21(ptr noundef writeonly captures(none) %0,
   %25 = getelementptr inbounds nuw i8, ptr %.01923, i64 24
   %26 = getelementptr inbounds nuw i8, ptr %.024, i64 12
   %.not = icmp eq i32 %24, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !89
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !88
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   ret void
@@ -4636,7 +4636,7 @@ define internal void @SDL_Convert51ToQuad(ptr noundef writeonly captures(none) %
   %28 = getelementptr inbounds nuw i8, ptr %.02024, i64 24
   %29 = getelementptr inbounds nuw i8, ptr %.025, i64 16
   %.not = icmp eq i32 %27, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !90
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !89
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   ret void
@@ -4680,7 +4680,7 @@ define internal void @SDL_Convert51To41(ptr noundef writeonly captures(none) %0,
   %25 = getelementptr inbounds nuw i8, ptr %.01820, i64 24
   %26 = getelementptr inbounds nuw i8, ptr %.022, i64 20
   %.not = icmp eq i32 %24, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !91
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !90
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   ret void
@@ -4740,7 +4740,7 @@ define internal void @SDL_Convert51To61(ptr noundef writeonly captures(none) %0,
   %36 = getelementptr inbounds i8, ptr %.02529, i64 -24
   %37 = getelementptr inbounds i8, ptr %.030, i64 -28
   %.not = icmp eq i32 %35, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !92
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !91
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   ret void
@@ -4795,7 +4795,7 @@ define internal void @SDL_Convert51To71(ptr noundef writeonly captures(none) %0,
   %30 = getelementptr inbounds i8, ptr %.02325, i64 -24
   %31 = getelementptr inbounds i8, ptr %.02226, i64 -32
   %.not = icmp eq i32 %29, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !93
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !92
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   ret void
@@ -4835,7 +4835,7 @@ define internal void @SDL_Convert61ToMono(ptr noundef writeonly captures(none) %
   %25 = getelementptr inbounds nuw i8, ptr %.01315, i64 28
   %26 = getelementptr inbounds nuw i8, ptr %.01216, i64 4
   %.not = icmp eq i32 %24, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !94
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !93
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   ret void
@@ -4881,7 +4881,7 @@ define internal void @SDL_Convert61ToStereo(ptr noundef writeonly captures(none)
   %30 = getelementptr inbounds nuw i8, ptr %.02327, i64 28
   %31 = getelementptr inbounds nuw i8, ptr %.028, i64 8
   %.not = icmp eq i32 %29, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !95
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !94
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   ret void
@@ -4927,7 +4927,7 @@ define internal void @SDL_Convert61To21(ptr noundef writeonly captures(none) %0,
   %29 = getelementptr inbounds nuw i8, ptr %.02226, i64 28
   %30 = getelementptr inbounds nuw i8, ptr %.027, i64 12
   %.not = icmp eq i32 %28, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !96
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !95
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   ret void
@@ -4977,7 +4977,7 @@ define internal void @SDL_Convert61ToQuad(ptr noundef writeonly captures(none) %
   %32 = getelementptr inbounds nuw i8, ptr %.02731, i64 28
   %33 = getelementptr inbounds nuw i8, ptr %.032, i64 16
   %.not = icmp eq i32 %31, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !97
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !96
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   ret void
@@ -5027,7 +5027,7 @@ define internal void @SDL_Convert61To41(ptr noundef writeonly captures(none) %0,
   %31 = getelementptr inbounds nuw i8, ptr %.02428, i64 28
   %32 = getelementptr inbounds nuw i8, ptr %.029, i64 20
   %.not = icmp eq i32 %30, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !98
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !97
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   ret void
@@ -5079,7 +5079,7 @@ define internal void @SDL_Convert61To51(ptr noundef writeonly captures(none) %0,
   %32 = getelementptr inbounds nuw i8, ptr %.02327, i64 28
   %33 = getelementptr inbounds nuw i8, ptr %.028, i64 24
   %.not = icmp eq i32 %31, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !99
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !98
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   ret void
@@ -5137,7 +5137,7 @@ define internal void @SDL_Convert61To71(ptr noundef writeonly captures(none) %0,
   %33 = getelementptr inbounds i8, ptr %.02628, i64 -28
   %34 = getelementptr inbounds i8, ptr %.030, i64 -32
   %.not = icmp eq i32 %32, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !100
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !99
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   ret void
@@ -5180,7 +5180,7 @@ define internal void @SDL_Convert71ToMono(ptr noundef writeonly captures(none) %
   %28 = getelementptr inbounds nuw i8, ptr %.01416, i64 32
   %29 = getelementptr inbounds nuw i8, ptr %.01317, i64 4
   %.not = icmp eq i32 %27, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !101
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !100
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   ret void
@@ -5230,7 +5230,7 @@ define internal void @SDL_Convert71ToStereo(ptr noundef writeonly captures(none)
   %34 = getelementptr inbounds nuw i8, ptr %.02630, i64 32
   %35 = getelementptr inbounds nuw i8, ptr %.031, i64 8
   %.not = icmp eq i32 %33, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !102
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !101
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   ret void
@@ -5280,7 +5280,7 @@ define internal void @SDL_Convert71To21(ptr noundef writeonly captures(none) %0,
   %33 = getelementptr inbounds nuw i8, ptr %.02529, i64 32
   %34 = getelementptr inbounds nuw i8, ptr %.030, i64 12
   %.not = icmp eq i32 %32, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !103
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !102
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   ret void
@@ -5334,7 +5334,7 @@ define internal void @SDL_Convert71ToQuad(ptr noundef writeonly captures(none) %
   %36 = getelementptr inbounds nuw i8, ptr %.02630, i64 32
   %37 = getelementptr inbounds nuw i8, ptr %.031, i64 16
   %.not = icmp eq i32 %35, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !104
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !103
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   ret void
@@ -5386,7 +5386,7 @@ define internal void @SDL_Convert71To41(ptr noundef writeonly captures(none) %0,
   %33 = getelementptr inbounds nuw i8, ptr %.02327, i64 32
   %34 = getelementptr inbounds nuw i8, ptr %.028, i64 20
   %.not = icmp eq i32 %32, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !105
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !104
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   ret void
@@ -5440,7 +5440,7 @@ define internal void @SDL_Convert71To51(ptr noundef writeonly captures(none) %0,
   %34 = getelementptr inbounds nuw i8, ptr %.02226, i64 32
   %35 = getelementptr inbounds nuw i8, ptr %.027, i64 24
   %.not = icmp eq i32 %33, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !106
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !105
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   ret void
@@ -5496,7 +5496,7 @@ define internal void @SDL_Convert71To61(ptr noundef writeonly captures(none) %0,
   %35 = getelementptr inbounds nuw i8, ptr %.02327, i64 32
   %36 = getelementptr inbounds nuw i8, ptr %.028, i64 28
   %.not = icmp eq i32 %34, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !107
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !106
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   ret void
@@ -5584,7 +5584,7 @@ define internal fastcc i64 @NextAudioStreamIter(ptr noundef nonnull readonly cap
   br i1 %.not30, label %51, label %42
 
 42:                                               ; preds = %22
-  %43 = load i8, ptr %8, align 1, !range !37, !noundef !38
+  %43 = load i8, ptr %8, align 1, !range !36, !noundef !37
   %44 = trunc nuw i8 %43 to i1
   br i1 %44, label %49, label %45
 
@@ -5601,7 +5601,7 @@ define internal fastcc i64 @NextAudioStreamIter(ptr noundef nonnull readonly cap
 
 51:                                               ; preds = %49, %22
   %.0 = phi i64 [ %50, %49 ], [ %41, %22 ]
-  %52 = load i8, ptr %8, align 1, !range !37, !noundef !38
+  %52 = load i8, ptr %8, align 1, !range !36, !noundef !37
   %53 = trunc nuw i8 %52 to i1
   %.pre = load i64, ptr %10, align 8
   %54 = select i1 %53, i64 0, i64 %.pre
@@ -5681,108 +5681,107 @@ attributes #12 = { nounwind allocsize(0,1) }
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = distinct !{!3, !4, !5}
+!3 = distinct !{!3, !4}
 !4 = !{!"llvm.loop.mustprogress"}
-!5 = !{!"llvm.loop.estimated_trip_count"}
-!6 = distinct !{!6, !4, !5}
-!7 = distinct !{!7, !4, !5}
-!8 = distinct !{!8, !4, !5}
-!9 = distinct !{!9, !4, !5}
-!10 = distinct !{!10, !4, !5}
-!11 = distinct !{!11, !4, !5, !12}
-!12 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!13 = distinct !{!13, !4, !5}
-!14 = distinct !{!14, !4, !5, !12}
-!15 = distinct !{!15, !4, !5}
-!16 = distinct !{!16, !4, !5}
-!17 = distinct !{!17, !4, !5}
-!18 = distinct !{!18, !4, !5}
-!19 = distinct !{!19, !4, !5}
-!20 = distinct !{!20, !4, !5, !12}
-!21 = distinct !{!21, !4, !5}
-!22 = distinct !{!22, !4, !5, !12}
-!23 = distinct !{!23, !4, !5}
-!24 = distinct !{!24, !4, !5}
-!25 = distinct !{!25, !4, !5}
-!26 = distinct !{!26, !4, !5}
-!27 = distinct !{!27, !4, !5}
-!28 = distinct !{!28, !4, !5, !12}
-!29 = distinct !{!29, !4, !5}
-!30 = distinct !{!30, !4, !5, !12}
-!31 = distinct !{!31, !4, !5}
-!32 = distinct !{!32, !4, !5}
-!33 = distinct !{!33, !4, !5}
-!34 = distinct !{!34, !4, !5}
-!35 = distinct !{!35, !4, !5}
-!36 = distinct !{!36, !4, !5}
-!37 = !{i8 0, i8 2}
-!38 = !{}
-!39 = distinct !{!39, !4, !5}
-!40 = distinct !{!40, !4, !5}
-!41 = distinct !{!41, !4, !5, !12}
-!42 = distinct !{!42, !4, !5}
-!43 = distinct !{!43, !4, !5, !12}
-!44 = distinct !{!44, !4, !5}
-!45 = distinct !{!45, !4, !5, !12}
-!46 = distinct !{!46, !4, !5}
-!47 = distinct !{!47, !4, !5, !12}
-!48 = distinct !{!48, !4, !5}
-!49 = distinct !{!49, !4, !5, !12}
-!50 = distinct !{!50, !4, !5}
-!51 = distinct !{!51, !4, !5, !12}
-!52 = distinct !{!52, !4, !5}
+!5 = distinct !{!5, !4}
+!6 = distinct !{!6, !4}
+!7 = distinct !{!7, !4}
+!8 = distinct !{!8, !4}
+!9 = distinct !{!9, !4}
+!10 = distinct !{!10, !4, !11}
+!11 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!12 = distinct !{!12, !4}
+!13 = distinct !{!13, !4, !11}
+!14 = distinct !{!14, !4}
+!15 = distinct !{!15, !4}
+!16 = distinct !{!16, !4}
+!17 = distinct !{!17, !4}
+!18 = distinct !{!18, !4}
+!19 = distinct !{!19, !4, !11}
+!20 = distinct !{!20, !4}
+!21 = distinct !{!21, !4, !11}
+!22 = distinct !{!22, !4}
+!23 = distinct !{!23, !4}
+!24 = distinct !{!24, !4}
+!25 = distinct !{!25, !4}
+!26 = distinct !{!26, !4}
+!27 = distinct !{!27, !4, !11}
+!28 = distinct !{!28, !4}
+!29 = distinct !{!29, !4, !11}
+!30 = distinct !{!30, !4}
+!31 = distinct !{!31, !4}
+!32 = distinct !{!32, !4}
+!33 = distinct !{!33, !4}
+!34 = distinct !{!34, !4}
+!35 = distinct !{!35, !4}
+!36 = !{i8 0, i8 2}
+!37 = !{}
+!38 = distinct !{!38, !4}
+!39 = distinct !{!39, !4}
+!40 = distinct !{!40, !4, !11}
+!41 = distinct !{!41, !4}
+!42 = distinct !{!42, !4, !11}
+!43 = distinct !{!43, !4}
+!44 = distinct !{!44, !4, !11}
+!45 = distinct !{!45, !4}
+!46 = distinct !{!46, !4, !11}
+!47 = distinct !{!47, !4}
+!48 = distinct !{!48, !4, !11}
+!49 = distinct !{!49, !4}
+!50 = distinct !{!50, !4, !11}
+!51 = distinct !{!51, !4}
+!52 = distinct !{!52, !4}
 !53 = distinct !{!53, !4}
-!54 = distinct !{!54, !4, !5}
-!55 = distinct !{!55, !4, !5}
-!56 = distinct !{!56, !4, !5}
-!57 = distinct !{!57, !4, !5}
-!58 = distinct !{!58, !4, !5}
-!59 = distinct !{!59, !4, !5}
-!60 = distinct !{!60, !4, !5}
-!61 = distinct !{!61, !4, !5}
-!62 = distinct !{!62, !4, !5}
-!63 = distinct !{!63, !4, !5}
-!64 = distinct !{!64, !4, !5}
-!65 = distinct !{!65, !4, !5}
-!66 = distinct !{!66, !4, !5}
-!67 = distinct !{!67, !4, !5}
-!68 = distinct !{!68, !4, !5}
-!69 = distinct !{!69, !4, !5}
-!70 = distinct !{!70, !4, !5}
-!71 = distinct !{!71, !4, !5}
-!72 = distinct !{!72, !4, !5}
-!73 = distinct !{!73, !4, !5}
-!74 = distinct !{!74, !4, !5}
-!75 = distinct !{!75, !4, !5}
-!76 = distinct !{!76, !4, !5}
-!77 = distinct !{!77, !4, !5}
-!78 = distinct !{!78, !4, !5}
-!79 = distinct !{!79, !4, !5}
-!80 = distinct !{!80, !4, !5}
-!81 = distinct !{!81, !4, !5}
-!82 = distinct !{!82, !4, !5}
-!83 = distinct !{!83, !4, !5}
-!84 = distinct !{!84, !4, !5}
-!85 = distinct !{!85, !4, !5}
-!86 = distinct !{!86, !4, !5}
-!87 = distinct !{!87, !4, !5}
-!88 = distinct !{!88, !4, !5}
-!89 = distinct !{!89, !4, !5}
-!90 = distinct !{!90, !4, !5}
-!91 = distinct !{!91, !4, !5}
-!92 = distinct !{!92, !4, !5}
-!93 = distinct !{!93, !4, !5}
-!94 = distinct !{!94, !4, !5}
-!95 = distinct !{!95, !4, !5}
-!96 = distinct !{!96, !4, !5}
-!97 = distinct !{!97, !4, !5}
-!98 = distinct !{!98, !4, !5}
-!99 = distinct !{!99, !4, !5}
-!100 = distinct !{!100, !4, !5}
-!101 = distinct !{!101, !4, !5}
-!102 = distinct !{!102, !4, !5}
-!103 = distinct !{!103, !4, !5}
-!104 = distinct !{!104, !4, !5}
-!105 = distinct !{!105, !4, !5}
-!106 = distinct !{!106, !4, !5}
-!107 = distinct !{!107, !4, !5}
+!54 = distinct !{!54, !4}
+!55 = distinct !{!55, !4}
+!56 = distinct !{!56, !4}
+!57 = distinct !{!57, !4}
+!58 = distinct !{!58, !4}
+!59 = distinct !{!59, !4}
+!60 = distinct !{!60, !4}
+!61 = distinct !{!61, !4}
+!62 = distinct !{!62, !4}
+!63 = distinct !{!63, !4}
+!64 = distinct !{!64, !4}
+!65 = distinct !{!65, !4}
+!66 = distinct !{!66, !4}
+!67 = distinct !{!67, !4}
+!68 = distinct !{!68, !4}
+!69 = distinct !{!69, !4}
+!70 = distinct !{!70, !4}
+!71 = distinct !{!71, !4}
+!72 = distinct !{!72, !4}
+!73 = distinct !{!73, !4}
+!74 = distinct !{!74, !4}
+!75 = distinct !{!75, !4}
+!76 = distinct !{!76, !4}
+!77 = distinct !{!77, !4}
+!78 = distinct !{!78, !4}
+!79 = distinct !{!79, !4}
+!80 = distinct !{!80, !4}
+!81 = distinct !{!81, !4}
+!82 = distinct !{!82, !4}
+!83 = distinct !{!83, !4}
+!84 = distinct !{!84, !4}
+!85 = distinct !{!85, !4}
+!86 = distinct !{!86, !4}
+!87 = distinct !{!87, !4}
+!88 = distinct !{!88, !4}
+!89 = distinct !{!89, !4}
+!90 = distinct !{!90, !4}
+!91 = distinct !{!91, !4}
+!92 = distinct !{!92, !4}
+!93 = distinct !{!93, !4}
+!94 = distinct !{!94, !4}
+!95 = distinct !{!95, !4}
+!96 = distinct !{!96, !4}
+!97 = distinct !{!97, !4}
+!98 = distinct !{!98, !4}
+!99 = distinct !{!99, !4}
+!100 = distinct !{!100, !4}
+!101 = distinct !{!101, !4}
+!102 = distinct !{!102, !4}
+!103 = distinct !{!103, !4}
+!104 = distinct !{!104, !4}
+!105 = distinct !{!105, !4}
+!106 = distinct !{!106, !4}

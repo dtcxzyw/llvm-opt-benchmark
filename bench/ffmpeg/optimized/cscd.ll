@@ -348,7 +348,7 @@ define internal fastcc void @add_frame_default(ptr noundef readonly captures(non
   store i8 %21, ptr %.126, align 1, !tbaa !42
   %22 = add nsw i32 %.02024, -1
   %.not22 = icmp eq i32 %22, 0
-  br i1 %.not22, label %._crit_edge, label %16, !llvm.loop !55
+  br i1 %.not22, label %._crit_edge, label %16, !llvm.loop !54
 
 ._crit_edge:                                      ; preds = %16
   %23 = getelementptr inbounds i8, ptr %17, i64 %9
@@ -359,7 +359,7 @@ define internal fastcc void @add_frame_default(ptr noundef readonly captures(non
   %28 = getelementptr inbounds i8, ptr %19, i64 %27
   %29 = add nsw i32 %.02129, -1
   %.not = icmp eq i32 %29, 0
-  br i1 %.not, label %._crit_edge32, label %.preheader, !llvm.loop !56
+  br i1 %.not, label %._crit_edge32, label %.preheader, !llvm.loop !55
 
 ._crit_edge32:                                    ; preds = %._crit_edge, %.preheader.lr.ph, %4
   ret void
@@ -436,8 +436,7 @@ attributes #6 = { nounwind }
 !49 = !{!"p1 _ZTS12AVDictionary", !7, i64 0}
 !50 = !{!46, !10, i64 276}
 !51 = !{!14, !14, i64 0}
-!52 = distinct !{!52, !53, !54}
+!52 = distinct !{!52, !53}
 !53 = !{!"llvm.loop.mustprogress"}
-!54 = !{!"llvm.loop.estimated_trip_count"}
-!55 = distinct !{!55, !53, !54}
-!56 = distinct !{!56, !53, !54}
+!54 = distinct !{!54, !53}
+!55 = distinct !{!55, !53}

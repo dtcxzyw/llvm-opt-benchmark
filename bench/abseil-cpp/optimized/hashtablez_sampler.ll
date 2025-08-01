@@ -972,6 +972,5 @@ attributes #15 = { builtin allocsize(0) }
 !37 = !{!"branch_weights", !"expected", i32 -2147483648, i32 0}
 !38 = !{!39, !7, i64 0}
 !39 = !{!"_ZTSN4absl18container_internal13SamplingStateE", !7, i64 0, !7, i64 8}
-!40 = distinct !{!40, !41, !42}
+!40 = distinct !{!40, !41}
 !41 = !{!"llvm.loop.mustprogress"}
-!42 = !{!"llvm.loop.estimated_trip_count"}

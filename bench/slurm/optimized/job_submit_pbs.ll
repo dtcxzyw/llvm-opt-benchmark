@@ -596,7 +596,7 @@ _xlate_before.exit:                               ; preds = %45, %48, %._crit_ed
 155:                                              ; preds = %33, %151, %154, %_xlate_before.exit, %27
   %156 = call ptr @strtok_r(ptr noundef null, ptr noundef nonnull @.str.3, ptr noundef nonnull %11) #12
   %.not20 = icmp eq ptr %156, null
-  br i1 %.not20, label %._crit_edge, label %18, !llvm.loop !12
+  br i1 %.not20, label %._crit_edge, label %18, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %155, %14
   call void @slurm_xfree(ptr noundef nonnull %12) #12
@@ -865,8 +865,7 @@ attributes #15 = { noreturn nounwind }
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i32 7, !"frame-pointer", i32 2}
 !7 = !{i32 7, !"debug-info-assignment-tracking", i1 true}
-!8 = distinct !{!8, !9, !10, !11}
+!8 = distinct !{!8, !9, !10}
 !9 = !{!"llvm.loop.mustprogress"}
 !10 = !{!"llvm.loop.unroll.disable"}
-!11 = !{!"llvm.loop.estimated_trip_count"}
-!12 = distinct !{!12, !9, !10, !11}
+!11 = distinct !{!11, !9, !10}

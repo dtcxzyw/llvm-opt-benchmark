@@ -1586,7 +1586,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @int84(ptr noundef reado
   %3 = load i64, ptr %2, align 8
   %4 = add i64 %3, -2147483648
   %or.cond = icmp ult i64 %4, -4294967296
-  br i1 %or.cond, label %5, label %9, !prof !12
+  br i1 %or.cond, label %5, label %9, !prof !11
 
 5:                                                ; preds = %1
   %6 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
@@ -1615,7 +1615,7 @@ define dso_local range(i64 -32768, 32768) i64 @int82(ptr noundef readonly captur
   %3 = load i64, ptr %2, align 8
   %4 = add i64 %3, -32768
   %or.cond = icmp ult i64 %4, -65536
-  br i1 %or.cond, label %5, label %9, !prof !12
+  br i1 %or.cond, label %5, label %9, !prof !11
 
 5:                                                ; preds = %1
   %6 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
@@ -1712,7 +1712,7 @@ define dso_local range(i64 0, 4294967296) i64 @i8tooid(ptr noundef readonly capt
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %or.cond = icmp ugt i64 %3, 4294967295
-  br i1 %or.cond, label %4, label %8, !prof !12
+  br i1 %or.cond, label %4, label %8, !prof !11
 
 4:                                                ; preds = %1
   %5 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
@@ -1913,7 +1913,7 @@ list_length.exit:                                 ; preds = %is_funcclause.exit
 
 34:                                               ; preds = %31
   %35 = getelementptr inbounds nuw i8, ptr %18, i64 32
-  %36 = load i8, ptr %35, align 8, !range !13, !noundef !14
+  %36 = load i8, ptr %35, align 8, !range !12, !noundef !13
   %37 = trunc nuw i8 %36 to i1
   br i1 %37, label %is_funcclause.exit.thread.sink.split, label %38
 
@@ -1924,7 +1924,7 @@ list_length.exit:                                 ; preds = %is_funcclause.exit
 
 41:                                               ; preds = %38
   %42 = getelementptr inbounds nuw i8, ptr %22, i64 32
-  %43 = load i8, ptr %42, align 8, !range !13, !noundef !14
+  %43 = load i8, ptr %42, align 8, !range !12, !noundef !13
   %44 = trunc nuw i8 %43 to i1
   br i1 %44, label %is_funcclause.exit.thread.sink.split, label %45
 
@@ -1939,7 +1939,7 @@ list_length.exit:                                 ; preds = %is_funcclause.exit
 
 49:                                               ; preds = %46
   %50 = getelementptr inbounds nuw i8, ptr %.037, i64 32
-  %51 = load i8, ptr %50, align 8, !range !13, !noundef !14
+  %51 = load i8, ptr %50, align 8, !range !12, !noundef !13
   %52 = trunc nuw i8 %51 to i1
   br i1 %52, label %is_funcclause.exit.thread.sink.split, label %53
 
@@ -2050,9 +2050,8 @@ attributes #12 = { cold nounwind }
 !6 = distinct !{!6, !"pq_writeint64"}
 !7 = !{!"branch_weights", !"expected", i32 1, i32 2000}
 !8 = !{!"branch_weights", i32 2000, i32 2, i32 2000}
-!9 = distinct !{!9, !10, !11}
+!9 = distinct !{!9, !10}
 !10 = !{!"llvm.loop.mustprogress"}
-!11 = !{!"llvm.loop.estimated_trip_count"}
-!12 = !{!"branch_weights", i32 4001, i32 4000000}
-!13 = !{i8 0, i8 2}
-!14 = !{}
+!11 = !{!"branch_weights", i32 4001, i32 4000000}
+!12 = !{i8 0, i8 2}
+!13 = !{}

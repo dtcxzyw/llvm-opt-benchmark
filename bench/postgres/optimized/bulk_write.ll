@@ -290,7 +290,7 @@ define internal fastcc void @smgr_bulk_flush(ptr noundef %0) unnamed_addr #0 {
   %46 = add i32 %45, 1
   store i32 %46, ptr %33, align 8
   %47 = icmp ugt i32 %38, %46
-  br i1 %47, label %.lr.ph57, label %._crit_edge58, !llvm.loop !10
+  br i1 %47, label %.lr.ph57, label %._crit_edge58, !llvm.loop !9
 
 ._crit_edge58:                                    ; preds = %.lr.ph57, %.preheader
   %48 = load ptr, ptr %0, align 8
@@ -314,7 +314,7 @@ define internal fastcc void @smgr_bulk_flush(ptr noundef %0) unnamed_addr #0 {
   call void @pfree(ptr noundef %39) #4
   %indvars.iv.next64 = add nuw nsw i64 %indvars.iv63, 1
   %exitcond67.not = icmp eq i64 %indvars.iv.next64, %wide.trip.count66
-  br i1 %exitcond67.not, label %._crit_edge62, label %35, !llvm.loop !11
+  br i1 %exitcond67.not, label %._crit_edge62, label %35, !llvm.loop !10
 
 56:                                               ; preds = %1, %._crit_edge62
   ret void
@@ -409,8 +409,7 @@ attributes #4 = { nounwind }
 !4 = !{!"branch_weights", !"expected", i32 1, i32 2000}
 !5 = !{i8 0, i8 2}
 !6 = !{}
-!7 = distinct !{!7, !8, !9}
+!7 = distinct !{!7, !8}
 !8 = !{!"llvm.loop.mustprogress"}
-!9 = !{!"llvm.loop.estimated_trip_count"}
-!10 = distinct !{!10, !8, !9}
-!11 = distinct !{!11, !8, !9}
+!9 = distinct !{!9, !8}
+!10 = distinct !{!10, !8}

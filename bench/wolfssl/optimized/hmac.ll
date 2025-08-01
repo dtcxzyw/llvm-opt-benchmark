@@ -464,7 +464,7 @@ define void @wc_HmacFree(ptr noundef %0) local_unnamed_addr #2 {
   %23 = getelementptr inbounds nuw i8, ptr %.01625.i, i64 1
   store volatile i8 0, ptr %.01625.i, align 1, !tbaa !10
   %.not.i = icmp eq i32 %22, 0
-  br i1 %.not.i, label %.lr.ph29.i.preheader, label %.lr.ph.i, !llvm.loop !14
+  br i1 %.not.i, label %.lr.ph29.i.preheader, label %.lr.ph.i, !llvm.loop !13
 
 .preheader.i:                                     ; preds = %.lr.ph29.i
   %.not2232.i = icmp eq i32 %25, 0
@@ -474,10 +474,10 @@ define void @wc_HmacFree(ptr noundef %0) local_unnamed_addr #2 {
   %.01528.i = phi ptr [ %24, %.lr.ph29.i ], [ %.01528.i.ph, %.lr.ph29.i.preheader ]
   %.01827.i = phi i32 [ %25, %.lr.ph29.i ], [ %21, %.lr.ph29.i.preheader ]
   %24 = getelementptr inbounds nuw i8, ptr %.01528.i, i64 8
-  store volatile i64 0, ptr %.01528.i, align 8, !tbaa !15
+  store volatile i64 0, ptr %.01528.i, align 8, !tbaa !14
   %25 = add nsw i32 %.01827.i, -8
   %26 = icmp ugt i32 %25, 7
-  br i1 %26, label %.lr.ph29.i, label %.preheader.i, !llvm.loop !17
+  br i1 %26, label %.lr.ph29.i, label %.preheader.i, !llvm.loop !16
 
 .lr.ph35.i:                                       ; preds = %.preheader.i, %.lr.ph35.i
   %.11734.i = phi ptr [ %28, %.lr.ph35.i ], [ %24, %.preheader.i ]
@@ -486,7 +486,7 @@ define void @wc_HmacFree(ptr noundef %0) local_unnamed_addr #2 {
   %28 = getelementptr inbounds nuw i8, ptr %.11734.i, i64 1
   store volatile i8 0, ptr %.11734.i, align 1, !tbaa !10
   %.not22.i = icmp eq i32 %27, 0
-  br i1 %.not22.i, label %ForceZero.exit, label %.lr.ph35.i, !llvm.loop !18
+  br i1 %.not22.i, label %ForceZero.exit, label %.lr.ph35.i, !llvm.loop !17
 
 ForceZero.exit:                                   ; preds = %.lr.ph35.i, %.preheader.i, %1
   ret void
@@ -1194,7 +1194,7 @@ switch.lookup:                                    ; preds = %9
   %45 = add i8 %44, 1
   store i8 %45, ptr %12, align 1, !tbaa !10
   %46 = icmp ult i32 %43, %6
-  br i1 %46, label %.lr.ph, label %.thread, !llvm.loop !19
+  br i1 %46, label %.lr.ph, label %.thread
 
 .thread:                                          ; preds = %38, %.lr.ph, %28, %32, %34, %36, %23
   %.1 = phi i32 [ 0, %23 ], [ %37, %36 ], [ %35, %34 ], [ %33, %32 ], [ %31, %28 ], [ %27, %.lr.ph ], [ 0, %38 ]
@@ -1377,12 +1377,10 @@ attributes #8 = { nounwind }
 !8 = !{!4, !5, i64 776}
 !9 = !{!4, !5, i64 777}
 !10 = !{!5, !5, i64 0}
-!11 = distinct !{!11, !12, !13}
+!11 = distinct !{!11, !12}
 !12 = !{!"llvm.loop.mustprogress"}
-!13 = !{!"llvm.loop.estimated_trip_count"}
-!14 = distinct !{!14, !12, !13}
-!15 = !{!16, !16, i64 0}
-!16 = !{!"long", !5, i64 0}
-!17 = distinct !{!17, !12, !13}
-!18 = distinct !{!18, !12, !13}
-!19 = distinct !{!19, !13}
+!13 = distinct !{!13, !12}
+!14 = !{!15, !15, i64 0}
+!15 = !{!"long", !5, i64 0}
+!16 = distinct !{!16, !12}
+!17 = distinct !{!17, !12}

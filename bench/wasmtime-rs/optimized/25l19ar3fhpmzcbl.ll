@@ -423,7 +423,7 @@ define hidden void @_ZN22cranelift_codegen_meta4cdsl12instructions23InstructionG
 
 .noexc102.i:                                      ; preds = %.backedge.i.i
   %154 = icmp eq ptr %153, null
-  br i1 %154, label %._crit_edge.i.i, label %102, !llvm.loop !5
+  br i1 %154, label %._crit_edge.i.i, label %102
 
 155:                                              ; preds = %.noexc100.i
   %156 = add i64 %103, 1
@@ -441,10 +441,10 @@ define hidden void @_ZN22cranelift_codegen_meta4cdsl12instructions23InstructionG
   %163 = getelementptr inbounds { { { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, { ptr, i64 } }, ptr %162, i64 %159
   %164 = getelementptr inbounds nuw i8, ptr %163, i64 72
   %165 = getelementptr inbounds nuw i8, ptr %105, i64 72
-  %166 = load ptr, ptr %164, align 8, !nonnull !3, !align !7, !noundef !3
+  %166 = load ptr, ptr %164, align 8, !nonnull !3, !align !5, !noundef !3
   %167 = getelementptr inbounds nuw i8, ptr %163, i64 80
   %168 = load i64, ptr %167, align 8, !noundef !3
-  %169 = load ptr, ptr %165, align 8, !nonnull !3, !align !7, !noundef !3
+  %169 = load ptr, ptr %165, align 8, !nonnull !3, !align !5, !noundef !3
   %170 = getelementptr inbounds nuw i8, ptr %105, i64 80
   %171 = load i64, ptr %170, align 8, !noundef !3
   %172 = invoke zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h1353dd432280b8bcE"(ptr nonnull align 1 %166, i64 %168, ptr nonnull align 1 %169, i64 %171)
@@ -558,7 +558,7 @@ define hidden void @_ZN22cranelift_codegen_meta4cdsl12instructions23InstructionG
   br i1 %195, label %.critedge.i.i, label %310
 
 .critedge.i.i:                                    ; preds = %.noexc107.i, %.noexc106.i
-  %196 = load i64, ptr %188, align 8, !range !8, !noundef !3
+  %196 = load i64, ptr %188, align 8, !range !6, !noundef !3
   %197 = getelementptr inbounds nuw i8, ptr %187, i64 24
   %198 = load i64, ptr %197, align 8
   store i64 -9223372036854775808, ptr %16, align 8
@@ -581,11 +581,11 @@ define hidden void @_ZN22cranelift_codegen_meta4cdsl12instructions23InstructionG
   %203 = getelementptr inbounds [0 x i64], ptr %189, i64 0, i64 %198
   %204 = load i64, ptr %203, align 8, !noundef !3
   %205 = icmp ult i64 %204, %69
-  br i1 %205, label %210, label %213, !prof !9
+  br i1 %205, label %210, label %213, !prof !7
 
 .thread66.i.i:                                    ; preds = %308, %282, %278, %255, %226, %222, %207
   %.pn59.i.i = phi { ptr, i32 } [ %208, %207 ], [ %.pn57.i.i, %255 ], [ %.pn57.i.i, %222 ], [ %eh.lpad-body.i.i, %308 ], [ %eh.lpad-body.i.i, %278 ], [ %227, %226 ], [ %283, %282 ]
-  %206 = load i64, ptr %16, align 8, !range !10, !noundef !3
+  %206 = load i64, ptr %16, align 8, !range !8, !noundef !3
   %.not72.i.i = icmp eq i64 %206, -9223372036854775808
   br i1 %.not72.i.i, label %320, label %309
 
@@ -670,7 +670,7 @@ define hidden void @_ZN22cranelift_codegen_meta4cdsl12instructions23InstructionG
   unreachable
 
 234:                                              ; preds = %219
-  %235 = load i8, ptr %13, align 8, !range !11, !noundef !3
+  %235 = load i8, ptr %13, align 8, !range !9, !noundef !3
   %.not54.i.i = icmp eq i8 %235, 4
   br i1 %.not54.i.i, label %236, label %231
 
@@ -680,7 +680,7 @@ define hidden void @_ZN22cranelift_codegen_meta4cdsl12instructions23InstructionG
   br i1 %237, label %254, label %200
 
 238:                                              ; preds = %231
-  %239 = load i64, ptr %12, align 8, !range !8, !noundef !3
+  %239 = load i64, ptr %12, align 8, !range !6, !noundef !3
   %240 = icmp eq i64 %239, 0
   %241 = getelementptr inbounds nuw i8, ptr %12, i64 8
   br i1 %240, label %242, label %244
@@ -732,7 +732,7 @@ define hidden void @_ZN22cranelift_codegen_meta4cdsl12instructions23InstructionG
           to label %.thread66.i.i unwind label %232
 
 256:                                              ; preds = %200
-  %257 = load i64, ptr %16, align 8, !range !10, !noundef !3
+  %257 = load i64, ptr %16, align 8, !range !8, !noundef !3
   %258 = icmp eq i64 %257, -9223372036854775808
   br i1 %258, label %259, label %264
 
@@ -839,7 +839,7 @@ define hidden void @_ZN22cranelift_codegen_meta4cdsl12instructions23InstructionG
 
 292:                                              ; preds = %275
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
-  %293 = load i64, ptr %4, align 8, !range !8, !noundef !3
+  %293 = load i64, ptr %4, align 8, !range !6, !noundef !3
   %294 = icmp eq i64 %293, 0
   %295 = getelementptr inbounds nuw i8, ptr %4, i64 8
   br i1 %294, label %302, label %296
@@ -957,7 +957,7 @@ define hidden void @_ZN22cranelift_codegen_meta4cdsl12instructions23InstructionG
   br i1 %327, label %.backedge.i.backedge, label %329
 
 .backedge.i.backedge:                             ; preds = %328, %.invoke.i
-  br label %.backedge.i, !llvm.loop !12
+  br label %.backedge.i
 
 329:                                              ; preds = %328
   invoke void @_ZN4core9panicking5panic17h44790a89027c670fE(ptr nonnull align 1 @anon.0e398f087df3ff98cc609ece4a9ad3ee.13, i64 33, ptr nonnull align 8 @anon.0e398f087df3ff98cc609ece4a9ad3ee.14) #9
@@ -1071,7 +1071,7 @@ _ZN22cranelift_codegen_meta4cdsl12instructions18InstructionBuilder5build17h0c9de
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %46)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %47)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %48)
-  %375 = load ptr, ptr %0, align 8, !nonnull !3, !align !13, !noundef !3
+  %375 = load ptr, ptr %0, align 8, !nonnull !3, !align !10, !noundef !3
   call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hb92685d071d6d1ceE"(ptr nonnull align 8 %375, ptr %374)
   ret void
 }
@@ -1247,7 +1247,7 @@ define zeroext i1 @"_ZN101_$LT$cranelift_codegen_meta..cdsl..instructions..Instr
 define hidden void @_ZN22cranelift_codegen_meta4cdsl12instructions18InstructionBuilder11operands_in17hf297499cbd99b3d7E(ptr writeonly sret({ { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { i64, [2 x i64] }, { i64, [2 x i64] }, ptr, i8, i8, i8, i8, i8, i8, i8, i8, i8, [7 x i8] }) align 8 captures(none) %0, ptr align 8 %1, ptr align 8 %2) unnamed_addr #1 personality ptr @rust_eh_personality {
   %4 = alloca { i64, [2 x i64] }, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %6 = load i64, ptr %5, align 8, !range !10, !noundef !3
+  %6 = load i64, ptr %5, align 8, !range !8, !noundef !3
   %.not.not = icmp eq i64 %6, -9223372036854775808
   br i1 %.not.not, label %8, label %7
 
@@ -1299,7 +1299,7 @@ define hidden void @_ZN22cranelift_codegen_meta4cdsl12instructions18InstructionB
 define hidden void @_ZN22cranelift_codegen_meta4cdsl12instructions18InstructionBuilder12operands_out17h34e4460c57634b93E(ptr writeonly sret({ { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { i64, [2 x i64] }, { i64, [2 x i64] }, ptr, i8, i8, i8, i8, i8, i8, i8, i8, i8, [7 x i8] }) align 8 captures(none) %0, ptr align 8 %1, ptr align 8 %2) unnamed_addr #1 personality ptr @rust_eh_personality {
   %4 = alloca { i64, [2 x i64] }, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  %6 = load i64, ptr %5, align 8, !range !10, !noundef !3
+  %6 = load i64, ptr %5, align 8, !range !8, !noundef !3
   %.not.not = icmp eq i64 %6, -9223372036854775808
   br i1 %.not.not, label %8, label %7
 
@@ -1519,7 +1519,7 @@ define internal fastcc void @_ZN22cranelift_codegen_meta4cdsl12instructions25is_
   br i1 %42, label %45, label %.backedge.backedge
 
 .backedge.backedge:                               ; preds = %44, %.critedge, %58
-  br label %.backedge, !llvm.loop !14
+  br label %.backedge
 
 45:                                               ; preds = %44
   %46 = invoke align 8 ptr @_ZN22cranelift_codegen_meta4cdsl8operands7Operand8type_var17h570939bbb99aa11dE(ptr nonnull align 8 %36)
@@ -1597,7 +1597,7 @@ define internal fastcc void @_ZN22cranelift_codegen_meta4cdsl12instructions25is_
   br i1 %35, label %70, label %.backedge64.backedge
 
 .backedge64.backedge:                             ; preds = %69, %.critedge50, %97, %84
-  br label %.backedge64, !llvm.loop !15
+  br label %.backedge64
 
 70:                                               ; preds = %69
   %71 = invoke align 8 ptr @_ZN22cranelift_codegen_meta4cdsl8operands7Operand8type_var17h570939bbb99aa11dE(ptr nonnull align 8 %28)
@@ -1681,7 +1681,7 @@ define internal fastcc void @_ZN22cranelift_codegen_meta4cdsl12instructions25is_
           to label %101 unwind label %.loopexit54
 
 101:                                              ; preds = %99
-  br i1 %100, label %102, label %93, !llvm.loop !16
+  br i1 %100, label %102, label %93
 
 102:                                              ; preds = %101
   %103 = invoke align 8 ptr @"_ZN90_$LT$cranelift_codegen_meta..cdsl..typevar..TypeVar$u20$as$u20$core..ops..deref..Deref$GT$5deref17h0af796e260893af0E"(ptr nonnull align 8 %17)
@@ -1971,15 +1971,9 @@ attributes #11 = { cold noreturn nounwind }
 !2 = !{!"rustc version 1.77.2 (25ef9e3d8 2024-04-09)"}
 !3 = !{}
 !4 = !{i8 0, i8 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.estimated_trip_count"}
-!7 = !{i64 1}
-!8 = !{i64 0, i64 2}
-!9 = !{!"branch_weights", !"expected", i32 2000, i32 1}
-!10 = !{i64 0, i64 -9223372036854775807}
-!11 = !{i8 0, i8 5}
-!12 = distinct !{!12, !6}
-!13 = !{i64 8}
-!14 = distinct !{!14, !6}
-!15 = distinct !{!15, !6}
-!16 = distinct !{!16, !6}
+!5 = !{i64 1}
+!6 = !{i64 0, i64 2}
+!7 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!8 = !{i64 0, i64 -9223372036854775807}
+!9 = !{i8 0, i8 5}
+!10 = !{i64 8}

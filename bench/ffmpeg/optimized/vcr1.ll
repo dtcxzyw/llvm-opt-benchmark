@@ -100,7 +100,7 @@ define internal i32 @vcr1_decode_frame(ptr noundef %0, ptr noundef %1, ptr nound
 40:                                               ; preds = %.lr.ph158, %.loopexit
   %.0123157 = phi i32 [ 0, %.lr.ph158 ], [ %214, %.loopexit ]
   %.1129156 = phi ptr [ %39, %.lr.ph158 ], [ %.4, %.loopexit ]
-  %41 = load ptr, ptr %1, align 8, !tbaa !38
+  %41 = load ptr, ptr %1, align 8, !tbaa !37
   %42 = load i32, ptr %29, align 8, !tbaa !34
   %43 = mul nsw i32 %42, %.0123157
   %44 = sext i32 %43 to i64
@@ -110,13 +110,13 @@ define internal i32 @vcr1_decode_frame(ptr noundef %0, ptr noundef %1, ptr nound
   br i1 %47, label %48, label %124
 
 48:                                               ; preds = %40
-  %49 = load ptr, ptr %32, align 8, !tbaa !38
+  %49 = load ptr, ptr %32, align 8, !tbaa !37
   %50 = lshr exact i32 %.0123157, 2
   %51 = load i32, ptr %33, align 4, !tbaa !34
   %52 = mul nsw i32 %51, %50
   %53 = sext i32 %52 to i64
   %54 = getelementptr inbounds i8, ptr %49, i64 %53
-  %55 = load ptr, ptr %34, align 8, !tbaa !38
+  %55 = load ptr, ptr %34, align 8, !tbaa !37
   %56 = load i32, ptr %35, align 8, !tbaa !34
   %57 = mul nsw i32 %56, %50
   %58 = sext i32 %57 to i64
@@ -144,7 +144,7 @@ define internal i32 @vcr1_decode_frame(ptr noundef %0, ptr noundef %1, ptr nound
   store i32 %68, ptr %69, align 4, !tbaa !34
   %indvars.iv.next166 = add nuw nsw i64 %indvars.iv165, 1
   %exitcond168.not = icmp eq i64 %indvars.iv.next166, 4
-  br i1 %exitcond168.not, label %70, label %.preheader, !llvm.loop !39
+  br i1 %exitcond168.not, label %70, label %.preheader, !llvm.loop !38
 
 70:                                               ; preds = %.preheader
   %71 = load i32, ptr %16, align 8, !tbaa !27
@@ -218,7 +218,7 @@ define internal i32 @vcr1_decode_frame(ptr noundef %0, ptr noundef %1, ptr nound
   %121 = add nuw nsw i32 %.0124149, 4
   %122 = load i32, ptr %16, align 8, !tbaa !27
   %123 = icmp slt i32 %121, %122
-  br i1 %123, label %.lr.ph154, label %.loopexit, !llvm.loop !40
+  br i1 %123, label %.lr.ph154, label %.loopexit, !llvm.loop !39
 
 124:                                              ; preds = %40
   %125 = ptrtoint ptr %.1129156 to i64
@@ -335,14 +335,14 @@ define internal i32 @vcr1_decode_frame(ptr noundef %0, ptr noundef %1, ptr nound
   %211 = add nuw nsw i32 %.1125143, 8
   %212 = load i32, ptr %16, align 8, !tbaa !27
   %213 = icmp slt i32 %211, %212
-  br i1 %213, label %.lr.ph, label %.loopexit, !llvm.loop !41
+  br i1 %213, label %.lr.ph, label %.loopexit, !llvm.loop !40
 
 .loopexit:                                        ; preds = %.lr.ph, %.lr.ph154, %131, %70
   %.4 = phi ptr [ %66, %70 ], [ %.1129156, %131 ], [ %120, %.lr.ph154 ], [ %210, %.lr.ph ]
   %214 = add nuw nsw i32 %.0123157, 1
   %215 = load i32, ptr %13, align 4, !tbaa !28
   %216 = icmp slt i32 %214, %215
-  br i1 %216, label %40, label %._crit_edge, !llvm.loop !42
+  br i1 %216, label %40, label %._crit_edge, !llvm.loop !41
 
 ._crit_edge:                                      ; preds = %.loopexit, %.preheader136
   %.1129.lcssa = phi ptr [ %39, %.preheader136 ], [ %.4, %.loopexit ]
@@ -412,11 +412,10 @@ attributes #5 = { noreturn nounwind }
 !32 = !{!31, !10, i64 32}
 !33 = !{!8, !8, i64 0}
 !34 = !{!10, !10, i64 0}
-!35 = distinct !{!35, !36, !37}
+!35 = distinct !{!35, !36}
 !36 = !{!"llvm.loop.mustprogress"}
-!37 = !{!"llvm.loop.estimated_trip_count"}
-!38 = !{!14, !14, i64 0}
-!39 = distinct !{!39, !36, !37}
-!40 = distinct !{!40, !36, !37}
-!41 = distinct !{!41, !36, !37}
-!42 = distinct !{!42, !36, !37}
+!37 = !{!14, !14, i64 0}
+!38 = distinct !{!38, !36}
+!39 = distinct !{!39, !36}
+!40 = distinct !{!40, !36}
+!41 = distinct !{!41, !36}

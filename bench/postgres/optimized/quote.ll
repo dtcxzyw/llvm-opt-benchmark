@@ -132,7 +132,7 @@ select.unfold:                                    ; preds = %9, %16, %19
   store i8 %46, ptr %.2.i, align 1
   %.1.i = getelementptr inbounds nuw i8, ptr %.2.i, i64 1
   %.not.i = icmp eq i64 %41, 0
-  br i1 %.not.i, label %quote_literal_internal.exit, label %.lr.ph28.i, !llvm.loop !7
+  br i1 %.not.i, label %quote_literal_internal.exit, label %.lr.ph28.i, !llvm.loop !6
 
 quote_literal_internal.exit:                      ; preds = %45, %.loopexit.thread.i
   %.0.pn.lcssa.i = phi ptr [ %31, %.loopexit.thread.i ], [ %.2.i, %45 ]
@@ -218,7 +218,7 @@ define dso_local ptr @quote_literal_cstr(ptr noundef readonly captures(address) 
   store i8 %22, ptr %.2.i, align 1
   %.1.i = getelementptr inbounds nuw i8, ptr %.2.i, i64 1
   %.not.i = icmp eq i64 %17, 0
-  br i1 %.not.i, label %quote_literal_internal.exit, label %.lr.ph28.i, !llvm.loop !7
+  br i1 %.not.i, label %quote_literal_internal.exit, label %.lr.ph28.i, !llvm.loop !6
 
 quote_literal_internal.exit:                      ; preds = %21, %.loopexit.thread.i
   %.0.pn.lcssa.i = phi ptr [ %7, %.loopexit.thread.i ], [ %.2.i, %21 ]
@@ -241,7 +241,7 @@ declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #2
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @quote_nullable(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %3 = load i8, ptr %2, align 8, !range !8, !noundef !9
+  %3 = load i8, ptr %2, align 8, !range !7, !noundef !8
   %4 = trunc nuw i8 %3 to i1
   br i1 %4, label %5, label %8
 
@@ -275,9 +275,8 @@ attributes #4 = { nounwind willreturn memory(read) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = distinct !{!4, !5, !6}
+!4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{!"llvm.loop.estimated_trip_count"}
-!7 = distinct !{!7, !5, !6}
-!8 = !{i8 0, i8 2}
-!9 = !{}
+!6 = distinct !{!6, !5}
+!7 = !{i8 0, i8 2}
+!8 = !{}

@@ -171,7 +171,7 @@ define hidden i32 @ReadJPEG(ptr noundef %0, i64 noundef %1, ptr noundef %2, i32 
   br i1 %.not44, label %70, label %73
 
 70:                                               ; preds = %68
-  %71 = load ptr, ptr @stderr, align 8, !tbaa !56
+  %71 = load ptr, ptr @stderr, align 8, !tbaa !55
   %72 = call i64 @fwrite(ptr nonnull @.str, i64 32, i64 1, ptr %71) #21
   br label %.loopexit
 
@@ -179,9 +179,9 @@ define hidden i32 @ReadJPEG(ptr noundef %0, i64 noundef %1, ptr noundef %2, i32 
   %74 = call i32 @jpeg_finish_decompress(ptr noundef nonnull %7) #18
   call void @jpeg_destroy_decompress(ptr noundef nonnull %7) #18
   %75 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store i32 %39, ptr %75, align 8, !tbaa !58
+  store i32 %39, ptr %75, align 8, !tbaa !57
   %76 = getelementptr inbounds nuw i8, ptr %2, i64 12
-  store i32 %41, ptr %76, align 4, !tbaa !61
+  store i32 %41, ptr %76, align 4, !tbaa !60
   %.0..0..0..0.5 = load volatile ptr, ptr %9, align 8, !tbaa !8
   %77 = call i32 @WebPPictureImportRGB(ptr noundef %2, ptr noundef %.0..0..0..0.5, i32 noundef %47) #18
   store volatile i32 %77, ptr %6, align 4, !tbaa !4
@@ -190,8 +190,8 @@ define hidden i32 @ReadJPEG(ptr noundef %0, i64 noundef %1, ptr noundef %2, i32 
   br i1 %.not45, label %78, label %79
 
 78:                                               ; preds = %73
-  store i32 0, ptr %75, align 8, !tbaa !58
-  store i32 0, ptr %76, align 4, !tbaa !61
+  store i32 0, ptr %75, align 8, !tbaa !57
+  store i32 0, ptr %76, align 4, !tbaa !60
   call void @MetadataFree(ptr noundef %4) #18
   br label %79
 
@@ -222,14 +222,14 @@ declare ptr @jpeg_std_error(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: cold noreturn nounwind uwtable
 define internal void @my_error_exit(ptr noundef %0) #4 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !62
+  %2 = load ptr, ptr %0, align 8, !tbaa !61
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 40
-  %4 = load i32, ptr %3, align 8, !tbaa !64
-  %5 = load ptr, ptr @stderr, align 8, !tbaa !56
+  %4 = load i32, ptr %3, align 8, !tbaa !63
+  %5 = load ptr, ptr @stderr, align 8, !tbaa !55
   %6 = tail call i64 @fwrite(ptr nonnull @.str.1, i64 15, i64 1, ptr %5) #21
-  %7 = load ptr, ptr %0, align 8, !tbaa !62
+  %7 = load ptr, ptr %0, align 8, !tbaa !61
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %9 = load ptr, ptr %8, align 8, !tbaa !65
+  %9 = load ptr, ptr %8, align 8, !tbaa !64
   tail call void %9(ptr noundef nonnull %0) #18
   switch i32 %4, label %13 [
     i32 44, label %10
@@ -237,7 +237,7 @@ define internal void @my_error_exit(ptr noundef %0) #4 {
   ]
 
 10:                                               ; preds = %1, %1
-  %11 = load ptr, ptr @stderr, align 8, !tbaa !56
+  %11 = load ptr, ptr @stderr, align 8, !tbaa !55
   %12 = tail call i64 @fwrite(ptr nonnull @.str.2, i64 55, i64 1, ptr %11) #21
   br label %13
 
@@ -274,7 +274,7 @@ define internal fastcc range(i32 0, 2) i32 @ExtractMetadataFromJPEG(ptr noundef 
   call void @llvm.lifetime.start.p0(i64 6120, ptr nonnull %3) #18
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(6120) %3, i8 0, i64 6120, i1 false)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 400
-  %.078111.i = load ptr, ptr %5, align 8, !tbaa !66
+  %.078111.i = load ptr, ptr %5, align 8, !tbaa !65
   %.not112.i = icmp eq ptr %.078111.i, null
   br i1 %.not112.i, label %.loopexit.sink.split, label %.lr.ph.i
 
@@ -285,30 +285,30 @@ define internal fastcc range(i32 0, 2) i32 @ExtractMetadataFromJPEG(ptr noundef 
   %.074114.i = phi i32 [ %.377.i, %51 ], [ 0, %2 ]
   %.079113.i = phi i64 [ %.281.i, %51 ], [ 0, %2 ]
   %6 = getelementptr inbounds nuw i8, ptr %.078117.i, i64 8
-  %7 = load i8, ptr %6, align 8, !tbaa !67
+  %7 = load i8, ptr %6, align 8, !tbaa !66
   %8 = icmp eq i8 %7, -30
   br i1 %8, label %9, label %51
 
 9:                                                ; preds = %.lr.ph.i
   %10 = getelementptr inbounds nuw i8, ptr %.078117.i, i64 16
-  %11 = load i32, ptr %10, align 8, !tbaa !69
+  %11 = load i32, ptr %10, align 8, !tbaa !68
   %12 = zext i32 %11 to i64
   %13 = icmp ugt i32 %11, 14
   br i1 %13, label %14, label %51
 
 14:                                               ; preds = %9
   %15 = getelementptr inbounds nuw i8, ptr %.078117.i, i64 24
-  %16 = load ptr, ptr %15, align 8, !tbaa !70
+  %16 = load ptr, ptr %15, align 8, !tbaa !69
   %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(12) %16, ptr noundef nonnull dereferenceable(12) @StoreICCP.kICCPSignature, i64 12)
   %.not88.i = icmp eq i32 %bcmp.i, 0
   br i1 %.not88.i, label %17, label %51
 
 17:                                               ; preds = %14
   %18 = getelementptr inbounds nuw i8, ptr %16, i64 12
-  %19 = load i8, ptr %18, align 1, !tbaa !71
+  %19 = load i8, ptr %18, align 1, !tbaa !70
   %20 = zext i8 %19 to i32
   %21 = getelementptr inbounds nuw i8, ptr %16, i64 13
-  %22 = load i8, ptr %21, align 1, !tbaa !71
+  %22 = load i8, ptr %21, align 1, !tbaa !70
   %23 = zext i8 %22 to i32
   %24 = add nsw i64 %12, -14
   %25 = icmp eq i8 %22, 0
@@ -317,7 +317,7 @@ define internal fastcc range(i32 0, 2) i32 @ExtractMetadataFromJPEG(ptr noundef 
   br i1 %or.cond3.i, label %27, label %31
 
 27:                                               ; preds = %17
-  %28 = load ptr, ptr @stderr, align 8, !tbaa !56
+  %28 = load ptr, ptr @stderr, align 8, !tbaa !55
   %29 = trunc nuw i64 %24 to i32
   %30 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %28, ptr noundef nonnull @.str.6, i32 noundef %29, i32 noundef %20, i32 noundef %23) #23
   br label %.loopexit.sink.split
@@ -331,7 +331,7 @@ define internal fastcc range(i32 0, 2) i32 @ExtractMetadataFromJPEG(ptr noundef 
   br i1 %.not89.i, label %37, label %34
 
 34:                                               ; preds = %33
-  %35 = load ptr, ptr @stderr, align 8, !tbaa !56
+  %35 = load ptr, ptr @stderr, align 8, !tbaa !55
   %36 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %35, ptr noundef nonnull @.str.7, i32 noundef %.067116.i, i32 noundef %23) #23
   br label %.loopexit.sink.split
 
@@ -340,22 +340,22 @@ define internal fastcc range(i32 0, 2) i32 @ExtractMetadataFromJPEG(ptr noundef 
   %38 = zext i8 %19 to i64
   %39 = getelementptr inbounds nuw %struct.ICCPSegment, ptr %3, i64 %38
   %40 = getelementptr inbounds i8, ptr %39, i64 -16
-  %41 = load i64, ptr %40, align 8, !tbaa !72
+  %41 = load i64, ptr %40, align 8, !tbaa !71
   %.not90.i = icmp eq i64 %41, 0
   br i1 %.not90.i, label %45, label %42
 
 42:                                               ; preds = %37
-  %43 = load ptr, ptr @stderr, align 8, !tbaa !56
+  %43 = load ptr, ptr @stderr, align 8, !tbaa !55
   %44 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %43, ptr noundef nonnull @.str.8, i32 noundef %20) #23
   br label %.loopexit.sink.split
 
 45:                                               ; preds = %37
   %46 = getelementptr inbounds i8, ptr %39, i64 -24
   %47 = getelementptr inbounds nuw i8, ptr %16, i64 14
-  store ptr %47, ptr %46, align 8, !tbaa !74
-  store i64 %24, ptr %40, align 8, !tbaa !72
+  store ptr %47, ptr %46, align 8, !tbaa !73
+  store i64 %24, ptr %40, align 8, !tbaa !71
   %48 = getelementptr inbounds i8, ptr %39, i64 -8
-  store i32 %20, ptr %48, align 8, !tbaa !75
+  store i32 %20, ptr %48, align 8, !tbaa !74
   %49 = add i64 %24, %.079113.i
   %spec.select.i = tail call i32 @llvm.smax.i32(i32 %.074114.i, i32 %20)
   %50 = add nsw i32 %.071115.i, 1
@@ -366,9 +366,9 @@ define internal fastcc range(i32 0, 2) i32 @ExtractMetadataFromJPEG(ptr noundef 
   %.377.i = phi i32 [ %.074114.i, %14 ], [ %spec.select.i, %45 ], [ %.074114.i, %9 ], [ %.074114.i, %.lr.ph.i ]
   %.273.i = phi i32 [ %.071115.i, %14 ], [ %50, %45 ], [ %.071115.i, %9 ], [ %.071115.i, %.lr.ph.i ]
   %.370.i = phi i32 [ %.067116.i, %14 ], [ %.269.i, %45 ], [ %.067116.i, %9 ], [ %.067116.i, %.lr.ph.i ]
-  %.078.i = load ptr, ptr %.078117.i, align 8, !tbaa !66
+  %.078.i = load ptr, ptr %.078117.i, align 8, !tbaa !65
   %.not.i = icmp eq ptr %.078.i, null
-  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !76
+  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !75
 
 ._crit_edge.i:                                    ; preds = %51
   %52 = icmp eq i32 %.273.i, 0
@@ -379,7 +379,7 @@ define internal fastcc range(i32 0, 2) i32 @ExtractMetadataFromJPEG(ptr noundef 
   br i1 %.not86.i, label %57, label %54
 
 54:                                               ; preds = %53
-  %55 = load ptr, ptr @stderr, align 8, !tbaa !56
+  %55 = load ptr, ptr @stderr, align 8, !tbaa !55
   %56 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %55, ptr noundef nonnull @.str.9, i32 noundef %.273.i, i32 noundef %.377.i) #23
   br label %.loopexit.sink.split
 
@@ -388,7 +388,7 @@ define internal fastcc range(i32 0, 2) i32 @ExtractMetadataFromJPEG(ptr noundef 
   br i1 %.not87.i, label %61, label %58
 
 58:                                               ; preds = %57
-  %59 = load ptr, ptr @stderr, align 8, !tbaa !56
+  %59 = load ptr, ptr @stderr, align 8, !tbaa !55
   %60 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %59, ptr noundef nonnull @.str.10, i32 noundef %.377.i, i32 noundef %.370.i) #23
   br label %.loopexit.sink.split
 
@@ -396,42 +396,42 @@ define internal fastcc range(i32 0, 2) i32 @ExtractMetadataFromJPEG(ptr noundef 
   %62 = zext nneg i32 %.377.i to i64
   call void @qsort(ptr noundef nonnull %3, i64 noundef %62, i64 noundef 24, ptr noundef nonnull @CompareICCPSegments) #18
   %63 = call noalias ptr @malloc(i64 noundef %.281.i) #20
-  store ptr %63, ptr %4, align 8, !tbaa !77
+  store ptr %63, ptr %4, align 8, !tbaa !76
   %64 = icmp eq ptr %63, null
   br i1 %64, label %.loopexit.sink.split, label %65
 
 65:                                               ; preds = %61
   %66 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  store i64 %.281.i, ptr %66, align 8, !tbaa !79
+  store i64 %.281.i, ptr %66, align 8, !tbaa !78
   %67 = icmp sgt i32 %.377.i, 0
   br i1 %67, label %.lr.ph124.i, label %.loopexit47
 
 .lr.ph124.i:                                      ; preds = %65, %.lr.ph124.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph124.i ], [ 0, %65 ]
   %.0122.i = phi i64 [ %75, %.lr.ph124.i ], [ 0, %65 ]
-  %68 = load ptr, ptr %4, align 8, !tbaa !77
+  %68 = load ptr, ptr %4, align 8, !tbaa !76
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 %.0122.i
   %70 = getelementptr inbounds nuw [255 x %struct.ICCPSegment], ptr %3, i64 0, i64 %indvars.iv.i
-  %71 = load ptr, ptr %70, align 8, !tbaa !74
+  %71 = load ptr, ptr %70, align 8, !tbaa !73
   %72 = getelementptr inbounds nuw i8, ptr %70, i64 8
-  %73 = load i64, ptr %72, align 8, !tbaa !72
+  %73 = load i64, ptr %72, align 8, !tbaa !71
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %69, ptr align 1 %71, i64 %73, i1 false)
-  %74 = load i64, ptr %72, align 8, !tbaa !72
+  %74 = load i64, ptr %72, align 8, !tbaa !71
   %75 = add i64 %74, %.0122.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %62
-  br i1 %exitcond.not.i, label %.loopexit47, label %.lr.ph124.i, !llvm.loop !80
+  br i1 %exitcond.not.i, label %.loopexit47, label %.lr.ph124.i, !llvm.loop !79
 
 .loopexit47:                                      ; preds = %.lr.ph124.i, %65, %._crit_edge.i
-  %.03060.pr = load ptr, ptr %5, align 8, !tbaa !66
+  %.03060.pr = load ptr, ptr %5, align 8, !tbaa !65
   call void @llvm.lifetime.end.p0(i64 6120, ptr nonnull %3) #18
   %.not3861 = icmp eq ptr %.03060.pr, null
   br i1 %.not3861, label %.loopexit, label %.preheader
 
 .critedge43.loopexit:                             ; preds = %.critedge
-  %.030 = load ptr, ptr %.03062, align 8, !tbaa !66
+  %.030 = load ptr, ptr %.03062, align 8, !tbaa !65
   %.not38 = icmp eq ptr %.030, null
-  br i1 %.not38, label %.loopexit, label %.preheader, !llvm.loop !81
+  br i1 %.not38, label %.loopexit, label %.preheader, !llvm.loop !80
 
 .preheader:                                       ; preds = %.loopexit47, %.critedge43.loopexit
   %.03062 = phi ptr [ %.030, %.critedge43.loopexit ], [ %.03060.pr, %.loopexit47 ]
@@ -444,32 +444,32 @@ define internal fastcc range(i32 0, 2) i32 @ExtractMetadataFromJPEG(ptr noundef 
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %.critedge ]
   %80 = phi i32 [ 225, %.preheader ], [ %109, %.critedge ]
   %81 = phi ptr [ @ExtractMetadataFromJPEG.kJPEGMetadataMap, %.preheader ], [ %108, %.critedge ]
-  %82 = load i8, ptr %76, align 8, !tbaa !67
+  %82 = load i8, ptr %76, align 8, !tbaa !66
   %83 = zext i8 %82 to i32
   %84 = icmp eq i32 %80, %83
   br i1 %84, label %85, label %.critedge
 
 85:                                               ; preds = %79
-  %86 = load i32, ptr %77, align 8, !tbaa !69
+  %86 = load i32, ptr %77, align 8, !tbaa !68
   %87 = zext i32 %86 to i64
   %88 = getelementptr inbounds nuw i8, ptr %81, i64 16
-  %89 = load i64, ptr %88, align 16, !tbaa !82
+  %89 = load i64, ptr %88, align 16, !tbaa !81
   %90 = icmp ult i64 %89, %87
   br i1 %90, label %91, label %.critedge
 
 91:                                               ; preds = %85
-  %92 = load ptr, ptr %78, align 8, !tbaa !70
+  %92 = load ptr, ptr %78, align 8, !tbaa !69
   %93 = getelementptr inbounds nuw i8, ptr %81, i64 8
-  %94 = load ptr, ptr %93, align 8, !tbaa !84
+  %94 = load ptr, ptr %93, align 8, !tbaa !83
   %bcmp = call i32 @bcmp(ptr %92, ptr %94, i64 %89)
   %.not40 = icmp eq i32 %bcmp, 0
   br i1 %.not40, label %95, label %.critedge
 
 95:                                               ; preds = %91
   %96 = getelementptr inbounds nuw i8, ptr %81, i64 24
-  %97 = load i64, ptr %96, align 8, !tbaa !85
+  %97 = load i64, ptr %96, align 8, !tbaa !84
   %98 = getelementptr inbounds nuw i8, ptr %1, i64 %97
-  %99 = load ptr, ptr %98, align 8, !tbaa !77
+  %99 = load ptr, ptr %98, align 8, !tbaa !76
   %100 = icmp eq ptr %99, null
   br i1 %100, label %101, label %105
 
@@ -481,16 +481,16 @@ define internal fastcc range(i32 0, 2) i32 @ExtractMetadataFromJPEG(ptr noundef 
   br i1 %.not41.not, label %.loopexit, label %.critedge
 
 105:                                              ; preds = %95
-  %106 = load ptr, ptr @stderr, align 8, !tbaa !56
+  %106 = load ptr, ptr @stderr, align 8, !tbaa !55
   %107 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %106, ptr noundef nonnull @.str.5, ptr noundef %94) #23
   br label %.critedge
 
 .critedge:                                        ; preds = %105, %101, %79, %85, %91
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %108 = getelementptr inbounds nuw [3 x %struct.anon], ptr @ExtractMetadataFromJPEG.kJPEGMetadataMap, i64 0, i64 %indvars.iv.next
-  %109 = load i32, ptr %108, align 16, !tbaa !86
+  %109 = load i32, ptr %108, align 16, !tbaa !85
   %exitcond = icmp eq i64 %indvars.iv.next, 2
-  br i1 %exitcond, label %.critedge43.loopexit, label %79, !llvm.loop !87
+  br i1 %exitcond, label %.critedge43.loopexit, label %79, !llvm.loop !86
 
 .loopexit.sink.split:                             ; preds = %27, %42, %34, %61, %58, %54, %2
   %.0.ph = phi i32 [ 1, %2 ], [ 0, %54 ], [ 0, %58 ], [ 0, %61 ], [ 0, %34 ], [ 0, %42 ], [ 0, %27 ]
@@ -524,11 +524,11 @@ define internal void @ContextInit(ptr noundef readonly captures(none) %0) #10 {
   %3 = load ptr, ptr %2, align 8, !tbaa !41
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 56
   %5 = load ptr, ptr %4, align 8, !tbaa !11
-  store ptr %5, ptr %3, align 8, !tbaa !88
+  store ptr %5, ptr %3, align 8, !tbaa !87
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 64
   %7 = load i64, ptr %6, align 8, !tbaa !15
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store i64 %7, ptr %8, align 8, !tbaa !89
+  store i64 %7, ptr %8, align 8, !tbaa !88
   ret void
 }
 
@@ -536,8 +536,8 @@ define internal void @ContextInit(ptr noundef readonly captures(none) %0) #10 {
 define internal noundef i32 @ContextFill(ptr noundef %0) #0 {
   %2 = load ptr, ptr %0, align 8, !tbaa !16
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 40
-  store i32 37, ptr %3, align 8, !tbaa !90
-  %4 = load ptr, ptr %2, align 8, !tbaa !91
+  store i32 37, ptr %3, align 8, !tbaa !89
+  %4 = load ptr, ptr %2, align 8, !tbaa !90
   tail call void %4(ptr noundef nonnull %0) #18
   ret i32 0
 }
@@ -547,13 +547,13 @@ define internal void @ContextSkip(ptr noundef readonly captures(none) %0, i64 no
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load ptr, ptr %3, align 8, !tbaa !41
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %6 = load i64, ptr %5, align 8, !tbaa !89
+  %6 = load i64, ptr %5, align 8, !tbaa !88
   %spec.select = tail call i64 @llvm.umin.i64(i64 %1, i64 %6)
   %7 = sub i64 %6, %spec.select
-  store i64 %7, ptr %5, align 8, !tbaa !89
-  %8 = load ptr, ptr %4, align 8, !tbaa !88
+  store i64 %7, ptr %5, align 8, !tbaa !88
+  %8 = load ptr, ptr %4, align 8, !tbaa !87
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 %spec.select
-  store ptr %9, ptr %4, align 8, !tbaa !88
+  store ptr %9, ptr %4, align 8, !tbaa !87
   ret void
 }
 
@@ -574,9 +574,9 @@ declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr noundef captures(
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define internal i32 @CompareICCPSegments(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #13 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %4 = load i32, ptr %3, align 8, !tbaa !75
+  %4 = load i32, ptr %3, align 8, !tbaa !74
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %6 = load i32, ptr %5, align 8, !tbaa !75
+  %6 = load i32, ptr %5, align 8, !tbaa !74
   %7 = sub nsw i32 %4, %6
   ret i32 %7
 }
@@ -676,42 +676,41 @@ attributes #23 = { cold nounwind }
 !50 = !{!17, !5, i64 136}
 !51 = !{!17, !5, i64 140}
 !52 = !{!17, !5, i64 168}
-!53 = distinct !{!53, !54, !55}
+!53 = distinct !{!53, !54}
 !54 = !{!"llvm.loop.mustprogress"}
-!55 = !{!"llvm.loop.estimated_trip_count"}
-!56 = !{!57, !57, i64 0}
-!57 = !{!"p1 _ZTS8_IO_FILE", !10, i64 0}
-!58 = !{!59, !5, i64 8}
-!59 = !{!"WebPPicture", !5, i64 0, !5, i64 4, !5, i64 8, !5, i64 12, !9, i64 16, !9, i64 24, !9, i64 32, !5, i64 40, !5, i64 44, !9, i64 48, !5, i64 56, !6, i64 60, !24, i64 72, !5, i64 80, !6, i64 84, !10, i64 96, !10, i64 104, !5, i64 112, !9, i64 120, !60, i64 128, !5, i64 136, !10, i64 144, !10, i64 152, !6, i64 160, !9, i64 176, !9, i64 184, !6, i64 192, !10, i64 224, !10, i64 232, !6, i64 240}
-!60 = !{!"p1 _ZTS12WebPAuxStats", !10, i64 0}
-!61 = !{!59, !5, i64 12}
-!62 = !{!63, !18, i64 0}
-!63 = !{!"jpeg_common_struct", !18, i64 0, !19, i64 8, !20, i64 16, !10, i64 24, !5, i64 32, !5, i64 36}
-!64 = !{!39, !5, i64 40}
-!65 = !{!40, !10, i64 16}
-!66 = !{!26, !26, i64 0}
-!67 = !{!68, !6, i64 8}
-!68 = !{!"jpeg_marker_struct", !26, i64 0, !6, i64 8, !5, i64 12, !5, i64 16, !9, i64 24}
-!69 = !{!68, !5, i64 16}
-!70 = !{!68, !9, i64 24}
-!71 = !{!6, !6, i64 0}
-!72 = !{!73, !14, i64 8}
-!73 = !{!"", !9, i64 0, !14, i64 8, !5, i64 16}
-!74 = !{!73, !9, i64 0}
-!75 = !{!73, !5, i64 16}
-!76 = distinct !{!76, !54, !55}
-!77 = !{!78, !9, i64 0}
-!78 = !{!"MetadataPayload", !9, i64 0, !14, i64 8}
-!79 = !{!78, !14, i64 8}
-!80 = distinct !{!80, !54, !55}
-!81 = distinct !{!81, !54, !55}
-!82 = !{!83, !14, i64 16}
-!83 = !{!"", !5, i64 0, !9, i64 8, !14, i64 16, !14, i64 24}
-!84 = !{!83, !9, i64 8}
-!85 = !{!83, !14, i64 24}
-!86 = !{!83, !5, i64 0}
-!87 = distinct !{!87, !54, !55}
-!88 = !{!12, !9, i64 0}
-!89 = !{!12, !14, i64 8}
-!90 = !{!40, !5, i64 40}
-!91 = !{!40, !10, i64 0}
+!55 = !{!56, !56, i64 0}
+!56 = !{!"p1 _ZTS8_IO_FILE", !10, i64 0}
+!57 = !{!58, !5, i64 8}
+!58 = !{!"WebPPicture", !5, i64 0, !5, i64 4, !5, i64 8, !5, i64 12, !9, i64 16, !9, i64 24, !9, i64 32, !5, i64 40, !5, i64 44, !9, i64 48, !5, i64 56, !6, i64 60, !24, i64 72, !5, i64 80, !6, i64 84, !10, i64 96, !10, i64 104, !5, i64 112, !9, i64 120, !59, i64 128, !5, i64 136, !10, i64 144, !10, i64 152, !6, i64 160, !9, i64 176, !9, i64 184, !6, i64 192, !10, i64 224, !10, i64 232, !6, i64 240}
+!59 = !{!"p1 _ZTS12WebPAuxStats", !10, i64 0}
+!60 = !{!58, !5, i64 12}
+!61 = !{!62, !18, i64 0}
+!62 = !{!"jpeg_common_struct", !18, i64 0, !19, i64 8, !20, i64 16, !10, i64 24, !5, i64 32, !5, i64 36}
+!63 = !{!39, !5, i64 40}
+!64 = !{!40, !10, i64 16}
+!65 = !{!26, !26, i64 0}
+!66 = !{!67, !6, i64 8}
+!67 = !{!"jpeg_marker_struct", !26, i64 0, !6, i64 8, !5, i64 12, !5, i64 16, !9, i64 24}
+!68 = !{!67, !5, i64 16}
+!69 = !{!67, !9, i64 24}
+!70 = !{!6, !6, i64 0}
+!71 = !{!72, !14, i64 8}
+!72 = !{!"", !9, i64 0, !14, i64 8, !5, i64 16}
+!73 = !{!72, !9, i64 0}
+!74 = !{!72, !5, i64 16}
+!75 = distinct !{!75, !54}
+!76 = !{!77, !9, i64 0}
+!77 = !{!"MetadataPayload", !9, i64 0, !14, i64 8}
+!78 = !{!77, !14, i64 8}
+!79 = distinct !{!79, !54}
+!80 = distinct !{!80, !54}
+!81 = !{!82, !14, i64 16}
+!82 = !{!"", !5, i64 0, !9, i64 8, !14, i64 16, !14, i64 24}
+!83 = !{!82, !9, i64 8}
+!84 = !{!82, !14, i64 24}
+!85 = !{!82, !5, i64 0}
+!86 = distinct !{!86, !54}
+!87 = !{!12, !9, i64 0}
+!88 = !{!12, !14, i64 8}
+!89 = !{!40, !5, i64 40}
+!90 = !{!40, !10, i64 0}

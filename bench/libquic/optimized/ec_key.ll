@@ -910,6 +910,5 @@ attributes #9 = { nounwind }
 !34 = !{!"p1 _ZTS14bn_mont_ctx_st", !9, i64 0}
 !35 = !{!36, !9, i64 48}
 !36 = !{!"ec_method_st", !9, i64 0, !9, i64 8, !9, i64 16, !9, i64 24, !9, i64 32, !9, i64 40, !9, i64 48, !9, i64 56, !9, i64 64, !9, i64 72, !9, i64 80}
-!37 = distinct !{!37, !38, !39}
+!37 = distinct !{!37, !38}
 !38 = !{!"llvm.loop.mustprogress"}
-!39 = !{!"llvm.loop.estimated_trip_count"}

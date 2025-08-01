@@ -127,7 +127,7 @@ define hidden noundef zeroext i1 @_ZN8GCConfig26is_exactly_one_gc_selectedEv() l
   %.1 = phi i32 [ %.0912, %1 ], [ %7, %5 ]
   %.0.add = add nuw nsw i64 %.0.idx13, 32
   %11 = icmp samesign ult i64 %.0.idx13, 160
-  br i1 %11, label %1, label %12, !llvm.loop !9
+  br i1 %11, label %1, label %12, !llvm.loop !8
 
 12:                                               ; preds = %10
   %13 = icmp ne i32 %.1, 0
@@ -233,7 +233,7 @@ _ZN8GCConfig17is_no_gc_selectedEv.exit10:         ; preds = %_ZN8GCConfig23selec
   %.1.i = phi i32 [ %.0912.i, %24 ], [ %30, %28 ]
   %.0.add.i11 = add nuw nsw i64 %.0.idx13.i, 32
   %34 = icmp samesign ult i64 %.0.idx13.i, 160
-  br i1 %34, label %24, label %_ZN8GCConfig26is_exactly_one_gc_selectedEv.exit, !llvm.loop !9
+  br i1 %34, label %24, label %_ZN8GCConfig26is_exactly_one_gc_selectedEv.exit, !llvm.loop !8
 
 _ZN8GCConfig26is_exactly_one_gc_selectedEv.exit:  ; preds = %33
   %.not = icmp eq i32 %.1.i, 0
@@ -249,7 +249,7 @@ _ZN8GCConfig26is_exactly_one_gc_selectedEv.exit.thread: ; preds = %28, %_ZN8GCCo
 35:                                               ; preds = %37
   %.0.add = add nuw nsw i64 %.0.idx16, 32
   %36 = icmp samesign ult i64 %.0.idx16, 160
-  br i1 %36, label %37, label %44, !llvm.loop !10
+  br i1 %36, label %37, label %44, !llvm.loop !9
 
 37:                                               ; preds = %.preheader, %35
   %.0.idx16 = phi i64 [ %.0.add, %35 ], [ 0, %.preheader ]
@@ -308,7 +308,7 @@ define hidden noundef zeroext i1 @_ZN8GCConfig15is_gc_supportedEN13CollectedHeap
 13:                                               ; preds = %2, %6
   %.0.add = add nuw nsw i64 %.0.idx6, 32
   %14 = icmp samesign ult i64 %.0.idx6, 160
-  br i1 %14, label %2, label %15, !llvm.loop !11
+  br i1 %14, label %2, label %15, !llvm.loop !10
 
 15:                                               ; preds = %13, %6
   %.lcssa = phi i1 [ false, %13 ], [ true, %6 ]
@@ -336,7 +336,7 @@ define hidden noundef zeroext i1 @_ZN8GCConfig14is_gc_selectedEN13CollectedHeap4
 10:                                               ; preds = %2, %6
   %.0.add = add nuw nsw i64 %.0.idx6, 32
   %11 = icmp samesign ult i64 %.0.idx6, 160
-  br i1 %11, label %2, label %12, !llvm.loop !12
+  br i1 %11, label %2, label %12, !llvm.loop !11
 
 12:                                               ; preds = %10, %6
   %.lcssa = phi i1 [ false, %10 ], [ true, %6 ]
@@ -375,7 +375,7 @@ define hidden noundef ptr @_ZN8GCConfig11hs_err_nameEv() local_unnamed_addr #3 a
   %.1.i = phi i32 [ %.0912.i, %1 ], [ %7, %5 ]
   %.0.add.i = add nuw nsw i64 %.0.idx13.i, 32
   %11 = icmp samesign ult i64 %.0.idx13.i, 160
-  br i1 %11, label %1, label %_ZN8GCConfig26is_exactly_one_gc_selectedEv.exit, !llvm.loop !9
+  br i1 %11, label %1, label %_ZN8GCConfig26is_exactly_one_gc_selectedEv.exit, !llvm.loop !8
 
 _ZN8GCConfig26is_exactly_one_gc_selectedEv.exit:  ; preds = %10
   %.not = icmp eq i32 %.1.i, 0
@@ -384,7 +384,7 @@ _ZN8GCConfig26is_exactly_one_gc_selectedEv.exit:  ; preds = %10
 12:                                               ; preds = %.preheader
   %.0.add = add nuw nsw i64 %.0.idx9, 32
   %13 = icmp samesign ult i64 %.0.idx9, 160
-  br i1 %13, label %.preheader, label %_ZN8GCConfig26is_exactly_one_gc_selectedEv.exit.thread, !llvm.loop !13
+  br i1 %13, label %.preheader, label %_ZN8GCConfig26is_exactly_one_gc_selectedEv.exit.thread, !llvm.loop !12
 
 .preheader:                                       ; preds = %_ZN8GCConfig26is_exactly_one_gc_selectedEv.exit, %12
   %.0.idx9 = phi i64 [ %.0.add, %12 ], [ 0, %_ZN8GCConfig26is_exactly_one_gc_selectedEv.exit ]
@@ -412,7 +412,7 @@ define hidden noundef ptr @_ZN8GCConfig11hs_err_nameEN13CollectedHeap4NameE(i32 
 2:                                                ; preds = %4
   %.0.add = add nuw nsw i64 %.0.idx7, 32
   %3 = icmp samesign ult i64 %.0.idx7, 160
-  br i1 %3, label %4, label %.loopexit, !llvm.loop !14
+  br i1 %3, label %4, label %.loopexit, !llvm.loop !13
 
 4:                                                ; preds = %1, %2
   %.0.idx7 = phi i64 [ 0, %1 ], [ %.0.add, %2 ]
@@ -464,12 +464,11 @@ attributes #8 = { noreturn nounwind }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7, !8}
-!11 = distinct !{!11, !7, !8}
-!12 = distinct !{!12, !7, !8}
-!13 = distinct !{!13, !7, !8}
-!14 = distinct !{!14, !7, !8}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7}
+!12 = distinct !{!12, !7}
+!13 = distinct !{!13, !7}

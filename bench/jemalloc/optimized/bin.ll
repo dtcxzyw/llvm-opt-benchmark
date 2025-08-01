@@ -102,7 +102,7 @@ define hidden void @je_bin_shard_sizes_boot(ptr noundef writeonly captures(none)
   store i32 1, ptr %4, align 4, !tbaa !4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 36
-  br i1 %exitcond.not, label %2, label %3, !llvm.loop !11
+  br i1 %exitcond.not, label %2, label %3, !llvm.loop !10
 }
 
 ; Function Attrs: nounwind uwtable
@@ -112,11 +112,11 @@ define hidden noundef zeroext i1 @je_bin_init(ptr noundef %0, i32 noundef %1) lo
 
 4:                                                ; preds = %2
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 224
-  store ptr null, ptr %5, align 8, !tbaa !12
+  store ptr null, ptr %5, align 8, !tbaa !11
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 232
   tail call void @je_edata_heap_new(ptr noundef nonnull %6) #6
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 248
-  store ptr null, ptr %7, align 8, !tbaa !23
+  store ptr null, ptr %7, align 8, !tbaa !22
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 112
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %8, i8 0, i64 112, i1 false)
   %9 = load i32, ptr @je_bin_info_nbatched_sizes, align 4, !tbaa !4
@@ -125,7 +125,7 @@ define hidden noundef zeroext i1 @je_bin_init(ptr noundef %0, i32 noundef %1) lo
 
 11:                                               ; preds = %4
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  %13 = load i64, ptr @je_opt_bin_info_remote_free_max, align 8, !tbaa !24
+  %13 = load i64, ptr @je_opt_bin_info_remote_free_max, align 8, !tbaa !23
   tail call void @je_batcher_init(ptr noundef nonnull %12, i64 noundef %13) #6
   br label %14
 
@@ -226,20 +226,19 @@ attributes #6 = { nounwind }
 !5 = !{!"int", !6, i64 0}
 !6 = !{!"omnipotent char", !7, i64 0}
 !7 = !{!"Simple C/C++ TBAA"}
-!8 = distinct !{!8, !9, !10}
+!8 = distinct !{!8, !9}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = !{!"llvm.loop.estimated_trip_count"}
-!11 = distinct !{!11, !9, !10}
-!12 = !{!13, !17, i64 224}
-!13 = !{!"bin_s", !14, i64 0, !15, i64 112, !17, i64 224, !19, i64 232, !21, i64 248}
-!14 = !{!"malloc_mutex_s", !6, i64 0}
-!15 = !{!"bin_stats_s", !16, i64 0, !16, i64 8, !16, i64 16, !16, i64 24, !16, i64 32, !16, i64 40, !16, i64 48, !16, i64 56, !16, i64 64, !16, i64 72, !16, i64 80, !16, i64 88, !16, i64 96, !16, i64 104}
-!16 = !{!"long", !6, i64 0}
-!17 = !{!"p1 _ZTS7edata_s", !18, i64 0}
-!18 = !{!"any pointer", !6, i64 0}
-!19 = !{!"", !20, i64 0}
-!20 = !{!"ph_s", !18, i64 0, !16, i64 8}
-!21 = !{!"", !22, i64 0}
-!22 = !{!"", !17, i64 0}
-!23 = !{!21, !17, i64 0}
-!24 = !{!16, !16, i64 0}
+!10 = distinct !{!10, !9}
+!11 = !{!12, !16, i64 224}
+!12 = !{!"bin_s", !13, i64 0, !14, i64 112, !16, i64 224, !18, i64 232, !20, i64 248}
+!13 = !{!"malloc_mutex_s", !6, i64 0}
+!14 = !{!"bin_stats_s", !15, i64 0, !15, i64 8, !15, i64 16, !15, i64 24, !15, i64 32, !15, i64 40, !15, i64 48, !15, i64 56, !15, i64 64, !15, i64 72, !15, i64 80, !15, i64 88, !15, i64 96, !15, i64 104}
+!15 = !{!"long", !6, i64 0}
+!16 = !{!"p1 _ZTS7edata_s", !17, i64 0}
+!17 = !{!"any pointer", !6, i64 0}
+!18 = !{!"", !19, i64 0}
+!19 = !{!"ph_s", !17, i64 0, !15, i64 8}
+!20 = !{!"", !21, i64 0}
+!21 = !{!"", !16, i64 0}
+!22 = !{!20, !16, i64 0}
+!23 = !{!15, !15, i64 0}

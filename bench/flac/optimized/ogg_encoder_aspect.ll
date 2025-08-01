@@ -228,7 +228,7 @@ define hidden range(i32 0, 2) i32 @FLAC__ogg_encoder_aspect_write_callback_wrapp
   %87 = load i64, ptr %56, align 8, !tbaa !32
   %88 = call i32 %6(ptr noundef %7, ptr noundef %86, i64 noundef %87, i32 noundef %.0, i32 noundef %4, ptr noundef %8) #8
   %.not108 = icmp eq i32 %88, 0
-  br i1 %.not108, label %.preheader118, label %.critedge117, !llvm.loop !36
+  br i1 %.not108, label %.preheader118, label %.critedge117, !llvm.loop !35
 
 .critedge:                                        ; preds = %.preheader118, %.preheader
   call void @llvm.lifetime.end.p0(i64 51, ptr nonnull %11) #8
@@ -338,7 +338,6 @@ attributes #8 = { nounwind }
 !30 = !{!4, !5, i64 432}
 !31 = !{!4, !10, i64 440}
 !32 = !{!4, !5, i64 448}
-!33 = distinct !{!33, !34, !35}
+!33 = distinct !{!33, !34}
 !34 = !{!"llvm.loop.mustprogress"}
-!35 = !{!"llvm.loop.estimated_trip_count"}
-!36 = distinct !{!36, !34, !35}
+!35 = distinct !{!35, !34}

@@ -334,7 +334,7 @@ _ZN4absl12lts_2024072215random_internal17RandenPoolSeedSeq8generateIPjEEvT_S5_.e
   %33 = and i64 %32, 8
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 %33
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 280
-  %36 = load i8, ptr %35, align 8, !tbaa !32, !range !23, !noundef !24
+  %36 = load i8, ptr %35, align 8, !tbaa !31, !range !23, !noundef !24
   %37 = trunc nuw i8 %36 to i1
   br i1 %37, label %38, label %39
 
@@ -384,9 +384,9 @@ define linkonce_odr noundef double @_ZN4absl12lts_2024072215random_internal18Dis
 
 15:                                               ; preds = %.split.us
   store i64 2, ptr %10, align 8, !tbaa !13
-  %16 = load i8, ptr %12, align 8, !tbaa !32, !range !23, !noundef !24
+  %16 = load i8, ptr %12, align 8, !tbaa !31, !range !23, !noundef !24
   %17 = trunc nuw i8 %16 to i1
-  %18 = load ptr, ptr %11, align 8, !tbaa !33
+  %18 = load ptr, ptr %11, align 8, !tbaa !32
   br i1 %17, label %20, label %19
 
 19:                                               ; preds = %15
@@ -429,9 +429,9 @@ _ZN4absl12lts_2024072215random_internal20GenerateRealFromBitsIdNS1_19GeneratePos
 
 37:                                               ; preds = %.split
   store i64 2, ptr %10, align 8, !tbaa !13
-  %38 = load i8, ptr %12, align 8, !tbaa !32, !range !23, !noundef !24
+  %38 = load i8, ptr %12, align 8, !tbaa !31, !range !23, !noundef !24
   %39 = trunc nuw i8 %38 to i1
-  %40 = load ptr, ptr %11, align 8, !tbaa !33
+  %40 = load ptr, ptr %11, align 8, !tbaa !32
   br i1 %39, label %41, label %42
 
 41:                                               ; preds = %37
@@ -466,7 +466,7 @@ _ZN4absl12lts_2024072215random_internal20GenerateRealFromBitsIdNS1_19GeneratePos
   %.0.i.i.i = phi double [ %55, %48 ], [ 0.000000e+00, %_ZN4absl12lts_2024072215random_internal15FastUniformBitsImEclINS1_17NonsecureURBGBaseINS1_13randen_engineImEENS1_17RandenPoolSeedSeqEEEEEmRT_.exit.i.i ]
   %56 = tail call double @llvm.fmuladd.f64(double %.0.i.i.i, double %.fr3, double %4)
   %57 = fcmp uge double %56, %5
-  br i1 %57, label %.split, label %_ZN4absl12lts_2024072225uniform_real_distributionIdEclINS0_15random_internal17NonsecureURBGBaseINS4_13randen_engineImEENS4_17RandenPoolSeedSeqEEEEEdRT_.exit, !llvm.loop !34
+  br i1 %57, label %.split, label %_ZN4absl12lts_2024072225uniform_real_distributionIdEclINS0_15random_internal17NonsecureURBGBaseINS4_13randen_engineImEENS4_17RandenPoolSeedSeqEEEEEdRT_.exit
 
 _ZN4absl12lts_2024072225uniform_real_distributionIdEclINS0_15random_internal17NonsecureURBGBaseINS4_13randen_engineImEENS4_17RandenPoolSeedSeqEEEEEdRT_.exit: ; preds = %_ZN4absl12lts_2024072215random_internal20GenerateRealFromBitsIdNS1_19GeneratePositiveTagELb1EEET_mi.exit.i.i, %_ZN4absl12lts_2024072215random_internal20GenerateRealFromBitsIdNS1_19GeneratePositiveTagELb1EEET_mi.exit.i.i.us
   %.us-phi = phi double [ %34, %_ZN4absl12lts_2024072215random_internal20GenerateRealFromBitsIdNS1_19GeneratePositiveTagELb1EEET_mi.exit.i.i.us ], [ %56, %_ZN4absl12lts_2024072215random_internal20GenerateRealFromBitsIdNS1_19GeneratePositiveTagELb1EEET_mi.exit.i.i ]
@@ -547,9 +547,7 @@ attributes #12 = { nounwind }
 !26 = !{!20, !9, i64 16}
 !27 = !{!28, !28, i64 0}
 !28 = !{!"int", !6, i64 0}
-!29 = distinct !{!29, !30, !31}
+!29 = distinct !{!29, !30}
 !30 = !{!"llvm.loop.mustprogress"}
-!31 = !{!"llvm.loop.estimated_trip_count"}
-!32 = !{!15, !17, i64 8}
-!33 = !{!15, !16, i64 0}
-!34 = distinct !{!34, !31}
+!31 = !{!15, !17, i64 8}
+!32 = !{!15, !16, i64 0}

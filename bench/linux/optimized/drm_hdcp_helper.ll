@@ -231,7 +231,7 @@ define dso_local i32 @drm_hdcp_check_ksvs_revoked(ptr noundef readonly captures(
   %121 = add nuw nsw i32 %108, 1
   %122 = add nuw nsw i32 %121, %112
   %123 = icmp samesign ult i32 %122, %78
-  br i1 %123, label %.preheader, label %124, !llvm.loop !14
+  br i1 %123, label %.preheader, label %124, !llvm.loop !13
 
 124:                                              ; preds = %.preheader
   %125 = icmp eq i32 %119, %89
@@ -406,12 +406,12 @@ define dso_local i32 @drm_hdcp_check_ksvs_revoked(ptr noundef readonly captures(
   %221 = phi i32 [ %198, %196 ], [ %219, %204 ]
   %222 = add nuw nsw i64 %197, 1
   %223 = icmp eq i64 %222, %190
-  br i1 %223, label %.loopexit, label %196, !llvm.loop !15
+  br i1 %223, label %.loopexit, label %196, !llvm.loop !14
 
 .loopexit:                                        ; preds = %220
   %224 = add nuw nsw i64 %191, 1
   %225 = icmp eq i64 %224, %.pre-phi
-  br i1 %225, label %.thread21, label %.split, !llvm.loop !16
+  br i1 %225, label %.thread21, label %.split, !llvm.loop !15
 
 .thread21:                                        ; preds = %.loopexit, %187, %184, %.thread23
   %226 = phi ptr [ null, %.thread23 ], [ null, %184 ], [ %.ph19, %187 ], [ %.ph19, %.loopexit ]
@@ -443,7 +443,7 @@ define dso_local ptr @drm_get_content_protection_name(i32 noundef %0) local_unna
 2:                                                ; preds = %5
   %3 = add nuw nsw i64 %6, 1
   %4 = icmp eq i64 %3, 3
-  br i1 %4, label %.loopexit, label %5, !llvm.loop !17
+  br i1 %4, label %.loopexit, label %5, !llvm.loop !16
 
 5:                                                ; preds = %2, %1
   %6 = phi i64 [ 0, %1 ], [ %3, %2 ]
@@ -467,7 +467,7 @@ define dso_local ptr @drm_get_hdcp_content_type_name(i32 noundef %0) local_unnam
   br label %3
 
 2:                                                ; preds = %3
-  br i1 %4, label %3, label %.loopexit, !llvm.loop !18
+  br i1 %4, label %3, label %.loopexit, !llvm.loop !17
 
 3:                                                ; preds = %2, %1
   %4 = phi i1 [ true, %1 ], [ false, %2 ]
@@ -545,9 +545,9 @@ define dso_local void @drm_hdcp_update_content_protection(ptr noundef %0, i64 no
   br i1 %7, label %9, label %8, !prof !6
 
 8:                                                ; preds = %2
-  tail call void asm sideeffect "366: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 366b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 366) #9, !srcloc !19
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.4, i32 413, i32 2305, i64 12) #9, !srcloc !20
-  tail call void asm sideeffect "367: nop\0A\09.pushsection .discard.instr_end\0A\09.long 367b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 367) #9, !srcloc !21
+  tail call void asm sideeffect "366: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 366b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 366) #9, !srcloc !18
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.4, i32 413, i32 2305, i64 12) #9, !srcloc !19
+  tail call void asm sideeffect "367: nop\0A\09.pushsection .discard.instr_end\0A\09.long 367b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 367) #9, !srcloc !20
   br label %9
 
 9:                                                ; preds = %8, %2
@@ -623,15 +623,14 @@ attributes #10 = { nounwind allocsize(0) }
 !7 = !{i64 2155324581, i64 2155324390, i64 2155324442, i64 2155324488, i64 2155324516}
 !8 = !{i64 2155324655, i64 2155324684, i64 2155324730, i64 2155324788, i64 2155324842, i64 2155324896, i64 2155324951, i64 2155324982, i64 2155325290, i64 2155325296, i64 2155325343, i64 2155325366, i64 2155325392}
 !9 = !{i64 2155325866, i64 2155325677, i64 2155325727, i64 2155325773, i64 2155325801}
-!10 = distinct !{!10, !11, !12, !13}
+!10 = distinct !{!10, !11, !12}
 !11 = !{!"llvm.loop.mustprogress"}
 !12 = !{!"llvm.loop.unroll.disable"}
-!13 = !{!"llvm.loop.estimated_trip_count"}
-!14 = distinct !{!14, !11, !12, !13}
-!15 = distinct !{!15, !11, !12, !13}
-!16 = distinct !{!16, !11, !12, !13}
-!17 = distinct !{!17, !11, !12, !13}
-!18 = distinct !{!18, !11, !12, !13}
-!19 = !{i64 2155336425, i64 2155336234, i64 2155336286, i64 2155336332, i64 2155336360}
-!20 = !{i64 2155336499, i64 2155336528, i64 2155336574, i64 2155336632, i64 2155336686, i64 2155336740, i64 2155336795, i64 2155336826, i64 2155337134, i64 2155337140, i64 2155337187, i64 2155337210, i64 2155337236}
-!21 = !{i64 2155337710, i64 2155337521, i64 2155337571, i64 2155337617, i64 2155337645}
+!13 = distinct !{!13, !11, !12}
+!14 = distinct !{!14, !11, !12}
+!15 = distinct !{!15, !11, !12}
+!16 = distinct !{!16, !11, !12}
+!17 = distinct !{!17, !11, !12}
+!18 = !{i64 2155336425, i64 2155336234, i64 2155336286, i64 2155336332, i64 2155336360}
+!19 = !{i64 2155336499, i64 2155336528, i64 2155336574, i64 2155336632, i64 2155336686, i64 2155336740, i64 2155336795, i64 2155336826, i64 2155337134, i64 2155337140, i64 2155337187, i64 2155337210, i64 2155337236}
+!20 = !{i64 2155337710, i64 2155337521, i64 2155337571, i64 2155337617, i64 2155337645}

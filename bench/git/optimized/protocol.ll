@@ -283,6 +283,5 @@ attributes #8 = { noreturn nounwind }
 !17 = !{!13, !15, i64 8}
 !18 = !{!19, !10, i64 0}
 !19 = !{!"string_list_item", !10, i64 0, !6, i64 8}
-!20 = distinct !{!20, !21, !22}
+!20 = distinct !{!20, !21}
 !21 = !{!"llvm.loop.mustprogress"}
-!22 = !{!"llvm.loop.estimated_trip_count"}

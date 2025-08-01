@@ -105,10 +105,10 @@ _ZN4llvm11RewriteRope5eraseEjj.exit:              ; preds = %4
 
 14:                                               ; preds = %_ZN4llvm11RewriteRope5eraseEjj.exit
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #5
-  %15 = load ptr, ptr %12, align 8, !tbaa !3, !noalias !35
+  %15 = load ptr, ptr %12, align 8, !tbaa !3, !noalias !34
   call void @_ZN4llvm22RopePieceBTreeIteratorC1EPKv(ptr noundef nonnull align 8 dereferenceable(20) %5, ptr noundef %15) #5
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #5
-  %16 = load ptr, ptr %12, align 8, !tbaa !3, !noalias !42
+  %16 = load ptr, ptr %12, align 8, !tbaa !3, !noalias !41
   call void @_ZN4llvm22RopePieceBTreeIteratorC1EPKv(ptr noundef nonnull align 8 dereferenceable(20) %6, ptr noundef %16) #5
   %.not34 = icmp eq i32 %11, 0
   br i1 %.not34, label %._crit_edge, label %.lr.ph
@@ -122,7 +122,7 @@ _ZN4llvm11RewriteRope5eraseEjj.exit:              ; preds = %4
 
 ._crit_edge:                                      ; preds = %_ZN4llvm22RopePieceBTreeIteratorppEv.exit21, %14
   %.019.lcssa = phi i32 [ 0, %14 ], [ %.1, %_ZN4llvm22RopePieceBTreeIteratorppEv.exit21 ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %6, ptr noundef nonnull align 8 dereferenceable(20) %5, i64 20, i1 false), !tbaa.struct !49
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %6, ptr noundef nonnull align 8 dereferenceable(20) %5, i64 20, i1 false), !tbaa.struct !48
   %21 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %22 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %23 = load ptr, ptr %21, align 8, !tbaa !15
@@ -136,7 +136,7 @@ _ZN4llvm11RewriteRope5eraseEjj.exit:              ; preds = %4
   %.01836 = phi i32 [ 0, %.lr.ph ], [ %63, %_ZN4llvm22RopePieceBTreeIteratorppEv.exit21 ]
   %.01935 = phi i32 [ 0, %.lr.ph ], [ %.1, %_ZN4llvm22RopePieceBTreeIteratorppEv.exit21 ]
   %28 = load ptr, ptr %17, align 8, !tbaa !15
-  %29 = load i32, ptr %18, align 8, !tbaa !53
+  %29 = load i32, ptr %18, align 8, !tbaa !52
   %30 = load ptr, ptr %28, align 8, !tbaa !19
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 4
   %32 = getelementptr inbounds nuw i8, ptr %28, i64 8
@@ -144,13 +144,13 @@ _ZN4llvm11RewriteRope5eraseEjj.exit:              ; preds = %4
   %34 = add i32 %33, %29
   %35 = zext i32 %34 to i64
   %36 = getelementptr inbounds nuw [1 x i8], ptr %31, i64 0, i64 %35
-  %37 = load i8, ptr %36, align 1, !tbaa !54
+  %37 = load i8, ptr %36, align 1, !tbaa !53
   %38 = icmp eq i8 %37, 10
   br i1 %38, label %39, label %52
 
 39:                                               ; preds = %27
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %5, ptr noundef nonnull align 8 dereferenceable(20) %6, i64 20, i1 false), !tbaa.struct !49
-  %40 = load i32, ptr %19, align 8, !tbaa !53
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %5, ptr noundef nonnull align 8 dereferenceable(20) %6, i64 20, i1 false), !tbaa.struct !48
+  %40 = load i32, ptr %19, align 8, !tbaa !52
   %41 = add i32 %40, 1
   %42 = load ptr, ptr %20, align 8, !tbaa !15
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 12
@@ -162,12 +162,12 @@ _ZN4llvm11RewriteRope5eraseEjj.exit:              ; preds = %4
   br i1 %48, label %49, label %50
 
 49:                                               ; preds = %39
-  store i32 %41, ptr %19, align 8, !tbaa !53
+  store i32 %41, ptr %19, align 8, !tbaa !52
   br label %_ZN4llvm22RopePieceBTreeIteratorppEv.exit
 
 50:                                               ; preds = %39
   call void @_ZN4llvm22RopePieceBTreeIterator15MoveToNextPieceEv(ptr noundef nonnull align 8 dereferenceable(20) %5) #5
-  %.pre.pre = load i32, ptr %18, align 8, !tbaa !53
+  %.pre.pre = load i32, ptr %18, align 8, !tbaa !52
   %.pre45.pre = load ptr, ptr %17, align 8, !tbaa !15
   br label %_ZN4llvm22RopePieceBTreeIteratorppEv.exit
 
@@ -192,7 +192,7 @@ _ZN4llvm22RopePieceBTreeIteratorppEv.exit:        ; preds = %49, %50
   br i1 %60, label %61, label %62
 
 61:                                               ; preds = %52
-  store i32 %56, ptr %18, align 8, !tbaa !53
+  store i32 %56, ptr %18, align 8, !tbaa !52
   br label %_ZN4llvm22RopePieceBTreeIteratorppEv.exit21
 
 62:                                               ; preds = %52
@@ -202,7 +202,7 @@ _ZN4llvm22RopePieceBTreeIteratorppEv.exit:        ; preds = %49, %50
 _ZN4llvm22RopePieceBTreeIteratorppEv.exit21:      ; preds = %61, %62
   %63 = add nuw i32 %.01836, 1
   %.not = icmp eq i32 %63, %11
-  br i1 %.not, label %._crit_edge, label %27, !llvm.loop !55
+  br i1 %.not, label %._crit_edge, label %27, !llvm.loop !54
 
 .lr.ph40:                                         ; preds = %._crit_edge, %_ZN4llvm22RopePieceBTreeIteratorppEv.exit22
   %64 = phi ptr [ %83, %_ZN4llvm22RopePieceBTreeIteratorppEv.exit22 ], [ %23, %._crit_edge ]
@@ -215,7 +215,7 @@ _ZN4llvm22RopePieceBTreeIteratorppEv.exit21:      ; preds = %61, %62
   %70 = add i32 %69, %65
   %71 = zext i32 %70 to i64
   %72 = getelementptr inbounds nuw [1 x i8], ptr %67, i64 0, i64 %71
-  %73 = load i8, ptr %72, align 1, !tbaa !54
+  %73 = load i8, ptr %72, align 1, !tbaa !53
   switch i8 %73, label %.critedge2 [
     i8 32, label %74
     i8 12, label %74
@@ -234,7 +234,7 @@ _ZN4llvm22RopePieceBTreeIteratorppEv.exit21:      ; preds = %61, %62
   br i1 %79, label %80, label %81
 
 80:                                               ; preds = %74
-  store i32 %75, ptr %22, align 8, !tbaa !53
+  store i32 %75, ptr %22, align 8, !tbaa !52
   br label %_ZN4llvm22RopePieceBTreeIteratorppEv.exit22
 
 81:                                               ; preds = %74
@@ -250,7 +250,7 @@ _ZN4llvm22RopePieceBTreeIteratorppEv.exit22:      ; preds = %80, %81
   %85 = icmp ne ptr %83, null
   %86 = icmp ne i32 %82, 0
   %.not3.i = select i1 %85, i1 true, i1 %86
-  br i1 %.not3.i, label %.lr.ph40, label %.critedge2, !llvm.loop !56
+  br i1 %.not3.i, label %.lr.ph40, label %.critedge2, !llvm.loop !55
 
 87:                                               ; preds = %.lr.ph40
   %88 = add i32 %.038, 1
@@ -302,9 +302,9 @@ define dso_local void @_ZN4llvm13RewriteBuffer10InsertTextEjNS_9StringRefEb(ptr 
   br i1 %.not.i.i.i.i, label %_ZN4llvm9RopePieceD2Ev.exit.i, label %17
 
 17:                                               ; preds = %8
-  %18 = load i32, ptr %16, align 4, !tbaa !57
+  %18 = load i32, ptr %16, align 4, !tbaa !56
   %19 = add i32 %18, -1
-  store i32 %19, ptr %16, align 4, !tbaa !57
+  store i32 %19, ptr %16, align 4, !tbaa !56
   %.not.i.i.i.i.i.i = icmp eq i32 %19, 0
   br i1 %.not.i.i.i.i.i.i, label %20, label %_ZN4llvm9RopePieceD2Ev.exit.i
 
@@ -351,9 +351,9 @@ _ZN4llvm11RewriteRope5eraseEjj.exit:              ; preds = %5, %13
   br i1 %.not.i.i.i.i, label %_ZN4llvm9RopePieceD2Ev.exit.i, label %18
 
 18:                                               ; preds = %15
-  %19 = load i32, ptr %17, align 4, !tbaa !57
+  %19 = load i32, ptr %17, align 4, !tbaa !56
   %20 = add i32 %19, -1
-  store i32 %20, ptr %17, align 4, !tbaa !57
+  store i32 %20, ptr %17, align 4, !tbaa !56
   %.not.i.i.i.i.i.i = icmp eq i32 %20, 0
   br i1 %.not.i.i.i.i.i.i, label %21, label %_ZN4llvm9RopePieceD2Ev.exit.i
 
@@ -439,30 +439,29 @@ attributes #6 = { builtin nounwind }
 !29 = !{!"bool", !6, i64 0}
 !30 = !{!"_ZTSN4llvm11raw_ostream10BufferKindE", !6, i64 0}
 !31 = !{!26, !28, i64 32}
-!32 = distinct !{!32, !33, !34}
+!32 = distinct !{!32, !33}
 !33 = !{!"llvm.loop.mustprogress"}
-!34 = !{!"llvm.loop.estimated_trip_count"}
-!35 = !{!36, !38, !40}
-!36 = distinct !{!36, !37, !"_ZNK4llvm14RopePieceBTree5beginEv: argument 0"}
-!37 = distinct !{!37, !"_ZNK4llvm14RopePieceBTree5beginEv"}
-!38 = distinct !{!38, !39, !"_ZNK4llvm11RewriteRope5beginEv: argument 0"}
-!39 = distinct !{!39, !"_ZNK4llvm11RewriteRope5beginEv"}
-!40 = distinct !{!40, !41, !"_ZNK4llvm13RewriteBuffer5beginEv: argument 0"}
-!41 = distinct !{!41, !"_ZNK4llvm13RewriteBuffer5beginEv"}
-!42 = !{!43, !45, !47}
-!43 = distinct !{!43, !44, !"_ZNK4llvm14RopePieceBTree5beginEv: argument 0"}
-!44 = distinct !{!44, !"_ZNK4llvm14RopePieceBTree5beginEv"}
-!45 = distinct !{!45, !46, !"_ZNK4llvm11RewriteRope5beginEv: argument 0"}
-!46 = distinct !{!46, !"_ZNK4llvm11RewriteRope5beginEv"}
-!47 = distinct !{!47, !48, !"_ZNK4llvm13RewriteBuffer5beginEv: argument 0"}
-!48 = distinct !{!48, !"_ZNK4llvm13RewriteBuffer5beginEv"}
-!49 = !{i64 0, i64 8, !50, i64 8, i64 8, !51, i64 16, i64 4, !52}
-!50 = !{!5, !5, i64 0}
-!51 = !{!17, !17, i64 0}
-!52 = !{!18, !18, i64 0}
-!53 = !{!16, !18, i64 16}
-!54 = !{!6, !6, i64 0}
-!55 = distinct !{!55, !33, !34}
-!56 = distinct !{!56, !33, !34}
-!57 = !{!58, !18, i64 0}
-!58 = !{!"_ZTSN4llvm18RopeRefCountStringE", !18, i64 0, !6, i64 4}
+!34 = !{!35, !37, !39}
+!35 = distinct !{!35, !36, !"_ZNK4llvm14RopePieceBTree5beginEv: argument 0"}
+!36 = distinct !{!36, !"_ZNK4llvm14RopePieceBTree5beginEv"}
+!37 = distinct !{!37, !38, !"_ZNK4llvm11RewriteRope5beginEv: argument 0"}
+!38 = distinct !{!38, !"_ZNK4llvm11RewriteRope5beginEv"}
+!39 = distinct !{!39, !40, !"_ZNK4llvm13RewriteBuffer5beginEv: argument 0"}
+!40 = distinct !{!40, !"_ZNK4llvm13RewriteBuffer5beginEv"}
+!41 = !{!42, !44, !46}
+!42 = distinct !{!42, !43, !"_ZNK4llvm14RopePieceBTree5beginEv: argument 0"}
+!43 = distinct !{!43, !"_ZNK4llvm14RopePieceBTree5beginEv"}
+!44 = distinct !{!44, !45, !"_ZNK4llvm11RewriteRope5beginEv: argument 0"}
+!45 = distinct !{!45, !"_ZNK4llvm11RewriteRope5beginEv"}
+!46 = distinct !{!46, !47, !"_ZNK4llvm13RewriteBuffer5beginEv: argument 0"}
+!47 = distinct !{!47, !"_ZNK4llvm13RewriteBuffer5beginEv"}
+!48 = !{i64 0, i64 8, !49, i64 8, i64 8, !50, i64 16, i64 4, !51}
+!49 = !{!5, !5, i64 0}
+!50 = !{!17, !17, i64 0}
+!51 = !{!18, !18, i64 0}
+!52 = !{!16, !18, i64 16}
+!53 = !{!6, !6, i64 0}
+!54 = distinct !{!54, !33}
+!55 = distinct !{!55, !33}
+!56 = !{!57, !18, i64 0}
+!57 = !{!"_ZTSN4llvm18RopeRefCountStringE", !18, i64 0, !6, i64 4}

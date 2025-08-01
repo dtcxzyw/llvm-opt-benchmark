@@ -163,25 +163,25 @@ define internal void @_Z7calc_muiiN3gmx8ArrayRefIKNS_11BasicVectorIfEEEENS0_IKfE
   %38 = add i32 %.032, %18
   %39 = sext i32 %38 to i64
   %40 = getelementptr inbounds float, ptr %31, i64 %39
-  %41 = load float, ptr %40, align 4, !tbaa !13
+  %41 = load float, ptr %40, align 4, !tbaa !12
   %42 = getelementptr inbounds %"class.gmx::BasicVector", ptr %33, i64 %39
-  %43 = load float, ptr %42, align 4, !tbaa !13
+  %43 = load float, ptr %42, align 4, !tbaa !12
   %44 = fmul float %41, %43
   %45 = fpext float %44 to double
   %46 = fadd double %35, %45
   %47 = getelementptr inbounds nuw i8, ptr %42, i64 4
-  %48 = load float, ptr %47, align 4, !tbaa !13
+  %48 = load float, ptr %47, align 4, !tbaa !12
   %49 = fmul float %41, %48
   %50 = fpext float %49 to double
   %51 = fadd double %36, %50
   %52 = getelementptr inbounds nuw i8, ptr %42, i64 8
-  %53 = load float, ptr %52, align 4, !tbaa !13
+  %53 = load float, ptr %52, align 4, !tbaa !12
   %54 = fmul float %41, %53
   %55 = fpext float %54 to double
   %56 = fadd double %37, %55
   %57 = add nuw i32 %.032, 1
   %exitcond.not = icmp eq i32 %.032, %26
-  br i1 %exitcond.not, label %._crit_edge, label %34, !llvm.loop !15
+  br i1 %exitcond.not, label %._crit_edge, label %34
 
 ._crit_edge:                                      ; preds = %34, %21
   %.lcssa31 = phi double [ 0.000000e+00, %21 ], [ %56, %34 ]
@@ -294,7 +294,7 @@ declare i32 @__kmpc_global_thread_num(ptr) local_unnamed_addr #3
 declare void @__kmpc_push_num_threads(ptr, i32, i32) local_unnamed_addr #3
 
 ; Function Attrs: nounwind
-declare !callback !16 void @__kmpc_fork_call(ptr, i32, ptr, ...) local_unnamed_addr #3
+declare !callback !14 void @__kmpc_fork_call(ptr, i32, ptr, ...) local_unnamed_addr #3
 
 ; Function Attrs: alwaysinline norecurse nounwind uwtable
 define internal void @_Z7calc_muiiN3gmx8ArrayRefIKNS_11BasicVectorIfEEEENS0_IKfEES6_bPdS7_.omp_outlined.1(ptr noalias noundef readonly captures(none) %0, ptr noalias readnone captures(none) %1, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %2, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %3, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %4, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %5, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %6, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %7, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %8) #2 personality ptr @__gxx_personality_v0 {
@@ -350,25 +350,25 @@ define internal void @_Z7calc_muiiN3gmx8ArrayRefIKNS_11BasicVectorIfEEEENS0_IKfE
   %38 = add i32 %.032, %18
   %39 = sext i32 %38 to i64
   %40 = getelementptr inbounds float, ptr %31, i64 %39
-  %41 = load float, ptr %40, align 4, !tbaa !13
+  %41 = load float, ptr %40, align 4, !tbaa !12
   %42 = getelementptr inbounds %"class.gmx::BasicVector", ptr %33, i64 %39
-  %43 = load float, ptr %42, align 4, !tbaa !13
+  %43 = load float, ptr %42, align 4, !tbaa !12
   %44 = fmul float %41, %43
   %45 = fpext float %44 to double
   %46 = fadd double %35, %45
   %47 = getelementptr inbounds nuw i8, ptr %42, i64 4
-  %48 = load float, ptr %47, align 4, !tbaa !13
+  %48 = load float, ptr %47, align 4, !tbaa !12
   %49 = fmul float %41, %48
   %50 = fpext float %49 to double
   %51 = fadd double %36, %50
   %52 = getelementptr inbounds nuw i8, ptr %42, i64 8
-  %53 = load float, ptr %52, align 4, !tbaa !13
+  %53 = load float, ptr %52, align 4, !tbaa !12
   %54 = fmul float %41, %53
   %55 = fpext float %54 to double
   %56 = fadd double %37, %55
   %57 = add nuw i32 %.032, 1
   %exitcond.not = icmp eq i32 %.032, %26
-  br i1 %exitcond.not, label %._crit_edge, label %34, !llvm.loop !18
+  br i1 %exitcond.not, label %._crit_edge, label %34
 
 ._crit_edge:                                      ; preds = %34, %21
   %.lcssa31 = phi double [ 0.000000e+00, %21 ], [ %56, %34 ]
@@ -479,12 +479,9 @@ attributes #7 = { nocallback nofree nosync nounwind speculatable willreturn memo
 !7 = !{!"Simple C++ TBAA"}
 !8 = !{!9, !9, i64 0}
 !9 = !{!"double", !6, i64 0}
-!10 = distinct !{!10, !11, !12}
+!10 = distinct !{!10, !11}
 !11 = !{!"llvm.loop.mustprogress"}
-!12 = !{!"llvm.loop.estimated_trip_count"}
-!13 = !{!14, !14, i64 0}
-!14 = !{!"float", !6, i64 0}
-!15 = distinct !{!15, !12}
-!16 = !{!17}
-!17 = !{i64 2, i64 -1, i64 -1, i1 true}
-!18 = distinct !{!18, !12}
+!12 = !{!13, !13, i64 0}
+!13 = !{!"float", !6, i64 0}
+!14 = !{!15}
+!15 = !{i64 2, i64 -1, i64 -1, i1 true}

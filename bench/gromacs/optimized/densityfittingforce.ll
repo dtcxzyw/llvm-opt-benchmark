@@ -100,7 +100,7 @@ define void @_ZN3gmx19DensityFittingForce4ImplC2ERKNS_30GaussianSpreadKernelPara
   %.ptr20 = getelementptr inbounds i8, ptr %0, i64 %.add
   tail call void @_ZN3gmx19GaussianOn1DLatticeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %.ptr20) #13
   %26 = icmp eq i64 %.add, 40
-  br i1 %26, label %27, label %25, !llvm.loop !19
+  br i1 %26, label %27, label %25
 
 27:                                               ; preds = %25
   resume { ptr, i32 } %24
@@ -145,16 +145,16 @@ define { <2 x float>, float } @_ZN3gmx19DensityFittingForce4Impl13evaluateForceE
   %5 = alloca %"class.gmx::IntegerBox", align 4
   %6 = alloca %"class.gmx::basic_mdspan.10", align 8
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %4) #13
-  %7 = load ptr, ptr %1, align 8, !tbaa !21
-  %8 = load float, ptr %7, align 4, !tbaa !25
+  %7 = load ptr, ptr %1, align 8, !tbaa !19
+  %8 = load float, ptr %7, align 4, !tbaa !23
   %9 = tail call float @llvm.rint.f32(float %8)
   %10 = fptosi float %9 to i32
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 4
-  %12 = load float, ptr %11, align 4, !tbaa !25
+  %12 = load float, ptr %11, align 4, !tbaa !23
   %13 = tail call float @llvm.rint.f32(float %12)
   %14 = fptosi float %13 to i32
   %15 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %16 = load float, ptr %15, align 4, !tbaa !25
+  %16 = load float, ptr %15, align 4, !tbaa !23
   %17 = tail call float @llvm.rint.f32(float %16)
   %18 = fptosi float %17 to i32
   store i32 %10, ptr %4, align 4, !tbaa !8
@@ -209,21 +209,21 @@ define { <2 x float>, float } @_ZN3gmx19DensityFittingForce4Impl13evaluateForceE
   %53 = fmul double %52, %52
   %54 = fdiv double 1.000000e+00, %53
   %55 = call noundef nonnull align 4 dereferenceable(12) ptr @_ZNK3gmx10IntegerBox5beginEv(ptr noundef nonnull align 4 dereferenceable(24) %5)
-  %56 = load i32, ptr %55, align 4, !tbaa !8, !noalias !26
+  %56 = load i32, ptr %55, align 4, !tbaa !8, !noalias !24
   %57 = sitofp i32 %56 to double
   %58 = getelementptr inbounds nuw i8, ptr %55, i64 4
-  %59 = load i32, ptr %58, align 4, !tbaa !8, !noalias !26
+  %59 = load i32, ptr %58, align 4, !tbaa !8, !noalias !24
   %60 = sitofp i32 %59 to double
   %61 = getelementptr inbounds nuw i8, ptr %55, i64 8
-  %62 = load i32, ptr %61, align 4, !tbaa !8, !noalias !26
-  %63 = load ptr, ptr %1, align 8, !tbaa !21
-  %64 = load float, ptr %63, align 4, !tbaa !25, !noalias !29
+  %62 = load i32, ptr %61, align 4, !tbaa !8, !noalias !24
+  %63 = load ptr, ptr %1, align 8, !tbaa !19
+  %64 = load float, ptr %63, align 4, !tbaa !23, !noalias !27
   %65 = fpext float %64 to double
   %66 = getelementptr inbounds nuw i8, ptr %63, i64 4
-  %67 = load float, ptr %66, align 4, !tbaa !25, !noalias !29
+  %67 = load float, ptr %66, align 4, !tbaa !23, !noalias !27
   %68 = fpext float %67 to double
   %69 = getelementptr inbounds nuw i8, ptr %63, i64 8
-  %70 = load float, ptr %69, align 4, !tbaa !25, !noalias !29
+  %70 = load float, ptr %69, align 4, !tbaa !23, !noalias !27
   %71 = fsub double %57, %65
   %72 = fsub double %60, %68
   %73 = fmul double %46, %71
@@ -247,11 +247,11 @@ define { <2 x float>, float } @_ZN3gmx19DensityFittingForce4Impl13evaluateForceE
   %88 = fsub double %86, %87
   %89 = fmul double %54, %88
   %90 = getelementptr inbounds nuw i8, ptr %2, i64 40
-  %91 = load ptr, ptr %90, align 8, !tbaa !32, !noalias !41
+  %91 = load ptr, ptr %90, align 8, !tbaa !30, !noalias !39
   %92 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %93 = load i64, ptr %92, align 8, !noalias !41
+  %93 = load i64, ptr %92, align 8, !noalias !39
   %94 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %95 = load i64, ptr %94, align 8, !noalias !41
+  %95 = load i64, ptr %94, align 8, !noalias !39
   %96 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %97 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %98 = sext i32 %85 to i64
@@ -268,9 +268,9 @@ define { <2 x float>, float } @_ZN3gmx19DensityFittingForce4Impl13evaluateForceE
   %104 = fpext float %103 to double
   %105 = select i1 %.not, double %104, double 1.000000e+00
   %106 = getelementptr inbounds nuw [3 x %"class.gmx::GaussianOn1DLattice"], ptr %25, i64 0, i64 %indvars.iv
-  %107 = load ptr, ptr %1, align 8, !tbaa !21
+  %107 = load ptr, ptr %1, align 8, !tbaa !19
   %108 = getelementptr inbounds nuw [3 x float], ptr %107, i64 0, i64 %indvars.iv
-  %109 = load float, ptr %108, align 4, !tbaa !25
+  %109 = load float, ptr %108, align 4, !tbaa !23
   %110 = getelementptr inbounds nuw [3 x i32], ptr %4, i64 0, i64 %indvars.iv
   %111 = load i32, ptr %110, align 4, !tbaa !8
   %112 = sitofp i32 %111 to float
@@ -278,7 +278,7 @@ define { <2 x float>, float } @_ZN3gmx19DensityFittingForce4Impl13evaluateForceE
   call void @_ZN3gmx19GaussianOn1DLattice6spreadEdf(ptr noundef nonnull align 8 dereferenceable(8) %106, double noundef %105, float noundef %113)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %26, label %102, !llvm.loop !44
+  br i1 %exitcond.not, label %26, label %102, !llvm.loop !42
 
 ._crit_edge114.loopexit:                          ; preds = %._crit_edge103
   %114 = fptrunc double %.sroa.052.1.lcssa to float
@@ -290,7 +290,7 @@ define { <2 x float>, float } @_ZN3gmx19DensityFittingForce4Impl13evaluateForceE
   %.sroa.052.0.lcssa = phi float [ 0.000000e+00, %26 ], [ %114, %._crit_edge114.loopexit ]
   %.sroa.654.0.lcssa = phi float [ 0.000000e+00, %26 ], [ %115, %._crit_edge114.loopexit ]
   %.sroa.10.0.lcssa = phi float [ 0.000000e+00, %26 ], [ %116, %._crit_edge114.loopexit ]
-  %117 = load float, ptr %24, align 8, !tbaa !25
+  %117 = load float, ptr %24, align 8, !tbaa !23
   %118 = fmul float %117, %.sroa.052.0.lcssa
   %119 = fmul float %117, %.sroa.654.0.lcssa
   %120 = fmul float %117, %.sroa.10.0.lcssa
@@ -317,7 +317,7 @@ _ZNK3gmx7extentsIJLln1ELln1ELln1EEE6extentEm.exit.i.i.i: ; preds = %_ZNK3gmx7ext
   %126 = mul nsw i64 %125, %.067.i.i.i
   %.0.i.i.i = add nsw i64 %.08.i.i.i, -1
   %.not.i = icmp eq i64 %.0.i.i.i, 0
-  br i1 %.not.i, label %_ZNK3gmx12basic_mdspanIKfNS_7extentsIJLln1ELln1ELln1EEEENS_12layout_rightENS_14accessor_basicIS1_EEEixIiNS0_IS1_NS2_IJLln1ELln1EEEES4_S6_EEEENSt9enable_ifIXaaaasr3stdE13is_integral_vIT_EgtclL_ZNS3_4rankEvEELi1EL_ZSt9is_same_vIS4_S4_EEET0_E4typeESC_.exit, label %_ZNK3gmx7extentsIJLln1ELln1ELln1EEE6extentEm.exit.i.i.i, !llvm.loop !46
+  br i1 %.not.i, label %_ZNK3gmx12basic_mdspanIKfNS_7extentsIJLln1ELln1ELln1EEEENS_12layout_rightENS_14accessor_basicIS1_EEEixIiNS0_IS1_NS2_IJLln1ELln1EEEES4_S6_EEEENSt9enable_ifIXaaaasr3stdE13is_integral_vIT_EgtclL_ZNS3_4rankEvEELi1EL_ZSt9is_same_vIS4_S4_EEET0_E4typeESC_.exit, label %_ZNK3gmx7extentsIJLln1ELln1ELln1EEE6extentEm.exit.i.i.i, !llvm.loop !44
 
 _ZNK3gmx12basic_mdspanIKfNS_7extentsIJLln1ELln1ELln1EEEENS_12layout_rightENS_14accessor_basicIS1_EEEixIiNS0_IS1_NS2_IJLln1ELln1EEEES4_S6_EEEENSt9enable_ifIXaaaasr3stdE13is_integral_vIT_EgtclL_ZNS3_4rankEvEELi1EL_ZSt9is_same_vIS4_S4_EEET0_E4typeESC_.exit: ; preds = %_ZNK3gmx7extentsIJLln1ELln1ELln1EEE6extentEm.exit.i.i.i
   %127 = mul nsw i64 %126, %indvars.iv128
@@ -347,7 +347,7 @@ _ZNK3gmx12basic_mdspanIKfNS_7extentsIJLln1ELln1ELln1EEEENS_12layout_rightENS_14a
   %141 = load i32, ptr %140, align 4, !tbaa !8
   %142 = sext i32 %141 to i64
   %143 = icmp slt i64 %indvars.iv.next129, %142
-  br i1 %143, label %121, label %._crit_edge114.loopexit, !llvm.loop !47
+  br i1 %143, label %121, label %._crit_edge114.loopexit, !llvm.loop !45
 
 144:                                              ; preds = %.lr.ph102, %._crit_edge
   %indvars.iv125 = phi i64 [ %137, %.lr.ph102 ], [ %indvars.iv.next126, %._crit_edge ]
@@ -357,13 +357,13 @@ _ZNK3gmx12basic_mdspanIKfNS_7extentsIJLln1ELln1ELln1EEEENS_12layout_rightENS_14a
   %.sroa.052.197 = phi double [ %.sroa.052.0107, %.lr.ph102 ], [ %.sroa.052.2.lcssa, %._crit_edge ]
   %145 = mul nsw i64 %95, %indvars.iv125
   %146 = getelementptr inbounds float, ptr %128, i64 %145
-  %147 = load ptr, ptr %96, align 8, !tbaa !48
+  %147 = load ptr, ptr %96, align 8, !tbaa !46
   %148 = load i64, ptr %97, align 8
   %149 = mul nsw i64 %148, %136
   %150 = getelementptr float, ptr %147, i64 %149
   %151 = getelementptr float, ptr %150, i64 %indvars.iv125
   %152 = getelementptr float, ptr %151, i64 %99
-  %153 = load float, ptr %152, align 4, !tbaa !25
+  %153 = load float, ptr %152, align 4, !tbaa !23
   %154 = call noundef nonnull align 4 dereferenceable(12) ptr @_ZNK3gmx10IntegerBox5beginEv(ptr noundef nonnull align 4 dereferenceable(24) %5)
   %155 = load i32, ptr %154, align 4, !tbaa !8
   %156 = call noundef nonnull align 4 dereferenceable(12) ptr @_ZNK3gmx10IntegerBox3endEv(ptr noundef nonnull align 4 dereferenceable(24) %5)
@@ -386,7 +386,7 @@ _ZNK3gmx12basic_mdspanIKfNS_7extentsIJLln1ELln1ELln1EEEENS_12layout_rightENS_14a
   %163 = load i32, ptr %162, align 4, !tbaa !8
   %164 = sext i32 %163 to i64
   %165 = icmp slt i64 %indvars.iv.next126, %164
-  br i1 %165, label %144, label %._crit_edge103, !llvm.loop !52
+  br i1 %165, label %144, label %._crit_edge103, !llvm.loop !50
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv122 = phi i64 [ %159, %.lr.ph.preheader ], [ %indvars.iv.next123, %.lr.ph ]
@@ -395,10 +395,10 @@ _ZNK3gmx12basic_mdspanIKfNS_7extentsIJLln1ELln1ELln1EEEENS_12layout_rightENS_14a
   %.sroa.654.291 = phi double [ %.sroa.654.198, %.lr.ph.preheader ], [ %176, %.lr.ph ]
   %.sroa.052.290 = phi double [ %.sroa.052.197, %.lr.ph.preheader ], [ %175, %.lr.ph ]
   %gep = getelementptr float, ptr %invariant.gep, i64 %indvars.iv122
-  %166 = load float, ptr %gep, align 4, !tbaa !25
+  %166 = load float, ptr %gep, align 4, !tbaa !23
   %167 = fmul float %153, %166
   %168 = getelementptr inbounds float, ptr %146, i64 %indvars.iv122
-  %169 = load float, ptr %168, align 4, !tbaa !25
+  %169 = load float, ptr %168, align 4, !tbaa !23
   %170 = fmul float %167, %169
   %171 = fpext float %170 to double
   %172 = fmul double %.sroa.057.094, %171
@@ -413,7 +413,7 @@ _ZNK3gmx12basic_mdspanIKfNS_7extentsIJLln1ELln1ELln1EEEENS_12layout_rightENS_14a
   %180 = load i32, ptr %179, align 4, !tbaa !8
   %181 = sext i32 %180 to i64
   %182 = icmp slt i64 %indvars.iv.next123, %181
-  br i1 %182, label %.lr.ph, label %._crit_edge, !llvm.loop !53
+  br i1 %182, label %.lr.ph, label %._crit_edge, !llvm.loop !51
 
 183:                                              ; preds = %3, %._crit_edge114
   %.sroa.083.0 = phi <2 x float> [ %.sroa.0.4.vec.insert.i40, %._crit_edge114 ], [ zeroinitializer, %3 ]
@@ -449,7 +449,7 @@ define void @_ZN3gmx19DensityFittingForceC2ERKNS_30GaussianSpreadKernelParameter
           to label %4 unwind label %5
 
 4:                                                ; preds = %2
-  store ptr %3, ptr %0, align 8, !tbaa !54
+  store ptr %3, ptr %0, align 8, !tbaa !52
   ret void
 
 5:                                                ; preds = %2
@@ -461,26 +461,26 @@ define void @_ZN3gmx19DensityFittingForceC2ERKNS_30GaussianSpreadKernelParameter
 
 ; Function Attrs: mustprogress uwtable
 define { <2 x float>, float } @_ZN3gmx19DensityFittingForce13evaluateForceERKNS_30GaussianSpreadKernelParameters20PositionAndAmplitudeENS_12basic_mdspanIKfNS_7extentsIJLln1ELln1ELln1EEEENS_12layout_rightENS_14accessor_basicIS6_EEEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(12) %1, ptr noundef readonly byval(%"class.gmx::basic_mdspan.6") align 8 captures(none) %2) local_unnamed_addr #9 align 2 {
-  %4 = load ptr, ptr %0, align 8, !tbaa !54
+  %4 = load ptr, ptr %0, align 8, !tbaa !52
   %5 = tail call { <2 x float>, float } @_ZN3gmx19DensityFittingForce4Impl13evaluateForceERKNS_30GaussianSpreadKernelParameters20PositionAndAmplitudeENS_12basic_mdspanIKfNS_7extentsIJLln1ELln1ELln1EEEENS_12layout_rightENS_14accessor_basicIS7_EEEE(ptr noundef nonnull align 8 dereferenceable(128) %4, ptr noundef nonnull align 8 dereferenceable(12) %1, ptr noundef nonnull byval(%"class.gmx::basic_mdspan.6") align 8 %2)
   ret { <2 x float>, float } %5
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN3gmx19DensityFittingForceD2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(8) %0) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !54
+  %2 = load ptr, ptr %0, align 8, !tbaa !52
   %.not.i = icmp eq ptr %2, null
   br i1 %.not.i, label %_ZNSt10unique_ptrIN3gmx19DensityFittingForce4ImplESt14default_deleteIS2_EED2Ev.exit, label %3
 
 3:                                                ; preds = %1
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 64
-  %5 = load ptr, ptr %4, align 8, !tbaa !56
+  %5 = load ptr, ptr %4, align 8, !tbaa !54
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %5, null
   br i1 %.not.i.i.i.i.i.i.i.i, label %_ZN3gmx21OuterProductEvaluatorD2Ev.exit.i.i.i.preheader, label %6
 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 80
-  %8 = load ptr, ptr %7, align 8, !tbaa !58
+  %8 = load ptr, ptr %7, align 8, !tbaa !56
   %9 = ptrtoint ptr %8 to i64
   %10 = ptrtoint ptr %5 to i64
   %11 = sub i64 %9, %10
@@ -496,21 +496,21 @@ _ZN3gmx21OuterProductEvaluatorD2Ev.exit.i.i.i:    ; preds = %_ZN3gmx21OuterProdu
   %.ptr1.i.i.i = getelementptr inbounds i8, ptr %2, i64 %.add.i.i.i
   tail call void @_ZN3gmx19GaussianOn1DLatticeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %.ptr1.i.i.i) #13
   %12 = icmp eq i64 %.add.i.i.i, 40
-  br i1 %12, label %_ZNKSt14default_deleteIN3gmx19DensityFittingForce4ImplEEclEPS2_.exit.i, label %_ZN3gmx21OuterProductEvaluatorD2Ev.exit.i.i.i, !llvm.loop !59
+  br i1 %12, label %_ZNKSt14default_deleteIN3gmx19DensityFittingForce4ImplEEclEPS2_.exit.i, label %_ZN3gmx21OuterProductEvaluatorD2Ev.exit.i.i.i
 
 _ZNKSt14default_deleteIN3gmx19DensityFittingForce4ImplEEclEPS2_.exit.i: ; preds = %_ZN3gmx21OuterProductEvaluatorD2Ev.exit.i.i.i
   tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 128) #15
   br label %_ZNSt10unique_ptrIN3gmx19DensityFittingForce4ImplESt14default_deleteIS2_EED2Ev.exit
 
 _ZNSt10unique_ptrIN3gmx19DensityFittingForce4ImplESt14default_deleteIS2_EED2Ev.exit: ; preds = %1, %_ZNKSt14default_deleteIN3gmx19DensityFittingForce4ImplEEclEPS2_.exit.i
-  store ptr null, ptr %0, align 8, !tbaa !54
+  store ptr null, ptr %0, align 8, !tbaa !52
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN3gmx19DensityFittingForceC2ERKS0_(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = tail call noalias noundef nonnull dereferenceable(128) ptr @_Znwm(i64 noundef 128) #14
-  %4 = load ptr, ptr %1, align 8, !tbaa !54
+  %4 = load ptr, ptr %1, align 8, !tbaa !52
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %3, ptr noundef nonnull align 8 dereferenceable(128) %4, i64 36, i1 false)
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 40
   br label %6
@@ -527,7 +527,7 @@ define void @_ZN3gmx19DensityFittingForceC2ERKS0_(ptr noundef nonnull writeonly 
 9:                                                ; preds = %6
   %10 = add nuw nsw i64 %7, 1
   %11 = icmp eq i64 %10, 3
-  br i1 %11, label %_ZNSt5arrayIN3gmx19GaussianOn1DLatticeELm3EEC2ERKS2_.exit.i, label %6, !llvm.loop !60
+  br i1 %11, label %_ZNSt5arrayIN3gmx19GaussianOn1DLatticeELm3EEC2ERKS2_.exit.i, label %6
 
 12:                                               ; preds = %6
   %13 = landingpad { ptr, i32 }
@@ -541,14 +541,14 @@ define void @_ZN3gmx19DensityFittingForceC2ERKS0_(ptr noundef nonnull writeonly 
   %.ptr7.i = getelementptr inbounds i8, ptr %3, i64 %.add.i
   tail call void @_ZN3gmx19GaussianOn1DLatticeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %.ptr7.i) #13
   %15 = icmp eq i64 %.add.i, 40
-  br i1 %15, label %.body, label %.preheader.i.i, !llvm.loop !61
+  br i1 %15, label %.body, label %.preheader.i.i
 
 _ZNSt5arrayIN3gmx19GaussianOn1DLatticeELm3EEC2ERKS2_.exit.i: ; preds = %9
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 64
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 64
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 72
-  %19 = load ptr, ptr %18, align 8, !tbaa !62
-  %20 = load ptr, ptr %17, align 8, !tbaa !56
+  %19 = load ptr, ptr %18, align 8, !tbaa !57
+  %20 = load ptr, ptr %17, align 8, !tbaa !54
   %21 = ptrtoint ptr %19 to i64
   %22 = ptrtoint ptr %20 to i64
   %23 = sub i64 %21, %22
@@ -561,12 +561,12 @@ _ZNSt5arrayIN3gmx19GaussianOn1DLatticeELm3EEC2ERKS2_.exit.i: ; preds = %9
   %25 = getelementptr inbounds i8, ptr null, i64 %23
   %26 = getelementptr inbounds nuw i8, ptr %3, i64 80
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %16, i8 0, i64 16, i1 false)
-  store ptr %25, ptr %26, align 8, !tbaa !58
+  store ptr %25, ptr %26, align 8, !tbaa !56
   br label %38
 
 27:                                               ; preds = %_ZNSt5arrayIN3gmx19GaussianOn1DLatticeELm3EEC2ERKS2_.exit.i
   %28 = icmp ugt i64 %23, 9223372036854775804
-  br i1 %28, label %.noexc.i.i.i.i.i, label %_ZNSt16allocator_traitsISaIfEE8allocateERS0_m.exit.i.i.i.i.i.i.i, !prof !63
+  br i1 %28, label %.noexc.i.i.i.i.i, label %_ZNSt16allocator_traitsISaIfEE8allocateERS0_m.exit.i.i.i.i.i.i.i, !prof !58
 
 .noexc.i.i.i.i.i:                                 ; preds = %27
   invoke void @_ZSt28__throw_bad_array_new_lengthv() #16
@@ -580,12 +580,12 @@ _ZNSt16allocator_traitsISaIfEE8allocateERS0_m.exit.i.i.i.i.i.i.i: ; preds = %27
           to label %30 unwind label %34
 
 30:                                               ; preds = %_ZNSt16allocator_traitsISaIfEE8allocateERS0_m.exit.i.i.i.i.i.i.i
-  store ptr %29, ptr %16, align 8, !tbaa !56
+  store ptr %29, ptr %16, align 8, !tbaa !54
   %31 = getelementptr inbounds nuw i8, ptr %3, i64 72
-  store ptr %29, ptr %31, align 8, !tbaa !62
+  store ptr %29, ptr %31, align 8, !tbaa !57
   %32 = getelementptr inbounds nuw i8, ptr %29, i64 %23
   %33 = getelementptr inbounds nuw i8, ptr %3, i64 80
-  store ptr %32, ptr %33, align 8, !tbaa !58
+  store ptr %32, ptr %33, align 8, !tbaa !56
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %29, ptr align 4 %20, i64 %23, i1 false)
   br label %38
 
@@ -600,19 +600,19 @@ _ZNSt16allocator_traitsISaIfEE8allocateERS0_m.exit.i.i.i.i.i.i.i: ; preds = %27
   %.ptr12.i = getelementptr inbounds i8, ptr %3, i64 %.add11.i
   tail call void @_ZN3gmx19GaussianOn1DLatticeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %.ptr12.i) #13
   %37 = icmp eq i64 %.add11.i, 40
-  br i1 %37, label %.body, label %36, !llvm.loop !59
+  br i1 %37, label %.body, label %36
 
 38:                                               ; preds = %.noexc5.i.thread, %30
   %39 = phi ptr [ %25, %.noexc5.i.thread ], [ %32, %30 ]
   %40 = phi ptr [ %24, %.noexc5.i.thread ], [ %31, %30 ]
   %41 = phi ptr [ null, %.noexc5.i.thread ], [ %29, %30 ]
-  store ptr %39, ptr %40, align 8, !tbaa !62
+  store ptr %39, ptr %40, align 8, !tbaa !57
   %42 = getelementptr inbounds nuw i8, ptr %4, i64 96
   %43 = getelementptr inbounds nuw i8, ptr %3, i64 96
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %43, ptr noundef nonnull align 8 dereferenceable(24) %42, i64 24, i1 false)
   %44 = getelementptr inbounds nuw i8, ptr %3, i64 120
-  store ptr %41, ptr %44, align 8, !tbaa !64
-  store ptr %3, ptr %0, align 8, !tbaa !54
+  store ptr %41, ptr %44, align 8, !tbaa !59
+  store ptr %3, ptr %0, align 8, !tbaa !52
   ret void
 
 .body:                                            ; preds = %.preheader.i.i, %36, %12
@@ -626,8 +626,8 @@ declare void @_ZN3gmx19GaussianOn1DLatticeC1ERKS0_(ptr noundef nonnull align 8 d
 ; Function Attrs: mustprogress uwtable
 define noundef nonnull align 8 dereferenceable(8) ptr @_ZN3gmx19DensityFittingForceaSERKS0_(ptr noundef nonnull readonly returned align 8 captures(ret: address, provenance) dereferenceable(8) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %1) local_unnamed_addr #0 align 2 {
   %.sroa.03.i.i.i = alloca { [8 x i8], %"class.gmx::layout_right::mapping" }, align 8
-  %3 = load ptr, ptr %1, align 8, !tbaa !54
-  %4 = load ptr, ptr %0, align 8, !tbaa !54
+  %3 = load ptr, ptr %1, align 8, !tbaa !52
+  %4 = load ptr, ptr %0, align 8, !tbaa !52
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %4, ptr noundef nonnull align 8 dereferenceable(128) %3, i64 36, i1 false)
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 40
@@ -640,14 +640,14 @@ define noundef nonnull align 8 dereferenceable(8) ptr @_ZN3gmx19DensityFittingFo
   %10 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN3gmx19GaussianOn1DLatticeaSERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 8 dereferenceable(8) %9)
   %11 = add nuw nsw i64 %.05.i.i, 1
   %.not.i.i = icmp eq i64 %11, 3
-  br i1 %.not.i.i, label %_ZN3gmx19DensityFittingForce4ImplaSERKS1_.exit, label %7, !llvm.loop !67
+  br i1 %.not.i.i, label %_ZN3gmx19DensityFittingForce4ImplaSERKS1_.exit, label %7, !llvm.loop !62
 
 _ZN3gmx19DensityFittingForce4ImplaSERKS1_.exit:   ; preds = %7
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 64
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 64
   %14 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIfSaIfEEaSERKS1_(ptr noundef nonnull align 8 dereferenceable(64) %12, ptr noundef nonnull align 8 dereferenceable(64) %13)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %.sroa.03.i.i.i)
-  %15 = load ptr, ptr %12, align 8, !tbaa !56
+  %15 = load ptr, ptr %12, align 8, !tbaa !54
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 96
   %.sroa.03.8..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.03.i.i.i, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.03.8..sroa_idx.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %16, i64 24, i1 false)
@@ -668,14 +668,14 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vecto
 
 3:                                                ; preds = %2
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %5 = load ptr, ptr %4, align 8, !tbaa !62
-  %6 = load ptr, ptr %1, align 8, !tbaa !56
+  %5 = load ptr, ptr %4, align 8, !tbaa !57
+  %6 = load ptr, ptr %1, align 8, !tbaa !54
   %7 = ptrtoint ptr %5 to i64
   %8 = ptrtoint ptr %6 to i64
   %9 = sub i64 %7, %8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %11 = load ptr, ptr %10, align 8, !tbaa !58
-  %12 = load ptr, ptr %0, align 8, !tbaa !56
+  %11 = load ptr, ptr %10, align 8, !tbaa !56
+  %12 = load ptr, ptr %0, align 8, !tbaa !54
   %13 = ptrtoint ptr %11 to i64
   %14 = ptrtoint ptr %12 to i64
   %15 = sub i64 %13, %14
@@ -684,7 +684,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vecto
 
 17:                                               ; preds = %3
   %18 = icmp ugt i64 %9, 9223372036854775804
-  br i1 %18, label %19, label %_ZNSt12_Vector_baseIfSaIfEE11_M_allocateEm.exit.i, !prof !63
+  br i1 %18, label %19, label %_ZNSt12_Vector_baseIfSaIfEE11_M_allocateEm.exit.i, !prof !58
 
 19:                                               ; preds = %17
   tail call void @_ZSt28__throw_bad_array_new_lengthv() #16
@@ -708,14 +708,14 @@ _ZNSt6vectorIfSaIfEE20_M_allocate_and_copyIN9__gnu_cxx17__normal_iteratorIPKfS1_
   br label %_ZNSt12_Vector_baseIfSaIfEE13_M_deallocateEPfm.exit
 
 _ZNSt12_Vector_baseIfSaIfEE13_M_deallocateEPfm.exit: ; preds = %_ZNSt6vectorIfSaIfEE20_M_allocate_and_copyIN9__gnu_cxx17__normal_iteratorIPKfS1_EEEEPfmT_S9_.exit, %22
-  store ptr %20, ptr %0, align 8, !tbaa !56
+  store ptr %20, ptr %0, align 8, !tbaa !54
   %23 = getelementptr inbounds nuw i8, ptr %20, i64 %9
-  store ptr %23, ptr %10, align 8, !tbaa !58
+  store ptr %23, ptr %10, align 8, !tbaa !56
   br label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKfSt6vectorIfSaIfEEEENS1_IPfS6_EEET0_T_SB_SA_.exit
 
 24:                                               ; preds = %3
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %26 = load ptr, ptr %25, align 8, !tbaa !62
+  %26 = load ptr, ptr %25, align 8, !tbaa !57
   %27 = ptrtoint ptr %26 to i64
   %28 = sub i64 %27, %14
   %.not24 = icmp ult i64 %28, %9
@@ -735,10 +735,10 @@ _ZNSt12_Vector_baseIfSaIfEE13_M_deallocateEPfm.exit: ; preds = %_ZNSt6vectorIfSa
 
 32:                                               ; preds = %31
   tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %12, ptr align 4 %6, i64 %28, i1 false)
-  %.pre = load ptr, ptr %1, align 8, !tbaa !56
-  %.pre26 = load ptr, ptr %25, align 8, !tbaa !62
-  %.pre27 = load ptr, ptr %0, align 8, !tbaa !56
-  %.pre28 = load ptr, ptr %4, align 8, !tbaa !62
+  %.pre = load ptr, ptr %1, align 8, !tbaa !54
+  %.pre26 = load ptr, ptr %25, align 8, !tbaa !57
+  %.pre27 = load ptr, ptr %0, align 8, !tbaa !54
+  %.pre28 = load ptr, ptr %4, align 8, !tbaa !57
   %.pre29 = ptrtoint ptr %.pre26 to i64
   %.pre30 = ptrtoint ptr %.pre27 to i64
   %.pre32 = sub i64 %.pre29, %.pre30
@@ -761,10 +761,10 @@ _ZSt4copyIPfS0_ET0_T_S2_S1_.exit:                 ; preds = %31, %32
   br label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKfSt6vectorIfSaIfEEEENS1_IPfS6_EEET0_T_SB_SA_.exit
 
 _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKfSt6vectorIfSaIfEEEENS1_IPfS6_EEET0_T_SB_SA_.exit: ; preds = %37, %_ZSt4copyIPfS0_ET0_T_S2_S1_.exit, %30, %29, %_ZNSt12_Vector_baseIfSaIfEE13_M_deallocateEPfm.exit
-  %41 = load ptr, ptr %0, align 8, !tbaa !56
+  %41 = load ptr, ptr %0, align 8, !tbaa !54
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 %9
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %42, ptr %43, align 8, !tbaa !62
+  store ptr %42, ptr %43, align 8, !tbaa !57
   br label %44
 
 44:                                               ; preds = %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKfSt6vectorIfSaIfEEEENS1_IPfS6_EEET0_T_SB_SA_.exit, %2
@@ -773,30 +773,30 @@ _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKfSt6vectorIfSaIfEEEENS1_IPfS6_EEET0_T
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define void @_ZN3gmx19DensityFittingForceC2EOS0_(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) initializes((0, 8)) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %1) unnamed_addr #12 align 2 {
-  %3 = load i64, ptr %1, align 8, !tbaa !54
-  store i64 %3, ptr %0, align 8, !tbaa !54
-  store ptr null, ptr %1, align 8, !tbaa !54
+  %3 = load i64, ptr %1, align 8, !tbaa !52
+  store i64 %3, ptr %0, align 8, !tbaa !52
+  store ptr null, ptr %1, align 8, !tbaa !52
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define noundef nonnull align 8 dereferenceable(8) ptr @_ZN3gmx19DensityFittingForceaSEOS0_(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(8) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %1) local_unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
-  %3 = load ptr, ptr %1, align 8, !tbaa !54
-  store ptr null, ptr %1, align 8, !tbaa !54
-  %4 = load ptr, ptr %0, align 8, !tbaa !54
-  store ptr %3, ptr %0, align 8, !tbaa !54
+  %3 = load ptr, ptr %1, align 8, !tbaa !52
+  store ptr null, ptr %1, align 8, !tbaa !52
+  %4 = load ptr, ptr %0, align 8, !tbaa !52
+  store ptr %3, ptr %0, align 8, !tbaa !52
   %.not.i.i.i.i = icmp eq ptr %4, null
   br i1 %.not.i.i.i.i, label %_ZNSt10unique_ptrIN3gmx19DensityFittingForce4ImplESt14default_deleteIS2_EEaSEOS5_.exit, label %5
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 64
-  %7 = load ptr, ptr %6, align 8, !tbaa !56
+  %7 = load ptr, ptr %6, align 8, !tbaa !54
   %.not.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %7, null
   br i1 %.not.i.i.i.i.i.i.i.i.i.i.i, label %_ZN3gmx21OuterProductEvaluatorD2Ev.exit.i.i.i.i.i.i.preheader, label %8
 
 8:                                                ; preds = %5
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 80
-  %10 = load ptr, ptr %9, align 8, !tbaa !58
+  %10 = load ptr, ptr %9, align 8, !tbaa !56
   %11 = ptrtoint ptr %10 to i64
   %12 = ptrtoint ptr %7 to i64
   %13 = sub i64 %11, %12
@@ -812,7 +812,7 @@ _ZN3gmx21OuterProductEvaluatorD2Ev.exit.i.i.i.i.i.i: ; preds = %_ZN3gmx21OuterPr
   %.ptr1.i.i.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 %.add.i.i.i.i.i.i
   tail call void @_ZN3gmx19GaussianOn1DLatticeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %.ptr1.i.i.i.i.i.i) #13
   %14 = icmp eq i64 %.add.i.i.i.i.i.i, 40
-  br i1 %14, label %_ZNKSt14default_deleteIN3gmx19DensityFittingForce4ImplEEclEPS2_.exit.i.i.i.i, label %_ZN3gmx21OuterProductEvaluatorD2Ev.exit.i.i.i.i.i.i, !llvm.loop !59
+  br i1 %14, label %_ZNKSt14default_deleteIN3gmx19DensityFittingForce4ImplEEclEPS2_.exit.i.i.i.i, label %_ZN3gmx21OuterProductEvaluatorD2Ev.exit.i.i.i.i.i.i
 
 _ZNKSt14default_deleteIN3gmx19DensityFittingForce4ImplEEclEPS2_.exit.i.i.i.i: ; preds = %_ZN3gmx21OuterProductEvaluatorD2Ev.exit.i.i.i.i.i.i
   tail call void @_ZdlPvm(ptr noundef nonnull %4, i64 noundef 128) #15
@@ -861,52 +861,47 @@ attributes #16 = { noreturn }
 !16 = !{!17, !17, i64 0}
 !17 = !{!"p1 float", !18, i64 0}
 !18 = !{!"any pointer", !6, i64 0}
-!19 = distinct !{!19, !20}
-!20 = !{!"llvm.loop.estimated_trip_count"}
-!21 = !{!22, !23, i64 0}
-!22 = !{!"_ZTSN3gmx30GaussianSpreadKernelParameters20PositionAndAmplitudeE", !23, i64 0, !24, i64 8}
-!23 = !{!"p1 _ZTSN3gmx11BasicVectorIfEE", !18, i64 0}
-!24 = !{!"float", !6, i64 0}
-!25 = !{!24, !24, i64 0}
-!26 = !{!27}
-!27 = distinct !{!27, !28, !"_ZNK3gmx11BasicVectorIiE6toDVecEv: argument 0"}
-!28 = distinct !{!28, !"_ZNK3gmx11BasicVectorIiE6toDVecEv"}
-!29 = !{!30}
-!30 = distinct !{!30, !31, !"_ZNK3gmx11BasicVectorIfE6toDVecEv: argument 0"}
-!31 = distinct !{!31, !"_ZNK3gmx11BasicVectorIfE6toDVecEv"}
-!32 = !{!33, !17, i64 40}
-!33 = !{!"_ZTSN3gmx12basic_mdspanIKfNS_7extentsIJLln1ELln1ELln1EEEENS_12layout_rightENS_14accessor_basicIS1_EEEE", !34, i64 0, !35, i64 8, !17, i64 40}
-!34 = !{!"_ZTSN3gmx14accessor_basicIKfEE"}
-!35 = !{!"_ZTSN3gmx12layout_right7mappingINS_7extentsIJLln1ELln1ELln1EEEEEE", !36, i64 0}
-!36 = !{!"_ZTSN3gmx7extentsIJLln1ELln1ELln1EEEE", !37, i64 0}
-!37 = !{!"_ZTSN3gmx6detail15extents_analyseILi3EJLln1ELln1ELln1EEEE", !38, i64 0, !14, i64 24}
-!38 = !{!"_ZTSN3gmx6detail15extents_analyseILi2EJLln1ELln1EEEE", !39, i64 0, !14, i64 16}
-!39 = !{!"_ZTSN3gmx6detail15extents_analyseILi1EJLln1EEEE", !40, i64 0, !14, i64 8}
-!40 = !{!"_ZTSN3gmx6detail15extents_analyseILi0EJEEE"}
-!41 = !{!42}
-!42 = distinct !{!42, !43, !"_ZNK3gmx12basic_mdspanIKfNS_7extentsIJLln1ELln1ELln1EEEENS_12layout_rightENS_14accessor_basicIS1_EEEixIiNS0_IS1_NS2_IJLln1ELln1EEEES4_S6_EEEENSt9enable_ifIXaaaasr3stdE13is_integral_vIT_EgtclL_ZNS3_4rankEvEELi1EL_ZSt9is_same_vIS4_S4_EEET0_E4typeESC_: argument 0"}
-!43 = distinct !{!43, !"_ZNK3gmx12basic_mdspanIKfNS_7extentsIJLln1ELln1ELln1EEEENS_12layout_rightENS_14accessor_basicIS1_EEEixIiNS0_IS1_NS2_IJLln1ELln1EEEES4_S6_EEEENSt9enable_ifIXaaaasr3stdE13is_integral_vIT_EgtclL_ZNS3_4rankEvEELi1EL_ZSt9is_same_vIS4_S4_EEET0_E4typeESC_"}
-!44 = distinct !{!44, !45, !20}
-!45 = !{!"llvm.loop.mustprogress"}
-!46 = distinct !{!46, !45, !20}
-!47 = distinct !{!47, !45, !20}
-!48 = !{!49, !17, i64 32}
-!49 = !{!"_ZTSN3gmx12basic_mdspanIKfNS_7extentsIJLln1ELln1EEEENS_12layout_rightENS_14accessor_basicIS1_EEEE", !34, i64 0, !50, i64 8, !17, i64 32}
-!50 = !{!"_ZTSN3gmx12layout_right7mappingINS_7extentsIJLln1ELln1EEEEEE", !51, i64 0}
-!51 = !{!"_ZTSN3gmx7extentsIJLln1ELln1EEEE", !38, i64 0}
-!52 = distinct !{!52, !45, !20}
-!53 = distinct !{!53, !45, !20}
-!54 = !{!55, !55, i64 0}
-!55 = !{!"p1 _ZTSN3gmx19DensityFittingForce4ImplE", !18, i64 0}
-!56 = !{!57, !17, i64 0}
-!57 = !{!"_ZTSNSt12_Vector_baseIfSaIfEE17_Vector_impl_dataE", !17, i64 0, !17, i64 8, !17, i64 16}
-!58 = !{!57, !17, i64 16}
-!59 = distinct !{!59, !20}
-!60 = distinct !{!60, !20}
-!61 = distinct !{!61, !20}
-!62 = !{!57, !17, i64 8}
-!63 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!64 = !{!65, !17, i64 32}
-!65 = !{!"_ZTSN3gmx12basic_mdspanIfNS_7extentsIJLln1ELln1EEEENS_12layout_rightENS_14accessor_basicIfEEEE", !66, i64 0, !50, i64 8, !17, i64 32}
-!66 = !{!"_ZTSN3gmx14accessor_basicIfEE"}
-!67 = distinct !{!67, !45, !20}
+!19 = !{!20, !21, i64 0}
+!20 = !{!"_ZTSN3gmx30GaussianSpreadKernelParameters20PositionAndAmplitudeE", !21, i64 0, !22, i64 8}
+!21 = !{!"p1 _ZTSN3gmx11BasicVectorIfEE", !18, i64 0}
+!22 = !{!"float", !6, i64 0}
+!23 = !{!22, !22, i64 0}
+!24 = !{!25}
+!25 = distinct !{!25, !26, !"_ZNK3gmx11BasicVectorIiE6toDVecEv: argument 0"}
+!26 = distinct !{!26, !"_ZNK3gmx11BasicVectorIiE6toDVecEv"}
+!27 = !{!28}
+!28 = distinct !{!28, !29, !"_ZNK3gmx11BasicVectorIfE6toDVecEv: argument 0"}
+!29 = distinct !{!29, !"_ZNK3gmx11BasicVectorIfE6toDVecEv"}
+!30 = !{!31, !17, i64 40}
+!31 = !{!"_ZTSN3gmx12basic_mdspanIKfNS_7extentsIJLln1ELln1ELln1EEEENS_12layout_rightENS_14accessor_basicIS1_EEEE", !32, i64 0, !33, i64 8, !17, i64 40}
+!32 = !{!"_ZTSN3gmx14accessor_basicIKfEE"}
+!33 = !{!"_ZTSN3gmx12layout_right7mappingINS_7extentsIJLln1ELln1ELln1EEEEEE", !34, i64 0}
+!34 = !{!"_ZTSN3gmx7extentsIJLln1ELln1ELln1EEEE", !35, i64 0}
+!35 = !{!"_ZTSN3gmx6detail15extents_analyseILi3EJLln1ELln1ELln1EEEE", !36, i64 0, !14, i64 24}
+!36 = !{!"_ZTSN3gmx6detail15extents_analyseILi2EJLln1ELln1EEEE", !37, i64 0, !14, i64 16}
+!37 = !{!"_ZTSN3gmx6detail15extents_analyseILi1EJLln1EEEE", !38, i64 0, !14, i64 8}
+!38 = !{!"_ZTSN3gmx6detail15extents_analyseILi0EJEEE"}
+!39 = !{!40}
+!40 = distinct !{!40, !41, !"_ZNK3gmx12basic_mdspanIKfNS_7extentsIJLln1ELln1ELln1EEEENS_12layout_rightENS_14accessor_basicIS1_EEEixIiNS0_IS1_NS2_IJLln1ELln1EEEES4_S6_EEEENSt9enable_ifIXaaaasr3stdE13is_integral_vIT_EgtclL_ZNS3_4rankEvEELi1EL_ZSt9is_same_vIS4_S4_EEET0_E4typeESC_: argument 0"}
+!41 = distinct !{!41, !"_ZNK3gmx12basic_mdspanIKfNS_7extentsIJLln1ELln1ELln1EEEENS_12layout_rightENS_14accessor_basicIS1_EEEixIiNS0_IS1_NS2_IJLln1ELln1EEEES4_S6_EEEENSt9enable_ifIXaaaasr3stdE13is_integral_vIT_EgtclL_ZNS3_4rankEvEELi1EL_ZSt9is_same_vIS4_S4_EEET0_E4typeESC_"}
+!42 = distinct !{!42, !43}
+!43 = !{!"llvm.loop.mustprogress"}
+!44 = distinct !{!44, !43}
+!45 = distinct !{!45, !43}
+!46 = !{!47, !17, i64 32}
+!47 = !{!"_ZTSN3gmx12basic_mdspanIKfNS_7extentsIJLln1ELln1EEEENS_12layout_rightENS_14accessor_basicIS1_EEEE", !32, i64 0, !48, i64 8, !17, i64 32}
+!48 = !{!"_ZTSN3gmx12layout_right7mappingINS_7extentsIJLln1ELln1EEEEEE", !49, i64 0}
+!49 = !{!"_ZTSN3gmx7extentsIJLln1ELln1EEEE", !36, i64 0}
+!50 = distinct !{!50, !43}
+!51 = distinct !{!51, !43}
+!52 = !{!53, !53, i64 0}
+!53 = !{!"p1 _ZTSN3gmx19DensityFittingForce4ImplE", !18, i64 0}
+!54 = !{!55, !17, i64 0}
+!55 = !{!"_ZTSNSt12_Vector_baseIfSaIfEE17_Vector_impl_dataE", !17, i64 0, !17, i64 8, !17, i64 16}
+!56 = !{!55, !17, i64 16}
+!57 = !{!55, !17, i64 8}
+!58 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!59 = !{!60, !17, i64 32}
+!60 = !{!"_ZTSN3gmx12basic_mdspanIfNS_7extentsIJLln1ELln1EEEENS_12layout_rightENS_14accessor_basicIfEEEE", !61, i64 0, !48, i64 8, !17, i64 32}
+!61 = !{!"_ZTSN3gmx14accessor_basicIfEE"}
+!62 = distinct !{!62, !43}

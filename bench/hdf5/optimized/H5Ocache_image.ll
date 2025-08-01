@@ -234,7 +234,7 @@ define internal noundef i32 @H5O__mdci_encode(ptr noundef %0, i1 zeroext %1, i64
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 1
   store ptr %14, ptr %6, align 8, !tbaa !10
   store i8 0, ptr %3, align 1, !tbaa !13
-  %15 = load i64, ptr %4, align 8, !tbaa !21
+  %15 = load i64, ptr %4, align 8, !tbaa !20
   call void @H5F_addr_encode(ptr noundef %0, ptr noundef nonnull %6, i64 noundef %15) #5
   %16 = call zeroext i8 @H5F_sizeof_size(ptr noundef %0) #5
   switch i8 %16, label %.loopexit [
@@ -287,7 +287,7 @@ define internal noundef i32 @H5O__mdci_encode(ptr noundef %0, i1 zeroext %1, i64
   %44 = add nuw nsw i64 %.01822, 1
   %45 = lshr i64 %.02021, 8
   %exitcond.not = icmp eq i64 %44, 8
-  br i1 %exitcond.not, label %.loopexit, label %41, !llvm.loop !22
+  br i1 %exitcond.not, label %.loopexit, label %41, !llvm.loop !21
 
 46:                                               ; preds = %13
   %47 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -334,7 +334,7 @@ define internal noundef ptr @H5O__mdci_copy(ptr noundef readonly captures(none) 
 
 17:                                               ; preds = %10, %9
   %.07 = phi ptr [ %1, %9 ], [ %11, %10 ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.07, ptr noundef nonnull align 8 dereferenceable(16) %0, i64 16, i1 false), !tbaa.struct !23
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.07, ptr noundef nonnull align 8 dereferenceable(16) %0, i64 16, i1 false), !tbaa.struct !22
   br label %18
 
 18:                                               ; preds = %13, %17, %2
@@ -395,20 +395,20 @@ define internal range(i32 -1, 1) i32 @H5O__mdci_delete(ptr noundef %0, ptr readn
   br i1 %9, label %10, label %47, !prof !9
 
 10:                                               ; preds = %3
-  %11 = load i64, ptr %2, align 8, !tbaa !21
+  %11 = load i64, ptr %2, align 8, !tbaa !20
   %.not = icmp eq i64 %11, -1
   br i1 %.not, label %47, label %12
 
 12:                                               ; preds = %10
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %14 = load ptr, ptr %13, align 8, !tbaa !24
+  %14 = load ptr, ptr %13, align 8, !tbaa !23
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 1482
-  %16 = load i8, ptr %15, align 2, !tbaa !31, !range !7, !noundef !8
+  %16 = load i8, ptr %15, align 2, !tbaa !30, !range !7, !noundef !8
   %17 = trunc nuw i8 %16 to i1
   br i1 %17, label %18, label %38
 
 18:                                               ; preds = %12
-  %19 = load ptr, ptr %14, align 8, !tbaa !51
+  %19 = load ptr, ptr %14, align 8, !tbaa !50
   %20 = tail call i64 @H5FD_get_eoa(ptr noundef %19, i32 noundef 0) #5
   %21 = icmp eq i64 %20, -1
   br i1 %21, label %22, label %26
@@ -420,9 +420,9 @@ define internal range(i32 -1, 1) i32 @H5O__mdci_delete(ptr noundef %0, ptr readn
   br label %47
 
 26:                                               ; preds = %18
-  %27 = load ptr, ptr %13, align 8, !tbaa !24
-  %28 = load ptr, ptr %27, align 8, !tbaa !51
-  %29 = load i64, ptr %2, align 8, !tbaa !21
+  %27 = load ptr, ptr %13, align 8, !tbaa !23
+  %28 = load ptr, ptr %27, align 8, !tbaa !50
+  %29 = load i64, ptr %2, align 8, !tbaa !20
   %30 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %31 = load i64, ptr %30, align 8, !tbaa !16
   %32 = tail call i32 @H5FD_free(ptr noundef %28, i32 noundef 1, ptr noundef nonnull %0, i64 noundef %29, i64 noundef %31) #5
@@ -464,7 +464,7 @@ define internal noundef i32 @H5O__mdci_debug(ptr readnone captures(none) %0, ptr
   br i1 %11, label %12, label %18, !prof !9
 
 12:                                               ; preds = %5
-  %13 = load i64, ptr %1, align 8, !tbaa !21
+  %13 = load i64, ptr %1, align 8, !tbaa !20
   %14 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.11, i32 noundef %3, ptr noundef nonnull @.str.12, i32 noundef %4, ptr noundef nonnull @.str.13, i64 noundef %13) #5
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %16 = load i64, ptr %15, align 8, !tbaa !16
@@ -528,37 +528,36 @@ attributes #5 = { nounwind }
 !15 = !{!"long", !5, i64 0}
 !16 = !{!17, !15, i64 8}
 !17 = !{!"H5O_mdci_t", !15, i64 0, !15, i64 8}
-!18 = distinct !{!18, !19, !20}
+!18 = distinct !{!18, !19}
 !19 = !{!"llvm.loop.mustprogress"}
-!20 = !{!"llvm.loop.estimated_trip_count"}
-!21 = !{!17, !15, i64 0}
-!22 = distinct !{!22, !19, !20}
-!23 = !{i64 0, i64 8, !14, i64 8, i64 8, !14}
-!24 = !{!25, !26, i64 16}
-!25 = !{!"H5F_t", !11, i64 0, !11, i64 8, !26, i64 16, !27, i64 24, !28, i64 32, !29, i64 40, !4, i64 48, !4, i64 49, !30, i64 56, !28, i64 64}
-!26 = !{!"p1 _ZTS12H5F_shared_t", !12, i64 0}
-!27 = !{!"p1 _ZTS13H5VL_object_t", !12, i64 0}
-!28 = !{!"int", !5, i64 0}
-!29 = !{!"p1 _ZTS6H5SL_t", !12, i64 0}
-!30 = !{!"p1 _ZTS5H5F_t", !12, i64 0}
-!31 = !{!32, !4, i64 1482}
-!32 = !{!"H5F_shared_t", !33, i64 0, !34, i64 8, !35, i64 16, !4, i64 24, !28, i64 28, !28, i64 32, !36, i64 40, !38, i64 56, !5, i64 64, !5, i64 65, !15, i64 72, !28, i64 80, !28, i64 84, !15, i64 88, !15, i64 96, !39, i64 104, !40, i64 112, !41, i64 120, !43, i64 1336, !4, i64 1348, !4, i64 1349, !11, i64 1352, !15, i64 1360, !28, i64 1368, !4, i64 1372, !15, i64 1376, !15, i64 1384, !42, i64 1392, !15, i64 1400, !15, i64 1408, !15, i64 1416, !28, i64 1424, !28, i64 1428, !28, i64 1432, !4, i64 1436, !28, i64 1440, !44, i64 1448, !45, i64 1456, !29, i64 1464, !46, i64 1472, !4, i64 1480, !4, i64 1481, !4, i64 1482, !15, i64 1488, !47, i64 1496, !12, i64 1504, !28, i64 1512, !15, i64 1520, !4, i64 1528, !28, i64 1532, !4, i64 1536, !15, i64 1544, !4, i64 1552, !5, i64 1556, !5, i64 1608, !5, i64 1712, !4, i64 1816, !15, i64 1824, !15, i64 1832, !5, i64 1840, !5, i64 1868, !48, i64 1896, !48, i64 1936, !15, i64 1976, !15, i64 1984, !49, i64 1992, !28, i64 2048, !28, i64 2052, !5, i64 2056, !50, i64 2296, !4, i64 2312, !11, i64 2320}
-!33 = !{!"p1 _ZTS6H5FD_t", !12, i64 0}
-!34 = !{!"p1 _ZTS11H5F_super_t", !12, i64 0}
-!35 = !{!"p1 _ZTS13H5O_drvinfo_t", !12, i64 0}
-!36 = !{!"H5F_mtab_t", !28, i64 0, !28, i64 4, !37, i64 8}
-!37 = !{!"p1 _ZTS11H5F_mount_t", !12, i64 0}
-!38 = !{!"p1 _ZTS9H5F_efc_t", !12, i64 0}
-!39 = !{!"p1 _ZTS6H5PB_t", !12, i64 0}
-!40 = !{!"p1 _ZTS5H5C_t", !12, i64 0}
-!41 = !{!"H5AC_cache_config_t", !28, i64 0, !4, i64 4, !4, i64 5, !4, i64 6, !5, i64 7, !4, i64 1032, !4, i64 1033, !15, i64 1040, !42, i64 1048, !15, i64 1056, !15, i64 1064, !15, i64 1072, !28, i64 1080, !42, i64 1088, !42, i64 1096, !4, i64 1104, !15, i64 1112, !28, i64 1120, !42, i64 1128, !42, i64 1136, !28, i64 1144, !42, i64 1152, !42, i64 1160, !4, i64 1168, !15, i64 1176, !28, i64 1184, !4, i64 1188, !42, i64 1192, !15, i64 1200, !28, i64 1208}
-!42 = !{!"double", !5, i64 0}
-!43 = !{!"H5AC_cache_image_config_t", !28, i64 0, !4, i64 4, !4, i64 5, !28, i64 8}
-!44 = !{!"p2 _ZTS11H5HG_heap_t", !12, i64 0}
-!45 = !{!"p1 _ZTS5H5G_t", !12, i64 0}
-!46 = !{!"p1 _ZTS6H5UC_t", !12, i64 0}
-!47 = !{!"p1 _ZTS16H5VL_connector_t", !12, i64 0}
-!48 = !{!"H5F_blk_aggr_t", !15, i64 0, !15, i64 8, !15, i64 16, !15, i64 24, !15, i64 32}
-!49 = !{!"H5F_meta_accum_t", !11, i64 0, !15, i64 8, !15, i64 16, !15, i64 24, !15, i64 32, !15, i64 40, !4, i64 48}
-!50 = !{!"H5F_object_flush_t", !12, i64 0, !12, i64 8}
-!51 = !{!32, !33, i64 0}
+!20 = !{!17, !15, i64 0}
+!21 = distinct !{!21, !19}
+!22 = !{i64 0, i64 8, !14, i64 8, i64 8, !14}
+!23 = !{!24, !25, i64 16}
+!24 = !{!"H5F_t", !11, i64 0, !11, i64 8, !25, i64 16, !26, i64 24, !27, i64 32, !28, i64 40, !4, i64 48, !4, i64 49, !29, i64 56, !27, i64 64}
+!25 = !{!"p1 _ZTS12H5F_shared_t", !12, i64 0}
+!26 = !{!"p1 _ZTS13H5VL_object_t", !12, i64 0}
+!27 = !{!"int", !5, i64 0}
+!28 = !{!"p1 _ZTS6H5SL_t", !12, i64 0}
+!29 = !{!"p1 _ZTS5H5F_t", !12, i64 0}
+!30 = !{!31, !4, i64 1482}
+!31 = !{!"H5F_shared_t", !32, i64 0, !33, i64 8, !34, i64 16, !4, i64 24, !27, i64 28, !27, i64 32, !35, i64 40, !37, i64 56, !5, i64 64, !5, i64 65, !15, i64 72, !27, i64 80, !27, i64 84, !15, i64 88, !15, i64 96, !38, i64 104, !39, i64 112, !40, i64 120, !42, i64 1336, !4, i64 1348, !4, i64 1349, !11, i64 1352, !15, i64 1360, !27, i64 1368, !4, i64 1372, !15, i64 1376, !15, i64 1384, !41, i64 1392, !15, i64 1400, !15, i64 1408, !15, i64 1416, !27, i64 1424, !27, i64 1428, !27, i64 1432, !4, i64 1436, !27, i64 1440, !43, i64 1448, !44, i64 1456, !28, i64 1464, !45, i64 1472, !4, i64 1480, !4, i64 1481, !4, i64 1482, !15, i64 1488, !46, i64 1496, !12, i64 1504, !27, i64 1512, !15, i64 1520, !4, i64 1528, !27, i64 1532, !4, i64 1536, !15, i64 1544, !4, i64 1552, !5, i64 1556, !5, i64 1608, !5, i64 1712, !4, i64 1816, !15, i64 1824, !15, i64 1832, !5, i64 1840, !5, i64 1868, !47, i64 1896, !47, i64 1936, !15, i64 1976, !15, i64 1984, !48, i64 1992, !27, i64 2048, !27, i64 2052, !5, i64 2056, !49, i64 2296, !4, i64 2312, !11, i64 2320}
+!32 = !{!"p1 _ZTS6H5FD_t", !12, i64 0}
+!33 = !{!"p1 _ZTS11H5F_super_t", !12, i64 0}
+!34 = !{!"p1 _ZTS13H5O_drvinfo_t", !12, i64 0}
+!35 = !{!"H5F_mtab_t", !27, i64 0, !27, i64 4, !36, i64 8}
+!36 = !{!"p1 _ZTS11H5F_mount_t", !12, i64 0}
+!37 = !{!"p1 _ZTS9H5F_efc_t", !12, i64 0}
+!38 = !{!"p1 _ZTS6H5PB_t", !12, i64 0}
+!39 = !{!"p1 _ZTS5H5C_t", !12, i64 0}
+!40 = !{!"H5AC_cache_config_t", !27, i64 0, !4, i64 4, !4, i64 5, !4, i64 6, !5, i64 7, !4, i64 1032, !4, i64 1033, !15, i64 1040, !41, i64 1048, !15, i64 1056, !15, i64 1064, !15, i64 1072, !27, i64 1080, !41, i64 1088, !41, i64 1096, !4, i64 1104, !15, i64 1112, !27, i64 1120, !41, i64 1128, !41, i64 1136, !27, i64 1144, !41, i64 1152, !41, i64 1160, !4, i64 1168, !15, i64 1176, !27, i64 1184, !4, i64 1188, !41, i64 1192, !15, i64 1200, !27, i64 1208}
+!41 = !{!"double", !5, i64 0}
+!42 = !{!"H5AC_cache_image_config_t", !27, i64 0, !4, i64 4, !4, i64 5, !27, i64 8}
+!43 = !{!"p2 _ZTS11H5HG_heap_t", !12, i64 0}
+!44 = !{!"p1 _ZTS5H5G_t", !12, i64 0}
+!45 = !{!"p1 _ZTS6H5UC_t", !12, i64 0}
+!46 = !{!"p1 _ZTS16H5VL_connector_t", !12, i64 0}
+!47 = !{!"H5F_blk_aggr_t", !15, i64 0, !15, i64 8, !15, i64 16, !15, i64 24, !15, i64 32}
+!48 = !{!"H5F_meta_accum_t", !11, i64 0, !15, i64 8, !15, i64 16, !15, i64 24, !15, i64 32, !15, i64 40, !4, i64 48}
+!49 = !{!"H5F_object_flush_t", !12, i64 0, !12, i64 8}
+!50 = !{!31, !32, i64 0}

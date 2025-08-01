@@ -166,14 +166,14 @@ define hidden ptr @BN_mod_inverse_ex(ptr noundef %0, ptr noundef writeonly captu
   %6 = alloca %struct.bignum_st, align 8
   %7 = alloca %struct.bignum_st, align 8
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 20
-  %9 = load i32, ptr %8, align 4, !tbaa !16
+  %9 = load i32, ptr %8, align 4, !tbaa !15
   %10 = and i32 %9, 4
   %.not = icmp eq i32 %10, 0
   br i1 %.not, label %11, label %15
 
 11:                                               ; preds = %5
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 20
-  %13 = load i32, ptr %12, align 4, !tbaa !16
+  %13 = load i32, ptr %12, align 4, !tbaa !15
   %14 = and i32 %13, 4
   %.not187 = icmp eq i32 %14, 0
   br i1 %.not187, label %71, label %15
@@ -181,7 +181,7 @@ define hidden ptr @BN_mod_inverse_ex(ptr noundef %0, ptr noundef writeonly captu
 15:                                               ; preds = %11, %5
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #3
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #3
-  store i32 0, ptr %1, align 4, !tbaa !17
+  store i32 0, ptr %1, align 4, !tbaa !16
   tail call void @BN_CTX_start(ptr noundef %4) #3
   %16 = tail call ptr @BN_CTX_get(ptr noundef %4) #3
   %17 = tail call ptr @BN_CTX_get(ptr noundef %4) #3
@@ -269,7 +269,7 @@ define hidden ptr @BN_mod_inverse_ex(ptr noundef %0, ptr noundef writeonly captu
   %53 = sub nsw i32 0, %.075128.i
   %54 = call i32 @BN_is_zero(ptr noundef %.087123.i) #3
   %.not92.i = icmp eq i32 %54, 0
-  br i1 %.not92.i, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !18
+  br i1 %.not92.i, label %.lr.ph.i, label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %52
   %55 = icmp sgt i32 %.075128.i, 0
@@ -311,7 +311,7 @@ define hidden ptr @BN_mod_inverse_ex(ptr noundef %0, ptr noundef writeonly captu
   br i1 %.not97.i, label %.thread105.i, label %BN_mod_inverse_no_branch.exit
 
 69:                                               ; preds = %57
-  store i32 1, ptr %1, align 4, !tbaa !17
+  store i32 1, ptr %1, align 4, !tbaa !16
   call void @ERR_put_error(i32 noundef 3, i32 noundef 0, i32 noundef 112, ptr noundef nonnull @.str, i32 noundef 699) #3
   br label %.thread105.i
 
@@ -333,7 +333,7 @@ BN_mod_inverse_no_branch.exit:                    ; preds = %65, %67, %.thread10
   br label %227
 
 71:                                               ; preds = %11
-  store i32 0, ptr %1, align 4, !tbaa !17
+  store i32 0, ptr %1, align 4, !tbaa !16
   tail call void @BN_CTX_start(ptr noundef %4) #3
   %72 = tail call ptr @BN_CTX_get(ptr noundef %4) #3
   %73 = tail call ptr @BN_CTX_get(ptr noundef %4) #3
@@ -428,7 +428,7 @@ BN_mod_inverse_no_branch.exit:                    ; preds = %65, %67, %.thread10
 
 .preheader.backedge:                              ; preds = %113, %141
   %.0165.be = phi i32 [ %109, %113 ], [ 0, %141 ]
-  br label %.preheader, !llvm.loop !19
+  br label %.preheader, !llvm.loop !17
 
 115:                                              ; preds = %.preheader
   %.not216 = icmp eq i32 %.0165, 0
@@ -462,7 +462,7 @@ BN_mod_inverse_no_branch.exit:                    ; preds = %65, %67, %.thread10
 125:                                              ; preds = %123, %120
   %126 = tail call i32 @BN_rshift1(ptr noundef %77, ptr noundef %77) #3
   %.not227 = icmp eq i32 %126, 0
-  br i1 %.not227, label %.thread243, label %118, !llvm.loop !20
+  br i1 %.not227, label %.thread243, label %118, !llvm.loop !18
 
 127:                                              ; preds = %118
   %.not219 = icmp eq i32 %.1, 0
@@ -627,7 +627,7 @@ BN_mod_inverse_no_branch.exit:                    ; preds = %65, %67, %.thread10
   br i1 %.not210, label %.thread243, label %206
 
 195:                                              ; preds = %191
-  %196 = load i32, ptr %145, align 8, !tbaa !21
+  %196 = load i32, ptr %145, align 8, !tbaa !19
   %197 = icmp eq i32 %196, 1
   br i1 %197, label %198, label %204
 
@@ -637,8 +637,8 @@ BN_mod_inverse_no_branch.exit:                    ; preds = %65, %67, %.thread10
   br i1 %.not208, label %.thread243, label %200
 
 200:                                              ; preds = %198
-  %201 = load ptr, ptr %75, align 8, !tbaa !22
-  %202 = load i64, ptr %201, align 8, !tbaa !23
+  %201 = load ptr, ptr %75, align 8, !tbaa !20
+  %202 = load i64, ptr %201, align 8, !tbaa !21
   %203 = tail call i32 @BN_mul_word(ptr noundef %.1174287, i64 noundef %202) #3
   %.not209 = icmp eq i32 %203, 0
   br i1 %.not209, label %.thread243, label %206
@@ -657,7 +657,7 @@ BN_mod_inverse_no_branch.exit:                    ; preds = %65, %67, %.thread10
   %209 = sub nsw i32 0, %.1169288
   %210 = tail call i32 @BN_is_zero(ptr noundef %.0178285) #3
   %.not192 = icmp eq i32 %210, 0
-  br i1 %.not192, label %146, label %._crit_edge, !llvm.loop !25
+  br i1 %.not192, label %146, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %208
   %211 = icmp sgt i32 %.1169288, 0
@@ -699,7 +699,7 @@ BN_mod_inverse_no_branch.exit:                    ; preds = %65, %67, %.thread10
   br i1 %.not235, label %.thread243, label %.thread264
 
 225:                                              ; preds = %213
-  store i32 1, ptr %1, align 4, !tbaa !17
+  store i32 1, ptr %1, align 4, !tbaa !16
   tail call void @ERR_put_error(i32 noundef 3, i32 noundef 0, i32 noundef 112, ptr noundef nonnull @.str, i32 noundef 529) #3
   br label %.thread243
 
@@ -804,16 +804,13 @@ attributes #3 = { nounwind }
 !10 = !{!"omnipotent char", !11, i64 0}
 !11 = !{!"Simple C/C++ TBAA"}
 !12 = !{!"int", !10, i64 0}
-!13 = distinct !{!13, !14, !15}
+!13 = distinct !{!13, !14}
 !14 = !{!"llvm.loop.mustprogress"}
-!15 = !{!"llvm.loop.estimated_trip_count"}
-!16 = !{!7, !12, i64 20}
-!17 = !{!12, !12, i64 0}
-!18 = distinct !{!18, !15}
-!19 = distinct !{!19, !14, !15}
-!20 = distinct !{!20, !14, !15}
-!21 = !{!7, !12, i64 8}
-!22 = !{!7, !8, i64 0}
-!23 = !{!24, !24, i64 0}
-!24 = !{!"long", !10, i64 0}
-!25 = distinct !{!25, !15}
+!15 = !{!7, !12, i64 20}
+!16 = !{!12, !12, i64 0}
+!17 = distinct !{!17, !14}
+!18 = distinct !{!18, !14}
+!19 = !{!7, !12, i64 8}
+!20 = !{!7, !8, i64 0}
+!21 = !{!22, !22, i64 0}
+!22 = !{!"long", !10, i64 0}

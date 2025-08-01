@@ -59,7 +59,7 @@ define internal range(i32 -2147483648, 1) i32 @addroi_init(ptr noundef %0) #0 {
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %6 ]
   %8 = getelementptr inbounds nuw [4 x ptr], ptr %4, i64 0, i64 %indvars.iv
   %9 = getelementptr inbounds nuw [4 x ptr], ptr %5, i64 0, i64 %indvars.iv
-  %10 = load ptr, ptr %9, align 8, !tbaa !23
+  %10 = load ptr, ptr %9, align 8, !tbaa !22
   %11 = tail call i32 @av_expr_parse(ptr noundef nonnull %8, ptr noundef %10, ptr noundef nonnull @addroi_var_names, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, i32 noundef 0, ptr noundef %0) #5
   %12 = icmp slt i32 %11, 0
   br i1 %12, label %13, label %6
@@ -67,9 +67,9 @@ define internal range(i32 -2147483648, 1) i32 @addroi_init(ptr noundef %0) #0 {
 13:                                               ; preds = %7
   %14 = getelementptr inbounds nuw [4 x ptr], ptr %5, i64 0, i64 %indvars.iv
   %15 = getelementptr inbounds nuw [4 x i8], ptr @addroi_param_names, i64 0, i64 %indvars.iv
-  %16 = load i8, ptr %15, align 1, !tbaa !24
+  %16 = load i8, ptr %15, align 1, !tbaa !23
   %17 = sext i8 %16 to i32
-  %18 = load ptr, ptr %14, align 8, !tbaa !23
+  %18 = load ptr, ptr %14, align 8, !tbaa !22
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %3, i32 noundef 16, ptr noundef nonnull @.str.23, i32 noundef %17, ptr noundef %18) #5
   br label %.loopexit
 
@@ -88,12 +88,12 @@ define internal void @addroi_uninit(ptr noundef readonly captures(none) %0) #0 {
 5:                                                ; preds = %1, %5
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %5 ]
   %6 = getelementptr inbounds nuw [4 x ptr], ptr %4, i64 0, i64 %indvars.iv
-  %7 = load ptr, ptr %6, align 8, !tbaa !25
+  %7 = load ptr, ptr %6, align 8, !tbaa !24
   tail call void @av_expr_free(ptr noundef %7) #5
-  store ptr null, ptr %6, align 8, !tbaa !25
+  store ptr null, ptr %6, align 8, !tbaa !24
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %8, label %5, !llvm.loop !27
+  br i1 %exitcond.not, label %8, label %5, !llvm.loop !26
 
 8:                                                ; preds = %5
   ret void
@@ -103,16 +103,16 @@ define internal void @addroi_uninit(ptr noundef readonly captures(none) %0) #0 {
 define internal i32 @addroi_filter_frame(ptr noundef readonly captures(none) %0, ptr noundef %1) #1 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %1, ptr %3, align 8, !tbaa !28
+  store ptr %1, ptr %3, align 8, !tbaa !27
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %6 = load ptr, ptr %5, align 8, !tbaa !30
+  %6 = load ptr, ptr %5, align 8, !tbaa !29
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 56
-  %8 = load ptr, ptr %7, align 8, !tbaa !39
-  %9 = load ptr, ptr %8, align 8, !tbaa !40
+  %8 = load ptr, ptr %7, align 8, !tbaa !38
+  %9 = load ptr, ptr %8, align 8, !tbaa !39
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 72
   %11 = load ptr, ptr %10, align 8, !tbaa !4
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 96
-  %13 = load i32, ptr %12, align 8, !tbaa !42
+  %13 = load i32, ptr %12, align 8, !tbaa !41
   %.not = icmp eq i32 %13, 0
   br i1 %.not, label %14, label %.thread
 
@@ -128,14 +128,14 @@ define internal i32 @addroi_filter_frame(ptr noundef readonly captures(none) %0,
 16:                                               ; preds = %14
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #5
   %17 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  %18 = load ptr, ptr %17, align 8, !tbaa !44
-  %19 = load i32, ptr %18, align 4, !tbaa !48
+  %18 = load ptr, ptr %17, align 8, !tbaa !43
+  %19 = load i32, ptr %18, align 4, !tbaa !47
   %.not71 = icmp eq i32 %19, 0
   br i1 %.not71, label %27, label %20
 
 20:                                               ; preds = %16
   %21 = getelementptr inbounds nuw i8, ptr %15, i64 16
-  %22 = load i64, ptr %21, align 8, !tbaa !50
+  %22 = load i64, ptr %21, align 8, !tbaa !49
   %23 = zext i32 %19 to i64
   %24 = urem i64 %22, %23
   %25 = udiv i64 %22, %23
@@ -153,14 +153,14 @@ define internal i32 @addroi_filter_frame(ptr noundef readonly captures(none) %0,
   %30 = ashr exact i64 %sext, 32
   %31 = mul nsw i64 %30, 28
   %32 = tail call ptr @av_buffer_alloc(i64 noundef %31) #5
-  store ptr %32, ptr %4, align 8, !tbaa !51
+  store ptr %32, ptr %4, align 8, !tbaa !50
   %.not72 = icmp eq ptr %32, null
   br i1 %.not72, label %.thread78, label %33
 
 33:                                               ; preds = %28
   %34 = trunc i64 %25 to i32
   %35 = getelementptr inbounds nuw i8, ptr %32, i64 8
-  %36 = load ptr, ptr %35, align 8, !tbaa !52
+  %36 = load ptr, ptr %35, align 8, !tbaa !51
   %37 = icmp sgt i32 %34, 0
   br i1 %37, label %.lr.ph.preheader, label %._crit_edge
 
@@ -170,61 +170,61 @@ define internal i32 @addroi_filter_frame(ptr noundef readonly captures(none) %0,
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %39 = load ptr, ptr %17, align 8, !tbaa !44
+  %39 = load ptr, ptr %17, align 8, !tbaa !43
   %40 = trunc nuw nsw i64 %indvars.iv to i32
   %41 = mul i32 %19, %40
   %42 = zext i32 %41 to i64
   %43 = getelementptr inbounds nuw i8, ptr %39, i64 %42
   %44 = getelementptr inbounds nuw %struct.AVRegionOfInterest, ptr %36, i64 %indvars.iv
   %45 = getelementptr inbounds nuw i8, ptr %43, i64 4
-  %46 = load i32, ptr %45, align 4, !tbaa !55
+  %46 = load i32, ptr %45, align 4, !tbaa !54
   %47 = getelementptr inbounds nuw i8, ptr %43, i64 8
-  %48 = load i32, ptr %47, align 4, !tbaa !56
+  %48 = load i32, ptr %47, align 4, !tbaa !55
   %49 = getelementptr inbounds nuw i8, ptr %43, i64 12
-  %50 = load i32, ptr %49, align 4, !tbaa !57
+  %50 = load i32, ptr %49, align 4, !tbaa !56
   %51 = getelementptr inbounds nuw i8, ptr %43, i64 16
-  %52 = load i32, ptr %51, align 4, !tbaa !58
+  %52 = load i32, ptr %51, align 4, !tbaa !57
   %53 = getelementptr inbounds nuw i8, ptr %43, i64 20
   %54 = load i64, ptr %53, align 4
-  store i32 28, ptr %44, align 4, !tbaa !59
+  store i32 28, ptr %44, align 4, !tbaa !58
   %.sroa.28.0..sroa_idx = getelementptr inbounds nuw i8, ptr %44, i64 4
-  store i32 %46, ptr %.sroa.28.0..sroa_idx, align 4, !tbaa !59
+  store i32 %46, ptr %.sroa.28.0..sroa_idx, align 4, !tbaa !58
   %.sroa.39.0..sroa_idx = getelementptr inbounds nuw i8, ptr %44, i64 8
-  store i32 %48, ptr %.sroa.39.0..sroa_idx, align 4, !tbaa !59
+  store i32 %48, ptr %.sroa.39.0..sroa_idx, align 4, !tbaa !58
   %.sroa.410.0..sroa_idx = getelementptr inbounds nuw i8, ptr %44, i64 12
-  store i32 %50, ptr %.sroa.410.0..sroa_idx, align 4, !tbaa !59
+  store i32 %50, ptr %.sroa.410.0..sroa_idx, align 4, !tbaa !58
   %.sroa.511.0..sroa_idx = getelementptr inbounds nuw i8, ptr %44, i64 16
-  store i32 %52, ptr %.sroa.511.0..sroa_idx, align 4, !tbaa !59
+  store i32 %52, ptr %.sroa.511.0..sroa_idx, align 4, !tbaa !58
   %.sroa.612.0..sroa_idx = getelementptr inbounds nuw i8, ptr %44, i64 20
   store i64 %54, ptr %.sroa.612.0..sroa_idx, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %55 = icmp samesign ult i64 %indvars.iv.next, %38
-  br i1 %55, label %.lr.ph, label %._crit_edge, !llvm.loop !60
+  br i1 %55, label %.lr.ph, label %._crit_edge, !llvm.loop !59
 
 ._crit_edge:                                      ; preds = %.lr.ph, %33
   %56 = ashr exact i64 %29, 32
   %57 = getelementptr inbounds %struct.AVRegionOfInterest, ptr %36, i64 %56
   %58 = getelementptr inbounds nuw i8, ptr %11, i64 72
   %59 = getelementptr inbounds nuw i8, ptr %11, i64 76
-  %60 = load i32, ptr %59, align 4, !tbaa !59
+  %60 = load i32, ptr %59, align 4, !tbaa !58
   %61 = getelementptr inbounds nuw i8, ptr %11, i64 84
-  %62 = load i32, ptr %61, align 4, !tbaa !59
+  %62 = load i32, ptr %61, align 4, !tbaa !58
   %63 = add nsw i32 %62, %60
-  %64 = load i32, ptr %58, align 8, !tbaa !59
+  %64 = load i32, ptr %58, align 8, !tbaa !58
   %65 = getelementptr inbounds nuw i8, ptr %11, i64 80
-  %66 = load i32, ptr %65, align 8, !tbaa !59
+  %66 = load i32, ptr %65, align 8, !tbaa !58
   %67 = add nsw i32 %66, %64
   %68 = getelementptr inbounds nuw i8, ptr %11, i64 88
   %69 = load i64, ptr %68, align 8
-  store i32 28, ptr %57, align 4, !tbaa !59
+  store i32 28, ptr %57, align 4, !tbaa !58
   %.sroa.22.0..sroa_idx = getelementptr inbounds nuw i8, ptr %57, i64 4
-  store i32 %60, ptr %.sroa.22.0..sroa_idx, align 4, !tbaa !59
+  store i32 %60, ptr %.sroa.22.0..sroa_idx, align 4, !tbaa !58
   %.sroa.33.0..sroa_idx = getelementptr inbounds nuw i8, ptr %57, i64 8
-  store i32 %63, ptr %.sroa.33.0..sroa_idx, align 4, !tbaa !59
+  store i32 %63, ptr %.sroa.33.0..sroa_idx, align 4, !tbaa !58
   %.sroa.44.0..sroa_idx = getelementptr inbounds nuw i8, ptr %57, i64 12
-  store i32 %64, ptr %.sroa.44.0..sroa_idx, align 4, !tbaa !59
+  store i32 %64, ptr %.sroa.44.0..sroa_idx, align 4, !tbaa !58
   %.sroa.55.0..sroa_idx = getelementptr inbounds nuw i8, ptr %57, i64 16
-  store i32 %67, ptr %.sroa.55.0..sroa_idx, align 4, !tbaa !59
+  store i32 %67, ptr %.sroa.55.0..sroa_idx, align 4, !tbaa !58
   %.sroa.66.0..sroa_idx = getelementptr inbounds nuw i8, ptr %57, i64 20
   store i64 %69, ptr %.sroa.66.0..sroa_idx, align 4
   tail call void @av_frame_remove_side_data(ptr noundef %1, i32 noundef 18) #5
@@ -251,28 +251,28 @@ define internal i32 @addroi_filter_frame(ptr noundef readonly captures(none) %0,
 
 75:                                               ; preds = %73
   %76 = getelementptr inbounds nuw i8, ptr %74, i64 8
-  %77 = load ptr, ptr %76, align 8, !tbaa !44
+  %77 = load ptr, ptr %76, align 8, !tbaa !43
   %78 = getelementptr inbounds nuw i8, ptr %11, i64 72
   %79 = getelementptr inbounds nuw i8, ptr %11, i64 76
-  %80 = load i32, ptr %79, align 4, !tbaa !59
+  %80 = load i32, ptr %79, align 4, !tbaa !58
   %81 = getelementptr inbounds nuw i8, ptr %11, i64 84
-  %82 = load i32, ptr %81, align 4, !tbaa !59
+  %82 = load i32, ptr %81, align 4, !tbaa !58
   %83 = add nsw i32 %82, %80
-  %84 = load i32, ptr %78, align 8, !tbaa !59
+  %84 = load i32, ptr %78, align 8, !tbaa !58
   %85 = getelementptr inbounds nuw i8, ptr %11, i64 80
-  %86 = load i32, ptr %85, align 8, !tbaa !59
+  %86 = load i32, ptr %85, align 8, !tbaa !58
   %87 = add nsw i32 %86, %84
   %88 = getelementptr inbounds nuw i8, ptr %11, i64 88
   %89 = load i64, ptr %88, align 8
-  store i32 28, ptr %77, align 4, !tbaa !59
+  store i32 28, ptr %77, align 4, !tbaa !58
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %77, i64 4
-  store i32 %80, ptr %.sroa.2.0..sroa_idx, align 4, !tbaa !59
+  store i32 %80, ptr %.sroa.2.0..sroa_idx, align 4, !tbaa !58
   %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %77, i64 8
-  store i32 %83, ptr %.sroa.3.0..sroa_idx, align 4, !tbaa !59
+  store i32 %83, ptr %.sroa.3.0..sroa_idx, align 4, !tbaa !58
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %77, i64 12
-  store i32 %84, ptr %.sroa.4.0..sroa_idx, align 4, !tbaa !59
+  store i32 %84, ptr %.sroa.4.0..sroa_idx, align 4, !tbaa !58
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %77, i64 16
-  store i32 %87, ptr %.sroa.5.0..sroa_idx, align 4, !tbaa !59
+  store i32 %87, ptr %.sroa.5.0..sroa_idx, align 4, !tbaa !58
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %77, i64 20
   store i64 %89, ptr %.sroa.6.0..sroa_idx, align 4
   br label %90
@@ -294,19 +294,19 @@ define internal i32 @addroi_filter_frame(ptr noundef readonly captures(none) %0,
 define internal noundef i32 @addroi_config_input(ptr noundef readonly captures(none) %0) #1 {
   %2 = alloca [2 x double], align 16
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %4 = load ptr, ptr %3, align 8, !tbaa !30
+  %4 = load ptr, ptr %3, align 8, !tbaa !29
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %6 = load ptr, ptr %5, align 8, !tbaa !4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #5
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %8 = load i32, ptr %7, align 8, !tbaa !61
+  %8 = load i32, ptr %7, align 8, !tbaa !60
   %9 = sitofp i32 %8 to double
-  store double %9, ptr %2, align 16, !tbaa !62
+  store double %9, ptr %2, align 16, !tbaa !61
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  %11 = load i32, ptr %10, align 4, !tbaa !64
+  %11 = load i32, ptr %10, align 4, !tbaa !63
   %12 = sitofp i32 %11 to double
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store double %12, ptr %13, align 8, !tbaa !62
+  store double %12, ptr %13, align 8, !tbaa !61
   %14 = getelementptr inbounds nuw i8, ptr %6, i64 76
   %15 = getelementptr inbounds nuw i8, ptr %6, i64 72
   %16 = getelementptr inbounds nuw i8, ptr %6, i64 40
@@ -323,22 +323,22 @@ define internal noundef i32 @addroi_config_input(ptr noundef readonly captures(n
   ]
 
 19:                                               ; preds = %17
-  %20 = load i32, ptr %7, align 8, !tbaa !61
+  %20 = load i32, ptr %7, align 8, !tbaa !60
   br label %31
 
 21:                                               ; preds = %17
-  %22 = load i32, ptr %10, align 4, !tbaa !64
+  %22 = load i32, ptr %10, align 4, !tbaa !63
   br label %31
 
 23:                                               ; preds = %17
-  %24 = load i32, ptr %7, align 8, !tbaa !61
-  %25 = load i32, ptr %15, align 8, !tbaa !59
+  %24 = load i32, ptr %7, align 8, !tbaa !60
+  %25 = load i32, ptr %15, align 8, !tbaa !58
   %26 = sub nsw i32 %24, %25
   br label %31
 
 27:                                               ; preds = %17
-  %28 = load i32, ptr %10, align 4, !tbaa !64
-  %29 = load i32, ptr %14, align 4, !tbaa !59
+  %28 = load i32, ptr %10, align 4, !tbaa !63
+  %29 = load i32, ptr %14, align 4, !tbaa !58
   %30 = sub nsw i32 %28, %29
   br label %31
 
@@ -348,14 +348,14 @@ default.unreachable:                              ; preds = %17
 31:                                               ; preds = %27, %23, %21, %19
   %.1 = phi i32 [ %20, %19 ], [ %22, %21 ], [ %26, %23 ], [ %30, %27 ]
   %32 = getelementptr inbounds nuw [4 x ptr], ptr %16, i64 0, i64 %indvars.iv
-  %33 = load ptr, ptr %32, align 8, !tbaa !25
+  %33 = load ptr, ptr %32, align 8, !tbaa !24
   %34 = call nsz double @av_expr_eval(ptr noundef %33, ptr noundef nonnull %2, ptr noundef null) #5
   %35 = fcmp nsz olt double %34, 0.000000e+00
   br i1 %35, label %36, label %40
 
 36:                                               ; preds = %31
   %37 = getelementptr inbounds nuw [4 x i8], ptr @addroi_param_names, i64 0, i64 %indvars.iv
-  %38 = load i8, ptr %37, align 1, !tbaa !24
+  %38 = load i8, ptr %37, align 1, !tbaa !23
   %39 = sext i8 %38 to i32
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef %4, i32 noundef 24, ptr noundef nonnull @.str.6, double noundef %34, i32 noundef %39) #5
   br label %47
@@ -367,7 +367,7 @@ default.unreachable:                              ; preds = %17
 
 43:                                               ; preds = %40
   %44 = getelementptr inbounds nuw [4 x i8], ptr @addroi_param_names, i64 0, i64 %indvars.iv
-  %45 = load i8, ptr %44, align 1, !tbaa !24
+  %45 = load i8, ptr %44, align 1, !tbaa !23
   %46 = sext i8 %45 to i32
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef %4, i32 noundef 24, ptr noundef nonnull @.str.7, double noundef %34, i32 noundef %46, i32 noundef %.1, i32 noundef %.1) #5
   br label %47
@@ -376,10 +376,10 @@ default.unreachable:                              ; preds = %17
   %.029 = phi nsz double [ 0.000000e+00, %36 ], [ %41, %43 ], [ %34, %40 ]
   %48 = fptosi double %.029 to i32
   %49 = getelementptr inbounds nuw [4 x i32], ptr %15, i64 0, i64 %indvars.iv
-  store i32 %48, ptr %49, align 4, !tbaa !59
+  store i32 %48, ptr %49, align 4, !tbaa !58
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %50, label %17, !llvm.loop !65
+  br i1 %exitcond.not, label %50, label %17, !llvm.loop !64
 
 50:                                               ; preds = %47
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #5
@@ -451,49 +451,48 @@ attributes #6 = { noreturn nounwind }
 !17 = !{!"p1 _ZTS15AVFilterCommand", !7, i64 0}
 !18 = !{!"p1 double", !7, i64 0}
 !19 = !{!"p1 _ZTS11AVBufferRef", !7, i64 0}
-!20 = distinct !{!20, !21, !22}
+!20 = distinct !{!20, !21}
 !21 = !{!"llvm.loop.mustprogress"}
-!22 = !{!"llvm.loop.estimated_trip_count"}
-!23 = !{!11, !11, i64 0}
-!24 = !{!8, !8, i64 0}
-!25 = !{!26, !26, i64 0}
-!26 = !{!"p1 _ZTS6AVExpr", !7, i64 0}
-!27 = distinct !{!27, !21, !22}
-!28 = !{!29, !29, i64 0}
-!29 = !{!"p1 _ZTS7AVFrame", !7, i64 0}
-!30 = !{!31, !32, i64 16}
-!31 = !{!"AVFilterLink", !32, i64 0, !12, i64 8, !32, i64 16, !12, i64 24, !15, i64 32, !15, i64 36, !15, i64 40, !15, i64 44, !33, i64 48, !15, i64 56, !15, i64 60, !15, i64 64, !34, i64 72, !33, i64 96, !35, i64 104, !15, i64 112, !36, i64 120, !36, i64 160}
-!32 = !{!"p1 _ZTS15AVFilterContext", !7, i64 0}
-!33 = !{!"AVRational", !15, i64 0, !15, i64 4}
-!34 = !{!"AVChannelLayout", !15, i64 0, !15, i64 4, !8, i64 8, !7, i64 16}
-!35 = !{!"p2 _ZTS15AVFrameSideData", !14, i64 0}
-!36 = !{!"AVFilterFormatsConfig", !37, i64 0, !37, i64 8, !38, i64 16, !37, i64 24, !37, i64 32}
-!37 = !{!"p1 _ZTS15AVFilterFormats", !7, i64 0}
-!38 = !{!"p1 _ZTS22AVFilterChannelLayouts", !7, i64 0}
-!39 = !{!5, !13, i64 56}
-!40 = !{!41, !41, i64 0}
-!41 = !{!"p1 _ZTS12AVFilterLink", !7, i64 0}
-!42 = !{!43, !15, i64 96}
-!43 = !{!"AddROIContext", !6, i64 0, !8, i64 8, !8, i64 40, !8, i64 72, !33, i64 88, !15, i64 96}
-!44 = !{!45, !11, i64 8}
-!45 = !{!"AVFrameSideData", !15, i64 0, !11, i64 8, !46, i64 16, !47, i64 24, !19, i64 32}
-!46 = !{!"long", !8, i64 0}
-!47 = !{!"p1 _ZTS12AVDictionary", !7, i64 0}
-!48 = !{!49, !15, i64 0}
-!49 = !{!"AVRegionOfInterest", !15, i64 0, !15, i64 4, !15, i64 8, !15, i64 12, !15, i64 16, !33, i64 20}
-!50 = !{!45, !46, i64 16}
-!51 = !{!19, !19, i64 0}
-!52 = !{!53, !11, i64 8}
-!53 = !{!"AVBufferRef", !54, i64 0, !11, i64 8, !46, i64 16}
-!54 = !{!"p1 _ZTS8AVBuffer", !7, i64 0}
-!55 = !{!49, !15, i64 4}
-!56 = !{!49, !15, i64 8}
-!57 = !{!49, !15, i64 12}
-!58 = !{!49, !15, i64 16}
-!59 = !{!15, !15, i64 0}
-!60 = distinct !{!60, !21, !22}
-!61 = !{!31, !15, i64 40}
-!62 = !{!63, !63, i64 0}
-!63 = !{!"double", !8, i64 0}
-!64 = !{!31, !15, i64 44}
-!65 = distinct !{!65, !21, !22}
+!22 = !{!11, !11, i64 0}
+!23 = !{!8, !8, i64 0}
+!24 = !{!25, !25, i64 0}
+!25 = !{!"p1 _ZTS6AVExpr", !7, i64 0}
+!26 = distinct !{!26, !21}
+!27 = !{!28, !28, i64 0}
+!28 = !{!"p1 _ZTS7AVFrame", !7, i64 0}
+!29 = !{!30, !31, i64 16}
+!30 = !{!"AVFilterLink", !31, i64 0, !12, i64 8, !31, i64 16, !12, i64 24, !15, i64 32, !15, i64 36, !15, i64 40, !15, i64 44, !32, i64 48, !15, i64 56, !15, i64 60, !15, i64 64, !33, i64 72, !32, i64 96, !34, i64 104, !15, i64 112, !35, i64 120, !35, i64 160}
+!31 = !{!"p1 _ZTS15AVFilterContext", !7, i64 0}
+!32 = !{!"AVRational", !15, i64 0, !15, i64 4}
+!33 = !{!"AVChannelLayout", !15, i64 0, !15, i64 4, !8, i64 8, !7, i64 16}
+!34 = !{!"p2 _ZTS15AVFrameSideData", !14, i64 0}
+!35 = !{!"AVFilterFormatsConfig", !36, i64 0, !36, i64 8, !37, i64 16, !36, i64 24, !36, i64 32}
+!36 = !{!"p1 _ZTS15AVFilterFormats", !7, i64 0}
+!37 = !{!"p1 _ZTS22AVFilterChannelLayouts", !7, i64 0}
+!38 = !{!5, !13, i64 56}
+!39 = !{!40, !40, i64 0}
+!40 = !{!"p1 _ZTS12AVFilterLink", !7, i64 0}
+!41 = !{!42, !15, i64 96}
+!42 = !{!"AddROIContext", !6, i64 0, !8, i64 8, !8, i64 40, !8, i64 72, !32, i64 88, !15, i64 96}
+!43 = !{!44, !11, i64 8}
+!44 = !{!"AVFrameSideData", !15, i64 0, !11, i64 8, !45, i64 16, !46, i64 24, !19, i64 32}
+!45 = !{!"long", !8, i64 0}
+!46 = !{!"p1 _ZTS12AVDictionary", !7, i64 0}
+!47 = !{!48, !15, i64 0}
+!48 = !{!"AVRegionOfInterest", !15, i64 0, !15, i64 4, !15, i64 8, !15, i64 12, !15, i64 16, !32, i64 20}
+!49 = !{!44, !45, i64 16}
+!50 = !{!19, !19, i64 0}
+!51 = !{!52, !11, i64 8}
+!52 = !{!"AVBufferRef", !53, i64 0, !11, i64 8, !45, i64 16}
+!53 = !{!"p1 _ZTS8AVBuffer", !7, i64 0}
+!54 = !{!48, !15, i64 4}
+!55 = !{!48, !15, i64 8}
+!56 = !{!48, !15, i64 12}
+!57 = !{!48, !15, i64 16}
+!58 = !{!15, !15, i64 0}
+!59 = distinct !{!59, !21}
+!60 = !{!30, !15, i64 40}
+!61 = !{!62, !62, i64 0}
+!62 = !{!"double", !8, i64 0}
+!63 = !{!30, !15, i64 44}
+!64 = distinct !{!64, !21}

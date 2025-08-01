@@ -473,7 +473,7 @@ git_bswap32.exit50.i:                             ; preds = %git_bswap32.exit50.
   store i32 %83, ptr %91, align 8, !tbaa !52
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %.loopexit.i, label %git_bswap32.exit50.i, !llvm.loop !56
+  br i1 %exitcond.not.i, label %.loopexit.i, label %git_bswap32.exit50.i, !llvm.loop !55
 
 .loopexit.i:                                      ; preds = %git_bswap32.exit50.i, %79, %26, %.preheader.i
   %92 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -504,13 +504,13 @@ git_bswap32.exit50.i:                             ; preds = %git_bswap32.exit50.
   store i32 %107, ptr %105, align 4, !tbaa !4
   %indvars.iv.next89.i.i = add nuw nsw i64 %indvars.iv88.i.i, 1
   %exitcond91.not.i.i = icmp eq i64 %indvars.iv.next89.i.i, 65536
-  br i1 %exitcond91.not.i.i, label %.preheader.us.i.i, label %103, !llvm.loop !57
+  br i1 %exitcond91.not.i.i, label %.preheader.us.i.i, label %103, !llvm.loop !56
 
 .preheader.us.i.i:                                ; preds = %103
   %indvars.iv.next93.i.i = add nuw nsw i64 %indvars.iv92.i.i, 16
   %108 = ashr i64 %99, %indvars.iv.next93.i.i
   %.not.us.i.i = icmp eq i64 %108, 0
-  br i1 %.not.us.i.i, label %._crit_edge59.i.i, label %.preheader47.us.i.i, !llvm.loop !58
+  br i1 %.not.us.i.i, label %._crit_edge59.i.i, label %.preheader47.us.i.i, !llvm.loop !57
 
 .preheader47.us.i.i:                              ; preds = %.lr.ph58.i.i, %.preheader.us.i.i
   %indvars.iv92.i.i = phi i64 [ %indvars.iv.next93.i.i, %.preheader.us.i.i ], [ 0, %.lr.ph58.i.i ]
@@ -539,9 +539,9 @@ git_bswap32.exit50.i:                             ; preds = %git_bswap32.exit50.
   store i32 %116, ptr %114, align 4, !tbaa !4
   %117 = zext i32 %116 to i64
   %118 = getelementptr inbounds nuw %struct.revindex_entry, ptr %.04254.us62.i.i, i64 %117
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %118, ptr noundef nonnull align 8 dereferenceable(16) %110, i64 16, i1 false), !tbaa.struct !60
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %118, ptr noundef nonnull align 8 dereferenceable(16) %110, i64 16, i1 false), !tbaa.struct !59
   %.not46.us.wide.i.i = icmp eq i64 %109, 0
-  br i1 %.not46.us.wide.i.i, label %._crit_edge.us.i.i, label %.preheader.us65.i.i, !llvm.loop !61
+  br i1 %.not46.us.wide.i.i, label %._crit_edge.us.i.i, label %.preheader.us65.i.i, !llvm.loop !60
 
 ..preheader47_crit_edge.us68.i.i:                 ; preds = %..preheader47_crit_edge.us68.preheader.i.i, %..preheader47_crit_edge.us68.i.i
   %119 = phi i32 [ %.pre.i.i, %..preheader47_crit_edge.us68.preheader.i.i ], [ %122, %..preheader47_crit_edge.us68.i.i ]
@@ -552,7 +552,7 @@ git_bswap32.exit50.i:                             ; preds = %git_bswap32.exit50.
   store i32 %122, ptr %120, align 4, !tbaa !4
   %indvars.iv.next75.i.i = add nuw nsw i64 %indvars.iv74.i.i, 1
   %exitcond77.not.i.i = icmp eq i64 %indvars.iv.next75.i.i, 65536
-  br i1 %exitcond77.not.i.i, label %.preheader.us65.i.i, label %..preheader47_crit_edge.us68.i.i, !llvm.loop !57
+  br i1 %exitcond77.not.i.i, label %.preheader.us65.i.i, label %..preheader47_crit_edge.us68.i.i, !llvm.loop !56
 
 123:                                              ; preds = %123, %.lr.ph.us67.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.us67.i.i ], [ %indvars.iv.next.i.i, %123 ]
@@ -566,7 +566,7 @@ git_bswap32.exit50.i:                             ; preds = %git_bswap32.exit50.
   store i32 %130, ptr %128, align 4, !tbaa !4
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %96
-  br i1 %exitcond.not.i.i, label %..preheader47_crit_edge.us68.preheader.i.i, label %123, !llvm.loop !62
+  br i1 %exitcond.not.i.i, label %..preheader47_crit_edge.us68.preheader.i.i, label %123, !llvm.loop !61
 
 ..preheader47_crit_edge.us68.preheader.i.i:       ; preds = %123
   %.pre.i.i = load i32, ptr %100, align 4, !tbaa !4
@@ -576,7 +576,7 @@ git_bswap32.exit50.i:                             ; preds = %git_bswap32.exit50.
   %indvars.iv.next83.i.i = add nuw nsw i64 %indvars.iv82.i.i, 16
   %131 = ashr i64 %99, %indvars.iv.next83.i.i
   %.not.us69.i.i = icmp eq i64 %131, 0
-  br i1 %.not.us69.i.i, label %._crit_edge59.i.i, label %.lr.ph.us67.i.i, !llvm.loop !63
+  br i1 %.not.us69.i.i, label %._crit_edge59.i.i, label %.lr.ph.us67.i.i, !llvm.loop !62
 
 ._crit_edge59.i.i:                                ; preds = %._crit_edge.us.i.i, %.preheader.us.i.i
   %.041.lcssa.i.i = phi ptr [ %.04254.us.i.i, %.preheader.us.i.i ], [ %.04254.us62.i.i, %._crit_edge.us.i.i ]
@@ -698,7 +698,7 @@ _.exit31:                                         ; preds = %45, %47
   %52 = add nuw nsw i64 %.02132, 1
   %53 = zext i32 %51 to i64
   %54 = icmp samesign ult i64 %52, %53
-  br i1 %54, label %21, label %.loopexit, !llvm.loop !64
+  br i1 %54, label %21, label %.loopexit, !llvm.loop !63
 
 .loopexit:                                        ; preds = %50, %.preheader, %16, %1, %4
   %.0 = phi i32 [ 0, %4 ], [ 0, %1 ], [ %.020, %16 ], [ %.020, %.preheader ], [ %.2, %50 ]
@@ -721,7 +721,7 @@ define dso_local range(i32 -1, 2) i32 @load_midx_revindex(ptr noundef %0) local_
 
 5:                                                ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  %7 = load ptr, ptr %6, align 8, !tbaa !65
+  %7 = load ptr, ptr %6, align 8, !tbaa !64
   %.not.i = icmp eq ptr %7, null
   br i1 %.not.i, label %22, label %8
 
@@ -752,7 +752,7 @@ _.exit.i:                                         ; preds = %17, %15
 can_use_midx_ridx_chunk.exit:                     ; preds = %8
   %20 = load ptr, ptr @the_repository, align 8, !tbaa !15
   tail call void @trace2_data_string_fl(ptr noundef nonnull @.str.2, i32 noundef 378, ptr noundef nonnull @.str.3, ptr noundef %20, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5) #11
-  %21 = load ptr, ptr %6, align 8, !tbaa !65
+  %21 = load ptr, ptr %6, align 8, !tbaa !64
   store ptr %21, ptr %3, align 8, !tbaa !8
   br label %41
 
@@ -767,7 +767,7 @@ can_use_midx_ridx_chunk.exit:                     ; preds = %8
   %29 = tail call ptr @get_midx_checksum(ptr noundef nonnull %0) #11
   call void @get_midx_filename_ext(ptr noundef %27, ptr noundef nonnull %2, ptr noundef nonnull %28, ptr noundef %29, ptr noundef nonnull @.str.6) #11
   %30 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %31 = load ptr, ptr %30, align 8, !tbaa !66
+  %31 = load ptr, ptr %30, align 8, !tbaa !65
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 60
   %33 = load i32, ptr %32, align 4, !tbaa !4
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -886,7 +886,7 @@ load_pack_revindex.exit.thread:                   ; preds = %13, %3, %7, %load_p
   %.224 = select i1 %25, i32 %22, i32 %.022
   %.220 = select i1 %25, i32 %.018, i32 %26
   %27 = icmp ult i32 %.220, %.224
-  br i1 %27, label %19, label %28, !llvm.loop !68
+  br i1 %27, label %19, label %28, !llvm.loop !67
 
 28:                                               ; preds = %24
   %29 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.7) #11
@@ -1127,12 +1127,12 @@ define dso_local range(i32 -1, 1) i32 @midx_to_pack_pos(ptr noundef %0, i32 noun
 
 12:                                               ; preds = %8
   %13 = tail call i32 @nth_midxed_pack_int_id(ptr noundef nonnull %0, i32 noundef %1) #11
-  store i32 %13, ptr %4, align 8, !tbaa !69
+  store i32 %13, ptr %4, align 8, !tbaa !68
   %14 = tail call i64 @nth_midxed_offset(ptr noundef nonnull %0, i32 noundef %1) #11
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store i64 %14, ptr %15, align 8, !tbaa !72
+  store i64 %14, ptr %15, align 8, !tbaa !71
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  store ptr %0, ptr %16, align 8, !tbaa !73
+  store ptr %0, ptr %16, align 8, !tbaa !72
   %17 = call fastcc i32 @midx_key_to_pack_pos(ptr noundef nonnull %0, ptr noundef %4, ptr noundef %2)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #11
   ret i32 %17
@@ -1144,7 +1144,7 @@ declare i64 @nth_midxed_offset(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 -1, 1) i32 @midx_key_to_pack_pos(ptr noundef readonly captures(none) %0, ptr noundef nonnull %1, ptr noundef writeonly captures(none) %2) unnamed_addr #0 {
-  %4 = load i32, ptr %1, align 8, !tbaa !69
+  %4 = load i32, ptr %1, align 8, !tbaa !68
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %6 = load i32, ptr %5, align 8, !tbaa !4
   %.not = icmp ult i32 %4, %6
@@ -1156,7 +1156,7 @@ define internal fastcc range(i32 -1, 1) i32 @midx_key_to_pack_pos(ptr noundef re
 
 8:                                                ; preds = %3
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %10 = load ptr, ptr %9, align 8, !tbaa !73
+  %10 = load ptr, ptr %9, align 8, !tbaa !72
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %12 = tail call i32 @midx_preferred_pack(ptr noundef %10, ptr noundef nonnull %11) #11
   %13 = icmp slt i32 %12, 0
@@ -1196,7 +1196,7 @@ _.exit:                                           ; preds = %14, %16
   %27 = lshr i64 %26, 1
   %28 = shl i64 %27, 2
   %29 = getelementptr inbounds nuw i8, ptr %21, i64 %28
-  %30 = load ptr, ptr %9, align 8, !tbaa !73
+  %30 = load ptr, ptr %9, align 8, !tbaa !72
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 24
   %32 = load ptr, ptr %31, align 8, !tbaa !8
   %33 = ptrtoint ptr %29 to i64
@@ -1242,8 +1242,8 @@ pack_pos_to_midx.exit.i:                          ; preds = %38
   %60 = zext i8 %59 to i32
   %61 = or disjoint i32 %57, %60
   %62 = tail call i32 @nth_midxed_pack_int_id(ptr noundef nonnull %30, i32 noundef %61) #11
-  %63 = load i32, ptr %1, align 8, !tbaa !69
-  %64 = load i32, ptr %11, align 8, !tbaa !74
+  %63 = load i32, ptr %1, align 8, !tbaa !68
+  %64 = load i32, ptr %11, align 8, !tbaa !73
   %65 = icmp ne i32 %63, %64
   %66 = icmp eq i32 %62, %64
   %or.cond.i = select i1 %65, i1 true, i1 %66
@@ -1263,7 +1263,7 @@ pack_pos_to_midx.exit.i:                          ; preds = %38
 
 72:                                               ; preds = %70
   %73 = tail call i64 @nth_midxed_offset(ptr noundef nonnull %30, i32 noundef %61) #11
-  %74 = load i64, ptr %25, align 8, !tbaa !72
+  %74 = load i64, ptr %25, align 8, !tbaa !71
   %75 = icmp slt i64 %74, %73
   br i1 %75, label %midx_pack_order_cmp.exit.thread, label %midx_pack_order_cmp.exit
 
@@ -1279,7 +1279,7 @@ midx_pack_order_cmp.exit.thread:                  ; preds = %72, %68, %pack_pos_
   %.118.i = phi i64 [ %.01720.i, %midx_pack_order_cmp.exit.thread21 ], [ %27, %pack_pos_to_midx.exit.i ], [ %27, %68 ], [ %27, %72 ]
   %.1.i = phi i64 [ %76, %midx_pack_order_cmp.exit.thread21 ], [ %.01621.i, %pack_pos_to_midx.exit.i ], [ %.01621.i, %68 ], [ %.01621.i, %72 ]
   %77 = icmp ult i64 %.1.i, %.118.i
-  br i1 %77, label %.lr.ph.i, label %bsearch.exit.thread, !llvm.loop !75
+  br i1 %77, label %.lr.ph.i, label %bsearch.exit.thread, !llvm.loop !74
 
 bsearch.exit:                                     ; preds = %midx_pack_order_cmp.exit
   %.not16 = icmp eq ptr %21, null
@@ -1303,17 +1303,17 @@ bsearch.exit.thread:                              ; preds = %midx_pack_order_cmp
 define dso_local range(i32 -1, 1) i32 @midx_pair_to_pack_pos(ptr noundef %0, i32 noundef %1, i64 noundef %2, ptr noundef writeonly captures(none) %3) local_unnamed_addr #0 {
   %5 = alloca %struct.midx_pack_key, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #11
-  store i32 %1, ptr %5, align 8, !tbaa !69
+  store i32 %1, ptr %5, align 8, !tbaa !68
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i32 0, ptr %6, align 4
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store i64 %2, ptr %7, align 8, !tbaa !72
+  store i64 %2, ptr %7, align 8, !tbaa !71
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store i32 0, ptr %8, align 8, !tbaa !74
+  store i32 0, ptr %8, align 8, !tbaa !73
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 20
   store i32 0, ptr %9, align 4
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  store ptr %0, ptr %10, align 8, !tbaa !73
+  store ptr %0, ptr %10, align 8, !tbaa !72
   %11 = call fastcc i32 @midx_key_to_pack_pos(ptr noundef %0, ptr noundef %5, ptr noundef %3)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #11
   ret i32 %11
@@ -1424,26 +1424,25 @@ attributes #14 = { nounwind memory(none) }
 !50 = !{!51, !13, i64 0}
 !51 = !{!"revindex_entry", !13, i64 0, !5, i64 8}
 !52 = !{!51, !5, i64 8}
-!53 = distinct !{!53, !54, !55}
+!53 = distinct !{!53, !54}
 !54 = !{!"llvm.loop.mustprogress"}
-!55 = !{!"llvm.loop.estimated_trip_count"}
-!56 = distinct !{!56, !54, !55}
-!57 = distinct !{!57, !54, !55}
-!58 = distinct !{!58, !54, !55, !59}
-!59 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!60 = !{i64 0, i64 8, !44, i64 8, i64 4, !4}
-!61 = distinct !{!61, !54, !55}
-!62 = distinct !{!62, !54, !55}
-!63 = distinct !{!63, !54, !55, !59}
-!64 = distinct !{!64, !54, !55}
-!65 = !{!19, !19, i64 0}
-!66 = !{!67, !19, i64 16}
-!67 = !{!"strbuf", !13, i64 0, !13, i64 8, !19, i64 16}
-!68 = distinct !{!68, !54, !55}
-!69 = !{!70, !5, i64 0}
-!70 = !{!"midx_pack_key", !5, i64 0, !13, i64 8, !5, i64 16, !71, i64 24}
-!71 = !{!"p1 _ZTS16multi_pack_index", !10, i64 0}
-!72 = !{!70, !13, i64 8}
-!73 = !{!70, !71, i64 24}
-!74 = !{!70, !5, i64 16}
-!75 = distinct !{!75, !54, !55}
+!55 = distinct !{!55, !54}
+!56 = distinct !{!56, !54}
+!57 = distinct !{!57, !54, !58}
+!58 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!59 = !{i64 0, i64 8, !44, i64 8, i64 4, !4}
+!60 = distinct !{!60, !54}
+!61 = distinct !{!61, !54}
+!62 = distinct !{!62, !54, !58}
+!63 = distinct !{!63, !54}
+!64 = !{!19, !19, i64 0}
+!65 = !{!66, !19, i64 16}
+!66 = !{!"strbuf", !13, i64 0, !13, i64 8, !19, i64 16}
+!67 = distinct !{!67, !54}
+!68 = !{!69, !5, i64 0}
+!69 = !{!"midx_pack_key", !5, i64 0, !13, i64 8, !5, i64 16, !70, i64 24}
+!70 = !{!"p1 _ZTS16multi_pack_index", !10, i64 0}
+!71 = !{!69, !13, i64 8}
+!72 = !{!69, !70, i64 24}
+!73 = !{!69, !5, i64 16}
+!74 = distinct !{!74, !54}

@@ -158,7 +158,7 @@ define noundef range(i32 -19, 2) i32 @_Z18SolveBoardInternalP10ThreadDataRK4deal
 33:                                               ; preds = %32
   %indvars.iv.next528 = add nuw nsw i64 %indvars.iv527, 1
   %exitcond529.not = icmp eq i64 %indvars.iv.next528, 4
-  br i1 %exitcond529.not, label %34, label %.preheader474, !llvm.loop !7
+  br i1 %exitcond529.not, label %34, label %.preheader474, !llvm.loop !6
 
 34:                                               ; preds = %33
   br i1 %.2, label %35, label %40
@@ -208,7 +208,7 @@ define noundef range(i32 -19, 2) i32 @_Z18SolveBoardInternalP10ThreadDataRK4deal
   store i32 0, ptr %59, align 4
   %indvars.iv.next531 = add nuw nsw i64 %indvars.iv530, 1
   %exitcond533.not = icmp eq i64 %indvars.iv.next531, 14
-  br i1 %exitcond533.not, label %61, label %58, !llvm.loop !8
+  br i1 %exitcond533.not, label %61, label %58, !llvm.loop !7
 
 61:                                               ; preds = %58
   %.not462 = icmp ne i32 %41, %43
@@ -360,7 +360,7 @@ define noundef range(i32 -19, 2) i32 @_Z18SolveBoardInternalP10ThreadDataRK4deal
   call void @_ZN5Moves12MakeSpecificERK8moveTypeii(ptr noundef nonnull align 8 dereferenceable(39992) %111, ptr noundef nonnull align 4 dereferenceable(16) %7, i32 noundef %63, i32 noundef %126)
   %indvars.iv.next535 = add nuw nsw i64 %indvars.iv534, 1
   %exitcond537.not = icmp eq i64 %indvars.iv.next535, %wide.trip.count
-  br i1 %exitcond537.not, label %._crit_edge, label %119, !llvm.loop !9
+  br i1 %exitcond537.not, label %._crit_edge, label %119, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %132, %100
   call void @_Z11InitWinnersRK4dealR3posPK10ThreadData(ptr noundef nonnull align 4 dereferenceable(96) %1, ptr noundef nonnull align 4 dereferenceable(1544) %66, ptr noundef nonnull %0)
@@ -469,7 +469,7 @@ define noundef range(i32 -19, 2) i32 @_Z18SolveBoardInternalP10ThreadDataRK4deal
   %.2438 = phi i32 [ %.1437, %188 ], [ %191, %190 ]
   %.2435 = phi i32 [ %.1440, %188 ], [ %.1434, %190 ]
   %193 = icmp slt i32 %.2435, %.2438
-  br i1 %193, label %184, label %194, !llvm.loop !10
+  br i1 %193, label %184, label %194, !llvm.loop !9
 
 194:                                              ; preds = %192
   %.not467 = icmp eq i32 %.2435, 0
@@ -495,7 +495,7 @@ define noundef range(i32 -19, 2) i32 @_Z18SolveBoardInternalP10ThreadDataRK4deal
   %205 = getelementptr inbounds nuw i8, ptr %204, i64 4
   store i32 %198, ptr %205, align 4
   %exitcond560.not = icmp eq i64 %indvars.iv.next557, %wide.trip.count559
-  br i1 %exitcond560.not, label %.loopexit469.preheader, label %.preheader, !llvm.loop !11
+  br i1 %exitcond560.not, label %.loopexit469.preheader, label %.preheader, !llvm.loop !10
 
 206:                                              ; preds = %194
   %207 = call noundef i32 @_ZNK5Moves9GetLengthEii(ptr noundef nonnull align 8 dereferenceable(39992) %136, i32 noundef %63, i32 noundef %47)
@@ -528,7 +528,7 @@ define noundef range(i32 -19, 2) i32 @_Z18SolveBoardInternalP10ThreadDataRK4deal
   store i32 0, ptr %222, align 4
   %indvars.iv.next562 = add nuw nsw i64 %indvars.iv561, 1
   %exitcond565.not = icmp eq i64 %indvars.iv.next562, %wide.trip.count564
-  br i1 %exitcond565.not, label %.loopexit469.preheader, label %210, !llvm.loop !12
+  br i1 %exitcond565.not, label %.loopexit469.preheader, label %210, !llvm.loop !11
 
 223:                                              ; preds = %167
   switch i32 %2, label %296 [
@@ -572,7 +572,7 @@ define noundef range(i32 -19, 2) i32 @_Z18SolveBoardInternalP10ThreadDataRK4deal
   store i32 0, ptr %244, align 4
   %indvars.iv.next544 = add nuw nsw i64 %indvars.iv543, 1
   %exitcond547.not = icmp eq i64 %indvars.iv.next544, %wide.trip.count546
-  br i1 %exitcond547.not, label %.loopexit, label %233, !llvm.loop !13
+  br i1 %exitcond547.not, label %.loopexit, label %233, !llvm.loop !12
 
 245:                                              ; preds = %223
   %246 = xor i32 %102, 7
@@ -608,7 +608,7 @@ define noundef range(i32 -19, 2) i32 @_Z18SolveBoardInternalP10ThreadDataRK4deal
   %.1422 = phi i32 [ %.0421, %256 ], [ %259, %258 ]
   %.1420 = phi i32 [ %.0423, %256 ], [ %.0419, %258 ]
   %261 = icmp slt i32 %.1420, %.1422
-  br i1 %261, label %252, label %262, !llvm.loop !14
+  br i1 %261, label %252, label %262, !llvm.loop !13
 
 262:                                              ; preds = %260
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %251, ptr noundef nonnull align 4 dereferenceable(16) %7, i64 16, i1 false)
@@ -651,7 +651,7 @@ define noundef range(i32 -19, 2) i32 @_Z18SolveBoardInternalP10ThreadDataRK4deal
   store i32 %282, ptr %283, align 4
   %indvars.iv.next539 = add nuw nsw i64 %indvars.iv538, 1
   %exitcond542.not = icmp eq i64 %indvars.iv.next539, %wide.trip.count541
-  br i1 %exitcond542.not, label %.loopexit469.preheader, label %272, !llvm.loop !15
+  br i1 %exitcond542.not, label %.loopexit469.preheader, label %272, !llvm.loop !14
 
 284:                                              ; preds = %262
   %285 = getelementptr inbounds nuw i8, ptr %5, i64 4
@@ -774,7 +774,7 @@ define noundef range(i32 -19, 2) i32 @_Z18SolveBoardInternalP10ThreadDataRK4deal
 
 .lr.ph498.backedge:                               ; preds = %349, %342
   %.0416496.be = phi i32 [ %.old516, %349 ], [ %347, %342 ]
-  br label %.lr.ph498, !llvm.loop !16
+  br label %.lr.ph498, !llvm.loop !15
 
 ._crit_edge499.loopexit:                          ; preds = %342, %349
   %350 = trunc nsw i64 %indvars.iv.next549 to i32
@@ -808,7 +808,7 @@ define noundef range(i32 -19, 2) i32 @_Z18SolveBoardInternalP10ThreadDataRK4deal
   %365 = getelementptr inbounds nuw [13 x i32], ptr %326, i64 0, i64 %indvars.iv551
   store i32 %364, ptr %365, align 4
   %exitcond555.not = icmp eq i64 %indvars.iv.next552, %wide.trip.count554
-  br i1 %exitcond555.not, label %.loopexit469.preheader, label %333, !llvm.loop !17
+  br i1 %exitcond555.not, label %.loopexit469.preheader, label %333, !llvm.loop !16
 
 .loopexit469.preheader:                           ; preds = %272, %._crit_edge499, %355, %195, %210, %264, %169, %206, %308, %284, %304
   br label %.loopexit469
@@ -821,7 +821,7 @@ define noundef range(i32 -19, 2) i32 @_Z18SolveBoardInternalP10ThreadDataRK4deal
   store i32 0, ptr %366, align 4
   %indvars.iv.next567 = add nuw nsw i64 %indvars.iv566, 1
   %exitcond569.not = icmp eq i64 %indvars.iv.next567, 14
-  br i1 %exitcond569.not, label %.loopexit, label %.loopexit469, !llvm.loop !18
+  br i1 %exitcond569.not, label %.loopexit, label %.loopexit469, !llvm.loop !17
 
 .loopexit.sink.split:                             ; preds = %70, %155
   %.sink = phi i32 [ -2, %155 ], [ %80, %70 ]
@@ -917,7 +917,7 @@ define noundef range(i32 -19, 2) i32 @_Z16BoardRangeChecksRK4dealiii(ptr noundef
 35:                                               ; preds = %32, %25
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %36, label %25, !llvm.loop !19
+  br i1 %exitcond.not, label %36, label %25, !llvm.loop !18
 
 36:                                               ; preds = %35
   %37 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -953,7 +953,7 @@ define noundef range(i32 -19, 2) i32 @_Z16BoardRangeChecksRK4dealiii(ptr noundef
 49:                                               ; preds = %50
   %indvars.iv.next113 = add nuw nsw i64 %indvars.iv112, 1
   %exitcond115.not = icmp eq i64 %indvars.iv.next113, 4
-  br i1 %exitcond115.not, label %54, label %50, !llvm.loop !20
+  br i1 %exitcond115.not, label %54, label %50, !llvm.loop !19
 
 50:                                               ; preds = %.preheader, %49
   %indvars.iv112 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next113, %49 ]
@@ -968,7 +968,7 @@ define noundef range(i32 -19, 2) i32 @_Z16BoardRangeChecksRK4dealiii(ptr noundef
 54:                                               ; preds = %49
   %indvars.iv.next117 = add nuw nsw i64 %indvars.iv116, 1
   %exitcond119.not = icmp eq i64 %indvars.iv.next117, 4
-  br i1 %exitcond119.not, label %.loopexit, label %.preheader, !llvm.loop !21
+  br i1 %exitcond119.not, label %.loopexit, label %.preheader, !llvm.loop !20
 
 .loopexit.sink.split:                             ; preds = %32, %29, %50, %39, %43, %19, %17, %15, %13, %11, %9, %7, %4
   %.sink = phi i32 [ -5, %4 ], [ -7, %7 ], [ -8, %9 ], [ -9, %11 ], [ -16, %13 ], [ -17, %15 ], [ -18, %17 ], [ -19, %19 ], [ -12, %43 ], [ -12, %39 ], [ -12, %50 ], [ -12, %29 ], [ -12, %32 ]
@@ -1029,7 +1029,7 @@ define noundef range(i32 -14, 2) i32 @_Z16BoardValueChecksRK4dealiiiPK10ThreadDa
   store i32 1, ptr %27, align 4
   %28 = add nuw nsw i32 %.08299, 1
   %exitcond.not = icmp eq i32 %28, %18
-  br i1 %exitcond.not, label %.preheader98, label %23, !llvm.loop !22
+  br i1 %exitcond.not, label %.preheader98, label %23, !llvm.loop !21
 
 .preheader97:                                     ; preds = %.preheader98, %40
   %indvars.iv115 = phi i64 [ 0, %.preheader98 ], [ %indvars.iv.next116, %40 ]
@@ -1053,18 +1053,18 @@ define noundef range(i32 -14, 2) i32 @_Z16BoardValueChecksRK4dealiiiPK10ThreadDa
   %39 = add nsw i32 %33, %38
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond114.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond114.not, label %40, label %32, !llvm.loop !23
+  br i1 %exitcond114.not, label %40, label %32, !llvm.loop !22
 
 40:                                               ; preds = %32
   store i32 %39, ptr %30, align 4
   %indvars.iv.next116 = add nuw nsw i64 %indvars.iv115, 1
   %exitcond118.not = icmp eq i64 %indvars.iv.next116, 4
-  br i1 %exitcond118.not, label %.preheader96, label %.preheader97, !llvm.loop !24
+  br i1 %exitcond118.not, label %.preheader96, label %.preheader97, !llvm.loop !23
 
 41:                                               ; preds = %45
   %indvars.iv.next120 = add nuw nsw i64 %indvars.iv119, 1
   %exitcond122.not = icmp eq i64 %indvars.iv.next120, 4
-  br i1 %exitcond122.not, label %.preheader95, label %45, !llvm.loop !25
+  br i1 %exitcond122.not, label %.preheader95, label %45, !llvm.loop !24
 
 .preheader95:                                     ; preds = %41
   br i1 %19, label %.preheader94.lr.ph, label %.preheader92.preheader
@@ -1089,7 +1089,7 @@ define noundef range(i32 -14, 2) i32 @_Z16BoardValueChecksRK4dealiiiPK10ThreadDa
 48:                                               ; preds = %57
   %indvars.iv.next127 = add nuw nsw i64 %indvars.iv126, 1
   %exitcond129.not = icmp eq i64 %indvars.iv.next127, %wide.trip.count
-  br i1 %exitcond129.not, label %.preheader92.preheader, label %.preheader94, !llvm.loop !26
+  br i1 %exitcond129.not, label %.preheader92.preheader, label %.preheader94, !llvm.loop !25
 
 .preheader94:                                     ; preds = %.preheader94.lr.ph, %48
   %indvars.iv126 = phi i64 [ 0, %.preheader94.lr.ph ], [ %indvars.iv.next127, %48 ]
@@ -1109,7 +1109,7 @@ define noundef range(i32 -14, 2) i32 @_Z16BoardValueChecksRK4dealiiiPK10ThreadDa
   %56 = or i16 %.077103, %55
   %indvars.iv.next124 = add nuw nsw i64 %indvars.iv123, 1
   %exitcond125.not = icmp eq i64 %indvars.iv.next124, 4
-  br i1 %exitcond125.not, label %57, label %52, !llvm.loop !27
+  br i1 %exitcond125.not, label %57, label %52, !llvm.loop !26
 
 57:                                               ; preds = %52
   %58 = getelementptr inbounds nuw [3 x i32], ptr %44, i64 0, i64 %indvars.iv126
@@ -1136,7 +1136,7 @@ define noundef range(i32 -14, 2) i32 @_Z16BoardValueChecksRK4dealiiiPK10ThreadDa
   %indvars.iv.next131 = add nuw nsw i64 %indvars.iv130, 1
   %.073.mux = select i1 %.not89, i1 true, i1 %.073108
   %exitcond132.not = icmp eq i64 %indvars.iv.next131, 4
-  br i1 %exitcond132.not, label %70, label %67, !llvm.loop !28
+  br i1 %exitcond132.not, label %70, label %67, !llvm.loop !27
 
 67:                                               ; preds = %.preheader, %66
   %indvars.iv130 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next131, %66 ]
@@ -1151,12 +1151,12 @@ define noundef range(i32 -14, 2) i32 @_Z16BoardValueChecksRK4dealiiiPK10ThreadDa
 70:                                               ; preds = %66
   %indvars.iv.next134 = add nuw nsw i64 %indvars.iv133, 1
   %exitcond136.not = icmp eq i64 %indvars.iv.next134, 15
-  br i1 %exitcond136.not, label %71, label %.preheader, !llvm.loop !29
+  br i1 %exitcond136.not, label %71, label %.preheader, !llvm.loop !28
 
 71:                                               ; preds = %70
   %indvars.iv.next138 = add nuw nsw i64 %indvars.iv137, 1
   %exitcond140.not = icmp eq i64 %indvars.iv.next138, 4
-  br i1 %exitcond140.not, label %.loopexit, label %.preheader92, !llvm.loop !30
+  br i1 %exitcond140.not, label %.loopexit, label %.preheader92, !llvm.loop !29
 
 .loopexit.sink.split:                             ; preds = %45, %57, %67, %12, %10, %5
   %.sink = phi i32 [ -2, %5 ], [ -10, %10 ], [ -3, %12 ], [ -4, %67 ], [ -13, %57 ], [ -14, %45 ]
@@ -1209,7 +1209,7 @@ define void @_Z15LastTrickWinnerRK4dealPK10ThreadDataiiRiS5_S5_(ptr noundef nonn
   store i32 %28, ptr %29, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.preheader80, label %19, !llvm.loop !31
+  br i1 %exitcond.not, label %.preheader80, label %19, !llvm.loop !30
 
 30:                                               ; preds = %.lr.ph86, %.loopexit79
   %.16685 = phi i32 [ %3, %.lr.ph86 ], [ %46, %.loopexit79 ]
@@ -1240,12 +1240,12 @@ define void @_Z15LastTrickWinnerRK4dealPK10ThreadDataiiRiS5_S5_(ptr noundef nonn
 45:                                               ; preds = %35
   %indvars.iv.next97 = add nuw nsw i64 %indvars.iv96, 1
   %exitcond99.not = icmp eq i64 %indvars.iv.next97, 4
-  br i1 %exitcond99.not, label %.loopexit79, label %35, !llvm.loop !32
+  br i1 %exitcond99.not, label %.loopexit79, label %35, !llvm.loop !31
 
 .loopexit79:                                      ; preds = %45, %38
   %46 = add i32 %.16685, 1
   %exitcond100.not = icmp eq i32 %46, 4
-  br i1 %exitcond100.not, label %._crit_edge, label %30, !llvm.loop !33
+  br i1 %exitcond100.not, label %._crit_edge, label %30, !llvm.loop !32
 
 ._crit_edge:                                      ; preds = %.loopexit79, %.preheader80
   %47 = load i32, ptr %0, align 4
@@ -1275,7 +1275,7 @@ define void @_Z15LastTrickWinnerRK4dealPK10ThreadDataiiRiS5_S5_(ptr noundef nonn
   %.2 = phi i32 [ %.189, %.preheader ], [ %spec.select74, %51 ]
   %indvars.iv.next102 = add nuw nsw i64 %indvars.iv101, 1
   %exitcond104.not = icmp eq i64 %indvars.iv.next102, 4
-  br i1 %exitcond104.not, label %57, label %.preheader, !llvm.loop !34
+  br i1 %exitcond104.not, label %57, label %.preheader, !llvm.loop !33
 
 57:                                               ; preds = %56
   %58 = icmp eq i32 %.261, 0
@@ -1319,7 +1319,7 @@ define void @_Z15LastTrickWinnerRK4dealPK10ThreadDataiiRiS5_S5_(ptr noundef nonn
   %.5 = phi i32 [ %.492, %66 ], [ %spec.select76, %70 ]
   %indvars.iv.next106 = add nuw nsw i64 %indvars.iv105, 1
   %exitcond108.not = icmp eq i64 %indvars.iv.next106, 4
-  br i1 %exitcond108.not, label %.loopexit, label %66, !llvm.loop !35
+  br i1 %exitcond108.not, label %.loopexit, label %66, !llvm.loop !34
 
 .loopexit:                                        ; preds = %75, %..loopexit_crit_edge
   %76 = phi i32 [ %.pre, %..loopexit_crit_edge ], [ %60, %75 ]
@@ -1430,7 +1430,7 @@ define noundef i32 @_Z14SolveSameBoardP10ThreadDataRK4dealP12futureTricksi(ptr n
   %.138 = select i1 %25, i32 %.039, i32 %.037
   %.1 = select i1 %25, i32 %.0, i32 %28
   %29 = icmp slt i32 %.138, %.1
-  br i1 %29, label %24, label %30, !llvm.loop !36
+  br i1 %29, label %24, label %30, !llvm.loop !35
 
 30:                                               ; preds = %24
   %31 = getelementptr inbounds nuw i8, ptr %2, i64 4
@@ -1552,7 +1552,7 @@ define noundef i32 @_Z17AnalyseLaterBoardP10ThreadDataiPK8moveTypeiiP12futureTri
   %.279 = select i1 %48, i32 %.080, i32 %.178
   %.2 = select i1 %48, i32 %.1, i32 %51
   %52 = icmp slt i32 %.279, %.2
-  br i1 %52, label %46, label %53, !llvm.loop !37
+  br i1 %52, label %46, label %53, !llvm.loop !36
 
 53:                                               ; preds = %46
   %54 = getelementptr inbounds nuw i8, ptr %5, i64 164
@@ -1608,37 +1608,36 @@ attributes #9 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5, !6}
+!4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{!"llvm.loop.estimated_trip_count"}
-!7 = distinct !{!7, !5, !6}
-!8 = distinct !{!8, !5, !6}
-!9 = distinct !{!9, !5, !6}
-!10 = distinct !{!10, !5, !6}
-!11 = distinct !{!11, !5, !6}
-!12 = distinct !{!12, !5, !6}
-!13 = distinct !{!13, !5, !6}
-!14 = distinct !{!14, !5, !6}
-!15 = distinct !{!15, !5, !6}
-!16 = distinct !{!16, !5, !6}
-!17 = distinct !{!17, !5, !6}
-!18 = distinct !{!18, !5, !6}
-!19 = distinct !{!19, !5, !6}
-!20 = distinct !{!20, !5, !6}
-!21 = distinct !{!21, !5, !6}
-!22 = distinct !{!22, !5, !6}
-!23 = distinct !{!23, !5, !6}
-!24 = distinct !{!24, !5, !6}
-!25 = distinct !{!25, !5, !6}
-!26 = distinct !{!26, !5, !6}
-!27 = distinct !{!27, !5, !6}
-!28 = distinct !{!28, !5, !6}
-!29 = distinct !{!29, !5, !6}
-!30 = distinct !{!30, !5, !6}
-!31 = distinct !{!31, !5, !6}
-!32 = distinct !{!32, !5, !6}
-!33 = distinct !{!33, !5, !6}
-!34 = distinct !{!34, !5, !6}
-!35 = distinct !{!35, !5, !6}
-!36 = distinct !{!36, !5, !6}
-!37 = distinct !{!37, !5, !6}
+!6 = distinct !{!6, !5}
+!7 = distinct !{!7, !5}
+!8 = distinct !{!8, !5}
+!9 = distinct !{!9, !5}
+!10 = distinct !{!10, !5}
+!11 = distinct !{!11, !5}
+!12 = distinct !{!12, !5}
+!13 = distinct !{!13, !5}
+!14 = distinct !{!14, !5}
+!15 = distinct !{!15, !5}
+!16 = distinct !{!16, !5}
+!17 = distinct !{!17, !5}
+!18 = distinct !{!18, !5}
+!19 = distinct !{!19, !5}
+!20 = distinct !{!20, !5}
+!21 = distinct !{!21, !5}
+!22 = distinct !{!22, !5}
+!23 = distinct !{!23, !5}
+!24 = distinct !{!24, !5}
+!25 = distinct !{!25, !5}
+!26 = distinct !{!26, !5}
+!27 = distinct !{!27, !5}
+!28 = distinct !{!28, !5}
+!29 = distinct !{!29, !5}
+!30 = distinct !{!30, !5}
+!31 = distinct !{!31, !5}
+!32 = distinct !{!32, !5}
+!33 = distinct !{!33, !5}
+!34 = distinct !{!34, !5}
+!35 = distinct !{!35, !5}
+!36 = distinct !{!36, !5}

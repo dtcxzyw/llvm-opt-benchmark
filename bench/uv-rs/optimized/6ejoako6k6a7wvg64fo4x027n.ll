@@ -52,7 +52,7 @@ define void @"_ZN10uv_extract6stream5unzip28_$u7b$$u7b$closure$u7d$$u7d$13enclos
 12:                                               ; preds = %.lr.ph.i.i
   %13 = add nuw nsw i64 %.sroa.01.05.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %13, %2
-  br i1 %exitcond.not.i.i, label %"_ZN52_$LT$char$u20$as$u20$core..str..pattern..Pattern$GT$15is_contained_in17h14af82a4b14198b0E.exit.thread", label %.lr.ph.i.i, !llvm.loop !10
+  br i1 %exitcond.not.i.i, label %"_ZN52_$LT$char$u20$as$u20$core..str..pattern..Pattern$GT$15is_contained_in17h14af82a4b14198b0E.exit.thread", label %.lr.ph.i.i
 
 "_ZN52_$LT$char$u20$as$u20$core..str..pattern..Pattern$GT$15is_contained_in17h14af82a4b14198b0E.exit": ; preds = %3
   %14 = tail call { i64, i64 } @_ZN4core5slice6memchr14memchr_aligned17hc9c0cd5438e9cfa5E(i8 noundef 0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2)
@@ -101,7 +101,7 @@ define void @"_ZN10uv_extract6stream5unzip28_$u7b$$u7b$closure$u7d$$u7d$13enclos
           to label %24 unwind label %.loopexit
 
 24:                                               ; preds = %23
-  %25 = load i8, ptr %4, align 8, !range !12, !noundef !3
+  %25 = load i8, ptr %4, align 8, !range !10, !noundef !3
   %26 = icmp eq i8 %25, 10
   br i1 %26, label %28, label %29
 
@@ -135,7 +135,7 @@ define void @"_ZN10uv_extract6stream5unzip28_$u7b$$u7b$closure$u7d$$u7d$13enclos
 36:                                               ; preds = %42, %39, %29
   %.sroa.04.1 = phi i64 [ %.sroa.04.0, %29 ], [ %43, %42 ], [ %40, %39 ]
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %4)
-  br label %23, !llvm.loop !13
+  br label %23
 
 37:                                               ; preds = %29
   %38 = icmp eq i64 %.sroa.04.0, 0
@@ -235,7 +235,4 @@ attributes #8 = { cold noreturn nounwind }
 !7 = distinct !{!7, !"_ZN4core5slice6memchr6memchr17h6928691f02359212E"}
 !8 = distinct !{!8, !9, !"_ZN52_$LT$char$u20$as$u20$core..str..pattern..Pattern$GT$15is_contained_in17h14af82a4b14198b0E: argument 0"}
 !9 = distinct !{!9, !"_ZN52_$LT$char$u20$as$u20$core..str..pattern..Pattern$GT$15is_contained_in17h14af82a4b14198b0E"}
-!10 = distinct !{!10, !11}
-!11 = !{!"llvm.loop.estimated_trip_count"}
-!12 = !{i8 0, i8 11}
-!13 = distinct !{!13, !11}
+!10 = !{i8 0, i8 11}

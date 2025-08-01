@@ -104,7 +104,7 @@ define internal void @RescalerImportRowExpand_SSE2(ptr noalias noundef %0, ptr n
   store <4 x i32> %57, ptr %36, align 1, !tbaa !16
   %58 = getelementptr inbounds nuw i8, ptr %36, i64 16
   %.not79 = icmp ult ptr %58, %11
-  br i1 %.not79, label %35, label %.thread, !llvm.loop !18
+  br i1 %.not79, label %35, label %.thread
 
 59:                                               ; preds = %19
   %60 = zext nneg i32 %15 to i64
@@ -199,7 +199,7 @@ define internal void @RescalerImportRowExpand_SSE2(ptr noalias noundef %0, ptr n
   store i32 %111, ptr %76, align 1
   %112 = getelementptr inbounds nuw i8, ptr %76, i64 4
   %.not = icmp ult ptr %112, %11
-  br i1 %.not, label %75, label %.thread, !llvm.loop !20
+  br i1 %.not, label %75, label %.thread
 
 .thread:                                          ; preds = %103, %49, %59, %21, %18
   ret void
@@ -213,7 +213,7 @@ define internal void @RescalerImportRowShrink_SSE2(ptr noalias noundef %0, ptr n
   %6 = insertelement <8 x i16> poison, i16 %5, i64 0
   %7 = shufflevector <8 x i16> %6, <8 x i16> poison, <8 x i32> zeroinitializer
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %9 = load i32, ptr %8, align 4, !tbaa !21
+  %9 = load i32, ptr %8, align 4, !tbaa !18
   %10 = insertelement <4 x i32> poison, i32 %9, i64 0
   %11 = shufflevector <4 x i32> %10, <4 x i32> poison, <4 x i32> zeroinitializer
   %12 = bitcast <4 x i32> %11 to <2 x i64>
@@ -271,7 +271,7 @@ define internal void @RescalerImportRowShrink_SSE2(ptr noalias noundef %0, ptr n
   %40 = add <8 x i16> %34, %39
   %41 = sub nsw i32 %.15964, %4
   %42 = icmp sgt i32 %41, 0
-  br i1 %42, label %.lr.ph, label %._crit_edge, !llvm.loop !22
+  br i1 %42, label %.lr.ph, label %._crit_edge, !llvm.loop !19
 
 ._crit_edge:                                      ; preds = %.lr.ph, %30
   %.063.lcssa = phi <8 x i16> [ zeroinitializer, %30 ], [ %39, %.lr.ph ]
@@ -305,7 +305,7 @@ define internal void @RescalerImportRowShrink_SSE2(ptr noalias noundef %0, ptr n
   store <4 x i32> %56, ptr %.06270, align 1, !tbaa !16
   %67 = getelementptr inbounds nuw i8, ptr %.06270, i64 16
   %68 = icmp ult ptr %67, %19
-  br i1 %68, label %30, label %.loopexit, !llvm.loop !24
+  br i1 %68, label %30, label %.loopexit, !llvm.loop !21
 
 .loopexit:                                        ; preds = %._crit_edge, %.preheader, %29
   ret void
@@ -314,9 +314,9 @@ define internal void @RescalerImportRowShrink_SSE2(ptr noalias noundef %0, ptr n
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define internal void @RescalerExportRowExpand_SSE2(ptr noundef readonly captures(none) %0) #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %3 = load ptr, ptr %2, align 8, !tbaa !25
+  %3 = load ptr, ptr %2, align 8, !tbaa !22
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %5 = load ptr, ptr %4, align 8, !tbaa !26
+  %5 = load ptr, ptr %4, align 8, !tbaa !23
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %7 = load i32, ptr %6, align 4, !tbaa !12
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -325,12 +325,12 @@ define internal void @RescalerExportRowExpand_SSE2(ptr noundef readonly captures
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %12 = load ptr, ptr %11, align 8, !tbaa !7
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %14 = load i32, ptr %13, align 8, !tbaa !27
+  %14 = load i32, ptr %13, align 8, !tbaa !24
   %15 = insertelement <4 x i32> <i32 poison, i32 0, i32 poison, i32 0>, i32 %14, i64 0
   %16 = insertelement <4 x i32> %15, i32 %14, i64 2
   %17 = bitcast <4 x i32> %16 to <2 x i64>
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %19 = load i32, ptr %18, align 8, !tbaa !28
+  %19 = load i32, ptr %18, align 8, !tbaa !25
   %20 = icmp eq i32 %19, 0
   br i1 %20, label %.preheader113, label %65
 
@@ -392,14 +392,14 @@ define internal void @RescalerExportRowExpand_SSE2(ptr noundef readonly captures
   %indvars.iv.next137 = add nuw nsw i64 %indvars.iv136, 8
   %.not72 = icmp samesign ugt i64 %indvars.iv.next137, %21
   %indvars.iv.next139 = add nuw nsw i64 %indvars.iv138, 8
-  br i1 %.not72, label %.preheader.loopexit, label %.lr.ph122, !llvm.loop !29
+  br i1 %.not72, label %.preheader.loopexit, label %.lr.ph122, !llvm.loop !26
 
 .lr.ph125:                                        ; preds = %.lr.ph125.preheader, %.lr.ph125
   %indvars.iv143 = phi i64 [ %24, %.lr.ph125.preheader ], [ %indvars.iv.next144, %.lr.ph125 ]
   %52 = getelementptr inbounds nuw i32, ptr %12, i64 %indvars.iv143
-  %53 = load i32, ptr %52, align 4, !tbaa !30
+  %53 = load i32, ptr %52, align 4, !tbaa !27
   %54 = zext i32 %53 to i64
-  %55 = load i32, ptr %13, align 8, !tbaa !27
+  %55 = load i32, ptr %13, align 8, !tbaa !24
   %56 = zext i32 %55 to i64
   %57 = mul nuw i64 %56, %54
   %58 = add nuw i64 %57, 2147483648
@@ -412,14 +412,14 @@ define internal void @RescalerExportRowExpand_SSE2(ptr noundef readonly captures
   store i8 %63, ptr %64, align 1, !tbaa !16
   %indvars.iv.next144 = add nuw nsw i64 %indvars.iv143, 1
   %exitcond147.not = icmp eq i64 %indvars.iv.next144, %wide.trip.count146
-  br i1 %exitcond147.not, label %.loopexit, label %.lr.ph125, !llvm.loop !31
+  br i1 %exitcond147.not, label %.loopexit, label %.lr.ph125, !llvm.loop !28
 
 65:                                               ; preds = %1
   %66 = sub nsw i32 0, %19
   %67 = sext i32 %66 to i64
   %68 = shl nsw i64 %67, 32
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %70 = load i32, ptr %69, align 8, !tbaa !32
+  %70 = load i32, ptr %69, align 8, !tbaa !29
   %71 = sext i32 %70 to i64
   %72 = udiv i64 %68, %71
   %73 = trunc i64 %72 to i32
@@ -517,22 +517,22 @@ define internal void @RescalerExportRowExpand_SSE2(ptr noundef readonly captures
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 8
   %.not = icmp samesign ugt i64 %indvars.iv.next, %82
   %indvars.iv.next129 = add nuw nsw i64 %indvars.iv128, 8
-  br i1 %.not, label %.preheader114.loopexit, label %.lr.ph, !llvm.loop !33
+  br i1 %.not, label %.preheader114.loopexit, label %.lr.ph, !llvm.loop !30
 
 140:                                              ; preds = %.lr.ph119, %140
   %indvars.iv133 = phi i64 [ %86, %.lr.ph119 ], [ %indvars.iv.next134, %140 ]
   %141 = getelementptr inbounds nuw i32, ptr %12, i64 %indvars.iv133
-  %142 = load i32, ptr %141, align 4, !tbaa !30
+  %142 = load i32, ptr %141, align 4, !tbaa !27
   %143 = zext i32 %142 to i64
   %144 = mul nuw i64 %143, %85
   %145 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv133
-  %146 = load i32, ptr %145, align 4, !tbaa !30
+  %146 = load i32, ptr %145, align 4, !tbaa !27
   %147 = zext i32 %146 to i64
   %148 = mul nuw i64 %74, %147
   %149 = add nuw i64 %144, 2147483648
   %150 = add i64 %149, %148
   %151 = lshr i64 %150, 32
-  %152 = load i32, ptr %13, align 8, !tbaa !27
+  %152 = load i32, ptr %13, align 8, !tbaa !24
   %153 = zext i32 %152 to i64
   %154 = mul nuw i64 %151, %153
   %155 = add nuw i64 %154, 2147483648
@@ -545,7 +545,7 @@ define internal void @RescalerExportRowExpand_SSE2(ptr noundef readonly captures
   store i8 %160, ptr %161, align 1, !tbaa !16
   %indvars.iv.next134 = add nuw nsw i64 %indvars.iv133, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next134, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %140, !llvm.loop !34
+  br i1 %exitcond.not, label %.loopexit, label %140, !llvm.loop !31
 
 .loopexit:                                        ; preds = %140, %.lr.ph125, %.preheader114, %.preheader
   ret void
@@ -554,9 +554,9 @@ define internal void @RescalerExportRowExpand_SSE2(ptr noundef readonly captures
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define internal void @RescalerExportRowShrink_SSE2(ptr noundef readonly captures(none) %0) #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %3 = load ptr, ptr %2, align 8, !tbaa !25
+  %3 = load ptr, ptr %2, align 8, !tbaa !22
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %5 = load ptr, ptr %4, align 8, !tbaa !26
+  %5 = load ptr, ptr %4, align 8, !tbaa !23
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %7 = load i32, ptr %6, align 4, !tbaa !12
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -565,14 +565,14 @@ define internal void @RescalerExportRowShrink_SSE2(ptr noundef readonly captures
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %12 = load ptr, ptr %11, align 8, !tbaa !7
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %14 = load i32, ptr %13, align 8, !tbaa !27
+  %14 = load i32, ptr %13, align 8, !tbaa !24
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %16 = load i32, ptr %15, align 8, !tbaa !28
+  %16 = load i32, ptr %15, align 8, !tbaa !25
   %17 = mul i32 %16, %14
   %18 = sub i32 0, %17
   %.not = icmp eq i32 %17, 0
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %20 = load i32, ptr %19, align 4, !tbaa !35
+  %20 = load i32, ptr %19, align 4, !tbaa !32
   %21 = insertelement <4 x i32> <i32 poison, i32 0, i32 poison, i32 0>, i32 %20, i64 0
   %22 = insertelement <4 x i32> %21, i32 %20, i64 2
   %23 = bitcast <4 x i32> %22 to <2 x i64>
@@ -668,21 +668,21 @@ define internal void @RescalerExportRowShrink_SSE2(ptr noundef readonly captures
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 8
   %.not86 = icmp samesign ugt i64 %indvars.iv.next, %28
   %indvars.iv.next138 = add nuw nsw i64 %indvars.iv137, 8
-  br i1 %.not86, label %.preheader123.loopexit, label %.lr.ph, !llvm.loop !36
+  br i1 %.not86, label %.preheader123.loopexit, label %.lr.ph, !llvm.loop !33
 
 84:                                               ; preds = %.lr.ph128, %84
   %indvars.iv142 = phi i64 [ %32, %.lr.ph128 ], [ %indvars.iv.next143, %84 ]
   %85 = getelementptr inbounds nuw i32, ptr %12, i64 %indvars.iv142
-  %86 = load i32, ptr %85, align 4, !tbaa !30
+  %86 = load i32, ptr %85, align 4, !tbaa !27
   %87 = zext i32 %86 to i64
   %88 = mul nuw i64 %87, %31
   %89 = lshr i64 %88, 32
   %90 = trunc nuw i64 %89 to i32
   %91 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv142
-  %92 = load i32, ptr %91, align 4, !tbaa !30
+  %92 = load i32, ptr %91, align 4, !tbaa !27
   %93 = sub i32 %92, %90
   %94 = zext i32 %93 to i64
-  %95 = load i32, ptr %19, align 4, !tbaa !35
+  %95 = load i32, ptr %19, align 4, !tbaa !32
   %96 = zext i32 %95 to i64
   %97 = mul nuw i64 %94, %96
   %98 = add nuw i64 %97, 2147483648
@@ -693,10 +693,10 @@ define internal void @RescalerExportRowShrink_SSE2(ptr noundef readonly captures
   %103 = select i1 %101, i8 -1, i8 %102
   %104 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv142
   store i8 %103, ptr %104, align 1, !tbaa !16
-  store i32 %90, ptr %91, align 4, !tbaa !30
+  store i32 %90, ptr %91, align 4, !tbaa !27
   %indvars.iv.next143 = add nuw nsw i64 %indvars.iv142, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next143, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %84, !llvm.loop !37
+  br i1 %exitcond.not, label %.loopexit, label %84, !llvm.loop !34
 
 105:                                              ; preds = %1
   %.not85129 = icmp slt i32 %10, 8
@@ -758,12 +758,12 @@ define internal void @RescalerExportRowShrink_SSE2(ptr noundef readonly captures
   %indvars.iv.next146 = add nuw nsw i64 %indvars.iv145, 8
   %.not85 = icmp samesign ugt i64 %indvars.iv.next146, %106
   %indvars.iv.next148 = add nuw nsw i64 %indvars.iv147, 8
-  br i1 %.not85, label %.preheader.loopexit, label %.lr.ph131, !llvm.loop !38
+  br i1 %.not85, label %.preheader.loopexit, label %.lr.ph131, !llvm.loop !35
 
 138:                                              ; preds = %.lr.ph134, %138
   %indvars.iv152 = phi i64 [ %110, %.lr.ph134 ], [ %indvars.iv.next153, %138 ]
   %139 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv152
-  %140 = load i32, ptr %139, align 4, !tbaa !30
+  %140 = load i32, ptr %139, align 4, !tbaa !27
   %141 = zext i32 %140 to i64
   %142 = mul nuw i64 %141, %109
   %143 = add nuw i64 %142, 2147483648
@@ -774,10 +774,10 @@ define internal void @RescalerExportRowShrink_SSE2(ptr noundef readonly captures
   %148 = select i1 %146, i8 -1, i8 %147
   %149 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv152
   store i8 %148, ptr %149, align 1, !tbaa !16
-  store i32 0, ptr %139, align 4, !tbaa !30
+  store i32 0, ptr %139, align 4, !tbaa !27
   %indvars.iv.next153 = add nuw nsw i64 %indvars.iv152, 1
   %exitcond156.not = icmp eq i64 %indvars.iv.next153, %wide.trip.count155
-  br i1 %exitcond156.not, label %.loopexit, label %138, !llvm.loop !39
+  br i1 %exitcond156.not, label %.loopexit, label %138, !llvm.loop !36
 
 .loopexit:                                        ; preds = %84, %138, %.preheader123, %.preheader
   ret void
@@ -830,25 +830,22 @@ attributes #6 = { nounwind }
 !15 = !{!8, !9, i64 44}
 !16 = !{!5, !5, i64 0}
 !17 = !{!8, !9, i64 40}
-!18 = distinct !{!18, !19}
-!19 = !{!"llvm.loop.estimated_trip_count"}
-!20 = distinct !{!20, !19}
-!21 = !{!8, !9, i64 12}
-!22 = distinct !{!22, !23, !19}
-!23 = !{!"llvm.loop.mustprogress"}
-!24 = distinct !{!24, !23, !19}
-!25 = !{!8, !10, i64 72}
-!26 = !{!8, !11, i64 88}
-!27 = !{!8, !9, i64 16}
-!28 = !{!8, !9, i64 24}
-!29 = distinct !{!29, !23, !19}
-!30 = !{!9, !9, i64 0}
-!31 = distinct !{!31, !23, !19}
-!32 = !{!8, !9, i64 32}
-!33 = distinct !{!33, !23, !19}
-!34 = distinct !{!34, !23, !19}
-!35 = !{!8, !9, i64 20}
-!36 = distinct !{!36, !23, !19}
-!37 = distinct !{!37, !23, !19}
-!38 = distinct !{!38, !23, !19}
-!39 = distinct !{!39, !23, !19}
+!18 = !{!8, !9, i64 12}
+!19 = distinct !{!19, !20}
+!20 = !{!"llvm.loop.mustprogress"}
+!21 = distinct !{!21, !20}
+!22 = !{!8, !10, i64 72}
+!23 = !{!8, !11, i64 88}
+!24 = !{!8, !9, i64 16}
+!25 = !{!8, !9, i64 24}
+!26 = distinct !{!26, !20}
+!27 = !{!9, !9, i64 0}
+!28 = distinct !{!28, !20}
+!29 = !{!8, !9, i64 32}
+!30 = distinct !{!30, !20}
+!31 = distinct !{!31, !20}
+!32 = !{!8, !9, i64 20}
+!33 = distinct !{!33, !20}
+!34 = distinct !{!34, !20}
+!35 = distinct !{!35, !20}
+!36 = distinct !{!36, !20}

@@ -60,7 +60,7 @@ _intersect_line_segments.exit.i:                  ; preds = %39, %21
   %47 = fcmp reassoc nsz arcp contract afn olt float %.0.i.i, %.032.i
   %.1.i = select nsz i1 %47, float %.0.i.i, float %.032.i
   %exitcond.not.i = icmp eq i64 %23, 3
-  br i1 %exitcond.not.i, label %_find_distance_to_edge.exit, label %21, !llvm.loop !10
+  br i1 %exitcond.not.i, label %_find_distance_to_edge.exit, label %21
 
 _find_distance_to_edge.exit:                      ; preds = %_intersect_line_segments.exit.i
   %48 = fmul reassoc nsz arcp contract afn float %.1.i, %1
@@ -99,5 +99,3 @@ attributes #1 = { mustprogress nocallback nofree nosync nounwind speculatable wi
 !7 = !{!"float", !8, i64 0}
 !8 = !{!"omnipotent char", !9, i64 0}
 !9 = !{!"Simple C/C++ TBAA"}
-!10 = distinct !{!10, !11}
-!11 = !{!"llvm.loop.estimated_trip_count"}

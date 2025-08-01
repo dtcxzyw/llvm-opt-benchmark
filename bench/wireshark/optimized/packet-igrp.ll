@@ -198,7 +198,7 @@ define internal i32 @dissect_igrp(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %51 = add nuw nsw i32 %.184, 14
   %52 = add i16 %.07283, -1
   %.not77 = icmp eq i16 %52, 0
-  br i1 %.not77, label %._crit_edge87, label %.lr.ph86, !llvm.loop !9
+  br i1 %.not77, label %._crit_edge87, label %.lr.ph86, !llvm.loop !8
 
 ._crit_edge87:                                    ; preds = %.lr.ph86, %._crit_edge
   %.1.lcssa = phi i32 [ %.070.lcssa, %._crit_edge ], [ %51, %.lr.ph86 ]
@@ -217,7 +217,7 @@ define internal i32 @dissect_igrp(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %58 = add nuw nsw i32 %.291, 14
   %59 = add i16 %.07190, -1
   %.not78 = icmp eq i16 %59, 0
-  br i1 %.not78, label %._crit_edge94, label %.lr.ph93, !llvm.loop !10
+  br i1 %.not78, label %._crit_edge94, label %.lr.ph93, !llvm.loop !9
 
 ._crit_edge94:                                    ; preds = %.lr.ph93, %._crit_edge87
   %60 = load i32, ptr @hf_igrp_checksum, align 4
@@ -379,8 +379,7 @@ attributes #3 = { nounwind }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7, !8}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}

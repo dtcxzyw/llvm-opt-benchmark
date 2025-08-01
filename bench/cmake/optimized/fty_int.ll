@@ -159,7 +159,7 @@ define internal noundef zeroext i1 @Check_Integer_Field(ptr noundef %0, ptr noun
 
 .lr.ph:                                           ; preds = %.loopexit45
   %17 = tail call ptr @__ctype_b_loc() #15
-  %18 = load ptr, ptr %17, align 8, !tbaa !19
+  %18 = load ptr, ptr %17, align 8, !tbaa !18
   br label %19
 
 19:                                               ; preds = %.lr.ph, %25
@@ -167,7 +167,7 @@ define internal noundef zeroext i1 @Check_Integer_Field(ptr noundef %0, ptr noun
   %.250 = phi ptr [ %.1, %.lr.ph ], [ %26, %25 ]
   %21 = zext i8 %20 to i64
   %22 = getelementptr inbounds nuw i16, ptr %18, i64 %21
-  %23 = load i16, ptr %22, align 2, !tbaa !22
+  %23 = load i16, ptr %22, align 2, !tbaa !21
   %24 = and i16 %23, 2048
   %.not42 = icmp eq i16 %24, 0
   br i1 %.not42, label %._crit_edge.preheader, label %25
@@ -176,7 +176,7 @@ define internal noundef zeroext i1 @Check_Integer_Field(ptr noundef %0, ptr noun
   %26 = getelementptr inbounds nuw i8, ptr %.250, i64 1
   %27 = load i8, ptr %26, align 1, !tbaa !15
   %.not41 = icmp eq i8 %27, 0
-  br i1 %.not41, label %._crit_edge.preheader, label %19, !llvm.loop !24
+  br i1 %.not41, label %._crit_edge.preheader, label %19, !llvm.loop !23
 
 ._crit_edge.preheader:                            ; preds = %25, %19, %.loopexit45
   %.ph = phi i8 [ 0, %.loopexit45 ], [ 0, %25 ], [ %20, %19 ]
@@ -194,7 +194,7 @@ define internal noundef zeroext i1 @Check_Integer_Field(ptr noundef %0, ptr noun
 29:                                               ; preds = %._crit_edge
   %30 = getelementptr inbounds nuw i8, ptr %.3, i64 1
   %.pre56 = load i8, ptr %30, align 1, !tbaa !15
-  br label %._crit_edge, !llvm.loop !25
+  br label %._crit_edge, !llvm.loop !24
 
 31:                                               ; preds = %._crit_edge
   %32 = tail call i64 @strtol(ptr noundef nonnull captures(none) %9, ptr noundef null, i32 noundef 10) #14
@@ -222,10 +222,10 @@ define internal noundef zeroext i1 @Check_Integer_Field(ptr noundef %0, ptr noun
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define internal zeroext i1 @Check_Integer_Character(i32 noundef %0, ptr readnone captures(none) %1) #3 {
   %3 = tail call ptr @__ctype_b_loc() #15
-  %4 = load ptr, ptr %3, align 8, !tbaa !19
+  %4 = load ptr, ptr %3, align 8, !tbaa !18
   %5 = sext i32 %0 to i64
   %6 = getelementptr inbounds i16, ptr %4, i64 %5
-  %7 = load i16, ptr %6, align 2, !tbaa !22
+  %7 = load i16, ptr %6, align 2, !tbaa !21
   %8 = and i16 %7, 2048
   %9 = icmp ne i16 %8, 0
   %10 = icmp eq i32 %0, 45
@@ -299,13 +299,12 @@ attributes #15 = { nounwind willreturn memory(none) }
 !13 = !{!9, !10, i64 16}
 !14 = !{i64 0, i64 4, !4, i64 8, i64 8, !11, i64 16, i64 8, !11}
 !15 = !{!6, !6, i64 0}
-!16 = distinct !{!16, !17, !18}
+!16 = distinct !{!16, !17}
 !17 = !{!"llvm.loop.mustprogress"}
-!18 = !{!"llvm.loop.estimated_trip_count"}
-!19 = !{!20, !20, i64 0}
-!20 = !{!"p1 short", !21, i64 0}
-!21 = !{!"any pointer", !6, i64 0}
-!22 = !{!23, !23, i64 0}
-!23 = !{!"short", !6, i64 0}
-!24 = distinct !{!24, !17, !18}
-!25 = distinct !{!25, !17, !18}
+!18 = !{!19, !19, i64 0}
+!19 = !{!"p1 short", !20, i64 0}
+!20 = !{!"any pointer", !6, i64 0}
+!21 = !{!22, !22, i64 0}
+!22 = !{!"short", !6, i64 0}
+!23 = distinct !{!23, !17}
+!24 = distinct !{!24, !17}

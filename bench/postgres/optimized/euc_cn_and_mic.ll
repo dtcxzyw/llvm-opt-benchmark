@@ -220,7 +220,7 @@ define range(i64 -2147483648, 2147483648) i64 @mic_to_euc_cn(ptr noundef readonl
   %.1.i = phi ptr [ %45, %43 ], [ %36, %34 ]
   %47 = add nsw i32 %.sink.i, %.03248.i
   %48 = icmp sgt i32 %47, 0
-  br i1 %48, label %.lr.ph.i, label %mic2euc_cn.exit, !llvm.loop !6
+  br i1 %48, label %.lr.ph.i, label %mic2euc_cn.exit, !llvm.loop !5
 
 mic2euc_cn.exit:                                  ; preds = %46, %1, %22, %32, %41
   %.03044.i = phi ptr [ %.03049.i, %41 ], [ %.03049.i, %32 ], [ %.03049.i, %22 ], [ %8, %1 ], [ %.131.i, %46 ]
@@ -251,7 +251,6 @@ attributes #5 = { noreturn nounwind }
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = distinct !{!3, !4, !5}
+!3 = distinct !{!3, !4}
 !4 = !{!"llvm.loop.mustprogress"}
-!5 = !{!"llvm.loop.estimated_trip_count"}
-!6 = distinct !{!6, !4, !5}
+!5 = distinct !{!5, !4}

@@ -705,7 +705,7 @@ _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %45, %_ZNKSt14defaul
   store ptr null, ptr %9, align 8
   %.09.add = add nuw nsw i64 %.09.idx18, 1
   %.not = icmp eq i64 %.09.add, 2
-  br i1 %.not, label %55, label %10, !llvm.loop !9
+  br i1 %.not, label %55, label %10
 
 54:                                               ; preds = %_ZN7testing7MessageD2Ev.exit15, %22
   %.pn.pn = phi { ptr, i32 } [ %.pn, %_ZN7testing7MessageD2Ev.exit15 ], [ %23, %22 ]
@@ -792,8 +792,8 @@ define void @_ZN3nix54FileSerialisationMethod_testRoundTripPrintParse_2_Test8Tes
   store i64 %17, ptr %5, align 8
   %18 = extractvalue { i64, ptr } %16, 1
   store ptr %18, ptr %10, align 8
-  %.sroa.0.0.copyload.i.i = load i64, ptr %3, align 8, !noalias !11
-  %.sroa.2.0.copyload.i.i = load ptr, ptr %9, align 8, !noalias !11
+  %.sroa.0.0.copyload.i.i = load i64, ptr %3, align 8, !noalias !9
+  %.sroa.2.0.copyload.i.i = load ptr, ptr %9, align 8, !noalias !9
   %19 = icmp eq i64 %17, %.sroa.0.0.copyload.i.i
   br i1 %19, label %20, label %23
 
@@ -802,7 +802,7 @@ define void @_ZN3nix54FileSerialisationMethod_testRoundTripPrintParse_2_Test8Tes
   br i1 %21, label %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ES5_.exit.i.i, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i: ; preds = %20
-  %bcmp.i.i.i = call i32 @bcmp(ptr %18, ptr %.sroa.2.0.copyload.i.i, i64 %17), !noalias !11
+  %bcmp.i.i.i = call i32 @bcmp(ptr %18, ptr %.sroa.2.0.copyload.i.i, i64 %17), !noalias !9
   %22 = icmp eq i32 %bcmp.i.i.i, 0
   br i1 %22, label %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ES5_.exit.i.i, label %23
 
@@ -922,7 +922,7 @@ _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %49, %_ZNKSt14defaul
   store ptr null, ptr %11, align 8
   %.09.add = add nuw nsw i64 %.09.idx18, 8
   %.not = icmp eq i64 %.09.add, 16
-  br i1 %.not, label %59, label %12, !llvm.loop !16
+  br i1 %.not, label %59, label %12
 
 58:                                               ; preds = %_ZN7testing7MessageD2Ev.exit15, %26
   %.pn.pn = phi { ptr, i32 } [ %.pn, %_ZN7testing7MessageD2Ev.exit15 ], [ %27, %26 ]
@@ -1447,7 +1447,7 @@ define void @_ZN3nix50FileIngestionMethod_testRoundTripPrintParse_1_Test8TestBod
   %15 = extractvalue { i64, ptr } %13, 1
   %16 = call noundef zeroext i8 @_ZN3nix24parseFileIngestionMethodESt17basic_string_viewIcSt11char_traitsIcEE(i64 %14, ptr %15)
   store i8 %16, ptr %5, align 1
-  %17 = load i8, ptr %3, align 1, !noalias !17
+  %17 = load i8, ptr %3, align 1, !noalias !14
   %18 = icmp eq i8 %16, %17
   br i1 %18, label %19, label %20
 
@@ -1567,7 +1567,7 @@ _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %46, %_ZNKSt14defaul
   store ptr null, ptr %10, align 8
   %.09.add = add nuw nsw i64 %.09.idx18, 1
   %.not = icmp eq i64 %.09.add, 3
-  br i1 %.not, label %56, label %11, !llvm.loop !22
+  br i1 %.not, label %56, label %11
 
 55:                                               ; preds = %_ZN7testing7MessageD2Ev.exit15, %23
   %.pn.pn = phi { ptr, i32 } [ %.pn, %_ZN7testing7MessageD2Ev.exit15 ], [ %24, %23 ]
@@ -1607,8 +1607,8 @@ define void @_ZN3nix50FileIngestionMethod_testRoundTripPrintParse_2_Test8TestBod
   store i64 %15, ptr %4, align 8
   %16 = extractvalue { i64, ptr } %14, 1
   store ptr %16, ptr %8, align 8
-  %.sroa.0.0.copyload.i.i = load i64, ptr %2, align 8, !noalias !23
-  %.sroa.2.0.copyload.i.i = load ptr, ptr %7, align 8, !noalias !23
+  %.sroa.0.0.copyload.i.i = load i64, ptr %2, align 8, !noalias !19
+  %.sroa.2.0.copyload.i.i = load ptr, ptr %7, align 8, !noalias !19
   %17 = icmp eq i64 %15, %.sroa.0.0.copyload.i.i
   br i1 %17, label %18, label %21
 
@@ -1617,7 +1617,7 @@ define void @_ZN3nix50FileIngestionMethod_testRoundTripPrintParse_2_Test8TestBod
   br i1 %19, label %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ES5_.exit.i.i, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i: ; preds = %18
-  %bcmp.i.i.i = call i32 @bcmp(ptr %16, ptr %.sroa.2.0.copyload.i.i, i64 %15), !noalias !23
+  %bcmp.i.i.i = call i32 @bcmp(ptr %16, ptr %.sroa.2.0.copyload.i.i, i64 %15), !noalias !19
   %20 = icmp eq i32 %bcmp.i.i.i, 0
   br i1 %20, label %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ES5_.exit.i.i, label %21
 
@@ -1737,7 +1737,7 @@ _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %47, %_ZNKSt14defaul
   store ptr null, ptr %9, align 8
   %.09.add = add nuw nsw i64 %.09.idx18, 8
   %.not = icmp eq i64 %.09.add, 24
-  br i1 %.not, label %57, label %10, !llvm.loop !28
+  br i1 %.not, label %57, label %10
 
 56:                                               ; preds = %_ZN7testing7MessageD2Ev.exit15, %24
   %.pn.pn = phi { ptr, i32 } [ %.pn, %_ZN7testing7MessageD2Ev.exit15 ], [ %25, %24 ]
@@ -2625,7 +2625,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i:   ; preds = %_ZNSt11char_traitsI
   %18 = ptrtoint ptr %17 to i64
   %19 = sub i64 %12, %18
   %.not33.i.i = icmp ult i64 %19, 2
-  br i1 %.not33.i.i, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5eraseEmm.exit, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i, !llvm.loop !29
+  br i1 %.not33.i.i, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5eraseEmm.exit, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i, !llvm.loop !24
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEPKcm.exit: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i
   %20 = ptrtoint ptr %14 to i64
@@ -2822,11 +2822,11 @@ define linkonce_odr void @_ZN7testing8internal18CmpHelperEQFailureIN3nix23FileSe
   %7 = alloca %"class.std::__cxx11::basic_stringstream", align 8
   %8 = alloca %"class.std::__cxx11::basic_string", align 8
   %9 = alloca %"class.std::__cxx11::basic_string", align 8
-  call void @llvm.lifetime.start.p0(i64 392, ptr nonnull %7), !noalias !31
-  call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(128) %7), !noalias !36
+  call void @llvm.lifetime.start.p0(i64 392, ptr nonnull %7), !noalias !26
+  call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(128) %7), !noalias !31
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 16
   invoke void @_ZN7testing8internal20PrintBytesInObjectToEPKhmPSo(ptr noundef nonnull align 1 dereferenceable(1) %3, i64 noundef 1, ptr noundef nonnull %10)
-          to label %_ZN7testing8internal21UniversalTersePrinterIN3nix23FileSerialisationMethodEE5PrintERKS3_PSo.exit.i.i.i unwind label %11, !noalias !36
+          to label %_ZN7testing8internal21UniversalTersePrinterIN3nix23FileSerialisationMethodEE5PrintERKS3_PSo.exit.i.i.i unwind label %11, !noalias !31
 
 _ZN7testing8internal21UniversalTersePrinterIN3nix23FileSerialisationMethodEE5PrintERKS3_PSo.exit.i.i.i: ; preds = %5
   invoke void @_ZNKRSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEE3strEv(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %8, ptr noundef nonnull align 8 dereferenceable(128) %7)
@@ -2844,15 +2844,15 @@ common.resume:                                    ; preds = %.body, %11
 
 _ZN7testing8internal33FormatForComparisonFailureMessageIN3nix23FileSerialisationMethodES3_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_.exit: ; preds = %_ZN7testing8internal21UniversalTersePrinterIN3nix23FileSerialisationMethodEE5PrintERKS3_PSo.exit.i.i.i
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %7) #21
-  call void @llvm.lifetime.end.p0(i64 392, ptr nonnull %7), !noalias !31
-  call void @llvm.lifetime.start.p0(i64 392, ptr nonnull %6), !noalias !39
+  call void @llvm.lifetime.end.p0(i64 392, ptr nonnull %7), !noalias !26
+  call void @llvm.lifetime.start.p0(i64 392, ptr nonnull %6), !noalias !34
   invoke void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(128) %6)
           to label %.noexc unwind label %30
 
 .noexc:                                           ; preds = %_ZN7testing8internal33FormatForComparisonFailureMessageIN3nix23FileSerialisationMethodES3_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_.exit
   %13 = getelementptr inbounds nuw i8, ptr %6, i64 16
   invoke void @_ZN7testing8internal20PrintBytesInObjectToEPKhmPSo(ptr noundef nonnull align 1 dereferenceable(1) %4, i64 noundef 1, ptr noundef nonnull %13)
-          to label %_ZN7testing8internal21UniversalTersePrinterIN3nix23FileSerialisationMethodEE5PrintERKS3_PSo.exit.i.i.i9 unwind label %14, !noalias !44
+          to label %_ZN7testing8internal21UniversalTersePrinterIN3nix23FileSerialisationMethodEE5PrintERKS3_PSo.exit.i.i.i9 unwind label %14, !noalias !39
 
 _ZN7testing8internal21UniversalTersePrinterIN3nix23FileSerialisationMethodEE5PrintERKS3_PSo.exit.i.i.i9: ; preds = %.noexc
   invoke void @_ZNKRSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEE3strEv(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %9, ptr noundef nonnull align 8 dereferenceable(128) %6)
@@ -2866,7 +2866,7 @@ _ZN7testing8internal21UniversalTersePrinterIN3nix23FileSerialisationMethodEE5Pri
 
 16:                                               ; preds = %_ZN7testing8internal21UniversalTersePrinterIN3nix23FileSerialisationMethodEE5PrintERKS3_PSo.exit.i.i.i9
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %6) #21
-  call void @llvm.lifetime.end.p0(i64 392, ptr nonnull %6), !noalias !39
+  call void @llvm.lifetime.end.p0(i64 392, ptr nonnull %6), !noalias !34
   invoke void @_ZN7testing8internal9EqFailureEPKcS2_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_b(ptr dead_on_unwind writable sret(%"class.testing::AssertionResult") align 8 %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %9, i1 noundef zeroext false)
           to label %17 unwind label %32
 
@@ -2943,14 +2943,14 @@ define linkonce_odr void @_ZN7testing8internal18CmpHelperEQFailureISt17basic_str
   %7 = alloca %"class.std::__cxx11::basic_stringstream", align 8
   %8 = alloca %"class.std::__cxx11::basic_string", align 8
   %9 = alloca %"class.std::__cxx11::basic_string", align 8
-  call void @llvm.lifetime.start.p0(i64 392, ptr nonnull %7), !noalias !47
-  call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(128) %7), !noalias !52
+  call void @llvm.lifetime.start.p0(i64 392, ptr nonnull %7), !noalias !42
+  call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(128) %7), !noalias !47
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %.sroa.0.0.copyload.i.i.i.i.i.i = load i64, ptr %3, align 8, !noalias !52
+  %.sroa.0.0.copyload.i.i.i.i.i.i = load i64, ptr %3, align 8, !noalias !47
   %.sroa.2.0..sroa_idx.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %.sroa.2.0.copyload.i.i.i.i.i.i = load ptr, ptr %.sroa.2.0..sroa_idx.i.i.i.i.i.i, align 8, !noalias !52
+  %.sroa.2.0.copyload.i.i.i.i.i.i = load ptr, ptr %.sroa.2.0..sroa_idx.i.i.i.i.i.i, align 8, !noalias !47
   invoke void @_ZN7testing8internal7PrintToESt17basic_string_viewIcSt11char_traitsIcEEPSo(i64 %.sroa.0.0.copyload.i.i.i.i.i.i, ptr %.sroa.2.0.copyload.i.i.i.i.i.i, ptr noundef nonnull %10)
-          to label %_ZN7testing8internal21UniversalTersePrinterISt17basic_string_viewIcSt11char_traitsIcEEE5PrintERKS5_PSo.exit.i.i.i unwind label %11, !noalias !52
+          to label %_ZN7testing8internal21UniversalTersePrinterISt17basic_string_viewIcSt11char_traitsIcEEE5PrintERKS5_PSo.exit.i.i.i unwind label %11, !noalias !47
 
 _ZN7testing8internal21UniversalTersePrinterISt17basic_string_viewIcSt11char_traitsIcEEE5PrintERKS5_PSo.exit.i.i.i: ; preds = %5
   invoke void @_ZNKRSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEE3strEv(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %8, ptr noundef nonnull align 8 dereferenceable(128) %7)
@@ -2968,18 +2968,18 @@ common.resume:                                    ; preds = %.body, %11
 
 _ZN7testing8internal33FormatForComparisonFailureMessageISt17basic_string_viewIcSt11char_traitsIcEES5_EENSt7__cxx1112basic_stringIcS4_SaIcEEERKT_RKT0_.exit: ; preds = %_ZN7testing8internal21UniversalTersePrinterISt17basic_string_viewIcSt11char_traitsIcEEE5PrintERKS5_PSo.exit.i.i.i
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %7) #21
-  call void @llvm.lifetime.end.p0(i64 392, ptr nonnull %7), !noalias !47
-  call void @llvm.lifetime.start.p0(i64 392, ptr nonnull %6), !noalias !55
+  call void @llvm.lifetime.end.p0(i64 392, ptr nonnull %7), !noalias !42
+  call void @llvm.lifetime.start.p0(i64 392, ptr nonnull %6), !noalias !50
   invoke void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(128) %6)
           to label %.noexc unwind label %30
 
 .noexc:                                           ; preds = %_ZN7testing8internal33FormatForComparisonFailureMessageISt17basic_string_viewIcSt11char_traitsIcEES5_EENSt7__cxx1112basic_stringIcS4_SaIcEEERKT_RKT0_.exit
   %13 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %.sroa.0.0.copyload.i.i.i.i.i.i9 = load i64, ptr %4, align 8, !noalias !60
+  %.sroa.0.0.copyload.i.i.i.i.i.i9 = load i64, ptr %4, align 8, !noalias !55
   %.sroa.2.0..sroa_idx.i.i.i.i.i.i10 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %.sroa.2.0.copyload.i.i.i.i.i.i11 = load ptr, ptr %.sroa.2.0..sroa_idx.i.i.i.i.i.i10, align 8, !noalias !60
+  %.sroa.2.0.copyload.i.i.i.i.i.i11 = load ptr, ptr %.sroa.2.0..sroa_idx.i.i.i.i.i.i10, align 8, !noalias !55
   invoke void @_ZN7testing8internal7PrintToESt17basic_string_viewIcSt11char_traitsIcEEPSo(i64 %.sroa.0.0.copyload.i.i.i.i.i.i9, ptr %.sroa.2.0.copyload.i.i.i.i.i.i11, ptr noundef nonnull %13)
-          to label %_ZN7testing8internal21UniversalTersePrinterISt17basic_string_viewIcSt11char_traitsIcEEE5PrintERKS5_PSo.exit.i.i.i12 unwind label %14, !noalias !60
+          to label %_ZN7testing8internal21UniversalTersePrinterISt17basic_string_viewIcSt11char_traitsIcEEE5PrintERKS5_PSo.exit.i.i.i12 unwind label %14, !noalias !55
 
 _ZN7testing8internal21UniversalTersePrinterISt17basic_string_viewIcSt11char_traitsIcEEE5PrintERKS5_PSo.exit.i.i.i12: ; preds = %.noexc
   invoke void @_ZNKRSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEE3strEv(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %9, ptr noundef nonnull align 8 dereferenceable(128) %6)
@@ -2993,7 +2993,7 @@ _ZN7testing8internal21UniversalTersePrinterISt17basic_string_viewIcSt11char_trai
 
 16:                                               ; preds = %_ZN7testing8internal21UniversalTersePrinterISt17basic_string_viewIcSt11char_traitsIcEEE5PrintERKS5_PSo.exit.i.i.i12
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %6) #21
-  call void @llvm.lifetime.end.p0(i64 392, ptr nonnull %6), !noalias !55
+  call void @llvm.lifetime.end.p0(i64 392, ptr nonnull %6), !noalias !50
   invoke void @_ZN7testing8internal9EqFailureEPKcS2_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_b(ptr dead_on_unwind writable sret(%"class.testing::AssertionResult") align 8 %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %9, i1 noundef zeroext false)
           to label %17 unwind label %32
 
@@ -3195,11 +3195,11 @@ define linkonce_odr void @_ZN7testing8internal18CmpHelperEQFailureIN3nix19FileIn
   %7 = alloca %"class.std::__cxx11::basic_stringstream", align 8
   %8 = alloca %"class.std::__cxx11::basic_string", align 8
   %9 = alloca %"class.std::__cxx11::basic_string", align 8
-  call void @llvm.lifetime.start.p0(i64 392, ptr nonnull %7), !noalias !63
-  call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(128) %7), !noalias !68
+  call void @llvm.lifetime.start.p0(i64 392, ptr nonnull %7), !noalias !58
+  call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(128) %7), !noalias !63
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 16
   invoke void @_ZN7testing8internal20PrintBytesInObjectToEPKhmPSo(ptr noundef nonnull align 1 dereferenceable(1) %3, i64 noundef 1, ptr noundef nonnull %10)
-          to label %_ZN7testing8internal21UniversalTersePrinterIN3nix19FileIngestionMethodEE5PrintERKS3_PSo.exit.i.i.i unwind label %11, !noalias !68
+          to label %_ZN7testing8internal21UniversalTersePrinterIN3nix19FileIngestionMethodEE5PrintERKS3_PSo.exit.i.i.i unwind label %11, !noalias !63
 
 _ZN7testing8internal21UniversalTersePrinterIN3nix19FileIngestionMethodEE5PrintERKS3_PSo.exit.i.i.i: ; preds = %5
   invoke void @_ZNKRSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEE3strEv(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %8, ptr noundef nonnull align 8 dereferenceable(128) %7)
@@ -3217,15 +3217,15 @@ common.resume:                                    ; preds = %.body, %11
 
 _ZN7testing8internal33FormatForComparisonFailureMessageIN3nix19FileIngestionMethodES3_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_.exit: ; preds = %_ZN7testing8internal21UniversalTersePrinterIN3nix19FileIngestionMethodEE5PrintERKS3_PSo.exit.i.i.i
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %7) #21
-  call void @llvm.lifetime.end.p0(i64 392, ptr nonnull %7), !noalias !63
-  call void @llvm.lifetime.start.p0(i64 392, ptr nonnull %6), !noalias !71
+  call void @llvm.lifetime.end.p0(i64 392, ptr nonnull %7), !noalias !58
+  call void @llvm.lifetime.start.p0(i64 392, ptr nonnull %6), !noalias !66
   invoke void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(128) %6)
           to label %.noexc unwind label %30
 
 .noexc:                                           ; preds = %_ZN7testing8internal33FormatForComparisonFailureMessageIN3nix19FileIngestionMethodES3_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_.exit
   %13 = getelementptr inbounds nuw i8, ptr %6, i64 16
   invoke void @_ZN7testing8internal20PrintBytesInObjectToEPKhmPSo(ptr noundef nonnull align 1 dereferenceable(1) %4, i64 noundef 1, ptr noundef nonnull %13)
-          to label %_ZN7testing8internal21UniversalTersePrinterIN3nix19FileIngestionMethodEE5PrintERKS3_PSo.exit.i.i.i9 unwind label %14, !noalias !76
+          to label %_ZN7testing8internal21UniversalTersePrinterIN3nix19FileIngestionMethodEE5PrintERKS3_PSo.exit.i.i.i9 unwind label %14, !noalias !71
 
 _ZN7testing8internal21UniversalTersePrinterIN3nix19FileIngestionMethodEE5PrintERKS3_PSo.exit.i.i.i9: ; preds = %.noexc
   invoke void @_ZNKRSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEE3strEv(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %9, ptr noundef nonnull align 8 dereferenceable(128) %6)
@@ -3239,7 +3239,7 @@ _ZN7testing8internal21UniversalTersePrinterIN3nix19FileIngestionMethodEE5PrintER
 
 16:                                               ; preds = %_ZN7testing8internal21UniversalTersePrinterIN3nix19FileIngestionMethodEE5PrintERKS3_PSo.exit.i.i.i9
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %6) #21
-  call void @llvm.lifetime.end.p0(i64 392, ptr nonnull %6), !noalias !71
+  call void @llvm.lifetime.end.p0(i64 392, ptr nonnull %6), !noalias !66
   invoke void @_ZN7testing8internal9EqFailureEPKcS2_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_b(ptr dead_on_unwind writable sret(%"class.testing::AssertionResult") align 8 %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %9, i1 noundef zeroext false)
           to label %17 unwind label %32
 
@@ -3969,73 +3969,68 @@ attributes #25 = { noreturn nounwind }
 !6 = distinct !{!6, !"_ZN7testing8internal11CmpHelperEQIN3nix23FileSerialisationMethodES3_EENS_15AssertionResultEPKcS6_RKT_RKT0_"}
 !7 = distinct !{!7, !8, !"_ZN7testing8internal8EqHelper7CompareIN3nix23FileSerialisationMethodES4_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSE_RKS6_RKS7_: argument 0"}
 !8 = distinct !{!8, !"_ZN7testing8internal8EqHelper7CompareIN3nix23FileSerialisationMethodES4_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSE_RKS6_RKS7_"}
-!9 = distinct !{!9, !10}
-!10 = !{!"llvm.loop.estimated_trip_count"}
-!11 = !{!12, !14}
-!12 = distinct !{!12, !13, !"_ZN7testing8internal11CmpHelperEQISt17basic_string_viewIcSt11char_traitsIcEES5_EENS_15AssertionResultEPKcS8_RKT_RKT0_: argument 0"}
-!13 = distinct !{!13, !"_ZN7testing8internal11CmpHelperEQISt17basic_string_viewIcSt11char_traitsIcEES5_EENS_15AssertionResultEPKcS8_RKT_RKT0_"}
-!14 = distinct !{!14, !15, !"_ZN7testing8internal8EqHelper7CompareISt17basic_string_viewIcSt11char_traitsIcEES6_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSG_RKS8_RKS9_: argument 0"}
-!15 = distinct !{!15, !"_ZN7testing8internal8EqHelper7CompareISt17basic_string_viewIcSt11char_traitsIcEES6_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSG_RKS8_RKS9_"}
-!16 = distinct !{!16, !10}
-!17 = !{!18, !20}
-!18 = distinct !{!18, !19, !"_ZN7testing8internal11CmpHelperEQIN3nix19FileIngestionMethodES3_EENS_15AssertionResultEPKcS6_RKT_RKT0_: argument 0"}
-!19 = distinct !{!19, !"_ZN7testing8internal11CmpHelperEQIN3nix19FileIngestionMethodES3_EENS_15AssertionResultEPKcS6_RKT_RKT0_"}
-!20 = distinct !{!20, !21, !"_ZN7testing8internal8EqHelper7CompareIN3nix19FileIngestionMethodES4_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSE_RKS6_RKS7_: argument 0"}
-!21 = distinct !{!21, !"_ZN7testing8internal8EqHelper7CompareIN3nix19FileIngestionMethodES4_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSE_RKS6_RKS7_"}
-!22 = distinct !{!22, !10}
-!23 = !{!24, !26}
-!24 = distinct !{!24, !25, !"_ZN7testing8internal11CmpHelperEQISt17basic_string_viewIcSt11char_traitsIcEES5_EENS_15AssertionResultEPKcS8_RKT_RKT0_: argument 0"}
-!25 = distinct !{!25, !"_ZN7testing8internal11CmpHelperEQISt17basic_string_viewIcSt11char_traitsIcEES5_EENS_15AssertionResultEPKcS8_RKT_RKT0_"}
-!26 = distinct !{!26, !27, !"_ZN7testing8internal8EqHelper7CompareISt17basic_string_viewIcSt11char_traitsIcEES6_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSG_RKS8_RKS9_: argument 0"}
-!27 = distinct !{!27, !"_ZN7testing8internal8EqHelper7CompareISt17basic_string_viewIcSt11char_traitsIcEES6_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSG_RKS8_RKS9_"}
-!28 = distinct !{!28, !10}
-!29 = distinct !{!29, !30, !10}
-!30 = !{!"llvm.loop.mustprogress"}
-!31 = !{!32, !34}
-!32 = distinct !{!32, !33, !"_ZN7testing8internal19FormatForComparisonIN3nix23FileSerialisationMethodES3_E6FormatB5cxx11ERKS3_: argument 0"}
-!33 = distinct !{!33, !"_ZN7testing8internal19FormatForComparisonIN3nix23FileSerialisationMethodES3_E6FormatB5cxx11ERKS3_"}
-!34 = distinct !{!34, !35, !"_ZN7testing8internal33FormatForComparisonFailureMessageIN3nix23FileSerialisationMethodES3_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_: argument 0"}
-!35 = distinct !{!35, !"_ZN7testing8internal33FormatForComparisonFailureMessageIN3nix23FileSerialisationMethodES3_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_"}
-!36 = !{!37, !32, !34}
-!37 = distinct !{!37, !38, !"_ZN7testing13PrintToStringIN3nix23FileSerialisationMethodEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_: argument 0"}
-!38 = distinct !{!38, !"_ZN7testing13PrintToStringIN3nix23FileSerialisationMethodEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_"}
-!39 = !{!40, !42}
-!40 = distinct !{!40, !41, !"_ZN7testing8internal19FormatForComparisonIN3nix23FileSerialisationMethodES3_E6FormatB5cxx11ERKS3_: argument 0"}
-!41 = distinct !{!41, !"_ZN7testing8internal19FormatForComparisonIN3nix23FileSerialisationMethodES3_E6FormatB5cxx11ERKS3_"}
-!42 = distinct !{!42, !43, !"_ZN7testing8internal33FormatForComparisonFailureMessageIN3nix23FileSerialisationMethodES3_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_: argument 0"}
-!43 = distinct !{!43, !"_ZN7testing8internal33FormatForComparisonFailureMessageIN3nix23FileSerialisationMethodES3_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_"}
-!44 = !{!45, !40, !42}
-!45 = distinct !{!45, !46, !"_ZN7testing13PrintToStringIN3nix23FileSerialisationMethodEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_: argument 0"}
-!46 = distinct !{!46, !"_ZN7testing13PrintToStringIN3nix23FileSerialisationMethodEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_"}
-!47 = !{!48, !50}
-!48 = distinct !{!48, !49, !"_ZN7testing8internal19FormatForComparisonISt17basic_string_viewIcSt11char_traitsIcEES5_E6FormatB5cxx11ERKS5_: argument 0"}
-!49 = distinct !{!49, !"_ZN7testing8internal19FormatForComparisonISt17basic_string_viewIcSt11char_traitsIcEES5_E6FormatB5cxx11ERKS5_"}
-!50 = distinct !{!50, !51, !"_ZN7testing8internal33FormatForComparisonFailureMessageISt17basic_string_viewIcSt11char_traitsIcEES5_EENSt7__cxx1112basic_stringIcS4_SaIcEEERKT_RKT0_: argument 0"}
-!51 = distinct !{!51, !"_ZN7testing8internal33FormatForComparisonFailureMessageISt17basic_string_viewIcSt11char_traitsIcEES5_EENSt7__cxx1112basic_stringIcS4_SaIcEEERKT_RKT0_"}
-!52 = !{!53, !48, !50}
-!53 = distinct !{!53, !54, !"_ZN7testing13PrintToStringISt17basic_string_viewIcSt11char_traitsIcEEEENSt7__cxx1112basic_stringIcS3_SaIcEEERKT_: argument 0"}
-!54 = distinct !{!54, !"_ZN7testing13PrintToStringISt17basic_string_viewIcSt11char_traitsIcEEEENSt7__cxx1112basic_stringIcS3_SaIcEEERKT_"}
-!55 = !{!56, !58}
-!56 = distinct !{!56, !57, !"_ZN7testing8internal19FormatForComparisonISt17basic_string_viewIcSt11char_traitsIcEES5_E6FormatB5cxx11ERKS5_: argument 0"}
-!57 = distinct !{!57, !"_ZN7testing8internal19FormatForComparisonISt17basic_string_viewIcSt11char_traitsIcEES5_E6FormatB5cxx11ERKS5_"}
-!58 = distinct !{!58, !59, !"_ZN7testing8internal33FormatForComparisonFailureMessageISt17basic_string_viewIcSt11char_traitsIcEES5_EENSt7__cxx1112basic_stringIcS4_SaIcEEERKT_RKT0_: argument 0"}
-!59 = distinct !{!59, !"_ZN7testing8internal33FormatForComparisonFailureMessageISt17basic_string_viewIcSt11char_traitsIcEES5_EENSt7__cxx1112basic_stringIcS4_SaIcEEERKT_RKT0_"}
-!60 = !{!61, !56, !58}
-!61 = distinct !{!61, !62, !"_ZN7testing13PrintToStringISt17basic_string_viewIcSt11char_traitsIcEEEENSt7__cxx1112basic_stringIcS3_SaIcEEERKT_: argument 0"}
-!62 = distinct !{!62, !"_ZN7testing13PrintToStringISt17basic_string_viewIcSt11char_traitsIcEEEENSt7__cxx1112basic_stringIcS3_SaIcEEERKT_"}
-!63 = !{!64, !66}
-!64 = distinct !{!64, !65, !"_ZN7testing8internal19FormatForComparisonIN3nix19FileIngestionMethodES3_E6FormatB5cxx11ERKS3_: argument 0"}
-!65 = distinct !{!65, !"_ZN7testing8internal19FormatForComparisonIN3nix19FileIngestionMethodES3_E6FormatB5cxx11ERKS3_"}
-!66 = distinct !{!66, !67, !"_ZN7testing8internal33FormatForComparisonFailureMessageIN3nix19FileIngestionMethodES3_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_: argument 0"}
-!67 = distinct !{!67, !"_ZN7testing8internal33FormatForComparisonFailureMessageIN3nix19FileIngestionMethodES3_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_"}
-!68 = !{!69, !64, !66}
-!69 = distinct !{!69, !70, !"_ZN7testing13PrintToStringIN3nix19FileIngestionMethodEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_: argument 0"}
-!70 = distinct !{!70, !"_ZN7testing13PrintToStringIN3nix19FileIngestionMethodEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_"}
-!71 = !{!72, !74}
-!72 = distinct !{!72, !73, !"_ZN7testing8internal19FormatForComparisonIN3nix19FileIngestionMethodES3_E6FormatB5cxx11ERKS3_: argument 0"}
-!73 = distinct !{!73, !"_ZN7testing8internal19FormatForComparisonIN3nix19FileIngestionMethodES3_E6FormatB5cxx11ERKS3_"}
-!74 = distinct !{!74, !75, !"_ZN7testing8internal33FormatForComparisonFailureMessageIN3nix19FileIngestionMethodES3_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_: argument 0"}
-!75 = distinct !{!75, !"_ZN7testing8internal33FormatForComparisonFailureMessageIN3nix19FileIngestionMethodES3_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_"}
-!76 = !{!77, !72, !74}
-!77 = distinct !{!77, !78, !"_ZN7testing13PrintToStringIN3nix19FileIngestionMethodEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_: argument 0"}
-!78 = distinct !{!78, !"_ZN7testing13PrintToStringIN3nix19FileIngestionMethodEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_"}
+!9 = !{!10, !12}
+!10 = distinct !{!10, !11, !"_ZN7testing8internal11CmpHelperEQISt17basic_string_viewIcSt11char_traitsIcEES5_EENS_15AssertionResultEPKcS8_RKT_RKT0_: argument 0"}
+!11 = distinct !{!11, !"_ZN7testing8internal11CmpHelperEQISt17basic_string_viewIcSt11char_traitsIcEES5_EENS_15AssertionResultEPKcS8_RKT_RKT0_"}
+!12 = distinct !{!12, !13, !"_ZN7testing8internal8EqHelper7CompareISt17basic_string_viewIcSt11char_traitsIcEES6_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSG_RKS8_RKS9_: argument 0"}
+!13 = distinct !{!13, !"_ZN7testing8internal8EqHelper7CompareISt17basic_string_viewIcSt11char_traitsIcEES6_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSG_RKS8_RKS9_"}
+!14 = !{!15, !17}
+!15 = distinct !{!15, !16, !"_ZN7testing8internal11CmpHelperEQIN3nix19FileIngestionMethodES3_EENS_15AssertionResultEPKcS6_RKT_RKT0_: argument 0"}
+!16 = distinct !{!16, !"_ZN7testing8internal11CmpHelperEQIN3nix19FileIngestionMethodES3_EENS_15AssertionResultEPKcS6_RKT_RKT0_"}
+!17 = distinct !{!17, !18, !"_ZN7testing8internal8EqHelper7CompareIN3nix19FileIngestionMethodES4_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSE_RKS6_RKS7_: argument 0"}
+!18 = distinct !{!18, !"_ZN7testing8internal8EqHelper7CompareIN3nix19FileIngestionMethodES4_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSE_RKS6_RKS7_"}
+!19 = !{!20, !22}
+!20 = distinct !{!20, !21, !"_ZN7testing8internal11CmpHelperEQISt17basic_string_viewIcSt11char_traitsIcEES5_EENS_15AssertionResultEPKcS8_RKT_RKT0_: argument 0"}
+!21 = distinct !{!21, !"_ZN7testing8internal11CmpHelperEQISt17basic_string_viewIcSt11char_traitsIcEES5_EENS_15AssertionResultEPKcS8_RKT_RKT0_"}
+!22 = distinct !{!22, !23, !"_ZN7testing8internal8EqHelper7CompareISt17basic_string_viewIcSt11char_traitsIcEES6_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSG_RKS8_RKS9_: argument 0"}
+!23 = distinct !{!23, !"_ZN7testing8internal8EqHelper7CompareISt17basic_string_viewIcSt11char_traitsIcEES6_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSG_RKS8_RKS9_"}
+!24 = distinct !{!24, !25}
+!25 = !{!"llvm.loop.mustprogress"}
+!26 = !{!27, !29}
+!27 = distinct !{!27, !28, !"_ZN7testing8internal19FormatForComparisonIN3nix23FileSerialisationMethodES3_E6FormatB5cxx11ERKS3_: argument 0"}
+!28 = distinct !{!28, !"_ZN7testing8internal19FormatForComparisonIN3nix23FileSerialisationMethodES3_E6FormatB5cxx11ERKS3_"}
+!29 = distinct !{!29, !30, !"_ZN7testing8internal33FormatForComparisonFailureMessageIN3nix23FileSerialisationMethodES3_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_: argument 0"}
+!30 = distinct !{!30, !"_ZN7testing8internal33FormatForComparisonFailureMessageIN3nix23FileSerialisationMethodES3_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_"}
+!31 = !{!32, !27, !29}
+!32 = distinct !{!32, !33, !"_ZN7testing13PrintToStringIN3nix23FileSerialisationMethodEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_: argument 0"}
+!33 = distinct !{!33, !"_ZN7testing13PrintToStringIN3nix23FileSerialisationMethodEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_"}
+!34 = !{!35, !37}
+!35 = distinct !{!35, !36, !"_ZN7testing8internal19FormatForComparisonIN3nix23FileSerialisationMethodES3_E6FormatB5cxx11ERKS3_: argument 0"}
+!36 = distinct !{!36, !"_ZN7testing8internal19FormatForComparisonIN3nix23FileSerialisationMethodES3_E6FormatB5cxx11ERKS3_"}
+!37 = distinct !{!37, !38, !"_ZN7testing8internal33FormatForComparisonFailureMessageIN3nix23FileSerialisationMethodES3_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_: argument 0"}
+!38 = distinct !{!38, !"_ZN7testing8internal33FormatForComparisonFailureMessageIN3nix23FileSerialisationMethodES3_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_"}
+!39 = !{!40, !35, !37}
+!40 = distinct !{!40, !41, !"_ZN7testing13PrintToStringIN3nix23FileSerialisationMethodEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_: argument 0"}
+!41 = distinct !{!41, !"_ZN7testing13PrintToStringIN3nix23FileSerialisationMethodEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_"}
+!42 = !{!43, !45}
+!43 = distinct !{!43, !44, !"_ZN7testing8internal19FormatForComparisonISt17basic_string_viewIcSt11char_traitsIcEES5_E6FormatB5cxx11ERKS5_: argument 0"}
+!44 = distinct !{!44, !"_ZN7testing8internal19FormatForComparisonISt17basic_string_viewIcSt11char_traitsIcEES5_E6FormatB5cxx11ERKS5_"}
+!45 = distinct !{!45, !46, !"_ZN7testing8internal33FormatForComparisonFailureMessageISt17basic_string_viewIcSt11char_traitsIcEES5_EENSt7__cxx1112basic_stringIcS4_SaIcEEERKT_RKT0_: argument 0"}
+!46 = distinct !{!46, !"_ZN7testing8internal33FormatForComparisonFailureMessageISt17basic_string_viewIcSt11char_traitsIcEES5_EENSt7__cxx1112basic_stringIcS4_SaIcEEERKT_RKT0_"}
+!47 = !{!48, !43, !45}
+!48 = distinct !{!48, !49, !"_ZN7testing13PrintToStringISt17basic_string_viewIcSt11char_traitsIcEEEENSt7__cxx1112basic_stringIcS3_SaIcEEERKT_: argument 0"}
+!49 = distinct !{!49, !"_ZN7testing13PrintToStringISt17basic_string_viewIcSt11char_traitsIcEEEENSt7__cxx1112basic_stringIcS3_SaIcEEERKT_"}
+!50 = !{!51, !53}
+!51 = distinct !{!51, !52, !"_ZN7testing8internal19FormatForComparisonISt17basic_string_viewIcSt11char_traitsIcEES5_E6FormatB5cxx11ERKS5_: argument 0"}
+!52 = distinct !{!52, !"_ZN7testing8internal19FormatForComparisonISt17basic_string_viewIcSt11char_traitsIcEES5_E6FormatB5cxx11ERKS5_"}
+!53 = distinct !{!53, !54, !"_ZN7testing8internal33FormatForComparisonFailureMessageISt17basic_string_viewIcSt11char_traitsIcEES5_EENSt7__cxx1112basic_stringIcS4_SaIcEEERKT_RKT0_: argument 0"}
+!54 = distinct !{!54, !"_ZN7testing8internal33FormatForComparisonFailureMessageISt17basic_string_viewIcSt11char_traitsIcEES5_EENSt7__cxx1112basic_stringIcS4_SaIcEEERKT_RKT0_"}
+!55 = !{!56, !51, !53}
+!56 = distinct !{!56, !57, !"_ZN7testing13PrintToStringISt17basic_string_viewIcSt11char_traitsIcEEEENSt7__cxx1112basic_stringIcS3_SaIcEEERKT_: argument 0"}
+!57 = distinct !{!57, !"_ZN7testing13PrintToStringISt17basic_string_viewIcSt11char_traitsIcEEEENSt7__cxx1112basic_stringIcS3_SaIcEEERKT_"}
+!58 = !{!59, !61}
+!59 = distinct !{!59, !60, !"_ZN7testing8internal19FormatForComparisonIN3nix19FileIngestionMethodES3_E6FormatB5cxx11ERKS3_: argument 0"}
+!60 = distinct !{!60, !"_ZN7testing8internal19FormatForComparisonIN3nix19FileIngestionMethodES3_E6FormatB5cxx11ERKS3_"}
+!61 = distinct !{!61, !62, !"_ZN7testing8internal33FormatForComparisonFailureMessageIN3nix19FileIngestionMethodES3_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_: argument 0"}
+!62 = distinct !{!62, !"_ZN7testing8internal33FormatForComparisonFailureMessageIN3nix19FileIngestionMethodES3_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_"}
+!63 = !{!64, !59, !61}
+!64 = distinct !{!64, !65, !"_ZN7testing13PrintToStringIN3nix19FileIngestionMethodEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_: argument 0"}
+!65 = distinct !{!65, !"_ZN7testing13PrintToStringIN3nix19FileIngestionMethodEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_"}
+!66 = !{!67, !69}
+!67 = distinct !{!67, !68, !"_ZN7testing8internal19FormatForComparisonIN3nix19FileIngestionMethodES3_E6FormatB5cxx11ERKS3_: argument 0"}
+!68 = distinct !{!68, !"_ZN7testing8internal19FormatForComparisonIN3nix19FileIngestionMethodES3_E6FormatB5cxx11ERKS3_"}
+!69 = distinct !{!69, !70, !"_ZN7testing8internal33FormatForComparisonFailureMessageIN3nix19FileIngestionMethodES3_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_: argument 0"}
+!70 = distinct !{!70, !"_ZN7testing8internal33FormatForComparisonFailureMessageIN3nix19FileIngestionMethodES3_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_"}
+!71 = !{!72, !67, !69}
+!72 = distinct !{!72, !73, !"_ZN7testing13PrintToStringIN3nix19FileIngestionMethodEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_: argument 0"}
+!73 = distinct !{!73, !"_ZN7testing13PrintToStringIN3nix19FileIngestionMethodEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_"}

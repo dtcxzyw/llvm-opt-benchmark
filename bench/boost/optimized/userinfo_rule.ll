@@ -258,7 +258,7 @@ define linkonce_odr hidden void @_ZN5boost4urls6detail13parse_encodedINS0_7gramm
   %36 = ptrtoint ptr %35 to i64
   %37 = sub i64 %7, %36
   %38 = icmp sgt i64 %37, 15
-  br i1 %38, label %.lr.ph.i.i.i.i.i.i.i, label %.preheader.i.i.i.i.i.i.i, !llvm.loop !27
+  br i1 %38, label %.lr.ph.i.i.i.i.i.i.i, label %.preheader.i.i.i.i.i.i.i
 
 .lr.ph37.i.i.i.i.i.i.i:                           ; preds = %48, %.lr.ph37.preheader.i.i.i.i.i.i.i
   %.22336.i.i.i.i.i.i.i = phi ptr [ %49, %48 ], [ %.021.lcssa.i.i.i.i.i.i.i, %.lr.ph37.preheader.i.i.i.i.i.i.i ]
@@ -277,7 +277,7 @@ define linkonce_odr hidden void @_ZN5boost4urls6detail13parse_encodedINS0_7gramm
 48:                                               ; preds = %.lr.ph37.i.i.i.i.i.i.i
   %49 = getelementptr inbounds nuw i8, ptr %.22336.i.i.i.i.i.i.i, i64 1
   %.not.i.i.i.i.i.i.i = icmp eq ptr %49, %2
-  br i1 %.not.i.i.i.i.i.i.i, label %_ZN5boost4urls7grammar11find_if_notINS1_22implementation_defined11charset_refINS1_9lut_charsEEEEEPKcS8_S8_RKT_.exit, label %.lr.ph37.i.i.i.i.i.i.i, !llvm.loop !28
+  br i1 %.not.i.i.i.i.i.i.i, label %_ZN5boost4urls7grammar11find_if_notINS1_22implementation_defined11charset_refINS1_9lut_charsEEEEEPKcS8_S8_RKT_.exit, label %.lr.ph37.i.i.i.i.i.i.i, !llvm.loop !26
 
 _ZN5boost4urls7grammar11find_if_notINS1_22implementation_defined11charset_refINS1_9lut_charsEEEEEPKcS8_S8_RKT_.exit: ; preds = %.lr.ph37.i.i.i.i.i.i.i, %48, %.preheader.i.i.i.i.i.i.i, %.thread.i.i.i.i.i.i.i
   %.promoted = phi ptr [ %33, %.thread.i.i.i.i.i.i.i ], [ %.021.lcssa.i.i.i.i.i.i.i, %.preheader.i.i.i.i.i.i.i ], [ %.22336.i.i.i.i.i.i.i, %.lr.ph37.i.i.i.i.i.i.i ], [ %scevgep.i.i.i.i.i.i.i, %48 ]
@@ -302,16 +302,16 @@ _ZN5boost4urls7grammar11find_if_notINS1_22implementation_defined11charset_refINS
   br i1 %58, label %59, label %68
 
 59:                                               ; preds = %.preheader
-  %60 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost4urls7grammar6detail9error_catE, i64 8), align 8, !tbaa !29, !noalias !34
+  %60 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost4urls7grammar6detail9error_catE, i64 8), align 8, !tbaa !27, !noalias !32
   %61 = and i64 %60, -2
   %switch.i.i.i.i = icmp eq i64 %61, -5572340897628102704
   br i1 %switch.i.i.i.i, label %_ZN5boost6system10error_codeC2INS_4urls7grammar5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS6_EE5valuesr3std18is_error_code_enumIS6_EE5valueEvE4typeE.exit.thread, label %_ZN5boost6system10error_codeC2INS_4urls7grammar5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS6_EE5valuesr3std18is_error_code_enumIS6_EE5valueEvE4typeE.exit
 
 _ZN5boost6system10error_codeC2INS_4urls7grammar5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS6_EE5valuesr3std18is_error_code_enumIS6_EE5valueEvE4typeE.exit: ; preds = %59
-  %62 = load ptr, ptr @_ZN5boost4urls7grammar6detail9error_catE, align 8, !tbaa !37, !noalias !34
+  %62 = load ptr, ptr @_ZN5boost4urls7grammar6detail9error_catE, align 8, !tbaa !35, !noalias !32
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 48
-  %64 = load ptr, ptr %63, align 8, !noalias !34
-  %65 = tail call noundef zeroext i1 %64(ptr noundef nonnull align 8 dereferenceable(52) @_ZN5boost4urls7grammar6detail9error_catE, i32 noundef 5) #6, !noalias !34
+  %64 = load ptr, ptr %63, align 8, !noalias !32
+  %65 = tail call noundef zeroext i1 %64(ptr noundef nonnull align 8 dereferenceable(52) @_ZN5boost4urls7grammar6detail9error_catE, i32 noundef 5) #6, !noalias !32
   br i1 %65, label %_ZN5boost6system10error_codeC2INS_4urls7grammar5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS6_EE5valuesr3std18is_error_code_enumIS6_EE5valueEvE4typeE.exit.thread, label %_ZN5boost6system10error_codeC2ERKS1_PKNS_15source_locationE.exit
 
 _ZN5boost6system10error_codeC2INS_4urls7grammar5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS6_EE5valuesr3std18is_error_code_enumIS6_EE5valueEvE4typeE.exit.thread: ; preds = %59, %_ZN5boost6system10error_codeC2INS_4urls7grammar5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS6_EE5valuesr3std18is_error_code_enumIS6_EE5valueEvE4typeE.exit
@@ -353,16 +353,16 @@ _ZN5boost6system10error_codeC2ERKS1_PKNS_15source_locationE.exit: ; preds = %_ZN
   ]
 
 _ZN5boost4urls7grammar12hexdig_valueEc.exit:      ; preds = %68
-  %70 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost4urls7grammar6detail9error_catE, i64 8), align 8, !tbaa !29, !noalias !39
+  %70 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost4urls7grammar6detail9error_catE, i64 8), align 8, !tbaa !27, !noalias !37
   %71 = and i64 %70, -2
   %switch.i.i.i.i38 = icmp eq i64 %71, -5572340897628102704
   br i1 %switch.i.i.i.i38, label %_ZN5boost6system10error_codeC2INS_4urls7grammar5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS6_EE5valuesr3std18is_error_code_enumIS6_EE5valueEvE4typeE.exit41.thread, label %_ZN5boost6system10error_codeC2INS_4urls7grammar5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS6_EE5valuesr3std18is_error_code_enumIS6_EE5valueEvE4typeE.exit41
 
 _ZN5boost6system10error_codeC2INS_4urls7grammar5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS6_EE5valuesr3std18is_error_code_enumIS6_EE5valueEvE4typeE.exit41: ; preds = %_ZN5boost4urls7grammar12hexdig_valueEc.exit
-  %72 = load ptr, ptr @_ZN5boost4urls7grammar6detail9error_catE, align 8, !tbaa !37, !noalias !39
+  %72 = load ptr, ptr @_ZN5boost4urls7grammar6detail9error_catE, align 8, !tbaa !35, !noalias !37
   %73 = getelementptr inbounds nuw i8, ptr %72, i64 48
-  %74 = load ptr, ptr %73, align 8, !noalias !39
-  %75 = tail call noundef zeroext i1 %74(ptr noundef nonnull align 8 dereferenceable(52) @_ZN5boost4urls7grammar6detail9error_catE, i32 noundef 5) #6, !noalias !39
+  %74 = load ptr, ptr %73, align 8, !noalias !37
+  %75 = tail call noundef zeroext i1 %74(ptr noundef nonnull align 8 dereferenceable(52) @_ZN5boost4urls7grammar6detail9error_catE, i32 noundef 5) #6, !noalias !37
   br i1 %75, label %_ZN5boost6system10error_codeC2INS_4urls7grammar5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS6_EE5valuesr3std18is_error_code_enumIS6_EE5valueEvE4typeE.exit41.thread, label %_ZN5boost6system10error_codeC2ERKS1_PKNS_15source_locationE.exit43
 
 _ZN5boost6system10error_codeC2INS_4urls7grammar5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS6_EE5valuesr3std18is_error_code_enumIS6_EE5valueEvE4typeE.exit41.thread: ; preds = %_ZN5boost4urls7grammar12hexdig_valueEc.exit, %_ZN5boost6system10error_codeC2INS_4urls7grammar5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS6_EE5valuesr3std18is_error_code_enumIS6_EE5valueEvE4typeE.exit41
@@ -383,16 +383,16 @@ _ZN5boost6system10error_codeC2ERKS1_PKNS_15source_locationE.exit43: ; preds = %_
   br i1 %80, label %81, label %90
 
 81:                                               ; preds = %78
-  %82 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost4urls7grammar6detail9error_catE, i64 8), align 8, !tbaa !29, !noalias !42
+  %82 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost4urls7grammar6detail9error_catE, i64 8), align 8, !tbaa !27, !noalias !40
   %83 = and i64 %82, -2
   %switch.i.i.i.i44 = icmp eq i64 %83, -5572340897628102704
   br i1 %switch.i.i.i.i44, label %_ZN5boost6system10error_codeC2INS_4urls7grammar5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS6_EE5valuesr3std18is_error_code_enumIS6_EE5valueEvE4typeE.exit47.thread, label %_ZN5boost6system10error_codeC2INS_4urls7grammar5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS6_EE5valuesr3std18is_error_code_enumIS6_EE5valueEvE4typeE.exit47
 
 _ZN5boost6system10error_codeC2INS_4urls7grammar5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS6_EE5valuesr3std18is_error_code_enumIS6_EE5valueEvE4typeE.exit47: ; preds = %81
-  %84 = load ptr, ptr @_ZN5boost4urls7grammar6detail9error_catE, align 8, !tbaa !37, !noalias !42
+  %84 = load ptr, ptr @_ZN5boost4urls7grammar6detail9error_catE, align 8, !tbaa !35, !noalias !40
   %85 = getelementptr inbounds nuw i8, ptr %84, i64 48
-  %86 = load ptr, ptr %85, align 8, !noalias !42
-  %87 = tail call noundef zeroext i1 %86(ptr noundef nonnull align 8 dereferenceable(52) @_ZN5boost4urls7grammar6detail9error_catE, i32 noundef 5) #6, !noalias !42
+  %86 = load ptr, ptr %85, align 8, !noalias !40
+  %87 = tail call noundef zeroext i1 %86(ptr noundef nonnull align 8 dereferenceable(52) @_ZN5boost4urls7grammar6detail9error_catE, i32 noundef 5) #6, !noalias !40
   br i1 %87, label %_ZN5boost6system10error_codeC2INS_4urls7grammar5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS6_EE5valuesr3std18is_error_code_enumIS6_EE5valueEvE4typeE.exit47.thread, label %_ZN5boost6system10error_codeC2ERKS1_PKNS_15source_locationE.exit49
 
 _ZN5boost6system10error_codeC2INS_4urls7grammar5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS6_EE5valuesr3std18is_error_code_enumIS6_EE5valueEvE4typeE.exit47.thread: ; preds = %81, %_ZN5boost6system10error_codeC2INS_4urls7grammar5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS6_EE5valuesr3std18is_error_code_enumIS6_EE5valueEvE4typeE.exit47
@@ -434,16 +434,16 @@ _ZN5boost6system10error_codeC2ERKS1_PKNS_15source_locationE.exit49: ; preds = %_
   ]
 
 _ZN5boost4urls7grammar12hexdig_valueEc.exit51:    ; preds = %90
-  %92 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost4urls7grammar6detail9error_catE, i64 8), align 8, !tbaa !29, !noalias !45
+  %92 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost4urls7grammar6detail9error_catE, i64 8), align 8, !tbaa !27, !noalias !43
   %93 = and i64 %92, -2
   %switch.i.i.i.i52 = icmp eq i64 %93, -5572340897628102704
   br i1 %switch.i.i.i.i52, label %_ZN5boost6system10error_codeC2INS_4urls7grammar5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS6_EE5valuesr3std18is_error_code_enumIS6_EE5valueEvE4typeE.exit55.thread, label %_ZN5boost6system10error_codeC2INS_4urls7grammar5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS6_EE5valuesr3std18is_error_code_enumIS6_EE5valueEvE4typeE.exit55
 
 _ZN5boost6system10error_codeC2INS_4urls7grammar5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS6_EE5valuesr3std18is_error_code_enumIS6_EE5valueEvE4typeE.exit55: ; preds = %_ZN5boost4urls7grammar12hexdig_valueEc.exit51
-  %94 = load ptr, ptr @_ZN5boost4urls7grammar6detail9error_catE, align 8, !tbaa !37, !noalias !45
+  %94 = load ptr, ptr @_ZN5boost4urls7grammar6detail9error_catE, align 8, !tbaa !35, !noalias !43
   %95 = getelementptr inbounds nuw i8, ptr %94, i64 48
-  %96 = load ptr, ptr %95, align 8, !noalias !45
-  %97 = tail call noundef zeroext i1 %96(ptr noundef nonnull align 8 dereferenceable(52) @_ZN5boost4urls7grammar6detail9error_catE, i32 noundef 5) #6, !noalias !45
+  %96 = load ptr, ptr %95, align 8, !noalias !43
+  %97 = tail call noundef zeroext i1 %96(ptr noundef nonnull align 8 dereferenceable(52) @_ZN5boost4urls7grammar6detail9error_catE, i32 noundef 5) #6, !noalias !43
   br i1 %97, label %_ZN5boost6system10error_codeC2INS_4urls7grammar5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS6_EE5valuesr3std18is_error_code_enumIS6_EE5valueEvE4typeE.exit55.thread, label %_ZN5boost6system10error_codeC2ERKS1_PKNS_15source_locationE.exit57
 
 _ZN5boost6system10error_codeC2INS_4urls7grammar5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS6_EE5valuesr3std18is_error_code_enumIS6_EE5valueEvE4typeE.exit55.thread: ; preds = %_ZN5boost4urls7grammar12hexdig_valueEc.exit51, %_ZN5boost6system10error_codeC2INS_4urls7grammar5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS6_EE5valuesr3std18is_error_code_enumIS6_EE5valueEvE4typeE.exit55
@@ -526,27 +526,25 @@ attributes #6 = { nounwind }
 !21 = distinct !{!21, !"_ZNKR5boost6system6resultINS_4urls15pct_string_viewENS0_10error_codeEE5errorEv"}
 !22 = !{!23, !18, i64 0}
 !23 = !{!"_ZTSN5boost4urls7grammar22implementation_defined11charset_refINS1_9lut_charsEEE", !18, i64 0}
-!24 = distinct !{!24, !25, !26}
+!24 = distinct !{!24, !25}
 !25 = !{!"llvm.loop.mustprogress"}
-!26 = !{!"llvm.loop.estimated_trip_count"}
-!27 = distinct !{!27, !26}
-!28 = distinct !{!28, !25, !26}
-!29 = !{!30, !31, i64 8}
-!30 = !{!"_ZTSN5boost6system14error_categoryE", !31, i64 8, !5, i64 16, !32, i64 48}
-!31 = !{!"long long", !5, i64 0}
-!32 = !{!"_ZTSSt6atomicIjE", !33, i64 0}
-!33 = !{!"_ZTSSt13__atomic_baseIjE", !7, i64 0}
-!34 = !{!35}
-!35 = distinct !{!35, !36, !"_ZN5boost4urls7grammar15make_error_codeENS1_5errorE: argument 0"}
-!36 = distinct !{!36, !"_ZN5boost4urls7grammar15make_error_codeENS1_5errorE"}
-!37 = !{!38, !38, i64 0}
-!38 = !{!"vtable pointer", !6, i64 0}
-!39 = !{!40}
-!40 = distinct !{!40, !41, !"_ZN5boost4urls7grammar15make_error_codeENS1_5errorE: argument 0"}
-!41 = distinct !{!41, !"_ZN5boost4urls7grammar15make_error_codeENS1_5errorE"}
-!42 = !{!43}
-!43 = distinct !{!43, !44, !"_ZN5boost4urls7grammar15make_error_codeENS1_5errorE: argument 0"}
-!44 = distinct !{!44, !"_ZN5boost4urls7grammar15make_error_codeENS1_5errorE"}
-!45 = !{!46}
-!46 = distinct !{!46, !47, !"_ZN5boost4urls7grammar15make_error_codeENS1_5errorE: argument 0"}
-!47 = distinct !{!47, !"_ZN5boost4urls7grammar15make_error_codeENS1_5errorE"}
+!26 = distinct !{!26, !25}
+!27 = !{!28, !29, i64 8}
+!28 = !{!"_ZTSN5boost6system14error_categoryE", !29, i64 8, !5, i64 16, !30, i64 48}
+!29 = !{!"long long", !5, i64 0}
+!30 = !{!"_ZTSSt6atomicIjE", !31, i64 0}
+!31 = !{!"_ZTSSt13__atomic_baseIjE", !7, i64 0}
+!32 = !{!33}
+!33 = distinct !{!33, !34, !"_ZN5boost4urls7grammar15make_error_codeENS1_5errorE: argument 0"}
+!34 = distinct !{!34, !"_ZN5boost4urls7grammar15make_error_codeENS1_5errorE"}
+!35 = !{!36, !36, i64 0}
+!36 = !{!"vtable pointer", !6, i64 0}
+!37 = !{!38}
+!38 = distinct !{!38, !39, !"_ZN5boost4urls7grammar15make_error_codeENS1_5errorE: argument 0"}
+!39 = distinct !{!39, !"_ZN5boost4urls7grammar15make_error_codeENS1_5errorE"}
+!40 = !{!41}
+!41 = distinct !{!41, !42, !"_ZN5boost4urls7grammar15make_error_codeENS1_5errorE: argument 0"}
+!42 = distinct !{!42, !"_ZN5boost4urls7grammar15make_error_codeENS1_5errorE"}
+!43 = !{!44}
+!44 = distinct !{!44, !45, !"_ZN5boost4urls7grammar15make_error_codeENS1_5errorE: argument 0"}
+!45 = distinct !{!45, !"_ZN5boost4urls7grammar15make_error_codeENS1_5errorE"}

@@ -123,11 +123,11 @@ define dso_local void @read_color_map(ptr noundef %0, ptr noundef captures(none)
 
 65:                                               ; preds = %61, %54
   %66 = load ptr, ptr %18, align 8, !tbaa !40
-  %67 = load ptr, ptr %66, align 8, !tbaa !46
+  %67 = load ptr, ptr %66, align 8, !tbaa !45
   %68 = getelementptr inbounds nuw i8, ptr %66, i64 8
-  %69 = load ptr, ptr %68, align 8, !tbaa !46
+  %69 = load ptr, ptr %68, align 8, !tbaa !45
   %70 = getelementptr inbounds nuw i8, ptr %66, i64 16
-  %71 = load ptr, ptr %70, align 8, !tbaa !46
+  %71 = load ptr, ptr %70, align 8, !tbaa !45
   %72 = load i32, ptr %19, align 4, !tbaa !41
   %73 = icmp sgt i32 %72, 0
   br i1 %73, label %.lr.ph.preheader.i.i, label %._crit_edge.thread.i.i
@@ -161,7 +161,7 @@ define dso_local void @read_color_map(ptr noundef %0, ptr noundef captures(none)
 88:                                               ; preds = %83, %78, %.lr.ph.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !47
+  br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !46
 
 ._crit_edge.i.i:                                  ; preds = %88
   %89 = icmp sgt i32 %72, 255
@@ -197,7 +197,7 @@ define dso_local void @read_color_map(ptr noundef %0, ptr noundef captures(none)
 add_map_entry.exit.i:                             ; preds = %83, %._crit_edge.thread.i.i
   %105 = add nuw nsw i32 %.135.i, 1
   %exitcond37.not.i = icmp eq i32 %105, %53
-  br i1 %exitcond37.not.i, label %read_gif_map.exit, label %54, !llvm.loop !48
+  br i1 %exitcond37.not.i, label %read_gif_map.exit, label %54, !llvm.loop !47
 
 read_gif_map.exit:                                ; preds = %add_map_entry.exit.i
   call void @llvm.lifetime.end.p0(i64 52, ptr nonnull %3) #3
@@ -271,11 +271,11 @@ read_gif_map.exit:                                ; preds = %add_map_entry.exit.
 
 135:                                              ; preds = %131, %124
   %136 = load ptr, ptr %18, align 8, !tbaa !40
-  %137 = load ptr, ptr %136, align 8, !tbaa !46
+  %137 = load ptr, ptr %136, align 8, !tbaa !45
   %138 = getelementptr inbounds nuw i8, ptr %136, i64 8
-  %139 = load ptr, ptr %138, align 8, !tbaa !46
+  %139 = load ptr, ptr %138, align 8, !tbaa !45
   %140 = getelementptr inbounds nuw i8, ptr %136, i64 16
-  %141 = load ptr, ptr %140, align 8, !tbaa !46
+  %141 = load ptr, ptr %140, align 8, !tbaa !45
   %142 = load i32, ptr %19, align 4, !tbaa !41
   %143 = icmp sgt i32 %142, 0
   br i1 %143, label %.lr.ph.preheader.i89.us.i, label %._crit_edge.thread.i88.us.i
@@ -309,7 +309,7 @@ read_gif_map.exit:                                ; preds = %add_map_entry.exit.
 158:                                              ; preds = %153, %148, %.lr.ph.i91.us.i
   %indvars.iv.next.i93.us.i = add nuw nsw i64 %indvars.iv.i92.us.i, 1
   %exitcond.not.i94.us.i = icmp eq i64 %indvars.iv.next.i93.us.i, %wide.trip.count.i90.us.i
-  br i1 %exitcond.not.i94.us.i, label %._crit_edge.i95.us.i, label %.lr.ph.i91.us.i, !llvm.loop !47
+  br i1 %exitcond.not.i94.us.i, label %._crit_edge.i95.us.i, label %.lr.ph.i91.us.i, !llvm.loop !46
 
 ._crit_edge.i95.us.i:                             ; preds = %158
   %159 = icmp sgt i32 %142, 255
@@ -345,12 +345,12 @@ read_gif_map.exit:                                ; preds = %add_map_entry.exit.
 add_map_entry.exit96.us.i:                        ; preds = %153, %._crit_edge.thread.i88.us.i
   %175 = add nuw i32 %.1115.us.i, 1
   %exitcond.not.i19 = icmp eq i32 %175, %108
-  br i1 %exitcond.not.i19, label %._crit_edge.us.i, label %124, !llvm.loop !49
+  br i1 %exitcond.not.i19, label %._crit_edge.us.i, label %124, !llvm.loop !48
 
 ._crit_edge.us.i:                                 ; preds = %add_map_entry.exit96.us.i
   %176 = add nuw i32 %.163116.us.i, 1
   %exitcond141.not.i = icmp eq i32 %176, %109
-  br i1 %exitcond141.not.i, label %read_ppm_map.exit, label %.preheader98.us.i, !llvm.loop !50
+  br i1 %exitcond141.not.i, label %read_ppm_map.exit, label %.preheader98.us.i, !llvm.loop !49
 
 .preheader97.i:                                   ; preds = %123
   %brmerge20 = or i1 %111, %112
@@ -370,7 +370,7 @@ add_map_entry.exit96.us.i:                        ; preds = %153, %._crit_edge.t
   switch i32 %179, label %.preheader.i.i.us.i [
     i32 -1, label %pbm_getc.exit.i.us.i
     i32 10, label %pbm_getc.exit.i.us.i
-  ], !llvm.loop !52
+  ]
 
 pbm_getc.exit.i.us.i:                             ; preds = %.preheader.i.i.us.i, %.preheader.i.i.us.i, %.critedge.i.us.i
   %.0.i.i.us.i = phi i32 [ %177, %.critedge.i.us.i ], [ %179, %.preheader.i.i.us.i ], [ %179, %.preheader.i.i.us.i ]
@@ -383,7 +383,7 @@ pbm_getc.exit.i.us.i:                             ; preds = %.preheader.i.i.us.i
   ]
 
 .critedge.i.us.i.backedge:                        ; preds = %pbm_getc.exit.i.us.i, %pbm_getc.exit.i.us.i, %pbm_getc.exit.i.us.i, %pbm_getc.exit.i.us.i
-  br label %.critedge.i.us.i, !llvm.loop !53
+  br label %.critedge.i.us.i
 
 .thread.i.us.i:                                   ; preds = %pbm_getc.exit.i.us.i
   %180 = load ptr, ptr %0, align 8, !tbaa !31
@@ -421,7 +421,7 @@ pbm_getc.exit.i.us.i:                             ; preds = %.preheader.i.i.us.i
   switch i32 %194, label %.preheader.i30.i.us.i [
     i32 -1, label %pbm_getc.exit31.i.us.i
     i32 10, label %pbm_getc.exit31.i.us.i
-  ], !llvm.loop !52
+  ]
 
 pbm_getc.exit31.i.us.i:                           ; preds = %.preheader.i30.i.us.i, %.preheader.i30.i.us.i, %191
   %.0.i29.i.us.i = phi i32 [ %192, %191 ], [ %194, %.preheader.i30.i.us.i ], [ %194, %.preheader.i30.i.us.i ]
@@ -439,7 +439,7 @@ pbm_getc.exit31.i.us.i:                           ; preds = %.preheader.i30.i.us
   switch i32 %199, label %.preheader.i.i74.us.i [
     i32 -1, label %pbm_getc.exit.i65.us.i
     i32 10, label %pbm_getc.exit.i65.us.i
-  ], !llvm.loop !52
+  ]
 
 pbm_getc.exit.i65.us.i:                           ; preds = %.preheader.i.i74.us.i, %.preheader.i.i74.us.i, %.critedge.i64.us.i
   %.0.i.i66.us.i = phi i32 [ %197, %.critedge.i64.us.i ], [ %199, %.preheader.i.i74.us.i ], [ %199, %.preheader.i.i74.us.i ]
@@ -452,7 +452,7 @@ pbm_getc.exit.i65.us.i:                           ; preds = %.preheader.i.i74.us
   ]
 
 .critedge.i64.us.i.backedge:                      ; preds = %pbm_getc.exit.i65.us.i, %pbm_getc.exit.i65.us.i, %pbm_getc.exit.i65.us.i, %pbm_getc.exit.i65.us.i
-  br label %.critedge.i64.us.i, !llvm.loop !53
+  br label %.critedge.i64.us.i
 
 .thread.i68.us.i:                                 ; preds = %pbm_getc.exit.i65.us.i
   %200 = load ptr, ptr %0, align 8, !tbaa !31
@@ -490,7 +490,7 @@ pbm_getc.exit.i65.us.i:                           ; preds = %.preheader.i.i74.us
   switch i32 %214, label %.preheader.i30.i72.us.i [
     i32 -1, label %pbm_getc.exit31.i70.us.i
     i32 10, label %pbm_getc.exit31.i70.us.i
-  ], !llvm.loop !52
+  ]
 
 pbm_getc.exit31.i70.us.i:                         ; preds = %.preheader.i30.i72.us.i, %.preheader.i30.i72.us.i, %211
   %.0.i29.i71.us.i = phi i32 [ %212, %211 ], [ %214, %.preheader.i30.i72.us.i ], [ %214, %.preheader.i30.i72.us.i ]
@@ -508,7 +508,7 @@ pbm_getc.exit31.i70.us.i:                         ; preds = %.preheader.i30.i72.
   switch i32 %219, label %.preheader.i.i86.us.i [
     i32 -1, label %pbm_getc.exit.i77.us.i
     i32 10, label %pbm_getc.exit.i77.us.i
-  ], !llvm.loop !52
+  ]
 
 pbm_getc.exit.i77.us.i:                           ; preds = %.preheader.i.i86.us.i, %.preheader.i.i86.us.i, %.critedge.i76.us.i
   %.0.i.i78.us.i = phi i32 [ %217, %.critedge.i76.us.i ], [ %219, %.preheader.i.i86.us.i ], [ %219, %.preheader.i.i86.us.i ]
@@ -521,7 +521,7 @@ pbm_getc.exit.i77.us.i:                           ; preds = %.preheader.i.i86.us
   ]
 
 .critedge.i76.us.i.backedge:                      ; preds = %pbm_getc.exit.i77.us.i, %pbm_getc.exit.i77.us.i, %pbm_getc.exit.i77.us.i, %pbm_getc.exit.i77.us.i
-  br label %.critedge.i76.us.i, !llvm.loop !53
+  br label %.critedge.i76.us.i
 
 .thread.i80.us.i:                                 ; preds = %pbm_getc.exit.i77.us.i
   %220 = load ptr, ptr %0, align 8, !tbaa !31
@@ -559,7 +559,7 @@ pbm_getc.exit.i77.us.i:                           ; preds = %.preheader.i.i86.us
   switch i32 %234, label %.preheader.i30.i84.us.i [
     i32 -1, label %pbm_getc.exit31.i82.us.i
     i32 10, label %pbm_getc.exit31.i82.us.i
-  ], !llvm.loop !52
+  ]
 
 pbm_getc.exit31.i82.us.i:                         ; preds = %.preheader.i30.i84.us.i, %.preheader.i30.i84.us.i, %231
   %.0.i29.i83.us.i = phi i32 [ %232, %231 ], [ %234, %.preheader.i30.i84.us.i ], [ %234, %.preheader.i30.i84.us.i ]
@@ -569,11 +569,11 @@ pbm_getc.exit31.i82.us.i:                         ; preds = %.preheader.i30.i84.
 
 read_pbm_integer.exit87.us.i:                     ; preds = %pbm_getc.exit31.i82.us.i
   %237 = load ptr, ptr %18, align 8, !tbaa !40
-  %238 = load ptr, ptr %237, align 8, !tbaa !46
+  %238 = load ptr, ptr %237, align 8, !tbaa !45
   %239 = getelementptr inbounds nuw i8, ptr %237, i64 8
-  %240 = load ptr, ptr %239, align 8, !tbaa !46
+  %240 = load ptr, ptr %239, align 8, !tbaa !45
   %241 = getelementptr inbounds nuw i8, ptr %237, i64 16
-  %242 = load ptr, ptr %241, align 8, !tbaa !46
+  %242 = load ptr, ptr %241, align 8, !tbaa !45
   %243 = load i32, ptr %19, align 4, !tbaa !41
   %244 = icmp sgt i32 %243, 0
   br i1 %244, label %.lr.ph.preheader.i.us.i, label %._crit_edge.thread.i.us.i
@@ -607,7 +607,7 @@ read_pbm_integer.exit87.us.i:                     ; preds = %pbm_getc.exit31.i82
 259:                                              ; preds = %254, %249, %.lr.ph.i.us.i
   %indvars.iv.next.i.us.i = add nuw nsw i64 %indvars.iv.i.us.i, 1
   %exitcond.not.i.us.i = icmp eq i64 %indvars.iv.next.i.us.i, %wide.trip.count.i.us.i
-  br i1 %exitcond.not.i.us.i, label %._crit_edge.i.us.i, label %.lr.ph.i.us.i, !llvm.loop !47
+  br i1 %exitcond.not.i.us.i, label %._crit_edge.i.us.i, label %.lr.ph.i.us.i, !llvm.loop !46
 
 ._crit_edge.i.us.i:                               ; preds = %259
   %260 = icmp sgt i32 %243, 255
@@ -643,22 +643,22 @@ read_pbm_integer.exit87.us.i:                     ; preds = %pbm_getc.exit31.i82
 add_map_entry.exit.us.i:                          ; preds = %254, %._crit_edge.thread.i.us.i
   %276 = add nuw i32 %.0117.us.i, 1
   %exitcond142.not.i = icmp eq i32 %276, %108
-  br i1 %exitcond142.not.i, label %._crit_edge.us119.i, label %.critedge.i.preheader.us.i, !llvm.loop !54
+  br i1 %exitcond142.not.i, label %._crit_edge.us119.i, label %.critedge.i.preheader.us.i, !llvm.loop !51
 
 277:                                              ; preds = %pbm_getc.exit31.i82.us.i
   %278 = mul i32 %.0.i81.us.i, 10
   %279 = add i32 %235, %278
-  br label %231, !llvm.loop !55
+  br label %231, !llvm.loop !52
 
 280:                                              ; preds = %pbm_getc.exit31.i70.us.i
   %281 = mul i32 %.0.i69.us.i, 10
   %282 = add i32 %215, %281
-  br label %211, !llvm.loop !55
+  br label %211, !llvm.loop !52
 
 283:                                              ; preds = %pbm_getc.exit31.i.us.i
   %284 = mul i32 %.0.i.us.i, 10
   %285 = add i32 %195, %284
-  br label %191, !llvm.loop !55
+  br label %191, !llvm.loop !52
 
 .critedge.i.preheader.us.i:                       ; preds = %add_map_entry.exit.us.i, %.preheader.us.i
   %.0117.us.i = phi i32 [ 0, %.preheader.us.i ], [ %276, %add_map_entry.exit.us.i ]
@@ -667,7 +667,7 @@ add_map_entry.exit.us.i:                          ; preds = %254, %._crit_edge.t
 ._crit_edge.us119.i:                              ; preds = %add_map_entry.exit.us.i
   %286 = add nuw i32 %.062118.us.i, 1
   %exitcond143.not.i = icmp eq i32 %286, %109
-  br i1 %exitcond143.not.i, label %read_ppm_map.exit, label %.preheader.us.i, !llvm.loop !56
+  br i1 %exitcond143.not.i, label %read_ppm_map.exit, label %.preheader.us.i, !llvm.loop !53
 
 287:                                              ; preds = %123
   %288 = load ptr, ptr %0, align 8, !tbaa !31
@@ -712,7 +712,7 @@ define internal fastcc i32 @read_pbm_integer(ptr noundef %0, ptr noundef capture
   switch i32 %5, label %.preheader.i [
     i32 -1, label %pbm_getc.exit
     i32 10, label %pbm_getc.exit
-  ], !llvm.loop !52
+  ]
 
 pbm_getc.exit:                                    ; preds = %.preheader.i, %.preheader.i, %.critedge
   %.0.i = phi i32 [ %3, %.critedge ], [ %5, %.preheader.i ], [ %5, %.preheader.i ]
@@ -725,7 +725,7 @@ pbm_getc.exit:                                    ; preds = %.preheader.i, %.pre
   ]
 
 .critedge.backedge:                               ; preds = %pbm_getc.exit, %pbm_getc.exit, %pbm_getc.exit, %pbm_getc.exit
-  br label %.critedge, !llvm.loop !53
+  br label %.critedge
 
 .thread:                                          ; preds = %pbm_getc.exit
   %6 = load ptr, ptr %0, align 8, !tbaa !31
@@ -763,7 +763,7 @@ pbm_getc.exit:                                    ; preds = %.preheader.i, %.pre
   switch i32 %20, label %.preheader.i30 [
     i32 -1, label %pbm_getc.exit31
     i32 10, label %pbm_getc.exit31
-  ], !llvm.loop !52
+  ]
 
 pbm_getc.exit31:                                  ; preds = %.preheader.i30, %.preheader.i30, %17
   %.0.i29 = phi i32 [ %18, %17 ], [ %20, %.preheader.i30 ], [ %20, %.preheader.i30 ]
@@ -774,7 +774,7 @@ pbm_getc.exit31:                                  ; preds = %.preheader.i30, %.p
 23:                                               ; preds = %pbm_getc.exit31
   %24 = mul i32 %.0, 10
   %25 = add i32 %21, %24
-  br label %17, !llvm.loop !55
+  br label %17, !llvm.loop !52
 
 26:                                               ; preds = %pbm_getc.exit31
   ret i32 %.0
@@ -830,17 +830,14 @@ attributes #3 = { nounwind }
 !40 = !{!5, !15, i64 160}
 !41 = !{!5, !12, i64 156}
 !42 = !{!12, !12, i64 0}
-!43 = distinct !{!43, !44, !45}
+!43 = distinct !{!43, !44}
 !44 = !{!"llvm.loop.mustprogress"}
-!45 = !{!"llvm.loop.estimated_trip_count"}
-!46 = !{!19, !19, i64 0}
-!47 = distinct !{!47, !44, !45}
-!48 = distinct !{!48, !44, !45}
-!49 = distinct !{!49, !44, !45}
-!50 = distinct !{!50, !44, !45, !51}
-!51 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!52 = distinct !{!52, !45}
-!53 = distinct !{!53, !45}
-!54 = distinct !{!54, !44, !45}
-!55 = distinct !{!55, !44, !45}
-!56 = distinct !{!56, !44, !45, !51}
+!45 = !{!19, !19, i64 0}
+!46 = distinct !{!46, !44}
+!47 = distinct !{!47, !44}
+!48 = distinct !{!48, !44}
+!49 = distinct !{!49, !44, !50}
+!50 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!51 = distinct !{!51, !44}
+!52 = distinct !{!52, !44}
+!53 = distinct !{!53, !44, !50}

@@ -485,7 +485,7 @@ lean_alloc_ctor.exit55:                           ; preds = %lean_alloc_ctor.exi
 
 .backedge:                                        ; preds = %lean_alloc_ctor.exit55, %lean_alloc_ctor.exit47
   %.043.be = phi ptr [ %.0, %lean_alloc_ctor.exit47 ], [ %74, %lean_alloc_ctor.exit55 ]
-  br label %3, !llvm.loop !15
+  br label %3
 }
 
 declare ptr @l_List_reverse___rarg(ptr noundef) local_unnamed_addr #1
@@ -598,9 +598,9 @@ lean_alloc_closure.exit:                          ; preds = %lean_alloc_ctor.exi
   %40 = getelementptr inbounds nuw i8, ptr %36, i64 8
   store ptr @l_Lean_Elab_TerminationMeasure_elab___lambda__1___boxed, ptr %40, align 8, !tbaa !10
   %41 = getelementptr inbounds nuw i8, ptr %36, i64 16
-  store i16 12, ptr %41, align 8, !tbaa !17
+  store i16 12, ptr %41, align 8, !tbaa !15
   %42 = getelementptr inbounds nuw i8, ptr %36, i64 18
-  store i16 3, ptr %42, align 2, !tbaa !17
+  store i16 3, ptr %42, align 2, !tbaa !15
   %43 = getelementptr inbounds nuw i8, ptr %36, i64 24
   store ptr %2, ptr %43, align 8, !tbaa !10
   %44 = getelementptr inbounds nuw i8, ptr %36, i64 32
@@ -983,9 +983,9 @@ lean_alloc_closure.exit:                          ; preds = %lean_inc.exit206
   %29 = getelementptr inbounds nuw i8, ptr %25, i64 8
   store ptr @l_Lean_Elab_Term_elabTermEnsuringType___boxed, ptr %29, align 8, !tbaa !10
   %30 = getelementptr inbounds nuw i8, ptr %25, i64 16
-  store i16 12, ptr %30, align 8, !tbaa !17
+  store i16 12, ptr %30, align 8, !tbaa !15
   %31 = getelementptr inbounds nuw i8, ptr %25, i64 18
-  store i16 5, ptr %31, align 2, !tbaa !17
+  store i16 5, ptr %31, align 2, !tbaa !15
   %32 = getelementptr inbounds nuw i8, ptr %25, i64 24
   store ptr %16, ptr %32, align 8, !tbaa !10
   %33 = getelementptr inbounds nuw i8, ptr %25, i64 32
@@ -1164,7 +1164,7 @@ lean_obj_tag.exit:                                ; preds = %88, %91
 
 95:                                               ; preds = %lean_obj_tag.exit
   %96 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %97 = load i8, ptr %96, align 1, !tbaa !19
+  %97 = load i8, ptr %96, align 1, !tbaa !17
   %98 = icmp eq i8 %97, 0
   br i1 %98, label %99, label %137
 
@@ -2279,9 +2279,9 @@ lean_alloc_closure.exit:                          ; preds = %lean_inc.exit
   %37 = getelementptr inbounds nuw i8, ptr %33, i64 8
   store ptr @l_Lean_Elab_TerminationMeasure_elab___lambda__3___boxed, ptr %37, align 8, !tbaa !10
   %38 = getelementptr inbounds nuw i8, ptr %33, i64 16
-  store i16 13, ptr %38, align 8, !tbaa !17
+  store i16 13, ptr %38, align 8, !tbaa !15
   %39 = getelementptr inbounds nuw i8, ptr %33, i64 18
-  store i16 4, ptr %39, align 2, !tbaa !17
+  store i16 4, ptr %39, align 2, !tbaa !15
   %40 = getelementptr inbounds nuw i8, ptr %33, i64 24
   store ptr %0, ptr %40, align 8, !tbaa !10
   %41 = getelementptr inbounds nuw i8, ptr %33, i64 32
@@ -2458,9 +2458,9 @@ lean_alloc_closure.exit:                          ; preds = %lean_inc.exit138
   %45 = getelementptr inbounds nuw i8, ptr %41, i64 8
   store ptr @l_Lean_Elab_TerminationMeasure_elab___lambda__4, ptr %45, align 8, !tbaa !10
   %46 = getelementptr inbounds nuw i8, ptr %41, i64 16
-  store i16 11, ptr %46, align 8, !tbaa !17
+  store i16 11, ptr %46, align 8, !tbaa !15
   %47 = getelementptr inbounds nuw i8, ptr %41, i64 18
-  store i16 2, ptr %47, align 2, !tbaa !17
+  store i16 2, ptr %47, align 2, !tbaa !15
   %48 = getelementptr inbounds nuw i8, ptr %41, i64 24
   store ptr %2, ptr %48, align 8, !tbaa !10
   %49 = getelementptr inbounds nuw i8, ptr %41, i64 32
@@ -2481,9 +2481,9 @@ lean_alloc_closure.exit168:                       ; preds = %lean_alloc_closure.
   %54 = getelementptr inbounds nuw i8, ptr %50, i64 8
   store ptr @l_Lean_Meta_forallBoundedTelescope___at_Lean_Elab_Term_addAutoBoundImplicits_x27___spec__2___rarg___boxed, ptr %54, align 8, !tbaa !10
   %55 = getelementptr inbounds nuw i8, ptr %50, i64 16
-  store i16 11, ptr %55, align 8, !tbaa !17
+  store i16 11, ptr %55, align 8, !tbaa !15
   %56 = getelementptr inbounds nuw i8, ptr %50, i64 18
-  store i16 4, ptr %56, align 2, !tbaa !17
+  store i16 4, ptr %56, align 2, !tbaa !15
   %57 = getelementptr inbounds nuw i8, ptr %50, i64 24
   store ptr %3, ptr %57, align 8, !tbaa !10
   %58 = getelementptr inbounds nuw i8, ptr %50, i64 32
@@ -2786,7 +2786,7 @@ lean_dec.exit123:                                 ; preds = %160, %159, %157, %1
 
 lean_inc.exit130:                                 ; preds = %170, %169, %167, %lean_dec.exit123
   %171 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %172 = load i8, ptr %171, align 1, !tbaa !19
+  %172 = load i8, ptr %171, align 1, !tbaa !17
   br i1 %.not224, label %173, label %lean_dec.exit122
 
 173:                                              ; preds = %lean_inc.exit130
@@ -2827,7 +2827,7 @@ lean_alloc_ctor.exit199:                          ; preds = %lean_dec.exit122
   store ptr %162, ptr %185, align 8, !tbaa !10
   %186 = getelementptr inbounds nuw i8, ptr %180, i64 16
   store ptr %105, ptr %186, align 8, !tbaa !10
-  store i8 %172, ptr %184, align 1, !tbaa !19
+  store i8 %172, ptr %184, align 1, !tbaa !17
   store ptr %180, ptr %150, align 8, !tbaa !10
   br label %358
 
@@ -2906,7 +2906,7 @@ lean_dec.exit121:                                 ; preds = %204, %203, %201, %l
 
 lean_inc.exit128:                                 ; preds = %214, %213, %211, %lean_dec.exit121
   %215 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %216 = load i8, ptr %215, align 1, !tbaa !19
+  %216 = load i8, ptr %215, align 1, !tbaa !17
   br i1 %.not224, label %217, label %lean_dec.exit120
 
 217:                                              ; preds = %lean_inc.exit128
@@ -2947,7 +2947,7 @@ lean_alloc_ctor.exit207:                          ; preds = %lean_dec.exit120
   store ptr %206, ptr %229, align 8, !tbaa !10
   %230 = getelementptr inbounds nuw i8, ptr %224, i64 16
   store ptr %105, ptr %230, align 8, !tbaa !10
-  store i8 %216, ptr %228, align 1, !tbaa !19
+  store i8 %216, ptr %228, align 1, !tbaa !17
   tail call void @lean_inc_heartbeat() #5
   %231 = tail call noalias ptr @mi_malloc_small(i64 noundef 24) #5
   %232 = icmp eq ptr %231, null
@@ -3435,7 +3435,7 @@ define ptr @l_Lean_Elab_TerminationMeasure_elab(ptr noundef %0, ptr noundef %1, 
   %15 = ptrtoint ptr %2 to i64
   %16 = and i64 %14, %15
   %or.cond.not = icmp eq i64 %16, 0
-  br i1 %or.cond.not, label %lean_nat_le.exit, label %17, !prof !20
+  br i1 %or.cond.not, label %lean_nat_le.exit, label %17, !prof !18
 
 17:                                               ; preds = %12
   %.not275 = icmp ugt ptr %3, %2
@@ -3555,9 +3555,9 @@ lean_alloc_closure.exit:                          ; preds = %lean_dec.exit184
   %58 = getelementptr inbounds nuw i8, ptr %54, i64 8
   store ptr @l_panic___at_Lean_Elab_TerminationMeasure_elab___spec__1, ptr %58, align 8, !tbaa !10
   %59 = getelementptr inbounds nuw i8, ptr %54, i64 16
-  store i16 8, ptr %59, align 8, !tbaa !17
+  store i16 8, ptr %59, align 8, !tbaa !15
   %60 = getelementptr inbounds nuw i8, ptr %54, i64 18
-  store i16 1, ptr %60, align 2, !tbaa !17
+  store i16 1, ptr %60, align 2, !tbaa !15
   %61 = getelementptr inbounds nuw i8, ptr %54, i64 24
   store ptr %53, ptr %61, align 8, !tbaa !10
   br label %349
@@ -3671,9 +3671,9 @@ lean_alloc_closure.exit235:                       ; preds = %lean_inc.exit191
   %96 = getelementptr inbounds nuw i8, ptr %92, i64 8
   store ptr @l_Lean_Elab_TerminationMeasure_elab___lambda__5___boxed, ptr %96, align 8, !tbaa !10
   %97 = getelementptr inbounds nuw i8, ptr %92, i64 16
-  store i16 12, ptr %97, align 8, !tbaa !17
+  store i16 12, ptr %97, align 8, !tbaa !15
   %98 = getelementptr inbounds nuw i8, ptr %92, i64 18
-  store i16 4, ptr %98, align 2, !tbaa !17
+  store i16 4, ptr %98, align 2, !tbaa !15
   %99 = getelementptr inbounds nuw i8, ptr %92, i64 24
   store ptr %2, ptr %99, align 8, !tbaa !10
   %100 = getelementptr inbounds nuw i8, ptr %92, i64 32
@@ -3832,9 +3832,9 @@ lean_alloc_closure.exit242:                       ; preds = %lean_dec.exit180
   %157 = getelementptr inbounds nuw i8, ptr %153, i64 8
   store ptr @l_Lean_Elab_TerminationMeasure_elab___lambda__5___boxed, ptr %157, align 8, !tbaa !10
   %158 = getelementptr inbounds nuw i8, ptr %153, i64 16
-  store i16 12, ptr %158, align 8, !tbaa !17
+  store i16 12, ptr %158, align 8, !tbaa !15
   %159 = getelementptr inbounds nuw i8, ptr %153, i64 18
-  store i16 5, ptr %159, align 2, !tbaa !17
+  store i16 5, ptr %159, align 2, !tbaa !15
   %160 = getelementptr inbounds nuw i8, ptr %153, i64 24
   store ptr %2, ptr %160, align 8, !tbaa !10
   %161 = getelementptr inbounds nuw i8, ptr %153, i64 32
@@ -4178,9 +4178,9 @@ lean_alloc_closure.exit255:                       ; preds = %lean_dec.exit175
   %284 = getelementptr inbounds nuw i8, ptr %280, i64 8
   store ptr @l_Lean_Elab_TerminationMeasure_elab___lambda__6___boxed, ptr %284, align 8, !tbaa !10
   %285 = getelementptr inbounds nuw i8, ptr %280, i64 16
-  store i16 11, ptr %285, align 8, !tbaa !17
+  store i16 11, ptr %285, align 8, !tbaa !15
   %286 = getelementptr inbounds nuw i8, ptr %280, i64 18
-  store i16 4, ptr %286, align 2, !tbaa !17
+  store i16 4, ptr %286, align 2, !tbaa !15
   %287 = getelementptr inbounds nuw i8, ptr %280, i64 24
   store ptr %104, ptr %287, align 8, !tbaa !10
   %288 = getelementptr inbounds nuw i8, ptr %280, i64 32
@@ -4257,9 +4257,9 @@ lean_alloc_closure.exit256:                       ; preds = %311
   %316 = getelementptr inbounds nuw i8, ptr %312, i64 8
   store ptr @l_Lean_Elab_TerminationMeasure_elab___lambda__6___boxed, ptr %316, align 8, !tbaa !10
   %317 = getelementptr inbounds nuw i8, ptr %312, i64 16
-  store i16 11, ptr %317, align 8, !tbaa !17
+  store i16 11, ptr %317, align 8, !tbaa !15
   %318 = getelementptr inbounds nuw i8, ptr %312, i64 18
-  store i16 4, ptr %318, align 2, !tbaa !17
+  store i16 4, ptr %318, align 2, !tbaa !15
   %319 = getelementptr inbounds nuw i8, ptr %312, i64 24
   store ptr %104, ptr %319, align 8, !tbaa !10
   %320 = getelementptr inbounds nuw i8, ptr %312, i64 32
@@ -4323,9 +4323,9 @@ lean_alloc_closure.exit259:                       ; preds = %lean_alloc_ctor.exi
   %342 = getelementptr inbounds nuw i8, ptr %338, i64 8
   store ptr @l_Lean_Elab_TerminationMeasure_elab___lambda__6___boxed, ptr %342, align 8, !tbaa !10
   %343 = getelementptr inbounds nuw i8, ptr %338, i64 16
-  store i16 11, ptr %343, align 8, !tbaa !17
+  store i16 11, ptr %343, align 8, !tbaa !15
   %344 = getelementptr inbounds nuw i8, ptr %338, i64 18
-  store i16 4, ptr %344, align 2, !tbaa !17
+  store i16 4, ptr %344, align 2, !tbaa !15
   %345 = getelementptr inbounds nuw i8, ptr %338, i64 24
   store ptr %104, ptr %345, align 8, !tbaa !10
   %346 = getelementptr inbounds nuw i8, ptr %338, i64 32
@@ -4872,7 +4872,7 @@ declare ptr @l_Array_idxOf_x3f___at___private_Lean_Meta_RecursorInfo_0__Lean_Met
 ; Function Attrs: nounwind uwtable
 define ptr @l_Lean_Elab_TerminationMeasure_structuralArg(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #0 {
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %8 = load i8, ptr %7, align 1, !tbaa !19
+  %8 = load i8, ptr %7, align 1, !tbaa !17
   %9 = icmp eq i8 %8, 0
   br i1 %9, label %10, label %24
 
@@ -5814,9 +5814,9 @@ l_Lean_Elab_TerminationMeasure_delab_go___lambda__2.exit: ; preds = %158
   %163 = getelementptr inbounds nuw i8, ptr %159, i64 8
   store ptr @l_Lean_Elab_TerminationMeasure_delab_go___lambda__1___boxed, ptr %163, align 8, !tbaa !10
   %164 = getelementptr inbounds nuw i8, ptr %159, i64 16
-  store i16 11, ptr %164, align 8, !tbaa !17
+  store i16 11, ptr %164, align 8, !tbaa !15
   %165 = getelementptr inbounds nuw i8, ptr %159, i64 18
-  store i16 3, ptr %165, align 2, !tbaa !17
+  store i16 3, ptr %165, align 2, !tbaa !15
   %166 = getelementptr inbounds nuw i8, ptr %159, i64 24
   store ptr %2, ptr %166, align 8, !tbaa !10
   %167 = getelementptr inbounds nuw i8, ptr %159, i64 32
@@ -6313,7 +6313,7 @@ lean_dec.exit478:                                 ; preds = %337, %336, %334, %l
 
 lean_dec.exit477:                                 ; preds = %344, %343, %341, %lean_dec.exit478
   %345 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %346 = load i8, ptr %345, align 1, !tbaa !19
+  %346 = load i8, ptr %345, align 1, !tbaa !17
   %347 = ptrtoint ptr %0 to i64
   %348 = and i64 %347, 1
   %.not846 = icmp eq i64 %348, 0
@@ -8258,9 +8258,9 @@ lean_alloc_closure.exit:                          ; preds = %11
   %16 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store ptr @l_Lean_Elab_TerminationMeasure_delab_go___lambda__1___boxed, ptr %16, align 8, !tbaa !10
   %17 = getelementptr inbounds nuw i8, ptr %12, i64 16
-  store i16 11, ptr %17, align 8, !tbaa !17
+  store i16 11, ptr %17, align 8, !tbaa !15
   %18 = getelementptr inbounds nuw i8, ptr %12, i64 18
-  store i16 3, ptr %18, align 2, !tbaa !17
+  store i16 3, ptr %18, align 2, !tbaa !15
   %19 = getelementptr inbounds nuw i8, ptr %12, i64 24
   store ptr %0, ptr %19, align 8, !tbaa !10
   %20 = getelementptr inbounds nuw i8, ptr %12, i64 32
@@ -8616,9 +8616,9 @@ l_Lean_Elab_TerminationMeasure_delab_go___lambda__2.exit: ; preds = %11
   %16 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store ptr @l_Lean_Elab_TerminationMeasure_delab_go___lambda__1___boxed, ptr %16, align 8, !tbaa !10
   %17 = getelementptr inbounds nuw i8, ptr %12, i64 16
-  store i16 11, ptr %17, align 8, !tbaa !17
+  store i16 11, ptr %17, align 8, !tbaa !15
   %18 = getelementptr inbounds nuw i8, ptr %12, i64 18
-  store i16 3, ptr %18, align 2, !tbaa !17
+  store i16 3, ptr %18, align 2, !tbaa !15
   %19 = getelementptr inbounds nuw i8, ptr %12, i64 24
   store ptr %0, ptr %19, align 8, !tbaa !10
   %20 = getelementptr inbounds nuw i8, ptr %12, i64 32
@@ -8798,9 +8798,9 @@ lean_alloc_closure.exit:                          ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr @l___private_Lean_Elab_PreDefinition_TerminationMeasure_0__Lean_Elab_TerminationMeasure_delab_go_match__1_splitter___rarg___boxed, ptr %6, align 8, !tbaa !10
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store i16 4, ptr %7, align 8, !tbaa !17
+  store i16 4, ptr %7, align 8, !tbaa !15
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 18
-  store i16 0, ptr %8, align 2, !tbaa !17
+  store i16 0, ptr %8, align 2, !tbaa !15
   ret ptr %2
 }
 
@@ -8858,9 +8858,9 @@ lean_alloc_closure.exit:                          ; preds = %3
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr @l___private_Lean_Elab_PreDefinition_TerminationMeasure_0__Array_map__unattach_match__1_splitter___rarg, ptr %8, align 8, !tbaa !10
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store i16 2, ptr %9, align 8, !tbaa !17
+  store i16 2, ptr %9, align 8, !tbaa !15
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 18
-  store i16 0, ptr %10, align 2, !tbaa !17
+  store i16 0, ptr %10, align 2, !tbaa !15
   ret ptr %4
 }
 
@@ -9140,9 +9140,9 @@ lean_alloc_closure.exit:                          ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr @l_Lean_Meta_lambdaBoundedTelescope___at_Lean_Elab_TerminationMeasure_delab___spec__1___rarg___boxed, ptr %6, align 8, !tbaa !10
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store i16 9, ptr %7, align 8, !tbaa !17
+  store i16 9, ptr %7, align 8, !tbaa !15
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 18
-  store i16 0, ptr %8, align 2, !tbaa !17
+  store i16 0, ptr %8, align 2, !tbaa !15
   ret ptr %2
 }
 
@@ -9197,9 +9197,9 @@ lean_alloc_closure.exit:                          ; preds = %9
   %15 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store ptr @l_Lean_Elab_TerminationMeasure_delab_go___boxed, ptr %15, align 8, !tbaa !10
   %16 = getelementptr inbounds nuw i8, ptr %11, i64 16
-  store i16 10, ptr %16, align 8, !tbaa !17
+  store i16 10, ptr %16, align 8, !tbaa !15
   %17 = getelementptr inbounds nuw i8, ptr %11, i64 18
-  store i16 3, ptr %17, align 2, !tbaa !17
+  store i16 3, ptr %17, align 2, !tbaa !15
   %18 = getelementptr inbounds nuw i8, ptr %11, i64 24
   store ptr %0, ptr %18, align 8, !tbaa !10
   %19 = getelementptr inbounds nuw i8, ptr %11, i64 32
@@ -9604,9 +9604,9 @@ lean_alloc_closure.exit:                          ; preds = %lean_nat_sub.exit
   %38 = getelementptr inbounds nuw i8, ptr %34, i64 8
   store ptr @l_Lean_Elab_TerminationMeasure_delab___lambda__1___boxed, ptr %38, align 8, !tbaa !10
   %39 = getelementptr inbounds nuw i8, ptr %34, i64 16
-  store i16 9, ptr %39, align 8, !tbaa !17
+  store i16 9, ptr %39, align 8, !tbaa !15
   %40 = getelementptr inbounds nuw i8, ptr %34, i64 18
-  store i16 2, ptr %40, align 2, !tbaa !17
+  store i16 2, ptr %40, align 2, !tbaa !15
   %41 = getelementptr inbounds nuw i8, ptr %34, i64 24
   store ptr %2, ptr %41, align 8, !tbaa !10
   %42 = getelementptr inbounds nuw i8, ptr %34, i64 32
@@ -10290,9 +10290,9 @@ lean_alloc_closure.exit:                          ; preds = %0
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr @l_Lean_Meta_instInhabitedMetaM___boxed, ptr %5, align 8, !tbaa !10
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  store i16 5, ptr %6, align 8, !tbaa !17
+  store i16 5, ptr %6, align 8, !tbaa !15
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 18
-  store i16 1, ptr %7, align 2, !tbaa !17
+  store i16 1, ptr %7, align 2, !tbaa !15
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store ptr inttoptr (i64 1 to ptr), ptr %8, align 8, !tbaa !10
   ret ptr %1
@@ -10318,9 +10318,9 @@ lean_alloc_closure.exit:                          ; preds = %0
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr @l_Lean_Elab_TerminationMeasure_structuralArg___lambda__1___boxed, ptr %5, align 8, !tbaa !10
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  store i16 7, ptr %6, align 8, !tbaa !17
+  store i16 7, ptr %6, align 8, !tbaa !15
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 18
-  store i16 0, ptr %7, align 2, !tbaa !17
+  store i16 0, ptr %7, align 2, !tbaa !15
   ret ptr %1
 }
 
@@ -10356,9 +10356,7 @@ attributes #6 = { noreturn nounwind }
 !12 = !{!"branch_weights", !"expected", i32 2000, i32 1}
 !13 = !{!14, !14, i64 0}
 !14 = !{!"long", !8, i64 0}
-!15 = distinct !{!15, !16}
-!16 = !{!"llvm.loop.estimated_trip_count"}
-!17 = !{!18, !18, i64 0}
-!18 = !{!"short", !8, i64 0}
-!19 = !{!8, !8, i64 0}
-!20 = !{!"branch_weights", i32 4001, i32 4000000}
+!15 = !{!16, !16, i64 0}
+!16 = !{!"short", !8, i64 0}
+!17 = !{!8, !8, i64 0}
+!18 = !{!"branch_weights", i32 4001, i32 4000000}

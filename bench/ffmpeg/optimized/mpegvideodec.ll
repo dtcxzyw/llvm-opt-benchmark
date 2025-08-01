@@ -254,6 +254,5 @@ attributes #3 = { nounwind }
 !11 = !{!"any pointer", !6, i64 0}
 !12 = !{!9, !5, i64 16}
 !13 = !{!6, !6, i64 0}
-!14 = distinct !{!14, !15, !16}
+!14 = distinct !{!14, !15}
 !15 = !{!"llvm.loop.mustprogress"}
-!16 = !{!"llvm.loop.estimated_trip_count"}

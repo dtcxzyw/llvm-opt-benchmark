@@ -115,7 +115,7 @@ define hidden void @_glfwInputWindowFocus(ptr noundef %0, i32 noundef %1) local_
 17:                                               ; preds = %9, %13
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 349
-  br i1 %exitcond.not, label %.preheader, label %9, !llvm.loop !128
+  br i1 %exitcond.not, label %.preheader, label %9
 
 18:                                               ; preds = %.preheader, %24
   %indvars.iv25 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next26, %24 ]
@@ -132,7 +132,7 @@ define hidden void @_glfwInputWindowFocus(ptr noundef %0, i32 noundef %1) local_
 24:                                               ; preds = %18, %22
   %indvars.iv.next26 = add nuw nsw i64 %indvars.iv25, 1
   %exitcond28.not = icmp eq i64 %indvars.iv.next26, 8
-  br i1 %exitcond28.not, label %.loopexit, label %18, !llvm.loop !130
+  br i1 %exitcond28.not, label %.loopexit, label %18
 
 .loopexit:                                        ; preds = %24, %6
   ret void
@@ -151,7 +151,7 @@ declare void @_glfwInputMouseClick(ptr noundef, i32 noundef, i32 noundef, i32 no
 ; Function Attrs: nounwind uwtable
 define hidden void @_glfwInputWindowPos(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 720
-  %5 = load ptr, ptr %4, align 8, !tbaa !131
+  %5 = load ptr, ptr %4, align 8, !tbaa !128
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %7, label %6
 
@@ -166,7 +166,7 @@ define hidden void @_glfwInputWindowPos(ptr noundef %0, i32 noundef %1, i32 noun
 ; Function Attrs: nounwind uwtable
 define hidden void @_glfwInputWindowSize(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 728
-  %5 = load ptr, ptr %4, align 8, !tbaa !132
+  %5 = load ptr, ptr %4, align 8, !tbaa !129
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %7, label %6
 
@@ -181,7 +181,7 @@ define hidden void @_glfwInputWindowSize(ptr noundef %0, i32 noundef %1, i32 nou
 ; Function Attrs: nounwind uwtable
 define hidden void @_glfwInputWindowIconify(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 760
-  %4 = load ptr, ptr %3, align 8, !tbaa !133
+  %4 = load ptr, ptr %3, align 8, !tbaa !130
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %6, label %5
 
@@ -196,7 +196,7 @@ define hidden void @_glfwInputWindowIconify(ptr noundef %0, i32 noundef %1) loca
 ; Function Attrs: nounwind uwtable
 define hidden void @_glfwInputWindowMaximize(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 768
-  %4 = load ptr, ptr %3, align 8, !tbaa !134
+  %4 = load ptr, ptr %3, align 8, !tbaa !131
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %6, label %5
 
@@ -211,7 +211,7 @@ define hidden void @_glfwInputWindowMaximize(ptr noundef %0, i32 noundef %1) loc
 ; Function Attrs: nounwind uwtable
 define hidden void @_glfwInputFramebufferSize(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 776
-  %5 = load ptr, ptr %4, align 8, !tbaa !135
+  %5 = load ptr, ptr %4, align 8, !tbaa !132
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %7, label %6
 
@@ -226,7 +226,7 @@ define hidden void @_glfwInputFramebufferSize(ptr noundef %0, i32 noundef %1, i3
 ; Function Attrs: nounwind uwtable
 define hidden void @_glfwInputWindowContentScale(ptr noundef %0, float noundef %1, float noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 784
-  %5 = load ptr, ptr %4, align 8, !tbaa !136
+  %5 = load ptr, ptr %4, align 8, !tbaa !133
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %7, label %6
 
@@ -241,7 +241,7 @@ define hidden void @_glfwInputWindowContentScale(ptr noundef %0, float noundef %
 ; Function Attrs: nounwind uwtable
 define hidden void @_glfwInputWindowDamage(ptr noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 744
-  %3 = load ptr, ptr %2, align 8, !tbaa !137
+  %3 = load ptr, ptr %2, align 8, !tbaa !134
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %5, label %4
 
@@ -256,9 +256,9 @@ define hidden void @_glfwInputWindowDamage(ptr noundef %0) local_unnamed_addr #0
 ; Function Attrs: nounwind uwtable
 define hidden void @_glfwInputWindowCloseRequest(ptr noundef initializes((32, 36)) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i32 1, ptr %2, align 8, !tbaa !138
+  store i32 1, ptr %2, align 8, !tbaa !135
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 736
-  %4 = load ptr, ptr %3, align 8, !tbaa !139
+  %4 = load ptr, ptr %3, align 8, !tbaa !136
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %6, label %5
 
@@ -273,7 +273,7 @@ define hidden void @_glfwInputWindowCloseRequest(ptr noundef initializes((32, 36
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define hidden void @_glfwInputWindowMonitor(ptr noundef writeonly captures(none) initializes((80, 88)) %0, ptr noundef %1) local_unnamed_addr #3 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  store ptr %1, ptr %3, align 8, !tbaa !140
+  store ptr %1, ptr %3, align 8, !tbaa !137
   ret void
 }
 
@@ -285,7 +285,7 @@ define noundef ptr @glfwCreateWindow(i32 noundef %0, i32 noundef %1, ptr noundef
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %6) #7
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %7) #7
   call void @llvm.lifetime.start.p0(i64 1104, ptr nonnull %8) #7
-  %9 = load i32, ptr @_glfw, align 8, !tbaa !141
+  %9 = load i32, ptr @_glfw, align 8, !tbaa !138
   %.not = icmp eq i32 %9, 0
   br i1 %.not, label %10, label %11
 
@@ -304,88 +304,88 @@ define noundef ptr @glfwCreateWindow(i32 noundef %0, i32 noundef %1, ptr noundef
   br label %glfwDestroyWindow.exit
 
 15:                                               ; preds = %11
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %6, ptr noundef nonnull align 8 dereferenceable(72) getelementptr inbounds nuw (i8, ptr @_glfw, i64 656), i64 72, i1 false), !tbaa.struct !142
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %7, ptr noundef nonnull align 8 dereferenceable(56) getelementptr inbounds nuw (i8, ptr @_glfw, i64 1832), i64 56, i1 false), !tbaa.struct !145
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1104) %8, ptr noundef nonnull align 8 dereferenceable(1104) getelementptr inbounds nuw (i8, ptr @_glfw, i64 728), i64 1104, i1 false), !tbaa.struct !147
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %6, ptr noundef nonnull align 8 dereferenceable(72) getelementptr inbounds nuw (i8, ptr @_glfw, i64 656), i64 72, i1 false), !tbaa.struct !139
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %7, ptr noundef nonnull align 8 dereferenceable(56) getelementptr inbounds nuw (i8, ptr @_glfw, i64 1832), i64 56, i1 false), !tbaa.struct !142
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1104) %8, ptr noundef nonnull align 8 dereferenceable(1104) getelementptr inbounds nuw (i8, ptr @_glfw, i64 728), i64 1104, i1 false), !tbaa.struct !144
   %16 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store i32 %0, ptr %16, align 8, !tbaa !149
+  store i32 %0, ptr %16, align 8, !tbaa !146
   %17 = getelementptr inbounds nuw i8, ptr %8, i64 12
-  store i32 %1, ptr %17, align 4, !tbaa !150
+  store i32 %1, ptr %17, align 4, !tbaa !147
   %18 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  store ptr %2, ptr %18, align 8, !tbaa !151
+  store ptr %2, ptr %18, align 8, !tbaa !148
   %19 = getelementptr inbounds nuw i8, ptr %7, i64 40
-  store ptr %4, ptr %19, align 8, !tbaa !152
+  store ptr %4, ptr %19, align 8, !tbaa !149
   %20 = call i32 @_glfwIsValidContextConfig(ptr noundef nonnull %7) #7
   %.not42 = icmp eq i32 %20, 0
   br i1 %.not42, label %glfwDestroyWindow.exit, label %21
 
 21:                                               ; preds = %15
   %22 = call ptr @_glfw_calloc(i64 noundef 1, i64 noundef 3416) #7
-  %23 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 1912), align 8, !tbaa !153
-  store ptr %23, ptr %22, align 8, !tbaa !154
-  store ptr %22, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 1912), align 8, !tbaa !153
+  %23 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 1912), align 8, !tbaa !150
+  store ptr %23, ptr %22, align 8, !tbaa !151
+  store ptr %22, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 1912), align 8, !tbaa !150
   %24 = getelementptr inbounds nuw i8, ptr %22, i64 52
-  store i32 %0, ptr %24, align 4, !tbaa !155
+  store i32 %0, ptr %24, align 4, !tbaa !152
   %25 = getelementptr inbounds nuw i8, ptr %22, i64 56
-  store i32 %1, ptr %25, align 4, !tbaa !156
-  %26 = load i32, ptr %6, align 8, !tbaa !157
+  store i32 %1, ptr %25, align 4, !tbaa !153
+  %26 = load i32, ptr %6, align 8, !tbaa !154
   %27 = getelementptr inbounds nuw i8, ptr %22, i64 60
-  store i32 %26, ptr %27, align 4, !tbaa !158
+  store i32 %26, ptr %27, align 4, !tbaa !155
   %28 = getelementptr inbounds nuw i8, ptr %6, i64 4
-  %29 = load i32, ptr %28, align 4, !tbaa !159
+  %29 = load i32, ptr %28, align 4, !tbaa !156
   %30 = getelementptr inbounds nuw i8, ptr %22, i64 64
-  store i32 %29, ptr %30, align 4, !tbaa !160
+  store i32 %29, ptr %30, align 4, !tbaa !157
   %31 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %32 = load i32, ptr %31, align 8, !tbaa !161
+  %32 = load i32, ptr %31, align 8, !tbaa !158
   %33 = getelementptr inbounds nuw i8, ptr %22, i64 68
-  store i32 %32, ptr %33, align 4, !tbaa !162
-  %34 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 1888), align 8, !tbaa !163
+  store i32 %32, ptr %33, align 4, !tbaa !159
+  %34 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 1888), align 8, !tbaa !160
   %35 = getelementptr inbounds nuw i8, ptr %22, i64 72
-  store i32 %34, ptr %35, align 4, !tbaa !164
+  store i32 %34, ptr %35, align 4, !tbaa !161
   %36 = getelementptr inbounds nuw i8, ptr %22, i64 80
-  store ptr %3, ptr %36, align 8, !tbaa !140
+  store ptr %3, ptr %36, align 8, !tbaa !137
   %37 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  %38 = load i32, ptr %37, align 8, !tbaa !165
+  %38 = load i32, ptr %37, align 8, !tbaa !162
   %39 = getelementptr inbounds nuw i8, ptr %22, i64 8
-  store i32 %38, ptr %39, align 8, !tbaa !166
+  store i32 %38, ptr %39, align 8, !tbaa !163
   %40 = getelementptr inbounds nuw i8, ptr %8, i64 32
-  %41 = load i32, ptr %40, align 8, !tbaa !167
+  %41 = load i32, ptr %40, align 8, !tbaa !164
   %42 = getelementptr inbounds nuw i8, ptr %22, i64 12
-  store i32 %41, ptr %42, align 4, !tbaa !168
+  store i32 %41, ptr %42, align 4, !tbaa !165
   %43 = getelementptr inbounds nuw i8, ptr %8, i64 40
-  %44 = load i32, ptr %43, align 8, !tbaa !169
+  %44 = load i32, ptr %43, align 8, !tbaa !166
   %45 = getelementptr inbounds nuw i8, ptr %22, i64 16
-  store i32 %44, ptr %45, align 8, !tbaa !170
+  store i32 %44, ptr %45, align 8, !tbaa !167
   %46 = getelementptr inbounds nuw i8, ptr %8, i64 44
-  %47 = load i32, ptr %46, align 4, !tbaa !171
+  %47 = load i32, ptr %46, align 4, !tbaa !168
   %48 = getelementptr inbounds nuw i8, ptr %22, i64 20
-  store i32 %47, ptr %48, align 4, !tbaa !172
+  store i32 %47, ptr %48, align 4, !tbaa !169
   %49 = getelementptr inbounds nuw i8, ptr %8, i64 56
-  %50 = load i32, ptr %49, align 8, !tbaa !173
+  %50 = load i32, ptr %49, align 8, !tbaa !170
   %51 = getelementptr inbounds nuw i8, ptr %22, i64 24
-  store i32 %50, ptr %51, align 8, !tbaa !174
+  store i32 %50, ptr %51, align 8, !tbaa !171
   %52 = getelementptr inbounds nuw i8, ptr %8, i64 60
-  %53 = load i32, ptr %52, align 4, !tbaa !175
+  %53 = load i32, ptr %52, align 4, !tbaa !172
   %54 = getelementptr inbounds nuw i8, ptr %22, i64 28
-  store i32 %53, ptr %54, align 4, !tbaa !176
+  store i32 %53, ptr %54, align 4, !tbaa !173
   %55 = getelementptr inbounds nuw i8, ptr %22, i64 140
-  store i32 212993, ptr %55, align 4, !tbaa !177
+  store i32 212993, ptr %55, align 4, !tbaa !174
   %56 = getelementptr inbounds nuw i8, ptr %6, i64 56
-  %57 = load i32, ptr %56, align 8, !tbaa !178
+  %57 = load i32, ptr %56, align 8, !tbaa !175
   %58 = getelementptr inbounds nuw i8, ptr %22, i64 48
-  store i32 %57, ptr %58, align 8, !tbaa !179
+  store i32 %57, ptr %58, align 8, !tbaa !176
   %59 = getelementptr inbounds nuw i8, ptr %22, i64 104
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %59, i8 -1, i64 24, i1 false)
   %60 = call ptr @_glfw_strdup(ptr noundef %2) #7
   %61 = getelementptr inbounds nuw i8, ptr %22, i64 96
-  store ptr %60, ptr %61, align 8, !tbaa !180
-  %62 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 272), align 8, !tbaa !181
+  store ptr %60, ptr %61, align 8, !tbaa !177
+  %62 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 272), align 8, !tbaa !178
   %63 = call i32 %62(ptr noundef %22, ptr noundef nonnull %8, ptr noundef nonnull %7, ptr noundef nonnull %6) #7
   %.not43 = icmp eq i32 %63, 0
   br i1 %.not43, label %64, label %glfwDestroyWindow.exit
 
 64:                                               ; preds = %21
-  %65 = load i32, ptr @_glfw, align 8, !tbaa !141
+  %65 = load i32, ptr @_glfw, align 8, !tbaa !138
   %.not.i = icmp eq i32 %65, 0
   br i1 %.not.i, label %66, label %67
 
@@ -405,20 +405,20 @@ define noundef ptr @glfwCreateWindow(i32 noundef %0, i32 noundef %1, ptr noundef
   br label %72
 
 72:                                               ; preds = %71, %67
-  %73 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 280), align 8, !tbaa !182
+  %73 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 280), align 8, !tbaa !179
   call void %73(ptr noundef nonnull %22) #7
   br label %74
 
 74:                                               ; preds = %74, %72
   %.0.i = phi ptr [ getelementptr inbounds nuw (i8, ptr @_glfw, i64 1912), %72 ], [ %75, %74 ]
-  %75 = load ptr, ptr %.0.i, align 8, !tbaa !146
+  %75 = load ptr, ptr %.0.i, align 8, !tbaa !143
   %.not14.i = icmp eq ptr %75, %22
-  br i1 %.not14.i, label %76, label %74, !llvm.loop !183
+  br i1 %.not14.i, label %76, label %74
 
 76:                                               ; preds = %74
-  %77 = load ptr, ptr %22, align 8, !tbaa !154
-  store ptr %77, ptr %.0.i, align 8, !tbaa !146
-  %78 = load ptr, ptr %61, align 8, !tbaa !180
+  %77 = load ptr, ptr %22, align 8, !tbaa !151
+  store ptr %77, ptr %.0.i, align 8, !tbaa !143
+  %78 = load ptr, ptr %61, align 8, !tbaa !177
   call void @_glfw_free(ptr noundef %78) #7
   call void @_glfw_free(ptr noundef nonnull %22) #7
   br label %glfwDestroyWindow.exit
@@ -444,7 +444,7 @@ declare ptr @_glfw_strdup(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define void @glfwDestroyWindow(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = load i32, ptr @_glfw, align 8, !tbaa !141
+  %2 = load i32, ptr @_glfw, align 8, !tbaa !138
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %3, label %4
 
@@ -468,21 +468,21 @@ define void @glfwDestroyWindow(ptr noundef %0) local_unnamed_addr #0 {
   br label %11
 
 11:                                               ; preds = %10, %6
-  %12 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 280), align 8, !tbaa !182
+  %12 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 280), align 8, !tbaa !179
   tail call void %12(ptr noundef nonnull %0) #7
   br label %13
 
 13:                                               ; preds = %13, %11
   %.0 = phi ptr [ getelementptr inbounds nuw (i8, ptr @_glfw, i64 1912), %11 ], [ %14, %13 ]
-  %14 = load ptr, ptr %.0, align 8, !tbaa !146
+  %14 = load ptr, ptr %.0, align 8, !tbaa !143
   %.not14 = icmp eq ptr %14, %0
-  br i1 %.not14, label %15, label %13, !llvm.loop !183
+  br i1 %.not14, label %15, label %13
 
 15:                                               ; preds = %13
-  %16 = load ptr, ptr %0, align 8, !tbaa !154
-  store ptr %16, ptr %.0, align 8, !tbaa !146
+  %16 = load ptr, ptr %0, align 8, !tbaa !151
+  store ptr %16, ptr %.0, align 8, !tbaa !143
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %18 = load ptr, ptr %17, align 8, !tbaa !180
+  %18 = load ptr, ptr %17, align 8, !tbaa !177
   tail call void @_glfw_free(ptr noundef %18) #7
   tail call void @_glfw_free(ptr noundef nonnull %0) #7
   br label %19
@@ -493,7 +493,7 @@ define void @glfwDestroyWindow(ptr noundef %0) local_unnamed_addr #0 {
 
 ; Function Attrs: nounwind uwtable
 define void @glfwDefaultWindowHints() local_unnamed_addr #0 {
-  %1 = load i32, ptr @_glfw, align 8, !tbaa !141
+  %1 = load i32, ptr @_glfw, align 8, !tbaa !138
   %.not = icmp eq i32 %1, 0
   br i1 %.not, label %2, label %3
 
@@ -503,30 +503,30 @@ define void @glfwDefaultWindowHints() local_unnamed_addr #0 {
 
 3:                                                ; preds = %0
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) getelementptr inbounds nuw (i8, ptr @_glfw, i64 1848), i8 0, i64 40, i1 false)
-  store i32 196609, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 1832), align 8, !tbaa !184
-  store i32 221185, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 1836), align 4, !tbaa !185
-  store i32 1, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 1840), align 8, !tbaa !186
-  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 1844), align 4, !tbaa !187
+  store i32 196609, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 1832), align 8, !tbaa !180
+  store i32 221185, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 1836), align 4, !tbaa !181
+  store i32 1, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 1840), align 8, !tbaa !182
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 1844), align 4, !tbaa !183
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1096) getelementptr inbounds nuw (i8, ptr @_glfw, i64 736), i8 0, i64 1096, i1 false)
-  store i32 1, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 752), align 8, !tbaa !188
-  store i32 1, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 756), align 4, !tbaa !189
-  store i32 1, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 760), align 8, !tbaa !190
-  store i32 1, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 764), align 4, !tbaa !191
-  store i32 1, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 768), align 8, !tbaa !192
-  store i32 1, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 780), align 4, !tbaa !193
-  store i32 1, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 784), align 8, !tbaa !194
-  store i32 -2147483648, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 728), align 8, !tbaa !195
-  store i32 -2147483648, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 732), align 4, !tbaa !196
-  store i32 1, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 796), align 4, !tbaa !197
+  store i32 1, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 752), align 8, !tbaa !184
+  store i32 1, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 756), align 4, !tbaa !185
+  store i32 1, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 760), align 8, !tbaa !186
+  store i32 1, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 764), align 4, !tbaa !187
+  store i32 1, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 768), align 8, !tbaa !188
+  store i32 1, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 780), align 4, !tbaa !189
+  store i32 1, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 784), align 8, !tbaa !190
+  store i32 -2147483648, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 728), align 8, !tbaa !191
+  store i32 -2147483648, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 732), align 4, !tbaa !192
+  store i32 1, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 796), align 4, !tbaa !193
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) getelementptr inbounds nuw (i8, ptr @_glfw, i64 680), i8 0, i64 48, i1 false)
-  store i32 8, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 656), align 8, !tbaa !198
-  store i32 8, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 660), align 4, !tbaa !199
-  store i32 8, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 664), align 8, !tbaa !200
-  store i32 8, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 668), align 4, !tbaa !201
-  store i32 24, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 672), align 8, !tbaa !202
-  store i32 8, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 676), align 4, !tbaa !203
-  store i32 1, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 712), align 8, !tbaa !204
-  store i32 -1, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 1888), align 8, !tbaa !163
+  store i32 8, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 656), align 8, !tbaa !194
+  store i32 8, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 660), align 4, !tbaa !195
+  store i32 8, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 664), align 8, !tbaa !196
+  store i32 8, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 668), align 4, !tbaa !197
+  store i32 24, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 672), align 8, !tbaa !198
+  store i32 8, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 676), align 4, !tbaa !199
+  store i32 1, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 712), align 8, !tbaa !200
+  store i32 -1, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 1888), align 8, !tbaa !160
   br label %4
 
 4:                                                ; preds = %3, %2
@@ -538,7 +538,7 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 
 ; Function Attrs: nounwind uwtable
 define void @glfwWindowHint(i32 noundef %0, i32 noundef %1) local_unnamed_addr #0 {
-  %3 = load i32, ptr @_glfw, align 8, !tbaa !141
+  %3 = load i32, ptr @_glfw, align 8, !tbaa !138
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %4, label %5
 
@@ -596,223 +596,223 @@ define void @glfwWindowHint(i32 noundef %0, i32 noundef %1) local_unnamed_addr #
   ]
 
 6:                                                ; preds = %5
-  store i32 %1, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 656), align 8, !tbaa !198
+  store i32 %1, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 656), align 8, !tbaa !194
   br label %73
 
 7:                                                ; preds = %5
-  store i32 %1, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 660), align 4, !tbaa !199
+  store i32 %1, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 660), align 4, !tbaa !195
   br label %73
 
 8:                                                ; preds = %5
-  store i32 %1, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 664), align 8, !tbaa !200
+  store i32 %1, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 664), align 8, !tbaa !196
   br label %73
 
 9:                                                ; preds = %5
-  store i32 %1, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 668), align 4, !tbaa !201
+  store i32 %1, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 668), align 4, !tbaa !197
   br label %73
 
 10:                                               ; preds = %5
-  store i32 %1, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 672), align 8, !tbaa !202
+  store i32 %1, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 672), align 8, !tbaa !198
   br label %73
 
 11:                                               ; preds = %5
-  store i32 %1, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 676), align 4, !tbaa !203
+  store i32 %1, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 676), align 4, !tbaa !199
   br label %73
 
 12:                                               ; preds = %5
-  store i32 %1, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 680), align 8, !tbaa !205
+  store i32 %1, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 680), align 8, !tbaa !201
   br label %73
 
 13:                                               ; preds = %5
-  store i32 %1, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 684), align 4, !tbaa !206
+  store i32 %1, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 684), align 4, !tbaa !202
   br label %73
 
 14:                                               ; preds = %5
-  store i32 %1, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 688), align 8, !tbaa !207
+  store i32 %1, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 688), align 8, !tbaa !203
   br label %73
 
 15:                                               ; preds = %5
-  store i32 %1, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 692), align 4, !tbaa !208
+  store i32 %1, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 692), align 4, !tbaa !204
   br label %73
 
 16:                                               ; preds = %5
-  store i32 %1, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 696), align 8, !tbaa !209
+  store i32 %1, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 696), align 8, !tbaa !205
   br label %73
 
 17:                                               ; preds = %5
   %.not67 = icmp ne i32 %1, 0
   %18 = zext i1 %.not67 to i32
-  store i32 %18, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 700), align 4, !tbaa !210
+  store i32 %18, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 700), align 4, !tbaa !206
   br label %73
 
 19:                                               ; preds = %5
   %.not66 = icmp ne i32 %1, 0
   %20 = zext i1 %.not66 to i32
-  store i32 %20, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 712), align 8, !tbaa !204
+  store i32 %20, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 712), align 8, !tbaa !200
   br label %73
 
 21:                                               ; preds = %5
   %.not65 = icmp ne i32 %1, 0
   %22 = zext i1 %.not65 to i32
-  store i32 %22, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 716), align 4, !tbaa !211
+  store i32 %22, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 716), align 4, !tbaa !207
   br label %73
 
 23:                                               ; preds = %5
-  store i32 %1, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 704), align 8, !tbaa !212
+  store i32 %1, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 704), align 8, !tbaa !208
   br label %73
 
 24:                                               ; preds = %5
   %.not64 = icmp ne i32 %1, 0
   %25 = zext i1 %.not64 to i32
-  store i32 %25, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 708), align 4, !tbaa !213
+  store i32 %25, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 708), align 4, !tbaa !209
   br label %73
 
 26:                                               ; preds = %5
   %.not63 = icmp ne i32 %1, 0
   %27 = zext i1 %.not63 to i32
-  store i32 %27, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 752), align 8, !tbaa !188
+  store i32 %27, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 752), align 8, !tbaa !184
   br label %73
 
 28:                                               ; preds = %5
   %.not62 = icmp ne i32 %1, 0
   %29 = zext i1 %.not62 to i32
-  store i32 %29, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 760), align 8, !tbaa !190
+  store i32 %29, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 760), align 8, !tbaa !186
   br label %73
 
 30:                                               ; preds = %5
   %.not61 = icmp ne i32 %1, 0
   %31 = zext i1 %.not61 to i32
-  store i32 %31, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 764), align 4, !tbaa !191
+  store i32 %31, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 764), align 4, !tbaa !187
   br label %73
 
 32:                                               ; preds = %5
   %.not60 = icmp ne i32 %1, 0
   %33 = zext i1 %.not60 to i32
-  store i32 %33, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 768), align 8, !tbaa !192
+  store i32 %33, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 768), align 8, !tbaa !188
   br label %73
 
 34:                                               ; preds = %5
   %.not59 = icmp ne i32 %1, 0
   %35 = zext i1 %.not59 to i32
-  store i32 %35, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 772), align 4, !tbaa !214
+  store i32 %35, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 772), align 4, !tbaa !210
   br label %73
 
 36:                                               ; preds = %5
   %.not58 = icmp ne i32 %1, 0
   %37 = zext i1 %.not58 to i32
-  store i32 %37, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 776), align 8, !tbaa !215
+  store i32 %37, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 776), align 8, !tbaa !211
   br label %73
 
 38:                                               ; preds = %5
   %.not57 = icmp ne i32 %1, 0
   %39 = zext i1 %.not57 to i32
-  store i32 %39, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 756), align 4, !tbaa !189
+  store i32 %39, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 756), align 4, !tbaa !185
   br label %73
 
 40:                                               ; preds = %5
-  store i32 %1, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 728), align 8, !tbaa !195
+  store i32 %1, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 728), align 8, !tbaa !191
   br label %73
 
 41:                                               ; preds = %5
-  store i32 %1, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 732), align 4, !tbaa !196
+  store i32 %1, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 732), align 4, !tbaa !192
   br label %73
 
 42:                                               ; preds = %5
   %.not56 = icmp ne i32 %1, 0
   %43 = zext i1 %.not56 to i32
-  store i32 %43, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 1568), align 8, !tbaa !216
+  store i32 %43, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 1568), align 8, !tbaa !212
   br label %73
 
 44:                                               ; preds = %5
   %.not55 = icmp ne i32 %1, 0
   %45 = zext i1 %.not55 to i32
-  store i32 %45, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 1572), align 4, !tbaa !217
+  store i32 %45, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 1572), align 4, !tbaa !213
   br label %73
 
 46:                                               ; preds = %5
   %.not54 = icmp ne i32 %1, 0
   %47 = zext i1 %.not54 to i32
-  store i32 %47, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 1880), align 8, !tbaa !218
+  store i32 %47, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 1880), align 8, !tbaa !214
   br label %73
 
 48:                                               ; preds = %5
   %.not53 = icmp ne i32 %1, 0
   %49 = zext i1 %.not53 to i32
-  store i32 %49, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 792), align 8, !tbaa !219
+  store i32 %49, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 792), align 8, !tbaa !215
   br label %73
 
 50:                                               ; preds = %5, %5
   %.not52 = icmp ne i32 %1, 0
   %51 = zext i1 %.not52 to i32
-  store i32 %51, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 796), align 4, !tbaa !197
+  store i32 %51, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 796), align 4, !tbaa !193
   br label %73
 
 52:                                               ; preds = %5
   %.not51 = icmp ne i32 %1, 0
   %53 = zext i1 %.not51 to i32
-  store i32 %53, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 780), align 4, !tbaa !193
+  store i32 %53, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 780), align 4, !tbaa !189
   br label %73
 
 54:                                               ; preds = %5
   %.not50 = icmp ne i32 %1, 0
   %55 = zext i1 %.not50 to i32
-  store i32 %55, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 784), align 8, !tbaa !194
+  store i32 %55, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 784), align 8, !tbaa !190
   br label %73
 
 56:                                               ; preds = %5
   %.not49 = icmp ne i32 %1, 0
   %57 = zext i1 %.not49 to i32
-  store i32 %57, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 788), align 4, !tbaa !220
+  store i32 %57, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 788), align 4, !tbaa !216
   br label %73
 
 58:                                               ; preds = %5
-  store i32 %1, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 1832), align 8, !tbaa !184
+  store i32 %1, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 1832), align 8, !tbaa !180
   br label %73
 
 59:                                               ; preds = %5
-  store i32 %1, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 1836), align 4, !tbaa !185
+  store i32 %1, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 1836), align 4, !tbaa !181
   br label %73
 
 60:                                               ; preds = %5
-  store i32 %1, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 1840), align 8, !tbaa !186
+  store i32 %1, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 1840), align 8, !tbaa !182
   br label %73
 
 61:                                               ; preds = %5
-  store i32 %1, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 1844), align 4, !tbaa !187
+  store i32 %1, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 1844), align 4, !tbaa !183
   br label %73
 
 62:                                               ; preds = %5
-  store i32 %1, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 1864), align 8, !tbaa !221
+  store i32 %1, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 1864), align 8, !tbaa !217
   br label %73
 
 63:                                               ; preds = %5
   %.not48 = icmp ne i32 %1, 0
   %64 = zext i1 %.not48 to i32
-  store i32 %64, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 1848), align 8, !tbaa !222
+  store i32 %64, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 1848), align 8, !tbaa !218
   br label %73
 
 65:                                               ; preds = %5
   %.not47 = icmp ne i32 %1, 0
   %66 = zext i1 %.not47 to i32
-  store i32 %66, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 1852), align 4, !tbaa !223
+  store i32 %66, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 1852), align 4, !tbaa !219
   br label %73
 
 67:                                               ; preds = %5
   %.not46 = icmp ne i32 %1, 0
   %68 = zext i1 %.not46 to i32
-  store i32 %68, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 1856), align 8, !tbaa !224
+  store i32 %68, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 1856), align 8, !tbaa !220
   br label %73
 
 69:                                               ; preds = %5
-  store i32 %1, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 1860), align 4, !tbaa !225
+  store i32 %1, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 1860), align 4, !tbaa !221
   br label %73
 
 70:                                               ; preds = %5
-  store i32 %1, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 1868), align 4, !tbaa !226
+  store i32 %1, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 1868), align 4, !tbaa !222
   br label %73
 
 71:                                               ; preds = %5
-  store i32 %1, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 1888), align 8, !tbaa !163
+  store i32 %1, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 1888), align 8, !tbaa !160
   br label %73
 
 72:                                               ; preds = %5
@@ -825,7 +825,7 @@ define void @glfwWindowHint(i32 noundef %0, i32 noundef %1) local_unnamed_addr #
 
 ; Function Attrs: nounwind uwtable
 define void @glfwWindowHintString(i32 noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
-  %3 = load i32, ptr @_glfw, align 8, !tbaa !141
+  %3 = load i32, ptr @_glfw, align 8, !tbaa !138
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %4, label %5
 
@@ -876,7 +876,7 @@ declare void @_glfw_free(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define i32 @glfwWindowShouldClose(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
-  %2 = load i32, ptr @_glfw, align 8, !tbaa !141
+  %2 = load i32, ptr @_glfw, align 8, !tbaa !138
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %3, label %4
 
@@ -886,7 +886,7 @@ define i32 @glfwWindowShouldClose(ptr noundef readonly captures(none) %0) local_
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %6 = load i32, ptr %5, align 8, !tbaa !138
+  %6 = load i32, ptr %5, align 8, !tbaa !135
   br label %7
 
 7:                                                ; preds = %4, %3
@@ -896,7 +896,7 @@ define i32 @glfwWindowShouldClose(ptr noundef readonly captures(none) %0) local_
 
 ; Function Attrs: nounwind uwtable
 define void @glfwSetWindowShouldClose(ptr noundef writeonly captures(none) %0, i32 noundef %1) local_unnamed_addr #0 {
-  %3 = load i32, ptr @_glfw, align 8, !tbaa !141
+  %3 = load i32, ptr @_glfw, align 8, !tbaa !138
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %4, label %5
 
@@ -906,7 +906,7 @@ define void @glfwSetWindowShouldClose(ptr noundef writeonly captures(none) %0, i
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i32 %1, ptr %6, align 8, !tbaa !138
+  store i32 %1, ptr %6, align 8, !tbaa !135
   br label %7
 
 7:                                                ; preds = %5, %4
@@ -915,7 +915,7 @@ define void @glfwSetWindowShouldClose(ptr noundef writeonly captures(none) %0, i
 
 ; Function Attrs: nounwind uwtable
 define ptr @glfwGetWindowTitle(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
-  %2 = load i32, ptr @_glfw, align 8, !tbaa !141
+  %2 = load i32, ptr @_glfw, align 8, !tbaa !138
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %3, label %4
 
@@ -925,7 +925,7 @@ define ptr @glfwGetWindowTitle(ptr noundef readonly captures(none) %0) local_unn
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %6 = load ptr, ptr %5, align 8, !tbaa !180
+  %6 = load ptr, ptr %5, align 8, !tbaa !177
   br label %7
 
 7:                                                ; preds = %4, %3
@@ -935,7 +935,7 @@ define ptr @glfwGetWindowTitle(ptr noundef readonly captures(none) %0) local_unn
 
 ; Function Attrs: nounwind uwtable
 define void @glfwSetWindowTitle(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
-  %3 = load i32, ptr @_glfw, align 8, !tbaa !141
+  %3 = load i32, ptr @_glfw, align 8, !tbaa !138
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %4, label %5
 
@@ -945,10 +945,10 @@ define void @glfwSetWindowTitle(ptr noundef %0, ptr noundef %1) local_unnamed_ad
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %7 = load ptr, ptr %6, align 8, !tbaa !180
+  %7 = load ptr, ptr %6, align 8, !tbaa !177
   %8 = tail call ptr @_glfw_strdup(ptr noundef %1) #7
-  store ptr %8, ptr %6, align 8, !tbaa !180
-  %9 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 288), align 8, !tbaa !227
+  store ptr %8, ptr %6, align 8, !tbaa !177
+  %9 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 288), align 8, !tbaa !223
   tail call void %9(ptr noundef %0, ptr noundef %1) #7
   tail call void @_glfw_free(ptr noundef %7) #7
   br label %10
@@ -959,7 +959,7 @@ define void @glfwSetWindowTitle(ptr noundef %0, ptr noundef %1) local_unnamed_ad
 
 ; Function Attrs: nounwind uwtable
 define void @glfwSetWindowIcon(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
-  %4 = load i32, ptr @_glfw, align 8, !tbaa !141
+  %4 = load i32, ptr @_glfw, align 8, !tbaa !138
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %5, label %6
 
@@ -986,18 +986,18 @@ define void @glfwSetWindowIcon(ptr noundef %0, i32 noundef %1, ptr noundef %2) l
 9:                                                ; preds = %13
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !228
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %9
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %9 ]
   %10 = getelementptr inbounds nuw %struct.GLFWimage, ptr %2, i64 %indvars.iv
-  %11 = load i32, ptr %10, align 8, !tbaa !229
+  %11 = load i32, ptr %10, align 8, !tbaa !224
   %12 = icmp slt i32 %11, 1
   br i1 %12, label %17, label %13
 
 13:                                               ; preds = %.lr.ph
   %14 = getelementptr inbounds nuw i8, ptr %10, i64 4
-  %15 = load i32, ptr %14, align 4, !tbaa !231
+  %15 = load i32, ptr %14, align 4, !tbaa !226
   %16 = icmp slt i32 %15, 1
   br i1 %16, label %17, label %9
 
@@ -1006,7 +1006,7 @@ define void @glfwSetWindowIcon(ptr noundef %0, i32 noundef %1, ptr noundef %2) l
   br label %19
 
 ._crit_edge:                                      ; preds = %9, %.preheader
-  %18 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 296), align 8, !tbaa !232
+  %18 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 296), align 8, !tbaa !227
   tail call void %18(ptr noundef %0, i32 noundef %1, ptr noundef %2) #7
   br label %19
 
@@ -1020,7 +1020,7 @@ define void @glfwGetWindowPos(ptr noundef %0, ptr noundef %1, ptr noundef %2) lo
   br i1 %.not, label %5, label %4
 
 4:                                                ; preds = %3
-  store i32 0, ptr %1, align 4, !tbaa !143
+  store i32 0, ptr %1, align 4, !tbaa !140
   br label %5
 
 5:                                                ; preds = %4, %3
@@ -1028,11 +1028,11 @@ define void @glfwGetWindowPos(ptr noundef %0, ptr noundef %1, ptr noundef %2) lo
   br i1 %.not9, label %7, label %6
 
 6:                                                ; preds = %5
-  store i32 0, ptr %2, align 4, !tbaa !143
+  store i32 0, ptr %2, align 4, !tbaa !140
   br label %7
 
 7:                                                ; preds = %6, %5
-  %8 = load i32, ptr @_glfw, align 8, !tbaa !141
+  %8 = load i32, ptr @_glfw, align 8, !tbaa !138
   %.not10 = icmp eq i32 %8, 0
   br i1 %.not10, label %9, label %10
 
@@ -1041,7 +1041,7 @@ define void @glfwGetWindowPos(ptr noundef %0, ptr noundef %1, ptr noundef %2) lo
   br label %12
 
 10:                                               ; preds = %7
-  %11 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 304), align 8, !tbaa !233
+  %11 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 304), align 8, !tbaa !228
   tail call void %11(ptr noundef %0, ptr noundef %1, ptr noundef %2) #7
   br label %12
 
@@ -1051,7 +1051,7 @@ define void @glfwGetWindowPos(ptr noundef %0, ptr noundef %1, ptr noundef %2) lo
 
 ; Function Attrs: nounwind uwtable
 define void @glfwSetWindowPos(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
-  %4 = load i32, ptr @_glfw, align 8, !tbaa !141
+  %4 = load i32, ptr @_glfw, align 8, !tbaa !138
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %5, label %6
 
@@ -1061,12 +1061,12 @@ define void @glfwSetWindowPos(ptr noundef %0, i32 noundef %1, i32 noundef %2) lo
 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %8 = load ptr, ptr %7, align 8, !tbaa !140
+  %8 = load ptr, ptr %7, align 8, !tbaa !137
   %.not4 = icmp eq ptr %8, null
   br i1 %.not4, label %9, label %11
 
 9:                                                ; preds = %6
-  %10 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 312), align 8, !tbaa !234
+  %10 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 312), align 8, !tbaa !229
   tail call void %10(ptr noundef nonnull %0, i32 noundef %1, i32 noundef %2) #7
   br label %11
 
@@ -1080,7 +1080,7 @@ define void @glfwGetWindowSize(ptr noundef %0, ptr noundef %1, ptr noundef %2) l
   br i1 %.not, label %5, label %4
 
 4:                                                ; preds = %3
-  store i32 0, ptr %1, align 4, !tbaa !143
+  store i32 0, ptr %1, align 4, !tbaa !140
   br label %5
 
 5:                                                ; preds = %4, %3
@@ -1088,11 +1088,11 @@ define void @glfwGetWindowSize(ptr noundef %0, ptr noundef %1, ptr noundef %2) l
   br i1 %.not9, label %7, label %6
 
 6:                                                ; preds = %5
-  store i32 0, ptr %2, align 4, !tbaa !143
+  store i32 0, ptr %2, align 4, !tbaa !140
   br label %7
 
 7:                                                ; preds = %6, %5
-  %8 = load i32, ptr @_glfw, align 8, !tbaa !141
+  %8 = load i32, ptr @_glfw, align 8, !tbaa !138
   %.not10 = icmp eq i32 %8, 0
   br i1 %.not10, label %9, label %10
 
@@ -1101,7 +1101,7 @@ define void @glfwGetWindowSize(ptr noundef %0, ptr noundef %1, ptr noundef %2) l
   br label %12
 
 10:                                               ; preds = %7
-  %11 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 320), align 8, !tbaa !235
+  %11 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 320), align 8, !tbaa !230
   tail call void %11(ptr noundef %0, ptr noundef %1, ptr noundef %2) #7
   br label %12
 
@@ -1111,7 +1111,7 @@ define void @glfwGetWindowSize(ptr noundef %0, ptr noundef %1, ptr noundef %2) l
 
 ; Function Attrs: nounwind uwtable
 define void @glfwSetWindowSize(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
-  %4 = load i32, ptr @_glfw, align 8, !tbaa !141
+  %4 = load i32, ptr @_glfw, align 8, !tbaa !138
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %5, label %6
 
@@ -1121,10 +1121,10 @@ define void @glfwSetWindowSize(ptr noundef %0, i32 noundef %1, i32 noundef %2) l
 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 52
-  store i32 %1, ptr %7, align 4, !tbaa !155
+  store i32 %1, ptr %7, align 4, !tbaa !152
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store i32 %2, ptr %8, align 4, !tbaa !156
-  %9 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 328), align 8, !tbaa !236
+  store i32 %2, ptr %8, align 4, !tbaa !153
+  %9 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 328), align 8, !tbaa !231
   tail call void %9(ptr noundef %0, i32 noundef %1, i32 noundef %2) #7
   br label %10
 
@@ -1134,7 +1134,7 @@ define void @glfwSetWindowSize(ptr noundef %0, i32 noundef %1, i32 noundef %2) l
 
 ; Function Attrs: nounwind uwtable
 define void @glfwSetWindowSizeLimits(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
-  %6 = load i32, ptr @_glfw, align 8, !tbaa !141
+  %6 = load i32, ptr @_glfw, align 8, !tbaa !138
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %7, label %8
 
@@ -1176,26 +1176,26 @@ define void @glfwSetWindowSizeLimits(ptr noundef %0, i32 noundef %1, i32 noundef
 
 21:                                               ; preds = %16, %13
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  store i32 %1, ptr %22, align 8, !tbaa !237
+  store i32 %1, ptr %22, align 8, !tbaa !232
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 108
-  store i32 %2, ptr %23, align 4, !tbaa !238
+  store i32 %2, ptr %23, align 4, !tbaa !233
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  store i32 %3, ptr %24, align 8, !tbaa !239
+  store i32 %3, ptr %24, align 8, !tbaa !234
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 116
-  store i32 %4, ptr %25, align 4, !tbaa !240
+  store i32 %4, ptr %25, align 4, !tbaa !235
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %27 = load ptr, ptr %26, align 8, !tbaa !140
+  %27 = load ptr, ptr %26, align 8, !tbaa !137
   %.not41 = icmp eq ptr %27, null
   br i1 %.not41, label %28, label %33
 
 28:                                               ; preds = %21
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %30 = load i32, ptr %29, align 8, !tbaa !166
+  %30 = load i32, ptr %29, align 8, !tbaa !163
   %.not42 = icmp eq i32 %30, 0
   br i1 %.not42, label %33, label %31
 
 31:                                               ; preds = %28
-  %32 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 336), align 8, !tbaa !241
+  %32 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 336), align 8, !tbaa !236
   tail call void %32(ptr noundef nonnull %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) #7
   br label %33
 
@@ -1205,7 +1205,7 @@ define void @glfwSetWindowSizeLimits(ptr noundef %0, i32 noundef %1, i32 noundef
 
 ; Function Attrs: nounwind uwtable
 define void @glfwSetWindowAspectRatio(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
-  %4 = load i32, ptr @_glfw, align 8, !tbaa !141
+  %4 = load i32, ptr @_glfw, align 8, !tbaa !138
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %5, label %6
 
@@ -1231,22 +1231,22 @@ define void @glfwSetWindowAspectRatio(ptr noundef %0, i32 noundef %1, i32 nounde
 
 13:                                               ; preds = %9, %6
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  store i32 %1, ptr %14, align 8, !tbaa !242
+  store i32 %1, ptr %14, align 8, !tbaa !237
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 124
-  store i32 %2, ptr %15, align 4, !tbaa !243
+  store i32 %2, ptr %15, align 4, !tbaa !238
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %17 = load ptr, ptr %16, align 8, !tbaa !140
+  %17 = load ptr, ptr %16, align 8, !tbaa !137
   %.not19 = icmp eq ptr %17, null
   br i1 %.not19, label %18, label %23
 
 18:                                               ; preds = %13
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %20 = load i32, ptr %19, align 8, !tbaa !166
+  %20 = load i32, ptr %19, align 8, !tbaa !163
   %.not20 = icmp eq i32 %20, 0
   br i1 %.not20, label %23, label %21
 
 21:                                               ; preds = %18
-  %22 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 344), align 8, !tbaa !244
+  %22 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 344), align 8, !tbaa !239
   tail call void %22(ptr noundef nonnull %0, i32 noundef %1, i32 noundef %2) #7
   br label %23
 
@@ -1260,7 +1260,7 @@ define void @glfwGetFramebufferSize(ptr noundef %0, ptr noundef %1, ptr noundef 
   br i1 %.not, label %5, label %4
 
 4:                                                ; preds = %3
-  store i32 0, ptr %1, align 4, !tbaa !143
+  store i32 0, ptr %1, align 4, !tbaa !140
   br label %5
 
 5:                                                ; preds = %4, %3
@@ -1268,11 +1268,11 @@ define void @glfwGetFramebufferSize(ptr noundef %0, ptr noundef %1, ptr noundef 
   br i1 %.not9, label %7, label %6
 
 6:                                                ; preds = %5
-  store i32 0, ptr %2, align 4, !tbaa !143
+  store i32 0, ptr %2, align 4, !tbaa !140
   br label %7
 
 7:                                                ; preds = %6, %5
-  %8 = load i32, ptr @_glfw, align 8, !tbaa !141
+  %8 = load i32, ptr @_glfw, align 8, !tbaa !138
   %.not10 = icmp eq i32 %8, 0
   br i1 %.not10, label %9, label %10
 
@@ -1281,7 +1281,7 @@ define void @glfwGetFramebufferSize(ptr noundef %0, ptr noundef %1, ptr noundef 
   br label %12
 
 10:                                               ; preds = %7
-  %11 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 352), align 8, !tbaa !245
+  %11 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 352), align 8, !tbaa !240
   tail call void %11(ptr noundef %0, ptr noundef %1, ptr noundef %2) #7
   br label %12
 
@@ -1295,7 +1295,7 @@ define void @glfwGetWindowFrameSize(ptr noundef %0, ptr noundef %1, ptr noundef 
   br i1 %.not, label %7, label %6
 
 6:                                                ; preds = %5
-  store i32 0, ptr %1, align 4, !tbaa !143
+  store i32 0, ptr %1, align 4, !tbaa !140
   br label %7
 
 7:                                                ; preds = %6, %5
@@ -1303,7 +1303,7 @@ define void @glfwGetWindowFrameSize(ptr noundef %0, ptr noundef %1, ptr noundef 
   br i1 %.not17, label %9, label %8
 
 8:                                                ; preds = %7
-  store i32 0, ptr %2, align 4, !tbaa !143
+  store i32 0, ptr %2, align 4, !tbaa !140
   br label %9
 
 9:                                                ; preds = %8, %7
@@ -1311,7 +1311,7 @@ define void @glfwGetWindowFrameSize(ptr noundef %0, ptr noundef %1, ptr noundef 
   br i1 %.not18, label %11, label %10
 
 10:                                               ; preds = %9
-  store i32 0, ptr %3, align 4, !tbaa !143
+  store i32 0, ptr %3, align 4, !tbaa !140
   br label %11
 
 11:                                               ; preds = %10, %9
@@ -1319,11 +1319,11 @@ define void @glfwGetWindowFrameSize(ptr noundef %0, ptr noundef %1, ptr noundef 
   br i1 %.not19, label %13, label %12
 
 12:                                               ; preds = %11
-  store i32 0, ptr %4, align 4, !tbaa !143
+  store i32 0, ptr %4, align 4, !tbaa !140
   br label %13
 
 13:                                               ; preds = %12, %11
-  %14 = load i32, ptr @_glfw, align 8, !tbaa !141
+  %14 = load i32, ptr @_glfw, align 8, !tbaa !138
   %.not20 = icmp eq i32 %14, 0
   br i1 %.not20, label %15, label %16
 
@@ -1332,7 +1332,7 @@ define void @glfwGetWindowFrameSize(ptr noundef %0, ptr noundef %1, ptr noundef 
   br label %18
 
 16:                                               ; preds = %13
-  %17 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 360), align 8, !tbaa !246
+  %17 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 360), align 8, !tbaa !241
   tail call void %17(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #7
   br label %18
 
@@ -1346,7 +1346,7 @@ define void @glfwGetWindowContentScale(ptr noundef %0, ptr noundef %1, ptr nound
   br i1 %.not, label %5, label %4
 
 4:                                                ; preds = %3
-  store float 0.000000e+00, ptr %1, align 4, !tbaa !247
+  store float 0.000000e+00, ptr %1, align 4, !tbaa !242
   br label %5
 
 5:                                                ; preds = %4, %3
@@ -1354,11 +1354,11 @@ define void @glfwGetWindowContentScale(ptr noundef %0, ptr noundef %1, ptr nound
   br i1 %.not9, label %7, label %6
 
 6:                                                ; preds = %5
-  store float 0.000000e+00, ptr %2, align 4, !tbaa !247
+  store float 0.000000e+00, ptr %2, align 4, !tbaa !242
   br label %7
 
 7:                                                ; preds = %6, %5
-  %8 = load i32, ptr @_glfw, align 8, !tbaa !141
+  %8 = load i32, ptr @_glfw, align 8, !tbaa !138
   %.not10 = icmp eq i32 %8, 0
   br i1 %.not10, label %9, label %10
 
@@ -1367,7 +1367,7 @@ define void @glfwGetWindowContentScale(ptr noundef %0, ptr noundef %1, ptr nound
   br label %12
 
 10:                                               ; preds = %7
-  %11 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 368), align 8, !tbaa !248
+  %11 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 368), align 8, !tbaa !243
   tail call void %11(ptr noundef %0, ptr noundef %1, ptr noundef %2) #7
   br label %12
 
@@ -1377,7 +1377,7 @@ define void @glfwGetWindowContentScale(ptr noundef %0, ptr noundef %1, ptr nound
 
 ; Function Attrs: nounwind uwtable
 define float @glfwGetWindowOpacity(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = load i32, ptr @_glfw, align 8, !tbaa !141
+  %2 = load i32, ptr @_glfw, align 8, !tbaa !138
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %3, label %4
 
@@ -1386,7 +1386,7 @@ define float @glfwGetWindowOpacity(ptr noundef %0) local_unnamed_addr #0 {
   br label %7
 
 4:                                                ; preds = %1
-  %5 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 488), align 8, !tbaa !249
+  %5 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 488), align 8, !tbaa !244
   %6 = tail call float %5(ptr noundef %0) #7
   br label %7
 
@@ -1397,7 +1397,7 @@ define float @glfwGetWindowOpacity(ptr noundef %0) local_unnamed_addr #0 {
 
 ; Function Attrs: nounwind uwtable
 define void @glfwSetWindowOpacity(ptr noundef %0, float noundef %1) local_unnamed_addr #0 {
-  %3 = load i32, ptr @_glfw, align 8, !tbaa !141
+  %3 = load i32, ptr @_glfw, align 8, !tbaa !138
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %4, label %5
 
@@ -1417,7 +1417,7 @@ define void @glfwSetWindowOpacity(ptr noundef %0, float noundef %1) local_unname
   br label %11
 
 9:                                                ; preds = %5
-  %10 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 520), align 8, !tbaa !250
+  %10 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 520), align 8, !tbaa !245
   tail call void %10(ptr noundef %0, float noundef %1) #7
   br label %11
 
@@ -1427,7 +1427,7 @@ define void @glfwSetWindowOpacity(ptr noundef %0, float noundef %1) local_unname
 
 ; Function Attrs: nounwind uwtable
 define void @glfwIconifyWindow(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = load i32, ptr @_glfw, align 8, !tbaa !141
+  %2 = load i32, ptr @_glfw, align 8, !tbaa !138
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %3, label %4
 
@@ -1436,7 +1436,7 @@ define void @glfwIconifyWindow(ptr noundef %0) local_unnamed_addr #0 {
   br label %6
 
 4:                                                ; preds = %1
-  %5 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 376), align 8, !tbaa !251
+  %5 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 376), align 8, !tbaa !246
   tail call void %5(ptr noundef %0) #7
   br label %6
 
@@ -1446,7 +1446,7 @@ define void @glfwIconifyWindow(ptr noundef %0) local_unnamed_addr #0 {
 
 ; Function Attrs: nounwind uwtable
 define void @glfwRestoreWindow(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = load i32, ptr @_glfw, align 8, !tbaa !141
+  %2 = load i32, ptr @_glfw, align 8, !tbaa !138
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %3, label %4
 
@@ -1455,7 +1455,7 @@ define void @glfwRestoreWindow(ptr noundef %0) local_unnamed_addr #0 {
   br label %6
 
 4:                                                ; preds = %1
-  %5 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 384), align 8, !tbaa !252
+  %5 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 384), align 8, !tbaa !247
   tail call void %5(ptr noundef %0) #7
   br label %6
 
@@ -1465,7 +1465,7 @@ define void @glfwRestoreWindow(ptr noundef %0) local_unnamed_addr #0 {
 
 ; Function Attrs: nounwind uwtable
 define void @glfwMaximizeWindow(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = load i32, ptr @_glfw, align 8, !tbaa !141
+  %2 = load i32, ptr @_glfw, align 8, !tbaa !138
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %3, label %4
 
@@ -1475,12 +1475,12 @@ define void @glfwMaximizeWindow(ptr noundef %0) local_unnamed_addr #0 {
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %6 = load ptr, ptr %5, align 8, !tbaa !140
+  %6 = load ptr, ptr %5, align 8, !tbaa !137
   %.not3 = icmp eq ptr %6, null
   br i1 %.not3, label %7, label %9
 
 7:                                                ; preds = %4
-  %8 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 392), align 8, !tbaa !253
+  %8 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 392), align 8, !tbaa !248
   tail call void %8(ptr noundef nonnull %0) #7
   br label %9
 
@@ -1490,7 +1490,7 @@ define void @glfwMaximizeWindow(ptr noundef %0) local_unnamed_addr #0 {
 
 ; Function Attrs: nounwind uwtable
 define void @glfwShowWindow(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = load i32, ptr @_glfw, align 8, !tbaa !141
+  %2 = load i32, ptr @_glfw, align 8, !tbaa !138
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %3, label %4
 
@@ -1500,20 +1500,20 @@ define void @glfwShowWindow(ptr noundef %0) local_unnamed_addr #0 {
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %6 = load ptr, ptr %5, align 8, !tbaa !140
+  %6 = load ptr, ptr %5, align 8, !tbaa !137
   %.not5 = icmp eq ptr %6, null
   br i1 %.not5, label %7, label %13
 
 7:                                                ; preds = %4
-  %8 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 400), align 8, !tbaa !254
+  %8 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 400), align 8, !tbaa !249
   tail call void %8(ptr noundef nonnull %0) #7
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %10 = load i32, ptr %9, align 8, !tbaa !174
+  %10 = load i32, ptr %9, align 8, !tbaa !171
   %.not6 = icmp eq i32 %10, 0
   br i1 %.not6, label %13, label %11
 
 11:                                               ; preds = %7
-  %12 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 424), align 8, !tbaa !255
+  %12 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 424), align 8, !tbaa !250
   tail call void %12(ptr noundef nonnull %0) #7
   br label %13
 
@@ -1523,7 +1523,7 @@ define void @glfwShowWindow(ptr noundef %0) local_unnamed_addr #0 {
 
 ; Function Attrs: nounwind uwtable
 define void @glfwRequestWindowAttention(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = load i32, ptr @_glfw, align 8, !tbaa !141
+  %2 = load i32, ptr @_glfw, align 8, !tbaa !138
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %3, label %4
 
@@ -1532,7 +1532,7 @@ define void @glfwRequestWindowAttention(ptr noundef %0) local_unnamed_addr #0 {
   br label %6
 
 4:                                                ; preds = %1
-  %5 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 416), align 8, !tbaa !256
+  %5 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 416), align 8, !tbaa !251
   tail call void %5(ptr noundef %0) #7
   br label %6
 
@@ -1542,7 +1542,7 @@ define void @glfwRequestWindowAttention(ptr noundef %0) local_unnamed_addr #0 {
 
 ; Function Attrs: nounwind uwtable
 define void @glfwHideWindow(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = load i32, ptr @_glfw, align 8, !tbaa !141
+  %2 = load i32, ptr @_glfw, align 8, !tbaa !138
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %3, label %4
 
@@ -1552,12 +1552,12 @@ define void @glfwHideWindow(ptr noundef %0) local_unnamed_addr #0 {
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %6 = load ptr, ptr %5, align 8, !tbaa !140
+  %6 = load ptr, ptr %5, align 8, !tbaa !137
   %.not3 = icmp eq ptr %6, null
   br i1 %.not3, label %7, label %9
 
 7:                                                ; preds = %4
-  %8 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 408), align 8, !tbaa !257
+  %8 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 408), align 8, !tbaa !252
   tail call void %8(ptr noundef nonnull %0) #7
   br label %9
 
@@ -1567,7 +1567,7 @@ define void @glfwHideWindow(ptr noundef %0) local_unnamed_addr #0 {
 
 ; Function Attrs: nounwind uwtable
 define void @glfwFocusWindow(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = load i32, ptr @_glfw, align 8, !tbaa !141
+  %2 = load i32, ptr @_glfw, align 8, !tbaa !138
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %3, label %4
 
@@ -1576,7 +1576,7 @@ define void @glfwFocusWindow(ptr noundef %0) local_unnamed_addr #0 {
   br label %6
 
 4:                                                ; preds = %1
-  %5 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 424), align 8, !tbaa !255
+  %5 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 424), align 8, !tbaa !250
   tail call void %5(ptr noundef %0) #7
   br label %6
 
@@ -1586,7 +1586,7 @@ define void @glfwFocusWindow(ptr noundef %0) local_unnamed_addr #0 {
 
 ; Function Attrs: nounwind uwtable
 define i32 @glfwGetWindowAttrib(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
-  %3 = load i32, ptr @_glfw, align 8, !tbaa !141
+  %3 = load i32, ptr @_glfw, align 8, !tbaa !138
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %4, label %5
 
@@ -1623,123 +1623,123 @@ define i32 @glfwGetWindowAttrib(ptr noundef %0, i32 noundef %1) local_unnamed_ad
   ]
 
 6:                                                ; preds = %5
-  %7 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 440), align 8, !tbaa !258
+  %7 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 440), align 8, !tbaa !253
   %8 = tail call i32 %7(ptr noundef %0) #7
   br label %79
 
 9:                                                ; preds = %5
-  %10 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 448), align 8, !tbaa !259
+  %10 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 448), align 8, !tbaa !254
   %11 = tail call i32 %10(ptr noundef %0) #7
   br label %79
 
 12:                                               ; preds = %5
-  %13 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 456), align 8, !tbaa !260
+  %13 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 456), align 8, !tbaa !255
   %14 = tail call i32 %13(ptr noundef %0) #7
   br label %79
 
 15:                                               ; preds = %5
-  %16 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 464), align 8, !tbaa !261
+  %16 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 464), align 8, !tbaa !256
   %17 = tail call i32 %16(ptr noundef %0) #7
   br label %79
 
 18:                                               ; preds = %5
-  %19 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 472), align 8, !tbaa !262
+  %19 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 472), align 8, !tbaa !257
   %20 = tail call i32 %19(ptr noundef %0) #7
   br label %79
 
 21:                                               ; preds = %5
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %23 = load i32, ptr %22, align 8, !tbaa !174
+  %23 = load i32, ptr %22, align 8, !tbaa !171
   br label %79
 
 24:                                               ; preds = %5
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %26 = load i32, ptr %25, align 4, !tbaa !176
+  %26 = load i32, ptr %25, align 4, !tbaa !173
   br label %79
 
 27:                                               ; preds = %5
-  %28 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 480), align 8, !tbaa !263
+  %28 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 480), align 8, !tbaa !258
   %29 = tail call i32 %28(ptr noundef %0) #7
   br label %79
 
 30:                                               ; preds = %5
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %32 = load i32, ptr %31, align 8, !tbaa !166
+  %32 = load i32, ptr %31, align 8, !tbaa !163
   br label %79
 
 33:                                               ; preds = %5
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %35 = load i32, ptr %34, align 4, !tbaa !168
+  %35 = load i32, ptr %34, align 4, !tbaa !165
   br label %79
 
 36:                                               ; preds = %5
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %38 = load i32, ptr %37, align 4, !tbaa !172
+  %38 = load i32, ptr %37, align 4, !tbaa !169
   br label %79
 
 39:                                               ; preds = %5
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %41 = load i32, ptr %40, align 8, !tbaa !170
+  %41 = load i32, ptr %40, align 8, !tbaa !167
   br label %79
 
 42:                                               ; preds = %5
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %44 = load i32, ptr %43, align 8, !tbaa !179
+  %44 = load i32, ptr %43, align 8, !tbaa !176
   br label %79
 
 45:                                               ; preds = %5
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 528
-  %47 = load i32, ptr %46, align 8, !tbaa !264
+  %47 = load i32, ptr %46, align 8, !tbaa !259
   br label %79
 
 48:                                               ; preds = %5
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 532
-  %50 = load i32, ptr %49, align 4, !tbaa !265
+  %50 = load i32, ptr %49, align 4, !tbaa !260
   br label %79
 
 51:                                               ; preds = %5
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 536
-  %53 = load i32, ptr %52, align 8, !tbaa !266
+  %53 = load i32, ptr %52, align 8, !tbaa !261
   br label %79
 
 54:                                               ; preds = %5
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 540
-  %56 = load i32, ptr %55, align 4, !tbaa !267
+  %56 = load i32, ptr %55, align 4, !tbaa !262
   br label %79
 
 57:                                               ; preds = %5
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 544
-  %59 = load i32, ptr %58, align 8, !tbaa !268
+  %59 = load i32, ptr %58, align 8, !tbaa !263
   br label %79
 
 60:                                               ; preds = %5
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 564
-  %62 = load i32, ptr %61, align 4, !tbaa !269
+  %62 = load i32, ptr %61, align 4, !tbaa !264
   br label %79
 
 63:                                               ; preds = %5
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 548
-  %65 = load i32, ptr %64, align 4, !tbaa !270
+  %65 = load i32, ptr %64, align 4, !tbaa !265
   br label %79
 
 66:                                               ; preds = %5
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 552
-  %68 = load i32, ptr %67, align 8, !tbaa !271
+  %68 = load i32, ptr %67, align 8, !tbaa !266
   br label %79
 
 69:                                               ; preds = %5
   %70 = getelementptr inbounds nuw i8, ptr %0, i64 560
-  %71 = load i32, ptr %70, align 8, !tbaa !272
+  %71 = load i32, ptr %70, align 8, !tbaa !267
   br label %79
 
 72:                                               ; preds = %5
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 568
-  %74 = load i32, ptr %73, align 8, !tbaa !273
+  %74 = load i32, ptr %73, align 8, !tbaa !268
   br label %79
 
 75:                                               ; preds = %5
   %76 = getelementptr inbounds nuw i8, ptr %0, i64 556
-  %77 = load i32, ptr %76, align 4, !tbaa !274
+  %77 = load i32, ptr %76, align 4, !tbaa !269
   br label %79
 
 78:                                               ; preds = %5
@@ -1753,7 +1753,7 @@ define i32 @glfwGetWindowAttrib(ptr noundef %0, i32 noundef %1) local_unnamed_ad
 
 ; Function Attrs: nounwind uwtable
 define void @glfwSetWindowAttrib(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
-  %4 = load i32, ptr @_glfw, align 8, !tbaa !141
+  %4 = load i32, ptr @_glfw, align 8, !tbaa !138
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %5, label %6
 
@@ -1775,57 +1775,57 @@ define void @glfwSetWindowAttrib(ptr noundef %0, i32 noundef %1, i32 noundef %2)
 
 8:                                                ; preds = %6
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i32 %7, ptr %9, align 8, !tbaa !170
+  store i32 %7, ptr %9, align 8, !tbaa !167
   br label %34
 
 10:                                               ; preds = %6
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 %7, ptr %11, align 8, !tbaa !166
+  store i32 %7, ptr %11, align 8, !tbaa !163
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %13 = load ptr, ptr %12, align 8, !tbaa !140
+  %13 = load ptr, ptr %12, align 8, !tbaa !137
   %.not29 = icmp eq ptr %13, null
   br i1 %.not29, label %14, label %34
 
 14:                                               ; preds = %10
-  %15 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 496), align 8, !tbaa !275
+  %15 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 496), align 8, !tbaa !270
   tail call void %15(ptr noundef nonnull %0, i32 noundef %7) #7
   br label %34
 
 16:                                               ; preds = %6
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store i32 %7, ptr %17, align 4, !tbaa !168
+  store i32 %7, ptr %17, align 4, !tbaa !165
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %19 = load ptr, ptr %18, align 8, !tbaa !140
+  %19 = load ptr, ptr %18, align 8, !tbaa !137
   %.not28 = icmp eq ptr %19, null
   br i1 %.not28, label %20, label %34
 
 20:                                               ; preds = %16
-  %21 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 504), align 8, !tbaa !276
+  %21 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 504), align 8, !tbaa !271
   tail call void %21(ptr noundef nonnull %0, i32 noundef %7) #7
   br label %34
 
 22:                                               ; preds = %6
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  store i32 %7, ptr %23, align 4, !tbaa !172
+  store i32 %7, ptr %23, align 4, !tbaa !169
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %25 = load ptr, ptr %24, align 8, !tbaa !140
+  %25 = load ptr, ptr %24, align 8, !tbaa !137
   %.not27 = icmp eq ptr %25, null
   br i1 %.not27, label %26, label %34
 
 26:                                               ; preds = %22
-  %27 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 512), align 8, !tbaa !277
+  %27 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 512), align 8, !tbaa !272
   tail call void %27(ptr noundef nonnull %0, i32 noundef %7) #7
   br label %34
 
 28:                                               ; preds = %6
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i32 %7, ptr %29, align 8, !tbaa !174
+  store i32 %7, ptr %29, align 8, !tbaa !171
   br label %34
 
 30:                                               ; preds = %6
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  store i32 %7, ptr %31, align 4, !tbaa !176
-  %32 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 528), align 8, !tbaa !278
+  store i32 %7, ptr %31, align 4, !tbaa !173
+  %32 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 528), align 8, !tbaa !273
   tail call void %32(ptr noundef %0, i32 noundef %7) #7
   br label %34
 
@@ -1839,7 +1839,7 @@ define void @glfwSetWindowAttrib(ptr noundef %0, i32 noundef %1, i32 noundef %2)
 
 ; Function Attrs: nounwind uwtable
 define ptr @glfwGetWindowMonitor(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
-  %2 = load i32, ptr @_glfw, align 8, !tbaa !141
+  %2 = load i32, ptr @_glfw, align 8, !tbaa !138
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %3, label %4
 
@@ -1849,7 +1849,7 @@ define ptr @glfwGetWindowMonitor(ptr noundef readonly captures(none) %0) local_u
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %6 = load ptr, ptr %5, align 8, !tbaa !140
+  %6 = load ptr, ptr %5, align 8, !tbaa !137
   br label %7
 
 7:                                                ; preds = %4, %3
@@ -1859,7 +1859,7 @@ define ptr @glfwGetWindowMonitor(ptr noundef readonly captures(none) %0) local_u
 
 ; Function Attrs: nounwind uwtable
 define void @glfwSetWindowMonitor(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) local_unnamed_addr #0 {
-  %8 = load i32, ptr @_glfw, align 8, !tbaa !141
+  %8 = load i32, ptr @_glfw, align 8, !tbaa !138
   %.not = icmp eq i32 %8, 0
   br i1 %.not, label %9, label %10
 
@@ -1887,12 +1887,12 @@ define void @glfwSetWindowMonitor(ptr noundef %0, ptr noundef %1, i32 noundef %2
 
 16:                                               ; preds = %14
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 52
-  store i32 %4, ptr %17, align 4, !tbaa !155
+  store i32 %4, ptr %17, align 4, !tbaa !152
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store i32 %5, ptr %18, align 4, !tbaa !156
+  store i32 %5, ptr %18, align 4, !tbaa !153
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  store i32 %6, ptr %19, align 4, !tbaa !164
-  %20 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 432), align 8, !tbaa !279
+  store i32 %6, ptr %19, align 4, !tbaa !161
+  %20 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 432), align 8, !tbaa !274
   tail call void %20(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) #7
   br label %21
 
@@ -1902,7 +1902,7 @@ define void @glfwSetWindowMonitor(ptr noundef %0, ptr noundef %1, i32 noundef %2
 
 ; Function Attrs: nounwind uwtable
 define void @glfwSetWindowUserPointer(ptr noundef writeonly captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
-  %3 = load i32, ptr @_glfw, align 8, !tbaa !141
+  %3 = load i32, ptr @_glfw, align 8, !tbaa !138
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %4, label %5
 
@@ -1912,7 +1912,7 @@ define void @glfwSetWindowUserPointer(ptr noundef writeonly captures(none) %0, p
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store ptr %1, ptr %6, align 8, !tbaa !280
+  store ptr %1, ptr %6, align 8, !tbaa !275
   br label %7
 
 7:                                                ; preds = %5, %4
@@ -1921,7 +1921,7 @@ define void @glfwSetWindowUserPointer(ptr noundef writeonly captures(none) %0, p
 
 ; Function Attrs: nounwind uwtable
 define ptr @glfwGetWindowUserPointer(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
-  %2 = load i32, ptr @_glfw, align 8, !tbaa !141
+  %2 = load i32, ptr @_glfw, align 8, !tbaa !138
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %3, label %4
 
@@ -1931,7 +1931,7 @@ define ptr @glfwGetWindowUserPointer(ptr noundef readonly captures(none) %0) loc
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %6 = load ptr, ptr %5, align 8, !tbaa !280
+  %6 = load ptr, ptr %5, align 8, !tbaa !275
   br label %7
 
 7:                                                ; preds = %4, %3
@@ -1941,7 +1941,7 @@ define ptr @glfwGetWindowUserPointer(ptr noundef readonly captures(none) %0) loc
 
 ; Function Attrs: nounwind uwtable
 define ptr @glfwSetWindowPosCallback(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
-  %3 = load i32, ptr @_glfw, align 8, !tbaa !141
+  %3 = load i32, ptr @_glfw, align 8, !tbaa !138
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %4, label %5
 
@@ -1951,8 +1951,8 @@ define ptr @glfwSetWindowPosCallback(ptr noundef captures(none) %0, ptr noundef 
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 720
-  %7 = load ptr, ptr %6, align 8, !tbaa !131
-  store ptr %1, ptr %6, align 8, !tbaa !131
+  %7 = load ptr, ptr %6, align 8, !tbaa !128
+  store ptr %1, ptr %6, align 8, !tbaa !128
   br label %8
 
 8:                                                ; preds = %5, %4
@@ -1962,7 +1962,7 @@ define ptr @glfwSetWindowPosCallback(ptr noundef captures(none) %0, ptr noundef 
 
 ; Function Attrs: nounwind uwtable
 define ptr @glfwSetWindowSizeCallback(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
-  %3 = load i32, ptr @_glfw, align 8, !tbaa !141
+  %3 = load i32, ptr @_glfw, align 8, !tbaa !138
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %4, label %5
 
@@ -1972,8 +1972,8 @@ define ptr @glfwSetWindowSizeCallback(ptr noundef captures(none) %0, ptr noundef
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 728
-  %7 = load ptr, ptr %6, align 8, !tbaa !132
-  store ptr %1, ptr %6, align 8, !tbaa !132
+  %7 = load ptr, ptr %6, align 8, !tbaa !129
+  store ptr %1, ptr %6, align 8, !tbaa !129
   br label %8
 
 8:                                                ; preds = %5, %4
@@ -1983,7 +1983,7 @@ define ptr @glfwSetWindowSizeCallback(ptr noundef captures(none) %0, ptr noundef
 
 ; Function Attrs: nounwind uwtable
 define ptr @glfwSetWindowCloseCallback(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
-  %3 = load i32, ptr @_glfw, align 8, !tbaa !141
+  %3 = load i32, ptr @_glfw, align 8, !tbaa !138
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %4, label %5
 
@@ -1993,8 +1993,8 @@ define ptr @glfwSetWindowCloseCallback(ptr noundef captures(none) %0, ptr nounde
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 736
-  %7 = load ptr, ptr %6, align 8, !tbaa !139
-  store ptr %1, ptr %6, align 8, !tbaa !139
+  %7 = load ptr, ptr %6, align 8, !tbaa !136
+  store ptr %1, ptr %6, align 8, !tbaa !136
   br label %8
 
 8:                                                ; preds = %5, %4
@@ -2004,7 +2004,7 @@ define ptr @glfwSetWindowCloseCallback(ptr noundef captures(none) %0, ptr nounde
 
 ; Function Attrs: nounwind uwtable
 define ptr @glfwSetWindowRefreshCallback(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
-  %3 = load i32, ptr @_glfw, align 8, !tbaa !141
+  %3 = load i32, ptr @_glfw, align 8, !tbaa !138
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %4, label %5
 
@@ -2014,8 +2014,8 @@ define ptr @glfwSetWindowRefreshCallback(ptr noundef captures(none) %0, ptr noun
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 744
-  %7 = load ptr, ptr %6, align 8, !tbaa !137
-  store ptr %1, ptr %6, align 8, !tbaa !137
+  %7 = load ptr, ptr %6, align 8, !tbaa !134
+  store ptr %1, ptr %6, align 8, !tbaa !134
   br label %8
 
 8:                                                ; preds = %5, %4
@@ -2025,7 +2025,7 @@ define ptr @glfwSetWindowRefreshCallback(ptr noundef captures(none) %0, ptr noun
 
 ; Function Attrs: nounwind uwtable
 define ptr @glfwSetWindowFocusCallback(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
-  %3 = load i32, ptr @_glfw, align 8, !tbaa !141
+  %3 = load i32, ptr @_glfw, align 8, !tbaa !138
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %4, label %5
 
@@ -2046,7 +2046,7 @@ define ptr @glfwSetWindowFocusCallback(ptr noundef captures(none) %0, ptr nounde
 
 ; Function Attrs: nounwind uwtable
 define ptr @glfwSetWindowIconifyCallback(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
-  %3 = load i32, ptr @_glfw, align 8, !tbaa !141
+  %3 = load i32, ptr @_glfw, align 8, !tbaa !138
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %4, label %5
 
@@ -2056,6 +2056,69 @@ define ptr @glfwSetWindowIconifyCallback(ptr noundef captures(none) %0, ptr noun
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 760
+  %7 = load ptr, ptr %6, align 8, !tbaa !130
+  store ptr %1, ptr %6, align 8, !tbaa !130
+  br label %8
+
+8:                                                ; preds = %5, %4
+  %.0 = phi ptr [ %7, %5 ], [ null, %4 ]
+  ret ptr %.0
+}
+
+; Function Attrs: nounwind uwtable
+define ptr @glfwSetWindowMaximizeCallback(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
+  %3 = load i32, ptr @_glfw, align 8, !tbaa !138
+  %.not = icmp eq i32 %3, 0
+  br i1 %.not, label %4, label %5
+
+4:                                                ; preds = %2
+  tail call void (i32, ptr, ...) @_glfwInputError(i32 noundef 65537, ptr noundef null) #7
+  br label %8
+
+5:                                                ; preds = %2
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 768
+  %7 = load ptr, ptr %6, align 8, !tbaa !131
+  store ptr %1, ptr %6, align 8, !tbaa !131
+  br label %8
+
+8:                                                ; preds = %5, %4
+  %.0 = phi ptr [ %7, %5 ], [ null, %4 ]
+  ret ptr %.0
+}
+
+; Function Attrs: nounwind uwtable
+define ptr @glfwSetFramebufferSizeCallback(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
+  %3 = load i32, ptr @_glfw, align 8, !tbaa !138
+  %.not = icmp eq i32 %3, 0
+  br i1 %.not, label %4, label %5
+
+4:                                                ; preds = %2
+  tail call void (i32, ptr, ...) @_glfwInputError(i32 noundef 65537, ptr noundef null) #7
+  br label %8
+
+5:                                                ; preds = %2
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 776
+  %7 = load ptr, ptr %6, align 8, !tbaa !132
+  store ptr %1, ptr %6, align 8, !tbaa !132
+  br label %8
+
+8:                                                ; preds = %5, %4
+  %.0 = phi ptr [ %7, %5 ], [ null, %4 ]
+  ret ptr %.0
+}
+
+; Function Attrs: nounwind uwtable
+define ptr @glfwSetWindowContentScaleCallback(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
+  %3 = load i32, ptr @_glfw, align 8, !tbaa !138
+  %.not = icmp eq i32 %3, 0
+  br i1 %.not, label %4, label %5
+
+4:                                                ; preds = %2
+  tail call void (i32, ptr, ...) @_glfwInputError(i32 noundef 65537, ptr noundef null) #7
+  br label %8
+
+5:                                                ; preds = %2
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 784
   %7 = load ptr, ptr %6, align 8, !tbaa !133
   store ptr %1, ptr %6, align 8, !tbaa !133
   br label %8
@@ -2066,71 +2129,8 @@ define ptr @glfwSetWindowIconifyCallback(ptr noundef captures(none) %0, ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @glfwSetWindowMaximizeCallback(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
-  %3 = load i32, ptr @_glfw, align 8, !tbaa !141
-  %.not = icmp eq i32 %3, 0
-  br i1 %.not, label %4, label %5
-
-4:                                                ; preds = %2
-  tail call void (i32, ptr, ...) @_glfwInputError(i32 noundef 65537, ptr noundef null) #7
-  br label %8
-
-5:                                                ; preds = %2
-  %6 = getelementptr inbounds nuw i8, ptr %0, i64 768
-  %7 = load ptr, ptr %6, align 8, !tbaa !134
-  store ptr %1, ptr %6, align 8, !tbaa !134
-  br label %8
-
-8:                                                ; preds = %5, %4
-  %.0 = phi ptr [ %7, %5 ], [ null, %4 ]
-  ret ptr %.0
-}
-
-; Function Attrs: nounwind uwtable
-define ptr @glfwSetFramebufferSizeCallback(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
-  %3 = load i32, ptr @_glfw, align 8, !tbaa !141
-  %.not = icmp eq i32 %3, 0
-  br i1 %.not, label %4, label %5
-
-4:                                                ; preds = %2
-  tail call void (i32, ptr, ...) @_glfwInputError(i32 noundef 65537, ptr noundef null) #7
-  br label %8
-
-5:                                                ; preds = %2
-  %6 = getelementptr inbounds nuw i8, ptr %0, i64 776
-  %7 = load ptr, ptr %6, align 8, !tbaa !135
-  store ptr %1, ptr %6, align 8, !tbaa !135
-  br label %8
-
-8:                                                ; preds = %5, %4
-  %.0 = phi ptr [ %7, %5 ], [ null, %4 ]
-  ret ptr %.0
-}
-
-; Function Attrs: nounwind uwtable
-define ptr @glfwSetWindowContentScaleCallback(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
-  %3 = load i32, ptr @_glfw, align 8, !tbaa !141
-  %.not = icmp eq i32 %3, 0
-  br i1 %.not, label %4, label %5
-
-4:                                                ; preds = %2
-  tail call void (i32, ptr, ...) @_glfwInputError(i32 noundef 65537, ptr noundef null) #7
-  br label %8
-
-5:                                                ; preds = %2
-  %6 = getelementptr inbounds nuw i8, ptr %0, i64 784
-  %7 = load ptr, ptr %6, align 8, !tbaa !136
-  store ptr %1, ptr %6, align 8, !tbaa !136
-  br label %8
-
-8:                                                ; preds = %5, %4
-  %.0 = phi ptr [ %7, %5 ], [ null, %4 ]
-  ret ptr %.0
-}
-
-; Function Attrs: nounwind uwtable
 define void @glfwPollEvents() local_unnamed_addr #0 {
-  %1 = load i32, ptr @_glfw, align 8, !tbaa !141
+  %1 = load i32, ptr @_glfw, align 8, !tbaa !138
   %.not = icmp eq i32 %1, 0
   br i1 %.not, label %2, label %3
 
@@ -2139,7 +2139,7 @@ define void @glfwPollEvents() local_unnamed_addr #0 {
   br label %5
 
 3:                                                ; preds = %0
-  %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 536), align 8, !tbaa !281
+  %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 536), align 8, !tbaa !276
   tail call void %4() #7
   br label %5
 
@@ -2149,7 +2149,7 @@ define void @glfwPollEvents() local_unnamed_addr #0 {
 
 ; Function Attrs: nounwind uwtable
 define void @glfwWaitEvents() local_unnamed_addr #0 {
-  %1 = load i32, ptr @_glfw, align 8, !tbaa !141
+  %1 = load i32, ptr @_glfw, align 8, !tbaa !138
   %.not = icmp eq i32 %1, 0
   br i1 %.not, label %2, label %3
 
@@ -2158,7 +2158,7 @@ define void @glfwWaitEvents() local_unnamed_addr #0 {
   br label %5
 
 3:                                                ; preds = %0
-  %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 544), align 8, !tbaa !282
+  %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 544), align 8, !tbaa !277
   tail call void %4() #7
   br label %5
 
@@ -2168,7 +2168,7 @@ define void @glfwWaitEvents() local_unnamed_addr #0 {
 
 ; Function Attrs: nounwind uwtable
 define void @glfwWaitEventsTimeout(double noundef %0) local_unnamed_addr #0 {
-  %2 = load i32, ptr @_glfw, align 8, !tbaa !141
+  %2 = load i32, ptr @_glfw, align 8, !tbaa !138
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %3, label %4
 
@@ -2187,7 +2187,7 @@ define void @glfwWaitEventsTimeout(double noundef %0) local_unnamed_addr #0 {
   br label %9
 
 7:                                                ; preds = %4
-  %8 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 552), align 8, !tbaa !283
+  %8 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 552), align 8, !tbaa !278
   tail call void %8(double noundef %0) #7
   br label %9
 
@@ -2197,7 +2197,7 @@ define void @glfwWaitEventsTimeout(double noundef %0) local_unnamed_addr #0 {
 
 ; Function Attrs: nounwind uwtable
 define void @glfwPostEmptyEvent() local_unnamed_addr #0 {
-  %1 = load i32, ptr @_glfw, align 8, !tbaa !141
+  %1 = load i32, ptr @_glfw, align 8, !tbaa !138
   %.not = icmp eq i32 %1, 0
   br i1 %.not, label %2, label %3
 
@@ -2206,7 +2206,7 @@ define void @glfwPostEmptyEvent() local_unnamed_addr #0 {
   br label %5
 
 3:                                                ; preds = %0
-  %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 560), align 8, !tbaa !284
+  %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 560), align 8, !tbaa !279
   tail call void %4() #7
   br label %5
 
@@ -2353,160 +2353,155 @@ attributes #7 = { nounwind }
 !125 = !{!"_GLFWlibraryLinux", !9, i64 0, !9, i64 4, !126, i64 8, !9, i64 72, !9, i64 76}
 !126 = !{!"re_pattern_buffer", !127, i64 0, !20, i64 8, !20, i64 16, !20, i64 24, !13, i64 32, !13, i64 40, !20, i64 48, !9, i64 56, !9, i64 56, !9, i64 56, !9, i64 56, !9, i64 56, !9, i64 56, !9, i64 56}
 !127 = !{!"p1 _ZTS8re_dfa_t", !6, i64 0}
-!128 = distinct !{!128, !129}
-!129 = !{!"llvm.loop.estimated_trip_count"}
-!130 = distinct !{!130, !129}
-!131 = !{!4, !6, i64 720}
-!132 = !{!4, !6, i64 728}
-!133 = !{!4, !6, i64 760}
-!134 = !{!4, !6, i64 768}
-!135 = !{!4, !6, i64 776}
-!136 = !{!4, !6, i64 784}
-!137 = !{!4, !6, i64 744}
-!138 = !{!4, !9, i64 32}
-!139 = !{!4, !6, i64 736}
-!140 = !{!4, !11, i64 80}
-!141 = !{!52, !9, i64 0}
-!142 = !{i64 0, i64 4, !143, i64 4, i64 4, !143, i64 8, i64 4, !143, i64 12, i64 4, !143, i64 16, i64 4, !143, i64 20, i64 4, !143, i64 24, i64 4, !143, i64 28, i64 4, !143, i64 32, i64 4, !143, i64 36, i64 4, !143, i64 40, i64 4, !143, i64 44, i64 4, !143, i64 48, i64 4, !143, i64 52, i64 4, !143, i64 56, i64 4, !143, i64 60, i64 4, !143, i64 64, i64 8, !144}
-!143 = !{!9, !9, i64 0}
-!144 = !{!20, !20, i64 0}
-!145 = !{i64 0, i64 4, !143, i64 4, i64 4, !143, i64 8, i64 4, !143, i64 12, i64 4, !143, i64 16, i64 4, !143, i64 20, i64 4, !143, i64 24, i64 4, !143, i64 28, i64 4, !143, i64 32, i64 4, !143, i64 36, i64 4, !143, i64 40, i64 8, !146, i64 48, i64 4, !143}
-!146 = !{!5, !5, i64 0}
-!147 = !{i64 0, i64 4, !143, i64 4, i64 4, !143, i64 8, i64 4, !143, i64 12, i64 4, !143, i64 16, i64 8, !148, i64 24, i64 4, !143, i64 28, i64 4, !143, i64 32, i64 4, !143, i64 36, i64 4, !143, i64 40, i64 4, !143, i64 44, i64 4, !143, i64 48, i64 4, !143, i64 52, i64 4, !143, i64 56, i64 4, !143, i64 60, i64 4, !143, i64 64, i64 4, !143, i64 68, i64 4, !143, i64 72, i64 256, !50, i64 328, i64 256, !50, i64 584, i64 256, !50, i64 840, i64 4, !143, i64 844, i64 4, !143, i64 848, i64 256, !50}
-!148 = !{!13, !13, i64 0}
-!149 = !{!60, !9, i64 8}
-!150 = !{!60, !9, i64 12}
-!151 = !{!60, !13, i64 16}
-!152 = !{!63, !5, i64 40}
-!153 = !{!52, !5, i64 1912}
-!154 = !{!4, !5, i64 0}
-!155 = !{!4, !9, i64 52}
-!156 = !{!4, !9, i64 56}
-!157 = !{!59, !9, i64 0}
-!158 = !{!4, !9, i64 60}
-!159 = !{!59, !9, i64 4}
-!160 = !{!4, !9, i64 64}
-!161 = !{!59, !9, i64 8}
-!162 = !{!4, !9, i64 68}
-!163 = !{!52, !9, i64 1888}
-!164 = !{!4, !9, i64 72}
-!165 = !{!60, !9, i64 24}
-!166 = !{!4, !9, i64 8}
-!167 = !{!60, !9, i64 32}
-!168 = !{!4, !9, i64 12}
-!169 = !{!60, !9, i64 40}
-!170 = !{!4, !9, i64 16}
-!171 = !{!60, !9, i64 44}
-!172 = !{!4, !9, i64 20}
-!173 = !{!60, !9, i64 56}
-!174 = !{!4, !9, i64 24}
-!175 = !{!60, !9, i64 60}
-!176 = !{!4, !9, i64 28}
-!177 = !{!4, !9, i64 140}
-!178 = !{!59, !9, i64 56}
-!179 = !{!4, !9, i64 48}
-!180 = !{!4, !13, i64 96}
-!181 = !{!52, !6, i64 272}
-!182 = !{!52, !6, i64 280}
-!183 = distinct !{!183, !129}
-!184 = !{!52, !9, i64 1832}
-!185 = !{!52, !9, i64 1836}
-!186 = !{!52, !9, i64 1840}
-!187 = !{!52, !9, i64 1844}
-!188 = !{!52, !9, i64 752}
-!189 = !{!52, !9, i64 756}
-!190 = !{!52, !9, i64 760}
-!191 = !{!52, !9, i64 764}
-!192 = !{!52, !9, i64 768}
-!193 = !{!52, !9, i64 780}
-!194 = !{!52, !9, i64 784}
-!195 = !{!52, !9, i64 728}
-!196 = !{!52, !9, i64 732}
-!197 = !{!52, !9, i64 796}
-!198 = !{!52, !9, i64 656}
-!199 = !{!52, !9, i64 660}
-!200 = !{!52, !9, i64 664}
-!201 = !{!52, !9, i64 668}
-!202 = !{!52, !9, i64 672}
-!203 = !{!52, !9, i64 676}
-!204 = !{!52, !9, i64 712}
-!205 = !{!52, !9, i64 680}
-!206 = !{!52, !9, i64 684}
-!207 = !{!52, !9, i64 688}
-!208 = !{!52, !9, i64 692}
-!209 = !{!52, !9, i64 696}
-!210 = !{!52, !9, i64 700}
-!211 = !{!52, !9, i64 716}
-!212 = !{!52, !9, i64 704}
-!213 = !{!52, !9, i64 708}
-!214 = !{!52, !9, i64 772}
-!215 = !{!52, !9, i64 776}
-!216 = !{!52, !9, i64 1568}
-!217 = !{!52, !9, i64 1572}
-!218 = !{!52, !9, i64 1880}
-!219 = !{!52, !9, i64 792}
-!220 = !{!52, !9, i64 788}
-!221 = !{!52, !9, i64 1864}
-!222 = !{!52, !9, i64 1848}
-!223 = !{!52, !9, i64 1852}
-!224 = !{!52, !9, i64 1856}
-!225 = !{!52, !9, i64 1860}
-!226 = !{!52, !9, i64 1868}
-!227 = !{!52, !6, i64 288}
-!228 = distinct !{!228, !129}
-!229 = !{!230, !9, i64 0}
-!230 = !{!"GLFWimage", !9, i64 0, !9, i64 4, !13, i64 8}
-!231 = !{!230, !9, i64 4}
-!232 = !{!52, !6, i64 296}
-!233 = !{!52, !6, i64 304}
-!234 = !{!52, !6, i64 312}
-!235 = !{!52, !6, i64 320}
-!236 = !{!52, !6, i64 328}
-!237 = !{!4, !9, i64 104}
-!238 = !{!4, !9, i64 108}
-!239 = !{!4, !9, i64 112}
-!240 = !{!4, !9, i64 116}
-!241 = !{!52, !6, i64 336}
-!242 = !{!4, !9, i64 120}
-!243 = !{!4, !9, i64 124}
-!244 = !{!52, !6, i64 344}
-!245 = !{!52, !6, i64 352}
-!246 = !{!52, !6, i64 360}
-!247 = !{!49, !49, i64 0}
-!248 = !{!52, !6, i64 368}
-!249 = !{!52, !6, i64 488}
-!250 = !{!52, !6, i64 520}
-!251 = !{!52, !6, i64 376}
-!252 = !{!52, !6, i64 384}
-!253 = !{!52, !6, i64 392}
-!254 = !{!52, !6, i64 400}
-!255 = !{!52, !6, i64 424}
-!256 = !{!52, !6, i64 416}
-!257 = !{!52, !6, i64 408}
-!258 = !{!52, !6, i64 440}
-!259 = !{!52, !6, i64 448}
-!260 = !{!52, !6, i64 456}
-!261 = !{!52, !6, i64 464}
-!262 = !{!52, !6, i64 472}
-!263 = !{!52, !6, i64 480}
-!264 = !{!4, !9, i64 528}
-!265 = !{!4, !9, i64 532}
-!266 = !{!4, !9, i64 536}
-!267 = !{!4, !9, i64 540}
-!268 = !{!4, !9, i64 544}
-!269 = !{!4, !9, i64 564}
-!270 = !{!4, !9, i64 548}
-!271 = !{!4, !9, i64 552}
-!272 = !{!4, !9, i64 560}
-!273 = !{!4, !9, i64 568}
-!274 = !{!4, !9, i64 556}
-!275 = !{!52, !6, i64 496}
-!276 = !{!52, !6, i64 504}
-!277 = !{!52, !6, i64 512}
-!278 = !{!52, !6, i64 528}
-!279 = !{!52, !6, i64 432}
-!280 = !{!4, !6, i64 40}
-!281 = !{!52, !6, i64 536}
-!282 = !{!52, !6, i64 544}
-!283 = !{!52, !6, i64 552}
-!284 = !{!52, !6, i64 560}
+!128 = !{!4, !6, i64 720}
+!129 = !{!4, !6, i64 728}
+!130 = !{!4, !6, i64 760}
+!131 = !{!4, !6, i64 768}
+!132 = !{!4, !6, i64 776}
+!133 = !{!4, !6, i64 784}
+!134 = !{!4, !6, i64 744}
+!135 = !{!4, !9, i64 32}
+!136 = !{!4, !6, i64 736}
+!137 = !{!4, !11, i64 80}
+!138 = !{!52, !9, i64 0}
+!139 = !{i64 0, i64 4, !140, i64 4, i64 4, !140, i64 8, i64 4, !140, i64 12, i64 4, !140, i64 16, i64 4, !140, i64 20, i64 4, !140, i64 24, i64 4, !140, i64 28, i64 4, !140, i64 32, i64 4, !140, i64 36, i64 4, !140, i64 40, i64 4, !140, i64 44, i64 4, !140, i64 48, i64 4, !140, i64 52, i64 4, !140, i64 56, i64 4, !140, i64 60, i64 4, !140, i64 64, i64 8, !141}
+!140 = !{!9, !9, i64 0}
+!141 = !{!20, !20, i64 0}
+!142 = !{i64 0, i64 4, !140, i64 4, i64 4, !140, i64 8, i64 4, !140, i64 12, i64 4, !140, i64 16, i64 4, !140, i64 20, i64 4, !140, i64 24, i64 4, !140, i64 28, i64 4, !140, i64 32, i64 4, !140, i64 36, i64 4, !140, i64 40, i64 8, !143, i64 48, i64 4, !140}
+!143 = !{!5, !5, i64 0}
+!144 = !{i64 0, i64 4, !140, i64 4, i64 4, !140, i64 8, i64 4, !140, i64 12, i64 4, !140, i64 16, i64 8, !145, i64 24, i64 4, !140, i64 28, i64 4, !140, i64 32, i64 4, !140, i64 36, i64 4, !140, i64 40, i64 4, !140, i64 44, i64 4, !140, i64 48, i64 4, !140, i64 52, i64 4, !140, i64 56, i64 4, !140, i64 60, i64 4, !140, i64 64, i64 4, !140, i64 68, i64 4, !140, i64 72, i64 256, !50, i64 328, i64 256, !50, i64 584, i64 256, !50, i64 840, i64 4, !140, i64 844, i64 4, !140, i64 848, i64 256, !50}
+!145 = !{!13, !13, i64 0}
+!146 = !{!60, !9, i64 8}
+!147 = !{!60, !9, i64 12}
+!148 = !{!60, !13, i64 16}
+!149 = !{!63, !5, i64 40}
+!150 = !{!52, !5, i64 1912}
+!151 = !{!4, !5, i64 0}
+!152 = !{!4, !9, i64 52}
+!153 = !{!4, !9, i64 56}
+!154 = !{!59, !9, i64 0}
+!155 = !{!4, !9, i64 60}
+!156 = !{!59, !9, i64 4}
+!157 = !{!4, !9, i64 64}
+!158 = !{!59, !9, i64 8}
+!159 = !{!4, !9, i64 68}
+!160 = !{!52, !9, i64 1888}
+!161 = !{!4, !9, i64 72}
+!162 = !{!60, !9, i64 24}
+!163 = !{!4, !9, i64 8}
+!164 = !{!60, !9, i64 32}
+!165 = !{!4, !9, i64 12}
+!166 = !{!60, !9, i64 40}
+!167 = !{!4, !9, i64 16}
+!168 = !{!60, !9, i64 44}
+!169 = !{!4, !9, i64 20}
+!170 = !{!60, !9, i64 56}
+!171 = !{!4, !9, i64 24}
+!172 = !{!60, !9, i64 60}
+!173 = !{!4, !9, i64 28}
+!174 = !{!4, !9, i64 140}
+!175 = !{!59, !9, i64 56}
+!176 = !{!4, !9, i64 48}
+!177 = !{!4, !13, i64 96}
+!178 = !{!52, !6, i64 272}
+!179 = !{!52, !6, i64 280}
+!180 = !{!52, !9, i64 1832}
+!181 = !{!52, !9, i64 1836}
+!182 = !{!52, !9, i64 1840}
+!183 = !{!52, !9, i64 1844}
+!184 = !{!52, !9, i64 752}
+!185 = !{!52, !9, i64 756}
+!186 = !{!52, !9, i64 760}
+!187 = !{!52, !9, i64 764}
+!188 = !{!52, !9, i64 768}
+!189 = !{!52, !9, i64 780}
+!190 = !{!52, !9, i64 784}
+!191 = !{!52, !9, i64 728}
+!192 = !{!52, !9, i64 732}
+!193 = !{!52, !9, i64 796}
+!194 = !{!52, !9, i64 656}
+!195 = !{!52, !9, i64 660}
+!196 = !{!52, !9, i64 664}
+!197 = !{!52, !9, i64 668}
+!198 = !{!52, !9, i64 672}
+!199 = !{!52, !9, i64 676}
+!200 = !{!52, !9, i64 712}
+!201 = !{!52, !9, i64 680}
+!202 = !{!52, !9, i64 684}
+!203 = !{!52, !9, i64 688}
+!204 = !{!52, !9, i64 692}
+!205 = !{!52, !9, i64 696}
+!206 = !{!52, !9, i64 700}
+!207 = !{!52, !9, i64 716}
+!208 = !{!52, !9, i64 704}
+!209 = !{!52, !9, i64 708}
+!210 = !{!52, !9, i64 772}
+!211 = !{!52, !9, i64 776}
+!212 = !{!52, !9, i64 1568}
+!213 = !{!52, !9, i64 1572}
+!214 = !{!52, !9, i64 1880}
+!215 = !{!52, !9, i64 792}
+!216 = !{!52, !9, i64 788}
+!217 = !{!52, !9, i64 1864}
+!218 = !{!52, !9, i64 1848}
+!219 = !{!52, !9, i64 1852}
+!220 = !{!52, !9, i64 1856}
+!221 = !{!52, !9, i64 1860}
+!222 = !{!52, !9, i64 1868}
+!223 = !{!52, !6, i64 288}
+!224 = !{!225, !9, i64 0}
+!225 = !{!"GLFWimage", !9, i64 0, !9, i64 4, !13, i64 8}
+!226 = !{!225, !9, i64 4}
+!227 = !{!52, !6, i64 296}
+!228 = !{!52, !6, i64 304}
+!229 = !{!52, !6, i64 312}
+!230 = !{!52, !6, i64 320}
+!231 = !{!52, !6, i64 328}
+!232 = !{!4, !9, i64 104}
+!233 = !{!4, !9, i64 108}
+!234 = !{!4, !9, i64 112}
+!235 = !{!4, !9, i64 116}
+!236 = !{!52, !6, i64 336}
+!237 = !{!4, !9, i64 120}
+!238 = !{!4, !9, i64 124}
+!239 = !{!52, !6, i64 344}
+!240 = !{!52, !6, i64 352}
+!241 = !{!52, !6, i64 360}
+!242 = !{!49, !49, i64 0}
+!243 = !{!52, !6, i64 368}
+!244 = !{!52, !6, i64 488}
+!245 = !{!52, !6, i64 520}
+!246 = !{!52, !6, i64 376}
+!247 = !{!52, !6, i64 384}
+!248 = !{!52, !6, i64 392}
+!249 = !{!52, !6, i64 400}
+!250 = !{!52, !6, i64 424}
+!251 = !{!52, !6, i64 416}
+!252 = !{!52, !6, i64 408}
+!253 = !{!52, !6, i64 440}
+!254 = !{!52, !6, i64 448}
+!255 = !{!52, !6, i64 456}
+!256 = !{!52, !6, i64 464}
+!257 = !{!52, !6, i64 472}
+!258 = !{!52, !6, i64 480}
+!259 = !{!4, !9, i64 528}
+!260 = !{!4, !9, i64 532}
+!261 = !{!4, !9, i64 536}
+!262 = !{!4, !9, i64 540}
+!263 = !{!4, !9, i64 544}
+!264 = !{!4, !9, i64 564}
+!265 = !{!4, !9, i64 548}
+!266 = !{!4, !9, i64 552}
+!267 = !{!4, !9, i64 560}
+!268 = !{!4, !9, i64 568}
+!269 = !{!4, !9, i64 556}
+!270 = !{!52, !6, i64 496}
+!271 = !{!52, !6, i64 504}
+!272 = !{!52, !6, i64 512}
+!273 = !{!52, !6, i64 528}
+!274 = !{!52, !6, i64 432}
+!275 = !{!4, !6, i64 40}
+!276 = !{!52, !6, i64 536}
+!277 = !{!52, !6, i64 544}
+!278 = !{!52, !6, i64 552}
+!279 = !{!52, !6, i64 560}

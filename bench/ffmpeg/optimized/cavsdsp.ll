@@ -975,7 +975,7 @@ loop_filter_l2.exit:                              ; preds = %10, %21, %28, %66, 
   tail call fastcc void @loop_filter_l1(ptr noundef %81, i64 noundef 1, i32 noundef %2, i32 noundef %3, i32 noundef %4)
   %indvars.iv.next37 = add nuw nsw i64 %indvars.iv36, 1
   %exitcond39.not = icmp eq i64 %indvars.iv.next37, 8
-  br i1 %exitcond39.not, label %.loopexit28, label %.preheader27, !llvm.loop !20
+  br i1 %exitcond39.not, label %.loopexit28, label %.preheader27, !llvm.loop !19
 
 .loopexit28:                                      ; preds = %.preheader27, %7
   %.not26 = icmp eq i32 %6, 0
@@ -988,7 +988,7 @@ loop_filter_l2.exit:                              ; preds = %10, %21, %28, %66, 
   tail call fastcc void @loop_filter_l1(ptr noundef %83, i64 noundef 1, i32 noundef %2, i32 noundef %3, i32 noundef %4)
   %indvars.iv.next41 = add nuw nsw i64 %indvars.iv40, 1
   %exitcond43.not = icmp eq i64 %indvars.iv.next41, 16
-  br i1 %exitcond43.not, label %.loopexit, label %.preheader, !llvm.loop !21
+  br i1 %exitcond43.not, label %.loopexit, label %.preheader, !llvm.loop !20
 
 .loopexit:                                        ; preds = %loop_filter_l2.exit, %.preheader, %.loopexit28
   ret void
@@ -1122,7 +1122,7 @@ define internal void @cavs_filter_lh_c(ptr noundef captures(none) %0, i64 nounde
 loop_filter_l2.exit:                              ; preds = %14, %24, %31, %75, %88
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
-  br i1 %exitcond.not, label %.loopexit, label %14, !llvm.loop !22
+  br i1 %exitcond.not, label %.loopexit, label %14, !llvm.loop !21
 
 .preheader27:                                     ; preds = %7, %.preheader27
   %indvars.iv36 = phi i64 [ %indvars.iv.next37, %.preheader27 ], [ 0, %7 ]
@@ -1130,7 +1130,7 @@ loop_filter_l2.exit:                              ; preds = %14, %24, %31, %75, 
   tail call fastcc void @loop_filter_l1(ptr noundef %95, i64 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4)
   %indvars.iv.next37 = add nuw nsw i64 %indvars.iv36, 1
   %exitcond39.not = icmp eq i64 %indvars.iv.next37, 8
-  br i1 %exitcond39.not, label %.loopexit28, label %.preheader27, !llvm.loop !23
+  br i1 %exitcond39.not, label %.loopexit28, label %.preheader27, !llvm.loop !22
 
 .loopexit28:                                      ; preds = %.preheader27, %7
   %.not26 = icmp eq i32 %6, 0
@@ -1142,7 +1142,7 @@ loop_filter_l2.exit:                              ; preds = %14, %24, %31, %75, 
   tail call fastcc void @loop_filter_l1(ptr noundef nonnull %96, i64 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4)
   %indvars.iv.next41 = add nuw nsw i64 %indvars.iv40, 1
   %exitcond43.not = icmp eq i64 %indvars.iv.next41, 16
-  br i1 %exitcond43.not, label %.loopexit, label %.preheader, !llvm.loop !24
+  br i1 %exitcond43.not, label %.loopexit, label %.preheader, !llvm.loop !23
 
 .loopexit:                                        ; preds = %loop_filter_l2.exit, %.preheader, %.loopexit28
   ret void
@@ -1247,7 +1247,7 @@ define internal void @cavs_filter_cv_c(ptr noundef captures(none) %0, i64 nounde
 loop_filter_c2.exit:                              ; preds = %11, %22, %29, %62
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond.not, label %.loopexit, label %11, !llvm.loop !25
+  br i1 %exitcond.not, label %.loopexit, label %11, !llvm.loop !24
 
 63:                                               ; preds = %.preheader37, %loop_filter_c1.exit
   %indvars.iv46 = phi i64 [ 0, %.preheader37 ], [ %indvars.iv.next47, %loop_filter_c1.exit ]
@@ -1310,7 +1310,7 @@ loop_filter_c2.exit:                              ; preds = %11, %22, %29, %62
 loop_filter_c1.exit:                              ; preds = %63, %74, %81, %88
   %indvars.iv.next47 = add nuw nsw i64 %indvars.iv46, 1
   %exitcond49.not = icmp eq i64 %indvars.iv.next47, 4
-  br i1 %exitcond49.not, label %.loopexit38, label %63, !llvm.loop !26
+  br i1 %exitcond49.not, label %.loopexit38, label %63, !llvm.loop !25
 
 .loopexit38:                                      ; preds = %loop_filter_c1.exit, %7
   %.not26 = icmp eq i32 %6, 0
@@ -1381,7 +1381,7 @@ loop_filter_c1.exit:                              ; preds = %63, %74, %81, %88
 loop_filter_c1.exit35:                            ; preds = %103, %114, %121, %128
   %indvars.iv.next51 = add nuw nsw i64 %indvars.iv50, 1
   %exitcond53.not = icmp eq i64 %indvars.iv.next51, 8
-  br i1 %exitcond53.not, label %.loopexit, label %103, !llvm.loop !27
+  br i1 %exitcond53.not, label %.loopexit, label %103, !llvm.loop !26
 
 .loopexit:                                        ; preds = %loop_filter_c2.exit, %loop_filter_c1.exit35, %.loopexit38
   ret void
@@ -1495,7 +1495,7 @@ define internal void @cavs_filter_ch_c(ptr noundef captures(none) %0, i64 nounde
 loop_filter_c2.exit:                              ; preds = %17, %27, %34, %71
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond.not, label %.loopexit, label %17, !llvm.loop !28
+  br i1 %exitcond.not, label %.loopexit, label %17, !llvm.loop !27
 
 72:                                               ; preds = %.preheader37, %loop_filter_c1.exit
   %indvars.iv46 = phi i64 [ 0, %.preheader37 ], [ %indvars.iv.next47, %loop_filter_c1.exit ]
@@ -1559,7 +1559,7 @@ loop_filter_c2.exit:                              ; preds = %17, %27, %34, %71
 loop_filter_c1.exit:                              ; preds = %72, %82, %89, %96
   %indvars.iv.next47 = add nuw nsw i64 %indvars.iv46, 1
   %exitcond49.not = icmp eq i64 %indvars.iv.next47, 4
-  br i1 %exitcond49.not, label %.loopexit38, label %72, !llvm.loop !29
+  br i1 %exitcond49.not, label %.loopexit38, label %72, !llvm.loop !28
 
 .loopexit38:                                      ; preds = %loop_filter_c1.exit, %7
   %.not26 = icmp eq i32 %6, 0
@@ -1633,7 +1633,7 @@ loop_filter_c1.exit:                              ; preds = %72, %82, %89, %96
 loop_filter_c1.exit35:                            ; preds = %115, %125, %132, %139
   %indvars.iv.next51 = add nuw nsw i64 %indvars.iv50, 1
   %exitcond53.not = icmp eq i64 %indvars.iv.next51, 8
-  br i1 %exitcond53.not, label %.loopexit, label %115, !llvm.loop !30
+  br i1 %exitcond53.not, label %.loopexit, label %115, !llvm.loop !29
 
 .loopexit:                                        ; preds = %loop_filter_c2.exit, %loop_filter_c1.exit35, %.loopexit38
   ret void
@@ -1641,9 +1641,9 @@ loop_filter_c1.exit35:                            ; preds = %115, %125, %132, %1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal void @cavs_idct8_add_c(ptr noundef captures(none) %0, ptr noundef captures(none) %1, i64 noundef %2) #2 {
-  %4 = load i16, ptr %1, align 2, !tbaa !31
+  %4 = load i16, ptr %1, align 2, !tbaa !30
   %5 = add i16 %4, 8
-  store i16 %5, ptr %1, align 2, !tbaa !31
+  store i16 %5, ptr %1, align 2, !tbaa !30
   br label %26
 
 .preheader:                                       ; preds = %26
@@ -1673,20 +1673,20 @@ define internal void @cavs_idct8_add_c(ptr noundef captures(none) %0, ptr nounde
   %indvars.iv = phi i64 [ 0, %3 ], [ %indvars.iv.next, %26 ]
   %27 = getelementptr inbounds nuw [8 x i16], ptr %1, i64 %indvars.iv
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 2
-  %29 = load i16, ptr %28, align 2, !tbaa !31
+  %29 = load i16, ptr %28, align 2, !tbaa !30
   %30 = sext i16 %29 to i32
   %31 = mul nsw i32 %30, 3
   %32 = getelementptr inbounds nuw i8, ptr %27, i64 14
-  %33 = load i16, ptr %32, align 2, !tbaa !31
+  %33 = load i16, ptr %32, align 2, !tbaa !30
   %34 = sext i16 %33 to i32
   %35 = shl nsw i32 %34, 1
   %36 = sub nsw i32 %31, %35
   %37 = getelementptr inbounds nuw i8, ptr %27, i64 6
-  %38 = load i16, ptr %37, align 2, !tbaa !31
+  %38 = load i16, ptr %37, align 2, !tbaa !30
   %39 = sext i16 %38 to i32
   %40 = mul nsw i32 %39, 3
   %41 = getelementptr inbounds nuw i8, ptr %27, i64 10
-  %42 = load i16, ptr %41, align 2, !tbaa !31
+  %42 = load i16, ptr %41, align 2, !tbaa !30
   %43 = sext i16 %42 to i32
   %44 = shl nsw i32 %43, 1
   %45 = add nsw i32 %44, %40
@@ -1715,21 +1715,21 @@ define internal void @cavs_idct8_add_c(ptr noundef captures(none) %0, ptr nounde
   %66 = shl nsw i32 %65, 1
   %67 = sub nsw i32 %66, %47
   %68 = getelementptr inbounds nuw i8, ptr %27, i64 4
-  %69 = load i16, ptr %68, align 2, !tbaa !31
+  %69 = load i16, ptr %68, align 2, !tbaa !30
   %70 = sext i16 %69 to i32
   %71 = shl nsw i32 %70, 2
   %72 = getelementptr inbounds nuw i8, ptr %27, i64 12
-  %73 = load i16, ptr %72, align 2, !tbaa !31
+  %73 = load i16, ptr %72, align 2, !tbaa !30
   %74 = sext i16 %73 to i32
   %.neg215 = mul nsw i32 %74, -10
   %75 = add nsw i32 %.neg215, %71
   %76 = shl nsw i32 %74, 2
   %77 = mul nsw i32 %70, 10
   %78 = add nsw i32 %76, %77
-  %79 = load i16, ptr %27, align 2, !tbaa !31
+  %79 = load i16, ptr %27, align 2, !tbaa !30
   %80 = sext i16 %79 to i32
   %81 = getelementptr inbounds nuw i8, ptr %27, i64 8
-  %82 = load i16, ptr %81, align 2, !tbaa !31
+  %82 = load i16, ptr %81, align 2, !tbaa !30
   %83 = sext i16 %82 to i32
   %84 = sub nsw i32 %80, %83
   %85 = shl nsw i32 %84, 3
@@ -1744,56 +1744,56 @@ define internal void @cavs_idct8_add_c(ptr noundef captures(none) %0, ptr nounde
   %94 = add nsw i32 %90, %55
   %95 = lshr i32 %94, 3
   %96 = trunc i32 %95 to i16
-  store i16 %96, ptr %27, align 2, !tbaa !31
+  store i16 %96, ptr %27, align 2, !tbaa !30
   %97 = add nsw i32 %91, %59
   %98 = lshr i32 %97, 3
   %99 = trunc i32 %98 to i16
-  store i16 %99, ptr %28, align 2, !tbaa !31
+  store i16 %99, ptr %28, align 2, !tbaa !30
   %100 = add nsw i32 %92, %63
   %101 = lshr i32 %100, 3
   %102 = trunc i32 %101 to i16
-  store i16 %102, ptr %68, align 2, !tbaa !31
+  store i16 %102, ptr %68, align 2, !tbaa !30
   %103 = add nsw i32 %93, %67
   %104 = lshr i32 %103, 3
   %105 = trunc i32 %104 to i16
-  store i16 %105, ptr %37, align 2, !tbaa !31
+  store i16 %105, ptr %37, align 2, !tbaa !30
   %106 = sub nsw i32 %93, %67
   %107 = lshr i32 %106, 3
   %108 = trunc i32 %107 to i16
-  store i16 %108, ptr %81, align 2, !tbaa !31
+  store i16 %108, ptr %81, align 2, !tbaa !30
   %109 = sub nsw i32 %92, %63
   %110 = lshr i32 %109, 3
   %111 = trunc i32 %110 to i16
-  store i16 %111, ptr %41, align 2, !tbaa !31
+  store i16 %111, ptr %41, align 2, !tbaa !30
   %112 = sub nsw i32 %91, %59
   %113 = lshr i32 %112, 3
   %114 = trunc i32 %113 to i16
-  store i16 %114, ptr %72, align 2, !tbaa !31
+  store i16 %114, ptr %72, align 2, !tbaa !30
   %115 = sub nsw i32 %90, %55
   %116 = lshr i32 %115, 3
   %117 = trunc i32 %116 to i16
-  store i16 %117, ptr %32, align 2, !tbaa !31
+  store i16 %117, ptr %32, align 2, !tbaa !30
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond.not, label %.preheader, label %26, !llvm.loop !33
+  br i1 %exitcond.not, label %.preheader, label %26, !llvm.loop !32
 
 118:                                              ; preds = %.preheader, %118
   %indvars.iv250 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next251, %118 ]
   %119 = getelementptr inbounds nuw [8 x i16], ptr %6, i64 0, i64 %indvars.iv250
-  %120 = load i16, ptr %119, align 2, !tbaa !31
+  %120 = load i16, ptr %119, align 2, !tbaa !30
   %121 = sext i16 %120 to i32
   %122 = mul nsw i32 %121, 3
   %123 = getelementptr inbounds nuw [8 x i16], ptr %7, i64 0, i64 %indvars.iv250
-  %124 = load i16, ptr %123, align 2, !tbaa !31
+  %124 = load i16, ptr %123, align 2, !tbaa !30
   %125 = sext i16 %124 to i32
   %126 = shl nsw i32 %125, 1
   %127 = sub nsw i32 %122, %126
   %128 = getelementptr inbounds nuw [8 x i16], ptr %8, i64 0, i64 %indvars.iv250
-  %129 = load i16, ptr %128, align 2, !tbaa !31
+  %129 = load i16, ptr %128, align 2, !tbaa !30
   %130 = sext i16 %129 to i32
   %131 = mul nsw i32 %130, 3
   %132 = getelementptr inbounds nuw [8 x i16], ptr %9, i64 0, i64 %indvars.iv250
-  %133 = load i16, ptr %132, align 2, !tbaa !31
+  %133 = load i16, ptr %132, align 2, !tbaa !30
   %134 = sext i16 %133 to i32
   %135 = shl nsw i32 %134, 1
   %136 = add nsw i32 %135, %131
@@ -1822,11 +1822,11 @@ define internal void @cavs_idct8_add_c(ptr noundef captures(none) %0, ptr nounde
   %157 = shl nsw i32 %156, 1
   %158 = sub nsw i32 %157, %138
   %159 = getelementptr inbounds nuw [8 x i16], ptr %10, i64 0, i64 %indvars.iv250
-  %160 = load i16, ptr %159, align 2, !tbaa !31
+  %160 = load i16, ptr %159, align 2, !tbaa !30
   %161 = sext i16 %160 to i32
   %162 = shl nsw i32 %161, 2
   %163 = getelementptr inbounds nuw [8 x i16], ptr %11, i64 0, i64 %indvars.iv250
-  %164 = load i16, ptr %163, align 2, !tbaa !31
+  %164 = load i16, ptr %163, align 2, !tbaa !30
   %165 = sext i16 %164 to i32
   %.neg213 = mul nsw i32 %165, -10
   %166 = add nsw i32 %.neg213, %162
@@ -1834,10 +1834,10 @@ define internal void @cavs_idct8_add_c(ptr noundef captures(none) %0, ptr nounde
   %168 = mul nsw i32 %161, 10
   %169 = add nsw i32 %167, %168
   %170 = getelementptr inbounds nuw [8 x i16], ptr %1, i64 0, i64 %indvars.iv250
-  %171 = load i16, ptr %170, align 2, !tbaa !31
+  %171 = load i16, ptr %170, align 2, !tbaa !30
   %172 = sext i16 %171 to i32
   %173 = getelementptr inbounds nuw [8 x i16], ptr %12, i64 0, i64 %indvars.iv250
-  %174 = load i16, ptr %173, align 2, !tbaa !31
+  %174 = load i16, ptr %173, align 2, !tbaa !30
   %175 = sext i16 %174 to i32
   %176 = sub nsw i32 %172, %175
   %177 = shl nsw i32 %176, 3
@@ -1945,7 +1945,7 @@ define internal void @cavs_idct8_add_c(ptr noundef captures(none) %0, ptr nounde
   store i8 %.0.i236, ptr %240, align 1, !tbaa !16
   %indvars.iv.next251 = add nuw nsw i64 %indvars.iv250, 1
   %exitcond253.not = icmp eq i64 %indvars.iv.next251, 8
-  br i1 %exitcond253.not, label %248, label %118, !llvm.loop !34
+  br i1 %exitcond253.not, label %248, label %118, !llvm.loop !33
 
 248:                                              ; preds = %118
   ret void
@@ -2173,7 +2173,7 @@ define internal fastcc void @put_cavs_filt8_h_qpel_l(ptr noundef writeonly captu
   %201 = getelementptr inbounds i8, ptr %.07078, i64 %3
   %202 = add nuw nsw i32 %.080, 1
   %exitcond.not = icmp eq i32 %202, 8
-  br i1 %exitcond.not, label %203, label %5, !llvm.loop !35
+  br i1 %exitcond.not, label %203, label %5, !llvm.loop !34
 
 203:                                              ; preds = %5
   ret void
@@ -2358,7 +2358,7 @@ define internal fastcc void @put_cavs_filt8_h_hpel(ptr noundef writeonly capture
   %152 = getelementptr inbounds i8, ptr %.07094, i64 %3
   %153 = add nuw nsw i32 %.096, 1
   %exitcond.not = icmp eq i32 %153, 8
-  br i1 %exitcond.not, label %154, label %5, !llvm.loop !36
+  br i1 %exitcond.not, label %154, label %5, !llvm.loop !35
 
 154:                                              ; preds = %5
   ret void
@@ -2586,7 +2586,7 @@ define internal fastcc void @put_cavs_filt8_h_qpel_r(ptr noundef writeonly captu
   %201 = getelementptr inbounds i8, ptr %.07094, i64 %3
   %202 = add nuw nsw i32 %.096, 1
   %exitcond.not = icmp eq i32 %202, 8
-  br i1 %exitcond.not, label %203, label %5, !llvm.loop !37
+  br i1 %exitcond.not, label %203, label %5, !llvm.loop !36
 
 203:                                              ; preds = %5
   ret void
@@ -2774,7 +2774,7 @@ define internal fastcc void @put_cavs_filt8_v_qpel_l(ptr noundef writeonly captu
   %161 = getelementptr inbounds nuw i8, ptr %.0101111, i64 1
   %162 = add nuw nsw i32 %.0102110, 1
   %exitcond.not = icmp eq i32 %162, 8
-  br i1 %exitcond.not, label %163, label %21, !llvm.loop !38
+  br i1 %exitcond.not, label %163, label %21, !llvm.loop !37
 
 163:                                              ; preds = %21
   ret void
@@ -2809,7 +2809,7 @@ define internal fastcc void @put_cavs_filt8_hv_egpr(ptr noundef writeonly captur
   %24 = add nuw nsw i16 %21, %13
   %25 = sub nsw i16 %23, %24
   %26 = getelementptr inbounds nuw i8, ptr %.0168212, i64 3
-  store i16 %25, ptr %.0170211, align 2, !tbaa !31
+  store i16 %25, ptr %.0170211, align 2, !tbaa !30
   %27 = load i8, ptr %26, align 1, !tbaa !16
   %28 = zext i8 %27 to i16
   %29 = add nuw nsw i16 %21, %18
@@ -2818,7 +2818,7 @@ define internal fastcc void @put_cavs_filt8_hv_egpr(ptr noundef writeonly captur
   %32 = sub nsw i16 %30, %31
   %33 = getelementptr inbounds nuw i8, ptr %.0168212, i64 4
   %34 = getelementptr inbounds nuw i8, ptr %.0170211, i64 2
-  store i16 %32, ptr %34, align 2, !tbaa !31
+  store i16 %32, ptr %34, align 2, !tbaa !30
   %35 = load i8, ptr %33, align 1, !tbaa !16
   %36 = zext i8 %35 to i16
   %37 = add nuw nsw i16 %28, %21
@@ -2827,7 +2827,7 @@ define internal fastcc void @put_cavs_filt8_hv_egpr(ptr noundef writeonly captur
   %40 = sub nsw i16 %38, %39
   %41 = getelementptr inbounds nuw i8, ptr %.0168212, i64 5
   %42 = getelementptr inbounds nuw i8, ptr %.0170211, i64 4
-  store i16 %40, ptr %42, align 2, !tbaa !31
+  store i16 %40, ptr %42, align 2, !tbaa !30
   %43 = load i8, ptr %41, align 1, !tbaa !16
   %44 = zext i8 %43 to i16
   %45 = add nuw nsw i16 %36, %28
@@ -2836,7 +2836,7 @@ define internal fastcc void @put_cavs_filt8_hv_egpr(ptr noundef writeonly captur
   %48 = sub nsw i16 %46, %47
   %49 = getelementptr inbounds nuw i8, ptr %.0168212, i64 6
   %50 = getelementptr inbounds nuw i8, ptr %.0170211, i64 6
-  store i16 %48, ptr %50, align 2, !tbaa !31
+  store i16 %48, ptr %50, align 2, !tbaa !30
   %51 = load i8, ptr %49, align 1, !tbaa !16
   %52 = zext i8 %51 to i16
   %53 = add nuw nsw i16 %44, %36
@@ -2845,7 +2845,7 @@ define internal fastcc void @put_cavs_filt8_hv_egpr(ptr noundef writeonly captur
   %56 = sub nsw i16 %54, %55
   %57 = getelementptr inbounds nuw i8, ptr %.0168212, i64 7
   %58 = getelementptr inbounds nuw i8, ptr %.0170211, i64 8
-  store i16 %56, ptr %58, align 2, !tbaa !31
+  store i16 %56, ptr %58, align 2, !tbaa !30
   %59 = load i8, ptr %57, align 1, !tbaa !16
   %60 = zext i8 %59 to i16
   %61 = add nuw nsw i16 %52, %44
@@ -2854,7 +2854,7 @@ define internal fastcc void @put_cavs_filt8_hv_egpr(ptr noundef writeonly captur
   %64 = sub nsw i16 %62, %63
   %65 = getelementptr inbounds nuw i8, ptr %.0168212, i64 8
   %66 = getelementptr inbounds nuw i8, ptr %.0170211, i64 10
-  store i16 %64, ptr %66, align 2, !tbaa !31
+  store i16 %64, ptr %66, align 2, !tbaa !30
   %67 = load i8, ptr %65, align 1, !tbaa !16
   %68 = zext i8 %67 to i16
   %69 = add nuw nsw i16 %60, %52
@@ -2863,7 +2863,7 @@ define internal fastcc void @put_cavs_filt8_hv_egpr(ptr noundef writeonly captur
   %72 = sub nsw i16 %70, %71
   %73 = getelementptr inbounds nuw i8, ptr %.0168212, i64 9
   %74 = getelementptr inbounds nuw i8, ptr %.0170211, i64 12
-  store i16 %72, ptr %74, align 2, !tbaa !31
+  store i16 %72, ptr %74, align 2, !tbaa !30
   %75 = load i8, ptr %73, align 1, !tbaa !16
   %76 = zext i8 %75 to i16
   %77 = add nuw nsw i16 %68, %60
@@ -2871,12 +2871,12 @@ define internal fastcc void @put_cavs_filt8_hv_egpr(ptr noundef writeonly captur
   %79 = add nuw nsw i16 %76, %52
   %80 = sub nsw i16 %78, %79
   %81 = getelementptr inbounds nuw i8, ptr %.0170211, i64 14
-  store i16 %80, ptr %81, align 2, !tbaa !31
+  store i16 %80, ptr %81, align 2, !tbaa !30
   %82 = getelementptr inbounds nuw i8, ptr %.0170211, i64 16
   %83 = getelementptr inbounds i8, ptr %.0168212, i64 %4
   %84 = add nuw nsw i32 %.0171210, 1
   %exitcond.not = icmp eq i32 %84, 13
-  br i1 %exitcond.not, label %85, label %10, !llvm.loop !39
+  br i1 %exitcond.not, label %85, label %10, !llvm.loop !38
 
 85:                                               ; preds = %10
   %86 = getelementptr inbounds nuw i8, ptr %6, i64 32
@@ -2899,36 +2899,36 @@ define internal fastcc void @put_cavs_filt8_hv_egpr(ptr noundef writeonly captur
   %.1214 = phi ptr [ %86, %85 ], [ %242, %98 ]
   %.1172213 = phi i32 [ 0, %85 ], [ %244, %98 ]
   %99 = getelementptr inbounds i8, ptr %.1214, i64 -16
-  %100 = load i16, ptr %99, align 2, !tbaa !31
+  %100 = load i16, ptr %99, align 2, !tbaa !30
   %101 = sext i16 %100 to i32
-  %102 = load i16, ptr %.1214, align 2, !tbaa !31
+  %102 = load i16, ptr %.1214, align 2, !tbaa !30
   %103 = sext i16 %102 to i32
   %104 = getelementptr inbounds nuw i8, ptr %.1214, i64 16
-  %105 = load i16, ptr %104, align 2, !tbaa !31
+  %105 = load i16, ptr %104, align 2, !tbaa !30
   %106 = sext i16 %105 to i32
   %107 = getelementptr inbounds nuw i8, ptr %.1214, i64 32
-  %108 = load i16, ptr %107, align 2, !tbaa !31
+  %108 = load i16, ptr %107, align 2, !tbaa !30
   %109 = sext i16 %108 to i32
   %110 = getelementptr inbounds nuw i8, ptr %.1214, i64 48
-  %111 = load i16, ptr %110, align 2, !tbaa !31
+  %111 = load i16, ptr %110, align 2, !tbaa !30
   %112 = sext i16 %111 to i32
   %113 = getelementptr inbounds nuw i8, ptr %.1214, i64 64
-  %114 = load i16, ptr %113, align 2, !tbaa !31
+  %114 = load i16, ptr %113, align 2, !tbaa !30
   %115 = sext i16 %114 to i32
   %116 = getelementptr inbounds nuw i8, ptr %.1214, i64 80
-  %117 = load i16, ptr %116, align 2, !tbaa !31
+  %117 = load i16, ptr %116, align 2, !tbaa !30
   %118 = sext i16 %117 to i32
   %119 = getelementptr inbounds nuw i8, ptr %.1214, i64 96
-  %120 = load i16, ptr %119, align 2, !tbaa !31
+  %120 = load i16, ptr %119, align 2, !tbaa !30
   %121 = sext i16 %120 to i32
   %122 = getelementptr inbounds nuw i8, ptr %.1214, i64 112
-  %123 = load i16, ptr %122, align 2, !tbaa !31
+  %123 = load i16, ptr %122, align 2, !tbaa !30
   %124 = sext i16 %123 to i32
   %125 = getelementptr inbounds nuw i8, ptr %.1214, i64 128
-  %126 = load i16, ptr %125, align 2, !tbaa !31
+  %126 = load i16, ptr %125, align 2, !tbaa !30
   %127 = sext i16 %126 to i32
   %128 = getelementptr inbounds nuw i8, ptr %.1214, i64 144
-  %129 = load i16, ptr %128, align 2, !tbaa !31
+  %129 = load i16, ptr %128, align 2, !tbaa !30
   %130 = sext i16 %129 to i32
   %131 = add nsw i32 %106, %103
   %132 = mul nsw i32 %131, 5
@@ -3061,7 +3061,7 @@ define internal fastcc void @put_cavs_filt8_hv_egpr(ptr noundef writeonly captur
   %243 = getelementptr inbounds nuw i8, ptr %.0169215, i64 1
   %244 = add nuw nsw i32 %.1172213, 1
   %exitcond224.not = icmp eq i32 %244, 8
-  br i1 %exitcond224.not, label %245, label %98, !llvm.loop !40
+  br i1 %exitcond224.not, label %245, label %98, !llvm.loop !39
 
 245:                                              ; preds = %98
   call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %6) #7
@@ -3096,7 +3096,7 @@ define internal fastcc void @put_cavs_filt8_hv_ff(ptr noundef writeonly captures
   %21 = add nuw nsw i16 %18, %10
   %22 = sub nsw i16 %20, %21
   %23 = getelementptr inbounds nuw i8, ptr %.015130, i64 3
-  store i16 %22, ptr %.015229, align 2, !tbaa !31
+  store i16 %22, ptr %.015229, align 2, !tbaa !30
   %24 = load i8, ptr %23, align 1, !tbaa !16
   %25 = zext i8 %24 to i16
   %26 = add nuw nsw i16 %18, %15
@@ -3105,7 +3105,7 @@ define internal fastcc void @put_cavs_filt8_hv_ff(ptr noundef writeonly captures
   %29 = sub nsw i16 %27, %28
   %30 = getelementptr inbounds nuw i8, ptr %.015130, i64 4
   %31 = getelementptr inbounds nuw i8, ptr %.015229, i64 2
-  store i16 %29, ptr %31, align 2, !tbaa !31
+  store i16 %29, ptr %31, align 2, !tbaa !30
   %32 = load i8, ptr %30, align 1, !tbaa !16
   %33 = zext i8 %32 to i16
   %34 = add nuw nsw i16 %25, %18
@@ -3114,7 +3114,7 @@ define internal fastcc void @put_cavs_filt8_hv_ff(ptr noundef writeonly captures
   %37 = sub nsw i16 %35, %36
   %38 = getelementptr inbounds nuw i8, ptr %.015130, i64 5
   %39 = getelementptr inbounds nuw i8, ptr %.015229, i64 4
-  store i16 %37, ptr %39, align 2, !tbaa !31
+  store i16 %37, ptr %39, align 2, !tbaa !30
   %40 = load i8, ptr %38, align 1, !tbaa !16
   %41 = zext i8 %40 to i16
   %42 = add nuw nsw i16 %33, %25
@@ -3123,7 +3123,7 @@ define internal fastcc void @put_cavs_filt8_hv_ff(ptr noundef writeonly captures
   %45 = sub nsw i16 %43, %44
   %46 = getelementptr inbounds nuw i8, ptr %.015130, i64 6
   %47 = getelementptr inbounds nuw i8, ptr %.015229, i64 6
-  store i16 %45, ptr %47, align 2, !tbaa !31
+  store i16 %45, ptr %47, align 2, !tbaa !30
   %48 = load i8, ptr %46, align 1, !tbaa !16
   %49 = zext i8 %48 to i16
   %50 = add nuw nsw i16 %41, %33
@@ -3132,7 +3132,7 @@ define internal fastcc void @put_cavs_filt8_hv_ff(ptr noundef writeonly captures
   %53 = sub nsw i16 %51, %52
   %54 = getelementptr inbounds nuw i8, ptr %.015130, i64 7
   %55 = getelementptr inbounds nuw i8, ptr %.015229, i64 8
-  store i16 %53, ptr %55, align 2, !tbaa !31
+  store i16 %53, ptr %55, align 2, !tbaa !30
   %56 = load i8, ptr %54, align 1, !tbaa !16
   %57 = zext i8 %56 to i16
   %58 = add nuw nsw i16 %49, %41
@@ -3141,7 +3141,7 @@ define internal fastcc void @put_cavs_filt8_hv_ff(ptr noundef writeonly captures
   %61 = sub nsw i16 %59, %60
   %62 = getelementptr inbounds nuw i8, ptr %.015130, i64 8
   %63 = getelementptr inbounds nuw i8, ptr %.015229, i64 10
-  store i16 %61, ptr %63, align 2, !tbaa !31
+  store i16 %61, ptr %63, align 2, !tbaa !30
   %64 = load i8, ptr %62, align 1, !tbaa !16
   %65 = zext i8 %64 to i16
   %66 = add nuw nsw i16 %57, %49
@@ -3150,7 +3150,7 @@ define internal fastcc void @put_cavs_filt8_hv_ff(ptr noundef writeonly captures
   %69 = sub nsw i16 %67, %68
   %70 = getelementptr inbounds nuw i8, ptr %.015130, i64 9
   %71 = getelementptr inbounds nuw i8, ptr %.015229, i64 12
-  store i16 %69, ptr %71, align 2, !tbaa !31
+  store i16 %69, ptr %71, align 2, !tbaa !30
   %72 = load i8, ptr %70, align 1, !tbaa !16
   %73 = zext i8 %72 to i16
   %74 = add nuw nsw i16 %65, %57
@@ -3158,12 +3158,12 @@ define internal fastcc void @put_cavs_filt8_hv_ff(ptr noundef writeonly captures
   %76 = add nuw nsw i16 %73, %49
   %77 = sub nsw i16 %75, %76
   %78 = getelementptr inbounds nuw i8, ptr %.015229, i64 14
-  store i16 %77, ptr %78, align 2, !tbaa !31
+  store i16 %77, ptr %78, align 2, !tbaa !30
   %79 = getelementptr inbounds nuw i8, ptr %.015229, i64 16
   %80 = getelementptr inbounds i8, ptr %.015130, i64 %3
   %81 = add nuw nsw i32 %.015328, 1
   %exitcond.not = icmp eq i32 %81, 13
-  br i1 %exitcond.not, label %82, label %7, !llvm.loop !41
+  br i1 %exitcond.not, label %82, label %7, !llvm.loop !40
 
 82:                                               ; preds = %7
   %83 = getelementptr inbounds nuw i8, ptr %5, i64 32
@@ -3180,39 +3180,39 @@ define internal fastcc void @put_cavs_filt8_hv_ff(ptr noundef writeonly captures
   %.132 = phi ptr [ %83, %82 ], [ %230, %90 ]
   %.115431 = phi i32 [ 0, %82 ], [ %231, %90 ]
   %91 = getelementptr inbounds i8, ptr %.132, i64 -32
-  %92 = load i16, ptr %91, align 2, !tbaa !31
+  %92 = load i16, ptr %91, align 2, !tbaa !30
   %93 = sext i16 %92 to i32
   %94 = getelementptr inbounds i8, ptr %.132, i64 -16
-  %95 = load i16, ptr %94, align 2, !tbaa !31
+  %95 = load i16, ptr %94, align 2, !tbaa !30
   %96 = sext i16 %95 to i32
-  %97 = load i16, ptr %.132, align 2, !tbaa !31
+  %97 = load i16, ptr %.132, align 2, !tbaa !30
   %98 = sext i16 %97 to i32
   %99 = getelementptr inbounds nuw i8, ptr %.132, i64 16
-  %100 = load i16, ptr %99, align 2, !tbaa !31
+  %100 = load i16, ptr %99, align 2, !tbaa !30
   %101 = sext i16 %100 to i32
   %102 = getelementptr inbounds nuw i8, ptr %.132, i64 32
-  %103 = load i16, ptr %102, align 2, !tbaa !31
+  %103 = load i16, ptr %102, align 2, !tbaa !30
   %104 = sext i16 %103 to i32
   %105 = getelementptr inbounds nuw i8, ptr %.132, i64 48
-  %106 = load i16, ptr %105, align 2, !tbaa !31
+  %106 = load i16, ptr %105, align 2, !tbaa !30
   %107 = sext i16 %106 to i32
   %108 = getelementptr inbounds nuw i8, ptr %.132, i64 64
-  %109 = load i16, ptr %108, align 2, !tbaa !31
+  %109 = load i16, ptr %108, align 2, !tbaa !30
   %110 = sext i16 %109 to i32
   %111 = getelementptr inbounds nuw i8, ptr %.132, i64 80
-  %112 = load i16, ptr %111, align 2, !tbaa !31
+  %112 = load i16, ptr %111, align 2, !tbaa !30
   %113 = sext i16 %112 to i32
   %114 = getelementptr inbounds nuw i8, ptr %.132, i64 96
-  %115 = load i16, ptr %114, align 2, !tbaa !31
+  %115 = load i16, ptr %114, align 2, !tbaa !30
   %116 = sext i16 %115 to i32
   %117 = getelementptr inbounds nuw i8, ptr %.132, i64 112
-  %118 = load i16, ptr %117, align 2, !tbaa !31
+  %118 = load i16, ptr %117, align 2, !tbaa !30
   %119 = sext i16 %118 to i32
   %120 = getelementptr inbounds nuw i8, ptr %.132, i64 128
-  %121 = load i16, ptr %120, align 2, !tbaa !31
+  %121 = load i16, ptr %120, align 2, !tbaa !30
   %122 = sext i16 %121 to i32
   %123 = getelementptr inbounds nuw i8, ptr %.132, i64 144
-  %124 = load i16, ptr %123, align 2, !tbaa !31
+  %124 = load i16, ptr %123, align 2, !tbaa !30
   %125 = sext i16 %124 to i32
   %126 = mul nsw i32 %96, -2
   %127 = mul nsw i32 %98, 96
@@ -3337,7 +3337,7 @@ define internal fastcc void @put_cavs_filt8_hv_ff(ptr noundef writeonly captures
   %230 = getelementptr inbounds nuw i8, ptr %.132, i64 2
   %231 = add nuw nsw i32 %.115431, 1
   %exitcond41.not = icmp eq i32 %231, 8
-  br i1 %exitcond41.not, label %232, label %90, !llvm.loop !42
+  br i1 %exitcond41.not, label %232, label %90, !llvm.loop !41
 
 232:                                              ; preds = %90
   call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #7
@@ -3490,7 +3490,7 @@ define internal fastcc void @put_cavs_filt8_v_hpel(ptr noundef writeonly capture
   %125 = getelementptr inbounds nuw i8, ptr %.0101122, i64 1
   %126 = add nuw nsw i32 %.0102121, 1
   %exitcond.not = icmp eq i32 %126, 8
-  br i1 %exitcond.not, label %127, label %20, !llvm.loop !43
+  br i1 %exitcond.not, label %127, label %20, !llvm.loop !42
 
 127:                                              ; preds = %20
   ret void
@@ -3531,7 +3531,7 @@ define internal fastcc void @put_cavs_filt8_hv_ii(ptr noundef writeonly captures
   %28 = mul nsw i16 %27, -7
   %29 = add i16 %24, %28
   %30 = getelementptr inbounds nuw i8, ptr %.015130, i64 3
-  store i16 %29, ptr %.015229, align 2, !tbaa !31
+  store i16 %29, ptr %.015229, align 2, !tbaa !30
   %31 = mul nsw i16 %17, -2
   %32 = sub nsw i16 %31, %13
   %33 = mul nuw nsw i16 %22, 96
@@ -3544,7 +3544,7 @@ define internal fastcc void @put_cavs_filt8_hv_ii(ptr noundef writeonly captures
   %40 = add i16 %36, %39
   %41 = getelementptr inbounds nuw i8, ptr %.015130, i64 4
   %42 = getelementptr inbounds nuw i8, ptr %.015229, i64 2
-  store i16 %40, ptr %42, align 2, !tbaa !31
+  store i16 %40, ptr %42, align 2, !tbaa !30
   %43 = mul nsw i16 %22, -2
   %44 = sub nsw i16 %43, %17
   %45 = mul nuw nsw i16 %27, 96
@@ -3557,7 +3557,7 @@ define internal fastcc void @put_cavs_filt8_hv_ii(ptr noundef writeonly captures
   %52 = add i16 %48, %51
   %53 = getelementptr inbounds nuw i8, ptr %.015130, i64 5
   %54 = getelementptr inbounds nuw i8, ptr %.015229, i64 4
-  store i16 %52, ptr %54, align 2, !tbaa !31
+  store i16 %52, ptr %54, align 2, !tbaa !30
   %55 = mul nsw i16 %27, -2
   %56 = sub nsw i16 %55, %22
   %57 = mul nuw nsw i16 %38, 96
@@ -3570,7 +3570,7 @@ define internal fastcc void @put_cavs_filt8_hv_ii(ptr noundef writeonly captures
   %64 = add i16 %60, %63
   %65 = getelementptr inbounds nuw i8, ptr %.015130, i64 6
   %66 = getelementptr inbounds nuw i8, ptr %.015229, i64 6
-  store i16 %64, ptr %66, align 2, !tbaa !31
+  store i16 %64, ptr %66, align 2, !tbaa !30
   %67 = mul nsw i16 %38, -2
   %68 = sub nsw i16 %67, %27
   %69 = mul nuw nsw i16 %50, 96
@@ -3583,7 +3583,7 @@ define internal fastcc void @put_cavs_filt8_hv_ii(ptr noundef writeonly captures
   %76 = add i16 %72, %75
   %77 = getelementptr inbounds nuw i8, ptr %.015130, i64 7
   %78 = getelementptr inbounds nuw i8, ptr %.015229, i64 8
-  store i16 %76, ptr %78, align 2, !tbaa !31
+  store i16 %76, ptr %78, align 2, !tbaa !30
   %79 = mul nsw i16 %50, -2
   %80 = sub nsw i16 %79, %38
   %81 = mul nuw nsw i16 %62, 96
@@ -3596,7 +3596,7 @@ define internal fastcc void @put_cavs_filt8_hv_ii(ptr noundef writeonly captures
   %88 = add i16 %84, %87
   %89 = getelementptr inbounds nuw i8, ptr %.015130, i64 8
   %90 = getelementptr inbounds nuw i8, ptr %.015229, i64 10
-  store i16 %88, ptr %90, align 2, !tbaa !31
+  store i16 %88, ptr %90, align 2, !tbaa !30
   %91 = mul nsw i16 %62, -2
   %92 = sub nsw i16 %91, %50
   %93 = mul nuw nsw i16 %74, 96
@@ -3609,7 +3609,7 @@ define internal fastcc void @put_cavs_filt8_hv_ii(ptr noundef writeonly captures
   %100 = add i16 %96, %99
   %101 = getelementptr inbounds nuw i8, ptr %.015130, i64 9
   %102 = getelementptr inbounds nuw i8, ptr %.015229, i64 12
-  store i16 %100, ptr %102, align 2, !tbaa !31
+  store i16 %100, ptr %102, align 2, !tbaa !30
   %103 = mul nsw i16 %74, -2
   %104 = sub nsw i16 %103, %62
   %105 = mul nuw nsw i16 %86, 96
@@ -3621,12 +3621,12 @@ define internal fastcc void @put_cavs_filt8_hv_ii(ptr noundef writeonly captures
   %111 = mul nsw i16 %110, -7
   %112 = add i16 %108, %111
   %113 = getelementptr inbounds nuw i8, ptr %.015229, i64 14
-  store i16 %112, ptr %113, align 2, !tbaa !31
+  store i16 %112, ptr %113, align 2, !tbaa !30
   %114 = getelementptr inbounds nuw i8, ptr %.015229, i64 16
   %115 = getelementptr inbounds i8, ptr %.015130, i64 %3
   %116 = add nuw nsw i32 %.015328, 1
   %exitcond.not = icmp eq i32 %116, 13
-  br i1 %exitcond.not, label %117, label %7, !llvm.loop !44
+  br i1 %exitcond.not, label %117, label %7, !llvm.loop !43
 
 117:                                              ; preds = %7
   %118 = getelementptr inbounds nuw i8, ptr %5, i64 32
@@ -3643,36 +3643,36 @@ define internal fastcc void @put_cavs_filt8_hv_ii(ptr noundef writeonly captures
   %.132 = phi ptr [ %118, %117 ], [ %230, %125 ]
   %.115431 = phi i32 [ 0, %117 ], [ %231, %125 ]
   %126 = getelementptr inbounds i8, ptr %.132, i64 -16
-  %127 = load i16, ptr %126, align 2, !tbaa !31
+  %127 = load i16, ptr %126, align 2, !tbaa !30
   %128 = sext i16 %127 to i32
-  %129 = load i16, ptr %.132, align 2, !tbaa !31
+  %129 = load i16, ptr %.132, align 2, !tbaa !30
   %130 = sext i16 %129 to i32
   %131 = getelementptr inbounds nuw i8, ptr %.132, i64 16
-  %132 = load i16, ptr %131, align 2, !tbaa !31
+  %132 = load i16, ptr %131, align 2, !tbaa !30
   %133 = sext i16 %132 to i32
   %134 = getelementptr inbounds nuw i8, ptr %.132, i64 32
-  %135 = load i16, ptr %134, align 2, !tbaa !31
+  %135 = load i16, ptr %134, align 2, !tbaa !30
   %136 = sext i16 %135 to i32
   %137 = getelementptr inbounds nuw i8, ptr %.132, i64 48
-  %138 = load i16, ptr %137, align 2, !tbaa !31
+  %138 = load i16, ptr %137, align 2, !tbaa !30
   %139 = sext i16 %138 to i32
   %140 = getelementptr inbounds nuw i8, ptr %.132, i64 64
-  %141 = load i16, ptr %140, align 2, !tbaa !31
+  %141 = load i16, ptr %140, align 2, !tbaa !30
   %142 = sext i16 %141 to i32
   %143 = getelementptr inbounds nuw i8, ptr %.132, i64 80
-  %144 = load i16, ptr %143, align 2, !tbaa !31
+  %144 = load i16, ptr %143, align 2, !tbaa !30
   %145 = sext i16 %144 to i32
   %146 = getelementptr inbounds nuw i8, ptr %.132, i64 96
-  %147 = load i16, ptr %146, align 2, !tbaa !31
+  %147 = load i16, ptr %146, align 2, !tbaa !30
   %148 = sext i16 %147 to i32
   %149 = getelementptr inbounds nuw i8, ptr %.132, i64 112
-  %150 = load i16, ptr %149, align 2, !tbaa !31
+  %150 = load i16, ptr %149, align 2, !tbaa !30
   %151 = sext i16 %150 to i32
   %152 = getelementptr inbounds nuw i8, ptr %.132, i64 128
-  %153 = load i16, ptr %152, align 2, !tbaa !31
+  %153 = load i16, ptr %152, align 2, !tbaa !30
   %154 = sext i16 %153 to i32
   %155 = getelementptr inbounds nuw i8, ptr %.132, i64 144
-  %156 = load i16, ptr %155, align 2, !tbaa !31
+  %156 = load i16, ptr %155, align 2, !tbaa !30
   %157 = sext i16 %156 to i32
   %158 = add nsw i32 %133, %130
   %159 = mul nsw i32 %158, 5
@@ -3765,7 +3765,7 @@ define internal fastcc void @put_cavs_filt8_hv_ii(ptr noundef writeonly captures
   %230 = getelementptr inbounds nuw i8, ptr %.132, i64 2
   %231 = add nuw nsw i32 %.115431, 1
   %exitcond41.not = icmp eq i32 %231, 8
-  br i1 %exitcond41.not, label %232, label %125, !llvm.loop !45
+  br i1 %exitcond41.not, label %232, label %125, !llvm.loop !44
 
 232:                                              ; preds = %125
   call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #7
@@ -3800,7 +3800,7 @@ define internal fastcc void @put_cavs_filt8_hv_jj(ptr noundef writeonly captures
   %21 = add nuw nsw i16 %18, %10
   %22 = sub nsw i16 %20, %21
   %23 = getelementptr inbounds nuw i8, ptr %.015141, i64 3
-  store i16 %22, ptr %.015240, align 2, !tbaa !31
+  store i16 %22, ptr %.015240, align 2, !tbaa !30
   %24 = load i8, ptr %23, align 1, !tbaa !16
   %25 = zext i8 %24 to i16
   %26 = add nuw nsw i16 %18, %15
@@ -3809,7 +3809,7 @@ define internal fastcc void @put_cavs_filt8_hv_jj(ptr noundef writeonly captures
   %29 = sub nsw i16 %27, %28
   %30 = getelementptr inbounds nuw i8, ptr %.015141, i64 4
   %31 = getelementptr inbounds nuw i8, ptr %.015240, i64 2
-  store i16 %29, ptr %31, align 2, !tbaa !31
+  store i16 %29, ptr %31, align 2, !tbaa !30
   %32 = load i8, ptr %30, align 1, !tbaa !16
   %33 = zext i8 %32 to i16
   %34 = add nuw nsw i16 %25, %18
@@ -3818,7 +3818,7 @@ define internal fastcc void @put_cavs_filt8_hv_jj(ptr noundef writeonly captures
   %37 = sub nsw i16 %35, %36
   %38 = getelementptr inbounds nuw i8, ptr %.015141, i64 5
   %39 = getelementptr inbounds nuw i8, ptr %.015240, i64 4
-  store i16 %37, ptr %39, align 2, !tbaa !31
+  store i16 %37, ptr %39, align 2, !tbaa !30
   %40 = load i8, ptr %38, align 1, !tbaa !16
   %41 = zext i8 %40 to i16
   %42 = add nuw nsw i16 %33, %25
@@ -3827,7 +3827,7 @@ define internal fastcc void @put_cavs_filt8_hv_jj(ptr noundef writeonly captures
   %45 = sub nsw i16 %43, %44
   %46 = getelementptr inbounds nuw i8, ptr %.015141, i64 6
   %47 = getelementptr inbounds nuw i8, ptr %.015240, i64 6
-  store i16 %45, ptr %47, align 2, !tbaa !31
+  store i16 %45, ptr %47, align 2, !tbaa !30
   %48 = load i8, ptr %46, align 1, !tbaa !16
   %49 = zext i8 %48 to i16
   %50 = add nuw nsw i16 %41, %33
@@ -3836,7 +3836,7 @@ define internal fastcc void @put_cavs_filt8_hv_jj(ptr noundef writeonly captures
   %53 = sub nsw i16 %51, %52
   %54 = getelementptr inbounds nuw i8, ptr %.015141, i64 7
   %55 = getelementptr inbounds nuw i8, ptr %.015240, i64 8
-  store i16 %53, ptr %55, align 2, !tbaa !31
+  store i16 %53, ptr %55, align 2, !tbaa !30
   %56 = load i8, ptr %54, align 1, !tbaa !16
   %57 = zext i8 %56 to i16
   %58 = add nuw nsw i16 %49, %41
@@ -3845,7 +3845,7 @@ define internal fastcc void @put_cavs_filt8_hv_jj(ptr noundef writeonly captures
   %61 = sub nsw i16 %59, %60
   %62 = getelementptr inbounds nuw i8, ptr %.015141, i64 8
   %63 = getelementptr inbounds nuw i8, ptr %.015240, i64 10
-  store i16 %61, ptr %63, align 2, !tbaa !31
+  store i16 %61, ptr %63, align 2, !tbaa !30
   %64 = load i8, ptr %62, align 1, !tbaa !16
   %65 = zext i8 %64 to i16
   %66 = add nuw nsw i16 %57, %49
@@ -3854,7 +3854,7 @@ define internal fastcc void @put_cavs_filt8_hv_jj(ptr noundef writeonly captures
   %69 = sub nsw i16 %67, %68
   %70 = getelementptr inbounds nuw i8, ptr %.015141, i64 9
   %71 = getelementptr inbounds nuw i8, ptr %.015240, i64 12
-  store i16 %69, ptr %71, align 2, !tbaa !31
+  store i16 %69, ptr %71, align 2, !tbaa !30
   %72 = load i8, ptr %70, align 1, !tbaa !16
   %73 = zext i8 %72 to i16
   %74 = add nuw nsw i16 %65, %57
@@ -3862,12 +3862,12 @@ define internal fastcc void @put_cavs_filt8_hv_jj(ptr noundef writeonly captures
   %76 = add nuw nsw i16 %73, %49
   %77 = sub nsw i16 %75, %76
   %78 = getelementptr inbounds nuw i8, ptr %.015240, i64 14
-  store i16 %77, ptr %78, align 2, !tbaa !31
+  store i16 %77, ptr %78, align 2, !tbaa !30
   %79 = getelementptr inbounds nuw i8, ptr %.015240, i64 16
   %80 = getelementptr inbounds i8, ptr %.015141, i64 %3
   %81 = add nuw nsw i32 %.015339, 1
   %exitcond.not = icmp eq i32 %81, 13
-  br i1 %exitcond.not, label %82, label %7, !llvm.loop !46
+  br i1 %exitcond.not, label %82, label %7, !llvm.loop !45
 
 82:                                               ; preds = %7
   %83 = getelementptr inbounds nuw i8, ptr %5, i64 32
@@ -3884,36 +3884,36 @@ define internal fastcc void @put_cavs_filt8_hv_jj(ptr noundef writeonly captures
   %.143 = phi ptr [ %83, %82 ], [ %195, %90 ]
   %.115442 = phi i32 [ 0, %82 ], [ %196, %90 ]
   %91 = getelementptr inbounds i8, ptr %.143, i64 -16
-  %92 = load i16, ptr %91, align 2, !tbaa !31
+  %92 = load i16, ptr %91, align 2, !tbaa !30
   %93 = sext i16 %92 to i32
-  %94 = load i16, ptr %.143, align 2, !tbaa !31
+  %94 = load i16, ptr %.143, align 2, !tbaa !30
   %95 = sext i16 %94 to i32
   %96 = getelementptr inbounds nuw i8, ptr %.143, i64 16
-  %97 = load i16, ptr %96, align 2, !tbaa !31
+  %97 = load i16, ptr %96, align 2, !tbaa !30
   %98 = sext i16 %97 to i32
   %99 = getelementptr inbounds nuw i8, ptr %.143, i64 32
-  %100 = load i16, ptr %99, align 2, !tbaa !31
+  %100 = load i16, ptr %99, align 2, !tbaa !30
   %101 = sext i16 %100 to i32
   %102 = getelementptr inbounds nuw i8, ptr %.143, i64 48
-  %103 = load i16, ptr %102, align 2, !tbaa !31
+  %103 = load i16, ptr %102, align 2, !tbaa !30
   %104 = sext i16 %103 to i32
   %105 = getelementptr inbounds nuw i8, ptr %.143, i64 64
-  %106 = load i16, ptr %105, align 2, !tbaa !31
+  %106 = load i16, ptr %105, align 2, !tbaa !30
   %107 = sext i16 %106 to i32
   %108 = getelementptr inbounds nuw i8, ptr %.143, i64 80
-  %109 = load i16, ptr %108, align 2, !tbaa !31
+  %109 = load i16, ptr %108, align 2, !tbaa !30
   %110 = sext i16 %109 to i32
   %111 = getelementptr inbounds nuw i8, ptr %.143, i64 96
-  %112 = load i16, ptr %111, align 2, !tbaa !31
+  %112 = load i16, ptr %111, align 2, !tbaa !30
   %113 = sext i16 %112 to i32
   %114 = getelementptr inbounds nuw i8, ptr %.143, i64 112
-  %115 = load i16, ptr %114, align 2, !tbaa !31
+  %115 = load i16, ptr %114, align 2, !tbaa !30
   %116 = sext i16 %115 to i32
   %117 = getelementptr inbounds nuw i8, ptr %.143, i64 128
-  %118 = load i16, ptr %117, align 2, !tbaa !31
+  %118 = load i16, ptr %117, align 2, !tbaa !30
   %119 = sext i16 %118 to i32
   %120 = getelementptr inbounds nuw i8, ptr %.143, i64 144
-  %121 = load i16, ptr %120, align 2, !tbaa !31
+  %121 = load i16, ptr %120, align 2, !tbaa !30
   %122 = sext i16 %121 to i32
   %123 = add nsw i32 %98, %95
   %124 = mul nsw i32 %123, 5
@@ -4006,7 +4006,7 @@ define internal fastcc void @put_cavs_filt8_hv_jj(ptr noundef writeonly captures
   %195 = getelementptr inbounds nuw i8, ptr %.143, i64 2
   %196 = add nuw nsw i32 %.115442, 1
   %exitcond52.not = icmp eq i32 %196, 8
-  br i1 %exitcond52.not, label %197, label %90, !llvm.loop !47
+  br i1 %exitcond52.not, label %197, label %90, !llvm.loop !46
 
 197:                                              ; preds = %90
   call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #7
@@ -4047,7 +4047,7 @@ define internal fastcc void @put_cavs_filt8_hv_kk(ptr noundef writeonly captures
   %26 = shl nuw nsw i16 %21, 1
   %27 = add nuw nsw i16 %26, %24
   %28 = sub i16 %25, %27
-  store i16 %28, ptr %.015245, align 2, !tbaa !31
+  store i16 %28, ptr %.015245, align 2, !tbaa !30
   %29 = mul nsw i16 %13, -7
   %30 = mul nuw nsw i16 %17, 42
   %31 = mul nuw nsw i16 %21, 96
@@ -4060,7 +4060,7 @@ define internal fastcc void @put_cavs_filt8_hv_kk(ptr noundef writeonly captures
   %37 = add nuw nsw i16 %36, %34
   %38 = sub i16 %35, %37
   %39 = getelementptr inbounds nuw i8, ptr %.015245, i64 2
-  store i16 %38, ptr %39, align 2, !tbaa !31
+  store i16 %38, ptr %39, align 2, !tbaa !30
   %40 = mul nsw i16 %17, -7
   %41 = mul nuw nsw i16 %21, 42
   %42 = mul nuw nsw i16 %24, 96
@@ -4073,7 +4073,7 @@ define internal fastcc void @put_cavs_filt8_hv_kk(ptr noundef writeonly captures
   %48 = add nuw nsw i16 %47, %45
   %49 = sub i16 %46, %48
   %50 = getelementptr inbounds nuw i8, ptr %.015245, i64 4
-  store i16 %49, ptr %50, align 2, !tbaa !31
+  store i16 %49, ptr %50, align 2, !tbaa !30
   %51 = mul nsw i16 %21, -7
   %52 = mul nuw nsw i16 %24, 42
   %53 = mul nuw nsw i16 %34, 96
@@ -4086,7 +4086,7 @@ define internal fastcc void @put_cavs_filt8_hv_kk(ptr noundef writeonly captures
   %59 = add nuw nsw i16 %58, %56
   %60 = sub i16 %57, %59
   %61 = getelementptr inbounds nuw i8, ptr %.015245, i64 6
-  store i16 %60, ptr %61, align 2, !tbaa !31
+  store i16 %60, ptr %61, align 2, !tbaa !30
   %62 = mul nsw i16 %24, -7
   %63 = mul nuw nsw i16 %34, 42
   %64 = mul nuw nsw i16 %45, 96
@@ -4099,7 +4099,7 @@ define internal fastcc void @put_cavs_filt8_hv_kk(ptr noundef writeonly captures
   %70 = add nuw nsw i16 %69, %67
   %71 = sub i16 %68, %70
   %72 = getelementptr inbounds nuw i8, ptr %.015245, i64 8
-  store i16 %71, ptr %72, align 2, !tbaa !31
+  store i16 %71, ptr %72, align 2, !tbaa !30
   %73 = mul nsw i16 %34, -7
   %74 = mul nuw nsw i16 %45, 42
   %75 = mul nuw nsw i16 %56, 96
@@ -4112,7 +4112,7 @@ define internal fastcc void @put_cavs_filt8_hv_kk(ptr noundef writeonly captures
   %81 = add nuw nsw i16 %80, %78
   %82 = sub i16 %79, %81
   %83 = getelementptr inbounds nuw i8, ptr %.015245, i64 10
-  store i16 %82, ptr %83, align 2, !tbaa !31
+  store i16 %82, ptr %83, align 2, !tbaa !30
   %84 = mul nsw i16 %45, -7
   %85 = mul nuw nsw i16 %56, 42
   %86 = mul nuw nsw i16 %67, 96
@@ -4125,7 +4125,7 @@ define internal fastcc void @put_cavs_filt8_hv_kk(ptr noundef writeonly captures
   %92 = add nuw nsw i16 %91, %89
   %93 = sub i16 %90, %92
   %94 = getelementptr inbounds nuw i8, ptr %.015245, i64 12
-  store i16 %93, ptr %94, align 2, !tbaa !31
+  store i16 %93, ptr %94, align 2, !tbaa !30
   %95 = mul nsw i16 %56, -7
   %96 = mul nuw nsw i16 %67, 42
   %97 = mul nuw nsw i16 %78, 96
@@ -4138,12 +4138,12 @@ define internal fastcc void @put_cavs_filt8_hv_kk(ptr noundef writeonly captures
   %103 = add nuw nsw i16 %102, %100
   %104 = sub i16 %101, %103
   %105 = getelementptr inbounds nuw i8, ptr %.015245, i64 14
-  store i16 %104, ptr %105, align 2, !tbaa !31
+  store i16 %104, ptr %105, align 2, !tbaa !30
   %106 = getelementptr inbounds nuw i8, ptr %.015245, i64 16
   %107 = getelementptr inbounds i8, ptr %.015146, i64 %3
   %108 = add nuw nsw i32 %.015344, 1
   %exitcond.not = icmp eq i32 %108, 13
-  br i1 %exitcond.not, label %109, label %7, !llvm.loop !48
+  br i1 %exitcond.not, label %109, label %7, !llvm.loop !47
 
 109:                                              ; preds = %7
   %110 = getelementptr inbounds nuw i8, ptr %5, i64 32
@@ -4160,36 +4160,36 @@ define internal fastcc void @put_cavs_filt8_hv_kk(ptr noundef writeonly captures
   %.148 = phi ptr [ %110, %109 ], [ %222, %117 ]
   %.115447 = phi i32 [ 0, %109 ], [ %223, %117 ]
   %118 = getelementptr inbounds i8, ptr %.148, i64 -16
-  %119 = load i16, ptr %118, align 2, !tbaa !31
+  %119 = load i16, ptr %118, align 2, !tbaa !30
   %120 = sext i16 %119 to i32
-  %121 = load i16, ptr %.148, align 2, !tbaa !31
+  %121 = load i16, ptr %.148, align 2, !tbaa !30
   %122 = sext i16 %121 to i32
   %123 = getelementptr inbounds nuw i8, ptr %.148, i64 16
-  %124 = load i16, ptr %123, align 2, !tbaa !31
+  %124 = load i16, ptr %123, align 2, !tbaa !30
   %125 = sext i16 %124 to i32
   %126 = getelementptr inbounds nuw i8, ptr %.148, i64 32
-  %127 = load i16, ptr %126, align 2, !tbaa !31
+  %127 = load i16, ptr %126, align 2, !tbaa !30
   %128 = sext i16 %127 to i32
   %129 = getelementptr inbounds nuw i8, ptr %.148, i64 48
-  %130 = load i16, ptr %129, align 2, !tbaa !31
+  %130 = load i16, ptr %129, align 2, !tbaa !30
   %131 = sext i16 %130 to i32
   %132 = getelementptr inbounds nuw i8, ptr %.148, i64 64
-  %133 = load i16, ptr %132, align 2, !tbaa !31
+  %133 = load i16, ptr %132, align 2, !tbaa !30
   %134 = sext i16 %133 to i32
   %135 = getelementptr inbounds nuw i8, ptr %.148, i64 80
-  %136 = load i16, ptr %135, align 2, !tbaa !31
+  %136 = load i16, ptr %135, align 2, !tbaa !30
   %137 = sext i16 %136 to i32
   %138 = getelementptr inbounds nuw i8, ptr %.148, i64 96
-  %139 = load i16, ptr %138, align 2, !tbaa !31
+  %139 = load i16, ptr %138, align 2, !tbaa !30
   %140 = sext i16 %139 to i32
   %141 = getelementptr inbounds nuw i8, ptr %.148, i64 112
-  %142 = load i16, ptr %141, align 2, !tbaa !31
+  %142 = load i16, ptr %141, align 2, !tbaa !30
   %143 = sext i16 %142 to i32
   %144 = getelementptr inbounds nuw i8, ptr %.148, i64 128
-  %145 = load i16, ptr %144, align 2, !tbaa !31
+  %145 = load i16, ptr %144, align 2, !tbaa !30
   %146 = sext i16 %145 to i32
   %147 = getelementptr inbounds nuw i8, ptr %.148, i64 144
-  %148 = load i16, ptr %147, align 2, !tbaa !31
+  %148 = load i16, ptr %147, align 2, !tbaa !30
   %149 = sext i16 %148 to i32
   %150 = add nsw i32 %125, %122
   %151 = mul nsw i32 %150, 5
@@ -4282,7 +4282,7 @@ define internal fastcc void @put_cavs_filt8_hv_kk(ptr noundef writeonly captures
   %222 = getelementptr inbounds nuw i8, ptr %.148, i64 2
   %223 = add nuw nsw i32 %.115447, 1
   %exitcond57.not = icmp eq i32 %223, 8
-  br i1 %exitcond57.not, label %224, label %117, !llvm.loop !49
+  br i1 %exitcond57.not, label %224, label %117, !llvm.loop !48
 
 224:                                              ; preds = %117
   call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #7
@@ -4471,7 +4471,7 @@ define internal fastcc void @put_cavs_filt8_v_qpel_r(ptr noundef writeonly captu
   %161 = getelementptr inbounds nuw i8, ptr %.0101127, i64 1
   %162 = add nuw nsw i32 %.0102126, 1
   %exitcond.not = icmp eq i32 %162, 8
-  br i1 %exitcond.not, label %163, label %21, !llvm.loop !50
+  br i1 %exitcond.not, label %163, label %21, !llvm.loop !49
 
 163:                                              ; preds = %21
   ret void
@@ -4505,7 +4505,7 @@ define internal fastcc void @put_cavs_filt8_hv_qq(ptr noundef writeonly captures
   %21 = add nuw nsw i16 %18, %10
   %22 = sub nsw i16 %20, %21
   %23 = getelementptr inbounds nuw i8, ptr %.015146, i64 3
-  store i16 %22, ptr %.015245, align 2, !tbaa !31
+  store i16 %22, ptr %.015245, align 2, !tbaa !30
   %24 = load i8, ptr %23, align 1, !tbaa !16
   %25 = zext i8 %24 to i16
   %26 = add nuw nsw i16 %18, %15
@@ -4514,7 +4514,7 @@ define internal fastcc void @put_cavs_filt8_hv_qq(ptr noundef writeonly captures
   %29 = sub nsw i16 %27, %28
   %30 = getelementptr inbounds nuw i8, ptr %.015146, i64 4
   %31 = getelementptr inbounds nuw i8, ptr %.015245, i64 2
-  store i16 %29, ptr %31, align 2, !tbaa !31
+  store i16 %29, ptr %31, align 2, !tbaa !30
   %32 = load i8, ptr %30, align 1, !tbaa !16
   %33 = zext i8 %32 to i16
   %34 = add nuw nsw i16 %25, %18
@@ -4523,7 +4523,7 @@ define internal fastcc void @put_cavs_filt8_hv_qq(ptr noundef writeonly captures
   %37 = sub nsw i16 %35, %36
   %38 = getelementptr inbounds nuw i8, ptr %.015146, i64 5
   %39 = getelementptr inbounds nuw i8, ptr %.015245, i64 4
-  store i16 %37, ptr %39, align 2, !tbaa !31
+  store i16 %37, ptr %39, align 2, !tbaa !30
   %40 = load i8, ptr %38, align 1, !tbaa !16
   %41 = zext i8 %40 to i16
   %42 = add nuw nsw i16 %33, %25
@@ -4532,7 +4532,7 @@ define internal fastcc void @put_cavs_filt8_hv_qq(ptr noundef writeonly captures
   %45 = sub nsw i16 %43, %44
   %46 = getelementptr inbounds nuw i8, ptr %.015146, i64 6
   %47 = getelementptr inbounds nuw i8, ptr %.015245, i64 6
-  store i16 %45, ptr %47, align 2, !tbaa !31
+  store i16 %45, ptr %47, align 2, !tbaa !30
   %48 = load i8, ptr %46, align 1, !tbaa !16
   %49 = zext i8 %48 to i16
   %50 = add nuw nsw i16 %41, %33
@@ -4541,7 +4541,7 @@ define internal fastcc void @put_cavs_filt8_hv_qq(ptr noundef writeonly captures
   %53 = sub nsw i16 %51, %52
   %54 = getelementptr inbounds nuw i8, ptr %.015146, i64 7
   %55 = getelementptr inbounds nuw i8, ptr %.015245, i64 8
-  store i16 %53, ptr %55, align 2, !tbaa !31
+  store i16 %53, ptr %55, align 2, !tbaa !30
   %56 = load i8, ptr %54, align 1, !tbaa !16
   %57 = zext i8 %56 to i16
   %58 = add nuw nsw i16 %49, %41
@@ -4550,7 +4550,7 @@ define internal fastcc void @put_cavs_filt8_hv_qq(ptr noundef writeonly captures
   %61 = sub nsw i16 %59, %60
   %62 = getelementptr inbounds nuw i8, ptr %.015146, i64 8
   %63 = getelementptr inbounds nuw i8, ptr %.015245, i64 10
-  store i16 %61, ptr %63, align 2, !tbaa !31
+  store i16 %61, ptr %63, align 2, !tbaa !30
   %64 = load i8, ptr %62, align 1, !tbaa !16
   %65 = zext i8 %64 to i16
   %66 = add nuw nsw i16 %57, %49
@@ -4559,7 +4559,7 @@ define internal fastcc void @put_cavs_filt8_hv_qq(ptr noundef writeonly captures
   %69 = sub nsw i16 %67, %68
   %70 = getelementptr inbounds nuw i8, ptr %.015146, i64 9
   %71 = getelementptr inbounds nuw i8, ptr %.015245, i64 12
-  store i16 %69, ptr %71, align 2, !tbaa !31
+  store i16 %69, ptr %71, align 2, !tbaa !30
   %72 = load i8, ptr %70, align 1, !tbaa !16
   %73 = zext i8 %72 to i16
   %74 = add nuw nsw i16 %65, %57
@@ -4567,12 +4567,12 @@ define internal fastcc void @put_cavs_filt8_hv_qq(ptr noundef writeonly captures
   %76 = add nuw nsw i16 %73, %49
   %77 = sub nsw i16 %75, %76
   %78 = getelementptr inbounds nuw i8, ptr %.015245, i64 14
-  store i16 %77, ptr %78, align 2, !tbaa !31
+  store i16 %77, ptr %78, align 2, !tbaa !30
   %79 = getelementptr inbounds nuw i8, ptr %.015245, i64 16
   %80 = getelementptr inbounds i8, ptr %.015146, i64 %3
   %81 = add nuw nsw i32 %.015344, 1
   %exitcond.not = icmp eq i32 %81, 13
-  br i1 %exitcond.not, label %82, label %7, !llvm.loop !51
+  br i1 %exitcond.not, label %82, label %7, !llvm.loop !50
 
 82:                                               ; preds = %7
   %83 = getelementptr inbounds nuw i8, ptr %5, i64 32
@@ -4589,39 +4589,39 @@ define internal fastcc void @put_cavs_filt8_hv_qq(ptr noundef writeonly captures
   %.148 = phi ptr [ %83, %82 ], [ %230, %90 ]
   %.115447 = phi i32 [ 0, %82 ], [ %231, %90 ]
   %91 = getelementptr inbounds i8, ptr %.148, i64 -16
-  %92 = load i16, ptr %91, align 2, !tbaa !31
+  %92 = load i16, ptr %91, align 2, !tbaa !30
   %93 = sext i16 %92 to i32
-  %94 = load i16, ptr %.148, align 2, !tbaa !31
+  %94 = load i16, ptr %.148, align 2, !tbaa !30
   %95 = sext i16 %94 to i32
   %96 = getelementptr inbounds nuw i8, ptr %.148, i64 16
-  %97 = load i16, ptr %96, align 2, !tbaa !31
+  %97 = load i16, ptr %96, align 2, !tbaa !30
   %98 = sext i16 %97 to i32
   %99 = getelementptr inbounds nuw i8, ptr %.148, i64 32
-  %100 = load i16, ptr %99, align 2, !tbaa !31
+  %100 = load i16, ptr %99, align 2, !tbaa !30
   %101 = sext i16 %100 to i32
   %102 = getelementptr inbounds nuw i8, ptr %.148, i64 48
-  %103 = load i16, ptr %102, align 2, !tbaa !31
+  %103 = load i16, ptr %102, align 2, !tbaa !30
   %104 = sext i16 %103 to i32
   %105 = getelementptr inbounds nuw i8, ptr %.148, i64 64
-  %106 = load i16, ptr %105, align 2, !tbaa !31
+  %106 = load i16, ptr %105, align 2, !tbaa !30
   %107 = sext i16 %106 to i32
   %108 = getelementptr inbounds nuw i8, ptr %.148, i64 80
-  %109 = load i16, ptr %108, align 2, !tbaa !31
+  %109 = load i16, ptr %108, align 2, !tbaa !30
   %110 = sext i16 %109 to i32
   %111 = getelementptr inbounds nuw i8, ptr %.148, i64 96
-  %112 = load i16, ptr %111, align 2, !tbaa !31
+  %112 = load i16, ptr %111, align 2, !tbaa !30
   %113 = sext i16 %112 to i32
   %114 = getelementptr inbounds nuw i8, ptr %.148, i64 112
-  %115 = load i16, ptr %114, align 2, !tbaa !31
+  %115 = load i16, ptr %114, align 2, !tbaa !30
   %116 = sext i16 %115 to i32
   %117 = getelementptr inbounds nuw i8, ptr %.148, i64 128
-  %118 = load i16, ptr %117, align 2, !tbaa !31
+  %118 = load i16, ptr %117, align 2, !tbaa !30
   %119 = sext i16 %118 to i32
   %120 = getelementptr inbounds nuw i8, ptr %.148, i64 144
-  %121 = load i16, ptr %120, align 2, !tbaa !31
+  %121 = load i16, ptr %120, align 2, !tbaa !30
   %122 = sext i16 %121 to i32
   %123 = getelementptr inbounds nuw i8, ptr %.148, i64 160
-  %124 = load i16, ptr %123, align 2, !tbaa !31
+  %124 = load i16, ptr %123, align 2, !tbaa !30
   %125 = sext i16 %124 to i32
   %126 = mul nsw i32 %93, -7
   %127 = mul nsw i32 %95, 42
@@ -4746,7 +4746,7 @@ define internal fastcc void @put_cavs_filt8_hv_qq(ptr noundef writeonly captures
   %230 = getelementptr inbounds nuw i8, ptr %.148, i64 2
   %231 = add nuw nsw i32 %.115447, 1
   %exitcond50.not = icmp eq i32 %231, 8
-  br i1 %exitcond50.not, label %232, label %90, !llvm.loop !52
+  br i1 %exitcond50.not, label %232, label %90, !llvm.loop !51
 
 232:                                              ; preds = %90
   call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #7
@@ -5031,7 +5031,7 @@ define internal fastcc void @avg_cavs_filt8_h_qpel_l(ptr noundef captures(none) 
   %257 = getelementptr inbounds i8, ptr %.07886, i64 %3
   %258 = add nuw nsw i32 %.088, 1
   %exitcond.not = icmp eq i32 %258, 8
-  br i1 %exitcond.not, label %259, label %5, !llvm.loop !53
+  br i1 %exitcond.not, label %259, label %5, !llvm.loop !52
 
 259:                                              ; preds = %5
   ret void
@@ -5266,7 +5266,7 @@ define internal fastcc void @avg_cavs_filt8_h_hpel(ptr noundef captures(none) %0
   %208 = getelementptr inbounds i8, ptr %.078102, i64 %3
   %209 = add nuw nsw i32 %.0104, 1
   %exitcond.not = icmp eq i32 %209, 8
-  br i1 %exitcond.not, label %210, label %5, !llvm.loop !54
+  br i1 %exitcond.not, label %210, label %5, !llvm.loop !53
 
 210:                                              ; preds = %5
   ret void
@@ -5550,7 +5550,7 @@ define internal fastcc void @avg_cavs_filt8_h_qpel_r(ptr noundef captures(none) 
   %257 = getelementptr inbounds i8, ptr %.078102, i64 %3
   %258 = add nuw nsw i32 %.0104, 1
   %exitcond.not = icmp eq i32 %258, 8
-  br i1 %exitcond.not, label %259, label %5, !llvm.loop !55
+  br i1 %exitcond.not, label %259, label %5, !llvm.loop !54
 
 259:                                              ; preds = %5
   ret void
@@ -5794,7 +5794,7 @@ define internal fastcc void @avg_cavs_filt8_v_qpel_l(ptr noundef captures(none) 
   %217 = getelementptr inbounds nuw i8, ptr %.0117127, i64 1
   %218 = add nuw nsw i32 %.0118126, 1
   %exitcond.not = icmp eq i32 %218, 8
-  br i1 %exitcond.not, label %219, label %21, !llvm.loop !56
+  br i1 %exitcond.not, label %219, label %21, !llvm.loop !55
 
 219:                                              ; preds = %21
   ret void
@@ -5829,7 +5829,7 @@ define internal fastcc void @avg_cavs_filt8_hv_egpr(ptr noundef captures(none) %
   %24 = add nuw nsw i16 %21, %13
   %25 = sub nsw i16 %23, %24
   %26 = getelementptr inbounds nuw i8, ptr %.0184228, i64 3
-  store i16 %25, ptr %.0186227, align 2, !tbaa !31
+  store i16 %25, ptr %.0186227, align 2, !tbaa !30
   %27 = load i8, ptr %26, align 1, !tbaa !16
   %28 = zext i8 %27 to i16
   %29 = add nuw nsw i16 %21, %18
@@ -5838,7 +5838,7 @@ define internal fastcc void @avg_cavs_filt8_hv_egpr(ptr noundef captures(none) %
   %32 = sub nsw i16 %30, %31
   %33 = getelementptr inbounds nuw i8, ptr %.0184228, i64 4
   %34 = getelementptr inbounds nuw i8, ptr %.0186227, i64 2
-  store i16 %32, ptr %34, align 2, !tbaa !31
+  store i16 %32, ptr %34, align 2, !tbaa !30
   %35 = load i8, ptr %33, align 1, !tbaa !16
   %36 = zext i8 %35 to i16
   %37 = add nuw nsw i16 %28, %21
@@ -5847,7 +5847,7 @@ define internal fastcc void @avg_cavs_filt8_hv_egpr(ptr noundef captures(none) %
   %40 = sub nsw i16 %38, %39
   %41 = getelementptr inbounds nuw i8, ptr %.0184228, i64 5
   %42 = getelementptr inbounds nuw i8, ptr %.0186227, i64 4
-  store i16 %40, ptr %42, align 2, !tbaa !31
+  store i16 %40, ptr %42, align 2, !tbaa !30
   %43 = load i8, ptr %41, align 1, !tbaa !16
   %44 = zext i8 %43 to i16
   %45 = add nuw nsw i16 %36, %28
@@ -5856,7 +5856,7 @@ define internal fastcc void @avg_cavs_filt8_hv_egpr(ptr noundef captures(none) %
   %48 = sub nsw i16 %46, %47
   %49 = getelementptr inbounds nuw i8, ptr %.0184228, i64 6
   %50 = getelementptr inbounds nuw i8, ptr %.0186227, i64 6
-  store i16 %48, ptr %50, align 2, !tbaa !31
+  store i16 %48, ptr %50, align 2, !tbaa !30
   %51 = load i8, ptr %49, align 1, !tbaa !16
   %52 = zext i8 %51 to i16
   %53 = add nuw nsw i16 %44, %36
@@ -5865,7 +5865,7 @@ define internal fastcc void @avg_cavs_filt8_hv_egpr(ptr noundef captures(none) %
   %56 = sub nsw i16 %54, %55
   %57 = getelementptr inbounds nuw i8, ptr %.0184228, i64 7
   %58 = getelementptr inbounds nuw i8, ptr %.0186227, i64 8
-  store i16 %56, ptr %58, align 2, !tbaa !31
+  store i16 %56, ptr %58, align 2, !tbaa !30
   %59 = load i8, ptr %57, align 1, !tbaa !16
   %60 = zext i8 %59 to i16
   %61 = add nuw nsw i16 %52, %44
@@ -5874,7 +5874,7 @@ define internal fastcc void @avg_cavs_filt8_hv_egpr(ptr noundef captures(none) %
   %64 = sub nsw i16 %62, %63
   %65 = getelementptr inbounds nuw i8, ptr %.0184228, i64 8
   %66 = getelementptr inbounds nuw i8, ptr %.0186227, i64 10
-  store i16 %64, ptr %66, align 2, !tbaa !31
+  store i16 %64, ptr %66, align 2, !tbaa !30
   %67 = load i8, ptr %65, align 1, !tbaa !16
   %68 = zext i8 %67 to i16
   %69 = add nuw nsw i16 %60, %52
@@ -5883,7 +5883,7 @@ define internal fastcc void @avg_cavs_filt8_hv_egpr(ptr noundef captures(none) %
   %72 = sub nsw i16 %70, %71
   %73 = getelementptr inbounds nuw i8, ptr %.0184228, i64 9
   %74 = getelementptr inbounds nuw i8, ptr %.0186227, i64 12
-  store i16 %72, ptr %74, align 2, !tbaa !31
+  store i16 %72, ptr %74, align 2, !tbaa !30
   %75 = load i8, ptr %73, align 1, !tbaa !16
   %76 = zext i8 %75 to i16
   %77 = add nuw nsw i16 %68, %60
@@ -5891,12 +5891,12 @@ define internal fastcc void @avg_cavs_filt8_hv_egpr(ptr noundef captures(none) %
   %79 = add nuw nsw i16 %76, %52
   %80 = sub nsw i16 %78, %79
   %81 = getelementptr inbounds nuw i8, ptr %.0186227, i64 14
-  store i16 %80, ptr %81, align 2, !tbaa !31
+  store i16 %80, ptr %81, align 2, !tbaa !30
   %82 = getelementptr inbounds nuw i8, ptr %.0186227, i64 16
   %83 = getelementptr inbounds i8, ptr %.0184228, i64 %4
   %84 = add nuw nsw i32 %.0187226, 1
   %exitcond.not = icmp eq i32 %84, 13
-  br i1 %exitcond.not, label %85, label %10, !llvm.loop !57
+  br i1 %exitcond.not, label %85, label %10, !llvm.loop !56
 
 85:                                               ; preds = %10
   %86 = getelementptr inbounds nuw i8, ptr %6, i64 32
@@ -5919,36 +5919,36 @@ define internal fastcc void @avg_cavs_filt8_hv_egpr(ptr noundef captures(none) %
   %.1230 = phi ptr [ %86, %85 ], [ %298, %98 ]
   %.1188229 = phi i32 [ 0, %85 ], [ %300, %98 ]
   %99 = getelementptr inbounds i8, ptr %.1230, i64 -16
-  %100 = load i16, ptr %99, align 2, !tbaa !31
+  %100 = load i16, ptr %99, align 2, !tbaa !30
   %101 = sext i16 %100 to i32
-  %102 = load i16, ptr %.1230, align 2, !tbaa !31
+  %102 = load i16, ptr %.1230, align 2, !tbaa !30
   %103 = sext i16 %102 to i32
   %104 = getelementptr inbounds nuw i8, ptr %.1230, i64 16
-  %105 = load i16, ptr %104, align 2, !tbaa !31
+  %105 = load i16, ptr %104, align 2, !tbaa !30
   %106 = sext i16 %105 to i32
   %107 = getelementptr inbounds nuw i8, ptr %.1230, i64 32
-  %108 = load i16, ptr %107, align 2, !tbaa !31
+  %108 = load i16, ptr %107, align 2, !tbaa !30
   %109 = sext i16 %108 to i32
   %110 = getelementptr inbounds nuw i8, ptr %.1230, i64 48
-  %111 = load i16, ptr %110, align 2, !tbaa !31
+  %111 = load i16, ptr %110, align 2, !tbaa !30
   %112 = sext i16 %111 to i32
   %113 = getelementptr inbounds nuw i8, ptr %.1230, i64 64
-  %114 = load i16, ptr %113, align 2, !tbaa !31
+  %114 = load i16, ptr %113, align 2, !tbaa !30
   %115 = sext i16 %114 to i32
   %116 = getelementptr inbounds nuw i8, ptr %.1230, i64 80
-  %117 = load i16, ptr %116, align 2, !tbaa !31
+  %117 = load i16, ptr %116, align 2, !tbaa !30
   %118 = sext i16 %117 to i32
   %119 = getelementptr inbounds nuw i8, ptr %.1230, i64 96
-  %120 = load i16, ptr %119, align 2, !tbaa !31
+  %120 = load i16, ptr %119, align 2, !tbaa !30
   %121 = sext i16 %120 to i32
   %122 = getelementptr inbounds nuw i8, ptr %.1230, i64 112
-  %123 = load i16, ptr %122, align 2, !tbaa !31
+  %123 = load i16, ptr %122, align 2, !tbaa !30
   %124 = sext i16 %123 to i32
   %125 = getelementptr inbounds nuw i8, ptr %.1230, i64 128
-  %126 = load i16, ptr %125, align 2, !tbaa !31
+  %126 = load i16, ptr %125, align 2, !tbaa !30
   %127 = sext i16 %126 to i32
   %128 = getelementptr inbounds nuw i8, ptr %.1230, i64 144
-  %129 = load i16, ptr %128, align 2, !tbaa !31
+  %129 = load i16, ptr %128, align 2, !tbaa !30
   %130 = sext i16 %129 to i32
   %131 = load i8, ptr %.0232, align 1, !tbaa !16
   %132 = zext i8 %131 to i16
@@ -6137,7 +6137,7 @@ define internal fastcc void @avg_cavs_filt8_hv_egpr(ptr noundef captures(none) %
   %299 = getelementptr inbounds nuw i8, ptr %.0185231, i64 1
   %300 = add nuw nsw i32 %.1188229, 1
   %exitcond240.not = icmp eq i32 %300, 8
-  br i1 %exitcond240.not, label %301, label %98, !llvm.loop !58
+  br i1 %exitcond240.not, label %301, label %98, !llvm.loop !57
 
 301:                                              ; preds = %98
   call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %6) #7
@@ -6172,7 +6172,7 @@ define internal fastcc void @avg_cavs_filt8_hv_ff(ptr noundef captures(none) %0,
   %21 = add nuw nsw i16 %18, %10
   %22 = sub nsw i16 %20, %21
   %23 = getelementptr inbounds nuw i8, ptr %.016730, i64 3
-  store i16 %22, ptr %.016829, align 2, !tbaa !31
+  store i16 %22, ptr %.016829, align 2, !tbaa !30
   %24 = load i8, ptr %23, align 1, !tbaa !16
   %25 = zext i8 %24 to i16
   %26 = add nuw nsw i16 %18, %15
@@ -6181,7 +6181,7 @@ define internal fastcc void @avg_cavs_filt8_hv_ff(ptr noundef captures(none) %0,
   %29 = sub nsw i16 %27, %28
   %30 = getelementptr inbounds nuw i8, ptr %.016730, i64 4
   %31 = getelementptr inbounds nuw i8, ptr %.016829, i64 2
-  store i16 %29, ptr %31, align 2, !tbaa !31
+  store i16 %29, ptr %31, align 2, !tbaa !30
   %32 = load i8, ptr %30, align 1, !tbaa !16
   %33 = zext i8 %32 to i16
   %34 = add nuw nsw i16 %25, %18
@@ -6190,7 +6190,7 @@ define internal fastcc void @avg_cavs_filt8_hv_ff(ptr noundef captures(none) %0,
   %37 = sub nsw i16 %35, %36
   %38 = getelementptr inbounds nuw i8, ptr %.016730, i64 5
   %39 = getelementptr inbounds nuw i8, ptr %.016829, i64 4
-  store i16 %37, ptr %39, align 2, !tbaa !31
+  store i16 %37, ptr %39, align 2, !tbaa !30
   %40 = load i8, ptr %38, align 1, !tbaa !16
   %41 = zext i8 %40 to i16
   %42 = add nuw nsw i16 %33, %25
@@ -6199,7 +6199,7 @@ define internal fastcc void @avg_cavs_filt8_hv_ff(ptr noundef captures(none) %0,
   %45 = sub nsw i16 %43, %44
   %46 = getelementptr inbounds nuw i8, ptr %.016730, i64 6
   %47 = getelementptr inbounds nuw i8, ptr %.016829, i64 6
-  store i16 %45, ptr %47, align 2, !tbaa !31
+  store i16 %45, ptr %47, align 2, !tbaa !30
   %48 = load i8, ptr %46, align 1, !tbaa !16
   %49 = zext i8 %48 to i16
   %50 = add nuw nsw i16 %41, %33
@@ -6208,7 +6208,7 @@ define internal fastcc void @avg_cavs_filt8_hv_ff(ptr noundef captures(none) %0,
   %53 = sub nsw i16 %51, %52
   %54 = getelementptr inbounds nuw i8, ptr %.016730, i64 7
   %55 = getelementptr inbounds nuw i8, ptr %.016829, i64 8
-  store i16 %53, ptr %55, align 2, !tbaa !31
+  store i16 %53, ptr %55, align 2, !tbaa !30
   %56 = load i8, ptr %54, align 1, !tbaa !16
   %57 = zext i8 %56 to i16
   %58 = add nuw nsw i16 %49, %41
@@ -6217,7 +6217,7 @@ define internal fastcc void @avg_cavs_filt8_hv_ff(ptr noundef captures(none) %0,
   %61 = sub nsw i16 %59, %60
   %62 = getelementptr inbounds nuw i8, ptr %.016730, i64 8
   %63 = getelementptr inbounds nuw i8, ptr %.016829, i64 10
-  store i16 %61, ptr %63, align 2, !tbaa !31
+  store i16 %61, ptr %63, align 2, !tbaa !30
   %64 = load i8, ptr %62, align 1, !tbaa !16
   %65 = zext i8 %64 to i16
   %66 = add nuw nsw i16 %57, %49
@@ -6226,7 +6226,7 @@ define internal fastcc void @avg_cavs_filt8_hv_ff(ptr noundef captures(none) %0,
   %69 = sub nsw i16 %67, %68
   %70 = getelementptr inbounds nuw i8, ptr %.016730, i64 9
   %71 = getelementptr inbounds nuw i8, ptr %.016829, i64 12
-  store i16 %69, ptr %71, align 2, !tbaa !31
+  store i16 %69, ptr %71, align 2, !tbaa !30
   %72 = load i8, ptr %70, align 1, !tbaa !16
   %73 = zext i8 %72 to i16
   %74 = add nuw nsw i16 %65, %57
@@ -6234,12 +6234,12 @@ define internal fastcc void @avg_cavs_filt8_hv_ff(ptr noundef captures(none) %0,
   %76 = add nuw nsw i16 %73, %49
   %77 = sub nsw i16 %75, %76
   %78 = getelementptr inbounds nuw i8, ptr %.016829, i64 14
-  store i16 %77, ptr %78, align 2, !tbaa !31
+  store i16 %77, ptr %78, align 2, !tbaa !30
   %79 = getelementptr inbounds nuw i8, ptr %.016829, i64 16
   %80 = getelementptr inbounds i8, ptr %.016730, i64 %3
   %81 = add nuw nsw i32 %.016928, 1
   %exitcond.not = icmp eq i32 %81, 13
-  br i1 %exitcond.not, label %82, label %7, !llvm.loop !59
+  br i1 %exitcond.not, label %82, label %7, !llvm.loop !58
 
 82:                                               ; preds = %7
   %83 = getelementptr inbounds nuw i8, ptr %5, i64 32
@@ -6256,39 +6256,39 @@ define internal fastcc void @avg_cavs_filt8_hv_ff(ptr noundef captures(none) %0,
   %.132 = phi ptr [ %83, %82 ], [ %286, %90 ]
   %.117031 = phi i32 [ 0, %82 ], [ %287, %90 ]
   %91 = getelementptr inbounds i8, ptr %.132, i64 -32
-  %92 = load i16, ptr %91, align 2, !tbaa !31
+  %92 = load i16, ptr %91, align 2, !tbaa !30
   %93 = sext i16 %92 to i32
   %94 = getelementptr inbounds i8, ptr %.132, i64 -16
-  %95 = load i16, ptr %94, align 2, !tbaa !31
+  %95 = load i16, ptr %94, align 2, !tbaa !30
   %96 = sext i16 %95 to i32
-  %97 = load i16, ptr %.132, align 2, !tbaa !31
+  %97 = load i16, ptr %.132, align 2, !tbaa !30
   %98 = sext i16 %97 to i32
   %99 = getelementptr inbounds nuw i8, ptr %.132, i64 16
-  %100 = load i16, ptr %99, align 2, !tbaa !31
+  %100 = load i16, ptr %99, align 2, !tbaa !30
   %101 = sext i16 %100 to i32
   %102 = getelementptr inbounds nuw i8, ptr %.132, i64 32
-  %103 = load i16, ptr %102, align 2, !tbaa !31
+  %103 = load i16, ptr %102, align 2, !tbaa !30
   %104 = sext i16 %103 to i32
   %105 = getelementptr inbounds nuw i8, ptr %.132, i64 48
-  %106 = load i16, ptr %105, align 2, !tbaa !31
+  %106 = load i16, ptr %105, align 2, !tbaa !30
   %107 = sext i16 %106 to i32
   %108 = getelementptr inbounds nuw i8, ptr %.132, i64 64
-  %109 = load i16, ptr %108, align 2, !tbaa !31
+  %109 = load i16, ptr %108, align 2, !tbaa !30
   %110 = sext i16 %109 to i32
   %111 = getelementptr inbounds nuw i8, ptr %.132, i64 80
-  %112 = load i16, ptr %111, align 2, !tbaa !31
+  %112 = load i16, ptr %111, align 2, !tbaa !30
   %113 = sext i16 %112 to i32
   %114 = getelementptr inbounds nuw i8, ptr %.132, i64 96
-  %115 = load i16, ptr %114, align 2, !tbaa !31
+  %115 = load i16, ptr %114, align 2, !tbaa !30
   %116 = sext i16 %115 to i32
   %117 = getelementptr inbounds nuw i8, ptr %.132, i64 112
-  %118 = load i16, ptr %117, align 2, !tbaa !31
+  %118 = load i16, ptr %117, align 2, !tbaa !30
   %119 = sext i16 %118 to i32
   %120 = getelementptr inbounds nuw i8, ptr %.132, i64 128
-  %121 = load i16, ptr %120, align 2, !tbaa !31
+  %121 = load i16, ptr %120, align 2, !tbaa !30
   %122 = sext i16 %121 to i32
   %123 = getelementptr inbounds nuw i8, ptr %.132, i64 144
-  %124 = load i16, ptr %123, align 2, !tbaa !31
+  %124 = load i16, ptr %123, align 2, !tbaa !30
   %125 = sext i16 %124 to i32
   %126 = load i8, ptr %.033, align 1, !tbaa !16
   %127 = zext i8 %126 to i16
@@ -6469,7 +6469,7 @@ define internal fastcc void @avg_cavs_filt8_hv_ff(ptr noundef captures(none) %0,
   %286 = getelementptr inbounds nuw i8, ptr %.132, i64 2
   %287 = add nuw nsw i32 %.117031, 1
   %exitcond41.not = icmp eq i32 %287, 8
-  br i1 %exitcond41.not, label %288, label %90, !llvm.loop !60
+  br i1 %exitcond41.not, label %288, label %90, !llvm.loop !59
 
 288:                                              ; preds = %90
   call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #7
@@ -6678,7 +6678,7 @@ define internal fastcc void @avg_cavs_filt8_v_hpel(ptr noundef captures(none) %0
   %181 = getelementptr inbounds nuw i8, ptr %.0117138, i64 1
   %182 = add nuw nsw i32 %.0118137, 1
   %exitcond.not = icmp eq i32 %182, 8
-  br i1 %exitcond.not, label %183, label %20, !llvm.loop !61
+  br i1 %exitcond.not, label %183, label %20, !llvm.loop !60
 
 183:                                              ; preds = %20
   ret void
@@ -6719,7 +6719,7 @@ define internal fastcc void @avg_cavs_filt8_hv_ii(ptr noundef captures(none) %0,
   %28 = mul nsw i16 %27, -7
   %29 = add i16 %24, %28
   %30 = getelementptr inbounds nuw i8, ptr %.016730, i64 3
-  store i16 %29, ptr %.016829, align 2, !tbaa !31
+  store i16 %29, ptr %.016829, align 2, !tbaa !30
   %31 = mul nsw i16 %17, -2
   %32 = sub nsw i16 %31, %13
   %33 = mul nuw nsw i16 %22, 96
@@ -6732,7 +6732,7 @@ define internal fastcc void @avg_cavs_filt8_hv_ii(ptr noundef captures(none) %0,
   %40 = add i16 %36, %39
   %41 = getelementptr inbounds nuw i8, ptr %.016730, i64 4
   %42 = getelementptr inbounds nuw i8, ptr %.016829, i64 2
-  store i16 %40, ptr %42, align 2, !tbaa !31
+  store i16 %40, ptr %42, align 2, !tbaa !30
   %43 = mul nsw i16 %22, -2
   %44 = sub nsw i16 %43, %17
   %45 = mul nuw nsw i16 %27, 96
@@ -6745,7 +6745,7 @@ define internal fastcc void @avg_cavs_filt8_hv_ii(ptr noundef captures(none) %0,
   %52 = add i16 %48, %51
   %53 = getelementptr inbounds nuw i8, ptr %.016730, i64 5
   %54 = getelementptr inbounds nuw i8, ptr %.016829, i64 4
-  store i16 %52, ptr %54, align 2, !tbaa !31
+  store i16 %52, ptr %54, align 2, !tbaa !30
   %55 = mul nsw i16 %27, -2
   %56 = sub nsw i16 %55, %22
   %57 = mul nuw nsw i16 %38, 96
@@ -6758,7 +6758,7 @@ define internal fastcc void @avg_cavs_filt8_hv_ii(ptr noundef captures(none) %0,
   %64 = add i16 %60, %63
   %65 = getelementptr inbounds nuw i8, ptr %.016730, i64 6
   %66 = getelementptr inbounds nuw i8, ptr %.016829, i64 6
-  store i16 %64, ptr %66, align 2, !tbaa !31
+  store i16 %64, ptr %66, align 2, !tbaa !30
   %67 = mul nsw i16 %38, -2
   %68 = sub nsw i16 %67, %27
   %69 = mul nuw nsw i16 %50, 96
@@ -6771,7 +6771,7 @@ define internal fastcc void @avg_cavs_filt8_hv_ii(ptr noundef captures(none) %0,
   %76 = add i16 %72, %75
   %77 = getelementptr inbounds nuw i8, ptr %.016730, i64 7
   %78 = getelementptr inbounds nuw i8, ptr %.016829, i64 8
-  store i16 %76, ptr %78, align 2, !tbaa !31
+  store i16 %76, ptr %78, align 2, !tbaa !30
   %79 = mul nsw i16 %50, -2
   %80 = sub nsw i16 %79, %38
   %81 = mul nuw nsw i16 %62, 96
@@ -6784,7 +6784,7 @@ define internal fastcc void @avg_cavs_filt8_hv_ii(ptr noundef captures(none) %0,
   %88 = add i16 %84, %87
   %89 = getelementptr inbounds nuw i8, ptr %.016730, i64 8
   %90 = getelementptr inbounds nuw i8, ptr %.016829, i64 10
-  store i16 %88, ptr %90, align 2, !tbaa !31
+  store i16 %88, ptr %90, align 2, !tbaa !30
   %91 = mul nsw i16 %62, -2
   %92 = sub nsw i16 %91, %50
   %93 = mul nuw nsw i16 %74, 96
@@ -6797,7 +6797,7 @@ define internal fastcc void @avg_cavs_filt8_hv_ii(ptr noundef captures(none) %0,
   %100 = add i16 %96, %99
   %101 = getelementptr inbounds nuw i8, ptr %.016730, i64 9
   %102 = getelementptr inbounds nuw i8, ptr %.016829, i64 12
-  store i16 %100, ptr %102, align 2, !tbaa !31
+  store i16 %100, ptr %102, align 2, !tbaa !30
   %103 = mul nsw i16 %74, -2
   %104 = sub nsw i16 %103, %62
   %105 = mul nuw nsw i16 %86, 96
@@ -6809,12 +6809,12 @@ define internal fastcc void @avg_cavs_filt8_hv_ii(ptr noundef captures(none) %0,
   %111 = mul nsw i16 %110, -7
   %112 = add i16 %108, %111
   %113 = getelementptr inbounds nuw i8, ptr %.016829, i64 14
-  store i16 %112, ptr %113, align 2, !tbaa !31
+  store i16 %112, ptr %113, align 2, !tbaa !30
   %114 = getelementptr inbounds nuw i8, ptr %.016829, i64 16
   %115 = getelementptr inbounds i8, ptr %.016730, i64 %3
   %116 = add nuw nsw i32 %.016928, 1
   %exitcond.not = icmp eq i32 %116, 13
-  br i1 %exitcond.not, label %117, label %7, !llvm.loop !62
+  br i1 %exitcond.not, label %117, label %7, !llvm.loop !61
 
 117:                                              ; preds = %7
   %118 = getelementptr inbounds nuw i8, ptr %5, i64 32
@@ -6831,36 +6831,36 @@ define internal fastcc void @avg_cavs_filt8_hv_ii(ptr noundef captures(none) %0,
   %.132 = phi ptr [ %118, %117 ], [ %286, %125 ]
   %.117031 = phi i32 [ 0, %117 ], [ %287, %125 ]
   %126 = getelementptr inbounds i8, ptr %.132, i64 -16
-  %127 = load i16, ptr %126, align 2, !tbaa !31
+  %127 = load i16, ptr %126, align 2, !tbaa !30
   %128 = sext i16 %127 to i32
-  %129 = load i16, ptr %.132, align 2, !tbaa !31
+  %129 = load i16, ptr %.132, align 2, !tbaa !30
   %130 = sext i16 %129 to i32
   %131 = getelementptr inbounds nuw i8, ptr %.132, i64 16
-  %132 = load i16, ptr %131, align 2, !tbaa !31
+  %132 = load i16, ptr %131, align 2, !tbaa !30
   %133 = sext i16 %132 to i32
   %134 = getelementptr inbounds nuw i8, ptr %.132, i64 32
-  %135 = load i16, ptr %134, align 2, !tbaa !31
+  %135 = load i16, ptr %134, align 2, !tbaa !30
   %136 = sext i16 %135 to i32
   %137 = getelementptr inbounds nuw i8, ptr %.132, i64 48
-  %138 = load i16, ptr %137, align 2, !tbaa !31
+  %138 = load i16, ptr %137, align 2, !tbaa !30
   %139 = sext i16 %138 to i32
   %140 = getelementptr inbounds nuw i8, ptr %.132, i64 64
-  %141 = load i16, ptr %140, align 2, !tbaa !31
+  %141 = load i16, ptr %140, align 2, !tbaa !30
   %142 = sext i16 %141 to i32
   %143 = getelementptr inbounds nuw i8, ptr %.132, i64 80
-  %144 = load i16, ptr %143, align 2, !tbaa !31
+  %144 = load i16, ptr %143, align 2, !tbaa !30
   %145 = sext i16 %144 to i32
   %146 = getelementptr inbounds nuw i8, ptr %.132, i64 96
-  %147 = load i16, ptr %146, align 2, !tbaa !31
+  %147 = load i16, ptr %146, align 2, !tbaa !30
   %148 = sext i16 %147 to i32
   %149 = getelementptr inbounds nuw i8, ptr %.132, i64 112
-  %150 = load i16, ptr %149, align 2, !tbaa !31
+  %150 = load i16, ptr %149, align 2, !tbaa !30
   %151 = sext i16 %150 to i32
   %152 = getelementptr inbounds nuw i8, ptr %.132, i64 128
-  %153 = load i16, ptr %152, align 2, !tbaa !31
+  %153 = load i16, ptr %152, align 2, !tbaa !30
   %154 = sext i16 %153 to i32
   %155 = getelementptr inbounds nuw i8, ptr %.132, i64 144
-  %156 = load i16, ptr %155, align 2, !tbaa !31
+  %156 = load i16, ptr %155, align 2, !tbaa !30
   %157 = sext i16 %156 to i32
   %158 = load i8, ptr %.033, align 1, !tbaa !16
   %159 = zext i8 %158 to i16
@@ -7009,7 +7009,7 @@ define internal fastcc void @avg_cavs_filt8_hv_ii(ptr noundef captures(none) %0,
   %286 = getelementptr inbounds nuw i8, ptr %.132, i64 2
   %287 = add nuw nsw i32 %.117031, 1
   %exitcond41.not = icmp eq i32 %287, 8
-  br i1 %exitcond41.not, label %288, label %125, !llvm.loop !63
+  br i1 %exitcond41.not, label %288, label %125, !llvm.loop !62
 
 288:                                              ; preds = %125
   call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #7
@@ -7044,7 +7044,7 @@ define internal fastcc void @avg_cavs_filt8_hv_jj(ptr noundef captures(none) %0,
   %21 = add nuw nsw i16 %18, %10
   %22 = sub nsw i16 %20, %21
   %23 = getelementptr inbounds nuw i8, ptr %.016741, i64 3
-  store i16 %22, ptr %.016840, align 2, !tbaa !31
+  store i16 %22, ptr %.016840, align 2, !tbaa !30
   %24 = load i8, ptr %23, align 1, !tbaa !16
   %25 = zext i8 %24 to i16
   %26 = add nuw nsw i16 %18, %15
@@ -7053,7 +7053,7 @@ define internal fastcc void @avg_cavs_filt8_hv_jj(ptr noundef captures(none) %0,
   %29 = sub nsw i16 %27, %28
   %30 = getelementptr inbounds nuw i8, ptr %.016741, i64 4
   %31 = getelementptr inbounds nuw i8, ptr %.016840, i64 2
-  store i16 %29, ptr %31, align 2, !tbaa !31
+  store i16 %29, ptr %31, align 2, !tbaa !30
   %32 = load i8, ptr %30, align 1, !tbaa !16
   %33 = zext i8 %32 to i16
   %34 = add nuw nsw i16 %25, %18
@@ -7062,7 +7062,7 @@ define internal fastcc void @avg_cavs_filt8_hv_jj(ptr noundef captures(none) %0,
   %37 = sub nsw i16 %35, %36
   %38 = getelementptr inbounds nuw i8, ptr %.016741, i64 5
   %39 = getelementptr inbounds nuw i8, ptr %.016840, i64 4
-  store i16 %37, ptr %39, align 2, !tbaa !31
+  store i16 %37, ptr %39, align 2, !tbaa !30
   %40 = load i8, ptr %38, align 1, !tbaa !16
   %41 = zext i8 %40 to i16
   %42 = add nuw nsw i16 %33, %25
@@ -7071,7 +7071,7 @@ define internal fastcc void @avg_cavs_filt8_hv_jj(ptr noundef captures(none) %0,
   %45 = sub nsw i16 %43, %44
   %46 = getelementptr inbounds nuw i8, ptr %.016741, i64 6
   %47 = getelementptr inbounds nuw i8, ptr %.016840, i64 6
-  store i16 %45, ptr %47, align 2, !tbaa !31
+  store i16 %45, ptr %47, align 2, !tbaa !30
   %48 = load i8, ptr %46, align 1, !tbaa !16
   %49 = zext i8 %48 to i16
   %50 = add nuw nsw i16 %41, %33
@@ -7080,7 +7080,7 @@ define internal fastcc void @avg_cavs_filt8_hv_jj(ptr noundef captures(none) %0,
   %53 = sub nsw i16 %51, %52
   %54 = getelementptr inbounds nuw i8, ptr %.016741, i64 7
   %55 = getelementptr inbounds nuw i8, ptr %.016840, i64 8
-  store i16 %53, ptr %55, align 2, !tbaa !31
+  store i16 %53, ptr %55, align 2, !tbaa !30
   %56 = load i8, ptr %54, align 1, !tbaa !16
   %57 = zext i8 %56 to i16
   %58 = add nuw nsw i16 %49, %41
@@ -7089,7 +7089,7 @@ define internal fastcc void @avg_cavs_filt8_hv_jj(ptr noundef captures(none) %0,
   %61 = sub nsw i16 %59, %60
   %62 = getelementptr inbounds nuw i8, ptr %.016741, i64 8
   %63 = getelementptr inbounds nuw i8, ptr %.016840, i64 10
-  store i16 %61, ptr %63, align 2, !tbaa !31
+  store i16 %61, ptr %63, align 2, !tbaa !30
   %64 = load i8, ptr %62, align 1, !tbaa !16
   %65 = zext i8 %64 to i16
   %66 = add nuw nsw i16 %57, %49
@@ -7098,7 +7098,7 @@ define internal fastcc void @avg_cavs_filt8_hv_jj(ptr noundef captures(none) %0,
   %69 = sub nsw i16 %67, %68
   %70 = getelementptr inbounds nuw i8, ptr %.016741, i64 9
   %71 = getelementptr inbounds nuw i8, ptr %.016840, i64 12
-  store i16 %69, ptr %71, align 2, !tbaa !31
+  store i16 %69, ptr %71, align 2, !tbaa !30
   %72 = load i8, ptr %70, align 1, !tbaa !16
   %73 = zext i8 %72 to i16
   %74 = add nuw nsw i16 %65, %57
@@ -7106,12 +7106,12 @@ define internal fastcc void @avg_cavs_filt8_hv_jj(ptr noundef captures(none) %0,
   %76 = add nuw nsw i16 %73, %49
   %77 = sub nsw i16 %75, %76
   %78 = getelementptr inbounds nuw i8, ptr %.016840, i64 14
-  store i16 %77, ptr %78, align 2, !tbaa !31
+  store i16 %77, ptr %78, align 2, !tbaa !30
   %79 = getelementptr inbounds nuw i8, ptr %.016840, i64 16
   %80 = getelementptr inbounds i8, ptr %.016741, i64 %3
   %81 = add nuw nsw i32 %.016939, 1
   %exitcond.not = icmp eq i32 %81, 13
-  br i1 %exitcond.not, label %82, label %7, !llvm.loop !64
+  br i1 %exitcond.not, label %82, label %7, !llvm.loop !63
 
 82:                                               ; preds = %7
   %83 = getelementptr inbounds nuw i8, ptr %5, i64 32
@@ -7128,36 +7128,36 @@ define internal fastcc void @avg_cavs_filt8_hv_jj(ptr noundef captures(none) %0,
   %.143 = phi ptr [ %83, %82 ], [ %251, %90 ]
   %.117042 = phi i32 [ 0, %82 ], [ %252, %90 ]
   %91 = getelementptr inbounds i8, ptr %.143, i64 -16
-  %92 = load i16, ptr %91, align 2, !tbaa !31
+  %92 = load i16, ptr %91, align 2, !tbaa !30
   %93 = sext i16 %92 to i32
-  %94 = load i16, ptr %.143, align 2, !tbaa !31
+  %94 = load i16, ptr %.143, align 2, !tbaa !30
   %95 = sext i16 %94 to i32
   %96 = getelementptr inbounds nuw i8, ptr %.143, i64 16
-  %97 = load i16, ptr %96, align 2, !tbaa !31
+  %97 = load i16, ptr %96, align 2, !tbaa !30
   %98 = sext i16 %97 to i32
   %99 = getelementptr inbounds nuw i8, ptr %.143, i64 32
-  %100 = load i16, ptr %99, align 2, !tbaa !31
+  %100 = load i16, ptr %99, align 2, !tbaa !30
   %101 = sext i16 %100 to i32
   %102 = getelementptr inbounds nuw i8, ptr %.143, i64 48
-  %103 = load i16, ptr %102, align 2, !tbaa !31
+  %103 = load i16, ptr %102, align 2, !tbaa !30
   %104 = sext i16 %103 to i32
   %105 = getelementptr inbounds nuw i8, ptr %.143, i64 64
-  %106 = load i16, ptr %105, align 2, !tbaa !31
+  %106 = load i16, ptr %105, align 2, !tbaa !30
   %107 = sext i16 %106 to i32
   %108 = getelementptr inbounds nuw i8, ptr %.143, i64 80
-  %109 = load i16, ptr %108, align 2, !tbaa !31
+  %109 = load i16, ptr %108, align 2, !tbaa !30
   %110 = sext i16 %109 to i32
   %111 = getelementptr inbounds nuw i8, ptr %.143, i64 96
-  %112 = load i16, ptr %111, align 2, !tbaa !31
+  %112 = load i16, ptr %111, align 2, !tbaa !30
   %113 = sext i16 %112 to i32
   %114 = getelementptr inbounds nuw i8, ptr %.143, i64 112
-  %115 = load i16, ptr %114, align 2, !tbaa !31
+  %115 = load i16, ptr %114, align 2, !tbaa !30
   %116 = sext i16 %115 to i32
   %117 = getelementptr inbounds nuw i8, ptr %.143, i64 128
-  %118 = load i16, ptr %117, align 2, !tbaa !31
+  %118 = load i16, ptr %117, align 2, !tbaa !30
   %119 = sext i16 %118 to i32
   %120 = getelementptr inbounds nuw i8, ptr %.143, i64 144
-  %121 = load i16, ptr %120, align 2, !tbaa !31
+  %121 = load i16, ptr %120, align 2, !tbaa !30
   %122 = sext i16 %121 to i32
   %123 = load i8, ptr %.044, align 1, !tbaa !16
   %124 = zext i8 %123 to i16
@@ -7306,7 +7306,7 @@ define internal fastcc void @avg_cavs_filt8_hv_jj(ptr noundef captures(none) %0,
   %251 = getelementptr inbounds nuw i8, ptr %.143, i64 2
   %252 = add nuw nsw i32 %.117042, 1
   %exitcond52.not = icmp eq i32 %252, 8
-  br i1 %exitcond52.not, label %253, label %90, !llvm.loop !65
+  br i1 %exitcond52.not, label %253, label %90, !llvm.loop !64
 
 253:                                              ; preds = %90
   call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #7
@@ -7347,7 +7347,7 @@ define internal fastcc void @avg_cavs_filt8_hv_kk(ptr noundef captures(none) %0,
   %26 = shl nuw nsw i16 %21, 1
   %27 = add nuw nsw i16 %26, %24
   %28 = sub i16 %25, %27
-  store i16 %28, ptr %.016845, align 2, !tbaa !31
+  store i16 %28, ptr %.016845, align 2, !tbaa !30
   %29 = mul nsw i16 %13, -7
   %30 = mul nuw nsw i16 %17, 42
   %31 = mul nuw nsw i16 %21, 96
@@ -7360,7 +7360,7 @@ define internal fastcc void @avg_cavs_filt8_hv_kk(ptr noundef captures(none) %0,
   %37 = add nuw nsw i16 %36, %34
   %38 = sub i16 %35, %37
   %39 = getelementptr inbounds nuw i8, ptr %.016845, i64 2
-  store i16 %38, ptr %39, align 2, !tbaa !31
+  store i16 %38, ptr %39, align 2, !tbaa !30
   %40 = mul nsw i16 %17, -7
   %41 = mul nuw nsw i16 %21, 42
   %42 = mul nuw nsw i16 %24, 96
@@ -7373,7 +7373,7 @@ define internal fastcc void @avg_cavs_filt8_hv_kk(ptr noundef captures(none) %0,
   %48 = add nuw nsw i16 %47, %45
   %49 = sub i16 %46, %48
   %50 = getelementptr inbounds nuw i8, ptr %.016845, i64 4
-  store i16 %49, ptr %50, align 2, !tbaa !31
+  store i16 %49, ptr %50, align 2, !tbaa !30
   %51 = mul nsw i16 %21, -7
   %52 = mul nuw nsw i16 %24, 42
   %53 = mul nuw nsw i16 %34, 96
@@ -7386,7 +7386,7 @@ define internal fastcc void @avg_cavs_filt8_hv_kk(ptr noundef captures(none) %0,
   %59 = add nuw nsw i16 %58, %56
   %60 = sub i16 %57, %59
   %61 = getelementptr inbounds nuw i8, ptr %.016845, i64 6
-  store i16 %60, ptr %61, align 2, !tbaa !31
+  store i16 %60, ptr %61, align 2, !tbaa !30
   %62 = mul nsw i16 %24, -7
   %63 = mul nuw nsw i16 %34, 42
   %64 = mul nuw nsw i16 %45, 96
@@ -7399,7 +7399,7 @@ define internal fastcc void @avg_cavs_filt8_hv_kk(ptr noundef captures(none) %0,
   %70 = add nuw nsw i16 %69, %67
   %71 = sub i16 %68, %70
   %72 = getelementptr inbounds nuw i8, ptr %.016845, i64 8
-  store i16 %71, ptr %72, align 2, !tbaa !31
+  store i16 %71, ptr %72, align 2, !tbaa !30
   %73 = mul nsw i16 %34, -7
   %74 = mul nuw nsw i16 %45, 42
   %75 = mul nuw nsw i16 %56, 96
@@ -7412,7 +7412,7 @@ define internal fastcc void @avg_cavs_filt8_hv_kk(ptr noundef captures(none) %0,
   %81 = add nuw nsw i16 %80, %78
   %82 = sub i16 %79, %81
   %83 = getelementptr inbounds nuw i8, ptr %.016845, i64 10
-  store i16 %82, ptr %83, align 2, !tbaa !31
+  store i16 %82, ptr %83, align 2, !tbaa !30
   %84 = mul nsw i16 %45, -7
   %85 = mul nuw nsw i16 %56, 42
   %86 = mul nuw nsw i16 %67, 96
@@ -7425,7 +7425,7 @@ define internal fastcc void @avg_cavs_filt8_hv_kk(ptr noundef captures(none) %0,
   %92 = add nuw nsw i16 %91, %89
   %93 = sub i16 %90, %92
   %94 = getelementptr inbounds nuw i8, ptr %.016845, i64 12
-  store i16 %93, ptr %94, align 2, !tbaa !31
+  store i16 %93, ptr %94, align 2, !tbaa !30
   %95 = mul nsw i16 %56, -7
   %96 = mul nuw nsw i16 %67, 42
   %97 = mul nuw nsw i16 %78, 96
@@ -7438,12 +7438,12 @@ define internal fastcc void @avg_cavs_filt8_hv_kk(ptr noundef captures(none) %0,
   %103 = add nuw nsw i16 %102, %100
   %104 = sub i16 %101, %103
   %105 = getelementptr inbounds nuw i8, ptr %.016845, i64 14
-  store i16 %104, ptr %105, align 2, !tbaa !31
+  store i16 %104, ptr %105, align 2, !tbaa !30
   %106 = getelementptr inbounds nuw i8, ptr %.016845, i64 16
   %107 = getelementptr inbounds i8, ptr %.016746, i64 %3
   %108 = add nuw nsw i32 %.016944, 1
   %exitcond.not = icmp eq i32 %108, 13
-  br i1 %exitcond.not, label %109, label %7, !llvm.loop !66
+  br i1 %exitcond.not, label %109, label %7, !llvm.loop !65
 
 109:                                              ; preds = %7
   %110 = getelementptr inbounds nuw i8, ptr %5, i64 32
@@ -7460,36 +7460,36 @@ define internal fastcc void @avg_cavs_filt8_hv_kk(ptr noundef captures(none) %0,
   %.148 = phi ptr [ %110, %109 ], [ %278, %117 ]
   %.117047 = phi i32 [ 0, %109 ], [ %279, %117 ]
   %118 = getelementptr inbounds i8, ptr %.148, i64 -16
-  %119 = load i16, ptr %118, align 2, !tbaa !31
+  %119 = load i16, ptr %118, align 2, !tbaa !30
   %120 = sext i16 %119 to i32
-  %121 = load i16, ptr %.148, align 2, !tbaa !31
+  %121 = load i16, ptr %.148, align 2, !tbaa !30
   %122 = sext i16 %121 to i32
   %123 = getelementptr inbounds nuw i8, ptr %.148, i64 16
-  %124 = load i16, ptr %123, align 2, !tbaa !31
+  %124 = load i16, ptr %123, align 2, !tbaa !30
   %125 = sext i16 %124 to i32
   %126 = getelementptr inbounds nuw i8, ptr %.148, i64 32
-  %127 = load i16, ptr %126, align 2, !tbaa !31
+  %127 = load i16, ptr %126, align 2, !tbaa !30
   %128 = sext i16 %127 to i32
   %129 = getelementptr inbounds nuw i8, ptr %.148, i64 48
-  %130 = load i16, ptr %129, align 2, !tbaa !31
+  %130 = load i16, ptr %129, align 2, !tbaa !30
   %131 = sext i16 %130 to i32
   %132 = getelementptr inbounds nuw i8, ptr %.148, i64 64
-  %133 = load i16, ptr %132, align 2, !tbaa !31
+  %133 = load i16, ptr %132, align 2, !tbaa !30
   %134 = sext i16 %133 to i32
   %135 = getelementptr inbounds nuw i8, ptr %.148, i64 80
-  %136 = load i16, ptr %135, align 2, !tbaa !31
+  %136 = load i16, ptr %135, align 2, !tbaa !30
   %137 = sext i16 %136 to i32
   %138 = getelementptr inbounds nuw i8, ptr %.148, i64 96
-  %139 = load i16, ptr %138, align 2, !tbaa !31
+  %139 = load i16, ptr %138, align 2, !tbaa !30
   %140 = sext i16 %139 to i32
   %141 = getelementptr inbounds nuw i8, ptr %.148, i64 112
-  %142 = load i16, ptr %141, align 2, !tbaa !31
+  %142 = load i16, ptr %141, align 2, !tbaa !30
   %143 = sext i16 %142 to i32
   %144 = getelementptr inbounds nuw i8, ptr %.148, i64 128
-  %145 = load i16, ptr %144, align 2, !tbaa !31
+  %145 = load i16, ptr %144, align 2, !tbaa !30
   %146 = sext i16 %145 to i32
   %147 = getelementptr inbounds nuw i8, ptr %.148, i64 144
-  %148 = load i16, ptr %147, align 2, !tbaa !31
+  %148 = load i16, ptr %147, align 2, !tbaa !30
   %149 = sext i16 %148 to i32
   %150 = load i8, ptr %.049, align 1, !tbaa !16
   %151 = zext i8 %150 to i16
@@ -7638,7 +7638,7 @@ define internal fastcc void @avg_cavs_filt8_hv_kk(ptr noundef captures(none) %0,
   %278 = getelementptr inbounds nuw i8, ptr %.148, i64 2
   %279 = add nuw nsw i32 %.117047, 1
   %exitcond57.not = icmp eq i32 %279, 8
-  br i1 %exitcond57.not, label %280, label %117, !llvm.loop !67
+  br i1 %exitcond57.not, label %280, label %117, !llvm.loop !66
 
 280:                                              ; preds = %117
   call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #7
@@ -7883,7 +7883,7 @@ define internal fastcc void @avg_cavs_filt8_v_qpel_r(ptr noundef captures(none) 
   %217 = getelementptr inbounds nuw i8, ptr %.0117143, i64 1
   %218 = add nuw nsw i32 %.0118142, 1
   %exitcond.not = icmp eq i32 %218, 8
-  br i1 %exitcond.not, label %219, label %21, !llvm.loop !68
+  br i1 %exitcond.not, label %219, label %21, !llvm.loop !67
 
 219:                                              ; preds = %21
   ret void
@@ -7917,7 +7917,7 @@ define internal fastcc void @avg_cavs_filt8_hv_qq(ptr noundef captures(none) %0,
   %21 = add nuw nsw i16 %18, %10
   %22 = sub nsw i16 %20, %21
   %23 = getelementptr inbounds nuw i8, ptr %.016746, i64 3
-  store i16 %22, ptr %.016845, align 2, !tbaa !31
+  store i16 %22, ptr %.016845, align 2, !tbaa !30
   %24 = load i8, ptr %23, align 1, !tbaa !16
   %25 = zext i8 %24 to i16
   %26 = add nuw nsw i16 %18, %15
@@ -7926,7 +7926,7 @@ define internal fastcc void @avg_cavs_filt8_hv_qq(ptr noundef captures(none) %0,
   %29 = sub nsw i16 %27, %28
   %30 = getelementptr inbounds nuw i8, ptr %.016746, i64 4
   %31 = getelementptr inbounds nuw i8, ptr %.016845, i64 2
-  store i16 %29, ptr %31, align 2, !tbaa !31
+  store i16 %29, ptr %31, align 2, !tbaa !30
   %32 = load i8, ptr %30, align 1, !tbaa !16
   %33 = zext i8 %32 to i16
   %34 = add nuw nsw i16 %25, %18
@@ -7935,7 +7935,7 @@ define internal fastcc void @avg_cavs_filt8_hv_qq(ptr noundef captures(none) %0,
   %37 = sub nsw i16 %35, %36
   %38 = getelementptr inbounds nuw i8, ptr %.016746, i64 5
   %39 = getelementptr inbounds nuw i8, ptr %.016845, i64 4
-  store i16 %37, ptr %39, align 2, !tbaa !31
+  store i16 %37, ptr %39, align 2, !tbaa !30
   %40 = load i8, ptr %38, align 1, !tbaa !16
   %41 = zext i8 %40 to i16
   %42 = add nuw nsw i16 %33, %25
@@ -7944,7 +7944,7 @@ define internal fastcc void @avg_cavs_filt8_hv_qq(ptr noundef captures(none) %0,
   %45 = sub nsw i16 %43, %44
   %46 = getelementptr inbounds nuw i8, ptr %.016746, i64 6
   %47 = getelementptr inbounds nuw i8, ptr %.016845, i64 6
-  store i16 %45, ptr %47, align 2, !tbaa !31
+  store i16 %45, ptr %47, align 2, !tbaa !30
   %48 = load i8, ptr %46, align 1, !tbaa !16
   %49 = zext i8 %48 to i16
   %50 = add nuw nsw i16 %41, %33
@@ -7953,7 +7953,7 @@ define internal fastcc void @avg_cavs_filt8_hv_qq(ptr noundef captures(none) %0,
   %53 = sub nsw i16 %51, %52
   %54 = getelementptr inbounds nuw i8, ptr %.016746, i64 7
   %55 = getelementptr inbounds nuw i8, ptr %.016845, i64 8
-  store i16 %53, ptr %55, align 2, !tbaa !31
+  store i16 %53, ptr %55, align 2, !tbaa !30
   %56 = load i8, ptr %54, align 1, !tbaa !16
   %57 = zext i8 %56 to i16
   %58 = add nuw nsw i16 %49, %41
@@ -7962,7 +7962,7 @@ define internal fastcc void @avg_cavs_filt8_hv_qq(ptr noundef captures(none) %0,
   %61 = sub nsw i16 %59, %60
   %62 = getelementptr inbounds nuw i8, ptr %.016746, i64 8
   %63 = getelementptr inbounds nuw i8, ptr %.016845, i64 10
-  store i16 %61, ptr %63, align 2, !tbaa !31
+  store i16 %61, ptr %63, align 2, !tbaa !30
   %64 = load i8, ptr %62, align 1, !tbaa !16
   %65 = zext i8 %64 to i16
   %66 = add nuw nsw i16 %57, %49
@@ -7971,7 +7971,7 @@ define internal fastcc void @avg_cavs_filt8_hv_qq(ptr noundef captures(none) %0,
   %69 = sub nsw i16 %67, %68
   %70 = getelementptr inbounds nuw i8, ptr %.016746, i64 9
   %71 = getelementptr inbounds nuw i8, ptr %.016845, i64 12
-  store i16 %69, ptr %71, align 2, !tbaa !31
+  store i16 %69, ptr %71, align 2, !tbaa !30
   %72 = load i8, ptr %70, align 1, !tbaa !16
   %73 = zext i8 %72 to i16
   %74 = add nuw nsw i16 %65, %57
@@ -7979,12 +7979,12 @@ define internal fastcc void @avg_cavs_filt8_hv_qq(ptr noundef captures(none) %0,
   %76 = add nuw nsw i16 %73, %49
   %77 = sub nsw i16 %75, %76
   %78 = getelementptr inbounds nuw i8, ptr %.016845, i64 14
-  store i16 %77, ptr %78, align 2, !tbaa !31
+  store i16 %77, ptr %78, align 2, !tbaa !30
   %79 = getelementptr inbounds nuw i8, ptr %.016845, i64 16
   %80 = getelementptr inbounds i8, ptr %.016746, i64 %3
   %81 = add nuw nsw i32 %.016944, 1
   %exitcond.not = icmp eq i32 %81, 13
-  br i1 %exitcond.not, label %82, label %7, !llvm.loop !69
+  br i1 %exitcond.not, label %82, label %7, !llvm.loop !68
 
 82:                                               ; preds = %7
   %83 = getelementptr inbounds nuw i8, ptr %5, i64 32
@@ -8001,39 +8001,39 @@ define internal fastcc void @avg_cavs_filt8_hv_qq(ptr noundef captures(none) %0,
   %.148 = phi ptr [ %83, %82 ], [ %286, %90 ]
   %.117047 = phi i32 [ 0, %82 ], [ %287, %90 ]
   %91 = getelementptr inbounds i8, ptr %.148, i64 -16
-  %92 = load i16, ptr %91, align 2, !tbaa !31
+  %92 = load i16, ptr %91, align 2, !tbaa !30
   %93 = sext i16 %92 to i32
-  %94 = load i16, ptr %.148, align 2, !tbaa !31
+  %94 = load i16, ptr %.148, align 2, !tbaa !30
   %95 = sext i16 %94 to i32
   %96 = getelementptr inbounds nuw i8, ptr %.148, i64 16
-  %97 = load i16, ptr %96, align 2, !tbaa !31
+  %97 = load i16, ptr %96, align 2, !tbaa !30
   %98 = sext i16 %97 to i32
   %99 = getelementptr inbounds nuw i8, ptr %.148, i64 32
-  %100 = load i16, ptr %99, align 2, !tbaa !31
+  %100 = load i16, ptr %99, align 2, !tbaa !30
   %101 = sext i16 %100 to i32
   %102 = getelementptr inbounds nuw i8, ptr %.148, i64 48
-  %103 = load i16, ptr %102, align 2, !tbaa !31
+  %103 = load i16, ptr %102, align 2, !tbaa !30
   %104 = sext i16 %103 to i32
   %105 = getelementptr inbounds nuw i8, ptr %.148, i64 64
-  %106 = load i16, ptr %105, align 2, !tbaa !31
+  %106 = load i16, ptr %105, align 2, !tbaa !30
   %107 = sext i16 %106 to i32
   %108 = getelementptr inbounds nuw i8, ptr %.148, i64 80
-  %109 = load i16, ptr %108, align 2, !tbaa !31
+  %109 = load i16, ptr %108, align 2, !tbaa !30
   %110 = sext i16 %109 to i32
   %111 = getelementptr inbounds nuw i8, ptr %.148, i64 96
-  %112 = load i16, ptr %111, align 2, !tbaa !31
+  %112 = load i16, ptr %111, align 2, !tbaa !30
   %113 = sext i16 %112 to i32
   %114 = getelementptr inbounds nuw i8, ptr %.148, i64 112
-  %115 = load i16, ptr %114, align 2, !tbaa !31
+  %115 = load i16, ptr %114, align 2, !tbaa !30
   %116 = sext i16 %115 to i32
   %117 = getelementptr inbounds nuw i8, ptr %.148, i64 128
-  %118 = load i16, ptr %117, align 2, !tbaa !31
+  %118 = load i16, ptr %117, align 2, !tbaa !30
   %119 = sext i16 %118 to i32
   %120 = getelementptr inbounds nuw i8, ptr %.148, i64 144
-  %121 = load i16, ptr %120, align 2, !tbaa !31
+  %121 = load i16, ptr %120, align 2, !tbaa !30
   %122 = sext i16 %121 to i32
   %123 = getelementptr inbounds nuw i8, ptr %.148, i64 160
-  %124 = load i16, ptr %123, align 2, !tbaa !31
+  %124 = load i16, ptr %123, align 2, !tbaa !30
   %125 = sext i16 %124 to i32
   %126 = load i8, ptr %.049, align 1, !tbaa !16
   %127 = zext i8 %126 to i16
@@ -8214,7 +8214,7 @@ define internal fastcc void @avg_cavs_filt8_hv_qq(ptr noundef captures(none) %0,
   %286 = getelementptr inbounds nuw i8, ptr %.148, i64 2
   %287 = add nuw nsw i32 %.117047, 1
   %exitcond50.not = icmp eq i32 %287, 8
-  br i1 %exitcond50.not, label %288, label %90, !llvm.loop !70
+  br i1 %exitcond50.not, label %288, label %90, !llvm.loop !69
 
 288:                                              ; preds = %90
   call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #7
@@ -8384,57 +8384,56 @@ attributes #7 = { nounwind }
 !14 = !{!9, !5, i64 544}
 !15 = !{!9, !10, i64 552}
 !16 = !{!6, !6, i64 0}
-!17 = distinct !{!17, !18, !19}
+!17 = distinct !{!17, !18}
 !18 = !{!"llvm.loop.mustprogress"}
-!19 = !{!"llvm.loop.estimated_trip_count"}
-!20 = distinct !{!20, !18, !19}
-!21 = distinct !{!21, !18, !19}
-!22 = distinct !{!22, !18, !19}
-!23 = distinct !{!23, !18, !19}
-!24 = distinct !{!24, !18, !19}
-!25 = distinct !{!25, !18, !19}
-!26 = distinct !{!26, !18, !19}
-!27 = distinct !{!27, !18, !19}
-!28 = distinct !{!28, !18, !19}
-!29 = distinct !{!29, !18, !19}
-!30 = distinct !{!30, !18, !19}
-!31 = !{!32, !32, i64 0}
-!32 = !{!"short", !6, i64 0}
-!33 = distinct !{!33, !18, !19}
-!34 = distinct !{!34, !18, !19}
-!35 = distinct !{!35, !18, !19}
-!36 = distinct !{!36, !18, !19}
-!37 = distinct !{!37, !18, !19}
-!38 = distinct !{!38, !18, !19}
-!39 = distinct !{!39, !18, !19}
-!40 = distinct !{!40, !18, !19}
-!41 = distinct !{!41, !18, !19}
-!42 = distinct !{!42, !18, !19}
-!43 = distinct !{!43, !18, !19}
-!44 = distinct !{!44, !18, !19}
-!45 = distinct !{!45, !18, !19}
-!46 = distinct !{!46, !18, !19}
-!47 = distinct !{!47, !18, !19}
-!48 = distinct !{!48, !18, !19}
-!49 = distinct !{!49, !18, !19}
-!50 = distinct !{!50, !18, !19}
-!51 = distinct !{!51, !18, !19}
-!52 = distinct !{!52, !18, !19}
-!53 = distinct !{!53, !18, !19}
-!54 = distinct !{!54, !18, !19}
-!55 = distinct !{!55, !18, !19}
-!56 = distinct !{!56, !18, !19}
-!57 = distinct !{!57, !18, !19}
-!58 = distinct !{!58, !18, !19}
-!59 = distinct !{!59, !18, !19}
-!60 = distinct !{!60, !18, !19}
-!61 = distinct !{!61, !18, !19}
-!62 = distinct !{!62, !18, !19}
-!63 = distinct !{!63, !18, !19}
-!64 = distinct !{!64, !18, !19}
-!65 = distinct !{!65, !18, !19}
-!66 = distinct !{!66, !18, !19}
-!67 = distinct !{!67, !18, !19}
-!68 = distinct !{!68, !18, !19}
-!69 = distinct !{!69, !18, !19}
-!70 = distinct !{!70, !18, !19}
+!19 = distinct !{!19, !18}
+!20 = distinct !{!20, !18}
+!21 = distinct !{!21, !18}
+!22 = distinct !{!22, !18}
+!23 = distinct !{!23, !18}
+!24 = distinct !{!24, !18}
+!25 = distinct !{!25, !18}
+!26 = distinct !{!26, !18}
+!27 = distinct !{!27, !18}
+!28 = distinct !{!28, !18}
+!29 = distinct !{!29, !18}
+!30 = !{!31, !31, i64 0}
+!31 = !{!"short", !6, i64 0}
+!32 = distinct !{!32, !18}
+!33 = distinct !{!33, !18}
+!34 = distinct !{!34, !18}
+!35 = distinct !{!35, !18}
+!36 = distinct !{!36, !18}
+!37 = distinct !{!37, !18}
+!38 = distinct !{!38, !18}
+!39 = distinct !{!39, !18}
+!40 = distinct !{!40, !18}
+!41 = distinct !{!41, !18}
+!42 = distinct !{!42, !18}
+!43 = distinct !{!43, !18}
+!44 = distinct !{!44, !18}
+!45 = distinct !{!45, !18}
+!46 = distinct !{!46, !18}
+!47 = distinct !{!47, !18}
+!48 = distinct !{!48, !18}
+!49 = distinct !{!49, !18}
+!50 = distinct !{!50, !18}
+!51 = distinct !{!51, !18}
+!52 = distinct !{!52, !18}
+!53 = distinct !{!53, !18}
+!54 = distinct !{!54, !18}
+!55 = distinct !{!55, !18}
+!56 = distinct !{!56, !18}
+!57 = distinct !{!57, !18}
+!58 = distinct !{!58, !18}
+!59 = distinct !{!59, !18}
+!60 = distinct !{!60, !18}
+!61 = distinct !{!61, !18}
+!62 = distinct !{!62, !18}
+!63 = distinct !{!63, !18}
+!64 = distinct !{!64, !18}
+!65 = distinct !{!65, !18}
+!66 = distinct !{!66, !18}
+!67 = distinct !{!67, !18}
+!68 = distinct !{!68, !18}
+!69 = distinct !{!69, !18}

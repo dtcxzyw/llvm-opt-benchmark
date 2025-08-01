@@ -447,7 +447,7 @@ _call_external_program.exit:                      ; preds = %90, %86, %28, %32, 
   %125 = call ptr @slurm_strerror(i32 noundef %.) #7
   call void @stepd_drain_node(ptr noundef %125) #7
   %126 = getelementptr inbounds nuw i8, ptr %0, i64 441
-  %127 = load i8, ptr %126, align 1, !range !11, !noundef !12
+  %127 = load i8, ptr %126, align 1, !range !10, !noundef !11
   %128 = trunc nuw i8 %127 to i1
   br i1 %128, label %144, label %129
 
@@ -459,7 +459,7 @@ _call_external_program.exit:                      ; preds = %90, %86, %28, %32, 
 .preheader:                                       ; preds = %129, %.preheader
   %131 = call i32 @stepd_send_pending_exit_msgs(ptr noundef nonnull %0) #7
   %.not33 = icmp eq i32 %131, 0
-  br i1 %.not33, label %.loopexit, label %.preheader, !llvm.loop !13
+  br i1 %.not33, label %.loopexit, label %.preheader, !llvm.loop !12
 
 .loopexit:                                        ; preds = %.preheader, %129
   %132 = load i32, ptr getelementptr inbounds nuw (i8, ptr @step_complete, i64 88), align 8
@@ -468,7 +468,7 @@ _call_external_program.exit:                      ; preds = %90, %86, %28, %32, 
 
 134:                                              ; preds = %.loopexit
   %135 = getelementptr inbounds nuw i8, ptr %0, i64 440
-  %136 = load i8, ptr %135, align 8, !range !11, !noundef !12
+  %136 = load i8, ptr %135, align 8, !range !10, !noundef !11
   %137 = trunc nuw i8 %136 to i1
   br i1 %137, label %138, label %142
 
@@ -700,10 +700,9 @@ attributes #9 = { noreturn nounwind }
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i32 7, !"frame-pointer", i32 2}
 !7 = !{i32 7, !"debug-info-assignment-tracking", i1 true}
-!8 = distinct !{!8, !9, !10}
+!8 = distinct !{!8, !9}
 !9 = !{!"llvm.loop.unroll.disable"}
-!10 = !{!"llvm.loop.estimated_trip_count"}
-!11 = !{i8 0, i8 2}
-!12 = !{}
-!13 = distinct !{!13, !14, !9, !10}
-!14 = !{!"llvm.loop.mustprogress"}
+!10 = !{i8 0, i8 2}
+!11 = !{}
+!12 = distinct !{!12, !13, !9}
+!13 = !{!"llvm.loop.mustprogress"}

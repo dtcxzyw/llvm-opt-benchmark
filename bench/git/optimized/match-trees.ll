@@ -269,7 +269,7 @@ score_matches.exit:                               ; preds = %73, %70, %69, %66
   %.pn18 = phi i32 [ %switch.select5.i, %52 ], [ %.pn, %score_matches.exit ], [ %switch.select5.i25, %56 ]
   call void @update_tree_entry(ptr noundef nonnull %.sink) #11
   %.2 = add nsw i32 %.pn18, %.016
-  br label %36, !llvm.loop !24
+  br label %36
 
 75:                                               ; preds = %49
   call void @free(ptr noundef %10) #11
@@ -327,7 +327,7 @@ fill_tree_desc_strict.exit:                       ; preds = %14
   br i1 %.not23, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %36
-  %25 = load ptr, ptr %22, align 8, !tbaa !26
+  %25 = load ptr, ptr %22, align 8, !tbaa !24
   %26 = load i32, ptr %23, align 4, !tbaa !23
   %27 = and i32 %26, 61440
   %28 = icmp eq i32 %27, 16384
@@ -351,10 +351,10 @@ fill_tree_desc_strict.exit:                       ; preds = %14
   call void @update_tree_entry(ptr noundef nonnull %10) #11
   %37 = load i32, ptr %19, align 8, !tbaa !16
   %.not.us = icmp eq i32 %37, 0
-  br i1 %.not.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !27
+  br i1 %.not.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !25
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %51
-  %38 = load ptr, ptr %22, align 8, !tbaa !26
+  %38 = load ptr, ptr %22, align 8, !tbaa !24
   %39 = load i32, ptr %23, align 4, !tbaa !23
   %40 = and i32 %39, 61440
   %41 = icmp eq i32 %40, 16384
@@ -384,7 +384,7 @@ fill_tree_desc_strict.exit:                       ; preds = %14
   call void @update_tree_entry(ptr noundef nonnull %10) #11
   %52 = load i32, ptr %19, align 8, !tbaa !16
   %.not = icmp eq i32 %52, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !30
+  br i1 %.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !28
 
 ._crit_edge:                                      ; preds = %51, %36, %fill_tree_desc_strict.exit
   call void @free(ptr noundef %11) #11
@@ -446,7 +446,7 @@ define internal fastcc i32 @splice_tree(ptr noundef %0, ptr noundef %1, ptr noun
   br label %26
 
 26:                                               ; preds = %.lr.ph, %37
-  %27 = load ptr, ptr %23, align 8, !tbaa !26
+  %27 = load ptr, ptr %23, align 8, !tbaa !24
   %28 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %27) #13
   %29 = icmp eq i64 %28, %25
   br i1 %29, label %30, label %37
@@ -471,7 +471,7 @@ define internal fastcc i32 @splice_tree(ptr noundef %0, ptr noundef %1, ptr noun
   call void @update_tree_entry(ptr noundef nonnull %7) #11
   %38 = load i32, ptr %21, align 8, !tbaa !16
   %.not48 = icmp eq i32 %38, 0
-  br i1 %.not48, label %._crit_edge, label %26, !llvm.loop !31
+  br i1 %.not48, label %._crit_edge, label %26
 
 ._crit_edge:                                      ; preds = %37, %19
   %39 = trunc i64 %14 to i32
@@ -489,9 +489,9 @@ define internal fastcc i32 @splice_tree(ptr noundef %0, ptr noundef %1, ptr noun
 45:                                               ; preds = %41
   call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %10) #11
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 400
-  %47 = load ptr, ptr %46, align 8, !tbaa !32
+  %47 = load ptr, ptr %46, align 8, !tbaa !29
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 16
-  %49 = load i64, ptr %48, align 8, !tbaa !49
+  %49 = load i64, ptr %48, align 8, !tbaa !46
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %10, ptr nonnull readonly align 1 %43, i64 %49, i1 false)
   %50 = icmp ult i64 %49, 32
   br i1 %50, label %51, label %.preheader
@@ -514,7 +514,7 @@ define internal fastcc i32 @splice_tree(ptr noundef %0, ptr noundef %1, ptr noun
 56:                                               ; preds = %54
   %57 = add nuw nsw i64 %.0811.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %57, 3
-  br i1 %exitcond.not.i.i, label %oidread.exit, label %54, !llvm.loop !52
+  br i1 %exitcond.not.i.i, label %oidread.exit, label %54, !llvm.loop !49
 
 .split.loop.exit9.i.i:                            ; preds = %54
   %58 = trunc nuw nsw i64 %.0811.i.i to i32
@@ -532,9 +532,9 @@ oidread.exit:                                     ; preds = %56, %.split.loop.ex
 61:                                               ; preds = %41, %oidread.exit
   %.138.sroa.phi = phi ptr [ %8, %oidread.exit ], [ %3, %41 ]
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 400
-  %63 = load ptr, ptr %62, align 8, !tbaa !32
+  %63 = load ptr, ptr %62, align 8, !tbaa !29
   %64 = getelementptr i8, ptr %63, i64 16
-  %.val = load i64, ptr %64, align 8, !tbaa !49
+  %.val = load i64, ptr %64, align 8, !tbaa !46
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %43, ptr readonly align 1 %.138.sroa.phi, i64 %.val, i1 false)
   %65 = load i64, ptr %6, align 8, !tbaa !14
   %66 = call i32 @write_object_file_flags(ptr noundef nonnull %16, i64 noundef %65, i32 noundef 2, ptr noundef %4, ptr noundef null, i32 noundef 0) #11
@@ -574,7 +574,7 @@ define dso_local void @shift_tree_by(ptr noundef %0, ptr noundef %1, ptr noundef
   br i1 %.not33, label %15, label %.thread
 
 15:                                               ; preds = %5
-  %16 = load i16, ptr %9, align 2, !tbaa !53
+  %16 = load i16, ptr %9, align 2, !tbaa !50
   %17 = and i16 %16, -4096
   %18 = icmp eq i16 %17, 16384
   br i1 %18, label %19, label %.thread
@@ -694,34 +694,31 @@ attributes #13 = { nounwind willreturn memory(read) }
 !21 = !{!19, !5, i64 48}
 !22 = !{!19, !5, i64 52}
 !23 = !{!17, !5, i64 68}
-!24 = distinct !{!24, !25}
-!25 = !{!"llvm.loop.estimated_trip_count"}
-!26 = !{!17, !9, i64 56}
-!27 = distinct !{!27, !28, !25, !29}
-!28 = !{!"llvm.loop.mustprogress"}
-!29 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!30 = distinct !{!30, !28, !25}
-!31 = distinct !{!31, !25}
-!32 = !{!33, !18, i64 400}
-!33 = !{!"repository", !9, i64 0, !9, i64 8, !34, i64 16, !35, i64 24, !36, i64 32, !37, i64 40, !37, i64 104, !41, i64 168, !9, i64 224, !9, i64 232, !9, i64 240, !9, i64 248, !42, i64 256, !44, i64 368, !45, i64 376, !46, i64 384, !47, i64 392, !18, i64 400, !18, i64 408, !5, i64 416, !5, i64 420, !5, i64 424, !9, i64 432, !48, i64 440, !5, i64 448, !5, i64 452, !5, i64 456}
-!34 = !{!"p1 _ZTS16raw_object_store", !10, i64 0}
-!35 = !{!"p1 _ZTS18parsed_object_pool", !10, i64 0}
-!36 = !{!"p1 _ZTS9ref_store", !10, i64 0}
-!37 = !{!"strmap", !38, i64 0, !40, i64 48, !5, i64 56}
-!38 = !{!"hashmap", !39, i64 0, !10, i64 8, !10, i64 16, !5, i64 24, !5, i64 28, !5, i64 32, !5, i64 36, !5, i64 40}
-!39 = !{!"p2 _ZTS13hashmap_entry", !10, i64 0}
-!40 = !{!"p1 _ZTS8mem_pool", !10, i64 0}
-!41 = !{!"repo_path_cache", !9, i64 0, !9, i64 8, !9, i64 16, !9, i64 24, !9, i64 32, !9, i64 40, !9, i64 48}
-!42 = !{!"repo_settings", !5, i64 0, !5, i64 4, !5, i64 8, !5, i64 12, !5, i64 16, !5, i64 20, !5, i64 24, !5, i64 28, !5, i64 32, !5, i64 36, !5, i64 40, !5, i64 44, !43, i64 48, !5, i64 56, !5, i64 60, !5, i64 64, !5, i64 68, !5, i64 72, !5, i64 76, !5, i64 80, !15, i64 88, !15, i64 96, !15, i64 104}
-!43 = !{!"p1 _ZTS18fsmonitor_settings", !10, i64 0}
-!44 = !{!"p1 _ZTS10config_set", !10, i64 0}
-!45 = !{!"p1 _ZTS15submodule_cache", !10, i64 0}
-!46 = !{!"p1 _ZTS11index_state", !10, i64 0}
-!47 = !{!"p1 _ZTS12remote_state", !10, i64 0}
-!48 = !{!"p1 _ZTS22promisor_remote_config", !10, i64 0}
-!49 = !{!50, !15, i64 16}
-!50 = !{!"git_hash_algo", !9, i64 0, !5, i64 8, !15, i64 16, !15, i64 24, !15, i64 32, !10, i64 40, !10, i64 48, !10, i64 56, !10, i64 64, !10, i64 72, !51, i64 80, !51, i64 88, !51, i64 96, !18, i64 104}
-!51 = !{!"p1 _ZTS9object_id", !10, i64 0}
-!52 = distinct !{!52, !28, !25}
-!53 = !{!54, !54, i64 0}
-!54 = !{!"short", !6, i64 0}
+!24 = !{!17, !9, i64 56}
+!25 = distinct !{!25, !26, !27}
+!26 = !{!"llvm.loop.mustprogress"}
+!27 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!28 = distinct !{!28, !26}
+!29 = !{!30, !18, i64 400}
+!30 = !{!"repository", !9, i64 0, !9, i64 8, !31, i64 16, !32, i64 24, !33, i64 32, !34, i64 40, !34, i64 104, !38, i64 168, !9, i64 224, !9, i64 232, !9, i64 240, !9, i64 248, !39, i64 256, !41, i64 368, !42, i64 376, !43, i64 384, !44, i64 392, !18, i64 400, !18, i64 408, !5, i64 416, !5, i64 420, !5, i64 424, !9, i64 432, !45, i64 440, !5, i64 448, !5, i64 452, !5, i64 456}
+!31 = !{!"p1 _ZTS16raw_object_store", !10, i64 0}
+!32 = !{!"p1 _ZTS18parsed_object_pool", !10, i64 0}
+!33 = !{!"p1 _ZTS9ref_store", !10, i64 0}
+!34 = !{!"strmap", !35, i64 0, !37, i64 48, !5, i64 56}
+!35 = !{!"hashmap", !36, i64 0, !10, i64 8, !10, i64 16, !5, i64 24, !5, i64 28, !5, i64 32, !5, i64 36, !5, i64 40}
+!36 = !{!"p2 _ZTS13hashmap_entry", !10, i64 0}
+!37 = !{!"p1 _ZTS8mem_pool", !10, i64 0}
+!38 = !{!"repo_path_cache", !9, i64 0, !9, i64 8, !9, i64 16, !9, i64 24, !9, i64 32, !9, i64 40, !9, i64 48}
+!39 = !{!"repo_settings", !5, i64 0, !5, i64 4, !5, i64 8, !5, i64 12, !5, i64 16, !5, i64 20, !5, i64 24, !5, i64 28, !5, i64 32, !5, i64 36, !5, i64 40, !5, i64 44, !40, i64 48, !5, i64 56, !5, i64 60, !5, i64 64, !5, i64 68, !5, i64 72, !5, i64 76, !5, i64 80, !15, i64 88, !15, i64 96, !15, i64 104}
+!40 = !{!"p1 _ZTS18fsmonitor_settings", !10, i64 0}
+!41 = !{!"p1 _ZTS10config_set", !10, i64 0}
+!42 = !{!"p1 _ZTS15submodule_cache", !10, i64 0}
+!43 = !{!"p1 _ZTS11index_state", !10, i64 0}
+!44 = !{!"p1 _ZTS12remote_state", !10, i64 0}
+!45 = !{!"p1 _ZTS22promisor_remote_config", !10, i64 0}
+!46 = !{!47, !15, i64 16}
+!47 = !{!"git_hash_algo", !9, i64 0, !5, i64 8, !15, i64 16, !15, i64 24, !15, i64 32, !10, i64 40, !10, i64 48, !10, i64 56, !10, i64 64, !10, i64 72, !48, i64 80, !48, i64 88, !48, i64 96, !18, i64 104}
+!48 = !{!"p1 _ZTS9object_id", !10, i64 0}
+!49 = distinct !{!49, !26}
+!50 = !{!51, !51, i64 0}
+!51 = !{!"short", !6, i64 0}

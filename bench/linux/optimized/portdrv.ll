@@ -630,7 +630,7 @@ define internal i32 @pcie_portdrv_probe(ptr noundef %0, ptr readnone captures(no
   %192 = phi i32 [ %190, %188 ], [ %146, %144 ]
   %193 = add nuw nsw i64 %145, 1
   %194 = icmp eq i64 %193, 5
-  br i1 %194, label %195, label %144, !llvm.loop !12
+  br i1 %194, label %195, label %144, !llvm.loop !11
 
 195:                                              ; preds = %191
   %196 = icmp eq i32 %192, 0
@@ -682,7 +682,7 @@ define internal void @pcie_portdrv_remove(ptr noundef %0) #0 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 184
   tail call void @pm_runtime_forbid(ptr noundef nonnull %4) #13
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 616
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; incl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %5, ptr nonnull elementtype(i32) %5) #13, !srcloc !13
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; incl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %5, ptr nonnull elementtype(i32) %5) #13, !srcloc !12
   tail call void @__pm_runtime_use_autosuspend(ptr noundef nonnull %4, i1 noundef zeroext false) #13
   br label %6
 
@@ -703,7 +703,7 @@ define internal void @pcie_portdrv_shutdown(ptr noundef %0) #0 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 184
   tail call void @pm_runtime_forbid(ptr noundef nonnull %4) #13
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 616
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; incl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %5, ptr nonnull elementtype(i32) %5) #13, !srcloc !13
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; incl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %5, ptr nonnull elementtype(i32) %5) #13, !srcloc !12
   tail call void @__pm_runtime_use_autosuspend(ptr noundef nonnull %4, i1 noundef zeroext false) #13
   br label %6
 
@@ -980,9 +980,8 @@ attributes #15 = { nounwind allocsize(2) }
 !5 = !{i8 0, i8 2}
 !6 = !{}
 !7 = !{!"auto-init"}
-!8 = distinct !{!8, !9, !10, !11}
+!8 = distinct !{!8, !9, !10}
 !9 = !{!"llvm.loop.mustprogress"}
 !10 = !{!"llvm.loop.unroll.disable"}
-!11 = !{!"llvm.loop.estimated_trip_count"}
-!12 = distinct !{!12, !9, !10, !11}
-!13 = !{i64 2148560425, i64 2148560464, i64 2148560485, i64 2148560522, i64 2148560545, i64 2148560415}
+!11 = distinct !{!11, !9, !10}
+!12 = !{i64 2148560425, i64 2148560464, i64 2148560485, i64 2148560522, i64 2148560545, i64 2148560415}

@@ -40,7 +40,7 @@ define hidden range(i32 -1, 2) i32 @inflate_table(i32 noundef %0, ptr noundef re
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader237
-  %14 = load i32, ptr %4, align 4, !tbaa !10
+  %14 = load i32, ptr %4, align 4, !tbaa !9
   br label %15
 
 15:                                               ; preds = %._crit_edge, %19
@@ -54,7 +54,7 @@ define hidden range(i32 -1, 2) i32 @inflate_table(i32 noundef %0, ptr noundef re
 19:                                               ; preds = %15
   %20 = add nsw i32 %.0198246, -1
   %.not = icmp eq i32 %20, 0
-  br i1 %.not, label %23, label %15, !llvm.loop !12
+  br i1 %.not, label %23, label %15, !llvm.loop !11
 
 21:                                               ; preds = %15
   %spec.select = tail call i32 @llvm.umin.i32(i32 %14, i32 %.0198246)
@@ -62,20 +62,20 @@ define hidden range(i32 -1, 2) i32 @inflate_table(i32 noundef %0, ptr noundef re
   br i1 %22, label %.lr.ph249, label %._crit_edge250
 
 23:                                               ; preds = %19
-  %24 = load ptr, ptr %3, align 8, !tbaa !13
+  %24 = load ptr, ptr %3, align 8, !tbaa !12
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 4
-  store ptr %25, ptr %3, align 8, !tbaa !13
-  store i8 64, ptr %24, align 2, !tbaa !15
+  store ptr %25, ptr %3, align 8, !tbaa !12
+  store i8 64, ptr %24, align 2, !tbaa !14
   %.sroa.11.0..sroa_idx = getelementptr inbounds nuw i8, ptr %24, i64 1
-  store i8 1, ptr %.sroa.11.0..sroa_idx, align 1, !tbaa !15
+  store i8 1, ptr %.sroa.11.0..sroa_idx, align 1, !tbaa !14
   %.sroa.14.0..sroa_idx = getelementptr inbounds nuw i8, ptr %24, i64 2
   store i16 0, ptr %.sroa.14.0..sroa_idx, align 2, !tbaa !3
-  %26 = load ptr, ptr %3, align 8, !tbaa !13
+  %26 = load ptr, ptr %3, align 8, !tbaa !12
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 4
-  store ptr %27, ptr %3, align 8, !tbaa !13
-  store i8 64, ptr %26, align 2, !tbaa !15
+  store ptr %27, ptr %3, align 8, !tbaa !12
+  store i8 64, ptr %26, align 2, !tbaa !14
   %.sroa.11.0..sroa_idx21 = getelementptr inbounds nuw i8, ptr %26, i64 1
-  store i8 1, ptr %.sroa.11.0..sroa_idx21, align 1, !tbaa !15
+  store i8 1, ptr %.sroa.11.0..sroa_idx21, align 1, !tbaa !14
   %.sroa.14.0..sroa_idx27 = getelementptr inbounds nuw i8, ptr %26, i64 2
   store i16 0, ptr %.sroa.14.0..sroa_idx27, align 2, !tbaa !3
   br label %.loopexit.sink.split
@@ -90,7 +90,7 @@ define hidden range(i32 -1, 2) i32 @inflate_table(i32 noundef %0, ptr noundef re
 30:                                               ; preds = %.lr.ph249
   %indvars.iv.next281 = add nuw nsw i64 %indvars.iv280, 1
   %exitcond286.not = icmp eq i64 %indvars.iv.next281, %16
-  br i1 %exitcond286.not, label %._crit_edge250, label %.lr.ph249, !llvm.loop !16
+  br i1 %exitcond286.not, label %._crit_edge250, label %.lr.ph249, !llvm.loop !15
 
 ._crit_edge250.loopexit.split.loop.exit:          ; preds = %.lr.ph249
   %31 = trunc nuw nsw i64 %indvars.iv280 to i32
@@ -104,7 +104,7 @@ define hidden range(i32 -1, 2) i32 @inflate_table(i32 noundef %0, ptr noundef re
 32:                                               ; preds = %33
   %indvars.iv.next288 = add nuw nsw i64 %indvars.iv287, 1
   %exitcond290.not = icmp eq i64 %indvars.iv.next288, 16
-  br i1 %exitcond290.not, label %40, label %33, !llvm.loop !17
+  br i1 %exitcond290.not, label %40, label %33, !llvm.loop !16
 
 33:                                               ; preds = %._crit_edge250, %32
   %indvars.iv287 = phi i64 [ 1, %._crit_edge250 ], [ %indvars.iv.next288, %32 ]
@@ -149,7 +149,7 @@ define hidden range(i32 -1, 2) i32 @inflate_table(i32 noundef %0, ptr noundef re
   %51 = getelementptr inbounds nuw [16 x i16], ptr %7, i64 0, i64 %indvars.iv.next292
   store i16 %50, ptr %51, align 2, !tbaa !3
   %exitcond294.not = icmp eq i64 %indvars.iv.next292, 15
-  br i1 %exitcond294.not, label %.preheader235, label %46, !llvm.loop !18
+  br i1 %exitcond294.not, label %.preheader235, label %46, !llvm.loop !17
 
 .lr.ph257:                                        ; preds = %.lr.ph257.preheader, %62
   %indvars.iv295 = phi i64 [ 0, %.lr.ph257.preheader ], [ %indvars.iv.next296, %62 ]
@@ -173,7 +173,7 @@ define hidden range(i32 -1, 2) i32 @inflate_table(i32 noundef %0, ptr noundef re
 62:                                               ; preds = %.lr.ph257, %54
   %indvars.iv.next296 = add nuw nsw i64 %indvars.iv295, 1
   %exitcond299.not = icmp eq i64 %indvars.iv.next296, %wide.trip.count298
-  br i1 %exitcond299.not, label %._crit_edge258, label %.lr.ph257, !llvm.loop !19
+  br i1 %exitcond299.not, label %._crit_edge258, label %.lr.ph257, !llvm.loop !18
 
 ._crit_edge258:                                   ; preds = %62, %.preheader235
   switch i32 %0, label %65 [
@@ -199,7 +199,7 @@ define hidden range(i32 -1, 2) i32 @inflate_table(i32 noundef %0, ptr noundef re
   %69 = phi i1 [ false, %65 ], [ false, %._crit_edge258 ], [ true, %63 ]
   %70 = shl nuw i32 1, %spec.select222
   %71 = add i32 %70, -1
-  %72 = load ptr, ptr %3, align 8, !tbaa !13
+  %72 = load ptr, ptr %3, align 8, !tbaa !12
   %73 = trunc i32 %spec.select222 to i8
   br label %.outer
 
@@ -256,13 +256,13 @@ define hidden range(i32 -1, 2) i32 @inflate_table(i32 noundef %0, ptr noundef re
   %97 = add i32 %96, %94
   %98 = zext i32 %97 to i64
   %99 = getelementptr inbounds nuw %struct.code, ptr %.0179.ph, i64 %98
-  store i8 %.sroa.0.0, ptr %99, align 2, !tbaa !15
+  store i8 %.sroa.0.0, ptr %99, align 2, !tbaa !14
   %.sroa.11.0..sroa_idx23 = getelementptr inbounds nuw i8, ptr %99, i64 1
-  store i8 %77, ptr %.sroa.11.0..sroa_idx23, align 1, !tbaa !15
+  store i8 %77, ptr %.sroa.11.0..sroa_idx23, align 1, !tbaa !14
   %.sroa.14.0..sroa_idx29 = getelementptr inbounds nuw i8, ptr %99, i64 2
   store i16 %.sroa.14.0, ptr %.sroa.14.0..sroa_idx29, align 2, !tbaa !3
   %.not216 = icmp eq i32 %96, 0
-  br i1 %.not216, label %100, label %95, !llvm.loop !20
+  br i1 %.not216, label %100, label %95, !llvm.loop !19
 
 100:                                              ; preds = %95
   %101 = add i32 %.3, -1
@@ -274,7 +274,7 @@ define hidden range(i32 -1, 2) i32 @inflate_table(i32 noundef %0, ptr noundef re
   %104 = and i32 %.0184, %.0185
   %.not217 = icmp eq i32 %104, 0
   %105 = lshr i32 %.0184, 1
-  br i1 %.not217, label %106, label %103, !llvm.loop !21
+  br i1 %.not217, label %106, label %103, !llvm.loop !20
 
 106:                                              ; preds = %103
   %.not218 = icmp eq i32 %.0184, 0
@@ -316,7 +316,7 @@ define hidden range(i32 -1, 2) i32 @inflate_table(i32 noundef %0, ptr noundef re
   br i1 %.not219, label %.backedge, label %130
 
 .backedge:                                        ; preds = %128, %126
-  br label %75, !llvm.loop !22
+  br label %75
 
 130:                                              ; preds = %128
   %131 = icmp eq i32 %.0191.ph, 0
@@ -350,7 +350,7 @@ define hidden range(i32 -1, 2) i32 @inflate_table(i32 noundef %0, ptr noundef re
   %147 = shl nuw i32 %143, 1
   %.reass = add i32 %.2195259, %invariant.op
   %148 = icmp ult i32 %.reass, %.0198246
-  br i1 %148, label %.lr.ph262, label %._crit_edge263.loopexit, !llvm.loop !23
+  br i1 %148, label %.lr.ph262, label %._crit_edge263.loopexit, !llvm.loop !21
 
 ._crit_edge263.loopexit:                          ; preds = %.lr.ph262, %145
   %.2195.lcssa.ph = phi i32 [ %137, %145 ], [ %.2195259, %.lr.ph262 ]
@@ -370,20 +370,20 @@ define hidden range(i32 -1, 2) i32 @inflate_table(i32 noundef %0, ptr noundef re
 
 152:                                              ; preds = %._crit_edge263
   %153 = trunc i32 %.2195.lcssa to i8
-  %154 = load ptr, ptr %3, align 8, !tbaa !13
+  %154 = load ptr, ptr %3, align 8, !tbaa !12
   %155 = zext nneg i32 %129 to i64
   %156 = getelementptr inbounds nuw %struct.code, ptr %154, i64 %155
-  store i8 %153, ptr %156, align 2, !tbaa !24
+  store i8 %153, ptr %156, align 2, !tbaa !22
   %157 = getelementptr inbounds nuw %struct.code, ptr %154, i64 %155, i32 1
-  store i8 %73, ptr %157, align 1, !tbaa !26
+  store i8 %73, ptr %157, align 1, !tbaa !24
   %158 = ptrtoint ptr %133 to i64
   %159 = ptrtoint ptr %154 to i64
   %160 = sub i64 %158, %159
   %161 = lshr exact i64 %160, 2
   %162 = trunc i64 %161 to i16
   %163 = getelementptr inbounds nuw %struct.code, ptr %154, i64 %155, i32 2
-  store i16 %162, ptr %163, align 2, !tbaa !27
-  br label %.outer, !llvm.loop !22
+  store i16 %162, ptr %163, align 2, !tbaa !25
+  br label %.outer
 
 164:                                              ; preds = %116
   %.not220 = icmp eq i32 %.1186, 0
@@ -392,23 +392,23 @@ define hidden range(i32 -1, 2) i32 @inflate_table(i32 noundef %0, ptr noundef re
 165:                                              ; preds = %164
   %166 = zext i32 %.1186 to i64
   %167 = getelementptr inbounds nuw %struct.code, ptr %.0179.ph, i64 %166
-  store i8 64, ptr %167, align 2, !tbaa !15
+  store i8 64, ptr %167, align 2, !tbaa !14
   %.sroa.11.0..sroa_idx25 = getelementptr inbounds nuw i8, ptr %167, i64 1
-  store i8 %77, ptr %.sroa.11.0..sroa_idx25, align 1, !tbaa !15
+  store i8 %77, ptr %.sroa.11.0..sroa_idx25, align 1, !tbaa !14
   %.sroa.14.0..sroa_idx31 = getelementptr inbounds nuw i8, ptr %167, i64 2
   store i16 0, ptr %.sroa.14.0..sroa_idx31, align 2, !tbaa !3
   br label %168
 
 168:                                              ; preds = %165, %164
-  %169 = load ptr, ptr %3, align 8, !tbaa !13
+  %169 = load ptr, ptr %3, align 8, !tbaa !12
   %170 = zext i32 %.0187.ph to i64
   %171 = getelementptr inbounds nuw %struct.code, ptr %169, i64 %170
-  store ptr %171, ptr %3, align 8, !tbaa !13
+  store ptr %171, ptr %3, align 8, !tbaa !12
   br label %.loopexit.sink.split
 
 .loopexit.sink.split:                             ; preds = %23, %168
   %spec.select222.sink = phi i32 [ %spec.select222, %168 ], [ 1, %23 ]
-  store i32 %spec.select222.sink, ptr %4, align 4, !tbaa !10
+  store i32 %spec.select222.sink, ptr %4, align 4, !tbaa !9
   br label %.loopexit
 
 .loopexit:                                        ; preds = %33, %._crit_edge263, %.loopexit.sink.split, %63, %65, %41
@@ -448,24 +448,22 @@ attributes #4 = { nounwind }
 !4 = !{!"short", !5, i64 0}
 !5 = !{!"omnipotent char", !6, i64 0}
 !6 = !{!"Simple C/C++ TBAA"}
-!7 = distinct !{!7, !8, !9}
+!7 = distinct !{!7, !8}
 !8 = !{!"llvm.loop.mustprogress"}
-!9 = !{!"llvm.loop.estimated_trip_count"}
-!10 = !{!11, !11, i64 0}
-!11 = !{!"int", !5, i64 0}
-!12 = distinct !{!12, !8, !9}
-!13 = !{!14, !14, i64 0}
-!14 = !{!"any pointer", !5, i64 0}
-!15 = !{!5, !5, i64 0}
-!16 = distinct !{!16, !8, !9}
-!17 = distinct !{!17, !8, !9}
-!18 = distinct !{!18, !8, !9}
-!19 = distinct !{!19, !8, !9}
-!20 = distinct !{!20, !8, !9}
-!21 = distinct !{!21, !8, !9}
-!22 = distinct !{!22, !9}
-!23 = distinct !{!23, !8, !9}
-!24 = !{!25, !5, i64 0}
-!25 = !{!"", !5, i64 0, !5, i64 1, !4, i64 2}
-!26 = !{!25, !5, i64 1}
-!27 = !{!25, !4, i64 2}
+!9 = !{!10, !10, i64 0}
+!10 = !{!"int", !5, i64 0}
+!11 = distinct !{!11, !8}
+!12 = !{!13, !13, i64 0}
+!13 = !{!"any pointer", !5, i64 0}
+!14 = !{!5, !5, i64 0}
+!15 = distinct !{!15, !8}
+!16 = distinct !{!16, !8}
+!17 = distinct !{!17, !8}
+!18 = distinct !{!18, !8}
+!19 = distinct !{!19, !8}
+!20 = distinct !{!20, !8}
+!21 = distinct !{!21, !8}
+!22 = !{!23, !5, i64 0}
+!23 = !{!"", !5, i64 0, !5, i64 1, !4, i64 2}
+!24 = !{!23, !5, i64 1}
+!25 = !{!23, !4, i64 2}

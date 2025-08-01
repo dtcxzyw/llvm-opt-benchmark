@@ -85,7 +85,7 @@ define internal noundef i32 @gamma_convert(ptr readnone captures(none) %0, ptr n
 ._crit_edge.us:                                   ; preds = %22
   %38 = add nuw nsw i32 %.036.us, 1
   %exitcond42.not = icmp eq i32 %38, %3
-  br i1 %exitcond42.not, label %._crit_edge39, label %.lr.ph.us, !llvm.loop !32
+  br i1 %exitcond42.not, label %._crit_edge39, label %.lr.ph.us, !llvm.loop !31
 
 ._crit_edge39:                                    ; preds = %._crit_edge.us, %4
   ret i32 %3
@@ -127,8 +127,7 @@ attributes #3 = { nounwind }
 !26 = !{!8, !8, i64 0}
 !27 = !{!28, !28, i64 0}
 !28 = !{!"short", !8, i64 0}
-!29 = distinct !{!29, !30, !31}
+!29 = distinct !{!29, !30}
 !30 = !{!"llvm.loop.mustprogress"}
-!31 = !{!"llvm.loop.estimated_trip_count"}
-!32 = distinct !{!32, !30, !31, !33}
-!33 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!31 = distinct !{!31, !30, !32}
+!32 = !{!"llvm.loop.unswitch.nontrivial.disable"}

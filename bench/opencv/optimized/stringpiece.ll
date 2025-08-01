@@ -427,10 +427,10 @@ define hidden noundef i64 @_ZNK6google8protobuf20stringpiece_internal11StringPie
   %26 = load i8, ptr %25, align 1, !tbaa !16
   %27 = zext i8 %26 to i64
   %28 = getelementptr inbounds nuw i8, ptr %5, i64 %27
-  store i8 1, ptr %28, align 1, !tbaa !20
+  store i8 1, ptr %28, align 1, !tbaa !19
   %29 = add nuw i64 %.05.i, 1
   %exitcond.not.i = icmp eq i64 %29, %2
-  br i1 %exitcond.not.i, label %_ZN6google8protobuf20stringpiece_internalL16BuildLookupTableENS1_11StringPieceEPb.exit.preheader, label %.lr.ph.i, !llvm.loop !22
+  br i1 %exitcond.not.i, label %_ZN6google8protobuf20stringpiece_internalL16BuildLookupTableENS1_11StringPieceEPb.exit.preheader, label %.lr.ph.i, !llvm.loop !21
 
 _ZN6google8protobuf20stringpiece_internalL16BuildLookupTableENS1_11StringPieceEPb.exit.preheader: ; preds = %.lr.ph.i
   %.not12 = icmp ult i64 %3, %7
@@ -446,14 +446,14 @@ _ZN6google8protobuf20stringpiece_internalL16BuildLookupTableENS1_11StringPieceEP
   %33 = load i8, ptr %32, align 1, !tbaa !16
   %34 = zext i8 %33 to i64
   %35 = getelementptr inbounds nuw [256 x i8], ptr %5, i64 0, i64 %34
-  %36 = load i8, ptr %35, align 1, !tbaa !20, !range !23, !noundef !24
+  %36 = load i8, ptr %35, align 1, !tbaa !19, !range !22, !noundef !23
   %37 = trunc nuw i8 %36 to i1
   br i1 %37, label %._crit_edge, label %_ZN6google8protobuf20stringpiece_internalL16BuildLookupTableENS1_11StringPieceEPb.exit
 
 _ZN6google8protobuf20stringpiece_internalL16BuildLookupTableENS1_11StringPieceEPb.exit: ; preds = %31
   %38 = add i64 %.0813, 1
   %exitcond.not = icmp eq i64 %38, %7
-  br i1 %exitcond.not, label %._crit_edge, label %31, !llvm.loop !25
+  br i1 %exitcond.not, label %._crit_edge, label %31, !llvm.loop !24
 
 ._crit_edge:                                      ; preds = %_ZN6google8protobuf20stringpiece_internalL16BuildLookupTableENS1_11StringPieceEPb.exit, %31, %_ZN6google8protobuf20stringpiece_internalL16BuildLookupTableENS1_11StringPieceEPb.exit.preheader
   %spec.select = phi i64 [ -1, %_ZN6google8protobuf20stringpiece_internalL16BuildLookupTableENS1_11StringPieceEPb.exit.preheader ], [ %.0813, %31 ], [ -1, %_ZN6google8protobuf20stringpiece_internalL16BuildLookupTableENS1_11StringPieceEPb.exit ]
@@ -501,7 +501,7 @@ define hidden noundef i64 @_ZNK6google8protobuf20stringpiece_internal11StringPie
 17:                                               ; preds = %14
   %18 = add i64 %.07.i, 1
   %exitcond.not.i = icmp eq i64 %18, %7
-  br i1 %exitcond.not.i, label %_ZNK6google8protobuf20stringpiece_internal11StringPiece17find_first_not_ofEcm.exit, label %14, !llvm.loop !26
+  br i1 %exitcond.not.i, label %_ZNK6google8protobuf20stringpiece_internal11StringPiece17find_first_not_ofEcm.exit, label %14, !llvm.loop !25
 
 19:                                               ; preds = %9
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %5) #15
@@ -514,10 +514,10 @@ define hidden noundef i64 @_ZNK6google8protobuf20stringpiece_internal11StringPie
   %21 = load i8, ptr %20, align 1, !tbaa !16
   %22 = zext i8 %21 to i64
   %23 = getelementptr inbounds nuw i8, ptr %5, i64 %22
-  store i8 1, ptr %23, align 1, !tbaa !20
+  store i8 1, ptr %23, align 1, !tbaa !19
   %24 = add nuw i64 %.05.i, 1
   %exitcond.not.i12 = icmp eq i64 %24, %2
-  br i1 %exitcond.not.i12, label %_ZN6google8protobuf20stringpiece_internalL16BuildLookupTableENS1_11StringPieceEPb.exit.preheader, label %.lr.ph.i11, !llvm.loop !22
+  br i1 %exitcond.not.i12, label %_ZN6google8protobuf20stringpiece_internalL16BuildLookupTableENS1_11StringPieceEPb.exit.preheader, label %.lr.ph.i11, !llvm.loop !21
 
 _ZN6google8protobuf20stringpiece_internalL16BuildLookupTableENS1_11StringPieceEPb.exit.preheader: ; preds = %.lr.ph.i11
   %.not15 = icmp ult i64 %3, %7
@@ -533,14 +533,14 @@ _ZN6google8protobuf20stringpiece_internalL16BuildLookupTableENS1_11StringPieceEP
   %28 = load i8, ptr %27, align 1, !tbaa !16
   %29 = zext i8 %28 to i64
   %30 = getelementptr inbounds nuw [256 x i8], ptr %5, i64 0, i64 %29
-  %31 = load i8, ptr %30, align 1, !tbaa !20, !range !23, !noundef !24
+  %31 = load i8, ptr %30, align 1, !tbaa !19, !range !22, !noundef !23
   %32 = trunc nuw i8 %31 to i1
   br i1 %32, label %_ZN6google8protobuf20stringpiece_internalL16BuildLookupTableENS1_11StringPieceEPb.exit, label %._crit_edge
 
 _ZN6google8protobuf20stringpiece_internalL16BuildLookupTableENS1_11StringPieceEPb.exit: ; preds = %26
   %33 = add i64 %.0816, 1
   %exitcond.not = icmp eq i64 %33, %7
-  br i1 %exitcond.not, label %._crit_edge, label %26, !llvm.loop !27
+  br i1 %exitcond.not, label %._crit_edge, label %26, !llvm.loop !26
 
 ._crit_edge:                                      ; preds = %_ZN6google8protobuf20stringpiece_internalL16BuildLookupTableENS1_11StringPieceEPb.exit, %26, %_ZN6google8protobuf20stringpiece_internalL16BuildLookupTableENS1_11StringPieceEPb.exit.preheader
   %spec.select = phi i64 [ -1, %_ZN6google8protobuf20stringpiece_internalL16BuildLookupTableENS1_11StringPieceEPb.exit.preheader ], [ %.0816, %26 ], [ -1, %_ZN6google8protobuf20stringpiece_internalL16BuildLookupTableENS1_11StringPieceEPb.exit ]
@@ -573,7 +573,7 @@ define hidden noundef i64 @_ZNK6google8protobuf20stringpiece_internal11StringPie
 11:                                               ; preds = %8
   %12 = add i64 %.07, 1
   %exitcond.not = icmp eq i64 %12, %5
-  br i1 %exitcond.not, label %.loopexit, label %8, !llvm.loop !26
+  br i1 %exitcond.not, label %.loopexit, label %8, !llvm.loop !25
 
 .loopexit:                                        ; preds = %8, %11, %3
   %.06 = phi i64 [ -1, %3 ], [ %.07, %8 ], [ -1, %11 ]
@@ -627,10 +627,10 @@ define hidden noundef i64 @_ZNK6google8protobuf20stringpiece_internal11StringPie
   %27 = load i8, ptr %26, align 1, !tbaa !16
   %28 = zext i8 %27 to i64
   %29 = getelementptr inbounds nuw i8, ptr %5, i64 %28
-  store i8 1, ptr %29, align 1, !tbaa !20
+  store i8 1, ptr %29, align 1, !tbaa !19
   %30 = add nuw i64 %.05.i, 1
   %exitcond.not.i = icmp eq i64 %30, %2
-  br i1 %exitcond.not.i, label %_ZN6google8protobuf20stringpiece_internalL16BuildLookupTableENS1_11StringPieceEPb.exit, label %.lr.ph.i, !llvm.loop !22
+  br i1 %exitcond.not.i, label %_ZN6google8protobuf20stringpiece_internalL16BuildLookupTableENS1_11StringPieceEPb.exit, label %.lr.ph.i, !llvm.loop !21
 
 _ZN6google8protobuf20stringpiece_internalL16BuildLookupTableENS1_11StringPieceEPb.exit: ; preds = %.lr.ph.i
   %31 = add i64 %7, -1
@@ -644,12 +644,12 @@ _ZN6google8protobuf20stringpiece_internalL16BuildLookupTableENS1_11StringPieceEP
   %35 = load i8, ptr %34, align 1, !tbaa !16
   %36 = zext i8 %35 to i64
   %37 = getelementptr inbounds nuw [256 x i8], ptr %5, i64 0, i64 %36
-  %38 = load i8, ptr %37, align 1, !tbaa !20, !range !23, !noundef !24
+  %38 = load i8, ptr %37, align 1, !tbaa !19, !range !22, !noundef !23
   %39 = trunc nuw i8 %38 to i1
   %40 = icmp eq i64 %.06, 0
   %or.cond = or i1 %40, %39
   %41 = add i64 %.06, -1
-  br i1 %or.cond, label %42, label %33, !llvm.loop !28
+  br i1 %or.cond, label %42, label %33, !llvm.loop !27
 
 42:                                               ; preds = %33
   %spec.select = select i1 %39, i64 %.06, i64 -1
@@ -695,7 +695,7 @@ define hidden noundef i64 @_ZNK6google8protobuf20stringpiece_internal11StringPie
   %19 = getelementptr inbounds nuw i8, ptr %13, i64 %18
   %20 = load i8, ptr %19, align 1, !tbaa !16
   %.not.i = icmp eq i8 %20, %12
-  br i1 %.not.i, label %.lr.ph.i, label %_ZNK6google8protobuf20stringpiece_internal11StringPiece16find_last_not_ofEcm.exit, !llvm.loop !29
+  br i1 %.not.i, label %.lr.ph.i, label %_ZNK6google8protobuf20stringpiece_internal11StringPiece16find_last_not_ofEcm.exit, !llvm.loop !28
 
 21:                                               ; preds = %9
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %5) #15
@@ -708,10 +708,10 @@ define hidden noundef i64 @_ZNK6google8protobuf20stringpiece_internal11StringPie
   %23 = load i8, ptr %22, align 1, !tbaa !16
   %24 = zext i8 %23 to i64
   %25 = getelementptr inbounds nuw i8, ptr %5, i64 %24
-  store i8 1, ptr %25, align 1, !tbaa !20
+  store i8 1, ptr %25, align 1, !tbaa !19
   %26 = add nuw i64 %.05.i, 1
   %exitcond.not.i = icmp eq i64 %26, %2
-  br i1 %exitcond.not.i, label %_ZN6google8protobuf20stringpiece_internalL16BuildLookupTableENS1_11StringPieceEPb.exit.preheader, label %.lr.ph.i8, !llvm.loop !22
+  br i1 %exitcond.not.i, label %_ZN6google8protobuf20stringpiece_internalL16BuildLookupTableENS1_11StringPieceEPb.exit.preheader, label %.lr.ph.i8, !llvm.loop !21
 
 _ZN6google8protobuf20stringpiece_internalL16BuildLookupTableENS1_11StringPieceEPb.exit.preheader: ; preds = %.lr.ph.i8
   %27 = load ptr, ptr %0, align 8, !tbaa !3
@@ -719,7 +719,7 @@ _ZN6google8protobuf20stringpiece_internalL16BuildLookupTableENS1_11StringPieceEP
   %29 = load i8, ptr %28, align 1, !tbaa !16
   %30 = zext i8 %29 to i64
   %31 = getelementptr inbounds nuw [256 x i8], ptr %5, i64 0, i64 %30
-  %32 = load i8, ptr %31, align 1, !tbaa !20, !range !23, !noundef !24
+  %32 = load i8, ptr %31, align 1, !tbaa !19, !range !22, !noundef !23
   %33 = trunc nuw i8 %32 to i1
   br i1 %33, label %.lr.ph, label %._crit_edge
 
@@ -734,9 +734,9 @@ _ZN6google8protobuf20stringpiece_internalL16BuildLookupTableENS1_11StringPieceEP
   %37 = load i8, ptr %36, align 1, !tbaa !16
   %38 = zext i8 %37 to i64
   %39 = getelementptr inbounds nuw [256 x i8], ptr %5, i64 0, i64 %38
-  %40 = load i8, ptr %39, align 1, !tbaa !20, !range !23, !noundef !24
+  %40 = load i8, ptr %39, align 1, !tbaa !19, !range !22, !noundef !23
   %41 = trunc nuw i8 %40 to i1
-  br i1 %41, label %.lr.ph, label %._crit_edge, !llvm.loop !30
+  br i1 %41, label %.lr.ph, label %._crit_edge, !llvm.loop !29
 
 ._crit_edge:                                      ; preds = %_ZN6google8protobuf20stringpiece_internalL16BuildLookupTableENS1_11StringPieceEPb.exit, %.lr.ph, %_ZN6google8protobuf20stringpiece_internalL16BuildLookupTableENS1_11StringPieceEPb.exit.preheader
   %.2 = phi i64 [ %.sroa.speculated, %_ZN6google8protobuf20stringpiece_internalL16BuildLookupTableENS1_11StringPieceEPb.exit.preheader ], [ -1, %.lr.ph ], [ %35, %_ZN6google8protobuf20stringpiece_internalL16BuildLookupTableENS1_11StringPieceEPb.exit ]
@@ -774,7 +774,7 @@ define hidden noundef i64 @_ZNK6google8protobuf20stringpiece_internal11StringPie
   %15 = getelementptr inbounds nuw i8, ptr %9, i64 %14
   %16 = load i8, ptr %15, align 1, !tbaa !16
   %.not = icmp eq i8 %16, %1
-  br i1 %.not, label %.lr.ph, label %.loopexit, !llvm.loop !29
+  br i1 %.not, label %.lr.ph, label %.loopexit, !llvm.loop !28
 
 .loopexit:                                        ; preds = %.lr.ph, %13, %7, %3
   %.06 = phi i64 [ -1, %3 ], [ %.sroa.speculated, %7 ], [ -1, %.lr.ph ], [ %14, %13 ]
@@ -857,7 +857,7 @@ define linkonce_odr hidden noundef ptr @_ZSt8__searchIPKcS1_N9__gnu_cxx5__ops19_
   %34 = getelementptr inbounds nuw i8, ptr %.02946.i.i, i64 4
   %35 = add nsw i64 %.047.i.i, -1
   %36 = icmp sgt i64 %.047.i.i, 1
-  br i1 %36, label %18, label %._crit_edge.loopexit.i.i, !llvm.loop !31
+  br i1 %36, label %18, label %._crit_edge.loopexit.i.i, !llvm.loop !30
 
 ._crit_edge.loopexit.i.i:                         ; preds = %33
   %.pre54.i.i = ptrtoint ptr %scevgep.i.i to i64
@@ -955,7 +955,7 @@ define linkonce_odr hidden noundef ptr @_ZSt8__searchIPKcS1_N9__gnu_cxx5__ops19_
   %77 = getelementptr inbounds nuw i8, ptr %.02946.i.i61, i64 4
   %78 = add nsw i64 %.047.i.i60, -1
   %79 = icmp sgt i64 %.047.i.i60, 1
-  br i1 %79, label %61, label %._crit_edge.loopexit.i.i62, !llvm.loop !31
+  br i1 %79, label %61, label %._crit_edge.loopexit.i.i62, !llvm.loop !30
 
 ._crit_edge.loopexit.i.i62:                       ; preds = %76
   %.pre54.i.i63 = ptrtoint ptr %scevgep.i.i59 to i64
@@ -1035,7 +1035,7 @@ _ZSt9__find_ifIPKcN9__gnu_cxx5__ops17_Iter_equals_iterIS1_EEET_S6_S6_T0_.exit67:
   %104 = load i8, ptr %.035, align 1, !tbaa !16
   %105 = load i8, ptr %.0, align 1, !tbaa !16
   %106 = icmp eq i8 %104, %105
-  br i1 %106, label %107, label %.loopexit, !llvm.loop !32
+  br i1 %106, label %107, label %.loopexit, !llvm.loop !31
 
 107:                                              ; preds = %.preheader
   %108 = getelementptr inbounds nuw i8, ptr %.0, i64 1
@@ -1045,7 +1045,7 @@ _ZSt9__find_ifIPKcN9__gnu_cxx5__ops17_Iter_equals_iterIS1_EEET_S6_S6_T0_.exit67:
 110:                                              ; preds = %107
   %111 = getelementptr inbounds nuw i8, ptr %.035, i64 1
   %112 = icmp eq ptr %111, %1
-  br i1 %112, label %_ZSt9__find_ifIPKcN9__gnu_cxx5__ops17_Iter_equals_iterIS1_EEET_S6_S6_T0_.exit, label %.preheader, !llvm.loop !33
+  br i1 %112, label %_ZSt9__find_ifIPKcN9__gnu_cxx5__ops17_Iter_equals_iterIS1_EEET_S6_S6_T0_.exit, label %.preheader, !llvm.loop !32
 
 _ZSt9__find_ifIPKcN9__gnu_cxx5__ops17_Iter_equals_iterIS1_EEET_S6_S6_T0_.exit.loopexit.split.loop.exit: ; preds = %29
   %113 = getelementptr inbounds nuw i8, ptr %.02946.i.i, i64 3
@@ -1091,7 +1091,7 @@ define linkonce_odr hidden void @_ZSt8__searchISt16reverse_iteratorIPKcES3_N9__g
   br i1 %21, label %.lr.ph.i.preheader.i, label %._crit_edge.i.i
 
 .lr.ph.i.preheader.i:                             ; preds = %16
-  %22 = load i8, ptr %14, align 1, !tbaa !16, !noalias !34
+  %22 = load i8, ptr %14, align 1, !tbaa !16, !noalias !33
   %23 = mul nsw i64 %20, -4
   %scevgep.i = getelementptr i8, ptr %6, i64 %23
   br label %.lr.ph.i.i
@@ -1100,32 +1100,32 @@ define linkonce_odr hidden void @_ZSt8__searchISt16reverse_iteratorIPKcES3_N9__g
   %24 = phi ptr [ %37, %40 ], [ %6, %.lr.ph.i.preheader.i ]
   %.020.i.i = phi i64 [ %41, %40 ], [ %20, %.lr.ph.i.preheader.i ]
   %25 = getelementptr inbounds i8, ptr %24, i64 -1
-  %26 = load i8, ptr %25, align 1, !tbaa !16, !noalias !34
+  %26 = load i8, ptr %25, align 1, !tbaa !16, !noalias !33
   %27 = icmp eq i8 %26, %22
   br i1 %27, label %.critedge, label %28
 
 28:                                               ; preds = %.lr.ph.i.i
   %29 = getelementptr inbounds i8, ptr %24, i64 -2
-  %30 = load i8, ptr %29, align 1, !tbaa !16, !noalias !34
+  %30 = load i8, ptr %29, align 1, !tbaa !16, !noalias !33
   %31 = icmp eq i8 %30, %22
   br i1 %31, label %_ZSt9__find_ifISt16reverse_iteratorIPKcEN9__gnu_cxx5__ops17_Iter_equals_iterIS3_EEET_S8_S8_T0_.exit.loopexit.split.loop.exit95, label %32
 
 32:                                               ; preds = %28
   %33 = getelementptr inbounds i8, ptr %24, i64 -3
-  %34 = load i8, ptr %33, align 1, !tbaa !16, !noalias !34
+  %34 = load i8, ptr %33, align 1, !tbaa !16, !noalias !33
   %35 = icmp eq i8 %34, %22
   br i1 %35, label %_ZSt9__find_ifISt16reverse_iteratorIPKcEN9__gnu_cxx5__ops17_Iter_equals_iterIS3_EEET_S8_S8_T0_.exit.loopexit.split.loop.exit93, label %36
 
 36:                                               ; preds = %32
   %37 = getelementptr inbounds i8, ptr %24, i64 -4
-  %38 = load i8, ptr %37, align 1, !tbaa !16, !noalias !34
+  %38 = load i8, ptr %37, align 1, !tbaa !16, !noalias !33
   %39 = icmp eq i8 %38, %22
   br i1 %39, label %_ZSt9__find_ifISt16reverse_iteratorIPKcEN9__gnu_cxx5__ops17_Iter_equals_iterIS3_EEET_S8_S8_T0_.exit.loopexit.split.loop.exit, label %40
 
 40:                                               ; preds = %36
   %41 = add nsw i64 %.020.i.i, -1
   %42 = icmp sgt i64 %.020.i.i, 1
-  br i1 %42, label %.lr.ph.i.i, label %._crit_edge.loopexit.i.i, !llvm.loop !39
+  br i1 %42, label %.lr.ph.i.i, label %._crit_edge.loopexit.i.i, !llvm.loop !38
 
 ._crit_edge.loopexit.i.i:                         ; preds = %40
   %.pre38.i.i = ptrtoint ptr %scevgep.i to i64
@@ -1142,17 +1142,17 @@ define linkonce_odr hidden void @_ZSt8__searchISt16reverse_iteratorIPKcES3_N9__g
   ]
 
 ._crit_edge.i._crit_edge24.i:                     ; preds = %._crit_edge.i.i
-  %.pre26.i = load i8, ptr %14, align 1, !tbaa !16, !noalias !34
+  %.pre26.i = load i8, ptr %14, align 1, !tbaa !16, !noalias !33
   br label %56
 
 ._crit_edge.i._crit_edge.i:                       ; preds = %._crit_edge.i.i
-  %.pre.i = load i8, ptr %14, align 1, !tbaa !16, !noalias !34
+  %.pre.i = load i8, ptr %14, align 1, !tbaa !16, !noalias !33
   br label %50
 
 45:                                               ; preds = %._crit_edge.i.i
   %46 = getelementptr inbounds i8, ptr %43, i64 -1
-  %47 = load i8, ptr %46, align 1, !tbaa !16, !noalias !34
-  %48 = load i8, ptr %14, align 1, !tbaa !16, !noalias !34
+  %47 = load i8, ptr %46, align 1, !tbaa !16, !noalias !33
+  %48 = load i8, ptr %14, align 1, !tbaa !16, !noalias !33
   %49 = icmp eq i8 %47, %48
   br i1 %49, label %.critedge, label %50
 
@@ -1160,7 +1160,7 @@ define linkonce_odr hidden void @_ZSt8__searchISt16reverse_iteratorIPKcES3_N9__g
   %51 = phi i8 [ %.pre.i, %._crit_edge.i._crit_edge.i ], [ %48, %45 ]
   %52 = phi ptr [ %43, %._crit_edge.i._crit_edge.i ], [ %46, %45 ]
   %53 = getelementptr inbounds i8, ptr %52, i64 -1
-  %54 = load i8, ptr %53, align 1, !tbaa !16, !noalias !34
+  %54 = load i8, ptr %53, align 1, !tbaa !16, !noalias !33
   %55 = icmp eq i8 %54, %51
   br i1 %55, label %.critedge, label %56
 
@@ -1168,7 +1168,7 @@ define linkonce_odr hidden void @_ZSt8__searchISt16reverse_iteratorIPKcES3_N9__g
   %57 = phi i8 [ %.pre26.i, %._crit_edge.i._crit_edge24.i ], [ %51, %50 ]
   %58 = phi ptr [ %43, %._crit_edge.i._crit_edge24.i ], [ %53, %50 ]
   %59 = getelementptr inbounds i8, ptr %58, i64 -1
-  %60 = load i8, ptr %59, align 1, !tbaa !16, !noalias !34
+  %60 = load i8, ptr %59, align 1, !tbaa !16, !noalias !33
   %61 = icmp eq i8 %60, %57
   %spec.select.i = select i1 %61, ptr %58, ptr %7
   br label %.critedge
@@ -1198,7 +1198,7 @@ _ZSt9__find_ifISt16reverse_iteratorIPKcEN9__gnu_cxx5__ops17_Iter_equals_iterIS3_
 
 .lr.ph.i.preheader.i11:                           ; preds = %.preheader42
   %73 = getelementptr inbounds i8, ptr %65, i64 -1
-  %74 = load i8, ptr %73, align 1, !tbaa !16, !noalias !40
+  %74 = load i8, ptr %73, align 1, !tbaa !16, !noalias !39
   %75 = mul nsw i64 %71, -4
   %scevgep.i12 = getelementptr i8, ptr %67, i64 %75
   br label %.lr.ph.i.i13
@@ -1207,32 +1207,32 @@ _ZSt9__find_ifISt16reverse_iteratorIPKcEN9__gnu_cxx5__ops17_Iter_equals_iterIS3_
   %76 = phi ptr [ %89, %92 ], [ %67, %.lr.ph.i.preheader.i11 ]
   %.020.i.i14 = phi i64 [ %93, %92 ], [ %71, %.lr.ph.i.preheader.i11 ]
   %77 = getelementptr inbounds i8, ptr %76, i64 -1
-  %78 = load i8, ptr %77, align 1, !tbaa !16, !noalias !40
+  %78 = load i8, ptr %77, align 1, !tbaa !16, !noalias !39
   %79 = icmp eq i8 %78, %74
   br i1 %79, label %_ZSt9__find_ifISt16reverse_iteratorIPKcEN9__gnu_cxx5__ops17_Iter_equals_iterIS3_EEET_S8_S8_T0_.exit20, label %80
 
 80:                                               ; preds = %.lr.ph.i.i13
   %81 = getelementptr inbounds i8, ptr %76, i64 -2
-  %82 = load i8, ptr %81, align 1, !tbaa !16, !noalias !40
+  %82 = load i8, ptr %81, align 1, !tbaa !16, !noalias !39
   %83 = icmp eq i8 %82, %74
   br i1 %83, label %_ZSt9__find_ifISt16reverse_iteratorIPKcEN9__gnu_cxx5__ops17_Iter_equals_iterIS3_EEET_S8_S8_T0_.exit20.loopexit.split.loop.exit86, label %84
 
 84:                                               ; preds = %80
   %85 = getelementptr inbounds i8, ptr %76, i64 -3
-  %86 = load i8, ptr %85, align 1, !tbaa !16, !noalias !40
+  %86 = load i8, ptr %85, align 1, !tbaa !16, !noalias !39
   %87 = icmp eq i8 %86, %74
   br i1 %87, label %_ZSt9__find_ifISt16reverse_iteratorIPKcEN9__gnu_cxx5__ops17_Iter_equals_iterIS3_EEET_S8_S8_T0_.exit20.loopexit.split.loop.exit84, label %88
 
 88:                                               ; preds = %84
   %89 = getelementptr inbounds i8, ptr %76, i64 -4
-  %90 = load i8, ptr %89, align 1, !tbaa !16, !noalias !40
+  %90 = load i8, ptr %89, align 1, !tbaa !16, !noalias !39
   %91 = icmp eq i8 %90, %74
   br i1 %91, label %_ZSt9__find_ifISt16reverse_iteratorIPKcEN9__gnu_cxx5__ops17_Iter_equals_iterIS3_EEET_S8_S8_T0_.exit20.loopexit.split.loop.exit, label %92
 
 92:                                               ; preds = %88
   %93 = add nsw i64 %.020.i.i14, -1
   %94 = icmp sgt i64 %.020.i.i14, 1
-  br i1 %94, label %.lr.ph.i.i13, label %._crit_edge.loopexit.i.i15, !llvm.loop !39
+  br i1 %94, label %.lr.ph.i.i13, label %._crit_edge.loopexit.i.i15, !llvm.loop !38
 
 ._crit_edge.loopexit.i.i15:                       ; preds = %92
   %.pre38.i.i16 = ptrtoint ptr %scevgep.i12 to i64
@@ -1250,19 +1250,19 @@ _ZSt9__find_ifISt16reverse_iteratorIPKcEN9__gnu_cxx5__ops17_Iter_equals_iterIS3_
 
 ._crit_edge.i._crit_edge24.i3:                    ; preds = %._crit_edge.i.i1
   %.phi.trans.insert25.i4 = getelementptr inbounds i8, ptr %65, i64 -1
-  %.pre26.i5 = load i8, ptr %.phi.trans.insert25.i4, align 1, !tbaa !16, !noalias !40
+  %.pre26.i5 = load i8, ptr %.phi.trans.insert25.i4, align 1, !tbaa !16, !noalias !39
   br label %109
 
 ._crit_edge.i._crit_edge.i8:                      ; preds = %._crit_edge.i.i1
   %.phi.trans.insert.i9 = getelementptr inbounds i8, ptr %65, i64 -1
-  %.pre.i10 = load i8, ptr %.phi.trans.insert.i9, align 1, !tbaa !16, !noalias !40
+  %.pre.i10 = load i8, ptr %.phi.trans.insert.i9, align 1, !tbaa !16, !noalias !39
   br label %103
 
 97:                                               ; preds = %._crit_edge.i.i1
   %98 = getelementptr inbounds i8, ptr %95, i64 -1
-  %99 = load i8, ptr %98, align 1, !tbaa !16, !noalias !40
+  %99 = load i8, ptr %98, align 1, !tbaa !16, !noalias !39
   %100 = getelementptr inbounds i8, ptr %65, i64 -1
-  %101 = load i8, ptr %100, align 1, !tbaa !16, !noalias !40
+  %101 = load i8, ptr %100, align 1, !tbaa !16, !noalias !39
   %102 = icmp eq i8 %99, %101
   br i1 %102, label %_ZSt9__find_ifISt16reverse_iteratorIPKcEN9__gnu_cxx5__ops17_Iter_equals_iterIS3_EEET_S8_S8_T0_.exit20, label %103
 
@@ -1270,7 +1270,7 @@ _ZSt9__find_ifISt16reverse_iteratorIPKcEN9__gnu_cxx5__ops17_Iter_equals_iterIS3_
   %104 = phi i8 [ %.pre.i10, %._crit_edge.i._crit_edge.i8 ], [ %101, %97 ]
   %105 = phi ptr [ %95, %._crit_edge.i._crit_edge.i8 ], [ %98, %97 ]
   %106 = getelementptr inbounds i8, ptr %105, i64 -1
-  %107 = load i8, ptr %106, align 1, !tbaa !16, !noalias !40
+  %107 = load i8, ptr %106, align 1, !tbaa !16, !noalias !39
   %108 = icmp eq i8 %107, %104
   br i1 %108, label %_ZSt9__find_ifISt16reverse_iteratorIPKcEN9__gnu_cxx5__ops17_Iter_equals_iterIS3_EEET_S8_S8_T0_.exit20, label %109
 
@@ -1278,7 +1278,7 @@ _ZSt9__find_ifISt16reverse_iteratorIPKcEN9__gnu_cxx5__ops17_Iter_equals_iterIS3_
   %110 = phi i8 [ %.pre26.i5, %._crit_edge.i._crit_edge24.i3 ], [ %104, %103 ]
   %111 = phi ptr [ %95, %._crit_edge.i._crit_edge24.i3 ], [ %106, %103 ]
   %112 = getelementptr inbounds i8, ptr %111, i64 -1
-  %113 = load i8, ptr %112, align 1, !tbaa !16, !noalias !40
+  %113 = load i8, ptr %112, align 1, !tbaa !16, !noalias !39
   %114 = icmp eq i8 %113, %110
   %spec.select.i6 = select i1 %114, ptr %111, ptr %66
   br label %_ZSt9__find_ifISt16reverse_iteratorIPKcEN9__gnu_cxx5__ops17_Iter_equals_iterIS3_EEET_S8_S8_T0_.exit20
@@ -1325,13 +1325,13 @@ _ZSt9__find_ifISt16reverse_iteratorIPKcEN9__gnu_cxx5__ops17_Iter_equals_iterIS3_
 
 132:                                              ; preds = %129
   %133 = icmp eq ptr %124, %119
-  br i1 %133, label %.critedge, label %.preheader, !llvm.loop !45
+  br i1 %133, label %.critedge, label %.preheader, !llvm.loop !44
 
 134:                                              ; preds = %.preheader
   store ptr %122, ptr %1, align 8, !tbaa !14
   %.pre = load ptr, ptr %2, align 8, !tbaa !14
   %.pre77 = load ptr, ptr %3, align 8, !tbaa !14
-  br label %.preheader42, !llvm.loop !46
+  br label %.preheader42, !llvm.loop !45
 
 .critedge:                                        ; preds = %121, %_ZSt9__find_ifISt16reverse_iteratorIPKcEN9__gnu_cxx5__ops17_Iter_equals_iterIS3_EEET_S8_S8_T0_.exit20, %132, %129, %.lr.ph.i.i, %56, %50, %45, %._crit_edge.i.i, %_ZSt9__find_ifISt16reverse_iteratorIPKcEN9__gnu_cxx5__ops17_Iter_equals_iterIS3_EEET_S8_S8_T0_.exit.loopexit.split.loop.exit95, %_ZSt9__find_ifISt16reverse_iteratorIPKcEN9__gnu_cxx5__ops17_Iter_equals_iterIS3_EEET_S8_S8_T0_.exit.loopexit.split.loop.exit93, %_ZSt9__find_ifISt16reverse_iteratorIPKcEN9__gnu_cxx5__ops17_Iter_equals_iterIS3_EEET_S8_S8_T0_.exit.loopexit.split.loop.exit, %5, %9
   %.sink.i.i.sink = phi ptr [ %6, %9 ], [ %6, %5 ], [ %43, %45 ], [ %52, %50 ], [ %7, %._crit_edge.i.i ], [ %spec.select.i, %56 ], [ %62, %_ZSt9__find_ifISt16reverse_iteratorIPKcEN9__gnu_cxx5__ops17_Iter_equals_iterIS3_EEET_S8_S8_T0_.exit.loopexit.split.loop.exit ], [ %63, %_ZSt9__find_ifISt16reverse_iteratorIPKcEN9__gnu_cxx5__ops17_Iter_equals_iterIS3_EEET_S8_S8_T0_.exit.loopexit.split.loop.exit93 ], [ %64, %_ZSt9__find_ifISt16reverse_iteratorIPKcEN9__gnu_cxx5__ops17_Iter_equals_iterIS3_EEET_S8_S8_T0_.exit.loopexit.split.loop.exit95 ], [ %24, %.lr.ph.i.i ], [ %.sink.i.i7, %129 ], [ %119, %132 ], [ %119, %_ZSt9__find_ifISt16reverse_iteratorIPKcEN9__gnu_cxx5__ops17_Iter_equals_iterIS3_EEET_S8_S8_T0_.exit20 ], [ %119, %121 ]
@@ -1383,33 +1383,32 @@ attributes #17 = { nounwind willreturn memory(read) }
 !14 = !{!15, !5, i64 0}
 !15 = !{!"_ZTSSt16reverse_iteratorIPKcE", !5, i64 0}
 !16 = !{!7, !7, i64 0}
-!17 = distinct !{!17, !18, !19}
+!17 = distinct !{!17, !18}
 !18 = !{!"llvm.loop.mustprogress"}
-!19 = !{!"llvm.loop.estimated_trip_count"}
-!20 = !{!21, !21, i64 0}
-!21 = !{!"bool", !7, i64 0}
-!22 = distinct !{!22, !18, !19}
-!23 = !{i8 0, i8 2}
-!24 = !{}
-!25 = distinct !{!25, !18, !19}
-!26 = distinct !{!26, !18, !19}
-!27 = distinct !{!27, !18, !19}
-!28 = distinct !{!28, !18, !19}
-!29 = distinct !{!29, !18, !19}
-!30 = distinct !{!30, !18, !19}
-!31 = distinct !{!31, !18, !19}
-!32 = distinct !{!32, !18, !19}
-!33 = distinct !{!33, !18, !19}
-!34 = !{!35, !37}
-!35 = distinct !{!35, !36, !"_ZSt9__find_ifISt16reverse_iteratorIPKcEN9__gnu_cxx5__ops17_Iter_equals_iterIS3_EEET_S8_S8_T0_St26random_access_iterator_tag: argument 0"}
-!36 = distinct !{!36, !"_ZSt9__find_ifISt16reverse_iteratorIPKcEN9__gnu_cxx5__ops17_Iter_equals_iterIS3_EEET_S8_S8_T0_St26random_access_iterator_tag"}
-!37 = distinct !{!37, !38, !"_ZSt9__find_ifISt16reverse_iteratorIPKcEN9__gnu_cxx5__ops17_Iter_equals_iterIS3_EEET_S8_S8_T0_: argument 0"}
-!38 = distinct !{!38, !"_ZSt9__find_ifISt16reverse_iteratorIPKcEN9__gnu_cxx5__ops17_Iter_equals_iterIS3_EEET_S8_S8_T0_"}
-!39 = distinct !{!39, !18, !19}
-!40 = !{!41, !43}
-!41 = distinct !{!41, !42, !"_ZSt9__find_ifISt16reverse_iteratorIPKcEN9__gnu_cxx5__ops17_Iter_equals_iterIS3_EEET_S8_S8_T0_St26random_access_iterator_tag: argument 0"}
-!42 = distinct !{!42, !"_ZSt9__find_ifISt16reverse_iteratorIPKcEN9__gnu_cxx5__ops17_Iter_equals_iterIS3_EEET_S8_S8_T0_St26random_access_iterator_tag"}
-!43 = distinct !{!43, !44, !"_ZSt9__find_ifISt16reverse_iteratorIPKcEN9__gnu_cxx5__ops17_Iter_equals_iterIS3_EEET_S8_S8_T0_: argument 0"}
-!44 = distinct !{!44, !"_ZSt9__find_ifISt16reverse_iteratorIPKcEN9__gnu_cxx5__ops17_Iter_equals_iterIS3_EEET_S8_S8_T0_"}
-!45 = distinct !{!45, !18, !19}
-!46 = distinct !{!46, !18, !19}
+!19 = !{!20, !20, i64 0}
+!20 = !{!"bool", !7, i64 0}
+!21 = distinct !{!21, !18}
+!22 = !{i8 0, i8 2}
+!23 = !{}
+!24 = distinct !{!24, !18}
+!25 = distinct !{!25, !18}
+!26 = distinct !{!26, !18}
+!27 = distinct !{!27, !18}
+!28 = distinct !{!28, !18}
+!29 = distinct !{!29, !18}
+!30 = distinct !{!30, !18}
+!31 = distinct !{!31, !18}
+!32 = distinct !{!32, !18}
+!33 = !{!34, !36}
+!34 = distinct !{!34, !35, !"_ZSt9__find_ifISt16reverse_iteratorIPKcEN9__gnu_cxx5__ops17_Iter_equals_iterIS3_EEET_S8_S8_T0_St26random_access_iterator_tag: argument 0"}
+!35 = distinct !{!35, !"_ZSt9__find_ifISt16reverse_iteratorIPKcEN9__gnu_cxx5__ops17_Iter_equals_iterIS3_EEET_S8_S8_T0_St26random_access_iterator_tag"}
+!36 = distinct !{!36, !37, !"_ZSt9__find_ifISt16reverse_iteratorIPKcEN9__gnu_cxx5__ops17_Iter_equals_iterIS3_EEET_S8_S8_T0_: argument 0"}
+!37 = distinct !{!37, !"_ZSt9__find_ifISt16reverse_iteratorIPKcEN9__gnu_cxx5__ops17_Iter_equals_iterIS3_EEET_S8_S8_T0_"}
+!38 = distinct !{!38, !18}
+!39 = !{!40, !42}
+!40 = distinct !{!40, !41, !"_ZSt9__find_ifISt16reverse_iteratorIPKcEN9__gnu_cxx5__ops17_Iter_equals_iterIS3_EEET_S8_S8_T0_St26random_access_iterator_tag: argument 0"}
+!41 = distinct !{!41, !"_ZSt9__find_ifISt16reverse_iteratorIPKcEN9__gnu_cxx5__ops17_Iter_equals_iterIS3_EEET_S8_S8_T0_St26random_access_iterator_tag"}
+!42 = distinct !{!42, !43, !"_ZSt9__find_ifISt16reverse_iteratorIPKcEN9__gnu_cxx5__ops17_Iter_equals_iterIS3_EEET_S8_S8_T0_: argument 0"}
+!43 = distinct !{!43, !"_ZSt9__find_ifISt16reverse_iteratorIPKcEN9__gnu_cxx5__ops17_Iter_equals_iterIS3_EEET_S8_S8_T0_"}
+!44 = distinct !{!44, !18}
+!45 = distinct !{!45, !18}

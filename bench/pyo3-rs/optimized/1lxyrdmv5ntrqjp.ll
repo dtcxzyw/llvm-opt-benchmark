@@ -82,7 +82,7 @@ define zeroext i1 @_ZN4core4iter6traits8iterator8Iterator8try_fold17h3dbc4499e24
 14:                                               ; preds = %"_ZN94_$LT$core..slice..iter..Windows$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h933c57adf96c69b6E.exit"
   %15 = call zeroext i1 @"_ZN4core4iter6traits8iterator8Iterator3any5check28_$u7b$$u7b$closure$u7d$$u7d$17he9317246d2d7846fE"(ptr nonnull align 8 %3, ptr nonnull align 1 %10, i64 %7)
   %16 = call zeroext i1 @"_ZN95_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..ops..try_trait..Try$GT$6branch17h795b645577e5c429E"(i1 zeroext %15)
-  br i1 %16, label %17, label %6, !llvm.loop !3
+  br i1 %16, label %17, label %6
 
 17:                                               ; preds = %14
   %18 = call zeroext i1 @"_ZN104_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..ops..try_trait..FromResidual$GT$13from_residual17hbbb63a63507c6a6bE"()
@@ -151,7 +151,7 @@ define align 8 ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core.
 11:                                               ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha4f8c9cbe0f5dc10E.exit"
   store ptr %8, ptr %3, align 8
   %12 = call zeroext i1 @"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h3e6e5e458210c742E"(ptr nonnull align 8 %4, ptr nonnull align 8 %3)
-  br i1 %12, label %13, label %6, !llvm.loop !5
+  br i1 %12, label %13, label %6
 
 13:                                               ; preds = %11
   %14 = load ptr, ptr %3, align 8
@@ -184,7 +184,7 @@ define align 8 ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core.
 10:                                               ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hce235aabb00d03b1E.exit"
   store ptr %7, ptr %3, align 8
   %11 = call zeroext i1 @"_ZN17pyo3_build_config5impl_16find_interpreter28_$u7b$$u7b$closure$u7d$$u7d$17hedfe637bf5dcae8dE"(ptr nonnull align 1 %2, ptr nonnull align 8 %3)
-  br i1 %11, label %12, label %5, !llvm.loop !6
+  br i1 %11, label %12, label %5
 
 12:                                               ; preds = %10
   %13 = load ptr, ptr %3, align 8
@@ -218,7 +218,7 @@ define align 8 ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core.
 11:                                               ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha4f8c9cbe0f5dc10E.exit"
   store ptr %8, ptr %3, align 8
   %12 = call zeroext i1 @"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h1c4d7f8864063a80E"(ptr nonnull align 8 %4, ptr nonnull align 8 %3)
-  br i1 %12, label %13, label %6, !llvm.loop !7
+  br i1 %12, label %13, label %6
 
 13:                                               ; preds = %11
   %14 = load ptr, ptr %3, align 8
@@ -248,7 +248,7 @@ define void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..
   call void @"_ZN4core4iter8adapters6filter11filter_fold28_$u7b$$u7b$closure$u7d$$u7d$17hb54094402831c870E"(ptr nonnull align 8 %5, ptr align 8 %11)
   %12 = add nuw i64 %.sroa.06.0, 1
   %13 = icmp eq i64 %12, %9
-  br i1 %13, label %.loopexit, label %10, !llvm.loop !8
+  br i1 %13, label %.loopexit, label %10
 
 .loopexit:                                        ; preds = %10, %4
   ret void
@@ -345,7 +345,7 @@ define void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..
   %16 = load ptr, ptr %6, align 8
   %17 = load ptr, ptr %1, align 8
   %18 = icmp eq ptr %17, %16
-  br i1 %18, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha4f8c9cbe0f5dc10E.exit.thread", label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha4f8c9cbe0f5dc10E.exit", !llvm.loop !9
+  br i1 %18, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha4f8c9cbe0f5dc10E.exit.thread", label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha4f8c9cbe0f5dc10E.exit"
 
 19:                                               ; preds = %14, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha4f8c9cbe0f5dc10E.exit.thread"
   ret void
@@ -518,10 +518,3 @@ attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argm
 !0 = !{i32 8, !"PIC Level", i32 2}
 !1 = !{i32 2, !"RtLibUseGOT", i32 1}
 !2 = !{!"rustc version 1.79.0 (129f3b996 2024-06-10)"}
-!3 = distinct !{!3, !4}
-!4 = !{!"llvm.loop.estimated_trip_count"}
-!5 = distinct !{!5, !4}
-!6 = distinct !{!6, !4}
-!7 = distinct !{!7, !4}
-!8 = distinct !{!8, !4}
-!9 = distinct !{!9, !4}

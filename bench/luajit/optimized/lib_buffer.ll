@@ -508,7 +508,7 @@ buffer_tobuf.exit:                                ; preds = %10
   %84 = load i64, ptr %78, align 8
   %85 = ashr i64 %84, 47
   %86 = icmp eq i64 %85, -5
-  br i1 %86, label %._crit_edge, label %.lr.ph, !llvm.loop !49
+  br i1 %86, label %._crit_edge, label %.lr.ph
 
 87:                                               ; preds = %66, %65
   %88 = trunc i64 %.069 to i32
@@ -519,7 +519,7 @@ buffer_tobuf.exit:                                ; preds = %10
 90:                                               ; preds = %39, %55, %._crit_edge
   %91 = add nuw nsw i64 %.069, 1
   %exitcond.not = icmp eq i64 %91, %26
-  br i1 %exitcond.not, label %._crit_edge72.loopexit, label %.lr.ph71, !llvm.loop !51
+  br i1 %exitcond.not, label %._crit_edge72.loopexit, label %.lr.ph71, !llvm.loop !49
 
 ._crit_edge72.loopexit:                           ; preds = %90
   %.pre = load ptr, ptr %2, align 8, !tbaa !4
@@ -535,9 +535,9 @@ buffer_tobuf.exit:                                ; preds = %10
   %97 = getelementptr inbounds nuw i8, ptr %96, i64 16
   %98 = load i64, ptr %97, align 8, !tbaa !22
   %99 = getelementptr inbounds nuw i8, ptr %96, i64 24
-  %100 = load i64, ptr %99, align 8, !tbaa !53
+  %100 = load i64, ptr %99, align 8, !tbaa !51
   %.not = icmp ult i64 %98, %100
-  br i1 %.not, label %103, label %101, !prof !54
+  br i1 %.not, label %103, label %101, !prof !52
 
 101:                                              ; preds = %._crit_edge72
   %102 = tail call i32 @lj_gc_step(ptr noundef nonnull %0) #6
@@ -592,9 +592,9 @@ buffer_tobuf.exit:                                ; preds = %10
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 16
   %30 = load i64, ptr %29, align 8, !tbaa !22
   %31 = getelementptr inbounds nuw i8, ptr %28, i64 24
-  %32 = load i64, ptr %31, align 8, !tbaa !53
+  %32 = load i64, ptr %31, align 8, !tbaa !51
   %.not = icmp ult i64 %30, %32
-  br i1 %.not, label %35, label %33, !prof !54
+  br i1 %.not, label %35, label %33, !prof !52
 
 33:                                               ; preds = %buffer_tobuf.exit
   %34 = tail call i32 @lj_gc_step(ptr noundef nonnull %0) #6
@@ -693,7 +693,7 @@ buffer_tobuf.exit:                                ; preds = %10
   store ptr %49, ptr %26, align 8, !tbaa !35
   %50 = add nuw nsw i64 %.041, 1
   %exitcond.not = icmp eq i64 %50, %.03644
-  br i1 %exitcond.not, label %._crit_edge.loopexit, label %27, !llvm.loop !55
+  br i1 %exitcond.not, label %._crit_edge.loopexit, label %27, !llvm.loop !53
 
 ._crit_edge.loopexit:                             ; preds = %36
   %51 = getelementptr inbounds nuw i8, ptr %48, i64 %44
@@ -728,9 +728,9 @@ buffer_tobuf.exit:                                ; preds = %10
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 16
   %68 = load i64, ptr %67, align 8, !tbaa !22
   %69 = getelementptr inbounds nuw i8, ptr %66, i64 24
-  %70 = load i64, ptr %69, align 8, !tbaa !53
+  %70 = load i64, ptr %69, align 8, !tbaa !51
   %.not40 = icmp ult i64 %68, %70
-  br i1 %.not40, label %73, label %71, !prof !54
+  br i1 %.not40, label %73, label %71, !prof !52
 
 71:                                               ; preds = %63
   %72 = tail call i32 @lj_gc_step(ptr noundef nonnull %0) #6
@@ -848,14 +848,14 @@ buffer_tobuf.exit:                                ; preds = %10
   store i64 %22, ptr %19, align 8, !tbaa !16
   %23 = tail call i32 @lj_lib_checkintrange(ptr noundef nonnull %0, i32 noundef 2, i32 noundef 0, i32 noundef 2147483392) #6
   %24 = getelementptr inbounds nuw i8, ptr %12, i64 56
-  %25 = load ptr, ptr %24, align 8, !tbaa !56
-  %26 = load ptr, ptr %17, align 8, !tbaa !57
+  %25 = load ptr, ptr %24, align 8, !tbaa !54
+  %26 = load ptr, ptr %17, align 8, !tbaa !55
   %27 = ptrtoint ptr %25 to i64
   %28 = ptrtoint ptr %26 to i64
   %29 = sub i64 %27, %28
   %30 = trunc i64 %29 to i32
   %31 = icmp ugt i32 %23, %30
-  br i1 %31, label %32, label %lj_buf_more.exit, !prof !58
+  br i1 %31, label %32, label %lj_buf_more.exit, !prof !56
 
 32:                                               ; preds = %buffer_tobuf.exit
   %33 = tail call ptr @lj_buf_more2(ptr noundef nonnull %17, i32 noundef %23) #6
@@ -873,11 +873,11 @@ lj_buf_more.exit:                                 ; preds = %buffer_tobuf.exit, 
 39:                                               ; preds = %lj_buf_more.exit
   %40 = load ptr, ptr %4, align 8, !tbaa !14
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %42 = load i64, ptr %41, align 8, !tbaa !59
+  %42 = load i64, ptr %41, align 8, !tbaa !57
   %43 = ptrtoint ptr %40 to i64
   %44 = sub i64 %43, %42
   %45 = tail call i32 @luaopen_ffi(ptr noundef nonnull %0) #6
-  %46 = load i64, ptr %41, align 8, !tbaa !59
+  %46 = load i64, ptr %41, align 8, !tbaa !57
   %47 = inttoptr i64 %46 to ptr
   %48 = getelementptr inbounds i8, ptr %47, i64 %44
   store ptr %48, ptr %4, align 8, !tbaa !14
@@ -886,12 +886,12 @@ lj_buf_more.exit:                                 ; preds = %buffer_tobuf.exit, 
 49:                                               ; preds = %39, %lj_buf_more.exit
   %50 = tail call ptr @lj_mem_newgco(ptr noundef nonnull %0, i64 noundef 24) #6
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 9
-  store i8 10, ptr %51, align 1, !tbaa !60
+  store i8 10, ptr %51, align 1, !tbaa !58
   %52 = getelementptr inbounds nuw i8, ptr %50, i64 10
-  store i16 20, ptr %52, align 2, !tbaa !63
+  store i16 20, ptr %52, align 2, !tbaa !61
   %53 = load ptr, ptr %17, align 8, !tbaa !34
   %54 = getelementptr inbounds nuw i8, ptr %50, i64 16
-  store ptr %53, ptr %54, align 8, !tbaa !64
+  store ptr %53, ptr %54, align 8, !tbaa !62
   %55 = load ptr, ptr %4, align 8, !tbaa !14
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 8
   store ptr %56, ptr %4, align 8, !tbaa !14
@@ -1004,11 +1004,11 @@ buffer_tobuf.exit:                                ; preds = %10
 
 22:                                               ; preds = %buffer_tobuf.exit
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %24 = load i64, ptr %23, align 8, !tbaa !59
+  %24 = load i64, ptr %23, align 8, !tbaa !57
   %25 = ptrtoint ptr %5 to i64
   %26 = sub i64 %25, %24
   %27 = tail call i32 @luaopen_ffi(ptr noundef nonnull %0) #6
-  %28 = load i64, ptr %23, align 8, !tbaa !59
+  %28 = load i64, ptr %23, align 8, !tbaa !57
   %29 = inttoptr i64 %28 to ptr
   %30 = getelementptr inbounds i8, ptr %29, i64 %26
   store ptr %30, ptr %4, align 8, !tbaa !14
@@ -1018,13 +1018,13 @@ buffer_tobuf.exit:                                ; preds = %10
   %32 = getelementptr inbounds nuw i8, ptr %12, i64 48
   %33 = tail call ptr @lj_mem_newgco(ptr noundef nonnull %0, i64 noundef 24) #6
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 9
-  store i8 10, ptr %34, align 1, !tbaa !60
+  store i8 10, ptr %34, align 1, !tbaa !58
   %35 = getelementptr inbounds nuw i8, ptr %33, i64 10
-  store i16 20, ptr %35, align 2, !tbaa !63
+  store i16 20, ptr %35, align 2, !tbaa !61
   %36 = getelementptr inbounds nuw i8, ptr %12, i64 88
   %37 = load ptr, ptr %36, align 8, !tbaa !35
   %38 = getelementptr inbounds nuw i8, ptr %33, i64 16
-  store ptr %37, ptr %38, align 8, !tbaa !64
+  store ptr %37, ptr %38, align 8, !tbaa !62
   %39 = load ptr, ptr %4, align 8, !tbaa !14
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 8
   store ptr %40, ptr %4, align 8, !tbaa !14
@@ -1088,9 +1088,9 @@ buffer_tobuf.exit:                                ; preds = %10
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 16
   %29 = load i64, ptr %28, align 8, !tbaa !22
   %30 = getelementptr inbounds nuw i8, ptr %27, i64 24
-  %31 = load i64, ptr %30, align 8, !tbaa !53
+  %31 = load i64, ptr %30, align 8, !tbaa !51
   %.not = icmp ult i64 %29, %31
-  br i1 %.not, label %34, label %32, !prof !54
+  br i1 %.not, label %34, label %32, !prof !52
 
 32:                                               ; preds = %buffer_tobuf.exit
   %33 = tail call i32 @lj_gc_step(ptr noundef nonnull %0) #6
@@ -1152,9 +1152,9 @@ buffer_tobuf.exit:                                ; preds = %10
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 16
   %32 = load i64, ptr %31, align 8, !tbaa !22
   %33 = getelementptr inbounds nuw i8, ptr %30, i64 24
-  %34 = load i64, ptr %33, align 8, !tbaa !53
+  %34 = load i64, ptr %33, align 8, !tbaa !51
   %.not = icmp ult i64 %32, %34
-  br i1 %.not, label %37, label %35, !prof !54
+  br i1 %.not, label %37, label %35, !prof !52
 
 35:                                               ; preds = %buffer_tobuf.exit
   %36 = tail call i32 @lj_gc_step(ptr noundef nonnull %0) #6
@@ -1278,9 +1278,9 @@ buffer_tobuf.exit:                                ; preds = %10
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 16
   %33 = load i64, ptr %32, align 8, !tbaa !22
   %34 = getelementptr inbounds nuw i8, ptr %31, i64 24
-  %35 = load i64, ptr %34, align 8, !tbaa !53
+  %35 = load i64, ptr %34, align 8, !tbaa !51
   %.not = icmp ult i64 %33, %35
-  br i1 %.not, label %38, label %36, !prof !54
+  br i1 %.not, label %38, label %36, !prof !52
 
 36:                                               ; preds = %buffer_tobuf.exit
   %37 = tail call i32 @lj_gc_step(ptr noundef nonnull %0) #6
@@ -1467,9 +1467,9 @@ define internal noundef i32 @lj_cf_buffer_new(ptr noundef %0) #0 {
   %48 = inttoptr i64 %47 to ptr
   %49 = tail call ptr @lj_udata_new(ptr noundef nonnull %0, i32 noundef 72, ptr noundef %48) #6
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 10
-  store i8 3, ptr %50, align 2, !tbaa !65
+  store i8 3, ptr %50, align 2, !tbaa !63
   %51 = getelementptr inbounds nuw i8, ptr %49, i64 32
-  store i64 %47, ptr %51, align 8, !tbaa !67
+  store i64 %47, ptr %51, align 8, !tbaa !65
   %52 = load ptr, ptr %4, align 8, !tbaa !14
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 8
   store ptr %53, ptr %4, align 8, !tbaa !14
@@ -1483,9 +1483,9 @@ define internal noundef i32 @lj_cf_buffer_new(ptr noundef %0) #0 {
   %59 = getelementptr inbounds nuw i8, ptr %49, i64 72
   store i64 %58, ptr %59, align 8, !tbaa !16
   %60 = getelementptr inbounds nuw i8, ptr %49, i64 96
-  store i64 %.046, ptr %60, align 8, !tbaa !68
+  store i64 %.046, ptr %60, align 8, !tbaa !66
   %61 = getelementptr inbounds nuw i8, ptr %49, i64 104
-  store i64 %.047, ptr %61, align 8, !tbaa !69
+  store i64 %.047, ptr %61, align 8, !tbaa !67
   %.not55 = icmp eq i32 %.0, 0
   br i1 %.not55, label %64, label %62
 
@@ -1500,9 +1500,9 @@ define internal noundef i32 @lj_cf_buffer_new(ptr noundef %0) #0 {
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 16
   %69 = load i64, ptr %68, align 8, !tbaa !22
   %70 = getelementptr inbounds nuw i8, ptr %67, i64 24
-  %71 = load i64, ptr %70, align 8, !tbaa !53
+  %71 = load i64, ptr %70, align 8, !tbaa !51
   %.not56 = icmp ult i64 %69, %71
-  br i1 %.not56, label %74, label %72, !prof !54
+  br i1 %.not56, label %74, label %72, !prof !52
 
 72:                                               ; preds = %64
   %73 = tail call i32 @lj_gc_step(ptr noundef nonnull %0) #6
@@ -1529,9 +1529,9 @@ define internal noundef i32 @lj_cf_buffer_encode(ptr noundef %0) #0 {
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %13 = load i64, ptr %12, align 8, !tbaa !22
   %14 = getelementptr inbounds nuw i8, ptr %11, i64 24
-  %15 = load i64, ptr %14, align 8, !tbaa !53
+  %15 = load i64, ptr %14, align 8, !tbaa !51
   %.not = icmp ult i64 %13, %15
-  br i1 %.not, label %18, label %16, !prof !54
+  br i1 %.not, label %18, label %16, !prof !52
 
 16:                                               ; preds = %1
   %17 = tail call i32 @lj_gc_step(ptr noundef nonnull %0) #6
@@ -1558,9 +1558,9 @@ define internal noundef i32 @lj_cf_buffer_decode(ptr noundef %0) #0 {
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %12 = load i64, ptr %11, align 8, !tbaa !22
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 24
-  %14 = load i64, ptr %13, align 8, !tbaa !53
+  %14 = load i64, ptr %13, align 8, !tbaa !51
   %.not = icmp ult i64 %12, %14
-  br i1 %.not, label %17, label %15, !prof !54
+  br i1 %.not, label %17, label %15, !prof !52
 
 15:                                               ; preds = %1
   %16 = tail call i32 @lj_gc_step(ptr noundef nonnull %0) #6
@@ -1653,23 +1653,21 @@ attributes #7 = { noreturn nounwind }
 !47 = !{!18, !18, i64 0}
 !48 = !{!25, !13, i64 20}
 !49 = distinct !{!49, !50}
-!50 = !{!"llvm.loop.estimated_trip_count"}
-!51 = distinct !{!51, !52, !50}
-!52 = !{!"llvm.loop.mustprogress"}
-!53 = !{!23, !7, i64 24}
-!54 = !{!"branch_weights", !"expected", i32 2000, i32 1}
-!55 = distinct !{!55, !52, !50}
-!56 = !{!28, !18, i64 8}
-!57 = !{!28, !18, i64 0}
-!58 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!59 = !{!5, !7, i64 56}
-!60 = !{!61, !8, i64 9}
-!61 = !{!"GCcdata", !6, i64 0, !8, i64 8, !8, i64 9, !62, i64 10}
-!62 = !{!"short", !8, i64 0}
-!63 = !{!61, !62, i64 10}
-!64 = !{!12, !12, i64 0}
-!65 = !{!66, !8, i64 10}
-!66 = !{!"GCudata", !6, i64 0, !8, i64 8, !8, i64 9, !8, i64 10, !8, i64 11, !6, i64 16, !13, i64 24, !6, i64 32, !13, i64 40}
-!67 = !{!66, !7, i64 32}
-!68 = !{!17, !7, i64 48}
-!69 = !{!17, !7, i64 56}
+!50 = !{!"llvm.loop.mustprogress"}
+!51 = !{!23, !7, i64 24}
+!52 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!53 = distinct !{!53, !50}
+!54 = !{!28, !18, i64 8}
+!55 = !{!28, !18, i64 0}
+!56 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!57 = !{!5, !7, i64 56}
+!58 = !{!59, !8, i64 9}
+!59 = !{!"GCcdata", !6, i64 0, !8, i64 8, !8, i64 9, !60, i64 10}
+!60 = !{!"short", !8, i64 0}
+!61 = !{!59, !60, i64 10}
+!62 = !{!12, !12, i64 0}
+!63 = !{!64, !8, i64 10}
+!64 = !{!"GCudata", !6, i64 0, !8, i64 8, !8, i64 9, !8, i64 10, !8, i64 11, !6, i64 16, !13, i64 24, !6, i64 32, !13, i64 40}
+!65 = !{!64, !7, i64 32}
+!66 = !{!17, !7, i64 48}
+!67 = !{!17, !7, i64 56}

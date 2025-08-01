@@ -9,11 +9,11 @@ define void @lv_cache_entry_reset_ref(ptr noundef writeonly captures(address_is_
   br i1 %.not, label %.preheader, label %2
 
 .preheader:                                       ; preds = %1, %.preheader
-  br label %.preheader, !llvm.loop !3
+  br label %.preheader
 
 2:                                                ; preds = %1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 0, ptr %3, align 8, !tbaa !5
+  store i32 0, ptr %3, align 8, !tbaa !3
   ret void
 }
 
@@ -23,13 +23,13 @@ define void @lv_cache_entry_inc_ref(ptr noundef captures(address_is_null) %0) lo
   br i1 %.not, label %.preheader, label %2
 
 .preheader:                                       ; preds = %1, %.preheader
-  br label %.preheader, !llvm.loop !13
+  br label %.preheader
 
 2:                                                ; preds = %1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load i32, ptr %3, align 8, !tbaa !5
+  %4 = load i32, ptr %3, align 8, !tbaa !3
   %5 = add nsw i32 %4, 1
-  store i32 %5, ptr %3, align 8, !tbaa !5
+  store i32 %5, ptr %3, align 8, !tbaa !3
   ret void
 }
 
@@ -39,14 +39,14 @@ define void @lv_cache_entry_dec_ref(ptr noundef captures(address_is_null) %0) lo
   br i1 %.not, label %.preheader, label %2
 
 .preheader:                                       ; preds = %1, %.preheader
-  br label %.preheader, !llvm.loop !14
+  br label %.preheader
 
 2:                                                ; preds = %1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load i32, ptr %3, align 8, !tbaa !5
+  %4 = load i32, ptr %3, align 8, !tbaa !3
   %5 = tail call i32 @llvm.smax.i32(i32 %4, i32 1)
   %spec.select = add nsw i32 %5, -1
-  store i32 %spec.select, ptr %3, align 8, !tbaa !5
+  store i32 %spec.select, ptr %3, align 8, !tbaa !3
   ret void
 }
 
@@ -56,18 +56,18 @@ define i32 @lv_cache_entry_get_ref(ptr noundef readonly captures(address_is_null
   br i1 %.not, label %.preheader, label %2
 
 .preheader:                                       ; preds = %1, %.preheader
-  br label %.preheader, !llvm.loop !15
+  br label %.preheader
 
 2:                                                ; preds = %1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load i32, ptr %3, align 8, !tbaa !5
+  %4 = load i32, ptr %3, align 8, !tbaa !3
   ret i32 %4
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define i32 @lv_cache_entry_get_node_size(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %3 = load i32, ptr %2, align 4, !tbaa !16
+  %3 = load i32, ptr %2, align 4, !tbaa !11
   ret i32 %3
 }
 
@@ -77,11 +77,11 @@ define void @lv_cache_entry_set_node_size(ptr noundef writeonly captures(address
   br i1 %.not, label %.preheader, label %3
 
 .preheader:                                       ; preds = %2, %.preheader
-  br label %.preheader, !llvm.loop !17
+  br label %.preheader
 
 3:                                                ; preds = %2
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store i32 %1, ptr %4, align 4, !tbaa !16
+  store i32 %1, ptr %4, align 4, !tbaa !11
   ret void
 }
 
@@ -91,12 +91,12 @@ define void @lv_cache_entry_set_invalid(ptr noundef writeonly captures(address_i
   br i1 %.not, label %.preheader, label %3
 
 .preheader:                                       ; preds = %2, %.preheader
-  br label %.preheader, !llvm.loop !18
+  br label %.preheader
 
 3:                                                ; preds = %2
   %4 = zext i1 %1 to i8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i8 %4, ptr %5, align 8, !tbaa !19
+  store i8 %4, ptr %5, align 8, !tbaa !12
   ret void
 }
 
@@ -106,11 +106,11 @@ define zeroext i1 @lv_cache_entry_is_invalid(ptr noundef readonly captures(addre
   br i1 %.not, label %.preheader, label %2
 
 .preheader:                                       ; preds = %1, %.preheader
-  br label %.preheader, !llvm.loop !20
+  br label %.preheader
 
 2:                                                ; preds = %1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %4 = load i8, ptr %3, align 8, !tbaa !19, !range !21, !noundef !22
+  %4 = load i8, ptr %3, align 8, !tbaa !12, !range !13, !noundef !14
   %5 = trunc nuw i8 %4 to i1
   ret i1 %5
 }
@@ -121,11 +121,11 @@ define nonnull ptr @lv_cache_entry_get_data(ptr noundef readonly captures(addres
   br i1 %.not, label %.preheader, label %2
 
 .preheader:                                       ; preds = %1, %.preheader
-  br label %.preheader, !llvm.loop !23
+  br label %.preheader
 
 2:                                                ; preds = %1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %4 = load i32, ptr %3, align 4, !tbaa !16
+  %4 = load i32, ptr %3, align 4, !tbaa !11
   %5 = zext i32 %4 to i64
   %6 = sub nsw i64 0, %5
   %7 = getelementptr inbounds i8, ptr %0, i64 %6
@@ -138,15 +138,15 @@ define nonnull ptr @lv_cache_entry_acquire_data(ptr noundef captures(address_is_
   br i1 %.not, label %.preheader, label %lv_cache_entry_get_data.exit
 
 .preheader:                                       ; preds = %1, %.preheader
-  br label %.preheader, !llvm.loop !24
+  br label %.preheader
 
 lv_cache_entry_get_data.exit:                     ; preds = %1
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load i32, ptr %2, align 8, !tbaa !5
+  %3 = load i32, ptr %2, align 8, !tbaa !3
   %4 = add nsw i32 %3, 1
-  store i32 %4, ptr %2, align 8, !tbaa !5
+  store i32 %4, ptr %2, align 8, !tbaa !3
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %6 = load i32, ptr %5, align 4, !tbaa !16
+  %6 = load i32, ptr %5, align 4, !tbaa !11
   %7 = zext i32 %6 to i64
   %8 = sub nsw i64 0, %7
   %9 = getelementptr inbounds i8, ptr %0, i64 %8
@@ -159,18 +159,18 @@ define void @lv_cache_entry_release_data(ptr noundef captures(address_is_null) %
   br i1 %.not, label %.preheader, label %lv_cache_entry_get_ref.exit
 
 .preheader:                                       ; preds = %2, %.preheader
-  br label %.preheader, !llvm.loop !25
+  br label %.preheader
 
 lv_cache_entry_get_ref.exit:                      ; preds = %2
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load i32, ptr %3, align 8, !tbaa !5
+  %4 = load i32, ptr %3, align 8, !tbaa !3
   %5 = icmp eq i32 %4, 0
   br i1 %5, label %7, label %lv_cache_entry_dec_ref.exit
 
 lv_cache_entry_dec_ref.exit:                      ; preds = %lv_cache_entry_get_ref.exit
   %6 = tail call i32 @llvm.smax.i32(i32 %4, i32 1)
   %spec.select.i = add nsw i32 %6, -1
-  store i32 %spec.select.i, ptr %3, align 8, !tbaa !5
+  store i32 %spec.select.i, ptr %3, align 8, !tbaa !3
   br label %7
 
 7:                                                ; preds = %lv_cache_entry_get_ref.exit, %lv_cache_entry_dec_ref.exit
@@ -183,7 +183,7 @@ define nonnull ptr @lv_cache_entry_get_entry(ptr noundef readnone captures(addre
   br i1 %.not, label %.preheader, label %3
 
 .preheader:                                       ; preds = %2, %.preheader
-  br label %.preheader, !llvm.loop !26
+  br label %.preheader
 
 3:                                                ; preds = %2
   %4 = zext i32 %1 to i64
@@ -197,10 +197,10 @@ define void @lv_cache_entry_set_cache(ptr noundef writeonly captures(address_is_
   br i1 %.not, label %.preheader, label %3
 
 .preheader:                                       ; preds = %2, %.preheader
-  br label %.preheader, !llvm.loop !27
+  br label %.preheader
 
 3:                                                ; preds = %2
-  store ptr %1, ptr %0, align 8, !tbaa !28
+  store ptr %1, ptr %0, align 8, !tbaa !15
   ret void
 }
 
@@ -210,10 +210,10 @@ define ptr @lv_cache_entry_get_cache(ptr noundef readonly captures(address_is_nu
   br i1 %.not, label %.preheader, label %2
 
 .preheader:                                       ; preds = %1, %.preheader
-  br label %.preheader, !llvm.loop !29
+  br label %.preheader
 
 2:                                                ; preds = %1
-  %3 = load ptr, ptr %0, align 8, !tbaa !28
+  %3 = load ptr, ptr %0, align 8, !tbaa !15
   ret ptr %3
 }
 
@@ -232,23 +232,23 @@ define nonnull ptr @lv_cache_entry_alloc(i32 noundef %0, ptr noundef %1) local_u
   br i1 %.not, label %.preheader, label %6
 
 .preheader:                                       ; preds = %2, %.preheader
-  br label %.preheader, !llvm.loop !30
+  br label %.preheader
 
 6:                                                ; preds = %2
   %.not8.i = icmp eq ptr %1, null
   br i1 %.not8.i, label %.preheader9.i, label %lv_cache_entry_init.exit
 
 .preheader9.i:                                    ; preds = %6, %.preheader9.i
-  br label %.preheader9.i, !llvm.loop !31
+  br label %.preheader9.i
 
 lv_cache_entry_init.exit:                         ; preds = %6
-  store ptr %1, ptr %5, align 8, !tbaa !28
+  store ptr %1, ptr %5, align 8, !tbaa !15
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 12
-  store i32 %0, ptr %7, align 4, !tbaa !16
+  store i32 %0, ptr %7, align 4, !tbaa !11
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store i32 0, ptr %8, align 8, !tbaa !5
+  store i32 0, ptr %8, align 8, !tbaa !3
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store i8 0, ptr %9, align 8, !tbaa !19
+  store i8 0, ptr %9, align 8, !tbaa !12
   %10 = zext i32 %0 to i64
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 %10
   ret ptr %11
@@ -262,23 +262,23 @@ define void @lv_cache_entry_init(ptr noundef writeonly captures(address_is_null)
   br i1 %.not, label %.preheader, label %4
 
 .preheader:                                       ; preds = %3, %.preheader
-  br label %.preheader, !llvm.loop !32
+  br label %.preheader
 
 4:                                                ; preds = %3
   %.not8 = icmp eq ptr %1, null
   br i1 %.not8, label %.preheader9, label %5
 
 .preheader9:                                      ; preds = %4, %.preheader9
-  br label %.preheader9, !llvm.loop !31
+  br label %.preheader9
 
 5:                                                ; preds = %4
-  store ptr %1, ptr %0, align 8, !tbaa !28
+  store ptr %1, ptr %0, align 8, !tbaa !15
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store i32 %2, ptr %6, align 4, !tbaa !16
+  store i32 %2, ptr %6, align 4, !tbaa !11
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 0, ptr %7, align 8, !tbaa !5
+  store i32 0, ptr %7, align 8, !tbaa !3
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i8 0, ptr %8, align 8, !tbaa !19
+  store i8 0, ptr %8, align 8, !tbaa !12
   ret void
 }
 
@@ -288,11 +288,11 @@ define void @lv_cache_entry_delete(ptr noundef %0) local_unnamed_addr #6 {
   br i1 %.not, label %.preheader, label %lv_cache_entry_get_data.exit
 
 .preheader:                                       ; preds = %1, %.preheader
-  br label %.preheader, !llvm.loop !33
+  br label %.preheader
 
 lv_cache_entry_get_data.exit:                     ; preds = %1
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %3 = load i32, ptr %2, align 4, !tbaa !16
+  %3 = load i32, ptr %2, align 4, !tbaa !11
   %4 = zext i32 %3 to i64
   %5 = sub nsw i64 0, %4
   %6 = getelementptr inbounds i8, ptr %0, i64 %5
@@ -321,34 +321,16 @@ attributes #9 = { nounwind }
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = distinct !{!3, !4}
-!4 = !{!"llvm.loop.estimated_trip_count"}
-!5 = !{!6, !11, i64 8}
-!6 = !{!"_lv_cache_entry_t", !7, i64 0, !11, i64 8, !11, i64 12, !12, i64 16}
-!7 = !{!"p1 _ZTS11_lv_cache_t", !8, i64 0}
-!8 = !{!"any pointer", !9, i64 0}
-!9 = !{!"omnipotent char", !10, i64 0}
-!10 = !{!"Simple C/C++ TBAA"}
-!11 = !{!"int", !9, i64 0}
-!12 = !{!"_Bool", !9, i64 0}
-!13 = distinct !{!13, !4}
-!14 = distinct !{!14, !4}
-!15 = distinct !{!15, !4}
-!16 = !{!6, !11, i64 12}
-!17 = distinct !{!17, !4}
-!18 = distinct !{!18, !4}
-!19 = !{!6, !12, i64 16}
-!20 = distinct !{!20, !4}
-!21 = !{i8 0, i8 2}
-!22 = !{}
-!23 = distinct !{!23, !4}
-!24 = distinct !{!24, !4}
-!25 = distinct !{!25, !4}
-!26 = distinct !{!26, !4}
-!27 = distinct !{!27, !4}
-!28 = !{!6, !7, i64 0}
-!29 = distinct !{!29, !4}
-!30 = distinct !{!30, !4}
-!31 = distinct !{!31, !4}
-!32 = distinct !{!32, !4}
-!33 = distinct !{!33, !4}
+!3 = !{!4, !9, i64 8}
+!4 = !{!"_lv_cache_entry_t", !5, i64 0, !9, i64 8, !9, i64 12, !10, i64 16}
+!5 = !{!"p1 _ZTS11_lv_cache_t", !6, i64 0}
+!6 = !{!"any pointer", !7, i64 0}
+!7 = !{!"omnipotent char", !8, i64 0}
+!8 = !{!"Simple C/C++ TBAA"}
+!9 = !{!"int", !7, i64 0}
+!10 = !{!"_Bool", !7, i64 0}
+!11 = !{!4, !9, i64 12}
+!12 = !{!4, !10, i64 16}
+!13 = !{i8 0, i8 2}
+!14 = !{}
+!15 = !{!4, !5, i64 0}

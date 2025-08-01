@@ -59,7 +59,7 @@ define noundef ptr @mktemp(ptr noundef captures(address, ret: address, provenanc
   %16 = add nuw nsw i32 %.041, 1
   %17 = mul i32 %.13040, 62
   %exitcond.not = icmp eq i32 %16, %.026.lcssa58
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph42, !llvm.loop !9
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph42, !llvm.loop !8
 
 .loopexit:                                        ; preds = %.lr.ph42
   %.not44 = icmp eq i32 %17, 0
@@ -95,7 +95,7 @@ define noundef ptr @mktemp(ptr noundef captures(address, ret: address, provenanc
   store i8 0, ptr %22, align 1
   %28 = add nsw i32 %.06.i.i, -1
   %.not.i.i = icmp eq i32 %.06.i.i, 0
-  br i1 %.not.i.i, label %.lr.ph.preheader.i, label %20, !llvm.loop !10
+  br i1 %.not.i.i, label %.lr.ph.preheader.i, label %20, !llvm.loop !9
 
 .lr.ph.preheader.i:                               ; preds = %27, %25
   %29 = tail call i32 @nxmutex_unlock(ptr noundef nonnull @g_b62lock) #6
@@ -132,7 +132,7 @@ base62_to_char.exit.i:                            ; preds = %39, %37, %33
   store i8 %.0.i.i, ptr %.0610.i, align 1
   %42 = add nsw i32 %.011.i, -1
   %43 = icmp sgt i32 %.011.i, 1
-  br i1 %43, label %.lr.ph.i, label %copy_base62.exit, !llvm.loop !11
+  br i1 %43, label %.lr.ph.i, label %copy_base62.exit, !llvm.loop !10
 
 copy_base62.exit:                                 ; preds = %base62_to_char.exit.i
   %44 = call i32 @stat(ptr noundef nonnull %0, ptr noundef nonnull %3)
@@ -148,7 +148,7 @@ copy_base62.exit:                                 ; preds = %base62_to_char.exit
 50:                                               ; preds = %46, %copy_base62.exit
   %51 = add i32 %.245, -1
   %.not = icmp eq i32 %51, 0
-  br i1 %.not, label %.critedge.thread.sink.split, label %18, !llvm.loop !12
+  br i1 %.not, label %.critedge.thread.sink.split, label %18, !llvm.loop !11
 
 .critedge.thread.sink.split:                      ; preds = %50, %46, %.loopexit
   %.sink = phi i32 [ 22, %.loopexit ], [ 0, %46 ], [ 22, %50 ]
@@ -196,10 +196,9 @@ attributes #6 = { nounwind }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7, !8}
-!11 = distinct !{!11, !7, !8}
-!12 = distinct !{!12, !7, !8}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7}

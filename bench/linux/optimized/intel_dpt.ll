@@ -392,9 +392,9 @@ define dso_local void @intel_dpt_suspend(ptr noundef %0) local_unnamed_addr #0 a
   br i1 %7, label %9, label %8, !prof !16
 
 8:                                                ; preds = %5
-  tail call void asm sideeffect "596: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 596b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 596) #6, !srcloc !28
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 231, i32 2305, i64 12) #6, !srcloc !29
-  tail call void asm sideeffect "597: nop\0A\09.pushsection .discard.instr_end\0A\09.long 597b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 597) #6, !srcloc !30
+  tail call void asm sideeffect "596: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 596b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 596) #6, !srcloc !27
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 231, i32 2305, i64 12) #6, !srcloc !28
+  tail call void asm sideeffect "597: nop\0A\09.pushsection .discard.instr_end\0A\09.long 597b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 597) #6, !srcloc !29
   br label %9
 
 9:                                                ; preds = %8, %5
@@ -417,7 +417,7 @@ define dso_local void @intel_dpt_suspend(ptr noundef %0) local_unnamed_addr #0 a
 18:                                               ; preds = %17, %.preheader
   %19 = load ptr, ptr %13, align 8
   %20 = icmp eq ptr %19, %10
-  br i1 %20, label %.loopexit, label %.preheader, !llvm.loop !31
+  br i1 %20, label %.loopexit, label %.preheader, !llvm.loop !30
 
 .loopexit:                                        ; preds = %18, %9
   tail call void @mutex_unlock(ptr noundef nonnull %6) #6
@@ -735,7 +735,7 @@ define internal void @dpt_insert_page(ptr noundef readonly captures(none) %0, i6
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 584
   %32 = load ptr, ptr %31, align 8
   %33 = tail call i64 %32(i64 noundef %1, i32 noundef %3, i32 noundef %4) #6
-  tail call void asm sideeffect "movq $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %33, ptr elementtype(i64) %30) #6, !srcloc !32
+  tail call void asm sideeffect "movq $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %33, ptr elementtype(i64) %30) #6, !srcloc !31
   ret void
 }
 
@@ -794,7 +794,7 @@ define internal void @dpt_insert_entries(ptr noundef readonly captures(none) %0,
 
 35:                                               ; preds = %25
   %36 = getelementptr inbounds nuw i8, ptr %33, i64 24
-  %37 = load i32, ptr %36, align 8, !noalias !33
+  %37 = load i32, ptr %36, align 8, !noalias !32
   %38 = icmp eq i32 %37, 0
   br i1 %38, label %.thread, label %.sink.split.preheader
 
@@ -825,10 +825,10 @@ define internal void @dpt_insert_entries(ptr noundef readonly captures(none) %0,
   %54 = sext i32 %49 to i64
   %55 = getelementptr i64, ptr %27, i64 %54
   %56 = or i64 %52, %30
-  tail call void asm sideeffect "movq $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %56, ptr elementtype(i64) %55) #6, !srcloc !32
+  tail call void asm sideeffect "movq $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %56, ptr elementtype(i64) %55) #6, !srcloc !31
   %57 = add i32 %50, 4096
   %58 = icmp ult i32 %57, %47
-  br i1 %58, label %48, label %59, !llvm.loop !36
+  br i1 %58, label %48, label %59, !llvm.loop !35
 
 59:                                               ; preds = %48
   %60 = load i64, ptr %.sink, align 8
@@ -855,9 +855,9 @@ define internal void @dpt_insert_entries(ptr noundef readonly captures(none) %0,
 
 74:                                               ; preds = %71
   %75 = getelementptr inbounds nuw i8, ptr %72, i64 24
-  %76 = load i32, ptr %75, align 8, !noalias !37
+  %76 = load i32, ptr %75, align 8, !noalias !36
   %77 = icmp eq i32 %76, 0
-  br i1 %77, label %.thread, label %.sink.split, !llvm.loop !36
+  br i1 %77, label %.thread, label %.sink.split, !llvm.loop !35
 
 .thread:                                          ; preds = %59, %71, %74, %25, %35
   ret void
@@ -1101,19 +1101,18 @@ attributes #7 = { nounwind allocsize(2) }
 !21 = !{i64 2160344015, i64 2160343824, i64 2160343876, i64 2160343922, i64 2160343950}
 !22 = !{i64 2160344089, i64 2160344118, i64 2160344164, i64 2160344222, i64 2160344276, i64 2160344330, i64 2160344385, i64 2160344416, i64 2160344724, i64 2160344730, i64 2160344777, i64 2160344800, i64 2160344826}
 !23 = !{i64 2160345299, i64 2160345110, i64 2160345160, i64 2160345206, i64 2160345234}
-!24 = distinct !{!24, !25, !26, !27}
+!24 = distinct !{!24, !25, !26}
 !25 = !{!"llvm.loop.mustprogress"}
 !26 = !{!"llvm.loop.unroll.disable"}
-!27 = !{!"llvm.loop.estimated_trip_count"}
-!28 = !{i64 2160355164, i64 2160354973, i64 2160355025, i64 2160355071, i64 2160355099}
-!29 = !{i64 2160355238, i64 2160355267, i64 2160355313, i64 2160355371, i64 2160355425, i64 2160355479, i64 2160355534, i64 2160355565, i64 2160355873, i64 2160355879, i64 2160355926, i64 2160355949, i64 2160355975}
-!30 = !{i64 2160356448, i64 2160356259, i64 2160356309, i64 2160356355, i64 2160356383}
-!31 = distinct !{!31, !25, !26, !27}
-!32 = !{i64 2154403384}
-!33 = !{!34}
-!34 = distinct !{!34, !35, !"__sgt_iter: argument 0"}
-!35 = distinct !{!35, !"__sgt_iter"}
-!36 = distinct !{!36, !25, !26, !27}
-!37 = !{!38}
-!38 = distinct !{!38, !39, !"__sgt_iter: argument 0"}
-!39 = distinct !{!39, !"__sgt_iter"}
+!27 = !{i64 2160355164, i64 2160354973, i64 2160355025, i64 2160355071, i64 2160355099}
+!28 = !{i64 2160355238, i64 2160355267, i64 2160355313, i64 2160355371, i64 2160355425, i64 2160355479, i64 2160355534, i64 2160355565, i64 2160355873, i64 2160355879, i64 2160355926, i64 2160355949, i64 2160355975}
+!29 = !{i64 2160356448, i64 2160356259, i64 2160356309, i64 2160356355, i64 2160356383}
+!30 = distinct !{!30, !25, !26}
+!31 = !{i64 2154403384}
+!32 = !{!33}
+!33 = distinct !{!33, !34, !"__sgt_iter: argument 0"}
+!34 = distinct !{!34, !"__sgt_iter"}
+!35 = distinct !{!35, !25, !26}
+!36 = !{!37}
+!37 = distinct !{!37, !38, !"__sgt_iter: argument 0"}
+!38 = distinct !{!38, !"__sgt_iter"}

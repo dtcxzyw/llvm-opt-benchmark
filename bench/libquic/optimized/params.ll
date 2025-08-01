@@ -169,7 +169,7 @@ define hidden void @DH_check_standard_parameters(ptr noundef captures(none) %0) 
 
 18:                                               ; preds = %.preheader
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i32 161, ptr %19, align 8, !tbaa !22
+  store i32 161, ptr %19, align 8, !tbaa !21
   br label %.loopexit
 
 .loopexit:                                        ; preds = %13, %18, %1, %4, %8, %10
@@ -211,7 +211,6 @@ attributes #2 = { nounwind }
 !16 = !{!"p1 _ZTS13stack_st_void", !9, i64 0}
 !17 = !{!7, !8, i64 104}
 !18 = !{!7, !8, i64 8}
-!19 = distinct !{!19, !20, !21}
+!19 = distinct !{!19, !20}
 !20 = !{!"llvm.loop.mustprogress"}
-!21 = !{!"llvm.loop.estimated_trip_count"}
-!22 = !{!7, !12, i64 32}
+!21 = !{!7, !12, i64 32}

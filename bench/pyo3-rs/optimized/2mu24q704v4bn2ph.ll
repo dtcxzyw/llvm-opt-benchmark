@@ -153,7 +153,7 @@ define noundef zeroext i1 @"_ZN77_$LT$pyo3_build_config..errors..ErrorReport$u20
   %46 = add i32 %45, 1
   store i32 %46, ptr %8, align 4
   %.not14 = icmp eq ptr %44, null
-  br i1 %.not14, label %"_ZN71_$LT$pyo3_build_config..errors..Error$u20$as$u20$core..error..Error$GT$6source17hd286af0a002c7e47E.exit.thread", label %36, !llvm.loop !4
+  br i1 %.not14, label %"_ZN71_$LT$pyo3_build_config..errors..Error$u20$as$u20$core..error..Error$GT$6source17hd286af0a002c7e47E.exit.thread", label %36
 
 "_ZN71_$LT$pyo3_build_config..errors..Error$u20$as$u20$core..error..Error$GT$6source17hd286af0a002c7e47E.exit.thread": ; preds = %36, %38, %16, %20, %2
   %.sroa.0.0 = phi i1 [ true, %2 ], [ true, %20 ], [ false, %16 ], [ %37, %38 ], [ %37, %36 ]
@@ -247,5 +247,3 @@ attributes #7 = { nocallback nofree nosync nounwind willreturn memory(argmem: re
 !1 = !{i32 2, !"RtLibUseGOT", i32 1}
 !2 = !{!"rustc version 1.79.0 (129f3b996 2024-06-10)"}
 !3 = !{}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.estimated_trip_count"}

@@ -284,7 +284,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit11: ; preds = %27
   %.in.i.i.i = getelementptr i8, ptr %.01620.i.i.i, i64 %.in.v.i.i.i
   %.016.i.i.i = load ptr, ptr %.in.i.i.i, align 8, !tbaa !20
   %.not.i.i.i13 = icmp eq ptr %.016.i.i.i, null
-  br i1 %.not.i.i.i13, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i12, !llvm.loop !24
+  br i1 %.not.i.i.i13, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i12, !llvm.loop !23
 
 ._crit_edge.i.i.i:                                ; preds = %.lr.ph.i.i.i12
   br i1 %44, label %._crit_edge.thread.i.i.i, label %49
@@ -331,9 +331,9 @@ _ZNSt8_Rb_treeIPKcSt4pairIKS1_PFPN7Imf_3_49AttributeEvEESt10_Select1stIS9_ENS4_1
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %60, i64 40
   store ptr %1, ptr %.sroa.6.0..sroa_idx, align 8
   tail call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %59, ptr noundef nonnull %60, ptr noundef nonnull %.sroa.4.0.i.ph.i.i, ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds nuw (i8, ptr @_ZZN7Imf_3_412_GLOBAL__N_17typeMapEvE4tMap, i64 8)) #20
-  %62 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZN7Imf_3_412_GLOBAL__N_17typeMapEvE4tMap, i64 40), align 8, !tbaa !25
+  %62 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZN7Imf_3_412_GLOBAL__N_17typeMapEvE4tMap, i64 40), align 8, !tbaa !24
   %63 = add i64 %62, 1
-  store i64 %63, ptr getelementptr inbounds nuw (i8, ptr @_ZZN7Imf_3_412_GLOBAL__N_17typeMapEvE4tMap, i64 40), align 8, !tbaa !25
+  store i64 %63, ptr getelementptr inbounds nuw (i8, ptr @_ZZN7Imf_3_412_GLOBAL__N_17typeMapEvE4tMap, i64 40), align 8, !tbaa !24
   br label %64
 
 64:                                               ; preds = %.noexc, %49
@@ -428,9 +428,9 @@ _ZNSt10lock_guardISt5mutexEC2ERS0_.exit:          ; preds = %_ZN7Imf_3_412_GLOBA
 
 17:                                               ; preds = %14
   %18 = getelementptr i8, ptr %.012.i.i.i, i64 16
-  %.0.val25.i.i.i = load ptr, ptr %18, align 8, !tbaa !26
+  %.0.val25.i.i.i = load ptr, ptr %18, align 8, !tbaa !25
   %19 = getelementptr i8, ptr %.012.i.i.i, i64 24
-  %.0.val.i.i.i = load ptr, ptr %19, align 8, !tbaa !27
+  %.0.val.i.i.i = load ptr, ptr %19, align 8, !tbaa !26
   %.not2.i.i.i.i = icmp eq ptr %.0.val25.i.i.i, null
   br i1 %.not2.i.i.i.i, label %_ZNSt8_Rb_treeIPKcSt4pairIKS1_PFPN7Imf_3_49AttributeEvEESt10_Select1stIS9_ENS4_12_GLOBAL__N_111NameCompareESaIS9_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS9_EPSt18_Rb_tree_node_baseRS3_.exit.i.i.i, label %.lr.ph.i.i.i.i
 
@@ -465,7 +465,7 @@ _ZNSt8_Rb_treeIPKcSt4pairIKS1_PFPN7Imf_3_49AttributeEvEESt10_Select1stIS9_ENS4_1
   %.1.in.i34.i.i.i = getelementptr i8, ptr %.04.i30.i.i.i, i64 %.1.in.v.i33.i.i.i
   %.1.i35.i.i.i = load ptr, ptr %.1.in.i34.i.i.i, align 8, !tbaa !20
   %.not.i36.i.i.i = icmp eq ptr %.1.i35.i.i.i, null
-  br i1 %.not.i36.i.i.i, label %_ZNSt8_Rb_treeIPKcSt4pairIKS1_PFPN7Imf_3_49AttributeEvEESt10_Select1stIS9_ENS4_12_GLOBAL__N_111NameCompareESaIS9_EE11equal_rangeERS3_.exit.i.i, label %.lr.ph.i29.i.i.i, !llvm.loop !28
+  br i1 %.not.i36.i.i.i, label %_ZNSt8_Rb_treeIPKcSt4pairIKS1_PFPN7Imf_3_49AttributeEvEESt10_Select1stIS9_ENS4_12_GLOBAL__N_111NameCompareESaIS9_EE11equal_rangeERS3_.exit.i.i, label %.lr.ph.i29.i.i.i, !llvm.loop !27
 
 28:                                               ; preds = %14, %.lr.ph.i.i.i
   %.sink.i.i.i = phi i64 [ 24, %.lr.ph.i.i.i ], [ 16, %14 ]
@@ -473,7 +473,7 @@ _ZNSt8_Rb_treeIPKcSt4pairIKS1_PFPN7Imf_3_49AttributeEvEESt10_Select1stIS9_ENS4_1
   %29 = getelementptr i8, ptr %.012.i.i.i, i64 %.sink.i.i.i
   %.0.i.i.i = load ptr, ptr %29, align 8, !tbaa !20
   %.not.i.i.i = icmp eq ptr %.0.i.i.i, null
-  br i1 %.not.i.i.i, label %_ZNSt8_Rb_treeIPKcSt4pairIKS1_PFPN7Imf_3_49AttributeEvEESt10_Select1stIS9_ENS4_12_GLOBAL__N_111NameCompareESaIS9_EE11equal_rangeERS3_.exit.i.i, label %.lr.ph.i.i.i, !llvm.loop !29
+  br i1 %.not.i.i.i, label %_ZNSt8_Rb_treeIPKcSt4pairIKS1_PFPN7Imf_3_49AttributeEvEESt10_Select1stIS9_ENS4_12_GLOBAL__N_111NameCompareESaIS9_EE11equal_rangeERS3_.exit.i.i, label %.lr.ph.i.i.i, !llvm.loop !28
 
 _ZNSt8_Rb_treeIPKcSt4pairIKS1_PFPN7Imf_3_49AttributeEvEESt10_Select1stIS9_ENS4_12_GLOBAL__N_111NameCompareESaIS9_EE11equal_rangeERS3_.exit.i.i: ; preds = %28, %.lr.ph.i29.i.i.i, %_ZNSt8_Rb_treeIPKcSt4pairIKS1_PFPN7Imf_3_49AttributeEvEESt10_Select1stIS9_ENS4_12_GLOBAL__N_111NameCompareESaIS9_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS9_EPSt18_Rb_tree_node_baseRS3_.exit.i.i.i
   %.sroa.05.0.i.i.i = phi ptr [ %.08.lcssa.i.i.i.i, %_ZNSt8_Rb_treeIPKcSt4pairIKS1_PFPN7Imf_3_49AttributeEvEESt10_Select1stIS9_ENS4_12_GLOBAL__N_111NameCompareESaIS9_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS9_EPSt18_Rb_tree_node_baseRS3_.exit.i.i.i ], [ %.08.lcssa.i.i.i.i, %.lr.ph.i29.i.i.i ], [ %.123.i.i.i, %28 ]
@@ -498,7 +498,7 @@ _ZNSt8_Rb_treeIPKcSt4pairIKS1_PFPN7Imf_3_49AttributeEvEESt10_Select1stIS9_ENS4_1
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZZN7Imf_3_412_GLOBAL__N_17typeMapEvE4tMap, i64 16), align 8, !tbaa !15
   store ptr getelementptr inbounds nuw (i8, ptr @_ZZN7Imf_3_412_GLOBAL__N_17typeMapEvE4tMap, i64 8), ptr getelementptr inbounds nuw (i8, ptr @_ZZN7Imf_3_412_GLOBAL__N_17typeMapEvE4tMap, i64 24), align 8, !tbaa !16
   store ptr getelementptr inbounds nuw (i8, ptr @_ZZN7Imf_3_412_GLOBAL__N_17typeMapEvE4tMap, i64 8), ptr getelementptr inbounds nuw (i8, ptr @_ZZN7Imf_3_412_GLOBAL__N_17typeMapEvE4tMap, i64 32), align 8, !tbaa !17
-  store i64 0, ptr getelementptr inbounds nuw (i8, ptr @_ZZN7Imf_3_412_GLOBAL__N_17typeMapEvE4tMap, i64 40), align 8, !tbaa !25
+  store i64 0, ptr getelementptr inbounds nuw (i8, ptr @_ZZN7Imf_3_412_GLOBAL__N_17typeMapEvE4tMap, i64 40), align 8, !tbaa !24
   br label %_ZNSt3mapIPKcPFPN7Imf_3_49AttributeEvENS2_12_GLOBAL__N_111NameCompareESaISt4pairIKS1_S6_EEE5eraseERSA_.exit
 
 .critedge.i.i.i:                                  ; preds = %.critedge.preheader.i.i.i, %.critedge.i.i.i
@@ -506,11 +506,11 @@ _ZNSt8_Rb_treeIPKcSt4pairIKS1_PFPN7Imf_3_49AttributeEvEESt10_Select1stIS9_ENS4_1
   %36 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.06.09.i.i.i) #22
   %37 = tail call noundef nonnull ptr @_ZSt28_Rb_tree_rebalance_for_erasePSt18_Rb_tree_node_baseRS_(ptr noundef %.sroa.06.09.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds nuw (i8, ptr @_ZZN7Imf_3_412_GLOBAL__N_17typeMapEvE4tMap, i64 8)) #20
   tail call void @_ZdlPvm(ptr noundef nonnull %37, i64 noundef 48) #24
-  %38 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZN7Imf_3_412_GLOBAL__N_17typeMapEvE4tMap, i64 40), align 8, !tbaa !25
+  %38 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZN7Imf_3_412_GLOBAL__N_17typeMapEvE4tMap, i64 40), align 8, !tbaa !24
   %39 = add i64 %38, -1
-  store i64 %39, ptr getelementptr inbounds nuw (i8, ptr @_ZZN7Imf_3_412_GLOBAL__N_17typeMapEvE4tMap, i64 40), align 8, !tbaa !25
+  store i64 %39, ptr getelementptr inbounds nuw (i8, ptr @_ZZN7Imf_3_412_GLOBAL__N_17typeMapEvE4tMap, i64 40), align 8, !tbaa !24
   %.not.i2.i.i = icmp eq ptr %36, %.sroa.3.0.i.i.i
-  br i1 %.not.i2.i.i, label %_ZNSt3mapIPKcPFPN7Imf_3_49AttributeEvENS2_12_GLOBAL__N_111NameCompareESaISt4pairIKS1_S6_EEE5eraseERSA_.exit, label %.critedge.i.i.i, !llvm.loop !30
+  br i1 %.not.i2.i.i, label %_ZNSt3mapIPKcPFPN7Imf_3_49AttributeEvENS2_12_GLOBAL__N_111NameCompareESaISt4pairIKS1_S6_EEE5eraseERSA_.exit, label %.critedge.i.i.i, !llvm.loop !29
 
 _ZNSt3mapIPKcPFPN7Imf_3_49AttributeEvENS2_12_GLOBAL__N_111NameCompareESaISt4pairIKS1_S6_EEE5eraseERSA_.exit: ; preds = %.critedge.i.i.i, %35, %.critedge.preheader.i.i.i, %_ZNSt8_Rb_treeIPKcSt4pairIKS1_PFPN7Imf_3_49AttributeEvEESt10_Select1stIS9_ENS4_12_GLOBAL__N_111NameCompareESaIS9_EE11equal_rangeERS3_.exit.thread.i.i
   %40 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) getelementptr inbounds nuw (i8, ptr @_ZZN7Imf_3_412_GLOBAL__N_17typeMapEvE4tMap, i64 48)) #20
@@ -642,7 +642,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit10: ; preds = %26
 
 _ZNSt3mapIPKcPFPN7Imf_3_49AttributeEvENS2_12_GLOBAL__N_111NameCompareESaISt4pairIKS1_S6_EEE4findERSA_.exit: ; preds = %16
   %40 = getelementptr inbounds nuw i8, ptr %.19.i.i.i, i64 40
-  %41 = load ptr, ptr %40, align 8, !tbaa !31
+  %41 = load ptr, ptr %40, align 8, !tbaa !30
   %42 = invoke noundef ptr %41()
           to label %43 unwind label %30
 
@@ -686,13 +686,13 @@ define internal fastcc void @_ZNSt8_Rb_treeIPKcSt4pairIKS1_PFPN7Imf_3_49Attribut
 .lr.ph:                                           ; preds = %1, %.lr.ph
   %.02 = phi ptr [ %.0.val6, %.lr.ph ], [ %0, %1 ]
   %2 = getelementptr i8, ptr %.02, i64 24
-  %.0.val = load ptr, ptr %2, align 8, !tbaa !27
+  %.0.val = load ptr, ptr %2, align 8, !tbaa !26
   tail call fastcc void @_ZNSt8_Rb_treeIPKcSt4pairIKS1_PFPN7Imf_3_49AttributeEvEESt10_Select1stIS9_ENS4_12_GLOBAL__N_111NameCompareESaIS9_EE8_M_eraseEPSt13_Rb_tree_nodeIS9_E(ptr noundef %.0.val)
   %3 = getelementptr i8, ptr %.02, i64 16
-  %.0.val6 = load ptr, ptr %3, align 8, !tbaa !26
+  %.0.val6 = load ptr, ptr %3, align 8, !tbaa !25
   tail call void @_ZdlPvm(ptr noundef nonnull %.02, i64 noundef 48) #24
   %.not = icmp eq ptr %.0.val6, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !33
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !32
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
   ret void
@@ -786,16 +786,15 @@ attributes #24 = { builtin nounwind }
 !18 = !{!19, !19, i64 0}
 !19 = !{!"p1 omnipotent char", !13, i64 0}
 !20 = !{!12, !12, i64 0}
-!21 = distinct !{!21, !22, !23}
+!21 = distinct !{!21, !22}
 !22 = !{!"llvm.loop.mustprogress"}
-!23 = !{!"llvm.loop.estimated_trip_count"}
-!24 = distinct !{!24, !22, !23}
-!25 = !{!8, !14, i64 32}
-!26 = !{!9, !12, i64 16}
-!27 = !{!9, !12, i64 24}
-!28 = distinct !{!28, !22, !23}
-!29 = distinct !{!29, !22, !23}
-!30 = distinct !{!30, !22, !23}
-!31 = !{!32, !13, i64 8}
-!32 = !{!"_ZTSSt4pairIKPKcPFPN7Imf_3_49AttributeEvEE", !19, i64 0, !13, i64 8}
-!33 = distinct !{!33, !22, !23}
+!23 = distinct !{!23, !22}
+!24 = !{!8, !14, i64 32}
+!25 = !{!9, !12, i64 16}
+!26 = !{!9, !12, i64 24}
+!27 = distinct !{!27, !22}
+!28 = distinct !{!28, !22}
+!29 = distinct !{!29, !22}
+!30 = !{!31, !13, i64 8}
+!31 = !{!"_ZTSSt4pairIKPKcPFPN7Imf_3_49AttributeEvEE", !19, i64 0, !13, i64 8}
+!32 = distinct !{!32, !22}

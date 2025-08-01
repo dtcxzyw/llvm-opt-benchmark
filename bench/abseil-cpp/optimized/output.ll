@@ -98,7 +98,7 @@ _ZN4absl19str_format_internal12_GLOBAL__N_115ClearErrnoGuardD2Ev.exit: ; preds =
   %.sroa.5.118 = phi ptr [ %.sroa.5.1.ph, %26 ], [ %.sroa.5.119, %.thread ], [ %.sroa.5.025, %19 ]
   %.sroa.09.116 = phi i64 [ %.sroa.09.1.ph, %26 ], [ %.sroa.09.117, %.thread ], [ %.sroa.09.024, %19 ]
   %27 = icmp eq i64 %.sroa.09.116, 0
-  br i1 %27, label %.critedge, label %7, !llvm.loop !23
+  br i1 %27, label %.critedge, label %7
 
 .critedge:                                        ; preds = %7, %_ZN4absl19str_format_internal12_GLOBAL__N_115ClearErrnoGuardD2Ev.exit, %3
   ret void
@@ -153,5 +153,3 @@ attributes #8 = { nounwind }
 !20 = !{!15, !5, i64 16}
 !21 = distinct !{!21, !22}
 !22 = !{!"llvm.loop.mustprogress"}
-!23 = distinct !{!23, !24}
-!24 = !{!"llvm.loop.estimated_trip_count"}

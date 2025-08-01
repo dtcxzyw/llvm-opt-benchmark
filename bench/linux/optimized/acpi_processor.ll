@@ -256,7 +256,7 @@ define dso_local zeroext i1 @acpi_duplicate_processor_id(i32 noundef %0) local_u
   %10 = getelementptr [64 x i32], ptr @duplicate_processor_ids, i64 0, i64 %indvars.iv.next
   %11 = load i32, ptr %10, align 4
   %12 = icmp eq i32 %11, %0
-  br i1 %12, label %.split.loop.exit, label %.preheader, !llvm.loop !9
+  br i1 %12, label %.split.loop.exit, label %.preheader, !llvm.loop !6
 
 .split.loop.exit:                                 ; preds = %9
   %13 = trunc nuw nsw i64 %indvars.iv.next to i32
@@ -425,7 +425,7 @@ define dso_local noundef range(i32 -19, 1) i32 @acpi_processor_evaluate_cst(ptr 
   %38 = add i32 %43, 1
   %39 = sext i32 %38 to i64
   %40 = icmp ult i64 %24, %39
-  br i1 %40, label %.loopexit, label %41, !llvm.loop !11
+  br i1 %40, label %.loopexit, label %41, !llvm.loop !9
 
 41:                                               ; preds = %37, %28
   %42 = phi i64 [ 1, %28 ], [ %39, %37 ]
@@ -823,7 +823,7 @@ define internal fastcc void @processor_validated_ids_update(i32 noundef %0) unna
 10:                                               ; preds = %.preheader6
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %11 = icmp eq i64 %indvars.iv.next, %9
-  br i1 %11, label %.loopexit8, label %.preheader6, !llvm.loop !12
+  br i1 %11, label %.loopexit8, label %.preheader6, !llvm.loop !10
 
 .loopexit8:                                       ; preds = %10, %7
   %12 = icmp sgt i32 %2, 0
@@ -843,7 +843,7 @@ define internal fastcc void @processor_validated_ids_update(i32 noundef %0) unna
 17:                                               ; preds = %.preheader
   %indvars.iv.next13 = add nuw nsw i64 %indvars.iv12, 1
   %18 = icmp eq i64 %indvars.iv.next13, %13
-  br i1 %18, label %.loopexit, label %.preheader, !llvm.loop !13
+  br i1 %18, label %.loopexit, label %.preheader, !llvm.loop !11
 
 .preheader:                                       ; preds = %.preheader.preheader, %17
   %indvars.iv12 = phi i64 [ 0, %.preheader.preheader ], [ %indvars.iv.next13, %17 ]
@@ -1047,7 +1047,7 @@ define internal i32 @acpi_processor_add(ptr noundef %0, ptr readnone captures(no
   %99 = getelementptr [64 x i32], ptr @duplicate_processor_ids, i64 0, i64 %96
   %100 = load i32, ptr %99, align 4
   %101 = icmp eq i32 %100, %84
-  br i1 %101, label %102, label %94, !llvm.loop !14
+  br i1 %101, label %102, label %94, !llvm.loop !6
 
 102:                                              ; preds = %98
   %103 = icmp samesign ult i64 %96, %93
@@ -1141,7 +1141,7 @@ thread-pre-split:                                 ; preds = %129, %132, %139
 
 145:                                              ; preds = %142
   %146 = zext nneg i32 %143 to i64
-  %147 = call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @__cpu_present_mask, i64 %146) #14, !srcloc !15
+  %147 = call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @__cpu_present_mask, i64 %146) #14, !srcloc !12
   %148 = icmp ult i8 %147, 2
   call void @llvm.assume(i1 %148)
   %149 = icmp eq i8 %147, 0
@@ -1241,15 +1241,15 @@ thread-pre-split:                                 ; preds = %129, %132, %139
   %203 = load i32, ptr %118, align 8
   %204 = load i32, ptr @nr_cpu_ids, align 4
   %205 = icmp ult i32 %203, %204
-  br i1 %205, label %208, label %207, !prof !16
+  br i1 %205, label %208, label %207, !prof !13
 
 206:                                              ; preds = %157, %153, %150
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #14
   br label %248
 
 207:                                              ; preds = %200
-  call void asm sideeffect "377: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 377b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 377) #14, !srcloc !17
-  call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.25, i32 402, i32 0, i64 12) #14, !srcloc !18
+  call void asm sideeffect "377: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 377b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 377) #14, !srcloc !14
+  call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.25, i32 402, i32 0, i64 12) #14, !srcloc !15
   unreachable
 
 208:                                              ; preds = %200
@@ -1505,13 +1505,10 @@ attributes #17 = { nounwind allocsize(2) }
 !6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
 !8 = !{!"llvm.loop.unroll.disable"}
-!9 = distinct !{!9, !7, !8, !10}
-!10 = !{!"llvm.loop.estimated_trip_count"}
-!11 = distinct !{!11, !7, !8, !10}
-!12 = distinct !{!12, !7, !8, !10}
-!13 = distinct !{!13, !7, !8, !10}
-!14 = distinct !{!14, !7, !8, !10}
-!15 = !{i64 2148635520, i64 2148635594}
-!16 = !{!"branch_weights", i32 2000, i32 1}
-!17 = !{i64 2156276619, i64 2156276428, i64 2156276480, i64 2156276526, i64 2156276554}
-!18 = !{i64 2156276693, i64 2156276722, i64 2156276768, i64 2156276826, i64 2156276880, i64 2156276934, i64 2156276989, i64 2156277020}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = distinct !{!11, !7, !8}
+!12 = !{i64 2148635520, i64 2148635594}
+!13 = !{!"branch_weights", i32 2000, i32 1}
+!14 = !{i64 2156276619, i64 2156276428, i64 2156276480, i64 2156276526, i64 2156276554}
+!15 = !{i64 2156276693, i64 2156276722, i64 2156276768, i64 2156276826, i64 2156276880, i64 2156276934, i64 2156276989, i64 2156277020}

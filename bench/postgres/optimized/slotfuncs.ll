@@ -815,7 +815,7 @@ define dso_local i64 @pg_replication_slot_advance(ptr noundef %0) local_unnamed_
   %70 = load ptr, ptr @MyReplicationSlot, align 8
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 104
   store i64 %.0, ptr %71, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !12
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !11
   %72 = load ptr, ptr @MyReplicationSlot, align 8
   store i8 0, ptr %72, align 8
   call void @ReplicationSlotMarkDirty() #9
@@ -952,7 +952,7 @@ define internal fastcc i64 @copy_replication_slot(ptr noundef %0, i1 noundef zer
 42:                                               ; preds = %34, %29
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %29, !llvm.loop !13
+  br i1 %exitcond.not, label %._crit_edge, label %29, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %42, %22
   %43 = load ptr, ptr @MainLWLockArray, align 8
@@ -967,7 +967,7 @@ define internal fastcc i64 @copy_replication_slot(ptr noundef %0, i1 noundef zer
 
 48:                                               ; preds = %40, %38
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %4, ptr nonnull align 8 %30, i64 280, i1 true)
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !14
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !13
   store i8 0, ptr %30, align 8
   %49 = load ptr, ptr @MainLWLockArray, align 8
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 4736
@@ -1065,7 +1065,7 @@ create_physical_replication_slot.exit:            ; preds = %.thread84
 
 96:                                               ; preds = %92, %94
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %5, ptr nonnull align 8 %30, i64 280, i1 true)
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !15
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !14
   store i8 0, ptr %30, align 8
   %97 = getelementptr inbounds nuw i8, ptr %5, i64 12
   %98 = load i32, ptr %97, align 4
@@ -1142,7 +1142,7 @@ create_physical_replication_slot.exit:            ; preds = %.thread84
   store i64 %107, ptr %140, align 8
   %141 = getelementptr inbounds nuw i8, ptr %135, i64 120
   store i64 %109, ptr %141, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !16
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !15
   %142 = load ptr, ptr @MyReplicationSlot, align 8
   store i8 0, ptr %142, align 8
   call void @ReplicationSlotMarkDirty() #9
@@ -1358,11 +1358,10 @@ attributes #11 = { nounwind willreturn memory(read) }
 !6 = !{i64 2556599, i64 2556615}
 !7 = !{i64 2151112733}
 !8 = !{i64 2151113388}
-!9 = distinct !{!9, !10, !11}
+!9 = distinct !{!9, !10}
 !10 = !{!"llvm.loop.mustprogress"}
-!11 = !{!"llvm.loop.estimated_trip_count"}
-!12 = !{i64 2151114433}
-!13 = distinct !{!13, !10, !11}
-!14 = !{i64 2151123764}
-!15 = !{i64 2151129071}
-!16 = !{i64 2151132133}
+!11 = !{i64 2151114433}
+!12 = distinct !{!12, !10}
+!13 = !{i64 2151123764}
+!14 = !{i64 2151129071}
+!15 = !{i64 2151132133}

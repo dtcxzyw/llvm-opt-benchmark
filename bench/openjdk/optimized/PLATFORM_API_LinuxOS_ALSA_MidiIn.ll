@@ -127,7 +127,7 @@ define hidden noalias noundef ptr @MIDI_IN_GetMessage(ptr noundef %0) local_unna
 
 18:                                               ; preds = %12
   %19 = icmp slt i32 %16, 0
-  br i1 %19, label %.loopexit, label %.preheader, !llvm.loop !6
+  br i1 %19, label %.loopexit, label %.preheader
 
 20:                                               ; preds = %12
   %21 = call noalias dereferenceable_or_null(40) ptr @calloc(i64 noundef 1, i64 noundef 40) #9
@@ -403,5 +403,3 @@ attributes #10 = { nounwind allocsize(0) }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7}
-!7 = !{!"llvm.loop.estimated_trip_count"}

@@ -152,14 +152,14 @@ define internal range(i32 -2147483648, 1) i32 @read_packet(ptr noundef %0, ptr n
 41:                                               ; preds = %39
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.3, i32 noundef %.037, i32 noundef %18) #3
   %42 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %43 = load i32, ptr %42, align 8, !tbaa !57
+  %43 = load i32, ptr %42, align 8, !tbaa !56
   %44 = or i32 %43, 2
-  store i32 %44, ptr %42, align 8, !tbaa !57
+  store i32 %44, ptr %42, align 8, !tbaa !56
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.outer, %41
   %45 = getelementptr inbounds nuw i8, ptr %1, i64 36
-  store i32 0, ptr %45, align 4, !tbaa !58
+  store i32 0, ptr %45, align 4, !tbaa !57
   br label %.loopexit44
 
 .loopexit44:                                      ; preds = %28, %.lr.ph.split.us, %.loopexit, %38
@@ -244,8 +244,7 @@ attributes #3 = { nounwind }
 !51 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !52 = !{!19, !17, i64 8}
 !53 = !{!19, !17, i64 72}
-!54 = distinct !{!54, !55, !56}
+!54 = distinct !{!54, !55}
 !55 = !{!"llvm.loop.mustprogress"}
-!56 = !{!"llvm.loop.estimated_trip_count"}
-!57 = !{!19, !10, i64 40}
-!58 = !{!19, !10, i64 36}
+!56 = !{!19, !10, i64 40}
+!57 = !{!19, !10, i64 36}

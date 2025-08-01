@@ -201,7 +201,7 @@ _ZN3std2io5error5Error14is_interrupted17haa138aed658ec797E.exit: ; preds = %24
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 16
   %49 = load i64, ptr %48, align 8, !noundef !4
   %.not = icmp ult i64 %46, %49
-  br i1 %.not, label %12, label %._crit_edge, !llvm.loop !19
+  br i1 %.not, label %12, label %._crit_edge
 
 50:                                               ; preds = %14
   %51 = landingpad { ptr, i32 }
@@ -302,5 +302,3 @@ attributes #7 = { cold noreturn nounwind }
 !16 = distinct !{!16, !17, !"_ZN4core3ptr101drop_in_place$LT$std..io..error..ErrorData$LT$alloc..boxed..Box$LT$std..io..error..Custom$GT$$GT$$GT$17h1945985518422feaE.llvm.8096336929218550691: argument 0"}
 !17 = distinct !{!17, !"_ZN4core3ptr101drop_in_place$LT$std..io..error..ErrorData$LT$alloc..boxed..Box$LT$std..io..error..Custom$GT$$GT$$GT$17h1945985518422feaE.llvm.8096336929218550691"}
 !18 = !{i64 8}
-!19 = distinct !{!19, !20}
-!20 = !{!"llvm.loop.estimated_trip_count"}

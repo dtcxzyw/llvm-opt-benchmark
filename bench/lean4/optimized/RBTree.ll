@@ -458,7 +458,7 @@ lean_inc.exit24:                                  ; preds = %lean_dec.exit
 lean_inc.exit25:                                  ; preds = %75, %74, %72, %lean_inc.exit24
   %76 = phi ptr [ %68, %lean_inc.exit24 ], [ %70, %72 ], [ %70, %74 ], [ %70, %75 ]
   %77 = tail call ptr @lean_apply_2(ptr noundef %0, ptr noundef %76, ptr noundef %36) #5
-  br label %6, !llvm.loop !14
+  br label %6
 }
 
 declare ptr @lean_apply_2(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
@@ -766,7 +766,7 @@ lean_inc.exit22:                                  ; preds = %lean_dec.exit
 lean_inc.exit:                                    ; preds = %75, %74, %72, %lean_inc.exit22
   %76 = phi ptr [ %68, %lean_inc.exit22 ], [ %70, %72 ], [ %70, %74 ], [ %70, %75 ]
   %77 = tail call ptr @lean_apply_2(ptr noundef %0, ptr noundef %76, ptr noundef %36) #5
-  br label %6, !llvm.loop !16
+  br label %6
 }
 
 ; Function Attrs: nounwind uwtable
@@ -5223,7 +5223,7 @@ lean_dec.exit:                                    ; preds = %51, %50, %48, %lean
 
 lean_inc.exit:                                    ; preds = %57, %56, %54, %lean_dec.exit
   %58 = tail call ptr @l_Lean_RBNode_insert___rarg(ptr noundef %0, ptr noundef %.0, ptr noundef %26, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
-  br label %6, !llvm.loop !17
+  br label %6
 }
 
 ; Function Attrs: nounwind uwtable
@@ -5342,7 +5342,7 @@ lean_array_uget.exit.us:                          ; preds = %17, %16, %15, %.lr.
 lean_dec.exit.us:                                 ; preds = %23, %22, %21
   %25 = tail call ptr @l_Lean_RBNode_insert___rarg(ptr noundef nonnull %0, ptr noundef %.02034.us, ptr noundef %10, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %.not.us = icmp eq i64 %19, %3
-  br i1 %.not.us, label %._crit_edge.thread, label %.lr.ph.split.us, !llvm.loop !18
+  br i1 %.not.us, label %._crit_edge.thread, label %.lr.ph.split.us, !llvm.loop !14
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %lean_array_uget.exit
   %.01835 = phi i64 [ %36, %lean_array_uget.exit ], [ %2, %.lr.ph ]
@@ -5435,7 +5435,7 @@ lean_alloc_closure.exit:                          ; preds = %1
 ; Function Attrs: nounwind uwtable
 define ptr @l_Array_foldlMUnsafe_fold___at_Lean_RBTree_fromArray___spec__1___rarg___boxed(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #1 {
   %6 = getelementptr i8, ptr %2, i64 8
-  %.val = load i64, ptr %6, align 8, !tbaa !20
+  %.val = load i64, ptr %6, align 8, !tbaa !16
   %7 = ptrtoint ptr %2 to i64
   %8 = and i64 %7, 1
   %.not = icmp eq i64 %8, 0
@@ -5461,7 +5461,7 @@ define ptr @l_Array_foldlMUnsafe_fold___at_Lean_RBTree_fromArray___spec__1___rar
 
 lean_dec.exit11:                                  ; preds = %15, %14, %12, %5
   %16 = getelementptr i8, ptr %3, i64 8
-  %.val16 = load i64, ptr %16, align 8, !tbaa !20
+  %.val16 = load i64, ptr %16, align 8, !tbaa !16
   %17 = ptrtoint ptr %3 to i64
   %18 = and i64 %17, 1
   %.not17 = icmp eq i64 %18, 0
@@ -5518,7 +5518,7 @@ lean_dec.exit:                                    ; preds = %35, %34, %32, %lean
 define ptr @l_Lean_RBTree_fromArray___rarg(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #1 {
 lean_nat_lt.exit:
   %2 = getelementptr i8, ptr %0, i64 8
-  %.val = load i64, ptr %2, align 8, !tbaa !20
+  %.val = load i64, ptr %2, align 8, !tbaa !16
   %.mask = and i64 %.val, 9223372036854775807
   %.not = icmp eq i64 %.mask, 0
   br i1 %.not, label %lean_dec.exit24, label %lean_dec.exit
@@ -5583,7 +5583,7 @@ lean_alloc_closure.exit:                          ; preds = %1
 ; Function Attrs: nounwind uwtable
 define ptr @l_Lean_RBTree_fromArray___rarg___boxed(ptr noundef %0, ptr noundef %1) #1 {
   %3 = getelementptr i8, ptr %0, i64 8
-  %.val.i = load i64, ptr %3, align 8, !tbaa !20
+  %.val.i = load i64, ptr %3, align 8, !tbaa !16
   %.mask.i = and i64 %.val.i, 9223372036854775807
   %.not.i4 = icmp eq i64 %.mask.i, 0
   br i1 %.not.i4, label %lean_dec.exit24.i, label %lean_dec.exit.i
@@ -7473,7 +7473,7 @@ lean_inc.exit23:                                  ; preds = %lean_dec.exit
 lean_inc.exit:                                    ; preds = %75, %74, %72, %lean_inc.exit23
   %76 = phi ptr [ %68, %lean_inc.exit23 ], [ %70, %72 ], [ %70, %74 ], [ %70, %75 ]
   %77 = tail call ptr @l_Lean_RBNode_insert___rarg(ptr noundef %0, ptr noundef %76, ptr noundef %36, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
-  br label %6, !llvm.loop !22
+  br label %6
 }
 
 ; Function Attrs: nounwind uwtable
@@ -7781,7 +7781,7 @@ lean_inc.exit22:                                  ; preds = %lean_dec.exit
 lean_inc.exit:                                    ; preds = %75, %74, %72, %lean_inc.exit22
   %76 = phi ptr [ %68, %lean_inc.exit22 ], [ %70, %72 ], [ %70, %74 ], [ %70, %75 ]
   %77 = tail call ptr @l_Lean_RBNode_erase___rarg(ptr noundef %0, ptr noundef %36, ptr noundef %76) #5
-  br label %6, !llvm.loop !23
+  br label %6
 }
 
 ; Function Attrs: nounwind uwtable
@@ -8135,12 +8135,6 @@ attributes #6 = { noreturn nounwind }
 !12 = !{!13, !13, i64 0}
 !13 = !{!"short", !7, i64 0}
 !14 = distinct !{!14, !15}
-!15 = !{!"llvm.loop.estimated_trip_count"}
-!16 = distinct !{!16, !15}
-!17 = distinct !{!17, !15}
-!18 = distinct !{!18, !19}
-!19 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!20 = !{!21, !21, i64 0}
-!21 = !{!"long", !7, i64 0}
-!22 = distinct !{!22, !15}
-!23 = distinct !{!23, !15}
+!15 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!16 = !{!17, !17, i64 0}
+!17 = !{!"long", !7, i64 0}

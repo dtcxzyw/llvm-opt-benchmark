@@ -362,7 +362,7 @@ define dso_local noundef nonnull align 8 dereferenceable(52) ptr @_ZN12VectorFil
   %29 = getelementptr inbounds nuw i8, ptr %.sroa.032.051.i.i.i, i64 16
   %30 = add nsw i64 %.052.i.i.i, -1
   %31 = icmp sgt i64 %.052.i.i.i, 1
-  br i1 %31, label %13, label %._crit_edge.loopexit.i.i.i, !llvm.loop !32
+  br i1 %31, label %13, label %._crit_edge.loopexit.i.i.i, !llvm.loop !31
 
 ._crit_edge.loopexit.i.i.i:                       ; preds = %28
   %.pre59.i.i.i = ptrtoint ptr %scevgep.i.i.i to i64
@@ -490,7 +490,7 @@ define dso_local noundef i32 @_ZNK12VectorFilter12get_max_probEv(ptr noundef non
   br i1 %.not, label %6, label %4
 
 4:                                                ; preds = %1
-  %5 = load i32, ptr %3, align 8, !tbaa !33
+  %5 = load i32, ptr %3, align 8, !tbaa !32
   br label %6
 
 6:                                                ; preds = %1, %4
@@ -572,13 +572,12 @@ attributes #15 = { builtin nounwind }
 !26 = !{!17, !18, i64 16}
 !27 = !{!18, !18, i64 0}
 !28 = !{!21, !21, i64 0}
-!29 = distinct !{!29, !30, !31}
+!29 = distinct !{!29, !30}
 !30 = !{!"llvm.loop.mustprogress"}
-!31 = !{!"llvm.loop.estimated_trip_count"}
-!32 = distinct !{!32, !30, !31}
-!33 = !{!34, !21, i64 0}
-!34 = !{!"_ZTS17DistributionTable", !21, i64 0, !35, i64 8, !35, i64 32}
-!35 = !{!"_ZTSSt6vectorIiSaIiEE", !36, i64 0}
-!36 = !{!"_ZTSSt12_Vector_baseIiSaIiEE", !37, i64 0}
-!37 = !{!"_ZTSNSt12_Vector_baseIiSaIiEE12_Vector_implE", !38, i64 0}
-!38 = !{!"_ZTSNSt12_Vector_baseIiSaIiEE17_Vector_impl_dataE", !18, i64 0, !18, i64 8, !18, i64 16}
+!31 = distinct !{!31, !30}
+!32 = !{!33, !21, i64 0}
+!33 = !{!"_ZTS17DistributionTable", !21, i64 0, !34, i64 8, !34, i64 32}
+!34 = !{!"_ZTSSt6vectorIiSaIiEE", !35, i64 0}
+!35 = !{!"_ZTSSt12_Vector_baseIiSaIiEE", !36, i64 0}
+!36 = !{!"_ZTSNSt12_Vector_baseIiSaIiEE12_Vector_implE", !37, i64 0}
+!37 = !{!"_ZTSNSt12_Vector_baseIiSaIiEE17_Vector_impl_dataE", !18, i64 0, !18, i64 8, !18, i64 16}

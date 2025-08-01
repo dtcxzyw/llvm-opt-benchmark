@@ -135,7 +135,7 @@ define internal ptr @next(ptr noundef captures(none) initializes((0, 16)) %0) #0
   br i1 %6, label %7, label %61, !llvm.loop !23
 
 7:                                                ; preds = %.loopexit.i, %1
-  %8 = load i64, ptr %4, align 8, !tbaa !26
+  %8 = load i64, ptr %4, align 8, !tbaa !25
   %9 = icmp eq i64 %8, 0
   br i1 %9, label %get_rev.exit, label %10
 
@@ -149,7 +149,7 @@ define internal ptr @next(ptr noundef captures(none) initializes((0, 16)) %0) #0
   %15 = load ptr, ptr @the_repository, align 8, !tbaa !20
   %16 = tail call i32 @repo_parse_commit_gently(ptr noundef %15, ptr noundef %14, i32 noundef 0) #5
   %17 = getelementptr inbounds nuw i8, ptr %14, i64 48
-  %18 = load ptr, ptr %17, align 8, !tbaa !27
+  %18 = load ptr, ptr %17, align 8, !tbaa !26
   %19 = load i32, ptr %14, align 8
   %20 = or i32 %19, 512
   store i32 %20, ptr %14, align 8
@@ -180,7 +180,7 @@ define internal ptr @next(ptr noundef captures(none) initializes((0, 16)) %0) #0
 
 .lr.ph.split.us.i:                                ; preds = %.lr.ph.i, %rev_list_push.exit.us.i
   %.02235.us.i = phi ptr [ %44, %rev_list_push.exit.us.i ], [ %18, %.lr.ph.i ]
-  %30 = load ptr, ptr %.02235.us.i, align 8, !tbaa !33
+  %30 = load ptr, ptr %.02235.us.i, align 8, !tbaa !32
   %31 = load i32, ptr %30, align 8
   %32 = and i32 %31, 256
   %.not31.us.i = icmp eq i32 %32, 0
@@ -209,13 +209,13 @@ define internal ptr @next(ptr noundef captures(none) initializes((0, 16)) %0) #0
 
 rev_list_push.exit.us.i:                          ; preds = %40, %37, %33, %.lr.ph.split.us.i
   %43 = getelementptr inbounds nuw i8, ptr %.02235.us.i, i64 8
-  %44 = load ptr, ptr %43, align 8, !tbaa !36
+  %44 = load ptr, ptr %43, align 8, !tbaa !35
   %.not30.us.i = icmp eq ptr %44, null
-  br i1 %.not30.us.i, label %.loopexit.i, label %.lr.ph.split.us.i, !llvm.loop !37
+  br i1 %.not30.us.i, label %.loopexit.i, label %.lr.ph.split.us.i, !llvm.loop !36
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i, %rev_list_push.exit.i
   %.02235.i = phi ptr [ %60, %rev_list_push.exit.i ], [ %18, %.lr.ph.i ]
-  %45 = load ptr, ptr %.02235.i, align 8, !tbaa !33
+  %45 = load ptr, ptr %.02235.i, align 8, !tbaa !32
   %46 = load i32, ptr %45, align 8
   %47 = and i32 %46, 320
   %or.cond.i = icmp eq i32 %47, 0
@@ -243,12 +243,12 @@ rev_list_push.exit.us.i:                          ; preds = %40, %37, %33, %.lr.
   br label %rev_list_push.exit.i
 
 rev_list_push.exit.i:                             ; preds = %55, %52, %48, %.lr.ph.split.i
-  %58 = load ptr, ptr %.02235.i, align 8, !tbaa !33
+  %58 = load ptr, ptr %.02235.i, align 8, !tbaa !32
   tail call fastcc void @mark_common(ptr noundef nonnull %3, ptr noundef %58, i32 noundef 1, i32 noundef 0)
   %59 = getelementptr inbounds nuw i8, ptr %.02235.i, i64 8
-  %60 = load ptr, ptr %59, align 8, !tbaa !36
+  %60 = load ptr, ptr %59, align 8, !tbaa !35
   %.not30.i = icmp eq ptr %60, null
-  br i1 %.not30.i, label %.loopexit.i, label %.lr.ph.split.i, !llvm.loop !39
+  br i1 %.not30.i, label %.loopexit.i, label %.lr.ph.split.i, !llvm.loop !38
 
 61:                                               ; preds = %.loopexit.i
   %62 = getelementptr inbounds nuw i8, ptr %.2.i, i64 4
@@ -395,17 +395,17 @@ define internal fastcc void @mark_common(ptr noundef %0, ptr noundef %1, i32 nou
   %39 = load ptr, ptr @the_repository, align 8, !tbaa !20
   %40 = call i32 @repo_parse_commit_gently(ptr noundef %39, ptr noundef nonnull %22, i32 noundef 0) #5
   %.not35 = icmp eq i32 %40, 0
-  br i1 %.not35, label %41, label %.critedge, !llvm.loop !40
+  br i1 %.not35, label %41, label %.critedge, !llvm.loop !39
 
 41:                                               ; preds = %38, %35
   %42 = getelementptr inbounds nuw i8, ptr %22, i64 48
-  %.041 = load ptr, ptr %42, align 8, !tbaa !41
+  %.041 = load ptr, ptr %42, align 8, !tbaa !40
   %.not3642 = icmp eq ptr %.041, null
   br i1 %.not3642, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %41, %54
   %.043 = phi ptr [ %.0, %54 ], [ %.041, %41 ]
-  %43 = load ptr, ptr %.043, align 8, !tbaa !33
+  %43 = load ptr, ptr %.043, align 8, !tbaa !32
   %44 = load i32, ptr %43, align 8
   %45 = and i32 %44, 64
   %.not37 = icmp eq i32 %45, 0
@@ -425,20 +425,20 @@ define internal fastcc void @mark_common(ptr noundef %0, ptr noundef %1, i32 nou
   br label %52
 
 52:                                               ; preds = %49, %46
-  %53 = load ptr, ptr %.043, align 8, !tbaa !33
+  %53 = load ptr, ptr %.043, align 8, !tbaa !32
   call void @prio_queue_put(ptr noundef nonnull %5, ptr noundef %53) #5
   br label %54
 
 54:                                               ; preds = %.lr.ph, %52
   %55 = getelementptr inbounds nuw i8, ptr %.043, i64 8
-  %.0 = load ptr, ptr %55, align 8, !tbaa !41
+  %.0 = load ptr, ptr %55, align 8, !tbaa !40
   %.not36 = icmp eq ptr %.0, null
-  br i1 %.not36, label %.critedge, label %.lr.ph, !llvm.loop !42
+  br i1 %.not36, label %.critedge, label %.lr.ph, !llvm.loop !41
 
 .critedge:                                        ; preds = %54, %41, %32, %29, %25, %38
   %56 = call ptr @prio_queue_get(ptr noundef nonnull %5) #5
   %.not33 = icmp eq ptr %56, null
-  br i1 %.not33, label %._crit_edge, label %21, !llvm.loop !43
+  br i1 %.not33, label %._crit_edge, label %21
 
 ._crit_edge:                                      ; preds = %.critedge, %18
   call void @clear_prio_queue(ptr noundef nonnull %5) #5
@@ -501,24 +501,22 @@ attributes #5 = { nounwind }
 !20 = !{!21, !21, i64 0}
 !21 = !{!"p1 _ZTS10repository", !6, i64 0}
 !22 = !{!15, !19, i64 48}
-!23 = distinct !{!23, !24, !25}
+!23 = distinct !{!23, !24}
 !24 = !{!"llvm.loop.mustprogress"}
-!25 = !{!"llvm.loop.estimated_trip_count"}
-!26 = !{!15, !17, i64 32}
-!27 = !{!28, !31, i64 48}
-!28 = !{!"commit", !29, i64 0, !17, i64 40, !31, i64 48, !32, i64 56, !19, i64 64}
-!29 = !{!"object", !19, i64 0, !19, i64 0, !19, i64 0, !30, i64 4}
-!30 = !{!"object_id", !7, i64 0, !19, i64 32}
-!31 = !{!"p1 _ZTS11commit_list", !6, i64 0}
-!32 = !{!"p1 _ZTS4tree", !6, i64 0}
-!33 = !{!34, !35, i64 0}
-!34 = !{!"commit_list", !35, i64 0, !31, i64 8}
-!35 = !{!"p1 _ZTS6commit", !6, i64 0}
-!36 = !{!34, !31, i64 8}
-!37 = distinct !{!37, !24, !25, !38}
-!38 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!39 = distinct !{!39, !24, !25}
-!40 = distinct !{!40, !24}
-!41 = !{!31, !31, i64 0}
-!42 = distinct !{!42, !24, !25}
-!43 = distinct !{!43, !25}
+!25 = !{!15, !17, i64 32}
+!26 = !{!27, !30, i64 48}
+!27 = !{!"commit", !28, i64 0, !17, i64 40, !30, i64 48, !31, i64 56, !19, i64 64}
+!28 = !{!"object", !19, i64 0, !19, i64 0, !19, i64 0, !29, i64 4}
+!29 = !{!"object_id", !7, i64 0, !19, i64 32}
+!30 = !{!"p1 _ZTS11commit_list", !6, i64 0}
+!31 = !{!"p1 _ZTS4tree", !6, i64 0}
+!32 = !{!33, !34, i64 0}
+!33 = !{!"commit_list", !34, i64 0, !30, i64 8}
+!34 = !{!"p1 _ZTS6commit", !6, i64 0}
+!35 = !{!33, !30, i64 8}
+!36 = distinct !{!36, !24, !37}
+!37 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!38 = distinct !{!38, !24}
+!39 = distinct !{!39, !24}
+!40 = !{!30, !30, i64 0}
+!41 = distinct !{!41, !24}

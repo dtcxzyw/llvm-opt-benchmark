@@ -191,7 +191,7 @@ define range(i32 0, 2) i32 @ossl_rsa_verify_PKCS1_PSS_mgf1(ptr noundef %0, ptr n
   %81 = icmp slt i64 %indvars.iv115, %76
   %82 = select i1 %80, i1 %81, i1 false
   %indvars.iv.next116 = add nuw nsw i64 %indvars.iv115, 1
-  br i1 %82, label %77, label %83, !llvm.loop !27
+  br i1 %82, label %77, label %83, !llvm.loop !26
 
 83:                                               ; preds = %77
   %84 = trunc nuw nsw i64 %indvars.iv115 to i32
@@ -427,7 +427,7 @@ define range(i32 0, 2) i32 @ossl_rsa_padding_add_PKCS1_PSS_mgf1(ptr noundef %0, 
 
 49:                                               ; preds = %45
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %51 = load ptr, ptr %50, align 8, !tbaa !28
+  %51 = load ptr, ptr %50, align 8, !tbaa !27
   %52 = tail call i32 @RAND_bytes_ex(ptr noundef %51, ptr noundef nonnull %47, i64 noundef %46, i32 noundef 0) #10
   %53 = icmp slt i32 %52, 1
   br i1 %53, label %102, label %54
@@ -505,7 +505,7 @@ define range(i32 0, 2) i32 @ossl_rsa_padding_add_PKCS1_PSS_mgf1(ptr noundef %0, 
   store i8 %91, ptr %.082110, align 1, !tbaa !23
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %86, !llvm.loop !29
+  br i1 %exitcond.not, label %.loopexit, label %86, !llvm.loop !28
 
 .loopexit:                                        ; preds = %86, %76
   br i1 %25, label %98, label %92
@@ -548,7 +548,7 @@ define range(i32 0, 2) i32 @ossl_rsa_pss_params_30_set_defaults(ptr noundef writ
   br i1 %2, label %4, label %3
 
 3:                                                ; preds = %1
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %0, ptr noundef nonnull align 4 dereferenceable(20) @default_RSASSA_PSS_params, i64 20, i1 false), !tbaa.struct !30
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %0, ptr noundef nonnull align 4 dereferenceable(20) @default_RSASSA_PSS_params, i64 20, i1 false), !tbaa.struct !29
   br label %4
 
 4:                                                ; preds = %1, %3
@@ -587,7 +587,7 @@ define range(i32 0, 2) i32 @ossl_rsa_pss_params_30_set_hashalg(ptr noundef write
   br i1 %3, label %5, label %4
 
 4:                                                ; preds = %2
-  store i32 %1, ptr %0, align 4, !tbaa !31
+  store i32 %1, ptr %0, align 4, !tbaa !30
   br label %5
 
 5:                                                ; preds = %2, %4
@@ -602,7 +602,7 @@ define range(i32 0, 2) i32 @ossl_rsa_pss_params_30_set_maskgenhashalg(ptr nounde
 
 4:                                                ; preds = %2
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 %1, ptr %5, align 4, !tbaa !32
+  store i32 %1, ptr %5, align 4, !tbaa !31
   br label %6
 
 6:                                                ; preds = %2, %4
@@ -617,7 +617,7 @@ define range(i32 0, 2) i32 @ossl_rsa_pss_params_30_set_saltlen(ptr noundef write
 
 4:                                                ; preds = %2
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store i32 %1, ptr %5, align 4, !tbaa !33
+  store i32 %1, ptr %5, align 4, !tbaa !32
   br label %6
 
 6:                                                ; preds = %2, %4
@@ -632,7 +632,7 @@ define range(i32 0, 2) i32 @ossl_rsa_pss_params_30_set_trailerfield(ptr noundef 
 
 4:                                                ; preds = %2
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i32 %1, ptr %5, align 4, !tbaa !34
+  store i32 %1, ptr %5, align 4, !tbaa !33
   br label %6
 
 6:                                                ; preds = %2, %4
@@ -646,7 +646,7 @@ define i32 @ossl_rsa_pss_params_30_hashalg(ptr noundef readonly captures(address
   br i1 %2, label %5, label %3
 
 3:                                                ; preds = %1
-  %4 = load i32, ptr %0, align 4, !tbaa !31
+  %4 = load i32, ptr %0, align 4, !tbaa !30
   br label %5
 
 5:                                                ; preds = %1, %3
@@ -661,7 +661,7 @@ define i32 @ossl_rsa_pss_params_30_maskgenalg(ptr noundef readonly captures(addr
 
 3:                                                ; preds = %1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %5 = load i32, ptr %4, align 4, !tbaa !35
+  %5 = load i32, ptr %4, align 4, !tbaa !34
   br label %6
 
 6:                                                ; preds = %1, %3
@@ -676,7 +676,7 @@ define i32 @ossl_rsa_pss_params_30_maskgenhashalg(ptr noundef readonly captures(
 
 3:                                                ; preds = %1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = load i32, ptr %4, align 4, !tbaa !32
+  %5 = load i32, ptr %4, align 4, !tbaa !31
   br label %6
 
 6:                                                ; preds = %1, %3
@@ -691,7 +691,7 @@ define i32 @ossl_rsa_pss_params_30_saltlen(ptr noundef readonly captures(address
 
 3:                                                ; preds = %1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %5 = load i32, ptr %4, align 4, !tbaa !33
+  %5 = load i32, ptr %4, align 4, !tbaa !32
   br label %6
 
 6:                                                ; preds = %1, %3
@@ -706,7 +706,7 @@ define i32 @ossl_rsa_pss_params_30_trailerfield(ptr noundef readonly captures(ad
 
 3:                                                ; preds = %1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %5 = load i32, ptr %4, align 4, !tbaa !34
+  %5 = load i32, ptr %4, align 4, !tbaa !33
   br label %6
 
 6:                                                ; preds = %1, %3
@@ -758,15 +758,14 @@ attributes #10 = { nounwind }
 !21 = !{!"p1 _ZTS14bn_mont_ctx_st", !10, i64 0}
 !22 = !{!"p1 _ZTS14bn_blinding_st", !10, i64 0}
 !23 = !{!5, !5, i64 0}
-!24 = distinct !{!24, !25, !26}
+!24 = distinct !{!24, !25}
 !25 = !{!"llvm.loop.mustprogress"}
-!26 = !{!"llvm.loop.estimated_trip_count"}
-!27 = distinct !{!27, !25, !26}
-!28 = !{!8, !9, i64 8}
-!29 = distinct !{!29, !25, !26}
-!30 = !{i64 0, i64 4, !3, i64 4, i64 4, !3, i64 8, i64 4, !3, i64 12, i64 4, !3, i64 16, i64 4, !3}
-!31 = !{!14, !4, i64 0}
-!32 = !{!14, !4, i64 8}
-!33 = !{!14, !4, i64 12}
-!34 = !{!14, !4, i64 16}
-!35 = !{!14, !4, i64 4}
+!26 = distinct !{!26, !25}
+!27 = !{!8, !9, i64 8}
+!28 = distinct !{!28, !25}
+!29 = !{i64 0, i64 4, !3, i64 4, i64 4, !3, i64 8, i64 4, !3, i64 12, i64 4, !3, i64 16, i64 4, !3}
+!30 = !{!14, !4, i64 0}
+!31 = !{!14, !4, i64 8}
+!32 = !{!14, !4, i64 12}
+!33 = !{!14, !4, i64 16}
+!34 = !{!14, !4, i64 4}

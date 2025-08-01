@@ -174,25 +174,25 @@ define i32 @ff_dirac_golomb_read_32bit(ptr noundef readonly captures(none) %0, i
   %15 = add i32 %14, -1
   %16 = sext i8 %.sroa.17.0 to i32
   %17 = mul i32 %15, %16
-  store i32 %17, ptr %.0102, align 4, !tbaa !12
+  store i32 %17, ptr %.0102, align 4, !tbaa !11
   %18 = sext i16 %.sroa.7.0 to i32
   %19 = getelementptr inbounds nuw i8, ptr %.0102, i64 4
-  store i32 %18, ptr %19, align 4, !tbaa !12
+  store i32 %18, ptr %19, align 4, !tbaa !11
   %20 = sext i16 %.sroa.9.0 to i32
   %21 = getelementptr inbounds nuw i8, ptr %.0102, i64 8
-  store i32 %20, ptr %21, align 4, !tbaa !12
+  store i32 %20, ptr %21, align 4, !tbaa !11
   %22 = sext i16 %.sroa.11.0 to i32
   %23 = getelementptr inbounds nuw i8, ptr %.0102, i64 12
-  store i32 %22, ptr %23, align 4, !tbaa !12
+  store i32 %22, ptr %23, align 4, !tbaa !11
   %24 = sext i16 %.sroa.13.0 to i32
   %25 = getelementptr inbounds nuw i8, ptr %.0102, i64 16
-  store i32 %24, ptr %25, align 4, !tbaa !12
+  store i32 %24, ptr %25, align 4, !tbaa !11
   %26 = getelementptr inbounds nuw i8, ptr %.0102, i64 20
-  store i32 0, ptr %26, align 4, !tbaa !12
+  store i32 0, ptr %26, align 4, !tbaa !11
   %27 = getelementptr inbounds nuw i8, ptr %.0102, i64 24
-  store i32 0, ptr %27, align 4, !tbaa !12
+  store i32 0, ptr %27, align 4, !tbaa !11
   %28 = getelementptr inbounds nuw i8, ptr %.0102, i64 28
-  store i32 0, ptr %28, align 4, !tbaa !12
+  store i32 0, ptr %28, align 4, !tbaa !11
   br i1 %exitcond.not, label %39, label %29
 
 29:                                               ; preds = %9
@@ -210,7 +210,7 @@ define i32 @ff_dirac_golomb_read_32bit(ptr noundef readonly captures(none) %0, i
   %36 = zext i8 %35 to i64
   %37 = add nuw nsw i64 %36, %34
   %38 = add nuw i32 %.098, 1
-  br label %9, !llvm.loop !14
+  br label %9, !llvm.loop !13
 
 39:                                               ; preds = %9
   %.not113 = icmp eq i8 %.sroa.19.0, 0
@@ -238,7 +238,7 @@ define i32 @ff_dirac_golomb_read_32bit(ptr noundef readonly captures(none) %0, i
   %51 = select i1 %.not116, i32 %spec.select117, i32 %50
   %52 = sub i32 1, %51
   %53 = getelementptr inbounds nuw i8, ptr %42, i64 4
-  store i32 %52, ptr %42, align 4, !tbaa !12
+  store i32 %52, ptr %42, align 4, !tbaa !11
   br label %54
 
 54:                                               ; preds = %48, %43
@@ -273,9 +273,8 @@ attributes #1 = { nocallback nofree nosync nounwind speculatable willreturn memo
 !6 = !{!"Simple C/C++ TBAA"}
 !7 = !{!8, !8, i64 0}
 !8 = !{!"short", !5, i64 0}
-!9 = distinct !{!9, !10, !11}
+!9 = distinct !{!9, !10}
 !10 = !{!"llvm.loop.mustprogress"}
-!11 = !{!"llvm.loop.estimated_trip_count"}
-!12 = !{!13, !13, i64 0}
-!13 = !{!"int", !5, i64 0}
-!14 = distinct !{!14, !10, !11}
+!11 = !{!12, !12, i64 0}
+!12 = !{!"int", !5, i64 0}
+!13 = distinct !{!13, !10}

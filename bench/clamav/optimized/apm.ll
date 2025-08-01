@@ -423,7 +423,7 @@ fmap_readn.exit147.thread:                        ; preds = %106, %100, %fmap_re
 153:                                              ; preds = %.sink.split, %145
   %154 = add i32 %.047168, 1
   %.not95 = icmp ugt i32 %154, %.
-  br i1 %.not95, label %._crit_edge.loopexit, label %100, !llvm.loop !63
+  br i1 %.not95, label %._crit_edge.loopexit, label %100
 
 ._crit_edge.loopexit:                             ; preds = %153
   %.pre174 = load ptr, ptr %90, align 8, !tbaa !42
@@ -569,7 +569,7 @@ fmap_readn.exit.thread:                           ; preds = %25, %19, %fmap_read
   ]
 
 51:                                               ; preds = %46
-  %52 = load i32, ptr %7, align 4, !tbaa !65
+  %52 = load i32, ptr %7, align 4, !tbaa !63
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.29, i32 noundef %52, i32 noundef %.02147) #6
   %53 = call i32 @cli_append_potentially_unwanted(ptr noundef nonnull %0, ptr noundef nonnull @.str.30) #6
   %.not41 = icmp eq i32 %53, 0
@@ -578,7 +578,7 @@ fmap_readn.exit.thread:                           ; preds = %25, %19, %fmap_read
 54:                                               ; preds = %46, %51
   %55 = add i32 %.02147, 1
   %.not = icmp ugt i32 %55, %.
-  br i1 %.not, label %.loopexit, label %19, !llvm.loop !66
+  br i1 %.not, label %.loopexit, label %19
 
 .loopexit:                                        ; preds = %51, %54, %46, %4, %fmap_readn.exit.thread
   %.1 = phi i32 [ 26, %fmap_readn.exit.thread ], [ 0, %4 ], [ %53, %51 ], [ 0, %54 ], [ %50, %46 ]
@@ -693,7 +693,4 @@ attributes #6 = { nounwind }
 !60 = !{!"cli_environment", !14, i64 0, !14, i64 4, !14, i64 8, !14, i64 12, !14, i64 16, !14, i64 20, !14, i64 24, !7, i64 28, !7, i64 93, !7, i64 158, !7, i64 223, !7, i64 288, !7, i64 353, !7, i64 418, !7, i64 483, !7, i64 484, !7, i64 485, !7, i64 486, !7, i64 487, !7, i64 488, !7, i64 489, !7, i64 490, !7, i64 491}
 !61 = !{!"p1 _ZTS12_yara_global", !6, i64 0}
 !62 = !{!32, !28, i64 2}
-!63 = distinct !{!63, !64}
-!64 = !{!"llvm.loop.estimated_trip_count"}
-!65 = !{!14, !14, i64 0}
-!66 = distinct !{!66, !64}
+!63 = !{!14, !14, i64 0}

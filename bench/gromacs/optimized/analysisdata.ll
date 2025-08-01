@@ -188,7 +188,7 @@ _ZSt8_DestroyIPSt10unique_ptrIN3gmx8internal22AnalysisDataHandleImplESt14default
 
 12:                                               ; preds = %_ZSt8_DestroyIPSt10unique_ptrIN3gmx8internal22AnalysisDataHandleImplESt14default_deleteIS3_EES6_EvT_S8_RSaIT0_E.exit.i.i.i.i
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %14 = load ptr, ptr %13, align 8, !tbaa !20
+  %14 = load ptr, ptr %13, align 8, !tbaa !19
   %15 = ptrtoint ptr %14 to i64
   %16 = ptrtoint ptr %11 to i64
   %17 = sub i64 %15, %16
@@ -214,9 +214,9 @@ define void @_ZN3gmx12AnalysisData15setDataSetCountEi(ptr noundef nonnull align 
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8, !tbaa !4
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %6 = load ptr, ptr %5, align 8, !tbaa !21
+  %6 = load ptr, ptr %5, align 8, !tbaa !20
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %8 = load ptr, ptr %7, align 8, !tbaa !21
+  %8 = load ptr, ptr %7, align 8, !tbaa !20
   %9 = icmp eq ptr %6, %8
   br i1 %9, label %11, label %10
 
@@ -239,9 +239,9 @@ define void @_ZN3gmx12AnalysisData14setColumnCountEii(ptr noundef nonnull align 
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8, !tbaa !4
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %7 = load ptr, ptr %6, align 8, !tbaa !21
+  %7 = load ptr, ptr %6, align 8, !tbaa !20
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %9 = load ptr, ptr %8, align 8, !tbaa !21
+  %9 = load ptr, ptr %8, align 8, !tbaa !20
   %10 = icmp eq ptr %7, %9
   br i1 %10, label %12, label %11
 
@@ -261,9 +261,9 @@ define void @_ZN3gmx12AnalysisData13setMultipointEb(ptr noundef nonnull align 8 
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8, !tbaa !4
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %6 = load ptr, ptr %5, align 8, !tbaa !21
+  %6 = load ptr, ptr %5, align 8, !tbaa !20
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %8 = load ptr, ptr %7, align 8, !tbaa !21
+  %8 = load ptr, ptr %7, align 8, !tbaa !20
   %9 = icmp eq ptr %6, %8
   br i1 %9, label %11, label %10
 
@@ -293,7 +293,7 @@ define ptr @_ZN3gmx12AnalysisData9startDataERKNS_27AnalysisDataParallelOptionsE(
   %11 = ptrtoint ptr %9 to i64
   %12 = sub i64 %10, %11
   %13 = ashr exact i64 %12, 3
-  %14 = load i32, ptr %1, align 4, !tbaa !22
+  %14 = load i32, ptr %1, align 4, !tbaa !21
   %15 = zext i32 %14 to i64
   %16 = icmp ult i64 %13, %15
   br i1 %16, label %18, label %17
@@ -315,14 +315,14 @@ define ptr @_ZN3gmx12AnalysisData9startDataERKNS_27AnalysisDataParallelOptionsE(
 22:                                               ; preds = %20, %18
   %23 = phi ptr [ %.pre, %20 ], [ %5, %18 ]
   %24 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #14
-  store ptr %0, ptr %24, align 8, !tbaa !25
+  store ptr %0, ptr %24, align 8, !tbaa !24
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 8
-  store ptr null, ptr %25, align 8, !tbaa !27
+  store ptr null, ptr %25, align 8, !tbaa !26
   %26 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %27 = getelementptr inbounds nuw i8, ptr %23, i64 16
   %28 = load ptr, ptr %27, align 8, !tbaa !14
   %29 = getelementptr inbounds nuw i8, ptr %23, i64 24
-  %30 = load ptr, ptr %29, align 8, !tbaa !20
+  %30 = load ptr, ptr %29, align 8, !tbaa !19
   %.not.i.i = icmp eq ptr %28, %30
   br i1 %.not.i.i, label %34, label %31
 
@@ -371,15 +371,15 @@ _ZNKSt6vectorISt10unique_ptrIN3gmx8internal22AnalysisDataHandleImplESt14default_
 .lr.ph.i.i.i.i:                                   ; preds = %.noexc9, %.lr.ph.i.i.i.i
   %.012.i.i.i.i = phi ptr [ %52, %.lr.ph.i.i.i.i ], [ %47, %.noexc9 ]
   %.0911.i.i.i.i = phi ptr [ %51, %.lr.ph.i.i.i.i ], [ %35, %.noexc9 ]
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !30)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !33)
-  %50 = load i64, ptr %.0911.i.i.i.i, align 8, !tbaa !15, !alias.scope !33, !noalias !30
-  store i64 %50, ptr %.012.i.i.i.i, align 8, !tbaa !15, !alias.scope !30, !noalias !33
-  store ptr null, ptr %.0911.i.i.i.i, align 8, !tbaa !15, !alias.scope !33, !noalias !30
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !29)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !32)
+  %50 = load i64, ptr %.0911.i.i.i.i, align 8, !tbaa !15, !alias.scope !32, !noalias !29
+  store i64 %50, ptr %.012.i.i.i.i, align 8, !tbaa !15, !alias.scope !29, !noalias !32
+  store ptr null, ptr %.0911.i.i.i.i, align 8, !tbaa !15, !alias.scope !32, !noalias !29
   %51 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i, i64 8
   %52 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i, i64 8
   %.not.i.i.i.i = icmp eq ptr %51, %28
-  br i1 %.not.i.i.i.i, label %_ZNSt6vectorISt10unique_ptrIN3gmx8internal22AnalysisDataHandleImplESt14default_deleteIS3_EESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit22.i, label %.lr.ph.i.i.i.i, !llvm.loop !35
+  br i1 %.not.i.i.i.i, label %_ZNSt6vectorISt10unique_ptrIN3gmx8internal22AnalysisDataHandleImplESt14default_deleteIS3_EESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit22.i, label %.lr.ph.i.i.i.i, !llvm.loop !34
 
 _ZNSt6vectorISt10unique_ptrIN3gmx8internal22AnalysisDataHandleImplESt14default_deleteIS3_EESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit22.i: ; preds = %.lr.ph.i.i.i.i, %.noexc9
   %.0.lcssa.i.i.i.i = phi ptr [ %47, %.noexc9 ], [ %52, %.lr.ph.i.i.i.i ]
@@ -388,7 +388,7 @@ _ZNSt6vectorISt10unique_ptrIN3gmx8internal22AnalysisDataHandleImplESt14default_d
   br i1 %.not.i23.i, label %.noexc, label %54
 
 54:                                               ; preds = %_ZNSt6vectorISt10unique_ptrIN3gmx8internal22AnalysisDataHandleImplESt14default_deleteIS3_EESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit22.i
-  %55 = load ptr, ptr %29, align 8, !tbaa !20
+  %55 = load ptr, ptr %29, align 8, !tbaa !19
   %56 = ptrtoint ptr %55 to i64
   %57 = sub i64 %56, %37
   tail call void @_ZdlPvm(ptr noundef nonnull %35, i64 noundef %57) #13
@@ -400,9 +400,9 @@ _ZNSt6vectorISt10unique_ptrIN3gmx8internal22AnalysisDataHandleImplESt14default_d
   store ptr %47, ptr %26, align 8, !tbaa !11
   store ptr %53, ptr %27, align 8, !tbaa !14
   %58 = getelementptr inbounds nuw %"class.std::unique_ptr.21", ptr %47, i64 %45
-  store ptr %58, ptr %29, align 8, !tbaa !20
+  store ptr %58, ptr %29, align 8, !tbaa !19
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre19, i64 16
-  %.pre20 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !21
+  %.pre20 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !20
   br label %_ZNSt6vectorISt10unique_ptrIN3gmx8internal22AnalysisDataHandleImplESt14default_deleteIS3_EESaIS6_EE9push_backEOS6_.exit
 
 _ZNSt6vectorISt10unique_ptrIN3gmx8internal22AnalysisDataHandleImplESt14default_deleteIS3_EESaIS6_EE9push_backEOS6_.exit: ; preds = %.noexc, %31
@@ -442,9 +442,9 @@ define void @_ZN3gmx12AnalysisData10finishDataENS_18AnalysisDataHandleE(ptr noun
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8, !tbaa !4
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %6 = load ptr, ptr %5, align 8, !tbaa !21
+  %6 = load ptr, ptr %5, align 8, !tbaa !20
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %8 = load ptr, ptr %7, align 8, !tbaa !21
+  %8 = load ptr, ptr %7, align 8, !tbaa !20
   %.not15 = icmp eq ptr %6, %8
   br i1 %.not15, label %._crit_edge, label %.lr.ph
 
@@ -457,7 +457,7 @@ define void @_ZN3gmx12AnalysisData10finishDataENS_18AnalysisDataHandleE(ptr noun
 11:                                               ; preds = %.lr.ph
   %12 = getelementptr inbounds nuw i8, ptr %.sroa.06.016, i64 8
   %.not = icmp eq ptr %12, %8
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !36
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !35
 
 ._crit_edge:                                      ; preds = %11, %2
   tail call void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8, ptr noundef nonnull @"__PRETTY_FUNCTION__._ZZN3gmx12AnalysisData10finishDataENS_18AnalysisDataHandleEENK3$_0clEv", ptr noundef nonnull @.str.2, i32 noundef 185) #15
@@ -500,7 +500,7 @@ _ZNSt10unique_ptrIN3gmx8internal22AnalysisDataHandleImplESt14default_deleteIS2_E
   %27 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i.i.i, i64 8
   %28 = add nsw i64 %.012.i.i.i.i.i.i.i, -1
   %29 = icmp sgt i64 %.012.i.i.i.i.i.i.i, 1
-  br i1 %29, label %.lr.ph.i.i.i.i.i.i.i, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN3gmx8internal22AnalysisDataHandleImplESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEESD_ET0_T_SF_SE_.exit.loopexit.i.i, !llvm.loop !37
+  br i1 %29, label %.lr.ph.i.i.i.i.i.i.i, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN3gmx8internal22AnalysisDataHandleImplESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEESD_ET0_T_SF_SE_.exit.loopexit.i.i, !llvm.loop !36
 
 _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN3gmx8internal22AnalysisDataHandleImplESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEESD_ET0_T_SF_SE_.exit.loopexit.i.i: ; preds = %_ZNSt10unique_ptrIN3gmx8internal22AnalysisDataHandleImplESt14default_deleteIS2_EEaSEOS5_.exit.i.i.i.i.i.i.i
   %.pre.i.i = load ptr, ptr %7, align 8, !tbaa !14
@@ -522,9 +522,9 @@ _ZNSt6vectorISt10unique_ptrIN3gmx8internal22AnalysisDataHandleImplESt14default_d
   store ptr null, ptr %31, align 8, !tbaa !15
   %33 = load ptr, ptr %3, align 8, !tbaa !4
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 8
-  %35 = load ptr, ptr %34, align 8, !tbaa !21
+  %35 = load ptr, ptr %34, align 8, !tbaa !20
   %36 = getelementptr inbounds nuw i8, ptr %33, i64 16
-  %37 = load ptr, ptr %36, align 8, !tbaa !21
+  %37 = load ptr, ptr %36, align 8, !tbaa !20
   %38 = icmp eq ptr %35, %37
   br i1 %38, label %39, label %40
 
@@ -544,19 +544,19 @@ declare noundef zeroext i1 @_ZN3gmx19AnalysisDataStorage14requestStorageEi(ptr n
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_ZN3gmx18AnalysisDataHandleC2Ev(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) initializes((0, 8)) %0) unnamed_addr #7 align 2 {
-  store ptr null, ptr %0, align 8, !tbaa !38
+  store ptr null, ptr %0, align 8, !tbaa !37
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_ZN3gmx18AnalysisDataHandleC2EPNS_8internal22AnalysisDataHandleImplE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) initializes((0, 8)) %0, ptr noundef %1) unnamed_addr #7 align 2 {
-  store ptr %1, ptr %0, align 8, !tbaa !38
+  store ptr %1, ptr %0, align 8, !tbaa !37
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN3gmx18AnalysisDataHandle10startFrameEiff(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0, i32 noundef %1, float noundef %2, float noundef %3) local_unnamed_addr #1 align 2 {
-  %5 = load ptr, ptr %0, align 8, !tbaa !38
+  %5 = load ptr, ptr %0, align 8, !tbaa !37
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %6, label %7
 
@@ -566,7 +566,7 @@ define void @_ZN3gmx18AnalysisDataHandle10startFrameEiff(ptr noundef nonnull rea
 
 7:                                                ; preds = %4
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %9 = load ptr, ptr %8, align 8, !tbaa !27
+  %9 = load ptr, ptr %8, align 8, !tbaa !26
   %10 = icmp eq ptr %9, null
   br i1 %10, label %12, label %11
 
@@ -575,13 +575,13 @@ define void @_ZN3gmx18AnalysisDataHandle10startFrameEiff(ptr noundef nonnull rea
   unreachable
 
 12:                                               ; preds = %7
-  %13 = load ptr, ptr %5, align 8, !tbaa !40
+  %13 = load ptr, ptr %5, align 8, !tbaa !39
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %15 = load ptr, ptr %14, align 8, !tbaa !4
   %16 = tail call noundef nonnull align 8 dereferenceable(45) ptr @_ZN3gmx19AnalysisDataStorage10startFrameEiff(ptr noundef nonnull align 8 dereferenceable(8) %15, i32 noundef %1, float noundef %2, float noundef %3)
-  %17 = load ptr, ptr %0, align 8, !tbaa !38
+  %17 = load ptr, ptr %0, align 8, !tbaa !37
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
-  store ptr %16, ptr %18, align 8, !tbaa !27
+  store ptr %16, ptr %18, align 8, !tbaa !26
   ret void
 }
 
@@ -589,7 +589,7 @@ declare noundef nonnull align 8 dereferenceable(45) ptr @_ZN3gmx19AnalysisDataSt
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN3gmx18AnalysisDataHandle13selectDataSetEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0, i32 noundef %1) local_unnamed_addr #1 align 2 {
-  %3 = load ptr, ptr %0, align 8, !tbaa !38
+  %3 = load ptr, ptr %0, align 8, !tbaa !37
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %4, label %5
 
@@ -599,7 +599,7 @@ define void @_ZN3gmx18AnalysisDataHandle13selectDataSetEi(ptr noundef nonnull re
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %7 = load ptr, ptr %6, align 8, !tbaa !27
+  %7 = load ptr, ptr %6, align 8, !tbaa !26
   %.not1 = icmp eq ptr %7, null
   br i1 %.not1, label %8, label %9
 
@@ -616,7 +616,7 @@ declare void @_ZN3gmx24AnalysisDataStorageFrame13selectDataSetEi(ptr noundef non
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN3gmx18AnalysisDataHandle8setPointEifb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0, i32 noundef %1, float noundef %2, i1 noundef zeroext %3) local_unnamed_addr #1 align 2 {
-  %5 = load ptr, ptr %0, align 8, !tbaa !38
+  %5 = load ptr, ptr %0, align 8, !tbaa !37
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %6, label %7
 
@@ -626,7 +626,7 @@ define void @_ZN3gmx18AnalysisDataHandle8setPointEifb(ptr noundef nonnull readon
 
 7:                                                ; preds = %4
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %9 = load ptr, ptr %8, align 8, !tbaa !27
+  %9 = load ptr, ptr %8, align 8, !tbaa !26
   %.not3 = icmp eq ptr %9, null
   br i1 %.not3, label %10, label %11
 
@@ -637,27 +637,27 @@ define void @_ZN3gmx18AnalysisDataHandle8setPointEifb(ptr noundef nonnull readon
 11:                                               ; preds = %7
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %13 = getelementptr inbounds nuw i8, ptr %9, i64 36
-  %14 = load i32, ptr %13, align 4, !tbaa !41
+  %14 = load i32, ptr %13, align 4, !tbaa !40
   %15 = add nsw i32 %14, %1
   %16 = sext i32 %15 to i64
-  %17 = load ptr, ptr %12, align 8, !tbaa !50
+  %17 = load ptr, ptr %12, align 8, !tbaa !49
   %18 = getelementptr inbounds nuw %"class.gmx::AnalysisDataValue", ptr %17, i64 %16
-  store float %2, ptr %18, align 8, !tbaa !51
+  store float %2, ptr %18, align 8, !tbaa !50
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 8
-  %20 = load i64, ptr %19, align 8, !tbaa !56
+  %20 = load i64, ptr %19, align 8, !tbaa !55
   %21 = and i64 %20, -6
   %22 = or disjoint i64 %21, 1
   %23 = or i64 %20, 5
   %storemerge.i.i.i = select i1 %3, i64 %23, i64 %22
-  store i64 %storemerge.i.i.i, ptr %19, align 8, !tbaa !56
+  store i64 %storemerge.i.i.i, ptr %19, align 8, !tbaa !55
   %24 = getelementptr inbounds nuw i8, ptr %9, i64 44
-  store i8 1, ptr %24, align 4, !tbaa !57
+  store i8 1, ptr %24, align 4, !tbaa !56
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN3gmx18AnalysisDataHandle8setPointEiffb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0, i32 noundef %1, float noundef %2, float noundef %3, i1 noundef zeroext %4) local_unnamed_addr #1 align 2 {
-  %6 = load ptr, ptr %0, align 8, !tbaa !38
+  %6 = load ptr, ptr %0, align 8, !tbaa !37
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %7, label %8
 
@@ -667,7 +667,7 @@ define void @_ZN3gmx18AnalysisDataHandle8setPointEiffb(ptr noundef nonnull reado
 
 8:                                                ; preds = %5
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %10 = load ptr, ptr %9, align 8, !tbaa !27
+  %10 = load ptr, ptr %9, align 8, !tbaa !26
   %.not4 = icmp eq ptr %10, null
   br i1 %.not4, label %11, label %12
 
@@ -678,29 +678,29 @@ define void @_ZN3gmx18AnalysisDataHandle8setPointEiffb(ptr noundef nonnull reado
 12:                                               ; preds = %8
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %14 = getelementptr inbounds nuw i8, ptr %10, i64 36
-  %15 = load i32, ptr %14, align 4, !tbaa !41
+  %15 = load i32, ptr %14, align 4, !tbaa !40
   %16 = add nsw i32 %15, %1
   %17 = sext i32 %16 to i64
-  %18 = load ptr, ptr %13, align 8, !tbaa !50
+  %18 = load ptr, ptr %13, align 8, !tbaa !49
   %19 = getelementptr inbounds nuw %"class.gmx::AnalysisDataValue", ptr %18, i64 %17
-  store float %2, ptr %19, align 8, !tbaa !51
+  store float %2, ptr %19, align 8, !tbaa !50
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 4
-  store float %3, ptr %20, align 4, !tbaa !58
+  store float %3, ptr %20, align 4, !tbaa !57
   %21 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  %22 = load i64, ptr %21, align 8, !tbaa !56
+  %22 = load i64, ptr %21, align 8, !tbaa !55
   %23 = and i64 %22, -8
   %24 = or disjoint i64 %23, 3
   %25 = or i64 %22, 7
   %storemerge.i.i.i = select i1 %4, i64 %25, i64 %24
-  store i64 %storemerge.i.i.i, ptr %21, align 8, !tbaa !56
+  store i64 %storemerge.i.i.i, ptr %21, align 8, !tbaa !55
   %26 = getelementptr inbounds nuw i8, ptr %10, i64 44
-  store i8 1, ptr %26, align 4, !tbaa !57
+  store i8 1, ptr %26, align 4, !tbaa !56
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN3gmx18AnalysisDataHandle9setPointsEiiPKfb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0, i32 noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3, i1 noundef zeroext %4) local_unnamed_addr #1 align 2 {
-  %6 = load ptr, ptr %0, align 8, !tbaa !38
+  %6 = load ptr, ptr %0, align 8, !tbaa !37
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %7, label %8
 
@@ -710,7 +710,7 @@ define void @_ZN3gmx18AnalysisDataHandle9setPointsEiiPKfb(ptr noundef nonnull re
 
 8:                                                ; preds = %5
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %10 = load ptr, ptr %9, align 8, !tbaa !27
+  %10 = load ptr, ptr %9, align 8, !tbaa !26
   %.not8 = icmp eq ptr %10, null
   br i1 %.not8, label %25, label %.preheader
 
@@ -721,9 +721,9 @@ define void @_ZN3gmx18AnalysisDataHandle9setPointsEiiPKfb(ptr noundef nonnull re
 .lr.ph:                                           ; preds = %.preheader
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 36
-  %14 = load i32, ptr %13, align 4, !tbaa !41
+  %14 = load i32, ptr %13, align 4, !tbaa !40
   %invariant.op = add i32 %1, %14
-  %15 = load ptr, ptr %12, align 8, !tbaa !50
+  %15 = load ptr, ptr %12, align 8, !tbaa !49
   %16 = getelementptr inbounds nuw i8, ptr %10, i64 44
   %wide.trip.count16 = zext nneg i32 %2 to i64
   br i1 %4, label %.lr.ph.split.us, label %.lr.ph.split
@@ -731,26 +731,26 @@ define void @_ZN3gmx18AnalysisDataHandle9setPointsEiiPKfb(ptr noundef nonnull re
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %.lr.ph.split.us
   %indvars.iv13 = phi i64 [ %indvars.iv.next14, %.lr.ph.split.us ], [ 0, %.lr.ph ]
   %17 = getelementptr inbounds nuw float, ptr %3, i64 %indvars.iv13
-  %18 = load float, ptr %17, align 4, !tbaa !59
+  %18 = load float, ptr %17, align 4, !tbaa !58
   %19 = trunc nuw nsw i64 %indvars.iv13 to i32
   %.reass.us = add i32 %invariant.op, %19
   %20 = sext i32 %.reass.us to i64
   %21 = getelementptr inbounds nuw %"class.gmx::AnalysisDataValue", ptr %15, i64 %20
-  store float %18, ptr %21, align 8, !tbaa !51
+  store float %18, ptr %21, align 8, !tbaa !50
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
-  %23 = load i64, ptr %22, align 8, !tbaa !56
+  %23 = load i64, ptr %22, align 8, !tbaa !55
   %24 = or i64 %23, 5
-  store i64 %24, ptr %22, align 8, !tbaa !56
+  store i64 %24, ptr %22, align 8, !tbaa !55
   %indvars.iv.next14 = add nuw nsw i64 %indvars.iv13, 1
   %exitcond17.not = icmp eq i64 %indvars.iv.next14, %wide.trip.count16
-  br i1 %exitcond17.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !60
+  br i1 %exitcond17.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !59
 
 25:                                               ; preds = %8
   tail call void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.16, ptr noundef nonnull @"__PRETTY_FUNCTION__._ZZN3gmx18AnalysisDataHandle9setPointsEiiPKfbENK3$_0clEv", ptr noundef nonnull @.str.2, i32 noundef 258) #15
   unreachable
 
 ._crit_edge:                                      ; preds = %.lr.ph.split, %.lr.ph.split.us
-  store i8 1, ptr %16, align 4, !tbaa !57
+  store i8 1, ptr %16, align 4, !tbaa !56
   br label %26
 
 26:                                               ; preds = %._crit_edge, %.preheader
@@ -759,25 +759,25 @@ define void @_ZN3gmx18AnalysisDataHandle9setPointsEiiPKfb(ptr noundef nonnull re
 .lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.split
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph.split ], [ 0, %.lr.ph ]
   %27 = getelementptr inbounds nuw float, ptr %3, i64 %indvars.iv
-  %28 = load float, ptr %27, align 4, !tbaa !59
+  %28 = load float, ptr %27, align 4, !tbaa !58
   %29 = trunc nuw nsw i64 %indvars.iv to i32
   %.reass = add i32 %invariant.op, %29
   %30 = sext i32 %.reass to i64
   %31 = getelementptr inbounds nuw %"class.gmx::AnalysisDataValue", ptr %15, i64 %30
-  store float %28, ptr %31, align 8, !tbaa !51
+  store float %28, ptr %31, align 8, !tbaa !50
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 8
-  %33 = load i64, ptr %32, align 8, !tbaa !56
+  %33 = load i64, ptr %32, align 8, !tbaa !55
   %34 = and i64 %33, -6
   %35 = or disjoint i64 %34, 1
-  store i64 %35, ptr %32, align 8, !tbaa !56
+  store i64 %35, ptr %32, align 8, !tbaa !55
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count16
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !62
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !61
 }
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN3gmx18AnalysisDataHandle14finishPointSetEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0) local_unnamed_addr #1 align 2 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !38
+  %2 = load ptr, ptr %0, align 8, !tbaa !37
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %3, label %4
 
@@ -786,7 +786,7 @@ define void @_ZN3gmx18AnalysisDataHandle14finishPointSetEv(ptr noundef nonnull r
   unreachable
 
 4:                                                ; preds = %1
-  %5 = load ptr, ptr %2, align 8, !tbaa !40
+  %5 = load ptr, ptr %2, align 8, !tbaa !39
   %6 = tail call noundef zeroext i1 @_ZNK3gmx20AbstractAnalysisData12isMultipointEv(ptr noundef nonnull align 8 dereferenceable(16) %5)
   br i1 %6, label %8, label %7
 
@@ -795,9 +795,9 @@ define void @_ZN3gmx18AnalysisDataHandle14finishPointSetEv(ptr noundef nonnull r
   unreachable
 
 8:                                                ; preds = %4
-  %9 = load ptr, ptr %0, align 8, !tbaa !38
+  %9 = load ptr, ptr %0, align 8, !tbaa !37
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %11 = load ptr, ptr %10, align 8, !tbaa !27
+  %11 = load ptr, ptr %10, align 8, !tbaa !26
   %.not1 = icmp eq ptr %11, null
   br i1 %.not1, label %12, label %13
 
@@ -816,7 +816,7 @@ declare void @_ZN3gmx24AnalysisDataStorageFrame14finishPointSetEv(ptr noundef no
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN3gmx18AnalysisDataHandle11finishFrameEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0) local_unnamed_addr #1 align 2 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !38
+  %2 = load ptr, ptr %0, align 8, !tbaa !37
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %3, label %4
 
@@ -826,7 +826,7 @@ define void @_ZN3gmx18AnalysisDataHandle11finishFrameEv(ptr noundef nonnull read
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %6 = load ptr, ptr %5, align 8, !tbaa !27
+  %6 = load ptr, ptr %5, align 8, !tbaa !26
   %.not2 = icmp eq ptr %6, null
   br i1 %.not2, label %7, label %8
 
@@ -835,7 +835,7 @@ define void @_ZN3gmx18AnalysisDataHandle11finishFrameEv(ptr noundef nonnull read
   unreachable
 
 8:                                                ; preds = %4
-  store ptr null, ptr %5, align 8, !tbaa !27
+  store ptr null, ptr %5, align 8, !tbaa !26
   tail call void @_ZN3gmx24AnalysisDataStorageFrame11finishFrameEv(ptr noundef nonnull align 8 dereferenceable(45) %6)
   ret void
 }
@@ -844,7 +844,7 @@ declare void @_ZN3gmx24AnalysisDataStorageFrame11finishFrameEv(ptr noundef nonnu
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN3gmx18AnalysisDataHandle10finishDataEv(ptr noundef nonnull align 8 captures(none) dereferenceable(8) %0) local_unnamed_addr #1 align 2 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !38
+  %2 = load ptr, ptr %0, align 8, !tbaa !37
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %3, label %4
 
@@ -853,9 +853,9 @@ define void @_ZN3gmx18AnalysisDataHandle10finishDataEv(ptr noundef nonnull align
   unreachable
 
 4:                                                ; preds = %1
-  %5 = load ptr, ptr %2, align 8, !tbaa !40
+  %5 = load ptr, ptr %2, align 8, !tbaa !39
   tail call void @_ZN3gmx12AnalysisData10finishDataENS_18AnalysisDataHandleE(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr nonnull %2)
-  store ptr null, ptr %0, align 8, !tbaa !38
+  store ptr null, ptr %0, align 8, !tbaa !37
   ret void
 }
 
@@ -910,49 +910,48 @@ attributes #15 = { noreturn }
 !14 = !{!12, !13, i64 8}
 !15 = !{!16, !16, i64 0}
 !16 = !{!"p1 _ZTSN3gmx8internal22AnalysisDataHandleImplE", !6, i64 0}
-!17 = distinct !{!17, !18, !19}
+!17 = distinct !{!17, !18}
 !18 = !{!"llvm.loop.mustprogress"}
-!19 = !{!"llvm.loop.estimated_trip_count"}
-!20 = !{!12, !13, i64 16}
-!21 = !{!13, !13, i64 0}
-!22 = !{!23, !24, i64 0}
-!23 = !{!"_ZTSN3gmx27AnalysisDataParallelOptionsE", !24, i64 0}
-!24 = !{!"int", !7, i64 0}
-!25 = !{!26, !26, i64 0}
-!26 = !{!"p1 _ZTSN3gmx12AnalysisDataE", !6, i64 0}
-!27 = !{!28, !29, i64 8}
-!28 = !{!"_ZTSN3gmx8internal22AnalysisDataHandleImplE", !26, i64 0, !29, i64 8}
-!29 = !{!"p1 _ZTSN3gmx24AnalysisDataStorageFrameE", !6, i64 0}
-!30 = !{!31}
-!31 = distinct !{!31, !32, !"_ZSt19__relocate_object_aISt10unique_ptrIN3gmx8internal22AnalysisDataHandleImplESt14default_deleteIS3_EES6_SaIS6_EEvPT_PT0_RT1_: argument 0"}
-!32 = distinct !{!32, !"_ZSt19__relocate_object_aISt10unique_ptrIN3gmx8internal22AnalysisDataHandleImplESt14default_deleteIS3_EES6_SaIS6_EEvPT_PT0_RT1_"}
-!33 = !{!34}
-!34 = distinct !{!34, !32, !"_ZSt19__relocate_object_aISt10unique_ptrIN3gmx8internal22AnalysisDataHandleImplESt14default_deleteIS3_EES6_SaIS6_EEvPT_PT0_RT1_: argument 1"}
-!35 = distinct !{!35, !18, !19}
-!36 = distinct !{!36, !18, !19}
-!37 = distinct !{!37, !18, !19}
-!38 = !{!39, !16, i64 0}
-!39 = !{!"_ZTSN3gmx18AnalysisDataHandleE", !16, i64 0}
-!40 = !{!28, !26, i64 0}
-!41 = !{!42, !24, i64 36}
-!42 = !{!"_ZTSN3gmx24AnalysisDataStorageFrameE", !43, i64 0, !44, i64 8, !24, i64 32, !24, i64 36, !24, i64 40, !49, i64 44}
-!43 = !{!"p1 _ZTSN3gmx8internal28AnalysisDataStorageFrameDataE", !6, i64 0}
-!44 = !{!"_ZTSSt6vectorIN3gmx17AnalysisDataValueESaIS1_EE", !45, i64 0}
-!45 = !{!"_ZTSSt12_Vector_baseIN3gmx17AnalysisDataValueESaIS1_EE", !46, i64 0}
-!46 = !{!"_ZTSNSt12_Vector_baseIN3gmx17AnalysisDataValueESaIS1_EE12_Vector_implE", !47, i64 0}
-!47 = !{!"_ZTSNSt12_Vector_baseIN3gmx17AnalysisDataValueESaIS1_EE17_Vector_impl_dataE", !48, i64 0, !48, i64 8, !48, i64 16}
-!48 = !{!"p1 _ZTSN3gmx17AnalysisDataValueE", !6, i64 0}
-!49 = !{!"bool", !7, i64 0}
-!50 = !{!47, !48, i64 0}
-!51 = !{!52, !53, i64 0}
-!52 = !{!"_ZTSN3gmx17AnalysisDataValueE", !53, i64 0, !53, i64 4, !54, i64 8}
-!53 = !{!"float", !7, i64 0}
-!54 = !{!"_ZTSN3gmx13FlagsTemplateINS_17AnalysisDataValue4FlagEEE", !55, i64 0}
-!55 = !{!"long", !7, i64 0}
-!56 = !{!54, !55, i64 0}
-!57 = !{!42, !49, i64 44}
-!58 = !{!52, !53, i64 4}
-!59 = !{!53, !53, i64 0}
-!60 = distinct !{!60, !18, !19, !61}
-!61 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!62 = distinct !{!62, !18, !19}
+!19 = !{!12, !13, i64 16}
+!20 = !{!13, !13, i64 0}
+!21 = !{!22, !23, i64 0}
+!22 = !{!"_ZTSN3gmx27AnalysisDataParallelOptionsE", !23, i64 0}
+!23 = !{!"int", !7, i64 0}
+!24 = !{!25, !25, i64 0}
+!25 = !{!"p1 _ZTSN3gmx12AnalysisDataE", !6, i64 0}
+!26 = !{!27, !28, i64 8}
+!27 = !{!"_ZTSN3gmx8internal22AnalysisDataHandleImplE", !25, i64 0, !28, i64 8}
+!28 = !{!"p1 _ZTSN3gmx24AnalysisDataStorageFrameE", !6, i64 0}
+!29 = !{!30}
+!30 = distinct !{!30, !31, !"_ZSt19__relocate_object_aISt10unique_ptrIN3gmx8internal22AnalysisDataHandleImplESt14default_deleteIS3_EES6_SaIS6_EEvPT_PT0_RT1_: argument 0"}
+!31 = distinct !{!31, !"_ZSt19__relocate_object_aISt10unique_ptrIN3gmx8internal22AnalysisDataHandleImplESt14default_deleteIS3_EES6_SaIS6_EEvPT_PT0_RT1_"}
+!32 = !{!33}
+!33 = distinct !{!33, !31, !"_ZSt19__relocate_object_aISt10unique_ptrIN3gmx8internal22AnalysisDataHandleImplESt14default_deleteIS3_EES6_SaIS6_EEvPT_PT0_RT1_: argument 1"}
+!34 = distinct !{!34, !18}
+!35 = distinct !{!35, !18}
+!36 = distinct !{!36, !18}
+!37 = !{!38, !16, i64 0}
+!38 = !{!"_ZTSN3gmx18AnalysisDataHandleE", !16, i64 0}
+!39 = !{!27, !25, i64 0}
+!40 = !{!41, !23, i64 36}
+!41 = !{!"_ZTSN3gmx24AnalysisDataStorageFrameE", !42, i64 0, !43, i64 8, !23, i64 32, !23, i64 36, !23, i64 40, !48, i64 44}
+!42 = !{!"p1 _ZTSN3gmx8internal28AnalysisDataStorageFrameDataE", !6, i64 0}
+!43 = !{!"_ZTSSt6vectorIN3gmx17AnalysisDataValueESaIS1_EE", !44, i64 0}
+!44 = !{!"_ZTSSt12_Vector_baseIN3gmx17AnalysisDataValueESaIS1_EE", !45, i64 0}
+!45 = !{!"_ZTSNSt12_Vector_baseIN3gmx17AnalysisDataValueESaIS1_EE12_Vector_implE", !46, i64 0}
+!46 = !{!"_ZTSNSt12_Vector_baseIN3gmx17AnalysisDataValueESaIS1_EE17_Vector_impl_dataE", !47, i64 0, !47, i64 8, !47, i64 16}
+!47 = !{!"p1 _ZTSN3gmx17AnalysisDataValueE", !6, i64 0}
+!48 = !{!"bool", !7, i64 0}
+!49 = !{!46, !47, i64 0}
+!50 = !{!51, !52, i64 0}
+!51 = !{!"_ZTSN3gmx17AnalysisDataValueE", !52, i64 0, !52, i64 4, !53, i64 8}
+!52 = !{!"float", !7, i64 0}
+!53 = !{!"_ZTSN3gmx13FlagsTemplateINS_17AnalysisDataValue4FlagEEE", !54, i64 0}
+!54 = !{!"long", !7, i64 0}
+!55 = !{!53, !54, i64 0}
+!56 = !{!41, !48, i64 44}
+!57 = !{!51, !52, i64 4}
+!58 = !{!52, !52, i64 0}
+!59 = distinct !{!59, !18, !60}
+!60 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!61 = distinct !{!61, !18}

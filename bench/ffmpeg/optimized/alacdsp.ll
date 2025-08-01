@@ -76,12 +76,12 @@ define internal void @append_extra_bits(ptr noundef readonly captures(none) %0, 
   store i32 %18, ptr %13, align 4, !tbaa !12
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us, label %12, !llvm.loop !17
+  br i1 %exitcond.not, label %._crit_edge.us, label %12, !llvm.loop !16
 
 ._crit_edge.us:                                   ; preds = %12
   %indvars.iv.next22 = add nuw nsw i64 %indvars.iv21, 1
   %exitcond25.not = icmp eq i64 %indvars.iv.next22, %wide.trip.count24
-  br i1 %exitcond25.not, label %._crit_edge18, label %.preheader.us, !llvm.loop !18
+  br i1 %exitcond25.not, label %._crit_edge18, label %.preheader.us, !llvm.loop !17
 
 ._crit_edge18:                                    ; preds = %._crit_edge.us, %5
   ret void
@@ -106,9 +106,8 @@ attributes #1 = { nofree norecurse nosync nounwind memory(readwrite, inaccessibl
 !11 = !{!"p1 int", !6, i64 0}
 !12 = !{!13, !13, i64 0}
 !13 = !{!"int", !7, i64 0}
-!14 = distinct !{!14, !15, !16}
+!14 = distinct !{!14, !15}
 !15 = !{!"llvm.loop.mustprogress"}
-!16 = !{!"llvm.loop.estimated_trip_count"}
-!17 = distinct !{!17, !15, !16}
-!18 = distinct !{!18, !15, !16, !19}
-!19 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!16 = distinct !{!16, !15}
+!17 = distinct !{!17, !15, !18}
+!18 = !{!"llvm.loop.unswitch.nontrivial.disable"}

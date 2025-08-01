@@ -302,14 +302,14 @@ define internal void @_ZL17proxy_thread_mainPv(ptr noundef readonly captures(non
 32:                                               ; preds = %30, %27
   %indvars.iv.next38 = add nuw nsw i64 %indvars.iv37, 1
   %exitcond40.not = icmp eq i64 %indvars.iv.next38, 4
-  br i1 %exitcond40.not, label %17, label %27, !llvm.loop !20
+  br i1 %exitcond40.not, label %17, label %27, !llvm.loop !19
 }
 
 ; Function Attrs: mustprogress uwtable
 define internal void @_ZL22subscriber_thread_mainPv(ptr noundef readonly captures(none) %0) #0 {
   %2 = alloca %struct.zmq_msg_t, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load i32, ptr %3, align 8, !tbaa !21
+  %4 = load i32, ptr %3, align 8, !tbaa !20
   %5 = load ptr, ptr %0, align 8, !tbaa !4
   %6 = tail call ptr @zmq_socket(ptr noundef %5, i32 noundef 2)
   tail call fastcc void @_ZL7set_hwmPv(ptr noundef %6)
@@ -372,7 +372,7 @@ _Z40test_assert_success_message_errno_helperiPKcS0_.exit16: ; preds = %27
   %37 = load i64, ptr @_ZL13message_count, align 8, !tbaa !13
   %38 = icmp eq i64 %.1, %37
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %2) #11
-  br i1 %38, label %39, label %_Z40test_assert_success_message_errno_helperiPKcS0_.exit15, !llvm.loop !22
+  br i1 %38, label %39, label %_Z40test_assert_success_message_errno_helperiPKcS0_.exit15
 
 39:                                               ; preds = %36
   %40 = call i32 @zmq_close(ptr noundef %6)
@@ -388,7 +388,7 @@ define internal void @_ZL21publisher_thread_mainPv(ptr noundef readonly captures
   %4 = alloca %struct.zmq_msg_t, align 8
   %5 = alloca %struct.zmq_msg_t, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %7 = load i32, ptr %6, align 8, !tbaa !21
+  %7 = load i32, ptr %6, align 8, !tbaa !20
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #11
   %8 = load ptr, ptr %0, align 8, !tbaa !4
   %9 = tail call ptr @zmq_socket(ptr noundef %8, i32 noundef 9)
@@ -460,7 +460,7 @@ _Z40test_assert_success_message_errno_helperiPKcS0_.exit21: ; preds = %_Z40test_
   unreachable
 
 43:                                               ; preds = %_Z40test_assert_success_message_errno_helperiPKcS0_.exit21
-  %44 = load i8, ptr %3, align 16, !tbaa !23
+  %44 = load i8, ptr %3, align 16, !tbaa !21
   %.not18 = icmp eq i8 %44, 1
   br i1 %.not18, label %48, label %45
 
@@ -512,7 +512,7 @@ _Z40test_assert_success_message_errno_helperiPKcS0_.exit23: ; preds = %59, %57
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5) #11
   %67 = load i64, ptr @_ZL13message_count, align 8, !tbaa !13
   %68 = icmp ult i64 %.1, %67
-  br i1 %68, label %.lr.ph, label %._crit_edge, !llvm.loop !24
+  br i1 %68, label %.lr.ph, label %._crit_edge, !llvm.loop !22
 
 ._crit_edge:                                      ; preds = %_Z40test_assert_success_message_errno_helperiPKcS0_.exit23, %48
   %69 = call i32 @zmq_close(ptr noundef %9)
@@ -628,11 +628,9 @@ attributes #11 = { nounwind }
 !14 = !{!"long", !7, i64 0}
 !15 = !{!6, !6, i64 0}
 !16 = !{!9, !9, i64 0}
-!17 = distinct !{!17, !18, !19}
+!17 = distinct !{!17, !18}
 !18 = !{!"llvm.loop.mustprogress"}
-!19 = !{!"llvm.loop.estimated_trip_count"}
-!20 = distinct !{!20, !18, !19}
-!21 = !{!5, !9, i64 8}
-!22 = distinct !{!22, !19}
-!23 = !{!7, !7, i64 0}
-!24 = distinct !{!24, !18, !19}
+!19 = distinct !{!19, !18}
+!20 = !{!5, !9, i64 8}
+!21 = !{!7, !7, i64 0}
+!22 = distinct !{!22, !18}

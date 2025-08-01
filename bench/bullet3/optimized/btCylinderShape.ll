@@ -622,7 +622,7 @@ _Z21CylinderLocalSupportZRK9btVector3S1_.exit:    ; preds = %18, %27
   store <2 x float> %.sroa.5.0.i, ptr %.sroa.4.0..sroa_idx, align 4, !tbaa !19
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %8, !llvm.loop !27
+  br i1 %exitcond.not, label %._crit_edge, label %8, !llvm.loop !26
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
@@ -685,7 +685,7 @@ _Z21CylinderLocalSupportXRK9btVector3S1_.exit:    ; preds = %19, %28
   store <2 x float> %.sroa.5.0.i, ptr %.sroa.4.0..sroa_idx, align 4, !tbaa !19
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %8, !llvm.loop !28
+  br i1 %exitcond.not, label %._crit_edge, label %8, !llvm.loop !27
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
@@ -864,7 +864,7 @@ define linkonce_odr dso_local noundef ptr @_ZNK15btCylinderShape9serializeEPvP12
   store float %9, ptr %10, align 4, !tbaa !18
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 4
-  br i1 %exitcond.not.i.i, label %_ZNK9btVector314serializeFloatER18btVector3FloatData.exit.i, label %7, !llvm.loop !29
+  br i1 %exitcond.not.i.i, label %_ZNK9btVector314serializeFloatER18btVector3FloatData.exit.i, label %7, !llvm.loop !28
 
 _ZNK9btVector314serializeFloatER18btVector3FloatData.exit.i: ; preds = %7
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -879,19 +879,19 @@ _ZNK9btVector314serializeFloatER18btVector3FloatData.exit.i: ; preds = %7
   store float %15, ptr %16, align 4, !tbaa !18
   %indvars.iv.next.i9.i = add nuw nsw i64 %indvars.iv.i8.i, 1
   %exitcond.not.i10.i = icmp eq i64 %indvars.iv.next.i9.i, 4
-  br i1 %exitcond.not.i10.i, label %_ZNK21btConvexInternalShape9serializeEPvP12btSerializer.exit, label %13, !llvm.loop !29
+  br i1 %exitcond.not.i10.i, label %_ZNK21btConvexInternalShape9serializeEPvP12btSerializer.exit, label %13, !llvm.loop !28
 
 _ZNK21btConvexInternalShape9serializeEPvP12btSerializer.exit: ; preds = %13
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %18 = load float, ptr %17, align 8, !tbaa !17
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  store float %18, ptr %19, align 8, !tbaa !30
+  store float %18, ptr %19, align 8, !tbaa !29
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 52
-  store i32 0, ptr %20, align 4, !tbaa !35
+  store i32 0, ptr %20, align 4, !tbaa !34
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %22 = load i32, ptr %21, align 8, !tbaa !7
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  store i32 %22, ptr %23, align 8, !tbaa !36
+  store i32 %22, ptr %23, align 8, !tbaa !35
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 60
   store i32 0, ptr %24, align 4
   ret ptr @.str.1
@@ -1154,17 +1154,16 @@ attributes #15 = { noreturn nounwind }
 !21 = !{!22}
 !22 = distinct !{!22, !23, !"_ZNK11btMatrix3x38absoluteEv: argument 0"}
 !23 = distinct !{!23, !"_ZNK11btMatrix3x38absoluteEv"}
-!24 = distinct !{!24, !25, !26}
+!24 = distinct !{!24, !25}
 !25 = !{!"llvm.loop.mustprogress"}
-!26 = !{!"llvm.loop.estimated_trip_count"}
-!27 = distinct !{!27, !25, !26}
-!28 = distinct !{!28, !25, !26}
-!29 = distinct !{!29, !25, !26}
-!30 = !{!31, !16, i64 48}
-!31 = !{!"_ZTS25btConvexInternalShapeData", !32, i64 0, !34, i64 16, !34, i64 32, !16, i64 48, !12, i64 52}
-!32 = !{!"_ZTS20btCollisionShapeData", !33, i64 0, !12, i64 8, !13, i64 12}
-!33 = !{!"p1 omnipotent char", !14, i64 0}
-!34 = !{!"_ZTS18btVector3FloatData", !13, i64 0}
-!35 = !{!31, !12, i64 52}
-!36 = !{!37, !12, i64 56}
-!37 = !{!"_ZTS19btCylinderShapeData", !31, i64 0, !12, i64 56, !13, i64 60}
+!26 = distinct !{!26, !25}
+!27 = distinct !{!27, !25}
+!28 = distinct !{!28, !25}
+!29 = !{!30, !16, i64 48}
+!30 = !{!"_ZTS25btConvexInternalShapeData", !31, i64 0, !33, i64 16, !33, i64 32, !16, i64 48, !12, i64 52}
+!31 = !{!"_ZTS20btCollisionShapeData", !32, i64 0, !12, i64 8, !13, i64 12}
+!32 = !{!"p1 omnipotent char", !14, i64 0}
+!33 = !{!"_ZTS18btVector3FloatData", !13, i64 0}
+!34 = !{!30, !12, i64 52}
+!35 = !{!36, !12, i64 56}
+!36 = !{!"_ZTS19btCylinderShapeData", !30, i64 0, !12, i64 56, !13, i64 60}

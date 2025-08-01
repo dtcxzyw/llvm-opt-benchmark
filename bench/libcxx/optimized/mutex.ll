@@ -344,10 +344,10 @@ define dso_local void @_ZNSt3__121recursive_timed_mutex4lockEv(ptr noundef nonnu
 
 _ZNSt3__111unique_lockINS_5mutexEEC2B8ne210000ERS1_.exit: ; preds = %1
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %.sroa.0.0.copyload = load i64, ptr %7, align 8, !tbaa !22
+  %.sroa.0.0.copyload = load i64, ptr %7, align 8, !tbaa !21
   %.0.i = icmp eq i64 %.sroa.0.0.copyload, %3
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %9 = load i64, ptr %8, align 8, !tbaa !24
+  %9 = load i64, ptr %8, align 8, !tbaa !23
   br i1 %.0.i, label %11, label %.preheader
 
 .preheader:                                       ; preds = %_ZNSt3__111unique_lockINS_5mutexEEC2B8ne210000ERS1_.exit
@@ -355,8 +355,8 @@ _ZNSt3__111unique_lockINS_5mutexEEC2B8ne210000ERS1_.exit: ; preds = %1
   br i1 %.not5, label %.thread7, label %.lr.ph
 
 .thread7:                                         ; preds = %.preheader
-  store i64 1, ptr %8, align 8, !tbaa !24
-  store i64 %3, ptr %7, align 8, !tbaa !22
+  store i64 1, ptr %8, align 8, !tbaa !23
+  store i64 %3, ptr %7, align 8, !tbaa !21
   br label %22
 
 .lr.ph:                                           ; preds = %.preheader
@@ -383,20 +383,20 @@ _ZNSt3__111unique_lockINS_5mutexEED2B8ne210000Ev.exit: ; preds = %13
 
 .thread:                                          ; preds = %11
   %17 = add nuw i64 %9, 1
-  store i64 %17, ptr %8, align 8, !tbaa !24
+  store i64 %17, ptr %8, align 8, !tbaa !23
   br label %22
 
 18:                                               ; preds = %.lr.ph, %18
   call void @_ZNSt3__118condition_variable4waitERNS_11unique_lockINS_5mutexEEE(ptr noundef nonnull align 8 dereferenceable(48) %10, ptr noundef nonnull align 8 dereferenceable(9) %2) #10
-  %19 = load i64, ptr %8, align 8, !tbaa !24
+  %19 = load i64, ptr %8, align 8, !tbaa !23
   %.not = icmp eq i64 %19, 0
-  br i1 %.not, label %20, label %18, !llvm.loop !27
+  br i1 %.not, label %20, label %18, !llvm.loop !26
 
 20:                                               ; preds = %18
   %.pre.pre = load i8, ptr %4, align 8, !tbaa !12, !range !17
   %21 = trunc nuw i8 %.pre.pre to i1
-  store i64 1, ptr %8, align 8, !tbaa !24
-  store i64 %3, ptr %7, align 8, !tbaa !22
+  store i64 1, ptr %8, align 8, !tbaa !23
+  store i64 %3, ptr %7, align 8, !tbaa !21
   br i1 %21, label %22, label %_ZNSt3__111unique_lockINS_5mutexEED2B8ne210000Ev.exit4
 
 22:                                               ; preds = %.thread7, %.thread, %20
@@ -418,13 +418,13 @@ define dso_local noundef zeroext i1 @_ZNSt3__121recursive_timed_mutex8try_lockEv
 
 5:                                                ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %7 = load i64, ptr %6, align 8, !tbaa !24
+  %7 = load i64, ptr %6, align 8, !tbaa !23
   %8 = icmp eq i64 %7, 0
   br i1 %8, label %.thread, label %9
 
 9:                                                ; preds = %5
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %.sroa.0.0.copyload = load i64, ptr %10, align 8, !tbaa !22
+  %.sroa.0.0.copyload = load i64, ptr %10, align 8, !tbaa !21
   %.0.i = icmp ne i64 %.sroa.0.0.copyload, %2
   %11 = icmp eq i64 %7, -1
   %or.cond = or i1 %11, %.0.i
@@ -432,9 +432,9 @@ define dso_local noundef zeroext i1 @_ZNSt3__121recursive_timed_mutex8try_lockEv
 
 .thread:                                          ; preds = %9, %5
   %12 = add nuw i64 %7, 1
-  store i64 %12, ptr %6, align 8, !tbaa !24
+  store i64 %12, ptr %6, align 8, !tbaa !23
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  store i64 %2, ptr %13, align 8, !tbaa !22
+  store i64 %2, ptr %13, align 8, !tbaa !21
   br label %14
 
 14:                                               ; preds = %9, %.thread
@@ -462,15 +462,15 @@ define dso_local void @_ZNSt3__121recursive_timed_mutex6unlockEv(ptr noundef non
 
 _ZNSt3__111unique_lockINS_5mutexEEC2B8ne210000ERS1_.exit: ; preds = %1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %5 = load i64, ptr %4, align 8, !tbaa !24
+  %5 = load i64, ptr %4, align 8, !tbaa !23
   %6 = add i64 %5, -1
-  store i64 %6, ptr %4, align 8, !tbaa !24
+  store i64 %6, ptr %4, align 8, !tbaa !23
   %7 = icmp eq i64 %6, 0
   br i1 %7, label %8, label %12
 
 8:                                                ; preds = %_ZNSt3__111unique_lockINS_5mutexEEC2B8ne210000ERS1_.exit
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  store i64 0, ptr %9, align 8, !tbaa !28
+  store i64 0, ptr %9, align 8, !tbaa !27
   %10 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %0) #10
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 40
   tail call void @_ZNSt3__118condition_variable10notify_oneEv(ptr noundef nonnull align 8 dereferenceable(48) %11) #10
@@ -559,13 +559,12 @@ attributes #13 = { nounwind willreturn memory(none) }
 !16 = !{!"_ZTSNSt3__118condition_variableE", !9, i64 0}
 !17 = !{i8 0, i8 2}
 !18 = !{}
-!19 = distinct !{!19, !20, !21}
+!19 = distinct !{!19, !20}
 !20 = !{!"llvm.loop.mustprogress"}
-!21 = !{!"llvm.loop.estimated_trip_count"}
-!22 = !{!23, !23, i64 0}
-!23 = !{!"long", !9, i64 0}
-!24 = !{!25, !23, i64 88}
-!25 = !{!"_ZTSNSt3__121recursive_timed_mutexE", !15, i64 0, !16, i64 40, !23, i64 88, !26, i64 96}
-!26 = !{!"_ZTSNSt3__111__thread_idE", !23, i64 0}
-!27 = distinct !{!27, !20, !21}
-!28 = !{!26, !23, i64 0}
+!21 = !{!22, !22, i64 0}
+!22 = !{!"long", !9, i64 0}
+!23 = !{!24, !22, i64 88}
+!24 = !{!"_ZTSNSt3__121recursive_timed_mutexE", !15, i64 0, !16, i64 40, !22, i64 88, !25, i64 96}
+!25 = !{!"_ZTSNSt3__111__thread_idE", !22, i64 0}
+!26 = distinct !{!26, !20}
+!27 = !{!25, !22, i64 0}

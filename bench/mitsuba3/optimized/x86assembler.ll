@@ -7342,7 +7342,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   store <16 x i8> %4910, ptr %4911, align 1, !tbaa !51
   %4912 = add nuw i64 %4906, 16
   %4913 = icmp eq i64 %4912, %4904
-  br i1 %4913, label %4914, label %4905, !llvm.loop !115
+  br i1 %4913, label %4914, label %4905, !llvm.loop !114
 
 4914:                                             ; preds = %4905
   %4915 = sub i64 0, %4904
@@ -7386,7 +7386,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %4939 = load i8, ptr %4938, align 1, !tbaa !51
   store i8 %4939, ptr %4937, align 1, !tbaa !51
   %4940 = icmp eq ptr %4938, %4603
-  br i1 %4940, label %.loopexit, label %4936, !llvm.loop !116
+  br i1 %4940, label %.loopexit, label %4936, !llvm.loop !115
 
 .loopexit:                                        ; preds = %4936, %4914, %4895, %4868
   %4941 = phi ptr [ %4596, %4868 ], [ %4603, %4914 ], [ %4603, %4895 ], [ %4603, %4936 ]
@@ -7429,9 +7429,9 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %4967 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4968 = load ptr, ptr %4967, align 8, !tbaa !36
   %4969 = getelementptr inbounds nuw i8, ptr %4968, i64 268
-  %4970 = load i32, ptr %4969, align 4, !tbaa !117
+  %4970 = load i32, ptr %4969, align 4, !tbaa !116
   %4971 = getelementptr inbounds nuw i8, ptr %4968, i64 264
-  %4972 = load i32, ptr %4971, align 8, !tbaa !118
+  %4972 = load i32, ptr %4971, align 8, !tbaa !117
   %4973 = icmp eq i32 %4970, %4972
   br i1 %4973, label %4974, label %4979
 
@@ -7440,7 +7440,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %4976 = getelementptr inbounds nuw i8, ptr %4968, i64 96
   %4977 = call noundef i32 @_ZN6asmjit9_abi_1_1014ZoneVectorBase5_growEPNS0_13ZoneAllocatorEjj(ptr noundef nonnull align 8 dereferenceable(16) %4975, ptr noundef nonnull %4976, i32 noundef 8, i32 noundef 1) #11
   %4978 = icmp eq i32 %4977, 0
-  br i1 %4978, label %._crit_edge147, label %6020, !prof !119
+  br i1 %4978, label %._crit_edge147, label %6020, !prof !118
 
 ._crit_edge147:                                   ; preds = %4974
   %.pre148 = load ptr, ptr %4967, align 8, !tbaa !36
@@ -7458,14 +7458,14 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %4986 = getelementptr inbounds nuw i8, ptr %4966, i64 4
   %4987 = load i32, ptr %4986, align 4, !tbaa !58
   %4988 = getelementptr inbounds nuw i8, ptr %4980, i64 248
-  %4989 = load i32, ptr %4988, align 8, !tbaa !118
+  %4989 = load i32, ptr %4988, align 8, !tbaa !117
   %4990 = icmp ugt i32 %4989, %4987
   br i1 %4990, label %4991, label %6020
 
 4991:                                             ; preds = %4985
   %4992 = getelementptr inbounds nuw i8, ptr %4980, i64 240
   %4993 = zext i32 %4987 to i64
-  %4994 = load ptr, ptr %4992, align 8, !tbaa !120
+  %4994 = load ptr, ptr %4992, align 8, !tbaa !119
   %4995 = getelementptr inbounds nuw ptr, ptr %4994, i64 %4993
   %4996 = load ptr, ptr %4995, align 8, !tbaa !28
   %4997 = icmp eq ptr %4996, null
@@ -7516,18 +7516,18 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %5028 = getelementptr inbounds nuw i8, ptr %5005, i64 32
   store i64 %5027, ptr %5028, align 8, !tbaa !109
   %5029 = getelementptr inbounds nuw i8, ptr %4996, i64 32
-  %5030 = load ptr, ptr %5029, align 8, !tbaa !121
+  %5030 = load ptr, ptr %5029, align 8, !tbaa !120
   %5031 = icmp eq ptr %5030, null
   br i1 %5031, label %5039, label %5032
 
 5032:                                             ; preds = %5001
   %5033 = getelementptr inbounds nuw i8, ptr %4996, i64 24
-  %5034 = load i64, ptr %5033, align 8, !tbaa !126
+  %5034 = load i64, ptr %5033, align 8, !tbaa !125
   %5035 = add i64 %5034, %5027
   store i64 %5035, ptr %5028, align 8, !tbaa !109
   %5036 = load i32, ptr %5030, align 8, !tbaa !94
   %5037 = getelementptr inbounds nuw i8, ptr %5005, i64 20
-  store i32 %5036, ptr %5037, align 4, !tbaa !127
+  store i32 %5036, ptr %5037, align 4, !tbaa !126
   store i32 0, ptr %4961, align 1, !tbaa !51
   %5038 = getelementptr inbounds nuw i8, ptr %4961, i64 4
   br label %5279
@@ -7550,7 +7550,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %5050 = getelementptr inbounds nuw i8, ptr %5049, i64 16
   store i32 %5048, ptr %5050, align 8, !tbaa !95
   %5051 = getelementptr inbounds nuw i8, ptr %5049, i64 20
-  store i32 %5048, ptr %5051, align 4, !tbaa !127
+  store i32 %5048, ptr %5051, align 4, !tbaa !126
   %5052 = getelementptr inbounds nuw i8, ptr %5049, i64 8
   store i8 1, ptr %5052, align 1, !tbaa !101
   %5053 = getelementptr inbounds nuw i8, ptr %5049, i64 9
@@ -7603,14 +7603,14 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %5086 = getelementptr inbounds nuw i8, ptr %4606, i64 4
   %5087 = load i32, ptr %5086, align 4, !tbaa !58
   %5088 = getelementptr inbounds nuw i8, ptr %5085, i64 248
-  %5089 = load i32, ptr %5088, align 8, !tbaa !118
+  %5089 = load i32, ptr %5088, align 8, !tbaa !117
   %5090 = icmp ugt i32 %5089, %5087
   br i1 %5090, label %5091, label %6020
 
 5091:                                             ; preds = %5083
   %5092 = getelementptr inbounds nuw i8, ptr %5085, i64 240
   %5093 = zext i32 %5087 to i64
-  %5094 = load ptr, ptr %5092, align 8, !tbaa !120
+  %5094 = load ptr, ptr %5092, align 8, !tbaa !119
   %5095 = getelementptr inbounds nuw ptr, ptr %5094, i64 %5093
   %5096 = load ptr, ptr %5095, align 8, !tbaa !28
   %5097 = icmp eq ptr %5096, null
@@ -7623,13 +7623,13 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %5102 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %5103 = load ptr, ptr %5102, align 8, !tbaa !38
   %5104 = getelementptr inbounds nuw i8, ptr %5096, i64 32
-  %5105 = load ptr, ptr %5104, align 8, !tbaa !121
+  %5105 = load ptr, ptr %5104, align 8, !tbaa !120
   %5106 = icmp eq ptr %5105, %5103
   br i1 %5106, label %5107, label %5937
 
 5107:                                             ; preds = %5098
   %5108 = getelementptr inbounds nuw i8, ptr %5096, i64 24
-  %5109 = load i64, ptr %5108, align 8, !tbaa !126
+  %5109 = load i64, ptr %5108, align 8, !tbaa !125
   %5110 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %5111 = load ptr, ptr %5110, align 8, !tbaa !80
   %5112 = ptrtoint ptr %4955 to i64
@@ -7988,7 +7988,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %5357 = lshr exact i32 %5356, 8
   %5358 = or disjoint i32 %5353, %5357
   %5359 = getelementptr inbounds nuw i8, ptr %0, i64 92
-  %5360 = load i32, ptr %5359, align 4, !tbaa !128
+  %5360 = load i32, ptr %5359, align 4, !tbaa !127
   %5361 = shl i32 %5360, 16
   %5362 = or i32 %5358, %5361
   %5363 = and i32 %5344, 7
@@ -8277,7 +8277,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %5573 = or i32 %5571, %5572
   %5574 = lshr exact i32 %5573, 8
   %5575 = getelementptr inbounds nuw i8, ptr %0, i64 92
-  %5576 = load i32, ptr %5575, align 4, !tbaa !128
+  %5576 = load i32, ptr %5575, align 4, !tbaa !127
   %5577 = shl i32 %5576, 16
   %5578 = select i1 %5562, i32 0, i32 1048576
   %5579 = and i32 %5518, 7
@@ -8353,7 +8353,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %5637 = lshr i32 %5546, 21
   %5638 = and i32 %5637, 7
   %5639 = shl nuw nsw i32 %5634, %5638
-  %5640 = call noundef i32 @llvm.cttz.i32(i32 %5639, i1 true), !range !129
+  %5640 = call noundef i32 @llvm.cttz.i32(i32 %5639, i1 true), !range !128
   %5641 = call noundef i32 @llvm.umax.i32(i32 %5640, i32 4)
   %5642 = shl i32 %5641, 29
   %5643 = xor i32 %5642, -2147483648
@@ -8366,7 +8366,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %5648 = and i32 %5627, -1610612894
   %5649 = or disjoint i32 %5647, %5648
   %5650 = and i32 %5519, -57345
-  %5651 = call noundef i32 @llvm.cttz.i32(i32 %5634, i1 true), !range !129
+  %5651 = call noundef i32 @llvm.cttz.i32(i32 %5634, i1 true), !range !128
   %5652 = shl nuw nsw i32 %5651, 13
   %5653 = or i32 %5652, %5650
   br label %5667
@@ -8499,14 +8499,14 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %5751 = getelementptr inbounds nuw i8, ptr %5719, i64 4
   %5752 = load i32, ptr %5751, align 4, !tbaa !58
   %5753 = getelementptr inbounds nuw i8, ptr %5750, i64 248
-  %5754 = load i32, ptr %5753, align 8, !tbaa !118
+  %5754 = load i32, ptr %5753, align 8, !tbaa !117
   %5755 = icmp ugt i32 %5754, %5752
   br i1 %5755, label %5756, label %6020
 
 5756:                                             ; preds = %5748
   %5757 = getelementptr inbounds nuw i8, ptr %5750, i64 240
   %5758 = zext i32 %5752 to i64
-  %5759 = load ptr, ptr %5757, align 8, !tbaa !120
+  %5759 = load ptr, ptr %5757, align 8, !tbaa !119
   %5760 = getelementptr inbounds nuw ptr, ptr %5759, i64 %5758
   %5761 = load ptr, ptr %5760, align 8, !tbaa !28
   %5762 = icmp eq ptr %5761, null
@@ -8516,13 +8516,13 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %5764 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %5765 = load ptr, ptr %5764, align 8, !tbaa !38
   %5766 = getelementptr inbounds nuw i8, ptr %5761, i64 32
-  %5767 = load ptr, ptr %5766, align 8, !tbaa !121
+  %5767 = load ptr, ptr %5766, align 8, !tbaa !120
   %5768 = icmp eq ptr %5767, %5765
   br i1 %5768, label %5769, label %5775
 
 5769:                                             ; preds = %5763
   %5770 = getelementptr inbounds nuw i8, ptr %5761, i64 24
-  %5771 = load i64, ptr %5770, align 8, !tbaa !126
+  %5771 = load i64, ptr %5770, align 8, !tbaa !125
   %5772 = zext nneg i32 %5745 to i64
   %5773 = sub i64 %5734, %5772
   %5774 = add i64 %5773, %5771
@@ -8546,7 +8546,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   br label %5937
 
 5785:                                             ; preds = %5775
-  br i1 %5780, label %6020, label %5786, !prof !130
+  br i1 %5780, label %6020, label %5786, !prof !129
 
 5786:                                             ; preds = %5785, %5781
   %5787 = icmp ne i32 %5742, 0
@@ -8650,7 +8650,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
 5850:                                             ; preds = %5845
   %5851 = load ptr, ptr %7, align 8, !tbaa !28
   %5852 = getelementptr inbounds nuw i8, ptr %5851, i64 4
-  store i32 5, ptr %5852, align 4, !tbaa !131
+  store i32 5, ptr %5852, align 4, !tbaa !130
   br label %5853
 
 5853:                                             ; preds = %5850, %5841, %5836
@@ -8824,9 +8824,9 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   br i1 %5969, label %5974, label %5970
 
 5970:                                             ; preds = %5967
-  %5971 = load i32, ptr %5968, align 8, !tbaa !132
+  %5971 = load i32, ptr %5968, align 8, !tbaa !131
   %5972 = getelementptr inbounds nuw i8, ptr %5965, i64 12
-  store i32 %5971, ptr %5972, align 4, !tbaa !133
+  store i32 %5971, ptr %5972, align 4, !tbaa !132
   br label %5974
 
 5973:                                             ; preds = %5937
@@ -8902,9 +8902,9 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %6016 = sub i64 %6014, %6015
   store ptr %5996, ptr %11, align 8, !tbaa !29
   %6017 = getelementptr inbounds nuw i8, ptr %6011, i64 80
-  %6018 = load i64, ptr %6017, align 8, !tbaa !135
+  %6018 = load i64, ptr %6017, align 8, !tbaa !134
   %6019 = call noundef i64 @llvm.umax.i64(i64 %6018, i64 %6016)
-  store i64 %6019, ptr %6017, align 8, !tbaa !136
+  store i64 %6019, ptr %6017, align 8, !tbaa !135
   br label %6024
 
 6020:                                             ; preds = %5371, %5973, %5919, %5845, %5819, %5818, %5785, %5756, %5748, %5722, %5715, %5712, %5636, %5630, %5593, %5386, %5378, %5270, %5243, %5228, %5199, %5124, %5091, %5083, %5042, %4998, %4991, %4985, %4974, %4861, %4857, %4748, %4693, %4514, %4451, %4377, %4324, %4303, %4229, %4159, %4129, %4124, %4119, %4114, %4112, %4071, %4050, %3992, %3987, %3952, %3913, %3885, %3851, %3785, %3762, %3729, %3680, %3622, %3602, %3562, %3530, %3507, %3483, %3461, %3443, %3409, %3361, %3336, %3331, %3326, %3324, %3291, %3269, %3257, %3213, %3209, %3205, %3201, %3197, %3193, %3187, %3169, %3158, %3095, %3088, %3073, %3037, %3020, %3018, %3016, %3006, %2968, %2960, %2937, %2916, %2891, %2880, %2840, %2819, %2796, %2785, %2765, %2758, %2748, %2707, %2704, %2656, %2649, %2637, %2608, %2585, %2557, %2545, %2544, %2538, %2535, %2522, %2518, %2512, %2507, %2505, %2492, %2480, %2474, %2470, %2466, %2465, %2461, %2450, %2437, %2412, %2319, %2318, %2296, %2282, %2229, %2169, %2157, %2154, %2144, %2138, %2136, %2123, %2115, %2109, %2096, %2088, %2082, %2068, %2052, %2050, %2009, %1993, %1986, %1984, %1968, %1965, %1927, %1917, %1911, %1896, %1886, %1881, %1863, %1858, %1848, %1841, %1833, %1827, %1810, %1789, %1788, %1776, %1768, %1766, %1756, %1724, %1715, %1702, %1688, %1672, %1658, %1657, %1641, %1339, %1338, %1317, %1273, %1260, %1248, %1236, %1232, %1227, %1214, %1200, %1179, %1157, %1147, %1108, %1098, %1087, %1079, %1077, %1060, %1039, %1038, %985, %918, %904, %875, %871, %867, %865, %805, %803, %795, %787, %767, %732, %730, %702, %651, %648, %530, %529, %519, %484, %474, %461, %454, %443, %435, %434, %414, %412, %399, %378, %370, %362, %361, %351, %329, %317, %303, %295, %279, %271, %266, %260, %238, %233, %221, %220, %212, %211, %207, %206, %189, %179, %153, %141, %134, %118, %112, %105, %78, %70, %55
@@ -8965,7 +8965,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5alignENS0_9Alig
   br i1 %15, label %164, label %16
 
 16:                                               ; preds = %14
-  %17 = tail call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %2), !range !129
+  %17 = tail call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %2), !range !128
   %18 = icmp samesign ult i32 %17, 2
   %19 = icmp ult i32 %2, 65
   %20 = and i1 %19, %18
@@ -9064,7 +9064,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5alignENS0_9Alig
   %81 = getelementptr inbounds nuw i8, ptr %76, i64 1
   %82 = add nuw nsw i32 %78, 1
   %83 = icmp eq i32 %82, %74
-  br i1 %83, label %.loopexit10.loopexit, label %.preheader9, !llvm.loop !137
+  br i1 %83, label %.loopexit10.loopexit, label %.preheader9, !llvm.loop !136
 
 .loopexit10.loopexit:                             ; preds = %.preheader9
   %84 = and i32 %70, 8
@@ -9116,13 +9116,13 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5alignENS0_9Alig
   %116 = getelementptr inbounds nuw i8, ptr %90, i64 8
   %117 = add i32 %91, -8
   %118 = icmp eq i32 %117, 0
-  br i1 %118, label %.loopexit, label %.preheader, !llvm.loop !139
+  br i1 %118, label %.loopexit, label %.preheader, !llvm.loop !138
 
 .loopexit:                                        ; preds = %.preheader, %.loopexit10
   %119 = phi ptr [ %85, %.loopexit10 ], [ %116, %.preheader ]
   %120 = sub i32 %69, %70
   %121 = icmp eq i32 %120, 0
-  br i1 %121, label %.loopexit12, label %.preheader11, !llvm.loop !140
+  br i1 %121, label %.loopexit12, label %.preheader11, !llvm.loop !139
 
 122:                                              ; preds = %61
   br label %123
@@ -9143,14 +9143,14 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5alignENS0_9Alig
   %132 = sub i64 %130, %131
   store ptr %126, ptr %24, align 8, !tbaa !29
   %133 = getelementptr inbounds nuw i8, ptr %128, i64 80
-  %134 = load i64, ptr %133, align 8, !tbaa !135
+  %134 = load i64, ptr %133, align 8, !tbaa !134
   %135 = tail call noundef i64 @llvm.umax.i64(i64 %134, i64 %132)
-  store i64 %135, ptr %133, align 8, !tbaa !136
+  store i64 %135, ptr %133, align 8, !tbaa !135
   br label %136
 
 136:                                              ; preds = %.loopexit12, %23
   %137 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %138 = load ptr, ptr %137, align 8, !tbaa !141
+  %138 = load ptr, ptr %137, align 8, !tbaa !140
   %139 = icmp eq ptr %138, null
   br i1 %139, label %164, label %140
 
@@ -9169,7 +9169,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5alignENS0_9Alig
   %146 = zext i8 %145 to i64
   %147 = call noundef i32 @_ZN6asmjit9_abi_1_106String8_opCharsENS1_8ModifyOpEcm(ptr noundef nonnull align 8 dereferenceable(32) %4, i32 noundef 1, i8 noundef signext 32, i64 noundef %146) #11
   %148 = call noundef i32 (ptr, i32, ptr, ...) @_ZN6asmjit9_abi_1_106String9_opFormatENS1_8ModifyOpEPKcz(ptr noundef nonnull align 8 dereferenceable(32) %4, i32 noundef 1, ptr noundef nonnull @.str, i32 noundef %2) #11
-  %149 = load ptr, ptr %137, align 8, !tbaa !141
+  %149 = load ptr, ptr %137, align 8, !tbaa !140
   %150 = load i8, ptr %4, align 8
   %151 = icmp ugt i8 %150, 30
   %152 = load ptr, ptr %143, align 8
@@ -9203,14 +9203,14 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler8onAttachEPNS0_1
   %7 = and i8 %3, 1
   %8 = icmp eq i8 %7, 0
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 36
-  %10 = load i32, ptr %9, align 4, !tbaa !142
+  %10 = load i32, ptr %9, align 4, !tbaa !141
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %12 = and i32 %10, 2147483647
   %13 = zext i8 %3 to i32
   %14 = shl i32 %13, 31
   %15 = or disjoint i32 %12, %14
   %16 = select i1 %8, i32 128, i32 64
-  store i32 %15, ptr %9, align 4, !tbaa !142
+  store i32 %15, ptr %9, align 4, !tbaa !141
   store i32 %16, ptr %11, align 8, !tbaa !57
   br label %17
 
@@ -9224,9 +9224,9 @@ declare noundef i32 @_ZN6asmjit9_abi_1_1013BaseAssembler8onAttachEPNS0_10CodeHol
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler8onDetachEPNS0_10CodeHolderE(ptr noundef nonnull align 8 dereferenceable(176) initializes((40, 44)) %0, ptr noundef %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 36
-  %4 = load i32, ptr %3, align 4, !tbaa !142
+  %4 = load i32, ptr %3, align 4, !tbaa !141
   %5 = and i32 %4, 2147483647
-  store i32 %5, ptr %3, align 4, !tbaa !142
+  store i32 %5, ptr %3, align 4, !tbaa !141
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i32 0, ptr %6, align 8, !tbaa !57
   %7 = tail call noundef i32 @_ZN6asmjit9_abi_1_1013BaseAssembler8onDetachEPNS0_10CodeHolderE(ptr noundef nonnull align 8 dereferenceable(176) %0, ptr noundef %1) #11
@@ -9429,36 +9429,35 @@ attributes #13 = { builtin nounwind }
 !107 = !{!98, !9, i64 2}
 !108 = !{!98, !9, i64 4}
 !109 = !{!96, !13, i64 32}
-!110 = distinct !{!110, !111, !112, !113, !114}
+!110 = distinct !{!110, !111, !112, !113}
 !111 = !{!"llvm.loop.mustprogress"}
 !112 = !{!"llvm.loop.isvectorized", i32 1}
 !113 = !{!"llvm.loop.unroll.runtime.disable"}
-!114 = !{!"llvm.loop.estimated_trip_count"}
-!115 = distinct !{!115, !111, !112, !113, !114}
-!116 = distinct !{!116, !111, !113, !112, !114}
-!117 = !{!73, !16, i64 12}
-!118 = !{!73, !16, i64 8}
-!119 = !{!"branch_weights", i32 2145337238, i32 2146410}
-!120 = !{!73, !17, i64 0}
-!121 = !{!122, !17, i64 32}
-!122 = !{!"_ZTSN6asmjit9_abi_1_1010LabelEntryE", !123, i64 0, !124, i64 16, !9, i64 17, !16, i64 20, !13, i64 24, !17, i64 32, !17, i64 40, !125, i64 48}
-!123 = !{!"_ZTSN6asmjit9_abi_1_1012ZoneHashNodeE", !17, i64 0, !16, i64 8, !16, i64 12}
-!124 = !{!"_ZTSN6asmjit9_abi_1_109LabelTypeE", !9, i64 0}
-!125 = !{!"_ZTSN6asmjit9_abi_1_1010ZoneStringILm16EEE", !9, i64 0}
-!126 = !{!122, !13, i64 24}
-!127 = !{!96, !16, i64 20}
-!128 = !{!26, !16, i64 4}
-!129 = !{i32 0, i32 33}
-!130 = !{!"branch_weights", i32 5012044, i32 -103578189}
-!131 = !{!96, !97, i64 4}
-!132 = !{!96, !16, i64 0}
-!133 = !{!134, !16, i64 12}
-!134 = !{!"_ZTSN6asmjit9_abi_1_109LabelLinkE", !17, i64 0, !16, i64 8, !16, i64 12, !13, i64 16, !13, i64 24, !98, i64 32}
-!135 = !{!13, !13, i64 0}
-!136 = !{!84, !13, i64 8}
-!137 = distinct !{!137, !138, !114}
-!138 = !{!"llvm.loop.unroll.disable"}
-!139 = distinct !{!139, !111, !112, !114}
-!140 = distinct !{!140, !111, !114}
-!141 = !{!7, !17, i64 56}
-!142 = !{!15, !15, i64 0}
+!114 = distinct !{!114, !111, !112, !113}
+!115 = distinct !{!115, !111, !113, !112}
+!116 = !{!73, !16, i64 12}
+!117 = !{!73, !16, i64 8}
+!118 = !{!"branch_weights", i32 2145337238, i32 2146410}
+!119 = !{!73, !17, i64 0}
+!120 = !{!121, !17, i64 32}
+!121 = !{!"_ZTSN6asmjit9_abi_1_1010LabelEntryE", !122, i64 0, !123, i64 16, !9, i64 17, !16, i64 20, !13, i64 24, !17, i64 32, !17, i64 40, !124, i64 48}
+!122 = !{!"_ZTSN6asmjit9_abi_1_1012ZoneHashNodeE", !17, i64 0, !16, i64 8, !16, i64 12}
+!123 = !{!"_ZTSN6asmjit9_abi_1_109LabelTypeE", !9, i64 0}
+!124 = !{!"_ZTSN6asmjit9_abi_1_1010ZoneStringILm16EEE", !9, i64 0}
+!125 = !{!121, !13, i64 24}
+!126 = !{!96, !16, i64 20}
+!127 = !{!26, !16, i64 4}
+!128 = !{i32 0, i32 33}
+!129 = !{!"branch_weights", i32 5012044, i32 -103578189}
+!130 = !{!96, !97, i64 4}
+!131 = !{!96, !16, i64 0}
+!132 = !{!133, !16, i64 12}
+!133 = !{!"_ZTSN6asmjit9_abi_1_109LabelLinkE", !17, i64 0, !16, i64 8, !16, i64 12, !13, i64 16, !13, i64 24, !98, i64 32}
+!134 = !{!13, !13, i64 0}
+!135 = !{!84, !13, i64 8}
+!136 = distinct !{!136, !137}
+!137 = !{!"llvm.loop.unroll.disable"}
+!138 = distinct !{!138, !111, !112}
+!139 = distinct !{!139, !111}
+!140 = !{!7, !17, i64 56}
+!141 = !{!15, !15, i64 0}

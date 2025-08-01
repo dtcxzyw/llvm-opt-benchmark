@@ -741,7 +741,7 @@ get_direction_state.exit:                         ; preds = %151, %197, %address
   store i8 %300, ptr %301, align 1
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %295
-  br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %298, !llvm.loop !11
+  br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %298, !llvm.loop !10
 
 ._crit_edge.i.i:                                  ; preds = %298
   %302 = getelementptr i8, ptr %297, i64 %295
@@ -844,7 +844,7 @@ new_byte.exit.i:                                  ; preds = %._crit_edge.i.i, %2
   %.5.i = phi i8 [ 0, %332 ], [ 0, %330 ], [ %.298.i, %326 ], [ %.3.i, %325 ]
   %indvars.iv.next.i = add nuw nsw i32 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i32 %indvars.iv.next.i, 9
-  br i1 %exitcond.not.i, label %263, label %264, !llvm.loop !12
+  br i1 %exitcond.not.i, label %263, label %264, !llvm.loop !11
 
 ._crit_edge.i:                                    ; preds = %263
   %.not.i168 = icmp eq i8 %.4144.i, 0
@@ -1090,7 +1090,7 @@ get_new_reass_seq_num.exit169:                    ; preds = %363
   %.1 = phi i1 [ %.0148173, %450 ], [ true, %454 ]
   %462 = tail call ptr @wmem_list_frame_next(ptr noundef nonnull %.0147174)
   %.not162 = icmp eq ptr %462, null
-  br i1 %.not162, label %._crit_edge, label %.lr.ph, !llvm.loop !13
+  br i1 %.not162, label %._crit_edge, label %.lr.ph, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %461, %440
   %.0148.lcssa = phi i1 [ false, %440 ], [ %.1, %461 ]
@@ -1602,9 +1602,8 @@ attributes #12 = { nounwind }
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i8 0, i8 2}
 !7 = !{}
-!8 = distinct !{!8, !9, !10}
+!8 = distinct !{!8, !9}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = !{!"llvm.loop.estimated_trip_count"}
-!11 = distinct !{!11, !9, !10}
-!12 = distinct !{!12, !9, !10}
-!13 = distinct !{!13, !9, !10}
+!10 = distinct !{!10, !9}
+!11 = distinct !{!11, !9}
+!12 = distinct !{!12, !9}

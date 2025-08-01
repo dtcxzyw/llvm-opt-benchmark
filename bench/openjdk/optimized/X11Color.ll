@@ -225,7 +225,7 @@ define hidden i32 @awt_color_match(i32 noundef %0, i32 noundef %1, i32 noundef %
   %66 = add nuw nsw i32 %.16997, 1
   %67 = getelementptr inbounds nuw i8, ptr %.198, i64 4
   %exitcond.not = icmp eq i32 %66, %17
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !9
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !8
 
 .loopexit:                                        ; preds = %63, %65, %32, %38, %.preheader92, %.preheader
   %.076 = phi i32 [ 0, %.preheader ], [ 0, %.preheader92 ], [ %.068103, %32 ], [ %.173, %38 ], [ %.16997, %63 ], [ %.375, %65 ]
@@ -251,7 +251,7 @@ define hidden void @awt_fill_imgcv(ptr noundef writeonly captures(none) %0, i32 
 11:                                               ; preds = %5, %9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 64
-  br i1 %exitcond.not, label %12, label %5, !llvm.loop !10
+  br i1 %exitcond.not, label %12, label %5, !llvm.loop !9
 
 12:                                               ; preds = %11
   ret void
@@ -395,7 +395,7 @@ define hidden range(i32 0, 2) i32 @awt_allocate_colors(ptr noundef captures(none
 28:                                               ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit431, label %.lr.ph, !llvm.loop !11
+  br i1 %exitcond.not, label %.loopexit431, label %.lr.ph, !llvm.loop !10
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %28
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %28 ]
@@ -460,7 +460,7 @@ define hidden range(i32 0, 2) i32 @awt_allocate_colors(ptr noundef captures(none
   %61 = ashr exact i32 %.1368433, 1
   %62 = and i32 %.1368433, 2
   %63 = icmp eq i32 %62, 0
-  br i1 %63, label %.lr.ph434, label %._crit_edge, !llvm.loop !12
+  br i1 %63, label %.lr.ph434, label %._crit_edge, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %.lr.ph434, %48
   %.1368.lcssa = phi i32 [ %54, %48 ], [ %61, %.lr.ph434 ]
@@ -479,7 +479,7 @@ define hidden range(i32 0, 2) i32 @awt_allocate_colors(ptr noundef captures(none
   store i32 %70, ptr %68, align 4
   %71 = shl i32 %.2369435, 1
   %72 = icmp slt i32 %71, 128
-  br i1 %72, label %.lr.ph437, label %._crit_edge438, !llvm.loop !13
+  br i1 %72, label %.lr.ph437, label %._crit_edge438, !llvm.loop !12
 
 ._crit_edge438:                                   ; preds = %.lr.ph437, %._crit_edge
   %73 = load ptr, ptr %22, align 8
@@ -502,7 +502,7 @@ define hidden range(i32 0, 2) i32 @awt_allocate_colors(ptr noundef captures(none
   %84 = ashr exact i32 %.3439, 1
   %85 = and i32 %.3439, 2
   %86 = icmp eq i32 %85, 0
-  br i1 %86, label %.lr.ph441, label %._crit_edge442, !llvm.loop !14
+  br i1 %86, label %.lr.ph441, label %._crit_edge442, !llvm.loop !13
 
 ._crit_edge442:                                   ; preds = %.lr.ph441, %._crit_edge438
   %.3.lcssa = phi i32 [ %77, %._crit_edge438 ], [ %84, %.lr.ph441 ]
@@ -521,7 +521,7 @@ define hidden range(i32 0, 2) i32 @awt_allocate_colors(ptr noundef captures(none
   store i32 %93, ptr %91, align 8
   %94 = shl i32 %.4444, 1
   %95 = icmp slt i32 %94, 128
-  br i1 %95, label %.lr.ph446, label %._crit_edge447, !llvm.loop !15
+  br i1 %95, label %.lr.ph446, label %._crit_edge447, !llvm.loop !14
 
 ._crit_edge447:                                   ; preds = %.lr.ph446, %._crit_edge442
   %96 = load ptr, ptr %22, align 8
@@ -544,7 +544,7 @@ define hidden range(i32 0, 2) i32 @awt_allocate_colors(ptr noundef captures(none
   %107 = ashr exact i32 %.5448, 1
   %108 = and i32 %.5448, 2
   %109 = icmp eq i32 %108, 0
-  br i1 %109, label %.lr.ph450, label %._crit_edge451, !llvm.loop !16
+  br i1 %109, label %.lr.ph450, label %._crit_edge451, !llvm.loop !15
 
 ._crit_edge451:                                   ; preds = %.lr.ph450, %._crit_edge447
   %.5.lcssa = phi i32 [ %100, %._crit_edge447 ], [ %107, %.lr.ph450 ]
@@ -563,7 +563,7 @@ define hidden range(i32 0, 2) i32 @awt_allocate_colors(ptr noundef captures(none
   store i32 %116, ptr %114, align 4
   %117 = shl i32 %.6453, 1
   %118 = icmp slt i32 %117, 128
-  br i1 %118, label %.lr.ph455, label %.loopexit, !llvm.loop !17
+  br i1 %118, label %.lr.ph455, label %.loopexit, !llvm.loop !16
 
 119:                                              ; preds = %36, %43
   %120 = icmp slt i32 %spec.store.select, 17
@@ -655,7 +655,7 @@ define hidden range(i32 0, 2) i32 @awt_allocate_colors(ptr noundef captures(none
   store i64 %indvars.iv523, ptr %160, align 16
   %indvars.iv.next524 = add nuw nsw i64 %indvars.iv523, 1
   %exitcond527.not = icmp eq i64 %indvars.iv.next524, %wide.trip.count526
-  br i1 %exitcond527.not, label %._crit_edge459, label %.lr.ph458, !llvm.loop !18
+  br i1 %exitcond527.not, label %._crit_edge459, label %.lr.ph458, !llvm.loop !17
 
 ._crit_edge459:                                   ; preds = %.lr.ph458, %157
   %161 = zext nneg i32 %. to i64
@@ -708,7 +708,7 @@ define hidden range(i32 0, 2) i32 @awt_allocate_colors(ptr noundef captures(none
   %193 = load i32, ptr %20, align 8
   %194 = sext i32 %193 to i64
   %195 = icmp slt i64 %indvars.iv.next529, %194
-  br i1 %195, label %.lr.ph462, label %.preheader428.preheader, !llvm.loop !19
+  br i1 %195, label %.lr.ph462, label %.preheader428.preheader, !llvm.loop !18
 
 .preheader427:                                    ; preds = %.preheader428
   %.not512 = icmp eq i32 %spec.select410, 0
@@ -729,7 +729,7 @@ define hidden range(i32 0, 2) i32 @awt_allocate_colors(ptr noundef captures(none
   %199 = select i1 %.not409, i32 0, i32 %.9
   %spec.select410 = add nuw nsw i32 %199, %.0380463
   %.not398 = icmp samesign ult i32 %.9.in464, 4
-  br i1 %.not398, label %.preheader427, label %.preheader428, !llvm.loop !20
+  br i1 %.not398, label %.preheader427, label %.preheader428, !llvm.loop !19
 
 .lr.ph466:                                        ; preds = %.lr.ph466.preheader, %.lr.ph466
   %indvars.iv531 = phi i64 [ 0, %.lr.ph466.preheader ], [ %indvars.iv.next532, %.lr.ph466 ]
@@ -741,7 +741,7 @@ define hidden range(i32 0, 2) i32 @awt_allocate_colors(ptr noundef captures(none
   store i8 0, ptr %204, align 1
   %indvars.iv.next532 = add nuw nsw i64 %indvars.iv531, 1
   %exitcond535.not = icmp eq i64 %indvars.iv.next532, %wide.trip.count534
-  br i1 %exitcond535.not, label %._crit_edge467, label %.lr.ph466, !llvm.loop !21
+  br i1 %exitcond535.not, label %._crit_edge467, label %.lr.ph466, !llvm.loop !20
 
 ._crit_edge467:                                   ; preds = %.lr.ph466, %.preheader427
   %205 = call i32 @XFreeColors(ptr noundef %14, i64 noundef %16, ptr noundef nonnull %2, i32 noundef %spec.select410, i64 noundef 0) #14
@@ -782,7 +782,7 @@ define hidden range(i32 0, 2) i32 @awt_allocate_colors(ptr noundef captures(none
   %indvars.iv.next537 = add nuw nsw i64 %indvars.iv536, 1
   %230 = sext i32 %229 to i64
   %231 = icmp slt i64 %indvars.iv.next537, %230
-  br i1 %231, label %.lr.ph470, label %._crit_edge471, !llvm.loop !22
+  br i1 %231, label %.lr.ph470, label %._crit_edge471, !llvm.loop !21
 
 ._crit_edge471:                                   ; preds = %228, %._crit_edge467
   %232 = call fastcc i32 @alloc_col(ptr noundef %14, i64 noundef %16, i32 noundef 255, i32 noundef 255, i32 noundef 255, i32 noundef -1, ptr noundef nonnull %0)
@@ -807,12 +807,12 @@ define hidden range(i32 0, 2) i32 @awt_allocate_colors(ptr noundef captures(none
   %241 = call fastcc i32 @alloc_col(ptr noundef %14, i64 noundef %16, i32 noundef %.0363472, i32 noundef %.0363472, i32 noundef %.0363472, i32 noundef -1, ptr noundef nonnull %0)
   %242 = add nuw nsw i32 %.0363472, %239
   %243 = icmp samesign ult i32 %242, 256
-  br i1 %243, label %240, label %._crit_edge474, !llvm.loop !23
+  br i1 %243, label %240, label %._crit_edge474, !llvm.loop !22
 
 ._crit_edge474:                                   ; preds = %240
   %244 = lshr i32 %.12475, 1
   %.not400 = icmp samesign ult i32 %.12475, 2
-  br i1 %.not400, label %.loopexit426, label %.lr.ph473, !llvm.loop !24
+  br i1 %.not400, label %.loopexit426, label %.lr.ph473, !llvm.loop !23
 
 .loopexit426:                                     ; preds = %._crit_edge474, %237
   %245 = call noalias dereferenceable_or_null(256) ptr @calloc(i64 noundef 256, i64 noundef 1) #15
@@ -882,7 +882,7 @@ define hidden range(i32 0, 2) i32 @awt_allocate_colors(ptr noundef captures(none
   %275 = add nuw nsw i32 %.13476.us, 1
   %276 = getelementptr inbounds nuw i8, ptr %.0362477.us, i64 4
   %exitcond541.not = icmp eq i32 %275, %255
-  br i1 %exitcond541.not, label %._crit_edge482, label %.lr.ph481.split.us, !llvm.loop !25
+  br i1 %exitcond541.not, label %._crit_edge482, label %.lr.ph481.split.us, !llvm.loop !24
 
 .lr.ph481.split:                                  ; preds = %.lr.ph481
   br i1 %238, label %.lr.ph481.split.split.us, label %.lr.ph481.split.split
@@ -934,7 +934,7 @@ define hidden range(i32 0, 2) i32 @awt_allocate_colors(ptr noundef captures(none
   %296 = add nuw nsw i32 %.13476.us490, 1
   %297 = getelementptr inbounds nuw i8, ptr %.0362477.us489, i64 4
   %exitcond540.not = icmp eq i32 %296, %255
-  br i1 %exitcond540.not, label %._crit_edge482, label %.lr.ph481.split.split.us, !llvm.loop !27
+  br i1 %exitcond540.not, label %._crit_edge482, label %.lr.ph481.split.split.us, !llvm.loop !26
 
 .lr.ph481.split.split:                            ; preds = %.lr.ph481.split, %315
   %.0359479 = phi i32 [ %.2, %315 ], [ 0, %.lr.ph481.split ]
@@ -977,7 +977,7 @@ define hidden range(i32 0, 2) i32 @awt_allocate_colors(ptr noundef captures(none
   %316 = add nuw nsw i32 %.13476, 1
   %317 = getelementptr inbounds nuw i8, ptr %.0362477, i64 4
   %exitcond539.not = icmp eq i32 %316, %255
-  br i1 %exitcond539.not, label %._crit_edge482, label %.lr.ph481.split.split, !llvm.loop !28
+  br i1 %exitcond539.not, label %._crit_edge482, label %.lr.ph481.split.split, !llvm.loop !27
 
 ._crit_edge482:                                   ; preds = %315, %312, %295, %292, %274, %271, %252
   %.1 = phi i32 [ 0, %252 ], [ %.13476.us, %271 ], [ %.2.us, %274 ], [ %.13476.us490, %292 ], [ %.2.us493, %295 ], [ %.13476, %312 ], [ %.2, %315 ]
@@ -988,7 +988,7 @@ define hidden range(i32 0, 2) i32 @awt_allocate_colors(ptr noundef captures(none
   store i8 %318, ptr %321, align 1
   %indvars.iv.next543 = add nuw nsw i64 %indvars.iv542, 1
   %exitcond545.not = icmp eq i64 %indvars.iv.next543, 256
-  br i1 %exitcond545.not, label %322, label %252, !llvm.loop !29
+  br i1 %exitcond545.not, label %322, label %252, !llvm.loop !28
 
 322:                                              ; preds = %._crit_edge482
   %323 = icmp eq i32 %17, 1
@@ -1017,7 +1017,7 @@ define hidden range(i32 0, 2) i32 @awt_allocate_colors(ptr noundef captures(none
   store i8 %336, ptr %337, align 1
   %indvars.iv.next551 = add nuw nsw i64 %indvars.iv550, 1
   %exitcond553.not = icmp eq i64 %indvars.iv.next551, 256
-  br i1 %exitcond553.not, label %.loopexit420, label %329, !llvm.loop !30
+  br i1 %exitcond553.not, label %.loopexit420, label %329, !llvm.loop !29
 
 .preheader421:                                    ; preds = %322, %.preheader421
   %indvars.iv546 = phi i64 [ %indvars.iv.next547, %.preheader421 ], [ 0, %322 ]
@@ -1026,7 +1026,7 @@ define hidden range(i32 0, 2) i32 @awt_allocate_colors(ptr noundef captures(none
   store i8 %338, ptr %339, align 1
   %indvars.iv.next547 = add nuw nsw i64 %indvars.iv546, 1
   %exitcond549.not = icmp eq i64 %indvars.iv.next547, 256
-  br i1 %exitcond549.not, label %.loopexit420, label %.preheader421, !llvm.loop !31
+  br i1 %exitcond549.not, label %.loopexit420, label %.preheader421, !llvm.loop !30
 
 340:                                              ; preds = %._crit_edge471
   %341 = call fastcc i32 @alloc_col(ptr noundef %14, i64 noundef %16, i32 noundef 255, i32 noundef 0, i32 noundef 0, i32 noundef -1, ptr noundef nonnull %0)
@@ -1086,7 +1086,7 @@ define hidden range(i32 0, 2) i32 @awt_allocate_colors(ptr noundef captures(none
   %.1373 = phi i32 [ %.0372505, %359 ], [ %371, %370 ], [ %.0372505, %355 ]
   %indvars.iv.next555 = add nuw nsw i64 %indvars.iv554, 1
   %exitcond557.not = icmp eq i64 %indvars.iv.next555, 256
-  br i1 %exitcond557.not, label %373, label %355, !llvm.loop !32
+  br i1 %exitcond557.not, label %373, label %355, !llvm.loop !31
 
 373:                                              ; preds = %372
   %374 = icmp sgt i32 %17, 8
@@ -1173,7 +1173,7 @@ define hidden range(i32 0, 2) i32 @awt_allocate_colors(ptr noundef captures(none
   store i32 %412, ptr %413, align 4
   %indvars.iv.next559 = add nuw nsw i64 %indvars.iv558, 1
   %exitcond562.not = icmp eq i64 %indvars.iv.next559, %wide.trip.count561
-  br i1 %exitcond562.not, label %.preheader419.preheader, label %.lr.ph509, !llvm.loop !33
+  br i1 %exitcond562.not, label %.preheader419.preheader, label %.lr.ph509, !llvm.loop !32
 
 .preheader419.preheader:                          ; preds = %.lr.ph509, %401
   br label %.preheader419
@@ -1192,7 +1192,7 @@ define hidden range(i32 0, 2) i32 @awt_allocate_colors(ptr noundef captures(none
   store i8 %422, ptr %417, align 1
   %indvars.iv.next564 = add nuw nsw i64 %indvars.iv563, 1
   %exitcond566.not = icmp eq i64 %indvars.iv.next564, 32768
-  br i1 %exitcond566.not, label %423, label %.preheader419, !llvm.loop !34
+  br i1 %exitcond566.not, label %423, label %.preheader419, !llvm.loop !33
 
 423:                                              ; preds = %.preheader419
   %424 = load ptr, ptr %155, align 8
@@ -1278,7 +1278,7 @@ define hidden range(i32 0, 2) i32 @awt_allocate_colors(ptr noundef captures(none
   store i32 %.sink, ptr %482, align 4
   %indvars.iv.next568 = add nuw nsw i64 %indvars.iv567, 1
   %exitcond571.not = icmp eq i64 %indvars.iv.next568, %161
-  br i1 %exitcond571.not, label %.loopexit, label %.preheader, !llvm.loop !35
+  br i1 %exitcond571.not, label %.loopexit, label %.preheader, !llvm.loop !34
 
 .loopexit.sink.split:                             ; preds = %423, %443, %394, %.loopexit426, %._crit_edge459, %153, %149, %127, %129
   call void @cleanup_graphics_config_data(ptr noundef nonnull %0)
@@ -1838,7 +1838,7 @@ getColorSpace.exit.thread:                        ; preds = %139, %133, %getColo
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %241 = getelementptr inbounds nuw i8, ptr %.0232269, i64 4
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %242, label %205, !llvm.loop !36
+  br i1 %exitcond.not, label %242, label %205, !llvm.loop !35
 
 242:                                              ; preds = %240
   %.not = icmp eq i32 %.2230, 0
@@ -1908,7 +1908,7 @@ getColorSpace.exit.thread:                        ; preds = %139, %133, %getColo
   %279 = add nuw nsw i32 %.0218274, 1
   %280 = getelementptr inbounds nuw i8, ptr %.0216275, i64 4
   %exitcond286.not = icmp eq i32 %279, %.
-  br i1 %exitcond286.not, label %281, label %265, !llvm.loop !37
+  br i1 %exitcond286.not, label %281, label %265, !llvm.loop !36
 
 281:                                              ; preds = %275, %278
   %.1 = phi i32 [ %.0218274, %275 ], [ %.2, %278 ]
@@ -1919,7 +1919,7 @@ getColorSpace.exit.thread:                        ; preds = %139, %133, %getColo
   store i8 %282, ptr %285, align 1
   %indvars.iv.next288 = add nuw nsw i64 %indvars.iv287, 1
   %exitcond290.not = icmp eq i64 %indvars.iv.next288, 256
-  br i1 %exitcond290.not, label %.preheader, label %.preheader267, !llvm.loop !38
+  br i1 %exitcond290.not, label %.preheader, label %.preheader267, !llvm.loop !37
 
 .preheader:                                       ; preds = %281, %.preheader
   %indvars.iv291 = phi i64 [ %indvars.iv.next292, %.preheader ], [ 0, %281 ]
@@ -1928,7 +1928,7 @@ getColorSpace.exit.thread:                        ; preds = %139, %133, %getColo
   store i8 %286, ptr %287, align 1
   %indvars.iv.next292 = add nuw nsw i64 %indvars.iv291, 1
   %exitcond294.not = icmp eq i64 %indvars.iv.next292, 256
-  br i1 %exitcond294.not, label %.loopexit, label %.preheader, !llvm.loop !39
+  br i1 %exitcond294.not, label %.loopexit, label %.preheader, !llvm.loop !38
 
 .loopexit:                                        ; preds = %.preheader, %243, %242
   %288 = getelementptr inbounds nuw i8, ptr %1, i64 88
@@ -2002,7 +2002,7 @@ getColorSpace.exit.thread:                        ; preds = %139, %133, %getColo
   %indvars.iv.next296 = add nuw nsw i64 %indvars.iv295, 1
   %323 = getelementptr inbounds nuw i8, ptr %.0210284, i64 4
   %exitcond299.not = icmp eq i64 %indvars.iv.next296, %wide.trip.count
-  br i1 %exitcond299.not, label %324, label %295, !llvm.loop !40
+  br i1 %exitcond299.not, label %324, label %295, !llvm.loop !39
 
 324:                                              ; preds = %322
   %325 = load ptr, ptr %201, align 8
@@ -2137,7 +2137,7 @@ define hidden void @awt_allocate_systemrgbcolors(ptr noundef readonly captures(n
   %16 = tail call fastcc i32 @alloc_col(ptr noundef %7, i64 noundef %8, i32 noundef %12, i32 noundef %14, i32 noundef %15, i32 noundef -1, ptr noundef %2)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %6, !llvm.loop !41
+  br i1 %exitcond.not, label %._crit_edge, label %6, !llvm.loop !40
 
 ._crit_edge:                                      ; preds = %6, %3
   ret void
@@ -2209,7 +2209,7 @@ define hidden range(i32 0, 2) i32 @awtCreateX11Colormap(ptr noundef captures(non
   store ptr %45, ptr %6, align 8
   %46 = add nsw i64 %storemerge26, -1
   %.not19 = icmp eq i64 %46, 0
-  br i1 %.not19, label %.thread.loopexit, label %39, !llvm.loop !42
+  br i1 %.not19, label %.thread.loopexit, label %39, !llvm.loop !41
 
 47:                                               ; preds = %39
   store i64 %storemerge26, ptr %4, align 8
@@ -2499,7 +2499,7 @@ define hidden void @awtJNI_CreateColorData(ptr noundef %0, ptr noundef captures(
   %155 = call fastcc i32 @alloc_col(ptr noundef %146, i64 noundef %147, i32 noundef %151, i32 noundef %153, i32 noundef %154, i32 noundef -1, ptr noundef nonnull readonly %1)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 25
-  br i1 %exitcond.not.i, label %awt_allocate_systemrgbcolors.exit, label %145, !llvm.loop !41
+  br i1 %exitcond.not.i, label %awt_allocate_systemrgbcolors.exit, label %145, !llvm.loop !40
 
 awt_allocate_systemrgbcolors.exit:                ; preds = %145, %28, %31
   br i1 %.not, label %185, label %156
@@ -2600,40 +2600,39 @@ attributes #16 = { nounwind willreturn memory(read) }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7, !8}
-!11 = distinct !{!11, !7, !8}
-!12 = distinct !{!12, !7, !8}
-!13 = distinct !{!13, !7, !8}
-!14 = distinct !{!14, !7, !8}
-!15 = distinct !{!15, !7, !8}
-!16 = distinct !{!16, !7, !8}
-!17 = distinct !{!17, !7, !8}
-!18 = distinct !{!18, !7, !8}
-!19 = distinct !{!19, !7, !8}
-!20 = distinct !{!20, !7, !8}
-!21 = distinct !{!21, !7, !8}
-!22 = distinct !{!22, !7, !8}
-!23 = distinct !{!23, !7, !8}
-!24 = distinct !{!24, !7, !8}
-!25 = distinct !{!25, !7, !8, !26}
-!26 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!27 = distinct !{!27, !7, !8, !26}
-!28 = distinct !{!28, !7, !8}
-!29 = distinct !{!29, !7, !8}
-!30 = distinct !{!30, !7, !8}
-!31 = distinct !{!31, !7, !8}
-!32 = distinct !{!32, !7, !8}
-!33 = distinct !{!33, !7, !8}
-!34 = distinct !{!34, !7, !8}
-!35 = distinct !{!35, !7, !8}
-!36 = distinct !{!36, !7, !8}
-!37 = distinct !{!37, !7, !8}
-!38 = distinct !{!38, !7, !8}
-!39 = distinct !{!39, !7, !8}
-!40 = distinct !{!40, !7, !8}
-!41 = distinct !{!41, !7, !8}
-!42 = distinct !{!42, !7, !8}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7}
+!12 = distinct !{!12, !7}
+!13 = distinct !{!13, !7}
+!14 = distinct !{!14, !7}
+!15 = distinct !{!15, !7}
+!16 = distinct !{!16, !7}
+!17 = distinct !{!17, !7}
+!18 = distinct !{!18, !7}
+!19 = distinct !{!19, !7}
+!20 = distinct !{!20, !7}
+!21 = distinct !{!21, !7}
+!22 = distinct !{!22, !7}
+!23 = distinct !{!23, !7}
+!24 = distinct !{!24, !7, !25}
+!25 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!26 = distinct !{!26, !7, !25}
+!27 = distinct !{!27, !7}
+!28 = distinct !{!28, !7}
+!29 = distinct !{!29, !7}
+!30 = distinct !{!30, !7}
+!31 = distinct !{!31, !7}
+!32 = distinct !{!32, !7}
+!33 = distinct !{!33, !7}
+!34 = distinct !{!34, !7}
+!35 = distinct !{!35, !7}
+!36 = distinct !{!36, !7}
+!37 = distinct !{!37, !7}
+!38 = distinct !{!38, !7}
+!39 = distinct !{!39, !7}
+!40 = distinct !{!40, !7}
+!41 = distinct !{!41, !7}

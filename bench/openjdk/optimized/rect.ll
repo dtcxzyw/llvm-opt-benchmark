@@ -117,14 +117,14 @@ define hidden i32 @BitmapToYXBandedRectangles(i32 noundef %0, i32 noundef %1, i3
 55:                                               ; preds = %44
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond141.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond141.not, label %.critedge4.us, label %.lr.ph108.us, !llvm.loop !9
+  br i1 %exitcond141.not, label %.critedge4.us, label %.lr.ph108.us, !llvm.loop !8
 
 .loopexit.us:                                     ; preds = %.lr.ph115.us, %.critedge4.us.thread, %.critedge4.us, %33, %.critedge.thread.us
   %.3.us = phi ptr [ %.273.us.mux, %.critedge4.us ], [ %.273.us, %33 ], [ %.273.us, %.critedge.thread.us ], [ %spec.select, %.critedge4.us.thread ], [ %.071119.us, %.lr.ph115.us ]
   %.1.us = phi ptr [ %.071119.us.mux, %.critedge4.us ], [ %.071119.us, %33 ], [ %.071119.us, %.critedge.thread.us ], [ %.071119.us, %.critedge4.us.thread ], [ %.0122.us, %.lr.ph115.us ]
   %indvars.iv.next148 = add nuw nsw i64 %indvars.iv147, 1
   %exitcond151.not = icmp eq i64 %indvars.iv.next148, %wide.trip.count150
-  br i1 %exitcond151.not, label %._crit_edge, label %.lr.ph.lr.ph.us, !llvm.loop !10
+  br i1 %exitcond151.not, label %._crit_edge, label %.lr.ph.lr.ph.us, !llvm.loop !9
 
 .lr.ph96.us:                                      ; preds = %.critedge.preheader.us, %.critedge.us
   %.295.us = phi ptr [ %58, %.critedge.us ], [ %.17091.us, %.critedge.preheader.us ]
@@ -138,7 +138,7 @@ define hidden i32 @BitmapToYXBandedRectangles(i32 noundef %0, i32 noundef %1, i3
   %58 = getelementptr inbounds nuw i8, ptr %.295.us, i64 4
   %59 = add i32 %.27694.us, 1
   %exitcond.not = icmp eq i32 %59, %1
-  br i1 %exitcond.not, label %.critedge2.thread.us, label %.lr.ph96.us, !llvm.loop !12
+  br i1 %exitcond.not, label %.critedge2.thread.us, label %.lr.ph96.us, !llvm.loop !11
 
 .critedge2.us:                                    ; preds = %.lr.ph96.us
   %60 = trunc i32 %.17590.us to i16
@@ -159,7 +159,7 @@ define hidden i32 @BitmapToYXBandedRectangles(i32 noundef %0, i32 noundef %1, i3
   %69 = getelementptr inbounds nuw i8, ptr %.17091.us, i64 4
   %70 = add nsw i32 %.17590.us, 1
   %71 = icmp slt i32 %70, %1
-  br i1 %71, label %18, label %.critedge.thread.us, !llvm.loop !13
+  br i1 %71, label %18, label %.critedge.thread.us, !llvm.loop !12
 
 .critedge.preheader.us:                           ; preds = %18
   %72 = icmp slt i32 %.17590.us, %1
@@ -203,11 +203,10 @@ attributes #0 = { nofree norecurse nosync nounwind memory(readwrite, inaccessibl
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7, !8, !11}
-!11 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!12 = distinct !{!12, !7, !8}
-!13 = distinct !{!13, !7, !8}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7, !10}
+!10 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!11 = distinct !{!11, !7}
+!12 = distinct !{!12, !7}

@@ -212,7 +212,7 @@ define dso_local noundef zeroext i1 @Curl_tls_keylog_write(ptr noundef readonly 
   %43 = add nuw nsw i64 %.147, 1
   %.135 = add i64 %.13548, 2
   %exitcond52.not = icmp eq i64 %43, %3
-  br i1 %exitcond52.not, label %._crit_edge, label %.lr.ph, !llvm.loop !14
+  br i1 %exitcond52.not, label %._crit_edge, label %.lr.ph, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %.lr.ph
   %44 = add i64 %.13548, 3
@@ -253,7 +253,6 @@ attributes #9 = { nounwind willreturn memory(read) }
 !8 = !{!"Simple C/C++ TBAA"}
 !9 = !{!6, !6, i64 0}
 !10 = !{!7, !7, i64 0}
-!11 = distinct !{!11, !12, !13}
+!11 = distinct !{!11, !12}
 !12 = !{!"llvm.loop.mustprogress"}
-!13 = !{!"llvm.loop.estimated_trip_count"}
-!14 = distinct !{!14, !12, !13}
+!13 = distinct !{!13, !12}

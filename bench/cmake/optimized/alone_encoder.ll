@@ -171,8 +171,8 @@ define internal i32 @alone_encode(ptr noundef %0, ptr noundef %1, ptr noalias no
 
 24:                                               ; preds = %15
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %26 = load ptr, ptr %25, align 8, !tbaa !35
-  %27 = load ptr, ptr %0, align 8, !tbaa !36
+  %26 = load ptr, ptr %25, align 8, !tbaa !34
+  %27 = load ptr, ptr %0, align 8, !tbaa !35
   %28 = tail call i32 %26(ptr noundef %27, ptr noundef %1, ptr noundef %2, ptr noundef %3, i64 noundef %4, ptr noundef %5, ptr noundef nonnull %6, i64 noundef %7, i32 noundef %8) #6
   br label %.loopexit
 
@@ -246,8 +246,7 @@ attributes #6 = { nounwind }
 !29 = !{!"lzma_filter_info_s", !10, i64 0, !7, i64 8, !7, i64 16}
 !30 = !{!29, !7, i64 8}
 !31 = !{!29, !7, i64 16}
-!32 = distinct !{!32, !33, !34}
+!32 = distinct !{!32, !33}
 !33 = !{!"llvm.loop.mustprogress"}
-!34 = !{!"llvm.loop.estimated_trip_count"}
-!35 = !{!24, !7, i64 24}
-!36 = !{!24, !7, i64 0}
+!34 = !{!24, !7, i64 24}
+!35 = !{!24, !7, i64 0}

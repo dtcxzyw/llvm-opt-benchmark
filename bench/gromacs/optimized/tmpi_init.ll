@@ -129,7 +129,7 @@ define noundef range(i32 0, 27) i32 @_Z10tMPI_Get_NPiPPPcPKcS_(ptr noundef reado
   br i1 %.not23, label %.thread32, label %25
 
 25:                                               ; preds = %17
-  %26 = load i8, ptr %24, align 1, !tbaa !53
+  %26 = load i8, ptr %24, align 1, !tbaa !52
   %.not24 = icmp eq i8 %26, 0
   br i1 %.not24, label %27, label %.thread32
 
@@ -220,7 +220,7 @@ define noundef range(i32 0, 2) i32 @_Z9tMPI_InitPiPPPcPFiiS1_E(ptr noundef reado
   br i1 %.not23.i, label %.thread32.i, label %27
 
 27:                                               ; preds = %19
-  %28 = load i8, ptr %26, align 1, !tbaa !53
+  %28 = load i8, ptr %26, align 1, !tbaa !52
   %.not24.i = icmp eq i8 %28, 0
   br i1 %.not24.i, label %29, label %.thread32.i
 
@@ -261,7 +261,7 @@ define internal fastcc noundef i32 @_ZL18tMPI_Start_threadsii22tMPI_Affinity_str
   store i1 false, ptr @_ZL14tmpi_finalized, align 4
   store i32 %1, ptr @Nthreads, align 4, !tbaa !46
   %11 = tail call noundef ptr @_Z11tMPI_Mallocm(i64 noundef 328)
-  store ptr %11, ptr @tmpi_global, align 8, !tbaa !54
+  store ptr %11, ptr @tmpi_global, align 8, !tbaa !53
   %12 = icmp eq ptr %11, null
   br i1 %12, label %.thread79, label %13
 
@@ -274,7 +274,7 @@ define internal fastcc noundef i32 @_ZL18tMPI_Start_threadsii22tMPI_Affinity_str
 
 16:                                               ; preds = %13
   %17 = getelementptr inbounds nuw i8, ptr %11, i64 16
-  store i32 0, ptr %17, align 4, !tbaa !56
+  store i32 0, ptr %17, align 4, !tbaa !55
   %18 = getelementptr inbounds nuw i8, ptr %11, i64 152
   %19 = tail call noundef i32 @_Z24tMPI_Thread_barrier_initP21tMPI_Thread_barrier_ti(ptr noundef nonnull %18, i32 noundef range(i32 1, -2147483648) %1)
   %.not12.i = icmp eq i32 %19, 0
@@ -312,7 +312,7 @@ _ZL16tMPI_Global_initP11tmpi_globali.exit:        ; preds = %20, %16, %13
 
 34:                                               ; preds = %32
   %35 = tail call noundef ptr @_Z16tMPI_Group_allocv()
-  store ptr %35, ptr @TMPI_GROUP_EMPTY, align 8, !tbaa !58
+  store ptr %35, ptr @TMPI_GROUP_EMPTY, align 8, !tbaa !57
   %36 = tail call noundef i32 @_Z22tMPI_Thread_key_createP17tMPI_Thread_key_tPFvPvE(ptr noundef nonnull @id_key, ptr noundef null)
   %.not69 = icmp eq i32 %36, 0
   br i1 %.not69, label %.lr.ph87, label %65
@@ -328,7 +328,7 @@ _ZL16tMPI_Global_initP11tmpi_globali.exit:        ; preds = %20, %16, %13
 .lr.ph87.split.preheader:                         ; preds = %.lr.ph87
   %.pre119 = load ptr, ptr @TMPI_COMM_WORLD, align 8, !tbaa !3
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre119, i64 8
-  %.pre120 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !60
+  %.pre120 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !59
   br label %.lr.ph87.split
 
 .lr.ph87.split.us:                                ; preds = %.lr.ph87, %.loopexit.us
@@ -337,21 +337,21 @@ _ZL16tMPI_Global_initP11tmpi_globali.exit:        ; preds = %20, %16, %13
   %40 = getelementptr inbounds nuw %struct.tmpi_thread, ptr %39, i64 %indvars.iv101
   %41 = load ptr, ptr @TMPI_COMM_WORLD, align 8, !tbaa !3
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 8
-  %43 = load ptr, ptr %42, align 8, !tbaa !60
+  %43 = load ptr, ptr %42, align 8, !tbaa !59
   %44 = getelementptr inbounds nuw ptr, ptr %43, i64 %indvars.iv101
   store ptr %40, ptr %44, align 8, !tbaa !29
   %45 = load i32, ptr %3, align 4, !tbaa !46
   %46 = load ptr, ptr @threads, align 8, !tbaa !29
   %47 = getelementptr inbounds nuw %struct.tmpi_thread, ptr %46, i64 %indvars.iv101, i32 11
-  store i32 %45, ptr %47, align 8, !tbaa !61
+  store i32 %45, ptr %47, align 8, !tbaa !60
   %48 = sext i32 %45 to i64
   %49 = shl nsw i64 %48, 3
   %50 = tail call noundef ptr @_Z11tMPI_Mallocm(i64 noundef %49)
   %51 = load ptr, ptr @threads, align 8, !tbaa !29
   %52 = getelementptr inbounds nuw %struct.tmpi_thread, ptr %51, i64 %indvars.iv101, i32 12
-  store ptr %50, ptr %52, align 8, !tbaa !62
+  store ptr %50, ptr %52, align 8, !tbaa !61
   %53 = getelementptr inbounds nuw %struct.tmpi_thread, ptr %51, i64 %indvars.iv101, i32 11
-  %54 = load i32, ptr %53, align 8, !tbaa !61
+  %54 = load i32, ptr %53, align 8, !tbaa !60
   %55 = icmp sgt i32 %54, 0
   br i1 %55, label %.lr.ph.us, label %.loopexit.us
 
@@ -364,18 +364,18 @@ _ZL16tMPI_Global_initP11tmpi_globali.exit:        ; preds = %20, %16, %13
   store ptr %59, ptr %60, align 8, !tbaa !48
   %indvars.iv.next97 = add nuw nsw i64 %indvars.iv96, 1
   %exitcond100.not = icmp eq i64 %indvars.iv.next97, %wide.trip.count99
-  br i1 %exitcond100.not, label %.loopexit.us, label %56, !llvm.loop !63
+  br i1 %exitcond100.not, label %.loopexit.us, label %56, !llvm.loop !62
 
 .loopexit.us:                                     ; preds = %56, %.lr.ph87.split.us
   %61 = getelementptr inbounds nuw %struct.tmpi_thread, ptr %51, i64 %indvars.iv101, i32 8
-  store ptr %5, ptr %61, align 8, !tbaa !64
+  store ptr %5, ptr %61, align 8, !tbaa !63
   %62 = getelementptr inbounds nuw %struct.tmpi_thread, ptr %51, i64 %indvars.iv101, i32 9
-  store ptr %7, ptr %62, align 8, !tbaa !65
+  store ptr %7, ptr %62, align 8, !tbaa !64
   %63 = getelementptr inbounds nuw %struct.tmpi_thread, ptr %51, i64 %indvars.iv101, i32 10
-  store ptr %6, ptr %63, align 8, !tbaa !66
+  store ptr %6, ptr %63, align 8, !tbaa !65
   %indvars.iv.next102 = add nuw nsw i64 %indvars.iv101, 1
   %exitcond106.not = icmp eq i64 %indvars.iv.next102, %wide.trip.count105
-  br i1 %exitcond106.not, label %._crit_edge, label %.lr.ph87.split.us, !llvm.loop !67
+  br i1 %exitcond106.not, label %._crit_edge, label %.lr.ph87.split.us, !llvm.loop !66
 
 .lr.ph.us:                                        ; preds = %.lr.ph87.split.us
   %64 = load ptr, ptr %4, align 8, !tbaa !47
@@ -395,18 +395,18 @@ _ZL16tMPI_Global_initP11tmpi_globali.exit:        ; preds = %20, %16, %13
   store ptr %69, ptr %70, align 8, !tbaa !29
   %71 = load ptr, ptr @threads, align 8, !tbaa !29
   %72 = getelementptr inbounds nuw %struct.tmpi_thread, ptr %71, i64 %indvars.iv, i32 11
-  store i32 0, ptr %72, align 8, !tbaa !61
+  store i32 0, ptr %72, align 8, !tbaa !60
   %73 = getelementptr inbounds nuw %struct.tmpi_thread, ptr %71, i64 %indvars.iv, i32 12
-  store ptr null, ptr %73, align 8, !tbaa !62
+  store ptr null, ptr %73, align 8, !tbaa !61
   %74 = getelementptr inbounds nuw %struct.tmpi_thread, ptr %71, i64 %indvars.iv, i32 8
-  store ptr %5, ptr %74, align 8, !tbaa !64
+  store ptr %5, ptr %74, align 8, !tbaa !63
   %75 = getelementptr inbounds nuw %struct.tmpi_thread, ptr %71, i64 %indvars.iv, i32 9
-  store ptr %7, ptr %75, align 8, !tbaa !65
+  store ptr %7, ptr %75, align 8, !tbaa !64
   %76 = getelementptr inbounds nuw %struct.tmpi_thread, ptr %71, i64 %indvars.iv, i32 10
-  store ptr %6, ptr %76, align 8, !tbaa !66
+  store ptr %6, ptr %76, align 8, !tbaa !65
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count105
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph87.split, !llvm.loop !69
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph87.split, !llvm.loop !68
 
 ._crit_edge:                                      ; preds = %.lr.ph87.split, %.loopexit.us
   %77 = icmp eq i32 %2, 1
@@ -415,7 +415,7 @@ _ZL16tMPI_Global_initP11tmpi_globali.exit:        ; preds = %20, %16, %13
 .thread:                                          ; preds = %._crit_edge
   %78 = tail call noundef ptr @_Z16tMPI_Thread_selfv()
   %79 = load ptr, ptr @threads, align 8, !tbaa !29
-  store ptr %78, ptr %79, align 8, !tbaa !70
+  store ptr %78, ptr %79, align 8, !tbaa !69
   br label %86
 
 80:                                               ; preds = %._crit_edge
@@ -425,7 +425,7 @@ _ZL16tMPI_Global_initP11tmpi_globali.exit:        ; preds = %20, %16, %13
   %or.cond74.not = or i1 %82, %83
   %84 = tail call noundef ptr @_Z16tMPI_Thread_selfv()
   %85 = load ptr, ptr @threads, align 8, !tbaa !29
-  store ptr %84, ptr %85, align 8, !tbaa !70
+  store ptr %84, ptr %85, align 8, !tbaa !69
   br i1 %or.cond74.not, label %86, label %.thread122
 
 86:                                               ; preds = %.thread, %80
@@ -458,12 +458,12 @@ _ZL16tMPI_Global_initP11tmpi_globali.exit:        ; preds = %20, %16, %13
 91:                                               ; preds = %.lr.ph.split.us
   %indvars.iv.next114 = add nuw nsw i64 %indvars.iv113, 1
   %exitcond118.not = icmp eq i64 %indvars.iv.next114, %wide.trip.count117
-  br i1 %exitcond118.not, label %._crit_edge90, label %.lr.ph.split.us, !llvm.loop !71
+  br i1 %exitcond118.not, label %._crit_edge90, label %.lr.ph.split.us, !llvm.loop !70
 
 92:                                               ; preds = %.lr.ph.split
   %indvars.iv.next108 = add nuw nsw i64 %indvars.iv107, 1
   %exitcond112.not = icmp eq i64 %indvars.iv.next108, %wide.trip.count111
-  br i1 %exitcond112.not, label %._crit_edge90, label %.lr.ph.split, !llvm.loop !72
+  br i1 %exitcond112.not, label %._crit_edge90, label %.lr.ph.split, !llvm.loop !71
 
 .lr.ph.split:                                     ; preds = %.lr.ph.split.preheader, %92
   %indvars.iv107 = phi i64 [ 1, %.lr.ph.split.preheader ], [ %indvars.iv.next108, %92 ]
@@ -472,7 +472,7 @@ _ZL16tMPI_Global_initP11tmpi_globali.exit:        ; preds = %20, %16, %13
   %95 = tail call noundef i32 @_Z18tMPI_Thread_createPP11tMPI_ThreadPFPvS2_ES2_(ptr noundef nonnull %94, ptr noundef nonnull @_ZL17tMPI_Thread_startPv, ptr noundef nonnull %94)
   %96 = load ptr, ptr @threads, align 8, !tbaa !29
   %97 = getelementptr inbounds nuw %struct.tmpi_thread, ptr %96, i64 %indvars.iv107
-  %98 = load ptr, ptr %97, align 8, !tbaa !70
+  %98 = load ptr, ptr %97, align 8, !tbaa !69
   %99 = trunc nuw nsw i64 %indvars.iv107 to i32
   %100 = tail call noundef i32 @_Z30tMPI_Thread_setaffinity_singleP11tMPI_Threadj(ptr noundef %98, i32 noundef %99)
   %.not73 = icmp eq i32 %95, 0
@@ -544,7 +544,7 @@ define noundef i32 @_Z16tMPI_InitializedPi(ptr noundef writeonly captures(none) 
 
 ; Function Attrs: mustprogress uwtable
 define noundef i32 @_Z13tMPI_Finalizev() local_unnamed_addr #0 {
-  %1 = load ptr, ptr @tmpi_global, align 8, !tbaa !54
+  %1 = load ptr, ptr @tmpi_global, align 8, !tbaa !53
   %2 = getelementptr inbounds nuw i8, ptr %1, i64 152
   %3 = tail call noundef i32 @_Z24tMPI_Thread_barrier_waitP21tMPI_Thread_barrier_t(ptr noundef nonnull %2)
   %.not = icmp eq i32 %3, 0
@@ -579,7 +579,7 @@ _Z14tMPI_Is_masterv.exit:                         ; preds = %8
   %indvars.iv = phi i64 [ %indvars.iv.next, %22 ], [ 1, %.preheader ]
   %15 = load ptr, ptr @threads, align 8, !tbaa !29
   %16 = getelementptr inbounds nuw %struct.tmpi_thread, ptr %15, i64 %indvars.iv
-  %17 = load ptr, ptr %16, align 8, !tbaa !70
+  %17 = load ptr, ptr %16, align 8, !tbaa !69
   %18 = tail call noundef i32 @_Z16tMPI_Thread_joinP11tMPI_ThreadPPv(ptr noundef %17, ptr noundef null)
   %.not31 = icmp eq i32 %18, 0
   br i1 %.not31, label %22, label %19
@@ -597,7 +597,7 @@ _Z14tMPI_Is_masterv.exit:                         ; preds = %8
   %25 = load i32, ptr @Nthreads, align 4, !tbaa !46
   %26 = sext i32 %25 to i64
   %27 = icmp slt i64 %indvars.iv.next, %26
-  br i1 %27, label %.lr.ph, label %._crit_edge, !llvm.loop !73
+  br i1 %27, label %.lr.ph, label %._crit_edge, !llvm.loop !72
 
 ._crit_edge:                                      ; preds = %22, %.preheader
   %28 = load ptr, ptr @threads, align 8, !tbaa !29
@@ -605,7 +605,7 @@ _Z14tMPI_Is_masterv.exit:                         ; preds = %8
   %29 = load ptr, ptr @threads, align 8, !tbaa !29
   tail call void @free(ptr noundef %29) #18
   %30 = tail call noundef i32 @_Z22tMPI_Thread_key_delete17tMPI_Thread_key_t(ptr noundef nonnull byval(%struct.tMPI_Thread_key_t) align 8 @id_key)
-  %31 = load ptr, ptr @tmpi_global, align 8, !tbaa !54
+  %31 = load ptr, ptr @tmpi_global, align 8, !tbaa !53
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 80
   %33 = tail call noundef i32 @_Z22tMPI_Thread_mutex_lockP19tMPI_Thread_mutex_t(ptr noundef nonnull %32)
   %.not27 = icmp eq i32 %33, 0
@@ -618,7 +618,7 @@ _Z14tMPI_Is_masterv.exit:                         ; preds = %8
 
 37:                                               ; preds = %._crit_edge
   %38 = getelementptr inbounds nuw i8, ptr %34, i64 456
-  %39 = load ptr, ptr %38, align 8, !tbaa !74
+  %39 = load ptr, ptr %38, align 8, !tbaa !73
   br label %40
 
 40:                                               ; preds = %45, %37
@@ -631,13 +631,13 @@ _Z14tMPI_Is_masterv.exit:                         ; preds = %8
 
 45:                                               ; preds = %40
   %46 = getelementptr inbounds nuw i8, ptr %.019, i64 456
-  %47 = load ptr, ptr %46, align 8, !tbaa !74
+  %47 = load ptr, ptr %46, align 8, !tbaa !73
   %48 = tail call noundef i32 @_Z17tMPI_Comm_destroyP10tmpi_comm_i(ptr noundef nonnull %.019, i32 noundef 0)
   %.not30 = icmp eq i32 %48, 0
-  br i1 %.not30, label %40, label %.thread, !llvm.loop !75
+  br i1 %.not30, label %40, label %.thread, !llvm.loop !74
 
 .thread:                                          ; preds = %45
-  %49 = load ptr, ptr @tmpi_global, align 8, !tbaa !54
+  %49 = load ptr, ptr @tmpi_global, align 8, !tbaa !53
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 80
   %51 = tail call noundef i32 @_Z24tMPI_Thread_mutex_unlockP19tMPI_Thread_mutex_t(ptr noundef nonnull %50)
   br label %.thread34
@@ -645,7 +645,7 @@ _Z14tMPI_Is_masterv.exit:                         ; preds = %8
 52:                                               ; preds = %40
   %53 = tail call noundef i32 @_Z17tMPI_Comm_destroyP10tmpi_comm_i(ptr noundef %42, i32 noundef 0)
   %.not28 = icmp eq i32 %53, 0
-  %54 = load ptr, ptr @tmpi_global, align 8, !tbaa !54
+  %54 = load ptr, ptr @tmpi_global, align 8, !tbaa !53
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 80
   %56 = tail call noundef i32 @_Z24tMPI_Thread_mutex_unlockP19tMPI_Thread_mutex_t(ptr noundef nonnull %55)
   br i1 %.not28, label %57, label %.thread34
@@ -663,9 +663,9 @@ _Z14tMPI_Is_masterv.exit:                         ; preds = %8
   %62 = tail call noundef i32 @_Z15tMPI_Group_freePP11tmpi_group_(ptr noundef nonnull @TMPI_GROUP_EMPTY)
   store ptr null, ptr @threads, align 8, !tbaa !29
   store ptr null, ptr @TMPI_COMM_WORLD, align 8, !tbaa !3
-  store ptr null, ptr @TMPI_GROUP_EMPTY, align 8, !tbaa !58
+  store ptr null, ptr @TMPI_GROUP_EMPTY, align 8, !tbaa !57
   store i32 0, ptr @Nthreads, align 4, !tbaa !46
-  %63 = load ptr, ptr @tmpi_global, align 8, !tbaa !54
+  %63 = load ptr, ptr @tmpi_global, align 8, !tbaa !53
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 152
   %65 = tail call noundef i32 @_Z27tMPI_Thread_barrier_destroyP21tMPI_Thread_barrier_t(ptr noundef nonnull %64)
   %66 = getelementptr inbounds nuw i8, ptr %63, i64 240
@@ -673,32 +673,32 @@ _Z14tMPI_Is_masterv.exit:                         ; preds = %8
   %68 = getelementptr inbounds nuw i8, ptr %63, i64 80
   %69 = tail call noundef i32 @_Z25tMPI_Thread_mutex_destroyP19tMPI_Thread_mutex_t(ptr noundef nonnull %68)
   %70 = getelementptr inbounds nuw i8, ptr %63, i64 8
-  %71 = load i32, ptr %70, align 8, !tbaa !76
+  %71 = load i32, ptr %70, align 8, !tbaa !75
   %72 = icmp sgt i32 %71, 0
   br i1 %72, label %.lr.ph.i, label %_ZL19tMPI_Global_destroyP11tmpi_global.exit
 
 .lr.ph.i:                                         ; preds = %61, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %61 ]
-  %73 = load ptr, ptr %63, align 8, !tbaa !82
+  %73 = load ptr, ptr %63, align 8, !tbaa !81
   %74 = getelementptr inbounds nuw ptr, ptr %73, i64 %indvars.iv.i
-  %75 = load ptr, ptr %74, align 8, !tbaa !83
+  %75 = load ptr, ptr %74, align 8, !tbaa !82
   %76 = getelementptr inbounds nuw i8, ptr %75, i64 24
-  %77 = load ptr, ptr %76, align 8, !tbaa !84
+  %77 = load ptr, ptr %76, align 8, !tbaa !83
   tail call void @_Z9tMPI_FreePv(ptr noundef %77)
-  %78 = load ptr, ptr %63, align 8, !tbaa !82
+  %78 = load ptr, ptr %63, align 8, !tbaa !81
   %79 = getelementptr inbounds nuw ptr, ptr %78, i64 %indvars.iv.i
-  %80 = load ptr, ptr %79, align 8, !tbaa !83
+  %80 = load ptr, ptr %79, align 8, !tbaa !82
   tail call void @_Z9tMPI_FreePv(ptr noundef %80)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %81 = load i32, ptr %70, align 8, !tbaa !76
+  %81 = load i32, ptr %70, align 8, !tbaa !75
   %82 = sext i32 %81 to i64
   %83 = icmp slt i64 %indvars.iv.next.i, %82
-  br i1 %83, label %.lr.ph.i, label %_ZL19tMPI_Global_destroyP11tmpi_global.exit, !llvm.loop !87
+  br i1 %83, label %.lr.ph.i, label %_ZL19tMPI_Global_destroyP11tmpi_global.exit, !llvm.loop !86
 
 _ZL19tMPI_Global_destroyP11tmpi_global.exit:      ; preds = %.lr.ph.i, %61
-  %84 = load ptr, ptr %63, align 8, !tbaa !82
+  %84 = load ptr, ptr %63, align 8, !tbaa !81
   tail call void @_Z9tMPI_FreePv(ptr noundef %84)
-  %85 = load ptr, ptr @tmpi_global, align 8, !tbaa !54
+  %85 = load ptr, ptr @tmpi_global, align 8, !tbaa !53
   tail call void @free(ptr noundef %85) #18
   store i1 true, ptr @_ZL14tmpi_finalized, align 4
   br label %.thread34
@@ -732,18 +732,18 @@ define internal fastcc void @_ZL19tMPI_Thread_destroyP11tmpi_thread(ptr noundef 
 
 6:                                                ; preds = %.lr.ph, %6
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %6 ]
-  %7 = load ptr, ptr %5, align 8, !tbaa !88
+  %7 = load ptr, ptr %5, align 8, !tbaa !87
   %8 = getelementptr inbounds nuw %struct.send_envelope_list, ptr %7, i64 %indvars.iv
   tail call void @_Z26tMPI_Send_env_list_destroyP18send_envelope_list(ptr noundef %8)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %9 = load i32, ptr @Nthreads, align 4, !tbaa !46
   %10 = sext i32 %9 to i64
   %11 = icmp slt i64 %indvars.iv.next, %10
-  br i1 %11, label %6, label %._crit_edge, !llvm.loop !89
+  br i1 %11, label %6, label %._crit_edge, !llvm.loop !88
 
 ._crit_edge:                                      ; preds = %6, %1
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 200
-  %13 = load ptr, ptr %12, align 8, !tbaa !88
+  %13 = load ptr, ptr %12, align 8, !tbaa !87
   tail call void @free(ptr noundef %13) #18
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 208
   tail call void @_Z26tMPI_Free_env_list_destroyP18free_envelope_list(ptr noundef nonnull %14)
@@ -752,7 +752,7 @@ define internal fastcc void @_ZL19tMPI_Thread_destroyP11tmpi_thread(ptr noundef 
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 360
   tail call void @_Z21tMPI_Req_list_destroyP8req_list(ptr noundef nonnull %16)
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 408
-  %18 = load i32, ptr %17, align 8, !tbaa !61
+  %18 = load i32, ptr %17, align 8, !tbaa !60
   %19 = icmp sgt i32 %18, 0
   br i1 %19, label %.lr.ph16, label %._crit_edge17
 
@@ -762,15 +762,15 @@ define internal fastcc void @_ZL19tMPI_Thread_destroyP11tmpi_thread(ptr noundef 
 
 21:                                               ; preds = %.lr.ph16, %21
   %indvars.iv19 = phi i64 [ 0, %.lr.ph16 ], [ %indvars.iv.next20, %21 ]
-  %22 = load ptr, ptr %20, align 8, !tbaa !62
+  %22 = load ptr, ptr %20, align 8, !tbaa !61
   %23 = getelementptr inbounds nuw ptr, ptr %22, i64 %indvars.iv19
   %24 = load ptr, ptr %23, align 8, !tbaa !48
   tail call void @free(ptr noundef %24) #18
   %indvars.iv.next20 = add nuw nsw i64 %indvars.iv19, 1
-  %25 = load i32, ptr %17, align 8, !tbaa !61
+  %25 = load i32, ptr %17, align 8, !tbaa !60
   %26 = sext i32 %25 to i64
   %27 = icmp slt i64 %indvars.iv.next20, %26
-  br i1 %27, label %21, label %._crit_edge17, !llvm.loop !90
+  br i1 %27, label %21, label %._crit_edge17, !llvm.loop !89
 
 ._crit_edge17:                                    ; preds = %21, %._crit_edge
   ret void
@@ -823,16 +823,16 @@ _Z14tMPI_Is_masterv.exit._Z14tMPI_Is_masterv.exit.thread_crit_edge: ; preds = %_
 _Z14tMPI_Is_masterv.exit.thread:                  ; preds = %_Z14tMPI_Is_masterv.exit._Z14tMPI_Is_masterv.exit.thread_crit_edge, %2, %4
   %9 = phi ptr [ %.pre, %_Z14tMPI_Is_masterv.exit._Z14tMPI_Is_masterv.exit.thread_crit_edge ], [ null, %2 ], [ %3, %4 ]
   %10 = icmp eq ptr %0, %9
-  %11 = load ptr, ptr @stderr, align 8, !tbaa !91
+  %11 = load ptr, ptr @stderr, align 8, !tbaa !90
   %.str.1..str.2 = select i1 %10, ptr @.str.1, ptr @.str.2
   %12 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %11, ptr noundef nonnull %.str.1..str.2, i32 noundef %1) #19
-  %13 = load ptr, ptr @stderr, align 8, !tbaa !91
+  %13 = load ptr, ptr @stderr, align 8, !tbaa !90
   %14 = tail call i32 @fflush(ptr noundef %13)
   tail call void @exit(i32 noundef %1) #20
   unreachable
 
 15:                                               ; preds = %_Z14tMPI_Is_masterv.exit
-  %16 = load ptr, ptr @stderr, align 8, !tbaa !91
+  %16 = load ptr, ptr @stderr, align 8, !tbaa !90
   %17 = tail call noundef ptr @_Z23tMPI_Thread_getspecific17tMPI_Thread_key_t(ptr noundef nonnull byval(%struct.tMPI_Thread_key_t) align 8 @id_key)
   %18 = load ptr, ptr @threads, align 8, !tbaa !29
   %19 = ptrtoint ptr %17 to i64
@@ -841,7 +841,7 @@ _Z14tMPI_Is_masterv.exit.thread:                  ; preds = %_Z14tMPI_Is_masterv
   %22 = sdiv exact i64 %21, 424
   %23 = trunc i64 %22 to i32
   %24 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %16, ptr noundef nonnull @.str.3, i32 noundef %1, i32 noundef %23) #19
-  %25 = load ptr, ptr @stderr, align 8, !tbaa !91
+  %25 = load ptr, ptr @stderr, align 8, !tbaa !90
   %26 = tail call i32 @fflush(ptr noundef %25)
   %27 = tail call noalias dereferenceable_or_null(4) ptr @malloc(i64 noundef 4) #21
   tail call void @_Z16tMPI_Thread_exitPv(ptr noundef %27)
@@ -878,7 +878,7 @@ define noundef i32 @_Z23tMPI_Get_processor_namePcPi(ptr noundef captures(none) %
   %11 = udiv i32 %.02933, 10
   %12 = add i32 %.034, 1
   %.not37 = icmp samesign ult i32 %.02933, 10
-  br i1 %.not37, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !93
+  br i1 %.not37, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !92
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
   %13 = tail call i32 @llvm.umax.i32(i32 %12, i32 1)
@@ -908,19 +908,19 @@ define noundef i32 @_Z23tMPI_Get_processor_namePcPi(ptr noundef captures(none) %
   %25 = trunc nuw nsw i32 %23 to i8
   %26 = or disjoint i8 %25, 48
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 %20
-  store i8 %26, ptr %27, align 1, !tbaa !53
+  store i8 %26, ptr %27, align 1, !tbaa !52
   br label %28
 
 28:                                               ; preds = %24, %15
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %29, label %15, !llvm.loop !94
+  br i1 %exitcond.not, label %29, label %15, !llvm.loop !93
 
 29:                                               ; preds = %28
   %30 = add i64 %14, %wide.trip.count
   %. = tail call i64 @llvm.umin.i64(i64 %30, i64 128)
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 %.
-  store i8 0, ptr %31, align 1, !tbaa !53
+  store i8 0, ptr %31, align 1, !tbaa !52
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %35, label %32
 
@@ -942,15 +942,15 @@ define noundef double @_Z10tMPI_Wtimev() local_unnamed_addr #11 {
   %1 = alloca %struct.timeval, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %1) #18
   %2 = call i32 @gettimeofday(ptr noundef nonnull %1, ptr noundef null) #18
-  %3 = load i64, ptr %1, align 8, !tbaa !95
-  %4 = load ptr, ptr @tmpi_global, align 8, !tbaa !54
+  %3 = load i64, ptr %1, align 8, !tbaa !94
+  %4 = load ptr, ptr @tmpi_global, align 8, !tbaa !53
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 312
-  %6 = load i64, ptr %5, align 8, !tbaa !96
+  %6 = load i64, ptr %5, align 8, !tbaa !95
   %7 = sub nsw i64 %3, %6
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %9 = load i64, ptr %8, align 8, !tbaa !97
+  %9 = load i64, ptr %8, align 8, !tbaa !96
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 320
-  %11 = load i64, ptr %10, align 8, !tbaa !98
+  %11 = load i64, ptr %10, align 8, !tbaa !97
   %12 = sub nsw i64 %9, %11
   %13 = trunc i64 %12 to i32
   %14 = sitofp i64 %7 to double
@@ -983,8 +983,8 @@ define noundef i32 @_Z14tMPI_Get_countPK12tmpi_status_P14tmpi_datatype_Pi(ptr no
 
 7:                                                ; preds = %3
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %9 = load i64, ptr %8, align 8, !tbaa !99
-  %10 = load i64, ptr %1, align 8, !tbaa !101
+  %9 = load i64, ptr %8, align 8, !tbaa !98
+  %10 = load i64, ptr %1, align 8, !tbaa !100
   %11 = udiv i64 %9, %10
   %12 = trunc i64 %11 to i32
   store i32 %12, ptr %2, align 4, !tbaa !46
@@ -1020,23 +1020,23 @@ define internal noalias noundef ptr @_ZL17tMPI_Thread_startPv(ptr noundef %0) #0
 
 3:                                                ; preds = %1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 384
-  %5 = load ptr, ptr %4, align 8, !tbaa !64
+  %5 = load ptr, ptr %4, align 8, !tbaa !63
   %.not9 = icmp eq ptr %5, null
   br i1 %.not9, label %6, label %14
 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 392
-  %8 = load ptr, ptr %7, align 8, !tbaa !65
+  %8 = load ptr, ptr %7, align 8, !tbaa !64
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 408
-  %10 = load i32, ptr %9, align 8, !tbaa !61
+  %10 = load i32, ptr %9, align 8, !tbaa !60
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 416
-  %12 = load ptr, ptr %11, align 8, !tbaa !62
+  %12 = load ptr, ptr %11, align 8, !tbaa !61
   %13 = tail call noundef i32 %8(i32 noundef %10, ptr noundef %12)
   br label %19
 
 14:                                               ; preds = %3
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 400
-  %16 = load ptr, ptr %15, align 8, !tbaa !66
+  %16 = load ptr, ptr %15, align 8, !tbaa !65
   tail call void %5(ptr noundef %16)
   %.b = load i1, ptr @_ZL14tmpi_finalized, align 4
   br i1 %.b, label %19, label %17
@@ -1068,7 +1068,7 @@ define internal fastcc noundef i32 @_ZL16tMPI_Thread_initP11tmpi_thread(ptr noun
 10:                                               ; preds = %6
   %11 = load ptr, ptr %7, align 8, !tbaa !31
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  %13 = load ptr, ptr %12, align 8, !tbaa !60
+  %13 = load ptr, ptr %12, align 8, !tbaa !59
   store ptr %0, ptr %13, align 8, !tbaa !29
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %15 = tail call noundef i32 @_Z23tMPI_Free_env_list_initP18free_envelope_listi(ptr noundef nonnull %14, i32 noundef %4)
@@ -1087,7 +1087,7 @@ define internal fastcc noundef i32 @_ZL16tMPI_Thread_initP11tmpi_thread(ptr noun
   %22 = mul nsw i64 %21, 160
   %23 = tail call noundef ptr @_Z11tMPI_Mallocm(i64 noundef %22)
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 200
-  store ptr %23, ptr %24, align 8, !tbaa !88
+  store ptr %23, ptr %24, align 8, !tbaa !87
   %25 = icmp eq ptr %23, null
   br i1 %25, label %.loopexit, label %.preheader
 
@@ -1101,11 +1101,11 @@ define internal fastcc noundef i32 @_ZL16tMPI_Thread_initP11tmpi_thread(ptr noun
   %29 = load i32, ptr @Nthreads, align 4, !tbaa !46
   %30 = sext i32 %29 to i64
   %31 = icmp slt i64 %indvars.iv.next, %30
-  br i1 %31, label %.lr.ph, label %._crit_edge, !llvm.loop !102
+  br i1 %31, label %.lr.ph, label %._crit_edge, !llvm.loop !101
 
 .lr.ph:                                           ; preds = %.preheader, %28
   %indvars.iv = phi i64 [ %indvars.iv.next, %28 ], [ 0, %.preheader ]
-  %32 = load ptr, ptr %24, align 8, !tbaa !88
+  %32 = load ptr, ptr %24, align 8, !tbaa !87
   %33 = getelementptr inbounds nuw %struct.send_envelope_list, ptr %32, i64 %indvars.iv
   %34 = tail call noundef i32 @_Z23tMPI_Send_env_list_initP18send_envelope_listi(ptr noundef %33, i32 noundef 16)
   %.not46 = icmp eq i32 %34, 0
@@ -1113,7 +1113,7 @@ define internal fastcc noundef i32 @_ZL16tMPI_Thread_initP11tmpi_thread(ptr noun
 
 ._crit_edge:                                      ; preds = %28, %.preheader
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 224
-  store i32 0, ptr %35, align 8, !tbaa !103
+  store i32 0, ptr %35, align 8, !tbaa !102
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 288
   tail call void @_Z15tMPI_Event_initP12tMPI_Event_t(ptr noundef nonnull %36)
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 360
@@ -1122,7 +1122,7 @@ define internal fastcc noundef i32 @_ZL16tMPI_Thread_initP11tmpi_thread(ptr noun
   br i1 %.not44, label %39, label %.loopexit
 
 39:                                               ; preds = %._crit_edge
-  %40 = load ptr, ptr @tmpi_global, align 8, !tbaa !54
+  %40 = load ptr, ptr @tmpi_global, align 8, !tbaa !53
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 152
   %42 = tail call noundef i32 @_Z24tMPI_Thread_barrier_waitP21tMPI_Thread_barrier_t(ptr noundef nonnull %41)
   br label %.loopexit
@@ -1251,57 +1251,56 @@ attributes #21 = { nounwind allocsize(0) }
 !47 = !{!45, !45, i64 0}
 !48 = !{!49, !49, i64 0}
 !49 = !{!"p1 omnipotent char", !5, i64 0}
-!50 = distinct !{!50, !51, !52}
+!50 = distinct !{!50, !51}
 !51 = !{!"llvm.loop.mustprogress"}
-!52 = !{!"llvm.loop.estimated_trip_count"}
-!53 = !{!6, !6, i64 0}
-!54 = !{!55, !55, i64 0}
-!55 = !{!"p1 _ZTS11tmpi_global", !5, i64 0}
-!56 = !{!57, !11, i64 0}
-!57 = !{!"_ZTS13tMPI_Spinlock", !11, i64 0, !6, i64 4}
-!58 = !{!59, !59, i64 0}
-!59 = !{!"p1 _ZTS11tmpi_group_", !5, i64 0}
-!60 = !{!9, !12, i64 8}
-!61 = !{!32, !11, i64 408}
-!62 = !{!32, !45, i64 416}
-!63 = distinct !{!63, !51, !52}
-!64 = !{!32, !5, i64 384}
-!65 = !{!32, !5, i64 392}
-!66 = !{!32, !5, i64 400}
-!67 = distinct !{!67, !51, !52, !68}
-!68 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!69 = distinct !{!69, !51, !52}
-!70 = !{!32, !33, i64 0}
-!71 = distinct !{!71, !51, !52, !68}
-!72 = distinct !{!72, !51, !52}
-!73 = distinct !{!73, !51, !52}
-!74 = !{!9, !4, i64 456}
-!75 = distinct !{!75, !51, !52}
-!76 = !{!77, !11, i64 8}
-!77 = !{!"_ZTS11tmpi_global", !78, i64 0, !11, i64 8, !11, i64 12, !57, i64 16, !21, i64 80, !79, i64 152, !21, i64 240, !81, i64 312}
-!78 = !{!"p2 _ZTS14tmpi_datatype_", !13, i64 0}
-!79 = !{!"_ZTS21tMPI_Thread_barrier_t", !15, i64 0, !80, i64 64, !11, i64 72, !11, i64 76, !11, i64 80}
-!80 = !{!"p1 _ZTS19tMPI_Thread_barrier", !5, i64 0}
-!81 = !{!"_ZTS7timeval", !37, i64 0, !37, i64 8}
-!82 = !{!77, !78, i64 0}
-!83 = !{!38, !38, i64 0}
-!84 = !{!85, !86, i64 24}
-!85 = !{!"_ZTS14tmpi_datatype_", !37, i64 0, !13, i64 8, !11, i64 16, !86, i64 24, !11, i64 32}
-!86 = !{!"p1 _ZTS23tmpi_datatype_component", !5, i64 0}
-!87 = distinct !{!87, !51, !52}
-!88 = !{!32, !40, i64 200}
-!89 = distinct !{!89, !51, !52}
-!90 = distinct !{!90, !51, !52}
-!91 = !{!92, !92, i64 0}
-!92 = !{!"p1 _ZTS8_IO_FILE", !5, i64 0}
-!93 = distinct !{!93, !51, !52}
-!94 = distinct !{!94, !51, !52}
-!95 = !{!81, !37, i64 0}
-!96 = !{!77, !37, i64 312}
-!97 = !{!81, !37, i64 8}
-!98 = !{!77, !37, i64 320}
-!99 = !{!100, !37, i64 16}
-!100 = !{!"_ZTS12tmpi_status_", !11, i64 0, !11, i64 4, !11, i64 8, !37, i64 16, !11, i64 24}
-!101 = !{!85, !37, i64 0}
-!102 = distinct !{!102, !51, !52}
-!103 = !{!32, !11, i64 224}
+!52 = !{!6, !6, i64 0}
+!53 = !{!54, !54, i64 0}
+!54 = !{!"p1 _ZTS11tmpi_global", !5, i64 0}
+!55 = !{!56, !11, i64 0}
+!56 = !{!"_ZTS13tMPI_Spinlock", !11, i64 0, !6, i64 4}
+!57 = !{!58, !58, i64 0}
+!58 = !{!"p1 _ZTS11tmpi_group_", !5, i64 0}
+!59 = !{!9, !12, i64 8}
+!60 = !{!32, !11, i64 408}
+!61 = !{!32, !45, i64 416}
+!62 = distinct !{!62, !51}
+!63 = !{!32, !5, i64 384}
+!64 = !{!32, !5, i64 392}
+!65 = !{!32, !5, i64 400}
+!66 = distinct !{!66, !51, !67}
+!67 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!68 = distinct !{!68, !51}
+!69 = !{!32, !33, i64 0}
+!70 = distinct !{!70, !51, !67}
+!71 = distinct !{!71, !51}
+!72 = distinct !{!72, !51}
+!73 = !{!9, !4, i64 456}
+!74 = distinct !{!74, !51}
+!75 = !{!76, !11, i64 8}
+!76 = !{!"_ZTS11tmpi_global", !77, i64 0, !11, i64 8, !11, i64 12, !56, i64 16, !21, i64 80, !78, i64 152, !21, i64 240, !80, i64 312}
+!77 = !{!"p2 _ZTS14tmpi_datatype_", !13, i64 0}
+!78 = !{!"_ZTS21tMPI_Thread_barrier_t", !15, i64 0, !79, i64 64, !11, i64 72, !11, i64 76, !11, i64 80}
+!79 = !{!"p1 _ZTS19tMPI_Thread_barrier", !5, i64 0}
+!80 = !{!"_ZTS7timeval", !37, i64 0, !37, i64 8}
+!81 = !{!76, !77, i64 0}
+!82 = !{!38, !38, i64 0}
+!83 = !{!84, !85, i64 24}
+!84 = !{!"_ZTS14tmpi_datatype_", !37, i64 0, !13, i64 8, !11, i64 16, !85, i64 24, !11, i64 32}
+!85 = !{!"p1 _ZTS23tmpi_datatype_component", !5, i64 0}
+!86 = distinct !{!86, !51}
+!87 = !{!32, !40, i64 200}
+!88 = distinct !{!88, !51}
+!89 = distinct !{!89, !51}
+!90 = !{!91, !91, i64 0}
+!91 = !{!"p1 _ZTS8_IO_FILE", !5, i64 0}
+!92 = distinct !{!92, !51}
+!93 = distinct !{!93, !51}
+!94 = !{!80, !37, i64 0}
+!95 = !{!76, !37, i64 312}
+!96 = !{!80, !37, i64 8}
+!97 = !{!76, !37, i64 320}
+!98 = !{!99, !37, i64 16}
+!99 = !{!"_ZTS12tmpi_status_", !11, i64 0, !11, i64 4, !11, i64 8, !37, i64 16, !11, i64 24}
+!100 = !{!84, !37, i64 0}
+!101 = distinct !{!101, !51}
+!102 = !{!32, !11, i64 224}

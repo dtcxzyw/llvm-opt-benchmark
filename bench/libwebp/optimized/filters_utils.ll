@@ -90,7 +90,7 @@ define hidden i32 @WebPEstimateBestFilter(ptr noundef readonly captures(none) %0
 ._crit_edge.us:                                   ; preds = %21
   %indvars.iv.next77 = add nuw nsw i64 %indvars.iv76, 2
   %64 = icmp samesign ult i64 %indvars.iv.next77, %16
-  br i1 %64, label %.lr.ph.us, label %.preheader.preheader, !llvm.loop !11
+  br i1 %64, label %.lr.ph.us, label %.preheader.preheader, !llvm.loop !10
 
 .preheader.preheader:                             ; preds = %._crit_edge.us, %.lr.ph68, %4
   br label %.preheader
@@ -113,7 +113,7 @@ define hidden i32 @WebPEstimateBestFilter(ptr noundef readonly captures(none) %0
   %spec.select = add nuw nsw i32 %71, %.070
   %indvars.iv.next80 = add nuw nsw i64 %indvars.iv79, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next80, 16
-  br i1 %exitcond.not, label %72, label %66, !llvm.loop !13
+  br i1 %exitcond.not, label %72, label %66, !llvm.loop !12
 
 72:                                               ; preds = %66
   %73 = icmp slt i32 %spec.select, %.05273
@@ -122,7 +122,7 @@ define hidden i32 @WebPEstimateBestFilter(ptr noundef readonly captures(none) %0
   %spec.select62 = tail call i32 @llvm.smin.i32(i32 %spec.select, i32 %.05273)
   %indvars.iv.next83 = add nuw nsw i64 %indvars.iv82, 1
   %exitcond85.not = icmp eq i64 %indvars.iv.next83, 4
-  br i1 %exitcond85.not, label %75, label %.preheader, !llvm.loop !14
+  br i1 %exitcond85.not, label %75, label %.preheader, !llvm.loop !13
 
 75:                                               ; preds = %72
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %5) #5
@@ -167,10 +167,9 @@ attributes #5 = { nounwind }
 !5 = !{!"Simple C/C++ TBAA"}
 !6 = !{!7, !7, i64 0}
 !7 = !{!"int", !4, i64 0}
-!8 = distinct !{!8, !9, !10}
+!8 = distinct !{!8, !9}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = !{!"llvm.loop.estimated_trip_count"}
-!11 = distinct !{!11, !9, !10, !12}
-!12 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!13 = distinct !{!13, !9, !10}
-!14 = distinct !{!14, !9, !10}
+!10 = distinct !{!10, !9, !11}
+!11 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!12 = distinct !{!12, !9}
+!13 = distinct !{!13, !9}

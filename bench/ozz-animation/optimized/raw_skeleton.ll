@@ -58,7 +58,7 @@ _ZSt8_DestroyIPN3ozz9animation7offline11RawSkeleton5JointENS0_12StdAllocatorIS4_
           to label %9 unwind label %13
 
 9:                                                ; preds = %7
-  %10 = load ptr, ptr %8, align 8, !tbaa !14
+  %10 = load ptr, ptr %8, align 8, !tbaa !13
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 24
   %12 = load ptr, ptr %11, align 8
   invoke void %12(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull %6)
@@ -81,7 +81,7 @@ define dso_local noundef zeroext i1 @_ZNK3ozz9animation7offline11RawSkeleton8Val
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2)
   store i32 0, ptr %2, align 4
   call fastcc void @_ZN3ozz9animation7offline12_GLOBAL__N_123_IterHierarchyRecurseDFINS2_12JointCounterEEEvRKSt6vectorINS1_11RawSkeleton5JointENS_12StdAllocatorIS7_EEEPKS7_RT_(ptr noundef nonnull readonly align 8 dereferenceable(24) %0, ptr noundef nonnull align 4 dereferenceable(4) %2)
-  %.sroa.0.0.copyload.i.i = load i32, ptr %2, align 4, !tbaa !16
+  %.sroa.0.0.copyload.i.i = load i32, ptr %2, align 4, !tbaa !15
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2)
   %3 = icmp slt i32 %.sroa.0.0.copyload.i.i, 1025
   ret i1 %3
@@ -93,7 +93,7 @@ define dso_local noundef i32 @_ZNK3ozz9animation7offline11RawSkeleton10num_joint
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2)
   store i32 0, ptr %2, align 4
   call fastcc void @_ZN3ozz9animation7offline12_GLOBAL__N_123_IterHierarchyRecurseDFINS2_12JointCounterEEEvRKSt6vectorINS1_11RawSkeleton5JointENS_12StdAllocatorIS7_EEEPKS7_RT_(ptr noundef nonnull readonly align 8 dereferenceable(24) %0, ptr noundef nonnull align 4 dereferenceable(4) %2)
-  %.sroa.0.0.copyload.i = load i32, ptr %2, align 4, !tbaa !16
+  %.sroa.0.0.copyload.i = load i32, ptr %2, align 4, !tbaa !15
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2)
   ret i32 %.sroa.0.0.copyload.i
 }
@@ -115,14 +115,14 @@ declare void @_ZSt9terminatev() local_unnamed_addr #4
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN3ozz12StdAllocatorINS_9animation7offline11RawSkeleton5JointEE7destroyIS4_EEvPT_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1) local_unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %4 = load ptr, ptr %3, align 8, !tbaa !18
+  %4 = load ptr, ptr %3, align 8, !tbaa !17
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %6 = icmp eq ptr %4, %5
   br i1 %6, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN3ozz12StdAllocatorIcEEE11_M_is_localEv.exit.thread.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN3ozz12StdAllocatorIcEEE11_M_is_localEv.exit.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN3ozz12StdAllocatorIcEEE11_M_is_localEv.exit.thread.i.i: ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %8 = load i64, ptr %7, align 8, !tbaa !23
+  %8 = load i64, ptr %7, align 8, !tbaa !22
   %9 = icmp ult i64 %8, 16
   tail call void @llvm.assume(i1 %9)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN3ozz12StdAllocatorIcEEED2Ev.exit
@@ -132,7 +132,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN3ozz12StdAllocatorIcEEE11_M_is_
           to label %11 unwind label %15
 
 11:                                               ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN3ozz12StdAllocatorIcEEE11_M_is_localEv.exit.i.i
-  %12 = load ptr, ptr %10, align 8, !tbaa !14
+  %12 = load ptr, ptr %10, align 8, !tbaa !13
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 24
   %14 = load ptr, ptr %13, align 8
   invoke void %14(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef %4)
@@ -173,7 +173,7 @@ _ZSt8_DestroyIPN3ozz9animation7offline11RawSkeleton5JointENS0_12StdAllocatorIS4_
           to label %25 unwind label %29
 
 25:                                               ; preds = %23
-  %26 = load ptr, ptr %24, align 8, !tbaa !14
+  %26 = load ptr, ptr %24, align 8, !tbaa !13
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 24
   %28 = load ptr, ptr %27, align 8
   invoke void %28(ptr noundef nonnull align 8 dereferenceable(8) %24, ptr noundef nonnull %22)
@@ -207,9 +207,9 @@ define internal fastcc void @_ZN3ozz9animation7offline12_GLOBAL__N_123_IterHiera
   %6 = phi ptr [ %12, %.lr.ph ], [ %5, %2 ]
   %.01 = phi i64 [ %10, %.lr.ph ], [ 0, %2 ]
   %7 = getelementptr inbounds nuw %"struct.ozz::animation::offline::RawSkeleton::Joint", ptr %6, i64 %.01
-  %8 = load i32, ptr %1, align 4, !tbaa !24
+  %8 = load i32, ptr %1, align 4, !tbaa !23
   %9 = add nsw i32 %8, 1
-  store i32 %9, ptr %1, align 4, !tbaa !24
+  store i32 %9, ptr %1, align 4, !tbaa !23
   tail call fastcc void @_ZN3ozz9animation7offline12_GLOBAL__N_123_IterHierarchyRecurseDFINS2_12JointCounterEEEvRKSt6vectorINS1_11RawSkeleton5JointENS_12StdAllocatorIS7_EEEPKS7_RT_(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 4 dereferenceable(4) %1)
   %10 = add nuw i64 %.01, 1
   %11 = load ptr, ptr %3, align 8, !tbaa !10
@@ -219,7 +219,7 @@ define internal fastcc void @_ZN3ozz9animation7offline12_GLOBAL__N_123_IterHiera
   %15 = sub i64 %13, %14
   %16 = sdiv exact i64 %15, 96
   %17 = icmp ult i64 %10, %16
-  br i1 %17, label %.lr.ph, label %._crit_edge, !llvm.loop !26
+  br i1 %17, label %.lr.ph, label %._crit_edge, !llvm.loop !25
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
@@ -260,19 +260,18 @@ attributes #11 = { nounwind }
 !8 = !{!"omnipotent char", !9, i64 0}
 !9 = !{!"Simple C++ TBAA"}
 !10 = !{!5, !6, i64 8}
-!11 = distinct !{!11, !12, !13}
+!11 = distinct !{!11, !12}
 !12 = !{!"llvm.loop.mustprogress"}
-!13 = !{!"llvm.loop.estimated_trip_count"}
-!14 = !{!15, !15, i64 0}
-!15 = !{!"vtable pointer", !9, i64 0}
-!16 = !{!17, !17, i64 0}
-!17 = !{!"int", !8, i64 0}
-!18 = !{!19, !21, i64 0}
-!19 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcEN3ozz12StdAllocatorIcEEEE", !20, i64 0, !22, i64 8, !8, i64 16}
-!20 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcEN3ozz12StdAllocatorIcEEE12_Alloc_hiderE", !21, i64 0}
-!21 = !{!"p1 omnipotent char", !7, i64 0}
-!22 = !{!"long", !8, i64 0}
-!23 = !{!19, !22, i64 8}
-!24 = !{!25, !17, i64 0}
-!25 = !{!"_ZTSN3ozz9animation7offline12_GLOBAL__N_112JointCounterE", !17, i64 0}
-!26 = distinct !{!26, !12, !13}
+!13 = !{!14, !14, i64 0}
+!14 = !{!"vtable pointer", !9, i64 0}
+!15 = !{!16, !16, i64 0}
+!16 = !{!"int", !8, i64 0}
+!17 = !{!18, !20, i64 0}
+!18 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcEN3ozz12StdAllocatorIcEEEE", !19, i64 0, !21, i64 8, !8, i64 16}
+!19 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcEN3ozz12StdAllocatorIcEEE12_Alloc_hiderE", !20, i64 0}
+!20 = !{!"p1 omnipotent char", !7, i64 0}
+!21 = !{!"long", !8, i64 0}
+!22 = !{!18, !21, i64 8}
+!23 = !{!24, !16, i64 0}
+!24 = !{!"_ZTSN3ozz9animation7offline12_GLOBAL__N_112JointCounterE", !16, i64 0}
+!25 = distinct !{!25, !12}

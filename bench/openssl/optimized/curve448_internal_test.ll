@@ -219,7 +219,7 @@ define internal range(i32 0, 2) i32 @test_x448() #1 {
 
 23:                                               ; preds = %20
   %putchar = call i32 @putchar(i32 46)
-  %24 = load ptr, ptr @stdout, align 8, !tbaa !7
+  %24 = load ptr, ptr @stdout, align 8, !tbaa !6
   %25 = call i32 @fflush(ptr noundef %24)
   br label %26
 
@@ -259,7 +259,7 @@ define internal range(i32 0, 2) i32 @test_x448() #1 {
   %.b = load i1, ptr @max, align 4
   %41 = select i1 %.b, i32 1000000, i32 1000
   %.not19.not = icmp samesign ult i32 %.01326, %41
-  br i1 %.not19.not, label %20, label %.loopexit, !llvm.loop !12
+  br i1 %.not19.not, label %20, label %.loopexit, !llvm.loop !11
 
 .loopexit:                                        ; preds = %39, %26, %0, %8, %11, %16, %38
   %.014 = phi i32 [ 0, %38 ], [ 0, %16 ], [ 0, %11 ], [ 0, %8 ], [ 0, %0 ], [ 1, %39 ], [ 0, %26 ]
@@ -521,12 +521,11 @@ attributes #9 = { nounwind willreturn memory(read) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = distinct !{!4, !5, !6}
+!4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{!"llvm.loop.estimated_trip_count"}
-!7 = !{!8, !8, i64 0}
-!8 = !{!"p1 _ZTS8_IO_FILE", !9, i64 0}
-!9 = !{!"any pointer", !10, i64 0}
-!10 = !{!"omnipotent char", !11, i64 0}
-!11 = !{!"Simple C/C++ TBAA"}
-!12 = distinct !{!12, !5, !6}
+!6 = !{!7, !7, i64 0}
+!7 = !{!"p1 _ZTS8_IO_FILE", !8, i64 0}
+!8 = !{!"any pointer", !9, i64 0}
+!9 = !{!"omnipotent char", !10, i64 0}
+!10 = !{!"Simple C/C++ TBAA"}
+!11 = distinct !{!11, !5}

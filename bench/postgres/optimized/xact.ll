@@ -330,7 +330,7 @@ IsInParallelMode.exit.thread:                     ; preds = %1, %IsInParallelMod
   %37 = load ptr, ptr %36, align 8
   tail call fastcc void @AssignTransactionId(ptr noundef %37)
   %.not43 = icmp eq i64 %35, 0
-  br i1 %.not43, label %._crit_edge, label %.lr.ph, !llvm.loop !9
+  br i1 %.not43, label %._crit_edge, label %.lr.ph, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.critedge
   tail call void @pfree(ptr noundef %26) #21
@@ -640,7 +640,7 @@ define dso_local noundef zeroext i1 @SubTransactionIsActive(i32 noundef %0) loca
   %10 = getelementptr inbounds nuw i8, ptr %.08, i64 112
   %.0 = load ptr, ptr %10, align 8
   %.not.not = icmp eq ptr %.0, null
-  br i1 %.not.not, label %._crit_edge, label %.lr.ph, !llvm.loop !10
+  br i1 %.not.not, label %._crit_edge, label %.lr.ph, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %5, %9, %1
   %.not.lcssa = phi i1 [ false, %1 ], [ false, %9 ], [ true, %5 ]
@@ -789,7 +789,7 @@ define dso_local noundef zeroext i1 @TransactionIdIsCurrentTransactionId(i32 nou
   %.253 = select i1 %20, i32 %.05181, i32 %22
   %.250 = select i1 %20, i32 %21, i32 %.04882
   %.not62.not = icmp sgt i32 %.250, %.253
-  br i1 %.not62.not, label %.critedge, label %12, !llvm.loop !11
+  br i1 %.not62.not, label %.critedge, label %12, !llvm.loop !10
 
 .lr.ph77:                                         ; preds = %.preheader, %.loopexit
   %.03876 = phi ptr [ %.038, %.loopexit ], [ %.03874, %.preheader ]
@@ -845,7 +845,7 @@ define dso_local noundef zeroext i1 @TransactionIdIsCurrentTransactionId(i32 nou
   %48 = getelementptr inbounds nuw i8, ptr %.03876, i64 112
   %.038 = load ptr, ptr %48, align 8
   %.not = icmp eq ptr %.038, null
-  br i1 %.not, label %.critedge, label %.lr.ph77, !llvm.loop !12
+  br i1 %.not, label %.critedge, label %.lr.ph77, !llvm.loop !11
 
 .critedge:                                        ; preds = %.loopexit, %29, %36, %12, %19, %.preheader, %3, %1
   %.0 = phi i1 [ false, %1 ], [ true, %3 ], [ false, %.preheader ], [ %.not63, %19 ], [ %.not63, %12 ], [ true, %36 ], [ false, %.loopexit ], [ true, %29 ]
@@ -1327,7 +1327,7 @@ define dso_local void @CommitTransactionCommand() local_unnamed_addr #2 {
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 32
   %43 = load i32, ptr %42, align 8
   %44 = icmp eq i32 %43, 13
-  br i1 %44, label %.preheader.i, label %.loopexit, !llvm.loop !13
+  br i1 %44, label %.preheader.i, label %.loopexit, !llvm.loop !12
 
 .preheader54.i:                                   ; preds = %1, %.preheader54.i
   tail call fastcc void @CommitSubTransaction()
@@ -1338,7 +1338,7 @@ define dso_local void @CommitTransactionCommand() local_unnamed_addr #2 {
     i32 14, label %.preheader54.i
     i32 6, label %48
     i32 10, label %54
-  ], !llvm.loop !14
+  ]
 
 48:                                               ; preds = %.preheader54.i
   %49 = getelementptr inbounds nuw i8, ptr %45, i64 32
@@ -1417,7 +1417,7 @@ define dso_local void @CommitTransactionCommand() local_unnamed_addr #2 {
 
 CommitTransactionCommandInternal.exit:            ; preds = %1, %62
   tail call fastcc void @CleanupSubTransaction()
-  br label %1, !llvm.loop !15
+  br label %1, !llvm.loop !13
 
 .loopexit:                                        ; preds = %1, %.preheader.i, %54, %53, %48, %31, %36, %25, %30, %19, %24, %72, %63, %39, %37, %18, %16, %14
   ret void
@@ -1528,7 +1528,7 @@ define dso_local void @AbortCurrentTransaction() local_unnamed_addr #2 {
 
 AbortCurrentTransactionInternal.exit:             ; preds = %1, %1, %26
   tail call fastcc void @CleanupSubTransaction()
-  br label %1, !llvm.loop !16
+  br label %1, !llvm.loop !14
 
 .loopexit:                                        ; preds = %1, %5, %9, %24, %22, %20, %18, %16, %14, %12, %10
   ret void
@@ -1715,7 +1715,7 @@ define dso_local void @UnregisterXactCallback(ptr noundef readnone captures(addr
 12:                                               ; preds = %.lr.ph, %6
   %.012 = load ptr, ptr %.01219, align 8
   %.not = icmp eq ptr %.012, null
-  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !17
+  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !15
 
 .loopexit:                                        ; preds = %12, %2, %10
   ret void
@@ -1768,7 +1768,7 @@ define dso_local void @UnregisterSubXactCallback(ptr noundef readnone captures(a
 12:                                               ; preds = %.lr.ph, %6
   %.012 = load ptr, ptr %.01219, align 8
   %.not = icmp eq ptr %.012, null
-  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !18
+  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !16
 
 .loopexit:                                        ; preds = %12, %2, %10
   ret void
@@ -1847,7 +1847,7 @@ define dso_local noundef zeroext i1 @PrepareTransactionBlock(ptr noundef %0) loc
   %6 = getelementptr inbounds nuw i8, ptr %.06, i64 112
   %7 = load ptr, ptr %6, align 8
   %.not = icmp eq ptr %7, null
-  br i1 %.not, label %8, label %5, !llvm.loop !19
+  br i1 %.not, label %8, label %5, !llvm.loop !17
 
 8:                                                ; preds = %5
   %9 = getelementptr inbounds nuw i8, ptr %.06, i64 32
@@ -1961,7 +1961,7 @@ define dso_local noundef zeroext i1 @EndTransactionBlock(i1 noundef zeroext %0) 
   %29 = getelementptr inbounds nuw i8, ptr %24, i64 112
   %30 = load ptr, ptr %29, align 8
   %.not32 = icmp eq ptr %30, null
-  br i1 %.not32, label %._crit_edge42, label %.lr.ph41, !llvm.loop !20
+  br i1 %.not32, label %._crit_edge42, label %.lr.ph41, !llvm.loop !18
 
 31:                                               ; preds = %.lr.ph41
   %32 = tail call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #20
@@ -2021,7 +2021,7 @@ define dso_local noundef zeroext i1 @EndTransactionBlock(i1 noundef zeroext %0) 
   %55 = getelementptr inbounds nuw i8, ptr %45, i64 112
   %56 = load ptr, ptr %55, align 8
   %.not = icmp eq ptr %56, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !21
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !19
 
 ._crit_edge:                                      ; preds = %54
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %45, i64 32
@@ -2169,7 +2169,7 @@ define dso_local void @UserAbortTransactionBlock(i1 noundef zeroext %0) local_un
   %20 = getelementptr inbounds nuw i8, ptr %10, i64 112
   %21 = load ptr, ptr %20, align 8
   %.not = icmp eq ptr %21, null
-  br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !22
+  br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !20
 
 ._crit_edge.loopexit:                             ; preds = %19
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %10, i64 32
@@ -2535,7 +2535,7 @@ IsInParallelMode.exit.thread:                     ; preds = %1, %IsInParallelMod
   %35 = getelementptr inbounds nuw i8, ptr %.01927, i64 112
   %36 = load ptr, ptr %35, align 8
   %.not = icmp eq ptr %36, null
-  br i1 %.not, label %.critedge, label %.lr.ph, !llvm.loop !23
+  br i1 %.not, label %.critedge, label %.lr.ph, !llvm.loop !21
 
 .critedge:                                        ; preds = %34
   %37 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #20
@@ -2568,7 +2568,7 @@ IsInParallelMode.exit.thread:                     ; preds = %1, %IsInParallelMod
   store i32 13, ptr %49, align 8
   %50 = icmp eq ptr %.0, %.01927
   %51 = getelementptr inbounds nuw i8, ptr %.0, i64 112
-  br i1 %50, label %52, label %.preheader, !llvm.loop !24
+  br i1 %50, label %52, label %.preheader
 
 52:                                               ; preds = %.preheader
   ret void
@@ -2667,7 +2667,7 @@ IsInParallelMode.exit.thread:                     ; preds = %1, %IsInParallelMod
   %35 = getelementptr inbounds nuw i8, ptr %.02840, i64 112
   %36 = load ptr, ptr %35, align 8
   %.not = icmp eq ptr %36, null
-  br i1 %.not, label %.critedge, label %.lr.ph, !llvm.loop !25
+  br i1 %.not, label %.critedge, label %.lr.ph, !llvm.loop !22
 
 .critedge:                                        ; preds = %34
   %37 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #20
@@ -2724,7 +2724,7 @@ IsInParallelMode.exit.thread:                     ; preds = %1, %IsInParallelMod
   %59 = getelementptr inbounds nuw i8, ptr %.042, i64 112
   %.0 = load ptr, ptr %59, align 8
   %60 = icmp eq ptr %.0, %.02840
-  br i1 %60, label %._crit_edge.loopexit, label %.lr.ph43, !llvm.loop !26
+  br i1 %60, label %._crit_edge.loopexit, label %.lr.ph43
 
 ._crit_edge.loopexit:                             ; preds = %58
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.0, i64 32
@@ -2936,7 +2936,7 @@ TransStateAsString.exit:                          ; preds = %9, %switch.lookup
   %26 = load ptr, ptr %25, align 8
   tail call void %24(i32 noundef 3, i32 noundef %16, i32 noundef %20, ptr noundef %26) #21
   %.not.i = icmp eq ptr %22, null
-  br i1 %.not.i, label %CallSubXactCallbacks.exit.loopexit, label %.lr.ph.i, !llvm.loop !27
+  br i1 %.not.i, label %CallSubXactCallbacks.exit.loopexit, label %.lr.ph.i, !llvm.loop !23
 
 CallSubXactCallbacks.exit.loopexit:               ; preds = %.lr.ph.i
   %.pre = load i32, ptr %15, align 8
@@ -3114,7 +3114,7 @@ AtSubCommit_childXids.exit:                       ; preds = %102, %107
   %130 = load ptr, ptr %129, align 8
   tail call void %128(i32 noundef 1, i32 noundef %121, i32 noundef %124, ptr noundef %130) #21
   %.not.i51 = icmp eq ptr %126, null
-  br i1 %.not.i51, label %CallSubXactCallbacks.exit52, label %.lr.ph.i49, !llvm.loop !27
+  br i1 %.not.i51, label %CallSubXactCallbacks.exit52, label %.lr.ph.i49, !llvm.loop !23
 
 CallSubXactCallbacks.exit52:                      ; preds = %.lr.ph.i49, %108
   %131 = getelementptr inbounds nuw i8, ptr %1, i64 56
@@ -3384,7 +3384,7 @@ AtSubAbort_childXids.exit:                        ; preds = %49, %53
   %64 = load ptr, ptr %63, align 8
   tail call void %62(i32 noundef 2, i32 noundef %55, i32 noundef %58, ptr noundef %64) #21
   %.not.i37 = icmp eq ptr %60, null
-  br i1 %.not.i37, label %CallSubXactCallbacks.exit, label %.lr.ph.i, !llvm.loop !27
+  br i1 %.not.i37, label %CallSubXactCallbacks.exit, label %.lr.ph.i, !llvm.loop !23
 
 CallSubXactCallbacks.exit:                        ; preds = %.lr.ph.i, %54
   %65 = load ptr, ptr %5, align 8
@@ -3634,7 +3634,7 @@ define dso_local void @AbortOutOfAnyTransaction() local_unnamed_addr #2 {
   %31 = getelementptr inbounds nuw i8, ptr %.1, i64 32
   %32 = load i32, ptr %31, align 8
   %.not14 = icmp eq i32 %32, 0
-  br i1 %.not14, label %33, label %4, !llvm.loop !28
+  br i1 %.not14, label %33, label %4, !llvm.loop !24
 
 33:                                               ; preds = %30
   %34 = load ptr, ptr @TopMemoryContext, align 8
@@ -3765,7 +3765,7 @@ TransStateAsString.exit:                          ; preds = %21, %switch.lookup
   %49 = load ptr, ptr %48, align 8
   tail call void %47(i32 noundef 3, ptr noundef %49) #21
   %.not.i19 = icmp eq ptr %45, null
-  br i1 %.not.i19, label %CallXactCallbacks.exit, label %.lr.ph.i, !llvm.loop !29
+  br i1 %.not.i19, label %CallXactCallbacks.exit, label %.lr.ph.i, !llvm.loop !25
 
 50:                                               ; preds = %42
   br i1 %.not5.i, label %CallXactCallbacks.exit, label %.lr.ph.i21
@@ -3779,7 +3779,7 @@ TransStateAsString.exit:                          ; preds = %21, %switch.lookup
   %55 = load ptr, ptr %54, align 8
   tail call void %53(i32 noundef 2, ptr noundef %55) #21
   %.not.i23 = icmp eq ptr %51, null
-  br i1 %.not.i23, label %CallXactCallbacks.exit, label %.lr.ph.i21, !llvm.loop !29
+  br i1 %.not.i23, label %CallXactCallbacks.exit, label %.lr.ph.i21, !llvm.loop !25
 
 CallXactCallbacks.exit:                           ; preds = %.lr.ph.i21, %.lr.ph.i, %50, %44
   %56 = load ptr, ptr @TopTransactionResourceOwner, align 8
@@ -3958,7 +3958,7 @@ define dso_local i64 @EstimateTransactionStateSpace() local_unnamed_addr #2 {
   %10 = getelementptr inbounds nuw i8, ptr %.012, i64 112
   %.0 = load ptr, ptr %10, align 8
   %.not = icmp eq ptr %.0, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !30
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !26
 
 ._crit_edge:                                      ; preds = %5, %0
   %.07.lcssa = phi i64 [ 0, %0 ], [ %9, %5 ]
@@ -4023,7 +4023,7 @@ define dso_local void @SerializeTransactionState(i64 noundef %0, ptr noundef wri
   %30 = getelementptr inbounds nuw i8, ptr %.047, i64 112
   %.0 = load ptr, ptr %30, align 8
   %.not = icmp eq ptr %.0, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !31
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !27
 
 ._crit_edge:                                      ; preds = %25
   %31 = shl i64 %29, 2
@@ -4070,7 +4070,7 @@ define dso_local void @SerializeTransactionState(i64 noundef %0, ptr noundef wri
   %52 = getelementptr inbounds nuw i8, ptr %.151, i64 112
   %.1 = load ptr, ptr %52, align 8
   %.not41 = icmp eq ptr %.1, null
-  br i1 %.not41, label %._crit_edge54, label %.lr.ph53, !llvm.loop !32
+  br i1 %.not41, label %._crit_edge54, label %.lr.ph53, !llvm.loop !28
 
 ._crit_edge54:                                    ; preds = %48, %._crit_edge
   tail call void @pg_qsort(ptr noundef %32, i64 noundef %29, i64 noundef 4, ptr noundef nonnull @xidComparator) #21
@@ -4190,7 +4190,7 @@ TransStateAsString.exit:                          ; preds = %21, %switch.lookup
 26:                                               ; preds = %.preheader, %26
   tail call void @AfterTriggerFireDeferred() #21
   %27 = tail call zeroext i1 @PreCommit_Portals(i1 noundef zeroext false) #21
-  br i1 %27, label %26, label %28, !llvm.loop !33
+  br i1 %27, label %26, label %28
 
 28:                                               ; preds = %26
   %29 = select i1 %8, i32 6, i32 5
@@ -4207,7 +4207,7 @@ TransStateAsString.exit:                          ; preds = %21, %switch.lookup
   %35 = load ptr, ptr %34, align 8
   tail call void %33(i32 noundef range(i32 0, 8) %29, ptr noundef %35) #21
   %.not.i = icmp eq ptr %31, null
-  br i1 %.not.i, label %CallXactCallbacks.exit, label %.lr.ph.i, !llvm.loop !29
+  br i1 %.not.i, label %CallXactCallbacks.exit, label %.lr.ph.i, !llvm.loop !25
 
 CallXactCallbacks.exit:                           ; preds = %.lr.ph.i, %28
   tail call void @AtEOXact_Parallel(i1 noundef zeroext true) #21
@@ -4513,7 +4513,7 @@ RecordTransactionCommit.exit:                     ; preds = %151, %152
   %164 = load ptr, ptr %163, align 8
   call void %162(i32 noundef range(i32 0, 8) %158, ptr noundef %164) #21
   %.not.i37 = icmp eq ptr %160, null
-  br i1 %.not.i37, label %CallXactCallbacks.exit38, label %.lr.ph.i35, !llvm.loop !29
+  br i1 %.not.i37, label %CallXactCallbacks.exit38, label %.lr.ph.i35, !llvm.loop !25
 
 CallXactCallbacks.exit38:                         ; preds = %.lr.ph.i35, %156
   store ptr null, ptr @CurrentResourceOwner, align 8
@@ -5554,7 +5554,7 @@ define internal fastcc void @ShowTransactionStateRec(ptr noundef %0, ptr noundef
   %29 = load i32, ptr %17, align 8
   %30 = sext i32 %29 to i64
   %31 = icmp slt i64 %indvars.iv.next, %30
-  br i1 %31, label %.lr.ph, label %.loopexit, !llvm.loop !34
+  br i1 %31, label %.lr.ph, label %.loopexit, !llvm.loop !29
 
 .loopexit:                                        ; preds = %.lr.ph, %20, %16
   %32 = call zeroext i1 @errstart(i32 noundef 10, ptr noundef null) #21
@@ -5691,7 +5691,7 @@ TransStateAsString.exit:                          ; preds = %14, %switch.lookup
 19:                                               ; preds = %.preheader, %19
   tail call void @AfterTriggerFireDeferred() #21
   %20 = tail call zeroext i1 @PreCommit_Portals(i1 noundef zeroext true) #21
-  br i1 %20, label %19, label %21, !llvm.loop !35
+  br i1 %20, label %19, label %21
 
 21:                                               ; preds = %19
   %22 = load ptr, ptr @Xact_callbacks, align 8
@@ -5707,7 +5707,7 @@ TransStateAsString.exit:                          ; preds = %14, %switch.lookup
   %27 = load ptr, ptr %26, align 8
   tail call void %25(i32 noundef 7, ptr noundef %27) #21
   %.not.i20 = icmp eq ptr %23, null
-  br i1 %.not.i20, label %CallXactCallbacks.exit, label %.lr.ph.i, !llvm.loop !29
+  br i1 %.not.i20, label %CallXactCallbacks.exit, label %.lr.ph.i, !llvm.loop !25
 
 CallXactCallbacks.exit:                           ; preds = %.lr.ph.i, %21
   tail call void @AfterTriggerEndXact(i1 noundef zeroext true) #21
@@ -5785,7 +5785,7 @@ CallXactCallbacks.exit:                           ; preds = %.lr.ph.i, %21
   %58 = load ptr, ptr %57, align 8
   tail call void %56(i32 noundef 4, ptr noundef %58) #21
   %.not.i24 = icmp eq ptr %54, null
-  br i1 %.not.i24, label %CallXactCallbacks.exit25, label %.lr.ph.i22, !llvm.loop !29
+  br i1 %.not.i24, label %CallXactCallbacks.exit25, label %.lr.ph.i22, !llvm.loop !25
 
 CallXactCallbacks.exit25:                         ; preds = %.lr.ph.i22, %46
   %59 = load ptr, ptr @TopTransactionResourceOwner, align 8
@@ -5922,7 +5922,7 @@ TransStateAsString.exit:                          ; preds = %6, %switch.lookup
   %36 = load ptr, ptr %35, align 8
   tail call void %34(i32 noundef 0, i32 noundef %26, i32 noundef %30, ptr noundef %36) #21
   %.not.i = icmp eq ptr %32, null
-  br i1 %.not.i, label %CallSubXactCallbacks.exit, label %.lr.ph.i, !llvm.loop !27
+  br i1 %.not.i, label %CallSubXactCallbacks.exit, label %.lr.ph.i, !llvm.loop !23
 
 CallSubXactCallbacks.exit:                        ; preds = %.lr.ph.i, %11
   %37 = tail call zeroext i1 @message_level_is_interesting(i32 noundef 10) #21
@@ -6421,33 +6421,27 @@ attributes #22 = { nounwind willreturn memory(read) }
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i8 0, i8 2}
 !5 = !{}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7, !8}
-!11 = distinct !{!11, !7, !8}
-!12 = distinct !{!12, !7, !8}
-!13 = distinct !{!13, !7, !8}
-!14 = distinct !{!14, !8}
-!15 = distinct !{!15, !7, !8}
-!16 = distinct !{!16, !7, !8}
-!17 = distinct !{!17, !7, !8}
-!18 = distinct !{!18, !7, !8}
-!19 = distinct !{!19, !7, !8}
-!20 = distinct !{!20, !7, !8}
-!21 = distinct !{!21, !7, !8}
-!22 = distinct !{!22, !7, !8}
-!23 = distinct !{!23, !7, !8}
-!24 = distinct !{!24, !8}
-!25 = distinct !{!25, !7, !8}
-!26 = distinct !{!26, !8}
-!27 = distinct !{!27, !7, !8}
-!28 = distinct !{!28, !7, !8}
-!29 = distinct !{!29, !7, !8}
-!30 = distinct !{!30, !7, !8}
-!31 = distinct !{!31, !7, !8}
-!32 = distinct !{!32, !7, !8}
-!33 = distinct !{!33, !8}
-!34 = distinct !{!34, !7, !8}
-!35 = distinct !{!35, !8}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7}
+!12 = distinct !{!12, !7}
+!13 = distinct !{!13, !7}
+!14 = distinct !{!14, !7}
+!15 = distinct !{!15, !7}
+!16 = distinct !{!16, !7}
+!17 = distinct !{!17, !7}
+!18 = distinct !{!18, !7}
+!19 = distinct !{!19, !7}
+!20 = distinct !{!20, !7}
+!21 = distinct !{!21, !7}
+!22 = distinct !{!22, !7}
+!23 = distinct !{!23, !7}
+!24 = distinct !{!24, !7}
+!25 = distinct !{!25, !7}
+!26 = distinct !{!26, !7}
+!27 = distinct !{!27, !7}
+!28 = distinct !{!28, !7}
+!29 = distinct !{!29, !7}

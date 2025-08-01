@@ -56,24 +56,24 @@ define void @_ZN4base8internal26PlatformThreadLocalStorage12OnThreadExitEPv(ptr 
   %.1.lcssa.i = phi i1 [ false, %5 ], [ %.2.i, %19 ]
   %9 = add nsw i32 %.0.i, -1
   %10 = icmp samesign ult i32 %.0.i, 2
-  br i1 %10, label %_ZN12_GLOBAL__N_120OnThreadExitInternalEPv.exit, label %4, !llvm.loop !3
+  br i1 %10, label %_ZN12_GLOBAL__N_120OnThreadExitInternalEPv.exit, label %4
 
 .lr.ph.i:                                         ; preds = %19, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ %8, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %19 ]
   %.124.i = phi i1 [ false, %.lr.ph.preheader.i ], [ %.2.i, %19 ]
   %11 = getelementptr inbounds nuw [256 x ptr], ptr %2, i64 0, i64 %indvars.iv.i
-  %12 = load ptr, ptr %11, align 8, !tbaa !5
+  %12 = load ptr, ptr %11, align 8, !tbaa !3
   %13 = icmp eq ptr %12, null
   br i1 %13, label %19, label %14
 
 14:                                               ; preds = %.lr.ph.i
   %15 = getelementptr inbounds nuw [256 x ptr], ptr @_ZN12_GLOBAL__N_117g_tls_destructorsE, i64 0, i64 %indvars.iv.i
-  %16 = load volatile ptr, ptr %15, align 8, !tbaa !5
+  %16 = load volatile ptr, ptr %15, align 8, !tbaa !3
   %17 = icmp eq ptr %16, null
   br i1 %17, label %19, label %18
 
 18:                                               ; preds = %14
-  store ptr null, ptr %11, align 8, !tbaa !5
+  store ptr null, ptr %11, align 8, !tbaa !3
   call void %16(ptr noundef nonnull %12)
   br label %19
 
@@ -81,7 +81,7 @@ define void @_ZN4base8internal26PlatformThreadLocalStorage12OnThreadExitEPv(ptr 
   %.2.i = phi i1 [ %.124.i, %.lr.ph.i ], [ true, %18 ], [ %.124.i, %14 ]
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
   %20 = icmp sgt i64 %indvars.iv.i, 1
-  br i1 %20, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !9
+  br i1 %20, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !7
 
 _ZN12_GLOBAL__N_120OnThreadExitInternalEPv.exit:  ; preds = %4, %._crit_edge.i
   call void @_ZN4base8internal26PlatformThreadLocalStorage11SetTLSValueEjPv(i32 noundef %3, ptr noundef null)
@@ -111,11 +111,11 @@ define void @_ZN4base18ThreadLocalStorage10StaticSlot10InitializeEPFvPvE(ptr nou
   %13 = atomicrmw volatile add ptr @_ZN12_GLOBAL__N_119g_last_used_tls_keyE, i32 1 monotonic, align 4
   %14 = add nsw i32 %13, 1
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 %14, ptr %15, align 4, !tbaa !11
+  store i32 %14, ptr %15, align 4, !tbaa !9
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
-  store i32 %14, ptr %3, align 4, !tbaa !14
-  store i32 256, ptr %4, align 4, !tbaa !14
+  store i32 %14, ptr %3, align 4, !tbaa !12
+  store i32 256, ptr %4, align 4, !tbaa !12
   %16 = icmp slt i32 %13, 255
   br i1 %16, label %_ZN7logging11CheckLTImplB5cxx11EiiPKc.exit.thread, label %_ZN7logging11CheckLTImplB5cxx11EiiPKc.exit
 
@@ -139,10 +139,10 @@ _ZN7logging11CheckLTImplB5cxx11EiiPKc.exit:       ; preds = %12
   br label %19
 
 19:                                               ; preds = %_ZN7logging11CheckLTImplB5cxx11EiiPKc.exit.thread, %_ZN7logging11CheckLTImplB5cxx11EiiPKc.exit, %18
-  %20 = load i32, ptr %15, align 4, !tbaa !11
+  %20 = load i32, ptr %15, align 4, !tbaa !9
   %21 = sext i32 %20 to i64
   %22 = getelementptr inbounds [256 x ptr], ptr @_ZN12_GLOBAL__N_117g_tls_destructorsE, i64 0, i64 %21
-  store volatile ptr %1, ptr %22, align 8, !tbaa !5
+  store volatile ptr %1, ptr %22, align 8, !tbaa !3
   store atomic volatile i32 1, ptr %0 release, align 4
   ret void
 }
@@ -161,7 +161,7 @@ define internal fastcc noundef nonnull ptr @_ZN12_GLOBAL__N_118ConstructTlsVecto
   %5 = alloca [256 x ptr], align 16
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #9
   %6 = load atomic volatile i32, ptr @_ZN12_GLOBAL__N_116g_native_tls_keyE monotonic, align 4
-  store i32 %6, ptr %1, align 4, !tbaa !14
+  store i32 %6, ptr %1, align 4, !tbaa !12
   %7 = icmp eq i32 %6, 2147483647
   br i1 %7, label %8, label %21
 
@@ -177,7 +177,7 @@ define internal fastcc noundef nonnull ptr @_ZN12_GLOBAL__N_118ConstructTlsVecto
   br label %.critedge17
 
 .critedge17:                                      ; preds = %8, %.critedge
-  %10 = load i32, ptr %1, align 4, !tbaa !14
+  %10 = load i32, ptr %1, align 4, !tbaa !12
   %11 = icmp eq i32 %10, 2147483647
   br i1 %11, label %12, label %16
 
@@ -197,7 +197,7 @@ define internal fastcc noundef nonnull ptr @_ZN12_GLOBAL__N_118ConstructTlsVecto
 
 .critedge20:                                      ; preds = %12, %.critedge19
   call void @_ZN4base8internal26PlatformThreadLocalStorage7FreeTLSEj(i32 noundef 2147483647)
-  %.pre = load i32, ptr %1, align 4, !tbaa !14
+  %.pre = load i32, ptr %1, align 4, !tbaa !12
   br label %16
 
 16:                                               ; preds = %.critedge20, %.critedge17
@@ -209,7 +209,7 @@ define internal fastcc noundef nonnull ptr @_ZN12_GLOBAL__N_118ConstructTlsVecto
 19:                                               ; preds = %16
   call void @_ZN4base8internal26PlatformThreadLocalStorage7FreeTLSEj(i32 noundef %17)
   %20 = load atomic volatile i32, ptr @_ZN12_GLOBAL__N_116g_native_tls_keyE monotonic, align 4
-  store i32 %20, ptr %1, align 4, !tbaa !14
+  store i32 %20, ptr %1, align 4, !tbaa !12
   br label %21
 
 21:                                               ; preds = %16, %19, %0
@@ -228,11 +228,11 @@ define internal fastcc noundef nonnull ptr @_ZN12_GLOBAL__N_118ConstructTlsVecto
 .critedge23:                                      ; preds = %21, %.critedge22
   call void @llvm.lifetime.start.p0(i64 2048, ptr nonnull %5) #9
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(2048) %5, i8 0, i64 2048, i1 false)
-  %24 = load i32, ptr %1, align 4, !tbaa !14
+  %24 = load i32, ptr %1, align 4, !tbaa !12
   call void @_ZN4base8internal26PlatformThreadLocalStorage11SetTLSValueEjPv(i32 noundef %24, ptr noundef nonnull %5)
   %25 = call noalias noundef nonnull dereferenceable(2048) ptr @_Znam(i64 noundef 2048) #11
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(2048) %25, ptr noundef nonnull align 16 dereferenceable(2048) %5, i64 2048, i1 false)
-  %26 = load i32, ptr %1, align 4, !tbaa !14
+  %26 = load i32, ptr %1, align 4, !tbaa !12
   call void @_ZN4base8internal26PlatformThreadLocalStorage11SetTLSValueEjPv(i32 noundef %26, ptr noundef nonnull %25)
   call void @llvm.lifetime.end.p0(i64 2048, ptr nonnull %5) #9
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #9
@@ -252,11 +252,11 @@ declare void @_ZN7logging10LogMessageC1EPKciPNSt7__cxx1112basic_stringIcSt11char
 ; Function Attrs: mustprogress nofree norecurse nounwind uwtable
 define void @_ZN4base18ThreadLocalStorage10StaticSlot4FreeEv(ptr noundef nonnull align 4 dereferenceable(8) %0) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %3 = load i32, ptr %2, align 4, !tbaa !11
+  %3 = load i32, ptr %2, align 4, !tbaa !9
   %4 = sext i32 %3 to i64
   %5 = getelementptr inbounds [256 x ptr], ptr @_ZN12_GLOBAL__N_117g_tls_destructorsE, i64 0, i64 %4
-  store volatile ptr null, ptr %5, align 8, !tbaa !5
-  store i32 0, ptr %2, align 4, !tbaa !11
+  store volatile ptr null, ptr %5, align 8, !tbaa !3
+  store i32 0, ptr %2, align 4, !tbaa !9
   store atomic volatile i32 0, ptr %0 release, align 4
   ret void
 }
@@ -275,10 +275,10 @@ define noundef ptr @_ZNK4base18ThreadLocalStorage10StaticSlot3GetEv(ptr noundef 
 6:                                                ; preds = %4, %1
   %.0 = phi ptr [ %3, %1 ], [ %5, %4 ]
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %8 = load i32, ptr %7, align 4, !tbaa !11
+  %8 = load i32, ptr %7, align 4, !tbaa !9
   %9 = sext i32 %8 to i64
   %10 = getelementptr inbounds ptr, ptr %.0, i64 %9
-  %11 = load ptr, ptr %10, align 8, !tbaa !5
+  %11 = load ptr, ptr %10, align 8, !tbaa !3
   ret ptr %11
 }
 
@@ -296,10 +296,10 @@ define void @_ZN4base18ThreadLocalStorage10StaticSlot3SetEPv(ptr noundef nonnull
 7:                                                ; preds = %5, %2
   %.0 = phi ptr [ %4, %2 ], [ %6, %5 ]
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %9 = load i32, ptr %8, align 4, !tbaa !11
+  %9 = load i32, ptr %8, align 4, !tbaa !9
   %10 = sext i32 %9 to i64
   %11 = getelementptr inbounds ptr, ptr %.0, i64 %10
-  store ptr %1, ptr %11, align 8, !tbaa !5
+  store ptr %1, ptr %11, align 8, !tbaa !3
   ret void
 }
 
@@ -312,11 +312,11 @@ define void @_ZN4base18ThreadLocalStorage4SlotC2EPFvPvE(ptr noundef nonnull alig
 ; Function Attrs: mustprogress nofree norecurse nounwind uwtable
 define void @_ZN4base18ThreadLocalStorage4SlotD2Ev(ptr noundef nonnull align 4 dereferenceable(8) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %3 = load i32, ptr %2, align 4, !tbaa !11
+  %3 = load i32, ptr %2, align 4, !tbaa !9
   %4 = sext i32 %3 to i64
   %5 = getelementptr inbounds [256 x ptr], ptr @_ZN12_GLOBAL__N_117g_tls_destructorsE, i64 0, i64 %4
-  store volatile ptr null, ptr %5, align 8, !tbaa !5
-  store i32 0, ptr %2, align 4, !tbaa !11
+  store volatile ptr null, ptr %5, align 8, !tbaa !3
+  store i32 0, ptr %2, align 4, !tbaa !9
   store atomic volatile i32 0, ptr %0 release, align 4
   ret void
 }
@@ -335,10 +335,10 @@ define noundef ptr @_ZNK4base18ThreadLocalStorage4Slot3GetEv(ptr noundef nonnull
 _ZNK4base18ThreadLocalStorage10StaticSlot3GetEv.exit: ; preds = %1, %4
   %.0.i = phi ptr [ %3, %1 ], [ %5, %4 ]
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %7 = load i32, ptr %6, align 4, !tbaa !11
+  %7 = load i32, ptr %6, align 4, !tbaa !9
   %8 = sext i32 %7 to i64
   %9 = getelementptr inbounds ptr, ptr %.0.i, i64 %8
-  %10 = load ptr, ptr %9, align 8, !tbaa !5
+  %10 = load ptr, ptr %9, align 8, !tbaa !3
   ret ptr %10
 }
 
@@ -356,10 +356,10 @@ define void @_ZN4base18ThreadLocalStorage4Slot3SetEPv(ptr noundef nonnull readon
 _ZN4base18ThreadLocalStorage10StaticSlot3SetEPv.exit: ; preds = %2, %5
   %.0.i = phi ptr [ %4, %2 ], [ %6, %5 ]
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %8 = load i32, ptr %7, align 4, !tbaa !11
+  %8 = load i32, ptr %7, align 4, !tbaa !9
   %9 = sext i32 %8 to i64
   %10 = getelementptr inbounds ptr, ptr %.0.i, i64 %9
-  store ptr %1, ptr %10, align 8, !tbaa !5
+  store ptr %1, ptr %10, align 8, !tbaa !3
   ret void
 }
 
@@ -403,15 +403,13 @@ attributes #11 = { builtin allocsize(0) }
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 1}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = distinct !{!3, !4}
-!4 = !{!"llvm.loop.estimated_trip_count"}
-!5 = !{!6, !6, i64 0}
-!6 = !{!"any pointer", !7, i64 0}
-!7 = !{!"omnipotent char", !8, i64 0}
-!8 = !{!"Simple C++ TBAA"}
-!9 = distinct !{!9, !10, !4}
-!10 = !{!"llvm.loop.mustprogress"}
-!11 = !{!12, !13, i64 4}
-!12 = !{!"_ZTSN4base18ThreadLocalStorage10StaticSlotE", !13, i64 0, !13, i64 4}
-!13 = !{!"int", !7, i64 0}
-!14 = !{!13, !13, i64 0}
+!3 = !{!4, !4, i64 0}
+!4 = !{!"any pointer", !5, i64 0}
+!5 = !{!"omnipotent char", !6, i64 0}
+!6 = !{!"Simple C++ TBAA"}
+!7 = distinct !{!7, !8}
+!8 = !{!"llvm.loop.mustprogress"}
+!9 = !{!10, !11, i64 4}
+!10 = !{!"_ZTSN4base18ThreadLocalStorage10StaticSlotE", !11, i64 0, !11, i64 4}
+!11 = !{!"int", !5, i64 0}
+!12 = !{!11, !11, i64 0}

@@ -946,7 +946,7 @@ default.unreachable:                              ; preds = %74
   %212 = getelementptr i8, ptr %.0741767.i, i64 24
   %213 = load ptr, ptr %212, align 8
   %.not754.i = icmp eq ptr %213, null
-  br i1 %.not754.i, label %.thread.i, label %205, !llvm.loop !9
+  br i1 %.not754.i, label %.thread.i, label %205, !llvm.loop !8
 
 214:                                              ; preds = %205
   %215 = load i32, ptr %.0741767.i, align 8
@@ -1615,7 +1615,6 @@ attributes #5 = { nounwind willreturn memory(read) }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
+!8 = distinct !{!8, !7}

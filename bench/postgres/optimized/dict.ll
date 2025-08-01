@@ -163,7 +163,7 @@ define dso_local i64 @ts_lexize(ptr noundef captures(none) %0) local_unnamed_add
   %102 = getelementptr inbounds nuw i8, ptr %.176, i64 24
   %103 = load ptr, ptr %102, align 8
   %.not70 = icmp eq ptr %103, null
-  br i1 %.not70, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !9
+  br i1 %.not70, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !8
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
   %.pre = ptrtoint ptr %101 to i64
@@ -195,7 +195,7 @@ define dso_local i64 @ts_lexize(ptr noundef captures(none) %0) local_unnamed_add
   %118 = getelementptr inbounds nuw i8, ptr %.278, i64 24
   %119 = load ptr, ptr %118, align 8
   %.not71 = icmp eq ptr %119, null
-  br i1 %.not71, label %._crit_edge81, label %.lr.ph80, !llvm.loop !10
+  br i1 %.not71, label %._crit_edge81, label %.lr.ph80, !llvm.loop !9
 
 ._crit_edge81:                                    ; preds = %.lr.ph80, %._crit_edge
   call void @pfree(ptr noundef nonnull %.057) #4
@@ -246,8 +246,7 @@ attributes #4 = { nounwind }
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i8 0, i8 2}
 !5 = !{}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7, !8}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}

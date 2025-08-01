@@ -754,7 +754,7 @@ for.inc:                                          ; preds = %_ZN8facebook5velox1
   %inc40 = add i64 %5, 1
   store i64 %inc40, ptr %pos, align 8
   %exitcond157.not = icmp eq i64 %inc40, %len
-  br i1 %exitcond157.not, label %for.end, label %land.rhs27, !llvm.loop !7
+  br i1 %exitcond157.not, label %for.end, label %land.rhs27, !llvm.loop !6
 
 for.end:                                          ; preds = %land.rhs27, %_ZN8facebook5velox11checkedPlusIiEET_RKS2_S4_PKc.exit, %for.inc
   %.lcssa = phi i64 [ %5, %land.rhs27 ], [ %5, %_ZN8facebook5velox11checkedPlusIiEET_RKS2_S4_PKc.exit ], [ %len, %for.inc ]
@@ -1071,7 +1071,7 @@ while.body173:                                    ; preds = %land.rhs169, %land.
   %inc174 = add i64 %60, 1
   store i64 %inc174, ptr %pos, align 8
   %exitcond158.not = icmp eq i64 %inc174, %len
-  br i1 %exitcond158.not, label %if.end186, label %land.rhs169, !llvm.loop !8
+  br i1 %exitcond158.not, label %if.end186, label %land.rhs169, !llvm.loop !7
 
 if.else179:                                       ; preds = %if.end164
   br i1 %cmp168152, label %land.lhs.true181, label %if.end186
@@ -1175,7 +1175,7 @@ while.body:                                       ; preds = %land.rhs, %land.rhs
   %inc = add nuw i64 %0, 1
   store i64 %inc, ptr %pos, align 8
   %exitcond.not = icmp eq i64 %inc, %len
-  br i1 %exitcond.not, label %return, label %land.rhs, !llvm.loop !9
+  br i1 %exitcond.not, label %return, label %land.rhs, !llvm.loop !8
 
 if.end4:                                          ; preds = %land.rhs
   %2 = add i8 %1, -48
@@ -1290,7 +1290,7 @@ for.body:                                         ; preds = %land.rhs56
   store i64 %inc65, ptr %pos, align 8
   %div = sdiv i32 %mult.076, 10
   %exitcond84.not = icmp eq i64 %inc65, %len
-  br i1 %exitcond84.not, label %if.end66.loopexit, label %land.rhs56, !llvm.loop !10
+  br i1 %exitcond84.not, label %if.end66.loopexit, label %land.rhs56, !llvm.loop !9
 
 if.end66.loopexit:                                ; preds = %land.rhs56, %for.body
   %pos.promoted7887 = phi i64 [ %17, %land.rhs56 ], [ %len, %for.body ]
@@ -1322,7 +1322,7 @@ while.body74:                                     ; preds = %land.rhs70, %land.r
   %inc75 = add i64 %22, 1
   store i64 %inc75, ptr %pos, align 8
   %exitcond85.not = icmp eq i64 %inc75, %len
-  br i1 %exitcond85.not, label %if.end80, label %land.rhs70, !llvm.loop !11
+  br i1 %exitcond85.not, label %if.end80, label %land.rhs70, !llvm.loop !10
 
 if.end80:                                         ; preds = %while.body74, %if.end66
   %narrow = mul nuw nsw i32 %hour.0, 60
@@ -1523,7 +1523,7 @@ land.rhs:                                         ; preds = %if.end30, %while.bo
 while.body:                                       ; preds = %land.rhs, %land.rhs, %land.rhs, %land.rhs, %land.rhs, %land.rhs
   %inc34 = add i64 %inc343336, 1
   %exitcond.not = icmp eq i64 %inc34, %len
-  br i1 %exitcond.not, label %return, label %land.rhs, !llvm.loop !12
+  br i1 %exitcond.not, label %return, label %land.rhs, !llvm.loop !11
 
 if.then36:                                        ; preds = %land.rhs
   tail call void @llvm.trap()
@@ -1611,12 +1611,11 @@ attributes #8 = { nocallback nofree nosync nounwind speculatable willreturn memo
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5, !6}
+!4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{!"llvm.loop.estimated_trip_count"}
-!7 = distinct !{!7, !5, !6}
-!8 = distinct !{!8, !5, !6}
-!9 = distinct !{!9, !5, !6}
-!10 = distinct !{!10, !5, !6}
-!11 = distinct !{!11, !5, !6}
-!12 = distinct !{!12, !5, !6}
+!6 = distinct !{!6, !5}
+!7 = distinct !{!7, !5}
+!8 = distinct !{!8, !5}
+!9 = distinct !{!9, !5}
+!10 = distinct !{!10, !5}
+!11 = distinct !{!11, !5}

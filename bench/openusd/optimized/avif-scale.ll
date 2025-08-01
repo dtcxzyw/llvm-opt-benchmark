@@ -181,7 +181,7 @@ define hidden range(i32 0, 27) i32 @avifImageScaleWithLimit(ptr noundef %0, i32 
 94:                                               ; preds = %74, %85, %60
   %indvars.iv.next202 = add nuw nsw i64 %indvars.iv201, 1
   %exitcond204.not = icmp eq i64 %indvars.iv.next202, 3
-  br i1 %exitcond204.not, label %.loopexit193, label %60, !llvm.loop !7
+  br i1 %exitcond204.not, label %.loopexit193, label %60, !llvm.loop !6
 
 .loopexit193:                                     ; preds = %94, %54
   br i1 %47, label %95, label %119
@@ -243,7 +243,7 @@ define hidden range(i32 0, 27) i32 @avifImageScaleWithLimit(ptr noundef %0, i32 
   tail call void @avifFree(ptr noundef %122) #2
   %indvars.iv.next206 = add nuw nsw i64 %indvars.iv205, 1
   %exitcond208.not = icmp eq i64 %indvars.iv.next206, 3
-  br i1 %exitcond208.not, label %.loopexit, label %.preheader, !llvm.loop !8
+  br i1 %exitcond208.not, label %.loopexit, label %.preheader, !llvm.loop !7
 
 .loopexit:                                        ; preds = %.preheader, %119
   %123 = icmp ne i32 %39, 0
@@ -296,8 +296,7 @@ attributes #2 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5, !6}
+!4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{!"llvm.loop.estimated_trip_count"}
-!7 = distinct !{!7, !5, !6}
-!8 = distinct !{!8, !5, !6}
+!6 = distinct !{!6, !5}
+!7 = distinct !{!7, !5}

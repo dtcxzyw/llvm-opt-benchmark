@@ -235,7 +235,7 @@ define dso_local void @LogRecoveryConflict(i32 noundef %0, i64 noundef %1, i64 n
   %29 = getelementptr inbounds nuw i8, ptr %.01927, i64 12
   %30 = load i32, ptr %29, align 4
   %.not22 = icmp eq i32 %30, 0
-  br i1 %.not22, label %.loopexit, label %.lr.ph, !llvm.loop !7
+  br i1 %.not22, label %.loopexit, label %.lr.ph, !llvm.loop !6
 
 .loopexit:                                        ; preds = %27, %.preheader, %5
   %.0 = phi i32 [ 0, %5 ], [ 0, %.preheader ], [ %.2, %27 ]
@@ -369,9 +369,9 @@ define internal fastcc void @ResolveRecoveryConflictWithVirtualXIDs(ptr noundef 
   br i1 %3, label %10, label %.lr.ph53
 
 10:                                               ; preds = %9
-  %11 = load i8, ptr @log_recovery_conflict_waits, align 1, !range !8, !noundef !9
+  %11 = load i8, ptr @log_recovery_conflict_waits, align 1, !range !7, !noundef !8
   %12 = trunc nuw i8 %11 to i1
-  %13 = load i8, ptr @update_process_title, align 1, !range !8
+  %13 = load i8, ptr @update_process_title, align 1, !range !7
   %14 = trunc nuw i8 %13 to i1
   %or.cond = select i1 %12, i1 true, i1 %14
   br i1 %or.cond, label %15, label %.lr.ph53
@@ -401,7 +401,7 @@ define internal fastcc void @ResolveRecoveryConflictWithVirtualXIDs(ptr noundef 
   %.13845 = phi i8 [ %.239, %72 ], [ %.03749, %18 ]
   %21 = load volatile i32, ptr @InterruptPending, align 4
   %.not.i = icmp eq i32 %21, 0
-  br i1 %.not.i, label %23, label %22, !prof !10
+  br i1 %.not.i, label %23, label %22, !prof !9
 
 22:                                               ; preds = %.lr.ph
   call void @ProcessInterrupts() #7
@@ -411,7 +411,7 @@ define internal fastcc void @ResolveRecoveryConflictWithVirtualXIDs(ptr noundef 
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #7
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6) #7
   call void @GetXLogReceiptTime(ptr noundef nonnull %5, ptr noundef nonnull %6) #7
-  %24 = load i8, ptr %6, align 1, !range !8, !noundef !9
+  %24 = load i8, ptr %6, align 1, !range !7, !noundef !8
   %25 = trunc nuw i8 %24 to i1
   br i1 %25, label %26, label %29
 
@@ -480,11 +480,11 @@ WaitExceedsMaxStandbyDelay.exit:                  ; preds = %GetStandbyLimitTime
   br i1 %or.cond3, label %72, label %52
 
 52:                                               ; preds = %49
-  %53 = load i8, ptr @log_recovery_conflict_waits, align 1, !range !8, !noundef !9
+  %53 = load i8, ptr @log_recovery_conflict_waits, align 1, !range !7, !noundef !8
   %54 = trunc nuw i8 %53 to i1
   %55 = xor i1 %50, true
   %56 = and i1 %55, %54
-  %57 = load i8, ptr @update_process_title, align 1, !range !8, !noundef !9
+  %57 = load i8, ptr @update_process_title, align 1, !range !7, !noundef !8
   %58 = trunc nuw i8 %57 to i1
   %59 = xor i1 %51, true
   %60 = select i1 %58, i1 %59, i1 false
@@ -525,7 +525,7 @@ WaitExceedsMaxStandbyDelay.exit:                  ; preds = %GetStandbyLimitTime
   %.2 = phi i8 [ 1, %49 ], [ %.146, %48 ], [ %.3, %71 ], [ %.3, %68 ], [ %.3, %67 ]
   %73 = load i64, ptr %.051, align 4
   %74 = call zeroext i1 @VirtualXactLock(i64 %73, i1 noundef zeroext false) #7
-  br i1 %74, label %._crit_edge, label %.lr.ph, !llvm.loop !11
+  br i1 %74, label %._crit_edge, label %.lr.ph, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %72, %18
   %.138.lcssa = phi i8 [ %.03749, %18 ], [ %.239, %72 ]
@@ -534,7 +534,7 @@ WaitExceedsMaxStandbyDelay.exit:                  ; preds = %GetStandbyLimitTime
   %76 = getelementptr inbounds nuw i8, ptr %.051, i64 12
   %77 = load i32, ptr %76, align 4
   %.not41 = icmp eq i32 %77, 0
-  br i1 %.not41, label %._crit_edge54, label %18, !llvm.loop !12
+  br i1 %.not41, label %._crit_edge54, label %18, !llvm.loop !11
 
 ._crit_edge54:                                    ; preds = %._crit_edge
   %78 = trunc nuw i8 %.138.lcssa to i1
@@ -609,7 +609,7 @@ define dso_local void @ResolveRecoveryConflictWithDatabase(i32 noundef %0) local
   tail call void @pg_usleep(i64 noundef 10000) #7
   %4 = tail call i32 @CountDBBackends(i32 noundef %0) #7
   %5 = icmp sgt i32 %4, 0
-  br i1 %5, label %.lr.ph, label %._crit_edge, !llvm.loop !13
+  br i1 %5, label %.lr.ph, label %._crit_edge, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
   ret void
@@ -633,7 +633,7 @@ define dso_local void @ResolveRecoveryConflictWithLock(i64 %0, i64 %1, i1 nounde
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #7
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #7
   call void @GetXLogReceiptTime(ptr noundef nonnull %4, ptr noundef nonnull %5) #7
-  %9 = load i8, ptr %5, align 1, !range !8, !noundef !9
+  %9 = load i8, ptr %5, align 1, !range !7, !noundef !8
   %10 = trunc nuw i8 %9 to i1
   br i1 %10, label %11, label %19
 
@@ -750,7 +750,7 @@ GetStandbyLimitTime.exit:                         ; preds = %11, %14, %19, %22
   %68 = getelementptr inbounds nuw i8, ptr %.027, i64 12
   %69 = load i32, ptr %68, align 4
   %.not25 = icmp eq i32 %69, 0
-  br i1 %.not25, label %._crit_edge, label %.lr.ph, !llvm.loop !14
+  br i1 %.not25, label %._crit_edge, label %.lr.ph, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %.lr.ph
   br i1 %2, label %74, label %70
@@ -790,7 +790,7 @@ define dso_local void @ResolveRecoveryConflictWithBufferPin() local_unnamed_addr
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1) #7
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2) #7
   call void @GetXLogReceiptTime(ptr noundef nonnull %1, ptr noundef nonnull %2) #7
-  %4 = load i8, ptr %2, align 1, !range !8, !noundef !9
+  %4 = load i8, ptr %2, align 1, !range !7, !noundef !8
   %5 = trunc nuw i8 %4 to i1
   br i1 %5, label %6, label %14
 
@@ -958,7 +958,7 @@ define dso_local void @StandbyAcquireAccessExclusiveLock(i32 noundef %0, i32 nou
 16:                                               ; preds = %14, %12
   %17 = load ptr, ptr @RecoveryLockXidHash, align 8
   %18 = call ptr @hash_search(ptr noundef %17, ptr noundef nonnull %4, i32 noundef 1, ptr noundef nonnull %7) #7
-  %19 = load i8, ptr %7, align 1, !range !8, !noundef !9
+  %19 = load i8, ptr %7, align 1, !range !7, !noundef !8
   %20 = trunc nuw i8 %19 to i1
   br i1 %20, label %23, label %21
 
@@ -976,7 +976,7 @@ define dso_local void @StandbyAcquireAccessExclusiveLock(i32 noundef %0, i32 nou
   store i32 %2, ptr %26, align 4
   %27 = load ptr, ptr @RecoveryLockHash, align 8
   %28 = call ptr @hash_search(ptr noundef %27, ptr noundef nonnull %5, i32 noundef 1, ptr noundef nonnull %7) #7
-  %29 = load i8, ptr %7, align 1, !range !8, !noundef !9
+  %29 = load i8, ptr %7, align 1, !range !7, !noundef !8
   %30 = trunc nuw i8 %29 to i1
   br i1 %30, label %41, label %31
 
@@ -1080,7 +1080,7 @@ StandbyReleaseLocks.exit7:                        ; preds = %16, %19, %22
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !15
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %StandbyReleaseLocks.exit7, %StandbyReleaseLocks.exit
   ret void
@@ -1155,7 +1155,7 @@ define internal fastcc void @StandbyReleaseXidEntryLocks(ptr noundef nonnull cap
   %36 = call ptr @hash_search(ptr noundef %35, ptr noundef nonnull %.015, i32 noundef 2, ptr noundef null) #7
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #7
   %.not = icmp eq ptr %34, null
-  br i1 %.not, label %._crit_edge, label %10, !llvm.loop !16
+  br i1 %.not, label %._crit_edge, label %10, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %32, %1
   store ptr null, ptr %3, align 8
@@ -1192,7 +1192,7 @@ define dso_local void @StandbyReleaseOldLocks(i32 noundef %0) local_unnamed_addr
 .backedge:                                        ; preds = %11, %.lr.ph, %8
   %14 = call ptr @hash_seq_search(ptr noundef nonnull %2) #7
   %.not = icmp eq ptr %14, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !17
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %.backedge, %1
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #7
@@ -1246,7 +1246,7 @@ define dso_local void @standby_redo(ptr noundef readonly captures(none) %0) loca
   %24 = load i32, ptr %13, align 4
   %25 = sext i32 %24 to i64
   %26 = icmp slt i64 %indvars.iv.next, %25
-  br i1 %26, label %17, label %.loopexit, !llvm.loop !18
+  br i1 %26, label %17, label %.loopexit, !llvm.loop !17
 
 27:                                               ; preds = %7
   %28 = getelementptr inbounds nuw i8, ptr %4, i64 72
@@ -1259,7 +1259,7 @@ define dso_local void @standby_redo(ptr noundef readonly captures(none) %0) loca
   %33 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 %32, ptr %33, align 4
   %34 = getelementptr inbounds nuw i8, ptr %29, i64 8
-  %35 = load i8, ptr %34, align 4, !range !8, !noundef !9
+  %35 = load i8, ptr %34, align 4, !range !7, !noundef !8
   %36 = zext nneg i8 %35 to i32
   %37 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 %36, ptr %37, align 8
@@ -1290,7 +1290,7 @@ define dso_local void @standby_redo(ptr noundef readonly captures(none) %0) loca
   %54 = getelementptr inbounds nuw i8, ptr %52, i64 12
   %55 = load i32, ptr %54, align 4
   %56 = getelementptr inbounds nuw i8, ptr %52, i64 8
-  %57 = load i8, ptr %56, align 4, !range !8, !noundef !9
+  %57 = load i8, ptr %56, align 4, !range !7, !noundef !8
   %58 = trunc nuw i8 %57 to i1
   %59 = load i32, ptr %52, align 4
   %60 = getelementptr inbounds nuw i8, ptr %52, i64 4
@@ -1396,7 +1396,7 @@ define dso_local i64 @LogStandbySnapshot() local_unnamed_addr #0 {
 
 44:                                               ; preds = %38, %17
   %45 = call i64 @XLogInsert(i8 noundef zeroext 8, i8 noundef zeroext 16) #7
-  %46 = load i8, ptr %25, align 4, !range !8, !noundef !9
+  %46 = load i8, ptr %25, align 4, !range !7, !noundef !8
   %47 = trunc nuw i8 %46 to i1
   %48 = call zeroext i1 @errstart(i32 noundef 13, ptr noundef null) #7
   br i1 %47, label %49, label %59
@@ -1569,18 +1569,17 @@ attributes #8 = { cold nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = distinct !{!4, !5, !6}
+!4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{!"llvm.loop.estimated_trip_count"}
-!7 = distinct !{!7, !5, !6}
-!8 = !{i8 0, i8 2}
-!9 = !{}
-!10 = !{!"branch_weights", !"expected", i32 2000, i32 1}
-!11 = distinct !{!11, !5, !6}
-!12 = distinct !{!12, !5, !6}
-!13 = distinct !{!13, !5, !6}
-!14 = distinct !{!14, !5, !6}
-!15 = distinct !{!15, !5, !6}
-!16 = distinct !{!16, !5, !6}
-!17 = distinct !{!17, !5, !6}
-!18 = distinct !{!18, !5, !6}
+!6 = distinct !{!6, !5}
+!7 = !{i8 0, i8 2}
+!8 = !{}
+!9 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!10 = distinct !{!10, !5}
+!11 = distinct !{!11, !5}
+!12 = distinct !{!12, !5}
+!13 = distinct !{!13, !5}
+!14 = distinct !{!14, !5}
+!15 = distinct !{!15, !5}
+!16 = distinct !{!16, !5}
+!17 = distinct !{!17, !5}

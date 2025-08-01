@@ -401,7 +401,7 @@ define internal ptr @termios_tcgetattr(ptr noundef %0, ptr noundef %1) #0 {
 
 29:                                               ; preds = %27
   %30 = getelementptr inbounds nuw i8, ptr %3, i64 12
-  %31 = load i32, ptr %30, align 4, !tbaa !14
+  %31 = load i32, ptr %30, align 4, !tbaa !13
   %32 = and i32 %31, 2
   %33 = icmp eq i32 %32, 0
   br i1 %33, label %34, label %52
@@ -438,7 +438,7 @@ define internal ptr @termios_tcgetattr(ptr noundef %0, ptr noundef %1) #0 {
   br i1 %.not.i, label %98, label %54
 
 54:                                               ; preds = %52
-  %55 = load i32, ptr %3, align 4, !tbaa !17
+  %55 = load i32, ptr %3, align 4, !tbaa !16
   %56 = zext i32 %55 to i64
   %57 = call ptr @PyLong_FromLong(i64 noundef %56) #5
   %58 = icmp eq ptr %57, null
@@ -451,7 +451,7 @@ define internal ptr @termios_tcgetattr(ptr noundef %0, ptr noundef %1) #0 {
 60:                                               ; preds = %54
   %61 = call i32 @PyList_SetItem(ptr noundef nonnull %53, i64 noundef 0, ptr noundef nonnull %57) #5
   %62 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  %63 = load i32, ptr %62, align 4, !tbaa !18
+  %63 = load i32, ptr %62, align 4, !tbaa !17
   %64 = zext i32 %63 to i64
   %65 = call ptr @PyLong_FromLong(i64 noundef %64) #5
   %66 = icmp eq ptr %65, null
@@ -464,7 +464,7 @@ define internal ptr @termios_tcgetattr(ptr noundef %0, ptr noundef %1) #0 {
 68:                                               ; preds = %60
   %69 = call i32 @PyList_SetItem(ptr noundef nonnull %53, i64 noundef 1, ptr noundef nonnull %65) #5
   %70 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %71 = load i32, ptr %70, align 4, !tbaa !19
+  %71 = load i32, ptr %70, align 4, !tbaa !18
   %72 = zext i32 %71 to i64
   %73 = call ptr @PyLong_FromLong(i64 noundef %72) #5
   %74 = icmp eq ptr %73, null
@@ -476,7 +476,7 @@ define internal ptr @termios_tcgetattr(ptr noundef %0, ptr noundef %1) #0 {
 
 76:                                               ; preds = %68
   %77 = call i32 @PyList_SetItem(ptr noundef nonnull %53, i64 noundef 2, ptr noundef nonnull %73) #5
-  %78 = load i32, ptr %30, align 4, !tbaa !14
+  %78 = load i32, ptr %30, align 4, !tbaa !13
   %79 = zext i32 %78 to i64
   %80 = call ptr @PyLong_FromLong(i64 noundef %79) #5
   %81 = icmp eq ptr %80, null
@@ -828,12 +828,12 @@ define internal ptr @termios_tcgetwinsize(ptr noundef %0, ptr noundef %1) #0 {
   br i1 %.not.i, label %termios_tcgetwinsize_impl.exit, label %16
 
 16:                                               ; preds = %14
-  %17 = load i16, ptr %3, align 2, !tbaa !20
+  %17 = load i16, ptr %3, align 2, !tbaa !19
   %18 = zext i16 %17 to i64
   %19 = call ptr @PyLong_FromLong(i64 noundef %18) #5
   %20 = call i32 @PyTuple_SetItem(ptr noundef nonnull %15, i64 noundef 0, ptr noundef %19) #5
   %21 = getelementptr inbounds nuw i8, ptr %3, i64 2
-  %22 = load i16, ptr %21, align 2, !tbaa !23
+  %22 = load i16, ptr %21, align 2, !tbaa !22
   %23 = zext i16 %22 to i64
   %24 = call ptr @PyLong_FromLong(i64 noundef %23) #5
   %25 = call i32 @PyTuple_SetItem(ptr noundef nonnull %15, i64 noundef 1, ptr noundef %24) #5
@@ -957,10 +957,10 @@ Py_XDECREF.exit33.i:                              ; preds = %38, %37
 
 45:                                               ; preds = %Py_XDECREF.exit33.i
   %46 = trunc i64 %22 to i16
-  store i16 %46, ptr %4, align 2, !tbaa !20
+  store i16 %46, ptr %4, align 2, !tbaa !19
   %47 = trunc i64 %31 to i16
   %48 = getelementptr inbounds nuw i8, ptr %4, i64 2
-  store i16 %47, ptr %48, align 2, !tbaa !23
+  store i16 %47, ptr %48, align 2, !tbaa !22
   %49 = or i64 %31, %22
   %or.cond.i = icmp ult i64 %49, 65536
   br i1 %or.cond.i, label %52, label %50
@@ -1044,7 +1044,7 @@ declare ptr @PyErr_Occurred() local_unnamed_addr #1
 define internal fastcc ptr @termios_tcsetattr_impl(ptr noundef %0, i32 noundef range(i32 0, -2147483648) %1, i32 noundef %2, ptr noundef %3) unnamed_addr #0 {
   %5 = alloca %struct.termios, align 4
   %6 = getelementptr i8, ptr %3, i64 8
-  %.val = load ptr, ptr %6, align 8, !tbaa !24
+  %.val = load ptr, ptr %6, align 8, !tbaa !23
   %7 = tail call i64 @PyType_GetFlags(ptr noundef %.val) #5
   %8 = and i64 %7, 33554432
   %.not = icmp eq i64 %8, 0
@@ -1087,7 +1087,7 @@ define internal fastcc ptr @termios_tcsetattr_impl(ptr noundef %0, i32 noundef r
 
 .critedge:                                        ; preds = %25, %21
   %27 = trunc i64 %23 to i32
-  store i32 %27, ptr %5, align 4, !tbaa !17
+  store i32 %27, ptr %5, align 4, !tbaa !16
   %28 = call ptr @PyList_GetItem(ptr noundef nonnull %3, i64 noundef 1) #5
   %29 = call i64 @PyLong_AsLong(ptr noundef %28) #5
   %30 = icmp eq i64 %29, -1
@@ -1101,7 +1101,7 @@ define internal fastcc ptr @termios_tcsetattr_impl(ptr noundef %0, i32 noundef r
 .critedge92:                                      ; preds = %31, %.critedge
   %33 = trunc i64 %29 to i32
   %34 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  store i32 %33, ptr %34, align 4, !tbaa !18
+  store i32 %33, ptr %34, align 4, !tbaa !17
   %35 = call ptr @PyList_GetItem(ptr noundef nonnull %3, i64 noundef 2) #5
   %36 = call i64 @PyLong_AsLong(ptr noundef %35) #5
   %37 = icmp eq i64 %36, -1
@@ -1115,7 +1115,7 @@ define internal fastcc ptr @termios_tcsetattr_impl(ptr noundef %0, i32 noundef r
 .critedge94:                                      ; preds = %38, %.critedge92
   %40 = trunc i64 %36 to i32
   %41 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store i32 %40, ptr %41, align 4, !tbaa !19
+  store i32 %40, ptr %41, align 4, !tbaa !18
   %42 = call ptr @PyList_GetItem(ptr noundef nonnull %3, i64 noundef 3) #5
   %43 = call i64 @PyLong_AsLong(ptr noundef %42) #5
   %44 = icmp eq i64 %43, -1
@@ -1129,7 +1129,7 @@ define internal fastcc ptr @termios_tcsetattr_impl(ptr noundef %0, i32 noundef r
 .critedge96:                                      ; preds = %45, %.critedge94
   %47 = trunc i64 %43 to i32
   %48 = getelementptr inbounds nuw i8, ptr %5, i64 12
-  store i32 %47, ptr %48, align 4, !tbaa !14
+  store i32 %47, ptr %48, align 4, !tbaa !13
   %49 = call ptr @PyList_GetItem(ptr noundef nonnull %3, i64 noundef 4) #5
   %50 = call i64 @PyLong_AsLong(ptr noundef %49) #5
   %51 = icmp eq i64 %50, -1
@@ -1156,7 +1156,7 @@ define internal fastcc ptr @termios_tcsetattr_impl(ptr noundef %0, i32 noundef r
   %62 = trunc i64 %57 to i32
   %63 = call ptr @PyList_GetItem(ptr noundef nonnull %3, i64 noundef 6) #5
   %64 = getelementptr i8, ptr %63, i64 8
-  %.val103 = load ptr, ptr %64, align 8, !tbaa !24
+  %.val103 = load ptr, ptr %64, align 8, !tbaa !23
   %65 = call i64 @PyType_GetFlags(ptr noundef %.val103) #5
   %66 = and i64 %65, 33554432
   %.not86 = icmp eq i64 %66, 0
@@ -1180,7 +1180,7 @@ define internal fastcc ptr @termios_tcsetattr_impl(ptr noundef %0, i32 noundef r
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %95 ]
   %74 = call ptr @PyList_GetItem(ptr noundef nonnull %63, i64 noundef %indvars.iv) #5
   %75 = getelementptr i8, ptr %74, i64 8
-  %.val104 = load ptr, ptr %75, align 8, !tbaa !24
+  %.val104 = load ptr, ptr %75, align 8, !tbaa !23
   %76 = call i64 @PyType_GetFlags(ptr noundef %.val104) #5
   %77 = and i64 %76, 134217728
   %.not88 = icmp eq i64 %77, 0
@@ -1197,7 +1197,7 @@ define internal fastcc ptr @termios_tcsetattr_impl(ptr noundef %0, i32 noundef r
   br label %95
 
 84:                                               ; preds = %78, %73
-  %.val105 = load ptr, ptr %75, align 8, !tbaa !24
+  %.val105 = load ptr, ptr %75, align 8, !tbaa !23
   %85 = call i64 @PyType_GetFlags(ptr noundef %.val105) #5
   %86 = and i64 %85, 16777216
   %.not89 = icmp eq i64 %86, 0
@@ -1228,7 +1228,7 @@ define internal fastcc ptr @termios_tcsetattr_impl(ptr noundef %0, i32 noundef r
   store i8 %.sink, ptr %96, align 1, !tbaa !10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 32
-  br i1 %exitcond.not, label %97, label %73, !llvm.loop !27
+  br i1 %exitcond.not, label %97, label %73, !llvm.loop !26
 
 97:                                               ; preds = %95
   %98 = call i32 @cfsetispeed(ptr noundef nonnull %5, i32 noundef %55) #5
@@ -1355,7 +1355,7 @@ sub_1:                                            ; preds = %sub_0
 
 13:                                               ; preds = %.tail
   %14 = getelementptr inbounds nuw i8, ptr %.01618, i64 8
-  %15 = load i64, ptr %14, align 8, !tbaa !28
+  %15 = load i64, ptr %14, align 8, !tbaa !27
   %16 = and i64 %15, 4294967295
   %17 = tail call ptr @PyLong_FromUnsignedLong(i64 noundef %16) #5
   %18 = tail call i32 @PyModule_Add(ptr noundef %0, ptr noundef nonnull %6, ptr noundef %17) #5
@@ -1364,16 +1364,16 @@ sub_1:                                            ; preds = %sub_0
 
 .tail.thread:                                     ; preds = %sub_1, %sub_0, %.tail
   %20 = getelementptr inbounds nuw i8, ptr %.01618, i64 8
-  %21 = load i64, ptr %20, align 8, !tbaa !28
+  %21 = load i64, ptr %20, align 8, !tbaa !27
   %22 = tail call i32 @PyModule_AddIntConstant(ptr noundef %0, ptr noundef nonnull %6, i64 noundef %21) #5
   %23 = icmp slt i32 %22, 0
   br i1 %23, label %.loopexit, label %24
 
 24:                                               ; preds = %.tail.thread, %13
   %25 = getelementptr i8, ptr %.01618, i64 16
-  %26 = load ptr, ptr %25, align 8, !tbaa !32
+  %26 = load ptr, ptr %25, align 8, !tbaa !31
   %.not = icmp eq ptr %26, null
-  br i1 %.not, label %.loopexit, label %sub_0, !llvm.loop !33
+  br i1 %.not, label %.loopexit, label %sub_0, !llvm.loop !32
 
 .loopexit:                                        ; preds = %24, %.tail.thread, %13, %1
   %.0 = phi i32 [ -1, %1 ], [ 0, %24 ], [ -1, %.tail.thread ], [ -1, %13 ]
@@ -1410,26 +1410,25 @@ attributes #5 = { nounwind }
 !8 = !{!"Simple C/C++ TBAA"}
 !9 = !{!5, !5, i64 0}
 !10 = !{!7, !7, i64 0}
-!11 = distinct !{!11, !12, !13}
+!11 = distinct !{!11, !12}
 !12 = !{!"llvm.loop.mustprogress"}
-!13 = !{!"llvm.loop.estimated_trip_count"}
-!14 = !{!15, !16, i64 12}
-!15 = !{!"termios", !16, i64 0, !16, i64 4, !16, i64 8, !16, i64 12, !7, i64 16, !7, i64 17, !16, i64 52, !16, i64 56}
-!16 = !{!"int", !7, i64 0}
-!17 = !{!15, !16, i64 0}
-!18 = !{!15, !16, i64 4}
-!19 = !{!15, !16, i64 8}
-!20 = !{!21, !22, i64 0}
-!21 = !{!"winsize", !22, i64 0, !22, i64 2, !22, i64 4, !22, i64 6}
-!22 = !{!"short", !7, i64 0}
-!23 = !{!21, !22, i64 2}
-!24 = !{!25, !26, i64 8}
-!25 = !{!"_object", !7, i64 0, !26, i64 8}
-!26 = !{!"p1 _ZTS11_typeobject", !6, i64 0}
-!27 = distinct !{!27, !12, !13}
-!28 = !{!29, !31, i64 8}
-!29 = !{!"constant", !30, i64 0, !31, i64 8}
-!30 = !{!"p1 omnipotent char", !6, i64 0}
-!31 = !{!"long", !7, i64 0}
-!32 = !{!29, !30, i64 0}
-!33 = distinct !{!33, !12, !13}
+!13 = !{!14, !15, i64 12}
+!14 = !{!"termios", !15, i64 0, !15, i64 4, !15, i64 8, !15, i64 12, !7, i64 16, !7, i64 17, !15, i64 52, !15, i64 56}
+!15 = !{!"int", !7, i64 0}
+!16 = !{!14, !15, i64 0}
+!17 = !{!14, !15, i64 4}
+!18 = !{!14, !15, i64 8}
+!19 = !{!20, !21, i64 0}
+!20 = !{!"winsize", !21, i64 0, !21, i64 2, !21, i64 4, !21, i64 6}
+!21 = !{!"short", !7, i64 0}
+!22 = !{!20, !21, i64 2}
+!23 = !{!24, !25, i64 8}
+!24 = !{!"_object", !7, i64 0, !25, i64 8}
+!25 = !{!"p1 _ZTS11_typeobject", !6, i64 0}
+!26 = distinct !{!26, !12}
+!27 = !{!28, !30, i64 8}
+!28 = !{!"constant", !29, i64 0, !30, i64 8}
+!29 = !{!"p1 omnipotent char", !6, i64 0}
+!30 = !{!"long", !7, i64 0}
+!31 = !{!28, !29, i64 0}
+!32 = distinct !{!32, !12}

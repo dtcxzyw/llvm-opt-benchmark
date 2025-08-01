@@ -301,9 +301,9 @@ define linkonce_odr hidden { ptr, i8 } @_ZN4llvm9StringMapIN5clang19InMemoryModu
 
 13:                                               ; preds = %5
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %15 = load i32, ptr %14, align 8, !tbaa !40
+  %15 = load i32, ptr %14, align 8, !tbaa !39
   %16 = add i32 %15, -1
-  store i32 %16, ptr %14, align 8, !tbaa !40
+  store i32 %16, ptr %14, align 8, !tbaa !39
   br label %17
 
 17:                                               ; preds = %5, %13
@@ -319,8 +319,8 @@ define linkonce_odr hidden { ptr, i8 } @_ZN4llvm9StringMapIN5clang19InMemoryModu
 
 _ZN4llvm14StringMapEntryIN5clang19InMemoryModuleCache3PCMEE6createINS_15MallocAllocatorEJS3_EEEPS4_NS_9StringRefERT_DpOT0_.exit: ; preds = %17, %21
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 %2
-  store i8 0, ptr %22, align 1, !tbaa !41
-  store i64 %2, ptr %19, align 8, !tbaa !42
+  store i8 0, ptr %22, align 1, !tbaa !40
+  store i64 %2, ptr %19, align 8, !tbaa !41
   %23 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %24 = load i64, ptr %4, align 8, !tbaa !23
   store i64 %24, ptr %23, align 8, !tbaa !23
@@ -331,9 +331,9 @@ _ZN4llvm14StringMapEntryIN5clang19InMemoryModuleCache3PCMEE6createINS_15MallocAl
   store i8 %27, ptr %25, align 8, !tbaa !30
   store ptr %19, ptr %9, align 8, !tbaa !3
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %29 = load i32, ptr %28, align 4, !tbaa !43
+  %29 = load i32, ptr %28, align 4, !tbaa !42
   %30 = add i32 %29, 1
-  store i32 %30, ptr %28, align 4, !tbaa !43
+  store i32 %30, ptr %28, align 4, !tbaa !42
   %31 = tail call noundef i32 @_ZN4llvm13StringMapImpl11RehashTableEj(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %6) #4
   %32 = load ptr, ptr %0, align 8, !tbaa !33
   %33 = zext i32 %31 to i64
@@ -396,9 +396,9 @@ define linkonce_odr hidden { ptr, i8 } @_ZN4llvm9StringMapIN5clang19InMemoryModu
 
 12:                                               ; preds = %4
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %14 = load i32, ptr %13, align 8, !tbaa !40
+  %14 = load i32, ptr %13, align 8, !tbaa !39
   %15 = add i32 %14, -1
-  store i32 %15, ptr %13, align 8, !tbaa !40
+  store i32 %15, ptr %13, align 8, !tbaa !39
   br label %16
 
 16:                                               ; preds = %4, %12
@@ -414,15 +414,15 @@ define linkonce_odr hidden { ptr, i8 } @_ZN4llvm9StringMapIN5clang19InMemoryModu
 
 _ZN4llvm14StringMapEntryIN5clang19InMemoryModuleCache3PCMEE6createINS_15MallocAllocatorEJEEEPS4_NS_9StringRefERT_DpOT0_.exit: ; preds = %16, %20
   %21 = getelementptr inbounds nuw i8, ptr %19, i64 %2
-  store i8 0, ptr %21, align 1, !tbaa !41
-  store i64 %2, ptr %18, align 8, !tbaa !42
+  store i8 0, ptr %21, align 1, !tbaa !40
+  store i64 %2, ptr %18, align 8, !tbaa !41
   %22 = getelementptr inbounds nuw i8, ptr %18, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %22, i8 0, i64 16, i1 false)
   store ptr %18, ptr %8, align 8, !tbaa !3
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %24 = load i32, ptr %23, align 4, !tbaa !43
+  %24 = load i32, ptr %23, align 4, !tbaa !42
   %25 = add i32 %24, 1
-  store i32 %25, ptr %23, align 4, !tbaa !43
+  store i32 %25, ptr %23, align 4, !tbaa !42
   %26 = tail call noundef i32 @_ZN4llvm13StringMapImpl11RehashTableEj(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %5) #4
   %27 = load ptr, ptr %0, align 8, !tbaa !33
   %28 = zext i32 %26 to i64
@@ -498,10 +498,9 @@ attributes #4 = { nounwind }
 !34 = !{!"_ZTSN4llvm13StringMapImplE", !35, i64 0, !36, i64 8, !36, i64 12, !36, i64 16, !36, i64 20}
 !35 = !{!"p2 _ZTSN4llvm18StringMapEntryBaseE", !5, i64 0}
 !36 = !{!"int", !6, i64 0}
-!37 = distinct !{!37, !38, !39}
+!37 = distinct !{!37, !38}
 !38 = !{!"llvm.loop.mustprogress"}
-!39 = !{!"llvm.loop.estimated_trip_count"}
-!40 = !{!34, !36, i64 16}
-!41 = !{!6, !6, i64 0}
-!42 = !{!10, !11, i64 0}
-!43 = !{!34, !36, i64 12}
+!39 = !{!34, !36, i64 16}
+!40 = !{!6, !6, i64 0}
+!41 = !{!10, !11, i64 0}
+!42 = !{!34, !36, i64 12}

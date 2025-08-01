@@ -232,7 +232,7 @@ define hidden void @av1_decoder_remove(ptr noundef %0) local_unnamed_addr #0 {
   %20 = load i32, ptr %13, align 8
   %21 = sext i32 %20 to i64
   %22 = icmp slt i64 %indvars.iv.next, %21
-  br i1 %22, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !7
+  br i1 %22, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !6
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
   %.pre = load ptr, ptr %11, align 8
@@ -265,7 +265,7 @@ define hidden void @av1_decoder_remove(ptr noundef %0) local_unnamed_addr #0 {
   %35 = load i32, ptr %25, align 32
   %36 = sext i32 %35 to i64
   %37 = icmp slt i64 %indvars.iv.next59, %36
-  br i1 %37, label %29, label %._crit_edge52, !llvm.loop !8
+  br i1 %37, label %29, label %._crit_edge52, !llvm.loop !7
 
 ._crit_edge52:                                    ; preds = %29, %24
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 458816
@@ -310,7 +310,7 @@ define hidden void @av1_decoder_remove(ptr noundef %0) local_unnamed_addr #0 {
   %57 = load i32, ptr %50, align 8
   %58 = sext i32 %57 to i64
   %59 = icmp slt i64 %indvars.iv.next62, %58
-  br i1 %59, label %54, label %._crit_edge56, !llvm.loop !9
+  br i1 %59, label %54, label %._crit_edge56, !llvm.loop !8
 
 ._crit_edge56:                                    ; preds = %54, %49
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 366208
@@ -563,7 +563,7 @@ is_inter_block.exit:                              ; preds = %4
   %.val13 = load i8, ptr %13, align 1
   %.not.i14 = icmp eq i8 %.val13, 0
   %29 = and i1 %.not.i14, %16
-  br i1 %29, label %15, label %is_inter_block.exit.thread, !llvm.loop !10
+  br i1 %29, label %15, label %is_inter_block.exit.thread, !llvm.loop !9
 
 is_inter_block.exit.thread:                       ; preds = %17, %28, %4, %is_inter_block.exit
   ret void
@@ -959,7 +959,7 @@ get_ref_frame_buf.exit.thread:                    ; preds = %10, %get_ref_frame_
 32:                                               ; preds = %28
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 16
-  br i1 %exitcond.not.i.i, label %assign_cur_frame_new_fb.exit.thread, label %28, !llvm.loop !11
+  br i1 %exitcond.not.i.i, label %assign_cur_frame_new_fb.exit.thread, label %28, !llvm.loop !10
 
 assign_cur_frame_new_fb.exit.thread:              ; preds = %32
   %33 = load ptr, ptr %24, align 16
@@ -1050,7 +1050,7 @@ assign_cur_frame_new_fb.exit:                     ; preds = %.thread.i.i, %39
   %81 = load i32, ptr %72, align 32
   %82 = sext i32 %81 to i64
   %83 = icmp slt i64 %indvars.iv.next, %82
-  br i1 %83, label %76, label %._crit_edge, !llvm.loop !12
+  br i1 %83, label %76, label %._crit_edge, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %76, %65
   %84 = getelementptr inbounds nuw i8, ptr %0, i64 75696
@@ -1211,7 +1211,7 @@ decrease_ref_count.exit.i:                        ; preds = %157, %154, %150, %1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %165 = ashr i32 %.04771.i, 1
   %.not50.i = icmp ult i32 %.04771.i, 2
-  br i1 %.not50.i, label %.loopexit69.i, label %145, !llvm.loop !13
+  br i1 %.not50.i, label %.loopexit69.i, label %145, !llvm.loop !12
 
 .loopexit69.i:                                    ; preds = %164, %138, %135
   %166 = getelementptr inbounds nuw i8, ptr %0, i64 49000
@@ -1569,13 +1569,12 @@ attributes #11 = { nounwind returns_twice }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5, !6}
+!4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{!"llvm.loop.estimated_trip_count"}
-!7 = distinct !{!7, !5, !6}
-!8 = distinct !{!8, !5, !6}
-!9 = distinct !{!9, !5, !6}
-!10 = distinct !{!10, !5, !6}
-!11 = distinct !{!11, !5, !6}
-!12 = distinct !{!12, !5, !6}
-!13 = distinct !{!13, !5, !6}
+!6 = distinct !{!6, !5}
+!7 = distinct !{!7, !5}
+!8 = distinct !{!8, !5}
+!9 = distinct !{!9, !5}
+!10 = distinct !{!10, !5}
+!11 = distinct !{!11, !5}
+!12 = distinct !{!12, !5}

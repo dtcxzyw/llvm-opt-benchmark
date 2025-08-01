@@ -241,7 +241,7 @@ define internal ptr @libpqrcv_connect(ptr noundef %0, i1 noundef zeroext %1, i1 
   switch i32 %.1, label %.preheader [
     i32 3, label %47
     i32 0, label %47
-  ], !llvm.loop !3
+  ]
 
 47:                                               ; preds = %46, %46
   %48 = load ptr, ptr %28, align 8
@@ -377,7 +377,7 @@ define internal void @libpqrcv_check_conninfo(ptr noundef %0, i1 noundef zeroext
   %28 = getelementptr inbounds nuw i8, ptr %.01219, i64 56
   %29 = load ptr, ptr %28, align 8
   %.not.not = icmp eq ptr %29, null
-  br i1 %.not.not, label %.critedge, label %.lr.ph, !llvm.loop !5
+  br i1 %.not.not, label %.critedge, label %.lr.ph, !llvm.loop !3
 
 .critedge:                                        ; preds = %27, %.preheader
   call void @PQconninfoFree(ptr noundef nonnull %4) #11
@@ -456,7 +456,7 @@ define internal ptr @libpqrcv_get_conninfo(ptr noundef readonly captures(none) %
   %30 = getelementptr inbounds nuw i8, ptr %.019, i64 56
   %31 = load ptr, ptr %30, align 8
   %.not = icmp eq ptr %31, null
-  br i1 %.not, label %._crit_edge, label %12, !llvm.loop !7
+  br i1 %.not, label %._crit_edge, label %12, !llvm.loop !5
 
 ._crit_edge:                                      ; preds = %29, %.preheader
   call void @PQconninfoFree(ptr noundef nonnull %4) #11
@@ -648,7 +648,7 @@ define internal ptr @libpqrcv_get_dbname_from_conninfo(ptr noundef %0) #1 {
   %30 = getelementptr inbounds nuw i8, ptr %.025, i64 56
   %31 = load ptr, ptr %30, align 8
   %.not = icmp eq ptr %31, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !8
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !6
 }
 
 ; Function Attrs: nounwind uwtable
@@ -738,7 +738,7 @@ define internal noundef zeroext i1 @libpqrcv_startstreaming(ptr noundef readonly
   br label %8
 
 8:                                                ; preds = %7, %2
-  %9 = load i8, ptr %1, align 8, !range !9, !noundef !10
+  %9 = load i8, ptr %1, align 8, !range !7, !noundef !8
   %10 = trunc nuw i8 %9 to i1
   br i1 %10, label %11, label %12
 
@@ -753,7 +753,7 @@ define internal noundef zeroext i1 @libpqrcv_startstreaming(ptr noundef readonly
   %16 = trunc nuw i64 %15 to i32
   %17 = trunc i64 %14 to i32
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef nonnull %4, ptr noundef nonnull @.str.34, i32 noundef %16, i32 noundef %17) #11
-  %18 = load i8, ptr %1, align 8, !range !9, !noundef !10
+  %18 = load i8, ptr %1, align 8, !range !7, !noundef !8
   %19 = trunc nuw i8 %18 to i1
   br i1 %19, label %20, label %95
 
@@ -773,7 +773,7 @@ define internal noundef zeroext i1 @libpqrcv_startstreaming(ptr noundef readonly
 
 26:                                               ; preds = %25, %20
   %27 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %28 = load i8, ptr %27, align 8, !range !9, !noundef !10
+  %28 = load i8, ptr %27, align 8, !range !7, !noundef !8
   %29 = trunc nuw i8 %28 to i1
   br i1 %29, label %30, label %35
 
@@ -895,7 +895,7 @@ stringlist_to_identifierstr.exit:                 ; preds = %61, %44, %.lr.ph.i
   call void @PQfreemem(ptr noundef nonnull %77) #11
   call void @pfree(ptr noundef nonnull %66) #11
   %86 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %87 = load i8, ptr %86, align 8, !range !9, !noundef !10
+  %87 = load i8, ptr %86, align 8, !range !7, !noundef !8
   %88 = trunc nuw i8 %87 to i1
   br i1 %88, label %89, label %94
 
@@ -1242,7 +1242,7 @@ define internal ptr @libpqrcv_create_slot(ptr noundef readonly captures(none) %0
 
 13:                                               ; preds = %12, %7
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %15 = load i8, ptr %14, align 8, !range !9, !noundef !10
+  %15 = load i8, ptr %14, align 8, !range !7, !noundef !8
   %16 = trunc nuw i8 %15 to i1
   br i1 %16, label %17, label %28
 
@@ -1393,7 +1393,7 @@ define internal void @libpqrcv_alter_slot(ptr noundef readonly captures(none) %0
   br i1 %.not16, label %16, label %12
 
 7:                                                ; preds = %4
-  %8 = load i8, ptr %2, align 1, !range !9, !noundef !10
+  %8 = load i8, ptr %2, align 1, !range !7, !noundef !8
   %9 = trunc nuw i8 %8 to i1
   %10 = select i1 %9, ptr @.str.5, ptr @.str.68
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef nonnull %5, ptr noundef nonnull @.str.67, ptr noundef nonnull %10) #11
@@ -1405,7 +1405,7 @@ define internal void @libpqrcv_alter_slot(ptr noundef readonly captures(none) %0
   br label %12
 
 12:                                               ; preds = %11, %.thread
-  %13 = load i8, ptr %3, align 1, !range !9, !noundef !10
+  %13 = load i8, ptr %3, align 1, !range !7, !noundef !8
   %14 = trunc nuw i8 %13 to i1
   %15 = select i1 %14, ptr @.str.5, ptr @.str.68
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef nonnull %5, ptr noundef nonnull @.str.69, ptr noundef nonnull %15) #11
@@ -1525,7 +1525,7 @@ define internal ptr @libpqrcv_exec(ptr noundef readonly captures(none) %0, ptr n
   tail call void @TupleDescInitEntry(ptr noundef %31, i16 noundef signext %34, ptr noundef %35, i32 noundef %37, i32 noundef -1, i32 noundef 0) #11
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %._crit_edge.loopexit.i, label %.lr.ph.i, !llvm.loop !11
+  br i1 %exitcond.not.i, label %._crit_edge.loopexit.i, label %.lr.ph.i, !llvm.loop !9
 
 ._crit_edge.loopexit.i:                           ; preds = %.lr.ph.i
   %.pre.i = load ptr, ptr %29, align 8
@@ -1577,7 +1577,7 @@ define internal ptr @libpqrcv_exec(ptr noundef readonly captures(none) %0, ptr n
   store ptr %.sink.i, ptr %54, align 8
   %indvars.iv.next58.i = add nuw nsw i64 %indvars.iv57.i, 1
   %exitcond61.not.i = icmp eq i64 %indvars.iv.next58.i, %wide.trip.count60.i
-  br i1 %exitcond61.not.i, label %._crit_edge49.us.i, label %48, !llvm.loop !12
+  br i1 %exitcond61.not.i, label %._crit_edge49.us.i, label %48, !llvm.loop !10
 
 ._crit_edge49.us.i:                               ; preds = %53
   %55 = call ptr @BuildTupleFromCStrings(ptr noundef %39, ptr noundef nonnull %5) #11
@@ -1589,7 +1589,7 @@ define internal ptr @libpqrcv_exec(ptr noundef readonly captures(none) %0, ptr n
   %57 = add nuw nsw i32 %.050.us.i, 1
   %58 = call i32 @PQntuples(ptr noundef %15) #11
   %59 = icmp slt i32 %57, %58
-  br i1 %59, label %.lr.ph48.us.i, label %._crit_edge53.i, !llvm.loop !13
+  br i1 %59, label %.lr.ph48.us.i, label %._crit_edge53.i, !llvm.loop !11
 
 .lr.ph52.split.i:                                 ; preds = %.lr.ph52.i, %.lr.ph52.split.i
   %.050.i = phi i32 [ %63, %.lr.ph52.split.i ], [ 0, %.lr.ph52.i ]
@@ -1606,7 +1606,7 @@ define internal ptr @libpqrcv_exec(ptr noundef readonly captures(none) %0, ptr n
   %63 = add nuw nsw i32 %.050.i, 1
   %64 = call i32 @PQntuples(ptr noundef %15) #11
   %65 = icmp slt i32 %63, %64
-  br i1 %65, label %.lr.ph52.split.i, label %._crit_edge53.i, !llvm.loop !15
+  br i1 %65, label %.lr.ph52.split.i, label %._crit_edge53.i, !llvm.loop !13
 
 ._crit_edge53.i:                                  ; preds = %.lr.ph52.split.i, %._crit_edge49.us.i, %42
   call void @MemoryContextDelete(ptr noundef %44) #11
@@ -1770,7 +1770,7 @@ define internal fastcc ptr @libpqrcv_PQexec(ptr noundef %0, ptr noundef %1) unna
 15:                                               ; preds = %12
   %16 = tail call i32 @PQstatus(ptr noundef %0) #11
   %17 = icmp eq i32 %16, 1
-  br i1 %17, label %.thread, label %.preheader, !llvm.loop !16
+  br i1 %17, label %.thread, label %.preheader
 
 .thread:                                          ; preds = %15, %6, %9, %12, %.preheader, %2
   %.0 = phi ptr [ null, %2 ], [ %4, %15 ], [ %.013, %.preheader ], [ %4, %12 ], [ %4, %9 ], [ %4, %6 ]
@@ -1815,7 +1815,7 @@ define internal fastcc ptr @libpqrcv_PQgetResult(ptr noundef %0) unnamed_addr #1
 11:                                               ; preds = %9, %4
   %12 = tail call i32 @PQconsumeInput(ptr noundef %0) #11
   %.not8 = icmp eq i32 %12, 0
-  br i1 %.not8, label %.loopexit, label %2, !llvm.loop !17
+  br i1 %.not8, label %.loopexit, label %2
 
 13:                                               ; preds = %2
   %14 = tail call ptr @PQgetResult(ptr noundef %0) #11
@@ -1963,17 +1963,13 @@ attributes #12 = { nounwind willreturn memory(read) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = distinct !{!3, !4}
-!4 = !{!"llvm.loop.estimated_trip_count"}
-!5 = distinct !{!5, !6, !4}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6, !4}
-!8 = distinct !{!8, !6, !4}
-!9 = !{i8 0, i8 2}
-!10 = !{}
-!11 = distinct !{!11, !6, !4}
-!12 = distinct !{!12, !6, !4}
-!13 = distinct !{!13, !6, !4, !14}
-!14 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!15 = distinct !{!15, !6, !4}
-!16 = distinct !{!16, !4}
-!17 = distinct !{!17, !4}
+!4 = !{!"llvm.loop.mustprogress"}
+!5 = distinct !{!5, !4}
+!6 = distinct !{!6, !4}
+!7 = !{i8 0, i8 2}
+!8 = !{}
+!9 = distinct !{!9, !4}
+!10 = distinct !{!10, !4}
+!11 = distinct !{!11, !4, !12}
+!12 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!13 = distinct !{!13, !4}

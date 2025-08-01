@@ -320,11 +320,11 @@ define internal range(i32 -2147483648, 1) i32 @agp_amd64_probe(ptr noundef %0, p
   %73 = getelementptr inbounds nuw i8, ptr %72, i64 8
   %74 = load ptr, ptr %73, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #6
-  store i32 0, ptr %7, align 4, !annotation !11
+  store i32 0, ptr %7, align 4, !annotation !10
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #6
-  store i32 0, ptr %8, align 4, !annotation !11
+  store i32 0, ptr %8, align 4, !annotation !10
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %9) #6
-  store i16 0, ptr %9, align 2, !annotation !11
+  store i16 0, ptr %9, align 2, !annotation !10
   %75 = call i32 @pci_read_config_dword(ptr noundef %74, i32 noundef 144, ptr noundef nonnull %7) #6
   %76 = load i32, ptr %7, align 4
   %77 = lshr i32 %76, 1
@@ -342,7 +342,7 @@ define internal range(i32 -2147483648, 1) i32 @agp_amd64_probe(ptr noundef %0, p
 86:                                               ; preds = %70
   %87 = load i32, ptr %7, align 4
   %88 = shl i32 33554432, %87
-  %89 = call fastcc i32 @agp_aperture_valid(i64 noundef %82, i32 noundef %88), !range !12
+  %89 = call fastcc i32 @agp_aperture_valid(i64 noundef %82, i32 noundef %88), !range !11
   %.not = icmp eq i32 %89, 0
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %9) #6
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #6
@@ -357,10 +357,10 @@ define internal range(i32 -2147483648, 1) i32 @agp_amd64_probe(ptr noundef %0, p
   %95 = select i1 %93, i16 %91, i16 %94
   store i16 %95, ptr %9, align 2
   %96 = zext nneg i16 %95 to i32
-  %97 = call i32 asm "# ALT: oldnstr\0A661:\0A\09call __sw_hweight32\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 4*32+23)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09popcntl $1, $0\0A6651:\0A.popsection\0A", "={ax},{di},~{dirflag},~{fpsr},~{flags}"(i32 %96) #9, !srcloc !13
+  %97 = call i32 asm "# ALT: oldnstr\0A661:\0A\09call __sw_hweight32\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 4*32+23)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09popcntl $1, $0\0A6651:\0A.popsection\0A", "={ax},{di},~{dirflag},~{fpsr},~{flags}"(i32 %96) #9, !srcloc !12
   %98 = sub i32 7, %97
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #6
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, i8 0, i64 16, i1 false), !annotation !11
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, i8 0, i64 16, i1 false), !annotation !10
   %99 = load ptr, ptr %62, align 8
   call void @pcibios_resource_to_bus(ptr noundef %99, ptr noundef nonnull %6, ptr noundef nonnull %63) #6
   %100 = load i64, ptr %6, align 8
@@ -390,7 +390,7 @@ define internal range(i32 -2147483648, 1) i32 @agp_amd64_probe(ptr noundef %0, p
 
 115:                                              ; preds = %111
   %116 = shl i32 33554432, %113
-  %117 = call fastcc i32 @agp_aperture_valid(i64 noundef %82, i32 noundef %116), !range !12
+  %117 = call fastcc i32 @agp_aperture_valid(i64 noundef %82, i32 noundef %116), !range !11
   %118 = icmp eq i32 %117, 0
   br i1 %118, label %119, label %.critedge
 
@@ -402,7 +402,7 @@ define internal range(i32 -2147483648, 1) i32 @agp_amd64_probe(ptr noundef %0, p
 
 122:                                              ; preds = %119
   %123 = shl i32 33554432, %112
-  %124 = call fastcc i32 @agp_aperture_valid(i64 noundef %100, i32 noundef %123), !range !12
+  %124 = call fastcc i32 @agp_aperture_valid(i64 noundef %100, i32 noundef %123), !range !11
   %125 = icmp eq i32 %124, 0
   br i1 %125, label %.critedge17, label %126
 
@@ -433,7 +433,7 @@ define internal range(i32 -2147483648, 1) i32 @agp_amd64_probe(ptr noundef %0, p
   br i1 %134, label %135, label %139
 
 135:                                              ; preds = %.loopexit22
-  %136 = call fastcc i32 @nforce3_agp_init(ptr noundef %0), !range !14
+  %136 = call fastcc i32 @nforce3_agp_init(ptr noundef %0), !range !13
   %137 = icmp eq i32 %136, 0
   br i1 %137, label %thread-pre-split, label %138
 
@@ -452,11 +452,11 @@ thread-pre-split:                                 ; preds = %135
 
 142:                                              ; preds = %139
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #6
-  store i32 0, ptr %4, align 4, !annotation !11
+  store i32 0, ptr %4, align 4, !annotation !10
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #6
-  store i32 0, ptr %5, align 4, !annotation !11
+  store i32 0, ptr %5, align 4, !annotation !10
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #6
-  store i32 0, ptr %3, align 4, !annotation !11
+  store i32 0, ptr %3, align 4, !annotation !10
   %143 = call ptr @node_to_amd_nb(i32 noundef 0) #6
   %144 = getelementptr inbounds nuw i8, ptr %143, i64 8
   %145 = load ptr, ptr %144, align 8
@@ -501,7 +501,7 @@ thread-pre-split:                                 ; preds = %135
 171:                                              ; preds = %159
   %172 = add nuw nsw i64 %160, 1
   %173 = icmp eq i64 %172, %158
-  br i1 %173, label %.loopexit20, label %159, !llvm.loop !15
+  br i1 %173, label %.loopexit20, label %159, !llvm.loop !14
 
 .loopexit20:                                      ; preds = %171, %165, %147, %142
   %174 = phi i32 [ %170, %165 ], [ 0, %142 ], [ 0, %147 ], [ 0, %171 ]
@@ -528,7 +528,7 @@ thread-pre-split:                                 ; preds = %135
 184:                                              ; preds = %.preheader
   %185 = add nuw nsw i64 %180, 1
   %186 = icmp eq i64 %185, 7
-  br i1 %186, label %.loopexit, label %.preheader, !llvm.loop !16
+  br i1 %186, label %.loopexit, label %.preheader, !llvm.loop !15
 
 187:                                              ; preds = %.preheader
   %188 = and i64 %180, 4294967295
@@ -649,13 +649,13 @@ define internal fastcc noundef range(i32 -19, 1) i32 @nforce3_agp_init(ptr nound
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #6
-  store i32 0, ptr %3, align 4, !annotation !11
+  store i32 0, ptr %3, align 4, !annotation !10
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #6
-  store i32 0, ptr %4, align 4, !annotation !11
+  store i32 0, ptr %4, align 4, !annotation !10
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #6
-  store i32 0, ptr %5, align 4, !annotation !11
+  store i32 0, ptr %5, align 4, !annotation !10
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #6
-  store i32 0, ptr %2, align 4, !annotation !11
+  store i32 0, ptr %2, align 4, !annotation !10
   %6 = tail call ptr @node_to_amd_nb(i32 noundef 0) #6
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %8 = load ptr, ptr %7, align 8
@@ -700,7 +700,7 @@ define internal fastcc noundef range(i32 -19, 1) i32 @nforce3_agp_init(ptr nound
 34:                                               ; preds = %22
   %35 = add nuw nsw i64 %23, 1
   %36 = icmp eq i64 %35, %21
-  br i1 %36, label %.loopexit, label %22, !llvm.loop !17
+  br i1 %36, label %.loopexit, label %22, !llvm.loop !14
 
 .loopexit:                                        ; preds = %34, %28, %10, %1
   %37 = phi i32 [ %33, %28 ], [ 0, %1 ], [ 0, %10 ], [ 0, %34 ]
@@ -727,7 +727,7 @@ define internal fastcc noundef range(i32 -19, 1) i32 @nforce3_agp_init(ptr nound
 48:                                               ; preds = %.preheader
   %49 = add nuw nsw i64 %44, 1
   %50 = icmp eq i64 %49, 5
-  br i1 %50, label %.critedge, label %.preheader, !llvm.loop !18
+  br i1 %50, label %.critedge, label %.preheader, !llvm.loop !16
 
 51:                                               ; preds = %.preheader
   %52 = and i64 %44, 4294967295
@@ -808,7 +808,7 @@ define internal i32 @amd64_fetch_size() #4 align 16 {
   br i1 %5, label %.loopexit, label %6
 
 6:                                                ; preds = %0
-  store i32 0, ptr %1, align 4, !annotation !11
+  store i32 0, ptr %1, align 4, !annotation !10
   %7 = call i32 @pci_read_config_dword(ptr noundef nonnull %4, i32 noundef 144, ptr noundef nonnull %1) #6
   %8 = load i32, ptr %1, align 4
   %9 = and i32 %8, 14
@@ -846,7 +846,7 @@ define internal i32 @amd64_fetch_size() #4 align 16 {
 27:                                               ; preds = %.preheader
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %28 = icmp eq i64 %indvars.iv.next, %16
-  br i1 %28, label %.loopexit, label %.preheader, !llvm.loop !19
+  br i1 %28, label %.loopexit, label %.preheader, !llvm.loop !14
 
 .loopexit:                                        ; preds = %27, %21, %6, %0
   %29 = phi i32 [ %26, %21 ], [ 0, %0 ], [ 0, %6 ], [ 0, %27 ]
@@ -889,13 +889,13 @@ define internal noundef i32 @amd_8151_configure() #4 align 16 {
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %26 = load ptr, ptr %25, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #6
-  store i32 0, ptr %2, align 4, !annotation !11
+  store i32 0, ptr %2, align 4, !annotation !10
   %27 = call i32 @pci_read_config_dword(ptr noundef %26, i32 noundef 148, ptr noundef nonnull %2) #6
   %28 = load i32, ptr %2, align 4
   %29 = zext i32 %28 to i64
   %30 = shl nuw nsw i64 %29, 25
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #6
-  store i32 0, ptr %1, align 4, !annotation !11
+  store i32 0, ptr %1, align 4, !annotation !10
   %31 = call i32 @pci_write_config_dword(ptr noundef %26, i32 noundef 152, i32 noundef %21) #6
   %32 = call i32 @pci_read_config_dword(ptr noundef %26, i32 noundef 144, ptr noundef nonnull %1) #6
   %33 = load i32, ptr %1, align 4
@@ -912,7 +912,7 @@ define internal noundef i32 @amd_8151_configure() #4 align 16 {
   %40 = call zeroext i16 @amd_nb_num() #6
   %41 = zext i16 %40 to i32
   %42 = icmp samesign ult i32 %39, %41
-  br i1 %42, label %22, label %.loopexit, !llvm.loop !20
+  br i1 %42, label %22, label %.loopexit, !llvm.loop !17
 
 .loopexit:                                        ; preds = %22, %15
   call void @amd_flush_garts() #6
@@ -938,7 +938,7 @@ define internal void @amd64_cleanup() #4 align 16 {
   br i1 %5, label %.loopexit, label %.preheader.preheader
 
 .preheader.preheader:                             ; preds = %3
-  store i32 0, ptr %1, align 4, !annotation !11
+  store i32 0, ptr %1, align 4, !annotation !10
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.preheader, %.preheader
@@ -955,7 +955,7 @@ define internal void @amd64_cleanup() #4 align 16 {
   %15 = call zeroext i16 @amd_nb_num() #6
   %16 = zext i16 %15 to i32
   %17 = icmp samesign ult i32 %14, %16
-  br i1 %17, label %.preheader, label %.loopexit, !llvm.loop !21
+  br i1 %17, label %.preheader, label %.loopexit, !llvm.loop !18
 
 .loopexit:                                        ; preds = %.preheader, %3, %0
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #6
@@ -1021,7 +1021,7 @@ define internal noundef range(i32 -22, 1) i32 @amd64_insert_memory(ptr noundef c
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 56
   %32 = load ptr, ptr %31, align 8
   %33 = getelementptr i32, ptr %32, i64 %28
-  %34 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %33) #6, !srcloc !22
+  %34 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %33) #6, !srcloc !19
   %35 = icmp eq i32 %34, 0
   br i1 %35, label %47, label %36
 
@@ -1030,7 +1030,7 @@ define internal noundef range(i32 -22, 1) i32 @amd64_insert_memory(ptr noundef c
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 56
   %39 = load ptr, ptr %38, align 8
   %40 = getelementptr i32, ptr %39, i64 %28
-  %41 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %40) #6, !srcloc !22
+  %41 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %40) #6, !srcloc !19
   %42 = zext i32 %41 to i64
   %43 = load ptr, ptr @agp_bridge, align 8
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 72
@@ -1044,7 +1044,7 @@ define internal noundef range(i32 -22, 1) i32 @amd64_insert_memory(ptr noundef c
   %50 = load i64, ptr %18, align 8
   %51 = add i64 %50, %1
   %52 = icmp ugt i64 %51, %49
-  br i1 %52, label %.preheader, label %.loopexit6, !llvm.loop !23
+  br i1 %52, label %.preheader, label %.loopexit6, !llvm.loop !20
 
 .loopexit6:                                       ; preds = %47, %23
   %53 = phi i64 [ %19, %23 ], [ %50, %47 ]
@@ -1087,11 +1087,11 @@ define internal noundef range(i32 -22, 1) i32 @amd64_insert_memory(ptr noundef c
   %79 = tail call i64 %71(ptr noundef %67, i64 noundef %78, i32 noundef 0) #6
   %80 = and i64 %79, -1099511623684
   %81 = icmp eq i64 %80, 0
-  br i1 %81, label %83, label %82, !prof !24
+  br i1 %81, label %83, label %82, !prof !21
 
 82:                                               ; preds = %63
-  tail call void asm sideeffect "356: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 356b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 356) #6, !srcloc !25
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.14, i32 86, i32 0, i64 12) #6, !srcloc !26
+  tail call void asm sideeffect "356: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 356b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 356) #6, !srcloc !22
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.14, i32 86, i32 0, i64 12) #6, !srcloc !23
   unreachable
 
 83:                                               ; preds = %63
@@ -1105,18 +1105,18 @@ define internal noundef range(i32 -22, 1) i32 @amd64_insert_memory(ptr noundef c
   %91 = load ptr, ptr %90, align 8
   %92 = sext i32 %65 to i64
   %93 = getelementptr i32, ptr %91, i64 %92
-  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %88, ptr elementtype(i32) %93) #6, !srcloc !27
+  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %88, ptr elementtype(i32) %93) #6, !srcloc !24
   %94 = load ptr, ptr @agp_bridge, align 8
   %95 = getelementptr inbounds nuw i8, ptr %94, i64 56
   %96 = load ptr, ptr %95, align 8
   %97 = getelementptr i32, ptr %96, i64 %92
-  %98 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %97) #6, !srcloc !22
+  %98 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %97) #6, !srcloc !19
   %99 = add i32 %66, 1
   %100 = add i32 %65, 1
   %101 = sext i32 %99 to i64
   %102 = load i64, ptr %18, align 8
   %103 = icmp ugt i64 %102, %101
-  br i1 %103, label %63, label %.loopexit, !llvm.loop !28
+  br i1 %103, label %63, label %.loopexit, !llvm.loop !25
 
 .loopexit:                                        ; preds = %83, %58
   tail call void @amd_flush_garts() #6
@@ -1257,7 +1257,7 @@ define internal noundef i32 @agp_amd64_resume(ptr noundef %0) #4 align 16 {
 
 5:                                                ; preds = %1
   %6 = getelementptr i8, ptr %0, i64 -184
-  %7 = tail call fastcc i32 @nforce3_agp_init(ptr noundef %6), !range !14
+  %7 = tail call fastcc i32 @nforce3_agp_init(ptr noundef %6), !range !13
   br label %8
 
 8:                                                ; preds = %5, %1
@@ -1285,25 +1285,22 @@ attributes #9 = { nounwind memory(none) }
 !4 = !{i32 4, !"SkipRaxSetup", i32 1}
 !5 = !{i8 0, i8 2}
 !6 = !{}
-!7 = distinct !{!7, !8, !9, !10}
+!7 = distinct !{!7, !8, !9}
 !8 = !{!"llvm.loop.mustprogress"}
 !9 = !{!"llvm.loop.unroll.disable"}
-!10 = !{!"llvm.loop.estimated_trip_count"}
-!11 = !{!"auto-init"}
-!12 = !{i32 0, i32 2}
-!13 = !{i64 2148493981, i64 2148494009, i64 2148494015, i64 2148494031, i64 2148494047, i64 2148494074, i64 2148494407, i64 2148493707, i64 2148494413, i64 2148494461, i64 2148494525, i64 2148494589, i64 2148494646, i64 2148493788, i64 2148493813, i64 2148494853, i64 2148494983, i64 2148494914, i64 2148494997, i64 2148493905}
-!14 = !{i32 -19, i32 1}
-!15 = distinct !{!15, !8, !9, !10}
-!16 = distinct !{!16, !8, !9, !10}
-!17 = distinct !{!17, !8, !9, !10}
-!18 = distinct !{!18, !8, !9, !10}
-!19 = distinct !{!19, !8, !9, !10}
-!20 = distinct !{!20, !8, !9, !10}
-!21 = distinct !{!21, !8, !9, !10}
-!22 = !{i64 2154274503}
-!23 = distinct !{!23, !8, !9, !10}
-!24 = !{!"branch_weights", i32 2000, i32 1}
-!25 = !{i64 2155200139, i64 2155199948, i64 2155200000, i64 2155200046, i64 2155200074}
-!26 = !{i64 2155200213, i64 2155200242, i64 2155200288, i64 2155200346, i64 2155200400, i64 2155200454, i64 2155200509, i64 2155200540}
-!27 = !{i64 2154276896}
-!28 = distinct !{!28, !8, !9, !10}
+!10 = !{!"auto-init"}
+!11 = !{i32 0, i32 2}
+!12 = !{i64 2148493981, i64 2148494009, i64 2148494015, i64 2148494031, i64 2148494047, i64 2148494074, i64 2148494407, i64 2148493707, i64 2148494413, i64 2148494461, i64 2148494525, i64 2148494589, i64 2148494646, i64 2148493788, i64 2148493813, i64 2148494853, i64 2148494983, i64 2148494914, i64 2148494997, i64 2148493905}
+!13 = !{i32 -19, i32 1}
+!14 = distinct !{!14, !8, !9}
+!15 = distinct !{!15, !8, !9}
+!16 = distinct !{!16, !8, !9}
+!17 = distinct !{!17, !8, !9}
+!18 = distinct !{!18, !8, !9}
+!19 = !{i64 2154274503}
+!20 = distinct !{!20, !8, !9}
+!21 = !{!"branch_weights", i32 2000, i32 1}
+!22 = !{i64 2155200139, i64 2155199948, i64 2155200000, i64 2155200046, i64 2155200074}
+!23 = !{i64 2155200213, i64 2155200242, i64 2155200288, i64 2155200346, i64 2155200400, i64 2155200454, i64 2155200509, i64 2155200540}
+!24 = !{i64 2154276896}
+!25 = distinct !{!25, !8, !9}

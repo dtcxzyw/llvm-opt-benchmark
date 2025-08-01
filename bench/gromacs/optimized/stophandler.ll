@@ -449,23 +449,23 @@ _ZNSt6vectorISt8functionIFN3gmx10StopSignalEvEESaIS4_EE11_S_relocateEPS4_S7_S7_R
 .lr.ph.i.i.i17:                                   ; preds = %_ZNSt6vectorISt8functionIFN3gmx10StopSignalEvEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit, %_ZSt19__relocate_object_aISt8functionIFN3gmx10StopSignalEvEES4_SaIS4_EEvPT_PT0_RT1_.exit.i.i.i22
   %.012.i.i.i18 = phi ptr [ %45, %_ZSt19__relocate_object_aISt8functionIFN3gmx10StopSignalEvEES4_SaIS4_EEvPT_PT0_RT1_.exit.i.i.i22 ], [ %37, %_ZNSt6vectorISt8functionIFN3gmx10StopSignalEvEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit ]
   %.0911.i.i.i19 = phi ptr [ %44, %_ZSt19__relocate_object_aISt8functionIFN3gmx10StopSignalEvEES4_SaIS4_EEvPT_PT0_RT1_.exit.i.i.i22 ], [ %1, %_ZNSt6vectorISt8functionIFN3gmx10StopSignalEvEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit ]
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !56)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !59)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !55)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !58)
   %38 = getelementptr inbounds nuw i8, ptr %.012.i.i.i18, i64 24
   %39 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i19, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.012.i.i.i18, i8 0, i64 24, i1 false), !alias.scope !56, !noalias !59
-  %40 = load ptr, ptr %39, align 8, !tbaa !41, !alias.scope !59, !noalias !56
-  store ptr %40, ptr %38, align 8, !tbaa !41, !alias.scope !56, !noalias !59
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.012.i.i.i18, i8 0, i64 24, i1 false), !alias.scope !55, !noalias !58
+  %40 = load ptr, ptr %39, align 8, !tbaa !41, !alias.scope !58, !noalias !55
+  store ptr %40, ptr %38, align 8, !tbaa !41, !alias.scope !55, !noalias !58
   %41 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i19, i64 16
-  %42 = load ptr, ptr %41, align 8, !tbaa !44, !alias.scope !59, !noalias !56
+  %42 = load ptr, ptr %41, align 8, !tbaa !44, !alias.scope !58, !noalias !55
   %.not.i.i.not.i.i.i.i.i.i.i20 = icmp eq ptr %42, null
   br i1 %.not.i.i.not.i.i.i.i.i.i.i20, label %_ZSt19__relocate_object_aISt8functionIFN3gmx10StopSignalEvEES4_SaIS4_EEvPT_PT0_RT1_.exit.i.i.i22, label %_ZNSt16allocator_traitsISaISt8functionIFN3gmx10StopSignalEvEEEE9constructIS4_JS4_EEEvRS5_PT_DpOT0_.exit.i.i.i.i21
 
 _ZNSt16allocator_traitsISaISt8functionIFN3gmx10StopSignalEvEEEE9constructIS4_JS4_EEEvRS5_PT_DpOT0_.exit.i.i.i.i21: ; preds = %.lr.ph.i.i.i17
   %43 = getelementptr inbounds nuw i8, ptr %.012.i.i.i18, i64 16
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.012.i.i.i18, ptr noundef nonnull align 8 dereferenceable(32) %.0911.i.i.i19, i64 16, i1 false), !tbaa.struct !45, !alias.scope !61
-  store ptr %42, ptr %43, align 8, !tbaa !44, !alias.scope !56, !noalias !59
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %41, i8 0, i64 16, i1 false), !alias.scope !59, !noalias !56
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.012.i.i.i18, ptr noundef nonnull align 8 dereferenceable(32) %.0911.i.i.i19, i64 16, i1 false), !tbaa.struct !45, !alias.scope !60
+  store ptr %42, ptr %43, align 8, !tbaa !44, !alias.scope !55, !noalias !58
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %41, i8 0, i64 16, i1 false), !alias.scope !58, !noalias !55
   br label %_ZSt19__relocate_object_aISt8functionIFN3gmx10StopSignalEvEES4_SaIS4_EEvPT_PT0_RT1_.exit.i.i.i22
 
 _ZSt19__relocate_object_aISt8functionIFN3gmx10StopSignalEvEES4_SaIS4_EEvPT_PT0_RT1_.exit.i.i.i22: ; preds = %_ZNSt16allocator_traitsISaISt8functionIFN3gmx10StopSignalEvEEEE9constructIS4_JS4_EEEvRS5_PT_DpOT0_.exit.i.i.i.i21, %.lr.ph.i.i.i17
@@ -538,22 +538,22 @@ define void @_ZN3gmx18StopHandlerBuilder16getStopHandlerMDENS_6compat8not_nullIP
   %19 = alloca %"class.std::function", align 8
   store ptr %2, ptr %13, align 8
   %20 = zext i1 %3 to i8
-  store i8 %20, ptr %14, align 1, !tbaa !62
+  store i8 %20, ptr %14, align 1, !tbaa !61
   store i32 %5, ptr %15, align 4, !tbaa !32
   br i1 %4, label %21, label %.thread
 
 21:                                               ; preds = %12
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %16) #21
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !63)
-  %22 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #24, !noalias !63
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !62)
+  %22 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #24, !noalias !62
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
-  store i32 1, ptr %23, align 8, !tbaa !66, !noalias !63
+  store i32 1, ptr %23, align 8, !tbaa !65, !noalias !62
   %24 = getelementptr inbounds nuw i8, ptr %22, i64 12
-  store i32 1, ptr %24, align 4, !tbaa !68, !noalias !63
-  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN3gmx19StopConditionSignalESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %22, align 8, !tbaa !69, !noalias !63
+  store i32 1, ptr %24, align 4, !tbaa !67, !noalias !62
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN3gmx19StopConditionSignalESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %22, align 8, !tbaa !68, !noalias !62
   %25 = getelementptr inbounds nuw i8, ptr %22, i64 16
   invoke void @_ZN3gmx19StopConditionSignalC1Eibi(ptr noundef nonnull align 4 dereferenceable(16) %25, i32 noundef %5, i1 noundef zeroext %6, i32 noundef %7)
-          to label %27 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN3gmx19StopConditionSignalESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit12.i.i.i.i, !noalias !63
+          to label %27 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN3gmx19StopConditionSignalESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit12.i.i.i.i, !noalias !62
 
 common.resume:                                    ; preds = %_ZNSt14_Function_baseD2Ev.exit24, %_ZNSt14_Function_baseD2Ev.exit44, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN3gmx17StopConditionTimeESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit12.i.i.i.i, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN3gmx19StopConditionSignalESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit12.i.i.i.i
   %common.resume.op = phi { ptr, i32 } [ %26, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN3gmx19StopConditionSignalESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit12.i.i.i.i ], [ %96, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN3gmx17StopConditionTimeESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit12.i.i.i.i ], [ %.pn13, %_ZNSt14_Function_baseD2Ev.exit44 ], [ %.pn, %_ZNSt14_Function_baseD2Ev.exit24 ]
@@ -562,13 +562,13 @@ common.resume:                                    ; preds = %_ZNSt14_Function_ba
 _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN3gmx19StopConditionSignalESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit12.i.i.i.i: ; preds = %21
   %26 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %22, i64 noundef 32) #25, !noalias !63
+  tail call void @_ZdlPvm(ptr noundef nonnull %22, i64 noundef 32) #25, !noalias !62
   br label %common.resume
 
 27:                                               ; preds = %21
   %28 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  store ptr %22, ptr %28, align 8, !tbaa !71, !alias.scope !63
-  store ptr %25, ptr %16, align 8, !tbaa !74, !alias.scope !63
+  store ptr %22, ptr %28, align 8, !tbaa !70, !alias.scope !62
+  store ptr %25, ptr %16, align 8, !tbaa !73, !alias.scope !62
   %29 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !46
   %.not.i.i.i.i = icmp eq i8 %29, 0
   br i1 %.not.i.i.i.i, label %33, label %30
@@ -591,12 +591,12 @@ _ZNSt10shared_ptrIN3gmx19StopConditionSignalEEC2ERKS2_.exit: ; preds = %30, %33
 
 37:                                               ; preds = %_ZNSt10shared_ptrIN3gmx19StopConditionSignalEEC2ERKS2_.exit
   %38 = getelementptr inbounds nuw i8, ptr %17, i64 24
-  store ptr %25, ptr %36, align 8, !tbaa !76
+  store ptr %25, ptr %36, align 8, !tbaa !75
   %39 = getelementptr inbounds nuw i8, ptr %36, i64 8
-  store ptr %22, ptr %39, align 8, !tbaa !71
+  store ptr %22, ptr %39, align 8, !tbaa !70
   %40 = getelementptr inbounds nuw i8, ptr %36, i64 16
-  store ptr %9, ptr %40, align 8, !tbaa !78
-  store ptr %36, ptr %17, align 8, !tbaa !81
+  store ptr %9, ptr %40, align 8, !tbaa !77
+  store ptr %36, ptr %17, align 8, !tbaa !80
   store ptr @"_ZNSt17_Function_handlerIFN3gmx10StopSignalEvEZNS0_18StopHandlerBuilder16getStopHandlerMDENS0_6compat8not_nullIPNS0_16SimulationSignalEEEbbibifP8_IO_FILERKlP23gmx_walltime_accountingE3$_0E9_M_invokeERKSt9_Any_data", ptr %38, align 8, !tbaa !41
   store ptr @"_ZNSt17_Function_handlerIFN3gmx10StopSignalEvEZNS0_18StopHandlerBuilder16getStopHandlerMDENS0_6compat8not_nullIPNS0_16SimulationSignalEEEbbibifP8_IO_FILERKlP23gmx_walltime_accountingE3$_0E10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation", ptr %35, align 8, !tbaa !44
   %41 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -641,7 +641,7 @@ _ZN3gmx18StopHandlerBuilder21registerStopConditionESt8functionIFNS_10StopSignalE
   unreachable
 
 "_ZZN3gmx18StopHandlerBuilder16getStopHandlerMDENS_6compat8not_nullIPNS_16SimulationSignalEEEbbibifP8_IO_FILERKlP23gmx_walltime_accountingEN3$_0D2Ev.exit": ; preds = %_ZN3gmx18StopHandlerBuilder21registerStopConditionESt8functionIFNS_10StopSignalEvEE.exit.thread, %51, %_ZN3gmx18StopHandlerBuilder21registerStopConditionESt8functionIFNS_10StopSignalEvEE.exit
-  %56 = load ptr, ptr %28, align 8, !tbaa !71
+  %56 = load ptr, ptr %28, align 8, !tbaa !70
   %.not.i.i21 = icmp eq ptr %56, null
   br i1 %.not.i.i21, label %88, label %57
 
@@ -653,14 +653,14 @@ _ZN3gmx18StopHandlerBuilder21registerStopConditionESt8functionIFNS_10StopSignalE
   br i1 %60, label %62, label %70
 
 62:                                               ; preds = %57
-  store i32 0, ptr %58, align 8, !tbaa !66
+  store i32 0, ptr %58, align 8, !tbaa !65
   %63 = getelementptr inbounds nuw i8, ptr %56, i64 12
-  store i32 0, ptr %63, align 4, !tbaa !68
-  %64 = load ptr, ptr %56, align 8, !tbaa !69
+  store i32 0, ptr %63, align 4, !tbaa !67
+  %64 = load ptr, ptr %56, align 8, !tbaa !68
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 16
   %66 = load ptr, ptr %65, align 8
   call void %66(ptr noundef nonnull align 8 dereferenceable(16) %56) #21
-  %67 = load ptr, ptr %56, align 8, !tbaa !69
+  %67 = load ptr, ptr %56, align 8, !tbaa !68
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 24
   %69 = load ptr, ptr %68, align 8
   call void %69(ptr noundef nonnull align 8 dereferenceable(16) %56) #21
@@ -683,7 +683,7 @@ _ZN3gmx18StopHandlerBuilder21registerStopConditionESt8functionIFNS_10StopSignalE
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i: ; preds = %74, %72
   %.0.i.i.i.i = phi i32 [ %61, %72 ], [ %75, %74 ]
   %76 = icmp eq i32 %.0.i.i.i.i, 1
-  br i1 %76, label %77, label %88, !prof !82
+  br i1 %76, label %77, label %88, !prof !81
 
 77:                                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %56) #21
@@ -727,28 +727,28 @@ _ZNSt14_Function_baseD2Ev.exit24:                 ; preds = %83, %80, %78
 
 90:                                               ; preds = %88
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %18) #21
-  call void @llvm.experimental.noalias.scope.decl(metadata !83)
-  %91 = call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #24, !noalias !83
+  call void @llvm.experimental.noalias.scope.decl(metadata !82)
+  %91 = call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #24, !noalias !82
   %92 = getelementptr inbounds nuw i8, ptr %91, i64 8
-  store i32 1, ptr %92, align 8, !tbaa !66, !noalias !83
+  store i32 1, ptr %92, align 8, !tbaa !65, !noalias !82
   %93 = getelementptr inbounds nuw i8, ptr %91, i64 12
-  store i32 1, ptr %93, align 4, !tbaa !68, !noalias !83
-  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN3gmx17StopConditionTimeESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %91, align 8, !tbaa !69, !noalias !83
+  store i32 1, ptr %93, align 4, !tbaa !67, !noalias !82
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN3gmx17StopConditionTimeESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %91, align 8, !tbaa !68, !noalias !82
   %94 = getelementptr inbounds nuw i8, ptr %91, i64 16
-  %95 = load i32, ptr %15, align 4, !tbaa !32, !noalias !83
+  %95 = load i32, ptr %15, align 4, !tbaa !32, !noalias !82
   invoke void @_ZN3gmx17StopConditionTimeC1Eifi(ptr noundef nonnull align 4 dereferenceable(16) %94, i32 noundef %95, float noundef %8, i32 noundef %7)
-          to label %97 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN3gmx17StopConditionTimeESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit12.i.i.i.i, !noalias !83
+          to label %97 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN3gmx17StopConditionTimeESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit12.i.i.i.i, !noalias !82
 
 _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN3gmx17StopConditionTimeESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit12.i.i.i.i: ; preds = %90
   %96 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZdlPvm(ptr noundef nonnull %91, i64 noundef 32) #25, !noalias !83
+  call void @_ZdlPvm(ptr noundef nonnull %91, i64 noundef 32) #25, !noalias !82
   br label %common.resume
 
 97:                                               ; preds = %90
   %98 = getelementptr inbounds nuw i8, ptr %18, i64 8
-  store ptr %91, ptr %98, align 8, !tbaa !71, !alias.scope !83
-  store ptr %94, ptr %18, align 8, !tbaa !86, !alias.scope !83
+  store ptr %91, ptr %98, align 8, !tbaa !70, !alias.scope !82
+  store ptr %94, ptr %18, align 8, !tbaa !85, !alias.scope !82
   %99 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !46
   %.not.i.i.i.i26 = icmp eq i8 %99, 0
   br i1 %.not.i.i.i.i26, label %103, label %100
@@ -771,16 +771,16 @@ _ZNSt10shared_ptrIN3gmx17StopConditionTimeEEC2ERKS2_.exit: ; preds = %100, %103
 
 107:                                              ; preds = %_ZNSt10shared_ptrIN3gmx17StopConditionTimeEEC2ERKS2_.exit
   %108 = getelementptr inbounds nuw i8, ptr %19, i64 24
-  store ptr %94, ptr %106, align 8, !tbaa !88
+  store ptr %94, ptr %106, align 8, !tbaa !87
   %109 = getelementptr inbounds nuw i8, ptr %106, i64 8
-  store ptr %91, ptr %109, align 8, !tbaa !71
+  store ptr %91, ptr %109, align 8, !tbaa !70
   %110 = getelementptr inbounds nuw i8, ptr %106, i64 16
   store ptr %10, ptr %110, align 8
   %.sroa.13.16..sroa_idx = getelementptr inbounds nuw i8, ptr %106, i64 24
   store ptr %9, ptr %.sroa.13.16..sroa_idx, align 8
   %.sroa.14.16..sroa_idx = getelementptr inbounds nuw i8, ptr %106, i64 32
   store ptr %11, ptr %.sroa.14.16..sroa_idx, align 8
-  store ptr %106, ptr %19, align 8, !tbaa !81
+  store ptr %106, ptr %19, align 8, !tbaa !80
   store ptr @"_ZNSt17_Function_handlerIFN3gmx10StopSignalEvEZNS0_18StopHandlerBuilder16getStopHandlerMDENS0_6compat8not_nullIPNS0_16SimulationSignalEEEbbibifP8_IO_FILERKlP23gmx_walltime_accountingE3$_1E9_M_invokeERKSt9_Any_data", ptr %108, align 8, !tbaa !41
   store ptr @"_ZNSt17_Function_handlerIFN3gmx10StopSignalEvEZNS0_18StopHandlerBuilder16getStopHandlerMDENS0_6compat8not_nullIPNS0_16SimulationSignalEEEbbibifP8_IO_FILERKlP23gmx_walltime_accountingE3$_1E10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation", ptr %105, align 8, !tbaa !44
   %111 = load ptr, ptr %41, align 8, !tbaa !12
@@ -821,7 +821,7 @@ _ZN3gmx18StopHandlerBuilder21registerStopConditionESt8functionIFNS_10StopSignalE
   unreachable
 
 "_ZZN3gmx18StopHandlerBuilder16getStopHandlerMDENS_6compat8not_nullIPNS_16SimulationSignalEEEbbibifP8_IO_FILERKlP23gmx_walltime_accountingEN3$_1D2Ev.exit": ; preds = %_ZN3gmx18StopHandlerBuilder21registerStopConditionESt8functionIFNS_10StopSignalEvEE.exit32.thread, %118, %_ZN3gmx18StopHandlerBuilder21registerStopConditionESt8functionIFNS_10StopSignalEvEE.exit32
-  %123 = load ptr, ptr %98, align 8, !tbaa !71
+  %123 = load ptr, ptr %98, align 8, !tbaa !70
   %.not.i.i39 = icmp eq ptr %123, null
   br i1 %.not.i.i39, label %_ZNSt12__shared_ptrIN3gmx17StopConditionTimeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, label %124
 
@@ -833,14 +833,14 @@ _ZN3gmx18StopHandlerBuilder21registerStopConditionESt8functionIFNS_10StopSignalE
   br i1 %127, label %129, label %137
 
 129:                                              ; preds = %124
-  store i32 0, ptr %125, align 8, !tbaa !66
+  store i32 0, ptr %125, align 8, !tbaa !65
   %130 = getelementptr inbounds nuw i8, ptr %123, i64 12
-  store i32 0, ptr %130, align 4, !tbaa !68
-  %131 = load ptr, ptr %123, align 8, !tbaa !69
+  store i32 0, ptr %130, align 4, !tbaa !67
+  %131 = load ptr, ptr %123, align 8, !tbaa !68
   %132 = getelementptr inbounds nuw i8, ptr %131, i64 16
   %133 = load ptr, ptr %132, align 8
   call void %133(ptr noundef nonnull align 8 dereferenceable(16) %123) #21
-  %134 = load ptr, ptr %123, align 8, !tbaa !69
+  %134 = load ptr, ptr %123, align 8, !tbaa !68
   %135 = getelementptr inbounds nuw i8, ptr %134, i64 24
   %136 = load ptr, ptr %135, align 8
   call void %136(ptr noundef nonnull align 8 dereferenceable(16) %123) #21
@@ -863,7 +863,7 @@ _ZN3gmx18StopHandlerBuilder21registerStopConditionESt8functionIFNS_10StopSignalE
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i41: ; preds = %141, %139
   %.0.i.i.i.i42 = phi i32 [ %128, %139 ], [ %142, %141 ]
   %143 = icmp eq i32 %.0.i.i.i.i42, 1
-  br i1 %143, label %144, label %_ZNSt12__shared_ptrIN3gmx17StopConditionTimeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, !prof !82
+  br i1 %143, label %144, label %_ZNSt12__shared_ptrIN3gmx17StopConditionTimeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, !prof !81
 
 144:                                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i41
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %123) #21
@@ -922,14 +922,14 @@ define internal fastcc void @"_ZZN3gmx18StopHandlerBuilder16getStopHandlerMDENS_
   br i1 %4, label %6, label %14
 
 6:                                                ; preds = %1
-  store i32 0, ptr %2, align 8, !tbaa !66
+  store i32 0, ptr %2, align 8, !tbaa !65
   %7 = getelementptr inbounds nuw i8, ptr %.8.val, i64 12
-  store i32 0, ptr %7, align 4, !tbaa !68
-  %8 = load ptr, ptr %.8.val, align 8, !tbaa !69
+  store i32 0, ptr %7, align 4, !tbaa !67
+  %8 = load ptr, ptr %.8.val, align 8, !tbaa !68
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %10 = load ptr, ptr %9, align 8
   tail call void %10(ptr noundef nonnull align 8 dereferenceable(16) %.8.val) #21
-  %11 = load ptr, ptr %.8.val, align 8, !tbaa !69
+  %11 = load ptr, ptr %.8.val, align 8, !tbaa !68
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %13 = load ptr, ptr %12, align 8
   tail call void %13(ptr noundef nonnull align 8 dereferenceable(16) %.8.val) #21
@@ -952,7 +952,7 @@ define internal fastcc void @"_ZZN3gmx18StopHandlerBuilder16getStopHandlerMDENS_
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i: ; preds = %18, %16
   %.0.i.i.i.i = phi i32 [ %5, %16 ], [ %19, %18 ]
   %20 = icmp eq i32 %.0.i.i.i.i, 1
-  br i1 %20, label %21, label %_ZNSt12__shared_ptrIN3gmx19StopConditionSignalELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, !prof !82
+  br i1 %20, label %21, label %_ZNSt12__shared_ptrIN3gmx19StopConditionSignalELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, !prof !81
 
 21:                                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i
   tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %.8.val) #21
@@ -965,7 +965,7 @@ _ZNSt12__shared_ptrIN3gmx19StopConditionSignalELN9__gnu_cxx12_Lock_policyE2EED2E
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt12__shared_ptrIN3gmx19StopConditionSignalELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #14 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load ptr, ptr %2, align 8, !tbaa !71
+  %3 = load ptr, ptr %2, align 8, !tbaa !70
   %.not.i = icmp eq ptr %3, null
   br i1 %.not.i, label %_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, label %4
 
@@ -977,14 +977,14 @@ define linkonce_odr void @_ZNSt12__shared_ptrIN3gmx19StopConditionSignalELN9__gn
   br i1 %7, label %9, label %17
 
 9:                                                ; preds = %4
-  store i32 0, ptr %5, align 8, !tbaa !66
+  store i32 0, ptr %5, align 8, !tbaa !65
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 12
-  store i32 0, ptr %10, align 4, !tbaa !68
-  %11 = load ptr, ptr %3, align 8, !tbaa !69
+  store i32 0, ptr %10, align 4, !tbaa !67
+  %11 = load ptr, ptr %3, align 8, !tbaa !68
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %13 = load ptr, ptr %12, align 8
   tail call void %13(ptr noundef nonnull align 8 dereferenceable(16) %3) #21
-  %14 = load ptr, ptr %3, align 8, !tbaa !69
+  %14 = load ptr, ptr %3, align 8, !tbaa !68
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 24
   %16 = load ptr, ptr %15, align 8
   tail call void %16(ptr noundef nonnull align 8 dereferenceable(16) %3) #21
@@ -1007,7 +1007,7 @@ define linkonce_odr void @_ZNSt12__shared_ptrIN3gmx19StopConditionSignalELN9__gn
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i: ; preds = %21, %19
   %.0.i.i.i = phi i32 [ %8, %19 ], [ %22, %21 ]
   %23 = icmp eq i32 %.0.i.i.i, 1
-  br i1 %23, label %24, label %_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, !prof !82
+  br i1 %23, label %24, label %_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, !prof !81
 
 24:                                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i
   tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #21
@@ -1030,14 +1030,14 @@ define internal fastcc void @"_ZZN3gmx18StopHandlerBuilder16getStopHandlerMDENS_
   br i1 %4, label %6, label %14
 
 6:                                                ; preds = %1
-  store i32 0, ptr %2, align 8, !tbaa !66
+  store i32 0, ptr %2, align 8, !tbaa !65
   %7 = getelementptr inbounds nuw i8, ptr %.8.val, i64 12
-  store i32 0, ptr %7, align 4, !tbaa !68
-  %8 = load ptr, ptr %.8.val, align 8, !tbaa !69
+  store i32 0, ptr %7, align 4, !tbaa !67
+  %8 = load ptr, ptr %.8.val, align 8, !tbaa !68
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %10 = load ptr, ptr %9, align 8
   tail call void %10(ptr noundef nonnull align 8 dereferenceable(16) %.8.val) #21
-  %11 = load ptr, ptr %.8.val, align 8, !tbaa !69
+  %11 = load ptr, ptr %.8.val, align 8, !tbaa !68
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %13 = load ptr, ptr %12, align 8
   tail call void %13(ptr noundef nonnull align 8 dereferenceable(16) %.8.val) #21
@@ -1060,7 +1060,7 @@ define internal fastcc void @"_ZZN3gmx18StopHandlerBuilder16getStopHandlerMDENS_
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i: ; preds = %18, %16
   %.0.i.i.i.i = phi i32 [ %5, %16 ], [ %19, %18 ]
   %20 = icmp eq i32 %.0.i.i.i.i, 1
-  br i1 %20, label %21, label %_ZNSt12__shared_ptrIN3gmx17StopConditionTimeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, !prof !82
+  br i1 %20, label %21, label %_ZNSt12__shared_ptrIN3gmx17StopConditionTimeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, !prof !81
 
 21:                                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i
   tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %.8.val) #21
@@ -1073,7 +1073,7 @@ _ZNSt12__shared_ptrIN3gmx17StopConditionTimeELN9__gnu_cxx12_Lock_policyE2EED2Ev.
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt12__shared_ptrIN3gmx17StopConditionTimeELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #14 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load ptr, ptr %2, align 8, !tbaa !71
+  %3 = load ptr, ptr %2, align 8, !tbaa !70
   %.not.i = icmp eq ptr %3, null
   br i1 %.not.i, label %_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, label %4
 
@@ -1085,14 +1085,14 @@ define linkonce_odr void @_ZNSt12__shared_ptrIN3gmx17StopConditionTimeELN9__gnu_
   br i1 %7, label %9, label %17
 
 9:                                                ; preds = %4
-  store i32 0, ptr %5, align 8, !tbaa !66
+  store i32 0, ptr %5, align 8, !tbaa !65
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 12
-  store i32 0, ptr %10, align 4, !tbaa !68
-  %11 = load ptr, ptr %3, align 8, !tbaa !69
+  store i32 0, ptr %10, align 4, !tbaa !67
+  %11 = load ptr, ptr %3, align 8, !tbaa !68
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %13 = load ptr, ptr %12, align 8
   tail call void %13(ptr noundef nonnull align 8 dereferenceable(16) %3) #21
-  %14 = load ptr, ptr %3, align 8, !tbaa !69
+  %14 = load ptr, ptr %3, align 8, !tbaa !68
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 24
   %16 = load ptr, ptr %15, align 8
   tail call void %16(ptr noundef nonnull align 8 dereferenceable(16) %3) #21
@@ -1115,7 +1115,7 @@ define linkonce_odr void @_ZNSt12__shared_ptrIN3gmx17StopConditionTimeELN9__gnu_
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i: ; preds = %21, %19
   %.0.i.i.i = phi i32 [ %8, %19 ], [ %22, %21 ]
   %23 = icmp eq i32 %.0.i.i.i, 1
-  br i1 %23, label %24, label %_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, !prof !82
+  br i1 %23, label %24, label %_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, !prof !81
 
 24:                                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i
   tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #21
@@ -1130,7 +1130,7 @@ define linkonce_odr void @_ZSt11make_uniqueIN3gmx11StopHandlerEJRNS0_6compat8not
   %6 = alloca %"class.std::vector", align 8
   %7 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #24
   %.sroa.0.0.copyload = load ptr, ptr %1, align 8, !tbaa !4
-  %8 = load i8, ptr %2, align 1, !tbaa !62, !range !30, !noundef !31
+  %8 = load i8, ptr %2, align 1, !tbaa !61, !range !30, !noundef !31
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %10 = load ptr, ptr %9, align 8, !tbaa !12
   %11 = load ptr, ptr %3, align 8, !tbaa !9
@@ -1143,7 +1143,7 @@ define linkonce_odr void @_ZSt11make_uniqueIN3gmx11StopHandlerEJRNS0_6compat8not
 
 15:                                               ; preds = %5
   %16 = icmp ugt i64 %14, 9223372036854775776
-  br i1 %16, label %.noexc.i.i, label %_ZNSt16allocator_traitsISaISt8functionIFN3gmx10StopSignalEvEEEE8allocateERS5_m.exit.i.i.i.i, !prof !82
+  br i1 %16, label %.noexc.i.i, label %_ZNSt16allocator_traitsISaISt8functionIFN3gmx10StopSignalEvEEEE8allocateERS5_m.exit.i.i.i.i, !prof !81
 
 .noexc.i.i:                                       ; preds = %15
   invoke void @_ZSt28__throw_bad_array_new_lengthv() #23
@@ -1185,7 +1185,7 @@ _ZNSt16allocator_traitsISaISt8functionIFN3gmx10StopSignalEvEEEE8allocateERS5_m.e
           to label %29 unwind label %48
 
 29:                                               ; preds = %26
-  store ptr %7, ptr %0, align 8, !tbaa !90
+  store ptr %7, ptr %0, align 8, !tbaa !89
   %30 = load ptr, ptr %6, align 8, !tbaa !9
   %31 = load ptr, ptr %19, align 8, !tbaa !12
   %.not4.i.i.i.i = icmp eq ptr %30, %31
@@ -1212,7 +1212,7 @@ _ZNSt16allocator_traitsISaISt8functionIFN3gmx10StopSignalEvEEEE8allocateERS5_m.e
 _ZSt8_DestroyISt8functionIFN3gmx10StopSignalEvEEEvPT_.exit.i.i.i.i: ; preds = %34, %.lr.ph.i.i.i.i
   %39 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i, i64 32
   %.not.i.i.i.i9 = icmp eq ptr %39, %31
-  br i1 %.not.i.i.i.i9, label %_ZSt8_DestroyIPSt8functionIFN3gmx10StopSignalEvEES4_EvT_S6_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i, !llvm.loop !92
+  br i1 %.not.i.i.i.i9, label %_ZSt8_DestroyIPSt8functionIFN3gmx10StopSignalEvEES4_EvT_S6_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i, !llvm.loop !91
 
 _ZSt8_DestroyIPSt8functionIFN3gmx10StopSignalEvEES4_EvT_S6_RSaIT0_E.exitthread-pre-split.i: ; preds = %_ZSt8_DestroyISt8functionIFN3gmx10StopSignalEvEEEvPT_.exit.i.i.i.i
   %.pr.i = load ptr, ptr %6, align 8, !tbaa !9
@@ -1277,7 +1277,7 @@ define linkonce_odr noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN3gmx19StopCondi
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %7 = load ptr, ptr %6, align 8, !tbaa !93
+  %7 = load ptr, ptr %6, align 8, !tbaa !92
   %8 = icmp eq ptr %7, @_ZTSSt19_Sp_make_shared_tag
   br i1 %8, label %_ZNKSt9type_infoeqERKS_.exit.thread, label %9
 
@@ -1305,10 +1305,10 @@ declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) loca
 
 ; Function Attrs: mustprogress uwtable
 define internal noundef range(i32 -1, 2) i32 @"_ZNSt17_Function_handlerIFN3gmx10StopSignalEvEZNS0_18StopHandlerBuilder16getStopHandlerMDENS0_6compat8not_nullIPNS0_16SimulationSignalEEEbbibifP8_IO_FILERKlP23gmx_walltime_accountingE3$_0E9_M_invokeERKSt9_Any_data"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0) #2 align 2 {
-  %.val = load ptr, ptr %0, align 8, !tbaa !81
-  %.val1 = load ptr, ptr %.val, align 8, !tbaa !76
+  %.val = load ptr, ptr %0, align 8, !tbaa !80
+  %.val1 = load ptr, ptr %.val, align 8, !tbaa !75
   %2 = getelementptr i8, ptr %.val, i64 16
-  %.val2 = load ptr, ptr %2, align 8, !tbaa !78
+  %.val2 = load ptr, ptr %2, align 8, !tbaa !77
   %3 = tail call noundef range(i32 -1, 2) i32 @_ZN3gmx19StopConditionSignal9getSignalEP8_IO_FILE(ptr noundef nonnull align 4 dereferenceable(16) %.val1, ptr noundef %.val2)
   ret i32 %3
 }
@@ -1321,12 +1321,12 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFN3gmx10StopSignal
   ]
 
 4:                                                ; preds = %3
-  store ptr @"_ZTIZN3gmx18StopHandlerBuilder16getStopHandlerMDENS_6compat8not_nullIPNS_16SimulationSignalEEEbbibifP8_IO_FILERKlP23gmx_walltime_accountingE3$_0", ptr %0, align 8, !tbaa !96
+  store ptr @"_ZTIZN3gmx18StopHandlerBuilder16getStopHandlerMDENS_6compat8not_nullIPNS_16SimulationSignalEEEbbibifP8_IO_FILERKlP23gmx_walltime_accountingE3$_0", ptr %0, align 8, !tbaa !95
   br label %"_ZNSt14_Function_base13_Base_managerIZN3gmx18StopHandlerBuilder16getStopHandlerMDENS1_6compat8not_nullIPNS1_16SimulationSignalEEEbbibifP8_IO_FILERKlP23gmx_walltime_accountingE3$_0E10_M_managerERSt9_Any_dataRKSG_St18_Manager_operation.exit"
 
 5:                                                ; preds = %3
-  %.val = load ptr, ptr %1, align 8, !tbaa !81
-  store ptr %.val, ptr %0, align 8, !tbaa !81
+  %.val = load ptr, ptr %1, align 8, !tbaa !80
+  store ptr %.val, ptr %0, align 8, !tbaa !80
   br label %"_ZNSt14_Function_base13_Base_managerIZN3gmx18StopHandlerBuilder16getStopHandlerMDENS1_6compat8not_nullIPNS1_16SimulationSignalEEEbbibifP8_IO_FILERKlP23gmx_walltime_accountingE3$_0E10_M_managerERSt9_Any_dataRKSG_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
@@ -1338,12 +1338,12 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFN3gmx10StopSignal
 
 7:                                                ; preds = %6
   %8 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #24
-  %9 = load ptr, ptr %.val6, align 8, !tbaa !76
-  store ptr %9, ptr %8, align 8, !tbaa !76
+  %9 = load ptr, ptr %.val6, align 8, !tbaa !75
+  store ptr %9, ptr %8, align 8, !tbaa !75
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %11 = getelementptr inbounds nuw i8, ptr %.val6, i64 8
-  %12 = load ptr, ptr %11, align 8, !tbaa !71
-  store ptr %12, ptr %10, align 8, !tbaa !71
+  %12 = load ptr, ptr %11, align 8, !tbaa !70
+  store ptr %12, ptr %10, align 8, !tbaa !70
   %.not.i.i.i.i.i.i.i = icmp eq ptr %12, null
   br i1 %.not.i.i.i.i.i.i.i, label %"_ZNSt14_Function_base13_Base_managerIZN3gmx18StopHandlerBuilder16getStopHandlerMDENS1_6compat8not_nullIPNS1_16SimulationSignalEEEbbibifP8_IO_FILERKlP23gmx_walltime_accountingE3$_0E15_M_init_functorIRKSE_EEvRSt9_Any_dataOT_.exit.i", label %13
 
@@ -1366,19 +1366,19 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFN3gmx10StopSignal
 "_ZNSt14_Function_base13_Base_managerIZN3gmx18StopHandlerBuilder16getStopHandlerMDENS1_6compat8not_nullIPNS1_16SimulationSignalEEEbbibifP8_IO_FILERKlP23gmx_walltime_accountingE3$_0E15_M_init_functorIRKSE_EEvRSt9_Any_dataOT_.exit.i": ; preds = %19, %16, %7
   %21 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %22 = getelementptr inbounds nuw i8, ptr %.val6, i64 16
-  %23 = load ptr, ptr %22, align 8, !tbaa !78
-  store ptr %23, ptr %21, align 8, !tbaa !78
-  store ptr %8, ptr %0, align 8, !tbaa !81
+  %23 = load ptr, ptr %22, align 8, !tbaa !77
+  store ptr %23, ptr %21, align 8, !tbaa !77
+  store ptr %8, ptr %0, align 8, !tbaa !80
   br label %"_ZNSt14_Function_base13_Base_managerIZN3gmx18StopHandlerBuilder16getStopHandlerMDENS1_6compat8not_nullIPNS1_16SimulationSignalEEEbbibifP8_IO_FILERKlP23gmx_walltime_accountingE3$_0E10_M_managerERSt9_Any_dataRKSG_St18_Manager_operation.exit"
 
 24:                                               ; preds = %6
-  %.val7.i = load ptr, ptr %0, align 8, !tbaa !81
+  %.val7.i = load ptr, ptr %0, align 8, !tbaa !80
   %25 = icmp eq ptr %.val7.i, null
   br i1 %25, label %"_ZNSt14_Function_base13_Base_managerIZN3gmx18StopHandlerBuilder16getStopHandlerMDENS1_6compat8not_nullIPNS1_16SimulationSignalEEEbbibifP8_IO_FILERKlP23gmx_walltime_accountingE3$_0E10_M_managerERSt9_Any_dataRKSG_St18_Manager_operation.exit", label %26
 
 26:                                               ; preds = %24
   %27 = getelementptr i8, ptr %.val7.i, i64 8
-  %.val.i.i = load ptr, ptr %27, align 8, !tbaa !71
+  %.val.i.i = load ptr, ptr %27, align 8, !tbaa !70
   %.not.i.i.i.i.i = icmp eq ptr %.val.i.i, null
   br i1 %.not.i.i.i.i.i, label %"_ZZN3gmx18StopHandlerBuilder16getStopHandlerMDENS_6compat8not_nullIPNS_16SimulationSignalEEEbbibifP8_IO_FILERKlP23gmx_walltime_accountingEN3$_0D2Ev.exit.i.i", label %28
 
@@ -1390,14 +1390,14 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFN3gmx10StopSignal
   br i1 %31, label %33, label %41
 
 33:                                               ; preds = %28
-  store i32 0, ptr %29, align 8, !tbaa !66
+  store i32 0, ptr %29, align 8, !tbaa !65
   %34 = getelementptr inbounds nuw i8, ptr %.val.i.i, i64 12
-  store i32 0, ptr %34, align 4, !tbaa !68
-  %35 = load ptr, ptr %.val.i.i, align 8, !tbaa !69
+  store i32 0, ptr %34, align 4, !tbaa !67
+  %35 = load ptr, ptr %.val.i.i, align 8, !tbaa !68
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 16
   %37 = load ptr, ptr %36, align 8
   tail call void %37(ptr noundef nonnull align 8 dereferenceable(16) %.val.i.i) #21
-  %38 = load ptr, ptr %.val.i.i, align 8, !tbaa !69
+  %38 = load ptr, ptr %.val.i.i, align 8, !tbaa !68
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 24
   %40 = load ptr, ptr %39, align 8
   tail call void %40(ptr noundef nonnull align 8 dereferenceable(16) %.val.i.i) #21
@@ -1420,7 +1420,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFN3gmx10StopSignal
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i: ; preds = %45, %43
   %.0.i.i.i.i.i.i.i = phi i32 [ %32, %43 ], [ %46, %45 ]
   %47 = icmp eq i32 %.0.i.i.i.i.i.i.i, 1
-  br i1 %47, label %48, label %"_ZZN3gmx18StopHandlerBuilder16getStopHandlerMDENS_6compat8not_nullIPNS_16SimulationSignalEEEbbibifP8_IO_FILERKlP23gmx_walltime_accountingEN3$_0D2Ev.exit.i.i", !prof !82
+  br i1 %47, label %48, label %"_ZZN3gmx18StopHandlerBuilder16getStopHandlerMDENS_6compat8not_nullIPNS_16SimulationSignalEEEbbibifP8_IO_FILERKlP23gmx_walltime_accountingEN3$_0D2Ev.exit.i.i", !prof !81
 
 48:                                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i
   tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %.val.i.i) #21
@@ -1436,7 +1436,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i: ; preds = %45, 
 
 ; Function Attrs: mustprogress noinline nounwind uwtable
 define linkonce_odr void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #17 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !69
+  %2 = load ptr, ptr %0, align 8, !tbaa !68
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %4 = load ptr, ptr %3, align 8
   tail call void %4(ptr noundef nonnull align 8 dereferenceable(16) %0) #21
@@ -1461,7 +1461,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i: ; preds = %10, %7
   br i1 %12, label %13, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE19_M_release_last_useEv.exit
 
 13:                                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i
-  %14 = load ptr, ptr %0, align 8, !tbaa !69
+  %14 = load ptr, ptr %0, align 8, !tbaa !68
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 24
   %16 = load ptr, ptr %15, align 8
   tail call void %16(ptr noundef nonnull align 8 dereferenceable(16) %0) #21
@@ -1502,7 +1502,7 @@ define linkonce_odr noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN3gmx17StopCondi
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %7 = load ptr, ptr %6, align 8, !tbaa !93
+  %7 = load ptr, ptr %6, align 8, !tbaa !92
   %8 = icmp eq ptr %7, @_ZTSSt19_Sp_make_shared_tag
   br i1 %8, label %_ZNKSt9type_infoeqERKS_.exit.thread, label %9
 
@@ -1527,15 +1527,15 @@ _ZNKSt9type_infoeqERKS_.exit.thread8:             ; preds = %9, %_ZNKSt9type_inf
 
 ; Function Attrs: mustprogress uwtable
 define internal noundef range(i32 0, 2) i32 @"_ZNSt17_Function_handlerIFN3gmx10StopSignalEvEZNS0_18StopHandlerBuilder16getStopHandlerMDENS0_6compat8not_nullIPNS0_16SimulationSignalEEEbbibifP8_IO_FILERKlP23gmx_walltime_accountingE3$_1E9_M_invokeERKSt9_Any_data"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0) #2 align 2 {
-  %.val = load ptr, ptr %0, align 8, !tbaa !81
-  %2 = load ptr, ptr %.val, align 8, !tbaa !88
+  %.val = load ptr, ptr %0, align 8, !tbaa !80
+  %2 = load ptr, ptr %.val, align 8, !tbaa !87
   %3 = getelementptr inbounds nuw i8, ptr %.val, i64 16
-  %4 = load ptr, ptr %3, align 8, !tbaa !98
-  %5 = load i64, ptr %4, align 8, !tbaa !103
+  %4 = load ptr, ptr %3, align 8, !tbaa !97
+  %5 = load i64, ptr %4, align 8, !tbaa !102
   %6 = getelementptr inbounds nuw i8, ptr %.val, i64 24
-  %7 = load ptr, ptr %6, align 8, !tbaa !105
+  %7 = load ptr, ptr %6, align 8, !tbaa !104
   %8 = getelementptr inbounds nuw i8, ptr %.val, i64 32
-  %9 = load ptr, ptr %8, align 8, !tbaa !106
+  %9 = load ptr, ptr %8, align 8, !tbaa !105
   %10 = tail call noundef range(i32 0, 2) i32 @_ZN3gmx17StopConditionTime9getSignalElP8_IO_FILEP23gmx_walltime_accounting(ptr noundef nonnull align 4 dereferenceable(16) %2, i64 noundef %5, ptr noundef %7, ptr noundef %9)
   ret i32 %10
 }
@@ -1548,12 +1548,12 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFN3gmx10StopSignal
   ]
 
 4:                                                ; preds = %3
-  store ptr @"_ZTIZN3gmx18StopHandlerBuilder16getStopHandlerMDENS_6compat8not_nullIPNS_16SimulationSignalEEEbbibifP8_IO_FILERKlP23gmx_walltime_accountingE3$_1", ptr %0, align 8, !tbaa !96
+  store ptr @"_ZTIZN3gmx18StopHandlerBuilder16getStopHandlerMDENS_6compat8not_nullIPNS_16SimulationSignalEEEbbibifP8_IO_FILERKlP23gmx_walltime_accountingE3$_1", ptr %0, align 8, !tbaa !95
   br label %"_ZNSt14_Function_base13_Base_managerIZN3gmx18StopHandlerBuilder16getStopHandlerMDENS1_6compat8not_nullIPNS1_16SimulationSignalEEEbbibifP8_IO_FILERKlP23gmx_walltime_accountingE3$_1E10_M_managerERSt9_Any_dataRKSG_St18_Manager_operation.exit"
 
 5:                                                ; preds = %3
-  %.val = load ptr, ptr %1, align 8, !tbaa !81
-  store ptr %.val, ptr %0, align 8, !tbaa !81
+  %.val = load ptr, ptr %1, align 8, !tbaa !80
+  store ptr %.val, ptr %0, align 8, !tbaa !80
   br label %"_ZNSt14_Function_base13_Base_managerIZN3gmx18StopHandlerBuilder16getStopHandlerMDENS1_6compat8not_nullIPNS1_16SimulationSignalEEEbbibifP8_IO_FILERKlP23gmx_walltime_accountingE3$_1E10_M_managerERSt9_Any_dataRKSG_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
@@ -1565,12 +1565,12 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFN3gmx10StopSignal
 
 7:                                                ; preds = %6
   %8 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #24
-  %9 = load ptr, ptr %.val6, align 8, !tbaa !88
-  store ptr %9, ptr %8, align 8, !tbaa !88
+  %9 = load ptr, ptr %.val6, align 8, !tbaa !87
+  store ptr %9, ptr %8, align 8, !tbaa !87
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %11 = getelementptr inbounds nuw i8, ptr %.val6, i64 8
-  %12 = load ptr, ptr %11, align 8, !tbaa !71
-  store ptr %12, ptr %10, align 8, !tbaa !71
+  %12 = load ptr, ptr %11, align 8, !tbaa !70
+  store ptr %12, ptr %10, align 8, !tbaa !70
   %.not.i.i.i.i.i.i.i = icmp eq ptr %12, null
   br i1 %.not.i.i.i.i.i.i.i, label %"_ZNSt14_Function_base13_Base_managerIZN3gmx18StopHandlerBuilder16getStopHandlerMDENS1_6compat8not_nullIPNS1_16SimulationSignalEEEbbibifP8_IO_FILERKlP23gmx_walltime_accountingE3$_1E15_M_init_functorIRKSE_EEvRSt9_Any_dataOT_.exit.i", label %13
 
@@ -1594,17 +1594,17 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFN3gmx10StopSignal
   %21 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %22 = getelementptr inbounds nuw i8, ptr %.val6, i64 16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %21, ptr noundef nonnull readonly align 8 dereferenceable(24) %22, i64 24, i1 false)
-  store ptr %8, ptr %0, align 8, !tbaa !81
+  store ptr %8, ptr %0, align 8, !tbaa !80
   br label %"_ZNSt14_Function_base13_Base_managerIZN3gmx18StopHandlerBuilder16getStopHandlerMDENS1_6compat8not_nullIPNS1_16SimulationSignalEEEbbibifP8_IO_FILERKlP23gmx_walltime_accountingE3$_1E10_M_managerERSt9_Any_dataRKSG_St18_Manager_operation.exit"
 
 23:                                               ; preds = %6
-  %.val7.i = load ptr, ptr %0, align 8, !tbaa !81
+  %.val7.i = load ptr, ptr %0, align 8, !tbaa !80
   %24 = icmp eq ptr %.val7.i, null
   br i1 %24, label %"_ZNSt14_Function_base13_Base_managerIZN3gmx18StopHandlerBuilder16getStopHandlerMDENS1_6compat8not_nullIPNS1_16SimulationSignalEEEbbibifP8_IO_FILERKlP23gmx_walltime_accountingE3$_1E10_M_managerERSt9_Any_dataRKSG_St18_Manager_operation.exit", label %25
 
 25:                                               ; preds = %23
   %26 = getelementptr i8, ptr %.val7.i, i64 8
-  %.val.i.i = load ptr, ptr %26, align 8, !tbaa !71
+  %.val.i.i = load ptr, ptr %26, align 8, !tbaa !70
   %.not.i.i.i.i.i = icmp eq ptr %.val.i.i, null
   br i1 %.not.i.i.i.i.i, label %"_ZZN3gmx18StopHandlerBuilder16getStopHandlerMDENS_6compat8not_nullIPNS_16SimulationSignalEEEbbibifP8_IO_FILERKlP23gmx_walltime_accountingEN3$_1D2Ev.exit.i.i", label %27
 
@@ -1616,14 +1616,14 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFN3gmx10StopSignal
   br i1 %30, label %32, label %40
 
 32:                                               ; preds = %27
-  store i32 0, ptr %28, align 8, !tbaa !66
+  store i32 0, ptr %28, align 8, !tbaa !65
   %33 = getelementptr inbounds nuw i8, ptr %.val.i.i, i64 12
-  store i32 0, ptr %33, align 4, !tbaa !68
-  %34 = load ptr, ptr %.val.i.i, align 8, !tbaa !69
+  store i32 0, ptr %33, align 4, !tbaa !67
+  %34 = load ptr, ptr %.val.i.i, align 8, !tbaa !68
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 16
   %36 = load ptr, ptr %35, align 8
   tail call void %36(ptr noundef nonnull align 8 dereferenceable(16) %.val.i.i) #21
-  %37 = load ptr, ptr %.val.i.i, align 8, !tbaa !69
+  %37 = load ptr, ptr %.val.i.i, align 8, !tbaa !68
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 24
   %39 = load ptr, ptr %38, align 8
   tail call void %39(ptr noundef nonnull align 8 dereferenceable(16) %.val.i.i) #21
@@ -1646,7 +1646,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFN3gmx10StopSignal
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i: ; preds = %44, %42
   %.0.i.i.i.i.i.i.i = phi i32 [ %31, %42 ], [ %45, %44 ]
   %46 = icmp eq i32 %.0.i.i.i.i.i.i.i, 1
-  br i1 %46, label %47, label %"_ZZN3gmx18StopHandlerBuilder16getStopHandlerMDENS_6compat8not_nullIPNS_16SimulationSignalEEEbbibifP8_IO_FILERKlP23gmx_walltime_accountingEN3$_1D2Ev.exit.i.i", !prof !82
+  br i1 %46, label %47, label %"_ZZN3gmx18StopHandlerBuilder16getStopHandlerMDENS_6compat8not_nullIPNS_16SimulationSignalEEEbbibifP8_IO_FILERKlP23gmx_walltime_accountingEN3$_1D2Ev.exit.i.i", !prof !81
 
 47:                                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i
   tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %.val.i.i) #21
@@ -1689,7 +1689,7 @@ define linkonce_odr void @_ZNSt6vectorISt8functionIFN3gmx10StopSignalEvEESaIS4_E
 _ZSt8_DestroyISt8functionIFN3gmx10StopSignalEvEEEvPT_.exit.i.i.i: ; preds = %7, %.lr.ph.i.i.i
   %12 = getelementptr inbounds nuw i8, ptr %.05.i.i.i, i64 32
   %.not.i.i.i = icmp eq ptr %12, %4
-  br i1 %.not.i.i.i, label %_ZSt8_DestroyIPSt8functionIFN3gmx10StopSignalEvEES4_EvT_S6_RSaIT0_E.exitthread-pre-split, label %.lr.ph.i.i.i, !llvm.loop !92
+  br i1 %.not.i.i.i, label %_ZSt8_DestroyIPSt8functionIFN3gmx10StopSignalEvEES4_EvT_S6_RSaIT0_E.exitthread-pre-split, label %.lr.ph.i.i.i, !llvm.loop !91
 
 _ZSt8_DestroyIPSt8functionIFN3gmx10StopSignalEvEES4_EvT_S6_RSaIT0_E.exitthread-pre-split: ; preds = %_ZSt8_DestroyISt8functionIFN3gmx10StopSignalEvEEEvPT_.exit.i.i.i
   %.pr = load ptr, ptr %0, align 8, !tbaa !9
@@ -1763,7 +1763,7 @@ _ZSt10_ConstructISt8functionIFN3gmx10StopSignalEvEEJRKS4_EEvPT_DpOT0_.exit: ; pr
   %22 = getelementptr inbounds nuw i8, ptr %.sroa.08.013, i64 32
   %23 = getelementptr inbounds nuw i8, ptr %.014, i64 32
   %.not = icmp eq ptr %22, %1
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !107
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !106
 
 .body:                                            ; preds = %14, %17
   %24 = extractvalue { ptr, i32 } %15, 0
@@ -1825,7 +1825,7 @@ define linkonce_odr void @_ZSt8_DestroyIPSt8functionIFN3gmx10StopSignalEvEEEvT_S
 _ZSt8_DestroyISt8functionIFN3gmx10StopSignalEvEEEvPT_.exit.i: ; preds = %5, %.lr.ph.i
   %10 = getelementptr inbounds nuw i8, ptr %.05.i, i64 32
   %.not.i = icmp eq ptr %10, %1
-  br i1 %.not.i, label %_ZNSt12_Destroy_auxILb0EE9__destroyIPSt8functionIFN3gmx10StopSignalEvEEEEvT_S8_.exit, label %.lr.ph.i, !llvm.loop !92
+  br i1 %.not.i, label %_ZNSt12_Destroy_auxILb0EE9__destroyIPSt8functionIFN3gmx10StopSignalEvEEEEvT_S8_.exit, label %.lr.ph.i, !llvm.loop !91
 
 _ZNSt12_Destroy_auxILb0EE9__destroyIPSt8functionIFN3gmx10StopSignalEvEEEEvT_S8_.exit: ; preds = %_ZSt8_DestroyISt8functionIFN3gmx10StopSignalEvEEEvPT_.exit.i, %2
   ret void
@@ -1933,58 +1933,57 @@ attributes #26 = { noreturn nounwind }
 !50 = !{!51}
 !51 = distinct !{!51, !49, !"_ZSt19__relocate_object_aISt8functionIFN3gmx10StopSignalEvEES4_SaIS4_EEvPT_PT0_RT1_: argument 1"}
 !52 = !{!48, !51}
-!53 = distinct !{!53, !54, !55}
+!53 = distinct !{!53, !54}
 !54 = !{!"llvm.loop.mustprogress"}
-!55 = !{!"llvm.loop.estimated_trip_count"}
-!56 = !{!57}
-!57 = distinct !{!57, !58, !"_ZSt19__relocate_object_aISt8functionIFN3gmx10StopSignalEvEES4_SaIS4_EEvPT_PT0_RT1_: argument 0"}
-!58 = distinct !{!58, !"_ZSt19__relocate_object_aISt8functionIFN3gmx10StopSignalEvEES4_SaIS4_EEvPT_PT0_RT1_"}
-!59 = !{!60}
-!60 = distinct !{!60, !58, !"_ZSt19__relocate_object_aISt8functionIFN3gmx10StopSignalEvEES4_SaIS4_EEvPT_PT0_RT1_: argument 1"}
-!61 = !{!57, !60}
-!62 = !{!23, !23, i64 0}
-!63 = !{!64}
-!64 = distinct !{!64, !65, !"_ZSt11make_sharedIN3gmx19StopConditionSignalEJRiRbS2_EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES6_E4typeEEDpOT0_: argument 0"}
-!65 = distinct !{!65, !"_ZSt11make_sharedIN3gmx19StopConditionSignalEJRiRbS2_EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES6_E4typeEEDpOT0_"}
-!66 = !{!67, !19, i64 8}
-!67 = !{!"_ZTSSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE", !19, i64 8, !19, i64 12}
-!68 = !{!67, !19, i64 12}
-!69 = !{!70, !70, i64 0}
-!70 = !{!"vtable pointer", !8, i64 0}
-!71 = !{!72, !73, i64 0}
-!72 = !{!"_ZTSSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EE", !73, i64 0}
-!73 = !{!"p1 _ZTSSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE", !6, i64 0}
-!74 = !{!75, !75, i64 0}
-!75 = !{!"p1 _ZTSN3gmx19StopConditionSignalE", !6, i64 0}
-!76 = !{!77, !75, i64 0}
-!77 = !{!"_ZTSSt12__shared_ptrIN3gmx19StopConditionSignalELN9__gnu_cxx12_Lock_policyE2EE", !75, i64 0, !72, i64 8}
-!78 = !{!79, !34, i64 16}
-!79 = !{!"_ZTSZN3gmx18StopHandlerBuilder16getStopHandlerMDENS_6compat8not_nullIPNS_16SimulationSignalEEEbbibifP8_IO_FILERKlP23gmx_walltime_accountingE3$_0", !80, i64 0, !34, i64 16}
-!80 = !{!"_ZTSSt10shared_ptrIN3gmx19StopConditionSignalEE", !77, i64 0}
-!81 = !{!6, !6, i64 0}
-!82 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!83 = !{!84}
-!84 = distinct !{!84, !85, !"_ZSt11make_sharedIN3gmx17StopConditionTimeEJRiRfS2_EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES6_E4typeEEDpOT0_: argument 0"}
-!85 = distinct !{!85, !"_ZSt11make_sharedIN3gmx17StopConditionTimeEJRiRfS2_EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES6_E4typeEEDpOT0_"}
-!86 = !{!87, !87, i64 0}
-!87 = !{!"p1 _ZTSN3gmx17StopConditionTimeE", !6, i64 0}
-!88 = !{!89, !87, i64 0}
-!89 = !{!"_ZTSSt12__shared_ptrIN3gmx17StopConditionTimeELN9__gnu_cxx12_Lock_policyE2EE", !87, i64 0, !72, i64 8}
-!90 = !{!91, !91, i64 0}
-!91 = !{!"p1 _ZTSN3gmx11StopHandlerE", !6, i64 0}
-!92 = distinct !{!92, !54, !55}
-!93 = !{!94, !95, i64 8}
-!94 = !{!"_ZTSSt9type_info", !95, i64 8}
-!95 = !{!"p1 omnipotent char", !6, i64 0}
-!96 = !{!97, !97, i64 0}
-!97 = !{!"p1 _ZTSSt9type_info", !6, i64 0}
-!98 = !{!99, !101, i64 16}
-!99 = !{!"_ZTSZN3gmx18StopHandlerBuilder16getStopHandlerMDENS_6compat8not_nullIPNS_16SimulationSignalEEEbbibifP8_IO_FILERKlP23gmx_walltime_accountingE3$_1", !100, i64 0, !101, i64 16, !34, i64 24, !102, i64 32}
-!100 = !{!"_ZTSSt10shared_ptrIN3gmx17StopConditionTimeEE", !89, i64 0}
-!101 = !{!"p1 long", !6, i64 0}
-!102 = !{!"p1 _ZTS23gmx_walltime_accounting", !6, i64 0}
-!103 = !{!104, !104, i64 0}
-!104 = !{!"long", !7, i64 0}
-!105 = !{!99, !34, i64 24}
-!106 = !{!99, !102, i64 32}
-!107 = distinct !{!107, !54, !55}
+!55 = !{!56}
+!56 = distinct !{!56, !57, !"_ZSt19__relocate_object_aISt8functionIFN3gmx10StopSignalEvEES4_SaIS4_EEvPT_PT0_RT1_: argument 0"}
+!57 = distinct !{!57, !"_ZSt19__relocate_object_aISt8functionIFN3gmx10StopSignalEvEES4_SaIS4_EEvPT_PT0_RT1_"}
+!58 = !{!59}
+!59 = distinct !{!59, !57, !"_ZSt19__relocate_object_aISt8functionIFN3gmx10StopSignalEvEES4_SaIS4_EEvPT_PT0_RT1_: argument 1"}
+!60 = !{!56, !59}
+!61 = !{!23, !23, i64 0}
+!62 = !{!63}
+!63 = distinct !{!63, !64, !"_ZSt11make_sharedIN3gmx19StopConditionSignalEJRiRbS2_EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES6_E4typeEEDpOT0_: argument 0"}
+!64 = distinct !{!64, !"_ZSt11make_sharedIN3gmx19StopConditionSignalEJRiRbS2_EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES6_E4typeEEDpOT0_"}
+!65 = !{!66, !19, i64 8}
+!66 = !{!"_ZTSSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE", !19, i64 8, !19, i64 12}
+!67 = !{!66, !19, i64 12}
+!68 = !{!69, !69, i64 0}
+!69 = !{!"vtable pointer", !8, i64 0}
+!70 = !{!71, !72, i64 0}
+!71 = !{!"_ZTSSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EE", !72, i64 0}
+!72 = !{!"p1 _ZTSSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE", !6, i64 0}
+!73 = !{!74, !74, i64 0}
+!74 = !{!"p1 _ZTSN3gmx19StopConditionSignalE", !6, i64 0}
+!75 = !{!76, !74, i64 0}
+!76 = !{!"_ZTSSt12__shared_ptrIN3gmx19StopConditionSignalELN9__gnu_cxx12_Lock_policyE2EE", !74, i64 0, !71, i64 8}
+!77 = !{!78, !34, i64 16}
+!78 = !{!"_ZTSZN3gmx18StopHandlerBuilder16getStopHandlerMDENS_6compat8not_nullIPNS_16SimulationSignalEEEbbibifP8_IO_FILERKlP23gmx_walltime_accountingE3$_0", !79, i64 0, !34, i64 16}
+!79 = !{!"_ZTSSt10shared_ptrIN3gmx19StopConditionSignalEE", !76, i64 0}
+!80 = !{!6, !6, i64 0}
+!81 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!82 = !{!83}
+!83 = distinct !{!83, !84, !"_ZSt11make_sharedIN3gmx17StopConditionTimeEJRiRfS2_EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES6_E4typeEEDpOT0_: argument 0"}
+!84 = distinct !{!84, !"_ZSt11make_sharedIN3gmx17StopConditionTimeEJRiRfS2_EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES6_E4typeEEDpOT0_"}
+!85 = !{!86, !86, i64 0}
+!86 = !{!"p1 _ZTSN3gmx17StopConditionTimeE", !6, i64 0}
+!87 = !{!88, !86, i64 0}
+!88 = !{!"_ZTSSt12__shared_ptrIN3gmx17StopConditionTimeELN9__gnu_cxx12_Lock_policyE2EE", !86, i64 0, !71, i64 8}
+!89 = !{!90, !90, i64 0}
+!90 = !{!"p1 _ZTSN3gmx11StopHandlerE", !6, i64 0}
+!91 = distinct !{!91, !54}
+!92 = !{!93, !94, i64 8}
+!93 = !{!"_ZTSSt9type_info", !94, i64 8}
+!94 = !{!"p1 omnipotent char", !6, i64 0}
+!95 = !{!96, !96, i64 0}
+!96 = !{!"p1 _ZTSSt9type_info", !6, i64 0}
+!97 = !{!98, !100, i64 16}
+!98 = !{!"_ZTSZN3gmx18StopHandlerBuilder16getStopHandlerMDENS_6compat8not_nullIPNS_16SimulationSignalEEEbbibifP8_IO_FILERKlP23gmx_walltime_accountingE3$_1", !99, i64 0, !100, i64 16, !34, i64 24, !101, i64 32}
+!99 = !{!"_ZTSSt10shared_ptrIN3gmx17StopConditionTimeEE", !88, i64 0}
+!100 = !{!"p1 long", !6, i64 0}
+!101 = !{!"p1 _ZTS23gmx_walltime_accounting", !6, i64 0}
+!102 = !{!103, !103, i64 0}
+!103 = !{!"long", !7, i64 0}
+!104 = !{!98, !34, i64 24}
+!105 = !{!98, !101, i64 32}
+!106 = distinct !{!106, !54}

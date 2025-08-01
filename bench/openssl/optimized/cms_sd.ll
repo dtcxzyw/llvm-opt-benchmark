@@ -432,13 +432,13 @@ define ptr @CMS_add1_signer(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr 
 
 100:                                              ; preds = %98
   %101 = getelementptr inbounds nuw i8, ptr %17, i64 24
-  %102 = load ptr, ptr %101, align 8, !tbaa !57
+  %102 = load ptr, ptr %101, align 8, !tbaa !56
   %.not143 = icmp eq ptr %102, null
   br i1 %.not143, label %103, label %106
 
 103:                                              ; preds = %100
   %104 = call ptr @OPENSSL_sk_new_null() #7
-  store ptr %104, ptr %101, align 8, !tbaa !57
+  store ptr %104, ptr %101, align 8, !tbaa !56
   %.not144 = icmp eq ptr %104, null
   br i1 %.not144, label %105, label %106
 
@@ -455,10 +455,10 @@ define ptr @CMS_add1_signer(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr 
 
 108:                                              ; preds = %106
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #7
-  store ptr null, ptr %9, align 8, !tbaa !58
+  store ptr null, ptr %9, align 8, !tbaa !57
   %109 = call i32 @CMS_add_standard_smimecap(ptr noundef nonnull %9)
   %.not146 = icmp eq i32 %109, 0
-  %110 = load ptr, ptr %9, align 8, !tbaa !58
+  %110 = load ptr, ptr %9, align 8, !tbaa !57
   br i1 %.not146, label %.critedge, label %111
 
 111:                                              ; preds = %108
@@ -618,13 +618,13 @@ define ptr @CMS_add1_signer(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr 
 
 176:                                              ; preds = %174, %162, %151
   %177 = getelementptr inbounds nuw i8, ptr %14, i64 40
-  %178 = load ptr, ptr %177, align 8, !tbaa !59
+  %178 = load ptr, ptr %177, align 8, !tbaa !58
   %179 = icmp eq ptr %178, null
   br i1 %179, label %180, label %.thread185
 
 180:                                              ; preds = %176
   %181 = call ptr @OPENSSL_sk_new_null() #7
-  store ptr %181, ptr %177, align 8, !tbaa !59
+  store ptr %181, ptr %177, align 8, !tbaa !58
   %182 = icmp eq ptr %181, null
   br i1 %182, label %185, label %.thread185
 
@@ -734,13 +734,13 @@ define internal fastcc range(i32 0, 2) i32 @cms_sd_asn1_ctrl(ptr noundef %0, i32
 
 18:                                               ; preds = %13
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %20 = load ptr, ptr %19, align 8, !tbaa !60
+  %20 = load ptr, ptr %19, align 8, !tbaa !59
   %21 = icmp eq ptr %20, null
   br i1 %21, label %26, label %22
 
 22:                                               ; preds = %18
   %23 = getelementptr inbounds nuw i8, ptr %20, i64 176
-  %24 = load ptr, ptr %23, align 8, !tbaa !71
+  %24 = load ptr, ptr %23, align 8, !tbaa !70
   %25 = icmp eq ptr %24, null
   br i1 %25, label %26, label %29
 
@@ -796,13 +796,13 @@ define range(i32 0, 2) i32 @CMS_add_standard_smimecap(ptr noundef captures(none)
   br label %cms_add_cipher_smcap.exit.thread
 
 8:                                                ; preds = %4
-  %9 = load ptr, ptr %0, align 8, !tbaa !58
+  %9 = load ptr, ptr %0, align 8, !tbaa !57
   %10 = icmp eq ptr %9, null
   br i1 %10, label %11, label %.thread.i
 
 11:                                               ; preds = %8
   %12 = tail call ptr @OPENSSL_sk_new_null() #7
-  store ptr %12, ptr %0, align 8, !tbaa !58
+  store ptr %12, ptr %0, align 8, !tbaa !57
   %13 = icmp eq ptr %12, null
   br i1 %13, label %16, label %.thread.i
 
@@ -847,13 +847,13 @@ cms_add_cipher_smcap.exit:                        ; preds = %1, %.thread.i
   br label %cms_add_cipher_smcap.exit.thread
 
 29:                                               ; preds = %25
-  %30 = load ptr, ptr %0, align 8, !tbaa !58
+  %30 = load ptr, ptr %0, align 8, !tbaa !57
   %31 = icmp eq ptr %30, null
   br i1 %31, label %32, label %.thread.i40
 
 32:                                               ; preds = %29
   %33 = tail call ptr @OPENSSL_sk_new_null() #7
-  store ptr %33, ptr %0, align 8, !tbaa !58
+  store ptr %33, ptr %0, align 8, !tbaa !57
   %34 = icmp eq ptr %33, null
   br i1 %34, label %37, label %.thread.i40
 
@@ -883,13 +883,13 @@ cms_add_cipher_smcap.exit25:                      ; preds = %22, %.thread.i40
   br label %cms_add_cipher_smcap.exit.thread
 
 44:                                               ; preds = %40
-  %45 = load ptr, ptr %0, align 8, !tbaa !58
+  %45 = load ptr, ptr %0, align 8, !tbaa !57
   %46 = icmp eq ptr %45, null
   br i1 %46, label %47, label %.thread.i45
 
 47:                                               ; preds = %44
   %48 = tail call ptr @OPENSSL_sk_new_null() #7
-  store ptr %48, ptr %0, align 8, !tbaa !58
+  store ptr %48, ptr %0, align 8, !tbaa !57
   %49 = icmp eq ptr %48, null
   br i1 %49, label %52, label %.thread.i45
 
@@ -919,13 +919,13 @@ cms_add_cipher_smcap.exit28:                      ; preds = %cms_add_cipher_smca
   br label %cms_add_cipher_smcap.exit.thread
 
 59:                                               ; preds = %55
-  %60 = load ptr, ptr %0, align 8, !tbaa !58
+  %60 = load ptr, ptr %0, align 8, !tbaa !57
   %61 = icmp eq ptr %60, null
   br i1 %61, label %62, label %.thread.i50
 
 62:                                               ; preds = %59
   %63 = tail call ptr @OPENSSL_sk_new_null() #7
-  store ptr %63, ptr %0, align 8, !tbaa !58
+  store ptr %63, ptr %0, align 8, !tbaa !57
   %64 = icmp eq ptr %63, null
   br i1 %64, label %67, label %.thread.i50
 
@@ -955,13 +955,13 @@ cms_add_cipher_smcap.exit31:                      ; preds = %cms_add_cipher_smca
   br label %cms_add_cipher_smcap.exit.thread
 
 74:                                               ; preds = %70
-  %75 = load ptr, ptr %0, align 8, !tbaa !58
+  %75 = load ptr, ptr %0, align 8, !tbaa !57
   %76 = icmp eq ptr %75, null
   br i1 %76, label %77, label %.thread.i55
 
 77:                                               ; preds = %74
   %78 = tail call ptr @OPENSSL_sk_new_null() #7
-  store ptr %78, ptr %0, align 8, !tbaa !58
+  store ptr %78, ptr %0, align 8, !tbaa !57
   %79 = icmp eq ptr %78, null
   br i1 %79, label %82, label %.thread.i55
 
@@ -1009,15 +1009,15 @@ cms_add_cipher_smcap.exit.thread:                 ; preds = %82, %73, %67, %58, 
 define i32 @CMS_add_smimecap(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #7
-  store ptr null, ptr %3, align 8, !tbaa !73
+  store ptr null, ptr %3, align 8, !tbaa !72
   %4 = call i32 @i2d_X509_ALGORS(ptr noundef %1, ptr noundef nonnull %3) #7
   %5 = icmp slt i32 %4, 1
   br i1 %5, label %10, label %6
 
 6:                                                ; preds = %2
-  %7 = load ptr, ptr %3, align 8, !tbaa !73
+  %7 = load ptr, ptr %3, align 8, !tbaa !72
   %8 = call i32 @CMS_signed_add1_attr_by_NID(ptr noundef %0, i32 noundef 167, i32 noundef 16, ptr noundef %7, i32 noundef %4) #7
-  %9 = load ptr, ptr %3, align 8, !tbaa !73
+  %9 = load ptr, ptr %3, align 8, !tbaa !72
   call void @CRYPTO_free(ptr noundef %9, ptr noundef nonnull @.str, i32 noundef 1137) #7
   br label %10
 
@@ -1046,7 +1046,7 @@ define internal fastcc i32 @ossl_cms_add1_signing_cert(ptr noundef nonnull %0, p
   br i1 %9, label %18, label %10
 
 10:                                               ; preds = %6
-  store ptr %8, ptr %3, align 8, !tbaa !73
+  store ptr %8, ptr %3, align 8, !tbaa !72
   %11 = call i32 @i2d_ESS_SIGNING_CERT(ptr noundef nonnull %1, ptr noundef nonnull %3) #7
   %12 = call ptr @ASN1_STRING_new() #7
   %.not = icmp eq ptr %12, null
@@ -1093,7 +1093,7 @@ define internal fastcc i32 @ossl_cms_add1_signing_cert_v2(ptr noundef nonnull %0
   br i1 %9, label %18, label %10
 
 10:                                               ; preds = %6
-  store ptr %8, ptr %3, align 8, !tbaa !73
+  store ptr %8, ptr %3, align 8, !tbaa !72
   %11 = call i32 @i2d_ESS_SIGNING_CERT_V2(ptr noundef nonnull %1, ptr noundef nonnull %3) #7
   %12 = call ptr @ASN1_STRING_new() #7
   %.not = icmp eq ptr %12, null
@@ -1144,7 +1144,7 @@ cms_get0_signed.exit.i:                           ; preds = %2
 
 7:                                                ; preds = %cms_get0_signed.exit.i
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 40
-  %9 = load ptr, ptr %8, align 8, !tbaa !59
+  %9 = load ptr, ptr %8, align 8, !tbaa !58
   br label %CMS_get0_SignerInfos.exit
 
 CMS_get0_SignerInfos.exit:                        ; preds = %cms_get0_signed.exit.thread.i, %cms_get0_signed.exit.i, %7
@@ -1170,10 +1170,10 @@ CMS_get0_SignerInfos.exit:                        ; preds = %cms_get0_signed.exi
 
 20:                                               ; preds = %17
   %21 = load ptr, ptr %13, align 8, !tbaa !51
-  %22 = load ptr, ptr %21, align 8, !tbaa !74
+  %22 = load ptr, ptr %21, align 8, !tbaa !73
   %23 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %24 = load ptr, ptr %23, align 8, !tbaa !51
-  %25 = load ptr, ptr %24, align 8, !tbaa !74
+  %25 = load ptr, ptr %24, align 8, !tbaa !73
   %26 = tail call i32 @OBJ_cmp(ptr noundef %22, ptr noundef %25) #7
   %.not = icmp eq i32 %26, 0
   br i1 %.not, label %27, label %33
@@ -1200,7 +1200,7 @@ CMS_get0_SignerInfos.exit:                        ; preds = %cms_get0_signed.exi
   %34 = add nuw nsw i32 %.01726, 1
   %35 = tail call i32 @OPENSSL_sk_num(ptr noundef %10) #7
   %36 = icmp slt i32 %34, %35
-  br i1 %36, label %14, label %._crit_edge, !llvm.loop !77
+  br i1 %36, label %14, label %._crit_edge, !llvm.loop !76
 
 ._crit_edge:                                      ; preds = %33, %CMS_get0_SignerInfos.exit
   tail call void @ERR_new() #7
@@ -1222,16 +1222,16 @@ define range(i32 0, 2) i32 @CMS_SignerInfo_sign(ptr noundef %0) local_unnamed_ad
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %7 = load ptr, ptr %6, align 8, !tbaa !45
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #7
-  store ptr null, ptr %2, align 8, !tbaa !78
+  store ptr null, ptr %2, align 8, !tbaa !77
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #7
-  store ptr null, ptr %3, align 8, !tbaa !73
+  store ptr null, ptr %3, align 8, !tbaa !72
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #7
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %9 = load ptr, ptr %8, align 8, !tbaa !33
   call void @llvm.lifetime.start.p0(i64 50, ptr nonnull %5) #7
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %11 = load ptr, ptr %10, align 8, !tbaa !51
-  %12 = load ptr, ptr %11, align 8, !tbaa !74
+  %12 = load ptr, ptr %11, align 8, !tbaa !73
   %13 = call i32 @OBJ_obj2txt(ptr noundef nonnull %5, i32 noundef 50, ptr noundef %12, i32 noundef 0) #7
   %14 = icmp slt i32 %13, 1
   br i1 %14, label %78, label %15
@@ -1254,7 +1254,7 @@ define range(i32 0, 2) i32 @CMS_SignerInfo_sign(ptr noundef %0) local_unnamed_ad
 
 24:                                               ; preds = %21
   %25 = getelementptr inbounds nuw i8, ptr %22, i64 4
-  %26 = load i32, ptr %25, align 4, !tbaa !79
+  %26 = load i32, ptr %25, align 4, !tbaa !78
   %27 = call i32 @CMS_signed_add1_attr_by_NID(ptr noundef nonnull %0, i32 noundef 52, i32 noundef %26, ptr noundef nonnull %22, i32 noundef -1) #7
   %28 = icmp slt i32 %27, 1
   br i1 %28, label %cms_add1_signingTime.exit.thread, label %cms_add1_signingTime.exit
@@ -1284,7 +1284,7 @@ cms_add1_signingTime.exit:                        ; preds = %24
   br i1 %.not32, label %35, label %34
 
 34:                                               ; preds = %31
-  store ptr %33, ptr %2, align 8, !tbaa !78
+  store ptr %33, ptr %2, align 8, !tbaa !77
   br label %45
 
 35:                                               ; preds = %31
@@ -1299,13 +1299,13 @@ cms_add1_signingTime.exit:                        ; preds = %24
 
 43:                                               ; preds = %35
   call void @EVP_MD_CTX_set_flags(ptr noundef %7, i32 noundef 1024) #7
-  %44 = load ptr, ptr %2, align 8, !tbaa !78
+  %44 = load ptr, ptr %2, align 8, !tbaa !77
   store ptr %44, ptr %32, align 8, !tbaa !46
   br label %45
 
 45:                                               ; preds = %43, %34
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %47 = load ptr, ptr %46, align 8, !tbaa !57
+  %47 = load ptr, ptr %46, align 8, !tbaa !56
   %48 = call ptr @CMS_Attributes_Sign_it() #7
   %49 = call i32 @ASN1_item_i2d(ptr noundef %47, ptr noundef nonnull %3, ptr noundef %48) #7
   %50 = icmp slt i32 %49, 0
@@ -1326,11 +1326,11 @@ cms_add1_signingTime.exit:                        ; preds = %24
   br i1 %59, label %75, label %60
 
 60:                                               ; preds = %57
-  %61 = load ptr, ptr %3, align 8, !tbaa !73
+  %61 = load ptr, ptr %3, align 8, !tbaa !72
   call void @CRYPTO_free(ptr noundef %61, ptr noundef nonnull @.str, i32 noundef 881) #7
-  %62 = load i64, ptr %4, align 8, !tbaa !81
+  %62 = load i64, ptr %4, align 8, !tbaa !80
   %63 = call noalias ptr @CRYPTO_malloc(i64 noundef %62, ptr noundef nonnull @.str, i32 noundef 882) #7
-  store ptr %63, ptr %3, align 8, !tbaa !73
+  store ptr %63, ptr %3, align 8, !tbaa !72
   %64 = icmp eq ptr %63, null
   br i1 %64, label %75, label %65
 
@@ -1342,15 +1342,15 @@ cms_add1_signingTime.exit:                        ; preds = %24
 68:                                               ; preds = %65
   %69 = call i32 @EVP_MD_CTX_reset(ptr noundef %7) #7
   %70 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %71 = load ptr, ptr %70, align 8, !tbaa !82
-  %72 = load ptr, ptr %3, align 8, !tbaa !73
-  %73 = load i64, ptr %4, align 8, !tbaa !81
+  %71 = load ptr, ptr %70, align 8, !tbaa !81
+  %72 = load ptr, ptr %3, align 8, !tbaa !72
+  %73 = load i64, ptr %4, align 8, !tbaa !80
   %74 = trunc i64 %73 to i32
   call void @ASN1_STRING_set0(ptr noundef %71, ptr noundef %72, i32 noundef %74) #7
   br label %78
 
 75:                                               ; preds = %cms_add1_signingTime.exit.thread, %65, %60, %57, %53, %45, %35, %29
-  %76 = load ptr, ptr %3, align 8, !tbaa !73
+  %76 = load ptr, ptr %3, align 8, !tbaa !72
   call void @CRYPTO_free(ptr noundef %76, ptr noundef nonnull @.str, i32 noundef 895) #7
   %77 = call i32 @EVP_MD_CTX_reset(ptr noundef %7) #7
   br label %78
@@ -1407,7 +1407,7 @@ cms_get0_signed.exit.i:                           ; preds = %1
 
 8:                                                ; preds = %cms_get0_signed.exit.i
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 40
-  %10 = load ptr, ptr %9, align 8, !tbaa !59
+  %10 = load ptr, ptr %9, align 8, !tbaa !58
   br label %CMS_get0_SignerInfos.exit
 
 CMS_get0_SignerInfos.exit:                        ; preds = %cms_get0_signed.exit.thread.i, %cms_get0_signed.exit.i, %8
@@ -1432,7 +1432,7 @@ CMS_get0_SignerInfos.exit:                        ; preds = %cms_get0_signed.exi
   %19 = add nuw nsw i32 %.010, 1
   %20 = tail call i32 @OPENSSL_sk_num(ptr noundef %11) #7
   %21 = icmp slt i32 %19, %20
-  br i1 %21, label %.lr.ph, label %._crit_edge, !llvm.loop !83
+  br i1 %21, label %.lr.ph, label %._crit_edge, !llvm.loop !82
 
 ._crit_edge:                                      ; preds = %18, %CMS_get0_SignerInfos.exit
   ret void
@@ -1461,7 +1461,7 @@ cms_get0_signed.exit:                             ; preds = %1
 
 6:                                                ; preds = %cms_get0_signed.exit
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 40
-  %8 = load ptr, ptr %7, align 8, !tbaa !59
+  %8 = load ptr, ptr %7, align 8, !tbaa !58
   br label %9
 
 9:                                                ; preds = %cms_get0_signed.exit.thread, %cms_get0_signed.exit, %6
@@ -1489,7 +1489,7 @@ define ptr @CMS_SignerInfo_get0_md_ctx(ptr noundef readonly captures(none) %0) l
 define ptr @CMS_get0_signers(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #7
-  store ptr null, ptr %2, align 8, !tbaa !84
+  store ptr null, ptr %2, align 8, !tbaa !83
   %3 = load ptr, ptr %0, align 8, !tbaa !21
   %4 = tail call i32 @OBJ_obj2nid(ptr noundef %3) #7
   %.not.i.i = icmp eq i32 %4, 22
@@ -1509,7 +1509,7 @@ cms_get0_signed.exit.i:                           ; preds = %1
 
 7:                                                ; preds = %cms_get0_signed.exit.i
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 40
-  %9 = load ptr, ptr %8, align 8, !tbaa !59
+  %9 = load ptr, ptr %8, align 8, !tbaa !58
   br label %CMS_get0_SignerInfos.exit
 
 CMS_get0_SignerInfos.exit:                        ; preds = %cms_get0_signed.exit.thread.i, %cms_get0_signed.exit.i, %7
@@ -1532,7 +1532,7 @@ CMS_get0_SignerInfos.exit:                        ; preds = %cms_get0_signed.exi
   br i1 %.not10, label %18, label %20
 
 18:                                               ; preds = %16
-  %19 = load ptr, ptr %2, align 8, !tbaa !84
+  %19 = load ptr, ptr %2, align 8, !tbaa !83
   call void @OPENSSL_sk_free(ptr noundef %19) #7
   br label %._crit_edge
 
@@ -1540,10 +1540,10 @@ CMS_get0_SignerInfos.exit:                        ; preds = %cms_get0_signed.exi
   %21 = add nuw nsw i32 %.011, 1
   %22 = call i32 @OPENSSL_sk_num(ptr noundef %10) #7
   %23 = icmp slt i32 %21, %22
-  br i1 %23, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !86
+  br i1 %23, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !85
 
 ._crit_edge.loopexit:                             ; preds = %20
-  %.pre = load ptr, ptr %2, align 8, !tbaa !84
+  %.pre = load ptr, ptr %2, align 8, !tbaa !83
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %CMS_get0_SignerInfos.exit, %._crit_edge.loopexit, %18
@@ -1679,9 +1679,9 @@ cms_get0_signed.exit:                             ; preds = %3
 
 9:                                                ; preds = %cms_get0_signed.exit
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  %11 = load ptr, ptr %10, align 8, !tbaa !87
+  %11 = load ptr, ptr %10, align 8, !tbaa !86
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 40
-  %13 = load ptr, ptr %12, align 8, !tbaa !59
+  %13 = load ptr, ptr %12, align 8, !tbaa !58
   %14 = tail call i32 @OPENSSL_sk_num(ptr noundef %13) #7
   %15 = icmp sgt i32 %14, 0
   br i1 %15, label %.lr.ph59, label %.loopexit52
@@ -1694,7 +1694,7 @@ cms_get0_signed.exit:                             ; preds = %3
 17:                                               ; preds = %.lr.ph59, %.loopexit
   %.058 = phi i32 [ 0, %.lr.ph59 ], [ %.1, %.loopexit ]
   %.03657 = phi i32 [ 0, %.lr.ph59 ], [ %81, %.loopexit ]
-  %18 = load ptr, ptr %12, align 8, !tbaa !59
+  %18 = load ptr, ptr %12, align 8, !tbaa !58
   %19 = tail call ptr @OPENSSL_sk_value(ptr noundef %18, i32 noundef %.03657) #7
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 56
   %21 = load ptr, ptr %20, align 8, !tbaa !44
@@ -1761,7 +1761,7 @@ CMS_SignerInfo_cert_cmp.exit.thread:              ; preds = %25, %CMS_SignerInfo
   %46 = add nuw nsw i32 %.03454, 1
   %47 = tail call i32 @OPENSSL_sk_num(ptr noundef %1) #7
   %48 = icmp slt i32 %46, %47
-  br i1 %48, label %25, label %.loopexit51, !llvm.loop !88
+  br i1 %48, label %25, label %.loopexit51, !llvm.loop !87
 
 .loopexit51:                                      ; preds = %CMS_SignerInfo_cert_cmp.exit.thread, %.preheader50, %CMS_SignerInfo_set1_signer_cert.exit
   %.2 = phi i32 [ %45, %CMS_SignerInfo_set1_signer_cert.exit ], [ %.058, %.preheader50 ], [ %.058, %CMS_SignerInfo_cert_cmp.exit.thread ]
@@ -1782,7 +1782,7 @@ CMS_SignerInfo_cert_cmp.exit.thread:              ; preds = %25, %CMS_SignerInfo
 53:                                               ; preds = %.lr.ph56, %CMS_SignerInfo_cert_cmp.exit44.thread
   %.13555 = phi i32 [ 0, %.lr.ph56 ], [ %78, %CMS_SignerInfo_cert_cmp.exit44.thread ]
   %54 = tail call ptr @OPENSSL_sk_value(ptr noundef %11, i32 noundef %.13555) #7
-  %55 = load i32, ptr %54, align 8, !tbaa !89
+  %55 = load i32, ptr %54, align 8, !tbaa !88
   %.not41 = icmp eq i32 %55, 0
   br i1 %.not41, label %56, label %CMS_SignerInfo_cert_cmp.exit44.thread
 
@@ -1837,15 +1837,15 @@ CMS_SignerInfo_cert_cmp.exit44.thread:            ; preds = %56, %CMS_SignerInfo
   %78 = add nuw nsw i32 %.13555, 1
   %79 = tail call i32 @OPENSSL_sk_num(ptr noundef %11) #7
   %80 = icmp slt i32 %78, %79
-  br i1 %80, label %53, label %.loopexit, !llvm.loop !91
+  br i1 %80, label %53, label %.loopexit, !llvm.loop !90
 
 .loopexit:                                        ; preds = %CMS_SignerInfo_cert_cmp.exit44.thread, %.preheader, %CMS_SignerInfo_set1_signer_cert.exit46, %.loopexit51, %17
   %.1 = phi i32 [ %.058, %17 ], [ %.2, %.loopexit51 ], [ %77, %CMS_SignerInfo_set1_signer_cert.exit46 ], [ %.2, %.preheader ], [ %.2, %CMS_SignerInfo_cert_cmp.exit44.thread ]
   %81 = add nuw nsw i32 %.03657, 1
-  %82 = load ptr, ptr %12, align 8, !tbaa !59
+  %82 = load ptr, ptr %12, align 8, !tbaa !58
   %83 = tail call i32 @OPENSSL_sk_num(ptr noundef %82) #7
   %84 = icmp slt i32 %81, %83
-  br i1 %84, label %17, label %.loopexit52, !llvm.loop !92
+  br i1 %84, label %17, label %.loopexit52, !llvm.loop !91
 
 .loopexit52:                                      ; preds = %.loopexit, %9, %cms_get0_signed.exit.thread, %cms_get0_signed.exit
   %.037 = phi i32 [ -1, %cms_get0_signed.exit ], [ -1, %cms_get0_signed.exit.thread ], [ 0, %9 ], [ %.1, %.loopexit ]
@@ -1860,7 +1860,7 @@ define void @CMS_SignerInfo_get0_algs(ptr noundef readonly captures(none) %0, pt
 6:                                                ; preds = %5
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %8 = load ptr, ptr %7, align 8, !tbaa !43
-  store ptr %8, ptr %1, align 8, !tbaa !93
+  store ptr %8, ptr %1, align 8, !tbaa !92
   br label %9
 
 9:                                                ; preds = %6, %5
@@ -1870,7 +1870,7 @@ define void @CMS_SignerInfo_get0_algs(ptr noundef readonly captures(none) %0, pt
 10:                                               ; preds = %9
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %12 = load ptr, ptr %11, align 8, !tbaa !44
-  store ptr %12, ptr %2, align 8, !tbaa !94
+  store ptr %12, ptr %2, align 8, !tbaa !93
   br label %13
 
 13:                                               ; preds = %10, %9
@@ -1880,7 +1880,7 @@ define void @CMS_SignerInfo_get0_algs(ptr noundef readonly captures(none) %0, pt
 14:                                               ; preds = %13
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %16 = load ptr, ptr %15, align 8, !tbaa !51
-  store ptr %16, ptr %3, align 8, !tbaa !95
+  store ptr %16, ptr %3, align 8, !tbaa !94
   br label %17
 
 17:                                               ; preds = %14, %13
@@ -1889,8 +1889,8 @@ define void @CMS_SignerInfo_get0_algs(ptr noundef readonly captures(none) %0, pt
 
 18:                                               ; preds = %17
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %20 = load ptr, ptr %19, align 8, !tbaa !96
-  store ptr %20, ptr %4, align 8, !tbaa !95
+  %20 = load ptr, ptr %19, align 8, !tbaa !95
+  store ptr %20, ptr %4, align 8, !tbaa !94
   br label %21
 
 21:                                               ; preds = %18, %17
@@ -1900,7 +1900,7 @@ define void @CMS_SignerInfo_get0_algs(ptr noundef readonly captures(none) %0, pt
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define ptr @CMS_SignerInfo_get0_signature(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %3 = load ptr, ptr %2, align 8, !tbaa !82
+  %3 = load ptr, ptr %2, align 8, !tbaa !81
   ret ptr %3
 }
 
@@ -1930,7 +1930,7 @@ cms_get0_signed.exit.i:                           ; preds = %4
 
 14:                                               ; preds = %cms_get0_signed.exit.i
   %15 = getelementptr inbounds nuw i8, ptr %13, i64 40
-  %16 = load ptr, ptr %15, align 8, !tbaa !59
+  %16 = load ptr, ptr %15, align 8, !tbaa !58
   br label %CMS_get0_SignerInfos.exit
 
 CMS_get0_SignerInfos.exit:                        ; preds = %cms_get0_signed.exit.thread.i, %cms_get0_signed.exit.i, %14
@@ -2059,7 +2059,7 @@ cms_SignerInfo_content_sign.exit.thread:          ; preds = %22
   %63 = load ptr, ptr %28, align 8, !tbaa !43
   %64 = call i32 @EVP_PKEY_get_size(ptr noundef %63) #7
   %65 = sext i32 %64 to i64
-  store i64 %65, ptr %7, align 8, !tbaa !81
+  store i64 %65, ptr %7, align 8, !tbaa !80
   %66 = icmp eq i32 %64, 0
   br i1 %66, label %.thread77.i, label %67
 
@@ -2086,8 +2086,8 @@ cms_SignerInfo_content_sign.exit.thread:          ; preds = %22
 
 76:                                               ; preds = %70
   %77 = getelementptr inbounds nuw i8, ptr %23, i64 40
-  %78 = load ptr, ptr %77, align 8, !tbaa !82
-  %79 = load i64, ptr %7, align 8, !tbaa !81
+  %78 = load ptr, ptr %77, align 8, !tbaa !81
+  %79 = load i64, ptr %7, align 8, !tbaa !80
   %80 = trunc i64 %79 to i32
   call void @ASN1_STRING_set0(ptr noundef %78, ptr noundef nonnull %68, i32 noundef %80) #7
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %8) #7
@@ -2138,7 +2138,7 @@ cms_SignerInfo_content_sign.exit.thread:          ; preds = %22
 
 97:                                               ; preds = %91
   %98 = getelementptr inbounds nuw i8, ptr %23, i64 40
-  %99 = load ptr, ptr %98, align 8, !tbaa !82
+  %99 = load ptr, ptr %98, align 8, !tbaa !81
   %100 = load i32, ptr %9, align 4, !tbaa !50
   call void @ASN1_STRING_set0(ptr noundef %99, ptr noundef nonnull %89, i32 noundef %100) #7
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #7
@@ -2152,7 +2152,7 @@ cms_SignerInfo_content_sign.exit:                 ; preds = %56, %76, %97
   %101 = add nuw nsw i32 %.031, 1
   %102 = call i32 @OPENSSL_sk_num(ptr noundef %17) #7
   %103 = icmp slt i32 %101, %102
-  br i1 %103, label %22, label %._crit_edge, !llvm.loop !97
+  br i1 %103, label %22, label %._crit_edge, !llvm.loop !96
 
 ._crit_edge:                                      ; preds = %cms_SignerInfo_content_sign.exit, %CMS_get0_SignerInfos.exit
   %104 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -2200,7 +2200,7 @@ define i32 @CMS_SignerInfo_verify(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca ptr, align 8
   %3 = alloca [50 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #7
-  store ptr null, ptr %2, align 8, !tbaa !73
+  store ptr null, ptr %2, align 8, !tbaa !72
   call void @llvm.lifetime.start.p0(i64 50, ptr nonnull %3) #7
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %5 = load ptr, ptr %4, align 8, !tbaa !33
@@ -2225,7 +2225,7 @@ define i32 @CMS_SignerInfo_verify(ptr noundef %0) local_unnamed_addr #0 {
 14:                                               ; preds = %12
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %16 = load ptr, ptr %15, align 8, !tbaa !51
-  %17 = load ptr, ptr %16, align 8, !tbaa !74
+  %17 = load ptr, ptr %16, align 8, !tbaa !73
   %18 = call i32 @OBJ_obj2txt(ptr noundef nonnull %3, i32 noundef 50, ptr noundef %17, i32 noundef 0) #7
   %19 = call i32 @ERR_set_mark() #7
   %20 = call ptr @EVP_MD_fetch(ptr noundef %6, ptr noundef nonnull %3, ptr noundef %7) #7
@@ -2234,7 +2234,7 @@ define i32 @CMS_SignerInfo_verify(ptr noundef %0) local_unnamed_addr #0 {
 
 21:                                               ; preds = %14
   %22 = load ptr, ptr %15, align 8, !tbaa !51
-  %23 = load ptr, ptr %22, align 8, !tbaa !74
+  %23 = load ptr, ptr %22, align 8, !tbaa !73
   %24 = call i32 @OBJ_obj2nid(ptr noundef %23) #7
   %25 = call ptr @OBJ_nid2sn(i32 noundef %24) #7
   %26 = call ptr @EVP_get_digestbyname(ptr noundef %25) #7
@@ -2299,10 +2299,10 @@ define i32 @CMS_SignerInfo_verify(ptr noundef %0) local_unnamed_addr #0 {
 
 51:                                               ; preds = %49
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %53 = load ptr, ptr %52, align 8, !tbaa !57
+  %53 = load ptr, ptr %52, align 8, !tbaa !56
   %54 = call ptr @CMS_Attributes_Verify_it() #7
   %55 = call i32 @ASN1_item_i2d(ptr noundef %53, ptr noundef nonnull %2, ptr noundef %54) #7
-  %56 = load ptr, ptr %2, align 8, !tbaa !73
+  %56 = load ptr, ptr %2, align 8, !tbaa !72
   %57 = icmp eq ptr %56, null
   %58 = icmp slt i32 %55, 0
   %or.cond = select i1 %57, i1 true, i1 %58
@@ -2311,17 +2311,17 @@ define i32 @CMS_SignerInfo_verify(ptr noundef %0) local_unnamed_addr #0 {
 59:                                               ; preds = %51
   %60 = zext nneg i32 %55 to i64
   %61 = call i32 @EVP_DigestVerifyUpdate(ptr noundef nonnull %39, ptr noundef nonnull %56, i64 noundef %60) #7
-  %62 = load ptr, ptr %2, align 8, !tbaa !73
+  %62 = load ptr, ptr %2, align 8, !tbaa !72
   call void @CRYPTO_free(ptr noundef %62, ptr noundef nonnull @.str, i32 noundef 960) #7
   %63 = icmp slt i32 %61, 1
   br i1 %63, label %74, label %64
 
 64:                                               ; preds = %59
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %66 = load ptr, ptr %65, align 8, !tbaa !82
+  %66 = load ptr, ptr %65, align 8, !tbaa !81
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 8
-  %68 = load ptr, ptr %67, align 8, !tbaa !98
-  %69 = load i32, ptr %66, align 8, !tbaa !99
+  %68 = load ptr, ptr %67, align 8, !tbaa !97
+  %69 = load i32, ptr %66, align 8, !tbaa !98
   %70 = sext i32 %69 to i64
   %71 = call i32 @EVP_DigestVerifyFinal(ptr noundef nonnull %39, ptr noundef %68, i64 noundef %70) #7
   %72 = icmp slt i32 %71, 1
@@ -2394,23 +2394,23 @@ cms_get0_signed.exit:                             ; preds = %1
 
 12:                                               ; preds = %7
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  %14 = load ptr, ptr %13, align 8, !tbaa !87
+  %14 = load ptr, ptr %13, align 8, !tbaa !86
   %15 = tail call i32 @OPENSSL_sk_num(ptr noundef %14) #7
   %16 = icmp sgt i32 %15, 0
   br i1 %16, label %.lr.ph.i, label %.preheader.i
 
 .preheader.i:                                     ; preds = %33, %12
   %17 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  %18 = load ptr, ptr %17, align 8, !tbaa !100
+  %18 = load ptr, ptr %17, align 8, !tbaa !99
   %19 = tail call i32 @OPENSSL_sk_num(ptr noundef %18) #7
   %20 = icmp sgt i32 %19, 0
   br i1 %20, label %.lr.ph41.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %12, %33
   %.039.i = phi i32 [ %34, %33 ], [ 0, %12 ]
-  %21 = load ptr, ptr %13, align 8, !tbaa !87
+  %21 = load ptr, ptr %13, align 8, !tbaa !86
   %22 = tail call ptr @OPENSSL_sk_value(ptr noundef %21, i32 noundef %.039.i) #7
-  %23 = load i32, ptr %22, align 8, !tbaa !89
+  %23 = load i32, ptr %22, align 8, !tbaa !88
   switch i32 %23, label %33 [
     i32 4, label %24
     i32 3, label %27
@@ -2439,16 +2439,16 @@ cms_get0_signed.exit:                             ; preds = %1
 
 33:                                               ; preds = %.sink.split.i, %30, %27, %24, %.lr.ph.i
   %34 = add nuw nsw i32 %.039.i, 1
-  %35 = load ptr, ptr %13, align 8, !tbaa !87
+  %35 = load ptr, ptr %13, align 8, !tbaa !86
   %36 = tail call i32 @OPENSSL_sk_num(ptr noundef %35) #7
   %37 = icmp slt i32 %34, %36
-  br i1 %37, label %.lr.ph.i, label %.preheader.i, !llvm.loop !101
+  br i1 %37, label %.lr.ph.i, label %.preheader.i, !llvm.loop !100
 
 .lr.ph41.i:                                       ; preds = %.preheader.i, %46
   %.140.i = phi i32 [ %47, %46 ], [ 0, %.preheader.i ]
-  %38 = load ptr, ptr %17, align 8, !tbaa !100
+  %38 = load ptr, ptr %17, align 8, !tbaa !99
   %39 = tail call ptr @OPENSSL_sk_value(ptr noundef %38, i32 noundef %.140.i) #7
-  %40 = load i32, ptr %39, align 8, !tbaa !102
+  %40 = load i32, ptr %39, align 8, !tbaa !101
   %41 = icmp eq i32 %40, 1
   br i1 %41, label %42, label %46
 
@@ -2463,10 +2463,10 @@ cms_get0_signed.exit:                             ; preds = %1
 
 46:                                               ; preds = %45, %42, %.lr.ph41.i
   %47 = add nuw nsw i32 %.140.i, 1
-  %48 = load ptr, ptr %17, align 8, !tbaa !100
+  %48 = load ptr, ptr %17, align 8, !tbaa !99
   %49 = tail call i32 @OPENSSL_sk_num(ptr noundef %48) #7
   %50 = icmp slt i32 %47, %49
-  br i1 %50, label %.lr.ph41.i, label %._crit_edge.i, !llvm.loop !104
+  br i1 %50, label %.lr.ph41.i, label %._crit_edge.i, !llvm.loop !103
 
 ._crit_edge.i:                                    ; preds = %46, %.preheader.i
   %51 = load ptr, ptr %8, align 8, !tbaa !15
@@ -2486,14 +2486,14 @@ cms_get0_signed.exit:                             ; preds = %1
 
 58:                                               ; preds = %57, %54, %._crit_edge.i
   %59 = getelementptr inbounds nuw i8, ptr %5, i64 40
-  %60 = load ptr, ptr %59, align 8, !tbaa !59
+  %60 = load ptr, ptr %59, align 8, !tbaa !58
   %61 = tail call i32 @OPENSSL_sk_num(ptr noundef %60) #7
   %62 = icmp sgt i32 %61, 0
   br i1 %62, label %.lr.ph44.i, label %._crit_edge45.i
 
 .lr.ph44.i:                                       ; preds = %58, %80
   %.242.i = phi i32 [ %81, %80 ], [ 0, %58 ]
-  %63 = load ptr, ptr %59, align 8, !tbaa !59
+  %63 = load ptr, ptr %59, align 8, !tbaa !58
   %64 = tail call ptr @OPENSSL_sk_value(ptr noundef %63, i32 noundef %.242.i) #7
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 8
   %66 = load ptr, ptr %65, align 8, !tbaa !49
@@ -2529,10 +2529,10 @@ cms_get0_signed.exit:                             ; preds = %1
 
 80:                                               ; preds = %79, %77, %76, %73
   %81 = add nuw nsw i32 %.242.i, 1
-  %82 = load ptr, ptr %59, align 8, !tbaa !59
+  %82 = load ptr, ptr %59, align 8, !tbaa !58
   %83 = tail call i32 @OPENSSL_sk_num(ptr noundef %82) #7
   %84 = icmp slt i32 %81, %83
-  br i1 %84, label %.lr.ph44.i, label %._crit_edge45.i, !llvm.loop !105
+  br i1 %84, label %.lr.ph44.i, label %._crit_edge45.i, !llvm.loop !104
 
 ._crit_edge45.i:                                  ; preds = %80, %58
   %85 = load i32, ptr %5, align 8, !tbaa !6
@@ -2574,7 +2574,7 @@ cms_sd_set_version.exit:                          ; preds = %87, %._crit_edge45.
   %102 = load ptr, ptr %88, align 8, !tbaa !52
   %103 = tail call i32 @OPENSSL_sk_num(ptr noundef %102) #7
   %104 = icmp slt i32 %101, %103
-  br i1 %104, label %.lr.ph, label %.loopexit, !llvm.loop !106
+  br i1 %104, label %.lr.ph, label %.loopexit, !llvm.loop !105
 
 105:                                              ; preds = %.lr.ph
   tail call void @BIO_free_all(ptr noundef %.02131) #7
@@ -2649,7 +2649,7 @@ define range(i32 -1, -2147483648) i32 @CMS_SignerInfo_verify_content(ptr noundef
 
 25:                                               ; preds = %24
   %26 = load i32, ptr %4, align 4, !tbaa !50
-  %27 = load i32, ptr %.034, align 8, !tbaa !99
+  %27 = load i32, ptr %.034, align 8, !tbaa !98
   %.not44 = icmp eq i32 %26, %27
   br i1 %.not44, label %29, label %28
 
@@ -2661,7 +2661,7 @@ define range(i32 -1, -2147483648) i32 @CMS_SignerInfo_verify_content(ptr noundef
 
 29:                                               ; preds = %25
   %30 = getelementptr inbounds nuw i8, ptr %.034, i64 8
-  %31 = load ptr, ptr %30, align 8, !tbaa !98
+  %31 = load ptr, ptr %30, align 8, !tbaa !97
   %32 = zext i32 %26 to i64
   %bcmp = call i32 @bcmp(ptr nonnull %3, ptr %31, i64 %32)
   %.not45 = icmp eq i32 %bcmp, 0
@@ -2705,10 +2705,10 @@ define range(i32 -1, -2147483648) i32 @CMS_SignerInfo_verify_content(ptr noundef
 
 53:                                               ; preds = %50
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %55 = load ptr, ptr %54, align 8, !tbaa !82
+  %55 = load ptr, ptr %54, align 8, !tbaa !81
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 8
-  %57 = load ptr, ptr %56, align 8, !tbaa !98
-  %58 = load i32, ptr %55, align 8, !tbaa !99
+  %57 = load ptr, ptr %56, align 8, !tbaa !97
+  %58 = load i32, ptr %55, align 8, !tbaa !98
   %59 = sext i32 %58 to i64
   %60 = load i32, ptr %4, align 4, !tbaa !50
   %61 = zext i32 %60 to i64
@@ -2785,7 +2785,7 @@ define ptr @CMS_SignedData_verify(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %25 = add nuw nsw i32 %.03039, 1
   %26 = tail call i32 @OPENSSL_sk_num(ptr noundef %4) #7
   %27 = icmp slt i32 %25, %26
-  br i1 %27, label %.lr.ph, label %.preheader, !llvm.loop !107
+  br i1 %27, label %.lr.ph, label %.preheader, !llvm.loop !106
 
 .preheader:                                       ; preds = %24, %19
   %28 = tail call i32 @OPENSSL_sk_num(ptr noundef %5) #7
@@ -2803,7 +2803,7 @@ define ptr @CMS_SignedData_verify(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %33 = add nuw nsw i32 %.140, 1
   %34 = tail call i32 @OPENSSL_sk_num(ptr noundef %5) #7
   %35 = icmp slt i32 %33, %34
-  br i1 %35, label %.lr.ph41, label %._crit_edge, !llvm.loop !108
+  br i1 %35, label %.lr.ph41, label %._crit_edge, !llvm.loop !107
 
 .lr.ph41:                                         ; preds = %.preheader, %32
   %.140 = phi i32 [ %33, %32 ], [ 0, %.preheader ]
@@ -2885,13 +2885,13 @@ define range(i32 0, 2) i32 @CMS_add_simple_smimecap(ptr noundef captures(none) %
   br label %26
 
 17:                                               ; preds = %12
-  %18 = load ptr, ptr %0, align 8, !tbaa !58
+  %18 = load ptr, ptr %0, align 8, !tbaa !57
   %19 = icmp eq ptr %18, null
   br i1 %19, label %20, label %.thread
 
 20:                                               ; preds = %17
   %21 = tail call ptr @OPENSSL_sk_new_null() #7
-  store ptr %21, ptr %0, align 8, !tbaa !58
+  store ptr %21, ptr %0, align 8, !tbaa !57
   %22 = icmp eq ptr %21, null
   br i1 %22, label %25, label %.thread
 
@@ -2951,13 +2951,13 @@ define internal fastcc range(i32 0, 2) i32 @cms_add_digest_smcap(ptr noundef cap
   br label %CMS_add_simple_smimecap.exit
 
 9:                                                ; preds = %5
-  %10 = load ptr, ptr %0, align 8, !tbaa !58
+  %10 = load ptr, ptr %0, align 8, !tbaa !57
   %11 = icmp eq ptr %10, null
   br i1 %11, label %12, label %.thread.i
 
 12:                                               ; preds = %9
   %13 = tail call ptr @OPENSSL_sk_new_null() #7
-  store ptr %13, ptr %0, align 8, !tbaa !58
+  store ptr %13, ptr %0, align 8, !tbaa !57
   %14 = icmp eq ptr %13, null
   br i1 %14, label %17, label %.thread.i
 
@@ -2996,12 +2996,12 @@ define internal fastcc i32 @cms_generic_sign(ptr noundef readonly captures(none)
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = load ptr, ptr %8, align 8, !tbaa !51
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %11 = load ptr, ptr %10, align 8, !tbaa !96
+  %11 = load ptr, ptr %10, align 8, !tbaa !95
   %12 = icmp eq ptr %9, null
   br i1 %12, label %31, label %13
 
 13:                                               ; preds = %4
-  %14 = load ptr, ptr %9, align 8, !tbaa !74
+  %14 = load ptr, ptr %9, align 8, !tbaa !73
   %15 = icmp eq ptr %14, null
   br i1 %15, label %31, label %16
 
@@ -3147,58 +3147,57 @@ attributes #7 = { nounwind }
 !51 = !{!34, !36, i64 16}
 !52 = !{!7, !9, i64 8}
 !53 = !{!18, !18, i64 0}
-!54 = distinct !{!54, !55, !56}
+!54 = distinct !{!54, !55}
 !55 = !{!"llvm.loop.mustprogress"}
-!56 = !{!"llvm.loop.estimated_trip_count"}
-!57 = !{!34, !37, i64 24}
-!58 = !{!9, !9, i64 0}
-!59 = !{!7, !14, i64 40}
-!60 = !{!61, !62, i64 8}
-!61 = !{!"evp_pkey_st", !8, i64 0, !8, i64 4, !62, i64 8, !63, i64 16, !63, i64 24, !4, i64 32, !4, i64 40, !64, i64 48, !10, i64 56, !37, i64 64, !8, i64 72, !8, i64 76, !65, i64 80, !67, i64 96, !10, i64 104, !68, i64 112, !69, i64 120, !68, i64 128, !70, i64 136}
-!62 = !{!"p1 _ZTS23evp_pkey_asn1_method_st", !10, i64 0}
-!63 = !{!"p1 _ZTS9engine_st", !10, i64 0}
-!64 = !{!"", !4, i64 0}
-!65 = !{!"crypto_ex_data_st", !24, i64 0, !66, i64 8}
-!66 = !{!"p1 _ZTS13stack_st_void", !10, i64 0}
-!67 = !{!"p1 _ZTS14evp_keymgmt_st", !10, i64 0}
-!68 = !{!"long", !4, i64 0}
-!69 = !{!"p1 _ZTS22stack_st_OP_CACHE_ELEM", !10, i64 0}
-!70 = !{!"", !8, i64 0, !8, i64 4, !8, i64 8}
-!71 = !{!72, !10, i64 176}
-!72 = !{!"evp_pkey_asn1_method_st", !8, i64 0, !8, i64 4, !68, i64 8, !25, i64 16, !25, i64 24, !10, i64 32, !10, i64 40, !10, i64 48, !10, i64 56, !10, i64 64, !10, i64 72, !10, i64 80, !10, i64 88, !10, i64 96, !10, i64 104, !10, i64 112, !10, i64 120, !10, i64 128, !10, i64 136, !10, i64 144, !10, i64 152, !10, i64 160, !10, i64 168, !10, i64 176, !10, i64 184, !10, i64 192, !10, i64 200, !10, i64 208, !10, i64 216, !10, i64 224, !10, i64 232, !10, i64 240, !10, i64 248, !10, i64 256, !10, i64 264, !10, i64 272, !10, i64 280, !10, i64 288, !10, i64 296, !10, i64 304, !10, i64 312}
-!73 = !{!25, !25, i64 0}
-!74 = !{!75, !18, i64 0}
-!75 = !{!"X509_algor_st", !18, i64 0, !76, i64 8}
-!76 = !{!"p1 _ZTS12asn1_type_st", !10, i64 0}
-!77 = distinct !{!77, !55, !56}
-!78 = !{!41, !41, i64 0}
-!79 = !{!80, !8, i64 4}
-!80 = !{!"asn1_string_st", !8, i64 0, !8, i64 4, !25, i64 8, !68, i64 16}
-!81 = !{!68, !68, i64 0}
-!82 = !{!34, !19, i64 40}
-!83 = distinct !{!83, !55, !56}
-!84 = !{!85, !85, i64 0}
-!85 = !{!"p1 _ZTS13stack_st_X509", !10, i64 0}
-!86 = distinct !{!86, !55, !56}
-!87 = !{!7, !12, i64 24}
-!88 = distinct !{!88, !55, !56}
-!89 = !{!90, !8, i64 0}
-!90 = !{!"CMS_CertificateChoices", !8, i64 0, !4, i64 8}
-!91 = distinct !{!91, !55, !56}
-!92 = distinct !{!92, !55, !56}
-!93 = !{!39, !39, i64 0}
-!94 = !{!38, !38, i64 0}
-!95 = !{!36, !36, i64 0}
-!96 = !{!34, !36, i64 32}
-!97 = distinct !{!97, !55, !56}
-!98 = !{!80, !25, i64 8}
-!99 = !{!80, !8, i64 0}
-!100 = !{!7, !13, i64 32}
-!101 = distinct !{!101, !55, !56}
-!102 = !{!103, !8, i64 0}
-!103 = !{!"CMS_RevocationInfoChoice_st", !8, i64 0, !4, i64 8}
-!104 = distinct !{!104, !55, !56}
-!105 = distinct !{!105, !55, !56}
-!106 = distinct !{!106, !55, !56}
-!107 = distinct !{!107, !55, !56}
-!108 = distinct !{!108, !55, !56}
+!56 = !{!34, !37, i64 24}
+!57 = !{!9, !9, i64 0}
+!58 = !{!7, !14, i64 40}
+!59 = !{!60, !61, i64 8}
+!60 = !{!"evp_pkey_st", !8, i64 0, !8, i64 4, !61, i64 8, !62, i64 16, !62, i64 24, !4, i64 32, !4, i64 40, !63, i64 48, !10, i64 56, !37, i64 64, !8, i64 72, !8, i64 76, !64, i64 80, !66, i64 96, !10, i64 104, !67, i64 112, !68, i64 120, !67, i64 128, !69, i64 136}
+!61 = !{!"p1 _ZTS23evp_pkey_asn1_method_st", !10, i64 0}
+!62 = !{!"p1 _ZTS9engine_st", !10, i64 0}
+!63 = !{!"", !4, i64 0}
+!64 = !{!"crypto_ex_data_st", !24, i64 0, !65, i64 8}
+!65 = !{!"p1 _ZTS13stack_st_void", !10, i64 0}
+!66 = !{!"p1 _ZTS14evp_keymgmt_st", !10, i64 0}
+!67 = !{!"long", !4, i64 0}
+!68 = !{!"p1 _ZTS22stack_st_OP_CACHE_ELEM", !10, i64 0}
+!69 = !{!"", !8, i64 0, !8, i64 4, !8, i64 8}
+!70 = !{!71, !10, i64 176}
+!71 = !{!"evp_pkey_asn1_method_st", !8, i64 0, !8, i64 4, !67, i64 8, !25, i64 16, !25, i64 24, !10, i64 32, !10, i64 40, !10, i64 48, !10, i64 56, !10, i64 64, !10, i64 72, !10, i64 80, !10, i64 88, !10, i64 96, !10, i64 104, !10, i64 112, !10, i64 120, !10, i64 128, !10, i64 136, !10, i64 144, !10, i64 152, !10, i64 160, !10, i64 168, !10, i64 176, !10, i64 184, !10, i64 192, !10, i64 200, !10, i64 208, !10, i64 216, !10, i64 224, !10, i64 232, !10, i64 240, !10, i64 248, !10, i64 256, !10, i64 264, !10, i64 272, !10, i64 280, !10, i64 288, !10, i64 296, !10, i64 304, !10, i64 312}
+!72 = !{!25, !25, i64 0}
+!73 = !{!74, !18, i64 0}
+!74 = !{!"X509_algor_st", !18, i64 0, !75, i64 8}
+!75 = !{!"p1 _ZTS12asn1_type_st", !10, i64 0}
+!76 = distinct !{!76, !55}
+!77 = !{!41, !41, i64 0}
+!78 = !{!79, !8, i64 4}
+!79 = !{!"asn1_string_st", !8, i64 0, !8, i64 4, !25, i64 8, !67, i64 16}
+!80 = !{!67, !67, i64 0}
+!81 = !{!34, !19, i64 40}
+!82 = distinct !{!82, !55}
+!83 = !{!84, !84, i64 0}
+!84 = !{!"p1 _ZTS13stack_st_X509", !10, i64 0}
+!85 = distinct !{!85, !55}
+!86 = !{!7, !12, i64 24}
+!87 = distinct !{!87, !55}
+!88 = !{!89, !8, i64 0}
+!89 = !{!"CMS_CertificateChoices", !8, i64 0, !4, i64 8}
+!90 = distinct !{!90, !55}
+!91 = distinct !{!91, !55}
+!92 = !{!39, !39, i64 0}
+!93 = !{!38, !38, i64 0}
+!94 = !{!36, !36, i64 0}
+!95 = !{!34, !36, i64 32}
+!96 = distinct !{!96, !55}
+!97 = !{!79, !25, i64 8}
+!98 = !{!79, !8, i64 0}
+!99 = !{!7, !13, i64 32}
+!100 = distinct !{!100, !55}
+!101 = !{!102, !8, i64 0}
+!102 = !{!"CMS_RevocationInfoChoice_st", !8, i64 0, !4, i64 8}
+!103 = distinct !{!103, !55}
+!104 = distinct !{!104, !55}
+!105 = distinct !{!105, !55}
+!106 = distinct !{!106, !55}
+!107 = distinct !{!107, !55}

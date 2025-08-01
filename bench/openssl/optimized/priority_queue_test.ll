@@ -124,7 +124,7 @@ define internal range(i32 0, 2) i32 @test_22644() #0 {
   br i1 %exitcond.not, label %6, label %3, !llvm.loop !11
 
 6:                                                ; preds = %3
-  store i64 70650219160667140, ptr %1, align 16, !tbaa !14
+  store i64 70650219160667140, ptr %1, align 16, !tbaa !13
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %8 = call i32 @ossl_pqueue_push(ptr noundef %2, ptr noundef nonnull %1, ptr noundef nonnull %7) #9
   %9 = icmp ne i32 %8, 0
@@ -134,13 +134,13 @@ define internal range(i32 0, 2) i32 @test_22644() #0 {
   br i1 %.not, label %109, label %12
 
 12:                                               ; preds = %6
-  %13 = load i64, ptr %7, align 16, !tbaa !15
+  %13 = load i64, ptr %7, align 16, !tbaa !14
   %14 = call i32 @test_size_t_eq(ptr noundef nonnull @.str.6, i32 noundef 193, ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.31, i64 noundef %13, i64 noundef 7) #9
   %.not19 = icmp eq i32 %14, 0
   br i1 %.not19, label %109, label %15
 
 15:                                               ; preds = %12
-  %16 = load i64, ptr %7, align 16, !tbaa !15
+  %16 = load i64, ptr %7, align 16, !tbaa !14
   %17 = call ptr @ossl_pqueue_remove(ptr noundef %2, i64 noundef %16) #9
   %18 = call i32 @test_ptr(ptr noundef nonnull @.str.6, i32 noundef 194, ptr noundef nonnull @.str.32, ptr noundef %17) #9
   %.not20 = icmp eq i32 %18, 0
@@ -148,7 +148,7 @@ define internal range(i32 0, 2) i32 @test_22644() #0 {
 
 19:                                               ; preds = %15
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  store i64 289360691352306692, ptr %20, align 8, !tbaa !14
+  store i64 289360691352306692, ptr %20, align 8, !tbaa !13
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %22 = call i32 @ossl_pqueue_push(ptr noundef %2, ptr noundef nonnull %20, ptr noundef nonnull %21) #9
   %23 = icmp ne i32 %22, 0
@@ -158,13 +158,13 @@ define internal range(i32 0, 2) i32 @test_22644() #0 {
   br i1 %.not21, label %109, label %26
 
 26:                                               ; preds = %19
-  %27 = load i64, ptr %21, align 8, !tbaa !15
+  %27 = load i64, ptr %21, align 8, !tbaa !14
   %28 = call i32 @test_size_t_eq(ptr noundef nonnull @.str.6, i32 noundef 199, ptr noundef nonnull @.str.34, ptr noundef nonnull @.str.31, i64 noundef %27, i64 noundef 7) #9
   %.not22 = icmp eq i32 %28, 0
   br i1 %.not22, label %109, label %29
 
 29:                                               ; preds = %26
-  %30 = load i64, ptr %21, align 8, !tbaa !15
+  %30 = load i64, ptr %21, align 8, !tbaa !14
   %31 = call ptr @ossl_pqueue_remove(ptr noundef %2, i64 noundef %30) #9
   %32 = call i32 @test_ptr(ptr noundef nonnull @.str.6, i32 noundef 200, ptr noundef nonnull @.str.35, ptr noundef %31) #9
   %.not23 = icmp eq i32 %32, 0
@@ -172,7 +172,7 @@ define internal range(i32 0, 2) i32 @test_22644() #0 {
 
 33:                                               ; preds = %29
   %34 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  store i64 289360691352306692, ptr %34, align 16, !tbaa !14
+  store i64 289360691352306692, ptr %34, align 16, !tbaa !13
   %35 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %36 = call i32 @ossl_pqueue_push(ptr noundef %2, ptr noundef nonnull %34, ptr noundef nonnull %35) #9
   %37 = icmp ne i32 %36, 0
@@ -182,14 +182,14 @@ define internal range(i32 0, 2) i32 @test_22644() #0 {
   br i1 %.not24, label %109, label %40
 
 40:                                               ; preds = %33
-  %41 = load i64, ptr %35, align 16, !tbaa !15
+  %41 = load i64, ptr %35, align 16, !tbaa !14
   %42 = call i32 @test_size_t_eq(ptr noundef nonnull @.str.6, i32 noundef 205, ptr noundef nonnull @.str.37, ptr noundef nonnull @.str.31, i64 noundef %41, i64 noundef 7) #9
   %.not25 = icmp eq i32 %42, 0
   br i1 %.not25, label %109, label %43
 
 43:                                               ; preds = %40
   %44 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  store i64 289360691352306692, ptr %44, align 8, !tbaa !14
+  store i64 289360691352306692, ptr %44, align 8, !tbaa !13
   %45 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %46 = call i32 @ossl_pqueue_push(ptr noundef %2, ptr noundef nonnull %44, ptr noundef nonnull %45) #9
   %47 = icmp ne i32 %46, 0
@@ -199,14 +199,14 @@ define internal range(i32 0, 2) i32 @test_22644() #0 {
   br i1 %.not26, label %109, label %50
 
 50:                                               ; preds = %43
-  %51 = load i64, ptr %45, align 8, !tbaa !15
+  %51 = load i64, ptr %45, align 8, !tbaa !14
   %52 = call i32 @test_size_t_eq(ptr noundef nonnull @.str.6, i32 noundef 210, ptr noundef nonnull @.str.39, ptr noundef nonnull @.str.40, i64 noundef %51, i64 noundef 6) #9
   %.not27 = icmp eq i32 %52, 0
   br i1 %.not27, label %109, label %53
 
 53:                                               ; preds = %50
   %54 = getelementptr inbounds nuw i8, ptr %1, i64 96
-  store i64 289360691352306692, ptr %54, align 16, !tbaa !14
+  store i64 289360691352306692, ptr %54, align 16, !tbaa !13
   %55 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %56 = call i32 @ossl_pqueue_push(ptr noundef %2, ptr noundef nonnull %54, ptr noundef nonnull %55) #9
   %57 = icmp ne i32 %56, 0
@@ -216,14 +216,14 @@ define internal range(i32 0, 2) i32 @test_22644() #0 {
   br i1 %.not28, label %109, label %60
 
 60:                                               ; preds = %53
-  %61 = load i64, ptr %55, align 16, !tbaa !15
+  %61 = load i64, ptr %55, align 16, !tbaa !14
   %62 = call i32 @test_size_t_eq(ptr noundef nonnull @.str.6, i32 noundef 215, ptr noundef nonnull @.str.42, ptr noundef nonnull @.str.43, i64 noundef %61, i64 noundef 5) #9
   %.not29 = icmp eq i32 %62, 0
   br i1 %.not29, label %109, label %63
 
 63:                                               ; preds = %60
   %64 = getelementptr inbounds nuw i8, ptr %1, i64 120
-  store i64 289360691352306692, ptr %64, align 8, !tbaa !14
+  store i64 289360691352306692, ptr %64, align 8, !tbaa !13
   %65 = getelementptr inbounds nuw i8, ptr %1, i64 136
   %66 = call i32 @ossl_pqueue_push(ptr noundef %2, ptr noundef nonnull %64, ptr noundef nonnull %65) #9
   %67 = icmp ne i32 %66, 0
@@ -233,14 +233,14 @@ define internal range(i32 0, 2) i32 @test_22644() #0 {
   br i1 %.not30, label %109, label %70
 
 70:                                               ; preds = %63
-  %71 = load i64, ptr %65, align 8, !tbaa !15
+  %71 = load i64, ptr %65, align 8, !tbaa !14
   %72 = call i32 @test_size_t_eq(ptr noundef nonnull @.str.6, i32 noundef 220, ptr noundef nonnull @.str.45, ptr noundef nonnull @.str.46, i64 noundef %71, i64 noundef 4) #9
   %.not31 = icmp eq i32 %72, 0
   br i1 %.not31, label %109, label %73
 
 73:                                               ; preds = %70
   %74 = getelementptr inbounds nuw i8, ptr %1, i64 144
-  store i64 289360691352306692, ptr %74, align 16, !tbaa !14
+  store i64 289360691352306692, ptr %74, align 16, !tbaa !13
   %75 = getelementptr inbounds nuw i8, ptr %1, i64 160
   %76 = call i32 @ossl_pqueue_push(ptr noundef %2, ptr noundef nonnull %74, ptr noundef nonnull %75) #9
   %77 = icmp ne i32 %76, 0
@@ -250,14 +250,14 @@ define internal range(i32 0, 2) i32 @test_22644() #0 {
   br i1 %.not32, label %109, label %80
 
 80:                                               ; preds = %73
-  %81 = load i64, ptr %75, align 16, !tbaa !15
+  %81 = load i64, ptr %75, align 16, !tbaa !14
   %82 = call i32 @test_size_t_eq(ptr noundef nonnull @.str.6, i32 noundef 225, ptr noundef nonnull @.str.48, ptr noundef nonnull @.str.49, i64 noundef %81, i64 noundef 3) #9
   %.not33 = icmp eq i32 %82, 0
   br i1 %.not33, label %109, label %83
 
 83:                                               ; preds = %80
   %84 = getelementptr inbounds nuw i8, ptr %1, i64 168
-  store i64 289360691352306692, ptr %84, align 8, !tbaa !14
+  store i64 289360691352306692, ptr %84, align 8, !tbaa !13
   %85 = getelementptr inbounds nuw i8, ptr %1, i64 184
   %86 = call i32 @ossl_pqueue_push(ptr noundef %2, ptr noundef nonnull %84, ptr noundef nonnull %85) #9
   %87 = icmp ne i32 %86, 0
@@ -267,14 +267,14 @@ define internal range(i32 0, 2) i32 @test_22644() #0 {
   br i1 %.not34, label %109, label %90
 
 90:                                               ; preds = %83
-  %91 = load i64, ptr %85, align 8, !tbaa !15
+  %91 = load i64, ptr %85, align 8, !tbaa !14
   %92 = call i32 @test_size_t_eq(ptr noundef nonnull @.str.6, i32 noundef 230, ptr noundef nonnull @.str.51, ptr noundef nonnull @.str.52, i64 noundef %91, i64 noundef 2) #9
   %.not35 = icmp eq i32 %92, 0
   br i1 %.not35, label %109, label %93
 
 93:                                               ; preds = %90
   %94 = getelementptr inbounds nuw i8, ptr %1, i64 192
-  store i64 289360691352306692, ptr %94, align 16, !tbaa !14
+  store i64 289360691352306692, ptr %94, align 16, !tbaa !13
   %95 = getelementptr inbounds nuw i8, ptr %1, i64 208
   %96 = call i32 @ossl_pqueue_push(ptr noundef %2, ptr noundef nonnull %94, ptr noundef nonnull %95) #9
   %97 = icmp ne i32 %96, 0
@@ -284,7 +284,7 @@ define internal range(i32 0, 2) i32 @test_22644() #0 {
   br i1 %.not36, label %109, label %100
 
 100:                                              ; preds = %93
-  %101 = load i64, ptr %95, align 16, !tbaa !15
+  %101 = load i64, ptr %95, align 16, !tbaa !14
   %102 = call i32 @test_size_t_eq(ptr noundef nonnull @.str.6, i32 noundef 235, ptr noundef nonnull @.str.54, ptr noundef nonnull @.str.55, i64 noundef %101, i64 noundef 1) #9
   %.not37 = icmp eq i32 %102, 0
   br i1 %.not37, label %109, label %103
@@ -316,7 +316,7 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 define internal fastcc range(i32 0, 2) i32 @test_size_t_priority_queue_int(i32 noundef range(i32 -1, 2) %0, i32 noundef range(i32 -2, 3) %1, i32 noundef %2, i32 noundef range(i32 -5, 5001) %3, i32 noundef range(i32 -1, 2) %4, i32 noundef range(i32 -1, 2) %5) unnamed_addr #0 {
   %7 = sext i32 %1 to i64
   %8 = getelementptr inbounds [3 x ptr], ptr @test_size_t_priority_queue_int.orders, i64 0, i64 %7
-  %9 = load ptr, ptr %8, align 8, !tbaa !16
+  %9 = load ptr, ptr %8, align 8, !tbaa !15
   %.not = icmp eq i32 %0, 0
   %10 = select i1 %.not, ptr @.str.9, ptr @.str.8
   %.not64 = icmp eq i32 %4, 0
@@ -344,20 +344,20 @@ define internal fastcc range(i32 0, 2) i32 @test_size_t_priority_queue_int(i32 n
   %indvars.iv98 = phi i64 [ %indvars.iv.next99, %.lr.ph.split.us ], [ 0, %.lr.ph ]
   %17 = sub nsw i64 %13, %indvars.iv98
   %18 = getelementptr inbounds nuw [500000 x i64], ptr @test_size_t_priority_queue_int.values, i64 0, i64 %indvars.iv98
-  store i64 %17, ptr %18, align 8, !tbaa !19
+  store i64 %17, ptr %18, align 8, !tbaa !18
   %indvars.iv.next99 = add nuw nsw i64 %indvars.iv98, 1
   %exitcond102.not = icmp eq i64 %indvars.iv.next99, %wide.trip.count101
-  br i1 %exitcond102.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !20
+  br i1 %exitcond102.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !19
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.split
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph.split ], [ 0, %.lr.ph ]
   %19 = tail call i32 @test_random() #9
   %20 = zext i32 %19 to i64
   %21 = getelementptr inbounds nuw [500000 x i64], ptr @test_size_t_priority_queue_int.values, i64 0, i64 %indvars.iv
-  store i64 %20, ptr %21, align 8, !tbaa !19
+  store i64 %20, ptr %21, align 8, !tbaa !18
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count101
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !22
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !21
 
 ._crit_edge:                                      ; preds = %.lr.ph.split, %.lr.ph.split.us, %15
   %22 = shl nsw i64 %13, 3
@@ -409,7 +409,7 @@ define internal fastcc range(i32 0, 2) i32 @test_size_t_priority_queue_int(i32 n
 38:                                               ; preds = %.lr.ph85
   %indvars.iv.next104 = add nuw nsw i64 %indvars.iv103, 1
   %exitcond107.not = icmp eq i64 %indvars.iv.next104, %wide.trip.count106
-  br i1 %exitcond107.not, label %._crit_edge86, label %.lr.ph85, !llvm.loop !23
+  br i1 %exitcond107.not, label %._crit_edge86, label %.lr.ph85, !llvm.loop !22
 
 .lr.ph85:                                         ; preds = %.lr.ph85.preheader, %38
   %indvars.iv103 = phi i64 [ 0, %.lr.ph85.preheader ], [ %indvars.iv.next104, %38 ]
@@ -424,8 +424,8 @@ define internal fastcc range(i32 0, 2) i32 @test_size_t_priority_queue_int(i32 n
 
 ._crit_edge86:                                    ; preds = %38, %37
   %45 = tail call ptr @ossl_pqueue_peek(ptr noundef %26) #9
-  %46 = load i64, ptr %45, align 8, !tbaa !19
-  %47 = load i64, ptr @test_size_t_priority_queue_int.sorted, align 16, !tbaa !19
+  %46 = load i64, ptr %45, align 8, !tbaa !18
+  %47 = load i64, ptr @test_size_t_priority_queue_int.sorted, align 16, !tbaa !18
   %48 = tail call i32 @test_size_t_eq(ptr noundef nonnull @.str.6, i32 noundef 93, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.22, i64 noundef %46, i64 noundef %47) #9
   %.not70 = icmp eq i32 %48, 0
   br i1 %.not70, label %.loopexit, label %49
@@ -451,25 +451,25 @@ define internal fastcc range(i32 0, 2) i32 @test_size_t_priority_queue_int(i32 n
   %56 = urem i32 %55, %2
   %57 = sext i32 %56 to i64
   %58 = getelementptr inbounds [500000 x i64], ptr @test_size_t_priority_queue_int.values, i64 0, i64 %57
-  %59 = load i64, ptr %58, align 8, !tbaa !19
+  %59 = load i64, ptr %58, align 8, !tbaa !18
   %.not77 = icmp eq i64 %59, -1
   br i1 %.not77, label %66, label %60
 
 60:                                               ; preds = %.lr.ph87
   %61 = getelementptr inbounds [500000 x i64], ptr @test_size_t_priority_queue_int.ref, i64 0, i64 %57
-  %62 = load i64, ptr %61, align 8, !tbaa !19
+  %62 = load i64, ptr %61, align 8, !tbaa !18
   %63 = tail call ptr @ossl_pqueue_remove(ptr noundef %26, i64 noundef %62) #9
   %64 = tail call i32 @test_ptr_eq(ptr noundef nonnull @.str.6, i32 noundef 102, ptr noundef nonnull @.str.23, ptr noundef nonnull @.str.24, ptr noundef %63, ptr noundef nonnull %58) #9
   %.not78 = icmp eq i32 %64, 0
   br i1 %.not78, label %.loopexit, label %65
 
 65:                                               ; preds = %60
-  store i64 -1, ptr %58, align 8, !tbaa !19
+  store i64 -1, ptr %58, align 8, !tbaa !18
   br label %66
 
 66:                                               ; preds = %65, %.lr.ph87
   %67 = icmp samesign ugt i32 %.in, 1
-  br i1 %67, label %.lr.ph87, label %._crit_edge88, !llvm.loop !24
+  br i1 %67, label %.lr.ph87, label %._crit_edge88, !llvm.loop !23
 
 ._crit_edge88:                                    ; preds = %66, %.preheader
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 @test_size_t_priority_queue_int.sorted, ptr nonnull align 16 @test_size_t_priority_queue_int.values, i64 %22, i1 false)
@@ -485,22 +485,22 @@ define internal fastcc range(i32 0, 2) i32 @test_size_t_priority_queue_int(i32 n
   %indvars.iv.next109 = add nuw nsw i64 %indvars.iv108, 1
   %71 = tail call ptr @ossl_pqueue_peek(ptr noundef %26) #9
   %.not73 = icmp eq ptr %71, null
-  br i1 %.not73, label %._crit_edge93, label %.lr.ph92, !llvm.loop !25
+  br i1 %.not73, label %._crit_edge93, label %.lr.ph92, !llvm.loop !24
 
 .lr.ph92:                                         ; preds = %68, %70
   %indvars.iv108 = phi i64 [ %indvars.iv.next109, %70 ], [ 0, %68 ]
   %72 = tail call ptr @ossl_pqueue_peek(ptr noundef %26) #9
-  %73 = load i64, ptr %72, align 8, !tbaa !19
+  %73 = load i64, ptr %72, align 8, !tbaa !18
   %74 = getelementptr inbounds nuw [500000 x i64], ptr @test_size_t_priority_queue_int.sorted, i64 0, i64 %indvars.iv108
-  %75 = load i64, ptr %74, align 8, !tbaa !19
+  %75 = load i64, ptr %74, align 8, !tbaa !18
   %76 = tail call i32 @test_size_t_eq(ptr noundef nonnull @.str.6, i32 noundef 111, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.25, i64 noundef %73, i64 noundef %75) #9
   %.not75 = icmp eq i32 %76, 0
   br i1 %.not75, label %.loopexit, label %77
 
 77:                                               ; preds = %.lr.ph92
   %78 = tail call ptr @ossl_pqueue_pop(ptr noundef %26) #9
-  %79 = load i64, ptr %78, align 8, !tbaa !19
-  %80 = load i64, ptr %74, align 8, !tbaa !19
+  %79 = load i64, ptr %78, align 8, !tbaa !18
+  %80 = load i64, ptr %74, align 8, !tbaa !18
   %81 = tail call i32 @test_size_t_eq(ptr noundef nonnull @.str.6, i32 noundef 112, ptr noundef nonnull @.str.26, ptr noundef nonnull @.str.25, i64 noundef %79, i64 noundef %80) #9
   %.not76 = icmp eq i32 %81, 0
   br i1 %.not76, label %.loopexit, label %70
@@ -509,10 +509,10 @@ define internal fastcc range(i32 0, 2) i32 @test_size_t_priority_queue_int(i32 n
   br i1 %.not65, label %.loopexit, label %82
 
 82:                                               ; preds = %._crit_edge93
-  store i64 0, ptr @num_rec_freed, align 8, !tbaa !19
+  store i64 0, ptr @num_rec_freed, align 8, !tbaa !18
   %83 = tail call i64 @ossl_pqueue_num(ptr noundef %26) #9
   tail call void @ossl_pqueue_pop_free(ptr noundef %26, ptr noundef nonnull @free_checker) #9
-  %84 = load i64, ptr @num_rec_freed, align 8, !tbaa !19
+  %84 = load i64, ptr @num_rec_freed, align 8, !tbaa !18
   %85 = tail call i32 @test_size_t_eq(ptr noundef nonnull @.str.6, i32 noundef 120, ptr noundef nonnull @.str.27, ptr noundef nonnull @.str.28, i64 noundef %84, i64 noundef %83) #9
   %.not74 = icmp ne i32 %85, 0
   %spec.select = zext i1 %.not74 to i32
@@ -549,16 +549,16 @@ declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr noundef captures(
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define internal range(i32 -1, 2) i32 @qsort_size_t_compare(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #6 {
-  %3 = load i64, ptr %0, align 8, !tbaa !19
-  %4 = load i64, ptr %1, align 8, !tbaa !19
+  %3 = load i64, ptr %0, align 8, !tbaa !18
+  %4 = load i64, ptr %1, align 8, !tbaa !18
   %.0.i = tail call range(i32 -1, 2) i32 @llvm.ucmp.i32.i64(i64 %3, i64 %4)
   ret i32 %.0.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define internal range(i32 -1, 2) i32 @qsort_size_t_compare_rev(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #6 {
-  %3 = load i64, ptr %1, align 8, !tbaa !19
-  %4 = load i64, ptr %0, align 8, !tbaa !19
+  %3 = load i64, ptr %1, align 8, !tbaa !18
+  %4 = load i64, ptr %0, align 8, !tbaa !18
   %.0.i = tail call range(i32 -1, 2) i32 @llvm.ucmp.i32.i64(i64 %3, i64 %4)
   ret i32 %.0.i
 }
@@ -567,8 +567,8 @@ declare i32 @test_ptr(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define internal range(i32 -1, 2) i32 @size_t_compare(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #6 {
-  %3 = load i64, ptr %0, align 8, !tbaa !19
-  %4 = load i64, ptr %1, align 8, !tbaa !19
+  %3 = load i64, ptr %0, align 8, !tbaa !18
+  %4 = load i64, ptr %1, align 8, !tbaa !18
   %.0 = tail call i32 @llvm.ucmp.i32.i64(i64 %3, i64 %4)
   ret i32 %.0
 }
@@ -581,9 +581,9 @@ declare i32 @test_ptr_eq(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
 define internal void @free_checker(ptr readnone captures(none) %0) #7 {
-  %2 = load i64, ptr @num_rec_freed, align 8, !tbaa !19
+  %2 = load i64, ptr @num_rec_freed, align 8, !tbaa !18
   %3 = add i64 %2, 1
-  store i64 %3, ptr @num_rec_freed, align 8, !tbaa !19
+  store i64 %3, ptr @num_rec_freed, align 8, !tbaa !18
   ret void
 }
 
@@ -607,8 +607,8 @@ declare void @ossl_pqueue_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define internal range(i32 -1, 2) i32 @cmp(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #6 {
-  %3 = load i64, ptr %0, align 8, !tbaa !14
-  %4 = load i64, ptr %1, align 8, !tbaa !14
+  %3 = load i64, ptr %0, align 8, !tbaa !13
+  %4 = load i64, ptr %1, align 8, !tbaa !13
   %5 = icmp ult i64 %3, %4
   br i1 %5, label %16, label %6
 
@@ -661,18 +661,17 @@ attributes #9 = { nounwind }
 !8 = !{!9, !10, i64 8}
 !9 = !{!"info_st", !10, i64 0, !10, i64 8, !10, i64 16}
 !10 = !{!"long", !6, i64 0}
-!11 = distinct !{!11, !12, !13}
+!11 = distinct !{!11, !12}
 !12 = !{!"llvm.loop.mustprogress"}
-!13 = !{!"llvm.loop.estimated_trip_count"}
-!14 = !{!9, !10, i64 0}
-!15 = !{!9, !10, i64 16}
-!16 = !{!17, !17, i64 0}
-!17 = !{!"p1 omnipotent char", !18, i64 0}
-!18 = !{!"any pointer", !6, i64 0}
-!19 = !{!10, !10, i64 0}
-!20 = distinct !{!20, !12, !13, !21}
-!21 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!22 = distinct !{!22, !12, !13}
-!23 = distinct !{!23, !12, !13}
-!24 = distinct !{!24, !12, !13}
-!25 = distinct !{!25, !12, !13}
+!13 = !{!9, !10, i64 0}
+!14 = !{!9, !10, i64 16}
+!15 = !{!16, !16, i64 0}
+!16 = !{!"p1 omnipotent char", !17, i64 0}
+!17 = !{!"any pointer", !6, i64 0}
+!18 = !{!10, !10, i64 0}
+!19 = distinct !{!19, !12, !20}
+!20 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!21 = distinct !{!21, !12}
+!22 = distinct !{!22, !12}
+!23 = distinct !{!23, !12}
+!24 = distinct !{!24, !12}

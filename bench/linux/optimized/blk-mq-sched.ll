@@ -374,7 +374,7 @@ define internal fastcc range(i32 -11, 2) i32 @__blk_mq_sched_dispatch_requests(p
   %157 = add i32 %145, 1
   %158 = load ptr, ptr %144, align 8
   %159 = icmp eq ptr %158, %4
-  br i1 %159, label %.loopexit, label %.preheader, !llvm.loop !15
+  br i1 %159, label %.loopexit, label %.preheader, !llvm.loop !14
 
 .loopexit:                                        ; preds = %156, %138
   %160 = phi i32 [ 0, %138 ], [ %157, %156 ]
@@ -400,7 +400,7 @@ define internal fastcc range(i32 -11, 2) i32 @__blk_mq_sched_dispatch_requests(p
   %169 = or i1 %140, %168
   %170 = load volatile ptr, ptr %4, align 8
   %171 = icmp eq ptr %170, %4
-  br i1 %171, label %.loopexit39, label %138, !llvm.loop !16
+  br i1 %171, label %.loopexit39, label %138, !llvm.loop !15
 
 172:                                              ; preds = %.critedge.thread.thread
   %173 = call zeroext i1 @blk_mq_dispatch_rq_list(ptr noundef %0, ptr noundef nonnull %4, i32 noundef %135) #5
@@ -417,7 +417,7 @@ define internal fastcc range(i32 -11, 2) i32 @__blk_mq_sched_dispatch_requests(p
   br i1 %175, label %176, label %.loopexit43
 
 176:                                              ; preds = %.loopexit39
-  %177 = call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #6, !srcloc !17
+  %177 = call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #6, !srcloc !16
   %178 = inttoptr i64 %177 to ptr
   %179 = load volatile i64, ptr %178, align 8
   %180 = and i64 %179, 8
@@ -428,7 +428,7 @@ define internal fastcc range(i32 -11, 2) i32 @__blk_mq_sched_dispatch_requests(p
   %183 = load volatile i64, ptr @jiffies, align 64
   %184 = sub i64 %52, %183
   %185 = icmp slt i64 %184, 0
-  br i1 %185, label %.loopexit43.thread, label %57, !llvm.loop !18
+  br i1 %185, label %.loopexit43.thread, label %57, !llvm.loop !17
 
 .loopexit43.thread:                               ; preds = %176, %182
   call void @blk_mq_delay_run_hw_queue(ptr noundef %0, i64 noundef 0) #5
@@ -553,7 +553,7 @@ define internal fastcc range(i32 -11, 2) i32 @__blk_mq_sched_dispatch_requests(p
   %256 = getelementptr inbounds nuw i8, ptr %219, i64 16
   %257 = load ptr, ptr %256, align 8
   %258 = call zeroext i1 @blk_mq_dispatch_rq_list(ptr noundef %257, ptr noundef nonnull %2, i32 noundef 1) #5
-  br i1 %258, label %202, label %.critedge25.thread, !llvm.loop !19
+  br i1 %258, label %202, label %.critedge25.thread, !llvm.loop !18
 
 .critedge25.thread:                               ; preds = %202, %215, %208, %206, %236, %227
   %259 = phi i32 [ 0, %227 ], [ -11, %206 ], [ 0, %208 ], [ 0, %215 ], [ -11, %202 ], [ 0, %236 ]
@@ -595,7 +595,7 @@ define dso_local zeroext i1 @blk_mq_sched_bio_merge(ptr noundef %0, ptr noundef 
   br label %53
 
 14:                                               ; preds = %7, %3
-  %15 = tail call i32 asm sideeffect "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 12)) #5, !srcloc !20
+  %15 = tail call i32 asm sideeffect "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 12)) #5, !srcloc !19
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %17 = load ptr, ptr %16, align 8
   %18 = ptrtoint ptr %17 to i64
@@ -765,7 +765,7 @@ define dso_local i32 @blk_mq_init_sched(ptr noundef initializes((312, 320)) %0, 
 48:                                               ; preds = %37, %40
   %49 = call ptr @xa_find_after(ptr noundef nonnull %25, ptr noundef nonnull %6, i64 noundef -1, i32 noundef 8) #5
   %50 = icmp eq ptr %49, null
-  br i1 %50, label %.loopexit15, label %30, !llvm.loop !21
+  br i1 %50, label %.loopexit15, label %30, !llvm.loop !20
 
 .loopexit15:                                      ; preds = %48, %24
   %51 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -841,7 +841,7 @@ define dso_local i32 @blk_mq_init_sched(ptr noundef initializes((312, 320)) %0, 
 92:                                               ; preds = %88, %.preheader.i
   %93 = call ptr @xa_find_after(ptr noundef nonnull %25, ptr noundef nonnull %4, i64 noundef -1, i32 noundef 8) #5
   %94 = icmp eq ptr %93, null
-  br i1 %94, label %blk_mq_sched_free_rqs.exit, label %.preheader.i, !llvm.loop !22
+  br i1 %94, label %blk_mq_sched_free_rqs.exit, label %.preheader.i, !llvm.loop !21
 
 blk_mq_sched_free_rqs.exit:                       ; preds = %92, %78, %81
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #5
@@ -856,7 +856,7 @@ blk_mq_sched_free_rqs.exit:                       ; preds = %92, %78, %81
   call void @mutex_unlock(ptr noundef nonnull %56) #5
   %97 = call ptr @xa_find_after(ptr noundef nonnull %25, ptr noundef nonnull %6, i64 noundef -1, i32 noundef 8) #5
   %98 = icmp eq ptr %97, null
-  br i1 %98, label %.thread, label %61, !llvm.loop !23
+  br i1 %98, label %.thread, label %61, !llvm.loop !22
 
 .loopexit14:                                      ; preds = %40, %.loopexit15
   %99 = phi i32 [ %53, %.loopexit15 ], [ -12, %40 ]
@@ -897,7 +897,7 @@ blk_mq_sched_free_rqs.exit:                       ; preds = %92, %78, %81
 119:                                              ; preds = %115, %.preheader.i11
   %120 = call ptr @xa_find_after(ptr noundef nonnull %25, ptr noundef nonnull %3, i64 noundef -1, i32 noundef 8) #5
   %121 = icmp eq ptr %120, null
-  br i1 %121, label %blk_mq_sched_free_rqs.exit12, label %.preheader.i11, !llvm.loop !22
+  br i1 %121, label %blk_mq_sched_free_rqs.exit12, label %.preheader.i11, !llvm.loop !21
 
 blk_mq_sched_free_rqs.exit12:                     ; preds = %119, %105, %108
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #5
@@ -925,7 +925,7 @@ blk_mq_sched_free_rqs.exit12:                     ; preds = %119, %105, %108
 129:                                              ; preds = %128, %.preheader.split.us
   %130 = call ptr @xa_find_after(ptr noundef nonnull %25, ptr noundef nonnull %5, i64 noundef -1, i32 noundef 8) #5
   %131 = icmp eq ptr %130, null
-  br i1 %131, label %.loopexit, label %.preheader.split.us, !llvm.loop !24
+  br i1 %131, label %.loopexit, label %.preheader.split.us, !llvm.loop !23
 
 .preheader.split:                                 ; preds = %.preheader, %137
   %132 = phi ptr [ %138, %137 ], [ %122, %.preheader ]
@@ -941,7 +941,7 @@ blk_mq_sched_free_rqs.exit12:                     ; preds = %119, %105, %108
 137:                                              ; preds = %136, %.preheader.split
   %138 = call ptr @xa_find_after(ptr noundef nonnull %25, ptr noundef nonnull %5, i64 noundef -1, i32 noundef 8) #5
   %139 = icmp eq ptr %138, null
-  br i1 %139, label %.loopexit, label %.preheader.split, !llvm.loop !26
+  br i1 %139, label %.loopexit, label %.preheader.split, !llvm.loop !25
 
 .loopexit:                                        ; preds = %137, %129, %blk_mq_sched_free_rqs.exit12
   br i1 %18, label %143, label %140
@@ -1022,7 +1022,7 @@ define dso_local void @blk_mq_sched_free_rqs(ptr noundef %0) local_unnamed_addr 
 24:                                               ; preds = %20, %.preheader
   %25 = call ptr @xa_find_after(ptr noundef nonnull %13, ptr noundef nonnull %2, i64 noundef -1, i32 noundef 8) #5
   %26 = icmp eq ptr %25, null
-  br i1 %26, label %.loopexit, label %.preheader, !llvm.loop !22
+  br i1 %26, label %.loopexit, label %.preheader, !llvm.loop !21
 
 .loopexit:                                        ; preds = %24, %12, %9
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #5
@@ -1073,7 +1073,7 @@ define dso_local void @blk_mq_exit_sched(ptr noundef %0, ptr noundef %1) local_u
   %25 = load i64, ptr %24, align 8
   %26 = call ptr @xa_find_after(ptr noundef nonnull %5, ptr noundef nonnull %4, i64 noundef -1, i32 noundef 8) #5
   %27 = icmp eq ptr %26, null
-  br i1 %27, label %28, label %10, !llvm.loop !27
+  br i1 %27, label %28, label %10, !llvm.loop !26
 
 28:                                               ; preds = %23
   %.fr8 = freeze i64 %25
@@ -1122,7 +1122,7 @@ define dso_local void @blk_mq_exit_sched(ptr noundef %0, ptr noundef %1) local_u
 46:                                               ; preds = %45, %.preheader.split.us
   %47 = call ptr @xa_find_after(ptr noundef nonnull %5, ptr noundef nonnull %3, i64 noundef -1, i32 noundef 8) #5
   %48 = icmp eq ptr %47, null
-  br i1 %48, label %.loopexit, label %.preheader.split.us, !llvm.loop !28
+  br i1 %48, label %.loopexit, label %.preheader.split.us, !llvm.loop !27
 
 .preheader.split:                                 ; preds = %.preheader, %54
   %49 = phi ptr [ %55, %54 ], [ %39, %.preheader ]
@@ -1138,7 +1138,7 @@ define dso_local void @blk_mq_exit_sched(ptr noundef %0, ptr noundef %1) local_u
 54:                                               ; preds = %53, %.preheader.split
   %55 = call ptr @xa_find_after(ptr noundef nonnull %5, ptr noundef nonnull %3, i64 noundef -1, i32 noundef 8) #5
   %56 = icmp eq ptr %55, null
-  br i1 %56, label %.loopexit, label %.preheader.split, !llvm.loop !29
+  br i1 %56, label %.loopexit, label %.preheader.split, !llvm.loop !25
 
 .loopexit:                                        ; preds = %54, %46, %38
   br i1 %.fr, label %60, label %57
@@ -1247,22 +1247,20 @@ attributes #6 = { nounwind memory(none) }
 !8 = !{!"branch_weights", i32 2000, i32 1}
 !9 = !{i32 -11, i32 2}
 !10 = !{i64 2148154868}
-!11 = distinct !{!11, !12, !13, !14}
+!11 = distinct !{!11, !12, !13}
 !12 = !{!"llvm.loop.mustprogress"}
 !13 = !{!"llvm.loop.unroll.disable"}
-!14 = !{!"llvm.loop.estimated_trip_count"}
-!15 = distinct !{!15, !12, !13, !14}
-!16 = distinct !{!16, !12, !13, !14}
-!17 = !{i64 2148576368}
-!18 = distinct !{!18, !13, !14}
-!19 = distinct !{!19, !12, !13, !14}
-!20 = !{i64 2157550239}
-!21 = distinct !{!21, !12, !13, !14}
-!22 = distinct !{!22, !12, !13, !14}
-!23 = distinct !{!23, !12, !13, !14}
-!24 = distinct !{!24, !12, !13, !14, !25}
-!25 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!26 = distinct !{!26, !12, !13, !14}
-!27 = distinct !{!27, !12, !13, !14}
-!28 = distinct !{!28, !12, !13, !14, !25}
-!29 = distinct !{!29, !12, !13, !14}
+!14 = distinct !{!14, !12, !13}
+!15 = distinct !{!15, !12, !13}
+!16 = !{i64 2148576368}
+!17 = distinct !{!17, !13}
+!18 = distinct !{!18, !12, !13}
+!19 = !{i64 2157550239}
+!20 = distinct !{!20, !12, !13}
+!21 = distinct !{!21, !12, !13}
+!22 = distinct !{!22, !12, !13}
+!23 = distinct !{!23, !12, !13, !24}
+!24 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!25 = distinct !{!25, !12, !13}
+!26 = distinct !{!26, !12, !13}
+!27 = distinct !{!27, !12, !13, !24}

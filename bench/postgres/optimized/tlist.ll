@@ -624,7 +624,7 @@ define dso_local void @apply_tlist_labeling(ptr noundef readonly captures(addres
   %41 = getelementptr inbounds nuw i8, ptr %25, i64 42
   store i8 %40, ptr %41, align 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  br label %.split.split, !llvm.loop !9
+  br label %.split.split, !llvm.loop !8
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2078,7 +2078,7 @@ add_sp_items_to_pathtarget.exit170:               ; preds = %add_sp_items_to_pat
   %indvars.iv.next217 = add nsw i64 %indvars.iv216, 1
   %175 = sext i32 %174 to i64
   %176 = icmp slt i64 %indvars.iv.next217, %175
-  br i1 %176, label %.lr.ph203, label %.critedge151, !llvm.loop !10
+  br i1 %176, label %.lr.ph203, label %.critedge151, !llvm.loop !9
 
 .critedge151:                                     ; preds = %add_sp_items_to_pathtarget.exit170, %add_sp_items_to_pathtarget.exit
   %177 = load ptr, ptr %22, align 8
@@ -2172,7 +2172,7 @@ add_sp_items_to_pathtarget.exit170:               ; preds = %add_sp_items_to_pat
   %220 = getelementptr inbounds nuw i8, ptr %.0119, i64 8
   %221 = load ptr, ptr %220, align 8
   %indvars.iv.next226 = add nuw nsw i64 %indvars.iv225, 1
-  br label %.split, !llvm.loop !11
+  br label %.split, !llvm.loop !10
 
 .critedge.sink.split:                             ; preds = %8, %.critedge148.thread
   %.sink = phi ptr [ %64, %.critedge148.thread ], [ %10, %8 ]
@@ -2545,9 +2545,8 @@ attributes #11 = { cold nounwind }
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i8 0, i8 2}
 !5 = !{}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7, !8}
-!11 = distinct !{!11, !7, !8}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}

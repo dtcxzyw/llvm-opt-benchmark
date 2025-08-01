@@ -186,7 +186,7 @@ select.unfold.i.i:                                ; preds = %select.unfold.i.pre
   br i1 %.not.i, label %34, label %select.unfold.i.i, !llvm.loop !22
 
 34:                                               ; preds = %32
-  %35 = load ptr, ptr %3, align 8, !tbaa !25
+  %35 = load ptr, ptr %3, align 8, !tbaa !24
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 16
   %37 = load ptr, ptr %36, align 8
   tail call void %37(ptr noundef nonnull align 8 dereferenceable(24) %3, i32 noundef %33)
@@ -196,10 +196,10 @@ select.unfold.i.i:                                ; preds = %select.unfold.i.pre
 _ZN3url12CanonOutputTIcE4GrowEi.exit.sink.split.i: ; preds = %24, %34
   %.sink.i = phi i32 [ %38, %34 ], [ %26, %24 ]
   %.sink3.in.i = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %.sink3.i = load ptr, ptr %.sink3.in.i, align 8, !tbaa !27
+  %.sink3.i = load ptr, ptr %.sink3.in.i, align 8, !tbaa !26
   %39 = sext i32 %.sink.i to i64
   %40 = getelementptr inbounds i8, ptr %.sink3.i, i64 %39
-  store i8 47, ptr %40, align 1, !tbaa !28
+  store i8 47, ptr %40, align 1, !tbaa !27
   %41 = load i32, ptr %25, align 4, !tbaa !19
   %42 = add nsw i32 %41, 1
   store i32 %42, ptr %25, align 4, !tbaa !19
@@ -228,7 +228,7 @@ select.unfold.i.i63:                              ; preds = %select.unfold.i.pre
   br i1 %.not.i65, label %50, label %select.unfold.i.i63, !llvm.loop !22
 
 50:                                               ; preds = %48
-  %51 = load ptr, ptr %3, align 8, !tbaa !25
+  %51 = load ptr, ptr %3, align 8, !tbaa !24
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 16
   %53 = load ptr, ptr %52, align 8
   tail call void %53(ptr noundef nonnull align 8 dereferenceable(24) %3, i32 noundef %49)
@@ -238,10 +238,10 @@ select.unfold.i.i63:                              ; preds = %select.unfold.i.pre
 _ZN3url12CanonOutputTIcE4GrowEi.exit.sink.split.i66: ; preds = %_ZN3url12CanonOutputTIcE9push_backEc.exit, %50
   %.sink.i67 = phi i32 [ %54, %50 ], [ %44, %_ZN3url12CanonOutputTIcE9push_backEc.exit ]
   %.sink3.in.i68 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %.sink3.i69 = load ptr, ptr %.sink3.in.i68, align 8, !tbaa !27
+  %.sink3.i69 = load ptr, ptr %.sink3.in.i68, align 8, !tbaa !26
   %55 = sext i32 %.sink.i67 to i64
   %56 = getelementptr inbounds i8, ptr %.sink3.i69, i64 %55
-  store i8 47, ptr %56, align 1, !tbaa !28
+  store i8 47, ptr %56, align 1, !tbaa !27
   %57 = load i32, ptr %25, align 4, !tbaa !19
   %58 = add nsw i32 %57, 1
   store i32 %58, ptr %25, align 4, !tbaa !19
@@ -267,12 +267,12 @@ _ZN3url12CanonOutputTIcE4GrowEi.exit.sink.split.i66: ; preds = %_ZN3url12CanonOu
   %75 = icmp sgt i32 %74, 0
   %spec.select = and i1 %73, %75
   %76 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %77 = load ptr, ptr %76, align 8, !tbaa !27
-  %78 = load i32, ptr %4, align 8, !tbaa !29
+  %77 = load ptr, ptr %76, align 8, !tbaa !26
+  %78 = load i32, ptr %4, align 8, !tbaa !28
   %79 = sext i32 %78 to i64
   %80 = getelementptr inbounds i8, ptr %77, i64 %79
   %81 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  %82 = load i32, ptr %81, align 4, !tbaa !32
+  %82 = load i32, ptr %81, align 4, !tbaa !31
   %83 = tail call noundef i32 @_ZN3url20DefaultPortForSchemeEPKci(ptr noundef %80, i32 noundef %82)
   %84 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %85 = load ptr, ptr %84, align 8, !tbaa !12
@@ -287,19 +287,19 @@ _ZN3url12CanonOutputTIcE4GrowEi.exit.sink.split.i66: ; preds = %_ZN3url12CanonOu
 
 .thread:                                          ; preds = %5
   %92 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  store i32 0, ptr %92, align 4, !tbaa !33
+  store i32 0, ptr %92, align 4, !tbaa !32
   %93 = getelementptr inbounds nuw i8, ptr %4, i64 28
   store i32 -1, ptr %93, align 4, !tbaa !16
   %94 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store i32 0, ptr %94, align 4, !tbaa !33
+  store i32 0, ptr %94, align 4, !tbaa !32
   %95 = getelementptr inbounds nuw i8, ptr %4, i64 12
   store i32 -1, ptr %95, align 4, !tbaa !16
   %96 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store i32 0, ptr %96, align 4, !tbaa !33
+  store i32 0, ptr %96, align 4, !tbaa !32
   %97 = getelementptr inbounds nuw i8, ptr %4, i64 20
   store i32 -1, ptr %97, align 4, !tbaa !16
   %98 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  store i32 0, ptr %98, align 4, !tbaa !33
+  store i32 0, ptr %98, align 4, !tbaa !32
   %99 = getelementptr inbounds nuw i8, ptr %4, i64 36
   store i32 -1, ptr %99, align 4, !tbaa !16
   %100 = getelementptr inbounds nuw i8, ptr %1, i64 44
@@ -357,7 +357,7 @@ select.unfold.i.i73:                              ; preds = %select.unfold.i.pre
   br i1 %.not.i75, label %128, label %select.unfold.i.i73, !llvm.loop !22
 
 128:                                              ; preds = %126
-  %129 = load ptr, ptr %3, align 8, !tbaa !25
+  %129 = load ptr, ptr %3, align 8, !tbaa !24
   %130 = getelementptr inbounds nuw i8, ptr %129, i64 16
   %131 = load ptr, ptr %130, align 8
   tail call void %131(ptr noundef nonnull align 8 dereferenceable(24) %3, i32 noundef %127)
@@ -367,10 +367,10 @@ select.unfold.i.i73:                              ; preds = %select.unfold.i.pre
 _ZN3url12CanonOutputTIcE4GrowEi.exit.sink.split.i76: ; preds = %116, %128
   %.sink.i77 = phi i32 [ %132, %128 ], [ %120, %116 ]
   %.sink3.in.i78 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %.sink3.i79 = load ptr, ptr %.sink3.in.i78, align 8, !tbaa !27
+  %.sink3.i79 = load ptr, ptr %.sink3.in.i78, align 8, !tbaa !26
   %133 = sext i32 %.sink.i77 to i64
   %134 = getelementptr inbounds i8, ptr %.sink3.i79, i64 %133
-  store i8 47, ptr %134, align 1, !tbaa !28
+  store i8 47, ptr %134, align 1, !tbaa !27
   %135 = load i32, ptr %117, align 4, !tbaa !19
   %136 = add nsw i32 %135, 1
   store i32 %136, ptr %117, align 4, !tbaa !19
@@ -378,7 +378,7 @@ _ZN3url12CanonOutputTIcE4GrowEi.exit.sink.split.i76: ; preds = %116, %128
 
 137:                                              ; preds = %109
   %138 = getelementptr inbounds nuw i8, ptr %4, i64 40
-  store i32 0, ptr %138, align 4, !tbaa !33
+  store i32 0, ptr %138, align 4, !tbaa !32
   %139 = getelementptr inbounds nuw i8, ptr %4, i64 44
   store i32 -1, ptr %139, align 4, !tbaa !16
   br label %_ZN3url12CanonOutputTIcE9push_backEc.exit80
@@ -449,7 +449,7 @@ select.unfold.i.i.i:                              ; preds = %select.unfold.i.pre
   br i1 %.not.i.i, label %34, label %select.unfold.i.i.i, !llvm.loop !22
 
 34:                                               ; preds = %32
-  %35 = load ptr, ptr %4, align 8, !tbaa !25
+  %35 = load ptr, ptr %4, align 8, !tbaa !24
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 16
   %37 = load ptr, ptr %36, align 8
   tail call void %37(ptr noundef nonnull align 8 dereferenceable(24) %4, i32 noundef %33)
@@ -459,10 +459,10 @@ select.unfold.i.i.i:                              ; preds = %select.unfold.i.pre
 _ZN3url12CanonOutputTIcE4GrowEi.exit.sink.split.i.i: ; preds = %34, %24
   %.sink.i.i = phi i32 [ %38, %34 ], [ %26, %24 ]
   %.sink3.in.i.i = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %.sink3.i.i = load ptr, ptr %.sink3.in.i.i, align 8, !tbaa !27
+  %.sink3.i.i = load ptr, ptr %.sink3.in.i.i, align 8, !tbaa !26
   %39 = sext i32 %.sink.i.i to i64
   %40 = getelementptr inbounds i8, ptr %.sink3.i.i, i64 %39
-  store i8 47, ptr %40, align 1, !tbaa !28
+  store i8 47, ptr %40, align 1, !tbaa !27
   %41 = load i32, ptr %25, align 4, !tbaa !19
   %42 = add nsw i32 %41, 1
   store i32 %42, ptr %25, align 4, !tbaa !19
@@ -491,7 +491,7 @@ select.unfold.i.i63.i:                            ; preds = %select.unfold.i.pre
   br i1 %.not.i65.i, label %50, label %select.unfold.i.i63.i, !llvm.loop !22
 
 50:                                               ; preds = %48
-  %51 = load ptr, ptr %4, align 8, !tbaa !25
+  %51 = load ptr, ptr %4, align 8, !tbaa !24
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 16
   %53 = load ptr, ptr %52, align 8
   tail call void %53(ptr noundef nonnull align 8 dereferenceable(24) %4, i32 noundef %49)
@@ -501,10 +501,10 @@ select.unfold.i.i63.i:                            ; preds = %select.unfold.i.pre
 _ZN3url12CanonOutputTIcE4GrowEi.exit.sink.split.i66.i: ; preds = %50, %_ZN3url12CanonOutputTIcE9push_backEc.exit.i
   %.sink.i67.i = phi i32 [ %54, %50 ], [ %44, %_ZN3url12CanonOutputTIcE9push_backEc.exit.i ]
   %.sink3.in.i68.i = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %.sink3.i69.i = load ptr, ptr %.sink3.in.i68.i, align 8, !tbaa !27
+  %.sink3.i69.i = load ptr, ptr %.sink3.in.i68.i, align 8, !tbaa !26
   %55 = sext i32 %.sink.i67.i to i64
   %56 = getelementptr inbounds i8, ptr %.sink3.i69.i, i64 %55
-  store i8 47, ptr %56, align 1, !tbaa !28
+  store i8 47, ptr %56, align 1, !tbaa !27
   %57 = load i32, ptr %25, align 4, !tbaa !19
   %58 = add nsw i32 %57, 1
   store i32 %58, ptr %25, align 4, !tbaa !19
@@ -524,12 +524,12 @@ _ZN3url12CanonOutputTIcE4GrowEi.exit.sink.split.i66.i: ; preds = %50, %_ZN3url12
   %69 = icmp sgt i32 %68, 0
   %spec.select.i = and i1 %67, %69
   %70 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %71 = load ptr, ptr %70, align 8, !tbaa !27
-  %72 = load i32, ptr %5, align 8, !tbaa !29
+  %71 = load ptr, ptr %70, align 8, !tbaa !26
+  %72 = load i32, ptr %5, align 8, !tbaa !28
   %73 = sext i32 %72 to i64
   %74 = getelementptr inbounds i8, ptr %71, i64 %73
   %75 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  %76 = load i32, ptr %75, align 4, !tbaa !32
+  %76 = load i32, ptr %75, align 4, !tbaa !31
   %77 = tail call noundef i32 @_ZN3url20DefaultPortForSchemeEPKci(ptr noundef %74, i32 noundef %76)
   %78 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %79 = getelementptr inbounds nuw i8, ptr %5, i64 32
@@ -542,19 +542,19 @@ _ZN3url12CanonOutputTIcE4GrowEi.exit.sink.split.i66.i: ; preds = %50, %_ZN3url12
 
 .thread.i:                                        ; preds = %6
   %84 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  store i32 0, ptr %84, align 4, !tbaa !33
+  store i32 0, ptr %84, align 4, !tbaa !32
   %85 = getelementptr inbounds nuw i8, ptr %5, i64 28
   store i32 -1, ptr %85, align 4, !tbaa !16
   %86 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store i32 0, ptr %86, align 4, !tbaa !33
+  store i32 0, ptr %86, align 4, !tbaa !32
   %87 = getelementptr inbounds nuw i8, ptr %5, i64 12
   store i32 -1, ptr %87, align 4, !tbaa !16
   %88 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store i32 0, ptr %88, align 4, !tbaa !33
+  store i32 0, ptr %88, align 4, !tbaa !32
   %89 = getelementptr inbounds nuw i8, ptr %5, i64 20
   store i32 -1, ptr %89, align 4, !tbaa !16
   %90 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  store i32 0, ptr %90, align 4, !tbaa !33
+  store i32 0, ptr %90, align 4, !tbaa !32
   %91 = getelementptr inbounds nuw i8, ptr %5, i64 36
   store i32 -1, ptr %91, align 4, !tbaa !16
   %92 = getelementptr inbounds nuw i8, ptr %2, i64 44
@@ -610,7 +610,7 @@ select.unfold.i.i73.i:                            ; preds = %select.unfold.i.pre
   br i1 %.not.i75.i, label %118, label %select.unfold.i.i73.i, !llvm.loop !22
 
 118:                                              ; preds = %116
-  %119 = load ptr, ptr %4, align 8, !tbaa !25
+  %119 = load ptr, ptr %4, align 8, !tbaa !24
   %120 = getelementptr inbounds nuw i8, ptr %119, i64 16
   %121 = load ptr, ptr %120, align 8
   tail call void %121(ptr noundef nonnull align 8 dereferenceable(24) %4, i32 noundef %117)
@@ -620,10 +620,10 @@ select.unfold.i.i73.i:                            ; preds = %select.unfold.i.pre
 _ZN3url12CanonOutputTIcE4GrowEi.exit.sink.split.i76.i: ; preds = %118, %106
   %.sink.i77.i = phi i32 [ %122, %118 ], [ %110, %106 ]
   %.sink3.in.i78.i = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %.sink3.i79.i = load ptr, ptr %.sink3.in.i78.i, align 8, !tbaa !27
+  %.sink3.i79.i = load ptr, ptr %.sink3.in.i78.i, align 8, !tbaa !26
   %123 = sext i32 %.sink.i77.i to i64
   %124 = getelementptr inbounds i8, ptr %.sink3.i79.i, i64 %123
-  store i8 47, ptr %124, align 1, !tbaa !28
+  store i8 47, ptr %124, align 1, !tbaa !27
   %125 = load i32, ptr %107, align 4, !tbaa !19
   %126 = add nsw i32 %125, 1
   store i32 %126, ptr %107, align 4, !tbaa !19
@@ -631,7 +631,7 @@ _ZN3url12CanonOutputTIcE4GrowEi.exit.sink.split.i76.i: ; preds = %118, %106
 
 127:                                              ; preds = %99
   %128 = getelementptr inbounds nuw i8, ptr %5, i64 40
-  store i32 0, ptr %128, align 4, !tbaa !33
+  store i32 0, ptr %128, align 4, !tbaa !32
   %129 = getelementptr inbounds nuw i8, ptr %5, i64 44
   store i32 -1, ptr %129, align 4, !tbaa !16
   br label %_ZN3url12_GLOBAL__N_125DoCanonicalizeStandardURLIttEEbRKNS_18URLComponentSourceIT_EERKNS_6ParsedEPNS_16CharsetConverterEPNS_12CanonOutputTIcEEPS7_.exit
@@ -710,8 +710,8 @@ define noundef zeroext i1 @_ZN3url18ReplaceStandardURLEPKcRKNS_6ParsedERKNS_12Re
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store i64 1024, ptr %11, align 8
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  store ptr %12, ptr %10, align 8, !tbaa !27
-  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN3url14RawCanonOutputILi1024EEE, i64 16), ptr %7, align 8, !tbaa !25
+  store ptr %12, ptr %10, align 8, !tbaa !26
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN3url14RawCanonOutputILi1024EEE, i64 16), ptr %7, align 8, !tbaa !24
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %8) #13
   store ptr %0, ptr %8, align 8, !tbaa !3
   %13 = getelementptr inbounds nuw i8, ptr %8, i64 8
@@ -744,8 +744,8 @@ define noundef zeroext i1 @_ZN3url18ReplaceStandardURLEPKcRKNS_6ParsedERKNS_12Re
   call void @_ZN3url6ParsedD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %9) #13
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %9) #13
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %8) #13
-  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN3url15RawCanonOutputTIcLi1024EEE, i64 16), ptr %7, align 8, !tbaa !25
-  %25 = load ptr, ptr %10, align 8, !tbaa !27
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN3url15RawCanonOutputTIcLi1024EEE, i64 16), ptr %7, align 8, !tbaa !24
+  %25 = load ptr, ptr %10, align 8, !tbaa !26
   %.not.i = icmp eq ptr %25, %12
   %26 = icmp eq ptr %25, null
   %or.cond.i = or i1 %.not.i, %26
@@ -774,8 +774,8 @@ _ZN3url15RawCanonOutputTIcLi1024EED2Ev.exit:      ; preds = %24, %27
   %.pn = phi { ptr, i32 } [ %31, %30 ], [ %29, %28 ]
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %9) #13
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %8) #13
-  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN3url15RawCanonOutputTIcLi1024EEE, i64 16), ptr %7, align 8, !tbaa !25
-  %33 = load ptr, ptr %10, align 8, !tbaa !27
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN3url15RawCanonOutputTIcLi1024EEE, i64 16), ptr %7, align 8, !tbaa !24
+  %33 = load ptr, ptr %10, align 8, !tbaa !26
   %.not.i10 = icmp eq ptr %33, %12
   %34 = icmp eq ptr %33, null
   %or.cond.i11 = or i1 %.not.i10, %34
@@ -794,9 +794,9 @@ declare noundef zeroext i1 @_ZN3url28SetupUTF16OverrideComponentsEPKcRKNS_12Repl
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3url15RawCanonOutputTIcLi1024EED2Ev(ptr noundef nonnull align 8 dereferenceable(1048) %0) unnamed_addr #6 comdat align 2 {
-  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN3url15RawCanonOutputTIcLi1024EEE, i64 16), ptr %0, align 8, !tbaa !25
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN3url15RawCanonOutputTIcLi1024EEE, i64 16), ptr %0, align 8, !tbaa !24
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load ptr, ptr %2, align 8, !tbaa !27
+  %3 = load ptr, ptr %2, align 8, !tbaa !26
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.not = icmp eq ptr %3, %4
   %5 = icmp eq ptr %3, null
@@ -813,9 +813,9 @@ define linkonce_odr void @_ZN3url15RawCanonOutputTIcLi1024EED2Ev(ptr noundef non
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3url14RawCanonOutputILi1024EED0Ev(ptr noundef nonnull align 8 dereferenceable(1048) %0) unnamed_addr #7 comdat align 2 {
-  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN3url15RawCanonOutputTIcLi1024EEE, i64 16), ptr %0, align 8, !tbaa !25
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN3url15RawCanonOutputTIcLi1024EEE, i64 16), ptr %0, align 8, !tbaa !24
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load ptr, ptr %2, align 8, !tbaa !27
+  %3 = load ptr, ptr %2, align 8, !tbaa !26
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.not.i = icmp eq ptr %3, %4
   %5 = icmp eq ptr %3, null
@@ -837,7 +837,7 @@ define linkonce_odr void @_ZN3url15RawCanonOutputTIcLi1024EE6ResizeEi(ptr nounde
   %3 = sext i32 %narrow to i64
   %4 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %3) #15
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %6 = load ptr, ptr %5, align 8, !tbaa !27
+  %6 = load ptr, ptr %5, align 8, !tbaa !26
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %8 = load i32, ptr %7, align 4, !tbaa !19
   %. = tail call i32 @llvm.smin.i32(i32 %8, i32 %1)
@@ -854,7 +854,7 @@ define linkonce_odr void @_ZN3url15RawCanonOutputTIcLi1024EE6ResizeEi(ptr nounde
   br label %13
 
 13:                                               ; preds = %12, %2
-  store ptr %4, ptr %5, align 8, !tbaa !27
+  store ptr %4, ptr %5, align 8, !tbaa !26
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 %1, ptr %14, align 8, !tbaa !21
   ret void
@@ -862,9 +862,9 @@ define linkonce_odr void @_ZN3url15RawCanonOutputTIcLi1024EE6ResizeEi(ptr nounde
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3url15RawCanonOutputTIcLi1024EED0Ev(ptr noundef nonnull align 8 dereferenceable(1048) %0) unnamed_addr #6 comdat align 2 {
-  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN3url15RawCanonOutputTIcLi1024EEE, i64 16), ptr %0, align 8, !tbaa !25
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN3url15RawCanonOutputTIcLi1024EEE, i64 16), ptr %0, align 8, !tbaa !24
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load ptr, ptr %2, align 8, !tbaa !27
+  %3 = load ptr, ptr %2, align 8, !tbaa !26
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.not.i = icmp eq ptr %3, %4
   %5 = icmp eq ptr %3, null
@@ -967,15 +967,14 @@ attributes #15 = { builtin allocsize(0) }
 !19 = !{!20, !18, i64 20}
 !20 = !{!"_ZTSN3url12CanonOutputTIcEE", !5, i64 8, !18, i64 16, !18, i64 20}
 !21 = !{!20, !18, i64 16}
-!22 = distinct !{!22, !23, !24}
+!22 = distinct !{!22, !23}
 !23 = !{!"llvm.loop.mustprogress"}
-!24 = !{!"llvm.loop.estimated_trip_count"}
-!25 = !{!26, !26, i64 0}
-!26 = !{!"vtable pointer", !8, i64 0}
-!27 = !{!20, !5, i64 8}
-!28 = !{!7, !7, i64 0}
-!29 = !{!30, !18, i64 0}
-!30 = !{!"_ZTSN3url6ParsedE", !17, i64 0, !17, i64 8, !17, i64 16, !17, i64 24, !17, i64 32, !17, i64 40, !17, i64 48, !17, i64 56, !31, i64 64}
-!31 = !{!"p1 _ZTSN3url6ParsedE", !6, i64 0}
-!32 = !{!30, !18, i64 4}
-!33 = !{!17, !18, i64 0}
+!24 = !{!25, !25, i64 0}
+!25 = !{!"vtable pointer", !8, i64 0}
+!26 = !{!20, !5, i64 8}
+!27 = !{!7, !7, i64 0}
+!28 = !{!29, !18, i64 0}
+!29 = !{!"_ZTSN3url6ParsedE", !17, i64 0, !17, i64 8, !17, i64 16, !17, i64 24, !17, i64 32, !17, i64 40, !17, i64 48, !17, i64 56, !30, i64 64}
+!30 = !{!"p1 _ZTSN3url6ParsedE", !6, i64 0}
+!31 = !{!29, !18, i64 4}
+!32 = !{!17, !18, i64 0}

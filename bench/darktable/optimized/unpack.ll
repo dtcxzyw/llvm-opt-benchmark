@@ -643,14 +643,14 @@ define noundef range(i32 -100013, 1) i32 @_ZN6LibRaw6unpackEv(ptr noundef nonnul
   store i32 %323, ptr %321, align 4, !tbaa !106
   %indvars.iv.next145 = add nuw nsw i64 %indvars.iv144, 1
   %exitcond147.not = icmp eq i64 %indvars.iv.next145, 4
-  br i1 %exitcond147.not, label %324, label %.preheader, !llvm.loop !110
+  br i1 %exitcond147.not, label %324, label %.preheader, !llvm.loop !109
 
 324:                                              ; preds = %.preheader
   %325 = getelementptr inbounds nuw i8, ptr %0, i64 5504
   %326 = getelementptr inbounds nuw i8, ptr %0, i64 152992
-  %327 = load i32, ptr %326, align 8, !tbaa !111
+  %327 = load i32, ptr %326, align 8, !tbaa !110
   %328 = add i32 %327, %spec.select133
-  store i32 %328, ptr %326, align 8, !tbaa !111
+  store i32 %328, ptr %326, align 8, !tbaa !110
   %329 = getelementptr inbounds nuw i8, ptr %0, i64 194352
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(187048) %329, ptr noundef nonnull align 8 dereferenceable(187048) %325, i64 187048, i1 false)
   %330 = getelementptr inbounds nuw i8, ptr %0, i64 194152
@@ -1011,8 +1011,7 @@ attributes #14 = { noreturn nounwind }
 !104 = !{!7, !9, i64 193656}
 !105 = !{!7, !15, i64 381680}
 !106 = !{!15, !15, i64 0}
-!107 = distinct !{!107, !108, !109}
+!107 = distinct !{!107, !108}
 !108 = !{!"llvm.loop.mustprogress"}
-!109 = !{!"llvm.loop.estimated_trip_count"}
-!110 = distinct !{!110, !108, !109}
-!111 = !{!7, !15, i64 152992}
+!109 = distinct !{!109, !108}
+!110 = !{!7, !15, i64 152992}

@@ -128,7 +128,7 @@ define dso_local zeroext i1 @slurm_get_plugin_hash_enable(i32 noundef %0) local_
   %7 = sext i32 %0 to i64
   %8 = getelementptr inbounds %struct.auth_ops_t, ptr %6, i64 %7, i32 2
   %9 = load ptr, ptr %8, align 8
-  %10 = load i8, ptr %9, align 1, !range !12, !noundef !13
+  %10 = load i8, ptr %9, align 1, !range !11, !noundef !12
   %11 = trunc nuw i8 %10 to i1
   ret i1 %11
 }
@@ -156,7 +156,7 @@ define dso_local noundef zeroext i1 @auth_is_plugin_type_inited(i32 noundef %0) 
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   %or.cond = select i1 %8, i1 true, i1 %exitcond.not
-  br i1 %or.cond, label %._crit_edge, label %4, !llvm.loop !14
+  br i1 %or.cond, label %._crit_edge, label %4, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %4, %1
   %.not.lcssa = phi i1 [ false, %1 ], [ %8, %4 ]
@@ -355,7 +355,7 @@ thread-pre-split:                                 ; preds = %24
   %82 = phi ptr [ %80, %79 ], [ %.pre34, %._crit_edge ]
   %.2 = phi ptr [ null, %79 ], [ %.130, %._crit_edge ]
   %.not15 = icmp eq ptr %82, null
-  br i1 %.not15, label %.loopexit, label %.lr.ph, !llvm.loop !15
+  br i1 %.not15, label %.loopexit, label %.lr.ph, !llvm.loop !14
 
 .loopexit:                                        ; preds = %81, %36, %38, %7, %73
   %.0 = phi i32 [ 0, %7 ], [ 0, %38 ], [ -1, %73 ], [ 0, %36 ], [ 0, %81 ]
@@ -476,7 +476,7 @@ define dso_local range(i32 -1, 1) i32 @auth_g_fini() local_unnamed_addr #2 {
   %23 = load i32, ptr @g_context_num, align 4
   %24 = sext i32 %23 to i64
   %25 = icmp slt i64 %indvars.iv.next, %24
-  br i1 %25, label %.lr.ph, label %._crit_edge, !llvm.loop !16
+  br i1 %25, label %.lr.ph, label %._crit_edge, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %22, %.preheader
   %.011.lcssa = phi i32 [ 0, %.preheader ], [ %.1, %22 ]
@@ -1048,7 +1048,7 @@ define dso_local ptr @auth_g_unpack(ptr noundef %0, i16 noundef zeroext %1) loca
 21:                                               ; preds = %10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.preheader, label %10, !llvm.loop !17
+  br i1 %exitcond.not, label %._crit_edge.preheader, label %10, !llvm.loop !16
 
 ._crit_edge.preheader:                            ; preds = %21, %.preheader
   br label %._crit_edge
@@ -1175,7 +1175,7 @@ define dso_local ptr @auth_g_token_generate(i32 noundef %0, ptr noundef %1, i32 
 10:                                               ; preds = %11
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %11, !llvm.loop !18
+  br i1 %exitcond.not, label %.loopexit, label %11, !llvm.loop !17
 
 11:                                               ; preds = %.lr.ph, %10
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %10 ]
@@ -1232,7 +1232,7 @@ define dso_local i32 @auth_g_get_reconfig_fd(i32 noundef %0) local_unnamed_addr 
 8:                                                ; preds = %9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %9, !llvm.loop !19
+  br i1 %exitcond.not, label %.loopexit, label %9, !llvm.loop !18
 
 9:                                                ; preds = %.lr.ph, %8
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %8 ]
@@ -1323,15 +1323,14 @@ attributes #13 = { nounwind willreturn memory(none) }
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i32 7, !"frame-pointer", i32 2}
 !7 = !{i32 7, !"debug-info-assignment-tracking", i1 true}
-!8 = distinct !{!8, !9, !10, !11}
+!8 = distinct !{!8, !9, !10}
 !9 = !{!"llvm.loop.mustprogress"}
 !10 = !{!"llvm.loop.unroll.disable"}
-!11 = !{!"llvm.loop.estimated_trip_count"}
-!12 = !{i8 0, i8 2}
-!13 = !{}
-!14 = distinct !{!14, !9, !10, !11}
-!15 = distinct !{!15, !9, !10, !11}
-!16 = distinct !{!16, !9, !10, !11}
-!17 = distinct !{!17, !9, !10, !11}
-!18 = distinct !{!18, !9, !10, !11}
-!19 = distinct !{!19, !9, !10, !11}
+!11 = !{i8 0, i8 2}
+!12 = !{}
+!13 = distinct !{!13, !9, !10}
+!14 = distinct !{!14, !9, !10}
+!15 = distinct !{!15, !9, !10}
+!16 = distinct !{!16, !9, !10}
+!17 = distinct !{!17, !9, !10}
+!18 = distinct !{!18, !9, !10}

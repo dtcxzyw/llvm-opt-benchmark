@@ -89,7 +89,7 @@ define hidden void @_ZN14PosixSemaphore4waitEv(ptr noundef nonnull align 8 deref
   %5 = tail call ptr @__errno_location() #7
   %6 = load i32, ptr %5, align 4
   %7 = icmp eq i32 %6, 4
-  br i1 %7, label %2, label %.critedge, !llvm.loop !9
+  br i1 %7, label %2, label %.critedge, !llvm.loop !8
 
 .critedge:                                        ; preds = %2, %4
   ret void
@@ -110,7 +110,7 @@ define hidden noundef zeroext i1 @_ZN14PosixSemaphore7trywaitEv(ptr noundef nonn
   %5 = tail call ptr @__errno_location() #7
   %6 = load i32, ptr %5, align 4
   %7 = icmp eq i32 %6, 4
-  br i1 %7, label %2, label %.critedge, !llvm.loop !10
+  br i1 %7, label %2, label %.critedge, !llvm.loop !9
 
 .critedge:                                        ; preds = %2, %4
   ret i1 %.not
@@ -142,7 +142,7 @@ define hidden noundef zeroext i1 @_ZN14PosixSemaphore9timedwaitEl(ptr noundef no
   %10 = tail call ptr @__errno_location() #7
   %11 = load i32, ptr %10, align 4
   %cond.i = icmp eq i32 %11, 4
-  br i1 %cond.i, label %6, label %_ZN14PosixSemaphore9timedwaitE8timespec.exit, !llvm.loop !11
+  br i1 %cond.i, label %6, label %_ZN14PosixSemaphore9timedwaitE8timespec.exit
 
 _ZN14PosixSemaphore9timedwaitE8timespec.exit:     ; preds = %6, %9
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
@@ -168,7 +168,7 @@ define hidden noundef zeroext i1 @_ZN14PosixSemaphore9timedwaitE8timespec(ptr no
   %10 = tail call ptr @__errno_location() #7
   %11 = load i32, ptr %10, align 4
   %cond = icmp eq i32 %11, 4
-  br i1 %cond, label %6, label %12, !llvm.loop !11
+  br i1 %cond, label %6, label %12
 
 12:                                               ; preds = %9, %6
   ret i1 %8
@@ -200,9 +200,7 @@ attributes #8 = { noreturn nounwind }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7, !8}
-!11 = distinct !{!11, !8}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}

@@ -136,8 +136,8 @@ ocsp_find_signer.exit.thread:                     ; preds = %11, %ocsp_find_sign
   br i1 %.not.i.i, label %49, label %54
 
 54:                                               ; preds = %.lr.ph.i.i
-  %55 = load ptr, ptr %52, align 8, !tbaa !27
-  %56 = load ptr, ptr %48, align 8, !tbaa !27
+  %55 = load ptr, ptr %52, align 8, !tbaa !26
+  %56 = load ptr, ptr %48, align 8, !tbaa !26
   %57 = call i32 @OBJ_cmp(ptr noundef %55, ptr noundef %56) #4
   %.not17.i.i = icmp eq i32 %57, 0
   br i1 %.not17.i.i, label %ocsp_check_issuer.exit.thread53, label %.loopexit.i
@@ -238,13 +238,13 @@ define internal fastcc i32 @ocsp_verify(ptr noundef %0, ptr noundef %1, ptr noun
 11:                                               ; preds = %10
   %12 = tail call ptr @OCSP_REQINFO_it() #4
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %14 = load ptr, ptr %13, align 8, !tbaa !32
+  %14 = load ptr, ptr %13, align 8, !tbaa !31
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 16
-  %16 = load ptr, ptr %15, align 8, !tbaa !38
+  %16 = load ptr, ptr %15, align 8, !tbaa !37
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 368
-  %18 = load ptr, ptr %17, align 8, !tbaa !40
+  %18 = load ptr, ptr %17, align 8, !tbaa !39
   %19 = getelementptr inbounds nuw i8, ptr %2, i64 376
-  %20 = load ptr, ptr %19, align 8, !tbaa !60
+  %20 = load ptr, ptr %19, align 8, !tbaa !59
   %21 = tail call i32 @ASN1_item_verify_ex(ptr noundef %12, ptr noundef %14, ptr noundef %16, ptr noundef nonnull %0, ptr noundef null, ptr noundef nonnull %8, ptr noundef %18, ptr noundef %20) #4
   br label %32
 
@@ -252,11 +252,11 @@ define internal fastcc i32 @ocsp_verify(ptr noundef %0, ptr noundef %1, ptr noun
   %23 = tail call ptr @OCSP_RESPDATA_it() #4
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  %26 = load ptr, ptr %25, align 8, !tbaa !61
+  %26 = load ptr, ptr %25, align 8, !tbaa !60
   %27 = getelementptr inbounds nuw i8, ptr %2, i64 368
-  %28 = load ptr, ptr %27, align 8, !tbaa !40
+  %28 = load ptr, ptr %27, align 8, !tbaa !39
   %29 = getelementptr inbounds nuw i8, ptr %2, i64 376
-  %30 = load ptr, ptr %29, align 8, !tbaa !60
+  %30 = load ptr, ptr %29, align 8, !tbaa !59
   %31 = tail call i32 @ASN1_item_verify_ex(ptr noundef %23, ptr noundef nonnull %24, ptr noundef %26, ptr noundef %1, ptr noundef null, ptr noundef nonnull %8, ptr noundef %28, ptr noundef %30) #4
   br label %32
 
@@ -395,14 +395,14 @@ define range(i32 0, 2) i32 @OCSP_resp_get0_signer(ptr noundef readonly captures(
 ocsp_find_signer.exit:                            ; preds = %6, %3
   %.sink.i = phi ptr [ %5, %3 ], [ %9, %6 ]
   %.0.i = phi i32 [ 1, %3 ], [ %10, %6 ]
-  store ptr %.sink.i, ptr %1, align 8, !tbaa !62
+  store ptr %.sink.i, ptr %1, align 8, !tbaa !61
   ret i32 %.0.i
 }
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @OCSP_request_verify(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %6 = load ptr, ptr %5, align 8, !tbaa !32
+  %6 = load ptr, ptr %5, align 8, !tbaa !31
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %7, label %8
 
@@ -414,12 +414,12 @@ define range(i32 0, 2) i32 @OCSP_request_verify(ptr noundef %0, ptr noundef %1, 
 
 8:                                                ; preds = %4
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %10 = load ptr, ptr %9, align 8, !tbaa !64
+  %10 = load ptr, ptr %9, align 8, !tbaa !63
   %.not23 = icmp eq ptr %10, null
   br i1 %.not23, label %13, label %11
 
 11:                                               ; preds = %8
-  %12 = load i32, ptr %10, align 8, !tbaa !65
+  %12 = load i32, ptr %10, align 8, !tbaa !64
   %.not24 = icmp eq i32 %12, 4
   br i1 %.not24, label %14, label %13
 
@@ -431,14 +431,14 @@ define range(i32 0, 2) i32 @OCSP_request_verify(ptr noundef %0, ptr noundef %1, 
 
 14:                                               ; preds = %11
   %15 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %16 = load ptr, ptr %15, align 8, !tbaa !67
+  %16 = load ptr, ptr %15, align 8, !tbaa !66
   %17 = and i64 %3, 2
   %18 = icmp eq i64 %17, 0
   br i1 %18, label %19, label %23
 
 19:                                               ; preds = %14
   %20 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  %21 = load ptr, ptr %20, align 8, !tbaa !68
+  %21 = load ptr, ptr %20, align 8, !tbaa !67
   %22 = tail call ptr @X509_find_by_subject(ptr noundef %21, ptr noundef %16) #4
   %.not.i = icmp eq ptr %22, null
   br i1 %.not.i, label %23, label %ocsp_req_find_signer.exit.thread
@@ -478,9 +478,9 @@ ocsp_req_find_signer.exit.thread:                 ; preds = %19, %ocsp_req_find_
   br i1 %.not27, label %34, label %38
 
 34:                                               ; preds = %32
-  %35 = load ptr, ptr %5, align 8, !tbaa !32
+  %35 = load ptr, ptr %5, align 8, !tbaa !31
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 24
-  %37 = load ptr, ptr %36, align 8, !tbaa !68
+  %37 = load ptr, ptr %36, align 8, !tbaa !67
   br label %38
 
 38:                                               ; preds = %32, %34
@@ -533,10 +533,10 @@ declare void @X509_STORE_CTX_free(ptr noundef) local_unnamed_addr #2
 define internal fastcc ptr @ocsp_find_signer_sk(ptr noundef %0, ptr noundef readonly captures(none) %1) unnamed_addr #0 {
   %3 = alloca [20 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %3) #4
-  %4 = load i32, ptr %1, align 8, !tbaa !69
+  %4 = load i32, ptr %1, align 8, !tbaa !68
   %5 = icmp eq i32 %4, 0
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %7 = load ptr, ptr %6, align 8, !tbaa !67
+  %7 = load ptr, ptr %6, align 8, !tbaa !66
   br i1 %5, label %8, label %10
 
 8:                                                ; preds = %2
@@ -544,13 +544,13 @@ define internal fastcc ptr @ocsp_find_signer_sk(ptr noundef %0, ptr noundef read
   br label %.loopexit
 
 10:                                               ; preds = %2
-  %11 = load i32, ptr %7, align 8, !tbaa !70
+  %11 = load i32, ptr %7, align 8, !tbaa !69
   %.not = icmp eq i32 %11, 20
   br i1 %.not, label %12, label %.loopexit
 
 12:                                               ; preds = %10
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %14 = load ptr, ptr %13, align 8, !tbaa !71
+  %14 = load ptr, ptr %13, align 8, !tbaa !70
   %15 = tail call i32 @OPENSSL_sk_num(ptr noundef %0) #4
   %16 = icmp sgt i32 %15, 0
   br i1 %16, label %.lr.ph, label %.loopexit
@@ -563,9 +563,9 @@ define internal fastcc ptr @ocsp_find_signer_sk(ptr noundef %0, ptr noundef read
 
 18:                                               ; preds = %.lr.ph
   %19 = getelementptr inbounds nuw i8, ptr %17, i64 368
-  %20 = load ptr, ptr %19, align 8, !tbaa !40
+  %20 = load ptr, ptr %19, align 8, !tbaa !39
   %21 = getelementptr inbounds nuw i8, ptr %17, i64 376
-  %22 = load ptr, ptr %21, align 8, !tbaa !60
+  %22 = load ptr, ptr %21, align 8, !tbaa !59
   %23 = call ptr @EVP_MD_fetch(ptr noundef %20, ptr noundef nonnull @.str.2, ptr noundef %22) #4
   %24 = icmp eq ptr %23, null
   br i1 %24, label %.loopexit, label %25
@@ -585,7 +585,7 @@ define internal fastcc ptr @ocsp_find_signer_sk(ptr noundef %0, ptr noundef read
   %30 = add nuw nsw i32 %.01823, 1
   %31 = call i32 @OPENSSL_sk_num(ptr noundef %0) #4
   %32 = icmp slt i32 %30, %31
-  br i1 %32, label %.lr.ph, label %.loopexit, !llvm.loop !72
+  br i1 %32, label %.lr.ph, label %.loopexit, !llvm.loop !71
 
 .loopexit:                                        ; preds = %27, %25, %18, %29, %12, %10, %8
   %.0 = phi ptr [ %9, %8 ], [ null, %10 ], [ null, %12 ], [ %17, %27 ], [ null, %25 ], [ null, %18 ], [ null, %29 ]
@@ -616,7 +616,7 @@ define internal fastcc range(i32 -2147483648, 2) i32 @ocsp_match_issuerid(ptr no
 7:                                                ; preds = %3
   call void @llvm.lifetime.start.p0(i64 50, ptr nonnull %4) #4
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5) #4
-  %8 = load ptr, ptr %1, align 8, !tbaa !27
+  %8 = load ptr, ptr %1, align 8, !tbaa !26
   %9 = call i32 @OBJ_obj2txt(ptr noundef nonnull %4, i32 noundef 50, ptr noundef %8, i32 noundef 0) #4
   %10 = call i32 @ERR_set_mark() #4
   %11 = call ptr @EVP_MD_fetch(ptr noundef null, ptr noundef nonnull %4, ptr noundef null) #4
@@ -650,13 +650,13 @@ define internal fastcc range(i32 -2147483648, 2) i32 @ocsp_match_issuerid(ptr no
 
 22:                                               ; preds = %.thread
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %24 = load i32, ptr %23, align 8, !tbaa !73
+  %24 = load i32, ptr %23, align 8, !tbaa !72
   %.not43 = icmp eq i32 %24, %19
   br i1 %.not43, label %25, label %43
 
 25:                                               ; preds = %22
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %27 = load i32, ptr %26, align 8, !tbaa !74
+  %27 = load i32, ptr %26, align 8, !tbaa !73
   %.not44 = icmp eq i32 %27, %19
   br i1 %.not44, label %28, label %43
 
@@ -668,7 +668,7 @@ define internal fastcc range(i32 -2147483648, 2) i32 @ocsp_match_issuerid(ptr no
 
 31:                                               ; preds = %28
   %32 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %33 = load ptr, ptr %32, align 8, !tbaa !75
+  %33 = load ptr, ptr %32, align 8, !tbaa !74
   %34 = zext nneg i32 %19 to i64
   %bcmp = call i32 @bcmp(ptr nonnull %5, ptr %33, i64 %34)
   %.not46 = icmp eq i32 %bcmp, 0
@@ -687,7 +687,7 @@ define internal fastcc range(i32 -2147483648, 2) i32 @ocsp_match_issuerid(ptr no
 
 38:                                               ; preds = %35
   %39 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %40 = load ptr, ptr %39, align 8, !tbaa !76
+  %40 = load ptr, ptr %39, align 8, !tbaa !75
   %bcmp48 = call i32 @bcmp(ptr nonnull %5, ptr %40, i64 %34)
   %41 = icmp eq i32 %bcmp48, 0
   %42 = zext i1 %41 to i32
@@ -705,7 +705,7 @@ define internal fastcc range(i32 -2147483648, 2) i32 @ocsp_match_issuerid(ptr no
   %45 = add nuw nsw i32 %.03353, 1
   %46 = tail call i32 @OPENSSL_sk_num(ptr noundef %2) #4
   %.not42 = icmp slt i32 %45, %46
-  br i1 %.not42, label %.lr.ph, label %.loopexit, !llvm.loop !77
+  br i1 %.not42, label %.lr.ph, label %.loopexit, !llvm.loop !76
 
 .lr.ph:                                           ; preds = %.preheader, %44
   %.03353 = phi i32 [ %45, %44 ], [ 0, %.preheader ]
@@ -779,57 +779,56 @@ attributes #4 = { nounwind }
 !21 = !{!"ocsp_single_response_st", !22, i64 0, !23, i64 8, !11, i64 16, !11, i64 24, !15, i64 32}
 !22 = !{!"p1 _ZTS15ocsp_cert_id_st", !5, i64 0}
 !23 = !{!"p1 _ZTS19ocsp_cert_status_st", !5, i64 0}
-!24 = distinct !{!24, !25, !26}
+!24 = distinct !{!24, !25}
 !25 = !{!"llvm.loop.mustprogress"}
-!26 = !{!"llvm.loop.estimated_trip_count"}
-!27 = !{!28, !17, i64 0}
-!28 = !{!"ocsp_cert_id_st", !16, i64 0, !29, i64 16, !29, i64 40, !29, i64 64}
-!29 = !{!"asn1_string_st", !13, i64 0, !13, i64 4, !30, i64 8, !31, i64 16}
-!30 = !{!"p1 omnipotent char", !5, i64 0}
-!31 = !{!"long", !6, i64 0}
-!32 = !{!33, !37, i64 32}
-!33 = !{!"ocsp_request_st", !34, i64 0, !37, i64 32}
-!34 = !{!"ocsp_req_info_st", !11, i64 0, !35, i64 8, !36, i64 16, !15, i64 24}
-!35 = !{!"p1 _ZTS15GENERAL_NAME_st", !5, i64 0}
-!36 = !{!"p1 _ZTS20stack_st_OCSP_ONEREQ", !5, i64 0}
-!37 = !{!"p1 _ZTS17ocsp_signature_st", !5, i64 0}
-!38 = !{!39, !11, i64 16}
-!39 = !{!"ocsp_signature_st", !16, i64 0, !11, i64 16, !4, i64 24}
-!40 = !{!41, !50, i64 368}
-!41 = !{!"x509_st", !42, i64 0, !16, i64 136, !29, i64 152, !47, i64 176, !48, i64 192, !49, i64 200, !31, i64 216, !31, i64 224, !13, i64 232, !13, i64 236, !13, i64 240, !13, i64 244, !11, i64 248, !52, i64 256, !53, i64 264, !54, i64 272, !55, i64 280, !56, i64 288, !57, i64 296, !58, i64 304, !6, i64 312, !59, i64 336, !5, i64 344, !13, i64 352, !11, i64 360, !50, i64 368, !30, i64 376}
-!42 = !{!"x509_cinf_st", !11, i64 0, !29, i64 8, !16, i64 32, !43, i64 48, !44, i64 56, !43, i64 72, !45, i64 80, !11, i64 88, !11, i64 96, !15, i64 104, !46, i64 112}
-!43 = !{!"p1 _ZTS12X509_name_st", !5, i64 0}
-!44 = !{!"X509_val_st", !11, i64 0, !11, i64 8}
-!45 = !{!"p1 _ZTS14X509_pubkey_st", !5, i64 0}
-!46 = !{!"ASN1_ENCODING_st", !30, i64 0, !31, i64 8, !13, i64 16}
-!47 = !{!"x509_sig_info_st", !13, i64 0, !13, i64 4, !13, i64 8, !13, i64 12}
-!48 = !{!"", !6, i64 0}
-!49 = !{!"crypto_ex_data_st", !50, i64 0, !51, i64 8}
-!50 = !{!"p1 _ZTS15ossl_lib_ctx_st", !5, i64 0}
-!51 = !{!"p1 _ZTS13stack_st_void", !5, i64 0}
-!52 = !{!"p1 _ZTS18AUTHORITY_KEYID_st", !5, i64 0}
-!53 = !{!"p1 _ZTS20X509_POLICY_CACHE_st", !5, i64 0}
-!54 = !{!"p1 _ZTS19stack_st_DIST_POINT", !5, i64 0}
-!55 = !{!"p1 _ZTS21stack_st_GENERAL_NAME", !5, i64 0}
-!56 = !{!"p1 _ZTS19NAME_CONSTRAINTS_st", !5, i64 0}
-!57 = !{!"p1 _ZTS24stack_st_IPAddressFamily", !5, i64 0}
-!58 = !{!"p1 _ZTS16ASIdentifiers_st", !5, i64 0}
-!59 = !{!"p1 _ZTS16x509_cert_aux_st", !5, i64 0}
-!60 = !{!41, !30, i64 376}
-!61 = !{!9, !11, i64 64}
-!62 = !{!63, !63, i64 0}
-!63 = !{!"p1 _ZTS7x509_st", !5, i64 0}
-!64 = !{!33, !35, i64 8}
-!65 = !{!66, !13, i64 0}
-!66 = !{!"GENERAL_NAME_st", !13, i64 0, !6, i64 8}
-!67 = !{!6, !6, i64 0}
-!68 = !{!39, !4, i64 24}
-!69 = !{!12, !13, i64 0}
-!70 = !{!29, !13, i64 0}
-!71 = !{!29, !30, i64 8}
-!72 = distinct !{!72, !25, !26}
-!73 = !{!28, !13, i64 16}
-!74 = !{!28, !13, i64 40}
-!75 = !{!28, !30, i64 24}
-!76 = !{!28, !30, i64 48}
-!77 = distinct !{!77, !25, !26}
+!26 = !{!27, !17, i64 0}
+!27 = !{!"ocsp_cert_id_st", !16, i64 0, !28, i64 16, !28, i64 40, !28, i64 64}
+!28 = !{!"asn1_string_st", !13, i64 0, !13, i64 4, !29, i64 8, !30, i64 16}
+!29 = !{!"p1 omnipotent char", !5, i64 0}
+!30 = !{!"long", !6, i64 0}
+!31 = !{!32, !36, i64 32}
+!32 = !{!"ocsp_request_st", !33, i64 0, !36, i64 32}
+!33 = !{!"ocsp_req_info_st", !11, i64 0, !34, i64 8, !35, i64 16, !15, i64 24}
+!34 = !{!"p1 _ZTS15GENERAL_NAME_st", !5, i64 0}
+!35 = !{!"p1 _ZTS20stack_st_OCSP_ONEREQ", !5, i64 0}
+!36 = !{!"p1 _ZTS17ocsp_signature_st", !5, i64 0}
+!37 = !{!38, !11, i64 16}
+!38 = !{!"ocsp_signature_st", !16, i64 0, !11, i64 16, !4, i64 24}
+!39 = !{!40, !49, i64 368}
+!40 = !{!"x509_st", !41, i64 0, !16, i64 136, !28, i64 152, !46, i64 176, !47, i64 192, !48, i64 200, !30, i64 216, !30, i64 224, !13, i64 232, !13, i64 236, !13, i64 240, !13, i64 244, !11, i64 248, !51, i64 256, !52, i64 264, !53, i64 272, !54, i64 280, !55, i64 288, !56, i64 296, !57, i64 304, !6, i64 312, !58, i64 336, !5, i64 344, !13, i64 352, !11, i64 360, !49, i64 368, !29, i64 376}
+!41 = !{!"x509_cinf_st", !11, i64 0, !28, i64 8, !16, i64 32, !42, i64 48, !43, i64 56, !42, i64 72, !44, i64 80, !11, i64 88, !11, i64 96, !15, i64 104, !45, i64 112}
+!42 = !{!"p1 _ZTS12X509_name_st", !5, i64 0}
+!43 = !{!"X509_val_st", !11, i64 0, !11, i64 8}
+!44 = !{!"p1 _ZTS14X509_pubkey_st", !5, i64 0}
+!45 = !{!"ASN1_ENCODING_st", !29, i64 0, !30, i64 8, !13, i64 16}
+!46 = !{!"x509_sig_info_st", !13, i64 0, !13, i64 4, !13, i64 8, !13, i64 12}
+!47 = !{!"", !6, i64 0}
+!48 = !{!"crypto_ex_data_st", !49, i64 0, !50, i64 8}
+!49 = !{!"p1 _ZTS15ossl_lib_ctx_st", !5, i64 0}
+!50 = !{!"p1 _ZTS13stack_st_void", !5, i64 0}
+!51 = !{!"p1 _ZTS18AUTHORITY_KEYID_st", !5, i64 0}
+!52 = !{!"p1 _ZTS20X509_POLICY_CACHE_st", !5, i64 0}
+!53 = !{!"p1 _ZTS19stack_st_DIST_POINT", !5, i64 0}
+!54 = !{!"p1 _ZTS21stack_st_GENERAL_NAME", !5, i64 0}
+!55 = !{!"p1 _ZTS19NAME_CONSTRAINTS_st", !5, i64 0}
+!56 = !{!"p1 _ZTS24stack_st_IPAddressFamily", !5, i64 0}
+!57 = !{!"p1 _ZTS16ASIdentifiers_st", !5, i64 0}
+!58 = !{!"p1 _ZTS16x509_cert_aux_st", !5, i64 0}
+!59 = !{!40, !29, i64 376}
+!60 = !{!9, !11, i64 64}
+!61 = !{!62, !62, i64 0}
+!62 = !{!"p1 _ZTS7x509_st", !5, i64 0}
+!63 = !{!32, !34, i64 8}
+!64 = !{!65, !13, i64 0}
+!65 = !{!"GENERAL_NAME_st", !13, i64 0, !6, i64 8}
+!66 = !{!6, !6, i64 0}
+!67 = !{!38, !4, i64 24}
+!68 = !{!12, !13, i64 0}
+!69 = !{!28, !13, i64 0}
+!70 = !{!28, !29, i64 8}
+!71 = distinct !{!71, !25}
+!72 = !{!27, !13, i64 16}
+!73 = !{!27, !13, i64 40}
+!74 = !{!27, !29, i64 24}
+!75 = !{!27, !29, i64 48}
+!76 = distinct !{!76, !25}

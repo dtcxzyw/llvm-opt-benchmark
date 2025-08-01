@@ -352,7 +352,7 @@ define dso_local noundef i64 @inet_spg_picksplit(ptr noundef readonly captures(n
   %79 = load i32, ptr %4, align 8
   %80 = sext i32 %79 to i64
   %81 = icmp slt i64 %indvars.iv.next105, %80
-  br i1 %81, label %.lr.ph98, label %.loopexit, !llvm.loop !9
+  br i1 %81, label %.lr.ph98, label %.loopexit, !llvm.loop !8
 
 82:                                               ; preds = %._crit_edge
   store i8 1, ptr %7, align 8
@@ -419,7 +419,7 @@ inet_spg_node_number.exit:                        ; preds = %93, %106
   %122 = load i32, ptr %4, align 8
   %123 = sext i32 %122 to i64
   %124 = icmp slt i64 %indvars.iv.next102, %123
-  br i1 %124, label %93, label %.loopexit, !llvm.loop !10
+  br i1 %124, label %93, label %.loopexit, !llvm.loop !9
 
 .loopexit:                                        ; preds = %inet_spg_node_number.exit, %.lr.ph98, %82, %59
   ret i64 0
@@ -513,7 +513,7 @@ define dso_local noundef i64 @inet_spg_inner_consistent(ptr noundef readonly cap
   %47 = load i32, ptr %11, align 8
   %48 = sext i32 %47 to i64
   %49 = icmp slt i64 %indvars.iv.next, %48
-  br i1 %49, label %.lr.ph, label %.loopexit52, !llvm.loop !11
+  br i1 %49, label %.lr.ph, label %.loopexit52, !llvm.loop !10
 
 50:                                               ; preds = %1
   %51 = getelementptr inbounds nuw i8, ptr %4, i64 53
@@ -580,7 +580,7 @@ define dso_local noundef i64 @inet_spg_inner_consistent(ptr noundef readonly cap
   %83 = phi i32 [ %72, %.lr.ph56 ], [ %.pre, %75 ]
   %84 = add nuw nsw i32 %.155, 1
   %85 = icmp slt i32 %84, %83
-  br i1 %85, label %.lr.ph56, label %.loopexit, !llvm.loop !12
+  br i1 %85, label %.lr.ph56, label %.loopexit, !llvm.loop !11
 
 .loopexit:                                        ; preds = %82, %63, %.loopexit52
   ret i64 0
@@ -994,7 +994,7 @@ default.unreachable:                              ; preds = %165
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.1.fr = freeze i32 %.4318
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.thread306, label %19, !llvm.loop !13
+  br i1 %exitcond.not, label %.thread306, label %19, !llvm.loop !12
 
 .thread306:                                       ; preds = %182, %179, %176, %181, %178, %175, %select.unfold277, %select.unfold298, %.thread313, %select.unfold260, %select.unfold289, %37, %38, %40, %42, %61, %76, %68, %87, %88, %90, %127, %4
   %.2 = phi i32 [ %., %4 ], [ 0, %182 ], [ 0, %179 ], [ 0, %176 ], [ 0, %181 ], [ 0, %178 ], [ 0, %175 ], [ 0, %select.unfold277 ], [ 0, %select.unfold298 ], [ 0, %127 ], [ 0, %90 ], [ 0, %88 ], [ 0, %87 ], [ 0, %68 ], [ 0, %76 ], [ 0, %61 ], [ 0, %42 ], [ 0, %40 ], [ 0, %38 ], [ 0, %37 ], [ 0, %select.unfold289 ], [ 0, %select.unfold260 ], [ %.1.fr, %.thread313 ]
@@ -1048,11 +1048,10 @@ attributes #4 = { nounwind }
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i8 0, i8 2}
 !5 = !{}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7, !8}
-!11 = distinct !{!11, !7, !8}
-!12 = distinct !{!12, !7, !8}
-!13 = distinct !{!13, !7, !8}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7}
+!12 = distinct !{!12, !7}

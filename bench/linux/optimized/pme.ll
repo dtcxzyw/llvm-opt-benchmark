@@ -467,7 +467,7 @@ define internal void @pcie_pme_work_fn(ptr noundef %0) #1 align 16 {
   call void @_raw_spin_lock_irq(ptr noundef %3) #9
   %115 = load i8, ptr %8, align 8, !range !5, !noundef !6
   %116 = icmp eq i8 %115, 0
-  br i1 %116, label %17, label %.thread17, !llvm.loop !12
+  br i1 %116, label %17, label %.thread17, !llvm.loop !11
 
 117:                                              ; preds = %21
   %118 = and i32 %19, 131072
@@ -476,7 +476,7 @@ define internal void @pcie_pme_work_fn(ptr noundef %0) #1 align 16 {
 
 120:                                              ; preds = %117
   call void @_raw_spin_unlock_irq(ptr noundef %3) #9
-  call void asm sideeffect "rep; nop", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !13
+  call void asm sideeffect "rep; nop", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !12
   br label %.thread15
 
 121:                                              ; preds = %117, %17
@@ -613,7 +613,7 @@ define internal fastcc zeroext i1 @pcie_pme_walk_bus(ptr noundef readonly captur
   %31 = phi i8 [ %23, %22 ], [ %29, %27 ]
   %32 = load ptr, ptr %5, align 8
   %33 = icmp eq ptr %32, %2
-  br i1 %33, label %34, label %.preheader, !llvm.loop !14
+  br i1 %33, label %34, label %.preheader, !llvm.loop !13
 
 34:                                               ; preds = %30
   %35 = icmp ne i8 %31, 0
@@ -708,7 +708,7 @@ define internal fastcc noundef zeroext i1 @pcie_pme_check_wakeup(ptr noundef rea
   %18 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %19 = load ptr, ptr %18, align 8
   %20 = tail call fastcc zeroext i1 @pcie_pme_check_wakeup(ptr noundef %19)
-  br i1 %20, label %.loopexit, label %5, !llvm.loop !15
+  br i1 %20, label %.loopexit, label %5, !llvm.loop !14
 
 .loopexit:                                        ; preds = %17, %13, %5, %1
   %21 = phi i1 [ false, %1 ], [ %.not.not.not, %5 ], [ %.not.not.not, %13 ], [ %.not.not.not, %17 ]
@@ -744,11 +744,10 @@ attributes #11 = { cold nounwind }
 !5 = !{i8 0, i8 2}
 !6 = !{}
 !7 = !{!"auto-init"}
-!8 = distinct !{!8, !9, !10, !11}
+!8 = distinct !{!8, !9, !10}
 !9 = !{!"llvm.loop.mustprogress"}
 !10 = !{!"llvm.loop.unroll.disable"}
-!11 = !{!"llvm.loop.estimated_trip_count"}
-!12 = distinct !{!12, !10, !11}
-!13 = !{i64 2256933}
-!14 = distinct !{!14, !9, !10, !11}
-!15 = distinct !{!15, !9, !10, !11}
+!11 = distinct !{!11, !10}
+!12 = !{i64 2256933}
+!13 = distinct !{!13, !9, !10}
+!14 = distinct !{!14, !9, !10}

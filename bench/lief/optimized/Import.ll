@@ -118,7 +118,7 @@ define hidden void @_ZN4LIEF2PE15destroy_importsEP11Pe_Binary_t(ptr noundef read
   %11 = getelementptr inbounds nuw ptr, ptr %3, i64 %10
   %12 = load ptr, ptr %11, align 8, !tbaa !22
   %.not = icmp eq ptr %12, null
-  br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !54
+  br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !53
 
 13:                                               ; preds = %1, %._crit_edge
   ret void
@@ -189,7 +189,6 @@ attributes #5 = { nounwind }
 !48 = !{!49, !4, i64 8}
 !49 = !{!"_ZTSNSt12_Vector_baseIN4LIEF2PE6ImportESaIS2_EE17_Vector_impl_dataE", !4, i64 0, !4, i64 8, !4, i64 16}
 !50 = !{!49, !4, i64 0}
-!51 = distinct !{!51, !52, !53}
+!51 = distinct !{!51, !52}
 !52 = !{!"llvm.loop.mustprogress"}
-!53 = !{!"llvm.loop.estimated_trip_count"}
-!54 = distinct !{!54, !52, !53}
+!53 = distinct !{!53, !52}

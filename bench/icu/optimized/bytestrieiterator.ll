@@ -1133,7 +1133,7 @@ _ZN6icu_779UVector3214ensureCapacityEiR10UErrorCode.exit.thread.i31: ; preds = %
 _ZN6icu_779UVector3210addElementEiR10UErrorCode.exit36: ; preds = %_ZN6icu_779UVector3214ensureCapacityEiR10UErrorCode.exit.i32, %_ZN6icu_779UVector3214ensureCapacityEiR10UErrorCode.exit.thread.i31
   %68 = tail call noundef ptr @_ZN6icu_779BytesTrie11jumpByDeltaEPKh(ptr noundef nonnull %9)
   %69 = icmp samesign ugt i32 %.02854, 11
-  br i1 %69, label %8, label %._crit_edge, !llvm.loop !44
+  br i1 %69, label %8, label %._crit_edge, !llvm.loop !43
 
 ._crit_edge:                                      ; preds = %_ZN6icu_779UVector3210addElementEiR10UErrorCode.exit36, %4
   %.028.lcssa = phi i32 [ %2, %4 ], [ %47, %_ZN6icu_779UVector3210addElementEiR10UErrorCode.exit36 ]
@@ -1376,7 +1376,6 @@ attributes #15 = { noreturn nounwind }
 !38 = !{!"_ZTSN6icu_777UObjectE"}
 !39 = !{!"p1 int", !6, i64 0}
 !40 = !{!37, !39, i64 24}
-!41 = distinct !{!41, !42, !43}
+!41 = distinct !{!41, !42}
 !42 = !{!"llvm.loop.mustprogress"}
-!43 = !{!"llvm.loop.estimated_trip_count"}
-!44 = distinct !{!44, !42, !43}
+!43 = distinct !{!43, !42}

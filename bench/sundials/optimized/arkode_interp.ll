@@ -1427,7 +1427,7 @@ define range(i32 -20, 1) i32 @arkInterpResize_Lagrange(ptr noundef %0, ptr nound
   %19 = load i32, ptr %18, align 4, !tbaa !56
   %20 = sext i32 %19 to i64
   %21 = icmp slt i64 %indvars.iv.next, %20
-  br i1 %21, label %.lr.ph, label %.loopexit, !llvm.loop !57
+  br i1 %21, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %.preheader, %16
   %indvars.iv = phi i64 [ %indvars.iv.next, %16 ], [ 0, %.preheader ]
@@ -1442,7 +1442,7 @@ define range(i32 -20, 1) i32 @arkInterpResize_Lagrange(ptr noundef %0, ptr nound
 .loopexit:                                        ; preds = %16, %.preheader, %9
   %27 = phi ptr [ %10, %.preheader ], [ %10, %9 ], [ %17, %16 ]
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 24
-  store i32 0, ptr %28, align 8, !tbaa !59
+  store i32 0, ptr %28, align 8, !tbaa !57
   br label %.loopexit17
 
 .loopexit17:                                      ; preds = %.lr.ph, %7, %.loopexit
@@ -1498,7 +1498,7 @@ define void @arkInterpFree_Lagrange(ptr noundef %0, ptr noundef captures(address
   %25 = load i32, ptr %24, align 4, !tbaa !56
   %26 = sext i32 %25 to i64
   %27 = icmp slt i64 %indvars.iv.next, %26
-  br i1 %27, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !60
+  br i1 %27, label %.lr.ph, label %._crit_edge.loopexit
 
 ._crit_edge.loopexit:                             ; preds = %22
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %23, i64 8
@@ -1516,7 +1516,7 @@ define void @arkInterpFree_Lagrange(ptr noundef %0, ptr noundef captures(address
 31:                                               ; preds = %._crit_edge, %6
   %32 = phi ptr [ %29, %._crit_edge ], [ %5, %6 ]
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 16
-  %34 = load ptr, ptr %33, align 8, !tbaa !61
+  %34 = load ptr, ptr %33, align 8, !tbaa !58
   %.not32 = icmp eq ptr %34, null
   br i1 %.not32, label %38, label %35
 
@@ -1524,7 +1524,7 @@ define void @arkInterpFree_Lagrange(ptr noundef %0, ptr noundef captures(address
   tail call void @free(ptr noundef nonnull %34) #14
   %36 = load ptr, ptr %1, align 8, !tbaa !17
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 16
-  store ptr null, ptr %37, align 8, !tbaa !61
+  store ptr null, ptr %37, align 8, !tbaa !58
   br label %38
 
 38:                                               ; preds = %35, %31
@@ -1575,11 +1575,11 @@ define void @arkInterpPrintMem_Lagrange(ptr noundef readonly captures(address_is
   %6 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.8, i32 noundef %5) #14
   %7 = load ptr, ptr %0, align 8, !tbaa !17
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  %9 = load i32, ptr %8, align 8, !tbaa !59
+  %9 = load i32, ptr %8, align 8, !tbaa !57
   %10 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.9, i32 noundef %9) #14
   %11 = load ptr, ptr %0, align 8, !tbaa !17
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
-  %13 = load ptr, ptr %12, align 8, !tbaa !61
+  %13 = load ptr, ptr %12, align 8, !tbaa !58
   %.not23 = icmp eq ptr %13, null
   br i1 %.not23, label %29, label %14
 
@@ -1594,7 +1594,7 @@ define void @arkInterpPrintMem_Lagrange(ptr noundef readonly captures(address_is
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %14 ]
   %19 = phi ptr [ %25, %.lr.ph ], [ %16, %14 ]
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 16
-  %21 = load ptr, ptr %20, align 8, !tbaa !61
+  %21 = load ptr, ptr %20, align 8, !tbaa !58
   %22 = getelementptr inbounds nuw double, ptr %21, i64 %indvars.iv
   %23 = load double, ptr %22, align 8, !tbaa !47
   %24 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.11, double noundef %23) #14
@@ -1603,7 +1603,7 @@ define void @arkInterpPrintMem_Lagrange(ptr noundef readonly captures(address_is
   %26 = load i32, ptr %25, align 8, !tbaa !49
   %27 = sext i32 %26 to i64
   %28 = icmp slt i64 %indvars.iv.next, %27
-  br i1 %28, label %.lr.ph, label %._crit_edge, !llvm.loop !62
+  br i1 %28, label %.lr.ph, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph, %14
   %fputc = tail call i32 @fputc(i32 10, ptr %1)
@@ -1637,7 +1637,7 @@ define void @arkInterpPrintMem_Lagrange(ptr noundef readonly captures(address_is
   %45 = load i32, ptr %44, align 8, !tbaa !49
   %46 = sext i32 %45 to i64
   %47 = icmp slt i64 %indvars.iv.next33, %46
-  br i1 %47, label %.lr.ph29, label %._crit_edge30, !llvm.loop !63
+  br i1 %47, label %.lr.ph29, label %._crit_edge30
 
 ._crit_edge30:                                    ; preds = %.lr.ph29, %33
   %fputc25 = tail call i32 @fputc(i32 10, ptr %1)
@@ -1678,7 +1678,7 @@ define range(i32 -28, 1) i32 @arkInterpInit_Lagrange(ptr noundef %0, ptr noundef
 
 9:                                                ; preds = %3
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %11 = load ptr, ptr %10, align 8, !tbaa !61
+  %11 = load ptr, ptr %10, align 8, !tbaa !58
   %.not = icmp eq ptr %11, null
   br i1 %.not, label %15, label %12
 
@@ -1686,7 +1686,7 @@ define range(i32 -28, 1) i32 @arkInterpInit_Lagrange(ptr noundef %0, ptr noundef
   tail call void @free(ptr noundef nonnull %11) #14
   %13 = load ptr, ptr %1, align 8, !tbaa !17
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
-  store ptr null, ptr %14, align 8, !tbaa !61
+  store ptr null, ptr %14, align 8, !tbaa !58
   br label %15
 
 15:                                               ; preds = %12, %9
@@ -1728,7 +1728,7 @@ define range(i32 -28, 1) i32 @arkInterpInit_Lagrange(ptr noundef %0, ptr noundef
   %35 = load i32, ptr %34, align 4, !tbaa !56
   %36 = sext i32 %35 to i64
   %37 = icmp slt i64 %indvars.iv.next, %36
-  br i1 %37, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !64
+  br i1 %37, label %.lr.ph, label %._crit_edge.loopexit
 
 ._crit_edge.loopexit:                             ; preds = %32
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %33, i64 8
@@ -1746,7 +1746,7 @@ define range(i32 -28, 1) i32 @arkInterpInit_Lagrange(ptr noundef %0, ptr noundef
 41:                                               ; preds = %15, %._crit_edge, %3
   %42 = phi ptr [ %16, %15 ], [ %39, %._crit_edge ], [ %4, %3 ]
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 16
-  %44 = load ptr, ptr %43, align 8, !tbaa !61
+  %44 = load ptr, ptr %43, align 8, !tbaa !58
   %45 = icmp eq ptr %44, null
   br i1 %45, label %46, label %56
 
@@ -1755,7 +1755,7 @@ define range(i32 -28, 1) i32 @arkInterpInit_Lagrange(ptr noundef %0, ptr noundef
   %48 = sext i32 %47 to i64
   %49 = shl nsw i64 %48, 3
   %50 = tail call noalias ptr @malloc(i64 noundef %49) #15
-  store ptr %50, ptr %43, align 8, !tbaa !61
+  store ptr %50, ptr %43, align 8, !tbaa !58
   %51 = icmp eq ptr %50, null
   br i1 %51, label %arkInterpFree.exit, label %56
 
@@ -1804,7 +1804,7 @@ arkInterpFree.exit65:                             ; preds = %61
   %74 = load i32, ptr %73, align 8, !tbaa !49
   %75 = sext i32 %74 to i64
   %76 = icmp slt i64 %indvars.iv.next79, %75
-  br i1 %76, label %77, label %.loopexit, !llvm.loop !65
+  br i1 %76, label %77, label %.loopexit
 
 77:                                               ; preds = %.lr.ph71, %72
   %indvars.iv78 = phi i64 [ 0, %.lr.ph71 ], [ %indvars.iv.next79, %72 ]
@@ -1845,7 +1845,7 @@ arkInterpFree.exit66:                             ; preds = %77
 
 .lr.ph74:                                         ; preds = %94
   %97 = getelementptr inbounds nuw i8, ptr %89, i64 16
-  %98 = load ptr, ptr %97, align 8, !tbaa !61
+  %98 = load ptr, ptr %97, align 8, !tbaa !58
   %99 = zext nneg i32 %95 to i64
   %100 = shl nuw nsw i64 %99, 3
   tail call void @llvm.memset.p0.i64(ptr align 8 %98, i8 0, i64 %100, i1 false), !tbaa !47
@@ -1861,7 +1861,7 @@ arkInterpFree.exit66:                             ; preds = %77
 104:                                              ; preds = %._crit_edge75
   %105 = load ptr, ptr %1, align 8, !tbaa !17
   %106 = getelementptr inbounds nuw i8, ptr %105, i64 16
-  %107 = load ptr, ptr %106, align 8, !tbaa !61
+  %107 = load ptr, ptr %106, align 8, !tbaa !58
   store double %2, ptr %107, align 8, !tbaa !47
   %108 = getelementptr inbounds nuw i8, ptr %0, i64 592
   %109 = load ptr, ptr %108, align 8, !tbaa !40
@@ -1871,7 +1871,7 @@ arkInterpFree.exit66:                             ; preds = %77
   tail call void @N_VScale(double noundef 1.000000e+00, ptr noundef %109, ptr noundef %112) #14
   %113 = load ptr, ptr %1, align 8, !tbaa !17
   %114 = getelementptr inbounds nuw i8, ptr %113, i64 24
-  store i32 1, ptr %114, align 8, !tbaa !59
+  store i32 1, ptr %114, align 8, !tbaa !57
   br label %115
 
 115:                                              ; preds = %._crit_edge75, %104, %arkInterpFree.exit66, %arkInterpFree.exit65, %arkInterpFree.exit
@@ -1883,10 +1883,10 @@ arkInterpFree.exit66:                             ; preds = %77
 define noundef i32 @arkInterpUpdate_Lagrange(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, double noundef %2) #0 {
   %4 = load ptr, ptr %1, align 8, !tbaa !17
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  %6 = load i32, ptr %5, align 8, !tbaa !59
+  %6 = load i32, ptr %5, align 8, !tbaa !57
   %7 = load i32, ptr %4, align 8, !tbaa !49
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %9 = load ptr, ptr %8, align 8, !tbaa !61
+  %9 = load ptr, ptr %8, align 8, !tbaa !58
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %11 = load ptr, ptr %10, align 8, !tbaa !55
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1923,7 +1923,7 @@ define noundef i32 @arkInterpUpdate_Lagrange(ptr noundef readonly captures(none)
   %.048. = select i1 %32, double %.04850, double %31
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !66
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   %.048.lcssa = phi double [ %26, %3 ], [ %.048., %.lr.ph ]
@@ -1954,19 +1954,19 @@ define noundef i32 @arkInterpUpdate_Lagrange(ptr noundef readonly captures(none)
   %46 = getelementptr inbounds nuw ptr, ptr %11, i64 %indvars.iv57
   store ptr %45, ptr %46, align 8, !tbaa !48
   %47 = icmp samesign ugt i64 %indvars.iv57, 1
-  br i1 %47, label %.lr.ph54, label %._crit_edge55, !llvm.loop !67
+  br i1 %47, label %.lr.ph54, label %._crit_edge55
 
 ._crit_edge55:                                    ; preds = %.lr.ph54, %34
   store ptr %38, ptr %11, align 8, !tbaa !48
   store double %2, ptr %9, align 8, !tbaa !47
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 584
-  %49 = load ptr, ptr %48, align 8, !tbaa !68
+  %49 = load ptr, ptr %48, align 8, !tbaa !59
   tail call void @N_VScale(double noundef 1.000000e+00, ptr noundef %49, ptr noundef %38) #14
   %50 = add nsw i32 %6, 1
   %51 = tail call i32 @llvm.smin.i32(i32 %50, i32 %7)
   %52 = load ptr, ptr %1, align 8, !tbaa !17
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 24
-  store i32 %51, ptr %53, align 8, !tbaa !59
+  store i32 %51, ptr %53, align 8, !tbaa !57
   br label %54
 
 54:                                               ; preds = %._crit_edge, %._crit_edge55
@@ -1981,9 +1981,9 @@ define range(i32 -28, 1) i32 @arkInterpEvaluate_Lagrange(ptr noundef %0, ptr nou
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8) #14
   %9 = load ptr, ptr %1, align 8, !tbaa !17
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 24
-  %11 = load i32, ptr %10, align 8, !tbaa !59
+  %11 = load i32, ptr %10, align 8, !tbaa !57
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  %13 = load ptr, ptr %12, align 8, !tbaa !61
+  %13 = load ptr, ptr %12, align 8, !tbaa !58
   %14 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %15 = load ptr, ptr %14, align 8, !tbaa !55
   %16 = tail call i32 @llvm.smax.i32(i32 %4, i32 0)
@@ -2062,7 +2062,7 @@ define range(i32 -28, 1) i32 @arkInterpEvaluate_Lagrange(ptr noundef %0, ptr nou
   %.1.i = phi double [ %.016.i, %38 ], [ %46, %40 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %LBasis.exit, label %38, !llvm.loop !69
+  br i1 %exitcond.not.i, label %LBasis.exit, label %38
 
 LBasis.exit:                                      ; preds = %47, %56
   %indvars.iv.i88 = phi i64 [ %indvars.iv.next.i91, %56 ], [ 0, %47 ]
@@ -2083,7 +2083,7 @@ LBasis.exit:                                      ; preds = %47, %56
   %.1.i90 = phi double [ %.016.i89, %LBasis.exit ], [ %55, %49 ]
   %indvars.iv.next.i91 = add nuw nsw i64 %indvars.iv.i88, 1
   %exitcond.not.i92 = icmp eq i64 %indvars.iv.next.i91, %wide.trip.count.i
-  br i1 %exitcond.not.i92, label %LBasis.exit93, label %LBasis.exit, !llvm.loop !69
+  br i1 %exitcond.not.i92, label %LBasis.exit93, label %LBasis.exit
 
 57:                                               ; preds = %34
   br i1 %36, label %.lr.ph36.split.us.preheader.i, label %LBasis.exit93
@@ -2119,13 +2119,13 @@ LBasis.exit:                                      ; preds = %47, %56
   %.1.us.i = phi double [ %.032.us.i, %.preheader.us.i ], [ %67, %61 ]
   %indvars.iv.next.i95 = add nuw nsw i64 %indvars.iv.i94, 1
   %exitcond.not.i96 = icmp eq i64 %indvars.iv.next.i95, %wide.trip.count44.i
-  br i1 %exitcond.not.i96, label %._crit_edge.us.i, label %.preheader.us.i, !llvm.loop !70
+  br i1 %exitcond.not.i96, label %._crit_edge.us.i, label %.preheader.us.i
 
 69:                                               ; preds = %._crit_edge.us.i, %.lr.ph36.split.us.i
   %.127.us.i = phi double [ %.02634.us.i, %.lr.ph36.split.us.i ], [ %74, %._crit_edge.us.i ]
   %indvars.iv.next42.i = add nuw nsw i64 %indvars.iv41.i, 1
   %exitcond45.not.i = icmp eq i64 %indvars.iv.next42.i, %wide.trip.count44.i
-  br i1 %exitcond45.not.i, label %.lr.ph36.split.us.i100, label %.lr.ph36.split.us.i, !llvm.loop !71
+  br i1 %exitcond45.not.i, label %.lr.ph36.split.us.i100, label %.lr.ph36.split.us.i, !llvm.loop !60
 
 ._crit_edge.us.i:                                 ; preds = %68
   %70 = getelementptr inbounds nuw double, ptr %13, i64 %indvars.iv41.i
@@ -2162,13 +2162,13 @@ LBasis.exit:                                      ; preds = %47, %56
   %.1.us.i107 = phi double [ %.032.us.i105, %.preheader.us.i103 ], [ %84, %78 ]
   %indvars.iv.next.i108 = add nuw nsw i64 %indvars.iv.i104, 1
   %exitcond.not.i109 = icmp eq i64 %indvars.iv.next.i108, %wide.trip.count44.i
-  br i1 %exitcond.not.i109, label %._crit_edge.us.i110, label %.preheader.us.i103, !llvm.loop !70
+  br i1 %exitcond.not.i109, label %._crit_edge.us.i110, label %.preheader.us.i103
 
 86:                                               ; preds = %._crit_edge.us.i110, %.lr.ph36.split.us.i100
   %.127.us.i111 = phi double [ %.02634.us.i102, %.lr.ph36.split.us.i100 ], [ %91, %._crit_edge.us.i110 ]
   %indvars.iv.next42.i112 = add nuw nsw i64 %indvars.iv41.i101, 1
   %exitcond45.not.i113 = icmp eq i64 %indvars.iv.next42.i112, %wide.trip.count44.i
-  br i1 %exitcond45.not.i113, label %LBasis.exit93, label %.lr.ph36.split.us.i100, !llvm.loop !71
+  br i1 %exitcond45.not.i113, label %LBasis.exit93, label %.lr.ph36.split.us.i100, !llvm.loop !60
 
 ._crit_edge.us.i110:                              ; preds = %85
   %87 = getelementptr inbounds nuw double, ptr %13, i64 %indvars.iv41.i101
@@ -2197,7 +2197,7 @@ LBasis.exit93:                                    ; preds = %86, %56, %57, %37
   store ptr %99, ptr %100, align 8, !tbaa !48
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !73
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader153
   switch i32 %3, label %default.unreachable [
@@ -2265,7 +2265,7 @@ LBasis.exit93:                                    ; preds = %86, %56, %57, %37
   %.1.us.us.i.us = phi double [ %.053.us.us.i.us, %.preheader.us.us.i.us ], [ %115, %108 ]
   %indvars.iv.next.i143.us = add nuw nsw i64 %indvars.iv.i142.us, 1
   %exitcond.not.i144.us = icmp eq i64 %indvars.iv.next.i143.us, %wide.trip.count72.i
-  br i1 %exitcond.not.i144.us, label %._crit_edge.us.us.i.us, label %.preheader.us.us.i.us, !llvm.loop !74
+  br i1 %exitcond.not.i144.us, label %._crit_edge.us.us.i.us, label %.preheader.us.us.i.us
 
 ._crit_edge.us.us.i.us:                           ; preds = %116
   %117 = load double, ptr %101, align 8, !tbaa !47
@@ -2280,7 +2280,7 @@ LBasis.exit93:                                    ; preds = %86, %56, %57, %37
   %.142.us.us.i.us = phi double [ %.04155.us.us.i.us, %.preheader51.us.i.us ], [ %122, %._crit_edge.us.us.i.us ]
   %indvars.iv.next65.i.us = add nuw nsw i64 %indvars.iv64.i.us, 1
   %exitcond68.not.i.us = icmp eq i64 %indvars.iv.next65.i.us, %wide.trip.count72.i
-  br i1 %exitcond68.not.i.us, label %._crit_edge57.split.us.us.i.us, label %.preheader51.us.i.us, !llvm.loop !75
+  br i1 %exitcond68.not.i.us, label %._crit_edge57.split.us.us.i.us, label %.preheader51.us.i.us, !llvm.loop !62
 
 ._crit_edge57.split.us.us.i.us:                   ; preds = %123
   %124 = load double, ptr %101, align 8, !tbaa !47
@@ -2295,14 +2295,14 @@ LBasis.exit93:                                    ; preds = %86, %56, %57, %37
   %.144.us.i.us = phi double [ %.04360.us.i.us, %.lr.ph.split.us.i.us ], [ %129, %._crit_edge57.split.us.us.i.us ]
   %indvars.iv.next70.i.us = add nuw nsw i64 %indvars.iv69.i.us, 1
   %exitcond73.not.i.us = icmp eq i64 %indvars.iv.next70.i.us, %wide.trip.count72.i
-  br i1 %exitcond73.not.i.us, label %LBasisD2.exit.loopexit.us, label %.lr.ph.split.us.i.us, !llvm.loop !76
+  br i1 %exitcond73.not.i.us, label %LBasisD2.exit.loopexit.us, label %.lr.ph.split.us.i.us, !llvm.loop !63
 
 LBasisD2.exit.loopexit.us:                        ; preds = %130
   %131 = getelementptr inbounds nuw [6 x double], ptr %7, i64 0, i64 %indvars.iv180
   store double %.144.us.i.us, ptr %131, align 8, !tbaa !47
   %indvars.iv.next181 = add nuw nsw i64 %indvars.iv180, 1
   %exitcond184.not = icmp eq i64 %indvars.iv.next181, %wide.trip.count183
-  br i1 %exitcond184.not, label %.loopexit, label %.lr.ph.split.us.preheader.i.us, !llvm.loop !77
+  br i1 %exitcond184.not, label %.loopexit, label %.lr.ph.split.us.preheader.i.us, !llvm.loop !64
 
 .preheader147:                                    ; preds = %._crit_edge
   br i1 %.not154, label %.loopexit, label %.lr.ph36.split.us.preheader.i125.us.preheader
@@ -2345,7 +2345,7 @@ LBasisD2.exit.loopexit.us:                        ; preds = %130
   %.1.us.i134.us = phi double [ %.032.us.i132.us, %.preheader.us.i130.us ], [ %143, %136 ]
   %indvars.iv.next.i135.us = add nuw nsw i64 %indvars.iv.i131.us, 1
   %exitcond.not.i136.us = icmp eq i64 %indvars.iv.next.i135.us, %wide.trip.count44.i126
-  br i1 %exitcond.not.i136.us, label %._crit_edge.us.i137.us, label %.preheader.us.i130.us, !llvm.loop !70
+  br i1 %exitcond.not.i136.us, label %._crit_edge.us.i137.us, label %.preheader.us.i130.us
 
 ._crit_edge.us.i137.us:                           ; preds = %144
   %145 = load double, ptr %132, align 8, !tbaa !47
@@ -2360,14 +2360,14 @@ LBasisD2.exit.loopexit.us:                        ; preds = %130
   %.127.us.i138.us = phi double [ %.02634.us.i129.us, %.lr.ph36.split.us.i127.us ], [ %150, %._crit_edge.us.i137.us ]
   %indvars.iv.next42.i139.us = add nuw nsw i64 %indvars.iv41.i128.us, 1
   %exitcond45.not.i140.us = icmp eq i64 %indvars.iv.next42.i139.us, %wide.trip.count44.i126
-  br i1 %exitcond45.not.i140.us, label %LBasisD.exit141.loopexit.us, label %.lr.ph36.split.us.i127.us, !llvm.loop !71
+  br i1 %exitcond45.not.i140.us, label %LBasisD.exit141.loopexit.us, label %.lr.ph36.split.us.i127.us, !llvm.loop !60
 
 LBasisD.exit141.loopexit.us:                      ; preds = %151
   %152 = getelementptr inbounds nuw [6 x double], ptr %7, i64 0, i64 %indvars.iv185
   store double %.127.us.i138.us, ptr %152, align 8, !tbaa !47
   %indvars.iv.next186 = add nuw nsw i64 %indvars.iv185, 1
   %exitcond189.not = icmp eq i64 %indvars.iv.next186, %wide.trip.count188
-  br i1 %exitcond189.not, label %.loopexit, label %.lr.ph36.split.us.preheader.i125.us, !llvm.loop !78
+  br i1 %exitcond189.not, label %.loopexit, label %.lr.ph36.split.us.preheader.i125.us, !llvm.loop !65
 
 .preheader:                                       ; preds = %._crit_edge
   br i1 %.not154, label %.loopexit, label %.lr.ph.i116.us.preheader
@@ -2402,14 +2402,14 @@ LBasisD.exit141.loopexit.us:                      ; preds = %151
   %.1.i120.us = phi double [ %.016.i119.us, %154 ], [ %163, %156 ]
   %indvars.iv.next.i121.us = add nuw nsw i64 %indvars.iv.i118.us, 1
   %exitcond.not.i122.us = icmp eq i64 %indvars.iv.next.i121.us, %wide.trip.count.i117
-  br i1 %exitcond.not.i122.us, label %LBasis.exit123.loopexit.us, label %154, !llvm.loop !69
+  br i1 %exitcond.not.i122.us, label %LBasis.exit123.loopexit.us, label %154
 
 LBasis.exit123.loopexit.us:                       ; preds = %164
   %165 = getelementptr inbounds nuw [6 x double], ptr %7, i64 0, i64 %indvars.iv190
   store double %.1.i120.us, ptr %165, align 8, !tbaa !47
   %indvars.iv.next191 = add nuw nsw i64 %indvars.iv190, 1
   %exitcond194.not = icmp eq i64 %indvars.iv.next191, %wide.trip.count193
-  br i1 %exitcond194.not, label %.loopexit, label %.lr.ph.i116.us, !llvm.loop !79
+  br i1 %exitcond194.not, label %.loopexit, label %.lr.ph.i116.us, !llvm.loop !66
 
 .lr.ph158:                                        ; preds = %.lr.ph158.preheader, %.lr.ph158
   %indvars.iv175 = phi i64 [ 0, %.lr.ph158.preheader ], [ %indvars.iv.next176, %.lr.ph158 ]
@@ -2419,7 +2419,7 @@ LBasis.exit123.loopexit.us:                       ; preds = %164
   store double %167, ptr %168, align 8, !tbaa !47
   %indvars.iv.next176 = add nuw nsw i64 %indvars.iv175, 1
   %exitcond179.not = icmp eq i64 %indvars.iv.next176, %wide.trip.count178
-  br i1 %exitcond179.not, label %.loopexit, label %.lr.ph158, !llvm.loop !80
+  br i1 %exitcond179.not, label %.loopexit, label %.lr.ph158
 
 default.unreachable:                              ; preds = %._crit_edge
   unreachable
@@ -2446,7 +2446,7 @@ declare double @llvm.fabs.f64(double) #9
 define double @LBasis(ptr noundef readonly captures(none) %0, i32 noundef %1, double noundef %2) local_unnamed_addr #10 {
   %4 = load ptr, ptr %0, align 8, !tbaa !17
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  %6 = load i32, ptr %5, align 8, !tbaa !59
+  %6 = load i32, ptr %5, align 8, !tbaa !57
   %7 = icmp sgt i32 %6, 0
   br i1 %7, label %.lr.ph, label %._crit_edge
 
@@ -2464,7 +2464,7 @@ define double @LBasis(ptr noundef readonly captures(none) %0, i32 noundef %1, do
   br i1 %12, label %23, label %13
 
 13:                                               ; preds = %11
-  %14 = load ptr, ptr %8, align 8, !tbaa !61
+  %14 = load ptr, ptr %8, align 8, !tbaa !58
   %15 = getelementptr inbounds nuw double, ptr %14, i64 %indvars.iv
   %16 = load double, ptr %15, align 8, !tbaa !47
   %17 = fsub double %2, %16
@@ -2479,7 +2479,7 @@ define double @LBasis(ptr noundef readonly captures(none) %0, i32 noundef %1, do
   %.1 = phi double [ %.016, %11 ], [ %22, %13 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %11, !llvm.loop !69
+  br i1 %exitcond.not, label %._crit_edge, label %11
 
 ._crit_edge:                                      ; preds = %23, %3
   %.0.lcssa = phi double [ 1.000000e+00, %3 ], [ %.1, %23 ]
@@ -2490,7 +2490,7 @@ define double @LBasis(ptr noundef readonly captures(none) %0, i32 noundef %1, do
 define double @LBasisD(ptr noundef readonly captures(none) %0, i32 noundef %1, double noundef %2) local_unnamed_addr #10 {
   %4 = load ptr, ptr %0, align 8, !tbaa !17
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  %6 = load i32, ptr %5, align 8, !tbaa !59
+  %6 = load i32, ptr %5, align 8, !tbaa !57
   %7 = icmp sgt i32 %6, 0
   br i1 %7, label %.lr.ph36.split.us.preheader, label %._crit_edge37
 
@@ -2516,7 +2516,7 @@ define double @LBasisD(ptr noundef readonly captures(none) %0, i32 noundef %1, d
   br i1 %or.cond.us, label %24, label %14
 
 14:                                               ; preds = %.preheader.us
-  %15 = load ptr, ptr %8, align 8, !tbaa !61
+  %15 = load ptr, ptr %8, align 8, !tbaa !58
   %16 = getelementptr inbounds nuw double, ptr %15, i64 %indvars.iv
   %17 = load double, ptr %16, align 8, !tbaa !47
   %18 = fsub double %2, %17
@@ -2531,16 +2531,16 @@ define double @LBasisD(ptr noundef readonly captures(none) %0, i32 noundef %1, d
   %.1.us = phi double [ %.032.us, %.preheader.us ], [ %23, %14 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count44
-  br i1 %exitcond.not, label %._crit_edge.us, label %.preheader.us, !llvm.loop !70
+  br i1 %exitcond.not, label %._crit_edge.us, label %.preheader.us
 
 25:                                               ; preds = %._crit_edge.us, %.lr.ph36.split.us
   %.127.us = phi double [ %.02634.us, %.lr.ph36.split.us ], [ %33, %._crit_edge.us ]
   %indvars.iv.next42 = add nuw nsw i64 %indvars.iv41, 1
   %exitcond45.not = icmp eq i64 %indvars.iv.next42, %wide.trip.count44
-  br i1 %exitcond45.not, label %._crit_edge37, label %.lr.ph36.split.us, !llvm.loop !71
+  br i1 %exitcond45.not, label %._crit_edge37, label %.lr.ph36.split.us, !llvm.loop !60
 
 ._crit_edge.us:                                   ; preds = %24
-  %26 = load ptr, ptr %8, align 8, !tbaa !61
+  %26 = load ptr, ptr %8, align 8, !tbaa !58
   %27 = getelementptr inbounds double, ptr %26, i64 %9
   %28 = load double, ptr %27, align 8, !tbaa !47
   %29 = getelementptr inbounds nuw double, ptr %26, i64 %indvars.iv41
@@ -2559,7 +2559,7 @@ define double @LBasisD(ptr noundef readonly captures(none) %0, i32 noundef %1, d
 define double @LBasisD2(ptr noundef readonly captures(none) %0, i32 noundef %1, double noundef %2) local_unnamed_addr #10 {
   %4 = load ptr, ptr %0, align 8, !tbaa !17
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  %6 = load i32, ptr %5, align 8, !tbaa !59
+  %6 = load i32, ptr %5, align 8, !tbaa !57
   %7 = icmp sgt i32 %6, 0
   br i1 %7, label %.lr.ph.split.us.preheader, label %._crit_edge
 
@@ -2580,7 +2580,7 @@ define double @LBasisD2(ptr noundef readonly captures(none) %0, i32 noundef %1, 
   %.144.us = phi double [ %.04360.us, %.lr.ph.split.us ], [ %45, %._crit_edge57.split.us.us ]
   %indvars.iv.next70 = add nuw nsw i64 %indvars.iv69, 1
   %exitcond73.not = icmp eq i64 %indvars.iv.next70, %wide.trip.count72
-  br i1 %exitcond73.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !76
+  br i1 %exitcond73.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !63
 
 .preheader51.us:                                  ; preds = %.lr.ph.split.us, %29
   %indvars.iv64 = phi i64 [ %indvars.iv.next65, %29 ], [ 0, %.lr.ph.split.us ]
@@ -2601,7 +2601,7 @@ define double @LBasisD2(ptr noundef readonly captures(none) %0, i32 noundef %1, 
   br i1 %or.cond50.us.us, label %28, label %18
 
 18:                                               ; preds = %.preheader.us.us
-  %19 = load ptr, ptr %8, align 8, !tbaa !61
+  %19 = load ptr, ptr %8, align 8, !tbaa !58
   %20 = getelementptr inbounds nuw double, ptr %19, i64 %indvars.iv
   %21 = load double, ptr %20, align 8, !tbaa !47
   %22 = fsub double %2, %21
@@ -2616,16 +2616,16 @@ define double @LBasisD2(ptr noundef readonly captures(none) %0, i32 noundef %1, 
   %.1.us.us = phi double [ %.053.us.us, %.preheader.us.us ], [ %27, %18 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count72
-  br i1 %exitcond.not, label %._crit_edge.us.us, label %.preheader.us.us, !llvm.loop !74
+  br i1 %exitcond.not, label %._crit_edge.us.us, label %.preheader.us.us
 
 29:                                               ; preds = %._crit_edge.us.us, %.preheader51.us
   %.142.us.us = phi double [ %.04155.us.us, %.preheader51.us ], [ %37, %._crit_edge.us.us ]
   %indvars.iv.next65 = add nuw nsw i64 %indvars.iv64, 1
   %exitcond68.not = icmp eq i64 %indvars.iv.next65, %wide.trip.count72
-  br i1 %exitcond68.not, label %._crit_edge57.split.us.us, label %.preheader51.us, !llvm.loop !75
+  br i1 %exitcond68.not, label %._crit_edge57.split.us.us, label %.preheader51.us, !llvm.loop !62
 
 ._crit_edge.us.us:                                ; preds = %28
-  %30 = load ptr, ptr %8, align 8, !tbaa !61
+  %30 = load ptr, ptr %8, align 8, !tbaa !58
   %31 = getelementptr inbounds double, ptr %30, i64 %9
   %32 = load double, ptr %31, align 8, !tbaa !47
   %33 = getelementptr inbounds nuw double, ptr %30, i64 %indvars.iv64
@@ -2636,7 +2636,7 @@ define double @LBasisD2(ptr noundef readonly captures(none) %0, i32 noundef %1, 
   br label %29
 
 ._crit_edge57.split.us.us:                        ; preds = %29
-  %38 = load ptr, ptr %8, align 8, !tbaa !61
+  %38 = load ptr, ptr %8, align 8, !tbaa !58
   %39 = getelementptr inbounds double, ptr %38, i64 %9
   %40 = load double, ptr %39, align 8, !tbaa !47
   %41 = getelementptr inbounds nuw double, ptr %38, i64 %indvars.iv69
@@ -2655,7 +2655,7 @@ define double @LBasisD2(ptr noundef readonly captures(none) %0, i32 noundef %1, 
 define double @LBasisD3(ptr noundef readonly captures(none) %0, i32 noundef %1, double noundef %2) local_unnamed_addr #10 {
   %4 = load ptr, ptr %0, align 8, !tbaa !17
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  %6 = load i32, ptr %5, align 8, !tbaa !59
+  %6 = load i32, ptr %5, align 8, !tbaa !57
   %7 = icmp sgt i32 %6, 0
   br i1 %7, label %.lr.ph88.split.us.preheader, label %._crit_edge
 
@@ -2676,7 +2676,7 @@ define double @LBasisD3(ptr noundef readonly captures(none) %0, i32 noundef %1, 
   %.163.us = phi double [ %.06287.us, %.lr.ph88.split.us ], [ %58, %._crit_edge.split.us.us ]
   %indvars.iv.next103 = add nuw nsw i64 %indvars.iv102, 1
   %exitcond106.not = icmp eq i64 %indvars.iv.next103, %wide.trip.count105
-  br i1 %exitcond106.not, label %._crit_edge, label %.lr.ph88.split.us, !llvm.loop !81
+  br i1 %exitcond106.not, label %._crit_edge, label %.lr.ph88.split.us, !llvm.loop !67
 
 .preheader75.us:                                  ; preds = %.lr.ph88.split.us, %15
   %indvars.iv97 = phi i64 [ %indvars.iv.next98, %15 ], [ 0, %.lr.ph88.split.us ]
@@ -2690,7 +2690,7 @@ define double @LBasisD3(ptr noundef readonly captures(none) %0, i32 noundef %1, 
   %.161.us.us = phi double [ %.06084.us.us, %.preheader75.us ], [ %50, %._crit_edge81.split.us.us.us ]
   %indvars.iv.next98 = add nuw nsw i64 %indvars.iv97, 1
   %exitcond101.not = icmp eq i64 %indvars.iv.next98, %wide.trip.count105
-  br i1 %exitcond101.not, label %._crit_edge.split.us.us, label %.preheader75.us, !llvm.loop !82
+  br i1 %exitcond101.not, label %._crit_edge.split.us.us, label %.preheader75.us, !llvm.loop !68
 
 .preheader74.us.us:                               ; preds = %.preheader75.us, %34
   %indvars.iv92 = phi i64 [ %indvars.iv.next93, %34 ], [ 0, %.preheader75.us ]
@@ -2715,7 +2715,7 @@ define double @LBasisD3(ptr noundef readonly captures(none) %0, i32 noundef %1, 
   br i1 %or.cond73.us.us.us, label %33, label %23
 
 23:                                               ; preds = %.preheader.us.us.us
-  %24 = load ptr, ptr %8, align 8, !tbaa !61
+  %24 = load ptr, ptr %8, align 8, !tbaa !58
   %25 = getelementptr inbounds nuw double, ptr %24, i64 %indvars.iv
   %26 = load double, ptr %25, align 8, !tbaa !47
   %27 = fsub double %2, %26
@@ -2730,16 +2730,16 @@ define double @LBasisD3(ptr noundef readonly captures(none) %0, i32 noundef %1, 
   %.1.us.us.us = phi double [ %.077.us.us.us, %.preheader.us.us.us ], [ %32, %23 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count105
-  br i1 %exitcond.not, label %._crit_edge.us.us.us, label %.preheader.us.us.us, !llvm.loop !83
+  br i1 %exitcond.not, label %._crit_edge.us.us.us, label %.preheader.us.us.us
 
 34:                                               ; preds = %._crit_edge.us.us.us, %.preheader74.us.us
   %.159.us.us.us = phi double [ %.05879.us.us.us, %.preheader74.us.us ], [ %42, %._crit_edge.us.us.us ]
   %indvars.iv.next93 = add nuw nsw i64 %indvars.iv92, 1
   %exitcond96.not = icmp eq i64 %indvars.iv.next93, %wide.trip.count105
-  br i1 %exitcond96.not, label %._crit_edge81.split.us.us.us, label %.preheader74.us.us, !llvm.loop !84
+  br i1 %exitcond96.not, label %._crit_edge81.split.us.us.us, label %.preheader74.us.us, !llvm.loop !69
 
 ._crit_edge.us.us.us:                             ; preds = %33
-  %35 = load ptr, ptr %8, align 8, !tbaa !61
+  %35 = load ptr, ptr %8, align 8, !tbaa !58
   %36 = getelementptr inbounds double, ptr %35, i64 %9
   %37 = load double, ptr %36, align 8, !tbaa !47
   %38 = getelementptr inbounds nuw double, ptr %35, i64 %indvars.iv92
@@ -2750,7 +2750,7 @@ define double @LBasisD3(ptr noundef readonly captures(none) %0, i32 noundef %1, 
   br label %34
 
 ._crit_edge81.split.us.us.us:                     ; preds = %34
-  %43 = load ptr, ptr %8, align 8, !tbaa !61
+  %43 = load ptr, ptr %8, align 8, !tbaa !58
   %44 = getelementptr inbounds double, ptr %43, i64 %9
   %45 = load double, ptr %44, align 8, !tbaa !47
   %46 = getelementptr inbounds nuw double, ptr %43, i64 %indvars.iv97
@@ -2761,7 +2761,7 @@ define double @LBasisD3(ptr noundef readonly captures(none) %0, i32 noundef %1, 
   br label %15
 
 ._crit_edge.split.us.us:                          ; preds = %15
-  %51 = load ptr, ptr %8, align 8, !tbaa !61
+  %51 = load ptr, ptr %8, align 8, !tbaa !58
   %52 = getelementptr inbounds double, ptr %51, i64 %9
   %53 = load double, ptr %52, align 8, !tbaa !47
   %54 = getelementptr inbounds nuw double, ptr %51, i64 %indvars.iv102
@@ -2867,31 +2867,16 @@ attributes #15 = { nounwind allocsize(0) }
 !54 = !{!50, !22, i64 32}
 !55 = !{!50, !51, i64 8}
 !56 = !{!50, !20, i64 4}
-!57 = distinct !{!57, !58}
-!58 = !{!"llvm.loop.estimated_trip_count"}
-!59 = !{!50, !20, i64 24}
-!60 = distinct !{!60, !58}
-!61 = !{!50, !52, i64 16}
-!62 = distinct !{!62, !58}
-!63 = distinct !{!63, !58}
-!64 = distinct !{!64, !58}
-!65 = distinct !{!65, !58}
-!66 = distinct !{!66, !58}
-!67 = distinct !{!67, !58}
-!68 = !{!24, !21, i64 584}
-!69 = distinct !{!69, !58}
-!70 = distinct !{!70, !58}
-!71 = distinct !{!71, !58, !72}
-!72 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!73 = distinct !{!73, !58}
-!74 = distinct !{!74, !58}
-!75 = distinct !{!75, !58, !72}
-!76 = distinct !{!76, !58, !72}
-!77 = distinct !{!77, !58, !72}
-!78 = distinct !{!78, !58, !72}
-!79 = distinct !{!79, !58, !72}
-!80 = distinct !{!80, !58}
-!81 = distinct !{!81, !58, !72}
-!82 = distinct !{!82, !58, !72}
-!83 = distinct !{!83, !58}
-!84 = distinct !{!84, !58, !72}
+!57 = !{!50, !20, i64 24}
+!58 = !{!50, !52, i64 16}
+!59 = !{!24, !21, i64 584}
+!60 = distinct !{!60, !61}
+!61 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!62 = distinct !{!62, !61}
+!63 = distinct !{!63, !61}
+!64 = distinct !{!64, !61}
+!65 = distinct !{!65, !61}
+!66 = distinct !{!66, !61}
+!67 = distinct !{!67, !61}
+!68 = distinct !{!68, !61}
+!69 = distinct !{!69, !61}

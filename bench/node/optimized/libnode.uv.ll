@@ -684,7 +684,7 @@ _ZNK2v85MaybeIbE5CheckEv.exit:                    ; preds = %if.then.i, %_ZN4nod
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %prefixed_name) #12
   %inc = add nuw nsw i64 %i.011, 1
   %exitcond.not = icmp eq i64 %inc, 84
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !11
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !10
 
 for.end:                                          ; preds = %_ZNK2v85MaybeIbE5CheckEv.exit
   call void @_ZN4node9SetMethodEN2v85LocalINS0_7ContextEEENS1_INS0_6ObjectEEESt17basic_string_viewIcSt11char_traitsIcEEPFvRKNS0_20FunctionCallbackInfoINS0_5ValueEEEE(ptr nonnull %context.coerce, ptr nonnull %target.coerce, i64 11, ptr nonnull @.str.7, ptr noundef nonnull @_ZN4node2uv9GetErrMapERKN2v820FunctionCallbackInfoINS1_5ValueEEE) #12
@@ -977,7 +977,6 @@ attributes #15 = { builtin nounwind }
 !5 = !{!6}
 !6 = distinct !{!6, !7, !"_ZN4node11Environment7optionsEv: %agg.result"}
 !7 = distinct !{!7, !"_ZN4node11Environment7optionsEv"}
-!8 = distinct !{!8, !9, !10}
+!8 = distinct !{!8, !9}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = !{!"llvm.loop.estimated_trip_count"}
-!11 = distinct !{!11, !9, !10}
+!10 = distinct !{!10, !9}

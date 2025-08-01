@@ -104,7 +104,7 @@ define hidden i32 @OPENSSL_hash32(ptr noundef readonly captures(none) %0, i64 no
   %7 = mul i32 %6, 16777619
   %8 = add nuw i64 %.089, 1
   %exitcond.not = icmp eq i64 %8, %1
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !13
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   %.0.lcssa = phi i32 [ -2128831035, %2 ], [ %7, %.lr.ph ]
@@ -135,7 +135,7 @@ define hidden i64 @OPENSSL_strnlen(ptr noundef readonly captures(none) %0, i64 n
 6:                                                ; preds = %.lr.ph
   %7 = add nuw i64 %.09, 1
   %exitcond.not = icmp eq i64 %7, %1
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !14
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %.lr.ph, %6, %2
   %.07 = phi i64 [ 0, %2 ], [ %1, %6 ], [ %.09, %.lr.ph ]
@@ -216,8 +216,7 @@ attributes #16 = { nounwind willreturn memory(read) }
 !7 = !{!8, !8, i64 0}
 !8 = !{!"omnipotent char", !9, i64 0}
 !9 = !{!"Simple C/C++ TBAA"}
-!10 = distinct !{!10, !11, !12}
+!10 = distinct !{!10, !11}
 !11 = !{!"llvm.loop.mustprogress"}
-!12 = !{!"llvm.loop.estimated_trip_count"}
-!13 = distinct !{!13, !11, !12}
-!14 = distinct !{!14, !11, !12}
+!12 = distinct !{!12, !11}
+!13 = distinct !{!13, !11}

@@ -410,20 +410,17 @@ define hidden noundef zeroext i1 @_ZN9benchmark15IsColorTerminalEv() local_unnam
   %5 = load ptr, ptr %.011.ptr, align 8, !tbaa !19
   %6 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(1) %5) #18
   %7 = icmp eq i32 %6, 0
-  br i1 %7, label %.split21.us, label %.lr.ph, !llvm.loop !20
+  br i1 %7, label %.split21.us, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.split, %4
   %.011.idx1722 = phi i64 [ %.011.add, %4 ], [ 0, %.split ]
   %.011.add = add nuw nsw i64 %.011.idx1722, 8
-  %.not.not = icmp eq i64 %.011.add, 128
-  br i1 %.not.not, label %..split21_crit_edge23, label %4, !llvm.loop !20
+  %.not.not.not.not = icmp ne i64 %.011.add, 128
+  br i1 %.not.not.not.not, label %4, label %.split21.us
 
-..split21_crit_edge23:                            ; preds = %.lr.ph
-  br label %.split21.us, !llvm.loop !20
-
-.split21.us:                                      ; preds = %4, %0, %.split, %..split21_crit_edge23
-  %.us-phi = phi i1 [ false, %..split21_crit_edge23 ], [ true, %.split ], [ false, %0 ], [ true, %4 ]
-  %8 = load ptr, ptr @stdout, align 8, !tbaa !22
+.split21.us:                                      ; preds = %4, %.lr.ph, %0, %.split
+  %.us-phi = phi i1 [ true, %.split ], [ false, %0 ], [ %.not.not.not.not, %.lr.ph ], [ %.not.not.not.not, %4 ]
+  %8 = load ptr, ptr @stdout, align 8, !tbaa !20
   %9 = tail call i32 @fileno(ptr noundef %8) #15
   %10 = tail call i32 @isatty(i32 noundef %9) #15
   %11 = icmp ne i32 %10, 0
@@ -517,7 +514,5 @@ attributes #18 = { nounwind willreturn memory(read) }
 !17 = !{!15, !15, i64 0}
 !18 = !{!14, !12, i64 0}
 !19 = !{!12, !12, i64 0}
-!20 = distinct !{!20, !21}
-!21 = !{!"llvm.loop.estimated_trip_count"}
-!22 = !{!23, !23, i64 0}
-!23 = !{!"p1 _ZTS8_IO_FILE", !7, i64 0}
+!20 = !{!21, !21, i64 0}
+!21 = !{!"p1 _ZTS8_IO_FILE", !7, i64 0}

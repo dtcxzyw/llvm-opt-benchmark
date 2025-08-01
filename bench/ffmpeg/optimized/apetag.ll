@@ -187,22 +187,22 @@ define range(i64 -4294967263, -9223372036854775808) i64 @ff_ape_parse_tag(ptr no
 
 76:                                               ; preds = %71
   %77 = getelementptr inbounds nuw i8, ptr %62, i64 16
-  %78 = load ptr, ptr %77, align 8, !tbaa !28
+  %78 = load ptr, ptr %77, align 8, !tbaa !27
   %79 = getelementptr inbounds nuw i8, ptr %78, i64 4
-  store i32 %70, ptr %79, align 4, !tbaa !35
+  store i32 %70, ptr %79, align 4, !tbaa !34
   br label %88
 
 80:                                               ; preds = %67
   %81 = getelementptr inbounds nuw i8, ptr %62, i64 16
-  %82 = load ptr, ptr %81, align 8, !tbaa !28
+  %82 = load ptr, ptr %81, align 8, !tbaa !27
   %83 = load ptr, ptr %5, align 8, !tbaa !4
   %84 = call i32 @ff_get_extradata(ptr noundef %0, ptr noundef %82, ptr noundef %83, i32 noundef %narrow.i) #5
   %85 = icmp slt i32 %84, 0
   br i1 %85, label %ape_tag_read_field.exit.thread48, label %86
 
 86:                                               ; preds = %80
-  %87 = load ptr, ptr %81, align 8, !tbaa !28
-  store i32 4, ptr %87, align 8, !tbaa !38
+  %87 = load ptr, ptr %81, align 8, !tbaa !27
+  store i32 4, ptr %87, align 8, !tbaa !37
   br label %88
 
 88:                                               ; preds = %86, %76
@@ -250,7 +250,7 @@ ape_tag_read_field.exit.thread45:                 ; preds = %96, %88, %ape_tag_r
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %2) #5
   %100 = add nuw i32 %.056, 1
   %exitcond.not = icmp eq i32 %100, %28
-  br i1 %exitcond.not, label %.loopexit, label %43, !llvm.loop !39
+  br i1 %exitcond.not, label %.loopexit, label %43, !llvm.loop !38
 
 .loopexit:                                        ; preds = %ape_tag_read_field.exit.thread45, %35, %ape_tag_read_field.exit.thread48, %ape_tag_read_field.exit.thread, %13, %9, %1, %34, %30, %26, %22, %17
   %.035 = phi i64 [ 0, %17 ], [ 0, %22 ], [ 0, %26 ], [ 0, %30 ], [ 0, %34 ], [ 0, %1 ], [ 0, %9 ], [ 0, %13 ], [ %41, %ape_tag_read_field.exit.thread ], [ %41, %ape_tag_read_field.exit.thread48 ], [ %41, %35 ], [ %41, %ape_tag_read_field.exit.thread45 ]
@@ -287,7 +287,7 @@ define i32 @ff_ape_write_tag(ptr noundef %0) local_unnamed_addr #0 {
 6:                                                ; preds = %1
   %7 = call i32 @ff_standardize_creation_time(ptr noundef %0) #5
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 192
-  %9 = load ptr, ptr %8, align 8, !tbaa !40
+  %9 = load ptr, ptr %8, align 8, !tbaa !39
   %10 = call ptr @av_dict_iterate(ptr noundef %9, ptr noundef null) #5
   %.not39 = icmp eq ptr %10, null
   br i1 %.not39, label %._crit_edge.thread, label %.lr.ph
@@ -295,7 +295,7 @@ define i32 @ff_ape_write_tag(ptr noundef %0) local_unnamed_addr #0 {
 .lr.ph:                                           ; preds = %6, %31
   %11 = phi ptr [ %33, %31 ], [ %10, %6 ]
   %.03440 = phi i32 [ %.1, %31 ], [ 0, %6 ]
-  %12 = load ptr, ptr %11, align 8, !tbaa !41
+  %12 = load ptr, ptr %11, align 8, !tbaa !40
   br label %13
 
 13:                                               ; preds = %13, %.lr.ph
@@ -304,7 +304,7 @@ define i32 @ff_ape_write_tag(ptr noundef %0) local_unnamed_addr #0 {
   %15 = add i8 %14, -32
   %or.cond7.i = icmp ult i8 %15, 95
   %16 = getelementptr inbounds nuw i8, ptr %.0.i, i64 1
-  br i1 %or.cond7.i, label %13, label %string_is_ascii.exit, !llvm.loop !43
+  br i1 %or.cond7.i, label %13, label %string_is_ascii.exit, !llvm.loop !42
 
 string_is_ascii.exit:                             ; preds = %13
   %.not6.i.not = icmp eq i8 %14, 0
@@ -312,39 +312,39 @@ string_is_ascii.exit:                             ; preds = %13
 
 17:                                               ; preds = %string_is_ascii.exit
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 24, ptr noundef nonnull @.str.6) #5
-  br label %31, !llvm.loop !44
+  br label %31, !llvm.loop !43
 
 18:                                               ; preds = %string_is_ascii.exit
   %19 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  %20 = load ptr, ptr %19, align 8, !tbaa !45
+  %20 = load ptr, ptr %19, align 8, !tbaa !44
   %21 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %20) #6
   %22 = trunc i64 %21 to i32
-  %23 = load ptr, ptr %2, align 8, !tbaa !46
+  %23 = load ptr, ptr %2, align 8, !tbaa !45
   call void @avio_wl32(ptr noundef %23, i32 noundef %22) #5
-  %24 = load ptr, ptr %2, align 8, !tbaa !46
+  %24 = load ptr, ptr %2, align 8, !tbaa !45
   call void @avio_wl32(ptr noundef %24, i32 noundef 0) #5
-  %25 = load ptr, ptr %2, align 8, !tbaa !46
-  %26 = load ptr, ptr %11, align 8, !tbaa !41
+  %25 = load ptr, ptr %2, align 8, !tbaa !45
+  %26 = load ptr, ptr %11, align 8, !tbaa !40
   %27 = call i32 @avio_put_str(ptr noundef %25, ptr noundef %26) #5
-  %28 = load ptr, ptr %2, align 8, !tbaa !46
-  %29 = load ptr, ptr %19, align 8, !tbaa !45
+  %28 = load ptr, ptr %2, align 8, !tbaa !45
+  %29 = load ptr, ptr %19, align 8, !tbaa !44
   call void @avio_write(ptr noundef %28, ptr noundef %29, i32 noundef %22) #5
   %30 = add nsw i32 %.03440, 1
   br label %31
 
 31:                                               ; preds = %18, %17
   %.1 = phi i32 [ %30, %18 ], [ %.03440, %17 ]
-  %32 = load ptr, ptr %8, align 8, !tbaa !40
+  %32 = load ptr, ptr %8, align 8, !tbaa !39
   %33 = call ptr @av_dict_iterate(ptr noundef %32, ptr noundef nonnull %11) #5
   %.not = icmp eq ptr %33, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !47
+  br i1 %.not, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %31
   %.not37 = icmp eq i32 %.1, 0
   br i1 %.not37, label %._crit_edge.thread, label %34
 
 34:                                               ; preds = %._crit_edge
-  %35 = load ptr, ptr %2, align 8, !tbaa !46
+  %35 = load ptr, ptr %2, align 8, !tbaa !45
   %36 = call i32 @avio_get_dyn_buf(ptr noundef %35, ptr noundef nonnull %3) #5
   %37 = icmp slt i32 %36, 1
   br i1 %37, label %._crit_edge.thread, label %38
@@ -365,7 +365,7 @@ string_is_ascii.exit:                             ; preds = %13
   %46 = load ptr, ptr %40, align 8, !tbaa !4
   call void @ffio_fill(ptr noundef %46, i32 noundef 0, i64 noundef 8) #5
   %47 = load ptr, ptr %40, align 8, !tbaa !4
-  %48 = load ptr, ptr %3, align 8, !tbaa !48
+  %48 = load ptr, ptr %3, align 8, !tbaa !46
   call void @avio_write(ptr noundef %47, ptr noundef %48, i32 noundef %36) #5
   %49 = load ptr, ptr %40, align 8, !tbaa !4
   call void @avio_write(ptr noundef %49, ptr noundef nonnull @.str, i32 noundef 8) #5
@@ -468,27 +468,25 @@ attributes #6 = { nounwind willreturn memory(read) }
 !22 = !{!"AVIOInterruptCB", !7, i64 0, !7, i64 8}
 !23 = !{!"p1 _ZTS7AVCodec", !7, i64 0}
 !24 = !{!8, !8, i64 0}
-!25 = distinct !{!25, !26, !27}
+!25 = distinct !{!25, !26}
 !26 = !{!"llvm.loop.mustprogress"}
-!27 = !{!"llvm.loop.estimated_trip_count"}
-!28 = !{!29, !30, i64 16}
-!29 = !{!"AVStream", !6, i64 0, !13, i64 8, !13, i64 12, !30, i64 16, !7, i64 24, !31, i64 32, !19, i64 40, !19, i64 48, !19, i64 56, !13, i64 64, !13, i64 68, !31, i64 72, !21, i64 80, !31, i64 88, !32, i64 96, !13, i64 200, !31, i64 204, !13, i64 212}
-!30 = !{!"p1 _ZTS17AVCodecParameters", !7, i64 0}
-!31 = !{!"AVRational", !13, i64 0, !13, i64 4}
-!32 = !{!"AVPacket", !33, i64 0, !19, i64 8, !19, i64 16, !18, i64 24, !13, i64 32, !13, i64 36, !13, i64 40, !34, i64 48, !13, i64 56, !19, i64 64, !19, i64 72, !7, i64 80, !33, i64 88, !31, i64 96}
-!33 = !{!"p1 _ZTS11AVBufferRef", !7, i64 0}
-!34 = !{!"p1 _ZTS16AVPacketSideData", !7, i64 0}
-!35 = !{!36, !13, i64 4}
-!36 = !{!"AVCodecParameters", !13, i64 0, !13, i64 4, !13, i64 8, !18, i64 16, !13, i64 24, !34, i64 32, !13, i64 40, !13, i64 44, !19, i64 48, !13, i64 56, !13, i64 60, !13, i64 64, !13, i64 68, !13, i64 72, !13, i64 76, !31, i64 80, !31, i64 88, !13, i64 96, !13, i64 100, !13, i64 104, !13, i64 108, !13, i64 112, !13, i64 116, !13, i64 120, !37, i64 128, !13, i64 152, !13, i64 156, !13, i64 160, !13, i64 164, !13, i64 168, !13, i64 172}
-!37 = !{!"AVChannelLayout", !13, i64 0, !13, i64 4, !8, i64 8, !7, i64 16}
-!38 = !{!36, !13, i64 0}
-!39 = distinct !{!39, !26, !27}
-!40 = !{!5, !21, i64 192}
-!41 = !{!42, !18, i64 0}
-!42 = !{!"AVDictionaryEntry", !18, i64 0, !18, i64 8}
-!43 = distinct !{!43, !26, !27}
-!44 = distinct !{!44, !26}
-!45 = !{!42, !18, i64 8}
-!46 = !{!12, !12, i64 0}
-!47 = distinct !{!47, !27}
-!48 = !{!18, !18, i64 0}
+!27 = !{!28, !29, i64 16}
+!28 = !{!"AVStream", !6, i64 0, !13, i64 8, !13, i64 12, !29, i64 16, !7, i64 24, !30, i64 32, !19, i64 40, !19, i64 48, !19, i64 56, !13, i64 64, !13, i64 68, !30, i64 72, !21, i64 80, !30, i64 88, !31, i64 96, !13, i64 200, !30, i64 204, !13, i64 212}
+!29 = !{!"p1 _ZTS17AVCodecParameters", !7, i64 0}
+!30 = !{!"AVRational", !13, i64 0, !13, i64 4}
+!31 = !{!"AVPacket", !32, i64 0, !19, i64 8, !19, i64 16, !18, i64 24, !13, i64 32, !13, i64 36, !13, i64 40, !33, i64 48, !13, i64 56, !19, i64 64, !19, i64 72, !7, i64 80, !32, i64 88, !30, i64 96}
+!32 = !{!"p1 _ZTS11AVBufferRef", !7, i64 0}
+!33 = !{!"p1 _ZTS16AVPacketSideData", !7, i64 0}
+!34 = !{!35, !13, i64 4}
+!35 = !{!"AVCodecParameters", !13, i64 0, !13, i64 4, !13, i64 8, !18, i64 16, !13, i64 24, !33, i64 32, !13, i64 40, !13, i64 44, !19, i64 48, !13, i64 56, !13, i64 60, !13, i64 64, !13, i64 68, !13, i64 72, !13, i64 76, !30, i64 80, !30, i64 88, !13, i64 96, !13, i64 100, !13, i64 104, !13, i64 108, !13, i64 112, !13, i64 116, !13, i64 120, !36, i64 128, !13, i64 152, !13, i64 156, !13, i64 160, !13, i64 164, !13, i64 168, !13, i64 172}
+!36 = !{!"AVChannelLayout", !13, i64 0, !13, i64 4, !8, i64 8, !7, i64 16}
+!37 = !{!35, !13, i64 0}
+!38 = distinct !{!38, !26}
+!39 = !{!5, !21, i64 192}
+!40 = !{!41, !18, i64 0}
+!41 = !{!"AVDictionaryEntry", !18, i64 0, !18, i64 8}
+!42 = distinct !{!42, !26}
+!43 = distinct !{!43, !26}
+!44 = !{!41, !18, i64 8}
+!45 = !{!12, !12, i64 0}
+!46 = !{!18, !18, i64 0}

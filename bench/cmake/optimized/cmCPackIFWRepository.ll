@@ -3393,7 +3393,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit12: ; preds = %_ZN
   call void @_ZNK20cmCPackIFWRepository21WriteRepositoryUpdateER11cmXMLWriter(ptr noundef nonnull align 8 dereferenceable(328) %33, ptr noundef nonnull align 8 dereferenceable(83) %1)
   %34 = getelementptr inbounds nuw i8, ptr %.sroa.013.018, i64 8
   %.not = icmp eq ptr %34, %24
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !121
+  br i1 %.not, label %._crit_edge, label %.lr.ph
 
 35:                                               ; preds = %._crit_edge, %2
   ret void
@@ -3422,33 +3422,30 @@ declare noundef i32 @_ZN11cmXMLParser15ParsingCompleteEv(ptr noundef nonnull ali
 define linkonce_odr dso_local void @_ZN24cmCPackIFWUpdatesPatcher12StartElementERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPPKc(ptr noundef nonnull align 8 dereferenceable(57) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef %2) unnamed_addr #3 comdat align 2 {
   %4 = alloca ptr, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %6 = load ptr, ptr %5, align 8, !tbaa !123
+  %6 = load ptr, ptr %5, align 8, !tbaa !121
   tail call void @_ZN11cmXMLWriter12StartElementERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(83) %6, ptr noundef nonnull align 8 dereferenceable(32) %1)
   %7 = load ptr, ptr %2, align 8, !tbaa !95
   %.not9.i = icmp eq ptr %7, null
   br i1 %.not9.i, label %_ZN24cmCPackIFWUpdatesPatcher13StartFragmentEPPKc.exit, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %3
-  %invariant.gep.i = getelementptr i8, ptr %2, i64 8
-  br label %8
-
-8:                                                ; preds = %8, %.lr.ph.i
-  %9 = phi ptr [ %7, %.lr.ph.i ], [ %14, %8 ]
-  %.010.i = phi i64 [ 0, %.lr.ph.i ], [ %12, %8 ]
+.lr.ph.i:                                         ; preds = %3, %.lr.ph.i
+  %8 = phi ptr [ %15, %.lr.ph.i ], [ %7, %3 ]
+  %.010.i = phi i64 [ %13, %.lr.ph.i ], [ 0, %3 ]
+  %9 = getelementptr inbounds nuw ptr, ptr %2, i64 %.010.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #15
-  %gep.i = getelementptr ptr, ptr %invariant.gep.i, i64 %.010.i
-  %10 = load ptr, ptr %gep.i, align 8, !tbaa !95
-  store ptr %10, ptr %4, align 8, !tbaa !95
-  %11 = load ptr, ptr %5, align 8, !tbaa !123
-  call void @_ZN11cmXMLWriter9AttributeIPKcEEvS2_RKT_(ptr noundef nonnull align 8 dereferenceable(83) %11, ptr noundef nonnull %9, ptr noundef nonnull align 8 dereferenceable(8) %4)
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %11 = load ptr, ptr %10, align 8, !tbaa !95
+  store ptr %11, ptr %4, align 8, !tbaa !95
+  %12 = load ptr, ptr %5, align 8, !tbaa !121
+  call void @_ZN11cmXMLWriter9AttributeIPKcEEvS2_RKT_(ptr noundef nonnull align 8 dereferenceable(83) %12, ptr noundef nonnull %8, ptr noundef nonnull align 8 dereferenceable(8) %4)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #15
-  %12 = add i64 %.010.i, 2
-  %13 = getelementptr inbounds nuw ptr, ptr %2, i64 %12
-  %14 = load ptr, ptr %13, align 8, !tbaa !95
-  %.not.i = icmp eq ptr %14, null
-  br i1 %.not.i, label %_ZN24cmCPackIFWUpdatesPatcher13StartFragmentEPPKc.exit, label %8, !llvm.loop !124
+  %13 = add i64 %.010.i, 2
+  %14 = getelementptr inbounds nuw ptr, ptr %2, i64 %13
+  %15 = load ptr, ptr %14, align 8, !tbaa !95
+  %.not.i = icmp eq ptr %15, null
+  br i1 %.not.i, label %_ZN24cmCPackIFWUpdatesPatcher13StartFragmentEPPKc.exit, label %.lr.ph.i, !llvm.loop !122
 
-_ZN24cmCPackIFWUpdatesPatcher13StartFragmentEPPKc.exit: ; preds = %8, %3
+_ZN24cmCPackIFWUpdatesPatcher13StartFragmentEPPKc.exit: ; preds = %.lr.ph.i, %3
   ret void
 }
 
@@ -3460,7 +3457,7 @@ define linkonce_odr dso_local void @_ZN24cmCPackIFWUpdatesPatcher10EndElementERK
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %7 = load i8, ptr %6, align 8, !tbaa !81, !range !126, !noundef !127
+  %7 = load i8, ptr %6, align 8, !tbaa !81, !range !124, !noundef !125
   %8 = trunc nuw i8 %7 to i1
   br i1 %8, label %14, label %9
 
@@ -3468,17 +3465,17 @@ define linkonce_odr dso_local void @_ZN24cmCPackIFWUpdatesPatcher10EndElementERK
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %11 = load ptr, ptr %10, align 8, !tbaa !73
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %13 = load ptr, ptr %12, align 8, !tbaa !123
+  %13 = load ptr, ptr %12, align 8, !tbaa !121
   tail call void @_ZN20cmCPackIFWRepository22WriteRepositoryUpdatesER11cmXMLWriter(ptr noundef nonnull align 8 dereferenceable(328) %11, ptr noundef nonnull align 8 dereferenceable(83) %13)
   store i8 1, ptr %6, align 8, !tbaa !81
   br label %14
 
 14:                                               ; preds = %9, %5, %2
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %16 = load ptr, ptr %15, align 8, !tbaa !123
+  %16 = load ptr, ptr %15, align 8, !tbaa !121
   tail call void @_ZN11cmXMLWriter10EndElementEv(ptr noundef nonnull align 8 dereferenceable(83) %16)
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %18 = load i8, ptr %17, align 8, !tbaa !81, !range !126, !noundef !127
+  %18 = load i8, ptr %17, align 8, !tbaa !81, !range !124, !noundef !125
   %19 = trunc nuw i8 %18 to i1
   br i1 %19, label %27, label %20
 
@@ -3490,7 +3487,7 @@ define linkonce_odr dso_local void @_ZN24cmCPackIFWUpdatesPatcher10EndElementERK
 23:                                               ; preds = %20
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %25 = load ptr, ptr %24, align 8, !tbaa !73
-  %26 = load ptr, ptr %15, align 8, !tbaa !123
+  %26 = load ptr, ptr %15, align 8, !tbaa !121
   tail call void @_ZN20cmCPackIFWRepository22WriteRepositoryUpdatesER11cmXMLWriter(ptr noundef nonnull align 8 dereferenceable(328) %25, ptr noundef nonnull align 8 dereferenceable(83) %26)
   store i8 1, ptr %17, align 8, !tbaa !81
   br label %27
@@ -3567,14 +3564,14 @@ define linkonce_odr dso_local void @_ZN24cmCPackIFWUpdatesPatcher20CharacterData
 
 33:                                               ; preds = %30
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %35 = load ptr, ptr %34, align 8, !tbaa !123
+  %35 = load ptr, ptr %34, align 8, !tbaa !121
   invoke void @_ZN11cmXMLWriter10PreContentEv(ptr noundef nonnull align 8 dereferenceable(83) %35)
           to label %.noexc7 unwind label %46
 
 .noexc7:                                          ; preds = %33
   %36 = load ptr, ptr %35, align 8, !tbaa !82
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #15
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #15, !noalias !128
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #15, !noalias !126
   invoke void @_ZN9cmXMLSafeC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(17) %4, ptr noundef nonnull align 8 dereferenceable(32) %7)
           to label %.noexc8 unwind label %46
 
@@ -3584,7 +3581,7 @@ define linkonce_odr dso_local void @_ZN24cmCPackIFWUpdatesPatcher20CharacterData
 
 .noexc9:                                          ; preds = %.noexc8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %37, i64 24, i1 false), !tbaa.struct !94
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #15, !noalias !128
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #15, !noalias !126
   %38 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZlsRSoRK9cmXMLSafe(ptr noundef nonnull align 8 dereferenceable(8) %36, ptr noundef nonnull align 8 dereferenceable(17) %5)
           to label %_ZN11cmXMLWriter7ContentINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvRKT_.exit unwind label %46
 
@@ -3898,13 +3895,11 @@ attributes #17 = { builtin nounwind }
 !118 = !{!110, !12, i64 16}
 !119 = !{!23, !23, i64 0}
 !120 = !{!77, !77, i64 0}
-!121 = distinct !{!121, !122}
-!122 = !{!"llvm.loop.estimated_trip_count"}
-!123 = !{!74, !78, i64 48}
-!124 = distinct !{!124, !125, !122}
-!125 = !{!"llvm.loop.mustprogress"}
-!126 = !{i8 0, i8 2}
-!127 = !{}
-!128 = !{!129}
-!129 = distinct !{!129, !130, !"_ZN11cmXMLWriter11SafeContentERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE: argument 0"}
-!130 = distinct !{!130, !"_ZN11cmXMLWriter11SafeContentERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE"}
+!121 = !{!74, !78, i64 48}
+!122 = distinct !{!122, !123}
+!123 = !{!"llvm.loop.mustprogress"}
+!124 = !{i8 0, i8 2}
+!125 = !{}
+!126 = !{!127}
+!127 = distinct !{!127, !128, !"_ZN11cmXMLWriter11SafeContentERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE: argument 0"}
+!128 = distinct !{!128, !"_ZN11cmXMLWriter11SafeContentERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE"}

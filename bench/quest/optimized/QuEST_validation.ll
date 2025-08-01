@@ -206,7 +206,7 @@ define range(i32 0, 2) i32 @isMatrix2Unitary(ptr noundef readonly byval(%struct.
   br label %.preheader
 
 5:                                                ; preds = %8
-  br i1 %.not, label %.preheader, label %.critedge, !llvm.loop !9
+  br i1 %.not, label %.preheader, label %.critedge
 
 .preheader:                                       ; preds = %.preheader46, %5
   %.not = phi i1 [ true, %.preheader46 ], [ false, %5 ]
@@ -230,13 +230,13 @@ define range(i32 0, 2) i32 @isMatrix2Unitary(ptr noundef readonly byval(%struct.
   %.03851 = phi double [ 0.000000e+00, %.preheader ], [ %27, %15 ]
   %.04549 = phi double [ 0.000000e+00, %.preheader ], [ %31, %15 ]
   %17 = getelementptr inbounds nuw [2 x double], ptr %3, i64 0, i64 %indvars.iv
-  %18 = load double, ptr %17, align 8, !tbaa !11
+  %18 = load double, ptr %17, align 8, !tbaa !9
   %19 = getelementptr inbounds nuw [2 x double], ptr %6, i64 0, i64 %indvars.iv
-  %20 = load double, ptr %19, align 8, !tbaa !11
+  %20 = load double, ptr %19, align 8, !tbaa !9
   %21 = getelementptr inbounds nuw [2 x double], ptr %4, i64 0, i64 %indvars.iv
-  %22 = load double, ptr %21, align 8, !tbaa !11
+  %22 = load double, ptr %21, align 8, !tbaa !9
   %23 = getelementptr inbounds nuw [2 x double], ptr %7, i64 0, i64 %indvars.iv
-  %24 = load double, ptr %23, align 8, !tbaa !11
+  %24 = load double, ptr %23, align 8, !tbaa !9
   %25 = fmul double %22, %24
   %26 = tail call double @llvm.fmuladd.f64(double %18, double %20, double %25)
   %27 = fadd double %.03851, %26
@@ -244,10 +244,10 @@ define range(i32 0, 2) i32 @isMatrix2Unitary(ptr noundef readonly byval(%struct.
   %29 = fmul double %18, %28
   %30 = tail call double @llvm.fmuladd.f64(double %22, double %20, double %29)
   %31 = fadd double %.04549, %30
-  br i1 %16, label %15, label %8, !llvm.loop !13
+  br i1 %16, label %15, label %8
 
 .critedge:                                        ; preds = %5
-  br i1 %.not54, label %.preheader46, label %.loopexit, !llvm.loop !14
+  br i1 %.not54, label %.preheader46, label %.loopexit
 
 .loopexit:                                        ; preds = %.critedge, %8
   %spec.select = zext i1 %14 to i32
@@ -274,7 +274,7 @@ define range(i32 0, 2) i32 @isMatrix4Unitary(ptr noundef readonly byval(%struct.
 5:                                                ; preds = %8
   %indvars.iv.next60 = add nuw nsw i64 %indvars.iv59, 1
   %exitcond62 = icmp eq i64 %indvars.iv.next60, 4
-  br i1 %exitcond62, label %.critedge, label %.preheader, !llvm.loop !15
+  br i1 %exitcond62, label %.critedge, label %.preheader
 
 .preheader:                                       ; preds = %.preheader46, %5
   %indvars.iv59 = phi i64 [ 0, %.preheader46 ], [ %indvars.iv.next60, %5 ]
@@ -296,13 +296,13 @@ define range(i32 0, 2) i32 @isMatrix4Unitary(ptr noundef readonly byval(%struct.
   %.03851 = phi double [ 0.000000e+00, %.preheader ], [ %26, %15 ]
   %.04549 = phi double [ 0.000000e+00, %.preheader ], [ %30, %15 ]
   %16 = getelementptr inbounds nuw [4 x double], ptr %3, i64 0, i64 %indvars.iv
-  %17 = load double, ptr %16, align 8, !tbaa !11
+  %17 = load double, ptr %16, align 8, !tbaa !9
   %18 = getelementptr inbounds nuw [4 x double], ptr %6, i64 0, i64 %indvars.iv
-  %19 = load double, ptr %18, align 8, !tbaa !11
+  %19 = load double, ptr %18, align 8, !tbaa !9
   %20 = getelementptr inbounds nuw [4 x double], ptr %4, i64 0, i64 %indvars.iv
-  %21 = load double, ptr %20, align 8, !tbaa !11
+  %21 = load double, ptr %20, align 8, !tbaa !9
   %22 = getelementptr inbounds nuw [4 x double], ptr %7, i64 0, i64 %indvars.iv
-  %23 = load double, ptr %22, align 8, !tbaa !11
+  %23 = load double, ptr %22, align 8, !tbaa !9
   %24 = fmul double %21, %23
   %25 = tail call double @llvm.fmuladd.f64(double %17, double %19, double %24)
   %26 = fadd double %.03851, %25
@@ -312,12 +312,12 @@ define range(i32 0, 2) i32 @isMatrix4Unitary(ptr noundef readonly byval(%struct.
   %30 = fadd double %.04549, %29
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %8, label %15, !llvm.loop !16
+  br i1 %exitcond.not, label %8, label %15
 
 .critedge:                                        ; preds = %5
   %indvars.iv.next64 = add nuw nsw i64 %indvars.iv63, 1
   %exitcond66 = icmp eq i64 %indvars.iv.next64, 4
-  br i1 %exitcond66, label %.loopexit, label %.preheader46, !llvm.loop !17
+  br i1 %exitcond66, label %.loopexit, label %.preheader46
 
 .loopexit:                                        ; preds = %.critedge, %8
   %spec.select = zext i1 %14 to i32
@@ -327,7 +327,7 @@ define range(i32 0, 2) i32 @isMatrix4Unitary(ptr noundef readonly byval(%struct.
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
 define range(i32 0, 2) i32 @isMatrixNUnitary(ptr noundef readonly byval(%struct.ComplexMatrixN) align 8 captures(none) %0) local_unnamed_addr #8 {
 .split:
-  %1 = load i32, ptr %0, align 8, !tbaa !18
+  %1 = load i32, ptr %0, align 8, !tbaa !11
   %.not5061 = icmp eq i32 %1, 31
   br i1 %.not5061, label %.loopexit, label %.preheader51.lr.ph
 
@@ -344,16 +344,16 @@ define range(i32 0, 2) i32 @isMatrixNUnitary(ptr noundef readonly byval(%struct.
   %indvars.iv75 = phi i64 [ %indvars.iv.next76, %..critedge_crit_edge.split.us.us ], [ 0, %.preheader51.lr.ph ]
   %7 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv75
   %8 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv75
-  %9 = load ptr, ptr %7, align 8, !tbaa !23
-  %10 = load ptr, ptr %8, align 8, !tbaa !23
+  %9 = load ptr, ptr %7, align 8, !tbaa !16
+  %10 = load ptr, ptr %8, align 8, !tbaa !16
   br label %.preheader.us.us
 
 .preheader.us.us:                                 ; preds = %31, %.preheader51.us
   %indvars.iv70 = phi i64 [ %indvars.iv.next71, %31 ], [ 0, %.preheader51.us ]
   %11 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv70
-  %12 = load ptr, ptr %11, align 8, !tbaa !23
+  %12 = load ptr, ptr %11, align 8, !tbaa !16
   %13 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv70
-  %14 = load ptr, ptr %13, align 8, !tbaa !23
+  %14 = load ptr, ptr %13, align 8, !tbaa !16
   br label %15
 
 15:                                               ; preds = %15, %.preheader.us.us
@@ -361,13 +361,13 @@ define range(i32 0, 2) i32 @isMatrixNUnitary(ptr noundef readonly byval(%struct.
   %.04157.us.us = phi double [ %26, %15 ], [ 0.000000e+00, %.preheader.us.us ]
   %.04855.us.us = phi double [ %30, %15 ], [ 0.000000e+00, %.preheader.us.us ]
   %16 = getelementptr inbounds nuw double, ptr %9, i64 %indvars.iv
-  %17 = load double, ptr %16, align 8, !tbaa !11
+  %17 = load double, ptr %16, align 8, !tbaa !9
   %18 = getelementptr inbounds nuw double, ptr %12, i64 %indvars.iv
-  %19 = load double, ptr %18, align 8, !tbaa !11
+  %19 = load double, ptr %18, align 8, !tbaa !9
   %20 = getelementptr inbounds nuw double, ptr %10, i64 %indvars.iv
-  %21 = load double, ptr %20, align 8, !tbaa !11
+  %21 = load double, ptr %20, align 8, !tbaa !9
   %22 = getelementptr inbounds nuw double, ptr %14, i64 %indvars.iv
-  %23 = load double, ptr %22, align 8, !tbaa !11
+  %23 = load double, ptr %22, align 8, !tbaa !9
   %24 = fmul double %21, %23
   %25 = tail call double @llvm.fmuladd.f64(double %17, double %19, double %24)
   %26 = fadd double %.04157.us.us, %25
@@ -377,12 +377,12 @@ define range(i32 0, 2) i32 @isMatrixNUnitary(ptr noundef readonly byval(%struct.
   %30 = fadd double %.04855.us.us, %29
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count78
-  br i1 %exitcond.not, label %._crit_edge.us.us, label %15, !llvm.loop !25
+  br i1 %exitcond.not, label %._crit_edge.us.us, label %15
 
 31:                                               ; preds = %._crit_edge.us.us
   %indvars.iv.next71 = add nuw nsw i64 %indvars.iv70, 1
   %exitcond74.not = icmp eq i64 %indvars.iv.next71, %wide.trip.count78
-  br i1 %exitcond74.not, label %..critedge_crit_edge.split.us.us, label %.preheader.us.us, !llvm.loop !26
+  br i1 %exitcond74.not, label %..critedge_crit_edge.split.us.us, label %.preheader.us.us, !llvm.loop !18
 
 ._crit_edge.us.us:                                ; preds = %15
   %32 = icmp eq i64 %indvars.iv75, %indvars.iv70
@@ -396,7 +396,7 @@ define range(i32 0, 2) i32 @isMatrixNUnitary(ptr noundef readonly byval(%struct.
 ..critedge_crit_edge.split.us.us:                 ; preds = %31
   %indvars.iv.next76 = add nuw nsw i64 %indvars.iv75, 1
   %exitcond79.not = icmp eq i64 %indvars.iv.next76, %wide.trip.count78
-  br i1 %exitcond79.not, label %.loopexit, label %.preheader51.us, !llvm.loop !28
+  br i1 %exitcond79.not, label %.loopexit, label %.preheader51.us, !llvm.loop !20
 
 .loopexit:                                        ; preds = %..critedge_crit_edge.split.us.us, %._crit_edge.us.us, %.split
   %.not5054 = phi i32 [ 1, %.split ], [ 0, %._crit_edge.us.us ], [ 1, %..critedge_crit_edge.split.us.us ]
@@ -425,7 +425,7 @@ define range(i32 0, 2) i32 @isCompletelyPositiveMap2(ptr noundef readonly captur
 4:                                                ; preds = %5
   %indvars.iv.next92 = add nuw nsw i64 %indvars.iv91, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next92, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us.us, label %.preheader.us.us, !llvm.loop !29
+  br i1 %exitcond.not, label %._crit_edge.us.us, label %.preheader.us.us
 
 5:                                                ; preds = %.preheader.us.us, %5
   %6 = phi i1 [ true, %.preheader.us.us ], [ false, %5 ]
@@ -434,14 +434,14 @@ define range(i32 0, 2) i32 @isCompletelyPositiveMap2(ptr noundef readonly captur
   %.16372.us.us = phi double [ %.06275.us.us, %.preheader.us.us ], [ %19, %5 ]
   %7 = getelementptr inbounds nuw [2 x [2 x double]], ptr %24, i64 0, i64 %indvars.iv
   %8 = getelementptr inbounds nuw [2 x double], ptr %7, i64 0, i64 %indvars.iv97
-  %9 = load double, ptr %8, align 8, !tbaa !11
+  %9 = load double, ptr %8, align 8, !tbaa !9
   %10 = getelementptr inbounds nuw [2 x double], ptr %7, i64 0, i64 %indvars.iv94
-  %11 = load double, ptr %10, align 8, !tbaa !11
+  %11 = load double, ptr %10, align 8, !tbaa !9
   %12 = getelementptr inbounds nuw [2 x [2 x double]], ptr %25, i64 0, i64 %indvars.iv
   %13 = getelementptr inbounds nuw [2 x double], ptr %12, i64 0, i64 %indvars.iv97
-  %14 = load double, ptr %13, align 8, !tbaa !11
+  %14 = load double, ptr %13, align 8, !tbaa !9
   %15 = getelementptr inbounds nuw [2 x double], ptr %12, i64 0, i64 %indvars.iv94
-  %16 = load double, ptr %15, align 8, !tbaa !11
+  %16 = load double, ptr %15, align 8, !tbaa !9
   %17 = fmul double %14, %16
   %18 = tail call double @llvm.fmuladd.f64(double %9, double %11, double %17)
   %19 = fadd double %.16372.us.us, %18
@@ -449,7 +449,7 @@ define range(i32 0, 2) i32 @isCompletelyPositiveMap2(ptr noundef readonly captur
   %21 = fmul double %14, %20
   %22 = tail call double @llvm.fmuladd.f64(double %9, double %16, double %21)
   %23 = fadd double %.16173.us.us, %22
-  br i1 %6, label %5, label %4, !llvm.loop !30
+  br i1 %6, label %5, label %4
 
 .preheader.us.us:                                 ; preds = %4, %.preheader68.us.us
   %indvars.iv91 = phi i64 [ %indvars.iv.next92, %4 ], [ 0, %.preheader68.us.us ]
@@ -460,7 +460,7 @@ define range(i32 0, 2) i32 @isCompletelyPositiveMap2(ptr noundef readonly captur
   br label %5
 
 26:                                               ; preds = %._crit_edge.us.us
-  br i1 %.not84, label %.preheader68.us.us, label %.critedge.split.us.us, !llvm.loop !31
+  br i1 %.not84, label %.preheader68.us.us, label %.critedge.split.us.us, !llvm.loop !21
 
 ._crit_edge.us.us:                                ; preds = %4
   %27 = icmp eq i64 %indvars.iv97, %indvars.iv94
@@ -472,7 +472,7 @@ define range(i32 0, 2) i32 @isCompletelyPositiveMap2(ptr noundef readonly captur
   br i1 %32, label %26, label %.loopexit
 
 .critedge.split.us.us:                            ; preds = %26
-  br i1 %.not85, label %.preheader69.us, label %.loopexit, !llvm.loop !32
+  br i1 %.not85, label %.preheader69.us, label %.loopexit, !llvm.loop !22
 
 .loopexit:                                        ; preds = %.critedge.split.us.us, %._crit_edge.us.us, %2
   %spec.select = phi i32 [ 0, %2 ], [ 0, %._crit_edge.us.us ], [ 1, %.critedge.split.us.us ]
@@ -499,7 +499,7 @@ define range(i32 0, 2) i32 @isCompletelyPositiveMap4(ptr noundef readonly captur
 4:                                                ; preds = %5
   %indvars.iv.next91 = add nuw nsw i64 %indvars.iv90, 1
   %exitcond93.not = icmp eq i64 %indvars.iv.next91, %wide.trip.count
-  br i1 %exitcond93.not, label %._crit_edge.us.us, label %.preheader.us.us, !llvm.loop !33
+  br i1 %exitcond93.not, label %._crit_edge.us.us, label %.preheader.us.us
 
 5:                                                ; preds = %.preheader.us.us, %5
   %indvars.iv = phi i64 [ 0, %.preheader.us.us ], [ %indvars.iv.next, %5 ]
@@ -507,14 +507,14 @@ define range(i32 0, 2) i32 @isCompletelyPositiveMap4(ptr noundef readonly captur
   %.16372.us.us = phi double [ %.06275.us.us, %.preheader.us.us ], [ %18, %5 ]
   %6 = getelementptr inbounds nuw [4 x [4 x double]], ptr %23, i64 0, i64 %indvars.iv
   %7 = getelementptr inbounds nuw [4 x double], ptr %6, i64 0, i64 %indvars.iv98
-  %8 = load double, ptr %7, align 8, !tbaa !11
+  %8 = load double, ptr %7, align 8, !tbaa !9
   %9 = getelementptr inbounds nuw [4 x double], ptr %6, i64 0, i64 %indvars.iv94
-  %10 = load double, ptr %9, align 8, !tbaa !11
+  %10 = load double, ptr %9, align 8, !tbaa !9
   %11 = getelementptr inbounds nuw [4 x [4 x double]], ptr %24, i64 0, i64 %indvars.iv
   %12 = getelementptr inbounds nuw [4 x double], ptr %11, i64 0, i64 %indvars.iv98
-  %13 = load double, ptr %12, align 8, !tbaa !11
+  %13 = load double, ptr %12, align 8, !tbaa !9
   %14 = getelementptr inbounds nuw [4 x double], ptr %11, i64 0, i64 %indvars.iv94
-  %15 = load double, ptr %14, align 8, !tbaa !11
+  %15 = load double, ptr %14, align 8, !tbaa !9
   %16 = fmul double %13, %15
   %17 = tail call double @llvm.fmuladd.f64(double %8, double %10, double %16)
   %18 = fadd double %.16372.us.us, %17
@@ -524,7 +524,7 @@ define range(i32 0, 2) i32 @isCompletelyPositiveMap4(ptr noundef readonly captur
   %22 = fadd double %.16173.us.us, %21
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond89.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond89.not, label %4, label %5, !llvm.loop !34
+  br i1 %exitcond89.not, label %4, label %5
 
 .preheader.us.us:                                 ; preds = %4, %.preheader68.us.us
   %indvars.iv90 = phi i64 [ %indvars.iv.next91, %4 ], [ 0, %.preheader68.us.us ]
@@ -537,7 +537,7 @@ define range(i32 0, 2) i32 @isCompletelyPositiveMap4(ptr noundef readonly captur
 25:                                               ; preds = %._crit_edge.us.us
   %indvars.iv.next95 = add nuw nsw i64 %indvars.iv94, 1
   %exitcond97 = icmp eq i64 %indvars.iv.next95, 4
-  br i1 %exitcond97, label %.critedge.split.us.us, label %.preheader68.us.us, !llvm.loop !35
+  br i1 %exitcond97, label %.critedge.split.us.us, label %.preheader68.us.us, !llvm.loop !23
 
 ._crit_edge.us.us:                                ; preds = %4
   %26 = icmp eq i64 %indvars.iv98, %indvars.iv94
@@ -551,7 +551,7 @@ define range(i32 0, 2) i32 @isCompletelyPositiveMap4(ptr noundef readonly captur
 .critedge.split.us.us:                            ; preds = %25
   %indvars.iv.next99 = add nuw nsw i64 %indvars.iv98, 1
   %exitcond101 = icmp eq i64 %indvars.iv.next99, 4
-  br i1 %exitcond101, label %.loopexit, label %.preheader69.us, !llvm.loop !36
+  br i1 %exitcond101, label %.loopexit, label %.preheader69.us, !llvm.loop !24
 
 .loopexit:                                        ; preds = %.critedge.split.us.us, %._crit_edge.us.us, %2
   %spec.select = phi i32 [ 0, %2 ], [ 0, %._crit_edge.us.us ], [ 1, %.critedge.split.us.us ]
@@ -560,7 +560,7 @@ define range(i32 0, 2) i32 @isCompletelyPositiveMap4(ptr noundef readonly captur
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
 define range(i32 0, 2) i32 @isCompletelyPositiveMapN(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #8 {
-  %3 = load i32, ptr %0, align 8, !tbaa !18
+  %3 = load i32, ptr %0, align 8, !tbaa !11
   %.not7397 = icmp eq i32 %3, 31
   br i1 %.not7397, label %.loopexit, label %.preheader75.lr.ph
 
@@ -578,7 +578,7 @@ define range(i32 0, 2) i32 @isCompletelyPositiveMapN(ptr noundef readonly captur
 6:                                                ; preds = %.preheader74.us102
   %7 = add nuw nsw i32 %.06891.us103, 1
   %exitcond.not = icmp eq i32 %7, %4
-  br i1 %exitcond.not, label %..critedge_crit_edge.us, label %.preheader74.us102, !llvm.loop !37
+  br i1 %exitcond.not, label %..critedge_crit_edge.us, label %.preheader74.us102
 
 .preheader74.us102:                               ; preds = %.preheader75.us, %6
   %.06891.us103 = phi i32 [ %7, %6 ], [ 0, %.preheader75.us ]
@@ -593,7 +593,7 @@ define range(i32 0, 2) i32 @isCompletelyPositiveMapN(ptr noundef readonly captur
 ..critedge_crit_edge.us:                          ; preds = %6, %14
   %indvars.iv.next127 = add nuw nsw i64 %indvars.iv126, 1
   %exitcond130.not = icmp eq i64 %indvars.iv.next127, %wide.trip.count129
-  br i1 %exitcond130.not, label %.loopexit, label %.preheader75.us, !llvm.loop !38
+  br i1 %exitcond130.not, label %.loopexit, label %.preheader75.us, !llvm.loop !25
 
 .preheader74.us.us:                               ; preds = %.preheader75.us, %14
   %indvars.iv121 = phi i64 [ %indvars.iv.next122, %14 ], [ 0, %.preheader75.us ]
@@ -602,7 +602,7 @@ define range(i32 0, 2) i32 @isCompletelyPositiveMapN(ptr noundef readonly captur
 14:                                               ; preds = %._crit_edge86.split.us.us.us
   %indvars.iv.next122 = add nuw nsw i64 %indvars.iv121, 1
   %exitcond125.not = icmp eq i64 %indvars.iv.next122, %wide.trip.count129
-  br i1 %exitcond125.not, label %..critedge_crit_edge.us, label %.preheader74.us.us, !llvm.loop !39
+  br i1 %exitcond125.not, label %..critedge_crit_edge.us, label %.preheader74.us.us, !llvm.loop !26
 
 .preheader.us.us.us:                              ; preds = %._crit_edge.us.us.us, %.preheader74.us.us
   %indvars.iv116 = phi i64 [ %indvars.iv.next117, %._crit_edge.us.us.us ], [ 0, %.preheader74.us.us ]
@@ -610,9 +610,9 @@ define range(i32 0, 2) i32 @isCompletelyPositiveMapN(ptr noundef readonly captur
   %.06683.us.us.us = phi double [ %35, %._crit_edge.us.us.us ], [ 0.000000e+00, %.preheader74.us.us ]
   %15 = getelementptr inbounds nuw %struct.ComplexMatrixN, ptr %0, i64 %indvars.iv116
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  %17 = load ptr, ptr %16, align 8, !tbaa !40
+  %17 = load ptr, ptr %16, align 8, !tbaa !27
   %18 = getelementptr inbounds nuw i8, ptr %15, i64 16
-  %19 = load ptr, ptr %18, align 8, !tbaa !41
+  %19 = load ptr, ptr %18, align 8, !tbaa !28
   br label %20
 
 20:                                               ; preds = %20, %.preheader.us.us.us
@@ -620,17 +620,17 @@ define range(i32 0, 2) i32 @isCompletelyPositiveMapN(ptr noundef readonly captur
   %.16580.us.us.us = phi double [ %39, %20 ], [ %.06484.us.us.us, %.preheader.us.us.us ]
   %.16779.us.us.us = phi double [ %35, %20 ], [ %.06683.us.us.us, %.preheader.us.us.us ]
   %21 = getelementptr inbounds nuw ptr, ptr %17, i64 %indvars.iv
-  %22 = load ptr, ptr %21, align 8, !tbaa !23
+  %22 = load ptr, ptr %21, align 8, !tbaa !16
   %23 = getelementptr inbounds nuw double, ptr %22, i64 %indvars.iv126
-  %24 = load double, ptr %23, align 8, !tbaa !11
+  %24 = load double, ptr %23, align 8, !tbaa !9
   %25 = getelementptr inbounds nuw double, ptr %22, i64 %indvars.iv121
-  %26 = load double, ptr %25, align 8, !tbaa !11
+  %26 = load double, ptr %25, align 8, !tbaa !9
   %27 = getelementptr inbounds nuw ptr, ptr %19, i64 %indvars.iv
-  %28 = load ptr, ptr %27, align 8, !tbaa !23
+  %28 = load ptr, ptr %27, align 8, !tbaa !16
   %29 = getelementptr inbounds nuw double, ptr %28, i64 %indvars.iv126
-  %30 = load double, ptr %29, align 8, !tbaa !11
+  %30 = load double, ptr %29, align 8, !tbaa !9
   %31 = getelementptr inbounds nuw double, ptr %28, i64 %indvars.iv121
-  %32 = load double, ptr %31, align 8, !tbaa !11
+  %32 = load double, ptr %31, align 8, !tbaa !9
   %33 = fmul double %30, %32
   %34 = tail call double @llvm.fmuladd.f64(double %24, double %26, double %33)
   %35 = fadd double %.16779.us.us.us, %34
@@ -640,12 +640,12 @@ define range(i32 0, 2) i32 @isCompletelyPositiveMapN(ptr noundef readonly captur
   %39 = fadd double %.16580.us.us.us, %38
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond115.not = icmp eq i64 %indvars.iv.next, %wide.trip.count129
-  br i1 %exitcond115.not, label %._crit_edge.us.us.us, label %20, !llvm.loop !42
+  br i1 %exitcond115.not, label %._crit_edge.us.us.us, label %20
 
 ._crit_edge.us.us.us:                             ; preds = %20
   %indvars.iv.next117 = add nuw nsw i64 %indvars.iv116, 1
   %exitcond120.not = icmp eq i64 %indvars.iv.next117, %wide.trip.count119
-  br i1 %exitcond120.not, label %._crit_edge86.split.us.us.us, label %.preheader.us.us.us, !llvm.loop !43
+  br i1 %exitcond120.not, label %._crit_edge86.split.us.us.us, label %.preheader.us.us.us, !llvm.loop !29
 
 ._crit_edge86.split.us.us.us:                     ; preds = %._crit_edge.us.us.us
   %40 = icmp eq i64 %indvars.iv126, %indvars.iv121
@@ -681,7 +681,7 @@ define range(i32 0, 2) i32 @areUniqueQubits(ptr noundef readonly captures(none) 
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %8 ]
   %.01215 = phi i64 [ 0, %.lr.ph.preheader ], [ %9, %8 ]
   %3 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv
-  %4 = load i32, ptr %3, align 4, !tbaa !44
+  %4 = load i32, ptr %3, align 4, !tbaa !30
   %5 = zext nneg i32 %4 to i64
   %6 = shl nuw i64 1, %5
   %7 = and i64 %6, %.01215
@@ -692,7 +692,7 @@ define range(i32 0, 2) i32 @areUniqueQubits(ptr noundef readonly captures(none) 
   %9 = or i64 %6, %.01215
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !45
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %8, %.lr.ph, %2
   %.not13.lcssa = phi i32 [ 1, %2 ], [ 0, %.lr.ph ], [ 1, %8 ]
@@ -733,7 +733,7 @@ QuESTAssert.exit:                                 ; preds = %._crit_edge, %._cri
   %spec.select = select i1 %4, i32 1, i32 %.069
   %5 = shl nsw i32 %.010, 1
   %.not = icmp sgt i32 %5, %0
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !46
+  br i1 %.not, label %._crit_edge, label %.lr.ph
 }
 
 ; Function Attrs: nounwind uwtable
@@ -836,7 +836,7 @@ QuESTAssert.exit5:                                ; preds = %QuESTAssert.exit, %
 
 ; Function Attrs: nounwind uwtable
 define void @validateUnitarySubDiagOp(ptr noundef readonly byval(%struct.SubDiagonalOp) align 8 captures(none) %0, ptr noundef %1) local_unnamed_addr #3 {
-  %3 = load i32, ptr %0, align 8, !tbaa !47
+  %3 = load i32, ptr %0, align 8, !tbaa !31
   %.not = icmp eq i32 %3, 63
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
@@ -844,9 +844,9 @@ define void @validateUnitarySubDiagOp(ptr noundef readonly byval(%struct.SubDiag
   %4 = zext nneg i32 %3 to i64
   %5 = shl nuw i64 1, %4
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %7 = load ptr, ptr %6, align 8, !tbaa !50
+  %7 = load ptr, ptr %6, align 8, !tbaa !34
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %9 = load ptr, ptr %8, align 8, !tbaa !51
+  %9 = load ptr, ptr %8, align 8, !tbaa !35
   %smax = tail call i64 @llvm.smax.i64(i64 %5, i64 1)
   br label %10
 
@@ -856,9 +856,9 @@ define void @validateUnitarySubDiagOp(ptr noundef readonly byval(%struct.SubDiag
 10:                                               ; preds = %.lr.ph, %QuESTAssert.exit
   %.08 = phi i64 [ 0, %.lr.ph ], [ %21, %QuESTAssert.exit ]
   %11 = getelementptr inbounds nuw double, ptr %7, i64 %.08
-  %12 = load double, ptr %11, align 8, !tbaa !11
+  %12 = load double, ptr %11, align 8, !tbaa !9
   %13 = getelementptr inbounds nuw double, ptr %9, i64 %.08
-  %14 = load double, ptr %13, align 8, !tbaa !11
+  %14 = load double, ptr %13, align 8, !tbaa !9
   %15 = fmul double %14, %14
   %16 = tail call double @llvm.fmuladd.f64(double %12, double %12, double %15)
   %17 = fsub double 1.000000e+00, %16
@@ -873,12 +873,12 @@ define void @validateUnitarySubDiagOp(ptr noundef readonly byval(%struct.SubDiag
 QuESTAssert.exit:                                 ; preds = %10, %20
   %21 = add nuw nsw i64 %.08, 1
   %exitcond.not = icmp eq i64 %21, %smax
-  br i1 %exitcond.not, label %._crit_edge, label %10, !llvm.loop !52
+  br i1 %exitcond.not, label %._crit_edge, label %10
 }
 
 ; Function Attrs: nounwind uwtable
 define void @validateSubDiagOpTargets(ptr noundef readonly byval(%struct.Qureg) align 8 captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, ptr noundef readonly byval(%struct.SubDiagonalOp) align 8 captures(none) %3, ptr noundef %4) local_unnamed_addr #3 {
-  %6 = load i32, ptr %3, align 8, !tbaa !47
+  %6 = load i32, ptr %3, align 8, !tbaa !31
   %.not = icmp eq i32 %2, %6
   br i1 %.not, label %QuESTAssert.exit, label %7
 
@@ -910,7 +910,7 @@ validateNumTargets.exit.i:                        ; preds = %QuESTAssert.exit
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %16 ], [ 0, %._crit_edge.i ]
   %.01215.i.i = phi i64 [ %17, %16 ], [ 0, %._crit_edge.i ]
   %11 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv.i.i
-  %12 = load i32, ptr %11, align 4, !tbaa !44
+  %12 = load i32, ptr %11, align 4, !tbaa !30
   %13 = zext nneg i32 %12 to i64
   %14 = shl nuw i64 1, %13
   %15 = and i64 %14, %.01215.i.i
@@ -921,7 +921,7 @@ validateNumTargets.exit.i:                        ; preds = %QuESTAssert.exit
   %17 = or i64 %14, %.01215.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i
-  br i1 %exitcond.not.i.i, label %validateMultiTargets.exit, label %.lr.ph.i.i, !llvm.loop !45
+  br i1 %exitcond.not.i.i, label %validateMultiTargets.exit, label %.lr.ph.i.i
 
 areUniqueQubits.exit.i:                           ; preds = %.lr.ph.i.i
   tail call void @invalidQuESTInputError(ptr noundef nonnull @.str.19, ptr noundef %4)
@@ -930,7 +930,7 @@ areUniqueQubits.exit.i:                           ; preds = %.lr.ph.i.i
 .lr.ph.i:                                         ; preds = %validateTarget.exit.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %validateTarget.exit.i ]
   %18 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv.i
-  %19 = load i32, ptr %18, align 4, !tbaa !44
+  %19 = load i32, ptr %18, align 4, !tbaa !30
   %20 = icmp slt i32 %19, 0
   %21 = icmp sge i32 %19, %.sroa.3.0.copyload
   %.not3.i12.i = select i1 %20, i1 true, i1 %21
@@ -943,7 +943,7 @@ areUniqueQubits.exit.i:                           ; preds = %.lr.ph.i.i
 validateTarget.exit.i:                            ; preds = %22, %.lr.ph.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !53
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i
 
 validateMultiTargets.exit:                        ; preds = %16, %validateNumTargets.exit.i, %._crit_edge.i, %areUniqueQubits.exit.i
   ret void
@@ -978,7 +978,7 @@ validateNumTargets.exit:                          ; preds = %4
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %13 ]
   %.01215.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %14, %13 ]
   %8 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv.i
-  %9 = load i32, ptr %8, align 4, !tbaa !44
+  %9 = load i32, ptr %8, align 4, !tbaa !30
   %10 = zext nneg i32 %9 to i64
   %11 = shl nuw i64 1, %10
   %12 = and i64 %11, %.01215.i
@@ -989,7 +989,7 @@ validateNumTargets.exit:                          ; preds = %4
   %14 = or i64 %11, %.01215.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %QuESTAssert.exit, label %.lr.ph.i, !llvm.loop !45
+  br i1 %exitcond.not.i, label %QuESTAssert.exit, label %.lr.ph.i
 
 areUniqueQubits.exit:                             ; preds = %.lr.ph.i
   tail call void @invalidQuESTInputError(ptr noundef nonnull @.str.19, ptr noundef %3)
@@ -1001,7 +1001,7 @@ QuESTAssert.exit:                                 ; preds = %13, %validateNumTar
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %validateTarget.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %validateTarget.exit ]
   %15 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
-  %16 = load i32, ptr %15, align 4, !tbaa !44
+  %16 = load i32, ptr %15, align 4, !tbaa !30
   %17 = icmp slt i32 %16, 0
   %18 = icmp sge i32 %16, %.sroa.3.0.copyload
   %.not3.i12 = select i1 %17, i1 true, i1 %18
@@ -1014,13 +1014,13 @@ QuESTAssert.exit:                                 ; preds = %13, %validateNumTar
 validateTarget.exit:                              ; preds = %.lr.ph, %19
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !53
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
 }
 
 ; Function Attrs: nounwind uwtable
 define void @validateStateIndex(ptr noundef readonly byval(%struct.Qureg) align 8 captures(none) %0, i64 noundef %1, ptr noundef %2) local_unnamed_addr #3 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %5 = load i32, ptr %4, align 4, !tbaa !54
+  %5 = load i32, ptr %4, align 4, !tbaa !36
   %6 = zext nneg i32 %5 to i64
   %7 = shl nuw i64 1, %6
   %8 = icmp slt i64 %1, 0
@@ -1039,7 +1039,7 @@ QuESTAssert.exit:                                 ; preds = %3, %10
 ; Function Attrs: nounwind uwtable
 define void @validateAmpIndex(ptr noundef readonly byval(%struct.Qureg) align 8 captures(none) %0, i64 noundef %1, ptr noundef %2) local_unnamed_addr #3 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %5 = load i32, ptr %4, align 4, !tbaa !54
+  %5 = load i32, ptr %4, align 4, !tbaa !36
   %6 = zext nneg i32 %5 to i64
   %7 = shl nuw i64 1, %6
   %8 = icmp slt i64 %1, 0
@@ -1151,7 +1151,7 @@ QuESTAssert.exit14:                               ; preds = %QuESTAssert.exit, %
 
 ; Function Attrs: nounwind uwtable
 define void @validateNumElems(ptr noundef readonly byval(%struct.DiagonalOp) align 8 captures(none) %0, i64 noundef %1, i64 noundef %2, ptr noundef %3) local_unnamed_addr #3 {
-  %5 = load i32, ptr %0, align 8, !tbaa !57
+  %5 = load i32, ptr %0, align 8, !tbaa !39
   %6 = zext nneg i32 %5 to i64
   %7 = shl nuw i64 1, %6
   %8 = icmp slt i64 %1, 0
@@ -1353,7 +1353,7 @@ validateNumControls.exit:                         ; preds = %4
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %13 ]
   %.01215.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %14, %13 ]
   %8 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv.i
-  %9 = load i32, ptr %8, align 4, !tbaa !44
+  %9 = load i32, ptr %8, align 4, !tbaa !30
   %10 = zext nneg i32 %9 to i64
   %11 = shl nuw i64 1, %10
   %12 = and i64 %11, %.01215.i
@@ -1364,7 +1364,7 @@ validateNumControls.exit:                         ; preds = %4
   %14 = or i64 %11, %.01215.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %QuESTAssert.exit, label %.lr.ph.i, !llvm.loop !45
+  br i1 %exitcond.not.i, label %QuESTAssert.exit, label %.lr.ph.i
 
 areUniqueQubits.exit:                             ; preds = %.lr.ph.i
   tail call void @invalidQuESTInputError(ptr noundef nonnull @.str.20, ptr noundef %3)
@@ -1376,7 +1376,7 @@ QuESTAssert.exit:                                 ; preds = %13, %validateNumCon
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %validateControl.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %validateControl.exit ]
   %15 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
-  %16 = load i32, ptr %15, align 4, !tbaa !44
+  %16 = load i32, ptr %15, align 4, !tbaa !30
   %17 = icmp slt i32 %16, 0
   %18 = icmp sge i32 %16, %.sroa.3.0.copyload
   %.not3.i12 = select i1 %17, i1 true, i1 %18
@@ -1389,7 +1389,7 @@ QuESTAssert.exit:                                 ; preds = %13, %validateNumCon
 validateControl.exit:                             ; preds = %.lr.ph, %19
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !59
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1421,7 +1421,7 @@ QuESTAssert.exit:                                 ; preds = %4
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %15 ]
   %.01215.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %16, %15 ]
   %10 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv.i
-  %11 = load i32, ptr %10, align 4, !tbaa !44
+  %11 = load i32, ptr %10, align 4, !tbaa !30
   %12 = zext nneg i32 %11 to i64
   %13 = shl nuw i64 1, %12
   %14 = and i64 %13, %.01215.i
@@ -1432,7 +1432,7 @@ QuESTAssert.exit:                                 ; preds = %4
   %16 = or i64 %13, %.01215.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %QuESTAssert.exit17, label %.lr.ph.i, !llvm.loop !45
+  br i1 %exitcond.not.i, label %QuESTAssert.exit17, label %.lr.ph.i
 
 areUniqueQubits.exit:                             ; preds = %.lr.ph.i
   tail call void @invalidQuESTInputError(ptr noundef nonnull @.str.18, ptr noundef %3)
@@ -1444,7 +1444,7 @@ QuESTAssert.exit17:                               ; preds = %15, %QuESTAssert.ex
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %QuESTAssert.exit19
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %QuESTAssert.exit19 ]
   %17 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
-  %18 = load i32, ptr %17, align 4, !tbaa !44
+  %18 = load i32, ptr %17, align 4, !tbaa !30
   %19 = icmp sge i32 %18, %7
   %.inv = icmp slt i32 %18, 0
   %narrow.not = select i1 %.inv, i1 true, i1 %19
@@ -1457,7 +1457,7 @@ QuESTAssert.exit17:                               ; preds = %15, %QuESTAssert.ex
 QuESTAssert.exit19:                               ; preds = %.lr.ph, %20
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !60
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1495,7 +1495,7 @@ validateNumControls.exit.i:                       ; preds = %validateTarget.exit
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %17 ], [ 0, %._crit_edge.i ]
   %.01215.i.i = phi i64 [ %18, %17 ], [ 0, %._crit_edge.i ]
   %12 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv.i.i
-  %13 = load i32, ptr %12, align 4, !tbaa !44
+  %13 = load i32, ptr %12, align 4, !tbaa !30
   %14 = zext nneg i32 %13 to i64
   %15 = shl nuw i64 1, %14
   %16 = and i64 %15, %.01215.i.i
@@ -1506,7 +1506,7 @@ validateNumControls.exit.i:                       ; preds = %validateTarget.exit
   %18 = or i64 %15, %.01215.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i
-  br i1 %exitcond.not.i.i, label %.lr.ph.preheader, label %.lr.ph.i.i, !llvm.loop !45
+  br i1 %exitcond.not.i.i, label %.lr.ph.preheader, label %.lr.ph.i.i
 
 areUniqueQubits.exit.i:                           ; preds = %.lr.ph.i.i
   tail call void @invalidQuESTInputError(ptr noundef nonnull @.str.20, ptr noundef %4)
@@ -1515,7 +1515,7 @@ areUniqueQubits.exit.i:                           ; preds = %.lr.ph.i.i
 .lr.ph.i:                                         ; preds = %validateControl.exit.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %validateControl.exit.i ]
   %19 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv.i
-  %20 = load i32, ptr %19, align 4, !tbaa !44
+  %20 = load i32, ptr %19, align 4, !tbaa !30
   %21 = icmp slt i32 %20, 0
   %22 = icmp sge i32 %20, %.sroa.3.0.copyload
   %.not3.i12.i = select i1 %21, i1 true, i1 %22
@@ -1528,7 +1528,7 @@ areUniqueQubits.exit.i:                           ; preds = %.lr.ph.i.i
 validateControl.exit.i:                           ; preds = %23, %.lr.ph.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !59
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.preheader:                                 ; preds = %17, %areUniqueQubits.exit.i
   %wide.trip.count = zext nneg i32 %2 to i64
@@ -1540,7 +1540,7 @@ validateControl.exit.i:                           ; preds = %23, %.lr.ph.i
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %QuESTAssert.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %QuESTAssert.exit ]
   %24 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
-  %25 = load i32, ptr %24, align 4, !tbaa !44
+  %25 = load i32, ptr %24, align 4, !tbaa !30
   %.not = icmp eq i32 %25, %3
   br i1 %.not, label %26, label %QuESTAssert.exit
 
@@ -1551,7 +1551,7 @@ validateControl.exit.i:                           ; preds = %23, %.lr.ph.i
 QuESTAssert.exit:                                 ; preds = %.lr.ph, %26
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !61
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1579,7 +1579,7 @@ validateNumControls.exit.i:                       ; preds = %6
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %15 ], [ 0, %._crit_edge.i ]
   %.01215.i.i = phi i64 [ %16, %15 ], [ 0, %._crit_edge.i ]
   %10 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv.i.i
-  %11 = load i32, ptr %10, align 4, !tbaa !44
+  %11 = load i32, ptr %10, align 4, !tbaa !30
   %12 = zext nneg i32 %11 to i64
   %13 = shl nuw i64 1, %12
   %14 = and i64 %13, %.01215.i.i
@@ -1590,7 +1590,7 @@ validateNumControls.exit.i:                       ; preds = %6
   %16 = or i64 %13, %.01215.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i
-  br i1 %exitcond.not.i.i, label %validateMultiControls.exit, label %.lr.ph.i.i, !llvm.loop !45
+  br i1 %exitcond.not.i.i, label %validateMultiControls.exit, label %.lr.ph.i.i
 
 areUniqueQubits.exit.i:                           ; preds = %.lr.ph.i.i
   tail call void @invalidQuESTInputError(ptr noundef nonnull @.str.20, ptr noundef %5)
@@ -1599,7 +1599,7 @@ areUniqueQubits.exit.i:                           ; preds = %.lr.ph.i.i
 .lr.ph.i:                                         ; preds = %validateControl.exit.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %validateControl.exit.i ]
   %17 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv.i
-  %18 = load i32, ptr %17, align 4, !tbaa !44
+  %18 = load i32, ptr %17, align 4, !tbaa !30
   %19 = icmp slt i32 %18, 0
   %20 = icmp sge i32 %18, %.sroa.3.0.copyload
   %.not3.i12.i = select i1 %19, i1 true, i1 %20
@@ -1612,7 +1612,7 @@ areUniqueQubits.exit.i:                           ; preds = %.lr.ph.i.i
 validateControl.exit.i:                           ; preds = %21, %.lr.ph.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !59
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i
 
 validateMultiControls.exit:                       ; preds = %15, %validateNumControls.exit.i, %._crit_edge.i, %areUniqueQubits.exit.i
   %22 = icmp slt i32 %4, 1
@@ -1636,7 +1636,7 @@ validateNumTargets.exit.i:                        ; preds = %validateMultiContro
   %indvars.iv.i.i27 = phi i64 [ %indvars.iv.next.i.i31, %30 ], [ 0, %._crit_edge.i23 ]
   %.01215.i.i28 = phi i64 [ %31, %30 ], [ 0, %._crit_edge.i23 ]
   %25 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv.i.i27
-  %26 = load i32, ptr %25, align 4, !tbaa !44
+  %26 = load i32, ptr %25, align 4, !tbaa !30
   %27 = zext nneg i32 %26 to i64
   %28 = shl nuw i64 1, %27
   %29 = and i64 %28, %.01215.i.i28
@@ -1647,7 +1647,7 @@ validateNumTargets.exit.i:                        ; preds = %validateMultiContro
   %31 = or i64 %28, %.01215.i.i28
   %indvars.iv.next.i.i31 = add nuw nsw i64 %indvars.iv.i.i27, 1
   %exitcond.not.i.i32 = icmp eq i64 %indvars.iv.next.i.i31, %wide.trip.count.i17
-  br i1 %exitcond.not.i.i32, label %validateMultiTargets.exit, label %.lr.ph.i.i26, !llvm.loop !45
+  br i1 %exitcond.not.i.i32, label %validateMultiTargets.exit, label %.lr.ph.i.i26
 
 areUniqueQubits.exit.i30:                         ; preds = %.lr.ph.i.i26
   tail call void @invalidQuESTInputError(ptr noundef nonnull @.str.19, ptr noundef %5)
@@ -1656,7 +1656,7 @@ areUniqueQubits.exit.i30:                         ; preds = %.lr.ph.i.i26
 .lr.ph.i18:                                       ; preds = %validateTarget.exit.i, %.lr.ph.preheader.i16
   %indvars.iv.i19 = phi i64 [ 0, %.lr.ph.preheader.i16 ], [ %indvars.iv.next.i21, %validateTarget.exit.i ]
   %32 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv.i19
-  %33 = load i32, ptr %32, align 4, !tbaa !44
+  %33 = load i32, ptr %32, align 4, !tbaa !30
   %34 = icmp slt i32 %33, 0
   %35 = icmp sge i32 %33, %.sroa.3.0.copyload
   %.not3.i12.i20 = select i1 %34, i1 true, i1 %35
@@ -1669,7 +1669,7 @@ areUniqueQubits.exit.i30:                         ; preds = %.lr.ph.i.i26
 validateTarget.exit.i:                            ; preds = %36, %.lr.ph.i18
   %indvars.iv.next.i21 = add nuw nsw i64 %indvars.iv.i19, 1
   %exitcond.not.i22 = icmp eq i64 %indvars.iv.next.i21, %wide.trip.count.i17
-  br i1 %exitcond.not.i22, label %._crit_edge.i23, label %.lr.ph.i18, !llvm.loop !53
+  br i1 %exitcond.not.i22, label %._crit_edge.i23, label %.lr.ph.i18
 
 validateMultiTargets.exit:                        ; preds = %30, %validateNumTargets.exit.i, %._crit_edge.i23, %areUniqueQubits.exit.i30
   %37 = tail call i64 @getQubitBitMask(ptr noundef %1, i32 noundef %2) #14
@@ -1704,7 +1704,7 @@ define void @validateControlState(ptr noundef readonly captures(none) %0, i32 no
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %QuESTAssert.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %QuESTAssert.exit ]
   %5 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv
-  %6 = load i32, ptr %5, align 4, !tbaa !44
+  %6 = load i32, ptr %5, align 4, !tbaa !30
   %narrow = icmp ugt i32 %6, 1
   br i1 %narrow, label %7, label %QuESTAssert.exit
 
@@ -1715,13 +1715,13 @@ define void @validateControlState(ptr noundef readonly captures(none) %0, i32 no
 QuESTAssert.exit:                                 ; preds = %.lr.ph, %7
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !62
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
 }
 
 ; Function Attrs: nounwind uwtable
 define void @validateMultiQubitMatrixFitsInNode(ptr noundef readonly byval(%struct.Qureg) align 8 captures(none) %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #3 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %5 = load i64, ptr %4, align 8, !tbaa !63
+  %5 = load i64, ptr %4, align 8, !tbaa !41
   %6 = zext nneg i32 %1 to i64
   %7 = shl nuw i64 1, %6
   %.not = icmp slt i64 %5, %7
@@ -1748,7 +1748,7 @@ define void @validateOneQubitUnitaryMatrix(ptr noundef readonly byval(%struct.Co
   br label %.preheader.i
 
 6:                                                ; preds = %9
-  br i1 %.not.i, label %.preheader.i, label %.critedge.i, !llvm.loop !9
+  br i1 %.not.i, label %.preheader.i, label %.critedge.i
 
 .preheader.i:                                     ; preds = %6, %.preheader46.i
   %.not.i = phi i1 [ true, %.preheader46.i ], [ false, %6 ]
@@ -1772,13 +1772,13 @@ define void @validateOneQubitUnitaryMatrix(ptr noundef readonly byval(%struct.Co
   %.03851.i = phi double [ 0.000000e+00, %.preheader.i ], [ %28, %16 ]
   %.04549.i = phi double [ 0.000000e+00, %.preheader.i ], [ %32, %16 ]
   %18 = getelementptr inbounds nuw [2 x double], ptr %4, i64 0, i64 %indvars.iv.i
-  %19 = load double, ptr %18, align 8, !tbaa !11
+  %19 = load double, ptr %18, align 8, !tbaa !9
   %20 = getelementptr inbounds nuw [2 x double], ptr %7, i64 0, i64 %indvars.iv.i
-  %21 = load double, ptr %20, align 8, !tbaa !11
+  %21 = load double, ptr %20, align 8, !tbaa !9
   %22 = getelementptr inbounds nuw [2 x double], ptr %5, i64 0, i64 %indvars.iv.i
-  %23 = load double, ptr %22, align 8, !tbaa !11
+  %23 = load double, ptr %22, align 8, !tbaa !9
   %24 = getelementptr inbounds nuw [2 x double], ptr %8, i64 0, i64 %indvars.iv.i
-  %25 = load double, ptr %24, align 8, !tbaa !11
+  %25 = load double, ptr %24, align 8, !tbaa !9
   %26 = fmul double %23, %25
   %27 = tail call double @llvm.fmuladd.f64(double %19, double %21, double %26)
   %28 = fadd double %.03851.i, %27
@@ -1786,10 +1786,10 @@ define void @validateOneQubitUnitaryMatrix(ptr noundef readonly byval(%struct.Co
   %30 = fmul double %19, %29
   %31 = tail call double @llvm.fmuladd.f64(double %23, double %21, double %30)
   %32 = fadd double %.04549.i, %31
-  br i1 %17, label %16, label %9, !llvm.loop !13
+  br i1 %17, label %16, label %9
 
 .critedge.i:                                      ; preds = %6
-  br i1 %.not54.i, label %.preheader46.i, label %QuESTAssert.exit, !llvm.loop !14
+  br i1 %.not54.i, label %.preheader46.i, label %QuESTAssert.exit
 
 33:                                               ; preds = %9
   tail call void @invalidQuESTInputError(ptr noundef nonnull @.str.24, ptr noundef %1)
@@ -1823,7 +1823,7 @@ validateMultiQubitMatrixFitsInNode.exit:          ; preds = %3, %4
 8:                                                ; preds = %11
   %indvars.iv.next60.i = add nuw nsw i64 %indvars.iv59.i, 1
   %exitcond62.i = icmp eq i64 %indvars.iv.next60.i, 4
-  br i1 %exitcond62.i, label %.critedge.i, label %.preheader.i, !llvm.loop !15
+  br i1 %exitcond62.i, label %.critedge.i, label %.preheader.i
 
 .preheader.i:                                     ; preds = %8, %.preheader46.i
   %indvars.iv59.i = phi i64 [ 0, %.preheader46.i ], [ %indvars.iv.next60.i, %8 ]
@@ -1845,13 +1845,13 @@ validateMultiQubitMatrixFitsInNode.exit:          ; preds = %3, %4
   %.03851.i = phi double [ 0.000000e+00, %.preheader.i ], [ %29, %18 ]
   %.04549.i = phi double [ 0.000000e+00, %.preheader.i ], [ %33, %18 ]
   %19 = getelementptr inbounds nuw [4 x double], ptr %6, i64 0, i64 %indvars.iv.i
-  %20 = load double, ptr %19, align 8, !tbaa !11
+  %20 = load double, ptr %19, align 8, !tbaa !9
   %21 = getelementptr inbounds nuw [4 x double], ptr %9, i64 0, i64 %indvars.iv.i
-  %22 = load double, ptr %21, align 8, !tbaa !11
+  %22 = load double, ptr %21, align 8, !tbaa !9
   %23 = getelementptr inbounds nuw [4 x double], ptr %7, i64 0, i64 %indvars.iv.i
-  %24 = load double, ptr %23, align 8, !tbaa !11
+  %24 = load double, ptr %23, align 8, !tbaa !9
   %25 = getelementptr inbounds nuw [4 x double], ptr %10, i64 0, i64 %indvars.iv.i
-  %26 = load double, ptr %25, align 8, !tbaa !11
+  %26 = load double, ptr %25, align 8, !tbaa !9
   %27 = fmul double %24, %26
   %28 = tail call double @llvm.fmuladd.f64(double %20, double %22, double %27)
   %29 = fadd double %.03851.i, %28
@@ -1861,12 +1861,12 @@ validateMultiQubitMatrixFitsInNode.exit:          ; preds = %3, %4
   %33 = fadd double %.04549.i, %32
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
-  br i1 %exitcond.not.i, label %11, label %18, !llvm.loop !16
+  br i1 %exitcond.not.i, label %11, label %18
 
 .critedge.i:                                      ; preds = %8
   %indvars.iv.next64.i = add nuw nsw i64 %indvars.iv63.i, 1
   %exitcond66.i = icmp eq i64 %indvars.iv.next64.i, 4
-  br i1 %exitcond66.i, label %QuESTAssert.exit, label %.preheader46.i, !llvm.loop !17
+  br i1 %exitcond66.i, label %QuESTAssert.exit, label %.preheader46.i
 
 34:                                               ; preds = %11
   tail call void @invalidQuESTInputError(ptr noundef nonnull @.str.24, ptr noundef %2)
@@ -1879,7 +1879,7 @@ QuESTAssert.exit:                                 ; preds = %.critedge.i, %34
 ; Function Attrs: nounwind uwtable
 define void @validateMatrixInit(ptr noundef readonly byval(%struct.ComplexMatrixN) align 8 captures(none) %0, ptr noundef %1) local_unnamed_addr #3 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !tbaa !40
+  %4 = load ptr, ptr %3, align 8, !tbaa !27
   %5 = icmp eq ptr %4, null
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load ptr, ptr %6, align 8
@@ -1923,7 +1923,7 @@ validateMatrixInit.exit:                          ; preds = %4, %7
   br label %validateMultiQubitMatrixFitsInNode.exit
 
 validateMultiQubitMatrixFitsInNode.exit:          ; preds = %validateMatrixInit.exit, %10
-  %11 = load i32, ptr %1, align 8, !tbaa !18
+  %11 = load i32, ptr %1, align 8, !tbaa !11
   %.not = icmp eq i32 %2, %11
   br i1 %.not, label %QuESTAssert.exit, label %12
 
@@ -1984,16 +1984,16 @@ validateMultiQubitMatrix.exit:                    ; preds = %validateMultiQubitM
   %indvars.iv75.i = phi i64 [ %indvars.iv.next76.i, %..critedge_crit_edge.split.us.us.i ], [ 0, %.preheader51.lr.ph.i ]
   %13 = getelementptr inbounds nuw ptr, ptr %.sroa.45.0.copyload, i64 %indvars.iv75.i
   %14 = getelementptr inbounds nuw ptr, ptr %.sroa.5.0.copyload, i64 %indvars.iv75.i
-  %15 = load ptr, ptr %13, align 8, !tbaa !23
-  %16 = load ptr, ptr %14, align 8, !tbaa !23
+  %15 = load ptr, ptr %13, align 8, !tbaa !16
+  %16 = load ptr, ptr %14, align 8, !tbaa !16
   br label %.preheader.us.us.i
 
 .preheader.us.us.i:                               ; preds = %37, %.preheader51.us.i
   %indvars.iv70.i = phi i64 [ %indvars.iv.next71.i, %37 ], [ 0, %.preheader51.us.i ]
   %17 = getelementptr inbounds nuw ptr, ptr %.sroa.45.0.copyload, i64 %indvars.iv70.i
-  %18 = load ptr, ptr %17, align 8, !tbaa !23
+  %18 = load ptr, ptr %17, align 8, !tbaa !16
   %19 = getelementptr inbounds nuw ptr, ptr %.sroa.5.0.copyload, i64 %indvars.iv70.i
-  %20 = load ptr, ptr %19, align 8, !tbaa !23
+  %20 = load ptr, ptr %19, align 8, !tbaa !16
   br label %21
 
 21:                                               ; preds = %21, %.preheader.us.us.i
@@ -2001,13 +2001,13 @@ validateMultiQubitMatrix.exit:                    ; preds = %validateMultiQubitM
   %.04157.us.us.i = phi double [ %32, %21 ], [ 0.000000e+00, %.preheader.us.us.i ]
   %.04855.us.us.i = phi double [ %36, %21 ], [ 0.000000e+00, %.preheader.us.us.i ]
   %22 = getelementptr inbounds nuw double, ptr %15, i64 %indvars.iv.i
-  %23 = load double, ptr %22, align 8, !tbaa !11
+  %23 = load double, ptr %22, align 8, !tbaa !9
   %24 = getelementptr inbounds nuw double, ptr %18, i64 %indvars.iv.i
-  %25 = load double, ptr %24, align 8, !tbaa !11
+  %25 = load double, ptr %24, align 8, !tbaa !9
   %26 = getelementptr inbounds nuw double, ptr %16, i64 %indvars.iv.i
-  %27 = load double, ptr %26, align 8, !tbaa !11
+  %27 = load double, ptr %26, align 8, !tbaa !9
   %28 = getelementptr inbounds nuw double, ptr %20, i64 %indvars.iv.i
-  %29 = load double, ptr %28, align 8, !tbaa !11
+  %29 = load double, ptr %28, align 8, !tbaa !9
   %30 = fmul double %27, %29
   %31 = tail call double @llvm.fmuladd.f64(double %23, double %25, double %30)
   %32 = fadd double %.04157.us.us.i, %31
@@ -2017,12 +2017,12 @@ validateMultiQubitMatrix.exit:                    ; preds = %validateMultiQubitM
   %36 = fadd double %.04855.us.us.i, %35
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count78.i
-  br i1 %exitcond.not.i, label %._crit_edge.us.us.i, label %21, !llvm.loop !25
+  br i1 %exitcond.not.i, label %._crit_edge.us.us.i, label %21
 
 37:                                               ; preds = %._crit_edge.us.us.i
   %indvars.iv.next71.i = add nuw nsw i64 %indvars.iv70.i, 1
   %exitcond74.not.i = icmp eq i64 %indvars.iv.next71.i, %wide.trip.count78.i
-  br i1 %exitcond74.not.i, label %..critedge_crit_edge.split.us.us.i, label %.preheader.us.us.i, !llvm.loop !26
+  br i1 %exitcond74.not.i, label %..critedge_crit_edge.split.us.us.i, label %.preheader.us.us.i, !llvm.loop !18
 
 ._crit_edge.us.us.i:                              ; preds = %21
   %38 = icmp eq i64 %indvars.iv75.i, %indvars.iv70.i
@@ -2036,7 +2036,7 @@ validateMultiQubitMatrix.exit:                    ; preds = %validateMultiQubitM
 ..critedge_crit_edge.split.us.us.i:               ; preds = %37
   %indvars.iv.next76.i = add nuw nsw i64 %indvars.iv75.i, 1
   %exitcond79.not.i = icmp eq i64 %indvars.iv.next76.i, %wide.trip.count78.i
-  br i1 %exitcond79.not.i, label %QuESTAssert.exit, label %.preheader51.us.i, !llvm.loop !28
+  br i1 %exitcond79.not.i, label %QuESTAssert.exit, label %.preheader51.us.i, !llvm.loop !20
 
 isMatrixNUnitary.exit:                            ; preds = %._crit_edge.us.us.i
   tail call void @invalidQuESTInputError(ptr noundef nonnull @.str.24, ptr noundef %3)
@@ -2082,7 +2082,7 @@ declare double @getVectorMagnitude(ptr noundef byval(%struct.Vector) align 8) lo
 
 ; Function Attrs: nounwind uwtable
 define void @validateStateVecQureg(ptr noundef readonly byval(%struct.Qureg) align 8 captures(none) %0, ptr noundef %1) local_unnamed_addr #3 {
-  %3 = load i32, ptr %0, align 8, !tbaa !64
+  %3 = load i32, ptr %0, align 8, !tbaa !42
   %.not.not = icmp eq i32 %3, 0
   br i1 %.not.not, label %QuESTAssert.exit, label %4
 
@@ -2096,7 +2096,7 @@ QuESTAssert.exit:                                 ; preds = %2, %4
 
 ; Function Attrs: nounwind uwtable
 define void @validateDensityMatrQureg(ptr noundef readonly byval(%struct.Qureg) align 8 captures(none) %0, ptr noundef %1) local_unnamed_addr #3 {
-  %3 = load i32, ptr %0, align 8, !tbaa !64
+  %3 = load i32, ptr %0, align 8, !tbaa !42
   %.not.i = icmp eq i32 %3, 0
   br i1 %.not.i, label %4, label %QuESTAssert.exit
 
@@ -2137,9 +2137,9 @@ QuESTAssert.exit:                                 ; preds = %2, %4
 ; Function Attrs: nounwind uwtable
 define void @validateMatchingQuregDims(ptr noundef readonly byval(%struct.Qureg) align 8 captures(none) %0, ptr noundef readonly byval(%struct.Qureg) align 8 captures(none) %1, ptr noundef %2) local_unnamed_addr #3 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %5 = load i32, ptr %4, align 4, !tbaa !54
+  %5 = load i32, ptr %4, align 4, !tbaa !36
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %7 = load i32, ptr %6, align 4, !tbaa !54
+  %7 = load i32, ptr %6, align 4, !tbaa !36
   %.not = icmp eq i32 %5, %7
   br i1 %.not, label %QuESTAssert.exit, label %8
 
@@ -2153,8 +2153,8 @@ QuESTAssert.exit:                                 ; preds = %3, %8
 
 ; Function Attrs: nounwind uwtable
 define void @validateMatchingQuregTypes(ptr noundef readonly byval(%struct.Qureg) align 8 captures(none) %0, ptr noundef readonly byval(%struct.Qureg) align 8 captures(none) %1, ptr noundef %2) local_unnamed_addr #3 {
-  %4 = load i32, ptr %0, align 8, !tbaa !64
-  %5 = load i32, ptr %1, align 8, !tbaa !64
+  %4 = load i32, ptr %0, align 8, !tbaa !42
+  %5 = load i32, ptr %1, align 8, !tbaa !42
   %.not = icmp eq i32 %4, %5
   br i1 %.not, label %QuESTAssert.exit, label %6
 
@@ -2168,7 +2168,7 @@ QuESTAssert.exit:                                 ; preds = %3, %6
 
 ; Function Attrs: nounwind uwtable
 define void @validateSecondQuregStateVec(ptr noundef readonly byval(%struct.Qureg) align 8 captures(none) %0, ptr noundef %1) local_unnamed_addr #3 {
-  %3 = load i32, ptr %0, align 8, !tbaa !64
+  %3 = load i32, ptr %0, align 8, !tbaa !42
   %.not.not = icmp eq i32 %3, 0
   br i1 %.not.not, label %QuESTAssert.exit, label %4
 
@@ -2439,7 +2439,7 @@ define void @validatePauliCodes(ptr noundef readonly captures(none) %0, i32 noun
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %QuESTAssert.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %QuESTAssert.exit ]
   %5 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv
-  %6 = load i32, ptr %5, align 4, !tbaa !44
+  %6 = load i32, ptr %5, align 4, !tbaa !30
   %narrow.i = icmp ugt i32 %6, 3
   br i1 %narrow.i, label %7, label %QuESTAssert.exit
 
@@ -2450,7 +2450,7 @@ define void @validatePauliCodes(ptr noundef readonly captures(none) %0, i32 noun
 QuESTAssert.exit:                                 ; preds = %.lr.ph, %7
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !65
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2531,7 +2531,7 @@ validateOneQubitKrausMapDimensions.exit:          ; preds = %QuESTAssert.exit.i,
 10:                                               ; preds = %11
   %indvars.iv.next92.i = add nuw nsw i64 %indvars.iv91.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next92.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %._crit_edge.us.us.i, label %.preheader.us.us.i, !llvm.loop !29
+  br i1 %exitcond.not.i, label %._crit_edge.us.us.i, label %.preheader.us.us.i
 
 11:                                               ; preds = %.preheader.us.us.i, %11
   %12 = phi i1 [ true, %.preheader.us.us.i ], [ false, %11 ]
@@ -2540,14 +2540,14 @@ validateOneQubitKrausMapDimensions.exit:          ; preds = %QuESTAssert.exit.i,
   %.16372.us.us.i = phi double [ %.06275.us.us.i, %.preheader.us.us.i ], [ %25, %11 ]
   %13 = getelementptr inbounds nuw [2 x [2 x double]], ptr %30, i64 0, i64 %indvars.iv.i
   %14 = getelementptr inbounds nuw [2 x double], ptr %13, i64 0, i64 %indvars.iv97.i
-  %15 = load double, ptr %14, align 8, !tbaa !11
+  %15 = load double, ptr %14, align 8, !tbaa !9
   %16 = getelementptr inbounds nuw [2 x double], ptr %13, i64 0, i64 %indvars.iv94.i
-  %17 = load double, ptr %16, align 8, !tbaa !11
+  %17 = load double, ptr %16, align 8, !tbaa !9
   %18 = getelementptr inbounds nuw [2 x [2 x double]], ptr %31, i64 0, i64 %indvars.iv.i
   %19 = getelementptr inbounds nuw [2 x double], ptr %18, i64 0, i64 %indvars.iv97.i
-  %20 = load double, ptr %19, align 8, !tbaa !11
+  %20 = load double, ptr %19, align 8, !tbaa !9
   %21 = getelementptr inbounds nuw [2 x double], ptr %18, i64 0, i64 %indvars.iv94.i
-  %22 = load double, ptr %21, align 8, !tbaa !11
+  %22 = load double, ptr %21, align 8, !tbaa !9
   %23 = fmul double %20, %22
   %24 = tail call double @llvm.fmuladd.f64(double %15, double %17, double %23)
   %25 = fadd double %.16372.us.us.i, %24
@@ -2555,7 +2555,7 @@ validateOneQubitKrausMapDimensions.exit:          ; preds = %QuESTAssert.exit.i,
   %27 = fmul double %20, %26
   %28 = tail call double @llvm.fmuladd.f64(double %15, double %22, double %27)
   %29 = fadd double %.16173.us.us.i, %28
-  br i1 %12, label %11, label %10, !llvm.loop !30
+  br i1 %12, label %11, label %10
 
 .preheader.us.us.i:                               ; preds = %10, %.preheader68.us.us.i
   %indvars.iv91.i = phi i64 [ %indvars.iv.next92.i, %10 ], [ 0, %.preheader68.us.us.i ]
@@ -2566,7 +2566,7 @@ validateOneQubitKrausMapDimensions.exit:          ; preds = %QuESTAssert.exit.i,
   br label %11
 
 32:                                               ; preds = %._crit_edge.us.us.i
-  br i1 %.not84.i, label %.preheader68.us.us.i, label %.critedge.split.us.us.i, !llvm.loop !31
+  br i1 %.not84.i, label %.preheader68.us.us.i, label %.critedge.split.us.us.i, !llvm.loop !21
 
 ._crit_edge.us.us.i:                              ; preds = %10
   %33 = icmp eq i64 %indvars.iv97.i, %indvars.iv94.i
@@ -2578,7 +2578,7 @@ validateOneQubitKrausMapDimensions.exit:          ; preds = %QuESTAssert.exit.i,
   br i1 %38, label %32, label %.loopexit
 
 .critedge.split.us.us.i:                          ; preds = %32
-  br i1 %.not85.i, label %.preheader69.us.i, label %QuESTAssert.exit, !llvm.loop !32
+  br i1 %.not85.i, label %.preheader69.us.i, label %QuESTAssert.exit, !llvm.loop !22
 
 .loopexit:                                        ; preds = %._crit_edge.us.us.i, %validateOneQubitKrausMapDimensions.exit
   tail call void @invalidQuESTInputError(ptr noundef nonnull @.str.54, ptr noundef %3)
@@ -2651,7 +2651,7 @@ validateTwoQubitKrausMapDimensions.exit:          ; preds = %QuESTAssert.exit.i,
 10:                                               ; preds = %11
   %indvars.iv.next91.i = add nuw nsw i64 %indvars.iv90.i, 1
   %exitcond93.not.i = icmp eq i64 %indvars.iv.next91.i, %wide.trip.count.i
-  br i1 %exitcond93.not.i, label %._crit_edge.us.us.i, label %.preheader.us.us.i, !llvm.loop !33
+  br i1 %exitcond93.not.i, label %._crit_edge.us.us.i, label %.preheader.us.us.i
 
 11:                                               ; preds = %.preheader.us.us.i, %11
   %indvars.iv.i = phi i64 [ 0, %.preheader.us.us.i ], [ %indvars.iv.next.i, %11 ]
@@ -2659,14 +2659,14 @@ validateTwoQubitKrausMapDimensions.exit:          ; preds = %QuESTAssert.exit.i,
   %.16372.us.us.i = phi double [ %.06275.us.us.i, %.preheader.us.us.i ], [ %24, %11 ]
   %12 = getelementptr inbounds nuw [4 x [4 x double]], ptr %29, i64 0, i64 %indvars.iv.i
   %13 = getelementptr inbounds nuw [4 x double], ptr %12, i64 0, i64 %indvars.iv98.i
-  %14 = load double, ptr %13, align 8, !tbaa !11
+  %14 = load double, ptr %13, align 8, !tbaa !9
   %15 = getelementptr inbounds nuw [4 x double], ptr %12, i64 0, i64 %indvars.iv94.i
-  %16 = load double, ptr %15, align 8, !tbaa !11
+  %16 = load double, ptr %15, align 8, !tbaa !9
   %17 = getelementptr inbounds nuw [4 x [4 x double]], ptr %30, i64 0, i64 %indvars.iv.i
   %18 = getelementptr inbounds nuw [4 x double], ptr %17, i64 0, i64 %indvars.iv98.i
-  %19 = load double, ptr %18, align 8, !tbaa !11
+  %19 = load double, ptr %18, align 8, !tbaa !9
   %20 = getelementptr inbounds nuw [4 x double], ptr %17, i64 0, i64 %indvars.iv94.i
-  %21 = load double, ptr %20, align 8, !tbaa !11
+  %21 = load double, ptr %20, align 8, !tbaa !9
   %22 = fmul double %19, %21
   %23 = tail call double @llvm.fmuladd.f64(double %14, double %16, double %22)
   %24 = fadd double %.16372.us.us.i, %23
@@ -2676,7 +2676,7 @@ validateTwoQubitKrausMapDimensions.exit:          ; preds = %QuESTAssert.exit.i,
   %28 = fadd double %.16173.us.us.i, %27
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond89.not.i = icmp eq i64 %indvars.iv.next.i, 4
-  br i1 %exitcond89.not.i, label %10, label %11, !llvm.loop !34
+  br i1 %exitcond89.not.i, label %10, label %11
 
 .preheader.us.us.i:                               ; preds = %10, %.preheader68.us.us.i
   %indvars.iv90.i = phi i64 [ %indvars.iv.next91.i, %10 ], [ 0, %.preheader68.us.us.i ]
@@ -2689,7 +2689,7 @@ validateTwoQubitKrausMapDimensions.exit:          ; preds = %QuESTAssert.exit.i,
 31:                                               ; preds = %._crit_edge.us.us.i
   %indvars.iv.next95.i = add nuw nsw i64 %indvars.iv94.i, 1
   %exitcond97.i = icmp eq i64 %indvars.iv.next95.i, 4
-  br i1 %exitcond97.i, label %.critedge.split.us.us.i, label %.preheader68.us.us.i, !llvm.loop !35
+  br i1 %exitcond97.i, label %.critedge.split.us.us.i, label %.preheader68.us.us.i, !llvm.loop !23
 
 ._crit_edge.us.us.i:                              ; preds = %10
   %32 = icmp eq i64 %indvars.iv98.i, %indvars.iv94.i
@@ -2703,7 +2703,7 @@ validateTwoQubitKrausMapDimensions.exit:          ; preds = %QuESTAssert.exit.i,
 .critedge.split.us.us.i:                          ; preds = %31
   %indvars.iv.next99.i = add nuw nsw i64 %indvars.iv98.i, 1
   %exitcond101.i = icmp eq i64 %indvars.iv.next99.i, 4
-  br i1 %exitcond101.i, label %QuESTAssert.exit, label %.preheader69.us.i, !llvm.loop !36
+  br i1 %exitcond101.i, label %QuESTAssert.exit, label %.preheader69.us.i, !llvm.loop !24
 
 .loopexit:                                        ; preds = %._crit_edge.us.us.i, %validateTwoQubitKrausMapDimensions.exit
   tail call void @invalidQuESTInputError(ptr noundef nonnull @.str.54, ptr noundef %3)
@@ -2763,7 +2763,7 @@ validateMultiQubitMatrixFitsInNode.exit:          ; preds = %._crit_edge, %13
   br label %validateMatrixInit.exit
 
 validateMatrixInit.exit:                          ; preds = %.lr.ph, %17
-  %18 = load i32, ptr %14, align 8, !tbaa !18
+  %18 = load i32, ptr %14, align 8, !tbaa !11
   %.not = icmp eq i32 %18, %1
   br i1 %.not, label %QuESTAssert.exit20, label %19
 
@@ -2774,7 +2774,7 @@ validateMatrixInit.exit:                          ; preds = %.lr.ph, %17
 QuESTAssert.exit20:                               ; preds = %validateMatrixInit.exit, %19
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !66
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2824,7 +2824,7 @@ QuESTAssert.exit.i:                               ; preds = %5
   br label %validateMatrixInit.exit.i
 
 validateMatrixInit.exit.i:                        ; preds = %17, %.lr.ph.i
-  %18 = load i32, ptr %14, align 8, !tbaa !18
+  %18 = load i32, ptr %14, align 8, !tbaa !11
   %.not.i = icmp eq i32 %18, %1
   br i1 %.not.i, label %QuESTAssert.exit20.i, label %19
 
@@ -2835,10 +2835,10 @@ validateMatrixInit.exit.i:                        ; preds = %17, %.lr.ph.i
 QuESTAssert.exit20.i:                             ; preds = %19, %validateMatrixInit.exit.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !66
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i
 
 validateMultiQubitKrausMapDimensions.exit:        ; preds = %._crit_edge.i, %13
-  %20 = load i32, ptr %2, align 8, !tbaa !18
+  %20 = load i32, ptr %2, align 8, !tbaa !11
   %.not7397.i = icmp eq i32 %20, 31
   br i1 %.not7397.i, label %QuESTAssert.exit, label %.preheader75.lr.ph.i
 
@@ -2856,7 +2856,7 @@ validateMultiQubitKrausMapDimensions.exit:        ; preds = %._crit_edge.i, %13
 23:                                               ; preds = %.preheader74.us102.i
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not.i6 = icmp eq i64 %indvars.iv.next, %wide.trip.count129.i
-  br i1 %exitcond.not.i6, label %..critedge_crit_edge.us.i, label %.preheader74.us102.i, !llvm.loop !37
+  br i1 %exitcond.not.i6, label %..critedge_crit_edge.us.i, label %.preheader74.us102.i
 
 .preheader74.us102.i:                             ; preds = %.preheader75.us.i, %23
   %indvars.iv = phi i64 [ %indvars.iv.next, %23 ], [ 0, %.preheader75.us.i ]
@@ -2870,7 +2870,7 @@ validateMultiQubitKrausMapDimensions.exit:        ; preds = %._crit_edge.i, %13
 ..critedge_crit_edge.us.i:                        ; preds = %23, %29
   %indvars.iv.next127.i = add nuw nsw i64 %indvars.iv126.i, 1
   %exitcond130.not.i = icmp eq i64 %indvars.iv.next127.i, %wide.trip.count129.i
-  br i1 %exitcond130.not.i, label %QuESTAssert.exit, label %.preheader75.us.i, !llvm.loop !38
+  br i1 %exitcond130.not.i, label %QuESTAssert.exit, label %.preheader75.us.i, !llvm.loop !25
 
 .preheader74.us.us.i:                             ; preds = %.preheader75.us.i, %29
   %indvars.iv121.i = phi i64 [ %indvars.iv.next122.i, %29 ], [ 0, %.preheader75.us.i ]
@@ -2879,7 +2879,7 @@ validateMultiQubitKrausMapDimensions.exit:        ; preds = %._crit_edge.i, %13
 29:                                               ; preds = %._crit_edge86.split.us.us.us.i
   %indvars.iv.next122.i = add nuw nsw i64 %indvars.iv121.i, 1
   %exitcond125.not.i = icmp eq i64 %indvars.iv.next122.i, %wide.trip.count129.i
-  br i1 %exitcond125.not.i, label %..critedge_crit_edge.us.i, label %.preheader74.us.us.i, !llvm.loop !39
+  br i1 %exitcond125.not.i, label %..critedge_crit_edge.us.i, label %.preheader74.us.us.i, !llvm.loop !26
 
 .preheader.us.us.us.i:                            ; preds = %._crit_edge.us.us.us.i, %.preheader74.us.us.i
   %indvars.iv116.i = phi i64 [ %indvars.iv.next117.i, %._crit_edge.us.us.us.i ], [ 0, %.preheader74.us.us.i ]
@@ -2887,9 +2887,9 @@ validateMultiQubitKrausMapDimensions.exit:        ; preds = %._crit_edge.i, %13
   %.06683.us.us.us.i = phi double [ %50, %._crit_edge.us.us.us.i ], [ 0.000000e+00, %.preheader74.us.us.i ]
   %30 = getelementptr inbounds nuw %struct.ComplexMatrixN, ptr %2, i64 %indvars.iv116.i
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 8
-  %32 = load ptr, ptr %31, align 8, !tbaa !40
+  %32 = load ptr, ptr %31, align 8, !tbaa !27
   %33 = getelementptr inbounds nuw i8, ptr %30, i64 16
-  %34 = load ptr, ptr %33, align 8, !tbaa !41
+  %34 = load ptr, ptr %33, align 8, !tbaa !28
   br label %35
 
 35:                                               ; preds = %35, %.preheader.us.us.us.i
@@ -2897,17 +2897,17 @@ validateMultiQubitKrausMapDimensions.exit:        ; preds = %._crit_edge.i, %13
   %.16580.us.us.us.i = phi double [ %54, %35 ], [ %.06484.us.us.us.i, %.preheader.us.us.us.i ]
   %.16779.us.us.us.i = phi double [ %50, %35 ], [ %.06683.us.us.us.i, %.preheader.us.us.us.i ]
   %36 = getelementptr inbounds nuw ptr, ptr %32, i64 %indvars.iv.i7
-  %37 = load ptr, ptr %36, align 8, !tbaa !23
+  %37 = load ptr, ptr %36, align 8, !tbaa !16
   %38 = getelementptr inbounds nuw double, ptr %37, i64 %indvars.iv126.i
-  %39 = load double, ptr %38, align 8, !tbaa !11
+  %39 = load double, ptr %38, align 8, !tbaa !9
   %40 = getelementptr inbounds nuw double, ptr %37, i64 %indvars.iv121.i
-  %41 = load double, ptr %40, align 8, !tbaa !11
+  %41 = load double, ptr %40, align 8, !tbaa !9
   %42 = getelementptr inbounds nuw ptr, ptr %34, i64 %indvars.iv.i7
-  %43 = load ptr, ptr %42, align 8, !tbaa !23
+  %43 = load ptr, ptr %42, align 8, !tbaa !16
   %44 = getelementptr inbounds nuw double, ptr %43, i64 %indvars.iv126.i
-  %45 = load double, ptr %44, align 8, !tbaa !11
+  %45 = load double, ptr %44, align 8, !tbaa !9
   %46 = getelementptr inbounds nuw double, ptr %43, i64 %indvars.iv121.i
-  %47 = load double, ptr %46, align 8, !tbaa !11
+  %47 = load double, ptr %46, align 8, !tbaa !9
   %48 = fmul double %45, %47
   %49 = tail call double @llvm.fmuladd.f64(double %39, double %41, double %48)
   %50 = fadd double %.16779.us.us.us.i, %49
@@ -2917,12 +2917,12 @@ validateMultiQubitKrausMapDimensions.exit:        ; preds = %._crit_edge.i, %13
   %54 = fadd double %.16580.us.us.us.i, %53
   %indvars.iv.next.i8 = add nuw nsw i64 %indvars.iv.i7, 1
   %exitcond115.not.i = icmp eq i64 %indvars.iv.next.i8, %wide.trip.count129.i
-  br i1 %exitcond115.not.i, label %._crit_edge.us.us.us.i, label %35, !llvm.loop !42
+  br i1 %exitcond115.not.i, label %._crit_edge.us.us.us.i, label %35
 
 ._crit_edge.us.us.us.i:                           ; preds = %35
   %indvars.iv.next117.i = add nuw nsw i64 %indvars.iv116.i, 1
   %exitcond120.not.i = icmp eq i64 %indvars.iv.next117.i, %wide.trip.count119.i
-  br i1 %exitcond120.not.i, label %._crit_edge86.split.us.us.us.i, label %.preheader.us.us.us.i, !llvm.loop !43
+  br i1 %exitcond120.not.i, label %._crit_edge86.split.us.us.us.i, label %.preheader.us.us.us.i, !llvm.loop !29
 
 ._crit_edge86.split.us.us.us.i:                   ; preds = %._crit_edge.us.us.us.i
   %55 = icmp eq i64 %indvars.iv126.i, %indvars.iv121.i
@@ -2959,9 +2959,9 @@ QuESTAssert.exit:                                 ; preds = %3, %6
 ; Function Attrs: nounwind uwtable
 define void @validatePauliHamil(ptr noundef readonly byval(%struct.PauliHamil) align 8 captures(none) %0, ptr noundef %1) local_unnamed_addr #3 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %4 = load i32, ptr %3, align 4, !tbaa !67
+  %4 = load i32, ptr %3, align 4, !tbaa !43
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %6 = load i32, ptr %5, align 8, !tbaa !69
+  %6 = load i32, ptr %5, align 8, !tbaa !45
   %7 = icmp slt i32 %4, 1
   %8 = icmp slt i32 %6, 1
   %.not3.i = or i1 %7, %8
@@ -2972,7 +2972,7 @@ define void @validatePauliHamil(ptr noundef readonly byval(%struct.PauliHamil) a
   br label %validateHamilParams.exit
 
 validateHamilParams.exit:                         ; preds = %2, %9
-  %10 = load ptr, ptr %0, align 8, !tbaa !70
+  %10 = load ptr, ptr %0, align 8, !tbaa !46
   %11 = mul nsw i32 %6, %4
   %12 = icmp sgt i32 %11, 0
   br i1 %12, label %.lr.ph.preheader.i, label %validatePauliCodes.exit
@@ -2984,7 +2984,7 @@ validateHamilParams.exit:                         ; preds = %2, %9
 .lr.ph.i:                                         ; preds = %QuESTAssert.exit.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %QuESTAssert.exit.i ]
   %13 = getelementptr inbounds nuw i32, ptr %10, i64 %indvars.iv.i
-  %14 = load i32, ptr %13, align 4, !tbaa !44
+  %14 = load i32, ptr %13, align 4, !tbaa !30
   %narrow.i.i = icmp ugt i32 %14, 3
   br i1 %narrow.i.i, label %15, label %QuESTAssert.exit.i
 
@@ -2995,7 +2995,7 @@ validateHamilParams.exit:                         ; preds = %2, %9
 QuESTAssert.exit.i:                               ; preds = %15, %.lr.ph.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %validatePauliCodes.exit, label %.lr.ph.i, !llvm.loop !65
+  br i1 %exitcond.not.i, label %validatePauliCodes.exit, label %.lr.ph.i
 
 validatePauliCodes.exit:                          ; preds = %QuESTAssert.exit.i, %validateHamilParams.exit
   ret void
@@ -3004,9 +3004,9 @@ validatePauliCodes.exit:                          ; preds = %QuESTAssert.exit.i,
 ; Function Attrs: nounwind uwtable
 define void @validateMatchingQuregPauliHamilDims(ptr noundef readonly byval(%struct.Qureg) align 8 captures(none) %0, ptr noundef readonly byval(%struct.PauliHamil) align 8 captures(none) %1, ptr noundef %2) local_unnamed_addr #3 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 20
-  %5 = load i32, ptr %4, align 4, !tbaa !67
+  %5 = load i32, ptr %4, align 4, !tbaa !43
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %7 = load i32, ptr %6, align 4, !tbaa !54
+  %7 = load i32, ptr %6, align 4, !tbaa !36
   %.not = icmp eq i32 %5, %7
   br i1 %.not, label %QuESTAssert.exit, label %8
 
@@ -3119,7 +3119,7 @@ QuESTAssert.exit7:                                ; preds = %QuESTAssert.exit, %
 ; Function Attrs: nounwind uwtable
 define void @validateDiagOpInit(ptr noundef readonly byval(%struct.DiagonalOp) align 8 captures(none) %0, ptr noundef %1) local_unnamed_addr #3 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %4 = load ptr, ptr %3, align 8, !tbaa !71
+  %4 = load ptr, ptr %3, align 8, !tbaa !47
   %5 = icmp eq ptr %4, null
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %7 = load ptr, ptr %6, align 8
@@ -3152,8 +3152,8 @@ define void @validateDiagonalOp(ptr noundef readonly byval(%struct.Qureg) align 
 
 validateDiagOpInit.exit:                          ; preds = %3, %6
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %8 = load i32, ptr %7, align 4, !tbaa !54
-  %9 = load i32, ptr %1, align 8, !tbaa !57
+  %8 = load i32, ptr %7, align 4, !tbaa !36
+  %9 = load i32, ptr %1, align 8, !tbaa !39
   %.not = icmp eq i32 %8, %9
   br i1 %.not, label %QuESTAssert.exit, label %10
 
@@ -3167,9 +3167,9 @@ QuESTAssert.exit:                                 ; preds = %validateDiagOpInit.
 
 ; Function Attrs: nounwind uwtable
 define void @validateDiagPauliHamil(ptr noundef readonly byval(%struct.DiagonalOp) align 8 captures(none) %0, ptr noundef readonly byval(%struct.PauliHamil) align 8 captures(none) %1, ptr noundef %2) local_unnamed_addr #3 {
-  %4 = load i32, ptr %0, align 8, !tbaa !57
+  %4 = load i32, ptr %0, align 8, !tbaa !39
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 20
-  %6 = load i32, ptr %5, align 4, !tbaa !67
+  %6 = load i32, ptr %5, align 4, !tbaa !43
   %.not = icmp eq i32 %4, %6
   br i1 %.not, label %QuESTAssert.exit, label %7
 
@@ -3179,13 +3179,13 @@ define void @validateDiagPauliHamil(ptr noundef readonly byval(%struct.DiagonalO
 
 QuESTAssert.exit:                                 ; preds = %3, %7
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %9 = load i32, ptr %8, align 8, !tbaa !69
+  %9 = load i32, ptr %8, align 8, !tbaa !45
   %10 = mul nsw i32 %9, %6
   %11 = icmp sgt i32 %10, 0
   br i1 %11, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %QuESTAssert.exit
-  %12 = load ptr, ptr %1, align 8, !tbaa !70
+  %12 = load ptr, ptr %1, align 8, !tbaa !46
   %wide.trip.count = zext nneg i32 %10 to i64
   br label %13
 
@@ -3195,7 +3195,7 @@ QuESTAssert.exit:                                 ; preds = %3, %7
 13:                                               ; preds = %.lr.ph, %QuESTAssert.exit7
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %QuESTAssert.exit7 ]
   %14 = getelementptr inbounds nuw i32, ptr %12, i64 %indvars.iv
-  %15 = load i32, ptr %14, align 4, !tbaa !44
+  %15 = load i32, ptr %14, align 4, !tbaa !30
   switch i32 %15, label %16 [
     i32 3, label %QuESTAssert.exit7
     i32 0, label %QuESTAssert.exit7
@@ -3208,13 +3208,13 @@ QuESTAssert.exit:                                 ; preds = %3, %7
 QuESTAssert.exit7:                                ; preds = %13, %13, %16
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %13, !llvm.loop !72
+  br i1 %exitcond.not, label %._crit_edge, label %13
 }
 
 ; Function Attrs: nounwind uwtable
 define void @validateDiagPauliHamilFromFile(ptr noundef readonly byval(%struct.PauliHamil) align 8 captures(none) %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #3 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %5 = load i32, ptr %4, align 4, !tbaa !67
+  %5 = load i32, ptr %4, align 4, !tbaa !43
   %6 = icmp ult i32 %5, 64
   br i1 %6, label %QuESTAssert.exit, label %7
 
@@ -3237,13 +3237,13 @@ QuESTAssert.exit:                                 ; preds = %3, %7
 
 QuESTAssert.exit17:                               ; preds = %QuESTAssert.exit, %11
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %13 = load i32, ptr %12, align 8, !tbaa !69
+  %13 = load i32, ptr %12, align 8, !tbaa !45
   %14 = mul nsw i32 %13, %5
   %15 = icmp sgt i32 %14, 0
   br i1 %15, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %QuESTAssert.exit17
-  %16 = load ptr, ptr %0, align 8, !tbaa !70
+  %16 = load ptr, ptr %0, align 8, !tbaa !46
   %wide.trip.count = zext nneg i32 %14 to i64
   br label %17
 
@@ -3253,7 +3253,7 @@ QuESTAssert.exit17:                               ; preds = %QuESTAssert.exit, %
 17:                                               ; preds = %.lr.ph, %QuESTAssert.exit19
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %QuESTAssert.exit19 ]
   %18 = getelementptr inbounds nuw i32, ptr %16, i64 %indvars.iv
-  %19 = load i32, ptr %18, align 4, !tbaa !44
+  %19 = load i32, ptr %18, align 4, !tbaa !30
   switch i32 %19, label %20 [
     i32 3, label %QuESTAssert.exit19
     i32 0, label %QuESTAssert.exit19
@@ -3267,7 +3267,7 @@ QuESTAssert.exit17:                               ; preds = %QuESTAssert.exit, %
 QuESTAssert.exit19:                               ; preds = %17, %17, %20
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %17, !llvm.loop !73
+  br i1 %exitcond.not, label %._crit_edge, label %17
 }
 
 ; Function Attrs: nounwind uwtable
@@ -3299,7 +3299,7 @@ QuESTAssert.exit:                                 ; preds = %5
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %16 ]
   %.01215.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %17, %16 ]
   %11 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv.i
-  %12 = load i32, ptr %11, align 4, !tbaa !44
+  %12 = load i32, ptr %11, align 4, !tbaa !30
   %13 = zext nneg i32 %12 to i64
   %14 = shl nuw i64 1, %13
   %15 = and i64 %14, %.01215.i
@@ -3310,7 +3310,7 @@ QuESTAssert.exit:                                 ; preds = %5
   %17 = or i64 %14, %.01215.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %QuESTAssert.exit29, label %.lr.ph.i, !llvm.loop !45
+  br i1 %exitcond.not.i, label %QuESTAssert.exit29, label %.lr.ph.i
 
 areUniqueQubits.exit:                             ; preds = %.lr.ph.i
   tail call void @invalidQuESTInputError(ptr noundef nonnull @.str.18, ptr noundef %4)
@@ -3323,7 +3323,7 @@ QuESTAssert.exit29:                               ; preds = %16, %QuESTAssert.ex
   %indvars.iv46 = phi i64 [ 0, %.lr.ph42 ], [ %indvars.iv.next47, %._crit_edge ]
   %.02440 = phi i32 [ 0, %.lr.ph42 ], [ %.1.lcssa, %._crit_edge ]
   %19 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv46
-  %20 = load i32, ptr %19, align 4, !tbaa !44
+  %20 = load i32, ptr %19, align 4, !tbaa !30
   %21 = icmp slt i32 %20, 1
   %22 = icmp sgt i32 %20, %10
   %narrow.not = select i1 %21, i1 true, i1 %22
@@ -3331,7 +3331,7 @@ QuESTAssert.exit29:                               ; preds = %16, %QuESTAssert.ex
 
 QuESTAssert.exit31:                               ; preds = %18
   tail call void @invalidQuESTInputError(ptr noundef nonnull @.str.21, ptr noundef %4)
-  %.pre = load i32, ptr %19, align 4, !tbaa !44
+  %.pre = load i32, ptr %19, align 4, !tbaa !30
   %23 = icmp sgt i32 %.pre, 0
   br i1 %23, label %.lr.ph.preheader, label %._crit_edge
 
@@ -3348,14 +3348,14 @@ QuESTAssert.exit31:                               ; preds = %18
   %.1.lcssa = phi i32 [ %.02440, %QuESTAssert.exit31 ], [ %26, %._crit_edge.loopexit ]
   %indvars.iv.next47 = add nuw nsw i64 %indvars.iv46, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next47, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge43, label %18, !llvm.loop !74
+  br i1 %exitcond.not, label %._crit_edge43, label %18
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %QuESTAssert.exit33
   %27 = phi i32 [ %24, %.lr.ph.preheader ], [ %32, %QuESTAssert.exit33 ]
   %indvars.iv = phi i64 [ %25, %.lr.ph.preheader ], [ %indvars.iv.next, %QuESTAssert.exit33 ]
   %.039 = phi i32 [ 0, %.lr.ph.preheader ], [ %33, %QuESTAssert.exit33 ]
   %28 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv
-  %29 = load i32, ptr %28, align 4, !tbaa !44
+  %29 = load i32, ptr %28, align 4, !tbaa !30
   %30 = icmp sge i32 %29, %10
   %.inv = icmp slt i32 %29, 0
   %narrow.not37 = select i1 %.inv, i1 true, i1 %30
@@ -3363,7 +3363,7 @@ QuESTAssert.exit31:                               ; preds = %18
 
 31:                                               ; preds = %.lr.ph
   tail call void @invalidQuESTInputError(ptr noundef nonnull @.str.5, ptr noundef %4)
-  %.pre49 = load i32, ptr %19, align 4, !tbaa !44
+  %.pre49 = load i32, ptr %19, align 4, !tbaa !30
   br label %QuESTAssert.exit33
 
 QuESTAssert.exit33:                               ; preds = %.lr.ph, %31
@@ -3371,7 +3371,7 @@ QuESTAssert.exit33:                               ; preds = %.lr.ph, %31
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %33 = add nuw nsw i32 %.039, 1
   %34 = icmp slt i32 %33, %32
-  br i1 %34, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !75
+  br i1 %34, label %.lr.ph, label %._crit_edge.loopexit
 }
 
 ; Function Attrs: nounwind uwtable
@@ -3406,7 +3406,7 @@ define void @validatePhaseFuncTerms(i32 noundef %0, i32 noundef %1, ptr noundef 
   %.04674 = phi i32 [ 0, %.lr.ph.preheader ], [ %.147, %.lr.ph ]
   %.05172 = phi i32 [ 0, %.lr.ph.preheader ], [ %.152, %.lr.ph ]
   %14 = getelementptr inbounds nuw double, ptr %3, i64 %indvars.iv
-  %15 = load double, ptr %14, align 8, !tbaa !11
+  %15 = load double, ptr %14, align 8, !tbaa !9
   %16 = tail call double @llvm.floor.f64(double %15)
   %17 = fcmp une double %16, %15
   %.147 = select i1 %17, i32 1, i32 %.04674
@@ -3414,12 +3414,12 @@ define void @validatePhaseFuncTerms(i32 noundef %0, i32 noundef %1, ptr noundef 
   %.152 = select i1 %18, i32 1, i32 %.05172
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !76
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
 
 19:                                               ; preds = %.lr.ph77
   %indvars.iv.next90 = add nuw nsw i64 %indvars.iv89, 1
   %exitcond93.not = icmp eq i64 %indvars.iv.next90, %wide.trip.count92
-  br i1 %exitcond93.not, label %.split54, label %.lr.ph77, !llvm.loop !77
+  br i1 %exitcond93.not, label %.split54, label %.lr.ph77
 
 .split54:                                         ; preds = %19, %.preheader71
   tail call void @invalidQuESTInputError(ptr noundef nonnull @.str.81, ptr noundef %7)
@@ -3428,7 +3428,7 @@ define void @validatePhaseFuncTerms(i32 noundef %0, i32 noundef %1, ptr noundef 
 .lr.ph77:                                         ; preds = %.lr.ph77.preheader, %19
   %indvars.iv89 = phi i64 [ 0, %.lr.ph77.preheader ], [ %indvars.iv.next90, %19 ]
   %20 = getelementptr inbounds nuw i64, ptr %5, i64 %indvars.iv89
-  %21 = load i64, ptr %20, align 8, !tbaa !78
+  %21 = load i64, ptr %20, align 8, !tbaa !48
   %22 = icmp eq i64 %21, 0
   br i1 %22, label %.split, label %19
 
@@ -3457,7 +3457,7 @@ QuESTAssert.exit61:                               ; preds = %24, %29
   call void @llvm.lifetime.start.p0(i64 262144, ptr nonnull %9) #14
   %smax = tail call i64 @llvm.smax.i64(i64 %27, i64 1)
   %31 = shl nuw i64 %smax, 3
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1) %9, i8 0, i64 %31, i1 false), !tbaa !78
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1) %9, i8 0, i64 %31, i1 false), !tbaa !48
   %32 = icmp sgt i32 %6, 0
   br i1 %32, label %.lr.ph82.preheader, label %.lr.ph84.preheader
 
@@ -3472,30 +3472,30 @@ QuESTAssert.exit61:                               ; preds = %24, %29
 .lr.ph82:                                         ; preds = %.lr.ph82.preheader, %39
   %indvars.iv97 = phi i64 [ 0, %.lr.ph82.preheader ], [ %indvars.iv.next98, %39 ]
   %33 = getelementptr inbounds nuw i64, ptr %5, i64 %indvars.iv97
-  %34 = load i64, ptr %33, align 8, !tbaa !78
+  %34 = load i64, ptr %33, align 8, !tbaa !48
   %35 = icmp slt i64 %34, 0
   br i1 %35, label %36, label %39
 
 36:                                               ; preds = %.lr.ph82
   %37 = xor i64 %34, -1
   %38 = getelementptr inbounds nuw [32768 x i64], ptr %9, i64 0, i64 %37
-  store i64 1, ptr %38, align 8, !tbaa !78
+  store i64 1, ptr %38, align 8, !tbaa !48
   br label %39
 
 39:                                               ; preds = %.lr.ph82, %36
   %indvars.iv.next98 = add nuw nsw i64 %indvars.iv97, 1
   %exitcond101.not = icmp eq i64 %indvars.iv.next98, %wide.trip.count100
-  br i1 %exitcond101.not, label %.lr.ph84.preheader, label %.lr.ph82, !llvm.loop !79
+  br i1 %exitcond101.not, label %.lr.ph84.preheader, label %.lr.ph82
 
 40:                                               ; preds = %.lr.ph84
   %indvars.iv.next103 = add nuw nsw i64 %indvars.iv102, 1
   %exitcond106.not = icmp eq i64 %indvars.iv.next103, %smax105
-  br i1 %exitcond106.not, label %._crit_edge85, label %.lr.ph84, !llvm.loop !80
+  br i1 %exitcond106.not, label %._crit_edge85, label %.lr.ph84
 
 .lr.ph84:                                         ; preds = %.lr.ph84.preheader, %40
   %indvars.iv102 = phi i64 [ 0, %.lr.ph84.preheader ], [ %indvars.iv.next103, %40 ]
   %41 = getelementptr inbounds nuw [32768 x i64], ptr %9, i64 0, i64 %indvars.iv102
-  %42 = load i64, ptr %41, align 8, !tbaa !78
+  %42 = load i64, ptr %41, align 8, !tbaa !48
   %.not59 = icmp eq i64 %42, 0
   br i1 %.not59, label %43, label %40
 
@@ -3537,7 +3537,7 @@ QuESTAssert.exit:                                 ; preds = %6
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %QuESTAssert.exit36
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %QuESTAssert.exit36 ]
   %10 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv
-  %11 = load i32, ptr %10, align 4, !tbaa !44
+  %11 = load i32, ptr %10, align 4, !tbaa !30
   %12 = icmp slt i32 %11, 1
   br i1 %12, label %13, label %QuESTAssert.exit36
 
@@ -3548,7 +3548,7 @@ QuESTAssert.exit:                                 ; preds = %6
 QuESTAssert.exit36:                               ; preds = %.lr.ph, %13
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.lr.ph45.preheader, label %.lr.ph, !llvm.loop !81
+  br i1 %exitcond.not, label %.lr.ph45.preheader, label %.lr.ph
 
 .preheader:                                       ; preds = %.lr.ph45
   %14 = icmp sgt i32 %17, 0
@@ -3562,11 +3562,11 @@ QuESTAssert.exit36:                               ; preds = %.lr.ph, %13
   %indvars.iv53 = phi i64 [ 0, %.lr.ph45.preheader ], [ %indvars.iv.next54, %.lr.ph45 ]
   %.03243 = phi i32 [ 0, %.lr.ph45.preheader ], [ %17, %.lr.ph45 ]
   %15 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv53
-  %16 = load i32, ptr %15, align 4, !tbaa !44
+  %16 = load i32, ptr %15, align 4, !tbaa !30
   %17 = add nsw i32 %16, %.03243
   %indvars.iv.next54 = add nuw nsw i64 %indvars.iv53, 1
   %exitcond57.not = icmp eq i64 %indvars.iv.next54, %wide.trip.count56
-  br i1 %exitcond57.not, label %.preheader, label %.lr.ph45, !llvm.loop !82
+  br i1 %exitcond57.not, label %.preheader, label %.lr.ph45
 
 ._crit_edge:                                      ; preds = %.lr.ph49
   %18 = icmp eq i32 %.1, 0
@@ -3587,7 +3587,7 @@ QuESTAssert.exit38:                               ; preds = %._crit_edge, %20
   %.02847 = phi i32 [ 0, %.lr.ph49.preheader ], [ %.1, %.lr.ph49 ]
   %.02946 = phi i32 [ 0, %.lr.ph49.preheader ], [ %.130, %.lr.ph49 ]
   %22 = getelementptr inbounds nuw double, ptr %3, i64 %indvars.iv58
-  %23 = load double, ptr %22, align 8, !tbaa !11
+  %23 = load double, ptr %22, align 8, !tbaa !9
   %24 = tail call double @llvm.floor.f64(double %23)
   %25 = fcmp une double %24, %23
   %.130 = select i1 %25, i32 1, i32 %.02946
@@ -3595,7 +3595,7 @@ QuESTAssert.exit38:                               ; preds = %._crit_edge, %20
   %.1 = select i1 %26, i32 1, i32 %.02847
   %indvars.iv.next59 = add nuw nsw i64 %indvars.iv58, 1
   %exitcond62.not = icmp eq i64 %indvars.iv.next59, %wide.trip.count61
-  br i1 %exitcond62.not, label %._crit_edge, label %.lr.ph49, !llvm.loop !83
+  br i1 %exitcond62.not, label %._crit_edge, label %.lr.ph49
 
 27:                                               ; preds = %QuESTAssert.exit38
   tail call void @invalidQuESTInputError(ptr noundef nonnull @.str.84, ptr noundef %5)
@@ -3643,7 +3643,7 @@ QuESTAssert.exit34:                               ; preds = %QuESTAssert.exit, %
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %QuESTAssert.exit36
   %indvars.iv50 = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next51, %QuESTAssert.exit36 ]
   %14 = getelementptr inbounds nuw i64, ptr %2, i64 %indvars.iv50
-  %15 = load i64, ptr %14, align 8, !tbaa !78
+  %15 = load i64, ptr %14, align 8, !tbaa !48
   %16 = icmp slt i64 %15, 0
   %17 = icmp sgt i64 %15, %12
   %narrow.not43 = select i1 %16, i1 true, i1 %17
@@ -3656,7 +3656,7 @@ QuESTAssert.exit34:                               ; preds = %QuESTAssert.exit, %
 QuESTAssert.exit36:                               ; preds = %.lr.ph, %18
   %indvars.iv.next51 = add nuw nsw i64 %indvars.iv50, 1
   %exitcond54.not = icmp eq i64 %indvars.iv.next51, %wide.trip.count53
-  br i1 %exitcond54.not, label %._crit_edge, label %.lr.ph, !llvm.loop !84
+  br i1 %exitcond54.not, label %._crit_edge, label %.lr.ph
 
 19:                                               ; preds = %QuESTAssert.exit34
   %20 = add nsw i32 %0, -1
@@ -3673,7 +3673,7 @@ QuESTAssert.exit36:                               ; preds = %.lr.ph, %18
 .lr.ph47:                                         ; preds = %.lr.ph47.preheader, %QuESTAssert.exit38
   %indvars.iv = phi i64 [ 0, %.lr.ph47.preheader ], [ %indvars.iv.next, %QuESTAssert.exit38 ]
   %25 = getelementptr inbounds nuw i64, ptr %2, i64 %indvars.iv
-  %26 = load i64, ptr %25, align 8, !tbaa !78
+  %26 = load i64, ptr %25, align 8, !tbaa !48
   %.not = icmp slt i64 %26, %23
   %27 = icmp sge i64 %26, %22
   %narrow.not = or i1 %.not, %27
@@ -3686,7 +3686,7 @@ QuESTAssert.exit36:                               ; preds = %.lr.ph, %18
 QuESTAssert.exit38:                               ; preds = %.lr.ph47, %28
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph47, !llvm.loop !85
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph47
 
 ._crit_edge:                                      ; preds = %QuESTAssert.exit38, %QuESTAssert.exit36, %19, %10, %QuESTAssert.exit34
   ret void
@@ -3729,13 +3729,13 @@ QuESTAssert.exit:                                 ; preds = %6, %8
   %indvars.iv70 = phi i64 [ %12, %.preheader53.us ], [ %indvars.iv.next71, %QuESTAssert.exit48.us ]
   %indvars.iv = phi i64 [ 0, %.preheader53.us ], [ %indvars.iv.next, %QuESTAssert.exit48.us ]
   %14 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv
-  %15 = load i32, ptr %14, align 4, !tbaa !44
+  %15 = load i32, ptr %14, align 4, !tbaa !30
   %16 = add nsw i32 %15, -1
   %17 = zext nneg i32 %16 to i64
   %18 = shl nuw i64 1, %17
   %19 = sub nsw i64 0, %18
   %20 = getelementptr inbounds i64, ptr %3, i64 %indvars.iv70
-  %21 = load i64, ptr %20, align 8, !tbaa !78
+  %21 = load i64, ptr %20, align 8, !tbaa !48
   %.not.us = icmp slt i64 %21, %19
   %22 = icmp sge i64 %21, %18
   %narrow.not.us = or i1 %.not.us, %22
@@ -3749,13 +3749,13 @@ QuESTAssert.exit48.us:                            ; preds = %23, %13
   %indvars.iv.next71 = add nsw i64 %indvars.iv70, 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us, label %13, !llvm.loop !86
+  br i1 %exitcond.not, label %._crit_edge.us, label %13
 
 ._crit_edge.us:                                   ; preds = %QuESTAssert.exit48.us
   %24 = add nsw i64 %12, %11
   %25 = add nuw nsw i32 %.03859.us, 1
   %exitcond75.not = icmp eq i32 %25, %4
-  br i1 %exitcond75.not, label %.loopexit, label %.preheader53.us, !llvm.loop !87
+  br i1 %exitcond75.not, label %.loopexit, label %.preheader53.us, !llvm.loop !49
 
 .preheader52:                                     ; preds = %QuESTAssert.exit
   %26 = icmp sgt i32 %4, 0
@@ -3779,13 +3779,13 @@ QuESTAssert.exit48.us:                            ; preds = %23, %13
   %indvars.iv78 = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next79, %QuESTAssert.exit46.us ]
   %indvars.iv76 = phi i64 [ %29, %.preheader.us ], [ %indvars.iv.next77, %QuESTAssert.exit46.us ]
   %31 = getelementptr inbounds i64, ptr %3, i64 %indvars.iv76
-  %32 = load i64, ptr %31, align 8, !tbaa !78
+  %32 = load i64, ptr %31, align 8, !tbaa !48
   %33 = icmp sgt i64 %32, -1
   br i1 %33, label %34, label %.thread.us
 
 34:                                               ; preds = %30
   %35 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv78
-  %36 = load i32, ptr %35, align 4, !tbaa !44
+  %36 = load i32, ptr %35, align 4, !tbaa !30
   %37 = zext nneg i32 %36 to i64
   %.highbits.us = lshr i64 %32, %37
   %.not51.us = icmp eq i64 %.highbits.us, 0
@@ -3799,13 +3799,13 @@ QuESTAssert.exit46.us:                            ; preds = %.thread.us, %34
   %indvars.iv.next77 = add nsw i64 %indvars.iv76, 1
   %indvars.iv.next79 = add nuw nsw i64 %indvars.iv78, 1
   %exitcond84.not = icmp eq i64 %indvars.iv.next79, %wide.trip.count83
-  br i1 %exitcond84.not, label %._crit_edge.us64, label %30, !llvm.loop !88
+  br i1 %exitcond84.not, label %._crit_edge.us64, label %30
 
 ._crit_edge.us64:                                 ; preds = %QuESTAssert.exit46.us
   %38 = add nsw i64 %29, %28
   %39 = add nuw nsw i32 %.03662.us, 1
   %exitcond85.not = icmp eq i32 %39, %4
-  br i1 %exitcond85.not, label %.loopexit, label %.preheader.us, !llvm.loop !89
+  br i1 %exitcond85.not, label %.loopexit, label %.preheader.us, !llvm.loop !50
 
 .loopexit:                                        ; preds = %._crit_edge.us, %._crit_edge.us64, %.preheader54, %.preheader52, %QuESTAssert.exit
   ret void
@@ -3981,7 +3981,7 @@ QuESTAssert.exit:                                 ; preds = %4
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %QuESTAssert.exit10
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %QuESTAssert.exit10 ]
   %8 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv
-  %9 = load i32, ptr %8, align 4, !tbaa !44
+  %9 = load i32, ptr %8, align 4, !tbaa !30
   %10 = icmp slt i32 %9, 2
   br i1 %10, label %11, label %QuESTAssert.exit10
 
@@ -3992,7 +3992,7 @@ QuESTAssert.exit:                                 ; preds = %4
 QuESTAssert.exit10:                               ; preds = %.lr.ph, %11
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !90
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph
 
 .loopexit:                                        ; preds = %QuESTAssert.exit10, %QuESTAssert.exit.thread, %QuESTAssert.exit
   ret void
@@ -4006,19 +4006,19 @@ define void @validateMemoryAllocationSize(i64 noundef %0, ptr noundef readnone c
 ; Function Attrs: nounwind uwtable
 define void @validateQuregAllocation(ptr noundef captures(none) %0, ptr noundef readonly byval(%struct.QuESTEnv) align 8 captures(none) %1, ptr noundef %2) local_unnamed_addr #3 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %5 = load i64, ptr %4, align 8, !tbaa !63
+  %5 = load i64, ptr %4, align 8, !tbaa !41
   %.not = icmp eq i64 %5, 0
   br i1 %.not, label %.split, label %6
 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %8 = load ptr, ptr %7, align 8, !tbaa !91
+  %8 = load ptr, ptr %7, align 8, !tbaa !51
   %.not17 = icmp eq ptr %8, null
   br i1 %.not17, label %14, label %9
 
 9:                                                ; preds = %6
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %11 = load ptr, ptr %10, align 8, !tbaa !92
+  %11 = load ptr, ptr %10, align 8, !tbaa !52
   %12 = icmp ne ptr %11, null
   %13 = zext i1 %12 to i32
   br label %14
@@ -4026,19 +4026,19 @@ define void @validateQuregAllocation(ptr noundef captures(none) %0, ptr noundef 
 14:                                               ; preds = %9, %6
   %15 = phi i32 [ 0, %6 ], [ %13, %9 ]
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 36
-  %17 = load i32, ptr %16, align 4, !tbaa !93
+  %17 = load i32, ptr %16, align 4, !tbaa !53
   %18 = icmp sgt i32 %17, 1
   br i1 %18, label %19, label %30
 
 19:                                               ; preds = %14
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %21 = load ptr, ptr %20, align 8, !tbaa !94
+  %21 = load ptr, ptr %20, align 8, !tbaa !54
   %.not18 = icmp eq ptr %21, null
   br i1 %.not18, label %27, label %22
 
 22:                                               ; preds = %19
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %24 = load ptr, ptr %23, align 8, !tbaa !95
+  %24 = load ptr, ptr %23, align 8, !tbaa !55
   %25 = icmp ne ptr %24, null
   %26 = zext i1 %25 to i32
   br label %27
@@ -4068,25 +4068,25 @@ declare void @destroyQureg(ptr noundef byval(%struct.Qureg) align 8, ptr noundef
 ; Function Attrs: nounwind uwtable
 define void @validateQuregGPUAllocation(ptr noundef captures(none) %0, ptr noundef readonly byval(%struct.QuESTEnv) align 8 captures(none) %1, ptr noundef %2) local_unnamed_addr #3 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %5 = load ptr, ptr %4, align 8, !tbaa !96
+  %5 = load ptr, ptr %4, align 8, !tbaa !56
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %.thread, label %6
 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %8 = load ptr, ptr %7, align 8, !tbaa !97
+  %8 = load ptr, ptr %7, align 8, !tbaa !57
   %.not15 = icmp eq ptr %8, null
   br i1 %.not15, label %.thread, label %9
 
 9:                                                ; preds = %6
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %11 = load ptr, ptr %10, align 8, !tbaa !98
+  %11 = load ptr, ptr %10, align 8, !tbaa !58
   %.not16 = icmp eq ptr %11, null
   br i1 %.not16, label %.thread, label %12
 
 12:                                               ; preds = %9
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %14 = load ptr, ptr %13, align 8, !tbaa !99
+  %14 = load ptr, ptr %13, align 8, !tbaa !59
   %.not19 = icmp eq ptr %14, null
   br i1 %.not19, label %.thread, label %QuESTAssert.exit
 
@@ -4104,13 +4104,13 @@ QuESTAssert.exit:                                 ; preds = %12, %.thread
 ; Function Attrs: nounwind uwtable
 define void @validateDiagonalOpAllocation(ptr noundef captures(none) %0, ptr noundef readonly byval(%struct.QuESTEnv) align 8 captures(none) %1, ptr noundef %2) local_unnamed_addr #3 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %5 = load ptr, ptr %4, align 8, !tbaa !71
+  %5 = load ptr, ptr %4, align 8, !tbaa !47
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %.thread, label %6
 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %8 = load ptr, ptr %7, align 8, !tbaa !100
+  %8 = load ptr, ptr %7, align 8, !tbaa !60
   %.not9 = icmp eq ptr %8, null
   br i1 %.not9, label %.thread, label %QuESTAssert.exit
 
@@ -4129,13 +4129,13 @@ declare void @destroyDiagonalOp(ptr noundef byval(%struct.DiagonalOp) align 8, p
 ; Function Attrs: nounwind uwtable
 define void @validateDiagonalOpGPUAllocation(ptr noundef captures(none) %0, ptr noundef readonly byval(%struct.QuESTEnv) align 8 captures(none) %1, ptr noundef %2) local_unnamed_addr #3 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %5 = load ptr, ptr %4, align 8, !tbaa !101
+  %5 = load ptr, ptr %4, align 8, !tbaa !61
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %.thread, label %6
 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %8 = load ptr, ptr %7, align 8, !tbaa !102
+  %8 = load ptr, ptr %7, align 8, !tbaa !62
   %.not11 = icmp eq ptr %8, null
   br i1 %.not11, label %.thread, label %QuESTAssert.exit
 
@@ -4224,97 +4224,57 @@ attributes #14 = { nounwind }
 !6 = !{!"any pointer", !7, i64 0}
 !7 = !{!"omnipotent char", !8, i64 0}
 !8 = !{!"Simple C/C++ TBAA"}
-!9 = distinct !{!9, !10}
-!10 = !{!"llvm.loop.estimated_trip_count"}
-!11 = !{!12, !12, i64 0}
-!12 = !{!"double", !7, i64 0}
-!13 = distinct !{!13, !10}
-!14 = distinct !{!14, !10}
-!15 = distinct !{!15, !10}
-!16 = distinct !{!16, !10}
-!17 = distinct !{!17, !10}
-!18 = !{!19, !20, i64 0}
-!19 = !{!"ComplexMatrixN", !20, i64 0, !21, i64 8, !21, i64 16}
-!20 = !{!"int", !7, i64 0}
-!21 = !{!"p2 double", !22, i64 0}
-!22 = !{!"any p2 pointer", !6, i64 0}
-!23 = !{!24, !24, i64 0}
-!24 = !{!"p1 double", !6, i64 0}
-!25 = distinct !{!25, !10}
-!26 = distinct !{!26, !10, !27}
-!27 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!28 = distinct !{!28, !10, !27}
-!29 = distinct !{!29, !10}
-!30 = distinct !{!30, !10}
-!31 = distinct !{!31, !10, !27}
-!32 = distinct !{!32, !10, !27}
-!33 = distinct !{!33, !10}
-!34 = distinct !{!34, !10}
-!35 = distinct !{!35, !10, !27}
-!36 = distinct !{!36, !10, !27}
-!37 = distinct !{!37, !10}
-!38 = distinct !{!38, !10, !27}
-!39 = distinct !{!39, !10, !27}
-!40 = !{!19, !21, i64 8}
-!41 = !{!19, !21, i64 16}
-!42 = distinct !{!42, !10}
-!43 = distinct !{!43, !10, !27}
-!44 = !{!20, !20, i64 0}
-!45 = distinct !{!45, !10}
-!46 = distinct !{!46, !10}
-!47 = !{!48, !20, i64 0}
-!48 = !{!"SubDiagonalOp", !20, i64 0, !49, i64 8, !24, i64 16, !24, i64 24}
-!49 = !{!"long long", !7, i64 0}
-!50 = !{!48, !24, i64 16}
-!51 = !{!48, !24, i64 24}
-!52 = distinct !{!52, !10}
-!53 = distinct !{!53, !10}
-!54 = !{!55, !20, i64 4}
-!55 = !{!"Qureg", !20, i64 0, !20, i64 4, !20, i64 8, !49, i64 16, !49, i64 24, !20, i64 32, !20, i64 36, !56, i64 40, !56, i64 56, !56, i64 72, !24, i64 88, !24, i64 96, !6, i64 104, !6, i64 112, !22, i64 120, !6, i64 128}
-!56 = !{!"ComplexArray", !24, i64 0, !24, i64 8}
-!57 = !{!58, !20, i64 0}
-!58 = !{!"DiagonalOp", !20, i64 0, !49, i64 8, !20, i64 16, !20, i64 20, !24, i64 24, !24, i64 32, !56, i64 40}
-!59 = distinct !{!59, !10}
-!60 = distinct !{!60, !10}
-!61 = distinct !{!61, !10}
-!62 = distinct !{!62, !10}
-!63 = !{!55, !49, i64 16}
-!64 = !{!55, !20, i64 0}
-!65 = distinct !{!65, !10}
-!66 = distinct !{!66, !10}
-!67 = !{!68, !20, i64 20}
-!68 = !{!"PauliHamil", !6, i64 0, !24, i64 8, !20, i64 16, !20, i64 20}
-!69 = !{!68, !20, i64 16}
-!70 = !{!68, !6, i64 0}
-!71 = !{!58, !24, i64 24}
-!72 = distinct !{!72, !10}
-!73 = distinct !{!73, !10}
-!74 = distinct !{!74, !10}
-!75 = distinct !{!75, !10}
-!76 = distinct !{!76, !10}
-!77 = distinct !{!77, !10}
-!78 = !{!49, !49, i64 0}
-!79 = distinct !{!79, !10}
-!80 = distinct !{!80, !10}
-!81 = distinct !{!81, !10}
-!82 = distinct !{!82, !10}
-!83 = distinct !{!83, !10}
-!84 = distinct !{!84, !10}
-!85 = distinct !{!85, !10}
-!86 = distinct !{!86, !10}
-!87 = distinct !{!87, !10, !27}
-!88 = distinct !{!88, !10}
-!89 = distinct !{!89, !10, !27}
-!90 = distinct !{!90, !10}
-!91 = !{!55, !24, i64 40}
-!92 = !{!55, !24, i64 48}
-!93 = !{!55, !20, i64 36}
-!94 = !{!55, !24, i64 56}
-!95 = !{!55, !24, i64 64}
-!96 = !{!55, !24, i64 72}
-!97 = !{!55, !24, i64 80}
-!98 = !{!55, !24, i64 88}
-!99 = !{!55, !24, i64 96}
-!100 = !{!58, !24, i64 32}
-!101 = !{!58, !24, i64 40}
-!102 = !{!58, !24, i64 48}
+!9 = !{!10, !10, i64 0}
+!10 = !{!"double", !7, i64 0}
+!11 = !{!12, !13, i64 0}
+!12 = !{!"ComplexMatrixN", !13, i64 0, !14, i64 8, !14, i64 16}
+!13 = !{!"int", !7, i64 0}
+!14 = !{!"p2 double", !15, i64 0}
+!15 = !{!"any p2 pointer", !6, i64 0}
+!16 = !{!17, !17, i64 0}
+!17 = !{!"p1 double", !6, i64 0}
+!18 = distinct !{!18, !19}
+!19 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!20 = distinct !{!20, !19}
+!21 = distinct !{!21, !19}
+!22 = distinct !{!22, !19}
+!23 = distinct !{!23, !19}
+!24 = distinct !{!24, !19}
+!25 = distinct !{!25, !19}
+!26 = distinct !{!26, !19}
+!27 = !{!12, !14, i64 8}
+!28 = !{!12, !14, i64 16}
+!29 = distinct !{!29, !19}
+!30 = !{!13, !13, i64 0}
+!31 = !{!32, !13, i64 0}
+!32 = !{!"SubDiagonalOp", !13, i64 0, !33, i64 8, !17, i64 16, !17, i64 24}
+!33 = !{!"long long", !7, i64 0}
+!34 = !{!32, !17, i64 16}
+!35 = !{!32, !17, i64 24}
+!36 = !{!37, !13, i64 4}
+!37 = !{!"Qureg", !13, i64 0, !13, i64 4, !13, i64 8, !33, i64 16, !33, i64 24, !13, i64 32, !13, i64 36, !38, i64 40, !38, i64 56, !38, i64 72, !17, i64 88, !17, i64 96, !6, i64 104, !6, i64 112, !15, i64 120, !6, i64 128}
+!38 = !{!"ComplexArray", !17, i64 0, !17, i64 8}
+!39 = !{!40, !13, i64 0}
+!40 = !{!"DiagonalOp", !13, i64 0, !33, i64 8, !13, i64 16, !13, i64 20, !17, i64 24, !17, i64 32, !38, i64 40}
+!41 = !{!37, !33, i64 16}
+!42 = !{!37, !13, i64 0}
+!43 = !{!44, !13, i64 20}
+!44 = !{!"PauliHamil", !6, i64 0, !17, i64 8, !13, i64 16, !13, i64 20}
+!45 = !{!44, !13, i64 16}
+!46 = !{!44, !6, i64 0}
+!47 = !{!40, !17, i64 24}
+!48 = !{!33, !33, i64 0}
+!49 = distinct !{!49, !19}
+!50 = distinct !{!50, !19}
+!51 = !{!37, !17, i64 40}
+!52 = !{!37, !17, i64 48}
+!53 = !{!37, !13, i64 36}
+!54 = !{!37, !17, i64 56}
+!55 = !{!37, !17, i64 64}
+!56 = !{!37, !17, i64 72}
+!57 = !{!37, !17, i64 80}
+!58 = !{!37, !17, i64 88}
+!59 = !{!37, !17, i64 96}
+!60 = !{!40, !17, i64 32}
+!61 = !{!40, !17, i64 40}
+!62 = !{!40, !17, i64 48}

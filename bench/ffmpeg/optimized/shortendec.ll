@@ -127,7 +127,7 @@ define internal range(i32 0, 52) i32 @shn_probe(ptr noundef readonly captures(no
   %63 = icmp ne i32 %62, 2147483647
   %64 = icmp sgt i32 %59, -1
   %65 = select i1 %63, i1 %64, i1 false
-  br i1 %65, label %.lr.ph136.i.i, label %._crit_edge.i.i, !llvm.loop !21
+  br i1 %65, label %.lr.ph136.i.i, label %._crit_edge.i.i, !llvm.loop !20
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph136.i.i, %.preheader.i.i
   %.1111.lcssa.i.i = phi i32 [ %.0110.lcssa.i.i, %.preheader.i.i ], [ %61, %.lr.ph136.i.i ]
@@ -232,7 +232,7 @@ get_ur_golomb_shorten.exit:                       ; preds = %.lr.ph.i.i, %37, %6
   %122 = icmp ne i32 %121, 2147483647
   %123 = icmp sgt i32 %118, -1
   %124 = select i1 %122, i1 %123, i1 false
-  br i1 %124, label %.lr.ph136.i.i54, label %._crit_edge.i.i48, !llvm.loop !21
+  br i1 %124, label %.lr.ph136.i.i54, label %._crit_edge.i.i48, !llvm.loop !20
 
 ._crit_edge.i.i48:                                ; preds = %.lr.ph136.i.i54, %.preheader.i.i44
   %.1.lcssa.i.i50 = phi i32 [ %.0.lcssa.i.i47, %.preheader.i.i44 ], [ %121, %.lr.ph136.i.i54 ]
@@ -302,7 +302,7 @@ get_ur_golomb_shorten.exit:                       ; preds = %.lr.ph.i.i, %37, %6
   %157 = icmp ne i32 %156, 2147483647
   %158 = icmp sgt i32 %153, -1
   %159 = select i1 %157, i1 %158, i1 false
-  br i1 %159, label %.lr.ph136.i.i80, label %._crit_edge.i.i74, !llvm.loop !21
+  br i1 %159, label %.lr.ph136.i.i80, label %._crit_edge.i.i74, !llvm.loop !20
 
 ._crit_edge.i.i74:                                ; preds = %.lr.ph136.i.i80, %.preheader.i.i70
   %.1111.lcssa.i.i75 = phi i32 [ %.0110.lcssa.i.i71, %.preheader.i.i70 ], [ %155, %.lr.ph136.i.i80 ]
@@ -330,20 +330,20 @@ get_ur_golomb_shorten.exit:                       ; preds = %.lr.ph.i.i, %37, %6
   br i1 %175, label %get_ur_golomb_shorten.exit88.thread143, label %.critedge
 
 get_ur_golomb_shorten.exit88.thread143:           ; preds = %174
-  store i32 %161, ptr %22, align 8, !tbaa !22
+  store i32 %161, ptr %22, align 8, !tbaa !21
   br label %177
 
 get_ur_golomb_shorten.exit88:                     ; preds = %131, %163
   %storemerge123.i.i78 = phi i32 [ %..i.i87, %131 ], [ %172, %163 ]
   %.0106.i.i79 = phi i32 [ %135, %131 ], [ %173, %163 ]
-  store i32 %storemerge123.i.i78, ptr %22, align 8, !tbaa !22
+  store i32 %storemerge123.i.i78, ptr %22, align 8, !tbaa !21
   %176 = icmp ugt i32 %.0106.i.i79, 31
   br i1 %176, label %.critedge, label %177
 
 177:                                              ; preds = %get_ur_golomb_shorten.exit88.thread143, %get_ur_golomb_shorten.exit88
   %.0106.i.i79146 = phi i32 [ 1, %get_ur_golomb_shorten.exit88.thread143 ], [ %.0106.i.i79, %get_ur_golomb_shorten.exit88 ]
   %178 = call fastcc i32 @get_ur_golomb_shorten(ptr noundef %2, i32 noundef %.0106.i.i79146)
-  %179 = load i32, ptr %22, align 8, !tbaa !22
+  %179 = load i32, ptr %22, align 8, !tbaa !21
   %180 = load i32, ptr %18, align 8, !tbaa !16
   %181 = load ptr, ptr %2, align 8, !tbaa !13
   %182 = lshr i32 %179, 3
@@ -429,7 +429,7 @@ get_ur_golomb_shorten.exit88:                     ; preds = %131, %163
   %228 = icmp ne i32 %227, 2147483647
   %229 = icmp sgt i32 %224, -1
   %230 = select i1 %228, i1 %229, i1 false
-  br i1 %230, label %.lr.ph136.i.i106, label %._crit_edge.i.i100, !llvm.loop !21
+  br i1 %230, label %.lr.ph136.i.i106, label %._crit_edge.i.i100, !llvm.loop !20
 
 ._crit_edge.i.i100:                               ; preds = %.lr.ph136.i.i106, %.preheader.i.i96
   %.1111.lcssa.i.i101 = phi i32 [ %.0110.lcssa.i.i97, %.preheader.i.i96 ], [ %226, %.lr.ph136.i.i106 ]
@@ -457,20 +457,20 @@ get_ur_golomb_shorten.exit88:                     ; preds = %131, %163
   br i1 %246, label %get_ur_golomb_shorten.exit114.thread150, label %.critedge
 
 get_ur_golomb_shorten.exit114.thread150:          ; preds = %245
-  store i32 %232, ptr %22, align 8, !tbaa !22
+  store i32 %232, ptr %22, align 8, !tbaa !21
   br label %248
 
 get_ur_golomb_shorten.exit114:                    ; preds = %200, %234
   %storemerge123.i.i104 = phi i32 [ %..i.i113, %200 ], [ %243, %234 ]
   %.0106.i.i105 = phi i32 [ %204, %200 ], [ %244, %234 ]
-  store i32 %storemerge123.i.i104, ptr %22, align 8, !tbaa !22
+  store i32 %storemerge123.i.i104, ptr %22, align 8, !tbaa !21
   %247 = icmp ugt i32 %.0106.i.i105, 31
   br i1 %247, label %.critedge, label %248
 
 248:                                              ; preds = %get_ur_golomb_shorten.exit114.thread150, %get_ur_golomb_shorten.exit114
   %.0106.i.i105153 = phi i32 [ 1, %get_ur_golomb_shorten.exit114.thread150 ], [ %.0106.i.i105, %get_ur_golomb_shorten.exit114 ]
   %249 = call fastcc i32 @get_ur_golomb_shorten(ptr noundef %2, i32 noundef %.0106.i.i105153)
-  %250 = load i32, ptr %22, align 8, !tbaa !22
+  %250 = load i32, ptr %22, align 8, !tbaa !21
   %251 = load i32, ptr %18, align 8, !tbaa !16
   %252 = load ptr, ptr %2, align 8, !tbaa !13
   %253 = lshr i32 %250, 3
@@ -556,7 +556,7 @@ get_ur_golomb_shorten.exit114:                    ; preds = %200, %234
   %299 = icmp ne i32 %298, 2147483647
   %300 = icmp sgt i32 %295, -1
   %301 = select i1 %299, i1 %300, i1 false
-  br i1 %301, label %.lr.ph136.i.i132, label %._crit_edge.i.i126, !llvm.loop !21
+  br i1 %301, label %.lr.ph136.i.i132, label %._crit_edge.i.i126, !llvm.loop !20
 
 ._crit_edge.i.i126:                               ; preds = %.lr.ph136.i.i132, %.preheader.i.i122
   %.1111.lcssa.i.i127 = phi i32 [ %.0110.lcssa.i.i123, %.preheader.i.i122 ], [ %297, %.lr.ph136.i.i132 ]
@@ -584,13 +584,13 @@ get_ur_golomb_shorten.exit114:                    ; preds = %200, %234
   br i1 %317, label %get_ur_golomb_shorten.exit140.thread157, label %.critedge
 
 get_ur_golomb_shorten.exit140.thread157:          ; preds = %316
-  store i32 %303, ptr %22, align 8, !tbaa !22
+  store i32 %303, ptr %22, align 8, !tbaa !21
   br label %319
 
 get_ur_golomb_shorten.exit140:                    ; preds = %271, %305
   %storemerge123.i.i130 = phi i32 [ %..i.i139, %271 ], [ %314, %305 ]
   %.0106.i.i131 = phi i32 [ %275, %271 ], [ %315, %305 ]
-  store i32 %storemerge123.i.i130, ptr %22, align 8, !tbaa !22
+  store i32 %storemerge123.i.i130, ptr %22, align 8, !tbaa !21
   %318 = icmp ugt i32 %.0106.i.i131, 31
   br i1 %318, label %.critedge, label %319
 
@@ -634,7 +634,7 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 ; Function Attrs: inlinehint nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal fastcc i32 @get_ur_golomb_shorten(ptr noundef nonnull captures(none) %0, i32 noundef range(i32 0, 32) %1) unnamed_addr #3 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %4 = load i32, ptr %3, align 8, !tbaa !22
+  %4 = load i32, ptr %3, align 8, !tbaa !21
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load i32, ptr %5, align 8, !tbaa !16
   %7 = load ptr, ptr %0, align 8, !tbaa !13
@@ -723,7 +723,7 @@ define internal fastcc i32 @get_ur_golomb_shorten(ptr noundef nonnull captures(n
   %57 = icmp ne i32 %56, 2147483647
   %58 = icmp sgt i32 %53, -1
   %59 = select i1 %57, i1 %58, i1 false
-  br i1 %59, label %.lr.ph136.i, label %._crit_edge.i, !llvm.loop !21
+  br i1 %59, label %.lr.ph136.i, label %._crit_edge.i, !llvm.loop !20
 
 ._crit_edge.i:                                    ; preds = %.lr.ph136.i, %.preheader.i
   %.1111.lcssa.i = phi i32 [ %.0110.lcssa.i, %.preheader.i ], [ %55, %.lr.ph136.i ]
@@ -790,7 +790,7 @@ define internal fastcc i32 @get_ur_golomb_shorten(ptr noundef nonnull captures(n
 get_ur_golomb_jpegls.exit:                        ; preds = %39, %28, %95, %98
   %storemerge123.i = phi i32 [ %..i, %28 ], [ %.2.i, %95 ], [ %61, %98 ], [ %.0110130.i, %39 ]
   %.0106.i = phi i32 [ %32, %28 ], [ %97, %95 ], [ %.125.i, %98 ], [ -1, %39 ]
-  store i32 %storemerge123.i, ptr %3, align 8, !tbaa !22
+  store i32 %storemerge123.i, ptr %3, align 8, !tbaa !21
   ret i32 %.0106.i
 }
 
@@ -833,8 +833,7 @@ attributes #5 = { nounwind }
 !15 = !{!14, !10, i64 20}
 !16 = !{!14, !10, i64 24}
 !17 = !{!14, !6, i64 8}
-!18 = distinct !{!18, !19, !20}
+!18 = distinct !{!18, !19}
 !19 = !{!"llvm.loop.mustprogress"}
-!20 = !{!"llvm.loop.estimated_trip_count"}
-!21 = distinct !{!21, !19, !20}
-!22 = !{!14, !10, i64 16}
+!20 = distinct !{!20, !19}
+!21 = !{!14, !10, i64 16}

@@ -91,17 +91,17 @@ while.cond.while.end_crit_edge:                   ; preds = %if.end
 
 while.end:                                        ; preds = %while.cond.while.end_crit_edge, %entry
   %numComments.0.in.lcssa = phi i64 [ %sub.ptr.sub.i.i.i10.le, %while.cond.while.end_crit_edge ], [ %sub.ptr.sub.i.i.i, %entry ]
-  call void @llvm.experimental.noalias.scope.decl(metadata !7)
+  call void @llvm.experimental.noalias.scope.decl(metadata !6)
   %_M_finish.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   %_M_end_of_storage.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
-  %9 = load ptr, ptr %commentStorage_.i, align 8, !noalias !7
-  store ptr %9, ptr %agg.result, align 8, !alias.scope !7
-  %10 = load ptr, ptr %_M_finish.i.i.i, align 8, !noalias !7
-  store ptr %10, ptr %_M_finish.i.i.i.i.i, align 8, !alias.scope !7
+  %9 = load ptr, ptr %commentStorage_.i, align 8, !noalias !6
+  store ptr %9, ptr %agg.result, align 8, !alias.scope !6
+  %10 = load ptr, ptr %_M_finish.i.i.i, align 8, !noalias !6
+  store ptr %10, ptr %_M_finish.i.i.i.i.i, align 8, !alias.scope !6
   %_M_end_of_storage.i4.i.i.i.i = getelementptr inbounds nuw i8, ptr %lexer, i64 1096
-  %11 = load ptr, ptr %_M_end_of_storage.i4.i.i.i.i, align 8, !noalias !7
-  store ptr %11, ptr %_M_end_of_storage.i.i.i.i.i, align 8, !alias.scope !7
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %commentStorage_.i, i8 0, i64 24, i1 false), !noalias !7
+  %11 = load ptr, ptr %_M_end_of_storage.i4.i.i.i.i, align 8, !noalias !6
+  store ptr %11, ptr %_M_end_of_storage.i.i.i.i.i, align 8, !alias.scope !6
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %commentStorage_.i, i8 0, i64 24, i1 false), !noalias !6
   %add.ptr.i = getelementptr inbounds i8, ptr %9, i64 %numComments.0.in.lcssa
   %cmp.i.not.i.i = icmp eq ptr %add.ptr.i, %10
   br i1 %cmp.i.not.i.i, label %_ZNSt6vectorIN6hermes6parser13StoredCommentESaIS2_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS2_S4_EES9_.exit, label %if.then.i.i.i
@@ -242,12 +242,12 @@ _ZN4llvh9StringRefC2EPKc.exit39:                  ; preds = %if.end13, %lor.lhs.
   %11 = load i64, ptr %0, align 8
   %sub = add i64 %11, -4
   %cmp7 = icmp ult i64 %call29, %sub
-  br i1 %cmp7, label %while.body, label %for.inc, !llvm.loop !10
+  br i1 %cmp7, label %while.body, label %for.inc, !llvm.loop !9
 
 for.inc:                                          ; preds = %_ZN4llvh9StringRefC2EPKc.exit39, %if.end, %for.body
   %incdec.ptr = getelementptr inbounds nuw i8, ptr %__begin2.027, i64 24
   %cmp.not.not = icmp eq ptr %incdec.ptr, %add.ptr.i
-  br i1 %cmp.not.not, label %return, label %for.body, !llvm.loop !11
+  br i1 %cmp.not.not, label %return, label %for.body
 
 return:                                           ; preds = %for.inc, %lor.lhs.false, %while.body, %entry
   %cmp.not22 = phi i1 [ false, %entry ], [ true, %while.body ], [ true, %lor.lhs.false ], [ false, %for.inc ]
@@ -278,7 +278,7 @@ for.body:                                         ; preds = %entry, %for.body
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, i8 noundef signext 10) #7
   %incdec.ptr = getelementptr inbounds nuw i8, ptr %__begin2.06, i64 24
   %cmp.not = icmp eq ptr %incdec.ptr, %add.ptr.i
-  br i1 %cmp.not, label %nrvo.skipdtor, label %for.body, !llvm.loop !12
+  br i1 %cmp.not, label %nrvo.skipdtor, label %for.body
 
 nrvo.skipdtor:                                    ; preds = %for.body, %entry
   ret void
@@ -319,12 +319,9 @@ attributes #8 = { builtin nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5, !6}
+!4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{!"llvm.loop.estimated_trip_count"}
-!7 = !{!8}
-!8 = distinct !{!8, !9, !"_ZN6hermes6parser7JSLexer18moveStoredCommentsEv: %agg.result"}
-!9 = distinct !{!9, !"_ZN6hermes6parser7JSLexer18moveStoredCommentsEv"}
-!10 = distinct !{!10, !5, !6}
-!11 = distinct !{!11, !6}
-!12 = distinct !{!12, !6}
+!6 = !{!7}
+!7 = distinct !{!7, !8, !"_ZN6hermes6parser7JSLexer18moveStoredCommentsEv: %agg.result"}
+!8 = distinct !{!8, !"_ZN6hermes6parser7JSLexer18moveStoredCommentsEv"}
+!9 = distinct !{!9, !5}

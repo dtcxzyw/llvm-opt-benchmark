@@ -148,7 +148,7 @@ _lib_backgroundjobs_updated.exit:                 ; preds = %_lib_backgroundjobs
   %36 = getelementptr inbounds nuw i8, ptr %.026, i64 8
   %.0 = load ptr, ptr %36, align 8, !tbaa !72
   %.not = icmp eq ptr %.0, null
-  br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !83
+  br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph
 }
 
 declare ptr @gtk_box_new(i32 noundef, i32 noundef) local_unnamed_addr #3
@@ -172,7 +172,7 @@ define internal noalias noundef ptr @_lib_backgroundjobs_added(ptr noundef reado
 
 8:                                                ; preds = %5
   %9 = tail call ptr @gtk_event_box_new() #10
-  store ptr %9, ptr %4, align 8, !tbaa !85
+  store ptr %9, ptr %4, align 8, !tbaa !83
   %10 = tail call i64 @gtk_widget_get_type() #13
   %11 = tail call ptr @g_type_check_instance_cast(ptr noundef %9, i64 noundef %10) #10
   tail call void @gtk_widget_set_name(ptr noundef %11, ptr noundef nonnull @.str.1) #10
@@ -183,14 +183,14 @@ define internal noalias noundef ptr @_lib_backgroundjobs_added(ptr noundef reado
   %15 = tail call ptr @g_type_check_instance_cast(ptr noundef %13, i64 noundef %14) #10
   %16 = tail call ptr @gtk_box_new(i32 noundef 0, i32 noundef 0) #10
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  store ptr %16, ptr %17, align 8, !tbaa !87
+  store ptr %16, ptr %17, align 8, !tbaa !85
   %18 = tail call i64 @gtk_container_get_type() #13
   %19 = tail call ptr @g_type_check_instance_cast(ptr noundef %9, i64 noundef %18) #10
   %20 = tail call ptr @g_type_check_instance_cast(ptr noundef %15, i64 noundef %10) #10
   tail call void @gtk_container_add(ptr noundef %19, ptr noundef %20) #10
   %21 = tail call ptr @gtk_label_new(ptr noundef %2) #10
   %22 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store ptr %21, ptr %22, align 8, !tbaa !88
+  store ptr %21, ptr %22, align 8, !tbaa !86
   tail call void @gtk_widget_set_halign(ptr noundef %21, i32 noundef 1) #10
   %23 = tail call i64 @gtk_label_get_type() #13
   %24 = tail call ptr @g_type_check_instance_cast(ptr noundef %21, i64 noundef %23) #10
@@ -207,7 +207,7 @@ define internal noalias noundef ptr @_lib_backgroundjobs_added(ptr noundef reado
 29:                                               ; preds = %8
   %30 = tail call ptr @gtk_progress_bar_new() #10
   %31 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store ptr %30, ptr %31, align 8, !tbaa !89
+  store ptr %30, ptr %31, align 8, !tbaa !87
   %32 = tail call ptr @g_type_check_instance_cast(ptr noundef %15, i64 noundef %14) #10
   tail call void @gtk_box_pack_start(ptr noundef %32, ptr noundef %30, i32 noundef 1, i32 noundef 0, i32 noundef 0) #10
   br label %33
@@ -215,9 +215,9 @@ define internal noalias noundef ptr @_lib_backgroundjobs_added(ptr noundef reado
 33:                                               ; preds = %29, %8
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 416
   %35 = load ptr, ptr %34, align 8, !tbaa !6
-  store ptr %35, ptr %6, align 8, !tbaa !90
+  store ptr %35, ptr %6, align 8, !tbaa !88
   %36 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store ptr %9, ptr %36, align 8, !tbaa !92
+  store ptr %9, ptr %36, align 8, !tbaa !90
   tail call void @g_main_context_invoke(ptr noundef null, ptr noundef nonnull @_added_gui_thread, ptr noundef nonnull %6) #10
   br label %37
 
@@ -233,9 +233,9 @@ define internal void @_lib_backgroundjobs_destroyed(ptr noundef %0, ptr noundef 
   br i1 %.not, label %6, label %4
 
 4:                                                ; preds = %2
-  store ptr %0, ptr %3, align 8, !tbaa !93
+  store ptr %0, ptr %3, align 8, !tbaa !91
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store ptr %1, ptr %5, align 8, !tbaa !95
+  store ptr %1, ptr %5, align 8, !tbaa !93
   tail call void @g_main_context_invoke(ptr noundef null, ptr noundef nonnull @_destroyed_gui_thread, ptr noundef nonnull %3) #10
   br label %6
 
@@ -299,10 +299,10 @@ define internal void @_lib_backgroundjobs_message_updated(ptr readnone captures(
   br i1 %.not6, label %10, label %7
 
 7:                                                ; preds = %5
-  store ptr %1, ptr %6, align 8, !tbaa !96
+  store ptr %1, ptr %6, align 8, !tbaa !94
   %8 = tail call noalias ptr @g_strdup(ptr noundef %2) #10
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store ptr %8, ptr %9, align 8, !tbaa !98
+  store ptr %8, ptr %9, align 8, !tbaa !96
   tail call void @g_main_context_invoke(ptr noundef null, ptr noundef nonnull @_update_message_gui_thread, ptr noundef nonnull %6) #10
   br label %10
 
@@ -386,23 +386,23 @@ declare void @g_main_context_invoke(ptr noundef, ptr noundef, ptr noundef) local
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @_added_gui_thread(ptr noundef captures(none) %0) #1 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !90
+  %2 = load ptr, ptr %0, align 8, !tbaa !88
   %3 = tail call i64 @gtk_box_get_type() #13
   %4 = tail call ptr @g_type_check_instance_cast(ptr noundef %2, i64 noundef %3) #10
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %6 = load ptr, ptr %5, align 8, !tbaa !92
+  %6 = load ptr, ptr %5, align 8, !tbaa !90
   tail call void @gtk_box_pack_start(ptr noundef %4, ptr noundef %6, i32 noundef 1, i32 noundef 0, i32 noundef 0) #10
-  %7 = load ptr, ptr %0, align 8, !tbaa !90
+  %7 = load ptr, ptr %0, align 8, !tbaa !88
   %8 = tail call ptr @g_type_check_instance_cast(ptr noundef %7, i64 noundef %3) #10
-  %9 = load ptr, ptr %5, align 8, !tbaa !92
+  %9 = load ptr, ptr %5, align 8, !tbaa !90
   tail call void @gtk_box_reorder_child(ptr noundef %8, ptr noundef %9, i32 noundef 1) #10
-  %10 = load ptr, ptr %5, align 8, !tbaa !92
+  %10 = load ptr, ptr %5, align 8, !tbaa !90
   tail call void @gtk_widget_show_all(ptr noundef %10) #10
-  %11 = load ptr, ptr %0, align 8, !tbaa !90
+  %11 = load ptr, ptr %0, align 8, !tbaa !88
   tail call void @gtk_widget_show(ptr noundef %11) #10
   %12 = tail call ptr @gdk_display_get_default() #10
   %13 = tail call ptr @gdk_cursor_new_for_display(ptr noundef %12, i32 noundef 68) #10
-  %14 = load ptr, ptr %5, align 8, !tbaa !92
+  %14 = load ptr, ptr %5, align 8, !tbaa !90
   %15 = tail call ptr @gtk_widget_get_window(ptr noundef %14) #10
   tail call void @gdk_window_set_cursor(ptr noundef %15, ptr noundef %13) #10
   tail call void @g_object_unref(ptr noundef %13) #10
@@ -429,19 +429,19 @@ declare void @g_object_unref(ptr noundef) local_unnamed_addr #3
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @_destroyed_gui_thread(ptr noundef captures(none) %0) #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load ptr, ptr %2, align 8, !tbaa !95
-  %4 = load ptr, ptr %3, align 8, !tbaa !85
+  %3 = load ptr, ptr %2, align 8, !tbaa !93
+  %4 = load ptr, ptr %3, align 8, !tbaa !83
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %21, label %5
 
 5:                                                ; preds = %1
   %6 = tail call i64 @gtk_widget_get_type() #13
-  %7 = load ptr, ptr %4, align 8, !tbaa !99
+  %7 = load ptr, ptr %4, align 8, !tbaa !97
   %.not19 = icmp eq ptr %7, null
   br i1 %.not19, label %11, label %8
 
 8:                                                ; preds = %5
-  %9 = load i64, ptr %7, align 8, !tbaa !102
+  %9 = load i64, ptr %7, align 8, !tbaa !100
   %10 = icmp eq i64 %9, %6
   br i1 %10, label %.critedge, label %11
 
@@ -451,21 +451,21 @@ define internal noundef i32 @_destroyed_gui_thread(ptr noundef captures(none) %0
   br i1 %13, label %21, label %.critedge
 
 .critedge:                                        ; preds = %8, %11
-  %14 = load ptr, ptr %0, align 8, !tbaa !93
+  %14 = load ptr, ptr %0, align 8, !tbaa !91
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 416
   %16 = load ptr, ptr %15, align 8, !tbaa !6
   %17 = tail call i64 @gtk_container_get_type() #13
   %18 = tail call ptr @g_type_check_instance_cast(ptr noundef %16, i64 noundef %17) #10
-  %19 = load ptr, ptr %2, align 8, !tbaa !95
-  %20 = load ptr, ptr %19, align 8, !tbaa !85
+  %19 = load ptr, ptr %2, align 8, !tbaa !93
+  %20 = load ptr, ptr %19, align 8, !tbaa !83
   tail call void @gtk_container_remove(ptr noundef %18, ptr noundef %20) #10
-  %.pre = load ptr, ptr %2, align 8, !tbaa !95
+  %.pre = load ptr, ptr %2, align 8, !tbaa !93
   br label %21
 
 21:                                               ; preds = %.critedge, %11, %1
   %22 = phi ptr [ %.pre, %.critedge ], [ %3, %11 ], [ %3, %1 ]
-  store ptr null, ptr %22, align 8, !tbaa !85
-  %23 = load ptr, ptr %0, align 8, !tbaa !93
+  store ptr null, ptr %22, align 8, !tbaa !83
+  %23 = load ptr, ptr %0, align 8, !tbaa !91
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 416
   %25 = load ptr, ptr %24, align 8, !tbaa !6
   %26 = tail call i64 @gtk_container_get_type() #13
@@ -475,14 +475,14 @@ define internal noundef i32 @_destroyed_gui_thread(ptr noundef captures(none) %0
   br i1 %.not21, label %29, label %33
 
 29:                                               ; preds = %21
-  %30 = load ptr, ptr %0, align 8, !tbaa !93
+  %30 = load ptr, ptr %0, align 8, !tbaa !91
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 416
   %32 = load ptr, ptr %31, align 8, !tbaa !6
   tail call void @gtk_widget_hide(ptr noundef %32) #10
   br label %33
 
 33:                                               ; preds = %29, %21
-  %34 = load ptr, ptr %2, align 8, !tbaa !95
+  %34 = load ptr, ptr %2, align 8, !tbaa !93
   tail call void @free(ptr noundef %34) #10
   tail call void @free(ptr noundef nonnull %0) #10
   ret i32 0
@@ -503,7 +503,7 @@ declare i32 @dt_control_running(...) local_unnamed_addr #3
 define internal noundef i32 @_cancellable_gui_thread(ptr noundef captures(none) %0) #1 {
   %2 = load ptr, ptr %0, align 8, !tbaa !75
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %4 = load ptr, ptr %3, align 8, !tbaa !87
+  %4 = load ptr, ptr %3, align 8, !tbaa !85
   %5 = tail call i64 @gtk_box_get_type() #13
   %6 = tail call ptr @g_type_check_instance_cast(ptr noundef %4, i64 noundef %5) #10
   %7 = tail call ptr @dtgtk_button_new(ptr noundef nonnull @dtgtk_cairo_paint_cancel, i32 noundef 0, ptr noundef null) #10
@@ -538,7 +538,7 @@ declare void @dt_control_progress_cancel(ptr noundef, ptr noundef) local_unnamed
 define internal noundef i32 @_update_gui_thread(ptr noundef captures(none) %0) #1 {
   %2 = load ptr, ptr %0, align 8, !tbaa !80
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %4 = load ptr, ptr %3, align 8, !tbaa !89
+  %4 = load ptr, ptr %3, align 8, !tbaa !87
   %5 = tail call i64 @gtk_progress_bar_get_type() #13
   %6 = tail call ptr @g_type_check_instance_cast(ptr noundef %4, i64 noundef %5) #10
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -569,15 +569,15 @@ declare noalias ptr @g_strdup(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @_update_message_gui_thread(ptr noundef captures(none) %0) #1 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !96
+  %2 = load ptr, ptr %0, align 8, !tbaa !94
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %4 = load ptr, ptr %3, align 8, !tbaa !88
+  %4 = load ptr, ptr %3, align 8, !tbaa !86
   %5 = tail call i64 @gtk_label_get_type() #13
   %6 = tail call ptr @g_type_check_instance_cast(ptr noundef %4, i64 noundef %5) #10
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %8 = load ptr, ptr %7, align 8, !tbaa !98
+  %8 = load ptr, ptr %7, align 8, !tbaa !96
   tail call void @gtk_label_set_text(ptr noundef %6, ptr noundef %8) #10
-  %9 = load ptr, ptr %7, align 8, !tbaa !98
+  %9 = load ptr, ptr %7, align 8, !tbaa !96
   tail call void @g_free(ptr noundef %9) #10
   tail call void @free(ptr noundef %0) #10
   ret i32 0
@@ -691,24 +691,22 @@ attributes #14 = { nounwind willreturn memory(read) }
 !80 = !{!81, !77, i64 0}
 !81 = !{!"_update_gui_thread_t", !77, i64 0, !46, i64 8}
 !82 = !{!81, !46, i64 8}
-!83 = distinct !{!83, !84}
-!84 = !{!"llvm.loop.estimated_trip_count"}
-!85 = !{!86, !16, i64 0}
-!86 = !{!"dt_lib_backgroundjob_element_t", !16, i64 0, !16, i64 8, !16, i64 16, !16, i64 24}
-!87 = !{!86, !16, i64 24}
-!88 = !{!86, !16, i64 8}
-!89 = !{!86, !16, i64 16}
-!90 = !{!91, !16, i64 0}
-!91 = !{!"_added_gui_thread_t", !16, i64 0, !16, i64 8}
-!92 = !{!91, !16, i64 8}
-!93 = !{!94, !64, i64 0}
-!94 = !{!"_destroyed_gui_thread_t", !64, i64 0, !77, i64 8}
-!95 = !{!94, !77, i64 8}
-!96 = !{!97, !77, i64 0}
-!97 = !{!"_update_label_gui_thread_t", !77, i64 0, !12, i64 8}
-!98 = !{!97, !12, i64 8}
-!99 = !{!100, !101, i64 0}
-!100 = !{!"_GTypeInstance", !101, i64 0}
-!101 = !{!"p1 _ZTS11_GTypeClass", !13, i64 0}
-!102 = !{!103, !50, i64 0}
-!103 = !{!"_GTypeClass", !50, i64 0}
+!83 = !{!84, !16, i64 0}
+!84 = !{!"dt_lib_backgroundjob_element_t", !16, i64 0, !16, i64 8, !16, i64 16, !16, i64 24}
+!85 = !{!84, !16, i64 24}
+!86 = !{!84, !16, i64 8}
+!87 = !{!84, !16, i64 16}
+!88 = !{!89, !16, i64 0}
+!89 = !{!"_added_gui_thread_t", !16, i64 0, !16, i64 8}
+!90 = !{!89, !16, i64 8}
+!91 = !{!92, !64, i64 0}
+!92 = !{!"_destroyed_gui_thread_t", !64, i64 0, !77, i64 8}
+!93 = !{!92, !77, i64 8}
+!94 = !{!95, !77, i64 0}
+!95 = !{!"_update_label_gui_thread_t", !77, i64 0, !12, i64 8}
+!96 = !{!95, !12, i64 8}
+!97 = !{!98, !99, i64 0}
+!98 = !{!"_GTypeInstance", !99, i64 0}
+!99 = !{!"p1 _ZTS11_GTypeClass", !13, i64 0}
+!100 = !{!101, !50, i64 0}
+!101 = !{!"_GTypeClass", !50, i64 0}

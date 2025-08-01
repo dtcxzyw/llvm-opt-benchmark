@@ -338,7 +338,7 @@ thread-pre-split:                                 ; preds = %151, %155
   %191 = shl nuw i128 %190, 64
   %192 = or disjoint i128 %191, %184
   %.not178 = icmp ugt i128 %189, %192
-  br i1 %.not178, label %.lr.ph210, label %.loopexit, !llvm.loop !20
+  br i1 %.not178, label %.lr.ph210, label %.loopexit
 
 .lr.ph210:                                        ; preds = %175, %188
   %.0143208 = phi i128 [ %189, %188 ], [ %181, %175 ]
@@ -384,7 +384,7 @@ thread-pre-split:                                 ; preds = %151, %155
   %213 = add nuw nsw i32 %.1216, 1
   %214 = getelementptr inbounds i8, ptr %.1149215, i64 -8
   %exitcond.not = icmp eq i32 %213, %145
-  br i1 %exitcond.not, label %._crit_edge219, label %171, !llvm.loop !22
+  br i1 %exitcond.not, label %._crit_edge219, label %171, !llvm.loop !20
 
 ._crit_edge219:                                   ; preds = %212, %168
   call void @bn_correct_top(ptr noundef nonnull %51) #6
@@ -483,7 +483,7 @@ define hidden i32 @BN_nnmod(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr 
   %11 = load i32, ptr %10, align 8, !tbaa !17
   %.not10 = icmp eq i32 %11, 0
   %12 = select i1 %.not10, ptr @BN_add, ptr @BN_sub
-  %13 = tail call i32 %12(ptr noundef nonnull %0, ptr noundef nonnull %0, ptr noundef %2) #6, !callees !24
+  %13 = tail call i32 %12(ptr noundef nonnull %0, ptr noundef nonnull %0, ptr noundef %2) #6, !callees !22
   br label %14
 
 14:                                               ; preds = %6, %4, %9
@@ -517,7 +517,7 @@ define hidden i32 @BN_mod_add(ptr noundef %0, ptr noundef %1, ptr noundef %2, pt
   %14 = load i32, ptr %13, align 8, !tbaa !17
   %.not10.i = icmp eq i32 %14, 0
   %15 = select i1 %.not10.i, ptr @BN_add, ptr @BN_sub
-  %16 = tail call i32 %15(ptr noundef nonnull %0, ptr noundef nonnull %0, ptr noundef %3) #6, !callees !24
+  %16 = tail call i32 %15(ptr noundef nonnull %0, ptr noundef nonnull %0, ptr noundef %3) #6, !callees !22
   br label %BN_nnmod.exit
 
 BN_nnmod.exit:                                    ; preds = %12, %9, %7, %5
@@ -571,7 +571,7 @@ define hidden i32 @BN_mod_sub(ptr noundef %0, ptr noundef %1, ptr noundef %2, pt
   %14 = load i32, ptr %13, align 8, !tbaa !17
   %.not10.i = icmp eq i32 %14, 0
   %15 = select i1 %.not10.i, ptr @BN_add, ptr @BN_sub
-  %16 = tail call i32 %15(ptr noundef nonnull %0, ptr noundef nonnull %0, ptr noundef %3) #6, !callees !24
+  %16 = tail call i32 %15(ptr noundef nonnull %0, ptr noundef nonnull %0, ptr noundef %3) #6, !callees !22
   br label %BN_nnmod.exit
 
 BN_nnmod.exit:                                    ; preds = %12, %9, %7, %5
@@ -637,7 +637,7 @@ BN_nnmod.exit:                                    ; preds = %16
   %20 = load i32, ptr %19, align 8, !tbaa !17
   %.not10.i = icmp eq i32 %20, 0
   %21 = select i1 %.not10.i, ptr @BN_add, ptr @BN_sub
-  %22 = tail call i32 %21(ptr noundef nonnull %0, ptr noundef nonnull %0, ptr noundef %3) #6, !callees !24
+  %22 = tail call i32 %21(ptr noundef nonnull %0, ptr noundef nonnull %0, ptr noundef %3) #6, !callees !22
   %.fr = freeze i32 %22
   %.not21 = icmp eq i32 %.fr, 0
   br i1 %.not21, label %BN_nnmod.exit.thread, label %BN_nnmod.exit.thread25
@@ -687,7 +687,7 @@ BN_nnmod.exit:                                    ; preds = %7
   %11 = load i32, ptr %10, align 8, !tbaa !17
   %.not10.i = icmp eq i32 %11, 0
   %12 = select i1 %.not10.i, ptr @BN_add, ptr @BN_sub
-  %13 = tail call i32 %12(ptr noundef nonnull %0, ptr noundef nonnull %0, ptr noundef %3) #6, !callees !24
+  %13 = tail call i32 %12(ptr noundef nonnull %0, ptr noundef nonnull %0, ptr noundef %3) #6, !callees !22
   %.not = icmp eq i32 %13, 0
   br i1 %.not, label %BN_nnmod.exit.thread, label %BN_nnmod.exit.thread22
 
@@ -784,7 +784,7 @@ define hidden range(i32 0, 2) i32 @BN_mod_lshift_quick(ptr noundef %0, ptr nound
 
 29:                                               ; preds = %24, %27
   %30 = icmp sgt i32 %.230, 0
-  br i1 %30, label %.lr.ph, label %.thread, !llvm.loop !25
+  br i1 %30, label %.lr.ph, label %.thread
 
 .thread:                                          ; preds = %29, %16, %20, %27, %8, %14, %5
   %.027 = phi i32 [ 0, %5 ], [ 0, %14 ], [ 1, %8 ], [ 1, %29 ], [ 0, %16 ], [ 0, %20 ], [ 0, %27 ]
@@ -819,7 +819,7 @@ define hidden i32 @BN_mod_lshift1(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %13 = load i32, ptr %12, align 8, !tbaa !17
   %.not10.i = icmp eq i32 %13, 0
   %14 = select i1 %.not10.i, ptr @BN_add, ptr @BN_sub
-  %15 = tail call i32 %14(ptr noundef nonnull %0, ptr noundef nonnull %0, ptr noundef %2) #6, !callees !24
+  %15 = tail call i32 %14(ptr noundef nonnull %0, ptr noundef nonnull %0, ptr noundef %2) #6, !callees !22
   br label %BN_nnmod.exit
 
 BN_nnmod.exit:                                    ; preds = %11, %8, %6, %4
@@ -892,7 +892,7 @@ define hidden i64 @BN_div_word(ptr noundef %0, i64 noundef %1) local_unnamed_add
   %25 = getelementptr inbounds nuw i64, ptr %24, i64 %indvars.iv.next
   store i64 %21, ptr %25, align 8, !tbaa !14
   %26 = icmp samesign ugt i64 %indvars.iv, 1
-  br i1 %26, label %.lr.ph, label %._crit_edge, !llvm.loop !26
+  br i1 %26, label %.lr.ph, label %._crit_edge, !llvm.loop !23
 
 ._crit_edge:                                      ; preds = %.lr.ph
   %.pre36 = load i32, ptr %4, align 8, !tbaa !6
@@ -953,7 +953,7 @@ define hidden i64 @BN_mod_word(ptr noundef readonly captures(none) %0, i64 nound
   %16 = or disjoint i128 %12, %15
   %17 = urem i128 %16, %9
   %18 = icmp samesign ugt i64 %indvars.iv, 1
-  br i1 %18, label %11, label %._crit_edge.loopexit, !llvm.loop !27
+  br i1 %18, label %11, label %._crit_edge.loopexit, !llvm.loop !24
 
 ._crit_edge.loopexit:                             ; preds = %11
   %extract.t = trunc nuw i128 %17 to i64
@@ -1001,10 +1001,7 @@ attributes #6 = { nounwind }
 !18 = !{!7, !12, i64 12}
 !19 = !{i64 5801}
 !20 = distinct !{!20, !21}
-!21 = !{!"llvm.loop.estimated_trip_count"}
-!22 = distinct !{!22, !23, !21}
-!23 = !{!"llvm.loop.mustprogress"}
-!24 = !{ptr @BN_add, ptr @BN_sub}
-!25 = distinct !{!25, !21}
-!26 = distinct !{!26, !23, !21}
-!27 = distinct !{!27, !23, !21}
+!21 = !{!"llvm.loop.mustprogress"}
+!22 = !{ptr @BN_add, ptr @BN_sub}
+!23 = distinct !{!23, !21}
+!24 = distinct !{!24, !21}

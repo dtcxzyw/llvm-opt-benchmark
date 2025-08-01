@@ -164,7 +164,7 @@ define hidden void @_ZN4LIEF5MachO16destroy_sectionsEP14Macho_Binary_t(ptr nound
   %12 = getelementptr inbounds nuw ptr, ptr %3, i64 %11
   %13 = load ptr, ptr %12, align 8, !tbaa !25
   %.not = icmp eq ptr %13, null
-  br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !76
+  br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !75
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
@@ -256,7 +256,6 @@ attributes #6 = { nounwind }
 !70 = !{!36, !34, i64 64}
 !71 = !{!36, !38, i64 72}
 !72 = !{!13, !4, i64 0}
-!73 = distinct !{!73, !74, !75}
+!73 = distinct !{!73, !74}
 !74 = !{!"llvm.loop.mustprogress"}
-!75 = !{!"llvm.loop.estimated_trip_count"}
-!76 = distinct !{!76, !74, !75}
+!75 = distinct !{!75, !74}

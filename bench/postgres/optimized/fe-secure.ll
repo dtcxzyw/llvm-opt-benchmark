@@ -173,7 +173,7 @@ define i64 @pqsecure_raw_write(ptr noundef captures(none) %0, ptr noundef %1, i6
 
 35:                                               ; preds = %30
   store i8 0, ptr %11, align 4
-  br label %19, !llvm.loop !5
+  br label %19
 
 36:                                               ; preds = %30
   switch i32 %32, label %40 [
@@ -410,5 +410,3 @@ attributes #10 = { nounwind willreturn memory(none) }
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i8 0, i8 2}
 !4 = !{}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.estimated_trip_count"}

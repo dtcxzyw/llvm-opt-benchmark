@@ -144,7 +144,7 @@ lxb_html_tree_current_node.exit.i:                ; preds = %14, %13
   %52 = icmp ne i64 %51, 2
   %53 = icmp ne i64 %47, 0
   %or.cond.i.i = and i1 %53, %52
-  br i1 %or.cond.i.i, label %40, label %.loopexit.i.i, !llvm.loop !33
+  br i1 %or.cond.i.i, label %40, label %.loopexit.i.i
 
 .loopexit.i.i:                                    ; preds = %46, %29
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 88
@@ -211,7 +211,7 @@ lxb_html_tree_current_node.exit.i:                ; preds = %14, %13
   %87 = icmp ne i64 %86, 2
   %88 = icmp ne i64 %82, 0
   %or.cond.i = and i1 %88, %87
-  br i1 %or.cond.i, label %75, label %.loopexit.i, !llvm.loop !33
+  br i1 %or.cond.i, label %75, label %.loopexit.i
 
 .loopexit.i:                                      ; preds = %81, %64
   %89 = getelementptr inbounds nuw i8, ptr %0, i64 88
@@ -284,20 +284,20 @@ lxb_html_tree_current_node.exit.i:                ; preds = %14, %13
 
 98:                                               ; preds = %92
   %99 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %.02237.i = load ptr, ptr %99, align 8, !tbaa !35
+  %.02237.i = load ptr, ptr %99, align 8, !tbaa !33
   %.not.not38.i = icmp eq ptr %.02237.i, null
   br i1 %.not.not38.i, label %.critedge.sink.split.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %98, %105
   %.02239.i = phi ptr [ %.022.i, %105 ], [ %.02237.i, %98 ]
   %100 = getelementptr inbounds nuw i8, ptr %.02239.i, i64 32
-  %101 = load ptr, ptr %100, align 8, !tbaa !36
+  %101 = load ptr, ptr %100, align 8, !tbaa !34
   %.not27.i = icmp eq ptr %101, null
   br i1 %.not27.i, label %105, label %102
 
 102:                                              ; preds = %.lr.ph.i
   %103 = getelementptr inbounds nuw i8, ptr %101, i64 40
-  %104 = load i64, ptr %103, align 8, !tbaa !38
+  %104 = load i64, ptr %103, align 8, !tbaa !36
   switch i64 %104, label %105 [
     i64 6, label %.loopexit.i19
     i64 10, label %.loopexit.i19
@@ -306,14 +306,14 @@ lxb_html_tree_current_node.exit.i:                ; preds = %14, %13
 
 105:                                              ; preds = %102, %.lr.ph.i
   %106 = getelementptr inbounds nuw i8, ptr %.02239.i, i64 56
-  %.022.i = load ptr, ptr %106, align 8, !tbaa !35
+  %.022.i = load ptr, ptr %106, align 8, !tbaa !33
   %.not.not.i = icmp eq ptr %.022.i, null
-  br i1 %.not.not.i, label %.critedge.sink.split.i, label %.lr.ph.i, !llvm.loop !42
+  br i1 %.not.not.i, label %.critedge.sink.split.i, label %.lr.ph.i
 
 .loopexit.i19:                                    ; preds = %102, %102, %102, %92, %92, %92, %92, %92, %92, %92, %92, %92, %92, %92, %92, %92, %92, %92, %92, %92, %92, %92, %92, %92, %92, %92, %92, %92, %92, %92, %92, %92, %92, %92, %92, %92, %92, %92, %92, %92, %92, %92, %92, %92, %92, %92
   tail call void @lxb_html_tree_parse_error(ptr noundef %0, ptr noundef %1, i32 noundef 0) #6
   %107 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %108 = load ptr, ptr %107, align 8, !tbaa !43
+  %108 = load ptr, ptr %107, align 8, !tbaa !40
   %.not.i20 = icmp eq ptr %108, null
   br i1 %.not.i20, label %.preheader.i, label %.critedge.sink.split.i
 
@@ -358,7 +358,7 @@ lxb_html_tree_mathml_text_integration_point.exit.i: ; preds = %123, %119
 127:                                              ; preds = %lxb_html_tree_mathml_text_integration_point.exit.i
   %128 = load i64, ptr %120, align 8, !tbaa !30
   %.not36.i = icmp eq i64 %128, 2
-  br i1 %.not36.i, label %lxb_html_tree_insertion_mode_foreign_content_script_closed.exit, label %110, !llvm.loop !44
+  br i1 %.not36.i, label %lxb_html_tree_insertion_mode_foreign_content_script_closed.exit, label %110
 
 .critedge.sink.split.i:                           ; preds = %105, %.loopexit.i19, %98
   %129 = tail call fastcc zeroext i1 @lxb_html_tree_insertion_mode_foreign_content_anything_else(ptr noundef %0, ptr noundef %1)
@@ -378,31 +378,31 @@ define internal fastcc zeroext i1 @lxb_html_tree_insertion_mode_foreign_content_
   %3 = alloca %struct.lexbor_str_t, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #6
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  %5 = load i64, ptr %4, align 8, !tbaa !45
+  %5 = load i64, ptr %4, align 8, !tbaa !41
   %.not = icmp eq i64 %5, 0
   br i1 %.not, label %12, label %6
 
 6:                                                ; preds = %2
   tail call void @lxb_html_tree_parse_error(ptr noundef %0, ptr noundef nonnull %1, i32 noundef 2) #6
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %8 = load ptr, ptr %7, align 8, !tbaa !46
+  %8 = load ptr, ptr %7, align 8, !tbaa !42
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 192
-  %10 = load ptr, ptr %9, align 8, !tbaa !47
+  %10 = load ptr, ptr %9, align 8, !tbaa !43
   %11 = call i32 @lxb_html_token_make_text_replace_null(ptr noundef nonnull %1, ptr noundef nonnull %3, ptr noundef %10) #6
   br label %18
 
 12:                                               ; preds = %2
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %14 = load ptr, ptr %13, align 8, !tbaa !46
+  %14 = load ptr, ptr %13, align 8, !tbaa !42
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 192
-  %16 = load ptr, ptr %15, align 8, !tbaa !47
+  %16 = load ptr, ptr %15, align 8, !tbaa !43
   %17 = call i32 @lxb_html_token_make_text(ptr noundef nonnull %1, ptr noundef nonnull %3, ptr noundef %16) #6
   br label %18
 
 18:                                               ; preds = %12, %6
   %.sink = phi i32 [ %17, %12 ], [ %11, %6 ]
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  store i32 %.sink, ptr %19, align 8, !tbaa !60
+  store i32 %.sink, ptr %19, align 8, !tbaa !56
   %.not33 = icmp eq i32 %.sink, 0
   br i1 %.not33, label %22, label %20
 
@@ -412,33 +412,33 @@ define internal fastcc zeroext i1 @lxb_html_tree_insertion_mode_foreign_content_
 
 22:                                               ; preds = %18
   %23 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %24 = load i64, ptr %23, align 8, !tbaa !61
+  %24 = load i64, ptr %23, align 8, !tbaa !57
   %25 = icmp eq i64 %24, 0
   br i1 %25, label %26, label %32
 
 26:                                               ; preds = %22
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %28 = load ptr, ptr %27, align 8, !tbaa !46
+  %28 = load ptr, ptr %27, align 8, !tbaa !42
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 192
-  %30 = load ptr, ptr %29, align 8, !tbaa !47
+  %30 = load ptr, ptr %29, align 8, !tbaa !43
   %31 = call ptr @lexbor_str_destroy(ptr noundef nonnull %3, ptr noundef %30, i1 noundef zeroext false) #6
   br label %55
 
 32:                                               ; preds = %22
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 81
-  %34 = load i8, ptr %33, align 1, !tbaa !63, !range !64, !noundef !65
+  %34 = load i8, ptr %33, align 1, !tbaa !59, !range !60, !noundef !61
   %35 = trunc nuw i8 %34 to i1
   br i1 %35, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %32
-  %36 = load ptr, ptr %3, align 8, !tbaa !66
+  %36 = load ptr, ptr %3, align 8, !tbaa !62
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 %24
   %38 = ptrtoint ptr %37 to i64
   br label %39
 
 39:                                               ; preds = %.lr.ph, %.backedge
   %.03039 = phi ptr [ %36, %.lr.ph ], [ %47, %.backedge ]
-  %40 = load i8, ptr %.03039, align 1, !tbaa !67
+  %40 = load i8, ptr %.03039, align 1, !tbaa !63
   %41 = icmp eq i8 %40, -17
   br i1 %41, label %42, label %48
 
@@ -457,22 +457,22 @@ define internal fastcc zeroext i1 @lxb_html_tree_insertion_mode_foreign_content_
   %.sink40 = phi i64 [ 1, %48 ], [ 3, %46 ]
   %47 = getelementptr inbounds nuw i8, ptr %.03039, i64 %.sink40
   %.not34 = icmp eq ptr %47, %37
-  br i1 %.not34, label %.loopexit, label %39, !llvm.loop !68
+  br i1 %.not34, label %.loopexit, label %39
 
 48:                                               ; preds = %39
   %49 = zext i8 %40 to i64
   %50 = getelementptr inbounds nuw [256 x i8], ptr @lexbor_tokenizer_chars_map, i64 0, i64 %49
-  %51 = load i8, ptr %50, align 1, !tbaa !67
+  %51 = load i8, ptr %50, align 1, !tbaa !63
   %.not35 = icmp eq i8 %51, 2
   br i1 %.not35, label %.backedge, label %.loopexit.sink.split
 
 .loopexit.sink.split:                             ; preds = %48, %46, %42
-  store i8 0, ptr %33, align 1, !tbaa !63
+  store i8 0, ptr %33, align 1, !tbaa !59
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.backedge, %.loopexit.sink.split, %32
   %52 = call i32 @lxb_html_tree_insert_character_for_data(ptr noundef %0, ptr noundef nonnull %3, ptr noundef null) #6
-  store i32 %52, ptr %19, align 8, !tbaa !60
+  store i32 %52, ptr %19, align 8, !tbaa !56
   %.not37 = icmp eq i32 %52, 0
   br i1 %.not37, label %55, label %53
 
@@ -494,7 +494,7 @@ define internal fastcc zeroext i1 @lxb_html_tree_insertion_mode_foreign_content_
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  store i32 2, ptr %6, align 8, !tbaa !60
+  store i32 2, ptr %6, align 8, !tbaa !56
   %7 = tail call zeroext i1 @lxb_html_tree_process_abort(ptr noundef %0) #6
   br label %8
 
@@ -506,7 +506,7 @@ define internal fastcc zeroext i1 @lxb_html_tree_insertion_mode_foreign_content_
 ; Function Attrs: inlinehint nounwind uwtable
 define internal fastcc zeroext i1 @lxb_html_tree_insertion_mode_foreign_content_anything_else(ptr noundef %0, ptr noundef %1) unnamed_addr #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %4 = load ptr, ptr %3, align 8, !tbaa !43
+  %4 = load ptr, ptr %3, align 8, !tbaa !40
   %.not.i = icmp ne ptr %4, null
   %.phi.trans.insert.i = getelementptr i8, ptr %0, i64 32
   %.val.pre.i = load ptr, ptr %.phi.trans.insert.i, align 8, !tbaa !14
@@ -540,7 +540,7 @@ lxb_html_tree_adjusted_current_node.exit:         ; preds = %2, %._crit_edge.i
 .sink.split:                                      ; preds = %lxb_html_tree_adjusted_current_node.exit, %13
   %lxb_html_tree_adjust_attributes_svg.sink = phi ptr [ @lxb_html_tree_adjust_attributes_svg, %13 ], [ @lxb_html_tree_adjust_attributes_mathml, %lxb_html_tree_adjusted_current_node.exit ]
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  store ptr %lxb_html_tree_adjust_attributes_svg.sink, ptr %14, align 8, !tbaa !69
+  store ptr %lxb_html_tree_adjust_attributes_svg.sink, ptr %14, align 8, !tbaa !64
   br label %15
 
 15:                                               ; preds = %.sink.split, %lxb_html_tree_adjusted_current_node.exit
@@ -550,9 +550,9 @@ lxb_html_tree_adjusted_current_node.exit:         ; preds = %2, %._crit_edge.i
 
 18:                                               ; preds = %15
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  store ptr null, ptr %19, align 8, !tbaa !69
+  store ptr null, ptr %19, align 8, !tbaa !64
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  store i32 2, ptr %20, align 8, !tbaa !60
+  store i32 2, ptr %20, align 8, !tbaa !56
   %21 = tail call zeroext i1 @lxb_html_tree_process_abort(ptr noundef nonnull %0) #6
   br label %lxb_html_tree_insertion_mode_foreign_content_script_closed.exit
 
@@ -563,26 +563,26 @@ lxb_html_tree_adjusted_current_node.exit:         ; preds = %2, %._crit_edge.i
 
 25:                                               ; preds = %22
   %26 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  %27 = load i64, ptr %26, align 8, !tbaa !70
+  %27 = load i64, ptr %26, align 8, !tbaa !65
   %28 = icmp ugt i64 %27, 195
   %29 = getelementptr inbounds nuw [196 x %struct.lxb_html_tag_fixname_t], ptr @lxb_html_tag_res_fixname_svg, i64 0, i64 %27
   br i1 %28, label %37, label %30
 
 30:                                               ; preds = %25
-  %31 = load ptr, ptr %29, align 16, !tbaa !76
+  %31 = load ptr, ptr %29, align 16, !tbaa !71
   %.not32 = icmp eq ptr %31, null
   br i1 %.not32, label %37, label %32
 
 32:                                               ; preds = %30
   %33 = getelementptr inbounds nuw i8, ptr %29, i64 8
-  %34 = load i32, ptr %33, align 8, !tbaa !78
+  %34 = load i32, ptr %33, align 8, !tbaa !73
   %35 = zext i32 %34 to i64
   %36 = tail call i32 @lxb_dom_element_qualified_name_set(ptr noundef nonnull %16, ptr noundef null, i64 noundef 0, ptr noundef nonnull %31, i64 noundef %35) #6
   br label %37
 
 37:                                               ; preds = %25, %30, %32, %22
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  store ptr null, ptr %38, align 8, !tbaa !69
+  store ptr null, ptr %38, align 8, !tbaa !64
   %39 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %40 = load i32, ptr %39, align 8, !tbaa !4
   %41 = and i32 %40, 2
@@ -694,7 +694,7 @@ lxb_html_tree_current_node.exit.i:                ; preds = %60, %59
   %98 = icmp ne i64 %97, 2
   %99 = icmp ne i64 %93, 0
   %or.cond.i.i = and i1 %99, %98
-  br i1 %or.cond.i.i, label %86, label %.loopexit.i.i, !llvm.loop !33
+  br i1 %or.cond.i.i, label %86, label %.loopexit.i.i
 
 .loopexit.i.i:                                    ; preds = %92, %75
   %100 = getelementptr inbounds nuw i8, ptr %0, i64 88
@@ -798,49 +798,44 @@ attributes #6 = { nounwind }
 !30 = !{!27, !10, i64 24}
 !31 = !{!15, !7, i64 88}
 !32 = !{!18, !18, i64 0}
-!33 = distinct !{!33, !34}
-!34 = !{!"llvm.loop.estimated_trip_count"}
-!35 = !{!11, !11, i64 0}
-!36 = !{!37, !7, i64 32}
-!37 = !{!"lxb_html_token_attr", !6, i64 0, !6, i64 8, !6, i64 16, !6, i64 24, !7, i64 32, !6, i64 40, !10, i64 48, !11, i64 56, !11, i64 64, !12, i64 72}
-!38 = !{!39, !10, i64 40}
-!39 = !{!"", !40, i64 0, !10, i64 40, !10, i64 48, !21, i64 56}
-!40 = !{!"lexbor_hash_entry", !8, i64 0, !10, i64 24, !41, i64 32}
-!41 = !{!"p1 _ZTS17lexbor_hash_entry", !7, i64 0}
-!42 = distinct !{!42, !34}
-!43 = !{!15, !18, i64 16}
-!44 = distinct !{!44, !34}
-!45 = !{!5, !10, i64 72}
-!46 = !{!15, !17, i64 8}
-!47 = !{!48, !7, i64 192}
-!48 = !{!"lxb_html_document", !49, i64 0, !7, i64 256, !53, i64 264, !54, i64 272, !55, i64 280, !21, i64 344, !7, i64 352, !12, i64 360, !12, i64 364}
-!49 = !{!"lxb_dom_document", !27, i64 0, !12, i64 104, !12, i64 108, !50, i64 112, !51, i64 120, !7, i64 128, !7, i64 136, !7, i64 144, !7, i64 152, !7, i64 160, !7, i64 168, !7, i64 176, !7, i64 184, !7, i64 192, !52, i64 200, !52, i64 208, !52, i64 216, !52, i64 224, !7, i64 232, !7, i64 240, !21, i64 248, !21, i64 249, !21, i64 250}
-!50 = !{!"p1 _ZTS21lxb_dom_document_type", !7, i64 0}
-!51 = !{!"p1 _ZTS15lxb_dom_element", !7, i64 0}
-!52 = !{!"p1 _ZTS11lexbor_hash", !7, i64 0}
-!53 = !{!"p1 _ZTS21lxb_html_head_element", !7, i64 0}
-!54 = !{!"p1 _ZTS21lxb_html_body_element", !7, i64 0}
-!55 = !{!"", !56, i64 0, !57, i64 8, !58, i64 16, !59, i64 24, !7, i64 32, !7, i64 40, !52, i64 48, !10, i64 56}
-!56 = !{!"p1 _ZTS14lxb_css_memory", !7, i64 0}
-!57 = !{!"p1 _ZTS17lxb_css_selectors", !7, i64 0}
-!58 = !{!"p1 _ZTS14lxb_css_parser", !7, i64 0}
-!59 = !{!"p1 _ZTS10lexbor_avl", !7, i64 0}
-!60 = !{!15, !12, i64 112}
-!61 = !{!62, !10, i64 8}
-!62 = !{!"", !6, i64 0, !10, i64 8}
-!63 = !{!15, !21, i64 81}
-!64 = !{i8 0, i8 2}
-!65 = !{}
-!66 = !{!62, !6, i64 0}
-!67 = !{!8, !8, i64 0}
-!68 = distinct !{!68, !34}
-!69 = !{!15, !7, i64 104}
-!70 = !{!71, !10, i64 8}
-!71 = !{!"lxb_html_element", !72, i64 0, !74, i64 168, !75, i64 176}
-!72 = !{!"lxb_dom_element", !27, i64 0, !10, i64 104, !10, i64 112, !7, i64 120, !73, i64 128, !73, i64 136, !73, i64 144, !73, i64 152, !12, i64 160}
-!73 = !{!"p1 _ZTS12lxb_dom_attr", !7, i64 0}
-!74 = !{!"p1 _ZTS15lexbor_avl_node", !7, i64 0}
-!75 = !{!"p1 _ZTS29lxb_css_rule_declaration_list", !7, i64 0}
-!76 = !{!77, !6, i64 0}
-!77 = !{!"", !6, i64 0, !12, i64 8}
-!78 = !{!77, !12, i64 8}
+!33 = !{!11, !11, i64 0}
+!34 = !{!35, !7, i64 32}
+!35 = !{!"lxb_html_token_attr", !6, i64 0, !6, i64 8, !6, i64 16, !6, i64 24, !7, i64 32, !6, i64 40, !10, i64 48, !11, i64 56, !11, i64 64, !12, i64 72}
+!36 = !{!37, !10, i64 40}
+!37 = !{!"", !38, i64 0, !10, i64 40, !10, i64 48, !21, i64 56}
+!38 = !{!"lexbor_hash_entry", !8, i64 0, !10, i64 24, !39, i64 32}
+!39 = !{!"p1 _ZTS17lexbor_hash_entry", !7, i64 0}
+!40 = !{!15, !18, i64 16}
+!41 = !{!5, !10, i64 72}
+!42 = !{!15, !17, i64 8}
+!43 = !{!44, !7, i64 192}
+!44 = !{!"lxb_html_document", !45, i64 0, !7, i64 256, !49, i64 264, !50, i64 272, !51, i64 280, !21, i64 344, !7, i64 352, !12, i64 360, !12, i64 364}
+!45 = !{!"lxb_dom_document", !27, i64 0, !12, i64 104, !12, i64 108, !46, i64 112, !47, i64 120, !7, i64 128, !7, i64 136, !7, i64 144, !7, i64 152, !7, i64 160, !7, i64 168, !7, i64 176, !7, i64 184, !7, i64 192, !48, i64 200, !48, i64 208, !48, i64 216, !48, i64 224, !7, i64 232, !7, i64 240, !21, i64 248, !21, i64 249, !21, i64 250}
+!46 = !{!"p1 _ZTS21lxb_dom_document_type", !7, i64 0}
+!47 = !{!"p1 _ZTS15lxb_dom_element", !7, i64 0}
+!48 = !{!"p1 _ZTS11lexbor_hash", !7, i64 0}
+!49 = !{!"p1 _ZTS21lxb_html_head_element", !7, i64 0}
+!50 = !{!"p1 _ZTS21lxb_html_body_element", !7, i64 0}
+!51 = !{!"", !52, i64 0, !53, i64 8, !54, i64 16, !55, i64 24, !7, i64 32, !7, i64 40, !48, i64 48, !10, i64 56}
+!52 = !{!"p1 _ZTS14lxb_css_memory", !7, i64 0}
+!53 = !{!"p1 _ZTS17lxb_css_selectors", !7, i64 0}
+!54 = !{!"p1 _ZTS14lxb_css_parser", !7, i64 0}
+!55 = !{!"p1 _ZTS10lexbor_avl", !7, i64 0}
+!56 = !{!15, !12, i64 112}
+!57 = !{!58, !10, i64 8}
+!58 = !{!"", !6, i64 0, !10, i64 8}
+!59 = !{!15, !21, i64 81}
+!60 = !{i8 0, i8 2}
+!61 = !{}
+!62 = !{!58, !6, i64 0}
+!63 = !{!8, !8, i64 0}
+!64 = !{!15, !7, i64 104}
+!65 = !{!66, !10, i64 8}
+!66 = !{!"lxb_html_element", !67, i64 0, !69, i64 168, !70, i64 176}
+!67 = !{!"lxb_dom_element", !27, i64 0, !10, i64 104, !10, i64 112, !7, i64 120, !68, i64 128, !68, i64 136, !68, i64 144, !68, i64 152, !12, i64 160}
+!68 = !{!"p1 _ZTS12lxb_dom_attr", !7, i64 0}
+!69 = !{!"p1 _ZTS15lexbor_avl_node", !7, i64 0}
+!70 = !{!"p1 _ZTS29lxb_css_rule_declaration_list", !7, i64 0}
+!71 = !{!72, !6, i64 0}
+!72 = !{!"", !6, i64 0, !12, i64 8}
+!73 = !{!72, !12, i64 8}

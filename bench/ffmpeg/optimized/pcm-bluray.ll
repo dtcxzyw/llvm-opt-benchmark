@@ -195,7 +195,7 @@ define internal i32 @pcm_bluray_decode_frame(ptr noundef %0, ptr noundef %1, ptr
   store i32 %96, ptr %.0, align 4, !tbaa !35
   %98 = add nsw i32 %.1108, -1
   %.not133 = icmp eq i32 %98, 0
-  br i1 %.not133, label %.loopexit, label %.preheader197, !llvm.loop !50
+  br i1 %.not133, label %.loopexit, label %.preheader197, !llvm.loop !49
 
 99:                                               ; preds = %71, %71, %71, %71
   %100 = load i32, ptr %26, align 4, !tbaa !31
@@ -224,7 +224,7 @@ define internal i32 @pcm_bluray_decode_frame(ptr noundef %0, ptr noundef %1, ptr
   store i16 %108, ptr %.2103, align 2, !tbaa !45
   %110 = add nsw i32 %.0114, -1
   %.not131 = icmp eq i32 %110, 0
-  br i1 %.not131, label %111, label %105, !llvm.loop !51
+  br i1 %.not131, label %111, label %105, !llvm.loop !50
 
 111:                                              ; preds = %105
   %112 = ptrtoint ptr %106 to i64
@@ -233,7 +233,7 @@ define internal i32 @pcm_bluray_decode_frame(ptr noundef %0, ptr noundef %1, ptr
   %114 = getelementptr inbounds i8, ptr %106, i64 %..i
   %115 = add nsw i32 %.2109, -1
   %.not132 = icmp eq i32 %115, 0
-  br i1 %.not132, label %.loopexit, label %104, !llvm.loop !52
+  br i1 %.not132, label %.loopexit, label %104, !llvm.loop !51
 
 .preheader201:                                    ; preds = %99, %134
   %.sroa.0.5 = phi ptr [ %137, %134 ], [ %56, %99 ]
@@ -264,7 +264,7 @@ define internal i32 @pcm_bluray_decode_frame(ptr noundef %0, ptr noundef %1, ptr
   store i32 %131, ptr %.2, align 4, !tbaa !35
   %133 = add nsw i32 %.1115, -1
   %.not129 = icmp eq i32 %133, 0
-  br i1 %.not129, label %134, label %117, !llvm.loop !53
+  br i1 %.not129, label %134, label %117, !llvm.loop !52
 
 134:                                              ; preds = %117
   %135 = ptrtoint ptr %118 to i64
@@ -273,7 +273,7 @@ define internal i32 @pcm_bluray_decode_frame(ptr noundef %0, ptr noundef %1, ptr
   %137 = getelementptr inbounds i8, ptr %118, i64 %..i135
   %138 = add nsw i32 %.3110, -1
   %.not130 = icmp eq i32 %138, 0
-  br i1 %.not130, label %.loopexit, label %.preheader201, !llvm.loop !54
+  br i1 %.not130, label %.loopexit, label %.preheader201, !llvm.loop !53
 
 139:                                              ; preds = %71
   %140 = load i32, ptr %26, align 4, !tbaa !31
@@ -316,7 +316,7 @@ define internal i32 @pcm_bluray_decode_frame(ptr noundef %0, ptr noundef %1, ptr
   %165 = getelementptr inbounds nuw i8, ptr %.3104, i64 12
   %166 = add nsw i32 %.4111, -1
   %.not128 = icmp eq i32 %166, 0
-  br i1 %.not128, label %.loopexit, label %.preheader203, !llvm.loop !55
+  br i1 %.not128, label %.loopexit, label %.preheader203, !llvm.loop !54
 
 .preheader205:                                    ; preds = %139, %.preheader205
   %.sroa.0.8 = phi ptr [ %241, %.preheader205 ], [ %56, %139 ]
@@ -420,7 +420,7 @@ define internal i32 @pcm_bluray_decode_frame(ptr noundef %0, ptr noundef %1, ptr
   %256 = getelementptr inbounds nuw i8, ptr %.3, i64 24
   %257 = add nsw i32 %.5112, -1
   %.not127 = icmp eq i32 %257, 0
-  br i1 %.not127, label %.loopexit, label %.preheader205, !llvm.loop !56
+  br i1 %.not127, label %.loopexit, label %.preheader205, !llvm.loop !55
 
 258:                                              ; preds = %71
   %259 = load i32, ptr %26, align 4, !tbaa !31
@@ -473,7 +473,7 @@ define internal i32 @pcm_bluray_decode_frame(ptr noundef %0, ptr noundef %1, ptr
   %292 = getelementptr inbounds i8, ptr %285, i64 %..i136
   %293 = add nsw i32 %.6, -1
   %.not126 = icmp eq i32 %293, 0
-  br i1 %.not126, label %.loopexit, label %.preheader207, !llvm.loop !57
+  br i1 %.not126, label %.loopexit, label %.preheader207, !llvm.loop !56
 
 .preheader209:                                    ; preds = %258, %.preheader209
   %.sroa.0.10 = phi ptr [ %401, %.preheader209 ], [ %56, %258 ]
@@ -597,7 +597,7 @@ define internal i32 @pcm_bluray_decode_frame(ptr noundef %0, ptr noundef %1, ptr
   %401 = getelementptr inbounds i8, ptr %383, i64 %..i137
   %402 = add nsw i32 %.7, -1
   %.not125 = icmp eq i32 %402, 0
-  br i1 %.not125, label %.loopexit, label %.preheader209, !llvm.loop !58
+  br i1 %.not125, label %.loopexit, label %.preheader209, !llvm.loop !57
 
 403:                                              ; preds = %71
   %404 = load i32, ptr %26, align 4, !tbaa !31
@@ -650,7 +650,7 @@ define internal i32 @pcm_bluray_decode_frame(ptr noundef %0, ptr noundef %1, ptr
   %437 = getelementptr inbounds nuw i8, ptr %.5106, i64 16
   %438 = add nsw i32 %.8, -1
   %.not124 = icmp eq i32 %438, 0
-  br i1 %.not124, label %.loopexit, label %.preheader211, !llvm.loop !59
+  br i1 %.not124, label %.loopexit, label %.preheader211, !llvm.loop !58
 
 .preheader213:                                    ; preds = %403, %.preheader213
   %.sroa.0.12 = phi ptr [ %543, %.preheader213 ], [ %56, %403 ]
@@ -786,7 +786,7 @@ define internal i32 @pcm_bluray_decode_frame(ptr noundef %0, ptr noundef %1, ptr
   %558 = getelementptr inbounds nuw i8, ptr %.5, i64 32
   %559 = add nsw i32 %.9, -1
   %.not123 = icmp eq i32 %559, 0
-  br i1 %.not123, label %.loopexit, label %.preheader213, !llvm.loop !60
+  br i1 %.not123, label %.loopexit, label %.preheader213, !llvm.loop !59
 
 .loopexit:                                        ; preds = %.preheader213, %.preheader211, %.preheader209, %.preheader207, %.preheader205, %.preheader203, %134, %111, %.preheader197, %.preheader, %71, %69
   %.sroa.0.0 = phi ptr [ %56, %69 ], [ %56, %71 ], [ %78, %.preheader ], [ %83, %.preheader197 ], [ %114, %111 ], [ %137, %134 ], [ %161, %.preheader203 ], [ %241, %.preheader205 ], [ %292, %.preheader207 ], [ %401, %.preheader209 ], [ %433, %.preheader211 ], [ %543, %.preheader213 ]
@@ -873,17 +873,16 @@ attributes #4 = { nounwind }
 !44 = !{!11, !11, i64 0}
 !45 = !{!46, !46, i64 0}
 !46 = !{!"short", !8, i64 0}
-!47 = distinct !{!47, !48, !49}
+!47 = distinct !{!47, !48}
 !48 = !{!"llvm.loop.mustprogress"}
-!49 = !{!"llvm.loop.estimated_trip_count"}
-!50 = distinct !{!50, !48, !49}
-!51 = distinct !{!51, !48, !49}
-!52 = distinct !{!52, !48, !49}
-!53 = distinct !{!53, !48, !49}
-!54 = distinct !{!54, !48, !49}
-!55 = distinct !{!55, !48, !49}
-!56 = distinct !{!56, !48, !49}
-!57 = distinct !{!57, !48, !49}
-!58 = distinct !{!58, !48, !49}
-!59 = distinct !{!59, !48, !49}
-!60 = distinct !{!60, !48, !49}
+!49 = distinct !{!49, !48}
+!50 = distinct !{!50, !48}
+!51 = distinct !{!51, !48}
+!52 = distinct !{!52, !48}
+!53 = distinct !{!53, !48}
+!54 = distinct !{!54, !48}
+!55 = distinct !{!55, !48}
+!56 = distinct !{!56, !48}
+!57 = distinct !{!57, !48}
+!58 = distinct !{!58, !48}
+!59 = distinct !{!59, !48}

@@ -460,7 +460,7 @@ define dso_local i32 @php_pcre2_callout_enumerate(ptr noundef %0, ptr noundef re
 
 .backedge:                                        ; preds = %52, %60, %70, %101, %145, %153, %45, %41, %35
   %.057.be = phi ptr [ %158, %153 ], [ %51, %45 ], [ %40, %41 ], [ %40, %35 ], [ %69, %60 ], [ %79, %70 ], [ %107, %101 ], [ %152, %145 ], [ %spec.select, %52 ]
-  br label %33, !llvm.loop !39
+  br label %33
 
 60:                                               ; preds = %33, %33
   %61 = getelementptr inbounds nuw i8, ptr %.057, i64 1
@@ -495,7 +495,7 @@ define dso_local i32 @php_pcre2_callout_enumerate(ptr noundef %0, ptr noundef re
   %86 = load i8, ptr %85, align 1, !tbaa !38
   %87 = zext i8 %86 to i64
   %88 = or disjoint i64 %84, %87
-  store i64 %88, ptr %27, align 8, !tbaa !41
+  store i64 %88, ptr %27, align 8, !tbaa !39
   %89 = getelementptr inbounds nuw i8, ptr %.057, i64 3
   %90 = load i8, ptr %89, align 1, !tbaa !38
   %91 = zext i8 %90 to i64
@@ -504,11 +504,11 @@ define dso_local i32 @php_pcre2_callout_enumerate(ptr noundef %0, ptr noundef re
   %94 = load i8, ptr %93, align 1, !tbaa !38
   %95 = zext i8 %94 to i64
   %96 = or disjoint i64 %92, %95
-  store i64 %96, ptr %28, align 8, !tbaa !42
+  store i64 %96, ptr %28, align 8, !tbaa !40
   %97 = getelementptr inbounds nuw i8, ptr %.057, i64 5
   %98 = load i8, ptr %97, align 1, !tbaa !38
   %99 = zext i8 %98 to i32
-  store i32 %99, ptr %29, align 8, !tbaa !43
+  store i32 %99, ptr %29, align 8, !tbaa !41
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %30, i8 0, i64 24, i1 false)
   %100 = call i32 %1(ptr noundef nonnull %4, ptr noundef %2) #4
   %.not67 = icmp eq i32 %100, 0
@@ -532,7 +532,7 @@ define dso_local i32 @php_pcre2_callout_enumerate(ptr noundef %0, ptr noundef re
   %114 = load i8, ptr %113, align 1, !tbaa !38
   %115 = zext i8 %114 to i64
   %116 = or disjoint i64 %112, %115
-  store i64 %116, ptr %27, align 8, !tbaa !41
+  store i64 %116, ptr %27, align 8, !tbaa !39
   %117 = getelementptr inbounds nuw i8, ptr %.057, i64 3
   %118 = load i8, ptr %117, align 1, !tbaa !38
   %119 = zext i8 %118 to i64
@@ -541,8 +541,8 @@ define dso_local i32 @php_pcre2_callout_enumerate(ptr noundef %0, ptr noundef re
   %122 = load i8, ptr %121, align 1, !tbaa !38
   %123 = zext i8 %122 to i64
   %124 = or disjoint i64 %120, %123
-  store i64 %124, ptr %28, align 8, !tbaa !42
-  store i32 0, ptr %29, align 8, !tbaa !43
+  store i64 %124, ptr %28, align 8, !tbaa !40
+  store i32 0, ptr %29, align 8, !tbaa !41
   %125 = getelementptr inbounds nuw i8, ptr %.057, i64 7
   %126 = load i8, ptr %125, align 1, !tbaa !38
   %127 = zext i8 %126 to i64
@@ -551,7 +551,7 @@ define dso_local i32 @php_pcre2_callout_enumerate(ptr noundef %0, ptr noundef re
   %130 = load i8, ptr %129, align 1, !tbaa !38
   %131 = zext i8 %130 to i64
   %132 = or disjoint i64 %128, %131
-  store i64 %132, ptr %30, align 8, !tbaa !44
+  store i64 %132, ptr %30, align 8, !tbaa !42
   %133 = getelementptr inbounds nuw i8, ptr %.057, i64 5
   %134 = load i8, ptr %133, align 1, !tbaa !38
   %135 = zext i8 %134 to i64
@@ -562,9 +562,9 @@ define dso_local i32 @php_pcre2_callout_enumerate(ptr noundef %0, ptr noundef re
   %140 = or disjoint i64 %136, %139
   %141 = add nuw nsw i64 %140, 4294967285
   %142 = and i64 %141, 4294967295
-  store i64 %142, ptr %31, align 8, !tbaa !45
+  store i64 %142, ptr %31, align 8, !tbaa !43
   %143 = getelementptr inbounds nuw i8, ptr %.057, i64 10
-  store ptr %143, ptr %32, align 8, !tbaa !46
+  store ptr %143, ptr %32, align 8, !tbaa !44
   %144 = call i32 %1(ptr noundef nonnull %4, ptr noundef %2) #4
   %.not66 = icmp eq i32 %144, 0
   br i1 %.not66, label %145, label %.thread
@@ -643,11 +643,9 @@ attributes #4 = { nounwind }
 !36 = !{!37, !12, i64 0}
 !37 = !{!"pcre2_callout_enumerate_block_8", !12, i64 0, !11, i64 8, !11, i64 16, !12, i64 24, !11, i64 32, !11, i64 40, !10, i64 48}
 !38 = !{!8, !8, i64 0}
-!39 = distinct !{!39, !40}
-!40 = !{!"llvm.loop.estimated_trip_count"}
-!41 = !{!37, !11, i64 8}
-!42 = !{!37, !11, i64 16}
-!43 = !{!37, !12, i64 24}
-!44 = !{!37, !11, i64 32}
-!45 = !{!37, !11, i64 40}
-!46 = !{!37, !10, i64 48}
+!39 = !{!37, !11, i64 8}
+!40 = !{!37, !11, i64 16}
+!41 = !{!37, !12, i64 24}
+!42 = !{!37, !11, i64 32}
+!43 = !{!37, !11, i64 40}
+!44 = !{!37, !10, i64 48}

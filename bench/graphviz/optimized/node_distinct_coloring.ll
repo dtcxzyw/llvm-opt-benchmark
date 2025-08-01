@@ -237,14 +237,14 @@ node_distinct_coloring_internal.exit:             ; preds = %93, %82
   %115 = load i32, ptr %83, align 4, !tbaa !8
   %116 = sext i32 %115 to i64
   %117 = icmp slt i64 %indvars.iv.next, %116
-  br i1 %117, label %.lr.ph, label %._crit_edge, !llvm.loop !25
+  br i1 %117, label %.lr.ph, label %._crit_edge, !llvm.loop !24
 
 ._crit_edge:                                      ; preds = %.lr.ph, %node_distinct_coloring_internal.exit
   call void @SparseMatrix_delete(ptr noundef %91) #15
   %118 = load i32, ptr %11, align 4, !tbaa !8
   %119 = sext i32 %118 to i64
   %120 = icmp slt i64 %indvars.iv.next103, %119
-  br i1 %120, label %82, label %._crit_edge100, !llvm.loop !26
+  br i1 %120, label %82, label %._crit_edge100, !llvm.loop !25
 
 ._crit_edge100:                                   ; preds = %._crit_edge, %gv_calloc.exit96
   call void @free(ptr noundef %75) #15
@@ -355,14 +355,14 @@ define internal fastcc void @node_distinct_coloring_internal2(i32 noundef range(
   %26 = select i1 %23, i32 1, i32 %25
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %18) #15
   call void @RGB2LAB(ptr dead_on_unwind nonnull writable sret(%struct.lab_struct) align 8 %18, ptr noundef nonnull byval(%struct.rgb_struct) align 8 @__const.node_distinct_coloring_internal2.rgb) #15
-  %27 = load double, ptr %18, align 8, !tbaa !27
+  %27 = load double, ptr %18, align 8, !tbaa !26
   store double %27, ptr %14, align 16, !tbaa !20
   %28 = getelementptr inbounds nuw i8, ptr %18, i64 8
-  %29 = load double, ptr %28, align 8, !tbaa !29
+  %29 = load double, ptr %28, align 8, !tbaa !28
   %30 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store double %29, ptr %30, align 8, !tbaa !20
   %31 = getelementptr inbounds nuw i8, ptr %18, i64 16
-  %32 = load double, ptr %31, align 8, !tbaa !30
+  %32 = load double, ptr %31, align 8, !tbaa !29
   %33 = getelementptr inbounds nuw i8, ptr %14, i64 16
   store double %32, ptr %33, align 16, !tbaa !20
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %18) #15
@@ -428,17 +428,17 @@ define internal fastcc void @node_distinct_coloring_internal2(i32 noundef range(
 
 52:                                               ; preds = %10
   %53 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %54 = load ptr, ptr %53, align 8, !tbaa !31
+  %54 = load ptr, ptr %53, align 8, !tbaa !30
   %55 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  %56 = load ptr, ptr %55, align 8, !tbaa !32
+  %56 = load ptr, ptr %55, align 8, !tbaa !31
   %57 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %58 = load i32, ptr %57, align 8, !tbaa !33
+  %58 = load i32, ptr %57, align 8, !tbaa !32
   %59 = icmp eq i32 %58, 1
   br i1 %59, label %60, label %64
 
 60:                                               ; preds = %52
   %61 = getelementptr inbounds nuw i8, ptr %3, i64 40
-  %62 = load ptr, ptr %61, align 8, !tbaa !34
+  %62 = load ptr, ptr %61, align 8, !tbaa !33
   %63 = freeze ptr %62
   br label %64
 
@@ -466,7 +466,7 @@ define internal fastcc void @node_distinct_coloring_internal2(i32 noundef range(
   store double %70, ptr %71, align 8, !tbaa !20
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.thread, label %.lr.ph, !llvm.loop !35
+  br i1 %exitcond.not, label %._crit_edge.thread, label %.lr.ph, !llvm.loop !34
 
 ._crit_edge.thread:                               ; preds = %.lr.ph
   %72 = zext nneg i32 %67 to i64
@@ -610,7 +610,7 @@ gv_calloc.exit188:                                ; preds = %91, %gv_calloc.exit
   %.2173.us = phi double [ %130, %127 ], [ %126, %124 ]
   %.2168.us = phi double [ %129, %127 ], [ %126, %124 ]
   %exitcond245.not = icmp eq i64 %indvars.iv.next242, %wide.trip.count244
-  br i1 %exitcond245.not, label %._crit_edge212, label %.lr.ph211.split.us, !llvm.loop !36
+  br i1 %exitcond245.not, label %._crit_edge212, label %.lr.ph211.split.us, !llvm.loop !35
 
 .lr.ph202.us:                                     ; preds = %.lr.ph202.us.preheader, %149
   %132 = phi i32 [ %116, %.lr.ph202.us.preheader ], [ %150, %149 ]
@@ -645,7 +645,7 @@ gv_calloc.exit188:                                ; preds = %91, %gv_calloc.exit
   %indvars.iv.next239 = add nsw i64 %indvars.iv238, 1
   %151 = sext i32 %150 to i64
   %152 = icmp slt i64 %indvars.iv.next239, %151
-  br i1 %152, label %.lr.ph202.us, label %._crit_edge203.split.us.us, !llvm.loop !38
+  br i1 %152, label %.lr.ph202.us, label %._crit_edge203.split.us.us, !llvm.loop !37
 
 .lr.ph211.split:                                  ; preds = %.lr.ph211, %188
   %indvars.iv233 = phi i64 [ %indvars.iv.next234, %188 ], [ 0, %.lr.ph211 ]
@@ -691,7 +691,7 @@ gv_calloc.exit188:                                ; preds = %91, %gv_calloc.exit
   %indvars.iv.next231 = add nsw i64 %indvars.iv230, 1
   %174 = sext i32 %173 to i64
   %175 = icmp slt i64 %indvars.iv.next231, %174
-  br i1 %175, label %.lr.ph202, label %._crit_edge203.split, !llvm.loop !39
+  br i1 %175, label %.lr.ph202, label %._crit_edge203.split, !llvm.loop !38
 
 ._crit_edge203.split:                             ; preds = %172, %.lr.ph211.split
   %.0163.lcssa = phi i32 [ 0, %.lr.ph211.split ], [ %.1164, %172 ]
@@ -726,7 +726,7 @@ gv_calloc.exit188:                                ; preds = %91, %gv_calloc.exit
   %.2173 = phi double [ %187, %184 ], [ %183, %181 ]
   %.2168 = phi double [ %186, %184 ], [ %183, %181 ]
   %exitcond237.not = icmp eq i64 %indvars.iv.next234, %wide.trip.count236
-  br i1 %exitcond237.not, label %._crit_edge212, label %.lr.ph211.split, !llvm.loop !40
+  br i1 %exitcond237.not, label %._crit_edge212, label %.lr.ph211.split, !llvm.loop !39
 
 ._crit_edge212:                                   ; preds = %188, %131, %.critedge2
   %.1172.lcssa = phi double [ %.0171218, %.critedge2 ], [ %.2173.us, %131 ], [ %.2173, %188 ]
@@ -743,7 +743,7 @@ gv_calloc.exit188:                                ; preds = %91, %gv_calloc.exit
 193:                                              ; preds = %190, %._crit_edge212
   %194 = add nuw nsw i32 %107, 1
   %exitcond246.not = icmp eq i32 %194, 101
-  br i1 %exitcond246.not, label %.critedge, label %106, !llvm.loop !41
+  br i1 %exitcond246.not, label %.critedge, label %106, !llvm.loop !40
 
 .critedge:                                        ; preds = %193, %109
   %.0171.lcssa = phi double [ %.1172.lcssa, %193 ], [ %.0171218, %109 ]
@@ -784,7 +784,7 @@ gv_calloc.exit188:                                ; preds = %91, %gv_calloc.exit
   store double %206, ptr %202, align 8, !tbaa !20
   %indvars.iv.next248 = add nuw nsw i64 %indvars.iv247, 1
   %exitcond251.not = icmp eq i64 %indvars.iv.next248, %wide.trip.count250
-  br i1 %exitcond251.not, label %._crit_edge224, label %196, !llvm.loop !42
+  br i1 %exitcond251.not, label %._crit_edge224, label %196, !llvm.loop !41
 
 ._crit_edge224:                                   ; preds = %196, %195
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %19) #15
@@ -889,24 +889,23 @@ attributes #21 = { cold noreturn nounwind }
 !19 = !{!"p1 double", !5, i64 0}
 !20 = !{!21, !21, i64 0}
 !21 = !{!"double", !6, i64 0}
-!22 = distinct !{!22, !23, !24}
+!22 = distinct !{!22, !23}
 !23 = !{!"llvm.loop.mustprogress"}
-!24 = !{!"llvm.loop.estimated_trip_count"}
-!25 = distinct !{!25, !23, !24}
-!26 = distinct !{!26, !23, !24}
-!27 = !{!28, !21, i64 0}
-!28 = !{!"lab_struct", !21, i64 0, !21, i64 8, !21, i64 16}
-!29 = !{!28, !21, i64 8}
-!30 = !{!28, !21, i64 16}
-!31 = !{!14, !4, i64 24}
-!32 = !{!14, !4, i64 32}
-!33 = !{!14, !9, i64 16}
-!34 = !{!14, !5, i64 40}
-!35 = distinct !{!35, !23, !24}
-!36 = distinct !{!36, !23, !24, !37}
-!37 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!38 = distinct !{!38, !23, !24, !37}
-!39 = distinct !{!39, !23, !24}
-!40 = distinct !{!40, !23, !24}
-!41 = distinct !{!41, !23, !24}
-!42 = distinct !{!42, !23, !24}
+!24 = distinct !{!24, !23}
+!25 = distinct !{!25, !23}
+!26 = !{!27, !21, i64 0}
+!27 = !{!"lab_struct", !21, i64 0, !21, i64 8, !21, i64 16}
+!28 = !{!27, !21, i64 8}
+!29 = !{!27, !21, i64 16}
+!30 = !{!14, !4, i64 24}
+!31 = !{!14, !4, i64 32}
+!32 = !{!14, !9, i64 16}
+!33 = !{!14, !5, i64 40}
+!34 = distinct !{!34, !23}
+!35 = distinct !{!35, !23, !36}
+!36 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!37 = distinct !{!37, !23, !36}
+!38 = distinct !{!38, !23}
+!39 = distinct !{!39, !23}
+!40 = distinct !{!40, !23}
+!41 = distinct !{!41, !23}

@@ -98,7 +98,7 @@ define void @Io_WriteEqn(ptr noundef readonly captures(none) %0, ptr noundef %1)
   %.val.i = load i32, ptr %33, align 4, !tbaa !25
   %34 = sext i32 %.val.i to i64
   %35 = icmp slt i64 %indvars.iv.next63.i, %34
-  br i1 %35, label %12, label %.loopexit, !llvm.loop !34
+  br i1 %35, label %12, label %.loopexit, !llvm.loop !33
 
 Io_NtkWriteEqnCheck.exit:                         ; preds = %23, %.lr.ph.i, %.lr.ph.i, %.lr.ph.i, %.lr.ph.i, %.lr.ph.i
   %36 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.12, i32 noundef %20, ptr noundef nonnull %21)
@@ -111,18 +111,18 @@ Io_NtkWriteEqnCheck.exit:                         ; preds = %23, %.lr.ph.i, %.lr
   br i1 %38, label %39, label %42
 
 39:                                               ; preds = %.loopexit
-  %40 = load ptr, ptr @stdout, align 8, !tbaa !35
+  %40 = load ptr, ptr @stdout, align 8, !tbaa !34
   %41 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %40, ptr noundef nonnull @.str.2, ptr noundef %1) #8
   br label %186
 
 42:                                               ; preds = %.loopexit
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %44 = load ptr, ptr %43, align 8, !tbaa !37
+  %44 = load ptr, ptr %43, align 8, !tbaa !36
   %45 = tail call ptr (...) @Extra_TimeStamp() #8
   %46 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %37, ptr noundef nonnull @.str.3, ptr noundef %44, ptr noundef %45) #8
   %47 = tail call i64 @fwrite(ptr nonnull @.str.6, i64 9, i64 1, ptr nonnull %37)
   %48 = getelementptr i8, ptr %0, i64 56
-  %.val21.i.i = load ptr, ptr %48, align 8, !tbaa !38
+  %.val21.i.i = load ptr, ptr %48, align 8, !tbaa !37
   %49 = getelementptr i8, ptr %.val21.i.i, i64 4
   %.val.val22.i.i = load i32, ptr %49, align 4, !tbaa !25
   %50 = icmp sgt i32 %.val.val22.i.i, 0
@@ -137,9 +137,9 @@ Io_NtkWriteEqnCheck.exit:                         ; preds = %23, %.lr.ph.i, %.lr
   %.val18.val.i.i = load ptr, ptr %51, align 8, !tbaa !27
   %52 = getelementptr inbounds nuw ptr, ptr %.val18.val.i.i, i64 %indvars.iv.i.i
   %53 = load ptr, ptr %52, align 8, !tbaa !28
-  %.val19.i.i = load ptr, ptr %53, align 8, !tbaa !39
+  %.val19.i.i = load ptr, ptr %53, align 8, !tbaa !38
   %54 = getelementptr i8, ptr %53, i64 48
-  %.val20.i.i = load ptr, ptr %54, align 8, !tbaa !42
+  %.val20.i.i = load ptr, ptr %54, align 8, !tbaa !41
   %55 = getelementptr i8, ptr %.val19.i.i, i64 32
   %.val19.val.i.i = load ptr, ptr %55, align 8, !tbaa !7
   %.val20.val.i.i = load i32, ptr %.val20.i.i, align 4, !tbaa !3
@@ -172,18 +172,18 @@ Io_NtkWriteEqnCheck.exit:                         ; preds = %23, %.lr.ph.i, %.lr
   %72 = add nsw i32 %.117.i.i, %63
   %73 = add nsw i32 %.1.i.i, 1
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
-  %.val.i.i = load ptr, ptr %48, align 8, !tbaa !38
+  %.val.i.i = load ptr, ptr %48, align 8, !tbaa !37
   %74 = getelementptr i8, ptr %.val.i.i, i64 4
   %.val.val.i.i = load i32, ptr %74, align 4, !tbaa !25
   %75 = sext i32 %.val.val.i.i to i64
   %76 = icmp slt i64 %indvars.iv.next.i.i, %75
-  br i1 %76, label %.lr.ph.i.i, label %Io_NtkWriteEqnCis.exit.i, !llvm.loop !43
+  br i1 %76, label %.lr.ph.i.i, label %Io_NtkWriteEqnCis.exit.i, !llvm.loop !42
 
 Io_NtkWriteEqnCis.exit.i:                         ; preds = %69, %42
   %77 = tail call i64 @fwrite(ptr nonnull @.str.7, i64 2, i64 1, ptr nonnull %37)
   %78 = tail call i64 @fwrite(ptr nonnull @.str.8, i64 10, i64 1, ptr nonnull %37)
   %79 = getelementptr i8, ptr %0, i64 64
-  %.val21.i45.i = load ptr, ptr %79, align 8, !tbaa !44
+  %.val21.i45.i = load ptr, ptr %79, align 8, !tbaa !43
   %80 = getelementptr i8, ptr %.val21.i45.i, i64 4
   %.val.val22.i46.i = load i32, ptr %80, align 4, !tbaa !25
   %81 = icmp sgt i32 %.val.val22.i46.i, 0
@@ -198,9 +198,9 @@ Io_NtkWriteEqnCis.exit.i:                         ; preds = %69, %42
   %.val18.val.i52.i = load ptr, ptr %82, align 8, !tbaa !27
   %83 = getelementptr inbounds nuw ptr, ptr %.val18.val.i52.i, i64 %indvars.iv.i48.i
   %84 = load ptr, ptr %83, align 8, !tbaa !28
-  %.val19.i53.i = load ptr, ptr %84, align 8, !tbaa !39
+  %.val19.i53.i = load ptr, ptr %84, align 8, !tbaa !38
   %85 = getelementptr i8, ptr %84, i64 32
-  %.val20.i54.i = load ptr, ptr %85, align 8, !tbaa !45
+  %.val20.i54.i = load ptr, ptr %85, align 8, !tbaa !44
   %86 = getelementptr i8, ptr %.val19.i53.i, i64 32
   %.val19.val.i55.i = load ptr, ptr %86, align 8, !tbaa !7
   %.val20.val.i56.i = load i32, ptr %.val20.i54.i, align 4, !tbaa !3
@@ -233,23 +233,23 @@ Io_NtkWriteEqnCis.exit.i:                         ; preds = %69, %42
   %103 = add nsw i32 %.117.i59.i, %94
   %104 = add nsw i32 %.1.i60.i, 1
   %indvars.iv.next.i61.i = add nuw nsw i64 %indvars.iv.i48.i, 1
-  %.val.i62.i = load ptr, ptr %79, align 8, !tbaa !44
+  %.val.i62.i = load ptr, ptr %79, align 8, !tbaa !43
   %105 = getelementptr i8, ptr %.val.i62.i, i64 4
   %.val.val.i63.i = load i32, ptr %105, align 4, !tbaa !25
   %106 = sext i32 %.val.val.i63.i to i64
   %107 = icmp slt i64 %indvars.iv.next.i61.i, %106
-  br i1 %107, label %.lr.ph.i47.i, label %Io_NtkWriteEqnCos.exit.i, !llvm.loop !46
+  br i1 %107, label %.lr.ph.i47.i, label %Io_NtkWriteEqnCos.exit.i, !llvm.loop !45
 
 Io_NtkWriteEqnCos.exit.i:                         ; preds = %100, %Io_NtkWriteEqnCis.exit.i
   %108 = tail call i64 @fwrite(ptr nonnull @.str.7, i64 2, i64 1, ptr nonnull %37)
   %109 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #10
   %110 = getelementptr inbounds nuw i8, ptr %109, i64 4
-  store i32 0, ptr %110, align 4, !tbaa !47
-  store i32 10, ptr %109, align 8, !tbaa !49
+  store i32 0, ptr %110, align 4, !tbaa !46
+  store i32 10, ptr %109, align 8, !tbaa !48
   %111 = tail call noalias dereferenceable_or_null(80) ptr @malloc(i64 noundef 80) #10
   %112 = getelementptr inbounds nuw i8, ptr %109, i64 8
-  store ptr %111, ptr %112, align 8, !tbaa !50
-  %113 = load ptr, ptr @stdout, align 8, !tbaa !35
+  store ptr %111, ptr %112, align 8, !tbaa !49
+  %113 = load ptr, ptr @stdout, align 8, !tbaa !34
   %.val40.i = load ptr, ptr %7, align 8, !tbaa !7
   %114 = getelementptr i8, ptr %.val40.i, i64 4
   %.val40.val.i = load i32, ptr %114, align 4, !tbaa !25
@@ -297,9 +297,9 @@ Io_NtkWriteEqnCos.exit.i:                         ; preds = %100, %Io_NtkWriteEq
   br label %Extra_ProgressBarUpdate.exit.i
 
 Extra_ProgressBarUpdate.exit.i:                   ; preds = %134, %130
-  %.val38.i = load ptr, ptr %124, align 8, !tbaa !39
+  %.val38.i = load ptr, ptr %124, align 8, !tbaa !38
   %136 = getelementptr i8, ptr %124, i64 48
-  %.val39.i = load ptr, ptr %136, align 8, !tbaa !42
+  %.val39.i = load ptr, ptr %136, align 8, !tbaa !41
   %137 = getelementptr i8, ptr %.val38.i, i64 32
   %.val38.val.i = load ptr, ptr %137, align 8, !tbaa !7
   %.val39.val.i12 = load i32, ptr %.val39.i, align 4, !tbaa !3
@@ -315,7 +315,7 @@ Extra_ProgressBarUpdate.exit.i:                   ; preds = %134, %130
   %144 = getelementptr inbounds nuw i8, ptr %142, i64 %.idx.i.i
   %145 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %37, ptr noundef nonnull @.str.9, ptr noundef nonnull %144) #8
   %146 = getelementptr i8, ptr %124, i64 28
-  %.val4273.i = load i32, ptr %146, align 4, !tbaa !51
+  %.val4273.i = load i32, ptr %146, align 4, !tbaa !50
   %147 = icmp sgt i32 %.val4273.i, 0
   br i1 %147, label %.lr.ph.i13, label %.critedge2.i
 
@@ -325,8 +325,8 @@ Extra_ProgressBarUpdate.exit.i:                   ; preds = %134, %130
 
 149:                                              ; preds = %149, %.lr.ph.i13
   %indvars.iv.i14 = phi i64 [ 0, %.lr.ph.i13 ], [ %indvars.iv.next.i15, %149 ]
-  %.val43.i = load ptr, ptr %124, align 8, !tbaa !39
-  %.val44.i = load ptr, ptr %148, align 8, !tbaa !45
+  %.val43.i = load ptr, ptr %124, align 8, !tbaa !38
+  %.val44.i = load ptr, ptr %148, align 8, !tbaa !44
   %150 = getelementptr i8, ptr %.val43.i, i64 32
   %.val43.val.i = load ptr, ptr %150, align 8, !tbaa !7
   %151 = getelementptr i8, ptr %.val43.val.i, i64 8
@@ -341,15 +341,15 @@ Extra_ProgressBarUpdate.exit.i:                   ; preds = %134, %130
   %.not.i66.i = icmp eq i32 %158, 0
   %.idx.i67.i = select i1 %.not.i66.i, i64 4, i64 0
   %159 = getelementptr inbounds nuw i8, ptr %157, i64 %.idx.i67.i
-  %160 = load ptr, ptr %119, align 8, !tbaa !52
+  %160 = load ptr, ptr %119, align 8, !tbaa !51
   %161 = trunc nuw nsw i64 %indvars.iv.i14 to i32
   %162 = tail call ptr @Hop_IthVar(ptr noundef %160, i32 noundef %161) #8
   store ptr %159, ptr %162, align 8, !tbaa !30
   %indvars.iv.next.i15 = add nuw nsw i64 %indvars.iv.i14, 1
-  %.val42.i = load i32, ptr %146, align 4, !tbaa !51
+  %.val42.i = load i32, ptr %146, align 4, !tbaa !50
   %163 = sext i32 %.val42.i to i64
   %164 = icmp slt i64 %indvars.iv.next.i15, %163
-  br i1 %164, label %149, label %.critedge2.i, !llvm.loop !53
+  br i1 %164, label %149, label %.critedge2.i, !llvm.loop !52
 
 .critedge2.i:                                     ; preds = %149, %Extra_ProgressBarUpdate.exit.i
   %165 = getelementptr inbounds nuw i8, ptr %124, i64 56
@@ -366,18 +366,18 @@ Extra_ProgressBarUpdate.exit.i:                   ; preds = %134, %130
   %.val.i11 = load i32, ptr %170, align 4, !tbaa !25
   %171 = sext i32 %.val.i11 to i64
   %172 = icmp slt i64 %indvars.iv.next81.i, %171
-  br i1 %172, label %120, label %.critedge.i, !llvm.loop !54
+  br i1 %172, label %120, label %.critedge.i, !llvm.loop !53
 
 .critedge.i:                                      ; preds = %168, %Io_NtkWriteEqnCos.exit.i
   tail call void @Extra_ProgressBarStop(ptr noundef %115) #8
-  %.val11.i.i = load i32, ptr %110, align 4, !tbaa !47
+  %.val11.i.i = load i32, ptr %110, align 4, !tbaa !46
   %173 = icmp sgt i32 %.val11.i.i, 0
   br i1 %173, label %.lr.ph.i68.i, label %.critedge.i.i
 
 .lr.ph.i68.i:                                     ; preds = %.critedge.i, %180
   %.val14.i.i = phi i32 [ %.val.i71.i, %180 ], [ %.val11.i.i, %.critedge.i ]
   %indvars.iv.i69.i = phi i64 [ %indvars.iv.next.i72.i, %180 ], [ 0, %.critedge.i ]
-  %.val8.i.i = load ptr, ptr %112, align 8, !tbaa !50
+  %.val8.i.i = load ptr, ptr %112, align 8, !tbaa !49
   %174 = getelementptr inbounds nuw ptr, ptr %.val8.i.i, i64 %indvars.iv.i69.i
   %175 = load ptr, ptr %174, align 8, !tbaa !28
   %.not.i70.i = icmp eq ptr %175, null
@@ -395,7 +395,7 @@ Extra_ProgressBarUpdate.exit.i:                   ; preds = %134, %130
 
 Vec_PtrFree.exit.i.i:                             ; preds = %179, %176
   tail call void @free(ptr noundef nonnull %175) #8
-  %.val.pre.i.i = load i32, ptr %110, align 4, !tbaa !47
+  %.val.pre.i.i = load i32, ptr %110, align 4, !tbaa !46
   br label %180
 
 180:                                              ; preds = %Vec_PtrFree.exit.i.i, %.lr.ph.i68.i
@@ -403,7 +403,7 @@ Vec_PtrFree.exit.i.i:                             ; preds = %179, %176
   %indvars.iv.next.i72.i = add nuw nsw i64 %indvars.iv.i69.i, 1
   %181 = sext i32 %.val.i71.i to i64
   %182 = icmp slt i64 %indvars.iv.next.i72.i, %181
-  br i1 %182, label %.lr.ph.i68.i, label %.critedge.i.i, !llvm.loop !55
+  br i1 %182, label %.lr.ph.i68.i, label %.critedge.i.i, !llvm.loop !54
 
 .critedge.i.i:                                    ; preds = %180, %.critedge.i
   %183 = load ptr, ptr %112, align 8, !tbaa !27
@@ -527,28 +527,27 @@ attributes #10 = { nounwind allocsize(0) }
 !28 = !{!10, !10, i64 0}
 !29 = !{!8, !11, i64 24}
 !30 = !{!5, !5, i64 0}
-!31 = distinct !{!31, !32, !33}
+!31 = distinct !{!31, !32}
 !32 = !{!"llvm.loop.mustprogress"}
-!33 = !{!"llvm.loop.estimated_trip_count"}
-!34 = distinct !{!34, !32, !33}
-!35 = !{!36, !36, i64 0}
-!36 = !{!"p1 _ZTS8_IO_FILE", !10, i64 0}
-!37 = !{!8, !9, i64 8}
-!38 = !{!8, !12, i64 56}
-!39 = !{!40, !13, i64 0}
-!40 = !{!"Abc_Obj_t_", !13, i64 0, !41, i64 8, !4, i64 16, !4, i64 20, !4, i64 20, !4, i64 20, !4, i64 20, !4, i64 20, !4, i64 21, !4, i64 21, !4, i64 21, !4, i64 21, !4, i64 21, !16, i64 24, !16, i64 40, !5, i64 56, !5, i64 64}
-!41 = !{!"p1 _ZTS10Abc_Obj_t_", !10, i64 0}
-!42 = !{!40, !17, i64 48}
-!43 = distinct !{!43, !32, !33}
-!44 = !{!8, !12, i64 64}
-!45 = !{!40, !17, i64 32}
-!46 = distinct !{!46, !32, !33}
-!47 = !{!48, !4, i64 4}
-!48 = !{!"Vec_Vec_t_", !4, i64 0, !4, i64 4, !10, i64 8}
-!49 = !{!48, !4, i64 0}
-!50 = !{!48, !10, i64 8}
-!51 = !{!40, !4, i64 28}
-!52 = !{!8, !10, i64 256}
-!53 = distinct !{!53, !32, !33}
-!54 = distinct !{!54, !32, !33}
-!55 = distinct !{!55, !32, !33}
+!33 = distinct !{!33, !32}
+!34 = !{!35, !35, i64 0}
+!35 = !{!"p1 _ZTS8_IO_FILE", !10, i64 0}
+!36 = !{!8, !9, i64 8}
+!37 = !{!8, !12, i64 56}
+!38 = !{!39, !13, i64 0}
+!39 = !{!"Abc_Obj_t_", !13, i64 0, !40, i64 8, !4, i64 16, !4, i64 20, !4, i64 20, !4, i64 20, !4, i64 20, !4, i64 20, !4, i64 21, !4, i64 21, !4, i64 21, !4, i64 21, !4, i64 21, !16, i64 24, !16, i64 40, !5, i64 56, !5, i64 64}
+!40 = !{!"p1 _ZTS10Abc_Obj_t_", !10, i64 0}
+!41 = !{!39, !17, i64 48}
+!42 = distinct !{!42, !32}
+!43 = !{!8, !12, i64 64}
+!44 = !{!39, !17, i64 32}
+!45 = distinct !{!45, !32}
+!46 = !{!47, !4, i64 4}
+!47 = !{!"Vec_Vec_t_", !4, i64 0, !4, i64 4, !10, i64 8}
+!48 = !{!47, !4, i64 0}
+!49 = !{!47, !10, i64 8}
+!50 = !{!39, !4, i64 28}
+!51 = !{!8, !10, i64 256}
+!52 = distinct !{!52, !32}
+!53 = distinct !{!53, !32}
+!54 = distinct !{!54, !32}

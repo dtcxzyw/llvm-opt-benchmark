@@ -44,7 +44,7 @@ define void @Java_sun_nio_fs_UnixFileSystem_bufferedCopy0(ptr noundef %0, ptr no
   %22 = tail call ptr @__errno_location() #5
   %23 = load i32, ptr %22, align 4
   %24 = icmp eq i32 %23, 4
-  br i1 %24, label %15, label %.critedge2, !llvm.loop !9
+  br i1 %24, label %15, label %.critedge2, !llvm.loop !8
 
 25:                                               ; preds = %.split.us
   %26 = tail call ptr @__errno_location() #5
@@ -53,7 +53,7 @@ define void @Java_sun_nio_fs_UnixFileSystem_bufferedCopy0(ptr noundef %0, ptr no
   br i1 %28, label %.split.us.backedge, label %.thread
 
 .split.us.backedge:                               ; preds = %.critedge34.us, %25
-  br label %.split.us, !llvm.loop !10
+  br label %.split.us, !llvm.loop !9
 
 .split:                                           ; preds = %7, %.split.backedge
   %29 = tail call i64 @read(i32 noundef %3, ptr noundef %9, i64 noundef %10) #4
@@ -114,7 +114,7 @@ define void @Java_sun_nio_fs_UnixFileSystem_bufferedCopy0(ptr noundef %0, ptr no
   %48 = tail call ptr @__errno_location() #5
   %49 = load i32, ptr %48, align 4
   %50 = icmp eq i32 %49, 4
-  br i1 %50, label %44, label %.critedge2, !llvm.loop !9
+  br i1 %50, label %44, label %.critedge2, !llvm.loop !8
 
 .critedge2:                                       ; preds = %47, %21
   %.us-phi47 = phi i32 [ %23, %21 ], [ %49, %47 ]
@@ -166,9 +166,8 @@ attributes #5 = { nounwind willreturn memory(none) }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7, !8, !11}
-!11 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7, !10}
+!10 = !{!"llvm.loop.unswitch.nontrivial.disable"}

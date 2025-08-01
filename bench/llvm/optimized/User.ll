@@ -427,7 +427,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm9sandboxir4User17replaceUsesOfWithE
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #11
   %26 = add nuw nsw i64 %.sroa.09.014, 1
   %.not = icmp eq i64 %26, %16
-  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !67
+  br i1 %.not, label %.loopexit, label %.lr.ph
 
 .loopexit:                                        ; preds = %25, %11, %3
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -500,8 +500,8 @@ define linkonce_odr hidden void @_ZNK4llvm9sandboxir4User6op_endEv(ptr dead_on_u
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef i32 @_ZNK4llvm9sandboxir4User14getNumOperandsEv(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #2 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %3 = load ptr, ptr %2, align 8, !tbaa !69
-  %4 = load i8, ptr %3, align 8, !tbaa !70
+  %3 = load ptr, ptr %2, align 8, !tbaa !67
+  %4 = load i8, ptr %3, align 8, !tbaa !68
   %5 = add i8 %4, -29
   %spec.select.i.i.i.i.i.i.i.i = icmp ult i8 %5, -7
   br i1 %spec.select.i.i.i.i.i.i.i.i, label %6, label %10
@@ -544,7 +544,7 @@ define linkonce_odr void @_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_9s
   %12 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i.i.i, i64 8
   %13 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i.i, i64 8
   %.not.i.i.i.i.i.i = icmp eq ptr %12, %10
-  br i1 %.not.i.i.i.i.i.i, label %.lr.ph.i.i, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !74
+  br i1 %.not.i.i.i.i.i.i, label %.lr.ph.i.i, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !72
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i.i.i.i.i, %_ZNSt10unique_ptrIN4llvm9sandboxir12IRChangeBaseESt14default_deleteIS2_EED2Ev.exit.i.i
   %.05.i.i = phi ptr [ %14, %_ZNSt10unique_ptrIN4llvm9sandboxir12IRChangeBaseESt14default_deleteIS2_EED2Ev.exit.i.i ], [ %10, %.lr.ph.i.i.i.i.i.i ]
@@ -563,7 +563,7 @@ _ZNKSt14default_deleteIN4llvm9sandboxir12IRChangeBaseEEclEPS2_.exit.i.i.i: ; pre
 _ZNSt10unique_ptrIN4llvm9sandboxir12IRChangeBaseESt14default_deleteIS2_EED2Ev.exit.i.i: ; preds = %_ZNKSt14default_deleteIN4llvm9sandboxir12IRChangeBaseEEclEPS2_.exit.i.i.i, %.lr.ph.i.i
   store ptr null, ptr %14, align 8, !tbaa !63
   %.not.i.i = icmp eq ptr %6, %14
-  br i1 %.not.i.i, label %_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_9sandboxir12IRChangeBaseESt14default_deleteIS3_EELb0EE19moveElementsForGrowEPS6_.exit.loopexit, label %.lr.ph.i.i, !llvm.loop !76
+  br i1 %.not.i.i, label %_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_9sandboxir12IRChangeBaseESt14default_deleteIS3_EELb0EE19moveElementsForGrowEPS6_.exit.loopexit, label %.lr.ph.i.i, !llvm.loop !74
 
 _ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_9sandboxir12IRChangeBaseESt14default_deleteIS3_EELb0EE19moveElementsForGrowEPS6_.exit.loopexit: ; preds = %_ZNSt10unique_ptrIN4llvm9sandboxir12IRChangeBaseESt14default_deleteIS2_EED2Ev.exit.i.i
   %.pre = load ptr, ptr %0, align 8, !tbaa !60
@@ -571,7 +571,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_9sandboxir12IRChangeBaseESt1
 
 _ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_9sandboxir12IRChangeBaseESt14default_deleteIS3_EELb0EE19moveElementsForGrowEPS6_.exit: ; preds = %_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_9sandboxir12IRChangeBaseESt14default_deleteIS3_EELb0EE19moveElementsForGrowEPS6_.exit.loopexit, %2
   %19 = phi ptr [ %.pre, %_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_9sandboxir12IRChangeBaseESt14default_deleteIS3_EELb0EE19moveElementsForGrowEPS6_.exit.loopexit ], [ %6, %2 ]
-  %20 = load i64, ptr %3, align 8, !tbaa !77
+  %20 = load i64, ptr %3, align 8, !tbaa !75
   %21 = icmp eq ptr %19, %4
   br i1 %21, label %_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_9sandboxir12IRChangeBaseESt14default_deleteIS3_EELb0EE21takeAllocationForGrowEPS6_m.exit, label %22
 
@@ -711,15 +711,13 @@ attributes #14 = { builtin nounwind }
 !64 = !{!65}
 !65 = distinct !{!65, !66, !"_ZNK4llvm9sandboxir4User13getOperandUseEj: argument 0"}
 !66 = distinct !{!66, !"_ZNK4llvm9sandboxir4User13getOperandUseEj"}
-!67 = distinct !{!67, !68}
-!68 = !{!"llvm.loop.estimated_trip_count"}
-!69 = !{!19, !19, i64 0}
-!70 = !{!71, !7, i64 0}
-!71 = !{!"_ZTSN4llvm5ValueE", !7, i64 0, !7, i64 1, !7, i64 1, !72, i64 2, !45, i64 4, !45, i64 7, !45, i64 7, !45, i64 7, !45, i64 7, !45, i64 7, !73, i64 8, !5, i64 16}
-!72 = !{!"short", !7, i64 0}
-!73 = !{!"p1 _ZTSN4llvm4TypeE", !6, i64 0}
-!74 = distinct !{!74, !75, !68}
-!75 = !{!"llvm.loop.mustprogress"}
-!76 = distinct !{!76, !75, !68}
-!77 = !{!78, !78, i64 0}
-!78 = !{!"long", !7, i64 0}
+!67 = !{!19, !19, i64 0}
+!68 = !{!69, !7, i64 0}
+!69 = !{!"_ZTSN4llvm5ValueE", !7, i64 0, !7, i64 1, !7, i64 1, !70, i64 2, !45, i64 4, !45, i64 7, !45, i64 7, !45, i64 7, !45, i64 7, !45, i64 7, !71, i64 8, !5, i64 16}
+!70 = !{!"short", !7, i64 0}
+!71 = !{!"p1 _ZTSN4llvm4TypeE", !6, i64 0}
+!72 = distinct !{!72, !73}
+!73 = !{!"llvm.loop.mustprogress"}
+!74 = distinct !{!74, !73}
+!75 = !{!76, !76, i64 0}
+!76 = !{!"long", !7, i64 0}

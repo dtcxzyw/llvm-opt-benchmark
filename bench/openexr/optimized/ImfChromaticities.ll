@@ -497,7 +497,7 @@ define linkonce_odr hidden void @_ZNK9Imath_3_28Matrix44IfE7inverseEv(ptr dead_o
   store float %87, ptr %85, align 4, !tbaa !18
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %83, label %84, !llvm.loop !22
+  br i1 %exitcond.not, label %83, label %84, !llvm.loop !21
 
 88:                                               ; preds = %23
   %89 = fmul float %80, 0x47D0000000000000
@@ -521,12 +521,12 @@ define linkonce_odr hidden void @_ZNK9Imath_3_28Matrix44IfE7inverseEv(ptr dead_o
   store float %97, ptr %92, align 4, !tbaa !18
   %indvars.iv.next44 = add nuw nsw i64 %indvars.iv43, 1
   %exitcond46 = icmp eq i64 %indvars.iv.next44, 3
-  br i1 %exitcond46, label %.critedge, label %91, !llvm.loop !23
+  br i1 %exitcond46, label %.critedge, label %91, !llvm.loop !22
 
 .critedge:                                        ; preds = %96
   %indvars.iv.next48 = add nuw nsw i64 %indvars.iv47, 1
   %exitcond50 = icmp eq i64 %indvars.iv.next48, 3
-  br i1 %exitcond50, label %.critedge29, label %.preheader, !llvm.loop !24
+  br i1 %exitcond50, label %.critedge29, label %.preheader, !llvm.loop !23
 
 98:                                               ; preds = %91
   store float 1.000000e+00, ptr %0, align 4, !tbaa !18
@@ -707,7 +707,7 @@ define linkonce_odr hidden void @_ZNK9Imath_3_28Matrix44IfE9gjInverseEv(ptr dead
 .loopexit:                                        ; preds = %113
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond149.not = icmp eq i64 %indvars.iv.next147, 3
-  br i1 %exitcond149.not, label %.preheader111.preheader, label %.lr.ph.preheader, !llvm.loop !25
+  br i1 %exitcond149.not, label %.preheader111.preheader, label %.lr.ph.preheader, !llvm.loop !24
 
 .preheader111.preheader:                          ; preds = %.loopexit
   %57 = getelementptr inbounds nuw i8, ptr %4, i64 60
@@ -748,7 +748,7 @@ define linkonce_odr hidden void @_ZNK9Imath_3_28Matrix44IfE9gjInverseEv(ptr dead
   %.299 = select i1 %70, float %.096, float %.198115
   %indvars.iv.next132 = add nuw nsw i64 %indvars.iv131, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next132, 4
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !26
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !25
 
 ._crit_edge:                                      ; preds = %.lr.ph
   %72 = fcmp une float %.299, 0.000000e+00
@@ -797,7 +797,7 @@ define linkonce_odr hidden void @_ZNK9Imath_3_28Matrix44IfE9gjInverseEv(ptr dead
   store float %90, ptr %91, align 4, !tbaa !18
   %indvars.iv.next135 = add nuw nsw i64 %indvars.iv134, 1
   %exitcond137.not = icmp eq i64 %indvars.iv.next135, 4
-  br i1 %exitcond137.not, label %.lr.ph122, label %84, !llvm.loop !27
+  br i1 %exitcond137.not, label %.lr.ph122, label %84, !llvm.loop !26
 
 .lr.ph122:                                        ; preds = %84, %79
   %93 = getelementptr inbounds nuw [4 x [4 x float]], ptr %3, i64 0, i64 %indvars.iv146
@@ -830,12 +830,12 @@ define linkonce_odr hidden void @_ZNK9Imath_3_28Matrix44IfE9gjInverseEv(ptr dead
   store float %112, ptr %110, align 4, !tbaa !18
   %indvars.iv.next139 = add nuw nsw i64 %indvars.iv138, 1
   %exitcond141.not = icmp eq i64 %indvars.iv.next139, 4
-  br i1 %exitcond141.not, label %113, label %102, !llvm.loop !28
+  br i1 %exitcond141.not, label %113, label %102, !llvm.loop !27
 
 113:                                              ; preds = %102
   %indvars.iv.next143 = add nuw nsw i64 %indvars.iv142, 1
   %exitcond145.not = icmp eq i64 %indvars.iv.next143, 4
-  br i1 %exitcond145.not, label %.loopexit, label %94, !llvm.loop !29
+  br i1 %exitcond145.not, label %.loopexit, label %94, !llvm.loop !28
 
 .preheader110:                                    ; preds = %.preheader110.lr.ph, %._crit_edge128
   %114 = phi float [ %58, %.preheader110.lr.ph ], [ %149, %._crit_edge128 ]
@@ -876,7 +876,7 @@ define linkonce_odr hidden void @_ZNK9Imath_3_28Matrix44IfE9gjInverseEv(ptr dead
   store float %129, ptr %127, align 4, !tbaa !18
   %indvars.iv.next151 = add nuw nsw i64 %indvars.iv150, 1
   %exitcond153.not = icmp eq i64 %indvars.iv.next151, 4
-  br i1 %exitcond153.not, label %.preheader, label %123, !llvm.loop !30
+  br i1 %exitcond153.not, label %.preheader, label %123, !llvm.loop !29
 
 .lr.ph127:                                        ; preds = %.preheader, %146
   %indvars.iv158 = phi i64 [ %indvars.iv.next159, %146 ], [ 0, %.preheader ]
@@ -903,12 +903,12 @@ define linkonce_odr hidden void @_ZNK9Imath_3_28Matrix44IfE9gjInverseEv(ptr dead
   store float %145, ptr %143, align 4, !tbaa !18
   %indvars.iv.next155 = add nuw nsw i64 %indvars.iv154, 1
   %exitcond157.not = icmp eq i64 %indvars.iv.next155, 4
-  br i1 %exitcond157.not, label %146, label %135, !llvm.loop !31
+  br i1 %exitcond157.not, label %146, label %135, !llvm.loop !30
 
 146:                                              ; preds = %135
   %indvars.iv.next159 = add nuw nsw i64 %indvars.iv158, 1
   %exitcond161.not = icmp eq i64 %indvars.iv.next159, %indvars.iv162168
-  br i1 %exitcond161.not, label %._crit_edge128, label %.lr.ph127, !llvm.loop !32
+  br i1 %exitcond161.not, label %._crit_edge128, label %.lr.ph127, !llvm.loop !31
 
 ._crit_edge128:                                   ; preds = %146
   %indvars.iv.next163 = add nsw i64 %indvars.iv162168, -1
@@ -916,7 +916,7 @@ define linkonce_odr hidden void @_ZNK9Imath_3_28Matrix44IfE9gjInverseEv(ptr dead
   %148 = getelementptr inbounds nuw [4 x float], ptr %147, i64 0, i64 %indvars.iv.next163
   %149 = load float, ptr %148, align 4, !tbaa !18
   %150 = fcmp une float %149, 0.000000e+00
-  br i1 %150, label %.preheader110, label %.thread109, !llvm.loop !33
+  br i1 %150, label %.preheader110, label %.thread109, !llvm.loop !32
 
 151:                                              ; preds = %.preheader
   %152 = load float, ptr %3, align 4, !tbaa !18
@@ -1029,18 +1029,17 @@ attributes #13 = { noreturn }
 !16 = !{!10, !5, i64 4}
 !17 = !{!10, !5, i64 8}
 !18 = !{!5, !5, i64 0}
-!19 = distinct !{!19, !20, !21}
+!19 = distinct !{!19, !20}
 !20 = !{!"llvm.loop.mustprogress"}
-!21 = !{!"llvm.loop.estimated_trip_count"}
-!22 = distinct !{!22, !20, !21}
-!23 = distinct !{!23, !20, !21}
-!24 = distinct !{!24, !20, !21}
-!25 = distinct !{!25, !20, !21}
-!26 = distinct !{!26, !20, !21}
-!27 = distinct !{!27, !20, !21}
-!28 = distinct !{!28, !20, !21}
-!29 = distinct !{!29, !20, !21}
-!30 = distinct !{!30, !20, !21}
-!31 = distinct !{!31, !20, !21}
-!32 = distinct !{!32, !20, !21}
-!33 = distinct !{!33, !20, !21}
+!21 = distinct !{!21, !20}
+!22 = distinct !{!22, !20}
+!23 = distinct !{!23, !20}
+!24 = distinct !{!24, !20}
+!25 = distinct !{!25, !20}
+!26 = distinct !{!26, !20}
+!27 = distinct !{!27, !20}
+!28 = distinct !{!28, !20}
+!29 = distinct !{!29, !20}
+!30 = distinct !{!30, !20}
+!31 = distinct !{!31, !20}
+!32 = distinct !{!32, !20}

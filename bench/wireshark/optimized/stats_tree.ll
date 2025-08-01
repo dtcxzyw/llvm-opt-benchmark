@@ -160,7 +160,7 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define ptr @stats_tree_get_displayname(ptr noundef %0) local_unnamed_addr #0 {
   %2 = tail call noalias ptr @g_strdup(ptr noundef %0)
-  %3 = load i8, ptr getelementptr inbounds nuw (i8, ptr @prefs, i64 497), align 1, !range !9, !noundef !10
+  %3 = load i8, ptr getelementptr inbounds nuw (i8, ptr @prefs, i64 497), align 1, !range !8, !noundef !9
   %4 = trunc nuw i8 %3 to i1
   br i1 %4, label %.loopexit, label %.preheader
 
@@ -192,7 +192,7 @@ define ptr @stats_tree_get_displayname(ptr noundef %0) local_unnamed_addr #0 {
   %.1 = phi ptr [ %7, %10 ], [ %2, %13 ]
   %17 = tail call ptr @strchr(ptr noundef %.1, i32 noundef 47) #21
   %.not = icmp eq ptr %17, null
-  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !11
+  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !10
 
 .loopexit:                                        ; preds = %16, %.preheader, %1
   ret ptr %2
@@ -236,7 +236,7 @@ define void @stats_tree_free(ptr noundef %0) local_unnamed_addr #0 {
   %15 = load ptr, ptr %14, align 8
   tail call fastcc void @free_stat_node(ptr noundef %.024)
   %.not20 = icmp eq ptr %15, null
-  br i1 %.not20, label %._crit_edge, label %.lr.ph, !llvm.loop !12
+  br i1 %.not20, label %._crit_edge, label %.lr.ph, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   %16 = load ptr, ptr %0, align 8
@@ -288,7 +288,7 @@ define internal fastcc void @free_stat_node(ptr noundef nonnull %0) unnamed_addr
   %5 = load ptr, ptr %4, align 8
   tail call fastcc void @free_stat_node(ptr noundef %.022)
   %.not19 = icmp eq ptr %5, null
-  br i1 %.not19, label %.loopexit, label %.preheader, !llvm.loop !13
+  br i1 %.not19, label %.loopexit, label %.preheader, !llvm.loop !12
 
 .loopexit:                                        ; preds = %.preheader, %1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -313,7 +313,7 @@ define internal fastcc void @free_stat_node(ptr noundef nonnull %0) unnamed_addr
   tail call void @g_free(ptr noundef nonnull %12)
   %14 = load ptr, ptr %10, align 8
   %.not21 = icmp eq ptr %14, null
-  br i1 %.not21, label %._crit_edge, label %.lr.ph, !llvm.loop !14
+  br i1 %.not21, label %._crit_edge, label %.lr.ph, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %.lr.ph, %9
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 120
@@ -382,7 +382,7 @@ define internal fastcc void @reset_stat_node(ptr noundef captures(none) initiali
   tail call void @g_free(ptr noundef nonnull %17)
   %19 = load ptr, ptr %15, align 8
   %.not = icmp eq ptr %19, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !15
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %.lr.ph, %13
   %20 = tail call noalias dereferenceable_or_null(40) ptr @g_malloc0(i64 noundef 40) #23
@@ -406,7 +406,7 @@ define internal fastcc void @reset_stat_node(ptr noundef captures(none) initiali
   %27 = getelementptr inbounds nuw i8, ptr %.042, i64 112
   %28 = load ptr, ptr %27, align 8
   %.not40 = icmp eq ptr %28, null
-  br i1 %.not40, label %.loopexit, label %.preheader, !llvm.loop !16
+  br i1 %.not40, label %.loopexit, label %.preheader, !llvm.loop !15
 
 .loopexit:                                        ; preds = %.preheader, %._crit_edge
   ret void
@@ -425,7 +425,7 @@ define void @stats_tree_reinit(ptr noundef %0) local_unnamed_addr #0 {
   %5 = load ptr, ptr %4, align 8
   tail call fastcc void @free_stat_node(ptr noundef %.049)
   %.not = icmp eq ptr %5, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !17
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
   store ptr null, ptr %2, align 8
@@ -572,7 +572,7 @@ define noundef ptr @stats_tree_register(ptr noundef %0, ptr noundef %1, ptr noun
   %32 = getelementptr ptr, ptr %16, i64 %31
   %33 = load ptr, ptr %32, align 8
   %.not48 = icmp eq ptr %33, null
-  br i1 %.not48, label %._crit_edge, label %.lr.ph, !llvm.loop !18
+  br i1 %.not48, label %._crit_edge, label %.lr.ph, !llvm.loop !17
 
 34:                                               ; preds = %._crit_edge
   %35 = tail call ptr @g_hash_table_new_full(ptr noundef nonnull @g_str_hash, ptr noundef nonnull @g_str_equal, ptr noundef null, ptr noundef nonnull @stats_tree_free_configuration)
@@ -748,7 +748,7 @@ define noundef ptr @stats_tree_new(ptr noundef %0, ptr noundef %1, ptr noundef %
   %38 = shl i32 %37, 16
   %39 = or i32 %38, %33
   store i32 %39, ptr %34, align 8
-  %40 = load i8, ptr getelementptr inbounds nuw (i8, ptr @prefs, i64 496), align 8, !range !9, !noundef !10
+  %40 = load i8, ptr getelementptr inbounds nuw (i8, ptr @prefs, i64 496), align 8, !range !8, !noundef !9
   %41 = trunc nuw i8 %40 to i1
   br i1 %41, label %42, label %44
 
@@ -1014,7 +1014,7 @@ define internal fastcc noundef ptr @new_stat_node(ptr noundef %0, ptr noundef %1
   %57 = getelementptr inbounds nuw i8, ptr %.075, i64 112
   %58 = load ptr, ptr %57, align 8
   %.not82 = icmp eq ptr %58, null
-  br i1 %.not82, label %59, label %.preheader, !llvm.loop !19
+  br i1 %.not82, label %59, label %.preheader, !llvm.loop !18
 
 59:                                               ; preds = %.preheader
   %60 = getelementptr inbounds nuw i8, ptr %.075, i64 112
@@ -1227,7 +1227,7 @@ define i32 @stats_tree_manip_node_int(i32 noundef %0, ptr noundef %1, ptr nounde
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc void @update_burst_calc(ptr noundef captures(none) %0, i32 noundef %1) unnamed_addr #0 {
-  %3 = load i8, ptr getelementptr inbounds nuw (i8, ptr @prefs, i64 476), align 4, !range !9, !noundef !10
+  %3 = load i8, ptr getelementptr inbounds nuw (i8, ptr @prefs, i64 476), align 4, !range !8, !noundef !9
   %4 = trunc nuw i8 %3 to i1
   br i1 %4, label %5, label %115
 
@@ -1295,7 +1295,7 @@ define internal fastcc void @update_burst_calc(ptr noundef captures(none) %0, i3
   %50 = load double, ptr %49, align 8
   %51 = fadd double %50, %16
   %52 = fcmp ult double %13, %51
-  br i1 %52, label %.loopexit, label %.lr.ph126, !llvm.loop !20
+  br i1 %52, label %.loopexit, label %.lr.ph126, !llvm.loop !19
 
 53:                                               ; preds = %5
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -1339,7 +1339,7 @@ define internal fastcc void @update_burst_calc(ptr noundef captures(none) %0, i3
   %75 = getelementptr inbounds nuw i8, ptr %74, i64 24
   %76 = load double, ptr %75, align 8
   %77 = fcmp olt double %13, %76
-  br i1 %77, label %.lr.ph, label %._crit_edge, !llvm.loop !21
+  br i1 %77, label %.lr.ph, label %._crit_edge, !llvm.loop !20
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
   %.0116.lcssa = phi ptr [ %18, %.preheader ], [ %74, %.lr.ph ]
@@ -1522,7 +1522,7 @@ define noalias ptr @stats_tree_get_abbr(ptr noundef %0) local_unnamed_addr #0 {
 
 6:                                                ; preds = %2
   %7 = add i32 %.0, 1
-  br label %2, !llvm.loop !22
+  br label %2, !llvm.loop !21
 
 8:                                                ; preds = %2
   %9 = tail call noalias ptr @g_strndup(ptr noundef %0, i64 noundef %3)
@@ -1578,7 +1578,7 @@ define i32 @stats_tree_create_range_node(ptr noundef %0, ptr noundef %1, i32 nou
   %26 = call fastcc ptr @get_range(ptr noundef nonnull %22)
   %27 = getelementptr inbounds nuw i8, ptr %25, i64 120
   store ptr %26, ptr %27, align 8
-  br label %9, !llvm.loop !23
+  br label %9, !llvm.loop !22
 
 28:                                               ; preds = %20
   call void @llvm.va_end.p0(ptr nonnull %4)
@@ -1674,7 +1674,7 @@ define i32 @stats_tree_create_range_node_string(ptr noundef %0, ptr noundef %1, 
   store ptr %16, ptr %17, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.loopexit, label %10, !llvm.loop !24
+  br i1 %exitcond.not, label %._crit_edge.loopexit, label %10, !llvm.loop !23
 
 ._crit_edge.loopexit:                             ; preds = %10
   %18 = zext nneg i32 %7 to i64
@@ -1761,7 +1761,7 @@ stats_tree_parent_id_by_name.exit:                ; preds = %3, %8
   %32 = call fastcc ptr @get_range(ptr noundef nonnull %28)
   %33 = getelementptr inbounds nuw i8, ptr %31, i64 120
   store ptr %32, ptr %33, align 8
-  br label %15, !llvm.loop !25
+  br label %15, !llvm.loop !24
 
 34:                                               ; preds = %26
   call void @llvm.va_end.p0(ptr nonnull %4)
@@ -1901,7 +1901,7 @@ define i32 @stats_tree_tick_range(ptr noundef readonly captures(none) %0, ptr no
   %73 = getelementptr inbounds nuw i8, ptr %.04757, i64 112
   %.047 = load ptr, ptr %73, align 8
   %.not51 = icmp eq ptr %.047, null
-  br i1 %.not51, label %.loopexit, label %.lr.ph, !llvm.loop !26
+  br i1 %.not51, label %.loopexit, label %.lr.ph, !llvm.loop !25
 
 .loopexit:                                        ; preds = %72, %41, %68
   %.0.in = getelementptr inbounds nuw i8, ptr %24, i64 8
@@ -2071,7 +2071,7 @@ define nonnull ptr @stats_tree_get_column_name(ptr noundef readonly captures(non
   br label %17
 
 11:                                               ; preds = %2
-  %12 = load i8, ptr getelementptr inbounds nuw (i8, ptr @prefs, i64 477), align 1, !range !9, !noundef !10
+  %12 = load i8, ptr getelementptr inbounds nuw (i8, ptr @prefs, i64 477), align 1, !range !8, !noundef !9
   %13 = trunc nuw i8 %12 to i1
   %14 = select i1 %13, ptr @.str.14, ptr @.str.15
   br label %17
@@ -2356,7 +2356,7 @@ define noalias ptr @stats_tree_get_values_from_node(ptr noundef readonly capture
   br i1 %144, label %145, label %186
 
 145:                                              ; preds = %138
-  %146 = load i8, ptr getelementptr inbounds nuw (i8, ptr @prefs, i64 476), align 4, !range !9, !noundef !10
+  %146 = load i8, ptr getelementptr inbounds nuw (i8, ptr @prefs, i64 476), align 4, !range !8, !noundef !9
   %147 = trunc nuw i8 %146 to i1
   br i1 %147, label %150, label %148
 
@@ -2371,7 +2371,7 @@ define noalias ptr @stats_tree_get_values_from_node(ptr noundef readonly capture
   br i1 %.not74, label %164, label %153
 
 153:                                              ; preds = %150
-  %154 = load i8, ptr getelementptr inbounds nuw (i8, ptr @prefs, i64 477), align 1, !range !9, !noundef !10
+  %154 = load i8, ptr getelementptr inbounds nuw (i8, ptr @prefs, i64 477), align 1, !range !8, !noundef !9
   %155 = trunc nuw i8 %154 to i1
   br i1 %155, label %156, label %158
 
@@ -2395,7 +2395,7 @@ define noalias ptr @stats_tree_get_values_from_node(ptr noundef readonly capture
   %167 = phi ptr [ %149, %148 ], [ %165, %164 ], [ %157, %156 ], [ %163, %158 ]
   %168 = getelementptr i8, ptr %8, i64 56
   store ptr %167, ptr %168, align 8
-  %169 = load i8, ptr getelementptr inbounds nuw (i8, ptr @prefs, i64 476), align 4, !range !9, !noundef !10
+  %169 = load i8, ptr getelementptr inbounds nuw (i8, ptr @prefs, i64 476), align 4, !range !8, !noundef !9
   %170 = trunc nuw i8 %169 to i1
   br i1 %170, label %173, label %171
 
@@ -2432,7 +2432,7 @@ define noalias ptr @stats_tree_get_values_from_node(ptr noundef readonly capture
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define i32 @stats_tree_sort_compare(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i1 noundef zeroext %3) local_unnamed_addr #0 {
-  %5 = load i8, ptr getelementptr inbounds nuw (i8, ptr @prefs, i64 490), align 2, !range !9, !noundef !10
+  %5 = load i8, ptr getelementptr inbounds nuw (i8, ptr @prefs, i64 490), align 2, !range !8, !noundef !9
   %6 = trunc nuw i8 %5 to i1
   br i1 %6, label %7, label %20
 
@@ -2453,7 +2453,7 @@ define i32 @stats_tree_sort_compare(ptr noundef readonly captures(none) %0, ptr 
   %15 = load i32, ptr %12, align 4
   %16 = sub i32 %14, %15
   %.not = xor i1 %3, true
-  %17 = load i8, ptr getelementptr inbounds nuw (i8, ptr @prefs, i64 489), align 1, !range !9
+  %17 = load i8, ptr getelementptr inbounds nuw (i8, ptr @prefs, i64 489), align 1, !range !8
   %18 = trunc nuw i8 %17 to i1
   %or.cond = select i1 %.not, i1 true, i1 %18
   %19 = sub i32 0, %16
@@ -2492,7 +2492,7 @@ define i32 @stats_tree_sort_compare(ptr noundef readonly captures(none) %0, ptr 
   br label %141
 
 31:                                               ; preds = %24, %21
-  %32 = load i8, ptr getelementptr inbounds nuw (i8, ptr @prefs, i64 488), align 8, !range !9, !noundef !10
+  %32 = load i8, ptr getelementptr inbounds nuw (i8, ptr @prefs, i64 488), align 8, !range !8, !noundef !9
   %33 = trunc nuw i8 %32 to i1
   %34 = load ptr, ptr %0, align 8
   %35 = load ptr, ptr %1, align 8
@@ -2699,7 +2699,7 @@ define i32 @stats_tree_sort_compare(ptr noundef readonly captures(none) %0, ptr 
   br label %.thread
 
 159:                                              ; preds = %152, %.thread117
-  %160 = load i8, ptr getelementptr inbounds nuw (i8, ptr @prefs, i64 488), align 8, !range !9, !noundef !10
+  %160 = load i8, ptr getelementptr inbounds nuw (i8, ptr @prefs, i64 488), align 8, !range !8, !noundef !9
   %161 = trunc nuw i8 %160 to i1
   %162 = load ptr, ptr %0, align 8
   %163 = load ptr, ptr %1, align 8
@@ -2805,7 +2805,7 @@ define ptr @stats_tree_format_as_str(ptr noundef readonly captures(none) %0, i32
   br label %stats_tree_get_column_name.exit
 
 26:                                               ; preds = %.lr.ph75
-  %27 = load i8, ptr getelementptr inbounds nuw (i8, ptr @prefs, i64 477), align 1, !range !9, !noundef !10
+  %27 = load i8, ptr getelementptr inbounds nuw (i8, ptr @prefs, i64 477), align 1, !range !8, !noundef !9
   %28 = trunc nuw i8 %27 to i1
   %29 = select i1 %28, ptr @.str.14, ptr @.str.15
   br label %stats_tree_get_column_name.exit
@@ -2822,7 +2822,7 @@ stats_tree_get_column_name.exit:                  ; preds = %.lr.ph75, %17, %21,
   %32 = add nuw nsw i32 %.05373, 1
   %33 = load i32, ptr %14, align 4
   %34 = icmp slt i32 %32, %33
-  br i1 %34, label %.lr.ph75, label %._crit_edge76, !llvm.loop !27
+  br i1 %34, label %.lr.ph75, label %._crit_edge76, !llvm.loop !26
 
 ._crit_edge76:                                    ; preds = %stats_tree_get_column_name.exit, %12
   %35 = tail call ptr @g_string_append(ptr noundef %13, ptr noundef nonnull @.str.31)
@@ -2843,7 +2843,7 @@ stats_tree_get_column_name.exit:                  ; preds = %.lr.ph75, %17, %21,
   %42 = add i32 %41, %.068
   %43 = add nuw nsw i32 %.167, 1
   %exitcond.not = icmp eq i32 %43, %38
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !28
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !27
 
 ._crit_edge:                                      ; preds = %.lr.ph, %36
   %.0.lcssa = phi i32 [ %7, %36 ], [ %42, %.lr.ph ]
@@ -2905,7 +2905,7 @@ stats_tree_get_column_name.exit:                  ; preds = %.lr.ph75, %17, %21,
   br label %stats_tree_get_column_name.exit66
 
 70:                                               ; preds = %.lr.ph71
-  %71 = load i8, ptr getelementptr inbounds nuw (i8, ptr @prefs, i64 477), align 1, !range !9, !noundef !10
+  %71 = load i8, ptr getelementptr inbounds nuw (i8, ptr @prefs, i64 477), align 1, !range !8, !noundef !9
   %72 = trunc nuw i8 %71 to i1
   %73 = select i1 %72, ptr @.str.14, ptr @.str.15
   br label %stats_tree_get_column_name.exit66
@@ -2922,7 +2922,7 @@ stats_tree_get_column_name.exit66:                ; preds = %.lr.ph71, %65, %66,
   %76 = add nuw nsw i32 %.269, 1
   %77 = load i32, ptr %37, align 4
   %78 = icmp slt i32 %76, %77
-  br i1 %78, label %.lr.ph71, label %._crit_edge72, !llvm.loop !29
+  br i1 %78, label %.lr.ph71, label %._crit_edge72, !llvm.loop !28
 
 ._crit_edge72:                                    ; preds = %stats_tree_get_column_name.exit66, %._crit_edge
   %79 = call ptr @__memset_chk(ptr noundef %46, i32 noundef 45, i64 noundef range(i64 -2147483648, 2147483648) %47, i64 noundef %45) #22
@@ -2948,7 +2948,7 @@ stats_tree_get_column_name.exit66:                ; preds = %.lr.ph71, %65, %66,
   %84 = getelementptr inbounds nuw i8, ptr %.05579, i64 112
   %.055 = load ptr, ptr %84, align 8
   %.not = icmp eq ptr %.055, null
-  br i1 %.not, label %._crit_edge82, label %.lr.ph81, !llvm.loop !30
+  br i1 %.not, label %._crit_edge82, label %.lr.ph81, !llvm.loop !29
 
 ._crit_edge82:                                    ; preds = %.lr.ph81, %82
   %85 = icmp eq i32 %1, 0
@@ -3066,7 +3066,7 @@ define void @stats_tree_format_node_as_str(ptr noundef readonly captures(none) %
   br label %stats_tree_get_column_name.exit
 
 44:                                               ; preds = %32
-  %45 = load i8, ptr getelementptr inbounds nuw (i8, ptr @prefs, i64 477), align 1, !range !9, !noundef !10
+  %45 = load i8, ptr getelementptr inbounds nuw (i8, ptr @prefs, i64 477), align 1, !range !8, !noundef !9
   %46 = trunc nuw i8 %45 to i1
   %47 = select i1 %46, ptr @.str.14, ptr @.str.15
   br label %stats_tree_get_column_name.exit
@@ -3086,7 +3086,7 @@ stats_tree_get_column_name.exit:                  ; preds = %32, %34, %39, %40, 
 50:                                               ; preds = %28, %stats_tree_get_column_name.exit
   %indvars.iv.next146 = add nuw nsw i64 %indvars.iv145, 1
   %exitcond149.not = icmp eq i64 %indvars.iv.next146, %wide.trip.count148
-  br i1 %exitcond149.not, label %._crit_edge120, label %28, !llvm.loop !31
+  br i1 %exitcond149.not, label %._crit_edge120, label %28, !llvm.loop !30
 
 ._crit_edge120:                                   ; preds = %50, %23
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 104
@@ -3155,7 +3155,7 @@ stats_tree_get_column_name.exit:                  ; preds = %32, %34, %39, %40, 
   br label %stats_tree_get_column_name.exit106
 
 73:                                               ; preds = %.lr.ph116
-  %74 = load i8, ptr getelementptr inbounds nuw (i8, ptr @prefs, i64 477), align 1, !range !9, !noundef !10
+  %74 = load i8, ptr getelementptr inbounds nuw (i8, ptr @prefs, i64 477), align 1, !range !8, !noundef !9
   %75 = trunc nuw i8 %74 to i1
   %76 = select i1 %75, ptr @.str.14, ptr @.str.15
   br label %stats_tree_get_column_name.exit106
@@ -3179,7 +3179,7 @@ stats_tree_get_column_name.exit106:               ; preds = %.lr.ph116, %63, %68
   store i8 45, ptr %81, align 1
   %83 = tail call ptr @strpbrk(ptr noundef %82, ptr noundef nonnull @.str.54) #21
   %.not.i107 = icmp eq ptr %83, null
-  br i1 %.not.i107, label %clean_for_xml_tag.exit, label %.lr.ph.i, !llvm.loop !32
+  br i1 %.not.i107, label %clean_for_xml_tag.exit, label %.lr.ph.i, !llvm.loop !31
 
 clean_for_xml_tag.exit:                           ; preds = %.lr.ph.i, %stats_tree_get_column_name.exit106
   tail call void (ptr, ptr, ...) @g_string_append_printf(ptr noundef %1, ptr noundef nonnull @.str.46, ptr noundef %79)
@@ -3189,7 +3189,7 @@ clean_for_xml_tag.exit:                           ; preds = %.lr.ph.i, %stats_tr
   tail call void @g_free(ptr noundef %79)
   %indvars.iv.next141 = add nuw nsw i64 %indvars.iv140, 1
   %exitcond144.not = icmp eq i64 %indvars.iv.next141, %wide.trip.count143
-  br i1 %exitcond144.not, label %.loopexit, label %.lr.ph116, !llvm.loop !33
+  br i1 %exitcond144.not, label %.loopexit, label %.lr.ph116, !llvm.loop !32
 
 86:                                               ; preds = %8
   %87 = load ptr, ptr %17, align 8
@@ -3208,7 +3208,7 @@ clean_for_xml_tag.exit:                           ; preds = %.lr.ph.i, %stats_tr
   tail call void (ptr, ptr, ...) @g_string_append_printf(ptr noundef %1, ptr noundef nonnull @.str.49, ptr noundef %90)
   %indvars.iv.next136 = add nuw nsw i64 %indvars.iv135, 1
   %exitcond139.not = icmp eq i64 %indvars.iv.next136, %wide.trip.count138
-  br i1 %exitcond139.not, label %._crit_edge113, label %.lr.ph112, !llvm.loop !34
+  br i1 %exitcond139.not, label %._crit_edge113, label %.lr.ph112, !llvm.loop !33
 
 ._crit_edge113:                                   ; preds = %.lr.ph112, %86
   %91 = tail call ptr @g_string_append(ptr noundef %1, ptr noundef nonnull @.str.31)
@@ -3236,7 +3236,7 @@ clean_for_xml_tag.exit:                           ; preds = %.lr.ph.i, %stats_tr
   call void (ptr, ptr, ...) @g_string_append_printf(ptr noundef %1, ptr noundef nonnull %11, ptr noundef %101)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !35
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !34
 
 ._crit_edge:                                      ; preds = %.lr.ph, %92
   %102 = call ptr @g_string_append(ptr noundef %1, ptr noundef nonnull @.str.31)
@@ -3261,7 +3261,7 @@ clean_for_xml_tag.exit:                           ; preds = %.lr.ph.i, %stats_tr
   call void @g_free(ptr noundef %109)
   %indvars.iv.next151 = add nuw nsw i64 %indvars.iv150, 1
   %exitcond154.not = icmp eq i64 %indvars.iv.next151, %wide.trip.count153
-  br i1 %exitcond154.not, label %._crit_edge124, label %.lr.ph123, !llvm.loop !36
+  br i1 %exitcond154.not, label %._crit_edge124, label %.lr.ph123, !llvm.loop !35
 
 ._crit_edge124:                                   ; preds = %.lr.ph123, %.loopexit
   call void @g_free(ptr noundef %17)
@@ -3284,7 +3284,7 @@ clean_for_xml_tag.exit:                           ; preds = %.lr.ph.i, %stats_tr
   %storemerge = load ptr, ptr %116, align 8
   store ptr %storemerge, ptr %9, align 8
   %.not102 = icmp eq ptr %storemerge, null
-  br i1 %.not102, label %._crit_edge129, label %.lr.ph128, !llvm.loop !37
+  br i1 %.not102, label %._crit_edge129, label %.lr.ph128, !llvm.loop !36
 
 ._crit_edge129:                                   ; preds = %.lr.ph128, %112
   store i32 %6, ptr %10, align 4
@@ -3306,7 +3306,7 @@ clean_for_xml_tag.exit:                           ; preds = %.lr.ph.i, %stats_tr
   %124 = load i32, ptr %118, align 8
   %125 = sext i32 %124 to i64
   %126 = icmp slt i64 %indvars.iv.next156, %125
-  br i1 %126, label %.lr.ph132, label %._crit_edge133, !llvm.loop !38
+  br i1 %126, label %.lr.ph132, label %._crit_edge133, !llvm.loop !37
 
 ._crit_edge133:                                   ; preds = %.lr.ph132, %._crit_edge129
   %127 = call ptr @g_array_free(ptr noundef %113, i32 noundef 1)
@@ -3334,7 +3334,7 @@ define i32 @stat_node_array_sortcmp(ptr noundef readonly captures(none) %0, ptr 
   %5 = load ptr, ptr %1, align 8
   %6 = load i32, ptr %2, align 4
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  %8 = load i8, ptr %7, align 4, !range !9, !noundef !10
+  %8 = load i8, ptr %7, align 4, !range !8, !noundef !9
   %9 = trunc nuw i8 %8 to i1
   %10 = tail call i32 @stats_tree_sort_compare(ptr noundef %4, ptr noundef %5, i32 noundef %6, i1 noundef zeroext %9)
   ret i32 %10
@@ -3426,36 +3426,35 @@ attributes #24 = { noreturn }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = !{i8 0, i8 2}
-!10 = !{}
-!11 = distinct !{!11, !7, !8}
-!12 = distinct !{!12, !7, !8}
-!13 = distinct !{!13, !7, !8}
-!14 = distinct !{!14, !7, !8}
-!15 = distinct !{!15, !7, !8}
-!16 = distinct !{!16, !7, !8}
-!17 = distinct !{!17, !7, !8}
-!18 = distinct !{!18, !7, !8}
-!19 = distinct !{!19, !7, !8}
-!20 = distinct !{!20, !7, !8}
-!21 = distinct !{!21, !7, !8}
-!22 = distinct !{!22, !7, !8}
-!23 = distinct !{!23, !7, !8}
-!24 = distinct !{!24, !7, !8}
-!25 = distinct !{!25, !7, !8}
-!26 = distinct !{!26, !7, !8}
-!27 = distinct !{!27, !7, !8}
-!28 = distinct !{!28, !7, !8}
-!29 = distinct !{!29, !7, !8}
-!30 = distinct !{!30, !7, !8}
-!31 = distinct !{!31, !7, !8}
-!32 = distinct !{!32, !7, !8}
-!33 = distinct !{!33, !7, !8}
-!34 = distinct !{!34, !7, !8}
-!35 = distinct !{!35, !7, !8}
-!36 = distinct !{!36, !7, !8}
-!37 = distinct !{!37, !7, !8}
-!38 = distinct !{!38, !7, !8}
+!8 = !{i8 0, i8 2}
+!9 = !{}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7}
+!12 = distinct !{!12, !7}
+!13 = distinct !{!13, !7}
+!14 = distinct !{!14, !7}
+!15 = distinct !{!15, !7}
+!16 = distinct !{!16, !7}
+!17 = distinct !{!17, !7}
+!18 = distinct !{!18, !7}
+!19 = distinct !{!19, !7}
+!20 = distinct !{!20, !7}
+!21 = distinct !{!21, !7}
+!22 = distinct !{!22, !7}
+!23 = distinct !{!23, !7}
+!24 = distinct !{!24, !7}
+!25 = distinct !{!25, !7}
+!26 = distinct !{!26, !7}
+!27 = distinct !{!27, !7}
+!28 = distinct !{!28, !7}
+!29 = distinct !{!29, !7}
+!30 = distinct !{!30, !7}
+!31 = distinct !{!31, !7}
+!32 = distinct !{!32, !7}
+!33 = distinct !{!33, !7}
+!34 = distinct !{!34, !7}
+!35 = distinct !{!35, !7}
+!36 = distinct !{!36, !7}
+!37 = distinct !{!37, !7}

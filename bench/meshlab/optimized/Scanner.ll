@@ -359,7 +359,7 @@ define noalias noundef nonnull ptr @_ZN14VrmlTranslator6Buffer9GetStringEii(ptr 
   store i32 %21, ptr %22, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %5
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !8
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   %23 = load ptr, ptr %0, align 8
@@ -736,7 +736,7 @@ define noalias noundef ptr @_Z24coco_string_create_upperPKw(ptr noundef readonly
   store i32 %spec.select, ptr %14, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !9
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   %15 = ashr exact i64 %4, 30
@@ -778,7 +778,7 @@ define noalias noundef ptr @_Z24coco_string_create_lowerPKw(ptr noundef readonly
   store i32 %spec.select.i, ptr %14, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %6
-  br i1 %exitcond.not.i, label %_Z24coco_string_create_lowerPKwii.exit, label %.lr.ph.i, !llvm.loop !10
+  br i1 %exitcond.not.i, label %_Z24coco_string_create_lowerPKwii.exit, label %.lr.ph.i, !llvm.loop !9
 
 _Z24coco_string_create_lowerPKwii.exit:           ; preds = %.lr.ph.i, %2
   %sext = shl i64 %3, 32
@@ -824,7 +824,7 @@ define noalias noundef ptr @_Z24coco_string_create_lowerPKwii(ptr noundef readon
   store i32 %spec.select, ptr %15, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %6
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !10
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %.lr.ph, %4
   %16 = sext i32 %2 to i64
@@ -1101,7 +1101,7 @@ define noundef range(i32 0, -2147483648) i32 @_Z16coco_string_hashPKw(ptr nounde
   %6 = getelementptr inbounds nuw i8, ptr %.0814, i64 4
   %7 = load i32, ptr %6, align 4
   %.not12 = icmp eq i32 %7, 0
-  br i1 %.not12, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !11
+  br i1 %.not12, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !10
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
   %8 = tail call i32 @llvm.abs.i32(i32 %5, i1 true)
@@ -1147,7 +1147,7 @@ define noalias noundef nonnull ptr @_Z18coco_string_createPKc(ptr noundef readon
   store i32 %12, ptr %13, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !12
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.thread.thread, %.thread
   %14 = phi ptr [ %2, %.thread.thread ], [ %8, %.thread ], [ %8, %.lr.ph ]
@@ -1193,7 +1193,7 @@ _Z18coco_string_lengthPKw.exit:                   ; preds = %1, %2
   store i8 %11, ptr %12, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !13
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %.lr.ph, %_Z18coco_string_lengthPKw.exit
   %13 = sext i32 %.0.i to i64
@@ -1647,7 +1647,7 @@ define void @_ZN14VrmlTranslator7Scanner4InitEv(ptr noundef nonnull align 8 dere
   store ptr %13, ptr %18, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 39
-  br i1 %exitcond.not, label %.preheader70, label %12, !llvm.loop !14
+  br i1 %exitcond.not, label %.preheader70, label %12, !llvm.loop !13
 
 .preheader70:                                     ; preds = %12, %.preheader70
   %indvars.iv79 = phi i64 [ %indvars.iv.next80, %.preheader70 ], [ 40, %12 ]
@@ -1664,7 +1664,7 @@ define void @_ZN14VrmlTranslator7Scanner4InitEv(ptr noundef nonnull align 8 dere
   store ptr %20, ptr %25, align 8
   %indvars.iv.next80 = add nuw nsw i64 %indvars.iv79, 1
   %exitcond82.not = icmp eq i64 %indvars.iv.next80, 43
-  br i1 %exitcond82.not, label %.critedge45, label %.preheader70, !llvm.loop !15
+  br i1 %exitcond82.not, label %.critedge45, label %.preheader70, !llvm.loop !14
 
 .critedge45:                                      ; preds = %.preheader70
   %27 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #21
@@ -1694,7 +1694,7 @@ define void @_ZN14VrmlTranslator7Scanner4InitEv(ptr noundef nonnull align 8 dere
   store ptr %34, ptr %39, align 8
   %indvars.iv.next84 = add nuw nsw i64 %indvars.iv83, 1
   %exitcond86.not = icmp eq i64 %indvars.iv.next84, 86
-  br i1 %exitcond86.not, label %.preheader69, label %33, !llvm.loop !16
+  br i1 %exitcond86.not, label %.preheader69, label %33, !llvm.loop !15
 
 .preheader69:                                     ; preds = %33, %.preheader69
   %indvars.iv87 = phi i64 [ %indvars.iv.next88, %.preheader69 ], [ 87, %33 ]
@@ -1711,7 +1711,7 @@ define void @_ZN14VrmlTranslator7Scanner4InitEv(ptr noundef nonnull align 8 dere
   store ptr %41, ptr %46, align 8
   %indvars.iv.next88 = add nuw nsw i64 %indvars.iv87, 1
   %exitcond90.not = icmp eq i64 %indvars.iv.next88, 91
-  br i1 %exitcond90.not, label %.preheader68, label %.preheader69, !llvm.loop !17
+  br i1 %exitcond90.not, label %.preheader68, label %.preheader69, !llvm.loop !16
 
 .preheader68:                                     ; preds = %.preheader69, %.preheader68
   %indvars.iv91 = phi i64 [ %indvars.iv.next92, %.preheader68 ], [ 94, %.preheader69 ]
@@ -1728,7 +1728,7 @@ define void @_ZN14VrmlTranslator7Scanner4InitEv(ptr noundef nonnull align 8 dere
   store ptr %48, ptr %53, align 8
   %indvars.iv.next92 = add nuw nsw i64 %indvars.iv91, 1
   %exitcond94.not = icmp eq i64 %indvars.iv.next92, 123
-  br i1 %exitcond94.not, label %.critedge47, label %.preheader68, !llvm.loop !18
+  br i1 %exitcond94.not, label %.critedge47, label %.preheader68, !llvm.loop !17
 
 .critedge47:                                      ; preds = %.preheader68
   %55 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #21
@@ -1769,7 +1769,7 @@ define void @_ZN14VrmlTranslator7Scanner4InitEv(ptr noundef nonnull align 8 dere
   store ptr %68, ptr %74, align 8
   %76 = add nuw nsw i32 %.976, 1
   %exitcond95.not = icmp eq i32 %76, 65536
-  br i1 %exitcond95.not, label %.preheader, label %67, !llvm.loop !19
+  br i1 %exitcond95.not, label %.preheader, label %67, !llvm.loop !18
 
 .preheader:                                       ; preds = %67, %.preheader
   %indvars.iv96 = phi i64 [ %indvars.iv.next97, %.preheader ], [ 49, %67 ]
@@ -1786,7 +1786,7 @@ define void @_ZN14VrmlTranslator7Scanner4InitEv(ptr noundef nonnull align 8 dere
   store ptr %77, ptr %82, align 8
   %indvars.iv.next97 = add nuw nsw i64 %indvars.iv96, 1
   %exitcond99.not = icmp eq i64 %indvars.iv.next97, 58
-  br i1 %exitcond99.not, label %84, label %.preheader, !llvm.loop !20
+  br i1 %exitcond99.not, label %84, label %.preheader, !llvm.loop !19
 
 84:                                               ; preds = %.preheader
   %85 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #21
@@ -2353,7 +2353,7 @@ _ZN14VrmlTranslator7Scanner6NextChEv.exit65:      ; preds = %352, %347, %320, %_
   %370 = getelementptr inbounds nuw i8, ptr %367, i64 65536
   %371 = icmp ugt ptr %368, %370
   %or.cond.i.i = select i1 %369, i1 true, i1 %371
-  br i1 %or.cond.i.i, label %.critedge.i.i, label %_ZN14VrmlTranslator7Scanner15CreateHeapBlockEv.exit.loopexit.i, !llvm.loop !21
+  br i1 %or.cond.i.i, label %.critedge.i.i, label %_ZN14VrmlTranslator7Scanner15CreateHeapBlockEv.exit.loopexit.i, !llvm.loop !20
 
 _ZN14VrmlTranslator7Scanner15CreateHeapBlockEv.exit.loopexit.i: ; preds = %.critedge.i.i
   %.pre.i67 = load ptr, ptr %169, align 8
@@ -2405,12 +2405,12 @@ define linkonce_odr void @_ZN14VrmlTranslator10KeywordMapD2Ev(ptr noundef nonnul
   %11 = load ptr, ptr %10, align 8
   tail call void %11(ptr noundef nonnull align 8 dereferenceable(32) %.0710) #22
   %.not = icmp eq ptr %8, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !22
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !21
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 128
-  br i1 %exitcond.not, label %12, label %3, !llvm.loop !23
+  br i1 %exitcond.not, label %12, label %3, !llvm.loop !22
 
 12:                                               ; preds = %._crit_edge
   %13 = load ptr, ptr %2, align 8
@@ -2445,12 +2445,12 @@ define linkonce_odr void @_ZN14VrmlTranslator11StartStatesD2Ev(ptr noundef nonnu
   %8 = load ptr, ptr %7, align 8
   tail call void @_ZdlPv(ptr noundef nonnull %.0710) #20
   %.not = icmp eq ptr %8, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !24
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !23
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 128
-  br i1 %exitcond.not, label %9, label %3, !llvm.loop !25
+  br i1 %exitcond.not, label %9, label %3, !llvm.loop !24
 
 9:                                                ; preds = %._crit_edge
   %10 = load ptr, ptr %2, align 8
@@ -2488,12 +2488,12 @@ define linkonce_odr void @_ZN14VrmlTranslator11StartStatesD0Ev(ptr noundef nonnu
   %8 = load ptr, ptr %7, align 8
   tail call void @_ZdlPv(ptr noundef nonnull %.0710.i) #20
   %.not.i = icmp eq ptr %8, null
-  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !24
+  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !23
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %3
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 128
-  br i1 %exitcond.not.i, label %9, label %3, !llvm.loop !25
+  br i1 %exitcond.not.i, label %9, label %3, !llvm.loop !24
 
 9:                                                ; preds = %._crit_edge.i
   %10 = load ptr, ptr %2, align 8
@@ -2532,12 +2532,12 @@ define linkonce_odr void @_ZN14VrmlTranslator10KeywordMapD0Ev(ptr noundef nonnul
   %11 = load ptr, ptr %10, align 8
   tail call void %11(ptr noundef nonnull align 8 dereferenceable(32) %.0710.i) #22
   %.not.i = icmp eq ptr %8, null
-  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !22
+  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !21
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %3
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 128
-  br i1 %exitcond.not.i, label %12, label %3, !llvm.loop !23
+  br i1 %exitcond.not.i, label %12, label %3, !llvm.loop !22
 
 12:                                               ; preds = %._crit_edge.i
   %13 = load ptr, ptr %2, align 8
@@ -2603,7 +2603,7 @@ _Z18coco_string_lengthPKw.exit.i:                 ; preds = %11, %9
   store i8 %20, ptr %21, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %.loopexit, label %.lr.ph.i, !llvm.loop !13
+  br i1 %exitcond.not.i, label %.loopexit, label %.lr.ph.i, !llvm.loop !12
 
 .loopexit:                                        ; preds = %.lr.ph.i, %.noexc
   %22 = sext i32 %.0.i.i to i64
@@ -2745,7 +2745,7 @@ define void @_ZN14VrmlTranslator7ScannerD2Ev(ptr noundef nonnull align 8 capture
   tail call void @free(ptr noundef nonnull %3) #22
   store ptr %5, ptr %0, align 8
   %.not = icmp eq ptr %5, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !26
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !25
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 96
@@ -2793,12 +2793,12 @@ define void @_ZN14VrmlTranslator7ScannerD2Ev(ptr noundef nonnull align 8 capture
   %29 = load ptr, ptr %28, align 8
   tail call void %29(ptr noundef nonnull align 8 dereferenceable(32) %.0710.i) #22
   %.not.i = icmp eq ptr %26, null
-  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !22
+  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !21
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %21
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 128
-  br i1 %exitcond.not.i, label %30, label %21, !llvm.loop !23
+  br i1 %exitcond.not.i, label %30, label %21, !llvm.loop !22
 
 30:                                               ; preds = %._crit_edge.i
   %31 = load ptr, ptr %20, align 8
@@ -2829,12 +2829,12 @@ _ZN14VrmlTranslator10KeywordMapD2Ev.exit:         ; preds = %30, %33
   %41 = load ptr, ptr %40, align 8
   tail call void @_ZdlPv(ptr noundef nonnull %.0710.i9) #20
   %.not.i10 = icmp eq ptr %41, null
-  br i1 %.not.i10, label %._crit_edge.i11, label %.lr.ph.i8, !llvm.loop !24
+  br i1 %.not.i10, label %._crit_edge.i11, label %.lr.ph.i8, !llvm.loop !23
 
 ._crit_edge.i11:                                  ; preds = %.lr.ph.i8, %36
   %indvars.iv.next.i12 = add nuw nsw i64 %indvars.iv.i6, 1
   %exitcond.not.i13 = icmp eq i64 %indvars.iv.next.i12, 128
-  br i1 %exitcond.not.i13, label %42, label %36, !llvm.loop !25
+  br i1 %exitcond.not.i13, label %42, label %36, !llvm.loop !24
 
 42:                                               ; preds = %._crit_edge.i11
   %43 = load ptr, ptr %35, align 8
@@ -2903,7 +2903,7 @@ _Z18coco_string_createPKw.exit.i:                 ; preds = %5, %3
   %24 = getelementptr inbounds nuw i8, ptr %.0814.i, i64 4
   %25 = load i32, ptr %24, align 4
   %.not12.i = icmp eq i32 %25, 0
-  br i1 %.not12.i, label %._crit_edge.loopexit.i, label %.lr.ph.i, !llvm.loop !11
+  br i1 %.not12.i, label %._crit_edge.loopexit.i, label %.lr.ph.i, !llvm.loop !10
 
 ._crit_edge.loopexit.i:                           ; preds = %.lr.ph.i
   %26 = tail call i32 @llvm.abs.i32(i32 %23, i1 true)
@@ -3042,7 +3042,7 @@ define noundef ptr @_ZN14VrmlTranslator7Scanner11CreateTokenEv(ptr noundef nonnu
   %19 = getelementptr inbounds nuw i8, ptr %16, i64 65536
   %20 = icmp ugt ptr %17, %19
   %or.cond.i = select i1 %18, i1 true, i1 %20
-  br i1 %or.cond.i, label %.critedge.i, label %_ZN14VrmlTranslator7Scanner15CreateHeapBlockEv.exit.loopexit, !llvm.loop !21
+  br i1 %or.cond.i, label %.critedge.i, label %_ZN14VrmlTranslator7Scanner15CreateHeapBlockEv.exit.loopexit, !llvm.loop !20
 
 _ZN14VrmlTranslator7Scanner15CreateHeapBlockEv.exit.loopexit: ; preds = %.critedge.i
   %.pre = load ptr, ptr %5, align 8
@@ -3465,7 +3465,7 @@ _ZN14VrmlTranslator7Scanner6NextChEv.exit14:      ; preds = %108, %134, %139
   %142 = phi i32 [ %109, %108 ], [ %135, %134 ], [ %135, %139 ]
   %143 = phi i8 [ %102, %108 ], [ %136, %134 ], [ %136, %139 ]
   %144 = icmp eq i32 %142, 10
-  br i1 %144, label %._crit_edge, label %101, !llvm.loop !27
+  br i1 %144, label %._crit_edge, label %101, !llvm.loop !26
 
 _ZN14VrmlTranslator7Scanner6NextChEv.exit10:      ; preds = %101, %98, %92, %62
   %145 = phi i1 [ true, %98 ], [ true, %92 ], [ true, %62 ], [ false, %101 ]
@@ -3494,7 +3494,7 @@ define void @_ZN14VrmlTranslator7Scanner15CreateHeapBlockEv(ptr noundef nonnull 
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 65536
   %14 = icmp ugt ptr %11, %13
   %or.cond = select i1 %12, i1 true, i1 %14
-  br i1 %or.cond, label %.critedge, label %._crit_edge, !llvm.loop !21
+  br i1 %or.cond, label %.critedge, label %._crit_edge, !llvm.loop !20
 
 ._crit_edge:                                      ; preds = %.critedge, %1
   %15 = tail call noalias dereferenceable_or_null(65544) ptr @malloc(i64 noundef 65544) #25
@@ -3557,7 +3557,7 @@ define void @_ZN14VrmlTranslator7Scanner9AppendValEPNS_5TokenE(ptr noundef nonnu
   %29 = getelementptr inbounds nuw i8, ptr %26, i64 65536
   %30 = icmp ugt ptr %27, %29
   %or.cond.i = select i1 %28, i1 true, i1 %30
-  br i1 %or.cond.i, label %.critedge.i, label %_ZN14VrmlTranslator7Scanner15CreateHeapBlockEv.exit.loopexit, !llvm.loop !21
+  br i1 %or.cond.i, label %.critedge.i, label %_ZN14VrmlTranslator7Scanner15CreateHeapBlockEv.exit.loopexit, !llvm.loop !20
 
 _ZN14VrmlTranslator7Scanner15CreateHeapBlockEv.exit.loopexit: ; preds = %.critedge.i
   %.pre = load ptr, ptr %11, align 8
@@ -3636,7 +3636,7 @@ _ZN14VrmlTranslator7Scanner6NextChEv.exit:        ; preds = %_ZN14VrmlTranslator
 
 _ZN14VrmlTranslator7Scanner6NextChEv.exit.backedge: ; preds = %12, %39, %44
   %.be425 = phi i32 [ %14, %12 ], [ %40, %39 ], [ %40, %44 ]
-  br label %_ZN14VrmlTranslator7Scanner6NextChEv.exit, !llvm.loop !28
+  br label %_ZN14VrmlTranslator7Scanner6NextChEv.exit, !llvm.loop !27
 
 16:                                               ; preds = %.critedge
   %17 = load ptr, ptr %4, align 8
@@ -3724,7 +3724,7 @@ _ZN14VrmlTranslator7Scanner6NextChEv.exit.backedge: ; preds = %12, %39, %44
   %66 = getelementptr inbounds nuw i8, ptr %63, i64 65536
   %67 = icmp ugt ptr %64, %66
   %or.cond.i.i = select i1 %65, i1 true, i1 %67
-  br i1 %or.cond.i.i, label %.critedge.i.i, label %_ZN14VrmlTranslator7Scanner15CreateHeapBlockEv.exit.loopexit.i, !llvm.loop !21
+  br i1 %or.cond.i.i, label %.critedge.i.i, label %_ZN14VrmlTranslator7Scanner15CreateHeapBlockEv.exit.loopexit.i, !llvm.loop !20
 
 _ZN14VrmlTranslator7Scanner15CreateHeapBlockEv.exit.loopexit.i: ; preds = %.critedge.i.i
   %.pre.i230 = load ptr, ptr %52, align 8
@@ -3780,7 +3780,7 @@ _ZN14VrmlTranslator7Scanner11CreateTokenEv.exit:  ; preds = %.loopexit, %_ZN14Vr
   %92 = getelementptr inbounds nuw i8, ptr %.011.i, i64 8
   %.0.i = load ptr, ptr %92, align 8
   %cond.i = icmp eq ptr %.0.i, null
-  br i1 %cond.i, label %_ZN14VrmlTranslator11StartStates5stateEi.exit.thread, label %.lr.ph.i, !llvm.loop !29
+  br i1 %cond.i, label %_ZN14VrmlTranslator11StartStates5stateEi.exit.thread, label %.lr.ph.i, !llvm.loop !28
 
 _ZN14VrmlTranslator11StartStates5stateEi.exit.thread: ; preds = %91, %_ZN14VrmlTranslator7Scanner11CreateTokenEv.exit
   %93 = getelementptr inbounds nuw i8, ptr %0, i64 108
@@ -4037,7 +4037,7 @@ _ZN14VrmlTranslator7Scanner5AddChEv.exit:         ; preds = %_ZN14VrmlTranslator
 
 _ZN14VrmlTranslator7Scanner5AddChEv.exit.backedge: ; preds = %155, %182, %187
   %.be = phi i32 [ %157, %155 ], [ %183, %182 ], [ %183, %187 ]
-  br label %_ZN14VrmlTranslator7Scanner5AddChEv.exit, !llvm.loop !30
+  br label %_ZN14VrmlTranslator7Scanner5AddChEv.exit
 
 159:                                              ; preds = %146
   %160 = load ptr, ptr %4, align 8
@@ -4125,7 +4125,7 @@ _ZN14VrmlTranslator7Scanner5AddChEv.exit.backedge: ; preds = %155, %182, %187
   %211 = getelementptr inbounds nuw i8, ptr %.0814.i.i, i64 4
   %212 = load i32, ptr %211, align 4
   %.not12.i.i = icmp eq i32 %212, 0
-  br i1 %.not12.i.i, label %._crit_edge.loopexit.i.i, label %.lr.ph.i.i, !llvm.loop !11
+  br i1 %.not12.i.i, label %._crit_edge.loopexit.i.i, label %.lr.ph.i.i, !llvm.loop !10
 
 ._crit_edge.loopexit.i.i:                         ; preds = %.lr.ph.i.i
   %213 = tail call i32 @llvm.abs.i32(i32 %210, i1 true)
@@ -4152,7 +4152,7 @@ _Z16coco_string_hashPKw.exit.i:                   ; preds = %._crit_edge.loopexi
   %222 = getelementptr inbounds nuw i8, ptr %.011.i239, i64 24
   %.0.i240 = load ptr, ptr %222, align 8
   %cond.i241 = icmp eq ptr %.0.i240, null
-  br i1 %cond.i241, label %_Z18coco_string_deleteRPw.exit, label %.lr.ph.i238, !llvm.loop !31
+  br i1 %cond.i241, label %_Z18coco_string_deleteRPw.exit, label %.lr.ph.i238, !llvm.loop !29
 
 .critedge.i242:                                   ; preds = %.lr.ph.i238
   %223 = getelementptr inbounds nuw i8, ptr %.011.i239, i64 16
@@ -4204,7 +4204,7 @@ switch.early.test:                                ; preds = %226
   %.fr388 = freeze i32 %233
   %234 = add i32 %.fr388, -48
   %or.cond133 = icmp ult i32 %234, 10
-  br i1 %or.cond133, label %.preheader337.sink.split, label %switch.early.test321, !llvm.loop !32
+  br i1 %or.cond133, label %.preheader337.sink.split, label %switch.early.test321
 
 switch.early.test321:                             ; preds = %.preheader337
   switch i32 %.fr388, label %235 [
@@ -4220,7 +4220,7 @@ switch.early.test321:                             ; preds = %.preheader337
     i32 67, label %.preheader337.sink.split
     i32 66, label %.preheader337.sink.split
     i32 65, label %.preheader337.sink.split
-  ], !llvm.loop !32
+  ]
 
 235:                                              ; preds = %switch.early.test321
   %236 = load ptr, ptr %75, align 8
@@ -4245,7 +4245,7 @@ switch.early.test321:                             ; preds = %.preheader337
   %244 = load i32, ptr %2, align 8
   %245 = add i32 %244, -48
   %or.cond137 = icmp ult i32 %245, 10
-  br i1 %or.cond137, label %.lr.ph366, label %._crit_edge367, !llvm.loop !33
+  br i1 %or.cond137, label %.lr.ph366, label %._crit_edge367
 
 ._crit_edge367:                                   ; preds = %.lr.ph366, %.preheader339
   %.lcssa347 = phi i32 [ %107, %.preheader339 ], [ %244, %.lr.ph366 ]
@@ -4304,7 +4304,7 @@ switch.early.test321:                             ; preds = %.preheader337
   %265 = load i32, ptr %2, align 8
   %266 = add i32 %265, -48
   %or.cond140 = icmp ult i32 %266, 10
-  br i1 %or.cond140, label %.lr.ph370, label %._crit_edge371, !llvm.loop !34
+  br i1 %or.cond140, label %.lr.ph370, label %._crit_edge371
 
 ._crit_edge371:                                   ; preds = %.lr.ph370, %.preheader338
   %267 = load ptr, ptr %75, align 8
@@ -4316,7 +4316,7 @@ switch.early.test321:                             ; preds = %.preheader337
   %268 = load i32, ptr %2, align 8
   %269 = add i32 %268, -48
   %or.cond141 = icmp ult i32 %269, 10
-  br i1 %or.cond141, label %.lr.ph359, label %._crit_edge360, !llvm.loop !35
+  br i1 %or.cond141, label %.lr.ph359, label %._crit_edge360
 
 ._crit_edge360:                                   ; preds = %.lr.ph359, %.preheader341
   %.lcssa348 = phi i32 [ %103, %.preheader341 ], [ %268, %.lr.ph359 ]
@@ -4375,7 +4375,7 @@ switch.early.test321:                             ; preds = %.preheader337
   %289 = load i32, ptr %2, align 8
   %290 = add i32 %289, -48
   %or.cond144 = icmp ult i32 %290, 10
-  br i1 %or.cond144, label %.lr.ph363, label %._crit_edge364, !llvm.loop !36
+  br i1 %or.cond144, label %.lr.ph363, label %._crit_edge364
 
 ._crit_edge364:                                   ; preds = %.lr.ph363, %.preheader340
   %291 = load ptr, ptr %75, align 8
@@ -4427,7 +4427,7 @@ switch.early.test321:                             ; preds = %.preheader337
   %308 = load i32, ptr %2, align 8
   %309 = add i32 %308, -48
   %or.cond147 = icmp ult i32 %309, 10
-  br i1 %or.cond147, label %.lr.ph356, label %._crit_edge357, !llvm.loop !37
+  br i1 %or.cond147, label %.lr.ph356, label %._crit_edge357
 
 ._crit_edge357:                                   ; preds = %.lr.ph356, %.preheader342
   %310 = load ptr, ptr %75, align 8
@@ -4508,7 +4508,7 @@ _ZN14VrmlTranslator7Scanner5AddChEv.exit252:      ; preds = %_ZN14VrmlTranslator
 
 _ZN14VrmlTranslator7Scanner5AddChEv.exit252.backedge: ; preds = %341, %368, %373
   %.be421 = phi i32 [ %343, %341 ], [ %369, %368 ], [ %369, %373 ]
-  br label %_ZN14VrmlTranslator7Scanner5AddChEv.exit252, !llvm.loop !38
+  br label %_ZN14VrmlTranslator7Scanner5AddChEv.exit252
 
 345:                                              ; preds = %332
   %346 = load ptr, ptr %4, align 8
@@ -5107,7 +5107,7 @@ switch.early.test335:                             ; preds = %492
   %513 = load i32, ptr %2, align 8
   %514 = add i32 %513, -48
   %or.cond197 = icmp ult i32 %514, 10
-  br i1 %or.cond197, label %.lr.ph, label %._crit_edge, !llvm.loop !39
+  br i1 %or.cond197, label %.lr.ph, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader344
   %.lcssa350 = phi i32 [ %97, %.preheader344 ], [ %513, %.lr.ph ]
@@ -5577,7 +5577,7 @@ define linkonce_odr noundef i32 @_ZN14VrmlTranslator10KeywordMap3getEPKwi(ptr no
   %10 = getelementptr inbounds nuw i8, ptr %.0814.i, i64 4
   %11 = load i32, ptr %10, align 4
   %.not12.i = icmp eq i32 %11, 0
-  br i1 %.not12.i, label %._crit_edge.loopexit.i, label %.lr.ph.i, !llvm.loop !11
+  br i1 %.not12.i, label %._crit_edge.loopexit.i, label %.lr.ph.i, !llvm.loop !10
 
 ._crit_edge.loopexit.i:                           ; preds = %.lr.ph.i
   %12 = tail call i32 @llvm.abs.i32(i32 %9, i1 true)
@@ -5604,7 +5604,7 @@ _Z16coco_string_hashPKw.exit:                     ; preds = %3, %.preheader.i, %
   %21 = getelementptr inbounds nuw i8, ptr %.011, i64 24
   %.0 = load ptr, ptr %21, align 8
   %cond = icmp eq ptr %.0, null
-  br i1 %cond, label %.loopexit, label %.lr.ph, !llvm.loop !31
+  br i1 %cond, label %.loopexit, label %.lr.ph, !llvm.loop !29
 
 .critedge:                                        ; preds = %.lr.ph
   %22 = getelementptr inbounds nuw i8, ptr %.011, i64 16
@@ -5660,7 +5660,7 @@ define noundef ptr @_ZN14VrmlTranslator7Scanner4PeekEv(ptr noundef nonnull align
   %12 = load i32, ptr %9, align 8
   %13 = load i32, ptr %7, align 4
   %14 = icmp sgt i32 %12, %13
-  br i1 %14, label %.preheader, label %.loopexit, !llvm.loop !40
+  br i1 %14, label %.preheader, label %.loopexit, !llvm.loop !30
 
 15:                                               ; preds = %.preheader1, %15
   %16 = phi ptr [ %3, %.preheader1 ], [ %18, %15 ]
@@ -5669,7 +5669,7 @@ define noundef ptr @_ZN14VrmlTranslator7Scanner4PeekEv(ptr noundef nonnull align
   store ptr %18, ptr %2, align 8
   %19 = load i32, ptr %18, align 8
   %20 = icmp sgt i32 %19, %8
-  br i1 %20, label %15, label %.loopexit, !llvm.loop !41
+  br i1 %20, label %15, label %.loopexit, !llvm.loop !31
 
 .loopexit:                                        ; preds = %15, %.preheader
   %21 = phi ptr [ %9, %.preheader ], [ %18, %15 ]
@@ -5728,40 +5728,30 @@ attributes #25 = { nounwind allocsize(0) }
 !2 = !{i32 8, !"PIC Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6, !7}
+!5 = distinct !{!5, !6}
 !6 = !{!"llvm.loop.mustprogress"}
-!7 = !{!"llvm.loop.estimated_trip_count"}
-!8 = distinct !{!8, !6, !7}
-!9 = distinct !{!9, !6, !7}
-!10 = distinct !{!10, !6, !7}
-!11 = distinct !{!11, !6, !7}
-!12 = distinct !{!12, !6, !7}
-!13 = distinct !{!13, !6, !7}
-!14 = distinct !{!14, !6, !7}
-!15 = distinct !{!15, !6, !7}
-!16 = distinct !{!16, !6, !7}
-!17 = distinct !{!17, !6, !7}
-!18 = distinct !{!18, !6, !7}
-!19 = distinct !{!19, !6, !7}
-!20 = distinct !{!20, !6, !7}
-!21 = distinct !{!21, !6, !7}
-!22 = distinct !{!22, !6, !7}
-!23 = distinct !{!23, !6, !7}
-!24 = distinct !{!24, !6, !7}
-!25 = distinct !{!25, !6, !7}
-!26 = distinct !{!26, !6, !7}
-!27 = distinct !{!27, !6, !7}
-!28 = distinct !{!28, !6, !7}
-!29 = distinct !{!29, !6, !7}
-!30 = distinct !{!30, !7}
-!31 = distinct !{!31, !6, !7}
-!32 = distinct !{!32, !7}
-!33 = distinct !{!33, !7}
-!34 = distinct !{!34, !7}
-!35 = distinct !{!35, !7}
-!36 = distinct !{!36, !7}
-!37 = distinct !{!37, !7}
-!38 = distinct !{!38, !7}
-!39 = distinct !{!39, !7}
-!40 = distinct !{!40, !6, !7}
-!41 = distinct !{!41, !6, !7}
+!7 = distinct !{!7, !6}
+!8 = distinct !{!8, !6}
+!9 = distinct !{!9, !6}
+!10 = distinct !{!10, !6}
+!11 = distinct !{!11, !6}
+!12 = distinct !{!12, !6}
+!13 = distinct !{!13, !6}
+!14 = distinct !{!14, !6}
+!15 = distinct !{!15, !6}
+!16 = distinct !{!16, !6}
+!17 = distinct !{!17, !6}
+!18 = distinct !{!18, !6}
+!19 = distinct !{!19, !6}
+!20 = distinct !{!20, !6}
+!21 = distinct !{!21, !6}
+!22 = distinct !{!22, !6}
+!23 = distinct !{!23, !6}
+!24 = distinct !{!24, !6}
+!25 = distinct !{!25, !6}
+!26 = distinct !{!26, !6}
+!27 = distinct !{!27, !6}
+!28 = distinct !{!28, !6}
+!29 = distinct !{!29, !6}
+!30 = distinct !{!30, !6}
+!31 = distinct !{!31, !6}

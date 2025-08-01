@@ -206,7 +206,7 @@ define void @IDEA_set_decrypt_key(ptr noundef readonly captures(none) %0, ptr no
   %18 = sub i64 %.02132.i, %.fr37.i
   %19 = urem i64 %.02331.i, %14
   %20 = icmp eq i64 %19, 0
-  br i1 %20, label %.thread.i, label %.lr.ph.i, !llvm.loop !11
+  br i1 %20, label %.thread.i, label %.lr.ph.i, !llvm.loop !10
 
 inverse.exit:                                     ; preds = %7, %.thread.i, %4
   %.019.i = phi i32 [ 0, %4 ], [ 1, %7 ], [ %13, %.thread.i ]
@@ -259,7 +259,7 @@ inverse.exit:                                     ; preds = %7, %.thread.i, %4
   %46 = sub i64 %.02132.i34, %.fr37.i36
   %47 = urem i64 %.02331.i35, %42
   %48 = icmp eq i64 %47, 0
-  br i1 %48, label %.thread.i37, label %.lr.ph.i31, !llvm.loop !11
+  br i1 %48, label %.thread.i37, label %.lr.ph.i31, !llvm.loop !10
 
 inverse.exit41:                                   ; preds = %35, %.thread.i37, %inverse.exit
   %.019.i40 = phi i32 [ 0, %inverse.exit ], [ 1, %35 ], [ %41, %.thread.i37 ]
@@ -279,7 +279,7 @@ inverse.exit41:                                   ; preds = %35, %.thread.i37, %
   %58 = getelementptr inbounds nuw i8, ptr %.028, i64 24
   store i32 %57, ptr %55, align 4, !tbaa !6
   %59 = add nuw nsw i32 %.0, 1
-  br label %4, !llvm.loop !12
+  br label %4, !llvm.loop !11
 
 60:                                               ; preds = %inverse.exit41
   %61 = getelementptr inbounds nuw i8, ptr %1, i64 4
@@ -309,8 +309,7 @@ attributes #0 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwt
 !5 = !{!"Simple C/C++ TBAA"}
 !6 = !{!7, !7, i64 0}
 !7 = !{!"int", !4, i64 0}
-!8 = distinct !{!8, !9, !10}
+!8 = distinct !{!8, !9}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = !{!"llvm.loop.estimated_trip_count"}
-!11 = distinct !{!11, !9, !10}
-!12 = distinct !{!12, !9, !10}
+!10 = distinct !{!10, !9}
+!11 = distinct !{!11, !9}

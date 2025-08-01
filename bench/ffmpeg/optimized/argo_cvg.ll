@@ -248,33 +248,33 @@ argo_cvg_read_checksum.exit.thread:               ; preds = %31, %37, %40, %41
   %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %65, i64 136
   store i64 4, ptr %.sroa.3.0..sroa_idx, align 8, !tbaa !13
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %65, i64 144
-  store ptr null, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !61
+  store ptr null, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !60
   %93 = getelementptr inbounds nuw i8, ptr %65, i64 56
-  store i32 4, ptr %93, align 8, !tbaa !62
+  store i32 4, ptr %93, align 8, !tbaa !61
   %94 = getelementptr inbounds nuw i8, ptr %65, i64 156
-  store i32 16, ptr %94, align 4, !tbaa !63
+  store i32 16, ptr %94, align 4, !tbaa !62
   %95 = shl nsw i32 %91, 2
   %96 = sext i32 %95 to i64
   %97 = getelementptr inbounds nuw i8, ptr %65, i64 48
-  store i64 %96, ptr %97, align 8, !tbaa !64
+  store i64 %96, ptr %97, align 8, !tbaa !63
   %98 = load i32, ptr %8, align 4, !tbaa !31
   %99 = add i32 %98, -8
   %100 = lshr i32 %99, 4
   %101 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  store i32 %100, ptr %101, align 4, !tbaa !65
+  store i32 %100, ptr %101, align 4, !tbaa !64
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 56, ptr noundef nonnull @.str.7, i32 noundef %100) #4
   %102 = load i32, ptr %67, align 8, !tbaa !51
   call void @avpriv_set_pts_info(ptr noundef nonnull %9, i32 noundef 64, i32 noundef 1, i32 noundef %102) #4
   %103 = getelementptr inbounds nuw i8, ptr %9, i64 40
-  store i64 0, ptr %103, align 8, !tbaa !66
-  %104 = load i32, ptr %101, align 4, !tbaa !65
+  store i64 0, ptr %103, align 8, !tbaa !65
+  %104 = load i32, ptr %101, align 4, !tbaa !64
   %105 = mul i32 %104, 28
   %106 = zext i32 %105 to i64
   %107 = getelementptr inbounds nuw i8, ptr %9, i64 48
-  store i64 %106, ptr %107, align 8, !tbaa !67
+  store i64 %106, ptr %107, align 8, !tbaa !66
   %108 = zext i32 %104 to i64
   %109 = getelementptr inbounds nuw i8, ptr %9, i64 56
-  store i64 %108, ptr %109, align 8, !tbaa !68
+  store i64 %108, ptr %109, align 8, !tbaa !67
   br label %110
 
 110:                                              ; preds = %argo_cvg_read_checksum.exit.thread, %58, %53, %47, %16, %15, %10, %1, %.loopexit
@@ -288,22 +288,22 @@ define internal range(i32 -2147483648, 1) i32 @argo_cvg_read_packet(ptr noundef 
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8, !tbaa !29
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 20
-  %6 = load i32, ptr %5, align 4, !tbaa !69
+  %6 = load i32, ptr %5, align 4, !tbaa !68
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %8 = load i32, ptr %7, align 4, !tbaa !65
+  %8 = load i32, ptr %7, align 4, !tbaa !64
   %.not = icmp ult i32 %6, %8
   br i1 %.not, label %9, label %42
 
 9:                                                ; preds = %2
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %11 = load ptr, ptr %10, align 8, !tbaa !70
-  %12 = load ptr, ptr %11, align 8, !tbaa !71
+  %11 = load ptr, ptr %10, align 8, !tbaa !69
+  %12 = load ptr, ptr %11, align 8, !tbaa !70
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %14 = load ptr, ptr %13, align 8, !tbaa !30
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %16 = load ptr, ptr %15, align 8, !tbaa !40
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 156
-  %18 = load i32, ptr %17, align 4, !tbaa !63
+  %18 = load i32, ptr %17, align 4, !tbaa !62
   %19 = sub nuw i32 %8, %6
   %spec.select = tail call i32 @llvm.umin.i32(i32 %19, i32 32)
   %20 = mul i32 %18, %spec.select
@@ -314,7 +314,7 @@ define internal range(i32 -2147483648, 1) i32 @argo_cvg_read_packet(ptr noundef 
 23:                                               ; preds = %9
   %24 = load ptr, ptr %15, align 8, !tbaa !40
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 156
-  %26 = load i32, ptr %25, align 4, !tbaa !63
+  %26 = load i32, ptr %25, align 4, !tbaa !62
   %27 = srem i32 %21, %26
   %28 = sdiv i32 %21, %26
   %.not29 = icmp eq i32 %27, 0
@@ -322,22 +322,22 @@ define internal range(i32 -2147483648, 1) i32 @argo_cvg_read_packet(ptr noundef 
 
 29:                                               ; preds = %23
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 36
-  store i32 0, ptr %30, align 4, !tbaa !73
+  store i32 0, ptr %30, align 4, !tbaa !72
   %31 = mul nsw i32 %28, 28
   %32 = sext i32 %31 to i64
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  store i64 %32, ptr %33, align 8, !tbaa !74
-  %34 = load i32, ptr %5, align 4, !tbaa !69
+  store i64 %32, ptr %33, align 8, !tbaa !73
+  %34 = load i32, ptr %5, align 4, !tbaa !68
   %35 = mul i32 %34, 28
   %36 = zext i32 %35 to i64
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i64 %36, ptr %37, align 8, !tbaa !75
+  store i64 %36, ptr %37, align 8, !tbaa !74
   %38 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %39 = load i32, ptr %38, align 8, !tbaa !76
+  %39 = load i32, ptr %38, align 8, !tbaa !75
   %40 = and i32 %39, -3
-  store i32 %40, ptr %38, align 8, !tbaa !76
+  store i32 %40, ptr %38, align 8, !tbaa !75
   %41 = add i32 %34, %28
-  store i32 %41, ptr %5, align 4, !tbaa !69
+  store i32 %41, ptr %5, align 4, !tbaa !68
   br label %42
 
 42:                                               ; preds = %23, %9, %2, %29
@@ -367,7 +367,7 @@ define internal i32 @argo_cvg_seek(ptr noundef readonly captures(none) %0, i32 n
 
 16:                                               ; preds = %9
   %17 = getelementptr inbounds nuw i8, ptr %6, i64 20
-  store i32 0, ptr %17, align 4, !tbaa !69
+  store i32 0, ptr %17, align 4, !tbaa !68
   br label %18
 
 18:                                               ; preds = %4, %16, %14
@@ -384,27 +384,27 @@ define internal noundef i32 @argo_cvg_write_header(ptr noundef readonly captures
   tail call void @avio_wl32(ptr noundef %5, i32 noundef 0) #4
   %6 = load ptr, ptr %4, align 8, !tbaa !30
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 12
-  %8 = load i32, ptr %7, align 4, !tbaa !77
+  %8 = load i32, ptr %7, align 4, !tbaa !76
   %9 = icmp ne i32 %8, 0
   %10 = zext i1 %9 to i32
   tail call void @avio_wl32(ptr noundef %6, i32 noundef %10) #4
   %11 = load ptr, ptr %4, align 8, !tbaa !30
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %13 = load i32, ptr %12, align 8, !tbaa !79
+  %13 = load i32, ptr %12, align 8, !tbaa !78
   %14 = icmp ne i32 %13, 0
   %15 = zext i1 %14 to i32
   tail call void @avio_wl32(ptr noundef %11, i32 noundef %15) #4
-  %16 = load i32, ptr %7, align 4, !tbaa !77
+  %16 = load i32, ptr %7, align 4, !tbaa !76
   %17 = icmp ne i32 %16, 0
   %18 = zext i1 %17 to i32
-  %19 = load i32, ptr %12, align 8, !tbaa !79
+  %19 = load i32, ptr %12, align 8, !tbaa !78
   %20 = icmp ne i32 %19, 0
   %21 = zext i1 %20 to i32
   %22 = add nuw nsw i32 %21, %18
   %23 = getelementptr inbounds nuw i8, ptr %3, i64 20
-  store i32 %22, ptr %23, align 4, !tbaa !80
+  store i32 %22, ptr %23, align 4, !tbaa !79
   %24 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  store i64 8, ptr %24, align 8, !tbaa !81
+  store i64 8, ptr %24, align 8, !tbaa !80
   ret i32 0
 }
 
@@ -413,14 +413,14 @@ define internal range(i32 -1094995529, 1) i32 @argo_cvg_write_packet(ptr noundef
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8, !tbaa !29
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %6 = load ptr, ptr %5, align 8, !tbaa !70
-  %7 = load ptr, ptr %6, align 8, !tbaa !71
+  %6 = load ptr, ptr %5, align 8, !tbaa !69
+  %7 = load ptr, ptr %6, align 8, !tbaa !70
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %9 = load ptr, ptr %8, align 8, !tbaa !40
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %11 = load i32, ptr %10, align 8, !tbaa !82
+  %11 = load i32, ptr %10, align 8, !tbaa !81
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 156
-  %13 = load i32, ptr %12, align 4, !tbaa !63
+  %13 = load i32, ptr %12, align 4, !tbaa !62
   %14 = srem i32 %11, %13
   %.not = icmp eq i32 %14, 0
   br i1 %.not, label %15, label %.loopexit
@@ -429,14 +429,14 @@ define internal range(i32 -1094995529, 1) i32 @argo_cvg_write_packet(ptr noundef
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %17 = load ptr, ptr %16, align 8, !tbaa !30
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %19 = load ptr, ptr %18, align 8, !tbaa !83
+  %19 = load ptr, ptr %18, align 8, !tbaa !82
   tail call void @avio_write(ptr noundef %17, ptr noundef %19, i32 noundef %11) #4
-  %20 = load i32, ptr %10, align 8, !tbaa !82
+  %20 = load i32, ptr %10, align 8, !tbaa !81
   %21 = sext i32 %20 to i64
   %22 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  %23 = load i64, ptr %22, align 8, !tbaa !81
+  %23 = load i64, ptr %22, align 8, !tbaa !80
   %24 = add i64 %23, %21
-  store i64 %24, ptr %22, align 8, !tbaa !81
+  store i64 %24, ptr %22, align 8, !tbaa !80
   %25 = icmp ugt i64 %24, 4294967295
   br i1 %25, label %.loopexit, label %.preheader
 
@@ -445,9 +445,9 @@ define internal range(i32 -1094995529, 1) i32 @argo_cvg_write_packet(ptr noundef
   br i1 %26, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %.preheader
-  %27 = load ptr, ptr %18, align 8, !tbaa !83
+  %27 = load ptr, ptr %18, align 8, !tbaa !82
   %28 = getelementptr inbounds nuw i8, ptr %4, i64 20
-  %.promoted = load i32, ptr %28, align 4, !tbaa !80
+  %.promoted = load i32, ptr %28, align 4, !tbaa !79
   %wide.trip.count = zext nneg i32 %20 to i64
   br label %29
 
@@ -458,10 +458,10 @@ define internal range(i32 -1094995529, 1) i32 @argo_cvg_write_packet(ptr noundef
   %32 = load i8, ptr %31, align 1, !tbaa !13
   %33 = zext i8 %32 to i32
   %34 = add i32 %30, %33
-  store i32 %34, ptr %28, align 4, !tbaa !80
+  store i32 %34, ptr %28, align 4, !tbaa !79
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %29, !llvm.loop !84
+  br i1 %exitcond.not, label %.loopexit, label %29, !llvm.loop !83
 
 .loopexit:                                        ; preds = %29, %.preheader, %15, %2
   %.016 = phi i32 [ -1094995529, %2 ], [ -1094995529, %15 ], [ 0, %.preheader ], [ 0, %29 ]
@@ -473,7 +473,7 @@ define internal i32 @argo_cvg_write_trailer(ptr noundef %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8, !tbaa !29
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %5 = load i64, ptr %4, align 8, !tbaa !81
+  %5 = load i64, ptr %4, align 8, !tbaa !80
   %6 = and i64 %5, 255
   %7 = lshr i64 %5, 8
   %8 = and i64 %7, 255
@@ -484,16 +484,16 @@ define internal i32 @argo_cvg_write_trailer(ptr noundef %0) #0 {
   %13 = add nuw nsw i64 %12, %8
   %14 = add nuw nsw i64 %13, %10
   %15 = getelementptr inbounds nuw i8, ptr %3, i64 20
-  %16 = load i32, ptr %15, align 4, !tbaa !80
+  %16 = load i32, ptr %15, align 4, !tbaa !79
   %17 = trunc i64 %14 to i32
   %18 = add i32 %16, %17
-  store i32 %18, ptr %15, align 4, !tbaa !80
+  store i32 %18, ptr %15, align 4, !tbaa !79
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 56, ptr noundef nonnull @.str.16, i64 noundef %5) #4
-  %19 = load i32, ptr %15, align 4, !tbaa !80
+  %19 = load i32, ptr %15, align 4, !tbaa !79
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 56, ptr noundef nonnull @.str.17, i32 noundef %19) #4
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %21 = load ptr, ptr %20, align 8, !tbaa !30
-  %22 = load i32, ptr %15, align 4, !tbaa !80
+  %22 = load i32, ptr %15, align 4, !tbaa !79
   tail call void @avio_wl32(ptr noundef %21, i32 noundef %22) #4
   %23 = load ptr, ptr %20, align 8, !tbaa !30
   %24 = tail call i64 @avio_seek(ptr noundef %23, i64 noundef 0, i32 noundef 0) #4
@@ -506,7 +506,7 @@ define internal i32 @argo_cvg_write_trailer(ptr noundef %0) #0 {
 
 28:                                               ; preds = %1
   %29 = load ptr, ptr %20, align 8, !tbaa !30
-  %30 = load i64, ptr %4, align 8, !tbaa !81
+  %30 = load i64, ptr %4, align 8, !tbaa !80
   %31 = trunc i64 %30 to i32
   tail call void @avio_wl32(ptr noundef %29, i32 noundef %31) #4
   br label %32
@@ -521,24 +521,24 @@ define internal range(i32 -22, 1) i32 @argo_cvg_write_init(ptr noundef %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8, !tbaa !29
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %5 = load ptr, ptr %4, align 8, !tbaa !70
-  %6 = load ptr, ptr %5, align 8, !tbaa !71
+  %5 = load ptr, ptr %4, align 8, !tbaa !69
+  %6 = load ptr, ptr %5, align 8, !tbaa !70
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %8 = load ptr, ptr %7, align 8, !tbaa !40
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 132
-  %10 = load i32, ptr %9, align 4, !tbaa !85
+  %10 = load i32, ptr %9, align 4, !tbaa !84
   %.not = icmp eq i32 %10, 1
   br i1 %.not, label %11, label %.sink.split
 
 11:                                               ; preds = %1
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 156
-  %13 = load i32, ptr %12, align 4, !tbaa !63
+  %13 = load i32, ptr %12, align 4, !tbaa !62
   %.not10 = icmp eq i32 %13, 16
   br i1 %.not10, label %14, label %26
 
 14:                                               ; preds = %11
   %15 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %16 = load i32, ptr %15, align 8, !tbaa !86
+  %16 = load i32, ptr %15, align 8, !tbaa !85
   %.not11 = icmp eq i32 %16, 0
   br i1 %.not11, label %17, label %20
 
@@ -668,32 +668,31 @@ attributes #4 = { nounwind }
 !55 = !{!53, !10, i64 24}
 !56 = !{!53, !10, i64 28}
 !57 = !{!53, !10, i64 32}
-!58 = distinct !{!58, !59, !60}
+!58 = distinct !{!58, !59}
 !59 = !{!"llvm.loop.mustprogress"}
-!60 = !{!"llvm.loop.estimated_trip_count"}
-!61 = !{!7, !7, i64 0}
-!62 = !{!48, !10, i64 56}
-!63 = !{!48, !10, i64 156}
-!64 = !{!48, !24, i64 48}
-!65 = !{!32, !10, i64 16}
-!66 = !{!41, !24, i64 40}
-!67 = !{!41, !24, i64 48}
-!68 = !{!41, !24, i64 56}
-!69 = !{!32, !10, i64 20}
-!70 = !{!15, !20, i64 48}
-!71 = !{!72, !72, i64 0}
-!72 = !{!"p1 _ZTS8AVStream", !7, i64 0}
-!73 = !{!44, !10, i64 36}
-!74 = !{!44, !24, i64 64}
-!75 = !{!44, !24, i64 8}
-!76 = !{!44, !10, i64 40}
-!77 = !{!78, !10, i64 12}
-!78 = !{!"ArgoCVGMuxContext", !16, i64 0, !10, i64 8, !10, i64 12, !10, i64 16, !10, i64 20, !24, i64 24}
-!79 = !{!78, !10, i64 16}
-!80 = !{!78, !10, i64 20}
-!81 = !{!78, !24, i64 24}
-!82 = !{!44, !10, i64 32}
-!83 = !{!44, !6, i64 24}
-!84 = distinct !{!84, !59, !60}
-!85 = !{!48, !10, i64 132}
-!86 = !{!78, !10, i64 8}
+!60 = !{!7, !7, i64 0}
+!61 = !{!48, !10, i64 56}
+!62 = !{!48, !10, i64 156}
+!63 = !{!48, !24, i64 48}
+!64 = !{!32, !10, i64 16}
+!65 = !{!41, !24, i64 40}
+!66 = !{!41, !24, i64 48}
+!67 = !{!41, !24, i64 56}
+!68 = !{!32, !10, i64 20}
+!69 = !{!15, !20, i64 48}
+!70 = !{!71, !71, i64 0}
+!71 = !{!"p1 _ZTS8AVStream", !7, i64 0}
+!72 = !{!44, !10, i64 36}
+!73 = !{!44, !24, i64 64}
+!74 = !{!44, !24, i64 8}
+!75 = !{!44, !10, i64 40}
+!76 = !{!77, !10, i64 12}
+!77 = !{!"ArgoCVGMuxContext", !16, i64 0, !10, i64 8, !10, i64 12, !10, i64 16, !10, i64 20, !24, i64 24}
+!78 = !{!77, !10, i64 16}
+!79 = !{!77, !10, i64 20}
+!80 = !{!77, !24, i64 24}
+!81 = !{!44, !10, i64 32}
+!82 = !{!44, !6, i64 24}
+!83 = distinct !{!83, !59}
+!84 = !{!48, !10, i64 132}
+!85 = !{!77, !10, i64 8}

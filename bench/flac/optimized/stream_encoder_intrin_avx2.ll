@@ -71,19 +71,19 @@ define hidden void @FLAC__precompute_partition_info_sums_intrin_avx2(ptr noundef
   %42 = add <4 x i32> %41, %.0108.in155
   %43 = add nsw i32 %.2156, 4
   %44 = icmp slt i32 %43, %34
-  br i1 %44, label %.lr.ph158, label %.preheader, !llvm.loop !9
+  br i1 %44, label %.lr.ph158, label %.preheader, !llvm.loop !8
 
 .lr.ph162:                                        ; preds = %.lr.ph162.preheader, %.lr.ph162
   %indvars.iv207 = phi i64 [ %37, %.lr.ph162.preheader ], [ %indvars.iv.next208, %.lr.ph162 ]
   %45 = phi <4 x i32> [ %.0108.in.lcssa, %.lr.ph162.preheader ], [ %49, %.lr.ph162 ]
   %46 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv207
-  %47 = load i32, ptr %46, align 4, !tbaa !10
+  %47 = load i32, ptr %46, align 4, !tbaa !9
   %.scalar = tail call i32 @llvm.abs.i32(i32 %47, i1 false)
   %48 = insertelement <4 x i32> <i32 poison, i32 0, i32 0, i32 0>, i32 %.scalar, i64 0
   %49 = add <4 x i32> %48, %45
   %indvars.iv.next208 = add nuw nsw i64 %indvars.iv207, 1
   %exitcond212.not = icmp eq i64 %indvars.iv.next208, %18
-  br i1 %exitcond212.not, label %._crit_edge163, label %.lr.ph162, !llvm.loop !12
+  br i1 %exitcond212.not, label %._crit_edge163, label %.lr.ph162, !llvm.loop !11
 
 ._crit_edge163:                                   ; preds = %.lr.ph162, %.preheader
   %.lcssa = phi <4 x i32> [ %.0108.in.lcssa, %.preheader ], [ %49, %.lr.ph162 ]
@@ -95,11 +95,11 @@ define hidden void @FLAC__precompute_partition_info_sums_intrin_avx2(ptr noundef
   %54 = extractelement <4 x i32> %53, i64 0
   %55 = zext i32 %54 to i64
   %56 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv213
-  store i64 %55, ptr %56, align 8, !tbaa !13
+  store i64 %55, ptr %56, align 8, !tbaa !12
   %indvars.iv.next214 = add nuw nsw i64 %indvars.iv213, 1
   %indvars.iv.next210 = add i32 %indvars.iv209, %9
   %exitcond218.not = icmp eq i64 %indvars.iv.next214, %wide.trip.count217
-  br i1 %exitcond218.not, label %.loopexit126, label %.preheader125, !llvm.loop !15
+  br i1 %exitcond218.not, label %.loopexit126, label %.preheader125, !llvm.loop !14
 
 .preheader128:                                    ; preds = %7, %._crit_edge142
   %indvars.iv203 = phi i64 [ %indvars.iv.next204, %._crit_edge142 ], [ 0, %7 ]
@@ -123,7 +123,7 @@ define hidden void @FLAC__precompute_partition_info_sums_intrin_avx2(ptr noundef
   %66 = add <4 x i64> %.0106130, %65
   %67 = add nsw i32 %.5131, 4
   %68 = icmp slt i32 %67, %59
-  br i1 %68, label %.lr.ph, label %._crit_edge, !llvm.loop !16
+  br i1 %68, label %.lr.ph, label %._crit_edge, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader128
   %.0106.lcssa = phi <4 x i64> [ zeroinitializer, %.preheader128 ], [ %66, %.lr.ph ]
@@ -159,20 +159,20 @@ define hidden void @FLAC__precompute_partition_info_sums_intrin_avx2(ptr noundef
   %84 = add <2 x i64> %.0104133, %83
   %85 = add nsw i32 %.6134, 2
   %86 = icmp slt i32 %85, %72
-  br i1 %86, label %.lr.ph136, label %.preheader127, !llvm.loop !17
+  br i1 %86, label %.lr.ph136, label %.preheader127, !llvm.loop !16
 
 .lr.ph141:                                        ; preds = %.lr.ph141.preheader, %.lr.ph141
   %indvars.iv = phi i64 [ %75, %.lr.ph141.preheader ], [ %indvars.iv.next, %.lr.ph141 ]
   %.1105139 = phi <2 x i64> [ %.0104.lcssa, %.lr.ph141.preheader ], [ %91, %.lr.ph141 ]
   %87 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv
-  %88 = load i32, ptr %87, align 4, !tbaa !10
+  %88 = load i32, ptr %87, align 4, !tbaa !9
   %.scalar220 = tail call i32 @llvm.abs.i32(i32 %88, i1 false)
   %89 = insertelement <4 x i32> <i32 poison, i32 0, i32 0, i32 0>, i32 %.scalar220, i64 0
   %90 = bitcast <4 x i32> %89 to <2 x i64>
   %91 = add <2 x i64> %.1105139, %90
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %57
-  br i1 %exitcond.not, label %._crit_edge142, label %.lr.ph141, !llvm.loop !18
+  br i1 %exitcond.not, label %._crit_edge142, label %.lr.ph141, !llvm.loop !17
 
 ._crit_edge142:                                   ; preds = %.lr.ph141, %.preheader127
   %.1105.lcssa = phi <2 x i64> [ %.0104.lcssa, %.preheader127 ], [ %91, %.lr.ph141 ]
@@ -185,7 +185,7 @@ define hidden void @FLAC__precompute_partition_info_sums_intrin_avx2(ptr noundef
   %indvars.iv.next204 = add nuw nsw i64 %indvars.iv203, 1
   %indvars.iv.next201 = add i32 %indvars.iv200, %9
   %exitcond206.not = icmp eq i64 %indvars.iv.next204, %wide.trip.count217
-  br i1 %exitcond206.not, label %.loopexit126, label %.preheader128, !llvm.loop !19
+  br i1 %exitcond206.not, label %.loopexit126, label %.preheader128, !llvm.loop !18
 
 .loopexit126:                                     ; preds = %._crit_edge142, %._crit_edge163
   %.not.not177 = icmp sgt i32 %5, %4
@@ -195,7 +195,7 @@ define hidden void @FLAC__precompute_partition_info_sums_intrin_avx2(ptr noundef
   %.196.lcssa = phi i32 [ %.095179, %.lr.ph183 ], [ %108, %.lr.ph173 ]
   %.1.lcssa = phi i32 [ %.094180, %.lr.ph183 ], [ %105, %.lr.ph173 ]
   %.not.not = icmp sgt i32 %.093181, %4
-  br i1 %.not.not, label %.lr.ph183, label %._crit_edge184, !llvm.loop !20
+  br i1 %.not.not, label %.lr.ph183, label %._crit_edge184, !llvm.loop !19
 
 .lr.ph183:                                        ; preds = %.loopexit126, %.loopexit
   %.093181.in = phi i32 [ %.093181, %.loopexit ], [ %5, %.loopexit126 ]
@@ -213,20 +213,20 @@ define hidden void @FLAC__precompute_partition_info_sums_intrin_avx2(ptr noundef
   %.196169 = phi i32 [ %108, %.lr.ph173 ], [ %.095179, %.lr.ph183 ]
   %97 = zext i32 %.196169 to i64
   %98 = getelementptr inbounds nuw i64, ptr %1, i64 %97
-  %99 = load i64, ptr %98, align 8, !tbaa !13
+  %99 = load i64, ptr %98, align 8, !tbaa !12
   %100 = add i32 %.196169, 1
   %101 = zext i32 %100 to i64
   %102 = getelementptr inbounds nuw i64, ptr %1, i64 %101
-  %103 = load i64, ptr %102, align 8, !tbaa !13
+  %103 = load i64, ptr %102, align 8, !tbaa !12
   %104 = add i64 %103, %99
   %105 = add i32 %.1170, 1
   %106 = zext i32 %.1170 to i64
   %107 = getelementptr inbounds nuw i64, ptr %1, i64 %106
-  store i64 %104, ptr %107, align 8, !tbaa !13
+  store i64 %104, ptr %107, align 8, !tbaa !12
   %108 = add i32 %.196169, 2
   %109 = add nuw nsw i32 %.0171, 1
   %exitcond219.not = icmp eq i32 %109, %96
-  br i1 %exitcond219.not, label %.loopexit, label %.lr.ph173, !llvm.loop !21
+  br i1 %exitcond219.not, label %.loopexit, label %.lr.ph173, !llvm.loop !20
 
 ._crit_edge184:                                   ; preds = %.loopexit, %.loopexit126
   tail call void @llvm.x86.avx.vzeroupper()
@@ -261,19 +261,18 @@ attributes #3 = { nocallback nofree nosync nounwind speculatable willreturn memo
 !3 = !{!4, !4, i64 0}
 !4 = !{!"omnipotent char", !5, i64 0}
 !5 = !{!"Simple C/C++ TBAA"}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = !{!11, !11, i64 0}
-!11 = !{!"int", !4, i64 0}
-!12 = distinct !{!12, !7, !8}
-!13 = !{!14, !14, i64 0}
-!14 = !{!"long", !4, i64 0}
-!15 = distinct !{!15, !7, !8}
-!16 = distinct !{!16, !7, !8}
-!17 = distinct !{!17, !7, !8}
-!18 = distinct !{!18, !7, !8}
-!19 = distinct !{!19, !7, !8}
-!20 = distinct !{!20, !7, !8}
-!21 = distinct !{!21, !7, !8}
+!8 = distinct !{!8, !7}
+!9 = !{!10, !10, i64 0}
+!10 = !{!"int", !4, i64 0}
+!11 = distinct !{!11, !7}
+!12 = !{!13, !13, i64 0}
+!13 = !{!"long", !4, i64 0}
+!14 = distinct !{!14, !7}
+!15 = distinct !{!15, !7}
+!16 = distinct !{!16, !7}
+!17 = distinct !{!17, !7}
+!18 = distinct !{!18, !7}
+!19 = distinct !{!19, !7}
+!20 = distinct !{!20, !7}

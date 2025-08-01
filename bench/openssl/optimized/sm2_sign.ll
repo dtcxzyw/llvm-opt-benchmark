@@ -444,7 +444,7 @@ define internal fastcc ptr @sm2_sig_gen(ptr noundef %0, ptr noundef nonnull %1) 
 .backedge:                                        ; preds = %29, %34, %48
   %31 = tail call i32 @BN_priv_rand_range_ex(ptr noundef %13, ptr noundef %5, i32 noundef 0, ptr noundef nonnull %10) #4
   %.not = icmp eq i32 %31, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !6
+  br i1 %.not, label %._crit_edge, label %.lr.ph
 
 32:                                               ; preds = %29
   %33 = tail call i32 @BN_add(ptr noundef %14, ptr noundef %19, ptr noundef %13) #4
@@ -542,9 +542,9 @@ define internal fastcc range(i32 0, 2) i32 @sm2_sig_verify(ptr noundef %0, ptr n
   %6 = tail call ptr @EC_KEY_get0_group(ptr noundef %0) #4
   %7 = tail call ptr @EC_GROUP_get0_order(ptr noundef %6) #4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #4
-  store ptr null, ptr %4, align 8, !tbaa !8
+  store ptr null, ptr %4, align 8, !tbaa !6
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #4
-  store ptr null, ptr %5, align 8, !tbaa !8
+  store ptr null, ptr %5, align 8, !tbaa !6
   %8 = tail call ptr @ossl_ec_key_get_libctx(ptr noundef %0) #4
   %9 = tail call ptr @BN_CTX_new_ex(ptr noundef %8) #4
   %10 = icmp eq ptr %9, null
@@ -582,27 +582,27 @@ define internal fastcc range(i32 0, 2) i32 @sm2_sig_verify(ptr noundef %0, ptr n
 
 21:                                               ; preds = %17
   call void @ECDSA_SIG_get0(ptr noundef %1, ptr noundef nonnull %4, ptr noundef nonnull %5) #4
-  %22 = load ptr, ptr %4, align 8, !tbaa !8
+  %22 = load ptr, ptr %4, align 8, !tbaa !6
   %23 = call ptr @BN_value_one() #4
   %24 = call i32 @BN_cmp(ptr noundef %22, ptr noundef %23) #4
   %25 = icmp slt i32 %24, 0
   br i1 %25, label %39, label %26
 
 26:                                               ; preds = %21
-  %27 = load ptr, ptr %5, align 8, !tbaa !8
+  %27 = load ptr, ptr %5, align 8, !tbaa !6
   %28 = call ptr @BN_value_one() #4
   %29 = call i32 @BN_cmp(ptr noundef %27, ptr noundef %28) #4
   %30 = icmp slt i32 %29, 0
   br i1 %30, label %39, label %31
 
 31:                                               ; preds = %26
-  %32 = load ptr, ptr %4, align 8, !tbaa !8
+  %32 = load ptr, ptr %4, align 8, !tbaa !6
   %33 = call i32 @BN_cmp(ptr noundef %7, ptr noundef %32) #4
   %34 = icmp slt i32 %33, 1
   br i1 %34, label %39, label %35
 
 35:                                               ; preds = %31
-  %36 = load ptr, ptr %5, align 8, !tbaa !8
+  %36 = load ptr, ptr %5, align 8, !tbaa !6
   %37 = call i32 @BN_cmp(ptr noundef %7, ptr noundef %36) #4
   %38 = icmp slt i32 %37, 1
   br i1 %38, label %39, label %40
@@ -614,8 +614,8 @@ define internal fastcc range(i32 0, 2) i32 @sm2_sig_verify(ptr noundef %0, ptr n
   br label %62
 
 40:                                               ; preds = %35
-  %41 = load ptr, ptr %4, align 8, !tbaa !8
-  %42 = load ptr, ptr %5, align 8, !tbaa !8
+  %41 = load ptr, ptr %4, align 8, !tbaa !6
+  %42 = load ptr, ptr %5, align 8, !tbaa !6
   %43 = call i32 @BN_mod_add(ptr noundef %13, ptr noundef %41, ptr noundef %42, ptr noundef %7, ptr noundef nonnull %9) #4
   %.not = icmp eq i32 %43, 0
   br i1 %.not, label %44, label %45
@@ -638,7 +638,7 @@ define internal fastcc range(i32 0, 2) i32 @sm2_sig_verify(ptr noundef %0, ptr n
   br label %62
 
 48:                                               ; preds = %45
-  %49 = load ptr, ptr %5, align 8, !tbaa !8
+  %49 = load ptr, ptr %5, align 8, !tbaa !6
   %50 = call ptr @EC_KEY_get0_public_key(ptr noundef %0) #4
   %51 = call i32 @EC_POINT_mul(ptr noundef %6, ptr noundef nonnull %18, ptr noundef %49, ptr noundef %50, ptr noundef %13, ptr noundef nonnull %9) #4
   %.not41 = icmp eq i32 %51, 0
@@ -667,7 +667,7 @@ define internal fastcc range(i32 0, 2) i32 @sm2_sig_verify(ptr noundef %0, ptr n
   br label %62
 
 58:                                               ; preds = %55
-  %59 = load ptr, ptr %4, align 8, !tbaa !8
+  %59 = load ptr, ptr %4, align 8, !tbaa !6
   %60 = call i32 @BN_cmp(ptr noundef %59, ptr noundef %13) #4
   %61 = icmp eq i32 %60, 0
   %spec.select = zext i1 %61 to i32
@@ -687,7 +687,7 @@ define internal fastcc range(i32 0, 2) i32 @sm2_sig_verify(ptr noundef %0, ptr n
 ; Function Attrs: nounwind uwtable
 define range(i32 -1, 2) i32 @ossl_sm2_internal_sign(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef writeonly captures(none) %3, ptr noundef %4) local_unnamed_addr #0 {
   %6 = alloca ptr, align 8
-  store ptr %2, ptr %6, align 8, !tbaa !11
+  store ptr %2, ptr %6, align 8, !tbaa !9
   %7 = icmp eq ptr %2, null
   br i1 %7, label %8, label %9
 
@@ -731,7 +731,7 @@ define range(i32 -1, 2) i32 @ossl_sm2_internal_sign(ptr noundef %0, i32 noundef 
   br label %22
 
 21:                                               ; preds = %17
-  store i32 %18, ptr %3, align 4, !tbaa !13
+  store i32 %18, ptr %3, align 4, !tbaa !11
   br label %22
 
 22:                                               ; preds = %21, %20, %16, %12, %8
@@ -756,11 +756,11 @@ define range(i32 -1, 2) i32 @ossl_sm2_internal_verify(ptr noundef %0, i32 nounde
   %8 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #4
-  store ptr %2, ptr %7, align 8, !tbaa !11
+  store ptr %2, ptr %7, align 8, !tbaa !9
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #4
-  store ptr null, ptr %8, align 8, !tbaa !11
+  store ptr null, ptr %8, align 8, !tbaa !9
   %9 = tail call ptr @ECDSA_SIG_new() #4
-  store ptr %9, ptr %6, align 8, !tbaa !15
+  store ptr %9, ptr %6, align 8, !tbaa !13
   %10 = icmp eq ptr %9, null
   br i1 %10, label %11, label %12
 
@@ -783,13 +783,13 @@ define range(i32 -1, 2) i32 @ossl_sm2_internal_verify(ptr noundef %0, i32 nounde
   br label %30
 
 17:                                               ; preds = %12
-  %18 = load ptr, ptr %6, align 8, !tbaa !15
+  %18 = load ptr, ptr %6, align 8, !tbaa !13
   %19 = call i32 @i2d_ECDSA_SIG(ptr noundef %18, ptr noundef nonnull %8) #4
   %.not = icmp eq i32 %19, %3
   br i1 %.not, label %20, label %22
 
 20:                                               ; preds = %17
-  %21 = load ptr, ptr %8, align 8, !tbaa !11
+  %21 = load ptr, ptr %8, align 8, !tbaa !9
   %bcmp = call i32 @bcmp(ptr %2, ptr %21, i64 %13)
   %.not15 = icmp eq i32 %bcmp, 0
   br i1 %.not15, label %23, label %22
@@ -812,17 +812,17 @@ define range(i32 -1, 2) i32 @ossl_sm2_internal_verify(ptr noundef %0, i32 nounde
   br label %30
 
 27:                                               ; preds = %23
-  %28 = load ptr, ptr %6, align 8, !tbaa !15
+  %28 = load ptr, ptr %6, align 8, !tbaa !13
   %29 = call fastcc i32 @sm2_sig_verify(ptr noundef %4, ptr noundef %28, ptr noundef %24)
   br label %30
 
 30:                                               ; preds = %27, %26, %22, %16, %11
   %.012 = phi ptr [ null, %11 ], [ null, %16 ], [ null, %22 ], [ null, %26 ], [ %24, %27 ]
   %.0 = phi i32 [ -1, %11 ], [ -1, %16 ], [ -1, %22 ], [ -1, %26 ], [ %29, %27 ]
-  %31 = load ptr, ptr %8, align 8, !tbaa !11
+  %31 = load ptr, ptr %8, align 8, !tbaa !9
   call void @CRYPTO_free(ptr noundef %31, ptr noundef nonnull @.str, i32 noundef 532) #4
   call void @BN_free(ptr noundef %.012) #4
-  %32 = load ptr, ptr %6, align 8, !tbaa !15
+  %32 = load ptr, ptr %6, align 8, !tbaa !13
   call void @ECDSA_SIG_free(ptr noundef %32) #4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #4
@@ -899,14 +899,12 @@ attributes #4 = { nounwind }
 !3 = !{!4, !4, i64 0}
 !4 = !{!"omnipotent char", !5, i64 0}
 !5 = !{!"Simple C/C++ TBAA"}
-!6 = distinct !{!6, !7}
-!7 = !{!"llvm.loop.estimated_trip_count"}
-!8 = !{!9, !9, i64 0}
-!9 = !{!"p1 _ZTS9bignum_st", !10, i64 0}
-!10 = !{!"any pointer", !4, i64 0}
+!6 = !{!7, !7, i64 0}
+!7 = !{!"p1 _ZTS9bignum_st", !8, i64 0}
+!8 = !{!"any pointer", !4, i64 0}
+!9 = !{!10, !10, i64 0}
+!10 = !{!"p1 omnipotent char", !8, i64 0}
 !11 = !{!12, !12, i64 0}
-!12 = !{!"p1 omnipotent char", !10, i64 0}
+!12 = !{!"int", !4, i64 0}
 !13 = !{!14, !14, i64 0}
-!14 = !{!"int", !4, i64 0}
-!15 = !{!16, !16, i64 0}
-!16 = !{!"p1 _ZTS12ECDSA_SIG_st", !10, i64 0}
+!14 = !{!"p1 _ZTS12ECDSA_SIG_st", !8, i64 0}

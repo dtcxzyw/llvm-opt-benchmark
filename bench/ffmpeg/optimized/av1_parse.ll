@@ -120,20 +120,20 @@ parse_obu_header.exit:                            ; preds = %62
 
 70:                                               ; preds = %parse_obu_header.exit
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i32 %15, ptr %71, align 8, !tbaa !10
+  store i32 %15, ptr %71, align 8, !tbaa !9
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 36
-  store i32 %.024, ptr %72, align 4, !tbaa !15
+  store i32 %.024, ptr %72, align 4, !tbaa !14
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store i32 %.0, ptr %73, align 8, !tbaa !16
+  store i32 %.0, ptr %73, align 8, !tbaa !15
   %74 = getelementptr inbounds nuw i8, ptr %1, i64 %64
   %75 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %74, ptr %75, align 8, !tbaa !17
+  store ptr %74, ptr %75, align 8, !tbaa !16
   %76 = trunc i64 %60 to i32
-  store i32 %76, ptr %0, align 8, !tbaa !18
+  store i32 %76, ptr %0, align 8, !tbaa !17
   %77 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr %1, ptr %77, align 8, !tbaa !19
+  store ptr %1, ptr %77, align 8, !tbaa !18
   %78 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  store i32 %68, ptr %78, align 4, !tbaa !20
+  store i32 %68, ptr %78, align 4, !tbaa !19
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %3, i32 noundef 48, ptr noundef nonnull @.str, i32 noundef %15, i32 noundef %.024, i32 noundef %.0, i32 noundef %76) #6
   br label %parse_obu_header.exit.thread
 
@@ -164,7 +164,7 @@ bytestream2_init.exit:                            ; preds = %4
   %7 = zext nneg i32 %2 to i64
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 %7
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 0, ptr %9, align 8, !tbaa !21
+  store i32 0, ptr %9, align 8, !tbaa !20
   %10 = ptrtoint ptr %8 to i64
   %.not78 = icmp eq i32 %2, 0
   br i1 %.not78, label %.thread65, label %.lr.ph
@@ -174,12 +174,12 @@ bytestream2_init.exit:                            ; preds = %4
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br label %13
 
-13:                                               ; preds = %.lr.ph, %75
-  %14 = phi i32 [ %2, %.lr.ph ], [ %78, %75 ]
-  %15 = phi i64 [ %7, %.lr.ph ], [ %77, %75 ]
-  %.sroa.0.071 = phi ptr [ %1, %.lr.ph ], [ %38, %75 ]
-  %16 = load i32, ptr %11, align 4, !tbaa !24
-  %17 = load i32, ptr %9, align 8, !tbaa !21
+13:                                               ; preds = %.lr.ph, %79
+  %14 = phi i32 [ %2, %.lr.ph ], [ %82, %79 ]
+  %15 = phi i64 [ %7, %.lr.ph ], [ %81, %79 ]
+  %.sroa.0.071 = phi ptr [ %1, %.lr.ph ], [ %38, %79 ]
+  %16 = load i32, ptr %11, align 4, !tbaa !23
+  %17 = load i32, ptr %9, align 8, !tbaa !20
   %.not = icmp sgt i32 %16, %17
   br i1 %.not, label %29, label %18
 
@@ -189,7 +189,7 @@ bytestream2_init.exit:                            ; preds = %4
   br i1 %20, label %.thread65, label %21
 
 21:                                               ; preds = %18
-  %22 = load ptr, ptr %0, align 8, !tbaa !25
+  %22 = load ptr, ptr %0, align 8, !tbaa !24
   %narrow = mul nuw nsw i32 %19, 48
   %23 = zext nneg i32 %narrow to i64
   %24 = tail call ptr @av_fast_realloc(ptr noundef %22, ptr noundef nonnull %12, i64 noundef %23) #6
@@ -197,18 +197,18 @@ bytestream2_init.exit:                            ; preds = %4
   br i1 %.not46, label %.thread65, label %25
 
 25:                                               ; preds = %21
-  store ptr %24, ptr %0, align 8, !tbaa !25
-  %26 = load i32, ptr %11, align 4, !tbaa !24
+  store ptr %24, ptr %0, align 8, !tbaa !24
+  %26 = load i32, ptr %11, align 4, !tbaa !23
   %27 = sext i32 %26 to i64
   %28 = getelementptr inbounds %struct.AV1OBU, ptr %24, i64 %27
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %28, i8 0, i64 48, i1 false)
-  store i32 %19, ptr %11, align 4, !tbaa !24
-  %.pre = load i32, ptr %9, align 8, !tbaa !21
+  store i32 %19, ptr %11, align 4, !tbaa !23
+  %.pre = load i32, ptr %9, align 8, !tbaa !20
   br label %29
 
 29:                                               ; preds = %25, %13
   %30 = phi i32 [ %.pre, %25 ], [ %17, %13 ]
-  %31 = load ptr, ptr %0, align 8, !tbaa !25
+  %31 = load ptr, ptr %0, align 8, !tbaa !24
   %32 = sext i32 %30 to i64
   %33 = getelementptr inbounds %struct.AV1OBU, ptr %31, i64 %32
   %34 = tail call i32 @ff_av1_extract_obu(ptr noundef %33, ptr noundef %.sroa.0.071, i32 noundef %14, ptr noundef %3)
@@ -220,10 +220,10 @@ bytestream2_init.exit:                            ; preds = %4
   %..i = tail call i64 @llvm.smin.i64(i64 %15, i64 %37)
   %38 = getelementptr inbounds i8, ptr %.sroa.0.071, i64 %..i
   %39 = getelementptr inbounds nuw i8, ptr %33, i64 8
-  %40 = load ptr, ptr %39, align 8, !tbaa !17
-  %41 = load i32, ptr %33, align 8, !tbaa !18
+  %40 = load ptr, ptr %39, align 8, !tbaa !16
+  %41 = load i32, ptr %33, align 8, !tbaa !17
   %42 = getelementptr inbounds nuw i8, ptr %33, i64 32
-  %43 = load i32, ptr %42, align 8, !tbaa !10
+  %43 = load i32, ptr %42, align 8, !tbaa !9
   switch i32 %43, label %.preheader.i [
     i32 8, label %45
     i32 6, label %45
@@ -231,7 +231,6 @@ bytestream2_init.exit:                            ; preds = %4
   ]
 
 .preheader.i:                                     ; preds = %36
-  %invariant.gep.i = getelementptr i8, ptr %40, i64 -1
   %44 = icmp sgt i32 %41, 0
   br i1 %44, label %.lr.ph.i, label %.critedge.i
 
@@ -240,94 +239,97 @@ bytestream2_init.exit:                            ; preds = %4
   %47 = shl nsw i32 %41, 3
   br i1 %46, label %get_obu_bit_length.exit.thread, label %get_obu_bit_length.exit
 
-.lr.ph.i:                                         ; preds = %.preheader.i, %51
-  %.02129.i = phi i32 [ %52, %51 ], [ %41, %.preheader.i ]
+.lr.ph.i:                                         ; preds = %.preheader.i, %53
+  %.02129.i = phi i32 [ %54, %53 ], [ %41, %.preheader.i ]
   %48 = zext nneg i32 %.02129.i to i64
-  %gep.i = getelementptr i8, ptr %invariant.gep.i, i64 %48
-  %49 = load i8, ptr %gep.i, align 1, !tbaa !4
-  %50 = icmp eq i8 %49, 0
-  br i1 %50, label %51, label %55
+  %49 = getelementptr i8, ptr %40, i64 %48
+  %50 = getelementptr i8, ptr %49, i64 -1
+  %51 = load i8, ptr %50, align 1, !tbaa !4
+  %52 = icmp eq i8 %51, 0
+  br i1 %52, label %53, label %56
 
-51:                                               ; preds = %.lr.ph.i
-  %52 = add nsw i32 %.02129.i, -1
-  %53 = icmp sgt i32 %.02129.i, 1
-  br i1 %53, label %.lr.ph.i, label %.thread62, !llvm.loop !26
+53:                                               ; preds = %.lr.ph.i
+  %54 = add nsw i32 %.02129.i, -1
+  %55 = icmp sgt i32 %.02129.i, 1
+  br i1 %55, label %.lr.ph.i, label %.thread62, !llvm.loop !25
 
 .critedge.i:                                      ; preds = %.preheader.i
   %.not.i = icmp eq i32 %41, 0
-  br i1 %.not.i, label %.thread62, label %.thread.i
+  br i1 %.not.i, label %.thread62, label %59
 
-.thread.i:                                        ; preds = %.critedge.i
-  %54 = sext i32 %41 to i64
-  br label %57
+56:                                               ; preds = %.lr.ph.i
+  %57 = icmp samesign ugt i32 %.02129.i, 268435455
+  br i1 %57, label %get_obu_bit_length.exit.thread, label %.thread33.i
 
-55:                                               ; preds = %.lr.ph.i
-  %56 = icmp samesign ugt i32 %.02129.i, 268435455
-  br i1 %56, label %get_obu_bit_length.exit.thread, label %57
+.thread33.i:                                      ; preds = %56
+  %58 = shl nuw nsw i32 %.02129.i, 3
+  br label %62
 
-57:                                               ; preds = %55, %.thread.i
-  %.02128.i = phi i32 [ %41, %.thread.i ], [ %.02129.i, %55 ]
-  %.pn26.i = phi i64 [ %54, %.thread.i ], [ %48, %55 ]
-  %.pn.i = getelementptr i8, ptr %40, i64 %.pn26.i
-  %.in.i = getelementptr i8, ptr %.pn.i, i64 -1
-  %58 = load i8, ptr %.in.i, align 1, !tbaa !4
-  %59 = shl nsw i32 %.02128.i, 3
-  %.not24.i = icmp eq i8 %58, 0
-  br i1 %.not24.i, label %get_obu_bit_length.exit, label %60
+59:                                               ; preds = %.critedge.i
+  %60 = sext i32 %41 to i64
+  %.pn.phi.trans.insert.i = getelementptr i8, ptr %40, i64 %60
+  %.in.phi.trans.insert.i = getelementptr i8, ptr %.pn.phi.trans.insert.i, i64 -1
+  %.pre.i = load i8, ptr %.in.phi.trans.insert.i, align 1, !tbaa !4
+  %61 = shl nsw i32 %41, 3
+  %.not24.i = icmp eq i8 %.pre.i, 0
+  br i1 %.not24.i, label %get_obu_bit_length.exit.thread, label %62
 
-60:                                               ; preds = %57
-  %61 = tail call range(i8 0, 9) i8 @llvm.cttz.i8(i8 %58, i1 true)
-  %62 = xor i8 %61, -1
-  %.neg.i = sext i8 %62 to i32
-  %63 = add i32 %59, %.neg.i
+62:                                               ; preds = %59, %.thread33.i
+  %63 = phi i32 [ %58, %.thread33.i ], [ %61, %59 ]
+  %64 = phi i8 [ %51, %.thread33.i ], [ %.pre.i, %59 ]
+  %65 = tail call range(i8 0, 9) i8 @llvm.cttz.i8(i8 %64, i1 true)
+  %66 = xor i8 %65, -1
+  %.neg.i = sext i8 %66 to i32
+  %67 = add i32 %63, %.neg.i
   br label %get_obu_bit_length.exit
 
-get_obu_bit_length.exit.thread:                   ; preds = %55, %45
-  %64 = getelementptr inbounds nuw i8, ptr %33, i64 16
-  store i32 -34, ptr %64, align 8, !tbaa !27
-  br label %71
-
-.thread62:                                        ; preds = %51, %.critedge.i
-  %65 = getelementptr inbounds nuw i8, ptr %33, i64 16
-  store i32 0, ptr %65, align 8, !tbaa !27
-  br label %70
-
-get_obu_bit_length.exit:                          ; preds = %45, %57, %60
-  %.0.i = phi i32 [ %63, %60 ], [ %59, %57 ], [ %47, %45 ]
-  %66 = getelementptr inbounds nuw i8, ptr %33, i64 16
-  store i32 %.0.i, ptr %66, align 8, !tbaa !27
-  %67 = icmp slt i32 %.0.i, 0
-  br i1 %67, label %71, label %68
-
-68:                                               ; preds = %get_obu_bit_length.exit
-  %69 = icmp eq i32 %.0.i, 0
-  br i1 %69, label %70, label %72
-
-70:                                               ; preds = %.thread62, %68
-  switch i32 %43, label %71 [
-    i32 2, label %72
-    i32 15, label %72
-  ]
-
-71:                                               ; preds = %get_obu_bit_length.exit.thread, %70, %get_obu_bit_length.exit
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %3, i32 noundef 16, ptr noundef nonnull @.str.1, i32 noundef %43) #6
-  br label %75, !llvm.loop !28
-
-72:                                               ; preds = %70, %70, %68
-  %73 = load i32, ptr %9, align 8, !tbaa !21
-  %74 = add nsw i32 %73, 1
-  store i32 %74, ptr %9, align 8, !tbaa !21
+get_obu_bit_length.exit.thread:                   ; preds = %56, %59, %45
+  %.0.i.ph = phi i32 [ %61, %59 ], [ -34, %56 ], [ -34, %45 ]
+  %68 = getelementptr inbounds nuw i8, ptr %33, i64 16
+  store i32 %.0.i.ph, ptr %68, align 8, !tbaa !26
   br label %75
 
-75:                                               ; preds = %72, %71
-  %76 = ptrtoint ptr %38 to i64
-  %77 = sub i64 %10, %76
-  %78 = trunc i64 %77 to i32
-  %79 = icmp sgt i32 %78, 0
-  br i1 %79, label %13, label %.thread65
+.thread62:                                        ; preds = %53, %.critedge.i
+  %69 = getelementptr inbounds nuw i8, ptr %33, i64 16
+  store i32 0, ptr %69, align 8, !tbaa !26
+  br label %74
 
-.thread65:                                        ; preds = %75, %29, %18, %21, %bytestream2_init.exit
-  %.4 = phi i32 [ 0, %bytestream2_init.exit ], [ -12, %21 ], [ -12, %18 ], [ %34, %29 ], [ 0, %75 ]
+get_obu_bit_length.exit:                          ; preds = %45, %62
+  %.0.i = phi i32 [ %67, %62 ], [ %47, %45 ]
+  %70 = getelementptr inbounds nuw i8, ptr %33, i64 16
+  store i32 %.0.i, ptr %70, align 8, !tbaa !26
+  %71 = icmp slt i32 %.0.i, 0
+  br i1 %71, label %75, label %72
+
+72:                                               ; preds = %get_obu_bit_length.exit
+  %73 = icmp eq i32 %.0.i, 0
+  br i1 %73, label %74, label %76
+
+74:                                               ; preds = %.thread62, %72
+  switch i32 %43, label %75 [
+    i32 2, label %76
+    i32 15, label %76
+  ]
+
+75:                                               ; preds = %get_obu_bit_length.exit.thread, %74, %get_obu_bit_length.exit
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %3, i32 noundef 16, ptr noundef nonnull @.str.1, i32 noundef %43) #6
+  br label %79, !llvm.loop !27
+
+76:                                               ; preds = %74, %74, %72
+  %77 = load i32, ptr %9, align 8, !tbaa !20
+  %78 = add nsw i32 %77, 1
+  store i32 %78, ptr %9, align 8, !tbaa !20
+  br label %79
+
+79:                                               ; preds = %76, %75
+  %80 = ptrtoint ptr %38 to i64
+  %81 = sub i64 %10, %80
+  %82 = trunc i64 %81 to i32
+  %83 = icmp sgt i32 %82, 0
+  br i1 %83, label %13, label %.thread65
+
+.thread65:                                        ; preds = %79, %29, %18, %21, %bytestream2_init.exit
+  %.4 = phi i32 [ 0, %bytestream2_init.exit ], [ -12, %21 ], [ -12, %18 ], [ %34, %29 ], [ 0, %79 ]
   ret i32 %.4
 }
 
@@ -340,9 +342,9 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 define void @ff_av1_packet_uninit(ptr noundef %0) local_unnamed_addr #0 {
   tail call void @av_freep(ptr noundef %0) #6
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i32 0, ptr %2, align 8, !tbaa !29
+  store i32 0, ptr %2, align 8, !tbaa !28
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store i32 0, ptr %3, align 4, !tbaa !24
+  store i32 0, ptr %3, align 4, !tbaa !23
   ret void
 }
 
@@ -417,26 +419,25 @@ attributes #7 = { noreturn nounwind }
 !4 = !{!5, !5, i64 0}
 !5 = !{!"omnipotent char", !6, i64 0}
 !6 = !{!"Simple C/C++ TBAA"}
-!7 = distinct !{!7, !8, !9}
+!7 = distinct !{!7, !8}
 !8 = !{!"llvm.loop.mustprogress"}
-!9 = !{!"llvm.loop.estimated_trip_count"}
-!10 = !{!11, !12, i64 32}
-!11 = !{!"AV1OBU", !12, i64 0, !13, i64 8, !12, i64 16, !12, i64 20, !13, i64 24, !12, i64 32, !12, i64 36, !12, i64 40}
-!12 = !{!"int", !5, i64 0}
-!13 = !{!"p1 omnipotent char", !14, i64 0}
-!14 = !{!"any pointer", !5, i64 0}
-!15 = !{!11, !12, i64 36}
-!16 = !{!11, !12, i64 40}
-!17 = !{!11, !13, i64 8}
-!18 = !{!11, !12, i64 0}
-!19 = !{!11, !13, i64 24}
-!20 = !{!11, !12, i64 20}
-!21 = !{!22, !12, i64 8}
-!22 = !{!"AV1Packet", !23, i64 0, !12, i64 8, !12, i64 12, !12, i64 16}
-!23 = !{!"p1 _ZTS6AV1OBU", !14, i64 0}
-!24 = !{!22, !12, i64 12}
-!25 = !{!22, !23, i64 0}
-!26 = distinct !{!26, !8, !9}
-!27 = !{!11, !12, i64 16}
-!28 = distinct !{!28, !8}
-!29 = !{!22, !12, i64 16}
+!9 = !{!10, !11, i64 32}
+!10 = !{!"AV1OBU", !11, i64 0, !12, i64 8, !11, i64 16, !11, i64 20, !12, i64 24, !11, i64 32, !11, i64 36, !11, i64 40}
+!11 = !{!"int", !5, i64 0}
+!12 = !{!"p1 omnipotent char", !13, i64 0}
+!13 = !{!"any pointer", !5, i64 0}
+!14 = !{!10, !11, i64 36}
+!15 = !{!10, !11, i64 40}
+!16 = !{!10, !12, i64 8}
+!17 = !{!10, !11, i64 0}
+!18 = !{!10, !12, i64 24}
+!19 = !{!10, !11, i64 20}
+!20 = !{!21, !11, i64 8}
+!21 = !{!"AV1Packet", !22, i64 0, !11, i64 8, !11, i64 12, !11, i64 16}
+!22 = !{!"p1 _ZTS6AV1OBU", !13, i64 0}
+!23 = !{!21, !11, i64 12}
+!24 = !{!21, !22, i64 0}
+!25 = distinct !{!25, !8}
+!26 = !{!10, !11, i64 16}
+!27 = distinct !{!27, !8}
+!28 = !{!21, !11, i64 16}

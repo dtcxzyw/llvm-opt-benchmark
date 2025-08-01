@@ -1212,7 +1212,7 @@ idaLs_AccessLMem.exit:                            ; preds = %13
   %50 = fmul double %.13758, 2.500000e-01
   %51 = add nuw nsw i32 %.03559, 1
   %exitcond.not = icmp eq i32 %51, 3
-  br i1 %exitcond.not, label %idaLs_AccessLMem.exit.thread, label %39, !llvm.loop !103
+  br i1 %exitcond.not, label %idaLs_AccessLMem.exit.thread, label %39
 
 .thread:                                          ; preds = %39
   %52 = fdiv double 1.000000e+00, %.13758
@@ -1274,9 +1274,9 @@ idaLs_AccessLMem.exit:                            ; preds = %6
   %28 = load ptr, ptr %27, align 8, !tbaa !60
   %29 = tail call i32 %12(double noundef %14, ptr noundef %16, ptr noundef %18, ptr noundef %20, ptr noundef %1, ptr noundef %2, double noundef %22, ptr noundef %24, ptr noundef %26, ptr noundef %28) #13
   %30 = getelementptr inbounds nuw i8, ptr %8, i64 184
-  %31 = load i64, ptr %30, align 8, !tbaa !105
+  %31 = load i64, ptr %30, align 8, !tbaa !103
   %32 = add nsw i64 %31, 1
-  store i64 %32, ptr %30, align 8, !tbaa !105
+  store i64 %32, ptr %30, align 8, !tbaa !103
   br label %idaLs_AccessLMem.exit.thread
 
 idaLs_AccessLMem.exit.thread:                     ; preds = %10, %5, %idaLs_AccessLMem.exit
@@ -1369,7 +1369,7 @@ define range(i32 -2, 1) i32 @idaLs_AccessLMem(ptr noundef %0, ptr noundef %1, pt
   br label %13
 
 7:                                                ; preds = %4
-  store ptr %0, ptr %2, align 8, !tbaa !106
+  store ptr %0, ptr %2, align 8, !tbaa !104
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 1048
   %9 = load ptr, ptr %8, align 8, !tbaa !65
   %10 = icmp eq ptr %9, null
@@ -1380,7 +1380,7 @@ define range(i32 -2, 1) i32 @idaLs_AccessLMem(ptr noundef %0, ptr noundef %1, pt
   br label %13
 
 12:                                               ; preds = %7
-  store ptr %9, ptr %3, align 8, !tbaa !108
+  store ptr %9, ptr %3, align 8, !tbaa !106
   br label %13
 
 13:                                               ; preds = %12, %11, %6
@@ -1602,7 +1602,7 @@ idaLs_AccessLMem.exit:                            ; preds = %6
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 256
   store ptr %1, ptr %11, align 8, !tbaa !71
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 264
-  store ptr %2, ptr %12, align 8, !tbaa !110
+  store ptr %2, ptr %12, align 8, !tbaa !108
   %13 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %14 = load ptr, ptr %13, align 8, !tbaa !37
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
@@ -1670,9 +1670,9 @@ idaLs_AccessLMem.exit:                            ; preds = %4
   %22 = load ptr, ptr %21, align 8, !tbaa !54
   %23 = tail call i32 %10(double noundef %12, ptr noundef %14, ptr noundef %16, ptr noundef %18, double noundef %20, ptr noundef %22) #13
   %24 = getelementptr inbounds nuw i8, ptr %6, i64 136
-  %25 = load i64, ptr %24, align 8, !tbaa !111
+  %25 = load i64, ptr %24, align 8, !tbaa !109
   %26 = add nsw i64 %25, 1
-  store i64 %26, ptr %24, align 8, !tbaa !111
+  store i64 %26, ptr %24, align 8, !tbaa !109
   br label %idaLs_AccessLMem.exit.thread
 
 idaLs_AccessLMem.exit.thread:                     ; preds = %8, %3, %idaLs_AccessLMem.exit
@@ -1701,7 +1701,7 @@ define i32 @idaLsPSolve(ptr noundef %0, ptr noundef %1, ptr noundef %2, double n
 
 idaLs_AccessLMem.exit:                            ; preds = %8
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 264
-  %14 = load ptr, ptr %13, align 8, !tbaa !110
+  %14 = load ptr, ptr %13, align 8, !tbaa !108
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 680
   %16 = load double, ptr %15, align 8, !tbaa !77
   %17 = getelementptr inbounds nuw i8, ptr %10, i64 72
@@ -1716,9 +1716,9 @@ idaLs_AccessLMem.exit:                            ; preds = %8
   %26 = load ptr, ptr %25, align 8, !tbaa !54
   %27 = tail call i32 %14(double noundef %16, ptr noundef %18, ptr noundef %20, ptr noundef %22, ptr noundef %1, ptr noundef %2, double noundef %24, double noundef %3, ptr noundef %26) #13
   %28 = getelementptr inbounds nuw i8, ptr %10, i64 152
-  %29 = load i64, ptr %28, align 8, !tbaa !112
+  %29 = load i64, ptr %28, align 8, !tbaa !110
   %30 = add nsw i64 %29, 1
-  store i64 %30, ptr %28, align 8, !tbaa !112
+  store i64 %30, ptr %28, align 8, !tbaa !110
   br label %idaLs_AccessLMem.exit.thread
 
 idaLs_AccessLMem.exit.thread:                     ; preds = %12, %7, %idaLs_AccessLMem.exit
@@ -1865,7 +1865,7 @@ define range(i32 -2, 1) i32 @IDAGetJac(ptr noundef %0, ptr noundef writeonly cap
 idaLs_AccessLMem.exit:                            ; preds = %5
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %11 = load ptr, ptr %10, align 8, !tbaa !43
-  store ptr %11, ptr %1, align 8, !tbaa !113
+  store ptr %11, ptr %1, align 8, !tbaa !111
   br label %idaLs_AccessLMem.exit.thread
 
 idaLs_AccessLMem.exit.thread:                     ; preds = %9, %4, %idaLs_AccessLMem.exit
@@ -1894,8 +1894,8 @@ define range(i32 -2, 1) i32 @IDAGetJacCj(ptr noundef %0, ptr noundef writeonly c
 
 idaLs_AccessLMem.exit:                            ; preds = %5
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 712
-  %11 = load double, ptr %10, align 8, !tbaa !114
-  store double %11, ptr %1, align 8, !tbaa !115
+  %11 = load double, ptr %10, align 8, !tbaa !112
+  store double %11, ptr %1, align 8, !tbaa !113
   br label %idaLs_AccessLMem.exit.thread
 
 idaLs_AccessLMem.exit.thread:                     ; preds = %9, %4, %idaLs_AccessLMem.exit
@@ -1925,7 +1925,7 @@ define range(i32 -2, 1) i32 @IDAGetJacTime(ptr noundef %0, ptr noundef writeonly
 idaLs_AccessLMem.exit:                            ; preds = %5
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 240
   %11 = load double, ptr %10, align 8, !tbaa !78
-  store double %11, ptr %1, align 8, !tbaa !115
+  store double %11, ptr %1, align 8, !tbaa !113
   br label %idaLs_AccessLMem.exit.thread
 
 idaLs_AccessLMem.exit.thread:                     ; preds = %9, %4, %idaLs_AccessLMem.exit
@@ -1955,7 +1955,7 @@ define range(i32 -2, 1) i32 @IDAGetJacNumSteps(ptr noundef %0, ptr noundef write
 idaLs_AccessLMem.exit:                            ; preds = %5
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 232
   %11 = load i64, ptr %10, align 8, !tbaa !76
-  store i64 %11, ptr %1, align 8, !tbaa !116
+  store i64 %11, ptr %1, align 8, !tbaa !114
   br label %idaLs_AccessLMem.exit.thread
 
 idaLs_AccessLMem.exit.thread:                     ; preds = %9, %4, %idaLs_AccessLMem.exit
@@ -1991,29 +1991,29 @@ define range(i32 -2, 1) i32 @IDAGetLinWorkSpace(ptr noundef %0, ptr noundef capt
   br label %idaLs_AccessLMem.exit.thread
 
 idaLs_AccessLMem.exit:                            ; preds = %10
-  store i64 3, ptr %1, align 8, !tbaa !116
-  store i64 33, ptr %2, align 8, !tbaa !116
+  store i64 3, ptr %1, align 8, !tbaa !114
+  store i64 33, ptr %2, align 8, !tbaa !114
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 464
   %16 = load ptr, ptr %15, align 8, !tbaa !13
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %18 = load ptr, ptr %17, align 8, !tbaa !22
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 32
-  %20 = load ptr, ptr %19, align 8, !tbaa !117
+  %20 = load ptr, ptr %19, align 8, !tbaa !115
   %.not11 = icmp eq ptr %20, null
   br i1 %.not11, label %30, label %21
 
 21:                                               ; preds = %idaLs_AccessLMem.exit
   call void @N_VSpace(ptr noundef nonnull %16, ptr noundef nonnull %4, ptr noundef nonnull %5) #13
-  %22 = load i64, ptr %4, align 8, !tbaa !116
+  %22 = load i64, ptr %4, align 8, !tbaa !114
   %23 = mul nsw i64 %22, 3
-  %24 = load i64, ptr %1, align 8, !tbaa !116
+  %24 = load i64, ptr %1, align 8, !tbaa !114
   %25 = add nsw i64 %24, %23
-  store i64 %25, ptr %1, align 8, !tbaa !116
-  %26 = load i64, ptr %5, align 8, !tbaa !116
+  store i64 %25, ptr %1, align 8, !tbaa !114
+  %26 = load i64, ptr %5, align 8, !tbaa !114
   %27 = mul nsw i64 %26, 3
-  %28 = load i64, ptr %2, align 8, !tbaa !116
+  %28 = load i64, ptr %2, align 8, !tbaa !114
   %29 = add nsw i64 %28, %27
-  store i64 %29, ptr %2, align 8, !tbaa !116
+  store i64 %29, ptr %2, align 8, !tbaa !114
   br label %30
 
 30:                                               ; preds = %21, %idaLs_AccessLMem.exit
@@ -2022,7 +2022,7 @@ idaLs_AccessLMem.exit:                            ; preds = %10
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 8
   %34 = load ptr, ptr %33, align 8, !tbaa !3
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 96
-  %36 = load ptr, ptr %35, align 8, !tbaa !118
+  %36 = load ptr, ptr %35, align 8, !tbaa !116
   %.not12 = icmp eq ptr %36, null
   br i1 %.not12, label %idaLs_AccessLMem.exit.thread, label %37
 
@@ -2032,14 +2032,14 @@ idaLs_AccessLMem.exit:                            ; preds = %10
   br i1 %39, label %40, label %idaLs_AccessLMem.exit.thread
 
 40:                                               ; preds = %37
-  %41 = load i64, ptr %6, align 8, !tbaa !116
-  %42 = load i64, ptr %1, align 8, !tbaa !116
+  %41 = load i64, ptr %6, align 8, !tbaa !114
+  %42 = load i64, ptr %1, align 8, !tbaa !114
   %43 = add nsw i64 %42, %41
-  store i64 %43, ptr %1, align 8, !tbaa !116
-  %44 = load i64, ptr %7, align 8, !tbaa !116
-  %45 = load i64, ptr %2, align 8, !tbaa !116
+  store i64 %43, ptr %1, align 8, !tbaa !114
+  %44 = load i64, ptr %7, align 8, !tbaa !114
+  %45 = load i64, ptr %2, align 8, !tbaa !114
   %46 = add nsw i64 %45, %44
-  store i64 %46, ptr %2, align 8, !tbaa !116
+  store i64 %46, ptr %2, align 8, !tbaa !114
   br label %idaLs_AccessLMem.exit.thread
 
 idaLs_AccessLMem.exit.thread:                     ; preds = %14, %9, %30, %40, %37
@@ -2077,7 +2077,7 @@ define range(i32 -2, 1) i32 @IDAGetNumJacEvals(ptr noundef %0, ptr noundef write
 idaLs_AccessLMem.exit:                            ; preds = %5
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 128
   %11 = load i64, ptr %10, align 8, !tbaa !79
-  store i64 %11, ptr %1, align 8, !tbaa !116
+  store i64 %11, ptr %1, align 8, !tbaa !114
   br label %idaLs_AccessLMem.exit.thread
 
 idaLs_AccessLMem.exit.thread:                     ; preds = %9, %4, %idaLs_AccessLMem.exit
@@ -2106,8 +2106,8 @@ define range(i32 -2, 1) i32 @IDAGetNumPrecEvals(ptr noundef %0, ptr noundef writ
 
 idaLs_AccessLMem.exit:                            ; preds = %5
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 136
-  %11 = load i64, ptr %10, align 8, !tbaa !111
-  store i64 %11, ptr %1, align 8, !tbaa !116
+  %11 = load i64, ptr %10, align 8, !tbaa !109
+  store i64 %11, ptr %1, align 8, !tbaa !114
   br label %idaLs_AccessLMem.exit.thread
 
 idaLs_AccessLMem.exit.thread:                     ; preds = %9, %4, %idaLs_AccessLMem.exit
@@ -2136,8 +2136,8 @@ define range(i32 -2, 1) i32 @IDAGetNumPrecSolves(ptr noundef %0, ptr noundef wri
 
 idaLs_AccessLMem.exit:                            ; preds = %5
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 152
-  %11 = load i64, ptr %10, align 8, !tbaa !112
-  store i64 %11, ptr %1, align 8, !tbaa !116
+  %11 = load i64, ptr %10, align 8, !tbaa !110
+  store i64 %11, ptr %1, align 8, !tbaa !114
   br label %idaLs_AccessLMem.exit.thread
 
 idaLs_AccessLMem.exit.thread:                     ; preds = %9, %4, %idaLs_AccessLMem.exit
@@ -2167,7 +2167,7 @@ define range(i32 -2, 1) i32 @IDAGetNumLinIters(ptr noundef %0, ptr noundef write
 idaLs_AccessLMem.exit:                            ; preds = %5
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 144
   %11 = load i64, ptr %10, align 8, !tbaa !84
-  store i64 %11, ptr %1, align 8, !tbaa !116
+  store i64 %11, ptr %1, align 8, !tbaa !114
   br label %idaLs_AccessLMem.exit.thread
 
 idaLs_AccessLMem.exit.thread:                     ; preds = %9, %4, %idaLs_AccessLMem.exit
@@ -2197,7 +2197,7 @@ define range(i32 -2, 1) i32 @IDAGetNumLinConvFails(ptr noundef %0, ptr noundef w
 idaLs_AccessLMem.exit:                            ; preds = %5
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 160
   %11 = load i64, ptr %10, align 8, !tbaa !86
-  store i64 %11, ptr %1, align 8, !tbaa !116
+  store i64 %11, ptr %1, align 8, !tbaa !114
   br label %idaLs_AccessLMem.exit.thread
 
 idaLs_AccessLMem.exit.thread:                     ; preds = %9, %4, %idaLs_AccessLMem.exit
@@ -2227,7 +2227,7 @@ define range(i32 -2, 1) i32 @IDAGetNumJTSetupEvals(ptr noundef %0, ptr noundef w
 idaLs_AccessLMem.exit:                            ; preds = %5
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 176
   %11 = load i64, ptr %10, align 8, !tbaa !83
-  store i64 %11, ptr %1, align 8, !tbaa !116
+  store i64 %11, ptr %1, align 8, !tbaa !114
   br label %idaLs_AccessLMem.exit.thread
 
 idaLs_AccessLMem.exit.thread:                     ; preds = %9, %4, %idaLs_AccessLMem.exit
@@ -2256,8 +2256,8 @@ define range(i32 -2, 1) i32 @IDAGetNumJtimesEvals(ptr noundef %0, ptr noundef wr
 
 idaLs_AccessLMem.exit:                            ; preds = %5
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 184
-  %11 = load i64, ptr %10, align 8, !tbaa !105
-  store i64 %11, ptr %1, align 8, !tbaa !116
+  %11 = load i64, ptr %10, align 8, !tbaa !103
+  store i64 %11, ptr %1, align 8, !tbaa !114
   br label %idaLs_AccessLMem.exit.thread
 
 idaLs_AccessLMem.exit.thread:                     ; preds = %9, %4, %idaLs_AccessLMem.exit
@@ -2287,7 +2287,7 @@ define range(i32 -2, 1) i32 @IDAGetNumLinResEvals(ptr noundef %0, ptr noundef wr
 idaLs_AccessLMem.exit:                            ; preds = %5
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 168
   %11 = load i64, ptr %10, align 8, !tbaa !102
-  store i64 %11, ptr %1, align 8, !tbaa !116
+  store i64 %11, ptr %1, align 8, !tbaa !114
   br label %idaLs_AccessLMem.exit.thread
 
 idaLs_AccessLMem.exit.thread:                     ; preds = %9, %4, %idaLs_AccessLMem.exit
@@ -2318,7 +2318,7 @@ idaLs_AccessLMem.exit:                            ; preds = %5
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 248
   %11 = load i32, ptr %10, align 8, !tbaa !57
   %12 = sext i32 %11 to i64
-  store i64 %12, ptr %1, align 8, !tbaa !116
+  store i64 %12, ptr %1, align 8, !tbaa !114
   br label %idaLs_AccessLMem.exit.thread
 
 idaLs_AccessLMem.exit.thread:                     ; preds = %9, %4, %idaLs_AccessLMem.exit
@@ -2404,20 +2404,20 @@ define i32 @idaLsDenseDQJac(double noundef %0, double noundef %1, ptr noundef %2
   %16 = tail call ptr @N_VGetArrayPointer(ptr noundef %2) #13
   %17 = tail call ptr @N_VGetArrayPointer(ptr noundef %3) #13
   %18 = getelementptr inbounds nuw i8, ptr %6, i64 88
-  %19 = load i32, ptr %18, align 8, !tbaa !119
+  %19 = load i32, ptr %18, align 8, !tbaa !117
   %.not = icmp eq i32 %19, 0
   br i1 %.not, label %24, label %20
 
 20:                                               ; preds = %8
   %21 = getelementptr inbounds nuw i8, ptr %6, i64 440
-  %22 = load ptr, ptr %21, align 8, !tbaa !120
+  %22 = load ptr, ptr %21, align 8, !tbaa !118
   %23 = tail call ptr @N_VGetArrayPointer(ptr noundef %22) #13
   br label %24
 
 24:                                               ; preds = %20, %8
   %.089 = phi ptr [ %23, %20 ], [ null, %8 ]
   %25 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %26 = load double, ptr %25, align 8, !tbaa !121
+  %26 = load double, ptr %25, align 8, !tbaa !119
   %27 = fcmp ugt double %26, 0.000000e+00
   br i1 %27, label %28, label %30
 
@@ -2442,18 +2442,18 @@ define i32 @idaLsDenseDQJac(double noundef %0, double noundef %1, ptr noundef %2
   %38 = tail call ptr @SUNDenseMatrix_Column(ptr noundef %5, i64 noundef %.090103) #13
   tail call void @N_VSetArrayPointer(ptr noundef %38, ptr noundef %12) #13
   %39 = getelementptr inbounds nuw double, ptr %16, i64 %.090103
-  %40 = load double, ptr %39, align 8, !tbaa !115
+  %40 = load double, ptr %39, align 8, !tbaa !113
   %41 = getelementptr inbounds nuw double, ptr %17, i64 %.090103
-  %42 = load double, ptr %41, align 8, !tbaa !115
+  %42 = load double, ptr %41, align 8, !tbaa !113
   %43 = tail call double @llvm.fabs.f64(double %40)
-  %44 = load double, ptr %33, align 8, !tbaa !122
+  %44 = load double, ptr %33, align 8, !tbaa !120
   %45 = fmul double %42, %44
   %46 = tail call double @llvm.fabs.f64(double %45)
   %47 = fcmp ogt double %43, %46
   %. = select i1 %47, double %43, double %46
   %48 = fmul double %31, %.
   %49 = getelementptr inbounds nuw double, ptr %15, i64 %.090103
-  %50 = load double, ptr %49, align 8, !tbaa !115
+  %50 = load double, ptr %49, align 8, !tbaa !113
   %51 = fdiv double 1.000000e+00, %50
   %52 = fcmp ogt double %48, %51
   %53 = select i1 %52, double %48, double %51
@@ -2462,13 +2462,13 @@ define i32 @idaLsDenseDQJac(double noundef %0, double noundef %1, ptr noundef %2
   %.087 = select i1 %54, double %55, double %53
   %56 = fadd double %40, %.087
   %57 = fsub double %56, %40
-  %58 = load i32, ptr %18, align 8, !tbaa !119
+  %58 = load i32, ptr %18, align 8, !tbaa !117
   %.not100 = icmp eq i32 %58, 0
   br i1 %.not100, label %78, label %59
 
 59:                                               ; preds = %37
   %60 = getelementptr inbounds nuw double, ptr %.089, i64 %.090103
-  %61 = load double, ptr %60, align 8, !tbaa !115
+  %61 = load double, ptr %60, align 8, !tbaa !113
   %62 = tail call double @llvm.fabs.f64(double %61)
   %63 = fcmp oeq double %62, 1.000000e+00
   br i1 %63, label %64, label %70
@@ -2500,10 +2500,10 @@ define i32 @idaLsDenseDQJac(double noundef %0, double noundef %1, ptr noundef %2
 78:                                               ; preds = %68, %64, %72, %76, %70, %37
   %.188 = phi double [ %69, %68 ], [ %57, %64 ], [ %77, %76 ], [ %57, %72 ], [ %57, %70 ], [ %57, %37 ]
   %79 = fadd double %40, %.188
-  store double %79, ptr %39, align 8, !tbaa !115
-  %80 = load double, ptr %41, align 8, !tbaa !115
+  store double %79, ptr %39, align 8, !tbaa !113
+  %80 = load double, ptr %41, align 8, !tbaa !113
   %81 = tail call double @llvm.fmuladd.f64(double %1, double %.188, double %80)
-  store double %81, ptr %41, align 8, !tbaa !115
+  store double %81, ptr %41, align 8, !tbaa !113
   %82 = load ptr, ptr %34, align 8, !tbaa !50
   %83 = load ptr, ptr %35, align 8, !tbaa !53
   %84 = tail call i32 %82(double noundef %0, ptr noundef %2, ptr noundef %3, ptr noundef %7, ptr noundef %83) #13
@@ -2517,11 +2517,11 @@ define i32 @idaLsDenseDQJac(double noundef %0, double noundef %1, ptr noundef %2
   %88 = fdiv double 1.000000e+00, %.188
   %89 = fneg double %88
   tail call void @N_VLinearSum(double noundef %88, ptr noundef %7, double noundef %89, ptr noundef %4, ptr noundef %12) #13
-  store double %40, ptr %39, align 8, !tbaa !115
-  store double %42, ptr %41, align 8, !tbaa !115
+  store double %40, ptr %39, align 8, !tbaa !113
+  store double %42, ptr %41, align 8, !tbaa !113
   %90 = add nuw nsw i64 %.090103, 1
   %exitcond.not = icmp eq i64 %90, %11
-  br i1 %exitcond.not, label %._crit_edge, label %37, !llvm.loop !123
+  br i1 %exitcond.not, label %._crit_edge, label %37
 
 ._crit_edge:                                      ; preds = %87, %78, %30
   %.1 = phi i32 [ 0, %30 ], [ %84, %78 ], [ 0, %87 ]
@@ -2547,13 +2547,13 @@ define i32 @idaLsBandDQJac(double noundef %0, double noundef %1, ptr noundef %2,
   %23 = tail call ptr @N_VGetArrayPointer(ptr noundef %8) #13
   %24 = tail call ptr @N_VGetArrayPointer(ptr noundef %9) #13
   %25 = getelementptr inbounds nuw i8, ptr %6, i64 88
-  %26 = load i32, ptr %25, align 8, !tbaa !119
+  %26 = load i32, ptr %25, align 8, !tbaa !117
   %.not = icmp eq i32 %26, 0
   br i1 %.not, label %31, label %27
 
 27:                                               ; preds = %10
   %28 = getelementptr inbounds nuw i8, ptr %6, i64 440
-  %29 = load ptr, ptr %28, align 8, !tbaa !120
+  %29 = load ptr, ptr %28, align 8, !tbaa !118
   %30 = tail call ptr @N_VGetArrayPointer(ptr noundef %29) #13
   br label %31
 
@@ -2562,7 +2562,7 @@ define i32 @idaLsBandDQJac(double noundef %0, double noundef %1, ptr noundef %2,
   tail call void @N_VScale(double noundef 1.000000e+00, ptr noundef %2, ptr noundef %8) #13
   tail call void @N_VScale(double noundef 1.000000e+00, ptr noundef %3, ptr noundef %9) #13
   %32 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %33 = load double, ptr %32, align 8, !tbaa !121
+  %33 = load double, ptr %32, align 8, !tbaa !119
   %34 = fcmp ugt double %33, 0.000000e+00
   br i1 %34, label %35, label %37
 
@@ -2589,20 +2589,20 @@ define i32 @idaLsBandDQJac(double noundef %0, double noundef %1, ptr noundef %2,
 .lr.ph:                                           ; preds = %._crit_edge209, %.lr.ph213
   %.0169211 = phi i64 [ 1, %.lr.ph213 ], [ %160, %._crit_edge209 ]
   %47 = add nsw i64 %.0169211, -1
-  %48 = load i32, ptr %25, align 8, !tbaa !119
+  %48 = load i32, ptr %25, align 8, !tbaa !117
   %.not196 = icmp eq i32 %48, 0
   br label %49
 
 49:                                               ; preds = %.lr.ph, %88
   %.0172201 = phi i64 [ %47, %.lr.ph ], [ %95, %88 ]
   %50 = getelementptr inbounds double, ptr %20, i64 %.0172201
-  %51 = load double, ptr %50, align 8, !tbaa !115
+  %51 = load double, ptr %50, align 8, !tbaa !113
   %52 = getelementptr inbounds double, ptr %21, i64 %.0172201
-  %53 = load double, ptr %52, align 8, !tbaa !115
+  %53 = load double, ptr %52, align 8, !tbaa !113
   %54 = getelementptr inbounds double, ptr %18, i64 %.0172201
-  %55 = load double, ptr %54, align 8, !tbaa !115
+  %55 = load double, ptr %54, align 8, !tbaa !113
   %56 = tail call double @llvm.fabs.f64(double %51)
-  %57 = load double, ptr %43, align 8, !tbaa !122
+  %57 = load double, ptr %43, align 8, !tbaa !120
   %58 = fmul double %53, %57
   %59 = tail call double @llvm.fabs.f64(double %58)
   %60 = fcmp ogt double %56, %59
@@ -2620,7 +2620,7 @@ define i32 @idaLsBandDQJac(double noundef %0, double noundef %1, ptr noundef %2,
 
 69:                                               ; preds = %49
   %70 = getelementptr inbounds double, ptr %.0170, i64 %.0172201
-  %71 = load double, ptr %70, align 8, !tbaa !115
+  %71 = load double, ptr %70, align 8, !tbaa !113
   %72 = tail call double @llvm.fabs.f64(double %71)
   %73 = fcmp oeq double %72, 1.000000e+00
   br i1 %73, label %74, label %80
@@ -2652,16 +2652,16 @@ define i32 @idaLsBandDQJac(double noundef %0, double noundef %1, ptr noundef %2,
 88:                                               ; preds = %78, %74, %82, %86, %80, %49
   %.1168 = phi double [ %79, %78 ], [ %68, %74 ], [ %87, %86 ], [ %68, %82 ], [ %68, %80 ], [ %68, %49 ]
   %89 = getelementptr inbounds double, ptr %23, i64 %.0172201
-  %90 = load double, ptr %89, align 8, !tbaa !115
+  %90 = load double, ptr %89, align 8, !tbaa !113
   %91 = fadd double %.1168, %90
-  store double %91, ptr %89, align 8, !tbaa !115
+  store double %91, ptr %89, align 8, !tbaa !113
   %92 = getelementptr inbounds double, ptr %24, i64 %.0172201
-  %93 = load double, ptr %92, align 8, !tbaa !115
+  %93 = load double, ptr %92, align 8, !tbaa !113
   %94 = tail call double @llvm.fmuladd.f64(double %1, double %.1168, double %93)
-  store double %94, ptr %92, align 8, !tbaa !115
+  store double %94, ptr %92, align 8, !tbaa !113
   %95 = add nsw i64 %.0172201, %40
   %96 = icmp slt i64 %95, %13
-  br i1 %96, label %49, label %._crit_edge, !llvm.loop !124
+  br i1 %96, label %49, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %88
   %97 = load ptr, ptr %42, align 8, !tbaa !50
@@ -2676,18 +2676,18 @@ define i32 @idaLsBandDQJac(double noundef %0, double noundef %1, ptr noundef %2,
 .lr.ph208:                                        ; preds = %._crit_edge, %._crit_edge206
   %.1173207 = phi i64 [ %158, %._crit_edge206 ], [ %47, %._crit_edge ]
   %102 = getelementptr inbounds double, ptr %20, i64 %.1173207
-  %103 = load double, ptr %102, align 8, !tbaa !115
+  %103 = load double, ptr %102, align 8, !tbaa !113
   %104 = getelementptr inbounds double, ptr %23, i64 %.1173207
-  store double %103, ptr %104, align 8, !tbaa !115
+  store double %103, ptr %104, align 8, !tbaa !113
   %105 = getelementptr inbounds double, ptr %21, i64 %.1173207
-  %106 = load double, ptr %105, align 8, !tbaa !115
+  %106 = load double, ptr %105, align 8, !tbaa !113
   %107 = getelementptr inbounds double, ptr %24, i64 %.1173207
-  store double %106, ptr %107, align 8, !tbaa !115
+  store double %106, ptr %107, align 8, !tbaa !113
   %108 = tail call ptr @SUNBandMatrix_Column(ptr noundef %5, i64 noundef %.1173207) #13
   %109 = getelementptr inbounds double, ptr %18, i64 %.1173207
-  %110 = load double, ptr %109, align 8, !tbaa !115
+  %110 = load double, ptr %109, align 8, !tbaa !113
   %111 = tail call double @llvm.fabs.f64(double %103)
-  %112 = load double, ptr %43, align 8, !tbaa !122
+  %112 = load double, ptr %43, align 8, !tbaa !120
   %113 = fmul double %106, %112
   %114 = tail call double @llvm.fabs.f64(double %113)
   %115 = fcmp ogt double %111, %114
@@ -2701,13 +2701,13 @@ define i32 @idaLsBandDQJac(double noundef %0, double noundef %1, ptr noundef %2,
   %.2 = select i1 %120, double %121, double %119
   %122 = fadd double %103, %.2
   %123 = fsub double %122, %103
-  %124 = load i32, ptr %25, align 8, !tbaa !119
+  %124 = load i32, ptr %25, align 8, !tbaa !117
   %.not194 = icmp eq i32 %124, 0
   br i1 %.not194, label %144, label %125
 
 125:                                              ; preds = %.lr.ph208
   %126 = getelementptr inbounds double, ptr %.0170, i64 %.1173207
-  %127 = load double, ptr %126, align 8, !tbaa !115
+  %127 = load double, ptr %126, align 8, !tbaa !113
   %128 = tail call double @llvm.fabs.f64(double %127)
   %129 = fcmp oeq double %128, 1.000000e+00
   br i1 %129, label %130, label %136
@@ -2749,27 +2749,27 @@ define i32 @idaLsBandDQJac(double noundef %0, double noundef %1, ptr noundef %2,
 .lr.ph205:                                        ; preds = %144, %.lr.ph205
   %.0171203 = phi i64 [ %157, %.lr.ph205 ], [ %147, %144 ]
   %149 = getelementptr inbounds nuw double, ptr %22, i64 %.0171203
-  %150 = load double, ptr %149, align 8, !tbaa !115
+  %150 = load double, ptr %149, align 8, !tbaa !113
   %151 = getelementptr inbounds nuw double, ptr %19, i64 %.0171203
-  %152 = load double, ptr %151, align 8, !tbaa !115
+  %152 = load double, ptr %151, align 8, !tbaa !113
   %153 = fsub double %150, %152
   %154 = fmul double %145, %153
   %155 = sub nsw i64 %.0171203, %.1173207
   %156 = getelementptr inbounds double, ptr %108, i64 %155
-  store double %154, ptr %156, align 8, !tbaa !115
+  store double %154, ptr %156, align 8, !tbaa !113
   %157 = add nuw nsw i64 %.0171203, 1
   %.not195.not = icmp slt i64 %.0171203, %.200
-  br i1 %.not195.not, label %.lr.ph205, label %._crit_edge206, !llvm.loop !125
+  br i1 %.not195.not, label %.lr.ph205, label %._crit_edge206
 
 ._crit_edge206:                                   ; preds = %.lr.ph205, %144
   %158 = add nsw i64 %.1173207, %40
   %159 = icmp slt i64 %158, %13
-  br i1 %159, label %.lr.ph208, label %._crit_edge209, !llvm.loop !126
+  br i1 %159, label %.lr.ph208, label %._crit_edge209
 
 ._crit_edge209:                                   ; preds = %._crit_edge206
   %160 = add nuw i64 %.0169211, 1
   %exitcond.not = icmp eq i64 %.0169211, %41
-  br i1 %exitcond.not, label %._crit_edge214, label %.lr.ph, !llvm.loop !127
+  br i1 %exitcond.not, label %._crit_edge214, label %.lr.ph
 
 ._crit_edge214:                                   ; preds = %._crit_edge209, %._crit_edge, %37
   %.1 = phi i32 [ 0, %37 ], [ %99, %._crit_edge ], [ 0, %._crit_edge209 ]
@@ -2959,28 +2959,21 @@ attributes #14 = { nounwind allocsize(0) }
 !100 = !{!26, !5, i64 56}
 !101 = !{!14, !17, i64 384}
 !102 = !{!38, !18, i64 168}
-!103 = distinct !{!103, !104}
-!104 = !{!"llvm.loop.estimated_trip_count"}
-!105 = !{!38, !18, i64 184}
+!103 = !{!38, !18, i64 184}
+!104 = !{!105, !105, i64 0}
+!105 = !{!"p1 _ZTS9IDAMemRec", !5, i64 0}
 !106 = !{!107, !107, i64 0}
-!107 = !{!"p1 _ZTS9IDAMemRec", !5, i64 0}
-!108 = !{!109, !109, i64 0}
-!109 = !{!"p1 _ZTS11IDALsMemRec", !5, i64 0}
-!110 = !{!38, !5, i64 264}
-!111 = !{!38, !18, i64 136}
-!112 = !{!38, !18, i64 152}
-!113 = !{!40, !40, i64 0}
-!114 = !{!14, !15, i64 712}
-!115 = !{!15, !15, i64 0}
-!116 = !{!18, !18, i64 0}
-!117 = !{!26, !5, i64 32}
-!118 = !{!11, !5, i64 96}
-!119 = !{!14, !16, i64 88}
-!120 = !{!14, !17, i64 440}
-!121 = !{!14, !15, i64 8}
-!122 = !{!14, !15, i64 656}
-!123 = distinct !{!123, !104}
-!124 = distinct !{!124, !104}
-!125 = distinct !{!125, !104}
-!126 = distinct !{!126, !104}
-!127 = distinct !{!127, !104}
+!107 = !{!"p1 _ZTS11IDALsMemRec", !5, i64 0}
+!108 = !{!38, !5, i64 264}
+!109 = !{!38, !18, i64 136}
+!110 = !{!38, !18, i64 152}
+!111 = !{!40, !40, i64 0}
+!112 = !{!14, !15, i64 712}
+!113 = !{!15, !15, i64 0}
+!114 = !{!18, !18, i64 0}
+!115 = !{!26, !5, i64 32}
+!116 = !{!11, !5, i64 96}
+!117 = !{!14, !16, i64 88}
+!118 = !{!14, !17, i64 440}
+!119 = !{!14, !15, i64 8}
+!120 = !{!14, !15, i64 656}

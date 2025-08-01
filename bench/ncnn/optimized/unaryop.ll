@@ -574,7 +574,7 @@ define internal void @_ZN4ncnnL16unary_op_inplaceINS_12unary_op_absEEEiRNS_3MatE
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
   %exitcond.not = icmp eq i32 %20, %lftr.wideiv
-  br i1 %exitcond.not, label %._crit_edge, label %21, !llvm.loop !40
+  br i1 %exitcond.not, label %._crit_edge, label %21
 
 ._crit_edge:                                      ; preds = %21, %12
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %14)
@@ -603,7 +603,7 @@ declare i32 @__kmpc_global_thread_num(ptr) local_unnamed_addr #8
 declare void @__kmpc_push_num_threads(ptr, i32, i32) local_unnamed_addr #8
 
 ; Function Attrs: nounwind
-declare !callback !42 void @__kmpc_fork_call(ptr, i32, ptr, ...) local_unnamed_addr #8
+declare !callback !40 void @__kmpc_fork_call(ptr, i32, ptr, ...) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare float @llvm.fabs.f32(float) #9
@@ -652,7 +652,7 @@ define internal void @_ZN4ncnnL16unary_op_inplaceINS_12unary_op_negEEEiRNS_3MatE
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
   %exitcond.not = icmp eq i32 %20, %lftr.wideiv
-  br i1 %exitcond.not, label %._crit_edge, label %21, !llvm.loop !44
+  br i1 %exitcond.not, label %._crit_edge, label %21
 
 ._crit_edge:                                      ; preds = %21, %12
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %14)
@@ -710,7 +710,7 @@ define internal void @_ZN4ncnnL16unary_op_inplaceINS_14unary_op_floorEEEiRNS_3Ma
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
   %exitcond.not = icmp eq i32 %20, %lftr.wideiv
-  br i1 %exitcond.not, label %._crit_edge, label %21, !llvm.loop !45
+  br i1 %exitcond.not, label %._crit_edge, label %21
 
 ._crit_edge:                                      ; preds = %21, %12
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %14)
@@ -771,7 +771,7 @@ define internal void @_ZN4ncnnL16unary_op_inplaceINS_13unary_op_ceilEEEiRNS_3Mat
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
   %exitcond.not = icmp eq i32 %20, %lftr.wideiv
-  br i1 %exitcond.not, label %._crit_edge, label %21, !llvm.loop !46
+  br i1 %exitcond.not, label %._crit_edge, label %21
 
 ._crit_edge:                                      ; preds = %21, %12
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %14)
@@ -832,7 +832,7 @@ define internal void @_ZN4ncnnL16unary_op_inplaceINS_15unary_op_squareEEEiRNS_3M
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
   %exitcond.not = icmp eq i32 %20, %lftr.wideiv
-  br i1 %exitcond.not, label %._crit_edge, label %21, !llvm.loop !47
+  br i1 %exitcond.not, label %._crit_edge, label %21
 
 ._crit_edge:                                      ; preds = %21, %12
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %14)
@@ -890,7 +890,7 @@ define internal void @_ZN4ncnnL16unary_op_inplaceINS_13unary_op_sqrtEEEiRNS_3Mat
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
   %exitcond.not = icmp eq i32 %20, %lftr.wideiv
-  br i1 %exitcond.not, label %._crit_edge, label %21, !llvm.loop !48
+  br i1 %exitcond.not, label %._crit_edge, label %21
 
 ._crit_edge:                                      ; preds = %21, %12
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %14)
@@ -952,7 +952,7 @@ define internal void @_ZN4ncnnL16unary_op_inplaceINS_14unary_op_rsqrtEEEiRNS_3Ma
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
   %exitcond.not = icmp eq i32 %20, %lftr.wideiv
-  br i1 %exitcond.not, label %._crit_edge, label %21, !llvm.loop !49
+  br i1 %exitcond.not, label %._crit_edge, label %21
 
 ._crit_edge:                                      ; preds = %21, %12
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %14)
@@ -1010,7 +1010,7 @@ define internal void @_ZN4ncnnL16unary_op_inplaceINS_12unary_op_expEEEiRNS_3MatE
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
   %exitcond.not = icmp eq i32 %20, %lftr.wideiv
-  br i1 %exitcond.not, label %._crit_edge, label %21, !llvm.loop !50
+  br i1 %exitcond.not, label %._crit_edge, label %21
 
 ._crit_edge:                                      ; preds = %21, %12
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %14)
@@ -1071,7 +1071,7 @@ define internal void @_ZN4ncnnL16unary_op_inplaceINS_12unary_op_logEEEiRNS_3MatE
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
   %exitcond.not = icmp eq i32 %20, %lftr.wideiv
-  br i1 %exitcond.not, label %._crit_edge, label %21, !llvm.loop !51
+  br i1 %exitcond.not, label %._crit_edge, label %21
 
 ._crit_edge:                                      ; preds = %21, %12
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %14)
@@ -1132,7 +1132,7 @@ define internal void @_ZN4ncnnL16unary_op_inplaceINS_12unary_op_sinEEEiRNS_3MatE
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
   %exitcond.not = icmp eq i32 %20, %lftr.wideiv
-  br i1 %exitcond.not, label %._crit_edge, label %21, !llvm.loop !52
+  br i1 %exitcond.not, label %._crit_edge, label %21
 
 ._crit_edge:                                      ; preds = %21, %12
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %14)
@@ -1193,7 +1193,7 @@ define internal void @_ZN4ncnnL16unary_op_inplaceINS_12unary_op_cosEEEiRNS_3MatE
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
   %exitcond.not = icmp eq i32 %20, %lftr.wideiv
-  br i1 %exitcond.not, label %._crit_edge, label %21, !llvm.loop !53
+  br i1 %exitcond.not, label %._crit_edge, label %21
 
 ._crit_edge:                                      ; preds = %21, %12
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %14)
@@ -1254,7 +1254,7 @@ define internal void @_ZN4ncnnL16unary_op_inplaceINS_12unary_op_tanEEEiRNS_3MatE
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
   %exitcond.not = icmp eq i32 %20, %lftr.wideiv
-  br i1 %exitcond.not, label %._crit_edge, label %21, !llvm.loop !54
+  br i1 %exitcond.not, label %._crit_edge, label %21
 
 ._crit_edge:                                      ; preds = %21, %12
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %14)
@@ -1315,7 +1315,7 @@ define internal void @_ZN4ncnnL16unary_op_inplaceINS_13unary_op_asinEEEiRNS_3Mat
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
   %exitcond.not = icmp eq i32 %20, %lftr.wideiv
-  br i1 %exitcond.not, label %._crit_edge, label %21, !llvm.loop !55
+  br i1 %exitcond.not, label %._crit_edge, label %21
 
 ._crit_edge:                                      ; preds = %21, %12
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %14)
@@ -1376,7 +1376,7 @@ define internal void @_ZN4ncnnL16unary_op_inplaceINS_13unary_op_acosEEEiRNS_3Mat
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
   %exitcond.not = icmp eq i32 %20, %lftr.wideiv
-  br i1 %exitcond.not, label %._crit_edge, label %21, !llvm.loop !56
+  br i1 %exitcond.not, label %._crit_edge, label %21
 
 ._crit_edge:                                      ; preds = %21, %12
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %14)
@@ -1437,7 +1437,7 @@ define internal void @_ZN4ncnnL16unary_op_inplaceINS_13unary_op_atanEEEiRNS_3Mat
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
   %exitcond.not = icmp eq i32 %20, %lftr.wideiv
-  br i1 %exitcond.not, label %._crit_edge, label %21, !llvm.loop !57
+  br i1 %exitcond.not, label %._crit_edge, label %21
 
 ._crit_edge:                                      ; preds = %21, %12
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %14)
@@ -1498,7 +1498,7 @@ define internal void @_ZN4ncnnL16unary_op_inplaceINS_19unary_op_reciprocalEEEiRN
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
   %exitcond.not = icmp eq i32 %20, %lftr.wideiv
-  br i1 %exitcond.not, label %._crit_edge, label %21, !llvm.loop !58
+  br i1 %exitcond.not, label %._crit_edge, label %21
 
 ._crit_edge:                                      ; preds = %21, %12
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %14)
@@ -1556,7 +1556,7 @@ define internal void @_ZN4ncnnL16unary_op_inplaceINS_13unary_op_tanhEEEiRNS_3Mat
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
   %exitcond.not = icmp eq i32 %20, %lftr.wideiv
-  br i1 %exitcond.not, label %._crit_edge, label %21, !llvm.loop !59
+  br i1 %exitcond.not, label %._crit_edge, label %21
 
 ._crit_edge:                                      ; preds = %21, %12
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %14)
@@ -1617,7 +1617,7 @@ define internal void @_ZN4ncnnL16unary_op_inplaceINS_14unary_op_log10EEEiRNS_3Ma
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
   %exitcond.not = icmp eq i32 %20, %lftr.wideiv
-  br i1 %exitcond.not, label %._crit_edge, label %21, !llvm.loop !60
+  br i1 %exitcond.not, label %._crit_edge, label %21
 
 ._crit_edge:                                      ; preds = %21, %12
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %14)
@@ -1678,7 +1678,7 @@ define internal void @_ZN4ncnnL16unary_op_inplaceINS_14unary_op_roundEEEiRNS_3Ma
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
   %exitcond.not = icmp eq i32 %20, %lftr.wideiv
-  br i1 %exitcond.not, label %._crit_edge, label %21, !llvm.loop !61
+  br i1 %exitcond.not, label %._crit_edge, label %21
 
 ._crit_edge:                                      ; preds = %21, %12
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %14)
@@ -1739,7 +1739,7 @@ define internal void @_ZN4ncnnL16unary_op_inplaceINS_14unary_op_truncEEEiRNS_3Ma
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
   %exitcond.not = icmp eq i32 %20, %lftr.wideiv
-  br i1 %exitcond.not, label %._crit_edge, label %21, !llvm.loop !62
+  br i1 %exitcond.not, label %._crit_edge, label %21
 
 ._crit_edge:                                      ; preds = %21, %12
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %14)
@@ -1819,26 +1819,5 @@ attributes #13 = { nounwind willreturn memory(read) }
 !37 = !{!27, !11, i64 0}
 !38 = !{!39, !39, i64 0}
 !39 = !{!"float", !8, i64 0}
-!40 = distinct !{!40, !41}
-!41 = !{!"llvm.loop.estimated_trip_count"}
-!42 = !{!43}
-!43 = !{i64 2, i64 -1, i64 -1, i1 true}
-!44 = distinct !{!44, !41}
-!45 = distinct !{!45, !41}
-!46 = distinct !{!46, !41}
-!47 = distinct !{!47, !41}
-!48 = distinct !{!48, !41}
-!49 = distinct !{!49, !41}
-!50 = distinct !{!50, !41}
-!51 = distinct !{!51, !41}
-!52 = distinct !{!52, !41}
-!53 = distinct !{!53, !41}
-!54 = distinct !{!54, !41}
-!55 = distinct !{!55, !41}
-!56 = distinct !{!56, !41}
-!57 = distinct !{!57, !41}
-!58 = distinct !{!58, !41}
-!59 = distinct !{!59, !41}
-!60 = distinct !{!60, !41}
-!61 = distinct !{!61, !41}
-!62 = distinct !{!62, !41}
+!40 = !{!41}
+!41 = !{i64 2, i64 -1, i64 -1, i1 true}

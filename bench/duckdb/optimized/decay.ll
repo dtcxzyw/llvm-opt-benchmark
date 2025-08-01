@@ -85,7 +85,7 @@ pow2_ceil_u64.exit:                               ; preds = %9, %12
   %22 = add i64 %21, 1442695040888963407
   %23 = lshr i64 %22, %18
   %.not.i = icmp ult i64 %23, %11
-  br i1 %.not.i, label %prng_range_u64.exit.loopexit, label %19, !llvm.loop !13
+  br i1 %.not.i, label %prng_range_u64.exit.loopexit, label %19
 
 prng_range_u64.exit.loopexit:                     ; preds = %19
   store i64 %22, ptr %10, align 8, !tbaa !12
@@ -112,7 +112,7 @@ define noundef zeroext i1 @duckdb_je_decay_init(ptr noundef %0, ptr noundef %1, 
 
 5:                                                ; preds = %3
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  store i8 0, ptr %6, align 8, !tbaa !15
+  store i8 0, ptr %6, align 8, !tbaa !13
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 120
   store atomic i64 %2, ptr %7 monotonic, align 8
   %8 = icmp sgt i64 %2, 0
@@ -183,7 +183,7 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
 ; Function Attrs: nounwind uwtable
 define noundef zeroext i1 @duckdb_je_decay_maybe_advance_epoch(ptr noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = alloca %struct.nstime_t, align 8
-  %5 = load ptr, ptr @duckdb_je_nstime_monotonic, align 8, !tbaa !16
+  %5 = load ptr, ptr @duckdb_je_nstime_monotonic, align 8, !tbaa !14
   %6 = tail call zeroext i1 %5() #9
   br i1 %6, label %decay_maybe_update_time.exit, label %7
 
@@ -191,7 +191,7 @@ define noundef zeroext i1 @duckdb_je_decay_maybe_advance_epoch(ptr noundef %0, p
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %9 = tail call i32 @duckdb_je_nstime_compare(ptr noundef nonnull %8, ptr noundef %1) #9
   %10 = icmp sgt i32 %9, 0
-  br i1 %10, label %11, label %decay_maybe_update_time.exit, !prof !18
+  br i1 %10, label %11, label %decay_maybe_update_time.exit, !prof !16
 
 11:                                               ; preds = %7
   tail call void @duckdb_je_nstime_copy(ptr noundef nonnull %8, ptr noundef %1) #9
@@ -240,7 +240,7 @@ decay_maybe_update_time.exit:                     ; preds = %3, %7, %11
 
 decay_backlog_update.exit:                        ; preds = %21, %22, %27
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 168
-  %32 = load i64, ptr %31, align 8, !tbaa !19
+  %32 = load i64, ptr %31, align 8, !tbaa !17
   %spec.select.i = call i64 @llvm.usub.sat.i64(i64 %2, i64 %32)
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 1768
   store i64 %spec.select.i, ptr %33, align 8, !tbaa !12
@@ -257,14 +257,14 @@ decay_backlog_update.exit:                        ; preds = %21, %22, %27
   %40 = add i64 %39, %.09.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 200
-  br i1 %exitcond.not.i, label %decay_backlog_npages_limit.exit, label %34, !llvm.loop !20
+  br i1 %exitcond.not.i, label %decay_backlog_npages_limit.exit, label %34
 
 decay_backlog_npages_limit.exit:                  ; preds = %34
   %41 = lshr i64 %40, 24
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 160
-  store i64 %41, ptr %42, align 8, !tbaa !21
+  store i64 %41, ptr %42, align 8, !tbaa !18
   %. = call i64 @llvm.umax.i64(i64 %41, i64 %2)
-  store i64 %., ptr %31, align 8, !tbaa !19
+  store i64 %., ptr %31, align 8, !tbaa !17
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #9
   br label %43
 
@@ -307,7 +307,7 @@ define i64 @duckdb_je_decay_ns_until_purge(ptr noundef %0, i64 noundef %1, i64 n
 15:                                               ; preds = %12
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 200
-  br i1 %exitcond.not, label %.loopexit, label %12, !llvm.loop !22
+  br i1 %exitcond.not, label %.loopexit, label %12
 
 .thread:                                          ; preds = %12, %7
   %.not59 = icmp ugt i64 %1, %2
@@ -332,7 +332,7 @@ define i64 @duckdb_je_decay_ns_until_purge(ptr noundef %0, i64 noundef %1, i64 n
   %26 = add i64 %25, %.018.i
   %27 = add nuw nsw i64 %.01517.i, 1
   %exitcond.not.i = icmp eq i64 %27, 2
-  br i1 %exitcond.not.i, label %.preheader.i, label %20, !llvm.loop !23
+  br i1 %exitcond.not.i, label %.preheader.i, label %20
 
 .preheader.i:                                     ; preds = %20, %.preheader.i
   %.121.i = phi i64 [ %37, %.preheader.i ], [ %26, %20 ]
@@ -349,7 +349,7 @@ define i64 @duckdb_je_decay_ns_until_purge(ptr noundef %0, i64 noundef %1, i64 n
   %37 = add i64 %36, %.121.i
   %38 = add nuw nsw i64 %.11620.i, 1
   %exitcond26.not.i = icmp eq i64 %38, 200
-  br i1 %exitcond26.not.i, label %decay_npurge_after_interval.exit, label %.preheader.i, !llvm.loop !24
+  br i1 %exitcond26.not.i, label %decay_npurge_after_interval.exit, label %.preheader.i
 
 decay_npurge_after_interval.exit:                 ; preds = %.preheader.i
   %39 = lshr i64 %37, 24
@@ -371,7 +371,7 @@ decay_npurge_after_interval.exit:                 ; preds = %.preheader.i
   %48 = add i64 %47, %.018.i60
   %49 = add nuw nsw i64 %.01517.i61, 1
   %exitcond.not.i62 = icmp eq i64 %49, 200
-  br i1 %exitcond.not.i62, label %decay_npurge_after_interval.exit64, label %.preheader74, !llvm.loop !23
+  br i1 %exitcond.not.i62, label %decay_npurge_after_interval.exit64, label %.preheader74
 
 decay_npurge_after_interval.exit64:               ; preds = %.preheader74
   %50 = lshr i64 %48, 24
@@ -411,7 +411,7 @@ decay_npurge_after_interval.exit64:               ; preds = %.preheader74
   %65 = add i64 %64, %.018.i65
   %66 = add nuw nsw i64 %.01517.i66, 1
   %exitcond.not.i67 = icmp eq i64 %66, %57
-  br i1 %exitcond.not.i67, label %.preheader.i68, label %59, !llvm.loop !23
+  br i1 %exitcond.not.i67, label %.preheader.i68, label %59
 
 .lr.ph22.i:                                       ; preds = %.preheader.i68, %.lr.ph22.i
   %.121.i69 = phi i64 [ %76, %.lr.ph22.i ], [ %65, %.preheader.i68 ]
@@ -428,7 +428,7 @@ decay_npurge_after_interval.exit64:               ; preds = %.preheader74
   %76 = add i64 %75, %.121.i69
   %77 = add nuw i64 %.11620.i70, 1
   %exitcond26.not.i71 = icmp eq i64 %77, 200
-  br i1 %exitcond26.not.i71, label %decay_npurge_after_interval.exit72, label %.lr.ph22.i, !llvm.loop !24
+  br i1 %exitcond26.not.i71, label %decay_npurge_after_interval.exit72, label %.lr.ph22.i
 
 decay_npurge_after_interval.exit72:               ; preds = %.lr.ph22.i, %.preheader.i68
   %.1.lcssa.i = phi i64 [ %65, %.preheader.i68 ], [ %76, %.lr.ph22.i ]
@@ -443,7 +443,7 @@ decay_npurge_after_interval.exit72:               ; preds = %.lr.ph22.i, %.prehe
   %82 = add nuw i64 %.051., 2
   %83 = icmp ult i64 %82, %..049
   %84 = select i1 %81, i1 %83, i1 false
-  br i1 %84, label %.lr.ph.i, label %._crit_edge.loopexit, !llvm.loop !25
+  br i1 %84, label %.lr.ph.i, label %._crit_edge.loopexit
 
 ._crit_edge.loopexit:                             ; preds = %decay_npurge_after_interval.exit72
   %85 = add nuw i64 %..049, %.051.
@@ -506,16 +506,9 @@ attributes #9 = { nounwind }
 !10 = !{!"long", !6, i64 0}
 !11 = !{!"branch_weights", i32 2000, i32 2001, i32 1}
 !12 = !{!10, !10, i64 0}
-!13 = distinct !{!13, !14}
-!14 = !{!"llvm.loop.estimated_trip_count"}
-!15 = !{!4, !8, i64 112}
-!16 = !{!17, !17, i64 0}
-!17 = !{!"any pointer", !6, i64 0}
-!18 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!19 = !{!4, !10, i64 168}
-!20 = distinct !{!20, !14}
-!21 = !{!4, !10, i64 160}
-!22 = distinct !{!22, !14}
-!23 = distinct !{!23, !14}
-!24 = distinct !{!24, !14}
-!25 = distinct !{!25, !14}
+!13 = !{!4, !8, i64 112}
+!14 = !{!15, !15, i64 0}
+!15 = !{!"any pointer", !6, i64 0}
+!16 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!17 = !{!4, !10, i64 168}
+!18 = !{!4, !10, i64 160}

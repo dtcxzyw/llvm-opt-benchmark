@@ -1028,7 +1028,7 @@ define internal fastcc range(i32 -28, 1) i32 @gssx_dec_option_array(ptr noundef 
   store i32 %81, ptr %87, align 4
   %88 = add nuw i32 %77, 1
   %89 = icmp eq i32 %88, %67
-  br i1 %89, label %.thread24.loopexit, label %.preheader, !llvm.loop !11
+  br i1 %89, label %.thread24.loopexit, label %.preheader, !llvm.loop !10
 
 .thread17:                                        ; preds = %.preheader, %80
   %90 = load ptr, ptr %28, align 8
@@ -1184,7 +1184,7 @@ define internal fastcc noundef range(i32 -28, 1) i32 @dummy_dec_opt_array(ptr no
 28:                                               ; preds = %23, %20, %14, %10
   %29 = add nuw i32 %11, 1
   %30 = icmp eq i32 %29, %9
-  br i1 %30, label %.loopexit, label %10, !llvm.loop !12
+  br i1 %30, label %.loopexit, label %10, !llvm.loop !11
 
 .loopexit:                                        ; preds = %28, %5
   store i32 0, ptr %1, align 8
@@ -1392,7 +1392,7 @@ define internal fastcc range(i32 -28, 1) i32 @gssx_dec_name(ptr noundef %0, ptr 
 111:                                              ; preds = %109, %104, %99, %90, %87, %82, %77, %68, %64
   %112 = add nuw i32 %65, 1
   %113 = icmp eq i32 %112, %59
-  br i1 %113, label %.loopexit, label %64, !llvm.loop !13
+  br i1 %113, label %.loopexit, label %64, !llvm.loop !12
 
 dummy_dec_nameattr_array.exit:                    ; preds = %52
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3) #9
@@ -1455,10 +1455,9 @@ attributes #11 = { nounwind allocsize(2) }
 !4 = !{i32 4, !"SkipRaxSetup", i32 1}
 !5 = !{!"branch_weights", i32 1, i32 2000}
 !6 = !{i32 -28, i32 1}
-!7 = distinct !{!7, !8, !9, !10}
+!7 = distinct !{!7, !8, !9}
 !8 = !{!"llvm.loop.mustprogress"}
 !9 = !{!"llvm.loop.unroll.disable"}
-!10 = !{!"llvm.loop.estimated_trip_count"}
-!11 = distinct !{!11, !8, !9, !10}
-!12 = distinct !{!12, !8, !9, !10}
-!13 = distinct !{!13, !8, !9, !10}
+!10 = distinct !{!10, !8, !9}
+!11 = distinct !{!11, !8, !9}
+!12 = distinct !{!12, !8, !9}

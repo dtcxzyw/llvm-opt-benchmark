@@ -45,7 +45,7 @@ define i64 @getQubitBitMask(ptr noundef readonly captures(none) %0, i32 noundef 
   %8 = or i64 %7, %.067
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !8
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
@@ -87,7 +87,7 @@ define i64 @getControlFlipMask(ptr noundef readonly captures(none) %0, ptr nound
   %.1 = phi i64 [ %13, %8 ], [ %.089, %.lr.ph ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !10
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
@@ -108,13 +108,13 @@ define void @ensureIndsIncrease(ptr noundef captures(none) %0, ptr noundef captu
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define double @getVectorMagnitude(ptr noundef readonly byval(%struct.Vector) align 8 captures(none) %0) local_unnamed_addr #3 {
-  %2 = load double, ptr %0, align 8, !tbaa !11
+  %2 = load double, ptr %0, align 8, !tbaa !8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load double, ptr %3, align 8, !tbaa !14
+  %4 = load double, ptr %3, align 8, !tbaa !11
   %5 = fmul double %4, %4
   %6 = tail call double @llvm.fmuladd.f64(double %2, double %2, double %5)
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %8 = load double, ptr %7, align 8, !tbaa !15
+  %8 = load double, ptr %7, align 8, !tbaa !12
   %9 = tail call double @llvm.fmuladd.f64(double %8, double %8, double %6)
   %sqrt = tail call double @llvm.sqrt.f64(double %9)
   ret double %sqrt
@@ -128,23 +128,23 @@ declare double @llvm.fmuladd.f64(double, double, double) #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define void @getUnitVector(ptr dead_on_unwind noalias writable writeonly sret(%struct.Vector) align 8 captures(none) initializes((0, 24)) %0, ptr noundef readonly byval(%struct.Vector) align 8 captures(none) %1) local_unnamed_addr #2 {
-  %3 = load double, ptr %1, align 8, !tbaa !11
+  %3 = load double, ptr %1, align 8, !tbaa !8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %5 = load double, ptr %4, align 8, !tbaa !14
+  %5 = load double, ptr %4, align 8, !tbaa !11
   %6 = fmul double %5, %5
   %7 = tail call double @llvm.fmuladd.f64(double %3, double %3, double %6)
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %9 = load double, ptr %8, align 8, !tbaa !15
+  %9 = load double, ptr %8, align 8, !tbaa !12
   %10 = tail call double @llvm.fmuladd.f64(double %9, double %9, double %7)
   %sqrt.i = tail call double @llvm.sqrt.f64(double %10)
   %11 = fdiv double %3, %sqrt.i
-  store double %11, ptr %0, align 8, !tbaa !11
+  store double %11, ptr %0, align 8, !tbaa !8
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %13 = fdiv double %5, %sqrt.i
-  store double %13, ptr %12, align 8, !tbaa !14
+  store double %13, ptr %12, align 8, !tbaa !11
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %15 = fdiv double %9, %sqrt.i
-  store double %15, ptr %14, align 8, !tbaa !15
+  store double %15, ptr %14, align 8, !tbaa !12
   ret void
 }
 
@@ -169,21 +169,21 @@ define void @getConjugateMatrix2(ptr dead_on_unwind noalias writable writeonly s
   %7 = getelementptr inbounds nuw [2 x [2 x double]], ptr %0, i64 0, i64 %indvars.iv16
   %8 = getelementptr inbounds nuw [2 x [2 x double]], ptr %3, i64 0, i64 %indvars.iv16
   %9 = getelementptr inbounds nuw [2 x [2 x double]], ptr %4, i64 0, i64 %indvars.iv16
-  %10 = load double, ptr %6, align 8, !tbaa !16
-  store double %10, ptr %7, align 8, !tbaa !16
-  %11 = load double, ptr %8, align 8, !tbaa !16
+  %10 = load double, ptr %6, align 8, !tbaa !13
+  store double %10, ptr %7, align 8, !tbaa !13
+  %11 = load double, ptr %8, align 8, !tbaa !13
   %12 = fneg double %11
-  store double %12, ptr %9, align 8, !tbaa !16
+  store double %12, ptr %9, align 8, !tbaa !13
   %13 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %14 = load double, ptr %13, align 8, !tbaa !16
+  %14 = load double, ptr %13, align 8, !tbaa !13
   %15 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store double %14, ptr %15, align 8, !tbaa !16
+  store double %14, ptr %15, align 8, !tbaa !13
   %16 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %17 = load double, ptr %16, align 8, !tbaa !16
+  %17 = load double, ptr %16, align 8, !tbaa !13
   %18 = fneg double %17
   %19 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  store double %18, ptr %19, align 8, !tbaa !16
-  br i1 %5, label %.preheader, label %20, !llvm.loop !17
+  store double %18, ptr %19, align 8, !tbaa !13
+  br i1 %5, label %.preheader, label %20
 
 20:                                               ; preds = %.preheader
   ret void
@@ -209,27 +209,27 @@ define void @getConjugateMatrix4(ptr dead_on_unwind noalias writable writeonly s
 10:                                               ; preds = %11
   %indvars.iv.next17 = add nuw nsw i64 %indvars.iv16, 1
   %exitcond19.not = icmp eq i64 %indvars.iv.next17, 4
-  br i1 %exitcond19.not, label %9, label %.preheader, !llvm.loop !18
+  br i1 %exitcond19.not, label %9, label %.preheader
 
 11:                                               ; preds = %.preheader, %11
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %11 ]
   %12 = getelementptr inbounds nuw [4 x double], ptr %5, i64 0, i64 %indvars.iv
-  %13 = load double, ptr %12, align 8, !tbaa !16
+  %13 = load double, ptr %12, align 8, !tbaa !13
   %14 = getelementptr inbounds nuw [4 x double], ptr %6, i64 0, i64 %indvars.iv
-  store double %13, ptr %14, align 8, !tbaa !16
+  store double %13, ptr %14, align 8, !tbaa !13
   %15 = getelementptr inbounds nuw [4 x double], ptr %7, i64 0, i64 %indvars.iv
-  %16 = load double, ptr %15, align 8, !tbaa !16
+  %16 = load double, ptr %15, align 8, !tbaa !13
   %17 = fneg double %16
   %18 = getelementptr inbounds nuw [4 x double], ptr %8, i64 0, i64 %indvars.iv
-  store double %17, ptr %18, align 8, !tbaa !16
+  store double %17, ptr %18, align 8, !tbaa !13
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %10, label %11, !llvm.loop !19
+  br i1 %exitcond.not, label %10, label %11
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define void @setConjugateMatrixN(ptr noundef readonly byval(%struct.ComplexMatrixN) align 8 captures(none) %0) local_unnamed_addr #8 {
-  %2 = load i32, ptr %0, align 8, !tbaa !20
+  %2 = load i32, ptr %0, align 8, !tbaa !14
   %.not = icmp eq i32 %2, 31
   br i1 %.not, label %._crit_edge18, label %.preheader.lr.ph
 
@@ -243,23 +243,23 @@ define void @setConjugateMatrixN(ptr noundef readonly byval(%struct.ComplexMatri
 .preheader.us:                                    ; preds = %._crit_edge.us, %.preheader.lr.ph
   %indvars.iv20 = phi i64 [ %indvars.iv.next21, %._crit_edge.us ], [ 0, %.preheader.lr.ph ]
   %6 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv20
-  %7 = load ptr, ptr %6, align 8, !tbaa !25
+  %7 = load ptr, ptr %6, align 8, !tbaa !19
   br label %8
 
 8:                                                ; preds = %.preheader.us, %8
   %indvars.iv = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next, %8 ]
   %9 = getelementptr inbounds nuw double, ptr %7, i64 %indvars.iv
-  %10 = load double, ptr %9, align 8, !tbaa !16
+  %10 = load double, ptr %9, align 8, !tbaa !13
   %11 = fneg double %10
-  store double %11, ptr %9, align 8, !tbaa !16
+  store double %11, ptr %9, align 8, !tbaa !13
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count23
-  br i1 %exitcond.not, label %._crit_edge.us, label %8, !llvm.loop !27
+  br i1 %exitcond.not, label %._crit_edge.us, label %8
 
 ._crit_edge.us:                                   ; preds = %8
   %indvars.iv.next21 = add nuw nsw i64 %indvars.iv20, 1
   %exitcond24.not = icmp eq i64 %indvars.iv.next21, %wide.trip.count23
-  br i1 %exitcond24.not, label %._crit_edge18, label %.preheader.us, !llvm.loop !28
+  br i1 %exitcond24.not, label %._crit_edge18, label %.preheader.us, !llvm.loop !21
 
 ._crit_edge18:                                    ; preds = %._crit_edge.us, %1
   ret void
@@ -281,17 +281,17 @@ define void @getComplexPairFromRotation(double noundef %0, ptr noundef readonly 
   %10 = fdiv double %.sroa.5.0.copyload, %sqrt.i.i
   %11 = fmul double %0, 5.000000e-01
   %12 = tail call double @cos(double noundef %11) #22, !tbaa !4
-  store double %12, ptr %2, align 8, !tbaa !30
+  store double %12, ptr %2, align 8, !tbaa !23
   %13 = tail call double @sin(double noundef %11) #22, !tbaa !4
   %14 = fneg double %13
   %15 = fmul double %10, %14
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store double %15, ptr %16, align 8, !tbaa !32
+  store double %15, ptr %16, align 8, !tbaa !25
   %17 = fmul double %13, %9
-  store double %17, ptr %3, align 8, !tbaa !30
+  store double %17, ptr %3, align 8, !tbaa !23
   %18 = fmul double %8, %14
   %19 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store double %18, ptr %19, align 8, !tbaa !32
+  store double %18, ptr %19, align 8, !tbaa !25
   ret void
 }
 
@@ -308,14 +308,14 @@ define void @getZYZRotAnglesFromComplexPair(double %0, double %1, double %2, dou
   %sqrt = tail call double @llvm.sqrt.f64(double %9)
   %10 = tail call double @acos(double noundef %sqrt) #22, !tbaa !4
   %11 = fmul double %10, 2.000000e+00
-  store double %11, ptr %5, align 8, !tbaa !16
+  store double %11, ptr %5, align 8, !tbaa !13
   %12 = tail call double @atan2(double noundef %1, double noundef %0) #22, !tbaa !4
   %13 = tail call double @atan2(double noundef %3, double noundef %2) #22, !tbaa !4
   %14 = fneg double %12
   %15 = fsub double %13, %12
-  store double %15, ptr %4, align 8, !tbaa !16
+  store double %15, ptr %4, align 8, !tbaa !13
   %16 = fsub double %14, %13
-  store double %16, ptr %6, align 8, !tbaa !16
+  store double %16, ptr %6, align 8, !tbaa !13
   ret void
 }
 
@@ -328,38 +328,38 @@ declare double @atan2(double noundef, double noundef) local_unnamed_addr #4
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite, errnomem: write) uwtable
 define void @getComplexPairAndPhaseFromUnitary(ptr noundef readonly byval(%struct.ComplexMatrix2) align 8 captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 16)) %1, ptr noundef writeonly captures(none) initializes((0, 16)) %2, ptr noundef writeonly captures(none) initializes((0, 8)) %3) local_unnamed_addr #9 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %6 = load double, ptr %5, align 8, !tbaa !16
-  %7 = load double, ptr %0, align 8, !tbaa !16
+  %6 = load double, ptr %5, align 8, !tbaa !13
+  %7 = load double, ptr %0, align 8, !tbaa !13
   %8 = tail call double @atan2(double noundef %6, double noundef %7) #22, !tbaa !4
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %11 = load double, ptr %10, align 8, !tbaa !16
+  %11 = load double, ptr %10, align 8, !tbaa !13
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %14 = load double, ptr %13, align 8, !tbaa !16
+  %14 = load double, ptr %13, align 8, !tbaa !13
   %15 = tail call double @atan2(double noundef %11, double noundef %14) #22, !tbaa !4
   %16 = fadd double %8, %15
   %17 = fmul double %16, 5.000000e-01
-  store double %17, ptr %3, align 8, !tbaa !16
+  store double %17, ptr %3, align 8, !tbaa !13
   %18 = tail call double @cos(double noundef %17) #22, !tbaa !4
   %19 = tail call double @sin(double noundef %17) #22, !tbaa !4
   %20 = fmul double %6, %19
   %21 = tail call double @llvm.fmuladd.f64(double %7, double %18, double %20)
-  store double %21, ptr %1, align 8, !tbaa !30
+  store double %21, ptr %1, align 8, !tbaa !23
   %22 = fneg double %19
   %23 = fmul double %7, %22
   %24 = tail call double @llvm.fmuladd.f64(double %6, double %18, double %23)
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store double %24, ptr %25, align 8, !tbaa !32
-  %26 = load double, ptr %12, align 8, !tbaa !16
-  %27 = load double, ptr %9, align 8, !tbaa !16
+  store double %24, ptr %25, align 8, !tbaa !25
+  %26 = load double, ptr %12, align 8, !tbaa !13
+  %27 = load double, ptr %9, align 8, !tbaa !13
   %28 = fmul double %19, %27
   %29 = tail call double @llvm.fmuladd.f64(double %26, double %18, double %28)
-  store double %29, ptr %2, align 8, !tbaa !30
+  store double %29, ptr %2, align 8, !tbaa !23
   %30 = fmul double %26, %22
   %31 = tail call double @llvm.fmuladd.f64(double %27, double %18, double %30)
   %32 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store double %31, ptr %32, align 8, !tbaa !32
+  store double %31, ptr %32, align 8, !tbaa !25
   ret void
 }
 
@@ -383,7 +383,7 @@ define void @shiftIndices(ptr noundef captures(none) %0, i32 noundef %1, i32 nou
   store i32 %7, ptr %5, align 4, !tbaa !4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !33
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
@@ -418,7 +418,7 @@ define void @shiftSubregIndices(ptr noundef captures(none) %0, ptr noundef reado
   %.1.lcssa = phi i32 [ %.01013, %.preheader ], [ %10, %._crit_edge.loopexit ]
   %indvars.iv.next18 = add nuw nsw i64 %indvars.iv17, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next18, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge15, label %.preheader, !llvm.loop !34
+  br i1 %exitcond.not, label %._crit_edge15, label %.preheader
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ %9, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
@@ -431,7 +431,7 @@ define void @shiftSubregIndices(ptr noundef captures(none) %0, ptr noundef reado
   %14 = add nuw nsw i32 %.012, 1
   %15 = load i32, ptr %6, align 4, !tbaa !4
   %16 = icmp slt i32 %14, %15
-  br i1 %16, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !35
+  br i1 %16, label %.lr.ph, label %._crit_edge.loopexit
 }
 
 ; Function Attrs: nounwind uwtable
@@ -455,7 +455,7 @@ define range(i32 0, 2) i32 @generateMeasurementOutcome(double noundef %0, ptr no
 .thread:                                          ; preds = %2, %7, %5
   %.010 = phi i32 [ 0, %5 ], [ %10, %7 ], [ 1, %2 ]
   %11 = phi double [ %0, %5 ], [ %spec.select, %7 ], [ %4, %2 ]
-  store double %11, ptr %1, align 8, !tbaa !16
+  store double %11, ptr %1, align 8, !tbaa !13
   ret i32 %.010
 }
 
@@ -463,7 +463,7 @@ declare double @genrand_real1() local_unnamed_addr #12
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
 define i64 @hashString(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
-  %2 = load i8, ptr %0, align 1, !tbaa !36
+  %2 = load i8, ptr %0, align 1, !tbaa !26
   %.not6 = icmp eq i8 %2, 0
   br i1 %.not6, label %._crit_edge, label %.lr.ph
 
@@ -475,9 +475,9 @@ define i64 @hashString(ptr noundef readonly captures(none) %0) local_unnamed_add
   %5 = mul i64 %.047, 33
   %6 = sext i8 %3 to i64
   %7 = add i64 %5, %6
-  %8 = load i8, ptr %4, align 1, !tbaa !36
+  %8 = load i8, ptr %4, align 1, !tbaa !26
   %.not = icmp eq i8 %8, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !37
+  br i1 %.not, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
   %.04.lcssa = phi i64 [ 5381, %1 ], [ %7, %.lr.ph ]
@@ -489,19 +489,19 @@ define void @getQuESTDefaultSeedKey(ptr noundef writeonly captures(none) initial
   %2 = alloca %struct.timeval, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #22
   %3 = call i32 @gettimeofday(ptr noundef nonnull %2, ptr noundef null) #22
-  %4 = load i64, ptr %2, align 8, !tbaa !38
+  %4 = load i64, ptr %2, align 8, !tbaa !27
   %5 = mul nsw i64 %4, 1000
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %7 = load i64, ptr %6, align 8, !tbaa !41
+  %7 = load i64, ptr %6, align 8, !tbaa !30
   %8 = sdiv i64 %7, 1000
   %9 = add nsw i64 %8, %5
   %10 = sitofp i64 %9 to double
   %11 = tail call i32 @getpid() #22
   %12 = sext i32 %11 to i64
   %13 = fptoui double %10 to i64
-  store i64 %13, ptr %0, align 8, !tbaa !42
+  store i64 %13, ptr %0, align 8, !tbaa !31
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %12, ptr %14, align 8, !tbaa !42
+  store i64 %12, ptr %14, align 8, !tbaa !31
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #22
   ret void
 }
@@ -517,7 +517,7 @@ define void @reportState(ptr noundef readonly byval(%struct.Qureg) align 8 captu
   %2 = alloca [100 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 100, ptr nonnull %2) #22
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %4 = load i32, ptr %3, align 8, !tbaa !43
+  %4 = load i32, ptr %3, align 8, !tbaa !32
   %5 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(1) @.str, i32 noundef %4) #22
   %6 = call noalias ptr @fopen(ptr noundef nonnull %2, ptr noundef nonnull @.str.1)
   %7 = icmp eq i32 %4, 0
@@ -529,27 +529,27 @@ define void @reportState(ptr noundef readonly byval(%struct.Qureg) align 8 captu
 
 10:                                               ; preds = %8, %1
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %12 = load i64, ptr %11, align 8, !tbaa !47
+  %12 = load i64, ptr %11, align 8, !tbaa !36
   %13 = icmp sgt i64 %12, 0
   br i1 %13, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %10
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %15 = load ptr, ptr %14, align 8, !tbaa !48
+  %15 = load ptr, ptr %14, align 8, !tbaa !37
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %17 = load ptr, ptr %16, align 8, !tbaa !49
+  %17 = load ptr, ptr %16, align 8, !tbaa !38
   br label %18
 
 18:                                               ; preds = %.lr.ph, %18
   %.06 = phi i64 [ 0, %.lr.ph ], [ %24, %18 ]
   %19 = getelementptr inbounds nuw double, ptr %15, i64 %.06
-  %20 = load double, ptr %19, align 8, !tbaa !16
+  %20 = load double, ptr %19, align 8, !tbaa !13
   %21 = getelementptr inbounds nuw double, ptr %17, i64 %.06
-  %22 = load double, ptr %21, align 8, !tbaa !16
+  %22 = load double, ptr %21, align 8, !tbaa !13
   %23 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %6, ptr noundef nonnull @.str.3, double noundef %20, double noundef %22) #22
   %24 = add nuw nsw i64 %.06, 1
   %exitcond.not = icmp eq i64 %24, %12
-  br i1 %exitcond.not, label %._crit_edge, label %18, !llvm.loop !50
+  br i1 %exitcond.not, label %._crit_edge, label %18
 
 ._crit_edge:                                      ; preds = %18, %10
   %25 = tail call i32 @fclose(ptr noundef %6)
@@ -572,17 +572,17 @@ declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #13
 ; Function Attrs: nofree nounwind uwtable
 define void @reportQuregParams(ptr noundef readonly byval(%struct.Qureg) align 8 captures(none) %0) local_unnamed_addr #15 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %3 = load i32, ptr %2, align 8, !tbaa !43
+  %3 = load i32, ptr %2, align 8, !tbaa !32
   %4 = icmp eq i32 %3, 0
   br i1 %4, label %5, label %17
 
 5:                                                ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %7 = load i32, ptr %6, align 8, !tbaa !51
+  %7 = load i32, ptr %6, align 8, !tbaa !39
   %8 = zext nneg i32 %7 to i64
   %9 = shl nuw i64 1, %8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 36
-  %11 = load i32, ptr %10, align 4, !tbaa !52
+  %11 = load i32, ptr %10, align 4, !tbaa !40
   %12 = sext i32 %11 to i64
   %13 = sdiv i64 %9, %12
   %puts = tail call i32 @puts(ptr nonnull dereferenceable(1) @str)
@@ -846,7 +846,7 @@ define range(i32 0, 2) i32 @statevec_measureWithStats(ptr noundef readonly byval
 generateMeasurementOutcome.exit:                  ; preds = %3, %7, %9
   %.010.i = phi i32 [ 0, %7 ], [ %12, %9 ], [ 1, %3 ]
   %13 = phi double [ %4, %7 ], [ %spec.select.i, %9 ], [ %6, %3 ]
-  store double %13, ptr %2, align 8, !tbaa !16
+  store double %13, ptr %2, align 8, !tbaa !13
   tail call void @statevec_collapseToKnownProbOutcome(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, i32 noundef %1, i32 noundef %.010.i, double noundef %13) #22
   ret i32 %.010.i
 }
@@ -877,7 +877,7 @@ define range(i32 0, 2) i32 @densmatr_measureWithStats(ptr noundef readonly byval
 generateMeasurementOutcome.exit:                  ; preds = %3, %7, %9
   %.010.i = phi i32 [ 0, %7 ], [ %12, %9 ], [ 1, %3 ]
   %13 = phi double [ %4, %7 ], [ %spec.select.i, %9 ], [ %6, %3 ]
-  store double %13, ptr %2, align 8, !tbaa !16
+  store double %13, ptr %2, align 8, !tbaa !13
   tail call void @densmatr_collapseToKnownProbOutcome(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, i32 noundef %1, i32 noundef %.010.i, double noundef %13) #22
   ret i32 %.010.i
 }
@@ -1008,7 +1008,7 @@ define void @statevec_multiRotatePauli(ptr noundef readonly byval(%struct.Qureg)
   %13 = or i64 %12, %.067.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %.lr.ph.preheader, label %.lr.ph.i, !llvm.loop !8
+  br i1 %exitcond.not.i, label %.lr.ph.preheader, label %.lr.ph.i
 
 .lr.ph.preheader:                                 ; preds = %.lr.ph.i
   %wide.trip.count = zext nneg i32 %3 to i64
@@ -1058,7 +1058,7 @@ thread-pre-split:                                 ; preds = %20, %.lr.ph
   %.15979 = phi i64 [ %19, %thread-pre-split.thread ], [ %.05561, %thread-pre-split ], [ %.05561, %25 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !53
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
 
 29:                                               ; preds = %._crit_edge
   %30 = fneg double %4
@@ -1102,7 +1102,7 @@ thread-pre-split:                                 ; preds = %20, %.lr.ph
 45:                                               ; preds = %39, %42
   %indvars.iv.next69 = add nuw nsw i64 %indvars.iv68, 1
   %exitcond72.not = icmp eq i64 %indvars.iv.next69, %wide.trip.count71
-  br i1 %exitcond72.not, label %._crit_edge66, label %.lr.ph65, !llvm.loop !54
+  br i1 %exitcond72.not, label %._crit_edge66, label %.lr.ph65
 }
 
 declare void @statevec_multiRotateZ(ptr noundef byval(%struct.Qureg) align 8, i64 noundef, double noundef) local_unnamed_addr #12
@@ -1115,28 +1115,28 @@ define void @statevec_multiControlledMultiRotatePauli(ptr noundef readonly byval
   %10 = select i1 %.not, i32 -1, i32 1
   %11 = sitofp i32 %10 to double
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %8) #22
-  store double 0x3FE6A09E667F3BCC, ptr %8, align 8, !tbaa !16
+  store double 0x3FE6A09E667F3BCC, ptr %8, align 8, !tbaa !13
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %13 = getelementptr inbounds nuw i8, ptr %8, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %12, i8 0, i64 16, i1 false)
-  store double 0x3FE6A09E667F3BCC, ptr %13, align 8, !tbaa !16
+  store double 0x3FE6A09E667F3BCC, ptr %13, align 8, !tbaa !13
   %14 = getelementptr inbounds nuw i8, ptr %8, i64 32
-  store double 0.000000e+00, ptr %14, align 8, !tbaa !16
+  store double 0.000000e+00, ptr %14, align 8, !tbaa !13
   %15 = getelementptr inbounds nuw i8, ptr %8, i64 40
   %16 = fmul double %11, 0x3FE6A09E667F3BCC
-  store double %16, ptr %15, align 8, !tbaa !16
+  store double %16, ptr %15, align 8, !tbaa !13
   %17 = getelementptr inbounds nuw i8, ptr %8, i64 48
-  store double %16, ptr %17, align 8, !tbaa !16
+  store double %16, ptr %17, align 8, !tbaa !13
   %18 = getelementptr inbounds nuw i8, ptr %8, i64 56
-  store double 0.000000e+00, ptr %18, align 8, !tbaa !16
+  store double 0.000000e+00, ptr %18, align 8, !tbaa !13
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %9) #22
-  store double 0x3FE6A09E667F3BCC, ptr %9, align 8, !tbaa !16
+  store double 0x3FE6A09E667F3BCC, ptr %9, align 8, !tbaa !13
   %19 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  store double 0x3FE6A09E667F3BCC, ptr %19, align 8, !tbaa !16
+  store double 0x3FE6A09E667F3BCC, ptr %19, align 8, !tbaa !13
   %20 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  store double 0xBFE6A09E667F3BCC, ptr %20, align 8, !tbaa !16
+  store double 0xBFE6A09E667F3BCC, ptr %20, align 8, !tbaa !13
   %21 = getelementptr inbounds nuw i8, ptr %9, i64 24
-  store double 0x3FE6A09E667F3BCC, ptr %21, align 8, !tbaa !16
+  store double 0x3FE6A09E667F3BCC, ptr %21, align 8, !tbaa !13
   %22 = getelementptr inbounds nuw i8, ptr %9, i64 32
   %23 = icmp sgt i32 %4, 0
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %22, i8 0, i64 32, i1 false)
@@ -1156,7 +1156,7 @@ define void @statevec_multiControlledMultiRotatePauli(ptr noundef readonly byval
   %28 = or i64 %27, %.067.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %.lr.ph.preheader, label %.lr.ph.i, !llvm.loop !8
+  br i1 %exitcond.not.i, label %.lr.ph.preheader, label %.lr.ph.i
 
 .lr.ph.preheader:                                 ; preds = %.lr.ph.i
   %wide.trip.count = zext nneg i32 %4 to i64
@@ -1206,7 +1206,7 @@ thread-pre-split:                                 ; preds = %35, %.lr.ph
   %.15878 = phi i64 [ %34, %thread-pre-split.thread ], [ %.05460, %thread-pre-split ], [ %.05460, %40 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !55
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
 
 44:                                               ; preds = %._crit_edge
   %45 = fneg double %5
@@ -1216,10 +1216,10 @@ thread-pre-split:                                 ; preds = %35, %.lr.ph
 
 .lr.ph64.preheader:                               ; preds = %44, %._crit_edge
   %47 = fneg double %16
-  store double %47, ptr %15, align 8, !tbaa !16
-  store double %47, ptr %17, align 8, !tbaa !16
-  store double 0xBFE6A09E667F3BCC, ptr %19, align 8, !tbaa !16
-  store double 0x3FE6A09E667F3BCC, ptr %20, align 8, !tbaa !16
+  store double %47, ptr %15, align 8, !tbaa !13
+  store double %47, ptr %17, align 8, !tbaa !13
+  store double 0xBFE6A09E667F3BCC, ptr %19, align 8, !tbaa !13
+  store double 0x3FE6A09E667F3BCC, ptr %20, align 8, !tbaa !13
   %wide.trip.count70 = zext nneg i32 %4 to i64
   br label %.lr.ph64
 
@@ -1256,7 +1256,7 @@ thread-pre-split:                                 ; preds = %35, %.lr.ph
 60:                                               ; preds = %54, %57
   %indvars.iv.next68 = add nuw nsw i64 %indvars.iv67, 1
   %exitcond71.not = icmp eq i64 %indvars.iv.next68, %wide.trip.count70
-  br i1 %exitcond71.not, label %._crit_edge65, label %.lr.ph64, !llvm.loop !56
+  br i1 %exitcond71.not, label %._crit_edge65, label %.lr.ph64
 }
 
 declare void @statevec_multiControlledUnitary(ptr noundef byval(%struct.Qureg) align 8, i64 noundef, i64 noundef, i32 noundef, ptr noundef byval(%struct.ComplexMatrix2) align 8) local_unnamed_addr #12
@@ -1315,7 +1315,7 @@ define void @statevec_applyPauliProd(ptr noundef readonly byval(%struct.Qureg) a
 24:                                               ; preds = %18, %21
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !57
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
 }
 
 declare void @statevec_pauliX(ptr noundef byval(%struct.Qureg) align 8, i32 noundef) local_unnamed_addr #12
@@ -1372,10 +1372,10 @@ define double @statevec_calcExpecPauliProd(ptr noundef readonly byval(%struct.Qu
 25:                                               ; preds = %22, %19
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %statevec_applyPauliProd.exit, label %.lr.ph.i, !llvm.loop !57
+  br i1 %exitcond.not.i, label %statevec_applyPauliProd.exit, label %.lr.ph.i
 
 statevec_applyPauliProd.exit:                     ; preds = %25, %5
-  %26 = load i32, ptr %0, align 8, !tbaa !58
+  %26 = load i32, ptr %0, align 8, !tbaa !41
   %.not = icmp eq i32 %26, 0
   br i1 %.not, label %29, label %27
 
@@ -1401,7 +1401,7 @@ declare double @densmatr_calcTotalProb(ptr noundef byval(%struct.Qureg) align 8)
 define double @statevec_calcExpecPauliSum(ptr noundef readonly byval(%struct.Qureg) align 8 captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3, ptr noundef readonly byval(%struct.Qureg) align 8 captures(none) %4) local_unnamed_addr #11 {
   %6 = alloca [100 x i32], align 16
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %8 = load i32, ptr %7, align 4, !tbaa !59
+  %8 = load i32, ptr %7, align 4, !tbaa !42
   %.fr22 = freeze i32 %8
   call void @llvm.lifetime.start.p0(i64 400, ptr nonnull %6) #22
   %9 = icmp sgt i32 %.fr22, 0
@@ -1436,7 +1436,7 @@ statevec_applyPauliProd.exit.i.preheader:         ; preds = %.preheader.thread
   %indvars.iv31 = phi i64 [ 0, %.lr.ph21 ], [ %indvars.iv.next32, %statevec_calcExpecPauliProd.exit.us ]
   %.01519.us = phi double [ 0.000000e+00, %.lr.ph21 ], [ %40, %statevec_calcExpecPauliProd.exit.us ]
   %12 = getelementptr inbounds nuw double, ptr %2, i64 %indvars.iv31
-  %13 = load double, ptr %12, align 8, !tbaa !16
+  %13 = load double, ptr %12, align 8, !tbaa !13
   %14 = mul nuw nsw i64 %indvars.iv31, %wide.trip.count.i.i
   %15 = getelementptr inbounds nuw i32, ptr %1, i64 %14
   tail call void @statevec_cloneQureg(ptr noundef nonnull byval(%struct.Qureg) align 8 %4, ptr noundef nonnull byval(%struct.Qureg) align 8 %0) #22
@@ -1482,7 +1482,7 @@ statevec_applyPauliProd.exit.i.preheader:         ; preds = %.preheader.thread
 34:                                               ; preds = %31, %28
   %indvars.iv.next.i.i.us = add nuw nsw i64 %indvars.iv.i.i.us, 1
   %exitcond.not.i.i.us = icmp eq i64 %indvars.iv.next.i.i.us, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i.us, label %statevec_applyPauliProd.exit.i.loopexit.us, label %.lr.ph.i.i.us, !llvm.loop !57
+  br i1 %exitcond.not.i.i.us, label %statevec_applyPauliProd.exit.i.loopexit.us, label %.lr.ph.i.i.us
 
 35:                                               ; preds = %statevec_applyPauliProd.exit.i.loopexit.us
   %36 = tail call double @densmatr_calcTotalProb(ptr noundef nonnull byval(%struct.Qureg) align 8 %4) #22
@@ -1498,7 +1498,7 @@ statevec_calcExpecPauliProd.exit.us:              ; preds = %37, %35
   %40 = tail call double @llvm.fmuladd.f64(double %13, double %.0.i.us, double %.01519.us)
   %indvars.iv.next32 = add nuw nsw i64 %indvars.iv31, 1
   %exitcond35.not = icmp eq i64 %indvars.iv.next32, %wide.trip.count34
-  br i1 %exitcond35.not, label %._crit_edge, label %.lr.ph.preheader.i.i.us, !llvm.loop !60
+  br i1 %exitcond35.not, label %._crit_edge, label %.lr.ph.preheader.i.i.us, !llvm.loop !43
 
 statevec_applyPauliProd.exit.i.loopexit.us:       ; preds = %34
   br i1 %.not.i.us, label %37, label %35
@@ -1510,7 +1510,7 @@ statevec_applyPauliProd.exit.i.loopexit.us:       ; preds = %34
   store i32 %42, ptr %41, align 4, !tbaa !4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.preheader, label %.lr.ph, !llvm.loop !61
+  br i1 %exitcond.not, label %.preheader, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %statevec_calcExpecPauliProd.exit, %statevec_calcExpecPauliProd.exit.us, %.preheader.thread, %.preheader
   %.015.lcssa = phi double [ 0.000000e+00, %.preheader ], [ 0.000000e+00, %.preheader.thread ], [ %40, %statevec_calcExpecPauliProd.exit.us ], [ %50, %statevec_calcExpecPauliProd.exit ]
@@ -1521,7 +1521,7 @@ statevec_applyPauliProd.exit.i:                   ; preds = %statevec_applyPauli
   %indvars.iv26 = phi i64 [ 0, %statevec_applyPauliProd.exit.i.preheader ], [ %indvars.iv.next27, %statevec_calcExpecPauliProd.exit ]
   %.01519 = phi double [ 0.000000e+00, %statevec_applyPauliProd.exit.i.preheader ], [ %50, %statevec_calcExpecPauliProd.exit ]
   %43 = getelementptr inbounds nuw double, ptr %2, i64 %indvars.iv26
-  %44 = load double, ptr %43, align 8, !tbaa !16
+  %44 = load double, ptr %43, align 8, !tbaa !13
   tail call void @statevec_cloneQureg(ptr noundef nonnull byval(%struct.Qureg) align 8 %4, ptr noundef nonnull byval(%struct.Qureg) align 8 %0) #22
   br i1 %.not.i, label %47, label %45
 
@@ -1539,14 +1539,14 @@ statevec_calcExpecPauliProd.exit:                 ; preds = %45, %47
   %50 = tail call double @llvm.fmuladd.f64(double %44, double %.0.i, double %.01519)
   %indvars.iv.next27 = add nuw nsw i64 %indvars.iv26, 1
   %exitcond30.not = icmp eq i64 %indvars.iv.next27, %wide.trip.count29
-  br i1 %exitcond30.not, label %._crit_edge, label %statevec_applyPauliProd.exit.i, !llvm.loop !62
+  br i1 %exitcond30.not, label %._crit_edge, label %statevec_applyPauliProd.exit.i
 }
 
 ; Function Attrs: nounwind uwtable
 define void @statevec_applyPauliSum(ptr noundef readonly byval(%struct.Qureg) align 8 captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3, ptr noundef readonly byval(%struct.Qureg) align 8 captures(none) %4) local_unnamed_addr #11 {
   %6 = alloca [100 x i32], align 16
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %8 = load i32, ptr %7, align 4, !tbaa !59
+  %8 = load i32, ptr %7, align 4, !tbaa !42
   call void @llvm.lifetime.start.p0(i64 400, ptr nonnull %6) #22
   %9 = icmp sgt i32 %8, 0
   br i1 %9, label %.lr.ph.preheader, label %._crit_edge.thread
@@ -1577,7 +1577,7 @@ statevec_applyPauliProd.exit.thread.preheader:    ; preds = %._crit_edge.thread
 .lr.ph.preheader.i.us:                            ; preds = %.lr.ph35, %statevec_applyPauliProd.exit31.loopexit.us
   %indvars.iv44 = phi i64 [ 0, %.lr.ph35 ], [ %indvars.iv.next45, %statevec_applyPauliProd.exit31.loopexit.us ]
   %12 = getelementptr inbounds nuw double, ptr %2, i64 %indvars.iv44
-  %13 = load double, ptr %12, align 8, !tbaa !16
+  %13 = load double, ptr %12, align 8, !tbaa !13
   %14 = mul nuw nsw i64 %indvars.iv44, %wide.trip.count.i
   %15 = getelementptr inbounds nuw i32, ptr %1, i64 %14
   br label %.lr.ph.i.us
@@ -1622,7 +1622,7 @@ statevec_applyPauliProd.exit.thread.preheader:    ; preds = %._crit_edge.thread
 34:                                               ; preds = %31, %28
   %indvars.iv.next.i.us = add nuw nsw i64 %indvars.iv.i.us, 1
   %exitcond.not.i.us = icmp eq i64 %indvars.iv.next.i.us, %wide.trip.count.i
-  br i1 %exitcond.not.i.us, label %statevec_applyPauliProd.exit.us, label %.lr.ph.i.us, !llvm.loop !57
+  br i1 %exitcond.not.i.us, label %statevec_applyPauliProd.exit.us, label %.lr.ph.i.us
 
 statevec_applyPauliProd.exit.us:                  ; preds = %34
   tail call void @statevec_setWeightedQureg(double %13, double 0.000000e+00, ptr noundef nonnull byval(%struct.Qureg) align 8 %0, double 1.000000e+00, double 0.000000e+00, ptr noundef nonnull byval(%struct.Qureg) align 8 %4, double 0.000000e+00, double 0.000000e+00, ptr noundef nonnull byval(%struct.Qureg) align 8 %4) #22
@@ -1668,12 +1668,12 @@ statevec_applyPauliProd.exit.us:                  ; preds = %34
 53:                                               ; preds = %50, %47
   %indvars.iv.next.i27.us = add nuw nsw i64 %indvars.iv.i26.us, 1
   %exitcond.not.i28.us = icmp eq i64 %indvars.iv.next.i27.us, %wide.trip.count.i
-  br i1 %exitcond.not.i28.us, label %statevec_applyPauliProd.exit31.loopexit.us, label %.lr.ph.i25.us, !llvm.loop !57
+  br i1 %exitcond.not.i28.us, label %statevec_applyPauliProd.exit31.loopexit.us, label %.lr.ph.i25.us
 
 statevec_applyPauliProd.exit31.loopexit.us:       ; preds = %53
   %indvars.iv.next45 = add nuw nsw i64 %indvars.iv44, 1
   %exitcond48.not = icmp eq i64 %indvars.iv.next45, %wide.trip.count47
-  br i1 %exitcond48.not, label %._crit_edge36, label %.lr.ph.preheader.i.us, !llvm.loop !63
+  br i1 %exitcond48.not, label %._crit_edge36, label %.lr.ph.preheader.i.us, !llvm.loop !44
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
@@ -1682,7 +1682,7 @@ statevec_applyPauliProd.exit31.loopexit.us:       ; preds = %53
   store i32 %55, ptr %54, align 4, !tbaa !4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !64
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
 
 ._crit_edge36:                                    ; preds = %statevec_applyPauliProd.exit.thread, %statevec_applyPauliProd.exit31.loopexit.us, %._crit_edge.thread, %._crit_edge
   call void @llvm.lifetime.end.p0(i64 400, ptr nonnull %6) #22
@@ -1691,11 +1691,11 @@ statevec_applyPauliProd.exit31.loopexit.us:       ; preds = %53
 statevec_applyPauliProd.exit.thread:              ; preds = %statevec_applyPauliProd.exit.thread.preheader, %statevec_applyPauliProd.exit.thread
   %indvars.iv39 = phi i64 [ 0, %statevec_applyPauliProd.exit.thread.preheader ], [ %indvars.iv.next40, %statevec_applyPauliProd.exit.thread ]
   %56 = getelementptr inbounds nuw double, ptr %2, i64 %indvars.iv39
-  %57 = load double, ptr %56, align 8, !tbaa !16
+  %57 = load double, ptr %56, align 8, !tbaa !13
   tail call void @statevec_setWeightedQureg(double %57, double 0.000000e+00, ptr noundef nonnull byval(%struct.Qureg) align 8 %0, double 1.000000e+00, double 0.000000e+00, ptr noundef nonnull byval(%struct.Qureg) align 8 %4, double 0.000000e+00, double 0.000000e+00, ptr noundef nonnull byval(%struct.Qureg) align 8 %4) #22
   %indvars.iv.next40 = add nuw nsw i64 %indvars.iv39, 1
   %exitcond43.not = icmp eq i64 %indvars.iv.next40, %wide.trip.count42
-  br i1 %exitcond43.not, label %._crit_edge36, label %statevec_applyPauliProd.exit.thread, !llvm.loop !65
+  br i1 %exitcond43.not, label %._crit_edge36, label %statevec_applyPauliProd.exit.thread
 }
 
 declare void @statevec_initBlankState(ptr noundef byval(%struct.Qureg) align 8) local_unnamed_addr #12
@@ -1750,17 +1750,17 @@ define void @populateKrausSuperOperator2(ptr noundef captures(none) %0, ptr noun
 8:                                                ; preds = %9
   %indvars.iv.next94 = add nuw nsw i64 %indvars.iv93, 1
   %exitcond96.not = icmp eq i64 %indvars.iv.next94, 4
-  br i1 %exitcond96.not, label %.preheader83, label %.preheader84, !llvm.loop !66
+  br i1 %exitcond96.not, label %.preheader83, label %.preheader84
 
 9:                                                ; preds = %.preheader84, %9
   %indvars.iv = phi i64 [ 0, %.preheader84 ], [ %indvars.iv.next, %9 ]
   %10 = getelementptr inbounds nuw [4 x double], ptr %5, i64 0, i64 %indvars.iv
-  store double 0.000000e+00, ptr %10, align 8, !tbaa !16
+  store double 0.000000e+00, ptr %10, align 8, !tbaa !13
   %11 = getelementptr inbounds nuw [4 x double], ptr %6, i64 0, i64 %indvars.iv
-  store double 0.000000e+00, ptr %11, align 8, !tbaa !16
+  store double 0.000000e+00, ptr %11, align 8, !tbaa !13
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %8, label %9, !llvm.loop !67
+  br i1 %exitcond.not, label %8, label %9
 
 .preheader82:                                     ; preds = %.preheader82.lr.ph, %18
   %indvars.iv109 = phi i64 [ 0, %.preheader82.lr.ph ], [ %indvars.iv.next110, %18 ]
@@ -1782,7 +1782,7 @@ define void @populateKrausSuperOperator2(ptr noundef captures(none) %0, ptr noun
 18:                                               ; preds = %23
   %indvars.iv.next110 = add nuw nsw i64 %indvars.iv109, 1
   %exitcond112.not = icmp eq i64 %indvars.iv.next110, %wide.trip.count
-  br i1 %exitcond112.not, label %._crit_edge, label %.preheader82, !llvm.loop !68
+  br i1 %exitcond112.not, label %._crit_edge, label %.preheader82
 
 .preheader80:                                     ; preds = %.preheader81, %30
   %19 = phi i1 [ true, %.preheader81 ], [ false, %30 ]
@@ -1793,7 +1793,7 @@ define void @populateKrausSuperOperator2(ptr noundef captures(none) %0, ptr noun
   br label %.preheader
 
 23:                                               ; preds = %30
-  br i1 %14, label %.preheader81, label %18, !llvm.loop !69
+  br i1 %14, label %.preheader81, label %18
 
 .preheader:                                       ; preds = %.preheader80, %31
   %24 = phi i1 [ true, %.preheader80 ], [ false, %31 ]
@@ -1806,55 +1806,55 @@ define void @populateKrausSuperOperator2(ptr noundef captures(none) %0, ptr noun
   br label %32
 
 30:                                               ; preds = %31
-  br i1 %19, label %.preheader80, label %23, !llvm.loop !70
+  br i1 %19, label %.preheader80, label %23
 
 31:                                               ; preds = %32
-  br i1 %24, label %.preheader, label %30, !llvm.loop !71
+  br i1 %24, label %.preheader, label %30
 
 32:                                               ; preds = %.preheader, %32
   %33 = phi i1 [ true, %.preheader ], [ false, %32 ]
   %indvars.iv97 = phi i64 [ 0, %.preheader ], [ 1, %32 ]
-  %34 = load double, ptr %20, align 8, !tbaa !16
+  %34 = load double, ptr %20, align 8, !tbaa !13
   %35 = getelementptr inbounds nuw [2 x double], ptr %25, i64 0, i64 %indvars.iv97
-  %36 = load double, ptr %35, align 8, !tbaa !16
-  %37 = load double, ptr %21, align 8, !tbaa !16
+  %36 = load double, ptr %35, align 8, !tbaa !13
+  %37 = load double, ptr %21, align 8, !tbaa !13
   %38 = getelementptr inbounds nuw [2 x double], ptr %26, i64 0, i64 %indvars.iv97
-  %39 = load double, ptr %38, align 8, !tbaa !16
+  %39 = load double, ptr %38, align 8, !tbaa !13
   %40 = fmul double %37, %39
   %41 = tail call double @llvm.fmuladd.f64(double %34, double %36, double %40)
   %42 = or disjoint i64 %indvars.iv97, %22
   %43 = getelementptr inbounds nuw [4 x double], ptr %28, i64 0, i64 %42
-  %44 = load double, ptr %43, align 8, !tbaa !16
+  %44 = load double, ptr %43, align 8, !tbaa !13
   %45 = fadd double %44, %41
-  store double %45, ptr %43, align 8, !tbaa !16
-  %46 = load double, ptr %20, align 8, !tbaa !16
-  %47 = load double, ptr %38, align 8, !tbaa !16
-  %48 = load double, ptr %21, align 8, !tbaa !16
-  %49 = load double, ptr %35, align 8, !tbaa !16
+  store double %45, ptr %43, align 8, !tbaa !13
+  %46 = load double, ptr %20, align 8, !tbaa !13
+  %47 = load double, ptr %38, align 8, !tbaa !13
+  %48 = load double, ptr %21, align 8, !tbaa !13
+  %49 = load double, ptr %35, align 8, !tbaa !13
   %50 = fneg double %49
   %51 = fmul double %48, %50
   %52 = tail call double @llvm.fmuladd.f64(double %46, double %47, double %51)
   %53 = getelementptr inbounds nuw [4 x double], ptr %29, i64 0, i64 %42
-  %54 = load double, ptr %53, align 8, !tbaa !16
+  %54 = load double, ptr %53, align 8, !tbaa !13
   %55 = fadd double %54, %52
-  store double %55, ptr %53, align 8, !tbaa !16
-  br i1 %33, label %32, label %31, !llvm.loop !72
+  store double %55, ptr %53, align 8, !tbaa !13
+  br i1 %33, label %32, label %31
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define void @populateKrausSuperOperator4(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #8 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = load ptr, ptr %4, align 8, !tbaa !73
+  %5 = load ptr, ptr %4, align 8, !tbaa !45
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %7 = load ptr, ptr %6, align 8, !tbaa !74
+  %7 = load ptr, ptr %6, align 8, !tbaa !46
   br label %.preheader84
 
 .preheader84:                                     ; preds = %3, %13
   %indvars.iv93 = phi i64 [ 0, %3 ], [ %indvars.iv.next94, %13 ]
   %8 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv93
-  %9 = load ptr, ptr %8, align 8, !tbaa !25
+  %9 = load ptr, ptr %8, align 8, !tbaa !19
   %10 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv93
-  %11 = load ptr, ptr %10, align 8, !tbaa !25
+  %11 = load ptr, ptr %10, align 8, !tbaa !19
   br label %14
 
 .preheader83:                                     ; preds = %13
@@ -1868,17 +1868,17 @@ define void @populateKrausSuperOperator4(ptr noundef readonly captures(none) %0,
 13:                                               ; preds = %14
   %indvars.iv.next94 = add nuw nsw i64 %indvars.iv93, 1
   %exitcond96.not = icmp eq i64 %indvars.iv.next94, 16
-  br i1 %exitcond96.not, label %.preheader83, label %.preheader84, !llvm.loop !75
+  br i1 %exitcond96.not, label %.preheader83, label %.preheader84
 
 14:                                               ; preds = %.preheader84, %14
   %indvars.iv = phi i64 [ 0, %.preheader84 ], [ %indvars.iv.next, %14 ]
   %15 = getelementptr inbounds nuw double, ptr %9, i64 %indvars.iv
-  store double 0.000000e+00, ptr %15, align 8, !tbaa !16
+  store double 0.000000e+00, ptr %15, align 8, !tbaa !13
   %16 = getelementptr inbounds nuw double, ptr %11, i64 %indvars.iv
-  store double 0.000000e+00, ptr %16, align 8, !tbaa !16
+  store double 0.000000e+00, ptr %16, align 8, !tbaa !13
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
-  br i1 %exitcond.not, label %13, label %14, !llvm.loop !76
+  br i1 %exitcond.not, label %13, label %14
 
 .preheader82:                                     ; preds = %.preheader82.lr.ph, %22
   %indvars.iv113 = phi i64 [ 0, %.preheader82.lr.ph ], [ %indvars.iv.next114, %22 ]
@@ -1899,7 +1899,7 @@ define void @populateKrausSuperOperator4(ptr noundef readonly captures(none) %0,
 22:                                               ; preds = %26
   %indvars.iv.next114 = add nuw nsw i64 %indvars.iv113, 1
   %exitcond116.not = icmp eq i64 %indvars.iv.next114, %wide.trip.count
-  br i1 %exitcond116.not, label %._crit_edge, label %.preheader82, !llvm.loop !77
+  br i1 %exitcond116.not, label %._crit_edge, label %.preheader82
 
 .preheader80:                                     ; preds = %.preheader81, %34
   %indvars.iv105 = phi i64 [ 0, %.preheader81 ], [ %indvars.iv.next106, %34 ]
@@ -1911,7 +1911,7 @@ define void @populateKrausSuperOperator4(ptr noundef readonly captures(none) %0,
 26:                                               ; preds = %34
   %indvars.iv.next110 = add nuw nsw i64 %indvars.iv109, 1
   %exitcond112.not = icmp eq i64 %indvars.iv.next110, 4
-  br i1 %exitcond112.not, label %22, label %.preheader81, !llvm.loop !78
+  br i1 %exitcond112.not, label %22, label %.preheader81
 
 .preheader:                                       ; preds = %.preheader80, %35
   %indvars.iv101 = phi i64 [ 0, %.preheader80 ], [ %indvars.iv.next102, %35 ]
@@ -1919,55 +1919,55 @@ define void @populateKrausSuperOperator4(ptr noundef readonly captures(none) %0,
   %28 = getelementptr inbounds nuw [4 x [4 x double]], ptr %18, i64 0, i64 %indvars.iv101
   %29 = add nuw nsw i64 %indvars.iv101, %21
   %30 = getelementptr inbounds nuw ptr, ptr %5, i64 %29
-  %31 = load ptr, ptr %30, align 8, !tbaa !25
+  %31 = load ptr, ptr %30, align 8, !tbaa !19
   %32 = getelementptr inbounds nuw ptr, ptr %7, i64 %29
-  %33 = load ptr, ptr %32, align 8, !tbaa !25
+  %33 = load ptr, ptr %32, align 8, !tbaa !19
   br label %36
 
 34:                                               ; preds = %35
   %indvars.iv.next106 = add nuw nsw i64 %indvars.iv105, 1
   %exitcond108.not = icmp eq i64 %indvars.iv.next106, 4
-  br i1 %exitcond108.not, label %26, label %.preheader80, !llvm.loop !79
+  br i1 %exitcond108.not, label %26, label %.preheader80
 
 35:                                               ; preds = %36
   %indvars.iv.next102 = add nuw nsw i64 %indvars.iv101, 1
   %exitcond104.not = icmp eq i64 %indvars.iv.next102, 4
-  br i1 %exitcond104.not, label %34, label %.preheader, !llvm.loop !80
+  br i1 %exitcond104.not, label %34, label %.preheader
 
 36:                                               ; preds = %.preheader, %36
   %indvars.iv97 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next98, %36 ]
-  %37 = load double, ptr %23, align 8, !tbaa !16
+  %37 = load double, ptr %23, align 8, !tbaa !13
   %38 = getelementptr inbounds nuw [4 x double], ptr %27, i64 0, i64 %indvars.iv97
-  %39 = load double, ptr %38, align 8, !tbaa !16
-  %40 = load double, ptr %24, align 8, !tbaa !16
+  %39 = load double, ptr %38, align 8, !tbaa !13
+  %40 = load double, ptr %24, align 8, !tbaa !13
   %41 = getelementptr inbounds nuw [4 x double], ptr %28, i64 0, i64 %indvars.iv97
-  %42 = load double, ptr %41, align 8, !tbaa !16
+  %42 = load double, ptr %41, align 8, !tbaa !13
   %43 = fmul double %40, %42
   %44 = tail call double @llvm.fmuladd.f64(double %37, double %39, double %43)
   %45 = add nuw nsw i64 %indvars.iv97, %25
   %46 = getelementptr inbounds nuw double, ptr %31, i64 %45
-  %47 = load double, ptr %46, align 8, !tbaa !16
+  %47 = load double, ptr %46, align 8, !tbaa !13
   %48 = fadd double %44, %47
-  store double %48, ptr %46, align 8, !tbaa !16
-  %49 = load double, ptr %23, align 8, !tbaa !16
-  %50 = load double, ptr %41, align 8, !tbaa !16
-  %51 = load double, ptr %24, align 8, !tbaa !16
-  %52 = load double, ptr %38, align 8, !tbaa !16
+  store double %48, ptr %46, align 8, !tbaa !13
+  %49 = load double, ptr %23, align 8, !tbaa !13
+  %50 = load double, ptr %41, align 8, !tbaa !13
+  %51 = load double, ptr %24, align 8, !tbaa !13
+  %52 = load double, ptr %38, align 8, !tbaa !13
   %53 = fneg double %52
   %54 = fmul double %51, %53
   %55 = tail call double @llvm.fmuladd.f64(double %49, double %50, double %54)
   %56 = getelementptr inbounds nuw double, ptr %33, i64 %45
-  %57 = load double, ptr %56, align 8, !tbaa !16
+  %57 = load double, ptr %56, align 8, !tbaa !13
   %58 = fadd double %55, %57
-  store double %58, ptr %56, align 8, !tbaa !16
+  store double %58, ptr %56, align 8, !tbaa !13
   %indvars.iv.next98 = add nuw nsw i64 %indvars.iv97, 1
   %exitcond100.not = icmp eq i64 %indvars.iv.next98, 4
-  br i1 %exitcond100.not, label %35, label %36, !llvm.loop !81
+  br i1 %exitcond100.not, label %35, label %36
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define void @populateKrausSuperOperatorN(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #8 {
-  %4 = load i32, ptr %1, align 8, !tbaa !20
+  %4 = load i32, ptr %1, align 8, !tbaa !14
   %5 = shl nuw i32 1, %4
   %6 = shl i32 %5, %4
   %7 = icmp sgt i32 %6, 0
@@ -1976,33 +1976,33 @@ define void @populateKrausSuperOperatorN(ptr noundef readonly captures(none) %0,
 .preheader87.lr.ph:                               ; preds = %3
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %10 = load ptr, ptr %8, align 8, !tbaa !73
-  %11 = load ptr, ptr %9, align 8, !tbaa !74
+  %10 = load ptr, ptr %8, align 8, !tbaa !45
+  %11 = load ptr, ptr %9, align 8, !tbaa !46
   %wide.trip.count103 = zext nneg i32 %6 to i64
   br label %.preheader87.us
 
 .preheader87.us:                                  ; preds = %._crit_edge.us, %.preheader87.lr.ph
   %indvars.iv100 = phi i64 [ %indvars.iv.next101, %._crit_edge.us ], [ 0, %.preheader87.lr.ph ]
   %12 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv100
-  %13 = load ptr, ptr %12, align 8, !tbaa !25
+  %13 = load ptr, ptr %12, align 8, !tbaa !19
   %14 = getelementptr inbounds nuw ptr, ptr %11, i64 %indvars.iv100
-  %15 = load ptr, ptr %14, align 8, !tbaa !25
+  %15 = load ptr, ptr %14, align 8, !tbaa !19
   br label %16
 
 16:                                               ; preds = %.preheader87.us, %16
   %indvars.iv = phi i64 [ 0, %.preheader87.us ], [ %indvars.iv.next, %16 ]
   %17 = getelementptr inbounds nuw double, ptr %13, i64 %indvars.iv
-  store double 0.000000e+00, ptr %17, align 8, !tbaa !16
+  store double 0.000000e+00, ptr %17, align 8, !tbaa !13
   %18 = getelementptr inbounds nuw double, ptr %15, i64 %indvars.iv
-  store double 0.000000e+00, ptr %18, align 8, !tbaa !16
+  store double 0.000000e+00, ptr %18, align 8, !tbaa !13
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count103
-  br i1 %exitcond.not, label %._crit_edge.us, label %16, !llvm.loop !82
+  br i1 %exitcond.not, label %._crit_edge.us, label %16
 
 ._crit_edge.us:                                   ; preds = %16
   %indvars.iv.next101 = add nuw nsw i64 %indvars.iv100, 1
   %exitcond104.not = icmp eq i64 %indvars.iv.next101, %wide.trip.count103
-  br i1 %exitcond104.not, label %.preheader86, label %.preheader87.us, !llvm.loop !83
+  br i1 %exitcond104.not, label %.preheader86, label %.preheader87.us, !llvm.loop !47
 
 .preheader86:                                     ; preds = %._crit_edge.us, %3
   %19 = icmp slt i32 %2, 1
@@ -2013,8 +2013,8 @@ define void @populateKrausSuperOperatorN(ptr noundef readonly captures(none) %0,
 .preheader85.lr.ph.split.us:                      ; preds = %.preheader86
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %22 = load ptr, ptr %21, align 8, !tbaa !73
-  %23 = load ptr, ptr %20, align 8, !tbaa !74
+  %22 = load ptr, ptr %21, align 8, !tbaa !45
+  %23 = load ptr, ptr %20, align 8, !tbaa !46
   %smax = tail call i32 @llvm.smax.i32(i32 %5, i32 1)
   %wide.trip.count128 = zext nneg i32 %2 to i64
   %wide.trip.count123 = zext nneg i32 %smax to i64
@@ -2025,8 +2025,8 @@ define void @populateKrausSuperOperatorN(ptr noundef readonly captures(none) %0,
   %24 = getelementptr inbounds nuw %struct.ComplexMatrixN, ptr %1, i64 %indvars.iv125
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %26 = getelementptr inbounds nuw i8, ptr %24, i64 16
-  %27 = load ptr, ptr %25, align 8, !tbaa !73
-  %28 = load ptr, ptr %26, align 8, !tbaa !74
+  %27 = load ptr, ptr %25, align 8, !tbaa !45
+  %28 = load ptr, ptr %26, align 8, !tbaa !46
   br label %.preheader84.us.us
 
 .preheader84.us.us:                               ; preds = %._crit_edge.split.us.us.us, %.preheader85.us
@@ -2034,9 +2034,9 @@ define void @populateKrausSuperOperatorN(ptr noundef readonly captures(none) %0,
   %29 = trunc nuw nsw i64 %indvars.iv120 to i32
   %30 = shl i32 %29, %4
   %31 = getelementptr inbounds nuw ptr, ptr %27, i64 %indvars.iv120
-  %32 = load ptr, ptr %31, align 8, !tbaa !25
+  %32 = load ptr, ptr %31, align 8, !tbaa !19
   %33 = getelementptr inbounds nuw ptr, ptr %28, i64 %indvars.iv120
-  %34 = load ptr, ptr %33, align 8, !tbaa !25
+  %34 = load ptr, ptr %33, align 8, !tbaa !19
   %35 = sext i32 %30 to i64
   br label %.preheader83.us.us.us
 
@@ -2052,65 +2052,65 @@ define void @populateKrausSuperOperatorN(ptr noundef readonly captures(none) %0,
 .preheader.us.us.us.us:                           ; preds = %._crit_edge.us93.us.us.us, %.preheader83.us.us.us
   %indvars.iv110 = phi i64 [ %indvars.iv.next111, %._crit_edge.us93.us.us.us ], [ 0, %.preheader83.us.us.us ]
   %41 = getelementptr inbounds nuw ptr, ptr %27, i64 %indvars.iv110
-  %42 = load ptr, ptr %41, align 8, !tbaa !25
+  %42 = load ptr, ptr %41, align 8, !tbaa !19
   %43 = getelementptr inbounds nuw ptr, ptr %28, i64 %indvars.iv110
-  %44 = load ptr, ptr %43, align 8, !tbaa !25
+  %44 = load ptr, ptr %43, align 8, !tbaa !19
   %45 = add nsw i64 %indvars.iv110, %35
   %46 = getelementptr inbounds ptr, ptr %22, i64 %45
-  %47 = load ptr, ptr %46, align 8, !tbaa !25
+  %47 = load ptr, ptr %46, align 8, !tbaa !19
   %48 = getelementptr inbounds ptr, ptr %23, i64 %45
-  %49 = load ptr, ptr %48, align 8, !tbaa !25
+  %49 = load ptr, ptr %48, align 8, !tbaa !19
   br label %50
 
 50:                                               ; preds = %50, %.preheader.us.us.us.us
   %indvars.iv105 = phi i64 [ %indvars.iv.next106, %50 ], [ 0, %.preheader.us.us.us.us ]
-  %51 = load double, ptr %38, align 8, !tbaa !16
+  %51 = load double, ptr %38, align 8, !tbaa !13
   %52 = getelementptr inbounds nuw double, ptr %42, i64 %indvars.iv105
-  %53 = load double, ptr %52, align 8, !tbaa !16
-  %54 = load double, ptr %39, align 8, !tbaa !16
+  %53 = load double, ptr %52, align 8, !tbaa !13
+  %54 = load double, ptr %39, align 8, !tbaa !13
   %55 = getelementptr inbounds nuw double, ptr %44, i64 %indvars.iv105
-  %56 = load double, ptr %55, align 8, !tbaa !16
+  %56 = load double, ptr %55, align 8, !tbaa !13
   %57 = fmul double %54, %56
   %58 = tail call double @llvm.fmuladd.f64(double %51, double %53, double %57)
   %59 = add nsw i64 %indvars.iv105, %40
   %60 = getelementptr inbounds double, ptr %47, i64 %59
-  %61 = load double, ptr %60, align 8, !tbaa !16
+  %61 = load double, ptr %60, align 8, !tbaa !13
   %62 = fadd double %58, %61
-  store double %62, ptr %60, align 8, !tbaa !16
-  %63 = load double, ptr %38, align 8, !tbaa !16
-  %64 = load double, ptr %55, align 8, !tbaa !16
-  %65 = load double, ptr %39, align 8, !tbaa !16
-  %66 = load double, ptr %52, align 8, !tbaa !16
+  store double %62, ptr %60, align 8, !tbaa !13
+  %63 = load double, ptr %38, align 8, !tbaa !13
+  %64 = load double, ptr %55, align 8, !tbaa !13
+  %65 = load double, ptr %39, align 8, !tbaa !13
+  %66 = load double, ptr %52, align 8, !tbaa !13
   %67 = fneg double %66
   %68 = fmul double %65, %67
   %69 = tail call double @llvm.fmuladd.f64(double %63, double %64, double %68)
   %70 = getelementptr inbounds double, ptr %49, i64 %59
-  %71 = load double, ptr %70, align 8, !tbaa !16
+  %71 = load double, ptr %70, align 8, !tbaa !13
   %72 = fadd double %69, %71
-  store double %72, ptr %70, align 8, !tbaa !16
+  store double %72, ptr %70, align 8, !tbaa !13
   %indvars.iv.next106 = add nuw nsw i64 %indvars.iv105, 1
   %exitcond109.not = icmp eq i64 %indvars.iv.next106, %wide.trip.count123
-  br i1 %exitcond109.not, label %._crit_edge.us93.us.us.us, label %50, !llvm.loop !84
+  br i1 %exitcond109.not, label %._crit_edge.us93.us.us.us, label %50
 
 ._crit_edge.us93.us.us.us:                        ; preds = %50
   %indvars.iv.next111 = add nuw nsw i64 %indvars.iv110, 1
   %exitcond114.not = icmp eq i64 %indvars.iv.next111, %wide.trip.count123
-  br i1 %exitcond114.not, label %._crit_edge92.split.us.us.us.us, label %.preheader.us.us.us.us, !llvm.loop !85
+  br i1 %exitcond114.not, label %._crit_edge92.split.us.us.us.us, label %.preheader.us.us.us.us, !llvm.loop !48
 
 ._crit_edge92.split.us.us.us.us:                  ; preds = %._crit_edge.us93.us.us.us
   %indvars.iv.next116 = add nuw nsw i64 %indvars.iv115, 1
   %exitcond119.not = icmp eq i64 %indvars.iv.next116, %wide.trip.count123
-  br i1 %exitcond119.not, label %._crit_edge.split.us.us.us, label %.preheader83.us.us.us, !llvm.loop !86
+  br i1 %exitcond119.not, label %._crit_edge.split.us.us.us, label %.preheader83.us.us.us, !llvm.loop !49
 
 ._crit_edge.split.us.us.us:                       ; preds = %._crit_edge92.split.us.us.us.us
   %indvars.iv.next121 = add nuw nsw i64 %indvars.iv120, 1
   %exitcond124.not = icmp eq i64 %indvars.iv.next121, %wide.trip.count123
-  br i1 %exitcond124.not, label %._crit_edge.split.us96.us, label %.preheader84.us.us, !llvm.loop !87
+  br i1 %exitcond124.not, label %._crit_edge.split.us96.us, label %.preheader84.us.us, !llvm.loop !50
 
 ._crit_edge.split.us96.us:                        ; preds = %._crit_edge.split.us.us.us
   %indvars.iv.next126 = add nuw nsw i64 %indvars.iv125, 1
   %exitcond129.not = icmp eq i64 %indvars.iv.next126, %wide.trip.count128
-  br i1 %exitcond129.not, label %._crit_edge, label %.preheader85.us, !llvm.loop !88
+  br i1 %exitcond129.not, label %._crit_edge, label %.preheader85.us, !llvm.loop !51
 
 ._crit_edge:                                      ; preds = %._crit_edge.split.us96.us, %.preheader86
   ret void
@@ -2119,7 +2119,7 @@ define void @populateKrausSuperOperatorN(ptr noundef readonly captures(none) %0,
 ; Function Attrs: nounwind uwtable
 define void @densmatr_applyKrausSuperoperator(ptr noundef readonly byval(%struct.Qureg) align 8 captures(none) %0, i32 noundef %1, ptr noundef readonly byval(%struct.ComplexMatrix4) align 8 captures(none) %2) local_unnamed_addr #11 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %5 = load i32, ptr %4, align 4, !tbaa !59
+  %5 = load i32, ptr %4, align 4, !tbaa !42
   %6 = add nsw i32 %5, %1
   tail call void @statevec_multiControlledTwoQubitUnitary(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, i64 noundef 0, i32 noundef %1, i32 noundef %6, ptr noundef nonnull byval(%struct.ComplexMatrix4) align 8 %2) #22
   ret void
@@ -2129,7 +2129,7 @@ define void @densmatr_applyKrausSuperoperator(ptr noundef readonly byval(%struct
 define void @densmatr_applyTwoQubitKrausSuperoperator(ptr noundef readonly byval(%struct.Qureg) align 8 captures(none) %0, i32 noundef %1, i32 noundef %2, ptr noundef readonly byval(%struct.ComplexMatrixN) align 8 captures(none) %3) local_unnamed_addr #11 {
   %5 = alloca [4 x i32], align 16
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %7 = load i32, ptr %6, align 4, !tbaa !59
+  %7 = load i32, ptr %6, align 4, !tbaa !42
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #22
   store i32 %1, ptr %5, align 16, !tbaa !4
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 4
@@ -2154,7 +2154,7 @@ define void @densmatr_applyMultiQubitKrausSuperoperator(ptr noundef readonly byv
 
 .lr.ph:                                           ; preds = %4
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %8 = load i32, ptr %7, align 4, !tbaa !59
+  %8 = load i32, ptr %7, align 4, !tbaa !42
   %9 = zext nneg i32 %2 to i64
   br label %11
 
@@ -2176,121 +2176,121 @@ define void @densmatr_applyMultiQubitKrausSuperoperator(ptr noundef readonly byv
   store i32 %15, ptr %17, align 4, !tbaa !4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %9
-  br i1 %exitcond.not, label %._crit_edge, label %11, !llvm.loop !89
+  br i1 %exitcond.not, label %._crit_edge, label %11
 }
 
 ; Function Attrs: nounwind uwtable
 define void @densmatr_mixKrausMap(ptr noundef readonly byval(%struct.Qureg) align 8 captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3) local_unnamed_addr #11 {
   %5 = alloca %struct.ComplexMatrix4, align 8
-  %invariant.gep = getelementptr inbounds nuw i8, ptr %5, i64 128
   br label %.preheader84.i
 
 .preheader84.i:                                   ; preds = %.preheader84.i, %4
   %indvars.iv93.i = phi i64 [ 0, %4 ], [ %indvars.iv.next94.i, %.preheader84.i ]
   %6 = shl nuw nsw i64 %indvars.iv93.i, 5
-  %gep = getelementptr i8, ptr %invariant.gep, i64 %6
+  %7 = getelementptr nuw i8, ptr %5, i64 %6
+  %scevgep2 = getelementptr nuw i8, ptr %7, i64 128
   %scevgep = getelementptr nuw i8, ptr %5, i64 %6
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %scevgep, i8 0, i64 32, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %gep, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %scevgep2, i8 0, i64 32, i1 false)
   %indvars.iv.next94.i = add nuw nsw i64 %indvars.iv93.i, 1
   %exitcond96.not.i = icmp eq i64 %indvars.iv.next94.i, 4
-  br i1 %exitcond96.not.i, label %.preheader83.i, label %.preheader84.i, !llvm.loop !66
+  br i1 %exitcond96.not.i, label %.preheader83.i, label %.preheader84.i
 
 .preheader83.i:                                   ; preds = %.preheader84.i
-  %7 = getelementptr inbounds nuw i8, ptr %5, i64 128
-  %8 = icmp sgt i32 %3, 0
-  br i1 %8, label %.preheader82.lr.ph.i, label %populateKrausSuperOperator2.exit
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 128
+  %9 = icmp sgt i32 %3, 0
+  br i1 %9, label %.preheader82.lr.ph.i, label %populateKrausSuperOperator2.exit
 
 .preheader82.lr.ph.i:                             ; preds = %.preheader83.i
   %wide.trip.count.i = zext nneg i32 %3 to i64
   br label %.preheader82.i
 
-.preheader82.i:                                   ; preds = %15, %.preheader82.lr.ph.i
-  %indvars.iv109.i = phi i64 [ 0, %.preheader82.lr.ph.i ], [ %indvars.iv.next110.i, %15 ]
-  %9 = getelementptr inbounds nuw %struct.ComplexMatrix2, ptr %2, i64 %indvars.iv109.i
-  %10 = getelementptr inbounds nuw i8, ptr %9, i64 32
+.preheader82.i:                                   ; preds = %16, %.preheader82.lr.ph.i
+  %indvars.iv109.i = phi i64 [ 0, %.preheader82.lr.ph.i ], [ %indvars.iv.next110.i, %16 ]
+  %10 = getelementptr inbounds nuw %struct.ComplexMatrix2, ptr %2, i64 %indvars.iv109.i
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 32
   br label %.preheader81.i
 
-.preheader81.i:                                   ; preds = %22, %.preheader82.i
-  %11 = phi i1 [ true, %.preheader82.i ], [ false, %22 ]
-  %indvars.iv106.i = phi i64 [ 0, %.preheader82.i ], [ 1, %22 ]
-  %12 = getelementptr inbounds nuw [2 x [2 x double]], ptr %9, i64 0, i64 %indvars.iv106.i
+.preheader81.i:                                   ; preds = %23, %.preheader82.i
+  %12 = phi i1 [ true, %.preheader82.i ], [ false, %23 ]
+  %indvars.iv106.i = phi i64 [ 0, %.preheader82.i ], [ 1, %23 ]
   %13 = getelementptr inbounds nuw [2 x [2 x double]], ptr %10, i64 0, i64 %indvars.iv106.i
-  %14 = shl nuw nsw i64 %indvars.iv106.i, 1
+  %14 = getelementptr inbounds nuw [2 x [2 x double]], ptr %11, i64 0, i64 %indvars.iv106.i
+  %15 = shl nuw nsw i64 %indvars.iv106.i, 1
   br label %.preheader80.i
 
-15:                                               ; preds = %22
+16:                                               ; preds = %23
   %indvars.iv.next110.i = add nuw nsw i64 %indvars.iv109.i, 1
   %exitcond112.not.i = icmp eq i64 %indvars.iv.next110.i, %wide.trip.count.i
-  br i1 %exitcond112.not.i, label %populateKrausSuperOperator2.exit, label %.preheader82.i, !llvm.loop !68
+  br i1 %exitcond112.not.i, label %populateKrausSuperOperator2.exit, label %.preheader82.i
 
-.preheader80.i:                                   ; preds = %29, %.preheader81.i
-  %16 = phi i1 [ true, %.preheader81.i ], [ false, %29 ]
-  %indvars.iv103.i = phi i64 [ 0, %.preheader81.i ], [ 1, %29 ]
-  %17 = getelementptr inbounds nuw [2 x double], ptr %12, i64 0, i64 %indvars.iv103.i
+.preheader80.i:                                   ; preds = %30, %.preheader81.i
+  %17 = phi i1 [ true, %.preheader81.i ], [ false, %30 ]
+  %indvars.iv103.i = phi i64 [ 0, %.preheader81.i ], [ 1, %30 ]
   %18 = getelementptr inbounds nuw [2 x double], ptr %13, i64 0, i64 %indvars.iv103.i
-  %19 = shl nuw nsw i64 %indvars.iv103.i, 1
-  %20 = load double, ptr %17, align 8, !tbaa !16
-  %21 = load double, ptr %18, align 8, !tbaa !16
+  %19 = getelementptr inbounds nuw [2 x double], ptr %14, i64 0, i64 %indvars.iv103.i
+  %20 = shl nuw nsw i64 %indvars.iv103.i, 1
+  %21 = load double, ptr %18, align 8, !tbaa !13
+  %22 = load double, ptr %19, align 8, !tbaa !13
   br label %.preheader.i
 
-22:                                               ; preds = %29
-  br i1 %11, label %.preheader81.i, label %15, !llvm.loop !69
+23:                                               ; preds = %30
+  br i1 %12, label %.preheader81.i, label %16
 
-.preheader.i:                                     ; preds = %30, %.preheader80.i
-  %23 = phi i1 [ true, %.preheader80.i ], [ false, %30 ]
-  %indvars.iv100.i = phi i64 [ 0, %.preheader80.i ], [ 1, %30 ]
-  %24 = getelementptr inbounds nuw [2 x [2 x double]], ptr %9, i64 0, i64 %indvars.iv100.i
+.preheader.i:                                     ; preds = %31, %.preheader80.i
+  %24 = phi i1 [ true, %.preheader80.i ], [ false, %31 ]
+  %indvars.iv100.i = phi i64 [ 0, %.preheader80.i ], [ 1, %31 ]
   %25 = getelementptr inbounds nuw [2 x [2 x double]], ptr %10, i64 0, i64 %indvars.iv100.i
-  %26 = or disjoint i64 %indvars.iv100.i, %14
-  %27 = getelementptr inbounds nuw [4 x [4 x double]], ptr %5, i64 0, i64 %26
-  %28 = getelementptr inbounds nuw [4 x [4 x double]], ptr %7, i64 0, i64 %26
-  br label %31
-
-29:                                               ; preds = %30
-  br i1 %16, label %.preheader80.i, label %22, !llvm.loop !70
+  %26 = getelementptr inbounds nuw [2 x [2 x double]], ptr %11, i64 0, i64 %indvars.iv100.i
+  %27 = or disjoint i64 %indvars.iv100.i, %15
+  %28 = getelementptr inbounds nuw [4 x [4 x double]], ptr %5, i64 0, i64 %27
+  %29 = getelementptr inbounds nuw [4 x [4 x double]], ptr %8, i64 0, i64 %27
+  br label %32
 
 30:                                               ; preds = %31
-  br i1 %23, label %.preheader.i, label %29, !llvm.loop !71
+  br i1 %17, label %.preheader80.i, label %23
 
-31:                                               ; preds = %31, %.preheader.i
-  %32 = phi i1 [ true, %.preheader.i ], [ false, %31 ]
-  %indvars.iv97.i = phi i64 [ 0, %.preheader.i ], [ 1, %31 ]
-  %33 = getelementptr inbounds nuw [2 x double], ptr %24, i64 0, i64 %indvars.iv97.i
-  %34 = load double, ptr %33, align 8, !tbaa !16
-  %35 = getelementptr inbounds nuw [2 x double], ptr %25, i64 0, i64 %indvars.iv97.i
-  %36 = load double, ptr %35, align 8, !tbaa !16
-  %37 = fmul double %21, %36
-  %38 = tail call double @llvm.fmuladd.f64(double %20, double %34, double %37)
-  %39 = or disjoint i64 %indvars.iv97.i, %19
-  %40 = getelementptr inbounds nuw [4 x double], ptr %27, i64 0, i64 %39
-  %41 = load double, ptr %40, align 8
-  %42 = fadd double %41, %38
-  store double %42, ptr %40, align 8
-  %43 = fneg double %34
-  %44 = fmul double %21, %43
-  %45 = tail call double @llvm.fmuladd.f64(double %20, double %36, double %44)
-  %46 = getelementptr inbounds nuw [4 x double], ptr %28, i64 0, i64 %39
-  %47 = load double, ptr %46, align 8
-  %48 = fadd double %45, %47
-  store double %48, ptr %46, align 8
-  br i1 %32, label %31, label %30, !llvm.loop !72
+31:                                               ; preds = %32
+  br i1 %24, label %.preheader.i, label %30
 
-populateKrausSuperOperator2.exit:                 ; preds = %15, %.preheader83.i
+32:                                               ; preds = %32, %.preheader.i
+  %33 = phi i1 [ true, %.preheader.i ], [ false, %32 ]
+  %indvars.iv97.i = phi i64 [ 0, %.preheader.i ], [ 1, %32 ]
+  %34 = getelementptr inbounds nuw [2 x double], ptr %25, i64 0, i64 %indvars.iv97.i
+  %35 = load double, ptr %34, align 8, !tbaa !13
+  %36 = getelementptr inbounds nuw [2 x double], ptr %26, i64 0, i64 %indvars.iv97.i
+  %37 = load double, ptr %36, align 8, !tbaa !13
+  %38 = fmul double %22, %37
+  %39 = tail call double @llvm.fmuladd.f64(double %21, double %35, double %38)
+  %40 = or disjoint i64 %indvars.iv97.i, %20
+  %41 = getelementptr inbounds nuw [4 x double], ptr %28, i64 0, i64 %40
+  %42 = load double, ptr %41, align 8
+  %43 = fadd double %42, %39
+  store double %43, ptr %41, align 8
+  %44 = fneg double %35
+  %45 = fmul double %22, %44
+  %46 = tail call double @llvm.fmuladd.f64(double %21, double %37, double %45)
+  %47 = getelementptr inbounds nuw [4 x double], ptr %29, i64 0, i64 %40
+  %48 = load double, ptr %47, align 8
+  %49 = fadd double %46, %48
+  store double %49, ptr %47, align 8
+  br i1 %33, label %32, label %31
+
+populateKrausSuperOperator2.exit:                 ; preds = %16, %.preheader83.i
   %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 4
   %.sroa.3.0.copyload = load i32, ptr %.sroa.3.0..sroa_idx, align 4
-  %49 = add nsw i32 %.sroa.3.0.copyload, %1
-  tail call void @statevec_multiControlledTwoQubitUnitary(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, i64 noundef 0, i32 noundef %1, i32 noundef %49, ptr noundef nonnull byval(%struct.ComplexMatrix4) align 8 %5) #22
+  %50 = add nsw i32 %.sroa.3.0.copyload, %1
+  tail call void @statevec_multiControlledTwoQubitUnitary(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, i64 noundef 0, i32 noundef %1, i32 noundef %50, ptr noundef nonnull byval(%struct.ComplexMatrix4) align 8 %5) #22
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: write) uwtable
 define void @bindArraysToStackComplexMatrixN(ptr dead_on_unwind noalias writable writeonly sret(%struct.ComplexMatrixN) align 8 captures(none) initializes((0, 4), (8, 24)) %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #18 {
-  store i32 %1, ptr %0, align 8, !tbaa !20
+  store i32 %1, ptr %0, align 8, !tbaa !14
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %4, ptr %7, align 8, !tbaa !73
+  store ptr %4, ptr %7, align 8, !tbaa !45
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %5, ptr %8, align 8, !tbaa !74
+  store ptr %5, ptr %8, align 8, !tbaa !46
   %.not = icmp eq i32 %1, 31
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
@@ -2308,13 +2308,13 @@ define void @bindArraysToStackComplexMatrixN(ptr dead_on_unwind noalias writable
   %12 = shl i64 %indvars.iv, %10
   %13 = getelementptr inbounds double, ptr %2, i64 %12
   %14 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv
-  store ptr %13, ptr %14, align 8, !tbaa !25
+  store ptr %13, ptr %14, align 8, !tbaa !19
   %15 = getelementptr inbounds double, ptr %3, i64 %12
   %16 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv
-  store ptr %15, ptr %16, align 8, !tbaa !25
+  store ptr %15, ptr %16, align 8, !tbaa !19
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %11, !llvm.loop !90
+  br i1 %exitcond.not, label %._crit_edge, label %11
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2336,20 +2336,20 @@ define void @densmatr_mixTwoQubitKrausMap(ptr noundef readonly byval(%struct.Qur
   %13 = shl i64 %indvars.iv.i, 4
   %14 = getelementptr inbounds double, ptr %8, i64 %13
   %15 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv.i
-  store ptr %14, ptr %15, align 8, !tbaa !25, !noalias !91
+  store ptr %14, ptr %15, align 8, !tbaa !19, !noalias !52
   %16 = getelementptr inbounds double, ptr %9, i64 %13
   %17 = getelementptr inbounds nuw ptr, ptr %11, i64 %indvars.iv.i
-  store ptr %16, ptr %17, align 8, !tbaa !25, !noalias !91
+  store ptr %16, ptr %17, align 8, !tbaa !19, !noalias !52
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 16
-  br i1 %exitcond.not.i, label %.preheader84.i, label %12, !llvm.loop !90
+  br i1 %exitcond.not.i, label %.preheader84.i, label %12
 
 .preheader84.i:                                   ; preds = %12, %23
   %indvars.iv93.i = phi i64 [ %indvars.iv.next94.i, %23 ], [ 0, %12 ]
   %18 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv93.i
-  %19 = load ptr, ptr %18, align 8, !tbaa !25
+  %19 = load ptr, ptr %18, align 8, !tbaa !19
   %20 = getelementptr inbounds nuw ptr, ptr %11, i64 %indvars.iv93.i
-  %21 = load ptr, ptr %20, align 8, !tbaa !25
+  %21 = load ptr, ptr %20, align 8, !tbaa !19
   br label %24
 
 .preheader83.i:                                   ; preds = %23
@@ -2363,17 +2363,17 @@ define void @densmatr_mixTwoQubitKrausMap(ptr noundef readonly byval(%struct.Qur
 23:                                               ; preds = %24
   %indvars.iv.next94.i = add nuw nsw i64 %indvars.iv93.i, 1
   %exitcond96.not.i = icmp eq i64 %indvars.iv.next94.i, 16
-  br i1 %exitcond96.not.i, label %.preheader83.i, label %.preheader84.i, !llvm.loop !75
+  br i1 %exitcond96.not.i, label %.preheader83.i, label %.preheader84.i
 
 24:                                               ; preds = %24, %.preheader84.i
   %indvars.iv.i3 = phi i64 [ 0, %.preheader84.i ], [ %indvars.iv.next.i4, %24 ]
   %25 = getelementptr inbounds nuw double, ptr %19, i64 %indvars.iv.i3
-  store double 0.000000e+00, ptr %25, align 8, !tbaa !16
+  store double 0.000000e+00, ptr %25, align 8, !tbaa !13
   %26 = getelementptr inbounds nuw double, ptr %21, i64 %indvars.iv.i3
-  store double 0.000000e+00, ptr %26, align 8, !tbaa !16
+  store double 0.000000e+00, ptr %26, align 8, !tbaa !13
   %indvars.iv.next.i4 = add nuw nsw i64 %indvars.iv.i3, 1
   %exitcond.not.i5 = icmp eq i64 %indvars.iv.next.i4, 16
-  br i1 %exitcond.not.i5, label %23, label %24, !llvm.loop !76
+  br i1 %exitcond.not.i5, label %23, label %24
 
 .preheader82.i:                                   ; preds = %32, %.preheader82.lr.ph.i
   %indvars.iv113.i = phi i64 [ 0, %.preheader82.lr.ph.i ], [ %indvars.iv.next114.i, %32 ]
@@ -2391,7 +2391,7 @@ define void @densmatr_mixTwoQubitKrausMap(ptr noundef readonly byval(%struct.Qur
 32:                                               ; preds = %36
   %indvars.iv.next114.i = add nuw nsw i64 %indvars.iv113.i, 1
   %exitcond116.not.i = icmp eq i64 %indvars.iv.next114.i, %wide.trip.count.i
-  br i1 %exitcond116.not.i, label %populateKrausSuperOperator4.exit, label %.preheader82.i, !llvm.loop !77
+  br i1 %exitcond116.not.i, label %populateKrausSuperOperator4.exit, label %.preheader82.i
 
 .preheader80.i:                                   ; preds = %44, %.preheader81.i
   %indvars.iv105.i = phi i64 [ 0, %.preheader81.i ], [ %indvars.iv.next106.i, %44 ]
@@ -2403,7 +2403,7 @@ define void @densmatr_mixTwoQubitKrausMap(ptr noundef readonly byval(%struct.Qur
 36:                                               ; preds = %44
   %indvars.iv.next110.i = add nuw nsw i64 %indvars.iv109.i, 1
   %exitcond112.not.i = icmp eq i64 %indvars.iv.next110.i, 4
-  br i1 %exitcond112.not.i, label %32, label %.preheader81.i, !llvm.loop !78
+  br i1 %exitcond112.not.i, label %32, label %.preheader81.i
 
 .preheader.i:                                     ; preds = %45, %.preheader80.i
   %indvars.iv101.i = phi i64 [ 0, %.preheader80.i ], [ %indvars.iv.next102.i, %45 ]
@@ -2411,50 +2411,50 @@ define void @densmatr_mixTwoQubitKrausMap(ptr noundef readonly byval(%struct.Qur
   %38 = getelementptr inbounds nuw [4 x [4 x double]], ptr %28, i64 0, i64 %indvars.iv101.i
   %39 = add nuw nsw i64 %indvars.iv101.i, %31
   %40 = getelementptr inbounds nuw ptr, ptr %10, i64 %39
-  %41 = load ptr, ptr %40, align 8, !tbaa !25
+  %41 = load ptr, ptr %40, align 8, !tbaa !19
   %42 = getelementptr inbounds nuw ptr, ptr %11, i64 %39
-  %43 = load ptr, ptr %42, align 8, !tbaa !25
+  %43 = load ptr, ptr %42, align 8, !tbaa !19
   br label %46
 
 44:                                               ; preds = %45
   %indvars.iv.next106.i = add nuw nsw i64 %indvars.iv105.i, 1
   %exitcond108.not.i = icmp eq i64 %indvars.iv.next106.i, 4
-  br i1 %exitcond108.not.i, label %36, label %.preheader80.i, !llvm.loop !79
+  br i1 %exitcond108.not.i, label %36, label %.preheader80.i
 
 45:                                               ; preds = %46
   %indvars.iv.next102.i = add nuw nsw i64 %indvars.iv101.i, 1
   %exitcond104.not.i = icmp eq i64 %indvars.iv.next102.i, 4
-  br i1 %exitcond104.not.i, label %44, label %.preheader.i, !llvm.loop !80
+  br i1 %exitcond104.not.i, label %44, label %.preheader.i
 
 46:                                               ; preds = %46, %.preheader.i
   %indvars.iv97.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next98.i, %46 ]
-  %47 = load double, ptr %33, align 8, !tbaa !16
+  %47 = load double, ptr %33, align 8, !tbaa !13
   %48 = getelementptr inbounds nuw [4 x double], ptr %37, i64 0, i64 %indvars.iv97.i
-  %49 = load double, ptr %48, align 8, !tbaa !16
-  %50 = load double, ptr %34, align 8, !tbaa !16
+  %49 = load double, ptr %48, align 8, !tbaa !13
+  %50 = load double, ptr %34, align 8, !tbaa !13
   %51 = getelementptr inbounds nuw [4 x double], ptr %38, i64 0, i64 %indvars.iv97.i
-  %52 = load double, ptr %51, align 8, !tbaa !16
+  %52 = load double, ptr %51, align 8, !tbaa !13
   %53 = fmul double %50, %52
   %54 = call double @llvm.fmuladd.f64(double %47, double %49, double %53)
   %55 = add nuw nsw i64 %indvars.iv97.i, %35
   %56 = getelementptr inbounds nuw double, ptr %41, i64 %55
-  %57 = load double, ptr %56, align 8, !tbaa !16
+  %57 = load double, ptr %56, align 8, !tbaa !13
   %58 = fadd double %57, %54
-  store double %58, ptr %56, align 8, !tbaa !16
-  %59 = load double, ptr %33, align 8, !tbaa !16
-  %60 = load double, ptr %51, align 8, !tbaa !16
-  %61 = load double, ptr %34, align 8, !tbaa !16
-  %62 = load double, ptr %48, align 8, !tbaa !16
+  store double %58, ptr %56, align 8, !tbaa !13
+  %59 = load double, ptr %33, align 8, !tbaa !13
+  %60 = load double, ptr %51, align 8, !tbaa !13
+  %61 = load double, ptr %34, align 8, !tbaa !13
+  %62 = load double, ptr %48, align 8, !tbaa !13
   %63 = fneg double %62
   %64 = fmul double %61, %63
   %65 = call double @llvm.fmuladd.f64(double %59, double %60, double %64)
   %66 = getelementptr inbounds nuw double, ptr %43, i64 %55
-  %67 = load double, ptr %66, align 8, !tbaa !16
+  %67 = load double, ptr %66, align 8, !tbaa !13
   %68 = fadd double %67, %65
-  store double %68, ptr %66, align 8, !tbaa !16
+  store double %68, ptr %66, align 8, !tbaa !13
   %indvars.iv.next98.i = add nuw nsw i64 %indvars.iv97.i, 1
   %exitcond100.not.i = icmp eq i64 %indvars.iv.next98.i, 4
-  br i1 %exitcond100.not.i, label %45, label %46, !llvm.loop !81
+  br i1 %exitcond100.not.i, label %45, label %46
 
 populateKrausSuperOperator4.exit:                 ; preds = %32, %.preheader83.i
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7)
@@ -2512,20 +2512,20 @@ define void @densmatr_mixMultiQubitKrausMap(ptr noundef readonly byval(%struct.Q
   %22 = shl i64 %indvars.iv.i, %15
   %23 = getelementptr inbounds double, ptr %17, i64 %22
   %24 = getelementptr inbounds nuw ptr, ptr %19, i64 %indvars.iv.i
-  store ptr %23, ptr %24, align 8, !tbaa !25, !noalias !94
+  store ptr %23, ptr %24, align 8, !tbaa !19, !noalias !55
   %25 = getelementptr inbounds double, ptr %18, i64 %22
   %26 = getelementptr inbounds nuw ptr, ptr %20, i64 %indvars.iv.i
-  store ptr %25, ptr %26, align 8, !tbaa !25, !noalias !94
+  store ptr %25, ptr %26, align 8, !tbaa !19, !noalias !55
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %13
-  br i1 %exitcond.not.i, label %bindArraysToStackComplexMatrixN.exit, label %21, !llvm.loop !90
+  br i1 %exitcond.not.i, label %bindArraysToStackComplexMatrixN.exit, label %21
 
 bindArraysToStackComplexMatrixN.exit:             ; preds = %21
   store i32 %10, ptr %8, align 8, !tbaa !4
   %.sroa.425.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store ptr %19, ptr %.sroa.425.0..sroa_idx, align 8, !tbaa !97
+  store ptr %19, ptr %.sroa.425.0..sroa_idx, align 8, !tbaa !58
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 16
-  store ptr %20, ptr %.sroa.5.0..sroa_idx, align 8, !tbaa !97
+  store ptr %20, ptr %.sroa.5.0..sroa_idx, align 8, !tbaa !58
   call void @populateKrausSuperOperatorN(ptr noundef nonnull %8, ptr noundef %3, i32 noundef %4)
   %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 4
   %.sroa.3.0.copyload = load i32, ptr %.sroa.3.0..sroa_idx, align 4
@@ -2549,7 +2549,7 @@ bindArraysToStackComplexMatrixN.exit:             ; preds = %21
   store i32 %33, ptr %35, align 4, !tbaa !4
   %indvars.iv.next.i18 = add nuw nsw i64 %indvars.iv.i17, 1
   %exitcond.not.i19 = icmp eq i64 %indvars.iv.next.i18, %28
-  br i1 %exitcond.not.i19, label %densmatr_applyMultiQubitKrausSuperoperator.exit, label %29, !llvm.loop !89
+  br i1 %exitcond.not.i19, label %densmatr_applyMultiQubitKrausSuperoperator.exit, label %29
 
 densmatr_applyMultiQubitKrausSuperoperator.exit:  ; preds = %29, %bindArraysToStackComplexMatrixN.exit
   call void @statevec_multiControlledMultiQubitUnitary(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, i64 noundef 0, ptr noundef nonnull %7, i32 noundef %10, ptr noundef nonnull byval(%struct.ComplexMatrixN) align 8 %8) #22
@@ -2578,7 +2578,7 @@ densmatr_applyMultiQubitKrausSuperoperator.exit:  ; preds = %29, %bindArraysToSt
   store i32 %41, ptr %43, align 4, !tbaa !4
   %indvars.iv.next.i22 = add nuw nsw i64 %indvars.iv.i21, 1
   %exitcond.not.i23 = icmp eq i64 %indvars.iv.next.i22, %36
-  br i1 %exitcond.not.i23, label %densmatr_applyMultiQubitKrausSuperoperator.exit24, label %37, !llvm.loop !89
+  br i1 %exitcond.not.i23, label %densmatr_applyMultiQubitKrausSuperoperator.exit24, label %37
 
 densmatr_applyMultiQubitKrausSuperoperator.exit24: ; preds = %37
   call void @statevec_multiControlledMultiQubitUnitary(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, i64 noundef 0, ptr noundef nonnull %6, i32 noundef %10, ptr noundef nonnull byval(%struct.ComplexMatrixN) align 8 %8) #22
@@ -2608,7 +2608,7 @@ define void @densmatr_mixPauli(ptr noundef readonly byval(%struct.Qureg) align 8
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %7) #22
   br label %65
 
-.preheader82.i.i.preheader:                       ; preds = %65
+.preheader83.i.i:                                 ; preds = %65
   %8 = fadd double %2, %3
   %9 = fadd double %8, %4
   %10 = fsub double 1.000000e+00, %9
@@ -2616,32 +2616,32 @@ define void @densmatr_mixPauli(ptr noundef readonly byval(%struct.Qureg) align 8
   %12 = tail call double @sqrt(double noundef %2) #22, !tbaa !4
   %13 = tail call double @sqrt(double noundef %3) #22, !tbaa !4
   %14 = tail call double @sqrt(double noundef %4) #22, !tbaa !4
-  store double %11, ptr %7, align 16, !tbaa !16
+  store double %11, ptr %7, align 16, !tbaa !13
   %15 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  store double %11, ptr %15, align 8, !tbaa !16
+  store double %11, ptr %15, align 8, !tbaa !13
   %16 = getelementptr inbounds nuw i8, ptr %7, i64 72
-  store double %12, ptr %16, align 8, !tbaa !16
+  store double %12, ptr %16, align 8, !tbaa !13
   %17 = getelementptr inbounds nuw i8, ptr %7, i64 80
-  store double %12, ptr %17, align 16, !tbaa !16
+  store double %12, ptr %17, align 16, !tbaa !13
   %18 = fneg double %13
   %19 = getelementptr inbounds nuw i8, ptr %7, i64 168
-  store double %18, ptr %19, align 8, !tbaa !16
+  store double %18, ptr %19, align 8, !tbaa !13
   %20 = getelementptr inbounds nuw i8, ptr %7, i64 176
-  store double %13, ptr %20, align 16, !tbaa !16
+  store double %13, ptr %20, align 16, !tbaa !13
   %21 = getelementptr inbounds nuw i8, ptr %7, i64 192
-  store double %14, ptr %21, align 16, !tbaa !16
+  store double %14, ptr %21, align 16, !tbaa !13
   %22 = fneg double %14
   %23 = getelementptr inbounds nuw i8, ptr %7, i64 216
-  store double %22, ptr %23, align 8, !tbaa !16
+  store double %22, ptr %23, align 8, !tbaa !13
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %6)
   %.sroa.3.0..sroa_idx15 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %.sroa.3.0.copyload16 = load i32, ptr %.sroa.3.0..sroa_idx15, align 4
-  %invariant.gep.i = getelementptr inbounds nuw i8, ptr %6, i64 128
+  %scevgep = getelementptr inbounds nuw i8, ptr %6, i64 128
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(256) %6, i8 0, i64 256, i1 false)
   br label %.preheader82.i.i
 
-.preheader82.i.i:                                 ; preds = %.preheader82.i.i.preheader, %30
-  %indvars.iv109.i.i = phi i64 [ %indvars.iv.next110.i.i, %30 ], [ 0, %.preheader82.i.i.preheader ]
+.preheader82.i.i:                                 ; preds = %30, %.preheader83.i.i
+  %indvars.iv109.i.i = phi i64 [ 0, %.preheader83.i.i ], [ %indvars.iv.next110.i.i, %30 ]
   %24 = getelementptr inbounds nuw %struct.ComplexMatrix2, ptr %7, i64 %indvars.iv109.i.i
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 32
   br label %.preheader81.i.i
@@ -2657,7 +2657,7 @@ define void @densmatr_mixPauli(ptr noundef readonly byval(%struct.Qureg) align 8
 30:                                               ; preds = %37
   %indvars.iv.next110.i.i = add nuw nsw i64 %indvars.iv109.i.i, 1
   %exitcond112.not.i.i = icmp eq i64 %indvars.iv.next110.i.i, 4
-  br i1 %exitcond112.not.i.i, label %densmatr_mixKrausMap.exit, label %.preheader82.i.i, !llvm.loop !68
+  br i1 %exitcond112.not.i.i, label %densmatr_mixKrausMap.exit, label %.preheader82.i.i
 
 .preheader80.i.i:                                 ; preds = %44, %.preheader81.i.i
   %31 = phi i1 [ true, %.preheader81.i.i ], [ false, %44 ]
@@ -2665,12 +2665,12 @@ define void @densmatr_mixPauli(ptr noundef readonly byval(%struct.Qureg) align 8
   %32 = getelementptr inbounds nuw [2 x double], ptr %27, i64 0, i64 %indvars.iv103.i.i
   %33 = getelementptr inbounds nuw [2 x double], ptr %28, i64 0, i64 %indvars.iv103.i.i
   %34 = shl nuw nsw i64 %indvars.iv103.i.i, 1
-  %35 = load double, ptr %32, align 8, !tbaa !16
-  %36 = load double, ptr %33, align 8, !tbaa !16
+  %35 = load double, ptr %32, align 8, !tbaa !13
+  %36 = load double, ptr %33, align 8, !tbaa !13
   br label %.preheader.i.i
 
 37:                                               ; preds = %44
-  br i1 %26, label %.preheader81.i.i, label %30, !llvm.loop !69
+  br i1 %26, label %.preheader81.i.i, label %30
 
 .preheader.i.i:                                   ; preds = %45, %.preheader80.i.i
   %38 = phi i1 [ true, %.preheader80.i.i ], [ false, %45 ]
@@ -2679,22 +2679,22 @@ define void @densmatr_mixPauli(ptr noundef readonly byval(%struct.Qureg) align 8
   %40 = getelementptr inbounds nuw [2 x [2 x double]], ptr %25, i64 0, i64 %indvars.iv100.i.i
   %41 = or disjoint i64 %indvars.iv100.i.i, %29
   %42 = getelementptr inbounds nuw [4 x [4 x double]], ptr %6, i64 0, i64 %41
-  %43 = getelementptr inbounds nuw [4 x [4 x double]], ptr %invariant.gep.i, i64 0, i64 %41
+  %43 = getelementptr inbounds nuw [4 x [4 x double]], ptr %scevgep, i64 0, i64 %41
   br label %46
 
 44:                                               ; preds = %45
-  br i1 %31, label %.preheader80.i.i, label %37, !llvm.loop !70
+  br i1 %31, label %.preheader80.i.i, label %37
 
 45:                                               ; preds = %46
-  br i1 %38, label %.preheader.i.i, label %44, !llvm.loop !71
+  br i1 %38, label %.preheader.i.i, label %44
 
 46:                                               ; preds = %46, %.preheader.i.i
   %47 = phi i1 [ true, %.preheader.i.i ], [ false, %46 ]
   %indvars.iv97.i.i = phi i64 [ 0, %.preheader.i.i ], [ 1, %46 ]
   %48 = getelementptr inbounds nuw [2 x double], ptr %39, i64 0, i64 %indvars.iv97.i.i
-  %49 = load double, ptr %48, align 8, !tbaa !16
+  %49 = load double, ptr %48, align 8, !tbaa !13
   %50 = getelementptr inbounds nuw [2 x double], ptr %40, i64 0, i64 %indvars.iv97.i.i
-  %51 = load double, ptr %50, align 8, !tbaa !16
+  %51 = load double, ptr %50, align 8, !tbaa !13
   %52 = fmul double %36, %51
   %53 = tail call double @llvm.fmuladd.f64(double %35, double %49, double %52)
   %54 = or disjoint i64 %indvars.iv97.i.i, %34
@@ -2709,7 +2709,7 @@ define void @densmatr_mixPauli(ptr noundef readonly byval(%struct.Qureg) align 8
   %62 = load double, ptr %61, align 8
   %63 = fadd double %60, %62
   store double %63, ptr %61, align 8
-  br i1 %47, label %46, label %45, !llvm.loop !72
+  br i1 %47, label %46, label %45
 
 densmatr_mixKrausMap.exit:                        ; preds = %30
   %64 = add nsw i32 %.sroa.3.0.copyload16, %1
@@ -2724,7 +2724,7 @@ densmatr_mixKrausMap.exit:                        ; preds = %30
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %66, i8 0, i64 64, i1 false)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %.preheader82.i.i.preheader, label %65, !llvm.loop !98
+  br i1 %exitcond.not, label %.preheader83.i.i, label %65
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2735,7 +2735,7 @@ define void @applyExponentiatedPauliHamil(ptr noundef readonly byval(%struct.Qur
   call void @llvm.lifetime.start.p0(i64 400, ptr nonnull %5) #22
   call void @llvm.lifetime.start.p0(i64 400, ptr nonnull %6) #22
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 20
-  %9 = load i32, ptr %8, align 4, !tbaa !99
+  %9 = load i32, ptr %8, align 4, !tbaa !59
   %.fr47 = freeze i32 %9
   %10 = icmp sgt i32 %.fr47, 0
   br i1 %10, label %.lr.ph.preheader, label %.preheader
@@ -2746,7 +2746,7 @@ define void @applyExponentiatedPauliHamil(ptr noundef readonly byval(%struct.Qur
 
 .preheader:                                       ; preds = %.lr.ph, %4
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %13 = load i32, ptr %12, align 8, !tbaa !101
+  %13 = load i32, ptr %12, align 8, !tbaa !61
   %14 = icmp sgt i32 %13, 0
   br i1 %14, label %.lr.ph43, label %._crit_edge44
 
@@ -2754,8 +2754,8 @@ define void @applyExponentiatedPauliHamil(ptr noundef readonly byval(%struct.Qur
   %.not = icmp eq i32 %3, 0
   %15 = fmul double %2, 2.000000e+00
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %17 = load ptr, ptr %16, align 8, !tbaa !102
-  %18 = load ptr, ptr %1, align 8, !tbaa !103
+  %17 = load ptr, ptr %16, align 8, !tbaa !62
+  %18 = load ptr, ptr %1, align 8, !tbaa !63
   %19 = load i32, ptr %0, align 8
   %.fr = freeze i32 %19
   %.not36 = icmp eq i32 %.fr, 0
@@ -2772,7 +2772,7 @@ define void @applyExponentiatedPauliHamil(ptr noundef readonly byval(%struct.Qur
   %.033.us = select i1 %.not, i32 %.03042.us, i32 %21
   %22 = sext i32 %.033.us to i64
   %23 = getelementptr inbounds double, ptr %17, i64 %22
-  %24 = load double, ptr %23, align 8, !tbaa !16
+  %24 = load double, ptr %23, align 8, !tbaa !13
   %25 = fmul double %15, %24
   %26 = mul nsw i32 %.033.us, %.fr47
   %27 = sext i32 %26 to i64
@@ -2802,23 +2802,23 @@ define void @applyExponentiatedPauliHamil(ptr noundef readonly byval(%struct.Qur
   %spec.store.select2.us = select i1 %34, i8 90, i8 %spec.store.select1.us
   %35 = or disjoint i64 %indvars.iv55, 1
   %36 = getelementptr inbounds nuw [1024 x i8], ptr %7, i64 0, i64 %indvars.iv55
-  store i8 %spec.store.select2.us, ptr %36, align 2, !tbaa !36
+  store i8 %spec.store.select2.us, ptr %36, align 2, !tbaa !26
   %indvars.iv.next56 = add nuw nsw i64 %indvars.iv55, 2
   %37 = getelementptr inbounds nuw [1024 x i8], ptr %7, i64 0, i64 %35
-  store i8 32, ptr %37, align 1, !tbaa !36
+  store i8 32, ptr %37, align 1, !tbaa !26
   %indvars.iv.next54 = add nuw nsw i64 %indvars.iv53, 1
   %exitcond61.not = icmp eq i64 %indvars.iv.next54, %wide.trip.count60
-  br i1 %exitcond61.not, label %._crit_edge.us, label %30, !llvm.loop !104
+  br i1 %exitcond61.not, label %._crit_edge.us, label %30
 
 ._crit_edge.us:                                   ; preds = %30
   %38 = and i64 %indvars.iv.next56, 4294967294
   %39 = getelementptr inbounds nuw [1024 x i8], ptr %7, i64 0, i64 %38
-  store i8 0, ptr %39, align 2, !tbaa !36
+  store i8 0, ptr %39, align 2, !tbaa !26
   call void (ptr, ptr, ...) @qasm_recordComment(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, ptr noundef nonnull @.str.8, double noundef %25, ptr noundef nonnull %7) #22
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %7) #22
   %40 = add nuw nsw i32 %.03042.us, 1
   %exitcond62.not = icmp eq i32 %40, %13
-  br i1 %exitcond62.not, label %._crit_edge44, label %.lr.ph43.split.us, !llvm.loop !105
+  br i1 %exitcond62.not, label %._crit_edge44, label %.lr.ph43.split.us, !llvm.loop !64
 
 .lr.ph43.split:                                   ; preds = %.lr.ph43
   br i1 %.not36, label %.lr.ph43.split.split.us, label %.lr.ph43.split.split
@@ -2830,19 +2830,19 @@ define void @applyExponentiatedPauliHamil(ptr noundef readonly byval(%struct.Qur
   %.033.us46 = select i1 %.not, i32 %.03042.us45, i32 %42
   %43 = sext i32 %.033.us46 to i64
   %44 = getelementptr inbounds double, ptr %17, i64 %43
-  %45 = load double, ptr %44, align 8, !tbaa !16
+  %45 = load double, ptr %44, align 8, !tbaa !13
   %46 = fmul double %15, %45
   %47 = mul nsw i32 %.033.us46, %.fr47
   %48 = sext i32 %47 to i64
   %49 = getelementptr inbounds i32, ptr %18, i64 %48
   call void @statevec_multiRotatePauli(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, ptr noundef nonnull %5, ptr noundef %49, i32 noundef %.fr47, double noundef %46, i32 noundef 0)
   call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %7) #22
-  store i8 0, ptr %7, align 16, !tbaa !36
+  store i8 0, ptr %7, align 16, !tbaa !26
   call void (ptr, ptr, ...) @qasm_recordComment(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, ptr noundef nonnull @.str.8, double noundef %46, ptr noundef nonnull %7) #22
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %7) #22
   %50 = add nuw nsw i32 %.03042.us45, 1
   %exitcond52.not = icmp eq i32 %50, %13
-  br i1 %exitcond52.not, label %._crit_edge44, label %.lr.ph43.split.split.us, !llvm.loop !106
+  br i1 %exitcond52.not, label %._crit_edge44, label %.lr.ph43.split.split.us, !llvm.loop !65
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
@@ -2855,7 +2855,7 @@ define void @applyExponentiatedPauliHamil(ptr noundef readonly byval(%struct.Qur
   store i32 %55, ptr %53, align 4, !tbaa !4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %11
-  br i1 %exitcond.not, label %.preheader, label %.lr.ph, !llvm.loop !107
+  br i1 %exitcond.not, label %.preheader, label %.lr.ph
 
 ._crit_edge44:                                    ; preds = %.lr.ph43.split.split, %.lr.ph43.split.split.us, %._crit_edge.us, %.preheader
   call void @llvm.lifetime.end.p0(i64 400, ptr nonnull %6) #22
@@ -2869,7 +2869,7 @@ define void @applyExponentiatedPauliHamil(ptr noundef readonly byval(%struct.Qur
   %.033 = select i1 %.not, i32 %.03042, i32 %57
   %58 = sext i32 %.033 to i64
   %59 = getelementptr inbounds double, ptr %17, i64 %58
-  %60 = load double, ptr %59, align 8, !tbaa !16
+  %60 = load double, ptr %59, align 8, !tbaa !13
   %61 = fmul double %15, %60
   %62 = mul nsw i32 %.033, %.fr47
   %63 = sext i32 %62 to i64
@@ -2877,12 +2877,12 @@ define void @applyExponentiatedPauliHamil(ptr noundef readonly byval(%struct.Qur
   call void @statevec_multiRotatePauli(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, ptr noundef nonnull %5, ptr noundef %64, i32 noundef %.fr47, double noundef %61, i32 noundef 0)
   call void @statevec_multiRotatePauli(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, ptr noundef nonnull %6, ptr noundef %64, i32 noundef %.fr47, double noundef %61, i32 noundef 1)
   call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %7) #22
-  store i8 0, ptr %7, align 16, !tbaa !36
+  store i8 0, ptr %7, align 16, !tbaa !26
   call void (ptr, ptr, ...) @qasm_recordComment(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, ptr noundef nonnull @.str.8, double noundef %61, ptr noundef nonnull %7) #22
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %7) #22
   %65 = add nuw nsw i32 %.03042, 1
   %exitcond51.not = icmp eq i32 %65, %13
-  br i1 %exitcond51.not, label %._crit_edge44, label %.lr.ph43.split.split, !llvm.loop !108
+  br i1 %exitcond51.not, label %._crit_edge44, label %.lr.ph43.split.split
 }
 
 declare void @qasm_recordComment(ptr noundef byval(%struct.Qureg) align 8, ptr noundef, ...) local_unnamed_addr #12
@@ -2948,7 +2948,7 @@ define void @agnostic_applyTrotterCircuit(ptr noundef readonly byval(%struct.Qur
   tail call void @applySymmetrizedTrotterCircuit(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, ptr noundef nonnull byval(%struct.PauliHamil) align 8 %1, double noundef %9, i32 noundef %3)
   %11 = add nuw nsw i32 %.08, 1
   %exitcond.not = icmp eq i32 %11, %4
-  br i1 %exitcond.not, label %.loopexit, label %10, !llvm.loop !109
+  br i1 %exitcond.not, label %.loopexit, label %10
 
 .loopexit:                                        ; preds = %10, %5
   ret void
@@ -2960,7 +2960,7 @@ define void @agnostic_applyQFT(ptr noundef readonly byval(%struct.Qureg) align 8
   %5 = alloca [100 x i32], align 16
   %6 = alloca [1 x double], align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %8 = load i32, ptr %7, align 4, !tbaa !59
+  %8 = load i32, ptr %7, align 4, !tbaa !42
   %9 = icmp sgt i32 %2, 0
   br i1 %9, label %.lr.ph69, label %._crit_edge75
 
@@ -3009,7 +3009,7 @@ define void @agnostic_applyQFT(ptr noundef readonly byval(%struct.Qureg) align 8
   %29 = shl nuw i32 1, %28
   %30 = sitofp i32 %29 to double
   %31 = fdiv double 0x400921FB54442D18, %30
-  store double %31, ptr %6, align 8, !tbaa !16
+  store double %31, ptr %6, align 8, !tbaa !13
   call void @statevec_applyParamNamedPhaseFuncOverrides(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, ptr noundef nonnull %5, ptr noundef nonnull %4, i32 noundef 2, i32 noundef 0, i32 noundef 6, ptr noundef nonnull %6, i32 noundef 1, ptr noundef null, ptr noundef null, i32 noundef 0, i32 noundef 0) #22
   br i1 %.not, label %shiftSubregIndices.exit63, label %.preheader.i
 
@@ -3033,7 +3033,7 @@ define void @agnostic_applyQFT(ptr noundef readonly byval(%struct.Qureg) align 8
   %.1.lcssa.i = phi i32 [ %.01013.i, %.preheader.i ], [ %36, %._crit_edge.loopexit.i ]
   %indvars.iv.next18.i = add nuw nsw i64 %indvars.iv17.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next18.i, 2
-  br i1 %exitcond.not.i, label %shiftSubregIndices.exit, label %.preheader.i, !llvm.loop !34
+  br i1 %exitcond.not.i, label %shiftSubregIndices.exit, label %.preheader.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ %35, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
@@ -3045,7 +3045,7 @@ define void @agnostic_applyQFT(ptr noundef readonly byval(%struct.Qureg) align 8
   store i32 %39, ptr %37, align 4, !tbaa !4
   %40 = add nuw nsw i32 %.012.i, 1
   %exitcond.not = icmp eq i32 %40, %33
-  br i1 %exitcond.not, label %._crit_edge.loopexit.i, label %.lr.ph.i, !llvm.loop !35
+  br i1 %exitcond.not, label %._crit_edge.loopexit.i, label %.lr.ph.i
 
 shiftSubregIndices.exit:                          ; preds = %._crit_edge.i
   call void @statevec_applyParamNamedPhaseFuncOverrides(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, ptr noundef nonnull %5, ptr noundef nonnull %4, i32 noundef 2, i32 noundef 0, i32 noundef 6, ptr noundef nonnull %6, i32 noundef 1, ptr noundef null, ptr noundef null, i32 noundef 0, i32 noundef 1) #22
@@ -3071,7 +3071,7 @@ shiftSubregIndices.exit:                          ; preds = %._crit_edge.i
   %.1.lcssa.i54 = phi i32 [ %.01013.i52, %.preheader.i50 ], [ %45, %._crit_edge.loopexit.i62 ]
   %indvars.iv.next18.i55 = add nuw nsw i64 %indvars.iv17.i51, 1
   %exitcond.not.i56 = icmp eq i64 %indvars.iv.next18.i55, 2
-  br i1 %exitcond.not.i56, label %shiftSubregIndices.exit63, label %.preheader.i50, !llvm.loop !34
+  br i1 %exitcond.not.i56, label %shiftSubregIndices.exit63, label %.preheader.i50
 
 .lr.ph.i58:                                       ; preds = %.lr.ph.i58, %.lr.ph.preheader.i57
   %indvars.iv.i59 = phi i64 [ %44, %.lr.ph.preheader.i57 ], [ %indvars.iv.next.i61, %.lr.ph.i58 ]
@@ -3083,7 +3083,7 @@ shiftSubregIndices.exit:                          ; preds = %._crit_edge.i
   store i32 %48, ptr %46, align 4, !tbaa !4
   %49 = add nuw nsw i32 %.012.i60, 1
   %exitcond78.not = icmp eq i32 %49, %42
-  br i1 %exitcond78.not, label %._crit_edge.loopexit.i62, label %.lr.ph.i58, !llvm.loop !35
+  br i1 %exitcond78.not, label %._crit_edge.loopexit.i62, label %.lr.ph.i58
 
 shiftSubregIndices.exit63:                        ; preds = %._crit_edge.i53, %._crit_edge
   call void @qasm_recordNamedPhaseFunc(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, ptr noundef nonnull %5, ptr noundef nonnull %4, i32 noundef 2, i32 noundef 0, i32 noundef 6, ptr noundef nonnull %6, i32 noundef 1, ptr noundef null, ptr noundef null, i32 noundef 0) #22
@@ -3118,7 +3118,7 @@ shiftSubregIndices.exit63:                        ; preds = %._crit_edge.i53, %.
   call void @qasm_recordControlledGate(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, i32 noundef 12, i32 noundef %55, i32 noundef %58) #22
   %indvars.iv.next85 = add nuw nsw i64 %indvars.iv84, 1
   %exitcond88.not = icmp eq i64 %indvars.iv.next85, %wide.trip.count87
-  br i1 %exitcond88.not, label %._crit_edge75, label %.lr.ph74.split.us, !llvm.loop !110
+  br i1 %exitcond88.not, label %._crit_edge75, label %.lr.ph74.split.us, !llvm.loop !66
 
 ._crit_edge75:                                    ; preds = %.lr.ph74.split, %.lr.ph74.split.us, %3, %._crit_edge70
   ret void
@@ -3137,7 +3137,7 @@ shiftSubregIndices.exit63:                        ; preds = %._crit_edge.i53, %.
   call void @qasm_recordControlledGate(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, i32 noundef 12, i32 noundef %60, i32 noundef %63) #22
   %indvars.iv.next81 = add nuw nsw i64 %indvars.iv80, 1
   %exitcond83.not = icmp eq i64 %indvars.iv.next81, %wide.trip.count87
-  br i1 %exitcond83.not, label %._crit_edge75, label %.lr.ph74.split, !llvm.loop !111
+  br i1 %exitcond83.not, label %._crit_edge75, label %.lr.ph74.split
 }
 
 declare void @statevec_hadamard(ptr noundef byval(%struct.Qureg) align 8, i32 noundef) local_unnamed_addr #12
@@ -3200,107 +3200,62 @@ attributes #22 = { nounwind }
 !5 = !{!"int", !6, i64 0}
 !6 = !{!"omnipotent char", !7, i64 0}
 !7 = !{!"Simple C/C++ TBAA"}
-!8 = distinct !{!8, !9}
-!9 = !{!"llvm.loop.estimated_trip_count"}
-!10 = distinct !{!10, !9}
-!11 = !{!12, !13, i64 0}
-!12 = !{!"Vector", !13, i64 0, !13, i64 8, !13, i64 16}
-!13 = !{!"double", !6, i64 0}
-!14 = !{!12, !13, i64 8}
-!15 = !{!12, !13, i64 16}
-!16 = !{!13, !13, i64 0}
-!17 = distinct !{!17, !9}
-!18 = distinct !{!18, !9}
-!19 = distinct !{!19, !9}
-!20 = !{!21, !5, i64 0}
-!21 = !{!"ComplexMatrixN", !5, i64 0, !22, i64 8, !22, i64 16}
-!22 = !{!"p2 double", !23, i64 0}
-!23 = !{!"any p2 pointer", !24, i64 0}
-!24 = !{!"any pointer", !6, i64 0}
-!25 = !{!26, !26, i64 0}
-!26 = !{!"p1 double", !24, i64 0}
-!27 = distinct !{!27, !9}
-!28 = distinct !{!28, !9, !29}
-!29 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!30 = !{!31, !13, i64 0}
-!31 = !{!"Complex", !13, i64 0, !13, i64 8}
-!32 = !{!31, !13, i64 8}
-!33 = distinct !{!33, !9}
-!34 = distinct !{!34, !9}
-!35 = distinct !{!35, !9}
-!36 = !{!6, !6, i64 0}
-!37 = distinct !{!37, !9}
-!38 = !{!39, !40, i64 0}
-!39 = !{!"timeval", !40, i64 0, !40, i64 8}
-!40 = !{!"long", !6, i64 0}
-!41 = !{!39, !40, i64 8}
-!42 = !{!40, !40, i64 0}
-!43 = !{!44, !5, i64 32}
-!44 = !{!"Qureg", !5, i64 0, !5, i64 4, !5, i64 8, !45, i64 16, !45, i64 24, !5, i64 32, !5, i64 36, !46, i64 40, !46, i64 56, !46, i64 72, !26, i64 88, !26, i64 96, !24, i64 104, !24, i64 112, !23, i64 120, !24, i64 128}
-!45 = !{!"long long", !6, i64 0}
-!46 = !{!"ComplexArray", !26, i64 0, !26, i64 8}
-!47 = !{!44, !45, i64 16}
-!48 = !{!44, !26, i64 40}
-!49 = !{!44, !26, i64 48}
-!50 = distinct !{!50, !9}
-!51 = !{!44, !5, i64 8}
-!52 = !{!44, !5, i64 36}
-!53 = distinct !{!53, !9}
-!54 = distinct !{!54, !9}
-!55 = distinct !{!55, !9}
-!56 = distinct !{!56, !9}
-!57 = distinct !{!57, !9}
-!58 = !{!44, !5, i64 0}
-!59 = !{!44, !5, i64 4}
-!60 = distinct !{!60, !9, !29}
-!61 = distinct !{!61, !9}
-!62 = distinct !{!62, !9}
-!63 = distinct !{!63, !9, !29}
-!64 = distinct !{!64, !9}
-!65 = distinct !{!65, !9}
-!66 = distinct !{!66, !9}
-!67 = distinct !{!67, !9}
-!68 = distinct !{!68, !9}
-!69 = distinct !{!69, !9}
-!70 = distinct !{!70, !9}
-!71 = distinct !{!71, !9}
-!72 = distinct !{!72, !9}
-!73 = !{!21, !22, i64 8}
-!74 = !{!21, !22, i64 16}
-!75 = distinct !{!75, !9}
-!76 = distinct !{!76, !9}
-!77 = distinct !{!77, !9}
-!78 = distinct !{!78, !9}
-!79 = distinct !{!79, !9}
-!80 = distinct !{!80, !9}
-!81 = distinct !{!81, !9}
-!82 = distinct !{!82, !9}
-!83 = distinct !{!83, !9, !29}
-!84 = distinct !{!84, !9}
-!85 = distinct !{!85, !9, !29}
-!86 = distinct !{!86, !9, !29}
-!87 = distinct !{!87, !9, !29}
-!88 = distinct !{!88, !9, !29}
-!89 = distinct !{!89, !9}
-!90 = distinct !{!90, !9}
-!91 = !{!92}
-!92 = distinct !{!92, !93, !"bindArraysToStackComplexMatrixN: argument 0"}
-!93 = distinct !{!93, !"bindArraysToStackComplexMatrixN"}
-!94 = !{!95}
-!95 = distinct !{!95, !96, !"bindArraysToStackComplexMatrixN: argument 0"}
-!96 = distinct !{!96, !"bindArraysToStackComplexMatrixN"}
-!97 = !{!22, !22, i64 0}
-!98 = distinct !{!98, !9}
-!99 = !{!100, !5, i64 20}
-!100 = !{!"PauliHamil", !24, i64 0, !26, i64 8, !5, i64 16, !5, i64 20}
-!101 = !{!100, !5, i64 16}
-!102 = !{!100, !26, i64 8}
-!103 = !{!100, !24, i64 0}
-!104 = distinct !{!104, !9}
-!105 = distinct !{!105, !9, !29}
-!106 = distinct !{!106, !9, !29}
-!107 = distinct !{!107, !9}
-!108 = distinct !{!108, !9}
-!109 = distinct !{!109, !9}
-!110 = distinct !{!110, !9, !29}
-!111 = distinct !{!111, !9}
+!8 = !{!9, !10, i64 0}
+!9 = !{!"Vector", !10, i64 0, !10, i64 8, !10, i64 16}
+!10 = !{!"double", !6, i64 0}
+!11 = !{!9, !10, i64 8}
+!12 = !{!9, !10, i64 16}
+!13 = !{!10, !10, i64 0}
+!14 = !{!15, !5, i64 0}
+!15 = !{!"ComplexMatrixN", !5, i64 0, !16, i64 8, !16, i64 16}
+!16 = !{!"p2 double", !17, i64 0}
+!17 = !{!"any p2 pointer", !18, i64 0}
+!18 = !{!"any pointer", !6, i64 0}
+!19 = !{!20, !20, i64 0}
+!20 = !{!"p1 double", !18, i64 0}
+!21 = distinct !{!21, !22}
+!22 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!23 = !{!24, !10, i64 0}
+!24 = !{!"Complex", !10, i64 0, !10, i64 8}
+!25 = !{!24, !10, i64 8}
+!26 = !{!6, !6, i64 0}
+!27 = !{!28, !29, i64 0}
+!28 = !{!"timeval", !29, i64 0, !29, i64 8}
+!29 = !{!"long", !6, i64 0}
+!30 = !{!28, !29, i64 8}
+!31 = !{!29, !29, i64 0}
+!32 = !{!33, !5, i64 32}
+!33 = !{!"Qureg", !5, i64 0, !5, i64 4, !5, i64 8, !34, i64 16, !34, i64 24, !5, i64 32, !5, i64 36, !35, i64 40, !35, i64 56, !35, i64 72, !20, i64 88, !20, i64 96, !18, i64 104, !18, i64 112, !17, i64 120, !18, i64 128}
+!34 = !{!"long long", !6, i64 0}
+!35 = !{!"ComplexArray", !20, i64 0, !20, i64 8}
+!36 = !{!33, !34, i64 16}
+!37 = !{!33, !20, i64 40}
+!38 = !{!33, !20, i64 48}
+!39 = !{!33, !5, i64 8}
+!40 = !{!33, !5, i64 36}
+!41 = !{!33, !5, i64 0}
+!42 = !{!33, !5, i64 4}
+!43 = distinct !{!43, !22}
+!44 = distinct !{!44, !22}
+!45 = !{!15, !16, i64 8}
+!46 = !{!15, !16, i64 16}
+!47 = distinct !{!47, !22}
+!48 = distinct !{!48, !22}
+!49 = distinct !{!49, !22}
+!50 = distinct !{!50, !22}
+!51 = distinct !{!51, !22}
+!52 = !{!53}
+!53 = distinct !{!53, !54, !"bindArraysToStackComplexMatrixN: argument 0"}
+!54 = distinct !{!54, !"bindArraysToStackComplexMatrixN"}
+!55 = !{!56}
+!56 = distinct !{!56, !57, !"bindArraysToStackComplexMatrixN: argument 0"}
+!57 = distinct !{!57, !"bindArraysToStackComplexMatrixN"}
+!58 = !{!16, !16, i64 0}
+!59 = !{!60, !5, i64 20}
+!60 = !{!"PauliHamil", !18, i64 0, !20, i64 8, !5, i64 16, !5, i64 20}
+!61 = !{!60, !5, i64 16}
+!62 = !{!60, !20, i64 8}
+!63 = !{!60, !18, i64 0}
+!64 = distinct !{!64, !22}
+!65 = distinct !{!65, !22}
+!66 = distinct !{!66, !22}

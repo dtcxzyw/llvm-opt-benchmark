@@ -357,16 +357,16 @@ rv40_parse_picture_size.exit:                     ; preds = %180, %176, %174, %8
   %.035 = phi i32 [ %5, %80 ], [ %.014.i.i, %174 ], [ %.014.i.i, %176 ], [ %.014.i.i, %180 ]
   %.034 = phi i32 [ %7, %80 ], [ %.0.i5.i, %174 ], [ %192, %180 ], [ -1094995529, %176 ]
   %194 = getelementptr inbounds nuw i8, ptr %0, i64 472
-  %195 = load ptr, ptr %194, align 8, !tbaa !76
+  %195 = load ptr, ptr %194, align 8, !tbaa !75
   %196 = tail call i32 @av_image_check_size(i32 noundef %.035, i32 noundef %.034, i32 noundef 0, ptr noundef %195) #8
   %197 = icmp slt i32 %196, 0
   br i1 %197, label %208, label %198
 
 198:                                              ; preds = %rv40_parse_picture_size.exit
   %199 = getelementptr inbounds nuw i8, ptr %2, i64 20
-  store i32 %.035, ptr %199, align 4, !tbaa !77
+  store i32 %.035, ptr %199, align 4, !tbaa !76
   %200 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  store i32 %.034, ptr %200, align 4, !tbaa !78
+  store i32 %.034, ptr %200, align 4, !tbaa !77
   %201 = add nsw i32 %.035, 15
   %202 = ashr i32 %201, 4
   %203 = add nsw i32 %.034, 15
@@ -374,7 +374,7 @@ rv40_parse_picture_size.exit:                     ; preds = %180, %176, %174, %8
   %205 = mul nsw i32 %204, %202
   %206 = tail call i32 @ff_rv34_get_start_offset(ptr noundef nonnull %1, i32 noundef %205) #8
   %207 = getelementptr inbounds nuw i8, ptr %2, i64 12
-  store i32 %206, ptr %207, align 4, !tbaa !79
+  store i32 %206, ptr %207, align 4, !tbaa !78
   br label %208
 
 208:                                              ; preds = %rv40_parse_picture_size.exit, %23, %3, %198
@@ -400,7 +400,7 @@ define internal noundef i32 @rv40_decode_intra_types(ptr noundef readonly captur
   br label %42
 
 9:                                                ; preds = %8
-  %10 = load i32, ptr %5, align 4, !tbaa !80
+  %10 = load i32, ptr %5, align 4, !tbaa !79
   %.not59 = icmp eq i32 %10, 0
   br i1 %.not59, label %.preheader, label %11
 
@@ -445,7 +445,7 @@ define internal noundef i32 @rv40_decode_intra_types(ptr noundef readonly captur
 42:                                               ; preds = %.preheader, %180
   %.069 = phi ptr [ %.1, %180 ], [ %.05171, %.preheader ]
   %.05368 = phi i32 [ %181, %180 ], [ 0, %.preheader ]
-  %43 = load i32, ptr %4, align 8, !tbaa !81
+  %43 = load i32, ptr %4, align 8, !tbaa !80
   %44 = sub nsw i32 0, %43
   %45 = sub i32 1, %43
   %46 = sext i32 %45 to i64
@@ -468,7 +468,7 @@ define internal noundef i32 @rv40_decode_intra_types(ptr noundef readonly captur
 61:                                               ; preds = %42, %66
   %indvars.iv = phi i64 [ 0, %42 ], [ %indvars.iv.next, %66 ]
   %62 = getelementptr inbounds nuw [20 x i16], ptr @rv40_aic_table_index, i64 0, i64 %indvars.iv
-  %63 = load i16, ptr %62, align 2, !tbaa !82
+  %63 = load i16, ptr %62, align 2, !tbaa !81
   %64 = zext i16 %63 to i32
   %65 = icmp eq i32 %60, %64
   br i1 %65, label %67, label %66
@@ -476,7 +476,7 @@ define internal noundef i32 @rv40_decode_intra_types(ptr noundef readonly captur
 66:                                               ; preds = %61
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 20
-  br i1 %exitcond.not, label %.thread, label %61, !llvm.loop !83
+  br i1 %exitcond.not, label %.thread, label %61, !llvm.loop !82
 
 67:                                               ; preds = %61
   %.not65 = icmp eq i32 %.05368, 3
@@ -485,7 +485,7 @@ define internal noundef i32 @rv40_decode_intra_types(ptr noundef readonly captur
 68:                                               ; preds = %67
   %69 = and i64 %indvars.iv, 4294967295
   %70 = getelementptr inbounds nuw [20 x ptr], ptr @aic_mode2_vlc, i64 0, i64 %69
-  %71 = load ptr, ptr %70, align 8, !tbaa !84
+  %71 = load ptr, ptr %70, align 8, !tbaa !83
   %72 = load i32, ptr %6, align 8, !tbaa !63
   %73 = load i32, ptr %7, align 8, !tbaa !66
   %74 = load ptr, ptr %1, align 8, !tbaa !64
@@ -551,7 +551,7 @@ get_vlc2.exit:                                    ; preds = %68, %90
   %118 = add nsw i32 %117, %53
   %119 = sext i32 %118 to i64
   %120 = getelementptr inbounds [90 x ptr], ptr @aic_mode1_vlc, i64 0, i64 %119
-  %121 = load ptr, ptr %120, align 8, !tbaa !84
+  %121 = load ptr, ptr %120, align 8, !tbaa !83
   %122 = load i32, ptr %6, align 8, !tbaa !63
   %123 = load i32, ptr %7, align 8, !tbaa !66
   %124 = load ptr, ptr %1, align 8, !tbaa !64
@@ -638,15 +638,15 @@ get_vlc2.exit:                                    ; preds = %68, %90
   %.1 = phi ptr [ %112, %get_vlc2.exit ], [ %179, %177 ]
   %181 = add nuw nsw i32 %.154, 1
   %182 = icmp slt i32 %.154, 3
-  br i1 %182, label %42, label %.loopexit, !llvm.loop !86
+  br i1 %182, label %42, label %.loopexit, !llvm.loop !85
 
 .loopexit:                                        ; preds = %180, %11
   %183 = add nuw nsw i32 %.05270, 1
-  %184 = load i32, ptr %4, align 8, !tbaa !81
+  %184 = load i32, ptr %4, align 8, !tbaa !80
   %185 = sext i32 %184 to i64
   %186 = getelementptr inbounds i8, ptr %.05171, i64 %185
   %exitcond74.not = icmp eq i32 %183, 4
-  br i1 %exitcond74.not, label %187, label %8, !llvm.loop !87
+  br i1 %exitcond74.not, label %187, label %8, !llvm.loop !86
 
 187:                                              ; preds = %.loopexit
   ret i32 0
@@ -657,15 +657,15 @@ define internal range(i32 -32768, 255) i32 @rv40_decode_mb_info(ptr noundef capt
   %2 = alloca [12 x i32], align 16
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4160
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 3348
-  %5 = load i32, ptr %4, align 4, !tbaa !88
+  %5 = load i32, ptr %4, align 4, !tbaa !87
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 3352
-  %7 = load i32, ptr %6, align 8, !tbaa !89
+  %7 = load i32, ptr %6, align 8, !tbaa !88
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 548
-  %9 = load i32, ptr %8, align 4, !tbaa !90
+  %9 = load i32, ptr %8, align 4, !tbaa !89
   %10 = mul nsw i32 %9, %7
   %11 = add nsw i32 %10, %5
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 3356
-  %13 = load i32, ptr %12, align 4, !tbaa !91
+  %13 = load i32, ptr %12, align 4, !tbaa !90
   %.not = icmp eq i32 %13, 0
   br i1 %.not, label %14, label %72
 
@@ -743,7 +743,7 @@ define internal range(i32 -32768, 255) i32 @rv40_decode_mb_info(ptr noundef capt
   %66 = icmp ult i32 %54, 134217728
   %67 = icmp ult i32 %43, %18
   %68 = select i1 %66, i1 %67, i1 false
-  br i1 %68, label %.preheader.i, label %.loopexit.i, !llvm.loop !92
+  br i1 %68, label %.preheader.i, label %.loopexit.i, !llvm.loop !91
 
 .loopexit.i:                                      ; preds = %53, %44
   %.1.i = phi i32 [ %52, %44 ], [ %58, %53 ]
@@ -752,16 +752,16 @@ define internal range(i32 -32768, 255) i32 @rv40_decode_mb_info(ptr noundef capt
 
 get_interleaved_ue_golomb.exit:                   ; preds = %28, %.loopexit.i
   %.043.i = phi i32 [ %38, %28 ], [ %.1.i, %.loopexit.i ]
-  store i32 %.043.i, ptr %12, align 4, !tbaa !91
+  store i32 %.043.i, ptr %12, align 4, !tbaa !90
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 564
-  %70 = load i32, ptr %69, align 4, !tbaa !93
+  %70 = load i32, ptr %69, align 4, !tbaa !92
   %71 = icmp ugt i32 %.043.i, %70
   br i1 %71, label %206, label %72
 
 72:                                               ; preds = %get_interleaved_ue_golomb.exit, %1
   %73 = phi i32 [ %.043.i, %get_interleaved_ue_golomb.exit ], [ %13, %1 ]
   %74 = add nsw i32 %73, -1
-  store i32 %74, ptr %12, align 4, !tbaa !91
+  store i32 %74, ptr %12, align 4, !tbaa !90
   %.not60 = icmp eq i32 %74, 0
   br i1 %.not60, label %75, label %206
 
@@ -778,7 +778,7 @@ get_interleaved_ue_golomb.exit:                   ; preds = %28, %.loopexit.i
   %80 = load i32, ptr %79, align 4, !tbaa !71
   %.not63 = icmp eq i32 %80, 0
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 6544
-  %.pre = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !94
+  %.pre = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !93
   br i1 %.not63, label %._crit_edge, label %81
 
 81:                                               ; preds = %78
@@ -859,7 +859,7 @@ get_interleaved_ue_golomb.exit:                   ; preds = %28, %.loopexit.i
   %.1 = phi i32 [ 1, %124 ], [ %.075, %120 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 12
-  br i1 %exitcond.not, label %128, label %120, !llvm.loop !95
+  br i1 %exitcond.not, label %128, label %120, !llvm.loop !94
 
 128:                                              ; preds = %124, %127
   %.155 = phi i32 [ %126, %124 ], [ %.2, %127 ]
@@ -874,7 +874,7 @@ get_interleaved_ue_golomb.exit:                   ; preds = %28, %.loopexit.i
 
 132:                                              ; preds = %129
   %133 = getelementptr inbounds nuw i8, ptr %0, i64 6544
-  %134 = load ptr, ptr %133, align 8, !tbaa !94
+  %134 = load ptr, ptr %133, align 8, !tbaa !93
   %135 = sext i32 %11 to i64
   %136 = getelementptr i32, ptr %134, i64 %135
   %137 = getelementptr i8, ptr %136, i64 -4
@@ -884,7 +884,7 @@ get_interleaved_ue_golomb.exit:                   ; preds = %28, %.loopexit.i
 139:                                              ; preds = %129, %132, %128
   %.3 = phi i32 [ %.155, %128 ], [ %138, %132 ], [ 0, %129 ]
   %140 = getelementptr inbounds nuw i8, ptr %0, i64 1480
-  %141 = load i32, ptr %140, align 8, !tbaa !96
+  %141 = load i32, ptr %140, align 8, !tbaa !95
   %142 = icmp eq i32 %141, 2
   %143 = sext i32 %.3 to i64
   %144 = getelementptr inbounds nuw i8, ptr %0, i64 4176
@@ -906,7 +906,7 @@ get_interleaved_ue_golomb.exit:                   ; preds = %28, %.loopexit.i
   %158 = load i8, ptr %157, align 1, !tbaa !65
   %159 = zext i8 %158 to i64
   %160 = getelementptr inbounds nuw [7 x ptr], ptr @ptype_vlc, i64 0, i64 %159
-  %161 = load ptr, ptr %160, align 8, !tbaa !84
+  %161 = load ptr, ptr %160, align 8, !tbaa !83
   %162 = lshr i32 %155, 25
   %163 = zext nneg i32 %162 to i64
   %164 = getelementptr inbounds nuw %struct.VLCElem, ptr %161, i64 %163
@@ -926,7 +926,7 @@ get_interleaved_ue_golomb.exit:                   ; preds = %28, %.loopexit.i
   %175 = load i8, ptr %174, align 1, !tbaa !65
   %176 = zext i8 %175 to i64
   %177 = getelementptr inbounds nuw [6 x ptr], ptr @btype_vlc, i64 0, i64 %176
-  %178 = load ptr, ptr %177, align 8, !tbaa !84
+  %178 = load ptr, ptr %177, align 8, !tbaa !83
   %179 = lshr i32 %155, 26
   %180 = zext nneg i32 %179 to i64
   %181 = getelementptr inbounds nuw %struct.VLCElem, ptr %178, i64 %180
@@ -962,7 +962,7 @@ get_interleaved_ue_golomb.exit:                   ; preds = %28, %.loopexit.i
   %203 = tail call i32 @llvm.umin.i32(i32 %147, i32 %202)
   store i32 %203, ptr %144, align 8, !tbaa !63
   %204 = getelementptr inbounds nuw i8, ptr %0, i64 472
-  %205 = load ptr, ptr %204, align 8, !tbaa !97
+  %205 = load ptr, ptr %204, align 8, !tbaa !96
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %205, i32 noundef 16, ptr noundef nonnull %.str.2.sink) #8
   br label %206
 
@@ -1010,13 +1010,13 @@ define internal void @rv40_loop_filter(ptr noundef readonly captures(none) %0, i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %24) #8
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 548
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 540
-  %28 = load i32, ptr %27, align 4, !tbaa !98
+  %28 = load i32, ptr %27, align 4, !tbaa !97
   %29 = icmp sgt i32 %28, 0
   %indvars.iv363.sroa.gep403 = getelementptr inbounds nuw i8, ptr %23, i64 4
   br i1 %29, label %.lr.ph, label %._crit_edge358
 
 .lr.ph:                                           ; preds = %2
-  %30 = load i32, ptr %26, align 4, !tbaa !90
+  %30 = load i32, ptr %26, align 4, !tbaa !89
   %31 = mul i32 %30, %1
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 1240
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 6664
@@ -1029,7 +1029,7 @@ define internal void @rv40_loop_filter(ptr noundef readonly captures(none) %0, i
   %38 = phi i32 [ %28, %.lr.ph ], [ %52, %.thread ]
   %indvars.iv = phi i64 [ %36, %.lr.ph ], [ %indvars.iv.next, %.thread ]
   %.0248340 = phi i32 [ 0, %.lr.ph ], [ %53, %.thread ]
-  %39 = load ptr, ptr %32, align 8, !tbaa !99
+  %39 = load ptr, ptr %32, align 8, !tbaa !98
   %40 = getelementptr inbounds i32, ptr %39, i64 %indvars.iv
   %41 = load i32, ptr %40, align 4, !tbaa !71
   %42 = and i32 %41, 16777223
@@ -1039,19 +1039,19 @@ define internal void @rv40_loop_filter(ptr noundef readonly captures(none) %0, i
 43:                                               ; preds = %37
   %44 = and i32 %41, 7
   %.not296 = icmp eq i32 %44, 0
-  %45 = load ptr, ptr %33, align 8, !tbaa !100
+  %45 = load ptr, ptr %33, align 8, !tbaa !99
   %46 = getelementptr inbounds i16, ptr %45, i64 %indvars.iv
-  store i16 -1, ptr %46, align 2, !tbaa !82
-  %47 = load ptr, ptr %34, align 8, !tbaa !101
+  store i16 -1, ptr %46, align 2, !tbaa !81
+  %47 = load ptr, ptr %34, align 8, !tbaa !100
   %48 = getelementptr inbounds i16, ptr %47, i64 %indvars.iv
-  store i16 -1, ptr %48, align 2, !tbaa !82
+  store i16 -1, ptr %48, align 2, !tbaa !81
   br i1 %.not296, label %.thread, label %49
 
 49:                                               ; preds = %43
-  %50 = load ptr, ptr %35, align 8, !tbaa !102
+  %50 = load ptr, ptr %35, align 8, !tbaa !101
   %51 = getelementptr inbounds i8, ptr %50, i64 %indvars.iv
   store i8 -1, ptr %51, align 1, !tbaa !65
-  %.pre = load i32, ptr %27, align 4, !tbaa !98
+  %.pre = load i32, ptr %27, align 4, !tbaa !97
   br label %.thread
 
 .thread:                                          ; preds = %37, %49, %43
@@ -1059,14 +1059,14 @@ define internal void @rv40_loop_filter(ptr noundef readonly captures(none) %0, i
   %53 = add nuw nsw i32 %.0248340, 1
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %54 = icmp slt i32 %53, %52
-  br i1 %54, label %37, label %._crit_edge, !llvm.loop !103
+  br i1 %54, label %37, label %._crit_edge, !llvm.loop !102
 
 ._crit_edge:                                      ; preds = %.thread
   %55 = icmp sgt i32 %52, 0
   br i1 %55, label %.lr.ph357, label %._crit_edge358
 
 .lr.ph357:                                        ; preds = %._crit_edge
-  %56 = load i32, ptr %26, align 4, !tbaa !90
+  %56 = load i32, ptr %26, align 4, !tbaa !89
   %57 = mul i32 %56, %1
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 1160
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 1216
@@ -1119,7 +1119,7 @@ define internal void @rv40_loop_filter(ptr noundef readonly captures(none) %0, i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %25) #8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %.sroa.0)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %.sroa.4)
-  %97 = load ptr, ptr %59, align 8, !tbaa !104
+  %97 = load ptr, ptr %59, align 8, !tbaa !103
   %98 = getelementptr inbounds i8, ptr %97, i64 %indvars.iv376
   %99 = load i8, ptr %98, align 1, !tbaa !65
   %100 = sext i8 %99 to i64
@@ -1127,13 +1127,13 @@ define internal void @rv40_loop_filter(ptr noundef readonly captures(none) %0, i
   %102 = load i8, ptr %101, align 1, !tbaa !65
   %103 = getelementptr inbounds [32 x i8], ptr @rv40_beta_tab, i64 0, i64 %100
   %104 = load i8, ptr %103, align 1, !tbaa !65
-  %105 = load i32, ptr %60, align 8, !tbaa !105
-  %106 = load i32, ptr %61, align 4, !tbaa !106
+  %105 = load i32, ptr %60, align 8, !tbaa !104
+  %106 = load i32, ptr %61, align 4, !tbaa !105
   store i32 1, ptr %25, align 16, !tbaa !71
   store i32 %1, ptr %62, align 4, !tbaa !71
   %107 = trunc nuw nsw i64 %indvars.iv378 to i32
   store i32 %107, ptr %63, align 8, !tbaa !71
-  %108 = load i32, ptr %64, align 8, !tbaa !107
+  %108 = load i32, ptr %64, align 8, !tbaa !106
   %109 = add nsw i32 %108, -1
   %110 = icmp slt i32 %1, %109
   %111 = zext i1 %110 to i32
@@ -1155,28 +1155,28 @@ define internal void @rv40_loop_filter(ptr noundef readonly captures(none) %0, i
   %119 = add nsw i32 %118, %112
   %120 = getelementptr inbounds nuw [4 x i32], ptr @neighbour_offs_y, i64 0, i64 %indvars.iv360
   %121 = load i32, ptr %120, align 4, !tbaa !71
-  %122 = load i32, ptr %26, align 4, !tbaa !90
+  %122 = load i32, ptr %26, align 4, !tbaa !89
   %123 = mul nsw i32 %122, %121
   %124 = add nsw i32 %119, %123
-  %125 = load ptr, ptr %66, align 8, !tbaa !100
+  %125 = load ptr, ptr %66, align 8, !tbaa !99
   %126 = sext i32 %124 to i64
   %127 = getelementptr inbounds i16, ptr %125, i64 %126
-  %128 = load i16, ptr %127, align 2, !tbaa !82
+  %128 = load i16, ptr %127, align 2, !tbaa !81
   %129 = zext i16 %128 to i32
   %130 = getelementptr inbounds nuw [4 x i32], ptr %24, i64 0, i64 %indvars.iv360
   store i32 %129, ptr %130, align 4, !tbaa !71
-  %131 = load ptr, ptr %67, align 8, !tbaa !99
+  %131 = load ptr, ptr %67, align 8, !tbaa !98
   %132 = getelementptr inbounds i32, ptr %131, i64 %126
   %133 = load i32, ptr %132, align 4, !tbaa !71
   %134 = getelementptr inbounds nuw [4 x i32], ptr %19, i64 0, i64 %indvars.iv360
   store i32 %133, ptr %134, align 4, !tbaa !71
-  %135 = load ptr, ptr %68, align 8, !tbaa !101
+  %135 = load ptr, ptr %68, align 8, !tbaa !100
   %136 = getelementptr inbounds i16, ptr %135, i64 %126
-  %137 = load i16, ptr %136, align 2, !tbaa !82
+  %137 = load i16, ptr %136, align 2, !tbaa !81
   %138 = zext i16 %137 to i32
   %139 = getelementptr inbounds nuw [4 x i32], ptr %22, i64 0, i64 %indvars.iv360
   store i32 %138, ptr %139, align 4, !tbaa !71
-  %140 = load ptr, ptr %69, align 8, !tbaa !102
+  %140 = load ptr, ptr %69, align 8, !tbaa !101
   %141 = getelementptr inbounds i8, ptr %140, i64 %126
   %142 = load i8, ptr %141, align 1, !tbaa !65
   %143 = and i8 %142, 15
@@ -1218,7 +1218,7 @@ define internal void @rv40_loop_filter(ptr noundef readonly captures(none) %0, i
   store i32 %164, ptr %165, align 4, !tbaa !71
   %indvars.iv.next361 = add nuw nsw i64 %indvars.iv360, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next361, 4
-  br i1 %exitcond.not, label %166, label %113, !llvm.loop !108
+  br i1 %exitcond.not, label %166, label %113, !llvm.loop !107
 
 166:                                              ; preds = %156
   %167 = zext i8 %102 to i32
@@ -1336,7 +1336,7 @@ define internal void @rv40_loop_filter(ptr noundef readonly captures(none) %0, i
   br label %236
 
 236:                                              ; preds = %231, %232
-  br i1 %208, label %207, label %.preheader339, !llvm.loop !109
+  br i1 %208, label %207, label %.preheader339, !llvm.loop !108
 
 .preheader338:                                    ; preds = %398
   %237 = shl nsw i64 %indvars.iv378, 3
@@ -1348,10 +1348,10 @@ define internal void @rv40_loop_filter(ptr noundef readonly captures(none) %0, i
 
 242:                                              ; preds = %.preheader339, %398
   %indvars.iv367 = phi i64 [ 0, %.preheader339 ], [ %indvars.iv.next368, %398 ]
-  %243 = load ptr, ptr %58, align 8, !tbaa !110
+  %243 = load ptr, ptr %58, align 8, !tbaa !109
   %244 = getelementptr inbounds nuw i8, ptr %243, i64 %200
   %245 = add nuw nsw i64 %indvars.iv367, %93
-  %246 = load i64, ptr %78, align 8, !tbaa !111
+  %246 = load i64, ptr %78, align 8, !tbaa !110
   %247 = mul nsw i64 %246, %245
   %248 = getelementptr inbounds i8, ptr %244, i64 %247
   %.not280 = icmp eq i64 %indvars.iv367, 0
@@ -1383,7 +1383,7 @@ define internal void @rv40_loop_filter(ptr noundef readonly captures(none) %0, i
   br i1 %.not281, label %295, label %266
 
 266:                                              ; preds = %256
-  %267 = load i64, ptr %78, align 8, !tbaa !111
+  %267 = load i64, ptr %78, align 8, !tbaa !110
   %268 = shl nsw i64 %267, 2
   %269 = getelementptr inbounds i8, ptr %.0255344, i64 %268
   %270 = and i32 %264, %176
@@ -1391,7 +1391,7 @@ define internal void @rv40_loop_filter(ptr noundef readonly captures(none) %0, i
   %271 = select i1 %.not282, i32 0, i32 %260
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %17) #8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %18) #8
-  %272 = load ptr, ptr %79, align 8, !tbaa !112
+  %272 = load ptr, ptr %79, align 8, !tbaa !111
   %sext334 = shl i64 %267, 32
   %273 = ashr exact i64 %sext334, 32
   %274 = call i32 %272(ptr noundef %269, i64 noundef %273, i32 noundef range(i32 0, 256) %168, i32 noundef range(i32 0, 1021) %spec.select, i32 noundef 0, ptr noundef nonnull %17, ptr noundef nonnull %18) #8
@@ -1406,7 +1406,7 @@ define internal void @rv40_loop_filter(ptr noundef readonly captures(none) %0, i
   br i1 %.not.i, label %284, label %282
 
 282:                                              ; preds = %266
-  %283 = load ptr, ptr %80, align 8, !tbaa !112
+  %283 = load ptr, ptr %80, align 8, !tbaa !111
   call void %283(ptr noundef %269, i64 noundef %273, i32 noundef range(i32 0, 256) %167, i32 noundef %281, i32 noundef range(i32 -2147483648, 19) %263, i32 noundef 0) #8
   br label %rv40_adaptive_loop_filter.exit
 
@@ -1416,7 +1416,7 @@ define internal void @rv40_loop_filter(ptr noundef readonly captures(none) %0, i
   br i1 %.not35.i, label %288, label %286
 
 286:                                              ; preds = %284
-  %287 = load ptr, ptr %81, align 8, !tbaa !112
+  %287 = load ptr, ptr %81, align 8, !tbaa !111
   call void %287(ptr noundef %269, i64 noundef %273, i32 noundef 1, i32 noundef 1, i32 noundef range(i32 0, 256) %167, i32 noundef range(i32 0, 256) %168, i32 noundef %281, i32 noundef %271, i32 noundef %261) #8
   br label %rv40_adaptive_loop_filter.exit
 
@@ -1426,7 +1426,7 @@ define internal void @rv40_loop_filter(ptr noundef readonly captures(none) %0, i
   br i1 %.not36.i, label %rv40_adaptive_loop_filter.exit, label %290
 
 290:                                              ; preds = %288
-  %291 = load ptr, ptr %81, align 8, !tbaa !112
+  %291 = load ptr, ptr %81, align 8, !tbaa !111
   %292 = ashr i32 %281, 1
   %293 = ashr i32 %271, 1
   %294 = ashr i32 %261, 1
@@ -1464,10 +1464,10 @@ rv40_adaptive_loop_filter.exit:                   ; preds = %282, %286, %288, %2
 
 306:                                              ; preds = %298, %.critedge
   %.0260 = phi i32 [ %305, %.critedge ], [ %252, %298 ]
-  %307 = load i64, ptr %78, align 8, !tbaa !111
+  %307 = load i64, ptr %78, align 8, !tbaa !110
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %15) #8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %16) #8
-  %308 = load ptr, ptr %85, align 8, !tbaa !112
+  %308 = load ptr, ptr %85, align 8, !tbaa !111
   %sext335 = shl i64 %307, 32
   %309 = ashr exact i64 %sext335, 32
   %310 = call i32 %308(ptr noundef %.0255344, i64 noundef %309, i32 noundef range(i32 0, 256) %168, i32 noundef range(i32 0, 1021) %spec.select, i32 noundef 0, ptr noundef nonnull %15, ptr noundef nonnull %16) #8
@@ -1482,7 +1482,7 @@ rv40_adaptive_loop_filter.exit:                   ; preds = %282, %286, %288, %2
   br i1 %.not.i302, label %320, label %318
 
 318:                                              ; preds = %306
-  %319 = load ptr, ptr %86, align 8, !tbaa !112
+  %319 = load ptr, ptr %86, align 8, !tbaa !111
   call void %319(ptr noundef %.0255344, i64 noundef %309, i32 noundef range(i32 0, 256) %167, i32 noundef %317, i32 noundef range(i32 -2147483648, 19) %263, i32 noundef 0) #8
   br label %rv40_adaptive_loop_filter.exit305
 
@@ -1492,7 +1492,7 @@ rv40_adaptive_loop_filter.exit:                   ; preds = %282, %286, %288, %2
   br i1 %.not35.i303, label %324, label %322
 
 322:                                              ; preds = %320
-  %323 = load ptr, ptr %87, align 8, !tbaa !112
+  %323 = load ptr, ptr %87, align 8, !tbaa !111
   call void %323(ptr noundef %.0255344, i64 noundef %309, i32 noundef 1, i32 noundef 1, i32 noundef range(i32 0, 256) %167, i32 noundef range(i32 0, 256) %168, i32 noundef %317, i32 noundef %261, i32 noundef %.0260) #8
   br label %rv40_adaptive_loop_filter.exit305
 
@@ -1502,7 +1502,7 @@ rv40_adaptive_loop_filter.exit:                   ; preds = %282, %286, %288, %2
   br i1 %.not36.i304, label %rv40_adaptive_loop_filter.exit305, label %326
 
 326:                                              ; preds = %324
-  %327 = load ptr, ptr %87, align 8, !tbaa !112
+  %327 = load ptr, ptr %87, align 8, !tbaa !111
   %328 = ashr i32 %317, 1
   %329 = ashr i32 %261, 1
   %330 = ashr i32 %.0260, 1
@@ -1530,14 +1530,14 @@ rv40_adaptive_loop_filter.exit305:                ; preds = %318, %322, %324, %3
   br i1 %.not289, label %366, label %338
 
 338:                                              ; preds = %335
-  %339 = load i64, ptr %78, align 8, !tbaa !111
+  %339 = load i64, ptr %78, align 8, !tbaa !110
   %340 = shl nuw nsw i32 4096, %.2346
   %341 = and i32 %205, %340
   %.not290 = icmp eq i32 %341, 0
   %342 = select i1 %.not290, i32 0, i32 %206
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13) #8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %14) #8
-  %343 = load ptr, ptr %79, align 8, !tbaa !112
+  %343 = load ptr, ptr %79, align 8, !tbaa !111
   %sext336 = shl i64 %339, 32
   %344 = ashr exact i64 %sext336, 32
   %345 = call i32 %343(ptr noundef %.0255344, i64 noundef %344, i32 noundef range(i32 0, 256) %168, i32 noundef range(i32 0, 1021) %spec.select, i32 noundef 1, ptr noundef nonnull %13, ptr noundef nonnull %14) #8
@@ -1552,7 +1552,7 @@ rv40_adaptive_loop_filter.exit305:                ; preds = %318, %322, %324, %3
   br i1 %.not.i306, label %355, label %353
 
 353:                                              ; preds = %338
-  %354 = load ptr, ptr %80, align 8, !tbaa !112
+  %354 = load ptr, ptr %80, align 8, !tbaa !111
   call void %354(ptr noundef %.0255344, i64 noundef %344, i32 noundef range(i32 0, 256) %167, i32 noundef %352, i32 noundef range(i32 -2147483648, 19) %262, i32 noundef 0) #8
   br label %rv40_adaptive_loop_filter.exit309
 
@@ -1562,7 +1562,7 @@ rv40_adaptive_loop_filter.exit305:                ; preds = %318, %322, %324, %3
   br i1 %.not35.i307, label %359, label %357
 
 357:                                              ; preds = %355
-  %358 = load ptr, ptr %81, align 8, !tbaa !112
+  %358 = load ptr, ptr %81, align 8, !tbaa !111
   call void %358(ptr noundef %.0255344, i64 noundef %344, i32 noundef 1, i32 noundef 1, i32 noundef range(i32 0, 256) %167, i32 noundef range(i32 0, 256) %168, i32 noundef %352, i32 noundef %261, i32 noundef %342) #8
   br label %rv40_adaptive_loop_filter.exit309
 
@@ -1572,7 +1572,7 @@ rv40_adaptive_loop_filter.exit305:                ; preds = %318, %322, %324, %3
   br i1 %.not36.i308, label %rv40_adaptive_loop_filter.exit309, label %361
 
 361:                                              ; preds = %359
-  %362 = load ptr, ptr %81, align 8, !tbaa !112
+  %362 = load ptr, ptr %81, align 8, !tbaa !111
   %363 = ashr i32 %352, 1
   %364 = ashr i32 %261, 1
   %365 = ashr i32 %342, 1
@@ -1596,10 +1596,10 @@ rv40_adaptive_loop_filter.exit309:                ; preds = %353, %357, %359, %3
   br i1 %.not291, label %395, label %371
 
 371:                                              ; preds = %368
-  %372 = load i64, ptr %78, align 8, !tbaa !111
+  %372 = load i64, ptr %78, align 8, !tbaa !110
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11) #8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12) #8
-  %373 = load ptr, ptr %85, align 8, !tbaa !112
+  %373 = load ptr, ptr %85, align 8, !tbaa !111
   %sext337 = shl i64 %372, 32
   %374 = ashr exact i64 %sext337, 32
   %375 = call i32 %373(ptr noundef %.0255344, i64 noundef %374, i32 noundef range(i32 0, 256) %168, i32 noundef range(i32 0, 1021) %spec.select, i32 noundef 1, ptr noundef nonnull %11, ptr noundef nonnull %12) #8
@@ -1614,7 +1614,7 @@ rv40_adaptive_loop_filter.exit309:                ; preds = %353, %357, %359, %3
   br i1 %.not.i310, label %385, label %383
 
 383:                                              ; preds = %371
-  %384 = load ptr, ptr %86, align 8, !tbaa !112
+  %384 = load ptr, ptr %86, align 8, !tbaa !111
   call void %384(ptr noundef %.0255344, i64 noundef %374, i32 noundef range(i32 0, 256) %167, i32 noundef %382, i32 noundef range(i32 -2147483648, 19) %263, i32 noundef 0) #8
   br label %rv40_adaptive_loop_filter.exit313
 
@@ -1624,7 +1624,7 @@ rv40_adaptive_loop_filter.exit309:                ; preds = %353, %357, %359, %3
   br i1 %.not35.i311, label %389, label %387
 
 387:                                              ; preds = %385
-  %388 = load ptr, ptr %87, align 8, !tbaa !112
+  %388 = load ptr, ptr %87, align 8, !tbaa !111
   call void %388(ptr noundef %.0255344, i64 noundef %374, i32 noundef 1, i32 noundef 1, i32 noundef range(i32 0, 256) %167, i32 noundef range(i32 0, 256) %168, i32 noundef %382, i32 noundef %261, i32 noundef %254) #8
   br label %rv40_adaptive_loop_filter.exit313
 
@@ -1634,7 +1634,7 @@ rv40_adaptive_loop_filter.exit309:                ; preds = %353, %357, %359, %3
   br i1 %.not36.i312, label %rv40_adaptive_loop_filter.exit313, label %391
 
 391:                                              ; preds = %389
-  %392 = load ptr, ptr %87, align 8, !tbaa !112
+  %392 = load ptr, ptr %87, align 8, !tbaa !111
   %393 = ashr i32 %382, 1
   %394 = ashr i32 %261, 1
   call void %392(ptr noundef %.0255344, i64 noundef %374, i32 noundef %376, i32 noundef %377, i32 noundef range(i32 0, 256) %167, i32 noundef range(i32 0, 256) %168, i32 noundef %393, i32 noundef %394, i32 noundef %255) #8
@@ -1649,12 +1649,12 @@ rv40_adaptive_loop_filter.exit313:                ; preds = %383, %387, %389, %3
   %396 = add nuw nsw i32 %.2346, 1
   %397 = getelementptr inbounds nuw i8, ptr %.0255344, i64 4
   %exitcond366.not = icmp eq i32 %396, 4
-  br i1 %exitcond366.not, label %398, label %256, !llvm.loop !113
+  br i1 %exitcond366.not, label %398, label %256, !llvm.loop !112
 
 398:                                              ; preds = %395
   %indvars.iv.next368 = add nuw nsw i64 %indvars.iv367, 4
   %399 = icmp samesign ult i64 %indvars.iv367, 12
-  br i1 %399, label %242, label %.preheader338, !llvm.loop !114
+  br i1 %399, label %242, label %.preheader338, !llvm.loop !113
 
 .preheader:                                       ; preds = %.preheader338, %569
   %400 = phi i1 [ true, %.preheader338 ], [ false, %569 ]
@@ -1674,11 +1674,11 @@ rv40_adaptive_loop_filter.exit313:                ; preds = %383, %387, %389, %3
   %.not273 = phi i1 [ false, %.preheader ], [ true, %568 ]
   %407 = phi i1 [ true, %.preheader ], [ false, %568 ]
   %indvars.iv370 = phi i64 [ 0, %.preheader ], [ 1, %568 ]
-  %408 = load ptr, ptr %401, align 8, !tbaa !110
+  %408 = load ptr, ptr %401, align 8, !tbaa !109
   %409 = getelementptr inbounds nuw i8, ptr %408, i64 %237
   %410 = shl nuw nsw i64 %indvars.iv370, 2
   %411 = or disjoint i64 %410, %94
-  %412 = load i64, ptr %92, align 8, !tbaa !115
+  %412 = load i64, ptr %92, align 8, !tbaa !114
   %413 = mul nsw i64 %412, %411
   %414 = getelementptr inbounds i8, ptr %409, i64 %413
   %indvars.iv370.tr = trunc nuw nsw i64 %indvars.iv370 to i32
@@ -1709,12 +1709,12 @@ rv40_adaptive_loop_filter.exit313:                ; preds = %383, %387, %389, %3
   %430 = and i32 %402, %427
   %.not267 = icmp eq i32 %430, 0
   %431 = select i1 %.not267, i32 0, i32 %425
-  %432 = load i64, ptr %92, align 8, !tbaa !115
+  %432 = load i64, ptr %92, align 8, !tbaa !114
   %433 = shl nsw i64 %432, 2
   %434 = getelementptr inbounds i8, ptr %.0256348, i64 %433
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #8
-  %435 = load ptr, ptr %79, align 8, !tbaa !112
+  %435 = load ptr, ptr %79, align 8, !tbaa !111
   %sext = shl i64 %432, 32
   %436 = ashr exact i64 %sext, 32
   %437 = call i32 %435(ptr noundef %434, i64 noundef %436, i32 noundef range(i32 0, 256) %168, i32 noundef range(i32 0, 1021) %169, i32 noundef 0, ptr noundef nonnull %9, ptr noundef nonnull %10) #8
@@ -1730,7 +1730,7 @@ rv40_adaptive_loop_filter.exit313:                ; preds = %383, %387, %389, %3
 
 445:                                              ; preds = %429
   %446 = shl nuw nsw i32 %.3350, 3
-  %447 = load ptr, ptr %80, align 8, !tbaa !112
+  %447 = load ptr, ptr %80, align 8, !tbaa !111
   call void %447(ptr noundef %434, i64 noundef %436, i32 noundef range(i32 0, 256) %167, i32 noundef %444, i32 noundef range(i32 -2147483648, 19) %446, i32 noundef 1) #8
   br label %rv40_adaptive_loop_filter.exit317
 
@@ -1740,7 +1740,7 @@ rv40_adaptive_loop_filter.exit313:                ; preds = %383, %387, %389, %3
   br i1 %.not35.i315, label %452, label %450
 
 450:                                              ; preds = %448
-  %451 = load ptr, ptr %81, align 8, !tbaa !112
+  %451 = load ptr, ptr %81, align 8, !tbaa !111
   call void %451(ptr noundef %434, i64 noundef %436, i32 noundef 1, i32 noundef 1, i32 noundef range(i32 0, 256) %167, i32 noundef range(i32 0, 256) %168, i32 noundef %444, i32 noundef %431, i32 noundef %426) #8
   br label %rv40_adaptive_loop_filter.exit317
 
@@ -1750,7 +1750,7 @@ rv40_adaptive_loop_filter.exit313:                ; preds = %383, %387, %389, %3
   br i1 %.not36.i316, label %rv40_adaptive_loop_filter.exit317, label %454
 
 454:                                              ; preds = %452
-  %455 = load ptr, ptr %81, align 8, !tbaa !112
+  %455 = load ptr, ptr %81, align 8, !tbaa !111
   %456 = ashr i32 %444, 1
   %457 = ashr i32 %431, 1
   %458 = ashr i32 %426, 1
@@ -1795,10 +1795,10 @@ rv40_adaptive_loop_filter.exit317:                ; preds = %445, %450, %452, %4
 
 475:                                              ; preds = %.critedge301, %466
   %.1261 = phi i32 [ %474, %.critedge301 ], [ %469, %466 ]
-  %476 = load i64, ptr %92, align 8, !tbaa !115
+  %476 = load i64, ptr %92, align 8, !tbaa !114
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #8
-  %477 = load ptr, ptr %85, align 8, !tbaa !112
+  %477 = load ptr, ptr %85, align 8, !tbaa !111
   %sext331 = shl i64 %476, 32
   %478 = ashr exact i64 %sext331, 32
   %479 = call i32 %477(ptr noundef %.0256348, i64 noundef %478, i32 noundef range(i32 0, 256) %168, i32 noundef range(i32 0, 1021) %169, i32 noundef 0, ptr noundef nonnull %7, ptr noundef nonnull %8) #8
@@ -1813,7 +1813,7 @@ rv40_adaptive_loop_filter.exit317:                ; preds = %445, %450, %452, %4
   br i1 %.not.i318, label %489, label %487
 
 487:                                              ; preds = %475
-  %488 = load ptr, ptr %86, align 8, !tbaa !112
+  %488 = load ptr, ptr %86, align 8, !tbaa !111
   call void %488(ptr noundef %.0256348, i64 noundef %478, i32 noundef range(i32 0, 256) %167, i32 noundef %486, i32 noundef range(i32 -2147483648, 19) %418, i32 noundef 1) #8
   br label %rv40_adaptive_loop_filter.exit321
 
@@ -1823,7 +1823,7 @@ rv40_adaptive_loop_filter.exit317:                ; preds = %445, %450, %452, %4
   br i1 %.not35.i319, label %493, label %491
 
 491:                                              ; preds = %489
-  %492 = load ptr, ptr %87, align 8, !tbaa !112
+  %492 = load ptr, ptr %87, align 8, !tbaa !111
   call void %492(ptr noundef %.0256348, i64 noundef %478, i32 noundef 1, i32 noundef 1, i32 noundef range(i32 0, 256) %167, i32 noundef range(i32 0, 256) %168, i32 noundef %486, i32 noundef %426, i32 noundef %.1261) #8
   br label %rv40_adaptive_loop_filter.exit321
 
@@ -1833,7 +1833,7 @@ rv40_adaptive_loop_filter.exit317:                ; preds = %445, %450, %452, %4
   br i1 %.not36.i320, label %rv40_adaptive_loop_filter.exit321, label %495
 
 495:                                              ; preds = %493
-  %496 = load ptr, ptr %87, align 8, !tbaa !112
+  %496 = load ptr, ptr %87, align 8, !tbaa !111
   %497 = ashr i32 %486, 1
   %498 = ashr i32 %426, 1
   %499 = ashr i32 %.1261, 1
@@ -1862,10 +1862,10 @@ rv40_adaptive_loop_filter.exit321:                ; preds = %487, %491, %493, %4
   %507 = and i32 %506, %427
   %.not276 = icmp eq i32 %507, 0
   %508 = select i1 %.not276, i32 0, i32 %241
-  %509 = load i64, ptr %92, align 8, !tbaa !115
+  %509 = load i64, ptr %92, align 8, !tbaa !114
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #8
-  %510 = load ptr, ptr %79, align 8, !tbaa !112
+  %510 = load ptr, ptr %79, align 8, !tbaa !111
   %sext332 = shl i64 %509, 32
   %511 = ashr exact i64 %sext332, 32
   %512 = call i32 %510(ptr noundef %.0256348, i64 noundef %511, i32 noundef range(i32 0, 256) %168, i32 noundef range(i32 0, 1021) %169, i32 noundef 1, ptr noundef nonnull %5, ptr noundef nonnull %6) #8
@@ -1881,7 +1881,7 @@ rv40_adaptive_loop_filter.exit321:                ; preds = %487, %491, %493, %4
 
 520:                                              ; preds = %505
   %521 = shl nuw nsw i32 %.3350, 3
-  %522 = load ptr, ptr %80, align 8, !tbaa !112
+  %522 = load ptr, ptr %80, align 8, !tbaa !111
   call void %522(ptr noundef %.0256348, i64 noundef %511, i32 noundef range(i32 0, 256) %167, i32 noundef %519, i32 noundef range(i32 -2147483648, 19) %521, i32 noundef 1) #8
   br label %rv40_adaptive_loop_filter.exit325
 
@@ -1891,7 +1891,7 @@ rv40_adaptive_loop_filter.exit321:                ; preds = %487, %491, %493, %4
   br i1 %.not35.i323, label %527, label %525
 
 525:                                              ; preds = %523
-  %526 = load ptr, ptr %81, align 8, !tbaa !112
+  %526 = load ptr, ptr %81, align 8, !tbaa !111
   call void %526(ptr noundef %.0256348, i64 noundef %511, i32 noundef 1, i32 noundef 1, i32 noundef range(i32 0, 256) %167, i32 noundef range(i32 0, 256) %168, i32 noundef %519, i32 noundef %426, i32 noundef %508) #8
   br label %rv40_adaptive_loop_filter.exit325
 
@@ -1901,7 +1901,7 @@ rv40_adaptive_loop_filter.exit321:                ; preds = %487, %491, %493, %4
   br i1 %.not36.i324, label %rv40_adaptive_loop_filter.exit325, label %529
 
 529:                                              ; preds = %527
-  %530 = load ptr, ptr %81, align 8, !tbaa !112
+  %530 = load ptr, ptr %81, align 8, !tbaa !111
   %531 = ashr i32 %519, 1
   %532 = ashr i32 %426, 1
   %533 = ashr i32 %508, 1
@@ -1928,10 +1928,10 @@ rv40_adaptive_loop_filter.exit325:                ; preds = %520, %525, %527, %5
   %540 = and i32 %539, %416
   %.not278 = icmp eq i32 %540, 0
   %541 = select i1 %.not278, i32 0, i32 %239
-  %542 = load i64, ptr %92, align 8, !tbaa !115
+  %542 = load i64, ptr %92, align 8, !tbaa !114
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #8
-  %543 = load ptr, ptr %85, align 8, !tbaa !112
+  %543 = load ptr, ptr %85, align 8, !tbaa !111
   %sext333 = shl i64 %542, 32
   %544 = ashr exact i64 %sext333, 32
   %545 = call i32 %543(ptr noundef %.0256348, i64 noundef %544, i32 noundef range(i32 0, 256) %168, i32 noundef range(i32 0, 1021) %169, i32 noundef 1, ptr noundef nonnull %3, ptr noundef nonnull %4) #8
@@ -1946,7 +1946,7 @@ rv40_adaptive_loop_filter.exit325:                ; preds = %520, %525, %527, %5
   br i1 %.not.i326, label %555, label %553
 
 553:                                              ; preds = %538
-  %554 = load ptr, ptr %86, align 8, !tbaa !112
+  %554 = load ptr, ptr %86, align 8, !tbaa !111
   call void %554(ptr noundef %.0256348, i64 noundef %544, i32 noundef range(i32 0, 256) %167, i32 noundef %552, i32 noundef range(i32 -2147483648, 19) %419, i32 noundef 1) #8
   br label %rv40_adaptive_loop_filter.exit329
 
@@ -1956,7 +1956,7 @@ rv40_adaptive_loop_filter.exit325:                ; preds = %520, %525, %527, %5
   br i1 %.not35.i327, label %559, label %557
 
 557:                                              ; preds = %555
-  %558 = load ptr, ptr %87, align 8, !tbaa !112
+  %558 = load ptr, ptr %87, align 8, !tbaa !111
   call void %558(ptr noundef %.0256348, i64 noundef %544, i32 noundef 1, i32 noundef 1, i32 noundef range(i32 0, 256) %167, i32 noundef range(i32 0, 256) %168, i32 noundef %552, i32 noundef %426, i32 noundef %541) #8
   br label %rv40_adaptive_loop_filter.exit329
 
@@ -1966,7 +1966,7 @@ rv40_adaptive_loop_filter.exit325:                ; preds = %520, %525, %527, %5
   br i1 %.not36.i328, label %rv40_adaptive_loop_filter.exit329, label %561
 
 561:                                              ; preds = %559
-  %562 = load ptr, ptr %87, align 8, !tbaa !112
+  %562 = load ptr, ptr %87, align 8, !tbaa !111
   %563 = ashr i32 %552, 1
   %564 = ashr i32 %426, 1
   %565 = ashr i32 %541, 1
@@ -1980,13 +1980,13 @@ rv40_adaptive_loop_filter.exit329:                ; preds = %553, %557, %559, %5
 
 566:                                              ; preds = %rv40_adaptive_loop_filter.exit329, %535, %534
   %567 = getelementptr inbounds nuw i8, ptr %.0256348, i64 4
-  br i1 %.not269, label %420, label %568, !llvm.loop !116
+  br i1 %.not269, label %420, label %568, !llvm.loop !115
 
 568:                                              ; preds = %566
-  br i1 %407, label %406, label %569, !llvm.loop !117
+  br i1 %407, label %406, label %569, !llvm.loop !116
 
 569:                                              ; preds = %568
-  br i1 %400, label %.preheader, label %570, !llvm.loop !118
+  br i1 %400, label %.preheader, label %570, !llvm.loop !117
 
 570:                                              ; preds = %569
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %.sroa.0)
@@ -1998,10 +1998,10 @@ rv40_adaptive_loop_filter.exit329:                ; preds = %553, %557, %559, %5
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %.sroa.4401)
   %indvars.iv.next379 = add nuw nsw i64 %indvars.iv378, 1
   %indvars.iv.next377 = add nsw i64 %indvars.iv376, 1
-  %571 = load i32, ptr %27, align 4, !tbaa !98
+  %571 = load i32, ptr %27, align 4, !tbaa !97
   %572 = sext i32 %571 to i64
   %573 = icmp slt i64 %indvars.iv.next379, %572
-  br i1 %573, label %96, label %._crit_edge358, !llvm.loop !119
+  br i1 %573, label %96, label %._crit_edge358, !llvm.loop !118
 
 ._crit_edge358:                                   ; preds = %570, %2, %._crit_edge
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %24) #8
@@ -2038,13 +2038,13 @@ define internal void @rv40_init_tables() #1 {
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 1
   %10 = call ptr @ff_vlc_init_tables_from_lengths(ptr noundef nonnull %1, i32 noundef 7, i32 noundef 9, ptr noundef nonnull %9, i32 noundef 2, ptr noundef nonnull %8, i32 noundef 2, i32 noundef 1, i32 noundef 0, i32 noundef 0) #8
   %11 = getelementptr inbounds nuw [90 x ptr], ptr @aic_mode1_vlc, i64 0, i64 %indvars.iv
-  store ptr %10, ptr %11, align 8, !tbaa !84
+  store ptr %10, ptr %11, align 8, !tbaa !83
   br label %12
 
 12:                                               ; preds = %4, %7
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 90
-  br i1 %exitcond.not, label %.preheader29, label %4, !llvm.loop !120
+  br i1 %exitcond.not, label %.preheader29, label %4, !llvm.loop !119
 
 .preheader29:                                     ; preds = %12, %14
   %indvars.iv40 = phi i64 [ %indvars.iv.next41, %14 ], [ 0, %12 ]
@@ -2056,11 +2056,11 @@ define internal void @rv40_init_tables() #1 {
   %15 = getelementptr inbounds nuw [20 x [81 x i8]], ptr @aic_mode2_vlc_bits, i64 0, i64 %indvars.iv40
   %16 = call ptr @ff_vlc_init_tables_from_lengths(ptr noundef nonnull %1, i32 noundef 9, i32 noundef 81, ptr noundef nonnull %15, i32 noundef 1, ptr noundef nonnull %2, i32 noundef 2, i32 noundef 2, i32 noundef 0, i32 noundef 0) #8
   %17 = getelementptr inbounds nuw [20 x ptr], ptr @aic_mode2_vlc, i64 0, i64 %indvars.iv40
-  store ptr %16, ptr %17, align 8, !tbaa !84
+  store ptr %16, ptr %17, align 8, !tbaa !83
   call void @llvm.lifetime.end.p0(i64 162, ptr nonnull %2) #8
   %indvars.iv.next41 = add nuw nsw i64 %indvars.iv40, 1
   %exitcond43.not = icmp eq i64 %indvars.iv.next41, 20
-  br i1 %exitcond43.not, label %.preheader28, label %.preheader29, !llvm.loop !121
+  br i1 %exitcond43.not, label %.preheader28, label %.preheader29, !llvm.loop !120
 
 18:                                               ; preds = %.preheader29, %18
   %indvars.iv36 = phi i64 [ 0, %.preheader29 ], [ %indvars.iv.next37, %18 ]
@@ -2072,10 +2072,10 @@ define internal void @rv40_init_tables() #1 {
   %24 = and i16 %23, 3840
   %25 = or disjoint i16 %24, %22
   %26 = getelementptr inbounds nuw [81 x i16], ptr %2, i64 0, i64 %indvars.iv36
-  store i16 %25, ptr %26, align 2, !tbaa !82
+  store i16 %25, ptr %26, align 2, !tbaa !81
   %indvars.iv.next37 = add nuw nsw i64 %indvars.iv36, 1
   %exitcond39.not = icmp eq i64 %indvars.iv.next37, 81
-  br i1 %exitcond39.not, label %14, label %18, !llvm.loop !122
+  br i1 %exitcond39.not, label %14, label %18, !llvm.loop !121
 
 .preheader28:                                     ; preds = %14, %.preheader28
   %indvars.iv44 = phi i64 [ %indvars.iv.next45, %.preheader28 ], [ 0, %14 ]
@@ -2083,10 +2083,10 @@ define internal void @rv40_init_tables() #1 {
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 1
   %29 = call ptr @ff_vlc_init_tables_from_lengths(ptr noundef nonnull %1, i32 noundef 7, i32 noundef 8, ptr noundef nonnull %28, i32 noundef 2, ptr noundef nonnull %27, i32 noundef 2, i32 noundef 1, i32 noundef 0, i32 noundef 0) #8
   %30 = getelementptr inbounds nuw [7 x ptr], ptr @ptype_vlc, i64 0, i64 %indvars.iv44
-  store ptr %29, ptr %30, align 8, !tbaa !84
+  store ptr %29, ptr %30, align 8, !tbaa !83
   %indvars.iv.next45 = add nuw nsw i64 %indvars.iv44, 1
   %exitcond47.not = icmp eq i64 %indvars.iv.next45, 7
-  br i1 %exitcond47.not, label %.preheader, label %.preheader28, !llvm.loop !123
+  br i1 %exitcond47.not, label %.preheader, label %.preheader28, !llvm.loop !122
 
 .preheader:                                       ; preds = %.preheader28, %.preheader
   %indvars.iv48 = phi i64 [ %indvars.iv.next49, %.preheader ], [ 0, %.preheader28 ]
@@ -2094,10 +2094,10 @@ define internal void @rv40_init_tables() #1 {
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 1
   %33 = call ptr @ff_vlc_init_tables_from_lengths(ptr noundef nonnull %1, i32 noundef 6, i32 noundef 7, ptr noundef nonnull %32, i32 noundef 2, ptr noundef nonnull %31, i32 noundef 2, i32 noundef 1, i32 noundef 0, i32 noundef 0) #8
   %34 = getelementptr inbounds nuw [6 x ptr], ptr @btype_vlc, i64 0, i64 %indvars.iv48
-  store ptr %33, ptr %34, align 8, !tbaa !84
+  store ptr %33, ptr %34, align 8, !tbaa !83
   %indvars.iv.next49 = add nuw nsw i64 %indvars.iv48, 1
   %exitcond51.not = icmp eq i64 %indvars.iv.next49, 6
-  br i1 %exitcond51.not, label %35, label %.preheader, !llvm.loop !124
+  br i1 %exitcond51.not, label %35, label %.preheader, !llvm.loop !123
 
 35:                                               ; preds = %.preheader
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %1) #8
@@ -2215,55 +2215,54 @@ attributes #8 = { nounwind }
 !70 = !{!54, !10, i64 28}
 !71 = !{!10, !10, i64 0}
 !72 = !{!44, !10, i64 20}
-!73 = distinct !{!73, !74, !75}
+!73 = distinct !{!73, !74}
 !74 = !{!"llvm.loop.mustprogress"}
-!75 = !{!"llvm.loop.estimated_trip_count"}
-!76 = !{!28, !31, i64 472}
-!77 = !{!54, !10, i64 20}
-!78 = !{!54, !10, i64 24}
-!79 = !{!54, !10, i64 12}
-!80 = !{!29, !10, i64 4140}
-!81 = !{!28, !10, i64 6008}
-!82 = !{!45, !45, i64 0}
-!83 = distinct !{!83, !74, !75}
-!84 = !{!85, !85, i64 0}
-!85 = !{!"p1 _ZTS7VLCElem", !7, i64 0}
-!86 = distinct !{!86, !74, !75}
-!87 = distinct !{!87, !74, !75}
-!88 = !{!29, !10, i64 3348}
-!89 = !{!29, !10, i64 3352}
-!90 = !{!29, !10, i64 548}
-!91 = !{!28, !10, i64 3356}
-!92 = distinct !{!92, !74, !75}
-!93 = !{!29, !10, i64 564}
-!94 = !{!28, !24, i64 6544}
-!95 = distinct !{!95, !74, !75}
-!96 = !{!29, !10, i64 1480}
-!97 = !{!29, !31, i64 472}
-!98 = !{!29, !10, i64 540}
-!99 = !{!29, !24, i64 1240}
-!100 = !{!28, !17, i64 6664}
-!101 = !{!28, !17, i64 6648}
-!102 = !{!28, !14, i64 6656}
-!103 = distinct !{!103, !74, !75}
-!104 = !{!29, !14, i64 1216}
-!105 = !{!29, !10, i64 488}
-!106 = !{!29, !10, i64 492}
-!107 = !{!29, !10, i64 544}
-!108 = distinct !{!108, !74, !75}
-!109 = distinct !{!109, !74, !75}
-!110 = !{!14, !14, i64 0}
-!111 = !{!29, !13, i64 568}
-!112 = !{!7, !7, i64 0}
-!113 = distinct !{!113, !74, !75}
-!114 = distinct !{!114, !74, !75}
-!115 = !{!29, !13, i64 576}
-!116 = distinct !{!116, !74, !75}
-!117 = distinct !{!117, !74, !75}
-!118 = distinct !{!118, !74, !75}
-!119 = distinct !{!119, !74, !75}
-!120 = distinct !{!120, !74, !75}
-!121 = distinct !{!121, !74, !75}
-!122 = distinct !{!122, !74, !75}
-!123 = distinct !{!123, !74, !75}
-!124 = distinct !{!124, !74, !75}
+!75 = !{!28, !31, i64 472}
+!76 = !{!54, !10, i64 20}
+!77 = !{!54, !10, i64 24}
+!78 = !{!54, !10, i64 12}
+!79 = !{!29, !10, i64 4140}
+!80 = !{!28, !10, i64 6008}
+!81 = !{!45, !45, i64 0}
+!82 = distinct !{!82, !74}
+!83 = !{!84, !84, i64 0}
+!84 = !{!"p1 _ZTS7VLCElem", !7, i64 0}
+!85 = distinct !{!85, !74}
+!86 = distinct !{!86, !74}
+!87 = !{!29, !10, i64 3348}
+!88 = !{!29, !10, i64 3352}
+!89 = !{!29, !10, i64 548}
+!90 = !{!28, !10, i64 3356}
+!91 = distinct !{!91, !74}
+!92 = !{!29, !10, i64 564}
+!93 = !{!28, !24, i64 6544}
+!94 = distinct !{!94, !74}
+!95 = !{!29, !10, i64 1480}
+!96 = !{!29, !31, i64 472}
+!97 = !{!29, !10, i64 540}
+!98 = !{!29, !24, i64 1240}
+!99 = !{!28, !17, i64 6664}
+!100 = !{!28, !17, i64 6648}
+!101 = !{!28, !14, i64 6656}
+!102 = distinct !{!102, !74}
+!103 = !{!29, !14, i64 1216}
+!104 = !{!29, !10, i64 488}
+!105 = !{!29, !10, i64 492}
+!106 = !{!29, !10, i64 544}
+!107 = distinct !{!107, !74}
+!108 = distinct !{!108, !74}
+!109 = !{!14, !14, i64 0}
+!110 = !{!29, !13, i64 568}
+!111 = !{!7, !7, i64 0}
+!112 = distinct !{!112, !74}
+!113 = distinct !{!113, !74}
+!114 = !{!29, !13, i64 576}
+!115 = distinct !{!115, !74}
+!116 = distinct !{!116, !74}
+!117 = distinct !{!117, !74}
+!118 = distinct !{!118, !74}
+!119 = distinct !{!119, !74}
+!120 = distinct !{!120, !74}
+!121 = distinct !{!121, !74}
+!122 = distinct !{!122, !74}
+!123 = distinct !{!123, !74}

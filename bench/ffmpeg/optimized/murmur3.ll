@@ -149,7 +149,7 @@ thread-pre-split:                                 ; preds = %19
   %72 = add i64 %71, 944331445
   %73 = getelementptr inbounds nuw i8, ptr %.260, i64 16
   %74 = icmp ult ptr %73, %51
-  br i1 %74, label %.lr.ph64, label %._crit_edge65, !llvm.loop !17
+  br i1 %74, label %.lr.ph64, label %._crit_edge65, !llvm.loop !16
 
 ._crit_edge65:                                    ; preds = %.lr.ph64, %49
   %.2.lcssa = phi ptr [ %.045, %49 ], [ %73, %.lr.ph64 ]
@@ -261,7 +261,6 @@ attributes #8 = { nounwind }
 !11 = !{!5, !6, i64 40}
 !12 = !{!5, !9, i64 32}
 !13 = !{!7, !7, i64 0}
-!14 = distinct !{!14, !15, !16}
+!14 = distinct !{!14, !15}
 !15 = !{!"llvm.loop.mustprogress"}
-!16 = !{!"llvm.loop.estimated_trip_count"}
-!17 = distinct !{!17, !15, !16}
+!16 = distinct !{!16, !15}

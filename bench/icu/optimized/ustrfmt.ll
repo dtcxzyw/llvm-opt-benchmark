@@ -42,7 +42,7 @@ define i32 @uprv_itou_77(ptr noundef captures(none) %0, i32 noundef %1, i32 noun
   %19 = getelementptr inbounds nuw i16, ptr %0, i64 %indvars.iv49
   store i16 48, ptr %19, align 2, !tbaa !3
   %exitcond.not = icmp eq i64 %indvars.iv.next50, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !10
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
   %.1.lcssa = phi i32 [ %17, %.preheader ], [ %4, %.lr.ph ]
@@ -77,7 +77,7 @@ define i32 @uprv_itou_77(ptr noundef captures(none) %0, i32 noundef %1, i32 noun
   store i16 %30, ptr %31, align 2, !tbaa !3
   %indvars.iv.next53 = add nuw nsw i64 %indvars.iv52, 1
   %exitcond56.not = icmp eq i64 %indvars.iv.next53, %wide.trip.count55
-  br i1 %exitcond56.not, label %._crit_edge44, label %.lr.ph43, !llvm.loop !11
+  br i1 %exitcond56.not, label %._crit_edge44, label %.lr.ph43, !llvm.loop !10
 
 ._crit_edge44:                                    ; preds = %.lr.ph43, %24
   ret i32 %.1.lcssa
@@ -94,8 +94,7 @@ attributes #0 = { mustprogress nofree norecurse nosync nounwind memory(argmem: r
 !4 = !{!"char16_t", !5, i64 0}
 !5 = !{!"omnipotent char", !6, i64 0}
 !6 = !{!"Simple C++ TBAA"}
-!7 = distinct !{!7, !8, !9}
+!7 = distinct !{!7, !8}
 !8 = !{!"llvm.loop.mustprogress"}
-!9 = !{!"llvm.loop.estimated_trip_count"}
-!10 = distinct !{!10, !8, !9}
-!11 = distinct !{!11, !8, !9}
+!9 = distinct !{!9, !8}
+!10 = distinct !{!10, !8}

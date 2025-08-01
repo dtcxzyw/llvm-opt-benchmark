@@ -184,7 +184,7 @@ define internal i32 @zerocodec_decode_frame(ptr noundef %0, ptr noundef %1, ptr 
   %87 = add nuw nsw i32 %.06077, 1
   %88 = load i32, ptr %44, align 4, !tbaa !43
   %89 = icmp slt i32 %87, %88
-  br i1 %89, label %58, label %._crit_edge80, !llvm.loop !57
+  br i1 %89, label %58, label %._crit_edge80, !llvm.loop !56
 
 ._crit_edge80:                                    ; preds = %82, %38
   %90 = load ptr, ptr %6, align 8, !tbaa !29
@@ -302,7 +302,6 @@ attributes #3 = { nounwind }
 !51 = !{!5, !10, i64 112}
 !52 = !{!33, !10, i64 32}
 !53 = !{!8, !8, i64 0}
-!54 = distinct !{!54, !55, !56}
+!54 = distinct !{!54, !55}
 !55 = !{!"llvm.loop.mustprogress"}
-!56 = !{!"llvm.loop.estimated_trip_count"}
-!57 = distinct !{!57, !55, !56}
+!56 = distinct !{!56, !55}

@@ -146,8 +146,8 @@ define internal fastcc nonnull ptr @get_metrics_for_font_family(ptr noundef %0) 
 3:                                                ; preds = %1, %font_in_list_permissive.exit
   %.01032 = phi i64 [ 0, %1 ], [ %70, %font_in_list_permissive.exit ]
   %4 = getelementptr inbounds nuw [11 x %struct.FontFamilyMetrics], ptr @all_font_metrics, i64 0, i64 %.01032
-  %5 = load ptr, ptr %4, align 16, !tbaa !16
-  %6 = load ptr, ptr %5, align 8, !tbaa !17
+  %5 = load ptr, ptr %4, align 16, !tbaa !15
+  %6 = load ptr, ptr %5, align 8, !tbaa !16
   %.not21.not.i = icmp eq ptr %6, null
   br i1 %.not21.not.i, label %font_in_list_permissive.exit, label %.lr.ph.i
 
@@ -177,14 +177,14 @@ define internal fastcc nonnull ptr @get_metrics_for_font_family(ptr noundef %0) 
 .loopexit.us.i:                                   ; preds = %.lr.ph61.i.us.i
   %16 = add i64 %.0722.us.i, 1
   %17 = getelementptr inbounds nuw ptr, ptr %5, i64 %16
-  %18 = load ptr, ptr %17, align 8, !tbaa !17
+  %18 = load ptr, ptr %17, align 8, !tbaa !16
   %.not.us.not.i = icmp eq ptr %18, null
-  br i1 %.not.us.not.i, label %font_in_list_permissive.exit, label %.preheader.i.us.i, !llvm.loop !19
+  br i1 %.not.us.not.i, label %font_in_list_permissive.exit, label %.preheader.i.us.i, !llvm.loop !18
 
 19:                                               ; preds = %.lr.ph61.i.us.i
   %20 = add nuw i64 %.13460.i.us.i, 1
   %.not35.i.us.i = icmp eq i64 %20, %9
-  br i1 %.not35.i.us.i, label %.loopexit, label %.lr.ph61.i.us.i, !llvm.loop !21
+  br i1 %.not35.i.us.i, label %.loopexit, label %.lr.ph61.i.us.i, !llvm.loop !20
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i, %.loopexit.i
   %21 = phi ptr [ %69, %.loopexit.i ], [ %6, %.lr.ph.i ]
@@ -217,7 +217,7 @@ define internal fastcc nonnull ptr @get_metrics_for_font_family(ptr noundef %0) 
 29:                                               ; preds = %.lr.ph.split.i.i
   %30 = add i64 %.03242.i.i, 1
   %.not65.i.i = icmp eq i64 %30, %.fr27.i
-  br i1 %.not65.i.i, label %.preheader.i.i, label %.lr.ph.split.i.i, !llvm.loop !22
+  br i1 %.not65.i.i, label %.preheader.i.i, label %.lr.ph.split.i.i, !llvm.loop !21
 
 .split.us.i.i:                                    ; preds = %.lr.ph.split.i.i
   %31 = getelementptr inbounds nuw i8, ptr %21, i64 %.033.ph52.i.i
@@ -230,13 +230,13 @@ define internal fastcc nonnull ptr @get_metrics_for_font_family(ptr noundef %0) 
 
 37:                                               ; preds = %.split.us.i.i
   %38 = tail call ptr @__ctype_tolower_loc() #18
-  %39 = load ptr, ptr %38, align 8, !tbaa !23
+  %39 = load ptr, ptr %38, align 8, !tbaa !22
   %40 = sext i8 %24 to i64
   %41 = getelementptr inbounds i32, ptr %39, i64 %40
-  %42 = load i32, ptr %41, align 4, !tbaa !25
+  %42 = load i32, ptr %41, align 4, !tbaa !24
   %43 = sext i8 %32 to i64
   %44 = getelementptr inbounds i32, ptr %39, i64 %43
-  %45 = load i32, ptr %44, align 4, !tbaa !25
+  %45 = load i32, ptr %44, align 4, !tbaa !24
   %.not36.i.i = icmp eq i32 %42, %45
   br i1 %.not36.i.i, label %46, label %.loopexit.i
 
@@ -250,12 +250,12 @@ define internal fastcc nonnull ptr @get_metrics_for_font_family(ptr noundef %0) 
   %48 = icmp ne i64 %.033.ph.be.i.i, %22
   %49 = icmp ne i64 %.032.ph.be.i.i, %.fr27.i
   %50 = select i1 %49, i1 %48, i1 false
-  br i1 %50, label %.lr.ph.split.preheader.i.i, label %.preheader37.i.i, !llvm.loop !22
+  br i1 %50, label %.lr.ph.split.preheader.i.i, label %.preheader37.i.i, !llvm.loop !21
 
 51:                                               ; preds = %.lr.ph58.i.i
   %52 = add i64 %.157.i.i, 1
   %.not.i.i = icmp eq i64 %52, %.fr27.i
-  br i1 %.not.i.i, label %.preheader.i.i, label %.lr.ph58.i.i, !llvm.loop !27
+  br i1 %.not.i.i, label %.preheader.i.i, label %.lr.ph58.i.i, !llvm.loop !26
 
 .preheader.i.i:                                   ; preds = %51, %29, %.preheader37.i.i
   %.033.ph.lcssa4181.i.i = phi i64 [ %.033.ph.lcssa41.i.i, %.preheader37.i.i ], [ %.033.ph52.i.i, %29 ], [ %.033.ph.lcssa41.i.i, %51 ]
@@ -275,7 +275,7 @@ define internal fastcc nonnull ptr @get_metrics_for_font_family(ptr noundef %0) 
 59:                                               ; preds = %.lr.ph61.i.i
   %60 = add i64 %.13460.i.i, 1
   %.not35.i.i = icmp eq i64 %60, %22
-  br i1 %.not35.i.i, label %.loopexit, label %.lr.ph61.i.i, !llvm.loop !21
+  br i1 %.not35.i.i, label %.loopexit, label %.lr.ph61.i.i, !llvm.loop !20
 
 .lr.ph61.i.i:                                     ; preds = %.preheader.i.i, %59
   %.13460.i.i = phi i64 [ %60, %59 ], [ %.033.ph.lcssa4181.i.i, %.preheader.i.i ]
@@ -290,14 +290,14 @@ define internal fastcc nonnull ptr @get_metrics_for_font_family(ptr noundef %0) 
 .loopexit.i:                                      ; preds = %37, %.lr.ph58.i.i, %.lr.ph61.i.i
   %67 = add i64 %.0722.i, 1
   %68 = getelementptr inbounds nuw ptr, ptr %5, i64 %67
-  %69 = load ptr, ptr %68, align 8, !tbaa !17
+  %69 = load ptr, ptr %68, align 8, !tbaa !16
   %.not.not.i = icmp eq ptr %69, null
-  br i1 %.not.not.i, label %font_in_list_permissive.exit, label %.lr.ph.split.i, !llvm.loop !28
+  br i1 %.not.not.i, label %font_in_list_permissive.exit, label %.lr.ph.split.i, !llvm.loop !27
 
 font_in_list_permissive.exit:                     ; preds = %.loopexit.i, %.loopexit.us.i, %3
   %70 = add nuw nsw i64 %.01032, 1
   %exitcond.not = icmp eq i64 %70, 11
-  br i1 %exitcond.not, label %71, label %3, !llvm.loop !29
+  br i1 %exitcond.not, label %71, label %3, !llvm.loop !28
 
 71:                                               ; preds = %font_in_list_permissive.exit
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2) #16
@@ -582,7 +582,7 @@ agxbsizeof.exit:                                  ; preds = %2
   br i1 %14, label %15, label %18
 
 15:                                               ; preds = %12
-  %16 = load ptr, ptr @stderr, align 8, !tbaa !30
+  %16 = load ptr, ptr @stderr, align 8, !tbaa !29
   %17 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %16, ptr noundef nonnull @.str.52, i64 noundef %spec.select33) #20
   tail call fastcc void @graphviz_exit() #21
   unreachable
@@ -605,7 +605,7 @@ agxbsizeof.exit:                                  ; preds = %2
   br i1 %26, label %27, label %gv_calloc.exit
 
 27:                                               ; preds = %23
-  %28 = load ptr, ptr @stderr, align 8, !tbaa !30
+  %28 = load ptr, ptr @stderr, align 8, !tbaa !29
   %29 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %28, ptr noundef nonnull @.str.52, i64 noundef %spec.select) #20
   tail call fastcc void @graphviz_exit() #21
   unreachable
@@ -694,22 +694,21 @@ attributes #23 = { cold noreturn nounwind }
 !10 = !{!"double", !4, i64 0}
 !11 = !{!12, !12, i64 0}
 !12 = !{!"short", !4, i64 0}
-!13 = distinct !{!13, !14, !15}
+!13 = distinct !{!13, !14}
 !14 = !{!"llvm.loop.mustprogress"}
-!15 = !{!"llvm.loop.estimated_trip_count"}
-!16 = !{!7, !8, i64 0}
-!17 = !{!18, !18, i64 0}
-!18 = !{!"p1 omnipotent char", !9, i64 0}
-!19 = distinct !{!19, !14, !15, !20}
-!20 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!21 = distinct !{!21, !14, !15}
-!22 = distinct !{!22, !14, !15}
-!23 = !{!24, !24, i64 0}
-!24 = !{!"p1 int", !9, i64 0}
-!25 = !{!26, !26, i64 0}
-!26 = !{!"int", !4, i64 0}
-!27 = distinct !{!27, !14, !15}
-!28 = distinct !{!28, !14, !15}
-!29 = distinct !{!29, !14, !15}
-!30 = !{!31, !31, i64 0}
-!31 = !{!"p1 _ZTS8_IO_FILE", !9, i64 0}
+!15 = !{!7, !8, i64 0}
+!16 = !{!17, !17, i64 0}
+!17 = !{!"p1 omnipotent char", !9, i64 0}
+!18 = distinct !{!18, !14, !19}
+!19 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!20 = distinct !{!20, !14}
+!21 = distinct !{!21, !14}
+!22 = !{!23, !23, i64 0}
+!23 = !{!"p1 int", !9, i64 0}
+!24 = !{!25, !25, i64 0}
+!25 = !{!"int", !4, i64 0}
+!26 = distinct !{!26, !14}
+!27 = distinct !{!27, !14}
+!28 = distinct !{!28, !14}
+!29 = !{!30, !30, i64 0}
+!30 = !{!"p1 _ZTS8_IO_FILE", !9, i64 0}

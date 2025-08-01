@@ -164,7 +164,7 @@ define i32 @b64_pton(ptr noundef readonly captures(none) %0, ptr noundef capture
   %8 = getelementptr inbounds nuw i8, ptr %.050, i64 1
   %9 = tail call i32 @isspace(i32 noundef %7) #4
   %.not62 = icmp eq i32 %9, 0
-  br i1 %.not62, label %10, label %4, !llvm.loop !9
+  br i1 %.not62, label %10, label %4, !llvm.loop !8
 
 10:                                               ; preds = %6
   %cond80 = icmp eq i8 %5, 61
@@ -184,7 +184,7 @@ define i32 @b64_pton(ptr noundef readonly captures(none) %0, ptr noundef capture
   ]
 
 14:                                               ; preds = %13
-  br i1 %.not69, label %.outer.outer.backedge, label %15, !llvm.loop !9
+  br i1 %.not69, label %.outer.outer.backedge, label %15, !llvm.loop !8
 
 15:                                               ; preds = %14
   br i1 %.not70, label %16, label %.loopexit
@@ -195,14 +195,14 @@ define i32 @b64_pton(ptr noundef readonly captures(none) %0, ptr noundef capture
   %.tr71 = sub i8 %18, ptrtoint (ptr @g_base64 to i8)
   %19 = shl i8 %.tr71, 2
   store i8 %19, ptr %.054.ph.ph, align 1
-  br label %.outer, !llvm.loop !9
+  br label %.outer, !llvm.loop !8
 
 20:                                               ; preds = %13
   br i1 %.not69, label %.outer.outer.backedge, label %21
 
 .outer.outer.backedge:                            ; preds = %14, %20, %32
   %.044.ph.ph.be = phi i32 [ 3, %32 ], [ 2, %20 ], [ 1, %14 ]
-  br label %.outer.outer, !llvm.loop !9
+  br label %.outer.outer, !llvm.loop !8
 
 21:                                               ; preds = %20
   %22 = add i64 %.046.ph.ph.ph, 1
@@ -250,7 +250,7 @@ define i32 @b64_pton(ptr noundef readonly captures(none) %0, ptr noundef capture
   %.046.ph.ph.ph.be = phi i64 [ %53, %52 ], [ %22, %23 ], [ %34, %35 ]
   %.not72.ph.ph.be = phi i1 [ true, %52 ], [ false, %23 ], [ false, %35 ]
   %.044.ph.ph.ph.be = phi i32 [ 0, %52 ], [ 2, %23 ], [ 3, %35 ]
-  br label %.outer.outer.outer, !llvm.loop !9
+  br label %.outer.outer.outer, !llvm.loop !8
 
 .outer.outer.outer:                               ; preds = %.outer.outer.outer.backedge, %3
   %.054.ph.ph.ph = phi ptr [ %1, %3 ], [ %.054.ph.ph.ph.be, %.outer.outer.outer.backedge ]
@@ -306,7 +306,7 @@ define i32 @b64_pton(ptr noundef readonly captures(none) %0, ptr noundef capture
   %61 = load i8, ptr %.252102, align 1
   %62 = sext i8 %61 to i32
   %cond81 = icmp eq i8 %61, 0
-  br i1 %cond81, label %.loopexit, label %.lr.ph, !llvm.loop !10
+  br i1 %cond81, label %.loopexit, label %.lr.ph, !llvm.loop !9
 
 63:                                               ; preds = %.lr.ph
   %.not75 = icmp eq i32 %.1103, 61
@@ -336,7 +336,7 @@ define i32 @b64_pton(ptr noundef readonly captures(none) %0, ptr noundef capture
   %72 = load i8, ptr %.353105, align 1
   %73 = sext i8 %72 to i32
   %.not76 = icmp eq i8 %72, 0
-  br i1 %.not76, label %._crit_edge, label %.lr.ph107, !llvm.loop !11
+  br i1 %.not76, label %._crit_edge, label %.lr.ph107, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %70, %68
   %.not77 = icmp eq ptr %.054.ph.ph, null
@@ -385,9 +385,8 @@ attributes #4 = { nounwind willreturn memory(read) }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7, !8}
-!11 = distinct !{!11, !7, !8}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}

@@ -47,7 +47,7 @@ define noundef zeroext i1 @_ZN5boost4urls7grammar6detail11ci_is_equalENS_4core17
   %22 = load i8, ptr %.1, align 1, !tbaa !3
   %23 = add i64 %.115, -1
   %.not19 = icmp eq i64 %.115, 0
-  br i1 %.not19, label %.loopexit, label %.preheader, !llvm.loop !9
+  br i1 %.not19, label %.loopexit, label %.preheader, !llvm.loop !8
 
 .loopexit:                                        ; preds = %5, %18, %.preheader
   %.016 = phi i1 [ %.not18, %.preheader ], [ %.not18, %18 ], [ true, %5 ]
@@ -80,7 +80,7 @@ define noundef zeroext i1 @_ZN5boost4urls7grammar6detail10ci_is_lessENS_4core17b
   %16 = add nuw nsw i8 %14, 32
   %17 = select i1 %or.cond.i18, i8 %16, i8 %14
   %.not17 = icmp eq i8 %12, %17
-  br i1 %.not17, label %5, label %.split.loop.exit21, !llvm.loop !10
+  br i1 %.not17, label %5, label %.split.loop.exit21, !llvm.loop !9
 
 .split.loop.exit21:                               ; preds = %6
   %18 = icmp slt i8 %12, %17
@@ -120,7 +120,7 @@ define noundef i32 @_ZN5boost4urls7grammar10ci_compareENS_4core17basic_string_vi
   %16 = add nuw nsw i8 %14, 32
   %17 = select i1 %or.cond.i.i19, i8 %16, i8 %14
   %18 = icmp eq i8 %12, %17
-  br i1 %18, label %5, label %.split.loop.exit26, !llvm.loop !11
+  br i1 %18, label %5, label %.split.loop.exit26
 
 .split.loop.exit26:                               ; preds = %6
   %19 = icmp slt i8 %12, %17
@@ -152,7 +152,7 @@ define noundef i64 @_ZN5boost4urls7grammar9ci_digestENS_4core17basic_string_view
   %10 = mul i64 %9, 1099511628211
   %11 = getelementptr inbounds nuw i8, ptr %.048, i64 1
   %.not = icmp eq i64 %3, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !12
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   %.05.lcssa = phi i64 [ -3750763034362895579, %2 ], [ %10, %.lr.ph ]
@@ -176,10 +176,8 @@ attributes #1 = { nocallback nofree nosync nounwind speculatable willreturn memo
 !3 = !{!4, !4, i64 0}
 !4 = !{!"omnipotent char", !5, i64 0}
 !5 = !{!"Simple C++ TBAA"}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7, !8}
-!11 = distinct !{!11, !8}
-!12 = distinct !{!12, !7, !8}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}

@@ -156,7 +156,7 @@ define hidden void @_ZN25NMTPreInitAllocationTableD2Ev(ptr noundef nonnull reado
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8191
-  br i1 %exitcond.not, label %6, label %2, !llvm.loop !9
+  br i1 %exitcond.not, label %6, label %2, !llvm.loop !8
 
 6:                                                ; preds = %._crit_edge
   ret void
@@ -187,7 +187,7 @@ define hidden void @_ZNK25NMTPreInitAllocationTable11print_stateEP12outputStream
   %8 = add i64 %7, %.130
   %.0 = load ptr, ptr %.032, align 8
   %.not = icmp eq ptr %.0, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !10
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   %.1.lcssa = phi i64 [ %.02237, %3 ], [ %8, %.lr.ph ]
@@ -199,7 +199,7 @@ define hidden void @_ZNK25NMTPreInitAllocationTable11print_stateEP12outputStream
   %11 = tail call noundef i32 @llvm.smax.i32(i32 %.020.lcssa, i32 %.02336)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8191
-  br i1 %exitcond.not, label %12, label %3, !llvm.loop !11
+  br i1 %exitcond.not, label %12, label %3, !llvm.loop !10
 
 12:                                               ; preds = %._crit_edge
   %13 = sub nsw i32 8191, %spec.select
@@ -261,7 +261,7 @@ define hidden void @_ZN10NMTPreInit11pre_to_postEb(i1 noundef zeroext %0) local_
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %.preheader
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8191
-  br i1 %exitcond.not.i, label %_ZN25NMTPreInitAllocationTableD2Ev.exit, label %.preheader, !llvm.loop !9
+  br i1 %exitcond.not.i, label %_ZN25NMTPreInitAllocationTableD2Ev.exit, label %.preheader, !llvm.loop !8
 
 _ZN25NMTPreInitAllocationTableD2Ev.exit:          ; preds = %._crit_edge.i
   tail call void @free(ptr noundef nonnull %3) #13
@@ -302,7 +302,7 @@ define hidden void @_ZN10NMTPreInit11print_stateEP12outputStream(ptr noundef %0)
   %7 = add i64 %6, %.130.i
   %.0.i = load ptr, ptr %.032.i, align 8
   %.not.i = icmp eq ptr %.0.i, null
-  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !10
+  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !9
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %.preheader
   %.1.lcssa.i = phi i64 [ %.02237.i, %.preheader ], [ %7, %.lr.ph.i ]
@@ -314,7 +314,7 @@ define hidden void @_ZN10NMTPreInit11print_stateEP12outputStream(ptr noundef %0)
   %10 = tail call noundef i32 @llvm.smax.i32(i32 %.020.lcssa.i, i32 %.02336.i)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8191
-  br i1 %exitcond.not.i, label %_ZNK25NMTPreInitAllocationTable11print_stateEP12outputStream.exit, label %.preheader, !llvm.loop !11
+  br i1 %exitcond.not.i, label %_ZNK25NMTPreInitAllocationTable11print_stateEP12outputStream.exit, label %.preheader, !llvm.loop !10
 
 _ZNK25NMTPreInitAllocationTable11print_stateEP12outputStream.exit: ; preds = %._crit_edge.i
   %11 = sub nsw i32 8191, %spec.select.i
@@ -373,9 +373,8 @@ attributes #14 = { nounwind allocsize(1) }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7, !8}
-!11 = distinct !{!11, !7, !8}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}

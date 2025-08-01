@@ -521,6 +521,5 @@ attributes #10 = { nounwind willreturn memory(none) }
 !24 = !{!"p1 _ZTS9lua_State", !13, i64 0}
 !25 = !{!"p1 _ZTS7TString", !13, i64 0}
 !26 = !{!23, !12, i64 8}
-!27 = distinct !{!27, !28, !29}
+!27 = distinct !{!27, !28}
 !28 = !{!"llvm.loop.mustprogress"}
-!29 = !{!"llvm.loop.estimated_trip_count"}

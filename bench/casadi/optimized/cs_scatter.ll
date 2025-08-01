@@ -92,20 +92,20 @@ define i32 @cs_scatter(ptr noundef readonly captures(address_is_null) %0, i32 no
   %59 = getelementptr inbounds i32, ptr %27, i64 %58
   store i32 %51, ptr %59, align 4, !tbaa !14
   %60 = getelementptr inbounds double, ptr %25, i64 %indvars.iv
-  %61 = load double, ptr %60, align 8, !tbaa !19
+  %61 = load double, ptr %60, align 8, !tbaa !18
   %62 = fmul double %2, %61
   %63 = getelementptr inbounds double, ptr %4, i64 %52
-  store double %62, ptr %63, align 8, !tbaa !19
+  store double %62, ptr %63, align 8, !tbaa !18
   %.pre = load i32, ptr %31, align 4, !tbaa !14
   br label %70
 
 64:                                               ; preds = %.lr.ph.split.split
   %65 = getelementptr inbounds double, ptr %25, i64 %indvars.iv
-  %66 = load double, ptr %65, align 8, !tbaa !19
+  %66 = load double, ptr %65, align 8, !tbaa !18
   %67 = getelementptr inbounds double, ptr %4, i64 %52
-  %68 = load double, ptr %67, align 8, !tbaa !19
+  %68 = load double, ptr %67, align 8, !tbaa !18
   %69 = tail call double @llvm.fmuladd.f64(double %2, double %66, double %68)
-  store double %69, ptr %67, align 8, !tbaa !19
+  store double %69, ptr %67, align 8, !tbaa !18
   br label %70
 
 70:                                               ; preds = %56, %64
@@ -114,7 +114,7 @@ define i32 @cs_scatter(ptr noundef readonly captures(address_is_null) %0, i32 no
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %72 = sext i32 %71 to i64
   %73 = icmp slt i64 %indvars.iv.next, %72
-  br i1 %73, label %.lr.ph.split.split, label %.loopexit, !llvm.loop !21
+  br i1 %73, label %.lr.ph.split.split, label %.loopexit, !llvm.loop !20
 
 .loopexit:                                        ; preds = %70, %45, %19, %8, %9, %15
   %.0 = phi i32 [ -1, %15 ], [ -1, %9 ], [ -1, %8 ], [ %7, %19 ], [ %.1.us, %45 ], [ %.1, %70 ]
@@ -144,10 +144,9 @@ attributes #1 = { mustprogress nocallback nofree nosync nounwind speculatable wi
 !12 = !{!4, !8, i64 24}
 !13 = !{!4, !10, i64 32}
 !14 = !{!5, !5, i64 0}
-!15 = distinct !{!15, !16, !17, !18}
+!15 = distinct !{!15, !16, !17}
 !16 = !{!"llvm.loop.mustprogress"}
-!17 = !{!"llvm.loop.estimated_trip_count"}
-!18 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!19 = !{!20, !20, i64 0}
-!20 = !{!"double", !6, i64 0}
-!21 = distinct !{!21, !16, !17}
+!17 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!18 = !{!19, !19, i64 0}
+!19 = !{!"double", !6, i64 0}
+!20 = distinct !{!20, !16}

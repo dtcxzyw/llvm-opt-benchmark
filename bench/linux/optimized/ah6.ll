@@ -1110,7 +1110,7 @@ define internal fastcc noundef range(i32 -22, 1) i32 @ipv6_clear_mutable_options
   %80 = getelementptr i8, ptr %13, i64 %79
   %81 = getelementptr i8, ptr %80, i64 8
   %82 = icmp ult ptr %81, %5
-  br i1 %82, label %11, label %.loopexit, !llvm.loop !20
+  br i1 %82, label %11, label %.loopexit, !llvm.loop !19
 
 .loopexit:                                        ; preds = %75, %51, %11, %30, %28, %2
   %83 = phi i32 [ 0, %2 ], [ -22, %28 ], [ -22, %30 ], [ 0, %11 ], [ 0, %75 ], [ -22, %51 ]
@@ -1364,8 +1364,7 @@ attributes #15 = { nounwind allocsize(0) }
 !13 = !{i64 2155141689, i64 2155141718, i64 2155141764, i64 2155141822, i64 2155141876, i64 2155141930, i64 2155141985, i64 2155142016}
 !14 = !{i64 2155338269, i64 2155338078, i64 2155338130, i64 2155338176, i64 2155338204}
 !15 = !{i64 2155338343, i64 2155338372, i64 2155338418, i64 2155338476, i64 2155338530, i64 2155338584, i64 2155338639, i64 2155338670}
-!16 = distinct !{!16, !17, !18, !19}
+!16 = distinct !{!16, !17, !18}
 !17 = !{!"llvm.loop.mustprogress"}
 !18 = !{!"llvm.loop.unroll.disable"}
-!19 = !{!"llvm.loop.estimated_trip_count"}
-!20 = distinct !{!20, !17, !18, !19}
+!19 = distinct !{!19, !17, !18}

@@ -132,14 +132,14 @@ define internal fastcc void @deflate(ptr noundef %0, ptr noundef %1, ptr noundef
 18:                                               ; preds = %16, %18
   %.161 = phi i64 [ 0, %16 ], [ %32, %18 ]
   %19 = getelementptr inbounds nuw %struct.nghttp2_nv, ptr %2, i64 %.161
-  %20 = load ptr, ptr %19, align 8, !tbaa !21
+  %20 = load ptr, ptr %19, align 8, !tbaa !20
   %21 = getelementptr inbounds nuw i8, ptr %19, i64 16
   %22 = load i64, ptr %21, align 8, !tbaa !13
   %23 = load ptr, ptr @stdout, align 8, !tbaa !4
   %24 = tail call i64 @fwrite(ptr noundef %20, i64 noundef 1, i64 noundef %22, ptr noundef %23)
   %25 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.16)
   %26 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  %27 = load ptr, ptr %26, align 8, !tbaa !22
+  %27 = load ptr, ptr %26, align 8, !tbaa !21
   %28 = getelementptr inbounds nuw i8, ptr %19, i64 24
   %29 = load i64, ptr %28, align 8, !tbaa !17
   %30 = load ptr, ptr @stdout, align 8, !tbaa !4
@@ -147,7 +147,7 @@ define internal fastcc void @deflate(ptr noundef %0, ptr noundef %1, ptr noundef
   %putchar55 = tail call i32 @putchar(i32 10)
   %32 = add nuw nsw i64 %.161, 1
   %exitcond64.not = icmp eq i64 %32, %3
-  br i1 %exitcond64.not, label %33, label %18, !llvm.loop !23
+  br i1 %exitcond64.not, label %33, label %18, !llvm.loop !22
 
 33:                                               ; preds = %18
   %34 = tail call i64 @nghttp2_hd_deflate_bound(ptr noundef %0, ptr noundef nonnull %2, i64 noundef %3) #9
@@ -187,7 +187,7 @@ define internal fastcc void @deflate(ptr noundef %0, ptr noundef %1, ptr noundef
 
 54:                                               ; preds = %52, %.lr.ph
   %55 = getelementptr inbounds nuw i8, ptr %35, i64 %.262
-  %56 = load i8, ptr %55, align 1, !tbaa !24
+  %56 = load i8, ptr %55, align 1, !tbaa !23
   %57 = zext i8 %56 to i32
   %58 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.21, i32 noundef %57)
   %59 = add nuw i64 %.262, 1
@@ -201,13 +201,13 @@ define internal fastcc void @deflate(ptr noundef %0, ptr noundef %1, ptr noundef
 
 63:                                               ; preds = %54, %62
   %exitcond65.not = icmp eq i64 %59, %36
-  br i1 %exitcond65.not, label %._crit_edge, label %.lr.ph, !llvm.loop !25
+  br i1 %exitcond65.not, label %._crit_edge, label %.lr.ph, !llvm.loop !24
 
 ._crit_edge:                                      ; preds = %63, %43
   %puts = tail call i32 @puts(ptr nonnull dereferenceable(1) @str)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5) #9
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #9
-  store i32 0, ptr %6, align 4, !tbaa !26
+  store i32 0, ptr %6, align 4, !tbaa !25
   %64 = call i64 @nghttp2_hd_inflate_hd3(ptr noundef %1, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef %35, i64 noundef range(i64 0, -9223372036854775808) %36, i32 noundef 1) #9
   %65 = icmp slt i64 %64, 0
   br i1 %65, label %.loopexit58, label %.lr.ph.i
@@ -224,25 +224,25 @@ define internal fastcc void @deflate(ptr noundef %0, ptr noundef %1, ptr noundef
   %.01834.i = phi i64 [ %36, %.lr.ph.i ], [ %72, %96 ]
   %71 = getelementptr inbounds nuw i8, ptr %.01635.i, i64 %70
   %72 = sub i64 %.01834.i, %70
-  %73 = load i32, ptr %6, align 4, !tbaa !26
+  %73 = load i32, ptr %6, align 4, !tbaa !25
   %74 = and i32 %73, 2
   %.not.i = icmp eq i32 %74, 0
   br i1 %.not.i, label %87, label %75
 
 75:                                               ; preds = %69
-  %76 = load ptr, ptr %5, align 8, !tbaa !21
+  %76 = load ptr, ptr %5, align 8, !tbaa !20
   %77 = load i64, ptr %66, align 8, !tbaa !13
   %78 = load ptr, ptr @stderr, align 8, !tbaa !4
   %79 = call i64 @fwrite(ptr noundef %76, i64 noundef 1, i64 noundef %77, ptr noundef %78) #13
   %80 = load ptr, ptr @stderr, align 8, !tbaa !4
   %81 = call i64 @fwrite(ptr nonnull @.str.16, i64 2, i64 1, ptr %80) #13
-  %82 = load ptr, ptr %67, align 8, !tbaa !22
+  %82 = load ptr, ptr %67, align 8, !tbaa !21
   %83 = load i64, ptr %68, align 8, !tbaa !17
   %84 = load ptr, ptr @stderr, align 8, !tbaa !4
   %85 = call i64 @fwrite(ptr noundef %82, i64 noundef 1, i64 noundef %83, ptr noundef %84) #13
   %86 = load ptr, ptr @stderr, align 8, !tbaa !4
   %fputc.i = call i32 @fputc(i32 10, ptr %86)
-  %.pre.i = load i32, ptr %6, align 4, !tbaa !26
+  %.pre.i = load i32, ptr %6, align 4, !tbaa !25
   br label %87
 
 87:                                               ; preds = %75, %69
@@ -267,7 +267,7 @@ define internal fastcc void @deflate(ptr noundef %0, ptr noundef %1, ptr noundef
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5) #9
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5) #9
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #9
-  store i32 0, ptr %6, align 4, !tbaa !26
+  store i32 0, ptr %6, align 4, !tbaa !25
   %97 = call i64 @nghttp2_hd_inflate_hd3(ptr noundef %1, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef %71, i64 noundef %72, i32 noundef 1) #9
   %98 = icmp slt i64 %97, 0
   br i1 %98, label %.loopexit58, label %69
@@ -361,13 +361,12 @@ attributes #13 = { cold }
 !15 = !{!"p1 omnipotent char", !6, i64 0}
 !16 = !{!"long", !7, i64 0}
 !17 = !{!14, !16, i64 24}
-!18 = distinct !{!18, !19, !20}
+!18 = distinct !{!18, !19}
 !19 = !{!"llvm.loop.mustprogress"}
-!20 = !{!"llvm.loop.estimated_trip_count"}
-!21 = !{!14, !15, i64 0}
-!22 = !{!14, !15, i64 8}
-!23 = distinct !{!23, !19, !20}
-!24 = !{!7, !7, i64 0}
-!25 = distinct !{!25, !19, !20}
-!26 = !{!27, !27, i64 0}
-!27 = !{!"int", !7, i64 0}
+!20 = !{!14, !15, i64 0}
+!21 = !{!14, !15, i64 8}
+!22 = distinct !{!22, !19}
+!23 = !{!7, !7, i64 0}
+!24 = distinct !{!24, !19}
+!25 = !{!26, !26, i64 0}
+!26 = !{!"int", !7, i64 0}

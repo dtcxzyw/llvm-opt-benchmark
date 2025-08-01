@@ -318,9 +318,9 @@ _ZN6icu_7713UnicodeString6appendERKS0_.exit:      ; preds = %59
   %91 = load i32, ptr %27, align 4, !tbaa !12
   %92 = sub i32 %.047.lcssa, %91
   %93 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  %94 = load i32, ptr %93, align 4, !tbaa !24
+  %94 = load i32, ptr %93, align 4, !tbaa !23
   %95 = add nsw i32 %92, %94
-  store i32 %95, ptr %93, align 4, !tbaa !24
+  store i32 %95, ptr %93, align 4, !tbaa !23
   store i32 %.047.lcssa, ptr %27, align 4, !tbaa !12
   store i32 %.0.lcssa, ptr %25, align 4, !tbaa !15
   invoke void @uprv_free_77(ptr noundef nonnull %18)
@@ -424,7 +424,6 @@ attributes #8 = { allocsize(0) }
 !18 = !{!7, !7, i64 0}
 !19 = !{!20, !20, i64 0}
 !20 = !{!"char16_t", !7, i64 0}
-!21 = distinct !{!21, !22, !23}
+!21 = distinct !{!21, !22}
 !22 = !{!"llvm.loop.mustprogress"}
-!23 = !{!"llvm.loop.estimated_trip_count"}
-!24 = !{!13, !14, i64 4}
+!23 = !{!13, !14, i64 4}

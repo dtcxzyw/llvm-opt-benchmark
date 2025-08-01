@@ -126,7 +126,7 @@ define dso_local void @zend_llist_del_element(ptr noundef captures(none) %0, ptr
   %6 = getelementptr inbounds nuw i8, ptr %.0, i64 16
   %7 = tail call i32 %2(ptr noundef nonnull %6, ptr noundef %1) #14
   %.not26 = icmp eq i32 %7, 0
-  br i1 %.not26, label %4, label %8, !llvm.loop !20
+  br i1 %.not26, label %4, label %8
 
 8:                                                ; preds = %5
   %9 = getelementptr inbounds nuw i8, ptr %.0, i64 8
@@ -216,7 +216,7 @@ define dso_local void @zend_llist_destroy(ptr noundef captures(none) %0) local_u
 
 14:                                               ; preds = %13, %12
   %.not = icmp eq ptr %6, null
-  br i1 %.not, label %._crit_edge, label %5, !llvm.loop !22
+  br i1 %.not, label %._crit_edge, label %5
 
 ._crit_edge:                                      ; preds = %14, %1
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
@@ -261,7 +261,7 @@ define dso_local void @zend_llist_clean(ptr noundef captures(none) %0) local_unn
 
 14:                                               ; preds = %13, %12
   %.not.i = icmp eq ptr %6, null
-  br i1 %.not.i, label %zend_llist_destroy.exit, label %5, !llvm.loop !22
+  br i1 %.not.i, label %zend_llist_destroy.exit, label %5
 
 zend_llist_destroy.exit:                          ; preds = %14, %1
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
@@ -373,7 +373,7 @@ zend_llist_add_element.exit:                      ; preds = %19, %21
   store i64 %29, ptr %13, align 8, !tbaa !18
   %.0 = load ptr, ptr %.011, align 8, !tbaa !17
   %.not = icmp eq ptr %.0, null
-  br i1 %.not, label %._crit_edge, label %14, !llvm.loop !23
+  br i1 %.not, label %._crit_edge, label %14
 
 ._crit_edge:                                      ; preds = %zend_llist_add_element.exit, %2
   ret void
@@ -449,7 +449,7 @@ define dso_local void @zend_llist_apply_with_del(ptr noundef captures(none) %0, 
 
 29:                                               ; preds = %26, %8
   %.not = icmp eq ptr %9, null
-  br i1 %.not, label %._crit_edge, label %8, !llvm.loop !24
+  br i1 %.not, label %._crit_edge, label %8
 
 ._crit_edge:                                      ; preds = %29, %2
   ret void
@@ -467,7 +467,7 @@ define dso_local void @zend_llist_apply(ptr noundef readonly captures(none) %0, 
   tail call void %1(ptr noundef nonnull %3) #14
   %.0 = load ptr, ptr %.07, align 8, !tbaa !17
   %.not = icmp eq ptr %.0, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !25
+  br i1 %.not, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   ret void
@@ -494,7 +494,7 @@ define dso_local void @zend_llist_sort(ptr noundef captures(none) %0, ptr nounde
   store ptr %.06471, ptr %.070, align 8, !tbaa !17
   %.064 = load ptr, ptr %.06471, align 8, !tbaa !17
   %.not = icmp eq ptr %.064, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !26
+  br i1 %.not, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %6
   %10 = load i64, ptr %3, align 8, !tbaa !18
@@ -519,7 +519,7 @@ define dso_local void @zend_llist_sort(ptr noundef captures(none) %0, ptr nounde
   store ptr %20, ptr %17, align 8, !tbaa !16
   %21 = add nuw i64 %.06572, 1
   %exitcond.not = icmp eq i64 %21, %13
-  br i1 %exitcond.not, label %._crit_edge75, label %.lr.ph74, !llvm.loop !27
+  br i1 %exitcond.not, label %._crit_edge75, label %.lr.ph74
 
 ._crit_edge75:                                    ; preds = %.lr.ph74, %._crit_edge
   %.065.lcssa = phi i64 [ 1, %._crit_edge ], [ %13, %.lr.ph74 ]
@@ -560,7 +560,7 @@ define dso_local void @zend_llist_apply_with_argument(ptr noundef readonly captu
   tail call void %1(ptr noundef nonnull %4, ptr noundef %2) #14
   %.0 = load ptr, ptr %.08, align 8, !tbaa !17
   %.not = icmp eq ptr %.0, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !28
+  br i1 %.not, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   ret void
@@ -581,7 +581,7 @@ define dso_local void @zend_llist_apply_with_arguments(ptr noundef readonly capt
   call void %1(ptr noundef nonnull %5, i32 noundef %2, ptr noundef nonnull %4) #14
   %.0 = load ptr, ptr %.07, align 8, !tbaa !17
   %.not = icmp eq ptr %.0, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !29
+  br i1 %.not, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   call void @llvm.va_end.p0(ptr nonnull %4)
@@ -715,13 +715,3 @@ attributes #14 = { nounwind }
 !17 = !{!6, !6, i64 0}
 !18 = !{!5, !10, i64 16}
 !19 = !{!5, !6, i64 0}
-!20 = distinct !{!20, !21}
-!21 = !{!"llvm.loop.estimated_trip_count"}
-!22 = distinct !{!22, !21}
-!23 = distinct !{!23, !21}
-!24 = distinct !{!24, !21}
-!25 = distinct !{!25, !21}
-!26 = distinct !{!26, !21}
-!27 = distinct !{!27, !21}
-!28 = distinct !{!28, !21}
-!29 = distinct !{!29, !21}

@@ -460,7 +460,7 @@ embedded_time_to_string.exit:                     ; preds = %41, %67
   %142 = add i16 %141, %.0190218
   %143 = add nuw nsw i32 %.0192217, 2
   %144 = icmp samesign ult i32 %143, %139
-  br i1 %144, label %140, label %145, !llvm.loop !9
+  br i1 %144, label %140, label %145, !llvm.loop !8
 
 145:                                              ; preds = %140
   %146 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %137)
@@ -659,7 +659,6 @@ attributes #3 = { nounwind }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
+!8 = distinct !{!8, !7}

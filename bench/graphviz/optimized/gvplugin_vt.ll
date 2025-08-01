@@ -415,16 +415,16 @@ define internal fastcc void @process(ptr noundef %0, i32 noundef range(i32 3, 25
   %19 = or disjoint i32 %18, 2
   %20 = zext i32 %19 to i64
   %21 = getelementptr inbounds nuw i8, ptr %4, i64 %20
-  %22 = load i8, ptr %21, align 1, !tbaa !35
+  %22 = load i8, ptr %21, align 1, !tbaa !34
   %23 = zext i8 %22 to i32
   %24 = or disjoint i32 %18, 1
   %25 = zext i32 %24 to i64
   %26 = getelementptr inbounds nuw i8, ptr %4, i64 %25
-  %27 = load i8, ptr %26, align 1, !tbaa !35
+  %27 = load i8, ptr %26, align 1, !tbaa !34
   %28 = zext i8 %27 to i32
   %29 = zext i32 %18 to i64
   %30 = getelementptr inbounds nuw i8, ptr %4, i64 %29
-  %31 = load i8, ptr %30, align 1, !tbaa !35
+  %31 = load i8, ptr %30, align 1, !tbaa !34
   %32 = zext i8 %31 to i32
   br i1 %8, label %.preheader66, label %54
 
@@ -461,7 +461,7 @@ define internal fastcc void @process(ptr noundef %0, i32 noundef range(i32 3, 25
   %spec.select18.i = select i1 %51, i32 %52, i32 %.017.i
   %53 = add nuw nsw i64 %.01116.i, 1
   %exitcond.not.i = icmp eq i64 %53, 8
-  br i1 %exitcond.not.i, label %get_color.exit, label %.preheader66, !llvm.loop !36
+  br i1 %exitcond.not.i, label %get_color.exit, label %.preheader66, !llvm.loop !35
 
 get_color.exit:                                   ; preds = %.preheader66
   tail call void (ptr, ptr, ...) @gvprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.8, i32 noundef %spec.select18.i) #4
@@ -484,16 +484,16 @@ get_color.exit:                                   ; preds = %.preheader66
   %63 = or disjoint i32 %62, 2
   %64 = zext i32 %63 to i64
   %65 = getelementptr inbounds nuw i8, ptr %4, i64 %64
-  %66 = load i8, ptr %65, align 1, !tbaa !35
+  %66 = load i8, ptr %65, align 1, !tbaa !34
   %67 = zext i8 %66 to i32
   %68 = or disjoint i32 %62, 1
   %69 = zext i32 %68 to i64
   %70 = getelementptr inbounds nuw i8, ptr %4, i64 %69
-  %71 = load i8, ptr %70, align 1, !tbaa !35
+  %71 = load i8, ptr %70, align 1, !tbaa !34
   %72 = zext i8 %71 to i32
   %73 = zext i32 %62 to i64
   %74 = getelementptr inbounds nuw i8, ptr %4, i64 %73
-  %75 = load i8, ptr %74, align 1, !tbaa !35
+  %75 = load i8, ptr %74, align 1, !tbaa !34
   %76 = zext i8 %75 to i32
   br label %77
 
@@ -536,7 +536,7 @@ get_color.exit:                                   ; preds = %.preheader66
   %spec.select18.i63 = select i1 %96, i32 %97, i32 %.017.i54
   %98 = add nuw nsw i64 %.01116.i55, 1
   %exitcond.not.i64 = icmp eq i64 %98, 8
-  br i1 %exitcond.not.i64, label %get_color.exit65, label %.preheader, !llvm.loop !36
+  br i1 %exitcond.not.i64, label %get_color.exit65, label %.preheader, !llvm.loop !35
 
 get_color.exit65:                                 ; preds = %.preheader
   tail call void (ptr, ptr, ...) @gvprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.10, i32 noundef %spec.select18.i63) #4
@@ -551,7 +551,7 @@ get_color.exit65:                                 ; preds = %.preheader
   %101 = add nuw i32 %.05168, 1
   %102 = load i32, ptr %7, align 8, !tbaa !31
   %103 = icmp ult i32 %101, %102
-  br i1 %103, label %14, label %._crit_edge, !llvm.loop !37
+  br i1 %103, label %14, label %._crit_edge, !llvm.loop !36
 }
 
 declare void @gvprintf(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
@@ -626,14 +626,14 @@ define internal fastcc void @processNup(ptr noundef %0, i32 noundef range(i32 2,
   %23 = or disjoint i32 %22, 2
   %24 = zext i32 %23 to i64
   %25 = getelementptr inbounds nuw i8, ptr %5, i64 %24
-  %26 = load i8, ptr %25, align 1, !tbaa !35
+  %26 = load i8, ptr %25, align 1, !tbaa !34
   %27 = or disjoint i32 %22, 1
   %28 = zext i32 %27 to i64
   %29 = getelementptr inbounds nuw i8, ptr %5, i64 %28
-  %30 = load i8, ptr %29, align 1, !tbaa !35
+  %30 = load i8, ptr %29, align 1, !tbaa !34
   %31 = zext i32 %22 to i64
   %32 = getelementptr inbounds nuw i8, ptr %5, i64 %31
-  %33 = load i8, ptr %32, align 1, !tbaa !35
+  %33 = load i8, ptr %32, align 1, !tbaa !34
   %34 = uitofp i8 %26 to double
   %35 = fdiv double %34, 2.550000e+02
   %36 = uitofp i8 %30 to double
@@ -653,7 +653,7 @@ define internal fastcc void @processNup(ptr noundef %0, i32 noundef range(i32 2,
   %50 = or i32 %49, %.166.us
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us, label %20, !llvm.loop !38
+  br i1 %exitcond.not, label %._crit_edge.us, label %20, !llvm.loop !37
 
 ._crit_edge.us:                                   ; preds = %20
   %indvars.iv.next81 = add nuw nsw i64 %indvars.iv80, 1
@@ -662,14 +662,14 @@ define internal fastcc void @processNup(ptr noundef %0, i32 noundef range(i32 2,
   %52 = icmp ult i32 %51, %12
   %53 = icmp samesign ult i64 %indvars.iv.next81, %9
   %54 = select i1 %52, i1 %53, i1 false
-  br i1 %54, label %.preheader.us, label %._crit_edge69.loopexit, !llvm.loop !39
+  br i1 %54, label %.preheader.us, label %._crit_edge69.loopexit, !llvm.loop !38
 
 ._crit_edge:                                      ; preds = %._crit_edge69, %.preheader62
   %55 = tail call i32 @gvputc(ptr noundef nonnull %0, i32 noundef 10) #4
   %56 = add i32 %.05173, %1
   %57 = load i32, ptr %6, align 4, !tbaa !30
   %58 = icmp ult i32 %56, %57
-  br i1 %58, label %.preheader62, label %._crit_edge74, !llvm.loop !41
+  br i1 %58, label %.preheader62, label %._crit_edge74, !llvm.loop !40
 
 ._crit_edge69.loopexit:                           ; preds = %._crit_edge.us
   %59 = zext nneg i32 %50 to i64
@@ -678,13 +678,13 @@ define internal fastcc void @processNup(ptr noundef %0, i32 noundef range(i32 2,
 ._crit_edge69:                                    ; preds = %._crit_edge69.loopexit, %.preheader61
   %.053.lcssa = phi i64 [ 0, %.preheader61 ], [ %59, %._crit_edge69.loopexit ]
   %60 = getelementptr inbounds nuw ptr, ptr %2, i64 %.053.lcssa
-  %61 = load ptr, ptr %60, align 8, !tbaa !42
+  %61 = load ptr, ptr %60, align 8, !tbaa !41
   %62 = tail call i32 @gvputs(ptr noundef nonnull %0, ptr noundef %61) #4
   %63 = add i32 %.05271, 2
   %64 = load i32, ptr %8, align 8, !tbaa !31
   %65 = icmp ult i32 %63, %64
   %indvars.iv.next79 = add i32 %indvars.iv78, -2
-  br i1 %65, label %.preheader61, label %._crit_edge, !llvm.loop !43
+  br i1 %65, label %.preheader61, label %._crit_edge, !llvm.loop !42
 }
 
 declare i32 @gvputs(ptr noundef, ptr noundef) local_unnamed_addr #1
@@ -749,15 +749,14 @@ attributes #4 = { nounwind }
 !29 = !{!"p1 _ZTS21gvevent_key_binding_s", !6, i64 0}
 !30 = !{!4, !13, i64 580}
 !31 = !{!4, !13, i64 576}
-!32 = distinct !{!32, !33, !34}
+!32 = distinct !{!32, !33}
 !33 = !{!"llvm.loop.mustprogress"}
-!34 = !{!"llvm.loop.estimated_trip_count"}
-!35 = !{!7, !7, i64 0}
-!36 = distinct !{!36, !33, !34}
-!37 = distinct !{!37, !33, !34}
-!38 = distinct !{!38, !33, !34}
-!39 = distinct !{!39, !33, !34, !40}
-!40 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!41 = distinct !{!41, !33, !34}
-!42 = !{!12, !12, i64 0}
-!43 = distinct !{!43, !33, !34}
+!34 = !{!7, !7, i64 0}
+!35 = distinct !{!35, !33}
+!36 = distinct !{!36, !33}
+!37 = distinct !{!37, !33}
+!38 = distinct !{!38, !33, !39}
+!39 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!40 = distinct !{!40, !33}
+!41 = !{!12, !12, i64 0}
+!42 = distinct !{!42, !33}

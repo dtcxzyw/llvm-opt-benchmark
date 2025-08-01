@@ -142,7 +142,7 @@ define dso_local range(i32 0, 2) i32 @setup_tests() local_unnamed_addr #1 {
 
 8:                                                ; preds = %5
   %9 = tail call ptr @BIO_new_file(ptr noundef %6, ptr noundef nonnull @.str.22) #8
-  store ptr %9, ptr @in, align 8, !tbaa !12
+  store ptr %9, ptr @in, align 8, !tbaa !11
   %10 = tail call i32 @test_ptr(ptr noundef nonnull @.str.18, i32 noundef 271, ptr noundef nonnull @.str.21, ptr noundef %9) #8
   %.not7 = icmp eq i32 %10, 0
   br i1 %.not7, label %11, label %12
@@ -162,14 +162,14 @@ define dso_local range(i32 0, 2) i32 @setup_tests() local_unnamed_addr #1 {
   %strchr.i = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.014.i, i32 47)
   %.not.i = icmp eq ptr %strchr.i, null
   %15 = getelementptr inbounds nuw i8, ptr %strchr.i, i64 1
-  br i1 %.not.i, label %16, label %.preheader.i, !llvm.loop !14
+  br i1 %.not.i, label %16, label %.preheader.i, !llvm.loop !13
 
 16:                                               ; preds = %.preheader.i
   %17 = icmp eq ptr %.013.i, null
   br i1 %17, label %24, label %18
 
 18:                                               ; preds = %16
-  store i8 0, ptr %.013.i, align 1, !tbaa !15
+  store i8 0, ptr %.013.i, align 1, !tbaa !14
   tail call void (ptr, ...) @test_note(ptr noundef nonnull @.str.31, ptr noundef nonnull %13) #8
   %19 = tail call i32 @chdir(ptr noundef nonnull %13) #8
   %20 = icmp eq i32 %19, 0
@@ -187,7 +187,7 @@ define dso_local range(i32 0, 2) i32 @setup_tests() local_unnamed_addr #1 {
 
 change_path.exit:                                 ; preds = %12, %24
   %.015.i = phi ptr [ %.0.i, %24 ], [ null, %12 ]
-  store ptr %.015.i, ptr @rel_conf_file, align 8, !tbaa !16
+  store ptr %.015.i, ptr @rel_conf_file, align 8, !tbaa !15
   %25 = tail call i32 @test_ptr(ptr noundef nonnull @.str.18, i32 noundef 281, ptr noundef nonnull @.str.24, ptr noundef %.015.i) #8
   %.not8 = icmp eq i32 %25, 0
   br i1 %.not8, label %26, label %27
@@ -236,7 +236,7 @@ define internal range(i32 0, 2) i32 @test_load_config() #1 {
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1) #8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #8
   %3 = load ptr, ptr @conf, align 8, !tbaa !4
-  %4 = load ptr, ptr @in, align 8, !tbaa !12
+  %4 = load ptr, ptr @in, align 8, !tbaa !11
   %5 = call i32 @NCONF_load_bio(ptr noundef %3, ptr noundef %4, ptr noundef nonnull %1) #8
   %6 = call i32 @test_int_gt(ptr noundef nonnull @.str.18, i32 noundef 86, ptr noundef nonnull @.str.32, ptr noundef nonnull @.str.33, i32 noundef %5, i32 noundef 0) #8
   %.not = icmp eq i32 %6, 0
@@ -254,7 +254,7 @@ define internal range(i32 0, 2) i32 @test_load_config() #1 {
   br i1 %.b2, label %74, label %12
 
 12:                                               ; preds = %11
-  %13 = load i64, ptr %1, align 8, !tbaa !18
+  %13 = load i64, ptr %1, align 8, !tbaa !17
   call void (ptr, ...) @test_note(ptr noundef nonnull @.str.35, i64 noundef %13) #8
   br label %74
 
@@ -278,7 +278,7 @@ define internal range(i32 0, 2) i32 @test_load_config() #1 {
   br label %74
 
 21:                                               ; preds = %16
-  store i64 0, ptr %2, align 8, !tbaa !18
+  store i64 0, ptr %2, align 8, !tbaa !17
   %22 = load ptr, ptr @conf, align 8, !tbaa !4
   %23 = call i32 @NCONF_get_number_e(ptr noundef %22, ptr noundef nonnull @.str.41, ptr noundef nonnull @.str.42, ptr noundef nonnull %2) #8
   %24 = call i32 @test_int_eq(ptr noundef nonnull @.str.18, i32 noundef 105, ptr noundef nonnull @.str.39, ptr noundef nonnull @.str.40, i32 noundef %23, i32 noundef 1) #8
@@ -286,7 +286,7 @@ define internal range(i32 0, 2) i32 @test_load_config() #1 {
   br i1 %.not6, label %29, label %25
 
 25:                                               ; preds = %21
-  %26 = load i64, ptr %2, align 8, !tbaa !18
+  %26 = load i64, ptr %2, align 8, !tbaa !17
   %27 = trunc i64 %26 to i32
   %28 = call i32 @test_int_eq(ptr noundef nonnull @.str.18, i32 noundef 106, ptr noundef nonnull @.str.43, ptr noundef nonnull @.str.44, i32 noundef %27, i32 noundef 365) #8
   %.not7 = icmp eq i32 %28, 0
@@ -297,7 +297,7 @@ define internal range(i32 0, 2) i32 @test_load_config() #1 {
   br label %74
 
 30:                                               ; preds = %25
-  store i64 0, ptr %2, align 8, !tbaa !18
+  store i64 0, ptr %2, align 8, !tbaa !17
   %31 = load ptr, ptr @conf, align 8, !tbaa !4
   %32 = call i32 @NCONF_get_number_e(ptr noundef %31, ptr noundef nonnull @.str.47, ptr noundef nonnull @.str.48, ptr noundef nonnull %2) #8
   %33 = call i32 @test_int_eq(ptr noundef nonnull @.str.18, i32 noundef 113, ptr noundef nonnull @.str.46, ptr noundef nonnull @.str.40, i32 noundef %32, i32 noundef 1) #8
@@ -305,7 +305,7 @@ define internal range(i32 0, 2) i32 @test_load_config() #1 {
   br i1 %.not8, label %38, label %34
 
 34:                                               ; preds = %30
-  %35 = load i64, ptr %2, align 8, !tbaa !18
+  %35 = load i64, ptr %2, align 8, !tbaa !17
   %36 = trunc i64 %35 to i32
   %37 = call i32 @test_int_eq(ptr noundef nonnull @.str.18, i32 noundef 114, ptr noundef nonnull @.str.43, ptr noundef nonnull @.str.49, i32 noundef %36, i32 noundef 2048) #8
   %.not9 = icmp eq i32 %37, 0
@@ -336,7 +336,7 @@ define internal range(i32 0, 2) i32 @test_load_config() #1 {
   br i1 %.b3, label %47, label %74
 
 47:                                               ; preds = %46
-  store i64 0, ptr %2, align 8, !tbaa !18
+  store i64 0, ptr %2, align 8, !tbaa !17
   %48 = load ptr, ptr @conf, align 8, !tbaa !4
   %49 = call i32 @NCONF_get_number_e(ptr noundef %48, ptr noundef nonnull @.str.58, ptr noundef nonnull @.str.59, ptr noundef nonnull %2) #8
   %50 = call i32 @test_int_eq(ptr noundef nonnull @.str.18, i32 noundef 129, ptr noundef nonnull @.str.57, ptr noundef nonnull @.str.40, i32 noundef %49, i32 noundef 1) #8
@@ -344,7 +344,7 @@ define internal range(i32 0, 2) i32 @test_load_config() #1 {
   br i1 %.not12, label %55, label %51
 
 51:                                               ; preds = %47
-  %52 = load i64, ptr %2, align 8, !tbaa !18
+  %52 = load i64, ptr %2, align 8, !tbaa !17
   %53 = trunc i64 %52 to i32
   %54 = call i32 @test_int_eq(ptr noundef nonnull @.str.18, i32 noundef 130, ptr noundef nonnull @.str.43, ptr noundef nonnull @.str.40, i32 noundef %53, i32 noundef 1) #8
   %.not13 = icmp eq i32 %54, 0
@@ -355,7 +355,7 @@ define internal range(i32 0, 2) i32 @test_load_config() #1 {
   br label %74
 
 56:                                               ; preds = %51
-  store i64 0, ptr %2, align 8, !tbaa !18
+  store i64 0, ptr %2, align 8, !tbaa !17
   %57 = load ptr, ptr @conf, align 8, !tbaa !4
   %58 = call i32 @NCONF_get_number_e(ptr noundef %57, ptr noundef nonnull @.str.62, ptr noundef nonnull @.str.59, ptr noundef nonnull %2) #8
   %59 = call i32 @test_int_eq(ptr noundef nonnull @.str.18, i32 noundef 135, ptr noundef nonnull @.str.61, ptr noundef nonnull @.str.40, i32 noundef %58, i32 noundef 1) #8
@@ -363,7 +363,7 @@ define internal range(i32 0, 2) i32 @test_load_config() #1 {
   br i1 %.not14, label %64, label %60
 
 60:                                               ; preds = %56
-  %61 = load i64, ptr %2, align 8, !tbaa !18
+  %61 = load i64, ptr %2, align 8, !tbaa !17
   %62 = trunc i64 %61 to i32
   %63 = call i32 @test_int_eq(ptr noundef nonnull @.str.18, i32 noundef 136, ptr noundef nonnull @.str.43, ptr noundef nonnull @.str.40, i32 noundef %62, i32 noundef 1) #8
   %.not15 = icmp eq i32 %63, 0
@@ -374,7 +374,7 @@ define internal range(i32 0, 2) i32 @test_load_config() #1 {
   br label %74
 
 65:                                               ; preds = %60
-  store i64 0, ptr %2, align 8, !tbaa !18
+  store i64 0, ptr %2, align 8, !tbaa !17
   %66 = load ptr, ptr @conf, align 8, !tbaa !4
   %67 = call i32 @NCONF_get_number_e(ptr noundef %66, ptr noundef nonnull @.str.65, ptr noundef nonnull @.str.59, ptr noundef nonnull %2) #8
   %68 = call i32 @test_int_eq(ptr noundef nonnull @.str.18, i32 noundef 141, ptr noundef nonnull @.str.64, ptr noundef nonnull @.str.40, i32 noundef %67, i32 noundef 1) #8
@@ -382,7 +382,7 @@ define internal range(i32 0, 2) i32 @test_load_config() #1 {
   br i1 %.not16, label %73, label %69
 
 69:                                               ; preds = %65
-  %70 = load i64, ptr %2, align 8, !tbaa !18
+  %70 = load i64, ptr %2, align 8, !tbaa !17
   %71 = trunc i64 %70 to i32
   %72 = call i32 @test_int_eq(ptr noundef nonnull @.str.18, i32 noundef 142, ptr noundef nonnull @.str.43, ptr noundef nonnull @.str.40, i32 noundef %71, i32 noundef 1) #8
   %.not17 = icmp eq i32 %72, 0
@@ -403,7 +403,7 @@ define internal range(i32 0, 2) i32 @test_load_config() #1 {
 define internal range(i32 0, 2) i32 @test_check_null_numbers() #1 {
   %1 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1) #8
-  store i64 0, ptr %1, align 8, !tbaa !18
+  store i64 0, ptr %1, align 8, !tbaa !17
   %2 = tail call i32 @setenv(ptr noundef nonnull @.str.68, ptr noundef nonnull @.str.69, i32 noundef 1) #8
   %3 = tail call i32 @test_int_eq(ptr noundef nonnull @.str.18, i32 noundef 160, ptr noundef nonnull @.str.67, ptr noundef nonnull @.str.33, i32 noundef %2, i32 noundef 0) #8
   %.not = icmp eq i32 %3, 0
@@ -418,7 +418,7 @@ define internal range(i32 0, 2) i32 @test_check_null_numbers() #1 {
   br i1 %.not1, label %.sink.split, label %9
 
 9:                                                ; preds = %4
-  %10 = load i64, ptr %1, align 8, !tbaa !18
+  %10 = load i64, ptr %1, align 8, !tbaa !17
   %11 = call i32 @test_long_eq(ptr noundef nonnull @.str.18, i32 noundef 162, ptr noundef nonnull @.str.43, ptr noundef nonnull @.str.69, i64 noundef %10, i64 noundef 123) #8
   %.not2 = icmp eq i32 %11, 0
   br i1 %.not2, label %.sink.split, label %12
@@ -453,7 +453,7 @@ define internal range(i32 0, 2) i32 @test_check_overflow() #1 {
   %1 = alloca i64, align 8
   %2 = alloca [24 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1) #8
-  store i64 0, ptr %1, align 8, !tbaa !18
+  store i64 0, ptr %1, align 8, !tbaa !17
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2) #8
   %3 = call i32 (ptr, i64, ptr, ...) @BIO_snprintf(ptr noundef nonnull %2, i64 noundef 24, ptr noundef nonnull @.str.75, i64 noundef 9223372036854775807) #8
   %4 = call i32 @setenv(ptr noundef nonnull @.str.68, ptr noundef nonnull %2, i32 noundef 1) #8
@@ -465,7 +465,7 @@ define internal range(i32 0, 2) i32 @test_check_overflow() #1 {
   br i1 %.not, label %25, label %9
 
 9:                                                ; preds = %0
-  %10 = load i64, ptr %1, align 8, !tbaa !18
+  %10 = load i64, ptr %1, align 8, !tbaa !17
   %11 = call i32 @test_long_eq(ptr noundef nonnull @.str.18, i32 noundef 192, ptr noundef nonnull @.str.43, ptr noundef nonnull @.str.76, i64 noundef %10, i64 noundef 9223372036854775807) #8
   %.not3 = icmp eq i32 %11, 0
   br i1 %.not3, label %25, label %.preheader
@@ -474,21 +474,21 @@ define internal range(i32 0, 2) i32 @test_check_overflow() #1 {
   %12 = sext i32 %3 to i64
   %13 = getelementptr inbounds i8, ptr %2, i64 %12
   %.05 = getelementptr inbounds i8, ptr %13, i64 -1
-  %14 = load i8, ptr %.05, align 1, !tbaa !15
+  %14 = load i8, ptr %.05, align 1, !tbaa !14
   %15 = add i8 %14, 1
-  store i8 %15, ptr %.05, align 1, !tbaa !15
+  store i8 %15, ptr %.05, align 1, !tbaa !14
   %16 = icmp sgt i8 %15, 57
   br i1 %16, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %.06 = phi ptr [ %.0, %.lr.ph ], [ %.05, %.preheader ]
-  store i8 48, ptr %.06, align 1, !tbaa !15
+  store i8 48, ptr %.06, align 1, !tbaa !14
   %.0 = getelementptr inbounds i8, ptr %.06, i64 -1
-  %17 = load i8, ptr %.0, align 1, !tbaa !15
+  %17 = load i8, ptr %.0, align 1, !tbaa !14
   %18 = add i8 %17, 1
-  store i8 %18, ptr %.0, align 1, !tbaa !15
+  store i8 %18, ptr %.0, align 1, !tbaa !14
   %19 = icmp sgt i8 %18, 57
-  br i1 %19, label %.lr.ph, label %._crit_edge, !llvm.loop !20
+  br i1 %19, label %.lr.ph, label %._crit_edge, !llvm.loop !19
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
   %20 = call i32 @setenv(ptr noundef nonnull @.str.68, ptr noundef nonnull %2, i32 noundef 1) #8
@@ -510,32 +510,32 @@ define internal range(i32 0, 2) i32 @test_check_overflow() #1 {
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @test_available_providers() #1 {
   %1 = tail call ptr @OSSL_LIB_CTX_new() #8
-  store ptr %1, ptr @libctx, align 8, !tbaa !21
+  store ptr %1, ptr @libctx, align 8, !tbaa !20
   %2 = tail call i32 @test_ptr(ptr noundef nonnull @.str.18, i32 noundef 208, ptr noundef nonnull @.str.77, ptr noundef %1) #8
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %16, label %3
 
 3:                                                ; preds = %0
-  %4 = load ptr, ptr @rel_conf_file, align 8, !tbaa !16
+  %4 = load ptr, ptr @rel_conf_file, align 8, !tbaa !15
   %5 = tail call i32 @test_ptr(ptr noundef nonnull @.str.18, i32 noundef 211, ptr noundef nonnull @.str.24, ptr noundef %4) #8
   %.not1 = icmp eq i32 %5, 0
   br i1 %.not1, label %.sink.split, label %6
 
 6:                                                ; preds = %3
-  %7 = load ptr, ptr @libctx, align 8, !tbaa !21
-  %8 = load ptr, ptr @rel_conf_file, align 8, !tbaa !16
+  %7 = load ptr, ptr @libctx, align 8, !tbaa !20
+  %8 = load ptr, ptr @rel_conf_file, align 8, !tbaa !15
   %9 = tail call i32 @OSSL_LIB_CTX_load_config(ptr noundef %7, ptr noundef %8) #8
   %.not2 = icmp eq i32 %9, 0
   br i1 %.not2, label %.sink.split, label %10
 
 10:                                               ; preds = %6
-  %11 = load ptr, ptr @libctx, align 8, !tbaa !21
+  %11 = load ptr, ptr @libctx, align 8, !tbaa !20
   %12 = tail call i32 @OSSL_PROVIDER_available(ptr noundef %11, ptr noundef nonnull @.str.79) #8
   %.not3 = icmp eq i32 %12, 1
   br i1 %.not3, label %13, label %.sink.split
 
 13:                                               ; preds = %10
-  %14 = load ptr, ptr @libctx, align 8, !tbaa !21
+  %14 = load ptr, ptr @libctx, align 8, !tbaa !20
   %15 = tail call i32 @OSSL_PROVIDER_available(ptr noundef %14, ptr noundef nonnull @.str.81) #8
   %.not4 = icmp eq i32 %15, 1
   br i1 %.not4, label %16, label %.sink.split
@@ -555,9 +555,9 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @cleanup_tests() local_unnamed_addr #1 {
-  %1 = load ptr, ptr @rel_conf_file, align 8, !tbaa !16
+  %1 = load ptr, ptr @rel_conf_file, align 8, !tbaa !15
   tail call void @CRYPTO_free(ptr noundef %1, ptr noundef nonnull @.str.18, i32 noundef 297) #8
-  %2 = load ptr, ptr @in, align 8, !tbaa !12
+  %2 = load ptr, ptr @in, align 8, !tbaa !11
   tail call void @BIO_vfree(ptr noundef %2) #8
   %3 = load ptr, ptr @conf, align 8, !tbaa !4
   tail call void @NCONF_free(ptr noundef %3) #8
@@ -641,17 +641,16 @@ attributes #8 = { nounwind }
 !6 = !{!"any pointer", !7, i64 0}
 !7 = !{!"omnipotent char", !8, i64 0}
 !8 = !{!"Simple C/C++ TBAA"}
-!9 = distinct !{!9, !10, !11}
+!9 = distinct !{!9, !10}
 !10 = !{!"llvm.loop.mustprogress"}
-!11 = !{!"llvm.loop.estimated_trip_count"}
-!12 = !{!13, !13, i64 0}
-!13 = !{!"p1 _ZTS6bio_st", !6, i64 0}
-!14 = distinct !{!14, !10, !11}
-!15 = !{!7, !7, i64 0}
-!16 = !{!17, !17, i64 0}
-!17 = !{!"p1 omnipotent char", !6, i64 0}
-!18 = !{!19, !19, i64 0}
-!19 = !{!"long", !7, i64 0}
-!20 = distinct !{!20, !10, !11}
-!21 = !{!22, !22, i64 0}
-!22 = !{!"p1 _ZTS15ossl_lib_ctx_st", !6, i64 0}
+!11 = !{!12, !12, i64 0}
+!12 = !{!"p1 _ZTS6bio_st", !6, i64 0}
+!13 = distinct !{!13, !10}
+!14 = !{!7, !7, i64 0}
+!15 = !{!16, !16, i64 0}
+!16 = !{!"p1 omnipotent char", !6, i64 0}
+!17 = !{!18, !18, i64 0}
+!18 = !{!"long", !7, i64 0}
+!19 = distinct !{!19, !10}
+!20 = !{!21, !21, i64 0}
+!21 = !{!"p1 _ZTS15ossl_lib_ctx_st", !6, i64 0}

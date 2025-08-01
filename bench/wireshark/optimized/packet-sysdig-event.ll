@@ -1513,7 +1513,7 @@ format_param_str.exit:                            ; preds = %56, %61
   %74 = getelementptr i8, ptr %.0105140, i64 24
   %75 = load ptr, ptr %74, align 8
   %.not = icmp eq ptr %75, null
-  br i1 %.not, label %76, label %34, !llvm.loop !9
+  br i1 %.not, label %76, label %34, !llvm.loop !8
 
 76:                                               ; preds = %.critedge
   %77 = load i32, ptr @proto_sysdig_event, align 4
@@ -1567,13 +1567,13 @@ format_param_str.exit:                            ; preds = %56, %61
   %112 = getelementptr i8, ptr %.0110141157, i64 24
   %113 = load ptr, ptr %112, align 8
   %.not119 = icmp eq ptr %113, null
-  br i1 %.not119, label %dissect_event_params.exit, label %.preheader, !llvm.loop !10
+  br i1 %.not119, label %dissect_event_params.exit, label %.preheader, !llvm.loop !9
 
 .preheader:                                       ; preds = %.lr.ph158
   %114 = getelementptr i8, ptr %.0110141157, i64 16
   %115 = load i32, ptr %114, align 8
   %116 = icmp eq i32 %115, %14
-  br i1 %116, label %.preheader._crit_edge, label %.lr.ph158, !llvm.loop !10
+  br i1 %116, label %.preheader._crit_edge, label %.lr.ph158, !llvm.loop !9
 
 .preheader._crit_edge:                            ; preds = %.preheader, %.preheader.preheader
   %.lcssa155 = phi ptr [ @generic_e_indexes, %.preheader.preheader ], [ %113, %.preheader ]
@@ -1602,7 +1602,7 @@ format_param_str.exit:                            ; preds = %56, %61
   %129 = add nuw i32 %.014.i.i, 1
   %130 = load i32, ptr %109, align 4
   %131 = icmp ult i32 %129, %130
-  br i1 %131, label %.lr.ph.i.i, label %._crit_edge.loopexit.i.i, !llvm.loop !11
+  br i1 %131, label %.lr.ph.i.i, label %._crit_edge.loopexit.i.i, !llvm.loop !10
 
 ._crit_edge.loopexit.i.i:                         ; preds = %.lr.ph.i.i
   %132 = shl i32 %130, 2
@@ -1633,7 +1633,7 @@ dissect_header_lens_v2_large.exit.i:              ; preds = %._crit_edge.loopexi
   %145 = add nuw i32 %.014.i66.i, 1
   %146 = load i32, ptr %109, align 4
   %147 = icmp ult i32 %145, %146
-  br i1 %147, label %.lr.ph.i65.i, label %._crit_edge.loopexit.i67.i, !llvm.loop !12
+  br i1 %147, label %.lr.ph.i65.i, label %._crit_edge.loopexit.i67.i, !llvm.loop !11
 
 ._crit_edge.loopexit.i67.i:                       ; preds = %.lr.ph.i65.i
   %148 = shl i32 %146, 1
@@ -1653,7 +1653,7 @@ dissect_header_lens_v2.exit.i:                    ; preds = %._crit_edge.loopexi
   %153 = load ptr, ptr %152, align 8
   %.not.i69.i = icmp eq ptr %153, null
   %154 = add i32 %.0.i.i, 1
-  br i1 %.not.i69.i, label %155, label %.preheader.i, !llvm.loop !13
+  br i1 %.not.i69.i, label %155, label %.preheader.i, !llvm.loop !12
 
 155:                                              ; preds = %.preheader.i
   %156 = load i32, ptr @hf_se_param_lens, align 4
@@ -1675,7 +1675,7 @@ dissect_header_lens_v2.exit.i:                    ; preds = %._crit_edge.loopexi
   %167 = getelementptr ptr, ptr %.lcssa155, i64 %166
   %168 = load ptr, ptr %167, align 8
   %.not16.i.i = icmp eq ptr %168, null
-  br i1 %.not16.i.i, label %._crit_edge.loopexit.i71.i, label %.lr.ph.i70.i, !llvm.loop !14
+  br i1 %.not16.i.i, label %._crit_edge.loopexit.i71.i, label %.lr.ph.i70.i, !llvm.loop !13
 
 ._crit_edge.loopexit.i71.i:                       ; preds = %.lr.ph.i70.i
   %169 = shl i32 %165, 1
@@ -1779,7 +1779,7 @@ format_param_str.exit.i:                          ; preds = %193, %189
   %214 = load i32, ptr %109, align 4
   %215 = zext i32 %214 to i64
   %216 = icmp samesign ult i64 %indvars.iv.next.i, %215
-  br i1 %216, label %173, label %dissect_event_params.exit, !llvm.loop !15
+  br i1 %216, label %173, label %dissect_event_params.exit, !llvm.loop !14
 
 dissect_event_params.exit:                        ; preds = %.lr.ph158, %211, %173, %170, %103
   %.0128 = phi ptr [ %28, %103 ], [ %28, %170 ], [ %.2, %211 ], [ %.1129, %173 ], [ %28, %.lr.ph158 ]
@@ -2062,13 +2062,12 @@ attributes #7 = { noreturn }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7, !8}
-!11 = distinct !{!11, !7, !8}
-!12 = distinct !{!12, !7, !8}
-!13 = distinct !{!13, !7, !8}
-!14 = distinct !{!14, !7, !8}
-!15 = distinct !{!15, !7, !8}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7}
+!12 = distinct !{!12, !7}
+!13 = distinct !{!13, !7}
+!14 = distinct !{!14, !7}

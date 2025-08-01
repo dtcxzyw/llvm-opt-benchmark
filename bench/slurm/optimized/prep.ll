@@ -177,20 +177,20 @@ define dso_local range(i32 -1, 1) i32 @prep_g_init(ptr noundef %0) local_unnamed
   %69 = getelementptr inbounds nuw %struct.prep_ops_t, ptr %68, i64 %indvars.iv, i32 5
   %70 = load ptr, ptr %69, align 8
   call void %70(i32 noundef %66, ptr noundef nonnull %65) #9
-  %71 = load i8, ptr %65, align 1, !range !12, !noundef !13
+  %71 = load i8, ptr %65, align 1, !range !11, !noundef !12
   %72 = trunc nuw i8 %71 to i1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %73 = load i32, ptr @g_context_cnt, align 4
   %74 = sext i32 %73 to i64
   %75 = icmp sge i64 %indvars.iv.next, %74
   %or.cond.not = select i1 %72, i1 true, i1 %75
-  br i1 %or.cond.not, label %._crit_edge, label %67, !llvm.loop !14
+  br i1 %or.cond.not, label %._crit_edge, label %67, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %67, %.preheader
   %76 = phi i32 [ %63, %.preheader ], [ %73, %67 ]
   %indvars.iv.next44 = add nuw nsw i64 %indvars.iv43, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next44, 5
-  br i1 %exitcond.not, label %.loopexit, label %.preheader, !llvm.loop !15
+  br i1 %exitcond.not, label %.loopexit, label %.preheader, !llvm.loop !14
 
 .loopexit:                                        ; preds = %._crit_edge, %.loopexit32, %8, %13, %11
   %.1 = phi i32 [ 0, %8 ], [ 0, %13 ], [ 0, %11 ], [ %.0, %.loopexit32 ], [ %.0, %._crit_edge ]
@@ -312,7 +312,7 @@ define dso_local i32 @prep_g_fini() local_unnamed_addr #0 {
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %16 = sext i32 %14 to i64
   %17 = icmp slt i64 %indvars.iv.next, %16
-  br i1 %17, label %.lr.ph, label %._crit_edge, !llvm.loop !17
+  br i1 %17, label %.lr.ph, label %._crit_edge, !llvm.loop !16
 
 18:                                               ; preds = %._crit_edge, %4
   %.3 = phi i32 [ 0, %4 ], [ %.0.lcssa, %._crit_edge ]
@@ -377,7 +377,7 @@ define dso_local i32 @prep_g_prolog(ptr noundef %0, ptr noundef %1) local_unname
   %20 = icmp slt i64 %indvars.iv.next, %19
   %21 = icmp eq i32 %17, 0
   %22 = select i1 %20, i1 %21, i1 false
-  br i1 %22, label %.lr.ph, label %._crit_edge, !llvm.loop !18
+  br i1 %22, label %.lr.ph, label %._crit_edge, !llvm.loop !17
 
 23:                                               ; preds = %._crit_edge
   %24 = tail call ptr @__errno_location() #10
@@ -451,7 +451,7 @@ define dso_local i32 @prep_g_epilog(ptr noundef %0, ptr noundef %1) local_unname
   %20 = icmp slt i64 %indvars.iv.next, %19
   %21 = icmp eq i32 %17, 0
   %22 = select i1 %20, i1 %21, i1 false
-  br i1 %22, label %.lr.ph, label %._crit_edge, !llvm.loop !19
+  br i1 %22, label %.lr.ph, label %._crit_edge, !llvm.loop !18
 
 23:                                               ; preds = %._crit_edge
   %24 = tail call ptr @__errno_location() #10
@@ -514,7 +514,7 @@ define dso_local void @prep_g_prolog_slurmctld(ptr noundef %0) local_unnamed_add
   %17 = getelementptr inbounds nuw %struct.prep_ops_t, ptr %16, i64 %indvars.iv, i32 3
   %18 = load ptr, ptr %17, align 8
   %19 = call i32 %18(ptr noundef %0, ptr noundef nonnull %6) #9
-  %20 = load i8, ptr %6, align 1, !range !12, !noundef !13
+  %20 = load i8, ptr %6, align 1, !range !11, !noundef !12
   %21 = trunc nuw i8 %20 to i1
   br i1 %21, label %22, label %25
 
@@ -532,7 +532,7 @@ define dso_local void @prep_g_prolog_slurmctld(ptr noundef %0) local_unnamed_add
   %28 = icmp slt i64 %indvars.iv.next, %27
   %29 = icmp eq i32 %19, 0
   %30 = select i1 %28, i1 %29, i1 false
-  br i1 %30, label %15, label %._crit_edge, !llvm.loop !20
+  br i1 %30, label %15, label %._crit_edge, !llvm.loop !19
 
 31:                                               ; preds = %._crit_edge
   %32 = tail call ptr @__errno_location() #10
@@ -596,7 +596,7 @@ define dso_local void @prep_g_epilog_slurmctld(ptr noundef %0) local_unnamed_add
   %18 = getelementptr inbounds nuw %struct.prep_ops_t, ptr %17, i64 %indvars.iv, i32 4
   %19 = load ptr, ptr %18, align 8
   %20 = call i32 %19(ptr noundef %0, ptr noundef nonnull %6) #9
-  %21 = load i8, ptr %6, align 1, !range !12, !noundef !13
+  %21 = load i8, ptr %6, align 1, !range !11, !noundef !12
   %22 = trunc nuw i8 %21 to i1
   br i1 %22, label %23, label %26
 
@@ -614,7 +614,7 @@ define dso_local void @prep_g_epilog_slurmctld(ptr noundef %0) local_unnamed_add
   %29 = icmp slt i64 %indvars.iv.next, %28
   %30 = icmp eq i32 %20, 0
   %31 = select i1 %29, i1 %30, i1 false
-  br i1 %31, label %16, label %._crit_edge, !llvm.loop !21
+  br i1 %31, label %16, label %._crit_edge, !llvm.loop !20
 
 32:                                               ; preds = %._crit_edge
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 248
@@ -657,7 +657,7 @@ define dso_local zeroext i1 @prep_g_required(i32 noundef %0) local_unnamed_addr 
 5:                                                ; preds = %1
   %6 = zext i32 %0 to i64
   %7 = getelementptr inbounds nuw [5 x i8], ptr @prep_is_required, i64 0, i64 %6
-  %8 = load i8, ptr %7, align 1, !range !12, !noundef !13
+  %8 = load i8, ptr %7, align 1, !range !11, !noundef !12
   %9 = tail call i32 @pthread_rwlock_unlock(ptr noundef nonnull @g_context_lock) #9
   %.not7 = icmp eq i32 %9, 0
   br i1 %.not7, label %12, label %10
@@ -696,17 +696,16 @@ attributes #11 = { noreturn nounwind }
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i32 7, !"frame-pointer", i32 2}
 !7 = !{i32 7, !"debug-info-assignment-tracking", i1 true}
-!8 = distinct !{!8, !9, !10, !11}
+!8 = distinct !{!8, !9, !10}
 !9 = !{!"llvm.loop.mustprogress"}
 !10 = !{!"llvm.loop.unroll.disable"}
-!11 = !{!"llvm.loop.estimated_trip_count"}
-!12 = !{i8 0, i8 2}
-!13 = !{}
-!14 = distinct !{!14, !9, !10, !11}
-!15 = distinct !{!15, !9, !10, !11, !16}
-!16 = !{!"llvm.loop.unswitch.partial.disable"}
-!17 = distinct !{!17, !9, !10, !11}
-!18 = distinct !{!18, !9, !10, !11}
-!19 = distinct !{!19, !9, !10, !11}
-!20 = distinct !{!20, !9, !10, !11}
-!21 = distinct !{!21, !9, !10, !11}
+!11 = !{i8 0, i8 2}
+!12 = !{}
+!13 = distinct !{!13, !9, !10}
+!14 = distinct !{!14, !9, !10, !15}
+!15 = !{!"llvm.loop.unswitch.partial.disable"}
+!16 = distinct !{!16, !9, !10}
+!17 = distinct !{!17, !9, !10}
+!18 = distinct !{!18, !9, !10}
+!19 = distinct !{!19, !9, !10}
+!20 = distinct !{!20, !9, !10}

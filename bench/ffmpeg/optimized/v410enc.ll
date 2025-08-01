@@ -118,24 +118,24 @@ define internal range(i32 -2147483648, 1) i32 @v410_encode_frame(ptr noundef %0,
   %50 = phi i32 [ %29, %.preheader ], [ %.pre, %._crit_edge.loopexit ]
   %51 = phi i32 [ %30, %.preheader ], [ %47, %._crit_edge.loopexit ]
   %.1.lcssa = phi ptr [ %.03646, %.preheader ], [ %46, %._crit_edge.loopexit ]
-  %52 = load i32, ptr %17, align 8, !tbaa !39
+  %52 = load i32, ptr %17, align 8, !tbaa !38
   %53 = ashr i32 %52, 1
   %54 = sext i32 %53 to i64
   %55 = getelementptr inbounds i16, ptr %.03943, i64 %54
-  %56 = load i32, ptr %18, align 4, !tbaa !39
+  %56 = load i32, ptr %18, align 4, !tbaa !38
   %57 = ashr i32 %56, 1
   %58 = sext i32 %57 to i64
   %59 = getelementptr inbounds i16, ptr %.03844, i64 %58
-  %60 = load i32, ptr %19, align 8, !tbaa !39
+  %60 = load i32, ptr %19, align 8, !tbaa !38
   %61 = ashr i32 %60, 1
   %62 = sext i32 %61 to i64
   %63 = getelementptr inbounds i16, ptr %.03745, i64 %62
   %64 = add nuw nsw i32 %.03547, 1
   %65 = icmp slt i32 %64, %50
-  br i1 %65, label %.preheader, label %._crit_edge48, !llvm.loop !40
+  br i1 %65, label %.preheader, label %._crit_edge48, !llvm.loop !39
 
 ._crit_edge48:                                    ; preds = %._crit_edge, %.preheader.lr.ph, %14
-  store i32 1, ptr %3, align 4, !tbaa !39
+  store i32 1, ptr %3, align 4, !tbaa !38
   br label %66
 
 66:                                               ; preds = %4, %._crit_edge48
@@ -192,9 +192,8 @@ attributes #3 = { nounwind }
 !33 = !{!34, !34, i64 0}
 !34 = !{!"short", !8, i64 0}
 !35 = !{!8, !8, i64 0}
-!36 = distinct !{!36, !37, !38}
+!36 = distinct !{!36, !37}
 !37 = !{!"llvm.loop.mustprogress"}
-!38 = !{!"llvm.loop.estimated_trip_count"}
-!39 = !{!10, !10, i64 0}
-!40 = distinct !{!40, !37, !38, !41}
-!41 = !{!"llvm.loop.unswitch.partial.disable"}
+!38 = !{!10, !10, i64 0}
+!39 = distinct !{!39, !37, !40}
+!40 = !{!"llvm.loop.unswitch.partial.disable"}

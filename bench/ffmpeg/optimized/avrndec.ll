@@ -186,7 +186,7 @@ define internal i32 @decode_frame(ptr noundef %0, ptr noundef %1, ptr noundef wr
   %91 = add nuw nsw i32 %.15461, 1
   %92 = load i32, ptr %15, align 4, !tbaa !28
   %93 = icmp slt i32 %91, %92
-  br i1 %93, label %78, label %.loopexit, !llvm.loop !44
+  br i1 %93, label %78, label %.loopexit, !llvm.loop !43
 
 .loopexit:                                        ; preds = %35, %78, %26, %69
   store i32 1, ptr %2, align 4, !tbaa !40
@@ -259,7 +259,6 @@ attributes #5 = { nounwind }
 !38 = !{!37, !10, i64 32}
 !39 = !{!14, !14, i64 0}
 !40 = !{!10, !10, i64 0}
-!41 = distinct !{!41, !42, !43}
+!41 = distinct !{!41, !42}
 !42 = !{!"llvm.loop.mustprogress"}
-!43 = !{!"llvm.loop.estimated_trip_count"}
-!44 = distinct !{!44, !42, !43}
+!43 = distinct !{!43, !42}

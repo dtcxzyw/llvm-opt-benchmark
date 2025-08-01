@@ -3980,7 +3980,7 @@ hid_unpack_value.exit187.i:                       ; preds = %.lr.ph.i180.i, %179
   br i1 %.0116267.i, label %196, label %193
 
 193:                                              ; preds = %192
-  %194 = load i8, ptr %55, align 8, !range !9, !noundef !10
+  %194 = load i8, ptr %55, align 8, !range !8, !noundef !9
   %195 = trunc nuw i8 %194 to i1
   br i1 %195, label %196, label %hid_unpack_signed.exit.thread.i
 
@@ -4232,7 +4232,7 @@ hid_unpack_value.exit242.i:                       ; preds = %.lr.ph.i235.i, %264
   %293 = add i32 %292, 1
   store i32 %293, ptr %12, align 4
   %.not131.i = icmp ugt i32 %293, %.0118.i
-  br i1 %.not131.i, label %288, label %290, !llvm.loop !11
+  br i1 %.not131.i, label %288, label %290, !llvm.loop !10
 
 294:                                              ; preds = %288, %260, %239, %hid_unpack_value.exit209.i, %hid_unpack_value.exit198.i, %hid_unpack_value.exit187.i, %.loopexit247.i, %.loopexit.i, %hid_unpack_value.exit159.thread.i, %108, %105, %101, %84, %70
   %.1124.i = phi i32 [ %.0123264.i, %70 ], [ %87, %84 ], [ %104, %101 ], [ %.0123264.i, %105 ], [ %.0123264.i, %108 ], [ %122, %hid_unpack_value.exit159.thread.i ], [ %150, %.loopexit.i ], [ %178, %.loopexit247.i ], [ %191, %hid_unpack_value.exit187.i ], [ %.0123264.i, %hid_unpack_value.exit198.i ], [ %220, %hid_unpack_value.exit209.i ], [ %.0123264.i, %239 ], [ %261, %260 ], [ %289, %288 ]
@@ -4243,7 +4243,7 @@ hid_unpack_value.exit242.i:                       ; preds = %.lr.ph.i235.i, %264
   %296 = add i32 %295, %.0115268.i
   %297 = load i32, ptr %41, align 8
   %.not275.i = icmp slt i32 %296, %297
-  br i1 %.not275.i, label %60, label %.loopexit39, !llvm.loop !12
+  br i1 %.not275.i, label %60, label %.loopexit39, !llvm.loop !11
 
 default.unreachable:                              ; preds = %60
   unreachable
@@ -4270,7 +4270,7 @@ hid_unpack_signed.exit.thread.i:                  ; preds = %283, %278, %277, %2
   %306 = load ptr, ptr %49, align 8
   %307 = call i32 @wmem_array_get_count(ptr noundef %306)
   %308 = icmp ult i32 %305, %307
-  br i1 %308, label %.lr.ph270.i, label %.preheader.i, !llvm.loop !13
+  br i1 %308, label %.lr.ph270.i, label %.preheader.i, !llvm.loop !12
 
 .lr.ph272.i:                                      ; preds = %.preheader.i, %.lr.ph272.i
   %.0271.i = phi i32 [ %312, %.lr.ph272.i ], [ 0, %.preheader.i ]
@@ -4282,7 +4282,7 @@ hid_unpack_signed.exit.thread.i:                  ; preds = %283, %278, %277, %2
   %313 = load ptr, ptr %51, align 8
   %314 = call i32 @wmem_array_get_count(ptr noundef %313)
   %315 = icmp ult i32 %312, %314
-  br i1 %315, label %.lr.ph272.i, label %.loopexit, !llvm.loop !14
+  br i1 %315, label %.lr.ph272.i, label %.loopexit, !llvm.loop !13
 
 .loopexit39:                                      ; preds = %294, %29
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #7
@@ -4884,7 +4884,7 @@ dissect_usb_hid_report_localitem_data.exit:       ; preds = %181, %191, %196, %2
   %.3 = phi i32 [ %244, %242 ], [ %241, %240 ], [ %235, %dissect_usb_hid_report_localitem_data.exit ], [ %176, %dissect_usb_hid_report_globalitem_data.exit ], [ %239, %236 ]
   %247 = call i32 @tvb_reported_length_remaining(ptr noundef %2, i32 noundef %.3)
   %248 = icmp sgt i32 %247, 0
-  br i1 %248, label %switch.lookup, label %.loopexit, !llvm.loop !15
+  br i1 %248, label %switch.lookup, label %.loopexit, !llvm.loop !14
 
 .loopexit:                                        ; preds = %.thread, %240, %5, %.thread3
   %.1 = phi i32 [ %39, %.thread3 ], [ %3, %5 ], [ %.3, %.thread ], [ %241, %240 ]
@@ -5780,13 +5780,13 @@ define internal i32 @dissect_usb_hid_control(ptr noundef %0, ptr noundef %1, ptr
   %62 = getelementptr i8, ptr %.033.i27, i64 24
   %63 = load ptr, ptr %62, align 8
   %.not.i25 = icmp eq ptr %63, null
-  br i1 %.not.i25, label %dissect_usb_hid_control_std_intf.exit, label %64, !llvm.loop !16
+  br i1 %.not.i25, label %dissect_usb_hid_control_std_intf.exit, label %64, !llvm.loop !15
 
 64:                                               ; preds = %.lr.ph
   %65 = getelementptr i8, ptr %.033.i27, i64 16
   %66 = load i8, ptr %65, align 8
   %67 = icmp eq i8 %66, %60
-  br i1 %67, label %._crit_edge, label %.lr.ph, !llvm.loop !16
+  br i1 %67, label %._crit_edge, label %.lr.ph, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %64, %55
   %.lcssa = phi ptr [ @dissect_usb_hid_get_report, %55 ], [ %63, %64 ]
@@ -5921,7 +5921,7 @@ get_report_descriptor.exit:                       ; preds = %is_correct_interfac
 
 56:                                               ; preds = %50
   %57 = getelementptr inbounds nuw i8, ptr %.0.i, i64 24
-  %58 = load i8, ptr %57, align 8, !range !9, !noundef !10
+  %58 = load i8, ptr %57, align 8, !range !8, !noundef !9
   %59 = trunc nuw i8 %58 to i1
   br i1 %59, label %60, label %63
 
@@ -5956,7 +5956,7 @@ get_report_descriptor.exit:                       ; preds = %is_correct_interfac
   %74 = getelementptr inbounds nuw i8, ptr %71, i64 12
   %75 = load i32, ptr %74, align 4
   %76 = mul i32 %75, %73
-  %77 = load i8, ptr %57, align 8, !range !9, !noundef !10
+  %77 = load i8, ptr %57, align 8, !range !8, !noundef !9
   %78 = trunc nuw i8 %77 to i1
   br i1 %78, label %79, label %82
 
@@ -6075,7 +6075,7 @@ get_report_descriptor.exit:                       ; preds = %is_correct_interfac
   %148 = add nuw i32 %.05783.i, 1
   %149 = load i32, ptr %74, align 4
   %150 = icmp ult i32 %148, %149
-  br i1 %150, label %106, label %dissect_hid_field.exit, !llvm.loop !17
+  br i1 %150, label %106, label %dissect_hid_field.exit, !llvm.loop !16
 
 151:                                              ; preds = %90
   %152 = load ptr, ptr %71, align 8
@@ -6718,7 +6718,7 @@ dissect_hid_variable.exit.i:                      ; preds = %496, %476, %474, %4
   %498 = add i32 %497, %.282.i
   %499 = add nuw i32 %.05981.i, 1
   %exitcond.not.i = icmp eq i32 %499, %spec.select.i
-  br i1 %exitcond.not.i, label %._crit_edge.loopexit.i, label %156, !llvm.loop !18
+  br i1 %exitcond.not.i, label %._crit_edge.loopexit.i, label %156, !llvm.loop !17
 
 ._crit_edge.loopexit.i:                           ; preds = %dissect_hid_variable.exit.i
   %.pre.i = load i32, ptr %74, align 4
@@ -6744,7 +6744,7 @@ dissect_hid_field.exit:                           ; preds = %145, %502, %._crit_
   %509 = add nuw i32 %.04856, 1
   %510 = call i32 @wmem_array_get_count(ptr noundef %.049)
   %511 = icmp ult i32 %509, %510
-  br i1 %511, label %70, label %.loopexit, !llvm.loop !19
+  br i1 %511, label %70, label %.loopexit, !llvm.loop !18
 
 .loopexit:                                        ; preds = %dissect_hid_field.exit, %63, %50, %get_report_descriptor.exit
   ret i32 %49
@@ -6784,7 +6784,7 @@ define internal range(i32 3, 1) i32 @dissect_usb_hid_class_descriptors(ptr nound
   %24 = add nuw nsw i32 %.03738, 3
   %25 = add nuw nsw i32 %.039, 1
   %exitcond.not = icmp eq i32 %25, %18
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !20
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !19
 
 ._crit_edge:                                      ; preds = %.lr.ph, %7
   %.037.lcssa = phi i32 [ 6, %7 ], [ %24, %.lr.ph ]
@@ -7328,18 +7328,17 @@ attributes #9 = { noreturn }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = !{i8 0, i8 2}
-!10 = !{}
-!11 = distinct !{!11, !7, !8}
-!12 = distinct !{!12, !7, !8}
-!13 = distinct !{!13, !7, !8}
-!14 = distinct !{!14, !7, !8}
-!15 = distinct !{!15, !7, !8}
-!16 = distinct !{!16, !7, !8}
-!17 = distinct !{!17, !7, !8}
-!18 = distinct !{!18, !7, !8}
-!19 = distinct !{!19, !7, !8}
-!20 = distinct !{!20, !7, !8}
+!8 = !{i8 0, i8 2}
+!9 = !{}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7}
+!12 = distinct !{!12, !7}
+!13 = distinct !{!13, !7}
+!14 = distinct !{!14, !7}
+!15 = distinct !{!15, !7}
+!16 = distinct !{!16, !7}
+!17 = distinct !{!17, !7}
+!18 = distinct !{!18, !7}
+!19 = distinct !{!19, !7}

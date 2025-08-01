@@ -779,7 +779,7 @@ define noundef i32 @_Z44tsi_construct_allocated_string_peer_propertyPKcmP17tsi_p
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %8, ptr %9, align 8, !tbaa !49
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store i64 %1, ptr %10, align 8, !tbaa !57
+  store i64 %1, ptr %10, align 8, !tbaa !56
   br label %11
 
 11:                                               ; preds = %7, %6
@@ -811,7 +811,7 @@ define noundef i32 @_Z47tsi_construct_string_peer_property_from_cstringPKcS0_P17
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %9, ptr %10, align 8, !tbaa !49
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store i64 %4, ptr %11, align 8, !tbaa !57
+  store i64 %4, ptr %11, align 8, !tbaa !56
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %9, ptr nonnull readonly align 1 %1, i64 %4, i1 false)
   br label %_Z34tsi_construct_string_peer_propertyPKcS0_mP17tsi_peer_property.exit
 
@@ -839,7 +839,7 @@ define noundef i32 @_Z34tsi_construct_string_peer_propertyPKcS0_mP17tsi_peer_pro
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %9, ptr %10, align 8, !tbaa !49
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store i64 %2, ptr %11, align 8, !tbaa !57
+  store i64 %2, ptr %11, align 8, !tbaa !56
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %9, ptr align 1 %1, i64 %2, i1 false)
   br label %_Z44tsi_construct_allocated_string_peer_propertyPKcmP17tsi_peer_property.exit.thread
 
@@ -894,7 +894,7 @@ define noundef ptr @_Z29tsi_peer_get_property_by_namePK8tsi_peerPKc(ptr noundef 
 10:                                               ; preds = %.lr.ph.split.us
   %11 = add nuw i64 %.01626.us, 1
   %exitcond33.not = icmp eq i64 %11, %5
-  br i1 %exitcond33.not, label %.thread23, label %.lr.ph.split.us, !llvm.loop !58
+  br i1 %exitcond33.not, label %.thread23, label %.lr.ph.split.us, !llvm.loop !57
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %15
   %.01626 = phi i64 [ %16, %15 ], [ 0, %.lr.ph ]
@@ -911,7 +911,7 @@ define noundef ptr @_Z29tsi_peer_get_property_by_namePK8tsi_peerPKc(ptr noundef 
 15:                                               ; preds = %.thread, %.lr.ph.split
   %16 = add nuw i64 %.01626, 1
   %exitcond.not = icmp eq i64 %16, %5
-  br i1 %exitcond.not, label %.thread23, label %.lr.ph.split, !llvm.loop !60
+  br i1 %exitcond.not, label %.thread23, label %.lr.ph.split, !llvm.loop !59
 
 .thread23:                                        ; preds = %15, %.thread, %10, %.lr.ph.split.us, %.preheader, %2
   %.0 = phi ptr [ null, %2 ], [ null, %.preheader ], [ null, %10 ], [ %7, %.lr.ph.split.us ], [ null, %15 ], [ %12, %.thread ]
@@ -1000,10 +1000,9 @@ attributes #12 = { nounwind }
 !51 = !{!"_ZTS8tsi_peer", !52, i64 0, !32, i64 8}
 !52 = !{!"p1 _ZTS17tsi_peer_property", !6, i64 0}
 !53 = !{!51, !32, i64 8}
-!54 = distinct !{!54, !55, !56}
+!54 = distinct !{!54, !55}
 !55 = !{!"llvm.loop.mustprogress"}
-!56 = !{!"llvm.loop.estimated_trip_count"}
-!57 = !{!47, !32, i64 16}
-!58 = distinct !{!58, !55, !56, !59}
-!59 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!60 = distinct !{!60, !55, !56}
+!56 = !{!47, !32, i64 16}
+!57 = distinct !{!57, !55, !58}
+!58 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!59 = distinct !{!59, !55}

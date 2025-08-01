@@ -124,7 +124,7 @@ define internal noundef i64 @file_read(ptr noundef %0, ptr noundef readonly capt
   %14 = tail call ptr @__errno_location() #12
   %15 = load i32, ptr %14, align 4, !tbaa !4
   %16 = icmp eq i32 %15, 4
-  br i1 %16, label %7, label %17, !llvm.loop !21
+  br i1 %16, label %7, label %17
 
 17:                                               ; preds = %13
   %18 = load i32, ptr %1, align 8, !tbaa !13
@@ -275,5 +275,3 @@ attributes #14 = { nounwind allocsize(0) }
 !18 = !{!15, !10, i64 8}
 !19 = !{!9, !6, i64 16}
 !20 = !{!11, !11, i64 0}
-!21 = distinct !{!21, !22}
-!22 = !{!"llvm.loop.estimated_trip_count"}

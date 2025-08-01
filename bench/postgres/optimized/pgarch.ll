@@ -496,20 +496,20 @@ define internal fastcc void @pgarch_MainLoop() unnamed_addr #0 {
   call void @llvm.lifetime.start.p0(i64 41, ptr nonnull %6) #19
   %66 = add i32 %65, -47
   %or.cond.i.i = icmp ult i32 %66, -25
-  br i1 %or.cond.i.i, label %105, label %67, !llvm.loop !9
+  br i1 %or.cond.i.i, label %105, label %67, !llvm.loop !8
 
 67:                                               ; preds = %.lr.ph45.i.i
   %68 = add i64 %64, 4294967290
   %69 = call i64 @strspn(ptr noundef nonnull %63, ptr noundef nonnull @.str.16) #21
   %70 = and i64 %68, 4294967295
   %71 = icmp ult i64 %69, %70
-  br i1 %71, label %105, label %72, !llvm.loop !9
+  br i1 %71, label %105, label %72, !llvm.loop !8
 
 72:                                               ; preds = %67
   %73 = getelementptr inbounds nuw i8, ptr %63, i64 %70
   %74 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %73, ptr noundef nonnull dereferenceable(7) @.str.10) #21
   %.not33.i.i = icmp eq i32 %74, 0
-  br i1 %.not33.i.i, label %75, label %105, !llvm.loop !9
+  br i1 %.not33.i.i, label %75, label %105, !llvm.loop !8
 
 75:                                               ; preds = %72
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %6, ptr nonnull align 1 %63, i64 %70, i1 false)
@@ -560,7 +560,7 @@ define internal fastcc void @pgarch_MainLoop() unnamed_addr #0 {
   call void @llvm.lifetime.end.p0(i64 41, ptr nonnull %6) #19
   %106 = call ptr @ReadDir(ptr noundef %60, ptr noundef nonnull %3) #19
   %.not.i.i = icmp eq ptr %106, null
-  br i1 %.not.i.i, label %._crit_edge46.i.i, label %.lr.ph45.i.i, !llvm.loop !10
+  br i1 %.not.i.i, label %._crit_edge46.i.i, label %.lr.ph45.i.i
 
 ._crit_edge46.i.i:                                ; preds = %105, %._crit_edge.i.i
   %107 = call i32 @FreeDir(ptr noundef %60) #19
@@ -625,7 +625,7 @@ pgarch_readyXlog.exit.thread.i:                   ; preds = %._crit_edge46.i.i
   %133 = load i32, ptr %132, align 8
   %134 = sext i32 %133 to i64
   %135 = icmp slt i64 %indvars.iv.next.i.i, %134
-  br i1 %135, label %.lr.ph50.i.i, label %._crit_edge51.i.i, !llvm.loop !11
+  br i1 %135, label %.lr.ph50.i.i, label %._crit_edge51.i.i, !llvm.loop !9
 
 pgarch_readyXlog.exit.i:                          ; preds = %._crit_edge51.i.i, %.thread.i.i
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %3) #19
@@ -640,7 +640,7 @@ pgarch_readyXlog.exit.i:                          ; preds = %._crit_edge51.i.i, 
   %.0740.i = phi i32 [ %.1852.i, %.backedge.i ], [ 0, %pgarch_readyXlog.exit.i ]
   %137 = load volatile i32, ptr @postmaster_possibly_dead, align 4
   %.not.i18.i = icmp eq i32 %137, 0
-  br i1 %.not.i18.i, label %PostmasterIsAlive.exit.thread.i, label %PostmasterIsAlive.exit.i, !prof !12
+  br i1 %.not.i18.i, label %PostmasterIsAlive.exit.thread.i, label %PostmasterIsAlive.exit.i, !prof !10
 
 PostmasterIsAlive.exit.i:                         ; preds = %.lr.ph.i
   %138 = call zeroext i1 @PostmasterIsAliveInternal() #19
@@ -787,13 +787,13 @@ PostmasterIsAlive.exit.thread.i:                  ; preds = %PostmasterIsAlive.e
   call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %9) #19
   %194 = load volatile i32, ptr @ShutdownRequestPending, align 4
   %.not.i = icmp eq i32 %194, 0
-  br i1 %.not.i, label %.lr.ph.i, label %.thread28.i, !llvm.loop !13
+  br i1 %.not.i, label %.lr.ph.i, label %.thread28.i
 
 .loopexit.i:                                      ; preds = %172, %170
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %10) #19
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %9) #19
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %8) #19
-  br label %pgarch_ArchiverCopyLoop.exit, !llvm.loop !14
+  br label %pgarch_ArchiverCopyLoop.exit, !llvm.loop !11
 
 .loopexit31.loopexit.i:                           ; preds = %165, %163
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %10) #19
@@ -802,7 +802,7 @@ PostmasterIsAlive.exit.thread.i:                  ; preds = %PostmasterIsAlive.e
 .loopexit31.i:                                    ; preds = %.loopexit31.loopexit.i, %.thread24.i
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %9) #19
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %8) #19
-  br label %27, !llvm.loop !14
+  br label %27, !llvm.loop !11
 
 pgarch_ArchiverCopyLoop.exit:                     ; preds = %pgarch_readyXlog.exit.thread.i, %.thread28.i, %.loopexit.i
   call void @llvm.lifetime.end.p0(i64 41, ptr nonnull %7) #19
@@ -813,7 +813,7 @@ pgarch_ArchiverCopyLoop.exit:                     ; preds = %pgarch_readyXlog.ex
   %197 = call i32 @WaitLatch(ptr noundef %196, i32 noundef 25, i64 noundef 60000, i32 noundef 83886080) #19
   %198 = and i32 %197, 16
   %.not8.not = icmp eq i32 %198, 0
-  br i1 %.not8.not, label %12, label %.thread11, !llvm.loop !15
+  br i1 %.not8.not, label %12, label %.thread11, !llvm.loop !12
 
 .thread11:                                        ; preds = %pgarch_ArchiverCopyLoop.exit, %21, %195
   ret void
@@ -1166,13 +1166,10 @@ attributes #24 = { nounwind returns_twice }
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i8 0, i8 2}
 !5 = !{}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
+!8 = distinct !{!8, !7}
 !9 = distinct !{!9, !7}
-!10 = distinct !{!10, !8}
-!11 = distinct !{!11, !7, !8}
-!12 = !{!"branch_weights", !"expected", i32 2000, i32 1}
-!13 = distinct !{!13, !8}
-!14 = distinct !{!14, !7, !8}
-!15 = distinct !{!15, !7, !8}
+!10 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!11 = distinct !{!11, !7}
+!12 = distinct !{!12, !7}

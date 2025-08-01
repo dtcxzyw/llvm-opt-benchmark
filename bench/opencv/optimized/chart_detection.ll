@@ -1087,8 +1087,8 @@ _ZNSt6vectorIN2cv3PtrINS0_3mcc8CCheckerEEESaIS4_EED2Ev.exit: ; preds = %_ZSt8_De
 .lr.ph:                                           ; preds = %327, %_ZNSt12__shared_ptrIN2cv3mcc8CCheckerELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit186
   %.sroa.0219.0241 = phi ptr [ %449, %_ZNSt12__shared_ptrIN2cv3mcc8CCheckerELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit186 ], [ %328, %327 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %30) #15
-  %358 = load ptr, ptr %.sroa.0219.0241, align 8, !tbaa !48
-  store ptr %358, ptr %30, align 8, !tbaa !48
+  %358 = load ptr, ptr %.sroa.0219.0241, align 8, !tbaa !47
+  store ptr %358, ptr %30, align 8, !tbaa !47
   %359 = getelementptr inbounds nuw i8, ptr %.sroa.0219.0241, i64 8
   %360 = load ptr, ptr %359, align 8, !tbaa !35
   store ptr %360, ptr %249, align 8, !tbaa !35
@@ -1097,7 +1097,7 @@ _ZNSt6vectorIN2cv3PtrINS0_3mcc8CCheckerEEESaIS4_EED2Ev.exit: ; preds = %_ZSt8_De
 
 _ZN2cv3PtrINS_3mcc8CCheckerEEC2ERKS3_.exit.thread: ; preds = %.lr.ph
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %31) #15
-  store ptr %358, ptr %32, align 8, !tbaa !48
+  store ptr %358, ptr %32, align 8, !tbaa !47
   store ptr null, ptr %250, align 8, !tbaa !35
   br label %375
 
@@ -1112,16 +1112,16 @@ _ZN2cv3PtrINS_3mcc8CCheckerEEC2ERKS3_.exit.thread246: ; preds = %361
   %365 = add nsw i32 %364, 1
   store i32 %365, ptr %362, align 4, !tbaa !17
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %31) #15
-  store ptr %358, ptr %32, align 8, !tbaa !48
+  store ptr %358, ptr %32, align 8, !tbaa !47
   store ptr %360, ptr %250, align 8, !tbaa !35
   br label %367
 
 _ZN2cv3PtrINS_3mcc8CCheckerEEC2ERKS3_.exit:       ; preds = %361
   %366 = atomicrmw volatile add ptr %362, i32 1 acq_rel, align 4
   %.pr.pre = load ptr, ptr %249, align 8, !tbaa !35
-  %.pre = load ptr, ptr %30, align 8, !tbaa !48
+  %.pre = load ptr, ptr %30, align 8, !tbaa !47
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %31) #15
-  store ptr %.pre, ptr %32, align 8, !tbaa !48
+  store ptr %.pre, ptr %32, align 8, !tbaa !47
   store ptr %.pr.pre, ptr %250, align 8, !tbaa !35
   %.not.i.i.i.i171 = icmp eq ptr %.pr.pre, null
   br i1 %.not.i.i.i.i171, label %375, label %367
@@ -1144,8 +1144,8 @@ _ZN2cv3PtrINS_3mcc8CCheckerEEC2ERKS3_.exit:       ; preds = %361
   br label %375
 
 375:                                              ; preds = %373, %370, %_ZN2cv3PtrINS_3mcc8CCheckerEEC2ERKS3_.exit, %_ZN2cv3PtrINS_3mcc8CCheckerEEC2ERKS3_.exit.thread
-  store double 0.000000e+00, ptr %33, align 8, !tbaa !51
-  store double 2.500000e+02, ptr %251, align 8, !tbaa !51
+  store double 0.000000e+00, ptr %33, align 8, !tbaa !50
+  store double 2.500000e+02, ptr %251, align 8, !tbaa !50
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %252, i8 0, i64 16, i1 false)
   invoke void @_ZN2cv3mcc12CCheckerDraw6createENS_3PtrINS0_8CCheckerEEENS_7Scalar_IdEEi(ptr dead_on_unwind nonnull writable sret(%"struct.cv::Ptr.19") align 8 %31, ptr noundef nonnull %32, ptr noundef nonnull %33, i32 noundef 2)
           to label %376 unwind label %450
@@ -1200,7 +1200,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i176: ; preds = %395, %3
   br label %399
 
 399:                                              ; preds = %398, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i176, %383, %376
-  %400 = load ptr, ptr %31, align 8, !tbaa !53
+  %400 = load ptr, ptr %31, align 8, !tbaa !52
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %34) #15
   store i64 0, ptr %254, align 8
   store i32 50397184, ptr %34, align 8, !tbaa !22
@@ -1315,7 +1315,7 @@ _ZNSt12__shared_ptrIN2cv3mcc8CCheckerELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit186
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %30) #15
   %449 = getelementptr inbounds nuw i8, ptr %.sroa.0219.0241, i64 16
   %.not = icmp eq ptr %449, %329
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !56
+  br i1 %.not, label %._crit_edge, label %.lr.ph
 
 450:                                              ; preds = %375
   %451 = landingpad { ptr, i32 }
@@ -1478,7 +1478,7 @@ _ZNSt12__shared_ptrIN2cv3mcc16CCheckerDetectorELN9__gnu_cxx12_Lock_policyE2EED2E
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %23) #15
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %22) #15
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %22) #15
-  br i1 %472, label %514, label %268, !llvm.loop !57
+  br i1 %472, label %514, label %268
 
 495:                                              ; preds = %.noexc.i188
   %496 = landingpad { ptr, i32 }
@@ -2116,16 +2116,13 @@ attributes #17 = { builtin nounwind }
 !42 = !{!43, !41, i64 0}
 !43 = !{!"_ZTSNSt12_Vector_baseIN2cv3PtrINS0_3mcc8CCheckerEEESaIS4_EE17_Vector_impl_dataE", !41, i64 0, !41, i64 8, !41, i64 16}
 !44 = !{!43, !41, i64 8}
-!45 = distinct !{!45, !46, !47}
+!45 = distinct !{!45, !46}
 !46 = !{!"llvm.loop.mustprogress"}
-!47 = !{!"llvm.loop.estimated_trip_count"}
-!48 = !{!49, !50, i64 0}
-!49 = !{!"_ZTSSt12__shared_ptrIN2cv3mcc8CCheckerELN9__gnu_cxx12_Lock_policyE2EE", !50, i64 0, !29, i64 8}
-!50 = !{!"p1 _ZTSN2cv3mcc8CCheckerE", !6, i64 0}
-!51 = !{!52, !52, i64 0}
-!52 = !{!"double", !7, i64 0}
-!53 = !{!54, !55, i64 0}
-!54 = !{!"_ZTSSt12__shared_ptrIN2cv3mcc12CCheckerDrawELN9__gnu_cxx12_Lock_policyE2EE", !55, i64 0, !29, i64 8}
-!55 = !{!"p1 _ZTSN2cv3mcc12CCheckerDrawE", !6, i64 0}
-!56 = distinct !{!56, !47}
-!57 = distinct !{!57, !47}
+!47 = !{!48, !49, i64 0}
+!48 = !{!"_ZTSSt12__shared_ptrIN2cv3mcc8CCheckerELN9__gnu_cxx12_Lock_policyE2EE", !49, i64 0, !29, i64 8}
+!49 = !{!"p1 _ZTSN2cv3mcc8CCheckerE", !6, i64 0}
+!50 = !{!51, !51, i64 0}
+!51 = !{!"double", !7, i64 0}
+!52 = !{!53, !54, i64 0}
+!53 = !{!"_ZTSSt12__shared_ptrIN2cv3mcc12CCheckerDrawELN9__gnu_cxx12_Lock_policyE2EE", !54, i64 0, !29, i64 8}
+!54 = !{!"p1 _ZTSN2cv3mcc12CCheckerDrawE", !6, i64 0}

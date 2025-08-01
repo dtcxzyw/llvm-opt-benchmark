@@ -63,6 +63,5 @@ attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memor
 !12 = !{!5, !6, i64 0}
 !13 = !{!14, !14, i64 0}
 !14 = !{!"double", !8, i64 0}
-!15 = distinct !{!15, !16, !17}
+!15 = distinct !{!15, !16}
 !16 = !{!"llvm.loop.mustprogress"}
-!17 = !{!"llvm.loop.estimated_trip_count"}

@@ -132,7 +132,7 @@ define dso_local i32 @mls_compute_context_len(ptr noundef readonly captures(none
   %91 = tail call i64 @_find_first_bit(ptr noundef nonnull %90, i64 noundef 384) #10
   %92 = and i64 %91, 4294967168
   %93 = icmp samesign ult i64 %92, 384
-  br i1 %93, label %94, label %.preheader, !llvm.loop !9
+  br i1 %93, label %94, label %.preheader, !llvm.loop !8
 
 94:                                               ; preds = %89
   %95 = trunc i64 %91 to i32
@@ -150,7 +150,7 @@ define dso_local i32 @mls_compute_context_len(ptr noundef readonly captures(none
   %103 = phi i32 [ %85, %82 ], [ %100, %99 ], [ %98, %94 ]
   %104 = load i32, ptr %43, align 8
   %105 = icmp ult i32 %103, %104
-  br i1 %105, label %.preheader10, label %106, !llvm.loop !10
+  br i1 %105, label %.preheader10, label %106, !llvm.loop !9
 
 106:                                              ; preds = %101
   %107 = icmp eq i32 %47, %72
@@ -188,7 +188,7 @@ define dso_local i32 @mls_compute_context_len(ptr noundef readonly captures(none
   %128 = icmp eq i32 %127, 0
   %129 = xor i32 %127, 1
   %130 = add i32 %129, %117
-  br i1 %128, label %12, label %.thread9, !llvm.loop !11
+  br i1 %128, label %12, label %.thread9, !llvm.loop !10
 
 .thread9:                                         ; preds = %.thread, %126, %2
   %131 = phi i32 [ 0, %2 ], [ %117, %.thread ], [ %130, %126 ]
@@ -252,7 +252,7 @@ define dso_local void @mls_sid_to_context(ptr noundef readonly captures(none) %0
 36:                                               ; preds = %.preheader13
   %37 = load ptr, ptr %31, align 8
   %38 = icmp eq ptr %37, null
-  br i1 %38, label %.thread, label %.preheader13, !llvm.loop !12
+  br i1 %38, label %.thread, label %.preheader13, !llvm.loop !5
 
 39:                                               ; preds = %.preheader13
   %40 = trunc i64 %33 to i32
@@ -340,7 +340,7 @@ define dso_local void @mls_sid_to_context(ptr noundef readonly captures(none) %0
   %100 = tail call i64 @_find_first_bit(ptr noundef nonnull %99, i64 noundef 384) #10
   %101 = and i64 %100, 4294967168
   %102 = icmp samesign ult i64 %101, 384
-  br i1 %102, label %103, label %.preheader, !llvm.loop !13
+  br i1 %102, label %103, label %.preheader, !llvm.loop !8
 
 103:                                              ; preds = %98
   %104 = trunc i64 %100 to i32
@@ -358,7 +358,7 @@ define dso_local void @mls_sid_to_context(ptr noundef readonly captures(none) %0
   %112 = phi i32 [ %94, %91 ], [ %109, %108 ], [ %107, %103 ]
   %113 = load i32, ptr %45, align 8
   %114 = icmp ult i32 %112, %113
-  br i1 %114, label %.preheader12, label %115, !llvm.loop !14
+  br i1 %114, label %.preheader12, label %115, !llvm.loop !11
 
 115:                                              ; preds = %110
   %116 = icmp eq i32 %48, %81
@@ -396,7 +396,7 @@ define dso_local void @mls_sid_to_context(ptr noundef readonly captures(none) %0
 
 136:                                              ; preds = %134, %130
   store i8 45, ptr %129, align 1
-  br label %14, !llvm.loop !15
+  br label %14, !llvm.loop !12
 
 .thread11:                                        ; preds = %.thread, %134
   store ptr %129, ptr %2, align 8
@@ -542,7 +542,7 @@ define dso_local range(i32 0, 2) i32 @mls_context_isvalid(ptr noundef %0, ptr no
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %7 = tail call i32 @mls_range_isvalid(ptr noundef %0, ptr noundef nonnull %6), !range !16
+  %7 = tail call i32 @mls_range_isvalid(ptr noundef %0, ptr noundef nonnull %6), !range !13
   %8 = icmp eq i32 %7, 0
   br i1 %8, label %48, label %9
 
@@ -750,7 +750,7 @@ define dso_local i32 @mls_context_to_sid(ptr noundef %0, i8 noundef zeroext %1, 
 
 .loopexit20:                                      ; preds = %101, %89
   %91 = icmp eq ptr %74, null
-  br i1 %91, label %.loopexit22, label %67, !llvm.loop !17
+  br i1 %91, label %.loopexit22, label %67, !llvm.loop !14
 
 92:                                               ; preds = %89
   %93 = tail call ptr @symtab_search(ptr noundef %46, ptr noundef nonnull %80) #10
@@ -772,7 +772,7 @@ define dso_local i32 @mls_context_to_sid(ptr noundef %0, i8 noundef zeroext %1, 
   %103 = load i32, ptr %93, align 4
   %104 = zext i32 %103 to i64
   %105 = icmp samesign ult i64 %102, %104
-  br i1 %105, label %106, label %.loopexit20, !llvm.loop !18
+  br i1 %105, label %106, label %.loopexit20, !llvm.loop !15
 
 106:                                              ; preds = %101, %99
   %107 = phi i64 [ %100, %99 ], [ %102, %101 ]
@@ -781,7 +781,7 @@ define dso_local i32 @mls_context_to_sid(ptr noundef %0, i8 noundef zeroext %1, 
   br i1 %109, label %101, label %.loopexit
 
 .loopexit22:                                      ; preds = %.loopexit20, %60
-  br i1 %48, label %47, label %110, !llvm.loop !19
+  br i1 %48, label %47, label %110, !llvm.loop !16
 
 110:                                              ; preds = %.loopexit22, %47
   %111 = icmp eq ptr %.sroa.5.0, null
@@ -893,7 +893,7 @@ define dso_local i32 @mls_range_set(ptr noundef %0, ptr noundef %1) local_unname
   %12 = tail call i32 @ebitmap_cpy(ptr noundef nonnull %10, ptr noundef nonnull %11) #10
   %13 = icmp eq i32 %12, 0
   %or.cond = and i1 %5, %13
-  br i1 %or.cond, label %4, label %14, !llvm.loop !20
+  br i1 %or.cond, label %4, label %14, !llvm.loop !17
 
 14:                                               ; preds = %4
   ret i32 %12
@@ -1053,7 +1053,7 @@ define dso_local i32 @mls_convert_context(ptr noundef readonly captures(none) %0
   br label %17
 
 .loopexit:                                        ; preds = %41, %97, %29, %44
-  br i1 %18, label %17, label %.thread11, !llvm.loop !21
+  br i1 %18, label %17, label %.thread11, !llvm.loop !18
 
 17:                                               ; preds = %.loopexit, %10
   %18 = phi i1 [ true, %10 ], [ false, %.loopexit ]
@@ -1090,7 +1090,7 @@ define dso_local i32 @mls_convert_context(ptr noundef readonly captures(none) %0
 41:                                               ; preds = %.preheader12
   %42 = load ptr, ptr %36, align 8
   %43 = icmp eq ptr %42, null
-  br i1 %43, label %.loopexit, label %.preheader12, !llvm.loop !22
+  br i1 %43, label %.loopexit, label %.preheader12, !llvm.loop !5
 
 44:                                               ; preds = %.preheader12
   %45 = trunc i64 %38 to i32
@@ -1155,7 +1155,7 @@ define dso_local i32 @mls_convert_context(ptr noundef readonly captures(none) %0
   %87 = tail call i64 @_find_first_bit(ptr noundef nonnull %86, i64 noundef 384) #10
   %88 = and i64 %87, 4294967168
   %89 = icmp samesign ult i64 %88, 384
-  br i1 %89, label %90, label %.preheader, !llvm.loop !23
+  br i1 %89, label %90, label %.preheader, !llvm.loop !8
 
 90:                                               ; preds = %85
   %91 = trunc i64 %87 to i32
@@ -1173,7 +1173,7 @@ define dso_local i32 @mls_convert_context(ptr noundef readonly captures(none) %0
   %99 = phi i32 [ %81, %78 ], [ %96, %95 ], [ %94, %90 ]
   %100 = load i32, ptr %50, align 8
   %101 = icmp ult i32 %99, %100
-  br i1 %101, label %53, label %.loopexit, !llvm.loop !24
+  br i1 %101, label %53, label %.loopexit, !llvm.loop !19
 
 .thread11:                                        ; preds = %17, %.loopexit, %53, %62, %7, %4
   %102 = phi i32 [ 0, %7 ], [ 0, %4 ], [ -22, %53 ], [ %66, %62 ], [ -22, %17 ], [ 0, %.loopexit ]
@@ -1189,7 +1189,7 @@ define dso_local i32 @mls_compute_sid(ptr noundef %0, ptr noundef %1, ptr nounde
   br i1 %10, label %.loopexit, label %11
 
 11:                                               ; preds = %7
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %8, i8 0, i64 12, i1 false), !annotation !25
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %8, i8 0, i64 12, i1 false), !annotation !20
   switch i32 %4, label %.loopexit [
     i32 16, label %12
     i32 64, label %.thread
@@ -1624,24 +1624,19 @@ attributes #10 = { nounwind }
 !2 = !{i32 4, !"function_return_thunk_extern", i32 1}
 !3 = !{i32 4, !"indirect_branch_cs_prefix", i32 1}
 !4 = !{i32 4, !"SkipRaxSetup", i32 1}
-!5 = distinct !{!5, !6, !7, !8}
+!5 = distinct !{!5, !6, !7}
 !6 = !{!"llvm.loop.mustprogress"}
 !7 = !{!"llvm.loop.unroll.disable"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !6, !7, !8}
-!10 = distinct !{!10, !6, !7, !8}
-!11 = distinct !{!11, !6, !7, !8}
-!12 = distinct !{!12, !6, !7, !8}
-!13 = distinct !{!13, !6, !7, !8}
-!14 = distinct !{!14, !6, !7, !8}
-!15 = distinct !{!15, !6, !7, !8}
-!16 = !{i32 0, i32 2}
-!17 = distinct !{!17, !6, !7, !8}
-!18 = distinct !{!18, !6, !7, !8}
-!19 = distinct !{!19, !6, !7, !8}
-!20 = distinct !{!20, !6, !7, !8}
-!21 = distinct !{!21, !6, !7, !8}
-!22 = distinct !{!22, !6, !7, !8}
-!23 = distinct !{!23, !6, !7, !8}
-!24 = distinct !{!24, !6, !7, !8}
-!25 = !{!"auto-init"}
+!8 = distinct !{!8, !6, !7}
+!9 = distinct !{!9, !6, !7}
+!10 = distinct !{!10, !6, !7}
+!11 = distinct !{!11, !6, !7}
+!12 = distinct !{!12, !6, !7}
+!13 = !{i32 0, i32 2}
+!14 = distinct !{!14, !6, !7}
+!15 = distinct !{!15, !6, !7}
+!16 = distinct !{!16, !6, !7}
+!17 = distinct !{!17, !6, !7}
+!18 = distinct !{!18, !6, !7}
+!19 = distinct !{!19, !6, !7}
+!20 = !{!"auto-init"}

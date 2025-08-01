@@ -68,9 +68,9 @@ define void @ff_decode_10_pulses_35bits(ptr noundef readonly captures(none) %0, 
   %6 = shl nuw i32 1, %4
   %7 = add nsw i32 %6, -1
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 84
-  store i32 0, ptr %8, align 4, !tbaa !12
+  store i32 0, ptr %8, align 4, !tbaa !11
   %9 = shl nsw i32 %3, 1
-  store i32 %9, ptr %1, align 4, !tbaa !16
+  store i32 %9, ptr %1, align 4, !tbaa !15
   %10 = icmp sgt i32 %3, 0
   br i1 %10, label %.lr.ph, label %._crit_edge
 
@@ -107,19 +107,19 @@ define void @ff_decode_10_pulses_35bits(ptr noundef readonly captures(none) %0, 
   %.not = icmp eq i32 %35, 0
   %36 = select i1 %.not, float 1.000000e+00, float -1.000000e+00
   %37 = getelementptr inbounds nuw [10 x i32], ptr %11, i64 0, i64 %15
-  store i32 %25, ptr %37, align 4, !tbaa !17
+  store i32 %25, ptr %37, align 4, !tbaa !16
   %38 = getelementptr inbounds nuw [10 x i32], ptr %11, i64 0, i64 %14
-  store i32 %34, ptr %38, align 4, !tbaa !17
+  store i32 %34, ptr %38, align 4, !tbaa !16
   %39 = getelementptr inbounds nuw [10 x float], ptr %12, i64 0, i64 %15
-  store float %36, ptr %39, align 4, !tbaa !18
+  store float %36, ptr %39, align 4, !tbaa !17
   %40 = icmp ult i8 %32, %22
   %41 = fneg nsz float %36
   %42 = select nsz i1 %40, float %41, float %36
   %43 = getelementptr inbounds nuw [10 x float], ptr %12, i64 0, i64 %14
-  store float %42, ptr %43, align 4, !tbaa !18
+  store float %42, ptr %43, align 4, !tbaa !17
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %13, !llvm.loop !19
+  br i1 %exitcond.not, label %._crit_edge, label %13, !llvm.loop !18
 
 ._crit_edge:                                      ; preds = %13, %5
   ret void
@@ -157,7 +157,7 @@ define void @ff_acelp_weighted_vector_sum(ptr noundef writeonly captures(none) %
   store i16 %.0.i, ptr %27, align 2, !tbaa !7
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %13, !llvm.loop !20
+  br i1 %exitcond.not, label %._crit_edge, label %13, !llvm.loop !19
 
 ._crit_edge:                                      ; preds = %13, %8
   ret void
@@ -175,16 +175,16 @@ define void @ff_weighted_vector_sumf(ptr noundef writeonly captures(none) %0, pt
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %8 = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv
-  %9 = load float, ptr %8, align 4, !tbaa !18
+  %9 = load float, ptr %8, align 4, !tbaa !17
   %10 = getelementptr inbounds nuw float, ptr %2, i64 %indvars.iv
-  %11 = load float, ptr %10, align 4, !tbaa !18
+  %11 = load float, ptr %10, align 4, !tbaa !17
   %12 = fmul nsz float %4, %11
   %13 = tail call nsz float @llvm.fmuladd.f32(float %3, float %9, float %12)
   %14 = getelementptr inbounds nuw float, ptr %0, i64 %indvars.iv
-  store float %13, ptr %14, align 4, !tbaa !18
+  store float %13, ptr %14, align 4, !tbaa !17
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !21
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !20
 
 ._crit_edge:                                      ; preds = %.lr.ph, %6
   ret void
@@ -196,7 +196,7 @@ declare float @llvm.fmuladd.f32(float, float, float) #1
 ; Function Attrs: nounwind uwtable
 define void @ff_adaptive_gain_control(ptr noundef writeonly captures(none) %0, ptr noundef %1, float noundef %2, i32 noundef %3, float noundef %4, ptr noundef captures(none) %5) local_unnamed_addr #2 {
   %7 = tail call nsz float @ff_scalarproduct_float_c(ptr noundef %1, ptr noundef %1, i32 noundef %3) #7
-  %8 = load float, ptr %5, align 4, !tbaa !18
+  %8 = load float, ptr %5, align 4, !tbaa !17
   %9 = fcmp nsz une float %7, 0.000000e+00
   %10 = fdiv nsz float %2, %7
   %11 = tail call nsz float @llvm.sqrt.f32(float %10)
@@ -218,17 +218,17 @@ define void @ff_adaptive_gain_control(ptr noundef writeonly captures(none) %0, p
   %.025 = phi float [ %8, %.lr.ph.preheader ], [ %18, %.lr.ph ]
   %18 = tail call nsz float @llvm.fmuladd.f32(float %4, float %.025, float %16)
   %19 = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv
-  %20 = load float, ptr %19, align 4, !tbaa !18
+  %20 = load float, ptr %19, align 4, !tbaa !17
   %21 = fmul nsz float %18, %20
   %22 = getelementptr inbounds nuw float, ptr %0, i64 %indvars.iv
-  store float %21, ptr %22, align 4, !tbaa !18
+  store float %21, ptr %22, align 4, !tbaa !17
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !22
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !21
 
 ._crit_edge:                                      ; preds = %.lr.ph, %6
   %.0.lcssa = phi float [ %8, %6 ], [ %18, %.lr.ph ]
-  store float %.0.lcssa, ptr %5, align 4, !tbaa !18
+  store float %.0.lcssa, ptr %5, align 4, !tbaa !17
   ret void
 }
 
@@ -251,13 +251,13 @@ define void @ff_scale_vector_to_given_sum_of_squares(ptr noundef writeonly captu
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %10 = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv
-  %11 = load float, ptr %10, align 4, !tbaa !18
+  %11 = load float, ptr %10, align 4, !tbaa !17
   %12 = fmul nsz float %.0, %11
   %13 = getelementptr inbounds nuw float, ptr %0, i64 %indvars.iv
-  store float %12, ptr %13, align 4, !tbaa !18
+  store float %12, ptr %13, align 4, !tbaa !17
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !23
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !22
 
 ._crit_edge:                                      ; preds = %.lr.ph, %4
   ret void
@@ -265,15 +265,15 @@ define void @ff_scale_vector_to_given_sum_of_squares(ptr noundef writeonly captu
 
 ; Function Attrs: nounwind uwtable
 define void @ff_set_fixed_vector(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, float noundef %2, i32 noundef %3) local_unnamed_addr #2 {
-  %5 = load i32, ptr %1, align 4, !tbaa !16
+  %5 = load i32, ptr %1, align 4, !tbaa !15
   %6 = icmp sgt i32 %5, 0
   br i1 %6, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %4
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 84
-  %8 = load i32, ptr %7, align 4, !tbaa !12
+  %8 = load i32, ptr %7, align 4, !tbaa !11
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 88
-  %10 = load i32, ptr %9, align 4, !tbaa !24
+  %10 = load i32, ptr %9, align 4, !tbaa !23
   %11 = icmp sgt i32 %10, 0
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 44
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 4
@@ -289,10 +289,10 @@ define void @ff_set_fixed_vector(ptr noundef captures(none) %0, ptr noundef read
 .lr.ph.split.us:                                  ; preds = %.lr.ph.split.us.preheader, %.loopexit.us
   %indvars.iv29 = phi i64 [ 0, %.lr.ph.split.us.preheader ], [ %indvars.iv.next30, %.loopexit.us ]
   %17 = getelementptr inbounds nuw [10 x float], ptr %12, i64 0, i64 %indvars.iv29
-  %18 = load float, ptr %17, align 4, !tbaa !18
+  %18 = load float, ptr %17, align 4, !tbaa !17
   %19 = fmul nsz float %2, %18
   %20 = getelementptr inbounds nuw [10 x i32], ptr %13, i64 0, i64 %indvars.iv29
-  %21 = load i32, ptr %20, align 4, !tbaa !17
+  %21 = load i32, ptr %20, align 4, !tbaa !16
   %22 = icmp slt i32 %21, %3
   br i1 %22, label %.preheader.us, label %.split.us
 
@@ -300,14 +300,14 @@ define void @ff_set_fixed_vector(ptr noundef captures(none) %0, ptr noundef read
   %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader.split.us26 ], [ %32, %.preheader.us ]
   %.0.us = phi nsz float [ %27, %.preheader.split.us26 ], [ %19, %.preheader.us ]
   %23 = getelementptr inbounds float, ptr %0, i64 %indvars.iv
-  %24 = load float, ptr %23, align 4, !tbaa !18
+  %24 = load float, ptr %23, align 4, !tbaa !17
   %25 = fadd nsz float %.0.us, %24
-  store float %25, ptr %23, align 4, !tbaa !18
-  %26 = load float, ptr %14, align 4, !tbaa !25
+  store float %25, ptr %23, align 4, !tbaa !17
+  %26 = load float, ptr %14, align 4, !tbaa !24
   %27 = fmul nsz float %.0.us, %26
   %indvars.iv.next = add nsw i64 %indvars.iv, %15
   %28 = icmp slt i64 %indvars.iv.next, %16
-  br i1 %28, label %.preheader.split.us26, label %.loopexit.us, !llvm.loop !26
+  br i1 %28, label %.preheader.split.us26, label %.loopexit.us, !llvm.loop !25
 
 .preheader.us:                                    ; preds = %.lr.ph.split.us
   %29 = trunc nuw nsw i64 %indvars.iv29 to i32
@@ -321,13 +321,13 @@ define void @ff_set_fixed_vector(ptr noundef captures(none) %0, ptr noundef read
 .loopexit.us:                                     ; preds = %.preheader.split.us26, %.preheader.split.us.us
   %indvars.iv.next30 = add nuw nsw i64 %indvars.iv29, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next30, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !27
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !26
 
 .preheader.split.us.us:                           ; preds = %.preheader.us
   %33 = getelementptr inbounds float, ptr %0, i64 %32
-  %34 = load float, ptr %33, align 4, !tbaa !18
+  %34 = load float, ptr %33, align 4, !tbaa !17
   %35 = fadd nsz float %19, %34
-  store float %35, ptr %33, align 4, !tbaa !18
+  store float %35, ptr %33, align 4, !tbaa !17
   br label %.loopexit.us
 
 .split.us:                                        ; preds = %.lr.ph.split.us
@@ -346,16 +346,16 @@ declare void @abort() local_unnamed_addr #4
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define void @ff_clear_fixed_vector(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #0 {
-  %4 = load i32, ptr %1, align 4, !tbaa !16
+  %4 = load i32, ptr %1, align 4, !tbaa !15
   %5 = icmp sgt i32 %4, 0
   br i1 %5, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %3
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 84
-  %8 = load i32, ptr %7, align 4, !tbaa !12
+  %8 = load i32, ptr %7, align 4, !tbaa !11
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 88
-  %10 = load i32, ptr %9, align 4, !tbaa !24
+  %10 = load i32, ptr %9, align 4, !tbaa !23
   %11 = icmp sgt i32 %10, 0
   br i1 %11, label %.preheader.us.preheader, label %._crit_edge
 
@@ -368,7 +368,7 @@ define void @ff_clear_fixed_vector(ptr noundef writeonly captures(none) %0, ptr 
 .preheader.us:                                    ; preds = %.preheader.us.preheader, %.loopexit.us
   %indvars.iv19 = phi i64 [ 0, %.preheader.us.preheader ], [ %indvars.iv.next20, %.loopexit.us ]
   %14 = getelementptr inbounds nuw [10 x i32], ptr %6, i64 0, i64 %indvars.iv19
-  %15 = load i32, ptr %14, align 4, !tbaa !17
+  %15 = load i32, ptr %14, align 4, !tbaa !16
   %16 = trunc nuw nsw i64 %indvars.iv19 to i32
   %17 = shl nuw i32 1, %16
   %18 = and i32 %8, %17
@@ -380,19 +380,19 @@ define void @ff_clear_fixed_vector(ptr noundef writeonly captures(none) %0, ptr 
 .preheader.split.us16:                            ; preds = %.preheader.us, %.preheader.split.us16
   %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader.split.us16 ], [ %19, %.preheader.us ]
   %20 = getelementptr inbounds float, ptr %0, i64 %indvars.iv
-  store float 0.000000e+00, ptr %20, align 4, !tbaa !18
+  store float 0.000000e+00, ptr %20, align 4, !tbaa !17
   %indvars.iv.next = add nsw i64 %indvars.iv, %12
   %21 = icmp slt i64 %indvars.iv.next, %13
-  br i1 %21, label %.preheader.split.us16, label %.loopexit.us, !llvm.loop !29
+  br i1 %21, label %.preheader.split.us16, label %.loopexit.us, !llvm.loop !28
 
 .loopexit.us:                                     ; preds = %.preheader.split.us16, %.preheader.split.us.us
   %indvars.iv.next20 = add nuw nsw i64 %indvars.iv19, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next20, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.preheader.us, !llvm.loop !30
+  br i1 %exitcond.not, label %._crit_edge, label %.preheader.us, !llvm.loop !29
 
 .preheader.split.us.us:                           ; preds = %.preheader.us
   %22 = getelementptr inbounds float, ptr %0, i64 %19
-  store float 0.000000e+00, ptr %22, align 4, !tbaa !18
+  store float 0.000000e+00, ptr %22, align 4, !tbaa !17
   br label %.loopexit.us
 
 ._crit_edge:                                      ; preds = %.loopexit.us, %.lr.ph, %3
@@ -401,7 +401,7 @@ define void @ff_clear_fixed_vector(ptr noundef writeonly captures(none) %0, ptr 
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @ff_acelp_vectors_init(ptr noundef writeonly captures(none) initializes((0, 8)) %0) local_unnamed_addr #5 {
-  store ptr @ff_weighted_vector_sumf, ptr %0, align 8, !tbaa !31
+  store ptr @ff_weighted_vector_sumf, ptr %0, align 8, !tbaa !30
   ret void
 }
 
@@ -435,28 +435,27 @@ attributes #8 = { noreturn nounwind }
 !6 = !{!"Simple C/C++ TBAA"}
 !7 = !{!8, !8, i64 0}
 !8 = !{!"short", !5, i64 0}
-!9 = distinct !{!9, !10, !11}
+!9 = distinct !{!9, !10}
 !10 = !{!"llvm.loop.mustprogress"}
-!11 = !{!"llvm.loop.estimated_trip_count"}
-!12 = !{!13, !14, i64 84}
-!13 = !{!"AMRFixed", !14, i64 0, !5, i64 4, !5, i64 44, !14, i64 84, !14, i64 88, !15, i64 92}
-!14 = !{!"int", !5, i64 0}
-!15 = !{!"float", !5, i64 0}
-!16 = !{!13, !14, i64 0}
+!11 = !{!12, !13, i64 84}
+!12 = !{!"AMRFixed", !13, i64 0, !5, i64 4, !5, i64 44, !13, i64 84, !13, i64 88, !14, i64 92}
+!13 = !{!"int", !5, i64 0}
+!14 = !{!"float", !5, i64 0}
+!15 = !{!12, !13, i64 0}
+!16 = !{!13, !13, i64 0}
 !17 = !{!14, !14, i64 0}
-!18 = !{!15, !15, i64 0}
-!19 = distinct !{!19, !10, !11}
-!20 = distinct !{!20, !10, !11}
-!21 = distinct !{!21, !10, !11}
-!22 = distinct !{!22, !10, !11}
-!23 = distinct !{!23, !10, !11}
-!24 = !{!13, !14, i64 88}
-!25 = !{!13, !15, i64 92}
-!26 = distinct !{!26, !10, !11}
-!27 = distinct !{!27, !10, !11, !28}
-!28 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!29 = distinct !{!29, !10, !11}
-!30 = distinct !{!30, !10, !11, !28}
-!31 = !{!32, !33, i64 0}
-!32 = !{!"ACELPVContext", !33, i64 0}
-!33 = !{!"any pointer", !5, i64 0}
+!18 = distinct !{!18, !10}
+!19 = distinct !{!19, !10}
+!20 = distinct !{!20, !10}
+!21 = distinct !{!21, !10}
+!22 = distinct !{!22, !10}
+!23 = !{!12, !13, i64 88}
+!24 = !{!12, !14, i64 92}
+!25 = distinct !{!25, !10}
+!26 = distinct !{!26, !10, !27}
+!27 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!28 = distinct !{!28, !10}
+!29 = distinct !{!29, !10, !27}
+!30 = !{!31, !32, i64 0}
+!31 = !{!"ACELPVContext", !32, i64 0}
+!32 = !{!"any pointer", !5, i64 0}

@@ -611,7 +611,7 @@ define internal range(i32 0, 2) i32 @DBus_MessageFilter(ptr readnone captures(no
   %78 = load ptr, ptr %30, align 8
   %79 = call i32 %78(ptr noundef nonnull %8) #5
   %80 = icmp eq i32 %79, 114
-  br i1 %80, label %42, label %._crit_edge.i, !llvm.loop !6
+  br i1 %80, label %42, label %._crit_edge.i, !llvm.loop !5
 
 ._crit_edge.i:                                    ; preds = %77
   %81 = trunc i64 %.151.i to i32
@@ -672,7 +672,7 @@ define internal range(i32 0, 2) i32 @DBus_MessageFilter(ptr readnone captures(no
   %110 = load ptr, ptr %30, align 8
   %111 = call i32 %110(ptr noundef nonnull %8) #5
   %112 = icmp eq i32 %111, 114
-  br i1 %112, label %.lr.ph88.i, label %Fcitx_GetPreeditString.exit.thread31, !llvm.loop !7
+  br i1 %112, label %.lr.ph88.i, label %Fcitx_GetPreeditString.exit.thread31, !llvm.loop !6
 
 Fcitx_GetPreeditString.exit.thread:               ; preds = %26, %84, %._crit_edge.i, %34
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %9) #5
@@ -822,8 +822,7 @@ attributes #5 = { nounwind }
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = distinct !{!3, !4, !5}
+!3 = distinct !{!3, !4}
 !4 = !{!"llvm.loop.mustprogress"}
-!5 = !{!"llvm.loop.estimated_trip_count"}
-!6 = distinct !{!6, !4, !5}
-!7 = distinct !{!7, !4, !5}
+!5 = distinct !{!5, !4}
+!6 = distinct !{!6, !4}

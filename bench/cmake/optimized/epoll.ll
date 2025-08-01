@@ -133,7 +133,7 @@ define dso_local range(i32 -2147483647, -2147483648) i32 @uv__io_check_fd(ptr no
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %3) #7
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 0, ptr %4, align 4
-  store i32 1, ptr %3, align 4, !tbaa !29
+  store i32 1, ptr %3, align 4, !tbaa !28
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i32 -1, ptr %5, align 4, !tbaa !25
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -179,14 +179,14 @@ define dso_local void @uv__io_poll(ptr noundef %0, i32 noundef %1) local_unnamed
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %4) #7
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %5) #7
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 116
-  %7 = load i32, ptr %6, align 4, !tbaa !31
+  %7 = load i32, ptr %6, align 4, !tbaa !30
   %8 = icmp eq i32 %7, 0
   br i1 %8, label %.loopexit, label %9
 
 9:                                                ; preds = %2
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %4, i8 0, i64 12, i1 false)
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %11 = load ptr, ptr %10, align 8, !tbaa !32
+  %11 = load ptr, ptr %10, align 8, !tbaa !31
   %.not214 = icmp eq ptr %10, %11
   br i1 %.not214, label %._crit_edge, label %.lr.ph
 
@@ -197,23 +197,23 @@ define dso_local void @uv__io_poll(ptr noundef %0, i32 noundef %1) local_unnamed
 
 14:                                               ; preds = %.lr.ph, %39
   %15 = phi ptr [ %11, %.lr.ph ], [ %41, %39 ]
-  %16 = load ptr, ptr %15, align 8, !tbaa !32
+  %16 = load ptr, ptr %15, align 8, !tbaa !31
   %17 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  %18 = load ptr, ptr %17, align 8, !tbaa !32
-  store ptr %16, ptr %18, align 8, !tbaa !32
-  %19 = load ptr, ptr %17, align 8, !tbaa !32
+  %18 = load ptr, ptr %17, align 8, !tbaa !31
+  store ptr %16, ptr %18, align 8, !tbaa !31
+  %19 = load ptr, ptr %17, align 8, !tbaa !31
   %20 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  store ptr %19, ptr %20, align 8, !tbaa !32
-  store ptr %15, ptr %15, align 8, !tbaa !32
-  store ptr %15, ptr %17, align 8, !tbaa !32
+  store ptr %19, ptr %20, align 8, !tbaa !31
+  store ptr %15, ptr %15, align 8, !tbaa !31
+  store ptr %15, ptr %17, align 8, !tbaa !31
   %21 = getelementptr inbounds nuw i8, ptr %15, i64 16
-  %22 = load i32, ptr %21, align 8, !tbaa !33
-  store i32 %22, ptr %4, align 4, !tbaa !29
+  %22 = load i32, ptr %21, align 8, !tbaa !32
+  store i32 %22, ptr %4, align 4, !tbaa !28
   %23 = getelementptr inbounds nuw i8, ptr %15, i64 24
-  %24 = load i32, ptr %23, align 8, !tbaa !34
+  %24 = load i32, ptr %23, align 8, !tbaa !33
   store i32 %24, ptr %12, align 4, !tbaa !25
   %25 = getelementptr inbounds nuw i8, ptr %15, i64 20
-  %26 = load i32, ptr %25, align 4, !tbaa !35
+  %26 = load i32, ptr %25, align 4, !tbaa !34
   %27 = icmp eq i32 %26, 0
   %. = select i1 %27, i32 1, i32 3
   %28 = load i32, ptr %13, align 8, !tbaa !8
@@ -233,7 +233,7 @@ define dso_local void @uv__io_poll(ptr noundef %0, i32 noundef %1) local_unnamed
 
 34:                                               ; preds = %30
   %35 = load i32, ptr %13, align 8, !tbaa !8
-  %36 = load i32, ptr %23, align 8, !tbaa !34
+  %36 = load i32, ptr %23, align 8, !tbaa !33
   %37 = call i32 @epoll_ctl(i32 noundef %35, i32 noundef 3, i32 noundef %36, ptr noundef nonnull %4) #7
   %.not162 = icmp eq i32 %37, 0
   br i1 %.not162, label %39, label %38
@@ -243,15 +243,15 @@ define dso_local void @uv__io_poll(ptr noundef %0, i32 noundef %1) local_unnamed
   unreachable
 
 39:                                               ; preds = %34, %14
-  %40 = load i32, ptr %21, align 8, !tbaa !33
-  store i32 %40, ptr %25, align 4, !tbaa !35
-  %41 = load ptr, ptr %10, align 8, !tbaa !32
+  %40 = load i32, ptr %21, align 8, !tbaa !32
+  store i32 %40, ptr %25, align 4, !tbaa !34
+  %41 = load ptr, ptr %10, align 8, !tbaa !31
   %.not = icmp eq ptr %10, %41
-  br i1 %.not, label %._crit_edge, label %14, !llvm.loop !36
+  br i1 %.not, label %._crit_edge, label %14, !llvm.loop !35
 
 ._crit_edge:                                      ; preds = %39, %9
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %43 = load i64, ptr %42, align 8, !tbaa !37
+  %43 = load i64, ptr %42, align 8, !tbaa !36
   %44 = and i64 %43, 1
   %.not146 = icmp ne i64 %44, 0
   br i1 %.not146, label %45, label %48
@@ -263,10 +263,10 @@ define dso_local void @uv__io_poll(ptr noundef %0, i32 noundef %1) local_unnamed
 
 48:                                               ; preds = %45, %._crit_edge
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 544
-  %50 = load i64, ptr %49, align 8, !tbaa !38
+  %50 = load i64, ptr %49, align 8, !tbaa !37
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %52 = load ptr, ptr %51, align 8, !tbaa !39
-  %53 = load i32, ptr %52, align 8, !tbaa !40
+  %52 = load ptr, ptr %51, align 8, !tbaa !38
+  %53 = load i32, ptr %52, align 8, !tbaa !39
   %54 = and i32 %53, 1
   %.not147.not = icmp eq i32 %54, 0
   %.b = load i1, ptr @uv__io_poll.no_epoll_pwait_cached, align 4
@@ -385,7 +385,7 @@ select.unfold:                                    ; preds = %select.unfold.outer
   %91 = load i32, ptr %90, align 4, !tbaa !4
   %92 = call i64 @uv__hrtime(i32 noundef 1) #7
   %93 = udiv i64 %92, 1000000
-  store i64 %93, ptr %49, align 8, !tbaa !38
+  store i64 %93, ptr %49, align 8, !tbaa !37
   store i32 %91, ptr %90, align 4, !tbaa !4
   switch i32 %.0126, label %98 [
     i32 0, label %94
@@ -399,13 +399,13 @@ select.unfold:                                    ; preds = %select.unfold.outer
   ]
 
 select.unfold.outer179.backedge:                  ; preds = %94, %97, %166
-  br label %select.unfold.outer179, !llvm.loop !43
+  br label %select.unfold.outer179
 
 95:                                               ; preds = %89
   switch i32 %91, label %96 [
     i32 38, label %select.unfold
     i32 4, label %97
-  ], !llvm.loop !43
+  ]
 
 96:                                               ; preds = %95
   call void @abort() #9
@@ -473,11 +473,11 @@ select.unfold.outer179.backedge:                  ; preds = %94, %97, %166
 
 129:                                              ; preds = %120
   %130 = getelementptr inbounds nuw i8, ptr %124, i64 40
-  %131 = load i32, ptr %130, align 8, !tbaa !33
+  %131 = load i32, ptr %130, align 8, !tbaa !32
   %132 = or i32 %131, 24
-  %133 = load i32, ptr %116, align 4, !tbaa !29
+  %133 = load i32, ptr %116, align 4, !tbaa !28
   %134 = and i32 %133, %132
-  store i32 %134, ptr %116, align 4, !tbaa !29
+  store i32 %134, ptr %116, align 4, !tbaa !28
   switch i32 %134, label %137 [
     i32 8, label %.thread
     i32 16, label %.thread
@@ -487,7 +487,7 @@ select.unfold.outer179.backedge:                  ; preds = %94, %97, %166
 .thread:                                          ; preds = %129, %129
   %135 = and i32 %131, 8199
   %136 = or i32 %134, %135
-  store i32 %136, ptr %116, align 4, !tbaa !29
+  store i32 %136, ptr %116, align 4, !tbaa !28
   br label %137
 
 137:                                              ; preds = %129, %.thread
@@ -496,8 +496,8 @@ select.unfold.outer179.backedge:                  ; preds = %94, %97, %166
 
 139:                                              ; preds = %137
   call void @uv__metrics_update_idle_time(ptr noundef nonnull %0) #7
-  %140 = load ptr, ptr %124, align 8, !tbaa !44
-  %141 = load i32, ptr %116, align 4, !tbaa !29
+  %140 = load ptr, ptr %124, align 8, !tbaa !42
+  %141 = load i32, ptr %116, align 4, !tbaa !28
   call void %140(ptr noundef nonnull %0, ptr noundef nonnull %124, i32 noundef %141) #7
   br label %142
 
@@ -511,7 +511,7 @@ select.unfold.outer179.backedge:                  ; preds = %94, %97, %166
   %.1129 = phi i32 [ %.0128216, %.lr.ph219 ], [ %.0128216, %126 ], [ %143, %142 ], [ %.0128216, %129 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge220, label %.lr.ph219, !llvm.loop !45
+  br i1 %exitcond.not, label %._crit_edge220, label %.lr.ph219, !llvm.loop !43
 
 ._crit_edge220:                                   ; preds = %144
   %145 = icmp eq i32 %.1131, 0
@@ -519,7 +519,7 @@ select.unfold.outer179.backedge:                  ; preds = %94, %97, %166
 
 146:                                              ; preds = %._crit_edge220
   call void @uv__metrics_update_idle_time(ptr noundef %0) #7
-  %147 = load ptr, ptr %60, align 8, !tbaa !46
+  %147 = load ptr, ptr %60, align 8, !tbaa !44
   call void %147(ptr noundef %0, ptr noundef nonnull %60, i32 noundef 1) #7
   %148 = load ptr, ptr %58, align 8, !tbaa !21
   %149 = load i32, ptr %59, align 8, !tbaa !22
@@ -550,7 +550,7 @@ select.unfold.outer179.backedge:                  ; preds = %94, %97, %166
   %165 = add nsw i32 %.0127.ph174, -1
   %.not155 = icmp eq i32 %165, 0
   %or.cond169 = select i1 %164, i1 true, i1 %.not155
-  br i1 %or.cond169, label %.loopexit, label %select.unfold.outer173, !llvm.loop !43
+  br i1 %or.cond169, label %.loopexit, label %select.unfold.outer173
 
 166:                                              ; preds = %.critedge.thread, %.critedge
   switch i32 %.1117.ph176, label %._crit_edge254 [
@@ -559,7 +559,7 @@ select.unfold.outer179.backedge:                  ; preds = %94, %97, %166
   ]
 
 ._crit_edge254:                                   ; preds = %166
-  %.pre = load i64, ptr %49, align 8, !tbaa !38
+  %.pre = load i64, ptr %49, align 8, !tbaa !37
   br label %split
 
 split:                                            ; preds = %97, %94, %._crit_edge254
@@ -568,7 +568,7 @@ split:                                            ; preds = %97, %94, %._crit_ed
   %168 = trunc i64 %.neg to i32
   %169 = add i32 %.0133.ph, %168
   %170 = icmp slt i32 %169, 1
-  br i1 %170, label %.loopexit, label %select.unfold.outer, !llvm.loop !43
+  br i1 %170, label %.loopexit, label %select.unfold.outer
 
 .loopexit:                                        ; preds = %split, %163, %166, %97, %94, %146, %2
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %5) #7
@@ -635,24 +635,22 @@ attributes #9 = { noreturn nounwind }
 !23 = !{!24, !24, i64 0}
 !24 = !{!"p1 _ZTS8uv__io_s", !10, i64 0}
 !25 = !{!6, !6, i64 0}
-!26 = distinct !{!26, !27, !28}
+!26 = distinct !{!26, !27}
 !27 = !{!"llvm.loop.mustprogress"}
-!28 = !{!"llvm.loop.estimated_trip_count"}
-!29 = !{!30, !5, i64 0}
-!30 = !{!"epoll_event", !5, i64 0, !6, i64 4}
-!31 = !{!9, !5, i64 116}
-!32 = !{!10, !10, i64 0}
-!33 = !{!16, !5, i64 40}
-!34 = !{!16, !5, i64 48}
-!35 = !{!16, !5, i64 44}
-!36 = distinct !{!36, !27, !28}
-!37 = !{!9, !11, i64 56}
-!38 = !{!9, !11, i64 544}
-!39 = !{!9, !10, i64 40}
-!40 = !{!41, !5, i64 0}
-!41 = !{!"uv__loop_internal_fields_s", !5, i64 0, !42, i64 8}
-!42 = !{!"uv__loop_metrics_s", !11, i64 0, !11, i64 8, !6, i64 16}
-!43 = distinct !{!43, !28}
-!44 = !{!16, !10, i64 0}
-!45 = distinct !{!45, !27, !28}
-!46 = !{!9, !10, i64 560}
+!28 = !{!29, !5, i64 0}
+!29 = !{!"epoll_event", !5, i64 0, !6, i64 4}
+!30 = !{!9, !5, i64 116}
+!31 = !{!10, !10, i64 0}
+!32 = !{!16, !5, i64 40}
+!33 = !{!16, !5, i64 48}
+!34 = !{!16, !5, i64 44}
+!35 = distinct !{!35, !27}
+!36 = !{!9, !11, i64 56}
+!37 = !{!9, !11, i64 544}
+!38 = !{!9, !10, i64 40}
+!39 = !{!40, !5, i64 0}
+!40 = !{!"uv__loop_internal_fields_s", !5, i64 0, !41, i64 8}
+!41 = !{!"uv__loop_metrics_s", !11, i64 0, !11, i64 8, !6, i64 16}
+!42 = !{!16, !10, i64 0}
+!43 = distinct !{!43, !27}
+!44 = !{!9, !10, i64 560}

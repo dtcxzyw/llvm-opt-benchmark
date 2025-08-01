@@ -390,7 +390,7 @@ _ZSt8_DestroyIPNSt15__exception_ptr13exception_ptrES1_EvT_S3_RSaIT0_E.exit.i: ; 
 
 10:                                               ; preds = %_ZSt8_DestroyIPNSt15__exception_ptr13exception_ptrES1_EvT_S3_RSaIT0_E.exit.i
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %12 = load ptr, ptr %11, align 8, !tbaa !46
+  %12 = load ptr, ptr %11, align 8, !tbaa !45
   %13 = ptrtoint ptr %12 to i64
   %14 = ptrtoint ptr %9 to i64
   %15 = sub i64 %13, %14
@@ -502,34 +502,34 @@ define void @_ZN3gmx36getCoordinateTransformationToLatticeERKNS_19MrcDensityMapH
   %6 = load i32, ptr %5, align 8, !tbaa !4
   %7 = sitofp i32 %6 to float
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 876
-  %9 = load float, ptr %8, align 4, !tbaa !47
+  %9 = load float, ptr %8, align 4, !tbaa !46
   %10 = fmul float %9, 0x3FB99999A0000000
   %11 = fdiv float %7, %10
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 940
   %13 = load i32, ptr %12, align 4, !tbaa !4
   %14 = sitofp i32 %13 to float
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 880
-  %16 = load float, ptr %15, align 8, !tbaa !47
+  %16 = load float, ptr %15, align 8, !tbaa !46
   %17 = fmul float %16, 0x3FB99999A0000000
   %18 = fdiv float %14, %17
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 944
   %20 = load i32, ptr %19, align 8, !tbaa !4
   %21 = sitofp i32 %20 to float
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 884
-  %23 = load float, ptr %22, align 4, !tbaa !47
+  %23 = load float, ptr %22, align 4, !tbaa !46
   %24 = fmul float %23, 0x3FB99999A0000000
   %25 = fdiv float %21, %24
-  store float %11, ptr %3, align 4, !tbaa !47
+  store float %11, ptr %3, align 4, !tbaa !46
   %26 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  store float %18, ptr %26, align 4, !tbaa !47
+  store float %18, ptr %26, align 4, !tbaa !46
   %27 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store float %25, ptr %27, align 4, !tbaa !47
+  store float %25, ptr %27, align 4, !tbaa !46
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 60
-  %29 = load float, ptr %28, align 4, !tbaa !47
+  %29 = load float, ptr %28, align 4, !tbaa !46
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  %31 = load float, ptr %30, align 8, !tbaa !47
+  %31 = load float, ptr %30, align 8, !tbaa !46
   %32 = getelementptr inbounds nuw i8, ptr %1, i64 68
-  %33 = load float, ptr %32, align 4, !tbaa !47
+  %33 = load float, ptr %32, align 4, !tbaa !46
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %4) #18
   %34 = fcmp oeq float %29, 0.000000e+00
   %35 = fcmp oeq float %31, 0.000000e+00
@@ -591,11 +591,11 @@ define void @_ZN3gmx19getDynamicExtents3DERKNS_19MrcDensityMapHeaderE(ptr dead_o
   %10 = sext i32 %8 to i64
   %11 = sext i32 %9 to i64
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %11, ptr %12, align 8, !tbaa !49
+  store i64 %11, ptr %12, align 8, !tbaa !48
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %10, ptr %13, align 8, !tbaa !52
+  store i64 %10, ptr %13, align 8, !tbaa !51
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i64 %6, ptr %14, align 8, !tbaa !54
+  store i64 %6, ptr %14, align 8, !tbaa !53
   ret void
 }
 
@@ -616,7 +616,7 @@ define noundef zeroext i1 @_ZN3gmx15mrcHeaderIsSaneERKNS_19MrcDensityMapHeaderE(
 
 8:                                                ; preds = %1
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 888
-  %.029.val32.i.i.i.i.i.i7 = load float, ptr %9, align 8, !tbaa !47
+  %.029.val32.i.i.i.i.i.i7 = load float, ptr %9, align 8, !tbaa !46
   %10 = fcmp olt float %.029.val32.i.i.i.i.i.i7, 0.000000e+00
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 892
   %.1.val.i.i.i.i.i.i8 = load float, ptr %11, align 4
@@ -745,16 +745,15 @@ attributes #21 = { builtin nounwind }
 !40 = !{!38, !39, i64 8}
 !41 = !{!42, !12, i64 0}
 !42 = !{!"_ZTSNSt15__exception_ptr13exception_ptrE", !12, i64 0}
-!43 = distinct !{!43, !44, !45}
+!43 = distinct !{!43, !44}
 !44 = !{!"llvm.loop.mustprogress"}
-!45 = !{!"llvm.loop.estimated_trip_count"}
-!46 = !{!38, !39, i64 16}
-!47 = !{!48, !48, i64 0}
-!48 = !{!"float", !6, i64 0}
-!49 = !{!50, !28, i64 8}
-!50 = !{!"_ZTSN3gmx6detail15extents_analyseILi1EJLln1EEEE", !51, i64 0, !28, i64 8}
-!51 = !{!"_ZTSN3gmx6detail15extents_analyseILi0EJEEE"}
-!52 = !{!53, !28, i64 16}
-!53 = !{!"_ZTSN3gmx6detail15extents_analyseILi2EJLln1ELln1EEEE", !50, i64 0, !28, i64 16}
-!54 = !{!55, !28, i64 24}
-!55 = !{!"_ZTSN3gmx6detail15extents_analyseILi3EJLln1ELln1ELln1EEEE", !53, i64 0, !28, i64 24}
+!45 = !{!38, !39, i64 16}
+!46 = !{!47, !47, i64 0}
+!47 = !{!"float", !6, i64 0}
+!48 = !{!49, !28, i64 8}
+!49 = !{!"_ZTSN3gmx6detail15extents_analyseILi1EJLln1EEEE", !50, i64 0, !28, i64 8}
+!50 = !{!"_ZTSN3gmx6detail15extents_analyseILi0EJEEE"}
+!51 = !{!52, !28, i64 16}
+!52 = !{!"_ZTSN3gmx6detail15extents_analyseILi2EJLln1ELln1EEEE", !49, i64 0, !28, i64 16}
+!53 = !{!54, !28, i64 24}
+!54 = !{!"_ZTSN3gmx6detail15extents_analyseILi3EJLln1ELln1ELln1EEEE", !52, i64 0, !28, i64 24}

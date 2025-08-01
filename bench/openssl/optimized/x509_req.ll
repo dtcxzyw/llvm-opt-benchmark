@@ -179,7 +179,7 @@ define range(i32 0, 2) i32 @X509_REQ_extension_nid(i32 noundef %0) local_unnamed
   %6 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv.next
   %7 = load i32, ptr %6, align 4, !tbaa !46
   %8 = icmp eq i32 %7, 0
-  br i1 %8, label %._crit_edge, label %.lr.ph, !llvm.loop !47
+  br i1 %8, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1, %5
   %indvars.iv = phi i64 [ %indvars.iv.next, %5 ], [ 0, %1 ]
@@ -234,7 +234,7 @@ define ptr @X509_REQ_get_extensions(ptr noundef readonly captures(address_is_nul
   %13 = getelementptr inbounds nuw i8, ptr %.017, i64 4
   %14 = load i32, ptr %13, align 4, !tbaa !46
   %.not = icmp eq i32 %14, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !49
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !47
 
 ._crit_edge:                                      ; preds = %12, %.preheader
   %15 = tail call ptr @OPENSSL_sk_new_null() #8
@@ -250,7 +250,7 @@ define internal fastcc ptr @get_extensions_by_nid(ptr noundef readonly captures(
   %3 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %5 = load ptr, ptr %4, align 8, !tbaa !51
+  %5 = load ptr, ptr %4, align 8, !tbaa !49
   %6 = tail call i32 @X509at_get_attr_by_NID(ptr noundef %5, i32 noundef %1, i32 noundef -1) #8
   %7 = icmp slt i32 %6, 0
   br i1 %7, label %8, label %10
@@ -260,14 +260,14 @@ define internal fastcc ptr @get_extensions_by_nid(ptr noundef readonly captures(
   br label %27
 
 10:                                               ; preds = %2
-  %11 = load ptr, ptr %4, align 8, !tbaa !51
+  %11 = load ptr, ptr %4, align 8, !tbaa !49
   %12 = tail call ptr @X509at_get_attr(ptr noundef %11, i32 noundef %6) #8
   %13 = tail call ptr @X509_ATTRIBUTE_get0_type(ptr noundef %12, i32 noundef 0) #8
   %14 = icmp eq ptr %13, null
   br i1 %14, label %17, label %15
 
 15:                                               ; preds = %10
-  %16 = load i32, ptr %13, align 8, !tbaa !52
+  %16 = load i32, ptr %13, align 8, !tbaa !50
   %.not = icmp eq i32 %16, 16
   br i1 %.not, label %18, label %17
 
@@ -282,7 +282,7 @@ define internal fastcc ptr @get_extensions_by_nid(ptr noundef readonly captures(
   %20 = load ptr, ptr %19, align 8, !tbaa !41
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %22 = load ptr, ptr %21, align 8, !tbaa !40
-  store ptr %22, ptr %3, align 8, !tbaa !54
+  store ptr %22, ptr %3, align 8, !tbaa !52
   %23 = load i32, ptr %20, align 8, !tbaa !39
   %24 = sext i32 %23 to i64
   %25 = tail call ptr @X509_EXTENSIONS_it() #8
@@ -306,23 +306,23 @@ define range(i32 0, 2) i32 @X509_REQ_add_extensions_nid(ptr noundef %0, ptr noun
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #8
-  store ptr null, ptr %4, align 8, !tbaa !54
+  store ptr null, ptr %4, align 8, !tbaa !52
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #8
-  store ptr null, ptr %5, align 8, !tbaa !55
+  store ptr null, ptr %5, align 8, !tbaa !53
   %6 = tail call i32 @OPENSSL_sk_num(ptr noundef %1) #8
   %7 = icmp slt i32 %6, 1
   br i1 %7, label %39, label %8
 
 8:                                                ; preds = %3
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %10 = load ptr, ptr %9, align 8, !tbaa !51
+  %10 = load ptr, ptr %9, align 8, !tbaa !49
   %11 = tail call i32 @X509at_get_attr_by_NID(ptr noundef %10, i32 noundef %2, i32 noundef -1) #8
   %.not = icmp eq i32 %11, -1
   br i1 %.not, label %18, label %12
 
 12:                                               ; preds = %8
   %13 = tail call fastcc ptr @get_extensions_by_nid(ptr noundef nonnull %0, i32 noundef %2)
-  store ptr %13, ptr %5, align 8, !tbaa !55
+  store ptr %13, ptr %5, align 8, !tbaa !53
   %14 = icmp eq ptr %13, null
   br i1 %14, label %39, label %15
 
@@ -332,7 +332,7 @@ define range(i32 0, 2) i32 @X509_REQ_add_extensions_nid(ptr noundef %0, ptr noun
   br i1 %17, label %37, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %15
-  %.pre = load ptr, ptr %5, align 8, !tbaa !55
+  %.pre = load ptr, ptr %5, align 8, !tbaa !53
   br label %18
 
 18:                                               ; preds = %._crit_edge, %8
@@ -345,12 +345,12 @@ define range(i32 0, 2) i32 @X509_REQ_add_extensions_nid(ptr noundef %0, ptr noun
   br i1 %24, label %37, label %25
 
 25:                                               ; preds = %18
-  %26 = load ptr, ptr %5, align 8, !tbaa !55
+  %26 = load ptr, ptr %5, align 8, !tbaa !53
   %.not22 = icmp eq ptr %26, null
   br i1 %.not22, label %31, label %27
 
 27:                                               ; preds = %25
-  %28 = load ptr, ptr %9, align 8, !tbaa !51
+  %28 = load ptr, ptr %9, align 8, !tbaa !49
   %29 = call ptr @X509at_delete_attr(ptr noundef %28, i32 noundef %11) #8
   %30 = icmp eq ptr %29, null
   br i1 %30, label %37, label %.thread
@@ -360,25 +360,25 @@ define range(i32 0, 2) i32 @X509_REQ_add_extensions_nid(ptr noundef %0, ptr noun
   br label %31
 
 31:                                               ; preds = %25, %.thread
-  %32 = load ptr, ptr %4, align 8, !tbaa !54
+  %32 = load ptr, ptr %4, align 8, !tbaa !52
   %33 = call ptr @X509at_add1_attr_by_NID(ptr noundef nonnull %9, i32 noundef %2, i32 noundef 16, ptr noundef %32, i32 noundef %23) #8
   %.not.i = icmp eq ptr %33, null
   br i1 %.not.i, label %X509_REQ_add1_attr_by_NID.exit, label %34
 
 34:                                               ; preds = %31
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i32 1, ptr %35, align 8, !tbaa !56
+  store i32 1, ptr %35, align 8, !tbaa !54
   br label %X509_REQ_add1_attr_by_NID.exit
 
 X509_REQ_add1_attr_by_NID.exit:                   ; preds = %31, %34
   %.0.i = phi i32 [ 1, %34 ], [ 0, %31 ]
-  %36 = load ptr, ptr %4, align 8, !tbaa !54
+  %36 = load ptr, ptr %4, align 8, !tbaa !52
   call void @CRYPTO_free(ptr noundef %36, ptr noundef nonnull @.str, i32 noundef 200) #8
   br label %37
 
 37:                                               ; preds = %27, %18, %15, %X509_REQ_add1_attr_by_NID.exit
   %.019 = phi i32 [ 0, %15 ], [ 0, %18 ], [ %.0.i, %X509_REQ_add1_attr_by_NID.exit ], [ 0, %27 ]
-  %38 = load ptr, ptr %5, align 8, !tbaa !55
+  %38 = load ptr, ptr %5, align 8, !tbaa !53
   call void @OPENSSL_sk_pop_free(ptr noundef %38, ptr noundef nonnull @X509_EXTENSION_free) #8
   br label %39
 
@@ -420,7 +420,7 @@ define range(i32 0, 2) i32 @X509_REQ_add1_attr_by_NID(ptr noundef %0, i32 nounde
 
 11:                                               ; preds = %8
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i32 1, ptr %12, align 8, !tbaa !56
+  store i32 1, ptr %12, align 8, !tbaa !54
   br label %13
 
 13:                                               ; preds = %8, %11, %7
@@ -443,7 +443,7 @@ define range(i32 0, 2) i32 @X509_REQ_add_extensions(ptr noundef %0, ptr noundef 
 ; Function Attrs: nounwind uwtable
 define i32 @X509_REQ_get_attr_count(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %3 = load ptr, ptr %2, align 8, !tbaa !51
+  %3 = load ptr, ptr %2, align 8, !tbaa !49
   %4 = tail call i32 @X509at_get_attr_count(ptr noundef %3) #8
   ret i32 %4
 }
@@ -453,7 +453,7 @@ declare i32 @X509at_get_attr_count(ptr noundef) local_unnamed_addr #2
 ; Function Attrs: nounwind uwtable
 define i32 @X509_REQ_get_attr_by_NID(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %5 = load ptr, ptr %4, align 8, !tbaa !51
+  %5 = load ptr, ptr %4, align 8, !tbaa !49
   %6 = tail call i32 @X509at_get_attr_by_NID(ptr noundef %5, i32 noundef %1, i32 noundef %2) #8
   ret i32 %6
 }
@@ -461,7 +461,7 @@ define i32 @X509_REQ_get_attr_by_NID(ptr noundef readonly captures(none) %0, i32
 ; Function Attrs: nounwind uwtable
 define i32 @X509_REQ_get_attr_by_OBJ(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %5 = load ptr, ptr %4, align 8, !tbaa !51
+  %5 = load ptr, ptr %4, align 8, !tbaa !49
   %6 = tail call i32 @X509at_get_attr_by_OBJ(ptr noundef %5, ptr noundef %1, i32 noundef %2) #8
   ret i32 %6
 }
@@ -471,7 +471,7 @@ declare i32 @X509at_get_attr_by_OBJ(ptr noundef, ptr noundef, i32 noundef) local
 ; Function Attrs: nounwind uwtable
 define ptr @X509_REQ_get_attr(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %4 = load ptr, ptr %3, align 8, !tbaa !51
+  %4 = load ptr, ptr %3, align 8, !tbaa !49
   %5 = tail call ptr @X509at_get_attr(ptr noundef %4, i32 noundef %1) #8
   ret ptr %5
 }
@@ -491,14 +491,14 @@ define ptr @X509_REQ_delete_attr(ptr noundef captures(address_is_null) %0, i32 n
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %7 = load ptr, ptr %6, align 8, !tbaa !51
+  %7 = load ptr, ptr %6, align 8, !tbaa !49
   %8 = tail call ptr @X509at_delete_attr(ptr noundef %7, i32 noundef %1) #8
   %.not = icmp eq ptr %8, null
   br i1 %.not, label %11, label %9
 
 9:                                                ; preds = %5
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i32 1, ptr %10, align 8, !tbaa !56
+  store i32 1, ptr %10, align 8, !tbaa !54
   br label %11
 
 11:                                               ; preds = %5, %9, %4
@@ -525,7 +525,7 @@ define range(i32 0, 2) i32 @X509_REQ_add1_attr(ptr noundef %0, ptr noundef %1) l
 
 8:                                                ; preds = %5
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i32 1, ptr %9, align 8, !tbaa !56
+  store i32 1, ptr %9, align 8, !tbaa !54
   br label %10
 
 10:                                               ; preds = %5, %8, %4
@@ -554,7 +554,7 @@ define range(i32 0, 2) i32 @X509_REQ_add1_attr_by_OBJ(ptr noundef %0, ptr nounde
 
 11:                                               ; preds = %8
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i32 1, ptr %12, align 8, !tbaa !56
+  store i32 1, ptr %12, align 8, !tbaa !54
   br label %13
 
 13:                                               ; preds = %8, %11, %7
@@ -585,7 +585,7 @@ define range(i32 0, 2) i32 @X509_REQ_add1_attr_by_txt(ptr noundef %0, ptr nounde
 
 11:                                               ; preds = %8
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i32 1, ptr %12, align 8, !tbaa !56
+  store i32 1, ptr %12, align 8, !tbaa !54
   br label %13
 
 13:                                               ; preds = %8, %11, %7
@@ -598,7 +598,7 @@ declare ptr @X509at_add1_attr_by_txt(ptr noundef, ptr noundef, i32 noundef, ptr 
 ; Function Attrs: nounwind uwtable
 define i64 @X509_REQ_get_version(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %3 = load ptr, ptr %2, align 8, !tbaa !57
+  %3 = load ptr, ptr %2, align 8, !tbaa !55
   %4 = tail call i64 @ASN1_INTEGER_get(ptr noundef %3) #8
   ret i64 %4
 }
@@ -608,7 +608,7 @@ declare i64 @ASN1_INTEGER_get(ptr noundef) local_unnamed_addr #2
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define ptr @X509_REQ_get_subject_name(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %3 = load ptr, ptr %2, align 8, !tbaa !58
+  %3 = load ptr, ptr %2, align 8, !tbaa !56
   ret ptr %3
 }
 
@@ -619,8 +619,8 @@ define void @X509_REQ_get0_signature(ptr noundef %0, ptr noundef writeonly captu
 
 4:                                                ; preds = %3
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %6 = load ptr, ptr %5, align 8, !tbaa !59
-  store ptr %6, ptr %1, align 8, !tbaa !60
+  %6 = load ptr, ptr %5, align 8, !tbaa !57
+  store ptr %6, ptr %1, align 8, !tbaa !58
   br label %7
 
 7:                                                ; preds = %4, %3
@@ -629,7 +629,7 @@ define void @X509_REQ_get0_signature(ptr noundef %0, ptr noundef writeonly captu
 
 8:                                                ; preds = %7
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store ptr %9, ptr %2, align 8, !tbaa !61
+  store ptr %9, ptr %2, align 8, !tbaa !59
   br label %10
 
 10:                                               ; preds = %8, %7
@@ -639,7 +639,7 @@ define void @X509_REQ_get0_signature(ptr noundef %0, ptr noundef writeonly captu
 ; Function Attrs: nounwind uwtable
 define void @X509_REQ_set0_signature(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %4 = load ptr, ptr %3, align 8, !tbaa !59
+  %4 = load ptr, ptr %3, align 8, !tbaa !57
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %6, label %5
 
@@ -648,7 +648,7 @@ define void @X509_REQ_set0_signature(ptr noundef captures(none) %0, ptr noundef 
   br label %6
 
 6:                                                ; preds = %5, %2
-  store ptr %1, ptr %3, align 8, !tbaa !59
+  store ptr %1, ptr %3, align 8, !tbaa !57
   ret void
 }
 
@@ -666,7 +666,7 @@ declare i32 @X509_ALGOR_copy(ptr noundef, ptr noundef) local_unnamed_addr #2
 ; Function Attrs: nounwind uwtable
 define i32 @X509_REQ_get_signature_nid(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %3 = load ptr, ptr %2, align 8, !tbaa !63
+  %3 = load ptr, ptr %2, align 8, !tbaa !61
   %4 = tail call i32 @OBJ_obj2nid(ptr noundef %3) #8
   ret i32 %4
 }
@@ -686,7 +686,7 @@ define i32 @i2d_re_X509_REQ_tbs(ptr noundef %0, ptr noundef %1) local_unnamed_ad
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i32 1, ptr %6, align 8, !tbaa !56
+  store i32 1, ptr %6, align 8, !tbaa !54
   %7 = tail call i32 @i2d_X509_REQ_INFO(ptr noundef nonnull %0, ptr noundef %1) #8
   br label %8
 
@@ -761,19 +761,17 @@ attributes #8 = { nounwind }
 !45 = !{!"p1 int", !7, i64 0}
 !46 = !{!11, !11, i64 0}
 !47 = distinct !{!47, !48}
-!48 = !{!"llvm.loop.estimated_trip_count"}
-!49 = distinct !{!49, !50, !48}
-!50 = !{!"llvm.loop.mustprogress"}
-!51 = !{!43, !38, i64 48}
-!52 = !{!53, !11, i64 0}
-!53 = !{!"asn1_type_st", !11, i64 0, !8, i64 8}
-!54 = !{!12, !12, i64 0}
-!55 = !{!20, !20, i64 0}
-!56 = !{!43, !11, i64 16}
-!57 = !{!43, !6, i64 24}
-!58 = !{!43, !17, i64 32}
-!59 = !{!43, !6, i64 72}
-!60 = !{!6, !6, i64 0}
-!61 = !{!62, !62, i64 0}
-!62 = !{!"p1 _ZTS13X509_algor_st", !7, i64 0}
-!63 = !{!43, !15, i64 56}
+!48 = !{!"llvm.loop.mustprogress"}
+!49 = !{!43, !38, i64 48}
+!50 = !{!51, !11, i64 0}
+!51 = !{!"asn1_type_st", !11, i64 0, !8, i64 8}
+!52 = !{!12, !12, i64 0}
+!53 = !{!20, !20, i64 0}
+!54 = !{!43, !11, i64 16}
+!55 = !{!43, !6, i64 24}
+!56 = !{!43, !17, i64 32}
+!57 = !{!43, !6, i64 72}
+!58 = !{!6, !6, i64 0}
+!59 = !{!60, !60, i64 0}
+!60 = !{!"p1 _ZTS13X509_algor_st", !7, i64 0}
+!61 = !{!43, !15, i64 56}

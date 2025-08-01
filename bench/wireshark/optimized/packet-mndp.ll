@@ -335,7 +335,7 @@ extval_to_str_idx.exit82.i:                       ; preds = %43, %.sink.split.i.
   %69 = load ptr, ptr %65, align 8
   %70 = tail call i32 %57(ptr noundef %0, ptr noundef %1, ptr noundef %34, i32 noundef %.058.i, i32 noundef %22, ptr noundef %69)
   %71 = icmp ugt i32 %70, %.058.i
-  br i1 %71, label %66, label %72, !llvm.loop !9
+  br i1 %71, label %66, label %72, !llvm.loop !8
 
 72:                                               ; preds = %68
   tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.44, ptr noundef nonnull @.str.45, i32 noundef 195, ptr noundef nonnull @.str.46) #3
@@ -344,7 +344,7 @@ extval_to_str_idx.exit82.i:                       ; preds = %43, %.sink.split.i.
 dissect_tlv.exit:                                 ; preds = %66, %extval_to_str_idx.exit82.i, %.thread13.i, %.thread.i
   %.0.i = phi i32 [ %47, %extval_to_str_idx.exit82.i ], [ %50, %.thread.i ], [ %50, %.thread13.i ], [ %50, %66 ]
   %73 = icmp ult i32 %.0.i, %6
-  br i1 %73, label %17, label %._crit_edge, !llvm.loop !10
+  br i1 %73, label %17, label %._crit_edge, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %dissect_tlv.exit, %3
   %.0.lcssa = phi i32 [ 4, %3 ], [ %.0.i, %dissect_tlv.exit ]
@@ -400,8 +400,7 @@ attributes #3 = { noreturn }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7, !8}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}

@@ -163,7 +163,7 @@ define internal range(i32 -1094995529, 1) i32 @vivo_read_header(ptr noundef %0) 
   %41 = call i64 @avio_skip(ptr noundef %38, i64 noundef %40) #10
   %42 = call fastcc i32 @vivo_get_packet_header(ptr noundef nonnull %0)
   %43 = icmp slt i32 %42, 0
-  br i1 %43, label %.loopexit, label %23, !llvm.loop !42
+  br i1 %43, label %.loopexit, label %23
 
 44:                                               ; preds = %.lr.ph180, %.backedge
   %.0108179 = phi ptr [ %.0108.ph193, %.lr.ph180 ], [ %47, %.backedge ]
@@ -189,14 +189,14 @@ define internal range(i32 -1094995529, 1) i32 @vivo_read_header(ptr noundef %0) 
 .backedge:                                        ; preds = %51, %46
   %52 = load i8, ptr %47, align 1, !tbaa !11
   %.not123 = icmp eq i8 %52, 0
-  br i1 %.not123, label %.outer154, label %44, !llvm.loop !44
+  br i1 %.not123, label %.outer154, label %44, !llvm.loop !42
 
 53:                                               ; preds = %49
   %54 = getelementptr inbounds nuw i8, ptr %50, i64 1
   store i8 0, ptr %50, align 1, !tbaa !11
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 48, ptr noundef nonnull @.str.7, ptr noundef nonnull %.0108179, ptr noundef nonnull %54) #10
   %55 = call i64 @strtol(ptr noundef nonnull %54, ptr noundef nonnull %2, i32 noundef 10) #10
-  %56 = load ptr, ptr %2, align 8, !tbaa !46
+  %56 = load ptr, ptr %2, align 8, !tbaa !44
   %57 = load i8, ptr %56, align 1, !tbaa !11
   %58 = icmp eq i8 %57, 0
   br i1 %58, label %59, label %92
@@ -216,7 +216,7 @@ define internal range(i32 -1094995529, 1) i32 @vivo_read_header(ptr noundef %0) 
   %64 = trunc i64 %55 to i32
   %65 = load ptr, ptr %21, align 8, !tbaa !27
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 72
-  store i32 %64, ptr %66, align 8, !tbaa !47
+  store i32 %64, ptr %66, align 8, !tbaa !45
   br label %92
 
 67:                                               ; preds = %61
@@ -228,7 +228,7 @@ define internal range(i32 -1094995529, 1) i32 @vivo_read_header(ptr noundef %0) 
   %70 = trunc i64 %55 to i32
   %71 = load ptr, ptr %21, align 8, !tbaa !27
   %72 = getelementptr inbounds nuw i8, ptr %71, i64 76
-  store i32 %70, ptr %72, align 4, !tbaa !48
+  store i32 %70, ptr %72, align 4, !tbaa !46
   br label %92
 
 73:                                               ; preds = %67
@@ -304,7 +304,7 @@ define internal range(i32 -1094995529, 1) i32 @vivo_read_header(ptr noundef %0) 
   br i1 %or.cond4, label %.thread, label %103
 
 103:                                              ; preds = %100
-  %104 = load double, ptr %3, align 8, !tbaa !49
+  %104 = load double, ptr %3, align 8, !tbaa !47
   %105 = call i64 @av_d2q(double noundef %104, i32 noundef 10000) #12
   %.sroa.01.0.insert.insert.i = call i64 @llvm.fshl.i64(i64 %105, i64 %105, i64 32)
   %.sroa.074.0.extract.trunc = trunc i64 %.sroa.01.0.insert.insert.i to i32
@@ -334,7 +334,7 @@ define internal range(i32 -1094995529, 1) i32 @vivo_read_header(ptr noundef %0) 
   %.sroa.9.3151 = phi i32 [ %.sroa.9.2, %108 ], [ %.sroa.9.2, %107 ], [ %.sroa.9.4.ph, %.thread ], [ %.sroa.9.2, %94 ]
   %110 = load i8, ptr %47, align 1, !tbaa !11
   %.not123178 = icmp eq i8 %110, 0
-  br i1 %.not123178, label %.outer154, label %.lr.ph180, !llvm.loop !44
+  br i1 %.not123178, label %.outer154, label %.lr.ph180, !llvm.loop !42
 
 .outer154:                                        ; preds = %.thread146, %.backedge, %44, %30
   %.1111.ph.lcssa = phi i64 [ %.0110.ph199, %30 ], [ %.1111.ph192, %44 ], [ %.1111.ph192, %.backedge ], [ %.2112, %.thread146 ]
@@ -342,7 +342,7 @@ define internal range(i32 -1094995529, 1) i32 @vivo_read_header(ptr noundef %0) 
   %.sroa.074.1.ph.lcssa = phi i32 [ %.sroa.074.0.ph201, %30 ], [ %.sroa.074.1.ph195, %44 ], [ %.sroa.074.1.ph195, %.backedge ], [ %.sroa.074.3152, %.thread146 ]
   %111 = call fastcc i32 @vivo_get_packet_header(ptr noundef nonnull %0)
   %112 = icmp slt i32 %111, 0
-  br i1 %112, label %.loopexit, label %.lr.ph, !llvm.loop !42
+  br i1 %112, label %.loopexit, label %.lr.ph
 
 113:                                              ; preds = %23, %25
   %114 = icmp ne i32 %.sroa.074.0.ph201, 0
@@ -361,57 +361,57 @@ define internal range(i32 -1094995529, 1) i32 @vivo_read_header(ptr noundef %0) 
 119:                                              ; preds = %113
   %120 = call i64 @av_rescale(i64 noundef %.0110.ph199, i64 noundef 1000, i64 noundef 1) #12
   %121 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  store i64 %120, ptr %121, align 8, !tbaa !51
+  store i64 %120, ptr %121, align 8, !tbaa !49
   br label %122
 
 122:                                              ; preds = %119, %113
   %123 = getelementptr inbounds nuw i8, ptr %6, i64 40
-  store i64 0, ptr %123, align 8, !tbaa !52
+  store i64 0, ptr %123, align 8, !tbaa !50
   %124 = load ptr, ptr %21, align 8, !tbaa !27
   %125 = getelementptr inbounds nuw i8, ptr %124, i64 8
-  store i32 0, ptr %125, align 8, !tbaa !53
-  store i32 0, ptr %124, align 8, !tbaa !54
-  %126 = load i32, ptr %5, align 4, !tbaa !55
+  store i32 0, ptr %125, align 8, !tbaa !51
+  store i32 0, ptr %124, align 8, !tbaa !52
+  %126 = load i32, ptr %5, align 4, !tbaa !53
   %127 = icmp eq i32 %126, 1
   br i1 %127, label %128, label %135
 
 128:                                              ; preds = %122
   %129 = getelementptr inbounds nuw i8, ptr %124, i64 4
-  store i32 4, ptr %129, align 4, !tbaa !56
+  store i32 4, ptr %129, align 4, !tbaa !54
   %130 = load ptr, ptr %11, align 8, !tbaa !27
   %131 = getelementptr inbounds nuw i8, ptr %130, i64 4
-  store i32 86068, ptr %131, align 4, !tbaa !56
+  store i32 86068, ptr %131, align 4, !tbaa !54
   %132 = getelementptr inbounds nuw i8, ptr %130, i64 56
-  store i32 8, ptr %132, align 8, !tbaa !57
+  store i32 8, ptr %132, align 8, !tbaa !55
   %133 = getelementptr inbounds nuw i8, ptr %130, i64 156
-  store i32 24, ptr %133, align 4, !tbaa !58
+  store i32 24, ptr %133, align 4, !tbaa !56
   %134 = getelementptr inbounds nuw i8, ptr %130, i64 48
-  store i64 6400, ptr %134, align 8, !tbaa !59
+  store i64 6400, ptr %134, align 8, !tbaa !57
   br label %142
 
 135:                                              ; preds = %122
   %136 = load ptr, ptr %11, align 8, !tbaa !27
   %137 = getelementptr inbounds nuw i8, ptr %136, i64 4
-  store i32 86108, ptr %137, align 4, !tbaa !56
+  store i32 86108, ptr %137, align 4, !tbaa !54
   %138 = getelementptr inbounds nuw i8, ptr %136, i64 56
-  store i32 16, ptr %138, align 8, !tbaa !57
+  store i32 16, ptr %138, align 8, !tbaa !55
   %139 = getelementptr inbounds nuw i8, ptr %136, i64 156
-  store i32 40, ptr %139, align 4, !tbaa !58
+  store i32 40, ptr %139, align 4, !tbaa !56
   %140 = getelementptr inbounds nuw i8, ptr %136, i64 48
-  store i64 6400, ptr %140, align 8, !tbaa !59
+  store i64 6400, ptr %140, align 8, !tbaa !57
   %141 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store i32 320, ptr %141, align 4, !tbaa !60
+  store i32 320, ptr %141, align 4, !tbaa !58
   br label %142
 
 142:                                              ; preds = %135, %128
   %143 = phi ptr [ %136, %135 ], [ %130, %128 ]
   %144 = getelementptr inbounds nuw i8, ptr %7, i64 40
-  store i64 0, ptr %144, align 8, !tbaa !52
+  store i64 0, ptr %144, align 8, !tbaa !50
   %145 = getelementptr inbounds nuw i8, ptr %143, i64 8
-  store i32 0, ptr %145, align 8, !tbaa !53
-  store i32 1, ptr %143, align 8, !tbaa !54
+  store i32 0, ptr %145, align 8, !tbaa !51
+  store i32 1, ptr %143, align 8, !tbaa !52
   %146 = getelementptr inbounds nuw i8, ptr %143, i64 132
-  store i32 1, ptr %146, align 4, !tbaa !61
+  store i32 1, ptr %146, align 4, !tbaa !59
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.outer154, %37, %94, %10, %106, %1, %142
@@ -454,11 +454,11 @@ define internal range(i32 -2147483648, 1) i32 @vivo_read_packet(ptr noundef %0, 
   %19 = tail call i64 @avio_skip(ptr noundef %6, i64 noundef %18) #10
   %20 = tail call fastcc i32 @vivo_get_packet_header(ptr noundef %0)
   %21 = icmp slt i32 %20, 0
-  br i1 %21, label %.loopexit, label %12, !llvm.loop !62
+  br i1 %21, label %.loopexit, label %12
 
 22:                                               ; preds = %14, %14
   %23 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %24 = load i32, ptr %23, align 4, !tbaa !60
+  %24 = load i32, ptr %23, align 4, !tbaa !58
   %25 = sext i32 %24 to i64
   br label %.loopexit47
 
@@ -510,13 +510,13 @@ define internal range(i32 -2147483648, 1) i32 @vivo_read_packet(ptr noundef %0, 
 49:                                               ; preds = %45
   %50 = tail call fastcc i32 @vivo_get_packet_header(ptr noundef %0)
   %51 = icmp slt i32 %50, 0
-  br i1 %51, label %.loopexit, label %35, !llvm.loop !63
+  br i1 %51, label %.loopexit, label %35, !llvm.loop !60
 
 .critedge:                                        ; preds = %35, %38
   %52 = getelementptr inbounds nuw i8, ptr %1, i64 36
-  store i32 %.036, ptr %52, align 4, !tbaa !64
+  store i32 %.036, ptr %52, align 4, !tbaa !61
   %53 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  store i64 %.035, ptr %53, align 8, !tbaa !65
+  store i64 %.035, ptr %53, align 8, !tbaa !62
   br label %.loopexit
 
 .loopexit:                                        ; preds = %16, %12, %49, %45, %43, %30, %.loopexit47, %.critedge, %26
@@ -718,26 +718,23 @@ attributes #12 = { nounwind willreturn memory(none) }
 !40 = !{!38, !10, i64 12}
 !41 = !{!13, !17, i64 32}
 !42 = distinct !{!42, !43}
-!43 = !{!"llvm.loop.estimated_trip_count"}
-!44 = distinct !{!44, !45, !43}
-!45 = !{!"llvm.loop.mustprogress"}
-!46 = !{!6, !6, i64 0}
-!47 = !{!35, !10, i64 72}
-!48 = !{!35, !10, i64 76}
-!49 = !{!50, !50, i64 0}
-!50 = !{!"double", !8, i64 0}
-!51 = !{!13, !22, i64 104}
-!52 = !{!28, !22, i64 40}
-!53 = !{!35, !10, i64 8}
-!54 = !{!35, !10, i64 0}
-!55 = !{!38, !10, i64 0}
-!56 = !{!35, !10, i64 4}
-!57 = !{!35, !10, i64 56}
-!58 = !{!35, !10, i64 156}
-!59 = !{!35, !22, i64 48}
-!60 = !{!38, !10, i64 16}
-!61 = !{!35, !10, i64 132}
-!62 = distinct !{!62, !43}
-!63 = distinct !{!63, !45, !43}
-!64 = !{!31, !10, i64 36}
-!65 = !{!31, !22, i64 64}
+!43 = !{!"llvm.loop.mustprogress"}
+!44 = !{!6, !6, i64 0}
+!45 = !{!35, !10, i64 72}
+!46 = !{!35, !10, i64 76}
+!47 = !{!48, !48, i64 0}
+!48 = !{!"double", !8, i64 0}
+!49 = !{!13, !22, i64 104}
+!50 = !{!28, !22, i64 40}
+!51 = !{!35, !10, i64 8}
+!52 = !{!35, !10, i64 0}
+!53 = !{!38, !10, i64 0}
+!54 = !{!35, !10, i64 4}
+!55 = !{!35, !10, i64 56}
+!56 = !{!35, !10, i64 156}
+!57 = !{!35, !22, i64 48}
+!58 = !{!38, !10, i64 16}
+!59 = !{!35, !10, i64 132}
+!60 = distinct !{!60, !43}
+!61 = !{!31, !10, i64 36}
+!62 = !{!31, !22, i64 64}

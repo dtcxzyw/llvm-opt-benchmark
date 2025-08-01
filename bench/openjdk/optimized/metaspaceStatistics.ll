@@ -76,7 +76,7 @@ define hidden noundef i64 @_ZNK9metaspace17ChunkManagerStats15total_word_sizeEv(
   %8 = add i64 %7, %.067
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 15
-  br i1 %exitcond.not, label %9, label %2, !llvm.loop !9
+  br i1 %exitcond.not, label %9, label %2, !llvm.loop !8
 
 9:                                                ; preds = %2
   ret i64 %8
@@ -95,7 +95,7 @@ define hidden noundef i64 @_ZNK9metaspace17ChunkManagerStats25total_committed_wo
   %6 = add i64 %5, %.056
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 15
-  br i1 %exitcond.not, label %7, label %3, !llvm.loop !10
+  br i1 %exitcond.not, label %7, label %3, !llvm.loop !9
 
 7:                                                ; preds = %3
   ret i64 %6
@@ -143,7 +143,7 @@ define hidden void @_ZNK9metaspace17ChunkManagerStats8print_onEP12outputStreamm(
   %.1 = phi i64 [ %16, %10 ], [ %.041, %19 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 15
-  br i1 %exitcond.not, label %21, label %5, !llvm.loop !11
+  br i1 %exitcond.not, label %21, label %5, !llvm.loop !10
 
 21:                                               ; preds = %20
   tail call void @_ZN12outputStream2crEv(ptr noundef nonnull align 8 dereferenceable(56) %1) #6
@@ -264,7 +264,7 @@ define hidden void @_ZN9metaspace10ArenaStats3addERKS0_(ptr noundef nonnull alig
   store i64 %33, ptr %31, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 15
-  br i1 %exitcond.not, label %34, label %3, !llvm.loop !12
+  br i1 %exitcond.not, label %34, label %3, !llvm.loop !11
 
 34:                                               ; preds = %3
   %35 = getelementptr inbounds nuw i8, ptr %1, i64 720
@@ -314,7 +314,7 @@ define hidden void @_ZNK9metaspace10ArenaStats6totalsEv(ptr dead_on_unwind noali
   %27 = add i64 %9, %26
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 15
-  br i1 %exitcond.not, label %28, label %3, !llvm.loop !13
+  br i1 %exitcond.not, label %28, label %3, !llvm.loop !12
 
 28:                                               ; preds = %3
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -371,12 +371,12 @@ define hidden void @_ZNK9metaspace10ArenaStats8print_onEP12outputStreammb(ptr no
 20:                                               ; preds = %18, %19
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 15
-  br i1 %exitcond.not, label %21, label %13, !llvm.loop !14
+  br i1 %exitcond.not, label %21, label %13, !llvm.loop !13
 
 21:                                               ; preds = %20
   tail call void @_ZN12outputStream9cr_indentEv(ptr noundef nonnull align 8 dereferenceable(56) %1) #6
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.21) #6
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !15)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !14)
   br label %22
 
 22:                                               ; preds = %22, %21
@@ -388,26 +388,26 @@ define hidden void @_ZNK9metaspace10ArenaStats8print_onEP12outputStreammb(ptr no
   %27 = phi i64 [ 0, %21 ], [ %43, %22 ]
   %28 = phi i64 [ 0, %21 ], [ %46, %22 ]
   %29 = getelementptr inbounds nuw [15 x %"struct.metaspace::InUseChunkStats"], ptr %0, i64 0, i64 %indvars.iv.i
-  %30 = load i32, ptr %29, align 8, !noalias !15
+  %30 = load i32, ptr %29, align 8, !noalias !14
   %31 = add nsw i32 %30, %23
   %32 = getelementptr inbounds nuw i8, ptr %29, i64 8
-  %33 = load i64, ptr %32, align 8, !noalias !15
+  %33 = load i64, ptr %32, align 8, !noalias !14
   %34 = add i64 %33, %24
   %35 = getelementptr inbounds nuw i8, ptr %29, i64 16
-  %36 = load i64, ptr %35, align 8, !noalias !15
+  %36 = load i64, ptr %35, align 8, !noalias !14
   %37 = add i64 %36, %25
   %38 = getelementptr inbounds nuw i8, ptr %29, i64 24
-  %39 = load i64, ptr %38, align 8, !noalias !15
+  %39 = load i64, ptr %38, align 8, !noalias !14
   %40 = add i64 %39, %26
   %41 = getelementptr inbounds nuw i8, ptr %29, i64 32
-  %42 = load i64, ptr %41, align 8, !noalias !15
+  %42 = load i64, ptr %41, align 8, !noalias !14
   %43 = add i64 %42, %27
   %44 = getelementptr inbounds nuw i8, ptr %29, i64 40
-  %45 = load i64, ptr %44, align 8, !noalias !15
+  %45 = load i64, ptr %44, align 8, !noalias !14
   %46 = add i64 %45, %28
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 15
-  br i1 %exitcond.not.i, label %_ZNK9metaspace10ArenaStats6totalsEv.exit, label %22, !llvm.loop !13
+  br i1 %exitcond.not.i, label %_ZNK9metaspace10ArenaStats6totalsEv.exit, label %22, !llvm.loop !12
 
 _ZNK9metaspace10ArenaStats6totalsEv.exit:         ; preds = %22
   %47 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -415,12 +415,12 @@ _ZNK9metaspace10ArenaStats6totalsEv.exit:         ; preds = %22
   %49 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %50 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %51 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store i32 %31, ptr %5, align 8, !alias.scope !15
-  store i64 %34, ptr %47, align 8, !alias.scope !15
-  store i64 %37, ptr %51, align 8, !alias.scope !15
-  store i64 %40, ptr %50, align 8, !alias.scope !15
-  store i64 %43, ptr %49, align 8, !alias.scope !15
-  store i64 %46, ptr %48, align 8, !alias.scope !15
+  store i32 %31, ptr %5, align 8, !alias.scope !14
+  store i64 %34, ptr %47, align 8, !alias.scope !14
+  store i64 %37, ptr %51, align 8, !alias.scope !14
+  store i64 %40, ptr %50, align 8, !alias.scope !14
+  store i64 %43, ptr %49, align 8, !alias.scope !14
+  store i64 %46, ptr %48, align 8, !alias.scope !14
   call void @_ZNK9metaspace15InUseChunkStats8print_onEP12outputStreamm(ptr noundef nonnull align 8 dereferenceable(48) %5, ptr noundef nonnull %1, i64 noundef %2)
   %52 = load i32, ptr %7, align 8
   %53 = add nsw i32 %52, -2
@@ -435,7 +435,7 @@ _ZNK9metaspace10ArenaStats6totalsEv.exit:         ; preds = %22
   br label %.sink.split
 
 57:                                               ; preds = %4
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !18)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !17)
   br label %58
 
 58:                                               ; preds = %58, %57
@@ -447,26 +447,26 @@ _ZNK9metaspace10ArenaStats6totalsEv.exit:         ; preds = %22
   %63 = phi i64 [ 0, %57 ], [ %79, %58 ]
   %64 = phi i64 [ 0, %57 ], [ %82, %58 ]
   %65 = getelementptr inbounds nuw [15 x %"struct.metaspace::InUseChunkStats"], ptr %0, i64 0, i64 %indvars.iv.i30
-  %66 = load i32, ptr %65, align 8, !noalias !18
+  %66 = load i32, ptr %65, align 8, !noalias !17
   %67 = add nsw i32 %66, %59
   %68 = getelementptr inbounds nuw i8, ptr %65, i64 8
-  %69 = load i64, ptr %68, align 8, !noalias !18
+  %69 = load i64, ptr %68, align 8, !noalias !17
   %70 = add i64 %69, %60
   %71 = getelementptr inbounds nuw i8, ptr %65, i64 16
-  %72 = load i64, ptr %71, align 8, !noalias !18
+  %72 = load i64, ptr %71, align 8, !noalias !17
   %73 = add i64 %72, %61
   %74 = getelementptr inbounds nuw i8, ptr %65, i64 24
-  %75 = load i64, ptr %74, align 8, !noalias !18
+  %75 = load i64, ptr %74, align 8, !noalias !17
   %76 = add i64 %75, %62
   %77 = getelementptr inbounds nuw i8, ptr %65, i64 32
-  %78 = load i64, ptr %77, align 8, !noalias !18
+  %78 = load i64, ptr %77, align 8, !noalias !17
   %79 = add i64 %78, %63
   %80 = getelementptr inbounds nuw i8, ptr %65, i64 40
-  %81 = load i64, ptr %80, align 8, !noalias !18
+  %81 = load i64, ptr %80, align 8, !noalias !17
   %82 = add i64 %81, %64
   %indvars.iv.next.i31 = add nuw nsw i64 %indvars.iv.i30, 1
   %exitcond.not.i32 = icmp eq i64 %indvars.iv.next.i31, 15
-  br i1 %exitcond.not.i32, label %_ZNK9metaspace10ArenaStats6totalsEv.exit33, label %58, !llvm.loop !13
+  br i1 %exitcond.not.i32, label %_ZNK9metaspace10ArenaStats6totalsEv.exit33, label %58, !llvm.loop !12
 
 _ZNK9metaspace10ArenaStats6totalsEv.exit33:       ; preds = %58
   %83 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -474,12 +474,12 @@ _ZNK9metaspace10ArenaStats6totalsEv.exit33:       ; preds = %58
   %85 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %86 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %87 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  store i32 %67, ptr %6, align 8, !alias.scope !18
-  store i64 %70, ptr %83, align 8, !alias.scope !18
-  store i64 %73, ptr %87, align 8, !alias.scope !18
-  store i64 %76, ptr %86, align 8, !alias.scope !18
-  store i64 %79, ptr %85, align 8, !alias.scope !18
-  store i64 %82, ptr %84, align 8, !alias.scope !18
+  store i32 %67, ptr %6, align 8, !alias.scope !17
+  store i64 %70, ptr %83, align 8, !alias.scope !17
+  store i64 %73, ptr %87, align 8, !alias.scope !17
+  store i64 %76, ptr %86, align 8, !alias.scope !17
+  store i64 %79, ptr %85, align 8, !alias.scope !17
+  store i64 %82, ptr %84, align 8, !alias.scope !17
   call void @_ZNK9metaspace15InUseChunkStats8print_onEP12outputStreamm(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr noundef %1, i64 noundef %2)
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.23) #6
   %88 = getelementptr inbounds nuw i8, ptr %0, i64 720
@@ -515,7 +515,7 @@ define hidden void @_ZNK9metaspace9ClmsStats6totalsEv(ptr dead_on_unwind noalias
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, i8 0, i64 40, i1 false)
   %.add.i = add nuw nsw i64 %.idx.i, 48
   %5 = icmp eq i64 %.add.i, 720
-  br i1 %5, label %_ZN9metaspace10ArenaStatsC2Ev.exit, label %3, !llvm.loop !21
+  br i1 %5, label %_ZN9metaspace10ArenaStatsC2Ev.exit, label %3
 
 _ZN9metaspace10ArenaStatsC2Ev.exit:               ; preds = %3
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 720
@@ -562,7 +562,7 @@ _ZN9metaspace10ArenaStatsC2Ev.exit:               ; preds = %3
   store i64 %37, ptr %35, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 15
-  br i1 %exitcond.not.i, label %_ZN9metaspace10ArenaStats3addERKS0_.exit, label %7, !llvm.loop !12
+  br i1 %exitcond.not.i, label %_ZN9metaspace10ArenaStats3addERKS0_.exit, label %7, !llvm.loop !11
 
 _ZN9metaspace10ArenaStats3addERKS0_.exit:         ; preds = %7
   %38 = getelementptr inbounds nuw i8, ptr %1, i64 720
@@ -619,7 +619,7 @@ _ZN9metaspace10ArenaStats3addERKS0_.exit:         ; preds = %7
   store i64 %78, ptr %76, align 8
   %indvars.iv.next.i2 = add nuw nsw i64 %indvars.iv.i1, 1
   %exitcond.not.i3 = icmp eq i64 %indvars.iv.next.i2, 15
-  br i1 %exitcond.not.i3, label %_ZN9metaspace10ArenaStats3addERKS0_.exit4, label %48, !llvm.loop !12
+  br i1 %exitcond.not.i3, label %_ZN9metaspace10ArenaStats3addERKS0_.exit4, label %48, !llvm.loop !11
 
 _ZN9metaspace10ArenaStats3addERKS0_.exit4:        ; preds = %48
   %79 = getelementptr inbounds nuw i8, ptr %1, i64 1456
@@ -717,19 +717,17 @@ attributes #6 = { nounwind }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7, !8}
-!11 = distinct !{!11, !7, !8}
-!12 = distinct !{!12, !7, !8}
-!13 = distinct !{!13, !7, !8}
-!14 = distinct !{!14, !7, !8}
-!15 = !{!16}
-!16 = distinct !{!16, !17, !"_ZNK9metaspace10ArenaStats6totalsEv: argument 0"}
-!17 = distinct !{!17, !"_ZNK9metaspace10ArenaStats6totalsEv"}
-!18 = !{!19}
-!19 = distinct !{!19, !20, !"_ZNK9metaspace10ArenaStats6totalsEv: argument 0"}
-!20 = distinct !{!20, !"_ZNK9metaspace10ArenaStats6totalsEv"}
-!21 = distinct !{!21, !8}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7}
+!12 = distinct !{!12, !7}
+!13 = distinct !{!13, !7}
+!14 = !{!15}
+!15 = distinct !{!15, !16, !"_ZNK9metaspace10ArenaStats6totalsEv: argument 0"}
+!16 = distinct !{!16, !"_ZNK9metaspace10ArenaStats6totalsEv"}
+!17 = !{!18}
+!18 = distinct !{!18, !19, !"_ZNK9metaspace10ArenaStats6totalsEv: argument 0"}
+!19 = distinct !{!19, !"_ZNK9metaspace10ArenaStats6totalsEv"}

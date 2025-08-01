@@ -750,7 +750,7 @@ define hidden noundef zeroext i1 @_ZN6Thread20claim_par_threads_doEm(ptr noundef
   br i1 %.not, label %12, label %5
 
 5:                                                ; preds = %2
-  %6 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %1, i64 %4, ptr nonnull %3) #12, !srcloc !11
+  %6 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %1, i64 %4, ptr nonnull %3) #12, !srcloc !10
   %7 = icmp eq i64 %6, %4
   br i1 %7, label %12, label %8
 
@@ -848,7 +848,7 @@ define hidden void @_ZN6Thread19metadata_handles_doEPFvP8MetadataE(ptr noundef n
   %13 = load i32, ptr %12, align 4
   %14 = sext i32 %13 to i64
   %15 = icmp slt i64 %indvars.iv.next, %14
-  br i1 %15, label %.lr.ph, label %.loopexit, !llvm.loop !12
+  br i1 %15, label %.lr.ph, label %.loopexit, !llvm.loop !11
 
 .loopexit:                                        ; preds = %.lr.ph, %.preheader, %2
   ret void
@@ -980,7 +980,7 @@ _Z25proper_unit_for_byte_sizem.exit:              ; preds = %.thread, %_Z24byte_
   %66 = getelementptr inbounds nuw i8, ptr %.010.i.i, i64 8
   %.0.i.i = load ptr, ptr %66, align 8
   %.not.i.i = icmp eq ptr %.0.i.i, null
-  br i1 %.not.i.i, label %_ZNK10JavaThread18is_vthread_mountedEv.exit.thread, label %.lr.ph.i.i, !llvm.loop !13
+  br i1 %.not.i.i, label %_ZNK10JavaThread18is_vthread_mountedEv.exit.thread, label %.lr.ph.i.i, !llvm.loop !12
 
 _ZNK10JavaThread18is_vthread_mountedEv.exit.thread: ; preds = %65, %61, %55
   %67 = load ptr, ptr %5, align 8
@@ -1122,7 +1122,7 @@ declare noundef zeroext i1 @_ZN2os18create_main_threadEP10JavaThread(ptr noundef
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN6Thread11SpinAcquireEPViPKc(ptr noundef %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 align 2 {
-  %3 = tail call noundef i32 asm sideeffect "lock cmpxchgl $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 1, i32 0, ptr %0) #12, !srcloc !14
+  %3 = tail call noundef i32 asm sideeffect "lock cmpxchgl $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 1, i32 0, ptr %0) #12, !srcloc !13
   %4 = icmp eq i32 %3, 0
   br i1 %4, label %.loopexit, label %.preheader
 
@@ -1165,14 +1165,14 @@ define hidden void @_ZN6Thread11SpinAcquireEPViPKc(ptr noundef %0, ptr noundef r
   %.2 = phi i32 [ %.111, %13 ], [ %15, %14 ], [ %.111, %16 ]
   %19 = load volatile i32, ptr %0, align 4
   %.not = icmp eq i32 %19, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !15
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %18, %.preheader
   %.17.lcssa = phi i32 [ %.06, %.preheader ], [ %6, %18 ]
   %.1.lcssa = phi i32 [ %.0, %.preheader ], [ %.2, %18 ]
-  %20 = tail call noundef i32 asm sideeffect "lock cmpxchgl $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 1, i32 0, ptr nonnull %0) #12, !srcloc !14
+  %20 = tail call noundef i32 asm sideeffect "lock cmpxchgl $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 1, i32 0, ptr nonnull %0) #12, !srcloc !13
   %21 = icmp eq i32 %20, 0
-  br i1 %21, label %.loopexit, label %.preheader, !llvm.loop !16
+  br i1 %21, label %.loopexit, label %.preheader, !llvm.loop !15
 
 .loopexit:                                        ; preds = %._crit_edge, %2
   ret void
@@ -1186,7 +1186,7 @@ declare i32 @SpinPause() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN6Thread11SpinReleaseEPVi(ptr noundef %0) local_unnamed_addr #0 align 2 {
-  tail call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !17
+  tail call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !16
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !7
   store volatile i32 0, ptr %0, align 4
   ret void
@@ -1498,7 +1498,7 @@ define linkonce_odr hidden void @_ZN26GrowableArrayWithAllocatorIP8Metadata13Gro
   store ptr %27, ptr %25, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit.thread, label %.lr.ph, !llvm.loop !18
+  br i1 %exitcond.not, label %.loopexit.thread, label %.lr.ph, !llvm.loop !17
 
 .loopexit:                                        ; preds = %6
   %.not = icmp eq ptr %8, null
@@ -1568,14 +1568,13 @@ attributes #13 = { noreturn nounwind }
 !5 = !{i32 7, !"frame-pointer", i32 2}
 !6 = !{i64 2145411697}
 !7 = !{i64 2145392468}
-!8 = distinct !{!8, !9, !10}
+!8 = distinct !{!8, !9}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = !{!"llvm.loop.estimated_trip_count"}
-!11 = !{i64 2145412694}
-!12 = distinct !{!12, !9, !10}
-!13 = distinct !{!13, !9, !10}
-!14 = !{i64 2145411161}
-!15 = distinct !{!15, !9, !10}
-!16 = distinct !{!16, !9, !10}
-!17 = !{i64 2145392998}
-!18 = distinct !{!18, !9, !10}
+!10 = !{i64 2145412694}
+!11 = distinct !{!11, !9}
+!12 = distinct !{!12, !9}
+!13 = !{i64 2145411161}
+!14 = distinct !{!14, !9}
+!15 = distinct !{!15, !9}
+!16 = !{i64 2145392998}
+!17 = distinct !{!17, !9}

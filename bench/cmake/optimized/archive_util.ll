@@ -419,7 +419,7 @@ define internal fastcc range(i32 -30, 1) i32 @archive_utility_string_sort_helper
   store ptr %24, ptr %26, align 8, !tbaa !24
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %27, label %6, !llvm.loop !28
+  br i1 %exitcond.not, label %27, label %6, !llvm.loop !27
 
 27:                                               ; preds = %23
   %28 = tail call fastcc i32 @archive_utility_string_sort_helper(ptr noundef %.164, i32 noundef %.160)
@@ -438,7 +438,7 @@ define internal fastcc range(i32 -30, 1) i32 @archive_utility_string_sort_helper
   store ptr %30, ptr %31, align 8, !tbaa !24
   %indvars.iv.next98 = add nuw nsw i64 %indvars.iv97, 1
   %exitcond102.not = icmp eq i64 %indvars.iv.next98, %wide.trip.count101
-  br i1 %exitcond102.not, label %._crit_edge, label %.lr.ph, !llvm.loop !29
+  br i1 %exitcond102.not, label %._crit_edge, label %.lr.ph, !llvm.loop !28
 
 ._crit_edge:                                      ; preds = %.lr.ph, %27
   %.pre-phi = phi i64 [ 0, %27 ], [ %wide.trip.count101, %.lr.ph ]
@@ -465,7 +465,7 @@ define internal fastcc range(i32 -30, 1) i32 @archive_utility_string_sort_helper
   store ptr %37, ptr %41, align 8, !tbaa !24
   %indvars.iv.next104 = add nuw nsw i64 %indvars.iv103, 1
   %exitcond108.not = icmp eq i64 %indvars.iv.next104, %wide.trip.count107
-  br i1 %exitcond108.not, label %._crit_edge88, label %35, !llvm.loop !30
+  br i1 %exitcond108.not, label %._crit_edge88, label %35, !llvm.loop !29
 
 ._crit_edge88:                                    ; preds = %35, %._crit_edge
   tail call void @free(ptr noundef %.162) #18
@@ -545,9 +545,8 @@ attributes #21 = { nounwind allocsize(1) }
 !22 = !{!12, !13, i64 8}
 !23 = !{!12, !11, i64 0}
 !24 = !{!11, !11, i64 0}
-!25 = distinct !{!25, !26, !27}
+!25 = distinct !{!25, !26}
 !26 = !{!"llvm.loop.mustprogress"}
-!27 = !{!"llvm.loop.estimated_trip_count"}
-!28 = distinct !{!28, !26, !27}
-!29 = distinct !{!29, !26, !27}
-!30 = distinct !{!30, !26, !27}
+!27 = distinct !{!27, !26}
+!28 = distinct !{!28, !26}
+!29 = distinct !{!29, !26}

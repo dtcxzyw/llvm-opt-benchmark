@@ -294,12 +294,12 @@ _ZN7QStringD2Ev.exit25:                           ; preds = %21, %_ZN9QtPrivate8
 26:                                               ; preds = %_ZN7QStringD2Ev.exit25
   call void @_ZN8QDomNodeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #11
   %27 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %28 = load ptr, ptr %27, align 8, !noalias !8
+  %28 = load ptr, ptr %27, align 8, !noalias !7
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 16
   %30 = getelementptr inbounds nuw i8, ptr %28, i64 8
-  %31 = load i32, ptr %30, align 8, !noalias !8
+  %31 = load i32, ptr %30, align 8, !noalias !7
   %32 = getelementptr inbounds nuw i8, ptr %28, i64 12
-  %33 = load i32, ptr %32, align 4, !noalias !11
+  %33 = load i32, ptr %32, align 4, !noalias !10
   %34 = sext i32 %33 to i64
   %35 = getelementptr inbounds ptr, ptr %29, i64 %34
   %.not55 = icmp eq i32 %31, %33
@@ -407,7 +407,7 @@ _ZN7QStringD2Ev.exit39:                           ; preds = %49, %_ZN9QtPrivate8
   call void @_ZN8QDomNodeD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %11) #11
   %65 = load ptr, ptr %.sroa.040.054, align 8
   %.not47 = icmp eq ptr %65, %57
-  br i1 %.not47, label %._crit_edge, label %.lr.ph, !llvm.loop !14
+  br i1 %.not47, label %._crit_edge, label %.lr.ph
 
 66:                                               ; preds = %2
   %67 = landingpad { ptr, i32 }
@@ -473,7 +473,7 @@ _ZN7QStringD2Ev.exit39:                           ; preds = %49, %_ZN9QtPrivate8
   call void @_ZN8QDomNodeD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #11
   %79 = getelementptr inbounds nuw i8, ptr %.sroa.044.056, i64 8
   %.not = icmp eq ptr %79, %35
-  br i1 %.not, label %._crit_edge59, label %.lr.ph58, !llvm.loop !15
+  br i1 %.not, label %._crit_edge59, label %.lr.ph58
 
 80:                                               ; preds = %.loopexit, %.loopexit.split-lp, %76, %74
   %.pn = phi { ptr, i32 } [ %77, %76 ], [ %75, %74 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
@@ -1398,7 +1398,7 @@ _ZN7QStringD2Ev.exit124:                          ; preds = %_ZN7QStringD2Ev.exi
   ]
 
 _ZN7QStringD2Ev.exit124.backedge:                 ; preds = %253, %_ZN9QtPrivate8RefCount5derefEv.exit.i127
-  br label %_ZN7QStringD2Ev.exit124, !llvm.loop !16
+  br label %_ZN7QStringD2Ev.exit124, !llvm.loop !13
 
 _ZN9QtPrivate8RefCount5derefEv.exit.i127:         ; preds = %253
   %256 = atomicrmw sub ptr %254, i32 1 seq_cst, align 4
@@ -1411,7 +1411,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit._ZN9QtPrivate8RefCount5derefEv.exit.thread2_
 
 _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i126: ; preds = %253, %_ZN9QtPrivate8RefCount5derefEv.exit._ZN9QtPrivate8RefCount5derefEv.exit.thread2_crit_edge.i129
   %257 = phi ptr [ %.pre.i130, %_ZN9QtPrivate8RefCount5derefEv.exit._ZN9QtPrivate8RefCount5derefEv.exit.thread2_crit_edge.i129 ], [ %254, %253 ]
-  br label %_ZN7QStringD2Ev.exit124.sink.split, !llvm.loop !16
+  br label %_ZN7QStringD2Ev.exit124.sink.split, !llvm.loop !13
 
 258:                                              ; preds = %247
   %259 = landingpad { ptr, i32 }
@@ -1549,7 +1549,7 @@ _ZN7QStringD2Ev.exit137:                          ; preds = %_ZN29FilterNamePara
   ]
 
 _ZN7QStringD2Ev.exit143.backedge:                 ; preds = %289, %_ZN9QtPrivate8RefCount5derefEv.exit.i139, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i138
-  br label %_ZN7QStringD2Ev.exit143, !llvm.loop !17
+  br label %_ZN7QStringD2Ev.exit143, !llvm.loop !14
 
 _ZN9QtPrivate8RefCount5derefEv.exit.i139:         ; preds = %289
   %292 = atomicrmw sub ptr %290, i32 1 seq_cst, align 4
@@ -2310,7 +2310,7 @@ _ZN7QStringC2ERKS_.exit.i.i:                      ; preds = %13, %6
   %20 = getelementptr inbounds nuw i8, ptr %.01223, i64 8
   %21 = getelementptr inbounds nuw i8, ptr %.01322, i64 8
   %.not = icmp eq ptr %20, %2
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !18
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !15
 
 22:                                               ; preds = %.lr.ph
   %23 = landingpad { ptr, i32 }
@@ -2340,7 +2340,7 @@ _ZN7QStringC2ERKS_.exit.i.i:                      ; preds = %13, %6
 
 33:                                               ; preds = %29, %.lr.ph26
   %.not15 = icmp eq ptr %26, %1
-  br i1 %.not15, label %._crit_edge27, label %.lr.ph26, !llvm.loop !19
+  br i1 %.not15, label %._crit_edge27, label %.lr.ph26, !llvm.loop !16
 
 ._crit_edge27:                                    ; preds = %33, %24
   invoke void @__cxa_rethrow() #15
@@ -2406,18 +2406,15 @@ attributes #15 = { noreturn }
 !2 = !{i32 8, !"PIC Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6, !7}
+!5 = distinct !{!5, !6}
 !6 = !{!"llvm.loop.mustprogress"}
-!7 = !{!"llvm.loop.estimated_trip_count"}
-!8 = !{!9}
-!9 = distinct !{!9, !10, !"_ZNK5QListI29FilterNameParameterValuesPairE5beginEv: argument 0"}
-!10 = distinct !{!10, !"_ZNK5QListI29FilterNameParameterValuesPairE5beginEv"}
-!11 = !{!12}
-!12 = distinct !{!12, !13, !"_ZNK5QListI29FilterNameParameterValuesPairE3endEv: argument 0"}
-!13 = distinct !{!13, !"_ZNK5QListI29FilterNameParameterValuesPairE3endEv"}
-!14 = distinct !{!14, !7}
-!15 = distinct !{!15, !7}
-!16 = distinct !{!16, !6, !7}
-!17 = distinct !{!17, !6, !7}
-!18 = distinct !{!18, !6, !7}
-!19 = distinct !{!19, !6, !7}
+!7 = !{!8}
+!8 = distinct !{!8, !9, !"_ZNK5QListI29FilterNameParameterValuesPairE5beginEv: argument 0"}
+!9 = distinct !{!9, !"_ZNK5QListI29FilterNameParameterValuesPairE5beginEv"}
+!10 = !{!11}
+!11 = distinct !{!11, !12, !"_ZNK5QListI29FilterNameParameterValuesPairE3endEv: argument 0"}
+!12 = distinct !{!12, !"_ZNK5QListI29FilterNameParameterValuesPairE3endEv"}
+!13 = distinct !{!13, !6}
+!14 = distinct !{!14, !6}
+!15 = distinct !{!15, !6}
+!16 = distinct !{!16, !6}

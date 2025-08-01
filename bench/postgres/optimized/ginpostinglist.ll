@@ -126,7 +126,7 @@ encode_varbyte.exit48:                            ; preds = %.lr.ph.i45, %49
   %.4.ph = phi ptr [ %61, %60 ], [ %48, %encode_varbyte.exit ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %25, !llvm.loop !7
+  br i1 %exitcond.not, label %.loopexit, label %25, !llvm.loop !6
 
 .loopexit:                                        ; preds = %64, %4, %62
   %.05673 = phi ptr [ %.05674, %62 ], [ %9, %4 ], [ %.4.ph, %64 ]
@@ -346,7 +346,7 @@ decode_varbyte.exit:                              ; preds = %41, %46, %53, %60, 
   store i16 %96, ptr %97, align 2
   %.1 = add i32 %.153, 1
   %98 = icmp ult ptr %.0.i, %26
-  br i1 %98, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !8
+  br i1 %98, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !7
 
 ._crit_edge.loopexit:                             ; preds = %decode_varbyte.exit
   %.pre = load i16, ptr %23, align 2
@@ -363,7 +363,7 @@ decode_varbyte.exit:                              ; preds = %41, %46, %53, %60, 
   %103 = getelementptr inbounds nuw i8, ptr %.059, i64 %102
   %104 = getelementptr inbounds nuw i8, ptr %103, i64 8
   %105 = icmp ult ptr %104, %5
-  br i1 %105, label %.lr.ph61, label %._crit_edge62, !llvm.loop !9
+  br i1 %105, label %.lr.ph61, label %._crit_edge62, !llvm.loop !8
 
 ._crit_edge62:                                    ; preds = %._crit_edge, %3
   %.036.lcssa = phi ptr [ %12, %3 ], [ %.2.lcssa, %._crit_edge ]
@@ -563,7 +563,7 @@ define dso_local ptr @ginMergeItemPointers(ptr noundef %0, i32 noundef %1, ptr n
   %110 = sub i64 %109, %64
   %111 = sdiv exact i64 %110, 6
   %112 = icmp slt i64 %111, %65
-  br i1 %112, label %74, label %.critedge, !llvm.loop !10
+  br i1 %112, label %74, label %.critedge, !llvm.loop !9
 
 .critedge:                                        ; preds = %74, %108
   %.067.lcssa.ph = phi ptr [ %.06787, %74 ], [ %.168, %108 ]
@@ -595,7 +595,7 @@ define dso_local ptr @ginMergeItemPointers(ptr noundef %0, i32 noundef %1, ptr n
   %126 = sub i64 %125, %64
   %127 = sdiv exact i64 %126, 6
   %128 = icmp slt i64 %127, %65
-  br i1 %128, label %.lr.ph102, label %.preheader, !llvm.loop !11
+  br i1 %128, label %.lr.ph102, label %.preheader, !llvm.loop !10
 
 .lr.ph106:                                        ; preds = %.preheader, %.lr.ph106
   %.3105 = phi ptr [ %129, %.lr.ph106 ], [ %.2.lcssa, %.preheader ]
@@ -607,7 +607,7 @@ define dso_local ptr @ginMergeItemPointers(ptr noundef %0, i32 noundef %1, ptr n
   %132 = sub i64 %131, %117
   %133 = sdiv exact i64 %132, 6
   %134 = icmp slt i64 %133, %118
-  br i1 %134, label %.lr.ph106, label %._crit_edge, !llvm.loop !12
+  br i1 %134, label %.lr.ph106, label %._crit_edge, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %.lr.ph106, %.preheader
   %.3.lcssa = phi ptr [ %.2.lcssa, %.preheader ], [ %129, %.lr.ph106 ]
@@ -636,12 +636,11 @@ attributes #4 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = distinct !{!4, !5, !6}
+!4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{!"llvm.loop.estimated_trip_count"}
-!7 = distinct !{!7, !5, !6}
-!8 = distinct !{!8, !5, !6}
-!9 = distinct !{!9, !5, !6}
-!10 = distinct !{!10, !5, !6}
-!11 = distinct !{!11, !5, !6}
-!12 = distinct !{!12, !5, !6}
+!6 = distinct !{!6, !5}
+!7 = distinct !{!7, !5}
+!8 = distinct !{!8, !5}
+!9 = distinct !{!9, !5}
+!10 = distinct !{!10, !5}
+!11 = distinct !{!11, !5}

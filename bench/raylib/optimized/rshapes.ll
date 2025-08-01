@@ -236,7 +236,7 @@ define void @DrawLineStrip(ptr noundef readonly captures(none) %0, i32 noundef %
   %13 = load float, ptr %12, align 4
   tail call void @rlVertex2f(float noundef %11, float noundef %13) #16
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !3
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
 
 14:                                               ; preds = %3, %._crit_edge
   ret void
@@ -345,7 +345,7 @@ EaseCubicInOut.exit._crit_edge:                   ; preds = %EaseCubicInOut.exit
   store float %63, ptr %64, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 25
-  br i1 %exitcond.not, label %14, label %18, !llvm.loop !5
+  br i1 %exitcond.not, label %14, label %18
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
@@ -401,7 +401,7 @@ define void @DrawTriangleStrip(ptr noundef readonly captures(none) %0, i32 nound
   tail call void @rlVertex2f(float noundef %19, float noundef %21) #16
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %6, label %7, !llvm.loop !6
+  br i1 %exitcond.not, label %6, label %7
 
 22:                                               ; preds = %6, %3
   ret void
@@ -600,7 +600,7 @@ define void @DrawCircleSector(<2 x float> %0, float noundef %1, float noundef %2
   tail call void @rlVertex2f(float noundef %74, float noundef %76) #16
   %77 = add nuw nsw i32 %.0139, 1
   %exitcond.not = icmp eq i32 %77, %28
-  br i1 %exitcond.not, label %._crit_edge, label %35, !llvm.loop !7
+  br i1 %exitcond.not, label %._crit_edge, label %35
 
 78:                                               ; preds = %._crit_edge
   tail call void @rlColor4ub(i8 noundef zeroext %.sroa.091.0.extract.trunc, i8 noundef zeroext %.sroa.3.0.extract.trunc, i8 noundef zeroext %.sroa.5.0.extract.trunc, i8 noundef zeroext %.sroa.7.0.extract.trunc) #16
@@ -751,7 +751,7 @@ define void @DrawCircleSectorLines(<2 x float> %0, float noundef %1, float nound
   tail call void @rlVertex2f(float noundef %42, float noundef %44) #16
   %45 = add nuw nsw i32 %.087, 1
   %exitcond.not = icmp eq i32 %45, %.077
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !8
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %25
   %.pre-phi = phi float [ %28, %25 ], [ %40, %.lr.ph ]
@@ -813,7 +813,7 @@ define void @DrawCircleGradient(i32 noundef %0, i32 noundef %1, float noundef %2
   %22 = tail call float @llvm.fmuladd.f32(float %21, float %2, float %7)
   tail call void @rlVertex2f(float noundef %20, float noundef %22) #16
   %23 = icmp samesign ult i32 %.021, 350
-  br i1 %23, label %9, label %8, !llvm.loop !9
+  br i1 %23, label %9, label %8
 }
 
 ; Function Attrs: nounwind uwtable
@@ -849,7 +849,7 @@ define void @DrawCircleLines(i32 noundef %0, i32 noundef %1, float noundef %2, i
   %20 = tail call float @llvm.fmuladd.f32(float %19, float %2, float %6)
   tail call void @rlVertex2f(float noundef %18, float noundef %20) #16
   %21 = icmp samesign ult i32 %.014.i, 350
-  br i1 %21, label %7, label %DrawCircleLinesV.exit, !llvm.loop !10
+  br i1 %21, label %7, label %DrawCircleLinesV.exit
 
 DrawCircleLinesV.exit:                            ; preds = %7
   tail call void @rlEnd() #16
@@ -893,7 +893,7 @@ define void @DrawCircleLinesV(<2 x float> %0, float noundef %1, i32 %2) local_un
   %18 = tail call float @llvm.fmuladd.f32(float %17, float %1, float %.sroa.09.4.vec.extract)
   tail call void @rlVertex2f(float noundef %16, float noundef %18) #16
   %19 = icmp samesign ult i32 %.014, 350
-  br i1 %19, label %5, label %4, !llvm.loop !10
+  br i1 %19, label %5, label %4
 }
 
 ; Function Attrs: nounwind uwtable
@@ -934,7 +934,7 @@ define void @DrawEllipse(i32 noundef %0, i32 noundef %1, float noundef %2, float
   %22 = tail call float @llvm.fmuladd.f32(float %21, float %3, float %7)
   tail call void @rlVertex2f(float noundef %20, float noundef %22) #16
   %23 = icmp samesign ult i32 %.015, 350
-  br i1 %23, label %9, label %8, !llvm.loop !11
+  br i1 %23, label %9, label %8
 }
 
 ; Function Attrs: nounwind uwtable
@@ -974,7 +974,7 @@ define void @DrawEllipseLines(i32 noundef %0, i32 noundef %1, float noundef %2, 
   %22 = tail call float @llvm.fmuladd.f32(float %21, float %3, float %7)
   tail call void @rlVertex2f(float noundef %20, float noundef %22) #16
   %23 = icmp samesign ult i32 %.013, 350
-  br i1 %23, label %9, label %8, !llvm.loop !12
+  br i1 %23, label %9, label %8
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1113,7 +1113,7 @@ define void @DrawRing(<2 x float> %0, float noundef %1, float noundef %2, float 
   tail call void @rlVertex2f(float noundef %81, float noundef %83) #16
   %84 = add nuw nsw i32 %.0105, 1
   %exitcond.not = icmp eq i32 %84, %.093
-  br i1 %exitcond.not, label %._crit_edge, label %40, !llvm.loop !13
+  br i1 %exitcond.not, label %._crit_edge, label %40
 
 85:                                               ; preds = %31, %._crit_edge, %7
   ret void
@@ -1221,7 +1221,7 @@ define void @DrawRingLines(<2 x float> %0, float noundef %1, float noundef %2, f
   tail call void @rlVertex2f(float noundef %61, float noundef %63) #16
   %64 = add nuw nsw i32 %.0130, 1
   %exitcond.not = icmp eq i32 %64, %.0118
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !14
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %32
   %.pre-phi = phi float [ %35, %32 ], [ %51, %.lr.ph ]
@@ -1925,7 +1925,7 @@ define void @DrawRectangleRounded(<2 x float> %0, <2 x float> %1, float noundef 
   tail call void @rlVertex2f(float noundef %208, float noundef %210) #16
   %211 = add nuw nsw i32 %.0365, 1
   %exitcond.not = icmp eq i32 %211, %38
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !15
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
 
 212:                                              ; preds = %._crit_edge
   tail call void @rlColor4ub(i8 noundef zeroext %.sroa.0253.0.extract.trunc, i8 noundef zeroext %.sroa.9.0.extract.trunc, i8 noundef zeroext %.sroa.16267.0.extract.trunc, i8 noundef zeroext %.sroa.23.0.extract.trunc) #16
@@ -1977,7 +1977,7 @@ define void @DrawRectangleRounded(<2 x float> %0, <2 x float> %1, float noundef 
 248:                                              ; preds = %212, %._crit_edge
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond368.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond368.not, label %45, label %166, !llvm.loop !16
+  br i1 %exitcond368.not, label %45, label %166
 
 249:                                              ; preds = %45, %9, %8
   ret void
@@ -2286,12 +2286,12 @@ DrawRectangleLinesEx.exit:                        ; preds = %11, %20, %22, %24
   tail call void @rlVertex2f(float noundef %165, float noundef %167) #16
   %168 = add nuw nsw i32 %.0391405.us, 1
   %exitcond419.not = icmp eq i32 %168, %.0388
-  br i1 %exitcond419.not, label %._crit_edge.us409, label %124, !llvm.loop !17
+  br i1 %exitcond419.not, label %._crit_edge.us409, label %124
 
 ._crit_edge.us409:                                ; preds = %124
   %indvars.iv.next421 = add nuw nsw i64 %indvars.iv420, 1
   %exitcond423.not = icmp eq i64 %indvars.iv.next421, 4
-  br i1 %exitcond423.not, label %.split411.us, label %.lr.ph.us408, !llvm.loop !18
+  br i1 %exitcond423.not, label %.split411.us, label %.lr.ph.us408, !llvm.loop !3
 
 .split411.us:                                     ; preds = %._crit_edge.us409, %115
   tail call void @rlColor4ub(i8 noundef zeroext %.sroa.0230.0.extract.trunc, i8 noundef zeroext %.sroa.9.0.extract.trunc, i8 noundef zeroext %.sroa.16.0.extract.trunc, i8 noundef zeroext %.sroa.23.0.extract.trunc) #16
@@ -2467,12 +2467,12 @@ DrawRectangleLinesEx.exit:                        ; preds = %11, %20, %22, %24
   tail call void @rlVertex2f(float noundef %279, float noundef %281) #16
   %282 = add nuw nsw i32 %.0386401.us, 1
   %exitcond.not = icmp eq i32 %282, %.0388
-  br i1 %exitcond.not, label %._crit_edge.us, label %270, !llvm.loop !20
+  br i1 %exitcond.not, label %._crit_edge.us, label %270
 
 ._crit_edge.us:                                   ; preds = %270
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond415.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond415.not, label %.preheader.preheader, label %.lr.ph.us, !llvm.loop !21
+  br i1 %exitcond415.not, label %.preheader.preheader, label %.lr.ph.us, !llvm.loop !5
 
 283:                                              ; preds = %.preheader
   tail call void @rlEnd() #16
@@ -2494,7 +2494,7 @@ DrawRectangleLinesEx.exit:                        ; preds = %11, %20, %22, %24
   tail call void @rlVertex2f(float noundef %290, float noundef %292) #16
   %indvars.iv.next417 = add nuw nsw i64 %indvars.iv416, 2
   %293 = icmp samesign ult i64 %indvars.iv416, 6
-  br i1 %293, label %.preheader, label %283, !llvm.loop !22
+  br i1 %293, label %.preheader, label %283
 
 294:                                              ; preds = %283, %.split411.us
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8) #16
@@ -2679,7 +2679,7 @@ define void @DrawTriangleFan(ptr noundef readonly captures(none) %0, i32 noundef
   %47 = load float, ptr %38, align 4
   tail call void @rlVertex2f(float noundef %46, float noundef %47) #16
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %11, !llvm.loop !23
+  br i1 %exitcond.not, label %._crit_edge, label %11
 
 48:                                               ; preds = %._crit_edge, %3
   ret void
@@ -2770,7 +2770,7 @@ define void @DrawPoly(<2 x float> %0, i32 noundef %1, float noundef %2, float no
   tail call void @rlVertex2f(float noundef %50, float noundef %52) #16
   %53 = add nuw nsw i32 %.052, 1
   %exitcond.not = icmp eq i32 %53, %spec.store.select
-  br i1 %exitcond.not, label %14, label %15, !llvm.loop !24
+  br i1 %exitcond.not, label %14, label %15
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2813,7 +2813,7 @@ define void @DrawPolyLines(<2 x float> %0, i32 noundef %1, float noundef %2, flo
   tail call void @rlVertex2f(float noundef %18, float noundef %20) #16
   %21 = add nuw nsw i32 %.024, 1
   %exitcond.not = icmp eq i32 %21, %spec.store.select
-  br i1 %exitcond.not, label %10, label %11, !llvm.loop !25
+  br i1 %exitcond.not, label %10, label %11
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2910,7 +2910,7 @@ define void @DrawPolyLinesEx(<2 x float> %0, i32 noundef %1, float noundef %2, f
   tail call void @rlVertex2f(float noundef %60, float noundef %62) #16
   %63 = add nuw nsw i32 %.059, 1
   %exitcond.not = icmp eq i32 %63, %spec.store.select
-  br i1 %exitcond.not, label %20, label %21, !llvm.loop !26
+  br i1 %exitcond.not, label %20, label %21
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2975,7 +2975,7 @@ define void @DrawSplineLinear(ptr noundef readonly captures(none) %0, i32 nounde
   call void @DrawTriangleStrip(ptr noundef nonnull %5, i32 noundef 4, i32 %3)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #16
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %15, !llvm.loop !27
+  br i1 %exitcond.not, label %.loopexit, label %15
 
 .loopexit:                                        ; preds = %15, %4
   ret void
@@ -3118,7 +3118,7 @@ define void @DrawSplineBasis(ptr noundef readonly captures(none) %0, i32 noundef
   %.sroa.048.4.vec.insert72.us = insertelement <2 x float> %.sroa.048.0.vec.insert61.us, float %66, i64 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 25
-  br i1 %exitcond.not, label %.split137.us, label %.split.us, !llvm.loop !28
+  br i1 %exitcond.not, label %.split137.us, label %.split.us, !llvm.loop !6
 
 .split137.us:                                     ; preds = %.split.us, %110
   %.us-phi = phi float [ %111, %110 ], [ %57, %.split.us ]
@@ -3135,7 +3135,7 @@ define void @DrawSplineBasis(ptr noundef readonly captures(none) %0, i32 noundef
   store float %.us-phi140, ptr %5, align 16
   call void @DrawTriangleStrip(ptr noundef nonnull %5, i32 noundef 50, i32 %3)
   %exitcond173.not = icmp eq i64 %indvars.iv.next171, %wide.trip.count
-  br i1 %exitcond173.not, label %._crit_edge, label %13, !llvm.loop !29
+  br i1 %exitcond173.not, label %._crit_edge, label %13
 
 .split:                                           ; preds = %.split.preheader, %110
   %indvars.iv166 = phi i64 [ 1, %.split.preheader ], [ %indvars.iv.next167, %110 ]
@@ -3201,7 +3201,7 @@ define void @DrawSplineBasis(ptr noundef readonly captures(none) %0, i32 noundef
   %.sroa.048.4.vec.insert72 = insertelement <2 x float> %.sroa.048.0.vec.insert61, float %96, i64 1
   %indvars.iv.next167 = add nuw nsw i64 %indvars.iv166, 1
   %exitcond169.not = icmp eq i64 %indvars.iv.next167, 25
-  br i1 %exitcond169.not, label %.split137.us, label %.split, !llvm.loop !30
+  br i1 %exitcond169.not, label %.split137.us, label %.split
 
 125:                                              ; preds = %4, %._crit_edge
   ret void
@@ -3288,7 +3288,7 @@ define void @DrawSplineCatmullRom(ptr noundef readonly captures(none) %0, i32 no
   store float %86, ptr %5, align 16
   call void @DrawTriangleStrip(ptr noundef nonnull %5, i32 noundef 50, i32 %3)
   %exitcond155.not = icmp eq i64 %indvars.iv.next153, %wide.trip.count
-  br i1 %exitcond155.not, label %._crit_edge, label %14, !llvm.loop !31
+  br i1 %exitcond155.not, label %._crit_edge, label %14
 
 30:                                               ; preds = %.preheader, %82
   %indvars.iv = phi i64 [ %indvars.iv.next, %82 ], [ 1, %.preheader ]
@@ -3380,7 +3380,7 @@ define void @DrawSplineCatmullRom(ptr noundef readonly captures(none) %0, i32 no
   %.sroa.057.4.vec.insert = insertelement <2 x float> %.sroa.057.0.vec.insert, float %68, i64 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 25
-  br i1 %exitcond.not, label %29, label %30, !llvm.loop !32
+  br i1 %exitcond.not, label %29, label %30
 
 97:                                               ; preds = %4, %._crit_edge
   ret void
@@ -3487,7 +3487,7 @@ define void @DrawSplineBezierQuadratic(ptr noundef readonly captures(none) %0, i
   store float %64, ptr %65, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 25
-  br i1 %exitcond.not.i, label %DrawSplineSegmentBezierQuadratic.exit, label %21, !llvm.loop !33
+  br i1 %exitcond.not.i, label %DrawSplineSegmentBezierQuadratic.exit, label %21
 
 DrawSplineSegmentBezierQuadratic.exit:            ; preds = %51
   store float %54, ptr %12, align 4
@@ -3497,7 +3497,7 @@ DrawSplineSegmentBezierQuadratic.exit:            ; preds = %51
   call void @DrawTriangleStrip(ptr noundef nonnull %5, i32 noundef 50, i32 %3)
   call void @llvm.lifetime.end.p0(i64 400, ptr nonnull %5) #16
   %66 = icmp samesign ult i64 %indvars.iv.next, %13
-  br i1 %66, label %14, label %.loopexit, !llvm.loop !34
+  br i1 %66, label %14, label %.loopexit
 
 .loopexit:                                        ; preds = %DrawSplineSegmentBezierQuadratic.exit, %4
   ret void
@@ -3596,7 +3596,7 @@ define void @DrawSplineSegmentBezierQuadratic(<2 x float> %0, <2 x float> %1, <2
   store float %56, ptr %57, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 25
-  br i1 %exitcond.not, label %9, label %13, !llvm.loop !33
+  br i1 %exitcond.not, label %9, label %13
 }
 
 ; Function Attrs: nounwind uwtable
@@ -3622,7 +3622,7 @@ define void @DrawSplineBezierCubic(ptr noundef readonly captures(none) %0, i32 n
   %15 = load <2 x float>, ptr %11, align 4
   tail call void @DrawSplineSegmentBezierCubic(<2 x float> %12, <2 x float> %13, <2 x float> %14, <2 x float> %15, float noundef %2, i32 %3)
   %16 = icmp samesign ult i64 %indvars.iv.next, %7
-  br i1 %16, label %.lr.ph, label %.loopexit, !llvm.loop !35
+  br i1 %16, label %.lr.ph, label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %4
   ret void
@@ -3729,7 +3729,7 @@ define void @DrawSplineSegmentBezierCubic(<2 x float> %0, <2 x float> %1, <2 x f
   store float %63, ptr %64, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 25
-  br i1 %exitcond.not, label %10, label %14, !llvm.loop !36
+  br i1 %exitcond.not, label %10, label %14
 }
 
 ; Function Attrs: nounwind uwtable
@@ -3901,7 +3901,7 @@ define void @DrawSplineSegmentBasis(<2 x float> %0, <2 x float> %1, <2 x float> 
   store float %75, ptr %76, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 25
-  br i1 %exitcond.not, label %42, label %43, !llvm.loop !37
+  br i1 %exitcond.not, label %42, label %43
 }
 
 ; Function Attrs: nounwind uwtable
@@ -4012,7 +4012,7 @@ define void @DrawSplineSegmentCatmullRom(<2 x float> %0, <2 x float> %1, <2 x fl
   store float %70, ptr %71, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 25
-  br i1 %exitcond.not, label %12, label %13, !llvm.loop !38
+  br i1 %exitcond.not, label %12, label %13
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
@@ -4305,7 +4305,7 @@ define zeroext i1 @CheckCollisionPointPoly(<2 x float> %0, ptr noundef readonly 
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %30 = trunc nuw nsw i64 %indvars.iv to i32
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %7, !llvm.loop !39
+  br i1 %exitcond.not, label %.loopexit, label %7
 
 .loopexit:                                        ; preds = %29, %3
   %.027 = phi i1 [ false, %3 ], [ %.2, %29 ]
@@ -4724,39 +4724,6 @@ attributes #16 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = distinct !{!3, !4}
-!4 = !{!"llvm.loop.estimated_trip_count"}
+!4 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !5 = distinct !{!5, !4}
 !6 = distinct !{!6, !4}
-!7 = distinct !{!7, !4}
-!8 = distinct !{!8, !4}
-!9 = distinct !{!9, !4}
-!10 = distinct !{!10, !4}
-!11 = distinct !{!11, !4}
-!12 = distinct !{!12, !4}
-!13 = distinct !{!13, !4}
-!14 = distinct !{!14, !4}
-!15 = distinct !{!15, !4}
-!16 = distinct !{!16, !4}
-!17 = distinct !{!17, !4}
-!18 = distinct !{!18, !4, !19}
-!19 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!20 = distinct !{!20, !4}
-!21 = distinct !{!21, !4, !19}
-!22 = distinct !{!22, !4}
-!23 = distinct !{!23, !4}
-!24 = distinct !{!24, !4}
-!25 = distinct !{!25, !4}
-!26 = distinct !{!26, !4}
-!27 = distinct !{!27, !4}
-!28 = distinct !{!28, !4, !19}
-!29 = distinct !{!29, !4}
-!30 = distinct !{!30, !4}
-!31 = distinct !{!31, !4}
-!32 = distinct !{!32, !4}
-!33 = distinct !{!33, !4}
-!34 = distinct !{!34, !4}
-!35 = distinct !{!35, !4}
-!36 = distinct !{!36, !4}
-!37 = distinct !{!37, !4}
-!38 = distinct !{!38, !4}
-!39 = distinct !{!39, !4}

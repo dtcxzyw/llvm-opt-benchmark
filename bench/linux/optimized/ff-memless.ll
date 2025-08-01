@@ -144,7 +144,7 @@ define internal noundef i32 @ml_ff_upload(ptr noundef %0, ptr noundef readonly c
   br i1 %17, label %36, label %18
 
 18:                                               ; preds = %3
-  tail call void asm sideeffect " btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %14, i64 1) #9, !srcloc !10
+  tail call void asm sideeffect " btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %14, i64 1) #9, !srcloc !9
   %19 = load volatile i64, ptr @jiffies, align 64
   %20 = load ptr, ptr %12, align 8
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 12
@@ -187,7 +187,7 @@ define internal noundef i32 @ml_ff_playback(ptr noundef readonly captures(none) 
   br i1 %11, label %13, label %32
 
 13:                                               ; preds = %3
-  tail call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %12, i64 0) #9, !srcloc !11
+  tail call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %12, i64 0) #9, !srcloc !10
   %14 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store i32 %2, ptr %14, align 8
   %15 = load volatile i64, ptr @jiffies, align 64
@@ -219,11 +219,11 @@ define internal noundef i32 @ml_ff_playback(ptr noundef readonly captures(none) 
   br i1 %35, label %37, label %36
 
 36:                                               ; preds = %32
-  tail call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %12, i64 2) #9, !srcloc !11
+  tail call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %12, i64 2) #9, !srcloc !10
   br label %38
 
 37:                                               ; preds = %32
-  tail call void asm sideeffect " btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %12, i64 0) #9, !srcloc !10
+  tail call void asm sideeffect " btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %12, i64 0) #9, !srcloc !9
   br label %38
 
 38:                                               ; preds = %37, %36, %13
@@ -247,10 +247,10 @@ define internal void @ml_ff_set_gain(ptr noundef readonly captures(none) %0, i16
   %11 = phi i64 [ 0, %2 ], [ %13, %10 ]
   %.idx = mul nuw nsw i64 %11, 48
   %12 = getelementptr i8, ptr %9, i64 %.idx
-  tail call void asm sideeffect " btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %12, i64 1) #9, !srcloc !10
+  tail call void asm sideeffect " btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %12, i64 1) #9, !srcloc !9
   %13 = add nuw nsw i64 %11, 1
   %14 = icmp eq i64 %13, 16
-  br i1 %14, label %15, label %10, !llvm.loop !12
+  br i1 %14, label %15, label %10, !llvm.loop !11
 
 15:                                               ; preds = %10
   tail call fastcc void @ml_play_effects(ptr noundef %6)
@@ -299,7 +299,7 @@ define internal fastcc void @ml_play_effects(ptr noundef %0) unnamed_addr #0 ali
 
 12:                                               ; preds = %283, %11
   %13 = phi i64 [ 0, %11 ], [ %284, %283 ]
-  %14 = call i8 asm " btsq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %3, i64 %13) #9, !srcloc !13
+  %14 = call i8 asm " btsq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %3, i64 %13) #9, !srcloc !12
   %15 = icmp ult i8 %14, 2
   call void @llvm.assume(i1 %15)
   %16 = icmp eq i8 %14, 0
@@ -330,7 +330,7 @@ define internal fastcc void @ml_play_effects(ptr noundef %0) unnamed_addr #0 ali
   %35 = zext i16 %34 to i32
   %36 = getelementptr inbounds nuw i8, ptr %33, i64 56
   %37 = zext i16 %34 to i64
-  %38 = call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %36, i64 %37) #9, !srcloc !14
+  %38 = call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %36, i64 %37) #9, !srcloc !13
   %39 = icmp ult i8 %38, 2
   call void @llvm.assume(i1 %39)
   %40 = icmp eq i8 %38, 0
@@ -363,7 +363,7 @@ define internal fastcc void @ml_play_effects(ptr noundef %0) unnamed_addr #0 ali
   br i1 %56, label %58, label %57
 
 57:                                               ; preds = %55
-  call void asm sideeffect " btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %3, i64 %13) #9, !srcloc !10
+  call void asm sideeffect " btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %3, i64 %13) #9, !srcloc !9
   br label %283
 
 58:                                               ; preds = %55
@@ -372,15 +372,15 @@ define internal fastcc void @ml_play_effects(ptr noundef %0) unnamed_addr #0 ali
   br label %60
 
 60:                                               ; preds = %58, %50
-  %61 = call i8 asm sideeffect " btrq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %20, i64 2) #9, !srcloc !15
+  %61 = call i8 asm sideeffect " btrq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %20, i64 2) #9, !srcloc !14
   %62 = icmp ult i8 %61, 2
   call void @llvm.assume(i1 %62)
   %63 = icmp eq i8 %61, 0
   br i1 %63, label %65, label %64
 
 64:                                               ; preds = %60
-  call void asm sideeffect " btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %20, i64 1) #9, !srcloc !10
-  call void asm sideeffect " btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %20, i64 0) #9, !srcloc !10
+  call void asm sideeffect " btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %20, i64 1) #9, !srcloc !9
+  call void asm sideeffect " btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %20, i64 0) #9, !srcloc !9
   br label %283
 
 65:                                               ; preds = %60
@@ -398,7 +398,7 @@ define internal fastcc void @ml_play_effects(ptr noundef %0) unnamed_addr #0 ali
   br i1 %74, label %75, label %92
 
 75:                                               ; preds = %69
-  call void asm sideeffect " btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %20, i64 1) #9, !srcloc !10
+  call void asm sideeffect " btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %20, i64 1) #9, !srcloc !9
   %76 = getelementptr inbounds nuw i8, ptr %18, i64 16
   %77 = load i32, ptr %76, align 8
   %78 = add i32 %77, -1
@@ -407,7 +407,7 @@ define internal fastcc void @ml_play_effects(ptr noundef %0) unnamed_addr #0 ali
   br i1 %79, label %80, label %81
 
 80:                                               ; preds = %75
-  call void asm sideeffect " btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %20, i64 0) #9, !srcloc !10
+  call void asm sideeffect " btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %20, i64 0) #9, !srcloc !9
   br label %283
 
 81:                                               ; preds = %75
@@ -426,7 +426,7 @@ define internal fastcc void @ml_play_effects(ptr noundef %0) unnamed_addr #0 ali
   br label %283
 
 92:                                               ; preds = %69, %65
-  call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %20, i64 1) #9, !srcloc !11
+  call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %20, i64 1) #9, !srcloc !10
   %93 = load volatile i64, ptr @jiffies, align 64
   %94 = getelementptr inbounds nuw i8, ptr %18, i64 40
   store i64 %93, ptr %94, align 8
@@ -675,7 +675,7 @@ define internal fastcc void @ml_play_effects(ptr noundef %0) unnamed_addr #0 ali
 283:                                              ; preds = %281, %271, %228, %98, %81, %80, %64, %57, %24, %17, %12
   %284 = add nuw nsw i64 %13, 1
   %285 = icmp eq i64 %284, 16
-  br i1 %285, label %286, label %12, !llvm.loop !16
+  br i1 %285, label %286, label %12, !llvm.loop !15
 
 286:                                              ; preds = %283
   %287 = load i16, ptr %2, align 8
@@ -687,7 +687,7 @@ define internal fastcc void @ml_play_effects(ptr noundef %0) unnamed_addr #0 ali
   %291 = load ptr, ptr %5, align 8
   %292 = load ptr, ptr %0, align 8
   %293 = call i32 %290(ptr noundef %291, ptr noundef %292, ptr noundef nonnull %2) #9
-  br label %11, !llvm.loop !17
+  br label %11, !llvm.loop !16
 
 294:                                              ; preds = %286
   call fastcc void @ml_schedule_timer(ptr noundef %0)
@@ -827,7 +827,7 @@ define internal fastcc void @ml_schedule_timer(ptr noundef %0) unnamed_addr #0 a
   %80 = phi i64 [ %6, %._crit_edge7 ], [ %6, %4 ], [ %77, %71 ]
   %81 = add nuw nsw i64 %5, 1
   %82 = icmp eq i64 %81, 16
-  br i1 %82, label %83, label %4, !llvm.loop !18
+  br i1 %82, label %83, label %4, !llvm.loop !17
 
 83:                                               ; preds = %78
   %84 = icmp eq i32 %79, 0
@@ -992,16 +992,15 @@ attributes #10 = { cold nounwind }
 !3 = !{i32 4, !"indirect_branch_cs_prefix", i32 1}
 !4 = !{i32 4, !"SkipRaxSetup", i32 1}
 !5 = !{i64 2148396349, i64 2148396388, i64 2148396409, i64 2148396446, i64 2148396469, i64 2148396339}
-!6 = distinct !{!6, !7, !8, !9}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
 !8 = !{!"llvm.loop.unroll.disable"}
-!9 = !{!"llvm.loop.estimated_trip_count"}
-!10 = !{i64 2148398808}
-!11 = !{i64 2148397275}
-!12 = distinct !{!12, !7, !8, !9}
-!13 = !{i64 2148403603, i64 2148403680}
-!14 = !{i64 2148409961, i64 2148410035}
-!15 = !{i64 2148406298, i64 2148406375}
-!16 = distinct !{!16, !7, !8, !9}
-!17 = distinct !{!17, !7, !8, !9}
-!18 = distinct !{!18, !7, !8, !9}
+!9 = !{i64 2148398808}
+!10 = !{i64 2148397275}
+!11 = distinct !{!11, !7, !8}
+!12 = !{i64 2148403603, i64 2148403680}
+!13 = !{i64 2148409961, i64 2148410035}
+!14 = !{i64 2148406298, i64 2148406375}
+!15 = distinct !{!15, !7, !8}
+!16 = distinct !{!16, !7, !8}
+!17 = distinct !{!17, !7, !8}

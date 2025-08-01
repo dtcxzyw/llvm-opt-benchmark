@@ -894,7 +894,7 @@ _ZN26JfrCheckpointThreadClosureC2ER19JfrCheckpointWriter.exit: ; preds = %41, %_
   %59 = call noundef ptr @_ZN31JfrNonJavaThreadIteratorAdapter4nextEv(ptr noundef nonnull align 8 dereferenceable(24) %57) #8
   call void @_ZN26JfrCheckpointThreadClosure9do_threadEP6Thread(ptr noundef nonnull align 8 dereferenceable(52) %4, ptr noundef %59)
   %60 = call noundef zeroext i1 @_ZNK31JfrNonJavaThreadIteratorAdapter8has_nextEv(ptr noundef nonnull align 8 dereferenceable(24) %57) #8
-  br i1 %60, label %.lr.ph2, label %._crit_edge3, !llvm.loop !9
+  br i1 %60, label %.lr.ph2, label %._crit_edge3, !llvm.loop !8
 
 ._crit_edge3:                                     ; preds = %.lr.ph2, %._crit_edge
   call void @_ZN13NonJavaThread8IteratorD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %57) #8
@@ -941,7 +941,7 @@ switch.lookup:                                    ; preds = %2, %switch.lookup
   tail call void @_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE10write_utf8EPKc(ptr noundef nonnull align 8 dereferenceable(41) %1, ptr noundef nonnull %switch.load)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.not = icmp eq i64 %indvars.iv.next, 9
-  br i1 %.not, label %4, label %switch.lookup, !llvm.loop !10
+  br i1 %.not, label %4, label %switch.lookup
 
 4:                                                ; preds = %switch.lookup
   ret void
@@ -965,7 +965,7 @@ define hidden void @_ZN27MonitorInflateCauseConstant9serializeER19JfrCheckpointW
   tail call void @_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE10write_utf8EPKc(ptr noundef nonnull align 8 dereferenceable(41) %1, ptr noundef %5)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 7
-  br i1 %exitcond.not, label %6, label %3, !llvm.loop !11
+  br i1 %exitcond.not, label %6, label %3, !llvm.loop !9
 
 6:                                                ; preds = %3
   ret void
@@ -986,7 +986,7 @@ define hidden void @_ZN15GCCauseConstant9serializeER19JfrCheckpointWriter(ptr no
   tail call void @_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE10write_utf8EPKc(ptr noundef nonnull align 8 dereferenceable(41) %1, ptr noundef %5)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 34
-  br i1 %exitcond.not, label %6, label %3, !llvm.loop !12
+  br i1 %exitcond.not, label %6, label %3, !llvm.loop !10
 
 6:                                                ; preds = %3
   ret void
@@ -1008,7 +1008,7 @@ switch.lookup:                                    ; preds = %2, %switch.lookup
   tail call void @_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE10write_utf8EPKc(ptr noundef nonnull align 8 dereferenceable(41) %1, ptr noundef nonnull %switch.load)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 12
-  br i1 %exitcond.not, label %4, label %switch.lookup, !llvm.loop !13
+  br i1 %exitcond.not, label %4, label %switch.lookup, !llvm.loop !11
 
 4:                                                ; preds = %switch.lookup
   ret void
@@ -1065,7 +1065,7 @@ switch.lookup:                                    ; preds = %2, %switch.lookup
   tail call void @_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE10write_utf8EPKc(ptr noundef nonnull align 8 dereferenceable(41) %1, ptr noundef nonnull %switch.load)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
-  br i1 %exitcond.not, label %4, label %switch.lookup, !llvm.loop !14
+  br i1 %exitcond.not, label %4, label %switch.lookup, !llvm.loop !12
 
 4:                                                ; preds = %switch.lookup
   ret void
@@ -1085,7 +1085,7 @@ switch.lookup:                                    ; preds = %2, %switch.lookup
   tail call void @_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE10write_utf8EPKc(ptr noundef nonnull align 8 dereferenceable(41) %1, ptr noundef nonnull %switch.load)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 5
-  br i1 %exitcond.not, label %4, label %switch.lookup, !llvm.loop !15
+  br i1 %exitcond.not, label %4, label %switch.lookup, !llvm.loop !13
 
 4:                                                ; preds = %switch.lookup
   ret void
@@ -1104,7 +1104,7 @@ define hidden void @_ZN21NarrowOopModeConstant9serializeER19JfrCheckpointWriter(
   tail call void @_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE10write_utf8EPKc(ptr noundef nonnull align 8 dereferenceable(41) %1, ptr noundef %5)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %6, label %3, !llvm.loop !16
+  br i1 %exitcond.not, label %6, label %3, !llvm.loop !14
 
 6:                                                ; preds = %3
   ret void
@@ -1135,7 +1135,7 @@ _ZN9CodeCache18get_code_heap_nameE12CodeBlobType.exit: ; preds = %3, %6
   tail call void @_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE10write_utf8EPKc(ptr noundef nonnull align 8 dereferenceable(41) %1, ptr noundef %10)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %11, label %3, !llvm.loop !17
+  br i1 %exitcond.not, label %11, label %3, !llvm.loop !15
 
 11:                                               ; preds = %_ZN9CodeCache18get_code_heap_nameE12CodeBlobType.exit
   ret void
@@ -1154,7 +1154,7 @@ define hidden void @_ZN23VMOperationTypeConstant9serializeER19JfrCheckpointWrite
   tail call void @_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE10write_utf8EPKc(ptr noundef nonnull align 8 dereferenceable(41) %1, ptr noundef %5)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 80
-  br i1 %exitcond.not, label %6, label %3, !llvm.loop !18
+  br i1 %exitcond.not, label %6, label %3, !llvm.loop !16
 
 6:                                                ; preds = %3
   ret void
@@ -2072,7 +2072,7 @@ define hidden void @_ZN16BytecodeConstant9serializeER19JfrCheckpointWriter(ptr n
   tail call void @_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE10write_utf8EPKc(ptr noundef nonnull align 8 dereferenceable(41) %1, ptr noundef %5)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 239
-  br i1 %exitcond.not, label %6, label %3, !llvm.loop !19
+  br i1 %exitcond.not, label %6, label %3, !llvm.loop !17
 
 6:                                                ; preds = %3
   ret void
@@ -2091,7 +2091,7 @@ _Z17compilertype2name12CompilerType.exit:         ; preds = %2, %_Z17compilertyp
   tail call void @_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE10write_utf8EPKc(ptr noundef nonnull align 8 dereferenceable(41) %1, ptr noundef %4)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %5, label %_Z17compilertype2name12CompilerType.exit, !llvm.loop !20
+  br i1 %exitcond.not, label %5, label %_Z17compilertype2name12CompilerType.exit, !llvm.loop !18
 
 5:                                                ; preds = %_Z17compilertype2name12CompilerType.exit
   ret void
@@ -2110,7 +2110,7 @@ define hidden void @_ZN15NMTTypeConstant9serializeER19JfrCheckpointWriter(ptr no
   tail call void @_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE10write_utf8EPKc(ptr noundef nonnull align 8 dereferenceable(41) %1, ptr noundef %5)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 28
-  br i1 %exitcond.not, label %6, label %3, !llvm.loop !21
+  br i1 %exitcond.not, label %6, label %3, !llvm.loop !19
 
 6:                                                ; preds = %3
   ret void
@@ -2846,19 +2846,17 @@ attributes #9 = { nounwind willreturn memory(read) }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !8}
-!11 = distinct !{!11, !7, !8}
-!12 = distinct !{!12, !7, !8}
-!13 = distinct !{!13, !7, !8}
-!14 = distinct !{!14, !7, !8}
-!15 = distinct !{!15, !7, !8}
-!16 = distinct !{!16, !7, !8}
-!17 = distinct !{!17, !7, !8}
-!18 = distinct !{!18, !7, !8}
-!19 = distinct !{!19, !7, !8}
-!20 = distinct !{!20, !7, !8}
-!21 = distinct !{!21, !7, !8}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7}
+!12 = distinct !{!12, !7}
+!13 = distinct !{!13, !7}
+!14 = distinct !{!14, !7}
+!15 = distinct !{!15, !7}
+!16 = distinct !{!16, !7}
+!17 = distinct !{!17, !7}
+!18 = distinct !{!18, !7}
+!19 = distinct !{!19, !7}

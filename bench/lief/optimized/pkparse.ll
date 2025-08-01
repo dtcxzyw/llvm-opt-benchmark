@@ -674,9 +674,9 @@ define hidden i32 @mbedtls_pk_parse_key(ptr noundef %0, ptr noundef %1, i64 noun
   %28 = load ptr, ptr %26, align 8
   %.0.i = select i1 %cond.i, ptr %28, ptr null
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9)
-  %29 = load ptr, ptr %11, align 8, !tbaa !28
+  %29 = load ptr, ptr %11, align 8, !tbaa !27
   %30 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  %31 = load i64, ptr %30, align 8, !tbaa !30
+  %31 = load i64, ptr %30, align 8, !tbaa !29
   %32 = call i32 @mbedtls_rsa_parse_key(ptr noundef %.0.i, ptr noundef %29, i64 noundef %31) #9
   %.not125 = icmp eq i32 %32, 0
   br i1 %.not125, label %34, label %33
@@ -718,9 +718,9 @@ define hidden i32 @mbedtls_pk_parse_key(ptr noundef %0, ptr noundef %1, i64 noun
   br i1 %.not122, label %43, label %48
 
 43:                                               ; preds = %40
-  %44 = load ptr, ptr %11, align 8, !tbaa !28
+  %44 = load ptr, ptr %11, align 8, !tbaa !27
   %45 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  %46 = load i64, ptr %45, align 8, !tbaa !30
+  %46 = load i64, ptr %45, align 8, !tbaa !29
   %47 = call fastcc i32 @pk_parse_key_sec1_der(ptr noundef %0, ptr noundef %44, i64 noundef %46, ptr noundef %5, ptr noundef %6)
   %.not123 = icmp eq i32 %47, 0
   br i1 %.not123, label %49, label %48
@@ -754,9 +754,9 @@ define hidden i32 @mbedtls_pk_parse_key(ptr noundef %0, ptr noundef %1, i64 noun
   ]
 
 54:                                               ; preds = %52
-  %55 = load ptr, ptr %11, align 8, !tbaa !28
+  %55 = load ptr, ptr %11, align 8, !tbaa !27
   %56 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  %57 = load i64, ptr %56, align 8, !tbaa !30
+  %57 = load i64, ptr %56, align 8, !tbaa !29
   %58 = call fastcc i32 @pk_parse_key_pkcs8_unencrypted_der(ptr noundef %0, ptr noundef %55, i64 noundef %57, ptr noundef %5, ptr noundef %6)
   %.not121 = icmp eq i32 %58, 0
   br i1 %.not121, label %60, label %59
@@ -782,9 +782,9 @@ define hidden i32 @mbedtls_pk_parse_key(ptr noundef %0, ptr noundef %1, i64 noun
   ]
 
 64:                                               ; preds = %62
-  %65 = load ptr, ptr %11, align 8, !tbaa !28
+  %65 = load ptr, ptr %11, align 8, !tbaa !27
   %66 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  %67 = load i64, ptr %66, align 8, !tbaa !30
+  %67 = load i64, ptr %66, align 8, !tbaa !29
   %68 = call fastcc i32 @mbedtls_pk_parse_key_pkcs8_encrypted_der(ptr noundef %0, ptr noundef %65, i64 noundef %67, ptr noundef %3, i64 noundef %4, ptr noundef %5, ptr noundef %6)
   %.not120 = icmp eq i32 %68, 0
   br i1 %.not120, label %70, label %69
@@ -1408,7 +1408,7 @@ define hidden i32 @mbedtls_pk_parse_public_key(ptr noundef %0, ptr noundef %1, i
   ]
 
 16:                                               ; preds = %14
-  %17 = load ptr, ptr %8, align 8, !tbaa !28
+  %17 = load ptr, ptr %8, align 8, !tbaa !27
   store ptr %17, ptr %6, align 8, !tbaa !7
   %18 = call ptr @mbedtls_pk_info_from_type(i32 noundef 1) #9
   %19 = icmp eq ptr %18, null
@@ -1442,7 +1442,7 @@ define hidden i32 @mbedtls_pk_parse_public_key(ptr noundef %0, ptr noundef %1, i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
   %31 = load ptr, ptr %6, align 8, !tbaa !7
   %32 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %33 = load i64, ptr %32, align 8, !tbaa !30
+  %33 = load i64, ptr %32, align 8, !tbaa !29
   %34 = call i32 @mbedtls_rsa_parse_pubkey(ptr noundef %.0.i, ptr noundef %31, i64 noundef %33) #9
   %.not50 = icmp eq i32 %34, 0
   br i1 %.not50, label %36, label %35
@@ -1472,10 +1472,10 @@ define hidden i32 @mbedtls_pk_parse_public_key(ptr noundef %0, ptr noundef %1, i
   ]
 
 41:                                               ; preds = %39
-  %42 = load ptr, ptr %8, align 8, !tbaa !28
+  %42 = load ptr, ptr %8, align 8, !tbaa !27
   store ptr %42, ptr %6, align 8, !tbaa !7
   %43 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %44 = load i64, ptr %43, align 8, !tbaa !30
+  %44 = load i64, ptr %43, align 8, !tbaa !29
   %45 = getelementptr inbounds nuw i8, ptr %42, i64 %44
   %46 = call i32 @mbedtls_pk_parse_subpubkey(ptr noundef nonnull %6, ptr noundef %45, ptr noundef %0)
   call void @mbedtls_pem_free(ptr noundef nonnull %8) #9
@@ -1861,9 +1861,8 @@ attributes #11 = { nounwind willreturn memory(read) }
 !22 = !{!"p1 _ZTS17mbedtls_ecp_point", !9, i64 0}
 !23 = !{!5, !5, i64 0}
 !24 = !{!17, !11, i64 128}
-!25 = distinct !{!25, !26, !27}
+!25 = distinct !{!25, !26}
 !26 = !{!"llvm.loop.mustprogress"}
-!27 = !{!"llvm.loop.estimated_trip_count"}
-!28 = !{!29, !8, i64 0}
-!29 = !{!"mbedtls_pem_context", !8, i64 0, !11, i64 8, !8, i64 16}
-!30 = !{!29, !11, i64 8}
+!27 = !{!28, !8, i64 0}
+!28 = !{!"mbedtls_pem_context", !8, i64 0, !11, i64 8, !8, i64 16}
+!29 = !{!28, !11, i64 8}

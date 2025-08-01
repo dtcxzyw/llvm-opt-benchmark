@@ -685,7 +685,7 @@ define dso_local void @spi_dv_device(ptr noundef %0) #0 align 16 {
 272:                                              ; preds = %.thread23, %270
   %273 = add nuw nsw i32 %255, 1
   %274 = icmp eq i32 %273, 4
-  br i1 %274, label %.thread25, label %.preheader, !llvm.loop !13
+  br i1 %274, label %.thread25, label %.preheader, !llvm.loop !12
 
 275:                                              ; preds = %270
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #17
@@ -721,7 +721,7 @@ define dso_local void @spi_dv_device(ptr noundef %0) #0 align 16 {
   %287 = add nuw nsw i32 %277, 1
   %288 = icmp eq i32 %287, 3
   %289 = select i1 %286, i1 true, i1 %288
-  br i1 %289, label %290, label %276, !llvm.loop !14
+  br i1 %289, label %290, label %276, !llvm.loop !9
 
 290:                                              ; preds = %284, %280
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3) #17
@@ -758,7 +758,7 @@ define dso_local void @spi_dv_device(ptr noundef %0) #0 align 16 {
   %307 = getelementptr i8, ptr %23, i64 %306
   %308 = call fastcc i32 @spi_dv_retrain(ptr noundef %0, ptr noundef nonnull %23, ptr noundef %307, ptr noundef nonnull @spi_dv_device_echo_buffer)
   %309 = icmp eq i32 %308, 2
-  br i1 %309, label %120, label %.loopexit, !llvm.loop !15
+  br i1 %309, label %120, label %.loopexit
 
 .loopexit:                                        ; preds = %304, %.thread25, %96, %89, %62
   call void (ptr, ptr, ptr, ...) @_dev_printk(ptr noundef nonnull @.str, ptr noundef nonnull %32, ptr noundef nonnull @.str.2) #19
@@ -1002,7 +1002,7 @@ define dso_local void @spi_display_xfer_agreement(ptr noundef %0) #0 align 16 {
   %55 = add i32 %49, 1
   %56 = srem i32 %48, %50
   %57 = icmp eq i32 %56, 0
-  br i1 %57, label %58, label %46, !llvm.loop !16
+  br i1 %57, label %58, label %46, !llvm.loop !13
 
 58:                                               ; preds = %46
   %59 = sext i32 %55 to i64
@@ -1278,7 +1278,7 @@ define dso_local range(i32 1, 259) i32 @spi_print_msg(ptr noundef readonly captu
   %101 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.30, i32 noundef %100) #19
   %102 = add nuw nsw i64 %97, 1
   %103 = icmp eq i64 %102, %28
-  br i1 %103, label %.loopexit, label %96, !llvm.loop !17
+  br i1 %103, label %.loopexit, label %96, !llvm.loop !14
 
 104:                                              ; preds = %1
   %105 = icmp sgt i8 %2, -1
@@ -1419,7 +1419,7 @@ define internal fastcc void @print_nego(ptr noundef readonly captures(none) %0, 
   %35 = add i32 %29, 1
   %36 = srem i32 %28, %30
   %37 = icmp eq i32 %36, 0
-  br i1 %37, label %38, label %26, !llvm.loop !18
+  br i1 %37, label %38, label %26, !llvm.loop !13
 
 38:                                               ; preds = %26
   %39 = sext i32 %35 to i64
@@ -1507,7 +1507,7 @@ define internal range(i32 0, 2) i32 @spi_target_match(ptr noundef readnone captu
   %13 = getelementptr inbounds nuw i8, ptr %9, i64 64
   %14 = load ptr, ptr %13, align 8
   %15 = icmp eq ptr %14, null
-  br i1 %15, label %.loopexit, label %8, !llvm.loop !19
+  br i1 %15, label %.loopexit, label %8, !llvm.loop !15
 
 16:                                               ; preds = %8
   %17 = getelementptr i8, ptr %9, i64 -592
@@ -1567,7 +1567,7 @@ define internal range(i32 0, 2) i32 @spi_host_match(ptr noundef readnone capture
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 64
   %10 = load ptr, ptr %9, align 8
   %11 = icmp eq ptr %10, null
-  br i1 %11, label %.loopexit, label %.preheader, !llvm.loop !20
+  br i1 %11, label %.loopexit, label %.preheader, !llvm.loop !15
 
 12:                                               ; preds = %.preheader
   %13 = getelementptr i8, ptr %5, i64 -592
@@ -1604,8 +1604,8 @@ define dso_local void @spi_release_transport(ptr noundef %0) #0 align 16 {
   br i1 %4, label %6, label %5, !prof !5
 
 5:                                                ; preds = %1
-  tail call void asm sideeffect "450: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 450b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 450) #17, !srcloc !21
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.121, i32 98, i32 0, i64 12) #17, !srcloc !22
+  tail call void asm sideeffect "450: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 450b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 450) #17, !srcloc !16
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.121, i32 98, i32 0, i64 12) #17, !srcloc !17
   unreachable
 
 6:                                                ; preds = %1
@@ -1614,8 +1614,8 @@ define dso_local void @spi_release_transport(ptr noundef %0) #0 align 16 {
   br i1 %8, label %10, label %9, !prof !5
 
 9:                                                ; preds = %6
-  tail call void asm sideeffect "450: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 450b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 450) #17, !srcloc !21
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.121, i32 98, i32 0, i64 12) #17, !srcloc !22
+  tail call void asm sideeffect "450: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 450b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 450) #17, !srcloc !16
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.121, i32 98, i32 0, i64 12) #17, !srcloc !17
   unreachable
 
 10:                                               ; preds = %6
@@ -1660,7 +1660,7 @@ define internal i32 @spi_transport_init() #8 section ".init.text" align 16 {
   %12 = getelementptr [3 x %struct.anon.8], ptr @spi_static_device_list, i64 0, i64 %11
   %13 = load ptr, ptr %12, align 8
   %14 = icmp eq i64 %11, 2
-  br i1 %14, label %.loopexit, label %.preheader, !llvm.loop !23
+  br i1 %14, label %.loopexit, label %.preheader, !llvm.loop !18
 
 .loopexit:                                        ; preds = %.preheader, %0
   %15 = tail call i32 @transport_class_register(ptr noundef nonnull @spi_transport_class) #17
@@ -1747,7 +1747,7 @@ define internal noundef range(i32 0, 2) i32 @spi_dv_device_compare_inquiry(ptr n
   %39 = add nuw nsw i32 %29, 1
   %40 = icmp eq i32 %39, 3
   %41 = select i1 %38, i1 true, i1 %40
-  br i1 %41, label %42, label %28, !llvm.loop !24
+  br i1 %41, label %42, label %28, !llvm.loop !9
 
 42:                                               ; preds = %36, %32
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6) #17
@@ -1786,7 +1786,7 @@ define internal noundef range(i32 0, 2) i32 @spi_dv_device_compare_inquiry(ptr n
   %57 = phi i32 [ %51, %49 ], [ %26, %52 ]
   %58 = add i32 %57, 1
   %59 = icmp slt i32 %58, %3
-  br i1 %59, label %25, label %.loopexit5, !llvm.loop !25
+  br i1 %59, label %25, label %.loopexit5, !llvm.loop !19
 
 .loopexit5:                                       ; preds = %55, %52, %.loopexit, %4
   %60 = phi i32 [ 1, %.loopexit ], [ 0, %4 ], [ 1, %52 ], [ 0, %55 ]
@@ -1805,7 +1805,7 @@ define internal fastcc range(i32 0, 3) i32 @spi_dv_retrain(ptr noundef %0, ptr n
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 832
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 40
   %13 = getelementptr inbounds nuw i8, ptr %9, i64 816
-  %14 = tail call i32 %3(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef 3) #17, !callees !26
+  %14 = tail call i32 %3(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef 3) #17, !callees !20
   %15 = and i32 %14, -3
   %16 = icmp eq i32 %15, 0
   br i1 %16, label %.thread, label %.lr.ph
@@ -1940,7 +1940,7 @@ define internal fastcc range(i32 0, 3) i32 @spi_dv_retrain(ptr noundef %0, ptr n
 91:                                               ; preds = %89, %84, %65, %60, %50, %45
   %92 = phi i32 [ %18, %50 ], [ %18, %45 ], [ %18, %65 ], [ %18, %60 ], [ %73, %89 ], [ %73, %84 ]
   %93 = phi i32 [ %17, %50 ], [ %17, %45 ], [ %17, %65 ], [ %17, %60 ], [ %73, %89 ], [ %73, %84 ]
-  %94 = tail call i32 %3(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef 3) #17, !callees !26
+  %94 = tail call i32 %3(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef 3) #17, !callees !20
   %95 = and i32 %94, -3
   %96 = icmp eq i32 %95, 0
   br i1 %96, label %.thread, label %.lr.ph
@@ -2003,7 +2003,7 @@ define internal noundef range(i32 0, 3) i32 @spi_dv_device_echo_buffer(ptr nound
   %32 = phi i32 [ %37, %.loopexit20 ], [ %91, %.preheader ]
   %33 = phi i32 [ %77, %.loopexit20 ], [ %92, %.preheader ]
   %34 = icmp slt i32 %33, %14
-  br i1 %34, label %35, label %.loopexit23, !llvm.loop !27
+  br i1 %34, label %35, label %.loopexit23, !llvm.loop !21
 
 35:                                               ; preds = %.loopexit18, %29
   %36 = phi i32 [ 0, %29 ], [ %33, %.loopexit18 ]
@@ -2049,7 +2049,7 @@ define internal noundef range(i32 0, 3) i32 @spi_dv_device_echo_buffer(ptr nound
   store i8 %62, ptr %63, align 1
   %64 = add nsw i64 %61, 1
   %65 = icmp eq i64 %64, %31
-  br i1 %65, label %.loopexit46, label %60, !llvm.loop !28
+  br i1 %65, label %.loopexit46, label %60, !llvm.loop !22
 
 .loopexit22.loopexit:                             ; preds = %.preheader21
   %.pre = add i32 %68, 34
@@ -2073,7 +2073,7 @@ define internal noundef range(i32 0, 3) i32 @spi_dv_device_echo_buffer(ptr nound
   store i16 %74, ptr %70, align 2
   %75 = add i32 %68, 2
   %76 = icmp slt i32 %75, %58
-  br i1 %76, label %.preheader21, label %.loopexit22.loopexit, !llvm.loop !29
+  br i1 %76, label %.preheader21, label %.loopexit22.loopexit, !llvm.loop !23
 
 .loopexit20.loopexit:                             ; preds = %.preheader19
   %.pre42 = add i32 %79, 34
@@ -2096,7 +2096,7 @@ define internal noundef range(i32 0, 3) i32 @spi_dv_device_echo_buffer(ptr nound
   store i16 %84, ptr %81, align 2
   %85 = add i32 %79, 2
   %86 = icmp slt i32 %85, %.pre-phi41
-  br i1 %86, label %.preheader19, label %.loopexit20.loopexit, !llvm.loop !30
+  br i1 %86, label %.preheader19, label %.loopexit20.loopexit, !llvm.loop !24
 
 .preheader:                                       ; preds = %.loopexit20, %.preheader
   %87 = phi i32 [ %92, %.preheader ], [ %77, %.loopexit20 ]
@@ -2107,12 +2107,12 @@ define internal noundef range(i32 0, 3) i32 @spi_dv_device_echo_buffer(ptr nound
   %91 = tail call i32 @llvm.fshl.i32(i32 %88, i32 %88, i32 1)
   %92 = add i32 %87, 4
   %93 = icmp slt i32 %92, %.pre-phi45
-  br i1 %93, label %.preheader, label %.loopexit18, !llvm.loop !31
+  br i1 %93, label %.preheader, label %.loopexit18, !llvm.loop !25
 
 94:                                               ; preds = %150
   %95 = add nuw nsw i32 %98, 1
   %96 = icmp eq i32 %95, %3
-  br i1 %96, label %.loopexit, label %97, !llvm.loop !32
+  br i1 %96, label %.loopexit, label %97, !llvm.loop !26
 
 97:                                               ; preds = %94, %42
   %98 = phi i32 [ 0, %42 ], [ %95, %94 ]
@@ -2146,7 +2146,7 @@ define internal noundef range(i32 0, 3) i32 @spi_dv_device_echo_buffer(ptr nound
   %110 = add nuw nsw i32 %100, 1
   %111 = icmp eq i32 %110, 3
   %112 = select i1 %109, i1 true, i1 %111
-  br i1 %112, label %113, label %99, !llvm.loop !33
+  br i1 %112, label %113, label %99, !llvm.loop !9
 
 113:                                              ; preds = %107, %103
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7) #17
@@ -2217,7 +2217,7 @@ define internal noundef range(i32 0, 3) i32 @spi_dv_device_echo_buffer(ptr nound
   %147 = add nuw nsw i32 %137, 1
   %148 = icmp eq i32 %147, 3
   %149 = select i1 %146, i1 true, i1 %148
-  br i1 %149, label %150, label %136, !llvm.loop !34
+  br i1 %149, label %150, label %136, !llvm.loop !9
 
 150:                                              ; preds = %144, %140, %136
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6) #17
@@ -2305,7 +2305,7 @@ define internal zeroext range(i16 0, 512) i16 @target_attribute_is_visible(ptr n
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 64
   %12 = load ptr, ptr %11, align 8
   %13 = icmp eq ptr %12, null
-  br i1 %13, label %.loopexit, label %6, !llvm.loop !35
+  br i1 %13, label %.loopexit, label %6, !llvm.loop !15
 
 14:                                               ; preds = %6
   %15 = getelementptr i8, ptr %7, i64 -592
@@ -2752,7 +2752,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @show_spi_transport_perio
   %13 = getelementptr inbounds nuw i8, ptr %9, i64 64
   %14 = load ptr, ptr %13, align 8
   %15 = icmp eq ptr %14, null
-  br i1 %15, label %.loopexit, label %8, !llvm.loop !36
+  br i1 %15, label %.loopexit, label %8, !llvm.loop !15
 
 16:                                               ; preds = %8
   %17 = getelementptr i8, ptr %9, i64 -592
@@ -2825,7 +2825,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @show_spi_transport_perio
   %58 = add i32 %52, 1
   %59 = srem i32 %51, %53
   %60 = icmp eq i32 %59, 0
-  br i1 %60, label %61, label %49, !llvm.loop !37
+  br i1 %60, label %61, label %49, !llvm.loop !13
 
 61:                                               ; preds = %49
   %62 = add i32 %52, 2
@@ -2866,7 +2866,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @store_spi_transport_peri
   %16 = getelementptr inbounds nuw i8, ptr %12, i64 64
   %17 = load ptr, ptr %16, align 8
   %18 = icmp eq ptr %17, null
-  br i1 %18, label %.loopexit5, label %11, !llvm.loop !38
+  br i1 %18, label %.loopexit5, label %11, !llvm.loop !15
 
 19:                                               ; preds = %11
   %20 = getelementptr i8, ptr %12, i64 -592
@@ -2911,7 +2911,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @store_spi_transport_peri
   %46 = add i32 %45, %37
   %47 = udiv i32 %38, 10
   %48 = icmp samesign ult i32 %38, 10
-  br i1 %48, label %.loopexit, label %.preheader, !llvm.loop !39
+  br i1 %48, label %.loopexit, label %.preheader, !llvm.loop !27
 
 .loopexit:                                        ; preds = %44, %.preheader, %29
   %49 = phi i32 [ %32, %29 ], [ %37, %.preheader ], [ %46, %44 ]
@@ -2927,7 +2927,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @store_spi_transport_peri
 55:                                               ; preds = %50
   %56 = add nuw nsw i64 %51, 1
   %57 = icmp eq i64 %56, 13
-  br i1 %57, label %.thread, label %50, !llvm.loop !40
+  br i1 %57, label %.thread, label %50, !llvm.loop !28
 
 .thread:                                          ; preds = %55
   %58 = sdiv i32 %49, 4000
@@ -2981,7 +2981,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @show_spi_transport_min_p
   %13 = getelementptr inbounds nuw i8, ptr %9, i64 64
   %14 = load ptr, ptr %13, align 8
   %15 = icmp eq ptr %14, null
-  br i1 %15, label %.loopexit, label %8, !llvm.loop !41
+  br i1 %15, label %.loopexit, label %8, !llvm.loop !15
 
 16:                                               ; preds = %8
   %17 = getelementptr i8, ptr %9, i64 -592
@@ -3050,7 +3050,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @show_spi_transport_min_p
   %57 = add i32 %51, 1
   %58 = srem i32 %50, %52
   %59 = icmp eq i32 %58, 0
-  br i1 %59, label %60, label %48, !llvm.loop !42
+  br i1 %59, label %60, label %48, !llvm.loop !13
 
 60:                                               ; preds = %48
   %61 = add i32 %51, 2
@@ -3107,7 +3107,7 @@ define internal noundef i64 @store_spi_transport_min_period(ptr noundef readonly
   %24 = add i32 %23, %15
   %25 = udiv i32 %16, 10
   %26 = icmp samesign ult i32 %16, 10
-  br i1 %26, label %.loopexit, label %.preheader, !llvm.loop !43
+  br i1 %26, label %.loopexit, label %.preheader, !llvm.loop !27
 
 .loopexit:                                        ; preds = %22, %.preheader, %4
   %27 = phi i32 [ %10, %4 ], [ %15, %.preheader ], [ %24, %22 ]
@@ -3123,7 +3123,7 @@ define internal noundef i64 @store_spi_transport_min_period(ptr noundef readonly
 33:                                               ; preds = %28
   %34 = add nuw nsw i64 %29, 1
   %35 = icmp eq i64 %34, 13
-  br i1 %35, label %.thread, label %28, !llvm.loop !44
+  br i1 %35, label %.thread, label %28, !llvm.loop !28
 
 .thread:                                          ; preds = %33
   %36 = sdiv i32 %27, 4000
@@ -3163,7 +3163,7 @@ define internal noundef range(i64 -2147483648, 2147483648) i64 @show_spi_transpo
   %13 = getelementptr inbounds nuw i8, ptr %9, i64 64
   %14 = load ptr, ptr %13, align 8
   %15 = icmp eq ptr %14, null
-  br i1 %15, label %.loopexit, label %8, !llvm.loop !45
+  br i1 %15, label %.loopexit, label %8, !llvm.loop !15
 
 16:                                               ; preds = %8
   %17 = getelementptr i8, ptr %9, i64 -592
@@ -3212,7 +3212,7 @@ define internal noundef i64 @store_spi_transport_offset(ptr noundef readonly cap
   %15 = getelementptr inbounds nuw i8, ptr %11, i64 64
   %16 = load ptr, ptr %15, align 8
   %17 = icmp eq ptr %16, null
-  br i1 %17, label %.loopexit, label %10, !llvm.loop !46
+  br i1 %17, label %.loopexit, label %10, !llvm.loop !15
 
 18:                                               ; preds = %10
   %19 = getelementptr i8, ptr %11, i64 -592
@@ -3289,7 +3289,7 @@ define internal noundef range(i64 -2147483648, 2147483648) i64 @show_spi_transpo
   %13 = getelementptr inbounds nuw i8, ptr %9, i64 64
   %14 = load ptr, ptr %13, align 8
   %15 = icmp eq ptr %14, null
-  br i1 %15, label %.loopexit, label %8, !llvm.loop !47
+  br i1 %15, label %.loopexit, label %8, !llvm.loop !15
 
 16:                                               ; preds = %8
   %17 = getelementptr i8, ptr %9, i64 -592
@@ -3340,7 +3340,7 @@ define internal noundef i64 @store_spi_transport_width(ptr noundef readonly capt
   %15 = getelementptr inbounds nuw i8, ptr %11, i64 64
   %16 = load ptr, ptr %15, align 8
   %17 = icmp eq ptr %16, null
-  br i1 %17, label %.loopexit, label %10, !llvm.loop !48
+  br i1 %17, label %.loopexit, label %10, !llvm.loop !15
 
 18:                                               ; preds = %10
   %19 = getelementptr i8, ptr %11, i64 -592
@@ -3425,7 +3425,7 @@ define internal noundef range(i64 -2147483648, 2147483648) i64 @show_spi_transpo
   %13 = getelementptr inbounds nuw i8, ptr %9, i64 64
   %14 = load ptr, ptr %13, align 8
   %15 = icmp eq ptr %14, null
-  br i1 %15, label %.loopexit, label %8, !llvm.loop !49
+  br i1 %15, label %.loopexit, label %8, !llvm.loop !15
 
 16:                                               ; preds = %8
   %17 = getelementptr i8, ptr %9, i64 -592
@@ -3477,7 +3477,7 @@ define internal noundef i64 @store_spi_transport_iu(ptr noundef readonly capture
   %15 = getelementptr inbounds nuw i8, ptr %11, i64 64
   %16 = load ptr, ptr %15, align 8
   %17 = icmp eq ptr %16, null
-  br i1 %17, label %.loopexit, label %10, !llvm.loop !50
+  br i1 %17, label %.loopexit, label %10, !llvm.loop !15
 
 18:                                               ; preds = %10
   %19 = getelementptr i8, ptr %11, i64 -592
@@ -3562,7 +3562,7 @@ define internal noundef range(i64 -2147483648, 2147483648) i64 @show_spi_transpo
   %13 = getelementptr inbounds nuw i8, ptr %9, i64 64
   %14 = load ptr, ptr %13, align 8
   %15 = icmp eq ptr %14, null
-  br i1 %15, label %.loopexit, label %8, !llvm.loop !51
+  br i1 %15, label %.loopexit, label %8, !llvm.loop !15
 
 16:                                               ; preds = %8
   %17 = getelementptr i8, ptr %9, i64 -592
@@ -3613,7 +3613,7 @@ define internal noundef i64 @store_spi_transport_dt(ptr noundef readonly capture
   %14 = getelementptr inbounds nuw i8, ptr %10, i64 64
   %15 = load ptr, ptr %14, align 8
   %16 = icmp eq ptr %15, null
-  br i1 %16, label %.loopexit, label %9, !llvm.loop !52
+  br i1 %16, label %.loopexit, label %9, !llvm.loop !15
 
 17:                                               ; preds = %9
   %18 = getelementptr i8, ptr %10, i64 -592
@@ -3663,7 +3663,7 @@ define internal noundef range(i64 -2147483648, 2147483648) i64 @show_spi_transpo
   %13 = getelementptr inbounds nuw i8, ptr %9, i64 64
   %14 = load ptr, ptr %13, align 8
   %15 = icmp eq ptr %14, null
-  br i1 %15, label %.loopexit, label %8, !llvm.loop !53
+  br i1 %15, label %.loopexit, label %8, !llvm.loop !15
 
 16:                                               ; preds = %8
   %17 = getelementptr i8, ptr %9, i64 -592
@@ -3715,7 +3715,7 @@ define internal noundef i64 @store_spi_transport_qas(ptr noundef readonly captur
   %15 = getelementptr inbounds nuw i8, ptr %11, i64 64
   %16 = load ptr, ptr %15, align 8
   %17 = icmp eq ptr %16, null
-  br i1 %17, label %.loopexit, label %10, !llvm.loop !54
+  br i1 %17, label %.loopexit, label %10, !llvm.loop !15
 
 18:                                               ; preds = %10
   %19 = getelementptr i8, ptr %11, i64 -592
@@ -3800,7 +3800,7 @@ define internal noundef range(i64 -2147483648, 2147483648) i64 @show_spi_transpo
   %13 = getelementptr inbounds nuw i8, ptr %9, i64 64
   %14 = load ptr, ptr %13, align 8
   %15 = icmp eq ptr %14, null
-  br i1 %15, label %.loopexit, label %8, !llvm.loop !55
+  br i1 %15, label %.loopexit, label %8, !llvm.loop !15
 
 16:                                               ; preds = %8
   %17 = getelementptr i8, ptr %9, i64 -592
@@ -3851,7 +3851,7 @@ define internal noundef i64 @store_spi_transport_wr_flow(ptr noundef readonly ca
   %14 = getelementptr inbounds nuw i8, ptr %10, i64 64
   %15 = load ptr, ptr %14, align 8
   %16 = icmp eq ptr %15, null
-  br i1 %16, label %.loopexit, label %9, !llvm.loop !56
+  br i1 %16, label %.loopexit, label %9, !llvm.loop !15
 
 17:                                               ; preds = %9
   %18 = getelementptr i8, ptr %10, i64 -592
@@ -3901,7 +3901,7 @@ define internal noundef range(i64 -2147483648, 2147483648) i64 @show_spi_transpo
   %13 = getelementptr inbounds nuw i8, ptr %9, i64 64
   %14 = load ptr, ptr %13, align 8
   %15 = icmp eq ptr %14, null
-  br i1 %15, label %.loopexit, label %8, !llvm.loop !57
+  br i1 %15, label %.loopexit, label %8, !llvm.loop !15
 
 16:                                               ; preds = %8
   %17 = getelementptr i8, ptr %9, i64 -592
@@ -3952,7 +3952,7 @@ define internal noundef i64 @store_spi_transport_rd_strm(ptr noundef readonly ca
   %14 = getelementptr inbounds nuw i8, ptr %10, i64 64
   %15 = load ptr, ptr %14, align 8
   %16 = icmp eq ptr %15, null
-  br i1 %16, label %.loopexit, label %9, !llvm.loop !58
+  br i1 %16, label %.loopexit, label %9, !llvm.loop !15
 
 17:                                               ; preds = %9
   %18 = getelementptr i8, ptr %10, i64 -592
@@ -4002,7 +4002,7 @@ define internal noundef range(i64 -2147483648, 2147483648) i64 @show_spi_transpo
   %13 = getelementptr inbounds nuw i8, ptr %9, i64 64
   %14 = load ptr, ptr %13, align 8
   %15 = icmp eq ptr %14, null
-  br i1 %15, label %.loopexit, label %8, !llvm.loop !59
+  br i1 %15, label %.loopexit, label %8, !llvm.loop !15
 
 16:                                               ; preds = %8
   %17 = getelementptr i8, ptr %9, i64 -592
@@ -4053,7 +4053,7 @@ define internal noundef i64 @store_spi_transport_rti(ptr noundef readonly captur
   %14 = getelementptr inbounds nuw i8, ptr %10, i64 64
   %15 = load ptr, ptr %14, align 8
   %16 = icmp eq ptr %15, null
-  br i1 %16, label %.loopexit, label %9, !llvm.loop !60
+  br i1 %16, label %.loopexit, label %9, !llvm.loop !15
 
 17:                                               ; preds = %9
   %18 = getelementptr i8, ptr %10, i64 -592
@@ -4103,7 +4103,7 @@ define internal noundef range(i64 -2147483648, 2147483648) i64 @show_spi_transpo
   %13 = getelementptr inbounds nuw i8, ptr %9, i64 64
   %14 = load ptr, ptr %13, align 8
   %15 = icmp eq ptr %14, null
-  br i1 %15, label %.loopexit, label %8, !llvm.loop !61
+  br i1 %15, label %.loopexit, label %8, !llvm.loop !15
 
 16:                                               ; preds = %8
   %17 = getelementptr i8, ptr %9, i64 -592
@@ -4154,7 +4154,7 @@ define internal noundef i64 @store_spi_transport_pcomp_en(ptr noundef readonly c
   %14 = getelementptr inbounds nuw i8, ptr %10, i64 64
   %15 = load ptr, ptr %14, align 8
   %16 = icmp eq ptr %15, null
-  br i1 %16, label %.loopexit, label %9, !llvm.loop !62
+  br i1 %16, label %.loopexit, label %9, !llvm.loop !15
 
 17:                                               ; preds = %9
   %18 = getelementptr i8, ptr %10, i64 -592
@@ -4204,7 +4204,7 @@ define internal noundef range(i64 -2147483648, 2147483648) i64 @show_spi_transpo
   %13 = getelementptr inbounds nuw i8, ptr %9, i64 64
   %14 = load ptr, ptr %13, align 8
   %15 = icmp eq ptr %14, null
-  br i1 %15, label %.loopexit, label %8, !llvm.loop !63
+  br i1 %15, label %.loopexit, label %8, !llvm.loop !15
 
 16:                                               ; preds = %8
   %17 = getelementptr i8, ptr %9, i64 -592
@@ -4255,7 +4255,7 @@ define internal noundef i64 @store_spi_transport_hold_mcs(ptr noundef readonly c
   %14 = getelementptr inbounds nuw i8, ptr %10, i64 64
   %15 = load ptr, ptr %14, align 8
   %16 = icmp eq ptr %15, null
-  br i1 %16, label %.loopexit, label %9, !llvm.loop !64
+  br i1 %16, label %.loopexit, label %9, !llvm.loop !15
 
 17:                                               ; preds = %9
   %18 = getelementptr i8, ptr %10, i64 -592
@@ -4337,7 +4337,7 @@ define internal noundef i32 @spi_host_setup(ptr readnone captures(none) %0, ptr 
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 64
   %10 = load ptr, ptr %9, align 8
   %11 = icmp eq ptr %10, null
-  br i1 %11, label %.loopexit, label %4, !llvm.loop !65
+  br i1 %11, label %.loopexit, label %4, !llvm.loop !15
 
 12:                                               ; preds = %4
   %13 = getelementptr i8, ptr %5, i64 -592
@@ -4367,7 +4367,7 @@ define internal i32 @spi_host_configure(ptr readnone captures(none) %0, ptr read
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 64
   %12 = load ptr, ptr %11, align 8
   %13 = icmp eq ptr %12, null
-  br i1 %13, label %.loopexit, label %6, !llvm.loop !66
+  br i1 %13, label %.loopexit, label %6, !llvm.loop !15
 
 14:                                               ; preds = %6
   %15 = getelementptr i8, ptr %7, i64 -592
@@ -4414,7 +4414,7 @@ define internal noundef range(i64 -2147483648, 2147483648) i64 @show_spi_host_si
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 64
   %12 = load ptr, ptr %11, align 8
   %13 = icmp eq ptr %12, null
-  br i1 %13, label %.loopexit3, label %6, !llvm.loop !67
+  br i1 %13, label %.loopexit3, label %6, !llvm.loop !15
 
 14:                                               ; preds = %6
   %15 = getelementptr i8, ptr %7, i64 -592
@@ -4444,7 +4444,7 @@ define internal noundef range(i64 -2147483648, 2147483648) i64 @show_spi_host_si
 29:                                               ; preds = %32
   %30 = add nuw nsw i64 %33, 1
   %31 = icmp eq i64 %30, 4
-  br i1 %31, label %.loopexit, label %32, !llvm.loop !68
+  br i1 %31, label %.loopexit, label %32, !llvm.loop !29
 
 32:                                               ; preds = %29, %25
   %33 = phi i64 [ 0, %25 ], [ %30, %29 ]
@@ -4481,7 +4481,7 @@ define internal noundef i64 @store_spi_host_signalling(ptr noundef readonly capt
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 64
   %13 = load ptr, ptr %12, align 8
   %14 = icmp eq ptr %13, null
-  br i1 %14, label %.loopexit, label %7, !llvm.loop !69
+  br i1 %14, label %.loopexit, label %7, !llvm.loop !15
 
 15:                                               ; preds = %7
   %16 = getelementptr i8, ptr %8, i64 -592
@@ -4516,7 +4516,7 @@ define internal noundef i64 @store_spi_host_signalling(ptr noundef readonly capt
 33:                                               ; preds = %30, %20
   %34 = add nuw nsw i64 %21, 1
   %35 = icmp eq i64 %34, 4
-  br i1 %35, label %.thread, label %20, !llvm.loop !70
+  br i1 %35, label %.thread, label %20, !llvm.loop !30
 
 36:                                               ; preds = %30, %30
   %37 = load i32, ptr %22, align 16
@@ -4571,7 +4571,7 @@ define internal noundef range(i64 -2147483648, 2147483648) i64 @show_spi_host_wi
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 64
   %12 = load ptr, ptr %11, align 8
   %13 = icmp eq ptr %12, null
-  br i1 %13, label %.loopexit, label %6, !llvm.loop !71
+  br i1 %13, label %.loopexit, label %6, !llvm.loop !15
 
 14:                                               ; preds = %6
   %15 = getelementptr i8, ptr %7, i64 -592
@@ -4604,7 +4604,7 @@ define internal noundef range(i64 -2147483648, 2147483648) i64 @show_spi_host_hb
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 64
   %12 = load ptr, ptr %11, align 8
   %13 = icmp eq ptr %12, null
-  br i1 %13, label %.loopexit, label %6, !llvm.loop !72
+  br i1 %13, label %.loopexit, label %6, !llvm.loop !15
 
 14:                                               ; preds = %6
   %15 = getelementptr i8, ptr %7, i64 -592
@@ -4827,67 +4827,25 @@ attributes #19 = { cold nounwind }
 !6 = !{!"branch_weights", i32 1, i32 2000}
 !7 = !{i32 0, i32 2}
 !8 = !{!"auto-init"}
-!9 = distinct !{!9, !10, !11, !12}
+!9 = distinct !{!9, !10, !11}
 !10 = !{!"llvm.loop.mustprogress"}
 !11 = !{!"llvm.loop.unroll.disable"}
-!12 = !{!"llvm.loop.estimated_trip_count"}
-!13 = distinct !{!13, !11, !12}
-!14 = distinct !{!14, !10, !11, !12}
-!15 = distinct !{!15, !12}
-!16 = distinct !{!16, !10, !11, !12}
-!17 = distinct !{!17, !10, !11, !12}
-!18 = distinct !{!18, !10, !11, !12}
-!19 = distinct !{!19, !10, !11, !12}
-!20 = distinct !{!20, !10, !11, !12}
-!21 = !{i64 2156818901, i64 2156818710, i64 2156818762, i64 2156818808, i64 2156818836}
-!22 = !{i64 2156818975, i64 2156819004, i64 2156819050, i64 2156819108, i64 2156819162, i64 2156819216, i64 2156819271, i64 2156819302}
-!23 = distinct !{!23, !10, !11, !12}
-!24 = distinct !{!24, !10, !11, !12}
-!25 = distinct !{!25, !10, !11, !12}
-!26 = !{ptr @spi_dv_device_compare_inquiry, ptr @spi_dv_device_echo_buffer}
-!27 = distinct !{!27, !10, !11, !12}
-!28 = distinct !{!28, !10, !11, !12}
-!29 = distinct !{!29, !10, !11, !12}
-!30 = distinct !{!30, !10, !11, !12}
-!31 = distinct !{!31, !10, !11, !12}
-!32 = distinct !{!32, !10, !11, !12}
-!33 = distinct !{!33, !10, !11, !12}
-!34 = distinct !{!34, !10, !11, !12}
-!35 = distinct !{!35, !10, !11, !12}
-!36 = distinct !{!36, !10, !11, !12}
-!37 = distinct !{!37, !10, !11, !12}
-!38 = distinct !{!38, !10, !11, !12}
-!39 = distinct !{!39, !10, !11, !12}
-!40 = distinct !{!40, !10, !11, !12}
-!41 = distinct !{!41, !10, !11, !12}
-!42 = distinct !{!42, !10, !11, !12}
-!43 = distinct !{!43, !10, !11, !12}
-!44 = distinct !{!44, !10, !11, !12}
-!45 = distinct !{!45, !10, !11, !12}
-!46 = distinct !{!46, !10, !11, !12}
-!47 = distinct !{!47, !10, !11, !12}
-!48 = distinct !{!48, !10, !11, !12}
-!49 = distinct !{!49, !10, !11, !12}
-!50 = distinct !{!50, !10, !11, !12}
-!51 = distinct !{!51, !10, !11, !12}
-!52 = distinct !{!52, !10, !11, !12}
-!53 = distinct !{!53, !10, !11, !12}
-!54 = distinct !{!54, !10, !11, !12}
-!55 = distinct !{!55, !10, !11, !12}
-!56 = distinct !{!56, !10, !11, !12}
-!57 = distinct !{!57, !10, !11, !12}
-!58 = distinct !{!58, !10, !11, !12}
-!59 = distinct !{!59, !10, !11, !12}
-!60 = distinct !{!60, !10, !11, !12}
-!61 = distinct !{!61, !10, !11, !12}
-!62 = distinct !{!62, !10, !11, !12}
-!63 = distinct !{!63, !10, !11, !12}
-!64 = distinct !{!64, !10, !11, !12}
-!65 = distinct !{!65, !10, !11, !12}
-!66 = distinct !{!66, !10, !11, !12}
-!67 = distinct !{!67, !10, !11, !12}
-!68 = distinct !{!68, !10, !11, !12}
-!69 = distinct !{!69, !10, !11, !12}
-!70 = distinct !{!70, !10, !11, !12}
-!71 = distinct !{!71, !10, !11, !12}
-!72 = distinct !{!72, !10, !11, !12}
+!12 = distinct !{!12, !11}
+!13 = distinct !{!13, !10, !11}
+!14 = distinct !{!14, !10, !11}
+!15 = distinct !{!15, !10, !11}
+!16 = !{i64 2156818901, i64 2156818710, i64 2156818762, i64 2156818808, i64 2156818836}
+!17 = !{i64 2156818975, i64 2156819004, i64 2156819050, i64 2156819108, i64 2156819162, i64 2156819216, i64 2156819271, i64 2156819302}
+!18 = distinct !{!18, !10, !11}
+!19 = distinct !{!19, !10, !11}
+!20 = !{ptr @spi_dv_device_compare_inquiry, ptr @spi_dv_device_echo_buffer}
+!21 = distinct !{!21, !10, !11}
+!22 = distinct !{!22, !10, !11}
+!23 = distinct !{!23, !10, !11}
+!24 = distinct !{!24, !10, !11}
+!25 = distinct !{!25, !10, !11}
+!26 = distinct !{!26, !10, !11}
+!27 = distinct !{!27, !10, !11}
+!28 = distinct !{!28, !10, !11}
+!29 = distinct !{!29, !10, !11}
+!30 = distinct !{!30, !10, !11}

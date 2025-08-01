@@ -307,7 +307,7 @@ MultARGBRow.exit:                                 ; preds = %MultARGBRow.exit.lo
   %159 = getelementptr inbounds nuw i8, ptr %.095, i64 %54
   %160 = add nuw i32 %.06594, 1
   %161 = icmp ult i32 %160, %158
-  br i1 %161, label %.lr.ph.split, label %.loopexit, !llvm.loop !30
+  br i1 %161, label %.lr.ph.split, label %.loopexit, !llvm.loop !29
 
 .loopexit:                                        ; preds = %MultARGBRow.exit, %119, %110
   %.not88 = icmp eq i32 %3, 0
@@ -344,7 +344,7 @@ MultARGBRow.exit:                                 ; preds = %MultARGBRow.exit.lo
   %174 = phi i32 [ 34675, %172 ], [ %186, %.critedge.i ]
   %175 = phi ptr [ @kTIFFMetadataMap, %172 ], [ %185, %.critedge.i ]
   %176 = getelementptr inbounds nuw i8, ptr %175, i64 8
-  %177 = load i64, ptr %176, align 8, !tbaa !32
+  %177 = load i64, ptr %176, align 8, !tbaa !31
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #10
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #10
   %178 = call i32 (ptr, i32, ...) @TIFFGetField(ptr noundef nonnull %24, i32 noundef %174, ptr noundef nonnull %8, ptr noundef nonnull %7) #10
@@ -353,7 +353,7 @@ MultARGBRow.exit:                                 ; preds = %MultARGBRow.exit.lo
 
 179:                                              ; preds = %173
   %180 = getelementptr inbounds nuw i8, ptr %4, i64 %177
-  %181 = load ptr, ptr %7, align 8, !tbaa !34
+  %181 = load ptr, ptr %7, align 8, !tbaa !33
   %182 = load i32, ptr %8, align 4, !tbaa !19
   %183 = zext i32 %182 to i64
   %184 = call i32 @MetadataCopy(ptr noundef %181, i64 noundef %183, ptr noundef nonnull %180) #10
@@ -365,9 +365,9 @@ MultARGBRow.exit:                                 ; preds = %MultARGBRow.exit.lo
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #10
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %185 = getelementptr inbounds nuw [3 x %struct.anon], ptr @kTIFFMetadataMap, i64 0, i64 %indvars.iv.next.i
-  %186 = load i32, ptr %185, align 16, !tbaa !35
+  %186 = load i32, ptr %185, align 16, !tbaa !34
   %exitcond.i = icmp eq i64 %indvars.iv.next.i, 2
-  br i1 %exitcond.i, label %187, label %173, !llvm.loop !36
+  br i1 %exitcond.i, label %187, label %173, !llvm.loop !35
 
 187:                                              ; preds = %.critedge.i
   %188 = call i32 (ptr, i32, ...) @TIFFGetField(ptr noundef nonnull %24, i32 noundef 34665, ptr noundef nonnull %6) #10
@@ -455,7 +455,7 @@ define internal i64 @MySeek(ptr noundef captures(none) %0, i64 noundef %1, i32 n
 .sink.split:                                      ; preds = %3, %4
   %.sink13 = phi i64 [ 8, %4 ], [ 16, %3 ]
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink13
-  %6 = load i64, ptr %5, align 8, !tbaa !37
+  %6 = load i64, ptr %5, align 8, !tbaa !36
   br label %7
 
 7:                                                ; preds = %.sink.split, %3
@@ -579,14 +579,13 @@ attributes #12 = { cold nounwind }
 !24 = !{!"p1 _ZTS12WebPAuxStats", !7, i64 0}
 !25 = !{!22, !20, i64 12}
 !26 = !{!8, !8, i64 0}
-!27 = distinct !{!27, !28, !29}
+!27 = distinct !{!27, !28}
 !28 = !{!"llvm.loop.mustprogress"}
-!29 = !{!"llvm.loop.estimated_trip_count"}
-!30 = distinct !{!30, !28, !29, !31}
-!31 = !{!"llvm.loop.unswitch.partial.disable"}
-!32 = !{!33, !10, i64 8}
-!33 = !{!"", !20, i64 0, !10, i64 8}
-!34 = !{!7, !7, i64 0}
-!35 = !{!33, !20, i64 0}
-!36 = distinct !{!36, !28, !29}
-!37 = !{!10, !10, i64 0}
+!29 = distinct !{!29, !28, !30}
+!30 = !{!"llvm.loop.unswitch.partial.disable"}
+!31 = !{!32, !10, i64 8}
+!32 = !{!"", !20, i64 0, !10, i64 8}
+!33 = !{!7, !7, i64 0}
+!34 = !{!32, !20, i64 0}
+!35 = distinct !{!35, !28}
+!36 = !{!10, !10, i64 0}

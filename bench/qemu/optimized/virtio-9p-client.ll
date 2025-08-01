@@ -1309,7 +1309,7 @@ define dso_local { i32, ptr } @v9fs_twalk(ptr noundef byval(%struct.TWalkOpt) al
   %.134.i = phi i32 [ %48, %46 ], [ %.0336.i, %.lr.ph8.i ]
   %52 = tail call ptr @strtok(ptr noundef null, ptr noundef nonnull @.str.27) #14
   %.not37.i = icmp eq ptr %52, null
-  br i1 %.not37.i, label %split.exit, label %.lr.ph8.i, !llvm.loop !11
+  br i1 %.not37.i, label %split.exit, label %.lr.ph8.i, !llvm.loop !10
 
 split.exit:                                       ; preds = %51, %._crit_edge.i
   tail call void @g_free(ptr noundef %44) #14
@@ -1364,7 +1364,7 @@ v9fs_string_size.exit:                            ; preds = %60, %65
   %75 = add i32 %69, %.04068
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %60, !llvm.loop !12
+  br i1 %exitcond.not, label %._crit_edge, label %60, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %74, %56
   %.040.lcssa = phi i32 [ 10, %56 ], [ %75, %74 ]
@@ -1412,7 +1412,7 @@ v9fs_string_size.exit:                            ; preds = %60, %65
   call void @v9fs_string_write(ptr noundef nonnull %78, ptr noundef %96)
   %indvars.iv.next80 = add nuw nsw i64 %indvars.iv79, 1
   %exitcond83.not = icmp eq i64 %indvars.iv.next80, %wide.trip.count82
-  br i1 %exitcond83.not, label %._crit_edge75, label %94, !llvm.loop !13
+  br i1 %exitcond83.not, label %._crit_edge75, label %94, !llvm.loop !12
 
 ._crit_edge75:                                    ; preds = %94, %._crit_edge
   %97 = getelementptr inbounds nuw i8, ptr %78, i64 8
@@ -1502,7 +1502,7 @@ v9fs_string_size.exit:                            ; preds = %60, %65
   %147 = getelementptr inbounds ptr, ptr %.066, i64 %146
   %148 = load ptr, ptr %147, align 8
   %.not8.i = icmp eq ptr %148, null
-  br i1 %.not8.i, label %._crit_edge.i62, label %.lr.ph.i61, !llvm.loop !14
+  br i1 %.not8.i, label %._crit_edge.i62, label %.lr.ph.i61, !llvm.loop !13
 
 ._crit_edge.i62:                                  ; preds = %.lr.ph.i61, %.preheader.i
   call void @g_free(ptr noundef nonnull %.066) #14
@@ -2179,7 +2179,7 @@ define dso_local void @v9fs_rreaddir(ptr noundef %0, ptr noundef writeonly captu
   %67 = sub nsw i32 %.neg62, %66
   %68 = add i32 %.05364, 1
   %69 = icmp sgt i32 %67, 23
-  br i1 %69, label %18, label %._crit_edge, !llvm.loop !15
+  br i1 %69, label %18, label %._crit_edge, !llvm.loop !14
 
 70:                                               ; preds = %._crit_edge
   store i32 %.053.lcssa, ptr %2, align 4
@@ -2198,7 +2198,7 @@ define dso_local void @v9fs_rreaddir(ptr noundef %0, ptr noundef writeonly captu
   call void @g_free(ptr noundef %75) #14
   call void @g_free(ptr noundef nonnull %.06.i) #14
   %.not.i = icmp eq ptr %73, null
-  br i1 %.not.i, label %v9fs_free_dirents.exit, label %.lr.ph.i, !llvm.loop !16
+  br i1 %.not.i, label %v9fs_free_dirents.exit, label %.lr.ph.i, !llvm.loop !15
 
 v9fs_free_dirents.exit:                           ; preds = %.lr.ph.i, %71
   %76 = load ptr, ptr @alloc, align 8
@@ -2227,7 +2227,7 @@ define dso_local void @v9fs_free_dirents(ptr noundef %0) local_unnamed_addr #1 {
   tail call void @g_free(ptr noundef %5) #14
   tail call void @g_free(ptr noundef nonnull %.06) #14
   %.not = icmp eq ptr %3, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !16
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
   ret void
@@ -3957,12 +3957,11 @@ attributes #18 = { nounwind allocsize(0,1) }
 !5 = !{!"branch_weights", !"expected", i32 1, i32 2000}
 !6 = !{i8 0, i8 2}
 !7 = !{}
-!8 = distinct !{!8, !9, !10}
+!8 = distinct !{!8, !9}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = !{!"llvm.loop.estimated_trip_count"}
-!11 = distinct !{!11, !9, !10}
-!12 = distinct !{!12, !9, !10}
-!13 = distinct !{!13, !9, !10}
-!14 = distinct !{!14, !9, !10}
-!15 = distinct !{!15, !9, !10}
-!16 = distinct !{!16, !9, !10}
+!10 = distinct !{!10, !9}
+!11 = distinct !{!11, !9}
+!12 = distinct !{!12, !9}
+!13 = distinct !{!13, !9}
+!14 = distinct !{!14, !9}
+!15 = distinct !{!15, !9}

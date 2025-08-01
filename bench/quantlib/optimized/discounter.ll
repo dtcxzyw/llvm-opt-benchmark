@@ -54,7 +54,7 @@ _ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPKdSt6vectorIdSaIdEEEEdET_S8_S8
   %div = fdiv double %sub20, %sub25
   %sub26 = fsub double 1.000000e+00, %div
   %beforeWeight_ = getelementptr inbounds nuw i8, ptr %this, i64 8
-  store double %sub26, ptr %beforeWeight_, align 8, !tbaa !12
+  store double %sub26, ptr %beforeWeight_, align 8, !tbaa !11
   ret void
 }
 
@@ -63,31 +63,31 @@ declare void @_ZN8QuantLib20checkIncreasingTimesERKSt6vectorIdSaIdEE(ptr noundef
 ; Function Attrs: mustprogress uwtable
 define noundef double @_ZNK8QuantLib21MarketModelDiscounter14numeraireBondsERKNS_10CurveStateEm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(64) %curveState, i64 noundef %numeraire) local_unnamed_addr #0 align 2 {
 entry:
-  %0 = load i64, ptr %this, align 8, !tbaa !15
-  %vtable = load ptr, ptr %curveState, align 8, !tbaa !16
+  %0 = load i64, ptr %this, align 8, !tbaa !14
+  %vtable = load ptr, ptr %curveState, align 8, !tbaa !15
   %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 16
   %1 = load ptr, ptr %vfn, align 8
   %call = tail call noundef double %1(ptr noundef nonnull align 8 dereferenceable(64) %curveState, i64 noundef %0, i64 noundef %numeraire)
   %beforeWeight_ = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %2 = load double, ptr %beforeWeight_, align 8, !tbaa !12
+  %2 = load double, ptr %beforeWeight_, align 8, !tbaa !11
   %cmp = fcmp oeq double %2, 1.000000e+00
   br i1 %cmp, label %cleanup14, label %if.end
 
 if.end:                                           ; preds = %entry
-  %3 = load i64, ptr %this, align 8, !tbaa !15
+  %3 = load i64, ptr %this, align 8, !tbaa !14
   %add = add i64 %3, 1
-  %vtable3 = load ptr, ptr %curveState, align 8, !tbaa !16
+  %vtable3 = load ptr, ptr %curveState, align 8, !tbaa !15
   %vfn4 = getelementptr inbounds nuw i8, ptr %vtable3, i64 16
   %4 = load ptr, ptr %vfn4, align 8
   %call5 = tail call noundef double %4(ptr noundef nonnull align 8 dereferenceable(64) %curveState, i64 noundef %add, i64 noundef %numeraire)
-  %5 = load double, ptr %beforeWeight_, align 8, !tbaa !12
+  %5 = load double, ptr %beforeWeight_, align 8, !tbaa !11
   %cmp7 = fcmp oeq double %5, 0.000000e+00
   br i1 %cmp7, label %cleanup14, label %if.end9
 
 if.end9:                                          ; preds = %if.end
-  %call11 = tail call double @pow(double noundef %call, double noundef %5) #4, !tbaa !18
+  %call11 = tail call double @pow(double noundef %call, double noundef %5) #4, !tbaa !17
   %sub = fsub double 1.000000e+00, %5
-  %call13 = tail call double @pow(double noundef %call5, double noundef %sub) #4, !tbaa !18
+  %call13 = tail call double @pow(double noundef %call5, double noundef %sub) #4, !tbaa !17
   %mul = fmul double %call11, %call13
   br label %cleanup14
 
@@ -119,14 +119,13 @@ attributes #4 = { nounwind }
 !6 = !{!"Simple C++ TBAA"}
 !7 = !{!8, !8, i64 0}
 !8 = !{!"double", !5, i64 0}
-!9 = distinct !{!9, !10, !11}
+!9 = distinct !{!9, !10}
 !10 = !{!"llvm.loop.mustprogress"}
-!11 = !{!"llvm.loop.estimated_trip_count"}
-!12 = !{!13, !8, i64 8}
-!13 = !{!"_ZTSN8QuantLib21MarketModelDiscounterE", !14, i64 0, !8, i64 8}
-!14 = !{!"long", !5, i64 0}
-!15 = !{!13, !14, i64 0}
-!16 = !{!17, !17, i64 0}
-!17 = !{!"vtable pointer", !6, i64 0}
-!18 = !{!19, !19, i64 0}
-!19 = !{!"int", !5, i64 0}
+!11 = !{!12, !8, i64 8}
+!12 = !{!"_ZTSN8QuantLib21MarketModelDiscounterE", !13, i64 0, !8, i64 8}
+!13 = !{!"long", !5, i64 0}
+!14 = !{!12, !13, i64 0}
+!15 = !{!16, !16, i64 0}
+!16 = !{!"vtable pointer", !6, i64 0}
+!17 = !{!18, !18, i64 0}
+!18 = !{!"int", !5, i64 0}

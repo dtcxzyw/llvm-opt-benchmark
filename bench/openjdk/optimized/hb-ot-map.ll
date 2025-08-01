@@ -145,7 +145,7 @@ define hidden void @_ZN19hb_ot_map_builder_tC2EP9hb_face_tRK23hb_segment_propert
           to label %38 unwind label %.loopexit
 
 38:                                               ; preds = %29
-  br i1 %21, label %20, label %39, !llvm.loop !9
+  br i1 %21, label %20, label %39, !llvm.loop !8
 
 39:                                               ; preds = %38
   ret void
@@ -169,7 +169,7 @@ define hidden void @_ZN19hb_ot_map_builder_tC2EP9hb_face_tRK23hb_segment_propert
 _ZN11hb_vector_tIN19hb_ot_map_builder_t12stage_info_tELb0EED2Ev.exit: ; preds = %40, %42
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.ptr24, i8 0, i64 16, i1 false)
   %46 = icmp eq i64 %.add22, 96
-  br i1 %46, label %47, label %40, !llvm.loop !10
+  br i1 %46, label %47, label %40
 
 47:                                               ; preds = %_ZN11hb_vector_tIN19hb_ot_map_builder_t12stage_info_tELb0EED2Ev.exit
   %48 = load i32, ptr %8, align 8
@@ -238,7 +238,7 @@ _ZN11hb_vector_tIN19hb_ot_map_builder_t14feature_info_tELb0EE4finiEv.exit: ; pre
 
 17:                                               ; preds = %13, %9
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %11, i8 0, i64 16, i1 false)
-  br i1 %10, label %9, label %.preheader, !llvm.loop !11
+  br i1 %10, label %9, label %.preheader, !llvm.loop !9
 
 .preheader:                                       ; preds = %17, %_ZN11hb_vector_tIN19hb_ot_map_builder_t12stage_info_tELb0EED2Ev.exit
   %.idx = phi i64 [ %.add, %_ZN11hb_vector_tIN19hb_ot_map_builder_t12stage_info_tELb0EED2Ev.exit ], [ 128, %17 ]
@@ -259,7 +259,7 @@ _ZN11hb_vector_tIN19hb_ot_map_builder_t14feature_info_tELb0EE4finiEv.exit: ; pre
 _ZN11hb_vector_tIN19hb_ot_map_builder_t12stage_info_tELb0EED2Ev.exit: ; preds = %.preheader, %19
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.ptr3, i8 0, i64 16, i1 false)
   %23 = icmp eq i64 %.add, 96
-  br i1 %23, label %24, label %.preheader, !llvm.loop !12
+  br i1 %23, label %24, label %.preheader
 
 24:                                               ; preds = %_ZN11hb_vector_tIN19hb_ot_map_builder_t12stage_info_tELb0EED2Ev.exit
   %25 = load i32, ptr %2, align 8
@@ -316,7 +316,7 @@ define hidden void @_ZN19hb_ot_map_builder_t11add_featureEj25hb_ot_map_feature_f
   %15 = add nuw i32 %.143.i.i.i, 8
   %16 = add nuw i32 %15, %14
   %17 = icmp ugt i32 %10, %16
-  br i1 %17, label %.preheader.i.i.i, label %.thread.i.i.i, !llvm.loop !13
+  br i1 %17, label %.preheader.i.i.i, label %.thread.i.i.i, !llvm.loop !10
 
 .thread.i.i.i:                                    ; preds = %.preheader.i.i.i
   %18 = icmp ugt i32 %16, 153391689
@@ -428,7 +428,7 @@ define hidden noundef zeroext i1 @_ZN19hb_ot_map_builder_t11has_featureEj(ptr no
   %13 = tail call i32 @hb_ot_layout_language_find_feature(ptr noundef %6, i32 noundef %8, i32 noundef %10, i32 noundef %12, i32 noundef %1, ptr noundef null)
   %.not.not = icmp ne i32 %13, 0
   %or.cond.not = or i1 %.not, %.not.not
-  br i1 %or.cond.not, label %14, label %5, !llvm.loop !14
+  br i1 %or.cond.not, label %14, label %5, !llvm.loop !11
 
 14:                                               ; preds = %5
   ret i1 %.not.not
@@ -493,7 +493,7 @@ define hidden void @_ZN19hb_ot_map_builder_t11add_lookupsER11hb_ot_map_tjjjjbbbb
   %45 = add nuw i32 %.143.i.i.i, 8
   %46 = add nuw i32 %45, %44
   %47 = icmp ugt i32 %40, %46
-  br i1 %47, label %.preheader.i.i.i, label %.thread.i.i.i, !llvm.loop !15
+  br i1 %47, label %.preheader.i.i.i, label %.thread.i.i.i, !llvm.loop !12
 
 .thread.i.i.i:                                    ; preds = %.preheader.i.i.i
   %48 = icmp ugt i32 %46, 357913941
@@ -576,12 +576,12 @@ _ZN11hb_vector_tIN11hb_ot_map_t12lookup_map_tELb0EE4pushEv.exit: ; preds = %66, 
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %82 = zext i32 %81 to i64
   %83 = icmp samesign ult i64 %indvars.iv.next, %82
-  br i1 %83, label %.lr.ph, label %._crit_edge, !llvm.loop !16
+  br i1 %83, label %.lr.ph, label %._crit_edge, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %80
   %84 = add i32 %81, %.0
   %85 = icmp eq i32 %81, 32
-  br i1 %85, label %30, label %._crit_edge.thread, !llvm.loop !17
+  br i1 %85, label %30, label %._crit_edge.thread, !llvm.loop !14
 
 ._crit_edge.thread:                               ; preds = %30, %._crit_edge
   ret void
@@ -614,7 +614,7 @@ define hidden void @_ZN19hb_ot_map_builder_t9add_pauseEjPFbPK18hb_ot_shape_plan_
   %15 = add nuw i32 %.143.i.i.i, 8
   %16 = add nuw i32 %15, %14
   %17 = icmp ugt i32 %10, %16
-  br i1 %17, label %.preheader.i.i.i, label %.thread.i.i.i, !llvm.loop !18
+  br i1 %17, label %.preheader.i.i.i, label %.thread.i.i.i, !llvm.loop !15
 
 .thread.i.i.i:                                    ; preds = %.preheader.i.i.i
   %18 = icmp ugt i32 %16, 268435455
@@ -741,7 +741,7 @@ define hidden void @_ZN19hb_ot_map_builder_t7compileER11hb_ot_map_tRK22hb_ot_sha
   %33 = getelementptr inbounds nuw [2 x i32], ptr %18, i64 0, i64 %indvars.iv
   %34 = load i32, ptr %33, align 4
   %35 = call i32 @hb_ot_layout_language_get_required_feature(ptr noundef %28, i32 noundef %30, i32 noundef %32, i32 noundef %34, ptr noundef nonnull %indvars.iv.sroa.phi577, ptr noundef nonnull %indvars.iv.sroa.phi)
-  br i1 %20, label %19, label %36, !llvm.loop !19
+  br i1 %20, label %19, label %36, !llvm.loop !16
 
 36:                                               ; preds = %19
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -860,7 +860,7 @@ _ZN11hb_vector_tIN19hb_ot_map_builder_t14feature_info_tELb0EE5qsortEPFiPKvS4_E.e
   %.1235 = phi i32 [ %57, %56 ], [ %.0234431, %85 ]
   %indvars.iv.next478 = add nuw nsw i64 %indvars.iv477, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next478, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !20
+  br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !17
 
 ._crit_edge.loopexit:                             ; preds = %101
   %.pre498 = load i32, ptr %38, align 4
@@ -955,7 +955,7 @@ _ZN11hb_vector_tIN19hb_ot_map_builder_t14feature_info_tELb0EE6shrinkEib.exit: ; 
   store ptr null, ptr %129, align 8
   %.add = add nuw nsw i64 %.idx, 48
   %130 = icmp eq i64 %.add, 96
-  br i1 %130, label %.preheader412, label %_ZN11hb_vector_tIN19hb_ot_map_builder_t14feature_info_tELb0EE6shrinkEib.exit, !llvm.loop !21
+  br i1 %130, label %.preheader412, label %_ZN11hb_vector_tIN19hb_ot_map_builder_t14feature_info_tELb0EE6shrinkEib.exit
 
 .preheader412:                                    ; preds = %_ZN11hb_vector_tIN19hb_ot_map_builder_t14feature_info_tELb0EE6shrinkEib.exit
   %131 = getelementptr inbounds nuw i8, ptr %11, i64 96
@@ -976,7 +976,7 @@ _ZN11hb_vector_tIN19hb_ot_map_builder_t14feature_info_tELb0EE6shrinkEib.exit: ; 
           to label %141 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 141:                                              ; preds = %132
-  br i1 %133, label %132, label %142, !llvm.loop !22
+  br i1 %133, label %132, label %142, !llvm.loop !18
 
 .loopexit:                                        ; preds = %533
   %lpad.loopexit = landingpad { ptr, i32 }
@@ -1131,7 +1131,7 @@ _ZN11hb_vector_tIN19hb_ot_map_builder_t14feature_info_tELb0EEixEi.exit._crit_edg
 195:                                              ; preds = %.lr.ph.i
   %196 = load i32, ptr %204, align 4
   %197 = icmp eq i32 %196, %170
-  br i1 %197, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !23
+  br i1 %197, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !19
 
 ._crit_edge.i:                                    ; preds = %195, %.lr.ph.i.i
   %.lcssa15.i = phi i32 [ %189, %.lr.ph.i.i ], [ %206, %195 ]
@@ -1152,13 +1152,13 @@ _ZN11hb_vector_tIN19hb_ot_map_builder_t14feature_info_tELb0EEixEi.exit._crit_edg
   %206 = load i32, ptr %205, align 4
   %207 = and i32 %206, 2
   %.not.i.i286 = icmp eq i32 %207, 0
-  br i1 %.not.i.i286, label %.loopexit518, label %195, !llvm.loop !23
+  br i1 %.not.i.i286, label %.loopexit518, label %195, !llvm.loop !19
 
 .loopexit518:                                     ; preds = %.lr.ph.i, %._crit_edge.i, %180, %176
   %208 = getelementptr inbounds nuw [2 x i32], ptr %12, i64 0, i64 %indvars.iv483
   store i32 65535, ptr %208, align 4
   %209 = icmp eq i64 %indvars.iv483, 0
-  br i1 %209, label %167, label %214, !llvm.loop !24
+  br i1 %209, label %167, label %214, !llvm.loop !20
 
 .thread512:                                       ; preds = %._crit_edge.i
   %210 = getelementptr inbounds nuw %"struct.hb_hashmap_t<unsigned int, unsigned int, true>::item_t", ptr %179, i64 %198, i32 2
@@ -1166,7 +1166,7 @@ _ZN11hb_vector_tIN19hb_ot_map_builder_t14feature_info_tELb0EEixEi.exit._crit_edg
   %212 = getelementptr inbounds nuw [2 x i32], ptr %12, i64 0, i64 %indvars.iv483
   store i32 %211, ptr %212, align 4
   %213 = icmp eq i64 %indvars.iv483, 0
-  br i1 %213, label %.outer, label %.thread, !llvm.loop !24
+  br i1 %213, label %.outer, label %.thread, !llvm.loop !20
 
 214:                                              ; preds = %.loopexit518
   br i1 %.0251433.ph, label %.thread, label %215
@@ -1191,7 +1191,7 @@ _ZN11hb_vector_tIN19hb_ot_map_builder_t14feature_info_tELb0EEixEi.exit._crit_edg
 
 224:                                              ; preds = %.preheader408
   %225 = or i1 %.3435, %223
-  br i1 %218, label %.preheader408, label %226, !llvm.loop !25
+  br i1 %218, label %.preheader408, label %226, !llvm.loop !21
 
 226:                                              ; preds = %224
   br i1 %225, label %.thread, label %..thread390_crit_edge
@@ -1225,7 +1225,7 @@ _ZN11hb_vector_tIN19hb_ot_map_builder_t14feature_info_tELb0EEixEi.exit._crit_edg
   %236 = add nuw i32 %.143.i.i.i, 8
   %237 = add nuw i32 %236, %235
   %238 = icmp ugt i32 %231, %237
-  br i1 %238, label %.preheader.i.i.i, label %.thread.i.i.i, !llvm.loop !26
+  br i1 %238, label %.preheader.i.i.i, label %.thread.i.i.i, !llvm.loop !22
 
 .thread.i.i.i:                                    ; preds = %.preheader.i.i.i
   %239 = icmp ugt i32 %237, 119304647
@@ -1389,7 +1389,7 @@ _ZN11hb_vector_tIN11hb_ot_map_t13feature_map_tELb1EE4pushEv.exit: ; preds = %258
   %.1246 = phi i32 [ %.0245438, %.thread508 ], [ %.2, %316 ], [ %.0245438, %.thread390 ], [ %.0245438, %_ZN11hb_vector_tIN19hb_ot_map_builder_t14feature_info_tELb0EEixEi.exit._crit_edge ]
   %indvars.iv.next488 = add nuw nsw i64 %indvars.iv487, 1
   %exitcond491.not = icmp eq i64 %indvars.iv.next488, %wide.trip.count490
-  br i1 %exitcond491.not, label %._crit_edge441, label %149, !llvm.loop !27
+  br i1 %exitcond491.not, label %._crit_edge441, label %149, !llvm.loop !23
 
 ._crit_edge441:                                   ; preds = %326, %142
   %327 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -1430,7 +1430,7 @@ _ZN11hb_vector_tIN11hb_ot_map_t13feature_map_tELb1EE5qsortEPFiPKvS4_E.exit: ; pr
   %345 = add nuw i32 %.143.i.i.i.i.i, 8
   %346 = add nuw i32 %345, %344
   %347 = icmp ugt i32 %340, %346
-  br i1 %347, label %.preheader.i.i.i.i.i, label %.thread.i.i.i.i.i, !llvm.loop !18
+  br i1 %347, label %.preheader.i.i.i.i.i, label %.thread.i.i.i.i.i, !llvm.loop !15
 
 .thread.i.i.i.i.i:                                ; preds = %.preheader.i.i.i.i.i
   %348 = icmp ugt i32 %346, 268435455
@@ -1523,7 +1523,7 @@ _ZN11hb_vector_tIN19hb_ot_map_builder_t12stage_info_tELb0EE5allocEjb.exit.thread
   %390 = add nuw i32 %.143.i.i.i.i.i296, 8
   %391 = add nuw i32 %390, %389
   %392 = icmp ugt i32 %385, %391
-  br i1 %392, label %.preheader.i.i.i.i.i295, label %.thread.i.i.i.i.i297, !llvm.loop !18
+  br i1 %392, label %.preheader.i.i.i.i.i295, label %.thread.i.i.i.i.i297, !llvm.loop !15
 
 .thread.i.i.i.i.i297:                             ; preds = %.preheader.i.i.i.i.i295
   %393 = icmp ugt i32 %391, 268435455
@@ -1687,7 +1687,7 @@ _ZN19hb_ot_map_builder_t14add_gpos_pauseEPFbPK18hb_ot_shape_plan_tP9hb_font_tP11
   %468 = add nuw i32 %.143.i.i.i.i, 8
   %469 = add nuw i32 %468, %467
   %470 = icmp ugt i32 %463, %469
-  br i1 %470, label %.preheader.i.i.i.i, label %.thread.i.i.i.i, !llvm.loop !15
+  br i1 %470, label %.preheader.i.i.i.i, label %.thread.i.i.i.i, !llvm.loop !12
 
 .thread.i.i.i.i:                                  ; preds = %.preheader.i.i.i.i
   %471 = icmp ugt i32 %469, 357913941
@@ -1770,12 +1770,12 @@ _ZN11hb_vector_tIN11hb_ot_map_t12lookup_map_tELb0EE4pushEv.exit.i: ; preds = %49
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %505 = zext i32 %504 to i64
   %506 = icmp samesign ult i64 %indvars.iv.next.i, %505
-  br i1 %506, label %.lr.ph.i305, label %._crit_edge.i307, !llvm.loop !16
+  br i1 %506, label %.lr.ph.i305, label %._crit_edge.i307, !llvm.loop !13
 
 ._crit_edge.i307:                                 ; preds = %503
   %507 = add i32 %504, %.0.i304
   %508 = icmp eq i32 %504, 32
-  br i1 %508, label %.noexc310, label %_ZN19hb_ot_map_builder_t11add_lookupsER11hb_ot_map_tjjjjbbbbj.exit, !llvm.loop !17
+  br i1 %508, label %.noexc310, label %_ZN19hb_ot_map_builder_t11add_lookupsER11hb_ot_map_tjjjjbbbbj.exit, !llvm.loop !14
 
 _ZN19hb_ot_map_builder_t11add_lookupsER11hb_ot_map_tjjjjbbbbj.exit: ; preds = %.noexc311, %._crit_edge.i307
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %6)
@@ -1859,7 +1859,7 @@ _ZN19hb_ot_map_builder_t11add_lookupsER11hb_ot_map_tjjjjbbbbj.exit: ; preds = %.
   %548 = add nuw i32 %.143.i.i.i.i326, 8
   %549 = add nuw i32 %548, %547
   %550 = icmp ugt i32 %543, %549
-  br i1 %550, label %.preheader.i.i.i.i325, label %.thread.i.i.i.i327, !llvm.loop !15
+  br i1 %550, label %.preheader.i.i.i.i325, label %.thread.i.i.i.i327, !llvm.loop !12
 
 .thread.i.i.i.i327:                               ; preds = %.preheader.i.i.i.i325
   %551 = icmp ugt i32 %549, 357913941
@@ -1942,12 +1942,12 @@ _ZN11hb_vector_tIN11hb_ot_map_t12lookup_map_tELb0EE4pushEv.exit.i321: ; preds = 
   %indvars.iv.next.i317 = add nuw nsw i64 %indvars.iv.i315, 1
   %585 = zext i32 %584 to i64
   %586 = icmp samesign ult i64 %indvars.iv.next.i317, %585
-  br i1 %586, label %.lr.ph.i314, label %._crit_edge.i318, !llvm.loop !16
+  br i1 %586, label %.lr.ph.i314, label %._crit_edge.i318, !llvm.loop !13
 
 ._crit_edge.i318:                                 ; preds = %583
   %587 = add i32 %584, %.0.i312
   %588 = icmp eq i32 %584, 32
-  br i1 %588, label %533, label %_ZN19hb_ot_map_builder_t11add_lookupsER11hb_ot_map_tjjjjbbbbj.exit336, !llvm.loop !17
+  br i1 %588, label %533, label %_ZN19hb_ot_map_builder_t11add_lookupsER11hb_ot_map_tjjjjbbbbj.exit336, !llvm.loop !14
 
 _ZN19hb_ot_map_builder_t11add_lookupsER11hb_ot_map_tjjjjbbbbj.exit336: ; preds = %.noexc335, %._crit_edge.i318
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %4)
@@ -1957,7 +1957,7 @@ _ZN19hb_ot_map_builder_t11add_lookupsER11hb_ot_map_tjjjjbbbbj.exit336: ; preds =
 589:                                              ; preds = %_ZN19hb_ot_map_builder_t11add_lookupsER11hb_ot_map_tjjjjbbbbj.exit336, %.lr.ph445
   %590 = getelementptr inbounds nuw i8, ptr %.0239443, i64 36
   %.not263 = icmp eq ptr %590, %513
-  br i1 %.not263, label %._crit_edge446, label %.lr.ph445, !llvm.loop !28
+  br i1 %.not263, label %._crit_edge446, label %.lr.ph445
 
 ._crit_edge446:                                   ; preds = %589, %509
   %591 = add i32 %.0242454, 1
@@ -2041,7 +2041,7 @@ _ZN10hb_array_tIN11hb_ot_map_t12lookup_map_tEE5qsortEv.exit: ; preds = %._ZN10hb
   %633 = load i32, ptr %436, align 4
   %634 = zext i32 %633 to i64
   %635 = icmp samesign ult i64 %indvars.iv.next493, %634
-  br i1 %635, label %.lr.ph449, label %._crit_edge450.loopexit, !llvm.loop !29
+  br i1 %635, label %.lr.ph449, label %._crit_edge450.loopexit, !llvm.loop !24
 
 ._crit_edge450.loopexit:                          ; preds = %632
   %.pre507 = add i32 %.1, 1
@@ -2143,7 +2143,7 @@ _ZN11hb_vector_tIN11hb_ot_map_t12lookup_map_tELb0EE6shrinkEib.exit: ; preds = %.
   %671 = add nuw i32 %.143.i.i.i359, 8
   %672 = add nuw i32 %671, %670
   %673 = icmp ugt i32 %666, %672
-  br i1 %673, label %.preheader.i.i.i358, label %.thread.i.i.i360, !llvm.loop !30
+  br i1 %673, label %.preheader.i.i.i358, label %.thread.i.i.i360, !llvm.loop !25
 
 .thread.i.i.i360:                                 ; preds = %.preheader.i.i.i358
   %674 = icmp ugt i32 %672, 268435455
@@ -2234,10 +2234,10 @@ _ZN11hb_vector_tIN19hb_ot_map_builder_t12stage_info_tELb0EEixEi.exit367: ; preds
   %708 = add nuw i32 %.0241455, 1
   %709 = load i32, ptr %432, align 4
   %710 = icmp ult i32 %708, %709
-  br i1 %710, label %444, label %._crit_edge458, !llvm.loop !31
+  br i1 %710, label %444, label %._crit_edge458, !llvm.loop !26
 
 ._crit_edge458:                                   ; preds = %707, %429
-  br i1 %430, label %429, label %.preheader, !llvm.loop !32
+  br i1 %430, label %429, label %.preheader, !llvm.loop !27
 
 .preheader:                                       ; preds = %._crit_edge458, %_ZN8hb_map_tD2Ev.exit
   %711 = phi ptr [ %712, %_ZN8hb_map_tD2Ev.exit ], [ %131, %._crit_edge458 ]
@@ -2286,7 +2286,7 @@ _ZN8hb_map_tD2Ev.exit:                            ; preds = %_ZL14hb_object_fini
   %728 = and i32 %727, 1
   store i32 %728, ptr %726, align 8
   %729 = icmp eq ptr %712, %11
-  br i1 %729, label %730, label %.preheader, !llvm.loop !33
+  br i1 %729, label %730, label %.preheader
 
 730:                                              ; preds = %_ZN8hb_map_tD2Ev.exit
   ret void
@@ -2338,7 +2338,7 @@ _ZN8hb_map_tD2Ev.exit374:                         ; preds = %_ZL14hb_object_fini
   %749 = and i32 %748, 1
   store i32 %749, ptr %747, align 8
   %750 = icmp eq ptr %733, %11
-  br i1 %750, label %751, label %731, !llvm.loop !34
+  br i1 %750, label %751, label %731
 
 751:                                              ; preds = %_ZN8hb_map_tD2Ev.exit374
   resume { ptr, i32 } %lpad.phi
@@ -2437,7 +2437,7 @@ _ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE3popEv.exit: 
   %.sroa.1.0.copyload = load ptr, ptr %.sroa.1.0..0.i.i.sroa_idx, align 8
   %.sroa.2.0..0.i.i.sroa_idx = getelementptr inbounds nuw i8, ptr %18, i64 16
   %.sroa.2.0.copyload = load ptr, ptr %.sroa.2.0..0.i.i.sroa_idx, align 8
-  store i32 %15, ptr %3, align 4, !noalias !35
+  store i32 %15, ptr %3, align 4, !noalias !28
   %19 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %1) #15
   %.not.i7 = icmp eq ptr %.sroa.2.0.copyload, null
   br i1 %.not.i7, label %_ZN20hb_user_data_array_t19hb_user_data_item_t4finiEv.exit, label %20
@@ -2450,7 +2450,7 @@ _ZN20hb_user_data_array_t19hb_user_data_item_t4finiEv.exit: ; preds = %_ZN11hb_v
   %21 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %1) #15
   %22 = load i32, ptr %3, align 4
   %.not5 = icmp eq i32 %22, 0
-  br i1 %.not5, label %._crit_edge, label %_ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE3popEv.exit, !llvm.loop !38
+  br i1 %.not5, label %._crit_edge, label %_ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE3popEv.exit, !llvm.loop !31
 
 ._crit_edge:                                      ; preds = %_ZN20hb_user_data_array_t19hb_user_data_item_t4finiEv.exit, %10
   %23 = load i32, ptr %0, align 8
@@ -2552,7 +2552,7 @@ define linkonce_odr hidden void @_ZN23hb_bit_set_invertible_t3addEj(ptr noundef 
   %.121.i.i.i.i.i.i = phi i32 [ %34, %33 ], [ %.0202.i.i.i.i.i.i, %36 ]
   %.1.i.i.i.i.i.i = phi i32 [ %.0193.i.i.i.i.i.i, %33 ], [ %37, %36 ]
   %.not.not.i.i.i.i.i.i = icmp sgt i32 %.1.i.i.i.i.i.i, %.121.i.i.i.i.i.i
-  br i1 %.not.not.i.i.i.i.i.i, label %_ZN12hb_bit_set_t3delEj.exit, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !39
+  br i1 %.not.not.i.i.i.i.i.i, label %_ZN12hb_bit_set_t3delEj.exit, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !32
 
 _ZNK11hb_vector_tIN12hb_bit_set_t10page_map_tELb1EE5bfindIS1_Lb1ETnPN12hb_enable_ifIXT0_EvE4typeELPv0EEEbRKT_Pj14hb_not_found_tj.exit.i.i: ; preds = %35
   store atomic i32 %27, ptr %11 monotonic, align 8
@@ -2686,7 +2686,7 @@ define linkonce_odr hidden noundef ptr @_ZN12hb_bit_set_t8page_forEjb(ptr nounde
   %.121.i.i.i.i = phi i32 [ %37, %36 ], [ %.0202.i.i.i.i, %39 ]
   %.1.i.i.i.i = phi i32 [ %.0193.i.i.i.i, %36 ], [ %40, %39 ]
   %.not.not.i.i.i.i = icmp sgt i32 %.1.i.i.i.i, %.121.i.i.i.i
-  br i1 %.not.not.i.i.i.i, label %.loopexit, label %.lr.ph.i.i.i.i, !llvm.loop !39
+  br i1 %.not.not.i.i.i.i, label %.loopexit, label %.lr.ph.i.i.i.i, !llvm.loop !32
 
 .loopexit:                                        ; preds = %41, %._crit_edge
   %storemerge.i.i.ph.sink.i.i.ph = phi i32 [ 0, %._crit_edge ], [ %.1.i.i.i.i, %41 ]
@@ -2732,7 +2732,7 @@ define linkonce_odr hidden noundef ptr @_ZN12hb_bit_set_t8page_forEjb(ptr nounde
   %60 = add nuw i32 %.143.i.i, 8
   %61 = add nuw i32 %60, %59
   %62 = icmp ugt i32 %51, %61
-  br i1 %62, label %.preheader.i.i, label %.thread.i.i, !llvm.loop !40
+  br i1 %62, label %.preheader.i.i, label %.thread.i.i, !llvm.loop !33
 
 .thread.i.i:                                      ; preds = %.preheader.i.i, %55
   %.01538.i.i = phi i32 [ %.sroa.speculated.i.i, %55 ], [ %61, %.preheader.i.i ]
@@ -2867,7 +2867,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN11hb_vector_tI13hb_bit_page_tL
   %15 = add nuw i32 %.143.i, 8
   %16 = add nuw i32 %15, %14
   %17 = icmp ugt i32 %5, %16
-  br i1 %17, label %.preheader.i, label %.thread.i, !llvm.loop !41
+  br i1 %17, label %.preheader.i, label %.thread.i, !llvm.loop !34
 
 .thread.i:                                        ; preds = %.preheader.i, %9
   %.01538.i = phi i32 [ %.sroa.speculated.i, %9 ], [ %16, %.preheader.i ]
@@ -2975,37 +2975,37 @@ define internal fastcc void @_ZL13sort_r_simpleIJEEvPvmmPFiPKvS2_DpT_ES4_(ptr no
 .lr.ph223:                                        ; preds = %.preheader, %_ZL14sort_r_cmpswapIJEEiPcS0_mPFiPKvS2_DpT_ES4_.exit.loopexit
   %.0121222 = phi ptr [ %12, %_ZL14sort_r_cmpswapIJEEiPcS0_mPFiPKvS2_DpT_ES4_.exit.loopexit ], [ %.0226, %.preheader ]
   %12 = getelementptr inbounds i8, ptr %.0121222, i64 %10
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !42)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !45)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !35)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !38)
   %13 = tail call noundef i32 %3(ptr noundef nonnull %12, ptr noundef nonnull %.0121222)
   %14 = icmp sgt i32 %13, 0
   br i1 %14, label %.lr.ph.i.i.preheader, label %.critedge
 
 .lr.ph.i.i.preheader:                             ; preds = %.lr.ph223
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !47)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !50)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !40)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !43)
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i.preheader, %.lr.ph.i.i
   %.012.i.i = phi ptr [ %17, %.lr.ph.i.i ], [ %12, %.lr.ph.i.i.preheader ]
   %.01011.i.i = phi ptr [ %18, %.lr.ph.i.i ], [ %.0121222, %.lr.ph.i.i.preheader ]
-  %15 = load i8, ptr %.012.i.i, align 1, !alias.scope !52, !noalias !53
-  %16 = load i8, ptr %.01011.i.i, align 1, !alias.scope !53, !noalias !52
-  store i8 %16, ptr %.012.i.i, align 1, !alias.scope !52, !noalias !53
-  store i8 %15, ptr %.01011.i.i, align 1, !alias.scope !53, !noalias !52
+  %15 = load i8, ptr %.012.i.i, align 1, !alias.scope !45, !noalias !46
+  %16 = load i8, ptr %.01011.i.i, align 1, !alias.scope !46, !noalias !45
+  store i8 %16, ptr %.012.i.i, align 1, !alias.scope !45, !noalias !46
+  store i8 %15, ptr %.01011.i.i, align 1, !alias.scope !46, !noalias !45
   %17 = getelementptr inbounds nuw i8, ptr %.012.i.i, i64 1
   %18 = getelementptr inbounds nuw i8, ptr %.01011.i.i, i64 1
   %19 = icmp ult ptr %17, %.0121222
-  br i1 %19, label %.lr.ph.i.i, label %_ZL14sort_r_cmpswapIJEEiPcS0_mPFiPKvS2_DpT_ES4_.exit.loopexit, !llvm.loop !54
+  br i1 %19, label %.lr.ph.i.i, label %_ZL14sort_r_cmpswapIJEEiPcS0_mPFiPKvS2_DpT_ES4_.exit.loopexit, !llvm.loop !47
 
 _ZL14sort_r_cmpswapIJEEiPcS0_mPFiPKvS2_DpT_ES4_.exit.loopexit: ; preds = %.lr.ph.i.i
   %20 = icmp ugt ptr %12, %.tr.lcssa
-  br i1 %20, label %.lr.ph223, label %.critedge, !llvm.loop !55
+  br i1 %20, label %.lr.ph223, label %.critedge, !llvm.loop !48
 
 .critedge:                                        ; preds = %_ZL14sort_r_cmpswapIJEEiPcS0_mPFiPKvS2_DpT_ES4_.exit.loopexit, %.lr.ph223, %.preheader
   %.0 = getelementptr inbounds nuw i8, ptr %.0226, i64 %2
   %21 = icmp ult ptr %.0, %.lcssa194
-  br i1 %21, label %.preheader, label %._crit_edge, !llvm.loop !56
+  br i1 %21, label %.preheader, label %._crit_edge, !llvm.loop !49
 
 22:                                               ; preds = %.lr.ph219, %_ZL18sort_r_swap_blocksPcmm.exit168
   %23 = phi ptr [ %6, %.lr.ph219 ], [ %164, %_ZL18sort_r_swap_blocksPcmm.exit168 ]
@@ -3039,22 +3039,22 @@ _ZL14sort_r_cmpswapIJEEiPcS0_mPFiPKvS2_DpT_ES4_.exit.loopexit: ; preds = %.lr.ph
   br i1 %.not, label %_ZL11sort_r_swapPcS_m.exit, label %40
 
 40:                                               ; preds = %39
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !57)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !60)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !50)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !53)
   %41 = getelementptr inbounds nuw i8, ptr %.sroa.7.1, i64 %2
   br i1 %.not171, label %_ZL18sort_r_swap_blocksPcmm.exit168, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %40, %.lr.ph.i
   %.012.i = phi ptr [ %44, %.lr.ph.i ], [ %.sroa.7.1, %40 ]
   %.01011.i = phi ptr [ %45, %.lr.ph.i ], [ %26, %40 ]
-  %42 = load i8, ptr %.012.i, align 1, !alias.scope !57, !noalias !60
-  %43 = load i8, ptr %.01011.i, align 1, !alias.scope !60, !noalias !57
-  store i8 %43, ptr %.012.i, align 1, !alias.scope !57, !noalias !60
-  store i8 %42, ptr %.01011.i, align 1, !alias.scope !60, !noalias !57
+  %42 = load i8, ptr %.012.i, align 1, !alias.scope !50, !noalias !53
+  %43 = load i8, ptr %.01011.i, align 1, !alias.scope !53, !noalias !50
+  store i8 %43, ptr %.012.i, align 1, !alias.scope !50, !noalias !53
+  store i8 %42, ptr %.01011.i, align 1, !alias.scope !53, !noalias !50
   %44 = getelementptr inbounds nuw i8, ptr %.012.i, i64 1
   %45 = getelementptr inbounds nuw i8, ptr %.01011.i, i64 1
   %46 = icmp ult ptr %44, %41
-  br i1 %46, label %.lr.ph.i, label %_ZL11sort_r_swapPcS_m.exit, !llvm.loop !54
+  br i1 %46, label %.lr.ph.i, label %_ZL11sort_r_swapPcS_m.exit, !llvm.loop !47
 
 _ZL11sort_r_swapPcS_m.exit:                       ; preds = %.lr.ph.i, %39
   %47 = icmp sgt i64 %25, 0
@@ -3083,12 +3083,12 @@ _ZL11sort_r_swapPcS_m.exit:                       ; preds = %.lr.ph.i, %39
   br i1 %brmerge, label %_ZL11sort_r_swapPcS_m.exit147.us, label %54
 
 54:                                               ; preds = %52
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !62)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !65)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !55)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !58)
   br label %_ZL11sort_r_swapPcS_m.exit147.us
 
 _ZL11sort_r_swapPcS_m.exit147.us:                 ; preds = %52, %54
-  br i1 %49, label %.preheader180.split.us, label %.thread, !llvm.loop !67
+  br i1 %49, label %.preheader180.split.us, label %.thread, !llvm.loop !60
 
 .preheader180.split:                              ; preds = %.preheader180, %79
   %.2128197 = phi ptr [ %.3, %79 ], [ %.0126210, %.preheader180 ]
@@ -3129,13 +3129,13 @@ _ZL11sort_r_swapPcS_m.exit147.us:                 ; preds = %52, %54
   br i1 %66, label %67, label %_ZL11sort_r_swapPcS_m.exit151.us
 
 67:                                               ; preds = %64
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !69)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !72)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !62)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !65)
   br label %_ZL11sort_r_swapPcS_m.exit151.us
 
 _ZL11sort_r_swapPcS_m.exit151.us:                 ; preds = %67, %64, %62
   %.2.us = phi ptr [ %65, %64 ], [ %.1203.us, %62 ], [ %65, %67 ]
-  br i1 %58, label %.lr.ph.split.us, label %.loopexit, !llvm.loop !74
+  br i1 %58, label %.lr.ph.split.us, label %.loopexit, !llvm.loop !67
 
 68:                                               ; preds = %.preheader180.split
   %69 = icmp eq i32 %55, 0
@@ -3146,22 +3146,22 @@ _ZL11sort_r_swapPcS_m.exit151.us:                 ; preds = %67, %64, %62
   br i1 %71, label %.lr.ph.i144.preheader, label %_ZL11sort_r_swapPcS_m.exit147
 
 .lr.ph.i144.preheader:                            ; preds = %70
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !62)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !65)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !55)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !58)
   %72 = getelementptr inbounds nuw i8, ptr %.2128197, i64 %2
   br label %.lr.ph.i144
 
 .lr.ph.i144:                                      ; preds = %.lr.ph.i144.preheader, %.lr.ph.i144
   %.012.i145 = phi ptr [ %75, %.lr.ph.i144 ], [ %.2128197, %.lr.ph.i144.preheader ]
   %.01011.i146 = phi ptr [ %76, %.lr.ph.i144 ], [ %.1130195, %.lr.ph.i144.preheader ]
-  %73 = load i8, ptr %.012.i145, align 1, !alias.scope !62, !noalias !65
-  %74 = load i8, ptr %.01011.i146, align 1, !alias.scope !65, !noalias !62
-  store i8 %74, ptr %.012.i145, align 1, !alias.scope !62, !noalias !65
-  store i8 %73, ptr %.01011.i146, align 1, !alias.scope !65, !noalias !62
+  %73 = load i8, ptr %.012.i145, align 1, !alias.scope !55, !noalias !58
+  %74 = load i8, ptr %.01011.i146, align 1, !alias.scope !58, !noalias !55
+  store i8 %74, ptr %.012.i145, align 1, !alias.scope !55, !noalias !58
+  store i8 %73, ptr %.01011.i146, align 1, !alias.scope !58, !noalias !55
   %75 = getelementptr inbounds nuw i8, ptr %.012.i145, i64 1
   %76 = getelementptr inbounds nuw i8, ptr %.01011.i146, i64 1
   %77 = icmp ult ptr %75, %72
-  br i1 %77, label %.lr.ph.i144, label %_ZL11sort_r_swapPcS_m.exit147, !llvm.loop !54
+  br i1 %77, label %.lr.ph.i144, label %_ZL11sort_r_swapPcS_m.exit147, !llvm.loop !47
 
 _ZL11sort_r_swapPcS_m.exit147:                    ; preds = %.lr.ph.i144, %70
   %78 = getelementptr inbounds nuw i8, ptr %.2128197, i64 %2
@@ -3171,7 +3171,7 @@ _ZL11sort_r_swapPcS_m.exit147:                    ; preds = %.lr.ph.i144, %70
   %.3 = phi ptr [ %78, %_ZL11sort_r_swapPcS_m.exit147 ], [ %.2128197, %68 ]
   %80 = getelementptr inbounds nuw i8, ptr %.1130195, i64 %2
   %81 = icmp ult ptr %80, %.0123211
-  br i1 %81, label %.preheader180.split, label %.thread, !llvm.loop !75
+  br i1 %81, label %.preheader180.split, label %.thread, !llvm.loop !68
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %_ZL11sort_r_swapPcS_m.exit151
   %.1203 = phi ptr [ %.2, %_ZL11sort_r_swapPcS_m.exit151 ], [ %.0122212, %.lr.ph ]
@@ -3187,21 +3187,21 @@ _ZL11sort_r_swapPcS_m.exit147:                    ; preds = %.lr.ph.i144, %70
   br i1 %87, label %.lr.ph.i148.preheader, label %_ZL11sort_r_swapPcS_m.exit151
 
 .lr.ph.i148.preheader:                            ; preds = %85
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !69)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !72)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !62)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !65)
   br label %.lr.ph.i148
 
 .lr.ph.i148:                                      ; preds = %.lr.ph.i148.preheader, %.lr.ph.i148
   %.012.i149 = phi ptr [ %90, %.lr.ph.i148 ], [ %82, %.lr.ph.i148.preheader ]
   %.01011.i150 = phi ptr [ %91, %.lr.ph.i148 ], [ %86, %.lr.ph.i148.preheader ]
-  %88 = load i8, ptr %.012.i149, align 1, !alias.scope !69, !noalias !72
-  %89 = load i8, ptr %.01011.i150, align 1, !alias.scope !72, !noalias !69
-  store i8 %89, ptr %.012.i149, align 1, !alias.scope !69, !noalias !72
-  store i8 %88, ptr %.01011.i150, align 1, !alias.scope !72, !noalias !69
+  %88 = load i8, ptr %.012.i149, align 1, !alias.scope !62, !noalias !65
+  %89 = load i8, ptr %.01011.i150, align 1, !alias.scope !65, !noalias !62
+  store i8 %89, ptr %.012.i149, align 1, !alias.scope !62, !noalias !65
+  store i8 %88, ptr %.01011.i150, align 1, !alias.scope !65, !noalias !62
   %90 = getelementptr inbounds nuw i8, ptr %.012.i149, i64 1
   %91 = getelementptr inbounds nuw i8, ptr %.01011.i150, i64 1
   %92 = icmp ult ptr %90, %.1124202
-  br i1 %92, label %.lr.ph.i148, label %_ZL11sort_r_swapPcS_m.exit151, !llvm.loop !54
+  br i1 %92, label %.lr.ph.i148, label %_ZL11sort_r_swapPcS_m.exit151, !llvm.loop !47
 
 93:                                               ; preds = %.lr.ph.split
   %94 = icmp slt i32 %83, 0
@@ -3214,22 +3214,22 @@ _ZL11sort_r_swapPcS_m.exit147:                    ; preds = %.lr.ph.i144, %70
   br i1 %95, label %96, label %_ZL11sort_r_swapPcS_m.exit155
 
 96:                                               ; preds = %.split.us
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !76)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !79)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !69)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !72)
   %97 = getelementptr inbounds nuw i8, ptr %.us-phi, i64 %2
   br i1 %.not171, label %_ZL11sort_r_swapPcS_m.exit155, label %.lr.ph.i152
 
 .lr.ph.i152:                                      ; preds = %96, %.lr.ph.i152
   %.012.i153 = phi ptr [ %100, %.lr.ph.i152 ], [ %.us-phi, %96 ]
   %.01011.i154 = phi ptr [ %101, %.lr.ph.i152 ], [ %.us-phi205, %96 ]
-  %98 = load i8, ptr %.012.i153, align 1, !alias.scope !76, !noalias !79
-  %99 = load i8, ptr %.01011.i154, align 1, !alias.scope !79, !noalias !76
-  store i8 %99, ptr %.012.i153, align 1, !alias.scope !76, !noalias !79
-  store i8 %98, ptr %.01011.i154, align 1, !alias.scope !79, !noalias !76
+  %98 = load i8, ptr %.012.i153, align 1, !alias.scope !69, !noalias !72
+  %99 = load i8, ptr %.01011.i154, align 1, !alias.scope !72, !noalias !69
+  store i8 %99, ptr %.012.i153, align 1, !alias.scope !69, !noalias !72
+  store i8 %98, ptr %.01011.i154, align 1, !alias.scope !72, !noalias !69
   %100 = getelementptr inbounds nuw i8, ptr %.012.i153, i64 1
   %101 = getelementptr inbounds nuw i8, ptr %.01011.i154, i64 1
   %102 = icmp ult ptr %100, %97
-  br i1 %102, label %.lr.ph.i152, label %_ZL11sort_r_swapPcS_m.exit155, !llvm.loop !54
+  br i1 %102, label %.lr.ph.i152, label %_ZL11sort_r_swapPcS_m.exit155, !llvm.loop !47
 
 _ZL11sort_r_swapPcS_m.exit155:                    ; preds = %.lr.ph.i152, %96, %.split.us
   %103 = getelementptr inbounds nuw i8, ptr %.us-phi, i64 %2
@@ -3238,14 +3238,14 @@ _ZL11sort_r_swapPcS_m.exit155:                    ; preds = %.lr.ph.i152, %96, %
 _ZL11sort_r_swapPcS_m.exit151:                    ; preds = %.lr.ph.i148, %93, %85
   %.2 = phi ptr [ %86, %85 ], [ %.1203, %93 ], [ %86, %.lr.ph.i148 ]
   %104 = icmp ult ptr %.us-phi, %82
-  br i1 %104, label %.lr.ph.split, label %.loopexit, !llvm.loop !81
+  br i1 %104, label %.lr.ph.split, label %.loopexit, !llvm.loop !74
 
 .loopexit:                                        ; preds = %_ZL11sort_r_swapPcS_m.exit151, %_ZL11sort_r_swapPcS_m.exit151.us, %.preheader179, %_ZL11sort_r_swapPcS_m.exit155
   %.1187 = phi ptr [ %.us-phi206, %_ZL11sort_r_swapPcS_m.exit155 ], [ %.0122212, %.preheader179 ], [ %.2.us, %_ZL11sort_r_swapPcS_m.exit151.us ], [ %.2, %_ZL11sort_r_swapPcS_m.exit151 ]
   %.2131 = phi ptr [ %103, %_ZL11sort_r_swapPcS_m.exit155 ], [ %.us-phi, %.preheader179 ], [ %.us-phi, %_ZL11sort_r_swapPcS_m.exit151.us ], [ %.us-phi, %_ZL11sort_r_swapPcS_m.exit151 ]
   %.2125 = phi ptr [ %.us-phi205, %_ZL11sort_r_swapPcS_m.exit155 ], [ %.0123211, %.preheader179 ], [ %59, %_ZL11sort_r_swapPcS_m.exit151.us ], [ %82, %_ZL11sort_r_swapPcS_m.exit151 ]
   %105 = icmp ult ptr %.2131, %.2125
-  br i1 %105, label %.preheader180, label %.thread, !llvm.loop !82
+  br i1 %105, label %.preheader180, label %.thread, !llvm.loop !75
 
 .thread:                                          ; preds = %.loopexit, %79, %_ZL11sort_r_swapPcS_m.exit147.us
   %.0123192 = phi ptr [ %.0123211, %_ZL11sort_r_swapPcS_m.exit147.us ], [ %.0123211, %79 ], [ %.2125, %.loopexit ]
@@ -3266,8 +3266,8 @@ _ZL11sort_r_swapPcS_m.exit151:                    ; preds = %.lr.ph.i148, %93, %
   br i1 %114, label %115, label %124
 
 115:                                              ; preds = %113
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !83)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !86)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !76)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !79)
   %116 = getelementptr inbounds i8, ptr %.tr216, i64 %110
   %117 = icmp sgt i64 %110, 0
   br i1 %117, label %.lr.ph.i.preheader.i, label %_ZL18sort_r_swap_blocksPcmm.exit
@@ -3279,18 +3279,18 @@ _ZL11sort_r_swapPcS_m.exit151:                    ; preds = %.lr.ph.i148, %93, %
 .lr.ph.i.i156:                                    ; preds = %.lr.ph.i.i156, %.lr.ph.i.preheader.i
   %.012.i.i157 = phi ptr [ %121, %.lr.ph.i.i156 ], [ %.tr216, %.lr.ph.i.preheader.i ]
   %.01011.i.i158 = phi ptr [ %122, %.lr.ph.i.i156 ], [ %118, %.lr.ph.i.preheader.i ]
-  %119 = load i8, ptr %.012.i.i157, align 1, !alias.scope !83, !noalias !86
-  %120 = load i8, ptr %.01011.i.i158, align 1, !alias.scope !86, !noalias !83
-  store i8 %120, ptr %.012.i.i157, align 1, !alias.scope !83, !noalias !86
-  store i8 %119, ptr %.01011.i.i158, align 1, !alias.scope !86, !noalias !83
+  %119 = load i8, ptr %.012.i.i157, align 1, !alias.scope !76, !noalias !79
+  %120 = load i8, ptr %.01011.i.i158, align 1, !alias.scope !79, !noalias !76
+  store i8 %120, ptr %.012.i.i157, align 1, !alias.scope !76, !noalias !79
+  store i8 %119, ptr %.01011.i.i158, align 1, !alias.scope !79, !noalias !76
   %121 = getelementptr inbounds nuw i8, ptr %.012.i.i157, i64 1
   %122 = getelementptr inbounds nuw i8, ptr %.01011.i.i158, i64 1
   %123 = icmp ult ptr %121, %116
-  br i1 %123, label %.lr.ph.i.i156, label %_ZL18sort_r_swap_blocksPcmm.exit, !llvm.loop !54
+  br i1 %123, label %.lr.ph.i.i156, label %_ZL18sort_r_swap_blocksPcmm.exit, !llvm.loop !47
 
 124:                                              ; preds = %113
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !88)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !91)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !81)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !84)
   %125 = icmp sgt i64 %108, 0
   br i1 %125, label %.lr.ph.i13.preheader.i, label %_ZL18sort_r_swap_blocksPcmm.exit
 
@@ -3301,14 +3301,14 @@ _ZL11sort_r_swapPcS_m.exit151:                    ; preds = %.lr.ph.i148, %93, %
 .lr.ph.i13.i:                                     ; preds = %.lr.ph.i13.i, %.lr.ph.i13.preheader.i
   %.012.i14.i = phi ptr [ %129, %.lr.ph.i13.i ], [ %.tr216, %.lr.ph.i13.preheader.i ]
   %.01011.i15.i = phi ptr [ %130, %.lr.ph.i13.i ], [ %126, %.lr.ph.i13.preheader.i ]
-  %127 = load i8, ptr %.012.i14.i, align 1, !alias.scope !88, !noalias !91
-  %128 = load i8, ptr %.01011.i15.i, align 1, !alias.scope !91, !noalias !88
-  store i8 %128, ptr %.012.i14.i, align 1, !alias.scope !88, !noalias !91
-  store i8 %127, ptr %.01011.i15.i, align 1, !alias.scope !91, !noalias !88
+  %127 = load i8, ptr %.012.i14.i, align 1, !alias.scope !81, !noalias !84
+  %128 = load i8, ptr %.01011.i15.i, align 1, !alias.scope !84, !noalias !81
+  store i8 %128, ptr %.012.i14.i, align 1, !alias.scope !81, !noalias !84
+  store i8 %127, ptr %.01011.i15.i, align 1, !alias.scope !84, !noalias !81
   %129 = getelementptr inbounds nuw i8, ptr %.012.i14.i, i64 1
   %130 = getelementptr inbounds nuw i8, ptr %.01011.i15.i, i64 1
   %131 = icmp ult ptr %129, %.1127
-  br i1 %131, label %.lr.ph.i13.i, label %_ZL18sort_r_swap_blocksPcmm.exit, !llvm.loop !54
+  br i1 %131, label %.lr.ph.i13.i, label %_ZL18sort_r_swap_blocksPcmm.exit, !llvm.loop !47
 
 _ZL18sort_r_swap_blocksPcmm.exit:                 ; preds = %.lr.ph.i13.i, %.lr.ph.i.i156, %.thread, %115, %124
   %132 = ptrtoint ptr %.0122190 to i64
@@ -3325,8 +3325,8 @@ _ZL18sort_r_swap_blocksPcmm.exit:                 ; preds = %.lr.ph.i13.i, %.lr.
   br i1 %139, label %140, label %149
 
 140:                                              ; preds = %138
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !93)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !96)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !86)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !89)
   %141 = getelementptr inbounds i8, ptr %.0123192, i64 %135
   %142 = icmp sgt i64 %135, 0
   br i1 %142, label %.lr.ph.i.preheader.i164, label %_ZL18sort_r_swap_blocksPcmm.exit168
@@ -3338,18 +3338,18 @@ _ZL18sort_r_swap_blocksPcmm.exit:                 ; preds = %.lr.ph.i13.i, %.lr.
 .lr.ph.i.i165:                                    ; preds = %.lr.ph.i.i165, %.lr.ph.i.preheader.i164
   %.012.i.i166 = phi ptr [ %146, %.lr.ph.i.i165 ], [ %.0123192, %.lr.ph.i.preheader.i164 ]
   %.01011.i.i167 = phi ptr [ %147, %.lr.ph.i.i165 ], [ %143, %.lr.ph.i.preheader.i164 ]
-  %144 = load i8, ptr %.012.i.i166, align 1, !alias.scope !93, !noalias !96
-  %145 = load i8, ptr %.01011.i.i167, align 1, !alias.scope !96, !noalias !93
-  store i8 %145, ptr %.012.i.i166, align 1, !alias.scope !93, !noalias !96
-  store i8 %144, ptr %.01011.i.i167, align 1, !alias.scope !96, !noalias !93
+  %144 = load i8, ptr %.012.i.i166, align 1, !alias.scope !86, !noalias !89
+  %145 = load i8, ptr %.01011.i.i167, align 1, !alias.scope !89, !noalias !86
+  store i8 %145, ptr %.012.i.i166, align 1, !alias.scope !86, !noalias !89
+  store i8 %144, ptr %.01011.i.i167, align 1, !alias.scope !89, !noalias !86
   %146 = getelementptr inbounds nuw i8, ptr %.012.i.i166, i64 1
   %147 = getelementptr inbounds nuw i8, ptr %.01011.i.i167, i64 1
   %148 = icmp ult ptr %146, %141
-  br i1 %148, label %.lr.ph.i.i165, label %_ZL18sort_r_swap_blocksPcmm.exit168, !llvm.loop !54
+  br i1 %148, label %.lr.ph.i.i165, label %_ZL18sort_r_swap_blocksPcmm.exit168, !llvm.loop !47
 
 149:                                              ; preds = %138
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !98)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !101)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !91)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !94)
   %150 = icmp sgt i64 %133, 0
   br i1 %150, label %.lr.ph.i13.preheader.i160, label %_ZL18sort_r_swap_blocksPcmm.exit168
 
@@ -3360,14 +3360,14 @@ _ZL18sort_r_swap_blocksPcmm.exit:                 ; preds = %.lr.ph.i13.i, %.lr.
 .lr.ph.i13.i161:                                  ; preds = %.lr.ph.i13.i161, %.lr.ph.i13.preheader.i160
   %.012.i14.i162 = phi ptr [ %154, %.lr.ph.i13.i161 ], [ %.0123192, %.lr.ph.i13.preheader.i160 ]
   %.01011.i15.i163 = phi ptr [ %155, %.lr.ph.i13.i161 ], [ %151, %.lr.ph.i13.preheader.i160 ]
-  %152 = load i8, ptr %.012.i14.i162, align 1, !alias.scope !98, !noalias !101
-  %153 = load i8, ptr %.01011.i15.i163, align 1, !alias.scope !101, !noalias !98
-  store i8 %153, ptr %.012.i14.i162, align 1, !alias.scope !98, !noalias !101
-  store i8 %152, ptr %.01011.i15.i163, align 1, !alias.scope !101, !noalias !98
+  %152 = load i8, ptr %.012.i14.i162, align 1, !alias.scope !91, !noalias !94
+  %153 = load i8, ptr %.01011.i15.i163, align 1, !alias.scope !94, !noalias !91
+  store i8 %153, ptr %.012.i14.i162, align 1, !alias.scope !91, !noalias !94
+  store i8 %152, ptr %.01011.i15.i163, align 1, !alias.scope !94, !noalias !91
   %154 = getelementptr inbounds nuw i8, ptr %.012.i14.i162, i64 1
   %155 = getelementptr inbounds nuw i8, ptr %.01011.i15.i163, i64 1
   %156 = icmp ult ptr %154, %.0122190
-  br i1 %156, label %.lr.ph.i13.i161, label %_ZL18sort_r_swap_blocksPcmm.exit168, !llvm.loop !54
+  br i1 %156, label %.lr.ph.i13.i161, label %_ZL18sort_r_swap_blocksPcmm.exit168, !llvm.loop !47
 
 _ZL18sort_r_swap_blocksPcmm.exit168:              ; preds = %.lr.ph.i13.i161, %.lr.ph.i.i165, %_ZL11sort_r_swapPcS_m.exit, %40, %_ZL18sort_r_swap_blocksPcmm.exit, %140, %149
   %157 = phi i64 [ %133, %_ZL18sort_r_swap_blocksPcmm.exit ], [ %133, %140 ], [ %133, %149 ], [ 0, %40 ], [ 0, %_ZL11sort_r_swapPcS_m.exit ], [ %133, %.lr.ph.i.i165 ], [ %133, %.lr.ph.i13.i161 ]
@@ -3451,100 +3451,93 @@ attributes #17 = { nounwind allocsize(1) }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !8}
-!11 = distinct !{!11, !7, !8}
-!12 = distinct !{!12, !8}
-!13 = distinct !{!13, !7, !8}
-!14 = distinct !{!14, !7, !8}
-!15 = distinct !{!15, !7, !8}
-!16 = distinct !{!16, !7, !8}
-!17 = distinct !{!17, !7, !8}
-!18 = distinct !{!18, !7, !8}
-!19 = distinct !{!19, !7, !8}
-!20 = distinct !{!20, !7, !8}
-!21 = distinct !{!21, !8}
-!22 = distinct !{!22, !7, !8}
-!23 = distinct !{!23, !7, !8}
-!24 = distinct !{!24, !7, !8}
-!25 = distinct !{!25, !7, !8}
-!26 = distinct !{!26, !7, !8}
-!27 = distinct !{!27, !7, !8}
-!28 = distinct !{!28, !8}
-!29 = distinct !{!29, !7, !8}
-!30 = distinct !{!30, !7, !8}
-!31 = distinct !{!31, !7, !8}
-!32 = distinct !{!32, !7, !8}
-!33 = distinct !{!33, !8}
-!34 = distinct !{!34, !8}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7}
+!12 = distinct !{!12, !7}
+!13 = distinct !{!13, !7}
+!14 = distinct !{!14, !7}
+!15 = distinct !{!15, !7}
+!16 = distinct !{!16, !7}
+!17 = distinct !{!17, !7}
+!18 = distinct !{!18, !7}
+!19 = distinct !{!19, !7}
+!20 = distinct !{!20, !7}
+!21 = distinct !{!21, !7}
+!22 = distinct !{!22, !7}
+!23 = distinct !{!23, !7}
+!24 = distinct !{!24, !7}
+!25 = distinct !{!25, !7}
+!26 = distinct !{!26, !7}
+!27 = distinct !{!27, !7}
+!28 = !{!29}
+!29 = distinct !{!29, !30, !"_ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE3popEv: argument 0"}
+!30 = distinct !{!30, !"_ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE3popEv"}
+!31 = distinct !{!31, !7}
+!32 = distinct !{!32, !7}
+!33 = distinct !{!33, !7}
+!34 = distinct !{!34, !7}
 !35 = !{!36}
-!36 = distinct !{!36, !37, !"_ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE3popEv: argument 0"}
-!37 = distinct !{!37, !"_ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE3popEv"}
-!38 = distinct !{!38, !7, !8}
-!39 = distinct !{!39, !7, !8}
-!40 = distinct !{!40, !7, !8}
-!41 = distinct !{!41, !7, !8}
-!42 = !{!43}
-!43 = distinct !{!43, !44, !"_ZL14sort_r_cmpswapIJEEiPcS0_mPFiPKvS2_DpT_ES4_: argument 0"}
-!44 = distinct !{!44, !"_ZL14sort_r_cmpswapIJEEiPcS0_mPFiPKvS2_DpT_ES4_"}
-!45 = !{!46}
-!46 = distinct !{!46, !44, !"_ZL14sort_r_cmpswapIJEEiPcS0_mPFiPKvS2_DpT_ES4_: argument 1"}
-!47 = !{!48}
-!48 = distinct !{!48, !49, !"_ZL11sort_r_swapPcS_m: argument 0"}
-!49 = distinct !{!49, !"_ZL11sort_r_swapPcS_m"}
+!36 = distinct !{!36, !37, !"_ZL14sort_r_cmpswapIJEEiPcS0_mPFiPKvS2_DpT_ES4_: argument 0"}
+!37 = distinct !{!37, !"_ZL14sort_r_cmpswapIJEEiPcS0_mPFiPKvS2_DpT_ES4_"}
+!38 = !{!39}
+!39 = distinct !{!39, !37, !"_ZL14sort_r_cmpswapIJEEiPcS0_mPFiPKvS2_DpT_ES4_: argument 1"}
+!40 = !{!41}
+!41 = distinct !{!41, !42, !"_ZL11sort_r_swapPcS_m: argument 0"}
+!42 = distinct !{!42, !"_ZL11sort_r_swapPcS_m"}
+!43 = !{!44}
+!44 = distinct !{!44, !42, !"_ZL11sort_r_swapPcS_m: argument 1"}
+!45 = !{!41, !36}
+!46 = !{!44, !39}
+!47 = distinct !{!47, !7}
+!48 = distinct !{!48, !7}
+!49 = distinct !{!49, !7}
 !50 = !{!51}
-!51 = distinct !{!51, !49, !"_ZL11sort_r_swapPcS_m: argument 1"}
-!52 = !{!48, !43}
-!53 = !{!51, !46}
-!54 = distinct !{!54, !7, !8}
-!55 = distinct !{!55, !7, !8}
-!56 = distinct !{!56, !7, !8}
-!57 = !{!58}
-!58 = distinct !{!58, !59, !"_ZL11sort_r_swapPcS_m: argument 0"}
-!59 = distinct !{!59, !"_ZL11sort_r_swapPcS_m"}
-!60 = !{!61}
-!61 = distinct !{!61, !59, !"_ZL11sort_r_swapPcS_m: argument 1"}
+!51 = distinct !{!51, !52, !"_ZL11sort_r_swapPcS_m: argument 0"}
+!52 = distinct !{!52, !"_ZL11sort_r_swapPcS_m"}
+!53 = !{!54}
+!54 = distinct !{!54, !52, !"_ZL11sort_r_swapPcS_m: argument 1"}
+!55 = !{!56}
+!56 = distinct !{!56, !57, !"_ZL11sort_r_swapPcS_m: argument 0"}
+!57 = distinct !{!57, !"_ZL11sort_r_swapPcS_m"}
+!58 = !{!59}
+!59 = distinct !{!59, !57, !"_ZL11sort_r_swapPcS_m: argument 1"}
+!60 = distinct !{!60, !7, !61}
+!61 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !62 = !{!63}
 !63 = distinct !{!63, !64, !"_ZL11sort_r_swapPcS_m: argument 0"}
 !64 = distinct !{!64, !"_ZL11sort_r_swapPcS_m"}
 !65 = !{!66}
 !66 = distinct !{!66, !64, !"_ZL11sort_r_swapPcS_m: argument 1"}
-!67 = distinct !{!67, !7, !8, !68}
-!68 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!67 = distinct !{!67, !7, !61}
+!68 = distinct !{!68, !7}
 !69 = !{!70}
 !70 = distinct !{!70, !71, !"_ZL11sort_r_swapPcS_m: argument 0"}
 !71 = distinct !{!71, !"_ZL11sort_r_swapPcS_m"}
 !72 = !{!73}
 !73 = distinct !{!73, !71, !"_ZL11sort_r_swapPcS_m: argument 1"}
-!74 = distinct !{!74, !7, !8, !68}
-!75 = distinct !{!75, !7, !8}
+!74 = distinct !{!74, !7}
+!75 = distinct !{!75, !7}
 !76 = !{!77}
 !77 = distinct !{!77, !78, !"_ZL11sort_r_swapPcS_m: argument 0"}
 !78 = distinct !{!78, !"_ZL11sort_r_swapPcS_m"}
 !79 = !{!80}
 !80 = distinct !{!80, !78, !"_ZL11sort_r_swapPcS_m: argument 1"}
-!81 = distinct !{!81, !7, !8}
-!82 = distinct !{!82, !7, !8}
-!83 = !{!84}
-!84 = distinct !{!84, !85, !"_ZL11sort_r_swapPcS_m: argument 0"}
-!85 = distinct !{!85, !"_ZL11sort_r_swapPcS_m"}
+!81 = !{!82}
+!82 = distinct !{!82, !83, !"_ZL11sort_r_swapPcS_m: argument 0"}
+!83 = distinct !{!83, !"_ZL11sort_r_swapPcS_m"}
+!84 = !{!85}
+!85 = distinct !{!85, !83, !"_ZL11sort_r_swapPcS_m: argument 1"}
 !86 = !{!87}
-!87 = distinct !{!87, !85, !"_ZL11sort_r_swapPcS_m: argument 1"}
-!88 = !{!89}
-!89 = distinct !{!89, !90, !"_ZL11sort_r_swapPcS_m: argument 0"}
-!90 = distinct !{!90, !"_ZL11sort_r_swapPcS_m"}
+!87 = distinct !{!87, !88, !"_ZL11sort_r_swapPcS_m: argument 0"}
+!88 = distinct !{!88, !"_ZL11sort_r_swapPcS_m"}
+!89 = !{!90}
+!90 = distinct !{!90, !88, !"_ZL11sort_r_swapPcS_m: argument 1"}
 !91 = !{!92}
-!92 = distinct !{!92, !90, !"_ZL11sort_r_swapPcS_m: argument 1"}
-!93 = !{!94}
-!94 = distinct !{!94, !95, !"_ZL11sort_r_swapPcS_m: argument 0"}
-!95 = distinct !{!95, !"_ZL11sort_r_swapPcS_m"}
-!96 = !{!97}
-!97 = distinct !{!97, !95, !"_ZL11sort_r_swapPcS_m: argument 1"}
-!98 = !{!99}
-!99 = distinct !{!99, !100, !"_ZL11sort_r_swapPcS_m: argument 0"}
-!100 = distinct !{!100, !"_ZL11sort_r_swapPcS_m"}
-!101 = !{!102}
-!102 = distinct !{!102, !100, !"_ZL11sort_r_swapPcS_m: argument 1"}
+!92 = distinct !{!92, !93, !"_ZL11sort_r_swapPcS_m: argument 0"}
+!93 = distinct !{!93, !"_ZL11sort_r_swapPcS_m"}
+!94 = !{!95}
+!95 = distinct !{!95, !93, !"_ZL11sort_r_swapPcS_m: argument 1"}

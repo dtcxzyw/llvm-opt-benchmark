@@ -139,7 +139,7 @@ define internal noundef zeroext i1 @netscreen_read(ptr noundef captures(none) %0
 20:                                               ; preds = %18
   %21 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %6, ptr noundef nonnull dereferenceable(1) @.str.2) #9
   %.not12.i = icmp eq ptr %21, null
-  br i1 %.not12.i, label %8, label %netscreen_seek_next_packet.exit, !llvm.loop !9
+  br i1 %.not12.i, label %8, label %netscreen_seek_next_packet.exit
 
 netscreen_seek_next_packet.exit.thread:           ; preds = %8, %16
   %.lcssa.sink = phi ptr [ %17, %16 ], [ %12, %8 ]
@@ -340,7 +340,7 @@ define internal fastcc noundef zeroext i1 @parse_netscreen_packet(ptr noundef %0
   %47 = and i16 %46, 256
   %.not = icmp eq i16 %47, 0
   %48 = getelementptr i8, ptr %.057, i64 1
-  br i1 %.not, label %49, label %42, !llvm.loop !10
+  br i1 %.not, label %49, label %42, !llvm.loop !8
 
 49:                                               ; preds = %42
   %50 = icmp eq i8 %43, 0
@@ -442,7 +442,7 @@ define internal fastcc noundef zeroext i1 @parse_netscreen_packet(ptr noundef %0
   %89 = getelementptr i8, ptr %.07892.i, i64 3
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond99.not.i = icmp eq i64 %indvars.iv.next.i, 16
-  br i1 %exitcond99.not.i, label %.thread74, label %55, !llvm.loop !11
+  br i1 %exitcond99.not.i, label %.thread74, label %55, !llvm.loop !9
 
 .loopexit.i:                                      ; preds = %86, %86, %86, %67, %67, %67, %67
   %.07691.i = trunc i64 %indvars.iv.i to i32
@@ -470,7 +470,7 @@ parse_single_hex_dump_line.exit:                  ; preds = %80, %85, %86, %67, 
   %100 = add nsw i32 %93, -1
   %101 = icmp ne i32 %93, 0
   %or.cond.not.i = select i1 %.not.not.i, i1 %101, i1 false
-  br i1 %or.cond.not.i, label %.preheader, label %info_line.exit, !llvm.loop !12
+  br i1 %or.cond.not.i, label %.preheader, label %info_line.exit, !llvm.loop !10
 
 info_line.exit:                                   ; preds = %.preheader
   br i1 %.not.not.i, label %102, label %105
@@ -537,7 +537,7 @@ info_line.exit:                                   ; preds = %.preheader
   %.0.be = phi i32 [ 0, %102 ], [ %119, %.thread74 ]
   %120 = call ptr @file_gets(ptr noundef %2, i32 noundef 128, ptr noundef %0)
   %121 = icmp eq ptr %120, null
-  br i1 %121, label %._crit_edge, label %.preheader79, !llvm.loop !13
+  br i1 %121, label %._crit_edge, label %.preheader79
 
 ._crit_edge:                                      ; preds = %.backedge, %49, %26
   %.0.lcssa = phi i32 [ 0, %26 ], [ %.095, %49 ], [ %.0.be, %.backedge ]
@@ -661,11 +661,8 @@ attributes #9 = { nounwind willreturn memory(read) }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !8}
-!10 = distinct !{!10, !7, !8}
-!11 = distinct !{!11, !7, !8}
-!12 = distinct !{!12, !7, !8}
-!13 = distinct !{!13, !8}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}

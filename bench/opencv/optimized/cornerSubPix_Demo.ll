@@ -1469,7 +1469,7 @@ _ZNSolsEPFRSoS_E.exit83:                          ; preds = %.noexc100
   %228 = sub i64 %226, %227
   %229 = ashr exact i64 %228, 3
   %230 = icmp ult i64 %223, %229
-  br i1 %230, label %.lr.ph110, label %._crit_edge, !llvm.loop !68
+  br i1 %230, label %.lr.ph110, label %._crit_edge, !llvm.loop !67
 
 .loopexit:                                        ; preds = %.lr.ph110, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit70, %_ZNSolsEm.exit72, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit74, %_ZNSolsEf.exit, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit77, %_ZNSolsEf.exit79, %216, %.noexc98, %_ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc.exit.i95, %.noexc100
   %lpad.loopexit = landingpad { ptr, i32 }
@@ -1656,7 +1656,6 @@ attributes #17 = { noreturn }
 !62 = !{!"_ZTSN2cv3RNGE", !11, i64 0}
 !63 = !{!64, !64, i64 0}
 !64 = !{!"double", !8, i64 0}
-!65 = distinct !{!65, !66, !67}
+!65 = distinct !{!65, !66}
 !66 = !{!"llvm.loop.mustprogress"}
-!67 = !{!"llvm.loop.estimated_trip_count"}
-!68 = distinct !{!68, !66, !67}
+!67 = distinct !{!67, !66}

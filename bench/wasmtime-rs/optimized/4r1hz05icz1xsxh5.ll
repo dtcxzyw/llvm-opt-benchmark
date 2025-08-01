@@ -363,7 +363,7 @@ define hidden void @_ZN22cranelift_codegen_meta6shared6define17h5aa7021602ab0dcf
           to label %.backedge.i.backedge unwind label %.thread48.loopexit.i, !noalias !3
 
 .backedge.i.backedge:                             ; preds = %133, %132
-  br label %.backedge.i, !llvm.loop !9
+  br label %.backedge.i
 
 134:                                              ; preds = %115
   %135 = landingpad { ptr, i32 }
@@ -587,5 +587,3 @@ attributes #8 = { noreturn }
 !6 = !{}
 !7 = !{i64 8}
 !8 = !{i64 1}
-!9 = distinct !{!9, !10}
-!10 = !{!"llvm.loop.estimated_trip_count"}

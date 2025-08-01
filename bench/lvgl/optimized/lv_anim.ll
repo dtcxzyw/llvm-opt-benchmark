@@ -450,7 +450,7 @@ define nonnull ptr @lv_anim_start(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not, label %.preheader, label %3
 
 .preheader:                                       ; preds = %1, %.preheader
-  br label %.preheader, !llvm.loop !58
+  br label %.preheader
 
 3:                                                ; preds = %1
   %4 = tail call ptr @lv_memcpy(ptr noundef nonnull %2, ptr noundef %0, i64 noundef 136) #10
@@ -761,7 +761,7 @@ anim_mark_list_change.exit:                       ; preds = %37, %38
 42:                                               ; preds = %40, %anim_mark_list_change.exit
   %43 = phi ptr [ %39, %anim_mark_list_change.exit ], [ %41, %40 ]
   %.not = icmp eq ptr %43, null
-  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !59
+  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !57
 
 .loopexit:                                        ; preds = %42, %9, %5
   ret void
@@ -854,7 +854,7 @@ remove_anim.exit.us:                              ; preds = %13, %10
   %.117.us = phi i1 [ true, %19 ], [ %.01321.us, %anim_mark_list_change.exit.us ]
   %22 = phi ptr [ %20, %19 ], [ %9, %anim_mark_list_change.exit.us ]
   %.not.us = icmp eq ptr %22, null
-  br i1 %.not.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !60
+  br i1 %.not.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !58
 
 .lr.ph.split:                                     ; preds = %.lr.ph
   br i1 %5, label %.lr.ph.split.split.us, label %.lr.ph.split.split
@@ -905,7 +905,7 @@ remove_anim.exit.us27:                            ; preds = %29, %25
   %.117.us28 = phi i1 [ true, %35 ], [ %.01321.us22, %anim_mark_list_change.exit.us25 ]
   %38 = phi ptr [ %36, %35 ], [ %28, %anim_mark_list_change.exit.us25 ]
   %.not.us29 = icmp eq ptr %38, null
-  br i1 %.not.us29, label %._crit_edge, label %.lr.ph.split.split.us, !llvm.loop !62
+  br i1 %.not.us29, label %._crit_edge, label %.lr.ph.split.split.us, !llvm.loop !60
 
 .lr.ph.split.split:                               ; preds = %.lr.ph.split, %57
   %.01321 = phi i1 [ %.117, %57 ], [ false, %.lr.ph.split ]
@@ -959,7 +959,7 @@ anim_mark_list_change.exit:                       ; preds = %.lr.ph.split.split,
   %.117 = phi i1 [ true, %54 ], [ %.01321, %anim_mark_list_change.exit ]
   %58 = phi ptr [ %55, %54 ], [ %56, %anim_mark_list_change.exit ]
   %.not = icmp eq ptr %58, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph.split.split, !llvm.loop !63
+  br i1 %.not, label %._crit_edge, label %.lr.ph.split.split, !llvm.loop !61
 
 ._crit_edge:                                      ; preds = %57, %37, %21, %2
   %.013.lcssa = phi i1 [ false, %2 ], [ %.117.us, %21 ], [ %.117.us28, %37 ], [ %.117, %57 ]
@@ -1008,7 +1008,7 @@ define noundef ptr @lv_anim_get(ptr noundef readnone captures(address) %0, ptr n
 7:                                                ; preds = %.lr.ph.split.us
   %8 = tail call ptr @lv_ll_get_next(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @lv_global, i64 304), ptr noundef nonnull %.012.us) #10
   %.not.us = icmp eq ptr %8, null
-  br i1 %.not.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !64
+  br i1 %.not.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !62
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %15
   %.012 = phi ptr [ %16, %15 ], [ %3, %.lr.ph ]
@@ -1025,7 +1025,7 @@ define noundef ptr @lv_anim_get(ptr noundef readnone captures(address) %0, ptr n
 15:                                               ; preds = %.lr.ph.split, %11
   %16 = tail call ptr @lv_ll_get_next(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @lv_global, i64 304), ptr noundef nonnull %.012) #10
   %.not = icmp eq ptr %16, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !65
+  br i1 %.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !63
 
 ._crit_edge:                                      ; preds = %11, %15, %.lr.ph.split.us, %7, %2
   %.0.lcssa = phi ptr [ null, %2 ], [ null, %7 ], [ %.012.us, %.lr.ph.split.us ], [ null, %15 ], [ %.012, %11 ]
@@ -1050,7 +1050,7 @@ define zeroext i16 @lv_anim_count_running() local_unnamed_addr #0 {
   %2 = add i16 %.035, 1
   %3 = tail call ptr @lv_ll_get_next(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @lv_global, i64 304), ptr noundef nonnull %.06) #10
   %.not = icmp eq ptr %3, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !66
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !64
 
 ._crit_edge:                                      ; preds = %.lr.ph, %0
   %.03.lcssa = phi i16 [ 0, %0 ], [ %2, %.lr.ph ]
@@ -1275,23 +1275,23 @@ define i32 @lv_anim_path_step(ptr noundef readonly captures(none) %0) local_unna
   %.not = icmp slt i32 %3, %5
   %.0.in.v = select i1 %.not, i64 72, i64 80
   %.0.in = getelementptr inbounds nuw i8, ptr %0, i64 %.0.in.v
-  %.0 = load i32, ptr %.0.in, align 8, !tbaa !67
+  %.0 = load i32, ptr %.0.in, align 8, !tbaa !65
   ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
 define i32 @lv_anim_path_custom_bezier3(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 108
-  %3 = load i16, ptr %2, align 2, !tbaa !68
+  %3 = load i16, ptr %2, align 2, !tbaa !66
   %4 = sext i16 %3 to i32
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 110
-  %6 = load i16, ptr %5, align 2, !tbaa !71
+  %6 = load i16, ptr %5, align 2, !tbaa !69
   %7 = sext i16 %6 to i32
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %9 = load i16, ptr %8, align 2, !tbaa !72
+  %9 = load i16, ptr %8, align 2, !tbaa !70
   %10 = sext i16 %9 to i32
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 114
-  %12 = load i16, ptr %11, align 2, !tbaa !73
+  %12 = load i16, ptr %11, align 2, !tbaa !71
   %13 = sext i16 %12 to i32
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %15 = load i32, ptr %14, align 8, !tbaa !38
@@ -1440,20 +1440,20 @@ define void @lv_anim_set_early_apply(ptr noundef captures(none) %0, i1 noundef z
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @lv_anim_set_user_data(ptr noundef writeonly captures(none) initializes((56, 64)) %0, ptr noundef %1) local_unnamed_addr #6 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store ptr %1, ptr %3, align 8, !tbaa !74
+  store ptr %1, ptr %3, align 8, !tbaa !72
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @lv_anim_set_bezier3_param(ptr noundef writeonly captures(none) initializes((108, 116)) %0, i16 noundef signext %1, i16 noundef signext %2, i16 noundef signext %3, i16 noundef signext %4) local_unnamed_addr #6 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 108
-  store i16 %1, ptr %6, align 2, !tbaa !68
+  store i16 %1, ptr %6, align 2, !tbaa !66
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  store i16 %3, ptr %7, align 2, !tbaa !72
+  store i16 %3, ptr %7, align 2, !tbaa !70
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 110
-  store i16 %2, ptr %8, align 2, !tbaa !71
+  store i16 %2, ptr %8, align 2, !tbaa !69
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 114
-  store i16 %4, ptr %9, align 2, !tbaa !73
+  store i16 %4, ptr %9, align 2, !tbaa !71
   ret void
 }
 
@@ -1482,7 +1482,7 @@ define i32 @lv_anim_get_repeat_count(ptr noundef readonly captures(none) %0) loc
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define ptr @lv_anim_get_user_data(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %3 = load ptr, ptr %2, align 8, !tbaa !74
+  %3 = load ptr, ptr %2, align 8, !tbaa !72
   ret ptr %3
 }
 
@@ -1529,7 +1529,7 @@ define noundef ptr @lv_anim_custom_get(ptr noundef readonly captures(address_is_
 11:                                               ; preds = %.lr.ph.split.us.i
   %12 = tail call ptr @lv_ll_get_next(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @lv_global, i64 304), ptr noundef nonnull %.012.us.i) #10
   %.not.us.i = icmp eq ptr %12, null
-  br i1 %.not.us.i, label %lv_anim_get.exit, label %.lr.ph.split.us.i, !llvm.loop !64
+  br i1 %.not.us.i, label %lv_anim_get.exit, label %.lr.ph.split.us.i, !llvm.loop !62
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i, %19
   %.012.i = phi ptr [ %20, %19 ], [ %7, %.lr.ph.i ]
@@ -1546,7 +1546,7 @@ define noundef ptr @lv_anim_custom_get(ptr noundef readonly captures(address_is_
 19:                                               ; preds = %15, %.lr.ph.split.i
   %20 = tail call ptr @lv_ll_get_next(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @lv_global, i64 304), ptr noundef nonnull %.012.i) #10
   %.not.i = icmp eq ptr %20, null
-  br i1 %.not.i, label %lv_anim_get.exit, label %.lr.ph.split.i, !llvm.loop !65
+  br i1 %.not.i, label %lv_anim_get.exit, label %.lr.ph.split.i, !llvm.loop !63
 
 lv_anim_get.exit:                                 ; preds = %15, %19, %.lr.ph.split.us.i, %11, %5
   %.0.lcssa.i = phi ptr [ null, %5 ], [ %.012.us.i, %.lr.ph.split.us.i ], [ null, %11 ], [ %.012.i, %15 ], [ null, %19 ]
@@ -1585,7 +1585,7 @@ define zeroext i1 @lv_anim_is_paused(ptr noundef readonly captures(address_is_nu
   br i1 %.not, label %.preheader, label %2
 
 .preheader:                                       ; preds = %1, %.preheader
-  br label %.preheader, !llvm.loop !75
+  br label %.preheader
 
 2:                                                ; preds = %1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 128
@@ -1601,7 +1601,7 @@ define void @lv_anim_pause(ptr noundef captures(address_is_null) %0) local_unnam
   br i1 %.not, label %.preheader, label %2
 
 .preheader:                                       ; preds = %1, %.preheader
-  br label %.preheader, !llvm.loop !76
+  br label %.preheader
 
 2:                                                ; preds = %1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 128
@@ -1622,7 +1622,7 @@ define void @lv_anim_pause_for(ptr noundef captures(address_is_null) %0, i32 nou
   br i1 %.not, label %.preheader, label %3
 
 .preheader:                                       ; preds = %2, %.preheader
-  br label %.preheader, !llvm.loop !77
+  br label %.preheader
 
 3:                                                ; preds = %2
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 128
@@ -1643,7 +1643,7 @@ define void @lv_anim_resume(ptr noundef captures(address_is_null) %0) local_unna
   br i1 %.not, label %.preheader, label %2
 
 .preheader:                                       ; preds = %1, %.preheader
-  br label %.preheader, !llvm.loop !78
+  br label %.preheader
 
 2:                                                ; preds = %1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 128
@@ -1750,27 +1750,21 @@ attributes #10 = { nounwind }
 !52 = !{!35, !11, i64 40}
 !53 = !{!35, !9, i64 100}
 !54 = !{!35, !9, i64 92}
-!55 = distinct !{!55, !56, !57}
+!55 = distinct !{!55, !56}
 !56 = !{!"llvm.loop.mustprogress"}
-!57 = !{!"llvm.loop.estimated_trip_count"}
-!58 = distinct !{!58, !57}
-!59 = distinct !{!59, !56, !57}
-!60 = distinct !{!60, !56, !57, !61}
-!61 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!62 = distinct !{!62, !56, !57, !61}
-!63 = distinct !{!63, !56, !57}
-!64 = distinct !{!64, !56, !57, !61}
-!65 = distinct !{!65, !56, !57}
-!66 = distinct !{!66, !56, !57}
-!67 = !{!9, !9, i64 0}
-!68 = !{!69, !70, i64 0}
-!69 = !{!"", !70, i64 0, !70, i64 2, !70, i64 4, !70, i64 6}
-!70 = !{!"short", !6, i64 0}
-!71 = !{!69, !70, i64 2}
-!72 = !{!69, !70, i64 4}
-!73 = !{!69, !70, i64 6}
-!74 = !{!35, !11, i64 56}
-!75 = distinct !{!75, !57}
-!76 = distinct !{!76, !57}
-!77 = distinct !{!77, !57}
-!78 = distinct !{!78, !57}
+!57 = distinct !{!57, !56}
+!58 = distinct !{!58, !56, !59}
+!59 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!60 = distinct !{!60, !56, !59}
+!61 = distinct !{!61, !56}
+!62 = distinct !{!62, !56, !59}
+!63 = distinct !{!63, !56}
+!64 = distinct !{!64, !56}
+!65 = !{!9, !9, i64 0}
+!66 = !{!67, !68, i64 0}
+!67 = !{!"", !68, i64 0, !68, i64 2, !68, i64 4, !68, i64 6}
+!68 = !{!"short", !6, i64 0}
+!69 = !{!67, !68, i64 2}
+!70 = !{!67, !68, i64 4}
+!71 = !{!67, !68, i64 6}
+!72 = !{!35, !11, i64 56}

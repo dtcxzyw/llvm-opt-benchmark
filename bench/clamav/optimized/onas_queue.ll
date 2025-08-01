@@ -105,7 +105,7 @@ onas_init_event_queue.exit:                       ; preds = %1, %19, %21
   %36 = load ptr, ptr %35, align 8, !tbaa !17
   %37 = load ptr, ptr @g_onas_event_queue.1, align 8, !tbaa !24
   %.not.i = icmp eq ptr %36, %37
-  br i1 %.not.i, label %.lr.ph.i, label %onas_consume_event.exit, !llvm.loop !25
+  br i1 %.not.i, label %.lr.ph.i, label %onas_consume_event.exit
 
 onas_consume_event.exit:                          ; preds = %.lr.ph.i, %29
   %38 = load ptr, ptr @g_onas_event_queue_head, align 8, !tbaa !12
@@ -114,15 +114,15 @@ onas_consume_event.exit:                          ; preds = %.lr.ph.i, %29
   store ptr %40, ptr %38, align 8, !tbaa !17
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 8
   store ptr %38, ptr %41, align 8, !tbaa !14
-  %42 = load i64, ptr @g_onas_event_queue.2, align 8, !tbaa !27
+  %42 = load i64, ptr @g_onas_event_queue.2, align 8, !tbaa !25
   %43 = add i64 %42, -1
-  store i64 %43, ptr @g_onas_event_queue.2, align 8, !tbaa !27
+  store i64 %43, ptr @g_onas_event_queue.2, align 8, !tbaa !25
   %44 = call i32 @pthread_mutex_unlock(ptr noundef nonnull @onas_queue_lock) #10
   %45 = getelementptr inbounds nuw i8, ptr %39, i64 16
-  %46 = load ptr, ptr %45, align 8, !tbaa !28
+  %46 = load ptr, ptr %45, align 8, !tbaa !26
   %47 = call i32 @thpool_add_work(ptr noundef %24, ptr noundef nonnull @onas_scan_worker, ptr noundef %46) #10
   call void @free(ptr noundef nonnull %39) #10
-  br label %29, !llvm.loop !29
+  br label %29
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
@@ -171,7 +171,7 @@ define internal fastcc void @onas_scan_queue_exit() unnamed_addr #5 {
   %.0.i = load ptr, ptr %.06.i, align 8, !tbaa !17
   tail call void @free(ptr noundef nonnull %.06.i) #10
   %.not.i = icmp eq ptr %.0.i, null
-  br i1 %.not.i, label %onas_destroy_event_queue.exit, label %.preheader.i, !llvm.loop !30
+  br i1 %.not.i, label %onas_destroy_event_queue.exit, label %.preheader.i
 
 onas_destroy_event_queue.exit:                    ; preds = %.preheader.i, %5
   %8 = tail call i32 (i32, ptr, ...) @logg(i32 noundef 0, ptr noundef nonnull @.str.5) #10
@@ -208,10 +208,10 @@ define dso_local range(i32 0, 21) i32 @onas_queue_event(ptr noundef %0) local_un
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr %calloc.i, ptr %10, align 8, !tbaa !14
   %11 = getelementptr inbounds nuw i8, ptr %calloc.i, i64 16
-  store ptr %0, ptr %11, align 8, !tbaa !28
-  %12 = load i64, ptr @g_onas_event_queue.2, align 8, !tbaa !27
+  store ptr %0, ptr %11, align 8, !tbaa !26
+  %12 = load i64, ptr @g_onas_event_queue.2, align 8, !tbaa !25
   %13 = add i64 %12, 1
-  store i64 %13, ptr @g_onas_event_queue.2, align 8, !tbaa !27
+  store i64 %13, ptr @g_onas_event_queue.2, align 8, !tbaa !25
   %14 = tail call i32 @pthread_cond_signal(ptr noundef nonnull @onas_scan_queue_empty_cond) #10
   %15 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @onas_queue_lock) #10
   br label %16
@@ -238,7 +238,7 @@ define dso_local range(i32 0, 23) i32 @onas_scan_queue_start(ptr noundef readonl
   br i1 %.not, label %5, label %3
 
 3:                                                ; preds = %1
-  %4 = load ptr, ptr %0, align 8, !tbaa !31
+  %4 = load ptr, ptr %0, align 8, !tbaa !27
   %.not5 = icmp eq ptr %4, null
   br i1 %.not5, label %5, label %7
 
@@ -253,7 +253,7 @@ define dso_local range(i32 0, 23) i32 @onas_scan_queue_start(ptr noundef readonl
 
 9:                                                ; preds = %7
   %10 = call i32 @pthread_attr_setdetachstate(ptr noundef nonnull %2, i32 noundef 0) #10
-  %11 = load ptr, ptr %0, align 8, !tbaa !31
+  %11 = load ptr, ptr %0, align 8, !tbaa !27
   %12 = call i32 @pthread_create(ptr noundef nonnull @scan_queue_pid, ptr noundef nonnull %2, ptr noundef nonnull @onas_scan_queue_th, ptr noundef %11) #10
   %.not7 = icmp eq i32 %12, 0
   br i1 %.not7, label %15, label %13
@@ -334,11 +334,7 @@ attributes #12 = { noreturn nounwind }
 !22 = !{!23, !13, i64 0}
 !23 = !{!"onas_event_queue", !13, i64 0, !13, i64 8, !11, i64 16}
 !24 = !{!23, !13, i64 8}
-!25 = distinct !{!25, !26}
-!26 = !{!"llvm.loop.estimated_trip_count"}
-!27 = !{!23, !11, i64 16}
-!28 = !{!15, !16, i64 16}
-!29 = distinct !{!29, !26}
-!30 = distinct !{!30, !26}
-!31 = !{!32, !32, i64 0}
-!32 = !{!"p1 _ZTS12onas_context", !7, i64 0}
+!25 = !{!23, !11, i64 16}
+!26 = !{!15, !16, i64 16}
+!27 = !{!28, !28, i64 0}
+!28 = !{!"p1 _ZTS12onas_context", !7, i64 0}

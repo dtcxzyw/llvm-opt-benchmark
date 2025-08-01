@@ -92,7 +92,7 @@ define hidden void @lls_extract_save_slt_table(ptr noundef %0, ptr noundef %1) l
 .backedge:                                        ; preds = %38, %._crit_edge.thread
   %.060.be = phi ptr [ %143, %._crit_edge.thread ], [ %40, %38 ]
   %.not65 = icmp eq ptr %.060.be, null
-  br i1 %.not65, label %.thread, label %30, !llvm.loop !9
+  br i1 %.not65, label %.thread, label %30, !llvm.loop !8
 
 41:                                               ; preds = %33
   %42 = getelementptr inbounds nuw i8, ptr %.06092, i64 16
@@ -250,13 +250,13 @@ xml_value_to_gchar.exit71.thread:                 ; preds = %.lr.ph87, %104, %11
   %125 = getelementptr inbounds nuw i8, ptr %.05886, i64 40
   %.058 = load ptr, ptr %125, align 8
   %.not68 = icmp eq ptr %.058, null
-  br i1 %.not68, label %.loopexit, label %.lr.ph87, !llvm.loop !10
+  br i1 %.not68, label %.loopexit, label %.lr.ph87, !llvm.loop !9
 
 .loopexit:                                        ; preds = %xml_value_to_gchar.exit71.thread, %84, %79, %xml_value_to_gchar.exit.thread
   %126 = getelementptr inbounds nuw i8, ptr %.05989, i64 40
   %127 = load ptr, ptr %126, align 8
   %.not66 = icmp eq ptr %127, null
-  br i1 %.not66, label %._crit_edge, label %.lr.ph90, !llvm.loop !11
+  br i1 %.not66, label %._crit_edge, label %.lr.ph90, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %.loopexit
   %.pre = load i32, ptr %28, align 4
@@ -551,9 +551,8 @@ attributes #8 = { allocsize(1) }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7, !8}
-!11 = distinct !{!11, !7, !8}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}

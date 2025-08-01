@@ -328,15 +328,15 @@ define internal range(i32 0, 2) i32 @Mio_CommandWriteGenlib(ptr noundef %0, i32 
 
 8:                                                ; preds = %6
   %9 = xor i32 %.033.ph, 1
-  br label %.outer, !llvm.loop !13
+  br label %.outer, !llvm.loop !12
 
 10:                                               ; preds = %6
   %11 = xor i32 %.031.ph56, 1
-  br label %.outer55, !llvm.loop !13
+  br label %.outer55, !llvm.loop !12
 
 12:                                               ; preds = %6
   %13 = xor i32 %.030, 1
-  br label %6, !llvm.loop !13
+  br label %6, !llvm.loop !12
 
 14:                                               ; preds = %6
   %15 = tail call ptr (...) @Abc_FrameReadLibGen() #10
@@ -438,15 +438,15 @@ define internal range(i32 0, 2) i32 @Mio_CommandPrintGenlib(ptr noundef %0, i32 
 
 8:                                                ; preds = %6
   %9 = xor i32 %.022.ph, 1
-  br label %.outer, !llvm.loop !14
+  br label %.outer, !llvm.loop !13
 
 10:                                               ; preds = %6
   %11 = xor i32 %.020.ph41, 1
-  br label %.outer40, !llvm.loop !14
+  br label %.outer40, !llvm.loop !13
 
 12:                                               ; preds = %6
   %13 = xor i32 %.019, 1
-  br label %6, !llvm.loop !14
+  br label %6, !llvm.loop !13
 
 14:                                               ; preds = %6
   %15 = tail call ptr (...) @Abc_FrameReadLibGen() #10
@@ -458,7 +458,7 @@ define internal range(i32 0, 2) i32 @Mio_CommandPrintGenlib(ptr noundef %0, i32 
   br label %31
 
 18:                                               ; preds = %14
-  %19 = load ptr, ptr @stdout, align 8, !tbaa !15
+  %19 = load ptr, ptr @stdout, align 8, !tbaa !14
   %20 = tail call ptr (...) @Abc_FrameReadLibGen() #10
   tail call void @Mio_WriteLibrary(ptr noundef %19, ptr noundef %20, i32 noundef 0, i32 noundef %.022.ph, i32 noundef %.020.ph41) #10
   br label %31
@@ -623,7 +623,7 @@ define internal range(i32 0, 2) i32 @Mio_CommandPrintProfile(ptr noundef %0, i32
   ]
 
 .backedge:                                        ; preds = %6, %6, %6
-  br label %6, !llvm.loop !17
+  br label %6, !llvm.loop !16
 
 8:                                                ; preds = %6
   %9 = tail call ptr (...) @Abc_FrameReadLibGen() #10
@@ -635,7 +635,7 @@ define internal range(i32 0, 2) i32 @Mio_CommandPrintProfile(ptr noundef %0, i32
   br label %19
 
 12:                                               ; preds = %8
-  %13 = load ptr, ptr @stdout, align 8, !tbaa !15
+  %13 = load ptr, ptr @stdout, align 8, !tbaa !14
   %14 = tail call ptr (...) @Abc_FrameReadLibGen() #10
   tail call void @Mio_LibraryWriteProfile(ptr noundef %13, ptr noundef %14) #10
   br label %19
@@ -703,7 +703,7 @@ declare void @Abc_FrameSetLibGen2(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @Mio_UpdateGenlib2(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = getelementptr i8, ptr %0, i64 8
-  %.val = load ptr, ptr %5, align 8, !tbaa !18
+  %.val = load ptr, ptr %5, align 8, !tbaa !17
   %6 = tail call ptr @Mio_LibraryRead(ptr noundef %2, ptr noundef %.val, ptr noundef null, i32 noundef 0, i32 noundef %3) #10
   %7 = icmp eq ptr %6, null
   br i1 %7, label %19, label %8
@@ -724,7 +724,7 @@ define range(i32 0, 2) i32 @Mio_UpdateGenlib2(ptr noundef readonly captures(none
   tail call void @Mio_LibraryDelete(ptr noundef %13) #10
   tail call void @Abc_FrameSetLibGen(ptr noundef nonnull %6) #10
   %14 = getelementptr i8, ptr %1, i64 8
-  %.val11 = load ptr, ptr %14, align 8, !tbaa !18
+  %.val11 = load ptr, ptr %14, align 8, !tbaa !17
   %15 = tail call ptr @Amap_LibReadAndPrepare(ptr noundef %2, ptr noundef %.val11, i32 noundef 0, i32 noundef 0) #10
   %16 = icmp eq ptr %15, null
   br i1 %16, label %19, label %17
@@ -776,7 +776,7 @@ define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #3 {
   br label %12
 
 9:                                                ; preds = %5
-  %10 = load ptr, ptr @stdout, align 8, !tbaa !15
+  %10 = load ptr, ptr @stdout, align 8, !tbaa !14
   %11 = tail call i32 @Gia_ManToBridgeText(ptr noundef %10, i32 noundef 7, ptr noundef nonnull @.str.39) #10
   br label %12
 
@@ -788,7 +788,7 @@ define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #3 {
 
 14:                                               ; preds = %12
   %15 = call ptr @vnsprintf(ptr noundef %1, ptr noundef nonnull %3) #10
-  %16 = load ptr, ptr @stdout, align 8, !tbaa !15
+  %16 = load ptr, ptr @stdout, align 8, !tbaa !14
   %17 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %15) #11
   %18 = trunc i64 %17 to i32
   %19 = call i32 @Gia_ManToBridgeText(ptr noundef %16, i32 noundef %18, ptr noundef nonnull %15) #10
@@ -796,7 +796,7 @@ define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #3 {
   br label %23
 
 20:                                               ; preds = %12
-  %21 = load ptr, ptr @stdout, align 8, !tbaa !15, !noalias !20
+  %21 = load ptr, ptr @stdout, align 8, !tbaa !14, !noalias !19
   %22 = call i32 @vfprintf(ptr noundef %21, ptr noundef %1, ptr noundef nonnull %3) #10
   br label %23
 
@@ -900,16 +900,15 @@ attributes #11 = { nounwind willreturn memory(read) }
 !7 = !{!8, !8, i64 0}
 !8 = !{!"p1 omnipotent char", !9, i64 0}
 !9 = !{!"any pointer", !5, i64 0}
-!10 = distinct !{!10, !11, !12}
+!10 = distinct !{!10, !11}
 !11 = !{!"llvm.loop.mustprogress"}
-!12 = !{!"llvm.loop.estimated_trip_count"}
-!13 = distinct !{!13, !11, !12}
-!14 = distinct !{!14, !11, !12}
-!15 = !{!16, !16, i64 0}
-!16 = !{!"p1 _ZTS8_IO_FILE", !9, i64 0}
-!17 = distinct !{!17, !11, !12}
-!18 = !{!19, !8, i64 8}
-!19 = !{!"Vec_Str_t_", !4, i64 0, !4, i64 4, !8, i64 8}
-!20 = !{!21}
-!21 = distinct !{!21, !22, !"vprintf: argument 0"}
-!22 = distinct !{!22, !"vprintf"}
+!12 = distinct !{!12, !11}
+!13 = distinct !{!13, !11}
+!14 = !{!15, !15, i64 0}
+!15 = !{!"p1 _ZTS8_IO_FILE", !9, i64 0}
+!16 = distinct !{!16, !11}
+!17 = !{!18, !8, i64 8}
+!18 = !{!"Vec_Str_t_", !4, i64 0, !4, i64 4, !8, i64 8}
+!19 = !{!20}
+!20 = distinct !{!20, !21, !"vprintf: argument 0"}
+!21 = distinct !{!21, !"vprintf"}

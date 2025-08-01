@@ -527,7 +527,7 @@ lean_inc.exit:                                    ; preds = %69, %68, %66, %lean
 lean_dec.exit:                                    ; preds = %80, %79, %77, %lean_inc.exit
   %81 = load ptr, ptr @l_List_foldl___at_Lake_instToTextList___spec__1___rarg___closed__2, align 8, !tbaa !10
   %82 = tail call ptr @lean_string_append(ptr noundef %71, ptr noundef %81) #5
-  br label %6, !llvm.loop !15
+  br label %6
 }
 
 declare ptr @lean_string_append(ptr noundef, ptr noundef) local_unnamed_addr #3
@@ -564,7 +564,7 @@ lean_inc.exit33:
   %2 = load ptr, ptr @l_List_foldl___at_Lake_instToTextList___spec__1___rarg___closed__1, align 8, !tbaa !10
   %3 = tail call ptr @l_List_foldl___at_Lake_instToTextList___spec__1___rarg(ptr noundef %0, ptr noundef %2, ptr noundef %1)
   %4 = getelementptr i8, ptr %3, i64 8
-  %.val = load i64, ptr %4, align 8, !tbaa !17
+  %.val = load i64, ptr %4, align 8, !tbaa !15
   %5 = shl i64 %.val, 1
   %6 = add i64 %5, -1
   %7 = inttoptr i64 %6 to ptr
@@ -639,7 +639,7 @@ lean_dec.exit31:                                  ; preds = %lean_dec.exit32, %2
   %33 = ptrtoint ptr %23 to i64
   %34 = and i64 %33, 1
   %.not48 = icmp eq i64 %34, 0
-  br i1 %.not48, label %35, label %lean_dec.exit30, !prof !19
+  br i1 %.not48, label %35, label %lean_dec.exit30, !prof !17
 
 35:                                               ; preds = %lean_dec.exit31
   %36 = tail call ptr @lean_nat_big_add(ptr noundef nonnull inttoptr (i64 1 to ptr), ptr noundef %23) #5
@@ -920,7 +920,7 @@ lean_alloc_closure.exit:                          ; preds = %1
 ; Function Attrs: nounwind uwtable
 define ptr @l_Array_foldlMUnsafe_fold___at_Lake_instToTextArray___spec__1___rarg___boxed(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #1 {
   %6 = getelementptr i8, ptr %2, i64 8
-  %.val = load i64, ptr %6, align 8, !tbaa !17
+  %.val = load i64, ptr %6, align 8, !tbaa !15
   %7 = ptrtoint ptr %2 to i64
   %8 = and i64 %7, 1
   %.not = icmp eq i64 %8, 0
@@ -946,7 +946,7 @@ define ptr @l_Array_foldlMUnsafe_fold___at_Lake_instToTextArray___spec__1___rarg
 
 lean_dec.exit11:                                  ; preds = %15, %14, %12, %5
   %16 = getelementptr i8, ptr %3, i64 8
-  %.val16 = load i64, ptr %16, align 8, !tbaa !17
+  %.val16 = load i64, ptr %16, align 8, !tbaa !15
   %17 = ptrtoint ptr %3 to i64
   %18 = and i64 %17, 1
   %.not17 = icmp eq i64 %18, 0
@@ -1003,7 +1003,7 @@ lean_dec.exit:                                    ; preds = %35, %34, %32, %lean
 define ptr @l_Lake_instToTextArray___rarg(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #1 {
 lean_nat_lt.exit:
   %2 = getelementptr i8, ptr %1, i64 8
-  %.val78 = load i64, ptr %2, align 8, !tbaa !17
+  %.val78 = load i64, ptr %2, align 8, !tbaa !15
   %.mask = and i64 %.val78, 9223372036854775807
   %.not = icmp eq i64 %.mask, 0
   br i1 %.not, label %lean_dec.exit54, label %lean_inc.exit55
@@ -1040,7 +1040,7 @@ lean_inc.exit55:                                  ; preds = %lean_nat_lt.exit
   %13 = load ptr, ptr @l_List_foldl___at_Lake_instToTextList___spec__1___rarg___closed__1, align 8, !tbaa !10
   %14 = tail call ptr @l_Array_foldlMUnsafe_fold___at_Lake_instToTextArray___spec__1___rarg(ptr noundef %0, ptr noundef nonnull %1, i64 noundef 0, i64 noundef %.mask, ptr noundef %13)
   %15 = getelementptr i8, ptr %14, i64 8
-  %.val = load i64, ptr %15, align 8, !tbaa !17
+  %.val = load i64, ptr %15, align 8, !tbaa !15
   %16 = shl i64 %.val, 1
   %17 = add i64 %16, -1
   %18 = inttoptr i64 %17 to ptr
@@ -1115,7 +1115,7 @@ lean_dec.exit48:                                  ; preds = %lean_dec.exit49, %4
   %44 = ptrtoint ptr %34 to i64
   %45 = and i64 %44, 1
   %.not87 = icmp eq i64 %45, 0
-  br i1 %.not87, label %46, label %lean_dec.exit47, !prof !19
+  br i1 %.not87, label %46, label %lean_dec.exit47, !prof !17
 
 46:                                               ; preds = %lean_dec.exit48
   %47 = tail call ptr @lean_nat_big_add(ptr noundef nonnull inttoptr (i64 1 to ptr), ptr noundef %34) #5
@@ -1672,7 +1672,7 @@ _init_l_Lake_instToTextJson___closed__1.exit:     ; preds = %_init_l_Lake_OutFor
   tail call void @lean_mark_persistent(ptr noundef %34) #5
   %35 = load ptr, ptr @l_List_foldl___at_Lake_instToTextList___spec__1___rarg___closed__1, align 8, !tbaa !10
   %36 = getelementptr i8, ptr %35, i64 8
-  %.val.i = load i64, ptr %36, align 8, !tbaa !17
+  %.val.i = load i64, ptr %36, align 8, !tbaa !15
   %37 = shl i64 %.val.i, 1
   %38 = add i64 %37, -1
   %39 = inttoptr i64 %38 to ptr
@@ -1705,7 +1705,7 @@ _init_l_Lake_instToTextArray___rarg___closed__2.exit: ; preds = %_init_l_Lake_in
   %50 = ptrtoint ptr %49 to i64
   %51 = and i64 %50, 1
   %.not.i5 = icmp eq i64 %51, 0
-  br i1 %.not.i5, label %.critedge.i.i, label %_init_l_Lake_instToTextArray___rarg___closed__3.exit, !prof !19
+  br i1 %.not.i5, label %.critedge.i.i, label %_init_l_Lake_instToTextArray___rarg___closed__3.exit, !prof !17
 
 .critedge.i.i:                                    ; preds = %_init_l_Lake_instToTextArray___rarg___closed__2.exit
   %52 = tail call ptr @lean_nat_big_sub(ptr noundef %49, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
@@ -1724,7 +1724,7 @@ _init_l_Lake_instToTextArray___rarg___closed__3.exit: ; preds = %_init_l_Lake_in
   %57 = ptrtoint ptr %56 to i64
   %58 = and i64 %57, 1
   %.not.i6 = icmp eq i64 %58, 0
-  br i1 %.not.i6, label %.critedge.i.i7, label %_init_l_Lake_instToTextArray___rarg___closed__5.exit, !prof !19
+  br i1 %.not.i6, label %.critedge.i.i7, label %_init_l_Lake_instToTextArray___rarg___closed__5.exit, !prof !17
 
 .critedge.i.i7:                                   ; preds = %_init_l_Lake_instToTextArray___rarg___closed__3.exit
   %59 = tail call ptr @lean_nat_big_add(ptr noundef nonnull inttoptr (i64 1 to ptr), ptr noundef %56) #5
@@ -1837,8 +1837,6 @@ attributes #6 = { noreturn nounwind }
 !12 = !{!13, !13, i64 0}
 !13 = !{!"short", !7, i64 0}
 !14 = !{!"branch_weights", !"expected", i32 2146812770, i32 670878}
-!15 = distinct !{!15, !16}
-!16 = !{!"llvm.loop.estimated_trip_count"}
-!17 = !{!18, !18, i64 0}
-!18 = !{!"long", !7, i64 0}
-!19 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!15 = !{!16, !16, i64 0}
+!16 = !{!"long", !7, i64 0}
+!17 = !{!"branch_weights", !"expected", i32 1, i32 2000}

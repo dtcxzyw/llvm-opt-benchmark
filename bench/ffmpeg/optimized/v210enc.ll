@@ -340,19 +340,19 @@ define internal range(i32 -2147483648, 1) i32 @encode_frame(ptr noundef %0, ptr 
   %.3.i = phi i32 [ %197, %174 ], [ %.2.i, %170 ]
   tail call void @llvm.memset.p0.i64(ptr align 1 %.3105.i, i8 0, i64 %53, i1 false)
   %200 = getelementptr inbounds i8, ptr %.3105.i, i64 %53
-  %201 = load i32, ptr %54, align 8, !tbaa !50
+  %201 = load i32, ptr %54, align 8, !tbaa !49
   %202 = sdiv i32 %201, 2
   %203 = load i32, ptr %5, align 8, !tbaa !4
   %204 = sub nsw i32 %202, %203
   %205 = sext i32 %204 to i64
   %206 = getelementptr inbounds i16, ptr %.3118.i, i64 %205
-  %207 = load i32, ptr %55, align 4, !tbaa !50
+  %207 = load i32, ptr %55, align 4, !tbaa !49
   %208 = sdiv i32 %207, 2
   %209 = sdiv i32 %203, 2
   %210 = sub nsw i32 %208, %209
   %211 = sext i32 %210 to i64
   %212 = getelementptr inbounds i16, ptr %.3114.i, i64 %211
-  %213 = load i32, ptr %56, align 8, !tbaa !50
+  %213 = load i32, ptr %56, align 8, !tbaa !49
   %214 = sdiv i32 %213, 2
   %215 = sub nsw i32 %214, %209
   %216 = sext i32 %215 to i64
@@ -360,7 +360,7 @@ define internal range(i32 -2147483648, 1) i32 @encode_frame(ptr noundef %0, ptr 
   %218 = add nuw nsw i32 %.0106174.i, 1
   %219 = load i32, ptr %12, align 4, !tbaa !35
   %220 = icmp slt i32 %218, %219
-  br i1 %220, label %57, label %v210_enc_10.exit, !llvm.loop !51
+  br i1 %220, label %57, label %v210_enc_10.exit, !llvm.loop !50
 
 221:                                              ; preds = %19
   %222 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -533,7 +533,7 @@ define internal range(i32 -2147483648, 1) i32 @encode_frame(ptr noundef %0, ptr 
   %326 = load i32, ptr %5, align 8, !tbaa !4
   %327 = add nsw i32 %326, -5
   %328 = icmp slt i32 %325, %327
-  br i1 %328, label %.lr.ph.i88, label %._crit_edge.i61, !llvm.loop !52
+  br i1 %328, label %.lr.ph.i88, label %._crit_edge.i61, !llvm.loop !51
 
 ._crit_edge.i61:                                  ; preds = %.lr.ph.i88, %253
   %.0119.lcssa.i62 = phi i32 [ %244, %253 ], [ %325, %.lr.ph.i88 ]
@@ -648,24 +648,24 @@ define internal range(i32 -2147483648, 1) i32 @encode_frame(ptr noundef %0, ptr 
   %.3.i78 = phi i32 [ %380, %360 ], [ %.2.i73, %356 ]
   tail call void @llvm.memset.p0.i64(ptr align 1 %.3105.i77, i8 0, i64 %249, i1 false)
   %383 = getelementptr inbounds i8, ptr %.3105.i77, i64 %249
-  %384 = load i32, ptr %250, align 8, !tbaa !50
+  %384 = load i32, ptr %250, align 8, !tbaa !49
   %385 = load i32, ptr %5, align 8, !tbaa !4
   %386 = sub nsw i32 %384, %385
   %387 = sext i32 %386 to i64
   %388 = getelementptr inbounds i8, ptr %.3118.i74, i64 %387
-  %389 = load i32, ptr %251, align 4, !tbaa !50
+  %389 = load i32, ptr %251, align 4, !tbaa !49
   %390 = sdiv i32 %385, 2
   %391 = sub nsw i32 %389, %390
   %392 = sext i32 %391 to i64
   %393 = getelementptr inbounds i8, ptr %.3114.i75, i64 %392
-  %394 = load i32, ptr %252, align 8, !tbaa !50
+  %394 = load i32, ptr %252, align 8, !tbaa !49
   %395 = sub nsw i32 %394, %390
   %396 = sext i32 %395 to i64
   %397 = getelementptr inbounds i8, ptr %.3110.i76, i64 %396
   %398 = add nuw nsw i32 %.0106213.i, 1
   %399 = load i32, ptr %12, align 4, !tbaa !35
   %400 = icmp slt i32 %398, %399
-  br i1 %400, label %253, label %v210_enc_10.exit, !llvm.loop !53
+  br i1 %400, label %253, label %v210_enc_10.exit, !llvm.loop !52
 
 v210_enc_10.exit:                                 ; preds = %382, %199, %221, %24, %19
   %401 = tail call ptr @av_frame_get_side_data(ptr noundef nonnull %2, i32 noundef 1) #7
@@ -674,7 +674,7 @@ v210_enc_10.exit:                                 ; preds = %382, %199, %221, %2
 
 402:                                              ; preds = %v210_enc_10.exit
   %403 = getelementptr inbounds nuw i8, ptr %401, i64 16
-  %404 = load i64, ptr %403, align 8, !tbaa !54
+  %404 = load i64, ptr %403, align 8, !tbaa !53
   %.not51 = icmp eq i64 %404, 0
   br i1 %.not51, label %411, label %405
 
@@ -685,8 +685,8 @@ v210_enc_10.exit:                                 ; preds = %382, %199, %221, %2
 
 407:                                              ; preds = %405
   %408 = getelementptr inbounds nuw i8, ptr %401, i64 8
-  %409 = load ptr, ptr %408, align 8, !tbaa !56
-  %410 = load i64, ptr %403, align 8, !tbaa !54
+  %409 = load ptr, ptr %408, align 8, !tbaa !55
+  %410 = load i64, ptr %403, align 8, !tbaa !53
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %406, ptr align 1 %409, i64 %410, i1 false)
   br label %411
 
@@ -697,7 +697,7 @@ v210_enc_10.exit:                                 ; preds = %382, %199, %221, %2
 
 413:                                              ; preds = %411
   %414 = getelementptr inbounds nuw i8, ptr %412, i64 16
-  %415 = load i64, ptr %414, align 8, !tbaa !54
+  %415 = load i64, ptr %414, align 8, !tbaa !53
   %.not54 = icmp eq i64 %415, 0
   br i1 %.not54, label %422, label %416
 
@@ -708,13 +708,13 @@ v210_enc_10.exit:                                 ; preds = %382, %199, %221, %2
 
 418:                                              ; preds = %416
   %419 = getelementptr inbounds nuw i8, ptr %412, i64 8
-  %420 = load ptr, ptr %419, align 8, !tbaa !56
-  %421 = load i64, ptr %414, align 8, !tbaa !54
+  %420 = load ptr, ptr %419, align 8, !tbaa !55
+  %421 = load i64, ptr %414, align 8, !tbaa !53
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %417, ptr align 1 %420, i64 %421, i1 false)
   br label %422
 
 422:                                              ; preds = %418, %413, %411
-  store i32 1, ptr %3, align 4, !tbaa !50
+  store i32 1, ptr %3, align 4, !tbaa !49
   br label %.critedge
 
 .critedge:                                        ; preds = %416, %405, %422, %18
@@ -943,7 +943,7 @@ define internal void @v210_planar_pack_8_c(ptr noundef readonly captures(none) %
   %127 = getelementptr inbounds nuw i8, ptr %.060156, i64 32
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 12
   %128 = icmp sgt i64 %6, %indvars.iv.next
-  br i1 %128, label %.lr.ph, label %._crit_edge, !llvm.loop !57
+  br i1 %128, label %.lr.ph, label %._crit_edge, !llvm.loop !56
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
@@ -1047,7 +1047,7 @@ define internal void @v210_planar_pack_10_c(ptr noundef readonly captures(none) 
   %75 = getelementptr inbounds nuw i8, ptr %.03257, i64 16
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 6
   %76 = icmp sgt i64 %6, %indvars.iv.next
-  br i1 %76, label %.lr.ph, label %._crit_edge, !llvm.loop !58
+  br i1 %76, label %.lr.ph, label %._crit_edge, !llvm.loop !57
 }
 
 declare i32 @ff_get_encode_buffer(ptr noundef, ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #2
@@ -1129,15 +1129,14 @@ attributes #7 = { nounwind }
 !44 = !{!45, !45, i64 0}
 !45 = !{!"short", !8, i64 0}
 !46 = !{!8, !8, i64 0}
-!47 = distinct !{!47, !48, !49}
+!47 = distinct !{!47, !48}
 !48 = !{!"llvm.loop.mustprogress"}
-!49 = !{!"llvm.loop.estimated_trip_count"}
-!50 = !{!10, !10, i64 0}
-!51 = distinct !{!51, !48, !49}
-!52 = distinct !{!52, !48, !49}
-!53 = distinct !{!53, !48, !49}
-!54 = !{!55, !13, i64 16}
-!55 = !{!"AVFrameSideData", !10, i64 0, !14, i64 8, !13, i64 16, !42, i64 24, !21, i64 32}
-!56 = !{!55, !14, i64 8}
-!57 = distinct !{!57, !48, !49}
-!58 = distinct !{!58, !48, !49}
+!49 = !{!10, !10, i64 0}
+!50 = distinct !{!50, !48}
+!51 = distinct !{!51, !48}
+!52 = distinct !{!52, !48}
+!53 = !{!54, !13, i64 16}
+!54 = !{!"AVFrameSideData", !10, i64 0, !14, i64 8, !13, i64 16, !42, i64 24, !21, i64 32}
+!55 = !{!54, !14, i64 8}
+!56 = distinct !{!56, !48}
+!57 = distinct !{!57, !48}

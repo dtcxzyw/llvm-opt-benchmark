@@ -687,7 +687,7 @@ pcapng_count_string_option.exit72:                ; preds = %pcapng_count_string
   %93 = load i32, ptr %71, align 8
   %94 = zext i32 %93 to i64
   %.not59 = icmp samesign ult i64 %indvars.iv.next101, %94
-  br i1 %.not59, label %74, label %.critedge, !llvm.loop !9
+  br i1 %.not59, label %74, label %.critedge, !llvm.loop !8
 
 95:                                               ; preds = %82, %85, %89
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16) #14
@@ -1372,7 +1372,7 @@ pcapng_count_string_option.exit:                  ; preds = %12, %24, %27
   %57 = zext nneg i8 %.062.lcssa to i64
   %58 = getelementptr [8 x i8], ptr %20, i64 0, i64 %57
   %59 = sub nuw nsw i64 8, %57
-  %60 = call ptr @__memcpy_chk(ptr noundef %58, ptr noundef nonnull %18, i64 noundef 4, i64 noundef %59) #14, !alias.scope !10
+  %60 = call ptr @__memcpy_chk(ptr noundef %58, ptr noundef nonnull %18, i64 noundef 4, i64 noundef %59) #14, !alias.scope !9
   %61 = add nuw nsw i8 %.062.lcssa, 4
   %62 = zext nneg i8 %61 to i64
   %63 = call fastcc zeroext i1 @write_to_file(ptr noundef %0, ptr noundef nonnull %20, i64 noundef %62, ptr noundef %10, ptr noundef %11)
@@ -1777,11 +1777,10 @@ attributes #15 = { nounwind willreturn memory(read) }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = !{!11, !13}
-!11 = distinct !{!11, !12, !"memcpy.inline: argument 0"}
-!12 = distinct !{!12, !"memcpy.inline"}
-!13 = distinct !{!13, !12, !"memcpy.inline: argument 1"}
+!8 = distinct !{!8, !7}
+!9 = !{!10, !12}
+!10 = distinct !{!10, !11, !"memcpy.inline: argument 0"}
+!11 = distinct !{!11, !"memcpy.inline"}
+!12 = distinct !{!12, !11, !"memcpy.inline: argument 1"}

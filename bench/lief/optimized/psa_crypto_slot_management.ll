@@ -104,7 +104,7 @@ define hidden void @psa_wipe_all_key_slots() local_unnamed_addr #4 {
 20:                                               ; preds = %1, %._crit_edge
   %21 = add nuw nsw i64 %.01620, 1
   %exitcond22.not = icmp eq i64 %21, 23
-  br i1 %exitcond22.not, label %.preheader.preheader, label %1, !llvm.loop !22
+  br i1 %exitcond22.not, label %.preheader.preheader, label %1, !llvm.loop !21
 
 .preheader.preheader:                             ; preds = %20
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(177) getelementptr inbounds nuw (i8, ptr @global_data, i64 184), i8 0, i64 177, i1 false)
@@ -143,9 +143,9 @@ define hidden range(i32 -151, 1) i32 @psa_free_key_slot(i64 noundef %0, ptr noun
   %17 = sub i64 %15, %16
   %18 = sdiv exact i64 %17, 56
   %19 = getelementptr inbounds nuw [22 x i64], ptr getelementptr inbounds nuw (i8, ptr @global_data, i64 184), i64 0, i64 %0
-  %20 = load i64, ptr %19, align 8, !tbaa !23
+  %20 = load i64, ptr %19, align 8, !tbaa !22
   %spec.select = tail call i64 @llvm.umin.i64(i64 %20, i64 %11)
-  store i64 %18, ptr %19, align 8, !tbaa !23
+  store i64 %18, ptr %19, align 8, !tbaa !22
   %21 = trunc nuw nsw i64 %spec.select to i32
   %22 = trunc i64 %18 to i32
   %23 = xor i32 %22, -1
@@ -176,14 +176,14 @@ define hidden i32 @psa_reserve_free_key_slot(ptr noundef writeonly captures(addr
 .preheader69:                                     ; preds = %4, %8
   %.03041.i = phi i64 [ %9, %8 ], [ 0, %4 ]
   %6 = getelementptr inbounds nuw [22 x i64], ptr getelementptr inbounds nuw (i8, ptr @global_data, i64 184), i64 0, i64 %.03041.i
-  %7 = load i64, ptr %6, align 8, !tbaa !23
+  %7 = load i64, ptr %6, align 8, !tbaa !22
   %.not.i = icmp eq i64 %7, -1
   br i1 %.not.i, label %8, label %.thread.i
 
 8:                                                ; preds = %.preheader69
   %9 = add nuw nsw i64 %.03041.i, 1
   %exitcond.not.i = icmp eq i64 %9, 22
-  br i1 %exitcond.not.i, label %psa_allocate_volatile_key_slot.exit, label %.preheader69, !llvm.loop !24
+  br i1 %exitcond.not.i, label %psa_allocate_volatile_key_slot.exit, label %.preheader69, !llvm.loop !23
 
 .thread.i:                                        ; preds = %.preheader69
   %10 = getelementptr inbounds nuw [22 x i64], ptr getelementptr inbounds nuw (i8, ptr @global_data, i64 184), i64 0, i64 %.03041.i
@@ -207,7 +207,7 @@ define hidden i32 @psa_reserve_free_key_slot(ptr noundef writeonly captures(addr
   %22 = or i64 %7, %21
   %23 = trunc i64 %22 to i32
   %24 = or i32 %23, 1073741824
-  store i32 %24, ptr %0, align 4, !tbaa !25
+  store i32 %24, ptr %0, align 4, !tbaa !24
   %25 = getelementptr inbounds nuw %struct.psa_key_slot_t, ptr %20, i64 %7
   %26 = add nuw i64 %7, 1
   %27 = getelementptr inbounds nuw i8, ptr %25, i64 32
@@ -216,7 +216,7 @@ define hidden i32 @psa_reserve_free_key_slot(ptr noundef writeonly captures(addr
   %30 = add i64 %26, %29
   %.not33.i = icmp ult i64 %30, %16
   %spec.select.i = select i1 %.not33.i, i64 %30, i64 -1
-  store i64 %spec.select.i, ptr %10, align 8, !tbaa !23
+  store i64 %spec.select.i, ptr %10, align 8, !tbaa !22
   store i32 0, ptr %27, align 8, !tbaa !18
   %31 = getelementptr inbounds nuw i8, ptr %25, i64 24
   %32 = load i32, ptr %31, align 8, !tbaa !9
@@ -228,7 +228,7 @@ define hidden i32 @psa_reserve_free_key_slot(ptr noundef writeonly captures(addr
   store ptr %25, ptr %1, align 8, !tbaa !3
   %34 = trunc i64 %.03041.i to i8
   %35 = getelementptr inbounds nuw i8, ptr %25, i64 28
-  store i8 %34, ptr %35, align 4, !tbaa !26
+  store i8 %34, ptr %35, align 4, !tbaa !25
   br label %psa_allocate_volatile_key_slot.exit
 
 36:                                               ; preds = %.preheader, %52
@@ -256,7 +256,7 @@ define hidden i32 @psa_reserve_free_key_slot(ptr noundef writeonly captures(addr
 
 47:                                               ; preds = %45
   %48 = getelementptr inbounds nuw i8, ptr %37, i64 4
-  %49 = load i32, ptr %48, align 4, !tbaa !27
+  %49 = load i32, ptr %48, align 4, !tbaa !26
   %50 = and i32 %49, 255
   %51 = icmp eq i32 %50, 0
   %spec.select = select i1 %51, ptr null, ptr %37
@@ -266,7 +266,7 @@ define hidden i32 @psa_reserve_free_key_slot(ptr noundef writeonly captures(addr
   %.2.ph = phi ptr [ %spec.select, %47 ], [ %.03078, %41 ], [ null, %43 ], [ null, %45 ]
   %53 = add nuw nsw i64 %.03577, 1
   %exitcond.not = icmp eq i64 %53, 32
-  br i1 %exitcond.not, label %54, label %36, !llvm.loop !28
+  br i1 %exitcond.not, label %54, label %36, !llvm.loop !27
 
 54:                                               ; preds = %52
   %.not67 = icmp eq ptr %.2.ph, null
@@ -304,7 +304,7 @@ psa_register_read.exit:                           ; preds = %55, %58, %62
   %66 = getelementptr inbounds nuw i8, ptr %.334.ph85, i64 24
   store i32 1, ptr %66, align 8, !tbaa !9
   %67 = getelementptr inbounds nuw i8, ptr %.334.ph85, i64 28
-  store i8 22, ptr %67, align 4, !tbaa !26
+  store i8 22, ptr %67, align 4, !tbaa !25
   store ptr %.334.ph85, ptr %1, align 8, !tbaa !3
   br label %psa_allocate_volatile_key_slot.exit
 
@@ -361,7 +361,7 @@ define hidden i32 @psa_get_and_lock_key_slot(i32 noundef %0, ptr noundef capture
 
 26:                                               ; preds = %22
   %27 = getelementptr inbounds nuw i8, ptr %21, i64 20
-  %28 = load i32, ptr %27, align 4, !tbaa !29
+  %28 = load i32, ptr %27, align 4, !tbaa !28
   %.not.i = icmp eq i32 %0, %28
   br i1 %.not.i, label %.loopexit.i, label %.loopexit48
 
@@ -383,14 +383,14 @@ define hidden i32 @psa_get_and_lock_key_slot(i32 noundef %0, ptr noundef capture
 
 36:                                               ; preds = %31
   %37 = getelementptr inbounds nuw i8, ptr %32, i64 20
-  %38 = load i32, ptr %37, align 4, !tbaa !29
+  %38 = load i32, ptr %37, align 4, !tbaa !28
   %.not41.i = icmp eq i32 %0, %38
   br i1 %.not41.i, label %.loopexit.i, label %39
 
 39:                                               ; preds = %36, %31
   %40 = add nuw nsw i64 %.02142.i, 1
   %exitcond.not.i = icmp eq i64 %40, 32
-  br i1 %exitcond.not.i, label %.loopexit48, label %31, !llvm.loop !30
+  br i1 %exitcond.not.i, label %.loopexit48, label %31, !llvm.loop !29
 
 .loopexit.i:                                      ; preds = %36, %26
   %.0.i = phi ptr [ %21, %26 ], [ %32, %36 ]
@@ -434,7 +434,7 @@ define hidden i32 @psa_get_and_lock_key_slot(i32 noundef %0, ptr noundef capture
 
 58:                                               ; preds = %56
   %59 = getelementptr inbounds nuw i8, ptr %48, i64 4
-  %60 = load i32, ptr %59, align 4, !tbaa !27
+  %60 = load i32, ptr %59, align 4, !tbaa !26
   %61 = and i32 %60, 255
   %62 = icmp eq i32 %61, 0
   %spec.select.i = select i1 %62, ptr null, ptr %48
@@ -444,7 +444,7 @@ define hidden i32 @psa_get_and_lock_key_slot(i32 noundef %0, ptr noundef capture
   %.2.ph.i = phi ptr [ %spec.select.i, %58 ], [ %.03078.i, %52 ], [ null, %54 ], [ null, %56 ]
   %64 = add nuw nsw i64 %.03577.i, 1
   %exitcond.not.i31 = icmp eq i64 %64, 32
-  br i1 %exitcond.not.i31, label %65, label %47, !llvm.loop !28
+  br i1 %exitcond.not.i31, label %65, label %47, !llvm.loop !27
 
 65:                                               ; preds = %63
   %.not67.i = icmp eq ptr %.2.ph.i, null
@@ -487,30 +487,30 @@ psa_reserve_free_key_slot.exit:                   ; preds = %65, %psa_register_r
   %77 = getelementptr inbounds nuw i8, ptr %.334.ph85.i, i64 24
   store i32 1, ptr %77, align 8, !tbaa !9
   %78 = getelementptr inbounds nuw i8, ptr %.334.ph85.i, i64 28
-  store i8 22, ptr %78, align 4, !tbaa !26
+  store i8 22, ptr %78, align 4, !tbaa !25
   store ptr %.334.ph85.i, ptr %1, align 8, !tbaa !3
   %79 = getelementptr inbounds nuw i8, ptr %.334.ph85.i, i64 20
-  store i32 %0, ptr %79, align 4, !tbaa !29
+  store i32 %0, ptr %79, align 4, !tbaa !28
   %80 = getelementptr inbounds nuw i8, ptr %.334.ph85.i, i64 4
-  store i32 1, ptr %80, align 4, !tbaa !27
+  store i32 1, ptr %80, align 4, !tbaa !26
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #12
-  store ptr null, ptr %3, align 8, !tbaa !31
+  store ptr null, ptr %3, align 8, !tbaa !30
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #12
-  store i64 0, ptr %4, align 8, !tbaa !23
+  store i64 0, ptr %4, align 8, !tbaa !22
   %81 = call i32 @psa_load_persistent_key(ptr noundef nonnull %.334.ph85.i, ptr noundef nonnull %3, ptr noundef nonnull %4) #12
   %.not.i33 = icmp eq i32 %81, 0
   br i1 %.not.i33, label %82, label %psa_load_persistent_key_into_slot.exit
 
 82:                                               ; preds = %.loopexit
-  %83 = load ptr, ptr %3, align 8, !tbaa !31
-  %84 = load i64, ptr %4, align 8, !tbaa !23
+  %83 = load ptr, ptr %3, align 8, !tbaa !30
+  %84 = load i64, ptr %4, align 8, !tbaa !22
   %85 = call i32 @psa_copy_key_material_into_slot(ptr noundef nonnull %.334.ph85.i, ptr noundef %83, i64 noundef %84) #12
   br label %psa_load_persistent_key_into_slot.exit
 
 psa_load_persistent_key_into_slot.exit:           ; preds = %.loopexit, %82
   %.0.i34 = phi i32 [ %81, %.loopexit ], [ %85, %82 ]
-  %86 = load ptr, ptr %3, align 8, !tbaa !31
-  %87 = load i64, ptr %4, align 8, !tbaa !23
+  %86 = load ptr, ptr %3, align 8, !tbaa !30
+  %87 = load i64, ptr %4, align 8, !tbaa !22
   call void @psa_free_persistent_key_data(ptr noundef %86, i64 noundef %87) #12
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #12
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #12
@@ -526,7 +526,7 @@ psa_load_persistent_key_into_slot.exit:           ; preds = %.loopexit, %82
 
 92:                                               ; preds = %psa_load_persistent_key_into_slot.exit
   %93 = getelementptr inbounds nuw i8, ptr %88, i64 8
-  %94 = load i32, ptr %93, align 4, !tbaa !25
+  %94 = load i32, ptr %93, align 4, !tbaa !24
   %95 = and i32 %94, 12288
   %.not.i35 = icmp eq i32 %95, 0
   br i1 %.not.i35, label %psa_extend_key_usage_flags.exit, label %96
@@ -535,7 +535,7 @@ psa_load_persistent_key_into_slot.exit:           ; preds = %.loopexit, %82
   %97 = lshr i32 %94, 2
   %98 = and i32 %97, 3072
   %simplifycfg.merge.i = or i32 %98, %94
-  store i32 %simplifycfg.merge.i, ptr %93, align 4, !tbaa !25
+  store i32 %simplifycfg.merge.i, ptr %93, align 4, !tbaa !24
   br label %psa_extend_key_usage_flags.exit
 
 psa_extend_key_usage_flags.exit:                  ; preds = %92, %96
@@ -670,13 +670,13 @@ define hidden i32 @psa_open_key(i32 noundef %0, ptr noundef writeonly captures(n
   br i1 %.not, label %7, label %5
 
 5:                                                ; preds = %2
-  store i32 0, ptr %1, align 4, !tbaa !25
+  store i32 0, ptr %1, align 4, !tbaa !24
   %6 = icmp eq i32 %4, -136
   %spec.store.select = select i1 %6, i32 -140, i32 %4
   br label %psa_unregister_read_under_mutex.exit
 
 7:                                                ; preds = %2
-  store i32 %0, ptr %1, align 4, !tbaa !25
+  store i32 %0, ptr %1, align 4, !tbaa !24
   %8 = load ptr, ptr %3, align 8, !tbaa !3
   %9 = icmp eq ptr %8, null
   br i1 %9, label %psa_unregister_read_under_mutex.exit, label %10
@@ -754,7 +754,7 @@ define hidden i32 @psa_close_key(i32 noundef %0) local_unnamed_addr #4 {
 
 22:                                               ; preds = %18
   %23 = getelementptr inbounds nuw i8, ptr %17, i64 20
-  %24 = load i32, ptr %23, align 4, !tbaa !29
+  %24 = load i32, ptr %23, align 4, !tbaa !28
   %.not.i = icmp eq i32 %0, %24
   br i1 %.not.i, label %.loopexit.i, label %psa_unregister_read.exit
 
@@ -776,14 +776,14 @@ define hidden i32 @psa_close_key(i32 noundef %0) local_unnamed_addr #4 {
 
 32:                                               ; preds = %27
   %33 = getelementptr inbounds nuw i8, ptr %28, i64 20
-  %34 = load i32, ptr %33, align 4, !tbaa !29
+  %34 = load i32, ptr %33, align 4, !tbaa !28
   %.not41.i = icmp eq i32 %0, %34
   br i1 %.not41.i, label %.loopexit.i, label %35
 
 35:                                               ; preds = %32, %27
   %36 = add nuw nsw i64 %.02142.i, 1
   %exitcond.not.i = icmp eq i64 %36, 32
-  br i1 %exitcond.not.i, label %psa_unregister_read.exit, label %27, !llvm.loop !30
+  br i1 %exitcond.not.i, label %psa_unregister_read.exit, label %27, !llvm.loop !29
 
 .loopexit.i:                                      ; preds = %32, %22
   %.0.i = phi ptr [ %17, %22 ], [ %28, %32 ]
@@ -846,7 +846,7 @@ define hidden i32 @psa_purge_key(i32 noundef %0) local_unnamed_addr #4 {
 
 21:                                               ; preds = %17
   %22 = getelementptr inbounds nuw i8, ptr %16, i64 20
-  %23 = load i32, ptr %22, align 4, !tbaa !29
+  %23 = load i32, ptr %22, align 4, !tbaa !28
   %.not.i = icmp eq i32 %0, %23
   br i1 %.not.i, label %.loopexit.i, label %psa_unregister_read.exit
 
@@ -868,14 +868,14 @@ define hidden i32 @psa_purge_key(i32 noundef %0) local_unnamed_addr #4 {
 
 31:                                               ; preds = %26
   %32 = getelementptr inbounds nuw i8, ptr %27, i64 20
-  %33 = load i32, ptr %32, align 4, !tbaa !29
+  %33 = load i32, ptr %32, align 4, !tbaa !28
   %.not41.i = icmp eq i32 %0, %33
   br i1 %.not41.i, label %.loopexit.i, label %34
 
 34:                                               ; preds = %31, %26
   %35 = add nuw nsw i64 %.02142.i, 1
   %exitcond.not.i = icmp eq i64 %35, 32
-  br i1 %exitcond.not.i, label %psa_unregister_read.exit, label %26, !llvm.loop !30
+  br i1 %exitcond.not.i, label %psa_unregister_read.exit, label %26, !llvm.loop !29
 
 .loopexit.i:                                      ; preds = %31, %21
   %.0.i = phi ptr [ %16, %21 ], [ %27, %31 ]
@@ -888,7 +888,7 @@ define hidden i32 @psa_purge_key(i32 noundef %0) local_unnamed_addr #4 {
   %40 = add nuw i64 %37, 1
   store i64 %40, ptr %36, align 8, !tbaa !18
   %41 = getelementptr inbounds nuw i8, ptr %.0.i, i64 4
-  %42 = load i32, ptr %41, align 4, !tbaa !27
+  %42 = load i32, ptr %41, align 4, !tbaa !26
   %43 = and i32 %42, 255
   %44 = icmp ne i32 %43, 0
   %45 = icmp eq i64 %37, 0
@@ -962,7 +962,7 @@ define hidden void @mbedtls_psa_get_stats(ptr noundef writeonly captures(none) i
 
 35:                                               ; preds = %.lr.ph
   %36 = add i64 %24, 1
-  store i64 %36, ptr %7, align 8, !tbaa !32
+  store i64 %36, ptr %7, align 8, !tbaa !31
   br label %65
 
 37:                                               ; preds = %.lr.ph
@@ -973,32 +973,32 @@ define hidden void @mbedtls_psa_get_stats(ptr noundef writeonly captures(none) i
 
 39:                                               ; preds = %37
   %40 = add i64 %30, 1
-  store i64 %40, ptr %2, align 8, !tbaa !34
+  store i64 %40, ptr %2, align 8, !tbaa !33
   br label %41
 
 41:                                               ; preds = %39, %37
   %42 = phi i64 [ %40, %39 ], [ %30, %37 ]
   %43 = getelementptr inbounds nuw i8, ptr %31, i64 4
-  %44 = load i32, ptr %43, align 4, !tbaa !27
+  %44 = load i32, ptr %43, align 4, !tbaa !26
   %45 = and i32 %44, 255
   %46 = icmp eq i32 %45, 0
   br i1 %46, label %47, label %49
 
 47:                                               ; preds = %41
   %48 = add i64 %27, 1
-  store i64 %48, ptr %0, align 8, !tbaa !35
+  store i64 %48, ptr %0, align 8, !tbaa !34
   br label %55
 
 49:                                               ; preds = %41
   %50 = getelementptr inbounds nuw i8, ptr %31, i64 20
-  %51 = load i32, ptr %50, align 4, !tbaa !29
+  %51 = load i32, ptr %50, align 4, !tbaa !28
   %52 = add i64 %29, 1
-  store i64 %52, ptr %3, align 8, !tbaa !36
+  store i64 %52, ptr %3, align 8, !tbaa !35
   %53 = icmp ugt i32 %51, %28
   br i1 %53, label %54, label %55
 
 54:                                               ; preds = %49
-  store i32 %51, ptr %4, align 8, !tbaa !37
+  store i32 %51, ptr %4, align 8, !tbaa !36
   br label %55
 
 55:                                               ; preds = %49, %54, %47
@@ -1010,14 +1010,14 @@ define hidden void @mbedtls_psa_get_stats(ptr noundef writeonly captures(none) i
 
 59:                                               ; preds = %55
   %60 = getelementptr inbounds nuw i8, ptr %31, i64 20
-  %61 = load i32, ptr %60, align 4, !tbaa !29
+  %61 = load i32, ptr %60, align 4, !tbaa !28
   %62 = add i64 %26, 1
-  store i64 %62, ptr %5, align 8, !tbaa !38
+  store i64 %62, ptr %5, align 8, !tbaa !37
   %63 = icmp ugt i32 %61, %25
   br i1 %63, label %64, label %65
 
 64:                                               ; preds = %59
-  store i32 %61, ptr %6, align 4, !tbaa !39
+  store i32 %61, ptr %6, align 4, !tbaa !38
   br label %65
 
 65:                                               ; preds = %55, %64, %59, %35
@@ -1030,7 +1030,7 @@ define hidden void @mbedtls_psa_get_stats(ptr noundef writeonly captures(none) i
   %72 = phi i64 [ %42, %55 ], [ %42, %64 ], [ %42, %59 ], [ %30, %35 ]
   %73 = add nuw nsw i64 %.02732, 1
   %exitcond.not = icmp eq i64 %73, %.0.i
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !40
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !39
 
 .loopexit:                                        ; preds = %65, %.preheader, %9
   %74 = phi i64 [ %10, %.preheader ], [ %10, %9 ], [ %66, %65 ]
@@ -1042,7 +1042,7 @@ define hidden void @mbedtls_psa_get_stats(ptr noundef writeonly captures(none) i
   %80 = phi i64 [ %16, %.preheader ], [ %16, %9 ], [ %72, %65 ]
   %81 = add nuw nsw i64 %.033, 1
   %exitcond34.not = icmp eq i64 %81, 23
-  br i1 %exitcond34.not, label %8, label %9, !llvm.loop !41
+  br i1 %exitcond34.not, label %8, label %9, !llvm.loop !40
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
@@ -1092,26 +1092,25 @@ attributes #12 = { nounwind }
 !16 = !{!"p1 omnipotent char", !4, i64 0}
 !17 = !{!"long", !5, i64 0}
 !18 = !{!5, !5, i64 0}
-!19 = distinct !{!19, !20, !21}
+!19 = distinct !{!19, !20}
 !20 = !{!"llvm.loop.mustprogress"}
-!21 = !{!"llvm.loop.estimated_trip_count"}
-!22 = distinct !{!22, !20, !21}
-!23 = !{!17, !17, i64 0}
-!24 = distinct !{!24, !20, !21}
-!25 = !{!13, !13, i64 0}
-!26 = !{!10, !5, i64 28}
-!27 = !{!10, !13, i64 4}
-!28 = distinct !{!28, !20, !21}
-!29 = !{!10, !13, i64 20}
-!30 = distinct !{!30, !20, !21}
-!31 = !{!16, !16, i64 0}
-!32 = !{!33, !17, i64 40}
-!33 = !{!"mbedtls_psa_stats_s", !17, i64 0, !17, i64 8, !17, i64 16, !17, i64 24, !17, i64 32, !17, i64 40, !17, i64 48, !13, i64 56, !13, i64 60}
-!34 = !{!33, !17, i64 48}
-!35 = !{!33, !17, i64 0}
-!36 = !{!33, !17, i64 8}
-!37 = !{!33, !13, i64 56}
-!38 = !{!33, !17, i64 16}
-!39 = !{!33, !13, i64 60}
-!40 = distinct !{!40, !20, !21}
-!41 = distinct !{!41, !20, !21}
+!21 = distinct !{!21, !20}
+!22 = !{!17, !17, i64 0}
+!23 = distinct !{!23, !20}
+!24 = !{!13, !13, i64 0}
+!25 = !{!10, !5, i64 28}
+!26 = !{!10, !13, i64 4}
+!27 = distinct !{!27, !20}
+!28 = !{!10, !13, i64 20}
+!29 = distinct !{!29, !20}
+!30 = !{!16, !16, i64 0}
+!31 = !{!32, !17, i64 40}
+!32 = !{!"mbedtls_psa_stats_s", !17, i64 0, !17, i64 8, !17, i64 16, !17, i64 24, !17, i64 32, !17, i64 40, !17, i64 48, !13, i64 56, !13, i64 60}
+!33 = !{!32, !17, i64 48}
+!34 = !{!32, !17, i64 0}
+!35 = !{!32, !17, i64 8}
+!36 = !{!32, !13, i64 56}
+!37 = !{!32, !17, i64 16}
+!38 = !{!32, !13, i64 60}
+!39 = distinct !{!39, !20}
+!40 = distinct !{!40, !20}

@@ -58,12 +58,12 @@ define dso_local void @qsort_arg(ptr noundef %0, i64 noundef %1, i64 noundef %2,
 
 qsort_arg_swapn.exit.loopexit:                    ; preds = %.lr.ph.i
   %21 = icmp ugt ptr %13, %.0186.ph.lcssa267
-  br i1 %21, label %.lr.ph312, label %.critedge, !llvm.loop !7
+  br i1 %21, label %.lr.ph312, label %.critedge, !llvm.loop !6
 
 .critedge:                                        ; preds = %qsort_arg_swapn.exit.loopexit, %.lr.ph312, %.preheader
   %.0188 = getelementptr inbounds nuw i8, ptr %.0188315, i64 %2
   %22 = icmp ult ptr %.0188, %11
-  br i1 %22, label %.preheader, label %.critedge218, !llvm.loop !8
+  br i1 %22, label %.preheader, label %.critedge218, !llvm.loop !7
 
 23:                                               ; preds = %.lr.ph302, %149
   %.0301 = phi i64 [ %.0.ph308, %.lr.ph302 ], [ %150, %149 ]
@@ -82,7 +82,7 @@ qsort_arg_swapn.exit.loopexit:                    ; preds = %.lr.ph.i
 30:                                               ; preds = %.lr.ph
   %31 = getelementptr inbounds nuw i8, ptr %.1268, i64 %2
   %32 = icmp ult ptr %31, %25
-  br i1 %32, label %.lr.ph, label %.critedge218, !llvm.loop !9
+  br i1 %32, label %.lr.ph, label %.critedge218, !llvm.loop !8
 
 33:                                               ; preds = %.lr.ph
   %34 = lshr i64 %.0301, 1
@@ -191,7 +191,7 @@ qsort_arg_swapn.exit228.loopexit:                 ; preds = %.lr.ph.i225
   %.2200 = phi ptr [ %80, %qsort_arg_swapn.exit228.loopexit ], [ %.1199271, %73 ]
   %82 = getelementptr inbounds nuw i8, ptr %.1197272, i64 %2
   %.not214 = icmp ugt ptr %82, %.0194
-  br i1 %.not214, label %.critedge2, label %.lr.ph274.split, !llvm.loop !10
+  br i1 %.not214, label %.critedge2, label %.lr.ph274.split, !llvm.loop !9
 
 .critedge2:                                       ; preds = %.lr.ph274.split, %81, %.lr.ph274.split.us, %68
   %.1199.lcssa = phi ptr [ %.0198, %68 ], [ %.0198, %.lr.ph274.split.us ], [ %.2200, %81 ], [ %.1199271, %.lr.ph274.split ]
@@ -215,7 +215,7 @@ qsort_arg_swapn.exit233.us:                       ; preds = %.lr.ph286.split.us
   %spec.select317 = getelementptr inbounds nuw i8, ptr %.1192285.us, i64 %spec.select317.idx
   %86 = getelementptr inbounds nuw i8, ptr %.1195283.us, i64 %6
   %.not215.us = icmp ugt ptr %.1197.lcssa, %86
-  br i1 %.not215.us, label %.critedge2._crit_edge, label %.lr.ph286.split.us, !llvm.loop !11
+  br i1 %.not215.us, label %.critedge2._crit_edge, label %.lr.ph286.split.us, !llvm.loop !10
 
 .lr.ph286.split:                                  ; preds = %.lr.ph286, %97
   %.1192285 = phi ptr [ %.2193, %97 ], [ %.0191, %.lr.ph286 ]
@@ -248,7 +248,7 @@ qsort_arg_swapn.exit233.loopexit:                 ; preds = %.lr.ph.i230
   %.2193 = phi ptr [ %96, %qsort_arg_swapn.exit233.loopexit ], [ %.1192285, %89 ]
   %98 = getelementptr inbounds i8, ptr %.1195283, i64 %6
   %.not215 = icmp ugt ptr %.1197.lcssa, %98
-  br i1 %.not215, label %.critedge2._crit_edge, label %.lr.ph286.split, !llvm.loop !13
+  br i1 %.not215, label %.critedge2._crit_edge, label %.lr.ph286.split, !llvm.loop !12
 
 .critedge4:                                       ; preds = %.lr.ph286.split, %.lr.ph286.split.us
   %.us-phi295 = phi ptr [ %.1195283.us, %.lr.ph286.split.us ], [ %.1195283, %.lr.ph286.split ]
@@ -270,7 +270,7 @@ qsort_arg_swapn.exit233.loopexit:                 ; preds = %.lr.ph.i230
 qsort_arg_swapn.exit238:                          ; preds = %.lr.ph.i235, %.critedge4
   %104 = getelementptr inbounds nuw i8, ptr %.1197.lcssa, i64 %2
   %105 = getelementptr inbounds i8, ptr %.us-phi295, i64 %6
-  br label %68, !llvm.loop !14
+  br label %68
 
 .critedge2._crit_edge:                            ; preds = %.critedge2, %97, %qsort_arg_swapn.exit233.us
   %.1195.lcssa = phi ptr [ %86, %qsort_arg_swapn.exit233.us ], [ %98, %97 ], [ %.0194, %.critedge2 ]
@@ -344,7 +344,7 @@ qsort_arg_swapn.exit248:                          ; preds = %.lr.ph.i245, %qsort
   %138 = getelementptr inbounds i8, ptr %25, i64 %137
   %139 = udiv i64 %119, %2
   %140 = icmp ult i64 %139, 7
-  br i1 %140, label %.preheader250, label %.lr.ph302, !llvm.loop !15
+  br i1 %140, label %.preheader250, label %.lr.ph302
 
 141:                                              ; preds = %qsort_arg_swapn.exit248
   %142 = icmp ugt i64 %119, %2
@@ -364,7 +364,7 @@ qsort_arg_swapn.exit248:                          ; preds = %.lr.ph.i245, %qsort
 149:                                              ; preds = %147
   %150 = udiv i64 %109, %2
   %151 = icmp ult i64 %150, 7
-  br i1 %151, label %.preheader250, label %23, !llvm.loop !15
+  br i1 %151, label %.preheader250, label %23
 
 .critedge218:                                     ; preds = %135, %147, %23, %30, %.critedge, %.preheader250
   ret void
@@ -419,15 +419,12 @@ attributes #3 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = distinct !{!4, !5, !6}
+!4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{!"llvm.loop.estimated_trip_count"}
-!7 = distinct !{!7, !5, !6}
-!8 = distinct !{!8, !5, !6}
-!9 = distinct !{!9, !5, !6}
-!10 = distinct !{!10, !5, !6}
-!11 = distinct !{!11, !5, !6, !12}
-!12 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!13 = distinct !{!13, !5, !6}
-!14 = distinct !{!14, !6}
-!15 = distinct !{!15, !6}
+!6 = distinct !{!6, !5}
+!7 = distinct !{!7, !5}
+!8 = distinct !{!8, !5}
+!9 = distinct !{!9, !5}
+!10 = distinct !{!10, !5, !11}
+!11 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!12 = distinct !{!12, !5}

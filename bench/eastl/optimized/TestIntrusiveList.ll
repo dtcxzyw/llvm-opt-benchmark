@@ -183,26 +183,27 @@ entry:
   %agg.tmp912 = alloca %"class.eastl::intrusive_list_iterator", align 8
   store i32 0, ptr %nErrorCount, align 4
   %call = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 98, ptr noundef nonnull @.str.1)
-  %invariant.gep = getelementptr inbounds nuw i8, ptr %nodes, i64 16
   br label %arrayctor.loop
 
 arrayctor.loop:                                   ; preds = %arrayctor.loop, %entry
   %arrayctor.cur.idx = phi i64 [ 0, %entry ], [ %arrayctor.cur.add, %arrayctor.loop ]
-  %gep = getelementptr inbounds nuw i8, ptr %invariant.gep, i64 %arrayctor.cur.idx
-  store i32 0, ptr %gep, align 8
+  %arrayctor.cur.ptr = getelementptr inbounds nuw i8, ptr %nodes, i64 %arrayctor.cur.idx
+  %mX.i = getelementptr inbounds nuw i8, ptr %arrayctor.cur.ptr, i64 16
+  store i32 0, ptr %mX.i, align 8
   %arrayctor.cur.add = add nuw nsw i64 %arrayctor.cur.idx, 24
   %arrayctor.done = icmp eq i64 %arrayctor.cur.add, 480
-  br i1 %arrayctor.done, label %_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE6spliceENS_23intrusive_list_iteratorIS2_PKS2_RS5_EERS3_.exit, label %arrayctor.loop, !llvm.loop !5
+  br i1 %arrayctor.done, label %_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE6spliceENS_23intrusive_list_iteratorIS2_PKS2_RS5_EERS3_.exit, label %arrayctor.loop
 
 _ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE6spliceENS_23intrusive_list_iteratorIS2_PKS2_RS5_EERS3_.exit: ; preds = %arrayctor.loop
   %mpPrev.i.i = getelementptr inbounds nuw i8, ptr %ilist, i64 8
   store ptr %ilist, ptr %mpPrev.i.i, align 8
   store ptr %ilist, ptr %ilist, align 8
-  store ptr %ilist, ptr %agg.tmp, align 8, !alias.scope !7
-  store ptr %ilist, ptr %agg.tmp4, align 8, !alias.scope !10
+  store ptr %ilist, ptr %agg.tmp, align 8, !alias.scope !5
+  store ptr %ilist, ptr %agg.tmp4, align 8, !alias.scope !8
   %call6 = call noundef zeroext i1 (ptr, ptr, i32, ptr, ...) @_Z14VerifySequenceIN5eastl23intrusive_list_iteratorIN12_GLOBAL__N_17IntNodeEPS3_RS3_EEiEbT_S7_T0_PKcz(ptr noundef %agg.tmp, ptr noundef %agg.tmp4, i32 poison, ptr noundef nonnull @.str.2, i32 noundef -1)
   %call8 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %call6, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 122, ptr noundef nonnull @.str.3)
-  store i32 0, ptr %invariant.gep, align 16
+  %mX.i84 = getelementptr inbounds nuw i8, ptr %nodes, i64 16
+  store i32 0, ptr %mX.i84, align 16
   %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %nodes, i64 24
   %mpPrev2.i.i = getelementptr inbounds nuw i8, ptr %nodes, i64 8
   store ptr %ilist, ptr %mpPrev2.i.i, align 8
@@ -262,8 +263,8 @@ _ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE6spliceENS_23intrusive_list_i
   store ptr %ilist, ptr %incdec.ptr.i123, align 8
   store ptr %incdec.ptr.i123, ptr %mpPrev.i.i, align 8
   store ptr %incdec.ptr.i123, ptr %incdec.ptr.i118, align 16
-  store ptr %nodes, ptr %agg.tmp30, align 8, !alias.scope !13
-  store ptr %ilist, ptr %agg.tmp31, align 8, !alias.scope !16
+  store ptr %nodes, ptr %agg.tmp30, align 8, !alias.scope !11
+  store ptr %ilist, ptr %agg.tmp31, align 8, !alias.scope !14
   %call33 = call noundef zeroext i1 (ptr, ptr, i32, ptr, ...) @_Z14VerifySequenceIN5eastl23intrusive_list_iteratorIN12_GLOBAL__N_17IntNodeEPS3_RS3_EEiEbT_S7_T0_PKcz(ptr noundef %agg.tmp30, ptr noundef %agg.tmp31, i32 poison, ptr noundef nonnull @.str.4, i32 noundef 0, i32 noundef 1, i32 noundef 2, i32 noundef 3, i32 noundef 4, i32 noundef 5, i32 noundef 6, i32 noundef 7, i32 noundef 8, i32 noundef 9, i32 noundef -1)
   %call35 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %call33, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 127, ptr noundef nonnull @.str.5)
   %ilist.val24 = load ptr, ptr %ilist, align 8
@@ -320,14 +321,14 @@ _ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE6spliceENS_23intrusive_list_i
   %call147 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp.i143, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 175, ptr noundef nonnull @.str.19)
   store ptr %ilist, ptr %mpPrev.i.i, align 8
   store ptr %ilist, ptr %ilist, align 8
-  store ptr %ilist, ptr %agg.tmp148, align 8, !alias.scope !19
-  store ptr %ilist, ptr %agg.tmp149, align 8, !alias.scope !22
+  store ptr %ilist, ptr %agg.tmp148, align 8, !alias.scope !17
+  store ptr %ilist, ptr %agg.tmp149, align 8, !alias.scope !20
   %call151 = call noundef zeroext i1 (ptr, ptr, i32, ptr, ...) @_Z14VerifySequenceIN5eastl23intrusive_list_iteratorIN12_GLOBAL__N_17IntNodeEPS3_RS3_EEiEbT_S7_T0_PKcz(ptr noundef %agg.tmp148, ptr noundef %agg.tmp149, i32 poison, ptr noundef nonnull @.str.20, i32 noundef -1)
   %call153 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %call151, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 178, ptr noundef nonnull @.str.21)
   %18 = load ptr, ptr %mpPrev.i.i, align 8
   %cmp.i146 = icmp eq ptr %18, %ilist
   %call156 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp.i146, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 179, ptr noundef nonnull @.str.22)
-  store i32 0, ptr %invariant.gep, align 16
+  store i32 0, ptr %mX.i84, align 16
   store ptr %ilist, ptr %mpPrev2.i.i, align 8
   store ptr %nodes, ptr %ilist, align 8
   store i32 1, ptr %mX.i87, align 8
@@ -359,8 +360,8 @@ _ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE6spliceENS_23intrusive_list_i
   store ptr %incdec.ptr.i123, ptr %mpPrev2.i.i90, align 16
   store ptr %nodes, ptr %mpPrev2.i.i130, align 16
   store ptr %incdec.ptr.i, ptr %incdec.ptr.i123, align 8
-  store ptr %nodes, ptr %agg.tmp193, align 8, !alias.scope !25
-  store ptr %ilist, ptr %agg.tmp194, align 8, !alias.scope !28
+  store ptr %nodes, ptr %agg.tmp193, align 8, !alias.scope !23
+  store ptr %ilist, ptr %agg.tmp194, align 8, !alias.scope !26
   %call196 = call noundef zeroext i1 (ptr, ptr, i32, ptr, ...) @_Z14VerifySequenceIN5eastl23intrusive_list_iteratorIN12_GLOBAL__N_17IntNodeEPS3_RS3_EEiEbT_S7_T0_PKcz(ptr noundef %agg.tmp193, ptr noundef %agg.tmp194, i32 poison, ptr noundef nonnull @.str.23, i32 noundef 0, i32 noundef 9, i32 noundef 1, i32 noundef 2, i32 noundef 3, i32 noundef 4, i32 noundef 5, i32 noundef 6, i32 noundef 7, i32 noundef 8, i32 noundef -1)
   %call198 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %call196, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 186, ptr noundef nonnull @.str.24)
   %mpPrev.i.i201 = getelementptr inbounds nuw i8, ptr %ilist2, i64 8
@@ -438,13 +439,13 @@ _ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE6spliceENS_23intrusive_list_i
   store ptr %incdec.ptr.i246, ptr %mpPrev.i255, align 8
   store ptr %ilist2, ptr %ilist2, align 8
   store ptr %ilist2, ptr %mpPrev.i.i201, align 8
-  store ptr %ilist2, ptr %agg.tmp233, align 8, !alias.scope !31
-  store ptr %ilist2, ptr %agg.tmp234, align 8, !alias.scope !34
+  store ptr %ilist2, ptr %agg.tmp233, align 8, !alias.scope !29
+  store ptr %ilist2, ptr %agg.tmp234, align 8, !alias.scope !32
   %call236 = call noundef zeroext i1 (ptr, ptr, i32, ptr, ...) @_Z14VerifySequenceIN5eastl23intrusive_list_iteratorIN12_GLOBAL__N_17IntNodeEPS3_RS3_EEiEbT_S7_T0_PKcz(ptr noundef %agg.tmp233, ptr noundef %agg.tmp234, i32 poison, ptr noundef nonnull @.str.25, i32 noundef -1)
   %call238 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %call236, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 192, ptr noundef nonnull @.str.26)
   %ilist.val31 = load ptr, ptr %ilist, align 8
-  store ptr %ilist.val31, ptr %agg.tmp239, align 8, !alias.scope !37
-  store ptr %ilist, ptr %agg.tmp240, align 8, !alias.scope !40
+  store ptr %ilist.val31, ptr %agg.tmp239, align 8, !alias.scope !35
+  store ptr %ilist, ptr %agg.tmp240, align 8, !alias.scope !38
   %call242 = call noundef zeroext i1 (ptr, ptr, i32, ptr, ...) @_Z14VerifySequenceIN5eastl23intrusive_list_iteratorIN12_GLOBAL__N_17IntNodeEPS3_RS3_EEiEbT_S7_T0_PKcz(ptr noundef %agg.tmp239, ptr noundef %agg.tmp240, i32 poison, ptr noundef nonnull @.str.25, i32 noundef 0, i32 noundef 9, i32 noundef 10, i32 noundef 11, i32 noundef 12, i32 noundef 13, i32 noundef 14, i32 noundef 15, i32 noundef 16, i32 noundef 17, i32 noundef 18, i32 noundef 19, i32 noundef 1, i32 noundef 2, i32 noundef 3, i32 noundef 4, i32 noundef 5, i32 noundef 6, i32 noundef 7, i32 noundef 8, i32 noundef -1)
   %call244 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %call242, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 193, ptr noundef nonnull @.str.27)
   %ilist.val32 = load ptr, ptr %ilist, align 8
@@ -477,8 +478,8 @@ if.then.i259:                                     ; preds = %_ZN5eastl14intrusiv
 
 invoke.cont265:                                   ; preds = %if.then.i259, %_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE6spliceENS_23intrusive_list_iteratorIS2_PKS2_RS5_EERS3_.exit
   %ilist.val34 = phi ptr [ %ilist.val34.pre, %if.then.i259 ], [ %ilist.val32, %_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE6spliceENS_23intrusive_list_iteratorIS2_PKS2_RS5_EERS3_.exit ]
-  store ptr %ilist.val34, ptr %agg.tmp266, align 8, !alias.scope !43
-  store ptr %ilist, ptr %agg.tmp267, align 8, !alias.scope !46
+  store ptr %ilist.val34, ptr %agg.tmp266, align 8, !alias.scope !41
+  store ptr %ilist, ptr %agg.tmp267, align 8, !alias.scope !44
   %call269 = call noundef zeroext i1 (ptr, ptr, i32, ptr, ...) @_Z14VerifySequenceIN5eastl23intrusive_list_iteratorIN12_GLOBAL__N_17IntNodeEPS3_RS3_EEiEbT_S7_T0_PKcz(ptr noundef %agg.tmp266, ptr noundef %agg.tmp267, i32 poison, ptr noundef nonnull @.str.28, i32 noundef 10, i32 noundef 11, i32 noundef 12, i32 noundef 13, i32 noundef 14, i32 noundef 15, i32 noundef 16, i32 noundef 17, i32 noundef 18, i32 noundef 19, i32 noundef 1, i32 noundef 2, i32 noundef 3, i32 noundef 4, i32 noundef 5, i32 noundef 6, i32 noundef 0, i32 noundef 9, i32 noundef 7, i32 noundef 8, i32 noundef -1)
   %call271 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %call269, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 196, ptr noundef nonnull @.str.29)
   store ptr %ilist, ptr %mpPrev.i.i, align 8
@@ -505,7 +506,7 @@ if.else.i:                                        ; preds = %invoke.cont265
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.else.i, %if.then.i265
-  %ilist.val351168 = phi ptr [ %33, %if.else.i ], [ %ilist, %if.then.i265 ]
+  %ilist.val351158 = phi ptr [ %33, %if.else.i ], [ %ilist, %if.then.i265 ]
   %34 = load ptr, ptr %ilist2, align 8
   %cmp21.i = icmp eq ptr %34, %ilist
   br i1 %cmp21.i, label %if.then22.i, label %if.else28.i
@@ -525,15 +526,15 @@ if.else28.i:                                      ; preds = %if.end.i
   br label %_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE4swapERS3_.exit
 
 _ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE4swapERS3_.exit: ; preds = %if.then22.i, %if.else28.i
-  %ilist.val35 = phi ptr [ %ilist.val351168, %if.then22.i ], [ %ilist.val35.pre, %if.else28.i ]
+  %ilist.val35 = phi ptr [ %ilist.val351158, %if.then22.i ], [ %ilist.val35.pre, %if.else28.i ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %temp.i)
-  store ptr %ilist.val35, ptr %agg.tmp273, align 8, !alias.scope !49
-  store ptr %ilist, ptr %agg.tmp274, align 8, !alias.scope !52
+  store ptr %ilist.val35, ptr %agg.tmp273, align 8, !alias.scope !47
+  store ptr %ilist, ptr %agg.tmp274, align 8, !alias.scope !50
   %call276 = call noundef zeroext i1 (ptr, ptr, i32, ptr, ...) @_Z14VerifySequenceIN5eastl23intrusive_list_iteratorIN12_GLOBAL__N_17IntNodeEPS3_RS3_EEiEbT_S7_T0_PKcz(ptr noundef %agg.tmp273, ptr noundef %agg.tmp274, i32 poison, ptr noundef nonnull @.str.30, i32 noundef -1)
   %call278 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %call276, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 200, ptr noundef nonnull @.str.31)
   %ilist2.val36 = load ptr, ptr %ilist2, align 8
-  store ptr %ilist2.val36, ptr %agg.tmp279, align 8, !alias.scope !55
-  store ptr %ilist2, ptr %agg.tmp280, align 8, !alias.scope !58
+  store ptr %ilist2.val36, ptr %agg.tmp279, align 8, !alias.scope !53
+  store ptr %ilist2, ptr %agg.tmp280, align 8, !alias.scope !56
   %call282 = call noundef zeroext i1 (ptr, ptr, i32, ptr, ...) @_Z14VerifySequenceIN5eastl23intrusive_list_iteratorIN12_GLOBAL__N_17IntNodeEPS3_RS3_EEiEbT_S7_T0_PKcz(ptr noundef %agg.tmp279, ptr noundef %agg.tmp280, i32 poison, ptr noundef nonnull @.str.30, i32 noundef -1)
   %call284 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %call282, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 201, ptr noundef nonnull @.str.32)
   %37 = load ptr, ptr %mpPrev.i.i201, align 8
@@ -561,16 +562,16 @@ if.then.i268:                                     ; preds = %_ZN5eastl14intrusiv
 
 _ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE6spliceENS_23intrusive_list_iteratorIS2_PKS2_RS5_EERS3_.exit273: ; preds = %_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE4swapERS3_.exit, %if.then.i268
   %ilist.val38 = load ptr, ptr %ilist, align 8
-  store ptr %ilist.val38, ptr %agg.tmp291, align 8, !alias.scope !61
-  store ptr %ilist, ptr %agg.tmp292, align 8, !alias.scope !64
+  store ptr %ilist.val38, ptr %agg.tmp291, align 8, !alias.scope !59
+  store ptr %ilist, ptr %agg.tmp292, align 8, !alias.scope !62
   %call294 = call noundef zeroext i1 (ptr, ptr, i32, ptr, ...) @_Z14VerifySequenceIN5eastl23intrusive_list_iteratorIN12_GLOBAL__N_17IntNodeEPS3_RS3_EEiEbT_S7_T0_PKcz(ptr noundef %agg.tmp291, ptr noundef %agg.tmp292, i32 poison, ptr noundef nonnull @.str.23, i32 noundef 0, i32 noundef -1)
   %call296 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %call294, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 205, ptr noundef nonnull @.str.33)
   %ilist2.val39 = load ptr, ptr %ilist2, align 8
-  store ptr %ilist2.val39, ptr %agg.tmp297, align 8, !alias.scope !67
-  store ptr %ilist2, ptr %agg.tmp298, align 8, !alias.scope !70
+  store ptr %ilist2.val39, ptr %agg.tmp297, align 8, !alias.scope !65
+  store ptr %ilist2, ptr %agg.tmp298, align 8, !alias.scope !68
   %call300 = call noundef zeroext i1 (ptr, ptr, i32, ptr, ...) @_Z14VerifySequenceIN5eastl23intrusive_list_iteratorIN12_GLOBAL__N_17IntNodeEPS3_RS3_EEiEbT_S7_T0_PKcz(ptr noundef %agg.tmp297, ptr noundef %agg.tmp298, i32 poison, ptr noundef nonnull @.str.23, i32 noundef -1)
   %call302 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %call300, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 206, ptr noundef nonnull @.str.34)
-  store i32 0, ptr %invariant.gep, align 16
+  store i32 0, ptr %mX.i84, align 16
   store ptr %ilist, ptr %mpPrev2.i.i, align 8
   store ptr %nodes, ptr %ilist, align 8
   store i32 1, ptr %mX.i87, align 8
@@ -587,8 +588,8 @@ _ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE6spliceENS_23intrusive_list_i
   store ptr %ilist, ptr %incdec.ptr.i98, align 16
   store ptr %incdec.ptr.i98, ptr %mpPrev.i.i, align 8
   store ptr %incdec.ptr.i98, ptr %incdec.ptr.i93, align 8
-  store ptr %nodes, ptr %agg.tmp332, align 8, !alias.scope !73
-  store ptr %ilist, ptr %agg.tmp333, align 8, !alias.scope !76
+  store ptr %nodes, ptr %agg.tmp332, align 8, !alias.scope !71
+  store ptr %ilist, ptr %agg.tmp333, align 8, !alias.scope !74
   %call335 = call noundef zeroext i1 (ptr, ptr, i32, ptr, ...) @_Z14VerifySequenceIN5eastl23intrusive_list_iteratorIN12_GLOBAL__N_17IntNodeEPS3_RS3_EEiEbT_S7_T0_PKcz(ptr noundef %agg.tmp332, ptr noundef %agg.tmp333, i32 poison, ptr noundef nonnull @.str.23, i32 noundef 0, i32 noundef 1, i32 noundef 2, i32 noundef 3, i32 noundef 4, i32 noundef -1)
   %call337 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %call335, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 212, ptr noundef nonnull @.str.35)
   %ilist.val43 = load ptr, ptr %ilist, align 8
@@ -614,11 +615,11 @@ if.then.i308:                                     ; preds = %_ZN5eastl14intrusiv
 
 _ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE6spliceENS_23intrusive_list_iteratorIS2_PKS2_RS5_EERS2_.exit313: ; preds = %_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE6spliceENS_23intrusive_list_iteratorIS2_PKS2_RS5_EERS3_.exit273, %if.then.i308
   %ilist.val45 = phi ptr [ %ilist.val43, %_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE6spliceENS_23intrusive_list_iteratorIS2_PKS2_RS5_EERS3_.exit273 ], [ %ilist.val45.pre, %if.then.i308 ]
-  store ptr %ilist.val45, ptr %agg.tmp356, align 8, !alias.scope !79
-  store ptr %ilist, ptr %agg.tmp357, align 8, !alias.scope !82
+  store ptr %ilist.val45, ptr %agg.tmp356, align 8, !alias.scope !77
+  store ptr %ilist, ptr %agg.tmp357, align 8, !alias.scope !80
   %call359 = call noundef zeroext i1 (ptr, ptr, i32, ptr, ...) @_Z14VerifySequenceIN5eastl23intrusive_list_iteratorIN12_GLOBAL__N_17IntNodeEPS3_RS3_EEiEbT_S7_T0_PKcz(ptr noundef %agg.tmp356, ptr noundef %agg.tmp357, i32 poison, ptr noundef nonnull @.str.23, i32 noundef 0, i32 noundef 1, i32 noundef 2, i32 noundef 3, i32 noundef 4, i32 noundef -1)
   %call361 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %call359, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 214, ptr noundef nonnull @.str.35)
-  store i32 0, ptr %invariant.gep, align 16
+  store i32 0, ptr %mX.i84, align 16
   store ptr %ilist, ptr %mpPrev2.i.i, align 8
   store ptr %nodes, ptr %ilist, align 8
   store i32 1, ptr %mX.i87, align 8
@@ -635,8 +636,8 @@ _ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE6spliceENS_23intrusive_list_i
   store ptr %nodes, ptr %mpPrev2.i.i90, align 16
   store ptr %incdec.ptr.i88, ptr %incdec.ptr.i, align 8
   store ptr %incdec.ptr.i, ptr %mpPrev2.i.i95, align 8
-  store ptr %nodes, ptr %agg.tmp398, align 8, !alias.scope !85
-  store ptr %ilist, ptr %agg.tmp399, align 8, !alias.scope !88
+  store ptr %nodes, ptr %agg.tmp398, align 8, !alias.scope !83
+  store ptr %ilist, ptr %agg.tmp399, align 8, !alias.scope !86
   %call401 = call noundef zeroext i1 (ptr, ptr, i32, ptr, ...) @_Z14VerifySequenceIN5eastl23intrusive_list_iteratorIN12_GLOBAL__N_17IntNodeEPS3_RS3_EEiEbT_S7_T0_PKcz(ptr noundef %agg.tmp398, ptr noundef %agg.tmp399, i32 poison, ptr noundef nonnull @.str.28, i32 noundef 0, i32 noundef 1, i32 noundef 2, i32 noundef 3, i32 noundef 4, i32 noundef -1)
   %call403 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %call401, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 220, ptr noundef nonnull @.str.36)
   store ptr %ilist, ptr %mpPrev.i.i, align 8
@@ -659,30 +660,30 @@ for.body406:                                      ; preds = %_ZN5eastl14intrusiv
   store ptr %arrayidx407, ptr %mpPrev7.i352, align 8
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %cmp405.not = icmp eq i64 %indvars.iv, 0
-  br i1 %cmp405.not, label %for.cond411.preheader, label %for.body406, !llvm.loop !91
+  br i1 %cmp405.not, label %for.cond411.preheader, label %for.body406, !llvm.loop !89
 
 for.body413:                                      ; preds = %for.cond411.preheader, %for.body413
-  %indvars.iv1158 = phi i64 [ 5, %for.cond411.preheader ], [ %indvars.iv.next1159, %for.body413 ]
-  %arrayidx415 = getelementptr inbounds nuw [20 x %"struct.(anonymous namespace)::IntNode"], ptr %nodes, i64 0, i64 %indvars.iv1158
+  %indvars.iv1148 = phi i64 [ 5, %for.cond411.preheader ], [ %indvars.iv.next1149, %for.body413 ]
+  %arrayidx415 = getelementptr inbounds nuw [20 x %"struct.(anonymous namespace)::IntNode"], ptr %nodes, i64 0, i64 %indvars.iv1148
   %46 = load ptr, ptr %mpPrev.i.i201, align 8
   %mpPrev2.i354 = getelementptr inbounds nuw i8, ptr %arrayidx415, i64 8
   store ptr %46, ptr %mpPrev2.i354, align 8
   store ptr %ilist2, ptr %arrayidx415, align 8
   store ptr %arrayidx415, ptr %mpPrev.i.i201, align 8
   store ptr %arrayidx415, ptr %46, align 8
-  %indvars.iv.next1159 = add nuw nsw i64 %indvars.iv1158, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next1159, 10
-  br i1 %exitcond.not, label %for.end418, label %for.body413, !llvm.loop !93
+  %indvars.iv.next1149 = add nuw nsw i64 %indvars.iv1148, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next1149, 10
+  br i1 %exitcond.not, label %for.end418, label %for.body413, !llvm.loop !91
 
 for.end418:                                       ; preds = %for.body413
   %ilist.val50 = load ptr, ptr %ilist, align 8
-  store ptr %ilist.val50, ptr %agg.tmp419, align 8, !alias.scope !94
-  store ptr %ilist, ptr %agg.tmp420, align 8, !alias.scope !97
+  store ptr %ilist.val50, ptr %agg.tmp419, align 8, !alias.scope !92
+  store ptr %ilist, ptr %agg.tmp420, align 8, !alias.scope !95
   %call422 = call noundef zeroext i1 (ptr, ptr, i32, ptr, ...) @_Z14VerifySequenceIN5eastl23intrusive_list_iteratorIN12_GLOBAL__N_17IntNodeEPS3_RS3_EEiEbT_S7_T0_PKcz(ptr noundef %agg.tmp419, ptr noundef %agg.tmp420, i32 poison, ptr noundef nonnull @.str.37, i32 noundef 0, i32 noundef 1, i32 noundef 2, i32 noundef 3, i32 noundef 4, i32 noundef -1)
   %call424 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %call422, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 231, ptr noundef nonnull @.str.38)
   %ilist2.val51 = load ptr, ptr %ilist2, align 8
-  store ptr %ilist2.val51, ptr %agg.tmp425, align 8, !alias.scope !100
-  store ptr %ilist2, ptr %agg.tmp426, align 8, !alias.scope !103
+  store ptr %ilist2.val51, ptr %agg.tmp425, align 8, !alias.scope !98
+  store ptr %ilist2, ptr %agg.tmp426, align 8, !alias.scope !101
   %call428 = call noundef zeroext i1 (ptr, ptr, i32, ptr, ...) @_Z14VerifySequenceIN5eastl23intrusive_list_iteratorIN12_GLOBAL__N_17IntNodeEPS3_RS3_EEiEbT_S7_T0_PKcz(ptr noundef %agg.tmp425, ptr noundef %agg.tmp426, i32 poison, ptr noundef nonnull @.str.4, i32 noundef 5, i32 noundef 6, i32 noundef 7, i32 noundef 8, i32 noundef 9, i32 noundef -1)
   %call430 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %call428, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 232, ptr noundef nonnull @.str.39)
   br label %for.body433
@@ -705,7 +706,7 @@ for.body433:                                      ; preds = %for.end418, %for.bo
   store ptr %53, ptr %mpPrev.i.i201, align 8
   %dec437 = add nsw i32 %i.21145, -1
   %cmp432.not = icmp eq i32 %i.21145, 0
-  br i1 %cmp432.not, label %for.end438, label %for.body433, !llvm.loop !106
+  br i1 %cmp432.not, label %for.end438, label %for.body433, !llvm.loop !104
 
 for.end438:                                       ; preds = %for.body433
   %54 = load ptr, ptr %mpPrev.i.i, align 8
@@ -714,29 +715,29 @@ for.end438:                                       ; preds = %for.body433
   %55 = select i1 %cmp.i359, i1 %cmp.i361, i1 false
   %call442 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %55, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 240, ptr noundef nonnull @.str.40)
   %ilist.val52 = load ptr, ptr %ilist, align 8
-  store ptr %ilist.val52, ptr %agg.tmp443, align 8, !alias.scope !107
-  store ptr %ilist, ptr %agg.tmp444, align 8, !alias.scope !110
+  store ptr %ilist.val52, ptr %agg.tmp443, align 8, !alias.scope !105
+  store ptr %ilist, ptr %agg.tmp444, align 8, !alias.scope !108
   %call446 = call noundef zeroext i1 (ptr, ptr, i32, ptr, ...) @_Z14VerifySequenceIN5eastl23intrusive_list_iteratorIN12_GLOBAL__N_17IntNodeEPS3_RS3_EEiEbT_S7_T0_PKcz(ptr noundef %agg.tmp443, ptr noundef %agg.tmp444, i32 poison, ptr noundef nonnull @.str.41, i32 noundef -1)
   %call448 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %call446, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 241, ptr noundef nonnull @.str.42)
   %ilist2.val53 = load ptr, ptr %ilist2, align 8
-  store ptr %ilist2.val53, ptr %agg.tmp449, align 8, !alias.scope !113
-  store ptr %ilist2, ptr %agg.tmp450, align 8, !alias.scope !116
+  store ptr %ilist2.val53, ptr %agg.tmp449, align 8, !alias.scope !111
+  store ptr %ilist2, ptr %agg.tmp450, align 8, !alias.scope !114
   %call452 = call noundef zeroext i1 (ptr, ptr, i32, ptr, ...) @_Z14VerifySequenceIN5eastl23intrusive_list_iteratorIN12_GLOBAL__N_17IntNodeEPS3_RS3_EEiEbT_S7_T0_PKcz(ptr noundef %agg.tmp449, ptr noundef %agg.tmp450, i32 poison, ptr noundef nonnull @.str.43, i32 noundef -1)
   %call454 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %call452, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 242, ptr noundef nonnull @.str.44)
   br label %for.body457
 
 for.body457:                                      ; preds = %for.end438, %for.body457
-  %indvars.iv1161 = phi i64 [ 0, %for.end438 ], [ %indvars.iv.next1162, %for.body457 ]
-  %arrayidx459 = getelementptr inbounds nuw [20 x %"struct.(anonymous namespace)::IntNode"], ptr %nodes, i64 0, i64 %indvars.iv1161
+  %indvars.iv1151 = phi i64 [ 0, %for.end438 ], [ %indvars.iv.next1152, %for.body457 ]
+  %arrayidx459 = getelementptr inbounds nuw [20 x %"struct.(anonymous namespace)::IntNode"], ptr %nodes, i64 0, i64 %indvars.iv1151
   %56 = load ptr, ptr %mpPrev.i.i, align 8
   %mpPrev2.i363 = getelementptr inbounds nuw i8, ptr %arrayidx459, i64 8
   store ptr %56, ptr %mpPrev2.i363, align 8
   store ptr %ilist, ptr %arrayidx459, align 8
   store ptr %arrayidx459, ptr %mpPrev.i.i, align 8
   store ptr %arrayidx459, ptr %56, align 8
-  %indvars.iv.next1162 = add nuw nsw i64 %indvars.iv1161, 1
-  %exitcond1164.not = icmp eq i64 %indvars.iv.next1162, 5
-  br i1 %exitcond1164.not, label %for.cond.i, label %for.body457, !llvm.loop !119
+  %indvars.iv.next1152 = add nuw nsw i64 %indvars.iv1151, 1
+  %exitcond1154.not = icmp eq i64 %indvars.iv.next1152, 5
+  br i1 %exitcond1154.not, label %for.cond.i, label %for.body457, !llvm.loop !117
 
 for.cond.i:                                       ; preds = %for.body457, %for.cond.i
   %p.0.in.i = phi ptr [ %p.0.i, %for.cond.i ], [ %ilist, %for.body457 ]
@@ -744,7 +745,7 @@ for.cond.i:                                       ; preds = %for.body457, %for.c
   %cmp.not.i364 = icmp ne ptr %p.0.i, %ilist
   %cmp3.i = icmp ne ptr %p.0.i, %incdec.ptr.i88
   %or.cond.not.i = and i1 %cmp3.i, %cmp.not.i364
-  br i1 %or.cond.not.i, label %for.cond.i, label %_ZNK5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE8containsERKS2_.exit, !llvm.loop !120
+  br i1 %or.cond.not.i, label %for.cond.i, label %_ZNK5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE8containsERKS2_.exit, !llvm.loop !118
 
 _ZNK5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE8containsERKS2_.exit: ; preds = %for.cond.i
   %call468 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp.not.i364, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 249, ptr noundef nonnull @.str.45)
@@ -756,7 +757,7 @@ for.cond.i365:                                    ; preds = %for.cond.i365, %_ZN
   %cmp.not.i368 = icmp ne ptr %p.0.i367, %ilist
   %cmp3.i369 = icmp ne ptr %p.0.i367, %incdec.ptr.i113
   %or.cond.not.i370 = and i1 %cmp3.i369, %cmp.not.i368
-  br i1 %or.cond.not.i370, label %for.cond.i365, label %_ZNK5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE8containsERKS2_.exit371, !llvm.loop !120
+  br i1 %or.cond.not.i370, label %for.cond.i365, label %_ZNK5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE8containsERKS2_.exit371, !llvm.loop !118
 
 _ZNK5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE8containsERKS2_.exit371: ; preds = %for.cond.i365
   %lnot472 = xor i1 %cmp.not.i368, true
@@ -765,13 +766,13 @@ _ZNK5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE8containsERKS2_.exit371: ; p
 
 for.cond.i372:                                    ; preds = %for.body.i, %_ZNK5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE8containsERKS2_.exit371
   %p.0.in.i373 = phi ptr [ %ilist, %_ZNK5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE8containsERKS2_.exit371 ], [ %p.0.i374, %for.body.i ]
-  %p.0.i374 = load ptr, ptr %p.0.in.i373, align 8, !noalias !121
+  %p.0.i374 = load ptr, ptr %p.0.in.i373, align 8, !noalias !119
   %cmp.not.i375 = icmp eq ptr %p.0.i374, %ilist
   br i1 %cmp.not.i375, label %invoke.cont477, label %for.body.i
 
 for.body.i:                                       ; preds = %for.cond.i372
   %cmp3.i376 = icmp eq ptr %p.0.i374, %incdec.ptr.i93
-  br i1 %cmp3.i376, label %invoke.cont477, label %for.cond.i372, !llvm.loop !124
+  br i1 %cmp3.i376, label %invoke.cont477, label %for.cond.i372, !llvm.loop !122
 
 invoke.cont477:                                   ; preds = %for.body.i, %for.cond.i372
   %storemerge.i = phi ptr [ %p.0.i374, %for.body.i ], [ %ilist, %for.cond.i372 ]
@@ -783,18 +784,18 @@ invoke.cont477:                                   ; preds = %for.body.i, %for.co
 
 for.cond.i377:                                    ; preds = %for.cond.i377, %invoke.cont477
   %p.0.in.i378 = phi ptr [ %ilist, %invoke.cont477 ], [ %p.0.i379, %for.cond.i377 ]
-  %p.0.i379 = load ptr, ptr %p.0.in.i378, align 8, !noalias !125
+  %p.0.i379 = load ptr, ptr %p.0.in.i378, align 8, !noalias !123
   %cmp.not.i380 = icmp eq ptr %p.0.i379, %ilist
   %cmp3.i382 = icmp eq ptr %p.0.i379, %incdec.ptr.i118
   %or.cond = or i1 %cmp.not.i380, %cmp3.i382
-  br i1 %or.cond, label %invoke.cont488, label %for.cond.i377, !llvm.loop !124
+  br i1 %or.cond, label %invoke.cont488, label %for.cond.i377, !llvm.loop !122
 
 invoke.cont488:                                   ; preds = %for.cond.i377
   %call495 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp.not.i380, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 256, ptr noundef nonnull @.str.47)
   call void @_ZN5eastl19intrusive_list_base7reverseEv(ptr noundef nonnull align 8 dereferenceable(16) %ilist) #7
   %ilist.val54 = load ptr, ptr %ilist, align 8
-  store ptr %ilist.val54, ptr %agg.tmp496, align 8, !alias.scope !128
-  store ptr %ilist, ptr %agg.tmp497, align 8, !alias.scope !131
+  store ptr %ilist.val54, ptr %agg.tmp496, align 8, !alias.scope !126
+  store ptr %ilist, ptr %agg.tmp497, align 8, !alias.scope !129
   %call499 = call noundef zeroext i1 (ptr, ptr, i32, ptr, ...) @_Z14VerifySequenceIN5eastl23intrusive_list_iteratorIN12_GLOBAL__N_17IntNodeEPS3_RS3_EEiEbT_S7_T0_PKcz(ptr noundef %agg.tmp496, ptr noundef %agg.tmp497, i32 poison, ptr noundef nonnull @.str.37, i32 noundef 4, i32 noundef 3, i32 noundef 2, i32 noundef 1, i32 noundef 0, i32 noundef -1)
   %call501 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %call499, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 261, ptr noundef nonnull @.str.48)
   %call503 = call noundef zeroext i1 @_ZNK5eastl19intrusive_list_base8validateEv(ptr noundef nonnull align 8 dereferenceable(16) %ilist)
@@ -803,13 +804,13 @@ invoke.cont488:                                   ; preds = %for.cond.i377
 
 for.cond.i386:                                    ; preds = %for.body.i390, %invoke.cont488
   %p.0.in.i387 = phi ptr [ %ilist, %invoke.cont488 ], [ %p.0.i388, %for.body.i390 ]
-  %p.0.i388 = load ptr, ptr %p.0.in.i387, align 8, !noalias !134
+  %p.0.i388 = load ptr, ptr %p.0.in.i387, align 8, !noalias !132
   %cmp.not.i389 = icmp eq ptr %p.0.i388, %ilist
   br i1 %cmp.not.i389, label %invoke.cont508, label %for.body.i390
 
 for.body.i390:                                    ; preds = %for.cond.i386
   %cmp3.i391 = icmp eq ptr %p.0.i388, %incdec.ptr.i93
-  br i1 %cmp3.i391, label %invoke.cont508, label %for.cond.i386, !llvm.loop !124
+  br i1 %cmp3.i391, label %invoke.cont508, label %for.cond.i386, !llvm.loop !122
 
 invoke.cont508:                                   ; preds = %for.body.i390, %for.cond.i386
   %storemerge.i392 = phi ptr [ %incdec.ptr.i93, %for.body.i390 ], [ %ilist, %for.cond.i386 ]
@@ -823,7 +824,7 @@ for.cond.i394:                                    ; preds = %for.body.i396, %inv
 
 for.body.i396:                                    ; preds = %for.cond.i394
   %cmp.i3.i = icmp eq ptr %temp.sroa.0.0.i, %storemerge.i392
-  br i1 %cmp.i3.i, label %invoke.cont514, label %for.cond.i394, !llvm.loop !137
+  br i1 %cmp.i3.i, label %invoke.cont514, label %for.cond.i394, !llvm.loop !135
 
 for.end.i:                                        ; preds = %for.cond.i394
   %cmp.i4.i = icmp eq ptr %storemerge.i392, %ilist
@@ -840,7 +841,7 @@ for.cond.i397:                                    ; preds = %for.cond.i397, %inv
   %cmp.i.not.i400 = icmp eq ptr %temp.sroa.0.0.i399, %ilist
   %cmp.i3.i402 = icmp eq ptr %temp.sroa.0.0.i399, null
   %or.cond1139 = or i1 %cmp.i.not.i400, %cmp.i3.i402
-  br i1 %or.cond1139, label %invoke.cont524, label %for.cond.i397, !llvm.loop !137
+  br i1 %or.cond1139, label %invoke.cont524, label %for.cond.i397, !llvm.loop !135
 
 invoke.cont524:                                   ; preds = %for.cond.i397
   %call528 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp.i.not.i400, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 268, ptr noundef nonnull @.str.51)
@@ -866,7 +867,7 @@ if.else.i411:                                     ; preds = %invoke.cont524
   br label %if.end.i413
 
 if.end.i413:                                      ; preds = %if.else.i411, %if.then.i419
-  %ilist.val551171 = phi ptr [ %60, %if.else.i411 ], [ %ilist, %if.then.i419 ]
+  %ilist.val551161 = phi ptr [ %60, %if.else.i411 ], [ %ilist, %if.then.i419 ]
   %61 = load ptr, ptr %ilist2, align 8
   %cmp21.i414 = icmp eq ptr %61, %ilist
   br i1 %cmp21.i414, label %if.then22.i418, label %if.else28.i416
@@ -886,18 +887,18 @@ if.else28.i416:                                   ; preds = %if.end.i413
   br label %_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE4swapERS3_.exit420
 
 _ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE4swapERS3_.exit420: ; preds = %if.then22.i418, %if.else28.i416
-  %ilist.val55 = phi ptr [ %ilist.val551171, %if.then22.i418 ], [ %ilist.val55.pre, %if.else28.i416 ]
+  %ilist.val55 = phi ptr [ %ilist.val551161, %if.then22.i418 ], [ %ilist.val55.pre, %if.else28.i416 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %temp.i408)
-  store ptr %ilist.val55, ptr %agg.tmp530, align 8, !alias.scope !138
-  store ptr %ilist, ptr %agg.tmp531, align 8, !alias.scope !141
+  store ptr %ilist.val55, ptr %agg.tmp530, align 8, !alias.scope !136
+  store ptr %ilist, ptr %agg.tmp531, align 8, !alias.scope !139
   %call533 = call noundef zeroext i1 (ptr, ptr, i32, ptr, ...) @_Z14VerifySequenceIN5eastl23intrusive_list_iteratorIN12_GLOBAL__N_17IntNodeEPS3_RS3_EEiEbT_S7_T0_PKcz(ptr noundef %agg.tmp530, ptr noundef %agg.tmp531, i32 poison, ptr noundef nonnull @.str.52, i32 noundef -1)
   %call535 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %call533, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 273, ptr noundef nonnull @.str.53)
   %ilist2.val56 = load ptr, ptr %ilist2, align 8
-  store ptr %ilist2.val56, ptr %agg.tmp536, align 8, !alias.scope !144
-  store ptr %ilist2, ptr %agg.tmp537, align 8, !alias.scope !147
+  store ptr %ilist2.val56, ptr %agg.tmp536, align 8, !alias.scope !142
+  store ptr %ilist2, ptr %agg.tmp537, align 8, !alias.scope !145
   %call539 = call noundef zeroext i1 (ptr, ptr, i32, ptr, ...) @_Z14VerifySequenceIN5eastl23intrusive_list_iteratorIN12_GLOBAL__N_17IntNodeEPS3_RS3_EEiEbT_S7_T0_PKcz(ptr noundef %agg.tmp536, ptr noundef %agg.tmp537, i32 poison, ptr noundef nonnull @.str.52, i32 noundef 4, i32 noundef 3, i32 noundef 2, i32 noundef 1, i32 noundef 0, i32 noundef -1)
   %call541 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %call539, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 274, ptr noundef nonnull @.str.54)
-  store i32 0, ptr %invariant.gep, align 16
+  store i32 0, ptr %mX.i84, align 16
   store ptr %ilist2, ptr %mpPrev2.i.i, align 8
   store ptr %nodes, ptr %ilist2, align 8
   store i32 1, ptr %mX.i87, align 8
@@ -929,20 +930,20 @@ _ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE4swapERS3_.exit420: ; preds =
   store ptr %ilist, ptr %incdec.ptr.i123, align 8
   store ptr %incdec.ptr.i123, ptr %mpPrev.i.i, align 8
   store ptr %incdec.ptr.i123, ptr %incdec.ptr.i118, align 16
-  store ptr %incdec.ptr.i118, ptr %incdec.ptr.i108, align 16, !noalias !150
-  store ptr %incdec.ptr.i108, ptr %mpPrev2.i.i125, align 8, !noalias !150
-  store ptr %incdec.ptr.i103, ptr %agg.tmp578, align 8, !alias.scope !153
-  store ptr %ilist, ptr %agg.tmp579, align 8, !alias.scope !156
+  store ptr %incdec.ptr.i118, ptr %incdec.ptr.i108, align 16, !noalias !148
+  store ptr %incdec.ptr.i108, ptr %mpPrev2.i.i125, align 8, !noalias !148
+  store ptr %incdec.ptr.i103, ptr %agg.tmp578, align 8, !alias.scope !151
+  store ptr %ilist, ptr %agg.tmp579, align 8, !alias.scope !154
   %call581 = call noundef zeroext i1 (ptr, ptr, i32, ptr, ...) @_Z14VerifySequenceIN5eastl23intrusive_list_iteratorIN12_GLOBAL__N_17IntNodeEPS3_RS3_EEiEbT_S7_T0_PKcz(ptr noundef %agg.tmp578, ptr noundef %agg.tmp579, i32 poison, ptr noundef nonnull @.str.55, i32 noundef 5, i32 noundef 6, i32 noundef 8, i32 noundef 9, i32 noundef -1)
   %call583 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %call581, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 281, ptr noundef nonnull @.str.56)
   %ilist.val59 = load ptr, ptr %ilist, align 8
   %64 = getelementptr i8, ptr %ilist.val59, i64 8
   %.val79 = load ptr, ptr %64, align 8
-  store ptr %ilist, ptr %.val79, align 8, !noalias !159
-  store ptr %.val79, ptr %mpPrev.i.i, align 8, !noalias !159
+  store ptr %ilist, ptr %.val79, align 8, !noalias !157
+  store ptr %.val79, ptr %mpPrev.i.i, align 8, !noalias !157
   %ilist.val60 = load ptr, ptr %ilist, align 8
-  store ptr %ilist.val60, ptr %agg.tmp594, align 8, !alias.scope !162
-  store ptr %ilist, ptr %agg.tmp595, align 8, !alias.scope !165
+  store ptr %ilist.val60, ptr %agg.tmp594, align 8, !alias.scope !160
+  store ptr %ilist, ptr %agg.tmp595, align 8, !alias.scope !163
   %call597 = call noundef zeroext i1 (ptr, ptr, i32, ptr, ...) @_Z14VerifySequenceIN5eastl23intrusive_list_iteratorIN12_GLOBAL__N_17IntNodeEPS3_RS3_EEiEbT_S7_T0_PKcz(ptr noundef %agg.tmp594, ptr noundef %agg.tmp595, i32 poison, ptr noundef nonnull @.str.57, i32 noundef -1)
   %call599 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %call597, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 284, ptr noundef nonnull @.str.58)
   %ilist2.val61 = load ptr, ptr %ilist2, align 8
@@ -952,12 +953,12 @@ _ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE4swapERS3_.exit420: ; preds =
   %67 = load ptr, ptr %mpPrev.i477, align 8
   %68 = getelementptr i8, ptr %65, i64 8
   %.val80 = load ptr, ptr %68, align 8
-  store ptr %67, ptr %.val80, align 8, !noalias !168
+  store ptr %67, ptr %.val80, align 8, !noalias !166
   %mpPrev4.i478 = getelementptr inbounds nuw i8, ptr %67, i64 8
-  store ptr %.val80, ptr %mpPrev4.i478, align 8, !noalias !168
+  store ptr %.val80, ptr %mpPrev4.i478, align 8, !noalias !166
   %ilist2.val62 = load ptr, ptr %ilist2, align 8
-  store ptr %ilist2.val62, ptr %agg.tmp616, align 8, !alias.scope !171
-  store ptr %ilist2, ptr %agg.tmp617, align 8, !alias.scope !174
+  store ptr %ilist2.val62, ptr %agg.tmp616, align 8, !alias.scope !169
+  store ptr %ilist2, ptr %agg.tmp617, align 8, !alias.scope !172
   %call619 = call noundef zeroext i1 (ptr, ptr, i32, ptr, ...) @_Z14VerifySequenceIN5eastl23intrusive_list_iteratorIN12_GLOBAL__N_17IntNodeEPS3_RS3_EEiEbT_S7_T0_PKcz(ptr noundef %agg.tmp616, ptr noundef %agg.tmp617, i32 poison, ptr noundef nonnull @.str.59, i32 noundef 0, i32 noundef 3, i32 noundef 4, i32 noundef -1)
   %call621 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %call619, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 287, ptr noundef nonnull @.str.60)
   br label %do.body.i
@@ -968,7 +969,7 @@ do.body.i:                                        ; preds = %_ZN5eastl14intrusiv
   %inc.i = add i64 %n.0.i, 1
   %69 = load ptr, ptr %p.0.i479, align 8
   %cmp.not.i480 = icmp eq ptr %69, %ilist2
-  br i1 %cmp.not.i480, label %_ZNK5eastl19intrusive_list_base4sizeEv.exit, label %do.body.i, !llvm.loop !177
+  br i1 %cmp.not.i480, label %_ZNK5eastl19intrusive_list_base4sizeEv.exit, label %do.body.i, !llvm.loop !175
 
 _ZNK5eastl19intrusive_list_base4sizeEv.exit:      ; preds = %do.body.i
   %cmp623 = icmp eq i64 %inc.i, 3
@@ -979,8 +980,8 @@ _ZNK5eastl19intrusive_list_base4sizeEv.exit:      ; preds = %do.body.i
   store ptr %ilist2, ptr %mpPrev.i481, align 8
   %72 = load ptr, ptr %70, align 8
   store ptr %72, ptr %ilist2, align 8
-  store ptr %72, ptr %agg.tmp627, align 8, !alias.scope !178
-  store ptr %ilist2, ptr %agg.tmp628, align 8, !alias.scope !181
+  store ptr %72, ptr %agg.tmp627, align 8, !alias.scope !176
+  store ptr %ilist2, ptr %agg.tmp628, align 8, !alias.scope !179
   %call630 = call noundef zeroext i1 (ptr, ptr, i32, ptr, ...) @_Z14VerifySequenceIN5eastl23intrusive_list_iteratorIN12_GLOBAL__N_17IntNodeEPS3_RS3_EEiEbT_S7_T0_PKcz(ptr noundef %agg.tmp627, ptr noundef %agg.tmp628, i32 poison, ptr noundef nonnull @.str.41, i32 noundef 3, i32 noundef 4, i32 noundef -1)
   %call632 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %call630, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 296, ptr noundef nonnull @.str.62)
   %73 = load ptr, ptr %mpPrev.i.i201, align 8
@@ -992,8 +993,8 @@ _ZNK5eastl19intrusive_list_base4sizeEv.exit:      ; preds = %do.body.i
   %76 = load ptr, ptr %mpPrev6.i484, align 8
   store ptr %76, ptr %mpPrev.i.i201, align 8
   %ilist2.val64 = load ptr, ptr %ilist2, align 8
-  store ptr %ilist2.val64, ptr %agg.tmp634, align 8, !alias.scope !184
-  store ptr %ilist2, ptr %agg.tmp635, align 8, !alias.scope !187
+  store ptr %ilist2.val64, ptr %agg.tmp634, align 8, !alias.scope !182
+  store ptr %ilist2, ptr %agg.tmp635, align 8, !alias.scope !185
   %call637 = call noundef zeroext i1 (ptr, ptr, i32, ptr, ...) @_Z14VerifySequenceIN5eastl23intrusive_list_iteratorIN12_GLOBAL__N_17IntNodeEPS3_RS3_EEiEbT_S7_T0_PKcz(ptr noundef %agg.tmp634, ptr noundef %agg.tmp635, i32 poison, ptr noundef nonnull @.str.43, i32 noundef 3, i32 noundef -1)
   %call639 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %call637, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 299, ptr noundef nonnull @.str.63)
   %mpPrev.i.i485 = getelementptr inbounds nuw i8, ptr %ilist1, i64 8
@@ -1002,16 +1003,16 @@ _ZNK5eastl19intrusive_list_base4sizeEv.exit:      ; preds = %do.body.i
   %mpPrev.i.i486 = getelementptr inbounds nuw i8, ptr %ilist2641, i64 8
   store ptr %ilist2641, ptr %mpPrev.i.i486, align 8
   store ptr %ilist2641, ptr %ilist2641, align 8
-  %invariant.gep1147 = getelementptr inbounds nuw i8, ptr %nodes649, i64 16
   br label %arrayctor.loop652
 
 arrayctor.loop652:                                ; preds = %arrayctor.loop652, %_ZNK5eastl19intrusive_list_base4sizeEv.exit
   %arrayctor.cur653.idx = phi i64 [ 0, %_ZNK5eastl19intrusive_list_base4sizeEv.exit ], [ %arrayctor.cur653.add, %arrayctor.loop652 ]
-  %gep1148 = getelementptr inbounds nuw i8, ptr %invariant.gep1147, i64 %arrayctor.cur653.idx
-  store i32 0, ptr %gep1148, align 8
+  %arrayctor.cur653.ptr = getelementptr inbounds nuw i8, ptr %nodes649, i64 %arrayctor.cur653.idx
+  %mX.i487 = getelementptr inbounds nuw i8, ptr %arrayctor.cur653.ptr, i64 16
+  store i32 0, ptr %mX.i487, align 8
   %arrayctor.cur653.add = add nuw nsw i64 %arrayctor.cur653.idx, 24
   %arrayctor.done655 = icmp eq i64 %arrayctor.cur653.add, 240
-  br i1 %arrayctor.done655, label %arrayctor.cont656, label %arrayctor.loop652, !llvm.loop !190
+  br i1 %arrayctor.done655, label %arrayctor.cont656, label %arrayctor.loop652
 
 arrayctor.cont656:                                ; preds = %arrayctor.loop652
   %mpPrev.i.i488 = getelementptr inbounds nuw i8, ptr %listEmpty, i64 8
@@ -1019,12 +1020,13 @@ arrayctor.cont656:                                ; preds = %arrayctor.loop652
   store ptr %listEmpty, ptr %listEmpty, align 8
   call fastcc void @_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE4sortEv(ptr noundef nonnull align 8 dereferenceable(16) %listEmpty)
   %listEmpty.val = load ptr, ptr %listEmpty, align 8
-  store ptr %listEmpty.val, ptr %agg.tmp659, align 8, !alias.scope !191
-  store ptr %listEmpty, ptr %agg.tmp660, align 8, !alias.scope !194
+  store ptr %listEmpty.val, ptr %agg.tmp659, align 8, !alias.scope !188
+  store ptr %listEmpty, ptr %agg.tmp660, align 8, !alias.scope !191
   %call662 = call noundef zeroext i1 (ptr, ptr, i32, ptr, ...) @_Z14VerifySequenceIN5eastl23intrusive_list_iteratorIN12_GLOBAL__N_17IntNodeEPS3_RS3_EEiEbT_S7_T0_PKcz(ptr noundef %agg.tmp659, ptr noundef %agg.tmp660, i32 poison, ptr noundef nonnull @.str.64, i32 noundef -1)
   %call664 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %call662, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 322, ptr noundef nonnull @.str.65)
   %mpPrev.i.i489 = getelementptr inbounds nuw i8, ptr %list1, i64 8
-  store i32 1, ptr %invariant.gep1147, align 16
+  %mX.i493 = getelementptr inbounds nuw i8, ptr %nodes649, i64 16
+  store i32 1, ptr %mX.i493, align 16
   %mpPrev2.i.i496 = getelementptr inbounds nuw i8, ptr %nodes649, i64 8
   store ptr %list1, ptr %mpPrev2.i.i496, align 8
   store ptr %list1, ptr %nodes649, align 16
@@ -1032,14 +1034,14 @@ arrayctor.cont656:                                ; preds = %arrayctor.loop652
   store ptr %nodes649, ptr %list1, align 8
   call fastcc void @_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE4sortEv(ptr noundef nonnull align 8 dereferenceable(16) %list1)
   %list1.val = load ptr, ptr %list1, align 8
-  store ptr %list1.val, ptr %agg.tmp673, align 8, !alias.scope !197
-  store ptr %list1, ptr %agg.tmp674, align 8, !alias.scope !200
+  store ptr %list1.val, ptr %agg.tmp673, align 8, !alias.scope !194
+  store ptr %list1, ptr %agg.tmp674, align 8, !alias.scope !197
   %call676 = call noundef zeroext i1 (ptr, ptr, i32, ptr, ...) @_Z14VerifySequenceIN5eastl23intrusive_list_iteratorIN12_GLOBAL__N_17IntNodeEPS3_RS3_EEiEbT_S7_T0_PKcz(ptr noundef %agg.tmp673, ptr noundef %agg.tmp674, i32 poison, ptr noundef nonnull @.str.64, i32 noundef 1, i32 noundef -1)
   %call678 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %call676, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 327, ptr noundef nonnull @.str.66)
   store ptr %list1, ptr %mpPrev.i.i489, align 8
   store ptr %list1, ptr %list1, align 8
   %mpPrev.i.i498 = getelementptr inbounds nuw i8, ptr %list4, i64 8
-  store i32 1, ptr %invariant.gep1147, align 16
+  store i32 1, ptr %mX.i493, align 16
   %incdec.ptr.i503 = getelementptr inbounds nuw i8, ptr %nodes649, i64 24
   store ptr %list4, ptr %mpPrev2.i.i496, align 8
   store ptr %nodes649, ptr %list4, align 8
@@ -1064,14 +1066,14 @@ arrayctor.cont656:                                ; preds = %arrayctor.loop652
   store ptr %incdec.ptr.i513, ptr %incdec.ptr.i508, align 16
   call fastcc void @_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE4sortEv(ptr noundef nonnull align 8 dereferenceable(16) %list4)
   %list4.val = load ptr, ptr %list4, align 8
-  store ptr %list4.val, ptr %agg.tmp693, align 8, !alias.scope !203
-  store ptr %list4, ptr %agg.tmp694, align 8, !alias.scope !206
+  store ptr %list4.val, ptr %agg.tmp693, align 8, !alias.scope !200
+  store ptr %list4, ptr %agg.tmp694, align 8, !alias.scope !203
   %call696 = call noundef zeroext i1 (ptr, ptr, i32, ptr, ...) @_Z14VerifySequenceIN5eastl23intrusive_list_iteratorIN12_GLOBAL__N_17IntNodeEPS3_RS3_EEiEbT_S7_T0_PKcz(ptr noundef %agg.tmp693, ptr noundef %agg.tmp694, i32 poison, ptr noundef nonnull @.str.64, i32 noundef 1, i32 noundef 2, i32 noundef 3, i32 noundef 9, i32 noundef -1)
   %call698 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %call696, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 333, ptr noundef nonnull @.str.67)
   store ptr %list4, ptr %mpPrev.i.i498, align 8
   store ptr %list4, ptr %list4, align 8
   %mpPrev.i.i522 = getelementptr inbounds nuw i8, ptr %listA, i64 8
-  store i32 1, ptr %invariant.gep1147, align 16
+  store i32 1, ptr %mX.i493, align 16
   store ptr %listA, ptr %mpPrev2.i.i496, align 8
   store ptr %nodes649, ptr %listA, align 8
   store i32 9, ptr %mX.i507, align 8
@@ -1123,14 +1125,14 @@ arrayctor.cont656:                                ; preds = %arrayctor.loop652
   store ptr %incdec.ptr.i567, ptr %incdec.ptr.i562, align 16
   call fastcc void @_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE4sortEv(ptr noundef nonnull align 8 dereferenceable(16) %listA)
   %listA.val = load ptr, ptr %listA, align 8
-  store ptr %listA.val, ptr %agg.tmp725, align 8, !alias.scope !209
-  store ptr %listA, ptr %agg.tmp726, align 8, !alias.scope !212
+  store ptr %listA.val, ptr %agg.tmp725, align 8, !alias.scope !206
+  store ptr %listA, ptr %agg.tmp726, align 8, !alias.scope !209
   %call728 = call noundef zeroext i1 (ptr, ptr, i32, ptr, ...) @_Z14VerifySequenceIN5eastl23intrusive_list_iteratorIN12_GLOBAL__N_17IntNodeEPS3_RS3_EEiEbT_S7_T0_PKcz(ptr noundef %agg.tmp725, ptr noundef %agg.tmp726, i32 poison, ptr noundef nonnull @.str.64, i32 noundef 0, i32 noundef 1, i32 noundef 2, i32 noundef 3, i32 noundef 4, i32 noundef 5, i32 noundef 6, i32 noundef 7, i32 noundef 8, i32 noundef 9, i32 noundef -1)
   %call730 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %call728, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 339, ptr noundef nonnull @.str.68)
   store ptr %listA, ptr %mpPrev.i.i522, align 8
   store ptr %listA, ptr %listA, align 8
   %mpPrev.i.i576 = getelementptr inbounds nuw i8, ptr %listB, i64 8
-  store i32 1, ptr %invariant.gep1147, align 16
+  store i32 1, ptr %mX.i493, align 16
   store ptr %listB, ptr %mpPrev2.i.i496, align 8
   store ptr %nodes649, ptr %listB, align 8
   store i32 9, ptr %mX.i507, align 8
@@ -1164,38 +1166,36 @@ arrayctor.cont656:                                ; preds = %arrayctor.loop652
   store ptr %incdec.ptr.i567, ptr %incdec.ptr.i562, align 16
   call fastcc void @_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE4sortINS_4lessIiEEEEvT_(ptr noundef nonnull align 8 dereferenceable(16) %listB)
   %listB.val = load ptr, ptr %listB, align 8
-  store ptr %listB.val, ptr %agg.tmp758, align 8, !alias.scope !215
-  store ptr %listB, ptr %agg.tmp759, align 8, !alias.scope !218
+  store ptr %listB.val, ptr %agg.tmp758, align 8, !alias.scope !212
+  store ptr %listB, ptr %agg.tmp759, align 8, !alias.scope !215
   %call761 = call noundef zeroext i1 (ptr, ptr, i32, ptr, ...) @_Z14VerifySequenceIN5eastl23intrusive_list_iteratorIN12_GLOBAL__N_17IntNodeEPS3_RS3_EEiEbT_S7_T0_PKcz(ptr noundef %agg.tmp758, ptr noundef %agg.tmp759, i32 poison, ptr noundef nonnull @.str.64, i32 noundef 0, i32 noundef 1, i32 noundef 2, i32 noundef 3, i32 noundef 4, i32 noundef 5, i32 noundef 6, i32 noundef 7, i32 noundef 8, i32 noundef 9, i32 noundef -1)
   %call763 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %call761, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 345, ptr noundef nonnull @.str.69)
   store ptr %listB, ptr %mpPrev.i.i576, align 8
   store ptr %listB, ptr %listB, align 8
-  %invariant.gep1149 = getelementptr inbounds nuw i8, ptr %nodesA, i64 16
   br label %arrayctor.loop772
 
 arrayctor.loop772:                                ; preds = %arrayctor.loop772, %arrayctor.cont656
   %arrayctor.cur773.idx = phi i64 [ 0, %arrayctor.cont656 ], [ %arrayctor.cur773.add, %arrayctor.loop772 ]
-  %gep1150 = getelementptr inbounds nuw i8, ptr %invariant.gep1149, i64 %arrayctor.cur773.idx
-  store i32 0, ptr %gep1150, align 8
+  %arrayctor.cur773.ptr = getelementptr inbounds nuw i8, ptr %nodesA, i64 %arrayctor.cur773.idx
+  %mX.i630 = getelementptr inbounds nuw i8, ptr %arrayctor.cur773.ptr, i64 16
+  store i32 0, ptr %mX.i630, align 8
   %arrayctor.cur773.add = add nuw nsw i64 %arrayctor.cur773.idx, 24
   %arrayctor.done775 = icmp eq i64 %arrayctor.cur773.add, 192
-  br i1 %arrayctor.done775, label %arrayctor.loop779.preheader, label %arrayctor.loop772, !llvm.loop !221
+  br i1 %arrayctor.done775, label %arrayctor.loop779, label %arrayctor.loop772
 
-arrayctor.loop779.preheader:                      ; preds = %arrayctor.loop772
-  %invariant.gep1151 = getelementptr inbounds nuw i8, ptr %nodesB, i64 16
-  br label %arrayctor.loop779
-
-arrayctor.loop779:                                ; preds = %arrayctor.loop779.preheader, %arrayctor.loop779
-  %arrayctor.cur780.idx = phi i64 [ %arrayctor.cur780.add, %arrayctor.loop779 ], [ 0, %arrayctor.loop779.preheader ]
-  %gep1152 = getelementptr inbounds nuw i8, ptr %invariant.gep1151, i64 %arrayctor.cur780.idx
-  store i32 0, ptr %gep1152, align 8
+arrayctor.loop779:                                ; preds = %arrayctor.loop772, %arrayctor.loop779
+  %arrayctor.cur780.idx = phi i64 [ %arrayctor.cur780.add, %arrayctor.loop779 ], [ 0, %arrayctor.loop772 ]
+  %arrayctor.cur780.ptr = getelementptr inbounds nuw i8, ptr %nodesB, i64 %arrayctor.cur780.idx
+  %mX.i631 = getelementptr inbounds nuw i8, ptr %arrayctor.cur780.ptr, i64 16
+  store i32 0, ptr %mX.i631, align 8
   %arrayctor.cur780.add = add nuw nsw i64 %arrayctor.cur780.idx, 24
   %arrayctor.done782 = icmp eq i64 %arrayctor.cur780.add, 192
-  br i1 %arrayctor.done782, label %invoke.cont825, label %arrayctor.loop779, !llvm.loop !222
+  br i1 %arrayctor.done782, label %invoke.cont825, label %arrayctor.loop779
 
 invoke.cont825:                                   ; preds = %arrayctor.loop779
   %mpPrev.i.i632 = getelementptr inbounds nuw i8, ptr %listA784, i64 8
-  store i32 1, ptr %invariant.gep1149, align 16
+  %mX.i636 = getelementptr inbounds nuw i8, ptr %nodesA, i64 16
+  store i32 1, ptr %mX.i636, align 16
   %incdec.ptr.i637 = getelementptr inbounds nuw i8, ptr %nodesA, i64 24
   %mpPrev2.i.i639 = getelementptr inbounds nuw i8, ptr %nodesA, i64 8
   store ptr %listA784, ptr %mpPrev2.i.i639, align 8
@@ -1244,7 +1244,8 @@ invoke.cont825:                                   ; preds = %arrayctor.loop779
   store ptr %incdec.ptr.i667, ptr %mpPrev.i.i632, align 8
   store ptr %incdec.ptr.i667, ptr %incdec.ptr.i662, align 16
   %mpPrev.i.i675 = getelementptr inbounds nuw i8, ptr %listB805, i64 8
-  store i32 1, ptr %invariant.gep1151, align 16
+  %mX.i679 = getelementptr inbounds nuw i8, ptr %nodesB, i64 16
+  store i32 1, ptr %mX.i679, align 16
   %incdec.ptr.i680 = getelementptr inbounds nuw i8, ptr %nodesB, i64 24
   %mpPrev2.i.i682 = getelementptr inbounds nuw i8, ptr %nodesB, i64 8
   store ptr %listB805, ptr %mpPrev2.i.i682, align 8
@@ -1337,7 +1338,7 @@ if.end.i722:                                      ; preds = %if.else.i721, %if.t
   %cmp.i.i = icmp ne ptr %first.sroa.0.1.i, %listA784
   %cmp.i15.i = icmp ne ptr %firstX.sroa.0.1.i, %listB805
   %or.cond.i = and i1 %cmp.i15.i, %cmp.i.i
-  br i1 %or.cond.i, label %while.body.i, label %while.end.i, !llvm.loop !223
+  br i1 %or.cond.i, label %while.body.i, label %while.end.i, !llvm.loop !218
 
 while.end.i:                                      ; preds = %if.end.i722
   %cmp.i16.not.i = icmp eq ptr %firstX.sroa.0.1.i, %listB805
@@ -1361,41 +1362,39 @@ _ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE6spliceENS_23intrusive_list_i
 
 invoke.cont827:                                   ; preds = %_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE6spliceENS_23intrusive_list_iteratorIS2_PKS2_RS5_EERS3_S8_S8_.exit23.i, %while.end.i
   %listA784.val = load ptr, ptr %listA784, align 8
-  store ptr %listA784.val, ptr %agg.tmp828, align 8, !alias.scope !224
-  store ptr %listA784, ptr %agg.tmp829, align 8, !alias.scope !227
+  store ptr %listA784.val, ptr %agg.tmp828, align 8, !alias.scope !219
+  store ptr %listA784, ptr %agg.tmp829, align 8, !alias.scope !222
   %call831 = call noundef zeroext i1 (ptr, ptr, i32, ptr, ...) @_Z14VerifySequenceIN5eastl23intrusive_list_iteratorIN12_GLOBAL__N_17IntNodeEPS3_RS3_EEiEbT_S7_T0_PKcz(ptr noundef %agg.tmp828, ptr noundef %agg.tmp829, i32 poison, ptr noundef nonnull @.str.70, i32 noundef 1, i32 noundef 1, i32 noundef 2, i32 noundef 2, i32 noundef 3, i32 noundef 3, i32 noundef 4, i32 noundef 4, i32 noundef 4, i32 noundef 4, i32 noundef 5, i32 noundef 5, i32 noundef 9, i32 noundef 9, i32 noundef 9, i32 noundef 9, i32 noundef -1)
   %call833 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %call831, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 365, ptr noundef nonnull @.str.71)
   %listB805.val = load ptr, ptr %listB805, align 8
-  store ptr %listB805.val, ptr %agg.tmp834, align 8, !alias.scope !230
-  store ptr %listB805, ptr %agg.tmp835, align 8, !alias.scope !233
+  store ptr %listB805.val, ptr %agg.tmp834, align 8, !alias.scope !225
+  store ptr %listB805, ptr %agg.tmp835, align 8, !alias.scope !228
   %call837 = call noundef zeroext i1 (ptr, ptr, i32, ptr, ...) @_Z14VerifySequenceIN5eastl23intrusive_list_iteratorIN12_GLOBAL__N_17IntNodeEPS3_RS3_EEiEbT_S7_T0_PKcz(ptr noundef %agg.tmp834, ptr noundef %agg.tmp835, i32 poison, ptr noundef nonnull @.str.70, i32 noundef -1)
   %call839 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %call837, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 366, ptr noundef nonnull @.str.72)
-  %invariant.gep1153 = getelementptr inbounds nuw i8, ptr %nodesA843, i64 16
   br label %arrayctor.loop846
 
 arrayctor.loop846:                                ; preds = %invoke.cont827, %arrayctor.loop846
   %arrayctor.cur847.idx = phi i64 [ %arrayctor.cur847.add, %arrayctor.loop846 ], [ 0, %invoke.cont827 ]
-  %gep1154 = getelementptr inbounds nuw i8, ptr %invariant.gep1153, i64 %arrayctor.cur847.idx
-  store i32 0, ptr %gep1154, align 8
+  %arrayctor.cur847.ptr = getelementptr inbounds nuw i8, ptr %nodesA843, i64 %arrayctor.cur847.idx
+  %mX.i724 = getelementptr inbounds nuw i8, ptr %arrayctor.cur847.ptr, i64 16
+  store i32 0, ptr %mX.i724, align 8
   %arrayctor.cur847.add = add nuw nsw i64 %arrayctor.cur847.idx, 24
   %arrayctor.done849 = icmp eq i64 %arrayctor.cur847.add, 192
-  br i1 %arrayctor.done849, label %arrayctor.loop854.preheader, label %arrayctor.loop846, !llvm.loop !236
+  br i1 %arrayctor.done849, label %arrayctor.loop854, label %arrayctor.loop846
 
-arrayctor.loop854.preheader:                      ; preds = %arrayctor.loop846
-  %invariant.gep1155 = getelementptr inbounds nuw i8, ptr %nodesB851, i64 16
-  br label %arrayctor.loop854
-
-arrayctor.loop854:                                ; preds = %arrayctor.loop854.preheader, %arrayctor.loop854
-  %arrayctor.cur855.idx = phi i64 [ %arrayctor.cur855.add, %arrayctor.loop854 ], [ 0, %arrayctor.loop854.preheader ]
-  %gep1156 = getelementptr inbounds nuw i8, ptr %invariant.gep1155, i64 %arrayctor.cur855.idx
-  store i32 0, ptr %gep1156, align 8
+arrayctor.loop854:                                ; preds = %arrayctor.loop846, %arrayctor.loop854
+  %arrayctor.cur855.idx = phi i64 [ %arrayctor.cur855.add, %arrayctor.loop854 ], [ 0, %arrayctor.loop846 ]
+  %arrayctor.cur855.ptr = getelementptr inbounds nuw i8, ptr %nodesB851, i64 %arrayctor.cur855.idx
+  %mX.i725 = getelementptr inbounds nuw i8, ptr %arrayctor.cur855.ptr, i64 16
+  store i32 0, ptr %mX.i725, align 8
   %arrayctor.cur855.add = add nuw nsw i64 %arrayctor.cur855.idx, 24
   %arrayctor.done857 = icmp eq i64 %arrayctor.cur855.add, 192
-  br i1 %arrayctor.done857, label %while.cond.preheader.i, label %arrayctor.loop854, !llvm.loop !237
+  br i1 %arrayctor.done857, label %while.cond.preheader.i, label %arrayctor.loop854
 
 while.cond.preheader.i:                           ; preds = %arrayctor.loop854
   %mpPrev.i.i726 = getelementptr inbounds nuw i8, ptr %listA859, i64 8
-  store i32 1, ptr %invariant.gep1153, align 16
+  %mX.i730 = getelementptr inbounds nuw i8, ptr %nodesA843, i64 16
+  store i32 1, ptr %mX.i730, align 16
   %incdec.ptr.i731 = getelementptr inbounds nuw i8, ptr %nodesA843, i64 24
   %mpPrev2.i.i733 = getelementptr inbounds nuw i8, ptr %nodesA843, i64 8
   store ptr %listA859, ptr %mpPrev2.i.i733, align 8
@@ -1459,25 +1458,26 @@ if.then9.i775:                                    ; preds = %while.body.i771
   %.val.i = load ptr, ptr %91, align 8
   %94 = getelementptr i8, ptr %91, i64 8
   %.val7.i = load ptr, ptr %94, align 8
-  store ptr %.val.i, ptr %.val7.i, align 8, !noalias !238
+  store ptr %.val.i, ptr %.val7.i, align 8, !noalias !231
   %mpPrev4.i.i = getelementptr inbounds nuw i8, ptr %.val.i, i64 8
-  store ptr %.val7.i, ptr %mpPrev4.i.i, align 8, !noalias !238
+  store ptr %.val7.i, ptr %mpPrev4.i.i, align 8, !noalias !231
   br label %if.end.i773
 
 if.end.i773:                                      ; preds = %if.then9.i775, %while.body.i771
   %first.sroa.0.1.i774 = phi ptr [ %next.sroa.0.010.i, %if.then9.i775 ], [ %91, %while.body.i771 ]
   %95 = load ptr, ptr %first.sroa.0.1.i774, align 8
   %cmp.i8.not.i = icmp eq ptr %95, %listA859
-  br i1 %cmp.i8.not.i, label %invoke.cont880, label %while.body.i771, !llvm.loop !241
+  br i1 %cmp.i8.not.i, label %invoke.cont880, label %while.body.i771, !llvm.loop !234
 
 invoke.cont880:                                   ; preds = %if.end.i773
   %listA859.val = load ptr, ptr %listA859, align 8
-  store ptr %listA859.val, ptr %agg.tmp881, align 8, !alias.scope !242
-  store ptr %listA859, ptr %agg.tmp882, align 8, !alias.scope !245
+  store ptr %listA859.val, ptr %agg.tmp881, align 8, !alias.scope !235
+  store ptr %listA859, ptr %agg.tmp882, align 8, !alias.scope !238
   %call884 = call noundef zeroext i1 (ptr, ptr, i32, ptr, ...) @_Z14VerifySequenceIN5eastl23intrusive_list_iteratorIN12_GLOBAL__N_17IntNodeEPS3_RS3_EEiEbT_S7_T0_PKcz(ptr noundef %agg.tmp881, ptr noundef %agg.tmp882, i32 poison, ptr noundef nonnull @.str.73, i32 noundef 1, i32 noundef 2, i32 noundef 3, i32 noundef 4, i32 noundef 5, i32 noundef 9, i32 noundef -1)
   %call886 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %call884, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 381, ptr noundef nonnull @.str.74)
   %mpPrev.i.i776 = getelementptr inbounds nuw i8, ptr %listB887, i64 8
-  store i32 1, ptr %invariant.gep1155, align 16
+  %mX.i780 = getelementptr inbounds nuw i8, ptr %nodesB851, i64 16
+  store i32 1, ptr %mX.i780, align 16
   %incdec.ptr.i781 = getelementptr inbounds nuw i8, ptr %nodesB851, i64 24
   %mpPrev2.i.i783 = getelementptr inbounds nuw i8, ptr %nodesB851, i64 8
   store ptr %listB887, ptr %mpPrev2.i.i783, align 8
@@ -1541,21 +1541,21 @@ if.then11.i:                                      ; preds = %while.body.i822
   %.val.i827 = load ptr, ptr %96, align 8
   %99 = getelementptr i8, ptr %96, i64 8
   %.val7.i828 = load ptr, ptr %99, align 8
-  store ptr %.val.i827, ptr %.val7.i828, align 8, !noalias !248
+  store ptr %.val.i827, ptr %.val7.i828, align 8, !noalias !241
   %mpPrev4.i.i829 = getelementptr inbounds nuw i8, ptr %.val.i827, i64 8
-  store ptr %.val7.i828, ptr %mpPrev4.i.i829, align 8, !noalias !248
+  store ptr %.val7.i828, ptr %mpPrev4.i.i829, align 8, !noalias !241
   br label %if.end.i824
 
 if.end.i824:                                      ; preds = %if.then11.i, %while.body.i822
   %first.sroa.0.1.i825 = phi ptr [ %next.sroa.0.011.i, %if.then11.i ], [ %96, %while.body.i822 ]
   %100 = load ptr, ptr %first.sroa.0.1.i825, align 8
   %cmp.i8.not.i826 = icmp eq ptr %100, %listB887
-  br i1 %cmp.i8.not.i826, label %invoke.cont910, label %while.body.i822, !llvm.loop !251
+  br i1 %cmp.i8.not.i826, label %invoke.cont910, label %while.body.i822, !llvm.loop !244
 
 invoke.cont910:                                   ; preds = %if.end.i824
   %listA859.val65 = load ptr, ptr %listA859, align 8
-  store ptr %listA859.val65, ptr %agg.tmp911, align 8, !alias.scope !252
-  store ptr %listA859, ptr %agg.tmp912, align 8, !alias.scope !255
+  store ptr %listA859.val65, ptr %agg.tmp911, align 8, !alias.scope !245
+  store ptr %listA859, ptr %agg.tmp912, align 8, !alias.scope !248
   %call914 = call noundef zeroext i1 (ptr, ptr, i32, ptr, ...) @_Z14VerifySequenceIN5eastl23intrusive_list_iteratorIN12_GLOBAL__N_17IntNodeEPS3_RS3_EEiEbT_S7_T0_PKcz(ptr noundef %agg.tmp911, ptr noundef %agg.tmp912, i32 poison, ptr noundef nonnull @.str.73, i32 noundef 1, i32 noundef 2, i32 noundef 3, i32 noundef 4, i32 noundef 5, i32 noundef 9, i32 noundef -1)
   %call916 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %call914, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 386, ptr noundef nonnull @.str.74)
   %101 = load i32, ptr %nErrorCount, align 4
@@ -1629,7 +1629,7 @@ for.inc.us:                                       ; preds = %if.then.us, %lor.rh
   %inc9.us = add nuw nsw i32 %seqIndex.024.us, 1
   %last.val.us = load ptr, ptr %last, align 8
   %cmp.i.not.us = icmp eq ptr %8, %last.val.us
-  br i1 %cmp.i.not.us, label %for.end17, label %for.body.us, !llvm.loop !258
+  br i1 %cmp.i.not.us, label %for.end17, label %for.body.us, !llvm.loop !251
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %first.val26 = phi ptr [ %15, %for.inc ], [ %first.val21, %for.body.lr.ph ]
@@ -1678,7 +1678,7 @@ for.inc:                                          ; preds = %if.then, %lor.rhs
   %inc9 = add nuw nsw i32 %seqIndex.024, 1
   %last.val = load ptr, ptr %last, align 8
   %cmp.i.not = icmp eq ptr %15, %last.val
-  br i1 %cmp.i.not, label %for.end17, label %for.body, !llvm.loop !260
+  br i1 %cmp.i.not, label %for.end17, label %for.body, !llvm.loop !253
 
 for.end17:                                        ; preds = %for.inc, %for.inc.us
   %argIndex.0.lcssa = phi i32 [ %inc9.us, %for.inc.us ], [ %inc9, %for.inc ]
@@ -1747,7 +1747,7 @@ vaarg.end45:                                      ; preds = %vaarg.in_mem41, %va
   %vaarg.addr46 = phi ptr [ %23, %vaarg.in_reg39 ], [ %overflow_arg_area4340, %vaarg.in_mem41 ]
   %25 = load i32, ptr %vaarg.addr46, align 4
   %cmp47.not = icmp eq i32 %25, -1
-  br i1 %cmp47.not, label %do.end, label %do.body, !llvm.loop !261
+  br i1 %cmp47.not, label %do.end, label %do.body, !llvm.loop !254
 
 do.end:                                           ; preds = %vaarg.end45
   %tobool49.not = icmp eq ptr %pName, null
@@ -1803,7 +1803,7 @@ do.body.i:                                        ; preds = %do.body.i, %invoke.
   %inc.i = add i64 %n.0.i, 1
   %2 = load ptr, ptr %p.0.i, align 8
   %cmp.not.i = icmp eq ptr %2, %this
-  br i1 %cmp.not.i, label %_ZNK5eastl19intrusive_list_base4sizeEv.exit, label %do.body.i, !llvm.loop !177
+  br i1 %cmp.not.i, label %_ZNK5eastl19intrusive_list_base4sizeEv.exit, label %do.body.i, !llvm.loop !175
 
 _ZNK5eastl19intrusive_list_base4sizeEv.exit:      ; preds = %do.body.i
   %tobool.not1.i.i.i = icmp ult i64 %inc.i, 2
@@ -1819,7 +1819,7 @@ while.body.i.i.i:                                 ; preds = %while.body.i.i.i.pr
   %dec.i.i.i = add nsw i64 %n.addr.02.i.i.i, -1
   %4 = load ptr, ptr %3, align 8
   %tobool.not.i.i.i = icmp eq i64 %dec.i.i.i, 0
-  br i1 %tobool.not.i.i.i, label %invoke.cont8, label %while.body.i.i.i, !llvm.loop !262
+  br i1 %tobool.not.i.i.i, label %invoke.cont8, label %while.body.i.i.i, !llvm.loop !255
 
 invoke.cont8:                                     ; preds = %while.body.i.i.i
   %cmp.i.not.i = icmp eq ptr %0, %4
@@ -1938,7 +1938,7 @@ if.end.i:                                         ; preds = %if.else.i, %if.then
   %cmp.i.i = icmp ne ptr %first.sroa.0.1.i, %this
   %cmp.i15.i = icmp ne ptr %firstX.sroa.0.1.i, %rightList
   %or.cond.i = and i1 %cmp.i15.i, %cmp.i.i
-  br i1 %or.cond.i, label %while.body.i, label %while.end.i, !llvm.loop !223
+  br i1 %or.cond.i, label %while.body.i, label %while.end.i, !llvm.loop !218
 
 while.end.i:                                      ; preds = %if.end.i, %if.then.i17
   %firstX.sroa.0.0.lcssa.i = phi ptr [ %x.val.i, %if.then.i17 ], [ %firstX.sroa.0.1.i, %if.end.i ]
@@ -1993,7 +1993,7 @@ do.body.i:                                        ; preds = %do.body.i, %invoke.
   %inc.i = add i64 %n.0.i, 1
   %2 = load ptr, ptr %p.0.i, align 8
   %cmp.not.i = icmp eq ptr %2, %this
-  br i1 %cmp.not.i, label %_ZNK5eastl19intrusive_list_base4sizeEv.exit, label %do.body.i, !llvm.loop !177
+  br i1 %cmp.not.i, label %_ZNK5eastl19intrusive_list_base4sizeEv.exit, label %do.body.i, !llvm.loop !175
 
 _ZNK5eastl19intrusive_list_base4sizeEv.exit:      ; preds = %do.body.i
   %tobool.not1.i.i.i = icmp ult i64 %inc.i, 2
@@ -2009,7 +2009,7 @@ while.body.i.i.i:                                 ; preds = %while.body.i.i.i.pr
   %dec.i.i.i = add nsw i64 %n.addr.02.i.i.i, -1
   %4 = load ptr, ptr %3, align 8
   %tobool.not.i.i.i = icmp eq i64 %dec.i.i.i, 0
-  br i1 %tobool.not.i.i.i, label %invoke.cont8, label %while.body.i.i.i, !llvm.loop !262
+  br i1 %tobool.not.i.i.i, label %invoke.cont8, label %while.body.i.i.i, !llvm.loop !255
 
 invoke.cont8:                                     ; preds = %while.body.i.i.i
   %cmp.i.not.i = icmp eq ptr %0, %4
@@ -2128,7 +2128,7 @@ if.end.i:                                         ; preds = %if.else.i, %if.then
   %cmp.i.i = icmp ne ptr %first.sroa.0.1.i, %this
   %cmp.i15.i = icmp ne ptr %firstX.sroa.0.1.i, %rightList
   %or.cond.i = and i1 %cmp.i15.i, %cmp.i.i
-  br i1 %or.cond.i, label %while.body.i, label %while.end.i, !llvm.loop !263
+  br i1 %or.cond.i, label %while.body.i, label %while.end.i, !llvm.loop !256
 
 while.end.i:                                      ; preds = %if.end.i, %if.then.i17
   %firstX.sroa.0.0.lcssa.i = phi ptr [ %x.val.i, %if.then.i17 ], [ %firstX.sroa.0.1.i, %if.end.i ]
@@ -2185,262 +2185,255 @@ attributes #7 = { nounwind }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.estimated_trip_count"}
-!7 = !{!8}
-!8 = distinct !{!8, !9, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE5beginEv: %agg.result"}
-!9 = distinct !{!9, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE5beginEv"}
-!10 = !{!11}
-!11 = distinct !{!11, !12, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE3endEv: %agg.result"}
-!12 = distinct !{!12, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE3endEv"}
-!13 = !{!14}
-!14 = distinct !{!14, !15, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE5beginEv: %agg.result"}
-!15 = distinct !{!15, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE5beginEv"}
-!16 = !{!17}
-!17 = distinct !{!17, !18, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE3endEv: %agg.result"}
-!18 = distinct !{!18, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE3endEv"}
-!19 = !{!20}
-!20 = distinct !{!20, !21, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE5beginEv: %agg.result"}
-!21 = distinct !{!21, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE5beginEv"}
-!22 = !{!23}
-!23 = distinct !{!23, !24, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE3endEv: %agg.result"}
-!24 = distinct !{!24, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE3endEv"}
-!25 = !{!26}
-!26 = distinct !{!26, !27, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE5beginEv: %agg.result"}
-!27 = distinct !{!27, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE5beginEv"}
-!28 = !{!29}
-!29 = distinct !{!29, !30, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE3endEv: %agg.result"}
-!30 = distinct !{!30, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE3endEv"}
-!31 = !{!32}
-!32 = distinct !{!32, !33, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE5beginEv: %agg.result"}
-!33 = distinct !{!33, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE5beginEv"}
-!34 = !{!35}
-!35 = distinct !{!35, !36, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE3endEv: %agg.result"}
-!36 = distinct !{!36, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE3endEv"}
-!37 = !{!38}
-!38 = distinct !{!38, !39, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE5beginEv: %agg.result"}
-!39 = distinct !{!39, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE5beginEv"}
-!40 = !{!41}
-!41 = distinct !{!41, !42, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE3endEv: %agg.result"}
-!42 = distinct !{!42, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE3endEv"}
-!43 = !{!44}
-!44 = distinct !{!44, !45, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE5beginEv: %agg.result"}
-!45 = distinct !{!45, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE5beginEv"}
-!46 = !{!47}
-!47 = distinct !{!47, !48, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE3endEv: %agg.result"}
-!48 = distinct !{!48, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE3endEv"}
-!49 = !{!50}
-!50 = distinct !{!50, !51, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE5beginEv: %agg.result"}
-!51 = distinct !{!51, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE5beginEv"}
-!52 = !{!53}
-!53 = distinct !{!53, !54, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE3endEv: %agg.result"}
-!54 = distinct !{!54, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE3endEv"}
-!55 = !{!56}
-!56 = distinct !{!56, !57, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE5beginEv: %agg.result"}
-!57 = distinct !{!57, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE5beginEv"}
-!58 = !{!59}
-!59 = distinct !{!59, !60, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE3endEv: %agg.result"}
-!60 = distinct !{!60, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE3endEv"}
-!61 = !{!62}
-!62 = distinct !{!62, !63, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE5beginEv: %agg.result"}
-!63 = distinct !{!63, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE5beginEv"}
-!64 = !{!65}
-!65 = distinct !{!65, !66, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE3endEv: %agg.result"}
-!66 = distinct !{!66, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE3endEv"}
-!67 = !{!68}
-!68 = distinct !{!68, !69, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE5beginEv: %agg.result"}
-!69 = distinct !{!69, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE5beginEv"}
-!70 = !{!71}
-!71 = distinct !{!71, !72, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE3endEv: %agg.result"}
-!72 = distinct !{!72, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE3endEv"}
-!73 = !{!74}
-!74 = distinct !{!74, !75, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE5beginEv: %agg.result"}
-!75 = distinct !{!75, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE5beginEv"}
-!76 = !{!77}
-!77 = distinct !{!77, !78, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE3endEv: %agg.result"}
-!78 = distinct !{!78, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE3endEv"}
-!79 = !{!80}
-!80 = distinct !{!80, !81, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE5beginEv: %agg.result"}
-!81 = distinct !{!81, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE5beginEv"}
-!82 = !{!83}
-!83 = distinct !{!83, !84, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE3endEv: %agg.result"}
-!84 = distinct !{!84, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE3endEv"}
-!85 = !{!86}
-!86 = distinct !{!86, !87, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE5beginEv: %agg.result"}
-!87 = distinct !{!87, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE5beginEv"}
-!88 = !{!89}
-!89 = distinct !{!89, !90, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE3endEv: %agg.result"}
-!90 = distinct !{!90, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE3endEv"}
-!91 = distinct !{!91, !92, !6}
-!92 = !{!"llvm.loop.mustprogress"}
-!93 = distinct !{!93, !92, !6}
-!94 = !{!95}
-!95 = distinct !{!95, !96, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE5beginEv: %agg.result"}
-!96 = distinct !{!96, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE5beginEv"}
-!97 = !{!98}
-!98 = distinct !{!98, !99, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE3endEv: %agg.result"}
-!99 = distinct !{!99, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE3endEv"}
-!100 = !{!101}
-!101 = distinct !{!101, !102, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE5beginEv: %agg.result"}
-!102 = distinct !{!102, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE5beginEv"}
-!103 = !{!104}
-!104 = distinct !{!104, !105, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE3endEv: %agg.result"}
-!105 = distinct !{!105, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE3endEv"}
-!106 = distinct !{!106, !92, !6}
-!107 = !{!108}
-!108 = distinct !{!108, !109, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE5beginEv: %agg.result"}
-!109 = distinct !{!109, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE5beginEv"}
-!110 = !{!111}
-!111 = distinct !{!111, !112, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE3endEv: %agg.result"}
-!112 = distinct !{!112, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE3endEv"}
-!113 = !{!114}
-!114 = distinct !{!114, !115, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE5beginEv: %agg.result"}
-!115 = distinct !{!115, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE5beginEv"}
-!116 = !{!117}
-!117 = distinct !{!117, !118, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE3endEv: %agg.result"}
-!118 = distinct !{!118, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE3endEv"}
-!119 = distinct !{!119, !92, !6}
-!120 = distinct !{!120, !92, !6}
-!121 = !{!122}
-!122 = distinct !{!122, !123, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE6locateERS2_: %agg.result"}
-!123 = distinct !{!123, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE6locateERS2_"}
-!124 = distinct !{!124, !92, !6}
-!125 = !{!126}
-!126 = distinct !{!126, !127, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE6locateERS2_: %agg.result"}
-!127 = distinct !{!127, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE6locateERS2_"}
-!128 = !{!129}
-!129 = distinct !{!129, !130, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE5beginEv: %agg.result"}
-!130 = distinct !{!130, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE5beginEv"}
-!131 = !{!132}
-!132 = distinct !{!132, !133, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE3endEv: %agg.result"}
-!133 = distinct !{!133, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE3endEv"}
-!134 = !{!135}
-!135 = distinct !{!135, !136, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE6locateERS2_: %agg.result"}
-!136 = distinct !{!136, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE6locateERS2_"}
-!137 = distinct !{!137, !92, !6}
-!138 = !{!139}
-!139 = distinct !{!139, !140, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE5beginEv: %agg.result"}
-!140 = distinct !{!140, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE5beginEv"}
-!141 = !{!142}
-!142 = distinct !{!142, !143, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE3endEv: %agg.result"}
-!143 = distinct !{!143, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE3endEv"}
-!144 = !{!145}
-!145 = distinct !{!145, !146, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE5beginEv: %agg.result"}
-!146 = distinct !{!146, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE5beginEv"}
-!147 = !{!148}
-!148 = distinct !{!148, !149, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE3endEv: %agg.result"}
-!149 = distinct !{!149, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE3endEv"}
-!150 = !{!151}
-!151 = distinct !{!151, !152, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE5eraseENS_23intrusive_list_iteratorIS2_PKS2_RS5_EE: %agg.result"}
-!152 = distinct !{!152, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE5eraseENS_23intrusive_list_iteratorIS2_PKS2_RS5_EE"}
-!153 = !{!154}
-!154 = distinct !{!154, !155, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE5beginEv: %agg.result"}
-!155 = distinct !{!155, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE5beginEv"}
-!156 = !{!157}
-!157 = distinct !{!157, !158, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE3endEv: %agg.result"}
-!158 = distinct !{!158, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE3endEv"}
-!159 = !{!160}
-!160 = distinct !{!160, !161, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE5eraseENS_23intrusive_list_iteratorIS2_PKS2_RS5_EES8_: %agg.result"}
-!161 = distinct !{!161, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE5eraseENS_23intrusive_list_iteratorIS2_PKS2_RS5_EES8_"}
-!162 = !{!163}
-!163 = distinct !{!163, !164, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE5beginEv: %agg.result"}
-!164 = distinct !{!164, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE5beginEv"}
-!165 = !{!166}
-!166 = distinct !{!166, !167, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE3endEv: %agg.result"}
-!167 = distinct !{!167, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE3endEv"}
-!168 = !{!169}
-!169 = distinct !{!169, !170, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE5eraseENS_23intrusive_list_iteratorIS2_PKS2_RS5_EES8_: %agg.result"}
-!170 = distinct !{!170, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE5eraseENS_23intrusive_list_iteratorIS2_PKS2_RS5_EES8_"}
-!171 = !{!172}
-!172 = distinct !{!172, !173, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE5beginEv: %agg.result"}
-!173 = distinct !{!173, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE5beginEv"}
-!174 = !{!175}
-!175 = distinct !{!175, !176, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE3endEv: %agg.result"}
-!176 = distinct !{!176, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE3endEv"}
-!177 = distinct !{!177, !92, !6}
-!178 = !{!179}
-!179 = distinct !{!179, !180, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE5beginEv: %agg.result"}
-!180 = distinct !{!180, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE5beginEv"}
-!181 = !{!182}
-!182 = distinct !{!182, !183, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE3endEv: %agg.result"}
-!183 = distinct !{!183, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE3endEv"}
-!184 = !{!185}
-!185 = distinct !{!185, !186, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE5beginEv: %agg.result"}
-!186 = distinct !{!186, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE5beginEv"}
-!187 = !{!188}
-!188 = distinct !{!188, !189, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE3endEv: %agg.result"}
-!189 = distinct !{!189, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE3endEv"}
-!190 = distinct !{!190, !6}
+!5 = !{!6}
+!6 = distinct !{!6, !7, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE5beginEv: %agg.result"}
+!7 = distinct !{!7, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE5beginEv"}
+!8 = !{!9}
+!9 = distinct !{!9, !10, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE3endEv: %agg.result"}
+!10 = distinct !{!10, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE3endEv"}
+!11 = !{!12}
+!12 = distinct !{!12, !13, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE5beginEv: %agg.result"}
+!13 = distinct !{!13, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE5beginEv"}
+!14 = !{!15}
+!15 = distinct !{!15, !16, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE3endEv: %agg.result"}
+!16 = distinct !{!16, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE3endEv"}
+!17 = !{!18}
+!18 = distinct !{!18, !19, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE5beginEv: %agg.result"}
+!19 = distinct !{!19, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE5beginEv"}
+!20 = !{!21}
+!21 = distinct !{!21, !22, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE3endEv: %agg.result"}
+!22 = distinct !{!22, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE3endEv"}
+!23 = !{!24}
+!24 = distinct !{!24, !25, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE5beginEv: %agg.result"}
+!25 = distinct !{!25, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE5beginEv"}
+!26 = !{!27}
+!27 = distinct !{!27, !28, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE3endEv: %agg.result"}
+!28 = distinct !{!28, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE3endEv"}
+!29 = !{!30}
+!30 = distinct !{!30, !31, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE5beginEv: %agg.result"}
+!31 = distinct !{!31, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE5beginEv"}
+!32 = !{!33}
+!33 = distinct !{!33, !34, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE3endEv: %agg.result"}
+!34 = distinct !{!34, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE3endEv"}
+!35 = !{!36}
+!36 = distinct !{!36, !37, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE5beginEv: %agg.result"}
+!37 = distinct !{!37, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE5beginEv"}
+!38 = !{!39}
+!39 = distinct !{!39, !40, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE3endEv: %agg.result"}
+!40 = distinct !{!40, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE3endEv"}
+!41 = !{!42}
+!42 = distinct !{!42, !43, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE5beginEv: %agg.result"}
+!43 = distinct !{!43, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE5beginEv"}
+!44 = !{!45}
+!45 = distinct !{!45, !46, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE3endEv: %agg.result"}
+!46 = distinct !{!46, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE3endEv"}
+!47 = !{!48}
+!48 = distinct !{!48, !49, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE5beginEv: %agg.result"}
+!49 = distinct !{!49, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE5beginEv"}
+!50 = !{!51}
+!51 = distinct !{!51, !52, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE3endEv: %agg.result"}
+!52 = distinct !{!52, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE3endEv"}
+!53 = !{!54}
+!54 = distinct !{!54, !55, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE5beginEv: %agg.result"}
+!55 = distinct !{!55, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE5beginEv"}
+!56 = !{!57}
+!57 = distinct !{!57, !58, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE3endEv: %agg.result"}
+!58 = distinct !{!58, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE3endEv"}
+!59 = !{!60}
+!60 = distinct !{!60, !61, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE5beginEv: %agg.result"}
+!61 = distinct !{!61, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE5beginEv"}
+!62 = !{!63}
+!63 = distinct !{!63, !64, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE3endEv: %agg.result"}
+!64 = distinct !{!64, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE3endEv"}
+!65 = !{!66}
+!66 = distinct !{!66, !67, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE5beginEv: %agg.result"}
+!67 = distinct !{!67, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE5beginEv"}
+!68 = !{!69}
+!69 = distinct !{!69, !70, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE3endEv: %agg.result"}
+!70 = distinct !{!70, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE3endEv"}
+!71 = !{!72}
+!72 = distinct !{!72, !73, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE5beginEv: %agg.result"}
+!73 = distinct !{!73, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE5beginEv"}
+!74 = !{!75}
+!75 = distinct !{!75, !76, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE3endEv: %agg.result"}
+!76 = distinct !{!76, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE3endEv"}
+!77 = !{!78}
+!78 = distinct !{!78, !79, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE5beginEv: %agg.result"}
+!79 = distinct !{!79, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE5beginEv"}
+!80 = !{!81}
+!81 = distinct !{!81, !82, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE3endEv: %agg.result"}
+!82 = distinct !{!82, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE3endEv"}
+!83 = !{!84}
+!84 = distinct !{!84, !85, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE5beginEv: %agg.result"}
+!85 = distinct !{!85, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE5beginEv"}
+!86 = !{!87}
+!87 = distinct !{!87, !88, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE3endEv: %agg.result"}
+!88 = distinct !{!88, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE3endEv"}
+!89 = distinct !{!89, !90}
+!90 = !{!"llvm.loop.mustprogress"}
+!91 = distinct !{!91, !90}
+!92 = !{!93}
+!93 = distinct !{!93, !94, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE5beginEv: %agg.result"}
+!94 = distinct !{!94, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE5beginEv"}
+!95 = !{!96}
+!96 = distinct !{!96, !97, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE3endEv: %agg.result"}
+!97 = distinct !{!97, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE3endEv"}
+!98 = !{!99}
+!99 = distinct !{!99, !100, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE5beginEv: %agg.result"}
+!100 = distinct !{!100, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE5beginEv"}
+!101 = !{!102}
+!102 = distinct !{!102, !103, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE3endEv: %agg.result"}
+!103 = distinct !{!103, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE3endEv"}
+!104 = distinct !{!104, !90}
+!105 = !{!106}
+!106 = distinct !{!106, !107, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE5beginEv: %agg.result"}
+!107 = distinct !{!107, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE5beginEv"}
+!108 = !{!109}
+!109 = distinct !{!109, !110, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE3endEv: %agg.result"}
+!110 = distinct !{!110, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE3endEv"}
+!111 = !{!112}
+!112 = distinct !{!112, !113, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE5beginEv: %agg.result"}
+!113 = distinct !{!113, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE5beginEv"}
+!114 = !{!115}
+!115 = distinct !{!115, !116, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE3endEv: %agg.result"}
+!116 = distinct !{!116, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE3endEv"}
+!117 = distinct !{!117, !90}
+!118 = distinct !{!118, !90}
+!119 = !{!120}
+!120 = distinct !{!120, !121, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE6locateERS2_: %agg.result"}
+!121 = distinct !{!121, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE6locateERS2_"}
+!122 = distinct !{!122, !90}
+!123 = !{!124}
+!124 = distinct !{!124, !125, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE6locateERS2_: %agg.result"}
+!125 = distinct !{!125, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE6locateERS2_"}
+!126 = !{!127}
+!127 = distinct !{!127, !128, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE5beginEv: %agg.result"}
+!128 = distinct !{!128, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE5beginEv"}
+!129 = !{!130}
+!130 = distinct !{!130, !131, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE3endEv: %agg.result"}
+!131 = distinct !{!131, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE3endEv"}
+!132 = !{!133}
+!133 = distinct !{!133, !134, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE6locateERS2_: %agg.result"}
+!134 = distinct !{!134, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE6locateERS2_"}
+!135 = distinct !{!135, !90}
+!136 = !{!137}
+!137 = distinct !{!137, !138, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE5beginEv: %agg.result"}
+!138 = distinct !{!138, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE5beginEv"}
+!139 = !{!140}
+!140 = distinct !{!140, !141, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE3endEv: %agg.result"}
+!141 = distinct !{!141, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE3endEv"}
+!142 = !{!143}
+!143 = distinct !{!143, !144, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE5beginEv: %agg.result"}
+!144 = distinct !{!144, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE5beginEv"}
+!145 = !{!146}
+!146 = distinct !{!146, !147, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE3endEv: %agg.result"}
+!147 = distinct !{!147, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE3endEv"}
+!148 = !{!149}
+!149 = distinct !{!149, !150, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE5eraseENS_23intrusive_list_iteratorIS2_PKS2_RS5_EE: %agg.result"}
+!150 = distinct !{!150, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE5eraseENS_23intrusive_list_iteratorIS2_PKS2_RS5_EE"}
+!151 = !{!152}
+!152 = distinct !{!152, !153, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE5beginEv: %agg.result"}
+!153 = distinct !{!153, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE5beginEv"}
+!154 = !{!155}
+!155 = distinct !{!155, !156, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE3endEv: %agg.result"}
+!156 = distinct !{!156, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE3endEv"}
+!157 = !{!158}
+!158 = distinct !{!158, !159, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE5eraseENS_23intrusive_list_iteratorIS2_PKS2_RS5_EES8_: %agg.result"}
+!159 = distinct !{!159, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE5eraseENS_23intrusive_list_iteratorIS2_PKS2_RS5_EES8_"}
+!160 = !{!161}
+!161 = distinct !{!161, !162, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE5beginEv: %agg.result"}
+!162 = distinct !{!162, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE5beginEv"}
+!163 = !{!164}
+!164 = distinct !{!164, !165, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE3endEv: %agg.result"}
+!165 = distinct !{!165, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE3endEv"}
+!166 = !{!167}
+!167 = distinct !{!167, !168, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE5eraseENS_23intrusive_list_iteratorIS2_PKS2_RS5_EES8_: %agg.result"}
+!168 = distinct !{!168, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE5eraseENS_23intrusive_list_iteratorIS2_PKS2_RS5_EES8_"}
+!169 = !{!170}
+!170 = distinct !{!170, !171, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE5beginEv: %agg.result"}
+!171 = distinct !{!171, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE5beginEv"}
+!172 = !{!173}
+!173 = distinct !{!173, !174, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE3endEv: %agg.result"}
+!174 = distinct !{!174, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE3endEv"}
+!175 = distinct !{!175, !90}
+!176 = !{!177}
+!177 = distinct !{!177, !178, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE5beginEv: %agg.result"}
+!178 = distinct !{!178, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE5beginEv"}
+!179 = !{!180}
+!180 = distinct !{!180, !181, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE3endEv: %agg.result"}
+!181 = distinct !{!181, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE3endEv"}
+!182 = !{!183}
+!183 = distinct !{!183, !184, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE5beginEv: %agg.result"}
+!184 = distinct !{!184, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE5beginEv"}
+!185 = !{!186}
+!186 = distinct !{!186, !187, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE3endEv: %agg.result"}
+!187 = distinct !{!187, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE3endEv"}
+!188 = !{!189}
+!189 = distinct !{!189, !190, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE5beginEv: %agg.result"}
+!190 = distinct !{!190, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE5beginEv"}
 !191 = !{!192}
-!192 = distinct !{!192, !193, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE5beginEv: %agg.result"}
-!193 = distinct !{!193, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE5beginEv"}
+!192 = distinct !{!192, !193, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE3endEv: %agg.result"}
+!193 = distinct !{!193, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE3endEv"}
 !194 = !{!195}
-!195 = distinct !{!195, !196, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE3endEv: %agg.result"}
-!196 = distinct !{!196, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE3endEv"}
+!195 = distinct !{!195, !196, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE5beginEv: %agg.result"}
+!196 = distinct !{!196, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE5beginEv"}
 !197 = !{!198}
-!198 = distinct !{!198, !199, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE5beginEv: %agg.result"}
-!199 = distinct !{!199, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE5beginEv"}
+!198 = distinct !{!198, !199, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE3endEv: %agg.result"}
+!199 = distinct !{!199, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE3endEv"}
 !200 = !{!201}
-!201 = distinct !{!201, !202, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE3endEv: %agg.result"}
-!202 = distinct !{!202, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE3endEv"}
+!201 = distinct !{!201, !202, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE5beginEv: %agg.result"}
+!202 = distinct !{!202, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE5beginEv"}
 !203 = !{!204}
-!204 = distinct !{!204, !205, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE5beginEv: %agg.result"}
-!205 = distinct !{!205, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE5beginEv"}
+!204 = distinct !{!204, !205, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE3endEv: %agg.result"}
+!205 = distinct !{!205, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE3endEv"}
 !206 = !{!207}
-!207 = distinct !{!207, !208, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE3endEv: %agg.result"}
-!208 = distinct !{!208, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE3endEv"}
+!207 = distinct !{!207, !208, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE5beginEv: %agg.result"}
+!208 = distinct !{!208, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE5beginEv"}
 !209 = !{!210}
-!210 = distinct !{!210, !211, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE5beginEv: %agg.result"}
-!211 = distinct !{!211, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE5beginEv"}
+!210 = distinct !{!210, !211, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE3endEv: %agg.result"}
+!211 = distinct !{!211, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE3endEv"}
 !212 = !{!213}
-!213 = distinct !{!213, !214, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE3endEv: %agg.result"}
-!214 = distinct !{!214, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE3endEv"}
+!213 = distinct !{!213, !214, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE5beginEv: %agg.result"}
+!214 = distinct !{!214, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE5beginEv"}
 !215 = !{!216}
-!216 = distinct !{!216, !217, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE5beginEv: %agg.result"}
-!217 = distinct !{!217, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE5beginEv"}
-!218 = !{!219}
-!219 = distinct !{!219, !220, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE3endEv: %agg.result"}
-!220 = distinct !{!220, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE3endEv"}
-!221 = distinct !{!221, !6}
-!222 = distinct !{!222, !6}
-!223 = distinct !{!223, !92, !6}
-!224 = !{!225}
-!225 = distinct !{!225, !226, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE5beginEv: %agg.result"}
-!226 = distinct !{!226, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE5beginEv"}
-!227 = !{!228}
-!228 = distinct !{!228, !229, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE3endEv: %agg.result"}
-!229 = distinct !{!229, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE3endEv"}
-!230 = !{!231}
-!231 = distinct !{!231, !232, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE5beginEv: %agg.result"}
-!232 = distinct !{!232, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE5beginEv"}
-!233 = !{!234}
-!234 = distinct !{!234, !235, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE3endEv: %agg.result"}
-!235 = distinct !{!235, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE3endEv"}
-!236 = distinct !{!236, !6}
-!237 = distinct !{!237, !6}
+!216 = distinct !{!216, !217, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE3endEv: %agg.result"}
+!217 = distinct !{!217, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE3endEv"}
+!218 = distinct !{!218, !90}
+!219 = !{!220}
+!220 = distinct !{!220, !221, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE5beginEv: %agg.result"}
+!221 = distinct !{!221, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE5beginEv"}
+!222 = !{!223}
+!223 = distinct !{!223, !224, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE3endEv: %agg.result"}
+!224 = distinct !{!224, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE3endEv"}
+!225 = !{!226}
+!226 = distinct !{!226, !227, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE5beginEv: %agg.result"}
+!227 = distinct !{!227, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE5beginEv"}
+!228 = !{!229}
+!229 = distinct !{!229, !230, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE3endEv: %agg.result"}
+!230 = distinct !{!230, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE3endEv"}
+!231 = !{!232}
+!232 = distinct !{!232, !233, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE5eraseENS_23intrusive_list_iteratorIS2_PKS2_RS5_EE: %agg.result"}
+!233 = distinct !{!233, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE5eraseENS_23intrusive_list_iteratorIS2_PKS2_RS5_EE"}
+!234 = distinct !{!234, !90}
+!235 = !{!236}
+!236 = distinct !{!236, !237, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE5beginEv: %agg.result"}
+!237 = distinct !{!237, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE5beginEv"}
 !238 = !{!239}
-!239 = distinct !{!239, !240, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE5eraseENS_23intrusive_list_iteratorIS2_PKS2_RS5_EE: %agg.result"}
-!240 = distinct !{!240, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE5eraseENS_23intrusive_list_iteratorIS2_PKS2_RS5_EE"}
-!241 = distinct !{!241, !92, !6}
-!242 = !{!243}
-!243 = distinct !{!243, !244, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE5beginEv: %agg.result"}
-!244 = distinct !{!244, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE5beginEv"}
+!239 = distinct !{!239, !240, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE3endEv: %agg.result"}
+!240 = distinct !{!240, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE3endEv"}
+!241 = !{!242}
+!242 = distinct !{!242, !243, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE5eraseENS_23intrusive_list_iteratorIS2_PKS2_RS5_EE: %agg.result"}
+!243 = distinct !{!243, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE5eraseENS_23intrusive_list_iteratorIS2_PKS2_RS5_EE"}
+!244 = distinct !{!244, !90}
 !245 = !{!246}
-!246 = distinct !{!246, !247, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE3endEv: %agg.result"}
-!247 = distinct !{!247, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE3endEv"}
+!246 = distinct !{!246, !247, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE5beginEv: %agg.result"}
+!247 = distinct !{!247, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE5beginEv"}
 !248 = !{!249}
-!249 = distinct !{!249, !250, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE5eraseENS_23intrusive_list_iteratorIS2_PKS2_RS5_EE: %agg.result"}
-!250 = distinct !{!250, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE5eraseENS_23intrusive_list_iteratorIS2_PKS2_RS5_EE"}
-!251 = distinct !{!251, !92, !6}
-!252 = !{!253}
-!253 = distinct !{!253, !254, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE5beginEv: %agg.result"}
-!254 = distinct !{!254, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE5beginEv"}
-!255 = !{!256}
-!256 = distinct !{!256, !257, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE3endEv: %agg.result"}
-!257 = distinct !{!257, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE3endEv"}
-!258 = distinct !{!258, !92, !6, !259}
-!259 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!260 = distinct !{!260, !92, !6}
-!261 = distinct !{!261, !92, !6}
-!262 = distinct !{!262, !92, !6}
-!263 = distinct !{!263, !92, !6}
+!249 = distinct !{!249, !250, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE3endEv: %agg.result"}
+!250 = distinct !{!250, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE3endEv"}
+!251 = distinct !{!251, !90, !252}
+!252 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!253 = distinct !{!253, !90}
+!254 = distinct !{!254, !90}
+!255 = distinct !{!255, !90}
+!256 = distinct !{!256, !90}

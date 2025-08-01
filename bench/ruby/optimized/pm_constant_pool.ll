@@ -181,15 +181,15 @@ next_power_of_two.exit:                           ; preds = %4, %6
   br i1 %.not, label %27, label %21
 
 21:                                               ; preds = %next_power_of_two.exit
-  store ptr %20, ptr %0, align 8, !tbaa !21
+  store ptr %20, ptr %0, align 8, !tbaa !20
   %22 = shl nuw nsw i64 %19, 3
   %23 = getelementptr i8, ptr %20, i64 %22
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %23, ptr %24, align 8, !tbaa !23
+  store ptr %23, ptr %24, align 8, !tbaa !22
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i32 0, ptr %25, align 8, !tbaa !24
+  store i32 0, ptr %25, align 8, !tbaa !23
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  store i32 %.0.i, ptr %26, align 4, !tbaa !25
+  store i32 %.0.i, ptr %26, align 4, !tbaa !24
   br label %27
 
 27:                                               ; preds = %21, %next_power_of_two.exit, %2
@@ -200,7 +200,7 @@ next_power_of_two.exit:                           ; preds = %4, %6
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
 define hidden ptr @pm_constant_pool_id_to_constant(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #10 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !tbaa !23
+  %4 = load ptr, ptr %3, align 8, !tbaa !22
   %5 = add i32 %1, -1
   %6 = zext i32 %5 to i64
   %7 = getelementptr %struct.pm_constant_t, ptr %4, i64 %6
@@ -210,7 +210,7 @@ define hidden ptr @pm_constant_pool_id_to_constant(ptr noundef readonly captures
 ; Function Attrs: nofree norecurse nounwind sspstrong memory(read, inaccessiblemem: none) uwtable
 define hidden range(i32 0, 1073741824) i32 @pm_constant_pool_find(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) local_unnamed_addr #11 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %5 = load i32, ptr %4, align 4, !tbaa !25
+  %5 = load i32, ptr %4, align 4, !tbaa !24
   %6 = add i32 %5, -1
   %.not.i = icmp eq i64 %2, 0
   br i1 %.not.i, label %pm_constant_pool_hash.exit, label %.lr.ph.i
@@ -220,16 +220,16 @@ define hidden range(i32 0, 1073741824) i32 @pm_constant_pool_find(ptr noundef re
   %.078.i = phi i32 [ %11, %.lr.ph.i ], [ 5381, %3 ]
   %7 = mul i32 %.078.i, 33
   %8 = getelementptr i8, ptr %1, i64 %.09.i
-  %9 = load i8, ptr %8, align 1, !tbaa !26
+  %9 = load i8, ptr %8, align 1, !tbaa !25
   %10 = zext i8 %9 to i32
   %11 = add i32 %7, %10
   %12 = add nuw i64 %.09.i, 1
   %exitcond.not.i = icmp eq i64 %12, %2
-  br i1 %exitcond.not.i, label %pm_constant_pool_hash.exit, label %.lr.ph.i, !llvm.loop !27
+  br i1 %exitcond.not.i, label %pm_constant_pool_hash.exit, label %.lr.ph.i, !llvm.loop !26
 
 pm_constant_pool_hash.exit:                       ; preds = %.lr.ph.i, %3
   %.07.lcssa.i = phi i32 [ 5381, %3 ], [ %11, %.lr.ph.i ]
-  %13 = load ptr, ptr %0, align 8, !tbaa !21
+  %13 = load ptr, ptr %0, align 8, !tbaa !20
   %.02028 = and i32 %.07.lcssa.i, %6
   %14 = zext i32 %.02028 to i64
   %15 = getelementptr %struct.pm_constant_pool_bucket_t, ptr %13, i64 %14
@@ -240,7 +240,7 @@ pm_constant_pool_hash.exit:                       ; preds = %.lr.ph.i, %3
 
 .lr.ph:                                           ; preds = %pm_constant_pool_hash.exit
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %19 = load ptr, ptr %18, align 8, !tbaa !23
+  %19 = load ptr, ptr %18, align 8, !tbaa !22
   br label %20
 
 20:                                               ; preds = %.lr.ph, %31
@@ -249,13 +249,13 @@ pm_constant_pool_hash.exit:                       ; preds = %.lr.ph.i, %3
   %22 = zext nneg i32 %21 to i64
   %23 = getelementptr %struct.pm_constant_t, ptr %19, i64 %22
   %24 = getelementptr i8, ptr %23, i64 -8
-  %25 = load i64, ptr %24, align 8, !tbaa !28
+  %25 = load i64, ptr %24, align 8, !tbaa !27
   %26 = icmp eq i64 %25, %2
   br i1 %26, label %27, label %31
 
 27:                                               ; preds = %20
   %28 = getelementptr i8, ptr %23, i64 -16
-  %29 = load ptr, ptr %28, align 8, !tbaa !31
+  %29 = load ptr, ptr %28, align 8, !tbaa !30
   %bcmp = tail call i32 @bcmp(ptr %29, ptr %1, i64 %2)
   %30 = icmp eq i32 %bcmp, 0
   br i1 %30, label %.thread, label %31
@@ -268,7 +268,7 @@ pm_constant_pool_hash.exit:                       ; preds = %.lr.ph.i, %3
   %35 = load i32, ptr %34, align 4
   %36 = and i32 %35, 1073741823
   %.not = icmp eq i32 %36, 0
-  br i1 %.not, label %.thread, label %20, !llvm.loop !32
+  br i1 %.not, label %.thread, label %20, !llvm.loop !31
 
 .thread:                                          ; preds = %31, %27, %pm_constant_pool_hash.exit
   %.lcssa = phi i32 [ 0, %pm_constant_pool_hash.exit ], [ %21, %27 ], [ 0, %31 ]
@@ -284,9 +284,9 @@ define hidden i32 @pm_constant_pool_insert_shared(ptr noundef captures(none) %0,
 ; Function Attrs: inlinehint nounwind sspstrong uwtable
 define internal fastcc i32 @pm_constant_pool_insert(ptr noundef captures(none) %0, ptr noundef %1, i64 noundef %2, i32 noundef range(i32 0, 3) %3) unnamed_addr #13 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %6 = load i32, ptr %5, align 8, !tbaa !24
+  %6 = load i32, ptr %5, align 8, !tbaa !23
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %8 = load i32, ptr %7, align 4, !tbaa !25
+  %8 = load i32, ptr %7, align 4, !tbaa !24
   %9 = lshr i32 %8, 2
   %10 = mul nuw i32 %9, 3
   %.not = icmp ult i32 %6, %10
@@ -315,7 +315,7 @@ define internal fastcc i32 @pm_constant_pool_insert(ptr noundef captures(none) %
   br i1 %.not42.i, label %pm_constant_pool_resize.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %18
-  %21 = load ptr, ptr %0, align 8, !tbaa !21
+  %21 = load ptr, ptr %0, align 8, !tbaa !20
   %wide.trip.count.i = zext nneg i32 %8 to i64
   br label %22
 
@@ -329,7 +329,7 @@ define internal fastcc i32 @pm_constant_pool_insert(ptr noundef captures(none) %
 
 26:                                               ; preds = %22
   %27 = getelementptr inbounds nuw i8, ptr %23, i64 4
-  %28 = load i32, ptr %27, align 4, !tbaa !33
+  %28 = load i32, ptr %27, align 4, !tbaa !32
   br label %29
 
 29:                                               ; preds = %29, %26
@@ -341,7 +341,7 @@ define internal fastcc i32 @pm_constant_pool_insert(ptr noundef captures(none) %
   %33 = and i32 %32, 1073741823
   %.not38.i = icmp eq i32 %33, 0
   %34 = add i32 %.0.i, 1
-  br i1 %.not38.i, label %35, label %29, !llvm.loop !35
+  br i1 %.not38.i, label %35, label %29, !llvm.loop !34
 
 35:                                               ; preds = %29
   %36 = getelementptr %struct.pm_constant_pool_bucket_t, ptr %17, i64 %30
@@ -352,19 +352,19 @@ define internal fastcc i32 @pm_constant_pool_insert(ptr noundef captures(none) %
 38:                                               ; preds = %35, %22
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %pm_constant_pool_resize.exit, label %22, !llvm.loop !36
+  br i1 %exitcond.not.i, label %pm_constant_pool_resize.exit, label %22, !llvm.loop !35
 
 pm_constant_pool_resize.exit:                     ; preds = %38, %18
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %40 = load ptr, ptr %39, align 8, !tbaa !23
+  %40 = load ptr, ptr %39, align 8, !tbaa !22
   %41 = zext i32 %6 to i64
   %42 = shl nuw nsw i64 %41, 4
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %20, ptr noundef nonnull align 1 %40, i64 noundef range(i64 0, 68719476721) %42, i1 noundef false) #20
-  %43 = load ptr, ptr %0, align 8, !tbaa !21
+  %43 = load ptr, ptr %0, align 8, !tbaa !20
   tail call void @free(ptr noundef %43) #20
-  store ptr %20, ptr %39, align 8, !tbaa !23
-  store ptr %17, ptr %0, align 8, !tbaa !21
-  store i32 %12, ptr %7, align 4, !tbaa !25
+  store ptr %20, ptr %39, align 8, !tbaa !22
+  store ptr %17, ptr %0, align 8, !tbaa !20
+  store i32 %12, ptr %7, align 4, !tbaa !24
   br label %44
 
 44:                                               ; preds = %._crit_edge78, %pm_constant_pool_resize.exit
@@ -377,16 +377,16 @@ pm_constant_pool_resize.exit:                     ; preds = %38, %18
   %.078.i = phi i32 [ %49, %.lr.ph.i48 ], [ 5381, %44 ]
   %45 = mul i32 %.078.i, 33
   %46 = getelementptr i8, ptr %1, i64 %.09.i
-  %47 = load i8, ptr %46, align 1, !tbaa !26
+  %47 = load i8, ptr %46, align 1, !tbaa !25
   %48 = zext i8 %47 to i32
   %49 = add i32 %45, %48
   %50 = add nuw i64 %.09.i, 1
   %exitcond.not.i49 = icmp eq i64 %50, %2
-  br i1 %exitcond.not.i49, label %pm_constant_pool_hash.exit, label %.lr.ph.i48, !llvm.loop !27
+  br i1 %exitcond.not.i49, label %pm_constant_pool_hash.exit, label %.lr.ph.i48, !llvm.loop !26
 
 pm_constant_pool_hash.exit:                       ; preds = %.lr.ph.i48, %44
   %.07.lcssa.i = phi i32 [ 5381, %44 ], [ %49, %.lr.ph.i48 ]
-  %51 = load ptr, ptr %0, align 8, !tbaa !21
+  %51 = load ptr, ptr %0, align 8, !tbaa !20
   %.04166 = and i32 %.07.lcssa.i, %.pre-phi
   %52 = zext i32 %.04166 to i64
   %53 = getelementptr %struct.pm_constant_pool_bucket_t, ptr %51, i64 %52
@@ -397,7 +397,7 @@ pm_constant_pool_hash.exit:                       ; preds = %.lr.ph.i48, %44
 
 .lr.ph:                                           ; preds = %pm_constant_pool_hash.exit
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %57 = load ptr, ptr %56, align 8, !tbaa !23
+  %57 = load ptr, ptr %56, align 8, !tbaa !22
   br label %58
 
 58:                                               ; preds = %.lr.ph, %83
@@ -408,13 +408,13 @@ pm_constant_pool_hash.exit:                       ; preds = %.lr.ph.i48, %44
   %62 = zext nneg i32 %59 to i64
   %63 = getelementptr %struct.pm_constant_t, ptr %57, i64 %62
   %64 = getelementptr i8, ptr %63, i64 -8
-  %65 = load i64, ptr %64, align 8, !tbaa !28
+  %65 = load i64, ptr %64, align 8, !tbaa !27
   %66 = icmp eq i64 %65, %2
   br i1 %66, label %67, label %83
 
 67:                                               ; preds = %58
   %68 = getelementptr i8, ptr %63, i64 -16
-  %69 = load ptr, ptr %68, align 8, !tbaa !31
+  %69 = load ptr, ptr %68, align 8, !tbaa !30
   %bcmp = tail call i32 @bcmp(ptr %69, ptr %1, i64 %2)
   %70 = icmp eq i32 %bcmp, 0
   br i1 %70, label %71, label %83
@@ -437,7 +437,7 @@ pm_constant_pool_hash.exit:                       ; preds = %.lr.ph.i48, %44
 
 78:                                               ; preds = %76
   tail call void @free(ptr noundef %69) #20
-  store ptr %1, ptr %72, align 8, !tbaa !31
+  store ptr %1, ptr %72, align 8, !tbaa !30
   %79 = load i32, ptr %73, align 4
   %80 = and i32 %79, 1073741823
   store i32 %80, ptr %73, align 4
@@ -456,27 +456,27 @@ pm_constant_pool_hash.exit:                       ; preds = %.lr.ph.i48, %44
   %87 = load i32, ptr %86, align 4
   %88 = and i32 %87, 1073741823
   %.not46 = icmp eq i32 %88, 0
-  br i1 %.not46, label %._crit_edge, label %58, !llvm.loop !37
+  br i1 %.not46, label %._crit_edge, label %58, !llvm.loop !36
 
 ._crit_edge:                                      ; preds = %83, %pm_constant_pool_hash.exit
   %.lcssa65 = phi i64 [ %52, %pm_constant_pool_hash.exit ], [ %85, %83 ]
   %89 = getelementptr %struct.pm_constant_pool_bucket_t, ptr %51, i64 %.lcssa65
-  %90 = load i32, ptr %5, align 8, !tbaa !24
+  %90 = load i32, ptr %5, align 8, !tbaa !23
   %91 = add i32 %90, 1
-  store i32 %91, ptr %5, align 8, !tbaa !24
+  store i32 %91, ptr %5, align 8, !tbaa !23
   %92 = and i32 %91, 1073741823
   %93 = shl nuw i32 %3, 30
   %94 = or disjoint i32 %92, %93
-  store i32 %94, ptr %89, align 4, !tbaa !26
+  store i32 %94, ptr %89, align 4, !tbaa !25
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %89, i64 4
   store i32 %.07.lcssa.i, ptr %.sroa.6.0..sroa_idx, align 4, !tbaa !16
   %95 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %96 = load ptr, ptr %95, align 8, !tbaa !23
+  %96 = load ptr, ptr %95, align 8, !tbaa !22
   %97 = zext i32 %90 to i64
   %98 = getelementptr %struct.pm_constant_t, ptr %96, i64 %97
-  store ptr %1, ptr %98, align 8, !tbaa !38
+  store ptr %1, ptr %98, align 8, !tbaa !37
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %98, i64 8
-  store i64 %2, ptr %.sroa.2.0..sroa_idx, align 8, !tbaa !39
+  store i64 %2, ptr %.sroa.2.0..sroa_idx, align 8, !tbaa !38
   br label %pm_constant_pool_resize.exit.thread
 
 pm_constant_pool_resize.exit.thread:              ; preds = %14, %11, %.thread, %._crit_edge
@@ -499,7 +499,7 @@ define hidden i32 @pm_constant_pool_insert_constant(ptr noundef captures(none) %
 ; Function Attrs: nounwind sspstrong uwtable
 define hidden void @pm_constant_pool_free(ptr noundef readonly captures(none) %0) local_unnamed_addr #12 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %3 = load i32, ptr %2, align 4, !tbaa !25
+  %3 = load i32, ptr %2, align 4, !tbaa !24
   %.not12 = icmp eq i32 %3, 0
   br i1 %.not12, label %._crit_edge, label %.lr.ph
 
@@ -508,14 +508,14 @@ define hidden void @pm_constant_pool_free(ptr noundef readonly captures(none) %0
   br label %6
 
 ._crit_edge:                                      ; preds = %19, %1
-  %5 = load ptr, ptr %0, align 8, !tbaa !21
+  %5 = load ptr, ptr %0, align 8, !tbaa !20
   tail call void @free(ptr noundef %5) #20
   ret void
 
 6:                                                ; preds = %.lr.ph, %19
   %7 = phi i32 [ %3, %.lr.ph ], [ %20, %19 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %19 ]
-  %8 = load ptr, ptr %0, align 8, !tbaa !21
+  %8 = load ptr, ptr %0, align 8, !tbaa !20
   %9 = getelementptr %struct.pm_constant_pool_bucket_t, ptr %8, i64 %indvars.iv
   %10 = load i32, ptr %9, align 4
   %11 = and i32 %10, 1073741823
@@ -526,13 +526,13 @@ define hidden void @pm_constant_pool_free(ptr noundef readonly captures(none) %0
   br i1 %or.cond, label %13, label %19
 
 13:                                               ; preds = %6
-  %14 = load ptr, ptr %4, align 8, !tbaa !23
+  %14 = load ptr, ptr %4, align 8, !tbaa !22
   %15 = zext nneg i32 %11 to i64
   %16 = getelementptr %struct.pm_constant_t, ptr %14, i64 %15
   %17 = getelementptr i8, ptr %16, i64 -16
-  %18 = load ptr, ptr %17, align 8, !tbaa !31
+  %18 = load ptr, ptr %17, align 8, !tbaa !30
   tail call void @free(ptr noundef %18) #20
-  %.pre = load i32, ptr %2, align 4, !tbaa !25
+  %.pre = load i32, ptr %2, align 4, !tbaa !24
   br label %19
 
 19:                                               ; preds = %13, %6
@@ -540,7 +540,7 @@ define hidden void @pm_constant_pool_free(ptr noundef readonly captures(none) %0
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %21 = zext i32 %20 to i64
   %22 = icmp samesign ult i64 %indvars.iv.next, %21
-  br i1 %22, label %6, label %._crit_edge, !llvm.loop !40
+  br i1 %22, label %6, label %._crit_edge, !llvm.loop !39
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: read)
@@ -594,26 +594,25 @@ attributes #20 = { nounwind }
 !15 = !{!8, !9, i64 8}
 !16 = !{!17, !17, i64 0}
 !17 = !{!"int", !10, i64 0}
-!18 = distinct !{!18, !19, !20}
+!18 = distinct !{!18, !19}
 !19 = !{!"llvm.loop.mustprogress"}
-!20 = !{!"llvm.loop.estimated_trip_count"}
-!21 = !{!22, !13, i64 0}
-!22 = !{!"", !13, i64 0, !13, i64 8, !17, i64 16, !17, i64 20}
-!23 = !{!22, !13, i64 8}
-!24 = !{!22, !17, i64 16}
-!25 = !{!22, !17, i64 20}
-!26 = !{!10, !10, i64 0}
-!27 = distinct !{!27, !19, !20}
-!28 = !{!29, !9, i64 8}
-!29 = !{!"", !30, i64 0, !9, i64 8}
-!30 = !{!"p1 omnipotent char", !13, i64 0}
-!31 = !{!29, !30, i64 0}
-!32 = distinct !{!32, !19, !20}
-!33 = !{!34, !17, i64 4}
-!34 = !{!"", !17, i64 0, !17, i64 3, !17, i64 4}
-!35 = distinct !{!35, !19, !20}
-!36 = distinct !{!36, !19, !20}
-!37 = distinct !{!37, !19, !20}
-!38 = !{!30, !30, i64 0}
-!39 = !{!9, !9, i64 0}
-!40 = distinct !{!40, !19, !20}
+!20 = !{!21, !13, i64 0}
+!21 = !{!"", !13, i64 0, !13, i64 8, !17, i64 16, !17, i64 20}
+!22 = !{!21, !13, i64 8}
+!23 = !{!21, !17, i64 16}
+!24 = !{!21, !17, i64 20}
+!25 = !{!10, !10, i64 0}
+!26 = distinct !{!26, !19}
+!27 = !{!28, !9, i64 8}
+!28 = !{!"", !29, i64 0, !9, i64 8}
+!29 = !{!"p1 omnipotent char", !13, i64 0}
+!30 = !{!28, !29, i64 0}
+!31 = distinct !{!31, !19}
+!32 = !{!33, !17, i64 4}
+!33 = !{!"", !17, i64 0, !17, i64 3, !17, i64 4}
+!34 = distinct !{!34, !19}
+!35 = distinct !{!35, !19}
+!36 = distinct !{!36, !19}
+!37 = !{!29, !29, i64 0}
+!38 = !{!9, !9, i64 0}
+!39 = distinct !{!39, !19}

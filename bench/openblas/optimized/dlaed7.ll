@@ -118,7 +118,7 @@ define void @dlaed7_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %76 = select i1 %.not.i, i32 1, i32 %74
   %spec.select.i = mul nuw nsw i32 %76, %spec.select37.i
   %.not31.i = icmp samesign ult i64 %.036.i, 4
-  br i1 %.not31.i, label %pow_ii.exit, label %.lr.ph.i, !llvm.loop !7
+  br i1 %.not31.i, label %pow_ii.exit, label %.lr.ph.i
 
 pow_ii.exit:                                      ; preds = %.lr.ph.i, %60, %69
   %.1.i = phi i32 [ %spec.select32.i, %60 ], [ %72, %69 ], [ %spec.select.i, %.lr.ph.i ]
@@ -160,14 +160,14 @@ pow_ii.exit:                                      ; preds = %.lr.ph.i, %60, %69
   %90 = select i1 %.not.i194, i32 1, i32 %88
   %spec.select.i195 = mul nuw nsw i32 %90, %spec.select37.i191
   %.not31.i196 = icmp samesign ult i64 %.036.i192, 4
-  br i1 %.not31.i196, label %pow_ii.exit197, label %.lr.ph.i190, !llvm.loop !7
+  br i1 %.not31.i196, label %pow_ii.exit197, label %.lr.ph.i190
 
 pow_ii.exit197:                                   ; preds = %.lr.ph.i190, %.lr.ph, %84
   %.1.i187 = phi i32 [ %spec.select32.i186, %.lr.ph ], [ %86, %84 ], [ %spec.select.i195, %.lr.ph.i190 ]
   %91 = add nsw i32 %.1.i187, %.0203
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !9
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %pow_ii.exit197, %pow_ii.exit
   %.0.lcssa = phi i32 [ %77, %pow_ii.exit ], [ %91, %pow_ii.exit197 ]
@@ -292,7 +292,7 @@ pow_ii.exit197:                                   ; preds = %.lr.ph.i190, %.lr.p
   store i32 %165, ptr %164, align 4, !tbaa !3
   %indvars.iv.next210 = add nuw nsw i64 %indvars.iv209, 1
   %exitcond213.not = icmp eq i64 %indvars.iv.next210, %wide.trip.count212
-  br i1 %exitcond213.not, label %.loopexit, label %.lr.ph207, !llvm.loop !11
+  br i1 %exitcond213.not, label %.loopexit, label %.lr.ph207, !llvm.loop !9
 
 .loopexit:                                        ; preds = %.lr.ph207, %158, %135, %150, %55, %.thread
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %27) #4
@@ -340,7 +340,5 @@ attributes #4 = { nounwind }
 !5 = !{!"omnipotent char", !6, i64 0}
 !6 = !{!"Simple C/C++ TBAA"}
 !7 = distinct !{!7, !8}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !10, !8}
-!10 = !{!"llvm.loop.mustprogress"}
-!11 = distinct !{!11, !10, !8}
+!8 = !{!"llvm.loop.mustprogress"}
+!9 = distinct !{!9, !8}

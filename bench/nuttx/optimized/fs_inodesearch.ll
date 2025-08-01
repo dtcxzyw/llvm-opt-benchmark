@@ -70,7 +70,7 @@ define range(i32 -22, 1) i32 @inode_search(ptr noundef %0) local_unnamed_addr #0
   %24 = getelementptr inbounds nuw i8, ptr %.027.i.i, i64 1
   %25 = load i8, ptr %24, align 1
   %.not21.i.i = icmp eq i8 %25, 0
-  br i1 %.not21.i.i, label %_inode_compare.exit.i, label %.lr.ph.i.i, !llvm.loop !6
+  br i1 %.not21.i.i, label %_inode_compare.exit.i, label %.lr.ph.i.i
 
 _inode_compare.exit.i:                            ; preds = %22, %.preheader.i.i
   %.014.lcssa.i.i = phi ptr [ %.03355.i, %.preheader.i.i ], [ %23, %22 ]
@@ -100,7 +100,7 @@ tailrecurse.i.i:                                  ; preds = %tailrecurse.i.i.bac
 
 tailrecurse.i.i.backedge:                         ; preds = %28, %33
   %.0.i.i.be = phi ptr [ %29, %28 ], [ %.1.i.i, %33 ]
-  br label %tailrecurse.i.i, !llvm.loop !8
+  br label %tailrecurse.i.i, !llvm.loop !6
 
 .critedge.i.i:                                    ; preds = %.critedge.i.i.preheader, %31
   %30 = phi i8 [ %.pre.i.i, %31 ], [ %27, %.critedge.i.i.preheader ]
@@ -114,7 +114,7 @@ tailrecurse.i.i.backedge:                         ; preds = %28, %33
 31:                                               ; preds = %.critedge.i.i
   %32 = getelementptr inbounds nuw i8, ptr %.1.i.i, i64 1
   %.pre.i.i = load i8, ptr %32, align 1
-  br label %.critedge.i.i, !llvm.loop !10
+  br label %.critedge.i.i, !llvm.loop !8
 
 33:                                               ; preds = %.critedge.i.i
   %34 = getelementptr inbounds nuw i8, ptr %.1.i.i, i64 1
@@ -137,7 +137,7 @@ _inode_compare.exit.thread40.i:                   ; preds = %18, %inode_nextname
   %41 = getelementptr inbounds nuw i8, ptr %.03158.i, i64 %.sink.i
   %.031.i = load ptr, ptr %41, align 8
   %.not37.i = icmp eq ptr %.031.i, null
-  br i1 %.not37.i, label %_inode_compare.exit.thread.i, label %.preheader.i.i, !llvm.loop !11
+  br i1 %.not37.i, label %_inode_compare.exit.thread.i, label %.preheader.i.i, !llvm.loop !9
 
 _inode_compare.exit.thread.i:                     ; preds = %_inode_compare.exit.thread40.i, %inode_nextname.exit.thread.i, %20, %.lr.ph.i.i, %.lr.ph.i.i, %.critedge.i.i, %.preheader.i
   %.02951.i = phi ptr [ null, %.preheader.i ], [ %.02956.i, %.critedge.i.i ], [ %.02956.i, %.lr.ph.i.i ], [ %.02956.i, %.lr.ph.i.i ], [ %.02956.i, %20 ], [ %.02956.i, %inode_nextname.exit.thread.i ], [ %.130.i, %_inode_compare.exit.thread40.i ]
@@ -185,7 +185,7 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
 
 tailrecurse.backedge:                             ; preds = %3, %8
   %.0.be = phi ptr [ %4, %3 ], [ %.1, %8 ]
-  br label %tailrecurse, !llvm.loop !8
+  br label %tailrecurse, !llvm.loop !6
 
 .critedge:                                        ; preds = %.critedge.preheader, %6
   %5 = phi i8 [ %.pre, %6 ], [ %2, %.critedge.preheader ]
@@ -198,7 +198,7 @@ tailrecurse.backedge:                             ; preds = %3, %8
 6:                                                ; preds = %.critedge
   %7 = getelementptr inbounds nuw i8, ptr %.1, i64 1
   %.pre = load i8, ptr %7, align 1
-  br label %.critedge, !llvm.loop !10
+  br label %.critedge, !llvm.loop !8
 
 8:                                                ; preds = %.critedge
   %9 = getelementptr inbounds nuw i8, ptr %.1, i64 1
@@ -228,8 +228,6 @@ attributes #4 = { nounwind }
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
 !6 = distinct !{!6, !7}
-!7 = !{!"llvm.loop.estimated_trip_count"}
-!8 = distinct !{!8, !9, !7}
-!9 = !{!"llvm.loop.mustprogress"}
-!10 = distinct !{!10, !9, !7}
-!11 = distinct !{!11, !9, !7}
+!7 = !{!"llvm.loop.mustprogress"}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}

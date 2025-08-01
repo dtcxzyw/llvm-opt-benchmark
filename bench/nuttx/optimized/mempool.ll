@@ -184,10 +184,10 @@ define ptr @mempool_alloc(ptr noundef %0) local_unnamed_addr #0 {
 
 8:                                                ; preds = %62, %1
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
-  call void asm sideeffect "\09pushfq\0A\09popq $0\0A", "=*rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %3) #4, !srcloc !9
+  call void asm sideeffect "\09pushfq\0A\09popq $0\0A", "=*rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %3) #4, !srcloc !8
   %9 = load i64, ptr %3, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
-  call void asm sideeffect "cli", "~{memory},~{dirflag},~{fpsr},~{flags}"() #4, !srcloc !10
+  call void asm sideeffect "cli", "~{memory},~{dirflag},~{fpsr},~{flags}"() #4, !srcloc !9
   %10 = load ptr, ptr %4, align 8
   %11 = icmp eq ptr %10, null
   br i1 %11, label %13, label %mempool_remove_queue.exit
@@ -220,7 +220,7 @@ mempool_remove_queue.exit49:                      ; preds = %15
   br i1 %.not.i, label %up_irq_restore.exit, label %23
 
 23:                                               ; preds = %20
-  call void asm sideeffect "sti", "~{memory},~{dirflag},~{fpsr},~{flags}"() #4, !srcloc !11
+  call void asm sideeffect "sti", "~{memory},~{dirflag},~{fpsr},~{flags}"() #4, !srcloc !10
   br label %up_irq_restore.exit
 
 up_irq_restore.exit:                              ; preds = %20, %23
@@ -242,10 +242,10 @@ up_irq_restore.exit:                              ; preds = %20, %23
 
 35:                                               ; preds = %26
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
-  call void asm sideeffect "\09pushfq\0A\09popq $0\0A", "=*rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %2) #4, !srcloc !9
+  call void asm sideeffect "\09pushfq\0A\09popq $0\0A", "=*rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %2) #4, !srcloc !8
   %36 = load i64, ptr %2, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
-  call void asm sideeffect "cli", "~{memory},~{dirflag},~{fpsr},~{flags}"() #4, !srcloc !10
+  call void asm sideeffect "cli", "~{memory},~{dirflag},~{fpsr},~{flags}"() #4, !srcloc !9
   %.not11.i = icmp ugt i64 %21, %27
   br i1 %.not11.i, label %mempool_add_queue.exit, label %.lr.ph.i
 
@@ -313,7 +313,7 @@ mempool_add_queue.exit:                           ; preds = %45, %35
 62:                                               ; preds = %59
   %63 = call i32 @nxsem_wait_uninterruptible(ptr noundef nonnull %7) #4
   %64 = icmp slt i32 %63, 0
-  br i1 %64, label %up_irq_restore.exit53, label %8, !llvm.loop !12
+  br i1 %64, label %up_irq_restore.exit53, label %8
 
 mempool_remove_queue.exit51:                      ; preds = %57, %54, %mempool_remove_queue.exit49, %mempool_remove_queue.exit
   %.040 = phi i64 [ %9, %mempool_remove_queue.exit49 ], [ %9, %mempool_remove_queue.exit ], [ %36, %54 ], [ %36, %57 ]
@@ -332,7 +332,7 @@ mempool_remove_queue.exit49.thread:               ; preds = %15, %mempool_remove
   br i1 %.not.i52, label %up_irq_restore.exit53, label %69
 
 69:                                               ; preds = %mempool_remove_queue.exit49.thread
-  call void asm sideeffect "sti", "~{memory},~{dirflag},~{fpsr},~{flags}"() #4, !srcloc !11
+  call void asm sideeffect "sti", "~{memory},~{dirflag},~{fpsr},~{flags}"() #4, !srcloc !10
   br label %up_irq_restore.exit53
 
 up_irq_restore.exit53:                            ; preds = %59, %62, %69, %mempool_remove_queue.exit49.thread, %26
@@ -347,10 +347,10 @@ define void @mempool_free(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 
   %3 = alloca i64, align 8
   %4 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
-  call void asm sideeffect "\09pushfq\0A\09popq $0\0A", "=*rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %3) #4, !srcloc !9
+  call void asm sideeffect "\09pushfq\0A\09popq $0\0A", "=*rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %3) #4, !srcloc !8
   %5 = load i64, ptr %3, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
-  call void asm sideeffect "cli", "~{memory},~{dirflag},~{fpsr},~{flags}"() #4, !srcloc !10
+  call void asm sideeffect "cli", "~{memory},~{dirflag},~{fpsr},~{flags}"() #4, !srcloc !9
   %6 = load i64, ptr %0, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %8 = load i64, ptr %7, align 8
@@ -426,7 +426,7 @@ define void @mempool_free(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 
   br i1 %.not.i, label %up_irq_restore.exit, label %40
 
 40:                                               ; preds = %38
-  call void asm sideeffect "sti", "~{memory},~{dirflag},~{fpsr},~{flags}"() #4, !srcloc !11
+  call void asm sideeffect "sti", "~{memory},~{dirflag},~{fpsr},~{flags}"() #4, !srcloc !10
   br label %up_irq_restore.exit
 
 up_irq_restore.exit:                              ; preds = %38, %40
@@ -466,10 +466,10 @@ define noundef i32 @mempool_info(ptr noundef %0, ptr noundef writeonly captures(
   %4 = alloca i32, align 4
   %5 = load i64, ptr %0, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
-  call void asm sideeffect "\09pushfq\0A\09popq $0\0A", "=*rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %3) #4, !srcloc !9
+  call void asm sideeffect "\09pushfq\0A\09popq $0\0A", "=*rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %3) #4, !srcloc !8
   %6 = load i64, ptr %3, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
-  call void asm sideeffect "cli", "~{memory},~{dirflag},~{fpsr},~{flags}"() #4, !srcloc !10
+  call void asm sideeffect "cli", "~{memory},~{dirflag},~{fpsr},~{flags}"() #4, !srcloc !9
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 72
   br label %8
 
@@ -479,7 +479,7 @@ define noundef i32 @mempool_info(ptr noundef %0, ptr noundef writeonly captures(
   %.04.i = load ptr, ptr %.04.in.i, align 8
   %.not.i = icmp eq ptr %.04.i, null
   %9 = add i64 %.0.i, 1
-  br i1 %.not.i, label %mempool_queue_lenth.exit, label %8, !llvm.loop !13
+  br i1 %.not.i, label %mempool_queue_lenth.exit, label %8, !llvm.loop !11
 
 mempool_queue_lenth.exit:                         ; preds = %8
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -493,7 +493,7 @@ mempool_queue_lenth.exit:                         ; preds = %8
   %.04.i22 = load ptr, ptr %.04.in.i20, align 8
   %.not.i23 = icmp eq ptr %.04.i22, null
   %13 = add i64 %.0.i21, 1
-  br i1 %.not.i23, label %mempool_queue_lenth.exit24, label %12, !llvm.loop !13
+  br i1 %.not.i23, label %mempool_queue_lenth.exit24, label %12, !llvm.loop !11
 
 mempool_queue_lenth.exit24:                       ; preds = %12
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -511,7 +511,7 @@ mempool_queue_lenth.exit24:                       ; preds = %12
   %.04.i27 = load ptr, ptr %.04.in.i25, align 8
   %.not.i28 = icmp eq ptr %.04.i27, null
   %20 = add i64 %.0.i26, 1
-  br i1 %.not.i28, label %mempool_queue_lenth.exit29, label %19, !llvm.loop !13
+  br i1 %.not.i28, label %mempool_queue_lenth.exit29, label %19, !llvm.loop !11
 
 mempool_queue_lenth.exit29:                       ; preds = %19
   %21 = shl i64 %.0.i26, 3
@@ -525,7 +525,7 @@ mempool_queue_lenth.exit29:                       ; preds = %19
   br i1 %.not.i30, label %up_irq_restore.exit, label %27
 
 27:                                               ; preds = %mempool_queue_lenth.exit29
-  call void asm sideeffect "sti", "~{memory},~{dirflag},~{fpsr},~{flags}"() #4, !srcloc !11
+  call void asm sideeffect "sti", "~{memory},~{dirflag},~{fpsr},~{flags}"() #4, !srcloc !10
   br label %up_irq_restore.exit
 
 up_irq_restore.exit:                              ; preds = %mempool_queue_lenth.exit29, %27
@@ -562,10 +562,10 @@ define i64 @mempool_info_task(ptr noundef readonly captures(none) %0, ptr nounde
   %3 = alloca i64, align 8
   %4 = load i64, ptr %0, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
-  call void asm sideeffect "\09pushfq\0A\09popq $0\0A", "=*rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %3) #4, !srcloc !9
+  call void asm sideeffect "\09pushfq\0A\09popq $0\0A", "=*rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %3) #4, !srcloc !8
   %5 = load i64, ptr %3, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
-  call void asm sideeffect "cli", "~{memory},~{dirflag},~{fpsr},~{flags}"() #4, !srcloc !10
+  call void asm sideeffect "cli", "~{memory},~{dirflag},~{fpsr},~{flags}"() #4, !srcloc !9
   %6 = load i32, ptr %1, align 4
   switch i32 %6, label %20 [
     i32 -4, label %7
@@ -582,7 +582,7 @@ define i64 @mempool_info_task(ptr noundef readonly captures(none) %0, ptr nounde
   %.04.i = load ptr, ptr %.04.in.i, align 8
   %.not.i = icmp eq ptr %.04.i, null
   %10 = add i64 %.0.i, 1
-  br i1 %.not.i, label %mempool_queue_lenth.exit, label %9, !llvm.loop !13
+  br i1 %.not.i, label %mempool_queue_lenth.exit, label %9, !llvm.loop !11
 
 mempool_queue_lenth.exit:                         ; preds = %9
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 88
@@ -594,7 +594,7 @@ mempool_queue_lenth.exit:                         ; preds = %9
   %.04.i20 = load ptr, ptr %.04.in.i18, align 8
   %.not.i21 = icmp eq ptr %.04.i20, null
   %13 = add i64 %.0.i19, 1
-  br i1 %.not.i21, label %mempool_queue_lenth.exit22, label %12, !llvm.loop !13
+  br i1 %.not.i21, label %mempool_queue_lenth.exit22, label %12, !llvm.loop !11
 
 mempool_queue_lenth.exit22:                       ; preds = %12
   %14 = add i64 %.0.i19, %.0.i
@@ -615,7 +615,7 @@ mempool_queue_lenth.exit22:                       ; preds = %12
   br i1 %.not.i23, label %up_irq_restore.exit, label %22
 
 22:                                               ; preds = %20
-  call void asm sideeffect "sti", "~{memory},~{dirflag},~{fpsr},~{flags}"() #4, !srcloc !11
+  call void asm sideeffect "sti", "~{memory},~{dirflag},~{fpsr},~{flags}"() #4, !srcloc !10
   br label %up_irq_restore.exit
 
 up_irq_restore.exit:                              ; preds = %20, %22
@@ -643,7 +643,7 @@ define void @mempool_memdump(ptr noundef readonly captures(none) %0, ptr noundef
   tail call void (i32, ptr, ...) @syslog(i32 noundef 6, ptr noundef nonnull @.str, i64 noundef %3, i32 noundef 19, ptr noundef nonnull %.014) #4
   %.0 = load ptr, ptr %.014, align 8
   %.not = icmp eq ptr %.0, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !14
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %.lr.ph, %6
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 88
@@ -656,7 +656,7 @@ define void @mempool_memdump(ptr noundef readonly captures(none) %0, ptr noundef
   tail call void (i32, ptr, ...) @syslog(i32 noundef 6, ptr noundef nonnull @.str, i64 noundef %3, i32 noundef 19, ptr noundef nonnull %.117) #4
   %.1 = load ptr, ptr %.117, align 8
   %.not11 = icmp eq ptr %.1, null
-  br i1 %.not11, label %.loopexit, label %.lr.ph19, !llvm.loop !15
+  br i1 %.not11, label %.loopexit, label %.lr.ph19, !llvm.loop !13
 
 .loopexit:                                        ; preds = %.lr.ph19, %._crit_edge, %2
   ret void
@@ -733,7 +733,7 @@ define range(i32 -16, 1) i32 @mempool_deinit(ptr noundef %0) local_unnamed_addr 
   %.3 = phi i64 [ %35, %33 ], [ %.242, %25 ]
   %37 = load ptr, ptr %20, align 8
   %38 = icmp eq ptr %37, null
-  br i1 %38, label %._crit_edge, label %25, !llvm.loop !16
+  br i1 %38, label %._crit_edge, label %25, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %36, %18
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -796,14 +796,12 @@ attributes #4 = { nounwind }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = !{i64 382270, i64 382288}
-!10 = !{i64 382889}
-!11 = !{i64 383010}
-!12 = distinct !{!12, !8}
-!13 = distinct !{!13, !7, !8}
-!14 = distinct !{!14, !7, !8}
-!15 = distinct !{!15, !7, !8}
-!16 = distinct !{!16, !7, !8}
+!8 = !{i64 382270, i64 382288}
+!9 = !{i64 382889}
+!10 = !{i64 383010}
+!11 = distinct !{!11, !7}
+!12 = distinct !{!12, !7}
+!13 = distinct !{!13, !7}
+!14 = distinct !{!14, !7}

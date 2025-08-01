@@ -513,6 +513,5 @@ attributes #10 = { nounwind willreturn memory(read) }
 !46 = !{!7, !7, i64 0}
 !47 = !{!48, !48, i64 0}
 !48 = !{!"p2 omnipotent char", !6, i64 0}
-!49 = distinct !{!49, !50, !51}
+!49 = distinct !{!49, !50}
 !50 = !{!"llvm.loop.mustprogress"}
-!51 = !{!"llvm.loop.estimated_trip_count"}

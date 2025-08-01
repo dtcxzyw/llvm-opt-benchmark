@@ -1569,7 +1569,7 @@ define internal fastcc void @update(ptr noundef readonly captures(none) %0, ptr 
   %24 = add nsw i64 %.149, -4294967295
   %25 = getelementptr i8, ptr %.13348, i64 4294967295
   %26 = icmp samesign ugt i64 %.149, 8589934590
-  br i1 %26, label %21, label %._crit_edge51, !llvm.loop !67
+  br i1 %26, label %21, label %._crit_edge51, !llvm.loop !66
 
 ._crit_edge51:                                    ; preds = %21, %.preheader36
   %.133.lcssa = phi ptr [ %1, %.preheader36 ], [ %25, %21 ]
@@ -1588,7 +1588,7 @@ define internal fastcc void @update(ptr noundef readonly captures(none) %0, ptr 
   %34 = add nsw i64 %.243, -4294967295
   %35 = getelementptr i8, ptr %.23442, i64 4294967295
   %36 = icmp samesign ugt i64 %.243, 8589934590
-  br i1 %36, label %31, label %._crit_edge45, !llvm.loop !68
+  br i1 %36, label %31, label %._crit_edge45, !llvm.loop !67
 
 ._crit_edge45:                                    ; preds = %31, %.preheader37
   %.234.lcssa = phi ptr [ %1, %.preheader37 ], [ %35, %31 ]
@@ -1607,7 +1607,7 @@ define internal fastcc void @update(ptr noundef readonly captures(none) %0, ptr 
   %44 = add nsw i64 %.340, -4294967295
   %45 = getelementptr i8, ptr %.33539, i64 4294967295
   %46 = icmp samesign ugt i64 %.340, 8589934590
-  br i1 %46, label %41, label %._crit_edge, !llvm.loop !69
+  br i1 %46, label %41, label %._crit_edge, !llvm.loop !68
 
 ._crit_edge:                                      ; preds = %41, %.preheader38
   %.335.lcssa = phi ptr [ %1, %.preheader38 ], [ %45, %41 ]
@@ -1741,12 +1741,12 @@ define internal fastcc ptr @py_blake2b_or_s_new(ptr noundef %0, ptr noundef %1, 
   store i8 0, ptr %22, align 4, !tbaa !59
   tail call void @PyObject_GC_Track(ptr noundef nonnull %18) #9
   %23 = getelementptr i8, ptr %0, i64 24
-  %.val105 = load ptr, ptr %23, align 8, !tbaa !70
+  %.val105 = load ptr, ptr %23, align 8, !tbaa !69
   %24 = getelementptr i8, ptr %0, i64 888
-  %.val106 = load ptr, ptr %24, align 8, !tbaa !71
+  %.val106 = load ptr, ptr %24, align 8, !tbaa !70
   %25 = getelementptr i8, ptr %.val106, i64 32
   %.val106.val = load ptr, ptr %25, align 8, !tbaa !20
-  %26 = load ptr, ptr @blake2b_type_spec, align 8, !tbaa !79
+  %26 = load ptr, ptr @blake2b_type_spec, align 8, !tbaa !78
   %27 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %.val105, ptr noundef nonnull dereferenceable(1) %26) #10
   %.not.i = icmp eq i32 %27, 0
   br i1 %.not.i, label %28, label %35
@@ -1764,7 +1764,7 @@ has_simd256.exit.i:                               ; preds = %28
   br i1 %34, label %.sink.split, label %type_to_impl.exit.thread110
 
 35:                                               ; preds = %20
-  %36 = load ptr, ptr @blake2s_type_spec, align 8, !tbaa !79
+  %36 = load ptr, ptr @blake2s_type_spec, align 8, !tbaa !78
   %37 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %.val105, ptr noundef nonnull dereferenceable(1) %36) #10
   %.not5.i = icmp eq i32 %37, 0
   tail call void @llvm.assume(i1 %.not5.i)
@@ -1977,33 +1977,33 @@ type_to_impl.exit:                                ; preds = %53
 
 ._crit_edge:                                      ; preds = %136
   %144 = trunc nuw nsw i32 %2 to i8
-  store i8 %144, ptr %17, align 8, !tbaa !81
+  store i8 %144, ptr %17, align 8, !tbaa !80
   %145 = getelementptr inbounds nuw i8, ptr %17, i64 1
   %146 = trunc i64 %.pre to i8
-  store i8 %146, ptr %145, align 1, !tbaa !83
+  store i8 %146, ptr %145, align 1, !tbaa !82
   %147 = getelementptr inbounds nuw i8, ptr %17, i64 2
   %148 = trunc nuw i32 %6 to i8
-  store i8 %148, ptr %147, align 2, !tbaa !84
+  store i8 %148, ptr %147, align 2, !tbaa !83
   %149 = getelementptr inbounds nuw i8, ptr %17, i64 3
   %150 = trunc nuw i32 %7 to i8
-  store i8 %150, ptr %149, align 1, !tbaa !85
+  store i8 %150, ptr %149, align 1, !tbaa !84
   %151 = getelementptr inbounds nuw i8, ptr %17, i64 4
   %152 = trunc nuw i64 %8 to i32
-  store i32 %152, ptr %151, align 4, !tbaa !86
+  store i32 %152, ptr %151, align 4, !tbaa !85
   %153 = getelementptr inbounds nuw i8, ptr %17, i64 8
-  store i64 %9, ptr %153, align 8, !tbaa !87
+  store i64 %9, ptr %153, align 8, !tbaa !86
   %154 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %155 = trunc nuw i32 %10 to i8
-  store i8 %155, ptr %154, align 8, !tbaa !88
+  store i8 %155, ptr %154, align 8, !tbaa !87
   %156 = getelementptr inbounds nuw i8, ptr %17, i64 17
   %157 = trunc nuw nsw i32 %11 to i8
-  store i8 %157, ptr %156, align 1, !tbaa !89
+  store i8 %157, ptr %156, align 1, !tbaa !88
   %158 = getelementptr inbounds nuw i8, ptr %17, i64 18
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %158, i8 0, i64 6, i1 false)
   %159 = getelementptr inbounds nuw i8, ptr %17, i64 24
-  store ptr %15, ptr %159, align 8, !tbaa !90
+  store ptr %15, ptr %159, align 8, !tbaa !89
   %160 = getelementptr inbounds nuw i8, ptr %17, i64 32
-  store ptr %16, ptr %160, align 8, !tbaa !91
+  store ptr %16, ptr %160, align 8, !tbaa !90
   %161 = icmp ne i32 %12, 0
   %162 = load ptr, ptr %3, align 8, !tbaa !62
   %163 = getelementptr inbounds nuw i8, ptr %18, i64 16
@@ -2554,31 +2554,30 @@ attributes #10 = { nounwind willreturn memory(read) }
 !61 = !{!57, !40, i64 36}
 !62 = !{!57, !24, i64 0}
 !63 = !{!57, !35, i64 16}
-!64 = distinct !{!64, !65, !66}
+!64 = distinct !{!64, !65}
 !65 = !{!"llvm.loop.mustprogress"}
-!66 = !{!"llvm.loop.estimated_trip_count"}
-!67 = distinct !{!67, !65, !66}
-!68 = distinct !{!68, !65, !66}
-!69 = distinct !{!69, !65, !66}
-!70 = !{!33, !36, i64 24}
-!71 = !{!72, !25, i64 888}
-!72 = !{!"_heaptypeobject", !33, i64 0, !73, i64 416, !74, i64 448, !75, i64 736, !76, i64 760, !77, i64 840, !25, i64 856, !25, i64 864, !25, i64 872, !50, i64 880, !25, i64 888, !36, i64 896, !24, i64 904, !78, i64 912}
-!73 = !{!"", !24, i64 0, !24, i64 8, !24, i64 16, !24, i64 24}
-!74 = !{!"", !24, i64 0, !24, i64 8, !24, i64 16, !24, i64 24, !24, i64 32, !24, i64 40, !24, i64 48, !24, i64 56, !24, i64 64, !24, i64 72, !24, i64 80, !24, i64 88, !24, i64 96, !24, i64 104, !24, i64 112, !24, i64 120, !24, i64 128, !24, i64 136, !24, i64 144, !24, i64 152, !24, i64 160, !24, i64 168, !24, i64 176, !24, i64 184, !24, i64 192, !24, i64 200, !24, i64 208, !24, i64 216, !24, i64 224, !24, i64 232, !24, i64 240, !24, i64 248, !24, i64 256, !24, i64 264, !24, i64 272, !24, i64 280}
-!75 = !{!"", !24, i64 0, !24, i64 8, !24, i64 16}
-!76 = !{!"", !24, i64 0, !24, i64 8, !24, i64 16, !24, i64 24, !24, i64 32, !24, i64 40, !24, i64 48, !24, i64 56, !24, i64 64, !24, i64 72}
-!77 = !{!"", !24, i64 0, !24, i64 8}
-!78 = !{!"_specialization_cache", !25, i64 0, !40, i64 8, !25, i64 16}
-!79 = !{!80, !36, i64 0}
-!80 = !{!"", !36, i64 0, !40, i64 8, !40, i64 12, !40, i64 16, !24, i64 24}
-!81 = !{!82, !6, i64 0}
-!82 = !{!"Hacl_Hash_Blake2b_blake2_params_s", !6, i64 0, !6, i64 1, !6, i64 2, !6, i64 3, !40, i64 4, !35, i64 8, !6, i64 16, !6, i64 17, !36, i64 24, !36, i64 32}
-!83 = !{!82, !6, i64 1}
-!84 = !{!82, !6, i64 2}
-!85 = !{!82, !6, i64 3}
-!86 = !{!82, !40, i64 4}
-!87 = !{!82, !35, i64 8}
-!88 = !{!82, !6, i64 16}
-!89 = !{!82, !6, i64 17}
-!90 = !{!82, !36, i64 24}
-!91 = !{!82, !36, i64 32}
+!66 = distinct !{!66, !65}
+!67 = distinct !{!67, !65}
+!68 = distinct !{!68, !65}
+!69 = !{!33, !36, i64 24}
+!70 = !{!71, !25, i64 888}
+!71 = !{!"_heaptypeobject", !33, i64 0, !72, i64 416, !73, i64 448, !74, i64 736, !75, i64 760, !76, i64 840, !25, i64 856, !25, i64 864, !25, i64 872, !50, i64 880, !25, i64 888, !36, i64 896, !24, i64 904, !77, i64 912}
+!72 = !{!"", !24, i64 0, !24, i64 8, !24, i64 16, !24, i64 24}
+!73 = !{!"", !24, i64 0, !24, i64 8, !24, i64 16, !24, i64 24, !24, i64 32, !24, i64 40, !24, i64 48, !24, i64 56, !24, i64 64, !24, i64 72, !24, i64 80, !24, i64 88, !24, i64 96, !24, i64 104, !24, i64 112, !24, i64 120, !24, i64 128, !24, i64 136, !24, i64 144, !24, i64 152, !24, i64 160, !24, i64 168, !24, i64 176, !24, i64 184, !24, i64 192, !24, i64 200, !24, i64 208, !24, i64 216, !24, i64 224, !24, i64 232, !24, i64 240, !24, i64 248, !24, i64 256, !24, i64 264, !24, i64 272, !24, i64 280}
+!74 = !{!"", !24, i64 0, !24, i64 8, !24, i64 16}
+!75 = !{!"", !24, i64 0, !24, i64 8, !24, i64 16, !24, i64 24, !24, i64 32, !24, i64 40, !24, i64 48, !24, i64 56, !24, i64 64, !24, i64 72}
+!76 = !{!"", !24, i64 0, !24, i64 8}
+!77 = !{!"_specialization_cache", !25, i64 0, !40, i64 8, !25, i64 16}
+!78 = !{!79, !36, i64 0}
+!79 = !{!"", !36, i64 0, !40, i64 8, !40, i64 12, !40, i64 16, !24, i64 24}
+!80 = !{!81, !6, i64 0}
+!81 = !{!"Hacl_Hash_Blake2b_blake2_params_s", !6, i64 0, !6, i64 1, !6, i64 2, !6, i64 3, !40, i64 4, !35, i64 8, !6, i64 16, !6, i64 17, !36, i64 24, !36, i64 32}
+!82 = !{!81, !6, i64 1}
+!83 = !{!81, !6, i64 2}
+!84 = !{!81, !6, i64 3}
+!85 = !{!81, !40, i64 4}
+!86 = !{!81, !35, i64 8}
+!87 = !{!81, !6, i64 16}
+!88 = !{!81, !6, i64 17}
+!89 = !{!81, !36, i64 24}
+!90 = !{!81, !36, i64 32}

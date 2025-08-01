@@ -112,7 +112,7 @@ define hidden void @_mi_strlcpy(ptr noundef writeonly captures(address_is_null) 
   %16 = icmp ne i8 %15, 0
   %17 = icmp ugt i64 %14, 1
   %18 = select i1 %16, i1 %17, i1 false
-  br i1 %18, label %.lr.ph, label %._crit_edge, !llvm.loop !9
+  br i1 %18, label %.lr.ph, label %._crit_edge, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
   %.012.lcssa = phi ptr [ %0, %.preheader ], [ %13, %.lr.ph ]
@@ -148,7 +148,7 @@ define hidden void @_mi_strlcat(ptr noundef captures(address_is_null) %0, ptr no
   %15 = icmp ne i8 %14, 0
   %16 = icmp ugt i64 %13, 1
   %17 = select i1 %15, i1 %16, i1 false
-  br i1 %17, label %.lr.ph, label %.preheader.i, !llvm.loop !10
+  br i1 %17, label %.lr.ph, label %.preheader.i, !llvm.loop !9
 
 .preheader.i:                                     ; preds = %.lr.ph, %.preheader
   %.012.lcssa = phi ptr [ %0, %.preheader ], [ %12, %.lr.ph ]
@@ -172,7 +172,7 @@ define hidden void @_mi_strlcat(ptr noundef captures(address_is_null) %0, ptr no
   %26 = icmp ne i8 %25, 0
   %27 = icmp ugt i64 %24, 1
   %28 = select i1 %26, i1 %27, i1 false
-  br i1 %28, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !9
+  br i1 %28, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !8
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %.preheader.i
   %.012.lcssa.i = phi ptr [ %.012.lcssa, %.preheader.i ], [ %23, %.lr.ph.i ]
@@ -216,7 +216,7 @@ define hidden i64 @_mi_strnlen(ptr noundef readonly captures(address_is_null) %0
   %7 = icmp ult i64 %.0, %1
   %8 = and i1 %7, %6
   %9 = add nuw i64 %.0, 1
-  br i1 %8, label %.preheader, label %.loopexit, !llvm.loop !11
+  br i1 %8, label %.preheader, label %.loopexit, !llvm.loop !10
 
 .loopexit:                                        ; preds = %.preheader, %2
   %.07 = phi i64 [ 0, %2 ], [ %.0, %.preheader ]
@@ -381,7 +381,7 @@ mi_outc.exit:                                     ; preds = %switch.early.test, 
   %60 = add i64 %57, %59
   %61 = load i8, ptr %.8, align 1, !tbaa !3
   %62 = icmp eq i8 %61, 0
-  br i1 %62, label %mi_out_alignright.exit.thread321, label %53, !llvm.loop !12
+  br i1 %62, label %mi_out_alignright.exit.thread321, label %53, !llvm.loop !11
 
 .loopexit:                                        ; preds = %53, %45
   %.0204 = phi i64 [ 0, %45 ], [ %.1205, %53 ]
@@ -450,7 +450,7 @@ mi_outc.exit:                                     ; preds = %switch.early.test, 
 
 92:                                               ; preds = %89, %84
   %93 = phi ptr [ %87, %84 ], [ %90, %89 ]
-  %94 = load ptr, ptr %93, align 8, !tbaa !13
+  %94 = load ptr, ptr %93, align 8, !tbaa !12
   %95 = icmp eq ptr %94, null
   br i1 %95, label %mi_outs.exit, label %96
 
@@ -470,7 +470,7 @@ mi_outc.exit:                                     ; preds = %switch.early.test, 
   %102 = icmp ne i8 %101, 0
   %103 = icmp ult ptr %100, %10
   %104 = select i1 %102, i1 %103, i1 false
-  br i1 %104, label %.lr.ph.i, label %mi_outs.exit, !llvm.loop !16
+  br i1 %104, label %.lr.ph.i, label %mi_outs.exit, !llvm.loop !15
 
 105:                                              ; preds = %79
   %106 = icmp eq i8 %.6198, 112
@@ -512,7 +512,7 @@ mi_outc.exit:                                     ; preds = %switch.early.test, 
 
 120:                                              ; preds = %117, %112
   %121 = phi ptr [ %115, %112 ], [ %118, %117 ]
-  %122 = load i64, ptr %121, align 8, !tbaa !17
+  %122 = load i64, ptr %121, align 8, !tbaa !16
   br label %194
 
 123:                                              ; preds = %108
@@ -534,7 +534,7 @@ mi_outc.exit:                                     ; preds = %switch.early.test, 
 
 132:                                              ; preds = %129, %124
   %133 = phi ptr [ %127, %124 ], [ %130, %129 ]
-  %134 = load i64, ptr %133, align 8, !tbaa !17
+  %134 = load i64, ptr %133, align 8, !tbaa !16
   br label %194
 
 135:                                              ; preds = %108
@@ -556,7 +556,7 @@ mi_outc.exit:                                     ; preds = %switch.early.test, 
 
 144:                                              ; preds = %141, %136
   %145 = phi ptr [ %139, %136 ], [ %142, %141 ]
-  %146 = load i64, ptr %145, align 8, !tbaa !19
+  %146 = load i64, ptr %145, align 8, !tbaa !18
   br label %194
 
 147:                                              ; preds = %108
@@ -578,7 +578,7 @@ mi_outc.exit:                                     ; preds = %switch.early.test, 
 
 156:                                              ; preds = %153, %148
   %157 = phi ptr [ %151, %148 ], [ %154, %153 ]
-  %158 = load i64, ptr %157, align 8, !tbaa !17
+  %158 = load i64, ptr %157, align 8, !tbaa !16
   br label %194
 
 159:                                              ; preds = %108
@@ -600,7 +600,7 @@ mi_outc.exit:                                     ; preds = %switch.early.test, 
 
 168:                                              ; preds = %165, %160
   %169 = phi ptr [ %163, %160 ], [ %166, %165 ]
-  %170 = load i32, ptr %169, align 4, !tbaa !21
+  %170 = load i32, ptr %169, align 4, !tbaa !20
   %171 = zext i32 %170 to i64
   br label %194
 
@@ -625,7 +625,7 @@ mi_outc.exit:                                     ; preds = %switch.early.test, 
 
 183:                                              ; preds = %180, %175
   %184 = phi ptr [ %178, %175 ], [ %181, %180 ]
-  %185 = load i64, ptr %184, align 8, !tbaa !17
+  %185 = load i64, ptr %184, align 8, !tbaa !16
   br label %.lr.ph.i252
 
 .lr.ph.i252:                                      ; preds = %183, %.lr.ph.i252
@@ -639,7 +639,7 @@ mi_outc.exit:                                     ; preds = %switch.early.test, 
   %190 = icmp ne i8 %189, 0
   %191 = icmp ult ptr %188, %10
   %192 = select i1 %190, i1 %191, i1 false
-  br i1 %192, label %.lr.ph.i252, label %mi_outs.exit255, !llvm.loop !16
+  br i1 %192, label %.lr.ph.i252, label %mi_outs.exit255, !llvm.loop !15
 
 mi_outs.exit255:                                  ; preds = %.lr.ph.i252
   %193 = tail call i64 @llvm.usub.sat.i64(i64 %.0204, i64 2)
@@ -722,7 +722,7 @@ mi_outc.exit51.i:                                 ; preds = %216, %.split.i
   %.11 = phi ptr [ %222, %216 ], [ %.10, %.split.i ]
   %223 = phi ptr [ %222, %216 ], [ %213, %.split.i ]
   %.not.i257 = icmp ugt i64 %204, %.054.i
-  br i1 %.not.i257, label %.split56.us.i, label %.split.i, !llvm.loop !23
+  br i1 %.not.i257, label %.split56.us.i, label %.split.i, !llvm.loop !22
 
 .split56.us.i:                                    ; preds = %mi_outc.exit51.i, %211
   %.8305 = phi ptr [ %.5302, %211 ], [ %.11, %mi_outc.exit51.i ]
@@ -762,7 +762,7 @@ mi_outc.exit53.i:                                 ; preds = %225, %.split56.us.i
   store i8 %236, ptr %237, align 1, !tbaa !3
   %239 = add nuw nsw i64 %.04257.i, 1
   %exitcond.not.i = icmp eq i64 %239, %231
-  br i1 %exitcond.not.i, label %mi_outs.exit, label %233, !llvm.loop !25
+  br i1 %exitcond.not.i, label %mi_outs.exit, label %233, !llvm.loop !24
 
 240:                                              ; preds = %105, %105
   %241 = load i32, ptr %3, align 8
@@ -793,7 +793,7 @@ mi_outc.exit53.i:                                 ; preds = %225, %.split56.us.i
 
 252:                                              ; preds = %249, %244
   %253 = phi ptr [ %247, %244 ], [ %250, %249 ]
-  %254 = load i64, ptr %253, align 8, !tbaa !17
+  %254 = load i64, ptr %253, align 8, !tbaa !16
   br label %304
 
 255:                                              ; preds = %240
@@ -815,7 +815,7 @@ mi_outc.exit53.i:                                 ; preds = %225, %.split56.us.i
 
 264:                                              ; preds = %261, %256
   %265 = phi ptr [ %259, %256 ], [ %262, %261 ]
-  %266 = load i64, ptr %265, align 8, !tbaa !17
+  %266 = load i64, ptr %265, align 8, !tbaa !16
   br label %304
 
 267:                                              ; preds = %240
@@ -837,7 +837,7 @@ mi_outc.exit53.i:                                 ; preds = %225, %.split56.us.i
 
 276:                                              ; preds = %273, %268
   %277 = phi ptr [ %271, %268 ], [ %274, %273 ]
-  %278 = load i64, ptr %277, align 8, !tbaa !19
+  %278 = load i64, ptr %277, align 8, !tbaa !18
   br label %304
 
 279:                                              ; preds = %240
@@ -859,7 +859,7 @@ mi_outc.exit53.i:                                 ; preds = %225, %.split56.us.i
 
 288:                                              ; preds = %285, %280
   %289 = phi ptr [ %283, %280 ], [ %286, %285 ]
-  %290 = load i64, ptr %289, align 8, !tbaa !17
+  %290 = load i64, ptr %289, align 8, !tbaa !16
   br label %304
 
 291:                                              ; preds = %240
@@ -881,7 +881,7 @@ mi_outc.exit53.i:                                 ; preds = %225, %.split56.us.i
 
 300:                                              ; preds = %297, %292
   %301 = phi ptr [ %295, %292 ], [ %298, %297 ]
-  %302 = load i32, ptr %301, align 4, !tbaa !21
+  %302 = load i32, ptr %301, align 4, !tbaa !20
   %303 = sext i32 %302 to i64
   br label %304
 
@@ -942,7 +942,7 @@ mi_outc.exit51.i270:                              ; preds = %318, %.split.i267
   %.17 = phi ptr [ %321, %318 ], [ %.16, %.split.i267 ]
   %322 = phi ptr [ %321, %318 ], [ %315, %.split.i267 ]
   %.not.i271 = icmp ult i64 %.054.i268, 10
-  br i1 %.not.i271, label %.split56.us.i258, label %.split.i267, !llvm.loop !23
+  br i1 %.not.i271, label %.split56.us.i258, label %.split.i267, !llvm.loop !22
 
 .split56.us.i258:                                 ; preds = %mi_outc.exit51.i270
   %.not46.i259 = icmp ne i8 %.0188313, 0
@@ -980,7 +980,7 @@ mi_outc.exit53.i262:                              ; preds = %323, %.split56.us.i
   store i8 %334, ptr %335, align 1, !tbaa !3
   %337 = add nuw nsw i64 %.04257.i265, 1
   %exitcond.not.i266 = icmp eq i64 %337, %329
-  br i1 %exitcond.not.i266, label %mi_outs.exit, label %331, !llvm.loop !25
+  br i1 %exitcond.not.i266, label %mi_outs.exit, label %331, !llvm.loop !24
 
 338:                                              ; preds = %105
   %339 = add i8 %.6198, -32
@@ -1048,7 +1048,7 @@ mi_out_fill.exit:                                 ; preds = %347, %.lr.ph.prehea
   store i8 %359, ptr %361, align 1, !tbaa !3
   %362 = add nuw i64 %.02232.i, 1
   %exitcond.i = icmp eq i64 %.02232.i, %345
-  br i1 %exitcond.i, label %.preheader.preheader.i, label %.preheader31.i, !llvm.loop !26
+  br i1 %exitcond.i, label %.preheader.preheader.i, label %.preheader31.i, !llvm.loop !25
 
 .preheader.preheader.i:                           ; preds = %.preheader31.i
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %.0199, i8 range(i8 32, 49) %.1212, i64 %348, i1 false), !tbaa !3
@@ -1058,7 +1058,7 @@ mi_out_alignright.exit:                           ; preds = %mi_out_fill.exit, %
   %.2 = phi ptr [ %21, %mi_outc.exit ], [ %.0298340, %switch.early.test ], [ %.09.lcssa.i, %mi_out_fill.exit ], [ %.fr.i, %mi_outs.exit ], [ %.09.lcssa.i, %354 ], [ %.09.lcssa.i, %.preheader.preheader.i ]
   %.1 = phi ptr [ %18, %mi_outc.exit ], [ %18, %switch.early.test ], [ %.9, %mi_out_fill.exit ], [ %.9, %mi_outs.exit ], [ %.9, %354 ], [ %.9, %.preheader.preheader.i ]
   %.not = icmp ult ptr %.2, %10
-  br i1 %.not, label %14, label %mi_out_alignright.exit.thread321, !llvm.loop !27
+  br i1 %.not, label %14, label %mi_out_alignright.exit.thread321
 
 mi_out_alignright.exit.thread321:                 ; preds = %mi_out_alignright.exit, %14, %22, %27, %33, %40, %47, %63, %68, %74, %56, %8
   %.0298338 = phi ptr [ %0, %8 ], [ %.0298340, %56 ], [ %.2, %mi_out_alignright.exit ], [ %.0298340, %14 ], [ %.0298340, %22 ], [ %.0298340, %27 ], [ %.0298340, %33 ], [ %.0298340, %40 ], [ %.0298340, %47 ], [ %.0298340, %63 ], [ %.0298340, %68 ], [ %.0298340, %74 ]
@@ -1123,25 +1123,23 @@ attributes #15 = { "no-builtin-malloc" }
 !3 = !{!4, !4, i64 0}
 !4 = !{!"omnipotent char", !5, i64 0}
 !5 = !{!"Simple C/C++ TBAA"}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7, !8}
-!11 = distinct !{!11, !7, !8}
-!12 = distinct !{!12, !7, !8}
-!13 = !{!14, !14, i64 0}
-!14 = !{!"p1 omnipotent char", !15, i64 0}
-!15 = !{!"any pointer", !4, i64 0}
-!16 = distinct !{!16, !7, !8}
-!17 = !{!18, !18, i64 0}
-!18 = !{!"long", !4, i64 0}
-!19 = !{!20, !20, i64 0}
-!20 = !{!"long long", !4, i64 0}
-!21 = !{!22, !22, i64 0}
-!22 = !{!"int", !4, i64 0}
-!23 = distinct !{!23, !7, !8, !24}
-!24 = !{!"llvm.loop.unswitch.partial.disable"}
-!25 = distinct !{!25, !7, !8}
-!26 = distinct !{!26, !7, !8}
-!27 = distinct !{!27, !8}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7}
+!12 = !{!13, !13, i64 0}
+!13 = !{!"p1 omnipotent char", !14, i64 0}
+!14 = !{!"any pointer", !4, i64 0}
+!15 = distinct !{!15, !7}
+!16 = !{!17, !17, i64 0}
+!17 = !{!"long", !4, i64 0}
+!18 = !{!19, !19, i64 0}
+!19 = !{!"long long", !4, i64 0}
+!20 = !{!21, !21, i64 0}
+!21 = !{!"int", !4, i64 0}
+!22 = distinct !{!22, !7, !23}
+!23 = !{!"llvm.loop.unswitch.partial.disable"}
+!24 = distinct !{!24, !7}
+!25 = distinct !{!25, !7}

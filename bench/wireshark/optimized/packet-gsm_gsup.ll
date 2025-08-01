@@ -774,7 +774,7 @@ switch.lookup:                                    ; preds = %116
   %149 = add i32 %148, %.021.i
   %150 = sub i32 %149, %31
   %151 = icmp ult i32 %150, %33
-  br i1 %151, label %.lr.ph.i, label %dissect_ss_info_ie.exit, !llvm.loop !9
+  br i1 %151, label %.lr.ph.i, label %dissect_ss_info_ie.exit, !llvm.loop !8
 
 dissect_ss_info_ie.exit:                          ; preds = %.lr.ph.i, %135
   call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %13) #4
@@ -971,7 +971,7 @@ dissect_an_apdu_ie.exit:                          ; preds = %239, %242, %245
   br label %.loopexit
 
 248:                                              ; preds = %36, %36
-  %249 = load i8, ptr @show_name_as_text, align 1, !range !10, !noundef !11
+  %249 = load i8, ptr @show_name_as_text, align 1, !range !9, !noundef !10
   %250 = trunc nuw i8 %249 to i1
   br i1 %250, label %251, label %255
 
@@ -989,7 +989,7 @@ dissect_an_apdu_ie.exit:                          ; preds = %239, %242, %245
 256:                                              ; preds = %255
   %257 = load i32, ptr @hf_gsup_source_name, align 4
   %258 = call ptr @proto_tree_add_item(ptr noundef %41, i32 noundef %257, ptr noundef %0, i32 noundef %31, i32 noundef range(i32 0, 256) %33, i32 noundef 0)
-  %259 = load i8, ptr @show_name_as_text, align 1, !range !10, !noundef !11
+  %259 = load i8, ptr @show_name_as_text, align 1, !range !9, !noundef !10
   %260 = trunc nuw i8 %259 to i1
   br i1 %260, label %261, label %.loopexit
 
@@ -1006,7 +1006,7 @@ dissect_an_apdu_ie.exit:                          ; preds = %239, %242, %245
 265:                                              ; preds = %255
   %266 = load i32, ptr @hf_gsup_destination_name, align 4
   %267 = call ptr @proto_tree_add_item(ptr noundef %41, i32 noundef %266, ptr noundef %0, i32 noundef %31, i32 noundef range(i32 0, 256) %33, i32 noundef 0)
-  %268 = load i8, ptr @show_name_as_text, align 1, !range !10, !noundef !11
+  %268 = load i8, ptr @show_name_as_text, align 1, !range !9, !noundef !10
   %269 = trunc nuw i8 %268 to i1
   br i1 %269, label %270, label %.loopexit
 
@@ -1108,7 +1108,7 @@ dissect_an_apdu_ie.exit:                          ; preds = %239, %242, %245
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #4
   %319 = sub i32 %318, %1
   %320 = icmp slt i32 %319, %2
-  br i1 %320, label %27, label %.loopexit289, !llvm.loop !12
+  br i1 %320, label %27, label %.loopexit289, !llvm.loop !11
 
 .loopexit289:                                     ; preds = %.loopexit, %7, %.thread
   ret void
@@ -1222,10 +1222,9 @@ attributes #5 = { noreturn }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = !{i8 0, i8 2}
-!11 = !{}
-!12 = distinct !{!12, !7, !8}
+!8 = distinct !{!8, !7}
+!9 = !{i8 0, i8 2}
+!10 = !{}
+!11 = distinct !{!11, !7}

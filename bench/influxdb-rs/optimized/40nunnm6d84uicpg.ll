@@ -316,7 +316,7 @@ common.resume.i:                                  ; preds = %78, %.body.i, %32
   %59 = add i64 %54, 1
   store i64 %59, ptr %.sroa.6.0..sroa_idx.i, align 8, !alias.scope !95, !noalias !96
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %8), !noalias !94
-  br label %48, !llvm.loop !97
+  br label %48
 
 60:                                               ; preds = %62
   %61 = landingpad { ptr, i32 }
@@ -336,14 +336,14 @@ common.resume.i:                                  ; preds = %78, %.body.i, %32
 
 .loopexit8.i.i.i:                                 ; preds = %.loopexit7.i.i.i
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %7), !noalias !74
-  call void @llvm.experimental.noalias.scope.decl(metadata !99)
-  call void @llvm.experimental.noalias.scope.decl(metadata !102)
-  call void @llvm.experimental.noalias.scope.decl(metadata !105)
-  call void @llvm.experimental.noalias.scope.decl(metadata !108)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4), !noalias !111
-  store ptr %13, ptr %4, align 8, !noalias !111
+  call void @llvm.experimental.noalias.scope.decl(metadata !97)
+  call void @llvm.experimental.noalias.scope.decl(metadata !100)
+  call void @llvm.experimental.noalias.scope.decl(metadata !103)
+  call void @llvm.experimental.noalias.scope.decl(metadata !106)
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4), !noalias !109
+  store ptr %13, ptr %4, align 8, !noalias !109
   %65 = getelementptr inbounds nuw i8, ptr %13, i64 16
-  %66 = load ptr, ptr %65, align 8, !alias.scope !112, !noalias !115, !noundef !7
+  %66 = load ptr, ptr %65, align 8, !alias.scope !110, !noalias !113, !noundef !7
   %67 = invoke noundef i64 @_ZN4core4iter6traits10exact_size17ExactSizeIterator3len17h723bb0da12c589a1E.llvm.8662718313598535933(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %13)
           to label %70 unwind label %68, !noalias !14
 
@@ -378,7 +378,7 @@ common.resume.i:                                  ; preds = %78, %.body.i, %32
           to label %common.resume.i unwind label %76, !noalias !14
 
 75:                                               ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16extend_desugared17h3b31f51172f5bc98E.exit.i.i"
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4), !noalias !111
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4), !noalias !109
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %13), !noalias !19
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %15, i64 24, i1 false), !noalias !17
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %15), !noalias !19
@@ -412,20 +412,20 @@ define hidden void @"_ZN5alloc3vec16in_place_collect108_$LT$impl$u20$alloc..vec.
   %10 = load ptr, ptr %9, align 8, !noundef !7
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %12 = load i64, ptr %11, align 8, !noundef !7
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !116)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !119)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7), !noalias !116
-  store ptr %10, ptr %7, align 8, !noalias !122
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6), !noalias !122
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !114)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !117)
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7), !noalias !114
+  store ptr %10, ptr %7, align 8, !noalias !120
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6), !noalias !120
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %14 = load ptr, ptr %13, align 8, !alias.scope !122, !nonnull !7, !align !32, !noundef !7
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5), !noalias !123
+  %14 = load ptr, ptr %13, align 8, !alias.scope !120, !nonnull !7, !align !32, !noundef !7
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5), !noalias !121
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  store ptr %7, ptr %5, align 8, !noalias !123
+  store ptr %7, ptr %5, align 8, !noalias !121
   %16 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store ptr %14, ptr %16, align 8, !noalias !123
+  store ptr %14, ptr %16, align 8, !noalias !121
   %17 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store ptr %15, ptr %17, align 8, !noalias !123
+  store ptr %15, ptr %17, align 8, !noalias !121
   invoke void @_ZN4core4iter6traits8iterator8Iterator8try_fold17h6bc101fc1738d7ceE.llvm.4252288418090814410(ptr noalias noundef nonnull sret({ i64, [2 x i64] }) align 8 captures(none) dereferenceable(24) %6, ptr noalias noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull %8, ptr noundef nonnull %8, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %5)
           to label %20 unwind label %18
 
@@ -435,11 +435,11 @@ define hidden void @"_ZN5alloc3vec16in_place_collect108_$LT$impl$u20$alloc..vec.
   br label %42
 
 20:                                               ; preds = %2
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5), !noalias !123
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5), !noalias !121
   %21 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %22 = load ptr, ptr %21, align 8, !noalias !122
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6), !noalias !122
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7), !noalias !116
+  %22 = load ptr, ptr %21, align 8, !noalias !120
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6), !noalias !120
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7), !noalias !114
   %23 = ptrtoint ptr %22 to i64
   %24 = ptrtoint ptr %8 to i64
   %25 = sub nuw i64 %23, %24
@@ -450,17 +450,17 @@ define hidden void @"_ZN5alloc3vec16in_place_collect108_$LT$impl$u20$alloc..vec.
 27:                                               ; preds = %20
   %28 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4), !noalias !129
-  store ptr %8, ptr %4, align 8, !noalias !129
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4), !noalias !127
+  store ptr %8, ptr %4, align 8, !noalias !127
   %29 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store i64 %12, ptr %29, align 8, !noalias !129
+  store i64 %12, ptr %29, align 8, !noalias !127
   %30 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store i64 %26, ptr %30, align 8, !noalias !129
+  store i64 %26, ptr %30, align 8, !noalias !127
   invoke void @"_ZN4core3ptr98drop_in_place$LT$alloc..vec..Vec$LT$influxdb_influxql_parser..select..MeasurementSelection$GT$$GT$17h155c711852423e18E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %4)
           to label %"_ZN4core3ptr127drop_in_place$LT$alloc..vec..in_place_drop..InPlaceDstBufDrop$LT$influxdb_influxql_parser..select..MeasurementSelection$GT$$GT$17hf5d20b2f2a8bd822E.exit" unwind label %40
 
 "_ZN4core3ptr127drop_in_place$LT$alloc..vec..in_place_drop..InPlaceDstBufDrop$LT$influxdb_influxql_parser..select..MeasurementSelection$GT$$GT$17hf5d20b2f2a8bd822E.exit": ; preds = %27
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !129
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !127
   br label %42
 
 31:                                               ; preds = %20
@@ -469,14 +469,14 @@ define hidden void @"_ZN5alloc3vec16in_place_collect108_$LT$impl$u20$alloc..vec.
   store i64 %12, ptr %.sroa.4.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %26, ptr %.sroa.5.0..sroa_idx, align 8
-  call void @llvm.experimental.noalias.scope.decl(metadata !134)
-  call void @llvm.experimental.noalias.scope.decl(metadata !137)
-  call void @llvm.experimental.noalias.scope.decl(metadata !140)
-  call void @llvm.experimental.noalias.scope.decl(metadata !143)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3), !noalias !146
-  store ptr %1, ptr %3, align 8, !noalias !146
+  call void @llvm.experimental.noalias.scope.decl(metadata !132)
+  call void @llvm.experimental.noalias.scope.decl(metadata !135)
+  call void @llvm.experimental.noalias.scope.decl(metadata !138)
+  call void @llvm.experimental.noalias.scope.decl(metadata !141)
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3), !noalias !144
+  store ptr %1, ptr %3, align 8, !noalias !144
   %32 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %33 = load ptr, ptr %32, align 8, !alias.scope !147, !noundef !7
+  %33 = load ptr, ptr %32, align 8, !alias.scope !145, !noundef !7
   %34 = invoke noundef i64 @_ZN4core4iter6traits10exact_size17ExactSizeIterator3len17h709f56aa23bcbb7fE.llvm.8662718313598535933(ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %1)
           to label %37 unwind label %35
 
@@ -502,7 +502,7 @@ common.resume:                                    ; preds = %42, %35
 
 "_ZN4core3ptr470drop_in_place$LT$core..iter..adapters..GenericShunt$LT$core..iter..adapters..map..Map$LT$alloc..vec..into_iter..IntoIter$LT$influxdb_influxql_parser..select..MeasurementSelection$GT$$C$$LT$iox_query_influxql_rewrite..RewrittenStatement$u20$as$u20$core..convert..TryFrom$LT$influxdb_influxql_parser..statement..Statement$GT$$GT$..try_from..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$core..result..Result$LT$core..convert..Infallible$C$iox_query_influxql_rewrite..Error$GT$$GT$$GT$17h84a6266607e4af86E.exit": ; preds = %37
   call void @"_ZN157_$LT$$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h2a2e32b8378b51dcE.llvm.11290379560268722015"(ptr noalias noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !146
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !144
   ret void
 
 40:                                               ; preds = %27, %42
@@ -708,56 +708,54 @@ attributes #11 = { cold }
 !94 = !{!67, !70, !62, !65, !15, !18}
 !95 = !{!67, !62}
 !96 = !{!70, !65, !15, !18}
-!97 = distinct !{!97, !98}
-!98 = !{!"llvm.loop.estimated_trip_count"}
-!99 = !{!100}
-!100 = distinct !{!100, !101, !"_ZN4core3ptr433drop_in_place$LT$core..iter..adapters..GenericShunt$LT$core..iter..adapters..map..Map$LT$alloc..vec..into_iter..IntoIter$LT$influxdb_influxql_parser..statement..Statement$GT$$C$$LT$iox_query_influxql_rewrite..RewrittenStatement$u20$as$u20$core..convert..TryFrom$LT$influxdb_influxql_parser..statement..Statement$GT$$GT$..try_from$GT$$C$core..result..Result$LT$core..convert..Infallible$C$iox_query_influxql_rewrite..Error$GT$$GT$$GT$17hd76a8f7f766186b4E: argument 0"}
-!101 = distinct !{!101, !"_ZN4core3ptr433drop_in_place$LT$core..iter..adapters..GenericShunt$LT$core..iter..adapters..map..Map$LT$alloc..vec..into_iter..IntoIter$LT$influxdb_influxql_parser..statement..Statement$GT$$C$$LT$iox_query_influxql_rewrite..RewrittenStatement$u20$as$u20$core..convert..TryFrom$LT$influxdb_influxql_parser..statement..Statement$GT$$GT$..try_from$GT$$C$core..result..Result$LT$core..convert..Infallible$C$iox_query_influxql_rewrite..Error$GT$$GT$$GT$17hd76a8f7f766186b4E"}
-!102 = !{!103}
-!103 = distinct !{!103, !104, !"_ZN4core3ptr299drop_in_place$LT$core..iter..adapters..map..Map$LT$alloc..vec..into_iter..IntoIter$LT$influxdb_influxql_parser..statement..Statement$GT$$C$$LT$iox_query_influxql_rewrite..RewrittenStatement$u20$as$u20$core..convert..TryFrom$LT$influxdb_influxql_parser..statement..Statement$GT$$GT$..try_from$GT$$GT$17hac57da9083f0ef9fE.llvm.11290379560268722015: argument 0"}
-!104 = distinct !{!104, !"_ZN4core3ptr299drop_in_place$LT$core..iter..adapters..map..Map$LT$alloc..vec..into_iter..IntoIter$LT$influxdb_influxql_parser..statement..Statement$GT$$C$$LT$iox_query_influxql_rewrite..RewrittenStatement$u20$as$u20$core..convert..TryFrom$LT$influxdb_influxql_parser..statement..Statement$GT$$GT$..try_from$GT$$GT$17hac57da9083f0ef9fE.llvm.11290379560268722015"}
-!105 = !{!106}
-!106 = distinct !{!106, !107, !"_ZN4core3ptr106drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$influxdb_influxql_parser..statement..Statement$GT$$GT$17h671dd6e16469f6aaE.llvm.11290379560268722015: argument 0"}
-!107 = distinct !{!107, !"_ZN4core3ptr106drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$influxdb_influxql_parser..statement..Statement$GT$$GT$17h671dd6e16469f6aaE.llvm.11290379560268722015"}
-!108 = !{!109}
-!109 = distinct !{!109, !110, !"_ZN86_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h89e0ede8b45c41d4E.llvm.11290379560268722015: argument 0"}
-!110 = distinct !{!110, !"_ZN86_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h89e0ede8b45c41d4E.llvm.11290379560268722015"}
-!111 = !{!109, !106, !103, !100, !67, !70, !62, !65, !15, !18}
-!112 = !{!113, !109, !106, !103, !100, !70, !65}
-!113 = distinct !{!113, !114, !"_ZN5alloc3vec9into_iter21IntoIter$LT$T$C$A$GT$16as_raw_mut_slice17h2429d737a4e7db23E: argument 0"}
-!114 = distinct !{!114, !"_ZN5alloc3vec9into_iter21IntoIter$LT$T$C$A$GT$16as_raw_mut_slice17h2429d737a4e7db23E"}
-!115 = !{!67, !62, !15, !18}
-!116 = !{!117}
-!117 = distinct !{!117, !118, !"_ZN83_$LT$I$u20$as$u20$alloc..vec..in_place_collect..SpecInPlaceCollect$LT$T$C$I$GT$$GT$16collect_in_place17h288a7518cadde54aE: argument 0"}
-!118 = distinct !{!118, !"_ZN83_$LT$I$u20$as$u20$alloc..vec..in_place_collect..SpecInPlaceCollect$LT$T$C$I$GT$$GT$16collect_in_place17h288a7518cadde54aE"}
-!119 = !{!120}
-!120 = distinct !{!120, !121, !"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$C$R$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h47746c22e53b272aE: argument 0"}
-!121 = distinct !{!121, !"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$C$R$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h47746c22e53b272aE"}
-!122 = !{!120, !117}
-!123 = !{!124, !126, !127, !128, !120, !117}
-!124 = distinct !{!124, !125, !"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17heb7b410d738c35a8E: argument 0"}
-!125 = distinct !{!125, !"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17heb7b410d738c35a8E"}
-!126 = distinct !{!126, !125, !"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17heb7b410d738c35a8E: argument 1"}
-!127 = distinct !{!127, !125, !"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17heb7b410d738c35a8E: argument 2"}
-!128 = distinct !{!128, !125, !"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17heb7b410d738c35a8E: argument 3"}
-!129 = !{!130, !132}
-!130 = distinct !{!130, !131, !"_ZN95_$LT$alloc..vec..in_place_drop..InPlaceDstBufDrop$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hd3a27924112a22a9E: argument 0"}
-!131 = distinct !{!131, !"_ZN95_$LT$alloc..vec..in_place_drop..InPlaceDstBufDrop$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hd3a27924112a22a9E"}
-!132 = distinct !{!132, !133, !"_ZN4core3ptr127drop_in_place$LT$alloc..vec..in_place_drop..InPlaceDstBufDrop$LT$influxdb_influxql_parser..select..MeasurementSelection$GT$$GT$17hf5d20b2f2a8bd822E: argument 0"}
-!133 = distinct !{!133, !"_ZN4core3ptr127drop_in_place$LT$alloc..vec..in_place_drop..InPlaceDstBufDrop$LT$influxdb_influxql_parser..select..MeasurementSelection$GT$$GT$17hf5d20b2f2a8bd822E"}
-!134 = !{!135}
-!135 = distinct !{!135, !136, !"_ZN4core3ptr470drop_in_place$LT$core..iter..adapters..GenericShunt$LT$core..iter..adapters..map..Map$LT$alloc..vec..into_iter..IntoIter$LT$influxdb_influxql_parser..select..MeasurementSelection$GT$$C$$LT$iox_query_influxql_rewrite..RewrittenStatement$u20$as$u20$core..convert..TryFrom$LT$influxdb_influxql_parser..statement..Statement$GT$$GT$..try_from..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$core..result..Result$LT$core..convert..Infallible$C$iox_query_influxql_rewrite..Error$GT$$GT$$GT$17h84a6266607e4af86E: argument 0"}
-!136 = distinct !{!136, !"_ZN4core3ptr470drop_in_place$LT$core..iter..adapters..GenericShunt$LT$core..iter..adapters..map..Map$LT$alloc..vec..into_iter..IntoIter$LT$influxdb_influxql_parser..select..MeasurementSelection$GT$$C$$LT$iox_query_influxql_rewrite..RewrittenStatement$u20$as$u20$core..convert..TryFrom$LT$influxdb_influxql_parser..statement..Statement$GT$$GT$..try_from..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$core..result..Result$LT$core..convert..Infallible$C$iox_query_influxql_rewrite..Error$GT$$GT$$GT$17h84a6266607e4af86E"}
-!137 = !{!138}
-!138 = distinct !{!138, !139, !"_ZN4core3ptr336drop_in_place$LT$core..iter..adapters..map..Map$LT$alloc..vec..into_iter..IntoIter$LT$influxdb_influxql_parser..select..MeasurementSelection$GT$$C$$LT$iox_query_influxql_rewrite..RewrittenStatement$u20$as$u20$core..convert..TryFrom$LT$influxdb_influxql_parser..statement..Statement$GT$$GT$..try_from..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h29d366ed1da93160E.llvm.11290379560268722015: argument 0"}
-!139 = distinct !{!139, !"_ZN4core3ptr336drop_in_place$LT$core..iter..adapters..map..Map$LT$alloc..vec..into_iter..IntoIter$LT$influxdb_influxql_parser..select..MeasurementSelection$GT$$C$$LT$iox_query_influxql_rewrite..RewrittenStatement$u20$as$u20$core..convert..TryFrom$LT$influxdb_influxql_parser..statement..Statement$GT$$GT$..try_from..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h29d366ed1da93160E.llvm.11290379560268722015"}
-!140 = !{!141}
-!141 = distinct !{!141, !142, !"_ZN4core3ptr114drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$influxdb_influxql_parser..select..MeasurementSelection$GT$$GT$17hc182b2abeb0f7eebE.llvm.11290379560268722015: argument 0"}
-!142 = distinct !{!142, !"_ZN4core3ptr114drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$influxdb_influxql_parser..select..MeasurementSelection$GT$$GT$17hc182b2abeb0f7eebE.llvm.11290379560268722015"}
-!143 = !{!144}
-!144 = distinct !{!144, !145, !"_ZN86_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hb71879d1efb7dc0dE.llvm.11290379560268722015: argument 0"}
-!145 = distinct !{!145, !"_ZN86_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hb71879d1efb7dc0dE.llvm.11290379560268722015"}
-!146 = !{!144, !141, !138, !135}
-!147 = !{!148, !144, !141, !138, !135}
-!148 = distinct !{!148, !149, !"_ZN5alloc3vec9into_iter21IntoIter$LT$T$C$A$GT$16as_raw_mut_slice17h5be5ba11272926c0E: argument 0"}
-!149 = distinct !{!149, !"_ZN5alloc3vec9into_iter21IntoIter$LT$T$C$A$GT$16as_raw_mut_slice17h5be5ba11272926c0E"}
+!97 = !{!98}
+!98 = distinct !{!98, !99, !"_ZN4core3ptr433drop_in_place$LT$core..iter..adapters..GenericShunt$LT$core..iter..adapters..map..Map$LT$alloc..vec..into_iter..IntoIter$LT$influxdb_influxql_parser..statement..Statement$GT$$C$$LT$iox_query_influxql_rewrite..RewrittenStatement$u20$as$u20$core..convert..TryFrom$LT$influxdb_influxql_parser..statement..Statement$GT$$GT$..try_from$GT$$C$core..result..Result$LT$core..convert..Infallible$C$iox_query_influxql_rewrite..Error$GT$$GT$$GT$17hd76a8f7f766186b4E: argument 0"}
+!99 = distinct !{!99, !"_ZN4core3ptr433drop_in_place$LT$core..iter..adapters..GenericShunt$LT$core..iter..adapters..map..Map$LT$alloc..vec..into_iter..IntoIter$LT$influxdb_influxql_parser..statement..Statement$GT$$C$$LT$iox_query_influxql_rewrite..RewrittenStatement$u20$as$u20$core..convert..TryFrom$LT$influxdb_influxql_parser..statement..Statement$GT$$GT$..try_from$GT$$C$core..result..Result$LT$core..convert..Infallible$C$iox_query_influxql_rewrite..Error$GT$$GT$$GT$17hd76a8f7f766186b4E"}
+!100 = !{!101}
+!101 = distinct !{!101, !102, !"_ZN4core3ptr299drop_in_place$LT$core..iter..adapters..map..Map$LT$alloc..vec..into_iter..IntoIter$LT$influxdb_influxql_parser..statement..Statement$GT$$C$$LT$iox_query_influxql_rewrite..RewrittenStatement$u20$as$u20$core..convert..TryFrom$LT$influxdb_influxql_parser..statement..Statement$GT$$GT$..try_from$GT$$GT$17hac57da9083f0ef9fE.llvm.11290379560268722015: argument 0"}
+!102 = distinct !{!102, !"_ZN4core3ptr299drop_in_place$LT$core..iter..adapters..map..Map$LT$alloc..vec..into_iter..IntoIter$LT$influxdb_influxql_parser..statement..Statement$GT$$C$$LT$iox_query_influxql_rewrite..RewrittenStatement$u20$as$u20$core..convert..TryFrom$LT$influxdb_influxql_parser..statement..Statement$GT$$GT$..try_from$GT$$GT$17hac57da9083f0ef9fE.llvm.11290379560268722015"}
+!103 = !{!104}
+!104 = distinct !{!104, !105, !"_ZN4core3ptr106drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$influxdb_influxql_parser..statement..Statement$GT$$GT$17h671dd6e16469f6aaE.llvm.11290379560268722015: argument 0"}
+!105 = distinct !{!105, !"_ZN4core3ptr106drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$influxdb_influxql_parser..statement..Statement$GT$$GT$17h671dd6e16469f6aaE.llvm.11290379560268722015"}
+!106 = !{!107}
+!107 = distinct !{!107, !108, !"_ZN86_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h89e0ede8b45c41d4E.llvm.11290379560268722015: argument 0"}
+!108 = distinct !{!108, !"_ZN86_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h89e0ede8b45c41d4E.llvm.11290379560268722015"}
+!109 = !{!107, !104, !101, !98, !67, !70, !62, !65, !15, !18}
+!110 = !{!111, !107, !104, !101, !98, !70, !65}
+!111 = distinct !{!111, !112, !"_ZN5alloc3vec9into_iter21IntoIter$LT$T$C$A$GT$16as_raw_mut_slice17h2429d737a4e7db23E: argument 0"}
+!112 = distinct !{!112, !"_ZN5alloc3vec9into_iter21IntoIter$LT$T$C$A$GT$16as_raw_mut_slice17h2429d737a4e7db23E"}
+!113 = !{!67, !62, !15, !18}
+!114 = !{!115}
+!115 = distinct !{!115, !116, !"_ZN83_$LT$I$u20$as$u20$alloc..vec..in_place_collect..SpecInPlaceCollect$LT$T$C$I$GT$$GT$16collect_in_place17h288a7518cadde54aE: argument 0"}
+!116 = distinct !{!116, !"_ZN83_$LT$I$u20$as$u20$alloc..vec..in_place_collect..SpecInPlaceCollect$LT$T$C$I$GT$$GT$16collect_in_place17h288a7518cadde54aE"}
+!117 = !{!118}
+!118 = distinct !{!118, !119, !"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$C$R$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h47746c22e53b272aE: argument 0"}
+!119 = distinct !{!119, !"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$C$R$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h47746c22e53b272aE"}
+!120 = !{!118, !115}
+!121 = !{!122, !124, !125, !126, !118, !115}
+!122 = distinct !{!122, !123, !"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17heb7b410d738c35a8E: argument 0"}
+!123 = distinct !{!123, !"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17heb7b410d738c35a8E"}
+!124 = distinct !{!124, !123, !"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17heb7b410d738c35a8E: argument 1"}
+!125 = distinct !{!125, !123, !"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17heb7b410d738c35a8E: argument 2"}
+!126 = distinct !{!126, !123, !"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17heb7b410d738c35a8E: argument 3"}
+!127 = !{!128, !130}
+!128 = distinct !{!128, !129, !"_ZN95_$LT$alloc..vec..in_place_drop..InPlaceDstBufDrop$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hd3a27924112a22a9E: argument 0"}
+!129 = distinct !{!129, !"_ZN95_$LT$alloc..vec..in_place_drop..InPlaceDstBufDrop$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hd3a27924112a22a9E"}
+!130 = distinct !{!130, !131, !"_ZN4core3ptr127drop_in_place$LT$alloc..vec..in_place_drop..InPlaceDstBufDrop$LT$influxdb_influxql_parser..select..MeasurementSelection$GT$$GT$17hf5d20b2f2a8bd822E: argument 0"}
+!131 = distinct !{!131, !"_ZN4core3ptr127drop_in_place$LT$alloc..vec..in_place_drop..InPlaceDstBufDrop$LT$influxdb_influxql_parser..select..MeasurementSelection$GT$$GT$17hf5d20b2f2a8bd822E"}
+!132 = !{!133}
+!133 = distinct !{!133, !134, !"_ZN4core3ptr470drop_in_place$LT$core..iter..adapters..GenericShunt$LT$core..iter..adapters..map..Map$LT$alloc..vec..into_iter..IntoIter$LT$influxdb_influxql_parser..select..MeasurementSelection$GT$$C$$LT$iox_query_influxql_rewrite..RewrittenStatement$u20$as$u20$core..convert..TryFrom$LT$influxdb_influxql_parser..statement..Statement$GT$$GT$..try_from..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$core..result..Result$LT$core..convert..Infallible$C$iox_query_influxql_rewrite..Error$GT$$GT$$GT$17h84a6266607e4af86E: argument 0"}
+!134 = distinct !{!134, !"_ZN4core3ptr470drop_in_place$LT$core..iter..adapters..GenericShunt$LT$core..iter..adapters..map..Map$LT$alloc..vec..into_iter..IntoIter$LT$influxdb_influxql_parser..select..MeasurementSelection$GT$$C$$LT$iox_query_influxql_rewrite..RewrittenStatement$u20$as$u20$core..convert..TryFrom$LT$influxdb_influxql_parser..statement..Statement$GT$$GT$..try_from..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$core..result..Result$LT$core..convert..Infallible$C$iox_query_influxql_rewrite..Error$GT$$GT$$GT$17h84a6266607e4af86E"}
+!135 = !{!136}
+!136 = distinct !{!136, !137, !"_ZN4core3ptr336drop_in_place$LT$core..iter..adapters..map..Map$LT$alloc..vec..into_iter..IntoIter$LT$influxdb_influxql_parser..select..MeasurementSelection$GT$$C$$LT$iox_query_influxql_rewrite..RewrittenStatement$u20$as$u20$core..convert..TryFrom$LT$influxdb_influxql_parser..statement..Statement$GT$$GT$..try_from..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h29d366ed1da93160E.llvm.11290379560268722015: argument 0"}
+!137 = distinct !{!137, !"_ZN4core3ptr336drop_in_place$LT$core..iter..adapters..map..Map$LT$alloc..vec..into_iter..IntoIter$LT$influxdb_influxql_parser..select..MeasurementSelection$GT$$C$$LT$iox_query_influxql_rewrite..RewrittenStatement$u20$as$u20$core..convert..TryFrom$LT$influxdb_influxql_parser..statement..Statement$GT$$GT$..try_from..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h29d366ed1da93160E.llvm.11290379560268722015"}
+!138 = !{!139}
+!139 = distinct !{!139, !140, !"_ZN4core3ptr114drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$influxdb_influxql_parser..select..MeasurementSelection$GT$$GT$17hc182b2abeb0f7eebE.llvm.11290379560268722015: argument 0"}
+!140 = distinct !{!140, !"_ZN4core3ptr114drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$influxdb_influxql_parser..select..MeasurementSelection$GT$$GT$17hc182b2abeb0f7eebE.llvm.11290379560268722015"}
+!141 = !{!142}
+!142 = distinct !{!142, !143, !"_ZN86_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hb71879d1efb7dc0dE.llvm.11290379560268722015: argument 0"}
+!143 = distinct !{!143, !"_ZN86_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hb71879d1efb7dc0dE.llvm.11290379560268722015"}
+!144 = !{!142, !139, !136, !133}
+!145 = !{!146, !142, !139, !136, !133}
+!146 = distinct !{!146, !147, !"_ZN5alloc3vec9into_iter21IntoIter$LT$T$C$A$GT$16as_raw_mut_slice17h5be5ba11272926c0E: argument 0"}
+!147 = distinct !{!147, !"_ZN5alloc3vec9into_iter21IntoIter$LT$T$C$A$GT$16as_raw_mut_slice17h5be5ba11272926c0E"}

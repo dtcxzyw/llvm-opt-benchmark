@@ -844,7 +844,7 @@ switch.lookup:                                    ; preds = %4
   %324 = add nuw nsw i32 %.045.i, 4
   %325 = add nuw i8 %.04244.i, 1
   %exitcond.not.i134 = icmp eq i8 %325, %312
-  br i1 %exitcond.not.i134, label %dissect_mtp3mg_test.exit, label %.lr.ph.i133, !llvm.loop !9
+  br i1 %exitcond.not.i134, label %dissect_mtp3mg_test.exit, label %.lr.ph.i133, !llvm.loop !8
 
 326:                                              ; preds = %307
   %327 = tail call i32 @tvb_captured_length(ptr noundef %99)
@@ -1231,7 +1231,6 @@ attributes #1 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protect
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
+!8 = distinct !{!8, !7}

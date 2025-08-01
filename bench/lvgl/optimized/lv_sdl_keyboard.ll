@@ -10,7 +10,7 @@ define nonnull ptr @lv_sdl_keyboard_create() local_unnamed_addr #0 {
   br i1 %.not, label %.preheader, label %2
 
 .preheader:                                       ; preds = %0, %.preheader
-  br label %.preheader, !llvm.loop !3
+  br label %.preheader
 
 2:                                                ; preds = %0
   %3 = tail call ptr @lv_indev_create() #3
@@ -18,7 +18,7 @@ define nonnull ptr @lv_sdl_keyboard_create() local_unnamed_addr #0 {
   br i1 %.not16, label %.preheader17, label %4
 
 .preheader17:                                     ; preds = %2, %.preheader17
-  br label %.preheader17, !llvm.loop !5
+  br label %.preheader17
 
 4:                                                ; preds = %2
   tail call void @lv_indev_set_type(ptr noundef nonnull %3, i32 noundef 2) #3
@@ -44,14 +44,14 @@ define internal void @sdl_keyboard_read(ptr noundef %0, ptr noundef writeonly ca
   %3 = tail call ptr @lv_indev_get_driver_data(ptr noundef %0) #3
   %4 = tail call i64 @lv_strlen(ptr noundef %3) #3
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  %6 = load i8, ptr %5, align 1, !tbaa !6, !range !11, !noundef !12
+  %6 = load i8, ptr %5, align 1, !tbaa !3, !range !8, !noundef !9
   %7 = trunc nuw i8 %6 to i1
   br i1 %7, label %8, label %10
 
 8:                                                ; preds = %2
-  store i8 0, ptr %5, align 1, !tbaa !6
+  store i8 0, ptr %5, align 1, !tbaa !3
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 20
-  store i32 0, ptr %9, align 4, !tbaa !13
+  store i32 0, ptr %9, align 4, !tbaa !10
   br label %18
 
 10:                                               ; preds = %2
@@ -59,13 +59,13 @@ define internal void @sdl_keyboard_read(ptr noundef %0, ptr noundef writeonly ca
   br i1 %.not, label %18, label %11
 
 11:                                               ; preds = %10
-  store i8 1, ptr %5, align 1, !tbaa !6
+  store i8 1, ptr %5, align 1, !tbaa !3
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 20
-  store i32 1, ptr %12, align 4, !tbaa !13
-  %13 = load i8, ptr %3, align 1, !tbaa !19
+  store i32 1, ptr %12, align 4, !tbaa !10
+  %13 = load i8, ptr %3, align 1, !tbaa !16
   %14 = sext i8 %13 to i32
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i32 %14, ptr %15, align 8, !tbaa !20
+  store i32 %14, ptr %15, align 8, !tbaa !17
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 1
   %17 = tail call ptr @lv_memmove(ptr noundef nonnull %3, ptr noundef nonnull %16, i64 noundef %4) #3
   br label %18
@@ -99,7 +99,7 @@ define internal void @release_indev_cb(ptr noundef %0) #0 {
 
 ; Function Attrs: nounwind uwtable
 define void @lv_sdl_keyboard_handler(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = load i32, ptr %0, align 8, !tbaa !19
+  %2 = load i32, ptr %0, align 8, !tbaa !16
   switch i32 %2, label %.critedge [
     i32 768, label %3
     i32 771, label %3
@@ -107,7 +107,7 @@ define void @lv_sdl_keyboard_handler(ptr noundef %0) local_unnamed_addr #0 {
 
 3:                                                ; preds = %1, %1
   %.032.in = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %.032 = load i32, ptr %.032.in, align 8, !tbaa !19
+  %.032 = load i32, ptr %.032.in, align 8, !tbaa !16
   %4 = tail call ptr @lv_sdl_get_disp_from_win_id(i32 noundef %.032) #3
   %.fr51 = freeze ptr %4
   %5 = tail call ptr @lv_indev_get_next(ptr noundef null) #3
@@ -127,7 +127,7 @@ define void @lv_sdl_keyboard_handler(ptr noundef %0) local_unnamed_addr #0 {
 9:                                                ; preds = %.lr.ph.split.us
   %10 = tail call ptr @lv_indev_get_next(ptr noundef nonnull %.03446.us) #3
   %cond.us = icmp eq ptr %10, null
-  br i1 %cond.us, label %.critedge, label %.lr.ph.split.us, !llvm.loop !21
+  br i1 %cond.us, label %.critedge, label %.lr.ph.split.us, !llvm.loop !18
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %16
   %.03446 = phi ptr [ %17, %16 ], [ %5, %.lr.ph ]
@@ -143,12 +143,12 @@ define void @lv_sdl_keyboard_handler(ptr noundef %0) local_unnamed_addr #0 {
 16:                                               ; preds = %13, %.lr.ph.split
   %17 = tail call ptr @lv_indev_get_next(ptr noundef nonnull %.03446) #3
   %cond = icmp eq ptr %17, null
-  br i1 %cond, label %.critedge, label %.lr.ph.split, !llvm.loop !24
+  br i1 %cond, label %.critedge, label %.lr.ph.split, !llvm.loop !21
 
 .split.us:                                        ; preds = %13, %.lr.ph.split.us
   %.us-phi = phi ptr [ %.03446.us, %.lr.ph.split.us ], [ %.03446, %13 ]
   %18 = tail call ptr @lv_indev_get_driver_data(ptr noundef nonnull %.us-phi) #3
-  %19 = load i32, ptr %0, align 8, !tbaa !19
+  %19 = load i32, ptr %0, align 8, !tbaa !16
   switch i32 %19, label %49 [
     i32 768, label %20
     i32 771, label %41
@@ -156,7 +156,7 @@ define void @lv_sdl_keyboard_handler(ptr noundef %0) local_unnamed_addr #0 {
 
 20:                                               ; preds = %.split.us
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %22 = load i32, ptr %21, align 4, !tbaa !19
+  %22 = load i32, ptr %21, align 4, !tbaa !16
   switch i32 %22, label %.critedge [
     i32 1073741903, label %34
     i32 1073741911, label %34
@@ -217,10 +217,10 @@ define void @lv_sdl_keyboard_handler(ptr noundef %0) local_unnamed_addr #0 {
 
 37:                                               ; preds = %34
   %38 = getelementptr inbounds nuw [32 x i8], ptr %18, i64 0, i64 %35
-  store i8 %.0.i.ph, ptr %38, align 1, !tbaa !19
+  store i8 %.0.i.ph, ptr %38, align 1, !tbaa !16
   %39 = add nuw nsw i64 %35, 1
   %40 = getelementptr inbounds nuw [32 x i8], ptr %18, i64 0, i64 %39
-  store i8 0, ptr %40, align 1, !tbaa !19
+  store i8 0, ptr %40, align 1, !tbaa !16
   br label %49
 
 41:                                               ; preds = %.split.us
@@ -246,7 +246,7 @@ define void @lv_sdl_keyboard_handler(ptr noundef %0) local_unnamed_addr #0 {
   tail call void @lv_indev_read(ptr noundef nonnull %.us-phi) #3
   %51 = add i64 %.049, -1
   %.not39 = icmp eq i64 %51, 0
-  br i1 %.not39, label %.critedge, label %.lr.ph50, !llvm.loop !25
+  br i1 %.not39, label %.critedge, label %.lr.ph50, !llvm.loop !22
 
 .critedge:                                        ; preds = %16, %9, %.lr.ph50, %3, %49, %20, %1
   ret void
@@ -283,26 +283,23 @@ attributes #3 = { nounwind }
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = distinct !{!3, !4}
-!4 = !{!"llvm.loop.estimated_trip_count"}
-!5 = distinct !{!5, !4}
-!6 = !{!7, !10, i64 32}
-!7 = !{!"", !8, i64 0, !10, i64 32}
-!8 = !{!"omnipotent char", !9, i64 0}
-!9 = !{!"Simple C/C++ TBAA"}
-!10 = !{!"_Bool", !8, i64 0}
-!11 = !{i8 0, i8 2}
-!12 = !{}
-!13 = !{!14, !16, i64 20}
-!14 = !{!"", !15, i64 0, !16, i64 8, !16, i64 12, !17, i64 16, !16, i64 20, !10, i64 24, !16, i64 28, !18, i64 32}
-!15 = !{!"", !16, i64 0, !16, i64 4}
-!16 = !{!"int", !8, i64 0}
-!17 = !{!"short", !8, i64 0}
-!18 = !{!"any pointer", !8, i64 0}
-!19 = !{!8, !8, i64 0}
-!20 = !{!14, !16, i64 8}
-!21 = distinct !{!21, !22, !4, !23}
-!22 = !{!"llvm.loop.mustprogress"}
-!23 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!24 = distinct !{!24, !22, !4}
-!25 = distinct !{!25, !22, !4}
+!3 = !{!4, !7, i64 32}
+!4 = !{!"", !5, i64 0, !7, i64 32}
+!5 = !{!"omnipotent char", !6, i64 0}
+!6 = !{!"Simple C/C++ TBAA"}
+!7 = !{!"_Bool", !5, i64 0}
+!8 = !{i8 0, i8 2}
+!9 = !{}
+!10 = !{!11, !13, i64 20}
+!11 = !{!"", !12, i64 0, !13, i64 8, !13, i64 12, !14, i64 16, !13, i64 20, !7, i64 24, !13, i64 28, !15, i64 32}
+!12 = !{!"", !13, i64 0, !13, i64 4}
+!13 = !{!"int", !5, i64 0}
+!14 = !{!"short", !5, i64 0}
+!15 = !{!"any pointer", !5, i64 0}
+!16 = !{!5, !5, i64 0}
+!17 = !{!11, !13, i64 8}
+!18 = distinct !{!18, !19, !20}
+!19 = !{!"llvm.loop.mustprogress"}
+!20 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!21 = distinct !{!21, !19}
+!22 = distinct !{!22, !19}

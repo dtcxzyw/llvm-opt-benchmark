@@ -93,9 +93,9 @@ _ZN5ZXing9BitMatrixD2Ev.exit:                     ; preds = %31, %35
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN5ZXing9BitMatrixC2Eii(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store i32 %1, ptr %0, align 8, !tbaa !20
+  store i32 %1, ptr %0, align 8, !tbaa !19
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 %2, ptr %4, align 4, !tbaa !25
+  store i32 %2, ptr %4, align 4, !tbaa !24
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = mul nsw i32 %2, %1
   %7 = sext i32 %6 to i64
@@ -119,7 +119,7 @@ _ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.thread.i: ; preds = %_ZNSt6vectorIhSaI
   %10 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %7) #12
   store ptr %10, ptr %5, align 8, !tbaa !13
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %10, ptr %11, align 8, !tbaa !26
+  store ptr %10, ptr %11, align 8, !tbaa !25
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 %7
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %12, ptr %13, align 8, !tbaa !16
@@ -131,7 +131,7 @@ _ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.thread.i: ; preds = %_ZNSt6vectorIhSaI
   %16 = phi i64 [ %14, %.noexc15 ], [ 0, %_ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.thread.i ]
   %17 = phi ptr [ %11, %.noexc15 ], [ %9, %_ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.thread.i ]
   %18 = phi ptr [ %12, %.noexc15 ], [ null, %_ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.thread.i ]
-  store ptr %18, ptr %17, align 8, !tbaa !26
+  store ptr %18, ptr %17, align 8, !tbaa !25
   %.not = icmp eq i32 %1, 0
   br i1 %.not, label %31, label %19
 
@@ -211,7 +211,7 @@ define noundef i32 @_ZN5ZXing4OneD12WriterHelper13AppendPatternERSt6vectorIbSaIb
   %.01724 = phi i32 [ 0, %.lr.ph28 ], [ %24, %._crit_edge ]
   %.018.in23 = phi i1 [ %4, %.lr.ph28 ], [ %25, %._crit_edge ]
   %8 = getelementptr inbounds nuw i32, ptr %2, i64 %.01625
-  %9 = load i32, ptr %8, align 4, !tbaa !27
+  %9 = load i32, ptr %8, align 4, !tbaa !26
   %10 = icmp sgt i32 %9, 0
   br i1 %10, label %.lr.ph, label %._crit_edge
 
@@ -238,7 +238,7 @@ _ZNSt14_Bit_referenceaSEb.exit.us:                ; preds = %.lr.ph, %_ZNSt14_Bi
   store i64 %20, ptr %storemerge.i.i.i.i.i.us, align 8, !tbaa !11
   %21 = add nuw nsw i32 %.022.us, 1
   %exitcond38.not = icmp eq i32 %21, %9
-  br i1 %exitcond38.not, label %._crit_edge.loopexit, label %_ZNSt14_Bit_referenceaSEb.exit.us, !llvm.loop !28
+  br i1 %exitcond38.not, label %._crit_edge.loopexit, label %_ZNSt14_Bit_referenceaSEb.exit.us, !llvm.loop !27
 
 ._crit_edge.loopexit:                             ; preds = %_ZNSt14_Bit_referenceaSEb.exit.us
   %22 = trunc nsw i64 %indvars.iv.next36 to i32
@@ -254,7 +254,7 @@ _ZNSt14_Bit_referenceaSEb.exit.us:                ; preds = %.lr.ph, %_ZNSt14_Bi
   %25 = xor i1 %.018.in23, true
   %26 = add nuw i64 %.01625, 1
   %exitcond39.not = icmp eq i64 %26, %3
-  br i1 %exitcond39.not, label %._crit_edge29, label %7, !llvm.loop !30
+  br i1 %exitcond39.not, label %._crit_edge29, label %7, !llvm.loop !29
 
 _ZNSt14_Bit_referenceaSEb.exit:                   ; preds = %.lr.ph, %_ZNSt14_Bit_referenceaSEb.exit
   %indvars.iv = phi i64 [ %indvars.iv.next, %_ZNSt14_Bit_referenceaSEb.exit ], [ %11, %.lr.ph ]
@@ -276,7 +276,7 @@ _ZNSt14_Bit_referenceaSEb.exit:                   ; preds = %.lr.ph, %_ZNSt14_Bi
   store i64 %36, ptr %storemerge.i.i.i.i.i, align 8, !tbaa !11
   %37 = add nuw nsw i32 %.022, 1
   %exitcond.not = icmp eq i32 %37, %9
-  br i1 %exitcond.not, label %._crit_edge.loopexit31, label %_ZNSt14_Bit_referenceaSEb.exit, !llvm.loop !31
+  br i1 %exitcond.not, label %._crit_edge.loopexit31, label %_ZNSt14_Bit_referenceaSEb.exit, !llvm.loop !30
 }
 
 declare ptr @__cxa_allocate_exception(i64) local_unnamed_addr
@@ -341,18 +341,17 @@ attributes #13 = { nounwind }
 !14 = !{!"_ZTSNSt12_Vector_baseIhSaIhEE17_Vector_impl_dataE", !15, i64 0, !15, i64 8, !15, i64 16}
 !15 = !{!"p1 omnipotent char", !6, i64 0}
 !16 = !{!14, !15, i64 16}
-!17 = distinct !{!17, !18, !19}
+!17 = distinct !{!17, !18}
 !18 = !{!"llvm.loop.mustprogress"}
-!19 = !{!"llvm.loop.estimated_trip_count"}
-!20 = !{!21, !9, i64 0}
-!21 = !{!"_ZTSN5ZXing9BitMatrixE", !9, i64 0, !9, i64 4, !22, i64 8}
-!22 = !{!"_ZTSSt6vectorIhSaIhEE", !23, i64 0}
-!23 = !{!"_ZTSSt12_Vector_baseIhSaIhEE", !24, i64 0}
-!24 = !{!"_ZTSNSt12_Vector_baseIhSaIhEE12_Vector_implE", !14, i64 0}
-!25 = !{!21, !9, i64 4}
-!26 = !{!14, !15, i64 8}
-!27 = !{!9, !9, i64 0}
-!28 = distinct !{!28, !18, !19, !29}
-!29 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!30 = distinct !{!30, !18, !19}
-!31 = distinct !{!31, !18, !19}
+!19 = !{!20, !9, i64 0}
+!20 = !{!"_ZTSN5ZXing9BitMatrixE", !9, i64 0, !9, i64 4, !21, i64 8}
+!21 = !{!"_ZTSSt6vectorIhSaIhEE", !22, i64 0}
+!22 = !{!"_ZTSSt12_Vector_baseIhSaIhEE", !23, i64 0}
+!23 = !{!"_ZTSNSt12_Vector_baseIhSaIhEE12_Vector_implE", !14, i64 0}
+!24 = !{!20, !9, i64 4}
+!25 = !{!14, !15, i64 8}
+!26 = !{!9, !9, i64 0}
+!27 = distinct !{!27, !18, !28}
+!28 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!29 = distinct !{!29, !18}
+!30 = distinct !{!30, !18}

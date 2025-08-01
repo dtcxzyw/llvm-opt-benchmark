@@ -401,7 +401,7 @@ define dso_local void @_ZN14CrowdToolState12handleRenderEv(ptr noundef nonnull r
   %57 = add nuw nsw i32 %.0385440, 1
   %58 = tail call noundef i32 @_ZNK7dtCrowd13getAgentCountEv(ptr noundef nonnull align 8 dereferenceable(5072) %18)
   %59 = icmp slt i32 %57, %58
-  br i1 %59, label %40, label %.loopexit438, !llvm.loop !8
+  br i1 %59, label %40, label %.loopexit438, !llvm.loop !7
 
 .loopexit438:                                     ; preds = %.loopexit436, %.preheader437, %29
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 44
@@ -451,7 +451,7 @@ define dso_local void @_ZN14CrowdToolState12handleRenderEv(ptr noundef nonnull r
   %85 = add nuw nsw i32 %.0388442, 1
   %86 = tail call noundef i32 @_ZNK7dtCrowd13getAgentCountEv(ptr noundef nonnull align 8 dereferenceable(5072) %18)
   %87 = icmp slt i32 %85, %86
-  br i1 %87, label %.lr.ph444, label %._crit_edge.loopexit, !llvm.loop !9
+  br i1 %87, label %.lr.ph444, label %._crit_edge.loopexit, !llvm.loop !8
 
 ._crit_edge.loopexit:                             ; preds = %84
   %88 = fadd float %.1, 1.000000e+00
@@ -531,7 +531,7 @@ define dso_local void @_ZN14CrowdToolState12handleRenderEv(ptr noundef nonnull r
   %133 = add nsw i32 %.0390446, 1
   %134 = load i32, ptr %100, align 4
   %.not423.not = icmp slt i32 %.0390446, %134
-  br i1 %.not423.not, label %110, label %._crit_edge449.loopexit, !llvm.loop !10
+  br i1 %.not423.not, label %110, label %._crit_edge449.loopexit, !llvm.loop !9
 
 ._crit_edge449.loopexit:                          ; preds = %132
   %.pre = load i32, ptr %98, align 4
@@ -542,7 +542,7 @@ define dso_local void @_ZN14CrowdToolState12handleRenderEv(ptr noundef nonnull r
   %136 = phi i32 [ %134, %._crit_edge449.loopexit ], [ %105, %.lr.ph453.split ]
   %137 = add nsw i32 %.0389451, 1
   %.not416.not = icmp slt i32 %.0389451, %135
-  br i1 %.not416.not, label %.lr.ph453.split, label %._crit_edge454, !llvm.loop !11
+  br i1 %.not416.not, label %.lr.ph453.split, label %._crit_edge454, !llvm.loop !10
 
 ._crit_edge454:                                   ; preds = %._crit_edge449, %.lr.ph453, %._crit_edge
   %138 = load ptr, ptr %4, align 8
@@ -642,7 +642,7 @@ define dso_local void @_ZN14CrowdToolState12handleRenderEv(ptr noundef nonnull r
   tail call void %201(ptr noundef nonnull align 8 dereferenceable(8) %4, float noundef %190, float noundef %193, float noundef %195, i32 noundef %198)
   %202 = add nuw nsw i32 %.0394458, 1
   %exitcond496.not = icmp eq i32 %202, 63
-  br i1 %exitcond496.not, label %203, label %173, !llvm.loop !13
+  br i1 %exitcond496.not, label %203, label %173, !llvm.loop !12
 
 203:                                              ; preds = %173
   %204 = load ptr, ptr %4, align 8
@@ -656,7 +656,7 @@ define dso_local void @_ZN14CrowdToolState12handleRenderEv(ptr noundef nonnull r
   %208 = tail call noundef i32 @_ZNK7dtCrowd13getAgentCountEv(ptr noundef nonnull align 8 dereferenceable(5072) %18)
   %209 = sext i32 %208 to i64
   %210 = icmp slt i64 %indvars.iv.next498, %209
-  br i1 %210, label %159, label %.preheader434, !llvm.loop !14
+  br i1 %210, label %159, label %.preheader434, !llvm.loop !13
 
 .preheader433:                                    ; preds = %429, %.preheader434
   %211 = tail call noundef i32 @_ZNK7dtCrowd13getAgentCountEv(ptr noundef nonnull align 8 dereferenceable(5072) %18)
@@ -745,7 +745,7 @@ define dso_local void @_ZN14CrowdToolState12handleRenderEv(ptr noundef nonnull r
   %267 = load i32, ptr %230, align 4
   %268 = sext i32 %267 to i64
   %269 = icmp slt i64 %indvars.iv.next501, %268
-  br i1 %269, label %239, label %._crit_edge466, !llvm.loop !15
+  br i1 %269, label %239, label %._crit_edge466, !llvm.loop !14
 
 ._crit_edge466:                                   ; preds = %239, %232
   %.lcssa = phi i32 [ %236, %232 ], [ %267, %239 ]
@@ -860,7 +860,7 @@ define dso_local void @_ZN14CrowdToolState12handleRenderEv(ptr noundef nonnull r
   %351 = load i32, ptr %321, align 4
   %352 = sext i32 %351 to i64
   %353 = icmp slt i64 %indvars.iv.next504, %352
-  br i1 %353, label %326, label %._crit_edge471, !llvm.loop !16
+  br i1 %353, label %326, label %._crit_edge471, !llvm.loop !15
 
 ._crit_edge471:                                   ; preds = %326, %304
   %354 = load ptr, ptr %4, align 8
@@ -932,7 +932,7 @@ define dso_local void @_ZN14CrowdToolState12handleRenderEv(ptr noundef nonnull r
   %399 = load i32, ptr %372, align 8
   %400 = sext i32 %399 to i64
   %401 = icmp slt i64 %indvars.iv.next507, %400
-  br i1 %401, label %376, label %._crit_edge475, !llvm.loop !17
+  br i1 %401, label %376, label %._crit_edge475, !llvm.loop !16
 
 ._crit_edge475:                                   ; preds = %398, %360
   %402 = load ptr, ptr %4, align 8
@@ -977,7 +977,7 @@ define dso_local void @_ZN14CrowdToolState12handleRenderEv(ptr noundef nonnull r
   %430 = add nuw nsw i32 %.0395476, 1
   %431 = tail call noundef i32 @_ZNK7dtCrowd13getAgentCountEv(ptr noundef nonnull align 8 dereferenceable(5072) %18)
   %432 = icmp slt i32 %430, %431
-  br i1 %432, label %214, label %.preheader433, !llvm.loop !18
+  br i1 %432, label %214, label %.preheader433, !llvm.loop !17
 
 .preheader432:                                    ; preds = %450, %.preheader433
   %433 = tail call noundef i32 @_ZNK7dtCrowd13getAgentCountEv(ptr noundef nonnull align 8 dereferenceable(5072) %18)
@@ -1010,7 +1010,7 @@ define dso_local void @_ZN14CrowdToolState12handleRenderEv(ptr noundef nonnull r
   %451 = add nuw nsw i32 %.0401478, 1
   %452 = tail call noundef i32 @_ZNK7dtCrowd13getAgentCountEv(ptr noundef nonnull align 8 dereferenceable(5072) %18)
   %453 = icmp slt i32 %451, %452
-  br i1 %453, label %435, label %.preheader432, !llvm.loop !19
+  br i1 %453, label %435, label %.preheader432, !llvm.loop !18
 
 .lr.ph481:                                        ; preds = %.preheader432, %479
   %.0405480 = phi i32 [ %480, %479 ], [ 0, %.preheader432 ]
@@ -1057,7 +1057,7 @@ switch.lookup:                                    ; preds = %457
   %480 = add nuw nsw i32 %.0405480, 1
   %481 = tail call noundef i32 @_ZNK7dtCrowd13getAgentCountEv(ptr noundef nonnull align 8 dereferenceable(5072) %18)
   %482 = icmp slt i32 %480, %481
-  br i1 %482, label %.lr.ph481, label %._crit_edge482, !llvm.loop !20
+  br i1 %482, label %.lr.ph481, label %._crit_edge482, !llvm.loop !19
 
 ._crit_edge482:                                   ; preds = %479, %.preheader432
   %483 = getelementptr inbounds nuw i8, ptr %0, i64 100972
@@ -1223,7 +1223,7 @@ switch.lookup:                                    ; preds = %457
   %614 = load i32, ptr %501, align 8
   %615 = sext i32 %614 to i64
   %616 = icmp slt i64 %indvars.iv.next510, %615
-  br i1 %616, label %522, label %._crit_edge486, !llvm.loop !21
+  br i1 %616, label %522, label %._crit_edge486, !llvm.loop !20
 
 ._crit_edge486:                                   ; preds = %522, %500
   %617 = load ptr, ptr %4, align 8
@@ -1236,7 +1236,7 @@ switch.lookup:                                    ; preds = %457
   %621 = add nuw nsw i32 %.0403487, 1
   %622 = tail call noundef i32 @_ZNK7dtCrowd13getAgentCountEv(ptr noundef nonnull align 8 dereferenceable(5072) %18)
   %623 = icmp slt i32 %621, %622
-  br i1 %623, label %491, label %.loopexit, !llvm.loop !22
+  br i1 %623, label %491, label %.loopexit, !llvm.loop !21
 
 .loopexit:                                        ; preds = %620, %.preheader, %._crit_edge482
   %624 = tail call noundef i32 @_ZNK7dtCrowd13getAgentCountEv(ptr noundef nonnull align 8 dereferenceable(5072) %18)
@@ -1318,7 +1318,7 @@ switch.lookup516:                                 ; preds = %631
   %678 = add nuw nsw i32 %.0391489, 1
   %679 = tail call noundef i32 @_ZNK7dtCrowd13getAgentCountEv(ptr noundef nonnull align 8 dereferenceable(5072) %18)
   %680 = icmp slt i32 %678, %679
-  br i1 %680, label %627, label %._crit_edge492, !llvm.loop !23
+  br i1 %680, label %627, label %._crit_edge492, !llvm.loop !22
 
 ._crit_edge492:                                   ; preds = %677, %.loopexit
   %681 = load ptr, ptr %4, align 8
@@ -1482,7 +1482,7 @@ define dso_local void @_ZN14CrowdToolState19handleRenderOverlayEPdS0_Pi(ptr noun
   %82 = getelementptr inbounds nuw i16, ptr %81, i64 %57
   %.070 = load i16, ptr %82, align 2
   %.not89 = icmp eq i16 %.070, -1
-  br i1 %.not89, label %._crit_edge.loopexit109, label %.lr.ph.splitthread-pre-split, !llvm.loop !24
+  br i1 %.not89, label %._crit_edge.loopexit109, label %.lr.ph.splitthread-pre-split, !llvm.loop !23
 
 ._crit_edge.loopexit109:                          ; preds = %80
   %.pre = load i32, ptr %45, align 4
@@ -1493,7 +1493,7 @@ define dso_local void @_ZN14CrowdToolState19handleRenderOverlayEPdS0_Pi(ptr noun
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %84 = sext i32 %83 to i64
   %85 = icmp slt i64 %indvars.iv.next, %84
-  br i1 %85, label %50, label %.loopexit97, !llvm.loop !25
+  br i1 %85, label %50, label %.loopexit97, !llvm.loop !24
 
 .loopexit97:                                      ; preds = %._crit_edge, %.preheader96, %33, %40, %29
   %86 = getelementptr inbounds nuw i8, ptr %0, i64 100976
@@ -1555,7 +1555,7 @@ define dso_local void @_ZN14CrowdToolState19handleRenderOverlayEPdS0_Pi(ptr noun
   %124 = add nuw nsw i32 %.071103, 1
   %125 = call noundef i32 @_ZNK7dtCrowd13getAgentCountEv(ptr noundef nonnull align 8 dereferenceable(5072) %95)
   %126 = icmp slt i32 %124, %125
-  br i1 %126, label %.lr.ph104, label %.loopexit95, !llvm.loop !26
+  br i1 %126, label %.lr.ph104, label %.loopexit95, !llvm.loop !25
 
 .loopexit95:                                      ; preds = %123, %.preheader94, %89, %.loopexit97
   %127 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -1659,13 +1659,13 @@ define dso_local void @_ZN14CrowdToolState19handleRenderOverlayEPdS0_Pi(ptr noun
   %188 = load i32, ptr %154, align 8
   %189 = sext i32 %188 to i64
   %190 = icmp slt i64 %indvars.iv.next112, %189
-  br i1 %190, label %159, label %.loopexit, !llvm.loop !27
+  br i1 %190, label %159, label %.loopexit, !llvm.loop !26
 
 .loopexit:                                        ; preds = %187, %.preheader, %140, %149, %145
   %191 = add nuw nsw i32 %.072107, 1
   %192 = call noundef i32 @_ZNK7dtCrowd13getAgentCountEv(ptr noundef nonnull align 8 dereferenceable(5072) %135)
   %193 = icmp slt i32 %191, %192
-  br i1 %193, label %140, label %.loopexit93, !llvm.loop !28
+  br i1 %193, label %140, label %.loopexit93, !llvm.loop !27
 
 .loopexit93:                                      ; preds = %.loopexit, %.preheader92, %129, %.loopexit95
   %194 = getelementptr inbounds nuw i8, ptr %0, i64 100979
@@ -1790,7 +1790,7 @@ define dso_local void @_ZN14CrowdToolState10updateTickEf(ptr noundef nonnull ali
   %47 = tail call noundef i32 @_ZNK7dtCrowd13getAgentCountEv(ptr noundef nonnull align 8 dereferenceable(5072) %14)
   %48 = sext i32 %47 to i64
   %49 = icmp slt i64 %indvars.iv.next, %48
-  br i1 %49, label %24, label %._crit_edge, !llvm.loop !29
+  br i1 %49, label %24, label %._crit_edge, !llvm.loop !28
 
 ._crit_edge:                                      ; preds = %46, %17
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -1963,7 +1963,7 @@ define dso_local void @_ZN14CrowdToolState8addAgentEPKf(ptr noundef nonnull alig
   store float %85, ptr %86, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 64
-  br i1 %exitcond.not, label %87, label %79, !llvm.loop !30
+  br i1 %exitcond.not, label %87, label %79, !llvm.loop !29
 
 87:                                               ; preds = %79
   %88 = getelementptr inbounds nuw i8, ptr %76, i64 768
@@ -2131,7 +2131,7 @@ define dso_local void @_ZN14CrowdToolState13setMoveTargetEPKfb(ptr noundef nonnu
   %83 = add nuw nsw i32 %.051, 1
   %84 = call noundef i32 @_ZNK7dtCrowd13getAgentCountEv(ptr noundef nonnull align 8 dereferenceable(5072) %16)
   %85 = icmp slt i32 %83, %84
-  br i1 %85, label %56, label %.loopexit, !llvm.loop !31
+  br i1 %85, label %56, label %.loopexit, !llvm.loop !30
 
 86:                                               ; preds = %7
   %87 = getelementptr inbounds nuw i8, ptr %16, i64 884
@@ -2181,7 +2181,7 @@ define dso_local void @_ZN14CrowdToolState13setMoveTargetEPKfb(ptr noundef nonnu
   %112 = add nuw nsw i32 %.03750, 1
   %113 = tail call noundef i32 @_ZNK7dtCrowd13getAgentCountEv(ptr noundef nonnull align 8 dereferenceable(5072) %16)
   %114 = icmp slt i32 %112, %113
-  br i1 %114, label %.lr.ph, label %.loopexit, !llvm.loop !32
+  br i1 %114, label %.lr.ph, label %.loopexit, !llvm.loop !31
 
 .loopexit:                                        ; preds = %111, %82, %.preheader48, %.preheader, %101, %98, %96, %30, %27, %25, %3
   ret void
@@ -2327,7 +2327,7 @@ define dso_local noundef i32 @_ZN14CrowdToolState13hitTestAgentsEPKfS1_(ptr noun
   %93 = phi float [ %57, %68 ], [ %89, %72 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.i = icmp eq i64 %indvars.iv.next.i, 3
-  br i1 %exitcond.i, label %_ZL12isectSegAABBPKfS0_S0_S0_RfS1_.exit, label %55, !llvm.loop !33
+  br i1 %exitcond.i, label %_ZL12isectSegAABBPKfS0_S0_S0_RfS1_.exit, label %55, !llvm.loop !32
 
 _ZL12isectSegAABBPKfS0_S0_S0_RfS1_.exit.thread:   ; preds = %72, %62, %68
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %4)
@@ -2349,7 +2349,7 @@ _ZL12isectSegAABBPKfS0_S0_S0_RfS1_.exit:          ; preds = %91
   %98 = add nuw nsw i32 %.01433, 1
   %99 = tail call noundef i32 @_ZNK7dtCrowd13getAgentCountEv(ptr noundef nonnull align 8 dereferenceable(5072) %13)
   %100 = icmp slt i32 %98, %99
-  br i1 %100, label %26, label %.loopexit, !llvm.loop !34
+  br i1 %100, label %26, label %.loopexit, !llvm.loop !33
 
 .loopexit:                                        ; preds = %97, %9, %3
   %.0 = phi i32 [ -1, %3 ], [ -1, %9 ], [ %.117, %97 ]
@@ -2431,7 +2431,7 @@ define dso_local void @_ZN14CrowdToolState17updateAgentParamsEv(ptr noundef nonn
   %46 = add nuw nsw i32 %.01822, 1
   %47 = call noundef i32 @_ZNK7dtCrowd13getAgentCountEv(ptr noundef nonnull align 8 dereferenceable(5072) %9)
   %48 = icmp slt i32 %46, %47
-  br i1 %48, label %38, label %.loopexit, !llvm.loop !35
+  br i1 %48, label %38, label %.loopexit, !llvm.loop !34
 
 .loopexit:                                        ; preds = %45, %10, %5, %1
   ret void
@@ -3265,34 +3265,33 @@ attributes #20 = { builtin allocsize(0) }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6, !7}
+!5 = distinct !{!5, !6}
 !6 = !{!"llvm.loop.mustprogress"}
-!7 = !{!"llvm.loop.estimated_trip_count"}
-!8 = distinct !{!8, !6, !7}
-!9 = distinct !{!9, !6, !7}
-!10 = distinct !{!10, !6, !7}
-!11 = distinct !{!11, !6, !7, !12}
-!12 = !{!"llvm.loop.unswitch.partial.disable"}
-!13 = distinct !{!13, !6, !7}
-!14 = distinct !{!14, !6, !7}
-!15 = distinct !{!15, !6, !7}
-!16 = distinct !{!16, !6, !7}
-!17 = distinct !{!17, !6, !7}
-!18 = distinct !{!18, !6, !7}
-!19 = distinct !{!19, !6, !7}
-!20 = distinct !{!20, !6, !7}
-!21 = distinct !{!21, !6, !7}
-!22 = distinct !{!22, !6, !7}
-!23 = distinct !{!23, !6, !7}
-!24 = distinct !{!24, !6, !7, !12}
-!25 = distinct !{!25, !6, !7}
-!26 = distinct !{!26, !6, !7}
-!27 = distinct !{!27, !6, !7}
-!28 = distinct !{!28, !6, !7}
-!29 = distinct !{!29, !6, !7}
-!30 = distinct !{!30, !6, !7}
-!31 = distinct !{!31, !6, !7}
-!32 = distinct !{!32, !6, !7}
-!33 = distinct !{!33, !6, !7}
-!34 = distinct !{!34, !6, !7}
-!35 = distinct !{!35, !6, !7}
+!7 = distinct !{!7, !6}
+!8 = distinct !{!8, !6}
+!9 = distinct !{!9, !6}
+!10 = distinct !{!10, !6, !11}
+!11 = !{!"llvm.loop.unswitch.partial.disable"}
+!12 = distinct !{!12, !6}
+!13 = distinct !{!13, !6}
+!14 = distinct !{!14, !6}
+!15 = distinct !{!15, !6}
+!16 = distinct !{!16, !6}
+!17 = distinct !{!17, !6}
+!18 = distinct !{!18, !6}
+!19 = distinct !{!19, !6}
+!20 = distinct !{!20, !6}
+!21 = distinct !{!21, !6}
+!22 = distinct !{!22, !6}
+!23 = distinct !{!23, !6, !11}
+!24 = distinct !{!24, !6}
+!25 = distinct !{!25, !6}
+!26 = distinct !{!26, !6}
+!27 = distinct !{!27, !6}
+!28 = distinct !{!28, !6}
+!29 = distinct !{!29, !6}
+!30 = distinct !{!30, !6}
+!31 = distinct !{!31, !6}
+!32 = distinct !{!32, !6}
+!33 = distinct !{!33, !6}
+!34 = distinct !{!34, !6}

@@ -122,7 +122,7 @@ define dso_local noundef ptr @get_host_by_name(ptr noundef %0, ptr noundef %1, i
   %40 = add nuw nsw i32 %.173105.i, 1
   %41 = load ptr, ptr %38, align 8
   %.not86.i = icmp eq ptr %41, null
-  br i1 %.not86.i, label %._crit_edge110.thread.i, label %.lr.ph109.i, !llvm.loop !12
+  br i1 %.not86.i, label %._crit_edge110.thread.i, label %.lr.ph109.i, !llvm.loop !11
 
 ._crit_edge110.i:                                 ; preds = %32
   %42 = icmp samesign ult i32 %30, 8
@@ -168,7 +168,7 @@ define dso_local noundef ptr @get_host_by_name(ptr noundef %0, ptr noundef %1, i
   %59 = getelementptr inbounds nuw i8, ptr %.2117.i, i64 8
   %60 = load ptr, ptr %58, align 8
   %.not87.i = icmp eq ptr %60, null
-  br i1 %.not87.i, label %._crit_edge120.i, label %.lr.ph119.i, !llvm.loop !13
+  br i1 %.not87.i, label %._crit_edge120.i, label %.lr.ph119.i, !llvm.loop !12
 
 ._crit_edge120.i:                                 ; preds = %53, %46
   %.077.lcssa.i = phi ptr [ %47, %46 ], [ %57, %53 ]
@@ -203,7 +203,7 @@ define dso_local noundef ptr @get_host_by_name(ptr noundef %0, ptr noundef %1, i
   %75 = getelementptr inbounds nuw i8, ptr %.3128.i, i64 8
   %76 = load ptr, ptr %74, align 8
   %.not88.i = icmp eq ptr %76, null
-  br i1 %.not88.i, label %._crit_edge131.i, label %.lr.ph130.i, !llvm.loop !14
+  br i1 %.not88.i, label %._crit_edge131.i, label %.lr.ph130.i, !llvm.loop !13
 
 ._crit_edge131.i:                                 ; preds = %71, %._crit_edge120.i
   %.178.lcssa.i = phi ptr [ %.077.lcssa.i, %._crit_edge120.i ], [ %73, %71 ]
@@ -545,7 +545,7 @@ define dso_local range(i32 -1, 1) i32 @host_has_addr_family(ptr noundef %0, ptr 
   %13 = getelementptr inbounds nuw i8, ptr %.01421, i64 40
   %14 = load ptr, ptr %13, align 8
   %.not20 = icmp eq ptr %14, null
-  br i1 %.not20, label %15, label %8, !llvm.loop !15
+  br i1 %.not20, label %15, label %8, !llvm.loop !14
 
 15:                                               ; preds = %12
   call void @freeaddrinfo(ptr noundef nonnull %6) #14
@@ -959,11 +959,10 @@ attributes #16 = { noreturn nounwind }
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i32 7, !"frame-pointer", i32 2}
 !7 = !{i32 7, !"debug-info-assignment-tracking", i1 true}
-!8 = distinct !{!8, !9, !10, !11}
+!8 = distinct !{!8, !9, !10}
 !9 = !{!"llvm.loop.mustprogress"}
 !10 = !{!"llvm.loop.unroll.disable"}
-!11 = !{!"llvm.loop.estimated_trip_count"}
-!12 = distinct !{!12, !9, !10, !11}
-!13 = distinct !{!13, !9, !10, !11}
-!14 = distinct !{!14, !9, !10, !11}
-!15 = distinct !{!15, !9, !10, !11}
+!11 = distinct !{!11, !9, !10}
+!12 = distinct !{!12, !9, !10}
+!13 = distinct !{!13, !9, !10}
+!14 = distinct !{!14, !9, !10}

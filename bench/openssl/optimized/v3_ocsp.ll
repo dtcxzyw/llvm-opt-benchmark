@@ -302,7 +302,7 @@ define internal range(i32 0, 2) i32 @i2r_ocsp_serviceloc(ptr readnone captures(n
   br i1 %25, label %.loopexit, label %26
 
 26:                                               ; preds = %21
-  %27 = load ptr, ptr %23, align 8, !tbaa !27
+  %27 = load ptr, ptr %23, align 8, !tbaa !26
   %28 = tail call i32 @i2a_ASN1_OBJECT(ptr noundef %2, ptr noundef %27) #5
   %29 = icmp slt i32 %28, 1
   br i1 %29, label %.loopexit, label %30
@@ -314,7 +314,7 @@ define internal range(i32 0, 2) i32 @i2r_ocsp_serviceloc(ptr readnone captures(n
 
 33:                                               ; preds = %30
   %34 = getelementptr inbounds nuw i8, ptr %23, i64 8
-  %35 = load ptr, ptr %34, align 8, !tbaa !31
+  %35 = load ptr, ptr %34, align 8, !tbaa !30
   %36 = tail call i32 @GENERAL_NAME_print(ptr noundef %2, ptr noundef %35) #5
   %37 = icmp slt i32 %36, 1
   br i1 %37, label %.loopexit, label %16
@@ -398,11 +398,10 @@ attributes #5 = { nounwind }
 !21 = !{!"p1 _ZTS12X509_name_st", !6, i64 0}
 !22 = !{!"p1 _ZTS27stack_st_ACCESS_DESCRIPTION", !6, i64 0}
 !23 = !{!20, !22, i64 8}
-!24 = distinct !{!24, !25, !26}
+!24 = distinct !{!24, !25}
 !25 = !{!"llvm.loop.mustprogress"}
-!26 = !{!"llvm.loop.estimated_trip_count"}
-!27 = !{!28, !29, i64 0}
-!28 = !{!"ACCESS_DESCRIPTION_st", !29, i64 0, !30, i64 8}
-!29 = !{!"p1 _ZTS14asn1_object_st", !6, i64 0}
-!30 = !{!"p1 _ZTS15GENERAL_NAME_st", !6, i64 0}
-!31 = !{!28, !30, i64 8}
+!26 = !{!27, !28, i64 0}
+!27 = !{!"ACCESS_DESCRIPTION_st", !28, i64 0, !29, i64 8}
+!28 = !{!"p1 _ZTS14asn1_object_st", !6, i64 0}
+!29 = !{!"p1 _ZTS15GENERAL_NAME_st", !6, i64 0}
+!30 = !{!27, !29, i64 8}

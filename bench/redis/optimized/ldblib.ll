@@ -117,7 +117,7 @@ define internal noundef i32 @db_debug(ptr noundef %0) #2 {
   %22 = load ptr, ptr @stdin, align 8, !tbaa !4
   %23 = call ptr @fgets(ptr noundef nonnull %2, i32 noundef 250, ptr noundef %22)
   %24 = icmp eq ptr %23, null
-  br i1 %24, label %._crit_edge, label %.lr.ph, !llvm.loop !9
+  br i1 %24, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %19, %.lr.ph, %1
   call void @llvm.lifetime.end.p0(i64 250, ptr nonnull %2) #8
@@ -169,7 +169,7 @@ getthread.exit:                                   ; preds = %1, %5
   br i1 %.not.i, label %16, label %15
 
 15:                                               ; preds = %13
-  store i8 99, ptr %2, align 1, !tbaa !11
+  store i8 99, ptr %2, align 1, !tbaa !9
   br label %16
 
 16:                                               ; preds = %15, %13
@@ -182,7 +182,7 @@ getthread.exit:                                   ; preds = %1, %5
   %19 = add nuw nsw i32 %.0.i15, 1
   %20 = zext nneg i32 %.0.i15 to i64
   %21 = getelementptr inbounds nuw i8, ptr %2, i64 %20
-  store i8 114, ptr %21, align 1, !tbaa !11
+  store i8 114, ptr %21, align 1, !tbaa !9
   br label %22
 
 22:                                               ; preds = %18, %16
@@ -195,14 +195,14 @@ getthread.exit:                                   ; preds = %1, %5
   %25 = add nuw nsw i32 %.1.i, 1
   %26 = zext nneg i32 %.1.i to i64
   %27 = getelementptr inbounds nuw i8, ptr %2, i64 %26
-  store i8 108, ptr %27, align 1, !tbaa !11
+  store i8 108, ptr %27, align 1, !tbaa !9
   br label %unmakemask.exit
 
 unmakemask.exit:                                  ; preds = %22, %24
   %.2.i = phi i32 [ %25, %24 ], [ %.1.i, %22 ]
   %28 = zext nneg i32 %.2.i to i64
   %29 = getelementptr inbounds nuw i8, ptr %2, i64 %28
-  store i8 0, ptr %29, align 1, !tbaa !11
+  store i8 0, ptr %29, align 1, !tbaa !9
   call void @lua_pushstring(ptr noundef %0, ptr noundef nonnull %2) #8
   %30 = call i32 @lua_gethookcount(ptr noundef %.0.i) #8
   %31 = sext i32 %30 to i64
@@ -278,24 +278,24 @@ getthread.exit:                                   ; preds = %1, %5
 
 30:                                               ; preds = %28
   %31 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %32 = load ptr, ptr %31, align 8, !tbaa !12
+  %32 = load ptr, ptr %31, align 8, !tbaa !10
   call void @lua_pushstring(ptr noundef %0, ptr noundef %32) #8
   call void @lua_setfield(ptr noundef %0, i32 noundef -2, ptr noundef nonnull @.str.28) #8
   %33 = getelementptr inbounds nuw i8, ptr %2, i64 56
   call void @lua_pushstring(ptr noundef %0, ptr noundef nonnull %33) #8
   call void @lua_setfield(ptr noundef %0, i32 noundef -2, ptr noundef nonnull @.str.29) #8
   %34 = getelementptr inbounds nuw i8, ptr %2, i64 48
-  %35 = load i32, ptr %34, align 8, !tbaa !16
+  %35 = load i32, ptr %34, align 8, !tbaa !14
   %36 = sext i32 %35 to i64
   call void @lua_pushinteger(ptr noundef %0, i64 noundef %36) #8
   call void @lua_setfield(ptr noundef %0, i32 noundef -2, ptr noundef nonnull @.str.30) #8
   %37 = getelementptr inbounds nuw i8, ptr %2, i64 52
-  %38 = load i32, ptr %37, align 4, !tbaa !17
+  %38 = load i32, ptr %37, align 4, !tbaa !15
   %39 = sext i32 %38 to i64
   call void @lua_pushinteger(ptr noundef %0, i64 noundef %39) #8
   call void @lua_setfield(ptr noundef %0, i32 noundef -2, ptr noundef nonnull @.str.31) #8
   %40 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %41 = load ptr, ptr %40, align 8, !tbaa !18
+  %41 = load ptr, ptr %40, align 8, !tbaa !16
   call void @lua_pushstring(ptr noundef %0, ptr noundef %41) #8
   call void @lua_setfield(ptr noundef %0, i32 noundef -2, ptr noundef nonnull @.str.32) #8
   br label %42
@@ -307,7 +307,7 @@ getthread.exit:                                   ; preds = %1, %5
 
 44:                                               ; preds = %42
   %45 = getelementptr inbounds nuw i8, ptr %2, i64 40
-  %46 = load i32, ptr %45, align 8, !tbaa !19
+  %46 = load i32, ptr %45, align 8, !tbaa !17
   %47 = sext i32 %46 to i64
   call void @lua_pushinteger(ptr noundef %0, i64 noundef %47) #8
   call void @lua_setfield(ptr noundef %0, i32 noundef -2, ptr noundef nonnull @.str.33) #8
@@ -320,7 +320,7 @@ getthread.exit:                                   ; preds = %1, %5
 
 50:                                               ; preds = %48
   %51 = getelementptr inbounds nuw i8, ptr %2, i64 44
-  %52 = load i32, ptr %51, align 4, !tbaa !20
+  %52 = load i32, ptr %51, align 4, !tbaa !18
   %53 = sext i32 %52 to i64
   call void @lua_pushinteger(ptr noundef %0, i64 noundef %53) #8
   call void @lua_setfield(ptr noundef %0, i32 noundef -2, ptr noundef nonnull @.str.34) #8
@@ -333,11 +333,11 @@ getthread.exit:                                   ; preds = %1, %5
 
 56:                                               ; preds = %54
   %57 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %58 = load ptr, ptr %57, align 8, !tbaa !21
+  %58 = load ptr, ptr %57, align 8, !tbaa !19
   call void @lua_pushstring(ptr noundef %0, ptr noundef %58) #8
   call void @lua_setfield(ptr noundef %0, i32 noundef -2, ptr noundef nonnull @.str.35) #8
   %59 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %60 = load ptr, ptr %59, align 8, !tbaa !22
+  %60 = load ptr, ptr %59, align 8, !tbaa !20
   call void @lua_pushstring(ptr noundef %0, ptr noundef %60) #8
   call void @lua_setfield(ptr noundef %0, i32 noundef -2, ptr noundef nonnull @.str.36) #8
   br label %61
@@ -743,19 +743,19 @@ getthread.exit:                                   ; preds = %1, %5
   %41 = call i32 @lua_getstack(ptr noundef %.0.i, i32 noundef %40, ptr noundef nonnull %2) #8
   %.not44 = icmp eq i32 %41, 0
   %42 = add nuw nsw i32 %.3, 1
-  br i1 %.not44, label %.outer, label %39, !llvm.loop !23
+  br i1 %.not44, label %.outer, label %39, !llvm.loop !21
 
 .outer:                                           ; preds = %39, %35
   %.2 = phi i32 [ %.152, %35 ], [ %.3, %39 ]
   %43 = call i32 @lua_getstack(ptr noundef %.0.i, i32 noundef %.2, ptr noundef nonnull %2) #8
   %.not4151 = icmp eq i32 %43, 0
-  br i1 %.not4151, label %.outer._crit_edge, label %.lr.ph, !llvm.loop !25
+  br i1 %.not4151, label %.outer._crit_edge, label %.lr.ph, !llvm.loop !23
 
 44:                                               ; preds = %32
   call void @lua_pushlstring(ptr noundef %0, ptr noundef nonnull @.str.45, i64 noundef 2) #8
   %45 = call i32 @lua_getinfo(ptr noundef %.0.i, ptr noundef nonnull @.str.46, ptr noundef nonnull %2) #8
   %46 = call ptr (ptr, ptr, ...) @lua_pushfstring(ptr noundef %0, ptr noundef nonnull @.str.47, ptr noundef nonnull %25) #8
-  %47 = load i32, ptr %26, align 8, !tbaa !19
+  %47 = load i32, ptr %26, align 8, !tbaa !17
   %48 = icmp sgt i32 %47, 0
   br i1 %48, label %49, label %51
 
@@ -764,19 +764,19 @@ getthread.exit:                                   ; preds = %1, %5
   br label %51
 
 51:                                               ; preds = %49, %44
-  %52 = load ptr, ptr %27, align 8, !tbaa !22
-  %53 = load i8, ptr %52, align 1, !tbaa !11
+  %52 = load ptr, ptr %27, align 8, !tbaa !20
+  %53 = load i8, ptr %52, align 1, !tbaa !9
   %.not42 = icmp eq i8 %53, 0
   br i1 %.not42, label %57, label %54
 
 54:                                               ; preds = %51
-  %55 = load ptr, ptr %28, align 8, !tbaa !21
+  %55 = load ptr, ptr %28, align 8, !tbaa !19
   %56 = call ptr (ptr, ptr, ...) @lua_pushfstring(ptr noundef %0, ptr noundef nonnull @.str.49, ptr noundef %55) #8
   br label %66
 
 57:                                               ; preds = %51
-  %58 = load ptr, ptr %29, align 8, !tbaa !18
-  %59 = load i8, ptr %58, align 1, !tbaa !11
+  %58 = load ptr, ptr %29, align 8, !tbaa !16
+  %59 = load i8, ptr %58, align 1, !tbaa !9
   switch i8 %59, label %63 [
     i8 109, label %60
     i8 67, label %62
@@ -792,7 +792,7 @@ getthread.exit:                                   ; preds = %1, %5
   br label %66
 
 63:                                               ; preds = %57
-  %64 = load i32, ptr %30, align 8, !tbaa !16
+  %64 = load i32, ptr %30, align 8, !tbaa !14
   %65 = call ptr (ptr, ptr, ...) @lua_pushfstring(ptr noundef %0, ptr noundef nonnull @.str.52, ptr noundef nonnull %25, i32 noundef %64) #8
   br label %66
 
@@ -802,7 +802,7 @@ getthread.exit:                                   ; preds = %1, %5
   call void @lua_concat(ptr noundef %0, i32 noundef %68) #8
   %69 = call i32 @lua_getstack(ptr noundef %.0.i, i32 noundef %33, ptr noundef nonnull %2) #8
   %.not41 = icmp eq i32 %69, 0
-  br i1 %.not41, label %.outer._crit_edge, label %32, !llvm.loop !25
+  br i1 %.not41, label %.outer._crit_edge, label %32, !llvm.loop !23
 
 .outer._crit_edge:                                ; preds = %.outer, %66, %23
   %70 = call i32 @lua_gettop(ptr noundef %0) #8
@@ -857,13 +857,13 @@ define internal void @hookf(ptr noundef %0, ptr noundef readonly captures(none) 
   br i1 %4, label %5, label %17
 
 5:                                                ; preds = %2
-  %6 = load i32, ptr %1, align 8, !tbaa !26
+  %6 = load i32, ptr %1, align 8, !tbaa !24
   %7 = sext i32 %6 to i64
   %8 = getelementptr inbounds [5 x ptr], ptr @hookf.hooknames, i64 0, i64 %7
-  %9 = load ptr, ptr %8, align 8, !tbaa !27
+  %9 = load ptr, ptr %8, align 8, !tbaa !25
   tail call void @lua_pushstring(ptr noundef %0, ptr noundef %9) #8
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %11 = load i32, ptr %10, align 8, !tbaa !19
+  %11 = load i32, ptr %10, align 8, !tbaa !17
   %12 = icmp sgt i32 %11, -1
   br i1 %12, label %13, label %15
 
@@ -1023,22 +1023,20 @@ attributes #10 = { nounwind willreturn memory(read) }
 !6 = !{!"any pointer", !7, i64 0}
 !7 = !{!"omnipotent char", !8, i64 0}
 !8 = !{!"Simple C/C++ TBAA"}
-!9 = distinct !{!9, !10}
-!10 = !{!"llvm.loop.estimated_trip_count"}
-!11 = !{!7, !7, i64 0}
-!12 = !{!13, !15, i64 32}
-!13 = !{!"lua_Debug", !14, i64 0, !15, i64 8, !15, i64 16, !15, i64 24, !15, i64 32, !14, i64 40, !14, i64 44, !14, i64 48, !14, i64 52, !7, i64 56, !14, i64 116}
-!14 = !{!"int", !7, i64 0}
-!15 = !{!"p1 omnipotent char", !6, i64 0}
-!16 = !{!13, !14, i64 48}
-!17 = !{!13, !14, i64 52}
-!18 = !{!13, !15, i64 24}
-!19 = !{!13, !14, i64 40}
-!20 = !{!13, !14, i64 44}
-!21 = !{!13, !15, i64 8}
-!22 = !{!13, !15, i64 16}
-!23 = distinct !{!23, !24, !10}
-!24 = !{!"llvm.loop.mustprogress"}
-!25 = distinct !{!25, !24, !10}
-!26 = !{!13, !14, i64 0}
-!27 = !{!15, !15, i64 0}
+!9 = !{!7, !7, i64 0}
+!10 = !{!11, !13, i64 32}
+!11 = !{!"lua_Debug", !12, i64 0, !13, i64 8, !13, i64 16, !13, i64 24, !13, i64 32, !12, i64 40, !12, i64 44, !12, i64 48, !12, i64 52, !7, i64 56, !12, i64 116}
+!12 = !{!"int", !7, i64 0}
+!13 = !{!"p1 omnipotent char", !6, i64 0}
+!14 = !{!11, !12, i64 48}
+!15 = !{!11, !12, i64 52}
+!16 = !{!11, !13, i64 24}
+!17 = !{!11, !12, i64 40}
+!18 = !{!11, !12, i64 44}
+!19 = !{!11, !13, i64 8}
+!20 = !{!11, !13, i64 16}
+!21 = distinct !{!21, !22}
+!22 = !{!"llvm.loop.mustprogress"}
+!23 = distinct !{!23, !22}
+!24 = !{!11, !12, i64 0}
+!25 = !{!13, !13, i64 0}

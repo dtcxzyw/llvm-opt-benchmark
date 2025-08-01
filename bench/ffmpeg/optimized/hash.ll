@@ -102,12 +102,12 @@ define range(i32 -22, 1) i32 @av_hash_alloc(ptr noundef writeonly captures(none)
 23:                                               ; preds = %10
   %24 = tail call ptr @av_crc_get_table(i32 noundef 4) #10
   %25 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  store ptr %24, ptr %25, align 8, !tbaa !18
+  store ptr %24, ptr %25, align 8, !tbaa !17
   br label %28
 
 26:                                               ; preds = %21, %19, %17, %15, %13
   %.sink = phi ptr [ %22, %21 ], [ %20, %19 ], [ %18, %17 ], [ %16, %15 ], [ %14, %13 ]
-  store ptr %.sink, ptr %9, align 8, !tbaa !19
+  store ptr %.sink, ptr %9, align 8, !tbaa !18
   %.not25 = icmp eq ptr %.sink, null
   br i1 %.not25, label %27, label %28
 
@@ -171,78 +171,78 @@ define void @av_hash_init(ptr noundef captures(none) %0) local_unnamed_addr #2 {
   ]
 
 4:                                                ; preds = %1
-  %5 = load ptr, ptr %0, align 8, !tbaa !19
+  %5 = load ptr, ptr %0, align 8, !tbaa !18
   tail call void @av_md5_init(ptr noundef %5) #10
   br label %45
 
 6:                                                ; preds = %1
-  %7 = load ptr, ptr %0, align 8, !tbaa !19
+  %7 = load ptr, ptr %0, align 8, !tbaa !18
   tail call void @av_murmur3_init(ptr noundef %7) #10
   br label %45
 
 8:                                                ; preds = %1
-  %9 = load ptr, ptr %0, align 8, !tbaa !19
+  %9 = load ptr, ptr %0, align 8, !tbaa !18
   %10 = tail call i32 @av_ripemd_init(ptr noundef %9, i32 noundef 128) #10
   br label %45
 
 11:                                               ; preds = %1
-  %12 = load ptr, ptr %0, align 8, !tbaa !19
+  %12 = load ptr, ptr %0, align 8, !tbaa !18
   %13 = tail call i32 @av_ripemd_init(ptr noundef %12, i32 noundef 160) #10
   br label %45
 
 14:                                               ; preds = %1
-  %15 = load ptr, ptr %0, align 8, !tbaa !19
+  %15 = load ptr, ptr %0, align 8, !tbaa !18
   %16 = tail call i32 @av_ripemd_init(ptr noundef %15, i32 noundef 256) #10
   br label %45
 
 17:                                               ; preds = %1
-  %18 = load ptr, ptr %0, align 8, !tbaa !19
+  %18 = load ptr, ptr %0, align 8, !tbaa !18
   %19 = tail call i32 @av_ripemd_init(ptr noundef %18, i32 noundef 320) #10
   br label %45
 
 20:                                               ; preds = %1
-  %21 = load ptr, ptr %0, align 8, !tbaa !19
+  %21 = load ptr, ptr %0, align 8, !tbaa !18
   %22 = tail call i32 @av_sha_init(ptr noundef %21, i32 noundef 160) #10
   br label %45
 
 23:                                               ; preds = %1
-  %24 = load ptr, ptr %0, align 8, !tbaa !19
+  %24 = load ptr, ptr %0, align 8, !tbaa !18
   %25 = tail call i32 @av_sha_init(ptr noundef %24, i32 noundef 224) #10
   br label %45
 
 26:                                               ; preds = %1
-  %27 = load ptr, ptr %0, align 8, !tbaa !19
+  %27 = load ptr, ptr %0, align 8, !tbaa !18
   %28 = tail call i32 @av_sha_init(ptr noundef %27, i32 noundef 256) #10
   br label %45
 
 29:                                               ; preds = %1
-  %30 = load ptr, ptr %0, align 8, !tbaa !19
+  %30 = load ptr, ptr %0, align 8, !tbaa !18
   %31 = tail call i32 @av_sha512_init(ptr noundef %30, i32 noundef 224) #10
   br label %45
 
 32:                                               ; preds = %1
-  %33 = load ptr, ptr %0, align 8, !tbaa !19
+  %33 = load ptr, ptr %0, align 8, !tbaa !18
   %34 = tail call i32 @av_sha512_init(ptr noundef %33, i32 noundef 256) #10
   br label %45
 
 35:                                               ; preds = %1
-  %36 = load ptr, ptr %0, align 8, !tbaa !19
+  %36 = load ptr, ptr %0, align 8, !tbaa !18
   %37 = tail call i32 @av_sha512_init(ptr noundef %36, i32 noundef 384) #10
   br label %45
 
 38:                                               ; preds = %1
-  %39 = load ptr, ptr %0, align 8, !tbaa !19
+  %39 = load ptr, ptr %0, align 8, !tbaa !18
   %40 = tail call i32 @av_sha512_init(ptr noundef %39, i32 noundef 512) #10
   br label %45
 
 41:                                               ; preds = %1
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i32 -1, ptr %42, align 8, !tbaa !20
+  store i32 -1, ptr %42, align 8, !tbaa !19
   br label %45
 
 43:                                               ; preds = %1
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i32 1, ptr %44, align 8, !tbaa !20
+  store i32 1, ptr %44, align 8, !tbaa !19
   br label %45
 
 45:                                               ; preds = %43, %41, %38, %35, %32, %29, %26, %23, %20, %17, %14, %11, %8, %6, %4, %1
@@ -282,44 +282,44 @@ define void @av_hash_update(ptr noundef captures(none) %0, ptr noundef %1, i64 n
   ]
 
 6:                                                ; preds = %3
-  %7 = load ptr, ptr %0, align 8, !tbaa !19
+  %7 = load ptr, ptr %0, align 8, !tbaa !18
   tail call void @av_md5_update(ptr noundef %7, ptr noundef %1, i64 noundef %2) #10
   br label %26
 
 8:                                                ; preds = %3
-  %9 = load ptr, ptr %0, align 8, !tbaa !19
+  %9 = load ptr, ptr %0, align 8, !tbaa !18
   tail call void @av_murmur3_update(ptr noundef %9, ptr noundef %1, i64 noundef %2) #10
   br label %26
 
 10:                                               ; preds = %3, %3, %3, %3
-  %11 = load ptr, ptr %0, align 8, !tbaa !19
+  %11 = load ptr, ptr %0, align 8, !tbaa !18
   tail call void @av_ripemd_update(ptr noundef %11, ptr noundef %1, i64 noundef %2) #10
   br label %26
 
 12:                                               ; preds = %3, %3, %3
-  %13 = load ptr, ptr %0, align 8, !tbaa !19
+  %13 = load ptr, ptr %0, align 8, !tbaa !18
   tail call void @av_sha_update(ptr noundef %13, ptr noundef %1, i64 noundef %2) #10
   br label %26
 
 14:                                               ; preds = %3, %3, %3, %3
-  %15 = load ptr, ptr %0, align 8, !tbaa !19
+  %15 = load ptr, ptr %0, align 8, !tbaa !18
   tail call void @av_sha512_update(ptr noundef %15, ptr noundef %1, i64 noundef %2) #10
   br label %26
 
 16:                                               ; preds = %3
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %18 = load ptr, ptr %17, align 8, !tbaa !18
+  %18 = load ptr, ptr %17, align 8, !tbaa !17
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %20 = load i32, ptr %19, align 8, !tbaa !20
+  %20 = load i32, ptr %19, align 8, !tbaa !19
   %21 = tail call i32 @av_crc(ptr noundef %18, i32 noundef %20, ptr noundef %1, i64 noundef %2) #11
-  store i32 %21, ptr %19, align 8, !tbaa !20
+  store i32 %21, ptr %19, align 8, !tbaa !19
   br label %26
 
 22:                                               ; preds = %3
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %24 = load i32, ptr %23, align 8, !tbaa !20
+  %24 = load i32, ptr %23, align 8, !tbaa !19
   %25 = tail call i32 @av_adler32_update(i32 noundef %24, ptr noundef %1, i64 noundef %2) #11
-  store i32 %25, ptr %23, align 8, !tbaa !20
+  store i32 %25, ptr %23, align 8, !tbaa !19
   br label %26
 
 26:                                               ; preds = %22, %16, %14, %12, %10, %8, %6, %3
@@ -365,43 +365,43 @@ define void @av_hash_final(ptr noundef readonly captures(none) %0, ptr noundef %
   ]
 
 5:                                                ; preds = %2
-  %6 = load ptr, ptr %0, align 8, !tbaa !19
+  %6 = load ptr, ptr %0, align 8, !tbaa !18
   tail call void @av_md5_final(ptr noundef %6, ptr noundef %1) #10
   br label %24
 
 7:                                                ; preds = %2
-  %8 = load ptr, ptr %0, align 8, !tbaa !19
+  %8 = load ptr, ptr %0, align 8, !tbaa !18
   tail call void @av_murmur3_final(ptr noundef %8, ptr noundef %1) #10
   br label %24
 
 9:                                                ; preds = %2, %2, %2, %2
-  %10 = load ptr, ptr %0, align 8, !tbaa !19
+  %10 = load ptr, ptr %0, align 8, !tbaa !18
   tail call void @av_ripemd_final(ptr noundef %10, ptr noundef %1) #10
   br label %24
 
 11:                                               ; preds = %2, %2, %2
-  %12 = load ptr, ptr %0, align 8, !tbaa !19
+  %12 = load ptr, ptr %0, align 8, !tbaa !18
   tail call void @av_sha_final(ptr noundef %12, ptr noundef %1) #10
   br label %24
 
 13:                                               ; preds = %2, %2, %2, %2
-  %14 = load ptr, ptr %0, align 8, !tbaa !19
+  %14 = load ptr, ptr %0, align 8, !tbaa !18
   tail call void @av_sha512_final(ptr noundef %14, ptr noundef %1) #10
   br label %24
 
 15:                                               ; preds = %2
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %17 = load i32, ptr %16, align 8, !tbaa !20
+  %17 = load i32, ptr %16, align 8, !tbaa !19
   %18 = xor i32 %17, -1
   %19 = tail call i32 @llvm.bswap.i32(i32 %18)
-  store i32 %19, ptr %1, align 1, !tbaa !21
+  store i32 %19, ptr %1, align 1, !tbaa !20
   br label %24
 
 20:                                               ; preds = %2
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %22 = load i32, ptr %21, align 8, !tbaa !20
+  %22 = load i32, ptr %21, align 8, !tbaa !19
   %23 = tail call i32 @llvm.bswap.i32(i32 %22)
-  store i32 %23, ptr %1, align 1, !tbaa !21
+  store i32 %23, ptr %1, align 1, !tbaa !20
   br label %24
 
 24:                                               ; preds = %20, %15, %13, %11, %9, %7, %5, %2
@@ -481,12 +481,12 @@ define void @av_hash_final_hex(ptr noundef readonly captures(none) %0, ptr nound
   %15 = sub i32 %2, %12
   %16 = zext i32 %15 to i64
   %17 = getelementptr inbounds nuw [64 x i8], ptr %4, i64 0, i64 %indvars.iv
-  %18 = load i8, ptr %17, align 1, !tbaa !21
+  %18 = load i8, ptr %17, align 1, !tbaa !20
   %19 = zext i8 %18 to i32
   %20 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %14, i64 noundef %16, ptr noundef nonnull @.str, i32 noundef %19) #10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !22
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !21
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4) #10
@@ -523,7 +523,7 @@ define void @av_hash_final_b64(ptr noundef readonly captures(none) %0, ptr nound
   %19 = sext i32 %2 to i64
   %20 = getelementptr i8, ptr %1, i64 %19
   %21 = getelementptr i8, ptr %20, i64 -1
-  store i8 0, ptr %21, align 1, !tbaa !21
+  store i8 0, ptr %21, align 1, !tbaa !20
   br label %22
 
 22:                                               ; preds = %18, %3
@@ -587,11 +587,10 @@ attributes #11 = { nounwind willreturn memory(read) }
 !12 = !{!"", !7, i64 0, !9, i64 12}
 !13 = !{!14, !14, i64 0}
 !14 = !{!"p1 _ZTS13AVHashContext", !6, i64 0}
-!15 = distinct !{!15, !16, !17}
+!15 = distinct !{!15, !16}
 !16 = !{!"llvm.loop.mustprogress"}
-!17 = !{!"llvm.loop.estimated_trip_count"}
-!18 = !{!5, !10, i64 16}
-!19 = !{!5, !6, i64 0}
-!20 = !{!5, !9, i64 24}
-!21 = !{!7, !7, i64 0}
-!22 = distinct !{!22, !16, !17}
+!17 = !{!5, !10, i64 16}
+!18 = !{!5, !6, i64 0}
+!19 = !{!5, !9, i64 24}
+!20 = !{!7, !7, i64 0}
+!21 = distinct !{!21, !16}

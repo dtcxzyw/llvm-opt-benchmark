@@ -472,7 +472,7 @@ define internal ptr @MD5Type_copy(ptr noundef %0, ptr noundef %1, ptr readnone c
   store i8 0, ptr %16, align 8, !tbaa !29
   tail call void @PyObject_GC_Track(ptr noundef nonnull %13) #3
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %18 = load i8, ptr %17, align 8, !tbaa !29, !range !40, !noundef !41
+  %18 = load i8, ptr %17, align 8, !tbaa !29, !range !39, !noundef !40
   %19 = trunc nuw i8 %18 to i1
   br i1 %19, label %20, label %_PyMutex_Lock.exit.i
 
@@ -492,7 +492,7 @@ _PyMutex_Lock.exit.i:                             ; preds = %24, %20, %14
   %27 = tail call ptr @python_hashlib_Hacl_Hash_MD5_copy(ptr noundef %26) #3
   %28 = getelementptr inbounds nuw i8, ptr %13, i64 24
   store ptr %27, ptr %28, align 8, !tbaa !34
-  %29 = load i8, ptr %17, align 8, !tbaa !29, !range !40, !noundef !41
+  %29 = load i8, ptr %17, align 8, !tbaa !29, !range !39, !noundef !40
   %30 = trunc nuw i8 %29 to i1
   br i1 %30, label %31, label %MD5Type_copy_impl.exit
 
@@ -516,7 +516,7 @@ define internal ptr @MD5Type_digest(ptr noundef %0, ptr readnone captures(none) 
   %3 = alloca [16 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #3
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %5 = load i8, ptr %4, align 8, !tbaa !29, !range !40, !noundef !41
+  %5 = load i8, ptr %4, align 8, !tbaa !29, !range !39, !noundef !40
   %6 = trunc nuw i8 %5 to i1
   br i1 %6, label %7, label %_PyMutex_Lock.exit.i
 
@@ -534,7 +534,7 @@ _PyMutex_Lock.exit.i:                             ; preds = %11, %7, %2
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %13 = load ptr, ptr %12, align 8, !tbaa !34
   call void @python_hashlib_Hacl_Hash_MD5_digest(ptr noundef %13, ptr noundef nonnull %3) #3
-  %14 = load i8, ptr %4, align 8, !tbaa !29, !range !40, !noundef !41
+  %14 = load i8, ptr %4, align 8, !tbaa !29, !range !39, !noundef !40
   %15 = trunc nuw i8 %14 to i1
   br i1 %15, label %16, label %MD5Type_digest_impl.exit
 
@@ -560,7 +560,7 @@ define internal ptr @MD5Type_hexdigest(ptr noundef %0, ptr readnone captures(non
   %4 = alloca [32 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #3
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %6 = load i8, ptr %5, align 8, !tbaa !29, !range !40, !noundef !41
+  %6 = load i8, ptr %5, align 8, !tbaa !29, !range !39, !noundef !40
   %7 = trunc nuw i8 %6 to i1
   br i1 %7, label %8, label %_PyMutex_Lock.exit.i
 
@@ -578,7 +578,7 @@ _PyMutex_Lock.exit.i:                             ; preds = %12, %8, %2
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %14 = load ptr, ptr %13, align 8, !tbaa !34
   call void @python_hashlib_Hacl_Hash_MD5_digest(ptr noundef %14, ptr noundef nonnull %3) #3
-  %15 = load i8, ptr %5, align 8, !tbaa !29, !range !40, !noundef !41
+  %15 = load i8, ptr %5, align 8, !tbaa !29, !range !39, !noundef !40
   %16 = trunc nuw i8 %15 to i1
   br i1 %16, label %17, label %_PyMutex_Unlock.exit.i
 
@@ -616,7 +616,7 @@ _PyMutex_Unlock.exit.i:                           ; preds = %21, %17, %_PyMutex_
   store i8 %34, ptr %30, align 1, !tbaa !10
   %36 = add nuw nsw i64 %.01314.i, 1
   %exitcond.not.i = icmp eq i64 %36, 16
-  br i1 %exitcond.not.i, label %MD5Type_hexdigest_impl.exit, label %22, !llvm.loop !42
+  br i1 %exitcond.not.i, label %MD5Type_hexdigest_impl.exit, label %22, !llvm.loop !41
 
 MD5Type_hexdigest_impl.exit:                      ; preds = %22
   %37 = call ptr @PyUnicode_FromStringAndSize(ptr noundef nonnull %4, i64 noundef 32) #3
@@ -671,7 +671,7 @@ define internal noundef ptr @MD5Type_update(ptr noundef %0, ptr noundef %1) #0 {
 
 22:                                               ; preds = %16
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %24 = load i8, ptr %23, align 8, !tbaa !29, !range !40, !noundef !41
+  %24 = load i8, ptr %23, align 8, !tbaa !29, !range !39, !noundef !40
   %25 = trunc nuw i8 %24 to i1
   %26 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %27 = load i64, ptr %26, align 8
@@ -843,9 +843,8 @@ attributes #3 = { nounwind }
 !34 = !{!30, !33, i64 24}
 !35 = !{!27, !14, i64 16}
 !36 = !{!27, !6, i64 0}
-!37 = distinct !{!37, !38, !39}
+!37 = distinct !{!37, !38}
 !38 = !{!"llvm.loop.mustprogress"}
-!39 = !{!"llvm.loop.estimated_trip_count"}
-!40 = !{i8 0, i8 2}
-!41 = !{}
-!42 = distinct !{!42, !38, !39}
+!39 = !{i8 0, i8 2}
+!40 = !{}
+!41 = distinct !{!41, !38}

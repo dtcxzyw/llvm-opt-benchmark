@@ -294,7 +294,7 @@ define dso_local void @parse_command_line(i32 noundef %0, ptr noundef %1) local_
   ]
 
 .backedge:                                        ; preds = %8, %29, %28, %27, %25, %22, %21, %_addto_job_list.exit, %13, %12, %11, %10
-  br label %8, !llvm.loop !12
+  br label %8, !llvm.loop !11
 
 10:                                               ; preds = %8
   store i32 1, ptr @params, align 8
@@ -484,7 +484,7 @@ _addto_job_list.exit56:                           ; preds = %42, %47
 85:                                               ; preds = %81, %82, %79, %80
   %86 = call ptr @list_next(ptr noundef %71) #16
   %.not45 = icmp eq ptr %86, null
-  br i1 %.not45, label %._crit_edge, label %.lr.ph, !llvm.loop !13
+  br i1 %.not45, label %._crit_edge, label %.lr.ph, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %85, %69
   call void @list_iterator_destroy(ptr noundef %71) #16
@@ -516,11 +516,11 @@ _addto_job_list.exit56:                           ; preds = %42, %47
   %96 = and i16 %95, 8192
   %.not47 = icmp eq i16 %96, 0
   %97 = getelementptr inbounds nuw i8, ptr %.1, i64 1
-  br i1 %.not47, label %98, label %91, !llvm.loop !14
+  br i1 %.not47, label %98, label %91, !llvm.loop !13
 
 98:                                               ; preds = %91
   %.not48 = icmp eq i8 %92, 0
-  br i1 %.not48, label %119, label %99, !llvm.loop !15
+  br i1 %.not48, label %119, label %99, !llvm.loop !14
 
 99:                                               ; preds = %98
   %strchr49 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.1, i32 37)
@@ -555,12 +555,12 @@ _addto_job_list.exit56:                           ; preds = %42, %47
   %110 = getelementptr inbounds nuw i8, ptr %109, i64 8
   %111 = load ptr, ptr %110, align 8
   %.not51 = icmp eq ptr %111, null
-  br i1 %.not51, label %._crit_edge64, label %112, !llvm.loop !16
+  br i1 %.not51, label %._crit_edge64, label %112, !llvm.loop !15
 
 112:                                              ; preds = %.lr.ph96
   %113 = call i32 @xstrncasecmp(ptr noundef nonnull %111, ptr noundef nonnull %.1, i64 noundef %107) #16
   %.not52 = icmp eq i32 %113, 0
-  br i1 %.not52, label %._crit_edge97, label %.lr.ph96, !llvm.loop !16
+  br i1 %.not52, label %._crit_edge97, label %.lr.ph96, !llvm.loop !15
 
 ._crit_edge64:                                    ; preds = %104, %.lr.ph96
   %114 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.41, ptr noundef nonnull %.1) #16
@@ -586,7 +586,7 @@ _addto_job_list.exit56:                           ; preds = %42, %47
   %.2 = phi ptr [ %118, %116 ], [ %.1, %98 ]
   %strchr = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.2, i32 44)
   %.not46 = icmp eq ptr %strchr, null
-  br i1 %.not46, label %._crit_edge73, label %89, !llvm.loop !17
+  br i1 %.not46, label %._crit_edge73, label %89
 
 ._crit_edge73:                                    ; preds = %119, %.thread
   %120 = load ptr, ptr @print_fields_list, align 8
@@ -692,13 +692,11 @@ attributes #20 = { nounwind willreturn memory(read) }
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i32 7, !"frame-pointer", i32 2}
 !7 = !{i32 7, !"debug-info-assignment-tracking", i1 true}
-!8 = distinct !{!8, !9, !10, !11}
+!8 = distinct !{!8, !9, !10}
 !9 = !{!"llvm.loop.mustprogress"}
 !10 = !{!"llvm.loop.unroll.disable"}
-!11 = !{!"llvm.loop.estimated_trip_count"}
-!12 = distinct !{!12, !10, !11}
-!13 = distinct !{!13, !9, !10, !11}
-!14 = distinct !{!14, !9, !10, !11}
+!11 = distinct !{!11, !10}
+!12 = distinct !{!12, !9, !10}
+!13 = distinct !{!13, !9, !10}
+!14 = distinct !{!14, !9, !10}
 !15 = distinct !{!15, !9, !10}
-!16 = distinct !{!16, !9, !10, !11}
-!17 = distinct !{!17, !11}

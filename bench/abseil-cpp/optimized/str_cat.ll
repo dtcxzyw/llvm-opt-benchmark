@@ -259,7 +259,7 @@ define dso_local void @_ZN4absl16strings_internal9CatPiecesB5cxx11ESt16initializ
   %7 = add i64 %.sroa.035.0.copyload, %.044
   %8 = getelementptr inbounds nuw i8, ptr %.02443, i64 16
   %.not = icmp eq ptr %8, %6
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !18
+  br i1 %.not, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   %.0.lcssa = phi i64 [ 0, %3 ], [ %7, %.lr.ph ]
@@ -304,7 +304,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 
 18:                                               ; preds = %.lr.ph48
   %.sroa.4.0..023.sroa_idx = getelementptr inbounds nuw i8, ptr %.02347, i64 8
-  %.sroa.4.0.copyload = load ptr, ptr %.sroa.4.0..023.sroa_idx, align 8, !tbaa !20
+  %.sroa.4.0.copyload = load ptr, ptr %.sroa.4.0..023.sroa_idx, align 8, !tbaa !18
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.02546, ptr align 1 %.sroa.4.0.copyload, i64 %.sroa.0.0.copyload, i1 false)
   %19 = getelementptr inbounds nuw i8, ptr %.02546, i64 %.sroa.0.0.copyload
   br label %20
@@ -313,7 +313,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %.1 = phi ptr [ %19, %18 ], [ %.02546, %.lr.ph48 ]
   %21 = getelementptr inbounds nuw i8, ptr %.02347, i64 16
   %.not33 = icmp eq ptr %21, %6
-  br i1 %.not33, label %._crit_edge49, label %.lr.ph48, !llvm.loop !21
+  br i1 %.not33, label %._crit_edge49, label %.lr.ph48
 
 ._crit_edge49:                                    ; preds = %20, %_ZN4absl16strings_internal28STLStringResizeUninitializedINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEvEEvPT_m.exit
   ret void
@@ -348,7 +348,7 @@ define dso_local void @_ZN4absl16strings_internal12AppendPiecesEPNSt7__cxx1112ba
   %11 = add i64 %.sroa.029.0.copyload, %.038
   %12 = getelementptr inbounds nuw i8, ptr %.02337, i64 16
   %.not = icmp eq ptr %12, %6
-  br i1 %.not, label %.lr.ph43.preheader, label %.lr.ph, !llvm.loop !22
+  br i1 %.not, label %.lr.ph43.preheader, label %.lr.ph
 
 ._crit_edge44:                                    ; preds = %15, %._crit_edge.thread
   ret void
@@ -362,7 +362,7 @@ define dso_local void @_ZN4absl16strings_internal12AppendPiecesEPNSt7__cxx1112ba
 
 13:                                               ; preds = %.lr.ph43
   %.sroa.4.0..024.sroa_idx = getelementptr inbounds nuw i8, ptr %.02441, i64 8
-  %.sroa.4.0.copyload = load ptr, ptr %.sroa.4.0..024.sroa_idx, align 8, !tbaa !20
+  %.sroa.4.0.copyload = load ptr, ptr %.sroa.4.0..024.sroa_idx, align 8, !tbaa !18
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.02540, ptr align 1 %.sroa.4.0.copyload, i64 %.sroa.0.0.copyload, i1 false)
   %14 = getelementptr inbounds nuw i8, ptr %.02540, i64 %.sroa.0.0.copyload
   br label %15
@@ -371,7 +371,7 @@ define dso_local void @_ZN4absl16strings_internal12AppendPiecesEPNSt7__cxx1112ba
   %.1 = phi ptr [ %14, %13 ], [ %.02540, %.lr.ph43 ]
   %16 = getelementptr inbounds nuw i8, ptr %.02441, i64 16
   %.not27 = icmp eq ptr %16, %6
-  br i1 %.not27, label %._crit_edge44, label %.lr.ph43, !llvm.loop !23
+  br i1 %.not27, label %._crit_edge44, label %.lr.ph43
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -583,9 +583,4 @@ attributes #5 = { builtin nounwind }
 !15 = !{!"_ZTSSt17basic_string_viewIcSt11char_traitsIcEE", !12, i64 0, !6, i64 8}
 !16 = !{!11, !6, i64 0}
 !17 = !{!12, !12, i64 0}
-!18 = distinct !{!18, !19}
-!19 = !{!"llvm.loop.estimated_trip_count"}
-!20 = !{!6, !6, i64 0}
-!21 = distinct !{!21, !19}
-!22 = distinct !{!22, !19}
-!23 = distinct !{!23, !19}
+!18 = !{!6, !6, i64 0}

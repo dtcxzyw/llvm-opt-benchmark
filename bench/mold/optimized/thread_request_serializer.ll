@@ -660,7 +660,7 @@ _ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i
   %.09.in.i.i.i.i = icmp eq i64 %.09.in.in.i.i.i.i, 0
   %25 = icmp samesign ugt i32 %.0818.i.i.i.i, 15
   %.not10.i.i.i.i = select i1 %.09.in.i.i.i.i, i1 true, i1 %25
-  br i1 %.not10.i.i.i.i, label %.preheader.i.i.i.i, label %.lr.ph.i.preheader.i.i.i.i, !llvm.loop !46
+  br i1 %.not10.i.i.i.i, label %.preheader.i.i.i.i, label %.lr.ph.i.preheader.i.i.i.i, !llvm.loop !45
 
 .lr.ph.i.i.i.i:                                   ; preds = %.preheader.i.i.i.i, %.lr.ph.i.i.i.i
   %.019.i.i.i.i = phi i32 [ %29, %.lr.ph.i.i.i.i ], [ 32, %.preheader.i.i.i.i ]
@@ -671,7 +671,7 @@ _ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i
   %29 = add nuw nsw i32 %.019.i.i.i.i, 1
   %30 = icmp samesign ugt i32 %.019.i.i.i.i, 62
   %.not11.i.i.i.i = select i1 %.not.i13.i.i.i.i, i1 true, i1 %30
-  br i1 %.not11.i.i.i.i, label %_ZN3tbb6detail2d021timed_spin_wait_untilIZNS0_2d18rw_mutex4lockEvEUlvE_EEbT_.exit.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !47
+  br i1 %.not11.i.i.i.i, label %_ZN3tbb6detail2d021timed_spin_wait_untilIZNS0_2d18rw_mutex4lockEvEUlvE_EEbT_.exit.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !46
 
 _ZN3tbb6detail2d021timed_spin_wait_untilIZNS0_2d18rw_mutex4lockEvEUlvE_EEbT_.exit.i.i.i: ; preds = %.lr.ph.i.i.i.i
   br i1 %.not.i13.i.i.i.i, label %_ZN3tbb6detail2d124adaptive_wait_on_addressIZNS1_8rw_mutex4lockEvEUlvE_EEvPvT_m.exit.i.i, label %31
@@ -679,14 +679,14 @@ _ZN3tbb6detail2d021timed_spin_wait_untilIZNS0_2d18rw_mutex4lockEvEUlvE_EEbT_.exi
 31:                                               ; preds = %_ZN3tbb6detail2d021timed_spin_wait_untilIZNS0_2d18rw_mutex4lockEvEUlvE_EEbT_.exit.i.i.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #11
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN3tbb6detail2d118delegated_functionIZNS1_8rw_mutex4lockEvEUlvE_EE, i64 16), ptr %4, align 8, !tbaa !3
-  store ptr %3, ptr %9, align 8, !tbaa !48
+  store ptr %3, ptr %9, align 8, !tbaa !47
   call void @_ZN3tbb6detail2r115wait_on_addressEPvRNS0_2d113delegate_baseEm(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(8) %4, i64 noundef 0)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #11
   br label %_ZN3tbb6detail2d124adaptive_wait_on_addressIZNS1_8rw_mutex4lockEvEUlvE_EEvPvT_m.exit.i.i
 
 _ZN3tbb6detail2d124adaptive_wait_on_addressIZNS1_8rw_mutex4lockEvEUlvE_EEvPvT_m.exit.i.i: ; preds = %31, %_ZN3tbb6detail2d021timed_spin_wait_untilIZNS0_2d18rw_mutex4lockEvEUlvE_EEbT_.exit.i.i.i, %.preheader.i.i.i.i, %19
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
-  br label %10, !llvm.loop !49
+  br label %10, !llvm.loop !48
 
 _ZN3tbb6detail2d114rw_scoped_lockINS1_8rw_mutexEE7acquireERS3_b.exit: ; preds = %_ZN3tbb6detail2d18rw_mutex8try_lockEv.exit.i.i
   %.not = icmp eq i32 %1, 0
@@ -883,12 +883,12 @@ _ZN3tbb6detail2d15mutex8try_lockEv.exit.i:        ; preds = %10
 _ZZN3tbb6detail2d115waitable_atomicIbE4waitEbmSt12memory_orderENKUlvE_clEv.exit.i: ; preds = %_ZN3tbb6detail2d15mutex8try_lockEv.exit.i, %10
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
-  store i8 1, ptr %3, align 1, !tbaa !50
-  store i32 0, ptr %4, align 4, !tbaa !51
+  store i8 1, ptr %3, align 1, !tbaa !49
+  store i32 0, ptr %4, align 4, !tbaa !50
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #11
-  store ptr %1, ptr %5, align 8, !tbaa !53
-  store ptr %4, ptr %7, align 8, !tbaa !48
-  store ptr %3, ptr %8, align 8, !tbaa !57
+  store ptr %1, ptr %5, align 8, !tbaa !52
+  store ptr %4, ptr %7, align 8, !tbaa !47
+  store ptr %3, ptr %8, align 8, !tbaa !56
   %15 = load atomic i8, ptr %1 monotonic, align 1
   %16 = and i8 %15, 1
   %.not.i.not = icmp eq i8 %16, 0
@@ -909,7 +909,7 @@ _ZZN3tbb6detail2d115waitable_atomicIbE4waitEbmSt12memory_orderENKUlvE_clEv.exit.
   br i1 %18, label %.lr.ph.i.i, label %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i, !llvm.loop !43
 
 _ZN3tbb6detail2d0L13machine_pauseEi.exit.i:       ; preds = %.lr.ph.i.i
-  %19 = load i32, ptr %4, align 4, !tbaa !51
+  %19 = load i32, ptr %4, align 4, !tbaa !50
   switch i32 %19, label %20 [
     i32 1, label %22
     i32 2, label %22
@@ -930,18 +930,18 @@ _ZN3tbb6detail2d0L13machine_pauseEi.exit.i:       ; preds = %.lr.ph.i.i
 
 _ZZN3tbb6detail2d115waitable_atomicIbE4waitEbmSt12memory_orderENKUlvE_clEv.exit13.i: ; preds = %24, %22, %20
   %.0.i.i.i12.i = phi i8 [ %21, %20 ], [ %23, %22 ], [ %25, %24 ]
-  %26 = load i8, ptr %3, align 1, !tbaa !50, !range !41, !noundef !42
+  %26 = load i8, ptr %3, align 1, !tbaa !49, !range !41, !noundef !42
   %27 = and i8 %.0.i.i.i12.i, 1
   %28 = icmp ne i8 %26, %27
   %29 = shl nuw nsw i32 %.0816.i, 1
   %30 = icmp samesign ugt i32 %.0816.i, 15
   %.not10.i = select i1 %28, i1 true, i1 %30
-  br i1 %.not10.i, label %.preheader.i, label %.lr.ph.i.preheader.i, !llvm.loop !58
+  br i1 %.not10.i, label %.preheader.i, label %.lr.ph.i.preheader.i, !llvm.loop !57
 
 .lr.ph.i:                                         ; preds = %.preheader.i, %_ZZN3tbb6detail2d115waitable_atomicIbE4waitEbmSt12memory_orderENKUlvE_clEv.exit15.i
   %.017.i = phi i32 [ %42, %_ZZN3tbb6detail2d115waitable_atomicIbE4waitEbmSt12memory_orderENKUlvE_clEv.exit15.i ], [ 32, %.preheader.i ]
   %31 = call noundef i32 @sched_yield() #11
-  %32 = load i32, ptr %4, align 4, !tbaa !51
+  %32 = load i32, ptr %4, align 4, !tbaa !50
   switch i32 %32, label %33 [
     i32 1, label %35
     i32 2, label %35
@@ -962,13 +962,13 @@ _ZZN3tbb6detail2d115waitable_atomicIbE4waitEbmSt12memory_orderENKUlvE_clEv.exit1
 
 _ZZN3tbb6detail2d115waitable_atomicIbE4waitEbmSt12memory_orderENKUlvE_clEv.exit15.i: ; preds = %37, %35, %33
   %.0.i.i.i14.i = phi i8 [ %34, %33 ], [ %36, %35 ], [ %38, %37 ]
-  %39 = load i8, ptr %3, align 1, !tbaa !50, !range !41, !noundef !42
+  %39 = load i8, ptr %3, align 1, !tbaa !49, !range !41, !noundef !42
   %40 = and i8 %.0.i.i.i14.i, 1
   %41 = icmp ne i8 %39, %40
   %42 = add nuw nsw i32 %.017.i, 1
   %43 = icmp samesign ugt i32 %.017.i, 62
   %.not11.i = select i1 %41, i1 true, i1 %43
-  br i1 %.not11.i, label %_ZN3tbb6detail2d021timed_spin_wait_untilIZNS0_2d115waitable_atomicIbE4waitEbmSt12memory_orderEUlvE_EEbT_.exit, label %.lr.ph.i, !llvm.loop !59
+  br i1 %.not11.i, label %_ZN3tbb6detail2d021timed_spin_wait_untilIZNS0_2d115waitable_atomicIbE4waitEbmSt12memory_orderEUlvE_EEbT_.exit, label %.lr.ph.i, !llvm.loop !58
 
 _ZN3tbb6detail2d021timed_spin_wait_untilIZNS0_2d115waitable_atomicIbE4waitEbmSt12memory_orderEUlvE_EEbT_.exit: ; preds = %_ZZN3tbb6detail2d115waitable_atomicIbE4waitEbmSt12memory_orderENKUlvE_clEv.exit15.i
   br i1 %41, label %_ZN3tbb6detail2d115waitable_atomicIbE4waitEbmSt12memory_order.exit.i, label %44
@@ -976,14 +976,14 @@ _ZN3tbb6detail2d021timed_spin_wait_untilIZNS0_2d115waitable_atomicIbE4waitEbmSt1
 44:                                               ; preds = %_ZN3tbb6detail2d021timed_spin_wait_untilIZNS0_2d115waitable_atomicIbE4waitEbmSt12memory_orderEUlvE_EEbT_.exit
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #11
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN3tbb6detail2d118delegated_functionIZNS1_15waitable_atomicIbE4waitEbmSt12memory_orderEUlvE_EE, i64 16), ptr %6, align 8, !tbaa !3
-  store ptr %5, ptr %9, align 8, !tbaa !48
+  store ptr %5, ptr %9, align 8, !tbaa !47
   br label %45
 
 45:                                               ; preds = %_ZZN3tbb6detail2d115waitable_atomicIbE4waitEbmSt12memory_orderENKUlvE_clEv.exit.i.i, %44
   call void @_ZN3tbb6detail2r115wait_on_addressEPvRNS0_2d113delegate_baseEm(ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 8 dereferenceable(8) %6, i64 noundef 0)
-  %46 = load ptr, ptr %5, align 8, !tbaa !53
-  %47 = load ptr, ptr %7, align 8, !tbaa !60
-  %48 = load i32, ptr %47, align 4, !tbaa !51
+  %46 = load ptr, ptr %5, align 8, !tbaa !52
+  %47 = load ptr, ptr %7, align 8, !tbaa !59
+  %48 = load i32, ptr %47, align 4, !tbaa !50
   switch i32 %48, label %49 [
     i32 1, label %51
     i32 2, label %51
@@ -1004,11 +1004,11 @@ _ZN3tbb6detail2d021timed_spin_wait_untilIZNS0_2d115waitable_atomicIbE4waitEbmSt1
 
 _ZZN3tbb6detail2d115waitable_atomicIbE4waitEbmSt12memory_orderENKUlvE_clEv.exit.i.i: ; preds = %53, %51, %49
   %.0.i.i.i.i.i = phi i8 [ %50, %49 ], [ %52, %51 ], [ %54, %53 ]
-  %55 = load ptr, ptr %8, align 8, !tbaa !61
-  %56 = load i8, ptr %55, align 1, !tbaa !50, !range !41, !noundef !42
+  %55 = load ptr, ptr %8, align 8, !tbaa !60
+  %56 = load i8, ptr %55, align 1, !tbaa !49, !range !41, !noundef !42
   %57 = and i8 %.0.i.i.i.i.i, 1
   %.not.i.i = icmp eq i8 %56, %57
-  br i1 %.not.i.i, label %45, label %58, !llvm.loop !62
+  br i1 %.not.i.i, label %45, label %58, !llvm.loop !61
 
 58:                                               ; preds = %_ZZN3tbb6detail2d115waitable_atomicIbE4waitEbmSt12memory_orderENKUlvE_clEv.exit.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #11
@@ -1018,7 +1018,7 @@ _ZN3tbb6detail2d115waitable_atomicIbE4waitEbmSt12memory_order.exit.i: ; preds = 
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #11
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
-  br label %10, !llvm.loop !63
+  br label %10, !llvm.loop !62
 
 _ZN3tbb6detail2d15mutex4lockEv.exit:              ; preds = %_ZN3tbb6detail2d15mutex8try_lockEv.exit.i
   ret void
@@ -1035,11 +1035,11 @@ declare i32 @sched_yield() local_unnamed_addr #12
 ; Function Attrs: mustprogress sspstrong uwtable
 define linkonce_odr noundef zeroext i1 @_ZNK3tbb6detail2d118delegated_functionIZNS1_15waitable_atomicIbE4waitEbmSt12memory_orderEUlvE_EclEv(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #1 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load ptr, ptr %2, align 8, !tbaa !64
-  %4 = load ptr, ptr %3, align 8, !tbaa !53
+  %3 = load ptr, ptr %2, align 8, !tbaa !63
+  %4 = load ptr, ptr %3, align 8, !tbaa !52
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %6 = load ptr, ptr %5, align 8, !tbaa !60
-  %7 = load i32, ptr %6, align 4, !tbaa !51
+  %6 = load ptr, ptr %5, align 8, !tbaa !59
+  %7 = load i32, ptr %6, align 4, !tbaa !50
   switch i32 %7, label %8 [
     i32 1, label %10
     i32 2, label %10
@@ -1061,8 +1061,8 @@ define linkonce_odr noundef zeroext i1 @_ZNK3tbb6detail2d118delegated_functionIZ
 _ZZN3tbb6detail2d115waitable_atomicIbE4waitEbmSt12memory_orderENKUlvE_clEv.exit: ; preds = %8, %10, %12
   %.0.i.i.i = phi i8 [ %9, %8 ], [ %11, %10 ], [ %13, %12 ]
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %15 = load ptr, ptr %14, align 8, !tbaa !61
-  %16 = load i8, ptr %15, align 1, !tbaa !50, !range !41, !noundef !42
+  %15 = load ptr, ptr %14, align 8, !tbaa !60
+  %16 = load i8, ptr %15, align 1, !tbaa !49, !range !41, !noundef !42
   %17 = and i8 %.0.i.i.i, 1
   %18 = icmp ne i8 %16, %17
   ret i1 %18
@@ -1104,7 +1104,7 @@ define linkonce_odr void @_ZN3tbb6detail2d18rw_mutex11lock_sharedEv(ptr noundef 
 
 15:                                               ; preds = %13, %7
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #11
-  store i64 3, ptr %4, align 8, !tbaa !67
+  store i64 3, ptr %4, align 8, !tbaa !66
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
   store ptr %0, ptr %2, align 8
   store ptr %4, ptr %5, align 8
@@ -1129,25 +1129,25 @@ define linkonce_odr void @_ZN3tbb6detail2d18rw_mutex11lock_sharedEv(ptr noundef 
 
 _ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i:     ; preds = %.lr.ph.i.i.i
   %20 = load atomic i64, ptr %0 monotonic, align 8
-  %21 = load i64, ptr %4, align 8, !tbaa !67
+  %21 = load i64, ptr %4, align 8, !tbaa !66
   %22 = and i64 %21, %20
   %23 = shl nuw nsw i32 %.0819.i.i, 1
   %.09.in.i.i = icmp eq i64 %22, 0
   %24 = icmp samesign ugt i32 %.0819.i.i, 15
   %.not10.i.i = select i1 %.09.in.i.i, i1 true, i1 %24
-  br i1 %.not10.i.i, label %.preheader.i.i, label %.lr.ph.i.preheader.i.i, !llvm.loop !68
+  br i1 %.not10.i.i, label %.preheader.i.i, label %.lr.ph.i.preheader.i.i, !llvm.loop !67
 
 .lr.ph.i.i:                                       ; preds = %.preheader.i.i, %.lr.ph.i.i
   %.020.i.i = phi i32 [ %29, %.lr.ph.i.i ], [ 32, %.preheader.i.i ]
   %25 = call noundef i32 @sched_yield() #11
   %26 = load atomic i64, ptr %0 monotonic, align 8
-  %27 = load i64, ptr %4, align 8, !tbaa !67
+  %27 = load i64, ptr %4, align 8, !tbaa !66
   %28 = and i64 %27, %26
   %.not.i13.i.i = icmp eq i64 %28, 0
   %29 = add nuw nsw i32 %.020.i.i, 1
   %30 = icmp samesign ugt i32 %.020.i.i, 62
   %.not11.i.i = select i1 %.not.i13.i.i, i1 true, i1 %30
-  br i1 %.not11.i.i, label %_ZN3tbb6detail2d021timed_spin_wait_untilIZNS0_2d18rw_mutex11lock_sharedEvEUlvE_EEbT_.exit.i, label %.lr.ph.i.i, !llvm.loop !69
+  br i1 %.not11.i.i, label %_ZN3tbb6detail2d021timed_spin_wait_untilIZNS0_2d18rw_mutex11lock_sharedEvEUlvE_EEbT_.exit.i, label %.lr.ph.i.i, !llvm.loop !68
 
 _ZN3tbb6detail2d021timed_spin_wait_untilIZNS0_2d18rw_mutex11lock_sharedEvEUlvE_EEbT_.exit.i: ; preds = %.lr.ph.i.i
   br i1 %.not.i13.i.i, label %_ZN3tbb6detail2d124adaptive_wait_on_addressIZNS1_8rw_mutex11lock_sharedEvEUlvE_EEvPvT_m.exit, label %31
@@ -1155,7 +1155,7 @@ _ZN3tbb6detail2d021timed_spin_wait_untilIZNS0_2d18rw_mutex11lock_sharedEvEUlvE_E
 31:                                               ; preds = %_ZN3tbb6detail2d021timed_spin_wait_untilIZNS0_2d18rw_mutex11lock_sharedEvEUlvE_EEbT_.exit.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #11
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN3tbb6detail2d118delegated_functionIZNS1_8rw_mutex11lock_sharedEvEUlvE_EE, i64 16), ptr %3, align 8, !tbaa !3
-  store ptr %2, ptr %6, align 8, !tbaa !48
+  store ptr %2, ptr %6, align 8, !tbaa !47
   call void @_ZN3tbb6detail2r115wait_on_addressEPvRNS0_2d113delegate_baseEm(ptr noundef nonnull %0, ptr noundef nonnull align 8 dereferenceable(8) %3, i64 noundef 1)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #11
   br label %_ZN3tbb6detail2d124adaptive_wait_on_addressIZNS1_8rw_mutex11lock_sharedEvEUlvE_EEvPvT_m.exit
@@ -1163,7 +1163,7 @@ _ZN3tbb6detail2d021timed_spin_wait_untilIZNS0_2d18rw_mutex11lock_sharedEvEUlvE_E
 _ZN3tbb6detail2d124adaptive_wait_on_addressIZNS1_8rw_mutex11lock_sharedEvEUlvE_EEvPvT_m.exit: ; preds = %15, %.preheader.i.i, %_ZN3tbb6detail2d021timed_spin_wait_untilIZNS0_2d18rw_mutex11lock_sharedEvEUlvE_EEbT_.exit.i, %31
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #11
-  br label %7, !llvm.loop !70
+  br label %7, !llvm.loop !69
 
 _ZN3tbb6detail2d18rw_mutex15try_lock_sharedEv.exit: ; preds = %10
   ret void
@@ -1172,8 +1172,8 @@ _ZN3tbb6detail2d18rw_mutex15try_lock_sharedEv.exit: ; preds = %10
 ; Function Attrs: mustprogress nounwind sspstrong uwtable
 define linkonce_odr noundef zeroext i1 @_ZNK3tbb6detail2d118delegated_functionIZNS1_8rw_mutex4lockEvEUlvE_EclEv(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #5 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load ptr, ptr %2, align 8, !tbaa !71
-  %4 = load ptr, ptr %3, align 8, !tbaa !73
+  %3 = load ptr, ptr %2, align 8, !tbaa !70
+  %4 = load ptr, ptr %3, align 8, !tbaa !72
   %5 = load atomic i64, ptr %4 monotonic, align 8
   %6 = and i64 %5, -3
   %.not.i = icmp eq i64 %6, 0
@@ -1191,12 +1191,12 @@ declare void @_ZN3tbb6detail2r117notify_by_addressEPvm(ptr noundef, i64 noundef)
 ; Function Attrs: mustprogress nounwind sspstrong uwtable
 define linkonce_odr noundef zeroext i1 @_ZNK3tbb6detail2d118delegated_functionIZNS1_8rw_mutex11lock_sharedEvEUlvE_EclEv(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #5 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load ptr, ptr %2, align 8, !tbaa !75
-  %4 = load ptr, ptr %3, align 8, !tbaa !77
+  %3 = load ptr, ptr %2, align 8, !tbaa !74
+  %4 = load ptr, ptr %3, align 8, !tbaa !76
   %5 = load atomic i64, ptr %4 monotonic, align 8
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %7 = load ptr, ptr %6, align 8, !tbaa !80
-  %8 = load i64, ptr %7, align 8, !tbaa !67
+  %7 = load ptr, ptr %6, align 8, !tbaa !79
+  %8 = load i64, ptr %7, align 8, !tbaa !66
   %9 = and i64 %8, %5
   %.not.i = icmp eq i64 %9, 0
   ret i1 %.not.i
@@ -1248,7 +1248,7 @@ _ZNSt13__atomic_baseIlE23compare_exchange_strongERllSt12memory_orderS2_.exit.pre
   %21 = and i64 %18, 2
   %.not = icmp eq i64 %21, 0
   %22 = or i1 %20, %.not
-  br i1 %22, label %.lr.ph, label %._crit_edge, !llvm.loop !81
+  br i1 %22, label %.lr.ph, label %._crit_edge, !llvm.loop !80
 
 23:                                               ; preds = %.lr.ph14, %_ZN3tbb6detail2d124adaptive_wait_on_addressIZNS1_8rw_mutex7upgradeEvEUlvE_EEvPvT_m.exit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
@@ -1279,7 +1279,7 @@ _ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i:     ; preds = %.lr.ph.i.i.i
   %.09.in.i.i = icmp eq i64 %.09.in.in.i.i, 4
   %29 = icmp samesign ugt i32 %.0816.i.i, 15
   %.not10.i.i = select i1 %.09.in.i.i, i1 true, i1 %29
-  br i1 %.not10.i.i, label %.preheader.i.i, label %.lr.ph.i.preheader.i.i, !llvm.loop !82
+  br i1 %.not10.i.i, label %.preheader.i.i, label %.lr.ph.i.preheader.i.i, !llvm.loop !81
 
 .lr.ph.i.i:                                       ; preds = %.preheader.i.i, %.lr.ph.i.i
   %.017.i.i = phi i32 [ %34, %.lr.ph.i.i ], [ 32, %.preheader.i.i ]
@@ -1290,7 +1290,7 @@ _ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i:     ; preds = %.lr.ph.i.i.i
   %34 = add nuw nsw i32 %.017.i.i, 1
   %35 = icmp samesign ugt i32 %.017.i.i, 62
   %.not11.i.i = select i1 %33, i1 true, i1 %35
-  br i1 %.not11.i.i, label %_ZN3tbb6detail2d021timed_spin_wait_untilIZNS0_2d18rw_mutex7upgradeEvEUlvE_EEbT_.exit.i, label %.lr.ph.i.i, !llvm.loop !83
+  br i1 %.not11.i.i, label %_ZN3tbb6detail2d021timed_spin_wait_untilIZNS0_2d18rw_mutex7upgradeEvEUlvE_EEbT_.exit.i, label %.lr.ph.i.i, !llvm.loop !82
 
 _ZN3tbb6detail2d021timed_spin_wait_untilIZNS0_2d18rw_mutex7upgradeEvEUlvE_EEbT_.exit.i: ; preds = %.lr.ph.i.i
   br i1 %33, label %_ZN3tbb6detail2d124adaptive_wait_on_addressIZNS1_8rw_mutex7upgradeEvEUlvE_EEvPvT_m.exit, label %36
@@ -1298,7 +1298,7 @@ _ZN3tbb6detail2d021timed_spin_wait_untilIZNS0_2d18rw_mutex7upgradeEvEUlvE_EEbT_.
 36:                                               ; preds = %_ZN3tbb6detail2d021timed_spin_wait_untilIZNS0_2d18rw_mutex7upgradeEvEUlvE_EEbT_.exit.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #11
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN3tbb6detail2d118delegated_functionIZNS1_8rw_mutex7upgradeEvEUlvE_EE, i64 16), ptr %5, align 8, !tbaa !3
-  store ptr %4, ptr %16, align 8, !tbaa !48
+  store ptr %4, ptr %16, align 8, !tbaa !47
   call void @_ZN3tbb6detail2r115wait_on_addressEPvRNS0_2d113delegate_baseEm(ptr noundef nonnull %0, ptr noundef nonnull align 8 dereferenceable(8) %5, i64 noundef 0)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #11
   br label %_ZN3tbb6detail2d124adaptive_wait_on_addressIZNS1_8rw_mutex7upgradeEvEUlvE_EEvPvT_m.exit
@@ -1308,7 +1308,7 @@ _ZN3tbb6detail2d124adaptive_wait_on_addressIZNS1_8rw_mutex7upgradeEvEUlvE_EEvPvT
   %37 = load atomic i64, ptr %0 monotonic, align 8
   %38 = and i64 %37, -4
   %.not3 = icmp eq i64 %38, 4
-  br i1 %.not3, label %_ZNSt13__atomic_baseIlE23compare_exchange_strongERllSt12memory_orderS2_.exit._crit_edge, label %23, !llvm.loop !84
+  br i1 %.not3, label %_ZNSt13__atomic_baseIlE23compare_exchange_strongERllSt12memory_orderS2_.exit._crit_edge, label %23, !llvm.loop !83
 
 _ZNSt13__atomic_baseIlE23compare_exchange_strongERllSt12memory_orderS2_.exit._crit_edge: ; preds = %_ZN3tbb6detail2d124adaptive_wait_on_addressIZNS1_8rw_mutex7upgradeEvEUlvE_EEvPvT_m.exit, %_ZNSt13__atomic_baseIlE23compare_exchange_strongERllSt12memory_orderS2_.exit.preheader
   %39 = atomicrmw sub ptr %0, i64 6 seq_cst, align 8
@@ -1382,7 +1382,7 @@ _ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i:   ; preds = %.lr.ph.i.i.i.i
   %.09.in.i.i.i = icmp eq i64 %.09.in.in.i.i.i, 0
   %60 = icmp samesign ugt i32 %.0818.i.i.i, 15
   %.not10.i.i.i = select i1 %.09.in.i.i.i, i1 true, i1 %60
-  br i1 %.not10.i.i.i, label %.preheader.i.i.i, label %.lr.ph.i.preheader.i.i.i, !llvm.loop !46
+  br i1 %.not10.i.i.i, label %.preheader.i.i.i, label %.lr.ph.i.preheader.i.i.i, !llvm.loop !45
 
 .lr.ph.i.i.i5:                                    ; preds = %.preheader.i.i.i, %.lr.ph.i.i.i5
   %.019.i.i.i = phi i32 [ %64, %.lr.ph.i.i.i5 ], [ 32, %.preheader.i.i.i ]
@@ -1393,7 +1393,7 @@ _ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i:   ; preds = %.lr.ph.i.i.i.i
   %64 = add nuw nsw i32 %.019.i.i.i, 1
   %65 = icmp samesign ugt i32 %.019.i.i.i, 62
   %.not11.i.i.i = select i1 %.not.i13.i.i.i, i1 true, i1 %65
-  br i1 %.not11.i.i.i, label %_ZN3tbb6detail2d021timed_spin_wait_untilIZNS0_2d18rw_mutex4lockEvEUlvE_EEbT_.exit.i.i, label %.lr.ph.i.i.i5, !llvm.loop !47
+  br i1 %.not11.i.i.i, label %_ZN3tbb6detail2d021timed_spin_wait_untilIZNS0_2d18rw_mutex4lockEvEUlvE_EEbT_.exit.i.i, label %.lr.ph.i.i.i5, !llvm.loop !46
 
 _ZN3tbb6detail2d021timed_spin_wait_untilIZNS0_2d18rw_mutex4lockEvEUlvE_EEbT_.exit.i.i: ; preds = %.lr.ph.i.i.i5
   br i1 %.not.i13.i.i.i, label %_ZN3tbb6detail2d124adaptive_wait_on_addressIZNS1_8rw_mutex4lockEvEUlvE_EEvPvT_m.exit.i, label %66
@@ -1401,14 +1401,14 @@ _ZN3tbb6detail2d021timed_spin_wait_untilIZNS0_2d18rw_mutex4lockEvEUlvE_EEbT_.exi
 66:                                               ; preds = %_ZN3tbb6detail2d021timed_spin_wait_untilIZNS0_2d18rw_mutex4lockEvEUlvE_EEbT_.exit.i.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #11
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN3tbb6detail2d118delegated_functionIZNS1_8rw_mutex4lockEvEUlvE_EE, i64 16), ptr %3, align 8, !tbaa !3
-  store ptr %2, ptr %44, align 8, !tbaa !48
+  store ptr %2, ptr %44, align 8, !tbaa !47
   call void @_ZN3tbb6detail2r115wait_on_addressEPvRNS0_2d113delegate_baseEm(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %3, i64 noundef 0)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #11
   br label %_ZN3tbb6detail2d124adaptive_wait_on_addressIZNS1_8rw_mutex4lockEvEUlvE_EEvPvT_m.exit.i
 
 _ZN3tbb6detail2d124adaptive_wait_on_addressIZNS1_8rw_mutex4lockEvEUlvE_EEvPvT_m.exit.i: ; preds = %66, %_ZN3tbb6detail2d021timed_spin_wait_untilIZNS0_2d18rw_mutex4lockEvEUlvE_EEbT_.exit.i.i, %.preheader.i.i.i, %54
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
-  br label %45, !llvm.loop !49
+  br label %45, !llvm.loop !48
 
 _ZN3tbb6detail2d18rw_mutex4lockEv.exit:           ; preds = %_ZN3tbb6detail2d18rw_mutex8try_lockEv.exit.i, %_ZNSt13__atomic_baseIlE23compare_exchange_strongERllSt12memory_orderS2_.exit._crit_edge
   %67 = phi i1 [ true, %_ZNSt13__atomic_baseIlE23compare_exchange_strongERllSt12memory_orderS2_.exit._crit_edge ], [ false, %_ZN3tbb6detail2d18rw_mutex8try_lockEv.exit.i ]
@@ -1423,8 +1423,8 @@ define linkonce_odr void @_ZN3tbb6detail2d113delegate_baseD2Ev(ptr noundef nonnu
 ; Function Attrs: mustprogress nounwind sspstrong uwtable
 define linkonce_odr noundef zeroext i1 @_ZNK3tbb6detail2d118delegated_functionIZNS1_8rw_mutex7upgradeEvEUlvE_EclEv(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #5 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load ptr, ptr %2, align 8, !tbaa !85
-  %4 = load ptr, ptr %3, align 8, !tbaa !87
+  %3 = load ptr, ptr %2, align 8, !tbaa !84
+  %4 = load ptr, ptr %3, align 8, !tbaa !86
   %5 = load atomic i64, ptr %4 monotonic, align 8
   %6 = and i64 %5, -4
   %7 = icmp eq i64 %6, 4
@@ -1502,49 +1502,48 @@ attributes #15 = { builtin nounwind }
 !40 = !{!38, !39, i64 0}
 !41 = !{i8 0, i8 2}
 !42 = !{}
-!43 = distinct !{!43, !44, !45}
+!43 = distinct !{!43, !44}
 !44 = !{!"llvm.loop.mustprogress"}
-!45 = !{!"llvm.loop.estimated_trip_count"}
-!46 = distinct !{!46, !44, !45}
-!47 = distinct !{!47, !44, !45}
-!48 = !{!8, !8, i64 0}
-!49 = distinct !{!49, !44, !45}
-!50 = !{!23, !23, i64 0}
-!51 = !{!52, !52, i64 0}
-!52 = !{!"_ZTSSt12memory_order", !9, i64 0}
-!53 = !{!54, !55, i64 0}
-!54 = !{!"_ZTSZN3tbb6detail2d115waitable_atomicIbE4waitEbmSt12memory_orderEUlvE_", !55, i64 0, !8, i64 8, !56, i64 16}
-!55 = !{!"p1 _ZTSN3tbb6detail2d115waitable_atomicIbEE", !8, i64 0}
-!56 = !{!"p1 bool", !8, i64 0}
-!57 = !{!56, !56, i64 0}
-!58 = distinct !{!58, !44, !45}
-!59 = distinct !{!59, !44, !45}
-!60 = !{!54, !8, i64 8}
-!61 = !{!54, !56, i64 16}
-!62 = distinct !{!62, !44, !45}
-!63 = distinct !{!63, !44, !45}
-!64 = !{!65, !8, i64 8}
-!65 = !{!"_ZTSN3tbb6detail2d118delegated_functionIZNS1_15waitable_atomicIbE4waitEbmSt12memory_orderEUlvE_EE", !66, i64 0, !8, i64 8}
-!66 = !{!"_ZTSN3tbb6detail2d113delegate_baseE"}
-!67 = !{!18, !18, i64 0}
-!68 = distinct !{!68, !44, !45}
-!69 = distinct !{!69, !44, !45}
-!70 = distinct !{!70, !44, !45}
-!71 = !{!72, !8, i64 8}
-!72 = !{!"_ZTSN3tbb6detail2d118delegated_functionIZNS1_8rw_mutex4lockEvEUlvE_EE", !66, i64 0, !8, i64 8}
-!73 = !{!74, !39, i64 0}
-!74 = !{!"_ZTSZN3tbb6detail2d18rw_mutex4lockEvEUlvE_", !39, i64 0}
-!75 = !{!76, !8, i64 8}
-!76 = !{!"_ZTSN3tbb6detail2d118delegated_functionIZNS1_8rw_mutex11lock_sharedEvEUlvE_EE", !66, i64 0, !8, i64 8}
-!77 = !{!78, !39, i64 0}
-!78 = !{!"_ZTSZN3tbb6detail2d18rw_mutex11lock_sharedEvEUlvE_", !39, i64 0, !79, i64 8}
-!79 = !{!"p1 long", !8, i64 0}
-!80 = !{!78, !79, i64 8}
-!81 = distinct !{!81, !44, !45}
-!82 = distinct !{!82, !44, !45}
-!83 = distinct !{!83, !44, !45}
-!84 = distinct !{!84, !44, !45}
-!85 = !{!86, !8, i64 8}
-!86 = !{!"_ZTSN3tbb6detail2d118delegated_functionIZNS1_8rw_mutex7upgradeEvEUlvE_EE", !66, i64 0, !8, i64 8}
-!87 = !{!88, !39, i64 0}
-!88 = !{!"_ZTSZN3tbb6detail2d18rw_mutex7upgradeEvEUlvE_", !39, i64 0}
+!45 = distinct !{!45, !44}
+!46 = distinct !{!46, !44}
+!47 = !{!8, !8, i64 0}
+!48 = distinct !{!48, !44}
+!49 = !{!23, !23, i64 0}
+!50 = !{!51, !51, i64 0}
+!51 = !{!"_ZTSSt12memory_order", !9, i64 0}
+!52 = !{!53, !54, i64 0}
+!53 = !{!"_ZTSZN3tbb6detail2d115waitable_atomicIbE4waitEbmSt12memory_orderEUlvE_", !54, i64 0, !8, i64 8, !55, i64 16}
+!54 = !{!"p1 _ZTSN3tbb6detail2d115waitable_atomicIbEE", !8, i64 0}
+!55 = !{!"p1 bool", !8, i64 0}
+!56 = !{!55, !55, i64 0}
+!57 = distinct !{!57, !44}
+!58 = distinct !{!58, !44}
+!59 = !{!53, !8, i64 8}
+!60 = !{!53, !55, i64 16}
+!61 = distinct !{!61, !44}
+!62 = distinct !{!62, !44}
+!63 = !{!64, !8, i64 8}
+!64 = !{!"_ZTSN3tbb6detail2d118delegated_functionIZNS1_15waitable_atomicIbE4waitEbmSt12memory_orderEUlvE_EE", !65, i64 0, !8, i64 8}
+!65 = !{!"_ZTSN3tbb6detail2d113delegate_baseE"}
+!66 = !{!18, !18, i64 0}
+!67 = distinct !{!67, !44}
+!68 = distinct !{!68, !44}
+!69 = distinct !{!69, !44}
+!70 = !{!71, !8, i64 8}
+!71 = !{!"_ZTSN3tbb6detail2d118delegated_functionIZNS1_8rw_mutex4lockEvEUlvE_EE", !65, i64 0, !8, i64 8}
+!72 = !{!73, !39, i64 0}
+!73 = !{!"_ZTSZN3tbb6detail2d18rw_mutex4lockEvEUlvE_", !39, i64 0}
+!74 = !{!75, !8, i64 8}
+!75 = !{!"_ZTSN3tbb6detail2d118delegated_functionIZNS1_8rw_mutex11lock_sharedEvEUlvE_EE", !65, i64 0, !8, i64 8}
+!76 = !{!77, !39, i64 0}
+!77 = !{!"_ZTSZN3tbb6detail2d18rw_mutex11lock_sharedEvEUlvE_", !39, i64 0, !78, i64 8}
+!78 = !{!"p1 long", !8, i64 0}
+!79 = !{!77, !78, i64 8}
+!80 = distinct !{!80, !44}
+!81 = distinct !{!81, !44}
+!82 = distinct !{!82, !44}
+!83 = distinct !{!83, !44}
+!84 = !{!85, !8, i64 8}
+!85 = !{!"_ZTSN3tbb6detail2d118delegated_functionIZNS1_8rw_mutex7upgradeEvEUlvE_EE", !65, i64 0, !8, i64 8}
+!86 = !{!87, !39, i64 0}
+!87 = !{!"_ZTSZN3tbb6detail2d18rw_mutex7upgradeEvEUlvE_", !39, i64 0}

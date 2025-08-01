@@ -49,22 +49,22 @@ define hidden range(i32 -901, 1) i32 @nghttp2_queue_push(ptr noundef captures(no
   br i1 %.not, label %11, label %4
 
 4:                                                ; preds = %2
-  store ptr %1, ptr %3, align 8, !tbaa !14
+  store ptr %1, ptr %3, align 8, !tbaa !13
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr null, ptr %5, align 8, !tbaa !9
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %7 = load ptr, ptr %6, align 8, !tbaa !15
+  %7 = load ptr, ptr %6, align 8, !tbaa !14
   %.not14 = icmp eq ptr %7, null
   br i1 %.not14, label %10, label %8
 
 8:                                                ; preds = %4
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %3, ptr %9, align 8, !tbaa !9
-  store ptr %3, ptr %6, align 8, !tbaa !15
+  store ptr %3, ptr %6, align 8, !tbaa !14
   br label %11
 
 10:                                               ; preds = %4
-  store ptr %3, ptr %6, align 8, !tbaa !15
+  store ptr %3, ptr %6, align 8, !tbaa !14
   store ptr %3, ptr %0, align 8, !tbaa !3
   br label %11
 
@@ -91,12 +91,12 @@ define hidden void @nghttp2_queue_pop(ptr noundef captures(none) %0) local_unnam
   %6 = load ptr, ptr %5, align 8, !tbaa !9
   store ptr %6, ptr %0, align 8, !tbaa !3
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %8 = load ptr, ptr %7, align 8, !tbaa !15
+  %8 = load ptr, ptr %7, align 8, !tbaa !14
   %9 = icmp eq ptr %2, %8
   br i1 %9, label %10, label %11
 
 10:                                               ; preds = %4
-  store ptr null, ptr %7, align 8, !tbaa !15
+  store ptr null, ptr %7, align 8, !tbaa !14
   br label %11
 
 11:                                               ; preds = %10, %4
@@ -118,14 +118,14 @@ define hidden ptr @nghttp2_queue_front(ptr noundef readonly captures(none) %0) l
   unreachable
 
 4:                                                ; preds = %1
-  %5 = load ptr, ptr %2, align 8, !tbaa !14
+  %5 = load ptr, ptr %2, align 8, !tbaa !13
   ret ptr %5
 }
 
 ; Function Attrs: nounwind uwtable
 define hidden ptr @nghttp2_queue_back(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load ptr, ptr %2, align 8, !tbaa !15
+  %3 = load ptr, ptr %2, align 8, !tbaa !14
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %4, label %5
 
@@ -134,7 +134,7 @@ define hidden ptr @nghttp2_queue_back(ptr noundef readonly captures(none) %0) lo
   unreachable
 
 5:                                                ; preds = %1
-  %6 = load ptr, ptr %3, align 8, !tbaa !14
+  %6 = load ptr, ptr %3, align 8, !tbaa !13
   ret ptr %6
 }
 
@@ -174,8 +174,7 @@ attributes #10 = { noreturn nounwind }
 !8 = !{!"Simple C/C++ TBAA"}
 !9 = !{!10, !5, i64 8}
 !10 = !{!"nghttp2_queue_cell", !6, i64 0, !5, i64 8}
-!11 = distinct !{!11, !12, !13}
+!11 = distinct !{!11, !12}
 !12 = !{!"llvm.loop.mustprogress"}
-!13 = !{!"llvm.loop.estimated_trip_count"}
-!14 = !{!10, !6, i64 0}
-!15 = !{!4, !5, i64 8}
+!13 = !{!10, !6, i64 0}
+!14 = !{!4, !5, i64 8}

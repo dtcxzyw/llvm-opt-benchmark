@@ -661,7 +661,7 @@ define internal noundef zeroext i1 @netxray_read(ptr noundef readonly captures(n
   %32 = load ptr, ptr %0, align 8
   %33 = tail call i64 @file_seek(ptr noundef %32, i64 noundef 128, i32 noundef 0, ptr noundef %2)
   %34 = icmp eq i64 %33, -1
-  br i1 %34, label %netxray_guess_atm_type.exit, label %11, !llvm.loop !8
+  br i1 %34, label %netxray_guess_atm_type.exit, label %11
 
 35:                                               ; preds = %17
   %36 = load ptr, ptr %0, align 8
@@ -1301,7 +1301,7 @@ define internal range(i32 -9, 1) i32 @netxray_dump_can_write_encap_1_1(i32 nound
 3:                                                ; preds = %.preheader
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
-  br i1 %exitcond.not.i, label %wtap_encap_to_netxray_1_1_encap.exit, label %.preheader, !llvm.loop !10
+  br i1 %exitcond.not.i, label %wtap_encap_to_netxray_1_1_encap.exit, label %.preheader, !llvm.loop !8
 
 .preheader:                                       ; preds = %1, %3
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %3 ], [ 0, %1 ]
@@ -1486,7 +1486,7 @@ define internal noundef zeroext i1 @netxray_dump_finish_1_1(ptr noundef %0, ptr 
 22:                                               ; preds = %23
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
-  br i1 %exitcond.not.i, label %wtap_encap_to_netxray_1_1_encap.exit, label %23, !llvm.loop !10
+  br i1 %exitcond.not.i, label %wtap_encap_to_netxray_1_1_encap.exit, label %23, !llvm.loop !8
 
 23:                                               ; preds = %22, %14
   %indvars.iv.i = phi i64 [ 0, %14 ], [ %indvars.iv.next.i, %22 ]
@@ -1551,7 +1551,7 @@ define internal range(i32 -9, 1) i32 @netxray_dump_can_write_encap_2_0(i32 nound
 3:                                                ; preds = %.preheader
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %wtap_encap_to_netxray_2_0_encap.exit, label %.preheader, !llvm.loop !12
+  br i1 %exitcond.not.i, label %wtap_encap_to_netxray_2_0_encap.exit, label %.preheader, !llvm.loop !10
 
 .preheader:                                       ; preds = %1, %3
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %3 ], [ 0, %1 ]
@@ -1824,7 +1824,7 @@ define internal noundef zeroext i1 @netxray_dump_finish_2_0(ptr noundef %0, ptr 
 22:                                               ; preds = %23
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %wtap_encap_to_netxray_2_0_encap.exit, label %23, !llvm.loop !12
+  br i1 %exitcond.not.i, label %wtap_encap_to_netxray_2_0_encap.exit, label %23, !llvm.loop !10
 
 23:                                               ; preds = %22, %14
   %indvars.iv.i = phi i64 [ 0, %14 ], [ %indvars.iv.next.i, %22 ]
@@ -1925,7 +1925,5 @@ attributes #9 = { allocsize(0) }
 !6 = !{i8 0, i8 2}
 !7 = !{}
 !8 = distinct !{!8, !9}
-!9 = !{!"llvm.loop.estimated_trip_count"}
-!10 = distinct !{!10, !11, !9}
-!11 = !{!"llvm.loop.mustprogress"}
-!12 = distinct !{!12, !11, !9}
+!9 = !{!"llvm.loop.mustprogress"}
+!10 = distinct !{!10, !9}

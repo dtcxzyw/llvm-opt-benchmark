@@ -3213,7 +3213,7 @@ define internal noundef ptr @z_set(ptr noundef writeonly captures(none) %0, ptr 
   br i1 %4, label %5, label %10
 
 5:                                                ; preds = %3
-  store ptr null, ptr %0, align 8, !tbaa !113
+  store ptr null, ptr %0, align 8, !tbaa !112
   %6 = load i32, ptr @_Py_NoneStruct, align 8, !tbaa !10
   %7 = icmp slt i32 %6, 0
   br i1 %7, label %_Py_NewRef.exit, label %8
@@ -3234,7 +3234,7 @@ define internal noundef ptr @z_set(ptr noundef writeonly captures(none) %0, ptr 
 
 14:                                               ; preds = %10
   %15 = tail call ptr @PyBytes_AsString(ptr noundef %1) #8
-  store ptr %15, ptr %0, align 8, !tbaa !113
+  store ptr %15, ptr %0, align 8, !tbaa !112
   %16 = load i32, ptr %1, align 8, !tbaa !10
   %17 = icmp slt i32 %16, 0
   br i1 %17, label %_Py_NewRef.exit, label %18
@@ -3252,7 +3252,7 @@ define internal noundef ptr @z_set(ptr noundef writeonly captures(none) %0, ptr 
 22:                                               ; preds = %20
   %23 = tail call i64 @PyLong_AsUnsignedLongLongMask(ptr noundef %1) #8
   %24 = inttoptr i64 %23 to ptr
-  store ptr %24, ptr %0, align 8, !tbaa !113
+  store ptr %24, ptr %0, align 8, !tbaa !112
   br label %_Py_NewRef.exit
 
 25:                                               ; preds = %20
@@ -3352,7 +3352,7 @@ define internal ptr @U_get(ptr noundef %0, i64 noundef %1) #0 {
 6:                                                ; preds = %.lr.ph
   %7 = add nuw nsw i64 %.08, 1
   %exitcond.not = icmp eq i64 %7, %3
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !114
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !113
 
 ._crit_edge:                                      ; preds = %6, %.lr.ph, %2
   %.0.lcssa = phi i64 [ 0, %2 ], [ %.08, %.lr.ph ], [ %3, %6 ]
@@ -3368,7 +3368,7 @@ define internal ptr @Z_set(ptr noundef writeonly captures(none) %0, ptr noundef 
   br i1 %5, label %6, label %11
 
 6:                                                ; preds = %3
-  store ptr null, ptr %0, align 8, !tbaa !115
+  store ptr null, ptr %0, align 8, !tbaa !114
   %7 = load i32, ptr @_Py_NoneStruct, align 8, !tbaa !10
   %8 = icmp slt i32 %7, 0
   br i1 %8, label %_Py_NewRef.exit, label %9
@@ -3390,7 +3390,7 @@ define internal ptr @Z_set(ptr noundef writeonly captures(none) %0, ptr noundef 
 15:                                               ; preds = %11
   %16 = tail call i64 @PyLong_AsUnsignedLongLongMask(ptr noundef %1) #8
   %17 = inttoptr i64 %16 to ptr
-  store ptr %17, ptr %0, align 8, !tbaa !115
+  store ptr %17, ptr %0, align 8, !tbaa !114
   br label %_Py_NewRef.exit
 
 18:                                               ; preds = %11
@@ -3420,7 +3420,7 @@ define internal ptr @Z_set(ptr noundef writeonly captures(none) %0, ptr noundef 
   br label %_Py_NewRef.exit
 
 30:                                               ; preds = %27
-  store ptr %26, ptr %0, align 8, !tbaa !115
+  store ptr %26, ptr %0, align 8, !tbaa !114
   br label %_Py_NewRef.exit
 
 _Py_NewRef.exit:                                  ; preds = %9, %6, %25, %30, %29, %20, %15
@@ -3431,7 +3431,7 @@ _Py_NewRef.exit:                                  ; preds = %9, %6, %25, %30, %2
 
 ; Function Attrs: nounwind uwtable
 define internal ptr @Z_get(ptr noundef readonly captures(none) %0, i64 %1) #0 {
-  %3 = load ptr, ptr %0, align 8, !tbaa !115
+  %3 = load ptr, ptr %0, align 8, !tbaa !114
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %7, label %4
 
@@ -3504,7 +3504,7 @@ define internal noundef ptr @bool_set(ptr noundef writeonly captures(none) %0, p
 
 .sink.split:                                      ; preds = %3, %5
   %.sink = phi i8 [ 1, %5 ], [ 0, %3 ]
-  store i8 %.sink, ptr %0, align 1, !tbaa !117
+  store i8 %.sink, ptr %0, align 1, !tbaa !116
   br label %6
 
 6:                                                ; preds = %.sink.split, %3
@@ -3514,7 +3514,7 @@ define internal noundef ptr @bool_set(ptr noundef writeonly captures(none) %0, p
 
 ; Function Attrs: nounwind uwtable
 define internal ptr @bool_get(ptr noundef readonly captures(none) %0, i64 %1) #0 {
-  %3 = load i8, ptr %0, align 1, !tbaa !117, !range !119, !noundef !120
+  %3 = load i8, ptr %0, align 1, !tbaa !116, !range !118, !noundef !119
   %4 = zext nneg i8 %3 to i64
   %5 = tail call ptr @PyBool_FromLong(i64 noundef %4) #8
   ret ptr %5
@@ -3724,14 +3724,13 @@ attributes #9 = { nounwind willreturn memory(read) }
 !107 = !{!108, !44, i64 16}
 !108 = !{!"", !42, i64 0, !44, i64 16, !44, i64 24, !109, i64 32}
 !109 = !{!"", !59, i64 0, !59, i64 2, !59, i64 2, !59, i64 2, !59, i64 2}
-!110 = distinct !{!110, !111, !112}
+!110 = distinct !{!110, !111}
 !111 = !{!"llvm.loop.mustprogress"}
-!112 = !{!"llvm.loop.estimated_trip_count"}
-!113 = !{!54, !54, i64 0}
-!114 = distinct !{!114, !111, !112}
-!115 = !{!116, !116, i64 0}
-!116 = !{!"p1 int", !5, i64 0}
-!117 = !{!118, !118, i64 0}
-!118 = !{!"_Bool", !6, i64 0}
-!119 = !{i8 0, i8 2}
-!120 = !{}
+!112 = !{!54, !54, i64 0}
+!113 = distinct !{!113, !111}
+!114 = !{!115, !115, i64 0}
+!115 = !{!"p1 int", !5, i64 0}
+!116 = !{!117, !117, i64 0}
+!117 = !{!"_Bool", !6, i64 0}
+!118 = !{i8 0, i8 2}
+!119 = !{}

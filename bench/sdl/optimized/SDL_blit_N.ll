@@ -511,13 +511,13 @@ default.unreachable:                              ; preds = %263, %176, %394
   %159 = getelementptr inbounds nuw i8, ptr %.3622, i64 4
   %160 = add nsw i32 %.2644, -1
   %161 = icmp sgt i32 %.2644, 1
-  br i1 %161, label %60, label %162, !llvm.loop !6
+  br i1 %161, label %60, label %162, !llvm.loop !5
 
 162:                                              ; preds = %135
   %163 = getelementptr inbounds i8, ptr %158, i64 %57
   %164 = getelementptr inbounds i8, ptr %159, i64 %58
   %.not689 = icmp eq i32 %59, 0
-  br i1 %.not689, label %._crit_edge727, label %.lr.ph726.split, !llvm.loop !7
+  br i1 %.not689, label %._crit_edge727, label %.lr.ph726.split, !llvm.loop !6
 
 ._crit_edge727:                                   ; preds = %162, %52
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #6
@@ -667,13 +667,13 @@ default.unreachable:                              ; preds = %263, %176, %394
   %245 = getelementptr inbounds nuw i8, ptr %.8627, i64 3
   %246 = add nsw i32 %.2648, -1
   %247 = icmp sgt i32 %.2648, 1
-  br i1 %247, label %178, label %248, !llvm.loop !8
+  br i1 %247, label %178, label %248, !llvm.loop !7
 
 248:                                              ; preds = %229
   %249 = getelementptr inbounds i8, ptr %244, i64 %174
   %250 = getelementptr inbounds i8, ptr %245, i64 %175
   %.not688 = icmp eq i32 %177, 0
-  br i1 %.not688, label %._crit_edge721, label %176, !llvm.loop !9
+  br i1 %.not688, label %._crit_edge721, label %176, !llvm.loop !8
 
 ._crit_edge721:                                   ; preds = %248, %170
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #6
@@ -864,13 +864,13 @@ default.unreachable:                              ; preds = %263, %176, %394
   %364 = getelementptr inbounds nuw i8, ptr %.13632, i64 4
   %365 = add nsw i32 %.2655, -1
   %366 = icmp sgt i32 %.2655, 1
-  br i1 %366, label %265, label %367, !llvm.loop !10
+  br i1 %366, label %265, label %367, !llvm.loop !9
 
 367:                                              ; preds = %340
   %368 = getelementptr inbounds i8, ptr %363, i64 %261
   %369 = getelementptr inbounds i8, ptr %364, i64 %262
   %.not687 = icmp eq i32 %264, 0
-  br i1 %.not687, label %._crit_edge, label %263, !llvm.loop !11
+  br i1 %.not687, label %._crit_edge, label %263, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %367, %256
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15) #6
@@ -2103,13 +2103,13 @@ default.unreachable:                              ; preds = %263, %176, %394
   %1387 = getelementptr inbounds nuw i8, ptr %.18, i64 %391
   %1388 = add nsw i32 %.2659, -1
   %1389 = icmp sgt i32 %.2659, 1
-  br i1 %1389, label %396, label %1390, !llvm.loop !12
+  br i1 %1389, label %396, label %1390, !llvm.loop !11
 
 1390:                                             ; preds = %1385
   %1391 = getelementptr inbounds i8, ptr %1387, i64 %392
   %1392 = getelementptr inbounds i8, ptr %1386, i64 %393
   %.not686 = icmp eq i32 %395, 0
-  br i1 %.not686, label %.loopexit, label %394, !llvm.loop !13
+  br i1 %.not686, label %.loopexit, label %394, !llvm.loop !12
 
 .loopexit:                                        ; preds = %1390, %.thread704, %._crit_edge, %._crit_edge721, %._crit_edge727
   ret void
@@ -2313,7 +2313,7 @@ define internal void @BlitNtoNCopyAlpha(ptr noundef readonly captures(none) %0) 
   %129 = getelementptr inbounds nuw i8, ptr %.3197, i64 4
   %130 = add nsw i32 %.2207, -1
   %131 = icmp sgt i32 %.2207, 1
-  br i1 %131, label %42, label %132, !llvm.loop !14
+  br i1 %131, label %42, label %132, !llvm.loop !13
 
 default.unreachable243:                           ; preds = %40
   unreachable
@@ -2322,7 +2322,7 @@ default.unreachable243:                           ; preds = %40
   %133 = getelementptr inbounds i8, ptr %128, i64 %38
   %134 = getelementptr inbounds i8, ptr %129, i64 %39
   %.not219 = icmp eq i32 %41, 0
-  br i1 %.not219, label %._crit_edge, label %40, !llvm.loop !15
+  br i1 %.not219, label %._crit_edge, label %40, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %132, %34
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #6
@@ -2703,13 +2703,13 @@ default.unreachable243:                           ; preds = %40
   %444 = getelementptr inbounds nuw i8, ptr %.6234, i64 %157
   %445 = add nsw i32 %.0209232, -1
   %.not218 = icmp eq i32 %445, 0
-  br i1 %.not218, label %._crit_edge236, label %161, !llvm.loop !16
+  br i1 %.not218, label %._crit_edge236, label %161, !llvm.loop !15
 
 ._crit_edge236:                                   ; preds = %442
   %446 = getelementptr inbounds i8, ptr %444, i64 %158
   %447 = getelementptr inbounds i8, ptr %443, i64 %159
   %.not217 = icmp eq i32 %160, 0
-  br i1 %.not217, label %.loopexit, label %.preheader, !llvm.loop !17
+  br i1 %.not217, label %.loopexit, label %.preheader, !llvm.loop !16
 
 .loopexit:                                        ; preds = %._crit_edge236, %.preheader.lr.ph, %135, %._crit_edge
   ret void
@@ -2870,13 +2870,13 @@ default.unreachable:                              ; preds = %98
   %76 = getelementptr inbounds nuw i8, ptr %.7128, i64 4
   %77 = add nsw i32 %.6119, -1
   %78 = icmp sgt i32 %.6119, 1
-  br i1 %78, label %37, label %79, !llvm.loop !18
+  br i1 %78, label %37, label %79, !llvm.loop !17
 
 79:                                               ; preds = %72
   %80 = getelementptr inbounds i8, ptr %76, i64 %34
   %81 = getelementptr inbounds i8, ptr %75, i64 %35
   %.not150 = icmp eq i32 %36, 0
-  br i1 %.not150, label %.loopexit, label %.lr.ph.split, !llvm.loop !19
+  br i1 %.not150, label %.loopexit, label %.lr.ph.split, !llvm.loop !18
 
 82:                                               ; preds = %1
   %83 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -3004,13 +3004,13 @@ default.unreachable:                              ; preds = %98
   %139 = getelementptr inbounds nuw i8, ptr %.16, i64 4
   %140 = add nsw i32 %.6, -1
   %141 = icmp sgt i32 %.6, 1
-  br i1 %141, label %100, label %142, !llvm.loop !20
+  br i1 %141, label %100, label %142, !llvm.loop !19
 
 142:                                              ; preds = %135
   %143 = getelementptr inbounds i8, ptr %139, i64 %96
   %144 = getelementptr inbounds i8, ptr %138, i64 %97
   %.not149 = icmp eq i32 %99, 0
-  br i1 %.not149, label %.loopexit, label %98, !llvm.loop !21
+  br i1 %.not149, label %.loopexit, label %98, !llvm.loop !20
 
 .loopexit:                                        ; preds = %79, %142, %18, %82
   ret void
@@ -3172,13 +3172,13 @@ default.unreachable:                              ; preds = %100
   %77 = getelementptr inbounds nuw i8, ptr %.7128, i64 2
   %78 = add nsw i32 %.6119, -1
   %79 = icmp sgt i32 %.6119, 1
-  br i1 %79, label %38, label %80, !llvm.loop !22
+  br i1 %79, label %38, label %80, !llvm.loop !21
 
 80:                                               ; preds = %73
   %81 = getelementptr inbounds i8, ptr %77, i64 %35
   %82 = getelementptr inbounds i8, ptr %76, i64 %36
   %.not150 = icmp eq i32 %37, 0
-  br i1 %.not150, label %.loopexit, label %.lr.ph.split, !llvm.loop !23
+  br i1 %.not150, label %.loopexit, label %.lr.ph.split, !llvm.loop !22
 
 83:                                               ; preds = %1
   br i1 %.not149156, label %.loopexit, label %.lr.ph159
@@ -3306,13 +3306,13 @@ default.unreachable:                              ; preds = %100
   %141 = getelementptr inbounds nuw i8, ptr %.16, i64 2
   %142 = add nsw i32 %.6, -1
   %143 = icmp sgt i32 %.6, 1
-  br i1 %143, label %102, label %144, !llvm.loop !24
+  br i1 %143, label %102, label %144, !llvm.loop !23
 
 144:                                              ; preds = %137
   %145 = getelementptr inbounds i8, ptr %141, i64 %98
   %146 = getelementptr inbounds i8, ptr %140, i64 %99
   %.not149 = icmp eq i32 %101, 0
-  br i1 %.not149, label %.loopexit, label %100, !llvm.loop !25
+  br i1 %.not149, label %.loopexit, label %100, !llvm.loop !24
 
 .loopexit:                                        ; preds = %80, %144, %18, %83
   ret void
@@ -3524,7 +3524,7 @@ define internal void @Blit2to2Key(ptr noundef readonly captures(none) %0) #3 {
   %94 = getelementptr inbounds nuw i8, ptr %.791, i64 2
   %95 = add nsw i32 %.6, -1
   %96 = icmp sgt i32 %.6, 1
-  br i1 %96, label %31, label %97, !llvm.loop !26
+  br i1 %96, label %31, label %97, !llvm.loop !25
 
 default.unreachable105:                           ; preds = %29
   unreachable
@@ -3533,7 +3533,7 @@ default.unreachable105:                           ; preds = %29
   %98 = getelementptr inbounds i16, ptr %94, i64 %27
   %99 = getelementptr inbounds i16, ptr %93, i64 %28
   %.not = icmp eq i32 %30, 0
-  br i1 %.not, label %._crit_edge, label %29, !llvm.loop !27
+  br i1 %.not, label %._crit_edge, label %29, !llvm.loop !26
 
 ._crit_edge:                                      ; preds = %97, %1
   ret void
@@ -3760,13 +3760,13 @@ default.unreachable:                              ; preds = %117, %255
   %96 = getelementptr inbounds nuw i8, ptr %.7690, i64 4
   %97 = add nsw i32 %.6698, -1
   %98 = icmp sgt i32 %.6698, 1
-  br i1 %98, label %41, label %99, !llvm.loop !28
+  br i1 %98, label %41, label %99, !llvm.loop !27
 
 99:                                               ; preds = %94
   %100 = getelementptr inbounds i8, ptr %95, i64 %38
   %101 = getelementptr inbounds i8, ptr %96, i64 %39
   %.not728 = icmp eq i32 %40, 0
-  br i1 %.not728, label %.loopexit, label %.lr.ph760.split, !llvm.loop !29
+  br i1 %.not728, label %.loopexit, label %.lr.ph760.split, !llvm.loop !28
 
 102:                                              ; preds = %1
   %103 = getelementptr inbounds nuw i8, ptr %23, i64 5
@@ -3973,13 +3973,13 @@ default.unreachable:                              ; preds = %117, %255
   %222 = getelementptr inbounds nuw i8, ptr %.3647, i64 4
   %223 = add nsw i32 %.2706, -1
   %224 = icmp sgt i32 %.2706, 1
-  br i1 %224, label %119, label %225, !llvm.loop !30
+  br i1 %224, label %119, label %225, !llvm.loop !29
 
 225:                                              ; preds = %220
   %226 = getelementptr inbounds i8, ptr %221, i64 %115
   %227 = getelementptr inbounds i8, ptr %222, i64 %116
   %.not723 = icmp eq i32 %118, 0
-  br i1 %.not723, label %._crit_edge, label %117, !llvm.loop !31
+  br i1 %.not723, label %._crit_edge, label %117, !llvm.loop !30
 
 ._crit_edge:                                      ; preds = %225, %111
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #6
@@ -5389,13 +5389,13 @@ default.unreachable:                              ; preds = %117, %255
   %1400 = getelementptr inbounds nuw i8, ptr %.9, i64 %252
   %1401 = add nsw i32 %.3703, -1
   %1402 = icmp sgt i32 %.3703, 1
-  br i1 %1402, label %257, label %1403, !llvm.loop !32
+  br i1 %1402, label %257, label %1403, !llvm.loop !31
 
 1403:                                             ; preds = %1398
   %1404 = getelementptr inbounds i8, ptr %1400, i64 %253
   %1405 = getelementptr inbounds i8, ptr %1399, i64 %254
   %.not718 = icmp eq i32 %256, 0
-  br i1 %.not718, label %.loopexit, label %255, !llvm.loop !33
+  br i1 %.not718, label %.loopexit, label %255, !llvm.loop !32
 
 .loopexit:                                        ; preds = %1403, %99, %228, %34, %31, %._crit_edge
   ret void
@@ -5683,13 +5683,13 @@ default.unreachable:                              ; preds = %245, %626, %520, %7
   %150 = getelementptr inbounds nuw i8, ptr %.7985, i64 4
   %151 = add nsw i32 %.61020, -1
   %152 = icmp sgt i32 %.61020, 1
-  br i1 %152, label %87, label %153, !llvm.loop !34
+  br i1 %152, label %87, label %153, !llvm.loop !33
 
 153:                                              ; preds = %148
   %154 = getelementptr inbounds i8, ptr %150, i64 %84
   %155 = getelementptr inbounds i8, ptr %149, i64 %85
   %.not1148 = icmp eq i32 %86, 0
-  br i1 %.not1148, label %.loopexit, label %.lr.ph1239.split, !llvm.loop !35
+  br i1 %.not1148, label %.loopexit, label %.lr.ph1239.split, !llvm.loop !34
 
 156:                                              ; preds = %72
   %157 = or i32 %62, %56
@@ -5873,13 +5873,13 @@ default.unreachable:                              ; preds = %245, %626, %520, %7
   %229 = getelementptr inbounds nuw i8, ptr %.16994, i64 4
   %230 = add nsw i32 %.61029, -1
   %231 = icmp sgt i32 %.61029, 1
-  br i1 %231, label %166, label %232, !llvm.loop !36
+  br i1 %231, label %166, label %232, !llvm.loop !35
 
 232:                                              ; preds = %227
   %233 = getelementptr inbounds i8, ptr %229, i64 %162
   %234 = getelementptr inbounds i8, ptr %228, i64 %163
   %.not1139 = icmp eq i32 %165, 0
-  br i1 %.not1139, label %.loopexit, label %164, !llvm.loop !37
+  br i1 %.not1139, label %.loopexit, label %164, !llvm.loop !36
 
 235:                                              ; preds = %54, %60, %66
   %236 = and i32 %49, -15794176
@@ -6096,13 +6096,13 @@ default.unreachable:                              ; preds = %245, %626, %520, %7
   %362 = getelementptr inbounds nuw i8, ptr %.3951, i64 4
   %363 = add nsw i32 %.21033, -1
   %364 = icmp sgt i32 %.21033, 1
-  br i1 %364, label %247, label %365, !llvm.loop !38
+  br i1 %364, label %247, label %365, !llvm.loop !37
 
 365:                                              ; preds = %360
   %366 = getelementptr inbounds i8, ptr %361, i64 %243
   %367 = getelementptr inbounds i8, ptr %362, i64 %244
   %.not1133 = icmp eq i32 %246, 0
-  br i1 %.not1133, label %._crit_edge, label %245, !llvm.loop !39
+  br i1 %.not1133, label %._crit_edge, label %245, !llvm.loop !38
 
 ._crit_edge:                                      ; preds = %365, %238
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #6
@@ -6276,13 +6276,13 @@ default.unreachable:                              ; preds = %245, %626, %520, %7
   %437 = getelementptr inbounds nuw i8, ptr %.8956, i64 3
   %438 = add nsw i32 %.21037, -1
   %439 = icmp sgt i32 %.21037, 1
-  br i1 %439, label %390, label %440, !llvm.loop !40
+  br i1 %439, label %390, label %440, !llvm.loop !39
 
 440:                                              ; preds = %435
   %441 = getelementptr inbounds i8, ptr %436, i64 %386
   %442 = getelementptr inbounds i8, ptr %437, i64 %387
   %.not1120 = icmp eq i32 %389, 0
-  br i1 %.not1120, label %.loopexit, label %388, !llvm.loop !41
+  br i1 %.not1120, label %.loopexit, label %388, !llvm.loop !40
 
 443:                                              ; preds = %372
   %or.cond12 = select i1 %374, i1 %376, i1 false
@@ -6435,13 +6435,13 @@ default.unreachable:                              ; preds = %245, %626, %520, %7
   %504 = getelementptr inbounds nuw i8, ptr %.13961, i64 3
   %505 = add nsw i32 %.21041, -1
   %506 = icmp sgt i32 %.21041, 1
-  br i1 %506, label %457, label %507, !llvm.loop !42
+  br i1 %506, label %457, label %507, !llvm.loop !41
 
 507:                                              ; preds = %502
   %508 = getelementptr inbounds i8, ptr %503, i64 %453
   %509 = getelementptr inbounds i8, ptr %504, i64 %454
   %.not1107 = icmp eq i32 %456, 0
-  br i1 %.not1107, label %.loopexit, label %455, !llvm.loop !43
+  br i1 %.not1107, label %.loopexit, label %455, !llvm.loop !42
 
 510:                                              ; preds = %443
   %511 = icmp eq i8 %37, 3
@@ -6618,13 +6618,13 @@ default.unreachable:                              ; preds = %245, %626, %520, %7
   %605 = getelementptr inbounds nuw i8, ptr %.18966, i64 3
   %606 = add nsw i32 %.21045, -1
   %607 = icmp sgt i32 %.21045, 1
-  br i1 %607, label %522, label %608, !llvm.loop !44
+  br i1 %607, label %522, label %608, !llvm.loop !43
 
 608:                                              ; preds = %603
   %609 = getelementptr inbounds i8, ptr %604, i64 %518
   %610 = getelementptr inbounds i8, ptr %605, i64 %519
   %.not1102 = icmp eq i32 %521, 0
-  br i1 %.not1102, label %._crit_edge1220, label %520, !llvm.loop !45
+  br i1 %.not1102, label %._crit_edge1220, label %520, !llvm.loop !44
 
 ._crit_edge1220:                                  ; preds = %608, %514
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #6
@@ -6889,13 +6889,13 @@ default.unreachable:                              ; preds = %245, %626, %520, %7
   %759 = getelementptr inbounds nuw i8, ptr %.23971, i64 4
   %760 = add nsw i32 %.21049, -1
   %761 = icmp sgt i32 %.21049, 1
-  br i1 %761, label %628, label %762, !llvm.loop !46
+  br i1 %761, label %628, label %762, !llvm.loop !45
 
 762:                                              ; preds = %757
   %763 = getelementptr inbounds i8, ptr %758, i64 %624
   %764 = getelementptr inbounds i8, ptr %759, i64 %625
   %.not1089 = icmp eq i32 %627, 0
-  br i1 %.not1089, label %._crit_edge1214, label %626, !llvm.loop !47
+  br i1 %.not1089, label %._crit_edge1214, label %626, !llvm.loop !46
 
 ._crit_edge1214:                                  ; preds = %762, %614
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15) #6
@@ -7820,13 +7820,13 @@ default.unreachable:                              ; preds = %245, %626, %520, %7
   %1482 = getelementptr inbounds nuw i8, ptr %.28, i64 %786
   %1483 = add nsw i32 %.21054, -1
   %1484 = icmp sgt i32 %.21054, 1
-  br i1 %1484, label %791, label %1485, !llvm.loop !48
+  br i1 %1484, label %791, label %1485, !llvm.loop !47
 
 1485:                                             ; preds = %1480
   %1486 = getelementptr inbounds i8, ptr %1482, i64 %787
   %1487 = getelementptr inbounds i8, ptr %1481, i64 %788
   %.not1084 = icmp eq i32 %790, 0
-  br i1 %.not1084, label %.loopexit, label %789, !llvm.loop !49
+  br i1 %.not1084, label %.loopexit, label %789, !llvm.loop !48
 
 .loopexit:                                        ; preds = %1485, %507, %440, %153, %232, %.thread, %444, %377, %73, %156, %._crit_edge1214, %._crit_edge1220, %._crit_edge
   ret void
@@ -7860,9 +7860,8 @@ define internal void @Blit_RGB565_BGRA8888(ptr noundef readonly captures(none) %
 define internal fastcc void @Blit_RGB565_32(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) unnamed_addr #3 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %4 = load i32, ptr %3, align 4
-  %invariant.gep = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %.not61 = icmp eq i32 %4, 0
-  br i1 %.not61, label %._crit_edge, label %.lr.ph
+  %.not55 = icmp eq i32 %4, 0
+  br i1 %.not55, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 60
@@ -7883,22 +7882,22 @@ define internal fastcc void @Blit_RGB565_32(ptr noundef readonly captures(none) 
   %20 = sext i32 %7 to i64
   br label %21
 
-21:                                               ; preds = %.lr.ph, %73
-  %.in = phi i32 [ %4, %.lr.ph ], [ %22, %73 ]
-  %.03863 = phi ptr [ %13, %.lr.ph ], [ %74, %73 ]
-  %.04262 = phi ptr [ %9, %.lr.ph ], [ %75, %73 ]
+21:                                               ; preds = %.lr.ph, %81
+  %.in = phi i32 [ %4, %.lr.ph ], [ %22, %81 ]
+  %.03857 = phi ptr [ %13, %.lr.ph ], [ %82, %81 ]
+  %.04256 = phi ptr [ %9, %.lr.ph ], [ %83, %81 ]
   %22 = add nsw i32 %.in, -1
-  switch i32 %18, label %default.unreachable64 [
+  switch i32 %18, label %default.unreachable58 [
     i32 0, label %23
-    i32 3, label %35
-    i32 2, label %47
-    i32 1, label %59
+    i32 3, label %37
+    i32 2, label %51
+    i32 1, label %65
   ]
 
-23:                                               ; preds = %21, %59
-  %.446 = phi ptr [ %.04262, %21 ], [ %69, %59 ]
-  %.4 = phi ptr [ %.03863, %21 ], [ %70, %59 ]
-  %.3 = phi i32 [ %17, %21 ], [ %71, %59 ]
+23:                                               ; preds = %21, %65
+  %.446 = phi ptr [ %.04256, %21 ], [ %77, %65 ]
+  %.4 = phi ptr [ %.03857, %21 ], [ %78, %65 ]
+  %.3 = phi i32 [ %17, %21 ], [ %79, %65 ]
   %24 = load i8, ptr %.4, align 1
   %25 = zext i8 %24 to i64
   %.idx = shl nuw nsw i64 %25, 3
@@ -7908,89 +7907,93 @@ define internal fastcc void @Blit_RGB565_32(ptr noundef readonly captures(none) 
   %29 = load i8, ptr %28, align 1
   %30 = zext i8 %29 to i64
   %.idx48 = shl nuw nsw i64 %30, 3
-  %gep = getelementptr inbounds nuw i8, ptr %invariant.gep, i64 %.idx48
-  %31 = load i32, ptr %gep, align 4
-  %32 = add i32 %31, %27
-  %33 = getelementptr inbounds nuw i8, ptr %.446, i64 4
-  store i32 %32, ptr %.446, align 4
-  %34 = getelementptr inbounds nuw i8, ptr %.4, i64 2
-  br label %35
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx48
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 4
+  %33 = load i32, ptr %32, align 4
+  %34 = add i32 %33, %27
+  %35 = getelementptr inbounds nuw i8, ptr %.446, i64 4
+  store i32 %34, ptr %.446, align 4
+  %36 = getelementptr inbounds nuw i8, ptr %.4, i64 2
+  br label %37
 
-35:                                               ; preds = %23, %21
-  %.143 = phi ptr [ %33, %23 ], [ %.04262, %21 ]
-  %.139 = phi ptr [ %34, %23 ], [ %.03863, %21 ]
+37:                                               ; preds = %23, %21
+  %.143 = phi ptr [ %35, %23 ], [ %.04256, %21 ]
+  %.139 = phi ptr [ %36, %23 ], [ %.03857, %21 ]
   %.0 = phi i32 [ %.3, %23 ], [ %17, %21 ]
-  %36 = load i8, ptr %.139, align 1
-  %37 = zext i8 %36 to i64
-  %.idx49 = shl nuw nsw i64 %37, 3
-  %38 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx49
-  %39 = load i32, ptr %38, align 4
-  %40 = getelementptr inbounds nuw i8, ptr %.139, i64 1
-  %41 = load i8, ptr %40, align 1
-  %42 = zext i8 %41 to i64
-  %.idx50 = shl nuw nsw i64 %42, 3
-  %gep56 = getelementptr inbounds nuw i8, ptr %invariant.gep, i64 %.idx50
-  %43 = load i32, ptr %gep56, align 4
-  %44 = add i32 %43, %39
-  %45 = getelementptr inbounds nuw i8, ptr %.143, i64 4
-  store i32 %44, ptr %.143, align 4
-  %46 = getelementptr inbounds nuw i8, ptr %.139, i64 2
-  br label %47
+  %38 = load i8, ptr %.139, align 1
+  %39 = zext i8 %38 to i64
+  %.idx49 = shl nuw nsw i64 %39, 3
+  %40 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx49
+  %41 = load i32, ptr %40, align 4
+  %42 = getelementptr inbounds nuw i8, ptr %.139, i64 1
+  %43 = load i8, ptr %42, align 1
+  %44 = zext i8 %43 to i64
+  %.idx50 = shl nuw nsw i64 %44, 3
+  %45 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx50
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 4
+  %47 = load i32, ptr %46, align 4
+  %48 = add i32 %47, %41
+  %49 = getelementptr inbounds nuw i8, ptr %.143, i64 4
+  store i32 %48, ptr %.143, align 4
+  %50 = getelementptr inbounds nuw i8, ptr %.139, i64 2
+  br label %51
 
-47:                                               ; preds = %35, %21
-  %.244 = phi ptr [ %45, %35 ], [ %.04262, %21 ]
-  %.240 = phi ptr [ %46, %35 ], [ %.03863, %21 ]
-  %.1 = phi i32 [ %.0, %35 ], [ %17, %21 ]
-  %48 = load i8, ptr %.240, align 1
-  %49 = zext i8 %48 to i64
-  %.idx51 = shl nuw nsw i64 %49, 3
-  %50 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx51
-  %51 = load i32, ptr %50, align 4
-  %52 = getelementptr inbounds nuw i8, ptr %.240, i64 1
-  %53 = load i8, ptr %52, align 1
-  %54 = zext i8 %53 to i64
-  %.idx52 = shl nuw nsw i64 %54, 3
-  %gep58 = getelementptr inbounds nuw i8, ptr %invariant.gep, i64 %.idx52
-  %55 = load i32, ptr %gep58, align 4
-  %56 = add i32 %55, %51
-  %57 = getelementptr inbounds nuw i8, ptr %.244, i64 4
-  store i32 %56, ptr %.244, align 4
-  %58 = getelementptr inbounds nuw i8, ptr %.240, i64 2
-  br label %59
+51:                                               ; preds = %37, %21
+  %.244 = phi ptr [ %49, %37 ], [ %.04256, %21 ]
+  %.240 = phi ptr [ %50, %37 ], [ %.03857, %21 ]
+  %.1 = phi i32 [ %.0, %37 ], [ %17, %21 ]
+  %52 = load i8, ptr %.240, align 1
+  %53 = zext i8 %52 to i64
+  %.idx51 = shl nuw nsw i64 %53, 3
+  %54 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx51
+  %55 = load i32, ptr %54, align 4
+  %56 = getelementptr inbounds nuw i8, ptr %.240, i64 1
+  %57 = load i8, ptr %56, align 1
+  %58 = zext i8 %57 to i64
+  %.idx52 = shl nuw nsw i64 %58, 3
+  %59 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx52
+  %60 = getelementptr inbounds nuw i8, ptr %59, i64 4
+  %61 = load i32, ptr %60, align 4
+  %62 = add i32 %61, %55
+  %63 = getelementptr inbounds nuw i8, ptr %.244, i64 4
+  store i32 %62, ptr %.244, align 4
+  %64 = getelementptr inbounds nuw i8, ptr %.240, i64 2
+  br label %65
 
-59:                                               ; preds = %47, %21
-  %.345 = phi ptr [ %57, %47 ], [ %.04262, %21 ]
-  %.341 = phi ptr [ %58, %47 ], [ %.03863, %21 ]
-  %.2 = phi i32 [ %.1, %47 ], [ %17, %21 ]
-  %60 = load i8, ptr %.341, align 1
-  %61 = zext i8 %60 to i64
-  %.idx53 = shl nuw nsw i64 %61, 3
-  %62 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx53
-  %63 = load i32, ptr %62, align 4
-  %64 = getelementptr inbounds nuw i8, ptr %.341, i64 1
-  %65 = load i8, ptr %64, align 1
-  %66 = zext i8 %65 to i64
-  %.idx54 = shl nuw nsw i64 %66, 3
-  %gep60 = getelementptr inbounds nuw i8, ptr %invariant.gep, i64 %.idx54
-  %67 = load i32, ptr %gep60, align 4
-  %68 = add i32 %67, %63
-  %69 = getelementptr inbounds nuw i8, ptr %.345, i64 4
-  store i32 %68, ptr %.345, align 4
-  %70 = getelementptr inbounds nuw i8, ptr %.341, i64 2
-  %71 = add nsw i32 %.2, -1
-  %72 = icmp sgt i32 %.2, 1
-  br i1 %72, label %23, label %73, !llvm.loop !50
+65:                                               ; preds = %51, %21
+  %.345 = phi ptr [ %63, %51 ], [ %.04256, %21 ]
+  %.341 = phi ptr [ %64, %51 ], [ %.03857, %21 ]
+  %.2 = phi i32 [ %.1, %51 ], [ %17, %21 ]
+  %66 = load i8, ptr %.341, align 1
+  %67 = zext i8 %66 to i64
+  %.idx53 = shl nuw nsw i64 %67, 3
+  %68 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx53
+  %69 = load i32, ptr %68, align 4
+  %70 = getelementptr inbounds nuw i8, ptr %.341, i64 1
+  %71 = load i8, ptr %70, align 1
+  %72 = zext i8 %71 to i64
+  %.idx54 = shl nuw nsw i64 %72, 3
+  %73 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx54
+  %74 = getelementptr inbounds nuw i8, ptr %73, i64 4
+  %75 = load i32, ptr %74, align 4
+  %76 = add i32 %75, %69
+  %77 = getelementptr inbounds nuw i8, ptr %.345, i64 4
+  store i32 %76, ptr %.345, align 4
+  %78 = getelementptr inbounds nuw i8, ptr %.341, i64 2
+  %79 = add nsw i32 %.2, -1
+  %80 = icmp sgt i32 %.2, 1
+  br i1 %80, label %23, label %81, !llvm.loop !49
 
-default.unreachable64:                            ; preds = %21
+default.unreachable58:                            ; preds = %21
   unreachable
 
-73:                                               ; preds = %59
-  %74 = getelementptr inbounds i8, ptr %70, i64 %19
-  %75 = getelementptr inbounds i32, ptr %69, i64 %20
+81:                                               ; preds = %65
+  %82 = getelementptr inbounds i8, ptr %78, i64 %19
+  %83 = getelementptr inbounds i32, ptr %77, i64 %20
   %.not = icmp eq i32 %22, 0
-  br i1 %.not, label %._crit_edge, label %21, !llvm.loop !51
+  br i1 %.not, label %._crit_edge, label %21, !llvm.loop !50
 
-._crit_edge:                                      ; preds = %73, %2
+._crit_edge:                                      ; preds = %81, %2
   ret void
 }
 
@@ -8141,13 +8144,13 @@ default.unreachable:                              ; preds = %.lr.ph197.split
   %89 = getelementptr inbounds nuw i8, ptr %.3, i64 %42
   %90 = add nsw i32 %.2179, -1
   %91 = icmp sgt i32 %.2179, 1
-  br i1 %91, label %46, label %92, !llvm.loop !52
+  br i1 %91, label %46, label %92, !llvm.loop !51
 
 92:                                               ; preds = %79
   %93 = getelementptr inbounds i8, ptr %89, i64 %43
   %94 = getelementptr inbounds i8, ptr %88, i64 %44
   %.not188 = icmp eq i32 %45, 0
-  br i1 %.not188, label %.loopexit, label %.lr.ph.split, !llvm.loop !53
+  br i1 %.not188, label %.loopexit, label %.lr.ph.split, !llvm.loop !52
 
 .lr.ph197.split:                                  ; preds = %.lr.ph197, %138
   %.in199 = phi i32 [ %95, %138 ], [ %5, %.lr.ph197 ]
@@ -8233,13 +8236,13 @@ default.unreachable:                              ; preds = %.lr.ph197.split
   %135 = getelementptr inbounds nuw i8, ptr %.8, i64 %28
   %136 = add nsw i32 %.2183, -1
   %137 = icmp sgt i32 %.2183, 1
-  br i1 %137, label %96, label %138, !llvm.loop !54
+  br i1 %137, label %96, label %138, !llvm.loop !53
 
 138:                                              ; preds = %126
   %139 = getelementptr inbounds i8, ptr %135, i64 %29
   %140 = getelementptr inbounds i8, ptr %134, i64 %30
   %.not187 = icmp eq i32 %95, 0
-  br i1 %.not187, label %.loopexit, label %.lr.ph197.split, !llvm.loop !55
+  br i1 %.not187, label %.loopexit, label %.lr.ph197.split, !llvm.loop !54
 
 .loopexit:                                        ; preds = %92, %138, %31, %.preheader
   ret void
@@ -8435,13 +8438,13 @@ default.unreachable:                              ; preds = %148, %.lr.ph295.spl
   %128 = getelementptr inbounds nuw i8, ptr %.3, i64 4
   %129 = add nsw i32 %.2263, -1
   %130 = icmp sgt i32 %.2263, 1
-  br i1 %130, label %41, label %131, !llvm.loop !56
+  br i1 %130, label %41, label %131, !llvm.loop !55
 
 131:                                              ; preds = %107
   %132 = getelementptr inbounds i8, ptr %128, i64 %38
   %133 = getelementptr inbounds i8, ptr %127, i64 %39
   %.not279 = icmp eq i32 %40, 0
-  br i1 %.not279, label %.loopexit, label %.lr.ph.split, !llvm.loop !57
+  br i1 %.not279, label %.loopexit, label %.lr.ph.split, !llvm.loop !56
 
 134:                                              ; preds = %31
   %135 = getelementptr inbounds nuw i8, ptr %0, i64 123
@@ -8563,13 +8566,13 @@ default.unreachable:                              ; preds = %148, %.lr.ph295.spl
   %213 = getelementptr inbounds nuw i8, ptr %.8, i64 %145
   %214 = add nsw i32 %.2267, -1
   %215 = icmp sgt i32 %.2267, 1
-  br i1 %215, label %150, label %216, !llvm.loop !58
+  br i1 %215, label %150, label %216, !llvm.loop !57
 
 216:                                              ; preds = %198
   %217 = getelementptr inbounds i8, ptr %213, i64 %146
   %218 = getelementptr inbounds i8, ptr %212, i64 %147
   %.not278 = icmp eq i32 %149, 0
-  br i1 %.not278, label %.loopexit, label %148, !llvm.loop !59
+  br i1 %.not278, label %.loopexit, label %148, !llvm.loop !58
 
 .lr.ph295.split:                                  ; preds = %.lr.ph295, %262
   %.in298 = phi i32 [ %219, %262 ], [ %5, %.lr.ph295 ]
@@ -8655,13 +8658,13 @@ default.unreachable:                              ; preds = %148, %.lr.ph295.spl
   %259 = getelementptr inbounds nuw i8, ptr %.13, i64 %28
   %260 = add nsw i32 %.2271, -1
   %261 = icmp sgt i32 %.2271, 1
-  br i1 %261, label %220, label %262, !llvm.loop !60
+  br i1 %261, label %220, label %262, !llvm.loop !59
 
 262:                                              ; preds = %250
   %263 = getelementptr inbounds i8, ptr %259, i64 %29
   %264 = getelementptr inbounds i8, ptr %258, i64 %30
   %.not276 = icmp eq i32 %219, 0
-  br i1 %.not276, label %.loopexit, label %.lr.ph295.split, !llvm.loop !61
+  br i1 %.not276, label %.loopexit, label %.lr.ph295.split, !llvm.loop !60
 
 .loopexit:                                        ; preds = %131, %216, %262, %.preheader282, %134, %.preheader
   ret void
@@ -8782,7 +8785,7 @@ define internal void @Blit_XRGB8888_RGB565(ptr noundef readonly captures(none) %
   %74 = getelementptr inbounds nuw i8, ptr %.345, i64 2
   %75 = add nsw i32 %.2, -1
   %76 = icmp sgt i32 %.2, 1
-  br i1 %76, label %23, label %77, !llvm.loop !62
+  br i1 %76, label %23, label %77, !llvm.loop !61
 
 default.unreachable51:                            ; preds = %21
   unreachable
@@ -8791,7 +8794,7 @@ default.unreachable51:                            ; preds = %21
   %78 = getelementptr inbounds i32, ptr %73, i64 %19
   %79 = getelementptr inbounds i16, ptr %74, i64 %20
   %.not = icmp eq i32 %22, 0
-  br i1 %.not, label %._crit_edge, label %21, !llvm.loop !63
+  br i1 %.not, label %._crit_edge, label %21, !llvm.loop !62
 
 ._crit_edge:                                      ; preds = %77, %1
   ret void
@@ -8912,7 +8915,7 @@ define internal void @Blit_XRGB8888_RGB555(ptr noundef readonly captures(none) %
   %74 = getelementptr inbounds nuw i8, ptr %.345, i64 2
   %75 = add nsw i32 %.2, -1
   %76 = icmp sgt i32 %.2, 1
-  br i1 %76, label %23, label %77, !llvm.loop !64
+  br i1 %76, label %23, label %77, !llvm.loop !63
 
 default.unreachable51:                            ; preds = %21
   unreachable
@@ -8921,7 +8924,7 @@ default.unreachable51:                            ; preds = %21
   %78 = getelementptr inbounds i32, ptr %73, i64 %19
   %79 = getelementptr inbounds i16, ptr %74, i64 %20
   %.not = icmp eq i32 %22, 0
-  br i1 %.not, label %._crit_edge, label %21, !llvm.loop !65
+  br i1 %.not, label %._crit_edge, label %21, !llvm.loop !64
 
 ._crit_edge:                                      ; preds = %77, %1
   ret void
@@ -9162,66 +9165,65 @@ attributes #6 = { nounwind }
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = distinct !{!3, !4, !5}
+!3 = distinct !{!3, !4}
 !4 = !{!"llvm.loop.mustprogress"}
-!5 = !{!"llvm.loop.estimated_trip_count"}
+!5 = distinct !{!5, !4}
 !6 = distinct !{!6, !4}
-!7 = distinct !{!7, !4, !5}
+!7 = distinct !{!7, !4}
 !8 = distinct !{!8, !4}
-!9 = distinct !{!9, !4, !5}
+!9 = distinct !{!9, !4}
 !10 = distinct !{!10, !4}
-!11 = distinct !{!11, !4, !5}
+!11 = distinct !{!11, !4}
 !12 = distinct !{!12, !4}
-!13 = distinct !{!13, !4, !5}
+!13 = distinct !{!13, !4}
 !14 = distinct !{!14, !4}
-!15 = distinct !{!15, !4, !5}
-!16 = distinct !{!16, !4, !5}
-!17 = distinct !{!17, !4, !5}
+!15 = distinct !{!15, !4}
+!16 = distinct !{!16, !4}
+!17 = distinct !{!17, !4}
 !18 = distinct !{!18, !4}
-!19 = distinct !{!19, !4, !5}
+!19 = distinct !{!19, !4}
 !20 = distinct !{!20, !4}
-!21 = distinct !{!21, !4, !5}
+!21 = distinct !{!21, !4}
 !22 = distinct !{!22, !4}
-!23 = distinct !{!23, !4, !5}
+!23 = distinct !{!23, !4}
 !24 = distinct !{!24, !4}
-!25 = distinct !{!25, !4, !5}
+!25 = distinct !{!25, !4}
 !26 = distinct !{!26, !4}
-!27 = distinct !{!27, !4, !5}
+!27 = distinct !{!27, !4}
 !28 = distinct !{!28, !4}
-!29 = distinct !{!29, !4, !5}
+!29 = distinct !{!29, !4}
 !30 = distinct !{!30, !4}
-!31 = distinct !{!31, !4, !5}
+!31 = distinct !{!31, !4}
 !32 = distinct !{!32, !4}
-!33 = distinct !{!33, !4, !5}
+!33 = distinct !{!33, !4}
 !34 = distinct !{!34, !4}
-!35 = distinct !{!35, !4, !5}
+!35 = distinct !{!35, !4}
 !36 = distinct !{!36, !4}
-!37 = distinct !{!37, !4, !5}
+!37 = distinct !{!37, !4}
 !38 = distinct !{!38, !4}
-!39 = distinct !{!39, !4, !5}
+!39 = distinct !{!39, !4}
 !40 = distinct !{!40, !4}
-!41 = distinct !{!41, !4, !5}
+!41 = distinct !{!41, !4}
 !42 = distinct !{!42, !4}
-!43 = distinct !{!43, !4, !5}
+!43 = distinct !{!43, !4}
 !44 = distinct !{!44, !4}
-!45 = distinct !{!45, !4, !5}
+!45 = distinct !{!45, !4}
 !46 = distinct !{!46, !4}
-!47 = distinct !{!47, !4, !5}
+!47 = distinct !{!47, !4}
 !48 = distinct !{!48, !4}
-!49 = distinct !{!49, !4, !5}
+!49 = distinct !{!49, !4}
 !50 = distinct !{!50, !4}
-!51 = distinct !{!51, !4, !5}
+!51 = distinct !{!51, !4}
 !52 = distinct !{!52, !4}
-!53 = distinct !{!53, !4, !5}
+!53 = distinct !{!53, !4}
 !54 = distinct !{!54, !4}
-!55 = distinct !{!55, !4, !5}
+!55 = distinct !{!55, !4}
 !56 = distinct !{!56, !4}
-!57 = distinct !{!57, !4, !5}
+!57 = distinct !{!57, !4}
 !58 = distinct !{!58, !4}
-!59 = distinct !{!59, !4, !5}
+!59 = distinct !{!59, !4}
 !60 = distinct !{!60, !4}
-!61 = distinct !{!61, !4, !5}
+!61 = distinct !{!61, !4}
 !62 = distinct !{!62, !4}
-!63 = distinct !{!63, !4, !5}
+!63 = distinct !{!63, !4}
 !64 = distinct !{!64, !4}
-!65 = distinct !{!65, !4, !5}

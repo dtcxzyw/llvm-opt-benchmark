@@ -1246,7 +1246,7 @@ define internal i32 @dissect_nan_service_discovery(ptr noundef %0, ptr noundef %
   call fastcc void @find_attribute_field(ptr noundef %11, ptr noundef %0, i32 noundef %12, ptr noundef nonnull %5, ptr noundef %1)
   %13 = load i32, ptr %5, align 4
   %14 = icmp ult i32 %13, %12
-  br i1 %14, label %.lr.ph, label %._crit_edge, !llvm.loop !9
+  br i1 %14, label %.lr.ph, label %._crit_edge, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %.lr.ph, %4
   %15 = tail call i32 @tvb_captured_length(ptr noundef %0)
@@ -1297,7 +1297,7 @@ define internal i32 @dissect_nan_beacon(ptr noundef %0, ptr noundef %1, ptr noun
   call fastcc void @find_attribute_field(ptr noundef %20, ptr noundef %0, i32 noundef %21, ptr noundef nonnull %5, ptr noundef %1)
   %22 = load i32, ptr %5, align 4
   %23 = icmp ult i32 %22, %21
-  br i1 %23, label %.lr.ph, label %._crit_edge, !llvm.loop !10
+  br i1 %23, label %.lr.ph, label %._crit_edge, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %.lr.ph, %15
   %24 = tail call i32 @tvb_captured_length(ptr noundef %0)
@@ -1762,7 +1762,7 @@ define internal fastcc void @dissect_attr_sda(ptr noundef %0, ptr noundef %1, i3
   %57 = add i32 %56, %.276
   %58 = add nuw nsw i32 %56, %.06975
   %59 = icmp samesign ult i32 %58, %49
-  br i1 %59, label %.lr.ph, label %.loopexit, !llvm.loop !11
+  br i1 %59, label %.lr.ph, label %.loopexit, !llvm.loop !10
 
 .loopexit:                                        ; preds = %.lr.ph, %45, %43
   %.1 = phi i32 [ %.0, %43 ], [ %50, %45 ], [ %57, %.lr.ph ]
@@ -1895,7 +1895,7 @@ define internal fastcc void @dissect_attr_cipher_suite_info(ptr noundef %0, ptr 
   %32 = add i32 %.040, 2
   %33 = add nuw nsw i32 %.03739, 2
   %34 = icmp samesign ult i32 %33, %6
-  br i1 %34, label %26, label %.loopexit, !llvm.loop !12
+  br i1 %34, label %26, label %.loopexit, !llvm.loop !11
 
 .loopexit:                                        ; preds = %26, %8
   ret void
@@ -1937,7 +1937,7 @@ define internal fastcc void @dissect_attr_security_context_info(ptr noundef %0, 
   %29 = add i32 %26, %14
   %30 = add nuw nsw i32 %15, %.03133
   %31 = icmp samesign ult i32 %30, %6
-  br i1 %31, label %12, label %.loopexit, !llvm.loop !13
+  br i1 %31, label %12, label %.loopexit, !llvm.loop !12
 
 .loopexit:                                        ; preds = %12, %8
   ret void
@@ -1991,7 +1991,7 @@ define internal fastcc void @dissect_attr_public_availability(ptr noundef %0, pt
   %30 = add nuw nsw i32 %.03133, 4
   %31 = add nuw nsw i32 %30, %23
   %32 = icmp samesign ult i32 %31, %6
-  br i1 %32, label %14, label %.loopexit, !llvm.loop !14
+  br i1 %32, label %14, label %.loopexit, !llvm.loop !13
 
 .loopexit:                                        ; preds = %14, %8
   ret void
@@ -2040,7 +2040,7 @@ define internal fastcc void @dissect_attr_element_container(ptr noundef %0, ptr 
   %34 = add nuw nsw i32 %22, %.03637
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6) #5
   %35 = icmp samesign ult i32 %34, %11
-  br i1 %35, label %15, label %._crit_edge, !llvm.loop !15
+  br i1 %35, label %15, label %._crit_edge, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %15, %5
   ret void
@@ -2121,7 +2121,7 @@ define internal fastcc void @dissect_attr_ranging_setup(ptr noundef %0, ptr noun
   %57 = add nuw nsw i32 %.16265, 4
   %58 = add nuw nsw i32 %57, %50
   %59 = icmp samesign ult i32 %58, %6
-  br i1 %59, label %.lr.ph, label %.loopexit, !llvm.loop !16
+  br i1 %59, label %.lr.ph, label %.loopexit, !llvm.loop !15
 
 .loopexit:                                        ; preds = %.lr.ph, %37, %36, %8
   ret void
@@ -2859,7 +2859,7 @@ define internal fastcc void @dissect_attr_ndpe(ptr noundef %0, ptr noundef %1, i
   %.3 = add i32 %.pn, %.2106
   %.397 = add nuw nsw i32 %.pn, %.296105
   %74 = icmp slt i32 %.397, %6
-  br i1 %74, label %.lr.ph, label %.loopexit, !llvm.loop !17
+  br i1 %74, label %.lr.ph, label %.loopexit, !llvm.loop !16
 
 .loopexit:                                        ; preds = %73, %46, %8
   ret void
@@ -3097,7 +3097,7 @@ define internal fastcc void @dissect_attr_availability(ptr noundef %0, ptr nound
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #5
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #5
   %78 = icmp samesign ult i32 %77, %11
-  br i1 %78, label %25, label %.loopexit188, !llvm.loop !18
+  br i1 %78, label %25, label %.loopexit188, !llvm.loop !17
 
 .lr.ph197:                                        ; preds = %60, %179
   %.2196 = phi i32 [ %.3, %179 ], [ %75, %60 ]
@@ -3163,7 +3163,7 @@ define internal fastcc void @dissect_attr_availability(ptr noundef %0, ptr nound
 113:                                              ; preds = %110, %.preheader
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.i = icmp eq i64 %indvars.iv.next.i, 55
-  br i1 %exitcond.i, label %122, label %.preheader, !llvm.loop !19
+  br i1 %exitcond.i, label %122, label %.preheader, !llvm.loop !18
 
 114:                                              ; preds = %110
   %115 = getelementptr inbounds nuw i8, ptr %108, i64 8
@@ -3198,7 +3198,7 @@ define internal fastcc void @dissect_attr_availability(ptr noundef %0, ptr nound
 .thread:                                          ; preds = %121, %120, %119, %118, %104
   %indvars.iv.next207 = add nuw nsw i64 %indvars.iv206, 1
   %exitcond209.not = icmp eq i64 %indvars.iv.next207, 16
-  br i1 %exitcond209.not, label %.loopexit, label %104, !llvm.loop !20
+  br i1 %exitcond209.not, label %.loopexit, label %104, !llvm.loop !19
 
 124:                                              ; preds = %84
   %125 = lshr i16 %92, 8
@@ -3221,7 +3221,7 @@ define internal fastcc void @dissect_attr_availability(ptr noundef %0, ptr nound
 133:                                              ; preds = %130, %127
   %indvars.iv.next.i170 = add nuw nsw i64 %indvars.iv.i165, 1
   %exitcond.i171 = icmp eq i64 %indvars.iv.next.i170, 55
-  br i1 %exitcond.i171, label %158, label %127, !llvm.loop !19
+  br i1 %exitcond.i171, label %158, label %127, !llvm.loop !18
 
 134:                                              ; preds = %130
   %135 = getelementptr inbounds nuw i8, ptr %128, i64 8
@@ -3239,7 +3239,7 @@ define internal fastcc void @dissect_attr_availability(ptr noundef %0, ptr nound
 142:                                              ; preds = %138
   %indvars.iv.next.i174 = add nuw nsw i64 %indvars.iv.i173, 1
   %exitcond.i175 = icmp eq i64 %indvars.iv.next.i174, 64
-  br i1 %exitcond.i175, label %channel_number_valid.exit.thread, label %138, !llvm.loop !21
+  br i1 %exitcond.i175, label %channel_number_valid.exit.thread, label %138, !llvm.loop !20
 
 channel_number_valid.exit:                        ; preds = %138
   %143 = trunc nuw nsw i64 %indvars.iv.i173 to i32
@@ -3279,7 +3279,7 @@ channel_number_valid.exit.thread:                 ; preds = %142, %channel_numbe
   call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef %100, ptr noundef nonnull @.str.737, i32 noundef %157)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit187, label %.lr.ph, !llvm.loop !22
+  br i1 %exitcond.not, label %.loopexit187, label %.lr.ph, !llvm.loop !21
 
 158:                                              ; preds = %133
   %159 = call ptr @expert_add_info(ptr noundef %4, ptr noundef %89, ptr noundef nonnull @ei_nan_unknown_op_class)
@@ -3320,7 +3320,7 @@ channel_number_valid.exit.thread:                 ; preds = %142, %channel_numbe
   %181 = zext i8 %180 to i64
   %182 = load i64, ptr %10, align 8
   %183 = icmp ugt i64 %182, %181
-  br i1 %183, label %.lr.ph197, label %._crit_edge, !llvm.loop !23
+  br i1 %183, label %.lr.ph197, label %._crit_edge, !llvm.loop !22
 
 .loopexit188:                                     ; preds = %._crit_edge, %13
   ret void
@@ -3371,7 +3371,7 @@ define internal fastcc void @dissect_attr_ndc(ptr noundef %0, ptr noundef %1, i3
   %38 = add i32 %23, %.037
   %39 = add nuw nsw i32 %23, %.03436
   %40 = icmp samesign ult i32 %39, %6
-  br i1 %40, label %19, label %.loopexit, !llvm.loop !24
+  br i1 %40, label %19, label %.loopexit, !llvm.loop !23
 
 .loopexit:                                        ; preds = %19, %8
   ret void
@@ -3408,7 +3408,7 @@ define internal fastcc void @dissect_attr_service_id_list(ptr noundef %0, ptr no
   %17 = add i32 %.01419, 6
   %18 = add nuw nsw i32 %.020, 1
   %exitcond.not = icmp eq i32 %18, %14
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !25
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !24
 
 .loopexit:                                        ; preds = %.lr.ph, %12, %10
   ret void
@@ -3529,7 +3529,7 @@ define internal fastcc void @dissect_attr_ndl(ptr noundef %0, ptr noundef %1, i3
   %64 = add nuw nsw i32 %.27175, 4
   %65 = add nuw nsw i32 %64, %57
   %66 = icmp samesign ult i32 %65, %6
-  br i1 %66, label %.lr.ph, label %.loopexit, !llvm.loop !26
+  br i1 %66, label %.lr.ph, label %.loopexit, !llvm.loop !25
 
 .loopexit:                                        ; preds = %.lr.ph, %44, %43, %8
   ret void
@@ -3752,24 +3752,23 @@ attributes #5 = { nounwind }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7, !8}
-!11 = distinct !{!11, !7, !8}
-!12 = distinct !{!12, !7, !8}
-!13 = distinct !{!13, !7, !8}
-!14 = distinct !{!14, !7, !8}
-!15 = distinct !{!15, !7, !8}
-!16 = distinct !{!16, !7, !8}
-!17 = distinct !{!17, !7, !8}
-!18 = distinct !{!18, !7, !8}
-!19 = distinct !{!19, !7, !8}
-!20 = distinct !{!20, !7, !8}
-!21 = distinct !{!21, !7, !8}
-!22 = distinct !{!22, !7, !8}
-!23 = distinct !{!23, !7, !8}
-!24 = distinct !{!24, !7, !8}
-!25 = distinct !{!25, !7, !8}
-!26 = distinct !{!26, !7, !8}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7}
+!12 = distinct !{!12, !7}
+!13 = distinct !{!13, !7}
+!14 = distinct !{!14, !7}
+!15 = distinct !{!15, !7}
+!16 = distinct !{!16, !7}
+!17 = distinct !{!17, !7}
+!18 = distinct !{!18, !7}
+!19 = distinct !{!19, !7}
+!20 = distinct !{!20, !7}
+!21 = distinct !{!21, !7}
+!22 = distinct !{!22, !7}
+!23 = distinct !{!23, !7}
+!24 = distinct !{!24, !7}
+!25 = distinct !{!25, !7}

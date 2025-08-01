@@ -22,7 +22,7 @@ define hidden void @lxb_html_tree_open_elements_remove_by_node(ptr noundef reado
   %11 = getelementptr inbounds nuw ptr, ptr %5, i64 %10
   %12 = load ptr, ptr %11, align 8, !tbaa !20
   %13 = icmp eq ptr %12, %1
-  br i1 %13, label %14, label %8, !llvm.loop !21
+  br i1 %13, label %14, label %8
 
 14:                                               ; preds = %9
   %15 = getelementptr inbounds nuw ptr, ptr %5, i64 %10
@@ -60,13 +60,13 @@ define hidden void @lxb_html_tree_open_elements_pop_until_tag_id(ptr noundef rea
   %11 = getelementptr inbounds nuw ptr, ptr %7, i64 %10
   %12 = load ptr, ptr %11, align 8, !tbaa !20
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  %14 = load i64, ptr %13, align 8, !tbaa !23
+  %14 = load i64, ptr %13, align 8, !tbaa !21
   %15 = icmp eq i64 %14, %1
   br i1 %15, label %16, label %21
 
 16:                                               ; preds = %.lr.ph
   %17 = getelementptr inbounds nuw i8, ptr %12, i64 24
-  %18 = load i64, ptr %17, align 8, !tbaa !27
+  %18 = load i64, ptr %17, align 8, !tbaa !25
   %19 = icmp eq i64 %18, %2
   br i1 %19, label %20, label %21
 
@@ -76,7 +76,7 @@ define hidden void @lxb_html_tree_open_elements_pop_until_tag_id(ptr noundef rea
 
 21:                                               ; preds = %16, %.lr.ph
   %.not = icmp eq i64 %10, 0
-  br i1 %.not, label %.loopexit.sink.split, label %.lr.ph, !llvm.loop !28
+  br i1 %.not, label %.loopexit.sink.split, label %.lr.ph
 
 .loopexit.sink.split:                             ; preds = %21, %20
   %.sink = phi i64 [ %9, %20 ], [ 0, %21 ]
@@ -103,20 +103,20 @@ define hidden void @lxb_html_tree_open_elements_pop_until_h123456(ptr noundef re
   %8 = getelementptr inbounds nuw ptr, ptr %4, i64 %7
   %9 = load ptr, ptr %8, align 8, !tbaa !20
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %11 = load i64, ptr %10, align 8, !tbaa !23
+  %11 = load i64, ptr %10, align 8, !tbaa !21
   %.off = add i64 %11, -91
   %switch = icmp ult i64 %.off, 6
   br i1 %switch, label %12, label %16
 
 12:                                               ; preds = %.lr.ph
   %13 = getelementptr inbounds nuw i8, ptr %9, i64 24
-  %14 = load i64, ptr %13, align 8, !tbaa !27
+  %14 = load i64, ptr %13, align 8, !tbaa !25
   %15 = icmp eq i64 %14, 2
   br i1 %15, label %.sink.split, label %16
 
 16:                                               ; preds = %.lr.ph, %12
   %.not = icmp eq i64 %7, 0
-  br i1 %.not, label %.sink.split, label %.lr.ph, !llvm.loop !29
+  br i1 %.not, label %.sink.split, label %.lr.ph
 
 .sink.split:                                      ; preds = %12, %16
   %.lcssa.sink = phi i64 [ 0, %16 ], [ %7, %12 ]
@@ -143,7 +143,7 @@ define hidden void @lxb_html_tree_open_elements_pop_until_td_th(ptr noundef read
   %8 = getelementptr inbounds nuw ptr, ptr %4, i64 %7
   %9 = load ptr, ptr %8, align 8, !tbaa !20
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %11 = load i64, ptr %10, align 8, !tbaa !23
+  %11 = load i64, ptr %10, align 8, !tbaa !21
   switch i64 %11, label %16 [
     i64 178, label %12
     i64 183, label %12
@@ -151,13 +151,13 @@ define hidden void @lxb_html_tree_open_elements_pop_until_td_th(ptr noundef read
 
 12:                                               ; preds = %.lr.ph, %.lr.ph
   %13 = getelementptr inbounds nuw i8, ptr %9, i64 24
-  %14 = load i64, ptr %13, align 8, !tbaa !27
+  %14 = load i64, ptr %13, align 8, !tbaa !25
   %15 = icmp eq i64 %14, 2
   br i1 %15, label %.sink.split, label %16
 
 16:                                               ; preds = %.lr.ph, %12
   %.not = icmp eq i64 %7, 0
-  br i1 %.not, label %.sink.split, label %.lr.ph, !llvm.loop !30
+  br i1 %.not, label %.sink.split, label %.lr.ph
 
 .sink.split:                                      ; preds = %12, %16
   %.lcssa.sink = phi i64 [ 0, %16 ], [ %7, %12 ]
@@ -188,7 +188,7 @@ define hidden void @lxb_html_tree_open_elements_pop_until_node(ptr noundef reado
   %12 = getelementptr inbounds nuw ptr, ptr %6, i64 %11
   %13 = load ptr, ptr %12, align 8, !tbaa !20
   %14 = icmp eq ptr %13, %1
-  br i1 %14, label %15, label %8, !llvm.loop !31
+  br i1 %14, label %15, label %8
 
 15:                                               ; preds = %10
   br i1 %2, label %.loopexit, label %16
@@ -237,7 +237,7 @@ define hidden noundef zeroext i1 @lxb_html_tree_open_elements_find_by_node(ptr n
 13:                                               ; preds = %.lr.ph
   %14 = add nuw i64 %.01323, 1
   %exitcond.not = icmp eq i64 %14, %8
-  br i1 %exitcond.not, label %.critedge, label %.lr.ph, !llvm.loop !32
+  br i1 %exitcond.not, label %.critedge, label %.lr.ph
 
 .critedge:                                        ; preds = %13, %3
   %.not18.old = icmp eq ptr %2, null
@@ -246,7 +246,7 @@ define hidden noundef zeroext i1 @lxb_html_tree_open_elements_find_by_node(ptr n
 .sink.split:                                      ; preds = %.critedge, %12
   %.01323.lcssa.sink = phi i64 [ %.01323, %12 ], [ 0, %.critedge ]
   %.not1720.ph = phi i1 [ true, %12 ], [ false, %.critedge ]
-  store i64 %.01323.lcssa.sink, ptr %2, align 8, !tbaa !33
+  store i64 %.01323.lcssa.sink, ptr %2, align 8, !tbaa !26
   br label %15
 
 15:                                               ; preds = %.sink.split, %12, %.critedge
@@ -273,7 +273,7 @@ define hidden noundef zeroext i1 @lxb_html_tree_open_elements_find_by_node_rever
   %12 = getelementptr inbounds nuw ptr, ptr %6, i64 %11
   %13 = load ptr, ptr %12, align 8, !tbaa !20
   %14 = icmp eq ptr %13, %1
-  br i1 %14, label %15, label %9, !llvm.loop !34
+  br i1 %14, label %15, label %9
 
 15:                                               ; preds = %10
   %.not15 = icmp eq ptr %2, null
@@ -285,7 +285,7 @@ define hidden noundef zeroext i1 @lxb_html_tree_open_elements_find_by_node_rever
 
 .sink.split:                                      ; preds = %16, %15
   %.sink = phi i64 [ %11, %15 ], [ 0, %16 ]
-  store i64 %.sink, ptr %2, align 8, !tbaa !33
+  store i64 %.sink, ptr %2, align 8, !tbaa !26
   br label %17
 
 17:                                               ; preds = %.sink.split, %16, %15
@@ -308,13 +308,13 @@ define hidden ptr @lxb_html_tree_open_elements_find(ptr noundef readonly capture
   %10 = getelementptr inbounds nuw ptr, ptr %7, i64 %.01726
   %11 = load ptr, ptr %10, align 8, !tbaa !20
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  %13 = load i64, ptr %12, align 8, !tbaa !23
+  %13 = load i64, ptr %12, align 8, !tbaa !21
   %14 = icmp eq i64 %13, %1
   br i1 %14, label %15, label %20
 
 15:                                               ; preds = %.lr.ph
   %16 = getelementptr inbounds nuw i8, ptr %11, i64 24
-  %17 = load i64, ptr %16, align 8, !tbaa !27
+  %17 = load i64, ptr %16, align 8, !tbaa !25
   %18 = icmp eq i64 %17, %2
   br i1 %18, label %19, label %20
 
@@ -325,7 +325,7 @@ define hidden ptr @lxb_html_tree_open_elements_find(ptr noundef readonly capture
 20:                                               ; preds = %.lr.ph, %15
   %21 = add nuw i64 %.01726, 1
   %exitcond.not = icmp eq i64 %21, %9
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !35
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %20, %4
   %.not22 = icmp eq ptr %3, null
@@ -334,7 +334,7 @@ define hidden ptr @lxb_html_tree_open_elements_find(ptr noundef readonly capture
 .thread.sink.split:                               ; preds = %._crit_edge, %19
   %.01726.lcssa.sink = phi i64 [ %.01726, %19 ], [ 0, %._crit_edge ]
   %.1.ph = phi ptr [ %11, %19 ], [ null, %._crit_edge ]
-  store i64 %.01726.lcssa.sink, ptr %3, align 8, !tbaa !33
+  store i64 %.01726.lcssa.sink, ptr %3, align 8, !tbaa !26
   br label %.thread
 
 .thread:                                          ; preds = %.thread.sink.split, %19, %._crit_edge
@@ -358,13 +358,13 @@ define hidden ptr @lxb_html_tree_open_elements_find_reverse(ptr noundef readonly
   %11 = getelementptr inbounds nuw ptr, ptr %7, i64 %10
   %12 = load ptr, ptr %11, align 8, !tbaa !20
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  %14 = load i64, ptr %13, align 8, !tbaa !23
+  %14 = load i64, ptr %13, align 8, !tbaa !21
   %15 = icmp eq i64 %14, %1
   br i1 %15, label %16, label %21
 
 16:                                               ; preds = %.lr.ph
   %17 = getelementptr inbounds nuw i8, ptr %12, i64 24
-  %18 = load i64, ptr %17, align 8, !tbaa !27
+  %18 = load i64, ptr %17, align 8, !tbaa !25
   %19 = icmp eq i64 %18, %2
   br i1 %19, label %20, label %21
 
@@ -374,7 +374,7 @@ define hidden ptr @lxb_html_tree_open_elements_find_reverse(ptr noundef readonly
 
 21:                                               ; preds = %16, %.lr.ph
   %.not = icmp eq i64 %10, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !36
+  br i1 %.not, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %21, %4
   %.not18 = icmp eq ptr %3, null
@@ -383,7 +383,7 @@ define hidden ptr @lxb_html_tree_open_elements_find_reverse(ptr noundef readonly
 .sink.split:                                      ; preds = %._crit_edge, %20
   %.sink = phi i64 [ %10, %20 ], [ 0, %._crit_edge ]
   %.0.ph = phi ptr [ %12, %20 ], [ null, %._crit_edge ]
-  store i64 %.sink, ptr %3, align 8, !tbaa !33
+  store i64 %.sink, ptr %3, align 8, !tbaa !26
   br label %22
 
 22:                                               ; preds = %.sink.split, %._crit_edge, %20
@@ -419,19 +419,9 @@ attributes #3 = { nofree norecurse nosync nounwind memory(read, argmem: readwrit
 !18 = !{!"", !7, i64 0, !16, i64 8, !16, i64 16}
 !19 = !{!18, !16, i64 16}
 !20 = !{!7, !7, i64 0}
-!21 = distinct !{!21, !22}
-!22 = !{!"llvm.loop.estimated_trip_count"}
-!23 = !{!24, !16, i64 8}
-!24 = !{!"lxb_dom_node", !25, i64 0, !16, i64 8, !16, i64 16, !16, i64 24, !26, i64 32, !11, i64 40, !11, i64 48, !11, i64 56, !11, i64 64, !11, i64 72, !7, i64 80, !15, i64 88, !16, i64 96}
-!25 = !{!"lxb_dom_event_target", !7, i64 0}
-!26 = !{!"p1 _ZTS16lxb_dom_document", !7, i64 0}
-!27 = !{!24, !16, i64 24}
-!28 = distinct !{!28, !22}
-!29 = distinct !{!29, !22}
-!30 = distinct !{!30, !22}
-!31 = distinct !{!31, !22}
-!32 = distinct !{!32, !22}
-!33 = !{!16, !16, i64 0}
-!34 = distinct !{!34, !22}
-!35 = distinct !{!35, !22}
-!36 = distinct !{!36, !22}
+!21 = !{!22, !16, i64 8}
+!22 = !{!"lxb_dom_node", !23, i64 0, !16, i64 8, !16, i64 16, !16, i64 24, !24, i64 32, !11, i64 40, !11, i64 48, !11, i64 56, !11, i64 64, !11, i64 72, !7, i64 80, !15, i64 88, !16, i64 96}
+!23 = !{!"lxb_dom_event_target", !7, i64 0}
+!24 = !{!"p1 _ZTS16lxb_dom_document", !7, i64 0}
+!25 = !{!22, !16, i64 24}
+!26 = !{!16, !16, i64 0}

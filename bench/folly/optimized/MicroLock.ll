@@ -66,7 +66,7 @@ _ZNSt13__atomic_baseIjE21compare_exchange_weakERjjSt12memory_orderS2_.exit.threa
 _ZN5folly6detail9futexWaitISt6atomicIjEEENS0_11FutexResultEPKT_jj.exit: ; preds = %_ZNSt13__atomic_baseIjE21compare_exchange_weakERjjSt12memory_orderS2_.exit.thread, %21, %23
   %.1 = phi i32 [ %.0.ph.ph, %21 ], [ %.0.ph.ph, %23 ], [ %7, %_ZNSt13__atomic_baseIjE21compare_exchange_weakERjjSt12memory_orderS2_.exit.thread ]
   %24 = load atomic i32, ptr %1 monotonic, align 4
-  br label %.outer.outer, !llvm.loop !8
+  br label %.outer.outer
 
 .lr.ph:                                           ; preds = %.outer, %_ZNSt13__atomic_baseIjE21compare_exchange_weakERjjSt12memory_orderS2_.exit28
   %.03140 = phi i32 [ %27, %_ZNSt13__atomic_baseIjE21compare_exchange_weakERjjSt12memory_orderS2_.exit28 ], [ %.031.ph, %.outer ]
@@ -132,5 +132,3 @@ attributes #6 = { noreturn nounwind }
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i32 7, !"debug-info-assignment-tracking", i1 true}
 !7 = !{i64 5800446}
-!8 = distinct !{!8, !9}
-!9 = !{!"llvm.loop.estimated_trip_count"}

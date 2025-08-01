@@ -455,7 +455,7 @@ get_opfamily_member.exit.thread:                  ; preds = %get_opfamily_member
   %37 = load i32, ptr %5, align 8
   %38 = sext i32 %37 to i64
   %39 = icmp slt i64 %indvars.iv.next, %38
-  br i1 %39, label %9, label %get_opfamily_member.exit._crit_edge, !llvm.loop !7
+  br i1 %39, label %9, label %get_opfamily_member.exit._crit_edge, !llvm.loop !6
 
 get_opfamily_member.exit._crit_edge:              ; preds = %get_opfamily_member.exit.thread, %get_opfamily_member.exit, %2
   %.1 = phi i32 [ 0, %2 ], [ %.fr, %get_opfamily_member.exit ], [ 0, %get_opfamily_member.exit.thread ]
@@ -512,7 +512,7 @@ define dso_local ptr @get_mergejoin_opfamilies(i32 noundef %0) local_unnamed_add
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %30 = sext i32 %29 to i64
   %31 = icmp slt i64 %indvars.iv.next, %30
-  br i1 %31, label %8, label %._crit_edge, !llvm.loop !8
+  br i1 %31, label %8, label %._crit_edge, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %28, %1
   %.0.lcssa = phi ptr [ null, %1 ], [ %.1, %28 ]
@@ -620,7 +620,7 @@ get_opfamily_member.exit56.us..thread.us_crit_edge: ; preds = %get_opfamily_memb
   %indvars.iv.next99 = add nuw nsw i64 %indvars.iv98, 1
   %49 = sext i32 %48 to i64
   %50 = icmp slt i64 %indvars.iv.next99, %49
-  br i1 %50, label %.lr.ph.split.us, label %.thread68, !llvm.loop !9
+  br i1 %50, label %.lr.ph.split.us, label %.thread68, !llvm.loop !8
 
 .lr.ph.split:                                     ; preds = %.lr.ph
   br i1 %.not47, label %.lr.ph.split.split.us, label %.lr.ph.split.split
@@ -686,7 +686,7 @@ get_opfamily_member.exit.thread.us:               ; preds = %71
   %84 = load i32, ptr %10, align 8
   %85 = sext i32 %84 to i64
   %86 = icmp slt i64 %indvars.iv.next97, %85
-  br i1 %86, label %.lr.ph.split.split.us, label %.thread68, !llvm.loop !11
+  br i1 %86, label %.lr.ph.split.split.us, label %.thread68, !llvm.loop !10
 
 .lr.ph.split.split:                               ; preds = %.lr.ph.split, %.thread
   %indvars.iv = phi i64 [ %indvars.iv.next, %.thread ], [ 0, %.lr.ph.split ]
@@ -790,7 +790,7 @@ get_opfamily_member.exit56:                       ; preds = %.critedge
   %135 = load i32, ptr %10, align 8
   %136 = sext i32 %135 to i64
   %137 = icmp slt i64 %indvars.iv.next, %136
-  br i1 %137, label %.lr.ph.split.split, label %.thread68, !llvm.loop !12
+  br i1 %137, label %.lr.ph.split.split, label %.thread68, !llvm.loop !11
 
 .thread68:                                        ; preds = %get_opfamily_member.exit56, %.thread, %.thread.us84, %get_opfamily_member.exit.us, %.thread.us, %get_opfamily_member.exit56.us, %7, %108, %109
   %.1 = phi i1 [ true, %109 ], [ true, %108 ], [ false, %7 ], [ false, %.thread.us ], [ true, %get_opfamily_member.exit56.us ], [ false, %.thread.us84 ], [ true, %get_opfamily_member.exit.us ], [ true, %get_opfamily_member.exit56 ], [ false, %.thread ]
@@ -888,7 +888,7 @@ get_opfamily_proc.exit52.us..thread58.us_crit_edge: ; preds = %get_opfamily_proc
   %indvars.iv.next94 = add nuw nsw i64 %indvars.iv93, 1
   %44 = sext i32 %43 to i64
   %45 = icmp slt i64 %indvars.iv.next94, %44
-  br i1 %45, label %.lr.ph.split.us, label %.loopexit, !llvm.loop !13
+  br i1 %45, label %.lr.ph.split.us, label %.loopexit, !llvm.loop !12
 
 .lr.ph.split:                                     ; preds = %.lr.ph
   br i1 %.not43, label %.lr.ph.split.split.us, label %.lr.ph.split.split
@@ -948,7 +948,7 @@ get_opfamily_proc.exit.thread.us:                 ; preds = %60
   %75 = load i32, ptr %10, align 8
   %76 = sext i32 %75 to i64
   %77 = icmp slt i64 %indvars.iv.next92, %76
-  br i1 %77, label %.lr.ph.split.split.us, label %.loopexit, !llvm.loop !14
+  br i1 %77, label %.lr.ph.split.split.us, label %.loopexit, !llvm.loop !13
 
 .lr.ph.split.split:                               ; preds = %.lr.ph.split, %.thread58
   %indvars.iv = phi i64 [ %indvars.iv.next, %.thread58 ], [ 0, %.lr.ph.split ]
@@ -1042,7 +1042,7 @@ get_opfamily_proc.exit52:                         ; preds = %.thread
   %123 = load i32, ptr %10, align 8
   %124 = sext i32 %123 to i64
   %125 = icmp slt i64 %indvars.iv.next, %124
-  br i1 %125, label %.lr.ph.split.split, label %.loopexit, !llvm.loop !15
+  br i1 %125, label %.lr.ph.split.split, label %.loopexit, !llvm.loop !14
 
 .loopexit:                                        ; preds = %get_opfamily_proc.exit52, %.thread58, %.thread58.us80, %get_opfamily_proc.exit.us, %.thread58.us, %get_opfamily_proc.exit52.us, %7, %.thread64
   %.1 = phi i1 [ true, %.thread64 ], [ false, %7 ], [ false, %.thread58.us ], [ true, %get_opfamily_proc.exit52.us ], [ false, %.thread58.us80 ], [ true, %get_opfamily_proc.exit.us ], [ true, %get_opfamily_proc.exit52 ], [ false, %.thread58 ]
@@ -1139,7 +1139,7 @@ define dso_local ptr @get_op_btree_interpretation(i32 noundef %0) local_unnamed_
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %36 = sext i32 %35 to i64
   %37 = icmp slt i64 %indvars.iv.next, %36
-  br i1 %37, label %8, label %._crit_edge, !llvm.loop !16
+  br i1 %37, label %8, label %._crit_edge, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %34
   tail call void @ReleaseCatCacheList(ptr noundef nonnull %3) #8
@@ -1224,7 +1224,7 @@ get_negator.exit:                                 ; preds = %39
   %indvars.iv.next62 = add nuw nsw i64 %indvars.iv61, 1
   %83 = sext i32 %82 to i64
   %84 = icmp slt i64 %indvars.iv.next62, %83
-  br i1 %84, label %55, label %._crit_edge58, !llvm.loop !17
+  br i1 %84, label %55, label %._crit_edge58, !llvm.loop !16
 
 ._crit_edge58:                                    ; preds = %81, %48
   %.4.lcssa = phi ptr [ null, %48 ], [ %.5, %81 ]
@@ -1316,7 +1316,7 @@ define dso_local noundef zeroext i1 @equality_ops_are_compatible(i32 noundef %0,
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %30 = sext i32 %29 to i64
   %31 = icmp slt i64 %indvars.iv.next, %30
-  br i1 %31, label %12, label %._crit_edge, !llvm.loop !18
+  br i1 %31, label %12, label %._crit_edge, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %28, %23, %4
   %.lcssa = phi i1 [ false, %4 ], [ true, %23 ], [ false, %28 ]
@@ -1378,7 +1378,7 @@ define dso_local noundef zeroext i1 @comparison_ops_are_compatible(i32 noundef %
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %31 = sext i32 %30 to i64
   %32 = icmp slt i64 %indvars.iv.next, %31
-  br i1 %32, label %12, label %._crit_edge, !llvm.loop !19
+  br i1 %32, label %12, label %._crit_edge, !llvm.loop !18
 
 ._crit_edge:                                      ; preds = %29, %24, %4
   %.lcssa = phi i1 [ false, %4 ], [ true, %24 ], [ false, %29 ]
@@ -1565,7 +1565,7 @@ define dso_local i64 @get_attoptions(i32 noundef %0, i16 noundef signext %1) loc
 
 11:                                               ; preds = %2
   %12 = call i64 @SysCacheGetAttr(i32 noundef 6, ptr noundef nonnull %6, i16 noundef signext 23, ptr noundef nonnull %3) #8
-  %13 = load i8, ptr %3, align 1, !range !20, !noundef !21
+  %13 = load i8, ptr %3, align 1, !range !19, !noundef !20
   %14 = trunc nuw i8 %13 to i1
   br i1 %14, label %17, label %15
 
@@ -1663,7 +1663,7 @@ define dso_local zeroext i1 @get_collation_isdeterministic(i32 noundef %0) local
   %11 = zext i8 %10 to i64
   %12 = getelementptr inbounds nuw i8, ptr %.val, i64 %11
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 77
-  %14 = load i8, ptr %13, align 1, !range !20, !noundef !21
+  %14 = load i8, ptr %13, align 1, !range !19, !noundef !20
   %15 = trunc nuw i8 %14 to i1
   tail call void @ReleaseSysCache(ptr noundef nonnull %3) #8
   ret i1 %15
@@ -2071,7 +2071,7 @@ define dso_local zeroext i1 @op_mergejoinable(i32 noundef %0, i32 noundef %1) lo
   %20 = zext i8 %19 to i64
   %21 = getelementptr inbounds nuw i8, ptr %.val, i64 %20
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 77
-  %23 = load i8, ptr %22, align 1, !range !20, !noundef !21
+  %23 = load i8, ptr %22, align 1, !range !19, !noundef !20
   tail call void @ReleaseSysCache(ptr noundef nonnull %15) #8
   %24 = trunc nuw i8 %23 to i1
   br label %25
@@ -2118,7 +2118,7 @@ define dso_local zeroext i1 @op_hashjoinable(i32 noundef %0, i32 noundef %1) loc
   %20 = zext i8 %19 to i64
   %21 = getelementptr inbounds nuw i8, ptr %.val, i64 %20
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 78
-  %23 = load i8, ptr %22, align 2, !range !20, !noundef !21
+  %23 = load i8, ptr %22, align 2, !range !19, !noundef !20
   tail call void @ReleaseSysCache(ptr noundef nonnull %15) #8
   %24 = trunc nuw i8 %23 to i1
   br label %25
@@ -2176,7 +2176,7 @@ func_strict.exit:                                 ; preds = %14
   %23 = zext i8 %22 to i64
   %24 = getelementptr inbounds nuw i8, ptr %.val.i5, i64 %23
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 99
-  %26 = load i8, ptr %25, align 1, !range !20, !noundef !21
+  %26 = load i8, ptr %25, align 1, !range !19, !noundef !20
   %27 = trunc nuw i8 %26 to i1
   tail call void @ReleaseSysCache(ptr noundef nonnull %16) #8
   ret i1 %27
@@ -2204,7 +2204,7 @@ define dso_local zeroext i1 @func_strict(i32 noundef %0) local_unnamed_addr #0 {
   %11 = zext i8 %10 to i64
   %12 = getelementptr inbounds nuw i8, ptr %.val, i64 %11
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 99
-  %14 = load i8, ptr %13, align 1, !range !20, !noundef !21
+  %14 = load i8, ptr %13, align 1, !range !19, !noundef !20
   %15 = trunc nuw i8 %14 to i1
   tail call void @ReleaseSysCache(ptr noundef nonnull %3) #8
   ret i1 %15
@@ -2557,7 +2557,7 @@ define dso_local zeroext i1 @get_func_retset(i32 noundef %0) local_unnamed_addr 
   %11 = zext i8 %10 to i64
   %12 = getelementptr inbounds nuw i8, ptr %.val, i64 %11
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 100
-  %14 = load i8, ptr %13, align 4, !range !20, !noundef !21
+  %14 = load i8, ptr %13, align 4, !range !19, !noundef !20
   %15 = trunc nuw i8 %14 to i1
   tail call void @ReleaseSysCache(ptr noundef nonnull %3) #8
   ret i1 %15
@@ -2639,7 +2639,7 @@ define dso_local zeroext i1 @get_func_leakproof(i32 noundef %0) local_unnamed_ad
   %11 = zext i8 %10 to i64
   %12 = getelementptr inbounds nuw i8, ptr %.val, i64 %11
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 98
-  %14 = load i8, ptr %13, align 2, !range !20, !noundef !21
+  %14 = load i8, ptr %13, align 2, !range !19, !noundef !20
   %15 = trunc nuw i8 %14 to i1
   tail call void @ReleaseSysCache(ptr noundef nonnull %3) #8
   ret i1 %15
@@ -2788,7 +2788,7 @@ define dso_local zeroext i1 @get_rel_relispartition(i32 noundef %0) local_unname
   %8 = zext i8 %7 to i64
   %9 = getelementptr inbounds nuw i8, ptr %.val, i64 %8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 127
-  %11 = load i8, ptr %10, align 1, !range !20, !noundef !21
+  %11 = load i8, ptr %10, align 1, !range !19, !noundef !20
   %12 = trunc nuw i8 %11 to i1
   tail call void @ReleaseSysCache(ptr noundef nonnull %3) #8
   br label %13
@@ -2951,7 +2951,7 @@ define dso_local zeroext i1 @get_typisdefined(i32 noundef %0) local_unnamed_addr
   %8 = zext i8 %7 to i64
   %9 = getelementptr inbounds nuw i8, ptr %.val, i64 %8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 82
-  %11 = load i8, ptr %10, align 2, !range !20, !noundef !21
+  %11 = load i8, ptr %10, align 2, !range !19, !noundef !20
   %12 = trunc nuw i8 %11 to i1
   tail call void @ReleaseSysCache(ptr noundef nonnull %3) #8
   br label %13
@@ -3000,7 +3000,7 @@ define dso_local zeroext i1 @get_typbyval(i32 noundef %0) local_unnamed_addr #0 
   %8 = zext i8 %7 to i64
   %9 = getelementptr inbounds nuw i8, ptr %.val, i64 %8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 78
-  %11 = load i8, ptr %10, align 2, !range !20, !noundef !21
+  %11 = load i8, ptr %10, align 2, !range !19, !noundef !20
   %12 = trunc nuw i8 %11 to i1
   tail call void @ReleaseSysCache(ptr noundef nonnull %3) #8
   br label %13
@@ -3035,7 +3035,7 @@ define dso_local void @get_typlenbyval(i32 noundef %0, ptr noundef writeonly cap
   %16 = load i16, ptr %15, align 4
   store i16 %16, ptr %1, align 2
   %17 = getelementptr inbounds nuw i8, ptr %14, i64 78
-  %18 = load i8, ptr %17, align 2, !range !20, !noundef !21
+  %18 = load i8, ptr %17, align 2, !range !19, !noundef !20
   store i8 %18, ptr %2, align 1
   tail call void @ReleaseSysCache(ptr noundef nonnull %5) #8
   ret void
@@ -3066,7 +3066,7 @@ define dso_local void @get_typlenbyvalalign(i32 noundef %0, ptr noundef writeonl
   %17 = load i16, ptr %16, align 4
   store i16 %17, ptr %1, align 2
   %18 = getelementptr inbounds nuw i8, ptr %15, i64 78
-  %19 = load i8, ptr %18, align 2, !range !20, !noundef !21
+  %19 = load i8, ptr %18, align 2, !range !19, !noundef !20
   store i8 %19, ptr %2, align 1
   %20 = getelementptr inbounds nuw i8, ptr %15, i64 128
   %21 = load i8, ptr %20, align 4
@@ -3156,7 +3156,7 @@ define dso_local void @get_type_io_data(i32 noundef %0, i32 noundef %1, ptr noun
   %32 = load i16, ptr %31, align 4
   store i16 %32, ptr %2, align 2
   %33 = getelementptr inbounds nuw i8, ptr %30, i64 78
-  %34 = load i8, ptr %33, align 2, !range !20, !noundef !21
+  %34 = load i8, ptr %33, align 2, !range !19, !noundef !20
   store i8 %34, ptr %3, align 1
   %35 = getelementptr inbounds nuw i8, ptr %30, i64 128
   %36 = load i8, ptr %35, align 4
@@ -3251,7 +3251,7 @@ define dso_local ptr @get_typdefault(i32 noundef %0) local_unnamed_addr #0 {
   %12 = zext i8 %11 to i64
   %13 = getelementptr inbounds nuw i8, ptr %.val, i64 %12
   %14 = call i64 @SysCacheGetAttr(i32 noundef 82, ptr noundef nonnull %4, i16 noundef signext 30, ptr noundef nonnull %2) #8
-  %15 = load i8, ptr %2, align 1, !range !20, !noundef !21
+  %15 = load i8, ptr %2, align 1, !range !19, !noundef !20
   %16 = trunc nuw i8 %15 to i1
   br i1 %16, label %21, label %17
 
@@ -3263,7 +3263,7 @@ define dso_local ptr @get_typdefault(i32 noundef %0) local_unnamed_addr #0 {
 
 21:                                               ; preds = %8
   %22 = call i64 @SysCacheGetAttr(i32 noundef 82, ptr noundef nonnull %4, i16 noundef signext 31, ptr noundef nonnull %2) #8
-  %23 = load i8, ptr %2, align 1, !range !20, !noundef !21
+  %23 = load i8, ptr %2, align 1, !range !19, !noundef !20
   %24 = trunc nuw i8 %23 to i1
   br i1 %24, label %48, label %25
 
@@ -3295,7 +3295,7 @@ getTypeIOParam.exit:                              ; preds = %25, %36
   %42 = load i16, ptr %41, align 4
   %43 = sext i16 %42 to i32
   %44 = getelementptr inbounds nuw i8, ptr %13, i64 78
-  %45 = load i8, ptr %44, align 2, !range !20, !noundef !21
+  %45 = load i8, ptr %44, align 2, !range !19, !noundef !20
   %46 = trunc nuw i8 %45 to i1
   %47 = call ptr @makeConst(i32 noundef %0, i32 noundef -1, i32 noundef %40, i32 noundef %43, i64 noundef %38, i1 noundef zeroext false, i1 noundef zeroext %46) #8
   call void @pfree(ptr noundef %27) #8
@@ -3364,7 +3364,7 @@ define dso_local i32 @getBaseTypeAndTypmod(i32 noundef %0, ptr noundef writeonly
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 79
   %20 = load i8, ptr %19, align 1
   %.not13 = icmp eq i8 %20, 100
-  br i1 %.not13, label %.lr.ph33, label %.lr.ph._crit_edge, !llvm.loop !22
+  br i1 %.not13, label %.lr.ph33, label %.lr.ph._crit_edge
 
 .lr.ph33:                                         ; preds = %.lr.ph.preheader, %.lr.ph
   %21 = phi ptr [ %18, %.lr.ph ], [ %9, %.lr.ph.preheader ]
@@ -3378,7 +3378,7 @@ define dso_local i32 @getBaseTypeAndTypmod(i32 noundef %0, ptr noundef writeonly
   %27 = zext i32 %24 to i64
   %28 = tail call ptr @SearchSysCache1(i32 noundef 82, i64 noundef %27) #8
   %.not = icmp eq ptr %28, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !22
+  br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph._crit_edge:                                ; preds = %.lr.ph, %.lr.ph.preheader
   %.lcssa = phi ptr [ %4, %.lr.ph.preheader ], [ %28, %.lr.ph ]
@@ -3620,7 +3620,7 @@ define dso_local void @get_type_category_preferred(i32 noundef %0, ptr noundef w
   %16 = load i8, ptr %15, align 4
   store i8 %16, ptr %1, align 1
   %17 = getelementptr inbounds nuw i8, ptr %14, i64 81
-  %18 = load i8, ptr %17, align 1, !range !20, !noundef !21
+  %18 = load i8, ptr %17, align 1, !range !19, !noundef !20
   store i8 %18, ptr %2, align 1
   tail call void @ReleaseSysCache(ptr noundef nonnull %5) #8
   ret void
@@ -3842,7 +3842,7 @@ define dso_local void @getTypeInputInfo(i32 noundef %0, ptr noundef writeonly ca
   %13 = zext i8 %12 to i64
   %14 = getelementptr inbounds nuw i8, ptr %.val, i64 %13
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 82
-  %16 = load i8, ptr %15, align 2, !range !20, !noundef !21
+  %16 = load i8, ptr %15, align 2, !range !19, !noundef !20
   %17 = trunc nuw i8 %16 to i1
   br i1 %17, label %23, label %18
 
@@ -3915,7 +3915,7 @@ define dso_local void @getTypeOutputInfo(i32 noundef %0, ptr noundef writeonly c
   %13 = zext i8 %12 to i64
   %14 = getelementptr inbounds nuw i8, ptr %.val, i64 %13
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 82
-  %16 = load i8, ptr %15, align 2, !range !20, !noundef !21
+  %16 = load i8, ptr %15, align 2, !range !19, !noundef !20
   %17 = trunc nuw i8 %16 to i1
   br i1 %17, label %23, label %18
 
@@ -3946,7 +3946,7 @@ define dso_local void @getTypeOutputInfo(i32 noundef %0, ptr noundef writeonly c
 31:                                               ; preds = %23
   store i32 %25, ptr %1, align 4
   %32 = getelementptr inbounds nuw i8, ptr %14, i64 78
-  %33 = load i8, ptr %32, align 2, !range !20, !noundef !21
+  %33 = load i8, ptr %32, align 2, !range !19, !noundef !20
   %34 = trunc nuw i8 %33 to i1
   br i1 %34, label %40, label %35
 
@@ -3986,7 +3986,7 @@ define dso_local void @getTypeBinaryInputInfo(i32 noundef %0, ptr noundef writeo
   %13 = zext i8 %12 to i64
   %14 = getelementptr inbounds nuw i8, ptr %.val, i64 %13
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 82
-  %16 = load i8, ptr %15, align 2, !range !20, !noundef !21
+  %16 = load i8, ptr %15, align 2, !range !19, !noundef !20
   %17 = trunc nuw i8 %16 to i1
   br i1 %17, label %23, label %18
 
@@ -4059,7 +4059,7 @@ define dso_local void @getTypeBinaryOutputInfo(i32 noundef %0, ptr noundef write
   %13 = zext i8 %12 to i64
   %14 = getelementptr inbounds nuw i8, ptr %.val, i64 %13
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 82
-  %16 = load i8, ptr %15, align 2, !range !20, !noundef !21
+  %16 = load i8, ptr %15, align 2, !range !19, !noundef !20
   %17 = trunc nuw i8 %16 to i1
   br i1 %17, label %23, label %18
 
@@ -4090,7 +4090,7 @@ define dso_local void @getTypeBinaryOutputInfo(i32 noundef %0, ptr noundef write
 31:                                               ; preds = %23
   store i32 %25, ptr %1, align 4
   %32 = getelementptr inbounds nuw i8, ptr %14, i64 78
-  %33 = load i8, ptr %32, align 2, !range !20, !noundef !21
+  %33 = load i8, ptr %32, align 2, !range !19, !noundef !20
   %34 = trunc nuw i8 %33 to i1
   br i1 %34, label %40, label %35
 
@@ -4338,12 +4338,12 @@ define dso_local noundef zeroext i1 @get_attstatsslot(ptr noundef initializes((0
   %19 = load i16, ptr %18, align 2
   %20 = sext i16 %19 to i32
   %21 = icmp eq i32 %2, %20
-  br i1 %21, label %.split74.us.loopexit, label %.lr.ph, !llvm.loop !23
+  br i1 %21, label %.split74.us.loopexit, label %.lr.ph, !llvm.loop !21
 
 .lr.ph:                                           ; preds = %.split.us, %17
   %indvars.iv86 = phi i64 [ %indvars.iv.next87, %17 ], [ 0, %.split.us ]
   %exitcond89.not = icmp eq i64 %indvars.iv86, 4
-  br i1 %exitcond89.not, label %.loopexit, label %17, !llvm.loop !23
+  br i1 %exitcond89.not, label %.loopexit, label %17, !llvm.loop !21
 
 .split:                                           ; preds = %5, %30
   %indvars.iv = phi i64 [ %indvars.iv.next, %30 ], [ 0, %5 ]
@@ -4362,7 +4362,7 @@ define dso_local noundef zeroext i1 @get_attstatsslot(ptr noundef initializes((0
 30:                                               ; preds = %.split, %26
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 5
-  br i1 %exitcond.not, label %.loopexit, label %.split, !llvm.loop !24
+  br i1 %exitcond.not, label %.loopexit, label %.split, !llvm.loop !22
 
 .split74.us.loopexit:                             ; preds = %17
   %31 = trunc nuw nsw i64 %indvars.iv.next87 to i32
@@ -4420,14 +4420,14 @@ define dso_local noundef zeroext i1 @get_attstatsslot(ptr noundef initializes((0
   %62 = load i16, ptr %61, align 4
   %63 = sext i16 %62 to i32
   %64 = getelementptr inbounds nuw i8, ptr %60, i64 78
-  %65 = load i8, ptr %64, align 2, !range !20, !noundef !21
+  %65 = load i8, ptr %64, align 2, !range !19, !noundef !20
   %66 = trunc nuw i8 %65 to i1
   %67 = getelementptr inbounds nuw i8, ptr %60, i64 128
   %68 = load i8, ptr %67, align 4
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %70 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @deconstruct_array(ptr noundef nonnull %46, i32 noundef %48, i32 noundef %63, i1 noundef zeroext %66, i8 noundef signext %68, ptr noundef nonnull %69, ptr noundef null, ptr noundef nonnull %70) #8
-  %71 = load i8, ptr %64, align 2, !range !20, !noundef !21
+  %71 = load i8, ptr %64, align 2, !range !19, !noundef !20
   %72 = trunc nuw i8 %71 to i1
   br i1 %72, label %75, label %73
 
@@ -4750,7 +4750,7 @@ define dso_local zeroext i1 @get_index_isreplident(i32 noundef %0) local_unnamed
   %8 = zext i8 %7 to i64
   %9 = getelementptr inbounds nuw i8, ptr %.val, i64 %8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 22
-  %11 = load i8, ptr %10, align 2, !range !20, !noundef !21
+  %11 = load i8, ptr %10, align 2, !range !19, !noundef !20
   %12 = trunc nuw i8 %11 to i1
   tail call void @ReleaseSysCache(ptr noundef nonnull %3) #8
   br label %13
@@ -4782,7 +4782,7 @@ define dso_local zeroext i1 @get_index_isvalid(i32 noundef %0) local_unnamed_add
   %11 = zext i8 %10 to i64
   %12 = getelementptr inbounds nuw i8, ptr %.val, i64 %11
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 18
-  %14 = load i8, ptr %13, align 2, !range !20, !noundef !21
+  %14 = load i8, ptr %13, align 2, !range !19, !noundef !20
   %15 = trunc nuw i8 %14 to i1
   tail call void @ReleaseSysCache(ptr noundef nonnull %3) #8
   ret i1 %15
@@ -4810,7 +4810,7 @@ define dso_local zeroext i1 @get_index_isclustered(i32 noundef %0) local_unnamed
   %11 = zext i8 %10 to i64
   %12 = getelementptr inbounds nuw i8, ptr %.val, i64 %11
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 17
-  %14 = load i8, ptr %13, align 1, !range !20, !noundef !21
+  %14 = load i8, ptr %13, align 1, !range !19, !noundef !20
   %15 = trunc nuw i8 %14 to i1
   tail call void @ReleaseSysCache(ptr noundef nonnull %3) #8
   ret i1 %15
@@ -4946,24 +4946,22 @@ attributes #9 = { cold nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = distinct !{!4, !5, !6}
+!4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{!"llvm.loop.estimated_trip_count"}
-!7 = distinct !{!7, !5, !6}
-!8 = distinct !{!8, !5, !6}
-!9 = distinct !{!9, !5, !6, !10}
-!10 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!11 = distinct !{!11, !5, !6, !10}
-!12 = distinct !{!12, !5, !6}
-!13 = distinct !{!13, !5, !6, !10}
-!14 = distinct !{!14, !5, !6, !10}
-!15 = distinct !{!15, !5, !6}
-!16 = distinct !{!16, !5, !6}
-!17 = distinct !{!17, !5, !6}
-!18 = distinct !{!18, !5, !6}
-!19 = distinct !{!19, !5, !6}
-!20 = !{i8 0, i8 2}
-!21 = !{}
-!22 = distinct !{!22, !6}
-!23 = distinct !{!23, !5, !6, !10}
-!24 = distinct !{!24, !5, !6}
+!6 = distinct !{!6, !5}
+!7 = distinct !{!7, !5}
+!8 = distinct !{!8, !5, !9}
+!9 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!10 = distinct !{!10, !5, !9}
+!11 = distinct !{!11, !5}
+!12 = distinct !{!12, !5, !9}
+!13 = distinct !{!13, !5, !9}
+!14 = distinct !{!14, !5}
+!15 = distinct !{!15, !5}
+!16 = distinct !{!16, !5}
+!17 = distinct !{!17, !5}
+!18 = distinct !{!18, !5}
+!19 = !{i8 0, i8 2}
+!20 = !{}
+!21 = distinct !{!21, !5, !9}
+!22 = distinct !{!22, !5}

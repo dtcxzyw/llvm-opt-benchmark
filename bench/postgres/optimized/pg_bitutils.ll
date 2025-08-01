@@ -209,13 +209,13 @@ pg_popcount_masked.exit:                          ; preds = %.lr.ph.i, %.prehead
 
 ; Function Attrs: inlinehint nounwind uwtable
 define internal i32 @pg_popcount32_fast(i32 noundef %0) #1 {
-  %2 = tail call i32 asm sideeffect " popcntl $1,$0\0A", "=q,rm,~{cc},~{dirflag},~{fpsr},~{flags}"(i32 %0) #7, !srcloc !8
+  %2 = tail call i32 asm sideeffect " popcntl $1,$0\0A", "=q,rm,~{cc},~{dirflag},~{fpsr},~{flags}"(i32 %0) #7, !srcloc !7
   ret i32 %2
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
 define internal i32 @pg_popcount64_fast(i64 noundef %0) #1 {
-  %2 = tail call i64 asm sideeffect " popcntq $1,$0\0A", "=q,rm,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %0) #7, !srcloc !9
+  %2 = tail call i64 asm sideeffect " popcntq $1,$0\0A", "=q,rm,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %0) #7, !srcloc !8
   %3 = trunc i64 %2 to i32
   ret i32 %3
 }
@@ -237,13 +237,13 @@ define internal i64 @pg_popcount_fast(ptr noundef %0, i32 noundef %1) #0 {
   %.11319 = phi i32 [ %14, %.lr.ph ], [ %1, %2 ]
   %9 = getelementptr inbounds nuw i8, ptr %.021, i64 8
   %10 = load i64, ptr %.021, align 8
-  %11 = tail call i64 asm sideeffect " popcntq $1,$0\0A", "=q,rm,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %10) #7, !srcloc !9
+  %11 = tail call i64 asm sideeffect " popcntq $1,$0\0A", "=q,rm,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %10) #7, !srcloc !8
   %sext = shl i64 %11, 32
   %12 = ashr exact i64 %sext, 32
   %13 = add i64 %12, %.120
   %14 = add nsw i32 %.11319, -8
   %15 = icmp samesign ugt i32 %.11319, 15
-  br i1 %15, label %.lr.ph, label %.loopexit, !llvm.loop !10
+  br i1 %15, label %.lr.ph, label %.loopexit, !llvm.loop !9
 
 .loopexit:                                        ; preds = %.lr.ph, %2
   %.015 = phi ptr [ %0, %2 ], [ %9, %.lr.ph ]
@@ -265,7 +265,7 @@ define internal i64 @pg_popcount_fast(ptr noundef %0, i32 noundef %1) #0 {
   %22 = zext i8 %21 to i64
   %23 = add i64 %.227, %22
   %.not = icmp eq i32 %16, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph28, !llvm.loop !11
+  br i1 %.not, label %._crit_edge, label %.lr.ph28, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %.lr.ph28, %.loopexit
   %.2.lcssa = phi i64 [ %.011, %.loopexit ], [ %23, %.lr.ph28 ]
@@ -292,13 +292,13 @@ define internal i64 @pg_popcount_masked_fast(ptr noundef %0, i32 noundef %1, i8 
   %12 = getelementptr inbounds nuw i8, ptr %.024, i64 8
   %13 = load i64, ptr %.024, align 8
   %14 = and i64 %13, %5
-  %15 = tail call i64 asm sideeffect " popcntq $1,$0\0A", "=q,rm,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %14) #7, !srcloc !9
+  %15 = tail call i64 asm sideeffect " popcntq $1,$0\0A", "=q,rm,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %14) #7, !srcloc !8
   %sext = shl i64 %15, 32
   %16 = ashr exact i64 %sext, 32
   %17 = add i64 %16, %.11623
   %18 = add nsw i32 %.11822, -8
   %19 = icmp samesign ugt i32 %.11822, 15
-  br i1 %19, label %.lr.ph, label %.loopexit, !llvm.loop !12
+  br i1 %19, label %.lr.ph, label %.loopexit, !llvm.loop !11
 
 .loopexit:                                        ; preds = %.lr.ph, %3
   %.017 = phi i32 [ %1, %3 ], [ %18, %.lr.ph ]
@@ -321,7 +321,7 @@ define internal i64 @pg_popcount_masked_fast(ptr noundef %0, i32 noundef %1, i8 
   %27 = zext i8 %26 to i64
   %28 = add i64 %.229, %27
   %.not = icmp eq i32 %20, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph31, !llvm.loop !13
+  br i1 %.not, label %._crit_edge, label %.lr.ph31, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %.lr.ph31, %.loopexit
   %.2.lcssa = phi i64 [ %.015, %.loopexit ], [ %28, %.lr.ph31 ]
@@ -362,7 +362,7 @@ define internal i64 @pg_popcount_slow(ptr noundef %0, i32 noundef %1) #3 {
   %12 = add i64 %11, %.120
   %13 = add nsw i32 %.11319, -8
   %14 = icmp samesign ugt i32 %.11319, 15
-  br i1 %14, label %.lr.ph, label %.loopexit, !llvm.loop !14
+  br i1 %14, label %.lr.ph, label %.loopexit, !llvm.loop !13
 
 .loopexit:                                        ; preds = %.lr.ph, %2
   %.015 = phi ptr [ %0, %2 ], [ %9, %.lr.ph ]
@@ -384,7 +384,7 @@ define internal i64 @pg_popcount_slow(ptr noundef %0, i32 noundef %1) #3 {
   %21 = zext i8 %20 to i64
   %22 = add i64 %.227, %21
   %.not = icmp eq i32 %15, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph28, !llvm.loop !15
+  br i1 %.not, label %._crit_edge, label %.lr.ph28, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %.lr.ph28, %.loopexit
   %.2.lcssa = phi i64 [ %.011, %.loopexit ], [ %22, %.lr.ph28 ]
@@ -415,7 +415,7 @@ define internal i64 @pg_popcount_masked_slow(ptr noundef %0, i32 noundef %1, i8 
   %16 = add i64 %15, %.11623
   %17 = add nsw i32 %.11822, -8
   %18 = icmp samesign ugt i32 %.11822, 15
-  br i1 %18, label %.lr.ph, label %.loopexit, !llvm.loop !16
+  br i1 %18, label %.lr.ph, label %.loopexit, !llvm.loop !15
 
 .loopexit:                                        ; preds = %.lr.ph, %3
   %.017 = phi i32 [ %1, %3 ], [ %17, %.lr.ph ]
@@ -438,7 +438,7 @@ define internal i64 @pg_popcount_masked_slow(ptr noundef %0, i32 noundef %1, i8 
   %26 = zext i8 %25 to i64
   %27 = add i64 %.229, %26
   %.not = icmp eq i32 %19, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph31, !llvm.loop !17
+  br i1 %.not, label %._crit_edge, label %.lr.ph31, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %.lr.ph31, %.loopexit
   %.2.lcssa = phi i64 [ %.015, %.loopexit ], [ %27, %.lr.ph31 ]
@@ -473,16 +473,15 @@ attributes #7 = { nounwind }
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i64 2148887497, i64 2148887533, i64 2148887557}
 !4 = !{i64 2148887703, i64 2148887739, i64 2148887763}
-!5 = distinct !{!5, !6, !7}
+!5 = distinct !{!5, !6}
 !6 = !{!"llvm.loop.mustprogress"}
-!7 = !{!"llvm.loop.estimated_trip_count"}
-!8 = !{i64 7231}
-!9 = !{i64 7516}
-!10 = distinct !{!10, !6, !7}
-!11 = distinct !{!11, !6, !7}
-!12 = distinct !{!12, !6, !7}
-!13 = distinct !{!13, !6, !7}
-!14 = distinct !{!14, !6, !7}
-!15 = distinct !{!15, !6, !7}
-!16 = distinct !{!16, !6, !7}
-!17 = distinct !{!17, !6, !7}
+!7 = !{i64 7231}
+!8 = !{i64 7516}
+!9 = distinct !{!9, !6}
+!10 = distinct !{!10, !6}
+!11 = distinct !{!11, !6}
+!12 = distinct !{!12, !6}
+!13 = distinct !{!13, !6}
+!14 = distinct !{!14, !6}
+!15 = distinct !{!15, !6}
+!16 = distinct !{!16, !6}

@@ -451,7 +451,7 @@ define internal i32 @dissect_lwres(ptr noundef %0, ptr noundef readonly captures
   %146 = add i32 %.282.i.i, 10
   %147 = add nuw nsw i32 %.183.i.i, 1
   %exitcond84.not.i.i = icmp eq i32 %147, %126
-  br i1 %exitcond84.not.i.i, label %dissect_noop.exit, label %128, !llvm.loop !9
+  br i1 %exitcond84.not.i.i, label %dissect_noop.exit, label %128, !llvm.loop !8
 
 148:                                              ; preds = %61
   br i1 %.not, label %149, label %171
@@ -528,7 +528,7 @@ define internal i32 @dissect_lwres(ptr noundef %0, ptr noundef readonly captures
   %205 = add i32 %204, %195
   %206 = add nuw nsw i32 %.042.i.i, 1
   %exitcond.not.i.i73 = icmp eq i32 %206, %189
-  br i1 %exitcond.not.i.i73, label %dissect_noop.exit, label %191, !llvm.loop !10
+  br i1 %exitcond.not.i.i73, label %dissect_noop.exit, label %191, !llvm.loop !9
 
 207:                                              ; preds = %61
   br i1 %.not, label %208, label %226
@@ -622,7 +622,7 @@ define internal i32 @dissect_lwres(ptr noundef %0, ptr noundef readonly captures
   %271 = tail call ptr @proto_tree_add_item(ptr noundef %267, i32 noundef %270, ptr noundef %0, i32 noundef %264, i32 noundef 4, i32 noundef 0)
   %272 = add nuw nsw i32 %.023.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i32 %272, %229
-  br i1 %exitcond.not.i.i.i, label %dissect_noop.exit, label %260, !llvm.loop !11
+  br i1 %exitcond.not.i.i.i, label %dissect_noop.exit, label %260, !llvm.loop !10
 
 273:                                              ; preds = %234
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #5
@@ -677,7 +677,7 @@ define internal i32 @dissect_lwres(ptr noundef %0, ptr noundef readonly captures
   %311 = add i32 %287, %286
   %312 = add nuw nsw i32 %.047.i.i.i, 1
   %exitcond.not.i47.i.i = icmp eq i32 %312, %229
-  br i1 %exitcond.not.i47.i.i, label %dissect_srv_records.exit.i.i, label %279, !llvm.loop !12
+  br i1 %exitcond.not.i47.i.i, label %dissect_srv_records.exit.i.i, label %279, !llvm.loop !11
 
 dissect_srv_records.exit.i.i:                     ; preds = %279, %275, %273
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #5
@@ -727,7 +727,7 @@ dissect_srv_records.exit.i.i:                     ; preds = %279, %275, %273
   %341 = add i32 %324, %323
   %342 = add nuw nsw i32 %.032.i.i.i, 1
   %exitcond.not.i50.i.i = icmp eq i32 %342, %229
-  br i1 %exitcond.not.i50.i.i, label %dissect_mx_records.exit.i.i, label %319, !llvm.loop !13
+  br i1 %exitcond.not.i50.i.i, label %dissect_mx_records.exit.i.i, label %319, !llvm.loop !12
 
 dissect_mx_records.exit.i.i:                      ; preds = %319, %315, %313
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #5
@@ -772,7 +772,7 @@ dissect_mx_records.exit.i.i:                      ; preds = %319, %315, %313
   %366 = add i32 %350, %351
   %367 = add nuw nsw i32 %.026.i.i.i, 1
   %exitcond.not.i53.i.i = icmp eq i32 %367, %229
-  br i1 %exitcond.not.i53.i.i, label %dissect_ns_records.exit.i.i, label %349, !llvm.loop !14
+  br i1 %exitcond.not.i53.i.i, label %dissect_ns_records.exit.i.i, label %349, !llvm.loop !13
 
 dissect_ns_records.exit.i.i:                      ; preds = %349, %345, %343
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #5
@@ -873,12 +873,11 @@ attributes #5 = { nounwind }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7, !8}
-!11 = distinct !{!11, !7, !8}
-!12 = distinct !{!12, !7, !8}
-!13 = distinct !{!13, !7, !8}
-!14 = distinct !{!14, !7, !8}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7}
+!12 = distinct !{!12, !7}
+!13 = distinct !{!13, !7}

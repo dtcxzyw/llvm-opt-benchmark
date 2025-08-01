@@ -258,7 +258,7 @@ define hidden range(i32 -2147483647, -2147483648) i32 @od_ec_decode_cdf_q15(ptr 
   %20 = add i32 %19, -8
   %21 = add i32 %20, %17
   %22 = icmp ult i32 %9, %21
-  br i1 %22, label %11, label %23, !llvm.loop !7
+  br i1 %22, label %11, label %23, !llvm.loop !6
 
 23:                                               ; preds = %11
   %24 = sub i32 %.021, %21
@@ -404,7 +404,6 @@ attributes #6 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5, !6}
+!4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{!"llvm.loop.estimated_trip_count"}
-!7 = distinct !{!7, !5, !6}
+!6 = distinct !{!6, !5}

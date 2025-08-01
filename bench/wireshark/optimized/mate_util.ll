@@ -493,7 +493,7 @@ define hidden ptr @get_avp_by_name(ptr noundef readonly captures(none) %0, ptr n
   %17 = load ptr, ptr %16, align 8
   %18 = load ptr, ptr %17, align 8
   %.not16 = icmp eq ptr %18, null
-  br i1 %.not16, label %._crit_edge, label %.lr.ph, !llvm.loop !9
+  br i1 %.not16, label %._crit_edge, label %.lr.ph, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %15, %.lr.ph, %10
   %.013.lcssa = phi ptr [ %.0, %10 ], [ %.01318, %.lr.ph ], [ %17, %15 ]
@@ -526,7 +526,7 @@ define hidden ptr @extract_avp_by_name(ptr noundef captures(none) %0, ptr nounde
   %.0 = load ptr, ptr %11, align 8
   %12 = load ptr, ptr %.0, align 8
   %.not = icmp eq ptr %12, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !10
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %10, %.lr.ph, %2
   %.0.lcssa = phi ptr [ %.020, %2 ], [ %.022, %.lr.ph ], [ %.0, %10 ]
@@ -652,7 +652,7 @@ define hidden void @delete_avpl(ptr noundef %0, i1 noundef zeroext %1) local_unn
   store ptr %23, ptr %4, align 8
   %24 = load ptr, ptr %20, align 8
   %.not.i.us = icmp eq ptr %24, null
-  br i1 %.not.i.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !11
+  br i1 %.not.i.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !10
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.split
   %25 = phi ptr [ %28, %.lr.ph.split ], [ %5, %.lr.ph ]
@@ -668,7 +668,7 @@ define hidden void @delete_avpl(ptr noundef %0, i1 noundef zeroext %1) local_unn
   store ptr %31, ptr %4, align 8
   %32 = load ptr, ptr %28, align 8
   %.not.i = icmp eq ptr %32, null
-  br i1 %.not.i, label %._crit_edge, label %.lr.ph.split, !llvm.loop !13
+  br i1 %.not.i, label %._crit_edge, label %.lr.ph.split, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %.lr.ph.split, %.lr.ph.split.us, %2
   %33 = load ptr, ptr @avp_strings, align 8
@@ -723,7 +723,7 @@ define hidden ptr @avpl_to_str(ptr noundef readonly captures(none) %0) local_unn
   %.0 = load ptr, ptr %13, align 8
   %14 = load ptr, ptr %.0, align 8
   %.not = icmp eq ptr %14, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !14
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
   %15 = tail call ptr @g_string_free(ptr noundef %2, i32 noundef 0)
@@ -770,7 +770,7 @@ define hidden ptr @avpl_to_dotstr(ptr noundef readonly captures(none) %0) local_
   %.0 = load ptr, ptr %13, align 8
   %14 = load ptr, ptr %.0, align 8
   %.not = icmp eq ptr %14, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !15
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
   %15 = tail call ptr @g_string_free(ptr noundef %2, i32 noundef 0)
@@ -924,7 +924,7 @@ insert_avp_before_node.exit42:                    ; preds = %58, %60
   %.1 = phi ptr [ %20, %18 ], [ %.046, %insert_avp_before_node.exit ], [ %56, %54 ], [ %.046, %insert_avp_before_node.exit42 ], [ %.046, %82 ]
   %86 = load ptr, ptr %.131, align 8
   %.not = icmp eq ptr %86, null
-  br i1 %.not, label %._crit_edge, label %10, !llvm.loop !16
+  br i1 %.not, label %._crit_edge, label %10, !llvm.loop !15
 
 .lr.ph53:                                         ; preds = %10
   %87 = getelementptr inbounds nuw i8, ptr %.046, i64 16
@@ -966,7 +966,7 @@ insert_avp_before_node.exit43.us:                 ; preds = %.lr.ph53, %insert_a
   %110 = load ptr, ptr %109, align 8
   %111 = load ptr, ptr %110, align 8
   %.not39.us = icmp eq ptr %111, null
-  br i1 %.not39.us, label %._crit_edge, label %insert_avp_before_node.exit43.us, !llvm.loop !17
+  br i1 %.not39.us, label %._crit_edge, label %insert_avp_before_node.exit43.us, !llvm.loop !16
 
 insert_avp_before_node.exit43:                    ; preds = %.lr.ph53, %insert_avp_before_node.exit43
   %112 = phi ptr [ %122, %insert_avp_before_node.exit43 ], [ %11, %.lr.ph53 ]
@@ -988,7 +988,7 @@ insert_avp_before_node.exit43:                    ; preds = %.lr.ph53, %insert_a
   %121 = load ptr, ptr %120, align 8
   %122 = load ptr, ptr %121, align 8
   %.not39 = icmp eq ptr %122, null
-  br i1 %.not39, label %._crit_edge, label %insert_avp_before_node.exit43, !llvm.loop !18
+  br i1 %.not39, label %._crit_edge, label %insert_avp_before_node.exit43, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %85, %insert_avp_before_node.exit43, %insert_avp_before_node.exit43.us, %3
   ret void
@@ -1060,7 +1060,7 @@ get_next_avp.exit.us:                             ; preds = %12, %.split.us
   br label %.split.us.backedge
 
 .split.us.backedge:                               ; preds = %31, %17
-  br label %.split.us, !llvm.loop !19
+  br label %.split.us, !llvm.loop !18
 
 .split:                                           ; preds = %3, %39
   %.0 = phi ptr [ %41, %39 ], [ null, %3 ]
@@ -1081,7 +1081,7 @@ get_next_avp.exit:                                ; preds = %.split, %36
   %40 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
   %41 = load ptr, ptr %40, align 8
   %42 = tail call zeroext i1 @insert_avp(ptr noundef %4, ptr noundef nonnull %38)
-  br label %.split, !llvm.loop !20
+  br label %.split, !llvm.loop !19
 
 .split11.us:                                      ; preds = %get_next_avp.exit, %get_next_avp.exit.us
   ret ptr %4
@@ -1160,7 +1160,7 @@ define hidden ptr @match_avp(ptr noundef readonly captures(ret: address, provena
   %40 = getelementptr ptr, ptr %34, i64 %39
   %41 = load ptr, ptr %40, align 8
   %.not56 = icmp eq ptr %41, null
-  br i1 %.not56, label %._crit_edge, label %42, !llvm.loop !21
+  br i1 %.not56, label %._crit_edge, label %42, !llvm.loop !20
 
 42:                                               ; preds = %.lr.ph, %37
   %43 = phi ptr [ %35, %.lr.ph ], [ %41, %37 ]
@@ -1379,7 +1379,7 @@ insert_avp_before_node.exit:                      ; preds = %36, %42
   %69 = load ptr, ptr %.02637, align 8
   %70 = load ptr, ptr %69, align 8
   %71 = icmp eq ptr %68, %70
-  br i1 %71, label %.preheader, label %.critedge2, !llvm.loop !22
+  br i1 %71, label %.preheader, label %.critedge2, !llvm.loop !21
 
 .critedge2:                                       ; preds = %63, %67, %insert_avp_before_node.exit
   %72 = getelementptr inbounds nuw i8, ptr %.02637, i64 8
@@ -1391,7 +1391,7 @@ insert_avp_before_node.exit:                      ; preds = %36, %42
   %.1 = phi ptr [ %28, %26 ], [ %.02538, %30 ], [ %.02538, %.critedge2 ]
   %75 = load ptr, ptr %.127, align 8
   %.not = icmp eq ptr %75, null
-  br i1 %.not, label %.critedge, label %.lr.ph, !llvm.loop !23
+  br i1 %.not, label %.critedge, label %.lr.ph, !llvm.loop !22
 
 .critedge:                                        ; preds = %.lr.ph, %74, %4
   ret ptr %7
@@ -1535,7 +1535,7 @@ define hidden noundef ptr @new_avpl_pairs_match(ptr noundef %0, ptr noundef read
   %.25068 = phi ptr [ %.04890, %.thread ], [ %.250, %69 ], [ %.250, %65 ], [ %.250, %72 ], [ %.250100, %.thread95 ]
   %75 = load ptr, ptr %.14670, align 8
   %.not = icmp eq ptr %75, null
-  br i1 %.not, label %.critedge, label %.lr.ph, !llvm.loop !24
+  br i1 %.not, label %.critedge, label %.lr.ph
 
 .critedge:                                        ; preds = %.lr.ph, %74, %5
   %.048.lcssa = phi ptr [ %18, %5 ], [ %.25068, %74 ], [ %.04890, %.lr.ph ]
@@ -1622,7 +1622,7 @@ define hidden void @delete_avpl_transform(ptr noundef %0) local_unnamed_addr #0 
 12:                                               ; preds = %11, %8
   tail call void @g_free(ptr noundef nonnull %.014)
   %.not = icmp eq ptr %3, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !25
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !23
 
 ._crit_edge:                                      ; preds = %12, %1
   ret void
@@ -1737,13 +1737,13 @@ new_avpl_from_match.exit:                         ; preds = %8, %10, %12, %14
   %.1 = phi ptr [ %46, %37 ], [ %.03252, %47 ]
   %51 = load ptr, ptr %.134, align 8
   %.not39 = icmp eq ptr %51, null
-  br i1 %.not39, label %.loopexit.sink.split.sink.split, label %.lr.ph53, !llvm.loop !26
+  br i1 %.not39, label %.loopexit.sink.split.sink.split, label %.lr.ph53, !llvm.loop !24
 
 new_avpl_from_match.exit.thread:                  ; preds = %.lr.ph, %new_avpl_from_match.exit, %16
   %52 = getelementptr inbounds nuw i8, ptr %.049, i64 40
   %53 = load ptr, ptr %52, align 8
   %.not = icmp eq ptr %53, null
-  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !27
+  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !25
 
 .loopexit.sink.split.sink.split:                  ; preds = %16, %50, %.lr.ph53, %19
   %54 = getelementptr inbounds nuw i8, ptr %.049, i64 16
@@ -1912,7 +1912,7 @@ define hidden void @delete_loal(ptr noundef %0, i1 noundef zeroext %1, i1 nounde
   store i32 %23, ptr %6, align 8
   %24 = load ptr, ptr %17, align 8
   %.not.i.us = icmp eq ptr %24, null
-  br i1 %.not.i.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !28
+  br i1 %.not.i.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !26
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.split
   %25 = phi ptr [ %26, %.lr.ph.split ], [ %7, %.lr.ph ]
@@ -1929,7 +1929,7 @@ define hidden void @delete_loal(ptr noundef %0, i1 noundef zeroext %1, i1 nounde
   store i32 %32, ptr %6, align 8
   %33 = load ptr, ptr %26, align 8
   %.not.i = icmp eq ptr %33, null
-  br i1 %.not.i, label %._crit_edge, label %.lr.ph.split, !llvm.loop !29
+  br i1 %.not.i, label %._crit_edge, label %.lr.ph.split, !llvm.loop !27
 
 ._crit_edge:                                      ; preds = %.lr.ph.split, %.lr.ph.split.us, %3
   %34 = load ptr, ptr @avp_strings, align 8
@@ -2030,7 +2030,7 @@ default.unreachable195:                           ; preds = %37
     i32 1, label %55
     i32 2, label %72
     i32 3, label %90
-  ], !llvm.loop !30
+  ], !llvm.loop !28
 
 38:                                               ; preds = %37
   %spec.select128 = select i1 %32, i32 0, i32 %.0118161
@@ -2120,7 +2120,7 @@ default.unreachable195:                           ; preds = %37
   %41 = tail call i32 @fgetc(ptr noundef nonnull %16)
   %42 = trunc i32 %41 to i8
   %.not123 = icmp eq i8 %42, 0
-  br i1 %.not123, label %.loopexit, label %20, !llvm.loop !31
+  br i1 %.not123, label %.loopexit, label %20, !llvm.loop !28
 
 43:                                               ; preds = %39, %39, %39, %39, %39, %39, %39, %39, %39, %39, %39, %39, %39, %39, %39, %39, %39, %39, %39, %39, %39, %39, %39, %39, %39, %39, %39, %39, %39, %39, %39, %39, %39, %39, %39, %39, %39, %39, %39, %39, %39, %39, %39, %39, %39, %39, %39, %39, %39, %39, %39, %39, %39, %39, %39, %39, %39, %39, %39, %39, %39, %39, %39, %39
   store i8 %21, ptr %10, align 1
@@ -2531,7 +2531,7 @@ define internal noundef ptr @load_loal_error(ptr noundef captures(address_is_nul
   store i32 %44, ptr %27, align 8
   %45 = load ptr, ptr %38, align 8
   %.not.i.us.i = icmp eq ptr %45, null
-  br i1 %.not.i.us.i, label %delete_loal.exit, label %.lr.ph.split.us.i, !llvm.loop !28
+  br i1 %.not.i.us.i, label %delete_loal.exit, label %.lr.ph.split.us.i, !llvm.loop !26
 
 delete_loal.exit:                                 ; preds = %.lr.ph.split.us.i, %24
   %46 = load ptr, ptr @avp_strings, align 8
@@ -2627,29 +2627,26 @@ attributes #16 = { nounwind willreturn memory(none) }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7, !8}
-!11 = distinct !{!11, !7, !8, !12}
-!12 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!13 = distinct !{!13, !7, !8}
-!14 = distinct !{!14, !7, !8}
-!15 = distinct !{!15, !7, !8}
-!16 = distinct !{!16, !7, !8}
-!17 = distinct !{!17, !7, !8, !12}
-!18 = distinct !{!18, !7, !8}
-!19 = distinct !{!19, !7, !8, !12}
-!20 = distinct !{!20, !7, !8}
-!21 = distinct !{!21, !7, !8}
-!22 = distinct !{!22, !7, !8}
-!23 = distinct !{!23, !7, !8}
-!24 = distinct !{!24, !8}
-!25 = distinct !{!25, !7, !8}
-!26 = distinct !{!26, !7, !8}
-!27 = distinct !{!27, !7, !8}
-!28 = distinct !{!28, !7, !8, !12}
-!29 = distinct !{!29, !7, !8}
-!30 = distinct !{!30, !7}
-!31 = distinct !{!31, !7, !8}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7, !11}
+!11 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!12 = distinct !{!12, !7}
+!13 = distinct !{!13, !7}
+!14 = distinct !{!14, !7}
+!15 = distinct !{!15, !7}
+!16 = distinct !{!16, !7, !11}
+!17 = distinct !{!17, !7}
+!18 = distinct !{!18, !7, !11}
+!19 = distinct !{!19, !7}
+!20 = distinct !{!20, !7}
+!21 = distinct !{!21, !7}
+!22 = distinct !{!22, !7}
+!23 = distinct !{!23, !7}
+!24 = distinct !{!24, !7}
+!25 = distinct !{!25, !7}
+!26 = distinct !{!26, !7, !11}
+!27 = distinct !{!27, !7}
+!28 = distinct !{!28, !7}

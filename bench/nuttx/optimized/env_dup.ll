@@ -62,7 +62,7 @@ define range(i32 -12, 1) i32 @env_dup(ptr noundef writeonly captures(none) %0, p
   %30 = getelementptr inbounds ptr, ptr %12, i64 %29
   %31 = load ptr, ptr %30, align 8
   %.not41 = icmp eq ptr %31, null
-  br i1 %.not41, label %._crit_edge, label %.lr.ph, !llvm.loop !9
+  br i1 %.not41, label %._crit_edge, label %.lr.ph, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
   tail call void @free(ptr noundef nonnull %12)
@@ -71,7 +71,7 @@ define range(i32 -12, 1) i32 @env_dup(ptr noundef writeonly captures(none) %0, p
 32:                                               ; preds = %16
   %33 = tail call i64 @strlcpy(ptr noundef nonnull %22, ptr noundef nonnull dereferenceable(1) %19, i64 noundef %21) #6
   %.not40 = icmp eq i64 %17, 0
-  br i1 %.not40, label %.loopexit, label %16, !llvm.loop !10
+  br i1 %.not40, label %.loopexit, label %16, !llvm.loop !9
 
 .loopexit:                                        ; preds = %32, %9, %._crit_edge, %7
   %.031 = phi ptr [ null, %._crit_edge ], [ null, %7 ], [ null, %9 ], [ %12, %32 ]
@@ -119,8 +119,7 @@ attributes #7 = { allocsize(0) }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7, !8}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}

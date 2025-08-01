@@ -342,7 +342,7 @@ long_term_synth.exit.i:                           ; preds = %193
   %208 = zext nneg i32 %207 to i64
   %209 = getelementptr inbounds nuw i16, ptr %.0426.i, i64 %208
   %210 = getelementptr inbounds nuw [4 x ptr], ptr @ff_gsm_apcm_bits, i64 0, i64 %indvars.iv.i
-  %211 = load ptr, ptr %210, align 8, !tbaa !51
+  %211 = load ptr, ptr %210, align 8, !tbaa !50
   %212 = lshr i32 %203, 3
   %213 = zext nneg i32 %212 to i64
   %214 = getelementptr inbounds nuw i8, ptr %7, i64 %213
@@ -388,13 +388,13 @@ long_term_synth.exit.i:                           ; preds = %193
   store i16 %249, ptr %247, align 2, !tbaa !46
   %indvars.iv.next.i44.i = add nuw nsw i64 %indvars.iv.i43.i, 1
   %exitcond.not.i45.i = icmp eq i64 %indvars.iv.next.i44.i, 13
-  br i1 %exitcond.not.i45.i, label %apcm_dequant_add.exit.i, label %224, !llvm.loop !52
+  br i1 %exitcond.not.i45.i, label %apcm_dequant_add.exit.i, label %224, !llvm.loop !51
 
 apcm_dequant_add.exit.i:                          ; preds = %224
   %250 = getelementptr inbounds nuw i8, ptr %.0426.i, i64 80
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
-  br i1 %exitcond.not.i, label %251, label %159, !llvm.loop !53
+  br i1 %exitcond.not.i, label %251, label %159, !llvm.loop !52
 
 251:                                              ; preds = %apcm_dequant_add.exit.i
   %252 = getelementptr inbounds nuw i8, ptr %.val, i64 320
@@ -428,7 +428,7 @@ apcm_dequant_add.exit.i:                          ; preds = %224
   store i32 %270, ptr %271, align 4, !tbaa !4
   %indvars.iv.next.i47.i = add nuw nsw i64 %indvars.iv.i46.i, 1
   %exitcond.not.i48.i = icmp eq i64 %indvars.iv.next.i47.i, 8
-  br i1 %exitcond.not.i48.i, label %.preheader82.i.i, label %260, !llvm.loop !54
+  br i1 %exitcond.not.i48.i, label %.preheader82.i.i, label %260, !llvm.loop !53
 
 272:                                              ; preds = %filter_value.exit.i.i, %.preheader82.i.i
   %indvars.iv98.i.i = phi i64 [ 0, %.preheader82.i.i ], [ %indvars.iv.next99.i.i, %filter_value.exit.i.i ]
@@ -456,7 +456,7 @@ apcm_dequant_add.exit.i:                          ; preds = %224
   store i32 %288, ptr %289, align 4, !tbaa !4
   %indvars.iv.next.i.i.i = add nsw i64 %indvars.iv.i.i.i, -1
   %.not.i.i.i = icmp eq i64 %indvars.iv.i.i.i, 0
-  br i1 %.not.i.i.i, label %filter_value.exit.i.i, label %276, !llvm.loop !55
+  br i1 %.not.i.i.i, label %filter_value.exit.i.i, label %276, !llvm.loop !54
 
 filter_value.exit.i.i:                            ; preds = %276
   store i32 %284, ptr %259, align 4, !tbaa !4
@@ -465,7 +465,7 @@ filter_value.exit.i.i:                            ; preds = %276
   store i16 %290, ptr %291, align 2, !tbaa !46
   %indvars.iv.next99.i.i = add nuw nsw i64 %indvars.iv98.i.i, 1
   %exitcond101.not.i.i = icmp eq i64 %indvars.iv.next99.i.i, 13
-  br i1 %exitcond101.not.i.i, label %.preheader81.i.i, label %272, !llvm.loop !56
+  br i1 %exitcond101.not.i.i, label %.preheader81.i.i, label %272, !llvm.loop !55
 
 .preheader81.i.i:                                 ; preds = %filter_value.exit.i.i, %.preheader81.i.i
   %indvars.iv102.i.i = phi i64 [ %indvars.iv.next103.i.i, %.preheader81.i.i ], [ 0, %filter_value.exit.i.i ]
@@ -481,7 +481,7 @@ filter_value.exit.i.i:                            ; preds = %276
   store i32 %299, ptr %300, align 4, !tbaa !4
   %indvars.iv.next103.i.i = add nuw nsw i64 %indvars.iv102.i.i, 1
   %exitcond105.not.i.i = icmp eq i64 %indvars.iv.next103.i.i, 8
-  br i1 %exitcond105.not.i.i, label %.preheader80.i.i, label %.preheader81.i.i, !llvm.loop !57
+  br i1 %exitcond105.not.i.i, label %.preheader80.i.i, label %.preheader81.i.i, !llvm.loop !56
 
 .preheader80.i.i:                                 ; preds = %.preheader81.i.i, %filter_value.exit66.i.i
   %indvars.iv106.i.i = phi i64 [ %indvars.iv.next107.i.i, %filter_value.exit66.i.i ], [ 13, %.preheader81.i.i ]
@@ -509,7 +509,7 @@ filter_value.exit.i.i:                            ; preds = %276
   store i32 %316, ptr %317, align 4, !tbaa !4
   %indvars.iv.next.i64.i.i = add nsw i64 %indvars.iv.i62.i.i, -1
   %.not.i65.i.i = icmp eq i64 %indvars.iv.i62.i.i, 0
-  br i1 %.not.i65.i.i, label %filter_value.exit66.i.i, label %304, !llvm.loop !55
+  br i1 %.not.i65.i.i, label %filter_value.exit66.i.i, label %304, !llvm.loop !54
 
 filter_value.exit66.i.i:                          ; preds = %304
   store i32 %312, ptr %259, align 4, !tbaa !4
@@ -518,7 +518,7 @@ filter_value.exit66.i.i:                          ; preds = %304
   store i16 %318, ptr %319, align 2, !tbaa !46
   %indvars.iv.next107.i.i = add nuw nsw i64 %indvars.iv106.i.i, 1
   %exitcond109.not.i.i = icmp eq i64 %indvars.iv.next107.i.i, 27
-  br i1 %exitcond109.not.i.i, label %.preheader79.i.i, label %.preheader80.i.i, !llvm.loop !58
+  br i1 %exitcond109.not.i.i, label %.preheader79.i.i, label %.preheader80.i.i, !llvm.loop !57
 
 .preheader79.i.i:                                 ; preds = %filter_value.exit66.i.i, %.preheader79.i.i
   %indvars.iv110.i.i = phi i64 [ %indvars.iv.next111.i.i, %.preheader79.i.i ], [ 0, %filter_value.exit66.i.i ]
@@ -536,7 +536,7 @@ filter_value.exit66.i.i:                          ; preds = %304
   store i32 %329, ptr %330, align 4, !tbaa !4
   %indvars.iv.next111.i.i = add nuw nsw i64 %indvars.iv110.i.i, 1
   %exitcond113.not.i.i = icmp eq i64 %indvars.iv.next111.i.i, 8
-  br i1 %exitcond113.not.i.i, label %.preheader78.i.i, label %.preheader79.i.i, !llvm.loop !59
+  br i1 %exitcond113.not.i.i, label %.preheader78.i.i, label %.preheader79.i.i, !llvm.loop !58
 
 .preheader78.i.i:                                 ; preds = %.preheader79.i.i, %filter_value.exit71.i.i
   %indvars.iv114.i.i = phi i64 [ %indvars.iv.next115.i.i, %filter_value.exit71.i.i ], [ 27, %.preheader79.i.i ]
@@ -564,7 +564,7 @@ filter_value.exit66.i.i:                          ; preds = %304
   store i32 %346, ptr %347, align 4, !tbaa !4
   %indvars.iv.next.i69.i.i = add nsw i64 %indvars.iv.i67.i.i, -1
   %.not.i70.i.i = icmp eq i64 %indvars.iv.i67.i.i, 0
-  br i1 %.not.i70.i.i, label %filter_value.exit71.i.i, label %334, !llvm.loop !55
+  br i1 %.not.i70.i.i, label %filter_value.exit71.i.i, label %334, !llvm.loop !54
 
 filter_value.exit71.i.i:                          ; preds = %334
   store i32 %342, ptr %259, align 4, !tbaa !4
@@ -573,7 +573,7 @@ filter_value.exit71.i.i:                          ; preds = %334
   store i16 %348, ptr %349, align 2, !tbaa !46
   %indvars.iv.next115.i.i = add nuw nsw i64 %indvars.iv114.i.i, 1
   %exitcond117.not.i.i = icmp eq i64 %indvars.iv.next115.i.i, 40
-  br i1 %exitcond117.not.i.i, label %.preheader77.i.i, label %.preheader78.i.i, !llvm.loop !60
+  br i1 %exitcond117.not.i.i, label %.preheader77.i.i, label %.preheader78.i.i, !llvm.loop !59
 
 .preheader77.i.i:                                 ; preds = %filter_value.exit71.i.i, %.preheader77.i.i
   %indvars.iv118.i.i = phi i64 [ %indvars.iv.next119.i.i, %.preheader77.i.i ], [ 0, %filter_value.exit71.i.i ]
@@ -584,7 +584,7 @@ filter_value.exit71.i.i:                          ; preds = %334
   store i32 %352, ptr %353, align 4, !tbaa !4
   %indvars.iv.next119.i.i = add nuw nsw i64 %indvars.iv118.i.i, 1
   %exitcond121.not.i.i = icmp eq i64 %indvars.iv.next119.i.i, 8
-  br i1 %exitcond121.not.i.i, label %.preheader.i.i, label %.preheader77.i.i, !llvm.loop !61
+  br i1 %exitcond121.not.i.i, label %.preheader.i.i, label %.preheader77.i.i, !llvm.loop !60
 
 .preheader.i.i:                                   ; preds = %.preheader77.i.i, %filter_value.exit76.i.i
   %indvars.iv122.i.i = phi i64 [ %indvars.iv.next123.i.i, %filter_value.exit76.i.i ], [ 40, %.preheader77.i.i ]
@@ -612,7 +612,7 @@ filter_value.exit71.i.i:                          ; preds = %334
   store i32 %369, ptr %370, align 4, !tbaa !4
   %indvars.iv.next.i74.i.i = add nsw i64 %indvars.iv.i72.i.i, -1
   %.not.i75.i.i = icmp eq i64 %indvars.iv.i72.i.i, 0
-  br i1 %.not.i75.i.i, label %filter_value.exit76.i.i, label %357, !llvm.loop !55
+  br i1 %.not.i75.i.i, label %filter_value.exit76.i.i, label %357, !llvm.loop !54
 
 filter_value.exit76.i.i:                          ; preds = %357
   store i32 %365, ptr %259, align 4, !tbaa !4
@@ -621,7 +621,7 @@ filter_value.exit76.i.i:                          ; preds = %357
   store i16 %371, ptr %372, align 2, !tbaa !46
   %indvars.iv.next123.i.i = add nuw nsw i64 %indvars.iv122.i.i, 1
   %exitcond125.not.i.i = icmp eq i64 %indvars.iv.next123.i.i, 160
-  br i1 %exitcond125.not.i.i, label %short_term_synth.exit.i, label %.preheader.i.i, !llvm.loop !62
+  br i1 %exitcond125.not.i.i, label %short_term_synth.exit.i, label %.preheader.i.i, !llvm.loop !61
 
 short_term_synth.exit.i:                          ; preds = %filter_value.exit76.i.i
   %373 = load i32, ptr %37, align 4, !tbaa !44
@@ -629,7 +629,7 @@ short_term_synth.exit.i:                          ; preds = %filter_value.exit76
   store i32 %374, ptr %37, align 4, !tbaa !44
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #9
   %375 = getelementptr inbounds nuw i8, ptr %.val, i64 664
-  %376 = load i32, ptr %375, align 4, !tbaa !63
+  %376 = load i32, ptr %375, align 4, !tbaa !62
   br label %377
 
 377:                                              ; preds = %377, %short_term_synth.exit.i
@@ -655,10 +655,10 @@ short_term_synth.exit.i:                          ; preds = %filter_value.exit76
   store i16 %393, ptr %378, align 2, !tbaa !46
   %indvars.iv.next.i50.i = add nuw nsw i64 %indvars.iv.i49.i, 1
   %exitcond.not.i51.i = icmp eq i64 %indvars.iv.next.i50.i, 160
-  br i1 %exitcond.not.i51.i, label %gsm_decode_block.exit, label %377, !llvm.loop !64
+  br i1 %exitcond.not.i51.i, label %gsm_decode_block.exit, label %377, !llvm.loop !63
 
 gsm_decode_block.exit:                            ; preds = %377
-  store i32 %386, ptr %375, align 4, !tbaa !63
+  store i32 %386, ptr %375, align 4, !tbaa !62
   br label %400
 
 394:                                              ; preds = %20
@@ -817,20 +817,19 @@ attributes #9 = { nounwind }
 !45 = !{!"GSMContext", !6, i64 0, !6, i64 560, !6, i64 596, !5, i64 660, !5, i64 664}
 !46 = !{!47, !47, i64 0}
 !47 = !{!"short", !6, i64 0}
-!48 = distinct !{!48, !49, !50}
+!48 = distinct !{!48, !49}
 !49 = !{!"llvm.loop.mustprogress"}
-!50 = !{!"llvm.loop.estimated_trip_count"}
-!51 = !{!27, !27, i64 0}
-!52 = distinct !{!52, !49, !50}
-!53 = distinct !{!53, !49, !50}
-!54 = distinct !{!54, !49, !50}
-!55 = distinct !{!55, !49, !50}
-!56 = distinct !{!56, !49, !50}
-!57 = distinct !{!57, !49, !50}
-!58 = distinct !{!58, !49, !50}
-!59 = distinct !{!59, !49, !50}
-!60 = distinct !{!60, !49, !50}
-!61 = distinct !{!61, !49, !50}
-!62 = distinct !{!62, !49, !50}
-!63 = !{!45, !5, i64 664}
-!64 = distinct !{!64, !49, !50}
+!50 = !{!27, !27, i64 0}
+!51 = distinct !{!51, !49}
+!52 = distinct !{!52, !49}
+!53 = distinct !{!53, !49}
+!54 = distinct !{!54, !49}
+!55 = distinct !{!55, !49}
+!56 = distinct !{!56, !49}
+!57 = distinct !{!57, !49}
+!58 = distinct !{!58, !49}
+!59 = distinct !{!59, !49}
+!60 = distinct !{!60, !49}
+!61 = distinct !{!61, !49}
+!62 = !{!45, !5, i64 664}
+!63 = distinct !{!63, !49}

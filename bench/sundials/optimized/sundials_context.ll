@@ -195,7 +195,7 @@ SUNContext_PopErrHandler.exit:                    ; preds = %.preheader, %SUNCon
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #9
   %7 = load ptr, ptr %3, align 8, !tbaa !20
   %.not5 = icmp eq ptr %7, null
-  br i1 %.not5, label %.loopexit, label %SUNContext_PopErrHandler.exit, !llvm.loop !24
+  br i1 %.not5, label %.loopexit, label %SUNContext_PopErrHandler.exit
 
 .loopexit:                                        ; preds = %SUNContext_PopErrHandler.exit, %.preheader, %1
   %.0 = phi i32 [ -9978, %1 ], [ 0, %.preheader ], [ 0, %SUNContext_PopErrHandler.exit ]
@@ -208,7 +208,7 @@ define range(i32 -9978, 1) i32 @SUNContext_GetProfiler(ptr noundef readnone capt
   br i1 %.not, label %4, label %3
 
 3:                                                ; preds = %2
-  store ptr null, ptr %1, align 8, !tbaa !26
+  store ptr null, ptr %1, align 8, !tbaa !24
   br label %4
 
 4:                                                ; preds = %2, %3
@@ -318,7 +318,7 @@ SUNContext_PopErrHandler.exit.i:                  ; preds = %.preheader.i, %SUNC
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #9
   %18 = load ptr, ptr %14, align 8, !tbaa !20
   %.not5.i = icmp eq ptr %18, null
-  br i1 %.not5.i, label %SUNContext_ClearErrHandlers.exit.loopexit, label %SUNContext_PopErrHandler.exit.i, !llvm.loop !24
+  br i1 %.not5.i, label %SUNContext_ClearErrHandlers.exit.loopexit, label %SUNContext_PopErrHandler.exit.i
 
 SUNContext_ClearErrHandlers.exit.loopexit:        ; preds = %SUNContext_PopErrHandler.exit.i
   %.pre12 = load ptr, ptr %0, align 8, !tbaa !10
@@ -372,6 +372,4 @@ attributes #10 = { nounwind allocsize(0) }
 !21 = !{!13, !15, i64 40}
 !22 = !{!23, !9, i64 0}
 !23 = !{!"SUNErrHandler_", !9, i64 0, !5, i64 8, !5, i64 16}
-!24 = distinct !{!24, !25}
-!25 = !{!"llvm.loop.estimated_trip_count"}
-!26 = !{!14, !14, i64 0}
+!24 = !{!14, !14, i64 0}

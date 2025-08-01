@@ -166,7 +166,7 @@ define internal noundef zeroext i1 @Check_Numeric_Field(ptr noundef %0, ptr noun
 
 .lr.ph:                                           ; preds = %.loopexit56
   %17 = tail call ptr @__ctype_b_loc() #15
-  %18 = load ptr, ptr %17, align 8, !tbaa !23
+  %18 = load ptr, ptr %17, align 8, !tbaa !22
   br label %19
 
 19:                                               ; preds = %.lr.ph, %25
@@ -174,7 +174,7 @@ define internal noundef zeroext i1 @Check_Numeric_Field(ptr noundef %0, ptr noun
   %.263 = phi ptr [ %.1, %.lr.ph ], [ %26, %25 ]
   %21 = zext i8 %20 to i64
   %22 = getelementptr inbounds nuw i16, ptr %18, i64 %21
-  %23 = load i16, ptr %22, align 2, !tbaa !25
+  %23 = load i16, ptr %22, align 2, !tbaa !24
   %24 = and i16 %23, 2048
   %.not50 = icmp eq i16 %24, 0
   br i1 %.not50, label %28, label %25
@@ -183,7 +183,7 @@ define internal noundef zeroext i1 @Check_Numeric_Field(ptr noundef %0, ptr noun
   %26 = getelementptr inbounds nuw i8, ptr %.263, i64 1
   %27 = load i8, ptr %26, align 1, !tbaa !19
   %.not49 = icmp eq i8 %27, 0
-  br i1 %.not49, label %.thread.preheader, label %19, !llvm.loop !27
+  br i1 %.not49, label %.thread.preheader, label %19, !llvm.loop !26
 
 28:                                               ; preds = %19
   %29 = icmp eq i8 %20, 46
@@ -199,10 +199,10 @@ define internal noundef zeroext i1 @Check_Numeric_Field(ptr noundef %0, ptr noun
 31:                                               ; preds = %.preheader
   %32 = zext i8 %30 to i64
   %33 = getelementptr inbounds nuw i16, ptr %18, i64 %32
-  %34 = load i16, ptr %33, align 2, !tbaa !25
+  %34 = load i16, ptr %33, align 2, !tbaa !24
   %35 = and i16 %34, 2048
   %.not52 = icmp eq i16 %35, 0
-  br i1 %.not52, label %.thread.preheader, label %.preheader, !llvm.loop !28
+  br i1 %.not52, label %.thread.preheader, label %.preheader, !llvm.loop !27
 
 .thread.preheader:                                ; preds = %25, %.preheader, %31, %.loopexit56, %28
   %.ph = phi i8 [ 0, %.loopexit56 ], [ %20, %28 ], [ %30, %31 ], [ 0, %.preheader ], [ 0, %25 ]
@@ -220,7 +220,7 @@ define internal noundef zeroext i1 @Check_Numeric_Field(ptr noundef %0, ptr noun
 37:                                               ; preds = %.thread
   %38 = getelementptr inbounds nuw i8, ptr %.5, i64 1
   %.pre71 = load i8, ptr %38, align 1, !tbaa !19
-  br label %.thread, !llvm.loop !29
+  br label %.thread, !llvm.loop !28
 
 39:                                               ; preds = %.thread
   %40 = tail call double @strtod(ptr noundef nonnull captures(none) %9, ptr noundef null) #14
@@ -248,10 +248,10 @@ define internal noundef zeroext i1 @Check_Numeric_Field(ptr noundef %0, ptr noun
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define internal noundef zeroext i1 @Check_Numeric_Character(i32 noundef %0, ptr readnone captures(none) %1) #3 {
   %3 = tail call ptr @__ctype_b_loc() #15
-  %4 = load ptr, ptr %3, align 8, !tbaa !23
+  %4 = load ptr, ptr %3, align 8, !tbaa !22
   %5 = sext i32 %0 to i64
   %6 = getelementptr inbounds i16, ptr %4, i64 %5
-  %7 = load i16, ptr %6, align 2, !tbaa !25
+  %7 = load i16, ptr %6, align 2, !tbaa !24
   %.fr7 = freeze i16 %7
   %8 = and i16 %.fr7, 2048
   %.not = icmp eq i16 %8, 0
@@ -342,13 +342,12 @@ attributes #15 = { nounwind willreturn memory(none) }
 !17 = !{i64 0, i64 4, !4, i64 8, i64 8, !13, i64 16, i64 8, !13, i64 24, i64 8, !18}
 !18 = !{!11, !11, i64 0}
 !19 = !{!6, !6, i64 0}
-!20 = distinct !{!20, !21, !22}
+!20 = distinct !{!20, !21}
 !21 = !{!"llvm.loop.mustprogress"}
-!22 = !{!"llvm.loop.estimated_trip_count"}
-!23 = !{!24, !24, i64 0}
-!24 = !{!"p1 short", !12, i64 0}
-!25 = !{!26, !26, i64 0}
-!26 = !{!"short", !6, i64 0}
-!27 = distinct !{!27, !21, !22}
-!28 = distinct !{!28, !21, !22}
-!29 = distinct !{!29, !21, !22}
+!22 = !{!23, !23, i64 0}
+!23 = !{!"p1 short", !12, i64 0}
+!24 = !{!25, !25, i64 0}
+!25 = !{!"short", !6, i64 0}
+!26 = distinct !{!26, !21}
+!27 = distinct !{!27, !21}
+!28 = distinct !{!28, !21}

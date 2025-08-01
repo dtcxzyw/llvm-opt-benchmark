@@ -137,7 +137,7 @@ define hidden range(i32 0, 8) i32 @lj_strscan_scan(ptr noundef %0, i32 noundef %
   %78 = and i8 %77, 2
   %.not258 = icmp eq i8 %78, 0
   %79 = getelementptr inbounds nuw i8, ptr %.4190, i64 1
-  br i1 %.not258, label %80, label %73, !llvm.loop !11
+  br i1 %.not258, label %80, label %73, !llvm.loop !10
 
 80:                                               ; preds = %73
   %.not259 = icmp ne i8 %74, 0
@@ -206,7 +206,7 @@ thread-pre-split:                                 ; preds = %22, %4
   %.2209 = phi ptr [ %.1208, %100 ], [ %.7, %102 ]
   %.2202 = phi i32 [ 1, %100 ], [ %.1201, %102 ]
   %104 = getelementptr inbounds nuw i8, ptr %.7, i64 1
-  br label %100, !llvm.loop !12
+  br label %100
 
 .loopexit:                                        ; preds = %100, %thread-pre-split
   %105 = phi i8 [ %83, %thread-pre-split ], [ %101, %100 ]
@@ -253,7 +253,7 @@ thread-pre-split:                                 ; preds = %22, %4
   %.1199 = phi i32 [ %117, %113 ], [ %.0198, %121 ]
   %123 = getelementptr inbounds nuw i8, ptr %.8, i64 1
   %.pre323 = load i8, ptr %123, align 1, !tbaa !4
-  br label %106, !llvm.loop !13
+  br label %106
 
 124:                                              ; preds = %119
   %125 = or i32 %.0203, %.0200
@@ -294,7 +294,7 @@ thread-pre-split:                                 ; preds = %22, %4
   %141 = add i32 %.1195301, 1
   %142 = add i32 %.3206300, -1
   %exitcond.not = icmp eq i32 %141, 0
-  br i1 %exitcond.not, label %.critedge.thread, label %.lr.ph, !llvm.loop !14
+  br i1 %exitcond.not, label %.critedge.thread, label %.lr.ph, !llvm.loop !11
 
 .critedge:                                        ; preds = %.lr.ph
   %143 = icmp samesign ult i32 %.1195301, -1048575
@@ -371,7 +371,7 @@ thread-pre-split:                                 ; preds = %22, %4
   %178 = zext nneg i8 %177 to i32
   %179 = add nuw nsw i32 %176, %178
   %180 = icmp samesign ugt i32 %179, 1048575
-  br i1 %180, label %.thread270, label %169, !llvm.loop !15
+  br i1 %180, label %.thread270, label %169, !llvm.loop !12
 
 181:                                              ; preds = %169
   %182 = sub nsw i32 0, %.0193
@@ -481,7 +481,7 @@ thread-pre-split:                                 ; preds = %22, %4
   %231 = and i8 %230, 2
   %.not250 = icmp eq i8 %231, 0
   %232 = getelementptr inbounds nuw i8, ptr %.18, i64 1
-  br i1 %.not250, label %233, label %226, !llvm.loop !16
+  br i1 %.not250, label %233, label %226, !llvm.loop !13
 
 233:                                              ; preds = %226
   %.not251 = icmp eq i8 %227, 0
@@ -643,7 +643,7 @@ define internal fastcc range(i32 0, 8) i32 @strscan_oct(ptr noundef readonly cap
   %18 = zext nneg i8 %17 to i64
   %19 = or disjoint i64 %15, %18
   %.not = icmp eq i32 %14, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !17
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %13, %7
   %.0.lcssa = phi i64 [ 0, %7 ], [ %19, %13 ]
@@ -724,7 +724,7 @@ define internal fastcc range(i32 0, 8) i32 @strscan_hex(ptr noundef readonly cap
   %22 = add nsw i32 %.05382, -1
   %23 = getelementptr inbounds nuw i8, ptr %.158, i64 1
   %.not = icmp eq i32 %22, 0
-  br i1 %.not, label %.preheader, label %.lr.ph, !llvm.loop !18
+  br i1 %.not, label %.preheader, label %.lr.ph, !llvm.loop !15
 
 .lr.ph88:                                         ; preds = %.preheader, %28
   %.187 = phi i32 [ %32, %28 ], [ 16, %.preheader ]
@@ -748,7 +748,7 @@ define internal fastcc range(i32 0, 8) i32 @strscan_hex(ptr noundef readonly cap
   %32 = add nuw i32 %.187, 1
   %33 = getelementptr inbounds nuw i8, ptr %.3, i64 1
   %exitcond.not = icmp eq i32 %32, %6
-  br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph88, !llvm.loop !19
+  br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph88, !llvm.loop !16
 
 ._crit_edge.loopexit:                             ; preds = %28
   %34 = shl i32 %6, 2
@@ -880,7 +880,7 @@ define internal fastcc range(i32 0, 8) i32 @strscan_hex(ptr noundef readonly cap
 
 93:                                               ; preds = %90, %.thread.i
   %.02740.i = phi double [ %.02738.i, %.thread.i ], [ %.027.i, %90 ]
-  %94 = tail call double @ldexp(double noundef %.02740.i, i32 noundef %.161) #8, !tbaa !20
+  %94 = tail call double @ldexp(double noundef %.02740.i, i32 noundef %.161) #8, !tbaa !17
   br label %strscan_double.exit
 
 strscan_double.exit:                              ; preds = %90, %93
@@ -922,7 +922,7 @@ define internal fastcc range(i32 0, 8) i32 @strscan_bin(ptr noundef readonly cap
   %18 = add nsw i32 %.059, -1
   %19 = getelementptr inbounds nuw i8, ptr %.04057, i64 1
   %.not = icmp eq i32 %18, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !22
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !19
 
 ._crit_edge:                                      ; preds = %13, %.preheader
   %.038.lcssa = phi i64 [ 0, %.preheader ], [ %17, %13 ]
@@ -988,7 +988,7 @@ define internal fastcc range(i32 0, 8) i32 @strscan_bin(ptr noundef readonly cap
   br i1 %.not50, label %strscan_double.exit, label %46
 
 46:                                               ; preds = %40
-  %47 = tail call double @ldexp(double noundef %.027.i, i32 noundef 2) #8, !tbaa !20
+  %47 = tail call double @ldexp(double noundef %.027.i, i32 noundef 2) #8, !tbaa !17
   br label %strscan_double.exit
 
 strscan_double.exit:                              ; preds = %40, %46
@@ -1092,7 +1092,7 @@ define internal fastcc range(i32 0, 8) i32 @strscan_dec(ptr noundef readonly cap
   %45 = getelementptr inbounds nuw i8, ptr %42, i64 1
   %46 = add nsw i32 %.2219345, -2
   %exitcond.not = icmp eq i64 %.1221344.add, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !23
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !20
 
 ._crit_edge:                                      ; preds = %40, %22
   %.2233.lcssa = phi ptr [ %.0231, %22 ], [ %45, %40 ]
@@ -1192,7 +1192,7 @@ define internal fastcc range(i32 0, 8) i32 @strscan_dec(ptr noundef readonly cap
   %89 = getelementptr inbounds nuw i8, ptr %.8, i64 1
   %90 = add i32 %.1227, -1
   %91 = icmp ugt i32 %90, 800
-  br i1 %91, label %.preheader335, label %.thread, !llvm.loop !24
+  br i1 %91, label %.preheader335, label %.thread, !llvm.loop !21
 
 .loopexit337:                                     ; preds = %.lr.ph351.preheader, %.preheader336
   %.4243 = phi i32 [ %.1240, %.preheader336 ], [ %76, %.lr.ph351.preheader ]
@@ -1227,7 +1227,7 @@ define internal fastcc range(i32 0, 8) i32 @strscan_dec(ptr noundef readonly cap
   %101 = add i64 %98, %100
   %.0212 = getelementptr inbounds nuw i8, ptr %.0212357, i64 1
   %102 = icmp ult ptr %.0212, %.5225.ptr
-  br i1 %102, label %.lr.ph359, label %._crit_edge360, !llvm.loop !25
+  br i1 %102, label %.lr.ph359, label %._crit_edge360, !llvm.loop !22
 
 ._crit_edge360:                                   ; preds = %.lr.ph359, %94
   %.0211.lcssa = phi i64 [ %96, %94 ], [ %101, %.lr.ph359 ]
@@ -1410,7 +1410,7 @@ define internal fastcc range(i32 0, 8) i32 @strscan_dec(ptr noundef readonly cap
   %184 = trunc i32 %183 to i8
   store i8 %184, ptr %175, align 1, !tbaa !4
   %185 = icmp eq i32 %.0188, %.0202372
-  br i1 %185, label %._crit_edge368, label %.lr.ph367, !llvm.loop !26
+  br i1 %185, label %._crit_edge368, label %.lr.ph367
 
 ._crit_edge368:                                   ; preds = %.lr.ph367, %153
   %.1196.lcssa = phi i32 [ %.0195373, %153 ], [ %.2197.ph, %.lr.ph367 ]
@@ -1458,7 +1458,7 @@ define internal fastcc range(i32 0, 8) i32 @strscan_dec(ptr noundef readonly cap
   %.4199 = phi i32 [ %.5200, %204 ], [ %.1196.lcssa, %._crit_edge368 ]
   %.1190 = phi i32 [ %208, %204 ], [ %.0189375, %._crit_edge368 ]
   %210 = icmp slt i32 %.1190, 9
-  br i1 %210, label %.lr.ph376, label %.critedge, !llvm.loop !27
+  br i1 %210, label %.lr.ph376, label %.critedge, !llvm.loop !23
 
 .critedge:                                        ; preds = %209, %.preheader334
   %.0202.lcssa = phi i32 [ 0, %.preheader334 ], [ %.1203, %209 ]
@@ -1502,7 +1502,7 @@ define internal fastcc range(i32 0, 8) i32 @strscan_dec(ptr noundef readonly cap
   %228 = add i32 %.0186, 1
   %229 = and i32 %228, 511
   %.not283 = icmp eq i32 %229, %.6201392
-  br i1 %.not283, label %.preheader332, label %212, !llvm.loop !28
+  br i1 %.not283, label %.preheader332, label %212, !llvm.loop !24
 
 .preheader332:                                    ; preds = %212
   %230 = add nsw i32 %.1193393, 6
@@ -1536,12 +1536,12 @@ define internal fastcc range(i32 0, 8) i32 @strscan_dec(ptr noundef readonly cap
   %246 = and i32 %.1185388, 60
   %247 = mul nuw nsw i32 %246, 100
   %.not284 = icmp eq i32 %246, 0
-  br i1 %.not284, label %.loopexit333, label %.lr.ph389, !llvm.loop !29
+  br i1 %.not284, label %.loopexit333, label %.lr.ph389, !llvm.loop !25
 
 .loopexit333:                                     ; preds = %239, %.preheader332, %232
   %.7340 = phi i32 [ %.4206, %232 ], [ %.6201392, %.preheader332 ], [ %245, %239 ]
   %248 = icmp sgt i32 %.4, 9
-  br i1 %248, label %.lr.ph395, label %._crit_edge396, !llvm.loop !30
+  br i1 %248, label %.lr.ph395, label %._crit_edge396, !llvm.loop !26
 
 ._crit_edge396:                                   ; preds = %.lr.ph376, %.loopexit333, %.critedge
   %.2204.lcssa = phi i32 [ %.0202.lcssa, %.critedge ], [ %.4206, %.loopexit333 ], [ %.0202372, %.lr.ph376 ]
@@ -1576,7 +1576,7 @@ define internal fastcc range(i32 0, 8) i32 @strscan_dec(ptr noundef readonly cap
   %265 = icmp samesign ugt i32 %257, 1
   %266 = icmp ne i32 %.0, %.6201.lcssa
   %267 = select i1 %265, i1 %266, i1 false
-  br i1 %267, label %.lr.ph406, label %._crit_edge407, !llvm.loop !31
+  br i1 %267, label %.lr.ph406, label %._crit_edge407, !llvm.loop !27
 
 ._crit_edge407:                                   ; preds = %.lr.ph406, %._crit_edge396
   %.0182.lcssa = phi i64 [ %252, %._crit_edge396 ], [ %263, %.lr.ph406 ]
@@ -1595,7 +1595,7 @@ define internal fastcc range(i32 0, 8) i32 @strscan_dec(ptr noundef readonly cap
   %270 = add nsw i32 %.6411, -1
   %271 = mul i64 %.1183412, 100
   %272 = icmp samesign ugt i32 %.6411, 1
-  br i1 %272, label %.lr.ph413, label %.loopexit, !llvm.loop !32
+  br i1 %272, label %.lr.ph413, label %.loopexit, !llvm.loop !28
 
 273:                                              ; preds = %._crit_edge407
   %274 = shl i64 %.0182.lcssa, 1
@@ -1618,7 +1618,7 @@ define internal fastcc range(i32 0, 8) i32 @strscan_dec(ptr noundef readonly cap
   %283 = add nuw nsw i32 %.1, 1
   %284 = and i32 %283, 511
   %.not282 = icmp eq i32 %284, %.6201.lcssa
-  br i1 %.not282, label %.loopexit, label %276, !llvm.loop !33
+  br i1 %.not282, label %.loopexit, label %276, !llvm.loop !29
 
 .loopexit:                                        ; preds = %282, %.lr.ph413, %.preheader, %280
   %.2194 = phi i32 [ %275, %280 ], [ %.1193.lcssa, %.preheader ], [ %.1193.lcssa, %.lr.ph413 ], [ %275, %282 ]
@@ -1679,7 +1679,7 @@ define internal fastcc range(i32 0, 8) i32 @strscan_dec(ptr noundef readonly cap
 
 312:                                              ; preds = %309, %.thread.i
   %.02740.i = phi double [ %.02738.i, %.thread.i ], [ %.027.i, %309 ]
-  %313 = call double @ldexp(double noundef %.02740.i, i32 noundef %.2194) #8, !tbaa !20
+  %313 = call double @ldexp(double noundef %.02740.i, i32 noundef %.2194) #8, !tbaa !17
   br label %314
 
 314:                                              ; preds = %309, %312
@@ -1697,7 +1697,7 @@ define internal fastcc range(i32 0, 8) i32 @strscan_dec(ptr noundef readonly cap
 define hidden range(i32 0, 2) i32 @lj_strscan_num(ptr noundef %0, ptr noundef captures(none) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %5 = load i32, ptr %4, align 4, !tbaa !34
+  %5 = load i32, ptr %4, align 4, !tbaa !30
   %6 = tail call i32 @lj_strscan_scan(ptr noundef nonnull %3, i32 noundef %5, ptr noundef %1, i32 noundef 2)
   %7 = icmp ne i32 %6, 0
   %8 = zext i1 %7 to i32
@@ -1742,33 +1742,29 @@ attributes #8 = { nounwind }
 !5 = !{!"omnipotent char", !6, i64 0}
 !6 = !{!"Simple C/C++ TBAA"}
 !7 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!8 = distinct !{!8, !9, !10}
+!8 = distinct !{!8, !9}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = !{!"llvm.loop.estimated_trip_count"}
-!11 = distinct !{!11, !9, !10}
-!12 = distinct !{!12, !10}
-!13 = distinct !{!13, !10}
-!14 = distinct !{!14, !9, !10}
-!15 = distinct !{!15, !9, !10}
-!16 = distinct !{!16, !9, !10}
-!17 = distinct !{!17, !9, !10}
-!18 = distinct !{!18, !9, !10}
-!19 = distinct !{!19, !9, !10}
-!20 = !{!21, !21, i64 0}
-!21 = !{!"int", !5, i64 0}
-!22 = distinct !{!22, !9, !10}
-!23 = distinct !{!23, !9, !10}
-!24 = distinct !{!24, !9, !10}
-!25 = distinct !{!25, !9, !10}
-!26 = distinct !{!26, !10}
-!27 = distinct !{!27, !9, !10}
-!28 = distinct !{!28, !9, !10}
-!29 = distinct !{!29, !9, !10}
-!30 = distinct !{!30, !9, !10}
-!31 = distinct !{!31, !9, !10}
-!32 = distinct !{!32, !9, !10}
-!33 = distinct !{!33, !9, !10}
-!34 = !{!35, !21, i64 20}
-!35 = !{!"GCstr", !36, i64 0, !5, i64 8, !5, i64 9, !5, i64 10, !5, i64 11, !21, i64 12, !21, i64 16, !21, i64 20}
-!36 = !{!"GCRef", !37, i64 0}
-!37 = !{!"long", !5, i64 0}
+!10 = distinct !{!10, !9}
+!11 = distinct !{!11, !9}
+!12 = distinct !{!12, !9}
+!13 = distinct !{!13, !9}
+!14 = distinct !{!14, !9}
+!15 = distinct !{!15, !9}
+!16 = distinct !{!16, !9}
+!17 = !{!18, !18, i64 0}
+!18 = !{!"int", !5, i64 0}
+!19 = distinct !{!19, !9}
+!20 = distinct !{!20, !9}
+!21 = distinct !{!21, !9}
+!22 = distinct !{!22, !9}
+!23 = distinct !{!23, !9}
+!24 = distinct !{!24, !9}
+!25 = distinct !{!25, !9}
+!26 = distinct !{!26, !9}
+!27 = distinct !{!27, !9}
+!28 = distinct !{!28, !9}
+!29 = distinct !{!29, !9}
+!30 = !{!31, !18, i64 20}
+!31 = !{!"GCstr", !32, i64 0, !5, i64 8, !5, i64 9, !5, i64 10, !5, i64 11, !18, i64 12, !18, i64 16, !18, i64 20}
+!32 = !{!"GCRef", !33, i64 0}
+!33 = !{!"long", !5, i64 0}

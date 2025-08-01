@@ -156,7 +156,7 @@ _ZNSolsEf.exit:                                   ; preds = %.lr.ph
 _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit12: ; preds = %_ZNSolsEf.exit
   %58 = getelementptr inbounds nuw i8, ptr %.sroa.013.017, i64 4
   %.not = icmp eq ptr %58, %27
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !48
+  br i1 %.not, label %._crit_edge, label %.lr.ph
 
 59:                                               ; preds = %_ZNSolsEf.exit, %.lr.ph
   %60 = landingpad { ptr, i32 }
@@ -314,8 +314,8 @@ define hidden void @_ZN19OpenColorIO_v2_5dev19CreateAllocationOpsERNS_10OpRcPtrV
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %7, ptr noundef nonnull align 16 dereferenceable(32) @__const._ZN19OpenColorIO_v2_5dev19CreateAllocationOpsERNS_10OpRcPtrVecERKNS_14AllocationDataENS_18TransformDirectionE.newmax.2, i64 32, i1 false)
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %20 = load ptr, ptr %19, align 8, !tbaa !50
-  %21 = load ptr, ptr %18, align 8, !tbaa !51
+  %20 = load ptr, ptr %19, align 8, !tbaa !48
+  %21 = load ptr, ptr %18, align 8, !tbaa !49
   %22 = ptrtoint ptr %20 to i64
   %23 = ptrtoint ptr %21 to i64
   %24 = sub i64 %22, %23
@@ -333,12 +333,12 @@ define hidden void @_ZN19OpenColorIO_v2_5dev19CreateAllocationOpsERNS_10OpRcPtrV
 31:                                               ; preds = %.preheader, %31
   %indvars.iv49 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next50, %31 ]
   %32 = getelementptr inbounds nuw [4 x double], ptr %4, i64 0, i64 %indvars.iv49
-  store double %27, ptr %32, align 8, !tbaa !52
+  store double %27, ptr %32, align 8, !tbaa !50
   %33 = getelementptr inbounds nuw [4 x double], ptr %5, i64 0, i64 %indvars.iv49
-  store double %30, ptr %33, align 8, !tbaa !52
+  store double %30, ptr %33, align 8, !tbaa !50
   %indvars.iv.next50 = add nuw nsw i64 %indvars.iv49, 1
   %exitcond52.not = icmp eq i64 %indvars.iv.next50, 3
-  br i1 %exitcond52.not, label %.loopexit, label %31, !llvm.loop !54
+  br i1 %exitcond52.not, label %.loopexit, label %31, !llvm.loop !52
 
 .loopexit:                                        ; preds = %31, %17
   call void @_ZN19OpenColorIO_v2_5dev11CreateFitOpERNS_10OpRcPtrVecEPKdS3_S3_S3_NS_18TransformDirectionE(ptr noundef nonnull align 8 dereferenceable(144) %0, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7, i32 noundef %2)
@@ -359,8 +359,8 @@ define hidden void @_ZN19OpenColorIO_v2_5dev19CreateAllocationOpsERNS_10OpRcPtrV
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %11, ptr noundef nonnull align 16 dereferenceable(32) @__const._ZN19OpenColorIO_v2_5dev19CreateAllocationOpsERNS_10OpRcPtrVecERKNS_14AllocationDataENS_18TransformDirectionE.newmax.2, i64 32, i1 false)
   %35 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %36 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %37 = load ptr, ptr %36, align 8, !tbaa !50
-  %38 = load ptr, ptr %35, align 8, !tbaa !51
+  %37 = load ptr, ptr %36, align 8, !tbaa !48
+  %38 = load ptr, ptr %35, align 8, !tbaa !49
   %39 = ptrtoint ptr %37 to i64
   %40 = ptrtoint ptr %38 to i64
   %41 = sub i64 %39, %40
@@ -379,12 +379,12 @@ define hidden void @_ZN19OpenColorIO_v2_5dev19CreateAllocationOpsERNS_10OpRcPtrV
 49:                                               ; preds = %.preheader39, %49
   %indvars.iv = phi i64 [ 0, %.preheader39 ], [ %indvars.iv.next, %49 ]
   %50 = getelementptr inbounds nuw [4 x double], ptr %8, i64 0, i64 %indvars.iv
-  store double %45, ptr %50, align 8, !tbaa !52
+  store double %45, ptr %50, align 8, !tbaa !50
   %51 = getelementptr inbounds nuw [4 x double], ptr %9, i64 0, i64 %indvars.iv
-  store double %48, ptr %51, align 8, !tbaa !52
+  store double %48, ptr %51, align 8, !tbaa !50
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %.loopexit40, label %49, !llvm.loop !56
+  br i1 %exitcond.not, label %.loopexit40, label %49, !llvm.loop !54
 
 .loopexit40:                                      ; preds = %49, %34
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %12) #14
@@ -407,10 +407,10 @@ define hidden void @_ZN19OpenColorIO_v2_5dev19CreateAllocationOpsERNS_10OpRcPtrV
 56:                                               ; preds = %.preheader37, %56
   %indvars.iv45 = phi i64 [ 0, %.preheader37 ], [ %indvars.iv.next46, %56 ]
   %57 = getelementptr inbounds nuw [3 x double], ptr %14, i64 0, i64 %indvars.iv45
-  store double %55, ptr %57, align 8, !tbaa !52
+  store double %55, ptr %57, align 8, !tbaa !50
   %indvars.iv.next46 = add nuw nsw i64 %indvars.iv45, 1
   %exitcond48.not = icmp eq i64 %indvars.iv.next46, 3
-  br i1 %exitcond48.not, label %.loopexit38, label %56, !llvm.loop !57
+  br i1 %exitcond48.not, label %.loopexit38, label %56, !llvm.loop !55
 
 .loopexit38:                                      ; preds = %56, %.loopexit40
   switch i32 %2, label %60 [
@@ -583,13 +583,11 @@ attributes #16 = { noreturn }
 !45 = !{!40, !37, i64 0}
 !46 = !{!47, !47, i64 0}
 !47 = !{!"float", !9, i64 0}
-!48 = distinct !{!48, !49}
-!49 = !{!"llvm.loop.estimated_trip_count"}
-!50 = !{!25, !26, i64 8}
-!51 = !{!25, !26, i64 0}
-!52 = !{!53, !53, i64 0}
-!53 = !{!"double", !9, i64 0}
-!54 = distinct !{!54, !55, !49}
-!55 = !{!"llvm.loop.mustprogress"}
-!56 = distinct !{!56, !55, !49}
-!57 = distinct !{!57, !55, !49}
+!48 = !{!25, !26, i64 8}
+!49 = !{!25, !26, i64 0}
+!50 = !{!51, !51, i64 0}
+!51 = !{!"double", !9, i64 0}
+!52 = distinct !{!52, !53}
+!53 = !{!"llvm.loop.mustprogress"}
+!54 = distinct !{!54, !53}
+!55 = distinct !{!55, !53}

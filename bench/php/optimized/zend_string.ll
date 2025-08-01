@@ -174,7 +174,7 @@ define dso_local range(i64 -9223372036854775808, 0) i64 @zend_hash_func(ptr noun
   %43 = add i64 %.033.i2, -8
   %44 = getelementptr inbounds nuw i8, ptr %.035.i1, i64 8
   %45 = icmp ugt i64 %43, 7
-  br i1 %45, label %.lr.ph, label %._crit_edge, !llvm.loop !13
+  br i1 %45, label %.lr.ph, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   %.035.i.lcssa = phi ptr [ %0, %2 ], [ %44, %.lr.ph ]
@@ -261,24 +261,24 @@ zend_inline_hash_func.exit:                       ; preds = %77, %87, %92, %93
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @zend_interned_strings_init() local_unnamed_addr #2 {
-  store ptr @zend_new_interned_string_request, ptr @interned_string_request_handler, align 8, !tbaa !15
-  store ptr @zend_string_init_interned_request, ptr @interned_string_init_request_handler, align 8, !tbaa !15
-  store ptr @zend_string_init_existing_interned_request, ptr @interned_string_init_existing_request_handler, align 8, !tbaa !15
-  store ptr null, ptr @zend_empty_string, align 8, !tbaa !17
-  store ptr null, ptr @zend_known_strings, align 8, !tbaa !19
+  store ptr @zend_new_interned_string_request, ptr @interned_string_request_handler, align 8, !tbaa !13
+  store ptr @zend_string_init_interned_request, ptr @interned_string_init_request_handler, align 8, !tbaa !13
+  store ptr @zend_string_init_existing_interned_request, ptr @interned_string_init_existing_request_handler, align 8, !tbaa !13
+  store ptr null, ptr @zend_empty_string, align 8, !tbaa !15
+  store ptr null, ptr @zend_known_strings, align 8, !tbaa !17
   tail call void @_zend_hash_init(ptr noundef nonnull @interned_strings_permanent, i32 noundef 1024, ptr noundef nonnull @_str_dtor, i1 noundef zeroext true) #17
   tail call void @zend_hash_real_init_mixed(ptr noundef nonnull @interned_strings_permanent) #17
-  store ptr @zend_new_interned_string_permanent, ptr @zend_new_interned_string, align 8, !tbaa !15
-  store ptr @zend_string_init_interned_permanent, ptr @zend_string_init_interned, align 8, !tbaa !15
-  store ptr @zend_string_init_existing_interned_permanent, ptr @zend_string_init_existing_interned, align 8, !tbaa !15
+  store ptr @zend_new_interned_string_permanent, ptr @zend_new_interned_string, align 8, !tbaa !13
+  store ptr @zend_string_init_interned_permanent, ptr @zend_string_init_interned, align 8, !tbaa !13
+  store ptr @zend_string_init_existing_interned_permanent, ptr @zend_string_init_existing_interned, align 8, !tbaa !13
   %1 = tail call noalias dereferenceable_or_null(32) ptr @__zend_malloc(i64 noundef 32) #18
-  store i32 1, ptr %1, align 4, !tbaa !21
+  store i32 1, ptr %1, align 4, !tbaa !19
   %2 = getelementptr inbounds nuw i8, ptr %1, i64 4
   store i32 150, ptr %2, align 4, !tbaa !12
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %3, i8 0, i64 17, i1 false)
   %4 = tail call ptr @zend_new_interned_string_permanent(ptr noundef nonnull %1)
-  store ptr %4, ptr @zend_empty_string, align 8, !tbaa !17
+  store ptr %4, ptr @zend_empty_string, align 8, !tbaa !15
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %6 = load i32, ptr %5, align 4, !tbaa !12
   %7 = or i32 %6, 512
@@ -289,7 +289,7 @@ define dso_local void @zend_interned_strings_init() local_unnamed_addr #2 {
   %indvars.iv = phi i64 [ 0, %0 ], [ %indvars.iv.next, %23 ]
   %9 = trunc i64 %indvars.iv to i8
   %10 = tail call noalias dereferenceable_or_null(32) ptr @__zend_malloc(i64 noundef 32) #18
-  store i32 1, ptr %10, align 4, !tbaa !21
+  store i32 1, ptr %10, align 4, !tbaa !19
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 4
   store i32 150, ptr %11, align 4, !tbaa !12
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 8
@@ -302,7 +302,7 @@ define dso_local void @zend_interned_strings_init() local_unnamed_addr #2 {
   store i8 0, ptr %15, align 1, !tbaa !12
   %16 = tail call ptr @zend_new_interned_string_permanent(ptr noundef nonnull %10)
   %17 = getelementptr inbounds nuw [256 x ptr], ptr @zend_one_char_string, i64 0, i64 %indvars.iv
-  store ptr %16, ptr %17, align 8, !tbaa !17
+  store ptr %16, ptr %17, align 8, !tbaa !15
   %18 = icmp samesign ult i64 %indvars.iv, 128
   br i1 %18, label %19, label %23
 
@@ -316,22 +316,22 @@ define dso_local void @zend_interned_strings_init() local_unnamed_addr #2 {
 23:                                               ; preds = %8, %19
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 256
-  br i1 %exitcond.not, label %24, label %8, !llvm.loop !22
+  br i1 %exitcond.not, label %24, label %8
 
 24:                                               ; preds = %23
   %25 = tail call noalias dereferenceable_or_null(632) ptr @__zend_malloc(i64 noundef 632) #18
-  store ptr %25, ptr @zend_known_strings, align 8, !tbaa !19
+  store ptr %25, ptr @zend_known_strings, align 8, !tbaa !17
   br label %26
 
 26:                                               ; preds = %24, %26
   %indvars.iv18 = phi i64 [ 0, %24 ], [ %indvars.iv.next19, %26 ]
   %27 = getelementptr inbounds nuw [80 x ptr], ptr @known_strings, i64 0, i64 %indvars.iv18
-  %28 = load ptr, ptr %27, align 8, !tbaa !23
+  %28 = load ptr, ptr %27, align 8, !tbaa !20
   %29 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %28) #19
   %30 = and i64 %29, -8
   %31 = add i64 %30, 32
   %32 = tail call noalias ptr @__zend_malloc(i64 noundef %31) #18
-  store i32 1, ptr %32, align 4, !tbaa !21
+  store i32 1, ptr %32, align 4, !tbaa !19
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 4
   store i32 150, ptr %33, align 4, !tbaa !12
   %34 = getelementptr inbounds nuw i8, ptr %32, i64 8
@@ -343,16 +343,16 @@ define dso_local void @zend_interned_strings_init() local_unnamed_addr #2 {
   %37 = getelementptr inbounds nuw [1 x i8], ptr %36, i64 0, i64 %29
   store i8 0, ptr %37, align 1, !tbaa !12
   %38 = tail call ptr @zend_new_interned_string_permanent(ptr noundef nonnull %32)
-  %39 = load ptr, ptr @zend_known_strings, align 8, !tbaa !19
+  %39 = load ptr, ptr @zend_known_strings, align 8, !tbaa !17
   %40 = getelementptr inbounds nuw ptr, ptr %39, i64 %indvars.iv18
-  store ptr %38, ptr %40, align 8, !tbaa !17
+  store ptr %38, ptr %40, align 8, !tbaa !15
   %41 = getelementptr inbounds nuw i8, ptr %38, i64 4
   %42 = load i32, ptr %41, align 4, !tbaa !12
   %43 = or i32 %42, 512
   store i32 %43, ptr %41, align 4, !tbaa !12
   %indvars.iv.next19 = add nuw nsw i64 %indvars.iv18, 1
   %exitcond21.not = icmp eq i64 %indvars.iv.next19, 79
-  br i1 %exitcond21.not, label %44, label %26, !llvm.loop !25
+  br i1 %exitcond21.not, label %44, label %26
 
 44:                                               ; preds = %26
   ret void
@@ -386,7 +386,7 @@ define internal ptr @zend_new_interned_string_request(ptr noundef %0) #2 {
 
 zend_string_hash_val.exit:                        ; preds = %6, %9
   %14 = phi i64 [ %8, %6 ], [ %13, %9 ]
-  %15 = load i32, ptr getelementptr inbounds nuw (i8, ptr @interned_strings_permanent, i64 12), align 4, !tbaa !26
+  %15 = load i32, ptr getelementptr inbounds nuw (i8, ptr @interned_strings_permanent, i64 12), align 4, !tbaa !22
   %16 = trunc i64 %14 to i32
   %17 = or i32 %15, %16
   %18 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @interned_strings_permanent, i64 16), align 8, !tbaa !12
@@ -405,13 +405,13 @@ zend_string_hash_val.exit:                        ; preds = %6, %9
   %23 = zext i32 %.014.i39 to i64
   %24 = getelementptr inbounds nuw %struct._Bucket, ptr %18, i64 %23
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 16
-  %26 = load i64, ptr %25, align 8, !tbaa !28
+  %26 = load i64, ptr %25, align 8, !tbaa !24
   %27 = icmp eq i64 %26, %14
   br i1 %27, label %28, label %zend_string_equal_content.exit27.thread
 
 28:                                               ; preds = %22
   %29 = getelementptr inbounds nuw i8, ptr %24, i64 24
-  %30 = load ptr, ptr %29, align 8, !tbaa !31
+  %30 = load ptr, ptr %29, align 8, !tbaa !27
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 16
   %32 = load i64, ptr %31, align 8, !tbaa !4
   %33 = load i64, ptr %21, align 8, !tbaa !4
@@ -426,14 +426,14 @@ zend_string_equal_content.exit27.thread:          ; preds = %28, %zend_string_eq
   %36 = getelementptr inbounds nuw i8, ptr %24, i64 12
   %.014.i = load i32, ptr %36, align 4, !tbaa !12
   %.not.i21 = icmp eq i32 %.014.i, -1
-  br i1 %.not.i21, label %._crit_edge, label %22, !llvm.loop !32
+  br i1 %.not.i21, label %._crit_edge, label %22
 
 zend_interned_string_ht_lookup.exit:              ; preds = %zend_string_equal_content.exit27
-  %37 = load i32, ptr %0, align 4, !tbaa !21
+  %37 = load i32, ptr %0, align 4, !tbaa !19
   %38 = icmp ne i32 %37, 0
   tail call void @llvm.assume(i1 %38)
   %39 = add i32 %37, -1
-  store i32 %39, ptr %0, align 4, !tbaa !21
+  store i32 %39, ptr %0, align 4, !tbaa !19
   %40 = icmp eq i32 %39, 0
   br i1 %40, label %41, label %zend_string_release.exit
 
@@ -451,7 +451,7 @@ zend_interned_string_ht_lookup.exit:              ; preds = %zend_string_equal_c
   br label %zend_string_release.exit
 
 ._crit_edge:                                      ; preds = %zend_string_equal_content.exit27.thread, %zend_string_hash_val.exit
-  %45 = load i32, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 380), align 4, !tbaa !26
+  %45 = load i32, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 380), align 4, !tbaa !22
   %46 = or i32 %45, %16
   %47 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 384), align 8, !tbaa !12
   %48 = sext i32 %46 to i64
@@ -469,13 +469,13 @@ zend_interned_string_ht_lookup.exit:              ; preds = %zend_string_equal_c
   %52 = zext i32 %.014.i2342 to i64
   %53 = getelementptr inbounds nuw %struct._Bucket, ptr %47, i64 %52
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 16
-  %55 = load i64, ptr %54, align 8, !tbaa !28
+  %55 = load i64, ptr %54, align 8, !tbaa !24
   %56 = icmp eq i64 %55, %14
   br i1 %56, label %57, label %zend_string_equal_content.exit.thread
 
 57:                                               ; preds = %51
   %58 = getelementptr inbounds nuw i8, ptr %53, i64 24
-  %59 = load ptr, ptr %58, align 8, !tbaa !31
+  %59 = load ptr, ptr %58, align 8, !tbaa !27
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 16
   %61 = load i64, ptr %60, align 8, !tbaa !4
   %62 = load i64, ptr %50, align 8, !tbaa !4
@@ -490,14 +490,14 @@ zend_string_equal_content.exit.thread:            ; preds = %57, %zend_string_eq
   %65 = getelementptr inbounds nuw i8, ptr %53, i64 12
   %.014.i23 = load i32, ptr %65, align 4, !tbaa !12
   %.not.i24 = icmp eq i32 %.014.i23, -1
-  br i1 %.not.i24, label %._crit_edge45, label %51, !llvm.loop !32
+  br i1 %.not.i24, label %._crit_edge45, label %51
 
 zend_interned_string_ht_lookup.exit26:            ; preds = %zend_string_equal_content.exit
-  %66 = load i32, ptr %0, align 4, !tbaa !21
+  %66 = load i32, ptr %0, align 4, !tbaa !19
   %67 = icmp ne i32 %66, 0
   tail call void @llvm.assume(i1 %67)
   %68 = add i32 %66, -1
-  store i32 %68, ptr %0, align 4, !tbaa !21
+  store i32 %68, ptr %0, align 4, !tbaa !19
   %69 = icmp eq i32 %68, 0
   br i1 %69, label %70, label %zend_string_release.exit
 
@@ -515,13 +515,13 @@ zend_interned_string_ht_lookup.exit26:            ; preds = %zend_string_equal_c
   br label %zend_string_release.exit
 
 ._crit_edge45:                                    ; preds = %zend_string_equal_content.exit.thread, %._crit_edge
-  %74 = load i32, ptr %0, align 4, !tbaa !21
+  %74 = load i32, ptr %0, align 4, !tbaa !19
   %75 = icmp ugt i32 %74, 1
   br i1 %75, label %zend_string_delref.exit.i, label %90
 
 zend_string_delref.exit.i:                        ; preds = %._crit_edge45
   %76 = add i32 %74, -1
-  store i32 %76, ptr %0, align 4, !tbaa !21
+  store i32 %76, ptr %0, align 4, !tbaa !19
   %77 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %78 = load i64, ptr %77, align 8, !tbaa !4
   %79 = and i64 %78, -8
@@ -529,7 +529,7 @@ zend_string_delref.exit.i:                        ; preds = %._crit_edge45
   %81 = tail call noalias ptr @_emalloc(i64 noundef %80) #18
   %82 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %83 = and i32 %4, 512
-  store i32 1, ptr %81, align 4, !tbaa !21
+  store i32 1, ptr %81, align 4, !tbaa !19
   %84 = getelementptr inbounds nuw i8, ptr %81, i64 4
   %85 = getelementptr inbounds nuw i8, ptr %81, i64 8
   %86 = getelementptr inbounds nuw i8, ptr %81, i64 16
@@ -547,7 +547,7 @@ zend_string_delref.exit.i:                        ; preds = %._crit_edge45
   %91 = phi i32 [ %89, %zend_string_delref.exit.i ], [ %4, %._crit_edge45 ]
   %.0 = phi ptr [ %81, %zend_string_delref.exit.i ], [ %0, %._crit_edge45 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #17
-  store i32 1, ptr %.0, align 4, !tbaa !21
+  store i32 1, ptr %.0, align 4, !tbaa !19
   %92 = getelementptr inbounds nuw i8, ptr %.0, i64 4
   %93 = or i32 %91, 64
   store i32 %93, ptr %92, align 4, !tbaa !12
@@ -615,7 +615,7 @@ define internal ptr @zend_string_init_interned_request(ptr noundef readonly capt
   %45 = add i64 %.033.i39, -8
   %46 = getelementptr inbounds nuw i8, ptr %.035.i38, i64 8
   %47 = icmp ugt i64 %45, 7
-  br i1 %47, label %.lr.ph, label %._crit_edge, !llvm.loop !13
+  br i1 %47, label %.lr.ph, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   %.035.i.lcssa = phi ptr [ %0, %3 ], [ %46, %.lr.ph ]
@@ -697,7 +697,7 @@ define internal ptr @zend_string_init_interned_request(ptr noundef readonly capt
 zend_inline_hash_func.exit:                       ; preds = %79, %89, %94, %95
   %.2.i = phi i64 [ %88, %79 ], [ %93, %89 ], [ %99, %95 ], [ %.1.i, %94 ]
   %100 = or i64 %.2.i, -9223372036854775808
-  %101 = load i32, ptr getelementptr inbounds nuw (i8, ptr @interned_strings_permanent, i64 12), align 4, !tbaa !26
+  %101 = load i32, ptr getelementptr inbounds nuw (i8, ptr @interned_strings_permanent, i64 12), align 4, !tbaa !22
   %102 = trunc i64 %.2.i to i32
   %103 = or i32 %101, %102
   %104 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @interned_strings_permanent, i64 16), align 8, !tbaa !12
@@ -712,13 +712,13 @@ zend_inline_hash_func.exit:                       ; preds = %79, %89, %94, %95
   %107 = zext i32 %.014.i45 to i64
   %108 = getelementptr inbounds nuw %struct._Bucket, ptr %104, i64 %107
   %109 = getelementptr inbounds nuw i8, ptr %108, i64 16
-  %110 = load i64, ptr %109, align 8, !tbaa !28
+  %110 = load i64, ptr %109, align 8, !tbaa !24
   %111 = icmp eq i64 %110, %100
   br i1 %111, label %112, label %zend_string_equals_cstr.exit31.thread
 
 112:                                              ; preds = %.lr.ph46
   %113 = getelementptr inbounds nuw i8, ptr %108, i64 24
-  %114 = load ptr, ptr %113, align 8, !tbaa !31
+  %114 = load ptr, ptr %113, align 8, !tbaa !27
   %115 = getelementptr inbounds nuw i8, ptr %114, i64 16
   %116 = load i64, ptr %115, align 8, !tbaa !4
   %117 = icmp eq i64 %116, %1
@@ -734,10 +734,10 @@ zend_string_equals_cstr.exit31.thread:            ; preds = %112, %zend_string_e
   %119 = getelementptr inbounds nuw i8, ptr %108, i64 12
   %.014.i = load i32, ptr %119, align 4, !tbaa !12
   %.not.i21 = icmp eq i32 %.014.i, -1
-  br i1 %.not.i21, label %._crit_edge47, label %.lr.ph46, !llvm.loop !33
+  br i1 %.not.i21, label %._crit_edge47, label %.lr.ph46
 
 ._crit_edge47:                                    ; preds = %zend_string_equals_cstr.exit31.thread, %zend_inline_hash_func.exit
-  %120 = load i32, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 380), align 4, !tbaa !26
+  %120 = load i32, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 380), align 4, !tbaa !22
   %121 = or i32 %120, %102
   %122 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 384), align 8, !tbaa !12
   %123 = sext i32 %121 to i64
@@ -751,13 +751,13 @@ zend_string_equals_cstr.exit31.thread:            ; preds = %112, %zend_string_e
   %125 = zext i32 %.014.i2450 to i64
   %126 = getelementptr inbounds nuw %struct._Bucket, ptr %122, i64 %125
   %127 = getelementptr inbounds nuw i8, ptr %126, i64 16
-  %128 = load i64, ptr %127, align 8, !tbaa !28
+  %128 = load i64, ptr %127, align 8, !tbaa !24
   %129 = icmp eq i64 %128, %100
   br i1 %129, label %130, label %zend_string_equals_cstr.exit.thread
 
 130:                                              ; preds = %.lr.ph52
   %131 = getelementptr inbounds nuw i8, ptr %126, i64 24
-  %132 = load ptr, ptr %131, align 8, !tbaa !31
+  %132 = load ptr, ptr %131, align 8, !tbaa !27
   %133 = getelementptr inbounds nuw i8, ptr %132, i64 16
   %134 = load i64, ptr %133, align 8, !tbaa !4
   %135 = icmp eq i64 %134, %1
@@ -773,7 +773,7 @@ zend_string_equals_cstr.exit.thread:              ; preds = %130, %zend_string_e
   %137 = getelementptr inbounds nuw i8, ptr %126, i64 12
   %.014.i24 = load i32, ptr %137, align 4, !tbaa !12
   %.not.i25 = icmp eq i32 %.014.i24, -1
-  br i1 %.not.i25, label %._crit_edge53, label %.lr.ph52, !llvm.loop !33
+  br i1 %.not.i25, label %._crit_edge53, label %.lr.ph52
 
 ._crit_edge53:                                    ; preds = %zend_string_equals_cstr.exit.thread, %._crit_edge47
   %138 = and i64 %1, -8
@@ -801,7 +801,7 @@ zend_string_init.exit:                            ; preds = %140, %142
   store i8 0, ptr %150, align 1, !tbaa !12
   store i64 %100, ptr %147, align 8, !tbaa !11
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #17
-  store i32 1, ptr %145, align 4, !tbaa !21
+  store i32 1, ptr %145, align 4, !tbaa !19
   store i32 %144, ptr %146, align 4, !tbaa !12
   store ptr %145, ptr %4, align 8, !tbaa !12
   %151 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -866,7 +866,7 @@ define internal ptr @zend_string_init_existing_interned_request(ptr noundef read
   %44 = add i64 %.033.i40, -8
   %45 = getelementptr inbounds nuw i8, ptr %.035.i39, i64 8
   %46 = icmp ugt i64 %44, 7
-  br i1 %46, label %.lr.ph, label %._crit_edge, !llvm.loop !13
+  br i1 %46, label %.lr.ph, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   %.035.i.lcssa = phi ptr [ %0, %3 ], [ %45, %.lr.ph ]
@@ -948,7 +948,7 @@ define internal ptr @zend_string_init_existing_interned_request(ptr noundef read
 zend_inline_hash_func.exit:                       ; preds = %78, %88, %93, %94
   %.2.i = phi i64 [ %87, %78 ], [ %92, %88 ], [ %98, %94 ], [ %.1.i, %93 ]
   %99 = or i64 %.2.i, -9223372036854775808
-  %100 = load i32, ptr getelementptr inbounds nuw (i8, ptr @interned_strings_permanent, i64 12), align 4, !tbaa !26
+  %100 = load i32, ptr getelementptr inbounds nuw (i8, ptr @interned_strings_permanent, i64 12), align 4, !tbaa !22
   %101 = trunc i64 %.2.i to i32
   %102 = or i32 %100, %101
   %103 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @interned_strings_permanent, i64 16), align 8, !tbaa !12
@@ -963,13 +963,13 @@ zend_inline_hash_func.exit:                       ; preds = %78, %88, %93, %94
   %106 = zext i32 %.014.i46 to i64
   %107 = getelementptr inbounds nuw %struct._Bucket, ptr %103, i64 %106
   %108 = getelementptr inbounds nuw i8, ptr %107, i64 16
-  %109 = load i64, ptr %108, align 8, !tbaa !28
+  %109 = load i64, ptr %108, align 8, !tbaa !24
   %110 = icmp eq i64 %109, %99
   br i1 %110, label %111, label %zend_string_equals_cstr.exit32.thread
 
 111:                                              ; preds = %.lr.ph47
   %112 = getelementptr inbounds nuw i8, ptr %107, i64 24
-  %113 = load ptr, ptr %112, align 8, !tbaa !31
+  %113 = load ptr, ptr %112, align 8, !tbaa !27
   %114 = getelementptr inbounds nuw i8, ptr %113, i64 16
   %115 = load i64, ptr %114, align 8, !tbaa !4
   %116 = icmp eq i64 %115, %1
@@ -985,10 +985,10 @@ zend_string_equals_cstr.exit32.thread:            ; preds = %111, %zend_string_e
   %118 = getelementptr inbounds nuw i8, ptr %107, i64 12
   %.014.i = load i32, ptr %118, align 4, !tbaa !12
   %.not.i22 = icmp eq i32 %.014.i, -1
-  br i1 %.not.i22, label %._crit_edge48, label %.lr.ph47, !llvm.loop !33
+  br i1 %.not.i22, label %._crit_edge48, label %.lr.ph47
 
 ._crit_edge48:                                    ; preds = %zend_string_equals_cstr.exit32.thread, %zend_inline_hash_func.exit
-  %119 = load i32, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 380), align 4, !tbaa !26
+  %119 = load i32, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 380), align 4, !tbaa !22
   %120 = or i32 %119, %101
   %121 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 384), align 8, !tbaa !12
   %122 = sext i32 %120 to i64
@@ -1002,13 +1002,13 @@ zend_string_equals_cstr.exit32.thread:            ; preds = %111, %zend_string_e
   %124 = zext i32 %.014.i2551 to i64
   %125 = getelementptr inbounds nuw %struct._Bucket, ptr %121, i64 %124
   %126 = getelementptr inbounds nuw i8, ptr %125, i64 16
-  %127 = load i64, ptr %126, align 8, !tbaa !28
+  %127 = load i64, ptr %126, align 8, !tbaa !24
   %128 = icmp eq i64 %127, %99
   br i1 %128, label %129, label %zend_string_equals_cstr.exit.thread
 
 129:                                              ; preds = %.lr.ph53
   %130 = getelementptr inbounds nuw i8, ptr %125, i64 24
-  %131 = load ptr, ptr %130, align 8, !tbaa !31
+  %131 = load ptr, ptr %130, align 8, !tbaa !27
   %132 = getelementptr inbounds nuw i8, ptr %131, i64 16
   %133 = load i64, ptr %132, align 8, !tbaa !4
   %134 = icmp eq i64 %133, %1
@@ -1024,7 +1024,7 @@ zend_string_equals_cstr.exit.thread:              ; preds = %129, %zend_string_e
   %136 = getelementptr inbounds nuw i8, ptr %125, i64 12
   %.014.i25 = load i32, ptr %136, align 4, !tbaa !12
   %.not.i26 = icmp eq i32 %.014.i25, -1
-  br i1 %.not.i26, label %.loopexit, label %.lr.ph53, !llvm.loop !33
+  br i1 %.not.i26, label %.loopexit, label %.lr.ph53
 
 .loopexit:                                        ; preds = %zend_string_equals_cstr.exit.thread, %._crit_edge48
   %137 = xor i1 %2, true
@@ -1032,7 +1032,7 @@ zend_string_equals_cstr.exit.thread:              ; preds = %129, %zend_string_e
   %138 = and i64 %1, -8
   %139 = add i64 %138, 32
   %140 = tail call noalias ptr @_emalloc(i64 noundef %139) #18
-  store i32 1, ptr %140, align 4, !tbaa !21
+  store i32 1, ptr %140, align 4, !tbaa !19
   %141 = getelementptr inbounds nuw i8, ptr %140, i64 4
   store i32 22, ptr %141, align 4, !tbaa !12
   %142 = getelementptr inbounds nuw i8, ptr %140, i64 8
@@ -1075,7 +1075,7 @@ define internal ptr @zend_new_interned_string_permanent(ptr noundef %0) #2 {
 
 zend_string_hash_val.exit:                        ; preds = %6, %9
   %14 = phi i64 [ %8, %6 ], [ %13, %9 ]
-  %15 = load i32, ptr getelementptr inbounds nuw (i8, ptr @interned_strings_permanent, i64 12), align 4, !tbaa !26
+  %15 = load i32, ptr getelementptr inbounds nuw (i8, ptr @interned_strings_permanent, i64 12), align 4, !tbaa !22
   %16 = trunc i64 %14 to i32
   %17 = or i32 %15, %16
   %18 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @interned_strings_permanent, i64 16), align 8, !tbaa !12
@@ -1094,13 +1094,13 @@ zend_string_hash_val.exit:                        ; preds = %6, %9
   %23 = zext i32 %.014.i20 to i64
   %24 = getelementptr inbounds nuw %struct._Bucket, ptr %18, i64 %23
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 16
-  %26 = load i64, ptr %25, align 8, !tbaa !28
+  %26 = load i64, ptr %25, align 8, !tbaa !24
   %27 = icmp eq i64 %26, %14
   br i1 %27, label %28, label %zend_string_equal_content.exit.thread
 
 28:                                               ; preds = %22
   %29 = getelementptr inbounds nuw i8, ptr %24, i64 24
-  %30 = load ptr, ptr %29, align 8, !tbaa !31
+  %30 = load ptr, ptr %29, align 8, !tbaa !27
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 16
   %32 = load i64, ptr %31, align 8, !tbaa !4
   %33 = load i64, ptr %21, align 8, !tbaa !4
@@ -1115,14 +1115,14 @@ zend_string_equal_content.exit.thread:            ; preds = %28, %zend_string_eq
   %36 = getelementptr inbounds nuw i8, ptr %24, i64 12
   %.014.i = load i32, ptr %36, align 4, !tbaa !12
   %.not.i14 = icmp eq i32 %.014.i, -1
-  br i1 %.not.i14, label %._crit_edge, label %22, !llvm.loop !32
+  br i1 %.not.i14, label %._crit_edge, label %22
 
 zend_interned_string_ht_lookup.exit:              ; preds = %zend_string_equal_content.exit
-  %37 = load i32, ptr %0, align 4, !tbaa !21
+  %37 = load i32, ptr %0, align 4, !tbaa !19
   %38 = icmp ne i32 %37, 0
   tail call void @llvm.assume(i1 %38)
   %39 = add i32 %37, -1
-  store i32 %39, ptr %0, align 4, !tbaa !21
+  store i32 %39, ptr %0, align 4, !tbaa !19
   %40 = icmp eq i32 %39, 0
   br i1 %40, label %41, label %zend_string_release.exit
 
@@ -1140,13 +1140,13 @@ zend_interned_string_ht_lookup.exit:              ; preds = %zend_string_equal_c
   br label %zend_string_release.exit
 
 ._crit_edge:                                      ; preds = %zend_string_equal_content.exit.thread, %zend_string_hash_val.exit
-  %45 = load i32, ptr %0, align 4, !tbaa !21
+  %45 = load i32, ptr %0, align 4, !tbaa !19
   %46 = icmp ugt i32 %45, 1
   br i1 %46, label %zend_init_string_for_interning.exit, label %61
 
 zend_init_string_for_interning.exit:              ; preds = %._crit_edge
   %47 = add i32 %45, -1
-  store i32 %47, ptr %0, align 4, !tbaa !21
+  store i32 %47, ptr %0, align 4, !tbaa !19
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %49 = load i64, ptr %48, align 8, !tbaa !4
   %50 = and i64 %49, -8
@@ -1154,7 +1154,7 @@ zend_init_string_for_interning.exit:              ; preds = %._crit_edge
   %52 = tail call noalias ptr @__zend_malloc(i64 noundef %51) #18
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %54 = and i32 %4, 512
-  store i32 1, ptr %52, align 4, !tbaa !21
+  store i32 1, ptr %52, align 4, !tbaa !19
   %55 = getelementptr inbounds nuw i8, ptr %52, i64 4
   %56 = getelementptr inbounds nuw i8, ptr %52, i64 8
   %57 = getelementptr inbounds nuw i8, ptr %52, i64 16
@@ -1172,7 +1172,7 @@ zend_init_string_for_interning.exit:              ; preds = %._crit_edge
   %62 = phi i32 [ %60, %zend_init_string_for_interning.exit ], [ %4, %._crit_edge ]
   %.011 = phi ptr [ %52, %zend_init_string_for_interning.exit ], [ %0, %._crit_edge ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #17
-  store i32 1, ptr %.011, align 4, !tbaa !21
+  store i32 1, ptr %.011, align 4, !tbaa !19
   %63 = getelementptr inbounds nuw i8, ptr %.011, i64 4
   %64 = or i32 %62, 320
   store i32 %64, ptr %63, align 4, !tbaa !12
@@ -1240,7 +1240,7 @@ define internal ptr @zend_string_init_interned_permanent(ptr noundef readonly ca
   %45 = add i64 %.033.i21, -8
   %46 = getelementptr inbounds nuw i8, ptr %.035.i20, i64 8
   %47 = icmp ugt i64 %45, 7
-  br i1 %47, label %.lr.ph, label %._crit_edge, !llvm.loop !13
+  br i1 %47, label %.lr.ph, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   %.035.i.lcssa = phi ptr [ %0, %3 ], [ %46, %.lr.ph ]
@@ -1322,7 +1322,7 @@ define internal ptr @zend_string_init_interned_permanent(ptr noundef readonly ca
 zend_inline_hash_func.exit:                       ; preds = %79, %89, %94, %95
   %.2.i = phi i64 [ %88, %79 ], [ %93, %89 ], [ %99, %95 ], [ %.1.i, %94 ]
   %100 = or i64 %.2.i, -9223372036854775808
-  %101 = load i32, ptr getelementptr inbounds nuw (i8, ptr @interned_strings_permanent, i64 12), align 4, !tbaa !26
+  %101 = load i32, ptr getelementptr inbounds nuw (i8, ptr @interned_strings_permanent, i64 12), align 4, !tbaa !22
   %102 = trunc i64 %.2.i to i32
   %103 = or i32 %101, %102
   %104 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @interned_strings_permanent, i64 16), align 8, !tbaa !12
@@ -1337,13 +1337,13 @@ zend_inline_hash_func.exit:                       ; preds = %79, %89, %94, %95
   %107 = zext i32 %.014.i27 to i64
   %108 = getelementptr inbounds nuw %struct._Bucket, ptr %104, i64 %107
   %109 = getelementptr inbounds nuw i8, ptr %108, i64 16
-  %110 = load i64, ptr %109, align 8, !tbaa !28
+  %110 = load i64, ptr %109, align 8, !tbaa !24
   %111 = icmp eq i64 %110, %100
   br i1 %111, label %112, label %zend_string_equals_cstr.exit.thread
 
 112:                                              ; preds = %.lr.ph28
   %113 = getelementptr inbounds nuw i8, ptr %108, i64 24
-  %114 = load ptr, ptr %113, align 8, !tbaa !31
+  %114 = load ptr, ptr %113, align 8, !tbaa !27
   %115 = getelementptr inbounds nuw i8, ptr %114, i64 16
   %116 = load i64, ptr %115, align 8, !tbaa !4
   %117 = icmp eq i64 %116, %1
@@ -1359,7 +1359,7 @@ zend_string_equals_cstr.exit.thread:              ; preds = %112, %zend_string_e
   %119 = getelementptr inbounds nuw i8, ptr %108, i64 12
   %.014.i = load i32, ptr %119, align 4, !tbaa !12
   %.not.i15 = icmp eq i32 %.014.i, -1
-  br i1 %.not.i15, label %._crit_edge29, label %.lr.ph28, !llvm.loop !33
+  br i1 %.not.i15, label %._crit_edge29, label %.lr.ph28
 
 ._crit_edge29:                                    ; preds = %zend_string_equals_cstr.exit.thread, %zend_inline_hash_func.exit
   tail call void @llvm.assume(i1 %2)
@@ -1376,7 +1376,7 @@ zend_string_equals_cstr.exit.thread:              ; preds = %112, %zend_string_e
   store i8 0, ptr %127, align 1, !tbaa !12
   store i64 %100, ptr %124, align 8, !tbaa !11
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #17
-  store i32 1, ptr %122, align 4, !tbaa !21
+  store i32 1, ptr %122, align 4, !tbaa !19
   store i32 470, ptr %123, align 4, !tbaa !12
   store ptr %122, ptr %4, align 8, !tbaa !12
   %128 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -1441,7 +1441,7 @@ define internal ptr @zend_string_init_existing_interned_permanent(ptr noundef re
   %44 = add i64 %.033.i21, -8
   %45 = getelementptr inbounds nuw i8, ptr %.035.i20, i64 8
   %46 = icmp ugt i64 %44, 7
-  br i1 %46, label %.lr.ph, label %._crit_edge, !llvm.loop !13
+  br i1 %46, label %.lr.ph, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   %.035.i.lcssa = phi ptr [ %0, %3 ], [ %45, %.lr.ph ]
@@ -1523,7 +1523,7 @@ define internal ptr @zend_string_init_existing_interned_permanent(ptr noundef re
 zend_inline_hash_func.exit:                       ; preds = %78, %88, %93, %94
   %.2.i = phi i64 [ %87, %78 ], [ %92, %88 ], [ %98, %94 ], [ %.1.i, %93 ]
   %99 = or i64 %.2.i, -9223372036854775808
-  %100 = load i32, ptr getelementptr inbounds nuw (i8, ptr @interned_strings_permanent, i64 12), align 4, !tbaa !26
+  %100 = load i32, ptr getelementptr inbounds nuw (i8, ptr @interned_strings_permanent, i64 12), align 4, !tbaa !22
   %101 = trunc i64 %.2.i to i32
   %102 = or i32 %100, %101
   %103 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @interned_strings_permanent, i64 16), align 8, !tbaa !12
@@ -1538,13 +1538,13 @@ zend_inline_hash_func.exit:                       ; preds = %78, %88, %93, %94
   %106 = zext i32 %.014.i27 to i64
   %107 = getelementptr inbounds nuw %struct._Bucket, ptr %103, i64 %106
   %108 = getelementptr inbounds nuw i8, ptr %107, i64 16
-  %109 = load i64, ptr %108, align 8, !tbaa !28
+  %109 = load i64, ptr %108, align 8, !tbaa !24
   %110 = icmp eq i64 %109, %99
   br i1 %110, label %111, label %zend_string_equals_cstr.exit.thread
 
 111:                                              ; preds = %.lr.ph28
   %112 = getelementptr inbounds nuw i8, ptr %107, i64 24
-  %113 = load ptr, ptr %112, align 8, !tbaa !31
+  %113 = load ptr, ptr %112, align 8, !tbaa !27
   %114 = getelementptr inbounds nuw i8, ptr %113, i64 16
   %115 = load i64, ptr %114, align 8, !tbaa !4
   %116 = icmp eq i64 %115, %1
@@ -1560,14 +1560,14 @@ zend_string_equals_cstr.exit.thread:              ; preds = %111, %zend_string_e
   %118 = getelementptr inbounds nuw i8, ptr %107, i64 12
   %.014.i = load i32, ptr %118, align 4, !tbaa !12
   %.not.i15 = icmp eq i32 %.014.i, -1
-  br i1 %.not.i15, label %._crit_edge29, label %.lr.ph28, !llvm.loop !33
+  br i1 %.not.i15, label %._crit_edge29, label %.lr.ph28
 
 ._crit_edge29:                                    ; preds = %zend_string_equals_cstr.exit.thread, %zend_inline_hash_func.exit
   tail call void @llvm.assume(i1 %2)
   %119 = and i64 %1, -8
   %120 = add i64 %119, 32
   %121 = tail call noalias ptr @__zend_malloc(i64 noundef %120) #18
-  store i32 1, ptr %121, align 4, !tbaa !21
+  store i32 1, ptr %121, align 4, !tbaa !19
   %122 = getelementptr inbounds nuw i8, ptr %121, i64 4
   store i32 150, ptr %122, align 4, !tbaa !12
   %123 = getelementptr inbounds nuw i8, ptr %121, i64 8
@@ -1597,9 +1597,9 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 ; Function Attrs: nounwind uwtable
 define dso_local void @zend_interned_strings_dtor() local_unnamed_addr #2 {
   tail call void @zend_hash_destroy(ptr noundef nonnull @interned_strings_permanent) #17
-  %1 = load ptr, ptr @zend_known_strings, align 8, !tbaa !19
+  %1 = load ptr, ptr @zend_known_strings, align 8, !tbaa !17
   tail call void @free(ptr noundef %1) #17
-  store ptr null, ptr @zend_known_strings, align 8, !tbaa !19
+  store ptr null, ptr @zend_known_strings, align 8, !tbaa !17
   ret void
 }
 
@@ -1625,7 +1625,7 @@ define dso_local ptr @zend_interned_string_find_permanent(ptr noundef %0) local_
 
 zend_string_hash_val.exit:                        ; preds = %1, %4
   %9 = phi i64 [ %3, %1 ], [ %8, %4 ]
-  %10 = load i32, ptr getelementptr inbounds nuw (i8, ptr @interned_strings_permanent, i64 12), align 4, !tbaa !26
+  %10 = load i32, ptr getelementptr inbounds nuw (i8, ptr @interned_strings_permanent, i64 12), align 4, !tbaa !22
   %11 = trunc i64 %9 to i32
   %12 = or i32 %10, %11
   %13 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @interned_strings_permanent, i64 16), align 8, !tbaa !12
@@ -1644,13 +1644,13 @@ zend_string_hash_val.exit:                        ; preds = %1, %4
   %18 = zext i32 %.014.i5 to i64
   %19 = getelementptr inbounds nuw %struct._Bucket, ptr %13, i64 %18
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 16
-  %21 = load i64, ptr %20, align 8, !tbaa !28
+  %21 = load i64, ptr %20, align 8, !tbaa !24
   %22 = icmp eq i64 %21, %9
   br i1 %22, label %23, label %zend_string_equal_content.exit.thread
 
 23:                                               ; preds = %17
   %24 = getelementptr inbounds nuw i8, ptr %19, i64 24
-  %25 = load ptr, ptr %24, align 8, !tbaa !31
+  %25 = load ptr, ptr %24, align 8, !tbaa !27
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 16
   %27 = load i64, ptr %26, align 8, !tbaa !4
   %28 = load i64, ptr %16, align 8, !tbaa !4
@@ -1665,7 +1665,7 @@ zend_string_equal_content.exit.thread:            ; preds = %23, %zend_string_eq
   %31 = getelementptr inbounds nuw i8, ptr %19, i64 12
   %.014.i = load i32, ptr %31, align 4, !tbaa !12
   %.not.i2 = icmp eq i32 %.014.i, -1
-  br i1 %.not.i2, label %zend_interned_string_ht_lookup.exit, label %17, !llvm.loop !32
+  br i1 %.not.i2, label %zend_interned_string_ht_lookup.exit, label %17
 
 zend_interned_string_ht_lookup.exit:              ; preds = %zend_string_equal_content.exit.thread, %zend_string_equal_content.exit, %zend_string_hash_val.exit
   %.0.i = phi ptr [ null, %zend_string_hash_val.exit ], [ %25, %zend_string_equal_content.exit ], [ null, %zend_string_equal_content.exit.thread ]
@@ -1686,9 +1686,9 @@ define dso_local void @zend_interned_strings_deactivate() local_unnamed_addr #2 
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
 define dso_local void @zend_interned_strings_set_request_storage_handlers(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #9 {
-  store ptr %0, ptr @interned_string_request_handler, align 8, !tbaa !15
-  store ptr %1, ptr @interned_string_init_request_handler, align 8, !tbaa !15
-  store ptr %2, ptr @interned_string_init_existing_request_handler, align 8, !tbaa !15
+  store ptr %0, ptr @interned_string_request_handler, align 8, !tbaa !13
+  store ptr %1, ptr @interned_string_init_request_handler, align 8, !tbaa !13
+  store ptr %2, ptr @interned_string_init_existing_request_handler, align 8, !tbaa !13
   ret void
 }
 
@@ -1700,9 +1700,9 @@ define dso_local void @zend_interned_strings_switch_storage(i1 noundef zeroext %
   %zend_new_interned_string_permanent.sink = select i1 %0, ptr %2, ptr @zend_new_interned_string_permanent
   %zend_string_init_interned_permanent.sink = select i1 %0, ptr %3, ptr @zend_string_init_interned_permanent
   %storemerge = select i1 %0, ptr %4, ptr @zend_string_init_existing_interned_permanent
-  store ptr %zend_new_interned_string_permanent.sink, ptr @zend_new_interned_string, align 8, !tbaa !15
-  store ptr %zend_string_init_interned_permanent.sink, ptr @zend_string_init_interned, align 8, !tbaa !15
-  store ptr %storemerge, ptr @zend_string_init_existing_interned, align 8, !tbaa !15
+  store ptr %zend_new_interned_string_permanent.sink, ptr @zend_new_interned_string, align 8, !tbaa !13
+  store ptr %zend_string_init_interned_permanent.sink, ptr @zend_string_init_interned, align 8, !tbaa !13
+  store ptr %storemerge, ptr @zend_string_init_existing_interned, align 8, !tbaa !13
   ret void
 }
 
@@ -1725,7 +1725,7 @@ define dso_local zeroext i1 @zend_string_equal_val(ptr noundef %0, ptr noundef %
   %6 = sub i64 %4, %5
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load i64, ptr %7, align 8, !tbaa !4
-  %9 = tail call { i64, i64, ptr } asm "0:\0A\09movq ($2,$3), $0\0A\09xorq ($2), $0\0A\09jne 1f\0A\09addq $$0x8, $2\0A\09subq $$0x8, $1\0A\09ja 0b\0A\09movq $$0x1, $0\0A\09jmp 3f\0A\091:\0A\09cmpq $$0x8,$1\0A\09jb 2f\0A\09xorq $0, $0\0A\09jmp 3f\0A\092:\0A\09negq $1\0A\09lea 0x40(,$1,8), $1\0A\09shlq ${1:b}, $0\0A\09sete ${0:b}\0A\09movzbq ${0:b}, $0\0A\093:\0A", "=&{ax},={cx},=r,r,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %6, i64 %8, ptr nonnull %3) #20, !srcloc !34
+  %9 = tail call { i64, i64, ptr } asm "0:\0A\09movq ($2,$3), $0\0A\09xorq ($2), $0\0A\09jne 1f\0A\09addq $$0x8, $2\0A\09subq $$0x8, $1\0A\09ja 0b\0A\09movq $$0x1, $0\0A\09jmp 3f\0A\091:\0A\09cmpq $$0x8,$1\0A\09jb 2f\0A\09xorq $0, $0\0A\09jmp 3f\0A\092:\0A\09negq $1\0A\09lea 0x40(,$1,8), $1\0A\09shlq ${1:b}, $0\0A\09sete ${0:b}\0A\09movzbq ${0:b}, $0\0A\093:\0A", "=&{ax},={cx},=r,r,1,2,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %6, i64 %8, ptr nonnull %3) #20, !srcloc !28
   %10 = extractvalue { i64, i64, ptr } %9, 0
   %11 = icmp ne i64 %10, 0
   ret i1 %11
@@ -1738,7 +1738,7 @@ zend_string_alloc.exit:
   %5 = and i64 %4, -8
   %6 = add i64 %5, 32
   %7 = tail call noalias ptr @_emalloc(i64 noundef %6) #18
-  store i32 1, ptr %7, align 4, !tbaa !21
+  store i32 1, ptr %7, align 4, !tbaa !19
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 4
   store i32 22, ptr %8, align 4, !tbaa !12
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -1765,7 +1765,7 @@ zend_string_alloc.exit:
   %8 = and i64 %7, -8
   %9 = add i64 %8, 32
   %10 = tail call noalias ptr @_emalloc(i64 noundef %9) #18
-  store i32 1, ptr %10, align 4, !tbaa !21
+  store i32 1, ptr %10, align 4, !tbaa !19
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 4
   store i32 22, ptr %11, align 4, !tbaa !12
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 8
@@ -1861,25 +1861,19 @@ attributes #20 = { nounwind memory(none) }
 !10 = !{!"long", !8, i64 0}
 !11 = !{!5, !10, i64 8}
 !12 = !{!8, !8, i64 0}
-!13 = distinct !{!13, !14}
-!14 = !{!"llvm.loop.estimated_trip_count"}
+!13 = !{!14, !14, i64 0}
+!14 = !{!"any pointer", !8, i64 0}
 !15 = !{!16, !16, i64 0}
-!16 = !{!"any pointer", !8, i64 0}
+!16 = !{!"p1 _ZTS12_zend_string", !14, i64 0}
 !17 = !{!18, !18, i64 0}
-!18 = !{!"p1 _ZTS12_zend_string", !16, i64 0}
-!19 = !{!20, !20, i64 0}
-!20 = !{!"p2 _ZTS12_zend_string", !16, i64 0}
-!21 = !{!6, !7, i64 0}
-!22 = distinct !{!22, !14}
-!23 = !{!24, !24, i64 0}
-!24 = !{!"p1 omnipotent char", !16, i64 0}
-!25 = distinct !{!25, !14}
-!26 = !{!27, !7, i64 12}
-!27 = !{!"_zend_array", !6, i64 0, !8, i64 8, !7, i64 12, !8, i64 16, !7, i64 24, !7, i64 28, !7, i64 32, !7, i64 36, !10, i64 40, !16, i64 48}
-!28 = !{!29, !10, i64 16}
-!29 = !{!"_Bucket", !30, i64 0, !10, i64 16, !18, i64 24}
-!30 = !{!"_zval_struct", !8, i64 0, !8, i64 8, !8, i64 12}
-!31 = !{!29, !18, i64 24}
-!32 = distinct !{!32, !14}
-!33 = distinct !{!33, !14}
-!34 = !{i64 14214, i64 14219, i64 14244, i64 14266, i64 14281, i64 14303, i64 14325, i64 14339, i64 14361, i64 14376, i64 14387, i64 14408, i64 14422, i64 14442, i64 14457, i64 14468, i64 14484, i64 14512, i64 14533, i64 14550, i64 14573}
+!18 = !{!"p2 _ZTS12_zend_string", !14, i64 0}
+!19 = !{!6, !7, i64 0}
+!20 = !{!21, !21, i64 0}
+!21 = !{!"p1 omnipotent char", !14, i64 0}
+!22 = !{!23, !7, i64 12}
+!23 = !{!"_zend_array", !6, i64 0, !8, i64 8, !7, i64 12, !8, i64 16, !7, i64 24, !7, i64 28, !7, i64 32, !7, i64 36, !10, i64 40, !14, i64 48}
+!24 = !{!25, !10, i64 16}
+!25 = !{!"_Bucket", !26, i64 0, !10, i64 16, !16, i64 24}
+!26 = !{!"_zval_struct", !8, i64 0, !8, i64 8, !8, i64 12}
+!27 = !{!25, !16, i64 24}
+!28 = !{i64 14214, i64 14219, i64 14244, i64 14266, i64 14281, i64 14303, i64 14325, i64 14339, i64 14361, i64 14376, i64 14387, i64 14408, i64 14422, i64 14442, i64 14457, i64 14468, i64 14484, i64 14512, i64 14533, i64 14550, i64 14573}

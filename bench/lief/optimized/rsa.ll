@@ -1507,7 +1507,7 @@ define hidden range(i32 0, -127) i32 @mbedtls_rsa_gen_key(ptr noundef %0, ptr no
 54:                                               ; preds = %52, %44, %30
   %55 = call i32 @mbedtls_mpi_gen_prime(ptr noundef nonnull %17, i64 noundef %19, i32 noundef %spec.store.select, ptr noundef %1, ptr noundef %2) #14
   %.not75 = icmp eq i32 %55, 0
-  br i1 %.not75, label %26, label %.loopexit, !llvm.loop !20
+  br i1 %.not75, label %26, label %.loopexit
 
 56:                                               ; preds = %52
   %57 = call i32 @mbedtls_mpi_add_int(ptr noundef nonnull %17, ptr noundef nonnull %17, i64 noundef 1) #14
@@ -1810,7 +1810,7 @@ define hidden range(i32 -2147483648, 2147466496) i32 @mbedtls_rsa_private(ptr no
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #14
   call void @mbedtls_mpi_init(ptr noundef nonnull %6) #14
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 208
-  %30 = load ptr, ptr %29, align 8, !tbaa !22
+  %30 = load ptr, ptr %29, align 8, !tbaa !20
   %.not.i = icmp eq ptr %30, null
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 192
   br i1 %.not.i, label %.preheader.i, label %32
@@ -1869,7 +1869,7 @@ define hidden range(i32 -2147483648, 2147466496) i32 @mbedtls_rsa_private(ptr no
   switch i32 %54, label %rsa_prepare_blinding.exit.thread [
     i32 -14, label %.preheader.i
     i32 0, label %55
-  ], !llvm.loop !23
+  ]
 
 55:                                               ; preds = %53
   %56 = call i32 @mbedtls_mpi_mul_mpi(ptr noundef nonnull %31, ptr noundef nonnull %31, ptr noundef nonnull %6) #14
@@ -2066,10 +2066,10 @@ declare i32 @mbedtls_mpi_exp_mod(ptr noundef, ptr noundef, ptr noundef, ptr noun
 define internal fastcc i32 @rsa_unblind(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca %struct.mbedtls_mpi, align 8
   %5 = alloca %struct.mbedtls_mpi, align 8
-  %6 = load ptr, ptr %2, align 8, !tbaa !24
+  %6 = load ptr, ptr %2, align 8, !tbaa !21
   %7 = tail call i64 @mbedtls_mpi_core_montmul_init(ptr noundef %6) #14
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 10
-  %9 = load i16, ptr %8, align 2, !tbaa !25
+  %9 = load i16, ptr %8, align 2, !tbaa !22
   %10 = zext i16 %9 to i64
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #14
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #14
@@ -2097,15 +2097,15 @@ define internal fastcc i32 @rsa_unblind(ptr noundef nonnull %0, ptr noundef %1, 
   br i1 %.not27, label %20, label %29
 
 20:                                               ; preds = %18
-  %21 = load ptr, ptr %0, align 8, !tbaa !24
-  %22 = load ptr, ptr %2, align 8, !tbaa !24
-  %23 = load ptr, ptr %4, align 8, !tbaa !24
-  %24 = load ptr, ptr %5, align 8, !tbaa !24
+  %21 = load ptr, ptr %0, align 8, !tbaa !21
+  %22 = load ptr, ptr %2, align 8, !tbaa !21
+  %23 = load ptr, ptr %4, align 8, !tbaa !21
+  %24 = load ptr, ptr %5, align 8, !tbaa !21
   call void @mbedtls_mpi_core_to_mont_rep(ptr noundef %21, ptr noundef %21, ptr noundef %22, i64 noundef %10, i64 noundef %7, ptr noundef %23, ptr noundef %24) #14
-  %25 = load ptr, ptr %0, align 8, !tbaa !24
-  %26 = load ptr, ptr %1, align 8, !tbaa !24
-  %27 = load ptr, ptr %2, align 8, !tbaa !24
-  %28 = load ptr, ptr %5, align 8, !tbaa !24
+  %25 = load ptr, ptr %0, align 8, !tbaa !21
+  %26 = load ptr, ptr %1, align 8, !tbaa !21
+  %27 = load ptr, ptr %2, align 8, !tbaa !21
+  %28 = load ptr, ptr %5, align 8, !tbaa !21
   call void @mbedtls_mpi_core_montmul(ptr noundef %25, ptr noundef %25, ptr noundef %26, i64 noundef %10, ptr noundef %27, i64 noundef %10, i64 noundef %7, ptr noundef %28) #14
   br label %29
 
@@ -2146,7 +2146,7 @@ define hidden i32 @mbedtls_rsa_rsaes_oaep_encrypt(ptr noundef %0, ptr noundef re
 25:                                               ; preds = %16
   tail call void @llvm.memset.p0.i64(ptr align 1 %7, i8 0, i64 %19, i1 false)
   %26 = getelementptr inbounds nuw i8, ptr %7, i64 1
-  store i8 0, ptr %7, align 1, !tbaa !26
+  store i8 0, ptr %7, align 1, !tbaa !23
   %27 = tail call i32 %1(ptr noundef %2, ptr noundef nonnull %26, i64 noundef %17) #14
   %.not = icmp eq i32 %27, 0
   br i1 %.not, label %30, label %28
@@ -2172,7 +2172,7 @@ compute_hash.exit:                                ; preds = %30
   %reass.sub = sub i64 %19, %21
   %38 = getelementptr i8, ptr %37, i64 %reass.sub
   %39 = getelementptr i8, ptr %38, i64 -2
-  store i8 1, ptr %39, align 1, !tbaa !26
+  store i8 1, ptr %39, align 1, !tbaa !23
   %.not67 = icmp eq i64 %5, 0
   br i1 %.not67, label %42, label %40
 
@@ -2286,23 +2286,23 @@ define internal fastcc i32 @mgf_mask(ptr noundef captures(none) %0, i64 noundef 
   %.02241 = phi i64 [ %30, %.lr.ph ], [ 0, %.preheader ]
   %.12540 = phi ptr [ %27, %.lr.ph ], [ %.02443, %.preheader ]
   %25 = getelementptr inbounds nuw [64 x i8], ptr %7, i64 0, i64 %.02241
-  %26 = load i8, ptr %25, align 1, !tbaa !26
+  %26 = load i8, ptr %25, align 1, !tbaa !23
   %27 = getelementptr inbounds nuw i8, ptr %.12540, i64 1
-  %28 = load i8, ptr %.12540, align 1, !tbaa !26
+  %28 = load i8, ptr %.12540, align 1, !tbaa !23
   %29 = xor i8 %28, %26
-  store i8 %29, ptr %.12540, align 1, !tbaa !26
+  store i8 %29, ptr %.12540, align 1, !tbaa !23
   %30 = add nuw nsw i64 %.02241, 1
   %exitcond.not = icmp eq i64 %30, %spec.select
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !27
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !24
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
   %.125.lcssa = phi ptr [ %.02443, %.preheader ], [ %27, %.lr.ph ]
-  %31 = load i8, ptr %16, align 1, !tbaa !26
+  %31 = load i8, ptr %16, align 1, !tbaa !23
   %32 = add i8 %31, 1
-  store i8 %32, ptr %16, align 1, !tbaa !26
+  store i8 %32, ptr %16, align 1, !tbaa !23
   %33 = sub i64 %.02344, %spec.select
   %.not35 = icmp eq i64 %33, 0
-  br i1 %.not35, label %.loopexit, label %17, !llvm.loop !29
+  br i1 %.not35, label %.loopexit, label %17, !llvm.loop !26
 
 .loopexit:                                        ; preds = %17, %19, %21, %23, %._crit_edge, %13, %11
   %.020 = phi i32 [ %12, %11 ], [ 0, %13 ], [ %18, %17 ], [ %20, %19 ], [ %22, %21 ], [ %24, %23 ], [ 0, %._crit_edge ]
@@ -2329,7 +2329,7 @@ define hidden range(i32 -2147483648, 2147466624) i32 @mbedtls_rsa_rsaes_pkcs1_v1
   br i1 %or.cond, label %37, label %12
 
 12:                                               ; preds = %6
-  store i8 0, ptr %5, align 1, !tbaa !26
+  store i8 0, ptr %5, align 1, !tbaa !23
   %13 = icmp eq ptr %1, null
   br i1 %13, label %37, label %14
 
@@ -2337,7 +2337,7 @@ define hidden range(i32 -2147483648, 2147466624) i32 @mbedtls_rsa_rsaes_pkcs1_v1
   %15 = getelementptr inbounds nuw i8, ptr %5, i64 1
   %reass.sub = sub i64 %8, %3
   %16 = getelementptr inbounds nuw i8, ptr %5, i64 2
-  store i8 2, ptr %15, align 1, !tbaa !26
+  store i8 2, ptr %15, align 1, !tbaa !23
   %.not52 = icmp eq i64 %reass.sub, 3
   br i1 %.not52, label %._crit_edge, label %.preheader.preheader
 
@@ -2353,7 +2353,7 @@ define hidden range(i32 -2147483648, 2147466624) i32 @mbedtls_rsa_rsaes_pkcs1_v1
 19:                                               ; preds = %.preheader, %23
   %.0 = phi i32 [ %24, %23 ], [ 100, %.preheader ]
   %20 = tail call i32 %1(ptr noundef %2, ptr noundef nonnull %.03553, i64 noundef 1) #14
-  %21 = load i8, ptr %.03553, align 1, !tbaa !26
+  %21 = load i8, ptr %.03553, align 1, !tbaa !23
   %22 = icmp eq i8 %21, 0
   br i1 %22, label %23, label %.critedge
 
@@ -2362,7 +2362,7 @@ define hidden range(i32 -2147483648, 2147466624) i32 @mbedtls_rsa_rsaes_pkcs1_v1
   %25 = icmp ne i32 %24, 0
   %26 = icmp eq i32 %20, 0
   %or.cond3 = select i1 %25, i1 %26, i1 false
-  br i1 %or.cond3, label %19, label %.critedge, !llvm.loop !30
+  br i1 %or.cond3, label %19, label %.critedge, !llvm.loop !27
 
 .critedge:                                        ; preds = %23, %19
   %.1 = phi i32 [ %24, %23 ], [ %.0, %19 ]
@@ -2383,7 +2383,7 @@ define hidden range(i32 -2147483648, 2147466624) i32 @mbedtls_rsa_rsaes_pkcs1_v1
 
 ._crit_edge:                                      ; preds = %30, %14
   %.035.lcssa = phi ptr [ %16, %14 ], [ %31, %30 ]
-  store i8 0, ptr %.035.lcssa, align 1, !tbaa !26
+  store i8 0, ptr %.035.lcssa, align 1, !tbaa !23
   %.not45 = icmp eq i64 %3, 0
   br i1 %.not45, label %35, label %33
 
@@ -2420,7 +2420,7 @@ define hidden i32 @mbedtls_rsa_pkcs1_encrypt(ptr noundef %0, ptr noundef readonl
   br i1 %or.cond.i, label %mbedtls_rsa_rsaes_pkcs1_v15_encrypt.exit, label %15
 
 15:                                               ; preds = %9
-  store i8 0, ptr %5, align 1, !tbaa !26
+  store i8 0, ptr %5, align 1, !tbaa !23
   %16 = icmp eq ptr %1, null
   br i1 %16, label %mbedtls_rsa_rsaes_pkcs1_v15_encrypt.exit, label %17
 
@@ -2428,7 +2428,7 @@ define hidden i32 @mbedtls_rsa_pkcs1_encrypt(ptr noundef %0, ptr noundef readonl
   %18 = getelementptr inbounds nuw i8, ptr %5, i64 1
   %reass.sub.i = sub i64 %11, %3
   %19 = getelementptr inbounds nuw i8, ptr %5, i64 2
-  store i8 2, ptr %18, align 1, !tbaa !26
+  store i8 2, ptr %18, align 1, !tbaa !23
   %.not52.i = icmp eq i64 %reass.sub.i, 3
   br i1 %.not52.i, label %._crit_edge.i, label %.preheader.preheader.i
 
@@ -2444,7 +2444,7 @@ define hidden i32 @mbedtls_rsa_pkcs1_encrypt(ptr noundef %0, ptr noundef readonl
 22:                                               ; preds = %26, %.preheader.i
   %.0.i = phi i32 [ %27, %26 ], [ 100, %.preheader.i ]
   %23 = tail call i32 %1(ptr noundef %2, ptr noundef nonnull %.03553.i, i64 noundef 1) #14
-  %24 = load i8, ptr %.03553.i, align 1, !tbaa !26
+  %24 = load i8, ptr %.03553.i, align 1, !tbaa !23
   %25 = icmp eq i8 %24, 0
   br i1 %25, label %26, label %.critedge.i
 
@@ -2453,7 +2453,7 @@ define hidden i32 @mbedtls_rsa_pkcs1_encrypt(ptr noundef %0, ptr noundef readonl
   %28 = icmp ne i32 %27, 0
   %29 = icmp eq i32 %23, 0
   %or.cond3.i = select i1 %28, i1 %29, i1 false
-  br i1 %or.cond3.i, label %22, label %.critedge.i, !llvm.loop !30
+  br i1 %or.cond3.i, label %22, label %.critedge.i, !llvm.loop !27
 
 .critedge.i:                                      ; preds = %26, %22
   %.1.i = phi i32 [ %27, %26 ], [ %.0.i, %22 ]
@@ -2474,7 +2474,7 @@ define hidden i32 @mbedtls_rsa_pkcs1_encrypt(ptr noundef %0, ptr noundef readonl
 
 ._crit_edge.i:                                    ; preds = %33, %17
   %.035.lcssa.i = phi ptr [ %19, %17 ], [ %34, %33 ]
-  store i8 0, ptr %.035.lcssa.i, align 1, !tbaa !26
+  store i8 0, ptr %.035.lcssa.i, align 1, !tbaa !23
   %.not45.i = icmp eq i64 %3, 0
   br i1 %.not45.i, label %38, label %36
 
@@ -2560,16 +2560,16 @@ define hidden i32 @mbedtls_rsa_rsaes_oaep_decrypt(ptr noundef %0, ptr noundef %1
   br i1 %.not75, label %47, label %90
 
 47:                                               ; preds = %44
-  %48 = load i8, ptr %10, align 16, !tbaa !26
+  %48 = load i8, ptr %10, align 16, !tbaa !23
   %49 = zext i8 %48 to i64
-  %50 = call i64 asm sideeffect "mov  $1, $0                                \0A\09neg  $0                                      \0A\09or   $1, $0                                \0A\09sar  $$63, $0                                 \0A\09", "=&{ax},{di},~{dirflag},~{fpsr},~{flags}"(i64 %49) #14, !srcloc !31
+  %50 = call i64 asm sideeffect "mov  $1, $0                                \0A\09neg  $0                                      \0A\09or   $1, $0                                \0A\09sar  $$63, $0                                 \0A\09", "=&{ax},{di},~{dirflag},~{fpsr},~{flags}"(i64 %49) #14, !srcloc !28
   %51 = getelementptr inbounds nuw i8, ptr %33, i64 %34
   %52 = call i32 @mbedtls_ct_memcmp(ptr noundef nonnull %11, ptr noundef nonnull %51, i64 noundef %34) #14
   %53 = sext i32 %52 to i64
-  %54 = call i64 asm sideeffect "mov  $1, $0                                \0A\09neg  $0                                      \0A\09or   $1, $0                                \0A\09sar  $$63, $0                                 \0A\09", "=&{ax},{di},~{dirflag},~{fpsr},~{flags}"(i64 %53) #14, !srcloc !31
+  %54 = call i64 asm sideeffect "mov  $1, $0                                \0A\09neg  $0                                      \0A\09or   $1, $0                                \0A\09sar  $$63, $0                                 \0A\09", "=&{ax},{di},~{dirflag},~{fpsr},~{flags}"(i64 %53) #14, !srcloc !28
   %55 = or i64 %54, %50
   %56 = getelementptr inbounds nuw i8, ptr %51, i64 %34
-  %57 = call i64 asm sideeffect "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 -1) #14, !srcloc !32
+  %57 = call i64 asm sideeffect "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 -1) #14, !srcloc !29
   %58 = zext nneg i32 %26 to i64
   %59 = add nsw i64 %16, -2
   %.not82 = icmp eq i64 %59, %58
@@ -2584,32 +2584,32 @@ define hidden i32 @mbedtls_rsa_rsaes_oaep_decrypt(ptr noundef %0, ptr noundef %1
   %.06280 = phi i64 [ %71, %.lr.ph ], [ 0, %.lr.ph.preheader ]
   %.06379 = phi i64 [ %72, %.lr.ph ], [ 0, %.lr.ph.preheader ]
   %61 = getelementptr inbounds nuw i8, ptr %56, i64 %.06379
-  %62 = load i8, ptr %61, align 1, !tbaa !26
+  %62 = load i8, ptr %61, align 1, !tbaa !23
   %63 = zext i8 %62 to i64
-  %64 = call i64 asm sideeffect "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 range(i64 0, 256) %63) #14, !srcloc !32
-  %65 = call i64 asm sideeffect "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 range(i64 -1, 256) 0) #14, !srcloc !32
+  %64 = call i64 asm sideeffect "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 range(i64 0, 256) %63) #14, !srcloc !29
+  %65 = call i64 asm sideeffect "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 range(i64 -1, 256) 0) #14, !srcloc !29
   %66 = xor i64 %65, %64
-  %67 = call i64 asm sideeffect "mov  $1, $0                                \0A\09neg  $0                                      \0A\09or   $1, $0                                \0A\09sar  $$63, $0                                 \0A\09", "=&{ax},{di},~{dirflag},~{fpsr},~{flags}"(i64 %66) #14, !srcloc !31
+  %67 = call i64 asm sideeffect "mov  $1, $0                                \0A\09neg  $0                                      \0A\09or   $1, $0                                \0A\09sar  $$63, $0                                 \0A\09", "=&{ax},{di},~{dirflag},~{fpsr},~{flags}"(i64 %66) #14, !srcloc !28
   %68 = xor i64 %67, -1
   %69 = and i64 %.06181, %68
   %70 = and i64 %69, 1
   %71 = add i64 %70, %.06280
   %72 = add nuw i64 %.06379, 1
   %exitcond.not = icmp eq i64 %72, %60
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !33
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !30
 
 ._crit_edge:                                      ; preds = %.lr.ph, %47
   %.062.lcssa = phi i64 [ 0, %47 ], [ %71, %.lr.ph ]
   %73 = getelementptr inbounds nuw i8, ptr %56, i64 %.062.lcssa
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 1
-  %75 = load i8, ptr %73, align 1, !tbaa !26
+  %75 = load i8, ptr %73, align 1, !tbaa !23
   %76 = zext i8 %75 to i64
-  %77 = call i64 asm sideeffect "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 range(i64 0, 256) %76) #14, !srcloc !32
-  %78 = call i64 asm sideeffect "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 range(i64 -1, 256) 1) #14, !srcloc !32
+  %77 = call i64 asm sideeffect "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 range(i64 0, 256) %76) #14, !srcloc !29
+  %78 = call i64 asm sideeffect "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 range(i64 -1, 256) 1) #14, !srcloc !29
   %79 = xor i64 %78, %77
-  %80 = call i64 asm sideeffect "mov  $1, $0                                \0A\09neg  $0                                      \0A\09or   $1, $0                                \0A\09sar  $$63, $0                                 \0A\09", "=&{ax},{di},~{dirflag},~{fpsr},~{flags}"(i64 %79) #14, !srcloc !31
+  %80 = call i64 asm sideeffect "mov  $1, $0                                \0A\09neg  $0                                      \0A\09or   $1, $0                                \0A\09sar  $$63, $0                                 \0A\09", "=&{ax},{di},~{dirflag},~{fpsr},~{flags}"(i64 %79) #14, !srcloc !28
   %81 = or i64 %55, %80
-  %82 = call i64 asm sideeffect "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 0) #14, !srcloc !32
+  %82 = call i64 asm sideeffect "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 0) #14, !srcloc !29
   %.not76 = icmp eq i64 %81, %82
   br i1 %.not76, label %83, label %90
 
@@ -2667,17 +2667,17 @@ define hidden i32 @mbedtls_rsa_rsaes_pkcs1_v15_decrypt(ptr noundef %0, ptr nound
   br i1 %.not18, label %16, label %74
 
 16:                                               ; preds = %14
-  %17 = load i8, ptr %8, align 16, !tbaa !26
+  %17 = load i8, ptr %8, align 16, !tbaa !23
   %18 = zext i8 %17 to i64
-  %19 = call i64 asm sideeffect "mov  $1, $0                                \0A\09neg  $0                                      \0A\09or   $1, $0                                \0A\09sar  $$63, $0                                 \0A\09", "=&{ax},{di},~{dirflag},~{fpsr},~{flags}"(i64 %18) #14, !srcloc !31
+  %19 = call i64 asm sideeffect "mov  $1, $0                                \0A\09neg  $0                                      \0A\09or   $1, $0                                \0A\09sar  $$63, $0                                 \0A\09", "=&{ax},{di},~{dirflag},~{fpsr},~{flags}"(i64 %18) #14, !srcloc !28
   %20 = getelementptr inbounds nuw i8, ptr %8, i64 1
-  %21 = load i8, ptr %20, align 1, !tbaa !26
+  %21 = load i8, ptr %20, align 1, !tbaa !23
   %22 = zext i8 %21 to i64
-  %23 = call i64 asm sideeffect "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 range(i64 0, 256) %22) #14, !srcloc !32
-  %24 = call i64 asm sideeffect "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 range(i64 -1, 256) 2) #14, !srcloc !32
+  %23 = call i64 asm sideeffect "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 range(i64 0, 256) %22) #14, !srcloc !29
+  %24 = call i64 asm sideeffect "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 range(i64 -1, 256) 2) #14, !srcloc !29
   %25 = xor i64 %24, %23
-  %26 = call i64 asm sideeffect "mov  $1, $0                                \0A\09neg  $0                                      \0A\09or   $1, $0                                \0A\09sar  $$63, $0                                 \0A\09", "=&{ax},{di},~{dirflag},~{fpsr},~{flags}"(i64 %25) #14, !srcloc !31
-  %27 = call i64 asm sideeffect "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 0) #14, !srcloc !32
+  %26 = call i64 asm sideeffect "mov  $1, $0                                \0A\09neg  $0                                      \0A\09or   $1, $0                                \0A\09sar  $$63, $0                                 \0A\09", "=&{ax},{di},~{dirflag},~{fpsr},~{flags}"(i64 %25) #14, !srcloc !28
+  %27 = call i64 asm sideeffect "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 0) #14, !srcloc !29
   br label %28
 
 28:                                               ; preds = %28, %16
@@ -2685,12 +2685,12 @@ define hidden i32 @mbedtls_rsa_rsaes_pkcs1_v15_decrypt(ptr noundef %0, ptr nound
   %.04953.i = phi i64 [ %27, %16 ], [ %37, %28 ]
   %.05052.i = phi i64 [ 0, %16 ], [ %40, %28 ]
   %29 = getelementptr inbounds nuw i8, ptr %8, i64 %.054.i
-  %30 = load i8, ptr %29, align 1, !tbaa !26
+  %30 = load i8, ptr %29, align 1, !tbaa !23
   %31 = zext i8 %30 to i64
-  %32 = call i64 asm sideeffect "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 range(i64 0, 256) %31) #14, !srcloc !32
-  %33 = call i64 asm sideeffect "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 range(i64 -1, 256) 0) #14, !srcloc !32
+  %32 = call i64 asm sideeffect "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 range(i64 0, 256) %31) #14, !srcloc !29
+  %33 = call i64 asm sideeffect "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 range(i64 -1, 256) 0) #14, !srcloc !29
   %34 = xor i64 %33, %32
-  %35 = call i64 asm sideeffect "mov  $1, $0                                \0A\09neg  $0                                      \0A\09or   $1, $0                                \0A\09sar  $$63, $0                                 \0A\09", "=&{ax},{di},~{dirflag},~{fpsr},~{flags}"(i64 %34) #14, !srcloc !31
+  %35 = call i64 asm sideeffect "mov  $1, $0                                \0A\09neg  $0                                      \0A\09or   $1, $0                                \0A\09sar  $$63, $0                                 \0A\09", "=&{ax},{di},~{dirflag},~{fpsr},~{flags}"(i64 %34) #14, !srcloc !28
   %36 = xor i64 %35, -1
   %37 = or i64 %.04953.i, %36
   %38 = and i64 %37, 1
@@ -2698,7 +2698,7 @@ define hidden i32 @mbedtls_rsa_rsaes_pkcs1_v15_decrypt(ptr noundef %0, ptr nound
   %40 = add i64 %39, %.05052.i
   %41 = add nuw nsw i64 %.054.i, 1
   %exitcond.not.i = icmp eq i64 %41, %10
-  br i1 %exitcond.not.i, label %42, label %28, !llvm.loop !34
+  br i1 %exitcond.not.i, label %42, label %28, !llvm.loop !31
 
 42:                                               ; preds = %28
   %43 = add nsw i64 %10, -11
@@ -2706,23 +2706,23 @@ define hidden i32 @mbedtls_rsa_rsaes_pkcs1_v15_decrypt(ptr noundef %0, ptr nound
   %45 = or i64 %26, %19
   %46 = xor i64 %37, -1
   %47 = or i64 %45, %46
-  %48 = call { i64, i64, i64 } asm sideeffect "mov $1, $0                                 \0A\09xor $2, $0                                 \0A\09sub $2, $1                                 \0A\09and $0, $2                                 \0A\09not $0                                       \0A\09and $0, $1                                 \0A\09or $2, $1                                  \0A\09sar $$63, $1                                  \0A\09", "=&{ax},=&{di},=&{si},1,2,~{dirflag},~{fpsr},~{flags}"(i64 %40, i64 range(i64 0, 4294967296) 8) #14, !srcloc !35
+  %48 = call { i64, i64, i64 } asm sideeffect "mov $1, $0                                 \0A\09xor $2, $0                                 \0A\09sub $2, $1                                 \0A\09and $0, $2                                 \0A\09not $0                                       \0A\09and $0, $1                                 \0A\09or $2, $1                                  \0A\09sar $$63, $1                                  \0A\09", "=&{ax},=&{di},=&{si},1,2,~{dirflag},~{fpsr},~{flags}"(i64 %40, i64 range(i64 0, 4294967296) 8) #14, !srcloc !32
   %49 = extractvalue { i64, i64, i64 } %48, 1
   %50 = or i64 %47, %49
   %51 = add nuw nsw i64 %10, 4294967293
   %52 = sub i64 %51, %40
   %53 = and i64 %52, 4294967295
-  %54 = call { i64, i64, i64 } asm sideeffect "and  $0, $1                      \0A\09not  $0                              \0A\09and  $0, $2                      \0A\09or   $1, $2                            \0A\09", "=&{di},=&{si},=&{ax},0,1,2,~{dirflag},~{fpsr},~{flags}"(i64 %50, i64 range(i64 0, 4294967296) %44, i64 range(i64 0, 4294967296) %53) #14, !srcloc !36
+  %54 = call { i64, i64, i64 } asm sideeffect "and  $0, $1                      \0A\09not  $0                              \0A\09and  $0, $2                      \0A\09or   $1, $2                            \0A\09", "=&{di},=&{si},=&{ax},0,1,2,~{dirflag},~{fpsr},~{flags}"(i64 %50, i64 range(i64 0, 4294967296) %44, i64 range(i64 0, 4294967296) %53) #14, !srcloc !33
   %55 = extractvalue { i64, i64, i64 } %54, 2
   %56 = and i64 %55, 4294967295
-  %57 = call { i64, i64, i64 } asm sideeffect "mov $1, $0                                 \0A\09xor $2, $0                                 \0A\09sub $2, $1                                 \0A\09and $0, $2                                 \0A\09not $0                                       \0A\09and $0, $1                                 \0A\09or $2, $1                                  \0A\09sar $$63, $1                                  \0A\09", "=&{ax},=&{di},=&{si},1,2,~{dirflag},~{fpsr},~{flags}"(i64 %44, i64 range(i64 0, 4294967296) %56) #14, !srcloc !35
+  %57 = call { i64, i64, i64 } asm sideeffect "mov $1, $0                                 \0A\09xor $2, $0                                 \0A\09sub $2, $1                                 \0A\09and $0, $2                                 \0A\09not $0                                       \0A\09and $0, $1                                 \0A\09or $2, $1                                  \0A\09sar $$63, $1                                  \0A\09", "=&{ax},=&{di},=&{si},1,2,~{dirflag},~{fpsr},~{flags}"(i64 %44, i64 range(i64 0, 4294967296) %56) #14, !srcloc !32
   %58 = extractvalue { i64, i64, i64 } %57, 1
   %59 = and i64 %58, 17408
-  %60 = call { i64, i64, i64 } asm sideeffect "and  $0, $1                      \0A\09not  $0                              \0A\09and  $0, $2                      \0A\09or   $1, $2                            \0A\09", "=&{di},=&{si},=&{ax},0,1,2,~{dirflag},~{fpsr},~{flags}"(i64 %50, i64 16640, i64 range(i64 0, 4294967296) %59) #14, !srcloc !36
+  %60 = call { i64, i64, i64 } asm sideeffect "and  $0, $1                      \0A\09not  $0                              \0A\09and  $0, $2                      \0A\09or   $1, $2                            \0A\09", "=&{di},=&{si},=&{ax},0,1,2,~{dirflag},~{fpsr},~{flags}"(i64 %50, i64 16640, i64 range(i64 0, 4294967296) %59) #14, !srcloc !33
   %61 = or i64 %58, %50
   %62 = getelementptr inbounds nuw i8, ptr %8, i64 11
   call void @mbedtls_ct_zeroize_if(i64 noundef %61, ptr noundef nonnull %62, i64 noundef %43) #14
-  %63 = call { i64, i64, i64 } asm sideeffect "and  $0, $1                      \0A\09not  $0                              \0A\09and  $0, $2                      \0A\09or   $1, $2                            \0A\09", "=&{di},=&{si},=&{ax},0,1,2,~{dirflag},~{fpsr},~{flags}"(i64 %58, i64 range(i64 0, 4294967296) %44, i64 range(i64 0, 4294967296) %56) #14, !srcloc !36
+  %63 = call { i64, i64, i64 } asm sideeffect "and  $0, $1                      \0A\09not  $0                              \0A\09and  $0, $2                      \0A\09or   $1, $2                            \0A\09", "=&{di},=&{si},=&{ax},0,1,2,~{dirflag},~{fpsr},~{flags}"(i64 %58, i64 range(i64 0, 4294967296) %44, i64 range(i64 0, 4294967296) %56) #14, !srcloc !33
   %64 = extractvalue { i64, i64, i64 } %63, 2
   %65 = and i64 %64, 4294967295
   %66 = getelementptr inbounds nuw i8, ptr %8, i64 %10
@@ -2859,7 +2859,7 @@ define internal fastcc i32 @rsa_rsassa_pss_sign_no_mode_check(ptr noundef %0, pt
   %49 = getelementptr i8, ptr %7, i64 %48
   %50 = getelementptr i8, ptr %49, i64 -2
   %51 = getelementptr i8, ptr %49, i64 -1
-  store i8 1, ptr %50, align 1, !tbaa !26
+  store i8 1, ptr %50, align 1, !tbaa !23
   %52 = tail call i32 %1(ptr noundef %2, ptr noundef %51, i64 noundef %.086) #14
   %.not99 = icmp eq i32 %52, 0
   br i1 %.not99, label %55, label %53
@@ -2893,12 +2893,12 @@ define internal fastcc i32 @rsa_rsassa_pss_sign_no_mode_check(ptr noundef %0, pt
   %69 = sub i64 %.neg106, %67
   %70 = trunc i64 %69 to i32
   %71 = lshr i32 255, %70
-  %72 = load i8, ptr %7, align 1, !tbaa !26
+  %72 = load i8, ptr %7, align 1, !tbaa !23
   %73 = trunc nuw i32 %71 to i8
   %74 = and i8 %72, %73
-  store i8 %74, ptr %7, align 1, !tbaa !26
+  store i8 %74, ptr %7, align 1, !tbaa !23
   %75 = getelementptr inbounds nuw i8, ptr %56, i64 %26
-  store i8 -68, ptr %75, align 1, !tbaa !26
+  store i8 -68, ptr %75, align 1, !tbaa !23
   %76 = tail call i32 @mbedtls_rsa_private(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull %7, ptr noundef nonnull %7)
   br label %.critedge
 
@@ -3086,13 +3086,13 @@ define internal fastcc range(i32 -16512, 1) i32 @rsa_rsassa_pkcs1_v15_encode(i32
 33:                                               ; preds = %30
   %34 = add i64 %.161, -3
   %35 = getelementptr inbounds nuw i8, ptr %4, i64 1
-  store i8 0, ptr %4, align 1, !tbaa !26
+  store i8 0, ptr %4, align 1, !tbaa !23
   %36 = getelementptr inbounds nuw i8, ptr %4, i64 2
-  store i8 1, ptr %35, align 1, !tbaa !26
+  store i8 1, ptr %35, align 1, !tbaa !23
   call void @llvm.memset.p0.i64(ptr nonnull align 1 %36, i8 -1, i64 %34, i1 false)
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 %34
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 1
-  store i8 0, ptr %37, align 1, !tbaa !26
+  store i8 0, ptr %37, align 1, !tbaa !23
   br i1 %.not, label %39, label %41
 
 39:                                               ; preds = %33
@@ -3102,35 +3102,35 @@ define internal fastcc range(i32 -16512, 1) i32 @rsa_rsassa_pkcs1_v15_encode(i32
 
 41:                                               ; preds = %33
   %42 = getelementptr inbounds nuw i8, ptr %37, i64 2
-  store i8 48, ptr %38, align 1, !tbaa !26
+  store i8 48, ptr %38, align 1, !tbaa !23
   %43 = zext i32 %1 to i64
   %44 = add nuw nsw i64 %43, 8
   %45 = add i64 %44, %31
   %46 = trunc i64 %45 to i8
   %47 = getelementptr inbounds nuw i8, ptr %36, i64 %.161
-  store i8 %46, ptr %42, align 1, !tbaa !26
+  store i8 %46, ptr %42, align 1, !tbaa !23
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 1
-  store i8 48, ptr %47, align 1, !tbaa !26
+  store i8 48, ptr %47, align 1, !tbaa !23
   %49 = trunc i64 %31 to i8
   %50 = add i8 %49, 4
   %51 = getelementptr inbounds nuw i8, ptr %47, i64 2
-  store i8 %50, ptr %48, align 1, !tbaa !26
+  store i8 %50, ptr %48, align 1, !tbaa !23
   %52 = getelementptr inbounds nuw i8, ptr %47, i64 3
-  store i8 6, ptr %51, align 1, !tbaa !26
+  store i8 6, ptr %51, align 1, !tbaa !23
   %53 = getelementptr inbounds nuw i8, ptr %47, i64 4
-  store i8 %49, ptr %52, align 1, !tbaa !26
+  store i8 %49, ptr %52, align 1, !tbaa !23
   %54 = load ptr, ptr %7, align 8, !tbaa !3
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %53, ptr align 1 %54, i64 %31, i1 false)
   %55 = getelementptr inbounds nuw i8, ptr %53, i64 %31
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 1
-  store i8 5, ptr %55, align 1, !tbaa !26
+  store i8 5, ptr %55, align 1, !tbaa !23
   %57 = getelementptr inbounds nuw i8, ptr %55, i64 2
-  store i8 0, ptr %56, align 1, !tbaa !26
+  store i8 0, ptr %56, align 1, !tbaa !23
   %58 = getelementptr inbounds nuw i8, ptr %55, i64 3
-  store i8 4, ptr %57, align 1, !tbaa !26
+  store i8 4, ptr %57, align 1, !tbaa !23
   %59 = trunc i32 %1 to i8
   %60 = getelementptr inbounds nuw i8, ptr %55, i64 4
-  store i8 %59, ptr %58, align 1, !tbaa !26
+  store i8 %59, ptr %58, align 1, !tbaa !23
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %60, ptr align 1 %2, i64 %43, i1 false)
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 %43
   %62 = getelementptr inbounds nuw i8, ptr %4, i64 %3
@@ -3221,7 +3221,7 @@ define hidden i32 @mbedtls_rsa_rsassa_pss_verify_ext(ptr noundef %0, i32 noundef
 18:                                               ; preds = %16
   %19 = add nsw i64 %14, -1
   %20 = getelementptr inbounds nuw [1024 x i8], ptr %9, i64 0, i64 %19
-  %21 = load i8, ptr %20, align 1, !tbaa !26
+  %21 = load i8, ptr %20, align 1, !tbaa !23
   %.not77 = icmp eq i8 %21, -68
   br i1 %.not77, label %22, label %.critedge87
 
@@ -3248,7 +3248,7 @@ define hidden i32 @mbedtls_rsa_rsassa_pss_verify_ext(ptr noundef %0, i32 noundef
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %35 = call i64 @mbedtls_mpi_bitlen(ptr noundef nonnull %34) #14
   %36 = add i64 %35, -1
-  %37 = load i8, ptr %9, align 16, !tbaa !26
+  %37 = load i8, ptr %9, align 16, !tbaa !23
   %38 = zext i8 %37 to i32
   %39 = shl nuw nsw i64 %14, 3
   %40 = sub i64 %35, %39
@@ -3283,28 +3283,28 @@ define hidden i32 @mbedtls_rsa_rsassa_pss_verify_ext(ptr noundef %0, i32 noundef
   %58 = sub i64 %57, %36
   %59 = trunc i64 %58 to i32
   %60 = lshr i32 255, %59
-  %61 = load i8, ptr %9, align 16, !tbaa !26
+  %61 = load i8, ptr %9, align 16, !tbaa !23
   %62 = trunc nuw i32 %60 to i8
   %63 = and i8 %61, %62
-  store i8 %63, ptr %9, align 16, !tbaa !26
+  store i8 %63, ptr %9, align 16, !tbaa !23
   %64 = getelementptr inbounds i8, ptr %51, i64 -2
   %65 = icmp samesign ugt i64 %50, 2
   br i1 %65, label %.lr.ph, label %.critedgethread-pre-split
 
 .lr.ph:                                           ; preds = %56, %68
   %.16794 = phi ptr [ %69, %68 ], [ %spec.select.idx.sroa.sel.idx.sroa.sel, %56 ]
-  %66 = load i8, ptr %.16794, align 1, !tbaa !26
+  %66 = load i8, ptr %.16794, align 1, !tbaa !23
   %67 = icmp eq i8 %66, 0
   br i1 %67, label %68, label %.critedge
 
 68:                                               ; preds = %.lr.ph
   %69 = getelementptr inbounds nuw i8, ptr %.16794, i64 1
   %70 = icmp ult ptr %69, %64
-  br i1 %70, label %.lr.ph, label %.critedgethread-pre-split, !llvm.loop !37
+  br i1 %70, label %.lr.ph, label %.critedgethread-pre-split, !llvm.loop !34
 
 .critedgethread-pre-split:                        ; preds = %68, %56
   %.167.lcssa = phi ptr [ %spec.select.idx.sroa.sel.idx.sroa.sel, %56 ], [ %69, %68 ]
-  %.pr = load i8, ptr %.167.lcssa, align 1, !tbaa !26
+  %.pr = load i8, ptr %.167.lcssa, align 1, !tbaa !23
   br label %.critedge
 
 .critedge:                                        ; preds = %.lr.ph, %.critedgethread-pre-split
@@ -3885,10 +3885,10 @@ define internal noundef i32 @myrand(ptr readnone captures(none) %0, ptr noundef 
   %4 = tail call i32 @rand() #14
   %5 = trunc i32 %4 to i8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 %.05
-  store i8 %5, ptr %6, align 1, !tbaa !26
+  store i8 %5, ptr %6, align 1, !tbaa !23
   %7 = add nuw i64 %.05, 1
   %exitcond.not = icmp eq i64 %7, %2
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !38
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !35
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   ret i32 0
@@ -3985,22 +3985,19 @@ attributes #15 = { nounwind allocsize(0,1) }
 !17 = !{!13, !11, i64 224}
 !18 = !{!13, !11, i64 228}
 !19 = !{!14, !16, i64 8}
-!20 = distinct !{!20, !21}
-!21 = !{!"llvm.loop.estimated_trip_count"}
-!22 = !{!13, !15, i64 208}
-!23 = distinct !{!23, !21}
-!24 = !{!14, !15, i64 0}
-!25 = !{!14, !16, i64 10}
-!26 = !{!6, !6, i64 0}
-!27 = distinct !{!27, !28, !21}
-!28 = !{!"llvm.loop.mustprogress"}
-!29 = distinct !{!29, !28, !21}
-!30 = distinct !{!30, !28, !21}
-!31 = !{i64 1106384, i64 1106434, i64 1106506, i64 1106578, i64 1106650}
-!32 = !{i64 1103506}
-!33 = distinct !{!33, !28, !21}
-!34 = distinct !{!34, !28, !21}
-!35 = !{i64 1113037, i64 1113087, i64 1113159, i64 1113231, i64 1113303, i64 1113375, i64 1113447, i64 1113519, i64 1113591}
-!36 = !{i64 1109805, i64 1109855, i64 1109927, i64 1109999, i64 1110071}
-!37 = distinct !{!37, !28, !21}
-!38 = distinct !{!38, !28, !21}
+!20 = !{!13, !15, i64 208}
+!21 = !{!14, !15, i64 0}
+!22 = !{!14, !16, i64 10}
+!23 = !{!6, !6, i64 0}
+!24 = distinct !{!24, !25}
+!25 = !{!"llvm.loop.mustprogress"}
+!26 = distinct !{!26, !25}
+!27 = distinct !{!27, !25}
+!28 = !{i64 1106384, i64 1106434, i64 1106506, i64 1106578, i64 1106650}
+!29 = !{i64 1103506}
+!30 = distinct !{!30, !25}
+!31 = distinct !{!31, !25}
+!32 = !{i64 1113037, i64 1113087, i64 1113159, i64 1113231, i64 1113303, i64 1113375, i64 1113447, i64 1113519, i64 1113591}
+!33 = !{i64 1109805, i64 1109855, i64 1109927, i64 1109999, i64 1110071}
+!34 = distinct !{!34, !25}
+!35 = distinct !{!35, !25}

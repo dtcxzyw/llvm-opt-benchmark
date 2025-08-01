@@ -122,20 +122,20 @@ define ptr @cuddAddExistAbstractRecur(ptr noundef %0, ptr noundef %1, ptr nounde
   %11 = load i32, ptr %1, align 8, !tbaa !26
   %12 = icmp eq i32 %11, 2147483647
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 312
-  %.pre = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !34
+  %.pre = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !33
   br i1 %12, label %._crit_edge, label %13
 
 13:                                               ; preds = %10
   %14 = zext i32 %11 to i64
   %15 = getelementptr inbounds nuw i32, ptr %.pre, i64 %14
-  %16 = load i32, ptr %15, align 4, !tbaa !35
+  %16 = load i32, ptr %15, align 4, !tbaa !34
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %10, %13
   %17 = phi i32 [ %16, %13 ], [ 2147483647, %10 ]
   %18 = zext i32 %8 to i64
   %19 = getelementptr inbounds nuw i32, ptr %.pre, i64 %18
-  %20 = load i32, ptr %19, align 4, !tbaa !35
+  %20 = load i32, ptr %19, align 4, !tbaa !34
   %21 = icmp sgt i32 %17, %20
   br i1 %21, label %22, label %.critedge
 
@@ -363,7 +363,7 @@ addCheckPositiveCube.exit:                        ; preds = %addCheckPositiveCub
   %27 = tail call ptr @cuddAddUnivAbstractRecur(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2)
   %28 = load i32, ptr %11, align 8, !tbaa !30
   %29 = icmp eq i32 %28, 1
-  br i1 %29, label %addCheckPositiveCube.exit, label %.loopexit, !llvm.loop !36
+  br i1 %29, label %addCheckPositiveCube.exit, label %.loopexit, !llvm.loop !35
 
 .loopexit:                                        ; preds = %addCheckPositiveCube.exit, %.loopexit11
   %.0 = phi ptr [ null, %.loopexit11 ], [ %27, %addCheckPositiveCube.exit ]
@@ -390,10 +390,10 @@ define ptr @cuddAddUnivAbstractRecur(ptr noundef %0, ptr noundef %1, ptr noundef
 
 15:                                               ; preds = %12
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 312
-  %17 = load ptr, ptr %16, align 8, !tbaa !34
+  %17 = load ptr, ptr %16, align 8, !tbaa !33
   %18 = zext i32 %13 to i64
   %19 = getelementptr inbounds nuw i32, ptr %17, i64 %18
-  %20 = load i32, ptr %19, align 4, !tbaa !35
+  %20 = load i32, ptr %19, align 4, !tbaa !34
   br label %21
 
 21:                                               ; preds = %12, %15
@@ -404,10 +404,10 @@ define ptr @cuddAddUnivAbstractRecur(ptr noundef %0, ptr noundef %1, ptr noundef
 
 25:                                               ; preds = %21
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 312
-  %27 = load ptr, ptr %26, align 8, !tbaa !34
+  %27 = load ptr, ptr %26, align 8, !tbaa !33
   %28 = zext i32 %23 to i64
   %29 = getelementptr inbounds nuw i32, ptr %27, i64 %28
-  %30 = load i32, ptr %29, align 4, !tbaa !35
+  %30 = load i32, ptr %29, align 4, !tbaa !34
   %31 = icmp sgt i32 %22, %30
   br i1 %31, label %32, label %.critedge
 
@@ -632,7 +632,7 @@ addCheckPositiveCube.exit:                        ; preds = %addCheckPositiveCub
   %27 = tail call ptr @cuddAddOrAbstractRecur(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2)
   %28 = load i32, ptr %11, align 8, !tbaa !30
   %29 = icmp eq i32 %28, 1
-  br i1 %29, label %addCheckPositiveCube.exit, label %.loopexit, !llvm.loop !37
+  br i1 %29, label %addCheckPositiveCube.exit, label %.loopexit, !llvm.loop !36
 
 .loopexit:                                        ; preds = %addCheckPositiveCube.exit, %.loopexit11
   %.0 = phi ptr [ null, %.loopexit11 ], [ %27, %addCheckPositiveCube.exit ]
@@ -662,12 +662,12 @@ define ptr @cuddAddOrAbstractRecur(ptr noundef %0, ptr noundef %1, ptr noundef %
   br i1 %12, label %.critedge, label %13
 
 13:                                               ; preds = %.lr.ph.split
-  %14 = load ptr, ptr %9, align 8, !tbaa !34
+  %14 = load ptr, ptr %9, align 8, !tbaa !33
   %15 = getelementptr inbounds nuw i32, ptr %14, i64 %10
-  %16 = load i32, ptr %15, align 4, !tbaa !35
+  %16 = load i32, ptr %15, align 4, !tbaa !34
   %17 = zext i32 %11 to i64
   %18 = getelementptr inbounds nuw i32, ptr %14, i64 %17
-  %19 = load i32, ptr %18, align 4, !tbaa !35
+  %19 = load i32, ptr %18, align 4, !tbaa !34
   %20 = icmp sgt i32 %16, %19
   br i1 %20, label %tailrecurse, label %.critedge
 
@@ -873,10 +873,9 @@ attributes #3 = { nounwind }
 !28 = !{!13, !4, i64 48}
 !29 = !{!13, !25, i64 616}
 !30 = !{!13, !10, i64 448}
-!31 = distinct !{!31, !32, !33}
+!31 = distinct !{!31, !32}
 !32 = !{!"llvm.loop.mustprogress"}
-!33 = !{!"llvm.loop.estimated_trip_count"}
-!34 = !{!13, !19, i64 312}
-!35 = !{!10, !10, i64 0}
-!36 = distinct !{!36, !32, !33}
-!37 = distinct !{!37, !32, !33}
+!33 = !{!13, !19, i64 312}
+!34 = !{!10, !10, i64 0}
+!35 = distinct !{!35, !32}
+!36 = distinct !{!36, !32}

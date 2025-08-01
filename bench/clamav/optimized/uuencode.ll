@@ -128,7 +128,7 @@ define range(i32 -1, 2) i32 @uudecodeFile(ptr noundef %0, ptr noundef %1, ptr no
   %37 = load ptr, ptr %15, align 8, !tbaa !7
   %38 = call ptr %37(ptr noundef nonnull %3, ptr noundef nonnull %6, ptr noundef %4, i64 noundef 1000) #5
   %.not = icmp eq ptr %38, null
-  br i1 %.not, label %.loopexit, label %19, !llvm.loop !13
+  br i1 %.not, label %.loopexit, label %19
 
 .loopexit:                                        ; preds = %36, %14, %.thread
   call void @fileblobDestroy(ptr noundef nonnull %11) #5
@@ -188,5 +188,3 @@ attributes #6 = { nounwind willreturn memory(read) }
 !10 = !{!"_Bool", !5, i64 0}
 !11 = !{!"p1 long", !9, i64 0}
 !12 = !{!"p1 omnipotent char", !9, i64 0}
-!13 = distinct !{!13, !14}
-!14 = !{!"llvm.loop.estimated_trip_count"}

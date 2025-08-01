@@ -2728,6 +2728,5 @@ attributes #16 = { noreturn nounwind }
 !7 = !{i64 2145392468}
 !8 = distinct !{!8, !9}
 !9 = !{!"llvm.loop.unswitch.partial.disable"}
-!10 = distinct !{!10, !11, !12}
+!10 = distinct !{!10, !11}
 !11 = !{!"llvm.loop.mustprogress"}
-!12 = !{!"llvm.loop.estimated_trip_count"}

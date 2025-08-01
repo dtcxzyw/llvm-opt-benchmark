@@ -353,19 +353,19 @@ X11_GetScreenResources.exit.i..preheader2.i_crit_edge.i: ; preds = %X11_GetScree
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %61 = sext i32 %60 to i64
   %62 = icmp slt i64 %indvars.iv.next.i.i, %61
-  br i1 %62, label %.lr.ph.i.i, label %.loopexit.i.i, !llvm.loop !6
+  br i1 %62, label %.lr.ph.i.i, label %.loopexit.i.i, !llvm.loop !5
 
 .loopexit.i.i:                                    ; preds = %.critedge.i.i, %58, %.preheader1.i.i
   %indvars.iv.next17.i.i = add nuw nsw i64 %indvars.iv16.i.i, 1
   %63 = load i32, ptr %38, align 8
   %64 = sext i32 %63 to i64
   %65 = icmp slt i64 %indvars.iv.next17.i.i, %64
-  br i1 %65, label %.preheader1thread-pre-split.i.i, label %._crit_edge.i.i, !llvm.loop !7
+  br i1 %65, label %.preheader1thread-pre-split.i.i, label %._crit_edge.i.i, !llvm.loop !6
 
 66:                                               ; preds = %._crit_edge.i.i, %X11_GetScreenResources.exit.i.i
   %indvars.iv.next20.i.i = add nuw nsw i64 %indvars.iv19.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next20.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %.preheader.i.i, label %20, !llvm.loop !9
+  br i1 %exitcond.not.i.i, label %.preheader.i.i, label %20, !llvm.loop !8
 
 ._crit_edge12.i.i:                                ; preds = %71, %.preheader.i.i
   call void @SDL_free_REAL(ptr noundef nonnull %15) #8
@@ -389,7 +389,7 @@ X11_GetScreenResources.exit.i..preheader2.i_crit_edge.i: ; preds = %X11_GetScree
   %indvars.iv.next23.i.i = add nuw nsw i64 %indvars.iv22.i.i, 1
   %73 = sext i32 %72 to i64
   %74 = icmp slt i64 %indvars.iv.next23.i.i, %73
-  br i1 %74, label %.lr.ph11.i.i, label %._crit_edge12.i.i, !llvm.loop !10
+  br i1 %74, label %.lr.ph11.i.i, label %._crit_edge12.i.i, !llvm.loop !9
 
 X11_CheckDisplaysRemoved.exit.i:                  ; preds = %._crit_edge12.i.i, %10
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #8
@@ -411,7 +411,7 @@ X11_CheckDisplaysRemoved.exit.i:                  ; preds = %._crit_edge12.i.i, 
   %79 = getelementptr inbounds nuw i32, ptr %75, i64 %indvars.iv.next.i
   %80 = load i32, ptr %79, align 4
   %.not39.i = icmp eq i32 %80, 0
-  br i1 %.not39.i, label %._crit_edge.i, label %81, !llvm.loop !11
+  br i1 %.not39.i, label %._crit_edge.i, label %81, !llvm.loop !10
 
 81:                                               ; preds = %78, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %78 ]
@@ -641,12 +641,12 @@ X11_UpdateXRandRDisplay.exit.i:                   ; preds = %183, %161
   %187 = getelementptr inbounds nuw i32, ptr %128, i64 %indvars.iv.next.i9
   %188 = load i32, ptr %187, align 4
   %.not28.i = icmp eq i32 %188, 0
-  br i1 %.not28.i, label %._crit_edge.i10, label %.lr.ph.i7, !llvm.loop !12
+  br i1 %.not28.i, label %._crit_edge.i10, label %.lr.ph.i7, !llvm.loop !11
 
 189:                                              ; preds = %._crit_edge.i10, %X11_GetScreenResources.exit.i11
   %indvars.iv.next39.i = add nuw nsw i64 %indvars.iv38.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next39.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %._crit_edge36.i, label %134, !llvm.loop !13
+  br i1 %exitcond.not.i, label %._crit_edge36.i, label %134, !llvm.loop !12
 
 X11_HandleXRandROutputChange.exit:                ; preds = %90, %.sink.split.i, %._crit_edge36.i, %2
   ret void
@@ -810,7 +810,7 @@ X11_AddXRandRDisplay.exit.us.us.i.us:             ; preds = %.critedge.us.us._cr
   %71 = load i32, ptr %61, align 8
   %72 = sext i32 %71 to i64
   %73 = icmp slt i64 %indvars.iv.next82.i.us, %72
-  br i1 %73, label %.critedge.us.us.i.us, label %X11_AddXRandRDisplay.exit._crit_edge.us.i.us, !llvm.loop !14
+  br i1 %73, label %.critedge.us.us.i.us, label %X11_AddXRandRDisplay.exit._crit_edge.us.i.us, !llvm.loop !13
 
 X11_AddXRandRDisplay.exit._crit_edge.us.i.us:     ; preds = %X11_AddXRandRDisplay.exit.us.us.i.us, %70, %.preheader.us.i.us
   %74 = load ptr, ptr @X11_XRRFreeScreenResources, align 8
@@ -825,7 +825,7 @@ X11_AddXRandRDisplay.exit._crit_edge.us.i.us:     ; preds = %X11_AddXRandRDispla
 79:                                               ; preds = %X11_AddXRandRDisplay.exit._crit_edge.us.i.us, %X11_GetScreenResources.exit.us.i.us
   %indvars.iv.next85.i.us = add nuw nsw i64 %indvars.iv84.i.us, 1
   %exitcond.not.i.us = icmp eq i64 %indvars.iv.next85.i.us, %wide.trip.count.i
-  br i1 %exitcond.not.i.us, label %._crit_edge67.us.i, label %.preheader58.us.i.split.us, !llvm.loop !16
+  br i1 %exitcond.not.i.us, label %._crit_edge67.us.i, label %.preheader58.us.i.split.us, !llvm.loop !15
 
 .preheader58.us.i.split:                          ; preds = %.preheader58.us.i, %112
   %indvars.iv84.i = phi i64 [ %indvars.iv.next85.i, %112 ], [ 0, %.preheader58.us.i ]
@@ -907,12 +907,12 @@ X11_AddXRandRDisplay.exit._crit_edge.us.i:        ; preds = %108, %X11_AddXRandR
   %109 = load i32, ptr %114, align 8
   %110 = sext i32 %109 to i64
   %111 = icmp slt i64 %indvars.iv.next.i, %110
-  br i1 %111, label %.lr.ph.split.us75.i, label %X11_AddXRandRDisplay.exit._crit_edge.us.i, !llvm.loop !17
+  br i1 %111, label %.lr.ph.split.us75.i, label %X11_AddXRandRDisplay.exit._crit_edge.us.i, !llvm.loop !16
 
 112:                                              ; preds = %X11_AddXRandRDisplay.exit._crit_edge.us.i, %X11_GetScreenResources.exit.us.i, %.preheader58.us.i.split
   %indvars.iv.next85.i = add nuw nsw i64 %indvars.iv84.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next85.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %._crit_edge67.us.i, label %.preheader58.us.i.split, !llvm.loop !18
+  br i1 %exitcond.not.i, label %._crit_edge67.us.i, label %.preheader58.us.i.split, !llvm.loop !17
 
 .preheader.us.i:                                  ; preds = %X11_GetScreenResources.exit.us.i..preheader.us.i_crit_edge, %86
   %113 = phi i32 [ %.pre, %X11_GetScreenResources.exit.us.i..preheader.us.i_crit_edge ], [ %88, %86 ]
@@ -927,7 +927,7 @@ X11_AddXRandRDisplay.exit._crit_edge.us.i:        ; preds = %108, %X11_AddXRandR
 
 ._crit_edge67.us.i:                               ; preds = %112, %79
   %117 = add nsw i32 %.04768.us.i, -1
-  br i1 %.not49.us.i, label %.split.us.i, label %.preheader58.us.i, !llvm.loop !19
+  br i1 %.not49.us.i, label %.split.us.i, label %.preheader58.us.i, !llvm.loop !18
 
 .split.us.i:                                      ; preds = %._crit_edge67.us.i, %.preheader59.i
   %118 = getelementptr inbounds nuw i8, ptr %0, i64 800
@@ -1021,13 +1021,13 @@ X11_AddXRandRDisplay.exit._crit_edge.us.i:        ; preds = %108, %X11_AddXRandR
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %157 = sext i32 %156 to i64
   %158 = icmp slt i64 %indvars.iv.next.i.i, %157
-  br i1 %158, label %.lr.ph.i.i, label %.loopexit.i.i, !llvm.loop !20
+  br i1 %158, label %.lr.ph.i.i, label %.loopexit.i.i, !llvm.loop !19
 
 .loopexit.i.i:                                    ; preds = %.thread.i.i, %.thread62.i.i, %.preheader66.i.i
   %.2.i.i = phi i32 [ %151, %.thread62.i.i ], [ %.03873.i.i, %.preheader66.i.i ], [ %.03873.i.i, %.thread.i.i ]
   %159 = call ptr @SDL_strtok_r_REAL(ptr noundef null, ptr noundef nonnull @.str.18, ptr noundef nonnull %5) #8
   %.not49.i.i = icmp eq ptr %159, null
-  br i1 %.not49.i.i, label %.preheader.i.i, label %.preheader66.i.i, !llvm.loop !21
+  br i1 %.not49.i.i, label %.preheader.i.i, label %.preheader66.i.i, !llvm.loop !20
 
 ._crit_edge.i.i:                                  ; preds = %169, %.preheader.i.i
   %160 = sext i32 %138 to i64
@@ -1054,7 +1054,7 @@ X11_AddXRandRDisplay.exit._crit_edge.us.i:        ; preds = %108, %X11_AddXRandR
   %.7.i.i = phi i32 [ %166, %165 ], [ %.674.i.i, %162 ]
   %indvars.iv.next83.i.i = add nuw nsw i64 %indvars.iv82.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next83.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %162, !llvm.loop !22
+  br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %162, !llvm.loop !21
 
 170:                                              ; preds = %._crit_edge.i.i, %125
   call void @SDL_free_REAL(ptr noundef %126) #8
@@ -1185,7 +1185,7 @@ CheckXRandR.exit.thread:                          ; preds = %16, %1, %121, %X11_
 219:                                              ; preds = %220
   %indvars.iv.next.i14 = add nuw nsw i64 %indvars.iv.i13, 1
   %exitcond.not.i15 = icmp eq i64 %indvars.iv.next.i14, %wide.trip.count.i12
-  br i1 %exitcond.not.i15, label %.loopexit.i, label %220, !llvm.loop !23
+  br i1 %exitcond.not.i15, label %.loopexit.i, label %220, !llvm.loop !22
 
 220:                                              ; preds = %219, %.lr.ph.i
   %indvars.iv.i13 = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i14, %219 ]
@@ -1261,7 +1261,7 @@ define hidden noundef zeroext i1 @X11_GetDisplayModes(ptr noundef readonly captu
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i32 %7, ptr %8, align 4
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 40
-  %10 = load i8, ptr %9, align 8, !range !24, !noundef !25
+  %10 = load i8, ptr %9, align 8, !range !23, !noundef !24
   %11 = trunc nuw i8 %10 to i1
   br i1 %11, label %12, label %55
 
@@ -1334,7 +1334,7 @@ define hidden noundef zeroext i1 @X11_GetDisplayModes(ptr noundef readonly captu
   %50 = load i32, ptr %32, align 8
   %51 = sext i32 %50 to i64
   %52 = icmp slt i64 %indvars.iv.next, %51
-  br i1 %52, label %38, label %.loopexit, !llvm.loop !26
+  br i1 %52, label %38, label %.loopexit, !llvm.loop !25
 
 .loopexit:                                        ; preds = %49, %.preheader, %29, %24
   %53 = load ptr, ptr @X11_XRRFreeOutputInfo, align 8
@@ -1371,7 +1371,7 @@ define internal fastcc noundef zeroext i1 @SetXRandRModeInfo(ptr noundef %0, ptr
 12:                                               ; preds = %.critedge
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %.critedge, !llvm.loop !27
+  br i1 %exitcond.not, label %.loopexit, label %.critedge, !llvm.loop !26
 
 .critedge:                                        ; preds = %.critedge.lr.ph, %12
   %indvars.iv = phi i64 [ 0, %.critedge.lr.ph ], [ %indvars.iv.next, %12 ]
@@ -1496,7 +1496,7 @@ define hidden zeroext i1 @X11_SetDisplayMode(ptr noundef readonly captures(none)
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 1648
   store i64 %9, ptr %10, align 8
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 1762
-  %12 = load i8, ptr %11, align 2, !range !24, !noundef !25
+  %12 = load i8, ptr %11, align 2, !range !23, !noundef !24
   %13 = trunc nuw i8 %12 to i1
   br i1 %13, label %21, label %14
 
@@ -1519,7 +1519,7 @@ define hidden zeroext i1 @X11_SetDisplayMode(ptr noundef readonly captures(none)
 
 21:                                               ; preds = %.sink.split, %3
   %22 = getelementptr inbounds nuw i8, ptr %7, i64 40
-  %23 = load i8, ptr %22, align 8, !range !24, !noundef !25
+  %23 = load i8, ptr %22, align 8, !range !23, !noundef !24
   %24 = trunc nuw i8 %23 to i1
   br i1 %24, label %25, label %.thread
 
@@ -1925,7 +1925,7 @@ define internal fastcc noundef zeroext i1 @X11_FillXRandRDisplayInfo(ptr noundef
 35:                                               ; preds = %36
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %36, !llvm.loop !28
+  br i1 %exitcond.not, label %.loopexit, label %36, !llvm.loop !27
 
 36:                                               ; preds = %.lr.ph, %35
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %35 ]
@@ -2227,7 +2227,7 @@ define internal fastcc void @SetXRandRDisplayName(ptr noundef %0, i64 noundef %1
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.thread, label %.lr.ph, !llvm.loop !29
+  br i1 %exitcond.not, label %._crit_edge.thread, label %.lr.ph, !llvm.loop !28
 
 ._crit_edge:                                      ; preds = %6
   %.not36 = icmp eq ptr %14, null
@@ -2466,30 +2466,29 @@ attributes #9 = { nounwind allocsize(0,1) }
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = distinct !{!3, !4, !5}
+!3 = distinct !{!3, !4}
 !4 = !{!"llvm.loop.mustprogress"}
-!5 = !{!"llvm.loop.estimated_trip_count"}
-!6 = distinct !{!6, !4, !5}
-!7 = distinct !{!7, !4, !5, !8}
-!8 = !{!"llvm.loop.unswitch.partial.disable"}
-!9 = distinct !{!9, !4, !5}
-!10 = distinct !{!10, !4, !5}
-!11 = distinct !{!11, !4, !5}
-!12 = distinct !{!12, !4, !5}
-!13 = distinct !{!13, !4, !5}
-!14 = distinct !{!14, !4, !5, !15}
-!15 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!16 = distinct !{!16, !4, !5, !15}
-!17 = distinct !{!17, !4, !5}
-!18 = distinct !{!18, !4, !5}
-!19 = distinct !{!19, !4, !5, !15}
-!20 = distinct !{!20, !4, !5}
-!21 = distinct !{!21, !4, !5}
-!22 = distinct !{!22, !4, !5}
-!23 = distinct !{!23, !4, !5}
-!24 = !{i8 0, i8 2}
-!25 = !{}
-!26 = distinct !{!26, !4, !5}
-!27 = distinct !{!27, !4, !5}
-!28 = distinct !{!28, !4, !5}
-!29 = distinct !{!29, !4, !5}
+!5 = distinct !{!5, !4}
+!6 = distinct !{!6, !4, !7}
+!7 = !{!"llvm.loop.unswitch.partial.disable"}
+!8 = distinct !{!8, !4}
+!9 = distinct !{!9, !4}
+!10 = distinct !{!10, !4}
+!11 = distinct !{!11, !4}
+!12 = distinct !{!12, !4}
+!13 = distinct !{!13, !4, !14}
+!14 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!15 = distinct !{!15, !4, !14}
+!16 = distinct !{!16, !4}
+!17 = distinct !{!17, !4}
+!18 = distinct !{!18, !4, !14}
+!19 = distinct !{!19, !4}
+!20 = distinct !{!20, !4}
+!21 = distinct !{!21, !4}
+!22 = distinct !{!22, !4}
+!23 = !{i8 0, i8 2}
+!24 = !{}
+!25 = distinct !{!25, !4}
+!26 = distinct !{!26, !4}
+!27 = distinct !{!27, !4}
+!28 = distinct !{!28, !4}

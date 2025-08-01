@@ -101,7 +101,7 @@ exif_decode_tag.exit.thread:                      ; preds = %.lr.ph.split
   %indvars.iv.i = phi i64 [ 0, %45 ], [ %indvars.iv.next.i, %48 ]
   %50 = getelementptr inbounds nuw [117 x %struct.exif_tag], ptr @tag_list, i64 0, i64 %indvars.iv.i
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 32
-  %52 = load i16, ptr %51, align 2, !tbaa !17
+  %52 = load i16, ptr %51, align 2, !tbaa !16
   %53 = icmp eq i16 %52, %47
   br i1 %53, label %exif_get_tag_name.exit, label %48
 
@@ -203,7 +203,7 @@ exif_decode_tag.exit:                             ; preds = %43, %exif_add_metad
 88:                                               ; preds = %exif_decode_tag.exit.thread, %exif_decode_tag.exit
   %89 = add nuw nsw i32 %.01522, 1
   %exitcond.not = icmp eq i32 %89, %11
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !20
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !19
 
 ._crit_edge:                                      ; preds = %88, %.lr.ph, %.preheader
   %90 = call i32 @ff_tget_long(ptr noundef nonnull %1, i32 noundef %2) #6
@@ -303,10 +303,9 @@ attributes #7 = { noreturn nounwind }
 !11 = !{!5, !6, i64 16}
 !12 = !{!13, !13, i64 0}
 !13 = !{!"int", !8, i64 0}
-!14 = distinct !{!14, !15, !16}
+!14 = distinct !{!14, !15}
 !15 = !{!"llvm.loop.mustprogress"}
-!16 = !{!"llvm.loop.estimated_trip_count"}
-!17 = !{!18, !19, i64 32}
-!18 = !{!"exif_tag", !8, i64 0, !19, i64 32}
-!19 = !{!"short", !8, i64 0}
-!20 = distinct !{!20, !15, !16}
+!16 = !{!17, !18, i64 32}
+!17 = !{!"exif_tag", !8, i64 0, !18, i64 32}
+!18 = !{!"short", !8, i64 0}
+!19 = distinct !{!19, !15}

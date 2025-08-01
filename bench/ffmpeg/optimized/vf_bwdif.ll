@@ -180,12 +180,12 @@ define internal void @filter(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32
 
 ._crit_edge:                                      ; preds = %38, %4
   %49 = getelementptr inbounds nuw i8, ptr %7, i64 168
-  %50 = load i32, ptr %49, align 8, !tbaa !62
+  %50 = load i32, ptr %49, align 8, !tbaa !61
   %51 = icmp eq i32 %50, 0
   br i1 %51, label %52, label %53
 
 52:                                               ; preds = %._crit_edge
-  store i32 1, ptr %49, align 8, !tbaa !62
+  store i32 1, ptr %49, align 8, !tbaa !61
   br label %53
 
 53:                                               ; preds = %52, %._crit_edge
@@ -207,13 +207,13 @@ define internal noundef i32 @filter_slice(ptr noundef readonly captures(none) %0
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %6 = load ptr, ptr %5, align 8, !tbaa !19
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  %8 = load ptr, ptr %7, align 8, !tbaa !63
+  %8 = load ptr, ptr %7, align 8, !tbaa !62
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 64
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %11 = load i32, ptr %10, align 8, !tbaa !58
   %12 = sext i32 %11 to i64
   %13 = getelementptr inbounds [8 x i32], ptr %9, i64 0, i64 %12
-  %14 = load i32, ptr %13, align 4, !tbaa !64
+  %14 = load i32, ptr %13, align 4, !tbaa !63
   %15 = getelementptr inbounds nuw i8, ptr %6, i64 80
   %16 = load ptr, ptr %15, align 8, !tbaa !30
   %.idx = mul nsw i64 %12, 20
@@ -285,35 +285,35 @@ job_start.exit147:                                ; preds = %job_start.exit, %32
   br i1 %.not, label %134, label %62
 
 62:                                               ; preds = %56
-  %63 = load ptr, ptr %39, align 8, !tbaa !65
+  %63 = load ptr, ptr %39, align 8, !tbaa !64
   %64 = getelementptr inbounds [8 x ptr], ptr %63, i64 0, i64 %61
-  %65 = load ptr, ptr %64, align 8, !tbaa !66
+  %65 = load ptr, ptr %64, align 8, !tbaa !65
   %66 = mul nsw i32 %.0149, %14
   %67 = sext i32 %66 to i64
   %68 = getelementptr inbounds i8, ptr %65, i64 %67
-  %69 = load ptr, ptr %7, align 8, !tbaa !63
+  %69 = load ptr, ptr %7, align 8, !tbaa !62
   %70 = getelementptr inbounds [8 x ptr], ptr %69, i64 0, i64 %61
-  %71 = load ptr, ptr %70, align 8, !tbaa !66
+  %71 = load ptr, ptr %70, align 8, !tbaa !65
   %72 = getelementptr inbounds i8, ptr %71, i64 %67
-  %73 = load ptr, ptr %40, align 8, !tbaa !67
+  %73 = load ptr, ptr %40, align 8, !tbaa !66
   %74 = getelementptr inbounds [8 x ptr], ptr %73, i64 0, i64 %61
-  %75 = load ptr, ptr %74, align 8, !tbaa !66
+  %75 = load ptr, ptr %74, align 8, !tbaa !65
   %76 = getelementptr inbounds i8, ptr %75, i64 %67
   %77 = load ptr, ptr %1, align 8, !tbaa !45
   %78 = getelementptr inbounds [8 x ptr], ptr %77, i64 0, i64 %61
-  %79 = load ptr, ptr %78, align 8, !tbaa !66
+  %79 = load ptr, ptr %78, align 8, !tbaa !65
   %80 = getelementptr inbounds nuw i8, ptr %77, i64 64
   %81 = getelementptr inbounds [8 x i32], ptr %80, i64 0, i64 %61
-  %82 = load i32, ptr %81, align 4, !tbaa !64
+  %82 = load i32, ptr %81, align 4, !tbaa !63
   %83 = mul nsw i32 %82, %.0149
   %84 = sext i32 %83 to i64
   %85 = getelementptr inbounds i8, ptr %79, i64 %84
-  %86 = load i32, ptr %41, align 8, !tbaa !62
+  %86 = load i32, ptr %41, align 8, !tbaa !61
   %87 = icmp eq i32 %86, 0
   br i1 %87, label %88, label %102
 
 88:                                               ; preds = %62
-  %89 = load ptr, ptr %54, align 8, !tbaa !68
+  %89 = load ptr, ptr %54, align 8, !tbaa !67
   %90 = load i32, ptr %43, align 4, !tbaa !56
   %91 = add nsw i32 %.0149, %22
   %92 = load i32, ptr %24, align 8, !tbaa !57
@@ -340,7 +340,7 @@ job_start.exit147:                                ; preds = %job_start.exit, %32
   br i1 %or.cond151, label %106, label %118
 
 106:                                              ; preds = %102
-  %107 = load ptr, ptr %53, align 8, !tbaa !71
+  %107 = load ptr, ptr %53, align 8, !tbaa !70
   %108 = load i32, ptr %43, align 4, !tbaa !56
   %109 = add nsw i32 %.0149, %22
   %110 = icmp slt i32 %109, %.pre
@@ -358,7 +358,7 @@ job_start.exit147:                                ; preds = %job_start.exit, %32
   br label %153
 
 118:                                              ; preds = %102
-  %119 = load ptr, ptr %42, align 8, !tbaa !72
+  %119 = load ptr, ptr %42, align 8, !tbaa !71
   %.not141 = icmp eq ptr %119, null
   br i1 %.not141, label %129, label %120
 
@@ -378,7 +378,7 @@ job_start.exit147:                                ; preds = %job_start.exit, %32
   br label %153
 
 129:                                              ; preds = %120, %118
-  %130 = load ptr, ptr %45, align 8, !tbaa !73
+  %130 = load ptr, ptr %45, align 8, !tbaa !72
   %131 = load i32, ptr %43, align 4, !tbaa !56
   %132 = load i32, ptr %44, align 8, !tbaa !48
   %133 = xor i32 %132, %57
@@ -388,16 +388,16 @@ job_start.exit147:                                ; preds = %job_start.exit, %32
 134:                                              ; preds = %56
   %135 = load ptr, ptr %1, align 8, !tbaa !45
   %136 = getelementptr inbounds [8 x ptr], ptr %135, i64 0, i64 %61
-  %137 = load ptr, ptr %136, align 8, !tbaa !66
+  %137 = load ptr, ptr %136, align 8, !tbaa !65
   %138 = getelementptr inbounds nuw i8, ptr %135, i64 64
   %139 = getelementptr inbounds [8 x i32], ptr %138, i64 0, i64 %61
-  %140 = load i32, ptr %139, align 4, !tbaa !64
+  %140 = load i32, ptr %139, align 4, !tbaa !63
   %141 = mul nsw i32 %140, %.0149
   %142 = sext i32 %141 to i64
   %143 = getelementptr inbounds i8, ptr %137, i64 %142
-  %144 = load ptr, ptr %7, align 8, !tbaa !63
+  %144 = load ptr, ptr %7, align 8, !tbaa !62
   %145 = getelementptr inbounds [8 x ptr], ptr %144, i64 0, i64 %61
-  %146 = load ptr, ptr %145, align 8, !tbaa !66
+  %146 = load ptr, ptr %145, align 8, !tbaa !65
   %147 = mul nsw i32 %.0149, %14
   %148 = sext i32 %147 to i64
   %149 = getelementptr inbounds i8, ptr %146, i64 %148
@@ -411,7 +411,7 @@ job_start.exit147:                                ; preds = %job_start.exit, %32
   %.2 = phi i32 [ %.0149, %134 ], [ %.0149, %88 ], [ %.0149, %106 ], [ %121, %125 ], [ %.0149, %129 ]
   %154 = add nsw i32 %.2, 1
   %155 = icmp slt i32 %154, %36
-  br i1 %155, label %56, label %._crit_edge, !llvm.loop !74
+  br i1 %155, label %56, label %._crit_edge, !llvm.loop !73
 
 ._crit_edge:                                      ; preds = %153, %job_start.exit147
   ret i32 0
@@ -498,19 +498,18 @@ attributes #7 = { nounwind willreturn memory(read) }
 !56 = !{!46, !11, i64 12}
 !57 = !{!46, !11, i64 16}
 !58 = !{!46, !11, i64 8}
-!59 = distinct !{!59, !60, !61}
+!59 = distinct !{!59, !60}
 !60 = !{!"llvm.loop.mustprogress"}
-!61 = !{!"llvm.loop.estimated_trip_count"}
-!62 = !{!31, !11, i64 168}
-!63 = !{!31, !32, i64 24}
-!64 = !{!11, !11, i64 0}
-!65 = !{!31, !32, i64 40}
-!66 = !{!23, !23, i64 0}
-!67 = !{!31, !32, i64 32}
-!68 = !{!69, !7, i64 176}
-!69 = !{!"BWDIFContext", !31, i64 0, !70, i64 176}
-!70 = !{!"BWDIFDSPContext", !7, i64 0, !7, i64 8, !7, i64 16, !7, i64 24}
-!71 = !{!69, !7, i64 192}
-!72 = !{!69, !7, i64 200}
-!73 = !{!69, !7, i64 184}
-!74 = distinct !{!74, !60, !61}
+!61 = !{!31, !11, i64 168}
+!62 = !{!31, !32, i64 24}
+!63 = !{!11, !11, i64 0}
+!64 = !{!31, !32, i64 40}
+!65 = !{!23, !23, i64 0}
+!66 = !{!31, !32, i64 32}
+!67 = !{!68, !7, i64 176}
+!68 = !{!"BWDIFContext", !31, i64 0, !69, i64 176}
+!69 = !{!"BWDIFDSPContext", !7, i64 0, !7, i64 8, !7, i64 16, !7, i64 24}
+!70 = !{!68, !7, i64 192}
+!71 = !{!68, !7, i64 200}
+!72 = !{!68, !7, i64 184}
+!73 = distinct !{!73, !60}

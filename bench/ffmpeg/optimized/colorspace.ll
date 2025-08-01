@@ -92,7 +92,7 @@ define void @ff_matrix_invert_3x3(ptr noundef readonly captures(none) %0, ptr no
 63:                                               ; preds = %59
   %indvars.iv.next73 = add nuw nsw i64 %indvars.iv72, 1
   %exitcond75.not = icmp eq i64 %indvars.iv.next73, 3
-  br i1 %exitcond75.not, label %64, label %.preheader, !llvm.loop !11
+  br i1 %exitcond75.not, label %64, label %.preheader, !llvm.loop !10
 
 64:                                               ; preds = %63
   ret void
@@ -139,12 +139,12 @@ define void @ff_matrix_mul_3x3(ptr noundef writeonly captures(none) %0, ptr noun
   store double %22, ptr %23, align 8, !tbaa !4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %24, label %10, !llvm.loop !12
+  br i1 %exitcond.not, label %24, label %10, !llvm.loop !11
 
 24:                                               ; preds = %10
   %indvars.iv.next23 = add nuw nsw i64 %indvars.iv22, 1
   %exitcond25.not = icmp eq i64 %indvars.iv.next23, 3
-  br i1 %exitcond25.not, label %25, label %.preheader, !llvm.loop !13
+  br i1 %exitcond25.not, label %25, label %.preheader, !llvm.loop !12
 
 25:                                               ; preds = %24
   ret void
@@ -174,7 +174,7 @@ define void @ff_matrix_mul_3x3_vec(ptr noundef writeonly captures(none) %0, ptr 
   store double %18, ptr %19, align 8, !tbaa !4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %20, label %6, !llvm.loop !14
+  br i1 %exitcond.not, label %20, label %6, !llvm.loop !13
 
 20:                                               ; preds = %6
   ret void
@@ -414,8 +414,8 @@ define double @ff_determine_signal_peak(ptr noundef %0) local_unnamed_addr #5 {
 
 3:                                                ; preds = %1
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %5 = load ptr, ptr %4, align 8, !tbaa !15
-  %6 = load i32, ptr %5, align 4, !tbaa !23
+  %5 = load ptr, ptr %4, align 8, !tbaa !14
+  %6 = load i32, ptr %5, align 4, !tbaa !22
   %7 = uitofp i32 %6 to float
   %8 = fdiv nsz float %7, 1.000000e+02
   %9 = fpext nsz float %8 to double
@@ -431,9 +431,9 @@ define double @ff_determine_signal_peak(ptr noundef %0) local_unnamed_addr #5 {
 
 14:                                               ; preds = %10
   %15 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  %16 = load ptr, ptr %15, align 8, !tbaa !15
+  %16 = load ptr, ptr %15, align 8, !tbaa !14
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 84
-  %18 = load i32, ptr %17, align 4, !tbaa !25
+  %18 = load i32, ptr %17, align 4, !tbaa !24
   %.not16 = icmp eq i32 %18, 0
   br i1 %.not16, label %26, label %19
 
@@ -456,7 +456,7 @@ define double @ff_determine_signal_peak(ptr noundef %0) local_unnamed_addr #5 {
 
 28:                                               ; preds = %26
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 288
-  %30 = load i32, ptr %29, align 8, !tbaa !28
+  %30 = load i32, ptr %29, align 8, !tbaa !27
   %31 = icmp eq i32 %30, 16
   %32 = select i1 %31, double 1.000000e+02, double 1.000000e+01
   br label %33
@@ -476,10 +476,10 @@ define void @ff_update_hdr_metadata(ptr noundef %0, double noundef %1) local_unn
 
 4:                                                ; preds = %2
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %6 = load ptr, ptr %5, align 8, !tbaa !15
+  %6 = load ptr, ptr %5, align 8, !tbaa !14
   %7 = fmul nsz double %1, 1.000000e+02
   %8 = fptoui double %7 to i32
-  store i32 %8, ptr %6, align 4, !tbaa !23
+  store i32 %8, ptr %6, align 4, !tbaa !22
   br label %9
 
 9:                                                ; preds = %4, %2
@@ -489,9 +489,9 @@ define void @ff_update_hdr_metadata(ptr noundef %0, double noundef %1) local_unn
 
 11:                                               ; preds = %9
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %13 = load ptr, ptr %12, align 8, !tbaa !15
+  %13 = load ptr, ptr %12, align 8, !tbaa !14
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 84
-  %15 = load i32, ptr %14, align 4, !tbaa !25
+  %15 = load i32, ptr %14, align 4, !tbaa !24
   %.not13 = icmp eq i32 %15, 0
   br i1 %.not13, label %20, label %16
 
@@ -530,30 +530,29 @@ attributes #9 = { nounwind willreturn memory(none) }
 !5 = !{!"double", !6, i64 0}
 !6 = !{!"omnipotent char", !7, i64 0}
 !7 = !{!"Simple C/C++ TBAA"}
-!8 = distinct !{!8, !9, !10}
+!8 = distinct !{!8, !9}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = !{!"llvm.loop.estimated_trip_count"}
-!11 = distinct !{!11, !9, !10}
-!12 = distinct !{!12, !9, !10}
-!13 = distinct !{!13, !9, !10}
-!14 = distinct !{!14, !9, !10}
-!15 = !{!16, !18, i64 8}
-!16 = !{!"AVFrameSideData", !17, i64 0, !18, i64 8, !20, i64 16, !21, i64 24, !22, i64 32}
-!17 = !{!"int", !6, i64 0}
-!18 = !{!"p1 omnipotent char", !19, i64 0}
-!19 = !{!"any pointer", !6, i64 0}
-!20 = !{!"long", !6, i64 0}
-!21 = !{!"p1 _ZTS12AVDictionary", !19, i64 0}
-!22 = !{!"p1 _ZTS11AVBufferRef", !19, i64 0}
-!23 = !{!24, !17, i64 0}
-!24 = !{!"AVContentLightMetadata", !17, i64 0, !17, i64 4}
-!25 = !{!26, !17, i64 84}
-!26 = !{!"AVMasteringDisplayMetadata", !6, i64 0, !6, i64 48, !27, i64 64, !27, i64 72, !17, i64 80, !17, i64 84}
-!27 = !{!"AVRational", !17, i64 0, !17, i64 4}
-!28 = !{!29, !17, i64 288}
-!29 = !{!"AVFrame", !6, i64 0, !6, i64 64, !30, i64 96, !17, i64 104, !17, i64 108, !17, i64 112, !17, i64 116, !17, i64 120, !27, i64 124, !20, i64 136, !20, i64 144, !27, i64 152, !17, i64 160, !19, i64 168, !17, i64 176, !17, i64 180, !6, i64 184, !32, i64 248, !17, i64 256, !33, i64 264, !17, i64 272, !17, i64 276, !17, i64 280, !17, i64 284, !17, i64 288, !17, i64 292, !17, i64 296, !20, i64 304, !21, i64 312, !17, i64 320, !22, i64 328, !22, i64 336, !20, i64 344, !20, i64 352, !20, i64 360, !20, i64 368, !19, i64 376, !34, i64 384, !20, i64 408}
-!30 = !{!"p2 omnipotent char", !31, i64 0}
-!31 = !{!"any p2 pointer", !19, i64 0}
-!32 = !{!"p2 _ZTS11AVBufferRef", !31, i64 0}
-!33 = !{!"p2 _ZTS15AVFrameSideData", !31, i64 0}
-!34 = !{!"AVChannelLayout", !17, i64 0, !17, i64 4, !6, i64 8, !19, i64 16}
+!10 = distinct !{!10, !9}
+!11 = distinct !{!11, !9}
+!12 = distinct !{!12, !9}
+!13 = distinct !{!13, !9}
+!14 = !{!15, !17, i64 8}
+!15 = !{!"AVFrameSideData", !16, i64 0, !17, i64 8, !19, i64 16, !20, i64 24, !21, i64 32}
+!16 = !{!"int", !6, i64 0}
+!17 = !{!"p1 omnipotent char", !18, i64 0}
+!18 = !{!"any pointer", !6, i64 0}
+!19 = !{!"long", !6, i64 0}
+!20 = !{!"p1 _ZTS12AVDictionary", !18, i64 0}
+!21 = !{!"p1 _ZTS11AVBufferRef", !18, i64 0}
+!22 = !{!23, !16, i64 0}
+!23 = !{!"AVContentLightMetadata", !16, i64 0, !16, i64 4}
+!24 = !{!25, !16, i64 84}
+!25 = !{!"AVMasteringDisplayMetadata", !6, i64 0, !6, i64 48, !26, i64 64, !26, i64 72, !16, i64 80, !16, i64 84}
+!26 = !{!"AVRational", !16, i64 0, !16, i64 4}
+!27 = !{!28, !16, i64 288}
+!28 = !{!"AVFrame", !6, i64 0, !6, i64 64, !29, i64 96, !16, i64 104, !16, i64 108, !16, i64 112, !16, i64 116, !16, i64 120, !26, i64 124, !19, i64 136, !19, i64 144, !26, i64 152, !16, i64 160, !18, i64 168, !16, i64 176, !16, i64 180, !6, i64 184, !31, i64 248, !16, i64 256, !32, i64 264, !16, i64 272, !16, i64 276, !16, i64 280, !16, i64 284, !16, i64 288, !16, i64 292, !16, i64 296, !19, i64 304, !20, i64 312, !16, i64 320, !21, i64 328, !21, i64 336, !19, i64 344, !19, i64 352, !19, i64 360, !19, i64 368, !18, i64 376, !33, i64 384, !19, i64 408}
+!29 = !{!"p2 omnipotent char", !30, i64 0}
+!30 = !{!"any p2 pointer", !18, i64 0}
+!31 = !{!"p2 _ZTS11AVBufferRef", !30, i64 0}
+!32 = !{!"p2 _ZTS15AVFrameSideData", !30, i64 0}
+!33 = !{!"AVChannelLayout", !16, i64 0, !16, i64 4, !6, i64 8, !18, i64 16}

@@ -100,7 +100,7 @@ Vec_StrPush.exit.i.i:                             ; preds = %30, %Vec_StrGrow.ex
   br i1 %exitcond.not.i.i, label %Vec_StrAppend.exit, label %thread-pre-split, !llvm.loop !13
 
 Vec_StrAppend.exit:                               ; preds = %Vec_StrPush.exit.i.i
-  %36 = load ptr, ptr %2, align 8, !tbaa !16
+  %36 = load ptr, ptr %2, align 8, !tbaa !15
   %37 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %36) #13
   %38 = trunc i64 %37 to i32
   %39 = icmp sgt i32 %38, 0
@@ -394,7 +394,7 @@ Vec_StrPush.exit.i.i59:                           ; preds = %151, %Vec_StrGrow.e
   %156 = getelementptr inbounds i8, ptr %153, i64 %155
   store i8 32, ptr %156, align 1, !tbaa !12
   %157 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv
-  %158 = load ptr, ptr %157, align 8, !tbaa !16
+  %158 = load ptr, ptr %157, align 8, !tbaa !15
   %159 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %158) #13
   %160 = trunc i64 %159 to i32
   %161 = icmp sgt i32 %160, 0
@@ -476,7 +476,7 @@ Vec_StrAppend.exit78:                             ; preds = %Vec_StrPush.exit.i.
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   %.pre = load i32, ptr %4, align 4, !tbaa !3
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.i.i53.preheader, !llvm.loop !17
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.i.i53.preheader, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %Vec_StrAppend.exit78, %126
   %191 = phi i32 [ %129, %126 ], [ %.pre, %Vec_StrAppend.exit78 ]
@@ -576,7 +576,7 @@ declare noalias noundef ptr @fopen(ptr noundef readonly captures(none), ptr noun
 define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #3 {
   %3 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #14
-  %4 = load i32, ptr @enable_dbg_outs, align 4, !tbaa !18
+  %4 = load i32, ptr @enable_dbg_outs, align 4, !tbaa !17
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %24, label %5
 
@@ -590,7 +590,7 @@ define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #3 {
   br label %12
 
 9:                                                ; preds = %5
-  %10 = load ptr, ptr @stdout, align 8, !tbaa !19
+  %10 = load ptr, ptr @stdout, align 8, !tbaa !18
   %11 = tail call i32 @Gia_ManToBridgeText(ptr noundef %10, i32 noundef 7, ptr noundef nonnull @.str.9) #14
   br label %12
 
@@ -602,7 +602,7 @@ define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #3 {
 
 14:                                               ; preds = %12
   %15 = call ptr @vnsprintf(ptr noundef %1, ptr noundef nonnull %3) #14
-  %16 = load ptr, ptr @stdout, align 8, !tbaa !19
+  %16 = load ptr, ptr @stdout, align 8, !tbaa !18
   %17 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %15) #13
   %18 = trunc i64 %17 to i32
   %19 = call i32 @Gia_ManToBridgeText(ptr noundef %16, i32 noundef %18, ptr noundef nonnull %15) #14
@@ -610,7 +610,7 @@ define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #3 {
   br label %23
 
 20:                                               ; preds = %12
-  %21 = load ptr, ptr @stdout, align 8, !tbaa !19, !noalias !21
+  %21 = load ptr, ptr @stdout, align 8, !tbaa !18, !noalias !20
   %22 = call i32 @vfprintf(ptr noundef %21, ptr noundef %1, ptr noundef nonnull %3) #14
   br label %23
 
@@ -707,14 +707,13 @@ attributes #14 = { nounwind }
 !10 = !{!4, !5, i64 0}
 !11 = !{!4, !8, i64 8}
 !12 = !{!6, !6, i64 0}
-!13 = distinct !{!13, !14, !15}
+!13 = distinct !{!13, !14}
 !14 = !{!"llvm.loop.mustprogress"}
-!15 = !{!"llvm.loop.estimated_trip_count"}
-!16 = !{!8, !8, i64 0}
-!17 = distinct !{!17, !14, !15}
-!18 = !{!5, !5, i64 0}
-!19 = !{!20, !20, i64 0}
-!20 = !{!"p1 _ZTS8_IO_FILE", !9, i64 0}
-!21 = !{!22}
-!22 = distinct !{!22, !23, !"vprintf: argument 0"}
-!23 = distinct !{!23, !"vprintf"}
+!15 = !{!8, !8, i64 0}
+!16 = distinct !{!16, !14}
+!17 = !{!5, !5, i64 0}
+!18 = !{!19, !19, i64 0}
+!19 = !{!"p1 _ZTS8_IO_FILE", !9, i64 0}
+!20 = !{!21}
+!21 = distinct !{!21, !22, !"vprintf: argument 0"}
+!22 = distinct !{!22, !"vprintf"}

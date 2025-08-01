@@ -456,7 +456,7 @@ bsearch.exit:                                     ; preds = %bsearch.exit.loopex
   %105 = load i32, ptr %39, align 8
   %106 = sub i32 %spec.store.select, %105
   %107 = icmp slt i32 %106, 0
-  br i1 %107, label %.lr.ph, label %._crit_edge, !llvm.loop !9
+  br i1 %107, label %.lr.ph, label %._crit_edge, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %bsearch.exit, %67
   %.0.lcssa = phi i32 [ 0, %67 ], [ %.1, %bsearch.exit ]
@@ -1030,7 +1030,7 @@ SnapBuildAddCommittedTxn.exit97:                  ; preds = %._crit_edge.i93, %9
   %.1 = phi i32 [ %.076136, %.loopexit133 ], [ %spec.select91, %SnapBuildAddCommittedTxn.exit ], [ %spec.select92, %SnapBuildAddCommittedTxn.exit97 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %39, !llvm.loop !10
+  br i1 %exitcond.not, label %._crit_edge, label %39, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %109, %31
   %.081.lcssa = phi i1 [ false, %31 ], [ %.182, %109 ]
@@ -1437,7 +1437,7 @@ SnapBuildSnapDecRefcount.exit:                    ; preds = %SnapBuildFreeSnapsh
   %315 = getelementptr inbounds nuw i8, ptr %.sroa.0.019.i, i64 8
   %316 = load ptr, ptr %315, align 8
   %.not16.i = icmp eq ptr %316, %286
-  br i1 %.not16.i, label %SnapBuildDistributeNewCatalogSnapshot.exit, label %292, !llvm.loop !11
+  br i1 %.not16.i, label %SnapBuildDistributeNewCatalogSnapshot.exit, label %292, !llvm.loop !10
 
 SnapBuildDistributeNewCatalogSnapshot.exit:       ; preds = %314, %216, %222, %280, %224, %225, %14, %17
   ret void
@@ -1693,7 +1693,7 @@ SnapBuildFindSnapshot.exit.thread:                ; preds = %74, %94, %97, %102,
   %139 = add i32 %.04449.i, 1
   %140 = sext i32 %139 to i64
   %141 = icmp ugt i64 %138, %140
-  br i1 %141, label %124, label %._crit_edge.i35, !llvm.loop !12
+  br i1 %141, label %124, label %._crit_edge.i35, !llvm.loop !11
 
 ._crit_edge.i35:                                  ; preds = %137, %115
   %.0.lcssa.i = phi i32 [ 0, %115 ], [ %.1.i, %137 ]
@@ -1742,7 +1742,7 @@ SnapBuildFindSnapshot.exit.thread:                ; preds = %74, %94, %97, %102,
   %166 = add i32 %.14551.i, 1
   %167 = sext i32 %166 to i64
   %168 = icmp ugt i64 %.pre61.pre.i, %167
-  br i1 %168, label %158, label %._crit_edge53.i, !llvm.loop !13
+  br i1 %168, label %158, label %._crit_edge53.i, !llvm.loop !12
 
 ._crit_edge53.i:                                  ; preds = %165, %158
   %.145.lcssa.ph.i = phi i32 [ %166, %165 ], [ %.14551.i, %158 ]
@@ -2549,7 +2549,7 @@ sub_0:                                            ; preds = %sub_0.lr.ph, %52
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 20
   %13 = load i8, ptr %12, align 1
   %14 = icmp eq i8 %13, 0
-  br i1 %14, label %52, label %sub_123, !llvm.loop !14
+  br i1 %14, label %52, label %sub_123, !llvm.loop !13
 
 sub_123:                                          ; preds = %.tail
   %15 = getelementptr inbounds nuw i8, ptr %9, i64 20
@@ -2561,7 +2561,7 @@ sub_123:                                          ; preds = %.tail
   %17 = getelementptr inbounds nuw i8, ptr %9, i64 21
   %18 = load i8, ptr %17, align 1
   %19 = icmp eq i8 %18, 0
-  br i1 %19, label %52, label %.tail21.thread, !llvm.loop !14
+  br i1 %19, label %52, label %.tail21.thread, !llvm.loop !13
 
 .tail21.thread:                                   ; preds = %sub_0, %sub_123, %.tail21
   %20 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %1, i64 noundef 1045, ptr noundef nonnull @.str.28, ptr noundef nonnull @.str.21, ptr noundef nonnull %10) #14
@@ -2572,11 +2572,11 @@ sub_123:                                          ; preds = %.tail
 
 23:                                               ; preds = %.tail21.thread
   %24 = call zeroext i1 @errstart(i32 noundef 14, ptr noundef null) #14
-  br i1 %24, label %25, label %52, !llvm.loop !14
+  br i1 %24, label %25, label %52, !llvm.loop !13
 
 25:                                               ; preds = %23
   %26 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.29, ptr noundef nonnull %1) #14
-  br label %.sink.split, !llvm.loop !14
+  br label %.sink.split, !llvm.loop !13
 
 27:                                               ; preds = %.tail21.thread
   %28 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %10, ptr noundef nonnull @.str.30, ptr noundef nonnull %2, ptr noundef nonnull %3) #14
@@ -2585,11 +2585,11 @@ sub_123:                                          ; preds = %.tail
 
 29:                                               ; preds = %27
   %30 = call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #14
-  br i1 %30, label %31, label %52, !llvm.loop !14
+  br i1 %30, label %31, label %52, !llvm.loop !13
 
 31:                                               ; preds = %29
   %32 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.31, ptr noundef nonnull %1) #14
-  br label %.sink.split, !llvm.loop !14
+  br label %.sink.split, !llvm.loop !13
 
 33:                                               ; preds = %27
   %34 = load i32, ptr %2, align 4
@@ -2617,12 +2617,12 @@ sub_123:                                          ; preds = %.tail
 
 47:                                               ; preds = %44
   %48 = call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #14
-  br i1 %48, label %49, label %52, !llvm.loop !14
+  br i1 %48, label %49, label %52, !llvm.loop !13
 
 49:                                               ; preds = %47
   %50 = call i32 @errcode_for_file_access() #14
   %51 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.33, ptr noundef nonnull %1) #14
-  br label %.sink.split, !llvm.loop !14
+  br label %.sink.split, !llvm.loop !13
 
 .sink.split:                                      ; preds = %25, %31, %49
   %.sink = phi i32 [ 1998, %49 ], [ 1977, %31 ], [ 1961, %25 ]
@@ -2634,7 +2634,7 @@ sub_123:                                          ; preds = %.tail
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #14
   %53 = call ptr @ReadDir(ptr noundef %6, ptr noundef nonnull @.str.21) #14
   %.not = icmp eq ptr %53, null
-  br i1 %.not, label %._crit_edge, label %sub_0, !llvm.loop !15
+  br i1 %.not, label %._crit_edge, label %sub_0
 
 ._crit_edge:                                      ; preds = %52, %0
   %54 = call i32 @FreeDir(ptr noundef %6) #14
@@ -2755,7 +2755,7 @@ define internal fastcc void @SnapBuildWaitSnapshot(ptr noundef readonly captures
   %17 = load i32, ptr %0, align 4
   %18 = sext i32 %17 to i64
   %19 = icmp slt i64 %indvars.iv.next, %18
-  br i1 %19, label %6, label %._crit_edge, !llvm.loop !16
+  br i1 %19, label %6, label %._crit_edge, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %16, %2
   %20 = tail call zeroext i1 @RecoveryInProgress() #14
@@ -2834,14 +2834,12 @@ attributes #16 = { nounwind willreturn memory(none) }
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i8 0, i8 2}
 !5 = !{}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7, !8}
-!11 = distinct !{!11, !7, !8}
-!12 = distinct !{!12, !7, !8}
-!13 = distinct !{!13, !7, !8}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7}
+!12 = distinct !{!12, !7}
+!13 = distinct !{!13, !7}
 !14 = distinct !{!14, !7}
-!15 = distinct !{!15, !8}
-!16 = distinct !{!16, !7, !8}

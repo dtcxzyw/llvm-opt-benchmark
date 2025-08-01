@@ -362,7 +362,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit:               ; preds = %40, %42, %44, %46
   br i1 %exitcond.not, label %.loopexit, label %56, !llvm.loop !47
 
 .loopexit:                                        ; preds = %56, %_ZNSt6vectorIfSaIfEE6resizeEm.exit
-  store i32 %1, ptr %49, align 8, !tbaa !50
+  store i32 %1, ptr %49, align 8, !tbaa !49
   ret void
 }
 
@@ -494,7 +494,7 @@ define void @_ZN3gmx25AbstractAnalysisArrayData14allocateValuesEv(ptr noundef no
 
 7:                                                ; preds = %1
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %9 = load i32, ptr %8, align 8, !tbaa !50
+  %9 = load i32, ptr %8, align 8, !tbaa !49
   %10 = icmp sgt i32 %9, 0
   br i1 %10, label %11, label %14
 
@@ -508,11 +508,11 @@ define void @_ZN3gmx25AbstractAnalysisArrayData14allocateValuesEv(ptr noundef no
   unreachable
 
 15:                                               ; preds = %11
-  %16 = load i32, ptr %8, align 8, !tbaa !50
+  %16 = load i32, ptr %8, align 8, !tbaa !49
   %17 = tail call noundef i32 @_ZNK3gmx20AbstractAnalysisData11columnCountEv(ptr noundef nonnull align 8 dereferenceable(16) %0)
   %18 = mul nsw i32 %17, %16
   %19 = sext i32 %18 to i64
-  %20 = load ptr, ptr %4, align 8, !tbaa !51
+  %20 = load ptr, ptr %4, align 8, !tbaa !50
   %21 = load ptr, ptr %2, align 8, !tbaa !36
   %22 = ptrtoint ptr %20 to i64
   %23 = ptrtoint ptr %21 to i64
@@ -538,7 +538,7 @@ define void @_ZN3gmx25AbstractAnalysisArrayData14allocateValuesEv(ptr noundef no
   br i1 %.not.i.i, label %_ZNSt6vectorIN3gmx17AnalysisDataValueESaIS1_EE6resizeEm.exit, label %33
 
 33:                                               ; preds = %31
-  store ptr %32, ptr %4, align 8, !tbaa !51
+  store ptr %32, ptr %4, align 8, !tbaa !50
   br label %_ZNSt6vectorIN3gmx17AnalysisDataValueESaIS1_EE6resizeEm.exit
 
 _ZNSt6vectorIN3gmx17AnalysisDataValueESaIS1_EE6resizeEm.exit: ; preds = %27, %29, %31, %33
@@ -549,14 +549,14 @@ _ZNSt6vectorIN3gmx17AnalysisDataValueESaIS1_EE6resizeEm.exit: ; preds = %27, %29
 
 .lr.ph:                                           ; preds = %_ZNSt6vectorIN3gmx17AnalysisDataValueESaIS1_EE6resizeEm.exit, %.lr.ph
   %.sroa.01.08 = phi ptr [ %39, %.lr.ph ], [ %35, %_ZNSt6vectorIN3gmx17AnalysisDataValueESaIS1_EE6resizeEm.exit ]
-  store float 0.000000e+00, ptr %.sroa.01.08, align 8, !tbaa !52
+  store float 0.000000e+00, ptr %.sroa.01.08, align 8, !tbaa !51
   %36 = getelementptr inbounds nuw i8, ptr %.sroa.01.08, i64 8
-  %37 = load i64, ptr %36, align 8, !tbaa !56
+  %37 = load i64, ptr %36, align 8, !tbaa !55
   %38 = or i64 %37, 5
-  store i64 %38, ptr %36, align 8, !tbaa !56
+  store i64 %38, ptr %36, align 8, !tbaa !55
   %39 = getelementptr inbounds nuw i8, ptr %.sroa.01.08, i64 16
   %.not6 = icmp eq ptr %39, %34
-  br i1 %.not6, label %._crit_edge, label %.lr.ph, !llvm.loop !57
+  br i1 %.not6, label %._crit_edge, label %.lr.ph, !llvm.loop !56
 
 ._crit_edge:                                      ; preds = %.lr.ph, %_ZNSt6vectorIN3gmx17AnalysisDataValueESaIS1_EE6resizeEm.exit
   ret void
@@ -569,7 +569,7 @@ define linkonce_odr void @_ZNSt6vectorIN3gmx17AnalysisDataValueESaIS1_EE17_M_def
 
 3:                                                ; preds = %2
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = load ptr, ptr %4, align 8, !tbaa !51
+  %5 = load ptr, ptr %4, align 8, !tbaa !50
   %6 = load ptr, ptr %0, align 8, !tbaa !36
   %7 = ptrtoint ptr %5 to i64
   %8 = ptrtoint ptr %6 to i64
@@ -592,7 +592,7 @@ _ZSt27__uninitialized_default_n_aIPN3gmx17AnalysisDataValueEmS1_ET_S3_T0_RSaIT1_
   %19 = shl nuw i64 %1, 4
   tail call void @llvm.memset.p0.i64(ptr align 8 %5, i8 0, i64 %19, i1 false)
   %scevgep.i.i.i = getelementptr i8, ptr %5, i64 %19
-  store ptr %scevgep.i.i.i, ptr %4, align 8, !tbaa !51
+  store ptr %scevgep.i.i.i, ptr %4, align 8, !tbaa !50
   br label %35
 
 20:                                               ; preds = %3
@@ -618,11 +618,11 @@ _ZNKSt6vectorIN3gmx17AnalysisDataValueESaIS1_EE12_M_check_lenEmPKc.exit: ; preds
 .lr.ph.i.i.i:                                     ; preds = %_ZNKSt6vectorIN3gmx17AnalysisDataValueESaIS1_EE12_M_check_lenEmPKc.exit, %.lr.ph.i.i.i
   %.012.i.i.i = phi ptr [ %30, %.lr.ph.i.i.i ], [ %26, %_ZNKSt6vectorIN3gmx17AnalysisDataValueESaIS1_EE12_M_check_lenEmPKc.exit ]
   %.0911.i.i.i = phi ptr [ %29, %.lr.ph.i.i.i ], [ %6, %_ZNKSt6vectorIN3gmx17AnalysisDataValueESaIS1_EE12_M_check_lenEmPKc.exit ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.012.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.0911.i.i.i, i64 16, i1 false), !tbaa.struct !58, !alias.scope !60
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.012.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.0911.i.i.i, i64 16, i1 false), !tbaa.struct !57, !alias.scope !59
   %29 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 16
   %30 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 16
   %.not.i.i.i = icmp eq ptr %29, %5
-  br i1 %.not.i.i.i, label %_ZNSt6vectorIN3gmx17AnalysisDataValueESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit, label %.lr.ph.i.i.i, !llvm.loop !64
+  br i1 %.not.i.i.i, label %_ZNSt6vectorIN3gmx17AnalysisDataValueESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit, label %.lr.ph.i.i.i, !llvm.loop !63
 
 _ZNSt6vectorIN3gmx17AnalysisDataValueESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit: ; preds = %.lr.ph.i.i.i, %_ZNKSt6vectorIN3gmx17AnalysisDataValueESaIS1_EE12_M_check_lenEmPKc.exit
   %.not.i36 = icmp eq ptr %6, null
@@ -636,7 +636,7 @@ _ZNSt6vectorIN3gmx17AnalysisDataValueESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit:
 _ZNSt12_Vector_baseIN3gmx17AnalysisDataValueESaIS1_EE13_M_deallocateEPS1_m.exit37: ; preds = %_ZNSt6vectorIN3gmx17AnalysisDataValueESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit, %31
   store ptr %26, ptr %0, align 8, !tbaa !36
   %33 = getelementptr inbounds nuw %"class.gmx::AnalysisDataValue", ptr %27, i64 %1
-  store ptr %33, ptr %4, align 8, !tbaa !51
+  store ptr %33, ptr %4, align 8, !tbaa !50
   %34 = getelementptr inbounds nuw %"class.gmx::AnalysisDataValue", ptr %26, i64 %24
   store ptr %34, ptr %11, align 8, !tbaa !42
   br label %35
@@ -664,7 +664,7 @@ define void @_ZN3gmx25AbstractAnalysisArrayData8setXAxisEff(ptr noundef nonnull 
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store i8 1, ptr %11, align 8, !tbaa !40
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %13 = load i32, ptr %12, align 8, !tbaa !50
+  %13 = load i32, ptr %12, align 8, !tbaa !49
   %14 = icmp sgt i32 %13, 0
   br i1 %14, label %.lr.ph, label %._crit_edge
 
@@ -687,7 +687,7 @@ define void @_ZN3gmx25AbstractAnalysisArrayData8setXAxisEff(ptr noundef nonnull 
   store float %21, ptr %22, align 4, !tbaa !35
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %17, !llvm.loop !65
+  br i1 %exitcond.not, label %._crit_edge, label %17, !llvm.loop !64
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -703,7 +703,7 @@ define void @_ZN3gmx25AbstractAnalysisArrayData13setXAxisValueEif(ptr noundef no
 
 8:                                                ; preds = %3
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %10 = load i32, ptr %9, align 8, !tbaa !50
+  %10 = load i32, ptr %9, align 8, !tbaa !49
   %11 = icmp sgt i32 %10, 0
   br i1 %11, label %12, label %16
 
@@ -796,7 +796,7 @@ define void @_ZN3gmx25AbstractAnalysisArrayData11valuesReadyEv(ptr noundef nonnu
   %15 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN3gmx20AbstractAnalysisData13moduleManagerEv(ptr noundef nonnull align 8 dereferenceable(16) %0)
   tail call void @_ZN3gmx25AnalysisDataModuleManager15notifyDataStartEPNS_20AbstractAnalysisDataE(ptr noundef nonnull align 8 dereferenceable(8) %15, ptr noundef nonnull %0)
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %17 = load i32, ptr %16, align 8, !tbaa !50
+  %17 = load i32, ptr %16, align 8, !tbaa !49
   %18 = icmp sgt i32 %17, 0
   br i1 %18, label %.lr.ph, label %._crit_edge
 
@@ -838,10 +838,10 @@ define void @_ZN3gmx25AbstractAnalysisArrayData11valuesReadyEv(ptr noundef nonnu
   call void @_ZNK3gmx25AnalysisDataModuleManager17notifyFrameFinishERKNS_23AnalysisDataFrameHeaderE(ptr noundef nonnull align 8 dereferenceable(8) %15, ptr noundef nonnull align 4 dereferenceable(12) %2)
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %2) #14
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %35 = load i32, ptr %16, align 8, !tbaa !50
+  %35 = load i32, ptr %16, align 8, !tbaa !49
   %36 = sext i32 %35 to i64
   %37 = icmp slt i64 %indvars.iv.next, %36
-  br i1 %37, label %22, label %._crit_edge, !llvm.loop !66
+  br i1 %37, label %22, label %._crit_edge, !llvm.loop !65
 
 38:                                               ; preds = %10, %._crit_edge
   ret void
@@ -908,7 +908,7 @@ _ZN3gmx25AbstractAnalysisArrayData14setColumnCountEi.exit: ; preds = %14
   %.sroa.6.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %1, i64 32
   store i32 0, ptr %.sroa.6.0..sroa_idx.i, align 4, !tbaa !43
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %21 = load i32, ptr %20, align 8, !tbaa !50
+  %21 = load i32, ptr %20, align 8, !tbaa !49
   tail call void @_ZN3gmx25AbstractAnalysisArrayData11setRowCountEi(ptr noundef nonnull align 8 dereferenceable(98) %1, i32 noundef %21)
   tail call void @_ZN3gmx25AbstractAnalysisArrayData14allocateValuesEv(ptr noundef nonnull align 8 dereferenceable(98) %1)
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 88
@@ -1037,23 +1037,22 @@ attributes #17 = { builtin allocsize(0) }
 !44 = !{!27, !28, i64 8}
 !45 = !{!28, !28, i64 0}
 !46 = !{!5, !29, i64 88}
-!47 = distinct !{!47, !48, !49}
+!47 = distinct !{!47, !48}
 !48 = !{!"llvm.loop.mustprogress"}
-!49 = !{!"llvm.loop.estimated_trip_count"}
-!50 = !{!5, !17, i64 16}
-!51 = !{!22, !23, i64 8}
-!52 = !{!53, !29, i64 0}
-!53 = !{!"_ZTSN3gmx17AnalysisDataValueE", !29, i64 0, !29, i64 4, !54, i64 8}
-!54 = !{!"_ZTSN3gmx13FlagsTemplateINS_17AnalysisDataValue4FlagEEE", !55, i64 0}
-!55 = !{!"long", !15, i64 0}
-!56 = !{!54, !55, i64 0}
-!57 = distinct !{!57, !48, !49}
-!58 = !{i64 0, i64 4, !35, i64 4, i64 4, !35, i64 8, i64 8, !59}
-!59 = !{!55, !55, i64 0}
-!60 = !{!61, !63}
-!61 = distinct !{!61, !62, !"_ZSt19__relocate_object_aIN3gmx17AnalysisDataValueES1_SaIS1_EEvPT_PT0_RT1_: argument 0"}
-!62 = distinct !{!62, !"_ZSt19__relocate_object_aIN3gmx17AnalysisDataValueES1_SaIS1_EEvPT_PT0_RT1_"}
-!63 = distinct !{!63, !62, !"_ZSt19__relocate_object_aIN3gmx17AnalysisDataValueES1_SaIS1_EEvPT_PT0_RT1_: argument 1"}
-!64 = distinct !{!64, !48, !49}
-!65 = distinct !{!65, !48, !49}
-!66 = distinct !{!66, !48, !49}
+!49 = !{!5, !17, i64 16}
+!50 = !{!22, !23, i64 8}
+!51 = !{!52, !29, i64 0}
+!52 = !{!"_ZTSN3gmx17AnalysisDataValueE", !29, i64 0, !29, i64 4, !53, i64 8}
+!53 = !{!"_ZTSN3gmx13FlagsTemplateINS_17AnalysisDataValue4FlagEEE", !54, i64 0}
+!54 = !{!"long", !15, i64 0}
+!55 = !{!53, !54, i64 0}
+!56 = distinct !{!56, !48}
+!57 = !{i64 0, i64 4, !35, i64 4, i64 4, !35, i64 8, i64 8, !58}
+!58 = !{!54, !54, i64 0}
+!59 = !{!60, !62}
+!60 = distinct !{!60, !61, !"_ZSt19__relocate_object_aIN3gmx17AnalysisDataValueES1_SaIS1_EEvPT_PT0_RT1_: argument 0"}
+!61 = distinct !{!61, !"_ZSt19__relocate_object_aIN3gmx17AnalysisDataValueES1_SaIS1_EEvPT_PT0_RT1_"}
+!62 = distinct !{!62, !61, !"_ZSt19__relocate_object_aIN3gmx17AnalysisDataValueES1_SaIS1_EEvPT_PT0_RT1_: argument 1"}
+!63 = distinct !{!63, !48}
+!64 = distinct !{!64, !48}
+!65 = distinct !{!65, !48}

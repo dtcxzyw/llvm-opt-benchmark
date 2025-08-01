@@ -159,7 +159,7 @@ define hidden range(i32 -1, 1) i32 @_sodium_escrypt_kdf_nosse(ptr noundef %0, pt
   tail call fastcc void @blockmix_salsa8(ptr noundef nonnull %71, ptr noundef nonnull %69, ptr noundef %72, i64 noundef range(i64 1, 4294967296) %11)
   %92 = add nuw nsw i64 %.06677.i, 2
   %93 = icmp samesign ult i64 %92, %5
-  br i1 %93, label %.preheader75.i, label %.preheader74.i, !llvm.loop !7
+  br i1 %93, label %.preheader75.i, label %.preheader74.i, !llvm.loop !6
 
 .preheader74.i:                                   ; preds = %.preheader75.i, %blkxor.exit73.i
   %.16778.i = phi i64 [ %116, %blkxor.exit73.i ], [ 0, %.preheader75.i ]
@@ -179,7 +179,7 @@ define hidden range(i32 -1, 1) i32 @_sodium_escrypt_kdf_nosse(ptr noundef %0, pt
   store i32 %103, ptr %101, align 4
   %104 = add nuw nsw i64 %.06.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %104, %70
-  br i1 %exitcond.not.i.i, label %blkxor.exit.i, label %98, !llvm.loop !8
+  br i1 %exitcond.not.i.i, label %blkxor.exit.i, label %98, !llvm.loop !7
 
 blkxor.exit.i:                                    ; preds = %98
   tail call fastcc void @blockmix_salsa8(ptr noundef nonnull %69, ptr noundef nonnull %71, ptr noundef %72, i64 noundef range(i64 1, 4294967296) %11)
@@ -199,13 +199,13 @@ blkxor.exit.i:                                    ; preds = %98
   store i32 %114, ptr %112, align 4
   %115 = add nuw nsw i64 %.06.i71.i, 1
   %exitcond.not.i72.i = icmp eq i64 %115, %70
-  br i1 %exitcond.not.i72.i, label %blkxor.exit73.i, label %109, !llvm.loop !8
+  br i1 %exitcond.not.i72.i, label %blkxor.exit73.i, label %109, !llvm.loop !7
 
 blkxor.exit73.i:                                  ; preds = %109
   tail call fastcc void @blockmix_salsa8(ptr noundef nonnull %71, ptr noundef nonnull %69, ptr noundef %72, i64 noundef range(i64 1, 4294967296) %11)
   %116 = add nuw nsw i64 %.16778.i, 2
   %117 = icmp samesign ult i64 %116, %5
-  br i1 %117, label %.preheader74.i, label %.preheader.i, !llvm.loop !9
+  br i1 %117, label %.preheader74.i, label %.preheader.i, !llvm.loop !8
 
 .preheader.i:                                     ; preds = %blkxor.exit73.i, %.preheader.i
   %.179.i = phi i64 [ %122, %.preheader.i ], [ 0, %blkxor.exit73.i ]
@@ -216,12 +216,12 @@ blkxor.exit73.i:                                  ; preds = %109
   store i32 %121, ptr %119, align 1
   %122 = add nuw nsw i64 %.179.i, 1
   %exitcond80.not.i = icmp eq i64 %122, %70
-  br i1 %exitcond80.not.i, label %smix.exit, label %.preheader.i, !llvm.loop !10
+  br i1 %exitcond80.not.i, label %smix.exit, label %.preheader.i, !llvm.loop !9
 
 smix.exit:                                        ; preds = %.preheader.i
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %12
-  br i1 %exitcond.not, label %._crit_edge, label %78, !llvm.loop !11
+  br i1 %exitcond.not, label %._crit_edge, label %78, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %smix.exit
   tail call void @_sodium_escrypt_PBKDF2_SHA256(ptr noundef %1, i64 noundef %2, ptr noundef nonnull %67, i64 noundef %46, i64 noundef 1, ptr noundef %8, i64 noundef %9) #9
@@ -273,7 +273,7 @@ define internal fastcc void @blockmix_salsa8(ptr noundef readonly captures(none)
   store i32 %15, ptr %13, align 4
   %16 = add nuw nsw i64 %.06.i, 1
   %exitcond.not.i = icmp eq i64 %16, 16
-  br i1 %exitcond.not.i, label %blkxor.exit, label %10, !llvm.loop !8
+  br i1 %exitcond.not.i, label %blkxor.exit, label %10, !llvm.loop !7
 
 blkxor.exit:                                      ; preds = %10
   tail call fastcc void @salsa20_8(ptr noundef nonnull %2)
@@ -293,7 +293,7 @@ blkxor.exit:                                      ; preds = %10
   store i32 %24, ptr %22, align 4
   %25 = add nuw nsw i64 %.06.i21, 1
   %exitcond.not.i22 = icmp eq i64 %25, 16
-  br i1 %exitcond.not.i22, label %blkxor.exit23, label %19, !llvm.loop !8
+  br i1 %exitcond.not.i22, label %blkxor.exit23, label %19, !llvm.loop !7
 
 blkxor.exit23:                                    ; preds = %19
   tail call fastcc void @salsa20_8(ptr noundef nonnull %2)
@@ -301,7 +301,7 @@ blkxor.exit23:                                    ; preds = %19
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(64) %26, ptr noundef nonnull readonly align 1 dereferenceable(64) %2, i64 noundef range(i64 4, 549755813761) 64, i1 noundef false) #9
   %27 = add nuw nsw i64 %.026, 2
   %28 = icmp samesign ult i64 %27, %5
-  br i1 %28, label %8, label %29, !llvm.loop !12
+  br i1 %28, label %8, label %29, !llvm.loop !11
 
 29:                                               ; preds = %blkxor.exit23
   ret void
@@ -480,7 +480,7 @@ define internal fastcc void @salsa20_8(ptr noundef captures(none) %0) unnamed_ad
   %130 = xor i32 %129, %82
   %131 = add nuw nsw i64 %.037, 2
   %132 = icmp samesign ult i64 %.037, 6
-  br i1 %132, label %18, label %.preheader, !llvm.loop !13
+  br i1 %132, label %18, label %.preheader, !llvm.loop !12
 
 133:                                              ; preds = %.preheader, %133
   %.138 = phi i64 [ 0, %.preheader ], [ %139, %133 ]
@@ -492,7 +492,7 @@ define internal fastcc void @salsa20_8(ptr noundef captures(none) %0) unnamed_ad
   store i32 %138, ptr %136, align 4
   %139 = add nuw nsw i64 %.138, 1
   %exitcond.not = icmp eq i64 %139, 16
-  br i1 %exitcond.not, label %140, label %133, !llvm.loop !14
+  br i1 %exitcond.not, label %140, label %133, !llvm.loop !13
 
 140:                                              ; preds = %133
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %2) #9
@@ -525,14 +525,13 @@ attributes #9 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = distinct !{!4, !5, !6}
+!4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{!"llvm.loop.estimated_trip_count"}
-!7 = distinct !{!7, !5, !6}
-!8 = distinct !{!8, !5, !6}
-!9 = distinct !{!9, !5, !6}
-!10 = distinct !{!10, !5, !6}
-!11 = distinct !{!11, !5, !6}
-!12 = distinct !{!12, !5, !6}
-!13 = distinct !{!13, !5, !6}
-!14 = distinct !{!14, !5, !6}
+!6 = distinct !{!6, !5}
+!7 = distinct !{!7, !5}
+!8 = distinct !{!8, !5}
+!9 = distinct !{!9, !5}
+!10 = distinct !{!10, !5}
+!11 = distinct !{!11, !5}
+!12 = distinct !{!12, !5}
+!13 = distinct !{!13, !5}

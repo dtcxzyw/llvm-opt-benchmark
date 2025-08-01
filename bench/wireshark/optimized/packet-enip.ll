@@ -1683,7 +1683,7 @@ define hidden i32 @dissect_ingress_egress_rules(ptr noundef %0, ptr noundef %1, 
   %19 = add nuw i32 %.018, 1
   %20 = load i32, ptr %7, align 4
   %21 = icmp ult i32 %19, %20
-  br i1 %21, label %.lr.ph, label %._crit_edge, !llvm.loop !9
+  br i1 %21, label %.lr.ph, label %._crit_edge, !llvm.loop !8
 }
 
 ; Function Attrs: null_pointer_is_valid
@@ -1760,7 +1760,7 @@ define hidden i32 @dissect_ingress_egress_set_rules(ptr noundef %0, ptr noundef 
   %47 = add nuw i32 %.018.i, 1
   %48 = load i32, ptr %9, align 4
   %49 = icmp ult i32 %47, %48
-  br i1 %49, label %.lr.ph.i, label %dissect_ingress_egress_rules.exit, !llvm.loop !9
+  br i1 %49, label %.lr.ph.i, label %dissect_ingress_egress_rules.exit, !llvm.loop !8
 
 dissect_ingress_egress_rules.exit:                ; preds = %.lr.ph.i, %.lr.ph
   %.016.lcssa.i = phi i32 [ 2, %.lr.ph ], [ %46, %.lr.ph.i ]
@@ -1794,7 +1794,7 @@ dissect_ingress_egress_rules.exit:                ; preds = %.lr.ph.i, %.lr.ph
   %66 = add nuw i32 %.018.i53, 1
   %67 = load i32, ptr %7, align 4
   %68 = icmp ult i32 %66, %67
-  br i1 %68, label %.lr.ph.i52, label %dissect_ingress_egress_rules.exit56, !llvm.loop !9
+  br i1 %68, label %.lr.ph.i52, label %dissect_ingress_egress_rules.exit56, !llvm.loop !8
 
 dissect_ingress_egress_rules.exit56:              ; preds = %.lr.ph.i52, %dissect_ingress_egress_rules.exit
   %.016.lcssa.i55 = phi i32 [ 2, %dissect_ingress_egress_rules.exit ], [ %65, %.lr.ph.i52 ]
@@ -1806,7 +1806,7 @@ dissect_ingress_egress_rules.exit56:              ; preds = %.lr.ph.i52, %dissec
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #12
   %70 = load i32, ptr %11, align 4
   %71 = icmp ult i32 %28, %70
-  br i1 %71, label %.lr.ph, label %._crit_edge, !llvm.loop !10
+  br i1 %71, label %.lr.ph, label %._crit_edge, !llvm.loop !9
 
 72:                                               ; preds = %6, %._crit_edge
   %.0 = phi i32 [ %.049.lcssa, %._crit_edge ], [ 0, %6 ]
@@ -2253,7 +2253,7 @@ define internal i32 @dissect_elink_interface_capability(ptr readnone captures(no
   %24 = add nuw i32 %.020, 1
   %25 = load i32, ptr %7, align 4
   %26 = icmp ult i32 %24, %25
-  br i1 %26, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !11
+  br i1 %26, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !10
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
@@ -2406,7 +2406,7 @@ define internal noundef i32 @dissect_dlr_ring_protocol_participants_list(ptr nou
   %15 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %14, ptr noundef %3, i32 noundef %.reass, i32 noundef 6, i32 noundef 0)
   %16 = add i32 %.017, 10
   %17 = icmp slt i32 %16, %5
-  br i1 %17, label %.lr.ph, label %.loopexit, !llvm.loop !12
+  br i1 %17, label %.lr.ph, label %.loopexit, !llvm.loop !11
 
 .loopexit:                                        ; preds = %.lr.ph, %.preheader, %9
   ret i32 %5
@@ -2566,7 +2566,7 @@ define internal i32 @dissect_eip_security_avail_cipher_suites(ptr noundef %0, pt
   %19 = add nuw i32 %.019, 1
   %20 = load i32, ptr %7, align 4
   %21 = icmp ult i32 %19, %20
-  br i1 %21, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !13
+  br i1 %21, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !12
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
   %22 = shl i32 %20, 1
@@ -2610,7 +2610,7 @@ define internal i32 @dissect_eip_security_allow_cipher_suites(ptr noundef %0, pt
   %19 = add nuw i32 %.019, 1
   %20 = load i32, ptr %7, align 4
   %21 = icmp ult i32 %19, %20
-  br i1 %21, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !14
+  br i1 %21, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !13
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
   %22 = shl i32 %20, 1
@@ -2694,7 +2694,7 @@ define internal noundef i32 @dissect_eip_security_preshared_keys(ptr noundef %0,
   %.045 = add i32 %46, 1
   %50 = load i32, ptr %7, align 4
   %51 = icmp ult i32 %49, %50
-  br i1 %51, label %.lr.ph, label %._crit_edge, !llvm.loop !15
+  br i1 %51, label %.lr.ph, label %._crit_edge, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %41, %13
   %.045.lcssa = phi i32 [ %.04550, %13 ], [ %.045, %41 ]
@@ -2739,7 +2739,7 @@ define internal noundef i32 @dissect_eip_security_active_certs(ptr noundef %0, p
   %20 = add nuw i32 %.02931.i, 1
   %21 = load i32, ptr %7, align 4
   %22 = icmp ult i32 %20, %21
-  br i1 %22, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !16
+  br i1 %22, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !15
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %13
   %.028.lcssa.i = phi i32 [ %16, %13 ], [ %19, %.lr.ph.i ]
@@ -2782,7 +2782,7 @@ define internal noundef i32 @dissect_eip_security_trusted_auths(ptr noundef %0, 
   %20 = add nuw i32 %.02931.i, 1
   %21 = load i32, ptr %7, align 4
   %22 = icmp ult i32 %20, %21
-  br i1 %22, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !16
+  br i1 %22, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !15
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %13
   %.028.lcssa.i = phi i32 [ %16, %13 ], [ %19, %.lr.ph.i ]
@@ -2825,7 +2825,7 @@ define internal noundef i32 @dissect_eip_security_cert_revocation_list(ptr nound
   %20 = add nuw i32 %.02931.i, 1
   %21 = load i32, ptr %7, align 4
   %22 = icmp ult i32 %20, %21
-  br i1 %22, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !16
+  br i1 %22, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !15
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %13
   %.028.lcssa.i = phi i32 [ %16, %13 ], [ %19, %.lr.ph.i ]
@@ -2868,7 +2868,7 @@ define internal noundef i32 @dissect_eip_security_trusted_identities(ptr noundef
   %20 = add nuw i32 %.02931.i, 1
   %21 = load i32, ptr %7, align 4
   %22 = icmp ult i32 %20, %21
-  br i1 %22, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !16
+  br i1 %22, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !15
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %13
   %.028.lcssa.i = phi i32 [ %16, %13 ], [ %19, %.lr.ph.i ]
@@ -2929,7 +2929,7 @@ define internal noundef i32 @dissect_eip_cert_cert_list(ptr noundef %0, ptr noun
   %22 = add nuw i32 %.02829, 1
   %23 = load i32, ptr %7, align 4
   %24 = icmp ult i32 %22, %23
-  br i1 %24, label %.lr.ph, label %._crit_edge, !llvm.loop !17
+  br i1 %24, label %.lr.ph, label %._crit_edge, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %.lr.ph, %6
   %.0.lcssa = phi i32 [ %12, %6 ], [ %21, %.lr.ph ]
@@ -3120,7 +3120,7 @@ define internal i32 @dissect_enip_tcp(ptr noundef %0, ptr noundef %1, ptr nounde
   br i1 %6, label %11, label %7
 
 7:                                                ; preds = %4
-  %8 = load i8, ptr @enip_desegment, align 1, !range !18, !noundef !19
+  %8 = load i8, ptr @enip_desegment, align 1, !range !17, !noundef !18
   %9 = trunc nuw i8 %8 to i1
   tail call void @tcp_dissect_pdus(ptr noundef %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %9, i32 noundef 4, ptr noundef nonnull @get_enip_pdu_len, ptr noundef nonnull @dissect_enip_pdu, ptr noundef %3)
   %10 = tail call i32 @tvb_captured_length(ptr noundef %0)
@@ -3213,14 +3213,14 @@ define internal i32 @dissect_cip_io_generic(ptr noundef %0, ptr readnone capture
   %22 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %23 = load i32, ptr %22, align 8
   %24 = icmp eq i32 %23, 1
-  %25 = load i8, ptr @enip_OTrun_idle, align 1, !range !18
+  %25 = load i8, ptr @enip_OTrun_idle, align 1, !range !17
   %26 = trunc nuw i8 %25 to i1
   %or.cond = select i1 %24, i1 %26, i1 false
   br i1 %or.cond, label %31, label %27
 
 27:                                               ; preds = %21
   %28 = icmp eq i32 %23, 2
-  %29 = load i8, ptr @enip_TOrun_idle, align 1, !range !18
+  %29 = load i8, ptr @enip_TOrun_idle, align 1, !range !17
   %30 = trunc nuw i8 %29 to i1
   %or.cond3 = select i1 %28, i1 %30, i1 false
   br i1 %or.cond3, label %31, label %33
@@ -3545,7 +3545,7 @@ define internal i32 @dissect_dlr(ptr noundef %0, ptr noundef readonly captures(n
   %77 = add i16 %.0102, 10
   %78 = add nuw i16 %.098101, 1
   %exitcond.not = icmp eq i16 %78, %66
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !20
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !19
 
 ._crit_edge:                                      ; preds = %.lr.ph
   %79 = icmp ult i16 %77, 42
@@ -3947,7 +3947,7 @@ define internal fastcc noundef i32 @dissect_tcpip_port_information(ptr noundef %
   %45 = add nuw i32 %.04142, 1
   %46 = load i32, ptr %7, align 4
   %47 = icmp ult i32 %45, %46
-  br i1 %47, label %.lr.ph, label %._crit_edge, !llvm.loop !21
+  br i1 %47, label %.lr.ph, label %._crit_edge, !llvm.loop !20
 }
 
 ; Function Attrs: null_pointer_is_valid
@@ -4685,7 +4685,7 @@ dissect_item_unconnected_message_over_udp.exit:   ; preds = %126, %138
 
 205:                                              ; preds = %204
   %206 = getelementptr inbounds nuw i8, ptr %.0183216, i64 260
-  %207 = load i8, ptr %206, align 4, !range !18, !noundef !19
+  %207 = load i8, ptr %206, align 4, !range !17, !noundef !18
   %208 = trunc nuw i8 %207 to i1
   br i1 %208, label %209, label %214
 
@@ -4814,7 +4814,7 @@ dissect_cip_class23_data.exit:                    ; preds = %249, %254, %260, %2
   store ptr %.0183216, ptr %15, align 8
   store i32 %.0180217, ptr %40, align 8
   %274 = getelementptr inbounds nuw i8, ptr %.0183216, i64 16
-  %275 = load i8, ptr %274, align 8, !range !18, !noundef !19
+  %275 = load i8, ptr %274, align 8, !range !17, !noundef !18
   %276 = trunc nuw i8 %275 to i1
   br i1 %276, label %277, label %280
 
@@ -5316,7 +5316,7 @@ dissect_item_sockaddr_info.exit:                  ; preds = %290, %293, %.sink.s
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %21) #12
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %20) #12
   %.not = icmp eq i32 %44, 0
-  br i1 %.not, label %.loopexit, label %43, !llvm.loop !22
+  br i1 %.not, label %.loopexit, label %43, !llvm.loop !21
 
 .loopexit:                                        ; preds = %dissect_item_sockaddr_info.exit, %47
   %.0130212 = phi i8 [ %.0130219, %47 ], [ %.1131, %dissect_item_sockaddr_info.exit ]
@@ -5349,7 +5349,7 @@ dissect_item_sockaddr_info.exit:                  ; preds = %290, %293, %.sink.s
 
 573:                                              ; preds = %560
   %574 = getelementptr inbounds nuw i8, ptr %564, i64 261
-  %575 = load i8, ptr %574, align 1, !range !18, !noundef !19
+  %575 = load i8, ptr %574, align 1, !range !17, !noundef !18
   %576 = trunc nuw i8 %575 to i1
   br i1 %576, label %.thread.sink.split, label %577
 
@@ -5962,20 +5962,19 @@ attributes #14 = { allocsize(2) }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7, !8}
-!11 = distinct !{!11, !7, !8}
-!12 = distinct !{!12, !7, !8}
-!13 = distinct !{!13, !7, !8}
-!14 = distinct !{!14, !7, !8}
-!15 = distinct !{!15, !7, !8}
-!16 = distinct !{!16, !7, !8}
-!17 = distinct !{!17, !7, !8}
-!18 = !{i8 0, i8 2}
-!19 = !{}
-!20 = distinct !{!20, !7, !8}
-!21 = distinct !{!21, !7, !8}
-!22 = distinct !{!22, !7, !8}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7}
+!12 = distinct !{!12, !7}
+!13 = distinct !{!13, !7}
+!14 = distinct !{!14, !7}
+!15 = distinct !{!15, !7}
+!16 = distinct !{!16, !7}
+!17 = !{i8 0, i8 2}
+!18 = !{}
+!19 = distinct !{!19, !7}
+!20 = distinct !{!20, !7}
+!21 = distinct !{!21, !7}

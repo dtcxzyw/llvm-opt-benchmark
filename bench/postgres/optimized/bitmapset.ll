@@ -129,7 +129,7 @@ define dso_local range(i32 -1, 2) i32 @bms_compare(ptr noundef readonly captures
 27:                                               ; preds = %21
   %28 = add i32 %.018, -1
   %29 = icmp sgt i32 %28, -1
-  br i1 %29, label %21, label %.loopexit, !llvm.loop !7
+  br i1 %29, label %21, label %.loopexit, !llvm.loop !6
 
 .loopexit.split.loop.exit:                        ; preds = %21
   %30 = icmp ugt i64 %24, %26
@@ -246,7 +246,7 @@ define dso_local ptr @bms_union(ptr noundef readonly captures(address_is_null) %
   store i64 %28, ptr %26, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %bms_copy.exit, label %23, !llvm.loop !8
+  br i1 %exitcond.not, label %bms_copy.exit, label %23, !llvm.loop !7
 
 bms_copy.exit.sink.split:                         ; preds = %9, %6
   %.sink40 = phi i32 [ %8, %6 ], [ %11, %9 ]
@@ -306,7 +306,7 @@ define dso_local ptr @bms_intersect(ptr noundef readonly captures(address_is_nul
   %spec.select = select i1 %.not31, i32 %.025, i32 %24
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %25, label %18, !llvm.loop !9
+  br i1 %exitcond.not, label %25, label %18, !llvm.loop !8
 
 25:                                               ; preds = %18
   %26 = icmp eq i32 %spec.select, -1
@@ -372,7 +372,7 @@ bms_copy.exit:                                    ; preds = %4
 25:                                               ; preds = %18
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %bms_nonempty_difference.exit, label %18, !llvm.loop !10
+  br i1 %exitcond.not.i, label %bms_nonempty_difference.exit, label %18, !llvm.loop !9
 
 bms_copy.exit33:                                  ; preds = %18, %12
   %26 = sext i32 %7 to i64
@@ -405,7 +405,7 @@ bms_copy.exit33:                                  ; preds = %18, %12
   %43 = load i32, ptr %13, align 4
   %44 = sext i32 %43 to i64
   %45 = icmp slt i64 %indvars.iv.next40, %44
-  br i1 %45, label %.preheader, label %bms_nonempty_difference.exit, !llvm.loop !11
+  br i1 %45, label %.preheader, label %bms_nonempty_difference.exit, !llvm.loop !10
 
 46:                                               ; preds = %.preheader35, %46
   %indvars.iv = phi i64 [ 0, %.preheader35 ], [ %indvars.iv.next, %46 ]
@@ -422,7 +422,7 @@ bms_copy.exit33:                                  ; preds = %18, %12
   %spec.select = select i1 %.not, i32 %.0, i32 %53
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %54 = icmp slt i64 %indvars.iv.next, %36
-  br i1 %54, label %46, label %55, !llvm.loop !12
+  br i1 %54, label %46, label %55, !llvm.loop !11
 
 55:                                               ; preds = %46
   %56 = add i32 %spec.select, 1
@@ -470,7 +470,7 @@ define dso_local noundef zeroext i1 @bms_nonempty_difference(ptr noundef readonl
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   %or.cond = select i1 %.not.not, i1 true, i1 %exitcond.not
-  br i1 %or.cond, label %.loopexit, label %14, !llvm.loop !10
+  br i1 %or.cond, label %.loopexit, label %14, !llvm.loop !9
 
 .loopexit:                                        ; preds = %14, %6, %4, %2
   %.010 = phi i1 [ false, %2 ], [ true, %4 ], [ true, %6 ], [ %.not.not, %14 ]
@@ -513,7 +513,7 @@ define dso_local noundef zeroext i1 @bms_is_subset(ptr noundef readonly captures
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp ne i64 %indvars.iv.next, %wide.trip.count
   %or.cond.not = select i1 %.not, i1 %exitcond.not, i1 false
-  br i1 %or.cond.not, label %14, label %.loopexit, !llvm.loop !13
+  br i1 %or.cond.not, label %14, label %.loopexit, !llvm.loop !12
 
 .loopexit:                                        ; preds = %14, %6, %4, %2
   %.010 = phi i1 [ true, %2 ], [ false, %4 ], [ false, %6 ], [ %.not, %14 ]
@@ -583,7 +583,7 @@ define dso_local range(i32 0, 4) i32 @bms_subset_compare(ptr noundef readonly ca
   %.22946 = phi i32 [ 1, %30 ], [ %.027, %25 ], [ 2, %.thread52 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %31, label %16, !llvm.loop !14
+  br i1 %exitcond.not, label %31, label %16, !llvm.loop !13
 
 31:                                               ; preds = %.thread
   %32 = icmp sgt i32 %10, %12
@@ -704,7 +704,7 @@ bms_is_member.exit:                               ; preds = %9
   %.1 = phi i32 [ %27, %24 ], [ %.01923, %.lr.ph ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %15
-  br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !15
+  br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !14
 
 ._crit_edge.loopexit:                             ; preds = %28
   %.pre = load i64, ptr %16, align 8
@@ -756,7 +756,7 @@ define dso_local noundef zeroext i1 @bms_overlap(ptr noundef readonly captures(a
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   %or.cond20 = select i1 %.not.not, i1 true, i1 %exitcond.not
-  br i1 %or.cond20, label %.loopexit, label %12, !llvm.loop !16
+  br i1 %or.cond20, label %.loopexit, label %12, !llvm.loop !15
 
 .loopexit:                                        ; preds = %12, %2
   %.013 = phi i1 [ false, %2 ], [ %.not.not, %12 ]
@@ -818,7 +818,7 @@ define dso_local noundef zeroext i1 @bms_overlap_list(ptr noundef readonly captu
 .critedge29:                                      ; preds = %22, %18
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.critedge, label %11, !llvm.loop !17
+  br i1 %exitcond.not, label %.critedge, label %11, !llvm.loop !16
 
 .critedge:                                        ; preds = %.critedge29, %22, %.preheader, %2
   %.0 = phi i1 [ false, %2 ], [ false, %.preheader ], [ false, %.critedge29 ], [ true, %22 ]
@@ -879,7 +879,7 @@ define dso_local i32 @bms_singleton_member(ptr noundef readonly captures(address
   %.1 = phi i32 [ %24, %19 ], [ %.0, %10 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %26, label %10, !llvm.loop !18
+  br i1 %exitcond.not, label %26, label %10, !llvm.loop !17
 
 26:                                               ; preds = %25
   ret i32 %.1
@@ -925,7 +925,7 @@ define dso_local noundef zeroext i1 @bms_get_singleton_member(ptr noundef readon
   %.221 = phi i32 [ %19, %14 ], [ %.019, %8 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %21, label %8, !llvm.loop !19
+  br i1 %exitcond.not, label %21, label %8, !llvm.loop !18
 
 21:                                               ; preds = %20
   store i32 %.221, ptr %1, align 4
@@ -967,7 +967,7 @@ define dso_local i32 @bms_num_members(ptr noundef readonly captures(address_is_n
   %.1 = phi i32 [ %13, %10 ], [ %.011, %7 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %7, !llvm.loop !20
+  br i1 %exitcond.not, label %.loopexit, label %7, !llvm.loop !19
 
 .loopexit:                                        ; preds = %14, %1
   %.0 = phi i32 [ 0, %1 ], [ %.1, %14 ]
@@ -1006,7 +1006,7 @@ define dso_local range(i32 0, 3) i32 @bms_membership(ptr noundef readonly captur
   %.21726 = phi i32 [ 1, %10 ], [ %.015, %7 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %7, !llvm.loop !21
+  br i1 %exitcond.not, label %.loopexit, label %7, !llvm.loop !20
 
 .loopexit:                                        ; preds = %.thread, %10, %1
   %.0 = phi i32 [ 0, %1 ], [ %.21726, %.thread ], [ 2, %10 ]
@@ -1074,7 +1074,7 @@ bms_make_singleton.exit:                          ; preds = %7
   %34 = load i32, ptr %29, align 4
   %35 = sext i32 %34 to i64
   %36 = icmp slt i64 %indvars.iv.next, %35
-  br i1 %36, label %32, label %.loopexit, !llvm.loop !22
+  br i1 %36, label %32, label %.loopexit, !llvm.loop !21
 
 .loopexit:                                        ; preds = %32, %21
   %.022 = phi ptr [ %0, %21 ], [ %28, %32 ]
@@ -1116,7 +1116,7 @@ define dso_local noundef ptr @bms_del_member(ptr noundef %0, i32 noundef %1) loc
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %12 = load i32, ptr %11, align 4
   %.not = icmp slt i32 %10, %12
-  br i1 %.not, label %13, label %34, !prof !23
+  br i1 %.not, label %13, label %34, !prof !22
 
 13:                                               ; preds = %9
   %14 = and i32 %1, 63
@@ -1150,7 +1150,7 @@ define dso_local noundef ptr @bms_del_member(ptr noundef %0, i32 noundef %1) loc
   %30 = getelementptr inbounds nuw [0 x i64], ptr %18, i64 0, i64 %indvars.iv.next
   %31 = load i64, ptr %30, align 8
   %.not30 = icmp eq i64 %31, 0
-  br i1 %.not30, label %.preheader, label %32, !llvm.loop !24
+  br i1 %.not30, label %.preheader, label %32, !llvm.loop !23
 
 32:                                               ; preds = %29
   %33 = trunc nuw nsw i64 %indvars.iv to i32
@@ -1225,7 +1225,7 @@ bms_copy.exit27:                                  ; preds = %14
   store i64 %33, ptr %31, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %34, label %28, !llvm.loop !25
+  br i1 %exitcond.not, label %34, label %28, !llvm.loop !24
 
 34:                                               ; preds = %28
   %.not = icmp eq ptr %.023, %0
@@ -1297,7 +1297,7 @@ define dso_local ptr @bms_replace_members(ptr noundef %0, ptr noundef readonly c
   %33 = load i32, ptr %18, align 4
   %34 = sext i32 %33 to i64
   %35 = icmp slt i64 %indvars.iv.next, %34
-  br i1 %35, label %29, label %36, !llvm.loop !26
+  br i1 %35, label %29, label %36, !llvm.loop !25
 
 36:                                               ; preds = %29
   %37 = getelementptr inbounds nuw i8, ptr %.018, i64 4
@@ -1368,7 +1368,7 @@ define dso_local ptr @bms_add_range(ptr noundef %0, i32 noundef %1, i32 noundef 
   %35 = load i32, ptr %30, align 4
   %36 = sext i32 %35 to i64
   %37 = icmp slt i64 %indvars.iv.next, %36
-  br i1 %37, label %33, label %.loopexit, !llvm.loop !27
+  br i1 %37, label %33, label %.loopexit, !llvm.loop !26
 
 .loopexit:                                        ; preds = %33, %21, %14
   %.044 = phi ptr [ %19, %14 ], [ %0, %21 ], [ %29, %33 ]
@@ -1471,7 +1471,7 @@ define dso_local noundef ptr @bms_int_members(ptr noundef %0, ptr noundef readon
   %spec.select = select i1 %.not, i32 %.022, i32 %20
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %21, label %14, !llvm.loop !28
+  br i1 %exitcond.not, label %21, label %14, !llvm.loop !27
 
 21:                                               ; preds = %14
   %22 = icmp eq i32 %spec.select, -1
@@ -1528,7 +1528,7 @@ define dso_local noundef ptr @bms_del_members(ptr noundef %0, ptr noundef readon
   %20 = load i32, ptr %9, align 4
   %21 = sext i32 %20 to i64
   %22 = icmp slt i64 %indvars.iv.next38, %21
-  br i1 %22, label %.preheader, label %.loopexit, !llvm.loop !29
+  br i1 %22, label %.preheader, label %.loopexit, !llvm.loop !28
 
 23:                                               ; preds = %.preheader35, %23
   %indvars.iv = phi i64 [ 0, %.preheader35 ], [ %indvars.iv.next, %23 ]
@@ -1545,7 +1545,7 @@ define dso_local noundef ptr @bms_del_members(ptr noundef %0, ptr noundef readon
   %spec.select = select i1 %.not, i32 %.0, i32 %30
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %31, label %23, !llvm.loop !30
+  br i1 %exitcond.not, label %31, label %23, !llvm.loop !29
 
 31:                                               ; preds = %23
   %.not34 = icmp eq i32 %spec.select, -1
@@ -1600,7 +1600,7 @@ define dso_local ptr @bms_join(ptr noundef %0, ptr noundef %1) local_unnamed_add
   store i64 %21, ptr %19, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %22, label %16, !llvm.loop !31
+  br i1 %exitcond.not, label %22, label %16, !llvm.loop !30
 
 22:                                               ; preds = %16
   %.not = icmp eq ptr %0, %1
@@ -1655,7 +1655,7 @@ define dso_local i32 @bms_next_member(ptr noundef readonly captures(address_is_n
 24:                                               ; preds = %14
   %25 = add nsw i32 %.02129, 1
   %exitcond.not = icmp eq i32 %25, %6
-  br i1 %exitcond.not, label %.loopexit, label %14, !llvm.loop !32
+  br i1 %exitcond.not, label %.loopexit, label %14, !llvm.loop !31
 
 .loopexit:                                        ; preds = %24, %4, %19, %2
   %.0 = phi i32 [ %23, %19 ], [ -2, %2 ], [ -2, %4 ], [ -2, %24 ]
@@ -1715,7 +1715,7 @@ define dso_local range(i32 -2, -2147483648) i32 @bms_prev_member(ptr noundef rea
 30:                                               ; preds = %19
   %31 = add nsw i32 %.02534, -1
   %32 = icmp sgt i32 %.02534, 0
-  br i1 %32, label %19, label %.loopexit, !llvm.loop !33
+  br i1 %32, label %19, label %.loopexit, !llvm.loop !32
 
 .loopexit:                                        ; preds = %30, %11, %24, %2
   %.0 = phi i32 [ %29, %24 ], [ -2, %2 ], [ -2, %11 ], [ -2, %30 ]
@@ -1846,33 +1846,32 @@ attributes #12 = { cold nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = distinct !{!4, !5, !6}
+!4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{!"llvm.loop.estimated_trip_count"}
-!7 = distinct !{!7, !5, !6}
-!8 = distinct !{!8, !5, !6}
-!9 = distinct !{!9, !5, !6}
-!10 = distinct !{!10, !5, !6}
-!11 = distinct !{!11, !5, !6}
-!12 = distinct !{!12, !5, !6}
-!13 = distinct !{!13, !5, !6}
-!14 = distinct !{!14, !5, !6}
-!15 = distinct !{!15, !5, !6}
-!16 = distinct !{!16, !5, !6}
-!17 = distinct !{!17, !5, !6}
-!18 = distinct !{!18, !5, !6}
-!19 = distinct !{!19, !5, !6}
-!20 = distinct !{!20, !5, !6}
-!21 = distinct !{!21, !5, !6}
-!22 = distinct !{!22, !5, !6}
-!23 = !{!"branch_weights", !"expected", i32 2000, i32 1}
-!24 = distinct !{!24, !5, !6}
-!25 = distinct !{!25, !5, !6}
-!26 = distinct !{!26, !5, !6}
-!27 = distinct !{!27, !5, !6}
-!28 = distinct !{!28, !5, !6}
-!29 = distinct !{!29, !5, !6}
-!30 = distinct !{!30, !5, !6}
-!31 = distinct !{!31, !5, !6}
-!32 = distinct !{!32, !5, !6}
-!33 = distinct !{!33, !5, !6}
+!6 = distinct !{!6, !5}
+!7 = distinct !{!7, !5}
+!8 = distinct !{!8, !5}
+!9 = distinct !{!9, !5}
+!10 = distinct !{!10, !5}
+!11 = distinct !{!11, !5}
+!12 = distinct !{!12, !5}
+!13 = distinct !{!13, !5}
+!14 = distinct !{!14, !5}
+!15 = distinct !{!15, !5}
+!16 = distinct !{!16, !5}
+!17 = distinct !{!17, !5}
+!18 = distinct !{!18, !5}
+!19 = distinct !{!19, !5}
+!20 = distinct !{!20, !5}
+!21 = distinct !{!21, !5}
+!22 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!23 = distinct !{!23, !5}
+!24 = distinct !{!24, !5}
+!25 = distinct !{!25, !5}
+!26 = distinct !{!26, !5}
+!27 = distinct !{!27, !5}
+!28 = distinct !{!28, !5}
+!29 = distinct !{!29, !5}
+!30 = distinct !{!30, !5}
+!31 = distinct !{!31, !5}
+!32 = distinct !{!32, !5}

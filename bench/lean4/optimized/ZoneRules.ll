@@ -2592,7 +2592,7 @@ lean_alloc_ctor.exit:                             ; preds = %lean_dec.exit, %lea
   store ptr %.sink85, ptr %102, align 8, !tbaa !10
   %103 = getelementptr inbounds nuw i8, ptr %.sink90, i64 16
   store ptr %.sink, ptr %103, align 8, !tbaa !10
-  br label %6, !llvm.loop !19
+  br label %6
 }
 
 ; Function Attrs: nounwind uwtable
@@ -7061,5 +7061,3 @@ attributes #7 = { noreturn nounwind }
 !16 = !{!17, !17, i64 0}
 !17 = !{!"long", !7, i64 0}
 !18 = !{!7, !7, i64 0}
-!19 = distinct !{!19, !20}
-!20 = !{!"llvm.loop.estimated_trip_count"}

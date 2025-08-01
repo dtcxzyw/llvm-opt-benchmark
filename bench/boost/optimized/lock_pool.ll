@@ -62,7 +62,7 @@ _ZN5boost7atomics6detail26core_operations_gcc_atomicILm4ELb0ELb0EE4loadERVKjNS_1
   %4 = load atomic volatile i32, ptr %3 monotonic, align 64
   %5 = and i32 %4, 1
   %6 = icmp eq i32 %5, 0
-  br i1 %6, label %7, label %.critedge.i.i, !prof !10
+  br i1 %6, label %7, label %.critedge.i.i, !prof !9
 
 7:                                                ; preds = %_ZN5boost7atomics6detail26core_operations_gcc_atomicILm4ELb0ELb0EE4loadERVKjNS_12memory_orderE.exit.i.i
   %8 = or disjoint i32 %4, 1
@@ -71,10 +71,10 @@ _ZN5boost7atomics6detail26core_operations_gcc_atomicILm4ELb0ELb0EE4loadERVKjNS_1
   br i1 %10, label %_ZN5boost7atomics6detail9lock_pool12_GLOBAL__N_110lock_state10short_lockEv.exit, label %.critedge.i.i
 
 .critedge.i.i:                                    ; preds = %7, %_ZN5boost7atomics6detail26core_operations_gcc_atomicILm4ELb0ELb0EE4loadERVKjNS_12memory_orderE.exit.i.i
-  tail call void asm sideeffect "pause;", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !11
+  tail call void asm sideeffect "pause;", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !10
   %11 = add nuw nsw i32 %.028.i.i, 1
   %exitcond.not.i.i = icmp eq i32 %11, 10
-  br i1 %exitcond.not.i.i, label %12, label %_ZN5boost7atomics6detail26core_operations_gcc_atomicILm4ELb0ELb0EE4loadERVKjNS_12memory_orderE.exit.i.i, !llvm.loop !12
+  br i1 %exitcond.not.i.i, label %12, label %_ZN5boost7atomics6detail26core_operations_gcc_atomicILm4ELb0ELb0EE4loadERVKjNS_12memory_orderE.exit.i.i, !llvm.loop !11
 
 12:                                               ; preds = %.critedge.i.i
   %13 = load atomic volatile i32, ptr %3 monotonic, align 64
@@ -84,7 +84,7 @@ _ZN5boost7atomics6detail26core_operations_gcc_atomicILm4ELb0ELb0EE4loadERVKjNS_1
   %.0.i8.i.i = phi i32 [ %13, %12 ], [ %.0.i8.i.i.be, %.backedge ]
   %15 = and i32 %.0.i8.i.i, 1
   %16 = icmp eq i32 %15, 0
-  br i1 %16, label %17, label %22, !prof !10
+  br i1 %16, label %17, label %22, !prof !9
 
 17:                                               ; preds = %14
   %18 = or disjoint i32 %.0.i8.i.i, 1
@@ -113,7 +113,7 @@ _ZN5boost7atomics6detail26core_operations_gcc_atomicILm4ELb0ELb0EE4loadERVKjNS_1
 
 .backedge:                                        ; preds = %_ZN5boost7atomics6detail26core_operations_gcc_atomicILm4ELb0ELb0EE4loadERVKjNS_12memory_orderE.exit.i.i.i, %_ZN5boost7atomics6detail26core_operations_gcc_atomicILm4ELb0ELb0EE21compare_exchange_weakERVjRjjNS_12memory_orderES7_.exit6.i.i.i, %_ZN5boost7atomics6detail26core_operations_gcc_atomicILm4ELb0ELb0EE21compare_exchange_weakERVjRjjNS_12memory_orderES7_.exit.i.i.i
   %.0.i8.i.i.be = phi i32 [ %21, %_ZN5boost7atomics6detail26core_operations_gcc_atomicILm4ELb0ELb0EE21compare_exchange_weakERVjRjjNS_12memory_orderES7_.exit.i.i.i ], [ %28, %_ZN5boost7atomics6detail26core_operations_gcc_atomicILm4ELb0ELb0EE4loadERVKjNS_12memory_orderE.exit.i.i.i ], [ %26, %_ZN5boost7atomics6detail26core_operations_gcc_atomicILm4ELb0ELb0EE21compare_exchange_weakERVjRjjNS_12memory_orderES7_.exit6.i.i.i ]
-  br label %14, !llvm.loop !13
+  br label %14, !llvm.loop !12
 
 _ZN5boost7atomics6detail9lock_pool12_GLOBAL__N_110lock_state10short_lockEv.exit: ; preds = %7, %17
   ret ptr %3
@@ -130,7 +130,7 @@ _ZN5boost7atomics6detail26core_operations_gcc_atomicILm4ELb0ELb0EE4loadERVKjNS_1
   %4 = load atomic volatile i32, ptr %3 monotonic, align 64
   %5 = and i32 %4, 1
   %6 = icmp eq i32 %5, 0
-  br i1 %6, label %7, label %.critedge.i, !prof !10
+  br i1 %6, label %7, label %.critedge.i, !prof !9
 
 7:                                                ; preds = %_ZN5boost7atomics6detail26core_operations_gcc_atomicILm4ELb0ELb0EE4loadERVKjNS_12memory_orderE.exit.i
   %8 = or disjoint i32 %4, 1
@@ -139,10 +139,10 @@ _ZN5boost7atomics6detail26core_operations_gcc_atomicILm4ELb0ELb0EE4loadERVKjNS_1
   br i1 %10, label %_ZN5boost7atomics6detail9lock_pool12_GLOBAL__N_110lock_state9long_lockEv.exit, label %.critedge.i
 
 .critedge.i:                                      ; preds = %7, %_ZN5boost7atomics6detail26core_operations_gcc_atomicILm4ELb0ELb0EE4loadERVKjNS_12memory_orderE.exit.i
-  tail call void asm sideeffect "pause;", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !11
+  tail call void asm sideeffect "pause;", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !10
   %11 = add nuw nsw i32 %.028.i, 1
   %exitcond.not.i = icmp eq i32 %11, 10
-  br i1 %exitcond.not.i, label %12, label %_ZN5boost7atomics6detail26core_operations_gcc_atomicILm4ELb0ELb0EE4loadERVKjNS_12memory_orderE.exit.i, !llvm.loop !12
+  br i1 %exitcond.not.i, label %12, label %_ZN5boost7atomics6detail26core_operations_gcc_atomicILm4ELb0ELb0EE4loadERVKjNS_12memory_orderE.exit.i, !llvm.loop !11
 
 12:                                               ; preds = %.critedge.i
   %13 = load atomic volatile i32, ptr %3 monotonic, align 64
@@ -152,7 +152,7 @@ _ZN5boost7atomics6detail26core_operations_gcc_atomicILm4ELb0ELb0EE4loadERVKjNS_1
   %.0.i8.i = phi i32 [ %13, %12 ], [ %.0.i8.i.be, %.backedge ]
   %15 = and i32 %.0.i8.i, 1
   %16 = icmp eq i32 %15, 0
-  br i1 %16, label %17, label %22, !prof !10
+  br i1 %16, label %17, label %22, !prof !9
 
 17:                                               ; preds = %14
   %18 = or disjoint i32 %.0.i8.i, 1
@@ -181,7 +181,7 @@ _ZN5boost7atomics6detail26core_operations_gcc_atomicILm4ELb0ELb0EE4loadERVKjNS_1
 
 .backedge:                                        ; preds = %_ZN5boost7atomics6detail26core_operations_gcc_atomicILm4ELb0ELb0EE4loadERVKjNS_12memory_orderE.exit.i.i, %_ZN5boost7atomics6detail26core_operations_gcc_atomicILm4ELb0ELb0EE21compare_exchange_weakERVjRjjNS_12memory_orderES7_.exit6.i.i, %_ZN5boost7atomics6detail26core_operations_gcc_atomicILm4ELb0ELb0EE21compare_exchange_weakERVjRjjNS_12memory_orderES7_.exit.i.i
   %.0.i8.i.be = phi i32 [ %21, %_ZN5boost7atomics6detail26core_operations_gcc_atomicILm4ELb0ELb0EE21compare_exchange_weakERVjRjjNS_12memory_orderES7_.exit.i.i ], [ %28, %_ZN5boost7atomics6detail26core_operations_gcc_atomicILm4ELb0ELb0EE4loadERVKjNS_12memory_orderE.exit.i.i ], [ %26, %_ZN5boost7atomics6detail26core_operations_gcc_atomicILm4ELb0ELb0EE21compare_exchange_weakERVjRjjNS_12memory_orderES7_.exit6.i.i ]
-  br label %14, !llvm.loop !13
+  br label %14, !llvm.loop !12
 
 _ZN5boost7atomics6detail9lock_pool12_GLOBAL__N_110lock_state9long_lockEv.exit: ; preds = %7, %17
   ret ptr %3
@@ -196,7 +196,7 @@ _ZN5boost7atomics6detail26core_operations_gcc_atomicILm4ELb0ELb0EE4loadERVKjNS_1
   %2 = load atomic volatile i32, ptr %0 monotonic, align 8
   %3 = and i32 %2, 1
   %4 = icmp eq i32 %3, 0
-  br i1 %4, label %5, label %.critedge, !prof !10
+  br i1 %4, label %5, label %.critedge, !prof !9
 
 5:                                                ; preds = %_ZN5boost7atomics6detail26core_operations_gcc_atomicILm4ELb0ELb0EE4loadERVKjNS_12memory_orderE.exit
   %6 = or disjoint i32 %2, 1
@@ -205,10 +205,10 @@ _ZN5boost7atomics6detail26core_operations_gcc_atomicILm4ELb0ELb0EE4loadERVKjNS_1
   br i1 %8, label %_ZN5boost7atomics6detail9lock_pool12_GLOBAL__N_110lock_state14lock_slow_pathEv.exit, label %.critedge
 
 .critedge:                                        ; preds = %5, %_ZN5boost7atomics6detail26core_operations_gcc_atomicILm4ELb0ELb0EE4loadERVKjNS_12memory_orderE.exit
-  tail call void asm sideeffect "pause;", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !11
+  tail call void asm sideeffect "pause;", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !10
   %9 = add nuw nsw i32 %.028, 1
   %exitcond.not = icmp eq i32 %9, 10
-  br i1 %exitcond.not, label %10, label %_ZN5boost7atomics6detail26core_operations_gcc_atomicILm4ELb0ELb0EE4loadERVKjNS_12memory_orderE.exit, !llvm.loop !12
+  br i1 %exitcond.not, label %10, label %_ZN5boost7atomics6detail26core_operations_gcc_atomicILm4ELb0ELb0EE4loadERVKjNS_12memory_orderE.exit, !llvm.loop !11
 
 10:                                               ; preds = %.critedge
   %11 = load atomic volatile i32, ptr %0 monotonic, align 8
@@ -218,7 +218,7 @@ _ZN5boost7atomics6detail26core_operations_gcc_atomicILm4ELb0ELb0EE4loadERVKjNS_1
   %.0.i8 = phi i32 [ %11, %10 ], [ %.0.i8.be, %.backedge ]
   %13 = and i32 %.0.i8, 1
   %14 = icmp eq i32 %13, 0
-  br i1 %14, label %15, label %20, !prof !10
+  br i1 %14, label %15, label %20, !prof !9
 
 15:                                               ; preds = %12
   %16 = or disjoint i32 %.0.i8, 1
@@ -247,7 +247,7 @@ _ZN5boost7atomics6detail26core_operations_gcc_atomicILm4ELb0ELb0EE4loadERVKjNS_1
 
 .backedge:                                        ; preds = %_ZN5boost7atomics6detail26core_operations_gcc_atomicILm4ELb0ELb0EE4loadERVKjNS_12memory_orderE.exit.i, %_ZN5boost7atomics6detail26core_operations_gcc_atomicILm4ELb0ELb0EE21compare_exchange_weakERVjRjjNS_12memory_orderES7_.exit6.i, %_ZN5boost7atomics6detail26core_operations_gcc_atomicILm4ELb0ELb0EE21compare_exchange_weakERVjRjjNS_12memory_orderES7_.exit.i
   %.0.i8.be = phi i32 [ %19, %_ZN5boost7atomics6detail26core_operations_gcc_atomicILm4ELb0ELb0EE21compare_exchange_weakERVjRjjNS_12memory_orderES7_.exit.i ], [ %26, %_ZN5boost7atomics6detail26core_operations_gcc_atomicILm4ELb0ELb0EE4loadERVKjNS_12memory_orderE.exit.i ], [ %24, %_ZN5boost7atomics6detail26core_operations_gcc_atomicILm4ELb0ELb0EE21compare_exchange_weakERVjRjjNS_12memory_orderES7_.exit6.i ]
-  br label %12, !llvm.loop !13
+  br label %12, !llvm.loop !12
 
 _ZN5boost7atomics6detail9lock_pool12_GLOBAL__N_110lock_state14lock_slow_pathEv.exit: ; preds = %5, %15
   ret void
@@ -337,19 +337,19 @@ _ZN5boost7atomics6detail26core_operations_gcc_atomicILm4ELb0ELb0EE23compare_exch
 ; Function Attrs: mustprogress nounwind uwtable
 define noundef ptr @_ZN5boost7atomics6detail9lock_pool19allocate_wait_stateEPvPVKv(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !tbaa !14
+  %4 = load ptr, ptr %3, align 8, !tbaa !13
   %5 = icmp eq ptr %4, null
-  br i1 %5, label %6, label %9, !prof !17
+  br i1 %5, label %6, label %9, !prof !16
 
 6:                                                ; preds = %2
   %7 = tail call fastcc noundef ptr @_ZN5boost7atomics6detail9lock_pool12_GLOBAL__N_115wait_state_list15allocate_bufferEmPNS4_6headerE(i64 noundef 2, ptr noundef null) #17
-  store ptr %7, ptr %3, align 8, !tbaa !14
+  store ptr %7, ptr %3, align 8, !tbaa !13
   %8 = icmp eq ptr %7, null
-  br i1 %8, label %_ZN5boost7atomics6detail9lock_pool12_GLOBAL__N_115wait_state_list14find_or_createEPVKv.exit.thread, label %.critedge.thread.i, !prof !17
+  br i1 %8, label %_ZN5boost7atomics6detail9lock_pool12_GLOBAL__N_115wait_state_list14find_or_createEPVKv.exit.thread, label %.critedge.thread.i, !prof !16
 
 9:                                                ; preds = %2
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %11 = load i64, ptr %4, align 8, !tbaa !18
+  %11 = load i64, ptr %4, align 8, !tbaa !17
   %12 = load atomic volatile i64, ptr @_ZN5boost7atomics6detail9lock_pool12_GLOBAL__N_114g_find_addressE monotonic, align 8
   %13 = inttoptr i64 %12 to ptr
   %14 = invoke noundef i64 %13(ptr noundef %1, ptr noundef nonnull %10, i64 noundef %11)
@@ -357,12 +357,12 @@ define noundef ptr @_ZN5boost7atomics6detail9lock_pool19allocate_wait_stateEPvPV
 
 _ZN5boost7atomics6detail9lock_pool12_GLOBAL__N_112find_addressEPVKvPKS5_m.exit.i.i: ; preds = %9
   %15 = icmp ult i64 %14, %11
-  %.pre.i = load ptr, ptr %3, align 8, !tbaa !14
+  %.pre.i = load ptr, ptr %3, align 8, !tbaa !13
   br i1 %15, label %_ZNK5boost7atomics6detail9lock_pool12_GLOBAL__N_115wait_state_list4findEPVKv.exit.i, label %_ZN5boost7atomics6detail9lock_pool12_GLOBAL__N_112find_addressEPVKvPKS5_m.exit.i._ZNK5boost7atomics6detail9lock_pool12_GLOBAL__N_115wait_state_list4findEPVKv.exit.thread_crit_edge.i
 
 _ZN5boost7atomics6detail9lock_pool12_GLOBAL__N_112find_addressEPVKvPKS5_m.exit.i._ZNK5boost7atomics6detail9lock_pool12_GLOBAL__N_115wait_state_list4findEPVKv.exit.thread_crit_edge.i: ; preds = %_ZN5boost7atomics6detail9lock_pool12_GLOBAL__N_112find_addressEPVKvPKS5_m.exit.i.i
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %.pre.i, i64 8
-  %.pre34.i = load i64, ptr %.phi.trans.insert.i, align 8, !tbaa !21
+  %.pre34.i = load i64, ptr %.phi.trans.insert.i, align 8, !tbaa !20
   br label %_ZNK5boost7atomics6detail9lock_pool12_GLOBAL__N_115wait_state_list4findEPVKv.exit.thread.i
 
 16:                                               ; preds = %9
@@ -375,42 +375,42 @@ _ZN5boost7atomics6detail9lock_pool12_GLOBAL__N_112find_addressEPVKvPKS5_m.exit.i
 _ZNK5boost7atomics6detail9lock_pool12_GLOBAL__N_115wait_state_list4findEPVKv.exit.i: ; preds = %_ZN5boost7atomics6detail9lock_pool12_GLOBAL__N_112find_addressEPVKvPKS5_m.exit.i.i
   %19 = getelementptr inbounds nuw i8, ptr %.pre.i, i64 16
   %20 = getelementptr inbounds nuw i8, ptr %.pre.i, i64 8
-  %21 = load i64, ptr %20, align 8, !tbaa !21
+  %21 = load i64, ptr %20, align 8, !tbaa !20
   %22 = getelementptr inbounds nuw ptr, ptr %19, i64 %21
   %23 = getelementptr inbounds nuw ptr, ptr %22, i64 %14
   %24 = load ptr, ptr %23, align 8, !tbaa !3
   %.not.i = icmp eq ptr %24, null
-  br i1 %.not.i, label %_ZNK5boost7atomics6detail9lock_pool12_GLOBAL__N_115wait_state_list4findEPVKv.exit.thread.i, label %_ZN5boost7atomics6detail9lock_pool12_GLOBAL__N_115wait_state_list14find_or_createEPVKv.exit, !prof !22
+  br i1 %.not.i, label %_ZNK5boost7atomics6detail9lock_pool12_GLOBAL__N_115wait_state_list4findEPVKv.exit.thread.i, label %_ZN5boost7atomics6detail9lock_pool12_GLOBAL__N_115wait_state_list14find_or_createEPVKv.exit, !prof !21
 
 _ZNK5boost7atomics6detail9lock_pool12_GLOBAL__N_115wait_state_list4findEPVKv.exit.thread.i: ; preds = %_ZNK5boost7atomics6detail9lock_pool12_GLOBAL__N_115wait_state_list4findEPVKv.exit.i, %_ZN5boost7atomics6detail9lock_pool12_GLOBAL__N_112find_addressEPVKvPKS5_m.exit.i._ZNK5boost7atomics6detail9lock_pool12_GLOBAL__N_115wait_state_list4findEPVKv.exit.thread_crit_edge.i
   %25 = phi i64 [ %.pre34.i, %_ZN5boost7atomics6detail9lock_pool12_GLOBAL__N_112find_addressEPVKvPKS5_m.exit.i._ZNK5boost7atomics6detail9lock_pool12_GLOBAL__N_115wait_state_list4findEPVKv.exit.thread_crit_edge.i ], [ %21, %_ZNK5boost7atomics6detail9lock_pool12_GLOBAL__N_115wait_state_list4findEPVKv.exit.i ]
-  %26 = load i64, ptr %.pre.i, align 8, !tbaa !18
+  %26 = load i64, ptr %.pre.i, align 8, !tbaa !17
   %27 = icmp eq i64 %26, %25
-  br i1 %27, label %28, label %.critedge.thread.i, !prof !17
+  br i1 %27, label %28, label %.critedge.thread.i, !prof !16
 
 28:                                               ; preds = %_ZNK5boost7atomics6detail9lock_pool12_GLOBAL__N_115wait_state_list4findEPVKv.exit.thread.i
   %29 = shl i64 %25, 1
   %30 = tail call fastcc noundef ptr @_ZN5boost7atomics6detail9lock_pool12_GLOBAL__N_115wait_state_list15allocate_bufferEmPNS4_6headerE(i64 noundef %29, ptr noundef nonnull %.pre.i) #17
   %.not27.i = icmp eq ptr %30, null
-  br i1 %.not27.i, label %_ZN5boost7atomics6detail9lock_pool12_GLOBAL__N_115wait_state_list14find_or_createEPVKv.exit.thread, label %31, !prof !17
+  br i1 %.not27.i, label %_ZN5boost7atomics6detail9lock_pool12_GLOBAL__N_115wait_state_list14find_or_createEPVKv.exit.thread, label %31, !prof !16
 
 31:                                               ; preds = %28
-  %32 = load ptr, ptr %3, align 8, !tbaa !14
+  %32 = load ptr, ptr %3, align 8, !tbaa !13
   tail call void @free(ptr noundef %32) #17
-  store ptr %30, ptr %3, align 8, !tbaa !14
+  store ptr %30, ptr %3, align 8, !tbaa !13
   br label %.critedge.thread.i
 
 .critedge.thread.i:                               ; preds = %31, %_ZNK5boost7atomics6detail9lock_pool12_GLOBAL__N_115wait_state_list4findEPVKv.exit.thread.i, %6
   %33 = phi ptr [ %.pre.i, %_ZNK5boost7atomics6detail9lock_pool12_GLOBAL__N_115wait_state_list4findEPVKv.exit.thread.i ], [ %30, %31 ], [ %7, %6 ]
-  %34 = load i64, ptr %33, align 8, !tbaa !18
+  %34 = load i64, ptr %33, align 8, !tbaa !17
   %35 = getelementptr inbounds nuw i8, ptr %33, i64 16
   %36 = getelementptr inbounds nuw i8, ptr %33, i64 8
-  %37 = load i64, ptr %36, align 8, !tbaa !21
+  %37 = load i64, ptr %36, align 8, !tbaa !20
   %38 = getelementptr inbounds nuw ptr, ptr %35, i64 %37
   %39 = getelementptr inbounds nuw ptr, ptr %38, i64 %34
   %40 = load ptr, ptr %39, align 8, !tbaa !3
   %41 = icmp eq ptr %40, null
-  br i1 %41, label %42, label %49, !prof !17
+  br i1 %41, label %42, label %49, !prof !16
 
 42:                                               ; preds = %.critedge.thread.i
   %43 = tail call noalias noundef dereferenceable_or_null(24) ptr @_ZnwmRKSt9nothrow_t(i64 noundef 24, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #19
@@ -418,15 +418,15 @@ _ZNK5boost7atomics6detail9lock_pool12_GLOBAL__N_115wait_state_list4findEPVKv.exi
   br i1 %44, label %_ZN5boost7atomics6detail9lock_pool12_GLOBAL__N_115wait_state_list14find_or_createEPVKv.exit.thread, label %45
 
 45:                                               ; preds = %42
-  store i64 0, ptr %43, align 8, !tbaa !23
+  store i64 0, ptr %43, align 8, !tbaa !22
   %46 = getelementptr inbounds nuw i8, ptr %43, i64 8
-  store i64 %34, ptr %46, align 8, !tbaa !25
+  store i64 %34, ptr %46, align 8, !tbaa !24
   %47 = getelementptr inbounds nuw i8, ptr %43, i64 16
-  store i32 0, ptr %47, align 8, !tbaa !26
+  store i32 0, ptr %47, align 8, !tbaa !25
   %48 = getelementptr inbounds nuw i8, ptr %43, i64 20
-  store i32 0, ptr %48, align 4, !tbaa !28
+  store i32 0, ptr %48, align 4, !tbaa !27
   store ptr %43, ptr %39, align 8, !tbaa !3
-  %.val28.pre.i = load ptr, ptr %3, align 8, !tbaa !14
+  %.val28.pre.i = load ptr, ptr %3, align 8, !tbaa !13
   br label %49
 
 49:                                               ; preds = %45, %.critedge.thread.i
@@ -435,17 +435,17 @@ _ZNK5boost7atomics6detail9lock_pool12_GLOBAL__N_115wait_state_list4findEPVKv.exi
   %50 = getelementptr inbounds nuw i8, ptr %.val28.i, i64 16
   %51 = getelementptr inbounds nuw ptr, ptr %50, i64 %34
   store ptr %1, ptr %51, align 8, !tbaa !3
-  %52 = load ptr, ptr %3, align 8, !tbaa !14
-  %53 = load i64, ptr %52, align 8, !tbaa !18
+  %52 = load ptr, ptr %3, align 8, !tbaa !13
+  %53 = load i64, ptr %52, align 8, !tbaa !17
   %54 = add i64 %53, 1
-  store i64 %54, ptr %52, align 8, !tbaa !18
+  store i64 %54, ptr %52, align 8, !tbaa !17
   br label %_ZN5boost7atomics6detail9lock_pool12_GLOBAL__N_115wait_state_list14find_or_createEPVKv.exit
 
 _ZN5boost7atomics6detail9lock_pool12_GLOBAL__N_115wait_state_list14find_or_createEPVKv.exit: ; preds = %49, %_ZNK5boost7atomics6detail9lock_pool12_GLOBAL__N_115wait_state_list4findEPVKv.exit.i
   %.0.i = phi ptr [ %.018.i, %49 ], [ %24, %_ZNK5boost7atomics6detail9lock_pool12_GLOBAL__N_115wait_state_list4findEPVKv.exit.i ]
-  %55 = load i64, ptr %.0.i, align 8, !tbaa !23
+  %55 = load i64, ptr %.0.i, align 8, !tbaa !22
   %56 = add i64 %55, 1
-  store i64 %56, ptr %.0.i, align 8, !tbaa !23
+  store i64 %56, ptr %.0.i, align 8, !tbaa !22
   br label %_ZN5boost7atomics6detail9lock_pool12_GLOBAL__N_115wait_state_list14find_or_createEPVKv.exit.thread
 
 _ZN5boost7atomics6detail9lock_pool12_GLOBAL__N_115wait_state_list14find_or_createEPVKv.exit.thread: ; preds = %42, %28, %6, %_ZN5boost7atomics6detail9lock_pool12_GLOBAL__N_115wait_state_list14find_or_createEPVKv.exit
@@ -456,29 +456,29 @@ _ZN5boost7atomics6detail9lock_pool12_GLOBAL__N_115wait_state_list14find_or_creat
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN5boost7atomics6detail9lock_pool15free_wait_stateEPvS3_(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #2 {
   %.not = icmp eq ptr %1, null
-  br i1 %.not, label %_ZN5boost7atomics6detail9lock_pool12_GLOBAL__N_115wait_state_list5eraseEPNS3_10wait_stateE.exit, label %3, !prof !17
+  br i1 %.not, label %_ZN5boost7atomics6detail9lock_pool12_GLOBAL__N_115wait_state_list5eraseEPNS3_10wait_stateE.exit, label %3, !prof !16
 
 3:                                                ; preds = %2
-  %4 = load i64, ptr %1, align 8, !tbaa !23
+  %4 = load i64, ptr %1, align 8, !tbaa !22
   %5 = add i64 %4, -1
-  store i64 %5, ptr %1, align 8, !tbaa !23
+  store i64 %5, ptr %1, align 8, !tbaa !22
   %6 = icmp eq i64 %5, 0
   br i1 %6, label %7, label %_ZN5boost7atomics6detail9lock_pool12_GLOBAL__N_115wait_state_list5eraseEPNS3_10wait_stateE.exit
 
 7:                                                ; preds = %3
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %.val24.i = load ptr, ptr %8, align 8, !tbaa !14
+  %.val24.i = load ptr, ptr %8, align 8, !tbaa !13
   %9 = getelementptr inbounds nuw i8, ptr %.val24.i, i64 16
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %11 = load i64, ptr %10, align 8, !tbaa !25
-  %12 = load i64, ptr %.val24.i, align 8, !tbaa !18
+  %11 = load i64, ptr %10, align 8, !tbaa !24
+  %12 = load i64, ptr %.val24.i, align 8, !tbaa !17
   %13 = add i64 %12, -1
   %.not.i = icmp eq i64 %11, %13
   br i1 %.not.i, label %25, label %14
 
 14:                                               ; preds = %7
   %15 = getelementptr inbounds nuw i8, ptr %.val24.i, i64 8
-  %16 = load i64, ptr %15, align 8, !tbaa !21
+  %16 = load i64, ptr %15, align 8, !tbaa !20
   %17 = getelementptr inbounds nuw ptr, ptr %9, i64 %16
   %18 = getelementptr inbounds nuw ptr, ptr %9, i64 %13
   %19 = load ptr, ptr %18, align 8, !tbaa !3
@@ -491,8 +491,8 @@ define void @_ZN5boost7atomics6detail9lock_pool15free_wait_stateEPvS3_(ptr nound
   store ptr %22, ptr %23, align 8, !tbaa !3
   store ptr %1, ptr %21, align 8, !tbaa !3
   %24 = getelementptr inbounds nuw i8, ptr %22, i64 8
-  store i64 %11, ptr %24, align 8, !tbaa !25
-  store i64 %13, ptr %10, align 8, !tbaa !25
+  store i64 %11, ptr %24, align 8, !tbaa !24
+  store i64 %13, ptr %10, align 8, !tbaa !24
   br label %27
 
 25:                                               ; preds = %7
@@ -501,14 +501,14 @@ define void @_ZN5boost7atomics6detail9lock_pool15free_wait_stateEPvS3_(ptr nound
   br label %27
 
 27:                                               ; preds = %25, %14
-  %28 = load ptr, ptr %8, align 8, !tbaa !14
-  %29 = load i64, ptr %28, align 8, !tbaa !18
+  %28 = load ptr, ptr %8, align 8, !tbaa !13
+  %29 = load i64, ptr %28, align 8, !tbaa !17
   %30 = add i64 %29, -1
-  store i64 %30, ptr %28, align 8, !tbaa !18
+  store i64 %30, ptr %28, align 8, !tbaa !17
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %32 = load i8, ptr %31, align 8, !tbaa !29, !range !30, !noundef !31
+  %32 = load i8, ptr %31, align 8, !tbaa !28, !range !29, !noundef !30
   %33 = trunc nuw i8 %32 to i1
-  br i1 %33, label %34, label %_ZN5boost7atomics6detail9lock_pool12_GLOBAL__N_115wait_state_list5eraseEPNS3_10wait_stateE.exit, !prof !17
+  br i1 %33, label %34, label %_ZN5boost7atomics6detail9lock_pool12_GLOBAL__N_115wait_state_list5eraseEPNS3_10wait_stateE.exit, !prof !16
 
 34:                                               ; preds = %27
   tail call fastcc void @_ZN5boost7atomics6detail9lock_pool12_GLOBAL__N_115wait_state_list10free_spareEv(ptr noundef nonnull align 8 dereferenceable(16) %8) #17
@@ -522,15 +522,15 @@ _ZN5boost7atomics6detail9lock_pool12_GLOBAL__N_115wait_state_list5eraseEPNS3_10w
 define void @_ZN5boost7atomics6detail9lock_pool4waitEPvS3_(ptr noundef %0, ptr noundef %1) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %struct.timespec, align 8
   %.not = icmp eq ptr %1, null
-  br i1 %.not, label %58, label %4, !prof !17
+  br i1 %.not, label %58, label %4, !prof !16
 
 4:                                                ; preds = %2
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %6 = load i32, ptr %5, align 8, !tbaa !26
+  %6 = load i32, ptr %5, align 8, !tbaa !25
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 20
-  %8 = load i32, ptr %7, align 4, !tbaa !28
+  %8 = load i32, ptr %7, align 4, !tbaa !27
   %9 = add i32 %8, 1
-  store i32 %9, ptr %7, align 4, !tbaa !28
+  store i32 %9, ptr %7, align 4, !tbaa !27
   %10 = load atomic volatile i32, ptr %0 monotonic, align 4
   %11 = and i32 %10, -2
   %12 = add i32 %11, 4
@@ -572,14 +572,14 @@ _ZN5boost7atomics6detail9lock_pool12_GLOBAL__N_110lock_state6unlockEv.exit.i: ; 
   %29 = tail call i64 (i64, ...) @syscall(i64 noundef 202, ptr noundef nonnull %5, i32 noundef 128, i32 noundef %6, ptr noundef null, ptr noundef null, i32 noundef 0) #17
   %30 = and i64 %29, 4294967295
   %.not.i = icmp eq i64 %30, 4
-  br i1 %.not.i, label %_ZN5boost7atomics6detail9lock_pool12_GLOBAL__N_110lock_state6unlockEv.exit.i, label %_ZN5boost7atomics6detail26core_operations_gcc_atomicILm4ELb0ELb0EE4loadERVKjNS_12memory_orderE.exit.i.i, !llvm.loop !32
+  br i1 %.not.i, label %_ZN5boost7atomics6detail9lock_pool12_GLOBAL__N_110lock_state6unlockEv.exit.i, label %_ZN5boost7atomics6detail26core_operations_gcc_atomicILm4ELb0ELb0EE4loadERVKjNS_12memory_orderE.exit.i.i
 
 _ZN5boost7atomics6detail26core_operations_gcc_atomicILm4ELb0ELb0EE4loadERVKjNS_12memory_orderE.exit.i.i: ; preds = %_ZN5boost7atomics6detail9lock_pool12_GLOBAL__N_110lock_state6unlockEv.exit.i, %.critedge.i.i
   %.028.i.i = phi i32 [ %38, %.critedge.i.i ], [ 0, %_ZN5boost7atomics6detail9lock_pool12_GLOBAL__N_110lock_state6unlockEv.exit.i ]
   %31 = load atomic volatile i32, ptr %0 monotonic, align 4
   %32 = and i32 %31, 1
   %33 = icmp eq i32 %32, 0
-  br i1 %33, label %34, label %.critedge.i.i, !prof !10
+  br i1 %33, label %34, label %.critedge.i.i, !prof !9
 
 34:                                               ; preds = %_ZN5boost7atomics6detail26core_operations_gcc_atomicILm4ELb0ELb0EE4loadERVKjNS_12memory_orderE.exit.i.i
   %35 = or disjoint i32 %31, 1
@@ -588,10 +588,10 @@ _ZN5boost7atomics6detail26core_operations_gcc_atomicILm4ELb0ELb0EE4loadERVKjNS_1
   br i1 %37, label %_ZN5boost7atomics6detail9lock_pool12_GLOBAL__N_110wait_state4waitERNS3_10lock_stateE.exit, label %.critedge.i.i
 
 .critedge.i.i:                                    ; preds = %34, %_ZN5boost7atomics6detail26core_operations_gcc_atomicILm4ELb0ELb0EE4loadERVKjNS_12memory_orderE.exit.i.i
-  tail call void asm sideeffect "pause;", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !11
+  tail call void asm sideeffect "pause;", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !10
   %38 = add nuw nsw i32 %.028.i.i, 1
   %exitcond.not.i.i = icmp eq i32 %38, 10
-  br i1 %exitcond.not.i.i, label %39, label %_ZN5boost7atomics6detail26core_operations_gcc_atomicILm4ELb0ELb0EE4loadERVKjNS_12memory_orderE.exit.i.i, !llvm.loop !12
+  br i1 %exitcond.not.i.i, label %39, label %_ZN5boost7atomics6detail26core_operations_gcc_atomicILm4ELb0ELb0EE4loadERVKjNS_12memory_orderE.exit.i.i, !llvm.loop !11
 
 39:                                               ; preds = %.critedge.i.i
   %40 = load atomic volatile i32, ptr %0 monotonic, align 4
@@ -601,7 +601,7 @@ _ZN5boost7atomics6detail26core_operations_gcc_atomicILm4ELb0ELb0EE4loadERVKjNS_1
   %.0.i8.i.i = phi i32 [ %40, %39 ], [ %.0.i8.i.i.be, %.backedge ]
   %42 = and i32 %.0.i8.i.i, 1
   %43 = icmp eq i32 %42, 0
-  br i1 %43, label %44, label %49, !prof !10
+  br i1 %43, label %44, label %49, !prof !9
 
 44:                                               ; preds = %41
   %45 = or disjoint i32 %.0.i8.i.i, 1
@@ -630,12 +630,12 @@ _ZN5boost7atomics6detail26core_operations_gcc_atomicILm4ELb0ELb0EE4loadERVKjNS_1
 
 .backedge:                                        ; preds = %_ZN5boost7atomics6detail26core_operations_gcc_atomicILm4ELb0ELb0EE4loadERVKjNS_12memory_orderE.exit.i.i.i, %_ZN5boost7atomics6detail26core_operations_gcc_atomicILm4ELb0ELb0EE21compare_exchange_weakERVjRjjNS_12memory_orderES7_.exit6.i.i.i, %_ZN5boost7atomics6detail26core_operations_gcc_atomicILm4ELb0ELb0EE21compare_exchange_weakERVjRjjNS_12memory_orderES7_.exit.i.i.i
   %.0.i8.i.i.be = phi i32 [ %48, %_ZN5boost7atomics6detail26core_operations_gcc_atomicILm4ELb0ELb0EE21compare_exchange_weakERVjRjjNS_12memory_orderES7_.exit.i.i.i ], [ %55, %_ZN5boost7atomics6detail26core_operations_gcc_atomicILm4ELb0ELb0EE4loadERVKjNS_12memory_orderE.exit.i.i.i ], [ %53, %_ZN5boost7atomics6detail26core_operations_gcc_atomicILm4ELb0ELb0EE21compare_exchange_weakERVjRjjNS_12memory_orderES7_.exit6.i.i.i ]
-  br label %41, !llvm.loop !13
+  br label %41, !llvm.loop !12
 
 _ZN5boost7atomics6detail9lock_pool12_GLOBAL__N_110wait_state4waitERNS3_10lock_stateE.exit: ; preds = %34, %44
-  %56 = load i32, ptr %7, align 4, !tbaa !28
+  %56 = load i32, ptr %7, align 4, !tbaa !27
   %57 = add i32 %56, -1
-  store i32 %57, ptr %7, align 4, !tbaa !28
+  store i32 %57, ptr %7, align 4, !tbaa !27
   br label %64
 
 58:                                               ; preds = %2
@@ -643,7 +643,7 @@ _ZN5boost7atomics6detail9lock_pool12_GLOBAL__N_110wait_state4waitERNS3_10lock_st
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #17
   %59 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 0, ptr %3, align 8
-  store i64 1000, ptr %59, align 8, !tbaa !33
+  store i64 1000, ptr %59, align 8, !tbaa !31
   %60 = invoke i32 @nanosleep(ptr noundef nonnull %3, ptr noundef null)
           to label %_ZN5boost7atomics6detail9wait_someEv.exit unwind label %61
 
@@ -666,13 +666,13 @@ _ZN5boost7atomics6detail9wait_someEv.exit:        ; preds = %58
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN5boost7atomics6detail9lock_pool10notify_oneEPvPVKv(ptr noundef %0, ptr noundef %1) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !tbaa !14
+  %4 = load ptr, ptr %3, align 8, !tbaa !13
   %.not.i = icmp eq ptr %4, null
-  br i1 %.not.i, label %_ZN5boost7atomics6detail9lock_pool12_GLOBAL__N_110wait_state10notify_oneERNS3_10lock_stateE.exit, label %5, !prof !17
+  br i1 %.not.i, label %_ZN5boost7atomics6detail9lock_pool12_GLOBAL__N_110wait_state10notify_oneERNS3_10lock_stateE.exit, label %5, !prof !16
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %7 = load i64, ptr %4, align 8, !tbaa !18
+  %7 = load i64, ptr %4, align 8, !tbaa !17
   %8 = load atomic volatile i64, ptr @_ZN5boost7atomics6detail9lock_pool12_GLOBAL__N_114g_find_addressE monotonic, align 8
   %9 = inttoptr i64 %8 to ptr
   %10 = invoke noundef i64 %9(ptr noundef %1, ptr noundef nonnull %6, i64 noundef %7)
@@ -690,29 +690,29 @@ _ZN5boost7atomics6detail9lock_pool12_GLOBAL__N_112find_addressEPVKvPKS5_m.exit.i
   unreachable
 
 _ZNK5boost7atomics6detail9lock_pool12_GLOBAL__N_115wait_state_list4findEPVKv.exit: ; preds = %_ZN5boost7atomics6detail9lock_pool12_GLOBAL__N_112find_addressEPVKvPKS5_m.exit.i
-  %.val.i = load ptr, ptr %3, align 8, !tbaa !14
+  %.val.i = load ptr, ptr %3, align 8, !tbaa !13
   %15 = getelementptr inbounds nuw i8, ptr %.val.i, i64 16
   %16 = getelementptr inbounds nuw i8, ptr %.val.i, i64 8
-  %17 = load i64, ptr %16, align 8, !tbaa !21
+  %17 = load i64, ptr %16, align 8, !tbaa !20
   %18 = getelementptr inbounds nuw ptr, ptr %15, i64 %17
   %19 = getelementptr inbounds nuw ptr, ptr %18, i64 %10
   %20 = load ptr, ptr %19, align 8, !tbaa !3
   %.not = icmp eq ptr %20, null
-  br i1 %.not, label %_ZN5boost7atomics6detail9lock_pool12_GLOBAL__N_110wait_state10notify_oneERNS3_10lock_stateE.exit, label %21, !prof !22
+  br i1 %.not, label %_ZN5boost7atomics6detail9lock_pool12_GLOBAL__N_110wait_state10notify_oneERNS3_10lock_stateE.exit, label %21, !prof !21
 
 21:                                               ; preds = %_ZNK5boost7atomics6detail9lock_pool12_GLOBAL__N_115wait_state_list4findEPVKv.exit
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 16
-  %23 = load i32, ptr %22, align 8, !tbaa !26
+  %23 = load i32, ptr %22, align 8, !tbaa !25
   %24 = add i32 %23, 1
-  store i32 %24, ptr %22, align 8, !tbaa !26
+  store i32 %24, ptr %22, align 8, !tbaa !25
   %25 = getelementptr inbounds nuw i8, ptr %20, i64 20
-  %26 = load i32, ptr %25, align 4, !tbaa !28
+  %26 = load i32, ptr %25, align 4, !tbaa !27
   %.not.i6 = icmp eq i32 %26, 0
-  br i1 %.not.i6, label %_ZN5boost7atomics6detail9lock_pool12_GLOBAL__N_110wait_state10notify_oneERNS3_10lock_stateE.exit, label %27, !prof !17
+  br i1 %.not.i6, label %_ZN5boost7atomics6detail9lock_pool12_GLOBAL__N_110wait_state10notify_oneERNS3_10lock_stateE.exit, label %27, !prof !16
 
 27:                                               ; preds = %21
   %28 = tail call i64 (i64, ...) @syscall(i64 noundef 202, ptr noundef nonnull %22, i32 noundef 131, i32 noundef 0, i64 noundef 1, ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef 0) #17
-  tail call void asm sideeffect "lock; orl $1, $0\0A\09", "=*m,ir,*m,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) align 8 dereferenceable(24) %0, i32 2, ptr nonnull elementtype(i32) align 8 dereferenceable(24) %0) #17, !srcloc !35
+  tail call void asm sideeffect "lock; orl $1, $0\0A\09", "=*m,ir,*m,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) align 8 dereferenceable(24) %0, i32 2, ptr nonnull elementtype(i32) align 8 dereferenceable(24) %0) #17, !srcloc !33
   br label %_ZN5boost7atomics6detail9lock_pool12_GLOBAL__N_110wait_state10notify_oneERNS3_10lock_stateE.exit
 
 _ZN5boost7atomics6detail9lock_pool12_GLOBAL__N_110wait_state10notify_oneERNS3_10lock_stateE.exit: ; preds = %_ZN5boost7atomics6detail9lock_pool12_GLOBAL__N_112find_addressEPVKvPKS5_m.exit.i, %2, %27, %21, %_ZNK5boost7atomics6detail9lock_pool12_GLOBAL__N_115wait_state_list4findEPVKv.exit
@@ -722,13 +722,13 @@ _ZN5boost7atomics6detail9lock_pool12_GLOBAL__N_110wait_state10notify_oneERNS3_10
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN5boost7atomics6detail9lock_pool10notify_allEPvPVKv(ptr noundef %0, ptr noundef %1) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !tbaa !14
+  %4 = load ptr, ptr %3, align 8, !tbaa !13
   %.not.i = icmp eq ptr %4, null
-  br i1 %.not.i, label %_ZN5boost7atomics6detail9lock_pool12_GLOBAL__N_110wait_state10notify_allERNS3_10lock_stateE.exit, label %5, !prof !17
+  br i1 %.not.i, label %_ZN5boost7atomics6detail9lock_pool12_GLOBAL__N_110wait_state10notify_allERNS3_10lock_stateE.exit, label %5, !prof !16
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %7 = load i64, ptr %4, align 8, !tbaa !18
+  %7 = load i64, ptr %4, align 8, !tbaa !17
   %8 = load atomic volatile i64, ptr @_ZN5boost7atomics6detail9lock_pool12_GLOBAL__N_114g_find_addressE monotonic, align 8
   %9 = inttoptr i64 %8 to ptr
   %10 = invoke noundef i64 %9(ptr noundef %1, ptr noundef nonnull %6, i64 noundef %7)
@@ -746,29 +746,29 @@ _ZN5boost7atomics6detail9lock_pool12_GLOBAL__N_112find_addressEPVKvPKS5_m.exit.i
   unreachable
 
 _ZNK5boost7atomics6detail9lock_pool12_GLOBAL__N_115wait_state_list4findEPVKv.exit: ; preds = %_ZN5boost7atomics6detail9lock_pool12_GLOBAL__N_112find_addressEPVKvPKS5_m.exit.i
-  %.val.i = load ptr, ptr %3, align 8, !tbaa !14
+  %.val.i = load ptr, ptr %3, align 8, !tbaa !13
   %15 = getelementptr inbounds nuw i8, ptr %.val.i, i64 16
   %16 = getelementptr inbounds nuw i8, ptr %.val.i, i64 8
-  %17 = load i64, ptr %16, align 8, !tbaa !21
+  %17 = load i64, ptr %16, align 8, !tbaa !20
   %18 = getelementptr inbounds nuw ptr, ptr %15, i64 %17
   %19 = getelementptr inbounds nuw ptr, ptr %18, i64 %10
   %20 = load ptr, ptr %19, align 8, !tbaa !3
   %.not = icmp eq ptr %20, null
-  br i1 %.not, label %_ZN5boost7atomics6detail9lock_pool12_GLOBAL__N_110wait_state10notify_allERNS3_10lock_stateE.exit, label %21, !prof !22
+  br i1 %.not, label %_ZN5boost7atomics6detail9lock_pool12_GLOBAL__N_110wait_state10notify_allERNS3_10lock_stateE.exit, label %21, !prof !21
 
 21:                                               ; preds = %_ZNK5boost7atomics6detail9lock_pool12_GLOBAL__N_115wait_state_list4findEPVKv.exit
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 16
-  %23 = load i32, ptr %22, align 8, !tbaa !26
+  %23 = load i32, ptr %22, align 8, !tbaa !25
   %24 = add i32 %23, 1
-  store i32 %24, ptr %22, align 8, !tbaa !26
+  store i32 %24, ptr %22, align 8, !tbaa !25
   %25 = getelementptr inbounds nuw i8, ptr %20, i64 20
-  %26 = load i32, ptr %25, align 4, !tbaa !28
+  %26 = load i32, ptr %25, align 4, !tbaa !27
   %.not.i6 = icmp eq i32 %26, 0
-  br i1 %.not.i6, label %_ZN5boost7atomics6detail9lock_pool12_GLOBAL__N_110wait_state10notify_allERNS3_10lock_stateE.exit, label %27, !prof !17
+  br i1 %.not.i6, label %_ZN5boost7atomics6detail9lock_pool12_GLOBAL__N_110wait_state10notify_allERNS3_10lock_stateE.exit, label %27, !prof !16
 
 27:                                               ; preds = %21
   %28 = tail call i64 (i64, ...) @syscall(i64 noundef 202, ptr noundef nonnull %22, i32 noundef 131, i32 noundef 0, i64 noundef 2147483647, ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef 0) #17
-  tail call void asm sideeffect "lock; orl $1, $0\0A\09", "=*m,ir,*m,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) align 8 dereferenceable(24) %0, i32 2, ptr nonnull elementtype(i32) align 8 dereferenceable(24) %0) #17, !srcloc !35
+  tail call void asm sideeffect "lock; orl $1, $0\0A\09", "=*m,ir,*m,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) align 8 dereferenceable(24) %0, i32 2, ptr nonnull elementtype(i32) align 8 dereferenceable(24) %0) #17, !srcloc !33
   br label %_ZN5boost7atomics6detail9lock_pool12_GLOBAL__N_110wait_state10notify_allERNS3_10lock_stateE.exit
 
 _ZN5boost7atomics6detail9lock_pool12_GLOBAL__N_110wait_state10notify_allERNS3_10lock_stateE.exit: ; preds = %_ZN5boost7atomics6detail9lock_pool12_GLOBAL__N_112find_addressEPVKvPKS5_m.exit.i, %2, %27, %21, %_ZNK5boost7atomics6detail9lock_pool12_GLOBAL__N_115wait_state_list4findEPVKv.exit
@@ -779,8 +779,8 @@ _ZN5boost7atomics6detail9lock_pool12_GLOBAL__N_110wait_state10notify_allERNS3_10
 define void @_ZN5boost7atomics6detail9lock_pool12thread_fenceEv() local_unnamed_addr #2 {
   %1 = alloca i8, align 1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %1) #17
-  store i8 0, ptr %1, align 1, !tbaa !36
-  call void asm sideeffect "lock; notb $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %1, ptr nonnull elementtype(i8) %1) #17, !srcloc !37
+  store i8 0, ptr %1, align 1, !tbaa !34
+  call void asm sideeffect "lock; notb $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %1, ptr nonnull elementtype(i8) %1) #17, !srcloc !35
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %1) #17
   ret void
 }
@@ -800,7 +800,7 @@ define internal fastcc noundef ptr @_ZN5boost7atomics6detail9lock_pool12_GLOBAL_
   %3 = alloca ptr, align 8
   %4 = load atomic volatile i8, ptr @_ZN5boost7atomics6detail9lock_pool12_GLOBAL__N_125g_pool_cleanup_registeredE monotonic, align 1
   %5 = icmp eq i8 %4, 0
-  br i1 %5, label %6, label %11, !prof !17
+  br i1 %5, label %6, label %11, !prof !16
 
 6:                                                ; preds = %2
   %7 = atomicrmw volatile xchg ptr @_ZN5boost7atomics6detail9lock_pool12_GLOBAL__N_125g_pool_cleanup_registeredE, i8 1 monotonic, align 1
@@ -821,32 +821,32 @@ define internal fastcc noundef ptr @_ZN5boost7atomics6detail9lock_pool12_GLOBAL_
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #17
   %15 = icmp eq ptr %.pre.i, null
   %16 = select i1 %.not.i, i1 true, i1 %15
-  br i1 %16, label %39, label %17, !prof !17
+  br i1 %16, label %39, label %17, !prof !16
 
 17:                                               ; preds = %11
   %.not = icmp eq ptr %1, null
-  br i1 %.not, label %36, label %18, !prof !17
+  br i1 %.not, label %36, label %18, !prof !16
 
 18:                                               ; preds = %17
   %19 = getelementptr inbounds nuw i8, ptr %.pre.i, i64 16
   %20 = getelementptr inbounds nuw ptr, ptr %19, i64 %0
-  %21 = load i64, ptr %1, align 8, !tbaa !18
-  store i64 %21, ptr %.pre.i, align 8, !tbaa !18
+  %21 = load i64, ptr %1, align 8, !tbaa !17
+  store i64 %21, ptr %.pre.i, align 8, !tbaa !17
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %23 = shl i64 %21, 3
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %19, ptr nonnull align 8 %22, i64 %23, i1 false)
-  %24 = load i64, ptr %1, align 8, !tbaa !18
+  %24 = load i64, ptr %1, align 8, !tbaa !17
   %.idx = shl i64 %24, 6
   %25 = getelementptr inbounds nuw i8, ptr %19, i64 %.idx
   %26 = sub i64 %0, %24
   %27 = shl i64 %26, 3
   call void @llvm.memset.p0.i64(ptr nonnull align 8 %25, i8 0, i64 %27, i1 false)
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %29 = load i64, ptr %28, align 8, !tbaa !21
+  %29 = load i64, ptr %28, align 8, !tbaa !20
   %30 = getelementptr inbounds nuw ptr, ptr %22, i64 %29
   %31 = shl i64 %29, 3
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %20, ptr nonnull align 8 %30, i64 %31, i1 false)
-  %32 = load i64, ptr %28, align 8, !tbaa !21
+  %32 = load i64, ptr %28, align 8, !tbaa !20
   %.idx34 = shl i64 %32, 6
   %33 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx34
   %34 = sub i64 %0, %32
@@ -860,7 +860,7 @@ define internal fastcc noundef ptr @_ZN5boost7atomics6detail9lock_pool12_GLOBAL_
 
 37:                                               ; preds = %36, %18
   %38 = getelementptr inbounds nuw i8, ptr %.pre.i, i64 8
-  store i64 %0, ptr %38, align 8, !tbaa !21
+  store i64 %0, ptr %38, align 8, !tbaa !20
   br label %39
 
 39:                                               ; preds = %11, %37
@@ -891,7 +891,7 @@ _ZN5boost7atomics6detail26core_operations_gcc_atomicILm4ELb0ELb0EE4loadERVKjNS_1
   %4 = load atomic volatile i32, ptr %3 monotonic, align 64
   %5 = and i32 %4, 1
   %6 = icmp eq i32 %5, 0
-  br i1 %6, label %7, label %.critedge.i, !prof !10
+  br i1 %6, label %7, label %.critedge.i, !prof !9
 
 7:                                                ; preds = %_ZN5boost7atomics6detail26core_operations_gcc_atomicILm4ELb0ELb0EE4loadERVKjNS_12memory_orderE.exit.i
   %8 = or disjoint i32 %4, 1
@@ -900,10 +900,10 @@ _ZN5boost7atomics6detail26core_operations_gcc_atomicILm4ELb0ELb0EE4loadERVKjNS_1
   br i1 %10, label %_ZN5boost7atomics6detail9lock_pool12_GLOBAL__N_110lock_state9long_lockEv.exit, label %.critedge.i
 
 .critedge.i:                                      ; preds = %7, %_ZN5boost7atomics6detail26core_operations_gcc_atomicILm4ELb0ELb0EE4loadERVKjNS_12memory_orderE.exit.i
-  tail call void asm sideeffect "pause;", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !11
+  tail call void asm sideeffect "pause;", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !10
   %11 = add nuw nsw i32 %.028.i, 1
   %exitcond.not.i = icmp eq i32 %11, 10
-  br i1 %exitcond.not.i, label %12, label %_ZN5boost7atomics6detail26core_operations_gcc_atomicILm4ELb0ELb0EE4loadERVKjNS_12memory_orderE.exit.i, !llvm.loop !12
+  br i1 %exitcond.not.i, label %12, label %_ZN5boost7atomics6detail26core_operations_gcc_atomicILm4ELb0ELb0EE4loadERVKjNS_12memory_orderE.exit.i, !llvm.loop !11
 
 12:                                               ; preds = %.critedge.i
   %13 = load atomic volatile i32, ptr %3 monotonic, align 64
@@ -913,7 +913,7 @@ _ZN5boost7atomics6detail26core_operations_gcc_atomicILm4ELb0ELb0EE4loadERVKjNS_1
   %.0.i8.i = phi i32 [ %13, %12 ], [ %.0.i8.i.be, %.backedge ]
   %15 = and i32 %.0.i8.i, 1
   %16 = icmp eq i32 %15, 0
-  br i1 %16, label %17, label %22, !prof !10
+  br i1 %16, label %17, label %22, !prof !9
 
 17:                                               ; preds = %14
   %18 = or disjoint i32 %.0.i8.i, 1
@@ -942,22 +942,22 @@ _ZN5boost7atomics6detail26core_operations_gcc_atomicILm4ELb0ELb0EE4loadERVKjNS_1
 
 .backedge:                                        ; preds = %_ZN5boost7atomics6detail26core_operations_gcc_atomicILm4ELb0ELb0EE4loadERVKjNS_12memory_orderE.exit.i.i, %_ZN5boost7atomics6detail26core_operations_gcc_atomicILm4ELb0ELb0EE21compare_exchange_weakERVjRjjNS_12memory_orderES7_.exit6.i.i, %_ZN5boost7atomics6detail26core_operations_gcc_atomicILm4ELb0ELb0EE21compare_exchange_weakERVjRjjNS_12memory_orderES7_.exit.i.i
   %.0.i8.i.be = phi i32 [ %21, %_ZN5boost7atomics6detail26core_operations_gcc_atomicILm4ELb0ELb0EE21compare_exchange_weakERVjRjjNS_12memory_orderES7_.exit.i.i ], [ %28, %_ZN5boost7atomics6detail26core_operations_gcc_atomicILm4ELb0ELb0EE4loadERVKjNS_12memory_orderE.exit.i.i ], [ %26, %_ZN5boost7atomics6detail26core_operations_gcc_atomicILm4ELb0ELb0EE21compare_exchange_weakERVjRjjNS_12memory_orderES7_.exit6.i.i ]
-  br label %14, !llvm.loop !13
+  br label %14, !llvm.loop !12
 
 _ZN5boost7atomics6detail9lock_pool12_GLOBAL__N_110lock_state9long_lockEv.exit: ; preds = %7, %17
   %29 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %30 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store i8 1, ptr %30, align 16, !tbaa !38
-  %31 = load ptr, ptr %29, align 8, !tbaa !14
+  store i8 1, ptr %30, align 16, !tbaa !36
+  %31 = load ptr, ptr %29, align 8, !tbaa !13
   %.not.i = icmp eq ptr %31, null
-  br i1 %.not.i, label %_ZN5boost7atomics6detail9lock_pool12_GLOBAL__N_115wait_state_list10free_spareEv.exit, label %32, !prof !17
+  br i1 %.not.i, label %_ZN5boost7atomics6detail9lock_pool12_GLOBAL__N_115wait_state_list10free_spareEv.exit, label %32, !prof !16
 
 32:                                               ; preds = %_ZN5boost7atomics6detail9lock_pool12_GLOBAL__N_110lock_state9long_lockEv.exit
   %33 = getelementptr inbounds nuw i8, ptr %31, i64 16
   %34 = getelementptr inbounds nuw i8, ptr %31, i64 8
-  %35 = load i64, ptr %34, align 8, !tbaa !21
+  %35 = load i64, ptr %34, align 8, !tbaa !20
   %36 = getelementptr inbounds nuw ptr, ptr %33, i64 %35
-  %37 = load i64, ptr %31, align 8, !tbaa !18
+  %37 = load i64, ptr %31, align 8, !tbaa !17
   %38 = icmp ult i64 %37, %35
   br i1 %38, label %.lr.ph.i, label %.critedge.i6
 
@@ -973,11 +973,11 @@ _ZN5boost7atomics6detail9lock_pool12_GLOBAL__N_110lock_state9long_lockEv.exit: ;
   store ptr null, ptr %39, align 8, !tbaa !3
   %42 = add i64 %.013.i, 1
   %exitcond.not.i7 = icmp eq i64 %42, %35
-  br i1 %exitcond.not.i7, label %.critedge.loopexit.i, label %.lr.ph.i, !llvm.loop !40
+  br i1 %exitcond.not.i7, label %.critedge.loopexit.i, label %.lr.ph.i, !llvm.loop !38
 
 .critedge.loopexit.i:                             ; preds = %41, %.lr.ph.i
-  %.pre.i = load ptr, ptr %29, align 8, !tbaa !14
-  %.pre15.i = load i64, ptr %.pre.i, align 8, !tbaa !18
+  %.pre.i = load ptr, ptr %29, align 8, !tbaa !13
+  %.pre15.i = load i64, ptr %.pre.i, align 8, !tbaa !17
   br label %.critedge.i6
 
 .critedge.i6:                                     ; preds = %.critedge.loopexit.i, %32
@@ -988,7 +988,7 @@ _ZN5boost7atomics6detail9lock_pool12_GLOBAL__N_110lock_state9long_lockEv.exit: ;
 
 46:                                               ; preds = %.critedge.i6
   tail call void @free(ptr noundef nonnull %44) #17
-  store ptr null, ptr %29, align 8, !tbaa !14
+  store ptr null, ptr %29, align 8, !tbaa !13
   br label %_ZN5boost7atomics6detail9lock_pool12_GLOBAL__N_115wait_state_list10free_spareEv.exit
 
 _ZN5boost7atomics6detail9lock_pool12_GLOBAL__N_115wait_state_list10free_spareEv.exit: ; preds = %_ZN5boost7atomics6detail9lock_pool12_GLOBAL__N_110lock_state9long_lockEv.exit, %.critedge.i6, %46
@@ -1029,7 +1029,7 @@ _ZN5boost7atomics6detail26core_operations_gcc_atomicILm4ELb0ELb0EE21compare_exch
 _ZN5boost7atomics6detail9lock_pool12_GLOBAL__N_110lock_state6unlockEv.exit: ; preds = %._crit_edge.i, %59, %63
   %66 = add nuw nsw i64 %.012, 1
   %exitcond.not = icmp eq i64 %66, 256
-  br i1 %exitcond.not, label %1, label %2, !llvm.loop !41
+  br i1 %exitcond.not, label %1, label %2, !llvm.loop !39
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
@@ -1040,16 +1040,16 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @_ZN5boost7atomics6detail9lock_pool12_GLOBAL__N_115wait_state_list10free_spareEv(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %0) unnamed_addr #2 align 2 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !14
+  %2 = load ptr, ptr %0, align 8, !tbaa !13
   %.not = icmp eq ptr %2, null
-  br i1 %.not, label %18, label %3, !prof !17
+  br i1 %.not, label %18, label %3, !prof !16
 
 3:                                                ; preds = %1
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %6 = load i64, ptr %5, align 8, !tbaa !21
+  %6 = load i64, ptr %5, align 8, !tbaa !20
   %7 = getelementptr inbounds nuw ptr, ptr %4, i64 %6
-  %8 = load i64, ptr %2, align 8, !tbaa !18
+  %8 = load i64, ptr %2, align 8, !tbaa !17
   %9 = icmp ult i64 %8, %6
   br i1 %9, label %.lr.ph, label %.critedge
 
@@ -1065,11 +1065,11 @@ define internal fastcc void @_ZN5boost7atomics6detail9lock_pool12_GLOBAL__N_115w
   store ptr null, ptr %10, align 8, !tbaa !3
   %13 = add i64 %.013, 1
   %exitcond.not = icmp eq i64 %13, %6
-  br i1 %exitcond.not, label %.critedge.loopexit, label %.lr.ph, !llvm.loop !40
+  br i1 %exitcond.not, label %.critedge.loopexit, label %.lr.ph, !llvm.loop !38
 
 .critedge.loopexit:                               ; preds = %.lr.ph, %12
-  %.pre = load ptr, ptr %0, align 8, !tbaa !14
-  %.pre15 = load i64, ptr %.pre, align 8, !tbaa !18
+  %.pre = load ptr, ptr %0, align 8, !tbaa !13
+  %.pre15 = load i64, ptr %.pre, align 8, !tbaa !17
   br label %.critedge
 
 .critedge:                                        ; preds = %.critedge.loopexit, %3
@@ -1080,7 +1080,7 @@ define internal fastcc void @_ZN5boost7atomics6detail9lock_pool12_GLOBAL__N_115w
 
 17:                                               ; preds = %.critedge
   tail call void @free(ptr noundef nonnull %15) #17
-  store ptr null, ptr %0, align 8, !tbaa !14
+  store ptr null, ptr %0, align 8, !tbaa !13
   br label %18
 
 18:                                               ; preds = %.critedge, %17, %1
@@ -1114,13 +1114,13 @@ declare void @_ZSt9terminatev() local_unnamed_addr #14
 
 ; Function Attrs: mustprogress uwtable
 define internal noundef i64 @_ZN5boost7atomics6detail9lock_pool12_GLOBAL__N_121find_address_dispatchEPVKvPKS5_m(ptr noundef %0, ptr noundef %1, i64 noundef %2) #15 {
-  %4 = tail call { i32, i32, i32, i32 } asm sideeffect "cpuid\0A\09", "={ax},={bx},={cx},={dx},0,1,2,3,~{dirflag},~{fpsr},~{flags}"(i32 0, i32 0, i32 0, i32 0) #17, !srcloc !42
+  %4 = tail call { i32, i32, i32, i32 } asm sideeffect "cpuid\0A\09", "={ax},={bx},={cx},={dx},0,1,2,3,~{dirflag},~{fpsr},~{flags}"(i32 0, i32 0, i32 0, i32 0) #17, !srcloc !40
   %5 = extractvalue { i32, i32, i32, i32 } %4, 0
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %12, label %6
 
 6:                                                ; preds = %3
-  %7 = tail call { i32, i32, i32, i32 } asm sideeffect "cpuid\0A\09", "={ax},={bx},={cx},={dx},0,1,2,3,~{dirflag},~{fpsr},~{flags}"(i32 1, i32 0, i32 0, i32 0) #17, !srcloc !42
+  %7 = tail call { i32, i32, i32, i32 } asm sideeffect "cpuid\0A\09", "={ax},={bx},={cx},={dx},0,1,2,3,~{dirflag},~{fpsr},~{flags}"(i32 1, i32 0, i32 0, i32 0) #17, !srcloc !40
   %8 = extractvalue { i32, i32, i32, i32 } %7, 2
   %9 = extractvalue { i32, i32, i32, i32 } %7, 3
   %10 = and i32 %9, 67108864
@@ -1135,7 +1135,7 @@ define internal noundef i64 @_ZN5boost7atomics6detail9lock_pool12_GLOBAL__N_121f
   %.0 = phi ptr [ @_ZN5boost7atomics6detail20find_address_genericEPVKvPKS3_m, %3 ], [ %spec.select7, %6 ]
   %13 = ptrtoint ptr %.0 to i64
   store atomic volatile i64 %13, ptr @_ZN5boost7atomics6detail9lock_pool12_GLOBAL__N_114g_find_addressE monotonic, align 8
-  %14 = tail call noundef i64 %.0(ptr noundef %0, ptr noundef %1, i64 noundef %2), !callees !43
+  %14 = tail call noundef i64 %.0(ptr noundef %0, ptr noundef %1, i64 noundef %2), !callees !41
   ret i64 %14
 }
 
@@ -1177,40 +1177,38 @@ attributes #20 = { builtin nounwind }
 !4 = !{!"any pointer", !5, i64 0}
 !5 = !{!"omnipotent char", !6, i64 0}
 !6 = !{!"Simple C++ TBAA"}
-!7 = distinct !{!7, !8, !9}
+!7 = distinct !{!7, !8}
 !8 = !{!"llvm.loop.mustprogress"}
-!9 = !{!"llvm.loop.estimated_trip_count"}
-!10 = !{!"branch_weights", !"expected", i32 2000, i32 1}
-!11 = !{i64 1707029}
-!12 = distinct !{!12, !8, !9}
-!13 = distinct !{!13, !8, !9}
-!14 = !{!15, !4, i64 0}
-!15 = !{!"_ZTSN5boost7atomics6detail9lock_pool12_GLOBAL__N_115wait_state_listE", !4, i64 0, !16, i64 8}
-!16 = !{!"bool", !5, i64 0}
-!17 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!18 = !{!19, !20, i64 0}
-!19 = !{!"_ZTSN5boost7atomics6detail9lock_pool12_GLOBAL__N_115wait_state_list6headerE", !20, i64 0, !20, i64 8}
-!20 = !{!"long", !5, i64 0}
-!21 = !{!19, !20, i64 8}
-!22 = !{!"branch_weights", !"expected", i32 0, i32 -2147483648}
-!23 = !{!24, !20, i64 0}
-!24 = !{!"_ZTSN5boost7atomics6detail9lock_pool12_GLOBAL__N_115wait_state_baseE", !20, i64 0, !20, i64 8}
-!25 = !{!24, !20, i64 8}
-!26 = !{!27, !5, i64 16}
-!27 = !{!"_ZTSN5boost7atomics6detail9lock_pool12_GLOBAL__N_110wait_stateE", !24, i64 0, !5, i64 16, !5, i64 20}
-!28 = !{!27, !5, i64 20}
-!29 = !{!15, !16, i64 8}
-!30 = !{i8 0, i8 2}
-!31 = !{}
-!32 = distinct !{!32, !9}
-!33 = !{!34, !20, i64 8}
-!34 = !{!"_ZTS8timespec", !20, i64 0, !20, i64 8}
-!35 = !{i64 1630090, i64 1630126}
-!36 = !{!5, !5, i64 0}
-!37 = !{i64 1698683}
-!38 = !{!39, !16, i64 16}
-!39 = !{!"_ZTSN5boost7atomics6detail9lock_pool12_GLOBAL__N_110lock_stateE", !5, i64 0, !15, i64 8}
-!40 = distinct !{!40, !8, !9}
-!41 = distinct !{!41, !8, !9}
-!42 = !{i64 1884596, i64 1884604}
-!43 = !{ptr @_ZN5boost7atomics6detail17find_address_sse2EPVKvPKS3_m, ptr @_ZN5boost7atomics6detail18find_address_sse41EPVKvPKS3_m, ptr @_ZN5boost7atomics6detail20find_address_genericEPVKvPKS3_m}
+!9 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!10 = !{i64 1707029}
+!11 = distinct !{!11, !8}
+!12 = distinct !{!12, !8}
+!13 = !{!14, !4, i64 0}
+!14 = !{!"_ZTSN5boost7atomics6detail9lock_pool12_GLOBAL__N_115wait_state_listE", !4, i64 0, !15, i64 8}
+!15 = !{!"bool", !5, i64 0}
+!16 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!17 = !{!18, !19, i64 0}
+!18 = !{!"_ZTSN5boost7atomics6detail9lock_pool12_GLOBAL__N_115wait_state_list6headerE", !19, i64 0, !19, i64 8}
+!19 = !{!"long", !5, i64 0}
+!20 = !{!18, !19, i64 8}
+!21 = !{!"branch_weights", !"expected", i32 0, i32 -2147483648}
+!22 = !{!23, !19, i64 0}
+!23 = !{!"_ZTSN5boost7atomics6detail9lock_pool12_GLOBAL__N_115wait_state_baseE", !19, i64 0, !19, i64 8}
+!24 = !{!23, !19, i64 8}
+!25 = !{!26, !5, i64 16}
+!26 = !{!"_ZTSN5boost7atomics6detail9lock_pool12_GLOBAL__N_110wait_stateE", !23, i64 0, !5, i64 16, !5, i64 20}
+!27 = !{!26, !5, i64 20}
+!28 = !{!14, !15, i64 8}
+!29 = !{i8 0, i8 2}
+!30 = !{}
+!31 = !{!32, !19, i64 8}
+!32 = !{!"_ZTS8timespec", !19, i64 0, !19, i64 8}
+!33 = !{i64 1630090, i64 1630126}
+!34 = !{!5, !5, i64 0}
+!35 = !{i64 1698683}
+!36 = !{!37, !15, i64 16}
+!37 = !{!"_ZTSN5boost7atomics6detail9lock_pool12_GLOBAL__N_110lock_stateE", !5, i64 0, !14, i64 8}
+!38 = distinct !{!38, !8}
+!39 = distinct !{!39, !8}
+!40 = !{i64 1884596, i64 1884604}
+!41 = !{ptr @_ZN5boost7atomics6detail17find_address_sse2EPVKvPKS3_m, ptr @_ZN5boost7atomics6detail18find_address_sse41EPVKvPKS3_m, ptr @_ZN5boost7atomics6detail20find_address_genericEPVKvPKS3_m}

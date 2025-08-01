@@ -88,7 +88,7 @@ define dso_local range(i32 -1, 1) i32 @init() local_unnamed_addr #0 {
   %31 = load i32, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 376), align 8
   %32 = zext i32 %31 to i64
   %33 = icmp samesign ult i64 %indvars.iv.next21, %32
-  br i1 %33, label %.lr.ph16, label %.loopexit, !llvm.loop !12
+  br i1 %33, label %.lr.ph16, label %.loopexit, !llvm.loop !11
 
 .loopexit:                                        ; preds = %30, %.preheader, %0
   %.010 = phi i32 [ 0, %0 ], [ %.1.lcssa, %.preheader ], [ %.4, %30 ]
@@ -232,8 +232,7 @@ attributes #5 = { nounwind }
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i32 7, !"frame-pointer", i32 2}
 !7 = !{i32 7, !"debug-info-assignment-tracking", i1 true}
-!8 = distinct !{!8, !9, !10, !11}
+!8 = distinct !{!8, !9, !10}
 !9 = !{!"llvm.loop.mustprogress"}
 !10 = !{!"llvm.loop.unroll.disable"}
-!11 = !{!"llvm.loop.estimated_trip_count"}
-!12 = distinct !{!12, !9, !10, !11}
+!11 = distinct !{!11, !9, !10}

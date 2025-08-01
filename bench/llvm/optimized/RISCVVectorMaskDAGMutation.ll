@@ -177,7 +177,7 @@ define linkonce_odr hidden void @_ZN4llvm26RISCVVectorMaskDAGMutation5applyEPNS_
 _ZN4llvmL20isVectorMaskProducerEPKNS_12MachineInstrE.exit: ; preds = %18, %28, %22, %11
   %32 = getelementptr inbounds nuw i8, ptr %.sroa.020.027, i64 256
   %.not24 = icmp eq ptr %32, %7
-  br i1 %.not24, label %._crit_edge, label %11, !llvm.loop !50
+  br i1 %.not24, label %._crit_edge, label %11
 }
 
 ; Function Attrs: nobuiltin nounwind
@@ -251,5 +251,3 @@ attributes #8 = { nounwind }
 !47 = !{!"_ZTSN4llvm4SDepE", !48, i64 0, !14, i64 8, !34, i64 12}
 !48 = !{!"_ZTSN4llvm14PointerIntPairIPNS_5SUnitELj2ENS_4SDep4KindENS_21PointerLikeTypeTraitsIS2_EENS_18PointerIntPairInfoIS2_Lj2ES6_EEEE", !49, i64 0}
 !49 = !{!"_ZTSN4llvm6detail13PunnedPointerIPNS_5SUnitEEE", !14, i64 0}
-!50 = distinct !{!50, !51}
-!51 = !{!"llvm.loop.estimated_trip_count"}

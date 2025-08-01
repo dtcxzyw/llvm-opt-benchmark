@@ -61,12 +61,12 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 define dso_local void @_ZN3ozz2io6ExternINS_4math9SoaFloat2EE4LoadERNS0_8IArchiveEPS3_mj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(9) %0, ptr noundef %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #0 align 2 {
   %5 = shl i64 %2, 5
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %7 = load ptr, ptr %0, align 8, !tbaa !21
+  %7 = load ptr, ptr %0, align 8, !tbaa !20
   %8 = load ptr, ptr %7, align 8, !tbaa !16
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
   %11 = tail call noundef i64 %10(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef %1, i64 noundef %5)
-  %12 = load i8, ptr %6, align 8, !tbaa !23, !range !11, !noundef !12
+  %12 = load i8, ptr %6, align 8, !tbaa !22, !range !11, !noundef !12
   %13 = trunc nuw i8 %12 to i1
   %.not9.i.i = icmp ne i64 %5, 0
   %or.cond.not = and i1 %.not9.i.i, %13
@@ -76,19 +76,19 @@ define dso_local void @_ZN3ozz2io6ExternINS_4math9SoaFloat2EE4LoadERNS0_8IArchiv
   %.0.i6.i.i = phi i64 [ %22, %.lr.ph.i.i ], [ 0, %4 ]
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 %.0.i6.i.i
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 3
-  %16 = load i8, ptr %14, align 1, !tbaa !24
-  %17 = load i8, ptr %15, align 1, !tbaa !24
-  store i8 %16, ptr %15, align 1, !tbaa !24
-  store i8 %17, ptr %14, align 1, !tbaa !24
+  %16 = load i8, ptr %14, align 1, !tbaa !23
+  %17 = load i8, ptr %15, align 1, !tbaa !23
+  store i8 %16, ptr %15, align 1, !tbaa !23
+  store i8 %17, ptr %14, align 1, !tbaa !23
   %18 = getelementptr inbounds nuw i8, ptr %14, i64 1
   %19 = getelementptr inbounds nuw i8, ptr %14, i64 2
-  %20 = load i8, ptr %18, align 1, !tbaa !24
-  %21 = load i8, ptr %19, align 1, !tbaa !24
-  store i8 %20, ptr %19, align 1, !tbaa !24
-  store i8 %21, ptr %18, align 1, !tbaa !24
+  %20 = load i8, ptr %18, align 1, !tbaa !23
+  %21 = load i8, ptr %19, align 1, !tbaa !23
+  store i8 %20, ptr %19, align 1, !tbaa !23
+  store i8 %21, ptr %18, align 1, !tbaa !23
   %22 = add nuw i64 %.0.i6.i.i, 4
   %23 = icmp ult i64 %22, %5
-  br i1 %23, label %.lr.ph.i.i, label %_ZN3ozz2io8IArchiversIKNS0_8internal5ArrayIfEEEEvRT_.exit, !llvm.loop !25
+  br i1 %23, label %.lr.ph.i.i, label %_ZN3ozz2io8IArchiversIKNS0_8internal5ArrayIfEEEEvRT_.exit, !llvm.loop !24
 
 _ZN3ozz2io8IArchiversIKNS0_8internal5ArrayIfEEEEvRT_.exit: ; preds = %.lr.ph.i.i, %4
   ret void
@@ -146,12 +146,12 @@ _ZN3ozz2io8OArchivelsINS0_8internal5ArrayIKfEEEEvRKT_.exit: ; preds = %.lr.ph.i.
 define dso_local void @_ZN3ozz2io6ExternINS_4math9SoaFloat3EE4LoadERNS0_8IArchiveEPS3_mj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(9) %0, ptr noundef %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #0 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = mul i64 %2, 48
-  %7 = load ptr, ptr %0, align 8, !tbaa !21
+  %7 = load ptr, ptr %0, align 8, !tbaa !20
   %8 = load ptr, ptr %7, align 8, !tbaa !16
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
   %11 = tail call noundef i64 %10(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef %1, i64 noundef %6)
-  %12 = load i8, ptr %5, align 8, !tbaa !23, !range !11, !noundef !12
+  %12 = load i8, ptr %5, align 8, !tbaa !22, !range !11, !noundef !12
   %13 = trunc nuw i8 %12 to i1
   %.not9.i.i = icmp ne i64 %6, 0
   %or.cond.not = and i1 %.not9.i.i, %13
@@ -161,19 +161,19 @@ define dso_local void @_ZN3ozz2io6ExternINS_4math9SoaFloat3EE4LoadERNS0_8IArchiv
   %.0.i6.i.i = phi i64 [ %22, %.lr.ph.i.i ], [ 0, %4 ]
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 %.0.i6.i.i
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 3
-  %16 = load i8, ptr %14, align 1, !tbaa !24
-  %17 = load i8, ptr %15, align 1, !tbaa !24
-  store i8 %16, ptr %15, align 1, !tbaa !24
-  store i8 %17, ptr %14, align 1, !tbaa !24
+  %16 = load i8, ptr %14, align 1, !tbaa !23
+  %17 = load i8, ptr %15, align 1, !tbaa !23
+  store i8 %16, ptr %15, align 1, !tbaa !23
+  store i8 %17, ptr %14, align 1, !tbaa !23
   %18 = getelementptr inbounds nuw i8, ptr %14, i64 1
   %19 = getelementptr inbounds nuw i8, ptr %14, i64 2
-  %20 = load i8, ptr %18, align 1, !tbaa !24
-  %21 = load i8, ptr %19, align 1, !tbaa !24
-  store i8 %20, ptr %19, align 1, !tbaa !24
-  store i8 %21, ptr %18, align 1, !tbaa !24
+  %20 = load i8, ptr %18, align 1, !tbaa !23
+  %21 = load i8, ptr %19, align 1, !tbaa !23
+  store i8 %20, ptr %19, align 1, !tbaa !23
+  store i8 %21, ptr %18, align 1, !tbaa !23
   %22 = add nuw i64 %.0.i6.i.i, 4
   %23 = icmp ult i64 %22, %6
-  br i1 %23, label %.lr.ph.i.i, label %_ZN3ozz2io8IArchiversIKNS0_8internal5ArrayIfEEEEvRT_.exit, !llvm.loop !25
+  br i1 %23, label %.lr.ph.i.i, label %_ZN3ozz2io8IArchiversIKNS0_8internal5ArrayIfEEEEvRT_.exit, !llvm.loop !24
 
 _ZN3ozz2io8IArchiversIKNS0_8internal5ArrayIfEEEEvRT_.exit: ; preds = %.lr.ph.i.i, %4
   ret void
@@ -231,12 +231,12 @@ _ZN3ozz2io8OArchivelsINS0_8internal5ArrayIKfEEEEvRKT_.exit: ; preds = %.lr.ph.i.
 define dso_local void @_ZN3ozz2io6ExternINS_4math9SoaFloat4EE4LoadERNS0_8IArchiveEPS3_mj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(9) %0, ptr noundef %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #0 align 2 {
   %5 = shl i64 %2, 6
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %7 = load ptr, ptr %0, align 8, !tbaa !21
+  %7 = load ptr, ptr %0, align 8, !tbaa !20
   %8 = load ptr, ptr %7, align 8, !tbaa !16
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
   %11 = tail call noundef i64 %10(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef %1, i64 noundef %5)
-  %12 = load i8, ptr %6, align 8, !tbaa !23, !range !11, !noundef !12
+  %12 = load i8, ptr %6, align 8, !tbaa !22, !range !11, !noundef !12
   %13 = trunc nuw i8 %12 to i1
   %.not9.i.i = icmp ne i64 %5, 0
   %or.cond.not = and i1 %.not9.i.i, %13
@@ -246,19 +246,19 @@ define dso_local void @_ZN3ozz2io6ExternINS_4math9SoaFloat4EE4LoadERNS0_8IArchiv
   %.0.i6.i.i = phi i64 [ %22, %.lr.ph.i.i ], [ 0, %4 ]
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 %.0.i6.i.i
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 3
-  %16 = load i8, ptr %14, align 1, !tbaa !24
-  %17 = load i8, ptr %15, align 1, !tbaa !24
-  store i8 %16, ptr %15, align 1, !tbaa !24
-  store i8 %17, ptr %14, align 1, !tbaa !24
+  %16 = load i8, ptr %14, align 1, !tbaa !23
+  %17 = load i8, ptr %15, align 1, !tbaa !23
+  store i8 %16, ptr %15, align 1, !tbaa !23
+  store i8 %17, ptr %14, align 1, !tbaa !23
   %18 = getelementptr inbounds nuw i8, ptr %14, i64 1
   %19 = getelementptr inbounds nuw i8, ptr %14, i64 2
-  %20 = load i8, ptr %18, align 1, !tbaa !24
-  %21 = load i8, ptr %19, align 1, !tbaa !24
-  store i8 %20, ptr %19, align 1, !tbaa !24
-  store i8 %21, ptr %18, align 1, !tbaa !24
+  %20 = load i8, ptr %18, align 1, !tbaa !23
+  %21 = load i8, ptr %19, align 1, !tbaa !23
+  store i8 %20, ptr %19, align 1, !tbaa !23
+  store i8 %21, ptr %18, align 1, !tbaa !23
   %22 = add nuw i64 %.0.i6.i.i, 4
   %23 = icmp ult i64 %22, %5
-  br i1 %23, label %.lr.ph.i.i, label %_ZN3ozz2io8IArchiversIKNS0_8internal5ArrayIfEEEEvRT_.exit, !llvm.loop !25
+  br i1 %23, label %.lr.ph.i.i, label %_ZN3ozz2io8IArchiversIKNS0_8internal5ArrayIfEEEEvRT_.exit, !llvm.loop !24
 
 _ZN3ozz2io8IArchiversIKNS0_8internal5ArrayIfEEEEvRT_.exit: ; preds = %.lr.ph.i.i, %4
   ret void
@@ -316,12 +316,12 @@ _ZN3ozz2io8OArchivelsINS0_8internal5ArrayIKfEEEEvRKT_.exit: ; preds = %.lr.ph.i.
 define dso_local void @_ZN3ozz2io6ExternINS_4math13SoaQuaternionEE4LoadERNS0_8IArchiveEPS3_mj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(9) %0, ptr noundef %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #0 align 2 {
   %5 = shl i64 %2, 6
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %7 = load ptr, ptr %0, align 8, !tbaa !21
+  %7 = load ptr, ptr %0, align 8, !tbaa !20
   %8 = load ptr, ptr %7, align 8, !tbaa !16
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
   %11 = tail call noundef i64 %10(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef %1, i64 noundef %5)
-  %12 = load i8, ptr %6, align 8, !tbaa !23, !range !11, !noundef !12
+  %12 = load i8, ptr %6, align 8, !tbaa !22, !range !11, !noundef !12
   %13 = trunc nuw i8 %12 to i1
   %.not9.i.i = icmp ne i64 %5, 0
   %or.cond.not = and i1 %.not9.i.i, %13
@@ -331,19 +331,19 @@ define dso_local void @_ZN3ozz2io6ExternINS_4math13SoaQuaternionEE4LoadERNS0_8IA
   %.0.i6.i.i = phi i64 [ %22, %.lr.ph.i.i ], [ 0, %4 ]
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 %.0.i6.i.i
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 3
-  %16 = load i8, ptr %14, align 1, !tbaa !24
-  %17 = load i8, ptr %15, align 1, !tbaa !24
-  store i8 %16, ptr %15, align 1, !tbaa !24
-  store i8 %17, ptr %14, align 1, !tbaa !24
+  %16 = load i8, ptr %14, align 1, !tbaa !23
+  %17 = load i8, ptr %15, align 1, !tbaa !23
+  store i8 %16, ptr %15, align 1, !tbaa !23
+  store i8 %17, ptr %14, align 1, !tbaa !23
   %18 = getelementptr inbounds nuw i8, ptr %14, i64 1
   %19 = getelementptr inbounds nuw i8, ptr %14, i64 2
-  %20 = load i8, ptr %18, align 1, !tbaa !24
-  %21 = load i8, ptr %19, align 1, !tbaa !24
-  store i8 %20, ptr %19, align 1, !tbaa !24
-  store i8 %21, ptr %18, align 1, !tbaa !24
+  %20 = load i8, ptr %18, align 1, !tbaa !23
+  %21 = load i8, ptr %19, align 1, !tbaa !23
+  store i8 %20, ptr %19, align 1, !tbaa !23
+  store i8 %21, ptr %18, align 1, !tbaa !23
   %22 = add nuw i64 %.0.i6.i.i, 4
   %23 = icmp ult i64 %22, %5
-  br i1 %23, label %.lr.ph.i.i, label %_ZN3ozz2io8IArchiversIKNS0_8internal5ArrayIfEEEEvRT_.exit, !llvm.loop !25
+  br i1 %23, label %.lr.ph.i.i, label %_ZN3ozz2io8IArchiversIKNS0_8internal5ArrayIfEEEEvRT_.exit, !llvm.loop !24
 
 _ZN3ozz2io8IArchiversIKNS0_8internal5ArrayIfEEEEvRT_.exit: ; preds = %.lr.ph.i.i, %4
   ret void
@@ -401,12 +401,12 @@ _ZN3ozz2io8OArchivelsINS0_8internal5ArrayIKfEEEEvRKT_.exit: ; preds = %.lr.ph.i.
 define dso_local void @_ZN3ozz2io6ExternINS_4math11SoaFloat4x4EE4LoadERNS0_8IArchiveEPS3_mj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(9) %0, ptr noundef %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #0 align 2 {
   %5 = shl i64 %2, 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %7 = load ptr, ptr %0, align 8, !tbaa !21
+  %7 = load ptr, ptr %0, align 8, !tbaa !20
   %8 = load ptr, ptr %7, align 8, !tbaa !16
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
   %11 = tail call noundef i64 %10(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef %1, i64 noundef %5)
-  %12 = load i8, ptr %6, align 8, !tbaa !23, !range !11, !noundef !12
+  %12 = load i8, ptr %6, align 8, !tbaa !22, !range !11, !noundef !12
   %13 = trunc nuw i8 %12 to i1
   %.not9.i.i = icmp ne i64 %5, 0
   %or.cond.not = and i1 %.not9.i.i, %13
@@ -416,19 +416,19 @@ define dso_local void @_ZN3ozz2io6ExternINS_4math11SoaFloat4x4EE4LoadERNS0_8IArc
   %.0.i6.i.i = phi i64 [ %22, %.lr.ph.i.i ], [ 0, %4 ]
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 %.0.i6.i.i
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 3
-  %16 = load i8, ptr %14, align 1, !tbaa !24
-  %17 = load i8, ptr %15, align 1, !tbaa !24
-  store i8 %16, ptr %15, align 1, !tbaa !24
-  store i8 %17, ptr %14, align 1, !tbaa !24
+  %16 = load i8, ptr %14, align 1, !tbaa !23
+  %17 = load i8, ptr %15, align 1, !tbaa !23
+  store i8 %16, ptr %15, align 1, !tbaa !23
+  store i8 %17, ptr %14, align 1, !tbaa !23
   %18 = getelementptr inbounds nuw i8, ptr %14, i64 1
   %19 = getelementptr inbounds nuw i8, ptr %14, i64 2
-  %20 = load i8, ptr %18, align 1, !tbaa !24
-  %21 = load i8, ptr %19, align 1, !tbaa !24
-  store i8 %20, ptr %19, align 1, !tbaa !24
-  store i8 %21, ptr %18, align 1, !tbaa !24
+  %20 = load i8, ptr %18, align 1, !tbaa !23
+  %21 = load i8, ptr %19, align 1, !tbaa !23
+  store i8 %20, ptr %19, align 1, !tbaa !23
+  store i8 %21, ptr %18, align 1, !tbaa !23
   %22 = add nuw i64 %.0.i6.i.i, 4
   %23 = icmp ult i64 %22, %5
-  br i1 %23, label %.lr.ph.i.i, label %_ZN3ozz2io8IArchiversIKNS0_8internal5ArrayIfEEEEvRT_.exit, !llvm.loop !25
+  br i1 %23, label %.lr.ph.i.i, label %_ZN3ozz2io8IArchiversIKNS0_8internal5ArrayIfEEEEvRT_.exit, !llvm.loop !24
 
 _ZN3ozz2io8IArchiversIKNS0_8internal5ArrayIfEEEEvRT_.exit: ; preds = %.lr.ph.i.i, %4
   ret void
@@ -486,12 +486,12 @@ _ZN3ozz2io8OArchivelsINS0_8internal5ArrayIKfEEEEvRKT_.exit: ; preds = %.lr.ph.i.
 define dso_local void @_ZN3ozz2io6ExternINS_4math12SoaTransformEE4LoadERNS0_8IArchiveEPS3_mj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(9) %0, ptr noundef %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #0 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = mul i64 %2, 160
-  %7 = load ptr, ptr %0, align 8, !tbaa !21
+  %7 = load ptr, ptr %0, align 8, !tbaa !20
   %8 = load ptr, ptr %7, align 8, !tbaa !16
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
   %11 = tail call noundef i64 %10(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef %1, i64 noundef %6)
-  %12 = load i8, ptr %5, align 8, !tbaa !23, !range !11, !noundef !12
+  %12 = load i8, ptr %5, align 8, !tbaa !22, !range !11, !noundef !12
   %13 = trunc nuw i8 %12 to i1
   %.not9.i.i = icmp ne i64 %6, 0
   %or.cond.not = and i1 %.not9.i.i, %13
@@ -501,19 +501,19 @@ define dso_local void @_ZN3ozz2io6ExternINS_4math12SoaTransformEE4LoadERNS0_8IAr
   %.0.i6.i.i = phi i64 [ %22, %.lr.ph.i.i ], [ 0, %4 ]
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 %.0.i6.i.i
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 3
-  %16 = load i8, ptr %14, align 1, !tbaa !24
-  %17 = load i8, ptr %15, align 1, !tbaa !24
-  store i8 %16, ptr %15, align 1, !tbaa !24
-  store i8 %17, ptr %14, align 1, !tbaa !24
+  %16 = load i8, ptr %14, align 1, !tbaa !23
+  %17 = load i8, ptr %15, align 1, !tbaa !23
+  store i8 %16, ptr %15, align 1, !tbaa !23
+  store i8 %17, ptr %14, align 1, !tbaa !23
   %18 = getelementptr inbounds nuw i8, ptr %14, i64 1
   %19 = getelementptr inbounds nuw i8, ptr %14, i64 2
-  %20 = load i8, ptr %18, align 1, !tbaa !24
-  %21 = load i8, ptr %19, align 1, !tbaa !24
-  store i8 %20, ptr %19, align 1, !tbaa !24
-  store i8 %21, ptr %18, align 1, !tbaa !24
+  %20 = load i8, ptr %18, align 1, !tbaa !23
+  %21 = load i8, ptr %19, align 1, !tbaa !23
+  store i8 %20, ptr %19, align 1, !tbaa !23
+  store i8 %21, ptr %18, align 1, !tbaa !23
   %22 = add nuw i64 %.0.i6.i.i, 4
   %23 = icmp ult i64 %22, %6
-  br i1 %23, label %.lr.ph.i.i, label %_ZN3ozz2io8IArchiversIKNS0_8internal5ArrayIfEEEEvRT_.exit, !llvm.loop !25
+  br i1 %23, label %.lr.ph.i.i, label %_ZN3ozz2io8IArchiversIKNS0_8internal5ArrayIfEEEEvRT_.exit, !llvm.loop !24
 
 _ZN3ozz2io8IArchiversIKNS0_8internal5ArrayIfEEEEvRT_.exit: ; preds = %.lr.ph.i.i, %4
   ret void
@@ -547,11 +547,10 @@ attributes #3 = { nounwind }
 !15 = !{!5, !6, i64 0}
 !16 = !{!17, !17, i64 0}
 !17 = !{!"vtable pointer", !9, i64 0}
-!18 = distinct !{!18, !19, !20}
+!18 = distinct !{!18, !19}
 !19 = !{!"llvm.loop.mustprogress"}
-!20 = !{!"llvm.loop.estimated_trip_count"}
-!21 = !{!22, !6, i64 0}
-!22 = !{!"_ZTSN3ozz2io8IArchiveE", !6, i64 0, !10, i64 8}
-!23 = !{!22, !10, i64 8}
-!24 = !{!8, !8, i64 0}
-!25 = distinct !{!25, !19, !20}
+!20 = !{!21, !6, i64 0}
+!21 = !{!"_ZTSN3ozz2io8IArchiveE", !6, i64 0, !10, i64 8}
+!22 = !{!21, !10, i64 8}
+!23 = !{!8, !8, i64 0}
+!24 = distinct !{!24, !19}

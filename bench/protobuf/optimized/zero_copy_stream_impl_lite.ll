@@ -1650,7 +1650,7 @@ if.end18:                                         ; preds = %if.end12
   %vfn9 = getelementptr inbounds nuw i8, ptr %vtable8, i64 16
   %18 = load ptr, ptr %vfn9, align 8
   %call10 = call noundef zeroext i1 %18(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull %out, ptr noundef nonnull %out_size)
-  br i1 %call10, label %if.end12, label %return, !llvm.loop !7
+  br i1 %call10, label %if.end12, label %return, !llvm.loop !6
 
 return:                                           ; preds = %if.end18, %while.body7.preheader, %_ZNKSt14default_deleteIA_hEclIhEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i.i.i.i.i, %if.else.i.i, %if.then, %lor.lhs.false, %if.then14, %while.end
   %retval.0 = phi i1 [ true, %while.end ], [ true, %if.then14 ], [ false, %lor.lhs.false ], [ false, %if.then ], [ false, %if.else.i.i ], [ false, %_ZNKSt14default_deleteIA_hEclIhEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i.i.i.i.i ], [ false, %while.body7.preheader ], [ false, %if.end18 ]
@@ -1688,7 +1688,7 @@ for.inc:                                          ; preds = %for.body
   %call7 = call noundef nonnull align 8 dereferenceable(152) ptr @_ZN4absl12lts_202308024Cord13ChunkIteratorppEv(ptr noundef nonnull align 8 dereferenceable(152) %__begin2)
   %2 = load i64, ptr %bytes_remaining_.i.i, align 8
   %cmp.i.i.not = icmp eq i64 %2, 0
-  br i1 %cmp.i.i.not, label %return, label %for.body, !llvm.loop !8
+  br i1 %cmp.i.i.not, label %return, label %for.body
 
 return:                                           ; preds = %for.body, %for.inc, %entry
   %cmp.i.i.not.lcssa = phi i1 [ true, %entry ], [ %call6, %for.inc ], [ %call6, %for.body ]
@@ -1761,7 +1761,7 @@ if.end.i.i.i.i:                                   ; preds = %do.body.i.i.i.i
   %conv.i.i.i.i.i = zext i8 %10 to i64
   %cmp5.i.i.i.i = icmp eq i64 %add.i.i.i.i, %conv.i.i.i.i.i
   %indvars.iv.next24.i.i.i.i = add nuw i32 %indvars.iv23.i.i.i.i, 1
-  br i1 %cmp5.i.i.i.i, label %do.body.i.i.i.i, label %do.end.i.i.i.i, !llvm.loop !9
+  br i1 %cmp5.i.i.i.i, label %do.body.i.i.i.i, label %do.end.i.i.i.i, !llvm.loop !7
 
 do.end.i.i.i.i:                                   ; preds = %if.end.i.i.i.i
   %arrayidx3.i.i.i.i.le = getelementptr inbounds nuw [12 x i8], ptr %index_.i.i.i, i64 0, i64 %indvars.iv.next.i.i.i.i
@@ -1786,7 +1786,7 @@ do.body10.i.i.i.i:                                ; preds = %do.body10.i.i.i.i, 
   %arrayidx20.i.i.i.i = getelementptr inbounds [12 x i8], ptr %index_.i.i.i, i64 0, i64 %indvars.iv.next27.i.i.i.i
   store i8 %13, ptr %arrayidx20.i.i.i.i, align 1
   %cmp22.i.i.i.i = icmp sgt i64 %indvars.iv26.i.i.i.i, 1
-  br i1 %cmp22.i.i.i.i, label %do.body10.i.i.i.i, label %cond.end.sink.split.i.loopexit.i.i, !llvm.loop !10
+  br i1 %cmp22.i.i.i.i, label %do.body10.i.i.i.i, label %cond.end.sink.split.i.loopexit.i.i, !llvm.loop !8
 
 cond.false.i.i.i:                                 ; preds = %if.end.i.i
   %inc.i.i.i = add i8 %6, 1
@@ -2961,13 +2961,13 @@ _ZNK4absl12lts_2023080210CordBuffer6lengthEv.exit: ; preds = %cond.true.i, %cond
   ]
 
 sw.bb:                                            ; preds = %_ZNK4absl12lts_2023080210CordBuffer6lengthEv.exit
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !11)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !9)
   br i1 %cmp.i.i.not.i.i, label %cond.false.i.i.i.i, label %cond.true.i.i.i.i
 
 cond.true.i.i.i.i:                                ; preds = %sw.bb
   %rep.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
-  %14 = load ptr, ptr %rep.i.i.i.i.i.i.i, align 8, !noalias !11
-  %15 = load i64, ptr %14, align 8, !noalias !11
+  %14 = load ptr, ptr %rep.i.i.i.i.i.i.i, align 8, !noalias !9
+  %15 = load i64, ptr %14, align 8, !noalias !9
   br label %_ZNK4absl12lts_202308024Cord5emptyEv.exit.i
 
 cond.false.i.i.i.i:                               ; preds = %sw.bb
@@ -2981,7 +2981,7 @@ _ZNK4absl12lts_202308024Cord5emptyEv.exit.i:      ; preds = %cond.false.i.i.i.i,
   br i1 %cmp.i.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %_ZNK4absl12lts_202308024Cord5emptyEv.exit.i
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !14)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !12)
   %cmp.i2.i = icmp ugt i64 %desired_size.0, 15
   br i1 %cmp.i2.i, label %if.then.i.i, label %if.end.i.i
 
@@ -2996,9 +2996,9 @@ if.then.i.i:                                      ; preds = %if.then.i
   %add.i.i.i.i.i.i = add nsw i64 %len.addr.0.i.i.i.i, -1
   %sub.i.i.i.i.i.i = add nuw nsw i64 %add.i.i.i.i.i.i, %conv.i.i.i.i.i6
   %and.i.i.i.i.i.i = and i64 %sub.i.i.i.i.i.i, %conv.i.neg.i.i.i.i
-  %call4.i.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %and.i.i.i.i.i.i) #31, !noalias !17
+  %call4.i.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %and.i.i.i.i.i.i) #31, !noalias !15
   %17 = getelementptr inbounds nuw i8, ptr %call4.i.i.i.i, i64 8
-  store i64 4, ptr %17, align 8, !noalias !17
+  store i64 4, ptr %17, align 8, !noalias !15
   %cmp.i.i.i.i.i.i = icmp samesign ult i64 %and.i.i.i.i.i.i, 513
   %.sink8.i.i.i.i.i.i = select i1 %cmp.i.i.i.i.i.i, i64 3, i64 6
   %.sink.i.i.i.i.i.i = select i1 %cmp.i.i.i.i.i.i, i64 2, i64 58
@@ -3006,15 +3006,15 @@ if.then.i.i:                                      ; preds = %if.then.i
   %sub.i.i5.i.i.i.i = add nuw nsw i64 %div36.i.i.i.i.i.i, %.sink.i.i.i.i.i.i
   %conv.i.i.i.i.i.i = trunc nuw nsw i64 %sub.i.i5.i.i.i.i to i8
   %tag.i.i.i.i = getelementptr inbounds nuw i8, ptr %call4.i.i.i.i, i64 12
-  store i8 %conv.i.i.i.i.i.i, ptr %tag.i.i.i.i, align 4, !noalias !17
-  store i64 0, ptr %call4.i.i.i.i, align 8, !noalias !17
-  store ptr %call4.i.i.i.i, ptr %ref.tmp, align 8, !alias.scope !17
+  store i8 %conv.i.i.i.i.i.i, ptr %tag.i.i.i.i, align 4, !noalias !15
+  store i64 0, ptr %call4.i.i.i.i, align 8, !noalias !15
+  store ptr %call4.i.i.i.i, ptr %ref.tmp, align 8, !alias.scope !15
   br label %_ZN4absl12lts_202308024Cord15GetAppendBufferEmm.exit
 
 if.end.i.i:                                       ; preds = %if.then.i
-  store i8 1, ptr %ref.tmp, align 8, !alias.scope !17
+  store i8 1, ptr %ref.tmp, align 8, !alias.scope !15
   %data.i.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 1
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(15) %data.i.i.i.i, i8 0, i64 15, i1 false), !alias.scope !17
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(15) %data.i.i.i.i, i8 0, i64 15, i1 false), !alias.scope !15
   br label %_ZN4absl12lts_202308024Cord15GetAppendBufferEmm.exit
 
 if.end.i:                                         ; preds = %_ZNK4absl12lts_202308024Cord5emptyEv.exit.i
@@ -3101,9 +3101,9 @@ if.then.i22:                                      ; preds = %sw.bb13
   %add.i.i.i.i.i = add nsw i64 %len.addr.0.i.i.i, -1
   %sub.i.i.i.i.i = add nuw nsw i64 %add.i.i.i.i.i, %conv.i.i.i.i
   %and.i.i.i.i.i = and i64 %sub.i.i.i.i.i, %conv.i.neg.i.i.i
-  %call4.i.i.i = call noalias noundef nonnull ptr @_Znwm(i64 noundef %and.i.i.i.i.i) #31, !noalias !18
+  %call4.i.i.i = call noalias noundef nonnull ptr @_Znwm(i64 noundef %and.i.i.i.i.i) #31, !noalias !16
   %32 = getelementptr inbounds nuw i8, ptr %call4.i.i.i, i64 8
-  store i64 4, ptr %32, align 8, !noalias !18
+  store i64 4, ptr %32, align 8, !noalias !16
   %cmp.i.i.i.i.i24 = icmp samesign ult i64 %and.i.i.i.i.i, 513
   %.sink8.i.i.i.i.i = select i1 %cmp.i.i.i.i.i24, i64 3, i64 6
   %.sink.i.i.i.i.i = select i1 %cmp.i.i.i.i.i24, i64 2, i64 58
@@ -3111,8 +3111,8 @@ if.then.i22:                                      ; preds = %sw.bb13
   %sub.i.i5.i.i.i = add nuw nsw i64 %div36.i.i.i.i.i, %.sink.i.i.i.i.i
   %conv.i.i.i.i.i25 = trunc nuw nsw i64 %sub.i.i5.i.i.i to i8
   %tag.i.i.i = getelementptr inbounds nuw i8, ptr %call4.i.i.i, i64 12
-  store i8 %conv.i.i.i.i.i25, ptr %tag.i.i.i, align 4, !noalias !18
-  store i64 0, ptr %call4.i.i.i, align 8, !noalias !18
+  store i8 %conv.i.i.i.i.i25, ptr %tag.i.i.i, align 4, !noalias !16
+  store i64 0, ptr %call4.i.i.i, align 8, !noalias !16
   br label %_ZN4absl12lts_2023080210CordBuffer22CreateWithDefaultLimitEm.exit
 
 _ZN4absl12lts_2023080210CordBuffer22CreateWithDefaultLimitEm.exit: ; preds = %sw.bb13, %if.then.i22
@@ -3753,7 +3753,7 @@ while.body.i.i.i.i:                               ; preds = %if.then.i, %while.b
   store i8 %10, ptr %arrayidx14.i.i.i.i, align 1
   %index.0.i.i.i.i = zext i8 %10 to i64
   %cmp.i.i.i.i = icmp samesign ugt i64 %indvars.iv.i.i.i.i, 1
-  br i1 %cmp.i.i.i.i, label %while.body.i.i.i.i, label %_ZN4absl12lts_2023080213cord_internal21CordRepBtreeNavigator9InitFirstEPNS1_12CordRepBtreeE.exit.i.i, !llvm.loop !21
+  br i1 %cmp.i.i.i.i, label %while.body.i.i.i.i, label %_ZN4absl12lts_2023080213cord_internal21CordRepBtreeNavigator9InitFirstEPNS1_12CordRepBtreeE.exit.i.i, !llvm.loop !19
 
 _ZN4absl12lts_2023080213cord_internal21CordRepBtreeNavigator9InitFirstEPNS1_12CordRepBtreeE.exit.i.i: ; preds = %while.body.i.i.i.i, %if.then.i
   %index.0.lcssa.i.i.i.i = phi i64 [ %index.020.i.i.i.i, %if.then.i ], [ %index.0.i.i.i.i, %while.body.i.i.i.i ]
@@ -3929,7 +3929,7 @@ if.end.i.i.i:                                     ; preds = %do.body.i.i.i
   %conv.i.i.i.i = zext i8 %9 to i64
   %cmp5.i.i.i = icmp eq i64 %add.i.i.i, %conv.i.i.i.i
   %indvars.iv.next24.i.i.i = add nuw i32 %indvars.iv23.i.i.i, 1
-  br i1 %cmp5.i.i.i, label %do.body.i.i.i, label %do.end.i.i.i, !llvm.loop !9
+  br i1 %cmp5.i.i.i, label %do.body.i.i.i, label %do.end.i.i.i, !llvm.loop !7
 
 do.end.i.i.i:                                     ; preds = %if.end.i.i.i
   %arrayidx3.i.i.i.le = getelementptr inbounds nuw [12 x i8], ptr %index_.i.i, i64 0, i64 %indvars.iv.next.i.i.i
@@ -3954,7 +3954,7 @@ do.body10.i.i.i:                                  ; preds = %do.body10.i.i.i, %d
   %arrayidx20.i.i.i = getelementptr inbounds [12 x i8], ptr %index_.i.i, i64 0, i64 %indvars.iv.next27.i.i.i
   store i8 %12, ptr %arrayidx20.i.i.i, align 1
   %cmp22.i.i.i = icmp sgt i64 %indvars.iv26.i.i.i, 1
-  br i1 %cmp22.i.i.i, label %do.body10.i.i.i, label %cond.end.sink.split.i.loopexit.i, !llvm.loop !10
+  br i1 %cmp22.i.i.i, label %do.body10.i.i.i, label %cond.end.sink.split.i.loopexit.i, !llvm.loop !8
 
 cond.false.i.i:                                   ; preds = %if.end.i
   %inc.i.i = add i8 %4, 1
@@ -4086,7 +4086,7 @@ while.body.i.i:                                   ; preds = %if.end.i, %while.bo
   %7 = load ptr, ptr %arrayidx.i.i, align 8
   %8 = load i64, ptr %7, align 8
   %cmp.not.i.i = icmp ult i64 %sub.i.i, %8
-  br i1 %cmp.not.i.i, label %_ZNK4absl12lts_2023080213cord_internal12CordRepBtree7IndexOfEm.exit.i, label %while.body.i.i, !llvm.loop !22
+  br i1 %cmp.not.i.i, label %_ZNK4absl12lts_2023080213cord_internal12CordRepBtree7IndexOfEm.exit.i, label %while.body.i.i, !llvm.loop !20
 
 _ZNK4absl12lts_2023080213cord_internal12CordRepBtree7IndexOfEm.exit.i: ; preds = %while.body.i.i, %if.end.i
   %offset.addr.0.lcssa.i.i = phi i64 [ %offset, %if.end.i ], [ %sub.i.i, %while.body.i.i ]
@@ -4133,7 +4133,7 @@ while.body.i22.i:                                 ; preds = %while.body.i, %whil
   %15 = load ptr, ptr %arrayidx.i27.i, align 8
   %16 = load i64, ptr %15, align 8
   %cmp.not.i28.i = icmp ult i64 %sub.i26.i, %16
-  br i1 %cmp.not.i28.i, label %_ZNK4absl12lts_2023080213cord_internal12CordRepBtree7IndexOfEm.exit33.i, label %while.body.i22.i, !llvm.loop !22
+  br i1 %cmp.not.i28.i, label %_ZNK4absl12lts_2023080213cord_internal12CordRepBtree7IndexOfEm.exit33.i, label %while.body.i22.i, !llvm.loop !20
 
 _ZNK4absl12lts_2023080213cord_internal12CordRepBtree7IndexOfEm.exit33.i: ; preds = %while.body.i22.i, %while.body.i
   %offset.addr.0.lcssa.i29.i = phi i64 [ %offset.addr.0.lcssa.i.pn39.i, %while.body.i ], [ %sub.i26.i, %while.body.i22.i ]
@@ -4142,7 +4142,7 @@ _ZNK4absl12lts_2023080213cord_internal12CordRepBtree7IndexOfEm.exit33.i: ; preds
   %arrayidx19.i = getelementptr inbounds nuw [12 x i8], ptr %index_.i, i64 0, i64 %indvars.iv.next.i
   store i8 %conv16.i, ptr %arrayidx19.i, align 1
   %cmp7.i = icmp samesign ugt i64 %indvars.iv.i, 1
-  br i1 %cmp7.i, label %while.body.i, label %_ZN4absl12lts_2023080213cord_internal21CordRepBtreeNavigator4SeekEm.exit, !llvm.loop !23
+  br i1 %cmp7.i, label %while.body.i, label %_ZN4absl12lts_2023080213cord_internal21CordRepBtreeNavigator4SeekEm.exit, !llvm.loop !21
 
 _ZN4absl12lts_2023080213cord_internal21CordRepBtreeNavigator4SeekEm.exit: ; preds = %_ZNK4absl12lts_2023080213cord_internal12CordRepBtree7IndexOfEm.exit33.i, %_ZNK4absl12lts_2023080213cord_internal12CordRepBtree7IndexOfEm.exit.i
   %edge.0.lcssa.i = phi ptr [ %1, %_ZNK4absl12lts_2023080213cord_internal12CordRepBtree7IndexOfEm.exit.i ], [ %10, %_ZNK4absl12lts_2023080213cord_internal12CordRepBtree7IndexOfEm.exit33.i ]
@@ -4316,23 +4316,21 @@ attributes #32 = { noreturn }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5, !6}
+!4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{!"llvm.loop.estimated_trip_count"}
-!7 = distinct !{!7, !5, !6}
-!8 = distinct !{!8, !6}
-!9 = distinct !{!9, !5, !6}
-!10 = distinct !{!10, !5, !6}
-!11 = !{!12}
-!12 = distinct !{!12, !13, !"_ZN4absl12lts_202308024Cord15GetAppendBufferEmm: %agg.result"}
-!13 = distinct !{!13, !"_ZN4absl12lts_202308024Cord15GetAppendBufferEmm"}
-!14 = !{!15}
-!15 = distinct !{!15, !16, !"_ZN4absl12lts_2023080210CordBuffer22CreateWithDefaultLimitEm: %agg.result"}
-!16 = distinct !{!16, !"_ZN4absl12lts_2023080210CordBuffer22CreateWithDefaultLimitEm"}
-!17 = !{!15, !12}
-!18 = !{!19}
-!19 = distinct !{!19, !20, !"_ZN4absl12lts_2023080210CordBuffer22CreateWithDefaultLimitEm: %agg.result"}
-!20 = distinct !{!20, !"_ZN4absl12lts_2023080210CordBuffer22CreateWithDefaultLimitEm"}
-!21 = distinct !{!21, !5, !6}
-!22 = distinct !{!22, !5, !6}
-!23 = distinct !{!23, !5, !6}
+!6 = distinct !{!6, !5}
+!7 = distinct !{!7, !5}
+!8 = distinct !{!8, !5}
+!9 = !{!10}
+!10 = distinct !{!10, !11, !"_ZN4absl12lts_202308024Cord15GetAppendBufferEmm: %agg.result"}
+!11 = distinct !{!11, !"_ZN4absl12lts_202308024Cord15GetAppendBufferEmm"}
+!12 = !{!13}
+!13 = distinct !{!13, !14, !"_ZN4absl12lts_2023080210CordBuffer22CreateWithDefaultLimitEm: %agg.result"}
+!14 = distinct !{!14, !"_ZN4absl12lts_2023080210CordBuffer22CreateWithDefaultLimitEm"}
+!15 = !{!13, !10}
+!16 = !{!17}
+!17 = distinct !{!17, !18, !"_ZN4absl12lts_2023080210CordBuffer22CreateWithDefaultLimitEm: %agg.result"}
+!18 = distinct !{!18, !"_ZN4absl12lts_2023080210CordBuffer22CreateWithDefaultLimitEm"}
+!19 = distinct !{!19, !5}
+!20 = distinct !{!20, !5}
+!21 = distinct !{!21, !5}

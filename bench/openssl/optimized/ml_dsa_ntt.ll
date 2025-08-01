@@ -125,18 +125,18 @@ define void @ossl_ml_dsa_poly_ntt(ptr noundef captures(none) %0) local_unnamed_a
   store i32 %56, ptr %18, align 4, !tbaa !3
   %indvars.iv.next43 = add nuw nsw i64 %indvars.iv42, 1
   %57 = icmp samesign ult i64 %indvars.iv.next43, %9
-  br i1 %57, label %14, label %._crit_edge, !llvm.loop !11
+  br i1 %57, label %14, label %._crit_edge, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %14
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, %6
   %indvars.iv.next45 = add nuw nsw i64 %indvars.iv44, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next45, %8
-  br i1 %exitcond.not, label %._crit_edge39, label %.lr.ph, !llvm.loop !12
+  br i1 %exitcond.not, label %._crit_edge39, label %.lr.ph, !llvm.loop !11
 
 ._crit_edge39:                                    ; preds = %._crit_edge, %2
   %58 = shl i32 %.03240, 1
   %59 = icmp slt i32 %58, 256
-  br i1 %59, label %2, label %60, !llvm.loop !13
+  br i1 %59, label %2, label %60, !llvm.loop !12
 
 60:                                               ; preds = %._crit_edge39
   ret void
@@ -213,17 +213,17 @@ define void @ossl_ml_dsa_poly_ntt_inverse(ptr noundef captures(none) %0) local_u
   store i32 %47, ptr %18, align 4, !tbaa !3
   %indvars.iv.next53 = add nsw i64 %indvars.iv52, 1
   %48 = icmp slt i64 %indvars.iv.next53, %7
-  br i1 %48, label %14, label %._crit_edge, !llvm.loop !14
+  br i1 %48, label %14, label %._crit_edge, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %14
   %indvars.iv.next = add nsw i64 %indvars.iv, %4
   %indvars.iv.next56 = add nuw nsw i64 %indvars.iv55, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next56, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge48, label %.lr.ph, !llvm.loop !15
+  br i1 %exitcond.not, label %._crit_edge48, label %.lr.ph, !llvm.loop !14
 
 ._crit_edge48:                                    ; preds = %._crit_edge
   %49 = icmp slt i32 %3, 256
-  br i1 %49, label %.lr.ph47, label %.preheader, !llvm.loop !16
+  br i1 %49, label %.lr.ph47, label %.preheader, !llvm.loop !15
 
 .preheader:                                       ; preds = %._crit_edge48, %.preheader
   %indvars.iv60 = phi i64 [ %indvars.iv.next61, %.preheader ], [ 0, %._crit_edge48 ]
@@ -250,7 +250,7 @@ define void @ossl_ml_dsa_poly_ntt_inverse(ptr noundef captures(none) %0) local_u
   store i32 %68, ptr %50, align 4, !tbaa !3
   %indvars.iv.next61 = add nuw nsw i64 %indvars.iv60, 1
   %exitcond63.not = icmp eq i64 %indvars.iv.next61, 256
-  br i1 %exitcond63.not, label %69, label %.preheader, !llvm.loop !17
+  br i1 %exitcond63.not, label %69, label %.preheader, !llvm.loop !16
 
 69:                                               ; preds = %.preheader
   ret void
@@ -269,13 +269,12 @@ attributes #1 = { nounwind memory(none) }
 !5 = !{!"omnipotent char", !6, i64 0}
 !6 = !{!"Simple C/C++ TBAA"}
 !7 = !{i64 320456}
-!8 = distinct !{!8, !9, !10}
+!8 = distinct !{!8, !9}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = !{!"llvm.loop.estimated_trip_count"}
-!11 = distinct !{!11, !9, !10}
-!12 = distinct !{!12, !9, !10}
-!13 = distinct !{!13, !9, !10}
-!14 = distinct !{!14, !9, !10}
-!15 = distinct !{!15, !9, !10}
-!16 = distinct !{!16, !9, !10}
-!17 = distinct !{!17, !9, !10}
+!10 = distinct !{!10, !9}
+!11 = distinct !{!11, !9}
+!12 = distinct !{!12, !9}
+!13 = distinct !{!13, !9}
+!14 = distinct !{!14, !9}
+!15 = distinct !{!15, !9}
+!16 = distinct !{!16, !9}

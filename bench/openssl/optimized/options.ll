@@ -75,9 +75,9 @@ define ptr @test_get_argument(i64 noundef %0) local_unnamed_addr #0 {
 
 10:                                               ; preds = %5
   %11 = getelementptr inbounds nuw [100 x i32], ptr @used, i64 0, i64 %0
-  store i32 1, ptr %11, align 4, !tbaa !6
+  store i32 1, ptr %11, align 4, !tbaa !5
   %12 = getelementptr inbounds nuw ptr, ptr %2, i64 %0
-  %13 = load ptr, ptr %12, align 8, !tbaa !10
+  %13 = load ptr, ptr %12, align 8, !tbaa !9
   br label %14
 
 14:                                               ; preds = %5, %10
@@ -105,13 +105,13 @@ define void @opt_check_usage() local_unnamed_addr #0 {
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %12
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %12 ]
   %4 = getelementptr inbounds nuw [100 x i32], ptr @used, i64 0, i64 %indvars.iv
-  %5 = load i32, ptr %4, align 4, !tbaa !6
+  %5 = load i32, ptr %4, align 4, !tbaa !5
   %6 = icmp eq i32 %5, 0
   br i1 %6, label %7, label %12
 
 7:                                                ; preds = %.lr.ph
   %8 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
-  %9 = load ptr, ptr %8, align 8, !tbaa !10
+  %9 = load ptr, ptr %8, align 8, !tbaa !9
   %10 = trunc nuw nsw i64 %indvars.iv to i32
   %11 = tail call i32 (ptr, ...) @test_printf_stderr(ptr noundef nonnull @.str.2, i32 noundef %10, ptr noundef %9) #6
   br label %12
@@ -119,7 +119,7 @@ define void @opt_check_usage() local_unnamed_addr #0 {
 12:                                               ; preds = %.lr.ph, %7
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !13
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %12, %0
   %.0.lcssa = phi i32 [ 0, %0 ], [ %., %12 ]
@@ -172,14 +172,13 @@ attributes #7 = { noreturn nounwind }
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = distinct !{!3, !4, !5}
+!3 = distinct !{!3, !4}
 !4 = !{!"llvm.loop.mustprogress"}
-!5 = !{!"llvm.loop.estimated_trip_count"}
-!6 = !{!7, !7, i64 0}
-!7 = !{!"int", !8, i64 0}
-!8 = !{!"omnipotent char", !9, i64 0}
-!9 = !{!"Simple C/C++ TBAA"}
-!10 = !{!11, !11, i64 0}
-!11 = !{!"p1 omnipotent char", !12, i64 0}
-!12 = !{!"any pointer", !8, i64 0}
-!13 = distinct !{!13, !4, !5}
+!5 = !{!6, !6, i64 0}
+!6 = !{!"int", !7, i64 0}
+!7 = !{!"omnipotent char", !8, i64 0}
+!8 = !{!"Simple C/C++ TBAA"}
+!9 = !{!10, !10, i64 0}
+!10 = !{!"p1 omnipotent char", !11, i64 0}
+!11 = !{!"any pointer", !7, i64 0}
+!12 = distinct !{!12, !4}

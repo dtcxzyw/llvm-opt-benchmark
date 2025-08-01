@@ -361,7 +361,7 @@ default.unreachable:                              ; preds = %62, %23, %21
   %.sroa.06.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %111, i64 56
   store i8 %19, ptr %.sroa.06.sroa.4.0..sroa_idx, align 8
   %112 = icmp eq i64 %13, 0
-  br i1 %112, label %.thread, label %.lr.ph, !llvm.loop !89
+  br i1 %112, label %.thread, label %.lr.ph
 
 113:                                              ; preds = %115
   %114 = landingpad { ptr, i32 }
@@ -551,5 +551,3 @@ attributes #10 = { cold }
 !86 = !{!83, !66}
 !87 = !{!76}
 !88 = !{i64 8}
-!89 = distinct !{!89, !90}
-!90 = !{!"llvm.loop.estimated_trip_count"}

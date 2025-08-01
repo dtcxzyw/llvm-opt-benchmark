@@ -519,11 +519,11 @@ _ZNSt12__shared_ptrIN2cv8datasets14SLAM_tumindoorELN9__gnu_cxx12_Lock_policyE2EE
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %180 ]
   %181 = add nuw nsw i64 %indvars.iv, %148
   %182 = getelementptr inbounds nuw [16 x double], ptr %147, i64 0, i64 %181
-  %183 = load double, ptr %182, align 8, !tbaa !47
+  %183 = load double, ptr %182, align 8, !tbaa !46
   %184 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.10, double noundef %183)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %179, label %180, !llvm.loop !49
+  br i1 %exitcond.not, label %179, label %180, !llvm.loop !48
 
 185:                                              ; preds = %177, %130
   %.pn34 = phi { ptr, i32 } [ %178, %177 ], [ %131, %130 ]
@@ -899,9 +899,8 @@ attributes #15 = { noreturn }
 !41 = !{!39, !40, i64 12}
 !42 = !{!40, !40, i64 0}
 !43 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!44 = distinct !{!44, !45, !46}
+!44 = distinct !{!44, !45}
 !45 = !{!"llvm.loop.mustprogress"}
-!46 = !{!"llvm.loop.estimated_trip_count"}
-!47 = !{!48, !48, i64 0}
-!48 = !{!"double", !8, i64 0}
-!49 = distinct !{!49, !45, !46}
+!46 = !{!47, !47, i64 0}
+!47 = !{!"double", !8, i64 0}
+!48 = distinct !{!48, !45}

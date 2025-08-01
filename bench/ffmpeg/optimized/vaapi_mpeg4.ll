@@ -278,7 +278,7 @@ mpeg4_get_intra_dc_vlc_thr.exit:                  ; preds = %95, %105, %106, %10
   %.val98 = load ptr, ptr %164, align 8, !tbaa !54
   %165 = ptrtoint ptr %.val98 to i64
   %166 = trunc i64 %165 to i32
-  store i32 %166, ptr %.sroa.4.0..sroa_idx, align 4, !tbaa !101
+  store i32 %166, ptr %.sroa.4.0..sroa_idx, align 4, !tbaa !100
   br label %168
 
 167:                                              ; preds = %._crit_edge
@@ -287,13 +287,13 @@ mpeg4_get_intra_dc_vlc_thr.exit:                  ; preds = %95, %105, %106, %10
 
 168:                                              ; preds = %.thread, %167
   %169 = getelementptr inbounds nuw i8, ptr %8, i64 968
-  %170 = load ptr, ptr %169, align 8, !tbaa !103
+  %170 = load ptr, ptr %169, align 8, !tbaa !102
   %171 = load ptr, ptr %170, align 8, !tbaa !53
   %172 = getelementptr i8, ptr %171, i64 24
   %.val99 = load ptr, ptr %172, align 8, !tbaa !54
   %173 = ptrtoint ptr %.val99 to i64
   %174 = trunc i64 %173 to i32
-  store i32 %174, ptr %.sroa.3.0..sroa_idx, align 4, !tbaa !104
+  store i32 %174, ptr %.sroa.3.0..sroa_idx, align 4, !tbaa !103
   br label %175
 
 175:                                              ; preds = %168, %167
@@ -309,9 +309,9 @@ mpeg4_get_intra_dc_vlc_thr.exit:                  ; preds = %95, %105, %106, %10
 
 181:                                              ; preds = %178
   call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %6) #5
-  store i32 1, ptr %6, align 4, !tbaa !105
+  store i32 1, ptr %6, align 4, !tbaa !104
   %182 = getelementptr inbounds nuw i8, ptr %6, i64 4
-  store i32 1, ptr %182, align 4, !tbaa !107
+  store i32 1, ptr %182, align 4, !tbaa !106
   %183 = getelementptr inbounds nuw i8, ptr %8, i64 2056
   %184 = getelementptr inbounds nuw i8, ptr %8, i64 3448
   %185 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -339,7 +339,7 @@ mpeg4_get_intra_dc_vlc_thr.exit:                  ; preds = %95, %105, %106, %10
   store i8 %201, ptr %202, align 1, !tbaa !97
   %indvars.iv.next106 = add nuw nsw i64 %indvars.iv105, 1
   %exitcond108.not = icmp eq i64 %indvars.iv.next106, 64
-  br i1 %exitcond108.not, label %203, label %188, !llvm.loop !108
+  br i1 %exitcond108.not, label %203, label %188, !llvm.loop !107
 
 203:                                              ; preds = %188
   %204 = call i32 @ff_vaapi_decode_make_param_buffer(ptr noundef nonnull %0, ptr noundef nonnull %12, i32 noundef 1, ptr noundef nonnull %6, i64 noundef 152) #5
@@ -369,10 +369,10 @@ define internal range(i32 -2147483648, 1) i32 @vaapi_mpeg4_decode_slice(ptr noun
   %10 = load ptr, ptr %9, align 8, !tbaa !50
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4) #5
   %11 = getelementptr i8, ptr %6, i64 4176
-  %.val = load i32, ptr %11, align 8, !tbaa !109
+  %.val = load i32, ptr %11, align 8, !tbaa !108
   %12 = srem i32 %.val, 8
   %13 = getelementptr inbounds nuw i8, ptr %6, i64 1472
-  %14 = load i32, ptr %13, align 8, !tbaa !110
+  %14 = load i32, ptr %13, align 8, !tbaa !109
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.7.0..sroa_idx, i8 0, i64 16, i1 false)
   store i32 %2, ptr %4, align 4, !tbaa !96
@@ -415,9 +415,9 @@ define internal i32 @vaapi_mpeg4_end_frame(ptr noundef %0) #0 {
 
 10:                                               ; preds = %1
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 472
-  %12 = load ptr, ptr %11, align 8, !tbaa !111
+  %12 = load ptr, ptr %11, align 8, !tbaa !110
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 116
-  %14 = load i32, ptr %13, align 4, !tbaa !112
+  %14 = load i32, ptr %13, align 4, !tbaa !111
   tail call void @ff_mpeg_draw_horiz_band(ptr noundef nonnull %3, i32 noundef 0, i32 noundef %14) #5
   br label %15
 
@@ -560,18 +560,17 @@ attributes #5 = { nounwind }
 !95 = !{!44, !44, i64 0}
 !96 = !{!10, !10, i64 0}
 !97 = !{!8, !8, i64 0}
-!98 = distinct !{!98, !99, !100}
+!98 = distinct !{!98, !99}
 !99 = !{!"llvm.loop.mustprogress"}
-!100 = !{!"llvm.loop.estimated_trip_count"}
-!101 = !{!102, !10, i64 8}
-!102 = !{!"_VAPictureParameterBufferMPEG4", !44, i64 0, !44, i64 2, !10, i64 4, !10, i64 8, !8, i64 12, !8, i64 16, !8, i64 18, !8, i64 24, !8, i64 30, !8, i64 32, !8, i64 36, !8, i64 37, !44, i64 38, !8, i64 40, !8, i64 41, !44, i64 42, !44, i64 44, !8, i64 48}
-!103 = !{!28, !34, i64 968}
-!104 = !{!102, !10, i64 4}
-!105 = !{!106, !10, i64 0}
-!106 = !{!"_VAIQMatrixBufferMPEG4", !10, i64 0, !10, i64 4, !8, i64 8, !8, i64 72, !8, i64 136}
-!107 = !{!106, !10, i64 4}
-!108 = distinct !{!108, !99, !100}
-!109 = !{!43, !10, i64 16}
-!110 = !{!28, !10, i64 1472}
-!111 = !{!28, !30, i64 472}
-!112 = !{!5, !10, i64 116}
+!100 = !{!101, !10, i64 8}
+!101 = !{!"_VAPictureParameterBufferMPEG4", !44, i64 0, !44, i64 2, !10, i64 4, !10, i64 8, !8, i64 12, !8, i64 16, !8, i64 18, !8, i64 24, !8, i64 30, !8, i64 32, !8, i64 36, !8, i64 37, !44, i64 38, !8, i64 40, !8, i64 41, !44, i64 42, !44, i64 44, !8, i64 48}
+!102 = !{!28, !34, i64 968}
+!103 = !{!101, !10, i64 4}
+!104 = !{!105, !10, i64 0}
+!105 = !{!"_VAIQMatrixBufferMPEG4", !10, i64 0, !10, i64 4, !8, i64 8, !8, i64 72, !8, i64 136}
+!106 = !{!105, !10, i64 4}
+!107 = distinct !{!107, !99}
+!108 = !{!43, !10, i64 16}
+!109 = !{!28, !10, i64 1472}
+!110 = !{!28, !30, i64 472}
+!111 = !{!5, !10, i64 116}

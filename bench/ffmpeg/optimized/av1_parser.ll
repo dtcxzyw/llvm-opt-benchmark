@@ -204,30 +204,30 @@ switch.lookup:                                    ; preds = %73
 
 78:                                               ; preds = %._crit_edge
   %79 = getelementptr inbounds nuw i8, ptr %33, i64 577
-  %80 = load i8, ptr %79, align 1, !tbaa !73
+  %80 = load i8, ptr %79, align 1, !tbaa !72
   %.not103 = icmp eq i8 %80, 0
   br i1 %.not103, label %.sink.split114.sink.split, label %.sink.split114
 
 81:                                               ; preds = %._crit_edge
   %82 = getelementptr inbounds nuw i8, ptr %33, i64 577
-  %83 = load i8, ptr %82, align 1, !tbaa !73
+  %83 = load i8, ptr %82, align 1, !tbaa !72
   %.not102 = icmp eq i8 %83, 0
   br i1 %.not102, label %.sink.split114.sink.split, label %.sink.split114
 
 84:                                               ; preds = %._crit_edge
   %85 = getelementptr inbounds nuw i8, ptr %33, i64 577
-  %86 = load i8, ptr %85, align 1, !tbaa !73
+  %86 = load i8, ptr %85, align 1, !tbaa !72
   %.not101 = icmp eq i8 %86, 0
   br i1 %.not101, label %.sink.split114.sink.split, label %.sink.split114
 
 .sink.split114.sink.split:                        ; preds = %84, %81, %78
   %pix_fmts_12bit.sink = phi ptr [ @pix_fmts_8bit, %78 ], [ @pix_fmts_10bit, %81 ], [ @pix_fmts_12bit, %84 ]
   %87 = getelementptr inbounds nuw i8, ptr %33, i64 583
-  %88 = load i8, ptr %87, align 1, !tbaa !75
+  %88 = load i8, ptr %87, align 1, !tbaa !74
   %89 = zext i8 %88 to i64
   %90 = getelementptr inbounds nuw [2 x [2 x i32]], ptr %pix_fmts_12bit.sink, i64 0, i64 %89
   %91 = getelementptr inbounds nuw i8, ptr %33, i64 584
-  %92 = load i8, ptr %91, align 1, !tbaa !76
+  %92 = load i8, ptr %91, align 1, !tbaa !75
   %93 = zext i8 %92 to i64
   %94 = getelementptr inbounds nuw [2 x i32], ptr %90, i64 0, i64 %93
   %95 = load i32, ptr %94, align 4, !tbaa !26
@@ -236,85 +236,85 @@ switch.lookup:                                    ; preds = %73
 .sink.split114:                                   ; preds = %.sink.split114.sink.split, %84, %81, %78
   %.sink115 = phi i32 [ 8, %78 ], [ 168, %81 ], [ 166, %84 ], [ %95, %.sink.split114.sink.split ]
   %96 = getelementptr inbounds nuw i8, ptr %0, i64 328
-  store i32 %.sink115, ptr %96, align 8, !tbaa !77
+  store i32 %.sink115, ptr %96, align 8, !tbaa !76
   br label %97
 
 97:                                               ; preds = %.sink.split114, %._crit_edge
   %98 = getelementptr inbounds nuw i8, ptr %33, i64 583
-  %99 = load i8, ptr %98, align 1, !tbaa !75
+  %99 = load i8, ptr %98, align 1, !tbaa !74
   %.not104 = icmp eq i8 %99, 0
   br i1 %.not104, label %100, label %125
 
 100:                                              ; preds = %97
   %101 = getelementptr inbounds nuw i8, ptr %33, i64 584
-  %102 = load i8, ptr %101, align 1, !tbaa !76
+  %102 = load i8, ptr %101, align 1, !tbaa !75
   %.not105 = icmp eq i8 %102, 0
   br i1 %.not105, label %103, label %125
 
 103:                                              ; preds = %100
   %104 = getelementptr inbounds nuw i8, ptr %33, i64 581
-  %105 = load i8, ptr %104, align 1, !tbaa !78
+  %105 = load i8, ptr %104, align 1, !tbaa !77
   %106 = icmp eq i8 %105, 0
   br i1 %106, label %107, label %125
 
 107:                                              ; preds = %103
   %108 = getelementptr inbounds nuw i8, ptr %33, i64 579
-  %109 = load i8, ptr %108, align 1, !tbaa !79
+  %109 = load i8, ptr %108, align 1, !tbaa !78
   %110 = icmp eq i8 %109, 1
   br i1 %110, label %111, label %125
 
 111:                                              ; preds = %107
   %112 = getelementptr inbounds nuw i8, ptr %33, i64 580
-  %113 = load i8, ptr %112, align 1, !tbaa !80
+  %113 = load i8, ptr %112, align 1, !tbaa !79
   %114 = icmp eq i8 %113, 13
   br i1 %114, label %115, label %125
 
 115:                                              ; preds = %111
-  %116 = load i8, ptr %36, align 1, !tbaa !81
+  %116 = load i8, ptr %36, align 1, !tbaa !80
   %117 = zext i8 %116 to i64
   %118 = getelementptr inbounds nuw i8, ptr %33, i64 576
-  %119 = load i8, ptr %118, align 1, !tbaa !82
+  %119 = load i8, ptr %118, align 1, !tbaa !81
   %120 = zext i8 %119 to i64
   %121 = add nuw nsw i64 %120, %117
   %122 = getelementptr inbounds nuw [3 x i32], ptr @pix_fmts_rgb, i64 0, i64 %121
   %123 = load i32, ptr %122, align 4, !tbaa !26
   %124 = getelementptr inbounds nuw i8, ptr %0, i64 328
-  store i32 %123, ptr %124, align 8, !tbaa !77
+  store i32 %123, ptr %124, align 8, !tbaa !76
   br label %125
 
 125:                                              ; preds = %115, %111, %107, %103, %100, %97
-  %126 = load i8, ptr %33, align 4, !tbaa !83
+  %126 = load i8, ptr %33, align 4, !tbaa !82
   %127 = zext i8 %126 to i32
   %128 = getelementptr inbounds nuw i8, ptr %1, i64 688
-  store i32 %127, ptr %128, align 8, !tbaa !87
+  store i32 %127, ptr %128, align 8, !tbaa !86
   %129 = getelementptr inbounds nuw i8, ptr %33, i64 100
-  %130 = load i8, ptr %129, align 4, !tbaa !88
+  %130 = load i8, ptr %129, align 4, !tbaa !87
   %131 = zext i8 %130 to i32
   %132 = getelementptr inbounds nuw i8, ptr %1, i64 692
-  store i32 %131, ptr %132, align 4, !tbaa !89
+  store i32 %131, ptr %132, align 4, !tbaa !88
   %133 = getelementptr inbounds nuw i8, ptr %33, i64 581
-  %134 = load i8, ptr %133, align 1, !tbaa !78
+  %134 = load i8, ptr %133, align 1, !tbaa !77
   %135 = zext i8 %134 to i32
   %136 = getelementptr inbounds nuw i8, ptr %1, i64 152
-  store i32 %135, ptr %136, align 8, !tbaa !90
+  store i32 %135, ptr %136, align 8, !tbaa !89
   %137 = getelementptr inbounds nuw i8, ptr %33, i64 579
-  %138 = load i8, ptr %137, align 1, !tbaa !79
+  %138 = load i8, ptr %137, align 1, !tbaa !78
   %139 = zext i8 %138 to i32
   %140 = getelementptr inbounds nuw i8, ptr %1, i64 144
-  store i32 %139, ptr %140, align 8, !tbaa !91
+  store i32 %139, ptr %140, align 8, !tbaa !90
   %141 = getelementptr inbounds nuw i8, ptr %33, i64 580
-  %142 = load i8, ptr %141, align 1, !tbaa !80
+  %142 = load i8, ptr %141, align 1, !tbaa !79
   %143 = zext i8 %142 to i32
   %144 = getelementptr inbounds nuw i8, ptr %1, i64 148
-  store i32 %143, ptr %144, align 4, !tbaa !92
+  store i32 %143, ptr %144, align 4, !tbaa !91
   %145 = getelementptr inbounds nuw i8, ptr %33, i64 582
-  %146 = load i8, ptr %145, align 1, !tbaa !93
+  %146 = load i8, ptr %145, align 1, !tbaa !92
   %.not106 = icmp eq i8 %146, 0
   %147 = select i1 %.not106, i32 1, i32 2
   %148 = getelementptr inbounds nuw i8, ptr %1, i64 156
-  store i32 %147, ptr %148, align 4, !tbaa !94
+  store i32 %147, ptr %148, align 4, !tbaa !93
   %149 = getelementptr inbounds nuw i8, ptr %33, i64 3
-  %150 = load i8, ptr %149, align 1, !tbaa !95
+  %150 = load i8, ptr %149, align 1, !tbaa !94
   %.not107 = icmp eq i8 %150, 0
   br i1 %.not107, label %164, label %151
 
@@ -322,13 +322,13 @@ switch.lookup:                                    ; preds = %73
   %152 = getelementptr inbounds nuw i8, ptr %1, i64 100
   %153 = getelementptr inbounds nuw i8, ptr %33, i64 8
   %154 = getelementptr inbounds nuw i8, ptr %33, i64 20
-  %155 = load i32, ptr %154, align 4, !tbaa !96
+  %155 = load i32, ptr %154, align 4, !tbaa !95
   %156 = zext i32 %155 to i64
   %157 = add nuw nsw i64 %156, 1
-  %158 = load i32, ptr %153, align 4, !tbaa !97
+  %158 = load i32, ptr %153, align 4, !tbaa !96
   %159 = zext i32 %158 to i64
   %160 = getelementptr inbounds nuw i8, ptr %33, i64 12
-  %161 = load i32, ptr %160, align 4, !tbaa !98
+  %161 = load i32, ptr %160, align 4, !tbaa !97
   %162 = zext i32 %161 to i64
   %163 = tail call i64 @ff_av1_framerate(i64 noundef %157, i64 noundef %159, i64 noundef %162) #3
   store i64 %163, ptr %152, align 4
@@ -443,32 +443,31 @@ attributes #3 = { nounwind }
 !67 = !{!61, !62, i64 160}
 !68 = !{!5, !11, i64 316}
 !69 = !{!61, !7, i64 12}
-!70 = distinct !{!70, !71, !72}
+!70 = distinct !{!70, !71}
 !71 = !{!"llvm.loop.mustprogress"}
-!72 = !{!"llvm.loop.estimated_trip_count"}
-!73 = !{!74, !7, i64 2}
-!74 = !{!"AV1RawColorConfig", !7, i64 0, !7, i64 1, !7, i64 2, !7, i64 3, !7, i64 4, !7, i64 5, !7, i64 6, !7, i64 7, !7, i64 8, !7, i64 9, !7, i64 10, !7, i64 11}
-!75 = !{!74, !7, i64 8}
-!76 = !{!74, !7, i64 9}
-!77 = !{!5, !11, i64 328}
-!78 = !{!74, !7, i64 6}
-!79 = !{!74, !7, i64 4}
-!80 = !{!74, !7, i64 5}
-!81 = !{!74, !7, i64 0}
-!82 = !{!74, !7, i64 1}
-!83 = !{!84, !7, i64 0}
-!84 = !{!"AV1RawSequenceHeader", !7, i64 0, !7, i64 1, !7, i64 2, !7, i64 3, !7, i64 4, !7, i64 5, !7, i64 6, !85, i64 8, !86, i64 24, !7, i64 36, !7, i64 100, !7, i64 132, !7, i64 164, !7, i64 196, !7, i64 324, !7, i64 452, !7, i64 484, !7, i64 516, !7, i64 548, !7, i64 549, !62, i64 550, !62, i64 552, !7, i64 554, !7, i64 555, !7, i64 556, !7, i64 557, !7, i64 558, !7, i64 559, !7, i64 560, !7, i64 561, !7, i64 562, !7, i64 563, !7, i64 564, !7, i64 565, !7, i64 566, !7, i64 567, !7, i64 568, !7, i64 569, !7, i64 570, !7, i64 571, !7, i64 572, !7, i64 573, !7, i64 574, !74, i64 575, !7, i64 587}
-!85 = !{!"AV1RawTimingInfo", !11, i64 0, !11, i64 4, !7, i64 8, !11, i64 12}
-!86 = !{!"AV1RawDecoderModelInfo", !7, i64 0, !11, i64 4, !7, i64 8, !7, i64 9}
-!87 = !{!32, !11, i64 688}
-!88 = !{!7, !7, i64 0}
-!89 = !{!32, !11, i64 692}
-!90 = !{!32, !11, i64 152}
-!91 = !{!32, !11, i64 144}
-!92 = !{!32, !11, i64 148}
-!93 = !{!74, !7, i64 7}
-!94 = !{!32, !11, i64 156}
-!95 = !{!84, !7, i64 3}
-!96 = !{!84, !11, i64 20}
-!97 = !{!84, !11, i64 8}
-!98 = !{!84, !11, i64 12}
+!72 = !{!73, !7, i64 2}
+!73 = !{!"AV1RawColorConfig", !7, i64 0, !7, i64 1, !7, i64 2, !7, i64 3, !7, i64 4, !7, i64 5, !7, i64 6, !7, i64 7, !7, i64 8, !7, i64 9, !7, i64 10, !7, i64 11}
+!74 = !{!73, !7, i64 8}
+!75 = !{!73, !7, i64 9}
+!76 = !{!5, !11, i64 328}
+!77 = !{!73, !7, i64 6}
+!78 = !{!73, !7, i64 4}
+!79 = !{!73, !7, i64 5}
+!80 = !{!73, !7, i64 0}
+!81 = !{!73, !7, i64 1}
+!82 = !{!83, !7, i64 0}
+!83 = !{!"AV1RawSequenceHeader", !7, i64 0, !7, i64 1, !7, i64 2, !7, i64 3, !7, i64 4, !7, i64 5, !7, i64 6, !84, i64 8, !85, i64 24, !7, i64 36, !7, i64 100, !7, i64 132, !7, i64 164, !7, i64 196, !7, i64 324, !7, i64 452, !7, i64 484, !7, i64 516, !7, i64 548, !7, i64 549, !62, i64 550, !62, i64 552, !7, i64 554, !7, i64 555, !7, i64 556, !7, i64 557, !7, i64 558, !7, i64 559, !7, i64 560, !7, i64 561, !7, i64 562, !7, i64 563, !7, i64 564, !7, i64 565, !7, i64 566, !7, i64 567, !7, i64 568, !7, i64 569, !7, i64 570, !7, i64 571, !7, i64 572, !7, i64 573, !7, i64 574, !73, i64 575, !7, i64 587}
+!84 = !{!"AV1RawTimingInfo", !11, i64 0, !11, i64 4, !7, i64 8, !11, i64 12}
+!85 = !{!"AV1RawDecoderModelInfo", !7, i64 0, !11, i64 4, !7, i64 8, !7, i64 9}
+!86 = !{!32, !11, i64 688}
+!87 = !{!7, !7, i64 0}
+!88 = !{!32, !11, i64 692}
+!89 = !{!32, !11, i64 152}
+!90 = !{!32, !11, i64 144}
+!91 = !{!32, !11, i64 148}
+!92 = !{!73, !7, i64 7}
+!93 = !{!32, !11, i64 156}
+!94 = !{!83, !7, i64 3}
+!95 = !{!83, !11, i64 20}
+!96 = !{!83, !11, i64 8}
+!97 = !{!83, !11, i64 12}

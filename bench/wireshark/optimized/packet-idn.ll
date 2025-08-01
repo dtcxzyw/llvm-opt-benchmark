@@ -811,7 +811,7 @@ dissect_idn_channel_configuration_header.exit.i.i: ; preds = %210, %208
   br i1 %235, label %dissect_idn_channel_configuration.exit.i, label %236
 
 236:                                              ; preds = %233
-  %237 = load i8, ptr %124, align 1, !range !9, !noundef !10
+  %237 = load i8, ptr %124, align 1, !range !8, !noundef !9
   %238 = trunc nuw i8 %237 to i1
   br i1 %238, label %239, label %326
 
@@ -866,7 +866,7 @@ dissect_idn_channel_configuration_header.exit.i.i: ; preds = %210, %208
   %265 = add nuw nsw i32 %.05878.i.i.i, 1
   %.1.i.i.i = add i32 %.180.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i32 %.05878.i.i.i, %247
-  br i1 %exitcond.not.i.i.i, label %266, label %262, !llvm.loop !11
+  br i1 %exitcond.not.i.i.i, label %266, label %262, !llvm.loop !10
 
 266:                                              ; preds = %262
   %267 = zext nneg i8 %.05585.i.i.i to i32
@@ -966,7 +966,7 @@ dissect_idn_dimmer_level_subset.exit.i.i.i:       ; preds = %308, %304, %295, %2
   %.5.i.i.i = phi i32 [ %.3.i.i.i, %dissect_idn_dimmer_level_subset.exit.i.i.i ], [ %.3.i.i.i, %.preheader.i.i.i ], [ %324, %.lr.ph.preheader.i.i.i ]
   %325 = add i32 %.5.i.i.i, 1
   %.not.i22.i.i = icmp sgt i32 %325, %315
-  br i1 %.not.i22.i.i, label %dissect_idn_dmx_dictionary.exit.i.i, label %245, !llvm.loop !12
+  br i1 %.not.i22.i.i, label %dissect_idn_dmx_dictionary.exit.i.i, label %245, !llvm.loop !11
 
 dissect_idn_dmx_dictionary.exit.i.i:              ; preds = %.loopexit.i.i.i, %239
   %.072.lcssa.i.i.i = phi i32 [ 0, %239 ], [ %.274.i.i.i, %.loopexit.i.i.i ]
@@ -1018,7 +1018,7 @@ dissect_idn_dmx_dictionary.exit.i.i:              ; preds = %.loopexit.i.i.i, %2
   %349 = add i32 %.1237.i.i.i, 2
   %350 = add nuw nsw i32 %.0169236.i.i.i, 1
   %exitcond.not.i28.i.i = icmp eq i32 %350, %338
-  br i1 %exitcond.not.i28.i.i, label %.loopexit.loopexit.i.i.i, label %.preheader.i27.i.i, !llvm.loop !13
+  br i1 %exitcond.not.i28.i.i, label %.loopexit.loopexit.i.i.i, label %.preheader.i27.i.i, !llvm.loop !12
 
 351:                                              ; preds = %335
   %352 = icmp eq i16 %336, 16400
@@ -1379,7 +1379,7 @@ dissect_idn_laser_gts.exit205.i.i.i:              ; preds = %516, %513
   %527 = zext i8 %526 to i64
   %528 = shl nuw nsw i64 %527, 1
   %.not.not.i.i.i = icmp samesign ult i64 %indvars.iv.i.i.i, %528
-  br i1 %.not.not.i.i.i, label %335, label %dissect_idn_laser_dictionary.exit.i.i, !llvm.loop !14
+  br i1 %.not.not.i.i.i, label %335, label %dissect_idn_laser_dictionary.exit.i.i, !llvm.loop !13
 
 dissect_idn_laser_dictionary.exit.i.i:            ; preds = %.loopexit.i24.i.i, %326
   %.0222.lcssa.i.i.i = phi i32 [ 0, %326 ], [ %.2224.i.i.i, %.loopexit.i24.i.i ]
@@ -1645,7 +1645,7 @@ dissect_idn_chunk_header.exit.i:                  ; preds = %639, %623, %609, %5
   %682 = icmp samesign ult i32 %.04554.i.i, 15
   %683 = icmp slt i32 %680, 1948
   %684 = select i1 %682, i1 %683, i1 false
-  br i1 %684, label %668, label %685, !llvm.loop !15
+  br i1 %684, label %668, label %685, !llvm.loop !14
 
 685:                                              ; preds = %668
   %686 = load i32, ptr @hf_idn_gts_sample, align 4
@@ -1653,7 +1653,7 @@ dissect_idn_chunk_header.exit.i:                  ; preds = %639, %623, %609, %5
   %688 = add i32 %.056.i.i, 16
   %689 = add i32 %667, 16
   %.not.i59.i = icmp sgt i32 %689, %664
-  br i1 %.not.i59.i, label %._crit_edge.i.i, label %.preheader52.i.i, !llvm.loop !16
+  br i1 %.not.i59.i, label %._crit_edge.i.i, label %.preheader52.i.i, !llvm.loop !15
 
 ._crit_edge.i.i:                                  ; preds = %685, %663
   %.044.lcssa.i.i = phi i32 [ 0, %663 ], [ %667, %685 ]
@@ -1683,7 +1683,7 @@ dissect_idn_chunk_header.exit.i:                  ; preds = %639, %623, %609, %5
   %706 = icmp slt i32 %705, %691
   %707 = icmp slt i32 %704, 1948
   %708 = select i1 %706, i1 %707, i1 false
-  br i1 %708, label %.preheader.i.i, label %709, !llvm.loop !17
+  br i1 %708, label %.preheader.i.i, label %709, !llvm.loop !16
 
 709:                                              ; preds = %.preheader.i.i
   %710 = load i32, ptr @hf_idn_gts_sample, align 4
@@ -1698,7 +1698,7 @@ dissect_idn_octet_segment.exit.i:                 ; preds = %709, %._crit_edge.i
 
 .thread102.i:                                     ; preds = %661, %574
   %.2104.i = phi i32 [ %.0.i58.i, %661 ], [ %.04884.i, %574 ]
-  %713 = load i8, ptr %124, align 1, !range !9, !noundef !10
+  %713 = load i8, ptr %124, align 1, !range !8, !noundef !9
   %714 = trunc nuw i8 %713 to i1
   br i1 %714, label %715, label %799
 
@@ -1791,7 +1791,7 @@ dissect_idn_octet_segment.exit.i:                 ; preds = %709, %._crit_edge.i
   %765 = add i32 %764, %.04050.i.i.i
   %766 = add nuw nsw i32 %.04249.i.i.i, 1
   %exitcond.not.i.i61.i = icmp eq i32 %766, 16
-  br i1 %exitcond.not.i.i61.i, label %767, label %752, !llvm.loop !18
+  br i1 %exitcond.not.i.i61.i, label %767, label %752, !llvm.loop !17
 
 767:                                              ; preds = %752
   %768 = load i32, ptr @hf_idn_gts_sample, align 4
@@ -1800,7 +1800,7 @@ dissect_idn_octet_segment.exit.i:                 ; preds = %709, %._crit_edge.i
   %771 = add i32 %.053.i.i.i, 16
   %772 = add nuw nsw i32 %751, 16
   %.not.i.i62.i = icmp samesign ugt i32 %772, %750
-  br i1 %.not.i.i62.i, label %._crit_edge.i.i.i, label %.preheader48.i.i.i, !llvm.loop !19
+  br i1 %.not.i.i62.i, label %._crit_edge.i.i.i, label %.preheader48.i.i.i, !llvm.loop !18
 
 ._crit_edge.i.i.i:                                ; preds = %767, %748
   %.044.lcssa.i.i.i = phi i32 [ 0, %748 ], [ %751, %767 ]
@@ -1830,7 +1830,7 @@ dissect_idn_octet_segment.exit.i:                 ; preds = %709, %._crit_edge.i
   %789 = add i32 %788, %.14156.i.i.i
   %790 = add nuw nsw i32 %.14355.i.i.i, 1
   %exitcond58.not.i.i.i = icmp eq i32 %790, %775
-  br i1 %exitcond58.not.i.i.i, label %791, label %.preheader.i.i65.i, !llvm.loop !20
+  br i1 %exitcond58.not.i.i.i, label %791, label %.preheader.i.i65.i, !llvm.loop !19
 
 791:                                              ; preds = %.preheader.i.i65.i
   %792 = load i32, ptr @hf_idn_gts_sample, align 4
@@ -1846,7 +1846,7 @@ dissect_idn_dmx_sample_values.exit.i.i:           ; preds = %791, %._crit_edge.i
   %796 = load i8, ptr %.07483.i, align 8
   %797 = zext i8 %796 to i64
   %798 = icmp samesign ult i64 %indvars.iv.next.i.i, %797
-  br i1 %798, label %.lr.ph.i.i, label %dissect_idn_servicemap_response.exit, !llvm.loop !21
+  br i1 %798, label %.lr.ph.i.i, label %dissect_idn_servicemap_response.exit, !llvm.loop !20
 
 799:                                              ; preds = %.thread102.i
   call void @llvm.lifetime.start.p0(i64 2048, ptr nonnull %5) #9
@@ -1979,7 +1979,7 @@ dissect_idn_dmx_sample_values.exit.i.i:           ; preds = %791, %._crit_edge.i
   %876 = icmp slt i32 %.pre-phi.i.i.i, %875
   %877 = icmp slt i32 %.2.i.i70.i, 1948
   %878 = select i1 %876, i1 %877, i1 false
-  br i1 %878, label %.lr.ph.i.i69.i, label %set_laser_sample_values_string.exit.i.i, !llvm.loop !22
+  br i1 %878, label %.lr.ph.i.i69.i, label %set_laser_sample_values_string.exit.i.i, !llvm.loop !21
 
 set_laser_sample_values_string.exit.i.i:          ; preds = %874, %839
   %879 = phi i32 [ %841, %839 ], [ %875, %874 ]
@@ -1989,7 +1989,7 @@ set_laser_sample_values_string.exit.i.i:          ; preds = %874, %839
   %883 = add i32 %882, %.04350.i.i
   %884 = add i32 %.04449.i.i, 1
   %.not.i68.i = icmp sgt i32 %884, %805
-  br i1 %.not.i68.i, label %dissect_idn_laser_data.exit.i, label %811, !llvm.loop !23
+  br i1 %.not.i68.i, label %dissect_idn_laser_data.exit.i, label %811, !llvm.loop !22
 
 dissect_idn_laser_data.exit.i:                    ; preds = %set_laser_sample_values_string.exit.i.i, %804, %799
   %.042.i.i = phi i32 [ 0, %799 ], [ %.2104.i, %804 ], [ %883, %set_laser_sample_values_string.exit.i.i ]
@@ -2157,21 +2157,20 @@ attributes #11 = { nounwind willreturn memory(read) }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = !{i8 0, i8 2}
-!10 = !{}
-!11 = distinct !{!11, !7, !8}
-!12 = distinct !{!12, !7, !8}
-!13 = distinct !{!13, !7, !8}
-!14 = distinct !{!14, !7, !8}
-!15 = distinct !{!15, !7, !8}
-!16 = distinct !{!16, !7, !8}
-!17 = distinct !{!17, !7, !8}
-!18 = distinct !{!18, !7, !8}
-!19 = distinct !{!19, !7, !8}
-!20 = distinct !{!20, !7, !8}
-!21 = distinct !{!21, !7, !8}
-!22 = distinct !{!22, !7, !8}
-!23 = distinct !{!23, !7, !8}
+!8 = !{i8 0, i8 2}
+!9 = !{}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7}
+!12 = distinct !{!12, !7}
+!13 = distinct !{!13, !7}
+!14 = distinct !{!14, !7}
+!15 = distinct !{!15, !7}
+!16 = distinct !{!16, !7}
+!17 = distinct !{!17, !7}
+!18 = distinct !{!18, !7}
+!19 = distinct !{!19, !7}
+!20 = distinct !{!20, !7}
+!21 = distinct !{!21, !7}
+!22 = distinct !{!22, !7}

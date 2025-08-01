@@ -81,7 +81,7 @@ define dso_local void @freeClientMultiState(ptr noundef readonly captures(none) 
   %18 = load i32, ptr %3, align 8, !tbaa !29
   %19 = sext i32 %18 to i64
   %20 = icmp slt i64 %indvars.iv.next19, %19
-  br i1 %20, label %.lr.ph15, label %._crit_edge16, !llvm.loop !38
+  br i1 %20, label %.lr.ph15, label %._crit_edge16, !llvm.loop !37
 
 ._crit_edge16:                                    ; preds = %._crit_edge, %1
   %21 = load ptr, ptr %2, align 8, !tbaa !30
@@ -102,7 +102,7 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 ; Function Attrs: nounwind uwtable
 define dso_local void @queueMultiCommand(ptr noundef captures(none) %0, i64 noundef %1) local_unnamed_addr #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load i64, ptr %3, align 8, !tbaa !39
+  %4 = load i64, ptr %3, align 8, !tbaa !38
   %5 = and i64 %4, 4128
   %.not = icmp eq i64 %5, 0
   br i1 %.not, label %6, label %58
@@ -154,34 +154,34 @@ define dso_local void @queueMultiCommand(ptr noundef captures(none) %0, i64 noun
   %28 = sext i32 %26 to i64
   %29 = getelementptr inbounds %struct.multiCmd, ptr %27, i64 %28
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %31 = load ptr, ptr %30, align 8, !tbaa !40
+  %31 = load ptr, ptr %30, align 8, !tbaa !39
   %32 = getelementptr inbounds nuw i8, ptr %29, i64 16
-  store ptr %31, ptr %32, align 8, !tbaa !41
+  store ptr %31, ptr %32, align 8, !tbaa !40
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %34 = load i32, ptr %33, align 8, !tbaa !42
+  %34 = load i32, ptr %33, align 8, !tbaa !41
   %35 = getelementptr inbounds nuw i8, ptr %29, i64 12
   store i32 %34, ptr %35, align 4, !tbaa !31
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %37 = load ptr, ptr %36, align 8, !tbaa !43
+  %37 = load ptr, ptr %36, align 8, !tbaa !42
   store ptr %37, ptr %29, align 8, !tbaa !33
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %39 = load i32, ptr %38, align 8, !tbaa !44
+  %39 = load i32, ptr %38, align 8, !tbaa !43
   %40 = getelementptr inbounds nuw i8, ptr %29, i64 8
-  store i32 %39, ptr %40, align 8, !tbaa !45
+  store i32 %39, ptr %40, align 8, !tbaa !44
   %41 = add nsw i32 %26, 1
   store i32 %41, ptr %8, align 8, !tbaa !29
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 452
-  %43 = load i32, ptr %42, align 4, !tbaa !46
+  %43 = load i32, ptr %42, align 4, !tbaa !45
   %44 = trunc i64 %1 to i32
   %45 = or i32 %43, %44
-  store i32 %45, ptr %42, align 4, !tbaa !46
+  store i32 %45, ptr %42, align 4, !tbaa !45
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 456
-  %47 = load i32, ptr %46, align 8, !tbaa !47
+  %47 = load i32, ptr %46, align 8, !tbaa !46
   %48 = xor i32 %44, -1
   %49 = or i32 %47, %48
-  store i32 %49, ptr %46, align 8, !tbaa !47
+  store i32 %49, ptr %46, align 8, !tbaa !46
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  %51 = load i64, ptr %50, align 8, !tbaa !48
+  %51 = load i64, ptr %50, align 8, !tbaa !47
   %52 = sext i32 %34 to i64
   %53 = shl nsw i64 %52, 3
   %54 = add i64 %51, %53
@@ -189,10 +189,10 @@ define dso_local void @queueMultiCommand(ptr noundef captures(none) %0, i64 noun
   %56 = load i64, ptr %55, align 8, !tbaa !5
   %57 = add i64 %54, %56
   store i64 %57, ptr %55, align 8, !tbaa !5
-  store ptr null, ptr %36, align 8, !tbaa !43
-  store i32 0, ptr %33, align 8, !tbaa !42
-  store i64 0, ptr %50, align 8, !tbaa !48
-  store i32 0, ptr %38, align 8, !tbaa !44
+  store ptr null, ptr %36, align 8, !tbaa !42
+  store i32 0, ptr %33, align 8, !tbaa !41
+  store i64 0, ptr %50, align 8, !tbaa !47
+  store i32 0, ptr %38, align 8, !tbaa !43
   br label %58
 
 58:                                               ; preds = %2, %25
@@ -241,7 +241,7 @@ define dso_local void @discardTransaction(ptr noundef %0) local_unnamed_addr #1 
   %18 = load i32, ptr %3, align 8, !tbaa !29
   %19 = sext i32 %18 to i64
   %20 = icmp slt i64 %indvars.iv.next19.i, %19
-  br i1 %20, label %.lr.ph15.i, label %freeClientMultiState.exit, !llvm.loop !38
+  br i1 %20, label %.lr.ph15.i, label %freeClientMultiState.exit, !llvm.loop !37
 
 freeClientMultiState.exit:                        ; preds = %._crit_edge.i, %1
   %21 = load ptr, ptr %2, align 8, !tbaa !30
@@ -252,9 +252,9 @@ freeClientMultiState.exit:                        ; preds = %._crit_edge.i, %1
   store i32 0, ptr %23, align 8, !tbaa !28
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %2, i8 0, i64 20, i1 false)
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %25 = load i64, ptr %24, align 8, !tbaa !39
+  %25 = load i64, ptr %24, align 8, !tbaa !38
   %26 = and i64 %25, -4137
-  store i64 %26, ptr %24, align 8, !tbaa !39
+  store i64 %26, ptr %24, align 8, !tbaa !38
   tail call void @unwatchAllKeys(ptr noundef nonnull %0)
   ret void
 }
@@ -264,9 +264,9 @@ define dso_local void @unwatchAllKeys(ptr noundef %0) local_unnamed_addr #1 {
   %2 = alloca %struct.listIter, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #10
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 560
-  %4 = load ptr, ptr %3, align 8, !tbaa !49
+  %4 = load ptr, ptr %3, align 8, !tbaa !48
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 40
-  %6 = load i64, ptr %5, align 8, !tbaa !50
+  %6 = load i64, ptr %5, align 8, !tbaa !49
   %7 = icmp eq i64 %6, 0
   br i1 %7, label %34, label %8
 
@@ -279,11 +279,11 @@ define dso_local void @unwatchAllKeys(ptr noundef %0) local_unnamed_addr #1 {
 .lr.ph:                                           ; preds = %8, %27
   %10 = phi ptr [ %31, %27 ], [ %9, %8 ]
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  %12 = load ptr, ptr %11, align 8, !tbaa !52
+  %12 = load ptr, ptr %11, align 8, !tbaa !51
   %13 = getelementptr i8, ptr %12, i64 16
-  %.val = load ptr, ptr %13, align 8, !tbaa !53
+  %.val = load ptr, ptr %13, align 8, !tbaa !52
   %.not16 = icmp eq ptr %.val, null
-  br i1 %.not16, label %14, label %15, !prof !56
+  br i1 %.not16, label %14, label %15, !prof !55
 
 14:                                               ; preds = %.lr.ph
   call void @_serverAssertWithInfo(ptr noundef nonnull %0, ptr noundef null, ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.10, i32 noundef 327) #10
@@ -293,35 +293,35 @@ define dso_local void @unwatchAllKeys(ptr noundef %0) local_unnamed_addr #1 {
 15:                                               ; preds = %.lr.ph
   call void @listUnlinkNode(ptr noundef nonnull %.val, ptr noundef nonnull %12) #10
   %16 = getelementptr inbounds nuw i8, ptr %.val, i64 40
-  %17 = load i64, ptr %16, align 8, !tbaa !50
+  %17 = load i64, ptr %16, align 8, !tbaa !49
   %18 = icmp eq i64 %17, 0
   br i1 %18, label %19, label %27
 
 19:                                               ; preds = %15
   %20 = getelementptr inbounds nuw i8, ptr %12, i64 32
-  %21 = load ptr, ptr %20, align 8, !tbaa !57
+  %21 = load ptr, ptr %20, align 8, !tbaa !56
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 48
-  %23 = load ptr, ptr %22, align 8, !tbaa !58
+  %23 = load ptr, ptr %22, align 8, !tbaa !57
   %24 = getelementptr inbounds nuw i8, ptr %12, i64 24
-  %25 = load ptr, ptr %24, align 8, !tbaa !61
+  %25 = load ptr, ptr %24, align 8, !tbaa !60
   %26 = call i32 @dictDelete(ptr noundef %23, ptr noundef %25) #10
   br label %27
 
 27:                                               ; preds = %19, %15
-  %28 = load ptr, ptr %3, align 8, !tbaa !49
+  %28 = load ptr, ptr %3, align 8, !tbaa !48
   call void @listDelNode(ptr noundef %28, ptr noundef nonnull %10) #10
   %29 = getelementptr inbounds nuw i8, ptr %12, i64 24
-  %30 = load ptr, ptr %29, align 8, !tbaa !61
+  %30 = load ptr, ptr %29, align 8, !tbaa !60
   call void @decrRefCount(ptr noundef %30) #10
   call void @zfree(ptr noundef nonnull %12) #10
   %31 = call ptr @listNext(ptr noundef nonnull %2) #10
   %.not = icmp eq ptr %31, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !62
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !61
 
 ._crit_edge:                                      ; preds = %27, %8
-  %32 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 7884), align 4, !tbaa !63
+  %32 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 7884), align 4, !tbaa !62
   %33 = add i32 %32, -1
-  store i32 %33, ptr getelementptr inbounds nuw (i8, ptr @server, i64 7884), align 4, !tbaa !63
+  store i32 %33, ptr getelementptr inbounds nuw (i8, ptr @server, i64 7884), align 4, !tbaa !62
   br label %34
 
 34:                                               ; preds = %1, %._crit_edge
@@ -332,14 +332,14 @@ define dso_local void @unwatchAllKeys(ptr noundef %0) local_unnamed_addr #1 {
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define dso_local void @flagTransaction(ptr noundef captures(none) %0) local_unnamed_addr #6 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load i64, ptr %2, align 8, !tbaa !39
+  %3 = load i64, ptr %2, align 8, !tbaa !38
   %4 = and i64 %3, 8
   %.not = icmp eq i64 %4, 0
   br i1 %.not, label %7, label %5
 
 5:                                                ; preds = %1
   %6 = or i64 %3, 4096
-  store i64 %6, ptr %2, align 8, !tbaa !39
+  store i64 %6, ptr %2, align 8, !tbaa !38
   br label %7
 
 7:                                                ; preds = %5, %1
@@ -349,7 +349,7 @@ define dso_local void @flagTransaction(ptr noundef captures(none) %0) local_unna
 ; Function Attrs: nounwind uwtable
 define dso_local void @multiCommand(ptr noundef %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load i64, ptr %2, align 8, !tbaa !39
+  %3 = load i64, ptr %2, align 8, !tbaa !38
   %4 = and i64 %3, 8
   %.not = icmp eq i64 %4, 0
   br i1 %.not, label %6, label %5
@@ -360,8 +360,8 @@ define dso_local void @multiCommand(ptr noundef %0) local_unnamed_addr #1 {
 
 6:                                                ; preds = %1
   %7 = or disjoint i64 %3, 8
-  store i64 %7, ptr %2, align 8, !tbaa !39
-  %8 = load ptr, ptr @shared, align 8, !tbaa !82
+  store i64 %7, ptr %2, align 8, !tbaa !38
+  %8 = load ptr, ptr @shared, align 8, !tbaa !81
   tail call void @addReply(ptr noundef nonnull %0, ptr noundef %8) #10
   br label %9
 
@@ -376,7 +376,7 @@ declare void @addReply(ptr noundef, ptr noundef) local_unnamed_addr #3
 ; Function Attrs: nounwind uwtable
 define dso_local void @discardCommand(ptr noundef %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load i64, ptr %2, align 8, !tbaa !39
+  %3 = load i64, ptr %2, align 8, !tbaa !38
   %4 = and i64 %3, 8
   %.not = icmp eq i64 %4, 0
   br i1 %.not, label %5, label %6
@@ -420,7 +420,7 @@ define dso_local void @discardCommand(ptr noundef %0) local_unnamed_addr #1 {
   %23 = load i32, ptr %8, align 8, !tbaa !29
   %24 = sext i32 %23 to i64
   %25 = icmp slt i64 %indvars.iv.next19.i.i, %24
-  br i1 %25, label %.lr.ph15.i.i, label %discardTransaction.exit, !llvm.loop !38
+  br i1 %25, label %.lr.ph15.i.i, label %discardTransaction.exit, !llvm.loop !37
 
 discardTransaction.exit:                          ; preds = %._crit_edge.i.i, %6
   %26 = load ptr, ptr %7, align 8, !tbaa !30
@@ -430,11 +430,11 @@ discardTransaction.exit:                          ; preds = %._crit_edge.i.i, %6
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 472
   store i32 0, ptr %28, align 8, !tbaa !28
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %7, i8 0, i64 20, i1 false)
-  %29 = load i64, ptr %2, align 8, !tbaa !39
+  %29 = load i64, ptr %2, align 8, !tbaa !38
   %30 = and i64 %29, -4137
-  store i64 %30, ptr %2, align 8, !tbaa !39
+  store i64 %30, ptr %2, align 8, !tbaa !38
   tail call void @unwatchAllKeys(ptr noundef nonnull %0)
-  %31 = load ptr, ptr @shared, align 8, !tbaa !82
+  %31 = load ptr, ptr @shared, align 8, !tbaa !81
   tail call void @addReply(ptr noundef nonnull %0, ptr noundef %31) #10
   br label %32
 
@@ -478,7 +478,7 @@ define dso_local void @execCommandAbort(ptr noundef %0, ptr noundef %1) local_un
   %19 = load i32, ptr %4, align 8, !tbaa !29
   %20 = sext i32 %19 to i64
   %21 = icmp slt i64 %indvars.iv.next19.i.i, %20
-  br i1 %21, label %.lr.ph15.i.i, label %discardTransaction.exit, !llvm.loop !38
+  br i1 %21, label %.lr.ph15.i.i, label %discardTransaction.exit, !llvm.loop !37
 
 discardTransaction.exit:                          ; preds = %._crit_edge.i.i, %2
   %22 = load ptr, ptr %3, align 8, !tbaa !30
@@ -489,24 +489,24 @@ discardTransaction.exit:                          ; preds = %._crit_edge.i.i, %2
   store i32 0, ptr %24, align 8, !tbaa !28
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %3, i8 0, i64 20, i1 false)
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %26 = load i64, ptr %25, align 8, !tbaa !39
+  %26 = load i64, ptr %25, align 8, !tbaa !38
   %27 = and i64 %26, -4137
-  store i64 %27, ptr %25, align 8, !tbaa !39
+  store i64 %27, ptr %25, align 8, !tbaa !38
   tail call void @unwatchAllKeys(ptr noundef nonnull %0)
-  %28 = load i8, ptr %1, align 1, !tbaa !84
+  %28 = load i8, ptr %1, align 1, !tbaa !83
   %29 = icmp eq i8 %28, 45
   %spec.select.idx = zext i1 %29 to i64
   %spec.select = getelementptr inbounds nuw i8, ptr %1, i64 %spec.select.idx
   tail call void (ptr, ptr, ...) @addReplyErrorFormat(ptr noundef nonnull %0, ptr noundef nonnull @.str.2, ptr noundef nonnull %spec.select) #10
-  %30 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @server, i64 1472), align 8, !tbaa !85
+  %30 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @server, i64 1472), align 8, !tbaa !84
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %32 = load ptr, ptr %31, align 8, !tbaa !86
+  %32 = load ptr, ptr %31, align 8, !tbaa !85
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 56
-  %34 = load i32, ptr %33, align 8, !tbaa !87
+  %34 = load i32, ptr %33, align 8, !tbaa !86
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %36 = load ptr, ptr %35, align 8, !tbaa !43
+  %36 = load ptr, ptr %35, align 8, !tbaa !42
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %38 = load i32, ptr %37, align 8, !tbaa !42
+  %38 = load i32, ptr %37, align 8, !tbaa !41
   tail call void @replicationFeedMonitors(ptr noundef nonnull %0, ptr noundef %30, i32 noundef %34, ptr noundef %36, i32 noundef %38) #10
   ret void
 }
@@ -520,7 +520,7 @@ define dso_local void @execCommand(ptr noundef %0) local_unnamed_addr #1 {
   %2 = alloca %struct.listIter, align 8
   %3 = alloca i32, align 4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = load i64, ptr %4, align 8, !tbaa !39
+  %5 = load i64, ptr %4, align 8, !tbaa !38
   %6 = and i64 %5, 8
   %.not = icmp eq i64 %6, 0
   br i1 %.not, label %7, label %8
@@ -532,9 +532,9 @@ define dso_local void @execCommand(ptr noundef %0) local_unnamed_addr #1 {
 8:                                                ; preds = %1
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #10
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 560
-  %10 = load ptr, ptr %9, align 8, !tbaa !49
+  %10 = load ptr, ptr %9, align 8, !tbaa !48
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 40
-  %12 = load i64, ptr %11, align 8, !tbaa !50
+  %12 = load i64, ptr %11, align 8, !tbaa !49
   %13 = icmp eq i64 %12, 0
   br i1 %13, label %isWatchedKeyExpired.exit.thread, label %14
 
@@ -547,7 +547,7 @@ define dso_local void @execCommand(ptr noundef %0) local_unnamed_addr #1 {
 .lr.ph.i:                                         ; preds = %14, %.backedge.i
   %16 = phi ptr [ %22, %.backedge.i ], [ %15, %14 ]
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 16
-  %18 = load ptr, ptr %17, align 8, !tbaa !52
+  %18 = load ptr, ptr %17, align 8, !tbaa !51
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 48
   %20 = load i8, ptr %19, align 8
   %21 = and i8 %20, 1
@@ -557,27 +557,27 @@ define dso_local void @execCommand(ptr noundef %0) local_unnamed_addr #1 {
 .backedge.i:                                      ; preds = %23, %.lr.ph.i
   %22 = call ptr @listNext(ptr noundef nonnull %2) #10
   %.not.i = icmp eq ptr %22, null
-  br i1 %.not.i, label %isWatchedKeyExpired.exit.thread, label %.lr.ph.i, !llvm.loop !88
+  br i1 %.not.i, label %isWatchedKeyExpired.exit.thread, label %.lr.ph.i, !llvm.loop !87
 
 23:                                               ; preds = %.lr.ph.i
   %24 = getelementptr inbounds nuw i8, ptr %18, i64 32
-  %25 = load ptr, ptr %24, align 8, !tbaa !57
+  %25 = load ptr, ptr %24, align 8, !tbaa !56
   %26 = getelementptr inbounds nuw i8, ptr %18, i64 24
-  %27 = load ptr, ptr %26, align 8, !tbaa !61
+  %27 = load ptr, ptr %26, align 8, !tbaa !60
   %28 = call i32 @keyIsExpired(ptr noundef %25, ptr noundef %27) #10
   %.not8.i = icmp eq i32 %28, 0
   br i1 %.not8.i, label %.backedge.i, label %29
 
 isWatchedKeyExpired.exit.thread:                  ; preds = %.backedge.i, %8, %14
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #10
-  %.pre = load i64, ptr %4, align 8, !tbaa !39
+  %.pre = load i64, ptr %4, align 8, !tbaa !38
   br label %32
 
 29:                                               ; preds = %23
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #10
-  %30 = load i64, ptr %4, align 8, !tbaa !39
+  %30 = load i64, ptr %4, align 8, !tbaa !38
   %31 = or i64 %30, 32
-  store i64 %31, ptr %4, align 8, !tbaa !39
+  store i64 %31, ptr %4, align 8, !tbaa !38
   br label %32
 
 32:                                               ; preds = %isWatchedKeyExpired.exit.thread, %29
@@ -592,13 +592,13 @@ isWatchedKeyExpired.exit.thread:                  ; preds = %.backedge.i, %8, %1
   br i1 %.not75, label %39, label %37
 
 37:                                               ; preds = %35
-  %38 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 304), align 8, !tbaa !89
+  %38 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 304), align 8, !tbaa !88
   call void @addReplyErrorObject(ptr noundef nonnull %0, ptr noundef %38) #10
   br label %45
 
 39:                                               ; preds = %35
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %41 = load i32, ptr %40, align 4, !tbaa !90
+  %41 = load i32, ptr %40, align 4, !tbaa !89
   %42 = sext i32 %41 to i64
   %43 = getelementptr inbounds [4 x ptr], ptr getelementptr inbounds nuw (i8, ptr @shared, i64 96), i64 0, i64 %42
   %44 = load ptr, ptr %43, align 8, !tbaa !34
@@ -640,7 +640,7 @@ isWatchedKeyExpired.exit.thread:                  ; preds = %.backedge.i, %8, %1
   %62 = load i32, ptr %47, align 8, !tbaa !29
   %63 = sext i32 %62 to i64
   %64 = icmp slt i64 %indvars.iv.next19.i.i, %63
-  br i1 %64, label %.lr.ph15.i.i, label %discardTransaction.exit, !llvm.loop !38
+  br i1 %64, label %.lr.ph15.i.i, label %discardTransaction.exit, !llvm.loop !37
 
 discardTransaction.exit:                          ; preds = %._crit_edge.i.i, %45
   %65 = load ptr, ptr %46, align 8, !tbaa !30
@@ -650,25 +650,25 @@ discardTransaction.exit:                          ; preds = %._crit_edge.i.i, %4
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 472
   store i32 0, ptr %67, align 8, !tbaa !28
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %46, i8 0, i64 20, i1 false)
-  %68 = load i64, ptr %4, align 8, !tbaa !39
+  %68 = load i64, ptr %4, align 8, !tbaa !38
   %69 = and i64 %68, -4137
-  store i64 %69, ptr %4, align 8, !tbaa !39
+  store i64 %69, ptr %4, align 8, !tbaa !38
   call void @unwatchAllKeys(ptr noundef nonnull %0)
   br label %150
 
 70:                                               ; preds = %32
   %71 = or i64 %33, 2199023255552
-  store i64 %71, ptr %4, align 8, !tbaa !39
+  store i64 %71, ptr %4, align 8, !tbaa !38
   call void @unwatchAllKeys(ptr noundef nonnull %0)
-  store i32 1, ptr getelementptr inbounds nuw (i8, ptr @server, i64 220), align 4, !tbaa !91
+  store i32 1, ptr getelementptr inbounds nuw (i8, ptr @server, i64 220), align 4, !tbaa !90
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %73 = load ptr, ptr %72, align 8, !tbaa !43
+  %73 = load ptr, ptr %72, align 8, !tbaa !42
   %74 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %75 = load i32, ptr %74, align 8, !tbaa !44
+  %75 = load i32, ptr %74, align 8, !tbaa !43
   %76 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %77 = load i32, ptr %76, align 8, !tbaa !42
+  %77 = load i32, ptr %76, align 8, !tbaa !41
   %78 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %79 = load ptr, ptr %78, align 8, !tbaa !40
+  %79 = load ptr, ptr %78, align 8, !tbaa !39
   %80 = getelementptr inbounds nuw i8, ptr %0, i64 440
   %81 = getelementptr inbounds nuw i8, ptr %0, i64 448
   %82 = load i32, ptr %81, align 8, !tbaa !29
@@ -688,17 +688,17 @@ discardTransaction.exit:                          ; preds = %._crit_edge.i.i, %4
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %110 ]
   %89 = getelementptr inbounds nuw %struct.multiCmd, ptr %88, i64 %indvars.iv, i32 2
   %90 = load i32, ptr %89, align 4, !tbaa !31
-  store i32 %90, ptr %76, align 8, !tbaa !42
+  store i32 %90, ptr %76, align 8, !tbaa !41
   %91 = getelementptr inbounds nuw %struct.multiCmd, ptr %88, i64 %indvars.iv
   %92 = load ptr, ptr %91, align 8, !tbaa !33
-  store ptr %92, ptr %72, align 8, !tbaa !43
+  store ptr %92, ptr %72, align 8, !tbaa !42
   %93 = getelementptr inbounds nuw %struct.multiCmd, ptr %88, i64 %indvars.iv, i32 1
-  %94 = load i32, ptr %93, align 8, !tbaa !45
-  store i32 %94, ptr %74, align 8, !tbaa !44
+  %94 = load i32, ptr %93, align 8, !tbaa !44
+  store i32 %94, ptr %74, align 8, !tbaa !43
   %95 = getelementptr inbounds nuw %struct.multiCmd, ptr %88, i64 %indvars.iv, i32 3
-  %96 = load ptr, ptr %95, align 8, !tbaa !41
-  store ptr %96, ptr %86, align 8, !tbaa !92
-  store ptr %96, ptr %78, align 8, !tbaa !40
+  %96 = load ptr, ptr %95, align 8, !tbaa !40
+  store ptr %96, ptr %86, align 8, !tbaa !91
+  store ptr %96, ptr %78, align 8, !tbaa !39
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #10
   %97 = call i32 @ACLCheckAllPerm(ptr noundef nonnull %0, ptr noundef nonnull %3) #10
   switch i32 %97, label %100 [
@@ -719,20 +719,20 @@ discardTransaction.exit:                          ; preds = %._crit_edge.i.i, %4
 
 101:                                              ; preds = %87, %100, %99, %98
   %.0 = phi ptr [ @.str.7, %100 ], [ @.str.5, %98 ], [ @.str.6, %99 ], [ @.str.4, %87 ]
-  %102 = load i32, ptr %3, align 4, !tbaa !93
+  %102 = load i32, ptr %3, align 4, !tbaa !92
   call void @addACLLogEntry(ptr noundef nonnull %0, i32 noundef %97, i32 noundef 2, i32 noundef %102, ptr noundef null, ptr noundef null) #10
   call void (ptr, ptr, ...) @addReplyErrorFormat(ptr noundef nonnull %0, ptr noundef nonnull @.str.8, ptr noundef nonnull %.0) #10
   br label %110
 
 103:                                              ; preds = %87
-  %104 = load i64, ptr %0, align 8, !tbaa !94
+  %104 = load i64, ptr %0, align 8, !tbaa !93
   %105 = icmp eq i64 %104, -1
   %. = select i1 %105, i32 0, i32 3
   call void @call(ptr noundef nonnull %0, i32 noundef %.) #10
-  %106 = load i64, ptr %4, align 8, !tbaa !39
+  %106 = load i64, ptr %4, align 8, !tbaa !38
   %107 = and i64 %106, 16
   %108 = icmp eq i64 %107, 0
-  br i1 %108, label %110, label %109, !prof !95
+  br i1 %108, label %110, label %109, !prof !94
 
 109:                                              ; preds = %103
   call void @_serverAssert(ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.10, i32 noundef 214) #10
@@ -740,25 +740,25 @@ discardTransaction.exit:                          ; preds = %._crit_edge.i.i, %4
   unreachable
 
 110:                                              ; preds = %103, %101
-  %111 = load i32, ptr %76, align 8, !tbaa !42
+  %111 = load i32, ptr %76, align 8, !tbaa !41
   %112 = load ptr, ptr %80, align 8, !tbaa !30
   %113 = getelementptr inbounds nuw %struct.multiCmd, ptr %112, i64 %indvars.iv, i32 2
   store i32 %111, ptr %113, align 4, !tbaa !31
-  %114 = load ptr, ptr %72, align 8, !tbaa !43
+  %114 = load ptr, ptr %72, align 8, !tbaa !42
   %115 = getelementptr inbounds nuw %struct.multiCmd, ptr %112, i64 %indvars.iv
   store ptr %114, ptr %115, align 8, !tbaa !33
-  %116 = load i32, ptr %74, align 8, !tbaa !44
+  %116 = load i32, ptr %74, align 8, !tbaa !43
   %117 = getelementptr inbounds nuw %struct.multiCmd, ptr %112, i64 %indvars.iv, i32 1
-  store i32 %116, ptr %117, align 8, !tbaa !45
-  %118 = load ptr, ptr %78, align 8, !tbaa !40
+  store i32 %116, ptr %117, align 8, !tbaa !44
+  %118 = load ptr, ptr %78, align 8, !tbaa !39
   %119 = getelementptr inbounds nuw %struct.multiCmd, ptr %112, i64 %indvars.iv, i32 3
-  store ptr %118, ptr %119, align 8, !tbaa !41
+  store ptr %118, ptr %119, align 8, !tbaa !40
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %120 = load i32, ptr %81, align 8, !tbaa !29
   %121 = sext i32 %120 to i64
   %122 = icmp slt i64 %indvars.iv.next, %121
-  br i1 %122, label %87, label %._crit_edge.loopexit, !llvm.loop !96
+  br i1 %122, label %87, label %._crit_edge.loopexit, !llvm.loop !95
 
 ._crit_edge.loopexit:                             ; preds = %110
   %123 = icmp sgt i32 %120, 0
@@ -771,18 +771,18 @@ discardTransaction.exit:                          ; preds = %._crit_edge.i.i, %4
   br i1 %.not73, label %125, label %128
 
 125:                                              ; preds = %._crit_edge
-  %126 = load i64, ptr %4, align 8, !tbaa !39
+  %126 = load i64, ptr %4, align 8, !tbaa !38
   %127 = and i64 %126, -2199023255553
-  store i64 %127, ptr %4, align 8, !tbaa !39
+  store i64 %127, ptr %4, align 8, !tbaa !38
   br label %128
 
 128:                                              ; preds = %125, %._crit_edge
-  store ptr %73, ptr %72, align 8, !tbaa !43
-  store i32 %75, ptr %74, align 8, !tbaa !44
-  store i32 %77, ptr %76, align 8, !tbaa !42
+  store ptr %73, ptr %72, align 8, !tbaa !42
+  store i32 %75, ptr %74, align 8, !tbaa !43
+  store i32 %77, ptr %76, align 8, !tbaa !41
   %129 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  store ptr %79, ptr %129, align 8, !tbaa !92
-  store ptr %79, ptr %78, align 8, !tbaa !40
+  store ptr %79, ptr %129, align 8, !tbaa !91
+  store ptr %79, ptr %78, align 8, !tbaa !39
   br i1 %.lcssa, label %.lr.ph15.i.i76, label %discardTransaction.exit83
 
 .lr.ph15.i.i76:                                   ; preds = %128, %._crit_edge.i.i78
@@ -813,7 +813,7 @@ discardTransaction.exit:                          ; preds = %._crit_edge.i.i, %4
   %142 = load i32, ptr %81, align 8, !tbaa !29
   %143 = sext i32 %142 to i64
   %144 = icmp slt i64 %indvars.iv.next19.i.i79, %143
-  br i1 %144, label %.lr.ph15.i.i76, label %discardTransaction.exit83, !llvm.loop !38
+  br i1 %144, label %.lr.ph15.i.i76, label %discardTransaction.exit83, !llvm.loop !37
 
 discardTransaction.exit83:                        ; preds = %._crit_edge.i.i78, %128
   %145 = load ptr, ptr %80, align 8, !tbaa !30
@@ -823,11 +823,11 @@ discardTransaction.exit83:                        ; preds = %._crit_edge.i.i78, 
   %147 = getelementptr inbounds nuw i8, ptr %0, i64 472
   store i32 0, ptr %147, align 8, !tbaa !28
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %80, i8 0, i64 20, i1 false)
-  %148 = load i64, ptr %4, align 8, !tbaa !39
+  %148 = load i64, ptr %4, align 8, !tbaa !38
   %149 = and i64 %148, -4137
-  store i64 %149, ptr %4, align 8, !tbaa !39
+  store i64 %149, ptr %4, align 8, !tbaa !38
   call void @unwatchAllKeys(ptr noundef nonnull %0)
-  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @server, i64 220), align 4, !tbaa !91
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @server, i64 220), align 4, !tbaa !90
   br label %150
 
 150:                                              ; preds = %discardTransaction.exit83, %discardTransaction.exit, %7
@@ -839,9 +839,9 @@ define dso_local range(i32 0, 2) i32 @isWatchedKeyExpired(ptr noundef readonly c
   %2 = alloca %struct.listIter, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #10
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 560
-  %4 = load ptr, ptr %3, align 8, !tbaa !49
+  %4 = load ptr, ptr %3, align 8, !tbaa !48
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 40
-  %6 = load i64, ptr %5, align 8, !tbaa !50
+  %6 = load i64, ptr %5, align 8, !tbaa !49
   %7 = icmp eq i64 %6, 0
   br i1 %7, label %.loopexit, label %8
 
@@ -854,7 +854,7 @@ define dso_local range(i32 0, 2) i32 @isWatchedKeyExpired(ptr noundef readonly c
 .lr.ph:                                           ; preds = %8, %.backedge
   %10 = phi ptr [ %16, %.backedge ], [ %9, %8 ]
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  %12 = load ptr, ptr %11, align 8, !tbaa !52
+  %12 = load ptr, ptr %11, align 8, !tbaa !51
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 48
   %14 = load i8, ptr %13, align 8
   %15 = and i8 %14, 1
@@ -864,13 +864,13 @@ define dso_local range(i32 0, 2) i32 @isWatchedKeyExpired(ptr noundef readonly c
 .backedge:                                        ; preds = %.lr.ph, %17
   %16 = call ptr @listNext(ptr noundef nonnull %2) #10
   %.not = icmp eq ptr %16, null
-  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !88
+  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !87
 
 17:                                               ; preds = %.lr.ph
   %18 = getelementptr inbounds nuw i8, ptr %12, i64 32
-  %19 = load ptr, ptr %18, align 8, !tbaa !57
+  %19 = load ptr, ptr %18, align 8, !tbaa !56
   %20 = getelementptr inbounds nuw i8, ptr %12, i64 24
-  %21 = load ptr, ptr %20, align 8, !tbaa !61
+  %21 = load ptr, ptr %20, align 8, !tbaa !60
   %22 = call i32 @keyIsExpired(ptr noundef %19, ptr noundef %21) #10
   %.not8 = icmp eq i32 %22, 0
   br i1 %.not8, label %.backedge, label %.loopexit
@@ -901,16 +901,16 @@ define dso_local void @watchForKey(ptr noundef %0, ptr noundef %1) local_unnamed
   %3 = alloca %struct.listIter, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #10
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 560
-  %5 = load ptr, ptr %4, align 8, !tbaa !49
+  %5 = load ptr, ptr %4, align 8, !tbaa !48
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 40
-  %7 = load i64, ptr %6, align 8, !tbaa !50
+  %7 = load i64, ptr %6, align 8, !tbaa !49
   %8 = icmp eq i64 %7, 0
   br i1 %8, label %9, label %12
 
 9:                                                ; preds = %2
-  %10 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 7884), align 4, !tbaa !63
+  %10 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 7884), align 4, !tbaa !62
   %11 = add i32 %10, 1
-  store i32 %11, ptr getelementptr inbounds nuw (i8, ptr @server, i64 7884), align 4, !tbaa !63
+  store i32 %11, ptr getelementptr inbounds nuw (i8, ptr @server, i64 7884), align 4, !tbaa !62
   br label %12
 
 12:                                               ; preds = %9, %2
@@ -926,16 +926,16 @@ define dso_local void @watchForKey(ptr noundef %0, ptr noundef %1) local_unnamed
 15:                                               ; preds = %.lr.ph, %27
   %16 = phi ptr [ %13, %.lr.ph ], [ %28, %27 ]
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 16
-  %18 = load ptr, ptr %17, align 8, !tbaa !52
+  %18 = load ptr, ptr %17, align 8, !tbaa !51
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 32
-  %20 = load ptr, ptr %19, align 8, !tbaa !57
-  %21 = load ptr, ptr %14, align 8, !tbaa !86
+  %20 = load ptr, ptr %19, align 8, !tbaa !56
+  %21 = load ptr, ptr %14, align 8, !tbaa !85
   %22 = icmp eq ptr %20, %21
   br i1 %22, label %23, label %27
 
 23:                                               ; preds = %15
   %24 = getelementptr inbounds nuw i8, ptr %18, i64 24
-  %25 = load ptr, ptr %24, align 8, !tbaa !61
+  %25 = load ptr, ptr %24, align 8, !tbaa !60
   %26 = call i32 @equalStringObjects(ptr noundef %1, ptr noundef %25) #10
   %.not31 = icmp eq i32 %26, 0
   br i1 %.not31, label %27, label %.loopexit
@@ -943,22 +943,22 @@ define dso_local void @watchForKey(ptr noundef %0, ptr noundef %1) local_unnamed
 27:                                               ; preds = %23, %15
   %28 = call ptr @listNext(ptr noundef nonnull %3) #10
   %.not = icmp eq ptr %28, null
-  br i1 %.not, label %._crit_edge, label %15, !llvm.loop !97
+  br i1 %.not, label %._crit_edge, label %15, !llvm.loop !96
 
 ._crit_edge:                                      ; preds = %27, %12
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %30 = load ptr, ptr %29, align 8, !tbaa !86
+  %30 = load ptr, ptr %29, align 8, !tbaa !85
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 48
-  %32 = load ptr, ptr %31, align 8, !tbaa !58
+  %32 = load ptr, ptr %31, align 8, !tbaa !57
   %33 = call ptr @dictFetchValue(ptr noundef %32, ptr noundef %1) #10
   %.not30 = icmp eq ptr %33, null
   br i1 %.not30, label %34, label %40
 
 34:                                               ; preds = %._crit_edge
   %35 = call ptr @listCreate() #10
-  %36 = load ptr, ptr %29, align 8, !tbaa !86
+  %36 = load ptr, ptr %29, align 8, !tbaa !85
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 48
-  %38 = load ptr, ptr %37, align 8, !tbaa !58
+  %38 = load ptr, ptr %37, align 8, !tbaa !57
   %39 = call i32 @dictAdd(ptr noundef %38, ptr noundef %1, ptr noundef %35) #10
   call void @incrRefCount(ptr noundef %1) #10
   br label %40
@@ -967,12 +967,12 @@ define dso_local void @watchForKey(ptr noundef %0, ptr noundef %1) local_unnamed
   %.0 = phi ptr [ %33, %._crit_edge ], [ %35, %34 ]
   %41 = call noalias dereferenceable_or_null(56) ptr @zmalloc(i64 noundef 56) #11
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 24
-  store ptr %1, ptr %42, align 8, !tbaa !61
+  store ptr %1, ptr %42, align 8, !tbaa !60
   %43 = getelementptr inbounds nuw i8, ptr %41, i64 40
-  store ptr %0, ptr %43, align 8, !tbaa !98
-  %44 = load ptr, ptr %29, align 8, !tbaa !86
+  store ptr %0, ptr %43, align 8, !tbaa !97
+  %44 = load ptr, ptr %29, align 8, !tbaa !85
   %45 = getelementptr inbounds nuw i8, ptr %41, i64 32
-  store ptr %44, ptr %45, align 8, !tbaa !57
+  store ptr %44, ptr %45, align 8, !tbaa !56
   %46 = call i32 @keyIsExpired(ptr noundef %44, ptr noundef %1) #10
   %47 = getelementptr inbounds nuw i8, ptr %41, i64 48
   %48 = trunc i32 %46 to i8
@@ -982,10 +982,10 @@ define dso_local void @watchForKey(ptr noundef %0, ptr noundef %1) local_unnamed
   %52 = or disjoint i8 %51, %50
   store i8 %52, ptr %47, align 8
   call void @incrRefCount(ptr noundef %1) #10
-  %53 = load ptr, ptr %4, align 8, !tbaa !49
+  %53 = load ptr, ptr %4, align 8, !tbaa !48
   %54 = call ptr @listAddNodeTail(ptr noundef %53, ptr noundef %41) #10
   %55 = getelementptr inbounds nuw i8, ptr %41, i64 16
-  store ptr %.0, ptr %55, align 8, !tbaa !53
+  store ptr %.0, ptr %55, align 8, !tbaa !52
   call void @listLinkNodeTail(ptr noundef %.0, ptr noundef %41) #10
   br label %.loopexit
 
@@ -1025,11 +1025,11 @@ define dso_local void @touchWatchedKey(ptr noundef %0, ptr noundef %1) local_unn
   %3 = alloca %struct.listIter, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #10
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %5 = load ptr, ptr %4, align 8, !tbaa !58
+  %5 = load ptr, ptr %4, align 8, !tbaa !57
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  %7 = load i64, ptr %6, align 8, !tbaa !99
+  %7 = load i64, ptr %6, align 8, !tbaa !98
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  %9 = load i64, ptr %8, align 8, !tbaa !99
+  %9 = load i64, ptr %8, align 8, !tbaa !98
   %10 = sub i64 0, %9
   %11 = icmp eq i64 %7, %10
   br i1 %11, label %.thread, label %12
@@ -1056,19 +1056,19 @@ define dso_local void @touchWatchedKey(ptr noundef %0, ptr noundef %1) local_unn
 
 21:                                               ; preds = %.lr.ph
   %22 = getelementptr inbounds nuw i8, ptr %17, i64 32
-  %23 = load ptr, ptr %22, align 8, !tbaa !57
+  %23 = load ptr, ptr %22, align 8, !tbaa !56
   %24 = icmp eq ptr %0, %23
   br i1 %24, label %25, label %.thread
 
 25:                                               ; preds = %21
   %26 = getelementptr inbounds nuw i8, ptr %17, i64 24
-  %27 = load ptr, ptr %26, align 8, !tbaa !61
+  %27 = load ptr, ptr %26, align 8, !tbaa !60
   %28 = call i32 @equalStringObjects(ptr noundef %1, ptr noundef %27) #10
   %.not23 = icmp eq i32 %28, 0
   br i1 %.not23, label %.thread, label %29
 
 29:                                               ; preds = %25
-  %30 = load ptr, ptr %15, align 8, !tbaa !100
+  %30 = load ptr, ptr %15, align 8, !tbaa !99
   %31 = call ptr @dbFind(ptr noundef %0, ptr noundef %30) #10
   %32 = icmp eq ptr %31, null
   br i1 %32, label %33, label %.thread
@@ -1077,17 +1077,17 @@ define dso_local void @touchWatchedKey(ptr noundef %0, ptr noundef %1) local_unn
   %34 = load i8, ptr %18, align 8
   %35 = and i8 %34, -2
   store i8 %35, ptr %18, align 8
-  br label %42, !llvm.loop !102
+  br label %42, !llvm.loop !101
 
 36:                                               ; preds = %.lr.ph
   %37 = getelementptr inbounds nuw i8, ptr %17, i64 40
-  %38 = load ptr, ptr %37, align 8, !tbaa !98
+  %38 = load ptr, ptr %37, align 8, !tbaa !97
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 8
-  %40 = load i64, ptr %39, align 8, !tbaa !39
+  %40 = load i64, ptr %39, align 8, !tbaa !38
   %41 = or i64 %40, 32
-  store i64 %41, ptr %39, align 8, !tbaa !39
+  store i64 %41, ptr %39, align 8, !tbaa !38
   call void @unwatchAllKeys(ptr noundef %38)
-  br label %42, !llvm.loop !102
+  br label %42, !llvm.loop !101
 
 42:                                               ; preds = %33, %36
   %43 = call ptr @listNext(ptr noundef nonnull %3) #10
@@ -1106,11 +1106,11 @@ define dso_local void @touchAllWatchedKeysInDb(ptr noundef %0, ptr noundef %1) l
   %3 = alloca %struct.listIter, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #10
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %5 = load ptr, ptr %4, align 8, !tbaa !58
+  %5 = load ptr, ptr %4, align 8, !tbaa !57
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  %7 = load i64, ptr %6, align 8, !tbaa !99
+  %7 = load i64, ptr %6, align 8, !tbaa !98
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  %9 = load i64, ptr %8, align 8, !tbaa !99
+  %9 = load i64, ptr %8, align 8, !tbaa !98
   %10 = sub i64 0, %9
   %11 = icmp eq i64 %7, %10
   br i1 %11, label %78, label %12
@@ -1129,7 +1129,7 @@ define dso_local void @touchAllWatchedKeysInDb(ptr noundef %0, ptr noundef %1) l
   %15 = phi ptr [ %24, %.critedge.us ], [ %14, %.lr.ph45 ]
   %16 = call ptr @dictGetKey(ptr noundef nonnull %15) #10
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  %18 = load ptr, ptr %17, align 8, !tbaa !100
+  %18 = load ptr, ptr %17, align 8, !tbaa !99
   %19 = call ptr @dbFind(ptr noundef %0, ptr noundef %18) #10
   %.not33.us = icmp eq ptr %19, null
   br i1 %.not33.us, label %.critedge.us, label %20
@@ -1137,7 +1137,7 @@ define dso_local void @touchAllWatchedKeysInDb(ptr noundef %0, ptr noundef %1) l
 20:                                               ; preds = %.lr.ph45.split.us
   %21 = call ptr @dictGetVal(ptr noundef nonnull %15) #10
   %.not36.not.us = icmp eq ptr %21, null
-  br i1 %.not36.not.us, label %.critedge.us, label %22, !llvm.loop !103
+  br i1 %.not36.not.us, label %.critedge.us, label %22, !llvm.loop !102
 
 22:                                               ; preds = %20
   call void @listRewind(ptr noundef nonnull %21, ptr noundef nonnull %3) #10
@@ -1148,7 +1148,7 @@ define dso_local void @touchAllWatchedKeysInDb(ptr noundef %0, ptr noundef %1) l
 .critedge.us:                                     ; preds = %37, %.lr.ph45.split.us, %22, %20
   %24 = call ptr @dictNext(ptr noundef %13) #10
   %.not.us = icmp eq ptr %24, null
-  br i1 %.not.us, label %._crit_edge, label %.lr.ph45.split.us, !llvm.loop !104
+  br i1 %.not.us, label %._crit_edge, label %.lr.ph45.split.us, !llvm.loop !103
 
 .lr.ph.us:                                        ; preds = %22, %37
   %25 = phi ptr [ %38, %37 ], [ %23, %22 ]
@@ -1161,33 +1161,33 @@ define dso_local void @touchAllWatchedKeysInDb(ptr noundef %0, ptr noundef %1) l
 29:                                               ; preds = %.lr.ph.us
   %30 = and i8 %27, -2
   store i8 %30, ptr %26, align 8
-  br label %37, !llvm.loop !106
+  br label %37, !llvm.loop !105
 
 31:                                               ; preds = %.lr.ph.us
   %32 = getelementptr inbounds nuw i8, ptr %25, i64 40
-  %33 = load ptr, ptr %32, align 8, !tbaa !98
+  %33 = load ptr, ptr %32, align 8, !tbaa !97
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 8
-  %35 = load i64, ptr %34, align 8, !tbaa !39
+  %35 = load i64, ptr %34, align 8, !tbaa !38
   %36 = or i64 %35, 32
-  store i64 %36, ptr %34, align 8, !tbaa !39
+  store i64 %36, ptr %34, align 8, !tbaa !38
   br label %37
 
 37:                                               ; preds = %31, %29
   %38 = call ptr @listNext(ptr noundef nonnull %3) #10
   %.not37.us.us = icmp eq ptr %38, null
-  br i1 %.not37.us.us, label %.critedge.us, label %.lr.ph.us, !llvm.loop !107
+  br i1 %.not37.us.us, label %.critedge.us, label %.lr.ph.us, !llvm.loop !106
 
 .lr.ph45.split:                                   ; preds = %.lr.ph45, %.critedge
   %39 = phi ptr [ %77, %.critedge ], [ %14, %.lr.ph45 ]
   %40 = call ptr @dictGetKey(ptr noundef nonnull %39) #10
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 8
-  %42 = load ptr, ptr %41, align 8, !tbaa !100
+  %42 = load ptr, ptr %41, align 8, !tbaa !99
   %43 = call ptr @dbFind(ptr noundef %0, ptr noundef %42) #10
   %.not33 = icmp eq ptr %43, null
   br i1 %.not33, label %44, label %47
 
 44:                                               ; preds = %.lr.ph45.split
-  %45 = load ptr, ptr %41, align 8, !tbaa !100
+  %45 = load ptr, ptr %41, align 8, !tbaa !99
   %46 = call ptr @dbFind(ptr noundef nonnull %1, ptr noundef %45) #10
   %.not35 = icmp eq ptr %46, null
   br i1 %.not35, label %.critedge, label %47
@@ -1195,7 +1195,7 @@ define dso_local void @touchAllWatchedKeysInDb(ptr noundef %0, ptr noundef %1) l
 47:                                               ; preds = %44, %.lr.ph45.split
   %48 = call ptr @dictGetVal(ptr noundef nonnull %39) #10
   %.not36.not = icmp eq ptr %48, null
-  br i1 %.not36.not, label %.critedge, label %49, !llvm.loop !103
+  br i1 %.not36.not, label %.critedge, label %49, !llvm.loop !102
 
 49:                                               ; preds = %47
   call void @listRewind(ptr noundef nonnull %48, ptr noundef nonnull %3) #10
@@ -1212,7 +1212,7 @@ define dso_local void @touchAllWatchedKeysInDb(ptr noundef %0, ptr noundef %1) l
   br i1 %.not38, label %63, label %55
 
 55:                                               ; preds = %.lr.ph
-  %56 = load ptr, ptr %41, align 8, !tbaa !100
+  %56 = load ptr, ptr %41, align 8, !tbaa !99
   %57 = call ptr @dbFind(ptr noundef nonnull %1, ptr noundef %56) #10
   %.not41 = icmp eq ptr %57, null
   br i1 %.not41, label %58, label %61
@@ -1221,12 +1221,12 @@ define dso_local void @touchAllWatchedKeysInDb(ptr noundef %0, ptr noundef %1) l
   %59 = load i8, ptr %52, align 8
   %60 = and i8 %59, -2
   store i8 %60, ptr %52, align 8
-  br label %75, !llvm.loop !106
+  br label %75, !llvm.loop !105
 
 61:                                               ; preds = %55
   %62 = call i32 @keyIsExpired(ptr noundef nonnull %1, ptr noundef nonnull %40) #10
   %.not42 = icmp eq i32 %62, 0
-  br i1 %.not42, label %69, label %75, !llvm.loop !106
+  br i1 %.not42, label %69, label %75, !llvm.loop !105
 
 63:                                               ; preds = %.lr.ph
   br i1 %.not33, label %64, label %69
@@ -1240,26 +1240,26 @@ define dso_local void @touchAllWatchedKeysInDb(ptr noundef %0, ptr noundef %1) l
   %67 = load i8, ptr %52, align 8
   %68 = or i8 %67, 1
   store i8 %68, ptr %52, align 8
-  br label %75, !llvm.loop !106
+  br label %75, !llvm.loop !105
 
 69:                                               ; preds = %63, %64, %61
   %70 = getelementptr inbounds nuw i8, ptr %51, i64 40
-  %71 = load ptr, ptr %70, align 8, !tbaa !98
+  %71 = load ptr, ptr %70, align 8, !tbaa !97
   %72 = getelementptr inbounds nuw i8, ptr %71, i64 8
-  %73 = load i64, ptr %72, align 8, !tbaa !39
+  %73 = load i64, ptr %72, align 8, !tbaa !38
   %74 = or i64 %73, 32
-  store i64 %74, ptr %72, align 8, !tbaa !39
+  store i64 %74, ptr %72, align 8, !tbaa !38
   br label %75
 
 75:                                               ; preds = %61, %69, %66, %58
   %76 = call ptr @listNext(ptr noundef nonnull %3) #10
   %.not37 = icmp eq ptr %76, null
-  br i1 %.not37, label %.critedge, label %.lr.ph, !llvm.loop !108
+  br i1 %.not37, label %.critedge, label %.lr.ph
 
 .critedge:                                        ; preds = %75, %49, %47, %44
   %77 = call ptr @dictNext(ptr noundef %13) #10
   %.not = icmp eq ptr %77, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph45.split, !llvm.loop !109
+  br i1 %.not, label %._crit_edge, label %.lr.ph45.split
 
 ._crit_edge:                                      ; preds = %.critedge, %.critedge.us, %12
   call void @dictReleaseIterator(ptr noundef %13) #10
@@ -1283,7 +1283,7 @@ declare void @dictReleaseIterator(ptr noundef) local_unnamed_addr #3
 ; Function Attrs: nounwind uwtable
 define dso_local void @watchCommand(ptr noundef %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load i64, ptr %2, align 8, !tbaa !39
+  %3 = load i64, ptr %2, align 8, !tbaa !38
   %4 = and i64 %3, 8
   %.not = icmp eq i64 %4, 0
   br i1 %.not, label %6, label %5
@@ -1299,7 +1299,7 @@ define dso_local void @watchCommand(ptr noundef %0) local_unnamed_addr #1 {
 
 .preheader:                                       ; preds = %6
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %9 = load i32, ptr %8, align 8, !tbaa !42
+  %9 = load i32, ptr %8, align 8, !tbaa !41
   %10 = icmp sgt i32 %9, 1
   br i1 %10, label %.lr.ph, label %._crit_edge
 
@@ -1308,24 +1308,24 @@ define dso_local void @watchCommand(ptr noundef %0) local_unnamed_addr #1 {
   br label %14
 
 12:                                               ; preds = %6
-  %13 = load ptr, ptr @shared, align 8, !tbaa !82
+  %13 = load ptr, ptr @shared, align 8, !tbaa !81
   tail call void @addReply(ptr noundef nonnull %0, ptr noundef %13) #10
   br label %22
 
 14:                                               ; preds = %.lr.ph, %14
   %indvars.iv = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next, %14 ]
-  %15 = load ptr, ptr %11, align 8, !tbaa !43
+  %15 = load ptr, ptr %11, align 8, !tbaa !42
   %16 = getelementptr inbounds nuw ptr, ptr %15, i64 %indvars.iv
   %17 = load ptr, ptr %16, align 8, !tbaa !34
   tail call void @watchForKey(ptr noundef nonnull %0, ptr noundef %17)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %18 = load i32, ptr %8, align 8, !tbaa !42
+  %18 = load i32, ptr %8, align 8, !tbaa !41
   %19 = sext i32 %18 to i64
   %20 = icmp slt i64 %indvars.iv.next, %19
-  br i1 %20, label %14, label %._crit_edge, !llvm.loop !110
+  br i1 %20, label %14, label %._crit_edge, !llvm.loop !107
 
 ._crit_edge:                                      ; preds = %14, %.preheader
-  %21 = load ptr, ptr @shared, align 8, !tbaa !82
+  %21 = load ptr, ptr @shared, align 8, !tbaa !81
   tail call void @addReply(ptr noundef nonnull %0, ptr noundef %21) #10
   br label %22
 
@@ -1337,10 +1337,10 @@ define dso_local void @watchCommand(ptr noundef %0) local_unnamed_addr #1 {
 define dso_local void @unwatchCommand(ptr noundef %0) local_unnamed_addr #1 {
   tail call void @unwatchAllKeys(ptr noundef %0)
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load i64, ptr %2, align 8, !tbaa !39
+  %3 = load i64, ptr %2, align 8, !tbaa !38
   %4 = and i64 %3, -33
-  store i64 %4, ptr %2, align 8, !tbaa !39
-  %5 = load ptr, ptr @shared, align 8, !tbaa !82
+  store i64 %4, ptr %2, align 8, !tbaa !38
+  %5 = load ptr, ptr @shared, align 8, !tbaa !81
   tail call void @addReply(ptr noundef %0, ptr noundef %5) #10
   ret void
 }
@@ -1350,9 +1350,9 @@ define dso_local i64 @multiStateMemOverhead(ptr noundef readonly captures(none) 
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 464
   %3 = load i64, ptr %2, align 8, !tbaa !5
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 560
-  %5 = load ptr, ptr %4, align 8, !tbaa !49
+  %5 = load ptr, ptr %4, align 8, !tbaa !48
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 40
-  %7 = load i64, ptr %6, align 8, !tbaa !50
+  %7 = load i64, ptr %6, align 8, !tbaa !49
   %8 = mul i64 %7, 80
   %9 = add i64 %8, %3
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 472
@@ -1420,79 +1420,76 @@ attributes #13 = { noreturn nounwind }
 !32 = !{!"multiCmd", !16, i64 0, !12, i64 8, !12, i64 12, !17, i64 16}
 !33 = !{!32, !16, i64 0}
 !34 = !{!14, !14, i64 0}
-!35 = distinct !{!35, !36, !37}
+!35 = distinct !{!35, !36}
 !36 = !{!"llvm.loop.mustprogress"}
-!37 = !{!"llvm.loop.estimated_trip_count"}
-!38 = distinct !{!38, !36, !37}
-!39 = !{!6, !7, i64 8}
-!40 = !{!6, !17, i64 128}
-!41 = !{!32, !17, i64 16}
-!42 = !{!6, !12, i64 88}
-!43 = !{!6, !16, i64 96}
-!44 = !{!6, !12, i64 104}
-!45 = !{!32, !12, i64 8}
-!46 = !{!6, !12, i64 452}
-!47 = !{!6, !12, i64 456}
-!48 = !{!6, !7, i64 120}
-!49 = !{!6, !18, i64 560}
-!50 = !{!51, !7, i64 40}
-!51 = !{!"list", !25, i64 0, !25, i64 8, !11, i64 16, !11, i64 24, !11, i64 32, !7, i64 40}
-!52 = !{!27, !11, i64 16}
-!53 = !{!54, !11, i64 16}
-!54 = !{!"watchedKey", !27, i64 0, !14, i64 24, !13, i64 32, !55, i64 40, !12, i64 48}
-!55 = !{!"p1 _ZTS6client", !11, i64 0}
-!56 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!57 = !{!54, !13, i64 32}
-!58 = !{!59, !24, i64 48}
-!59 = !{!"redisDb", !60, i64 0, !60, i64 8, !11, i64 16, !24, i64 24, !24, i64 32, !24, i64 40, !24, i64 48, !12, i64 56, !19, i64 64, !7, i64 72, !18, i64 80}
-!60 = !{!"p1 _ZTS8_kvstore", !11, i64 0}
-!61 = !{!54, !14, i64 24}
-!62 = distinct !{!62, !36, !37}
-!63 = !{!64, !12, i64 7884}
-!64 = !{!"redisServer", !12, i64 0, !7, i64 8, !15, i64 16, !15, i64 24, !65, i64 32, !12, i64 40, !12, i64 44, !12, i64 48, !12, i64 52, !12, i64 56, !13, i64 64, !24, i64 72, !24, i64 80, !66, i64 88, !26, i64 96, !12, i64 104, !12, i64 108, !12, i64 112, !12, i64 116, !19, i64 120, !12, i64 128, !12, i64 132, !12, i64 136, !12, i64 140, !15, i64 144, !12, i64 152, !12, i64 156, !8, i64 160, !12, i64 204, !7, i64 208, !12, i64 216, !12, i64 220, !12, i64 224, !15, i64 232, !15, i64 240, !12, i64 248, !12, i64 252, !7, i64 256, !24, i64 264, !24, i64 272, !24, i64 280, !18, i64 288, !8, i64 296, !12, i64 304, !12, i64 308, !8, i64 312, !12, i64 316, !12, i64 320, !12, i64 324, !8, i64 328, !12, i64 456, !15, i64 464, !15, i64 472, !12, i64 480, !8, i64 488, !12, i64 1320, !67, i64 1328, !18, i64 1432, !18, i64 1440, !18, i64 1448, !18, i64 1456, !18, i64 1464, !18, i64 1472, !55, i64 1480, !55, i64 1488, !11, i64 1496, !26, i64 1504, !12, i64 1512, !26, i64 1520, !12, i64 1528, !18, i64 1536, !8, i64 1544, !8, i64 1592, !24, i64 1848, !8, i64 1856, !12, i64 1864, !12, i64 1868, !8, i64 1872, !12, i64 2384, !12, i64 2388, !19, i64 2392, !12, i64 2400, !12, i64 2404, !12, i64 2408, !12, i64 2412, !12, i64 2416, !7, i64 2424, !7, i64 2432, !7, i64 2440, !7, i64 2448, !7, i64 2456, !7, i64 2464, !19, i64 2472, !19, i64 2480, !19, i64 2488, !19, i64 2496, !69, i64 2504, !19, i64 2512, !19, i64 2520, !19, i64 2528, !19, i64 2536, !19, i64 2544, !19, i64 2552, !7, i64 2560, !19, i64 2568, !19, i64 2576, !19, i64 2584, !19, i64 2592, !19, i64 2600, !19, i64 2608, !19, i64 2616, !19, i64 2624, !7, i64 2632, !7, i64 2640, !19, i64 2648, !19, i64 2656, !19, i64 2664, !19, i64 2672, !69, i64 2680, !19, i64 2688, !19, i64 2696, !19, i64 2704, !19, i64 2712, !19, i64 2720, !18, i64 2728, !19, i64 2736, !19, i64 2744, !7, i64 2752, !70, i64 2760, !8, i64 2848, !8, i64 2856, !8, i64 2864, !8, i64 2872, !7, i64 2880, !7, i64 2888, !7, i64 2896, !7, i64 2904, !7, i64 2912, !7, i64 2920, !7, i64 2928, !7, i64 2936, !69, i64 2944, !8, i64 2952, !7, i64 2984, !19, i64 2992, !19, i64 3000, !19, i64 3008, !8, i64 3016, !8, i64 4040, !8, i64 5064, !19, i64 5072, !8, i64 5080, !19, i64 6144, !19, i64 6152, !7, i64 6160, !19, i64 6168, !19, i64 6176, !7, i64 6184, !8, i64 6192, !12, i64 6288, !12, i64 6292, !12, i64 6296, !12, i64 6300, !12, i64 6304, !12, i64 6308, !12, i64 6312, !12, i64 6316, !12, i64 6320, !12, i64 6324, !12, i64 6328, !12, i64 6332, !7, i64 6336, !12, i64 6344, !12, i64 6348, !12, i64 6352, !12, i64 6356, !7, i64 6360, !7, i64 6368, !12, i64 6376, !12, i64 6380, !12, i64 6384, !12, i64 6388, !12, i64 6392, !15, i64 6400, !8, i64 6408, !12, i64 6480, !12, i64 6484, !12, i64 6488, !71, i64 6496, !12, i64 6504, !12, i64 6508, !12, i64 6512, !12, i64 6516, !12, i64 6520, !12, i64 6524, !15, i64 6528, !15, i64 6536, !12, i64 6544, !12, i64 6548, !7, i64 6552, !7, i64 6560, !7, i64 6568, !7, i64 6576, !7, i64 6584, !12, i64 6592, !12, i64 6596, !15, i64 6600, !12, i64 6608, !12, i64 6612, !19, i64 6616, !19, i64 6624, !7, i64 6632, !7, i64 6640, !7, i64 6648, !12, i64 6656, !12, i64 6660, !7, i64 6664, !12, i64 6672, !12, i64 6676, !12, i64 6680, !12, i64 6684, !12, i64 6688, !12, i64 6692, !8, i64 6696, !8, i64 6700, !11, i64 6704, !12, i64 6712, !19, i64 6720, !19, i64 6728, !19, i64 6736, !19, i64 6744, !12, i64 6752, !72, i64 6760, !12, i64 6768, !15, i64 6776, !12, i64 6784, !12, i64 6788, !12, i64 6792, !7, i64 6800, !7, i64 6808, !7, i64 6816, !7, i64 6824, !12, i64 6832, !12, i64 6836, !12, i64 6840, !12, i64 6844, !12, i64 6848, !12, i64 6852, !73, i64 6856, !12, i64 6864, !12, i64 6868, !15, i64 6872, !12, i64 6880, !12, i64 6884, !12, i64 6888, !8, i64 6892, !12, i64 6900, !74, i64 6904, !12, i64 6920, !15, i64 6928, !12, i64 6936, !15, i64 6944, !12, i64 6952, !12, i64 6956, !12, i64 6960, !12, i64 6964, !12, i64 6968, !12, i64 6972, !12, i64 6976, !8, i64 6980, !8, i64 7021, !19, i64 7064, !19, i64 7072, !8, i64 7080, !19, i64 7088, !12, i64 7096, !12, i64 7100, !76, i64 7104, !19, i64 7112, !19, i64 7120, !77, i64 7128, !7, i64 7168, !7, i64 7176, !12, i64 7184, !12, i64 7188, !12, i64 7192, !12, i64 7196, !12, i64 7200, !12, i64 7204, !12, i64 7208, !12, i64 7212, !12, i64 7216, !7, i64 7224, !18, i64 7232, !7, i64 7240, !15, i64 7248, !15, i64 7256, !15, i64 7264, !12, i64 7272, !12, i64 7276, !55, i64 7280, !55, i64 7288, !12, i64 7296, !12, i64 7300, !12, i64 7304, !7, i64 7312, !7, i64 7320, !7, i64 7328, !7, i64 7336, !10, i64 7344, !10, i64 7352, !12, i64 7360, !15, i64 7368, !7, i64 7376, !12, i64 7384, !12, i64 7388, !12, i64 7392, !7, i64 7400, !12, i64 7408, !12, i64 7412, !12, i64 7416, !12, i64 7420, !15, i64 7424, !12, i64 7432, !12, i64 7436, !8, i64 7440, !19, i64 7488, !12, i64 7496, !18, i64 7504, !12, i64 7512, !12, i64 7516, !19, i64 7520, !7, i64 7528, !12, i64 7536, !12, i64 7540, !12, i64 7544, !12, i64 7548, !12, i64 7552, !19, i64 7560, !8, i64 7568, !12, i64 7580, !12, i64 7584, !12, i64 7588, !8, i64 7592, !18, i64 7632, !18, i64 7640, !12, i64 7648, !7, i64 7656, !18, i64 7664, !18, i64 7672, !12, i64 7680, !12, i64 7684, !12, i64 7688, !12, i64 7692, !7, i64 7696, !7, i64 7704, !7, i64 7712, !7, i64 7720, !7, i64 7728, !7, i64 7736, !7, i64 7744, !7, i64 7752, !7, i64 7760, !19, i64 7768, !12, i64 7776, !12, i64 7780, !8, i64 7784, !7, i64 7792, !8, i64 7800, !19, i64 7808, !19, i64 7816, !19, i64 7824, !7, i64 7832, !19, i64 7840, !60, i64 7848, !24, i64 7856, !12, i64 7864, !60, i64 7872, !12, i64 7880, !12, i64 7884, !12, i64 7888, !12, i64 7892, !19, i64 7896, !19, i64 7904, !15, i64 7912, !78, i64 7920, !12, i64 7928, !12, i64 7932, !12, i64 7936, !12, i64 7940, !12, i64 7944, !15, i64 7952, !15, i64 7960, !15, i64 7968, !12, i64 7976, !12, i64 7980, !12, i64 7984, !12, i64 7988, !12, i64 7992, !12, i64 7996, !12, i64 8000, !19, i64 8008, !12, i64 8016, !12, i64 8020, !19, i64 8024, !12, i64 8032, !12, i64 8036, !12, i64 8040, !12, i64 8044, !12, i64 8048, !12, i64 8052, !12, i64 8056, !19, i64 8064, !24, i64 8072, !15, i64 8080, !7, i64 8088, !15, i64 8096, !12, i64 8104, !79, i64 8112, !12, i64 8144, !7, i64 8152, !12, i64 8160, !12, i64 8164, !12, i64 8168, !80, i64 8176, !15, i64 8288, !15, i64 8296, !15, i64 8304, !15, i64 8312, !81, i64 8320, !19, i64 8328, !12, i64 8336, !15, i64 8344, !12, i64 8352, !12, i64 8356, !12, i64 8360, !7, i64 8368, !12, i64 8376, !15, i64 8384}
-!65 = !{!"p2 omnipotent char", !11, i64 0}
-!66 = !{!"p1 _ZTS11aeEventLoop", !11, i64 0}
-!67 = !{!"connListener", !8, i64 0, !12, i64 64, !65, i64 72, !12, i64 80, !12, i64 84, !68, i64 88, !11, i64 96}
-!68 = !{!"p1 _ZTS14ConnectionType", !11, i64 0}
-!69 = !{!"double", !8, i64 0}
-!70 = !{!"malloc_stats", !7, i64 0, !7, i64 8, !7, i64 16, !7, i64 24, !7, i64 32, !7, i64 40, !7, i64 48, !7, i64 56, !7, i64 64, !7, i64 72, !7, i64 80}
-!71 = !{!"p1 double", !11, i64 0}
-!72 = !{!"p1 _ZTS9saveparam", !11, i64 0}
-!73 = !{!"p2 _ZTS10connection", !11, i64 0}
-!74 = !{!"redisOpArray", !75, i64 0, !12, i64 8, !12, i64 12}
-!75 = !{!"p1 _ZTS7redisOp", !11, i64 0}
-!76 = !{!"p1 _ZTS11replBacklog", !11, i64 0}
-!77 = !{!"replDataBuf", !18, i64 0, !7, i64 8, !7, i64 16, !7, i64 24, !7, i64 32}
-!78 = !{!"p1 _ZTS12clusterState", !11, i64 0}
-!79 = !{!"aclInfo", !19, i64 0, !19, i64 8, !19, i64 16, !19, i64 24}
-!80 = !{!"redisTLSContextConfig", !15, i64 0, !15, i64 8, !15, i64 16, !15, i64 24, !15, i64 32, !15, i64 40, !15, i64 48, !15, i64 56, !15, i64 64, !15, i64 72, !15, i64 80, !15, i64 88, !12, i64 96, !12, i64 100, !12, i64 104, !12, i64 108}
-!81 = !{!"p1 _ZTS14sentinelConfig", !11, i64 0}
-!82 = !{!83, !14, i64 0}
-!83 = !{!"sharedObjectsStruct", !14, i64 0, !14, i64 8, !14, i64 16, !14, i64 24, !14, i64 32, !14, i64 40, !14, i64 48, !14, i64 56, !8, i64 64, !8, i64 96, !8, i64 128, !8, i64 160, !14, i64 192, !14, i64 200, !14, i64 208, !14, i64 216, !14, i64 224, !14, i64 232, !14, i64 240, !14, i64 248, !14, i64 256, !14, i64 264, !14, i64 272, !14, i64 280, !14, i64 288, !14, i64 296, !14, i64 304, !14, i64 312, !14, i64 320, !14, i64 328, !14, i64 336, !14, i64 344, !14, i64 352, !14, i64 360, !14, i64 368, !14, i64 376, !14, i64 384, !14, i64 392, !14, i64 400, !14, i64 408, !14, i64 416, !14, i64 424, !14, i64 432, !14, i64 440, !14, i64 448, !14, i64 456, !14, i64 464, !14, i64 472, !14, i64 480, !14, i64 488, !14, i64 496, !14, i64 504, !14, i64 512, !14, i64 520, !14, i64 528, !14, i64 536, !14, i64 544, !14, i64 552, !14, i64 560, !14, i64 568, !14, i64 576, !14, i64 584, !14, i64 592, !14, i64 600, !14, i64 608, !14, i64 616, !14, i64 624, !14, i64 632, !14, i64 640, !14, i64 648, !14, i64 656, !14, i64 664, !14, i64 672, !14, i64 680, !14, i64 688, !14, i64 696, !14, i64 704, !14, i64 712, !14, i64 720, !14, i64 728, !14, i64 736, !14, i64 744, !14, i64 752, !14, i64 760, !14, i64 768, !14, i64 776, !14, i64 784, !14, i64 792, !8, i64 800, !8, i64 880, !8, i64 80880, !8, i64 81136, !8, i64 81392, !8, i64 81648, !15, i64 81904, !15, i64 81912}
-!84 = !{!8, !8, i64 0}
-!85 = !{!64, !18, i64 1472}
-!86 = !{!6, !13, i64 32}
-!87 = !{!59, !12, i64 56}
-!88 = distinct !{!88, !36, !37}
-!89 = !{!83, !14, i64 304}
-!90 = !{!6, !12, i64 28}
-!91 = !{!64, !12, i64 220}
-!92 = !{!6, !17, i64 152}
-!93 = !{!12, !12, i64 0}
-!94 = !{!6, !7, i64 0}
-!95 = !{!"branch_weights", !"expected", i32 2000, i32 1}
-!96 = distinct !{!96, !36, !37}
-!97 = distinct !{!97, !36, !37}
-!98 = !{!54, !55, i64 40}
-!99 = !{!7, !7, i64 0}
-!100 = !{!101, !11, i64 8}
-!101 = !{!"redisObject", !12, i64 0, !12, i64 0, !12, i64 1, !12, i64 4, !11, i64 8}
+!37 = distinct !{!37, !36}
+!38 = !{!6, !7, i64 8}
+!39 = !{!6, !17, i64 128}
+!40 = !{!32, !17, i64 16}
+!41 = !{!6, !12, i64 88}
+!42 = !{!6, !16, i64 96}
+!43 = !{!6, !12, i64 104}
+!44 = !{!32, !12, i64 8}
+!45 = !{!6, !12, i64 452}
+!46 = !{!6, !12, i64 456}
+!47 = !{!6, !7, i64 120}
+!48 = !{!6, !18, i64 560}
+!49 = !{!50, !7, i64 40}
+!50 = !{!"list", !25, i64 0, !25, i64 8, !11, i64 16, !11, i64 24, !11, i64 32, !7, i64 40}
+!51 = !{!27, !11, i64 16}
+!52 = !{!53, !11, i64 16}
+!53 = !{!"watchedKey", !27, i64 0, !14, i64 24, !13, i64 32, !54, i64 40, !12, i64 48}
+!54 = !{!"p1 _ZTS6client", !11, i64 0}
+!55 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!56 = !{!53, !13, i64 32}
+!57 = !{!58, !24, i64 48}
+!58 = !{!"redisDb", !59, i64 0, !59, i64 8, !11, i64 16, !24, i64 24, !24, i64 32, !24, i64 40, !24, i64 48, !12, i64 56, !19, i64 64, !7, i64 72, !18, i64 80}
+!59 = !{!"p1 _ZTS8_kvstore", !11, i64 0}
+!60 = !{!53, !14, i64 24}
+!61 = distinct !{!61, !36}
+!62 = !{!63, !12, i64 7884}
+!63 = !{!"redisServer", !12, i64 0, !7, i64 8, !15, i64 16, !15, i64 24, !64, i64 32, !12, i64 40, !12, i64 44, !12, i64 48, !12, i64 52, !12, i64 56, !13, i64 64, !24, i64 72, !24, i64 80, !65, i64 88, !26, i64 96, !12, i64 104, !12, i64 108, !12, i64 112, !12, i64 116, !19, i64 120, !12, i64 128, !12, i64 132, !12, i64 136, !12, i64 140, !15, i64 144, !12, i64 152, !12, i64 156, !8, i64 160, !12, i64 204, !7, i64 208, !12, i64 216, !12, i64 220, !12, i64 224, !15, i64 232, !15, i64 240, !12, i64 248, !12, i64 252, !7, i64 256, !24, i64 264, !24, i64 272, !24, i64 280, !18, i64 288, !8, i64 296, !12, i64 304, !12, i64 308, !8, i64 312, !12, i64 316, !12, i64 320, !12, i64 324, !8, i64 328, !12, i64 456, !15, i64 464, !15, i64 472, !12, i64 480, !8, i64 488, !12, i64 1320, !66, i64 1328, !18, i64 1432, !18, i64 1440, !18, i64 1448, !18, i64 1456, !18, i64 1464, !18, i64 1472, !54, i64 1480, !54, i64 1488, !11, i64 1496, !26, i64 1504, !12, i64 1512, !26, i64 1520, !12, i64 1528, !18, i64 1536, !8, i64 1544, !8, i64 1592, !24, i64 1848, !8, i64 1856, !12, i64 1864, !12, i64 1868, !8, i64 1872, !12, i64 2384, !12, i64 2388, !19, i64 2392, !12, i64 2400, !12, i64 2404, !12, i64 2408, !12, i64 2412, !12, i64 2416, !7, i64 2424, !7, i64 2432, !7, i64 2440, !7, i64 2448, !7, i64 2456, !7, i64 2464, !19, i64 2472, !19, i64 2480, !19, i64 2488, !19, i64 2496, !68, i64 2504, !19, i64 2512, !19, i64 2520, !19, i64 2528, !19, i64 2536, !19, i64 2544, !19, i64 2552, !7, i64 2560, !19, i64 2568, !19, i64 2576, !19, i64 2584, !19, i64 2592, !19, i64 2600, !19, i64 2608, !19, i64 2616, !19, i64 2624, !7, i64 2632, !7, i64 2640, !19, i64 2648, !19, i64 2656, !19, i64 2664, !19, i64 2672, !68, i64 2680, !19, i64 2688, !19, i64 2696, !19, i64 2704, !19, i64 2712, !19, i64 2720, !18, i64 2728, !19, i64 2736, !19, i64 2744, !7, i64 2752, !69, i64 2760, !8, i64 2848, !8, i64 2856, !8, i64 2864, !8, i64 2872, !7, i64 2880, !7, i64 2888, !7, i64 2896, !7, i64 2904, !7, i64 2912, !7, i64 2920, !7, i64 2928, !7, i64 2936, !68, i64 2944, !8, i64 2952, !7, i64 2984, !19, i64 2992, !19, i64 3000, !19, i64 3008, !8, i64 3016, !8, i64 4040, !8, i64 5064, !19, i64 5072, !8, i64 5080, !19, i64 6144, !19, i64 6152, !7, i64 6160, !19, i64 6168, !19, i64 6176, !7, i64 6184, !8, i64 6192, !12, i64 6288, !12, i64 6292, !12, i64 6296, !12, i64 6300, !12, i64 6304, !12, i64 6308, !12, i64 6312, !12, i64 6316, !12, i64 6320, !12, i64 6324, !12, i64 6328, !12, i64 6332, !7, i64 6336, !12, i64 6344, !12, i64 6348, !12, i64 6352, !12, i64 6356, !7, i64 6360, !7, i64 6368, !12, i64 6376, !12, i64 6380, !12, i64 6384, !12, i64 6388, !12, i64 6392, !15, i64 6400, !8, i64 6408, !12, i64 6480, !12, i64 6484, !12, i64 6488, !70, i64 6496, !12, i64 6504, !12, i64 6508, !12, i64 6512, !12, i64 6516, !12, i64 6520, !12, i64 6524, !15, i64 6528, !15, i64 6536, !12, i64 6544, !12, i64 6548, !7, i64 6552, !7, i64 6560, !7, i64 6568, !7, i64 6576, !7, i64 6584, !12, i64 6592, !12, i64 6596, !15, i64 6600, !12, i64 6608, !12, i64 6612, !19, i64 6616, !19, i64 6624, !7, i64 6632, !7, i64 6640, !7, i64 6648, !12, i64 6656, !12, i64 6660, !7, i64 6664, !12, i64 6672, !12, i64 6676, !12, i64 6680, !12, i64 6684, !12, i64 6688, !12, i64 6692, !8, i64 6696, !8, i64 6700, !11, i64 6704, !12, i64 6712, !19, i64 6720, !19, i64 6728, !19, i64 6736, !19, i64 6744, !12, i64 6752, !71, i64 6760, !12, i64 6768, !15, i64 6776, !12, i64 6784, !12, i64 6788, !12, i64 6792, !7, i64 6800, !7, i64 6808, !7, i64 6816, !7, i64 6824, !12, i64 6832, !12, i64 6836, !12, i64 6840, !12, i64 6844, !12, i64 6848, !12, i64 6852, !72, i64 6856, !12, i64 6864, !12, i64 6868, !15, i64 6872, !12, i64 6880, !12, i64 6884, !12, i64 6888, !8, i64 6892, !12, i64 6900, !73, i64 6904, !12, i64 6920, !15, i64 6928, !12, i64 6936, !15, i64 6944, !12, i64 6952, !12, i64 6956, !12, i64 6960, !12, i64 6964, !12, i64 6968, !12, i64 6972, !12, i64 6976, !8, i64 6980, !8, i64 7021, !19, i64 7064, !19, i64 7072, !8, i64 7080, !19, i64 7088, !12, i64 7096, !12, i64 7100, !75, i64 7104, !19, i64 7112, !19, i64 7120, !76, i64 7128, !7, i64 7168, !7, i64 7176, !12, i64 7184, !12, i64 7188, !12, i64 7192, !12, i64 7196, !12, i64 7200, !12, i64 7204, !12, i64 7208, !12, i64 7212, !12, i64 7216, !7, i64 7224, !18, i64 7232, !7, i64 7240, !15, i64 7248, !15, i64 7256, !15, i64 7264, !12, i64 7272, !12, i64 7276, !54, i64 7280, !54, i64 7288, !12, i64 7296, !12, i64 7300, !12, i64 7304, !7, i64 7312, !7, i64 7320, !7, i64 7328, !7, i64 7336, !10, i64 7344, !10, i64 7352, !12, i64 7360, !15, i64 7368, !7, i64 7376, !12, i64 7384, !12, i64 7388, !12, i64 7392, !7, i64 7400, !12, i64 7408, !12, i64 7412, !12, i64 7416, !12, i64 7420, !15, i64 7424, !12, i64 7432, !12, i64 7436, !8, i64 7440, !19, i64 7488, !12, i64 7496, !18, i64 7504, !12, i64 7512, !12, i64 7516, !19, i64 7520, !7, i64 7528, !12, i64 7536, !12, i64 7540, !12, i64 7544, !12, i64 7548, !12, i64 7552, !19, i64 7560, !8, i64 7568, !12, i64 7580, !12, i64 7584, !12, i64 7588, !8, i64 7592, !18, i64 7632, !18, i64 7640, !12, i64 7648, !7, i64 7656, !18, i64 7664, !18, i64 7672, !12, i64 7680, !12, i64 7684, !12, i64 7688, !12, i64 7692, !7, i64 7696, !7, i64 7704, !7, i64 7712, !7, i64 7720, !7, i64 7728, !7, i64 7736, !7, i64 7744, !7, i64 7752, !7, i64 7760, !19, i64 7768, !12, i64 7776, !12, i64 7780, !8, i64 7784, !7, i64 7792, !8, i64 7800, !19, i64 7808, !19, i64 7816, !19, i64 7824, !7, i64 7832, !19, i64 7840, !59, i64 7848, !24, i64 7856, !12, i64 7864, !59, i64 7872, !12, i64 7880, !12, i64 7884, !12, i64 7888, !12, i64 7892, !19, i64 7896, !19, i64 7904, !15, i64 7912, !77, i64 7920, !12, i64 7928, !12, i64 7932, !12, i64 7936, !12, i64 7940, !12, i64 7944, !15, i64 7952, !15, i64 7960, !15, i64 7968, !12, i64 7976, !12, i64 7980, !12, i64 7984, !12, i64 7988, !12, i64 7992, !12, i64 7996, !12, i64 8000, !19, i64 8008, !12, i64 8016, !12, i64 8020, !19, i64 8024, !12, i64 8032, !12, i64 8036, !12, i64 8040, !12, i64 8044, !12, i64 8048, !12, i64 8052, !12, i64 8056, !19, i64 8064, !24, i64 8072, !15, i64 8080, !7, i64 8088, !15, i64 8096, !12, i64 8104, !78, i64 8112, !12, i64 8144, !7, i64 8152, !12, i64 8160, !12, i64 8164, !12, i64 8168, !79, i64 8176, !15, i64 8288, !15, i64 8296, !15, i64 8304, !15, i64 8312, !80, i64 8320, !19, i64 8328, !12, i64 8336, !15, i64 8344, !12, i64 8352, !12, i64 8356, !12, i64 8360, !7, i64 8368, !12, i64 8376, !15, i64 8384}
+!64 = !{!"p2 omnipotent char", !11, i64 0}
+!65 = !{!"p1 _ZTS11aeEventLoop", !11, i64 0}
+!66 = !{!"connListener", !8, i64 0, !12, i64 64, !64, i64 72, !12, i64 80, !12, i64 84, !67, i64 88, !11, i64 96}
+!67 = !{!"p1 _ZTS14ConnectionType", !11, i64 0}
+!68 = !{!"double", !8, i64 0}
+!69 = !{!"malloc_stats", !7, i64 0, !7, i64 8, !7, i64 16, !7, i64 24, !7, i64 32, !7, i64 40, !7, i64 48, !7, i64 56, !7, i64 64, !7, i64 72, !7, i64 80}
+!70 = !{!"p1 double", !11, i64 0}
+!71 = !{!"p1 _ZTS9saveparam", !11, i64 0}
+!72 = !{!"p2 _ZTS10connection", !11, i64 0}
+!73 = !{!"redisOpArray", !74, i64 0, !12, i64 8, !12, i64 12}
+!74 = !{!"p1 _ZTS7redisOp", !11, i64 0}
+!75 = !{!"p1 _ZTS11replBacklog", !11, i64 0}
+!76 = !{!"replDataBuf", !18, i64 0, !7, i64 8, !7, i64 16, !7, i64 24, !7, i64 32}
+!77 = !{!"p1 _ZTS12clusterState", !11, i64 0}
+!78 = !{!"aclInfo", !19, i64 0, !19, i64 8, !19, i64 16, !19, i64 24}
+!79 = !{!"redisTLSContextConfig", !15, i64 0, !15, i64 8, !15, i64 16, !15, i64 24, !15, i64 32, !15, i64 40, !15, i64 48, !15, i64 56, !15, i64 64, !15, i64 72, !15, i64 80, !15, i64 88, !12, i64 96, !12, i64 100, !12, i64 104, !12, i64 108}
+!80 = !{!"p1 _ZTS14sentinelConfig", !11, i64 0}
+!81 = !{!82, !14, i64 0}
+!82 = !{!"sharedObjectsStruct", !14, i64 0, !14, i64 8, !14, i64 16, !14, i64 24, !14, i64 32, !14, i64 40, !14, i64 48, !14, i64 56, !8, i64 64, !8, i64 96, !8, i64 128, !8, i64 160, !14, i64 192, !14, i64 200, !14, i64 208, !14, i64 216, !14, i64 224, !14, i64 232, !14, i64 240, !14, i64 248, !14, i64 256, !14, i64 264, !14, i64 272, !14, i64 280, !14, i64 288, !14, i64 296, !14, i64 304, !14, i64 312, !14, i64 320, !14, i64 328, !14, i64 336, !14, i64 344, !14, i64 352, !14, i64 360, !14, i64 368, !14, i64 376, !14, i64 384, !14, i64 392, !14, i64 400, !14, i64 408, !14, i64 416, !14, i64 424, !14, i64 432, !14, i64 440, !14, i64 448, !14, i64 456, !14, i64 464, !14, i64 472, !14, i64 480, !14, i64 488, !14, i64 496, !14, i64 504, !14, i64 512, !14, i64 520, !14, i64 528, !14, i64 536, !14, i64 544, !14, i64 552, !14, i64 560, !14, i64 568, !14, i64 576, !14, i64 584, !14, i64 592, !14, i64 600, !14, i64 608, !14, i64 616, !14, i64 624, !14, i64 632, !14, i64 640, !14, i64 648, !14, i64 656, !14, i64 664, !14, i64 672, !14, i64 680, !14, i64 688, !14, i64 696, !14, i64 704, !14, i64 712, !14, i64 720, !14, i64 728, !14, i64 736, !14, i64 744, !14, i64 752, !14, i64 760, !14, i64 768, !14, i64 776, !14, i64 784, !14, i64 792, !8, i64 800, !8, i64 880, !8, i64 80880, !8, i64 81136, !8, i64 81392, !8, i64 81648, !15, i64 81904, !15, i64 81912}
+!83 = !{!8, !8, i64 0}
+!84 = !{!63, !18, i64 1472}
+!85 = !{!6, !13, i64 32}
+!86 = !{!58, !12, i64 56}
+!87 = distinct !{!87, !36}
+!88 = !{!82, !14, i64 304}
+!89 = !{!6, !12, i64 28}
+!90 = !{!63, !12, i64 220}
+!91 = !{!6, !17, i64 152}
+!92 = !{!12, !12, i64 0}
+!93 = !{!6, !7, i64 0}
+!94 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!95 = distinct !{!95, !36}
+!96 = distinct !{!96, !36}
+!97 = !{!53, !54, i64 40}
+!98 = !{!7, !7, i64 0}
+!99 = !{!100, !11, i64 8}
+!100 = !{!"redisObject", !12, i64 0, !12, i64 0, !12, i64 1, !12, i64 4, !11, i64 8}
+!101 = distinct !{!101, !36}
 !102 = distinct !{!102, !36}
-!103 = distinct !{!103, !36}
-!104 = distinct !{!104, !37, !105}
-!105 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!106 = distinct !{!106, !36}
-!107 = distinct !{!107, !37, !105}
-!108 = distinct !{!108, !37}
-!109 = distinct !{!109, !37}
-!110 = distinct !{!110, !36, !37}
+!103 = distinct !{!103, !104}
+!104 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!105 = distinct !{!105, !36}
+!106 = distinct !{!106, !104}
+!107 = distinct !{!107, !36}

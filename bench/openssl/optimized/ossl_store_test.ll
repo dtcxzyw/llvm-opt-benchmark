@@ -288,7 +288,7 @@ switch.lookup:                                    ; preds = %1
   call void @OSSL_STORE_INFO_free(ptr noundef nonnull %15) #4
   %24 = call i32 @OSSL_STORE_eof(ptr noundef %12) #4
   %.not17.i = icmp eq i32 %24, 0
-  br i1 %.not17.i, label %.lr.ph.i, label %.critedge.i, !llvm.loop !12
+  br i1 %.not17.i, label %.lr.ph.i, label %.critedge.i, !llvm.loop !11
 
 .critedge.i:                                      ; preds = %23, %.lr.ph.i
   %.014.lcssa.i = phi ptr [ %.115.i, %23 ], [ %.01420.i, %.lr.ph.i ]
@@ -477,7 +477,6 @@ attributes #4 = { nounwind }
 !6 = !{!"any pointer", !7, i64 0}
 !7 = !{!"omnipotent char", !8, i64 0}
 !8 = !{!"Simple C/C++ TBAA"}
-!9 = distinct !{!9, !10, !11}
+!9 = distinct !{!9, !10}
 !10 = !{!"llvm.loop.mustprogress"}
-!11 = !{!"llvm.loop.estimated_trip_count"}
-!12 = distinct !{!12, !10, !11}
+!11 = distinct !{!11, !10}

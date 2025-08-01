@@ -171,7 +171,7 @@ define internal void @expert_stat_reset(ptr noundef captures(none) %0) #0 {
   %8 = tail call ptr @g_array_set_size(ptr noundef %7, i32 noundef 0)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 5
-  br i1 %exitcond.not, label %9, label %5, !llvm.loop !10
+  br i1 %exitcond.not, label %9, label %5, !llvm.loop !9
 
 9:                                                ; preds = %5
   ret void
@@ -253,7 +253,7 @@ switch.lookup:                                    ; preds = %5
 41:                                               ; preds = %25, %31
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %25, !llvm.loop !11
+  br i1 %exitcond.not, label %._crit_edge, label %25, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %41, %.preheader.._crit_edge_crit_edge
   %42 = phi ptr [ %.pre, %.preheader.._crit_edge_crit_edge ], [ %23, %41 ]
@@ -319,7 +319,7 @@ define internal void @expert_tapdata_free(ptr noundef %0) #0 {
   %8 = tail call ptr @g_array_free(ptr noundef %7, i32 noundef 1)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 5
-  br i1 %exitcond.not, label %2, label %5, !llvm.loop !12
+  br i1 %exitcond.not, label %2, label %5, !llvm.loop !11
 }
 
 ; Function Attrs: null_pointer_is_valid
@@ -369,7 +369,7 @@ define internal fastcc void @draw_items_for_severity(ptr noundef readonly captur
   %10 = add i32 %9, %.02021
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %11, label %7, !llvm.loop !13
+  br i1 %exitcond.not, label %11, label %7, !llvm.loop !12
 
 11:                                               ; preds = %7
   %12 = tail call i32 (i32, ptr, ...) @__printf_chk(i32 noundef 2, ptr noundef nonnull @.str.16, ptr noundef %1, i32 noundef %10)
@@ -397,7 +397,7 @@ define internal fastcc void @draw_items_for_severity(ptr noundef readonly captur
   %27 = load i32, ptr %3, align 8
   %28 = zext i32 %27 to i64
   %29 = icmp samesign ult i64 %indvars.iv.next26, %28
-  br i1 %29, label %.lr.ph, label %.loopexit, !llvm.loop !14
+  br i1 %29, label %.lr.ph, label %.loopexit, !llvm.loop !13
 
 .loopexit:                                        ; preds = %.lr.ph, %11, %2
   ret void
@@ -441,11 +441,10 @@ attributes #12 = { noreturn }
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"PIE Level", i32 2}
 !6 = !{i32 7, !"uwtable", i32 2}
-!7 = distinct !{!7, !8, !9}
+!7 = distinct !{!7, !8}
 !8 = !{!"llvm.loop.mustprogress"}
-!9 = !{!"llvm.loop.estimated_trip_count"}
-!10 = distinct !{!10, !8, !9}
-!11 = distinct !{!11, !8, !9}
-!12 = distinct !{!12, !8, !9}
-!13 = distinct !{!13, !8, !9}
-!14 = distinct !{!14, !8, !9}
+!9 = distinct !{!9, !8}
+!10 = distinct !{!10, !8}
+!11 = distinct !{!11, !8}
+!12 = distinct !{!12, !8}
+!13 = distinct !{!13, !8}

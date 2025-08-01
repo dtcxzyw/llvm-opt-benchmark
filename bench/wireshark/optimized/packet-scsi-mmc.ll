@@ -1435,7 +1435,7 @@ define internal void @dissect_mmc4_getconfiguration(ptr noundef %0, ptr noundef 
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #6
   %.0..0..0..0.50 = load volatile i32, ptr %9, align 4
   %101 = icmp ult i32 %.0..0..0..0.50, %81
-  br i1 %101, label %.lr.ph229, label %.loopexit, !llvm.loop !9
+  br i1 %101, label %.lr.ph229, label %.loopexit, !llvm.loop !8
 
 102:                                              ; preds = %.lr.ph231
   %103 = load i32, ptr @hf_scsi_mmc_feature_cdread_dap, align 4
@@ -1483,7 +1483,7 @@ define internal void @dissect_mmc4_getconfiguration(ptr noundef %0, ptr noundef 
   %123 = add i32 %.0..0..0..0.68, 1
   store volatile i32 %123, ptr %9, align 4
   %.not221 = icmp eq i8 %120, 0
-  br i1 %.not221, label %.loopexit, label %.lr.ph, !llvm.loop !10
+  br i1 %.not221, label %.loopexit, label %.lr.ph, !llvm.loop !9
 
 124:                                              ; preds = %.lr.ph231
   %125 = load i32, ptr @hf_scsi_mmc_feature_dvdrw_write, align 4
@@ -1588,7 +1588,7 @@ define internal void @dissect_mmc4_getconfiguration(ptr noundef %0, ptr noundef 
   %.neg223 = add nsw i32 %.0230, -4
   %184 = sub i32 %.neg223, %182
   %185 = icmp sgt i32 %184, 0
-  br i1 %185, label %.lr.ph231, label %.loopexit225, !llvm.loop !11
+  br i1 %185, label %.lr.ph231, label %.loopexit225, !llvm.loop !10
 
 .loopexit225:                                     ; preds = %.loopexit, %55, %53, %50
   %.0..0..0..0.17 = load volatile i32, ptr %11, align 4
@@ -2941,9 +2941,8 @@ attributes #9 = { noreturn }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7, !8}
-!11 = distinct !{!11, !7, !8}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}

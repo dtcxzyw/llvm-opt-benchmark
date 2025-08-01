@@ -1115,7 +1115,7 @@ switch.early.test:                                ; preds = %.lr.ph
   %25 = load i8, ptr %24, align 1, !tbaa !11
   %.fr = freeze i8 %25
   %.not28 = icmp eq i8 %.fr, 0
-  br i1 %.not28, label %._crit_edge, label %.lr.ph, !llvm.loop !19
+  br i1 %.not28, label %._crit_edge, label %.lr.ph, !llvm.loop !18
 
 ._crit_edge:                                      ; preds = %23, %18
   %26 = tail call noalias ptr @strdup(ptr noundef nonnull readonly %12) #13
@@ -1140,7 +1140,7 @@ local_strdup.exit32:                              ; preds = %local_strdup.exit31
   store ptr %29, ptr %3, align 8, !tbaa !9
   %32 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %19) #15
   %33 = trunc i64 %32 to i32
-  store i32 %33, ptr %4, align 4, !tbaa !20
+  store i32 %33, ptr %4, align 4, !tbaa !19
   tail call void @free(ptr noundef nonnull %12) #13
   br label %34
 
@@ -1159,7 +1159,7 @@ declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #8
 define dso_local void @write_vc_field(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #3 {
   %5 = alloca ptr, align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %7 = load ptr, ptr %6, align 8, !tbaa !22
+  %7 = load ptr, ptr %6, align 8, !tbaa !21
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %32, label %8
 
@@ -1177,7 +1177,7 @@ define dso_local void @write_vc_field(ptr noundef %0, ptr noundef readonly captu
 
 12:                                               ; preds = %11
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #13
-  %13 = load ptr, ptr %6, align 8, !tbaa !22
+  %13 = load ptr, ptr %6, align 8, !tbaa !21
   %14 = call i32 @utf8_decode(ptr noundef %13, ptr noundef nonnull %5) #13
   %15 = icmp sgt i32 %14, -1
   br i1 %15, label %16, label %21
@@ -1191,8 +1191,8 @@ define dso_local void @write_vc_field(ptr noundef %0, ptr noundef readonly captu
   br label %26
 
 21:                                               ; preds = %12
-  %22 = load ptr, ptr %6, align 8, !tbaa !22
-  %23 = load i32, ptr %1, align 8, !tbaa !24
+  %22 = load ptr, ptr %6, align 8, !tbaa !21
+  %23 = load i32, ptr %1, align 8, !tbaa !23
   %24 = zext i32 %23 to i64
   %25 = call i64 @fwrite(ptr noundef %22, i64 noundef 1, i64 noundef %24, ptr noundef %3)
   br label %26
@@ -1202,8 +1202,8 @@ define dso_local void @write_vc_field(ptr noundef %0, ptr noundef readonly captu
   br label %32
 
 27:                                               ; preds = %11
-  %28 = load ptr, ptr %6, align 8, !tbaa !22
-  %29 = load i32, ptr %1, align 8, !tbaa !24
+  %28 = load ptr, ptr %6, align 8, !tbaa !21
+  %29 = load i32, ptr %1, align 8, !tbaa !23
   %30 = zext i32 %29 to i64
   %31 = tail call i64 @fwrite(ptr noundef %28, i64 noundef 1, i64 noundef %30, ptr noundef %3)
   br label %32
@@ -1250,7 +1250,7 @@ define dso_local void @write_vc_fields(ptr noundef %0, ptr noundef %1, ptr nound
   tail call void @write_vc_field(ptr noundef %0, ptr noundef %10, i32 noundef %4, ptr noundef %5)
   %indvars.iv.next21 = add nuw nsw i64 %indvars.iv20, 1
   %exitcond24.not = icmp eq i64 %indvars.iv.next21, %wide.trip.count23
-  br i1 %exitcond24.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !25
+  br i1 %exitcond24.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !24
 
 .lr.ph.split:                                     ; preds = %.lr.ph.split.preheader, %17
   %indvars.iv = phi i64 [ 0, %.lr.ph.split.preheader ], [ %indvars.iv.next, %17 ]
@@ -1269,7 +1269,7 @@ define dso_local void @write_vc_fields(ptr noundef %0, ptr noundef %1, ptr nound
 17:                                               ; preds = %.lr.ph.split, %16
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !27
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !26
 
 ._crit_edge:                                      ; preds = %17, %.lr.ph.split.us, %.thread, %7
   ret void
@@ -1325,15 +1325,14 @@ attributes #17 = { nounwind willreturn memory(none) }
 !13 = !{!"p1 short", !6, i64 0}
 !14 = !{!15, !15, i64 0}
 !15 = !{!"short", !7, i64 0}
-!16 = distinct !{!16, !17, !18}
+!16 = distinct !{!16, !17}
 !17 = !{!"llvm.loop.mustprogress"}
-!18 = !{!"llvm.loop.estimated_trip_count"}
-!19 = distinct !{!19, !17, !18}
-!20 = !{!21, !21, i64 0}
-!21 = !{!"int", !7, i64 0}
-!22 = !{!23, !10, i64 8}
-!23 = !{!"", !21, i64 0, !10, i64 8}
-!24 = !{!23, !21, i64 0}
-!25 = distinct !{!25, !17, !18, !26}
-!26 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!27 = distinct !{!27, !17, !18}
+!18 = distinct !{!18, !17}
+!19 = !{!20, !20, i64 0}
+!20 = !{!"int", !7, i64 0}
+!21 = !{!22, !10, i64 8}
+!22 = !{!"", !20, i64 0, !10, i64 8}
+!23 = !{!22, !20, i64 0}
+!24 = distinct !{!24, !17, !25}
+!25 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!26 = distinct !{!26, !17}

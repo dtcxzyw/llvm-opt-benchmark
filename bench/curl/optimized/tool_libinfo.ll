@@ -133,7 +133,7 @@ define dso_local range(i32 0, 3) i32 @get_libcurl_info() local_unnamed_addr #0 {
   %18 = getelementptr inbounds nuw i8, ptr %.02757, i64 8
   %19 = load ptr, ptr %18, align 8, !tbaa !16
   %.not39 = icmp eq ptr %19, null
-  br i1 %.not39, label %.critedge.loopexit, label %.preheader51, !llvm.loop !23
+  br i1 %.not39, label %.critedge.loopexit, label %.preheader51, !llvm.loop !22
 
 .critedge.loopexit:                               ; preds = %.loopexit52
   %.pre = load ptr, ptr @built_in_protos, align 8, !tbaa !15
@@ -148,18 +148,18 @@ define dso_local range(i32 0, 3) i32 @get_libcurl_info() local_unnamed_addr #0 {
   %22 = ptrtoint ptr %20 to i64
   %23 = sub i64 %21, %22
   %24 = ashr exact i64 %23, 3
-  store i64 %24, ptr @proto_count, align 8, !tbaa !24
+  store i64 %24, ptr @proto_count, align 8, !tbaa !23
   br label %25
 
 25:                                               ; preds = %.critedge, %2
   %26 = phi ptr [ %.pre65, %.critedge ], [ %1, %2 ]
-  %27 = load i32, ptr %26, align 8, !tbaa !25
+  %27 = load i32, ptr %26, align 8, !tbaa !24
   %28 = icmp ugt i32 %27, 9
   br i1 %28, label %29, label %33
 
 29:                                               ; preds = %25
   %30 = getelementptr inbounds nuw i8, ptr %26, i64 200
-  %31 = load ptr, ptr %30, align 8, !tbaa !26
+  %31 = load ptr, ptr %30, align 8, !tbaa !25
   %.not40 = icmp eq ptr %31, null
   br i1 %.not40, label %33, label %32
 
@@ -169,7 +169,7 @@ define dso_local range(i32 0, 3) i32 @get_libcurl_info() local_unnamed_addr #0 {
 
 33:                                               ; preds = %29, %25
   %34 = getelementptr inbounds nuw i8, ptr %26, i64 32
-  %35 = load i32, ptr %34, align 8, !tbaa !27
+  %35 = load i32, ptr %34, align 8, !tbaa !26
   br label %36
 
 36:                                               ; preds = %33, %43
@@ -177,7 +177,7 @@ define dso_local range(i32 0, 3) i32 @get_libcurl_info() local_unnamed_addr #0 {
   %.02459 = phi ptr [ @fnames, %33 ], [ %.1, %43 ]
   %.02558 = phi ptr [ @maybe_feature, %33 ], [ %44, %43 ]
   %38 = getelementptr inbounds nuw i8, ptr %.02558, i64 16
-  %39 = load i32, ptr %38, align 8, !tbaa !28
+  %39 = load i32, ptr %38, align 8, !tbaa !27
   %40 = and i32 %39, %35
   %.not42 = icmp eq i32 %40, 0
   br i1 %.not42, label %43, label %41
@@ -190,9 +190,9 @@ define dso_local range(i32 0, 3) i32 @get_libcurl_info() local_unnamed_addr #0 {
 43:                                               ; preds = %36, %41
   %.1 = phi ptr [ %42, %41 ], [ %.02459, %36 ]
   %44 = getelementptr inbounds nuw i8, ptr %.02558, i64 24
-  %45 = load ptr, ptr %44, align 8, !tbaa !31
+  %45 = load ptr, ptr %44, align 8, !tbaa !30
   %.not41 = icmp eq ptr %45, null
-  br i1 %.not41, label %46, label %36, !llvm.loop !32
+  br i1 %.not41, label %46, label %36, !llvm.loop !31
 
 46:                                               ; preds = %43
   store ptr null, ptr %.1, align 8, !tbaa !16
@@ -219,28 +219,28 @@ define dso_local range(i32 0, 3) i32 @get_libcurl_info() local_unnamed_addr #0 {
 
 54:                                               ; preds = %50
   %55 = getelementptr inbounds nuw i8, ptr %.060, i64 8
-  %56 = load ptr, ptr %55, align 8, !tbaa !33
+  %56 = load ptr, ptr %55, align 8, !tbaa !32
   %.not48 = icmp eq ptr %56, null
   br i1 %.not48, label %.loopexit, label %57
 
 57:                                               ; preds = %54
-  store i8 1, ptr %56, align 1, !tbaa !34
+  store i8 1, ptr %56, align 1, !tbaa !33
   br label %.loopexit
 
 58:                                               ; preds = %50
   %59 = getelementptr inbounds nuw i8, ptr %.060, i64 24
-  %60 = load ptr, ptr %59, align 8, !tbaa !31
+  %60 = load ptr, ptr %59, align 8, !tbaa !30
   %.not46 = icmp eq ptr %60, null
-  br i1 %.not46, label %.loopexit, label %50, !llvm.loop !36
+  br i1 %.not46, label %.loopexit, label %50, !llvm.loop !35
 
 .loopexit:                                        ; preds = %58, %54, %57
-  %61 = load i64, ptr @feature_count, align 8, !tbaa !24
+  %61 = load i64, ptr @feature_count, align 8, !tbaa !23
   %62 = add i64 %61, 1
-  store i64 %62, ptr @feature_count, align 8, !tbaa !24
+  store i64 %62, ptr @feature_count, align 8, !tbaa !23
   %63 = getelementptr inbounds nuw i8, ptr %.12862, i64 8
   %64 = load ptr, ptr %63, align 8, !tbaa !16
   %.not43 = icmp eq ptr %64, null
-  br i1 %.not43, label %._crit_edge.loopexit, label %.preheader, !llvm.loop !37
+  br i1 %.not43, label %._crit_edge.loopexit, label %.preheader, !llvm.loop !36
 
 ._crit_edge.loopexit:                             ; preds = %.loopexit
   %.pre67 = load ptr, ptr @curlinfo, align 8, !tbaa !4
@@ -249,7 +249,7 @@ define dso_local range(i32 0, 3) i32 @get_libcurl_info() local_unnamed_addr #0 {
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %47
   %65 = phi ptr [ %.pre67, %._crit_edge.loopexit ], [ %26, %47 ]
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 104
-  %67 = load ptr, ptr %66, align 8, !tbaa !38
+  %67 = load ptr, ptr %66, align 8, !tbaa !37
   %.not44 = icmp eq ptr %67, null
   br i1 %.not44, label %71, label %68
 
@@ -261,7 +261,7 @@ define dso_local range(i32 0, 3) i32 @get_libcurl_info() local_unnamed_addr #0 {
 
 71:                                               ; preds = %68, %._crit_edge
   %72 = phi i8 [ 0, %._crit_edge ], [ %70, %68 ]
-  store i8 %72, ptr @feature_libssh2, align 1, !tbaa !34
+  store i8 %72, ptr @feature_libssh2, align 1, !tbaa !33
   br label %73
 
 73:                                               ; preds = %0, %71
@@ -302,7 +302,7 @@ define dso_local ptr @proto_token(ptr noundef %0) local_unnamed_addr #0 {
   %8 = getelementptr inbounds nuw i8, ptr %.013, i64 8
   %9 = load ptr, ptr %8, align 8, !tbaa !16
   %.not10 = icmp eq ptr %9, null
-  br i1 %.not10, label %._crit_edge, label %.lr.ph, !llvm.loop !39
+  br i1 %.not10, label %._crit_edge, label %.lr.ph, !llvm.loop !38
 
 ._crit_edge:                                      ; preds = %7, %2, %.lr.ph.._crit_edge.loopexit_crit_edge, %1
   %.07 = phi ptr [ null, %1 ], [ null, %2 ], [ %.pre.pre, %.lr.ph.._crit_edge.loopexit_crit_edge ], [ null, %7 ]
@@ -337,23 +337,22 @@ attributes #4 = { nounwind willreturn memory(read) }
 !17 = !{!18, !14, i64 8}
 !18 = !{!"proto_name_tokenp", !12, i64 0, !14, i64 8}
 !19 = !{!18, !12, i64 0}
-!20 = distinct !{!20, !21, !22}
+!20 = distinct !{!20, !21}
 !21 = !{!"llvm.loop.mustprogress"}
-!22 = !{!"llvm.loop.estimated_trip_count"}
-!23 = distinct !{!23, !21, !22}
-!24 = !{!13, !13, i64 0}
-!25 = !{!10, !11, i64 0}
-!26 = !{!10, !14, i64 200}
-!27 = !{!10, !11, i64 32}
-!28 = !{!29, !11, i64 16}
-!29 = !{!"feature_name_presentp", !12, i64 0, !30, i64 8, !11, i64 16}
-!30 = !{!"p1 _Bool", !6, i64 0}
-!31 = !{!29, !12, i64 0}
-!32 = distinct !{!32, !21, !22}
-!33 = !{!29, !30, i64 8}
-!34 = !{!35, !35, i64 0}
-!35 = !{!"_Bool", !7, i64 0}
-!36 = distinct !{!36, !21, !22}
-!37 = distinct !{!37, !21, !22}
-!38 = !{!10, !12, i64 104}
-!39 = distinct !{!39, !21, !22}
+!22 = distinct !{!22, !21}
+!23 = !{!13, !13, i64 0}
+!24 = !{!10, !11, i64 0}
+!25 = !{!10, !14, i64 200}
+!26 = !{!10, !11, i64 32}
+!27 = !{!28, !11, i64 16}
+!28 = !{!"feature_name_presentp", !12, i64 0, !29, i64 8, !11, i64 16}
+!29 = !{!"p1 _Bool", !6, i64 0}
+!30 = !{!28, !12, i64 0}
+!31 = distinct !{!31, !21}
+!32 = !{!28, !29, i64 8}
+!33 = !{!34, !34, i64 0}
+!34 = !{!"_Bool", !7, i64 0}
+!35 = distinct !{!35, !21}
+!36 = distinct !{!36, !21}
+!37 = !{!10, !12, i64 104}
+!38 = distinct !{!38, !21}

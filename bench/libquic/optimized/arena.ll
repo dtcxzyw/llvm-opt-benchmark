@@ -264,12 +264,12 @@ _ZN6google8protobuf5Arena11CleanupListEv.exit:    ; preds = %.lr.ph.i, %1
   %.01720.i.lcssa = phi ptr [ %12, %.lr.ph.i2 ], [ %23, %.lr.ph ]
   %.lcssa3 = phi i64 [ %16, %.lr.ph.i2 ], [ %28, %.lr.ph ]
   %.lcssa = phi i64 [ %16, %.lr.ph.i2 ], [ %29, %.lr.ph ]
-  %19 = load i8, ptr %14, align 8, !tbaa !15, !range !41, !noundef !42
+  %19 = load i8, ptr %14, align 8, !tbaa !15, !range !40, !noundef !41
   %20 = trunc nuw i8 %19 to i1
   br i1 %20, label %21, label %._crit_edge.i
 
 21:                                               ; preds = %._crit_edge
-  %22 = load ptr, ptr %13, align 8, !tbaa !43
+  %22 = load ptr, ptr %13, align 8, !tbaa !42
   tail call void %22(ptr noundef nonnull %.01720.i.lcssa, i64 noundef %.lcssa3)
   br label %._crit_edge.i
 
@@ -278,7 +278,7 @@ _ZN6google8protobuf5Arena11CleanupListEv.exit:    ; preds = %.lr.ph.i, %1
   %24 = phi i64 [ %29, %.lr.ph ], [ %16, %.lr.ph.i2 ]
   %25 = phi i64 [ %28, %.lr.ph ], [ %16, %.lr.ph.i2 ]
   %.01720.i5 = phi ptr [ %23, %.lr.ph ], [ %12, %.lr.ph.i2 ]
-  %26 = load ptr, ptr %13, align 8, !tbaa !43
+  %26 = load ptr, ptr %13, align 8, !tbaa !42
   tail call void %26(ptr noundef nonnull %.01720.i5, i64 noundef %25)
   %27 = getelementptr inbounds nuw i8, ptr %23, i64 24
   %28 = load i64, ptr %27, align 8, !tbaa !19
@@ -286,7 +286,7 @@ _ZN6google8protobuf5Arena11CleanupListEv.exit:    ; preds = %.lr.ph.i, %1
   %30 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %31 = load ptr, ptr %30, align 8, !tbaa !28
   %.not18.i = icmp eq ptr %31, null
-  br i1 %.not18.i, label %._crit_edge, label %.lr.ph, !llvm.loop !44
+  br i1 %.not18.i, label %._crit_edge, label %.lr.ph, !llvm.loop !43
 
 ._crit_edge.i:                                    ; preds = %21, %._crit_edge, %_ZN6google8protobuf5Arena11CleanupListEv.exit
   %.016.lcssa.i = phi ptr [ null, %_ZN6google8protobuf5Arena11CleanupListEv.exit ], [ %.01720.i.lcssa, %._crit_edge ], [ null, %21 ]
@@ -294,7 +294,7 @@ _ZN6google8protobuf5Arena11CleanupListEv.exit:    ; preds = %.lr.ph.i, %1
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %10, i8 0, i64 16, i1 false)
-  %34 = load i8, ptr %33, align 8, !tbaa !15, !range !41, !noundef !42
+  %34 = load i8, ptr %33, align 8, !tbaa !15, !range !40, !noundef !41
   %35 = trunc nuw i8 %34 to i1
   br i1 %35, label %_ZN6google8protobuf5Arena10FreeBlocksEv.exit, label %36
 
@@ -327,7 +327,7 @@ _ZN6google8protobuf5Arena11CleanupListEv.exit:    ; preds = %.lr.ph.i, %1
 
 _ZN6google8protobuf5Arena10FreeBlocksEv.exit:     ; preds = %._crit_edge.i, %36, %48
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %50 = load ptr, ptr %49, align 8, !tbaa !45
+  %50 = load ptr, ptr %49, align 8, !tbaa !44
   %.not = icmp eq ptr %50, null
   br i1 %.not, label %54, label %51
 
@@ -413,12 +413,12 @@ define noundef i64 @_ZN6google8protobuf5Arena10FreeBlocksEv(ptr noundef nonnull 
   %.01720.lcssa = phi ptr [ %4, %.lr.ph ], [ %15, %.lr.ph30 ]
   %.lcssa27 = phi i64 [ %8, %.lr.ph ], [ %20, %.lr.ph30 ]
   %.lcssa = phi i64 [ %8, %.lr.ph ], [ %21, %.lr.ph30 ]
-  %11 = load i8, ptr %6, align 8, !tbaa !15, !range !41, !noundef !42
+  %11 = load i8, ptr %6, align 8, !tbaa !15, !range !40, !noundef !41
   %12 = trunc nuw i8 %11 to i1
   br i1 %12, label %13, label %._crit_edge
 
 13:                                               ; preds = %._crit_edge31
-  %14 = load ptr, ptr %5, align 8, !tbaa !43
+  %14 = load ptr, ptr %5, align 8, !tbaa !42
   tail call void %14(ptr noundef nonnull %.01720.lcssa, i64 noundef %.lcssa27)
   br label %._crit_edge
 
@@ -427,7 +427,7 @@ define noundef i64 @_ZN6google8protobuf5Arena10FreeBlocksEv(ptr noundef nonnull 
   %16 = phi i64 [ %21, %.lr.ph30 ], [ %8, %.lr.ph ]
   %17 = phi i64 [ %20, %.lr.ph30 ], [ %8, %.lr.ph ]
   %.0172029 = phi ptr [ %15, %.lr.ph30 ], [ %4, %.lr.ph ]
-  %18 = load ptr, ptr %5, align 8, !tbaa !43
+  %18 = load ptr, ptr %5, align 8, !tbaa !42
   tail call void %18(ptr noundef nonnull %.0172029, i64 noundef %17)
   %19 = getelementptr inbounds nuw i8, ptr %15, i64 24
   %20 = load i64, ptr %19, align 8, !tbaa !19
@@ -435,7 +435,7 @@ define noundef i64 @_ZN6google8protobuf5Arena10FreeBlocksEv(ptr noundef nonnull 
   %22 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %23 = load ptr, ptr %22, align 8, !tbaa !28
   %.not18 = icmp eq ptr %23, null
-  br i1 %.not18, label %._crit_edge31, label %.lr.ph30, !llvm.loop !44
+  br i1 %.not18, label %._crit_edge31, label %.lr.ph30, !llvm.loop !43
 
 ._crit_edge:                                      ; preds = %13, %._crit_edge31, %1
   %.016.lcssa = phi ptr [ null, %1 ], [ %.01720.lcssa, %._crit_edge31 ], [ null, %13 ]
@@ -443,7 +443,7 @@ define noundef i64 @_ZN6google8protobuf5Arena10FreeBlocksEv(ptr noundef nonnull 
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false)
-  %26 = load i8, ptr %25, align 8, !tbaa !15, !range !41, !noundef !42
+  %26 = load i8, ptr %25, align 8, !tbaa !15, !range !40, !noundef !41
   %27 = trunc nuw i8 %26 to i1
   br i1 %27, label %_ZN6google8protobuf5Arena16AddBlockInternalEPNS1_5BlockE.exit, label %28
 
@@ -497,7 +497,7 @@ define noundef ptr @_ZN6google8protobuf5Arena8NewBlockEPvPNS1_5BlockEmmm(ptr nou
   %14 = add i64 %3, 32
   %spec.select23 = select i1 %13, i64 %14, i64 %.0
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %16 = load ptr, ptr %15, align 8, !tbaa !46
+  %16 = load ptr, ptr %15, align 8, !tbaa !45
   %17 = tail call noundef ptr %16(i64 noundef %spec.select23)
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 16
   store i64 %14, ptr %18, align 8, !tbaa !22
@@ -554,11 +554,11 @@ define void @_ZN6google8protobuf5Arena11AddListNodeEPvPFvS2_E(ptr noundef nonnul
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %5 = load ptr, ptr %4, align 8, !tbaa !31
   %.not.i = icmp eq ptr %5, null
-  br i1 %.not.i, label %10, label %6, !prof !47
+  br i1 %.not.i, label %10, label %6, !prof !46
 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %8 = load ptr, ptr %7, align 8, !tbaa !48
+  %8 = load ptr, ptr %7, align 8, !tbaa !47
   %.not20.i = icmp eq ptr %8, null
   br i1 %.not20.i, label %10, label %9
 
@@ -601,7 +601,7 @@ define void @_ZN6google8protobuf5Arena11AddListNodeEPvPFvS2_E(ptr noundef nonnul
 30:                                               ; preds = %15, %10
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %32 = load volatile i64, ptr %31, align 8, !tbaa !27
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !49
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !48
   %33 = inttoptr i64 %32 to ptr
   %.not22.i = icmp eq i64 %32, 0
   br i1 %.not22.i, label %43, label %34
@@ -637,7 +637,7 @@ _ZN6google8protobuf5Arena15AllocateAlignedEPKSt9type_infom.exit: ; preds = %25, 
   store ptr %2, ptr %48, align 8, !tbaa !33
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %50 = ptrtoint ptr %.0.i to i64
-  %51 = tail call noundef i64 asm sideeffect "xchgq $1,$0", "=r,*m,0,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %49, i64 %50) #13, !srcloc !50
+  %51 = tail call noundef i64 asm sideeffect "xchgq $1,$0", "=r,*m,0,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %49, i64 %50) #13, !srcloc !49
   %52 = inttoptr i64 %51 to ptr
   %53 = getelementptr inbounds nuw i8, ptr %.0.i, i64 16
   store ptr %52, ptr %53, align 8, !tbaa !37
@@ -651,11 +651,11 @@ define noundef ptr @_ZN6google8protobuf5Arena15AllocateAlignedEPKSt9type_infom(p
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %7 = load ptr, ptr %6, align 8, !tbaa !31
   %.not = icmp eq ptr %7, null
-  br i1 %.not, label %12, label %8, !prof !47
+  br i1 %.not, label %12, label %8, !prof !46
 
 8:                                                ; preds = %3
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %10 = load ptr, ptr %9, align 8, !tbaa !48
+  %10 = load ptr, ptr %9, align 8, !tbaa !47
   %.not20 = icmp eq ptr %10, null
   br i1 %.not20, label %12, label %11
 
@@ -698,7 +698,7 @@ define noundef ptr @_ZN6google8protobuf5Arena15AllocateAlignedEPKSt9type_infom(p
 32:                                               ; preds = %17, %12
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %34 = load volatile i64, ptr %33, align 8, !tbaa !27
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !49
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !48
   %35 = inttoptr i64 %34 to ptr
   %.not22 = icmp eq i64 %34, 0
   br i1 %.not22, label %45, label %36
@@ -737,7 +737,7 @@ define noundef ptr @_ZN6google8protobuf5Arena9SlowAllocEm(ptr noundef nonnull al
   %3 = tail call noundef nonnull align 8 dereferenceable(16) ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6google8protobuf5Arena13thread_cache_E)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load volatile i64, ptr %4, align 8, !tbaa !27
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !49
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !48
   %.not7.i = icmp eq i64 %5, 0
   br i1 %.not7.i, label %.split, label %.lr.ph.i.preheader
 
@@ -755,11 +755,11 @@ define noundef ptr @_ZN6google8protobuf5Arena9SlowAllocEm(ptr noundef nonnull al
   %9 = getelementptr inbounds nuw i8, ptr %.08.i, i64 8
   %10 = load ptr, ptr %9, align 8, !tbaa !28
   %.not.i = icmp eq ptr %10, null
-  br i1 %.not.i, label %.split, label %.lr.ph.i, !llvm.loop !51
+  br i1 %.not.i, label %.split, label %.lr.ph.i, !llvm.loop !50
 
 .split:                                           ; preds = %8, %2
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %12 = load i64, ptr %11, align 8, !tbaa !52
+  %12 = load i64, ptr %11, align 8, !tbaa !51
   br label %29
 
 _ZN6google8protobuf5Arena9FindBlockEPv.exit.thread26: ; preds = %.lr.ph.i
@@ -773,7 +773,7 @@ _ZN6google8protobuf5Arena9FindBlockEPv.exit.thread26: ; preds = %.lr.ph.i
 
 _ZN6google8protobuf5Arena8NewBlockEPvPNS1_5BlockEmmm.exit: ; preds = %_ZN6google8protobuf5Arena9FindBlockEPv.exit.thread26
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %19 = load i64, ptr %18, align 8, !tbaa !53
+  %19 = load i64, ptr %18, align 8, !tbaa !52
   %20 = shl i64 %14, 1
   %spec.select.i = tail call i64 @llvm.umin.i64(i64 %20, i64 %19)
   br label %29
@@ -799,7 +799,7 @@ _ZN6google8protobuf5Arena8NewBlockEPvPNS1_5BlockEmmm.exit: ; preds = %_ZN6google
   %32 = add i64 %1, 32
   %spec.select23.i22 = select i1 %31, i64 %32, i64 %spec.select.i.sink45
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %34 = load ptr, ptr %33, align 8, !tbaa !46
+  %34 = load ptr, ptr %33, align 8, !tbaa !45
   %35 = tail call noundef ptr %34(i64 noundef %spec.select23.i22)
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 16
   store i64 %32, ptr %36, align 8, !tbaa !22
@@ -876,7 +876,7 @@ define noundef ptr @_ZN6google8protobuf5Arena14AllocFromBlockEPNS1_5BlockEm(ptr 
 define noundef ptr @_ZN6google8protobuf5Arena9FindBlockEPv(ptr noundef nonnull align 8 dereferenceable(136) %0, ptr noundef readnone captures(address) %1) local_unnamed_addr #4 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load volatile i64, ptr %3, align 8, !tbaa !27
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !49
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !48
   %5 = inttoptr i64 %4 to ptr
   %.not7 = icmp eq i64 %4, 0
   br i1 %.not7, label %.critedge, label %.lr.ph
@@ -891,7 +891,7 @@ define noundef ptr @_ZN6google8protobuf5Arena9FindBlockEPv(ptr noundef nonnull a
   %8 = getelementptr inbounds nuw i8, ptr %.08, i64 8
   %9 = load ptr, ptr %8, align 8, !tbaa !28
   %.not = icmp eq ptr %9, null
-  br i1 %.not, label %.critedge, label %.lr.ph, !llvm.loop !51
+  br i1 %.not, label %.critedge, label %.lr.ph, !llvm.loop !50
 
 .critedge:                                        ; preds = %.lr.ph, %7, %2
   %.0.lcssa = phi ptr [ %5, %2 ], [ null, %7 ], [ %.08, %.lr.ph ]
@@ -918,7 +918,7 @@ define noundef i64 @_ZNK6google8protobuf5Arena14SpaceAllocatedEv(ptr noundef non
   %8 = getelementptr inbounds nuw i8, ptr %.08, i64 8
   %9 = load ptr, ptr %8, align 8, !tbaa !28
   %.not = icmp eq ptr %9, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !54
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !53
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
   %.05.lcssa = phi i64 [ 0, %1 ], [ %7, %.lr.ph ]
@@ -946,7 +946,7 @@ define noundef i64 @_ZNK6google8protobuf5Arena9SpaceUsedEv(ptr noundef nonnull a
   %9 = getelementptr inbounds nuw i8, ptr %.08, i64 8
   %10 = load ptr, ptr %9, align 8, !tbaa !28
   %.not = icmp eq ptr %10, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !55
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !54
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
   %.05.lcssa = phi i64 [ 0, %1 ], [ %8, %.lr.ph ]
@@ -978,7 +978,7 @@ define { i64, i64 } @_ZNK6google8protobuf5Arena21SpaceAllocatedAndUsedEv(ptr nou
   %12 = getelementptr inbounds nuw i8, ptr %.013, i64 8
   %13 = load ptr, ptr %12, align 8, !tbaa !28
   %.not = icmp eq ptr %13, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !56
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !55
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
   %.09.lcssa = phi i64 [ 0, %1 ], [ %7, %.lr.ph ]
@@ -1057,22 +1057,21 @@ attributes #14 = { noreturn nounwind }
 !35 = !{!"p1 _ZTSN6google8protobuf5Arena4NodeE", !12, i64 0}
 !36 = !{!34, !12, i64 0}
 !37 = !{!34, !35, i64 16}
-!38 = distinct !{!38, !39, !40}
+!38 = distinct !{!38, !39}
 !39 = !{!"llvm.loop.mustprogress"}
-!40 = !{!"llvm.loop.estimated_trip_count"}
-!41 = !{i8 0, i8 2}
-!42 = !{}
-!43 = !{!5, !12, i64 96}
-!44 = distinct !{!44, !39, !40}
-!45 = !{!5, !12, i64 112}
-!46 = !{!5, !12, i64 88}
-!47 = !{!"branch_weights", !"expected", i32 2000, i32 1}
-!48 = !{!5, !12, i64 128}
-!49 = !{i64 2149514512}
-!50 = !{i64 2027138}
-!51 = distinct !{!51, !39, !40}
-!52 = !{!5, !6, i64 56}
-!53 = !{!5, !6, i64 64}
-!54 = distinct !{!54, !39, !40}
-!55 = distinct !{!55, !39, !40}
-!56 = distinct !{!56, !39, !40}
+!40 = !{i8 0, i8 2}
+!41 = !{}
+!42 = !{!5, !12, i64 96}
+!43 = distinct !{!43, !39}
+!44 = !{!5, !12, i64 112}
+!45 = !{!5, !12, i64 88}
+!46 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!47 = !{!5, !12, i64 128}
+!48 = !{i64 2149514512}
+!49 = !{i64 2027138}
+!50 = distinct !{!50, !39}
+!51 = !{!5, !6, i64 56}
+!52 = !{!5, !6, i64 64}
+!53 = distinct !{!53, !39}
+!54 = distinct !{!54, !39}
+!55 = distinct !{!55, !39}

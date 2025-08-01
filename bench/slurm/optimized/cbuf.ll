@@ -539,7 +539,7 @@ define internal fastcc i32 @cbuf_find_replay_line(ptr noundef readonly captures(
   %56 = icmp eq i32 %spec.select78, 0
   %57 = icmp eq i32 %.4, 0
   %or.cond3 = select i1 %56, i1 true, i1 %57
-  br i1 %or.cond3, label %58, label %40, !llvm.loop !12
+  br i1 %or.cond3, label %58, label %40, !llvm.loop !11
 
 58:                                               ; preds = %41, %40
   %.370 = phi i32 [ %spec.select78, %41 ], [ %.269, %40 ]
@@ -855,7 +855,7 @@ define dso_local i32 @cbuf_peek(ptr noundef %0, ptr noundef writeonly captures(a
   %.2.i = phi i32 [ %33, %32 ], [ %.035.i, %23 ]
   %.1.i = phi i32 [ %37, %32 ], [ %.0.i, %23 ]
   %39 = icmp sgt i32 %.2.i, 0
-  br i1 %39, label %23, label %.loopexit.i, !llvm.loop !13
+  br i1 %39, label %23, label %.loopexit.i, !llvm.loop !12
 
 .loopexit.i:                                      ; preds = %38, %18
   %.136.i = phi i32 [ %..i, %18 ], [ %.2.i, %38 ]
@@ -956,7 +956,7 @@ define dso_local i32 @cbuf_read(ptr noundef %0, ptr noundef writeonly captures(a
   %.2.i = phi i32 [ %33, %32 ], [ %.035.i, %23 ]
   %.1.i = phi i32 [ %37, %32 ], [ %.0.i, %23 ]
   %39 = icmp sgt i32 %.2.i, 0
-  br i1 %39, label %23, label %cbuf_reader.exit, !llvm.loop !13
+  br i1 %39, label %23, label %cbuf_reader.exit, !llvm.loop !12
 
 cbuf_reader.exit:                                 ; preds = %38, %18
   %.136.i = phi i32 [ %..i, %18 ], [ %.2.i, %38 ]
@@ -1080,7 +1080,7 @@ define dso_local i32 @cbuf_replay(ptr noundef %0, ptr noundef writeonly captures
   %.2.i = phi i32 [ %42, %41 ], [ %.042.i, %32 ]
   %.1.i = phi i32 [ %46, %41 ], [ %.0.i, %32 ]
   %48 = icmp sgt i32 %.2.i, 0
-  br i1 %48, label %32, label %.loopexit.i, !llvm.loop !14
+  br i1 %48, label %32, label %.loopexit.i, !llvm.loop !13
 
 .loopexit.i:                                      ; preds = %47, %27
   %.143.i = phi i32 [ %25, %27 ], [ %.2.i, %47 ]
@@ -1365,7 +1365,7 @@ select.unfold:                                    ; preds = %67, %61
   %76 = load ptr, ptr %72, align 8
   %77 = sext i32 %.0 to i64
   %78 = getelementptr inbounds i8, ptr %76, i64 %77
-  %79 = call i32 %2(ptr noundef %78, ptr noundef nonnull %3, i32 noundef %.085.) #15, !callees !15
+  %79 = call i32 %2(ptr noundef %78, ptr noundef nonnull %3, i32 noundef %.085.) #15, !callees !14
   %80 = icmp sgt i32 %79, 0
   br i1 %80, label %81, label %87
 
@@ -1383,7 +1383,7 @@ select.unfold:                                    ; preds = %67, %61
   %88 = icmp eq i32 %.085., %79
   %89 = icmp sgt i32 %.287, 0
   %or.cond = select i1 %88, i1 %89, i1 false
-  br i1 %or.cond, label %73, label %.loopexit, !llvm.loop !16
+  br i1 %or.cond, label %73, label %.loopexit, !llvm.loop !15
 
 .loopexit:                                        ; preds = %87, %select.unfold
   %90 = phi ptr [ %68, %select.unfold ], [ %71, %87 ]
@@ -1727,7 +1727,7 @@ cbuf_find_unread_line.exit:                       ; preds = %._crit_edge.i
   %.2.i37 = phi i32 [ %68, %67 ], [ %.035.i, %58 ]
   %.1.i38 = phi i32 [ %72, %67 ], [ %.0.i, %58 ]
   %74 = icmp sgt i32 %.2.i37, 0
-  br i1 %74, label %58, label %cbuf_reader.exit, !llvm.loop !13
+  br i1 %74, label %58, label %cbuf_reader.exit, !llvm.loop !12
 
 cbuf_reader.exit:                                 ; preds = %73, %52
   %75 = zext nneg i32 %53 to i64
@@ -1894,7 +1894,7 @@ cbuf_find_unread_line.exit:                       ; preds = %._crit_edge.i
   %.2.i38 = phi i32 [ %66, %65 ], [ %.035.i, %56 ]
   %.1.i39 = phi i32 [ %70, %65 ], [ %.0.i, %56 ]
   %72 = icmp sgt i32 %.2.i38, 0
-  br i1 %72, label %56, label %cbuf_reader.exit, !llvm.loop !13
+  br i1 %72, label %56, label %cbuf_reader.exit, !llvm.loop !12
 
 cbuf_reader.exit:                                 ; preds = %71, %53
   %73 = zext nneg i32 %54 to i64
@@ -2033,7 +2033,7 @@ define dso_local i32 @cbuf_replay_line(ptr noundef %0, ptr noundef writeonly cap
   %.2.i = phi i32 [ %54, %53 ], [ %.042.i, %44 ]
   %.1.i = phi i32 [ %58, %53 ], [ %.0.i, %44 ]
   %60 = icmp sgt i32 %.2.i, 0
-  br i1 %60, label %44, label %cbuf_replayer.exit, !llvm.loop !14
+  br i1 %60, label %44, label %cbuf_replayer.exit, !llvm.loop !13
 
 cbuf_replayer.exit:                               ; preds = %59, %28, %23
   %61 = icmp ne i32 %24, 0
@@ -2456,7 +2456,7 @@ define dso_local i32 @cbuf_peek_to_fd(ptr noundef %0, i32 noundef %1, i32 nounde
   %40 = tail call ptr @__errno_location() #14
   %41 = load i32, ptr %40, align 4
   %42 = icmp eq i32 %41, 4
-  br i1 %42, label %35, label %cbuf_put_fd.exit.thread, !llvm.loop !17
+  br i1 %42, label %35, label %cbuf_put_fd.exit.thread, !llvm.loop !16
 
 cbuf_put_fd.exit:                                 ; preds = %35
   %.not20 = icmp eq i32 %37, 0
@@ -2476,7 +2476,7 @@ cbuf_put_fd.exit.thread:                          ; preds = %39, %43, %cbuf_put_
   %49 = icmp eq i32 %.035..i, %37
   %50 = icmp sgt i32 %.2.i, 0
   %or.cond.i = select i1 %49, i1 %50, i1 false
-  br i1 %or.cond.i, label %28, label %.loopexit.i, !llvm.loop !13
+  br i1 %or.cond.i, label %28, label %.loopexit.i, !llvm.loop !12
 
 .loopexit.i:                                      ; preds = %cbuf_put_fd.exit.thread, %23
   %.136.i = phi i32 [ %..i, %23 ], [ %.2.i, %cbuf_put_fd.exit.thread ]
@@ -2581,7 +2581,7 @@ define dso_local i32 @cbuf_read_to_fd(ptr noundef %0, i32 noundef %1, i32 nounde
   %40 = tail call ptr @__errno_location() #14
   %41 = load i32, ptr %40, align 4
   %42 = icmp eq i32 %41, 4
-  br i1 %42, label %35, label %cbuf_put_fd.exit.thread, !llvm.loop !17
+  br i1 %42, label %35, label %cbuf_put_fd.exit.thread, !llvm.loop !16
 
 cbuf_put_fd.exit:                                 ; preds = %35
   %.not25 = icmp eq i32 %37, 0
@@ -2601,7 +2601,7 @@ cbuf_put_fd.exit.thread:                          ; preds = %39, %43, %cbuf_put_
   %49 = icmp eq i32 %.035..i, %37
   %50 = icmp sgt i32 %.2.i, 0
   %or.cond.i = select i1 %49, i1 %50, i1 false
-  br i1 %or.cond.i, label %28, label %cbuf_reader.exit, !llvm.loop !13
+  br i1 %or.cond.i, label %28, label %cbuf_reader.exit, !llvm.loop !12
 
 cbuf_reader.exit:                                 ; preds = %cbuf_put_fd.exit.thread, %23
   %.136.i = phi i32 [ %..i, %23 ], [ %.2.i, %cbuf_put_fd.exit.thread ]
@@ -2732,7 +2732,7 @@ define dso_local i32 @cbuf_replay_to_fd(ptr noundef %0, i32 noundef %1, i32 noun
   %52 = tail call ptr @__errno_location() #14
   %53 = load i32, ptr %52, align 4
   %54 = icmp eq i32 %53, 4
-  br i1 %54, label %47, label %cbuf_put_fd.exit.thread, !llvm.loop !17
+  br i1 %54, label %47, label %cbuf_put_fd.exit.thread, !llvm.loop !16
 
 cbuf_put_fd.exit:                                 ; preds = %47
   %.not21 = icmp eq i32 %49, 0
@@ -2752,7 +2752,7 @@ cbuf_put_fd.exit.thread:                          ; preds = %51, %55, %cbuf_put_
   %61 = icmp eq i32 %.042..i, %49
   %62 = icmp sgt i32 %.2.i, 0
   %or.cond.i = select i1 %61, i1 %62, i1 false
-  br i1 %or.cond.i, label %40, label %.loopexit.i, !llvm.loop !14
+  br i1 %or.cond.i, label %40, label %.loopexit.i, !llvm.loop !13
 
 .loopexit.i:                                      ; preds = %cbuf_put_fd.exit.thread, %35
   %.143.i = phi i32 [ %33, %35 ], [ %.2.i, %cbuf_put_fd.exit.thread ]
@@ -2868,7 +2868,7 @@ define internal noundef i32 @cbuf_get_fd(ptr noundef captures(none) %0, ptr noun
   %11 = tail call ptr @__errno_location() #14
   %12 = load i32, ptr %11, align 4
   %13 = icmp eq i32 %12, 4
-  br i1 %13, label %5, label %.critedge, !llvm.loop !18
+  br i1 %13, label %5, label %.critedge, !llvm.loop !17
 
 .critedge:                                        ; preds = %5, %10
   ret i32 %8
@@ -3180,7 +3180,7 @@ cbuf_grow.exit:                                   ; preds = %20, %55
   %113 = srem i32 %110, %112
   %114 = sub nsw i32 %.0103132, %98
   %115 = icmp sgt i32 %114, 0
-  br i1 %115, label %93, label %116, !llvm.loop !19
+  br i1 %115, label %93, label %116, !llvm.loop !18
 
 116:                                              ; preds = %93
   %117 = getelementptr inbounds nuw i8, ptr %1, i64 72
@@ -3411,15 +3411,14 @@ attributes #17 = { nounwind willreturn memory(read) }
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i32 7, !"frame-pointer", i32 2}
 !7 = !{i32 7, !"debug-info-assignment-tracking", i1 true}
-!8 = distinct !{!8, !9, !10, !11}
+!8 = distinct !{!8, !9, !10}
 !9 = !{!"llvm.loop.mustprogress"}
 !10 = !{!"llvm.loop.unroll.disable"}
-!11 = !{!"llvm.loop.estimated_trip_count"}
-!12 = distinct !{!12, !9, !10, !11}
-!13 = distinct !{!13, !9, !10, !11}
-!14 = distinct !{!14, !9, !10, !11}
-!15 = !{ptr @cbuf_get_fd, ptr @cbuf_get_mem}
-!16 = distinct !{!16, !9, !10, !11}
-!17 = distinct !{!17, !9, !10, !11}
-!18 = distinct !{!18, !9, !10, !11}
-!19 = distinct !{!19, !9, !10, !11}
+!11 = distinct !{!11, !9, !10}
+!12 = distinct !{!12, !9, !10}
+!13 = distinct !{!13, !9, !10}
+!14 = !{ptr @cbuf_get_fd, ptr @cbuf_get_mem}
+!15 = distinct !{!15, !9, !10}
+!16 = distinct !{!16, !9, !10}
+!17 = distinct !{!17, !9, !10}
+!18 = distinct !{!18, !9, !10}

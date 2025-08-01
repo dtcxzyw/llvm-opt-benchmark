@@ -2006,7 +2006,7 @@ define hidden range(i32 0, 2) i32 @mbedtls_ripemd160_self_test(i32 noundef %0) l
 .split.us:                                        ; preds = %1, %23
   %indvars.iv30 = phi i64 [ %indvars.iv.next31, %23 ], [ 0, %1 ]
   %10 = getelementptr inbounds nuw [8 x i64], ptr @ripemd160_test_strlen, i64 0, i64 %indvars.iv30
-  %11 = load i64, ptr %10, align 8, !tbaa !23
+  %11 = load i64, ptr %10, align 8, !tbaa !22
   call void @llvm.lifetime.start.p0(i64 92, ptr nonnull %2) #11
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(92) %2, i8 0, i64 92, i1 false)
   store i32 1732584193, ptr %4, align 4, !tbaa !7
@@ -2055,7 +2055,7 @@ mbedtls_ripemd160.exit.us:                        ; preds = %._crit_edge.thread.
 23:                                               ; preds = %mbedtls_ripemd160.exit.us
   %indvars.iv.next31 = add nuw nsw i64 %indvars.iv30, 1
   %exitcond33.not = icmp eq i64 %indvars.iv.next31, 8
-  br i1 %exitcond33.not, label %.split24.us, label %.split.us, !llvm.loop !25
+  br i1 %exitcond33.not, label %.split24.us, label %.split.us, !llvm.loop !24
 
 .split:                                           ; preds = %1, %39
   %indvars.iv = phi i64 [ %indvars.iv.next, %39 ], [ 0, %1 ]
@@ -2063,7 +2063,7 @@ mbedtls_ripemd160.exit.us:                        ; preds = %._crit_edge.thread.
   %24 = trunc nuw nsw i64 %indvars.iv.next to i32
   %25 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, i32 noundef %24)
   %26 = getelementptr inbounds nuw [8 x i64], ptr @ripemd160_test_strlen, i64 0, i64 %indvars.iv
-  %27 = load i64, ptr %26, align 8, !tbaa !23
+  %27 = load i64, ptr %26, align 8, !tbaa !22
   call void @llvm.lifetime.start.p0(i64 92, ptr nonnull %2) #11
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(92) %2, i8 0, i64 92, i1 false)
   store i32 1732584193, ptr %4, align 4, !tbaa !7
@@ -2112,7 +2112,7 @@ mbedtls_ripemd160.exit:                           ; preds = %.split, %._crit_edg
 39:                                               ; preds = %mbedtls_ripemd160.exit
   %puts = call i32 @puts(ptr nonnull dereferenceable(1) @str)
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond.not, label %.split24.us, label %.split, !llvm.loop !27
+  br i1 %exitcond.not, label %.split24.us, label %.split, !llvm.loop !26
 
 .split24.us:                                      ; preds = %39, %23
   br i1 %.not16, label %.critedge, label %40
@@ -2181,11 +2181,10 @@ attributes #11 = { nounwind }
 !17 = !{!10, !8, i64 24}
 !18 = !{!10, !8, i64 32}
 !19 = !{!10, !8, i64 8}
-!20 = distinct !{!20, !21, !22}
+!20 = distinct !{!20, !21}
 !21 = !{!"llvm.loop.mustprogress"}
-!22 = !{!"llvm.loop.estimated_trip_count"}
-!23 = !{!24, !24, i64 0}
-!24 = !{!"long", !5, i64 0}
-!25 = distinct !{!25, !21, !22, !26}
-!26 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!27 = distinct !{!27, !21, !22}
+!22 = !{!23, !23, i64 0}
+!23 = !{!"long", !5, i64 0}
+!24 = distinct !{!24, !21, !25}
+!25 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!26 = distinct !{!26, !21}

@@ -81,10 +81,10 @@ define internal noundef i32 @cipher_hw_desx_cbc(ptr noundef %0, ptr noundef %1, 
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal void @cipher_hw_desx_copyctx(ptr noundef initializes((0, 584)) %0, ptr noundef readonly captures(none) %1) #2 {
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(584) %0, ptr noundef nonnull align 8 dereferenceable(584) %1, i64 584, i1 false), !tbaa.struct !6
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(584) %0, ptr noundef nonnull align 8 dereferenceable(584) %1, i64 584, i1 false), !tbaa.struct !5
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  store ptr %3, ptr %4, align 8, !tbaa !22
+  store ptr %3, ptr %4, align 8, !tbaa !21
   ret void
 }
 
@@ -107,24 +107,23 @@ attributes #5 = { nounwind }
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = distinct !{!3, !4, !5}
+!3 = distinct !{!3, !4}
 !4 = !{!"llvm.loop.mustprogress"}
-!5 = !{!"llvm.loop.estimated_trip_count"}
-!6 = !{i64 0, i64 16, !7, i64 16, i64 16, !7, i64 32, i64 16, !7, i64 48, i64 8, !10, i64 56, i64 8, !7, i64 64, i64 4, !12, i64 72, i64 8, !14, i64 80, i64 8, !14, i64 88, i64 8, !14, i64 96, i64 8, !14, i64 104, i64 4, !12, i64 108, i64 1, !7, i64 112, i64 4, !12, i64 120, i64 8, !16, i64 128, i64 4, !12, i64 136, i64 8, !14, i64 144, i64 4, !12, i64 152, i64 8, !14, i64 160, i64 4, !12, i64 168, i64 8, !18, i64 176, i64 8, !10, i64 184, i64 8, !20, i64 192, i64 384, !7, i64 576, i64 8, !7}
-!7 = !{!8, !8, i64 0}
-!8 = !{!"omnipotent char", !9, i64 0}
-!9 = !{!"Simple C/C++ TBAA"}
-!10 = !{!11, !11, i64 0}
-!11 = !{!"any pointer", !8, i64 0}
-!12 = !{!13, !13, i64 0}
-!13 = !{!"int", !8, i64 0}
-!14 = !{!15, !15, i64 0}
-!15 = !{!"long", !8, i64 0}
-!16 = !{!17, !17, i64 0}
-!17 = !{!"p1 omnipotent char", !11, i64 0}
-!18 = !{!19, !19, i64 0}
-!19 = !{!"p1 _ZTS17prov_cipher_hw_st", !11, i64 0}
-!20 = !{!21, !21, i64 0}
-!21 = !{!"p1 _ZTS15ossl_lib_ctx_st", !11, i64 0}
-!22 = !{!23, !11, i64 176}
-!23 = !{!"prov_cipher_ctx_st", !8, i64 0, !8, i64 16, !8, i64 32, !11, i64 48, !8, i64 56, !13, i64 64, !15, i64 72, !15, i64 80, !15, i64 88, !15, i64 96, !13, i64 104, !13, i64 108, !13, i64 108, !13, i64 108, !13, i64 108, !13, i64 108, !13, i64 108, !13, i64 108, !13, i64 108, !13, i64 112, !17, i64 120, !13, i64 128, !15, i64 136, !13, i64 144, !15, i64 152, !13, i64 160, !19, i64 168, !11, i64 176, !21, i64 184}
+!5 = !{i64 0, i64 16, !6, i64 16, i64 16, !6, i64 32, i64 16, !6, i64 48, i64 8, !9, i64 56, i64 8, !6, i64 64, i64 4, !11, i64 72, i64 8, !13, i64 80, i64 8, !13, i64 88, i64 8, !13, i64 96, i64 8, !13, i64 104, i64 4, !11, i64 108, i64 1, !6, i64 112, i64 4, !11, i64 120, i64 8, !15, i64 128, i64 4, !11, i64 136, i64 8, !13, i64 144, i64 4, !11, i64 152, i64 8, !13, i64 160, i64 4, !11, i64 168, i64 8, !17, i64 176, i64 8, !9, i64 184, i64 8, !19, i64 192, i64 384, !6, i64 576, i64 8, !6}
+!6 = !{!7, !7, i64 0}
+!7 = !{!"omnipotent char", !8, i64 0}
+!8 = !{!"Simple C/C++ TBAA"}
+!9 = !{!10, !10, i64 0}
+!10 = !{!"any pointer", !7, i64 0}
+!11 = !{!12, !12, i64 0}
+!12 = !{!"int", !7, i64 0}
+!13 = !{!14, !14, i64 0}
+!14 = !{!"long", !7, i64 0}
+!15 = !{!16, !16, i64 0}
+!16 = !{!"p1 omnipotent char", !10, i64 0}
+!17 = !{!18, !18, i64 0}
+!18 = !{!"p1 _ZTS17prov_cipher_hw_st", !10, i64 0}
+!19 = !{!20, !20, i64 0}
+!20 = !{!"p1 _ZTS15ossl_lib_ctx_st", !10, i64 0}
+!21 = !{!22, !10, i64 176}
+!22 = !{!"prov_cipher_ctx_st", !7, i64 0, !7, i64 16, !7, i64 32, !10, i64 48, !7, i64 56, !12, i64 64, !14, i64 72, !14, i64 80, !14, i64 88, !14, i64 96, !12, i64 104, !12, i64 108, !12, i64 108, !12, i64 108, !12, i64 108, !12, i64 108, !12, i64 108, !12, i64 108, !12, i64 108, !12, i64 112, !16, i64 120, !12, i64 128, !14, i64 136, !12, i64 144, !14, i64 152, !12, i64 160, !18, i64 168, !10, i64 176, !20, i64 184}

@@ -141,7 +141,7 @@ switch.lookup:                                    ; preds = %68
   %77 = or i32 %switch.load, %.04162
   %78 = getelementptr inbounds nuw i8, ptr %.04261, i64 8
   %79 = icmp ult ptr %78, %46
-  br i1 %79, label %.lr.ph63, label %._crit_edge, !llvm.loop !9
+  br i1 %79, label %.lr.ph63, label %._crit_edge, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %switch.lookup, %40
   %.041.lcssa = phi i32 [ 0, %40 ], [ %77, %switch.lookup ]
@@ -382,7 +382,7 @@ _ZNK5Block8get_nodeEj.exit109:                    ; preds = %96, %98
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
   %exitcond.not = icmp eq i32 %91, %lftr.wideiv
-  br i1 %exitcond.not, label %._crit_edge, label %96, !llvm.loop !10
+  br i1 %exitcond.not, label %._crit_edge, label %96, !llvm.loop !9
 
 ._crit_edge.loopexit.split.loop.exit:             ; preds = %107
   %113 = trunc nuw i64 %indvars.iv to i32
@@ -453,7 +453,7 @@ _ZNK5Block8get_nodeEj.exit109:                    ; preds = %96, %98
   %151 = getelementptr inbounds i8, ptr %.0.i.i, i64 -8
   %152 = load ptr, ptr %151, align 8
   %.not.i.i = icmp eq ptr %152, %.091
-  br i1 %.not.i.i, label %153, label %150, !llvm.loop !11
+  br i1 %.not.i.i, label %153, label %150, !llvm.loop !10
 
 153:                                              ; preds = %150
   %154 = add i32 %147, -1
@@ -659,9 +659,8 @@ attributes #5 = { noreturn nounwind }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7, !8}
-!11 = distinct !{!11, !7, !8}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}

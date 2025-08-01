@@ -83,7 +83,7 @@ define void @RC2_cbc_encrypt(ptr noundef readonly captures(none) %0, ptr noundef
 
 35:                                               ; preds = %32
   %36 = getelementptr i8, ptr %33, i64 7
-  %37 = load i8, ptr %36, align 1, !tbaa !10
+  %37 = load i8, ptr %36, align 1, !tbaa !9
   %38 = zext i8 %37 to i64
   %39 = shl nuw nsw i64 %38, 16
   br label %40
@@ -93,7 +93,7 @@ define void @RC2_cbc_encrypt(ptr noundef readonly captures(none) %0, ptr noundef
   %.2 = phi i64 [ %39, %35 ], [ 0, %32 ]
   %42 = getelementptr i8, ptr %33, i64 %41
   %43 = getelementptr inbounds i8, ptr %42, i64 -1
-  %44 = load i8, ptr %43, align 1, !tbaa !10
+  %44 = load i8, ptr %43, align 1, !tbaa !9
   %45 = zext i8 %44 to i64
   %46 = shl nuw nsw i64 %45, 8
   %47 = or disjoint i64 %46, %.2
@@ -103,7 +103,7 @@ define void @RC2_cbc_encrypt(ptr noundef readonly captures(none) %0, ptr noundef
   %.3242 = phi ptr [ %43, %40 ], [ %34, %32 ]
   %.3 = phi i64 [ %47, %40 ], [ 0, %32 ]
   %49 = getelementptr inbounds i8, ptr %.3242, i64 -1
-  %50 = load i8, ptr %49, align 1, !tbaa !10
+  %50 = load i8, ptr %49, align 1, !tbaa !9
   %51 = zext i8 %50 to i64
   %52 = or i64 %.3, %51
   br label %53
@@ -112,7 +112,7 @@ define void @RC2_cbc_encrypt(ptr noundef readonly captures(none) %0, ptr noundef
   %.4243 = phi ptr [ %49, %48 ], [ %34, %32 ]
   %.4 = phi i64 [ %52, %48 ], [ 0, %32 ]
   %54 = getelementptr inbounds i8, ptr %.4243, i64 -1
-  %55 = load i8, ptr %54, align 1, !tbaa !10
+  %55 = load i8, ptr %54, align 1, !tbaa !9
   %56 = zext i8 %55 to i64
   %57 = shl nuw nsw i64 %56, 24
   br label %58
@@ -122,7 +122,7 @@ define void @RC2_cbc_encrypt(ptr noundef readonly captures(none) %0, ptr noundef
   %.1236 = phi i64 [ %57, %53 ], [ 0, %32 ]
   %.5 = phi i64 [ %.4, %53 ], [ 0, %32 ]
   %59 = getelementptr inbounds i8, ptr %.5244, i64 -1
-  %60 = load i8, ptr %59, align 1, !tbaa !10
+  %60 = load i8, ptr %59, align 1, !tbaa !9
   %61 = zext i8 %60 to i64
   %62 = shl nuw nsw i64 %61, 16
   %63 = or disjoint i64 %62, %.1236
@@ -133,7 +133,7 @@ define void @RC2_cbc_encrypt(ptr noundef readonly captures(none) %0, ptr noundef
   %.2237 = phi i64 [ %63, %58 ], [ 0, %32 ]
   %.6 = phi i64 [ %.5, %58 ], [ 0, %32 ]
   %65 = getelementptr inbounds i8, ptr %.6245, i64 -1
-  %66 = load i8, ptr %65, align 1, !tbaa !10
+  %66 = load i8, ptr %65, align 1, !tbaa !9
   %67 = zext i8 %66 to i64
   %68 = shl nuw nsw i64 %67, 8
   %69 = or i64 %68, %.2237
@@ -144,7 +144,7 @@ define void @RC2_cbc_encrypt(ptr noundef readonly captures(none) %0, ptr noundef
   %.3238 = phi i64 [ %69, %64 ], [ 0, %32 ]
   %.7 = phi i64 [ %.6, %64 ], [ 0, %32 ]
   %71 = getelementptr inbounds i8, ptr %.7246, i64 -1
-  %72 = load i8, ptr %71, align 1, !tbaa !10
+  %72 = load i8, ptr %71, align 1, !tbaa !9
   %73 = zext i8 %72 to i64
   %74 = or i64 %.3238, %73
   br label %75
@@ -190,12 +190,12 @@ define void @RC2_cbc_encrypt(ptr noundef readonly captures(none) %0, ptr noundef
   %89 = zext i16 %88 to i64
   %90 = getelementptr inbounds nuw i8, ptr %.8271, i64 2
   %91 = getelementptr inbounds nuw i8, ptr %.8271, i64 3
-  %92 = load i8, ptr %90, align 1, !tbaa !10
+  %92 = load i8, ptr %90, align 1, !tbaa !9
   %93 = zext i8 %92 to i64
   %94 = shl nuw nsw i64 %93, 16
   %95 = or disjoint i64 %94, %89
   %96 = getelementptr inbounds nuw i8, ptr %.8271, i64 4
-  %97 = load i8, ptr %91, align 1, !tbaa !10
+  %97 = load i8, ptr %91, align 1, !tbaa !9
   %98 = zext i8 %97 to i64
   %99 = shl nuw nsw i64 %98, 24
   %100 = or disjoint i64 %95, %99
@@ -204,12 +204,12 @@ define void @RC2_cbc_encrypt(ptr noundef readonly captures(none) %0, ptr noundef
   %102 = zext i16 %101 to i64
   %103 = getelementptr inbounds nuw i8, ptr %.8271, i64 6
   %104 = getelementptr inbounds nuw i8, ptr %.8271, i64 7
-  %105 = load i8, ptr %103, align 1, !tbaa !10
+  %105 = load i8, ptr %103, align 1, !tbaa !9
   %106 = zext i8 %105 to i64
   %107 = shl nuw nsw i64 %106, 16
   %108 = or disjoint i64 %107, %102
   %109 = getelementptr inbounds nuw i8, ptr %.8271, i64 8
-  %110 = load i8, ptr %104, align 1, !tbaa !10
+  %110 = load i8, ptr %104, align 1, !tbaa !9
   %111 = zext i8 %110 to i64
   %112 = shl nuw nsw i64 %111, 24
   %113 = or disjoint i64 %108, %112
@@ -227,7 +227,7 @@ define void @RC2_cbc_encrypt(ptr noundef readonly captures(none) %0, ptr noundef
   %121 = getelementptr inbounds nuw i8, ptr %.1248270, i64 8
   %.1 = add nsw i64 %.1274, -8
   %122 = icmp samesign ugt i64 %.1274, 7
-  br i1 %122, label %87, label %._crit_edge277, !llvm.loop !11
+  br i1 %122, label %87, label %._crit_edge277, !llvm.loop !10
 
 ._crit_edge277:                                   ; preds = %87, %85
   %.1248.lcssa = phi ptr [ %1, %85 ], [ %121, %87 ]
@@ -244,12 +244,12 @@ define void @RC2_cbc_encrypt(ptr noundef readonly captures(none) %0, ptr noundef
   %125 = zext i16 %124 to i64
   %126 = getelementptr inbounds nuw i8, ptr %.8.lcssa, i64 2
   %127 = getelementptr inbounds nuw i8, ptr %.8.lcssa, i64 3
-  %128 = load i8, ptr %126, align 1, !tbaa !10
+  %128 = load i8, ptr %126, align 1, !tbaa !9
   %129 = zext i8 %128 to i64
   %130 = shl nuw nsw i64 %129, 16
   %131 = or disjoint i64 %130, %125
   %132 = getelementptr inbounds nuw i8, ptr %.8.lcssa, i64 4
-  %133 = load i8, ptr %127, align 1, !tbaa !10
+  %133 = load i8, ptr %127, align 1, !tbaa !9
   %134 = zext i8 %133 to i64
   %135 = shl nuw nsw i64 %134, 24
   %136 = or disjoint i64 %131, %135
@@ -258,11 +258,11 @@ define void @RC2_cbc_encrypt(ptr noundef readonly captures(none) %0, ptr noundef
   %138 = zext i16 %137 to i64
   %139 = getelementptr inbounds nuw i8, ptr %.8.lcssa, i64 6
   %140 = getelementptr inbounds nuw i8, ptr %.8.lcssa, i64 7
-  %141 = load i8, ptr %139, align 1, !tbaa !10
+  %141 = load i8, ptr %139, align 1, !tbaa !9
   %142 = zext i8 %141 to i64
   %143 = shl nuw nsw i64 %142, 16
   %144 = or disjoint i64 %143, %138
-  %145 = load i8, ptr %140, align 1, !tbaa !10
+  %145 = load i8, ptr %140, align 1, !tbaa !9
   %146 = zext i8 %145 to i64
   %147 = shl nuw nsw i64 %146, 24
   %148 = or disjoint i64 %144, %147
@@ -289,7 +289,7 @@ define void @RC2_cbc_encrypt(ptr noundef readonly captures(none) %0, ptr noundef
   %157 = lshr i64 %153, 16
   %158 = trunc i64 %157 to i8
   %159 = getelementptr i8, ptr %154, i64 7
-  store i8 %158, ptr %159, align 1, !tbaa !10
+  store i8 %158, ptr %159, align 1, !tbaa !9
   br label %160
 
 160:                                              ; preds = %156, %123
@@ -298,14 +298,14 @@ define void @RC2_cbc_encrypt(ptr noundef readonly captures(none) %0, ptr noundef
   %163 = lshr i64 %153, 8
   %164 = trunc i64 %163 to i8
   %165 = getelementptr inbounds i8, ptr %162, i64 -1
-  store i8 %164, ptr %165, align 1, !tbaa !10
+  store i8 %164, ptr %165, align 1, !tbaa !9
   br label %166
 
 166:                                              ; preds = %160, %123
   %.4251 = phi ptr [ %165, %160 ], [ %155, %123 ]
   %167 = trunc i64 %153 to i8
   %168 = getelementptr inbounds i8, ptr %.4251, i64 -1
-  store i8 %167, ptr %168, align 1, !tbaa !10
+  store i8 %167, ptr %168, align 1, !tbaa !9
   br label %169
 
 169:                                              ; preds = %166, %123
@@ -313,7 +313,7 @@ define void @RC2_cbc_encrypt(ptr noundef readonly captures(none) %0, ptr noundef
   %170 = lshr i64 %151, 24
   %171 = trunc i64 %170 to i8
   %172 = getelementptr inbounds i8, ptr %.5252, i64 -1
-  store i8 %171, ptr %172, align 1, !tbaa !10
+  store i8 %171, ptr %172, align 1, !tbaa !9
   br label %173
 
 173:                                              ; preds = %169, %123
@@ -321,7 +321,7 @@ define void @RC2_cbc_encrypt(ptr noundef readonly captures(none) %0, ptr noundef
   %174 = lshr i64 %151, 16
   %175 = trunc i64 %174 to i8
   %176 = getelementptr inbounds i8, ptr %.6253, i64 -1
-  store i8 %175, ptr %176, align 1, !tbaa !10
+  store i8 %175, ptr %176, align 1, !tbaa !9
   br label %177
 
 177:                                              ; preds = %173, %123
@@ -329,14 +329,14 @@ define void @RC2_cbc_encrypt(ptr noundef readonly captures(none) %0, ptr noundef
   %178 = lshr i64 %151, 8
   %179 = trunc i64 %178 to i8
   %180 = getelementptr inbounds i8, ptr %.7254, i64 -1
-  store i8 %179, ptr %180, align 1, !tbaa !10
+  store i8 %179, ptr %180, align 1, !tbaa !9
   br label %181
 
 181:                                              ; preds = %123, %177
   %.8255 = phi ptr [ %180, %177 ], [ %155, %123 ]
   %182 = trunc i64 %151 to i8
   %183 = getelementptr inbounds i8, ptr %.8255, i64 -1
-  store i8 %182, ptr %183, align 1, !tbaa !10
+  store i8 %182, ptr %183, align 1, !tbaa !9
   br label %184
 
 184:                                              ; preds = %123, %181, %._crit_edge277
@@ -393,7 +393,7 @@ define void @RC2_encrypt(ptr noundef captures(none) %0, ptr noundef readonly cap
   %16 = and i32 %.061, %.063
   %17 = add i32 %15, %16
   %18 = getelementptr inbounds nuw i8, ptr %.069, i64 4
-  %19 = load i32, ptr %.069, align 4, !tbaa !12
+  %19 = load i32, ptr %.069, align 4, !tbaa !11
   %20 = add i32 %17, %19
   %21 = and i32 %20, 65535
   %22 = shl nuw nsw i32 %21, 1
@@ -403,7 +403,7 @@ define void @RC2_encrypt(ptr noundef captures(none) %0, ptr noundef readonly cap
   %26 = and i32 %.063, %25
   %27 = and i32 %24, %.061
   %28 = getelementptr inbounds nuw i8, ptr %.069, i64 8
-  %29 = load i32, ptr %18, align 4, !tbaa !12
+  %29 = load i32, ptr %18, align 4, !tbaa !11
   %30 = add i32 %29, %.065
   %31 = add i32 %30, %26
   %32 = add i32 %31, %27
@@ -415,7 +415,7 @@ define void @RC2_encrypt(ptr noundef captures(none) %0, ptr noundef readonly cap
   %38 = and i32 %.061, %37
   %39 = and i32 %36, %24
   %40 = getelementptr inbounds nuw i8, ptr %.069, i64 12
-  %41 = load i32, ptr %28, align 4, !tbaa !12
+  %41 = load i32, ptr %28, align 4, !tbaa !11
   %42 = add i32 %41, %.063
   %43 = add i32 %42, %38
   %44 = add i32 %43, %39
@@ -427,7 +427,7 @@ define void @RC2_encrypt(ptr noundef captures(none) %0, ptr noundef readonly cap
   %50 = and i32 %24, %49
   %51 = and i32 %48, %36
   %52 = getelementptr inbounds nuw i8, ptr %.069, i64 16
-  %53 = load i32, ptr %40, align 4, !tbaa !12
+  %53 = load i32, ptr %40, align 4, !tbaa !11
   %54 = add i32 %53, %.061
   %55 = add i32 %54, %50
   %56 = add i32 %55, %51
@@ -437,7 +437,7 @@ define void @RC2_encrypt(ptr noundef captures(none) %0, ptr noundef readonly cap
   %60 = or disjoint i32 %58, %59
   %61 = add nsw i32 %.0, -1
   %62 = icmp eq i32 %61, 0
-  br i1 %62, label %63, label %12, !llvm.loop !14
+  br i1 %62, label %63, label %12
 
 63:                                               ; preds = %12
   %64 = add nsw i32 %.059.ph, -1
@@ -450,24 +450,24 @@ define void @RC2_encrypt(ptr noundef captures(none) %0, ptr noundef readonly cap
   %69 = and i32 %60, 63
   %70 = zext nneg i32 %69 to i64
   %71 = getelementptr inbounds nuw i32, ptr %1, i64 %70
-  %72 = load i32, ptr %71, align 4, !tbaa !12
+  %72 = load i32, ptr %71, align 4, !tbaa !11
   %73 = add i32 %72, %24
   %74 = and i32 %73, 63
   %75 = zext nneg i32 %74 to i64
   %76 = getelementptr inbounds nuw i32, ptr %1, i64 %75
-  %77 = load i32, ptr %76, align 4, !tbaa !12
+  %77 = load i32, ptr %76, align 4, !tbaa !11
   %78 = add i32 %77, %36
   %79 = and i32 %78, 63
   %80 = zext nneg i32 %79 to i64
   %81 = getelementptr inbounds nuw i32, ptr %1, i64 %80
-  %82 = load i32, ptr %81, align 4, !tbaa !12
+  %82 = load i32, ptr %81, align 4, !tbaa !11
   %83 = add i32 %82, %48
   %84 = and i32 %83, 63
   %85 = zext nneg i32 %84 to i64
   %86 = getelementptr inbounds nuw i32, ptr %1, i64 %85
-  %87 = load i32, ptr %86, align 4, !tbaa !12
+  %87 = load i32, ptr %86, align 4, !tbaa !11
   %88 = add i32 %87, %60
-  br label %.outer, !llvm.loop !14
+  br label %.outer
 
 89:                                               ; preds = %63
   %90 = and i32 %24, 65535
@@ -514,7 +514,7 @@ define void @RC2_decrypt(ptr noundef captures(none) %0, ptr noundef readonly cap
   %20 = and i32 %.068, %19
   %21 = and i32 %.064, %.066
   %22 = getelementptr inbounds i8, ptr %.070, i64 -4
-  %23 = load i32, ptr %.070, align 4, !tbaa !12
+  %23 = load i32, ptr %.070, align 4, !tbaa !11
   %24 = add nuw nsw i32 %20, %21
   %25 = add i32 %24, %23
   %26 = sub i32 %18, %25
@@ -526,7 +526,7 @@ define void @RC2_decrypt(ptr noundef captures(none) %0, ptr noundef readonly cap
   %32 = and i32 %26, %31
   %33 = and i32 %.066, %.068
   %34 = getelementptr inbounds i8, ptr %.070, i64 -8
-  %35 = load i32, ptr %22, align 4, !tbaa !12
+  %35 = load i32, ptr %22, align 4, !tbaa !11
   %36 = add i32 %33, %35
   %37 = add i32 %36, %32
   %38 = sub i32 %30, %37
@@ -538,7 +538,7 @@ define void @RC2_decrypt(ptr noundef captures(none) %0, ptr noundef readonly cap
   %44 = and i32 %38, %43
   %45 = and i32 %26, %.068
   %46 = getelementptr inbounds i8, ptr %.070, i64 -12
-  %47 = load i32, ptr %34, align 4, !tbaa !12
+  %47 = load i32, ptr %34, align 4, !tbaa !11
   %48 = add i32 %45, %47
   %49 = add i32 %48, %44
   %50 = sub i32 %42, %49
@@ -549,7 +549,7 @@ define void @RC2_decrypt(ptr noundef captures(none) %0, ptr noundef readonly cap
   %55 = and i32 %50, %54
   %56 = and i32 %38, %26
   %57 = getelementptr inbounds i8, ptr %.070, i64 -16
-  %58 = load i32, ptr %46, align 4, !tbaa !12
+  %58 = load i32, ptr %46, align 4, !tbaa !11
   %59 = add i32 %58, %56
   %60 = add i32 %59, %55
   %61 = sub i32 %53, %60
@@ -569,24 +569,24 @@ define void @RC2_decrypt(ptr noundef captures(none) %0, ptr noundef readonly cap
   %71 = and i32 %38, 63
   %72 = zext nneg i32 %71 to i64
   %73 = getelementptr inbounds nuw i32, ptr %1, i64 %72
-  %74 = load i32, ptr %73, align 4, !tbaa !12
+  %74 = load i32, ptr %73, align 4, !tbaa !11
   %75 = sub i32 %26, %74
   %76 = and i32 %75, 65535
   %77 = and i32 %50, 63
   %78 = zext nneg i32 %77 to i64
   %79 = getelementptr inbounds nuw i32, ptr %1, i64 %78
-  %80 = load i32, ptr %79, align 4, !tbaa !12
+  %80 = load i32, ptr %79, align 4, !tbaa !11
   %81 = sub i32 %38, %80
   %82 = and i32 %81, 65535
   %83 = and i32 %61, 63
   %84 = zext nneg i32 %83 to i64
   %85 = getelementptr inbounds nuw i32, ptr %1, i64 %84
-  %86 = load i32, ptr %85, align 4, !tbaa !12
+  %86 = load i32, ptr %85, align 4, !tbaa !11
   %87 = sub i32 %50, %86
   %88 = and i32 %75, 63
   %89 = zext nneg i32 %88 to i64
   %90 = getelementptr inbounds nuw i32, ptr %1, i64 %89
-  %91 = load i32, ptr %90, align 4, !tbaa !12
+  %91 = load i32, ptr %90, align 4, !tbaa !11
   %92 = sub i32 %61, %91
   %93 = and i32 %92, 65535
   br label %94
@@ -599,7 +599,7 @@ define void @RC2_decrypt(ptr noundef captures(none) %0, ptr noundef readonly cap
   %.161 = phi i32 [ %66, %68 ], [ %.060, %15 ]
   %.1 = phi i32 [ %70, %68 ], [ %63, %15 ]
   %.167 = and i32 %.167.in, 65535
-  br label %15, !llvm.loop !15
+  br label %15
 
 95:                                               ; preds = %65
   %96 = shl i32 %50, 16
@@ -630,12 +630,9 @@ attributes #3 = { nounwind }
 !4 = !{!"long", !5, i64 0}
 !5 = !{!"omnipotent char", !6, i64 0}
 !6 = !{!"Simple C/C++ TBAA"}
-!7 = distinct !{!7, !8, !9}
+!7 = distinct !{!7, !8}
 !8 = !{!"llvm.loop.mustprogress"}
-!9 = !{!"llvm.loop.estimated_trip_count"}
-!10 = !{!5, !5, i64 0}
-!11 = distinct !{!11, !8, !9}
-!12 = !{!13, !13, i64 0}
-!13 = !{!"int", !5, i64 0}
-!14 = distinct !{!14, !9}
-!15 = distinct !{!15, !9}
+!9 = !{!5, !5, i64 0}
+!10 = distinct !{!10, !8}
+!11 = !{!12, !12, i64 0}
+!12 = !{!"int", !5, i64 0}

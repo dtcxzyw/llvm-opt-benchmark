@@ -709,7 +709,7 @@ Amap_ManCreateXor.exit:                           ; preds = %4, %58
   %60 = load i32, ptr %59, align 4, !tbaa !20
   %61 = add nsw i32 %60, 1
   store i32 %61, ptr %59, align 4, !tbaa !20
-  store ptr %5, ptr %3, align 8, !tbaa !39
+  store ptr %5, ptr %3, align 8, !tbaa !38
   %62 = xor i64 %9, 1
   %63 = tail call ptr @Amap_ManSetupObj(ptr noundef nonnull %0)
   %64 = load i64, ptr %63, align 8
@@ -769,7 +769,7 @@ Amap_ManCreateXor.exit16:                         ; preds = %Amap_ManCreateXor.e
   %105 = add nsw i32 %104, 1
   store i32 %105, ptr %59, align 4, !tbaa !20
   %106 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store ptr %63, ptr %106, align 8, !tbaa !39
+  store ptr %63, ptr %106, align 8, !tbaa !38
   %107 = xor i64 %23, 1
   %108 = tail call ptr @Amap_ManSetupObj(ptr noundef nonnull %0)
   %109 = load i64, ptr %108, align 8
@@ -829,7 +829,7 @@ Amap_ManCreateXor.exit17:                         ; preds = %Amap_ManCreateXor.e
   %150 = add nsw i32 %149, 1
   store i32 %150, ptr %59, align 4, !tbaa !20
   %151 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store ptr %108, ptr %151, align 8, !tbaa !39
+  store ptr %108, ptr %151, align 8, !tbaa !38
   %152 = tail call ptr @Amap_ManSetupObj(ptr noundef nonnull %0)
   %153 = load i64, ptr %152, align 8
   %154 = and i64 %153, -8
@@ -886,14 +886,14 @@ Amap_ManCreateXor.exit18:                         ; preds = %Amap_ManCreateXor.e
   %192 = add nsw i32 %191, 1
   store i32 %192, ptr %59, align 4, !tbaa !20
   %193 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  store ptr %152, ptr %193, align 8, !tbaa !39
+  store ptr %152, ptr %193, align 8, !tbaa !38
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define void @Amap_ManCreateMuxChoices(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef writeonly captures(none) initializes((0, 32)) %4) local_unnamed_addr #0 {
   %6 = tail call ptr @Amap_ManCreateMux(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3)
-  store ptr %6, ptr %4, align 8, !tbaa !39
+  store ptr %6, ptr %4, align 8, !tbaa !38
   %7 = ptrtoint ptr %1 to i64
   %8 = xor i64 %7, 1
   %9 = inttoptr i64 %8 to ptr
@@ -902,16 +902,16 @@ define void @Amap_ManCreateMuxChoices(ptr noundef captures(none) %0, ptr noundef
   %12 = inttoptr i64 %11 to ptr
   %13 = tail call ptr @Amap_ManCreateMux(ptr noundef %0, ptr noundef %9, ptr noundef %12, ptr noundef %3)
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store ptr %13, ptr %14, align 8, !tbaa !39
+  store ptr %13, ptr %14, align 8, !tbaa !38
   %15 = ptrtoint ptr %3 to i64
   %16 = xor i64 %15, 1
   %17 = inttoptr i64 %16 to ptr
   %18 = tail call ptr @Amap_ManCreateMux(ptr noundef %0, ptr noundef %2, ptr noundef %1, ptr noundef %17)
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store ptr %18, ptr %19, align 8, !tbaa !39
+  store ptr %18, ptr %19, align 8, !tbaa !38
   %20 = tail call ptr @Amap_ManCreateMux(ptr noundef %0, ptr noundef %12, ptr noundef %9, ptr noundef %17)
   %21 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  store ptr %20, ptr %21, align 8, !tbaa !39
+  store ptr %20, ptr %21, align 8, !tbaa !38
   ret void
 }
 
@@ -953,7 +953,7 @@ define void @Amap_ManCreate(ptr noundef captures(none) %0, ptr noundef %1) local
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #11
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #11
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 248
-  %7 = load ptr, ptr %6, align 8, !tbaa !40
+  %7 = load ptr, ptr %6, align 8, !tbaa !39
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %10, label %8
 
@@ -977,18 +977,18 @@ define void @Amap_ManCreate(ptr noundef captures(none) %0, ptr noundef %1) local
   %19 = add nsw i32 %18, 1
   store i32 %19, ptr %17, align 4, !tbaa !20
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  store ptr %13, ptr %20, align 8, !tbaa !50
-  %21 = load ptr, ptr %0, align 8, !tbaa !51
+  store ptr %13, ptr %20, align 8, !tbaa !49
+  %21 = load ptr, ptr %0, align 8, !tbaa !50
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 32
-  %23 = load i32, ptr %22, align 4, !tbaa !52
+  %23 = load i32, ptr %22, align 4, !tbaa !51
   %.not76 = icmp eq i32 %23, 0
   br i1 %.not76, label %35, label %24
 
 24:                                               ; preds = %12
   %25 = getelementptr i8, ptr %1, i64 32
-  %.val89 = load ptr, ptr %25, align 8, !tbaa !54
+  %.val89 = load ptr, ptr %25, align 8, !tbaa !53
   %26 = getelementptr i8, ptr %1, i64 156
-  %.val90 = load i32, ptr %26, align 4, !tbaa !55
+  %.val90 = load i32, ptr %26, align 4, !tbaa !54
   %27 = getelementptr i8, ptr %.val89, i64 4
   %.val89.val = load i32, ptr %27, align 4, !tbaa !22
   %28 = sub nsw i32 %.val89.val, %.val90
@@ -1004,13 +1004,13 @@ define void @Amap_ManCreate(ptr noundef captures(none) %0, ptr noundef %1) local
 
 35:                                               ; preds = %24, %33, %12
   tail call void @Aig_ManCleanData(ptr noundef nonnull %1) #11
-  %.val95 = load ptr, ptr %20, align 8, !tbaa !50
+  %.val95 = load ptr, ptr %20, align 8, !tbaa !49
   %36 = getelementptr i8, ptr %1, i64 48
-  %.val96 = load ptr, ptr %36, align 8, !tbaa !56
+  %.val96 = load ptr, ptr %36, align 8, !tbaa !55
   %37 = getelementptr inbounds nuw i8, ptr %.val96, i64 40
-  store ptr %.val95, ptr %37, align 8, !tbaa !57
+  store ptr %.val95, ptr %37, align 8, !tbaa !56
   %38 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %39 = load ptr, ptr %38, align 8, !tbaa !58
+  %39 = load ptr, ptr %38, align 8, !tbaa !57
   %40 = getelementptr i8, ptr %39, i64 4
   %.val85144 = load i32, ptr %40, align 4, !tbaa !22
   %41 = icmp sgt i32 %.val85144, 0
@@ -1045,21 +1045,21 @@ define void @Amap_ManCreate(ptr noundef captures(none) %0, ptr noundef %1) local
   %58 = load ptr, ptr %57, align 8, !tbaa !26
   %59 = tail call ptr @Amap_ManCreatePi(ptr noundef nonnull %0)
   %60 = getelementptr inbounds nuw i8, ptr %58, i64 40
-  store ptr %59, ptr %60, align 8, !tbaa !57
+  store ptr %59, ptr %60, align 8, !tbaa !56
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %61 = load ptr, ptr %38, align 8, !tbaa !58
+  %61 = load ptr, ptr %38, align 8, !tbaa !57
   %62 = getelementptr i8, ptr %61, i64 4
   %.val85 = load i32, ptr %62, align 4, !tbaa !22
   %63 = sext i32 %.val85 to i64
   %64 = icmp slt i64 %indvars.iv.next, %63
-  br i1 %64, label %.lr.ph, label %.critedge.preheader, !llvm.loop !59
+  br i1 %64, label %.lr.ph, label %.critedge.preheader, !llvm.loop !58
 
 65:                                               ; preds = %.lr.ph152, %Amap_ManCreateChoice.exit136
   %indvars.iv159 = phi i64 [ 0, %.lr.ph152 ], [ %indvars.iv.next160, %Amap_ManCreateChoice.exit136 ]
   %.073.val87 = load ptr, ptr %44, align 8, !tbaa !25
   %66 = getelementptr inbounds nuw ptr, ptr %.073.val87, i64 %indvars.iv159
   %67 = load ptr, ptr %66, align 8, !tbaa !26
-  %68 = load i32, ptr %45, align 8, !tbaa !60
+  %68 = load i32, ptr %45, align 8, !tbaa !59
   %.not78 = icmp eq i32 %68, 0
   br i1 %.not78, label %92, label %69
 
@@ -1069,22 +1069,22 @@ define void @Amap_ManCreate(ptr noundef captures(none) %0, ptr noundef %1) local
   br i1 %.not79, label %92, label %71
 
 71:                                               ; preds = %69
-  %72 = load ptr, ptr %4, align 8, !tbaa !61
+  %72 = load ptr, ptr %4, align 8, !tbaa !60
   %73 = ptrtoint ptr %72 to i64
   %74 = and i64 %73, -2
   %75 = inttoptr i64 %74 to ptr
   %76 = getelementptr inbounds nuw i8, ptr %75, i64 40
-  %77 = load ptr, ptr %76, align 8, !tbaa !57
+  %77 = load ptr, ptr %76, align 8, !tbaa !56
   %78 = and i64 %73, 1
   %79 = ptrtoint ptr %77 to i64
   %80 = xor i64 %78, %79
   %81 = inttoptr i64 %80 to ptr
-  %82 = load ptr, ptr %5, align 8, !tbaa !61
+  %82 = load ptr, ptr %5, align 8, !tbaa !60
   %83 = ptrtoint ptr %82 to i64
   %84 = and i64 %83, -2
   %85 = inttoptr i64 %84 to ptr
   %86 = getelementptr inbounds nuw i8, ptr %85, i64 40
-  %87 = load ptr, ptr %86, align 8, !tbaa !57
+  %87 = load ptr, ptr %86, align 8, !tbaa !56
   %88 = and i64 %83, 1
   %89 = ptrtoint ptr %87 to i64
   %90 = xor i64 %88, %89
@@ -1093,7 +1093,7 @@ define void @Amap_ManCreate(ptr noundef captures(none) %0, ptr noundef %1) local
   br label %137
 
 92:                                               ; preds = %69, %65
-  %93 = load i32, ptr %46, align 4, !tbaa !62
+  %93 = load i32, ptr %46, align 4, !tbaa !61
   %.not80 = icmp eq i32 %93, 0
   br i1 %.not80, label %137, label %94
 
@@ -1104,22 +1104,22 @@ define void @Amap_ManCreate(ptr noundef captures(none) %0, ptr noundef %1) local
 
 96:                                               ; preds = %94
   %97 = call ptr @Aig_ObjRecognizeMux(ptr noundef %67, ptr noundef nonnull %5, ptr noundef nonnull %4) #11
-  %98 = load ptr, ptr %4, align 8, !tbaa !61
+  %98 = load ptr, ptr %4, align 8, !tbaa !60
   %99 = ptrtoint ptr %98 to i64
   %100 = and i64 %99, -2
   %101 = inttoptr i64 %100 to ptr
   %102 = getelementptr inbounds nuw i8, ptr %101, i64 40
-  %103 = load ptr, ptr %102, align 8, !tbaa !57
+  %103 = load ptr, ptr %102, align 8, !tbaa !56
   %104 = and i64 %99, 1
   %105 = ptrtoint ptr %103 to i64
   %106 = xor i64 %104, %105
   %107 = inttoptr i64 %106 to ptr
-  %108 = load ptr, ptr %5, align 8, !tbaa !61
+  %108 = load ptr, ptr %5, align 8, !tbaa !60
   %109 = ptrtoint ptr %108 to i64
   %110 = and i64 %109, -2
   %111 = inttoptr i64 %110 to ptr
   %112 = getelementptr inbounds nuw i8, ptr %111, i64 40
-  %113 = load ptr, ptr %112, align 8, !tbaa !57
+  %113 = load ptr, ptr %112, align 8, !tbaa !56
   %114 = and i64 %109, 1
   %115 = ptrtoint ptr %113 to i64
   %116 = xor i64 %114, %115
@@ -1128,31 +1128,31 @@ define void @Amap_ManCreate(ptr noundef captures(none) %0, ptr noundef %1) local
   %119 = and i64 %118, -2
   %120 = inttoptr i64 %119 to ptr
   %121 = getelementptr inbounds nuw i8, ptr %120, i64 40
-  %122 = load ptr, ptr %121, align 8, !tbaa !57
+  %122 = load ptr, ptr %121, align 8, !tbaa !56
   %123 = and i64 %118, 1
   %124 = ptrtoint ptr %122 to i64
   %125 = xor i64 %123, %124
   %126 = inttoptr i64 %125 to ptr
   %127 = call ptr @Amap_ManCreateMux(ptr noundef nonnull %0, ptr noundef %107, ptr noundef %117, ptr noundef %126)
-  store ptr %127, ptr %3, align 16, !tbaa !39
+  store ptr %127, ptr %3, align 16, !tbaa !38
   %128 = xor i64 %106, 1
   %129 = inttoptr i64 %128 to ptr
   %130 = xor i64 %116, 1
   %131 = inttoptr i64 %130 to ptr
   %132 = call ptr @Amap_ManCreateMux(ptr noundef nonnull %0, ptr noundef %129, ptr noundef %131, ptr noundef %126)
-  store ptr %132, ptr %47, align 8, !tbaa !39
+  store ptr %132, ptr %47, align 8, !tbaa !38
   %133 = xor i64 %125, 1
   %134 = inttoptr i64 %133 to ptr
   %135 = call ptr @Amap_ManCreateMux(ptr noundef nonnull %0, ptr noundef %117, ptr noundef %107, ptr noundef %134)
-  store ptr %135, ptr %48, align 16, !tbaa !39
+  store ptr %135, ptr %48, align 16, !tbaa !38
   %136 = call ptr @Amap_ManCreateMux(ptr noundef nonnull %0, ptr noundef %131, ptr noundef %129, ptr noundef %134)
-  store ptr %136, ptr %49, align 8, !tbaa !39
+  store ptr %136, ptr %49, align 8, !tbaa !38
   br label %137
 
 137:                                              ; preds = %92, %94, %96, %71
   %.not82 = phi i1 [ false, %71 ], [ false, %96 ], [ true, %94 ], [ true, %92 ]
   %138 = getelementptr i8, ptr %67, i64 8
-  %.val97 = load ptr, ptr %138, align 8, !tbaa !63
+  %.val97 = load ptr, ptr %138, align 8, !tbaa !62
   %139 = ptrtoint ptr %.val97 to i64
   %140 = and i64 %139, -2
   %.not.i = icmp eq i64 %140, 0
@@ -1161,7 +1161,7 @@ define void @Amap_ManCreate(ptr noundef captures(none) %0, ptr noundef %1) local
 141:                                              ; preds = %137
   %142 = inttoptr i64 %140 to ptr
   %143 = getelementptr inbounds nuw i8, ptr %142, i64 40
-  %144 = load ptr, ptr %143, align 8, !tbaa !57
+  %144 = load ptr, ptr %143, align 8, !tbaa !56
   %145 = and i64 %139, 1
   %146 = ptrtoint ptr %144 to i64
   %147 = xor i64 %145, %146
@@ -1170,7 +1170,7 @@ define void @Amap_ManCreate(ptr noundef captures(none) %0, ptr noundef %1) local
 Aig_ObjChild0Copy.exit:                           ; preds = %137, %141
   %148 = phi i64 [ %147, %141 ], [ 0, %137 ]
   %149 = getelementptr i8, ptr %67, i64 16
-  %.val99 = load ptr, ptr %149, align 8, !tbaa !64
+  %.val99 = load ptr, ptr %149, align 8, !tbaa !63
   %150 = ptrtoint ptr %.val99 to i64
   %151 = and i64 %150, -2
   %.not.i108 = icmp eq i64 %151, 0
@@ -1179,7 +1179,7 @@ Aig_ObjChild0Copy.exit:                           ; preds = %137, %141
 152:                                              ; preds = %Aig_ObjChild0Copy.exit
   %153 = inttoptr i64 %151 to ptr
   %154 = getelementptr inbounds nuw i8, ptr %153, i64 40
-  %155 = load ptr, ptr %154, align 8, !tbaa !57
+  %155 = load ptr, ptr %154, align 8, !tbaa !56
   %156 = and i64 %150, 1
   %157 = ptrtoint ptr %155 to i64
   %158 = xor i64 %156, %157
@@ -1256,15 +1256,15 @@ Amap_ManCreateAnd.exit:                           ; preds = %Aig_ObjChild1Copy.e
   %212 = add nsw i32 %211, 1
   store i32 %212, ptr %51, align 8, !tbaa !20
   %213 = getelementptr inbounds nuw i8, ptr %67, i64 40
-  store ptr %160, ptr %213, align 8, !tbaa !57
+  store ptr %160, ptr %213, align 8, !tbaa !56
   br i1 %.not82, label %Amap_ManCreateChoice.exit, label %214
 
 214:                                              ; preds = %Amap_ManCreateAnd.exit
-  %215 = load i32, ptr %52, align 4, !tbaa !65
+  %215 = load i32, ptr %52, align 4, !tbaa !64
   %216 = add nsw i32 %215, 1
-  store i32 %216, ptr %52, align 4, !tbaa !65
-  %217 = load ptr, ptr %213, align 8, !tbaa !57
-  %218 = load ptr, ptr %3, align 16, !tbaa !39
+  store i32 %216, ptr %52, align 4, !tbaa !64
+  %217 = load ptr, ptr %213, align 8, !tbaa !56
+  %218 = load ptr, ptr %3, align 16, !tbaa !38
   %.val100 = load i64, ptr %218, align 8
   %219 = load i64, ptr %217, align 8
   %220 = trunc i64 %219 to i32
@@ -1284,7 +1284,7 @@ Amap_ManCreateAnd.exit:                           ; preds = %Aig_ObjChild1Copy.e
 
 Amap_ObjSetChoice.exit:                           ; preds = %214, %224
   %.pre-phi169 = phi i32 [ %223, %214 ], [ %.pre168, %224 ]
-  %226 = load ptr, ptr %47, align 8, !tbaa !39
+  %226 = load ptr, ptr %47, align 8, !tbaa !38
   %.val101 = load i64, ptr %226, align 8
   %227 = trunc i64 %.val101 to i32
   %228 = lshr i32 %227, 3
@@ -1301,7 +1301,7 @@ Amap_ObjSetChoice.exit:                           ; preds = %214, %224
 
 Amap_ObjSetChoice.exit112:                        ; preds = %Amap_ObjSetChoice.exit, %229
   %.pre-phi173 = phi i32 [ %228, %Amap_ObjSetChoice.exit ], [ %.pre172, %229 ]
-  %231 = load ptr, ptr %48, align 16, !tbaa !39
+  %231 = load ptr, ptr %48, align 16, !tbaa !38
   %.val102 = load i64, ptr %231, align 8
   %232 = trunc i64 %.val102 to i32
   %233 = lshr i32 %232, 3
@@ -1318,7 +1318,7 @@ Amap_ObjSetChoice.exit112:                        ; preds = %Amap_ObjSetChoice.e
 
 Amap_ObjSetChoice.exit114:                        ; preds = %Amap_ObjSetChoice.exit112, %234
   %.pre-phi177 = phi i32 [ %233, %Amap_ObjSetChoice.exit112 ], [ %.pre176, %234 ]
-  %236 = load ptr, ptr %49, align 8, !tbaa !39
+  %236 = load ptr, ptr %49, align 8, !tbaa !38
   %.val103 = load i64, ptr %236, align 8
   %237 = trunc i64 %.val103 to i32
   %238 = lshr i32 %237, 3
@@ -1331,7 +1331,7 @@ Amap_ObjSetChoice.exit114:                        ; preds = %Amap_ObjSetChoice.e
   br label %Amap_ObjSetChoice.exit116
 
 Amap_ObjSetChoice.exit116:                        ; preds = %Amap_ObjSetChoice.exit114, %239
-  %241 = load ptr, ptr %213, align 8, !tbaa !57
+  %241 = load ptr, ptr %213, align 8, !tbaa !56
   %242 = load i64, ptr %241, align 8
   %243 = or i64 %242, 4611686018427387904
   store i64 %243, ptr %241, align 8
@@ -1371,16 +1371,16 @@ Amap_ObjChoice.exit.thread.i:                     ; preds = %Amap_ObjChoice.exit
   br label %Amap_ManCreateChoice.exit
 
 Amap_ManCreateChoice.exit:                        ; preds = %257, %Amap_ObjChoice.exit.thread.i, %Amap_ManCreateAnd.exit
-  %.val105 = load ptr, ptr %6, align 8, !tbaa !40
+  %.val105 = load ptr, ptr %6, align 8, !tbaa !39
   %.not.i118 = icmp eq ptr %.val105, null
   br i1 %.not.i118, label %Amap_ManCreateChoice.exit136, label %258
 
 258:                                              ; preds = %Amap_ManCreateChoice.exit
   %259 = getelementptr inbounds nuw i8, ptr %67, i64 36
-  %260 = load i32, ptr %259, align 4, !tbaa !66
+  %260 = load i32, ptr %259, align 4, !tbaa !65
   %261 = sext i32 %260 to i64
   %262 = getelementptr inbounds ptr, ptr %.val105, i64 %261
-  %263 = load ptr, ptr %262, align 8, !tbaa !61
+  %263 = load ptr, ptr %262, align 8, !tbaa !60
   %.not4.i = icmp eq ptr %263, null
   br i1 %.not4.i, label %Amap_ManCreateChoice.exit136, label %Aig_ObjIsChoice.exit
 
@@ -1392,21 +1392,21 @@ Aig_ObjIsChoice.exit:                             ; preds = %258
   br i1 %.not141, label %Amap_ManCreateChoice.exit136, label %.lr.ph149.preheader
 
 .lr.ph149.preheader:                              ; preds = %Aig_ObjIsChoice.exit
-  %267 = load i32, ptr %54, align 8, !tbaa !67
+  %267 = load i32, ptr %54, align 8, !tbaa !66
   %268 = add nsw i32 %267, 1
-  store i32 %268, ptr %54, align 8, !tbaa !67
+  store i32 %268, ptr %54, align 8, !tbaa !66
   br label %.lr.ph149
 
 .lr.ph149:                                        ; preds = %.lr.ph149.preheader, %Aig_ObjEquiv.exit126
   %.074148 = phi ptr [ %.075147, %Aig_ObjEquiv.exit126 ], [ %67, %.lr.ph149.preheader ]
   %.075147 = phi ptr [ %298, %Aig_ObjEquiv.exit126 ], [ %263, %.lr.ph149.preheader ]
   %269 = getelementptr inbounds nuw i8, ptr %.075147, i64 40
-  %270 = load ptr, ptr %269, align 8, !tbaa !57
+  %270 = load ptr, ptr %269, align 8, !tbaa !56
   %271 = load i64, ptr %270, align 8
   %272 = and i64 %271, -4611686018427387905
   store i64 %272, ptr %270, align 8
   %273 = getelementptr inbounds nuw i8, ptr %.074148, i64 40
-  %274 = load ptr, ptr %273, align 8, !tbaa !57
+  %274 = load ptr, ptr %273, align 8, !tbaa !56
   %275 = getelementptr inbounds nuw i8, ptr %274, i64 20
   %276 = load i32, ptr %275, align 4, !tbaa !35
   %277 = icmp eq i32 %276, 0
@@ -1430,7 +1430,7 @@ Amap_ObjChoice.exit.i122:                         ; preds = %Amap_ObjChoice.exit
 
 Amap_ManGetLast_rec.exit:                         ; preds = %Amap_ObjChoice.exit.i122, %.lr.ph149
   %.tr6.lcssa.i = phi ptr [ %274, %.lr.ph149 ], [ %282, %Amap_ObjChoice.exit.i122 ]
-  %286 = load ptr, ptr %269, align 8, !tbaa !57
+  %286 = load ptr, ptr %269, align 8, !tbaa !56
   %.val104 = load i64, ptr %286, align 8
   %287 = load i64, ptr %.tr6.lcssa.i, align 8
   %288 = trunc i64 %287 to i32
@@ -1446,21 +1446,21 @@ Amap_ManGetLast_rec.exit:                         ; preds = %Amap_ObjChoice.exit
   br label %Amap_ObjSetChoice.exit124
 
 Amap_ObjSetChoice.exit124:                        ; preds = %Amap_ManGetLast_rec.exit, %292
-  %.val107 = load ptr, ptr %6, align 8, !tbaa !40
+  %.val107 = load ptr, ptr %6, align 8, !tbaa !39
   %.not.i125 = icmp eq ptr %.val107, null
   br i1 %.not.i125, label %._crit_edge, label %Aig_ObjEquiv.exit126
 
 Aig_ObjEquiv.exit126:                             ; preds = %Amap_ObjSetChoice.exit124
   %294 = getelementptr inbounds nuw i8, ptr %.075147, i64 36
-  %295 = load i32, ptr %294, align 4, !tbaa !66
+  %295 = load i32, ptr %294, align 4, !tbaa !65
   %296 = sext i32 %295 to i64
   %297 = getelementptr inbounds ptr, ptr %.val107, i64 %296
-  %298 = load ptr, ptr %297, align 8, !tbaa !61
+  %298 = load ptr, ptr %297, align 8, !tbaa !60
   %.not84 = icmp eq ptr %298, null
-  br i1 %.not84, label %._crit_edge, label %.lr.ph149, !llvm.loop !68
+  br i1 %.not84, label %._crit_edge, label %.lr.ph149, !llvm.loop !67
 
 ._crit_edge:                                      ; preds = %Amap_ObjSetChoice.exit124, %Aig_ObjEquiv.exit126
-  %299 = load ptr, ptr %213, align 8, !tbaa !57
+  %299 = load ptr, ptr %213, align 8, !tbaa !56
   %300 = load i64, ptr %299, align 8
   %301 = or i64 %300, 4611686018427387904
   store i64 %301, ptr %299, align 8
@@ -1504,7 +1504,7 @@ Amap_ManCreateChoice.exit136:                     ; preds = %Amap_ManCreateChoic
   %.073.val = load i32, ptr %42, align 4, !tbaa !22
   %316 = sext i32 %.073.val to i64
   %317 = icmp slt i64 %indvars.iv.next160, %316
-  br i1 %317, label %65, label %.critedge2, !llvm.loop !69
+  br i1 %317, label %65, label %.critedge2, !llvm.loop !68
 
 .critedge2:                                       ; preds = %Amap_ManCreateChoice.exit136, %.critedge.preheader
   %318 = getelementptr inbounds nuw i8, ptr %.073, i64 8
@@ -1519,7 +1519,7 @@ Amap_ManCreateChoice.exit136:                     ; preds = %Amap_ManCreateChoic
 Vec_PtrFree.exit:                                 ; preds = %.critedge2, %320
   call void @free(ptr noundef nonnull %.073) #11
   %321 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %322 = load ptr, ptr %321, align 8, !tbaa !70
+  %322 = load ptr, ptr %321, align 8, !tbaa !69
   %323 = getelementptr i8, ptr %322, i64 4
   %.val153 = load i32, ptr %323, align 4, !tbaa !22
   %324 = icmp sgt i32 %.val153, 0
@@ -1533,7 +1533,7 @@ Vec_PtrFree.exit:                                 ; preds = %.critedge2, %320
   %327 = getelementptr inbounds nuw ptr, ptr %.val88, i64 %indvars.iv162
   %328 = load ptr, ptr %327, align 8, !tbaa !26
   %329 = getelementptr i8, ptr %328, i64 8
-  %.val98 = load ptr, ptr %329, align 8, !tbaa !63
+  %.val98 = load ptr, ptr %329, align 8, !tbaa !62
   %330 = ptrtoint ptr %.val98 to i64
   %331 = and i64 %330, -2
   %.not.i138 = icmp eq i64 %331, 0
@@ -1542,7 +1542,7 @@ Vec_PtrFree.exit:                                 ; preds = %.critedge2, %320
 332:                                              ; preds = %.lr.ph155
   %333 = inttoptr i64 %331 to ptr
   %334 = getelementptr inbounds nuw i8, ptr %333, i64 40
-  %335 = load ptr, ptr %334, align 8, !tbaa !57
+  %335 = load ptr, ptr %334, align 8, !tbaa !56
   %336 = and i64 %330, 1
   %337 = ptrtoint ptr %335 to i64
   %338 = xor i64 %336, %337
@@ -1553,27 +1553,27 @@ Aig_ObjChild0Copy.exit139:                        ; preds = %.lr.ph155, %332
   %340 = phi ptr [ %339, %332 ], [ null, %.lr.ph155 ]
   %341 = call ptr @Amap_ManCreatePo(ptr noundef nonnull %0, ptr noundef %340)
   %342 = getelementptr inbounds nuw i8, ptr %328, i64 40
-  store ptr %341, ptr %342, align 8, !tbaa !57
+  store ptr %341, ptr %342, align 8, !tbaa !56
   %indvars.iv.next163 = add nuw nsw i64 %indvars.iv162, 1
-  %343 = load ptr, ptr %321, align 8, !tbaa !70
+  %343 = load ptr, ptr %321, align 8, !tbaa !69
   %344 = getelementptr i8, ptr %343, i64 4
   %.val = load i32, ptr %344, align 4, !tbaa !22
   %345 = sext i32 %.val to i64
   %346 = icmp slt i64 %indvars.iv.next163, %345
-  br i1 %346, label %.lr.ph155, label %.critedge4, !llvm.loop !71
+  br i1 %346, label %.lr.ph155, label %.critedge4, !llvm.loop !70
 
 .critedge4:                                       ; preds = %Aig_ObjChild0Copy.exit139, %Vec_PtrFree.exit
-  %347 = load ptr, ptr %0, align 8, !tbaa !51
+  %347 = load ptr, ptr %0, align 8, !tbaa !50
   %348 = getelementptr inbounds nuw i8, ptr %347, i64 32
-  %349 = load i32, ptr %348, align 4, !tbaa !52
+  %349 = load i32, ptr %348, align 4, !tbaa !51
   %.not77 = icmp eq i32 %349, 0
   br i1 %.not77, label %356, label %350
 
 350:                                              ; preds = %.critedge4
   %351 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %352 = load i32, ptr %351, align 8, !tbaa !67
+  %352 = load i32, ptr %351, align 8, !tbaa !66
   %353 = getelementptr inbounds nuw i8, ptr %0, i64 132
-  %354 = load i32, ptr %353, align 4, !tbaa !65
+  %354 = load i32, ptr %353, align 4, !tbaa !64
   %355 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1, i32 noundef %352, i32 noundef %354)
   br label %356
 
@@ -1664,39 +1664,38 @@ attributes #13 = { nounwind allocsize(0) }
 !33 = !{!30, !11, i64 8}
 !34 = !{!4, !11, i64 124}
 !35 = !{!30, !11, i64 20}
-!36 = distinct !{!36, !37, !38}
+!36 = distinct !{!36, !37}
 !37 = !{!"llvm.loop.mustprogress"}
-!38 = !{!"llvm.loop.estimated_trip_count"}
-!39 = !{!15, !15, i64 0}
-!40 = !{!41, !45, i64 248}
-!41 = !{!"Aig_Man_t_", !42, i64 0, !42, i64 8, !12, i64 16, !12, i64 24, !12, i64 32, !12, i64 40, !43, i64 48, !44, i64 56, !11, i64 104, !11, i64 108, !11, i64 112, !11, i64 116, !11, i64 120, !11, i64 124, !7, i64 128, !11, i64 156, !45, i64 160, !11, i64 168, !17, i64 176, !11, i64 184, !46, i64 192, !11, i64 200, !11, i64 204, !11, i64 208, !17, i64 216, !11, i64 224, !11, i64 228, !11, i64 232, !11, i64 236, !11, i64 240, !45, i64 248, !45, i64 256, !11, i64 264, !13, i64 272, !16, i64 280, !11, i64 288, !6, i64 296, !6, i64 304, !11, i64 312, !11, i64 316, !11, i64 320, !45, i64 328, !6, i64 336, !6, i64 344, !6, i64 352, !6, i64 360, !17, i64 368, !17, i64 376, !12, i64 384, !16, i64 392, !16, i64 400, !47, i64 408, !12, i64 416, !48, i64 424, !12, i64 432, !11, i64 440, !16, i64 448, !46, i64 456, !16, i64 464, !16, i64 472, !11, i64 480, !49, i64 488, !49, i64 496, !49, i64 504, !12, i64 512, !12, i64 520}
-!42 = !{!"p1 omnipotent char", !6, i64 0}
-!43 = !{!"p1 _ZTS10Aig_Obj_t_", !6, i64 0}
-!44 = !{!"Aig_Obj_t_", !7, i64 0, !43, i64 8, !43, i64 16, !11, i64 24, !11, i64 24, !11, i64 24, !11, i64 24, !11, i64 24, !11, i64 28, !11, i64 31, !11, i64 32, !11, i64 36, !7, i64 40}
-!45 = !{!"p2 _ZTS10Aig_Obj_t_", !6, i64 0}
-!46 = !{!"p1 _ZTS10Vec_Vec_t_", !6, i64 0}
-!47 = !{!"p1 _ZTS10Abc_Cex_t_", !6, i64 0}
-!48 = !{!"p1 _ZTS10Aig_Man_t_", !6, i64 0}
-!49 = !{!"long", !7, i64 0}
-!50 = !{!4, !15, i64 88}
-!51 = !{!4, !5, i64 0}
-!52 = !{!53, !11, i64 32}
-!53 = !{!"Amap_Par_t_", !11, i64 0, !11, i64 4, !11, i64 8, !11, i64 12, !11, i64 16, !11, i64 20, !10, i64 24, !10, i64 28, !11, i64 32}
-!54 = !{!41, !12, i64 32}
-!55 = !{!41, !11, i64 156}
-!56 = !{!41, !43, i64 48}
-!57 = !{!7, !7, i64 0}
-!58 = !{!41, !12, i64 16}
-!59 = distinct !{!59, !37, !38}
-!60 = !{!4, !11, i64 24}
-!61 = !{!43, !43, i64 0}
-!62 = !{!4, !11, i64 28}
-!63 = !{!44, !43, i64 8}
-!64 = !{!44, !43, i64 16}
-!65 = !{!4, !11, i64 132}
-!66 = !{!44, !11, i64 36}
-!67 = !{!4, !11, i64 128}
-!68 = distinct !{!68, !37, !38}
-!69 = distinct !{!69, !37, !38}
-!70 = !{!41, !12, i64 24}
-!71 = distinct !{!71, !37, !38}
+!38 = !{!15, !15, i64 0}
+!39 = !{!40, !44, i64 248}
+!40 = !{!"Aig_Man_t_", !41, i64 0, !41, i64 8, !12, i64 16, !12, i64 24, !12, i64 32, !12, i64 40, !42, i64 48, !43, i64 56, !11, i64 104, !11, i64 108, !11, i64 112, !11, i64 116, !11, i64 120, !11, i64 124, !7, i64 128, !11, i64 156, !44, i64 160, !11, i64 168, !17, i64 176, !11, i64 184, !45, i64 192, !11, i64 200, !11, i64 204, !11, i64 208, !17, i64 216, !11, i64 224, !11, i64 228, !11, i64 232, !11, i64 236, !11, i64 240, !44, i64 248, !44, i64 256, !11, i64 264, !13, i64 272, !16, i64 280, !11, i64 288, !6, i64 296, !6, i64 304, !11, i64 312, !11, i64 316, !11, i64 320, !44, i64 328, !6, i64 336, !6, i64 344, !6, i64 352, !6, i64 360, !17, i64 368, !17, i64 376, !12, i64 384, !16, i64 392, !16, i64 400, !46, i64 408, !12, i64 416, !47, i64 424, !12, i64 432, !11, i64 440, !16, i64 448, !45, i64 456, !16, i64 464, !16, i64 472, !11, i64 480, !48, i64 488, !48, i64 496, !48, i64 504, !12, i64 512, !12, i64 520}
+!41 = !{!"p1 omnipotent char", !6, i64 0}
+!42 = !{!"p1 _ZTS10Aig_Obj_t_", !6, i64 0}
+!43 = !{!"Aig_Obj_t_", !7, i64 0, !42, i64 8, !42, i64 16, !11, i64 24, !11, i64 24, !11, i64 24, !11, i64 24, !11, i64 24, !11, i64 28, !11, i64 31, !11, i64 32, !11, i64 36, !7, i64 40}
+!44 = !{!"p2 _ZTS10Aig_Obj_t_", !6, i64 0}
+!45 = !{!"p1 _ZTS10Vec_Vec_t_", !6, i64 0}
+!46 = !{!"p1 _ZTS10Abc_Cex_t_", !6, i64 0}
+!47 = !{!"p1 _ZTS10Aig_Man_t_", !6, i64 0}
+!48 = !{!"long", !7, i64 0}
+!49 = !{!4, !15, i64 88}
+!50 = !{!4, !5, i64 0}
+!51 = !{!52, !11, i64 32}
+!52 = !{!"Amap_Par_t_", !11, i64 0, !11, i64 4, !11, i64 8, !11, i64 12, !11, i64 16, !11, i64 20, !10, i64 24, !10, i64 28, !11, i64 32}
+!53 = !{!40, !12, i64 32}
+!54 = !{!40, !11, i64 156}
+!55 = !{!40, !42, i64 48}
+!56 = !{!7, !7, i64 0}
+!57 = !{!40, !12, i64 16}
+!58 = distinct !{!58, !37}
+!59 = !{!4, !11, i64 24}
+!60 = !{!42, !42, i64 0}
+!61 = !{!4, !11, i64 28}
+!62 = !{!43, !42, i64 8}
+!63 = !{!43, !42, i64 16}
+!64 = !{!4, !11, i64 132}
+!65 = !{!43, !11, i64 36}
+!66 = !{!4, !11, i64 128}
+!67 = distinct !{!67, !37}
+!68 = distinct !{!68, !37}
+!69 = !{!40, !12, i64 24}
+!70 = distinct !{!70, !37}

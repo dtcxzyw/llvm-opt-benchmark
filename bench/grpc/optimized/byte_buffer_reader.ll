@@ -384,7 +384,7 @@ _ZN9grpc_core11CSliceUnrefERK10grpc_sliceNS_13DebugLocationE.exit: ; preds = %61
           to label %_ZN9grpc_core4Fork15DecExecCtxCountEv.exit.i unwind label %94
 
 _ZN9grpc_core4Fork15DecExecCtxCountEv.exit.i:     ; preds = %86, %83, %80
-  %87 = load i8, ptr %17, align 8, !tbaa !40, !range !51, !noundef !52
+  %87 = load i8, ptr %17, align 8, !tbaa !40, !range !50, !noundef !51
   %88 = trunc nuw i8 %87 to i1
   br i1 %88, label %89, label %_ZN9grpc_core7ExecCtxD2Ev.exit
 
@@ -392,7 +392,7 @@ _ZN9grpc_core4Fork15DecExecCtxCountEv.exit.i:     ; preds = %86, %83, %80
   store i8 0, ptr %17, align 8, !tbaa !40
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN9grpc_core9Timestamp12ScopedSourceE, i64 16), ptr %16, align 8, !tbaa !25
   %90 = getelementptr inbounds nuw i8, ptr %4, i64 56
-  %91 = load ptr, ptr %90, align 8, !tbaa !53
+  %91 = load ptr, ptr %90, align 8, !tbaa !52
   %.not.i.i.i.i.i.i.i26 = icmp eq ptr @_ZTHN9grpc_core9Timestamp25thread_local_time_source_E, null
   br i1 %.not.i.i.i.i.i.i.i26, label %_ZNSt22_Optional_payload_baseIN9grpc_core15ScopedTimeCacheEE10_M_destroyEv.exit.i.i.i.i27, label %92
 
@@ -402,7 +402,7 @@ _ZN9grpc_core4Fork15DecExecCtxCountEv.exit.i:     ; preds = %86, %83, %80
 
 _ZNSt22_Optional_payload_baseIN9grpc_core15ScopedTimeCacheEE10_M_destroyEv.exit.i.i.i.i27: ; preds = %92, %89
   %93 = call noundef align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN9grpc_core9Timestamp25thread_local_time_source_E)
-  store ptr %91, ptr %93, align 8, !tbaa !57
+  store ptr %91, ptr %93, align 8, !tbaa !56
   br label %_ZN9grpc_core7ExecCtxD2Ev.exit
 
 94:                                               ; preds = %86, %79, %73
@@ -476,7 +476,7 @@ define linkonce_odr void @_ZN9grpc_core7ExecCtxD2Ev(ptr noundef nonnull align 8 
 
 _ZN9grpc_core4Fork15DecExecCtxCountEv.exit:       ; preds = %14, %17, %10
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %19 = load i8, ptr %18, align 8, !tbaa !40, !range !51, !noundef !52
+  %19 = load i8, ptr %18, align 8, !tbaa !40, !range !50, !noundef !51
   %20 = trunc nuw i8 %19 to i1
   br i1 %20, label %21, label %_ZNSt14_Optional_baseIN9grpc_core15ScopedTimeCacheELb0ELb0EED2Ev.exit
 
@@ -485,7 +485,7 @@ _ZN9grpc_core4Fork15DecExecCtxCountEv.exit:       ; preds = %14, %17, %10
   store i8 0, ptr %18, align 8, !tbaa !40
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN9grpc_core9Timestamp12ScopedSourceE, i64 16), ptr %22, align 8, !tbaa !25
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %24 = load ptr, ptr %23, align 8, !tbaa !53
+  %24 = load ptr, ptr %23, align 8, !tbaa !52
   %.not.i.i.i.i.i.i = icmp eq ptr @_ZTHN9grpc_core9Timestamp25thread_local_time_source_E, null
   br i1 %.not.i.i.i.i.i.i, label %_ZNSt22_Optional_payload_baseIN9grpc_core15ScopedTimeCacheEE10_M_destroyEv.exit.i.i.i, label %25
 
@@ -495,7 +495,7 @@ _ZN9grpc_core4Fork15DecExecCtxCountEv.exit:       ; preds = %14, %17, %10
 
 _ZNSt22_Optional_payload_baseIN9grpc_core15ScopedTimeCacheEE10_M_destroyEv.exit.i.i.i: ; preds = %25, %21
   %26 = tail call noundef align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN9grpc_core9Timestamp25thread_local_time_source_E)
-  store ptr %24, ptr %26, align 8, !tbaa !57
+  store ptr %24, ptr %26, align 8, !tbaa !56
   br label %_ZNSt14_Optional_baseIN9grpc_core15ScopedTimeCacheELb0ELb0EED2Ev.exit
 
 _ZNSt14_Optional_baseIN9grpc_core15ScopedTimeCacheELb0ELb0EED2Ev.exit: ; preds = %_ZN9grpc_core4Fork15DecExecCtxCountEv.exit, %_ZNSt22_Optional_payload_baseIN9grpc_core15ScopedTimeCacheEE10_M_destroyEv.exit.i.i.i
@@ -548,7 +548,7 @@ define linkonce_odr void @_ZN9grpc_core7ExecCtxD0Ev(ptr noundef nonnull align 8 
 
 _ZN9grpc_core4Fork15DecExecCtxCountEv.exit.i:     ; preds = %17, %14, %10
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %19 = load i8, ptr %18, align 8, !tbaa !40, !range !51, !noundef !52
+  %19 = load i8, ptr %18, align 8, !tbaa !40, !range !50, !noundef !51
   %20 = trunc nuw i8 %19 to i1
   br i1 %20, label %21, label %_ZN9grpc_core7ExecCtxD2Ev.exit
 
@@ -557,7 +557,7 @@ _ZN9grpc_core4Fork15DecExecCtxCountEv.exit.i:     ; preds = %17, %14, %10
   store i8 0, ptr %18, align 8, !tbaa !40
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN9grpc_core9Timestamp12ScopedSourceE, i64 16), ptr %22, align 8, !tbaa !25
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %24 = load ptr, ptr %23, align 8, !tbaa !53
+  %24 = load ptr, ptr %23, align 8, !tbaa !52
   %.not.i.i.i.i.i.i.i = icmp eq ptr @_ZTHN9grpc_core9Timestamp25thread_local_time_source_E, null
   br i1 %.not.i.i.i.i.i.i.i, label %_ZNSt22_Optional_payload_baseIN9grpc_core15ScopedTimeCacheEE10_M_destroyEv.exit.i.i.i.i, label %25
 
@@ -567,7 +567,7 @@ _ZN9grpc_core4Fork15DecExecCtxCountEv.exit.i:     ; preds = %17, %14, %10
 
 _ZNSt22_Optional_payload_baseIN9grpc_core15ScopedTimeCacheEE10_M_destroyEv.exit.i.i.i.i: ; preds = %25, %21
   %26 = tail call noundef align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN9grpc_core9Timestamp25thread_local_time_source_E)
-  store ptr %24, ptr %26, align 8, !tbaa !57
+  store ptr %24, ptr %26, align 8, !tbaa !56
   br label %_ZN9grpc_core7ExecCtxD2Ev.exit
 
 27:                                               ; preds = %17, %9, %1
@@ -606,7 +606,7 @@ declare void @__cxa_pure_virtual() unnamed_addr
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN9grpc_core9Timestamp12ScopedSource15InvalidateCacheEv(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #16 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load ptr, ptr %2, align 8, !tbaa !53
+  %3 = load ptr, ptr %2, align 8, !tbaa !52
   %4 = load ptr, ptr %3, align 8, !tbaa !25
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load ptr, ptr %5, align 8
@@ -713,13 +713,12 @@ attributes #23 = { noreturn nounwind }
 !45 = !{!"_ZTS19grpc_slice_refcount", !46, i64 0, !6, i64 8}
 !46 = !{!"_ZTSSt6atomicImE", !47, i64 0}
 !47 = !{!"_ZTSSt13__atomic_baseImE", !17, i64 0}
-!48 = distinct !{!48, !49, !50}
+!48 = distinct !{!48, !49}
 !49 = !{!"llvm.loop.mustprogress"}
-!50 = !{!"llvm.loop.estimated_trip_count"}
-!51 = !{i8 0, i8 2}
-!52 = !{}
-!53 = !{!54, !56, i64 8}
-!54 = !{!"_ZTSN9grpc_core9Timestamp12ScopedSourceE", !55, i64 0, !56, i64 8}
-!55 = !{!"_ZTSN9grpc_core9Timestamp6SourceE"}
-!56 = !{!"p1 _ZTSN9grpc_core9Timestamp6SourceE", !6, i64 0}
-!57 = !{!56, !56, i64 0}
+!50 = !{i8 0, i8 2}
+!51 = !{}
+!52 = !{!53, !55, i64 8}
+!53 = !{!"_ZTSN9grpc_core9Timestamp12ScopedSourceE", !54, i64 0, !55, i64 8}
+!54 = !{!"_ZTSN9grpc_core9Timestamp6SourceE"}
+!55 = !{!"p1 _ZTSN9grpc_core9Timestamp6SourceE", !6, i64 0}
+!56 = !{!55, !55, i64 0}

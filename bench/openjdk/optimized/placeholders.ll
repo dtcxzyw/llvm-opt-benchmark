@@ -220,7 +220,7 @@ switch.lookup:                                    ; preds = %3
   %10 = getelementptr inbounds nuw i8, ptr %.010, i64 8
   %.0 = load ptr, ptr %10, align 8
   %.not.not = icmp eq ptr %.0, null
-  br i1 %.not.not, label %._crit_edge, label %.lr.ph, !llvm.loop !9
+  br i1 %.not.not, label %._crit_edge, label %.lr.ph, !llvm.loop !8
 
 .lr.ph:                                           ; preds = %switch.lookup, %9
   %.010 = phi ptr [ %.0, %9 ], [ %.08, %switch.lookup ]
@@ -262,7 +262,7 @@ switch.lookup:                                    ; preds = %3
 .lr.ph:                                           ; preds = %.lr.ph36
   %11 = load ptr, ptr %.017, align 8
   %12 = icmp eq ptr %1, %11
-  br i1 %12, label %.lr.ph._crit_edge, label %.lr.ph36, !llvm.loop !10
+  br i1 %12, label %.lr.ph._crit_edge, label %.lr.ph36, !llvm.loop !9
 
 .lr.ph._crit_edge:                                ; preds = %.lr.ph, %.lr.ph.preheader
   %.01728.lcssa = phi ptr [ %.01725, %.lr.ph.preheader ], [ %.017, %.lr.ph ]
@@ -316,7 +316,7 @@ switch.lookup38:                                  ; preds = %17
   %28 = getelementptr inbounds nuw i8, ptr %.0172835, i64 8
   %.017 = load ptr, ptr %28, align 8
   %.not = icmp eq ptr %.017, null
-  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !10
+  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !9
 
 .loopexit:                                        ; preds = %.lr.ph36, %switch.lookup, %27
   %switch.tableidx43 = add nsw i32 %2, -1
@@ -423,7 +423,7 @@ _ZN14PlaceholderKeyC2EP6SymbolP15ClassLoaderData.exit: ; preds = %2, %3
   %44 = getelementptr inbounds nuw i8, ptr %32, i64 72
   %45 = load ptr, ptr %44, align 8
   %.not.i.i.i2 = icmp eq ptr %45, null
-  br i1 %.not.i.i.i2, label %_ZN14PlaceholderKeyD2Ev.exit, label %.lr.ph.i.i.i, !llvm.loop !11
+  br i1 %.not.i.i.i2, label %_ZN14PlaceholderKeyD2Ev.exit, label %.lr.ph.i.i.i, !llvm.loop !10
 
 _ZN14PlaceholderKeyD2Ev.exit:                     ; preds = %35, %43, %_ZN14PlaceholderKeyC2EP6SymbolP15ClassLoaderData.exit
   %46 = phi ptr [ null, %_ZN14PlaceholderKeyC2EP6SymbolP15ClassLoaderData.exit ], [ null, %43 ], [ %32, %35 ]
@@ -498,7 +498,7 @@ _ZN14PlaceholderKeyC2EP6SymbolP15ClassLoaderData.exit.i: ; preds = %9, %5
   %50 = getelementptr inbounds nuw i8, ptr %38, i64 72
   %51 = load ptr, ptr %50, align 8
   %.not.i.i.i2.i = icmp eq ptr %51, null
-  br i1 %.not.i.i.i2.i, label %.loopexit, label %.lr.ph.i.i.i.i, !llvm.loop !11
+  br i1 %.not.i.i.i2.i, label %.loopexit, label %.lr.ph.i.i.i.i, !llvm.loop !10
 
 .loopexit:                                        ; preds = %49, %_ZN14PlaceholderKeyC2EP6SymbolP15ClassLoaderData.exit.i
   tail call void @_ZN6Symbol18decrement_refcountEv(ptr noundef nonnull align 4 dereferenceable(8) %0) #12
@@ -785,7 +785,7 @@ _ZN14PlaceholderKeyC2EP6SymbolP15ClassLoaderData.exit.i: ; preds = %5, %4
   %46 = getelementptr inbounds nuw i8, ptr %34, i64 72
   %47 = load ptr, ptr %46, align 8
   %.not.i.i.i2.i = icmp eq ptr %47, null
-  br i1 %.not.i.i.i2.i, label %_ZN16PlaceholderTable9get_entryEP6SymbolP15ClassLoaderData.exit, label %.lr.ph.i.i.i.i, !llvm.loop !11
+  br i1 %.not.i.i.i2.i, label %_ZN16PlaceholderTable9get_entryEP6SymbolP15ClassLoaderData.exit, label %.lr.ph.i.i.i.i, !llvm.loop !10
 
 _ZN16PlaceholderTable9get_entryEP6SymbolP15ClassLoaderData.exit: ; preds = %37, %45, %_ZN14PlaceholderKeyC2EP6SymbolP15ClassLoaderData.exit.i
   %48 = phi ptr [ null, %_ZN14PlaceholderKeyC2EP6SymbolP15ClassLoaderData.exit.i ], [ %34, %37 ], [ null, %45 ]
@@ -938,7 +938,7 @@ define hidden void @_ZNK16PlaceholderEntry8print_onEP12outputStream(ptr noundef 
   %23 = getelementptr inbounds nuw i8, ptr %.06.i, i64 8
   %24 = load ptr, ptr %23, align 8
   %.not.i = icmp eq ptr %24, null
-  br i1 %.not.i, label %_ZN10SeenThread18print_action_queueEPS_P12outputStream.exit, label %.lr.ph.i, !llvm.loop !12
+  br i1 %.not.i, label %_ZN10SeenThread18print_action_queueEPS_P12outputStream.exit, label %.lr.ph.i, !llvm.loop !11
 
 _ZN10SeenThread18print_action_queueEPS_P12outputStream.exit: ; preds = %.lr.ph.i, %19
   tail call void @_ZN12outputStream2crEv(ptr noundef nonnull align 8 dereferenceable(56) %1) #12
@@ -956,7 +956,7 @@ _ZN10SeenThread18print_action_queueEPS_P12outputStream.exit: ; preds = %.lr.ph.i
   %28 = getelementptr inbounds nuw i8, ptr %.06.i21, i64 8
   %29 = load ptr, ptr %28, align 8
   %.not.i22 = icmp eq ptr %29, null
-  br i1 %.not.i22, label %_ZN10SeenThread18print_action_queueEPS_P12outputStream.exit23, label %.lr.ph.i20, !llvm.loop !12
+  br i1 %.not.i22, label %_ZN10SeenThread18print_action_queueEPS_P12outputStream.exit23, label %.lr.ph.i20, !llvm.loop !11
 
 _ZN10SeenThread18print_action_queueEPS_P12outputStream.exit23: ; preds = %.lr.ph.i20, %_ZN10SeenThread18print_action_queueEPS_P12outputStream.exit
   tail call void @_ZN12outputStream2crEv(ptr noundef nonnull align 8 dereferenceable(56) %1) #12
@@ -974,7 +974,7 @@ _ZN10SeenThread18print_action_queueEPS_P12outputStream.exit23: ; preds = %.lr.ph
   %33 = getelementptr inbounds nuw i8, ptr %.06.i26, i64 8
   %34 = load ptr, ptr %33, align 8
   %.not.i27 = icmp eq ptr %34, null
-  br i1 %.not.i27, label %_ZN10SeenThread18print_action_queueEPS_P12outputStream.exit28, label %.lr.ph.i25, !llvm.loop !12
+  br i1 %.not.i27, label %_ZN10SeenThread18print_action_queueEPS_P12outputStream.exit28, label %.lr.ph.i25, !llvm.loop !11
 
 _ZN10SeenThread18print_action_queueEPS_P12outputStream.exit28: ; preds = %.lr.ph.i25, %_ZN10SeenThread18print_action_queueEPS_P12outputStream.exit23
   tail call void @_ZN12outputStream2crEv(ptr noundef nonnull align 8 dereferenceable(56) %1) #12
@@ -1022,7 +1022,7 @@ define hidden void @_ZN16PlaceholderTable8print_onEP12outputStream(ptr noundef n
   %15 = add nsw i32 %.115.i, -1
   %.011.i = load ptr, ptr %14, align 8
   %.not.i = icmp eq ptr %.011.i, null
-  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !13
+  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !12
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %.preheader.i
   %.1.lcssa.i = phi i32 [ %.01217.i, %.preheader.i ], [ %15, %.lr.ph.i ]
@@ -1030,7 +1030,7 @@ define hidden void @_ZN16PlaceholderTable8print_onEP12outputStream(ptr noundef n
   %16 = icmp sgt i32 %.1.lcssa.i, 0
   %17 = icmp samesign ult i64 %.0.idx18.i, 4016
   %or.cond.i = select i1 %16, i1 %17, i1 false
-  br i1 %or.cond.i, label %.preheader.i, label %"_ZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj503E14PlaceholderKey16PlaceholderEntryES1_S2_LN6AnyObj15allocation_typeE2EL8MEMFLAGS1EXadL_ZNS1_4hashERKS1_EEXadL_ZNS1_6equalsES8_S8_EEE7iterateIZN16PlaceholderTable8print_onEP12outputStreamE3$_0EEvT_.exit", !llvm.loop !14
+  br i1 %or.cond.i, label %.preheader.i, label %"_ZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj503E14PlaceholderKey16PlaceholderEntryES1_S2_LN6AnyObj15allocation_typeE2EL8MEMFLAGS1EXadL_ZNS1_4hashERKS1_EEXadL_ZNS1_6equalsES8_S8_EEE7iterateIZN16PlaceholderTable8print_onEP12outputStreamE3$_0EEvT_.exit", !llvm.loop !13
 
 "_ZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj503E14PlaceholderKey16PlaceholderEntryES1_S2_LN6AnyObj15allocation_typeE2EL8MEMFLAGS1EXadL_ZNS1_4hashERKS1_EEXadL_ZNS1_6equalsES8_S8_EEE7iterateIZN16PlaceholderTable8print_onEP12outputStreamE3$_0EEvT_.exit": ; preds = %._crit_edge.i, %1
   ret void
@@ -1212,7 +1212,7 @@ define linkonce_odr hidden noundef ptr @_ZN21ResourceHashtableBaseI29FixedResour
   %46 = getelementptr inbounds nuw i8, ptr %.pr, i64 72
   %47 = load ptr, ptr %46, align 8
   %.not.i = icmp eq ptr %47, null
-  br i1 %.not.i, label %_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj503E14PlaceholderKey16PlaceholderEntryES1_S2_LN6AnyObj15allocation_typeE2EL8MEMFLAGS1EXadL_ZNS1_4hashERKS1_EEXadL_ZNS1_6equalsES8_S8_EEE11lookup_nodeEjS8_.exit.thread, label %.lr.ph.i, !llvm.loop !11
+  br i1 %.not.i, label %_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj503E14PlaceholderKey16PlaceholderEntryES1_S2_LN6AnyObj15allocation_typeE2EL8MEMFLAGS1EXadL_ZNS1_4hashERKS1_EEXadL_ZNS1_6equalsES8_S8_EEE11lookup_nodeEjS8_.exit.thread, label %.lr.ph.i, !llvm.loop !10
 
 _ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj503E14PlaceholderKey16PlaceholderEntryES1_S2_LN6AnyObj15allocation_typeE2EL8MEMFLAGS1EXadL_ZNS1_4hashERKS1_EEXadL_ZNS1_6equalsES8_S8_EEE11lookup_nodeEjS8_.exit.thread: ; preds = %45, %4
   %.0.lcssa.i12 = phi ptr [ %33, %4 ], [ %46, %45 ]
@@ -1395,7 +1395,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN21ResourceHashtableBaseI29Fixe
   %44 = getelementptr inbounds nuw i8, ptr %.pr, i64 72
   %45 = load ptr, ptr %44, align 8
   %.not.i = icmp eq ptr %45, null
-  br i1 %.not.i, label %_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj503E14PlaceholderKey16PlaceholderEntryES1_S2_LN6AnyObj15allocation_typeE2EL8MEMFLAGS1EXadL_ZNS1_4hashERKS1_EEXadL_ZNS1_6equalsES8_S8_EEE11lookup_nodeEjS8_.exit.thread, label %.lr.ph.i, !llvm.loop !11
+  br i1 %.not.i, label %_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj503E14PlaceholderKey16PlaceholderEntryES1_S2_LN6AnyObj15allocation_typeE2EL8MEMFLAGS1EXadL_ZNS1_4hashERKS1_EEXadL_ZNS1_6equalsES8_S8_EEE11lookup_nodeEjS8_.exit.thread, label %.lr.ph.i, !llvm.loop !10
 
 _ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj503E14PlaceholderKey16PlaceholderEntryES1_S2_LN6AnyObj15allocation_typeE2EL8MEMFLAGS1EXadL_ZNS1_4hashERKS1_EEXadL_ZNS1_6equalsES8_S8_EEE11lookup_nodeEjS8_.exit: ; preds = %35
   %46 = getelementptr inbounds nuw i8, ptr %.pr, i64 8
@@ -1476,12 +1476,11 @@ attributes #12 = { nounwind }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7, !8}
-!11 = distinct !{!11, !7, !8}
-!12 = distinct !{!12, !7, !8}
-!13 = distinct !{!13, !7, !8}
-!14 = distinct !{!14, !7, !8}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7}
+!12 = distinct !{!12, !7}
+!13 = distinct !{!13, !7}

@@ -100,22 +100,22 @@ define internal void @lv_image_event(ptr readnone captures(none) %0, ptr noundef
   br i1 %.not.i, label %.preheader.i, label %lv_image_get_pivot.exit
 
 .preheader.i:                                     ; preds = %15, %.preheader.i
-  br label %.preheader.i, !llvm.loop !22
+  br label %.preheader.i
 
 lv_image_get_pivot.exit:                          ; preds = %15
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 108
-  %18 = load i32, ptr %17, align 4, !tbaa !24
+  %18 = load i32, ptr %17, align 4, !tbaa !22
   %19 = getelementptr inbounds nuw i8, ptr %16, i64 88
   %20 = load i32, ptr %19, align 8, !tbaa !17
   %21 = tail call i32 @lv_pct_to_px(i32 noundef %18, i32 noundef %20) #6
-  store i32 %21, ptr %9, align 4, !tbaa !25
+  store i32 %21, ptr %9, align 4, !tbaa !23
   %22 = getelementptr inbounds nuw i8, ptr %16, i64 112
-  %23 = load i32, ptr %22, align 4, !tbaa !26
+  %23 = load i32, ptr %22, align 4, !tbaa !24
   %24 = getelementptr inbounds nuw i8, ptr %16, i64 92
   %25 = load i32, ptr %24, align 4, !tbaa !18
   %26 = tail call i32 @lv_pct_to_px(i32 noundef %23, i32 noundef %25) #6
   %27 = getelementptr inbounds nuw i8, ptr %9, i64 4
-  store i32 %26, ptr %27, align 4, !tbaa !27
+  store i32 %26, ptr %27, align 4, !tbaa !25
   switch i32 %13, label %draw_image.exit [
     i32 50, label %28
     i32 27, label %37
@@ -175,23 +175,23 @@ lv_image_get_pivot.exit:                          ; preds = %15
   %55 = load i32, ptr %54, align 8, !tbaa !21
   %56 = trunc i32 %55 to i16
   call void @lv_image_buf_get_transformed_area(ptr noundef nonnull %10, i32 noundef %48, i32 noundef %49, i32 noundef %50, i16 noundef zeroext %53, i16 noundef zeroext %56, ptr noundef nonnull %9) #6
-  %57 = load i32, ptr %38, align 4, !tbaa !28
-  %58 = load i32, ptr %10, align 4, !tbaa !29
+  %57 = load i32, ptr %38, align 4, !tbaa !26
+  %58 = load i32, ptr %10, align 4, !tbaa !27
   %59 = sub nsw i32 0, %58
   %. = call i32 @llvm.smax.i32(i32 %57, i32 %59)
   %60 = getelementptr inbounds nuw i8, ptr %10, i64 4
-  %61 = load i32, ptr %60, align 4, !tbaa !30
+  %61 = load i32, ptr %60, align 4, !tbaa !28
   %62 = sub nsw i32 0, %61
   %63 = call i32 @llvm.smax.i32(i32 %., i32 %62)
   %64 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %65 = load i32, ptr %64, align 4, !tbaa !31
+  %65 = load i32, ptr %64, align 4, !tbaa !29
   %66 = sub nsw i32 %65, %48
   %67 = call i32 @llvm.smax.i32(i32 %63, i32 %66)
   %68 = getelementptr inbounds nuw i8, ptr %10, i64 12
-  %69 = load i32, ptr %68, align 4, !tbaa !32
+  %69 = load i32, ptr %68, align 4, !tbaa !30
   %70 = sub nsw i32 %69, %49
   %71 = call i32 @llvm.smax.i32(i32 %67, i32 %70)
-  store i32 %71, ptr %38, align 4, !tbaa !28
+  store i32 %71, ptr %38, align 4, !tbaa !26
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #6
   br label %draw_image.exit
 
@@ -257,14 +257,14 @@ lv_image_get_pivot.exit:                          ; preds = %15
   br i1 %.not97, label %105, label %113
 
 105:                                              ; preds = %102
-  %106 = load i32, ptr %17, align 4, !tbaa !24
+  %106 = load i32, ptr %17, align 4, !tbaa !22
   %107 = load i32, ptr %19, align 8, !tbaa !17
   %108 = sdiv i32 %107, 2
   %.not98 = icmp eq i32 %106, %108
   br i1 %.not98, label %109, label %113
 
 109:                                              ; preds = %105
-  %110 = load i32, ptr %22, align 4, !tbaa !26
+  %110 = load i32, ptr %22, align 4, !tbaa !24
   %111 = load i32, ptr %24, align 4, !tbaa !18
   %112 = sdiv i32 %111, 2
   %.not99 = icmp eq i32 %110, %112
@@ -283,50 +283,50 @@ lv_image_get_pivot.exit:                          ; preds = %15
   %122 = trunc i32 %121 to i16
   call void @lv_image_buf_get_transformed_area(ptr noundef nonnull %11, i32 noundef %114, i32 noundef %115, i32 noundef %117, i16 noundef zeroext %119, i16 noundef zeroext %122, ptr noundef nonnull %9) #6
   %123 = getelementptr inbounds nuw i8, ptr %16, i64 40
-  %124 = load i32, ptr %123, align 8, !tbaa !33
-  %125 = load i32, ptr %11, align 4, !tbaa !29
+  %124 = load i32, ptr %123, align 8, !tbaa !31
+  %125 = load i32, ptr %11, align 4, !tbaa !27
   %126 = add nsw i32 %125, %124
-  store i32 %126, ptr %11, align 4, !tbaa !29
+  store i32 %126, ptr %11, align 4, !tbaa !27
   %127 = getelementptr inbounds nuw i8, ptr %16, i64 44
-  %128 = load i32, ptr %127, align 4, !tbaa !34
+  %128 = load i32, ptr %127, align 4, !tbaa !32
   %129 = getelementptr inbounds nuw i8, ptr %11, i64 4
-  %130 = load i32, ptr %129, align 4, !tbaa !30
+  %130 = load i32, ptr %129, align 4, !tbaa !28
   %131 = add nsw i32 %130, %128
-  store i32 %131, ptr %129, align 4, !tbaa !30
+  store i32 %131, ptr %129, align 4, !tbaa !28
   %132 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  %133 = load i32, ptr %132, align 4, !tbaa !31
+  %133 = load i32, ptr %132, align 4, !tbaa !29
   %134 = add nsw i32 %133, %124
-  store i32 %134, ptr %132, align 4, !tbaa !31
+  store i32 %134, ptr %132, align 4, !tbaa !29
   %135 = getelementptr inbounds nuw i8, ptr %11, i64 12
-  %136 = load i32, ptr %135, align 4, !tbaa !32
+  %136 = load i32, ptr %135, align 4, !tbaa !30
   %137 = add nsw i32 %136, %128
-  store i32 %137, ptr %135, align 4, !tbaa !32
-  %138 = load ptr, ptr %88, align 8, !tbaa !35
+  store i32 %137, ptr %135, align 4, !tbaa !30
+  %138 = load ptr, ptr %88, align 8, !tbaa !33
   %139 = call zeroext i1 @lv_area_is_point_on(ptr noundef nonnull %11, ptr noundef %138, i32 noundef 0) #6
   %140 = getelementptr inbounds nuw i8, ptr %88, i64 8
   %141 = zext i1 %139 to i8
-  store i8 %141, ptr %140, align 8, !tbaa !38
+  store i8 %141, ptr %140, align 8, !tbaa !36
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11) #6
   br label %draw_image.exit
 
 142:                                              ; preds = %109, %92, %87
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12) #6
   call void @lv_obj_get_click_area(ptr noundef nonnull %16, ptr noundef nonnull %12) #6
-  %143 = load ptr, ptr %88, align 8, !tbaa !35
+  %143 = load ptr, ptr %88, align 8, !tbaa !33
   %144 = call zeroext i1 @lv_area_is_point_on(ptr noundef nonnull %12, ptr noundef %143, i32 noundef 0) #6
   %145 = getelementptr inbounds nuw i8, ptr %88, i64 8
   %146 = zext i1 %144 to i8
-  store i8 %146, ptr %145, align 8, !tbaa !38
+  store i8 %146, ptr %145, align 8, !tbaa !36
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12) #6
   br label %draw_image.exit
 
 147:                                              ; preds = %lv_image_get_pivot.exit
   %148 = tail call ptr @lv_event_get_param(ptr noundef %1) #6
   %149 = load i32, ptr %19, align 8, !tbaa !17
-  store i32 %149, ptr %148, align 4, !tbaa !25
+  store i32 %149, ptr %148, align 4, !tbaa !23
   %150 = load i32, ptr %24, align 4, !tbaa !18
   %151 = getelementptr inbounds nuw i8, ptr %148, i64 4
-  store i32 %150, ptr %151, align 4, !tbaa !27
+  store i32 %150, ptr %151, align 4, !tbaa !25
   br label %draw_image.exit
 
 152:                                              ; preds = %lv_image_get_pivot.exit, %lv_image_get_pivot.exit, %lv_image_get_pivot.exit
@@ -339,7 +339,7 @@ lv_image_get_pivot.exit:                          ; preds = %15
 
 155:                                              ; preds = %152
   %156 = tail call ptr @lv_event_get_param(ptr noundef %1) #6
-  %157 = load i32, ptr %156, align 8, !tbaa !39
+  %157 = load i32, ptr %156, align 8, !tbaa !37
   %158 = icmp eq i32 %157, 2
   br i1 %158, label %draw_image.exit, label %159
 
@@ -351,7 +351,7 @@ lv_image_get_pivot.exit:                          ; preds = %15
   br i1 %switch.not.i, label %164, label %163
 
 163:                                              ; preds = %159
-  store i32 1, ptr %156, align 8, !tbaa !39
+  store i32 1, ptr %156, align 8, !tbaa !37
   br label %draw_image.exit
 
 164:                                              ; preds = %159
@@ -362,7 +362,7 @@ lv_image_get_pivot.exit:                          ; preds = %15
   br i1 %168, label %169, label %170
 
 169:                                              ; preds = %164
-  store i32 1, ptr %156, align 8, !tbaa !39
+  store i32 1, ptr %156, align 8, !tbaa !37
   br label %draw_image.exit
 
 170:                                              ; preds = %164
@@ -373,7 +373,7 @@ lv_image_get_pivot.exit:                          ; preds = %15
   br i1 %.not.i106, label %175, label %174
 
 174:                                              ; preds = %170
-  store i32 1, ptr %156, align 8, !tbaa !39
+  store i32 1, ptr %156, align 8, !tbaa !37
   br label %draw_image.exit
 
 175:                                              ; preds = %170
@@ -383,7 +383,7 @@ lv_image_get_pivot.exit:                          ; preds = %15
   br i1 %.not96.i, label %179, label %178
 
 178:                                              ; preds = %175
-  store i32 1, ptr %156, align 8, !tbaa !39
+  store i32 1, ptr %156, align 8, !tbaa !37
   br label %draw_image.exit
 
 179:                                              ; preds = %175
@@ -400,13 +400,13 @@ lv_image_get_pivot.exit:                          ; preds = %15
 
 187:                                              ; preds = %183
   %188 = getelementptr inbounds nuw i8, ptr %156, i64 8
-  %189 = load ptr, ptr %188, align 8, !tbaa !41
+  %189 = load ptr, ptr %188, align 8, !tbaa !39
   %190 = getelementptr inbounds nuw i8, ptr %154, i64 40
   %191 = tail call zeroext i1 @lv_area_is_in(ptr noundef %189, ptr noundef nonnull %190, i32 noundef 0) #6
   br i1 %191, label %220, label %192
 
 192:                                              ; preds = %187
-  store i32 1, ptr %156, align 8, !tbaa !39
+  store i32 1, ptr %156, align 8, !tbaa !37
   br label %draw_image.exit
 
 193:                                              ; preds = %183, %179
@@ -422,31 +422,31 @@ lv_image_get_pivot.exit:                          ; preds = %15
   %200 = trunc i32 %199 to i16
   call void @lv_image_buf_get_transformed_area(ptr noundef nonnull %3, i32 noundef %194, i32 noundef %195, i32 noundef 0, i16 noundef zeroext %197, i16 noundef zeroext %200, ptr noundef nonnull %4) #6
   %201 = getelementptr inbounds nuw i8, ptr %154, i64 40
-  %202 = load i32, ptr %201, align 8, !tbaa !33
-  %203 = load i32, ptr %3, align 4, !tbaa !29
+  %202 = load i32, ptr %201, align 8, !tbaa !31
+  %203 = load i32, ptr %3, align 4, !tbaa !27
   %204 = add nsw i32 %203, %202
-  store i32 %204, ptr %3, align 4, !tbaa !29
+  store i32 %204, ptr %3, align 4, !tbaa !27
   %205 = getelementptr inbounds nuw i8, ptr %154, i64 44
-  %206 = load i32, ptr %205, align 4, !tbaa !34
+  %206 = load i32, ptr %205, align 4, !tbaa !32
   %207 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  %208 = load i32, ptr %207, align 4, !tbaa !30
+  %208 = load i32, ptr %207, align 4, !tbaa !28
   %209 = add nsw i32 %208, %206
-  store i32 %209, ptr %207, align 4, !tbaa !30
+  store i32 %209, ptr %207, align 4, !tbaa !28
   %210 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %211 = load i32, ptr %210, align 4, !tbaa !31
+  %211 = load i32, ptr %210, align 4, !tbaa !29
   %212 = add nsw i32 %211, %202
-  store i32 %212, ptr %210, align 4, !tbaa !31
+  store i32 %212, ptr %210, align 4, !tbaa !29
   %213 = getelementptr inbounds nuw i8, ptr %3, i64 12
-  %214 = load i32, ptr %213, align 4, !tbaa !32
+  %214 = load i32, ptr %213, align 4, !tbaa !30
   %215 = add nsw i32 %214, %206
-  store i32 %215, ptr %213, align 4, !tbaa !32
+  store i32 %215, ptr %213, align 4, !tbaa !30
   %216 = getelementptr inbounds nuw i8, ptr %156, i64 8
-  %217 = load ptr, ptr %216, align 8, !tbaa !41
+  %217 = load ptr, ptr %216, align 8, !tbaa !39
   %218 = call zeroext i1 @lv_area_is_in(ptr noundef %217, ptr noundef nonnull %3, i32 noundef 0) #6
   br i1 %218, label %.critedge.i, label %219
 
 219:                                              ; preds = %193
-  store i32 1, ptr %156, align 8, !tbaa !39
+  store i32 1, ptr %156, align 8, !tbaa !37
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #6
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #6
   br label %draw_image.exit
@@ -458,12 +458,12 @@ lv_image_get_pivot.exit:                          ; preds = %15
 
 220:                                              ; preds = %.critedge.i, %187
   %221 = getelementptr inbounds nuw i8, ptr %154, i64 72
-  %222 = load ptr, ptr %221, align 8, !tbaa !42
+  %222 = load ptr, ptr %221, align 8, !tbaa !40
   %.not97.i = icmp eq ptr %222, null
   br i1 %.not97.i, label %draw_image.exit, label %223
 
 223:                                              ; preds = %220
-  store i32 1, ptr %156, align 8, !tbaa !39
+  store i32 1, ptr %156, align 8, !tbaa !37
   br label %draw_image.exit
 
 224:                                              ; preds = %152
@@ -506,33 +506,33 @@ lv_image_get_pivot.exit.i:                        ; preds = %240, %240
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %5) #6
   call void @lv_draw_image_dsc_init(ptr noundef nonnull %5) #6
   %245 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  store ptr %241, ptr %245, align 8, !tbaa !43
+  store ptr %241, ptr %245, align 8, !tbaa !41
   call void @lv_obj_init_draw_image_dsc(ptr noundef nonnull %154, i32 noundef 0, ptr noundef nonnull %5) #6
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
   %246 = getelementptr inbounds nuw i8, ptr %241, i64 28
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %6, ptr noundef nonnull align 4 dereferenceable(16) %246, i64 16, i1 false), !tbaa.struct !51
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %6, ptr noundef nonnull align 4 dereferenceable(16) %246, i64 16, i1 false), !tbaa.struct !49
   %247 = getelementptr inbounds nuw i8, ptr %5, i64 88
   %248 = getelementptr inbounds nuw i8, ptr %154, i64 108
-  %249 = load i32, ptr %248, align 4, !tbaa !24
+  %249 = load i32, ptr %248, align 4, !tbaa !22
   %250 = load i32, ptr %229, align 8, !tbaa !17
   %251 = call i32 @lv_pct_to_px(i32 noundef %249, i32 noundef %250) #6
-  store i32 %251, ptr %247, align 8, !tbaa !25
+  store i32 %251, ptr %247, align 8, !tbaa !23
   %252 = getelementptr inbounds nuw i8, ptr %154, i64 112
-  %253 = load i32, ptr %252, align 4, !tbaa !26
+  %253 = load i32, ptr %252, align 4, !tbaa !24
   %254 = load i32, ptr %225, align 4, !tbaa !18
   %255 = call i32 @lv_pct_to_px(i32 noundef %253, i32 noundef %254) #6
   %256 = getelementptr inbounds nuw i8, ptr %5, i64 92
-  store i32 %255, ptr %256, align 4, !tbaa !27
+  store i32 %255, ptr %256, align 4, !tbaa !25
   %257 = load i32, ptr %233, align 4, !tbaa !20
   %258 = getelementptr inbounds nuw i8, ptr %5, i64 72
-  store i32 %257, ptr %258, align 8, !tbaa !52
+  store i32 %257, ptr %258, align 8, !tbaa !50
   %259 = load i32, ptr %237, align 8, !tbaa !21
   %260 = getelementptr inbounds nuw i8, ptr %5, i64 76
-  store i32 %259, ptr %260, align 4, !tbaa !53
+  store i32 %259, ptr %260, align 4, !tbaa !51
   %261 = getelementptr inbounds nuw i8, ptr %154, i64 96
   %262 = load i32, ptr %261, align 8, !tbaa !19
   %263 = getelementptr inbounds nuw i8, ptr %5, i64 68
-  store i32 %262, ptr %263, align 4, !tbaa !54
+  store i32 %262, ptr %263, align 4, !tbaa !52
   %264 = load i16, ptr %242, align 4
   %265 = getelementptr inbounds nuw i8, ptr %5, i64 101
   %266 = trunc i16 %264 to i8
@@ -547,18 +547,18 @@ lv_image_get_pivot.exit.i:                        ; preds = %240, %240
   %274 = or disjoint i8 %273, %272
   store i8 %274, ptr %265, align 1
   %275 = getelementptr inbounds nuw i8, ptr %154, i64 72
-  %276 = load ptr, ptr %275, align 8, !tbaa !42
+  %276 = load ptr, ptr %275, align 8, !tbaa !40
   %277 = getelementptr inbounds nuw i8, ptr %5, i64 136
-  store ptr %276, ptr %277, align 8, !tbaa !55
+  store ptr %276, ptr %277, align 8, !tbaa !53
   %278 = getelementptr inbounds nuw i8, ptr %154, i64 64
   %279 = load ptr, ptr %278, align 8, !tbaa !3
   %280 = getelementptr inbounds nuw i8, ptr %5, i64 48
-  store ptr %279, ptr %280, align 8, !tbaa !56
+  store ptr %279, ptr %280, align 8, !tbaa !54
   %281 = getelementptr inbounds nuw i8, ptr %5, i64 112
   %282 = getelementptr inbounds nuw i8, ptr %154, i64 40
-  %283 = load i32, ptr %282, align 8, !tbaa !33
+  %283 = load i32, ptr %282, align 8, !tbaa !31
   %284 = getelementptr inbounds nuw i8, ptr %154, i64 44
-  %285 = load i32, ptr %284, align 4, !tbaa !34
+  %285 = load i32, ptr %284, align 4, !tbaa !32
   %286 = load i32, ptr %229, align 8, !tbaa !17
   %287 = add i32 %283, -1
   %288 = add i32 %287, %286
@@ -570,7 +570,7 @@ lv_image_get_pivot.exit.i:                        ; preds = %240, %240
   %293 = ptrtoint ptr %292 to i64
   %.sroa.0.0.extract.trunc.i.i = trunc i64 %293 to i32
   %294 = getelementptr inbounds nuw i8, ptr %5, i64 128
-  store i32 %.sroa.0.0.extract.trunc.i.i, ptr %294, align 8, !tbaa !57
+  store i32 %.sroa.0.0.extract.trunc.i.i, ptr %294, align 8, !tbaa !55
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #6
   %295 = load i16, ptr %242, align 4
   %296 = lshr i16 %295, 8
@@ -581,11 +581,11 @@ lv_image_get_pivot.exit.i:                        ; preds = %240, %240
 299:                                              ; preds = %lv_image_get_pivot.exit.i
   %300 = zext nneg i16 %297 to i32
   %301 = getelementptr inbounds nuw i8, ptr %154, i64 80
-  %302 = load i32, ptr %301, align 8, !tbaa !58
+  %302 = load i32, ptr %301, align 8, !tbaa !56
   %303 = getelementptr inbounds nuw i8, ptr %154, i64 84
-  %304 = load i32, ptr %303, align 4, !tbaa !59
+  %304 = load i32, ptr %303, align 4, !tbaa !57
   call void @lv_area_align(ptr noundef nonnull %282, ptr noundef nonnull %281, i32 noundef %300, i32 noundef %302, i32 noundef %304) #6
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %281, i64 16, i1 false), !tbaa.struct !51
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %281, i64 16, i1 false), !tbaa.struct !49
   br label %332
 
 305:                                              ; preds = %lv_image_get_pivot.exit.i
@@ -595,12 +595,12 @@ lv_image_get_pivot.exit.i:                        ; preds = %240, %240
 307:                                              ; preds = %305
   %308 = call zeroext i1 @lv_area_intersect(ptr noundef nonnull %246, ptr noundef nonnull %246, ptr noundef nonnull %282) #6
   %309 = getelementptr inbounds nuw i8, ptr %154, i64 80
-  %310 = load i32, ptr %309, align 8, !tbaa !58
+  %310 = load i32, ptr %309, align 8, !tbaa !56
   %311 = getelementptr inbounds nuw i8, ptr %154, i64 84
-  %312 = load i32, ptr %311, align 4, !tbaa !59
+  %312 = load i32, ptr %311, align 4, !tbaa !57
   call void @lv_area_move(ptr noundef nonnull %281, i32 noundef %310, i32 noundef %312) #6
-  %313 = load i32, ptr %246, align 4, !tbaa !60
-  %314 = load i32, ptr %281, align 8, !tbaa !64
+  %313 = load i32, ptr %246, align 4, !tbaa !58
+  %314 = load i32, ptr %281, align 8, !tbaa !62
   %315 = load i32, ptr %229, align 8, !tbaa !17
   %.neg108 = add i32 %313, 1
   %316 = add i32 %314, %315
@@ -609,9 +609,9 @@ lv_image_get_pivot.exit.i:                        ; preds = %240, %240
   %318 = srem i32 %.fr.i, %315
   %319 = sub nsw i32 %.fr.i, %318
   %320 = getelementptr inbounds nuw i8, ptr %241, i64 32
-  %321 = load i32, ptr %320, align 4, !tbaa !65
+  %321 = load i32, ptr %320, align 4, !tbaa !63
   %322 = getelementptr inbounds nuw i8, ptr %5, i64 116
-  %323 = load i32, ptr %322, align 4, !tbaa !66
+  %323 = load i32, ptr %322, align 4, !tbaa !64
   %324 = load i32, ptr %225, align 4, !tbaa !18
   %.neg111 = add i32 %321, 1
   %325 = add i32 %323, %324
@@ -620,19 +620,19 @@ lv_image_get_pivot.exit.i:                        ; preds = %240, %240
   %327 = srem i32 %.fr95.i, %324
   %328 = sub nsw i32 %.fr95.i, %327
   call void @lv_area_move(ptr noundef nonnull %281, i32 noundef %319, i32 noundef %328) #6
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %7, ptr noundef nonnull align 4 dereferenceable(16) %246, i64 16, i1 false), !tbaa.struct !51
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %7, ptr noundef nonnull align 4 dereferenceable(16) %246, i64 16, i1 false), !tbaa.struct !49
   %329 = load i8, ptr %265, align 1
   %330 = or i8 %329, 16
   store i8 %330, ptr %265, align 1
   br label %332
 
 331:                                              ; preds = %305
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %281, i64 16, i1 false), !tbaa.struct !51
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %281, i64 16, i1 false), !tbaa.struct !49
   br label %332
 
 332:                                              ; preds = %331, %307, %299
   call void @lv_draw_image(ptr noundef nonnull %241, ptr noundef nonnull %5, ptr noundef nonnull %7) #6
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %246, ptr noundef nonnull align 4 dereferenceable(16) %6, i64 16, i1 false), !tbaa.struct !51
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %246, ptr noundef nonnull align 4 dereferenceable(16) %6, i64 16, i1 false), !tbaa.struct !49
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #6
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %5) #6
@@ -642,12 +642,12 @@ lv_image_get_pivot.exit.i:                        ; preds = %240, %240
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %8) #6
   call void @lv_draw_label_dsc_init(ptr noundef nonnull %8) #6
   %334 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  store ptr %241, ptr %334, align 8, !tbaa !67
+  store ptr %241, ptr %334, align 8, !tbaa !65
   call void @lv_obj_init_draw_label_dsc(ptr noundef nonnull %154, i32 noundef 0, ptr noundef nonnull %8) #6
   %335 = getelementptr inbounds nuw i8, ptr %154, i64 64
   %336 = load ptr, ptr %335, align 8, !tbaa !3
   %337 = getelementptr inbounds nuw i8, ptr %8, i64 48
-  store ptr %336, ptr %337, align 8, !tbaa !72
+  store ptr %336, ptr %337, align 8, !tbaa !70
   %338 = getelementptr inbounds nuw i8, ptr %154, i64 40
   call void @lv_draw_label(ptr noundef %241, ptr noundef nonnull %8, ptr noundef nonnull %338) #6
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %8) #6
@@ -689,7 +689,7 @@ define void @lv_image_set_src(ptr noundef %0, ptr noundef %1) local_unnamed_addr
   br i1 %.not, label %.preheader, label %5
 
 .preheader:                                       ; preds = %2, %.preheader
-  br label %.preheader, !llvm.loop !73
+  br label %.preheader
 
 5:                                                ; preds = %2
   tail call void @lv_obj_invalidate(ptr noundef nonnull %0) #6
@@ -767,7 +767,7 @@ define void @lv_image_set_src(ptr noundef %0, ptr noundef %1) local_unnamed_addr
   br i1 %.not63, label %.preheader74, label %40
 
 .preheader74:                                     ; preds = %36, %.preheader74
-  br label %.preheader74, !llvm.loop !74
+  br label %.preheader74
 
 40:                                               ; preds = %36
   %41 = and i16 %38, 3
@@ -796,7 +796,7 @@ define void @lv_image_set_src(ptr noundef %0, ptr noundef %1) local_unnamed_addr
   %.sroa.0.0.extract.trunc.i72 = trunc i64 %51 to i32
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #6
   call void @lv_text_get_size(ptr noundef nonnull %4, ptr noundef %1, ptr noundef %47, i32 noundef %.sroa.0.0.extract.trunc.i, i32 noundef %.sroa.0.0.extract.trunc.i72, i32 noundef 536870911, i32 noundef 0) #6
-  %52 = load i32, ptr %4, align 4, !tbaa !25
+  %52 = load i32, ptr %4, align 4, !tbaa !23
   %53 = load i64, ptr %3, align 8
   %54 = and i32 %52, 65535
   %55 = zext nneg i32 %54 to i64
@@ -804,7 +804,7 @@ define void @lv_image_set_src(ptr noundef %0, ptr noundef %1) local_unnamed_addr
   %57 = and i64 %53, 4294967295
   %58 = or disjoint i64 %56, %57
   %59 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  %60 = load i32, ptr %59, align 4, !tbaa !27
+  %60 = load i32, ptr %59, align 4, !tbaa !25
   %61 = and i32 %60, 65535
   %62 = zext nneg i32 %61 to i64
   %63 = shl nuw i64 %62, 48
@@ -940,11 +940,11 @@ define void @lv_image_set_offset_x(ptr noundef %0, i32 noundef %1) local_unnamed
   br i1 %.not, label %.preheader, label %3
 
 .preheader:                                       ; preds = %2, %.preheader
-  br label %.preheader, !llvm.loop !75
+  br label %.preheader
 
 3:                                                ; preds = %2
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  store i32 %1, ptr %4, align 8, !tbaa !58
+  store i32 %1, ptr %4, align 8, !tbaa !56
   tail call void @lv_obj_invalidate(ptr noundef nonnull %0) #6
   ret void
 }
@@ -955,11 +955,11 @@ define void @lv_image_set_offset_y(ptr noundef %0, i32 noundef %1) local_unnamed
   br i1 %.not, label %.preheader, label %3
 
 .preheader:                                       ; preds = %2, %.preheader
-  br label %.preheader, !llvm.loop !76
+  br label %.preheader
 
 3:                                                ; preds = %2
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 84
-  store i32 %1, ptr %4, align 4, !tbaa !59
+  store i32 %1, ptr %4, align 4, !tbaa !57
   tail call void @lv_obj_invalidate(ptr noundef nonnull %0) #6
   ret void
 }
@@ -972,7 +972,7 @@ define void @lv_image_set_rotation(ptr noundef %0, i32 noundef %1) local_unnamed
   br i1 %.not, label %.preheader, label %5
 
 .preheader:                                       ; preds = %2, %.preheader
-  br label %.preheader, !llvm.loop !77
+  br label %.preheader
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 116
@@ -1013,18 +1013,18 @@ lv_image_get_pivot.exit:                          ; preds = %.loopexit
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #6
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #6
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 108
-  %29 = load i32, ptr %28, align 4, !tbaa !24
+  %29 = load i32, ptr %28, align 4, !tbaa !22
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %31 = load i32, ptr %30, align 8, !tbaa !17
   %32 = tail call i32 @lv_pct_to_px(i32 noundef %29, i32 noundef %31) #6
-  store i32 %32, ptr %4, align 4, !tbaa !25
+  store i32 %32, ptr %4, align 4, !tbaa !23
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %34 = load i32, ptr %33, align 4, !tbaa !26
+  %34 = load i32, ptr %33, align 4, !tbaa !24
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 92
   %36 = load i32, ptr %35, align 4, !tbaa !18
   %37 = tail call i32 @lv_pct_to_px(i32 noundef %34, i32 noundef %36) #6
   %38 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  store i32 %37, ptr %38, align 4, !tbaa !27
+  store i32 %37, ptr %38, align 4, !tbaa !25
   %39 = load i32, ptr %23, align 8, !tbaa !19
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 100
   %41 = load i32, ptr %40, align 4, !tbaa !20
@@ -1034,24 +1034,24 @@ lv_image_get_pivot.exit:                          ; preds = %.loopexit
   %45 = trunc i32 %44 to i16
   call void @lv_image_buf_get_transformed_area(ptr noundef nonnull %3, i32 noundef %26, i32 noundef %27, i32 noundef %39, i16 noundef zeroext %42, i16 noundef zeroext %45, ptr noundef nonnull %4) #6
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %47 = load i32, ptr %46, align 8, !tbaa !33
-  %48 = load i32, ptr %3, align 4, !tbaa !29
+  %47 = load i32, ptr %46, align 8, !tbaa !31
+  %48 = load i32, ptr %3, align 4, !tbaa !27
   %49 = add nsw i32 %48, %47
-  store i32 %49, ptr %3, align 4, !tbaa !29
+  store i32 %49, ptr %3, align 4, !tbaa !27
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  %51 = load i32, ptr %50, align 4, !tbaa !34
+  %51 = load i32, ptr %50, align 4, !tbaa !32
   %52 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  %53 = load i32, ptr %52, align 4, !tbaa !30
+  %53 = load i32, ptr %52, align 4, !tbaa !28
   %54 = add nsw i32 %53, %51
-  store i32 %54, ptr %52, align 4, !tbaa !30
+  store i32 %54, ptr %52, align 4, !tbaa !28
   %55 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %56 = load i32, ptr %55, align 4, !tbaa !31
+  %56 = load i32, ptr %55, align 4, !tbaa !29
   %57 = add nsw i32 %56, %47
-  store i32 %57, ptr %55, align 4, !tbaa !31
+  store i32 %57, ptr %55, align 4, !tbaa !29
   %58 = getelementptr inbounds nuw i8, ptr %3, i64 12
-  %59 = load i32, ptr %58, align 4, !tbaa !32
+  %59 = load i32, ptr %58, align 4, !tbaa !30
   %60 = add nsw i32 %59, %51
-  store i32 %60, ptr %58, align 4, !tbaa !32
+  store i32 %60, ptr %58, align 4, !tbaa !30
   call void @lv_obj_invalidate_area(ptr noundef nonnull %0, ptr noundef nonnull %3) #6
   store i32 %.0, ptr %23, align 8, !tbaa !19
   %61 = call ptr @lv_obj_get_display(ptr noundef nonnull %0) #6
@@ -1064,20 +1064,20 @@ lv_image_get_pivot.exit:                          ; preds = %.loopexit
   %65 = load i32, ptr %43, align 8, !tbaa !21
   %66 = trunc i32 %65 to i16
   call void @lv_image_buf_get_transformed_area(ptr noundef nonnull %3, i32 noundef %26, i32 noundef %27, i32 noundef %62, i16 noundef zeroext %64, i16 noundef zeroext %66, ptr noundef nonnull %4) #6
-  %67 = load i32, ptr %46, align 8, !tbaa !33
-  %68 = load i32, ptr %3, align 4, !tbaa !29
+  %67 = load i32, ptr %46, align 8, !tbaa !31
+  %68 = load i32, ptr %3, align 4, !tbaa !27
   %69 = add nsw i32 %68, %67
-  store i32 %69, ptr %3, align 4, !tbaa !29
-  %70 = load i32, ptr %50, align 4, !tbaa !34
-  %71 = load i32, ptr %52, align 4, !tbaa !30
+  store i32 %69, ptr %3, align 4, !tbaa !27
+  %70 = load i32, ptr %50, align 4, !tbaa !32
+  %71 = load i32, ptr %52, align 4, !tbaa !28
   %72 = add nsw i32 %71, %70
-  store i32 %72, ptr %52, align 4, !tbaa !30
-  %73 = load i32, ptr %55, align 4, !tbaa !31
+  store i32 %72, ptr %52, align 4, !tbaa !28
+  %73 = load i32, ptr %55, align 4, !tbaa !29
   %74 = add nsw i32 %73, %67
-  store i32 %74, ptr %55, align 4, !tbaa !31
-  %75 = load i32, ptr %58, align 4, !tbaa !32
+  store i32 %74, ptr %55, align 4, !tbaa !29
+  %75 = load i32, ptr %58, align 4, !tbaa !30
   %76 = add nsw i32 %75, %70
-  store i32 %76, ptr %58, align 4, !tbaa !32
+  store i32 %76, ptr %58, align 4, !tbaa !30
   call void @lv_obj_invalidate_area(ptr noundef nonnull %0, ptr noundef nonnull %3) #6
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #6
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #6
@@ -1099,22 +1099,22 @@ define void @lv_image_get_pivot(ptr noundef readonly captures(address_is_null) %
   br i1 %.not, label %.preheader, label %3
 
 .preheader:                                       ; preds = %2, %.preheader
-  br label %.preheader, !llvm.loop !22
+  br label %.preheader
 
 3:                                                ; preds = %2
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 108
-  %5 = load i32, ptr %4, align 4, !tbaa !24
+  %5 = load i32, ptr %4, align 4, !tbaa !22
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %7 = load i32, ptr %6, align 8, !tbaa !17
   %8 = tail call i32 @lv_pct_to_px(i32 noundef %5, i32 noundef %7) #6
-  store i32 %8, ptr %1, align 4, !tbaa !25
+  store i32 %8, ptr %1, align 4, !tbaa !23
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %10 = load i32, ptr %9, align 4, !tbaa !26
+  %10 = load i32, ptr %9, align 4, !tbaa !24
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 92
   %12 = load i32, ptr %11, align 4, !tbaa !18
   %13 = tail call i32 @lv_pct_to_px(i32 noundef %10, i32 noundef %12) #6
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  store i32 %13, ptr %14, align 4, !tbaa !27
+  store i32 %13, ptr %14, align 4, !tbaa !25
   ret void
 }
 
@@ -1134,7 +1134,7 @@ define void @lv_image_set_pivot(ptr noundef %0, i32 noundef %1, i32 noundef %2) 
   br i1 %.not, label %.preheader, label %6
 
 .preheader:                                       ; preds = %3, %.preheader
-  br label %.preheader, !llvm.loop !78
+  br label %.preheader
 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 116
@@ -1144,13 +1144,13 @@ define void @lv_image_set_pivot(ptr noundef %0, i32 noundef %1, i32 noundef %2) 
   %spec.select = select i1 %10, i32 0, i32 %2
   %spec.select40 = select i1 %10, i32 0, i32 %1
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 108
-  %12 = load i32, ptr %11, align 4, !tbaa !24
+  %12 = load i32, ptr %11, align 4, !tbaa !22
   %13 = icmp eq i32 %12, %spec.select40
   br i1 %13, label %14, label %lv_image_get_pivot.exit43
 
 14:                                               ; preds = %6
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %16 = load i32, ptr %15, align 4, !tbaa !26
+  %16 = load i32, ptr %15, align 4, !tbaa !24
   %17 = icmp eq i32 %16, %spec.select
   br i1 %17, label %75, label %lv_image_get_pivot.exit43
 
@@ -1160,18 +1160,18 @@ lv_image_get_pivot.exit43:                        ; preds = %14, %6
   %19 = tail call i32 @lv_obj_get_height(ptr noundef nonnull %0) #6
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #6
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #6
-  %20 = load i32, ptr %11, align 4, !tbaa !24
+  %20 = load i32, ptr %11, align 4, !tbaa !22
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %22 = load i32, ptr %21, align 8, !tbaa !17
   %23 = tail call i32 @lv_pct_to_px(i32 noundef %20, i32 noundef %22) #6
-  store i32 %23, ptr %5, align 4, !tbaa !25
+  store i32 %23, ptr %5, align 4, !tbaa !23
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %25 = load i32, ptr %24, align 4, !tbaa !26
+  %25 = load i32, ptr %24, align 4, !tbaa !24
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 92
   %27 = load i32, ptr %26, align 4, !tbaa !18
   %28 = tail call i32 @lv_pct_to_px(i32 noundef %25, i32 noundef %27) #6
   %29 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  store i32 %28, ptr %29, align 4, !tbaa !27
+  store i32 %28, ptr %29, align 4, !tbaa !25
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %31 = load i32, ptr %30, align 8, !tbaa !19
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 100
@@ -1182,58 +1182,58 @@ lv_image_get_pivot.exit43:                        ; preds = %14, %6
   %37 = trunc i32 %36 to i16
   call void @lv_image_buf_get_transformed_area(ptr noundef nonnull %4, i32 noundef %18, i32 noundef %19, i32 noundef %31, i16 noundef zeroext %34, i16 noundef zeroext %37, ptr noundef nonnull %5) #6
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %39 = load i32, ptr %38, align 8, !tbaa !33
-  %40 = load i32, ptr %4, align 4, !tbaa !29
+  %39 = load i32, ptr %38, align 8, !tbaa !31
+  %40 = load i32, ptr %4, align 4, !tbaa !27
   %41 = add nsw i32 %40, %39
-  store i32 %41, ptr %4, align 4, !tbaa !29
+  store i32 %41, ptr %4, align 4, !tbaa !27
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  %43 = load i32, ptr %42, align 4, !tbaa !34
+  %43 = load i32, ptr %42, align 4, !tbaa !32
   %44 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  %45 = load i32, ptr %44, align 4, !tbaa !30
+  %45 = load i32, ptr %44, align 4, !tbaa !28
   %46 = add nsw i32 %45, %43
-  store i32 %46, ptr %44, align 4, !tbaa !30
+  store i32 %46, ptr %44, align 4, !tbaa !28
   %47 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %48 = load i32, ptr %47, align 4, !tbaa !31
+  %48 = load i32, ptr %47, align 4, !tbaa !29
   %49 = add nsw i32 %48, %39
-  store i32 %49, ptr %47, align 4, !tbaa !31
+  store i32 %49, ptr %47, align 4, !tbaa !29
   %50 = getelementptr inbounds nuw i8, ptr %4, i64 12
-  %51 = load i32, ptr %50, align 4, !tbaa !32
+  %51 = load i32, ptr %50, align 4, !tbaa !30
   %52 = add nsw i32 %51, %43
-  store i32 %52, ptr %50, align 4, !tbaa !32
+  store i32 %52, ptr %50, align 4, !tbaa !30
   call void @lv_obj_invalidate_area(ptr noundef nonnull %0, ptr noundef nonnull %4) #6
   call void @lv_point_set(ptr noundef nonnull %11, i32 noundef %spec.select40, i32 noundef %spec.select) #6
   %53 = call ptr @lv_obj_get_display(ptr noundef nonnull %0) #6
   call void @lv_display_enable_invalidation(ptr noundef %53, i1 noundef zeroext false) #6
   call void @lv_obj_refresh_ext_draw_size(ptr noundef nonnull %0) #6
   call void @lv_display_enable_invalidation(ptr noundef %53, i1 noundef zeroext true) #6
-  %54 = load i32, ptr %11, align 4, !tbaa !24
+  %54 = load i32, ptr %11, align 4, !tbaa !22
   %55 = load i32, ptr %21, align 8, !tbaa !17
   %56 = call i32 @lv_pct_to_px(i32 noundef %54, i32 noundef %55) #6
-  store i32 %56, ptr %5, align 4, !tbaa !25
-  %57 = load i32, ptr %24, align 4, !tbaa !26
+  store i32 %56, ptr %5, align 4, !tbaa !23
+  %57 = load i32, ptr %24, align 4, !tbaa !24
   %58 = load i32, ptr %26, align 4, !tbaa !18
   %59 = call i32 @lv_pct_to_px(i32 noundef %57, i32 noundef %58) #6
-  store i32 %59, ptr %29, align 4, !tbaa !27
+  store i32 %59, ptr %29, align 4, !tbaa !25
   %60 = load i32, ptr %30, align 8, !tbaa !19
   %61 = load i32, ptr %32, align 4, !tbaa !20
   %62 = trunc i32 %61 to i16
   %63 = load i32, ptr %35, align 8, !tbaa !21
   %64 = trunc i32 %63 to i16
   call void @lv_image_buf_get_transformed_area(ptr noundef nonnull %4, i32 noundef %18, i32 noundef %19, i32 noundef %60, i16 noundef zeroext %62, i16 noundef zeroext %64, ptr noundef nonnull %5) #6
-  %65 = load i32, ptr %38, align 8, !tbaa !33
-  %66 = load i32, ptr %4, align 4, !tbaa !29
+  %65 = load i32, ptr %38, align 8, !tbaa !31
+  %66 = load i32, ptr %4, align 4, !tbaa !27
   %67 = add nsw i32 %66, %65
-  store i32 %67, ptr %4, align 4, !tbaa !29
-  %68 = load i32, ptr %42, align 4, !tbaa !34
-  %69 = load i32, ptr %44, align 4, !tbaa !30
+  store i32 %67, ptr %4, align 4, !tbaa !27
+  %68 = load i32, ptr %42, align 4, !tbaa !32
+  %69 = load i32, ptr %44, align 4, !tbaa !28
   %70 = add nsw i32 %69, %68
-  store i32 %70, ptr %44, align 4, !tbaa !30
-  %71 = load i32, ptr %47, align 4, !tbaa !31
+  store i32 %70, ptr %44, align 4, !tbaa !28
+  %71 = load i32, ptr %47, align 4, !tbaa !29
   %72 = add nsw i32 %71, %65
-  store i32 %72, ptr %47, align 4, !tbaa !31
-  %73 = load i32, ptr %50, align 4, !tbaa !32
+  store i32 %72, ptr %47, align 4, !tbaa !29
+  %73 = load i32, ptr %50, align 4, !tbaa !30
   %74 = add nsw i32 %73, %68
-  store i32 %74, ptr %50, align 4, !tbaa !32
+  store i32 %74, ptr %50, align 4, !tbaa !30
   call void @lv_obj_invalidate_area(ptr noundef nonnull %0, ptr noundef nonnull %4) #6
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #6
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #6
@@ -1251,7 +1251,7 @@ define void @lv_image_set_scale(ptr noundef %0, i32 noundef %1) local_unnamed_ad
   br i1 %.not, label %.preheader, label %3
 
 .preheader:                                       ; preds = %2, %.preheader
-  br label %.preheader, !llvm.loop !79
+  br label %.preheader
 
 3:                                                ; preds = %2
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 116
@@ -1294,22 +1294,22 @@ define internal fastcc void @scale_update(ptr noundef %0, i32 noundef %1, i32 no
   br i1 %.not.i, label %.preheader.i, label %lv_image_get_pivot.exit
 
 .preheader.i:                                     ; preds = %3, %.preheader.i
-  br label %.preheader.i, !llvm.loop !22
+  br label %.preheader.i
 
 lv_image_get_pivot.exit:                          ; preds = %3
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 108
-  %9 = load i32, ptr %8, align 4, !tbaa !24
+  %9 = load i32, ptr %8, align 4, !tbaa !22
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %11 = load i32, ptr %10, align 8, !tbaa !17
   %12 = tail call i32 @lv_pct_to_px(i32 noundef %9, i32 noundef %11) #6
-  store i32 %12, ptr %5, align 4, !tbaa !25
+  store i32 %12, ptr %5, align 4, !tbaa !23
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %14 = load i32, ptr %13, align 4, !tbaa !26
+  %14 = load i32, ptr %13, align 4, !tbaa !24
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 92
   %16 = load i32, ptr %15, align 4, !tbaa !18
   %17 = tail call i32 @lv_pct_to_px(i32 noundef %14, i32 noundef %16) #6
   %18 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  store i32 %17, ptr %18, align 4, !tbaa !27
+  store i32 %17, ptr %18, align 4, !tbaa !25
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %20 = load i32, ptr %19, align 8, !tbaa !19
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 100
@@ -1320,28 +1320,28 @@ lv_image_get_pivot.exit:                          ; preds = %3
   %26 = trunc i32 %25 to i16
   call void @lv_image_buf_get_transformed_area(ptr noundef nonnull %4, i32 noundef %6, i32 noundef %7, i32 noundef %20, i16 noundef zeroext %23, i16 noundef zeroext %26, ptr noundef nonnull %5) #6
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %28 = load i32, ptr %27, align 8, !tbaa !33
+  %28 = load i32, ptr %27, align 8, !tbaa !31
   %29 = add nsw i32 %28, -1
-  %30 = load i32, ptr %4, align 4, !tbaa !29
+  %30 = load i32, ptr %4, align 4, !tbaa !27
   %31 = add nsw i32 %29, %30
-  store i32 %31, ptr %4, align 4, !tbaa !29
+  store i32 %31, ptr %4, align 4, !tbaa !27
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  %33 = load i32, ptr %32, align 4, !tbaa !34
+  %33 = load i32, ptr %32, align 4, !tbaa !32
   %34 = add nsw i32 %33, -1
   %35 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  %36 = load i32, ptr %35, align 4, !tbaa !30
+  %36 = load i32, ptr %35, align 4, !tbaa !28
   %37 = add nsw i32 %34, %36
-  store i32 %37, ptr %35, align 4, !tbaa !30
+  store i32 %37, ptr %35, align 4, !tbaa !28
   %38 = add nsw i32 %28, 1
   %39 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %40 = load i32, ptr %39, align 4, !tbaa !31
+  %40 = load i32, ptr %39, align 4, !tbaa !29
   %41 = add nsw i32 %38, %40
-  store i32 %41, ptr %39, align 4, !tbaa !31
+  store i32 %41, ptr %39, align 4, !tbaa !29
   %42 = add nsw i32 %33, 1
   %43 = getelementptr inbounds nuw i8, ptr %4, i64 12
-  %44 = load i32, ptr %43, align 4, !tbaa !32
+  %44 = load i32, ptr %43, align 4, !tbaa !30
   %45 = add nsw i32 %42, %44
-  store i32 %45, ptr %43, align 4, !tbaa !32
+  store i32 %45, ptr %43, align 4, !tbaa !30
   call void @lv_obj_invalidate_area(ptr noundef nonnull %0, ptr noundef nonnull %4) #6
   store i32 %1, ptr %21, align 4, !tbaa !20
   store i32 %2, ptr %24, align 8, !tbaa !21
@@ -1355,24 +1355,24 @@ lv_image_get_pivot.exit:                          ; preds = %3
   %50 = load i32, ptr %24, align 8, !tbaa !21
   %51 = trunc i32 %50 to i16
   call void @lv_image_buf_get_transformed_area(ptr noundef nonnull %4, i32 noundef %6, i32 noundef %7, i32 noundef %47, i16 noundef zeroext %49, i16 noundef zeroext %51, ptr noundef nonnull %5) #6
-  %52 = load i32, ptr %27, align 8, !tbaa !33
+  %52 = load i32, ptr %27, align 8, !tbaa !31
   %53 = add nsw i32 %52, -1
-  %54 = load i32, ptr %4, align 4, !tbaa !29
+  %54 = load i32, ptr %4, align 4, !tbaa !27
   %55 = add nsw i32 %53, %54
-  store i32 %55, ptr %4, align 4, !tbaa !29
-  %56 = load i32, ptr %32, align 4, !tbaa !34
+  store i32 %55, ptr %4, align 4, !tbaa !27
+  %56 = load i32, ptr %32, align 4, !tbaa !32
   %57 = add nsw i32 %56, -1
-  %58 = load i32, ptr %35, align 4, !tbaa !30
+  %58 = load i32, ptr %35, align 4, !tbaa !28
   %59 = add nsw i32 %57, %58
-  store i32 %59, ptr %35, align 4, !tbaa !30
+  store i32 %59, ptr %35, align 4, !tbaa !28
   %60 = add nsw i32 %52, 1
-  %61 = load i32, ptr %39, align 4, !tbaa !31
+  %61 = load i32, ptr %39, align 4, !tbaa !29
   %62 = add nsw i32 %60, %61
-  store i32 %62, ptr %39, align 4, !tbaa !31
+  store i32 %62, ptr %39, align 4, !tbaa !29
   %63 = add nsw i32 %56, 1
-  %64 = load i32, ptr %43, align 4, !tbaa !32
+  %64 = load i32, ptr %43, align 4, !tbaa !30
   %65 = add nsw i32 %63, %64
-  store i32 %65, ptr %43, align 4, !tbaa !32
+  store i32 %65, ptr %43, align 4, !tbaa !30
   call void @lv_obj_invalidate_area(ptr noundef nonnull %0, ptr noundef nonnull %4) #6
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #6
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #6
@@ -1385,7 +1385,7 @@ define void @lv_image_set_scale_x(ptr noundef %0, i32 noundef %1) local_unnamed_
   br i1 %.not, label %.preheader, label %3
 
 .preheader:                                       ; preds = %2, %.preheader
-  br label %.preheader, !llvm.loop !80
+  br label %.preheader
 
 3:                                                ; preds = %2
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 116
@@ -1417,7 +1417,7 @@ define void @lv_image_set_scale_y(ptr noundef %0, i32 noundef %1) local_unnamed_
   br i1 %.not, label %.preheader, label %3
 
 .preheader:                                       ; preds = %2, %.preheader
-  br label %.preheader, !llvm.loop !81
+  br label %.preheader
 
 3:                                                ; preds = %2
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 116
@@ -1449,7 +1449,7 @@ define void @lv_image_set_blend_mode(ptr noundef %0, i32 noundef %1) local_unnam
   br i1 %.not, label %.preheader, label %3
 
 .preheader:                                       ; preds = %2, %.preheader
-  br label %.preheader, !llvm.loop !82
+  br label %.preheader
 
 3:                                                ; preds = %2
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 116
@@ -1478,7 +1478,7 @@ define void @lv_image_set_antialias(ptr noundef %0, i1 noundef zeroext %1) local
   br i1 %.not, label %.preheader, label %3
 
 .preheader:                                       ; preds = %2, %.preheader
-  br label %.preheader, !llvm.loop !83
+  br label %.preheader
 
 3:                                                ; preds = %2
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 116
@@ -1506,7 +1506,7 @@ define void @lv_image_set_inner_align(ptr noundef %0, i32 noundef %1) local_unna
   br i1 %.not, label %.preheader, label %3
 
 .preheader:                                       ; preds = %2, %.preheader
-  br label %.preheader, !llvm.loop !84
+  br label %.preheader
 
 3:                                                ; preds = %2
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 116
@@ -1563,11 +1563,11 @@ define void @lv_image_set_bitmap_map_src(ptr noundef %0, ptr noundef %1) local_u
   br i1 %.not, label %.preheader, label %3
 
 .preheader:                                       ; preds = %2, %.preheader
-  br label %.preheader, !llvm.loop !85
+  br label %.preheader
 
 3:                                                ; preds = %2
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  store ptr %1, ptr %4, align 8, !tbaa !42
+  store ptr %1, ptr %4, align 8, !tbaa !40
   tail call void @lv_obj_invalidate(ptr noundef nonnull %0) #6
   ret void
 }
@@ -1578,7 +1578,7 @@ define ptr @lv_image_get_src(ptr noundef readonly captures(address_is_null) %0) 
   br i1 %.not, label %.preheader, label %2
 
 .preheader:                                       ; preds = %1, %.preheader
-  br label %.preheader, !llvm.loop !86
+  br label %.preheader
 
 2:                                                ; preds = %1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -1592,11 +1592,11 @@ define i32 @lv_image_get_offset_x(ptr noundef readonly captures(address_is_null)
   br i1 %.not, label %.preheader, label %2
 
 .preheader:                                       ; preds = %1, %.preheader
-  br label %.preheader, !llvm.loop !87
+  br label %.preheader
 
 2:                                                ; preds = %1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %4 = load i32, ptr %3, align 8, !tbaa !58
+  %4 = load i32, ptr %3, align 8, !tbaa !56
   ret i32 %4
 }
 
@@ -1606,11 +1606,11 @@ define i32 @lv_image_get_offset_y(ptr noundef readonly captures(address_is_null)
   br i1 %.not, label %.preheader, label %2
 
 .preheader:                                       ; preds = %1, %.preheader
-  br label %.preheader, !llvm.loop !88
+  br label %.preheader
 
 2:                                                ; preds = %1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 84
-  %4 = load i32, ptr %3, align 4, !tbaa !59
+  %4 = load i32, ptr %3, align 4, !tbaa !57
   ret i32 %4
 }
 
@@ -1620,7 +1620,7 @@ define i32 @lv_image_get_rotation(ptr noundef readonly captures(address_is_null)
   br i1 %.not, label %.preheader, label %2
 
 .preheader:                                       ; preds = %1, %.preheader
-  br label %.preheader, !llvm.loop !89
+  br label %.preheader
 
 2:                                                ; preds = %1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 96
@@ -1636,7 +1636,7 @@ define i32 @lv_image_get_scale(ptr noundef readonly captures(address_is_null) %0
   br i1 %.not, label %.preheader, label %2
 
 .preheader:                                       ; preds = %1, %.preheader
-  br label %.preheader, !llvm.loop !90
+  br label %.preheader
 
 2:                                                ; preds = %1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 100
@@ -1650,7 +1650,7 @@ define i32 @lv_image_get_scale_x(ptr noundef readonly captures(address_is_null) 
   br i1 %.not, label %.preheader, label %2
 
 .preheader:                                       ; preds = %1, %.preheader
-  br label %.preheader, !llvm.loop !91
+  br label %.preheader
 
 2:                                                ; preds = %1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 100
@@ -1664,7 +1664,7 @@ define i32 @lv_image_get_scale_y(ptr noundef readonly captures(address_is_null) 
   br i1 %.not, label %.preheader, label %2
 
 .preheader:                                       ; preds = %1, %.preheader
-  br label %.preheader, !llvm.loop !92
+  br label %.preheader
 
 2:                                                ; preds = %1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 104
@@ -1678,7 +1678,7 @@ define range(i32 0, 16) i32 @lv_image_get_blend_mode(ptr noundef readonly captur
   br i1 %.not, label %.preheader, label %2
 
 .preheader:                                       ; preds = %1, %.preheader
-  br label %.preheader, !llvm.loop !93
+  br label %.preheader
 
 2:                                                ; preds = %1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 116
@@ -1694,7 +1694,7 @@ define zeroext i1 @lv_image_get_antialias(ptr noundef readonly captures(address_
   br i1 %.not, label %.preheader, label %2
 
 .preheader:                                       ; preds = %1, %.preheader
-  br label %.preheader, !llvm.loop !94
+  br label %.preheader
 
 2:                                                ; preds = %1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 116
@@ -1710,7 +1710,7 @@ define range(i32 0, 16) i32 @lv_image_get_inner_align(ptr noundef readonly captu
   br i1 %.not, label %.preheader, label %2
 
 .preheader:                                       ; preds = %1, %.preheader
-  br label %.preheader, !llvm.loop !95
+  br label %.preheader
 
 2:                                                ; preds = %1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 116
@@ -1727,11 +1727,11 @@ define ptr @lv_image_get_bitmap_map_src(ptr noundef readonly captures(address_is
   br i1 %.not, label %.preheader, label %2
 
 .preheader:                                       ; preds = %1, %.preheader
-  br label %.preheader, !llvm.loop !96
+  br label %.preheader
 
 2:                                                ; preds = %1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %4 = load ptr, ptr %3, align 8, !tbaa !42
+  %4 = load ptr, ptr %3, align 8, !tbaa !40
   ret ptr %4
 }
 
@@ -1820,78 +1820,52 @@ attributes #6 = { nounwind }
 !19 = !{!4, !14, i64 96}
 !20 = !{!4, !14, i64 100}
 !21 = !{!4, !14, i64 104}
-!22 = distinct !{!22, !23}
-!23 = !{!"llvm.loop.estimated_trip_count"}
-!24 = !{!4, !14, i64 108}
-!25 = !{!16, !14, i64 0}
-!26 = !{!4, !14, i64 112}
-!27 = !{!16, !14, i64 4}
-!28 = !{!14, !14, i64 0}
-!29 = !{!13, !14, i64 0}
-!30 = !{!13, !14, i64 4}
-!31 = !{!13, !14, i64 8}
-!32 = !{!13, !14, i64 12}
-!33 = !{!5, !14, i64 40}
-!34 = !{!5, !14, i64 44}
-!35 = !{!36, !7, i64 0}
-!36 = !{!"_lv_hit_test_info_t", !7, i64 0, !37, i64 8}
-!37 = !{!"_Bool", !8, i64 0}
-!38 = !{!36, !37, i64 8}
-!39 = !{!40, !14, i64 0}
-!40 = !{!"_lv_cover_check_info_t", !14, i64 0, !7, i64 8}
-!41 = !{!40, !7, i64 8}
-!42 = !{!4, !7, i64 72}
-!43 = !{!44, !46, i64 24}
-!44 = !{!"_lv_draw_image_dsc_t", !45, i64 0, !7, i64 48, !48, i64 56, !14, i64 68, !14, i64 72, !14, i64 76, !14, i64 80, !14, i64 84, !16, i64 88, !49, i64 96, !8, i64 99, !8, i64 100, !14, i64 101, !15, i64 101, !15, i64 101, !50, i64 104, !13, i64 112, !14, i64 128, !7, i64 136}
-!45 = !{!"", !10, i64 0, !14, i64 8, !14, i64 12, !14, i64 16, !46, i64 24, !47, i64 32, !7, i64 40}
-!46 = !{!"p1 _ZTS11_lv_layer_t", !7, i64 0}
-!47 = !{!"long", !8, i64 0}
-!48 = !{!"", !14, i64 0, !14, i64 1, !14, i64 2, !14, i64 4, !14, i64 6, !14, i64 8, !14, i64 10}
-!49 = !{!"", !8, i64 0, !8, i64 1, !8, i64 2}
-!50 = !{!"p1 _ZTS20_lv_draw_image_sup_t", !7, i64 0}
-!51 = !{i64 0, i64 4, !28, i64 4, i64 4, !28, i64 8, i64 4, !28, i64 12, i64 4, !28}
-!52 = !{!44, !14, i64 72}
-!53 = !{!44, !14, i64 76}
-!54 = !{!44, !14, i64 68}
-!55 = !{!44, !7, i64 136}
-!56 = !{!44, !7, i64 48}
-!57 = !{!44, !14, i64 128}
-!58 = !{!4, !14, i64 80}
-!59 = !{!4, !14, i64 84}
-!60 = !{!61, !14, i64 28}
-!61 = !{!"_lv_layer_t", !62, i64 0, !13, i64 8, !14, i64 24, !13, i64 28, !13, i64 44, !8, i64 60, !14, i64 64, !63, i64 72, !46, i64 80, !46, i64 88, !37, i64 96, !7, i64 104}
-!62 = !{!"p1 _ZTS14_lv_draw_buf_t", !7, i64 0}
-!63 = !{!"p1 _ZTS15_lv_draw_task_t", !7, i64 0}
-!64 = !{!44, !14, i64 112}
-!65 = !{!61, !14, i64 32}
-!66 = !{!44, !14, i64 116}
-!67 = !{!68, !46, i64 24}
-!68 = !{!"", !45, i64 0, !69, i64 48, !14, i64 56, !70, i64 64, !14, i64 72, !14, i64 76, !49, i64 80, !49, i64 83, !49, i64 86, !14, i64 92, !14, i64 96, !14, i64 100, !14, i64 104, !14, i64 108, !8, i64 112, !14, i64 116, !14, i64 120, !14, i64 124, !14, i64 128, !14, i64 128, !8, i64 128, !8, i64 128, !71, i64 136}
-!69 = !{!"p1 omnipotent char", !7, i64 0}
-!70 = !{!"p1 _ZTS10_lv_font_t", !7, i64 0}
-!71 = !{!"p1 _ZTS21_lv_draw_label_hint_t", !7, i64 0}
-!72 = !{!68, !69, i64 48}
-!73 = distinct !{!73, !23}
-!74 = distinct !{!74, !23}
-!75 = distinct !{!75, !23}
-!76 = distinct !{!76, !23}
-!77 = distinct !{!77, !23}
-!78 = distinct !{!78, !23}
-!79 = distinct !{!79, !23}
-!80 = distinct !{!80, !23}
-!81 = distinct !{!81, !23}
-!82 = distinct !{!82, !23}
-!83 = distinct !{!83, !23}
-!84 = distinct !{!84, !23}
-!85 = distinct !{!85, !23}
-!86 = distinct !{!86, !23}
-!87 = distinct !{!87, !23}
-!88 = distinct !{!88, !23}
-!89 = distinct !{!89, !23}
-!90 = distinct !{!90, !23}
-!91 = distinct !{!91, !23}
-!92 = distinct !{!92, !23}
-!93 = distinct !{!93, !23}
-!94 = distinct !{!94, !23}
-!95 = distinct !{!95, !23}
-!96 = distinct !{!96, !23}
+!22 = !{!4, !14, i64 108}
+!23 = !{!16, !14, i64 0}
+!24 = !{!4, !14, i64 112}
+!25 = !{!16, !14, i64 4}
+!26 = !{!14, !14, i64 0}
+!27 = !{!13, !14, i64 0}
+!28 = !{!13, !14, i64 4}
+!29 = !{!13, !14, i64 8}
+!30 = !{!13, !14, i64 12}
+!31 = !{!5, !14, i64 40}
+!32 = !{!5, !14, i64 44}
+!33 = !{!34, !7, i64 0}
+!34 = !{!"_lv_hit_test_info_t", !7, i64 0, !35, i64 8}
+!35 = !{!"_Bool", !8, i64 0}
+!36 = !{!34, !35, i64 8}
+!37 = !{!38, !14, i64 0}
+!38 = !{!"_lv_cover_check_info_t", !14, i64 0, !7, i64 8}
+!39 = !{!38, !7, i64 8}
+!40 = !{!4, !7, i64 72}
+!41 = !{!42, !44, i64 24}
+!42 = !{!"_lv_draw_image_dsc_t", !43, i64 0, !7, i64 48, !46, i64 56, !14, i64 68, !14, i64 72, !14, i64 76, !14, i64 80, !14, i64 84, !16, i64 88, !47, i64 96, !8, i64 99, !8, i64 100, !14, i64 101, !15, i64 101, !15, i64 101, !48, i64 104, !13, i64 112, !14, i64 128, !7, i64 136}
+!43 = !{!"", !10, i64 0, !14, i64 8, !14, i64 12, !14, i64 16, !44, i64 24, !45, i64 32, !7, i64 40}
+!44 = !{!"p1 _ZTS11_lv_layer_t", !7, i64 0}
+!45 = !{!"long", !8, i64 0}
+!46 = !{!"", !14, i64 0, !14, i64 1, !14, i64 2, !14, i64 4, !14, i64 6, !14, i64 8, !14, i64 10}
+!47 = !{!"", !8, i64 0, !8, i64 1, !8, i64 2}
+!48 = !{!"p1 _ZTS20_lv_draw_image_sup_t", !7, i64 0}
+!49 = !{i64 0, i64 4, !26, i64 4, i64 4, !26, i64 8, i64 4, !26, i64 12, i64 4, !26}
+!50 = !{!42, !14, i64 72}
+!51 = !{!42, !14, i64 76}
+!52 = !{!42, !14, i64 68}
+!53 = !{!42, !7, i64 136}
+!54 = !{!42, !7, i64 48}
+!55 = !{!42, !14, i64 128}
+!56 = !{!4, !14, i64 80}
+!57 = !{!4, !14, i64 84}
+!58 = !{!59, !14, i64 28}
+!59 = !{!"_lv_layer_t", !60, i64 0, !13, i64 8, !14, i64 24, !13, i64 28, !13, i64 44, !8, i64 60, !14, i64 64, !61, i64 72, !44, i64 80, !44, i64 88, !35, i64 96, !7, i64 104}
+!60 = !{!"p1 _ZTS14_lv_draw_buf_t", !7, i64 0}
+!61 = !{!"p1 _ZTS15_lv_draw_task_t", !7, i64 0}
+!62 = !{!42, !14, i64 112}
+!63 = !{!59, !14, i64 32}
+!64 = !{!42, !14, i64 116}
+!65 = !{!66, !44, i64 24}
+!66 = !{!"", !43, i64 0, !67, i64 48, !14, i64 56, !68, i64 64, !14, i64 72, !14, i64 76, !47, i64 80, !47, i64 83, !47, i64 86, !14, i64 92, !14, i64 96, !14, i64 100, !14, i64 104, !14, i64 108, !8, i64 112, !14, i64 116, !14, i64 120, !14, i64 124, !14, i64 128, !14, i64 128, !8, i64 128, !8, i64 128, !69, i64 136}
+!67 = !{!"p1 omnipotent char", !7, i64 0}
+!68 = !{!"p1 _ZTS10_lv_font_t", !7, i64 0}
+!69 = !{!"p1 _ZTS21_lv_draw_label_hint_t", !7, i64 0}
+!70 = !{!66, !67, i64 48}

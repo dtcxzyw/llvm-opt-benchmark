@@ -285,7 +285,7 @@ lib_create_table.exit:                            ; preds = %40, %47
   %.092.be = phi ptr [ %.092, %184 ], [ %.092, %126 ], [ %156, %153 ], [ %.092, %157 ], [ %.092, %161 ], [ %.092, %167 ], [ %.092, %177 ], [ %.092, %182 ], [ %.092, %120 ], [ %.092, %118 ]
   %.089.be = phi ptr [ %.089, %184 ], [ %.089, %126 ], [ %.089, %153 ], [ %.089, %157 ], [ %.089, %161 ], [ %.089, %167 ], [ %.089, %177 ], [ %.089, %182 ], [ %.190, %120 ], [ %.190, %118 ]
   %.088.be = phi ptr [ %191, %184 ], [ %140, %126 ], [ %80, %153 ], [ %80, %157 ], [ %166, %161 ], [ %169, %167 ], [ %80, %177 ], [ %80, %182 ], [ %105, %120 ], [ %105, %118 ]
-  br label %79, !llvm.loop !49
+  br label %79
 
 157:                                              ; preds = %147, %141
   %158 = call ptr @lj_tab_set(ptr noundef nonnull %0, ptr noundef %53, ptr noundef nonnull %144) #8
@@ -957,7 +957,7 @@ lj_lib_optstr.exit:                               ; preds = %41, %36, %26, %21
 47:                                               ; preds = %lj_lib_optstr.exit
   %48 = getelementptr inbounds nuw i8, ptr %46, i64 24
   %49 = getelementptr inbounds nuw i8, ptr %46, i64 20
-  %50 = load i32, ptr %49, align 4, !tbaa !51
+  %50 = load i32, ptr %49, align 4, !tbaa !49
   %51 = load i8, ptr %3, align 1, !tbaa !14
   %.not2730 = icmp eq i8 %51, 0
   br i1 %.not2730, label %._crit_edge, label %.lr.ph
@@ -987,7 +987,7 @@ lj_lib_optstr.exit:                               ; preds = %41, %36, %26, %21
   %64 = add nuw nsw i32 %.032, 1
   %65 = load i8, ptr %63, align 1, !tbaa !14
   %.not27 = icmp eq i8 %65, 0
-  br i1 %.not27, label %._crit_edge, label %53, !llvm.loop !52
+  br i1 %.not27, label %._crit_edge, label %53, !llvm.loop !50
 
 ._crit_edge:                                      ; preds = %60, %47
   tail call void (ptr, i32, i32, ...) @lj_err_argv(ptr noundef %0, i32 noundef %1, i32 noundef 1199, ptr noundef nonnull %48) #9
@@ -1063,7 +1063,7 @@ define hidden i32 @lj_lib_checkintrange(ptr noundef %0, i32 noundef %1, i32 noun
   %23 = and i64 %14, 140737488355327
   %24 = inttoptr i64 %23 to ptr
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 10
-  %26 = load i16, ptr %25, align 2, !tbaa !54
+  %26 = load i16, ptr %25, align 2, !tbaa !52
   switch i16 %26, label %40 [
     i16 11, label %27
     i16 12, label %33
@@ -1071,7 +1071,7 @@ define hidden i32 @lj_lib_checkintrange(ptr noundef %0, i32 noundef %1, i32 noun
 
 27:                                               ; preds = %22
   %28 = getelementptr inbounds nuw i8, ptr %24, i64 16
-  %29 = load i64, ptr %28, align 8, !tbaa !56
+  %29 = load i64, ptr %28, align 8, !tbaa !54
   %30 = sext i32 %2 to i64
   %.not49 = icmp slt i64 %29, %30
   %31 = sext i32 %3 to i64
@@ -1082,7 +1082,7 @@ define hidden i32 @lj_lib_checkintrange(ptr noundef %0, i32 noundef %1, i32 noun
 
 33:                                               ; preds = %22
   %34 = getelementptr inbounds nuw i8, ptr %24, i64 16
-  %35 = load i64, ptr %34, align 8, !tbaa !56
+  %35 = load i64, ptr %34, align 8, !tbaa !54
   %36 = icmp sgt i32 %2, -1
   %37 = zext nneg i32 %2 to i64
   %.not = icmp ult i64 %35, %37
@@ -1186,11 +1186,9 @@ attributes #10 = { nounwind willreturn memory(read) }
 !46 = !{!47, !13, i64 72}
 !47 = !{!"GCproto", !6, i64 0, !8, i64 8, !8, i64 9, !8, i64 10, !8, i64 11, !13, i64 12, !13, i64 16, !6, i64 24, !10, i64 32, !10, i64 40, !13, i64 48, !13, i64 52, !13, i64 56, !8, i64 60, !8, i64 61, !48, i64 62, !6, i64 64, !13, i64 72, !13, i64 76, !10, i64 80, !10, i64 88, !10, i64 96}
 !48 = !{!"short", !8, i64 0}
-!49 = distinct !{!49, !50}
-!50 = !{!"llvm.loop.estimated_trip_count"}
-!51 = !{!22, !13, i64 20}
-!52 = distinct !{!52, !53, !50}
-!53 = !{!"llvm.loop.mustprogress"}
-!54 = !{!55, !48, i64 10}
-!55 = !{!"GCcdata", !6, i64 0, !8, i64 8, !8, i64 9, !48, i64 10}
-!56 = !{!7, !7, i64 0}
+!49 = !{!22, !13, i64 20}
+!50 = distinct !{!50, !51}
+!51 = !{!"llvm.loop.mustprogress"}
+!52 = !{!53, !48, i64 10}
+!53 = !{!"GCcdata", !6, i64 0, !8, i64 8, !8, i64 9, !48, i64 10}
+!54 = !{!7, !7, i64 0}

@@ -92,7 +92,7 @@ _ZN7nanogui5ArrayIfLm3EEC2IiEERKNS0_IT_Lm3EEE.exit.i.i: ; preds = %30, %_ZN7nano
   store float 2.550000e+02, ptr %36, align 4
   %37 = add nuw nsw i64 %.04.i.i.i, 1
   %exitcond.not.i2.i.i = icmp eq i64 %37, 3
-  br i1 %exitcond.not.i2.i.i, label %_ZN7nanogui5ArrayIfLm3EEC2Ef.exit.i.i, label %_ZN7nanogui5ArrayIfLm3EEC2IiEERKNS0_IT_Lm3EEE.exit.i.i, !llvm.loop !8
+  br i1 %exitcond.not.i2.i.i, label %_ZN7nanogui5ArrayIfLm3EEC2Ef.exit.i.i, label %_ZN7nanogui5ArrayIfLm3EEC2IiEERKNS0_IT_Lm3EEE.exit.i.i, !llvm.loop !7
 
 _ZN7nanogui5ArrayIfLm3EEC2Ef.exit.i.i:            ; preds = %_ZN7nanogui5ArrayIfLm3EEC2IiEERKNS0_IT_Lm3EEE.exit.i.i
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %14)
@@ -109,7 +109,7 @@ _ZN7nanogui5ArrayIfLm3EEC2Ef.exit.i.i:            ; preds = %_ZN7nanogui5ArrayIf
   store float %43, ptr %44, align 4
   %45 = add nuw nsw i64 %.06.i.i.i, 1
   %exitcond.not.i3.i.i = icmp eq i64 %45, 3
-  br i1 %exitcond.not.i3.i.i, label %_ZN7nanogui5ColorC2Eii.exit, label %38, !llvm.loop !9
+  br i1 %exitcond.not.i3.i.i, label %_ZN7nanogui5ColorC2Eii.exit, label %38, !llvm.loop !8
 
 _ZN7nanogui5ColorC2Eii.exit:                      ; preds = %38
   %.sroa.0.0.copyload.i.i.i = load <2 x float>, ptr %14, align 8
@@ -142,7 +142,7 @@ _ZN7nanogui5ArrayIfLm3EEC2IiEERKNS0_IT_Lm3EEE.exit.i.i21: ; preds = %46, %_ZN7na
   store float 2.550000e+02, ptr %52, align 4
   %53 = add nuw nsw i64 %.04.i.i.i22, 1
   %exitcond.not.i2.i.i23 = icmp eq i64 %53, 3
-  br i1 %exitcond.not.i2.i.i23, label %_ZN7nanogui5ArrayIfLm3EEC2Ef.exit.i.i24, label %_ZN7nanogui5ArrayIfLm3EEC2IiEERKNS0_IT_Lm3EEE.exit.i.i21, !llvm.loop !8
+  br i1 %exitcond.not.i2.i.i23, label %_ZN7nanogui5ArrayIfLm3EEC2Ef.exit.i.i24, label %_ZN7nanogui5ArrayIfLm3EEC2IiEERKNS0_IT_Lm3EEE.exit.i.i21, !llvm.loop !7
 
 _ZN7nanogui5ArrayIfLm3EEC2Ef.exit.i.i24:          ; preds = %_ZN7nanogui5ArrayIfLm3EEC2IiEERKNS0_IT_Lm3EEE.exit.i.i21
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %10)
@@ -159,7 +159,7 @@ _ZN7nanogui5ArrayIfLm3EEC2Ef.exit.i.i24:          ; preds = %_ZN7nanogui5ArrayIf
   store float %59, ptr %60, align 4
   %61 = add nuw nsw i64 %.06.i.i.i25, 1
   %exitcond.not.i3.i.i26 = icmp eq i64 %61, 3
-  br i1 %exitcond.not.i3.i.i26, label %_ZN7nanogui5ColorC2Eii.exit35, label %54, !llvm.loop !9
+  br i1 %exitcond.not.i3.i.i26, label %_ZN7nanogui5ColorC2Eii.exit35, label %54, !llvm.loop !8
 
 _ZN7nanogui5ColorC2Eii.exit35:                    ; preds = %54
   %62 = add nsw i32 %23, 1
@@ -214,7 +214,7 @@ _ZN7nanogui5ColorC2Eii.exit35:                    ; preds = %54
   store i32 220, ptr %84, align 4
   %85 = add nuw nsw i64 %.04.i.i37, 1
   %exitcond.not.i.i38 = icmp eq i64 %85, 3
-  br i1 %exitcond.not.i.i38, label %_ZN7nanogui5ArrayIiLm3EEC2Ei.exit.i39, label %83, !llvm.loop !10
+  br i1 %exitcond.not.i.i38, label %_ZN7nanogui5ArrayIiLm3EEC2Ei.exit.i39, label %83, !llvm.loop !9
 
 _ZN7nanogui5ArrayIiLm3EEC2Ei.exit.i39:            ; preds = %83
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %7)
@@ -238,7 +238,7 @@ _ZN7nanogui5ArrayIfLm3EEC2IiEERKNS0_IT_Lm3EEE.exit.i.i42: ; preds = %86, %_ZN7na
   store float 2.550000e+02, ptr %92, align 4
   %93 = add nuw nsw i64 %.04.i.i.i43, 1
   %exitcond.not.i2.i.i44 = icmp eq i64 %93, 3
-  br i1 %exitcond.not.i2.i.i44, label %_ZN7nanogui5ArrayIfLm3EEC2Ef.exit.i.i45, label %_ZN7nanogui5ArrayIfLm3EEC2IiEERKNS0_IT_Lm3EEE.exit.i.i42, !llvm.loop !8
+  br i1 %exitcond.not.i2.i.i44, label %_ZN7nanogui5ArrayIfLm3EEC2Ef.exit.i.i45, label %_ZN7nanogui5ArrayIfLm3EEC2IiEERKNS0_IT_Lm3EEE.exit.i.i42, !llvm.loop !7
 
 _ZN7nanogui5ArrayIfLm3EEC2Ef.exit.i.i45:          ; preds = %_ZN7nanogui5ArrayIfLm3EEC2IiEERKNS0_IT_Lm3EEE.exit.i.i42
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %6)
@@ -255,7 +255,7 @@ _ZN7nanogui5ArrayIfLm3EEC2Ef.exit.i.i45:          ; preds = %_ZN7nanogui5ArrayIf
   store float %99, ptr %100, align 4
   %101 = add nuw nsw i64 %.06.i.i.i46, 1
   %exitcond.not.i3.i.i47 = icmp eq i64 %101, 3
-  br i1 %exitcond.not.i3.i.i47, label %_ZN7nanogui5ColorC2Eii.exit56, label %94, !llvm.loop !9
+  br i1 %exitcond.not.i3.i.i47, label %_ZN7nanogui5ColorC2Eii.exit56, label %94, !llvm.loop !8
 
 _ZN7nanogui5ColorC2Eii.exit56:                    ; preds = %94
   %.sroa.0.0.copyload.i.i.i48 = load <2 x float>, ptr %6, align 8
@@ -274,7 +274,7 @@ _ZN7nanogui5ColorC2Eii.exit56:                    ; preds = %94
   store i32 128, ptr %103, align 4
   %104 = add nuw nsw i64 %.04.i.i57, 1
   %exitcond.not.i.i58 = icmp eq i64 %104, 3
-  br i1 %exitcond.not.i.i58, label %_ZN7nanogui5ArrayIiLm3EEC2Ei.exit.i59, label %102, !llvm.loop !10
+  br i1 %exitcond.not.i.i58, label %_ZN7nanogui5ArrayIiLm3EEC2Ei.exit.i59, label %102, !llvm.loop !9
 
 _ZN7nanogui5ArrayIiLm3EEC2Ei.exit.i59:            ; preds = %102
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %3)
@@ -298,7 +298,7 @@ _ZN7nanogui5ArrayIfLm3EEC2IiEERKNS0_IT_Lm3EEE.exit.i.i62: ; preds = %105, %_ZN7n
   store float 2.550000e+02, ptr %111, align 4
   %112 = add nuw nsw i64 %.04.i.i.i63, 1
   %exitcond.not.i2.i.i64 = icmp eq i64 %112, 3
-  br i1 %exitcond.not.i2.i.i64, label %_ZN7nanogui5ArrayIfLm3EEC2Ef.exit.i.i65, label %_ZN7nanogui5ArrayIfLm3EEC2IiEERKNS0_IT_Lm3EEE.exit.i.i62, !llvm.loop !8
+  br i1 %exitcond.not.i2.i.i64, label %_ZN7nanogui5ArrayIfLm3EEC2Ef.exit.i.i65, label %_ZN7nanogui5ArrayIfLm3EEC2IiEERKNS0_IT_Lm3EEE.exit.i.i62, !llvm.loop !7
 
 _ZN7nanogui5ArrayIfLm3EEC2Ef.exit.i.i65:          ; preds = %_ZN7nanogui5ArrayIfLm3EEC2IiEERKNS0_IT_Lm3EEE.exit.i.i62
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %2)
@@ -315,7 +315,7 @@ _ZN7nanogui5ArrayIfLm3EEC2Ef.exit.i.i65:          ; preds = %_ZN7nanogui5ArrayIf
   store float %118, ptr %119, align 4
   %120 = add nuw nsw i64 %.06.i.i.i66, 1
   %exitcond.not.i3.i.i67 = icmp eq i64 %120, 3
-  br i1 %exitcond.not.i3.i.i67, label %_ZN7nanogui5ColorC2Eii.exit76, label %113, !llvm.loop !9
+  br i1 %exitcond.not.i3.i.i67, label %_ZN7nanogui5ColorC2Eii.exit76, label %113, !llvm.loop !8
 
 _ZN7nanogui5ColorC2Eii.exit76:                    ; preds = %113
   %.sroa.382.12.vec.insert = insertelement <2 x float> <float poison, float 0x3FD9191920000000>, float %.sroa.2.0.copyload.i.i.i50, i64 0
@@ -457,9 +457,8 @@ attributes #12 = { builtin nounwind }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6, !7}
+!5 = distinct !{!5, !6}
 !6 = !{!"llvm.loop.mustprogress"}
-!7 = !{!"llvm.loop.estimated_trip_count"}
-!8 = distinct !{!8, !6, !7}
-!9 = distinct !{!9, !6, !7}
-!10 = distinct !{!10, !6, !7}
+!7 = distinct !{!7, !6}
+!8 = distinct !{!8, !6}
+!9 = distinct !{!9, !6}

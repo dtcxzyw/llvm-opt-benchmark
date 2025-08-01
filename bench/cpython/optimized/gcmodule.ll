@@ -1412,11 +1412,11 @@ define internal ptr @gc_get_stats(ptr readnone captures(none) %0, ptr readnone c
 .preheader.i:                                     ; preds = %2, %11
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %11 ], [ 0, %2 ]
   %12 = getelementptr [3 x %struct.gc_generation_stats], ptr %3, i64 0, i64 %indvars.iv.i
-  %13 = load i64, ptr %12, align 8, !tbaa !40
+  %13 = load i64, ptr %12, align 8, !tbaa !39
   %14 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  %15 = load i64, ptr %14, align 8, !tbaa !42
+  %15 = load i64, ptr %14, align 8, !tbaa !41
   %16 = getelementptr inbounds nuw i8, ptr %12, i64 16
-  %17 = load i64, ptr %16, align 8, !tbaa !43
+  %17 = load i64, ptr %16, align 8, !tbaa !42
   %18 = tail call ptr (ptr, ...) @Py_BuildValue(ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.32, i64 noundef %13, ptr noundef nonnull @.str.33, i64 noundef %15, ptr noundef nonnull @.str.34, i64 noundef %17) #5
   %19 = icmp eq ptr %18, null
   br i1 %19, label %27, label %20
@@ -1424,13 +1424,13 @@ define internal ptr @gc_get_stats(ptr readnone captures(none) %0, ptr readnone c
 20:                                               ; preds = %.preheader.i
   %21 = tail call i32 @PyList_Append(ptr noundef nonnull %9, ptr noundef nonnull %18) #5
   %.not.i = icmp eq i32 %21, 0
-  %22 = load i32, ptr %18, align 8, !tbaa !44
+  %22 = load i32, ptr %18, align 8, !tbaa !43
   %.not.i.i = icmp sgt i32 %22, -1
   br i1 %.not.i.i, label %23, label %Py_DECREF.exit.i
 
 23:                                               ; preds = %20
   %24 = add nsw i32 %22, -1
-  store i32 %24, ptr %18, align 8, !tbaa !44
+  store i32 %24, ptr %18, align 8, !tbaa !43
   %25 = icmp eq i32 %24, 0
   br i1 %25, label %26, label %Py_DECREF.exit.i
 
@@ -1442,13 +1442,13 @@ Py_DECREF.exit.i:                                 ; preds = %26, %23, %20
   br i1 %.not.i, label %11, label %27
 
 27:                                               ; preds = %Py_DECREF.exit.i, %.preheader.i
-  %28 = load i32, ptr %9, align 8, !tbaa !44
+  %28 = load i32, ptr %9, align 8, !tbaa !43
   %.not.i.i.i = icmp sgt i32 %28, -1
   br i1 %.not.i.i.i, label %29, label %gc_get_stats_impl.exit
 
 29:                                               ; preds = %27
   %30 = add nsw i32 %28, -1
-  store i32 %30, ptr %9, align 8, !tbaa !44
+  store i32 %30, ptr %9, align 8, !tbaa !43
   %31 = icmp eq i32 %30, 0
   br i1 %31, label %32, label %gc_get_stats_impl.exit
 
@@ -1525,13 +1525,13 @@ define internal ptr @gc_get_referrers(ptr readnone captures(none) %0, ptr nounde
 
 gc_get_referrers_impl.exit:                       ; preds = %8, %.split
   %.0.i = phi ptr [ %13, %8 ], [ null, %.split ]
-  %14 = load i32, ptr %4, align 8, !tbaa !44
+  %14 = load i32, ptr %4, align 8, !tbaa !43
   %.not.i.i = icmp sgt i32 %14, -1
   br i1 %.not.i.i, label %15, label %.split6
 
 15:                                               ; preds = %gc_get_referrers_impl.exit
   %16 = add nsw i32 %14, -1
-  store i32 %16, ptr %4, align 8, !tbaa !44
+  store i32 %16, ptr %4, align 8, !tbaa !43
   %17 = icmp eq i32 %16, 0
   br i1 %17, label %18, label %.split6
 
@@ -1580,16 +1580,16 @@ define internal ptr @gc_get_referents(ptr readnone captures(none) %0, ptr nounde
   %19 = getelementptr [1 x ptr], ptr %17, i64 0, i64 %.01328.i.i
   %20 = load ptr, ptr %19, align 8, !tbaa !35
   %21 = getelementptr i8, ptr %20, i64 8
-  %.val.i.i.i = load ptr, ptr %21, align 8, !tbaa !45
+  %.val.i.i.i = load ptr, ptr %21, align 8, !tbaa !44
   %22 = getelementptr i8, ptr %.val.i.i.i, i64 168
-  %.val5.i.i.i = load i64, ptr %22, align 8, !tbaa !46
+  %.val5.i.i.i = load i64, ptr %22, align 8, !tbaa !45
   %23 = and i64 %.val5.i.i.i, 16384
   %.not.i.i.i = icmp eq i64 %23, 0
   br i1 %.not.i.i.i, label %_PyObject_IS_GC.exit.thread.i.i, label %24
 
 24:                                               ; preds = %18
   %25 = getelementptr inbounds nuw i8, ptr %.val.i.i.i, i64 328
-  %26 = load ptr, ptr %25, align 8, !tbaa !53
+  %26 = load ptr, ptr %25, align 8, !tbaa !52
   %27 = icmp eq ptr %26, null
   br i1 %27, label %_PyObject_IS_GC.exit.thread22.i.i, label %_PyObject_IS_GC.exit.i.i
 
@@ -1599,13 +1599,13 @@ _PyObject_IS_GC.exit.i.i:                         ; preds = %24
   br i1 %.not25.i.i, label %_PyObject_IS_GC.exit.thread.i.i, label %_PyObject_IS_GC.exit._PyObject_IS_GC.exit.thread22_crit_edge.i.i
 
 _PyObject_IS_GC.exit._PyObject_IS_GC.exit.thread22_crit_edge.i.i: ; preds = %_PyObject_IS_GC.exit.i.i
-  %.val20.pre.i.i = load ptr, ptr %21, align 8, !tbaa !45
+  %.val20.pre.i.i = load ptr, ptr %21, align 8, !tbaa !44
   br label %_PyObject_IS_GC.exit.thread22.i.i
 
 _PyObject_IS_GC.exit.thread22.i.i:                ; preds = %_PyObject_IS_GC.exit._PyObject_IS_GC.exit.thread22_crit_edge.i.i, %24
   %.val20.i.i = phi ptr [ %.val20.pre.i.i, %_PyObject_IS_GC.exit._PyObject_IS_GC.exit.thread22_crit_edge.i.i ], [ %.val.i.i.i, %24 ]
   %29 = getelementptr inbounds nuw i8, ptr %.val20.i.i, i64 184
-  %30 = load ptr, ptr %29, align 8, !tbaa !54
+  %30 = load ptr, ptr %29, align 8, !tbaa !53
   %.not18.i.i = icmp eq ptr %30, null
   br i1 %.not18.i.i, label %_PyObject_IS_GC.exit.thread.i.i, label %31
 
@@ -1618,7 +1618,7 @@ _PyObject_IS_GC.exit.thread.i.i:                  ; preds = %31, %_PyObject_IS_G
   %33 = add nuw nsw i64 %.01328.i.i, 1
   %.val.i.i = load i64, ptr %16, align 8, !tbaa !29
   %.not.i15.i = icmp slt i64 %33, %.val.i.i
-  br i1 %.not.i15.i, label %18, label %append_referrents.exit.thread.i, !llvm.loop !55
+  br i1 %.not.i15.i, label %18, label %append_referrents.exit.thread.i, !llvm.loop !54
 
 append_referrents.exit.thread.i:                  ; preds = %_PyObject_IS_GC.exit.thread.i.i, %15
   tail call void @_PyEval_StartTheWorld(ptr noundef %12) #5
@@ -1626,13 +1626,13 @@ append_referrents.exit.thread.i:                  ; preds = %_PyObject_IS_GC.exi
 
 34:                                               ; preds = %31
   tail call void @_PyEval_StartTheWorld(ptr noundef %12) #5
-  %35 = load i32, ptr %13, align 8, !tbaa !44
+  %35 = load i32, ptr %13, align 8, !tbaa !43
   %.not.i.i = icmp sgt i32 %35, -1
   br i1 %.not.i.i, label %36, label %gc_get_referents_impl.exit
 
 36:                                               ; preds = %34
   %37 = add nsw i32 %35, -1
-  store i32 %37, ptr %13, align 8, !tbaa !44
+  store i32 %37, ptr %13, align 8, !tbaa !43
   %38 = icmp eq i32 %37, 0
   br i1 %38, label %39, label %gc_get_referents_impl.exit
 
@@ -1642,13 +1642,13 @@ append_referrents.exit.thread.i:                  ; preds = %_PyObject_IS_GC.exi
 
 gc_get_referents_impl.exit:                       ; preds = %39, %36, %34, %append_referrents.exit.thread.i, %8, %.split
   %.0.i = phi ptr [ null, %.split ], [ null, %8 ], [ %13, %append_referrents.exit.thread.i ], [ null, %34 ], [ null, %36 ], [ null, %39 ]
-  %40 = load i32, ptr %4, align 8, !tbaa !44
+  %40 = load i32, ptr %4, align 8, !tbaa !43
   %.not.i.i8 = icmp sgt i32 %40, -1
   br i1 %.not.i.i8, label %41, label %.split6
 
 41:                                               ; preds = %gc_get_referents_impl.exit
   %42 = add nsw i32 %40, -1
-  store i32 %42, ptr %4, align 8, !tbaa !44
+  store i32 %42, ptr %4, align 8, !tbaa !43
   %43 = icmp eq i32 %42, 0
   br i1 %43, label %44, label %.split6
 
@@ -1791,14 +1791,14 @@ define internal range(i32 -1, 1) i32 @gcmodule_exec(ptr noundef %0) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %5 = load ptr, ptr %4, align 8, !tbaa !9
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 7600
-  %7 = load ptr, ptr %6, align 8, !tbaa !56
+  %7 = load ptr, ptr %6, align 8, !tbaa !55
   %8 = tail call i32 @PyModule_AddObjectRef(ptr noundef %0, ptr noundef nonnull @.str.39, ptr noundef %7) #5
   %9 = icmp slt i32 %8, 0
   br i1 %9, label %29, label %10
 
 10:                                               ; preds = %1
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 7608
-  %12 = load ptr, ptr %11, align 8, !tbaa !57
+  %12 = load ptr, ptr %11, align 8, !tbaa !56
   %13 = tail call i32 @PyModule_AddObjectRef(ptr noundef %0, ptr noundef nonnull @.str.40, ptr noundef %12) #5
   %14 = icmp slt i32 %13, 0
   br i1 %14, label %29, label %15
@@ -1883,24 +1883,23 @@ attributes #5 = { nounwind }
 !34 = !{!23, !14, i64 16}
 !35 = !{!16, !16, i64 0}
 !36 = !{!12, !12, i64 0}
-!37 = distinct !{!37, !38, !39}
+!37 = distinct !{!37, !38}
 !38 = !{!"llvm.loop.mustprogress"}
-!39 = !{!"llvm.loop.estimated_trip_count"}
-!40 = !{!41, !12, i64 0}
-!41 = !{!"gc_generation_stats", !12, i64 0, !12, i64 8, !12, i64 16}
-!42 = !{!41, !12, i64 8}
-!43 = !{!41, !12, i64 16}
-!44 = !{!7, !7, i64 0}
-!45 = !{!31, !32, i64 8}
-!46 = !{!47, !12, i64 168}
-!47 = !{!"_typeobject", !30, i64 0, !48, i64 24, !12, i64 32, !12, i64 40, !6, i64 48, !12, i64 56, !6, i64 64, !6, i64 72, !6, i64 80, !6, i64 88, !6, i64 96, !6, i64 104, !6, i64 112, !6, i64 120, !6, i64 128, !6, i64 136, !6, i64 144, !6, i64 152, !6, i64 160, !12, i64 168, !48, i64 176, !6, i64 184, !6, i64 192, !6, i64 200, !12, i64 208, !6, i64 216, !6, i64 224, !49, i64 232, !50, i64 240, !51, i64 248, !32, i64 256, !16, i64 264, !6, i64 272, !6, i64 280, !12, i64 288, !6, i64 296, !6, i64 304, !6, i64 312, !6, i64 320, !6, i64 328, !16, i64 336, !16, i64 344, !16, i64 352, !6, i64 360, !16, i64 368, !6, i64 376, !14, i64 384, !6, i64 392, !6, i64 400, !7, i64 408, !52, i64 410}
-!48 = !{!"p1 omnipotent char", !6, i64 0}
-!49 = !{!"p1 _ZTS11PyMethodDef", !6, i64 0}
-!50 = !{!"p1 _ZTS11PyMemberDef", !6, i64 0}
-!51 = !{!"p1 _ZTS11PyGetSetDef", !6, i64 0}
-!52 = !{!"short", !7, i64 0}
-!53 = !{!47, !6, i64 328}
-!54 = !{!47, !6, i64 184}
-!55 = distinct !{!55, !38, !39}
-!56 = !{!22, !16, i64 200}
-!57 = !{!22, !16, i64 208}
+!39 = !{!40, !12, i64 0}
+!40 = !{!"gc_generation_stats", !12, i64 0, !12, i64 8, !12, i64 16}
+!41 = !{!40, !12, i64 8}
+!42 = !{!40, !12, i64 16}
+!43 = !{!7, !7, i64 0}
+!44 = !{!31, !32, i64 8}
+!45 = !{!46, !12, i64 168}
+!46 = !{!"_typeobject", !30, i64 0, !47, i64 24, !12, i64 32, !12, i64 40, !6, i64 48, !12, i64 56, !6, i64 64, !6, i64 72, !6, i64 80, !6, i64 88, !6, i64 96, !6, i64 104, !6, i64 112, !6, i64 120, !6, i64 128, !6, i64 136, !6, i64 144, !6, i64 152, !6, i64 160, !12, i64 168, !47, i64 176, !6, i64 184, !6, i64 192, !6, i64 200, !12, i64 208, !6, i64 216, !6, i64 224, !48, i64 232, !49, i64 240, !50, i64 248, !32, i64 256, !16, i64 264, !6, i64 272, !6, i64 280, !12, i64 288, !6, i64 296, !6, i64 304, !6, i64 312, !6, i64 320, !6, i64 328, !16, i64 336, !16, i64 344, !16, i64 352, !6, i64 360, !16, i64 368, !6, i64 376, !14, i64 384, !6, i64 392, !6, i64 400, !7, i64 408, !51, i64 410}
+!47 = !{!"p1 omnipotent char", !6, i64 0}
+!48 = !{!"p1 _ZTS11PyMethodDef", !6, i64 0}
+!49 = !{!"p1 _ZTS11PyMemberDef", !6, i64 0}
+!50 = !{!"p1 _ZTS11PyGetSetDef", !6, i64 0}
+!51 = !{!"short", !7, i64 0}
+!52 = !{!46, !6, i64 328}
+!53 = !{!46, !6, i64 184}
+!54 = distinct !{!54, !38}
+!55 = !{!22, !16, i64 200}
+!56 = !{!22, !16, i64 208}

@@ -335,7 +335,7 @@ define dso_local noundef i32 @FuzzerTestOneInput(ptr noundef %0, i64 noundef %1)
 124:                                              ; preds = %124, %123
   %125 = call i32 @SSL_read(ptr noundef %110, ptr noundef nonnull %3, i32 noundef 1024) #5
   %126 = icmp slt i32 %125, 1
-  br i1 %126, label %127, label %124, !llvm.loop !11
+  br i1 %126, label %127, label %124
 
 127:                                              ; preds = %124
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %3) #5
@@ -435,5 +435,3 @@ attributes #6 = { noreturn nounwind }
 !8 = !{!9, !9, i64 0}
 !9 = !{!"p1 _ZTS8_IO_FILE", !10, i64 0}
 !10 = !{!"any pointer", !6, i64 0}
-!11 = distinct !{!11, !12}
-!12 = !{!"llvm.loop.estimated_trip_count"}

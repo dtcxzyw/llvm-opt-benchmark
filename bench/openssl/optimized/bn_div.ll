@@ -132,7 +132,7 @@ define range(i32 0, 2) i32 @bn_div_fixed_top(ptr noundef %0, ptr noundef %1, ptr
 
 bn_left_align.exit:                               ; preds = %32, %17
   %39 = getelementptr inbounds nuw i8, ptr %13, i64 16
-  store i32 0, ptr %39, align 8, !tbaa !16
+  store i32 0, ptr %39, align 8, !tbaa !15
   %40 = tail call i32 @bn_lshift_fixed_top(ptr noundef %12, ptr noundef %2, i32 noundef %24) #3
   %.not151 = icmp eq i32 %40, 0
   br i1 %.not151, label %147, label %41
@@ -191,12 +191,12 @@ bn_left_align.exit:                               ; preds = %32, %17
 
 76:                                               ; preds = %73
   %77 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %78 = load i32, ptr %77, align 8, !tbaa !16
+  %78 = load i32, ptr %77, align 8, !tbaa !15
   %79 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %80 = load i32, ptr %79, align 8, !tbaa !16
+  %80 = load i32, ptr %79, align 8, !tbaa !15
   %81 = xor i32 %80, %78
   %82 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  store i32 %81, ptr %82, align 8, !tbaa !16
+  store i32 %81, ptr %82, align 8, !tbaa !15
   %83 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store i32 %57, ptr %83, align 8, !tbaa !10
   %84 = load ptr, ptr %10, align 8, !tbaa !3
@@ -238,7 +238,7 @@ bn_left_align.exit:                               ; preds = %32, %17
 
 102:                                              ; preds = %97, %99
   %103 = phi i64 [ %101, %99 ], [ 0, %97 ]
-  %104 = tail call { i64, i64 } asm sideeffect "divq   $4", "={ax},={dx},{ax},{dx},r,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %95, i64 %93, i64 %68) #3, !srcloc !17
+  %104 = tail call { i64, i64 } asm sideeffect "divq   $4", "={ax},={dx},{ax},{dx},r,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %95, i64 %93, i64 %68) #3, !srcloc !16
   %105 = extractvalue { i64, i64 } %104, 0
   %106 = extractvalue { i64, i64 } %104, 1
   %107 = zext i64 %105 to i128
@@ -274,7 +274,7 @@ bn_left_align.exit:                               ; preds = %32, %17
   %spec.select = add i64 %.0131161, %120
   %121 = sub i64 %.0132160, %74
   %122 = icmp ult i64 %spec.select, %116
-  br i1 %122, label %.loopexit, label %.lr.ph, !llvm.loop !18
+  br i1 %122, label %.loopexit, label %.lr.ph
 
 .loopexit:                                        ; preds = %.lr.ph, %114, %118, %102, %92
   %.0137 = phi i64 [ -1, %92 ], [ %105, %102 ], [ %.1138158, %.lr.ph ], [ %115, %114 ], [ %115, %118 ]
@@ -304,7 +304,7 @@ bn_left_align.exit:                               ; preds = %32, %17
   store i64 %136, ptr %137, align 8, !tbaa !11
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %133, !llvm.loop !19
+  br i1 %exitcond.not, label %._crit_edge, label %133, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %133, %.loopexit
   %138 = tail call i64 @bn_add_words(ptr noundef nonnull %128, ptr noundef nonnull %128, ptr noundef %.pre, i32 noundef %42) #3
@@ -315,11 +315,11 @@ bn_left_align.exit:                               ; preds = %32, %17
   store i64 %130, ptr %141, align 8, !tbaa !11
   %142 = add nuw nsw i32 %.0129172, 1
   %exitcond177.not = icmp eq i32 %142, %57
-  br i1 %exitcond177.not, label %._crit_edge175, label %92, !llvm.loop !20
+  br i1 %exitcond177.not, label %._crit_edge175, label %92, !llvm.loop !18
 
 ._crit_edge175:                                   ; preds = %._crit_edge, %87
   %143 = getelementptr inbounds nuw i8, ptr %12, i64 16
-  store i32 %78, ptr %143, align 8, !tbaa !16
+  store i32 %78, ptr %143, align 8, !tbaa !15
   store i32 %42, ptr %43, align 8, !tbaa !10
   %.not155 = icmp eq ptr %1, null
   br i1 %.not155, label %148, label %144
@@ -385,11 +385,9 @@ attributes #3 = { nounwind }
 !10 = !{!4, !9, i64 8}
 !11 = !{!12, !12, i64 0}
 !12 = !{!"long", !7, i64 0}
-!13 = distinct !{!13, !14, !15}
+!13 = distinct !{!13, !14}
 !14 = !{!"llvm.loop.mustprogress"}
-!15 = !{!"llvm.loop.estimated_trip_count"}
-!16 = !{!4, !9, i64 16}
-!17 = !{i64 2148771691}
-!18 = distinct !{!18, !15}
-!19 = distinct !{!19, !14, !15}
-!20 = distinct !{!20, !14, !15}
+!15 = !{!4, !9, i64 16}
+!16 = !{i64 2148771691}
+!17 = distinct !{!17, !14}
+!18 = distinct !{!18, !14}

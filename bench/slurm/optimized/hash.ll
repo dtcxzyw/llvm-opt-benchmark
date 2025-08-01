@@ -143,7 +143,7 @@ define dso_local range(i32 -1, 1) i32 @hash_g_init() local_unnamed_addr #0 {
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #8
   %54 = call ptr @strtok_r(ptr noundef null, ptr noundef nonnull @.str.4, ptr noundef nonnull %3) #8
   %.not19 = icmp eq ptr %54, null
-  br i1 %.not19, label %._crit_edge, label %.lr.ph, !llvm.loop !8
+  br i1 %.not19, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %43, %15
   store i8 0, ptr @hash_id_to_inx, align 1
@@ -275,7 +275,7 @@ define dso_local range(i32 -1, 1) i32 @hash_g_fini() local_unnamed_addr #0 {
   %24 = load i32, ptr @g_context_num, align 4
   %25 = sext i32 %24 to i64
   %26 = icmp slt i64 %indvars.iv.next, %25
-  br i1 %26, label %.lr.ph, label %._crit_edge, !llvm.loop !10
+  br i1 %26, label %.lr.ph, label %._crit_edge, !llvm.loop !8
 
 27:                                               ; preds = %._crit_edge, %4
   %.3 = phi i32 [ %.0.lcssa, %._crit_edge ], [ 0, %4 ]
@@ -354,8 +354,6 @@ attributes #10 = { noreturn nounwind }
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i32 7, !"frame-pointer", i32 2}
 !7 = !{i32 7, !"debug-info-assignment-tracking", i1 true}
-!8 = distinct !{!8, !9}
-!9 = !{!"llvm.loop.estimated_trip_count"}
-!10 = distinct !{!10, !11, !12, !9}
-!11 = !{!"llvm.loop.mustprogress"}
-!12 = !{!"llvm.loop.unroll.disable"}
+!8 = distinct !{!8, !9, !10}
+!9 = !{!"llvm.loop.mustprogress"}
+!10 = !{!"llvm.loop.unroll.disable"}

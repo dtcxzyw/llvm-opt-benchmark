@@ -65,7 +65,7 @@ define i64 @wcslcat(ptr noundef %0, ptr noundef %1, i64 noundef %2) local_unname
   %23 = getelementptr inbounds nuw i8, ptr %.02439, i64 4
   %24 = load i32, ptr %23, align 4
   %.not31 = icmp eq i32 %24, 0
-  br i1 %.not31, label %._crit_edge, label %.lr.ph41, !llvm.loop !9
+  br i1 %.not31, label %._crit_edge, label %.lr.ph41, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %22, %.preheader
   %.126.lcssa = phi ptr [ %.025.lcssa, %.preheader ], [ %.227, %22 ]
@@ -98,7 +98,6 @@ attributes #2 = { nounwind willreturn memory(read) }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
+!8 = distinct !{!8, !7}

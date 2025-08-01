@@ -68,7 +68,7 @@ define ptr @ossl_bsearch(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 nou
   %28 = getelementptr inbounds i8, ptr %1, i64 %27
   %29 = tail call i32 %4(ptr noundef %0, ptr noundef %28) #1
   %30 = icmp eq i32 %29, 0
-  br i1 %30, label %.preheader, label %.critedge.split.loop.exit80, !llvm.loop !6
+  br i1 %30, label %.preheader, label %.critedge.split.loop.exit80, !llvm.loop !5
 
 .critedge.split.loop.exit80:                      ; preds = %26
   %31 = trunc nuw nsw i64 %indvars.iv to i32
@@ -94,7 +94,6 @@ attributes #1 = { nounwind }
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = distinct !{!3, !4, !5}
+!3 = distinct !{!3, !4}
 !4 = !{!"llvm.loop.mustprogress"}
-!5 = !{!"llvm.loop.estimated_trip_count"}
-!6 = distinct !{!6, !4, !5}
+!5 = distinct !{!5, !4}

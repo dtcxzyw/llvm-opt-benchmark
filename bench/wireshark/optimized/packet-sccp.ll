@@ -1770,7 +1770,7 @@ define hidden nonnull ptr @get_sccp_assoc(ptr noundef %0, i32 noundef %1, ptr no
   %262 = getelementptr inbounds nuw i8, ptr %.0123, i64 48
   %.0 = load ptr, ptr %262, align 8
   %.not117 = icmp eq ptr %.0, null
-  br i1 %.not117, label %.loopexit, label %.lr.ph, !llvm.loop !11
+  br i1 %.not117, label %.loopexit, label %.lr.ph, !llvm.loop !10
 
 .loopexit.sink.split:                             ; preds = %257, %236, %238
   %.0123.lcssa.sink = phi ptr [ %223, %238 ], [ %223, %236 ], [ %.0123, %257 ]
@@ -2049,12 +2049,12 @@ define internal void @sccp_users_user_set_cb(ptr noundef writeonly captures(none
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load ptr, ptr %15, align 8
   %.not = icmp eq ptr %16, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !12
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !11
 
 .lr.ph:                                           ; preds = %.lr.ph22
   %17 = tail call i32 @g_str_equal(ptr noundef nonnull %16, ptr noundef %7)
   %.not13 = icmp eq i32 %17, 0
-  br i1 %.not13, label %.lr.ph22, label %.lr.ph._crit_edge, !llvm.loop !12
+  br i1 %.not13, label %.lr.ph22, label %.lr.ph._crit_edge, !llvm.loop !11
 
 .lr.ph._crit_edge:                                ; preds = %.lr.ph, %.lr.ph.preheader
   %.lcssa = phi ptr [ %3, %.lr.ph.preheader ], [ %14, %.lr.ph ]
@@ -2089,12 +2089,12 @@ define internal void @sccp_users_user_tostr_cb(ptr noundef readonly captures(non
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load ptr, ptr %15, align 8
   %.not = icmp eq ptr %16, null
-  br i1 %.not, label %._crit_edge, label %17, !llvm.loop !13
+  br i1 %.not, label %._crit_edge, label %17, !llvm.loop !12
 
 17:                                               ; preds = %.lr.ph20
   %18 = load i32, ptr %14, align 8
   %19 = icmp eq i32 %18, %9
-  br i1 %19, label %._crit_edge21, label %.lr.ph20, !llvm.loop !13
+  br i1 %19, label %._crit_edge21, label %.lr.ph20, !llvm.loop !12
 
 ._crit_edge21:                                    ; preds = %17, %.lr.ph
   %.lcssa = phi ptr [ %7, %.lr.ph ], [ %16, %17 ]
@@ -2198,7 +2198,7 @@ define internal noundef zeroext i1 @sccp_users_update_cb(ptr noundef captures(no
   %20 = getelementptr i8, ptr %.0212431, i64 16
   %21 = load i32, ptr %20, align 8
   %22 = icmp eq i32 %21, %17
-  br i1 %22, label %._crit_edge, label %.lr.ph, !llvm.loop !14
+  br i1 %22, label %._crit_edge, label %.lr.ph, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %19, %15
   %.lcssa = phi ptr [ @data_handle, %15 ], [ %28, %19 ]
@@ -2216,7 +2216,7 @@ define internal noundef zeroext i1 @sccp_users_update_cb(ptr noundef captures(no
   %27 = getelementptr i8, ptr %.0212431, i64 24
   %28 = load ptr, ptr %27, align 8
   %.not = icmp eq ptr %28, null
-  br i1 %.not, label %29, label %19, !llvm.loop !14
+  br i1 %.not, label %29, label %19, !llvm.loop !13
 
 29:                                               ; preds = %.lr.ph
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 28
@@ -3047,7 +3047,7 @@ dissect_sccp_parameter.exit711.i:                 ; preds = %473, %dissect_sccp_
   %488 = add i32 %485, %487
   %489 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %488)
   %.not.i727.i = icmp eq i8 %489, 0
-  br i1 %.not.i727.i, label %dissect_sccp_optional_parameters.exit.i, label %.lr.ph.i.i, !llvm.loop !15
+  br i1 %.not.i727.i, label %dissect_sccp_optional_parameters.exit.i, label %.lr.ph.i.i, !llvm.loop !14
 
 dissect_sccp_optional_parameters.exit.i:          ; preds = %.lr.ph.i.i, %480
   %.0.lcssa.i.i = phi i32 [ %482, %480 ], [ %488, %.lr.ph.i.i ]
@@ -3784,7 +3784,7 @@ proto_item_set_generated.exit.i111:               ; preds = %54, %51, %43
   %255 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %254, ptr noundef %12, i32 noundef %253, i32 noundef 1, i32 noundef 0)
   %256 = add nuw nsw i32 %.134.i, 2
   %257 = icmp samesign ult i32 %256, %11
-  br i1 %257, label %.lr.ph.i, label %dissect_sccp_dlr_param.exit, !llvm.loop !16
+  br i1 %257, label %.lr.ph.i, label %dissect_sccp_dlr_param.exit, !llvm.loop !15
 
 258:                                              ; preds = %10
   %259 = load i32, ptr @hf_sccp_unknown_parameter, align 4
@@ -3946,7 +3946,7 @@ proto_item_set_generated.exit53:                  ; preds = %68, %69, %72
   %76 = getelementptr inbounds nuw i8, ptr %.054, i64 48
   %77 = load ptr, ptr %76, align 8
   %.not44 = icmp eq ptr %77, null
-  br i1 %.not44, label %.loopexit, label %41, !llvm.loop !17
+  br i1 %.not44, label %.loopexit, label %41, !llvm.loop !16
 
 .loopexit:                                        ; preds = %proto_item_set_generated.exit53, %proto_item_set_generated.exit50, %8, %5
   ret void
@@ -4269,7 +4269,7 @@ define internal fastcc void @dissect_sccp_data_param(ptr noundef %0, ptr noundef
   %indvars.iv.next127 = add nuw nsw i64 %indvars.iv126, 1
   %59 = zext i32 %57 to i64
   %60 = icmp samesign ult i64 %indvars.iv.next127, %59
-  br i1 %60, label %.lr.ph.split.split.us, label %.critedge, !llvm.loop !18
+  br i1 %60, label %.lr.ph.split.split.us, label %.critedge, !llvm.loop !17
 
 .lr.ph.split.split:                               ; preds = %.lr.ph.split, %83
   %indvars.iv = phi i64 [ %indvars.iv.next, %83 ], [ 0, %.lr.ph.split ]
@@ -4311,7 +4311,7 @@ define internal fastcc void @dissect_sccp_data_param(ptr noundef %0, ptr noundef
   %84 = load i32, ptr @num_sccp_users, align 4
   %85 = zext i32 %84 to i64
   %86 = icmp samesign ult i64 %indvars.iv.next, %85
-  br i1 %86, label %.lr.ph.split.split, label %.critedge, !llvm.loop !20
+  br i1 %86, label %.lr.ph.split.split, label %.critedge, !llvm.loop !19
 
 .split.us:                                        ; preds = %70, %78, %48
   %.us-phi = phi ptr [ %40, %48 ], [ %62, %78 ], [ %62, %70 ]
@@ -4440,7 +4440,7 @@ define internal fastcc void @dissect_xudt_common(ptr noundef %0, ptr noundef %1,
   %50 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %49)
   %51 = and i8 %50, -17
   %or.cond = icmp eq i8 %51, 0
-  br i1 %or.cond, label %._crit_edge, label %.lr.ph, !llvm.loop !21
+  br i1 %or.cond, label %._crit_edge, label %.lr.ph, !llvm.loop !20
 
 ._crit_edge:                                      ; preds = %.lr.ph, %8
   %.lcssa = phi i32 [ %40, %8 ], [ %49, %.lr.ph ]
@@ -5150,7 +5150,7 @@ define internal fastcc void @dissect_sccp_global_title(ptr noundef %0, ptr nound
   %97 = call i64 @g_strlcat(ptr noundef %86, ptr noundef %96, i64 noundef 225)
   %98 = add nuw i32 %.056.us.i, 1
   %exitcond59.not.i = icmp eq i32 %98, %82
-  br i1 %exitcond59.not.i, label %._crit_edge.i, label %.lr.ph.split.us.i, !llvm.loop !22
+  br i1 %exitcond59.not.i, label %._crit_edge.i, label %.lr.ph.split.us.i, !llvm.loop !21
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i, %110
   %.056.i = phi i32 [ %111, %110 ], [ 0, %.lr.ph.i ]
@@ -5173,7 +5173,7 @@ define internal fastcc void @dissect_sccp_global_title(ptr noundef %0, ptr nound
 110:                                              ; preds = %105, %.lr.ph.split.i
   %111 = add nuw i32 %.056.i, 1
   %exitcond.not.i = icmp eq i32 %111, %82
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.split.i, !llvm.loop !23
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.split.i, !llvm.loop !22
 
 ._crit_edge.i:                                    ; preds = %110, %.lr.ph.split.us.i, %81
   %112 = load i8, ptr %6, align 8
@@ -5368,19 +5368,18 @@ attributes #13 = { nounwind willreturn memory(read) }
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i8 0, i8 2}
 !7 = !{}
-!8 = distinct !{!8, !9, !10}
+!8 = distinct !{!8, !9}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = !{!"llvm.loop.estimated_trip_count"}
-!11 = distinct !{!11, !9, !10}
-!12 = distinct !{!12, !9, !10}
-!13 = distinct !{!13, !9, !10}
-!14 = distinct !{!14, !9, !10}
-!15 = distinct !{!15, !9, !10}
-!16 = distinct !{!16, !9, !10}
-!17 = distinct !{!17, !9, !10}
-!18 = distinct !{!18, !9, !10, !19}
-!19 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!20 = distinct !{!20, !9, !10}
-!21 = distinct !{!21, !9, !10}
-!22 = distinct !{!22, !9, !10, !19}
-!23 = distinct !{!23, !9, !10}
+!10 = distinct !{!10, !9}
+!11 = distinct !{!11, !9}
+!12 = distinct !{!12, !9}
+!13 = distinct !{!13, !9}
+!14 = distinct !{!14, !9}
+!15 = distinct !{!15, !9}
+!16 = distinct !{!16, !9}
+!17 = distinct !{!17, !9, !18}
+!18 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!19 = distinct !{!19, !9}
+!20 = distinct !{!20, !9}
+!21 = distinct !{!21, !9, !18}
+!22 = distinct !{!22, !9}

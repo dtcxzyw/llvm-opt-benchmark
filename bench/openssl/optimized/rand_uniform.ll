@@ -90,7 +90,7 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 define i32 @ossl_rand_range_uint32(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef writeonly captures(none) %3) local_unnamed_addr #0 {
   %5 = alloca i32, align 4
   %6 = icmp ult i32 %1, %2
-  br i1 %6, label %8, label %7, !prof !12
+  br i1 %6, label %8, label %7, !prof !11
 
 7:                                                ; preds = %4
   store i32 1, ptr %3, align 4, !tbaa !4
@@ -191,7 +191,6 @@ attributes #3 = { nounwind }
 !6 = !{!"omnipotent char", !7, i64 0}
 !7 = !{!"Simple C/C++ TBAA"}
 !8 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!9 = distinct !{!9, !10, !11}
+!9 = distinct !{!9, !10}
 !10 = !{!"llvm.loop.mustprogress"}
-!11 = !{!"llvm.loop.estimated_trip_count"}
-!12 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!11 = !{!"branch_weights", !"expected", i32 2000, i32 1}

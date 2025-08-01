@@ -443,7 +443,7 @@ define void @_ZN5folly17ShutdownSocketSet8shutdownENS_13NetworkSocketEb(ptr noun
 
 19:                                               ; preds = %17, %15
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %21 = load i32, ptr %20, align 8, !tbaa !35
+  %21 = load i32, ptr %20, align 8, !tbaa !34
   %22 = call noundef i32 @_ZN5folly9dup2NoIntEii(i32 noundef %21, i32 noundef %1)
   br label %_ZN5folly17ShutdownSocketSet10doShutdownENS_13NetworkSocketEb.exit
 
@@ -469,7 +469,7 @@ _ZN5folly6detail19relaxed_atomic_baseIhE23compare_exchange_strongERhh.exit: ; pr
 
 32:                                               ; preds = %30, %28
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %34 = load i32, ptr %33, align 8, !tbaa !35
+  %34 = load i32, ptr %33, align 8, !tbaa !34
   %35 = call noundef i32 @_ZN5folly9dup2NoIntEii(i32 noundef %34, i32 noundef %1)
   br label %_ZN5folly17ShutdownSocketSet10doShutdownENS_13NetworkSocketEb.exit19
 
@@ -482,11 +482,11 @@ _ZN5folly17ShutdownSocketSet10doShutdownENS_13NetworkSocketEb.exit19: ; preds = 
   %39 = extractvalue { i8, i1 } %36, 0
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #14
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %8) #14
-  store i8 %39, ptr %8, align 1, !tbaa !36
+  store i8 %39, ptr %8, align 1, !tbaa !35
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %9) #14
-  store i8 4, ptr %9, align 1, !tbaa !37
+  store i8 4, ptr %9, align 1, !tbaa !36
   %40 = icmp eq i8 %39, 4
-  br i1 %40, label %_ZN6google12Check_EQImplIhN5folly17ShutdownSocketSet5StateEEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit.thread, label %_ZN6google12Check_EQImplIhN5folly17ShutdownSocketSet5StateEEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit, !prof !39
+  br i1 %40, label %_ZN6google12Check_EQImplIhN5folly17ShutdownSocketSet5StateEEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit.thread, label %_ZN6google12Check_EQImplIhN5folly17ShutdownSocketSet5StateEEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit, !prof !38
 
 _ZN6google12Check_EQImplIhN5folly17ShutdownSocketSet5StateEEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit.thread: ; preds = %38
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9) #14
@@ -495,7 +495,7 @@ _ZN6google12Check_EQImplIhN5folly17ShutdownSocketSet5StateEEEPNSt7__cxx1112basic
 
 _ZN6google12Check_EQImplIhN5folly17ShutdownSocketSet5StateEEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit: ; preds = %38
   %41 = call noundef ptr @_ZN6google17MakeCheckOpStringIhN5folly17ShutdownSocketSet5StateEEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc(ptr noundef nonnull align 1 dereferenceable(1) %8, ptr noundef nonnull align 1 dereferenceable(1) %9, ptr noundef nonnull @.str.8)
-  store ptr %41, ptr %7, align 8, !tbaa !40
+  store ptr %41, ptr %7, align 8, !tbaa !39
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9) #14
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8) #14
   %.not34 = icmp eq ptr %41, null
@@ -604,7 +604,7 @@ define void @_ZN5folly17ShutdownSocketSet10doShutdownENS_13NetworkSocketEb(ptr n
 
 8:                                                ; preds = %6, %3
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %10 = load i32, ptr %9, align 8, !tbaa !35
+  %10 = load i32, ptr %9, align 8, !tbaa !34
   %11 = call noundef i32 @_ZN5folly9dup2NoIntEii(i32 noundef %10, i32 noundef %1)
   br label %12
 
@@ -618,7 +618,7 @@ define linkonce_odr noundef ptr @_ZN6google17MakeCheckOpStringIhN5folly17Shutdow
   %5 = alloca %"class.google::base::CheckOpMessageBuilder", align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #14
   call void @_ZN6google4base21CheckOpMessageBuilderC1EPKc(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef %2)
-  %6 = load ptr, ptr %5, align 8, !tbaa !43
+  %6 = load ptr, ptr %5, align 8, !tbaa !42
   invoke void @_ZN6google22MakeCheckOpValueStringIhEEvPSoRKT_(ptr noundef %6, ptr noundef nonnull align 1 dereferenceable(1) %0)
           to label %7 unwind label %24
 
@@ -627,15 +627,15 @@ define linkonce_odr noundef ptr @_ZN6google17MakeCheckOpStringIhN5folly17Shutdow
           to label %9 unwind label %24
 
 9:                                                ; preds = %7
-  %10 = load i8, ptr %1, align 1, !tbaa !37
+  %10 = load i8, ptr %1, align 1, !tbaa !36
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
-  store i8 %10, ptr %4, align 1, !tbaa !36
+  store i8 %10, ptr %4, align 1, !tbaa !35
   %11 = load ptr, ptr %8, align 8, !tbaa !24
   %12 = getelementptr i8, ptr %11, i64 -24
   %13 = load i64, ptr %12, align 8
   %14 = getelementptr inbounds i8, ptr %8, i64 %13
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 16
-  %16 = load i64, ptr %15, align 8, !tbaa !46
+  %16 = load i64, ptr %15, align 8, !tbaa !45
   %.not.i.i.i = icmp eq i64 %16, 0
   br i1 %.not.i.i.i, label %19, label %17
 
@@ -701,7 +701,7 @@ define void @_ZN5folly17ShutdownSocketSet11shutdownAllEb(ptr noundef nonnull rea
   %14 = phi i64 [ %.pre, %11 ], [ %6, %5 ]
   %15 = add nuw i64 %.06, 1
   %16 = icmp ult i64 %15, %14
-  br i1 %16, label %5, label %._crit_edge, !llvm.loop !55
+  br i1 %16, label %5, label %._crit_edge, !llvm.loop !54
 }
 
 declare noundef i32 @_ZN5folly13shutdownNoIntENS_13NetworkSocketEi(i32, i32 noundef) local_unnamed_addr #1
@@ -766,27 +766,26 @@ attributes #17 = { nounwind willreturn memory(none) }
 !29 = !{!"_ZTS8timespec", !9, i64 0, !9, i64 8}
 !30 = !{!29, !9, i64 8}
 !31 = !{!21, !21, i64 0}
-!32 = distinct !{!32, !33, !34}
+!32 = distinct !{!32, !33}
 !33 = !{!"llvm.loop.mustprogress"}
-!34 = !{!"llvm.loop.estimated_trip_count"}
-!35 = !{!20, !21, i64 0}
-!36 = !{!10, !10, i64 0}
-!37 = !{!38, !38, i64 0}
-!38 = !{!"_ZTSN5folly17ShutdownSocketSet5StateE", !10, i64 0}
-!39 = !{!"branch_weights", !"expected", i32 2000, i32 1}
-!40 = !{!41, !42, i64 0}
-!41 = !{!"_ZTSN6google13CheckOpStringE", !42, i64 0}
-!42 = !{!"p1 _ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE", !19, i64 0}
-!43 = !{!44, !45, i64 0}
-!44 = !{!"_ZTSN6google4base21CheckOpMessageBuilderE", !45, i64 0}
-!45 = !{!"p1 _ZTSNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE", !19, i64 0}
-!46 = !{!47, !9, i64 16}
-!47 = !{!"_ZTSSt8ios_base", !9, i64 8, !9, i64 16, !48, i64 24, !49, i64 28, !49, i64 32, !50, i64 40, !51, i64 48, !10, i64 64, !21, i64 192, !52, i64 200, !53, i64 208}
-!48 = !{!"_ZTSSt13_Ios_Fmtflags", !10, i64 0}
-!49 = !{!"_ZTSSt12_Ios_Iostate", !10, i64 0}
-!50 = !{!"p1 _ZTSNSt8ios_base14_Callback_listE", !19, i64 0}
-!51 = !{!"_ZTSNSt8ios_base6_WordsE", !19, i64 0, !9, i64 8}
-!52 = !{!"p1 _ZTSNSt8ios_base6_WordsE", !19, i64 0}
-!53 = !{!"_ZTSSt6locale", !54, i64 0}
-!54 = !{!"p1 _ZTSNSt6locale5_ImplE", !19, i64 0}
-!55 = distinct !{!55, !33, !34}
+!34 = !{!20, !21, i64 0}
+!35 = !{!10, !10, i64 0}
+!36 = !{!37, !37, i64 0}
+!37 = !{!"_ZTSN5folly17ShutdownSocketSet5StateE", !10, i64 0}
+!38 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!39 = !{!40, !41, i64 0}
+!40 = !{!"_ZTSN6google13CheckOpStringE", !41, i64 0}
+!41 = !{!"p1 _ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE", !19, i64 0}
+!42 = !{!43, !44, i64 0}
+!43 = !{!"_ZTSN6google4base21CheckOpMessageBuilderE", !44, i64 0}
+!44 = !{!"p1 _ZTSNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE", !19, i64 0}
+!45 = !{!46, !9, i64 16}
+!46 = !{!"_ZTSSt8ios_base", !9, i64 8, !9, i64 16, !47, i64 24, !48, i64 28, !48, i64 32, !49, i64 40, !50, i64 48, !10, i64 64, !21, i64 192, !51, i64 200, !52, i64 208}
+!47 = !{!"_ZTSSt13_Ios_Fmtflags", !10, i64 0}
+!48 = !{!"_ZTSSt12_Ios_Iostate", !10, i64 0}
+!49 = !{!"p1 _ZTSNSt8ios_base14_Callback_listE", !19, i64 0}
+!50 = !{!"_ZTSNSt8ios_base6_WordsE", !19, i64 0, !9, i64 8}
+!51 = !{!"p1 _ZTSNSt8ios_base6_WordsE", !19, i64 0}
+!52 = !{!"_ZTSSt6locale", !53, i64 0}
+!53 = !{!"p1 _ZTSNSt6locale5_ImplE", !19, i64 0}
+!54 = distinct !{!54, !33}

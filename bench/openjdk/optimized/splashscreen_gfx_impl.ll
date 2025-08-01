@@ -46,12 +46,12 @@ define hidden void @initDither(ptr noundef writeonly captures(none) initializes(
   store i32 %20, ptr %21, align 4
   %indvars.iv.next26 = add nuw nsw i64 %indvars.iv25, 1
   %exitcond28.not = icmp eq i64 %indvars.iv.next26, 16
-  br i1 %exitcond28.not, label %22, label %16, !llvm.loop !9
+  br i1 %exitcond28.not, label %22, label %16, !llvm.loop !8
 
 22:                                               ; preds = %16
   %indvars.iv.next30 = add nuw nsw i64 %indvars.iv29, 1
   %exitcond32.not = icmp eq i64 %indvars.iv.next30, 16
-  br i1 %exitcond32.not, label %23, label %.preheader, !llvm.loop !10
+  br i1 %exitcond32.not, label %23, label %.preheader, !llvm.loop !9
 
 23:                                               ; preds = %22
   ret void
@@ -145,7 +145,7 @@ define hidden i32 @quantizeColors(i32 noundef %0, ptr noundef captures(none) ini
   %.pre = load i32, ptr %1, align 4
   %.pre63 = load i32, ptr %4, align 4
   %.pre64 = load i32, ptr %3, align 4
-  br label %5, !llvm.loop !11
+  br label %5
 
 56:                                               ; preds = %50
   %57 = mul nsw i32 %7, %8
@@ -226,7 +226,7 @@ define hidden void @initColorCube(ptr noundef readonly captures(none) %0, ptr no
   %48 = add nuw nsw i32 %.02655, 1
   %49 = load i32, ptr %0, align 4
   %50 = icmp slt i32 %48, %49
-  br i1 %50, label %23, label %._crit_edge.loopexit, !llvm.loop !12
+  br i1 %50, label %23, label %._crit_edge.loopexit, !llvm.loop !10
 
 ._crit_edge.loopexit:                             ; preds = %23
   %51 = trunc nsw i64 %indvars.iv.next to i32
@@ -239,7 +239,7 @@ define hidden void @initColorCube(ptr noundef readonly captures(none) %0, ptr no
   %.2.lcssa = phi i32 [ %.158, %.preheader ], [ %51, %._crit_edge.loopexit ]
   %54 = add nuw nsw i32 %.02757, 1
   %55 = icmp slt i32 %54, %52
-  br i1 %55, label %.preheader, label %._crit_edge59.loopexit, !llvm.loop !13
+  br i1 %55, label %.preheader, label %._crit_edge59.loopexit, !llvm.loop !11
 
 ._crit_edge59.loopexit:                           ; preds = %._crit_edge
   %.pre69 = load i32, ptr %5, align 4
@@ -252,7 +252,7 @@ define hidden void @initColorCube(ptr noundef readonly captures(none) %0, ptr no
   %.1.lcssa = phi i32 [ %.062, %.preheader54 ], [ %.2.lcssa, %._crit_edge59.loopexit ], [ %.062, %.preheader.lr.ph ]
   %59 = add nuw nsw i32 %.02861, 1
   %60 = icmp slt i32 %59, %56
-  br i1 %60, label %.preheader54, label %._crit_edge63, !llvm.loop !15
+  br i1 %60, label %.preheader54, label %._crit_edge63, !llvm.loop !13
 
 ._crit_edge63:                                    ; preds = %._crit_edge59, %.preheader54.lr.ph, %4
   %61 = load i32, ptr %0, align 4
@@ -293,12 +293,12 @@ define hidden void @initColorCube(ptr noundef readonly captures(none) %0, ptr no
   store i32 %77, ptr %78, align 4
   %indvars.iv.next26.i = add nuw nsw i64 %indvars.iv25.i, 1
   %exitcond28.not.i = icmp eq i64 %indvars.iv.next26.i, 16
-  br i1 %exitcond28.not.i, label %79, label %73, !llvm.loop !9
+  br i1 %exitcond28.not.i, label %79, label %73, !llvm.loop !8
 
 79:                                               ; preds = %73
   %indvars.iv.next30.i = add nuw nsw i64 %indvars.iv29.i, 1
   %exitcond32.not.i = icmp eq i64 %indvars.iv.next30.i, 16
-  br i1 %exitcond32.not.i, label %initDither.exit, label %.preheader.i, !llvm.loop !10
+  br i1 %exitcond32.not.i, label %initDither.exit, label %.preheader.i, !llvm.loop !9
 
 initDither.exit:                                  ; preds = %79
   %80 = getelementptr inbounds nuw i8, ptr %2, i64 3076
@@ -343,12 +343,12 @@ initDither.exit:                                  ; preds = %79
   store i32 %100, ptr %101, align 4
   %indvars.iv.next26.i37 = add nuw nsw i64 %indvars.iv25.i36, 1
   %exitcond28.not.i38 = icmp eq i64 %indvars.iv.next26.i37, 16
-  br i1 %exitcond28.not.i38, label %102, label %96, !llvm.loop !9
+  br i1 %exitcond28.not.i38, label %102, label %96, !llvm.loop !8
 
 102:                                              ; preds = %96
   %indvars.iv.next30.i39 = add nuw nsw i64 %indvars.iv29.i35, 1
   %exitcond32.not.i40 = icmp eq i64 %indvars.iv.next30.i39, 16
-  br i1 %exitcond32.not.i40, label %initDither.exit41, label %.preheader.i34, !llvm.loop !10
+  br i1 %exitcond32.not.i40, label %initDither.exit41, label %.preheader.i34, !llvm.loop !9
 
 initDither.exit41:                                ; preds = %102
   %103 = getelementptr inbounds nuw i8, ptr %2, i64 6152
@@ -394,12 +394,12 @@ initDither.exit41:                                ; preds = %102
   store i32 %124, ptr %125, align 4
   %indvars.iv.next26.i49 = add nuw nsw i64 %indvars.iv25.i48, 1
   %exitcond28.not.i50 = icmp eq i64 %indvars.iv.next26.i49, 16
-  br i1 %exitcond28.not.i50, label %126, label %120, !llvm.loop !9
+  br i1 %exitcond28.not.i50, label %126, label %120, !llvm.loop !8
 
 126:                                              ; preds = %120
   %indvars.iv.next30.i51 = add nuw nsw i64 %indvars.iv29.i47, 1
   %exitcond32.not.i52 = icmp eq i64 %indvars.iv.next30.i51, 16
-  br i1 %exitcond32.not.i52, label %initDither.exit53, label %.preheader.i46, !llvm.loop !10
+  br i1 %exitcond32.not.i52, label %initDither.exit53, label %.preheader.i46, !llvm.loop !9
 
 initDither.exit53:                                ; preds = %126
   ret void
@@ -453,7 +453,7 @@ define hidden void @convertLine(ptr noundef readonly captures(none) %0, i32 noun
   %28 = getelementptr inbounds i8, ptr %.04976, i64 %23
   %29 = add nuw nsw i32 %.05375, 1
   %exitcond82.not = icmp eq i32 %29, %4
-  br i1 %exitcond82.not, label %.loopexit, label %24, !llvm.loop !16
+  br i1 %exitcond82.not, label %.loopexit, label %24, !llvm.loop !14
 
 30:                                               ; preds = %.lr.ph73, %35
   %.172 = phi ptr [ %0, %.lr.ph73 ], [ %36, %35 ]
@@ -475,7 +475,7 @@ define hidden void @convertLine(ptr noundef readonly captures(none) %0, i32 noun
   %37 = getelementptr inbounds i8, ptr %.15071, i64 %20
   %38 = add nuw nsw i32 %.15470, 1
   %exitcond81.not = icmp eq i32 %38, %4
-  br i1 %exitcond81.not, label %.loopexit, label %30, !llvm.loop !17
+  br i1 %exitcond81.not, label %.loopexit, label %30, !llvm.loop !15
 
 39:                                               ; preds = %.lr.ph, %39
   %.268 = phi ptr [ %0, %.lr.ph ], [ %76, %39 ]
@@ -525,7 +525,7 @@ define hidden void @convertLine(ptr noundef readonly captures(none) %0, i32 noun
   %78 = getelementptr inbounds i8, ptr %.05266, i64 %17
   %79 = add nuw nsw i32 %.25565, 1
   %exitcond.not = icmp eq i32 %79, %4
-  br i1 %exitcond.not, label %.loopexit, label %39, !llvm.loop !18
+  br i1 %exitcond.not, label %.loopexit, label %39, !llvm.loop !16
 
 .loopexit:                                        ; preds = %39, %35, %24, %.preheader62, %.preheader60, %.preheader, %13
   ret void
@@ -1066,7 +1066,7 @@ define hidden i32 @convertRect(ptr noundef readonly captures(none) %0, ptr nound
   %37 = add nsw i32 %36, %.071.us.i
   %38 = add nuw nsw i32 %.04770.us.i, 1
   %exitcond73.not.i = icmp eq i32 %38, %spec.select.i
-  br i1 %exitcond73.not.i, label %convertRect2.exit, label %.thread.us.i, !llvm.loop !19
+  br i1 %exitcond73.not.i, label %convertRect2.exit, label %.thread.us.i, !llvm.loop !17
 
 convertRect2.exit:                                ; preds = %.thread.us.i, %.._crit_edge_crit_edge.i
   %39 = phi i32 [ %.pre.i, %.._crit_edge_crit_edge.i ], [ %30, %.thread.us.i ]
@@ -1161,7 +1161,7 @@ define hidden i32 @convertRect2(ptr noundef readonly captures(none) %0, ptr noun
   %57 = add nsw i32 %56, %.071.us
   %58 = add nuw nsw i32 %.04770.us, 1
   %exitcond73.not = icmp eq i32 %58, %spec.select
-  br i1 %exitcond73.not, label %._crit_edge, label %.thread.us, !llvm.loop !19
+  br i1 %exitcond73.not, label %._crit_edge, label %.thread.us, !llvm.loop !17
 
 .thread:                                          ; preds = %.thread.preheader, %.thread
   %.071 = phi i32 [ %75, %.thread ], [ %24, %.thread.preheader ]
@@ -1189,7 +1189,7 @@ define hidden i32 @convertRect2(ptr noundef readonly captures(none) %0, ptr noun
   %75 = add nsw i32 %74, %.071
   %76 = add nuw nsw i32 %.04770, 1
   %exitcond.not = icmp eq i32 %76, %spec.select66
-  br i1 %exitcond.not, label %._crit_edge, label %.thread, !llvm.loop !21
+  br i1 %exitcond.not, label %._crit_edge, label %.thread, !llvm.loop !19
 
 ._crit_edge:                                      ; preds = %.thread, %.thread.us, %.._crit_edge_crit_edge
   %.15578 = phi i32 [ %.15579, %.._crit_edge_crit_edge ], [ %spec.select, %.thread.us ], [ %spec.select66, %.thread ]
@@ -1241,7 +1241,7 @@ define hidden i32 @fillRect(i32 noundef %0, ptr noundef readonly captures(none) 
   %23 = getelementptr inbounds i8, ptr %.01011.i.us, i64 %20
   %24 = add nuw nsw i32 %.013.i.us, 1
   %exitcond.not.i.us = icmp eq i32 %24, %5
-  br i1 %exitcond.not.i.us, label %fillLine.exit.loopexit.us, label %21, !llvm.loop !22
+  br i1 %exitcond.not.i.us, label %fillLine.exit.loopexit.us, label %21, !llvm.loop !20
 
 fillLine.exit.loopexit.us:                        ; preds = %21
   %25 = load i32, ptr %11, align 8
@@ -1251,7 +1251,7 @@ fillLine.exit.loopexit.us:                        ; preds = %21
   %29 = add nsw i32 %28, %.024.us
   %30 = add nuw nsw i32 %.01923.us, 1
   %exitcond.not = icmp eq i32 %30, %3
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.i.us, !llvm.loop !23
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.i.us, !llvm.loop !21
 
 ._crit_edge:                                      ; preds = %fillLine.exit.loopexit.us, %.lr.ph, %2
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -1303,7 +1303,7 @@ define hidden void @initFormat(ptr noundef captures(none) initializes((0, 16), (
   %21 = lshr exact i32 %.01520.i, 1
   %22 = and i32 %.01520.i, 2
   %23 = icmp eq i32 %22, 0
-  br i1 %23, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !24
+  br i1 %23, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !22
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %.preheader19.i
   %.015.lcssa.i = phi i32 [ %17, %.preheader19.i ], [ %21, %.lr.ph.i ]
@@ -1320,7 +1320,7 @@ define hidden void @initFormat(ptr noundef captures(none) initializes((0, 16), (
   %27 = lshr i32 %.1.i, 1
   %28 = and i32 %.1.i, 2
   %.not18.i = icmp eq i32 %28, 0
-  br i1 %.not18.i, label %getMaskShift.exit, label %.preheader.i, !llvm.loop !25
+  br i1 %.not18.i, label %getMaskShift.exit, label %.preheader.i, !llvm.loop !23
 
 getMaskShift.exit:                                ; preds = %.preheader.i, %15, %._crit_edge.i
   %.122 = phi i32 [ %.02125, %15 ], [ %.02125, %._crit_edge.i ], [ %.013.lcssa.i, %.preheader.i ]
@@ -1334,7 +1334,7 @@ getMaskShift.exit:                                ; preds = %.preheader.i, %15, 
   store i32 %31, ptr %32, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %33, label %15, !llvm.loop !26
+  br i1 %exitcond.not, label %33, label %15, !llvm.loop !24
 
 33:                                               ; preds = %getMaskShift.exit
   ret void
@@ -1395,24 +1395,22 @@ attributes #8 = { nocallback nofree nosync nounwind speculatable willreturn memo
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7, !8}
-!11 = distinct !{!11, !8}
-!12 = distinct !{!12, !7, !8}
-!13 = distinct !{!13, !7, !8, !14}
-!14 = !{!"llvm.loop.unswitch.partial.disable"}
-!15 = distinct !{!15, !7, !8, !14}
-!16 = distinct !{!16, !7, !8}
-!17 = distinct !{!17, !7, !8}
-!18 = distinct !{!18, !7, !8}
-!19 = distinct !{!19, !7, !8, !20}
-!20 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!21 = distinct !{!21, !7, !8}
-!22 = distinct !{!22, !7, !8}
-!23 = distinct !{!23, !7, !8, !20}
-!24 = distinct !{!24, !7, !8}
-!25 = distinct !{!25, !7, !8}
-!26 = distinct !{!26, !7, !8}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7, !12}
+!12 = !{!"llvm.loop.unswitch.partial.disable"}
+!13 = distinct !{!13, !7, !12}
+!14 = distinct !{!14, !7}
+!15 = distinct !{!15, !7}
+!16 = distinct !{!16, !7}
+!17 = distinct !{!17, !7, !18}
+!18 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!19 = distinct !{!19, !7}
+!20 = distinct !{!20, !7}
+!21 = distinct !{!21, !7, !18}
+!22 = distinct !{!22, !7}
+!23 = distinct !{!23, !7}
+!24 = distinct !{!24, !7}

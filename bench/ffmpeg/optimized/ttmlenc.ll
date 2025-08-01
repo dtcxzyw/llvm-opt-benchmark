@@ -233,9 +233,9 @@ ttml_get_text_alignment.exit.thread.i.i:          ; preds = %ttml_get_display_al
   tail call void (ptr, ptr, ...) @av_bprintf(ptr noundef nonnull %15, ptr noundef nonnull @.str.8) #7
   tail call void @av_bprint_chars(ptr noundef nonnull %15, i8 noundef signext 0, i32 noundef 1) #7
   %65 = getelementptr i8, ptr %9, i64 24
-  %.val.i = load i32, ptr %65, align 8, !tbaa !42
+  %.val.i = load i32, ptr %65, align 8, !tbaa !41
   %66 = getelementptr i8, ptr %9, i64 28
-  %.val42.i = load i32, ptr %66, align 4, !tbaa !43
+  %.val42.i = load i32, ptr %66, align 4, !tbaa !42
   %.not.i = icmp ult i32 %.val.i, %.val42.i
   br i1 %.not.i, label %67, label %ttml_write_header_content.exit.thread10
 
@@ -244,7 +244,7 @@ ttml_get_text_alignment.exit.thread.i.i:          ; preds = %ttml_get_display_al
   %69 = add nuw nsw i64 %68, 77
   %70 = tail call noalias ptr @av_mallocz(i64 noundef %69) #7
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  store ptr %70, ptr %71, align 8, !tbaa !44
+  store ptr %70, ptr %71, align 8, !tbaa !43
   %.not41.i = icmp eq ptr %70, null
   br i1 %.not41.i, label %ttml_write_header_content.exit.thread10, label %ttml_write_header_content.exit
 
@@ -256,10 +256,10 @@ ttml_write_header_content.exit.thread10:          ; preds = %._crit_edge.i, %67,
 ttml_write_header_content.exit:                   ; preds = %67
   %73 = add i32 %.val.i, 12
   %74 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  store i32 %73, ptr %74, align 8, !tbaa !45
+  store i32 %73, ptr %74, align 8, !tbaa !44
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(12) %70, ptr noundef nonnull align 1 dereferenceable(12) @.str.9, i64 12, i1 false)
   %75 = getelementptr inbounds nuw i8, ptr %70, i64 12
-  %76 = load ptr, ptr %15, align 8, !tbaa !46
+  %76 = load ptr, ptr %15, align 8, !tbaa !45
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %75, ptr align 1 %76, i64 %68, i1 false)
   %77 = tail call i32 @av_bprint_finalize(ptr noundef nonnull %15, ptr noundef null) #7
   br label %78
@@ -279,7 +279,7 @@ define internal i32 @ttml_encode_frame(ptr noundef %0, ptr noundef %1, i32 nound
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 16
   tail call void @av_bprint_init_for_buffer(ptr noundef nonnull %9, ptr noundef %1, i32 noundef %2) #7
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 12
-  %11 = load i32, ptr %10, align 4, !tbaa !47
+  %11 = load i32, ptr %10, align 4, !tbaa !46
   %.not57 = icmp eq i32 %11, 0
   br i1 %.not57, label %._crit_edge, label %.lr.ph
 
@@ -291,11 +291,11 @@ define internal i32 @ttml_encode_frame(ptr noundef %0, ptr noundef %1, i32 nound
 
 15:                                               ; preds = %.lr.ph, %58
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %58 ]
-  %16 = load ptr, ptr %12, align 8, !tbaa !51
+  %16 = load ptr, ptr %12, align 8, !tbaa !50
   %17 = getelementptr inbounds nuw ptr, ptr %16, i64 %indvars.iv
-  %18 = load ptr, ptr %17, align 8, !tbaa !52
+  %18 = load ptr, ptr %17, align 8, !tbaa !51
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 76
-  %20 = load i32, ptr %19, align 4, !tbaa !54
+  %20 = load i32, ptr %19, align 4, !tbaa !53
   %.not42 = icmp eq i32 %20, 3
   br i1 %.not42, label %22, label %21
 
@@ -305,33 +305,33 @@ define internal i32 @ttml_encode_frame(ptr noundef %0, ptr noundef %1, i32 nound
 
 22:                                               ; preds = %15
   %23 = getelementptr inbounds nuw i8, ptr %18, i64 88
-  %24 = load ptr, ptr %23, align 8, !tbaa !56
+  %24 = load ptr, ptr %23, align 8, !tbaa !55
   %25 = load ptr, ptr %13, align 8, !tbaa !33
   %26 = call ptr @ff_ass_split_dialog(ptr noundef %25, ptr noundef %24) #7
-  store ptr %26, ptr %5, align 8, !tbaa !57
+  store ptr %26, ptr %5, align 8, !tbaa !56
   %.not43 = icmp eq ptr %26, null
   br i1 %.not43, label %.thread50, label %27
 
 27:                                               ; preds = %22
   %28 = getelementptr inbounds nuw i8, ptr %26, i64 16
-  %29 = load ptr, ptr %28, align 8, !tbaa !58
+  %29 = load ptr, ptr %28, align 8, !tbaa !57
   %.not44 = icmp eq ptr %29, null
   br i1 %.not44, label %34, label %30
 
 30:                                               ; preds = %27
   call void (ptr, ptr, ...) @av_bprintf(ptr noundef nonnull %9, ptr noundef nonnull @.str.29) #7
-  %31 = load ptr, ptr %5, align 8, !tbaa !57
+  %31 = load ptr, ptr %5, align 8, !tbaa !56
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 16
-  %33 = load ptr, ptr %32, align 8, !tbaa !58
+  %33 = load ptr, ptr %32, align 8, !tbaa !57
   call void @av_bprint_escape(ptr noundef nonnull %9, ptr noundef %33, ptr noundef null, i32 noundef 3, i32 noundef 8) #7
   call void (ptr, ptr, ...) @av_bprintf(ptr noundef nonnull %9, ptr noundef nonnull @.str.30) #7
-  %.pre = load ptr, ptr %5, align 8, !tbaa !57
+  %.pre = load ptr, ptr %5, align 8, !tbaa !56
   br label %34
 
 34:                                               ; preds = %30, %27
   %35 = phi ptr [ %.pre, %30 ], [ %26, %27 ]
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 56
-  %37 = load ptr, ptr %36, align 8, !tbaa !60
+  %37 = load ptr, ptr %36, align 8, !tbaa !59
   %38 = call i32 @ff_ass_split_override_codes(ptr noundef nonnull @ttml_callbacks, ptr noundef nonnull %8, ptr noundef %37) #7
   %39 = icmp slt i32 %38, 0
   br i1 %39, label %40, label %53
@@ -341,22 +341,22 @@ define internal i32 @ttml_encode_frame(ptr noundef %0, ptr noundef %1, i32 nound
   br i1 %.not45, label %45, label %.thread
 
 .thread:                                          ; preds = %40
-  %41 = load ptr, ptr %5, align 8, !tbaa !57
+  %41 = load ptr, ptr %5, align 8, !tbaa !56
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 56
-  %43 = load ptr, ptr %42, align 8, !tbaa !60
+  %43 = load ptr, ptr %42, align 8, !tbaa !59
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(64) %6, i8 0, i64 64, i1 false)
   %44 = call i32 @av_strerror(i32 noundef range(i32 -2147483648, 0) %38, ptr noundef nonnull %6, i64 noundef 64) #7
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.31, ptr noundef %43, ptr noundef nonnull %6) #7
   br label %.thread48
 
 45:                                               ; preds = %40
-  %46 = load i32, ptr %14, align 8, !tbaa !61
+  %46 = load i32, ptr %14, align 8, !tbaa !60
   %47 = and i32 %46, 8
   %.not54 = icmp eq i32 %47, 0
   %48 = xor i32 %47, 24
-  %49 = load ptr, ptr %5, align 8, !tbaa !57
+  %49 = load ptr, ptr %5, align 8, !tbaa !56
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 56
-  %51 = load ptr, ptr %50, align 8, !tbaa !60
+  %51 = load ptr, ptr %50, align 8, !tbaa !59
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(64) %6, i8 0, i64 64, i1 false)
   %52 = call i32 @av_strerror(i32 noundef -1094995529, ptr noundef nonnull %6, i64 noundef 64) #7
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef %48, ptr noundef nonnull @.str.31, ptr noundef %51, ptr noundef nonnull %6) #7
@@ -367,9 +367,9 @@ define internal i32 @ttml_encode_frame(ptr noundef %0, ptr noundef %1, i32 nound
   br label %.thread50
 
 53:                                               ; preds = %45, %34
-  %54 = load ptr, ptr %5, align 8, !tbaa !57
+  %54 = load ptr, ptr %5, align 8, !tbaa !56
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 16
-  %56 = load ptr, ptr %55, align 8, !tbaa !58
+  %56 = load ptr, ptr %55, align 8, !tbaa !57
   %.not46 = icmp eq ptr %56, null
   br i1 %.not46, label %58, label %57
 
@@ -380,20 +380,20 @@ define internal i32 @ttml_encode_frame(ptr noundef %0, ptr noundef %1, i32 nound
 58:                                               ; preds = %57, %53
   call void @ff_ass_free_dialog(ptr noundef nonnull %5) #7
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %59 = load i32, ptr %10, align 4, !tbaa !47
+  %59 = load i32, ptr %10, align 4, !tbaa !46
   %60 = zext i32 %59 to i64
   %61 = icmp samesign ult i64 %indvars.iv.next, %60
-  br i1 %61, label %15, label %._crit_edge, !llvm.loop !62
+  br i1 %61, label %15, label %._crit_edge, !llvm.loop !61
 
 ._crit_edge:                                      ; preds = %58, %4
   %62 = getelementptr i8, ptr %8, i64 24
-  %63 = load i32, ptr %62, align 8, !tbaa !63
+  %63 = load i32, ptr %62, align 8, !tbaa !62
   %.not = icmp eq i32 %63, 0
   br i1 %.not, label %.thread50, label %64
 
 64:                                               ; preds = %._crit_edge
   %65 = getelementptr i8, ptr %8, i64 28
-  %.val47 = load i32, ptr %65, align 4, !tbaa !43
+  %.val47 = load i32, ptr %65, align 4, !tbaa !42
   %.not53 = icmp ult i32 %63, %.val47
   br i1 %.not53, label %.thread50, label %66
 
@@ -463,9 +463,9 @@ define internal void @ttml_text_cb(ptr noundef %0, ptr noundef %1, i32 noundef %
   call void @av_bprint_init(ptr noundef nonnull %4, i32 noundef %2, i32 noundef -1) #7
   call void @av_bprint_append_data(ptr noundef nonnull %4, ptr noundef %1, i32 noundef %2) #7
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %.val = load i32, ptr %5, align 8, !tbaa !42
+  %.val = load i32, ptr %5, align 8, !tbaa !41
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 12
-  %.val6 = load i32, ptr %6, align 4, !tbaa !43
+  %.val6 = load i32, ptr %6, align 4, !tbaa !42
   %.not = icmp ult i32 %.val, %.val6
   br i1 %.not, label %9, label %7
 
@@ -476,7 +476,7 @@ define internal void @ttml_text_cb(ptr noundef %0, ptr noundef %1, i32 noundef %
 
 9:                                                ; preds = %3
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %11 = load ptr, ptr %4, align 8, !tbaa !64
+  %11 = load ptr, ptr %4, align 8, !tbaa !63
   call void @av_bprint_escape(ptr noundef nonnull %10, ptr noundef %11, ptr noundef null, i32 noundef 3, i32 noundef 0) #7
   br label %12
 
@@ -550,29 +550,28 @@ attributes #8 = { nounwind willreturn memory(none) }
 !36 = !{!"", !37, i64 0, !7, i64 32, !10, i64 40, !7, i64 48, !10, i64 56}
 !37 = !{!"", !14, i64 0, !14, i64 8, !10, i64 16, !10, i64 20, !16, i64 24}
 !38 = !{!36, !7, i64 32}
-!39 = distinct !{!39, !40, !41}
+!39 = distinct !{!39, !40}
 !40 = !{!"llvm.loop.mustprogress"}
-!41 = !{!"llvm.loop.estimated_trip_count"}
-!42 = !{!31, !10, i64 8}
-!43 = !{!31, !10, i64 12}
-!44 = !{!5, !14, i64 72}
-!45 = !{!5, !10, i64 80}
-!46 = !{!28, !14, i64 16}
-!47 = !{!48, !10, i64 12}
-!48 = !{!"AVSubtitle", !49, i64 0, !10, i64 4, !10, i64 8, !10, i64 12, !50, i64 16, !13, i64 24}
-!49 = !{!"short", !8, i64 0}
-!50 = !{!"p2 _ZTS14AVSubtitleRect", !26, i64 0}
-!51 = !{!48, !50, i64 16}
-!52 = !{!53, !53, i64 0}
-!53 = !{!"p1 _ZTS14AVSubtitleRect", !7, i64 0}
-!54 = !{!55, !10, i64 76}
-!55 = !{!"AVSubtitleRect", !10, i64 0, !10, i64 4, !10, i64 8, !10, i64 12, !10, i64 16, !8, i64 24, !8, i64 56, !10, i64 72, !10, i64 76, !14, i64 80, !14, i64 88}
-!56 = !{!55, !14, i64 88}
-!57 = !{!7, !7, i64 0}
-!58 = !{!59, !14, i64 16}
-!59 = !{!"", !10, i64 0, !10, i64 4, !10, i64 8, !10, i64 12, !14, i64 16, !14, i64 24, !10, i64 32, !10, i64 36, !10, i64 40, !14, i64 48, !14, i64 56}
-!60 = !{!59, !14, i64 56}
-!61 = !{!5, !10, i64 528}
-!62 = distinct !{!62, !40, !41}
-!63 = !{!28, !10, i64 24}
-!64 = !{!31, !14, i64 0}
+!41 = !{!31, !10, i64 8}
+!42 = !{!31, !10, i64 12}
+!43 = !{!5, !14, i64 72}
+!44 = !{!5, !10, i64 80}
+!45 = !{!28, !14, i64 16}
+!46 = !{!47, !10, i64 12}
+!47 = !{!"AVSubtitle", !48, i64 0, !10, i64 4, !10, i64 8, !10, i64 12, !49, i64 16, !13, i64 24}
+!48 = !{!"short", !8, i64 0}
+!49 = !{!"p2 _ZTS14AVSubtitleRect", !26, i64 0}
+!50 = !{!47, !49, i64 16}
+!51 = !{!52, !52, i64 0}
+!52 = !{!"p1 _ZTS14AVSubtitleRect", !7, i64 0}
+!53 = !{!54, !10, i64 76}
+!54 = !{!"AVSubtitleRect", !10, i64 0, !10, i64 4, !10, i64 8, !10, i64 12, !10, i64 16, !8, i64 24, !8, i64 56, !10, i64 72, !10, i64 76, !14, i64 80, !14, i64 88}
+!55 = !{!54, !14, i64 88}
+!56 = !{!7, !7, i64 0}
+!57 = !{!58, !14, i64 16}
+!58 = !{!"", !10, i64 0, !10, i64 4, !10, i64 8, !10, i64 12, !14, i64 16, !14, i64 24, !10, i64 32, !10, i64 36, !10, i64 40, !14, i64 48, !14, i64 56}
+!59 = !{!58, !14, i64 56}
+!60 = !{!5, !10, i64 528}
+!61 = distinct !{!61, !40}
+!62 = !{!28, !10, i64 24}
+!63 = !{!31, !14, i64 0}

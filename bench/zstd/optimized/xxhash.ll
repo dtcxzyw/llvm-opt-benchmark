@@ -109,14 +109,14 @@ XXH_readLE32_align.exit.i:                        ; preds = %50, %XXH_readLE32_a
   %58 = mul i32 %57, 668265263
   %59 = add nsw i64 %.01520.i, -4
   %60 = icmp ugt i64 %59, 3
-  br i1 %60, label %XXH_readLE32_align.exit.i, label %.preheader.i, !llvm.loop !10
+  br i1 %60, label %XXH_readLE32_align.exit.i, label %.preheader.i, !llvm.loop !9
 
 .lr.ph.i:                                         ; preds = %.preheader.i, %.lr.ph.i
   %.127.i = phi i32 [ %67, %.lr.ph.i ], [ %.0.lcssa.i, %.preheader.i ]
   %.11626.i = phi i64 [ %68, %.lr.ph.i ], [ %.015.lcssa.i, %.preheader.i ]
   %.11825.i = phi ptr [ %61, %.lr.ph.i ], [ %.017.lcssa.i, %.preheader.i ]
   %61 = getelementptr inbounds nuw i8, ptr %.11825.i, i64 1
-  %62 = load i8, ptr %.11825.i, align 1, !tbaa !11
+  %62 = load i8, ptr %.11825.i, align 1, !tbaa !10
   %63 = zext i8 %62 to i32
   %64 = mul i32 %63, 374761393
   %65 = add i32 %64, %.127.i
@@ -124,7 +124,7 @@ XXH_readLE32_align.exit.i:                        ; preds = %50, %XXH_readLE32_a
   %67 = mul i32 %66, -1640531535
   %68 = add nsw i64 %.11626.i, -1
   %.not.i = icmp eq i64 %68, 0
-  br i1 %.not.i, label %XXH32_finalize.exit, label %.lr.ph.i, !llvm.loop !12
+  br i1 %.not.i, label %XXH32_finalize.exit, label %.lr.ph.i, !llvm.loop !11
 
 XXH32_finalize.exit:                              ; preds = %.lr.ph.i, %.preheader.thread.i, %.preheader.i
   %.1.lcssa.i = phi i32 [ %.0.lcssa.i, %.preheader.i ], [ %49, %.preheader.thread.i ], [ %67, %.lr.ph.i ]
@@ -195,19 +195,19 @@ define noundef i32 @ZSTD_XXH32_update(ptr noundef captures(none) %0, ptr noundef
 7:                                                ; preds = %3
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 %2
   %9 = trunc i64 %2 to i32
-  %10 = load i32, ptr %0, align 4, !tbaa !13
+  %10 = load i32, ptr %0, align 4, !tbaa !12
   %11 = add i32 %10, %9
-  store i32 %11, ptr %0, align 4, !tbaa !13
+  store i32 %11, ptr %0, align 4, !tbaa !12
   %12 = icmp ugt i64 %2, 15
   %13 = icmp ugt i32 %11, 15
   %14 = or i1 %12, %13
   %15 = zext i1 %14 to i32
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %17 = load i32, ptr %16, align 4, !tbaa !15
+  %17 = load i32, ptr %16, align 4, !tbaa !14
   %18 = or i32 %17, %15
-  store i32 %18, ptr %16, align 4, !tbaa !15
+  store i32 %18, ptr %16, align 4, !tbaa !14
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %20 = load i32, ptr %19, align 4, !tbaa !16
+  %20 = load i32, ptr %19, align 4, !tbaa !15
   %21 = zext i32 %20 to i64
   %22 = add i64 %2, %21
   %23 = icmp ult i64 %22, 16
@@ -217,9 +217,9 @@ define noundef i32 @ZSTD_XXH32_update(ptr noundef captures(none) %0, ptr noundef
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 %21
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %26, ptr nonnull readonly align 1 %1, i64 %2, i1 false)
-  %27 = load i32, ptr %19, align 4, !tbaa !16
+  %27 = load i32, ptr %19, align 4, !tbaa !15
   %28 = add i32 %27, %9
-  store i32 %28, ptr %19, align 4, !tbaa !16
+  store i32 %28, ptr %19, align 4, !tbaa !15
   br label %104
 
 29:                                               ; preds = %7
@@ -267,11 +267,11 @@ define noundef i32 @ZSTD_XXH32_update(ptr noundef captures(none) %0, ptr noundef
   %60 = tail call i32 @llvm.fshl.i32(i32 %59, i32 %59, i32 13)
   %61 = mul i32 %60, -1640531535
   store i32 %61, ptr %56, align 4, !tbaa !3
-  %62 = load i32, ptr %19, align 4, !tbaa !16
+  %62 = load i32, ptr %19, align 4, !tbaa !15
   %63 = sub i32 16, %62
   %64 = zext i32 %63 to i64
   %65 = getelementptr inbounds nuw i8, ptr %1, i64 %64
-  store i32 0, ptr %19, align 4, !tbaa !16
+  store i32 0, ptr %19, align 4, !tbaa !15
   br label %66
 
 66:                                               ; preds = %30, %29
@@ -326,7 +326,7 @@ define noundef i32 @ZSTD_XXH32_update(ptr noundef captures(none) %0, ptr noundef
   store i32 %95, ptr %71, align 4, !tbaa !3
   %96 = getelementptr inbounds nuw i8, ptr %.2, i64 16
   %.not81 = icmp ugt ptr %96, %67
-  br i1 %.not81, label %.loopexit, label %72, !llvm.loop !17
+  br i1 %.not81, label %.loopexit, label %72, !llvm.loop !16
 
 .loopexit:                                        ; preds = %72, %66
   %.174 = phi ptr [ %.073, %66 ], [ %96, %72 ]
@@ -340,7 +340,7 @@ define noundef i32 @ZSTD_XXH32_update(ptr noundef captures(none) %0, ptr noundef
   %102 = sub i64 %100, %101
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %99, ptr nonnull readonly align 1 %.174, i64 %102, i1 false)
   %103 = trunc i64 %102 to i32
-  store i32 %103, ptr %19, align 4, !tbaa !16
+  store i32 %103, ptr %19, align 4, !tbaa !15
   br label %104
 
 104:                                              ; preds = %24, %98, %.loopexit, %5
@@ -350,7 +350,7 @@ define noundef i32 @ZSTD_XXH32_update(ptr noundef captures(none) %0, ptr noundef
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define i32 @ZSTD_XXH32_digest(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %3 = load i32, ptr %2, align 4, !tbaa !15
+  %3 = load i32, ptr %2, align 4, !tbaa !14
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %20, label %4
 
@@ -380,11 +380,11 @@ define i32 @ZSTD_XXH32_digest(ptr noundef readonly captures(none) %0) local_unna
 
 24:                                               ; preds = %20, %4
   %.0 = phi i32 [ %19, %4 ], [ %23, %20 ]
-  %25 = load i32, ptr %0, align 4, !tbaa !13
+  %25 = load i32, ptr %0, align 4, !tbaa !12
   %26 = add i32 %25, %.0
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %29 = load i32, ptr %28, align 4, !tbaa !16
+  %29 = load i32, ptr %28, align 4, !tbaa !15
   %30 = and i32 %29, 15
   %31 = zext nneg i32 %30 to i64
   %32 = icmp samesign ugt i32 %30, 3
@@ -409,14 +409,14 @@ XXH_readLE32_align.exit.i:                        ; preds = %24, %XXH_readLE32_a
   %37 = mul i32 %36, 668265263
   %38 = add nsw i64 %.01520.i, -4
   %39 = icmp ugt i64 %38, 3
-  br i1 %39, label %XXH_readLE32_align.exit.i, label %.preheader.i, !llvm.loop !10
+  br i1 %39, label %XXH_readLE32_align.exit.i, label %.preheader.i, !llvm.loop !9
 
 .lr.ph.i:                                         ; preds = %.preheader.i, %.lr.ph.i
   %.127.i = phi i32 [ %46, %.lr.ph.i ], [ %.0.lcssa.i, %.preheader.i ]
   %.11626.i = phi i64 [ %47, %.lr.ph.i ], [ %.015.lcssa.i, %.preheader.i ]
   %.11825.i = phi ptr [ %40, %.lr.ph.i ], [ %.017.lcssa.i, %.preheader.i ]
   %40 = getelementptr inbounds nuw i8, ptr %.11825.i, i64 1
-  %41 = load i8, ptr %.11825.i, align 1, !tbaa !11
+  %41 = load i8, ptr %.11825.i, align 1, !tbaa !10
   %42 = zext i8 %41 to i32
   %43 = mul i32 %42, 374761393
   %44 = add i32 %43, %.127.i
@@ -424,7 +424,7 @@ XXH_readLE32_align.exit.i:                        ; preds = %24, %XXH_readLE32_a
   %46 = mul i32 %45, -1640531535
   %47 = add nsw i64 %.11626.i, -1
   %.not.i = icmp eq i64 %47, 0
-  br i1 %.not.i, label %XXH32_finalize.exit, label %.lr.ph.i, !llvm.loop !12
+  br i1 %.not.i, label %XXH32_finalize.exit, label %.lr.ph.i, !llvm.loop !11
 
 XXH32_finalize.exit:                              ; preds = %.lr.ph.i, %.preheader.i
   %.1.lcssa.i = phi i32 [ %.0.lcssa.i, %.preheader.i ], [ %46, %.lr.ph.i ]
@@ -479,32 +479,32 @@ define i64 @ZSTD_XXH64(ptr noundef readonly captures(none) %0, i64 noundef %1, i
   %.047.i = phi i64 [ %11, %7 ], [ %22, %13 ]
   %.046.i = phi i64 [ %2, %7 ], [ %27, %13 ]
   %.0.i = phi i64 [ %12, %7 ], [ %32, %13 ]
-  %.049.i.val = load i64, ptr %.049.i, align 1, !tbaa !18
+  %.049.i.val = load i64, ptr %.049.i, align 1, !tbaa !17
   %14 = mul i64 %.049.i.val, -4417276706812531889
   %15 = add i64 %14, %.048.i
   %16 = tail call i64 @llvm.fshl.i64(i64 %15, i64 %15, i64 31)
   %17 = mul i64 %16, -7046029288634856825
   %18 = getelementptr inbounds nuw i8, ptr %.049.i, i64 8
-  %.val = load i64, ptr %18, align 1, !tbaa !18
+  %.val = load i64, ptr %18, align 1, !tbaa !17
   %19 = mul i64 %.val, -4417276706812531889
   %20 = add i64 %19, %.047.i
   %21 = tail call i64 @llvm.fshl.i64(i64 %20, i64 %20, i64 31)
   %22 = mul i64 %21, -7046029288634856825
   %23 = getelementptr inbounds nuw i8, ptr %.049.i, i64 16
-  %.val6 = load i64, ptr %23, align 1, !tbaa !18
+  %.val6 = load i64, ptr %23, align 1, !tbaa !17
   %24 = mul i64 %.val6, -4417276706812531889
   %25 = add i64 %24, %.046.i
   %26 = tail call i64 @llvm.fshl.i64(i64 %25, i64 %25, i64 31)
   %27 = mul i64 %26, -7046029288634856825
   %28 = getelementptr inbounds nuw i8, ptr %.049.i, i64 24
-  %.val7 = load i64, ptr %28, align 1, !tbaa !18
+  %.val7 = load i64, ptr %28, align 1, !tbaa !17
   %29 = mul i64 %.val7, -4417276706812531889
   %30 = add i64 %29, %.0.i
   %31 = tail call i64 @llvm.fshl.i64(i64 %30, i64 %30, i64 31)
   %32 = mul i64 %31, -7046029288634856825
   %33 = getelementptr inbounds nuw i8, ptr %.049.i, i64 32
   %34 = icmp ult ptr %33, %9
-  br i1 %34, label %13, label %XXH64_endian_align.exit.thread, !llvm.loop !20
+  br i1 %34, label %13, label %XXH64_endian_align.exit.thread, !llvm.loop !19
 
 XXH64_endian_align.exit.thread:                   ; preds = %13
   %35 = tail call i64 @llvm.fshl.i64(i64 %17, i64 %17, i64 1)
@@ -562,7 +562,7 @@ XXH_readLE64_align.exit.i:                        ; preds = %69, %XXH_readLE64_a
   %.034.i = phi i64 [ %80, %XXH_readLE64_align.exit.i ], [ %70, %69 ]
   %.02333.i = phi ptr [ %76, %XXH_readLE64_align.exit.i ], [ %.1.i11, %69 ]
   %.02632.i = phi i64 [ %81, %XXH_readLE64_align.exit.i ], [ %71, %69 ]
-  %.0.i30.i = load i64, ptr %.02333.i, align 1, !tbaa !18
+  %.0.i30.i = load i64, ptr %.02333.i, align 1, !tbaa !17
   %73 = mul i64 %.0.i30.i, -4417276706812531889
   %74 = tail call i64 @llvm.fshl.i64(i64 %73, i64 %73, i64 31)
   %75 = mul i64 %74, -7046029288634856825
@@ -573,7 +573,7 @@ XXH_readLE64_align.exit.i:                        ; preds = %69, %XXH_readLE64_a
   %80 = add i64 %79, -8796714831421723037
   %81 = add nsw i64 %.02632.i, -8
   %82 = icmp ugt i64 %81, 7
-  br i1 %82, label %XXH_readLE64_align.exit.i, label %._crit_edge.i, !llvm.loop !21
+  br i1 %82, label %XXH_readLE64_align.exit.i, label %._crit_edge.i, !llvm.loop !20
 
 ._crit_edge.i:                                    ; preds = %XXH_readLE64_align.exit.i, %69
   %.026.lcssa.i = phi i64 [ %71, %69 ], [ %81, %XXH_readLE64_align.exit.i ]
@@ -606,7 +606,7 @@ XXH_readLE32_align.exit.i:                        ; preds = %._crit_edge.i
   %.22539.i = phi ptr [ %93, %.lr.ph.i ], [ %.124.i, %92 ]
   %.22838.i = phi i64 [ %100, %.lr.ph.i ], [ %.127.i, %92 ]
   %93 = getelementptr inbounds nuw i8, ptr %.22539.i, i64 1
-  %94 = load i8, ptr %.22539.i, align 1, !tbaa !11
+  %94 = load i8, ptr %.22539.i, align 1, !tbaa !10
   %95 = zext i8 %94 to i64
   %96 = mul i64 %95, 2870177450012600261
   %97 = xor i64 %96, %.240.i
@@ -614,7 +614,7 @@ XXH_readLE32_align.exit.i:                        ; preds = %._crit_edge.i
   %99 = mul i64 %98, -7046029288634856825
   %100 = add nsw i64 %.22838.i, -1
   %.not.i = icmp eq i64 %100, 0
-  br i1 %.not.i, label %XXH64_finalize.exit, label %.lr.ph.i, !llvm.loop !22
+  br i1 %.not.i, label %XXH64_finalize.exit, label %.lr.ph.i, !llvm.loop !21
 
 XXH64_finalize.exit:                              ; preds = %.lr.ph.i, %.thread50.i, %92
   %.2.lcssa.i = phi i64 [ %.1.i8, %92 ], [ %67, %.thread50.i ], [ %99, %.lr.ph.i ]
@@ -654,15 +654,15 @@ define noundef i32 @ZSTD_XXH64_reset(ptr noundef writeonly captures(none) %0, i6
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %0, i8 0, i64 88, i1 false)
   %4 = add i64 %1, 6983438078262162902
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %4, ptr %5, align 8, !tbaa !18
+  store i64 %4, ptr %5, align 8, !tbaa !17
   %6 = add i64 %1, -4417276706812531889
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %6, ptr %7, align 8, !tbaa !18
+  store i64 %6, ptr %7, align 8, !tbaa !17
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i64 %1, ptr %8, align 8, !tbaa !18
+  store i64 %1, ptr %8, align 8, !tbaa !17
   %9 = add i64 %1, 7046029288634856825
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i64 %9, ptr %10, align 8, !tbaa !18
+  store i64 %9, ptr %10, align 8, !tbaa !17
   ret i32 0
 }
 
@@ -678,11 +678,11 @@ define noundef i32 @ZSTD_XXH64_update(ptr noundef captures(none) %0, ptr noundef
 
 7:                                                ; preds = %3
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 %2
-  %9 = load i64, ptr %0, align 8, !tbaa !23
+  %9 = load i64, ptr %0, align 8, !tbaa !22
   %10 = add i64 %9, %2
-  store i64 %10, ptr %0, align 8, !tbaa !23
+  store i64 %10, ptr %0, align 8, !tbaa !22
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %12 = load i32, ptr %11, align 8, !tbaa !25
+  %12 = load i32, ptr %11, align 8, !tbaa !24
   %13 = zext i32 %12 to i64
   %14 = add i64 %2, %13
   %15 = icmp ult i64 %14, 32
@@ -693,9 +693,9 @@ define noundef i32 @ZSTD_XXH64_update(ptr noundef captures(none) %0, ptr noundef
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 %13
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %18, ptr nonnull readonly align 1 %1, i64 %2, i1 false)
   %19 = trunc i64 %2 to i32
-  %20 = load i32, ptr %11, align 8, !tbaa !25
+  %20 = load i32, ptr %11, align 8, !tbaa !24
   %21 = add i32 %20, %19
-  store i32 %21, ptr %11, align 8, !tbaa !25
+  store i32 %21, ptr %11, align 8, !tbaa !24
   br label %99
 
 22:                                               ; preds = %7
@@ -709,45 +709,45 @@ define noundef i32 @ZSTD_XXH64_update(ptr noundef captures(none) %0, ptr noundef
   %27 = zext i32 %26 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %25, ptr nonnull readonly align 1 %1, i64 %27, i1 false)
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %29 = load i64, ptr %28, align 8, !tbaa !18
-  %.val79 = load i64, ptr %24, align 1, !tbaa !18
+  %29 = load i64, ptr %28, align 8, !tbaa !17
+  %.val79 = load i64, ptr %24, align 1, !tbaa !17
   %30 = mul i64 %.val79, -4417276706812531889
   %31 = add i64 %30, %29
   %32 = tail call i64 @llvm.fshl.i64(i64 %31, i64 %31, i64 31)
   %33 = mul i64 %32, -7046029288634856825
-  store i64 %33, ptr %28, align 8, !tbaa !18
+  store i64 %33, ptr %28, align 8, !tbaa !17
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %35 = load i64, ptr %34, align 8, !tbaa !18
+  %35 = load i64, ptr %34, align 8, !tbaa !17
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %.val78 = load i64, ptr %36, align 1, !tbaa !18
+  %.val78 = load i64, ptr %36, align 1, !tbaa !17
   %37 = mul i64 %.val78, -4417276706812531889
   %38 = add i64 %37, %35
   %39 = tail call i64 @llvm.fshl.i64(i64 %38, i64 %38, i64 31)
   %40 = mul i64 %39, -7046029288634856825
-  store i64 %40, ptr %34, align 8, !tbaa !18
+  store i64 %40, ptr %34, align 8, !tbaa !17
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %42 = load i64, ptr %41, align 8, !tbaa !18
+  %42 = load i64, ptr %41, align 8, !tbaa !17
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %.val77 = load i64, ptr %43, align 1, !tbaa !18
+  %.val77 = load i64, ptr %43, align 1, !tbaa !17
   %44 = mul i64 %.val77, -4417276706812531889
   %45 = add i64 %44, %42
   %46 = tail call i64 @llvm.fshl.i64(i64 %45, i64 %45, i64 31)
   %47 = mul i64 %46, -7046029288634856825
-  store i64 %47, ptr %41, align 8, !tbaa !18
+  store i64 %47, ptr %41, align 8, !tbaa !17
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %49 = load i64, ptr %48, align 8, !tbaa !18
+  %49 = load i64, ptr %48, align 8, !tbaa !17
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %.val76 = load i64, ptr %50, align 1, !tbaa !18
+  %.val76 = load i64, ptr %50, align 1, !tbaa !17
   %51 = mul i64 %.val76, -4417276706812531889
   %52 = add i64 %51, %49
   %53 = tail call i64 @llvm.fshl.i64(i64 %52, i64 %52, i64 31)
   %54 = mul i64 %53, -7046029288634856825
-  store i64 %54, ptr %48, align 8, !tbaa !18
-  %55 = load i32, ptr %11, align 8, !tbaa !25
+  store i64 %54, ptr %48, align 8, !tbaa !17
+  %55 = load i32, ptr %11, align 8, !tbaa !24
   %56 = sub i32 32, %55
   %57 = zext i32 %56 to i64
   %58 = getelementptr inbounds nuw i8, ptr %1, i64 %57
-  store i32 0, ptr %11, align 8, !tbaa !25
+  store i32 0, ptr %11, align 8, !tbaa !24
   br label %59
 
 59:                                               ; preds = %23, %22
@@ -762,10 +762,10 @@ define noundef i32 @ZSTD_XXH64_update(ptr noundef captures(none) %0, ptr noundef
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %.promoted = load i64, ptr %63, align 8, !tbaa !18
-  %.promoted80 = load i64, ptr %64, align 8, !tbaa !18
-  %.promoted81 = load i64, ptr %65, align 8, !tbaa !18
-  %.promoted82 = load i64, ptr %66, align 8, !tbaa !18
+  %.promoted = load i64, ptr %63, align 8, !tbaa !17
+  %.promoted80 = load i64, ptr %64, align 8, !tbaa !17
+  %.promoted81 = load i64, ptr %65, align 8, !tbaa !17
+  %.promoted82 = load i64, ptr %66, align 8, !tbaa !17
   br label %67
 
 67:                                               ; preds = %67, %61
@@ -774,36 +774,36 @@ define noundef i32 @ZSTD_XXH64_update(ptr noundef captures(none) %0, ptr noundef
   %70 = phi i64 [ %.promoted80, %61 ], [ %80, %67 ]
   %71 = phi i64 [ %.promoted, %61 ], [ %75, %67 ]
   %.2 = phi ptr [ %.067, %61 ], [ %91, %67 ]
-  %.2.val = load i64, ptr %.2, align 1, !tbaa !18
+  %.2.val = load i64, ptr %.2, align 1, !tbaa !17
   %72 = mul i64 %.2.val, -4417276706812531889
   %73 = add i64 %72, %71
   %74 = tail call i64 @llvm.fshl.i64(i64 %73, i64 %73, i64 31)
   %75 = mul i64 %74, -7046029288634856825
-  store i64 %75, ptr %63, align 8, !tbaa !18
+  store i64 %75, ptr %63, align 8, !tbaa !17
   %76 = getelementptr inbounds nuw i8, ptr %.2, i64 8
-  %.val75 = load i64, ptr %76, align 1, !tbaa !18
+  %.val75 = load i64, ptr %76, align 1, !tbaa !17
   %77 = mul i64 %.val75, -4417276706812531889
   %78 = add i64 %77, %70
   %79 = tail call i64 @llvm.fshl.i64(i64 %78, i64 %78, i64 31)
   %80 = mul i64 %79, -7046029288634856825
-  store i64 %80, ptr %64, align 8, !tbaa !18
+  store i64 %80, ptr %64, align 8, !tbaa !17
   %81 = getelementptr inbounds nuw i8, ptr %.2, i64 16
-  %.val74 = load i64, ptr %81, align 1, !tbaa !18
+  %.val74 = load i64, ptr %81, align 1, !tbaa !17
   %82 = mul i64 %.val74, -4417276706812531889
   %83 = add i64 %82, %69
   %84 = tail call i64 @llvm.fshl.i64(i64 %83, i64 %83, i64 31)
   %85 = mul i64 %84, -7046029288634856825
-  store i64 %85, ptr %65, align 8, !tbaa !18
+  store i64 %85, ptr %65, align 8, !tbaa !17
   %86 = getelementptr inbounds nuw i8, ptr %.2, i64 24
-  %.val = load i64, ptr %86, align 1, !tbaa !18
+  %.val = load i64, ptr %86, align 1, !tbaa !17
   %87 = mul i64 %.val, -4417276706812531889
   %88 = add i64 %87, %68
   %89 = tail call i64 @llvm.fshl.i64(i64 %88, i64 %88, i64 31)
   %90 = mul i64 %89, -7046029288634856825
-  store i64 %90, ptr %66, align 8, !tbaa !18
+  store i64 %90, ptr %66, align 8, !tbaa !17
   %91 = getelementptr inbounds nuw i8, ptr %.2, i64 32
   %.not73 = icmp ugt ptr %91, %62
-  br i1 %.not73, label %.loopexit, label %67, !llvm.loop !26
+  br i1 %.not73, label %.loopexit, label %67, !llvm.loop !25
 
 .loopexit:                                        ; preds = %67, %59
   %.168 = phi ptr [ %.067, %59 ], [ %91, %67 ]
@@ -817,7 +817,7 @@ define noundef i32 @ZSTD_XXH64_update(ptr noundef captures(none) %0, ptr noundef
   %97 = sub i64 %95, %96
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %94, ptr readonly align 1 %.168, i64 %97, i1 false)
   %98 = trunc i64 %97 to i32
-  store i32 %98, ptr %11, align 8, !tbaa !25
+  store i32 %98, ptr %11, align 8, !tbaa !24
   br label %99
 
 99:                                               ; preds = %16, %93, %.loopexit, %5
@@ -826,24 +826,24 @@ define noundef i32 @ZSTD_XXH64_update(ptr noundef captures(none) %0, ptr noundef
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define i64 @ZSTD_XXH64_digest(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 {
-  %2 = load i64, ptr %0, align 8, !tbaa !23
+  %2 = load i64, ptr %0, align 8, !tbaa !22
   %3 = icmp ugt i64 %2, 31
   br i1 %3, label %4, label %44
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %6 = load i64, ptr %5, align 8, !tbaa !18
+  %6 = load i64, ptr %5, align 8, !tbaa !17
   %7 = tail call i64 @llvm.fshl.i64(i64 %6, i64 %6, i64 1)
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %9 = load i64, ptr %8, align 8, !tbaa !18
+  %9 = load i64, ptr %8, align 8, !tbaa !17
   %10 = tail call i64 @llvm.fshl.i64(i64 %9, i64 %9, i64 7)
   %11 = add i64 %10, %7
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %13 = load i64, ptr %12, align 8, !tbaa !18
+  %13 = load i64, ptr %12, align 8, !tbaa !17
   %14 = tail call i64 @llvm.fshl.i64(i64 %13, i64 %13, i64 12)
   %15 = add i64 %11, %14
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %17 = load i64, ptr %16, align 8, !tbaa !18
+  %17 = load i64, ptr %16, align 8, !tbaa !17
   %18 = tail call i64 @llvm.fshl.i64(i64 %17, i64 %17, i64 18)
   %19 = add i64 %15, %18
   %20 = mul i64 %6, -4417276706812531889
@@ -874,7 +874,7 @@ define i64 @ZSTD_XXH64_digest(ptr noundef readonly captures(none) %0) local_unna
 
 44:                                               ; preds = %1
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %46 = load i64, ptr %45, align 8, !tbaa !18
+  %46 = load i64, ptr %45, align 8, !tbaa !17
   %47 = add i64 %46, 2870177450012600261
   br label %48
 
@@ -890,7 +890,7 @@ XXH_readLE64_align.exit.i:                        ; preds = %48, %XXH_readLE64_a
   %.034.i = phi i64 [ %60, %XXH_readLE64_align.exit.i ], [ %49, %48 ]
   %.02333.i = phi ptr [ %56, %XXH_readLE64_align.exit.i ], [ %50, %48 ]
   %.02632.i = phi i64 [ %61, %XXH_readLE64_align.exit.i ], [ %51, %48 ]
-  %.0.i30.i = load i64, ptr %.02333.i, align 1, !tbaa !18
+  %.0.i30.i = load i64, ptr %.02333.i, align 1, !tbaa !17
   %53 = mul i64 %.0.i30.i, -4417276706812531889
   %54 = tail call i64 @llvm.fshl.i64(i64 %53, i64 %53, i64 31)
   %55 = mul i64 %54, -7046029288634856825
@@ -901,7 +901,7 @@ XXH_readLE64_align.exit.i:                        ; preds = %48, %XXH_readLE64_a
   %60 = add i64 %59, -8796714831421723037
   %61 = add nsw i64 %.02632.i, -8
   %62 = icmp ugt i64 %61, 7
-  br i1 %62, label %XXH_readLE64_align.exit.i, label %._crit_edge.i, !llvm.loop !21
+  br i1 %62, label %XXH_readLE64_align.exit.i, label %._crit_edge.i, !llvm.loop !20
 
 ._crit_edge.i:                                    ; preds = %XXH_readLE64_align.exit.i, %48
   %.026.lcssa.i = phi i64 [ %51, %48 ], [ %61, %XXH_readLE64_align.exit.i ]
@@ -934,7 +934,7 @@ XXH_readLE32_align.exit.i:                        ; preds = %._crit_edge.i
   %.22539.i = phi ptr [ %73, %.lr.ph.i ], [ %.124.i, %72 ]
   %.22838.i = phi i64 [ %80, %.lr.ph.i ], [ %.127.i, %72 ]
   %73 = getelementptr inbounds nuw i8, ptr %.22539.i, i64 1
-  %74 = load i8, ptr %.22539.i, align 1, !tbaa !11
+  %74 = load i8, ptr %.22539.i, align 1, !tbaa !10
   %75 = zext i8 %74 to i64
   %76 = mul i64 %75, 2870177450012600261
   %77 = xor i64 %76, %.240.i
@@ -942,7 +942,7 @@ XXH_readLE32_align.exit.i:                        ; preds = %._crit_edge.i
   %79 = mul i64 %78, -7046029288634856825
   %80 = add nsw i64 %.22838.i, -1
   %.not.i = icmp eq i64 %80, 0
-  br i1 %.not.i, label %XXH64_finalize.exit, label %.lr.ph.i, !llvm.loop !22
+  br i1 %.not.i, label %XXH64_finalize.exit, label %.lr.ph.i, !llvm.loop !21
 
 XXH64_finalize.exit:                              ; preds = %.lr.ph.i, %72
   %.2.lcssa.i = phi i64 [ %.1.i, %72 ], [ %79, %.lr.ph.i ]
@@ -969,7 +969,7 @@ define void @ZSTD_XXH64_canonicalFromHash(ptr noundef writeonly captures(none) i
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef i64 @ZSTD_XXH64_hashFromCanonical(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 {
-  %.val = load i64, ptr %0, align 1, !tbaa !18
+  %.val = load i64, ptr %0, align 1, !tbaa !17
   %2 = tail call noundef i64 @llvm.bswap.i64(i64 %.val)
   ret i64 %2
 }
@@ -1016,23 +1016,22 @@ attributes #16 = { nounwind }
 !4 = !{!"int", !5, i64 0}
 !5 = !{!"omnipotent char", !6, i64 0}
 !6 = !{!"Simple C/C++ TBAA"}
-!7 = distinct !{!7, !8, !9}
+!7 = distinct !{!7, !8}
 !8 = !{!"llvm.loop.mustprogress"}
-!9 = !{!"llvm.loop.estimated_trip_count"}
-!10 = distinct !{!10, !8, !9}
-!11 = !{!5, !5, i64 0}
-!12 = distinct !{!12, !8, !9}
-!13 = !{!14, !4, i64 0}
-!14 = !{!"XXH32_state_s", !4, i64 0, !4, i64 4, !5, i64 8, !5, i64 24, !4, i64 40, !4, i64 44}
-!15 = !{!14, !4, i64 4}
-!16 = !{!14, !4, i64 40}
-!17 = distinct !{!17, !8, !9}
-!18 = !{!19, !19, i64 0}
-!19 = !{!"long", !5, i64 0}
-!20 = distinct !{!20, !8, !9}
-!21 = distinct !{!21, !8, !9}
-!22 = distinct !{!22, !8, !9}
-!23 = !{!24, !19, i64 0}
-!24 = !{!"XXH64_state_s", !19, i64 0, !5, i64 8, !5, i64 40, !4, i64 72, !4, i64 76, !19, i64 80}
-!25 = !{!24, !4, i64 72}
-!26 = distinct !{!26, !8, !9}
+!9 = distinct !{!9, !8}
+!10 = !{!5, !5, i64 0}
+!11 = distinct !{!11, !8}
+!12 = !{!13, !4, i64 0}
+!13 = !{!"XXH32_state_s", !4, i64 0, !4, i64 4, !5, i64 8, !5, i64 24, !4, i64 40, !4, i64 44}
+!14 = !{!13, !4, i64 4}
+!15 = !{!13, !4, i64 40}
+!16 = distinct !{!16, !8}
+!17 = !{!18, !18, i64 0}
+!18 = !{!"long", !5, i64 0}
+!19 = distinct !{!19, !8}
+!20 = distinct !{!20, !8}
+!21 = distinct !{!21, !8}
+!22 = !{!23, !18, i64 0}
+!23 = !{!"XXH64_state_s", !18, i64 0, !5, i64 8, !5, i64 40, !4, i64 72, !4, i64 76, !18, i64 80}
+!24 = !{!23, !4, i64 72}
+!25 = distinct !{!25, !8}

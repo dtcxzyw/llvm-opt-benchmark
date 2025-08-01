@@ -323,7 +323,7 @@ define internal fastcc void @spl_ptr_heap_insert(ptr noundef captures(none) %0, 
 
 spl_heap_elem_copy.exit:                          ; preds = %48, %49
   %.not36 = icmp ult i32 %30, 2
-  br i1 %.not36, label %.critedge.loopexit, label %28, !llvm.loop !60
+  br i1 %.not36, label %.critedge.loopexit, label %28
 
 .critedge.loopexit:                               ; preds = %spl_heap_elem_copy.exit, %28
   %.0.lcssa.ph = phi i32 [ %.033, %28 ], [ %31, %spl_heap_elem_copy.exit ]
@@ -461,7 +461,7 @@ define internal fastcc range(i32 -1, 1) i32 @spl_ptr_heap_delete_top(ptr noundef
 
 21:                                               ; preds = %9
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %23 = load ptr, ptr %22, align 8, !tbaa !62
+  %23 = load ptr, ptr %22, align 8, !tbaa !60
   %24 = load ptr, ptr %0, align 8, !tbaa !58
   tail call void %23(ptr noundef %24) #15
   br label %spl_heap_elem_copy.exit
@@ -544,7 +544,7 @@ spl_heap_elem_copy.exit:                          ; preds = %19, %18, %21
 
 spl_heap_elem_copy.exit52:                        ; preds = %68, %69
   %71 = icmp slt i32 %.044, %7
-  br i1 %71, label %35, label %._crit_edge.loopexit, !llvm.loop !63
+  br i1 %71, label %35, label %._crit_edge.loopexit
 
 ._crit_edge.loopexit:                             ; preds = %50, %spl_heap_elem_copy.exit52
   %.043.lcssa.ph = phi i32 [ %.044, %spl_heap_elem_copy.exit52 ], [ %.04354, %50 ]
@@ -673,7 +673,7 @@ define hidden void @zim_SplPriorityQueue_insert(ptr noundef %0, ptr noundef writ
 
 41:                                               ; preds = %38, %30
   %42 = getelementptr inbounds i8, ptr %10, i64 -16
-  %43 = load ptr, ptr %42, align 8, !tbaa !64
+  %43 = load ptr, ptr %42, align 8, !tbaa !61
   %.not81 = icmp eq ptr %43, null
   br i1 %.not81, label %44, label %55
 
@@ -748,14 +748,14 @@ define internal i32 @spl_ptr_pqueue_elem_cmp(ptr noundef %0, ptr noundef %1, ptr
 9:                                                ; preds = %8
   %10 = load ptr, ptr %2, align 8, !tbaa !4
   %11 = getelementptr inbounds i8, ptr %10, i64 -16
-  %12 = load ptr, ptr %11, align 8, !tbaa !64
+  %12 = load ptr, ptr %11, align 8, !tbaa !61
   %.not18 = icmp eq ptr %12, null
   br i1 %.not18, label %29, label %13
 
 13:                                               ; preds = %9
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #15
   %14 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  %15 = load ptr, ptr %14, align 8, !tbaa !65
+  %15 = load ptr, ptr %14, align 8, !tbaa !62
   %16 = call ptr @zend_call_method(ptr noundef nonnull %10, ptr noundef %15, ptr noundef nonnull %11, ptr noundef nonnull @.str.7, i64 noundef 7, ptr noundef nonnull %4, i32 noundef 2, ptr noundef nonnull %5, ptr noundef nonnull %6) #15
   %17 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !8
   %.not.i = icmp eq ptr %17, null
@@ -851,7 +851,7 @@ define hidden void @zim_SplPriorityQueue_extract(ptr noundef %0, ptr noundef %1)
 
 29:                                               ; preds = %21
   %30 = getelementptr inbounds i8, ptr %10, i64 -24
-  %31 = load i32, ptr %30, align 8, !tbaa !66
+  %31 = load i32, ptr %30, align 8, !tbaa !63
   call fastcc void @spl_pqueue_extract_helper(ptr noundef %1, ptr noundef nonnull %3, i32 noundef %31)
   call void @zval_ptr_dtor(ptr noundef nonnull %3) #15
   %32 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -1014,7 +1014,7 @@ spl_ptr_heap_top.exit.thread:                     ; preds = %18, %spl_ptr_heap_t
 
 27:                                               ; preds = %spl_ptr_heap_top.exit
   %28 = getelementptr inbounds i8, ptr %9, i64 -24
-  %29 = load i32, ptr %28, align 8, !tbaa !66
+  %29 = load i32, ptr %28, align 8, !tbaa !63
   tail call fastcc void @spl_pqueue_extract_helper(ptr noundef %1, ptr noundef nonnull %22, i32 noundef %29)
   br label %30
 
@@ -1040,9 +1040,9 @@ define hidden void @zim_SplPriorityQueue_setExtractFlags(ptr noundef readonly ca
   br label %25
 
 12:                                               ; preds = %2
-  %13 = load i64, ptr %3, align 8, !tbaa !67
+  %13 = load i64, ptr %3, align 8, !tbaa !64
   %14 = and i64 %13, 3
-  store i64 %14, ptr %3, align 8, !tbaa !67
+  store i64 %14, ptr %3, align 8, !tbaa !64
   %.not = icmp eq i64 %14, 0
   br i1 %.not, label %15, label %20
 
@@ -1058,7 +1058,7 @@ define hidden void @zim_SplPriorityQueue_setExtractFlags(ptr noundef readonly ca
   %21 = load ptr, ptr %4, align 8, !tbaa !4
   %22 = trunc nuw nsw i64 %14 to i32
   %23 = getelementptr inbounds i8, ptr %21, i64 -24
-  store i32 %22, ptr %23, align 8, !tbaa !66
+  store i32 %22, ptr %23, align 8, !tbaa !63
   store i64 %14, ptr %1, align 8, !tbaa !4
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 4, ptr %24, align 8, !tbaa !4
@@ -1089,7 +1089,7 @@ define hidden void @zim_SplPriorityQueue_getExtractFlags(ptr noundef readonly ca
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %9 = load ptr, ptr %8, align 8, !tbaa !4
   %10 = getelementptr inbounds i8, ptr %9, i64 -24
-  %11 = load i32, ptr %10, align 8, !tbaa !66
+  %11 = load i32, ptr %10, align 8, !tbaa !63
   %12 = sext i32 %11 to i64
   store i64 %12, ptr %1, align 8, !tbaa !4
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -1185,8 +1185,8 @@ define hidden void @zim_SplPriorityQueue_compare(ptr noundef readonly captures(n
   br i1 %.not.i, label %13, label %spl_ptr_heap_zval_max_cmp.exit
 
 13:                                               ; preds = %12
-  %14 = load ptr, ptr %4, align 8, !tbaa !68
-  %15 = load ptr, ptr %3, align 8, !tbaa !68
+  %14 = load ptr, ptr %4, align 8, !tbaa !65
+  %15 = load ptr, ptr %3, align 8, !tbaa !65
   %16 = call i32 @zend_compare(ptr noundef %15, ptr noundef %14) #15
   %17 = sext i32 %16 to i64
   br label %spl_ptr_heap_zval_max_cmp.exit
@@ -1218,14 +1218,14 @@ define internal i32 @spl_ptr_heap_zval_max_cmp(ptr noundef %0, ptr noundef %1, p
 7:                                                ; preds = %6
   %8 = load ptr, ptr %2, align 8, !tbaa !4
   %9 = getelementptr inbounds i8, ptr %8, i64 -16
-  %10 = load ptr, ptr %9, align 8, !tbaa !64
+  %10 = load ptr, ptr %9, align 8, !tbaa !61
   %.not16 = icmp eq ptr %10, null
   br i1 %.not16, label %27, label %11
 
 11:                                               ; preds = %7
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #15
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  %13 = load ptr, ptr %12, align 8, !tbaa !65
+  %13 = load ptr, ptr %12, align 8, !tbaa !62
   %14 = call ptr @zend_call_method(ptr noundef nonnull %8, ptr noundef %13, ptr noundef nonnull %9, ptr noundef nonnull @.str.7, i64 noundef 7, ptr noundef nonnull %4, i32 noundef 2, ptr noundef %0, ptr noundef %1) #15
   %15 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !8
   %.not.i = icmp eq ptr %15, null
@@ -1327,7 +1327,7 @@ spl_ptr_heap_top.exit.thread:                     ; preds = %18, %spl_ptr_heap_t
 31:                                               ; preds = %27
   %32 = and i32 %29, 255
   %33 = icmp eq i32 %32, 10
-  br i1 %33, label %34, label %.sink.split, !prof !69
+  br i1 %33, label %34, label %.sink.split, !prof !66
 
 34:                                               ; preds = %31
   %35 = load ptr, ptr %22, align 8, !tbaa !4
@@ -1387,8 +1387,8 @@ define hidden void @zim_SplMinHeap_compare(ptr noundef readonly captures(none) %
   br i1 %.not.i, label %13, label %spl_ptr_heap_zval_min_cmp.exit
 
 13:                                               ; preds = %12
-  %14 = load ptr, ptr %4, align 8, !tbaa !68
-  %15 = load ptr, ptr %3, align 8, !tbaa !68
+  %14 = load ptr, ptr %4, align 8, !tbaa !65
+  %15 = load ptr, ptr %3, align 8, !tbaa !65
   %16 = call i32 @zend_compare(ptr noundef %14, ptr noundef %15) #15
   %17 = sext i32 %16 to i64
   br label %spl_ptr_heap_zval_min_cmp.exit
@@ -1420,14 +1420,14 @@ define internal i32 @spl_ptr_heap_zval_min_cmp(ptr noundef %0, ptr noundef %1, p
 7:                                                ; preds = %6
   %8 = load ptr, ptr %2, align 8, !tbaa !4
   %9 = getelementptr inbounds i8, ptr %8, i64 -16
-  %10 = load ptr, ptr %9, align 8, !tbaa !64
+  %10 = load ptr, ptr %9, align 8, !tbaa !61
   %.not16 = icmp eq ptr %10, null
   br i1 %.not16, label %27, label %11
 
 11:                                               ; preds = %7
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #15
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  %13 = load ptr, ptr %12, align 8, !tbaa !65
+  %13 = load ptr, ptr %12, align 8, !tbaa !62
   %14 = call ptr @zend_call_method(ptr noundef nonnull %8, ptr noundef %13, ptr noundef nonnull %9, ptr noundef nonnull @.str.7, i64 noundef 7, ptr noundef nonnull %4, i32 noundef 2, ptr noundef %0, ptr noundef %1) #15
   %15 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !8
   %.not.i = icmp eq ptr %15, null
@@ -1490,8 +1490,8 @@ define hidden void @zim_SplMaxHeap_compare(ptr noundef readonly captures(none) %
   br i1 %.not.i, label %13, label %spl_ptr_heap_zval_max_cmp.exit
 
 13:                                               ; preds = %12
-  %14 = load ptr, ptr %4, align 8, !tbaa !68
-  %15 = load ptr, ptr %3, align 8, !tbaa !68
+  %14 = load ptr, ptr %4, align 8, !tbaa !65
+  %15 = load ptr, ptr %3, align 8, !tbaa !65
   %16 = call i32 @zend_compare(ptr noundef %15, ptr noundef %14) #15
   %17 = sext i32 %16 to i64
   br label %spl_ptr_heap_zval_max_cmp.exit
@@ -1656,7 +1656,7 @@ define hidden void @zim_SplHeap_current(ptr noundef readonly captures(none) %0, 
 21:                                               ; preds = %16
   %22 = and i32 %19, 255
   %23 = icmp eq i32 %22, 10
-  br i1 %23, label %24, label %.sink.split, !prof !69
+  br i1 %23, label %24, label %.sink.split, !prof !66
 
 24:                                               ; preds = %21
   %25 = load ptr, ptr %17, align 8, !tbaa !4
@@ -1725,7 +1725,7 @@ define hidden void @zim_SplPriorityQueue_current(ptr noundef readonly captures(n
 16:                                               ; preds = %.critedge
   %17 = load ptr, ptr %11, align 8, !tbaa !58
   %18 = getelementptr inbounds i8, ptr %4, i64 -24
-  %19 = load i32, ptr %18, align 8, !tbaa !66
+  %19 = load i32, ptr %18, align 8, !tbaa !63
   tail call fastcc void @spl_pqueue_extract_helper(ptr noundef %1, ptr noundef %17, i32 noundef %19)
   br label %20
 
@@ -1770,9 +1770,9 @@ define internal fastcc noundef ptr @spl_heap_object_get_debug_info(ptr noundef %
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #15
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #15
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %8 = load i32, ptr %7, align 4, !tbaa !70
+  %8 = load i32, ptr %7, align 4, !tbaa !67
   %9 = icmp ugt i32 %8, 1073741823
-  br i1 %9, label %10, label %12, !prof !69
+  br i1 %9, label %10, label %12, !prof !66
 
 10:                                               ; preds = %2
   %11 = tail call ptr @zend_lazy_object_get_properties(ptr noundef nonnull %1) #15
@@ -1780,7 +1780,7 @@ define internal fastcc noundef ptr @spl_heap_object_get_debug_info(ptr noundef %
 
 12:                                               ; preds = %2
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %14 = load ptr, ptr %13, align 8, !tbaa !71
+  %14 = load ptr, ptr %13, align 8, !tbaa !68
   %.not.i = icmp eq ptr %14, null
   br i1 %.not.i, label %15, label %zend_std_get_properties_ex.exit
 
@@ -1791,12 +1791,12 @@ define internal fastcc noundef ptr @spl_heap_object_get_debug_info(ptr noundef %
 zend_std_get_properties_ex.exit:                  ; preds = %10, %12, %15
   %.0.i = phi ptr [ %11, %10 ], [ %16, %15 ], [ %14, %12 ]
   %17 = getelementptr inbounds nuw i8, ptr %.0.i, i64 28
-  %18 = load i32, ptr %17, align 4, !tbaa !72
+  %18 = load i32, ptr %17, align 4, !tbaa !69
   %19 = add i32 %18, 3
   %20 = tail call ptr @_zend_new_array(i32 noundef %19) #15
   tail call void @zend_hash_copy(ptr noundef %20, ptr noundef %.0.i, ptr noundef nonnull @zval_add_ref) #15
   %21 = getelementptr inbounds i8, ptr %1, i64 -24
-  %22 = load i32, ptr %21, align 8, !tbaa !66
+  %22 = load i32, ptr %21, align 8, !tbaa !63
   %23 = sext i32 %22 to i64
   store i64 %23, ptr %3, align 8, !tbaa !4
   %24 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -1900,7 +1900,7 @@ spl_pqueue_extract_helper.exit:                   ; preds = %53, %57
   %74 = load i32, ptr %73, align 8, !tbaa !50
   %75 = sext i32 %74 to i64
   %76 = icmp ult i64 %71, %75
-  br i1 %76, label %36, label %._crit_edge, !llvm.loop !73
+  br i1 %76, label %36, label %._crit_edge
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1947,12 +1947,12 @@ define hidden noundef i32 @zm_startup_spl_heap(i32 noundef %0, i32 noundef %1) l
   %14 = load ptr, ptr @zend_ce_countable, align 8, !tbaa !54
   call void @llvm.lifetime.start.p0(i64 520, ptr nonnull %12) #15
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(520) %12, i8 0, i64 520, i1 false)
-  %15 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !74
+  %15 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !70
   %16 = tail call ptr %15(ptr noundef nonnull @.str.13, i64 noundef 7, i1 noundef zeroext true) #15
   %17 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  store ptr %16, ptr %17, align 8, !tbaa !75
+  store ptr %16, ptr %17, align 8, !tbaa !71
   %18 = getelementptr inbounds nuw i8, ptr %12, i64 360
-  store ptr @std_object_handlers, ptr %18, align 8, !tbaa !85
+  store ptr @std_object_handlers, ptr %18, align 8, !tbaa !81
   %19 = getelementptr inbounds nuw i8, ptr %12, i64 504
   store ptr @class_SplHeap_methods, ptr %19, align 8, !tbaa !4
   %20 = call ptr @zend_register_internal_class_with_flags(ptr noundef nonnull %12, ptr noundef null, i32 noundef 64) #15
@@ -1962,23 +1962,23 @@ define hidden noundef i32 @zm_startup_spl_heap(i32 noundef %0, i32 noundef %1) l
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 384
   store ptr @spl_heap_object_new, ptr %21, align 8, !tbaa !4
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 360
-  store ptr @spl_handler_SplHeap, ptr %22, align 8, !tbaa !85
+  store ptr @spl_handler_SplHeap, ptr %22, align 8, !tbaa !81
   %23 = getelementptr inbounds nuw i8, ptr %20, i64 392
-  store ptr @spl_heap_get_iterator, ptr %23, align 8, !tbaa !86
+  store ptr @spl_heap_get_iterator, ptr %23, align 8, !tbaa !82
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) @spl_handler_SplHeap, ptr noundef nonnull align 8 dereferenceable(200) @std_object_handlers, i64 200, i1 false)
-  store i32 32, ptr @spl_handler_SplHeap, align 8, !tbaa !87
-  store ptr @spl_heap_object_clone, ptr getelementptr inbounds nuw (i8, ptr @spl_handler_SplHeap, i64 24), align 8, !tbaa !89
-  store ptr @spl_heap_object_count_elements, ptr getelementptr inbounds nuw (i8, ptr @spl_handler_SplHeap, i64 144), align 8, !tbaa !90
-  store ptr @spl_heap_object_get_gc, ptr getelementptr inbounds nuw (i8, ptr @spl_handler_SplHeap, i64 168), align 8, !tbaa !91
-  store ptr @spl_heap_object_free_storage, ptr getelementptr inbounds nuw (i8, ptr @spl_handler_SplHeap, i64 8), align 8, !tbaa !92
+  store i32 32, ptr @spl_handler_SplHeap, align 8, !tbaa !83
+  store ptr @spl_heap_object_clone, ptr getelementptr inbounds nuw (i8, ptr @spl_handler_SplHeap, i64 24), align 8, !tbaa !85
+  store ptr @spl_heap_object_count_elements, ptr getelementptr inbounds nuw (i8, ptr @spl_handler_SplHeap, i64 144), align 8, !tbaa !86
+  store ptr @spl_heap_object_get_gc, ptr getelementptr inbounds nuw (i8, ptr @spl_handler_SplHeap, i64 168), align 8, !tbaa !87
+  store ptr @spl_heap_object_free_storage, ptr getelementptr inbounds nuw (i8, ptr @spl_handler_SplHeap, i64 8), align 8, !tbaa !88
   call void @llvm.lifetime.start.p0(i64 520, ptr nonnull %11) #15
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(520) %11, i8 0, i64 520, i1 false)
-  %24 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !74
+  %24 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !70
   %25 = call ptr %24(ptr noundef nonnull @.str.38, i64 noundef 10, i1 noundef zeroext true) #15
   %26 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  store ptr %25, ptr %26, align 8, !tbaa !75
+  store ptr %25, ptr %26, align 8, !tbaa !71
   %27 = getelementptr inbounds nuw i8, ptr %11, i64 360
-  store ptr @std_object_handlers, ptr %27, align 8, !tbaa !85
+  store ptr @std_object_handlers, ptr %27, align 8, !tbaa !81
   %28 = getelementptr inbounds nuw i8, ptr %11, i64 504
   store ptr @class_SplMinHeap_methods, ptr %28, align 8, !tbaa !4
   %29 = call ptr @zend_register_internal_class_with_flags(ptr noundef nonnull %11, ptr noundef %20, i32 noundef 0) #15
@@ -1987,16 +1987,16 @@ define hidden noundef i32 @zm_startup_spl_heap(i32 noundef %0, i32 noundef %1) l
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 384
   store ptr @spl_heap_object_new, ptr %30, align 8, !tbaa !4
   %31 = getelementptr inbounds nuw i8, ptr %29, i64 392
-  store ptr @spl_heap_get_iterator, ptr %31, align 8, !tbaa !86
+  store ptr @spl_heap_get_iterator, ptr %31, align 8, !tbaa !82
   %32 = load ptr, ptr @spl_ce_SplHeap, align 8, !tbaa !54
   call void @llvm.lifetime.start.p0(i64 520, ptr nonnull %10) #15
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(520) %10, i8 0, i64 520, i1 false)
-  %33 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !74
+  %33 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !70
   %34 = call ptr %33(ptr noundef nonnull @.str.39, i64 noundef 10, i1 noundef zeroext true) #15
   %35 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  store ptr %34, ptr %35, align 8, !tbaa !75
+  store ptr %34, ptr %35, align 8, !tbaa !71
   %36 = getelementptr inbounds nuw i8, ptr %10, i64 360
-  store ptr @std_object_handlers, ptr %36, align 8, !tbaa !85
+  store ptr @std_object_handlers, ptr %36, align 8, !tbaa !81
   %37 = getelementptr inbounds nuw i8, ptr %10, i64 504
   store ptr @class_SplMaxHeap_methods, ptr %37, align 8, !tbaa !4
   %38 = call ptr @zend_register_internal_class_with_flags(ptr noundef nonnull %10, ptr noundef %32, i32 noundef 0) #15
@@ -2005,7 +2005,7 @@ define hidden noundef i32 @zm_startup_spl_heap(i32 noundef %0, i32 noundef %1) l
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 384
   store ptr @spl_heap_object_new, ptr %39, align 8, !tbaa !4
   %40 = getelementptr inbounds nuw i8, ptr %38, i64 392
-  store ptr @spl_heap_get_iterator, ptr %40, align 8, !tbaa !86
+  store ptr @spl_heap_get_iterator, ptr %40, align 8, !tbaa !82
   %41 = load ptr, ptr @zend_ce_iterator, align 8, !tbaa !54
   %42 = load ptr, ptr @zend_ce_countable, align 8, !tbaa !54
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
@@ -2013,12 +2013,12 @@ define hidden noundef i32 @zm_startup_spl_heap(i32 noundef %0, i32 noundef %1) l
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9)
   call void @llvm.lifetime.start.p0(i64 520, ptr nonnull %3) #15
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(520) %3, i8 0, i64 520, i1 false)
-  %43 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !74
+  %43 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !70
   %44 = call ptr %43(ptr noundef nonnull @.str.40, i64 noundef 16, i1 noundef zeroext true) #15
   %45 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store ptr %44, ptr %45, align 8, !tbaa !75
+  store ptr %44, ptr %45, align 8, !tbaa !71
   %46 = getelementptr inbounds nuw i8, ptr %3, i64 360
-  store ptr @std_object_handlers, ptr %46, align 8, !tbaa !85
+  store ptr @std_object_handlers, ptr %46, align 8, !tbaa !81
   %47 = getelementptr inbounds nuw i8, ptr %3, i64 504
   store ptr @class_SplPriorityQueue_methods, ptr %47, align 8, !tbaa !4
   %48 = call ptr @zend_register_internal_class_with_flags(ptr noundef nonnull %3, ptr noundef null, i32 noundef 0) #15
@@ -2027,11 +2027,11 @@ define hidden noundef i32 @zm_startup_spl_heap(i32 noundef %0, i32 noundef %1) l
   store i64 3, ptr %4, align 8, !tbaa !4
   %49 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 4, ptr %49, align 8, !tbaa !4
-  %50 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !74
+  %50 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !70
   %51 = call ptr %50(ptr noundef nonnull @.str.41, i64 noundef 9, i1 noundef zeroext true) #15
-  store ptr null, ptr %5, align 8, !tbaa !93
+  store ptr null, ptr %5, align 8, !tbaa !89
   %52 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store i32 16, ptr %52, align 8, !tbaa !95
+  store i32 16, ptr %52, align 8, !tbaa !91
   %53 = getelementptr inbounds nuw i8, ptr %5, i64 12
   store i32 0, ptr %53, align 4
   %54 = call ptr @zend_declare_typed_class_constant(ptr noundef %48, ptr noundef %51, ptr noundef nonnull %4, i32 noundef 1, ptr noundef null, ptr noundef nonnull byval(%struct.zend_type) align 8 %5) #15
@@ -2068,11 +2068,11 @@ zend_string_release.exit.i:                       ; preds = %66, %65, %58, %2
   store i64 2, ptr %6, align 8, !tbaa !4
   %67 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i32 4, ptr %67, align 8, !tbaa !4
-  %68 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !74
+  %68 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !70
   %69 = call ptr %68(ptr noundef nonnull @.str.42, i64 noundef 13, i1 noundef zeroext true) #15
-  store ptr null, ptr %7, align 8, !tbaa !93
+  store ptr null, ptr %7, align 8, !tbaa !89
   %70 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store i32 16, ptr %70, align 8, !tbaa !95
+  store i32 16, ptr %70, align 8, !tbaa !91
   %71 = getelementptr inbounds nuw i8, ptr %7, i64 12
   store i32 0, ptr %71, align 4
   %72 = call ptr @zend_declare_typed_class_constant(ptr noundef %48, ptr noundef %69, ptr noundef nonnull %6, i32 noundef 1, ptr noundef null, ptr noundef nonnull byval(%struct.zend_type) align 8 %7) #15
@@ -2109,11 +2109,11 @@ zend_string_release.exit21.i:                     ; preds = %84, %83, %76, %zend
   store i64 1, ptr %8, align 8, !tbaa !4
   %85 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i32 4, ptr %85, align 8, !tbaa !4
-  %86 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !74
+  %86 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !70
   %87 = call ptr %86(ptr noundef nonnull @.str.43, i64 noundef 9, i1 noundef zeroext true) #15
-  store ptr null, ptr %9, align 8, !tbaa !93
+  store ptr null, ptr %9, align 8, !tbaa !89
   %88 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  store i32 16, ptr %88, align 8, !tbaa !95
+  store i32 16, ptr %88, align 8, !tbaa !91
   %89 = getelementptr inbounds nuw i8, ptr %9, i64 12
   store i32 0, ptr %89, align 4
   %90 = call ptr @zend_declare_typed_class_constant(ptr noundef %48, ptr noundef %87, ptr noundef nonnull %8, i32 noundef 1, ptr noundef null, ptr noundef nonnull byval(%struct.zend_type) align 8 %9) #15
@@ -2157,15 +2157,15 @@ register_class_SplPriorityQueue.exit:             ; preds = %zend_string_release
   %103 = getelementptr inbounds nuw i8, ptr %48, i64 384
   store ptr @spl_heap_object_new, ptr %103, align 8, !tbaa !4
   %104 = getelementptr inbounds nuw i8, ptr %48, i64 360
-  store ptr @spl_handler_SplPriorityQueue, ptr %104, align 8, !tbaa !85
+  store ptr @spl_handler_SplPriorityQueue, ptr %104, align 8, !tbaa !81
   %105 = getelementptr inbounds nuw i8, ptr %48, i64 392
-  store ptr @spl_pqueue_get_iterator, ptr %105, align 8, !tbaa !86
+  store ptr @spl_pqueue_get_iterator, ptr %105, align 8, !tbaa !82
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) @spl_handler_SplPriorityQueue, ptr noundef nonnull align 8 dereferenceable(200) @std_object_handlers, i64 200, i1 false)
-  store i32 32, ptr @spl_handler_SplPriorityQueue, align 8, !tbaa !87
-  store ptr @spl_heap_object_clone, ptr getelementptr inbounds nuw (i8, ptr @spl_handler_SplPriorityQueue, i64 24), align 8, !tbaa !89
-  store ptr @spl_heap_object_count_elements, ptr getelementptr inbounds nuw (i8, ptr @spl_handler_SplPriorityQueue, i64 144), align 8, !tbaa !90
-  store ptr @spl_pqueue_object_get_gc, ptr getelementptr inbounds nuw (i8, ptr @spl_handler_SplPriorityQueue, i64 168), align 8, !tbaa !91
-  store ptr @spl_heap_object_free_storage, ptr getelementptr inbounds nuw (i8, ptr @spl_handler_SplPriorityQueue, i64 8), align 8, !tbaa !92
+  store i32 32, ptr @spl_handler_SplPriorityQueue, align 8, !tbaa !83
+  store ptr @spl_heap_object_clone, ptr getelementptr inbounds nuw (i8, ptr @spl_handler_SplPriorityQueue, i64 24), align 8, !tbaa !85
+  store ptr @spl_heap_object_count_elements, ptr getelementptr inbounds nuw (i8, ptr @spl_handler_SplPriorityQueue, i64 144), align 8, !tbaa !86
+  store ptr @spl_pqueue_object_get_gc, ptr getelementptr inbounds nuw (i8, ptr @spl_handler_SplPriorityQueue, i64 168), align 8, !tbaa !87
+  store ptr @spl_heap_object_free_storage, ptr getelementptr inbounds nuw (i8, ptr @spl_handler_SplPriorityQueue, i64 8), align 8, !tbaa !88
   ret i32 0
 }
 
@@ -2196,9 +2196,9 @@ define internal noundef ptr @spl_heap_get_iterator(ptr noundef %0, ptr noundef r
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 64
   store i32 776, ptr %11, align 8, !tbaa !4
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 72
-  store ptr @spl_heap_it_funcs, ptr %12, align 8, !tbaa !96
+  store ptr @spl_heap_it_funcs, ptr %12, align 8, !tbaa !92
   %13 = getelementptr inbounds nuw i8, ptr %6, i64 88
-  store ptr %0, ptr %13, align 8, !tbaa !100
+  store ptr %0, ptr %13, align 8, !tbaa !96
   %14 = getelementptr inbounds nuw i8, ptr %6, i64 104
   store i32 0, ptr %14, align 8, !tbaa !4
   br label %15
@@ -2214,7 +2214,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr no
 ; Function Attrs: nounwind uwtable
 define internal noundef nonnull ptr @spl_heap_object_clone(ptr noundef %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %3 = load ptr, ptr %2, align 8, !tbaa !101
+  %3 = load ptr, ptr %2, align 8, !tbaa !97
   %4 = tail call fastcc ptr @spl_heap_object_new_ex(ptr noundef %3, ptr noundef %0, i32 noundef 1)
   tail call void @zend_objects_clone_members(ptr noundef nonnull %4, ptr noundef %0) #15
   ret ptr %4
@@ -2224,21 +2224,21 @@ define internal noundef nonnull ptr @spl_heap_object_clone(ptr noundef %0) #0 {
 define internal range(i32 -1, 1) i32 @spl_heap_object_count_elements(ptr noundef %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1) #0 {
   %3 = alloca %struct._zval_struct, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 -8
-  %5 = load ptr, ptr %4, align 8, !tbaa !102
+  %5 = load ptr, ptr %4, align 8, !tbaa !98
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %19, label %6
 
 6:                                                ; preds = %2
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #15
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %8 = load ptr, ptr %7, align 8, !tbaa !65
+  %8 = load ptr, ptr %7, align 8, !tbaa !62
   %9 = call ptr @zend_call_method(ptr noundef nonnull %0, ptr noundef %8, ptr noundef nonnull %4, ptr noundef nonnull @.str.17, i64 noundef 5, ptr noundef nonnull %3, i32 noundef 0, ptr noundef null, ptr noundef null) #15
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %11 = load i8, ptr %10, align 8, !tbaa !4
   switch i8 %11, label %14 [
     i8 0, label %17
     i8 4, label %12
-  ], !prof !103
+  ], !prof !99
 
 12:                                               ; preds = %6
   %13 = load i64, ptr %3, align 8, !tbaa !4
@@ -2250,12 +2250,12 @@ define internal range(i32 -1, 1) i32 @spl_heap_object_count_elements(ptr noundef
 
 zval_get_long.exit:                               ; preds = %12, %14
   %16 = phi i64 [ %13, %12 ], [ %15, %14 ]
-  store i64 %16, ptr %1, align 8, !tbaa !67
+  store i64 %16, ptr %1, align 8, !tbaa !64
   call void @zval_ptr_dtor(ptr noundef nonnull %3) #15
   br label %18
 
 17:                                               ; preds = %6
-  store i64 0, ptr %1, align 8, !tbaa !67
+  store i64 0, ptr %1, align 8, !tbaa !64
   br label %18
 
 18:                                               ; preds = %17, %zval_get_long.exit
@@ -2269,7 +2269,7 @@ zval_get_long.exit:                               ; preds = %12, %14
   %22 = getelementptr i8, ptr %21, i64 32
   %.val = load i32, ptr %22, align 8, !tbaa !50
   %23 = sext i32 %.val to i64
-  store i64 %23, ptr %1, align 8, !tbaa !67
+  store i64 %23, ptr %1, align 8, !tbaa !64
   br label %24
 
 24:                                               ; preds = %19, %18
@@ -2282,10 +2282,10 @@ define internal ptr @spl_heap_object_get_gc(ptr noundef %0, ptr noundef writeonl
   %4 = getelementptr inbounds i8, ptr %0, i64 -32
   %5 = load ptr, ptr %4, align 8, !tbaa !44
   %6 = load ptr, ptr %5, align 8, !tbaa !58
-  store ptr %6, ptr %1, align 8, !tbaa !68
+  store ptr %6, ptr %1, align 8, !tbaa !65
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %8 = load i32, ptr %7, align 8, !tbaa !50
-  store i32 %8, ptr %2, align 4, !tbaa !104
+  store i32 %8, ptr %2, align 4, !tbaa !100
   %9 = tail call ptr @zend_std_get_properties(ptr noundef %0) #15
   ret ptr %9
 }
@@ -2315,7 +2315,7 @@ define internal void @spl_heap_object_free_storage(ptr noundef %0) #0 {
 
 13:                                               ; preds = %13, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %13 ]
-  %14 = load ptr, ptr %11, align 8, !tbaa !62
+  %14 = load ptr, ptr %11, align 8, !tbaa !60
   %15 = load ptr, ptr %3, align 8, !tbaa !58
   %16 = load i64, ptr %12, align 8, !tbaa !57
   %17 = mul i64 %16, %indvars.iv.i
@@ -2325,7 +2325,7 @@ define internal void @spl_heap_object_free_storage(ptr noundef %0) #0 {
   %19 = load i32, ptr %8, align 8, !tbaa !50
   %20 = sext i32 %19 to i64
   %21 = icmp slt i64 %indvars.iv.next.i, %20
-  br i1 %21, label %13, label %._crit_edge.loopexit.i, !llvm.loop !105
+  br i1 %21, label %13, label %._crit_edge.loopexit.i
 
 ._crit_edge.loopexit.i:                           ; preds = %13
   %.pre.i = load i32, ptr %5, align 4, !tbaa !53
@@ -2365,9 +2365,9 @@ define internal noundef ptr @spl_pqueue_get_iterator(ptr noundef %0, ptr noundef
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 64
   store i32 776, ptr %11, align 8, !tbaa !4
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 72
-  store ptr @spl_pqueue_it_funcs, ptr %12, align 8, !tbaa !96
+  store ptr @spl_pqueue_it_funcs, ptr %12, align 8, !tbaa !92
   %13 = getelementptr inbounds nuw i8, ptr %6, i64 88
-  store ptr %0, ptr %13, align 8, !tbaa !100
+  store ptr %0, ptr %13, align 8, !tbaa !96
   %14 = getelementptr inbounds nuw i8, ptr %6, i64 104
   store i32 0, ptr %14, align 8, !tbaa !4
   br label %15
@@ -2382,11 +2382,11 @@ define internal ptr @spl_pqueue_object_get_gc(ptr noundef %0, ptr noundef writeo
   %4 = getelementptr inbounds i8, ptr %0, i64 -32
   %5 = load ptr, ptr %4, align 8, !tbaa !44
   %6 = load ptr, ptr %5, align 8, !tbaa !58
-  store ptr %6, ptr %1, align 8, !tbaa !68
+  store ptr %6, ptr %1, align 8, !tbaa !65
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %8 = load i32, ptr %7, align 8, !tbaa !50
   %9 = shl nsw i32 %8, 1
-  store i32 %9, ptr %2, align 4, !tbaa !104
+  store i32 %9, ptr %2, align 4, !tbaa !100
   %10 = tail call ptr @zend_std_get_properties(ptr noundef %0) #15
   ret ptr %10
 }
@@ -2429,9 +2429,9 @@ declare void @zend_class_implements(ptr noundef, i32 noundef, ...) local_unnamed
 ; Function Attrs: nounwind uwtable
 define internal fastcc noundef nonnull ptr @spl_heap_object_new_ex(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %5 = load i32, ptr %4, align 8, !tbaa !106
+  %5 = load i32, ptr %4, align 8, !tbaa !101
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %7 = load i32, ptr %6, align 4, !tbaa !107
+  %7 = load i32, ptr %6, align 4, !tbaa !102
   %8 = lshr i32 %7, 11
   %.lobit.i = and i32 %8, 1
   %9 = xor i32 %.lobit.i, 1
@@ -2458,9 +2458,9 @@ define internal fastcc noundef nonnull ptr @spl_heap_object_new_ex(ptr noundef %
 21:                                               ; preds = %3
   %22 = getelementptr inbounds i8, ptr %1, i64 -32
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %24 = load ptr, ptr %23, align 8, !tbaa !108
+  %24 = load ptr, ptr %23, align 8, !tbaa !103
   %25 = getelementptr inbounds nuw i8, ptr %14, i64 56
-  store ptr %24, ptr %25, align 8, !tbaa !108
+  store ptr %24, ptr %25, align 8, !tbaa !103
   %.not49 = icmp eq i32 %2, 0
   %26 = load ptr, ptr %22, align 8, !tbaa !44
   br i1 %.not49, label %spl_ptr_heap_clone.exit, label %27
@@ -2468,13 +2468,13 @@ define internal fastcc noundef nonnull ptr @spl_heap_object_new_ex(ptr noundef %
 27:                                               ; preds = %21
   %28 = tail call noalias ptr @_emalloc_56() #15
   %29 = getelementptr inbounds nuw i8, ptr %26, i64 16
-  %30 = load ptr, ptr %29, align 8, !tbaa !62
+  %30 = load ptr, ptr %29, align 8, !tbaa !60
   %31 = getelementptr inbounds nuw i8, ptr %28, i64 16
-  store ptr %30, ptr %31, align 8, !tbaa !62
+  store ptr %30, ptr %31, align 8, !tbaa !60
   %32 = getelementptr inbounds nuw i8, ptr %26, i64 8
-  %33 = load ptr, ptr %32, align 8, !tbaa !109
+  %33 = load ptr, ptr %32, align 8, !tbaa !104
   %34 = getelementptr inbounds nuw i8, ptr %28, i64 8
-  store ptr %33, ptr %34, align 8, !tbaa !109
+  store ptr %33, ptr %34, align 8, !tbaa !104
   %35 = getelementptr inbounds nuw i8, ptr %26, i64 24
   %36 = load ptr, ptr %35, align 8, !tbaa !59
   %37 = getelementptr inbounds nuw i8, ptr %28, i64 24
@@ -2516,23 +2516,23 @@ define internal fastcc noundef nonnull ptr @spl_heap_object_new_ex(ptr noundef %
   tail call void %33(ptr noundef %57) #15
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %spl_ptr_heap_clone.exit, label %.lr.ph.i, !llvm.loop !110
+  br i1 %exitcond.not.i, label %spl_ptr_heap_clone.exit, label %.lr.ph.i
 
 spl_ptr_heap_clone.exit:                          ; preds = %.lr.ph.i, %21, %27
   %storemerge = phi ptr [ %28, %27 ], [ %26, %21 ], [ %28, %.lr.ph.i ]
   store ptr %storemerge, ptr %14, align 8, !tbaa !44
   %58 = getelementptr inbounds i8, ptr %1, i64 -24
-  %59 = load i32, ptr %58, align 8, !tbaa !66
+  %59 = load i32, ptr %58, align 8, !tbaa !63
   %60 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  store i32 %59, ptr %60, align 8, !tbaa !66
+  store i32 %59, ptr %60, align 8, !tbaa !63
   %61 = getelementptr inbounds i8, ptr %1, i64 -16
-  %62 = load ptr, ptr %61, align 8, !tbaa !64
+  %62 = load ptr, ptr %61, align 8, !tbaa !61
   %63 = getelementptr inbounds nuw i8, ptr %14, i64 16
-  store ptr %62, ptr %63, align 8, !tbaa !64
+  store ptr %62, ptr %63, align 8, !tbaa !61
   %64 = getelementptr inbounds i8, ptr %1, i64 -8
-  %65 = load ptr, ptr %64, align 8, !tbaa !102
+  %65 = load ptr, ptr %64, align 8, !tbaa !98
   %66 = getelementptr inbounds nuw i8, ptr %14, i64 24
-  store ptr %65, ptr %66, align 8, !tbaa !102
+  store ptr %65, ptr %66, align 8, !tbaa !98
   br label %114
 
 .lr.ph89:                                         ; preds = %.lr.ph, %81
@@ -2549,9 +2549,9 @@ spl_ptr_heap_clone.exit:                          ; preds = %.lr.ph.i, %21, %27
   %71 = select i1 %67, ptr @spl_ptr_heap_zval_min_cmp, ptr @spl_ptr_heap_zval_max_cmp
   %72 = tail call noalias ptr @_emalloc_56() #15
   %73 = getelementptr inbounds nuw i8, ptr %72, i64 16
-  store ptr @spl_ptr_heap_zval_dtor, ptr %73, align 8, !tbaa !62
+  store ptr @spl_ptr_heap_zval_dtor, ptr %73, align 8, !tbaa !60
   %74 = getelementptr inbounds nuw i8, ptr %72, i64 8
-  store ptr @spl_ptr_heap_zval_ctor, ptr %74, align 8, !tbaa !109
+  store ptr @spl_ptr_heap_zval_ctor, ptr %74, align 8, !tbaa !104
   %75 = getelementptr inbounds nuw i8, ptr %72, i64 24
   store ptr %71, ptr %75, align 8, !tbaa !59
   %76 = tail call noalias dereferenceable_or_null(1024) ptr @_ecalloc(i64 noundef 64, i64 noundef 16) #17
@@ -2569,16 +2569,16 @@ spl_ptr_heap_clone.exit:                          ; preds = %.lr.ph.i, %21, %27
 
 81:                                               ; preds = %.lr.ph89
   %82 = getelementptr inbounds nuw i8, ptr %.0466588, i64 16
-  %83 = load ptr, ptr %82, align 8, !tbaa !4, !nonnull !111, !noundef !111
+  %83 = load ptr, ptr %82, align 8, !tbaa !4, !nonnull !105, !noundef !105
   %84 = icmp eq ptr %83, %16
   br i1 %84, label %.loopexit, label %.lr.ph89
 
 .loopexit:                                        ; preds = %81, %.lr.ph
   %85 = tail call noalias ptr @_emalloc_56() #15
   %86 = getelementptr inbounds nuw i8, ptr %85, i64 16
-  store ptr @spl_ptr_heap_pqueue_elem_dtor, ptr %86, align 8, !tbaa !62
+  store ptr @spl_ptr_heap_pqueue_elem_dtor, ptr %86, align 8, !tbaa !60
   %87 = getelementptr inbounds nuw i8, ptr %85, i64 8
-  store ptr @spl_ptr_heap_pqueue_elem_ctor, ptr %87, align 8, !tbaa !109
+  store ptr @spl_ptr_heap_pqueue_elem_ctor, ptr %87, align 8, !tbaa !104
   %88 = getelementptr inbounds nuw i8, ptr %85, i64 24
   store ptr @spl_ptr_pqueue_elem_cmp, ptr %88, align 8, !tbaa !59
   %89 = tail call noalias dereferenceable_or_null(2048) ptr @_ecalloc(i64 noundef 64, i64 noundef 32) #17
@@ -2593,7 +2593,7 @@ spl_ptr_heap_clone.exit:                          ; preds = %.lr.ph.i, %21, %27
   store i64 32, ptr %93, align 8, !tbaa !57
   store ptr %85, ptr %14, align 8, !tbaa !44
   %94 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  store i32 1, ptr %94, align 8, !tbaa !66
+  store i32 1, ptr %94, align 8, !tbaa !63
   br i1 %20, label %114, label %95
 
 95:                                               ; preds = %70, %.loopexit
@@ -2604,33 +2604,33 @@ spl_ptr_heap_clone.exit:                          ; preds = %.lr.ph.i, %21, %27
   br i1 %.not.i, label %zend_hash_str_find_ptr.exit, label %98
 
 98:                                               ; preds = %95
-  %99 = load ptr, ptr %97, align 8, !tbaa !4, !nonnull !111, !noundef !111
+  %99 = load ptr, ptr %97, align 8, !tbaa !4, !nonnull !105, !noundef !105
   br label %zend_hash_str_find_ptr.exit
 
 zend_hash_str_find_ptr.exit:                      ; preds = %95, %98
   %.0.i = phi ptr [ %99, %98 ], [ null, %95 ]
   %100 = getelementptr inbounds nuw i8, ptr %14, i64 16
-  store ptr %.0.i, ptr %100, align 8, !tbaa !64
+  store ptr %.0.i, ptr %100, align 8, !tbaa !61
   %101 = getelementptr inbounds nuw i8, ptr %.0.i, i64 16
   %102 = load ptr, ptr %101, align 8, !tbaa !4
   %103 = icmp eq ptr %102, %.0466379
   %spec.store.select = select i1 %103, ptr null, ptr %.0.i
   store ptr %spec.store.select, ptr %100, align 8
-  %104 = load ptr, ptr @zend_known_strings, align 8, !tbaa !112
+  %104 = load ptr, ptr @zend_known_strings, align 8, !tbaa !106
   %105 = getelementptr inbounds nuw i8, ptr %104, i64 576
-  %106 = load ptr, ptr %105, align 8, !tbaa !114
+  %106 = load ptr, ptr %105, align 8, !tbaa !108
   %107 = tail call ptr @zend_hash_find(ptr noundef nonnull %96, ptr noundef %106) #15
   %.not.i54 = icmp eq ptr %107, null
   br i1 %.not.i54, label %zend_hash_find_ptr.exit, label %108
 
 108:                                              ; preds = %zend_hash_str_find_ptr.exit
-  %109 = load ptr, ptr %107, align 8, !tbaa !4, !nonnull !111, !noundef !111
+  %109 = load ptr, ptr %107, align 8, !tbaa !4, !nonnull !105, !noundef !105
   br label %zend_hash_find_ptr.exit
 
 zend_hash_find_ptr.exit:                          ; preds = %zend_hash_str_find_ptr.exit, %108
   %.0.i55 = phi ptr [ %109, %108 ], [ null, %zend_hash_str_find_ptr.exit ]
   %110 = getelementptr inbounds nuw i8, ptr %14, i64 24
-  store ptr %.0.i55, ptr %110, align 8, !tbaa !102
+  store ptr %.0.i55, ptr %110, align 8, !tbaa !98
   %111 = getelementptr inbounds nuw i8, ptr %.0.i55, i64 16
   %112 = load ptr, ptr %111, align 8, !tbaa !4
   %113 = icmp eq ptr %112, %.0466379
@@ -2870,7 +2870,7 @@ spl_heap_consistency_validations.exit:            ; preds = %1
 18:                                               ; preds = %13
   %19 = load ptr, ptr %.val, align 8, !tbaa !58
   %20 = getelementptr inbounds i8, ptr %3, i64 -24
-  %21 = load i32, ptr %20, align 8, !tbaa !66
+  %21 = load i32, ptr %20, align 8, !tbaa !63
   tail call fastcc void @spl_pqueue_extract_helper(ptr noundef nonnull %14, ptr noundef %19, i32 noundef %21)
   br label %22
 
@@ -2963,58 +2963,52 @@ attributes #17 = { nounwind allocsize(0,1) }
 !57 = !{!51, !16, i64 48}
 !58 = !{!51, !12, i64 0}
 !59 = !{!51, !12, i64 24}
-!60 = distinct !{!60, !61}
-!61 = !{!"llvm.loop.estimated_trip_count"}
-!62 = !{!51, !12, i64 16}
-!63 = distinct !{!63, !61}
-!64 = !{!45, !47, i64 16}
-!65 = !{!45, !23, i64 48}
-!66 = !{!45, !15, i64 8}
-!67 = !{!16, !16, i64 0}
-!68 = !{!20, !20, i64 0}
-!69 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!70 = !{!48, !15, i64 12}
-!71 = !{!48, !19, i64 32}
-!72 = !{!13, !15, i64 28}
-!73 = distinct !{!73, !61}
-!74 = !{!12, !12, i64 0}
-!75 = !{!76, !39, i64 8}
-!76 = !{!"_zend_class_entry", !5, i64 0, !39, i64 8, !5, i64 16, !15, i64 24, !15, i64 28, !15, i64 32, !15, i64 36, !20, i64 40, !20, i64 48, !20, i64 56, !13, i64 64, !13, i64 120, !13, i64 176, !77, i64 232, !78, i64 240, !79, i64 248, !47, i64 256, !47, i64 264, !47, i64 272, !47, i64 280, !47, i64 288, !47, i64 296, !47, i64 304, !47, i64 312, !47, i64 320, !47, i64 328, !47, i64 336, !47, i64 344, !47, i64 352, !49, i64 360, !80, i64 368, !81, i64 376, !5, i64 384, !12, i64 392, !12, i64 400, !12, i64 408, !12, i64 416, !15, i64 424, !15, i64 428, !15, i64 432, !15, i64 436, !5, i64 440, !82, i64 448, !83, i64 456, !84, i64 464, !19, i64 472, !15, i64 480, !19, i64 488, !39, i64 496, !5, i64 504}
-!77 = !{!"p1 _ZTS24_zend_class_mutable_data", !12, i64 0}
-!78 = !{!"p1 _ZTS29_zend_inheritance_cache_entry", !12, i64 0}
-!79 = !{!"p2 _ZTS19_zend_property_info", !12, i64 0}
-!80 = !{!"p1 _ZTS26_zend_class_iterator_funcs", !12, i64 0}
-!81 = !{!"p1 _ZTS29_zend_class_arrayaccess_funcs", !12, i64 0}
-!82 = !{!"p1 _ZTS16_zend_class_name", !12, i64 0}
-!83 = !{!"p2 _ZTS17_zend_trait_alias", !12, i64 0}
-!84 = !{!"p2 _ZTS22_zend_trait_precedence", !12, i64 0}
-!85 = !{!76, !49, i64 360}
-!86 = !{!76, !12, i64 392}
-!87 = !{!88, !15, i64 0}
-!88 = !{!"_zend_object_handlers", !15, i64 0, !12, i64 8, !12, i64 16, !12, i64 24, !12, i64 32, !12, i64 40, !12, i64 48, !12, i64 56, !12, i64 64, !12, i64 72, !12, i64 80, !12, i64 88, !12, i64 96, !12, i64 104, !12, i64 112, !12, i64 120, !12, i64 128, !12, i64 136, !12, i64 144, !12, i64 152, !12, i64 160, !12, i64 168, !12, i64 176, !12, i64 184, !12, i64 192}
-!89 = !{!88, !12, i64 24}
-!90 = !{!88, !12, i64 144}
-!91 = !{!88, !12, i64 168}
-!92 = !{!88, !12, i64 8}
-!93 = !{!94, !12, i64 0}
-!94 = !{!"", !12, i64 0, !15, i64 8}
-!95 = !{!94, !15, i64 8}
-!96 = !{!97, !99, i64 72}
-!97 = !{!"_zend_user_iterator", !98, i64 0, !23, i64 88, !10, i64 96}
-!98 = !{!"_zend_object_iterator", !48, i64 0, !10, i64 56, !99, i64 72, !16, i64 80}
-!99 = !{!"p1 _ZTS27_zend_object_iterator_funcs", !12, i64 0}
-!100 = !{!97, !23, i64 88}
-!101 = !{!48, !23, i64 16}
-!102 = !{!45, !47, i64 24}
-!103 = !{!"branch_weights", i32 1, i32 2001, i32 2000}
-!104 = !{!15, !15, i64 0}
-!105 = distinct !{!105, !61}
-!106 = !{!76, !15, i64 32}
-!107 = !{!76, !15, i64 28}
-!108 = !{!45, !49, i64 56}
-!109 = !{!51, !12, i64 8}
-!110 = distinct !{!110, !61}
-!111 = !{}
-!112 = !{!113, !113, i64 0}
-!113 = !{!"p2 _ZTS12_zend_string", !12, i64 0}
-!114 = !{!39, !39, i64 0}
+!60 = !{!51, !12, i64 16}
+!61 = !{!45, !47, i64 16}
+!62 = !{!45, !23, i64 48}
+!63 = !{!45, !15, i64 8}
+!64 = !{!16, !16, i64 0}
+!65 = !{!20, !20, i64 0}
+!66 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!67 = !{!48, !15, i64 12}
+!68 = !{!48, !19, i64 32}
+!69 = !{!13, !15, i64 28}
+!70 = !{!12, !12, i64 0}
+!71 = !{!72, !39, i64 8}
+!72 = !{!"_zend_class_entry", !5, i64 0, !39, i64 8, !5, i64 16, !15, i64 24, !15, i64 28, !15, i64 32, !15, i64 36, !20, i64 40, !20, i64 48, !20, i64 56, !13, i64 64, !13, i64 120, !13, i64 176, !73, i64 232, !74, i64 240, !75, i64 248, !47, i64 256, !47, i64 264, !47, i64 272, !47, i64 280, !47, i64 288, !47, i64 296, !47, i64 304, !47, i64 312, !47, i64 320, !47, i64 328, !47, i64 336, !47, i64 344, !47, i64 352, !49, i64 360, !76, i64 368, !77, i64 376, !5, i64 384, !12, i64 392, !12, i64 400, !12, i64 408, !12, i64 416, !15, i64 424, !15, i64 428, !15, i64 432, !15, i64 436, !5, i64 440, !78, i64 448, !79, i64 456, !80, i64 464, !19, i64 472, !15, i64 480, !19, i64 488, !39, i64 496, !5, i64 504}
+!73 = !{!"p1 _ZTS24_zend_class_mutable_data", !12, i64 0}
+!74 = !{!"p1 _ZTS29_zend_inheritance_cache_entry", !12, i64 0}
+!75 = !{!"p2 _ZTS19_zend_property_info", !12, i64 0}
+!76 = !{!"p1 _ZTS26_zend_class_iterator_funcs", !12, i64 0}
+!77 = !{!"p1 _ZTS29_zend_class_arrayaccess_funcs", !12, i64 0}
+!78 = !{!"p1 _ZTS16_zend_class_name", !12, i64 0}
+!79 = !{!"p2 _ZTS17_zend_trait_alias", !12, i64 0}
+!80 = !{!"p2 _ZTS22_zend_trait_precedence", !12, i64 0}
+!81 = !{!72, !49, i64 360}
+!82 = !{!72, !12, i64 392}
+!83 = !{!84, !15, i64 0}
+!84 = !{!"_zend_object_handlers", !15, i64 0, !12, i64 8, !12, i64 16, !12, i64 24, !12, i64 32, !12, i64 40, !12, i64 48, !12, i64 56, !12, i64 64, !12, i64 72, !12, i64 80, !12, i64 88, !12, i64 96, !12, i64 104, !12, i64 112, !12, i64 120, !12, i64 128, !12, i64 136, !12, i64 144, !12, i64 152, !12, i64 160, !12, i64 168, !12, i64 176, !12, i64 184, !12, i64 192}
+!85 = !{!84, !12, i64 24}
+!86 = !{!84, !12, i64 144}
+!87 = !{!84, !12, i64 168}
+!88 = !{!84, !12, i64 8}
+!89 = !{!90, !12, i64 0}
+!90 = !{!"", !12, i64 0, !15, i64 8}
+!91 = !{!90, !15, i64 8}
+!92 = !{!93, !95, i64 72}
+!93 = !{!"_zend_user_iterator", !94, i64 0, !23, i64 88, !10, i64 96}
+!94 = !{!"_zend_object_iterator", !48, i64 0, !10, i64 56, !95, i64 72, !16, i64 80}
+!95 = !{!"p1 _ZTS27_zend_object_iterator_funcs", !12, i64 0}
+!96 = !{!93, !23, i64 88}
+!97 = !{!48, !23, i64 16}
+!98 = !{!45, !47, i64 24}
+!99 = !{!"branch_weights", i32 1, i32 2001, i32 2000}
+!100 = !{!15, !15, i64 0}
+!101 = !{!72, !15, i64 32}
+!102 = !{!72, !15, i64 28}
+!103 = !{!45, !49, i64 56}
+!104 = !{!51, !12, i64 8}
+!105 = !{}
+!106 = !{!107, !107, i64 0}
+!107 = !{!"p2 _ZTS12_zend_string", !12, i64 0}
+!108 = !{!39, !39, i64 0}

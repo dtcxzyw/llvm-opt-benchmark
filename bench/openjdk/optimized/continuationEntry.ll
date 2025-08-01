@@ -184,12 +184,12 @@ _ZN17StackWatermarkSet3getEP10JavaThread18StackWatermarkKind.exit: ; preds = %.l
 
 27:                                               ; preds = %.lr.ph.split.i
   call void @_ZNK5frame10sender_rawEP11RegisterMap(ptr dead_on_unwind nonnull writable sret(%class.frame) align 8 %3, ptr noundef nonnull align 8 dereferenceable(5041) %4, ptr noundef nonnull %18)
-  %28 = load i8, ptr %19, align 1, !noalias !9
+  %28 = load i8, ptr %19, align 1, !noalias !8
   %29 = trunc i8 %28 to i1
   br i1 %29, label %30, label %_ZNK5frame6senderEP11RegisterMap.exit.i.i
 
 30:                                               ; preds = %27
-  %31 = load ptr, ptr %20, align 8, !noalias !9
+  %31 = load ptr, ptr %20, align 8, !noalias !8
   %32 = icmp eq ptr %31, null
   br i1 %32, label %_ZNK11RegisterMap7in_contEv.exit.thread.i.i.i, label %_ZNK11RegisterMap7in_contEv.exit.i.i.i
 
@@ -199,7 +199,7 @@ _ZNK11RegisterMap7in_contEv.exit.i.i.i:           ; preds = %30
   br i1 %.not.i.i.i, label %_ZNK11RegisterMap7in_contEv.exit.thread.i.i.i, label %_ZNK5frame6senderEP11RegisterMap.exit.i.i
 
 _ZNK11RegisterMap7in_contEv.exit.thread.i.i.i:    ; preds = %_ZNK11RegisterMap7in_contEv.exit.i.i.i, %30
-  %34 = load ptr, ptr %21, align 8, !noalias !9
+  %34 = load ptr, ptr %21, align 8, !noalias !8
   call void @_ZN17StackWatermarkSet12on_iterationEP10JavaThreadRK5frame(ptr noundef %34, ptr noundef nonnull align 8 dereferenceable(56) %3) #8
   br label %_ZNK5frame6senderEP11RegisterMap.exit.i.i
 
@@ -212,7 +212,7 @@ _ZN16StackFrameStream4nextEv.exit.i:              ; preds = %_ZNK5frame6senderEP
   %35 = phi ptr [ %24, %.lr.ph.split.i ], [ %.pre.i, %_ZNK5frame6senderEP11RegisterMap.exit.i.i ]
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %3)
   %.not.i9 = icmp ugt ptr %35, %1
-  br i1 %.not.i9, label %_ZL22flush_stack_processingP10JavaThreadPl.exit, label %.lr.ph.split.i, !llvm.loop !12
+  br i1 %.not.i9, label %_ZL22flush_stack_processingP10JavaThreadPl.exit, label %.lr.ph.split.i, !llvm.loop !11
 
 _ZL22flush_stack_processingP10JavaThreadPl.exit:  ; preds = %_ZN16StackFrameStream4nextEv.exit.i, %15, %.lr.ph.i8
   call void @llvm.lifetime.end.p0(i64 5048, ptr nonnull %4)
@@ -789,11 +789,10 @@ attributes #8 = { nounwind }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = !{!10}
-!10 = distinct !{!10, !11, !"_ZNK5frame6senderEP11RegisterMap: argument 0"}
-!11 = distinct !{!11, !"_ZNK5frame6senderEP11RegisterMap"}
-!12 = distinct !{!12, !7, !8, !13}
-!13 = !{!"llvm.loop.unswitch.partial.disable"}
+!8 = !{!9}
+!9 = distinct !{!9, !10, !"_ZNK5frame6senderEP11RegisterMap: argument 0"}
+!10 = distinct !{!10, !"_ZNK5frame6senderEP11RegisterMap"}
+!11 = distinct !{!11, !7, !12}
+!12 = !{!"llvm.loop.unswitch.partial.disable"}

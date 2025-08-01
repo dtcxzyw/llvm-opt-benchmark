@@ -90,7 +90,7 @@ define internal fastcc void @_ZL14cross_corr_lowiPKfS0_PfP7gmx_fft(i32 noundef %
   store float 0.000000e+00, ptr %24, align 4, !tbaa !13
   %indvars.iv.next63 = add nuw nsw i64 %indvars.iv62, 1
   %exitcond66.not = icmp eq i64 %indvars.iv.next63, %wide.trip.count65
-  br i1 %exitcond66.not, label %._crit_edge, label %.lr.ph52, !llvm.loop !17
+  br i1 %exitcond66.not, label %._crit_edge, label %.lr.ph52, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %.lr.ph52, %.preheader
   %25 = tail call noundef i32 @_Z10gmx_fft_1dP7gmx_fft17gmx_fft_directionPvS2_(ptr noundef %4, i32 noundef 0, ptr noundef %8, ptr noundef %8)
@@ -123,7 +123,7 @@ define internal fastcc void @_ZL14cross_corr_lowiPKfS0_PfP7gmx_fft(i32 noundef %
   store float %40, ptr %29, align 4, !tbaa !11
   %indvars.iv.next68 = add nuw nsw i64 %indvars.iv67, 1
   %exitcond71.not = icmp eq i64 %indvars.iv.next68, %wide.trip.count70
-  br i1 %exitcond71.not, label %.lr.ph59.preheader, label %28, !llvm.loop !18
+  br i1 %exitcond71.not, label %.lr.ph59.preheader, label %28, !llvm.loop !17
 
 ._crit_edge56:                                    ; preds = %._crit_edge
   %41 = tail call noundef i32 @_Z10gmx_fft_1dP7gmx_fft17gmx_fft_directionPvS2_(ptr noundef %4, i32 noundef 1, ptr noundef %8, ptr noundef %8)
@@ -142,7 +142,7 @@ define internal fastcc void @_ZL14cross_corr_lowiPKfS0_PfP7gmx_fft(i32 noundef %
   store float %44, ptr %45, align 4, !tbaa !9
   %indvars.iv.next73 = add nuw nsw i64 %indvars.iv72, 1
   %exitcond76.not = icmp eq i64 %indvars.iv.next73, %wide.trip.count75
-  br i1 %exitcond76.not, label %._crit_edge60, label %.lr.ph59, !llvm.loop !19
+  br i1 %exitcond76.not, label %._crit_edge60, label %.lr.ph59, !llvm.loop !18
 
 ._crit_edge60:                                    ; preds = %.lr.ph59, %._crit_edge56
   tail call void @_Z9save_freePKcS0_iPv(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 124, ptr noundef %8)
@@ -173,11 +173,11 @@ define void @_Z15many_cross_corriPiPPfS1_S1_(i32 noundef %0, ptr noundef %1, ptr
   %8 = alloca ptr, align 8
   %9 = alloca ptr, align 8
   %10 = alloca ptr, align 8
-  store i32 %0, ptr %6, align 4, !tbaa !20
-  store ptr %1, ptr %7, align 8, !tbaa !22
-  store ptr %2, ptr %8, align 8, !tbaa !24
-  store ptr %3, ptr %9, align 8, !tbaa !24
-  store ptr %4, ptr %10, align 8, !tbaa !24
+  store i32 %0, ptr %6, align 4, !tbaa !19
+  store ptr %1, ptr %7, align 8, !tbaa !21
+  store ptr %2, ptr %8, align 8, !tbaa !23
+  store ptr %3, ptr %9, align 8, !tbaa !23
+  store ptr %4, ptr %10, align 8, !tbaa !23
   call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @3, i32 5, ptr nonnull @_Z15many_cross_corriPiPPfS1_S1_.omp_outlined, ptr nonnull %6, ptr nonnull %7, ptr nonnull %8, ptr nonnull %9, ptr nonnull %10)
   call void @_Z15gmx_fft_cleanupv()
   ret void
@@ -190,26 +190,26 @@ define internal void @_Z15many_cross_corriPiPPfS1_S1_.omp_outlined(ptr noalias n
   %10 = alloca i32, align 4
   %11 = alloca i32, align 4
   %12 = alloca ptr, align 8
-  %13 = load i32, ptr %2, align 4, !tbaa !20
+  %13 = load i32, ptr %2, align 4, !tbaa !19
   %14 = icmp sgt i32 %13, 0
-  %.pre = load i32, ptr %0, align 4, !tbaa !20
+  %.pre = load i32, ptr %0, align 4, !tbaa !19
   br i1 %14, label %15, label %54
 
 15:                                               ; preds = %7
   %16 = add nsw i32 %13, -1
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #5
-  store i32 0, ptr %8, align 4, !tbaa !20
+  store i32 0, ptr %8, align 4, !tbaa !19
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #5
-  store i32 %16, ptr %9, align 4, !tbaa !20
+  store i32 %16, ptr %9, align 4, !tbaa !19
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #5
-  store i32 1, ptr %10, align 4, !tbaa !20
+  store i32 1, ptr %10, align 4, !tbaa !19
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11) #5
-  store i32 0, ptr %11, align 4, !tbaa !20
+  store i32 0, ptr %11, align 4, !tbaa !19
   call void @__kmpc_for_static_init_4(ptr nonnull @1, i32 %.pre, i32 34, ptr nonnull %11, ptr nonnull %8, ptr nonnull %9, ptr nonnull %10, i32 1, i32 1)
-  %17 = load i32, ptr %9, align 4, !tbaa !20
+  %17 = load i32, ptr %9, align 4, !tbaa !19
   %18 = call i32 @llvm.smin.i32(i32 %17, i32 %16)
-  store i32 %18, ptr %9, align 4, !tbaa !20
-  %19 = load i32, ptr %8, align 4, !tbaa !20
+  store i32 %18, ptr %9, align 4, !tbaa !19
+  %19 = load i32, ptr %8, align 4, !tbaa !19
   %.not24 = icmp sgt i32 %19, %18
   br i1 %.not24, label %._crit_edge, label %.lr.ph.preheader
 
@@ -220,26 +220,26 @@ define internal void @_Z15many_cross_corriPiPPfS1_S1_.omp_outlined(ptr noalias n
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %42
   %indvars.iv = phi i64 [ %20, %.lr.ph.preheader ], [ %indvars.iv.next, %42 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #5
-  %21 = load ptr, ptr %3, align 8, !tbaa !22
+  %21 = load ptr, ptr %3, align 8, !tbaa !21
   %22 = getelementptr inbounds i32, ptr %21, i64 %indvars.iv
-  %23 = load i32, ptr %22, align 4, !tbaa !20
+  %23 = load i32, ptr %22, align 4, !tbaa !19
   %24 = shl nsw i32 %23, 1
   %25 = invoke noundef i32 @_Z15gmx_fft_init_1dPP7gmx_fftii(ptr noundef nonnull %12, i32 noundef %24, i32 noundef 1)
           to label %26 unwind label %45
 
 26:                                               ; preds = %.lr.ph
-  %27 = load ptr, ptr %3, align 8, !tbaa !22
+  %27 = load ptr, ptr %3, align 8, !tbaa !21
   %28 = getelementptr inbounds i32, ptr %27, i64 %indvars.iv
-  %29 = load i32, ptr %28, align 4, !tbaa !20
-  %30 = load ptr, ptr %4, align 8, !tbaa !24
+  %29 = load i32, ptr %28, align 4, !tbaa !19
+  %30 = load ptr, ptr %4, align 8, !tbaa !23
   %31 = getelementptr inbounds ptr, ptr %30, i64 %indvars.iv
-  %32 = load ptr, ptr %31, align 8, !tbaa !27
-  %33 = load ptr, ptr %5, align 8, !tbaa !24
+  %32 = load ptr, ptr %31, align 8, !tbaa !26
+  %33 = load ptr, ptr %5, align 8, !tbaa !23
   %34 = getelementptr inbounds ptr, ptr %33, i64 %indvars.iv
-  %35 = load ptr, ptr %34, align 8, !tbaa !27
-  %36 = load ptr, ptr %6, align 8, !tbaa !24
+  %35 = load ptr, ptr %34, align 8, !tbaa !26
+  %36 = load ptr, ptr %6, align 8, !tbaa !23
   %37 = getelementptr inbounds ptr, ptr %36, i64 %indvars.iv
-  %38 = load ptr, ptr %37, align 8, !tbaa !27
+  %38 = load ptr, ptr %37, align 8, !tbaa !26
   %39 = load ptr, ptr %12, align 8, !tbaa !4
   invoke fastcc void @_ZL14cross_corr_lowiPKfS0_PfP7gmx_fft(i32 noundef %29, ptr noundef %32, ptr noundef %35, ptr noundef %38, ptr noundef %39)
           to label %40 unwind label %45
@@ -252,10 +252,10 @@ define internal void @_Z15many_cross_corriPiPPfS1_S1_.omp_outlined(ptr noalias n
 42:                                               ; preds = %40
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #5
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
-  %43 = load i32, ptr %9, align 4, !tbaa !20
+  %43 = load i32, ptr %9, align 4, !tbaa !19
   %44 = sext i32 %43 to i64
   %.not.not = icmp slt i64 %indvars.iv, %44
-  br i1 %.not.not, label %.lr.ph, label %._crit_edge, !llvm.loop !29
+  br i1 %.not.not, label %.lr.ph, label %._crit_edge
 
 45:                                               ; preds = %40, %26, %.lr.ph
   %46 = landingpad { ptr, i32 }
@@ -330,7 +330,7 @@ declare void @__kmpc_for_static_fini(ptr, i32) local_unnamed_addr #5
 declare void @__kmpc_barrier(ptr, i32) local_unnamed_addr #10
 
 ; Function Attrs: nounwind
-declare !callback !30 void @__kmpc_fork_call(ptr, i32, ptr, ...) local_unnamed_addr #5
+declare !callback !28 void @__kmpc_fork_call(ptr, i32, ptr, ...) local_unnamed_addr #5
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #11
@@ -369,21 +369,19 @@ attributes #13 = { noreturn nounwind }
 !11 = !{!12, !10, i64 0}
 !12 = !{!"_ZTS9t_complex", !10, i64 0, !10, i64 4}
 !13 = !{!12, !10, i64 4}
-!14 = distinct !{!14, !15, !16}
+!14 = distinct !{!14, !15}
 !15 = !{!"llvm.loop.mustprogress"}
-!16 = !{!"llvm.loop.estimated_trip_count"}
-!17 = distinct !{!17, !15, !16}
-!18 = distinct !{!18, !15, !16}
-!19 = distinct !{!19, !15, !16}
-!20 = !{!21, !21, i64 0}
-!21 = !{!"int", !7, i64 0}
-!22 = !{!23, !23, i64 0}
-!23 = !{!"p1 int", !6, i64 0}
-!24 = !{!25, !25, i64 0}
-!25 = !{!"p2 float", !26, i64 0}
-!26 = !{!"any p2 pointer", !6, i64 0}
-!27 = !{!28, !28, i64 0}
-!28 = !{!"p1 float", !6, i64 0}
-!29 = distinct !{!29, !16}
-!30 = !{!31}
-!31 = !{i64 2, i64 -1, i64 -1, i1 true}
+!16 = distinct !{!16, !15}
+!17 = distinct !{!17, !15}
+!18 = distinct !{!18, !15}
+!19 = !{!20, !20, i64 0}
+!20 = !{!"int", !7, i64 0}
+!21 = !{!22, !22, i64 0}
+!22 = !{!"p1 int", !6, i64 0}
+!23 = !{!24, !24, i64 0}
+!24 = !{!"p2 float", !25, i64 0}
+!25 = !{!"any p2 pointer", !6, i64 0}
+!26 = !{!27, !27, i64 0}
+!27 = !{!"p1 float", !6, i64 0}
+!28 = !{!29}
+!29 = !{i64 2, i64 -1, i64 -1, i1 true}

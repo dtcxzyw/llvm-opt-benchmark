@@ -612,7 +612,7 @@ Abc_Clock.exit48:                                 ; preds = %76, %98
   %108 = sub nsw i32 %.val43.val, %.val42
   %109 = sext i32 %108 to i64
   %110 = icmp slt i64 %indvars.iv.next, %109
-  br i1 %110, label %.lr.ph.split, label %.critedge, !llvm.loop !64
+  br i1 %110, label %.lr.ph.split, label %.critedge, !llvm.loop !63
 
 .critedge:                                        ; preds = %.lr.ph.split, %Abc_Clock.exit48, %.lr.ph.split.us, %.critedge37.us, %31
   %111 = getelementptr inbounds nuw i8, ptr %14, i64 32
@@ -674,7 +674,7 @@ define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #9 {
 
 8:                                                ; preds = %5
   %9 = call ptr @vnsprintf(ptr noundef %1, ptr noundef nonnull %3) #14
-  %10 = load ptr, ptr @stdout, align 8, !tbaa !65
+  %10 = load ptr, ptr @stdout, align 8, !tbaa !64
   %11 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %9) #16
   %12 = trunc i64 %11 to i32
   %13 = call i32 @Gia_ManToBridgeText(ptr noundef %10, i32 noundef %12, ptr noundef nonnull %9) #14
@@ -682,7 +682,7 @@ define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #9 {
   br label %17
 
 14:                                               ; preds = %5
-  %15 = load ptr, ptr @stdout, align 8, !tbaa !65, !noalias !66
+  %15 = load ptr, ptr @stdout, align 8, !tbaa !64, !noalias !65
   %16 = call i32 @vfprintf(ptr noundef %15, ptr noundef %1, ptr noundef nonnull %3) #14
   br label %17
 
@@ -793,12 +793,11 @@ attributes #16 = { nounwind willreturn memory(read) }
 !57 = !{!46, !6, i64 704}
 !58 = !{!14, !12, i64 16}
 !59 = !{!14, !11, i64 72}
-!60 = distinct !{!60, !61, !62, !63}
+!60 = distinct !{!60, !61, !62}
 !61 = !{!"llvm.loop.mustprogress"}
-!62 = !{!"llvm.loop.estimated_trip_count"}
-!63 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!64 = distinct !{!64, !61, !62}
-!65 = !{!56, !56, i64 0}
-!66 = !{!67}
-!67 = distinct !{!67, !68, !"vprintf: argument 0"}
-!68 = distinct !{!68, !"vprintf"}
+!62 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!63 = distinct !{!63, !61}
+!64 = !{!56, !56, i64 0}
+!65 = !{!66}
+!66 = distinct !{!66, !67, !"vprintf: argument 0"}
+!67 = distinct !{!67, !"vprintf"}

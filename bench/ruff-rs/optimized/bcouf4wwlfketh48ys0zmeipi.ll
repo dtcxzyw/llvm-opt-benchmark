@@ -109,7 +109,7 @@ define void @_ZN18ruff_python_trivia8textwrap6indent17h6aa7d66395f6a3aeE(ptr wri
   %44 = load i64, ptr %29, align 8
   %45 = getelementptr inbounds nuw i8, ptr %43, i64 %44
   invoke void @"_ZN132_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$$RF$T$C$core..slice..iter..Iter$LT$T$GT$$GT$$GT$11spec_extend17h3fd7e2792154fe48E"(ptr nonnull align 8 %10, ptr %43, ptr %45, ptr nonnull align 8 @anon.2932ddeffeee90be19b0646989d1169a.2)
-          to label %30 unwind label %.loopexit, !llvm.loop !3
+          to label %30 unwind label %.loopexit
 
 46:                                               ; preds = %22
   %47 = landingpad { ptr, i32 }
@@ -239,7 +239,7 @@ define void @_ZN18ruff_python_trivia8textwrap6dedent17h775591c1c1ee89e4E(ptr wri
           to label %.backedge.backedge unwind label %.loopexit
 
 .backedge.backedge:                               ; preds = %.invoke, %42
-  br label %.backedge, !llvm.loop !5
+  br label %.backedge
 
 49:                                               ; preds = %38
   %50 = extractvalue { ptr, i64 } %41, 0
@@ -388,7 +388,7 @@ define void @_ZN18ruff_python_trivia8textwrap9dedent_to17hd5cc59e1d30806feE(ptr 
           to label %.backedge.backedge unwind label %.loopexit
 
 .backedge.backedge:                               ; preds = %.invoke, %50
-  br label %.backedge, !llvm.loop !6
+  br label %.backedge
 
 59:                                               ; preds = %48
   %60 = extractvalue { ptr, i64 } %49, 1
@@ -503,7 +503,3 @@ attributes #8 = { noreturn }
 !0 = !{i32 8, !"PIC Level", i32 2}
 !1 = !{i32 2, !"RtLibUseGOT", i32 1}
 !2 = !{!"rustc version 1.87.0 (17067e9ac 2025-05-09)"}
-!3 = distinct !{!3, !4}
-!4 = !{!"llvm.loop.estimated_trip_count"}
-!5 = distinct !{!5, !4}
-!6 = distinct !{!6, !4}

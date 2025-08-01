@@ -374,7 +374,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit69: ; preds = %_ZN
 
 148:                                              ; preds = %._crit_edge
   %149 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %150 = load ptr, ptr %149, align 8, !tbaa !48
+  %150 = load ptr, ptr %149, align 8, !tbaa !47
   %.not.i.i = icmp eq ptr %150, null
   br i1 %.not.i.i, label %_ZNSt12__shared_ptrIN2cv8datasets10SLAM_kittiELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, label %151
 
@@ -386,9 +386,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit69: ; preds = %_ZN
   br i1 %154, label %156, label %164
 
 156:                                              ; preds = %151
-  store i32 0, ptr %152, align 8, !tbaa !49
+  store i32 0, ptr %152, align 8, !tbaa !48
   %157 = getelementptr inbounds nuw i8, ptr %150, i64 12
-  store i32 0, ptr %157, align 4, !tbaa !52
+  store i32 0, ptr %157, align 4, !tbaa !51
   %158 = load ptr, ptr %150, align 8, !tbaa !24
   %159 = getelementptr inbounds nuw i8, ptr %158, i64 16
   %160 = load ptr, ptr %159, align 8
@@ -406,7 +406,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit69: ; preds = %_ZN
 
 166:                                              ; preds = %164
   %167 = add nsw i32 %155, -1
-  store i32 %167, ptr %152, align 4, !tbaa !53
+  store i32 %167, ptr %152, align 4, !tbaa !52
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i
 
 168:                                              ; preds = %164
@@ -416,7 +416,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit69: ; preds = %_ZN
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i: ; preds = %168, %166
   %.0.i.i.i.i = phi i32 [ %155, %166 ], [ %169, %168 ]
   %170 = icmp eq i32 %.0.i.i.i.i, 1
-  br i1 %170, label %171, label %_ZNSt12__shared_ptrIN2cv8datasets10SLAM_kittiELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, !prof !54
+  br i1 %170, label %171, label %_ZNSt12__shared_ptrIN2cv8datasets10SLAM_kittiELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, !prof !53
 
 171:                                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %150) #11
@@ -431,9 +431,9 @@ _ZNSt12__shared_ptrIN2cv8datasets10SLAM_kittiELN9__gnu_cxx12_Lock_policyE2EED2Ev
   %173 = trunc nuw nsw i64 %indvars.iv87 to i32
   %174 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.10, i32 noundef %173)
   %175 = getelementptr inbounds nuw [4 x %"class.std::vector.17"], ptr %129, i64 0, i64 %indvars.iv87
-  %176 = load ptr, ptr %175, align 8, !tbaa !55
+  %176 = load ptr, ptr %175, align 8, !tbaa !54
   %177 = getelementptr inbounds nuw i8, ptr %175, i64 8
-  %178 = load ptr, ptr %177, align 8, !tbaa !55
+  %178 = load ptr, ptr %177, align 8, !tbaa !54
   %.not83 = icmp eq ptr %176, %178
   br i1 %.not83, label %._crit_edge, label %.lr.ph
 
@@ -441,16 +441,16 @@ _ZNSt12__shared_ptrIN2cv8datasets10SLAM_kittiELN9__gnu_cxx12_Lock_policyE2EED2Ev
   %putchar = call i32 @putchar(i32 10)
   %indvars.iv.next88 = add nuw nsw i64 %indvars.iv87, 1
   %exitcond90.not = icmp eq i64 %indvars.iv.next88, 4
-  br i1 %exitcond90.not, label %148, label %172, !llvm.loop !56
+  br i1 %exitcond90.not, label %148, label %172, !llvm.loop !55
 
 .lr.ph:                                           ; preds = %172, %.lr.ph
   %.sroa.076.084 = phi ptr [ %181, %.lr.ph ], [ %176, %172 ]
-  %179 = load double, ptr %.sroa.076.084, align 8, !tbaa !57
+  %179 = load double, ptr %.sroa.076.084, align 8, !tbaa !56
   %180 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.11, double noundef %179)
   %181 = getelementptr inbounds nuw i8, ptr %.sroa.076.084, i64 8
-  %182 = load ptr, ptr %177, align 8, !tbaa !55
+  %182 = load ptr, ptr %177, align 8, !tbaa !54
   %.not = icmp eq ptr %181, %182
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !59
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !58
 
 183:                                              ; preds = %134, %132
   %.pn37 = phi { ptr, i32 } [ %135, %134 ], [ %133, %132 ]
@@ -536,7 +536,7 @@ declare noundef nonnull align 8 dereferenceable(24) ptr @_ZN2cv8datasets7Dataset
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt12__shared_ptrIN2cv8datasets10SLAM_kittiELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load ptr, ptr %2, align 8, !tbaa !48
+  %3 = load ptr, ptr %2, align 8, !tbaa !47
   %.not.i = icmp eq ptr %3, null
   br i1 %.not.i, label %_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, label %4
 
@@ -548,9 +548,9 @@ define linkonce_odr hidden void @_ZNSt12__shared_ptrIN2cv8datasets10SLAM_kittiEL
   br i1 %7, label %9, label %17
 
 9:                                                ; preds = %4
-  store i32 0, ptr %5, align 8, !tbaa !49
+  store i32 0, ptr %5, align 8, !tbaa !48
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 12
-  store i32 0, ptr %10, align 4, !tbaa !52
+  store i32 0, ptr %10, align 4, !tbaa !51
   %11 = load ptr, ptr %3, align 8, !tbaa !24
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %13 = load ptr, ptr %12, align 8
@@ -568,7 +568,7 @@ define linkonce_odr hidden void @_ZNSt12__shared_ptrIN2cv8datasets10SLAM_kittiEL
 
 19:                                               ; preds = %17
   %20 = add nsw i32 %8, -1
-  store i32 %20, ptr %5, align 4, !tbaa !53
+  store i32 %20, ptr %5, align 4, !tbaa !52
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i
 
 21:                                               ; preds = %17
@@ -578,7 +578,7 @@ define linkonce_odr hidden void @_ZNSt12__shared_ptrIN2cv8datasets10SLAM_kittiEL
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i: ; preds = %21, %19
   %.0.i.i.i = phi i32 [ %8, %19 ], [ %22, %21 ]
   %23 = icmp eq i32 %.0.i.i.i, 1
-  br i1 %23, label %24, label %_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, !prof !54
+  br i1 %23, label %24, label %_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, !prof !53
 
 24:                                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i
   tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #11
@@ -603,9 +603,9 @@ define linkonce_odr hidden void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_pol
   br i1 %.not.i, label %10, label %7
 
 7:                                                ; preds = %1
-  %8 = load i32, ptr %5, align 4, !tbaa !53
+  %8 = load i32, ptr %5, align 4, !tbaa !52
   %9 = add nsw i32 %8, -1
-  store i32 %9, ptr %5, align 4, !tbaa !53
+  store i32 %9, ptr %5, align 4, !tbaa !52
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i
 
 10:                                               ; preds = %1
@@ -708,18 +708,17 @@ attributes #12 = { builtin nounwind }
 !42 = !{!"_ZTSNSt12_Vector_baseIN2cv8datasets4poseESaIS2_EE17_Vector_impl_dataE", !43, i64 0, !43, i64 8, !43, i64 16}
 !43 = !{!"p1 _ZTSN2cv8datasets4poseE", !7, i64 0}
 !44 = !{!42, !43, i64 0}
-!45 = distinct !{!45, !46, !47}
+!45 = distinct !{!45, !46}
 !46 = !{!"llvm.loop.mustprogress"}
-!47 = !{!"llvm.loop.estimated_trip_count"}
-!48 = !{!22, !23, i64 0}
-!49 = !{!50, !51, i64 8}
-!50 = !{!"_ZTSSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE", !51, i64 8, !51, i64 12}
-!51 = !{!"int", !8, i64 0}
-!52 = !{!50, !51, i64 12}
-!53 = !{!51, !51, i64 0}
-!54 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!55 = !{!39, !39, i64 0}
-!56 = distinct !{!56, !46, !47}
-!57 = !{!58, !58, i64 0}
-!58 = !{!"double", !8, i64 0}
-!59 = distinct !{!59, !46, !47}
+!47 = !{!22, !23, i64 0}
+!48 = !{!49, !50, i64 8}
+!49 = !{!"_ZTSSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE", !50, i64 8, !50, i64 12}
+!50 = !{!"int", !8, i64 0}
+!51 = !{!49, !50, i64 12}
+!52 = !{!50, !50, i64 0}
+!53 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!54 = !{!39, !39, i64 0}
+!55 = distinct !{!55, !46}
+!56 = !{!57, !57, i64 0}
+!57 = !{!"double", !8, i64 0}
+!58 = distinct !{!58, !46}

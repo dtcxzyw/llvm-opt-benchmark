@@ -310,7 +310,7 @@ define dso_local noundef i32 @__traceiter_cdev_update(ptr readnone captures(none
   %10 = getelementptr i8, ptr %6, i64 24
   %11 = load ptr, ptr %10, align 8
   %12 = icmp eq ptr %11, null
-  br i1 %12, label %.loopexit, label %.preheader, !llvm.loop !10
+  br i1 %12, label %.loopexit, label %.preheader, !llvm.loop !9
 
 .loopexit:                                        ; preds = %.preheader, %3
   ret i32 0
@@ -339,7 +339,7 @@ define dso_local noundef i32 @__traceiter_thermal_zone_trip(ptr readnone capture
   %11 = getelementptr i8, ptr %7, i64 24
   %12 = load ptr, ptr %11, align 8
   %13 = icmp eq ptr %12, null
-  br i1 %13, label %.loopexit, label %.preheader, !llvm.loop !11
+  br i1 %13, label %.loopexit, label %.preheader, !llvm.loop !10
 
 .loopexit:                                        ; preds = %.preheader, %4
   ret i32 0
@@ -358,19 +358,19 @@ define internal void @trace_event_raw_event_thermal_temperature(ptr noundef %0, 
   %5 = load i64, ptr %4, align 8
   %6 = and i64 %5, 704
   %7 = icmp eq i64 %6, 0
-  br i1 %7, label %13, label %8, !prof !12
+  br i1 %7, label %13, label %8, !prof !11
 
 8:                                                ; preds = %2
   %9 = and i64 %5, 256
   %10 = icmp eq i64 %9, 0
-  br i1 %10, label %11, label %13, !prof !13
+  br i1 %10, label %11, label %13, !prof !12
 
 11:                                               ; preds = %8
   %12 = tail call zeroext i1 @__trace_trigger_soft_disabled(ptr noundef %0) #20
   br i1 %12, label %36, label %13
 
 13:                                               ; preds = %11, %8, %2
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %3, i8 0, i64 48, i1 false), !annotation !14
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %3, i8 0, i64 48, i1 false), !annotation !13
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %15 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %14) #20
   %16 = trunc i64 %15 to i32
@@ -412,7 +412,7 @@ define internal void @perf_trace_thermal_temperature(ptr noundef %0, ptr noundef
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #20
-  store ptr null, ptr %3, align 8, !annotation !14
+  store ptr null, ptr %3, align 8, !annotation !13
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #20
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %5) #20
@@ -421,7 +421,7 @@ define internal void @perf_trace_thermal_temperature(ptr noundef %0, ptr noundef
   %9 = add i32 %8, 65560
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %11 = load ptr, ptr %10, align 8
-  %12 = tail call i64 asm "add %gs:$1, $0", "=r,*m,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @this_cpu_off, ptr %11) #21, !srcloc !15
+  %12 = tail call i64 asm "add %gs:$1, $0", "=r,*m,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @this_cpu_off, ptr %11) #21, !srcloc !14
   %13 = inttoptr i64 %12 to ptr
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %15 = load volatile ptr, ptr %14, align 8
@@ -434,7 +434,7 @@ define internal void @perf_trace_thermal_temperature(ptr noundef %0, ptr noundef
   br i1 %19, label %49, label %20
 
 20:                                               ; preds = %17, %2
-  store i32 0, ptr %4, align 4, !annotation !14
+  store i32 0, ptr %4, align 4, !annotation !13
   %21 = add i32 %7, 36
   %22 = and i32 %21, -8
   %23 = add i32 %22, -4
@@ -496,19 +496,19 @@ define internal void @trace_event_raw_event_cdev_update(ptr noundef %0, ptr noun
   %6 = load i64, ptr %5, align 8
   %7 = and i64 %6, 704
   %8 = icmp eq i64 %7, 0
-  br i1 %8, label %14, label %9, !prof !12
+  br i1 %8, label %14, label %9, !prof !11
 
 9:                                                ; preds = %3
   %10 = and i64 %6, 256
   %11 = icmp eq i64 %10, 0
-  br i1 %11, label %12, label %14, !prof !13
+  br i1 %11, label %12, label %14, !prof !12
 
 12:                                               ; preds = %9
   %13 = tail call zeroext i1 @__trace_trigger_soft_disabled(ptr noundef %0) #20
   br i1 %13, label %36, label %14
 
 14:                                               ; preds = %12, %9, %3
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %4, i8 0, i64 48, i1 false), !annotation !14
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %4, i8 0, i64 48, i1 false), !annotation !13
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %16 = load ptr, ptr %15, align 8
   %17 = icmp eq ptr %16, null
@@ -547,7 +547,7 @@ define internal void @perf_trace_cdev_update(ptr noundef %0, ptr noundef readonl
   %4 = alloca ptr, align 8
   %5 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #20
-  store ptr null, ptr %4, align 8, !annotation !14
+  store ptr null, ptr %4, align 8, !annotation !13
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #20
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
@@ -559,7 +559,7 @@ define internal void @perf_trace_cdev_update(ptr noundef %0, ptr noundef readonl
   %13 = add i32 %12, 65560
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %15 = load ptr, ptr %14, align 8
-  %16 = tail call i64 asm "add %gs:$1, $0", "=r,*m,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @this_cpu_off, ptr %15) #21, !srcloc !16
+  %16 = tail call i64 asm "add %gs:$1, $0", "=r,*m,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @this_cpu_off, ptr %15) #21, !srcloc !15
   %17 = inttoptr i64 %16 to ptr
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %19 = load volatile ptr, ptr %18, align 8
@@ -572,7 +572,7 @@ define internal void @perf_trace_cdev_update(ptr noundef %0, ptr noundef readonl
   br i1 %23, label %49, label %24
 
 24:                                               ; preds = %21, %3
-  store i32 0, ptr %5, align 4, !annotation !14
+  store i32 0, ptr %5, align 4, !annotation !13
   %25 = add i32 %11, 36
   %26 = and i32 %25, -8
   %27 = add i32 %26, -4
@@ -622,19 +622,19 @@ define internal void @trace_event_raw_event_thermal_zone_trip(ptr noundef %0, pt
   %7 = load i64, ptr %6, align 8
   %8 = and i64 %7, 704
   %9 = icmp eq i64 %8, 0
-  br i1 %9, label %15, label %10, !prof !12
+  br i1 %9, label %15, label %10, !prof !11
 
 10:                                               ; preds = %4
   %11 = and i64 %7, 256
   %12 = icmp eq i64 %11, 0
-  br i1 %12, label %13, label %15, !prof !13
+  br i1 %12, label %13, label %15, !prof !12
 
 13:                                               ; preds = %10
   %14 = tail call zeroext i1 @__trace_trigger_soft_disabled(ptr noundef %0) #20
   br i1 %14, label %34, label %15
 
 15:                                               ; preds = %13, %10, %4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %5, i8 0, i64 48, i1 false), !annotation !14
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %5, i8 0, i64 48, i1 false), !annotation !13
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %17 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %16) #20
   %18 = trunc i64 %17 to i32
@@ -672,7 +672,7 @@ define internal void @perf_trace_thermal_zone_trip(ptr noundef %0, ptr noundef r
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #20
-  store ptr null, ptr %5, align 8, !annotation !14
+  store ptr null, ptr %5, align 8, !annotation !13
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #20
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %8 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %7) #20
@@ -681,7 +681,7 @@ define internal void @perf_trace_thermal_zone_trip(ptr noundef %0, ptr noundef r
   %11 = add i32 %10, 65560
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %13 = load ptr, ptr %12, align 8
-  %14 = tail call i64 asm "add %gs:$1, $0", "=r,*m,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @this_cpu_off, ptr %13) #21, !srcloc !17
+  %14 = tail call i64 asm "add %gs:$1, $0", "=r,*m,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @this_cpu_off, ptr %13) #21, !srcloc !16
   %15 = inttoptr i64 %14 to ptr
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %17 = load volatile ptr, ptr %16, align 8
@@ -694,7 +694,7 @@ define internal void @perf_trace_thermal_zone_trip(ptr noundef %0, ptr noundef r
   br i1 %21, label %47, label %22
 
 22:                                               ; preds = %19, %4
-  store i32 0, ptr %6, align 4, !annotation !14
+  store i32 0, ptr %6, align 4, !annotation !13
   %23 = add i32 %9, 36
   %24 = and i32 %23, -8
   %25 = add i32 %24, -4
@@ -763,7 +763,7 @@ define dso_local noundef range(i32 -22, 1) i32 @thermal_register_governor(ptr no
   %12 = getelementptr i8, ptr %9, i64 -56
   %13 = tail call i32 @strncasecmp(ptr noundef nonnull %0, ptr noundef %12, i64 noundef 20)
   %14 = icmp eq i32 %13, 0
-  br i1 %14, label %.loopexit14, label %.preheader, !llvm.loop !18
+  br i1 %14, label %.loopexit14, label %.preheader, !llvm.loop !17
 
 .loopexit14:                                      ; preds = %11, %6
   %15 = phi ptr [ %7, %6 ], [ %12, %11 ]
@@ -865,7 +865,7 @@ define dso_local noundef range(i32 -22, 1) i32 @thermal_register_governor(ptr no
 66:                                               ; preds = %.thread13, %.thread11, %39, %33
   %67 = load ptr, ptr %34, align 8
   %68 = icmp eq ptr %67, @thermal_tz_list
-  br i1 %68, label %.loopexit, label %33, !llvm.loop !19
+  br i1 %68, label %.loopexit, label %33, !llvm.loop !18
 
 .loopexit:                                        ; preds = %66, %27
   tail call void @mutex_unlock(ptr noundef nonnull @thermal_list_lock) #20
@@ -900,7 +900,7 @@ define internal fastcc ptr @__find_governor(ptr noundef nonnull readonly capture
   %10 = getelementptr i8, ptr %7, i64 -56
   %11 = tail call i32 @strncasecmp(ptr noundef nonnull %0, ptr noundef %10, i64 noundef 20)
   %12 = icmp eq i32 %11, 0
-  br i1 %12, label %.loopexit, label %.preheader, !llvm.loop !20
+  br i1 %12, label %.loopexit, label %.preheader, !llvm.loop !17
 
 .loopexit:                                        ; preds = %9, %.preheader, %4
   %13 = phi ptr [ %5, %4 ], [ null, %.preheader ], [ %10, %9 ]
@@ -1010,7 +1010,7 @@ define dso_local void @thermal_unregister_governor(ptr noundef captures(address_
   %12 = getelementptr i8, ptr %9, i64 -56
   %13 = tail call i32 @strncasecmp(ptr noundef nonnull %0, ptr noundef %12, i64 noundef 20)
   %14 = icmp eq i32 %13, 0
-  br i1 %14, label %.loopexit7, label %.preheader6, !llvm.loop !21
+  br i1 %14, label %.loopexit7, label %.preheader6, !llvm.loop !17
 
 .loopexit7:                                       ; preds = %11, %6
   %15 = phi ptr [ %7, %6 ], [ %12, %11 ]
@@ -1053,7 +1053,7 @@ define dso_local void @thermal_unregister_governor(ptr noundef captures(address_
 34:                                               ; preds = %33, %.preheader
   %35 = load ptr, ptr %20, align 8
   %36 = icmp eq ptr %35, @thermal_tz_list
-  br i1 %36, label %.loopexit, label %.preheader, !llvm.loop !22
+  br i1 %36, label %.loopexit, label %.preheader, !llvm.loop !19
 
 .loopexit:                                        ; preds = %34, %17
   tail call void @mutex_unlock(ptr noundef nonnull @thermal_list_lock) #20
@@ -1104,7 +1104,7 @@ define dso_local i32 @thermal_zone_device_set_policy(ptr noundef %0, ptr noundef
   %15 = getelementptr i8, ptr %12, i64 -56
   %16 = tail call i32 @strncasecmp(ptr noundef nonnull %4, ptr noundef %15, i64 noundef 20)
   %17 = icmp eq i32 %16, 0
-  br i1 %17, label %.loopexit, label %.preheader, !llvm.loop !23
+  br i1 %17, label %.loopexit, label %.preheader, !llvm.loop !17
 
 .loopexit:                                        ; preds = %14, %9
   %18 = phi ptr [ %10, %9 ], [ %15, %14 ]
@@ -1194,7 +1194,7 @@ define dso_local i32 @thermal_build_list_of_policies(ptr noundef %0) local_unnam
   %10 = add i64 %5, %9
   %11 = load ptr, ptr %4, align 8
   %12 = icmp eq ptr %11, @thermal_governor_list
-  br i1 %12, label %13, label %.preheader, !llvm.loop !24
+  br i1 %12, label %13, label %.preheader, !llvm.loop !20
 
 13:                                               ; preds = %.preheader
   %14 = trunc i64 %10 to i32
@@ -1254,7 +1254,7 @@ define dso_local void @thermal_zone_device_critical_reboot(ptr noundef %0) local
 define dso_local void @__thermal_zone_device_update(ptr noundef %0, i32 noundef %1) local_unnamed_addr #1 align 16 {
   %3 = alloca i32, align 4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1132
-  %5 = load i8, ptr %4, align 4, !range !25, !noundef !26
+  %5 = load i8, ptr %4, align 4, !range !21, !noundef !22
   %6 = icmp eq i8 %5, 0
   br i1 %6, label %7, label %180
 
@@ -1266,7 +1266,7 @@ define dso_local void @__thermal_zone_device_update(ptr noundef %0, i32 noundef 
 
 11:                                               ; preds = %7
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #20
-  store i32 0, ptr %3, align 4, !annotation !14
+  store i32 0, ptr %3, align 4, !annotation !13
   %12 = call i32 @__thermal_zone_get_temp(ptr noundef %0, ptr noundef nonnull %3) #20
   switch i32 %12, label %13 [
     i32 0, label %15
@@ -1286,20 +1286,20 @@ define dso_local void @__thermal_zone_device_update(ptr noundef %0, i32 noundef 
   %19 = load i32, ptr %3, align 4
   store i32 %19, ptr %16, align 8
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds nuw (i8, ptr @__tracepoint_thermal_temperature, i64 8), i32 2) #20
-          to label %40 [label %20], !srcloc !27
+          to label %40 [label %20], !srcloc !23
 
 20:                                               ; preds = %15
-  %21 = call i32 asm sideeffect "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 12)) #20, !srcloc !28
+  %21 = call i32 asm sideeffect "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 12)) #20, !srcloc !24
   %22 = zext i32 %21 to i64
-  %23 = call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @__cpu_online_mask, i64 %22) #20, !srcloc !29
+  %23 = call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @__cpu_online_mask, i64 %22) #20, !srcloc !25
   %24 = icmp ult i8 %23, 2
   call void @llvm.assume(i1 %24)
   %25 = icmp eq i8 %23, 0
   br i1 %25, label %40, label %26
 
 26:                                               ; preds = %20
-  call void asm "incl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8)) #20, !srcloc !30
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #20, !srcloc !31
+  call void asm "incl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8)) #20, !srcloc !26
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #20, !srcloc !27
   %27 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @__tracepoint_thermal_temperature, i64 72), align 8
   %28 = icmp eq ptr %27, null
   br i1 %28, label %33, label %29
@@ -1311,16 +1311,16 @@ define dso_local void @__thermal_zone_device_update(ptr noundef %0, i32 noundef 
   br label %33
 
 33:                                               ; preds = %29, %26
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #20, !srcloc !32
-  %34 = call i8 asm sideeffect "decl %gs:$0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8)) #20, !srcloc !33
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #20, !srcloc !28
+  %34 = call i8 asm sideeffect "decl %gs:$0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8)) #20, !srcloc !29
   %35 = icmp ult i8 %34, 2
   call void @llvm.assume(i1 %35)
   %36 = icmp eq i8 %34, 0
-  br i1 %36, label %40, label %37, !prof !12
+  br i1 %36, label %40, label %37, !prof !11
 
 37:                                               ; preds = %33
   %38 = call i64 @llvm.read_register.i64(metadata !0)
-  %39 = call i64 asm sideeffect "call __SCT__preempt_schedule_notrace", "={rsp},{rsp},~{dirflag},~{fpsr},~{flags}"(i64 %38) #20, !srcloc !34
+  %39 = call i64 asm sideeffect "call __SCT__preempt_schedule_notrace", "={rsp},{rsp},~{dirflag},~{fpsr},~{flags}"(i64 %38) #20, !srcloc !30
   call void @llvm.write_register.i64(metadata !0, i64 %39)
   br label %40
 
@@ -1416,20 +1416,20 @@ define dso_local void @__thermal_zone_device_update(ptr noundef %0, i32 noundef 
   %96 = call i32 @thermal_zone_trip_id(ptr noundef %0, ptr noundef %53) #20
   %97 = load i32, ptr %86, align 4
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds nuw (i8, ptr @__tracepoint_thermal_zone_trip, i64 8), i32 2) #20
-          to label %118 [label %98], !srcloc !27
+          to label %118 [label %98], !srcloc !23
 
 98:                                               ; preds = %95
-  %99 = call i32 asm sideeffect "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 12)) #20, !srcloc !35
+  %99 = call i32 asm sideeffect "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 12)) #20, !srcloc !31
   %100 = zext i32 %99 to i64
-  %101 = call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @__cpu_online_mask, i64 %100) #20, !srcloc !29
+  %101 = call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @__cpu_online_mask, i64 %100) #20, !srcloc !25
   %102 = icmp ult i8 %101, 2
   call void @llvm.assume(i1 %102)
   %103 = icmp eq i8 %101, 0
   br i1 %103, label %118, label %104
 
 104:                                              ; preds = %98
-  call void asm "incl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8)) #20, !srcloc !30
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #20, !srcloc !36
+  call void asm "incl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8)) #20, !srcloc !26
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #20, !srcloc !32
   %105 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @__tracepoint_thermal_zone_trip, i64 72), align 8
   %106 = icmp eq ptr %105, null
   br i1 %106, label %111, label %107
@@ -1441,16 +1441,16 @@ define dso_local void @__thermal_zone_device_update(ptr noundef %0, i32 noundef 
   br label %111
 
 111:                                              ; preds = %107, %104
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #20, !srcloc !37
-  %112 = call i8 asm sideeffect "decl %gs:$0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8)) #20, !srcloc !33
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #20, !srcloc !33
+  %112 = call i8 asm sideeffect "decl %gs:$0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8)) #20, !srcloc !29
   %113 = icmp ult i8 %112, 2
   call void @llvm.assume(i1 %113)
   %114 = icmp eq i8 %112, 0
-  br i1 %114, label %118, label %115, !prof !12
+  br i1 %114, label %118, label %115, !prof !11
 
 115:                                              ; preds = %111
   %116 = call i64 @llvm.read_register.i64(metadata !0)
-  %117 = call i64 asm sideeffect "call __SCT__preempt_schedule_notrace", "={rsp},{rsp},~{dirflag},~{fpsr},~{flags}"(i64 %116) #20, !srcloc !38
+  %117 = call i64 asm sideeffect "call __SCT__preempt_schedule_notrace", "={rsp},{rsp},~{dirflag},~{fpsr},~{flags}"(i64 %116) #20, !srcloc !34
   call void @llvm.write_register.i64(metadata !0, i64 %117)
   br label %118
 
@@ -1504,7 +1504,7 @@ define dso_local void @__thermal_zone_device_update(ptr noundef %0, i32 noundef 
   %149 = load i32, ptr %43, align 8
   %150 = sext i32 %149 to i64
   %151 = icmp slt i64 %148, %150
-  br i1 %151, label %52, label %.loopexit, !llvm.loop !39
+  br i1 %151, label %52, label %.loopexit, !llvm.loop !35
 
 .loopexit:                                        ; preds = %142, %40
   %152 = load i32, ptr %8, align 8
@@ -1674,7 +1674,7 @@ define dso_local i32 @for_each_thermal_governor(ptr noundef readonly captures(no
   %8 = getelementptr i8, ptr %5, i64 -56
   %9 = tail call i32 %0(ptr noundef %8, ptr noundef %1) #20
   %10 = icmp eq i32 %9, 0
-  br i1 %10, label %3, label %11, !llvm.loop !40
+  br i1 %10, label %3, label %11, !llvm.loop !36
 
 11:                                               ; preds = %7, %3
   %12 = phi i32 [ %9, %7 ], [ 0, %3 ]
@@ -1697,7 +1697,7 @@ define dso_local i32 @for_each_thermal_cooling_device(ptr noundef readonly captu
   %8 = getelementptr i8, ptr %5, i64 -840
   %9 = tail call i32 %0(ptr noundef %8, ptr noundef %1) #20
   %10 = icmp eq i32 %9, 0
-  br i1 %10, label %3, label %11, !llvm.loop !41
+  br i1 %10, label %3, label %11, !llvm.loop !37
 
 11:                                               ; preds = %7, %3
   %12 = phi i32 [ %9, %7 ], [ 0, %3 ]
@@ -1720,7 +1720,7 @@ define dso_local i32 @for_each_thermal_zone(ptr noundef readonly captures(none) 
   %8 = getelementptr i8, ptr %5, i64 -1024
   %9 = tail call i32 %0(ptr noundef %8, ptr noundef %1) #20
   %10 = icmp eq i32 %9, 0
-  br i1 %10, label %3, label %11, !llvm.loop !42
+  br i1 %10, label %3, label %11, !llvm.loop !38
 
 11:                                               ; preds = %7, %3
   %12 = phi i32 [ %9, %7 ], [ 0, %3 ]
@@ -1743,7 +1743,7 @@ define dso_local ptr @thermal_zone_get_by_id(i32 noundef %0) local_unnamed_addr 
   %7 = getelementptr i8, ptr %4, i64 -1024
   %8 = load i32, ptr %7, align 8
   %9 = icmp eq i32 %8, %0
-  br i1 %9, label %.split.loop.exit1.split.loop.exit4, label %2, !llvm.loop !43
+  br i1 %9, label %.split.loop.exit1.split.loop.exit4, label %2, !llvm.loop !39
 
 .split.loop.exit1.split.loop.exit4:               ; preds = %6
   %10 = getelementptr i8, ptr %4, i64 -1024
@@ -1766,7 +1766,7 @@ define dso_local i32 @thermal_bind_cdev_to_trip(ptr noundef %0, ptr noundef %1, 
   %11 = icmp eq ptr %9, @thermal_tz_list
   %12 = icmp eq ptr %10, %0
   %13 = or i1 %11, %12
-  br i1 %13, label %.preheader18, label %7, !llvm.loop !44
+  br i1 %13, label %.preheader18, label %7, !llvm.loop !40
 
 .preheader18:                                     ; preds = %7, %.preheader18
   %14 = phi ptr [ %15, %.preheader18 ], [ @thermal_cdev_list, %7 ]
@@ -1775,7 +1775,7 @@ define dso_local i32 @thermal_bind_cdev_to_trip(ptr noundef %0, ptr noundef %1, 
   %17 = icmp eq ptr %15, @thermal_cdev_list
   %18 = icmp eq ptr %16, %2
   %19 = or i1 %17, %18
-  br i1 %19, label %20, label %.preheader18, !llvm.loop !45
+  br i1 %19, label %20, label %.preheader18, !llvm.loop !41
 
 20:                                               ; preds = %.preheader18
   %21 = and i1 %12, %18
@@ -1904,7 +1904,7 @@ define dso_local i32 @thermal_bind_cdev_to_trip(ptr noundef %0, ptr noundef %1, 
 97:                                               ; preds = %93, %89, %.preheader
   %98 = load ptr, ptr %85, align 8
   %99 = icmp eq ptr %98, %82
-  br i1 %99, label %.critedge, label %.preheader, !llvm.loop !46
+  br i1 %99, label %.critedge, label %.preheader, !llvm.loop !42
 
 .critedge:                                        ; preds = %97, %79
   %100 = getelementptr inbounds nuw i8, ptr %38, i64 192
@@ -2117,7 +2117,7 @@ define dso_local noundef range(i32 -19, 1) i32 @thermal_unbind_cdev_from_trip(pt
 
 47:                                               ; preds = %18, %14, %.preheader
   %48 = icmp eq ptr %10, %6
-  br i1 %48, label %.loopexit, label %.preheader, !llvm.loop !47
+  br i1 %48, label %.loopexit, label %.preheader, !llvm.loop !43
 
 .loopexit:                                        ; preds = %47, %3
   tail call void @mutex_unlock(ptr noundef nonnull %5) #20
@@ -2145,7 +2145,7 @@ define dso_local noundef range(i32 -22, 1) i32 @thermal_zone_unbind_cooling_devi
   %11 = load ptr, ptr %10, align 8
   %12 = zext nneg i32 %1 to i64
   %13 = getelementptr %struct.thermal_trip, ptr %11, i64 %12
-  %14 = tail call i32 @thermal_unbind_cdev_from_trip(ptr noundef %0, ptr noundef %13, ptr noundef %2), !range !48
+  %14 = tail call i32 @thermal_unbind_cdev_from_trip(ptr noundef %0, ptr noundef %13, ptr noundef %2), !range !44
   br label %15
 
 15:                                               ; preds = %9, %5, %3
@@ -2269,7 +2269,7 @@ define internal fastcc ptr @__thermal_cooling_device_register(ptr noundef %0, pt
   %65 = phi ptr [ %77, %76 ], [ %63, %58 ]
   %66 = getelementptr i8, ptr %65, i64 -1024
   %67 = getelementptr i8, ptr %65, i64 -104
-  %68 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $2,$1", "={ax},=*m,r,0,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %67, i32 0, i32 1, ptr elementtype(i32) %67) #20, !srcloc !49
+  %68 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $2,$1", "={ax},=*m,r,0,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %67, i32 0, i32 1, ptr elementtype(i32) %67) #20, !srcloc !45
   %69 = icmp eq i32 %68, 0
   br i1 %69, label %76, label %70
 
@@ -2291,7 +2291,7 @@ define internal fastcc ptr @__thermal_cooling_device_register(ptr noundef %0, pt
 76:                                               ; preds = %75, %.preheader
   %77 = load ptr, ptr %65, align 8
   %78 = icmp eq ptr %77, @thermal_tz_list
-  br i1 %78, label %.loopexit, label %.preheader, !llvm.loop !50
+  br i1 %78, label %.loopexit, label %.preheader, !llvm.loop !46
 
 .loopexit:                                        ; preds = %76, %58
   tail call void @mutex_unlock(ptr noundef nonnull @thermal_list_lock) #20
@@ -2375,7 +2375,7 @@ define internal void @thermal_cooling_device_release(ptr readnone captures(none)
   %10 = getelementptr i8, ptr %8, i64 -840
   %11 = icmp ne ptr %10, %3
   %12 = and i1 %9, %11
-  br i1 %12, label %6, label %13, !llvm.loop !51
+  br i1 %12, label %6, label %13, !llvm.loop !47
 
 13:                                               ; preds = %6
   br i1 %9, label %15, label %14
@@ -2415,7 +2415,7 @@ define internal void @thermal_cooling_device_release(ptr readnone captures(none)
 32:                                               ; preds = %29, %.preheader.i
   %33 = load ptr, ptr %23, align 8
   %34 = icmp eq ptr %33, @thermal_tz_list
-  br i1 %34, label %.loopexit.i, label %.preheader.i, !llvm.loop !52
+  br i1 %34, label %.loopexit.i, label %.preheader.i, !llvm.loop !48
 
 .loopexit.i:                                      ; preds = %32, %15
   tail call void @mutex_unlock(ptr noundef nonnull @thermal_list_lock) #20
@@ -2443,7 +2443,7 @@ define dso_local void @thermal_cooling_device_update(ptr noundef %0) #1 align 16
   br i1 %5, label %59, label %6
 
 6:                                                ; preds = %1
-  store i64 0, ptr %2, align 8, !annotation !14
+  store i64 0, ptr %2, align 8, !annotation !13
   tail call void @mutex_lock(ptr noundef nonnull @thermal_list_lock) #20
   br label %7
 
@@ -2454,7 +2454,7 @@ define dso_local void @thermal_cooling_device_update(ptr noundef %0) #1 align 16
   %11 = getelementptr i8, ptr %9, i64 -840
   %12 = icmp ne ptr %11, %0
   %13 = and i1 %10, %12
-  br i1 %13, label %7, label %14, !llvm.loop !53
+  br i1 %13, label %7, label %14, !llvm.loop !47
 
 14:                                               ; preds = %7
   br i1 %10, label %15, label %58
@@ -2491,7 +2491,7 @@ define dso_local void @thermal_cooling_device_update(ptr noundef %0) #1 align 16
 
 34:                                               ; preds = %32
   %35 = getelementptr i8, ptr %27, i64 20
-  %36 = load i8, ptr %35, align 4, !range !25, !noundef !26
+  %36 = load i8, ptr %35, align 4, !range !21, !noundef !22
   %37 = icmp eq i8 %36, 0
   br i1 %37, label %50, label %38
 
@@ -2525,7 +2525,7 @@ define dso_local void @thermal_cooling_device_update(ptr noundef %0) #1 align 16
 50:                                               ; preds = %49, %44, %38, %34, %.preheader
   %51 = load ptr, ptr %27, align 8
   %52 = icmp eq ptr %51, %24
-  br i1 %52, label %.loopexit, label %.preheader, !llvm.loop !54
+  br i1 %52, label %.loopexit, label %.preheader, !llvm.loop !49
 
 .loopexit:                                        ; preds = %50, %23
   %53 = load ptr, ptr %17, align 8
@@ -2566,7 +2566,7 @@ define dso_local void @thermal_cooling_device_unregister(ptr noundef %0) #1 alig
   %8 = getelementptr i8, ptr %6, i64 -840
   %9 = icmp ne ptr %8, %0
   %10 = and i1 %7, %9
-  br i1 %10, label %4, label %11, !llvm.loop !51
+  br i1 %10, label %4, label %11, !llvm.loop !47
 
 11:                                               ; preds = %4
   br i1 %7, label %13, label %12
@@ -2606,7 +2606,7 @@ define dso_local void @thermal_cooling_device_unregister(ptr noundef %0) #1 alig
 30:                                               ; preds = %27, %.preheader
   %31 = load ptr, ptr %21, align 8
   %32 = icmp eq ptr %31, @thermal_tz_list
-  br i1 %32, label %.loopexit, label %.preheader, !llvm.loop !52
+  br i1 %32, label %.loopexit, label %.preheader, !llvm.loop !48
 
 .loopexit:                                        ; preds = %30, %13
   tail call void @mutex_unlock(ptr noundef nonnull @thermal_list_lock) #20
@@ -2656,7 +2656,7 @@ define dso_local i32 @thermal_zone_get_crit_temp(ptr noundef %0, ptr noundef %1)
 22:                                               ; preds = %24
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %23 = icmp eq i64 %indvars.iv.next, %21
-  br i1 %23, label %.loopexit, label %24, !llvm.loop !55
+  br i1 %23, label %.loopexit, label %24, !llvm.loop !50
 
 24:                                               ; preds = %22, %19
   %indvars.iv = phi i64 [ %indvars.iv.next, %22 ], [ 0, %19 ]
@@ -2881,7 +2881,7 @@ define dso_local ptr @thermal_zone_device_register_with_trips(ptr noundef %0, pt
 
 118:                                              ; preds = %115
   %119 = getelementptr inbounds nuw i8, ptr %116, i64 20
-  %120 = load i8, ptr %119, align 4, !range !25, !noundef !26
+  %120 = load i8, ptr %119, align 4, !range !21, !noundef !22
   %121 = icmp eq i8 %120, 0
   br i1 %121, label %122, label %125
 
@@ -2902,7 +2902,7 @@ define dso_local ptr @thermal_zone_device_register_with_trips(ptr noundef %0, pt
   tail call void @mutex_unlock(ptr noundef nonnull @thermal_list_lock) #20
   tail call fastcc void @bind_tz(ptr noundef nonnull %44)
   tail call fastcc void @thermal_zone_device_init(ptr noundef nonnull %44)
-  %127 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $2,$1", "={ax},=*m,r,0,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %95, i32 0, i32 1, ptr nonnull elementtype(i32) %95) #20, !srcloc !49
+  %127 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $2,$1", "={ax},=*m,r,0,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %95, i32 0, i32 1, ptr nonnull elementtype(i32) %95) #20, !srcloc !45
   %128 = icmp eq i32 %127, 0
   br i1 %128, label %144, label %129
 
@@ -3011,7 +3011,7 @@ define internal fastcc void @bind_tz(ptr noundef nonnull %0) unnamed_addr #1 ali
 22:                                               ; preds = %19, %12
   %23 = load ptr, ptr %13, align 8
   %24 = icmp eq ptr %23, @thermal_cdev_list
-  br i1 %24, label %.loopexit, label %12, !llvm.loop !56
+  br i1 %24, label %.loopexit, label %12, !llvm.loop !51
 
 .loopexit:                                        ; preds = %22, %6
   tail call void @mutex_unlock(ptr noundef nonnull @thermal_list_lock) #20
@@ -3050,7 +3050,7 @@ define internal fastcc void @thermal_zone_device_init(ptr noundef nonnull initia
   store i8 0, ptr %14, align 8
   %15 = load ptr, ptr %13, align 8
   %16 = icmp eq ptr %15, %10
-  br i1 %16, label %.loopexit, label %.preheader, !llvm.loop !57
+  br i1 %16, label %.loopexit, label %.preheader, !llvm.loop !52
 
 .loopexit:                                        ; preds = %.preheader, %1
   ret void
@@ -3109,7 +3109,7 @@ define dso_local void @thermal_zone_device_unregister(ptr noundef %0) #1 align 1
   %8 = icmp eq ptr %6, @thermal_tz_list
   %9 = icmp eq ptr %7, %0
   %10 = or i1 %8, %9
-  br i1 %10, label %11, label %4, !llvm.loop !58
+  br i1 %10, label %11, label %4, !llvm.loop !53
 
 11:                                               ; preds = %4
   br i1 %9, label %13, label %12
@@ -3159,7 +3159,7 @@ define dso_local void @thermal_zone_device_unregister(ptr noundef %0) #1 align 1
 36:                                               ; preds = %33, %.split
   %37 = load ptr, ptr %28, align 8
   %38 = icmp eq ptr %37, @thermal_cdev_list
-  br i1 %38, label %.loopexit, label %.split, !llvm.loop !59
+  br i1 %38, label %.loopexit, label %.split, !llvm.loop !54
 
 .loopexit:                                        ; preds = %36, %22, %13
   tail call void @mutex_unlock(ptr noundef nonnull @thermal_list_lock) #20
@@ -3242,7 +3242,7 @@ define dso_local ptr @thermal_zone_get_zone_by_name(ptr noundef readonly capture
   %15 = select i1 %12, ptr %9, ptr %7
   %16 = load ptr, ptr %6, align 8
   %17 = icmp eq ptr %16, @thermal_tz_list
-  br i1 %17, label %18, label %.preheader, !llvm.loop !61
+  br i1 %17, label %18, label %.preheader, !llvm.loop !56
 
 18:                                               ; preds = %.preheader
   tail call void @mutex_unlock(ptr noundef nonnull @thermal_list_lock) #20
@@ -3264,7 +3264,7 @@ define dso_local ptr @thermal_zone_get_zone_by_name(ptr noundef readonly capture
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
 define internal i32 @thermal_init() #12 section ".init.text" align 16 {
-  %1 = tail call fastcc i32 @thermal_register_governors() #25, !range !62
+  %1 = tail call fastcc i32 @thermal_register_governors() #25, !range !57
   %2 = icmp eq i32 %1, 0
   br i1 %2, label %3, label %.loopexit
 
@@ -3309,7 +3309,7 @@ define internal i32 @thermal_init() #12 section ".init.text" align 16 {
   tail call void @thermal_unregister_governor(ptr noundef %22)
   %23 = getelementptr i8, ptr %21, i64 8
   %24 = icmp ult ptr %23, @__governor_thermal_table_end
-  br i1 %24, label %.preheader, label %.loopexit, !llvm.loop !63
+  br i1 %24, label %.preheader, label %.loopexit, !llvm.loop !58
 
 .loopexit:                                        ; preds = %.preheader, %18, %16, %13, %0
   %25 = phi i32 [ 0, %16 ], [ 0, %13 ], [ %1, %0 ], [ %19, %18 ], [ %19, %.preheader ]
@@ -3520,7 +3520,7 @@ define internal fastcc void @bind_cdev(ptr noundef nonnull %0) unnamed_addr #1 a
 20:                                               ; preds = %16, %12, %6
   %21 = load ptr, ptr %7, align 8
   %22 = icmp eq ptr %21, @thermal_tz_list
-  br i1 %22, label %.loopexit, label %6, !llvm.loop !64
+  br i1 %22, label %.loopexit, label %6, !llvm.loop !59
 
 .loopexit:                                        ; preds = %20, %1
   ret void
@@ -3574,7 +3574,7 @@ define internal fastcc noundef range(i32 -22, 1) i32 @thermal_register_governors
 .preheader2:                                      ; preds = %0, %7
   %2 = phi ptr [ %9, %7 ], [ @__governor_thermal_table, %0 ]
   %3 = load ptr, ptr %2, align 8
-  %4 = tail call i32 @thermal_register_governor(ptr noundef %3), !range !62
+  %4 = tail call i32 @thermal_register_governor(ptr noundef %3), !range !57
   %5 = icmp eq i32 %4, 0
   %6 = load ptr, ptr %2, align 8
   br i1 %5, label %7, label %11
@@ -3583,7 +3583,7 @@ define internal fastcc noundef range(i32 -22, 1) i32 @thermal_register_governors
   %8 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.52, ptr noundef %6) #22
   %9 = getelementptr i8, ptr %2, i64 8
   %10 = icmp ult ptr %9, @__governor_thermal_table_end
-  br i1 %10, label %.preheader2, label %.thread, !llvm.loop !65
+  br i1 %10, label %.preheader2, label %.thread, !llvm.loop !60
 
 11:                                               ; preds = %.preheader2
   %12 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.51, ptr noundef %6) #22
@@ -3598,7 +3598,7 @@ define internal fastcc noundef range(i32 -22, 1) i32 @thermal_register_governors
   %17 = icmp uge ptr %16, @__governor_thermal_table_end
   %18 = icmp eq ptr %16, %2
   %19 = or i1 %17, %18
-  br i1 %19, label %.thread, label %.preheader, !llvm.loop !66
+  br i1 %19, label %.thread, label %.preheader, !llvm.loop !61
 
 .thread:                                          ; preds = %7, %.preheader, %0, %11
   %20 = phi i32 [ %4, %11 ], [ 0, %0 ], [ %4, %.preheader ], [ 0, %7 ]
@@ -3686,7 +3686,7 @@ define internal noundef i32 @thermal_pm_notify(ptr readnone captures(none) %0, i
   tail call void @mutex_unlock(ptr noundef %8) #20
   %10 = load ptr, ptr %7, align 8
   %11 = icmp eq ptr %10, @thermal_tz_list
-  br i1 %11, label %.loopexit, label %.preheader, !llvm.loop !67
+  br i1 %11, label %.loopexit, label %.preheader, !llvm.loop !62
 
 12:                                               ; preds = %3, %3, %3
   tail call void @mutex_lock(ptr noundef nonnull @thermal_list_lock) #20
@@ -3714,7 +3714,7 @@ define internal noundef i32 @thermal_pm_notify(ptr readnone captures(none) %0, i
   tail call void @mutex_unlock(ptr noundef %16) #20
   %25 = load ptr, ptr %15, align 8
   %26 = icmp eq ptr %25, @thermal_tz_list
-  br i1 %26, label %.loopexit, label %.preheader2, !llvm.loop !68
+  br i1 %26, label %.loopexit, label %.preheader2, !llvm.loop !63
 
 .loopexit:                                        ; preds = %.preheader2, %.preheader, %12, %4
   tail call void @mutex_unlock(ptr noundef nonnull @thermal_list_lock) #20
@@ -3756,7 +3756,7 @@ define internal void @thermal_zone_device_resume(ptr noundef %0) #1 align 16 {
   store i8 0, ptr %15, align 8
   %16 = load ptr, ptr %14, align 8
   %17 = icmp eq ptr %16, %11
-  br i1 %17, label %.loopexit, label %.preheader, !llvm.loop !69
+  br i1 %17, label %.loopexit, label %.preheader, !llvm.loop !52
 
 .loopexit:                                        ; preds = %.preheader, %1
   %18 = getelementptr i8, ptr %0, i64 -1040
@@ -3801,67 +3801,61 @@ attributes #25 = { cold }
 !3 = !{i32 4, !"function_return_thunk_extern", i32 1}
 !4 = !{i32 4, !"indirect_branch_cs_prefix", i32 1}
 !5 = !{i32 4, !"SkipRaxSetup", i32 1}
-!6 = distinct !{!6, !7, !8, !9}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
 !8 = !{!"llvm.loop.unroll.disable"}
-!9 = !{!"llvm.loop.estimated_trip_count"}
-!10 = distinct !{!10, !7, !8, !9}
-!11 = distinct !{!11, !7, !8, !9}
-!12 = !{!"branch_weights", i32 2000, i32 1}
-!13 = !{!"branch_weights", i32 1, i32 2000}
-!14 = !{!"auto-init"}
-!15 = !{i64 2156877589}
-!16 = !{i64 2156883001}
-!17 = !{i64 2156890240}
-!18 = distinct !{!18, !7, !8, !9}
-!19 = distinct !{!19, !7, !8, !9}
-!20 = distinct !{!20, !7, !8, !9}
-!21 = distinct !{!21, !7, !8, !9}
-!22 = distinct !{!22, !7, !8, !9}
-!23 = distinct !{!23, !7, !8, !9}
-!24 = distinct !{!24, !7, !8, !9}
-!25 = !{i8 0, i8 2}
-!26 = !{}
-!27 = !{i64 715827, i64 715871, i64 2148202846, i64 2148202867, i64 2148202893, i64 2148202926, i64 2148202960, i64 2148202984}
-!28 = !{i64 2155652655}
-!29 = !{i64 2148428895, i64 2148428969}
-!30 = !{i64 2149506997}
-!31 = !{i64 2155655518}
-!32 = !{i64 2155662163}
-!33 = !{i64 2149511353, i64 2149511446}
-!34 = !{i64 2155662322}
-!35 = !{i64 2155752329}
-!36 = !{i64 2155755224}
-!37 = !{i64 2155761781}
-!38 = !{i64 2155761940}
-!39 = distinct !{!39, !7, !8, !9}
-!40 = distinct !{!40, !7, !8, !9}
-!41 = distinct !{!41, !7, !8, !9}
-!42 = distinct !{!42, !7, !8, !9}
-!43 = distinct !{!43, !7, !8, !9}
-!44 = distinct !{!44, !7, !8, !9}
-!45 = distinct !{!45, !7, !8, !9}
-!46 = distinct !{!46, !7, !8, !9}
-!47 = distinct !{!47, !7, !8, !9}
-!48 = !{i32 -19, i32 1}
-!49 = !{i64 2148793472, i64 2148793511, i64 2148793532, i64 2148793569, i64 2148793592, i64 2148793601}
-!50 = distinct !{!50, !7, !8, !9}
-!51 = distinct !{!51, !7, !8, !9}
-!52 = distinct !{!52, !7, !8, !9}
-!53 = distinct !{!53, !7, !8, !9}
-!54 = distinct !{!54, !7, !8, !9}
-!55 = distinct !{!55, !7, !8, !9}
-!56 = distinct !{!56, !7, !8, !9}
-!57 = distinct !{!57, !7, !8, !9}
-!58 = distinct !{!58, !7, !8, !9}
-!59 = distinct !{!59, !7, !8, !9, !60}
-!60 = !{!"llvm.loop.unswitch.partial.disable"}
-!61 = distinct !{!61, !7, !8, !9}
-!62 = !{i32 -22, i32 1}
-!63 = distinct !{!63, !7, !8, !9}
-!64 = distinct !{!64, !7, !8, !9}
-!65 = distinct !{!65, !7, !8, !9}
-!66 = distinct !{!66, !7, !8, !9}
-!67 = distinct !{!67, !7, !8, !9}
-!68 = distinct !{!68, !7, !8, !9}
-!69 = distinct !{!69, !7, !8, !9}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = !{!"branch_weights", i32 2000, i32 1}
+!12 = !{!"branch_weights", i32 1, i32 2000}
+!13 = !{!"auto-init"}
+!14 = !{i64 2156877589}
+!15 = !{i64 2156883001}
+!16 = !{i64 2156890240}
+!17 = distinct !{!17, !7, !8}
+!18 = distinct !{!18, !7, !8}
+!19 = distinct !{!19, !7, !8}
+!20 = distinct !{!20, !7, !8}
+!21 = !{i8 0, i8 2}
+!22 = !{}
+!23 = !{i64 715827, i64 715871, i64 2148202846, i64 2148202867, i64 2148202893, i64 2148202926, i64 2148202960, i64 2148202984}
+!24 = !{i64 2155652655}
+!25 = !{i64 2148428895, i64 2148428969}
+!26 = !{i64 2149506997}
+!27 = !{i64 2155655518}
+!28 = !{i64 2155662163}
+!29 = !{i64 2149511353, i64 2149511446}
+!30 = !{i64 2155662322}
+!31 = !{i64 2155752329}
+!32 = !{i64 2155755224}
+!33 = !{i64 2155761781}
+!34 = !{i64 2155761940}
+!35 = distinct !{!35, !7, !8}
+!36 = distinct !{!36, !7, !8}
+!37 = distinct !{!37, !7, !8}
+!38 = distinct !{!38, !7, !8}
+!39 = distinct !{!39, !7, !8}
+!40 = distinct !{!40, !7, !8}
+!41 = distinct !{!41, !7, !8}
+!42 = distinct !{!42, !7, !8}
+!43 = distinct !{!43, !7, !8}
+!44 = !{i32 -19, i32 1}
+!45 = !{i64 2148793472, i64 2148793511, i64 2148793532, i64 2148793569, i64 2148793592, i64 2148793601}
+!46 = distinct !{!46, !7, !8}
+!47 = distinct !{!47, !7, !8}
+!48 = distinct !{!48, !7, !8}
+!49 = distinct !{!49, !7, !8}
+!50 = distinct !{!50, !7, !8}
+!51 = distinct !{!51, !7, !8}
+!52 = distinct !{!52, !7, !8}
+!53 = distinct !{!53, !7, !8}
+!54 = distinct !{!54, !7, !8, !55}
+!55 = !{!"llvm.loop.unswitch.partial.disable"}
+!56 = distinct !{!56, !7, !8}
+!57 = !{i32 -22, i32 1}
+!58 = distinct !{!58, !7, !8}
+!59 = distinct !{!59, !7, !8}
+!60 = distinct !{!60, !7, !8}
+!61 = distinct !{!61, !7, !8}
+!62 = distinct !{!62, !7, !8}
+!63 = distinct !{!63, !7, !8}

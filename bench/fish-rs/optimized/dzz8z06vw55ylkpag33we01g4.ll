@@ -53,7 +53,7 @@ define hidden void @_ZN4core3ptr25swap_nonoverlapping_bytes26swap_nonoverlapping
   store i64 %.sroa.02.0.copyload.i, ptr %7, align 1, !alias.scope !10, !noalias !13
   store i64 %.sroa.0.0.copyload.i, ptr %8, align 1, !alias.scope !13, !noalias !10
   %exitcond.not = icmp eq i64 %6, %2
-  br i1 %exitcond.not, label %4, label %5, !llvm.loop !15
+  br i1 %exitcond.not, label %4, label %5
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
@@ -105,5 +105,3 @@ attributes #3 = { nocallback nofree nosync nounwind willreturn memory(inaccessib
 !12 = distinct !{!12, !"_ZN4core3ptr10swap_chunk17h01c686fd2a02e889E"}
 !13 = !{!14}
 !14 = distinct !{!14, !12, !"_ZN4core3ptr10swap_chunk17h01c686fd2a02e889E: argument 1"}
-!15 = distinct !{!15, !16}
-!16 = !{!"llvm.loop.estimated_trip_count"}

@@ -1657,7 +1657,7 @@ _ZN4cvc58internal8TypeNodeD2Ev.exit.i.i:          ; preds = %13, %7, %.lr.ph
 _ZSt8_DestroyIN4cvc58internal5proof5PExprEEvPT_.exit: ; preds = %_ZN4cvc58internal8TypeNodeD2Ev.exit.i.i, %20, %26
   %30 = getelementptr inbounds nuw i8, ptr %.05, i64 24
   %.not = icmp eq ptr %30, %1
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !31
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !30
 
 ._crit_edge:                                      ; preds = %_ZSt8_DestroyIN4cvc58internal5proof5PExprEEvPT_.exit, %2
   ret void
@@ -1911,7 +1911,6 @@ attributes #19 = { builtin nounwind }
 !25 = !{!23, !24, i64 16}
 !26 = !{!24, !24, i64 0}
 !27 = !{!23, !24, i64 0}
-!28 = distinct !{!28, !29, !30}
+!28 = distinct !{!28, !29}
 !29 = !{!"llvm.loop.mustprogress"}
-!30 = !{!"llvm.loop.estimated_trip_count"}
-!31 = distinct !{!31, !29, !30}
+!30 = distinct !{!30, !29}

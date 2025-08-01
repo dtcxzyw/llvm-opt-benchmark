@@ -97,7 +97,7 @@ define noundef float @_ZNK10OpenSubdiv6v3_6_03Sdc6Crease31ComputeFractionalWeigh
   %.2 = select i1 %or.cond45.not, float %18, float %.154
   %indvars.iv.next62 = add nuw nsw i64 %indvars.iv61, 1
   %exitcond65.not = icmp eq i64 %indvars.iv.next62, %wide.trip.count64
-  br i1 %exitcond65.not, label %.loopexit, label %.lr.ph56, !llvm.loop !8
+  br i1 %exitcond65.not, label %.loopexit, label %.lr.ph56, !llvm.loop !7
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %30
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %30 ]
@@ -124,7 +124,7 @@ define noundef float @_ZNK10OpenSubdiv6v3_6_03Sdc6Crease31ComputeFractionalWeigh
   %.5 = phi float [ %28, %27 ], [ %.450, %23 ], [ %.450, %.lr.ph ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !9
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !8
 
 .loopexit:                                        ; preds = %30, %.lr.ph56, %.preheader47, %.preheader
   %.339 = phi i32 [ %.036, %.preheader ], [ %.036, %.preheader47 ], [ %.238, %.lr.ph56 ], [ %.541, %30 ]
@@ -195,7 +195,7 @@ define noundef float @_ZNK10OpenSubdiv6v3_6_03Sdc6Crease30SubdivideEdgeSharpness
   %.1 = add nuw nsw i32 %.02531, %26
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !10
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %.lr.ph
   %27 = icmp samesign ugt i32 %.1, 1
@@ -267,7 +267,7 @@ _ZNK10OpenSubdiv6v3_6_03Sdc6Crease18decrementSharpnessEf.exit: ; preds = %.lr.ph
   store float %.0.i, ptr %19, align 4
   %indvars.iv.next92 = add nuw nsw i64 %indvars.iv91, 1
   %exitcond95.not = icmp eq i64 %indvars.iv.next92, %wide.trip.count94
-  br i1 %exitcond95.not, label %.loopexit, label %.lr.ph71, !llvm.loop !11
+  br i1 %exitcond95.not, label %.loopexit, label %.lr.ph71, !llvm.loop !10
 
 20:                                               ; preds = %4
   %21 = icmp eq i8 %6, 1
@@ -293,7 +293,7 @@ _ZNK10OpenSubdiv6v3_6_03Sdc6Crease18decrementSharpnessEf.exit: ; preds = %.lr.ph
   %.1 = select i1 %.fr96, float %27, float %.04864
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !12
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %.lr.ph
   %29 = icmp eq i32 %.150, 0
@@ -329,7 +329,7 @@ _ZNK10OpenSubdiv6v3_6_03Sdc6Crease18decrementSharpnessEf.exit56.us: ; preds = %3
   store float %.0.i55.us.sink, ptr %34, align 4
   %indvars.iv.next82 = add nuw nsw i64 %indvars.iv81, 1
   %exitcond85.not = icmp eq i64 %indvars.iv.next82, %wide.trip.count84
-  br i1 %exitcond85.not, label %.loopexit, label %.lr.ph67.split.us, !llvm.loop !13
+  br i1 %exitcond85.not, label %.loopexit, label %.lr.ph67.split.us, !llvm.loop !12
 
 .lr.ph69.preheader:                               ; preds = %._crit_edge
   %wide.trip.count89 = zext nneg i32 %1 to i64
@@ -343,7 +343,7 @@ _ZNK10OpenSubdiv6v3_6_03Sdc6Crease18decrementSharpnessEf.exit56.us: ; preds = %3
   store float %43, ptr %44, align 4
   %indvars.iv.next87 = add nuw nsw i64 %indvars.iv86, 1
   %exitcond90.not = icmp eq i64 %indvars.iv.next87, %wide.trip.count89
-  br i1 %exitcond90.not, label %.loopexit, label %.lr.ph69, !llvm.loop !15
+  br i1 %exitcond90.not, label %.loopexit, label %.lr.ph69, !llvm.loop !14
 
 .lr.ph67.split:                                   ; preds = %.lr.ph67, %58
   %indvars.iv76 = phi i64 [ %indvars.iv.next77, %58 ], [ 0, %.lr.ph67 ]
@@ -374,7 +374,7 @@ _ZNK10OpenSubdiv6v3_6_03Sdc6Crease18decrementSharpnessEf.exit56.us: ; preds = %3
   store float %storemerge, ptr %46, align 4
   %indvars.iv.next77 = add nuw nsw i64 %indvars.iv76, 1
   %exitcond80.not = icmp eq i64 %indvars.iv.next77, %wide.trip.count84
-  br i1 %exitcond80.not, label %.loopexit, label %.lr.ph67.split, !llvm.loop !16
+  br i1 %exitcond80.not, label %.loopexit, label %.lr.ph67.split, !llvm.loop !15
 
 .loopexit:                                        ; preds = %58, %41, %.lr.ph69, %_ZNK10OpenSubdiv6v3_6_03Sdc6Crease18decrementSharpnessEf.exit, %.preheader, %20
   ret void
@@ -392,15 +392,14 @@ attributes #3 = { mustprogress nofree norecurse nosync nounwind memory(argmem: r
 !2 = !{i32 8, !"PIC Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6, !7}
+!5 = distinct !{!5, !6}
 !6 = !{!"llvm.loop.mustprogress"}
-!7 = !{!"llvm.loop.estimated_trip_count"}
-!8 = distinct !{!8, !6, !7}
-!9 = distinct !{!9, !6, !7}
-!10 = distinct !{!10, !6, !7}
-!11 = distinct !{!11, !6, !7}
-!12 = distinct !{!12, !6, !7}
-!13 = distinct !{!13, !6, !7, !14}
-!14 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!15 = distinct !{!15, !6, !7}
-!16 = distinct !{!16, !6, !7}
+!7 = distinct !{!7, !6}
+!8 = distinct !{!8, !6}
+!9 = distinct !{!9, !6}
+!10 = distinct !{!10, !6}
+!11 = distinct !{!11, !6}
+!12 = distinct !{!12, !6, !13}
+!13 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!14 = distinct !{!14, !6}
+!15 = distinct !{!15, !6}

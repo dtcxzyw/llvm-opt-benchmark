@@ -184,13 +184,13 @@ ensure_valid_bucket_pointers.exit:                ; preds = %1, %8
   %26 = load ptr, ptr %0, align 8
   tail call void @dsa_free(ptr noundef %26, i64 noundef %.01921) #13
   %.not = icmp eq i64 %25, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !7
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %.lr.ph, %19
   %27 = add i64 %.022, 1
   %.0.highbits = lshr i64 %27, %17
   %28 = icmp eq i64 %.0.highbits, 0
-  br i1 %28, label %19, label %29, !llvm.loop !8
+  br i1 %28, label %19, label %29, !llvm.loop !7
 
 29:                                               ; preds = %._crit_edge
   %30 = load ptr, ptr %4, align 8
@@ -293,7 +293,7 @@ ensure_valid_bucket_pointers.exit:                ; preds = %.ensure_valid_bucke
 52:                                               ; preds = %43
   %53 = load i64, ptr %45, align 8
   %.not.i17 = icmp eq i64 %53, 0
-  br i1 %.not.i17, label %.loopexit.loopexit, label %43, !llvm.loop !9
+  br i1 %.not.i17, label %.loopexit.loopexit, label %43
 
 .loopexit.loopexit:                               ; preds = %52
   %.pre22 = load ptr, ptr %13, align 8
@@ -332,8 +332,8 @@ define dso_local nonnull ptr @dshash_find_or_insert(ptr noundef captures(none) %
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.idx = mul nuw nsw i64 %12, 24
-  %18 = getelementptr i8, ptr %14, i64 32
-  %19 = getelementptr i8, ptr %18, i64 %.idx
+  %18 = getelementptr inbounds nuw i8, ptr %14, i64 32
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 %.idx
   br label %20
 
 20:                                               ; preds = %resize.exit, %3
@@ -391,7 +391,7 @@ ensure_valid_bucket_pointers.exit:                ; preds = %.ensure_valid_bucke
 53:                                               ; preds = %.lr.ph.i
   %54 = load i64, ptr %46, align 8
   %.not.i32 = icmp eq i64 %54, 0
-  br i1 %.not.i32, label %.loopexit, label %.lr.ph.i, !llvm.loop !9
+  br i1 %.not.i32, label %.loopexit, label %.lr.ph.i
 
 find_in_bucket.exit:                              ; preds = %.lr.ph.i
   store i8 1, ptr %2, align 1
@@ -442,7 +442,7 @@ find_in_bucket.exit:                              ; preds = %.lr.ph.i
 81:                                               ; preds = %75, %69
   %82 = add nuw nsw i64 %.044.i, 1
   %exitcond.not.i = icmp eq i64 %82, 128
-  br i1 %exitcond.not.i, label %83, label %69, !llvm.loop !10
+  br i1 %exitcond.not.i, label %83, label %69, !llvm.loop !8
 
 83:                                               ; preds = %81
   %84 = load ptr, ptr %0, align 8
@@ -479,13 +479,13 @@ find_in_bucket.exit:                              ; preds = %.lr.ph.i
   store i64 %106, ptr %99, align 8
   store i64 %.04246.i, ptr %105, align 8
   %.not.i34 = icmp eq i64 %100, 0
-  br i1 %.not.i34, label %._crit_edge.i, label %.lr.ph.i33, !llvm.loop !11
+  br i1 %.not.i34, label %._crit_edge.i, label %.lr.ph.i33, !llvm.loop !9
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i33, %94
   %107 = add i64 %.147.i, 1
   %.1.highbits.i = lshr i64 %107, %91
   %108 = icmp eq i64 %.1.highbits.i, 0
-  br i1 %108, label %94, label %109, !llvm.loop !12
+  br i1 %108, label %94, label %109, !llvm.loop !10
 
 109:                                              ; preds = %._crit_edge.i
   %110 = load ptr, ptr %13, align 8
@@ -508,11 +508,11 @@ find_in_bucket.exit:                              ; preds = %.lr.ph.i
   tail call void @LWLockRelease(ptr noundef nonnull %119) #13
   %120 = add nuw nsw i64 %.248.i, 1
   %exitcond49.not.i = icmp eq i64 %120, 128
-  br i1 %exitcond49.not.i, label %resize.exit, label %116, !llvm.loop !13
+  br i1 %exitcond49.not.i, label %resize.exit, label %116, !llvm.loop !11
 
 resize.exit:                                      ; preds = %116, %79
   %.pre = load ptr, ptr %13, align 8
-  br label %20, !llvm.loop !14
+  br label %20
 
 121:                                              ; preds = %.loopexit
   %122 = load ptr, ptr %16, align 8
@@ -618,7 +618,7 @@ ensure_valid_bucket_pointers.exit:                ; preds = %.ensure_valid_bucke
   %47 = load ptr, ptr %7, align 8
   %48 = tail call i32 %45(ptr noundef %1, ptr noundef nonnull %44, i64 noundef %46, ptr noundef %47) #13
   %49 = icmp eq i32 %48, 0
-  br i1 %49, label %50, label %39, !llvm.loop !15
+  br i1 %49, label %50, label %39
 
 50:                                               ; preds = %41
   %51 = load i64, ptr %43, align 8
@@ -628,8 +628,8 @@ ensure_valid_bucket_pointers.exit:                ; preds = %.ensure_valid_bucke
   store i64 %51, ptr %.014.i, align 8
   %54 = load ptr, ptr %12, align 8
   %.idx = mul nuw nsw i64 %11, 24
-  %55 = getelementptr i8, ptr %54, i64 32
-  %56 = getelementptr i8, ptr %55, i64 %.idx
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 32
+  %56 = getelementptr inbounds nuw i8, ptr %55, i64 %.idx
   %57 = load i64, ptr %56, align 8
   %58 = add i64 %57, -1
   store i64 %58, ptr %56, align 8
@@ -668,7 +668,7 @@ define dso_local void @dshash_delete_entry(ptr noundef readonly captures(none) %
   %17 = load ptr, ptr %0, align 8
   %18 = tail call ptr @dsa_get_address(ptr noundef %17, i64 noundef %15) #13
   %19 = icmp eq ptr %18, %3
-  br i1 %19, label %20, label %14, !llvm.loop !16
+  br i1 %19, label %20, label %14
 
 20:                                               ; preds = %16
   %21 = load i64, ptr %3, align 8
@@ -680,8 +680,8 @@ define dso_local void @dshash_delete_entry(ptr noundef readonly captures(none) %
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %26 = load ptr, ptr %25, align 8
   %.idx.i = mul nuw nsw i64 %24, 24
-  %27 = getelementptr i8, ptr %26, i64 32
-  %28 = getelementptr i8, ptr %27, i64 %.idx.i
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 32
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 %.idx.i
   %29 = load i64, ptr %28, align 8
   %30 = add i64 %29, -1
   store i64 %30, ptr %28, align 8
@@ -788,7 +788,7 @@ define dso_local ptr @dshash_seq_next(ptr noundef captures(none) %0) local_unnam
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 36
-  %11 = load i8, ptr %10, align 4, !range !17, !noundef !18
+  %11 = load i8, ptr %10, align 4, !range !12, !noundef !13
   %12 = xor i8 %11, 1
   %not. = zext nneg i8 %12 to i32
   %13 = tail call zeroext i1 @LWLockAcquire(ptr noundef nonnull %9, i32 noundef %not.) #13
@@ -881,7 +881,7 @@ ensure_valid_bucket_pointers.exit:                ; preds = %5, %21
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 16
   %63 = sext i32 %57 to i64
   %64 = getelementptr inbounds [128 x %struct.dshash_partition], ptr %62, i64 0, i64 %63
-  %65 = load i8, ptr %46, align 4, !range !17, !noundef !18
+  %65 = load i8, ptr %46, align 4, !range !12, !noundef !13
   %66 = xor i8 %65, 1
   %not.42 = zext nneg i8 %66 to i32
   %67 = tail call zeroext i1 @LWLockAcquire(ptr noundef nonnull %64, i32 noundef %not.42) #13
@@ -907,7 +907,7 @@ ensure_valid_bucket_pointers.exit:                ; preds = %5, %21
   %81 = getelementptr inbounds i64, ptr %79, i64 %80
   %.136 = load i64, ptr %81, align 8
   %.not = icmp eq i64 %.136, 0
-  br i1 %.not, label %47, label %._crit_edge, !llvm.loop !19
+  br i1 %.not, label %47, label %._crit_edge, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %75, %.._crit_edge_crit_edge
   %82 = phi ptr [ %.pre53, %.._crit_edge_crit_edge ], [ %77, %75 ]
@@ -975,7 +975,7 @@ define dso_local void @dshash_delete_current(ptr noundef readonly captures(none)
   %18 = load ptr, ptr %2, align 8
   %19 = tail call ptr @dsa_get_address(ptr noundef %18, i64 noundef %16) #13
   %20 = icmp eq ptr %19, %4
-  br i1 %20, label %21, label %15, !llvm.loop !16
+  br i1 %20, label %21, label %15
 
 21:                                               ; preds = %17
   %22 = load i64, ptr %4, align 8
@@ -987,8 +987,8 @@ define dso_local void @dshash_delete_current(ptr noundef readonly captures(none)
   %26 = getelementptr inbounds nuw i8, ptr %2, i64 64
   %27 = load ptr, ptr %26, align 8
   %.idx.i = mul nuw nsw i64 %25, 24
-  %28 = getelementptr i8, ptr %27, i64 32
-  %29 = getelementptr i8, ptr %28, i64 %.idx.i
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 32
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 %.idx.i
   %30 = load i64, ptr %29, align 8
   %31 = add i64 %30, -1
   store i64 %31, ptr %29, align 8
@@ -1011,7 +1011,7 @@ define dso_local void @dshash_dump(ptr noundef captures(none) %0) local_unnamed_
   %7 = tail call zeroext i1 @LWLockAcquire(ptr noundef nonnull %6, i32 noundef 1) #13
   %8 = add nuw nsw i64 %.035, 1
   %exitcond.not = icmp eq i64 %8, 128
-  br i1 %exitcond.not, label %9, label %3, !llvm.loop !20
+  br i1 %exitcond.not, label %9, label %3, !llvm.loop !15
 
 9:                                                ; preds = %3
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -1045,7 +1045,7 @@ ensure_valid_bucket_pointers.exit:                ; preds = %9, %15
 
 .loopexit:                                        ; preds = %._crit_edge, %29
   %exitcond46.not = icmp eq i64 %34, 128
-  br i1 %exitcond46.not, label %.preheader, label %29, !llvm.loop !21
+  br i1 %exitcond46.not, label %.preheader, label %29, !llvm.loop !16
 
 29:                                               ; preds = %ensure_valid_bucket_pointers.exit, %.loopexit
   %.143 = phi i64 [ 0, %ensure_valid_bucket_pointers.exit ], [ %34, %.loopexit ]
@@ -1059,8 +1059,8 @@ ensure_valid_bucket_pointers.exit:                ; preds = %9, %15
   %37 = tail call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %36, ptr noundef nonnull @.str.4, i64 noundef %.143) #13
   %38 = load ptr, ptr @stderr, align 8
   %.idx = mul nuw nsw i64 %.143, 24
-  %39 = getelementptr i8, ptr %30, i64 32
-  %40 = getelementptr i8, ptr %39, i64 %.idx
+  %39 = getelementptr inbounds nuw i8, ptr %30, i64 32
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 %.idx
   %41 = load i64, ptr %40, align 8
   %42 = tail call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %38, ptr noundef nonnull @.str.5, i64 noundef %41) #13
   %43 = icmp ult i64 %33, %35
@@ -1082,7 +1082,7 @@ ensure_valid_bucket_pointers.exit:                ; preds = %9, %15
   %48 = add i64 %.03338, 1
   %.032 = load i64, ptr %47, align 8
   %.not = icmp eq i64 %.032, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !22
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.lr.ph42
   %.033.lcssa = phi i64 [ 0, %.lr.ph42 ], [ %48, %.lr.ph ]
@@ -1090,7 +1090,7 @@ ensure_valid_bucket_pointers.exit:                ; preds = %9, %15
   %50 = tail call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %49, ptr noundef nonnull @.str.6, i64 noundef %.03440, i64 noundef %.033.lcssa) #13
   %51 = add nuw i64 %.03440, 1
   %exitcond45.not = icmp eq i64 %51, %35
-  br i1 %exitcond45.not, label %.loopexit, label %.lr.ph42, !llvm.loop !23
+  br i1 %exitcond45.not, label %.loopexit, label %.lr.ph42, !llvm.loop !18
 
 .preheader:                                       ; preds = %.loopexit, %.preheader
   %.244 = phi i64 [ %55, %.preheader ], [ 0, %.loopexit ]
@@ -1100,7 +1100,7 @@ ensure_valid_bucket_pointers.exit:                ; preds = %9, %15
   tail call void @LWLockRelease(ptr noundef nonnull %54) #13
   %55 = add nuw nsw i64 %.244, 1
   %exitcond47.not = icmp eq i64 %55, 128
-  br i1 %exitcond47.not, label %56, label %.preheader, !llvm.loop !24
+  br i1 %exitcond47.not, label %56, label %.preheader, !llvm.loop !19
 
 56:                                               ; preds = %.preheader
   ret void
@@ -1137,24 +1137,19 @@ attributes #15 = { nounwind willreturn memory(read) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = distinct !{!4, !5, !6}
+!4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{!"llvm.loop.estimated_trip_count"}
-!7 = distinct !{!7, !5, !6}
-!8 = distinct !{!8, !5, !6}
-!9 = distinct !{!9, !6}
-!10 = distinct !{!10, !5, !6}
-!11 = distinct !{!11, !5, !6}
-!12 = distinct !{!12, !5, !6}
-!13 = distinct !{!13, !5, !6}
-!14 = distinct !{!14, !6}
-!15 = distinct !{!15, !6}
-!16 = distinct !{!16, !6}
-!17 = !{i8 0, i8 2}
-!18 = !{}
-!19 = distinct !{!19, !5, !6}
-!20 = distinct !{!20, !5, !6}
-!21 = distinct !{!21, !5, !6}
-!22 = distinct !{!22, !5, !6}
-!23 = distinct !{!23, !5, !6}
-!24 = distinct !{!24, !5, !6}
+!6 = distinct !{!6, !5}
+!7 = distinct !{!7, !5}
+!8 = distinct !{!8, !5}
+!9 = distinct !{!9, !5}
+!10 = distinct !{!10, !5}
+!11 = distinct !{!11, !5}
+!12 = !{i8 0, i8 2}
+!13 = !{}
+!14 = distinct !{!14, !5}
+!15 = distinct !{!15, !5}
+!16 = distinct !{!16, !5}
+!17 = distinct !{!17, !5}
+!18 = distinct !{!18, !5}
+!19 = distinct !{!19, !5}

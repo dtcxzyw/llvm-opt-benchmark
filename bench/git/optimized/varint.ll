@@ -70,7 +70,7 @@ define dso_local i32 @encode_varint(i64 noundef %0, ptr noundef writeonly captur
   %13 = getelementptr inbounds nuw [16 x i8], ptr %3, i64 0, i64 %12
   store i8 %10, ptr %13, align 1, !tbaa !9
   %.not = icmp samesign ult i64 %8, 128
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !13
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   %.0.lcssa = phi i32 [ 15, %2 ], [ %11, %.lr.ph ]
@@ -111,7 +111,6 @@ attributes #4 = { nounwind }
 !7 = !{!"omnipotent char", !8, i64 0}
 !8 = !{!"Simple C/C++ TBAA"}
 !9 = !{!7, !7, i64 0}
-!10 = distinct !{!10, !11, !12}
+!10 = distinct !{!10, !11}
 !11 = !{!"llvm.loop.mustprogress"}
-!12 = !{!"llvm.loop.estimated_trip_count"}
-!13 = distinct !{!13, !11, !12}
+!12 = distinct !{!12, !11}

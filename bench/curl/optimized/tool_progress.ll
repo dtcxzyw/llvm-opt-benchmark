@@ -239,24 +239,24 @@ define dso_local noundef zeroext i1 @progress_meter(ptr noundef readonly capture
   br label %82
 
 82:                                               ; preds = %78, %75
-  %83 = load i32, ptr @speedindex, align 4, !tbaa !54
+  %83 = load i32, ptr @speedindex, align 4, !tbaa !53
   %84 = zext i32 %83 to i64
   %85 = getelementptr inbounds nuw [10 x %struct.speedcount], ptr @speedstore, i64 0, i64 %84
-  store i64 %.077.lcssa, ptr %85, align 16, !tbaa !55
+  store i64 %.077.lcssa, ptr %85, align 16, !tbaa !54
   %86 = getelementptr inbounds nuw i8, ptr %85, i64 8
-  store i64 %.081.lcssa, ptr %86, align 8, !tbaa !57
+  store i64 %.081.lcssa, ptr %86, align 8, !tbaa !56
   %87 = getelementptr inbounds nuw i8, ptr %85, i64 16
   store i64 %19, ptr %87, align 16, !tbaa !46
   %.sroa.9.0..sroa_idx = getelementptr inbounds nuw i8, ptr %85, i64 24
   store i64 %20, ptr %.sroa.9.0..sroa_idx, align 8, !tbaa !46
   %88 = add i32 %83, 1
-  store i32 %88, ptr @speedindex, align 4, !tbaa !54
+  store i32 %88, ptr @speedindex, align 4, !tbaa !53
   %89 = icmp ugt i32 %88, 9
   br i1 %89, label %.thread, label %90
 
 .thread:                                          ; preds = %82
   store i1 true, ptr @indexwrapped, align 1
-  store i32 0, ptr @speedindex, align 4, !tbaa !54
+  store i32 0, ptr @speedindex, align 4, !tbaa !53
   br label %91
 
 90:                                               ; preds = %82
@@ -271,13 +271,13 @@ define dso_local noundef zeroext i1 @progress_meter(ptr noundef readonly capture
   %96 = getelementptr inbounds nuw i8, ptr %94, i64 8
   %97 = load i64, ptr %96, align 8
   %98 = call i64 @tvdiff(i64 %19, i64 %20, i64 %95, i64 %97) #7
-  %99 = load i32, ptr @speedindex, align 4, !tbaa !54
+  %99 = load i32, ptr @speedindex, align 4, !tbaa !53
   %100 = zext i32 %99 to i64
   %101 = getelementptr inbounds nuw [10 x %struct.speedcount], ptr @speedstore, i64 0, i64 %100
-  %102 = load i64, ptr %101, align 16, !tbaa !55
+  %102 = load i64, ptr %101, align 16, !tbaa !54
   %103 = sub nsw i64 %.077.lcssa, %102
   %104 = getelementptr inbounds nuw i8, ptr %101, i64 8
-  %105 = load i64, ptr %104, align 8, !tbaa !57
+  %105 = load i64, ptr %104, align 8, !tbaa !56
   %106 = sub nsw i64 %.081.lcssa, %105
   br label %111
 
@@ -670,10 +670,9 @@ attributes #7 = { nounwind }
 !48 = !{!5, !19, i64 448}
 !49 = !{!5, !19, i64 449}
 !50 = !{!5, !19, i64 475}
-!51 = distinct !{!51, !52, !53}
+!51 = distinct !{!51, !52}
 !52 = !{!"llvm.loop.mustprogress"}
-!53 = !{!"llvm.loop.estimated_trip_count"}
-!54 = !{!15, !15, i64 0}
-!55 = !{!56, !12, i64 0}
-!56 = !{!"speedcount", !12, i64 0, !12, i64 8, !13, i64 16}
-!57 = !{!56, !12, i64 8}
+!53 = !{!15, !15, i64 0}
+!54 = !{!55, !12, i64 0}
+!55 = !{!"speedcount", !12, i64 0, !12, i64 8, !13, i64 16}
+!56 = !{!55, !12, i64 8}

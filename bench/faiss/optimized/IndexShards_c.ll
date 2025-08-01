@@ -1342,13 +1342,13 @@ _ZNSt4pairIPN5faiss5IndexESt10unique_ptrINS0_12WorkerThreadESt14default_deleteIS
   br i1 %49, label %.lr.ph.i.i.i.i.i.i.i, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN5faiss5IndexESt10unique_ptrINS3_12WorkerThreadESt14default_deleteIS7_EEESt6vectorISB_SaISB_EEEESG_ET0_T_SI_SH_.exit.loopexit.i.i, !llvm.loop !54
 
 _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN5faiss5IndexESt10unique_ptrINS3_12WorkerThreadESt14default_deleteIS7_EEESt6vectorISB_SaISB_EEEESG_ET0_T_SI_SH_.exit.loopexit.i.i: ; preds = %_ZNSt4pairIPN5faiss5IndexESt10unique_ptrINS0_12WorkerThreadESt14default_deleteIS4_EEEaSEOS8_.exit.i.i.i.i.i.i.i
-  %.pre.i.i = load ptr, ptr %7, align 8, !tbaa !57
+  %.pre.i.i = load ptr, ptr %7, align 8, !tbaa !56
   br label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN5faiss5IndexESt10unique_ptrINS3_12WorkerThreadESt14default_deleteIS7_EEESt6vectorISB_SaISB_EEEESG_ET0_T_SI_SH_.exit.i.i
 
 _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN5faiss5IndexESt10unique_ptrINS3_12WorkerThreadESt14default_deleteIS7_EEESt6vectorISB_SaISB_EEEESG_ET0_T_SI_SH_.exit.i.i: ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN5faiss5IndexESt10unique_ptrINS3_12WorkerThreadESt14default_deleteIS7_EEESt6vectorISB_SaISB_EEEESG_ET0_T_SI_SH_.exit.loopexit.i.i, %35, %27
   %50 = phi ptr [ %.pre.i.i, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN5faiss5IndexESt10unique_ptrINS3_12WorkerThreadESt14default_deleteIS7_EEESt6vectorISB_SaISB_EEEESG_ET0_T_SI_SH_.exit.loopexit.i.i ], [ %28, %35 ], [ %28, %27 ]
   %51 = getelementptr inbounds i8, ptr %50, i64 -16
-  store ptr %51, ptr %7, align 8, !tbaa !57
+  store ptr %51, ptr %7, align 8, !tbaa !56
   %52 = getelementptr inbounds i8, ptr %50, i64 -8
   %53 = load ptr, ptr %52, align 8, !tbaa !50
   %.not.i.i.i.i.i.i = icmp eq ptr %53, null
@@ -1382,7 +1382,7 @@ _ZNSt6vectorISt4pairIPN5faiss5IndexESt10unique_ptrINS1_12WorkerThreadESt14defaul
 65:                                               ; preds = %.lr.ph
   %66 = getelementptr inbounds nuw i8, ptr %.sroa.013.035, i64 16
   %.not28 = icmp eq ptr %66, %8
-  br i1 %.not28, label %._crit_edge, label %.lr.ph, !llvm.loop !58
+  br i1 %.not28, label %._crit_edge, label %.lr.ph, !llvm.loop !57
 
 ._crit_edge:                                      ; preds = %65, %2
   %67 = tail call ptr @__cxa_allocate_exception(i64 40) #26
@@ -1629,8 +1629,7 @@ attributes #31 = { noreturn }
 !51 = !{!52, !52, i64 0}
 !52 = !{!"p1 _ZTS8_IO_FILE", !20, i64 0}
 !53 = !{!40, !40, i64 0}
-!54 = distinct !{!54, !55, !56}
+!54 = distinct !{!54, !55}
 !55 = !{!"llvm.loop.mustprogress"}
-!56 = !{!"llvm.loop.estimated_trip_count"}
-!57 = !{!18, !19, i64 8}
-!58 = distinct !{!58, !55, !56}
+!56 = !{!18, !19, i64 8}
+!57 = distinct !{!57, !55}

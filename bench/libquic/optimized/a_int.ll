@@ -117,7 +117,7 @@ define hidden i32 @i2c_ASN1_INTEGER(ptr noundef readonly captures(address_is_nul
   br i1 %30, label %68, label %.thread127
 
 .thread127:                                       ; preds = %.loopexit94.thread
-  %31 = load ptr, ptr %1, align 8, !tbaa !20
+  %31 = load ptr, ptr %1, align 8, !tbaa !19
   br label %36
 
 .thread:                                          ; preds = %4
@@ -125,11 +125,11 @@ define hidden i32 @i2c_ASN1_INTEGER(ptr noundef readonly captures(address_is_nul
   br i1 %32, label %68, label %.thread130
 
 .thread130:                                       ; preds = %.thread
-  %33 = load ptr, ptr %1, align 8, !tbaa !20
+  %33 = load ptr, ptr %1, align 8, !tbaa !19
   br label %43
 
 34:                                               ; preds = %.loopexit94
-  %35 = load ptr, ptr %1, align 8, !tbaa !20
+  %35 = load ptr, ptr %1, align 8, !tbaa !19
   br i1 %26, label %40, label %36
 
 36:                                               ; preds = %.thread127, %34
@@ -189,7 +189,7 @@ define hidden i32 @i2c_ASN1_INTEGER(ptr noundef readonly captures(address_is_nul
   %.not75 = icmp eq i8 %57, 0
   %58 = icmp samesign ugt i32 %.161105, 2
   %59 = select i1 %.not75, i1 %58, i1 false
-  br i1 %59, label %.lr.ph108, label %._crit_edge, !llvm.loop !21
+  br i1 %59, label %.lr.ph108, label %._crit_edge, !llvm.loop !20
 
 ._crit_edge:                                      ; preds = %.lr.ph108, %49
   %.161.lcssa = phi i32 [ %41, %49 ], [ %56, %.lr.ph108 ]
@@ -212,14 +212,14 @@ define hidden i32 @i2c_ASN1_INTEGER(ptr noundef readonly captures(address_is_nul
   %63 = xor i8 %62, -1
   store i8 %63, ptr %.2, align 1, !tbaa !16
   %64 = icmp samesign ugt i32 %.262.in113, 2
-  br i1 %64, label %.lr.ph117, label %.loopexit, !llvm.loop !22
+  br i1 %64, label %.lr.ph117, label %.loopexit, !llvm.loop !21
 
 .loopexit:                                        ; preds = %.lr.ph117, %._crit_edge, %47, %43
   %.0638291134 = phi i32 [ %.0638291, %._crit_edge ], [ %.0638291, %47 ], [ %.0638291135, %43 ], [ %.0638291, %.lr.ph117 ]
-  %65 = load ptr, ptr %1, align 8, !tbaa !20
+  %65 = load ptr, ptr %1, align 8, !tbaa !19
   %66 = sext i32 %.0638291134 to i64
   %67 = getelementptr inbounds i8, ptr %65, i64 %66
-  store ptr %67, ptr %1, align 8, !tbaa !20
+  store ptr %67, ptr %1, align 8, !tbaa !19
   br label %68
 
 68:                                               ; preds = %.loopexit94.thread, %.thread, %.loopexit94, %2, %.loopexit
@@ -236,7 +236,7 @@ define hidden ptr @c2i_ASN1_INTEGER(ptr noundef captures(address_is_null) %0, pt
   br i1 %4, label %8, label %5
 
 5:                                                ; preds = %3
-  %6 = load ptr, ptr %0, align 8, !tbaa !23
+  %6 = load ptr, ptr %0, align 8, !tbaa !22
   %7 = icmp eq ptr %6, null
   br i1 %7, label %8, label %13
 
@@ -252,7 +252,7 @@ define hidden ptr @c2i_ASN1_INTEGER(ptr noundef captures(address_is_null) %0, pt
 
 13:                                               ; preds = %5, %11
   %.077 = phi ptr [ %9, %11 ], [ %6, %5 ]
-  %14 = load ptr, ptr %1, align 8, !tbaa !20
+  %14 = load ptr, ptr %1, align 8, !tbaa !19
   %15 = getelementptr inbounds i8, ptr %14, i64 %2
   %16 = shl i64 %2, 32
   %sext = add i64 %16, 4294967296
@@ -314,7 +314,7 @@ define hidden ptr @c2i_ASN1_INTEGER(ptr noundef captures(address_is_null) %0, pt
   %.not90 = icmp eq i8 %43, 0
   %44 = icmp ne i32 %41, 0
   %45 = select i1 %.not90, i1 %44, i1 false
-  br i1 %45, label %.lr.ph, label %._crit_edge, !llvm.loop !25
+  br i1 %45, label %.lr.ph, label %._crit_edge, !llvm.loop !24
 
 ._crit_edge:                                      ; preds = %.lr.ph, %28
   %.175.lcssa = phi ptr [ %35, %28 ], [ %42, %.lr.ph ]
@@ -348,7 +348,7 @@ define hidden ptr @c2i_ASN1_INTEGER(ptr noundef captures(address_is_null) %0, pt
   %53 = xor i8 %52, -1
   store i8 %53, ptr %.171, align 1, !tbaa !16
   %54 = icmp samesign ugt i32 %.1.in105, 2
-  br i1 %54, label %.lr.ph107, label %.loopexit, !llvm.loop !26
+  br i1 %54, label %.lr.ph107, label %.loopexit, !llvm.loop !25
 
 55:                                               ; preds = %24
   store i32 2, ptr %26, align 4, !tbaa !6
@@ -382,15 +382,15 @@ define hidden ptr @c2i_ASN1_INTEGER(ptr noundef captures(address_is_null) %0, pt
   br i1 %4, label %66, label %65
 
 65:                                               ; preds = %63
-  store ptr %.077, ptr %0, align 8, !tbaa !23
+  store ptr %.077, ptr %0, align 8, !tbaa !22
   br label %66
 
 66:                                               ; preds = %65, %63
-  store ptr %15, ptr %1, align 8, !tbaa !20
+  store ptr %15, ptr %1, align 8, !tbaa !19
   br label %70
 
 67:                                               ; preds = %20
-  %68 = load ptr, ptr %0, align 8, !tbaa !23
+  %68 = load ptr, ptr %0, align 8, !tbaa !22
   %.not93 = icmp eq ptr %68, %.077
   br i1 %.not93, label %70, label %69
 
@@ -429,7 +429,7 @@ define hidden ptr @d2i_ASN1_UINTEGER(ptr noundef captures(address_is_null) %0, p
   br i1 %8, label %12, label %9
 
 9:                                                ; preds = %3
-  %10 = load ptr, ptr %0, align 8, !tbaa !23
+  %10 = load ptr, ptr %0, align 8, !tbaa !22
   %11 = icmp eq ptr %10, null
   br i1 %11, label %12, label %17
 
@@ -445,20 +445,20 @@ define hidden ptr @d2i_ASN1_UINTEGER(ptr noundef captures(address_is_null) %0, p
 
 17:                                               ; preds = %9, %15
   %.028 = phi ptr [ %13, %15 ], [ %10, %9 ]
-  %18 = load ptr, ptr %1, align 8, !tbaa !20
-  store ptr %18, ptr %4, align 8, !tbaa !20
+  %18 = load ptr, ptr %1, align 8, !tbaa !19
+  store ptr %18, ptr %4, align 8, !tbaa !19
   %19 = call i32 @ASN1_get_object(ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7, i64 noundef %2) #10
   %20 = and i32 %19, 128
   %.not = icmp eq i32 %20, 0
   br i1 %.not, label %21, label %55
 
 21:                                               ; preds = %17
-  %22 = load i32, ptr %6, align 4, !tbaa !27
+  %22 = load i32, ptr %6, align 4, !tbaa !26
   %.not35 = icmp eq i32 %22, 2
   br i1 %.not35, label %23, label %55
 
 23:                                               ; preds = %21
-  %24 = load i64, ptr %5, align 8, !tbaa !28
+  %24 = load i64, ptr %5, align 8, !tbaa !27
   %25 = shl i64 %24, 32
   %sext = add i64 %25, 4294967296
   %26 = ashr exact i64 %sext, 32
@@ -473,7 +473,7 @@ define hidden ptr @d2i_ASN1_UINTEGER(ptr noundef captures(address_is_null) %0, p
   br i1 %.not36, label %44, label %31
 
 31:                                               ; preds = %29
-  %32 = load ptr, ptr %4, align 8, !tbaa !20
+  %32 = load ptr, ptr %4, align 8, !tbaa !19
   %33 = load i8, ptr %32, align 1, !tbaa !16
   %34 = icmp eq i8 %33, 0
   %35 = icmp ne i64 %24, 1
@@ -482,9 +482,9 @@ define hidden ptr @d2i_ASN1_UINTEGER(ptr noundef captures(address_is_null) %0, p
 
 36:                                               ; preds = %31
   %37 = getelementptr inbounds nuw i8, ptr %32, i64 1
-  store ptr %37, ptr %4, align 8, !tbaa !20
+  store ptr %37, ptr %4, align 8, !tbaa !19
   %38 = add nsw i64 %24, -1
-  store i64 %38, ptr %5, align 8, !tbaa !28
+  store i64 %38, ptr %5, align 8, !tbaa !27
   %.pre41 = shl i64 %38, 32
   br label %39
 
@@ -495,7 +495,7 @@ define hidden ptr @d2i_ASN1_UINTEGER(ptr noundef captures(address_is_null) %0, p
   %42 = ashr exact i64 %sext37.pre-phi, 32
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %27, ptr nonnull align 1 %41, i64 %42, i1 false)
   %43 = getelementptr inbounds i8, ptr %41, i64 %40
-  store ptr %43, ptr %4, align 8, !tbaa !20
+  store ptr %43, ptr %4, align 8, !tbaa !19
   br label %44
 
 44:                                               ; preds = %39, %29
@@ -507,7 +507,7 @@ define hidden ptr @d2i_ASN1_UINTEGER(ptr noundef captures(address_is_null) %0, p
 
 48:                                               ; preds = %44
   call void @free(ptr noundef nonnull %47) #10
-  %.pre = load i64, ptr %5, align 8, !tbaa !28
+  %.pre = load i64, ptr %5, align 8, !tbaa !27
   br label %49
 
 49:                                               ; preds = %48, %44
@@ -518,12 +518,12 @@ define hidden ptr @d2i_ASN1_UINTEGER(ptr noundef captures(address_is_null) %0, p
   br i1 %8, label %53, label %52
 
 52:                                               ; preds = %49
-  store ptr %.028, ptr %0, align 8, !tbaa !23
+  store ptr %.028, ptr %0, align 8, !tbaa !22
   br label %53
 
 53:                                               ; preds = %52, %49
-  %54 = load ptr, ptr %4, align 8, !tbaa !20
-  store ptr %54, ptr %1, align 8, !tbaa !20
+  %54 = load ptr, ptr %4, align 8, !tbaa !19
+  store ptr %54, ptr %1, align 8, !tbaa !19
   br label %59
 
 55:                                               ; preds = %23, %21, %17
@@ -532,7 +532,7 @@ define hidden ptr @d2i_ASN1_UINTEGER(ptr noundef captures(address_is_null) %0, p
   br i1 %8, label %58, label %56
 
 56:                                               ; preds = %55
-  %57 = load ptr, ptr %0, align 8, !tbaa !23
+  %57 = load ptr, ptr %0, align 8, !tbaa !22
   %.not40 = icmp eq ptr %57, %.028
   br i1 %.not40, label %59, label %58
 
@@ -618,7 +618,7 @@ define hidden range(i32 0, 2) i32 @ASN1_INTEGER_set(ptr noundef captures(none) i
   %23 = icmp samesign ugt i64 %indvars.iv, 6
   %24 = icmp samesign ult i64 %.137, 256
   %or.cond = select i1 %23, i1 true, i1 %24
-  br i1 %or.cond, label %.lr.ph40.preheader, label %.lr.ph, !llvm.loop !29
+  br i1 %or.cond, label %.lr.ph40.preheader, label %.lr.ph, !llvm.loop !28
 
 .lr.ph40:                                         ; preds = %.lr.ph40.preheader, %.lr.ph40
   %indvars.iv46 = phi i64 [ 0, %.lr.ph40.preheader ], [ %indvars.iv.next47, %.lr.ph40 ]
@@ -631,7 +631,7 @@ define hidden range(i32 0, 2) i32 @ASN1_INTEGER_set(ptr noundef captures(none) i
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 %indvars.iv46
   store i8 %26, ptr %28, align 1, !tbaa !16
   %exitcond.not = icmp eq i64 %indvars.iv.next47, %19
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph40, !llvm.loop !30
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph40, !llvm.loop !29
 
 ._crit_edge:                                      ; preds = %.lr.ph40, %16
   %.028.lcssa = phi i32 [ 0, %16 ], [ %18, %.lr.ph40 ]
@@ -687,7 +687,7 @@ define hidden i64 @ASN1_INTEGER_get(ptr noundef readonly captures(address_is_nul
   %18 = or disjoint i64 %14, %17
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !31
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !30
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
   %.0.lcssa = phi i64 [ 0, %.preheader ], [ %18, %.lr.ph ]
@@ -871,18 +871,17 @@ attributes #12 = { nounwind allocsize(1) }
 !14 = !{!7, !8, i64 0}
 !15 = !{!7, !11, i64 8}
 !16 = !{!9, !9, i64 0}
-!17 = distinct !{!17, !18, !19}
+!17 = distinct !{!17, !18}
 !18 = !{!"llvm.loop.mustprogress"}
-!19 = !{!"llvm.loop.estimated_trip_count"}
-!20 = !{!11, !11, i64 0}
-!21 = distinct !{!21, !18, !19}
-!22 = distinct !{!22, !18, !19}
-!23 = !{!24, !24, i64 0}
-!24 = !{!"p1 _ZTS14asn1_string_st", !12, i64 0}
-!25 = distinct !{!25, !18, !19}
-!26 = distinct !{!26, !18, !19}
-!27 = !{!8, !8, i64 0}
-!28 = !{!13, !13, i64 0}
-!29 = distinct !{!29, !18, !19}
-!30 = distinct !{!30, !18, !19}
-!31 = distinct !{!31, !18, !19}
+!19 = !{!11, !11, i64 0}
+!20 = distinct !{!20, !18}
+!21 = distinct !{!21, !18}
+!22 = !{!23, !23, i64 0}
+!23 = !{!"p1 _ZTS14asn1_string_st", !12, i64 0}
+!24 = distinct !{!24, !18}
+!25 = distinct !{!25, !18}
+!26 = !{!8, !8, i64 0}
+!27 = !{!13, !13, i64 0}
+!28 = distinct !{!28, !18}
+!29 = distinct !{!29, !18}
+!30 = distinct !{!30, !18}

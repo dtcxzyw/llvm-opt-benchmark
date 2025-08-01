@@ -762,23 +762,23 @@ _ZN7QStringD2Ev.exit53:                           ; preds = %80, %_ZN17QArrayDat
   %90 = load ptr, ptr @mainApp, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8)
-  store i64 ptrtoint (ptr @_ZN15MainApplication18preferencesChangedEv to i64), ptr %7, align 8, !noalias !12
+  store i64 ptrtoint (ptr @_ZN15MainApplication18preferencesChangedEv to i64), ptr %7, align 8, !noalias !11
   %.fca.1.gep14.i = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store i64 0, ptr %.fca.1.gep14.i, align 8, !noalias !12
-  store i64 ptrtoint (ptr @_ZN18DisplayFilterCombo14updateMaxCountEv to i64), ptr %8, align 8, !noalias !12
+  store i64 0, ptr %.fca.1.gep14.i, align 8, !noalias !11
+  store i64 ptrtoint (ptr @_ZN18DisplayFilterCombo14updateMaxCountEv to i64), ptr %8, align 8, !noalias !11
   %.fca.1.gep.i = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store i64 0, ptr %.fca.1.gep.i, align 8, !noalias !12
+  store i64 0, ptr %.fca.1.gep.i, align 8, !noalias !11
   %91 = invoke noalias noundef dereferenceable_or_null(32) ptr @_Znwm(i64 noundef 32) #19
           to label %.noexc unwind label %52
 
 .noexc:                                           ; preds = %89
-  store i32 1, ptr %91, align 4, !noalias !12
+  store i32 1, ptr %91, align 4, !noalias !11
   %92 = getelementptr inbounds nuw i8, ptr %91, i64 8
-  store ptr @_ZN9QtPrivate11QSlotObjectIM18DisplayFilterComboFvvENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb, ptr %92, align 8, !noalias !12
+  store ptr @_ZN9QtPrivate11QSlotObjectIM18DisplayFilterComboFvvENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb, ptr %92, align 8, !noalias !11
   %93 = getelementptr inbounds nuw i8, ptr %91, i64 16
-  store i64 ptrtoint (ptr @_ZN18DisplayFilterCombo14updateMaxCountEv to i64), ptr %93, align 8, !noalias !12
+  store i64 ptrtoint (ptr @_ZN18DisplayFilterCombo14updateMaxCountEv to i64), ptr %93, align 8, !noalias !11
   %.repack7.i.i = getelementptr inbounds nuw i8, ptr %91, i64 24
-  store i64 0, ptr %.repack7.i.i, align 8, !noalias !12
+  store i64 0, ptr %.repack7.i.i, align 8, !noalias !11
   invoke void @_ZN7QObject11connectImplEPKS_PPvS1_S3_PN9QtPrivate15QSlotObjectBaseEN2Qt14ConnectionTypeEPKiPK11QMetaObject(ptr dead_on_unwind nonnull writable sret(%"class.QMetaObject::Connection") align 8 %12, ptr noundef %90, ptr noundef nonnull %7, ptr noundef %0, ptr noundef nonnull %8, ptr noundef %91, i32 noundef 0, ptr noundef null, ptr noundef nonnull @_ZN15MainApplication16staticMetaObjectE)
           to label %94 unwind label %52
 
@@ -788,23 +788,23 @@ _ZN7QStringD2Ev.exit53:                           ; preds = %80, %_ZN17QArrayDat
   call void @_ZN11QMetaObject10ConnectionD1Ev(ptr noundef nonnull align 8 dereferenceable_or_null(8) %12) #18
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
-  store i64 ptrtoint (ptr @_ZN17DisplayFilterEdit13filterPacketsE7QStringb to i64), ptr %5, align 8, !noalias !15
+  store i64 ptrtoint (ptr @_ZN17DisplayFilterEdit13filterPacketsE7QStringb to i64), ptr %5, align 8, !noalias !14
   %.fca.1.gep12.i = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store i64 0, ptr %.fca.1.gep12.i, align 8, !noalias !15
-  store i64 ptrtoint (ptr @_ZN18DisplayFilterCombo13filterAppliedE7QStringb to i64), ptr %6, align 8, !noalias !15
+  store i64 0, ptr %.fca.1.gep12.i, align 8, !noalias !14
+  store i64 ptrtoint (ptr @_ZN18DisplayFilterCombo13filterAppliedE7QStringb to i64), ptr %6, align 8, !noalias !14
   %.fca.1.gep.i56 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store i64 0, ptr %.fca.1.gep.i56, align 8, !noalias !15
+  store i64 0, ptr %.fca.1.gep.i56, align 8, !noalias !14
   %95 = invoke noalias noundef dereferenceable_or_null(32) ptr @_Znwm(i64 noundef 32) #19
           to label %.noexc58 unwind label %52
 
 .noexc58:                                         ; preds = %94
-  store i32 1, ptr %95, align 4, !noalias !15
+  store i32 1, ptr %95, align 4, !noalias !14
   %96 = getelementptr inbounds nuw i8, ptr %95, i64 8
-  store ptr @_ZN9QtPrivate11QSlotObjectIM18DisplayFilterComboFv7QStringbENS_4ListIJS2_bEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb, ptr %96, align 8, !noalias !15
+  store ptr @_ZN9QtPrivate11QSlotObjectIM18DisplayFilterComboFv7QStringbENS_4ListIJS2_bEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb, ptr %96, align 8, !noalias !14
   %97 = getelementptr inbounds nuw i8, ptr %95, i64 16
-  store i64 ptrtoint (ptr @_ZN18DisplayFilterCombo13filterAppliedE7QStringb to i64), ptr %97, align 8, !noalias !15
+  store i64 ptrtoint (ptr @_ZN18DisplayFilterCombo13filterAppliedE7QStringb to i64), ptr %97, align 8, !noalias !14
   %.repack7.i.i57 = getelementptr inbounds nuw i8, ptr %95, i64 24
-  store i64 0, ptr %.repack7.i.i57, align 8, !noalias !15
+  store i64 0, ptr %.repack7.i.i57, align 8, !noalias !14
   invoke void @_ZN7QObject11connectImplEPKS_PPvS1_S3_PN9QtPrivate15QSlotObjectBaseEN2Qt14ConnectionTypeEPKiPK11QMetaObject(ptr dead_on_unwind nonnull writable sret(%"class.QMetaObject::Connection") align 8 %13, ptr noundef %17, ptr noundef nonnull %5, ptr noundef %0, ptr noundef nonnull %6, ptr noundef %95, i32 noundef 0, ptr noundef null, ptr noundef nonnull @_ZN17DisplayFilterEdit16staticMetaObjectE)
           to label %98 unwind label %52
 
@@ -815,23 +815,23 @@ _ZN7QStringD2Ev.exit53:                           ; preds = %80, %_ZN17QArrayDat
   %99 = load ptr, ptr @_ZL9cur_model, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
-  store i64 ptrtoint (ptr @_ZN18QAbstractItemModel12rowsInsertedERK11QModelIndexiiNS_14QPrivateSignalE to i64), ptr %3, align 8, !noalias !18
+  store i64 ptrtoint (ptr @_ZN18QAbstractItemModel12rowsInsertedERK11QModelIndexiiNS_14QPrivateSignalE to i64), ptr %3, align 8, !noalias !17
   %.fca.1.gep12.i63 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store i64 0, ptr %.fca.1.gep12.i63, align 8, !noalias !18
-  store i64 ptrtoint (ptr @_ZN18DisplayFilterCombo12rowsInsertedERK11QModelIndexii to i64), ptr %4, align 8, !noalias !18
+  store i64 0, ptr %.fca.1.gep12.i63, align 8, !noalias !17
+  store i64 ptrtoint (ptr @_ZN18DisplayFilterCombo12rowsInsertedERK11QModelIndexii to i64), ptr %4, align 8, !noalias !17
   %.fca.1.gep.i64 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store i64 0, ptr %.fca.1.gep.i64, align 8, !noalias !18
+  store i64 0, ptr %.fca.1.gep.i64, align 8, !noalias !17
   %100 = invoke noalias noundef dereferenceable_or_null(32) ptr @_Znwm(i64 noundef 32) #19
           to label %.noexc66 unwind label %52
 
 .noexc66:                                         ; preds = %98
-  store i32 1, ptr %100, align 4, !noalias !18
+  store i32 1, ptr %100, align 4, !noalias !17
   %101 = getelementptr inbounds nuw i8, ptr %100, i64 8
-  store ptr @_ZN9QtPrivate11QSlotObjectIM18DisplayFilterComboFvRK11QModelIndexiiENS_4ListIJS4_iiEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb, ptr %101, align 8, !noalias !18
+  store ptr @_ZN9QtPrivate11QSlotObjectIM18DisplayFilterComboFvRK11QModelIndexiiENS_4ListIJS4_iiEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb, ptr %101, align 8, !noalias !17
   %102 = getelementptr inbounds nuw i8, ptr %100, i64 16
-  store i64 ptrtoint (ptr @_ZN18DisplayFilterCombo12rowsInsertedERK11QModelIndexii to i64), ptr %102, align 8, !noalias !18
+  store i64 ptrtoint (ptr @_ZN18DisplayFilterCombo12rowsInsertedERK11QModelIndexii to i64), ptr %102, align 8, !noalias !17
   %.repack7.i.i65 = getelementptr inbounds nuw i8, ptr %100, i64 24
-  store i64 0, ptr %.repack7.i.i65, align 8, !noalias !18
+  store i64 0, ptr %.repack7.i.i65, align 8, !noalias !17
   invoke void @_ZN7QObject11connectImplEPKS_PPvS1_S3_PN9QtPrivate15QSlotObjectBaseEN2Qt14ConnectionTypeEPKiPK11QMetaObject(ptr dead_on_unwind nonnull writable sret(%"class.QMetaObject::Connection") align 8 %14, ptr noundef %99, ptr noundef nonnull %3, ptr noundef %0, ptr noundef nonnull %4, ptr noundef %100, i32 noundef 0, ptr noundef null, ptr noundef nonnull @_ZN18QAbstractItemModel16staticMetaObjectE)
           to label %103 unwind label %52
 
@@ -1189,7 +1189,7 @@ define void @_ZN18DisplayFilterCombo12rowsInsertedERK11QModelIndexii(ptr noundef
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #18
   %25 = add i32 %.011, 1
   %.not = icmp sgt i32 %25, %3
-  br i1 %.not, label %._crit_edge, label %15, !llvm.loop !21
+  br i1 %.not, label %._crit_edge, label %15, !llvm.loop !20
 
 26:                                               ; preds = %15
   %27 = landingpad { ptr, i32 }
@@ -1655,7 +1655,7 @@ define linkonce_odr void @_ZN9QtPrivate27QDebugStreamOperatorForTypeI7QStringLb1
   tail call void @_ZN6QDebug9putStringEPK5QCharm(ptr noundef align 8 dereferenceable_or_null(8) %1, ptr noundef nonnull %spec.select.i.i.i, i64 noundef %8)
   %9 = load ptr, ptr %1, align 8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 48
-  %11 = load i8, ptr %10, align 8, !range !22, !noundef !23
+  %11 = load i8, ptr %10, align 8, !range !21, !noundef !22
   %12 = trunc nuw i8 %11 to i1
   br i1 %12, label %13, label %_ZN6QDebuglsERK7QString.exit
 
@@ -2421,7 +2421,7 @@ define linkonce_odr void @_ZN9QtPrivate11QSlotObjectIM18DisplayFilterComboFvvENS
   %14 = load ptr, ptr %11, align 8
   %15 = getelementptr i8, ptr %14, i64 %.unpack12
   %16 = getelementptr i8, ptr %15, i64 -1
-  %17 = load ptr, ptr %16, align 8, !nosanitize !23
+  %17 = load ptr, ptr %16, align 8, !nosanitize !22
   br label %_ZN9QtPrivate15FunctionPointerIM18DisplayFilterComboFvvEE4callINS_4ListIJEEEvEEvS3_PS1_PPv.exit
 
 18:                                               ; preds = %9
@@ -2486,7 +2486,7 @@ define linkonce_odr void @_ZN9QtPrivate11QSlotObjectIM18DisplayFilterComboFv7QSt
   %15 = load ptr, ptr %12, align 8
   %16 = getelementptr i8, ptr %15, i64 %.unpack12
   %17 = getelementptr i8, ptr %16, i64 -1
-  %18 = load ptr, ptr %17, align 8, !nosanitize !23
+  %18 = load ptr, ptr %17, align 8, !nosanitize !22
   br label %21
 
 19:                                               ; preds = %10
@@ -2517,7 +2517,7 @@ define linkonce_odr void @_ZN9QtPrivate11QSlotObjectIM18DisplayFilterComboFv7QSt
 _ZN7QStringC2ERKS_.exit.i.i:                      ; preds = %32, %21
   %34 = getelementptr i8, ptr %3, i64 16
   %35 = load ptr, ptr %34, align 8
-  %36 = load i8, ptr %35, align 1, !range !22, !noundef !23
+  %36 = load i8, ptr %35, align 1, !range !21, !noundef !22
   %37 = trunc nuw i8 %36 to i1
   invoke void %22(ptr noundef align 8 dereferenceable_or_null(40) %12, ptr noundef nonnull %6, i1 noundef zeroext %37)
           to label %38 unwind label %43
@@ -2612,7 +2612,7 @@ define linkonce_odr void @_ZN9QtPrivate11QSlotObjectIM18DisplayFilterComboFvRK11
   %14 = load ptr, ptr %11, align 8
   %15 = getelementptr i8, ptr %14, i64 %.unpack12
   %16 = getelementptr i8, ptr %15, i64 -1
-  %17 = load ptr, ptr %16, align 8, !nosanitize !23
+  %17 = load ptr, ptr %16, align 8, !nosanitize !22
   br label %_ZN9QtPrivate15FunctionPointerIM18DisplayFilterComboFvRK11QModelIndexiiEE4callINS_4ListIJS4_iiEEEvEEvS6_PS1_PPv.exit
 
 18:                                               ; preds = %9
@@ -2703,18 +2703,17 @@ attributes #22 = { cold noreturn }
 !6 = !{!7}
 !7 = distinct !{!7, !8, !"_ZNK13QStandardItem4textEv: argument 0"}
 !8 = distinct !{!8, !"_ZNK13QStandardItem4textEv"}
-!9 = distinct !{!9, !10, !11}
+!9 = distinct !{!9, !10}
 !10 = !{!"llvm.loop.mustprogress"}
-!11 = !{!"llvm.loop.estimated_trip_count"}
-!12 = !{!13}
-!13 = distinct !{!13, !14, !"_ZN7QObject7connectIM15MainApplicationFvvEM18DisplayFilterComboFvvEEEN11QMetaObject10ConnectionEPKN9QtPrivate15FunctionPointerIT_E6ObjectESB_PKNSA_IT0_E6ObjectESG_N2Qt14ConnectionTypeE: argument 0"}
-!14 = distinct !{!14, !"_ZN7QObject7connectIM15MainApplicationFvvEM18DisplayFilterComboFvvEEEN11QMetaObject10ConnectionEPKN9QtPrivate15FunctionPointerIT_E6ObjectESB_PKNSA_IT0_E6ObjectESG_N2Qt14ConnectionTypeE"}
-!15 = !{!16}
-!16 = distinct !{!16, !17, !"_ZN7QObject7connectIM17DisplayFilterEditFv7QStringbEM18DisplayFilterComboFvS2_bEEEN11QMetaObject10ConnectionEPKN9QtPrivate15FunctionPointerIT_E6ObjectESC_PKNSB_IT0_E6ObjectESH_N2Qt14ConnectionTypeE: argument 0"}
-!17 = distinct !{!17, !"_ZN7QObject7connectIM17DisplayFilterEditFv7QStringbEM18DisplayFilterComboFvS2_bEEEN11QMetaObject10ConnectionEPKN9QtPrivate15FunctionPointerIT_E6ObjectESC_PKNSB_IT0_E6ObjectESH_N2Qt14ConnectionTypeE"}
-!18 = !{!19}
-!19 = distinct !{!19, !20, !"_ZN7QObject7connectIM18QAbstractItemModelFvRK11QModelIndexiiNS1_14QPrivateSignalEEM18DisplayFilterComboFvS4_iiEEEN11QMetaObject10ConnectionEPKN9QtPrivate15FunctionPointerIT_E6ObjectESF_PKNSE_IT0_E6ObjectESK_N2Qt14ConnectionTypeE: argument 0"}
-!20 = distinct !{!20, !"_ZN7QObject7connectIM18QAbstractItemModelFvRK11QModelIndexiiNS1_14QPrivateSignalEEM18DisplayFilterComboFvS4_iiEEEN11QMetaObject10ConnectionEPKN9QtPrivate15FunctionPointerIT_E6ObjectESF_PKNSE_IT0_E6ObjectESK_N2Qt14ConnectionTypeE"}
-!21 = distinct !{!21, !10, !11}
-!22 = !{i8 0, i8 2}
-!23 = !{}
+!11 = !{!12}
+!12 = distinct !{!12, !13, !"_ZN7QObject7connectIM15MainApplicationFvvEM18DisplayFilterComboFvvEEEN11QMetaObject10ConnectionEPKN9QtPrivate15FunctionPointerIT_E6ObjectESB_PKNSA_IT0_E6ObjectESG_N2Qt14ConnectionTypeE: argument 0"}
+!13 = distinct !{!13, !"_ZN7QObject7connectIM15MainApplicationFvvEM18DisplayFilterComboFvvEEEN11QMetaObject10ConnectionEPKN9QtPrivate15FunctionPointerIT_E6ObjectESB_PKNSA_IT0_E6ObjectESG_N2Qt14ConnectionTypeE"}
+!14 = !{!15}
+!15 = distinct !{!15, !16, !"_ZN7QObject7connectIM17DisplayFilterEditFv7QStringbEM18DisplayFilterComboFvS2_bEEEN11QMetaObject10ConnectionEPKN9QtPrivate15FunctionPointerIT_E6ObjectESC_PKNSB_IT0_E6ObjectESH_N2Qt14ConnectionTypeE: argument 0"}
+!16 = distinct !{!16, !"_ZN7QObject7connectIM17DisplayFilterEditFv7QStringbEM18DisplayFilterComboFvS2_bEEEN11QMetaObject10ConnectionEPKN9QtPrivate15FunctionPointerIT_E6ObjectESC_PKNSB_IT0_E6ObjectESH_N2Qt14ConnectionTypeE"}
+!17 = !{!18}
+!18 = distinct !{!18, !19, !"_ZN7QObject7connectIM18QAbstractItemModelFvRK11QModelIndexiiNS1_14QPrivateSignalEEM18DisplayFilterComboFvS4_iiEEEN11QMetaObject10ConnectionEPKN9QtPrivate15FunctionPointerIT_E6ObjectESF_PKNSE_IT0_E6ObjectESK_N2Qt14ConnectionTypeE: argument 0"}
+!19 = distinct !{!19, !"_ZN7QObject7connectIM18QAbstractItemModelFvRK11QModelIndexiiNS1_14QPrivateSignalEEM18DisplayFilterComboFvS4_iiEEEN11QMetaObject10ConnectionEPKN9QtPrivate15FunctionPointerIT_E6ObjectESF_PKNSE_IT0_E6ObjectESK_N2Qt14ConnectionTypeE"}
+!20 = distinct !{!20, !10}
+!21 = !{i8 0, i8 2}
+!22 = !{}

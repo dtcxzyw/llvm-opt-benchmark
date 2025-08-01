@@ -100,13 +100,13 @@ CountLiterals.exit:                               ; preds = %.lr.ph.i
   %.2.i = phi i64 [ %35, %32 ], [ %.1.i, %31 ]
   %37 = add i64 %.033.i, %.136.i
   %38 = getelementptr inbounds nuw i8, ptr %20, i64 4
-  %39 = load i32, ptr %38, align 4, !tbaa !19
+  %39 = load i32, ptr %38, align 4, !tbaa !18
   %40 = and i32 %39, 33554431
   %41 = zext nneg i32 %40 to i64
   %42 = add i64 %37, %41
   %43 = add nuw i64 %.03439.i, 1
   %exitcond.not.i63 = icmp eq i64 %43, %2
-  br i1 %exitcond.not.i63, label %CopyLiteralsToByteArray.exit, label %19, !llvm.loop !20
+  br i1 %exitcond.not.i63, label %CopyLiteralsToByteArray.exit, label %19, !llvm.loop !19
 
 CopyLiteralsToByteArray.exit:                     ; preds = %36
   %.lhs.trunc.i = trunc i64 %14 to i16
@@ -119,7 +119,7 @@ CopyLiteralsToByteArray.exit:                     ; preds = %36
 
 .thread467:                                       ; preds = %CopyLiteralsToByteArray.exit, %10
   %47 = phi ptr [ null, %10 ], [ %.ph, %CopyLiteralsToByteArray.exit ]
-  store i64 1, ptr %7, align 8, !tbaa !21
+  store i64 1, ptr %7, align 8, !tbaa !20
   br label %SplitByteVectorLiteral.exit
 
 48:                                               ; preds = %CopyLiteralsToByteArray.exit
@@ -128,9 +128,9 @@ CopyLiteralsToByteArray.exit:                     ; preds = %36
 
 50:                                               ; preds = %48
   %51 = getelementptr inbounds nuw i8, ptr %7, i64 32
-  %52 = load i64, ptr %51, align 8, !tbaa !22
+  %52 = load i64, ptr %51, align 8, !tbaa !21
   %53 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %54 = load i64, ptr %53, align 8, !tbaa !23
+  %54 = load i64, ptr %53, align 8, !tbaa !22
   %55 = add i64 %54, 1
   %56 = icmp ult i64 %52, %55
   br i1 %56, label %57, label %71
@@ -144,11 +144,11 @@ CopyLiteralsToByteArray.exit:                     ; preds = %36
   %.0137.i = phi i64 [ %..i, %57 ], [ %61, %59 ]
   %60 = icmp ult i64 %.0137.i, %55
   %61 = shl i64 %.0137.i, 1
-  br i1 %60, label %59, label %62, !llvm.loop !24
+  br i1 %60, label %59, label %62, !llvm.loop !23
 
 62:                                               ; preds = %59
   %63 = tail call ptr @BrotliAllocate(ptr noundef %0, i64 noundef %.0137.i) #8
-  %64 = load i64, ptr %51, align 8, !tbaa !22
+  %64 = load i64, ptr %51, align 8, !tbaa !21
   %.not151.i = icmp eq i64 %64, 0
   br i1 %.not151.i, label %68, label %65
 
@@ -163,8 +163,8 @@ CopyLiteralsToByteArray.exit:                     ; preds = %36
   %70 = load ptr, ptr %69, align 8, !tbaa !3
   tail call void @BrotliFree(ptr noundef %0, ptr noundef %70) #8
   store ptr %63, ptr %69, align 8, !tbaa !3
-  store i64 %.0137.i, ptr %51, align 8, !tbaa !22
-  %.pre.i = load i64, ptr %53, align 8, !tbaa !23
+  store i64 %.0137.i, ptr %51, align 8, !tbaa !21
+  %.pre.i = load i64, ptr %53, align 8, !tbaa !22
   %.pre185.i = add i64 %.pre.i, 1
   br label %71
 
@@ -172,7 +172,7 @@ CopyLiteralsToByteArray.exit:                     ; preds = %36
   %.pre-phi.i = phi i64 [ %.pre185.i, %68 ], [ %55, %50 ]
   %72 = phi i64 [ %.pre.i, %68 ], [ %54, %50 ]
   %73 = getelementptr inbounds nuw i8, ptr %7, i64 40
-  %74 = load i64, ptr %73, align 8, !tbaa !25
+  %74 = load i64, ptr %73, align 8, !tbaa !24
   %75 = icmp ult i64 %74, %.pre-phi.i
   br i1 %75, label %76, label %SplitByteVectorLiteral.exit.thread
 
@@ -185,12 +185,12 @@ CopyLiteralsToByteArray.exit:                     ; preds = %36
   %.0136.i = phi i64 [ %.154.i, %76 ], [ %80, %78 ]
   %79 = icmp ult i64 %.0136.i, %.pre-phi.i
   %80 = shl i64 %.0136.i, 1
-  br i1 %79, label %78, label %81, !llvm.loop !26
+  br i1 %79, label %78, label %81, !llvm.loop !25
 
 81:                                               ; preds = %78
   %82 = shl i64 %.0136.i, 2
   %83 = tail call ptr @BrotliAllocate(ptr noundef %0, i64 noundef %82) #8
-  %84 = load i64, ptr %73, align 8, !tbaa !25
+  %84 = load i64, ptr %73, align 8, !tbaa !24
   %.not153.i = icmp eq i64 %84, 0
   br i1 %.not153.i, label %89, label %85
 
@@ -206,25 +206,25 @@ CopyLiteralsToByteArray.exit:                     ; preds = %36
   %91 = load ptr, ptr %90, align 8, !tbaa !11
   tail call void @BrotliFree(ptr noundef %0, ptr noundef %91) #8
   store ptr %83, ptr %90, align 8, !tbaa !11
-  store i64 %.0136.i, ptr %73, align 8, !tbaa !25
-  %.pre184.i = load i64, ptr %53, align 8, !tbaa !23
+  store i64 %.0136.i, ptr %73, align 8, !tbaa !24
+  %.pre184.i = load i64, ptr %53, align 8, !tbaa !22
   br label %SplitByteVectorLiteral.exit.thread
 
 SplitByteVectorLiteral.exit.thread:               ; preds = %71, %89
   %92 = phi i64 [ %.pre184.i, %89 ], [ %72, %71 ]
-  store i64 1, ptr %7, align 8, !tbaa !21
+  store i64 1, ptr %7, align 8, !tbaa !20
   %93 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %94 = load ptr, ptr %93, align 8, !tbaa !3
   %95 = getelementptr inbounds nuw i8, ptr %94, i64 %92
-  store i8 0, ptr %95, align 1, !tbaa !27
+  store i8 0, ptr %95, align 1, !tbaa !26
   %96 = trunc nuw nsw i64 %14 to i32
   %97 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %98 = load ptr, ptr %97, align 8, !tbaa !11
-  %99 = load i64, ptr %53, align 8, !tbaa !23
+  %99 = load i64, ptr %53, align 8, !tbaa !22
   %100 = getelementptr inbounds nuw i32, ptr %98, i64 %99
-  store i32 %96, ptr %100, align 4, !tbaa !28
+  store i32 %96, ptr %100, align 4, !tbaa !27
   %101 = add i64 %99, 1
-  store i64 %101, ptr %53, align 8, !tbaa !23
+  store i64 %101, ptr %53, align 8, !tbaa !22
   tail call void @BrotliFree(ptr noundef %0, ptr noundef %.ph) #8
   br label %.lr.ph.preheader
 
@@ -244,10 +244,10 @@ ClearHistogramsLiteral.exit.preheader.i.i:        ; preds = %108
   %109 = getelementptr inbounds nuw %struct.HistogramLiteral, ptr %105, i64 %.0.i28.i.i
   %110 = getelementptr inbounds nuw i8, ptr %109, i64 1032
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1032) %109, i8 0, i64 1032, i1 false)
-  store double 0x7FF0000000000000, ptr %110, align 8, !tbaa !29
+  store double 0x7FF0000000000000, ptr %110, align 8, !tbaa !28
   %111 = add nuw nsw i64 %.0.i28.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %111, %.
-  br i1 %exitcond.not.i.i, label %ClearHistogramsLiteral.exit.preheader.i.i, label %108, !llvm.loop !32
+  br i1 %exitcond.not.i.i, label %ClearHistogramsLiteral.exit.preheader.i.i, label %108, !llvm.loop !31
 
 112:                                              ; preds = %HistogramAddVectorLiteral.exit.i.i, %ClearHistogramsLiteral.exit.preheader.i.i
   %.02231.i.i = phi i64 [ 0, %ClearHistogramsLiteral.exit.preheader.i.i ], [ %136, %HistogramAddVectorLiteral.exit.i.i ]
@@ -273,29 +273,29 @@ ClearHistogramsLiteral.exit.preheader.i.i:        ; preds = %108
   %122 = getelementptr inbounds nuw %struct.HistogramLiteral, ptr %105, i64 %.02231.i.i
   %123 = getelementptr inbounds nuw i8, ptr %.ph, i64 %spec.select.i.i
   %124 = getelementptr inbounds nuw i8, ptr %122, i64 1024
-  %125 = load i64, ptr %124, align 8, !tbaa !33
+  %125 = load i64, ptr %124, align 8, !tbaa !32
   %126 = add i64 %125, 70
-  store i64 %126, ptr %124, align 8, !tbaa !33
+  store i64 %126, ptr %124, align 8, !tbaa !32
   br label %127
 
 127:                                              ; preds = %127, %120
   %128 = phi i64 [ 70, %120 ], [ %135, %127 ]
   %.05.i29.i.i = phi ptr [ %123, %120 ], [ %129, %127 ]
   %129 = getelementptr inbounds nuw i8, ptr %.05.i29.i.i, i64 1
-  %130 = load i8, ptr %.05.i29.i.i, align 1, !tbaa !27
+  %130 = load i8, ptr %.05.i29.i.i, align 1, !tbaa !26
   %131 = zext i8 %130 to i64
   %132 = getelementptr inbounds nuw [256 x i32], ptr %122, i64 0, i64 %131
-  %133 = load i32, ptr %132, align 4, !tbaa !28
+  %133 = load i32, ptr %132, align 4, !tbaa !27
   %134 = add i32 %133, 1
-  store i32 %134, ptr %132, align 4, !tbaa !28
+  store i32 %134, ptr %132, align 4, !tbaa !27
   %135 = add nsw i64 %128, -1
   %.not.i.i.i = icmp eq i64 %135, 0
-  br i1 %.not.i.i.i, label %HistogramAddVectorLiteral.exit.i.i, label %127, !llvm.loop !34
+  br i1 %.not.i.i.i, label %HistogramAddVectorLiteral.exit.i.i, label %127, !llvm.loop !33
 
 HistogramAddVectorLiteral.exit.i.i:               ; preds = %127
   %136 = add nuw nsw i64 %.02231.i.i, 1
   %exitcond32.not.i.i = icmp eq i64 %136, %.
-  br i1 %exitcond32.not.i.i, label %InitialEntropyCodesLiteral.exit.i, label %112, !llvm.loop !35
+  br i1 %exitcond32.not.i.i, label %InitialEntropyCodesLiteral.exit.i, label %112, !llvm.loop !34
 
 InitialEntropyCodesLiteral.exit.i:                ; preds = %HistogramAddVectorLiteral.exit.i.i
   %137 = getelementptr inbounds nuw %struct.HistogramLiteral, ptr %105, i64 %.
@@ -315,53 +315,53 @@ InitialEntropyCodesLiteral.exit.i:                ; preds = %HistogramAddVectorL
   %.020.i.i = phi i64 [ 0, %InitialEntropyCodesLiteral.exit.i ], [ %173, %HistogramAddHistogramLiteral.exit.i.i ]
   %.01719.i.i = phi i32 [ 7, %InitialEntropyCodesLiteral.exit.i ], [ %148, %HistogramAddHistogramLiteral.exit.i.i ]
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1024) %137, i8 0, i64 1024, i1 false)
-  store double 0x7FF0000000000000, ptr %145, align 8, !tbaa !29
+  store double 0x7FF0000000000000, ptr %145, align 8, !tbaa !28
   %148 = mul i32 %.01719.i.i, 16807
   %149 = zext i32 %148 to i64
   %150 = urem i64 %149, %146
   %151 = getelementptr inbounds nuw i8, ptr %.ph, i64 %150
-  store i64 70, ptr %144, align 8, !tbaa !33
+  store i64 70, ptr %144, align 8, !tbaa !32
   br label %152
 
 152:                                              ; preds = %152, %147
   %153 = phi i64 [ 70, %147 ], [ %160, %152 ]
   %.05.i12.i.i.i = phi ptr [ %151, %147 ], [ %154, %152 ]
   %154 = getelementptr inbounds nuw i8, ptr %.05.i12.i.i.i, i64 1
-  %155 = load i8, ptr %.05.i12.i.i.i, align 1, !tbaa !27
+  %155 = load i8, ptr %.05.i12.i.i.i, align 1, !tbaa !26
   %156 = zext i8 %155 to i64
   %157 = getelementptr inbounds nuw [256 x i32], ptr %137, i64 0, i64 %156
-  %158 = load i32, ptr %157, align 4, !tbaa !28
+  %158 = load i32, ptr %157, align 4, !tbaa !27
   %159 = add i32 %158, 1
-  store i32 %159, ptr %157, align 4, !tbaa !28
+  store i32 %159, ptr %157, align 4, !tbaa !27
   %160 = add nsw i64 %153, -1
   %.not.i.i.i.i = icmp eq i64 %160, 0
-  br i1 %.not.i.i.i.i, label %RandomSampleLiteral.exit.i.i, label %152, !llvm.loop !34
+  br i1 %.not.i.i.i.i, label %RandomSampleLiteral.exit.i.i, label %152, !llvm.loop !33
 
 RandomSampleLiteral.exit.i.i:                     ; preds = %152
   %161 = urem i64 %.020.i.i, %.
   %162 = getelementptr inbounds nuw %struct.HistogramLiteral, ptr %105, i64 %161
   %163 = getelementptr inbounds nuw i8, ptr %162, i64 1024
-  %164 = load i64, ptr %163, align 8, !tbaa !33
+  %164 = load i64, ptr %163, align 8, !tbaa !32
   %165 = add i64 %164, 70
-  store i64 %165, ptr %163, align 8, !tbaa !33
+  store i64 %165, ptr %163, align 8, !tbaa !32
   br label %166
 
 166:                                              ; preds = %166, %RandomSampleLiteral.exit.i.i
   %.0.i18.i.i = phi i64 [ 0, %RandomSampleLiteral.exit.i.i ], [ %172, %166 ]
   %167 = getelementptr inbounds nuw [256 x i32], ptr %137, i64 0, i64 %.0.i18.i.i
-  %168 = load i32, ptr %167, align 4, !tbaa !28
+  %168 = load i32, ptr %167, align 4, !tbaa !27
   %169 = getelementptr inbounds nuw [256 x i32], ptr %162, i64 0, i64 %.0.i18.i.i
-  %170 = load i32, ptr %169, align 4, !tbaa !28
+  %170 = load i32, ptr %169, align 4, !tbaa !27
   %171 = add i32 %170, %168
-  store i32 %171, ptr %169, align 4, !tbaa !28
+  store i32 %171, ptr %169, align 4, !tbaa !27
   %172 = add nuw nsw i64 %.0.i18.i.i, 1
   %exitcond.not.i155.i = icmp eq i64 %172, 256
-  br i1 %exitcond.not.i155.i, label %HistogramAddHistogramLiteral.exit.i.i, label %166, !llvm.loop !36
+  br i1 %exitcond.not.i155.i, label %HistogramAddHistogramLiteral.exit.i.i, label %166, !llvm.loop !35
 
 HistogramAddHistogramLiteral.exit.i.i:            ; preds = %166
   %173 = add nuw i64 %.020.i.i, 1
   %exitcond21.not.i.i = icmp eq i64 %173, %umax.i.i
-  br i1 %exitcond21.not.i.i, label %RefineEntropyCodesLiteral.exit.i, label %147, !llvm.loop !37
+  br i1 %exitcond21.not.i.i, label %RefineEntropyCodesLiteral.exit.i, label %147, !llvm.loop !36
 
 RefineEntropyCodesLiteral.exit.i:                 ; preds = %HistogramAddHistogramLiteral.exit.i.i
   %174 = tail call ptr @BrotliAllocate(ptr noundef %0, i64 noundef %14) #8
@@ -384,7 +384,7 @@ RefineEntropyCodesLiteral.exit.i:                 ; preds = %HistogramAddHistogr
   %186 = shl nuw nsw i64 %., 1
   %187 = tail call ptr @BrotliAllocate(ptr noundef %0, i64 noundef %186) #8
   %188 = getelementptr inbounds nuw i8, ptr %6, i64 4
-  %189 = load i32, ptr %188, align 4, !tbaa !38
+  %189 = load i32, ptr %188, align 4, !tbaa !37
   %.inv.i = icmp sgt i32 %189, 10
   %190 = select i1 %.inv.i, i64 10, i64 3
   %191 = add i64 %14, -1
@@ -400,7 +400,7 @@ RefineEntropyCodesLiteral.exit.i:                 ; preds = %HistogramAddHistogr
   br i1 %196, label %.preheader.preheader.i.i, label %197
 
 .preheader.preheader.i.i:                         ; preds = %193
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %174, i8 0, i64 range(i64 128, 0) %14, i1 false), !tbaa !27
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %174, i8 0, i64 range(i64 128, 0) %14, i1 false), !tbaa !26
   br label %FindBlocksLiteral.exit.i
 
 197:                                              ; preds = %193
@@ -411,32 +411,32 @@ RefineEntropyCodesLiteral.exit.i:                 ; preds = %HistogramAddHistogr
 199:                                              ; preds = %FastLog2.exit.i.i, %197
   %.1119131.i.i = phi i64 [ 0, %197 ], [ %211, %FastLog2.exit.i.i ]
   %200 = getelementptr inbounds nuw %struct.HistogramLiteral, ptr %105, i64 %.1119131.i.i, i32 1
-  %201 = load i64, ptr %200, align 8, !tbaa !33
+  %201 = load i64, ptr %200, align 8, !tbaa !32
   %202 = and i64 %201, 4294967295
   %203 = icmp samesign ult i64 %202, 256
   br i1 %203, label %204, label %207
 
 204:                                              ; preds = %199
   %205 = getelementptr inbounds nuw [256 x double], ptr @kBrotliLog2Table, i64 0, i64 %202
-  %206 = load double, ptr %205, align 8, !tbaa !54
+  %206 = load double, ptr %205, align 8, !tbaa !53
   br label %FastLog2.exit.i.i
 
 207:                                              ; preds = %199
   %208 = uitofp nneg i64 %202 to double
-  %209 = tail call double @log2(double noundef %208) #8, !tbaa !28
+  %209 = tail call double @log2(double noundef %208) #8, !tbaa !27
   br label %FastLog2.exit.i.i
 
 FastLog2.exit.i.i:                                ; preds = %207, %204
   %.0.i.i.i = phi double [ %206, %204 ], [ %209, %207 ]
   %210 = getelementptr inbounds nuw double, ptr %178, i64 %.1119131.i.i
-  store double %.0.i.i.i, ptr %210, align 8, !tbaa !54
+  store double %.0.i.i.i, ptr %210, align 8, !tbaa !53
   %211 = add nuw nsw i64 %.1119131.i.i, 1
   %exitcond.not.i156.i = icmp eq i64 %211, %.1178.i
-  br i1 %exitcond.not.i156.i, label %.preheader130.i.i, label %199, !llvm.loop !55
+  br i1 %exitcond.not.i156.i, label %.preheader130.i.i, label %199, !llvm.loop !54
 
 .loopexit129.i.i:                                 ; preds = %BitCost.exit.i.i
   %.not.i157.i = icmp eq i64 %212, 0
-  br i1 %.not.i157.i, label %233, label %.preheader130.i.i, !llvm.loop !56
+  br i1 %.not.i157.i, label %233, label %.preheader130.i.i, !llvm.loop !55
 
 .preheader130.i.i:                                ; preds = %FastLog2.exit.i.i, %.loopexit129.i.i
   %.2133.i.i = phi i64 [ %212, %.loopexit129.i.i ], [ 256, %FastLog2.exit.i.i ]
@@ -449,9 +449,9 @@ FastLog2.exit.i.i:                                ; preds = %207, %204
 215:                                              ; preds = %BitCost.exit.i.i, %.preheader130.i.i
   %.0120132.i.i = phi i64 [ 0, %.preheader130.i.i ], [ %232, %BitCost.exit.i.i ]
   %216 = getelementptr inbounds nuw double, ptr %178, i64 %.0120132.i.i
-  %217 = load double, ptr %216, align 8, !tbaa !54
+  %217 = load double, ptr %216, align 8, !tbaa !53
   %gep.i.i = getelementptr %struct.HistogramLiteral, ptr %invariant.gep.i.i, i64 %.0120132.i.i
-  %218 = load i32, ptr %gep.i.i, align 4, !tbaa !28
+  %218 = load i32, ptr %gep.i.i, align 4, !tbaa !27
   %219 = zext i32 %218 to i64
   %220 = icmp eq i32 %218, 0
   br i1 %220, label %BitCost.exit.i.i, label %221
@@ -462,22 +462,22 @@ FastLog2.exit.i.i:                                ; preds = %207, %204
 
 223:                                              ; preds = %221
   %224 = getelementptr inbounds nuw [256 x double], ptr @kBrotliLog2Table, i64 0, i64 %219
-  %225 = load double, ptr %224, align 8, !tbaa !54
+  %225 = load double, ptr %224, align 8, !tbaa !53
   br label %BitCost.exit.i.i
 
 226:                                              ; preds = %221
   %227 = uitofp i32 %218 to double
-  %228 = tail call double @log2(double noundef %227) #8, !tbaa !28
+  %228 = tail call double @log2(double noundef %227) #8, !tbaa !27
   br label %BitCost.exit.i.i
 
 BitCost.exit.i.i:                                 ; preds = %226, %223, %215
   %229 = phi double [ -2.000000e+00, %215 ], [ %225, %223 ], [ %228, %226 ]
   %230 = fsub double %217, %229
   %231 = getelementptr double, ptr %214, i64 %.0120132.i.i
-  store double %230, ptr %231, align 8, !tbaa !54
+  store double %230, ptr %231, align 8, !tbaa !53
   %232 = add nuw nsw i64 %.0120132.i.i, 1
   %exitcond145.not.i.i = icmp eq i64 %232, %.1178.i
-  br i1 %exitcond145.not.i.i, label %.loopexit129.i.i, label %215, !llvm.loop !57
+  br i1 %exitcond145.not.i.i, label %.loopexit129.i.i, label %215, !llvm.loop !56
 
 233:                                              ; preds = %.loopexit129.i.i
   %234 = shl nuw nsw i64 %.1178.i, 3
@@ -489,7 +489,7 @@ BitCost.exit.i.i:                                 ; preds = %226, %223, %215
 236:                                              ; preds = %276, %233
   %.0116137.i.i = phi i64 [ 0, %233 ], [ %277, %276 ]
   %237 = getelementptr inbounds nuw i8, ptr %.ph, i64 %.0116137.i.i
-  %238 = load i8, ptr %237, align 1, !tbaa !27
+  %238 = load i8, ptr %237, align 1, !tbaa !26
   %239 = zext i8 %238 to i64
   %240 = mul nuw nsw i64 %.1178.i, %239
   %241 = getelementptr inbounds nuw double, ptr %178, i64 %240
@@ -500,24 +500,24 @@ BitCost.exit.i.i:                                 ; preds = %226, %223, %215
   %.0111135.i.i = phi i64 [ 0, %236 ], [ %253, %252 ]
   %.0114134.i.i = phi double [ 0x547D42AEA2879F2E, %236 ], [ %.1115.i.i, %252 ]
   %244 = getelementptr inbounds nuw double, ptr %241, i64 %.0111135.i.i
-  %245 = load double, ptr %244, align 8, !tbaa !54
+  %245 = load double, ptr %244, align 8, !tbaa !53
   %246 = getelementptr inbounds nuw double, ptr %180, i64 %.0111135.i.i
-  %247 = load double, ptr %246, align 8, !tbaa !54
+  %247 = load double, ptr %246, align 8, !tbaa !53
   %248 = fadd double %245, %247
-  store double %248, ptr %246, align 8, !tbaa !54
+  store double %248, ptr %246, align 8, !tbaa !53
   %249 = fcmp olt double %248, %.0114134.i.i
   br i1 %249, label %250, label %252
 
 250:                                              ; preds = %243
   %251 = trunc i64 %.0111135.i.i to i8
-  store i8 %251, ptr %242, align 1, !tbaa !27
+  store i8 %251, ptr %242, align 1, !tbaa !26
   br label %252
 
 252:                                              ; preds = %250, %243
   %.1115.i.i = phi double [ %248, %250 ], [ %.0114134.i.i, %243 ]
   %253 = add nuw nsw i64 %.0111135.i.i, 1
   %exitcond146.not.i.i = icmp eq i64 %253, %.1178.i
-  br i1 %exitcond146.not.i.i, label %254, label %243, !llvm.loop !58
+  br i1 %exitcond146.not.i.i, label %254, label %243, !llvm.loop !57
 
 254:                                              ; preds = %252
   %255 = mul i64 %.0116137.i.i, %195
@@ -532,9 +532,9 @@ BitCost.exit.i.i:                                 ; preds = %226, %223, %215
 261:                                              ; preds = %274, %254
   %.1112136.i.i = phi i64 [ 0, %254 ], [ %275, %274 ]
   %262 = getelementptr inbounds nuw double, ptr %180, i64 %.1112136.i.i
-  %263 = load double, ptr %262, align 8, !tbaa !54
+  %263 = load double, ptr %262, align 8, !tbaa !53
   %264 = fsub double %263, %.1115.i.i
-  store double %264, ptr %262, align 8, !tbaa !54
+  store double %264, ptr %262, align 8, !tbaa !53
   %265 = fcmp ult double %264, %.0113.i.i
   br i1 %265, label %274, label %266
 
@@ -542,26 +542,26 @@ BitCost.exit.i.i:                                 ; preds = %226, %223, %215
   %267 = trunc i64 %.1112136.i.i to i8
   %268 = and i8 %267, 7
   %269 = shl nuw i8 1, %268
-  store double %.0113.i.i, ptr %262, align 8, !tbaa !54
+  store double %.0113.i.i, ptr %262, align 8, !tbaa !53
   %270 = lshr i64 %.1112136.i.i, 3
   %271 = getelementptr i8, ptr %260, i64 %270
-  %272 = load i8, ptr %271, align 1, !tbaa !27
+  %272 = load i8, ptr %271, align 1, !tbaa !26
   %273 = or i8 %272, %269
-  store i8 %273, ptr %271, align 1, !tbaa !27
+  store i8 %273, ptr %271, align 1, !tbaa !26
   br label %274
 
 274:                                              ; preds = %266, %261
   %275 = add nuw nsw i64 %.1112136.i.i, 1
   %exitcond147.not.i.i = icmp eq i64 %275, %.1178.i
-  br i1 %exitcond147.not.i.i, label %276, label %261, !llvm.loop !59
+  br i1 %exitcond147.not.i.i, label %276, label %261, !llvm.loop !58
 
 276:                                              ; preds = %274
   %277 = add nuw i64 %.0116137.i.i, 1
   %exitcond148.not.i.i = icmp eq i64 %277, %14
-  br i1 %exitcond148.not.i.i, label %.lr.ph.preheader.i.i, label %236, !llvm.loop !60
+  br i1 %exitcond148.not.i.i, label %.lr.ph.preheader.i.i, label %236, !llvm.loop !59
 
 .lr.ph.preheader.i.i:                             ; preds = %276
-  %278 = load i8, ptr %192, align 1, !tbaa !27
+  %278 = load i8, ptr %192, align 1, !tbaa !26
   %279 = mul i64 %195, %191
   br label %.lr.ph.i.i
 
@@ -578,14 +578,14 @@ BitCost.exit.i.i:                                 ; preds = %226, %223, %215
   %285 = zext nneg i8 %284 to i64
   %286 = getelementptr i8, ptr %185, i64 %283
   %287 = getelementptr i8, ptr %286, i64 %285
-  %288 = load i8, ptr %287, align 1, !tbaa !27
+  %288 = load i8, ptr %287, align 1, !tbaa !26
   %289 = and i8 %288, %281
   %.not125.i.i = icmp eq i8 %289, 0
   br i1 %.not125.i.i, label %294, label %290
 
 290:                                              ; preds = %.lr.ph.i.i
   %291 = getelementptr inbounds nuw i8, ptr %174, i64 %282
-  %292 = load i8, ptr %291, align 1, !tbaa !27
+  %292 = load i8, ptr %291, align 1, !tbaa !26
   %.not126.i.i = icmp ne i8 %.0107142.i.i, %292
   %293 = zext i1 %.not126.i.i to i64
   %spec.select.i158.i = add i64 %.0109140.i.i, %293
@@ -595,9 +595,9 @@ BitCost.exit.i.i:                                 ; preds = %226, %223, %215
   %.1110.i.i = phi i64 [ %.0109140.i.i, %.lr.ph.i.i ], [ %spec.select.i158.i, %290 ]
   %.1.i159.i = phi i8 [ %.0107142.i.i, %.lr.ph.i.i ], [ %292, %290 ]
   %295 = getelementptr inbounds nuw i8, ptr %174, i64 %282
-  store i8 %.1.i159.i, ptr %295, align 1, !tbaa !27
+  store i8 %.1.i159.i, ptr %295, align 1, !tbaa !26
   %.not124.i.i = icmp eq i64 %282, 0
-  br i1 %.not124.i.i, label %FindBlocksLiteral.exit.i, label %.lr.ph.i.i, !llvm.loop !61
+  br i1 %.not124.i.i, label %FindBlocksLiteral.exit.i, label %.lr.ph.i.i, !llvm.loop !60
 
 FindBlocksLiteral.exit.i:                         ; preds = %294, %.preheader.preheader.i.i
   %.0.i160.i = phi i64 [ 1, %.preheader.preheader.i.i ], [ %.1110.i.i, %294 ]
@@ -607,10 +607,10 @@ FindBlocksLiteral.exit.i:                         ; preds = %294, %.preheader.pr
 .lr.ph.i162.i:                                    ; preds = %FindBlocksLiteral.exit.i, %.lr.ph.i162.i
   %.027.i.i = phi i64 [ %297, %.lr.ph.i162.i ], [ 0, %FindBlocksLiteral.exit.i ]
   %296 = getelementptr inbounds nuw i16, ptr %187, i64 %.027.i.i
-  store i16 256, ptr %296, align 2, !tbaa !62
+  store i16 256, ptr %296, align 2, !tbaa !61
   %297 = add nuw nsw i64 %.027.i.i, 1
   %exitcond.not.i163.i = icmp eq i64 %297, %.1178.i
-  br i1 %exitcond.not.i163.i, label %.preheader26.i.i.preheader, label %.lr.ph.i162.i, !llvm.loop !63
+  br i1 %exitcond.not.i163.i, label %.preheader26.i.i.preheader, label %.lr.ph.i162.i, !llvm.loop !62
 
 .preheader26.i.i.preheader:                       ; preds = %.lr.ph.i162.i, %FindBlocksLiteral.exit.i
   br label %.preheader26.i.i
@@ -619,36 +619,36 @@ FindBlocksLiteral.exit.i:                         ; preds = %294, %.preheader.pr
   %.129.i.i = phi i64 [ %307, %306 ], [ 0, %.preheader26.i.i.preheader ]
   %.02328.i.i = phi i16 [ %.124.i.i, %306 ], [ 0, %.preheader26.i.i.preheader ]
   %298 = getelementptr inbounds nuw i8, ptr %174, i64 %.129.i.i
-  %299 = load i8, ptr %298, align 1, !tbaa !27
+  %299 = load i8, ptr %298, align 1, !tbaa !26
   %300 = zext i8 %299 to i64
   %301 = getelementptr inbounds nuw i16, ptr %187, i64 %300
-  %302 = load i16, ptr %301, align 2, !tbaa !62
+  %302 = load i16, ptr %301, align 2, !tbaa !61
   %303 = icmp eq i16 %302, 256
   br i1 %303, label %304, label %306
 
 304:                                              ; preds = %.preheader26.i.i
   %305 = add i16 %.02328.i.i, 1
-  store i16 %.02328.i.i, ptr %301, align 2, !tbaa !62
+  store i16 %.02328.i.i, ptr %301, align 2, !tbaa !61
   br label %306
 
 306:                                              ; preds = %304, %.preheader26.i.i
   %.124.i.i = phi i16 [ %305, %304 ], [ %.02328.i.i, %.preheader26.i.i ]
   %307 = add nuw i64 %.129.i.i, 1
   %exitcond31.not.i.i = icmp eq i64 %307, %14
-  br i1 %exitcond31.not.i.i, label %.preheader.i.i, label %.preheader26.i.i, !llvm.loop !64
+  br i1 %exitcond31.not.i.i, label %.preheader.i.i, label %.preheader26.i.i, !llvm.loop !63
 
 .preheader.i.i:                                   ; preds = %306, %.preheader.i.i
   %.230.i.i = phi i64 [ %314, %.preheader.i.i ], [ 0, %306 ]
   %308 = getelementptr inbounds nuw i8, ptr %174, i64 %.230.i.i
-  %309 = load i8, ptr %308, align 1, !tbaa !27
+  %309 = load i8, ptr %308, align 1, !tbaa !26
   %310 = zext i8 %309 to i64
   %311 = getelementptr inbounds nuw i16, ptr %187, i64 %310
-  %312 = load i16, ptr %311, align 2, !tbaa !62
+  %312 = load i16, ptr %311, align 2, !tbaa !61
   %313 = trunc i16 %312 to i8
-  store i8 %313, ptr %308, align 1, !tbaa !27
+  store i8 %313, ptr %308, align 1, !tbaa !26
   %314 = add nuw i64 %.230.i.i, 1
   %exitcond32.not.i164.i = icmp eq i64 %314, %14
-  br i1 %exitcond32.not.i164.i, label %RemapBlockIdsLiteral.exit.i, label %.preheader.i.i, !llvm.loop !65
+  br i1 %exitcond32.not.i164.i, label %RemapBlockIdsLiteral.exit.i, label %.preheader.i.i, !llvm.loop !64
 
 RemapBlockIdsLiteral.exit.i:                      ; preds = %.preheader.i.i
   %315 = zext i16 %.124.i.i to i64
@@ -660,10 +660,10 @@ RemapBlockIdsLiteral.exit.i:                      ; preds = %.preheader.i.i
   %316 = getelementptr inbounds nuw %struct.HistogramLiteral, ptr %105, i64 %.0.i9.i.i
   %317 = getelementptr inbounds nuw i8, ptr %316, i64 1032
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1032) %316, i8 0, i64 1032, i1 false)
-  store double 0x7FF0000000000000, ptr %317, align 8, !tbaa !29
+  store double 0x7FF0000000000000, ptr %317, align 8, !tbaa !28
   %318 = add nuw nsw i64 %.0.i9.i.i, 1
   %exitcond.not.i167.i = icmp eq i64 %318, %315
-  br i1 %exitcond.not.i167.i, label %ClearHistogramsLiteral.exit.i.i.preheader, label %.lr.ph.i166.i, !llvm.loop !32
+  br i1 %exitcond.not.i167.i, label %ClearHistogramsLiteral.exit.i.i.preheader, label %.lr.ph.i166.i, !llvm.loop !31
 
 ClearHistogramsLiteral.exit.i.i.preheader:        ; preds = %.lr.ph.i166.i, %RemapBlockIdsLiteral.exit.i
   br label %ClearHistogramsLiteral.exit.i.i
@@ -671,28 +671,28 @@ ClearHistogramsLiteral.exit.i.i.preheader:        ; preds = %.lr.ph.i166.i, %Rem
 ClearHistogramsLiteral.exit.i.i:                  ; preds = %ClearHistogramsLiteral.exit.i.i.preheader, %ClearHistogramsLiteral.exit.i.i
   %.010.i.i = phi i64 [ %332, %ClearHistogramsLiteral.exit.i.i ], [ 0, %ClearHistogramsLiteral.exit.i.i.preheader ]
   %319 = getelementptr inbounds nuw i8, ptr %174, i64 %.010.i.i
-  %320 = load i8, ptr %319, align 1, !tbaa !27
+  %320 = load i8, ptr %319, align 1, !tbaa !26
   %321 = zext i8 %320 to i64
   %322 = getelementptr inbounds nuw %struct.HistogramLiteral, ptr %105, i64 %321
   %323 = getelementptr inbounds nuw i8, ptr %.ph, i64 %.010.i.i
-  %324 = load i8, ptr %323, align 1, !tbaa !27
+  %324 = load i8, ptr %323, align 1, !tbaa !26
   %325 = zext i8 %324 to i64
   %326 = getelementptr inbounds nuw [256 x i32], ptr %322, i64 0, i64 %325
-  %327 = load i32, ptr %326, align 4, !tbaa !28
+  %327 = load i32, ptr %326, align 4, !tbaa !27
   %328 = add i32 %327, 1
-  store i32 %328, ptr %326, align 4, !tbaa !28
+  store i32 %328, ptr %326, align 4, !tbaa !27
   %329 = getelementptr inbounds nuw i8, ptr %322, i64 1024
-  %330 = load i64, ptr %329, align 8, !tbaa !33
+  %330 = load i64, ptr %329, align 8, !tbaa !32
   %331 = add i64 %330, 1
-  store i64 %331, ptr %329, align 8, !tbaa !33
+  store i64 %331, ptr %329, align 8, !tbaa !32
   %332 = add nuw i64 %.010.i.i, 1
   %exitcond11.not.i.i = icmp eq i64 %332, %14
-  br i1 %exitcond11.not.i.i, label %BuildBlockHistogramsLiteral.exit.i, label %ClearHistogramsLiteral.exit.i.i, !llvm.loop !66
+  br i1 %exitcond11.not.i.i, label %BuildBlockHistogramsLiteral.exit.i, label %ClearHistogramsLiteral.exit.i.i, !llvm.loop !65
 
 BuildBlockHistogramsLiteral.exit.i:               ; preds = %ClearHistogramsLiteral.exit.i.i
   %333 = add nuw nsw i64 %.0179.i, 1
   %exitcond.not.i65 = icmp eq i64 %333, %190
-  br i1 %exitcond.not.i65, label %334, label %193, !llvm.loop !67
+  br i1 %exitcond.not.i65, label %334, label %193, !llvm.loop !66
 
 334:                                              ; preds = %BuildBlockHistogramsLiteral.exit.i
   tail call void @BrotliFree(ptr noundef %0, ptr noundef %178) #8
@@ -768,18 +768,18 @@ BuildBlockHistogramsLiteral.exit.i:               ; preds = %ClearHistogramsLite
   %.0358416.i.i = phi i64 [ 0, %363 ], [ %.1359.i.i, %386 ]
   %.0364415.i.i = phi i64 [ 0, %363 ], [ %377, %386 ]
   %374 = getelementptr inbounds nuw i32, ptr %367, i64 %.0358416.i.i
-  %375 = load i32, ptr %374, align 4, !tbaa !28
+  %375 = load i32, ptr %374, align 4, !tbaa !27
   %376 = add i32 %375, 1
-  store i32 %376, ptr %374, align 4, !tbaa !28
+  store i32 %376, ptr %374, align 4, !tbaa !27
   %377 = add nuw i64 %.0364415.i.i, 1
   %378 = icmp eq i64 %377, %14
   br i1 %378, label %384, label %379
 
 379:                                              ; preds = %373
   %380 = getelementptr inbounds nuw i8, ptr %174, i64 %.0364415.i.i
-  %381 = load i8, ptr %380, align 1, !tbaa !27
+  %381 = load i8, ptr %380, align 1, !tbaa !26
   %382 = getelementptr inbounds nuw i8, ptr %174, i64 %377
-  %383 = load i8, ptr %382, align 1, !tbaa !27
+  %383 = load i8, ptr %382, align 1, !tbaa !26
   %.not402.i.i = icmp eq i8 %381, %383
   br i1 %.not402.i.i, label %386, label %384
 
@@ -789,7 +789,7 @@ BuildBlockHistogramsLiteral.exit.i:               ; preds = %ClearHistogramsLite
 
 386:                                              ; preds = %384, %379
   %.1359.i.i = phi i64 [ %385, %384 ], [ %.0358416.i.i, %379 ]
-  br i1 %378, label %.preheader414.i.i, label %373, !llvm.loop !68
+  br i1 %378, label %.preheader414.i.i, label %373, !llvm.loop !67
 
 .lr.ph422.i.i:                                    ; preds = %.preheader414.i.i, %._crit_edge434.i.i
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %._crit_edge434.i.i ], [ %.0.i160.i, %.preheader414.i.i ]
@@ -811,13 +811,13 @@ BuildBlockHistogramsLiteral.exit.i:               ; preds = %ClearHistogramsLite
   %.0353420.i.i = phi i64 [ 0, %.lr.ph422.i.i ], [ %410, %._crit_edge.i.i ]
   %.1362419.i.i = phi i64 [ %.0361436.i.i, %.lr.ph422.i.i ], [ %.2363.lcssa.i.i, %._crit_edge.i.i ]
   %390 = getelementptr i32, ptr %388, i64 %.0353420.i.i
-  %391 = load i32, ptr %390, align 4, !tbaa !28
+  %391 = load i32, ptr %390, align 4, !tbaa !27
   %392 = zext i32 %391 to i64
   %393 = getelementptr inbounds nuw %struct.HistogramLiteral, ptr %364, i64 %.0353420.i.i
   %394 = getelementptr inbounds nuw i8, ptr %393, i64 1024
   %395 = getelementptr inbounds nuw i8, ptr %393, i64 1032
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1032) %393, i8 0, i64 1032, i1 false)
-  store double 0x7FF0000000000000, ptr %395, align 8, !tbaa !29
+  store double 0x7FF0000000000000, ptr %395, align 8, !tbaa !28
   %.not486.i.i = icmp eq i32 %391, 0
   br i1 %.not486.i.i, label %._crit_edge.i.i, label %.lr.ph.i171.i
 
@@ -826,31 +826,31 @@ BuildBlockHistogramsLiteral.exit.i:               ; preds = %ClearHistogramsLite
   %.2363417.i.i = phi i64 [ %397, %.lr.ph.i171.i ], [ %.1362419.i.i, %389 ]
   %397 = add i64 %.2363417.i.i, 1
   %398 = getelementptr inbounds nuw i8, ptr %.ph, i64 %.2363417.i.i
-  %399 = load i8, ptr %398, align 1, !tbaa !27
+  %399 = load i8, ptr %398, align 1, !tbaa !26
   %400 = zext i8 %399 to i64
   %401 = getelementptr inbounds nuw [256 x i32], ptr %393, i64 0, i64 %400
-  %402 = load i32, ptr %401, align 4, !tbaa !28
+  %402 = load i32, ptr %401, align 4, !tbaa !27
   %403 = add i32 %402, 1
-  store i32 %403, ptr %401, align 4, !tbaa !28
+  store i32 %403, ptr %401, align 4, !tbaa !27
   %404 = add nuw nsw i64 %396, 1
-  store i64 %404, ptr %394, align 8, !tbaa !33
+  store i64 %404, ptr %394, align 8, !tbaa !32
   %exitcond499.not.i.i = icmp eq i64 %404, %392
-  br i1 %exitcond499.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i171.i, !llvm.loop !69
+  br i1 %exitcond499.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i171.i, !llvm.loop !68
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph.i171.i, %389
   %.2363.lcssa.i.i = phi i64 [ %.1362419.i.i, %389 ], [ %397, %.lr.ph.i171.i ]
   %405 = tail call double @BrotliPopulationCostLiteral(ptr noundef nonnull %393) #8
-  store double %405, ptr %395, align 8, !tbaa !29
+  store double %405, ptr %395, align 8, !tbaa !28
   %406 = trunc i64 %.0353420.i.i to i32
   %407 = getelementptr inbounds nuw i32, ptr %370, i64 %.0353420.i.i
-  store i32 %406, ptr %407, align 4, !tbaa !28
+  store i32 %406, ptr %407, align 4, !tbaa !27
   %408 = getelementptr inbounds nuw i32, ptr %371, i64 %.0353420.i.i
-  store i32 %406, ptr %408, align 4, !tbaa !28
+  store i32 %406, ptr %408, align 4, !tbaa !27
   %409 = getelementptr inbounds nuw i32, ptr %356, i64 %.0353420.i.i
-  store i32 1, ptr %409, align 4, !tbaa !28
+  store i32 1, ptr %409, align 4, !tbaa !27
   %410 = add nuw nsw i64 %.0353420.i.i, 1
   %exitcond500.not.i.i = icmp eq i64 %410, %umax503.i.i
-  br i1 %exitcond500.not.i.i, label %._crit_edge423.i.i, label %389, !llvm.loop !70
+  br i1 %exitcond500.not.i.i, label %._crit_edge423.i.i, label %389, !llvm.loop !69
 
 ._crit_edge423.i.i:                               ; preds = %._crit_edge.i.i
   %411 = sub nuw i64 %.0.i160.i, %.1365435.i.i
@@ -869,7 +869,7 @@ BuildBlockHistogramsLiteral.exit.i:               ; preds = %ClearHistogramsLite
   %.0349.i.i = phi i64 [ %418, %416 ], [ %421, %419 ]
   %420 = icmp ult i64 %.0349.i.i, %414
   %421 = shl i64 %.0349.i.i, 1
-  br i1 %420, label %419, label %422, !llvm.loop !71
+  br i1 %420, label %419, label %422, !llvm.loop !70
 
 422:                                              ; preds = %419
   %423 = mul i64 %.0349.i.i, 1040
@@ -901,7 +901,7 @@ BuildBlockHistogramsLiteral.exit.i:               ; preds = %ClearHistogramsLite
   %.0346.i.i = phi i64 [ %433, %431 ], [ %436, %434 ]
   %435 = icmp ult i64 %.0346.i.i, %429
   %436 = shl i64 %.0346.i.i, 1
-  br i1 %435, label %434, label %437, !llvm.loop !72
+  br i1 %435, label %434, label %437, !llvm.loop !71
 
 437:                                              ; preds = %434
   %438 = shl i64 %.0346.i.i, 2
@@ -937,46 +937,46 @@ BuildBlockHistogramsLiteral.exit.i:               ; preds = %ClearHistogramsLite
   %446 = add i64 %.1332427.i.i, 1
   %447 = getelementptr inbounds nuw %struct.HistogramLiteral, ptr %.1345.i.i, i64 %.1332427.i.i
   %448 = getelementptr inbounds nuw i32, ptr %370, i64 %.1354425.i.i
-  %449 = load i32, ptr %448, align 4, !tbaa !28
+  %449 = load i32, ptr %448, align 4, !tbaa !27
   %450 = zext i32 %449 to i64
   %451 = getelementptr inbounds nuw %struct.HistogramLiteral, ptr %364, i64 %450
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1040) %447, ptr noundef nonnull align 8 dereferenceable(1040) %451, i64 1040, i1 false), !tbaa.struct !73
-  %452 = load i32, ptr %448, align 4, !tbaa !28
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1040) %447, ptr noundef nonnull align 8 dereferenceable(1040) %451, i64 1040, i1 false), !tbaa.struct !72
+  %452 = load i32, ptr %448, align 4, !tbaa !27
   %453 = zext i32 %452 to i64
   %454 = getelementptr inbounds nuw i32, ptr %356, i64 %453
-  %455 = load i32, ptr %454, align 4, !tbaa !28
+  %455 = load i32, ptr %454, align 4, !tbaa !27
   %456 = add i64 %.1348426.i.i, 1
   %457 = getelementptr inbounds nuw i32, ptr %.1356.i.i, i64 %.1348426.i.i
-  store i32 %455, ptr %457, align 4, !tbaa !28
+  store i32 %455, ptr %457, align 4, !tbaa !27
   %458 = trunc i64 %.1354425.i.i to i32
-  %459 = load i32, ptr %448, align 4, !tbaa !28
+  %459 = load i32, ptr %448, align 4, !tbaa !27
   %460 = zext i32 %459 to i64
   %461 = getelementptr inbounds nuw i32, ptr %372, i64 %460
-  store i32 %458, ptr %461, align 4, !tbaa !28
+  store i32 %458, ptr %461, align 4, !tbaa !27
   %462 = add nuw i64 %.1354425.i.i, 1
   %exitcond501.not.i.i = icmp eq i64 %462, %413
-  br i1 %exitcond501.not.i.i, label %.lr.ph433.i.i, label %.lr.ph429.i.i, !llvm.loop !75
+  br i1 %exitcond501.not.i.i, label %.lr.ph433.i.i, label %.lr.ph429.i.i, !llvm.loop !74
 
 463:                                              ; preds = %463, %.lr.ph433.i.i
   %.2432.i.i = phi i64 [ 0, %.lr.ph433.i.i ], [ %471, %463 ]
   %464 = getelementptr inbounds nuw i32, ptr %371, i64 %.2432.i.i
-  %465 = load i32, ptr %464, align 4, !tbaa !28
+  %465 = load i32, ptr %464, align 4, !tbaa !27
   %466 = zext i32 %465 to i64
   %467 = getelementptr inbounds nuw i32, ptr %372, i64 %466
-  %468 = load i32, ptr %467, align 4, !tbaa !28
+  %468 = load i32, ptr %467, align 4, !tbaa !27
   %469 = add i32 %468, %444
   %470 = getelementptr i32, ptr %445, i64 %.2432.i.i
-  store i32 %469, ptr %470, align 4, !tbaa !28
+  store i32 %469, ptr %470, align 4, !tbaa !27
   %471 = add nuw nsw i64 %.2432.i.i, 1
   %exitcond504.not.i.i = icmp eq i64 %471, %umax503.i.i
-  br i1 %exitcond504.not.i.i, label %._crit_edge434.i.i, label %463, !llvm.loop !76
+  br i1 %exitcond504.not.i.i, label %._crit_edge434.i.i, label %463, !llvm.loop !75
 
 ._crit_edge434.i.i:                               ; preds = %463
   %472 = add i64 %413, %.0357437.i.i
   %473 = add i64 %.1365435.i.i, 64
   %474 = icmp ult i64 %473, %.0.i160.i
   %indvars.iv.next.i.i = add i64 %indvars.iv.i.i, -64
-  br i1 %474, label %.lr.ph422.i.i, label %._crit_edge445.i.i, !llvm.loop !77
+  br i1 %474, label %.lr.ph422.i.i, label %._crit_edge445.i.i, !llvm.loop !76
 
 ._crit_edge445.i.i:                               ; preds = %._crit_edge434.i.i, %.preheader414.i.i
   %.0357.lcssa.i.i = phi i64 [ 0, %.preheader414.i.i ], [ %472, %._crit_edge434.i.i ]
@@ -1011,10 +1011,10 @@ BuildBlockHistogramsLiteral.exit.i:               ; preds = %ClearHistogramsLite
   %.2366449.i.i = phi i64 [ %489, %.lr.ph451.i.i ], [ 0, %.lr.ph451.preheader.i.i ]
   %487 = trunc i64 %.2366449.i.i to i32
   %488 = getelementptr inbounds nuw i32, ptr %486, i64 %.2366449.i.i
-  store i32 %487, ptr %488, align 4, !tbaa !28
+  store i32 %487, ptr %488, align 4, !tbaa !27
   %489 = add nuw i64 %.2366449.i.i, 1
   %exitcond505.not.i.i = icmp eq i64 %489, %.0357.lcssa.i.i
-  br i1 %exitcond505.not.i.i, label %._crit_edge452.i.i, label %.lr.ph451.i.i, !llvm.loop !78
+  br i1 %exitcond505.not.i.i, label %._crit_edge452.i.i, label %.lr.ph451.i.i, !llvm.loop !77
 
 ._crit_edge452.i.i:                               ; preds = %.lr.ph451.i.i, %484
   %490 = phi ptr [ null, %484 ], [ %486, %.lr.ph451.i.i ]
@@ -1026,7 +1026,7 @@ BuildBlockHistogramsLiteral.exit.i:               ; preds = %ClearHistogramsLite
 .lr.ph455.preheader.i.i:                          ; preds = %._crit_edge452.i.i
   %492 = shl i64 %.0357.lcssa.i.i, 2
   %493 = tail call ptr @BrotliAllocate(ptr noundef %0, i64 noundef %492) #8
-  tail call void @llvm.memset.p0.i64(ptr align 4 %493, i8 -1, i64 %492, i1 false), !tbaa !28
+  tail call void @llvm.memset.p0.i64(ptr align 4 %493, i8 -1, i64 %492, i1 false), !tbaa !27
   br label %.preheader.i172.i
 
 .preheader.i172.i:                                ; preds = %.lr.ph455.preheader.i.i, %._crit_edge452.i.i
@@ -1045,9 +1045,9 @@ BuildBlockHistogramsLiteral.exit.i:               ; preds = %ClearHistogramsLite
   %.3471.i.i = phi i64 [ 0, %.lr.ph473.i.i ], [ %.4.lcssa.i.i, %535 ]
   %.4368470.i.i = phi i64 [ 0, %.lr.ph473.i.i ], [ %536, %535 ]
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1032) %368, i8 0, i64 1032, i1 false)
-  store double 0x7FF0000000000000, ptr %496, align 8, !tbaa !29
+  store double 0x7FF0000000000000, ptr %496, align 8, !tbaa !28
   %499 = getelementptr inbounds nuw i32, ptr %366, i64 %.4368470.i.i
-  %500 = load i32, ptr %499, align 4, !tbaa !28
+  %500 = load i32, ptr %499, align 4, !tbaa !27
   %.not493.i.i = icmp eq i32 %500, 0
   br i1 %.not493.i.i, label %._crit_edge460.i.i, label %.lr.ph459.i.i
 
@@ -1056,18 +1056,18 @@ BuildBlockHistogramsLiteral.exit.i:               ; preds = %ClearHistogramsLite
   %.4456.i.i = phi i64 [ %502, %.lr.ph459.i.i ], [ %.3471.i.i, %498 ]
   %502 = add i64 %.4456.i.i, 1
   %503 = getelementptr inbounds nuw i8, ptr %.ph, i64 %.4456.i.i
-  %504 = load i8, ptr %503, align 1, !tbaa !27
+  %504 = load i8, ptr %503, align 1, !tbaa !26
   %505 = zext i8 %504 to i64
   %506 = getelementptr inbounds nuw [256 x i32], ptr %368, i64 0, i64 %505
-  %507 = load i32, ptr %506, align 4, !tbaa !28
+  %507 = load i32, ptr %506, align 4, !tbaa !27
   %508 = add i32 %507, 1
-  store i32 %508, ptr %506, align 4, !tbaa !28
+  store i32 %508, ptr %506, align 4, !tbaa !27
   %509 = add nuw nsw i64 %501, 1
-  store i64 %509, ptr %495, align 8, !tbaa !33
-  %510 = load i32, ptr %499, align 4, !tbaa !28
+  store i64 %509, ptr %495, align 8, !tbaa !32
+  %510 = load i32, ptr %499, align 4, !tbaa !27
   %511 = zext i32 %510 to i64
   %512 = icmp samesign ult i64 %509, %511
-  br i1 %512, label %.lr.ph459.i.i, label %._crit_edge460.i.i, !llvm.loop !79
+  br i1 %512, label %.lr.ph459.i.i, label %._crit_edge460.i.i, !llvm.loop !78
 
 ._crit_edge460.i.i:                               ; preds = %.lr.ph459.i.i, %498
   %.4.lcssa.i.i = phi i64 [ %.3471.i.i, %498 ], [ %502, %.lr.ph459.i.i ]
@@ -1075,7 +1075,7 @@ BuildBlockHistogramsLiteral.exit.i:               ; preds = %ClearHistogramsLite
   %514 = getelementptr i32, ptr %355, i64 %.4368470.i.i
   %515 = getelementptr i8, ptr %514, i64 -4
   %.in.i.i = select i1 %513, ptr %355, ptr %515
-  %516 = load i32, ptr %.in.i.i, align 4, !tbaa !28
+  %516 = load i32, ptr %.in.i.i, align 4, !tbaa !27
   %517 = zext i32 %516 to i64
   %518 = getelementptr inbounds nuw %struct.HistogramLiteral, ptr %.0344.lcssa.i.i, i64 %517
   %519 = tail call double @BrotliHistogramBitCostDistanceLiteral(ptr noundef nonnull %368, ptr noundef %518, ptr noundef nonnull %497) #8
@@ -1086,7 +1086,7 @@ BuildBlockHistogramsLiteral.exit.i:               ; preds = %ClearHistogramsLite
   %.0338464.i.i = phi i32 [ %.1339.i.i, %528 ], [ %516, %._crit_edge460.i.i ]
   %.1341463.i.i = phi i64 [ %529, %528 ], [ 0, %._crit_edge460.i.i ]
   %520 = getelementptr inbounds nuw i32, ptr %490, i64 %.1341463.i.i
-  %521 = load i32, ptr %520, align 4, !tbaa !28
+  %521 = load i32, ptr %520, align 4, !tbaa !27
   %522 = zext i32 %521 to i64
   %523 = getelementptr inbounds nuw %struct.HistogramLiteral, ptr %.0344.lcssa.i.i, i64 %522
   %524 = tail call double @BrotliHistogramBitCostDistanceLiteral(ptr noundef nonnull %368, ptr noundef %523, ptr noundef nonnull %497) #8
@@ -1094,7 +1094,7 @@ BuildBlockHistogramsLiteral.exit.i:               ; preds = %ClearHistogramsLite
   br i1 %525, label %526, label %528
 
 526:                                              ; preds = %.lr.ph467.i.i
-  %527 = load i32, ptr %520, align 4, !tbaa !28
+  %527 = load i32, ptr %520, align 4, !tbaa !27
   br label %528
 
 528:                                              ; preds = %526, %.lr.ph467.i.i
@@ -1102,7 +1102,7 @@ BuildBlockHistogramsLiteral.exit.i:               ; preds = %ClearHistogramsLite
   %.1337.i.i = phi double [ %524, %526 ], [ %.0336465.i.i, %.lr.ph467.i.i ]
   %529 = add nuw i64 %.1341463.i.i, 1
   %exitcond506.not.i.i = icmp eq i64 %529, %491
-  br i1 %exitcond506.not.i.i, label %._crit_edge468.loopexit.i.i, label %.lr.ph467.i.i, !llvm.loop !80
+  br i1 %exitcond506.not.i.i, label %._crit_edge468.loopexit.i.i, label %.lr.ph467.i.i, !llvm.loop !79
 
 ._crit_edge468.loopexit.i.i:                      ; preds = %528
   %.pre510.i.i = zext i32 %.1339.i.i to i64
@@ -1111,29 +1111,29 @@ BuildBlockHistogramsLiteral.exit.i:               ; preds = %ClearHistogramsLite
 ._crit_edge468.i.i:                               ; preds = %._crit_edge468.loopexit.i.i, %._crit_edge460.i.i
   %.pre-phi.i.i = phi i64 [ %.pre510.i.i, %._crit_edge468.loopexit.i.i ], [ %517, %._crit_edge460.i.i ]
   %.0338.lcssa.i.i = phi i32 [ %.1339.i.i, %._crit_edge468.loopexit.i.i ], [ %516, %._crit_edge460.i.i ]
-  store i32 %.0338.lcssa.i.i, ptr %514, align 4, !tbaa !28
+  store i32 %.0338.lcssa.i.i, ptr %514, align 4, !tbaa !27
   %530 = getelementptr inbounds nuw i32, ptr %494, i64 %.pre-phi.i.i
-  %531 = load i32, ptr %530, align 4, !tbaa !28
+  %531 = load i32, ptr %530, align 4, !tbaa !27
   %532 = icmp eq i32 %531, -1
   br i1 %532, label %533, label %535
 
 533:                                              ; preds = %._crit_edge468.i.i
   %534 = add i32 %.0342472.i.i, 1
-  store i32 %.0342472.i.i, ptr %530, align 4, !tbaa !28
+  store i32 %.0342472.i.i, ptr %530, align 4, !tbaa !27
   br label %535
 
 535:                                              ; preds = %533, %._crit_edge468.i.i
   %.1343.i.i = phi i32 [ %534, %533 ], [ %.0342472.i.i, %._crit_edge468.i.i ]
   %536 = add nuw i64 %.4368470.i.i, 1
   %exitcond507.not.i.i = icmp eq i64 %536, %.0.i160.i
-  br i1 %exitcond507.not.i.i, label %._crit_edge474.i.i, label %498, !llvm.loop !81
+  br i1 %exitcond507.not.i.i, label %._crit_edge474.i.i, label %498, !llvm.loop !80
 
 ._crit_edge474.i.i:                               ; preds = %535, %.preheader.i172.i
   tail call void @BrotliFree(ptr noundef %0, ptr noundef %368) #8
   tail call void @BrotliFree(ptr noundef %0, ptr noundef %490) #8
   tail call void @BrotliFree(ptr noundef %0, ptr noundef %.0344.lcssa.i.i) #8
   %537 = getelementptr inbounds nuw i8, ptr %7, i64 32
-  %538 = load i64, ptr %537, align 8, !tbaa !22
+  %538 = load i64, ptr %537, align 8, !tbaa !21
   %539 = icmp ult i64 %538, %.0.i160.i
   br i1 %539, label %540, label %554
 
@@ -1146,11 +1146,11 @@ BuildBlockHistogramsLiteral.exit.i:               ; preds = %ClearHistogramsLite
   %.0333.i.i = phi i64 [ %..i.i, %540 ], [ %544, %542 ]
   %543 = icmp ult i64 %.0333.i.i, %.0.i160.i
   %544 = shl i64 %.0333.i.i, 1
-  br i1 %543, label %542, label %545, !llvm.loop !82
+  br i1 %543, label %542, label %545, !llvm.loop !81
 
 545:                                              ; preds = %542
   %546 = tail call ptr @BrotliAllocate(ptr noundef %0, i64 noundef %.0333.i.i) #8
-  %547 = load i64, ptr %537, align 8, !tbaa !22
+  %547 = load i64, ptr %537, align 8, !tbaa !21
   %.not394.i.i = icmp eq i64 %547, 0
   br i1 %.not394.i.i, label %551, label %548
 
@@ -1165,12 +1165,12 @@ BuildBlockHistogramsLiteral.exit.i:               ; preds = %ClearHistogramsLite
   %553 = load ptr, ptr %552, align 8, !tbaa !3
   tail call void @BrotliFree(ptr noundef %0, ptr noundef %553) #8
   store ptr %546, ptr %552, align 8, !tbaa !3
-  store i64 %.0333.i.i, ptr %537, align 8, !tbaa !22
+  store i64 %.0333.i.i, ptr %537, align 8, !tbaa !21
   br label %554
 
 554:                                              ; preds = %551, %._crit_edge474.i.i
   %555 = getelementptr inbounds nuw i8, ptr %7, i64 40
-  %556 = load i64, ptr %555, align 8, !tbaa !25
+  %556 = load i64, ptr %555, align 8, !tbaa !24
   %557 = icmp ult i64 %556, %.0.i160.i
   br i1 %557, label %558, label %573
 
@@ -1183,12 +1183,12 @@ BuildBlockHistogramsLiteral.exit.i:               ; preds = %ClearHistogramsLite
   %.0330.i.i = phi i64 [ %.403.i.i, %558 ], [ %562, %560 ]
   %561 = icmp ult i64 %.0330.i.i, %.0.i160.i
   %562 = shl i64 %.0330.i.i, 1
-  br i1 %561, label %560, label %563, !llvm.loop !83
+  br i1 %561, label %560, label %563, !llvm.loop !82
 
 563:                                              ; preds = %560
   %564 = shl i64 %.0330.i.i, 2
   %565 = tail call ptr @BrotliAllocate(ptr noundef %0, i64 noundef %564) #8
-  %566 = load i64, ptr %555, align 8, !tbaa !25
+  %566 = load i64, ptr %555, align 8, !tbaa !24
   %.not396.i.i = icmp eq i64 %566, 0
   br i1 %.not396.i.i, label %.thread513.i.i, label %567
 
@@ -1204,7 +1204,7 @@ BuildBlockHistogramsLiteral.exit.i:               ; preds = %ClearHistogramsLite
   %572 = load ptr, ptr %571, align 8, !tbaa !11
   tail call void @BrotliFree(ptr noundef %0, ptr noundef %572) #8
   store ptr %565, ptr %571, align 8, !tbaa !11
-  store i64 %.0330.i.i, ptr %555, align 8, !tbaa !25
+  store i64 %.0330.i.i, ptr %555, align 8, !tbaa !24
   br label %.lr.ph480.i.i
 
 573:                                              ; preds = %554
@@ -1221,31 +1221,31 @@ BuildBlockHistogramsLiteral.exit.i:               ; preds = %ClearHistogramsLite
   %.0328476.i.i = phi i32 [ 0, %.lr.ph480.i.i ], [ %.1329.i.i, %595 ]
   %.5475.i.i = phi i64 [ 0, %.lr.ph480.i.i ], [ %580, %595 ]
   %577 = getelementptr inbounds nuw i32, ptr %366, i64 %.5475.i.i
-  %578 = load i32, ptr %577, align 4, !tbaa !28
+  %578 = load i32, ptr %577, align 4, !tbaa !27
   %579 = add i32 %578, %.0328476.i.i
   %580 = add nuw i64 %.5475.i.i, 1
   %581 = icmp eq i64 %580, %.0.i160.i
   %.phi.trans.insert.i.i = getelementptr inbounds nuw i32, ptr %355, i64 %.5475.i.i
-  %.pre.i.i = load i32, ptr %.phi.trans.insert.i.i, align 4, !tbaa !28
+  %.pre.i.i = load i32, ptr %.phi.trans.insert.i.i, align 4, !tbaa !27
   br i1 %581, label %._crit_edge509.i.i, label %582
 
 582:                                              ; preds = %576
   %583 = getelementptr inbounds nuw i32, ptr %355, i64 %580
-  %584 = load i32, ptr %583, align 4, !tbaa !28
+  %584 = load i32, ptr %583, align 4, !tbaa !27
   %.not397.i.i = icmp eq i32 %.pre.i.i, %584
   br i1 %.not397.i.i, label %595, label %._crit_edge509.i.i
 
 ._crit_edge509.i.i:                               ; preds = %582, %576
   %585 = zext i32 %.pre.i.i to i64
   %586 = getelementptr inbounds nuw i32, ptr %494, i64 %585
-  %587 = load i32, ptr %586, align 4, !tbaa !28
+  %587 = load i32, ptr %586, align 4, !tbaa !27
   %588 = trunc i32 %587 to i8
   %589 = load ptr, ptr %574, align 8, !tbaa !3
   %590 = getelementptr inbounds nuw i8, ptr %589, i64 %.0326477.i.i
-  store i8 %588, ptr %590, align 1, !tbaa !27
+  store i8 %588, ptr %590, align 1, !tbaa !26
   %591 = load ptr, ptr %575, align 8, !tbaa !11
   %592 = getelementptr inbounds nuw i32, ptr %591, i64 %.0326477.i.i
-  store i32 %579, ptr %592, align 4, !tbaa !28
+  store i32 %579, ptr %592, align 4, !tbaa !27
   %593 = tail call i8 @llvm.umax.i8(i8 %.0478.i.i, i8 %588)
   %594 = add i64 %.0326477.i.i, 1
   br label %595
@@ -1254,7 +1254,7 @@ BuildBlockHistogramsLiteral.exit.i:               ; preds = %ClearHistogramsLite
   %.1329.i.i = phi i32 [ 0, %._crit_edge509.i.i ], [ %579, %582 ]
   %.1327.i.i = phi i64 [ %594, %._crit_edge509.i.i ], [ %.0326477.i.i, %582 ]
   %.1.i173.i = phi i8 [ %593, %._crit_edge509.i.i ], [ %.0478.i.i, %582 ]
-  br i1 %581, label %._crit_edge481.loopexit.i.i, label %576, !llvm.loop !84
+  br i1 %581, label %._crit_edge481.loopexit.i.i, label %576, !llvm.loop !83
 
 ._crit_edge481.loopexit.i.i:                      ; preds = %595
   %596 = zext i8 %.1.i173.i to i64
@@ -1265,8 +1265,8 @@ ClusterBlocksLiteral.exit.i:                      ; preds = %._crit_edge481.loop
   %.0326.lcssa.i.i = phi i64 [ 0, %573 ], [ %.1327.i.i, %._crit_edge481.loopexit.i.i ]
   %.0.lcssa.i.i = phi i64 [ 1, %573 ], [ %597, %._crit_edge481.loopexit.i.i ]
   %598 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store i64 %.0326.lcssa.i.i, ptr %598, align 8, !tbaa !23
-  store i64 %.0.lcssa.i.i, ptr %7, align 8, !tbaa !21
+  store i64 %.0326.lcssa.i.i, ptr %598, align 8, !tbaa !22
+  store i64 %.0.lcssa.i.i, ptr %7, align 8, !tbaa !20
   tail call void @BrotliFree(ptr noundef %0, ptr noundef %494) #8
   tail call void @BrotliFree(ptr noundef %0, ptr noundef %356) #8
   tail call void @BrotliFree(ptr noundef %0, ptr noundef %355) #8
@@ -1286,15 +1286,15 @@ SplitByteVectorLiteral.exit:                      ; preds = %.thread467, %Cluste
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %.055490 = phi i64 [ %605, %.lr.ph ], [ 0, %.lr.ph.preheader ]
   %602 = getelementptr inbounds nuw %struct.Command, ptr %1, i64 %.055490, i32 3
-  %603 = load i16, ptr %602, align 4, !tbaa !85
+  %603 = load i16, ptr %602, align 4, !tbaa !84
   %604 = getelementptr inbounds nuw i16, ptr %601, i64 %.055490
-  store i16 %603, ptr %604, align 2, !tbaa !62
+  store i16 %603, ptr %604, align 2, !tbaa !61
   %605 = add nuw i64 %.055490, 1
   %exitcond.not = icmp eq i64 %605, %2
-  br i1 %exitcond.not, label %606, label %.lr.ph, !llvm.loop !86
+  br i1 %exitcond.not, label %606, label %.lr.ph, !llvm.loop !85
 
 .thread519:                                       ; preds = %SplitByteVectorLiteral.exit
-  store i64 1, ptr %8, align 8, !tbaa !21
+  store i64 1, ptr %8, align 8, !tbaa !20
   tail call void @BrotliFree(ptr noundef %0, ptr noundef null) #8
   br label %.thread528
 
@@ -1310,9 +1310,9 @@ SplitByteVectorLiteral.exit:                      ; preds = %.thread467, %Cluste
 
 611:                                              ; preds = %606
   %612 = getelementptr inbounds nuw i8, ptr %8, i64 32
-  %613 = load i64, ptr %612, align 8, !tbaa !22
+  %613 = load i64, ptr %612, align 8, !tbaa !21
   %614 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %615 = load i64, ptr %614, align 8, !tbaa !23
+  %615 = load i64, ptr %614, align 8, !tbaa !22
   %616 = add i64 %615, 1
   %617 = icmp ult i64 %613, %616
   br i1 %617, label %618, label %632
@@ -1326,11 +1326,11 @@ SplitByteVectorLiteral.exit:                      ; preds = %.thread467, %Cluste
   %.0137.i238 = phi i64 [ %..i237, %618 ], [ %622, %620 ]
   %621 = icmp ult i64 %.0137.i238, %616
   %622 = shl i64 %.0137.i238, 1
-  br i1 %621, label %620, label %623, !llvm.loop !87
+  br i1 %621, label %620, label %623, !llvm.loop !86
 
 623:                                              ; preds = %620
   %624 = tail call ptr @BrotliAllocate(ptr noundef %0, i64 noundef %.0137.i238) #8
-  %625 = load i64, ptr %612, align 8, !tbaa !22
+  %625 = load i64, ptr %612, align 8, !tbaa !21
   %.not151.i239 = icmp eq i64 %625, 0
   br i1 %.not151.i239, label %629, label %626
 
@@ -1345,8 +1345,8 @@ SplitByteVectorLiteral.exit:                      ; preds = %.thread467, %Cluste
   %631 = load ptr, ptr %630, align 8, !tbaa !3
   tail call void @BrotliFree(ptr noundef %0, ptr noundef %631) #8
   store ptr %624, ptr %630, align 8, !tbaa !3
-  store i64 %.0137.i238, ptr %612, align 8, !tbaa !22
-  %.pre.i240 = load i64, ptr %614, align 8, !tbaa !23
+  store i64 %.0137.i238, ptr %612, align 8, !tbaa !21
+  %.pre.i240 = load i64, ptr %614, align 8, !tbaa !22
   %.pre187.i = add i64 %.pre.i240, 1
   br label %632
 
@@ -1354,7 +1354,7 @@ SplitByteVectorLiteral.exit:                      ; preds = %.thread467, %Cluste
   %.pre-phi.i233 = phi i64 [ %.pre187.i, %629 ], [ %616, %611 ]
   %633 = phi i64 [ %.pre.i240, %629 ], [ %615, %611 ]
   %634 = getelementptr inbounds nuw i8, ptr %8, i64 40
-  %635 = load i64, ptr %634, align 8, !tbaa !25
+  %635 = load i64, ptr %634, align 8, !tbaa !24
   %636 = icmp ult i64 %635, %.pre-phi.i233
   br i1 %636, label %637, label %.thread520
 
@@ -1367,12 +1367,12 @@ SplitByteVectorLiteral.exit:                      ; preds = %.thread467, %Cluste
   %.0136.i235 = phi i64 [ %.154.i234, %637 ], [ %641, %639 ]
   %640 = icmp ult i64 %.0136.i235, %.pre-phi.i233
   %641 = shl i64 %.0136.i235, 1
-  br i1 %640, label %639, label %642, !llvm.loop !88
+  br i1 %640, label %639, label %642, !llvm.loop !87
 
 642:                                              ; preds = %639
   %643 = shl i64 %.0136.i235, 2
   %644 = tail call ptr @BrotliAllocate(ptr noundef %0, i64 noundef %643) #8
-  %645 = load i64, ptr %634, align 8, !tbaa !25
+  %645 = load i64, ptr %634, align 8, !tbaa !24
   %.not153.i236 = icmp eq i64 %645, 0
   br i1 %.not153.i236, label %650, label %646
 
@@ -1388,25 +1388,25 @@ SplitByteVectorLiteral.exit:                      ; preds = %.thread467, %Cluste
   %652 = load ptr, ptr %651, align 8, !tbaa !11
   tail call void @BrotliFree(ptr noundef %0, ptr noundef %652) #8
   store ptr %644, ptr %651, align 8, !tbaa !11
-  store i64 %.0136.i235, ptr %634, align 8, !tbaa !25
-  %.pre186.i = load i64, ptr %614, align 8, !tbaa !23
+  store i64 %.0136.i235, ptr %634, align 8, !tbaa !24
+  %.pre186.i = load i64, ptr %614, align 8, !tbaa !22
   br label %.thread520
 
 .thread520:                                       ; preds = %650, %632
   %653 = phi i64 [ %.pre186.i, %650 ], [ %633, %632 ]
-  store i64 1, ptr %8, align 8, !tbaa !21
+  store i64 1, ptr %8, align 8, !tbaa !20
   %654 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %655 = load ptr, ptr %654, align 8, !tbaa !3
   %656 = getelementptr inbounds nuw i8, ptr %655, i64 %653
-  store i8 0, ptr %656, align 1, !tbaa !27
+  store i8 0, ptr %656, align 1, !tbaa !26
   %657 = trunc nuw nsw i64 %2 to i32
   %658 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %659 = load ptr, ptr %658, align 8, !tbaa !11
-  %660 = load i64, ptr %614, align 8, !tbaa !23
+  %660 = load i64, ptr %614, align 8, !tbaa !22
   %661 = getelementptr inbounds nuw i32, ptr %659, i64 %660
-  store i32 %657, ptr %661, align 4, !tbaa !28
+  store i32 %657, ptr %661, align 4, !tbaa !27
   %662 = add i64 %660, 1
-  store i64 %662, ptr %614, align 8, !tbaa !23
+  store i64 %662, ptr %614, align 8, !tbaa !22
   tail call void @BrotliFree(ptr noundef %0, ptr noundef nonnull %601) #8
   %.pre = shl nuw nsw i64 %2, 1
   %663 = tail call ptr @BrotliAllocate(ptr noundef %0, i64 noundef %.pre) #8
@@ -1428,10 +1428,10 @@ ClearHistogramsCommand.exit.preheader.i.i:        ; preds = %670
   %671 = getelementptr inbounds nuw %struct.HistogramCommand, ptr %667, i64 %.0.i28.i.i69
   %672 = getelementptr inbounds nuw i8, ptr %671, i64 2824
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(2824) %671, i8 0, i64 2824, i1 false)
-  store double 0x7FF0000000000000, ptr %672, align 8, !tbaa !89
+  store double 0x7FF0000000000000, ptr %672, align 8, !tbaa !88
   %673 = add nuw nsw i64 %.0.i28.i.i69, 1
   %exitcond.not.i.i70 = icmp eq i64 %673, %spec.select.i68
-  br i1 %exitcond.not.i.i70, label %ClearHistogramsCommand.exit.preheader.i.i, label %670, !llvm.loop !91
+  br i1 %exitcond.not.i.i70, label %ClearHistogramsCommand.exit.preheader.i.i, label %670, !llvm.loop !90
 
 674:                                              ; preds = %HistogramAddVectorCommand.exit.i.i, %ClearHistogramsCommand.exit.preheader.i.i
   %.02231.i.i71 = phi i64 [ 0, %ClearHistogramsCommand.exit.preheader.i.i ], [ %698, %HistogramAddVectorCommand.exit.i.i ]
@@ -1457,29 +1457,29 @@ ClearHistogramsCommand.exit.preheader.i.i:        ; preds = %670
   %684 = getelementptr inbounds nuw %struct.HistogramCommand, ptr %667, i64 %.02231.i.i71
   %685 = getelementptr inbounds nuw i16, ptr %601, i64 %spec.select.i.i77
   %686 = getelementptr inbounds nuw i8, ptr %684, i64 2816
-  %687 = load i64, ptr %686, align 8, !tbaa !92
+  %687 = load i64, ptr %686, align 8, !tbaa !91
   %688 = add i64 %687, 40
-  store i64 %688, ptr %686, align 8, !tbaa !92
+  store i64 %688, ptr %686, align 8, !tbaa !91
   br label %689
 
 689:                                              ; preds = %689, %682
   %690 = phi i64 [ 40, %682 ], [ %697, %689 ]
   %.05.i29.i.i78 = phi ptr [ %685, %682 ], [ %691, %689 ]
   %691 = getelementptr inbounds nuw i8, ptr %.05.i29.i.i78, i64 2
-  %692 = load i16, ptr %.05.i29.i.i78, align 2, !tbaa !62
+  %692 = load i16, ptr %.05.i29.i.i78, align 2, !tbaa !61
   %693 = zext i16 %692 to i64
   %694 = getelementptr inbounds nuw [704 x i32], ptr %684, i64 0, i64 %693
-  %695 = load i32, ptr %694, align 4, !tbaa !28
+  %695 = load i32, ptr %694, align 4, !tbaa !27
   %696 = add i32 %695, 1
-  store i32 %696, ptr %694, align 4, !tbaa !28
+  store i32 %696, ptr %694, align 4, !tbaa !27
   %697 = add nsw i64 %690, -1
   %.not.i.i.i79 = icmp eq i64 %697, 0
-  br i1 %.not.i.i.i79, label %HistogramAddVectorCommand.exit.i.i, label %689, !llvm.loop !93
+  br i1 %.not.i.i.i79, label %HistogramAddVectorCommand.exit.i.i, label %689, !llvm.loop !92
 
 HistogramAddVectorCommand.exit.i.i:               ; preds = %689
   %698 = add nuw nsw i64 %.02231.i.i71, 1
   %exitcond32.not.i.i80 = icmp eq i64 %698, %spec.select.i68
-  br i1 %exitcond32.not.i.i80, label %InitialEntropyCodesCommand.exit.i, label %674, !llvm.loop !94
+  br i1 %exitcond32.not.i.i80, label %InitialEntropyCodesCommand.exit.i, label %674, !llvm.loop !93
 
 InitialEntropyCodesCommand.exit.i:                ; preds = %HistogramAddVectorCommand.exit.i.i
   %699 = getelementptr inbounds nuw %struct.HistogramCommand, ptr %667, i64 %spec.select.i68
@@ -1502,52 +1502,52 @@ InitialEntropyCodesCommand.exit.i:                ; preds = %HistogramAddVectorC
   %710 = zext i32 %709 to i64
   %711 = urem i64 %710, %707
   %712 = getelementptr inbounds nuw i16, ptr %601, i64 %711
-  store i64 40, ptr %706, align 8, !tbaa !92
+  store i64 40, ptr %706, align 8, !tbaa !91
   br label %713
 
 713:                                              ; preds = %713, %708
   %714 = phi i64 [ 40, %708 ], [ %721, %713 ]
   %.05.i12.i.i.i84 = phi ptr [ %712, %708 ], [ %715, %713 ]
   %715 = getelementptr inbounds nuw i8, ptr %.05.i12.i.i.i84, i64 2
-  %716 = load i16, ptr %.05.i12.i.i.i84, align 2, !tbaa !62
+  %716 = load i16, ptr %.05.i12.i.i.i84, align 2, !tbaa !61
   %717 = zext i16 %716 to i64
   %718 = getelementptr inbounds nuw [704 x i32], ptr %699, i64 0, i64 %717
-  %719 = load i32, ptr %718, align 4, !tbaa !28
+  %719 = load i32, ptr %718, align 4, !tbaa !27
   %720 = add i32 %719, 1
-  store i32 %720, ptr %718, align 4, !tbaa !28
+  store i32 %720, ptr %718, align 4, !tbaa !27
   %721 = add nsw i64 %714, -1
   %.not.i.i.i.i85 = icmp eq i64 %721, 0
-  br i1 %.not.i.i.i.i85, label %RandomSampleCommand.exit.i.i, label %713, !llvm.loop !93
+  br i1 %.not.i.i.i.i85, label %RandomSampleCommand.exit.i.i, label %713, !llvm.loop !92
 
 RandomSampleCommand.exit.i.i:                     ; preds = %713
   %722 = urem i64 %.020.i.i82, %spec.select.i68
   %723 = getelementptr inbounds nuw %struct.HistogramCommand, ptr %667, i64 %722
   %724 = getelementptr inbounds nuw i8, ptr %723, i64 2816
-  %725 = load i64, ptr %724, align 8, !tbaa !92
+  %725 = load i64, ptr %724, align 8, !tbaa !91
   %726 = add i64 %725, 40
-  store i64 %726, ptr %724, align 8, !tbaa !92
+  store i64 %726, ptr %724, align 8, !tbaa !91
   br label %727
 
 727:                                              ; preds = %727, %RandomSampleCommand.exit.i.i
   %.0.i18.i.i86 = phi i64 [ 0, %RandomSampleCommand.exit.i.i ], [ %733, %727 ]
   %728 = getelementptr inbounds nuw [704 x i32], ptr %699, i64 0, i64 %.0.i18.i.i86
-  %729 = load i32, ptr %728, align 4, !tbaa !28
+  %729 = load i32, ptr %728, align 4, !tbaa !27
   %730 = getelementptr inbounds nuw [704 x i32], ptr %723, i64 0, i64 %.0.i18.i.i86
-  %731 = load i32, ptr %730, align 4, !tbaa !28
+  %731 = load i32, ptr %730, align 4, !tbaa !27
   %732 = add i32 %731, %729
-  store i32 %732, ptr %730, align 4, !tbaa !28
+  store i32 %732, ptr %730, align 4, !tbaa !27
   %733 = add nuw nsw i64 %.0.i18.i.i86, 1
   %exitcond.not.i155.i87 = icmp eq i64 %733, 704
-  br i1 %exitcond.not.i155.i87, label %HistogramAddHistogramCommand.exit.i.i, label %727, !llvm.loop !95
+  br i1 %exitcond.not.i155.i87, label %HistogramAddHistogramCommand.exit.i.i, label %727, !llvm.loop !94
 
 HistogramAddHistogramCommand.exit.i.i:            ; preds = %727
   %734 = add nuw i64 %.020.i.i82, 1
   %exitcond21.not.i.i88 = icmp eq i64 %734, %umax.i.i81
-  br i1 %exitcond21.not.i.i88, label %RefineEntropyCodesCommand.exit.i, label %708, !llvm.loop !96
+  br i1 %exitcond21.not.i.i88, label %RefineEntropyCodesCommand.exit.i, label %708, !llvm.loop !95
 
 RefineEntropyCodesCommand.exit.i:                 ; preds = %HistogramAddHistogramCommand.exit.i.i
   %735 = getelementptr inbounds nuw i8, ptr %699, i64 2824
-  store double 0x7FF0000000000000, ptr %735, align 8, !tbaa !89
+  store double 0x7FF0000000000000, ptr %735, align 8, !tbaa !88
   %736 = tail call ptr @BrotliAllocate(ptr noundef %0, i64 noundef %2) #8
   %737 = add nuw nsw i64 %spec.select.i68, 7
   %738 = lshr i64 %737, 3
@@ -1568,7 +1568,7 @@ RefineEntropyCodesCommand.exit.i:                 ; preds = %HistogramAddHistogr
   %748 = shl nuw nsw i64 %spec.select.i68, 1
   %749 = tail call ptr @BrotliAllocate(ptr noundef %0, i64 noundef %748) #8
   %750 = getelementptr inbounds nuw i8, ptr %6, i64 4
-  %751 = load i32, ptr %750, align 4, !tbaa !38
+  %751 = load i32, ptr %750, align 4, !tbaa !37
   %.inv.i90 = icmp sgt i32 %751, 10
   %752 = select i1 %.inv.i90, i64 10, i64 3
   %753 = add i64 %2, -1
@@ -1584,7 +1584,7 @@ RefineEntropyCodesCommand.exit.i:                 ; preds = %HistogramAddHistogr
   br i1 %758, label %.preheader.preheader.i.i232, label %759
 
 .preheader.preheader.i.i232:                      ; preds = %755
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %736, i8 0, i64 range(i64 128, 0) %2, i1 false), !tbaa !27
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %736, i8 0, i64 range(i64 128, 0) %2, i1 false), !tbaa !26
   br label %FindBlocksCommand.exit.i
 
 759:                                              ; preds = %755
@@ -1595,32 +1595,32 @@ RefineEntropyCodesCommand.exit.i:                 ; preds = %HistogramAddHistogr
 761:                                              ; preds = %FastLog2.exit.i.i92, %759
   %.1119131.i.i91 = phi i64 [ 0, %759 ], [ %773, %FastLog2.exit.i.i92 ]
   %762 = getelementptr inbounds nuw %struct.HistogramCommand, ptr %667, i64 %.1119131.i.i91, i32 1
-  %763 = load i64, ptr %762, align 8, !tbaa !92
+  %763 = load i64, ptr %762, align 8, !tbaa !91
   %764 = and i64 %763, 4294967295
   %765 = icmp samesign ult i64 %764, 256
   br i1 %765, label %766, label %769
 
 766:                                              ; preds = %761
   %767 = getelementptr inbounds nuw [256 x double], ptr @kBrotliLog2Table, i64 0, i64 %764
-  %768 = load double, ptr %767, align 8, !tbaa !54
+  %768 = load double, ptr %767, align 8, !tbaa !53
   br label %FastLog2.exit.i.i92
 
 769:                                              ; preds = %761
   %770 = uitofp nneg i64 %764 to double
-  %771 = tail call double @log2(double noundef %770) #8, !tbaa !28
+  %771 = tail call double @log2(double noundef %770) #8, !tbaa !27
   br label %FastLog2.exit.i.i92
 
 FastLog2.exit.i.i92:                              ; preds = %769, %766
   %.0.i.i.i93 = phi double [ %768, %766 ], [ %771, %769 ]
   %772 = getelementptr inbounds nuw double, ptr %740, i64 %.1119131.i.i91
-  store double %.0.i.i.i93, ptr %772, align 8, !tbaa !54
+  store double %.0.i.i.i93, ptr %772, align 8, !tbaa !53
   %773 = add nuw nsw i64 %.1119131.i.i91, 1
   %exitcond.not.i156.i94 = icmp eq i64 %773, %.1179.i
-  br i1 %exitcond.not.i156.i94, label %.preheader130.i.i95, label %761, !llvm.loop !97
+  br i1 %exitcond.not.i156.i94, label %.preheader130.i.i95, label %761, !llvm.loop !96
 
 .loopexit129.i.i102:                              ; preds = %BitCost.exit.i.i100
   %.not.i157.i103 = icmp eq i64 %774, 0
-  br i1 %.not.i157.i103, label %795, label %.preheader130.i.i95, !llvm.loop !98
+  br i1 %.not.i157.i103, label %795, label %.preheader130.i.i95, !llvm.loop !97
 
 .preheader130.i.i95:                              ; preds = %FastLog2.exit.i.i92, %.loopexit129.i.i102
   %.2133.i.i96 = phi i64 [ %774, %.loopexit129.i.i102 ], [ 704, %FastLog2.exit.i.i92 ]
@@ -1633,9 +1633,9 @@ FastLog2.exit.i.i92:                              ; preds = %769, %766
 777:                                              ; preds = %BitCost.exit.i.i100, %.preheader130.i.i95
   %.0120132.i.i98 = phi i64 [ 0, %.preheader130.i.i95 ], [ %794, %BitCost.exit.i.i100 ]
   %778 = getelementptr inbounds nuw double, ptr %740, i64 %.0120132.i.i98
-  %779 = load double, ptr %778, align 8, !tbaa !54
+  %779 = load double, ptr %778, align 8, !tbaa !53
   %gep.i.i99 = getelementptr %struct.HistogramCommand, ptr %invariant.gep.i.i97, i64 %.0120132.i.i98
-  %780 = load i32, ptr %gep.i.i99, align 4, !tbaa !28
+  %780 = load i32, ptr %gep.i.i99, align 4, !tbaa !27
   %781 = zext i32 %780 to i64
   %782 = icmp eq i32 %780, 0
   br i1 %782, label %BitCost.exit.i.i100, label %783
@@ -1646,22 +1646,22 @@ FastLog2.exit.i.i92:                              ; preds = %769, %766
 
 785:                                              ; preds = %783
   %786 = getelementptr inbounds nuw [256 x double], ptr @kBrotliLog2Table, i64 0, i64 %781
-  %787 = load double, ptr %786, align 8, !tbaa !54
+  %787 = load double, ptr %786, align 8, !tbaa !53
   br label %BitCost.exit.i.i100
 
 788:                                              ; preds = %783
   %789 = uitofp i32 %780 to double
-  %790 = tail call double @log2(double noundef %789) #8, !tbaa !28
+  %790 = tail call double @log2(double noundef %789) #8, !tbaa !27
   br label %BitCost.exit.i.i100
 
 BitCost.exit.i.i100:                              ; preds = %788, %785, %777
   %791 = phi double [ -2.000000e+00, %777 ], [ %787, %785 ], [ %790, %788 ]
   %792 = fsub double %779, %791
   %793 = getelementptr double, ptr %776, i64 %.0120132.i.i98
-  store double %792, ptr %793, align 8, !tbaa !54
+  store double %792, ptr %793, align 8, !tbaa !53
   %794 = add nuw nsw i64 %.0120132.i.i98, 1
   %exitcond145.not.i.i101 = icmp eq i64 %794, %.1179.i
-  br i1 %exitcond145.not.i.i101, label %.loopexit129.i.i102, label %777, !llvm.loop !99
+  br i1 %exitcond145.not.i.i101, label %.loopexit129.i.i102, label %777, !llvm.loop !98
 
 795:                                              ; preds = %.loopexit129.i.i102
   %796 = shl nuw nsw i64 %.1179.i, 3
@@ -1673,7 +1673,7 @@ BitCost.exit.i.i100:                              ; preds = %788, %785, %777
 798:                                              ; preds = %838, %795
   %.0116137.i.i104 = phi i64 [ 0, %795 ], [ %839, %838 ]
   %799 = getelementptr inbounds nuw i16, ptr %601, i64 %.0116137.i.i104
-  %800 = load i16, ptr %799, align 2, !tbaa !62
+  %800 = load i16, ptr %799, align 2, !tbaa !61
   %801 = zext i16 %800 to i64
   %802 = mul nuw nsw i64 %.1179.i, %801
   %803 = getelementptr inbounds nuw double, ptr %740, i64 %802
@@ -1684,24 +1684,24 @@ BitCost.exit.i.i100:                              ; preds = %788, %785, %777
   %.0111135.i.i105 = phi i64 [ 0, %798 ], [ %815, %814 ]
   %.0114134.i.i106 = phi double [ 0x547D42AEA2879F2E, %798 ], [ %.1115.i.i107, %814 ]
   %806 = getelementptr inbounds nuw double, ptr %803, i64 %.0111135.i.i105
-  %807 = load double, ptr %806, align 8, !tbaa !54
+  %807 = load double, ptr %806, align 8, !tbaa !53
   %808 = getelementptr inbounds nuw double, ptr %742, i64 %.0111135.i.i105
-  %809 = load double, ptr %808, align 8, !tbaa !54
+  %809 = load double, ptr %808, align 8, !tbaa !53
   %810 = fadd double %807, %809
-  store double %810, ptr %808, align 8, !tbaa !54
+  store double %810, ptr %808, align 8, !tbaa !53
   %811 = fcmp olt double %810, %.0114134.i.i106
   br i1 %811, label %812, label %814
 
 812:                                              ; preds = %805
   %813 = trunc i64 %.0111135.i.i105 to i8
-  store i8 %813, ptr %804, align 1, !tbaa !27
+  store i8 %813, ptr %804, align 1, !tbaa !26
   br label %814
 
 814:                                              ; preds = %812, %805
   %.1115.i.i107 = phi double [ %810, %812 ], [ %.0114134.i.i106, %805 ]
   %815 = add nuw nsw i64 %.0111135.i.i105, 1
   %exitcond146.not.i.i108 = icmp eq i64 %815, %.1179.i
-  br i1 %exitcond146.not.i.i108, label %816, label %805, !llvm.loop !100
+  br i1 %exitcond146.not.i.i108, label %816, label %805, !llvm.loop !99
 
 816:                                              ; preds = %814
   %817 = mul i64 %.0116137.i.i104, %757
@@ -1716,9 +1716,9 @@ BitCost.exit.i.i100:                              ; preds = %788, %785, %777
 823:                                              ; preds = %836, %816
   %.1112136.i.i110 = phi i64 [ 0, %816 ], [ %837, %836 ]
   %824 = getelementptr inbounds nuw double, ptr %742, i64 %.1112136.i.i110
-  %825 = load double, ptr %824, align 8, !tbaa !54
+  %825 = load double, ptr %824, align 8, !tbaa !53
   %826 = fsub double %825, %.1115.i.i107
-  store double %826, ptr %824, align 8, !tbaa !54
+  store double %826, ptr %824, align 8, !tbaa !53
   %827 = fcmp ult double %826, %.0113.i.i109
   br i1 %827, label %836, label %828
 
@@ -1726,26 +1726,26 @@ BitCost.exit.i.i100:                              ; preds = %788, %785, %777
   %829 = trunc i64 %.1112136.i.i110 to i8
   %830 = and i8 %829, 7
   %831 = shl nuw i8 1, %830
-  store double %.0113.i.i109, ptr %824, align 8, !tbaa !54
+  store double %.0113.i.i109, ptr %824, align 8, !tbaa !53
   %832 = lshr i64 %.1112136.i.i110, 3
   %833 = getelementptr i8, ptr %822, i64 %832
-  %834 = load i8, ptr %833, align 1, !tbaa !27
+  %834 = load i8, ptr %833, align 1, !tbaa !26
   %835 = or i8 %834, %831
-  store i8 %835, ptr %833, align 1, !tbaa !27
+  store i8 %835, ptr %833, align 1, !tbaa !26
   br label %836
 
 836:                                              ; preds = %828, %823
   %837 = add nuw nsw i64 %.1112136.i.i110, 1
   %exitcond147.not.i.i111 = icmp eq i64 %837, %.1179.i
-  br i1 %exitcond147.not.i.i111, label %838, label %823, !llvm.loop !101
+  br i1 %exitcond147.not.i.i111, label %838, label %823, !llvm.loop !100
 
 838:                                              ; preds = %836
   %839 = add nuw i64 %.0116137.i.i104, 1
   %exitcond148.not.i.i112 = icmp eq i64 %839, %2
-  br i1 %exitcond148.not.i.i112, label %.lr.ph.preheader.i.i113, label %798, !llvm.loop !102
+  br i1 %exitcond148.not.i.i112, label %.lr.ph.preheader.i.i113, label %798, !llvm.loop !101
 
 .lr.ph.preheader.i.i113:                          ; preds = %838
-  %840 = load i8, ptr %754, align 1, !tbaa !27
+  %840 = load i8, ptr %754, align 1, !tbaa !26
   %841 = mul i64 %757, %753
   br label %.lr.ph.i.i114
 
@@ -1762,14 +1762,14 @@ BitCost.exit.i.i100:                              ; preds = %788, %785, %777
   %847 = zext nneg i8 %846 to i64
   %848 = getelementptr i8, ptr %747, i64 %845
   %849 = getelementptr i8, ptr %848, i64 %847
-  %850 = load i8, ptr %849, align 1, !tbaa !27
+  %850 = load i8, ptr %849, align 1, !tbaa !26
   %851 = and i8 %850, %843
   %.not125.i.i119 = icmp eq i8 %851, 0
   br i1 %.not125.i.i119, label %856, label %852
 
 852:                                              ; preds = %.lr.ph.i.i114
   %853 = getelementptr inbounds nuw i8, ptr %736, i64 %844
-  %854 = load i8, ptr %853, align 1, !tbaa !27
+  %854 = load i8, ptr %853, align 1, !tbaa !26
   %.not126.i.i120 = icmp ne i8 %.0107142.i.i115, %854
   %855 = zext i1 %.not126.i.i120 to i64
   %spec.select.i158.i121 = add i64 %.0109140.i.i117, %855
@@ -1779,9 +1779,9 @@ BitCost.exit.i.i100:                              ; preds = %788, %785, %777
   %.1110.i.i122 = phi i64 [ %.0109140.i.i117, %.lr.ph.i.i114 ], [ %spec.select.i158.i121, %852 ]
   %.1.i159.i123 = phi i8 [ %.0107142.i.i115, %.lr.ph.i.i114 ], [ %854, %852 ]
   %857 = getelementptr inbounds nuw i8, ptr %736, i64 %844
-  store i8 %.1.i159.i123, ptr %857, align 1, !tbaa !27
+  store i8 %.1.i159.i123, ptr %857, align 1, !tbaa !26
   %.not124.i.i124 = icmp eq i64 %844, 0
-  br i1 %.not124.i.i124, label %FindBlocksCommand.exit.i, label %.lr.ph.i.i114, !llvm.loop !103
+  br i1 %.not124.i.i124, label %FindBlocksCommand.exit.i, label %.lr.ph.i.i114, !llvm.loop !102
 
 FindBlocksCommand.exit.i:                         ; preds = %856, %.preheader.preheader.i.i232
   %.0.i160.i125 = phi i64 [ 1, %.preheader.preheader.i.i232 ], [ %.1110.i.i122, %856 ]
@@ -1791,10 +1791,10 @@ FindBlocksCommand.exit.i:                         ; preds = %856, %.preheader.pr
 .lr.ph.i162.i127:                                 ; preds = %FindBlocksCommand.exit.i, %.lr.ph.i162.i127
   %.027.i.i128 = phi i64 [ %859, %.lr.ph.i162.i127 ], [ 0, %FindBlocksCommand.exit.i ]
   %858 = getelementptr inbounds nuw i16, ptr %749, i64 %.027.i.i128
-  store i16 256, ptr %858, align 2, !tbaa !62
+  store i16 256, ptr %858, align 2, !tbaa !61
   %859 = add nuw nsw i64 %.027.i.i128, 1
   %exitcond.not.i163.i129 = icmp eq i64 %859, %.1179.i
-  br i1 %exitcond.not.i163.i129, label %.preheader26.i.i130.preheader, label %.lr.ph.i162.i127, !llvm.loop !104
+  br i1 %exitcond.not.i163.i129, label %.preheader26.i.i130.preheader, label %.lr.ph.i162.i127, !llvm.loop !103
 
 .preheader26.i.i130.preheader:                    ; preds = %.lr.ph.i162.i127, %FindBlocksCommand.exit.i
   br label %.preheader26.i.i130
@@ -1803,36 +1803,36 @@ FindBlocksCommand.exit.i:                         ; preds = %856, %.preheader.pr
   %.129.i.i131 = phi i64 [ %869, %868 ], [ 0, %.preheader26.i.i130.preheader ]
   %.02328.i.i132 = phi i16 [ %.124.i.i133, %868 ], [ 0, %.preheader26.i.i130.preheader ]
   %860 = getelementptr inbounds nuw i8, ptr %736, i64 %.129.i.i131
-  %861 = load i8, ptr %860, align 1, !tbaa !27
+  %861 = load i8, ptr %860, align 1, !tbaa !26
   %862 = zext i8 %861 to i64
   %863 = getelementptr inbounds nuw i16, ptr %749, i64 %862
-  %864 = load i16, ptr %863, align 2, !tbaa !62
+  %864 = load i16, ptr %863, align 2, !tbaa !61
   %865 = icmp eq i16 %864, 256
   br i1 %865, label %866, label %868
 
 866:                                              ; preds = %.preheader26.i.i130
   %867 = add i16 %.02328.i.i132, 1
-  store i16 %.02328.i.i132, ptr %863, align 2, !tbaa !62
+  store i16 %.02328.i.i132, ptr %863, align 2, !tbaa !61
   br label %868
 
 868:                                              ; preds = %866, %.preheader26.i.i130
   %.124.i.i133 = phi i16 [ %867, %866 ], [ %.02328.i.i132, %.preheader26.i.i130 ]
   %869 = add nuw i64 %.129.i.i131, 1
   %exitcond31.not.i.i134 = icmp eq i64 %869, %2
-  br i1 %exitcond31.not.i.i134, label %.preheader.i.i136, label %.preheader26.i.i130, !llvm.loop !105
+  br i1 %exitcond31.not.i.i134, label %.preheader.i.i136, label %.preheader26.i.i130, !llvm.loop !104
 
 .preheader.i.i136:                                ; preds = %868, %.preheader.i.i136
   %.230.i.i137 = phi i64 [ %876, %.preheader.i.i136 ], [ 0, %868 ]
   %870 = getelementptr inbounds nuw i8, ptr %736, i64 %.230.i.i137
-  %871 = load i8, ptr %870, align 1, !tbaa !27
+  %871 = load i8, ptr %870, align 1, !tbaa !26
   %872 = zext i8 %871 to i64
   %873 = getelementptr inbounds nuw i16, ptr %749, i64 %872
-  %874 = load i16, ptr %873, align 2, !tbaa !62
+  %874 = load i16, ptr %873, align 2, !tbaa !61
   %875 = trunc i16 %874 to i8
-  store i8 %875, ptr %870, align 1, !tbaa !27
+  store i8 %875, ptr %870, align 1, !tbaa !26
   %876 = add nuw i64 %.230.i.i137, 1
   %exitcond32.not.i164.i138 = icmp eq i64 %876, %2
-  br i1 %exitcond32.not.i164.i138, label %RemapBlockIdsCommand.exit.i, label %.preheader.i.i136, !llvm.loop !106
+  br i1 %exitcond32.not.i164.i138, label %RemapBlockIdsCommand.exit.i, label %.preheader.i.i136, !llvm.loop !105
 
 RemapBlockIdsCommand.exit.i:                      ; preds = %.preheader.i.i136
   %877 = zext i16 %.124.i.i133 to i64
@@ -1844,10 +1844,10 @@ RemapBlockIdsCommand.exit.i:                      ; preds = %.preheader.i.i136
   %878 = getelementptr inbounds nuw %struct.HistogramCommand, ptr %667, i64 %.0.i9.i.i141
   %879 = getelementptr inbounds nuw i8, ptr %878, i64 2824
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(2824) %878, i8 0, i64 2824, i1 false)
-  store double 0x7FF0000000000000, ptr %879, align 8, !tbaa !89
+  store double 0x7FF0000000000000, ptr %879, align 8, !tbaa !88
   %880 = add nuw nsw i64 %.0.i9.i.i141, 1
   %exitcond.not.i167.i142 = icmp eq i64 %880, %877
-  br i1 %exitcond.not.i167.i142, label %ClearHistogramsCommand.exit.i.i.preheader, label %.lr.ph.i166.i140, !llvm.loop !91
+  br i1 %exitcond.not.i167.i142, label %ClearHistogramsCommand.exit.i.i.preheader, label %.lr.ph.i166.i140, !llvm.loop !90
 
 ClearHistogramsCommand.exit.i.i.preheader:        ; preds = %.lr.ph.i166.i140, %RemapBlockIdsCommand.exit.i
   br label %ClearHistogramsCommand.exit.i.i
@@ -1855,28 +1855,28 @@ ClearHistogramsCommand.exit.i.i.preheader:        ; preds = %.lr.ph.i166.i140, %
 ClearHistogramsCommand.exit.i.i:                  ; preds = %ClearHistogramsCommand.exit.i.i.preheader, %ClearHistogramsCommand.exit.i.i
   %.010.i.i143 = phi i64 [ %894, %ClearHistogramsCommand.exit.i.i ], [ 0, %ClearHistogramsCommand.exit.i.i.preheader ]
   %881 = getelementptr inbounds nuw i8, ptr %736, i64 %.010.i.i143
-  %882 = load i8, ptr %881, align 1, !tbaa !27
+  %882 = load i8, ptr %881, align 1, !tbaa !26
   %883 = zext i8 %882 to i64
   %884 = getelementptr inbounds nuw %struct.HistogramCommand, ptr %667, i64 %883
   %885 = getelementptr inbounds nuw i16, ptr %601, i64 %.010.i.i143
-  %886 = load i16, ptr %885, align 2, !tbaa !62
+  %886 = load i16, ptr %885, align 2, !tbaa !61
   %887 = zext i16 %886 to i64
   %888 = getelementptr inbounds nuw [704 x i32], ptr %884, i64 0, i64 %887
-  %889 = load i32, ptr %888, align 4, !tbaa !28
+  %889 = load i32, ptr %888, align 4, !tbaa !27
   %890 = add i32 %889, 1
-  store i32 %890, ptr %888, align 4, !tbaa !28
+  store i32 %890, ptr %888, align 4, !tbaa !27
   %891 = getelementptr inbounds nuw i8, ptr %884, i64 2816
-  %892 = load i64, ptr %891, align 8, !tbaa !92
+  %892 = load i64, ptr %891, align 8, !tbaa !91
   %893 = add i64 %892, 1
-  store i64 %893, ptr %891, align 8, !tbaa !92
+  store i64 %893, ptr %891, align 8, !tbaa !91
   %894 = add nuw i64 %.010.i.i143, 1
   %exitcond11.not.i.i144 = icmp eq i64 %894, %2
-  br i1 %exitcond11.not.i.i144, label %BuildBlockHistogramsCommand.exit.i, label %ClearHistogramsCommand.exit.i.i, !llvm.loop !107
+  br i1 %exitcond11.not.i.i144, label %BuildBlockHistogramsCommand.exit.i, label %ClearHistogramsCommand.exit.i.i, !llvm.loop !106
 
 BuildBlockHistogramsCommand.exit.i:               ; preds = %ClearHistogramsCommand.exit.i.i
   %895 = add nuw nsw i64 %.0180.i, 1
   %exitcond.not.i145 = icmp eq i64 %895, %752
-  br i1 %exitcond.not.i145, label %896, label %755, !llvm.loop !108
+  br i1 %exitcond.not.i145, label %896, label %755, !llvm.loop !107
 
 896:                                              ; preds = %BuildBlockHistogramsCommand.exit.i
   tail call void @BrotliFree(ptr noundef %0, ptr noundef %740) #8
@@ -1952,18 +1952,18 @@ BuildBlockHistogramsCommand.exit.i:               ; preds = %ClearHistogramsComm
   %.0358416.i.i153 = phi i64 [ 0, %925 ], [ %.1359.i.i156, %948 ]
   %.0364415.i.i154 = phi i64 [ 0, %925 ], [ %939, %948 ]
   %936 = getelementptr inbounds nuw i32, ptr %929, i64 %.0358416.i.i153
-  %937 = load i32, ptr %936, align 4, !tbaa !28
+  %937 = load i32, ptr %936, align 4, !tbaa !27
   %938 = add i32 %937, 1
-  store i32 %938, ptr %936, align 4, !tbaa !28
+  store i32 %938, ptr %936, align 4, !tbaa !27
   %939 = add nuw i64 %.0364415.i.i154, 1
   %940 = icmp eq i64 %939, %2
   br i1 %940, label %946, label %941
 
 941:                                              ; preds = %935
   %942 = getelementptr inbounds nuw i8, ptr %736, i64 %.0364415.i.i154
-  %943 = load i8, ptr %942, align 1, !tbaa !27
+  %943 = load i8, ptr %942, align 1, !tbaa !26
   %944 = getelementptr inbounds nuw i8, ptr %736, i64 %939
-  %945 = load i8, ptr %944, align 1, !tbaa !27
+  %945 = load i8, ptr %944, align 1, !tbaa !26
   %.not402.i.i155 = icmp eq i8 %943, %945
   br i1 %.not402.i.i155, label %948, label %946
 
@@ -1973,7 +1973,7 @@ BuildBlockHistogramsCommand.exit.i:               ; preds = %ClearHistogramsComm
 
 948:                                              ; preds = %946, %941
   %.1359.i.i156 = phi i64 [ %947, %946 ], [ %.0358416.i.i153, %941 ]
-  br i1 %940, label %.preheader414.i.i157, label %935, !llvm.loop !109
+  br i1 %940, label %.preheader414.i.i157, label %935, !llvm.loop !108
 
 .lr.ph422.i.i158:                                 ; preds = %.preheader414.i.i157, %._crit_edge434.i.i191
   %indvars.iv.i.i159 = phi i64 [ %indvars.iv.next.i.i192, %._crit_edge434.i.i191 ], [ %.0.i160.i125, %.preheader414.i.i157 ]
@@ -1995,13 +1995,13 @@ BuildBlockHistogramsCommand.exit.i:               ; preds = %ClearHistogramsComm
   %.0353420.i.i169 = phi i64 [ 0, %.lr.ph422.i.i158 ], [ %972, %966 ]
   %.1362419.i.i170 = phi i64 [ %.0361436.i.i167, %.lr.ph422.i.i158 ], [ %.2363.lcssa.i.i175, %966 ]
   %952 = getelementptr i32, ptr %950, i64 %.0353420.i.i169
-  %953 = load i32, ptr %952, align 4, !tbaa !28
+  %953 = load i32, ptr %952, align 4, !tbaa !27
   %954 = zext i32 %953 to i64
   %955 = getelementptr inbounds nuw %struct.HistogramCommand, ptr %926, i64 %.0353420.i.i169
   %956 = getelementptr inbounds nuw i8, ptr %955, i64 2816
   %957 = getelementptr inbounds nuw i8, ptr %955, i64 2824
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(2824) %955, i8 0, i64 2824, i1 false)
-  store double 0x7FF0000000000000, ptr %957, align 8, !tbaa !89
+  store double 0x7FF0000000000000, ptr %957, align 8, !tbaa !88
   %.not487.i.i171 = icmp eq i32 %953, 0
   br i1 %.not487.i.i171, label %966, label %.lr.ph.i171.i172
 
@@ -2010,34 +2010,34 @@ BuildBlockHistogramsCommand.exit.i:               ; preds = %ClearHistogramsComm
   %.2363417.i.i173 = phi i64 [ %958, %.lr.ph.i171.i172 ], [ %.1362419.i.i170, %951 ]
   %958 = add i64 %.2363417.i.i173, 1
   %959 = getelementptr inbounds nuw i16, ptr %601, i64 %.2363417.i.i173
-  %960 = load i16, ptr %959, align 2, !tbaa !62
+  %960 = load i16, ptr %959, align 2, !tbaa !61
   %961 = zext i16 %960 to i64
   %962 = getelementptr inbounds nuw [704 x i32], ptr %955, i64 0, i64 %961
-  %963 = load i32, ptr %962, align 4, !tbaa !28
+  %963 = load i32, ptr %962, align 4, !tbaa !27
   %964 = add i32 %963, 1
-  store i32 %964, ptr %962, align 4, !tbaa !28
+  store i32 %964, ptr %962, align 4, !tbaa !27
   %965 = add nuw nsw i64 %.0352418.i.i, 1
   %exitcond502.not.i.i = icmp eq i64 %965, %954
-  br i1 %exitcond502.not.i.i, label %._crit_edge.i.i174, label %.lr.ph.i171.i172, !llvm.loop !110
+  br i1 %exitcond502.not.i.i, label %._crit_edge.i.i174, label %.lr.ph.i171.i172, !llvm.loop !109
 
 ._crit_edge.i.i174:                               ; preds = %.lr.ph.i171.i172
-  store i64 %954, ptr %956, align 8, !tbaa !92
+  store i64 %954, ptr %956, align 8, !tbaa !91
   br label %966
 
 966:                                              ; preds = %._crit_edge.i.i174, %951
   %.2363.lcssa.i.i175 = phi i64 [ %958, %._crit_edge.i.i174 ], [ %.1362419.i.i170, %951 ]
   %967 = tail call double @BrotliPopulationCostCommand(ptr noundef nonnull %955) #8
-  store double %967, ptr %957, align 8, !tbaa !89
+  store double %967, ptr %957, align 8, !tbaa !88
   %968 = trunc i64 %.0353420.i.i169 to i32
   %969 = getelementptr inbounds nuw i32, ptr %932, i64 %.0353420.i.i169
-  store i32 %968, ptr %969, align 4, !tbaa !28
+  store i32 %968, ptr %969, align 4, !tbaa !27
   %970 = getelementptr inbounds nuw i32, ptr %933, i64 %.0353420.i.i169
-  store i32 %968, ptr %970, align 4, !tbaa !28
+  store i32 %968, ptr %970, align 4, !tbaa !27
   %971 = getelementptr inbounds nuw i32, ptr %918, i64 %.0353420.i.i169
-  store i32 1, ptr %971, align 4, !tbaa !28
+  store i32 1, ptr %971, align 4, !tbaa !27
   %972 = add nuw nsw i64 %.0353420.i.i169, 1
   %exitcond503.not.i.i = icmp eq i64 %972, %umax506.i.i
-  br i1 %exitcond503.not.i.i, label %._crit_edge423.i.i176, label %951, !llvm.loop !111
+  br i1 %exitcond503.not.i.i, label %._crit_edge423.i.i176, label %951, !llvm.loop !110
 
 ._crit_edge423.i.i176:                            ; preds = %966
   %973 = sub nuw i64 %.0.i160.i125, %.1365435.i.i168
@@ -2056,7 +2056,7 @@ BuildBlockHistogramsCommand.exit.i:               ; preds = %ClearHistogramsComm
   %.0349.i.i231 = phi i64 [ %980, %978 ], [ %983, %981 ]
   %982 = icmp ult i64 %.0349.i.i231, %976
   %983 = shl i64 %.0349.i.i231, 1
-  br i1 %982, label %981, label %984, !llvm.loop !112
+  br i1 %982, label %981, label %984, !llvm.loop !111
 
 984:                                              ; preds = %981
   %985 = mul i64 %.0349.i.i231, 2832
@@ -2088,7 +2088,7 @@ BuildBlockHistogramsCommand.exit.i:               ; preds = %ClearHistogramsComm
   %.0346.i.i230 = phi i64 [ %995, %993 ], [ %998, %996 ]
   %997 = icmp ult i64 %.0346.i.i230, %991
   %998 = shl i64 %.0346.i.i230, 1
-  br i1 %997, label %996, label %999, !llvm.loop !113
+  br i1 %997, label %996, label %999, !llvm.loop !112
 
 999:                                              ; preds = %996
   %1000 = shl i64 %.0346.i.i230, 2
@@ -2124,46 +2124,46 @@ BuildBlockHistogramsCommand.exit.i:               ; preds = %ClearHistogramsComm
   %1008 = add i64 %.1332427.i.i182, 1
   %1009 = getelementptr inbounds nuw %struct.HistogramCommand, ptr %.1345.i.i177, i64 %.1332427.i.i182
   %1010 = getelementptr inbounds nuw i32, ptr %932, i64 %.1354425.i.i184
-  %1011 = load i32, ptr %1010, align 4, !tbaa !28
+  %1011 = load i32, ptr %1010, align 4, !tbaa !27
   %1012 = zext i32 %1011 to i64
   %1013 = getelementptr inbounds nuw %struct.HistogramCommand, ptr %926, i64 %1012
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(2832) %1009, ptr noundef nonnull align 8 dereferenceable(2832) %1013, i64 2832, i1 false), !tbaa.struct !114
-  %1014 = load i32, ptr %1010, align 4, !tbaa !28
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(2832) %1009, ptr noundef nonnull align 8 dereferenceable(2832) %1013, i64 2832, i1 false), !tbaa.struct !113
+  %1014 = load i32, ptr %1010, align 4, !tbaa !27
   %1015 = zext i32 %1014 to i64
   %1016 = getelementptr inbounds nuw i32, ptr %918, i64 %1015
-  %1017 = load i32, ptr %1016, align 4, !tbaa !28
+  %1017 = load i32, ptr %1016, align 4, !tbaa !27
   %1018 = add i64 %.1348426.i.i183, 1
   %1019 = getelementptr inbounds nuw i32, ptr %.1356.i.i179, i64 %.1348426.i.i183
-  store i32 %1017, ptr %1019, align 4, !tbaa !28
+  store i32 %1017, ptr %1019, align 4, !tbaa !27
   %1020 = trunc i64 %.1354425.i.i184 to i32
-  %1021 = load i32, ptr %1010, align 4, !tbaa !28
+  %1021 = load i32, ptr %1010, align 4, !tbaa !27
   %1022 = zext i32 %1021 to i64
   %1023 = getelementptr inbounds nuw i32, ptr %934, i64 %1022
-  store i32 %1020, ptr %1023, align 4, !tbaa !28
+  store i32 %1020, ptr %1023, align 4, !tbaa !27
   %1024 = add nuw i64 %.1354425.i.i184, 1
   %exitcond504.not.i.i185 = icmp eq i64 %1024, %975
-  br i1 %exitcond504.not.i.i185, label %.lr.ph433.i.i186, label %.lr.ph429.i.i181, !llvm.loop !115
+  br i1 %exitcond504.not.i.i185, label %.lr.ph433.i.i186, label %.lr.ph429.i.i181, !llvm.loop !114
 
 1025:                                             ; preds = %1025, %.lr.ph433.i.i186
   %.2432.i.i189 = phi i64 [ 0, %.lr.ph433.i.i186 ], [ %1033, %1025 ]
   %1026 = getelementptr inbounds nuw i32, ptr %933, i64 %.2432.i.i189
-  %1027 = load i32, ptr %1026, align 4, !tbaa !28
+  %1027 = load i32, ptr %1026, align 4, !tbaa !27
   %1028 = zext i32 %1027 to i64
   %1029 = getelementptr inbounds nuw i32, ptr %934, i64 %1028
-  %1030 = load i32, ptr %1029, align 4, !tbaa !28
+  %1030 = load i32, ptr %1029, align 4, !tbaa !27
   %1031 = add i32 %1030, %1006
   %1032 = getelementptr i32, ptr %1007, i64 %.2432.i.i189
-  store i32 %1031, ptr %1032, align 4, !tbaa !28
+  store i32 %1031, ptr %1032, align 4, !tbaa !27
   %1033 = add nuw nsw i64 %.2432.i.i189, 1
   %exitcond507.not.i.i190 = icmp eq i64 %1033, %umax506.i.i
-  br i1 %exitcond507.not.i.i190, label %._crit_edge434.i.i191, label %1025, !llvm.loop !116
+  br i1 %exitcond507.not.i.i190, label %._crit_edge434.i.i191, label %1025, !llvm.loop !115
 
 ._crit_edge434.i.i191:                            ; preds = %1025
   %1034 = add i64 %975, %.0357437.i.i166
   %1035 = add i64 %.1365435.i.i168, 64
   %1036 = icmp ult i64 %1035, %.0.i160.i125
   %indvars.iv.next.i.i192 = add i64 %indvars.iv.i.i159, -64
-  br i1 %1036, label %.lr.ph422.i.i158, label %._crit_edge445.i.i193, !llvm.loop !117
+  br i1 %1036, label %.lr.ph422.i.i158, label %._crit_edge445.i.i193, !llvm.loop !116
 
 ._crit_edge445.i.i193:                            ; preds = %._crit_edge434.i.i191, %.preheader414.i.i157
   %.0357.lcssa.i.i194 = phi i64 [ 0, %.preheader414.i.i157 ], [ %1034, %._crit_edge434.i.i191 ]
@@ -2198,10 +2198,10 @@ BuildBlockHistogramsCommand.exit.i:               ; preds = %ClearHistogramsComm
   %.2366449.i.i201 = phi i64 [ %1051, %.lr.ph451.i.i200 ], [ 0, %.lr.ph451.preheader.i.i199 ]
   %1049 = trunc i64 %.2366449.i.i201 to i32
   %1050 = getelementptr inbounds nuw i32, ptr %1048, i64 %.2366449.i.i201
-  store i32 %1049, ptr %1050, align 4, !tbaa !28
+  store i32 %1049, ptr %1050, align 4, !tbaa !27
   %1051 = add nuw i64 %.2366449.i.i201, 1
   %exitcond508.not.i.i = icmp eq i64 %1051, %.0357.lcssa.i.i194
-  br i1 %exitcond508.not.i.i, label %._crit_edge452.i.i202, label %.lr.ph451.i.i200, !llvm.loop !118
+  br i1 %exitcond508.not.i.i, label %._crit_edge452.i.i202, label %.lr.ph451.i.i200, !llvm.loop !117
 
 ._crit_edge452.i.i202:                            ; preds = %.lr.ph451.i.i200, %1046
   %1052 = phi ptr [ null, %1046 ], [ %1048, %.lr.ph451.i.i200 ]
@@ -2213,7 +2213,7 @@ BuildBlockHistogramsCommand.exit.i:               ; preds = %ClearHistogramsComm
 .lr.ph455.preheader.i.i203:                       ; preds = %._crit_edge452.i.i202
   %1054 = shl i64 %.0357.lcssa.i.i194, 2
   %1055 = tail call ptr @BrotliAllocate(ptr noundef %0, i64 noundef %1054) #8
-  tail call void @llvm.memset.p0.i64(ptr align 4 %1055, i8 -1, i64 %1054, i1 false), !tbaa !28
+  tail call void @llvm.memset.p0.i64(ptr align 4 %1055, i8 -1, i64 %1054, i1 false), !tbaa !27
   br label %.preheader.i172.i204
 
 .preheader.i172.i204:                             ; preds = %.lr.ph455.preheader.i.i203, %._crit_edge452.i.i202
@@ -2232,9 +2232,9 @@ BuildBlockHistogramsCommand.exit.i:               ; preds = %ClearHistogramsComm
   %.3472.i.i = phi i64 [ 0, %.lr.ph474.i.i ], [ %.4.lcssa.i.i209, %1098 ]
   %.4368471.i.i = phi i64 [ 0, %.lr.ph474.i.i ], [ %1099, %1098 ]
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(2824) %930, i8 0, i64 2824, i1 false)
-  store double 0x7FF0000000000000, ptr %1058, align 8, !tbaa !89
+  store double 0x7FF0000000000000, ptr %1058, align 8, !tbaa !88
   %1061 = getelementptr inbounds nuw i32, ptr %928, i64 %.4368471.i.i
-  %1062 = load i32, ptr %1061, align 4, !tbaa !28
+  %1062 = load i32, ptr %1061, align 4, !tbaa !27
   %.not494.i.i = icmp eq i32 %1062, 0
   br i1 %.not494.i.i, label %1075, label %.lr.ph459.i.i206
 
@@ -2243,20 +2243,20 @@ BuildBlockHistogramsCommand.exit.i:               ; preds = %ClearHistogramsComm
   %.4456.i.i207 = phi i64 [ %1064, %.lr.ph459.i.i206 ], [ %.3472.i.i, %1060 ]
   %1064 = add i64 %.4456.i.i207, 1
   %1065 = getelementptr inbounds nuw i16, ptr %601, i64 %.4456.i.i207
-  %1066 = load i16, ptr %1065, align 2, !tbaa !62
+  %1066 = load i16, ptr %1065, align 2, !tbaa !61
   %1067 = zext i16 %1066 to i64
   %1068 = getelementptr inbounds nuw [704 x i32], ptr %930, i64 0, i64 %1067
-  %1069 = load i32, ptr %1068, align 4, !tbaa !28
+  %1069 = load i32, ptr %1068, align 4, !tbaa !27
   %1070 = add i32 %1069, 1
-  store i32 %1070, ptr %1068, align 4, !tbaa !28
+  store i32 %1070, ptr %1068, align 4, !tbaa !27
   %1071 = add nuw nsw i64 %1063, 1
-  %1072 = load i32, ptr %1061, align 4, !tbaa !28
+  %1072 = load i32, ptr %1061, align 4, !tbaa !27
   %1073 = zext i32 %1072 to i64
   %1074 = icmp samesign ult i64 %1071, %1073
-  br i1 %1074, label %.lr.ph459.i.i206, label %._crit_edge460.i.i208, !llvm.loop !119
+  br i1 %1074, label %.lr.ph459.i.i206, label %._crit_edge460.i.i208, !llvm.loop !118
 
 ._crit_edge460.i.i208:                            ; preds = %.lr.ph459.i.i206
-  store i64 %1071, ptr %1057, align 8, !tbaa !92
+  store i64 %1071, ptr %1057, align 8, !tbaa !91
   br label %1075
 
 1075:                                             ; preds = %._crit_edge460.i.i208, %1060
@@ -2265,7 +2265,7 @@ BuildBlockHistogramsCommand.exit.i:               ; preds = %ClearHistogramsComm
   %1077 = getelementptr i32, ptr %917, i64 %.4368471.i.i
   %1078 = getelementptr i8, ptr %1077, i64 -4
   %.in.i.i210 = select i1 %1076, ptr %917, ptr %1078
-  %1079 = load i32, ptr %.in.i.i210, align 4, !tbaa !28
+  %1079 = load i32, ptr %.in.i.i210, align 4, !tbaa !27
   %1080 = zext i32 %1079 to i64
   %1081 = getelementptr inbounds nuw %struct.HistogramCommand, ptr %.0344.lcssa.i.i196, i64 %1080
   %1082 = tail call double @BrotliHistogramBitCostDistanceCommand(ptr noundef nonnull %930, ptr noundef %1081, ptr noundef nonnull %1059) #8
@@ -2276,7 +2276,7 @@ BuildBlockHistogramsCommand.exit.i:               ; preds = %ClearHistogramsComm
   %.0338465.i.i = phi i32 [ %.1339.i.i211, %1091 ], [ %1079, %1075 ]
   %.1341464.i.i = phi i64 [ %1092, %1091 ], [ 0, %1075 ]
   %1083 = getelementptr inbounds nuw i32, ptr %1052, i64 %.1341464.i.i
-  %1084 = load i32, ptr %1083, align 4, !tbaa !28
+  %1084 = load i32, ptr %1083, align 4, !tbaa !27
   %1085 = zext i32 %1084 to i64
   %1086 = getelementptr inbounds nuw %struct.HistogramCommand, ptr %.0344.lcssa.i.i196, i64 %1085
   %1087 = tail call double @BrotliHistogramBitCostDistanceCommand(ptr noundef nonnull %930, ptr noundef %1086, ptr noundef nonnull %1059) #8
@@ -2284,7 +2284,7 @@ BuildBlockHistogramsCommand.exit.i:               ; preds = %ClearHistogramsComm
   br i1 %1088, label %1089, label %1091
 
 1089:                                             ; preds = %.lr.ph468.i.i
-  %1090 = load i32, ptr %1083, align 4, !tbaa !28
+  %1090 = load i32, ptr %1083, align 4, !tbaa !27
   br label %1091
 
 1091:                                             ; preds = %1089, %.lr.ph468.i.i
@@ -2292,7 +2292,7 @@ BuildBlockHistogramsCommand.exit.i:               ; preds = %ClearHistogramsComm
   %.1337.i.i212 = phi double [ %1087, %1089 ], [ %.0336466.i.i, %.lr.ph468.i.i ]
   %1092 = add nuw i64 %.1341464.i.i, 1
   %exitcond509.not.i.i = icmp eq i64 %1092, %1053
-  br i1 %exitcond509.not.i.i, label %._crit_edge469.loopexit.i.i, label %.lr.ph468.i.i, !llvm.loop !120
+  br i1 %exitcond509.not.i.i, label %._crit_edge469.loopexit.i.i, label %.lr.ph468.i.i, !llvm.loop !119
 
 ._crit_edge469.loopexit.i.i:                      ; preds = %1091
   %.pre513.i.i = zext i32 %.1339.i.i211 to i64
@@ -2301,29 +2301,29 @@ BuildBlockHistogramsCommand.exit.i:               ; preds = %ClearHistogramsComm
 ._crit_edge469.i.i:                               ; preds = %._crit_edge469.loopexit.i.i, %1075
   %.pre-phi.i.i213 = phi i64 [ %.pre513.i.i, %._crit_edge469.loopexit.i.i ], [ %1080, %1075 ]
   %.0338.lcssa.i.i214 = phi i32 [ %.1339.i.i211, %._crit_edge469.loopexit.i.i ], [ %1079, %1075 ]
-  store i32 %.0338.lcssa.i.i214, ptr %1077, align 4, !tbaa !28
+  store i32 %.0338.lcssa.i.i214, ptr %1077, align 4, !tbaa !27
   %1093 = getelementptr inbounds nuw i32, ptr %1056, i64 %.pre-phi.i.i213
-  %1094 = load i32, ptr %1093, align 4, !tbaa !28
+  %1094 = load i32, ptr %1093, align 4, !tbaa !27
   %1095 = icmp eq i32 %1094, -1
   br i1 %1095, label %1096, label %1098
 
 1096:                                             ; preds = %._crit_edge469.i.i
   %1097 = add i32 %.0342473.i.i, 1
-  store i32 %.0342473.i.i, ptr %1093, align 4, !tbaa !28
+  store i32 %.0342473.i.i, ptr %1093, align 4, !tbaa !27
   br label %1098
 
 1098:                                             ; preds = %1096, %._crit_edge469.i.i
   %.1343.i.i215 = phi i32 [ %1097, %1096 ], [ %.0342473.i.i, %._crit_edge469.i.i ]
   %1099 = add nuw i64 %.4368471.i.i, 1
   %exitcond510.not.i.i = icmp eq i64 %1099, %.0.i160.i125
-  br i1 %exitcond510.not.i.i, label %._crit_edge475.i.i, label %1060, !llvm.loop !121
+  br i1 %exitcond510.not.i.i, label %._crit_edge475.i.i, label %1060, !llvm.loop !120
 
 ._crit_edge475.i.i:                               ; preds = %1098, %.preheader.i172.i204
   tail call void @BrotliFree(ptr noundef %0, ptr noundef %930) #8
   tail call void @BrotliFree(ptr noundef %0, ptr noundef %1052) #8
   tail call void @BrotliFree(ptr noundef %0, ptr noundef %.0344.lcssa.i.i196) #8
   %1100 = getelementptr inbounds nuw i8, ptr %8, i64 32
-  %1101 = load i64, ptr %1100, align 8, !tbaa !22
+  %1101 = load i64, ptr %1100, align 8, !tbaa !21
   %1102 = icmp ult i64 %1101, %.0.i160.i125
   br i1 %1102, label %1103, label %1117
 
@@ -2336,11 +2336,11 @@ BuildBlockHistogramsCommand.exit.i:               ; preds = %ClearHistogramsComm
   %.0333.i.i228 = phi i64 [ %..i.i227, %1103 ], [ %1107, %1105 ]
   %1106 = icmp ult i64 %.0333.i.i228, %.0.i160.i125
   %1107 = shl i64 %.0333.i.i228, 1
-  br i1 %1106, label %1105, label %1108, !llvm.loop !122
+  br i1 %1106, label %1105, label %1108, !llvm.loop !121
 
 1108:                                             ; preds = %1105
   %1109 = tail call ptr @BrotliAllocate(ptr noundef %0, i64 noundef %.0333.i.i228) #8
-  %1110 = load i64, ptr %1100, align 8, !tbaa !22
+  %1110 = load i64, ptr %1100, align 8, !tbaa !21
   %.not394.i.i229 = icmp eq i64 %1110, 0
   br i1 %.not394.i.i229, label %1114, label %1111
 
@@ -2355,12 +2355,12 @@ BuildBlockHistogramsCommand.exit.i:               ; preds = %ClearHistogramsComm
   %1116 = load ptr, ptr %1115, align 8, !tbaa !3
   tail call void @BrotliFree(ptr noundef %0, ptr noundef %1116) #8
   store ptr %1109, ptr %1115, align 8, !tbaa !3
-  store i64 %.0333.i.i228, ptr %1100, align 8, !tbaa !22
+  store i64 %.0333.i.i228, ptr %1100, align 8, !tbaa !21
   br label %1117
 
 1117:                                             ; preds = %1114, %._crit_edge475.i.i
   %1118 = getelementptr inbounds nuw i8, ptr %8, i64 40
-  %1119 = load i64, ptr %1118, align 8, !tbaa !25
+  %1119 = load i64, ptr %1118, align 8, !tbaa !24
   %1120 = icmp ult i64 %1119, %.0.i160.i125
   br i1 %1120, label %1121, label %1136
 
@@ -2373,12 +2373,12 @@ BuildBlockHistogramsCommand.exit.i:               ; preds = %ClearHistogramsComm
   %.0330.i.i225 = phi i64 [ %.403.i.i224, %1121 ], [ %1125, %1123 ]
   %1124 = icmp ult i64 %.0330.i.i225, %.0.i160.i125
   %1125 = shl i64 %.0330.i.i225, 1
-  br i1 %1124, label %1123, label %1126, !llvm.loop !123
+  br i1 %1124, label %1123, label %1126, !llvm.loop !122
 
 1126:                                             ; preds = %1123
   %1127 = shl i64 %.0330.i.i225, 2
   %1128 = tail call ptr @BrotliAllocate(ptr noundef %0, i64 noundef %1127) #8
-  %1129 = load i64, ptr %1118, align 8, !tbaa !25
+  %1129 = load i64, ptr %1118, align 8, !tbaa !24
   %.not396.i.i226 = icmp eq i64 %1129, 0
   br i1 %.not396.i.i226, label %.thread516.i.i, label %1130
 
@@ -2394,7 +2394,7 @@ BuildBlockHistogramsCommand.exit.i:               ; preds = %ClearHistogramsComm
   %1135 = load ptr, ptr %1134, align 8, !tbaa !11
   tail call void @BrotliFree(ptr noundef %0, ptr noundef %1135) #8
   store ptr %1128, ptr %1134, align 8, !tbaa !11
-  store i64 %.0330.i.i225, ptr %1118, align 8, !tbaa !25
+  store i64 %.0330.i.i225, ptr %1118, align 8, !tbaa !24
   br label %.lr.ph481.i.i
 
 1136:                                             ; preds = %1117
@@ -2411,31 +2411,31 @@ BuildBlockHistogramsCommand.exit.i:               ; preds = %ClearHistogramsComm
   %.0328477.i.i = phi i32 [ 0, %.lr.ph481.i.i ], [ %.1329.i.i219, %1158 ]
   %.5476.i.i = phi i64 [ 0, %.lr.ph481.i.i ], [ %1143, %1158 ]
   %1140 = getelementptr inbounds nuw i32, ptr %928, i64 %.5476.i.i
-  %1141 = load i32, ptr %1140, align 4, !tbaa !28
+  %1141 = load i32, ptr %1140, align 4, !tbaa !27
   %1142 = add i32 %1141, %.0328477.i.i
   %1143 = add nuw i64 %.5476.i.i, 1
   %1144 = icmp eq i64 %1143, %.0.i160.i125
   %.phi.trans.insert.i.i216 = getelementptr inbounds nuw i32, ptr %917, i64 %.5476.i.i
-  %.pre.i.i217 = load i32, ptr %.phi.trans.insert.i.i216, align 4, !tbaa !28
+  %.pre.i.i217 = load i32, ptr %.phi.trans.insert.i.i216, align 4, !tbaa !27
   br i1 %1144, label %._crit_edge512.i.i, label %1145
 
 1145:                                             ; preds = %1139
   %1146 = getelementptr inbounds nuw i32, ptr %917, i64 %1143
-  %1147 = load i32, ptr %1146, align 4, !tbaa !28
+  %1147 = load i32, ptr %1146, align 4, !tbaa !27
   %.not397.i.i218 = icmp eq i32 %.pre.i.i217, %1147
   br i1 %.not397.i.i218, label %1158, label %._crit_edge512.i.i
 
 ._crit_edge512.i.i:                               ; preds = %1145, %1139
   %1148 = zext i32 %.pre.i.i217 to i64
   %1149 = getelementptr inbounds nuw i32, ptr %1056, i64 %1148
-  %1150 = load i32, ptr %1149, align 4, !tbaa !28
+  %1150 = load i32, ptr %1149, align 4, !tbaa !27
   %1151 = trunc i32 %1150 to i8
   %1152 = load ptr, ptr %1137, align 8, !tbaa !3
   %1153 = getelementptr inbounds nuw i8, ptr %1152, i64 %.0326478.i.i
-  store i8 %1151, ptr %1153, align 1, !tbaa !27
+  store i8 %1151, ptr %1153, align 1, !tbaa !26
   %1154 = load ptr, ptr %1138, align 8, !tbaa !11
   %1155 = getelementptr inbounds nuw i32, ptr %1154, i64 %.0326478.i.i
-  store i32 %1142, ptr %1155, align 4, !tbaa !28
+  store i32 %1142, ptr %1155, align 4, !tbaa !27
   %1156 = tail call i8 @llvm.umax.i8(i8 %.0479.i.i, i8 %1151)
   %1157 = add i64 %.0326478.i.i, 1
   br label %1158
@@ -2444,7 +2444,7 @@ BuildBlockHistogramsCommand.exit.i:               ; preds = %ClearHistogramsComm
   %.1329.i.i219 = phi i32 [ 0, %._crit_edge512.i.i ], [ %1142, %1145 ]
   %.1327.i.i220 = phi i64 [ %1157, %._crit_edge512.i.i ], [ %.0326478.i.i, %1145 ]
   %.1.i173.i221 = phi i8 [ %1156, %._crit_edge512.i.i ], [ %.0479.i.i, %1145 ]
-  br i1 %1144, label %._crit_edge482.loopexit.i.i, label %1139, !llvm.loop !124
+  br i1 %1144, label %._crit_edge482.loopexit.i.i, label %1139, !llvm.loop !123
 
 ._crit_edge482.loopexit.i.i:                      ; preds = %1158
   %1159 = zext i8 %.1.i173.i221 to i64
@@ -2455,8 +2455,8 @@ BuildBlockHistogramsCommand.exit.i:               ; preds = %ClearHistogramsComm
   %.0326.lcssa.i.i222 = phi i64 [ 0, %1136 ], [ %.1327.i.i220, %._crit_edge482.loopexit.i.i ]
   %.0.lcssa.i.i223 = phi i64 [ 1, %1136 ], [ %1160, %._crit_edge482.loopexit.i.i ]
   %1162 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store i64 %.0326.lcssa.i.i222, ptr %1162, align 8, !tbaa !23
-  store i64 %.0.lcssa.i.i223, ptr %8, align 8, !tbaa !21
+  store i64 %.0326.lcssa.i.i222, ptr %1162, align 8, !tbaa !22
+  store i64 %.0.lcssa.i.i223, ptr %8, align 8, !tbaa !20
   tail call void @BrotliFree(ptr noundef %0, ptr noundef %1056) #8
   tail call void @BrotliFree(ptr noundef %0, ptr noundef %918) #8
   tail call void @BrotliFree(ptr noundef %0, ptr noundef %917) #8
@@ -2474,31 +2474,31 @@ BuildBlockHistogramsCommand.exit.i:               ; preds = %ClearHistogramsComm
   %.054491 = phi i64 [ %.1, %1179 ], [ 0, %.lr.ph494.preheader ]
   %1165 = getelementptr inbounds nuw %struct.Command, ptr %1, i64 %.0492
   %1166 = getelementptr inbounds nuw i8, ptr %1165, i64 4
-  %1167 = load i32, ptr %1166, align 4, !tbaa !19
+  %1167 = load i32, ptr %1166, align 4, !tbaa !18
   %1168 = and i32 %1167, 33554431
   %.not60 = icmp eq i32 %1168, 0
   br i1 %.not60, label %1179, label %1169
 
 1169:                                             ; preds = %.lr.ph494
   %1170 = getelementptr inbounds nuw i8, ptr %1165, i64 12
-  %1171 = load i16, ptr %1170, align 4, !tbaa !85
+  %1171 = load i16, ptr %1170, align 4, !tbaa !84
   %1172 = icmp ugt i16 %1171, 127
   br i1 %1172, label %1173, label %1179
 
 1173:                                             ; preds = %1169
   %1174 = getelementptr inbounds nuw i8, ptr %1165, i64 14
-  %1175 = load i16, ptr %1174, align 2, !tbaa !125
+  %1175 = load i16, ptr %1174, align 2, !tbaa !124
   %1176 = and i16 %1175, 1023
   %1177 = add i64 %.054491, 1
   %1178 = getelementptr inbounds nuw i16, ptr %1164, i64 %.054491
-  store i16 %1176, ptr %1178, align 2, !tbaa !62
+  store i16 %1176, ptr %1178, align 2, !tbaa !61
   br label %1179
 
 1179:                                             ; preds = %1173, %1169, %.lr.ph494
   %.1 = phi i64 [ %1177, %1173 ], [ %.054491, %1169 ], [ %.054491, %.lr.ph494 ]
   %1180 = add nuw i64 %.0492, 1
   %exitcond515.not = icmp eq i64 %1180, %2
-  br i1 %exitcond515.not, label %._crit_edge495, label %.lr.ph494, !llvm.loop !126
+  br i1 %exitcond515.not, label %._crit_edge495, label %.lr.ph494, !llvm.loop !125
 
 ._crit_edge495:                                   ; preds = %1179
   %.lhs.trunc.i241 = trunc i64 %.1 to i16
@@ -2512,7 +2512,7 @@ BuildBlockHistogramsCommand.exit.i:               ; preds = %ClearHistogramsComm
 
 .thread528:                                       ; preds = %1161, %.thread519, %._crit_edge495
   %1185 = phi ptr [ %1164, %._crit_edge495 ], [ null, %.thread519 ], [ %1163, %1161 ]
-  store i64 1, ptr %9, align 8, !tbaa !21
+  store i64 1, ptr %9, align 8, !tbaa !20
   br label %SplitByteVectorDistance.exit
 
 1186:                                             ; preds = %._crit_edge495
@@ -2521,9 +2521,9 @@ BuildBlockHistogramsCommand.exit.i:               ; preds = %ClearHistogramsComm
 
 1188:                                             ; preds = %1186
   %1189 = getelementptr inbounds nuw i8, ptr %9, i64 32
-  %1190 = load i64, ptr %1189, align 8, !tbaa !22
+  %1190 = load i64, ptr %1189, align 8, !tbaa !21
   %1191 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %1192 = load i64, ptr %1191, align 8, !tbaa !23
+  %1192 = load i64, ptr %1191, align 8, !tbaa !22
   %1193 = add i64 %1192, 1
   %1194 = icmp ult i64 %1190, %1193
   br i1 %1194, label %1195, label %1209
@@ -2537,11 +2537,11 @@ BuildBlockHistogramsCommand.exit.i:               ; preds = %ClearHistogramsComm
   %.0137.i446 = phi i64 [ %..i445, %1195 ], [ %1199, %1197 ]
   %1198 = icmp ult i64 %.0137.i446, %1193
   %1199 = shl i64 %.0137.i446, 1
-  br i1 %1198, label %1197, label %1200, !llvm.loop !127
+  br i1 %1198, label %1197, label %1200, !llvm.loop !126
 
 1200:                                             ; preds = %1197
   %1201 = tail call ptr @BrotliAllocate(ptr noundef %0, i64 noundef %.0137.i446) #8
-  %1202 = load i64, ptr %1189, align 8, !tbaa !22
+  %1202 = load i64, ptr %1189, align 8, !tbaa !21
   %.not151.i447 = icmp eq i64 %1202, 0
   br i1 %.not151.i447, label %1206, label %1203
 
@@ -2556,8 +2556,8 @@ BuildBlockHistogramsCommand.exit.i:               ; preds = %ClearHistogramsComm
   %1208 = load ptr, ptr %1207, align 8, !tbaa !3
   tail call void @BrotliFree(ptr noundef %0, ptr noundef %1208) #8
   store ptr %1201, ptr %1207, align 8, !tbaa !3
-  store i64 %.0137.i446, ptr %1189, align 8, !tbaa !22
-  %.pre.i448 = load i64, ptr %1191, align 8, !tbaa !23
+  store i64 %.0137.i446, ptr %1189, align 8, !tbaa !21
+  %.pre.i448 = load i64, ptr %1191, align 8, !tbaa !22
   %.pre187.i449 = add i64 %.pre.i448, 1
   br label %1209
 
@@ -2565,7 +2565,7 @@ BuildBlockHistogramsCommand.exit.i:               ; preds = %ClearHistogramsComm
   %.pre-phi.i440 = phi i64 [ %.pre187.i449, %1206 ], [ %1193, %1188 ]
   %1210 = phi i64 [ %.pre.i448, %1206 ], [ %1192, %1188 ]
   %1211 = getelementptr inbounds nuw i8, ptr %9, i64 40
-  %1212 = load i64, ptr %1211, align 8, !tbaa !25
+  %1212 = load i64, ptr %1211, align 8, !tbaa !24
   %1213 = icmp ult i64 %1212, %.pre-phi.i440
   br i1 %1213, label %1214, label %1230
 
@@ -2578,12 +2578,12 @@ BuildBlockHistogramsCommand.exit.i:               ; preds = %ClearHistogramsComm
   %.0136.i442 = phi i64 [ %.154.i441, %1214 ], [ %1218, %1216 ]
   %1217 = icmp ult i64 %.0136.i442, %.pre-phi.i440
   %1218 = shl i64 %.0136.i442, 1
-  br i1 %1217, label %1216, label %1219, !llvm.loop !128
+  br i1 %1217, label %1216, label %1219, !llvm.loop !127
 
 1219:                                             ; preds = %1216
   %1220 = shl i64 %.0136.i442, 2
   %1221 = tail call ptr @BrotliAllocate(ptr noundef %0, i64 noundef %1220) #8
-  %1222 = load i64, ptr %1211, align 8, !tbaa !25
+  %1222 = load i64, ptr %1211, align 8, !tbaa !24
   %.not153.i443 = icmp eq i64 %1222, 0
   br i1 %.not153.i443, label %1227, label %1223
 
@@ -2599,25 +2599,25 @@ BuildBlockHistogramsCommand.exit.i:               ; preds = %ClearHistogramsComm
   %1229 = load ptr, ptr %1228, align 8, !tbaa !11
   tail call void @BrotliFree(ptr noundef %0, ptr noundef %1229) #8
   store ptr %1221, ptr %1228, align 8, !tbaa !11
-  store i64 %.0136.i442, ptr %1211, align 8, !tbaa !25
-  %.pre186.i444 = load i64, ptr %1191, align 8, !tbaa !23
+  store i64 %.0136.i442, ptr %1211, align 8, !tbaa !24
+  %.pre186.i444 = load i64, ptr %1191, align 8, !tbaa !22
   br label %1230
 
 1230:                                             ; preds = %1227, %1209
   %1231 = phi i64 [ %.pre186.i444, %1227 ], [ %1210, %1209 ]
-  store i64 1, ptr %9, align 8, !tbaa !21
+  store i64 1, ptr %9, align 8, !tbaa !20
   %1232 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %1233 = load ptr, ptr %1232, align 8, !tbaa !3
   %1234 = getelementptr inbounds nuw i8, ptr %1233, i64 %1231
-  store i8 0, ptr %1234, align 1, !tbaa !27
+  store i8 0, ptr %1234, align 1, !tbaa !26
   %1235 = trunc nuw nsw i64 %.1 to i32
   %1236 = getelementptr inbounds nuw i8, ptr %9, i64 24
   %1237 = load ptr, ptr %1236, align 8, !tbaa !11
-  %1238 = load i64, ptr %1191, align 8, !tbaa !23
+  %1238 = load i64, ptr %1191, align 8, !tbaa !22
   %1239 = getelementptr inbounds nuw i32, ptr %1237, i64 %1238
-  store i32 %1235, ptr %1239, align 4, !tbaa !28
+  store i32 %1235, ptr %1239, align 4, !tbaa !27
   %1240 = add i64 %1238, 1
-  store i64 %1240, ptr %1191, align 8, !tbaa !23
+  store i64 %1240, ptr %1191, align 8, !tbaa !22
   br label %SplitByteVectorDistance.exit
 
 1241:                                             ; preds = %1186
@@ -2636,10 +2636,10 @@ ClearHistogramsDistance.exit.preheader.i.i:       ; preds = %1247
   %1248 = getelementptr inbounds nuw %struct.HistogramDistance, ptr %1244, i64 %.0.i28.i.i244
   %1249 = getelementptr inbounds nuw i8, ptr %1248, i64 2184
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(2184) %1248, i8 0, i64 2184, i1 false)
-  store double 0x7FF0000000000000, ptr %1249, align 8, !tbaa !129
+  store double 0x7FF0000000000000, ptr %1249, align 8, !tbaa !128
   %1250 = add nuw nsw i64 %.0.i28.i.i244, 1
   %exitcond.not.i.i245 = icmp eq i64 %1250, %spec.select
-  br i1 %exitcond.not.i.i245, label %ClearHistogramsDistance.exit.preheader.i.i, label %1247, !llvm.loop !131
+  br i1 %exitcond.not.i.i245, label %ClearHistogramsDistance.exit.preheader.i.i, label %1247, !llvm.loop !130
 
 1251:                                             ; preds = %HistogramAddVectorDistance.exit.i.i, %ClearHistogramsDistance.exit.preheader.i.i
   %.02231.i.i246 = phi i64 [ 0, %ClearHistogramsDistance.exit.preheader.i.i ], [ %1275, %HistogramAddVectorDistance.exit.i.i ]
@@ -2665,29 +2665,29 @@ ClearHistogramsDistance.exit.preheader.i.i:       ; preds = %1247
   %1261 = getelementptr inbounds nuw %struct.HistogramDistance, ptr %1244, i64 %.02231.i.i246
   %1262 = getelementptr inbounds nuw i16, ptr %1164, i64 %spec.select.i.i252
   %1263 = getelementptr inbounds nuw i8, ptr %1261, i64 2176
-  %1264 = load i64, ptr %1263, align 8, !tbaa !132
+  %1264 = load i64, ptr %1263, align 8, !tbaa !131
   %1265 = add i64 %1264, 40
-  store i64 %1265, ptr %1263, align 8, !tbaa !132
+  store i64 %1265, ptr %1263, align 8, !tbaa !131
   br label %1266
 
 1266:                                             ; preds = %1266, %1259
   %1267 = phi i64 [ 40, %1259 ], [ %1274, %1266 ]
   %.05.i29.i.i253 = phi ptr [ %1262, %1259 ], [ %1268, %1266 ]
   %1268 = getelementptr inbounds nuw i8, ptr %.05.i29.i.i253, i64 2
-  %1269 = load i16, ptr %.05.i29.i.i253, align 2, !tbaa !62
+  %1269 = load i16, ptr %.05.i29.i.i253, align 2, !tbaa !61
   %1270 = zext i16 %1269 to i64
   %1271 = getelementptr inbounds nuw [544 x i32], ptr %1261, i64 0, i64 %1270
-  %1272 = load i32, ptr %1271, align 4, !tbaa !28
+  %1272 = load i32, ptr %1271, align 4, !tbaa !27
   %1273 = add i32 %1272, 1
-  store i32 %1273, ptr %1271, align 4, !tbaa !28
+  store i32 %1273, ptr %1271, align 4, !tbaa !27
   %1274 = add nsw i64 %1267, -1
   %.not.i.i.i254 = icmp eq i64 %1274, 0
-  br i1 %.not.i.i.i254, label %HistogramAddVectorDistance.exit.i.i, label %1266, !llvm.loop !133
+  br i1 %.not.i.i.i254, label %HistogramAddVectorDistance.exit.i.i, label %1266, !llvm.loop !132
 
 HistogramAddVectorDistance.exit.i.i:              ; preds = %1266
   %1275 = add nuw nsw i64 %.02231.i.i246, 1
   %exitcond32.not.i.i255 = icmp eq i64 %1275, %spec.select
-  br i1 %exitcond32.not.i.i255, label %InitialEntropyCodesDistance.exit.i, label %1251, !llvm.loop !134
+  br i1 %exitcond32.not.i.i255, label %InitialEntropyCodesDistance.exit.i, label %1251, !llvm.loop !133
 
 InitialEntropyCodesDistance.exit.i:               ; preds = %HistogramAddVectorDistance.exit.i.i
   %1276 = getelementptr inbounds nuw %struct.HistogramDistance, ptr %1244, i64 %spec.select
@@ -2710,52 +2710,52 @@ InitialEntropyCodesDistance.exit.i:               ; preds = %HistogramAddVectorD
   %1287 = zext i32 %1286 to i64
   %1288 = urem i64 %1287, %1284
   %1289 = getelementptr inbounds nuw i16, ptr %1164, i64 %1288
-  store i64 40, ptr %1283, align 8, !tbaa !132
+  store i64 40, ptr %1283, align 8, !tbaa !131
   br label %1290
 
 1290:                                             ; preds = %1290, %1285
   %1291 = phi i64 [ 40, %1285 ], [ %1298, %1290 ]
   %.05.i12.i.i.i259 = phi ptr [ %1289, %1285 ], [ %1292, %1290 ]
   %1292 = getelementptr inbounds nuw i8, ptr %.05.i12.i.i.i259, i64 2
-  %1293 = load i16, ptr %.05.i12.i.i.i259, align 2, !tbaa !62
+  %1293 = load i16, ptr %.05.i12.i.i.i259, align 2, !tbaa !61
   %1294 = zext i16 %1293 to i64
   %1295 = getelementptr inbounds nuw [544 x i32], ptr %1276, i64 0, i64 %1294
-  %1296 = load i32, ptr %1295, align 4, !tbaa !28
+  %1296 = load i32, ptr %1295, align 4, !tbaa !27
   %1297 = add i32 %1296, 1
-  store i32 %1297, ptr %1295, align 4, !tbaa !28
+  store i32 %1297, ptr %1295, align 4, !tbaa !27
   %1298 = add nsw i64 %1291, -1
   %.not.i.i.i.i260 = icmp eq i64 %1298, 0
-  br i1 %.not.i.i.i.i260, label %RandomSampleDistance.exit.i.i, label %1290, !llvm.loop !133
+  br i1 %.not.i.i.i.i260, label %RandomSampleDistance.exit.i.i, label %1290, !llvm.loop !132
 
 RandomSampleDistance.exit.i.i:                    ; preds = %1290
   %1299 = urem i64 %.020.i.i257, %spec.select
   %1300 = getelementptr inbounds nuw %struct.HistogramDistance, ptr %1244, i64 %1299
   %1301 = getelementptr inbounds nuw i8, ptr %1300, i64 2176
-  %1302 = load i64, ptr %1301, align 8, !tbaa !132
+  %1302 = load i64, ptr %1301, align 8, !tbaa !131
   %1303 = add i64 %1302, 40
-  store i64 %1303, ptr %1301, align 8, !tbaa !132
+  store i64 %1303, ptr %1301, align 8, !tbaa !131
   br label %1304
 
 1304:                                             ; preds = %1304, %RandomSampleDistance.exit.i.i
   %.0.i18.i.i261 = phi i64 [ 0, %RandomSampleDistance.exit.i.i ], [ %1310, %1304 ]
   %1305 = getelementptr inbounds nuw [544 x i32], ptr %1276, i64 0, i64 %.0.i18.i.i261
-  %1306 = load i32, ptr %1305, align 4, !tbaa !28
+  %1306 = load i32, ptr %1305, align 4, !tbaa !27
   %1307 = getelementptr inbounds nuw [544 x i32], ptr %1300, i64 0, i64 %.0.i18.i.i261
-  %1308 = load i32, ptr %1307, align 4, !tbaa !28
+  %1308 = load i32, ptr %1307, align 4, !tbaa !27
   %1309 = add i32 %1308, %1306
-  store i32 %1309, ptr %1307, align 4, !tbaa !28
+  store i32 %1309, ptr %1307, align 4, !tbaa !27
   %1310 = add nuw nsw i64 %.0.i18.i.i261, 1
   %exitcond.not.i155.i262 = icmp eq i64 %1310, 544
-  br i1 %exitcond.not.i155.i262, label %HistogramAddHistogramDistance.exit.i.i, label %1304, !llvm.loop !135
+  br i1 %exitcond.not.i155.i262, label %HistogramAddHistogramDistance.exit.i.i, label %1304, !llvm.loop !134
 
 HistogramAddHistogramDistance.exit.i.i:           ; preds = %1304
   %1311 = add nuw i64 %.020.i.i257, 1
   %exitcond21.not.i.i263 = icmp eq i64 %1311, %umax.i.i256
-  br i1 %exitcond21.not.i.i263, label %RefineEntropyCodesDistance.exit.i, label %1285, !llvm.loop !136
+  br i1 %exitcond21.not.i.i263, label %RefineEntropyCodesDistance.exit.i, label %1285, !llvm.loop !135
 
 RefineEntropyCodesDistance.exit.i:                ; preds = %HistogramAddHistogramDistance.exit.i.i
   %1312 = getelementptr inbounds nuw i8, ptr %1276, i64 2184
-  store double 0x7FF0000000000000, ptr %1312, align 8, !tbaa !129
+  store double 0x7FF0000000000000, ptr %1312, align 8, !tbaa !128
   %1313 = tail call ptr @BrotliAllocate(ptr noundef %0, i64 noundef %.1) #8
   %1314 = add nuw nsw i64 %spec.select, 7
   %1315 = lshr i64 %1314, 3
@@ -2776,7 +2776,7 @@ RefineEntropyCodesDistance.exit.i:                ; preds = %HistogramAddHistogr
   %1325 = shl nuw nsw i64 %spec.select, 1
   %1326 = tail call ptr @BrotliAllocate(ptr noundef %0, i64 noundef %1325) #8
   %1327 = getelementptr inbounds nuw i8, ptr %6, i64 4
-  %1328 = load i32, ptr %1327, align 4, !tbaa !38
+  %1328 = load i32, ptr %1327, align 4, !tbaa !37
   %.inv.i265 = icmp sgt i32 %1328, 10
   %1329 = select i1 %.inv.i265, i64 10, i64 3
   %1330 = add i64 %.1, -1
@@ -2792,7 +2792,7 @@ RefineEntropyCodesDistance.exit.i:                ; preds = %HistogramAddHistogr
   br i1 %1335, label %.preheader.preheader.i.i439, label %1336
 
 .preheader.preheader.i.i439:                      ; preds = %1332
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %1313, i8 0, i64 range(i64 128, 0) %.1, i1 false), !tbaa !27
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %1313, i8 0, i64 range(i64 128, 0) %.1, i1 false), !tbaa !26
   br label %FindBlocksDistance.exit.i
 
 1336:                                             ; preds = %1332
@@ -2803,32 +2803,32 @@ RefineEntropyCodesDistance.exit.i:                ; preds = %HistogramAddHistogr
 1338:                                             ; preds = %FastLog2.exit.i.i269, %1336
   %.1119131.i.i268 = phi i64 [ 0, %1336 ], [ %1350, %FastLog2.exit.i.i269 ]
   %1339 = getelementptr inbounds nuw %struct.HistogramDistance, ptr %1244, i64 %.1119131.i.i268, i32 1
-  %1340 = load i64, ptr %1339, align 8, !tbaa !132
+  %1340 = load i64, ptr %1339, align 8, !tbaa !131
   %1341 = and i64 %1340, 4294967295
   %1342 = icmp samesign ult i64 %1341, 256
   br i1 %1342, label %1343, label %1346
 
 1343:                                             ; preds = %1338
   %1344 = getelementptr inbounds nuw [256 x double], ptr @kBrotliLog2Table, i64 0, i64 %1341
-  %1345 = load double, ptr %1344, align 8, !tbaa !54
+  %1345 = load double, ptr %1344, align 8, !tbaa !53
   br label %FastLog2.exit.i.i269
 
 1346:                                             ; preds = %1338
   %1347 = uitofp nneg i64 %1341 to double
-  %1348 = tail call double @log2(double noundef %1347) #8, !tbaa !28
+  %1348 = tail call double @log2(double noundef %1347) #8, !tbaa !27
   br label %FastLog2.exit.i.i269
 
 FastLog2.exit.i.i269:                             ; preds = %1346, %1343
   %.0.i.i.i270 = phi double [ %1345, %1343 ], [ %1348, %1346 ]
   %1349 = getelementptr inbounds nuw double, ptr %1317, i64 %.1119131.i.i268
-  store double %.0.i.i.i270, ptr %1349, align 8, !tbaa !54
+  store double %.0.i.i.i270, ptr %1349, align 8, !tbaa !53
   %1350 = add nuw nsw i64 %.1119131.i.i268, 1
   %exitcond.not.i156.i271 = icmp eq i64 %1350, %.1179.i267
-  br i1 %exitcond.not.i156.i271, label %.preheader130.i.i272, label %1338, !llvm.loop !137
+  br i1 %exitcond.not.i156.i271, label %.preheader130.i.i272, label %1338, !llvm.loop !136
 
 .loopexit129.i.i279:                              ; preds = %BitCost.exit.i.i277
   %.not.i157.i280 = icmp eq i64 %1351, 0
-  br i1 %.not.i157.i280, label %1372, label %.preheader130.i.i272, !llvm.loop !138
+  br i1 %.not.i157.i280, label %1372, label %.preheader130.i.i272, !llvm.loop !137
 
 .preheader130.i.i272:                             ; preds = %FastLog2.exit.i.i269, %.loopexit129.i.i279
   %.2133.i.i273 = phi i64 [ %1351, %.loopexit129.i.i279 ], [ 544, %FastLog2.exit.i.i269 ]
@@ -2841,9 +2841,9 @@ FastLog2.exit.i.i269:                             ; preds = %1346, %1343
 1354:                                             ; preds = %BitCost.exit.i.i277, %.preheader130.i.i272
   %.0120132.i.i275 = phi i64 [ 0, %.preheader130.i.i272 ], [ %1371, %BitCost.exit.i.i277 ]
   %1355 = getelementptr inbounds nuw double, ptr %1317, i64 %.0120132.i.i275
-  %1356 = load double, ptr %1355, align 8, !tbaa !54
+  %1356 = load double, ptr %1355, align 8, !tbaa !53
   %gep.i.i276 = getelementptr %struct.HistogramDistance, ptr %invariant.gep.i.i274, i64 %.0120132.i.i275
-  %1357 = load i32, ptr %gep.i.i276, align 4, !tbaa !28
+  %1357 = load i32, ptr %gep.i.i276, align 4, !tbaa !27
   %1358 = zext i32 %1357 to i64
   %1359 = icmp eq i32 %1357, 0
   br i1 %1359, label %BitCost.exit.i.i277, label %1360
@@ -2854,22 +2854,22 @@ FastLog2.exit.i.i269:                             ; preds = %1346, %1343
 
 1362:                                             ; preds = %1360
   %1363 = getelementptr inbounds nuw [256 x double], ptr @kBrotliLog2Table, i64 0, i64 %1358
-  %1364 = load double, ptr %1363, align 8, !tbaa !54
+  %1364 = load double, ptr %1363, align 8, !tbaa !53
   br label %BitCost.exit.i.i277
 
 1365:                                             ; preds = %1360
   %1366 = uitofp i32 %1357 to double
-  %1367 = tail call double @log2(double noundef %1366) #8, !tbaa !28
+  %1367 = tail call double @log2(double noundef %1366) #8, !tbaa !27
   br label %BitCost.exit.i.i277
 
 BitCost.exit.i.i277:                              ; preds = %1365, %1362, %1354
   %1368 = phi double [ -2.000000e+00, %1354 ], [ %1364, %1362 ], [ %1367, %1365 ]
   %1369 = fsub double %1356, %1368
   %1370 = getelementptr double, ptr %1353, i64 %.0120132.i.i275
-  store double %1369, ptr %1370, align 8, !tbaa !54
+  store double %1369, ptr %1370, align 8, !tbaa !53
   %1371 = add nuw nsw i64 %.0120132.i.i275, 1
   %exitcond145.not.i.i278 = icmp eq i64 %1371, %.1179.i267
-  br i1 %exitcond145.not.i.i278, label %.loopexit129.i.i279, label %1354, !llvm.loop !139
+  br i1 %exitcond145.not.i.i278, label %.loopexit129.i.i279, label %1354, !llvm.loop !138
 
 1372:                                             ; preds = %.loopexit129.i.i279
   %1373 = shl nuw nsw i64 %.1179.i267, 3
@@ -2881,7 +2881,7 @@ BitCost.exit.i.i277:                              ; preds = %1365, %1362, %1354
 1375:                                             ; preds = %1415, %1372
   %.0116137.i.i281 = phi i64 [ 0, %1372 ], [ %1416, %1415 ]
   %1376 = getelementptr inbounds nuw i16, ptr %1164, i64 %.0116137.i.i281
-  %1377 = load i16, ptr %1376, align 2, !tbaa !62
+  %1377 = load i16, ptr %1376, align 2, !tbaa !61
   %1378 = zext i16 %1377 to i64
   %1379 = mul nuw nsw i64 %.1179.i267, %1378
   %1380 = getelementptr inbounds nuw double, ptr %1317, i64 %1379
@@ -2892,24 +2892,24 @@ BitCost.exit.i.i277:                              ; preds = %1365, %1362, %1354
   %.0111135.i.i282 = phi i64 [ 0, %1375 ], [ %1392, %1391 ]
   %.0114134.i.i283 = phi double [ 0x547D42AEA2879F2E, %1375 ], [ %.1115.i.i284, %1391 ]
   %1383 = getelementptr inbounds nuw double, ptr %1380, i64 %.0111135.i.i282
-  %1384 = load double, ptr %1383, align 8, !tbaa !54
+  %1384 = load double, ptr %1383, align 8, !tbaa !53
   %1385 = getelementptr inbounds nuw double, ptr %1319, i64 %.0111135.i.i282
-  %1386 = load double, ptr %1385, align 8, !tbaa !54
+  %1386 = load double, ptr %1385, align 8, !tbaa !53
   %1387 = fadd double %1384, %1386
-  store double %1387, ptr %1385, align 8, !tbaa !54
+  store double %1387, ptr %1385, align 8, !tbaa !53
   %1388 = fcmp olt double %1387, %.0114134.i.i283
   br i1 %1388, label %1389, label %1391
 
 1389:                                             ; preds = %1382
   %1390 = trunc i64 %.0111135.i.i282 to i8
-  store i8 %1390, ptr %1381, align 1, !tbaa !27
+  store i8 %1390, ptr %1381, align 1, !tbaa !26
   br label %1391
 
 1391:                                             ; preds = %1389, %1382
   %.1115.i.i284 = phi double [ %1387, %1389 ], [ %.0114134.i.i283, %1382 ]
   %1392 = add nuw nsw i64 %.0111135.i.i282, 1
   %exitcond146.not.i.i285 = icmp eq i64 %1392, %.1179.i267
-  br i1 %exitcond146.not.i.i285, label %1393, label %1382, !llvm.loop !140
+  br i1 %exitcond146.not.i.i285, label %1393, label %1382, !llvm.loop !139
 
 1393:                                             ; preds = %1391
   %1394 = mul i64 %.0116137.i.i281, %1334
@@ -2924,9 +2924,9 @@ BitCost.exit.i.i277:                              ; preds = %1365, %1362, %1354
 1400:                                             ; preds = %1413, %1393
   %.1112136.i.i287 = phi i64 [ 0, %1393 ], [ %1414, %1413 ]
   %1401 = getelementptr inbounds nuw double, ptr %1319, i64 %.1112136.i.i287
-  %1402 = load double, ptr %1401, align 8, !tbaa !54
+  %1402 = load double, ptr %1401, align 8, !tbaa !53
   %1403 = fsub double %1402, %.1115.i.i284
-  store double %1403, ptr %1401, align 8, !tbaa !54
+  store double %1403, ptr %1401, align 8, !tbaa !53
   %1404 = fcmp ult double %1403, %.0113.i.i286
   br i1 %1404, label %1413, label %1405
 
@@ -2934,26 +2934,26 @@ BitCost.exit.i.i277:                              ; preds = %1365, %1362, %1354
   %1406 = trunc i64 %.1112136.i.i287 to i8
   %1407 = and i8 %1406, 7
   %1408 = shl nuw i8 1, %1407
-  store double %.0113.i.i286, ptr %1401, align 8, !tbaa !54
+  store double %.0113.i.i286, ptr %1401, align 8, !tbaa !53
   %1409 = lshr i64 %.1112136.i.i287, 3
   %1410 = getelementptr i8, ptr %1399, i64 %1409
-  %1411 = load i8, ptr %1410, align 1, !tbaa !27
+  %1411 = load i8, ptr %1410, align 1, !tbaa !26
   %1412 = or i8 %1411, %1408
-  store i8 %1412, ptr %1410, align 1, !tbaa !27
+  store i8 %1412, ptr %1410, align 1, !tbaa !26
   br label %1413
 
 1413:                                             ; preds = %1405, %1400
   %1414 = add nuw nsw i64 %.1112136.i.i287, 1
   %exitcond147.not.i.i288 = icmp eq i64 %1414, %.1179.i267
-  br i1 %exitcond147.not.i.i288, label %1415, label %1400, !llvm.loop !141
+  br i1 %exitcond147.not.i.i288, label %1415, label %1400, !llvm.loop !140
 
 1415:                                             ; preds = %1413
   %1416 = add nuw i64 %.0116137.i.i281, 1
   %exitcond148.not.i.i289 = icmp eq i64 %1416, %.1
-  br i1 %exitcond148.not.i.i289, label %.lr.ph.preheader.i.i290, label %1375, !llvm.loop !142
+  br i1 %exitcond148.not.i.i289, label %.lr.ph.preheader.i.i290, label %1375, !llvm.loop !141
 
 .lr.ph.preheader.i.i290:                          ; preds = %1415
-  %1417 = load i8, ptr %1331, align 1, !tbaa !27
+  %1417 = load i8, ptr %1331, align 1, !tbaa !26
   %1418 = mul i64 %1334, %1330
   br label %.lr.ph.i.i291
 
@@ -2970,14 +2970,14 @@ BitCost.exit.i.i277:                              ; preds = %1365, %1362, %1354
   %1424 = zext nneg i8 %1423 to i64
   %1425 = getelementptr i8, ptr %1324, i64 %1422
   %1426 = getelementptr i8, ptr %1425, i64 %1424
-  %1427 = load i8, ptr %1426, align 1, !tbaa !27
+  %1427 = load i8, ptr %1426, align 1, !tbaa !26
   %1428 = and i8 %1427, %1420
   %.not125.i.i296 = icmp eq i8 %1428, 0
   br i1 %.not125.i.i296, label %1433, label %1429
 
 1429:                                             ; preds = %.lr.ph.i.i291
   %1430 = getelementptr inbounds nuw i8, ptr %1313, i64 %1421
-  %1431 = load i8, ptr %1430, align 1, !tbaa !27
+  %1431 = load i8, ptr %1430, align 1, !tbaa !26
   %.not126.i.i297 = icmp ne i8 %.0107142.i.i292, %1431
   %1432 = zext i1 %.not126.i.i297 to i64
   %spec.select.i158.i298 = add i64 %.0109140.i.i294, %1432
@@ -2987,9 +2987,9 @@ BitCost.exit.i.i277:                              ; preds = %1365, %1362, %1354
   %.1110.i.i299 = phi i64 [ %.0109140.i.i294, %.lr.ph.i.i291 ], [ %spec.select.i158.i298, %1429 ]
   %.1.i159.i300 = phi i8 [ %.0107142.i.i292, %.lr.ph.i.i291 ], [ %1431, %1429 ]
   %1434 = getelementptr inbounds nuw i8, ptr %1313, i64 %1421
-  store i8 %.1.i159.i300, ptr %1434, align 1, !tbaa !27
+  store i8 %.1.i159.i300, ptr %1434, align 1, !tbaa !26
   %.not124.i.i301 = icmp eq i64 %1421, 0
-  br i1 %.not124.i.i301, label %FindBlocksDistance.exit.i, label %.lr.ph.i.i291, !llvm.loop !143
+  br i1 %.not124.i.i301, label %FindBlocksDistance.exit.i, label %.lr.ph.i.i291, !llvm.loop !142
 
 FindBlocksDistance.exit.i:                        ; preds = %1433, %.preheader.preheader.i.i439
   %.0.i160.i302 = phi i64 [ 1, %.preheader.preheader.i.i439 ], [ %.1110.i.i299, %1433 ]
@@ -2999,10 +2999,10 @@ FindBlocksDistance.exit.i:                        ; preds = %1433, %.preheader.p
 .lr.ph.i162.i304:                                 ; preds = %FindBlocksDistance.exit.i, %.lr.ph.i162.i304
   %.027.i.i305 = phi i64 [ %1436, %.lr.ph.i162.i304 ], [ 0, %FindBlocksDistance.exit.i ]
   %1435 = getelementptr inbounds nuw i16, ptr %1326, i64 %.027.i.i305
-  store i16 256, ptr %1435, align 2, !tbaa !62
+  store i16 256, ptr %1435, align 2, !tbaa !61
   %1436 = add nuw nsw i64 %.027.i.i305, 1
   %exitcond.not.i163.i306 = icmp eq i64 %1436, %.1179.i267
-  br i1 %exitcond.not.i163.i306, label %.preheader26.i.i307.preheader, label %.lr.ph.i162.i304, !llvm.loop !144
+  br i1 %exitcond.not.i163.i306, label %.preheader26.i.i307.preheader, label %.lr.ph.i162.i304, !llvm.loop !143
 
 .preheader26.i.i307.preheader:                    ; preds = %.lr.ph.i162.i304, %FindBlocksDistance.exit.i
   br label %.preheader26.i.i307
@@ -3011,36 +3011,36 @@ FindBlocksDistance.exit.i:                        ; preds = %1433, %.preheader.p
   %.129.i.i308 = phi i64 [ %1446, %1445 ], [ 0, %.preheader26.i.i307.preheader ]
   %.02328.i.i309 = phi i16 [ %.124.i.i310, %1445 ], [ 0, %.preheader26.i.i307.preheader ]
   %1437 = getelementptr inbounds nuw i8, ptr %1313, i64 %.129.i.i308
-  %1438 = load i8, ptr %1437, align 1, !tbaa !27
+  %1438 = load i8, ptr %1437, align 1, !tbaa !26
   %1439 = zext i8 %1438 to i64
   %1440 = getelementptr inbounds nuw i16, ptr %1326, i64 %1439
-  %1441 = load i16, ptr %1440, align 2, !tbaa !62
+  %1441 = load i16, ptr %1440, align 2, !tbaa !61
   %1442 = icmp eq i16 %1441, 256
   br i1 %1442, label %1443, label %1445
 
 1443:                                             ; preds = %.preheader26.i.i307
   %1444 = add i16 %.02328.i.i309, 1
-  store i16 %.02328.i.i309, ptr %1440, align 2, !tbaa !62
+  store i16 %.02328.i.i309, ptr %1440, align 2, !tbaa !61
   br label %1445
 
 1445:                                             ; preds = %1443, %.preheader26.i.i307
   %.124.i.i310 = phi i16 [ %1444, %1443 ], [ %.02328.i.i309, %.preheader26.i.i307 ]
   %1446 = add nuw i64 %.129.i.i308, 1
   %exitcond31.not.i.i311 = icmp eq i64 %1446, %.1
-  br i1 %exitcond31.not.i.i311, label %.preheader.i.i313, label %.preheader26.i.i307, !llvm.loop !145
+  br i1 %exitcond31.not.i.i311, label %.preheader.i.i313, label %.preheader26.i.i307, !llvm.loop !144
 
 .preheader.i.i313:                                ; preds = %1445, %.preheader.i.i313
   %.230.i.i314 = phi i64 [ %1453, %.preheader.i.i313 ], [ 0, %1445 ]
   %1447 = getelementptr inbounds nuw i8, ptr %1313, i64 %.230.i.i314
-  %1448 = load i8, ptr %1447, align 1, !tbaa !27
+  %1448 = load i8, ptr %1447, align 1, !tbaa !26
   %1449 = zext i8 %1448 to i64
   %1450 = getelementptr inbounds nuw i16, ptr %1326, i64 %1449
-  %1451 = load i16, ptr %1450, align 2, !tbaa !62
+  %1451 = load i16, ptr %1450, align 2, !tbaa !61
   %1452 = trunc i16 %1451 to i8
-  store i8 %1452, ptr %1447, align 1, !tbaa !27
+  store i8 %1452, ptr %1447, align 1, !tbaa !26
   %1453 = add nuw i64 %.230.i.i314, 1
   %exitcond32.not.i164.i315 = icmp eq i64 %1453, %.1
-  br i1 %exitcond32.not.i164.i315, label %RemapBlockIdsDistance.exit.i, label %.preheader.i.i313, !llvm.loop !146
+  br i1 %exitcond32.not.i164.i315, label %RemapBlockIdsDistance.exit.i, label %.preheader.i.i313, !llvm.loop !145
 
 RemapBlockIdsDistance.exit.i:                     ; preds = %.preheader.i.i313
   %1454 = zext i16 %.124.i.i310 to i64
@@ -3052,10 +3052,10 @@ RemapBlockIdsDistance.exit.i:                     ; preds = %.preheader.i.i313
   %1455 = getelementptr inbounds nuw %struct.HistogramDistance, ptr %1244, i64 %.0.i9.i.i318
   %1456 = getelementptr inbounds nuw i8, ptr %1455, i64 2184
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(2184) %1455, i8 0, i64 2184, i1 false)
-  store double 0x7FF0000000000000, ptr %1456, align 8, !tbaa !129
+  store double 0x7FF0000000000000, ptr %1456, align 8, !tbaa !128
   %1457 = add nuw nsw i64 %.0.i9.i.i318, 1
   %exitcond.not.i167.i319 = icmp eq i64 %1457, %1454
-  br i1 %exitcond.not.i167.i319, label %ClearHistogramsDistance.exit.i.i.preheader, label %.lr.ph.i166.i317, !llvm.loop !131
+  br i1 %exitcond.not.i167.i319, label %ClearHistogramsDistance.exit.i.i.preheader, label %.lr.ph.i166.i317, !llvm.loop !130
 
 ClearHistogramsDistance.exit.i.i.preheader:       ; preds = %.lr.ph.i166.i317, %RemapBlockIdsDistance.exit.i
   br label %ClearHistogramsDistance.exit.i.i
@@ -3063,28 +3063,28 @@ ClearHistogramsDistance.exit.i.i.preheader:       ; preds = %.lr.ph.i166.i317, %
 ClearHistogramsDistance.exit.i.i:                 ; preds = %ClearHistogramsDistance.exit.i.i.preheader, %ClearHistogramsDistance.exit.i.i
   %.010.i.i320 = phi i64 [ %1471, %ClearHistogramsDistance.exit.i.i ], [ 0, %ClearHistogramsDistance.exit.i.i.preheader ]
   %1458 = getelementptr inbounds nuw i8, ptr %1313, i64 %.010.i.i320
-  %1459 = load i8, ptr %1458, align 1, !tbaa !27
+  %1459 = load i8, ptr %1458, align 1, !tbaa !26
   %1460 = zext i8 %1459 to i64
   %1461 = getelementptr inbounds nuw %struct.HistogramDistance, ptr %1244, i64 %1460
   %1462 = getelementptr inbounds nuw i16, ptr %1164, i64 %.010.i.i320
-  %1463 = load i16, ptr %1462, align 2, !tbaa !62
+  %1463 = load i16, ptr %1462, align 2, !tbaa !61
   %1464 = zext i16 %1463 to i64
   %1465 = getelementptr inbounds nuw [544 x i32], ptr %1461, i64 0, i64 %1464
-  %1466 = load i32, ptr %1465, align 4, !tbaa !28
+  %1466 = load i32, ptr %1465, align 4, !tbaa !27
   %1467 = add i32 %1466, 1
-  store i32 %1467, ptr %1465, align 4, !tbaa !28
+  store i32 %1467, ptr %1465, align 4, !tbaa !27
   %1468 = getelementptr inbounds nuw i8, ptr %1461, i64 2176
-  %1469 = load i64, ptr %1468, align 8, !tbaa !132
+  %1469 = load i64, ptr %1468, align 8, !tbaa !131
   %1470 = add i64 %1469, 1
-  store i64 %1470, ptr %1468, align 8, !tbaa !132
+  store i64 %1470, ptr %1468, align 8, !tbaa !131
   %1471 = add nuw i64 %.010.i.i320, 1
   %exitcond11.not.i.i321 = icmp eq i64 %1471, %.1
-  br i1 %exitcond11.not.i.i321, label %BuildBlockHistogramsDistance.exit.i, label %ClearHistogramsDistance.exit.i.i, !llvm.loop !147
+  br i1 %exitcond11.not.i.i321, label %BuildBlockHistogramsDistance.exit.i, label %ClearHistogramsDistance.exit.i.i, !llvm.loop !146
 
 BuildBlockHistogramsDistance.exit.i:              ; preds = %ClearHistogramsDistance.exit.i.i
   %1472 = add nuw nsw i64 %.0180.i266, 1
   %exitcond.not.i322 = icmp eq i64 %1472, %1329
-  br i1 %exitcond.not.i322, label %1473, label %1332, !llvm.loop !148
+  br i1 %exitcond.not.i322, label %1473, label %1332, !llvm.loop !147
 
 1473:                                             ; preds = %BuildBlockHistogramsDistance.exit.i
   tail call void @BrotliFree(ptr noundef %0, ptr noundef %1317) #8
@@ -3160,18 +3160,18 @@ BuildBlockHistogramsDistance.exit.i:              ; preds = %ClearHistogramsDist
   %.0358416.i.i331 = phi i64 [ 0, %1502 ], [ %.1359.i.i334, %1525 ]
   %.0364415.i.i332 = phi i64 [ 0, %1502 ], [ %1516, %1525 ]
   %1513 = getelementptr inbounds nuw i32, ptr %1506, i64 %.0358416.i.i331
-  %1514 = load i32, ptr %1513, align 4, !tbaa !28
+  %1514 = load i32, ptr %1513, align 4, !tbaa !27
   %1515 = add i32 %1514, 1
-  store i32 %1515, ptr %1513, align 4, !tbaa !28
+  store i32 %1515, ptr %1513, align 4, !tbaa !27
   %1516 = add nuw i64 %.0364415.i.i332, 1
   %1517 = icmp eq i64 %1516, %.1
   br i1 %1517, label %1523, label %1518
 
 1518:                                             ; preds = %1512
   %1519 = getelementptr inbounds nuw i8, ptr %1313, i64 %.0364415.i.i332
-  %1520 = load i8, ptr %1519, align 1, !tbaa !27
+  %1520 = load i8, ptr %1519, align 1, !tbaa !26
   %1521 = getelementptr inbounds nuw i8, ptr %1313, i64 %1516
-  %1522 = load i8, ptr %1521, align 1, !tbaa !27
+  %1522 = load i8, ptr %1521, align 1, !tbaa !26
   %.not402.i.i333 = icmp eq i8 %1520, %1522
   br i1 %.not402.i.i333, label %1525, label %1523
 
@@ -3181,7 +3181,7 @@ BuildBlockHistogramsDistance.exit.i:              ; preds = %ClearHistogramsDist
 
 1525:                                             ; preds = %1523, %1518
   %.1359.i.i334 = phi i64 [ %1524, %1523 ], [ %.0358416.i.i331, %1518 ]
-  br i1 %1517, label %.preheader414.i.i335, label %1512, !llvm.loop !149
+  br i1 %1517, label %.preheader414.i.i335, label %1512, !llvm.loop !148
 
 .lr.ph422.i.i336:                                 ; preds = %.preheader414.i.i335, %._crit_edge434.i.i374
   %indvars.iv.i.i337 = phi i64 [ %indvars.iv.next.i.i375, %._crit_edge434.i.i374 ], [ %.0.i160.i302, %.preheader414.i.i335 ]
@@ -3203,13 +3203,13 @@ BuildBlockHistogramsDistance.exit.i:              ; preds = %ClearHistogramsDist
   %.0353420.i.i348 = phi i64 [ 0, %.lr.ph422.i.i336 ], [ %1549, %1543 ]
   %.1362419.i.i349 = phi i64 [ %.0361436.i.i345, %.lr.ph422.i.i336 ], [ %.2363.lcssa.i.i356, %1543 ]
   %1529 = getelementptr i32, ptr %1527, i64 %.0353420.i.i348
-  %1530 = load i32, ptr %1529, align 4, !tbaa !28
+  %1530 = load i32, ptr %1529, align 4, !tbaa !27
   %1531 = zext i32 %1530 to i64
   %1532 = getelementptr inbounds nuw %struct.HistogramDistance, ptr %1503, i64 %.0353420.i.i348
   %1533 = getelementptr inbounds nuw i8, ptr %1532, i64 2176
   %1534 = getelementptr inbounds nuw i8, ptr %1532, i64 2184
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(2184) %1532, i8 0, i64 2184, i1 false)
-  store double 0x7FF0000000000000, ptr %1534, align 8, !tbaa !129
+  store double 0x7FF0000000000000, ptr %1534, align 8, !tbaa !128
   %.not487.i.i350 = icmp eq i32 %1530, 0
   br i1 %.not487.i.i350, label %1543, label %.lr.ph.i171.i351
 
@@ -3218,34 +3218,34 @@ BuildBlockHistogramsDistance.exit.i:              ; preds = %ClearHistogramsDist
   %.2363417.i.i353 = phi i64 [ %1535, %.lr.ph.i171.i351 ], [ %.1362419.i.i349, %1528 ]
   %1535 = add i64 %.2363417.i.i353, 1
   %1536 = getelementptr inbounds nuw i16, ptr %1164, i64 %.2363417.i.i353
-  %1537 = load i16, ptr %1536, align 2, !tbaa !62
+  %1537 = load i16, ptr %1536, align 2, !tbaa !61
   %1538 = zext i16 %1537 to i64
   %1539 = getelementptr inbounds nuw [544 x i32], ptr %1532, i64 0, i64 %1538
-  %1540 = load i32, ptr %1539, align 4, !tbaa !28
+  %1540 = load i32, ptr %1539, align 4, !tbaa !27
   %1541 = add i32 %1540, 1
-  store i32 %1541, ptr %1539, align 4, !tbaa !28
+  store i32 %1541, ptr %1539, align 4, !tbaa !27
   %1542 = add nuw nsw i64 %.0352418.i.i352, 1
   %exitcond502.not.i.i354 = icmp eq i64 %1542, %1531
-  br i1 %exitcond502.not.i.i354, label %._crit_edge.i.i355, label %.lr.ph.i171.i351, !llvm.loop !150
+  br i1 %exitcond502.not.i.i354, label %._crit_edge.i.i355, label %.lr.ph.i171.i351, !llvm.loop !149
 
 ._crit_edge.i.i355:                               ; preds = %.lr.ph.i171.i351
-  store i64 %1531, ptr %1533, align 8, !tbaa !132
+  store i64 %1531, ptr %1533, align 8, !tbaa !131
   br label %1543
 
 1543:                                             ; preds = %._crit_edge.i.i355, %1528
   %.2363.lcssa.i.i356 = phi i64 [ %1535, %._crit_edge.i.i355 ], [ %.1362419.i.i349, %1528 ]
   %1544 = tail call double @BrotliPopulationCostDistance(ptr noundef nonnull %1532) #8
-  store double %1544, ptr %1534, align 8, !tbaa !129
+  store double %1544, ptr %1534, align 8, !tbaa !128
   %1545 = trunc i64 %.0353420.i.i348 to i32
   %1546 = getelementptr inbounds nuw i32, ptr %1509, i64 %.0353420.i.i348
-  store i32 %1545, ptr %1546, align 4, !tbaa !28
+  store i32 %1545, ptr %1546, align 4, !tbaa !27
   %1547 = getelementptr inbounds nuw i32, ptr %1510, i64 %.0353420.i.i348
-  store i32 %1545, ptr %1547, align 4, !tbaa !28
+  store i32 %1545, ptr %1547, align 4, !tbaa !27
   %1548 = getelementptr inbounds nuw i32, ptr %1495, i64 %.0353420.i.i348
-  store i32 1, ptr %1548, align 4, !tbaa !28
+  store i32 1, ptr %1548, align 4, !tbaa !27
   %1549 = add nuw nsw i64 %.0353420.i.i348, 1
   %exitcond503.not.i.i357 = icmp eq i64 %1549, %umax506.i.i347
-  br i1 %exitcond503.not.i.i357, label %._crit_edge423.i.i358, label %1528, !llvm.loop !151
+  br i1 %exitcond503.not.i.i357, label %._crit_edge423.i.i358, label %1528, !llvm.loop !150
 
 ._crit_edge423.i.i358:                            ; preds = %1543
   %1550 = sub nuw i64 %.0.i160.i302, %.1365435.i.i346
@@ -3264,7 +3264,7 @@ BuildBlockHistogramsDistance.exit.i:              ; preds = %ClearHistogramsDist
   %.0349.i.i438 = phi i64 [ %1557, %1555 ], [ %1560, %1558 ]
   %1559 = icmp ult i64 %.0349.i.i438, %1553
   %1560 = shl i64 %.0349.i.i438, 1
-  br i1 %1559, label %1558, label %1561, !llvm.loop !152
+  br i1 %1559, label %1558, label %1561, !llvm.loop !151
 
 1561:                                             ; preds = %1558
   %1562 = mul i64 %.0349.i.i438, 2192
@@ -3296,7 +3296,7 @@ BuildBlockHistogramsDistance.exit.i:              ; preds = %ClearHistogramsDist
   %.0346.i.i437 = phi i64 [ %1572, %1570 ], [ %1575, %1573 ]
   %1574 = icmp ult i64 %.0346.i.i437, %1568
   %1575 = shl i64 %.0346.i.i437, 1
-  br i1 %1574, label %1573, label %1576, !llvm.loop !153
+  br i1 %1574, label %1573, label %1576, !llvm.loop !152
 
 1576:                                             ; preds = %1573
   %1577 = shl i64 %.0346.i.i437, 2
@@ -3332,46 +3332,46 @@ BuildBlockHistogramsDistance.exit.i:              ; preds = %ClearHistogramsDist
   %1585 = add i64 %.1332427.i.i365, 1
   %1586 = getelementptr inbounds nuw %struct.HistogramDistance, ptr %.1345.i.i359, i64 %.1332427.i.i365
   %1587 = getelementptr inbounds nuw i32, ptr %1509, i64 %.1354425.i.i367
-  %1588 = load i32, ptr %1587, align 4, !tbaa !28
+  %1588 = load i32, ptr %1587, align 4, !tbaa !27
   %1589 = zext i32 %1588 to i64
   %1590 = getelementptr inbounds nuw %struct.HistogramDistance, ptr %1503, i64 %1589
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(2192) %1586, ptr noundef nonnull align 8 dereferenceable(2192) %1590, i64 2192, i1 false), !tbaa.struct !154
-  %1591 = load i32, ptr %1587, align 4, !tbaa !28
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(2192) %1586, ptr noundef nonnull align 8 dereferenceable(2192) %1590, i64 2192, i1 false), !tbaa.struct !153
+  %1591 = load i32, ptr %1587, align 4, !tbaa !27
   %1592 = zext i32 %1591 to i64
   %1593 = getelementptr inbounds nuw i32, ptr %1495, i64 %1592
-  %1594 = load i32, ptr %1593, align 4, !tbaa !28
+  %1594 = load i32, ptr %1593, align 4, !tbaa !27
   %1595 = add i64 %.1348426.i.i366, 1
   %1596 = getelementptr inbounds nuw i32, ptr %.1356.i.i361, i64 %.1348426.i.i366
-  store i32 %1594, ptr %1596, align 4, !tbaa !28
+  store i32 %1594, ptr %1596, align 4, !tbaa !27
   %1597 = trunc i64 %.1354425.i.i367 to i32
-  %1598 = load i32, ptr %1587, align 4, !tbaa !28
+  %1598 = load i32, ptr %1587, align 4, !tbaa !27
   %1599 = zext i32 %1598 to i64
   %1600 = getelementptr inbounds nuw i32, ptr %1511, i64 %1599
-  store i32 %1597, ptr %1600, align 4, !tbaa !28
+  store i32 %1597, ptr %1600, align 4, !tbaa !27
   %1601 = add nuw i64 %.1354425.i.i367, 1
   %exitcond504.not.i.i368 = icmp eq i64 %1601, %1552
-  br i1 %exitcond504.not.i.i368, label %.lr.ph433.i.i369, label %.lr.ph429.i.i364, !llvm.loop !155
+  br i1 %exitcond504.not.i.i368, label %.lr.ph433.i.i369, label %.lr.ph429.i.i364, !llvm.loop !154
 
 1602:                                             ; preds = %1602, %.lr.ph433.i.i369
   %.2432.i.i372 = phi i64 [ 0, %.lr.ph433.i.i369 ], [ %1610, %1602 ]
   %1603 = getelementptr inbounds nuw i32, ptr %1510, i64 %.2432.i.i372
-  %1604 = load i32, ptr %1603, align 4, !tbaa !28
+  %1604 = load i32, ptr %1603, align 4, !tbaa !27
   %1605 = zext i32 %1604 to i64
   %1606 = getelementptr inbounds nuw i32, ptr %1511, i64 %1605
-  %1607 = load i32, ptr %1606, align 4, !tbaa !28
+  %1607 = load i32, ptr %1606, align 4, !tbaa !27
   %1608 = add i32 %1607, %1583
   %1609 = getelementptr i32, ptr %1584, i64 %.2432.i.i372
-  store i32 %1608, ptr %1609, align 4, !tbaa !28
+  store i32 %1608, ptr %1609, align 4, !tbaa !27
   %1610 = add nuw nsw i64 %.2432.i.i372, 1
   %exitcond507.not.i.i373 = icmp eq i64 %1610, %umax506.i.i347
-  br i1 %exitcond507.not.i.i373, label %._crit_edge434.i.i374, label %1602, !llvm.loop !156
+  br i1 %exitcond507.not.i.i373, label %._crit_edge434.i.i374, label %1602, !llvm.loop !155
 
 ._crit_edge434.i.i374:                            ; preds = %1602
   %1611 = add i64 %1552, %.0357437.i.i344
   %1612 = add i64 %.1365435.i.i346, 64
   %1613 = icmp ult i64 %1612, %.0.i160.i302
   %indvars.iv.next.i.i375 = add i64 %indvars.iv.i.i337, -64
-  br i1 %1613, label %.lr.ph422.i.i336, label %._crit_edge445.i.i376, !llvm.loop !157
+  br i1 %1613, label %.lr.ph422.i.i336, label %._crit_edge445.i.i376, !llvm.loop !156
 
 ._crit_edge445.i.i376:                            ; preds = %._crit_edge434.i.i374, %.preheader414.i.i335
   %.0357.lcssa.i.i377 = phi i64 [ 0, %.preheader414.i.i335 ], [ %1611, %._crit_edge434.i.i374 ]
@@ -3406,10 +3406,10 @@ BuildBlockHistogramsDistance.exit.i:              ; preds = %ClearHistogramsDist
   %.2366449.i.i384 = phi i64 [ %1628, %.lr.ph451.i.i383 ], [ 0, %.lr.ph451.preheader.i.i382 ]
   %1626 = trunc i64 %.2366449.i.i384 to i32
   %1627 = getelementptr inbounds nuw i32, ptr %1625, i64 %.2366449.i.i384
-  store i32 %1626, ptr %1627, align 4, !tbaa !28
+  store i32 %1626, ptr %1627, align 4, !tbaa !27
   %1628 = add nuw i64 %.2366449.i.i384, 1
   %exitcond508.not.i.i385 = icmp eq i64 %1628, %.0357.lcssa.i.i377
-  br i1 %exitcond508.not.i.i385, label %._crit_edge452.i.i386, label %.lr.ph451.i.i383, !llvm.loop !158
+  br i1 %exitcond508.not.i.i385, label %._crit_edge452.i.i386, label %.lr.ph451.i.i383, !llvm.loop !157
 
 ._crit_edge452.i.i386:                            ; preds = %.lr.ph451.i.i383, %1623
   %1629 = phi ptr [ null, %1623 ], [ %1625, %.lr.ph451.i.i383 ]
@@ -3421,7 +3421,7 @@ BuildBlockHistogramsDistance.exit.i:              ; preds = %ClearHistogramsDist
 .lr.ph455.preheader.i.i387:                       ; preds = %._crit_edge452.i.i386
   %1631 = shl i64 %.0357.lcssa.i.i377, 2
   %1632 = tail call ptr @BrotliAllocate(ptr noundef %0, i64 noundef %1631) #8
-  tail call void @llvm.memset.p0.i64(ptr align 4 %1632, i8 -1, i64 %1631, i1 false), !tbaa !28
+  tail call void @llvm.memset.p0.i64(ptr align 4 %1632, i8 -1, i64 %1631, i1 false), !tbaa !27
   br label %.preheader.i172.i388
 
 .preheader.i172.i388:                             ; preds = %.lr.ph455.preheader.i.i387, %._crit_edge452.i.i386
@@ -3440,9 +3440,9 @@ BuildBlockHistogramsDistance.exit.i:              ; preds = %ClearHistogramsDist
   %.3472.i.i392 = phi i64 [ 0, %.lr.ph474.i.i389 ], [ %.4.lcssa.i.i398, %1675 ]
   %.4368471.i.i393 = phi i64 [ 0, %.lr.ph474.i.i389 ], [ %1676, %1675 ]
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(2184) %1507, i8 0, i64 2184, i1 false)
-  store double 0x7FF0000000000000, ptr %1635, align 8, !tbaa !129
+  store double 0x7FF0000000000000, ptr %1635, align 8, !tbaa !128
   %1638 = getelementptr inbounds nuw i32, ptr %1505, i64 %.4368471.i.i393
-  %1639 = load i32, ptr %1638, align 4, !tbaa !28
+  %1639 = load i32, ptr %1638, align 4, !tbaa !27
   %.not494.i.i394 = icmp eq i32 %1639, 0
   br i1 %.not494.i.i394, label %1652, label %.lr.ph459.i.i395
 
@@ -3451,20 +3451,20 @@ BuildBlockHistogramsDistance.exit.i:              ; preds = %ClearHistogramsDist
   %.4456.i.i396 = phi i64 [ %1641, %.lr.ph459.i.i395 ], [ %.3472.i.i392, %1637 ]
   %1641 = add i64 %.4456.i.i396, 1
   %1642 = getelementptr inbounds nuw i16, ptr %1164, i64 %.4456.i.i396
-  %1643 = load i16, ptr %1642, align 2, !tbaa !62
+  %1643 = load i16, ptr %1642, align 2, !tbaa !61
   %1644 = zext i16 %1643 to i64
   %1645 = getelementptr inbounds nuw [544 x i32], ptr %1507, i64 0, i64 %1644
-  %1646 = load i32, ptr %1645, align 4, !tbaa !28
+  %1646 = load i32, ptr %1645, align 4, !tbaa !27
   %1647 = add i32 %1646, 1
-  store i32 %1647, ptr %1645, align 4, !tbaa !28
+  store i32 %1647, ptr %1645, align 4, !tbaa !27
   %1648 = add nuw nsw i64 %1640, 1
-  %1649 = load i32, ptr %1638, align 4, !tbaa !28
+  %1649 = load i32, ptr %1638, align 4, !tbaa !27
   %1650 = zext i32 %1649 to i64
   %1651 = icmp samesign ult i64 %1648, %1650
-  br i1 %1651, label %.lr.ph459.i.i395, label %._crit_edge460.i.i397, !llvm.loop !159
+  br i1 %1651, label %.lr.ph459.i.i395, label %._crit_edge460.i.i397, !llvm.loop !158
 
 ._crit_edge460.i.i397:                            ; preds = %.lr.ph459.i.i395
-  store i64 %1648, ptr %1634, align 8, !tbaa !132
+  store i64 %1648, ptr %1634, align 8, !tbaa !131
   br label %1652
 
 1652:                                             ; preds = %._crit_edge460.i.i397, %1637
@@ -3473,7 +3473,7 @@ BuildBlockHistogramsDistance.exit.i:              ; preds = %ClearHistogramsDist
   %1654 = getelementptr i32, ptr %1494, i64 %.4368471.i.i393
   %1655 = getelementptr i8, ptr %1654, i64 -4
   %.in.i.i399 = select i1 %1653, ptr %1494, ptr %1655
-  %1656 = load i32, ptr %.in.i.i399, align 4, !tbaa !28
+  %1656 = load i32, ptr %.in.i.i399, align 4, !tbaa !27
   %1657 = zext i32 %1656 to i64
   %1658 = getelementptr inbounds nuw %struct.HistogramDistance, ptr %.0344.lcssa.i.i379, i64 %1657
   %1659 = tail call double @BrotliHistogramBitCostDistanceDistance(ptr noundef nonnull %1507, ptr noundef %1658, ptr noundef nonnull %1636) #8
@@ -3484,7 +3484,7 @@ BuildBlockHistogramsDistance.exit.i:              ; preds = %ClearHistogramsDist
   %.0338465.i.i402 = phi i32 [ %.1339.i.i404, %1668 ], [ %1656, %1652 ]
   %.1341464.i.i403 = phi i64 [ %1669, %1668 ], [ 0, %1652 ]
   %1660 = getelementptr inbounds nuw i32, ptr %1629, i64 %.1341464.i.i403
-  %1661 = load i32, ptr %1660, align 4, !tbaa !28
+  %1661 = load i32, ptr %1660, align 4, !tbaa !27
   %1662 = zext i32 %1661 to i64
   %1663 = getelementptr inbounds nuw %struct.HistogramDistance, ptr %.0344.lcssa.i.i379, i64 %1662
   %1664 = tail call double @BrotliHistogramBitCostDistanceDistance(ptr noundef nonnull %1507, ptr noundef %1663, ptr noundef nonnull %1636) #8
@@ -3492,7 +3492,7 @@ BuildBlockHistogramsDistance.exit.i:              ; preds = %ClearHistogramsDist
   br i1 %1665, label %1666, label %1668
 
 1666:                                             ; preds = %.lr.ph468.i.i400
-  %1667 = load i32, ptr %1660, align 4, !tbaa !28
+  %1667 = load i32, ptr %1660, align 4, !tbaa !27
   br label %1668
 
 1668:                                             ; preds = %1666, %.lr.ph468.i.i400
@@ -3500,7 +3500,7 @@ BuildBlockHistogramsDistance.exit.i:              ; preds = %ClearHistogramsDist
   %.1337.i.i405 = phi double [ %1664, %1666 ], [ %.0336466.i.i401, %.lr.ph468.i.i400 ]
   %1669 = add nuw i64 %.1341464.i.i403, 1
   %exitcond509.not.i.i406 = icmp eq i64 %1669, %1630
-  br i1 %exitcond509.not.i.i406, label %._crit_edge469.loopexit.i.i407, label %.lr.ph468.i.i400, !llvm.loop !160
+  br i1 %exitcond509.not.i.i406, label %._crit_edge469.loopexit.i.i407, label %.lr.ph468.i.i400, !llvm.loop !159
 
 ._crit_edge469.loopexit.i.i407:                   ; preds = %1668
   %.pre513.i.i408 = zext i32 %.1339.i.i404 to i64
@@ -3509,29 +3509,29 @@ BuildBlockHistogramsDistance.exit.i:              ; preds = %ClearHistogramsDist
 ._crit_edge469.i.i409:                            ; preds = %._crit_edge469.loopexit.i.i407, %1652
   %.pre-phi.i.i410 = phi i64 [ %.pre513.i.i408, %._crit_edge469.loopexit.i.i407 ], [ %1657, %1652 ]
   %.0338.lcssa.i.i411 = phi i32 [ %.1339.i.i404, %._crit_edge469.loopexit.i.i407 ], [ %1656, %1652 ]
-  store i32 %.0338.lcssa.i.i411, ptr %1654, align 4, !tbaa !28
+  store i32 %.0338.lcssa.i.i411, ptr %1654, align 4, !tbaa !27
   %1670 = getelementptr inbounds nuw i32, ptr %1633, i64 %.pre-phi.i.i410
-  %1671 = load i32, ptr %1670, align 4, !tbaa !28
+  %1671 = load i32, ptr %1670, align 4, !tbaa !27
   %1672 = icmp eq i32 %1671, -1
   br i1 %1672, label %1673, label %1675
 
 1673:                                             ; preds = %._crit_edge469.i.i409
   %1674 = add i32 %.0342473.i.i391, 1
-  store i32 %.0342473.i.i391, ptr %1670, align 4, !tbaa !28
+  store i32 %.0342473.i.i391, ptr %1670, align 4, !tbaa !27
   br label %1675
 
 1675:                                             ; preds = %1673, %._crit_edge469.i.i409
   %.1343.i.i412 = phi i32 [ %1674, %1673 ], [ %.0342473.i.i391, %._crit_edge469.i.i409 ]
   %1676 = add nuw i64 %.4368471.i.i393, 1
   %exitcond510.not.i.i413 = icmp eq i64 %1676, %.0.i160.i302
-  br i1 %exitcond510.not.i.i413, label %._crit_edge475.i.i414, label %1637, !llvm.loop !161
+  br i1 %exitcond510.not.i.i413, label %._crit_edge475.i.i414, label %1637, !llvm.loop !160
 
 ._crit_edge475.i.i414:                            ; preds = %1675, %.preheader.i172.i388
   tail call void @BrotliFree(ptr noundef %0, ptr noundef %1507) #8
   tail call void @BrotliFree(ptr noundef %0, ptr noundef %1629) #8
   tail call void @BrotliFree(ptr noundef %0, ptr noundef %.0344.lcssa.i.i379) #8
   %1677 = getelementptr inbounds nuw i8, ptr %9, i64 32
-  %1678 = load i64, ptr %1677, align 8, !tbaa !22
+  %1678 = load i64, ptr %1677, align 8, !tbaa !21
   %1679 = icmp ult i64 %1678, %.0.i160.i302
   br i1 %1679, label %1680, label %1694
 
@@ -3544,11 +3544,11 @@ BuildBlockHistogramsDistance.exit.i:              ; preds = %ClearHistogramsDist
   %.0333.i.i435 = phi i64 [ %..i.i434, %1680 ], [ %1684, %1682 ]
   %1683 = icmp ult i64 %.0333.i.i435, %.0.i160.i302
   %1684 = shl i64 %.0333.i.i435, 1
-  br i1 %1683, label %1682, label %1685, !llvm.loop !162
+  br i1 %1683, label %1682, label %1685, !llvm.loop !161
 
 1685:                                             ; preds = %1682
   %1686 = tail call ptr @BrotliAllocate(ptr noundef %0, i64 noundef %.0333.i.i435) #8
-  %1687 = load i64, ptr %1677, align 8, !tbaa !22
+  %1687 = load i64, ptr %1677, align 8, !tbaa !21
   %.not394.i.i436 = icmp eq i64 %1687, 0
   br i1 %.not394.i.i436, label %1691, label %1688
 
@@ -3563,12 +3563,12 @@ BuildBlockHistogramsDistance.exit.i:              ; preds = %ClearHistogramsDist
   %1693 = load ptr, ptr %1692, align 8, !tbaa !3
   tail call void @BrotliFree(ptr noundef %0, ptr noundef %1693) #8
   store ptr %1686, ptr %1692, align 8, !tbaa !3
-  store i64 %.0333.i.i435, ptr %1677, align 8, !tbaa !22
+  store i64 %.0333.i.i435, ptr %1677, align 8, !tbaa !21
   br label %1694
 
 1694:                                             ; preds = %1691, %._crit_edge475.i.i414
   %1695 = getelementptr inbounds nuw i8, ptr %9, i64 40
-  %1696 = load i64, ptr %1695, align 8, !tbaa !25
+  %1696 = load i64, ptr %1695, align 8, !tbaa !24
   %1697 = icmp ult i64 %1696, %.0.i160.i302
   br i1 %1697, label %1698, label %1713
 
@@ -3581,12 +3581,12 @@ BuildBlockHistogramsDistance.exit.i:              ; preds = %ClearHistogramsDist
   %.0330.i.i431 = phi i64 [ %.403.i.i430, %1698 ], [ %1702, %1700 ]
   %1701 = icmp ult i64 %.0330.i.i431, %.0.i160.i302
   %1702 = shl i64 %.0330.i.i431, 1
-  br i1 %1701, label %1700, label %1703, !llvm.loop !163
+  br i1 %1701, label %1700, label %1703, !llvm.loop !162
 
 1703:                                             ; preds = %1700
   %1704 = shl i64 %.0330.i.i431, 2
   %1705 = tail call ptr @BrotliAllocate(ptr noundef %0, i64 noundef %1704) #8
-  %1706 = load i64, ptr %1695, align 8, !tbaa !25
+  %1706 = load i64, ptr %1695, align 8, !tbaa !24
   %.not396.i.i432 = icmp eq i64 %1706, 0
   br i1 %.not396.i.i432, label %.thread516.i.i433, label %1707
 
@@ -3602,7 +3602,7 @@ BuildBlockHistogramsDistance.exit.i:              ; preds = %ClearHistogramsDist
   %1712 = load ptr, ptr %1711, align 8, !tbaa !11
   tail call void @BrotliFree(ptr noundef %0, ptr noundef %1712) #8
   store ptr %1705, ptr %1711, align 8, !tbaa !11
-  store i64 %.0330.i.i431, ptr %1695, align 8, !tbaa !25
+  store i64 %.0330.i.i431, ptr %1695, align 8, !tbaa !24
   br label %.lr.ph481.i.i415
 
 1713:                                             ; preds = %1694
@@ -3619,31 +3619,31 @@ BuildBlockHistogramsDistance.exit.i:              ; preds = %ClearHistogramsDist
   %.0328477.i.i418 = phi i32 [ 0, %.lr.ph481.i.i415 ], [ %.1329.i.i424, %1735 ]
   %.5476.i.i419 = phi i64 [ 0, %.lr.ph481.i.i415 ], [ %1720, %1735 ]
   %1717 = getelementptr inbounds nuw i32, ptr %1505, i64 %.5476.i.i419
-  %1718 = load i32, ptr %1717, align 4, !tbaa !28
+  %1718 = load i32, ptr %1717, align 4, !tbaa !27
   %1719 = add i32 %1718, %.0328477.i.i418
   %1720 = add nuw i64 %.5476.i.i419, 1
   %1721 = icmp eq i64 %1720, %.0.i160.i302
   %.phi.trans.insert.i.i420 = getelementptr inbounds nuw i32, ptr %1494, i64 %.5476.i.i419
-  %.pre.i.i421 = load i32, ptr %.phi.trans.insert.i.i420, align 4, !tbaa !28
+  %.pre.i.i421 = load i32, ptr %.phi.trans.insert.i.i420, align 4, !tbaa !27
   br i1 %1721, label %._crit_edge512.i.i423, label %1722
 
 1722:                                             ; preds = %1716
   %1723 = getelementptr inbounds nuw i32, ptr %1494, i64 %1720
-  %1724 = load i32, ptr %1723, align 4, !tbaa !28
+  %1724 = load i32, ptr %1723, align 4, !tbaa !27
   %.not397.i.i422 = icmp eq i32 %.pre.i.i421, %1724
   br i1 %.not397.i.i422, label %1735, label %._crit_edge512.i.i423
 
 ._crit_edge512.i.i423:                            ; preds = %1722, %1716
   %1725 = zext i32 %.pre.i.i421 to i64
   %1726 = getelementptr inbounds nuw i32, ptr %1633, i64 %1725
-  %1727 = load i32, ptr %1726, align 4, !tbaa !28
+  %1727 = load i32, ptr %1726, align 4, !tbaa !27
   %1728 = trunc i32 %1727 to i8
   %1729 = load ptr, ptr %1714, align 8, !tbaa !3
   %1730 = getelementptr inbounds nuw i8, ptr %1729, i64 %.0326478.i.i417
-  store i8 %1728, ptr %1730, align 1, !tbaa !27
+  store i8 %1728, ptr %1730, align 1, !tbaa !26
   %1731 = load ptr, ptr %1715, align 8, !tbaa !11
   %1732 = getelementptr inbounds nuw i32, ptr %1731, i64 %.0326478.i.i417
-  store i32 %1719, ptr %1732, align 4, !tbaa !28
+  store i32 %1719, ptr %1732, align 4, !tbaa !27
   %1733 = tail call i8 @llvm.umax.i8(i8 %.0479.i.i416, i8 %1728)
   %1734 = add i64 %.0326478.i.i417, 1
   br label %1735
@@ -3652,7 +3652,7 @@ BuildBlockHistogramsDistance.exit.i:              ; preds = %ClearHistogramsDist
   %.1329.i.i424 = phi i32 [ 0, %._crit_edge512.i.i423 ], [ %1719, %1722 ]
   %.1327.i.i425 = phi i64 [ %1734, %._crit_edge512.i.i423 ], [ %.0326478.i.i417, %1722 ]
   %.1.i173.i426 = phi i8 [ %1733, %._crit_edge512.i.i423 ], [ %.0479.i.i416, %1722 ]
-  br i1 %1721, label %._crit_edge482.loopexit.i.i427, label %1716, !llvm.loop !164
+  br i1 %1721, label %._crit_edge482.loopexit.i.i427, label %1716, !llvm.loop !163
 
 ._crit_edge482.loopexit.i.i427:                   ; preds = %1735
   %1736 = zext i8 %.1.i173.i426 to i64
@@ -3663,8 +3663,8 @@ ClusterBlocksDistance.exit.i:                     ; preds = %._crit_edge482.loop
   %.0326.lcssa.i.i428 = phi i64 [ 0, %1713 ], [ %.1327.i.i425, %._crit_edge482.loopexit.i.i427 ]
   %.0.lcssa.i.i429 = phi i64 [ 1, %1713 ], [ %1737, %._crit_edge482.loopexit.i.i427 ]
   %1738 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  store i64 %.0326.lcssa.i.i428, ptr %1738, align 8, !tbaa !23
-  store i64 %.0.lcssa.i.i429, ptr %9, align 8, !tbaa !21
+  store i64 %.0326.lcssa.i.i428, ptr %1738, align 8, !tbaa !22
+  store i64 %.0.lcssa.i.i429, ptr %9, align 8, !tbaa !20
   tail call void @BrotliFree(ptr noundef %0, ptr noundef %1633) #8
   tail call void @BrotliFree(ptr noundef %0, ptr noundef %1495) #8
   tail call void @BrotliFree(ptr noundef %0, ptr noundef %1494) #8
@@ -3746,152 +3746,151 @@ attributes #8 = { nounwind }
 !13 = !{!"Command", !14, i64 0, !14, i64 4, !14, i64 8, !15, i64 12, !15, i64 14}
 !14 = !{!"int", !6, i64 0}
 !15 = !{!"short", !6, i64 0}
-!16 = distinct !{!16, !17, !18}
+!16 = distinct !{!16, !17}
 !17 = !{!"llvm.loop.mustprogress"}
-!18 = !{!"llvm.loop.estimated_trip_count"}
-!19 = !{!13, !14, i64 4}
-!20 = distinct !{!20, !17, !18}
-!21 = !{!4, !5, i64 0}
-!22 = !{!4, !5, i64 32}
-!23 = !{!4, !5, i64 8}
-!24 = distinct !{!24, !17, !18}
-!25 = !{!4, !5, i64 40}
-!26 = distinct !{!26, !17, !18}
-!27 = !{!6, !6, i64 0}
-!28 = !{!14, !14, i64 0}
-!29 = !{!30, !31, i64 1032}
-!30 = !{!"HistogramLiteral", !6, i64 0, !5, i64 1024, !31, i64 1032}
-!31 = !{!"double", !6, i64 0}
-!32 = distinct !{!32, !17, !18}
-!33 = !{!30, !5, i64 1024}
-!34 = distinct !{!34, !17, !18}
-!35 = distinct !{!35, !17, !18}
-!36 = distinct !{!36, !17, !18}
-!37 = distinct !{!37, !17, !18}
-!38 = !{!39, !14, i64 4}
-!39 = !{!"BrotliEncoderParams", !14, i64 0, !14, i64 4, !14, i64 8, !14, i64 12, !5, i64 16, !5, i64 24, !14, i64 32, !14, i64 36, !40, i64 40, !41, i64 56, !42, i64 80}
-!40 = !{!"BrotliHasherParams", !14, i64 0, !14, i64 4, !14, i64 8, !14, i64 12}
-!41 = !{!"BrotliDistanceParams", !14, i64 0, !14, i64 4, !14, i64 8, !14, i64 12, !5, i64 16}
-!42 = !{!"SharedEncoderDictionary", !14, i64 0, !43, i64 8, !44, i64 544, !14, i64 1312}
-!43 = !{!"CompoundDictionary", !5, i64 0, !5, i64 8, !6, i64 16, !6, i64 144, !6, i64 272, !5, i64 400, !6, i64 408}
-!44 = !{!"ContextualEncoderDictionary", !14, i64 0, !6, i64 4, !6, i64 5, !6, i64 72, !5, i64 584, !45, i64 592, !53, i64 760}
-!45 = !{!"BrotliEncoderDictionary", !46, i64 0, !14, i64 8, !14, i64 12, !5, i64 16, !47, i64 24, !8, i64 32, !47, i64 40, !48, i64 48, !49, i64 56, !14, i64 96, !52, i64 104, !47, i64 112, !8, i64 120, !5, i64 128, !47, i64 136, !5, i64 144, !48, i64 152, !46, i64 160}
-!46 = !{!"p1 _ZTS16BrotliDictionary", !9, i64 0}
-!47 = !{!"p1 short", !9, i64 0}
-!48 = !{!"p1 _ZTS8DictWord", !9, i64 0}
-!49 = !{!"BrotliTrie", !50, i64 0, !5, i64 8, !5, i64 16, !51, i64 24}
-!50 = !{!"p1 _ZTS14BrotliTrieNode", !9, i64 0}
-!51 = !{!"BrotliTrieNode", !6, i64 0, !6, i64 1, !6, i64 2, !14, i64 4, !14, i64 8}
-!52 = !{!"p1 _ZTS27ContextualEncoderDictionary", !9, i64 0}
-!53 = !{!"p1 _ZTS23BrotliEncoderDictionary", !9, i64 0}
-!54 = !{!31, !31, i64 0}
-!55 = distinct !{!55, !17, !18}
-!56 = distinct !{!56, !17, !18}
-!57 = distinct !{!57, !17, !18}
-!58 = distinct !{!58, !17, !18}
-!59 = distinct !{!59, !17, !18}
-!60 = distinct !{!60, !17, !18}
-!61 = distinct !{!61, !17, !18}
-!62 = !{!15, !15, i64 0}
-!63 = distinct !{!63, !17, !18}
-!64 = distinct !{!64, !17, !18}
-!65 = distinct !{!65, !17, !18}
-!66 = distinct !{!66, !17, !18}
-!67 = distinct !{!67, !17, !18}
-!68 = distinct !{!68, !17, !18}
-!69 = distinct !{!69, !17, !18}
-!70 = distinct !{!70, !17, !18}
-!71 = distinct !{!71, !17, !18}
-!72 = distinct !{!72, !17, !18}
-!73 = !{i64 0, i64 1024, !27, i64 1024, i64 8, !74, i64 1032, i64 8, !54}
-!74 = !{!5, !5, i64 0}
-!75 = distinct !{!75, !17, !18}
-!76 = distinct !{!76, !17, !18}
-!77 = distinct !{!77, !17, !18}
-!78 = distinct !{!78, !17, !18}
-!79 = distinct !{!79, !17, !18}
-!80 = distinct !{!80, !17, !18}
-!81 = distinct !{!81, !17, !18}
-!82 = distinct !{!82, !17, !18}
-!83 = distinct !{!83, !17, !18}
-!84 = distinct !{!84, !17, !18}
-!85 = !{!13, !15, i64 12}
-!86 = distinct !{!86, !17, !18}
-!87 = distinct !{!87, !17, !18}
-!88 = distinct !{!88, !17, !18}
-!89 = !{!90, !31, i64 2824}
-!90 = !{!"HistogramCommand", !6, i64 0, !5, i64 2816, !31, i64 2824}
-!91 = distinct !{!91, !17, !18}
-!92 = !{!90, !5, i64 2816}
-!93 = distinct !{!93, !17, !18}
-!94 = distinct !{!94, !17, !18}
-!95 = distinct !{!95, !17, !18}
-!96 = distinct !{!96, !17, !18}
-!97 = distinct !{!97, !17, !18}
-!98 = distinct !{!98, !17, !18}
-!99 = distinct !{!99, !17, !18}
-!100 = distinct !{!100, !17, !18}
-!101 = distinct !{!101, !17, !18}
-!102 = distinct !{!102, !17, !18}
-!103 = distinct !{!103, !17, !18}
-!104 = distinct !{!104, !17, !18}
-!105 = distinct !{!105, !17, !18}
-!106 = distinct !{!106, !17, !18}
-!107 = distinct !{!107, !17, !18}
-!108 = distinct !{!108, !17, !18}
-!109 = distinct !{!109, !17, !18}
-!110 = distinct !{!110, !17, !18}
-!111 = distinct !{!111, !17, !18}
-!112 = distinct !{!112, !17, !18}
-!113 = distinct !{!113, !17, !18}
-!114 = !{i64 0, i64 2816, !27, i64 2816, i64 8, !74, i64 2824, i64 8, !54}
-!115 = distinct !{!115, !17, !18}
-!116 = distinct !{!116, !17, !18}
-!117 = distinct !{!117, !17, !18}
-!118 = distinct !{!118, !17, !18}
-!119 = distinct !{!119, !17, !18}
-!120 = distinct !{!120, !17, !18}
-!121 = distinct !{!121, !17, !18}
-!122 = distinct !{!122, !17, !18}
-!123 = distinct !{!123, !17, !18}
-!124 = distinct !{!124, !17, !18}
-!125 = !{!13, !15, i64 14}
-!126 = distinct !{!126, !17, !18}
-!127 = distinct !{!127, !17, !18}
-!128 = distinct !{!128, !17, !18}
-!129 = !{!130, !31, i64 2184}
-!130 = !{!"HistogramDistance", !6, i64 0, !5, i64 2176, !31, i64 2184}
-!131 = distinct !{!131, !17, !18}
-!132 = !{!130, !5, i64 2176}
-!133 = distinct !{!133, !17, !18}
-!134 = distinct !{!134, !17, !18}
-!135 = distinct !{!135, !17, !18}
-!136 = distinct !{!136, !17, !18}
-!137 = distinct !{!137, !17, !18}
-!138 = distinct !{!138, !17, !18}
-!139 = distinct !{!139, !17, !18}
-!140 = distinct !{!140, !17, !18}
-!141 = distinct !{!141, !17, !18}
-!142 = distinct !{!142, !17, !18}
-!143 = distinct !{!143, !17, !18}
-!144 = distinct !{!144, !17, !18}
-!145 = distinct !{!145, !17, !18}
-!146 = distinct !{!146, !17, !18}
-!147 = distinct !{!147, !17, !18}
-!148 = distinct !{!148, !17, !18}
-!149 = distinct !{!149, !17, !18}
-!150 = distinct !{!150, !17, !18}
-!151 = distinct !{!151, !17, !18}
-!152 = distinct !{!152, !17, !18}
-!153 = distinct !{!153, !17, !18}
-!154 = !{i64 0, i64 2176, !27, i64 2176, i64 8, !74, i64 2184, i64 8, !54}
-!155 = distinct !{!155, !17, !18}
-!156 = distinct !{!156, !17, !18}
-!157 = distinct !{!157, !17, !18}
-!158 = distinct !{!158, !17, !18}
-!159 = distinct !{!159, !17, !18}
-!160 = distinct !{!160, !17, !18}
-!161 = distinct !{!161, !17, !18}
-!162 = distinct !{!162, !17, !18}
-!163 = distinct !{!163, !17, !18}
-!164 = distinct !{!164, !17, !18}
+!18 = !{!13, !14, i64 4}
+!19 = distinct !{!19, !17}
+!20 = !{!4, !5, i64 0}
+!21 = !{!4, !5, i64 32}
+!22 = !{!4, !5, i64 8}
+!23 = distinct !{!23, !17}
+!24 = !{!4, !5, i64 40}
+!25 = distinct !{!25, !17}
+!26 = !{!6, !6, i64 0}
+!27 = !{!14, !14, i64 0}
+!28 = !{!29, !30, i64 1032}
+!29 = !{!"HistogramLiteral", !6, i64 0, !5, i64 1024, !30, i64 1032}
+!30 = !{!"double", !6, i64 0}
+!31 = distinct !{!31, !17}
+!32 = !{!29, !5, i64 1024}
+!33 = distinct !{!33, !17}
+!34 = distinct !{!34, !17}
+!35 = distinct !{!35, !17}
+!36 = distinct !{!36, !17}
+!37 = !{!38, !14, i64 4}
+!38 = !{!"BrotliEncoderParams", !14, i64 0, !14, i64 4, !14, i64 8, !14, i64 12, !5, i64 16, !5, i64 24, !14, i64 32, !14, i64 36, !39, i64 40, !40, i64 56, !41, i64 80}
+!39 = !{!"BrotliHasherParams", !14, i64 0, !14, i64 4, !14, i64 8, !14, i64 12}
+!40 = !{!"BrotliDistanceParams", !14, i64 0, !14, i64 4, !14, i64 8, !14, i64 12, !5, i64 16}
+!41 = !{!"SharedEncoderDictionary", !14, i64 0, !42, i64 8, !43, i64 544, !14, i64 1312}
+!42 = !{!"CompoundDictionary", !5, i64 0, !5, i64 8, !6, i64 16, !6, i64 144, !6, i64 272, !5, i64 400, !6, i64 408}
+!43 = !{!"ContextualEncoderDictionary", !14, i64 0, !6, i64 4, !6, i64 5, !6, i64 72, !5, i64 584, !44, i64 592, !52, i64 760}
+!44 = !{!"BrotliEncoderDictionary", !45, i64 0, !14, i64 8, !14, i64 12, !5, i64 16, !46, i64 24, !8, i64 32, !46, i64 40, !47, i64 48, !48, i64 56, !14, i64 96, !51, i64 104, !46, i64 112, !8, i64 120, !5, i64 128, !46, i64 136, !5, i64 144, !47, i64 152, !45, i64 160}
+!45 = !{!"p1 _ZTS16BrotliDictionary", !9, i64 0}
+!46 = !{!"p1 short", !9, i64 0}
+!47 = !{!"p1 _ZTS8DictWord", !9, i64 0}
+!48 = !{!"BrotliTrie", !49, i64 0, !5, i64 8, !5, i64 16, !50, i64 24}
+!49 = !{!"p1 _ZTS14BrotliTrieNode", !9, i64 0}
+!50 = !{!"BrotliTrieNode", !6, i64 0, !6, i64 1, !6, i64 2, !14, i64 4, !14, i64 8}
+!51 = !{!"p1 _ZTS27ContextualEncoderDictionary", !9, i64 0}
+!52 = !{!"p1 _ZTS23BrotliEncoderDictionary", !9, i64 0}
+!53 = !{!30, !30, i64 0}
+!54 = distinct !{!54, !17}
+!55 = distinct !{!55, !17}
+!56 = distinct !{!56, !17}
+!57 = distinct !{!57, !17}
+!58 = distinct !{!58, !17}
+!59 = distinct !{!59, !17}
+!60 = distinct !{!60, !17}
+!61 = !{!15, !15, i64 0}
+!62 = distinct !{!62, !17}
+!63 = distinct !{!63, !17}
+!64 = distinct !{!64, !17}
+!65 = distinct !{!65, !17}
+!66 = distinct !{!66, !17}
+!67 = distinct !{!67, !17}
+!68 = distinct !{!68, !17}
+!69 = distinct !{!69, !17}
+!70 = distinct !{!70, !17}
+!71 = distinct !{!71, !17}
+!72 = !{i64 0, i64 1024, !26, i64 1024, i64 8, !73, i64 1032, i64 8, !53}
+!73 = !{!5, !5, i64 0}
+!74 = distinct !{!74, !17}
+!75 = distinct !{!75, !17}
+!76 = distinct !{!76, !17}
+!77 = distinct !{!77, !17}
+!78 = distinct !{!78, !17}
+!79 = distinct !{!79, !17}
+!80 = distinct !{!80, !17}
+!81 = distinct !{!81, !17}
+!82 = distinct !{!82, !17}
+!83 = distinct !{!83, !17}
+!84 = !{!13, !15, i64 12}
+!85 = distinct !{!85, !17}
+!86 = distinct !{!86, !17}
+!87 = distinct !{!87, !17}
+!88 = !{!89, !30, i64 2824}
+!89 = !{!"HistogramCommand", !6, i64 0, !5, i64 2816, !30, i64 2824}
+!90 = distinct !{!90, !17}
+!91 = !{!89, !5, i64 2816}
+!92 = distinct !{!92, !17}
+!93 = distinct !{!93, !17}
+!94 = distinct !{!94, !17}
+!95 = distinct !{!95, !17}
+!96 = distinct !{!96, !17}
+!97 = distinct !{!97, !17}
+!98 = distinct !{!98, !17}
+!99 = distinct !{!99, !17}
+!100 = distinct !{!100, !17}
+!101 = distinct !{!101, !17}
+!102 = distinct !{!102, !17}
+!103 = distinct !{!103, !17}
+!104 = distinct !{!104, !17}
+!105 = distinct !{!105, !17}
+!106 = distinct !{!106, !17}
+!107 = distinct !{!107, !17}
+!108 = distinct !{!108, !17}
+!109 = distinct !{!109, !17}
+!110 = distinct !{!110, !17}
+!111 = distinct !{!111, !17}
+!112 = distinct !{!112, !17}
+!113 = !{i64 0, i64 2816, !26, i64 2816, i64 8, !73, i64 2824, i64 8, !53}
+!114 = distinct !{!114, !17}
+!115 = distinct !{!115, !17}
+!116 = distinct !{!116, !17}
+!117 = distinct !{!117, !17}
+!118 = distinct !{!118, !17}
+!119 = distinct !{!119, !17}
+!120 = distinct !{!120, !17}
+!121 = distinct !{!121, !17}
+!122 = distinct !{!122, !17}
+!123 = distinct !{!123, !17}
+!124 = !{!13, !15, i64 14}
+!125 = distinct !{!125, !17}
+!126 = distinct !{!126, !17}
+!127 = distinct !{!127, !17}
+!128 = !{!129, !30, i64 2184}
+!129 = !{!"HistogramDistance", !6, i64 0, !5, i64 2176, !30, i64 2184}
+!130 = distinct !{!130, !17}
+!131 = !{!129, !5, i64 2176}
+!132 = distinct !{!132, !17}
+!133 = distinct !{!133, !17}
+!134 = distinct !{!134, !17}
+!135 = distinct !{!135, !17}
+!136 = distinct !{!136, !17}
+!137 = distinct !{!137, !17}
+!138 = distinct !{!138, !17}
+!139 = distinct !{!139, !17}
+!140 = distinct !{!140, !17}
+!141 = distinct !{!141, !17}
+!142 = distinct !{!142, !17}
+!143 = distinct !{!143, !17}
+!144 = distinct !{!144, !17}
+!145 = distinct !{!145, !17}
+!146 = distinct !{!146, !17}
+!147 = distinct !{!147, !17}
+!148 = distinct !{!148, !17}
+!149 = distinct !{!149, !17}
+!150 = distinct !{!150, !17}
+!151 = distinct !{!151, !17}
+!152 = distinct !{!152, !17}
+!153 = !{i64 0, i64 2176, !26, i64 2176, i64 8, !73, i64 2184, i64 8, !53}
+!154 = distinct !{!154, !17}
+!155 = distinct !{!155, !17}
+!156 = distinct !{!156, !17}
+!157 = distinct !{!157, !17}
+!158 = distinct !{!158, !17}
+!159 = distinct !{!159, !17}
+!160 = distinct !{!160, !17}
+!161 = distinct !{!161, !17}
+!162 = distinct !{!162, !17}
+!163 = distinct !{!163, !17}

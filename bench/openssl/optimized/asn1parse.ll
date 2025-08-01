@@ -234,12 +234,12 @@ define dso_local range(i32 0, 2) i32 @asn1parse_main(i32 noundef %0, ptr noundef
   %.0133282 = phi i64 [ %70, %.lr.ph ], [ 0, %57 ]
   %66 = load ptr, ptr @bio_err, align 8, !tbaa !11
   %67 = getelementptr inbounds nuw i8, ptr %65, i64 48
-  %68 = load ptr, ptr %67, align 8, !tbaa !16
+  %68 = load ptr, ptr %67, align 8, !tbaa !15
   %69 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %66, ptr noundef nonnull @.str.41, ptr noundef %68) #4
   %70 = add i64 %.0133282, 1
   %71 = call ptr @ASN1_ITEM_get(i64 noundef %70) #4
   %72 = icmp eq ptr %71, null
-  br i1 %72, label %.loopexit, label %.lr.ph, !llvm.loop !20
+  br i1 %72, label %.loopexit, label %.lr.ph
 
 73:                                               ; preds = %.preheader
   %74 = call i32 @opt_check_rest_arg(ptr noundef null) #4
@@ -305,11 +305,11 @@ define dso_local range(i32 0, 2) i32 @asn1parse_main(i32 noundef %0, ptr noundef
 104:                                              ; preds = %98
   %105 = load ptr, ptr %3, align 8, !tbaa !4
   %106 = getelementptr inbounds nuw i8, ptr %91, i64 8
-  store ptr %105, ptr %106, align 8, !tbaa !21
-  %107 = load i64, ptr %8, align 8, !tbaa !23
+  store ptr %105, ptr %106, align 8, !tbaa !19
+  %107 = load i64, ptr %8, align 8, !tbaa !21
   %108 = getelementptr inbounds nuw i8, ptr %91, i64 16
-  store i64 %107, ptr %108, align 8, !tbaa !24
-  store i64 %107, ptr %91, align 8, !tbaa !25
+  store i64 %107, ptr %108, align 8, !tbaa !22
+  store i64 %107, ptr %91, align 8, !tbaa !23
   br label %148
 
 109:                                              ; preds = %93
@@ -326,7 +326,7 @@ define dso_local range(i32 0, 2) i32 @asn1parse_main(i32 noundef %0, ptr noundef
 114:                                              ; preds = %111
   %115 = call fastcc i32 @do_generate(ptr noundef %.0164, ptr noundef %.0162, ptr noundef %91)
   %116 = sext i32 %115 to i64
-  store i64 %116, ptr %8, align 8, !tbaa !23
+  store i64 %116, ptr %8, align 8, !tbaa !21
   %117 = icmp slt i32 %115, 0
   br i1 %117, label %118, label %.loopexit226
 
@@ -353,7 +353,7 @@ define dso_local range(i32 0, 2) i32 @asn1parse_main(i32 noundef %0, ptr noundef
 128:                                              ; preds = %.thread, %120
   %.3127 = phi ptr [ null, %120 ], [ %84, %.thread ]
   %.3123 = phi ptr [ %84, %120 ], [ %125, %.thread ]
-  store i64 0, ptr %8, align 8, !tbaa !23
+  store i64 0, ptr %8, align 8, !tbaa !21
   %129 = call i64 @BUF_MEM_grow(ptr noundef nonnull %91, i64 noundef 8192) #4
   %.not192283 = icmp eq i64 %129, 0
   br i1 %.not192283, label %.loopexit, label %.lr.ph284
@@ -364,15 +364,15 @@ define dso_local range(i32 0, 2) i32 @asn1parse_main(i32 noundef %0, ptr noundef
 
 131:                                              ; preds = %141
   %132 = add nsw i64 %143, %142
-  store i64 %132, ptr %8, align 8, !tbaa !23
+  store i64 %132, ptr %8, align 8, !tbaa !21
   %133 = add nsw i64 %132, 8192
   %134 = call i64 @BUF_MEM_grow(ptr noundef nonnull %91, i64 noundef %133) #4
   %.not192 = icmp eq i64 %134, 0
-  br i1 %.not192, label %.loopexit, label %135, !llvm.loop !26
+  br i1 %.not192, label %.loopexit, label %135
 
 135:                                              ; preds = %.lr.ph284, %131
-  %136 = load ptr, ptr %130, align 8, !tbaa !21
-  %137 = load i64, ptr %8, align 8, !tbaa !23
+  %136 = load ptr, ptr %130, align 8, !tbaa !19
+  %137 = load i64, ptr %8, align 8, !tbaa !21
   %138 = getelementptr inbounds i8, ptr %136, i64 %137
   %139 = call i32 @BIO_read(ptr noundef nonnull %.3123, ptr noundef %138, i32 noundef 8192) #4
   %140 = icmp slt i32 %139, 1
@@ -380,7 +380,7 @@ define dso_local range(i32 0, 2) i32 @asn1parse_main(i32 noundef %0, ptr noundef
 
 141:                                              ; preds = %135
   %142 = zext nneg i32 %139 to i64
-  %143 = load i64, ptr %8, align 8, !tbaa !23
+  %143 = load i64, ptr %8, align 8, !tbaa !21
   %144 = sub nsw i64 9223372036854775807, %143
   %145 = icmp samesign ult i64 %144, %142
   br i1 %145, label %.loopexit, label %131
@@ -389,7 +389,7 @@ define dso_local range(i32 0, 2) i32 @asn1parse_main(i32 noundef %0, ptr noundef
   %.2126 = phi ptr [ null, %114 ], [ %.3127, %135 ]
   %.2122 = phi ptr [ %84, %114 ], [ %.3123, %135 ]
   %146 = getelementptr inbounds nuw i8, ptr %91, i64 8
-  %147 = load ptr, ptr %146, align 8, !tbaa !21
+  %147 = load ptr, ptr %146, align 8, !tbaa !19
   store ptr %147, ptr %3, align 8, !tbaa !4
   br label %148
 
@@ -402,7 +402,7 @@ define dso_local range(i32 0, 2) i32 @asn1parse_main(i32 noundef %0, ptr noundef
 
 150:                                              ; preds = %148
   %151 = load ptr, ptr %3, align 8, !tbaa !4
-  %152 = load i64, ptr %8, align 8, !tbaa !23
+  %152 = load i64, ptr %8, align 8, !tbaa !21
   %153 = call i32 @OPENSSL_sk_num(ptr noundef nonnull %11) #4
   %154 = icmp sgt i32 %153, 0
   br i1 %154, label %.lr.ph290, label %._crit_edge
@@ -463,10 +463,10 @@ define dso_local range(i32 0, 2) i32 @asn1parse_main(i32 noundef %0, ptr noundef
 
 180:                                              ; preds = %173
   %181 = getelementptr inbounds nuw i8, ptr %168, i64 8
-  %182 = load ptr, ptr %181, align 8, !tbaa !27
+  %182 = load ptr, ptr %181, align 8, !tbaa !24
   %183 = getelementptr inbounds nuw i8, ptr %182, i64 8
-  %184 = load ptr, ptr %183, align 8, !tbaa !28
-  %185 = load i32, ptr %182, align 8, !tbaa !30
+  %184 = load ptr, ptr %183, align 8, !tbaa !25
+  %185 = load i32, ptr %182, align 8, !tbaa !27
   %186 = sext i32 %185 to i64
   br label %187
 
@@ -477,14 +477,14 @@ define dso_local range(i32 0, 2) i32 @asn1parse_main(i32 noundef %0, ptr noundef
   %188 = add nuw nsw i32 %.0146286, 1
   %189 = call i32 @OPENSSL_sk_num(ptr noundef nonnull %11) #4
   %190 = icmp slt i32 %188, %189
-  br i1 %190, label %.lr.ph290, label %._crit_edge, !llvm.loop !31
+  br i1 %190, label %.lr.ph290, label %._crit_edge, !llvm.loop !28
 
 ._crit_edge:                                      ; preds = %187, %150
   %.0143.lcssa = phi i64 [ %152, %150 ], [ %.1144.ph, %187 ]
   %.0141.lcssa = phi ptr [ %151, %150 ], [ %.1142.ph, %187 ]
   %.2.lcssa = phi ptr [ null, %150 ], [ %.3.ph, %187 ]
   store ptr %.0141.lcssa, ptr %3, align 8, !tbaa !4
-  store i64 %.0143.lcssa, ptr %8, align 8, !tbaa !23
+  store i64 %.0143.lcssa, ptr %8, align 8, !tbaa !21
   br label %191
 
 191:                                              ; preds = %._crit_edge, %148
@@ -494,7 +494,7 @@ define dso_local range(i32 0, 2) i32 @asn1parse_main(i32 noundef %0, ptr noundef
 
 193:                                              ; preds = %191
   %194 = zext nneg i32 %.0148 to i64
-  %195 = load i64, ptr %8, align 8, !tbaa !23
+  %195 = load i64, ptr %8, align 8, !tbaa !21
   %.not195 = icmp sgt i64 %195, %194
   br i1 %.not195, label %199, label %196
 
@@ -506,7 +506,7 @@ define dso_local range(i32 0, 2) i32 @asn1parse_main(i32 noundef %0, ptr noundef
 199:                                              ; preds = %193
   %200 = sub nsw i64 %195, %194
   %.fr = freeze i64 %200
-  store i64 %.fr, ptr %8, align 8, !tbaa !23
+  store i64 %.fr, ptr %8, align 8, !tbaa !21
   %201 = trunc i64 %.fr to i32
   %202 = add i32 %.0138, -1
   %or.cond208.not = icmp ult i32 %202, %201
@@ -549,7 +549,7 @@ define dso_local range(i32 0, 2) i32 @asn1parse_main(i32 noundef %0, ptr noundef
 .thread221:                                       ; preds = %215
   %218 = load ptr, ptr @bio_err, align 8, !tbaa !11
   %219 = getelementptr inbounds nuw i8, ptr %.0134, i64 48
-  %220 = load ptr, ptr %219, align 8, !tbaa !16
+  %220 = load ptr, ptr %219, align 8, !tbaa !15
   %221 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %218, ptr noundef nonnull @.str.48, ptr noundef %220) #4
   br label %229
 
@@ -705,7 +705,7 @@ define internal fastcc range(i32 -1, -2147483648) i32 @do_generate(ptr noundef %
 
 24:                                               ; preds = %21
   %25 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %26 = load ptr, ptr %25, align 8, !tbaa !21
+  %26 = load ptr, ptr %25, align 8, !tbaa !19
   store ptr %26, ptr %4, align 8, !tbaa !4
   %27 = call i32 @i2d_ASN1_TYPE(ptr noundef nonnull %16, ptr noundef nonnull %4) #4
   call void @ASN1_TYPE_free(ptr noundef nonnull %16) #4
@@ -791,22 +791,19 @@ attributes #4 = { nounwind }
 !10 = !{!"int", !7, i64 0}
 !11 = !{!12, !12, i64 0}
 !12 = !{!"p1 _ZTS6bio_st", !6, i64 0}
-!13 = distinct !{!13, !14, !15}
+!13 = distinct !{!13, !14}
 !14 = !{!"llvm.loop.mustprogress"}
-!15 = !{!"llvm.loop.estimated_trip_count"}
-!16 = !{!17, !5, i64 48}
-!17 = !{!"ASN1_ITEM_st", !7, i64 0, !18, i64 8, !19, i64 16, !18, i64 24, !6, i64 32, !18, i64 40, !5, i64 48}
-!18 = !{!"long", !7, i64 0}
-!19 = !{!"p1 _ZTS16ASN1_TEMPLATE_st", !6, i64 0}
-!20 = distinct !{!20, !15}
-!21 = !{!22, !5, i64 8}
-!22 = !{!"buf_mem_st", !18, i64 0, !5, i64 8, !18, i64 16, !18, i64 24}
-!23 = !{!18, !18, i64 0}
-!24 = !{!22, !18, i64 16}
-!25 = !{!22, !18, i64 0}
-!26 = distinct !{!26, !15}
-!27 = !{!7, !7, i64 0}
-!28 = !{!29, !5, i64 8}
-!29 = !{!"asn1_string_st", !10, i64 0, !10, i64 4, !5, i64 8, !18, i64 16}
-!30 = !{!29, !10, i64 0}
-!31 = distinct !{!31, !14, !15}
+!15 = !{!16, !5, i64 48}
+!16 = !{!"ASN1_ITEM_st", !7, i64 0, !17, i64 8, !18, i64 16, !17, i64 24, !6, i64 32, !17, i64 40, !5, i64 48}
+!17 = !{!"long", !7, i64 0}
+!18 = !{!"p1 _ZTS16ASN1_TEMPLATE_st", !6, i64 0}
+!19 = !{!20, !5, i64 8}
+!20 = !{!"buf_mem_st", !17, i64 0, !5, i64 8, !17, i64 16, !17, i64 24}
+!21 = !{!17, !17, i64 0}
+!22 = !{!20, !17, i64 16}
+!23 = !{!20, !17, i64 0}
+!24 = !{!7, !7, i64 0}
+!25 = !{!26, !5, i64 8}
+!26 = !{!"asn1_string_st", !10, i64 0, !10, i64 4, !5, i64 8, !17, i64 16}
+!27 = !{!26, !10, i64 0}
+!28 = distinct !{!28, !14}

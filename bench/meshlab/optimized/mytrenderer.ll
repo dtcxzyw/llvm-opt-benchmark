@@ -222,7 +222,7 @@ define void @_ZN11MyTrenderer5beginEv(ptr noundef nonnull align 8 dereferenceabl
           to label %8 unwind label %29
 
 8:                                                ; preds = %1
-  store ptr @_ZN10QArrayData11shared_nullE, ptr %2, align 8, !alias.scope !8
+  store ptr @_ZN10QArrayData11shared_nullE, ptr %2, align 8, !alias.scope !7
   %9 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN7QStringaSERKS_(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %7) #12
   %10 = load ptr, ptr %3, align 8
   %11 = load atomic i32, ptr %10 monotonic, align 4
@@ -247,16 +247,16 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i:    ; preds = %_ZN9QtPrivate8RefCo
 
 _ZN7QStringD2Ev.exit:                             ; preds = %8, %_ZN9QtPrivate8RefCount5derefEv.exit.i, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  call void @llvm.experimental.noalias.scope.decl(metadata !11)
-  %15 = load ptr, ptr %2, align 8, !noalias !11
-  store ptr %15, ptr %4, align 8, !alias.scope !11
-  %16 = load atomic i32, ptr %15 monotonic, align 4, !noalias !11
+  call void @llvm.experimental.noalias.scope.decl(metadata !10)
+  %15 = load ptr, ptr %2, align 8, !noalias !10
+  store ptr %15, ptr %4, align 8, !alias.scope !10
+  %16 = load atomic i32, ptr %15 monotonic, align 4, !noalias !10
   %17 = add i32 %16, -1
   %or.cond.not.i.i.i = icmp ult i32 %17, -2
   br i1 %or.cond.not.i.i.i, label %18, label %_ZN14StructureSynth5Model9Rendering17TemplatePrimitive7getTextEv.exit
 
 18:                                               ; preds = %_ZN7QStringD2Ev.exit
-  %19 = atomicrmw add ptr %15, i32 1 seq_cst, align 4, !noalias !11
+  %19 = atomicrmw add ptr %15, i32 1 seq_cst, align 4, !noalias !10
   br label %_ZN14StructureSynth5Model9Rendering17TemplatePrimitive7getTextEv.exit
 
 _ZN14StructureSynth5Model9Rendering17TemplatePrimitive7getTextEv.exit: ; preds = %_ZN7QStringD2Ev.exit, %18
@@ -340,7 +340,7 @@ define void @_ZN11MyTrenderer3endEv(ptr noundef nonnull align 8 dereferenceable(
           to label %8 unwind label %29
 
 8:                                                ; preds = %1
-  store ptr @_ZN10QArrayData11shared_nullE, ptr %2, align 8, !alias.scope !14
+  store ptr @_ZN10QArrayData11shared_nullE, ptr %2, align 8, !alias.scope !13
   %9 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN7QStringaSERKS_(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %7) #12
   %10 = load ptr, ptr %3, align 8
   %11 = load atomic i32, ptr %10 monotonic, align 4
@@ -365,16 +365,16 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i:    ; preds = %_ZN9QtPrivate8RefCo
 
 _ZN7QStringD2Ev.exit:                             ; preds = %8, %_ZN9QtPrivate8RefCount5derefEv.exit.i, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  call void @llvm.experimental.noalias.scope.decl(metadata !17)
-  %15 = load ptr, ptr %2, align 8, !noalias !17
-  store ptr %15, ptr %4, align 8, !alias.scope !17
-  %16 = load atomic i32, ptr %15 monotonic, align 4, !noalias !17
+  call void @llvm.experimental.noalias.scope.decl(metadata !16)
+  %15 = load ptr, ptr %2, align 8, !noalias !16
+  store ptr %15, ptr %4, align 8, !alias.scope !16
+  %16 = load atomic i32, ptr %15 monotonic, align 4, !noalias !16
   %17 = add i32 %16, -1
   %or.cond.not.i.i.i = icmp ult i32 %17, -2
   br i1 %or.cond.not.i.i.i, label %18, label %_ZN14StructureSynth5Model9Rendering17TemplatePrimitive7getTextEv.exit
 
 18:                                               ; preds = %_ZN7QStringD2Ev.exit
-  %19 = atomicrmw add ptr %15, i32 1 seq_cst, align 4, !noalias !17
+  %19 = atomicrmw add ptr %15, i32 1 seq_cst, align 4, !noalias !16
   br label %_ZN14StructureSynth5Model9Rendering17TemplatePrimitive7getTextEv.exit
 
 _ZN14StructureSynth5Model9Rendering17TemplatePrimitive7getTextEv.exit: ; preds = %_ZN7QStringD2Ev.exit, %18
@@ -507,7 +507,7 @@ define void @_ZN11MyTrenderer7drawBoxEN12SyntopiaCore4Math7Vector3IfEES3_S3_S3_P
           to label %59 unwind label %290
 
 59:                                               ; preds = %10
-  store ptr @_ZN10QArrayData11shared_nullE, ptr %11, align 8, !alias.scope !20
+  store ptr @_ZN10QArrayData11shared_nullE, ptr %11, align 8, !alias.scope !19
   %60 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN7QStringaSERKS_(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(8) %58) #12
   %61 = load ptr, ptr %12, align 8
   %62 = load atomic i32, ptr %61 monotonic, align 4
@@ -2053,16 +2053,16 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i458: ; preds = %_ZN9QtPrivate8RefCo
 
 _ZN7QStringD2Ev.exit463:                          ; preds = %_ZN7QStringD2Ev.exit457, %_ZN9QtPrivate8RefCount5derefEv.exit.i459, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i458
   %444 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  call void @llvm.experimental.noalias.scope.decl(metadata !23)
-  %445 = load ptr, ptr %11, align 8, !noalias !23
-  store ptr %445, ptr %55, align 8, !alias.scope !23
-  %446 = load atomic i32, ptr %445 monotonic, align 4, !noalias !23
+  call void @llvm.experimental.noalias.scope.decl(metadata !22)
+  %445 = load ptr, ptr %11, align 8, !noalias !22
+  store ptr %445, ptr %55, align 8, !alias.scope !22
+  %446 = load atomic i32, ptr %445 monotonic, align 4, !noalias !22
   %447 = add i32 %446, -1
   %or.cond.not.i.i.i = icmp ult i32 %447, -2
   br i1 %or.cond.not.i.i.i, label %448, label %_ZN14StructureSynth5Model9Rendering17TemplatePrimitive7getTextEv.exit
 
 448:                                              ; preds = %_ZN7QStringD2Ev.exit463
-  %449 = atomicrmw add ptr %445, i32 1 seq_cst, align 4, !noalias !23
+  %449 = atomicrmw add ptr %445, i32 1 seq_cst, align 4, !noalias !22
   br label %_ZN14StructureSynth5Model9Rendering17TemplatePrimitive7getTextEv.exit
 
 _ZN14StructureSynth5Model9Rendering17TemplatePrimitive7getTextEv.exit: ; preds = %_ZN7QStringD2Ev.exit463, %448
@@ -2233,7 +2233,7 @@ define void @_ZN11MyTrenderer8drawMeshEN12SyntopiaCore4Math7Vector3IfEES3_S3_S3_
           to label %44 unwind label %173
 
 44:                                               ; preds = %12
-  store ptr @_ZN10QArrayData11shared_nullE, ptr %16, align 8, !alias.scope !26
+  store ptr @_ZN10QArrayData11shared_nullE, ptr %16, align 8, !alias.scope !25
   %45 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN7QStringaSERKS_(ptr noundef nonnull align 8 dereferenceable(8) %16, ptr noundef nonnull align 8 dereferenceable(8) %43) #12
   %46 = load ptr, ptr %17, align 8
   %47 = load atomic i32, ptr %46 monotonic, align 4
@@ -2674,7 +2674,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i141: ; preds = %_ZN9QtPrivate8RefCo
 _ZN7QStringD2Ev.exit146:                          ; preds = %_ZN7QStringD2Ev.exit140, %_ZN9QtPrivate8RefCount5derefEv.exit.i142, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i141
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 10
-  br i1 %exitcond.not, label %195, label %115, !llvm.loop !29
+  br i1 %exitcond.not, label %195, label %115, !llvm.loop !28
 
 173:                                              ; preds = %12
   %174 = landingpad { ptr, i32 }
@@ -3203,16 +3203,16 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i250: ; preds = %_ZN9QtPrivate8RefCo
 
 _ZN7QStringD2Ev.exit255:                          ; preds = %_ZN7QStringD2Ev.exit249, %_ZN9QtPrivate8RefCount5derefEv.exit.i251, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i250
   %301 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  call void @llvm.experimental.noalias.scope.decl(metadata !30)
-  %302 = load ptr, ptr %16, align 8, !noalias !30
-  store ptr %302, ptr %40, align 8, !alias.scope !30
-  %303 = load atomic i32, ptr %302 monotonic, align 4, !noalias !30
+  call void @llvm.experimental.noalias.scope.decl(metadata !29)
+  %302 = load ptr, ptr %16, align 8, !noalias !29
+  store ptr %302, ptr %40, align 8, !alias.scope !29
+  %303 = load atomic i32, ptr %302 monotonic, align 4, !noalias !29
   %304 = add i32 %303, -1
   %or.cond.not.i.i.i = icmp ult i32 %304, -2
   br i1 %or.cond.not.i.i.i, label %305, label %_ZN14StructureSynth5Model9Rendering17TemplatePrimitive7getTextEv.exit
 
 305:                                              ; preds = %_ZN7QStringD2Ev.exit255
-  %306 = atomicrmw add ptr %302, i32 1 seq_cst, align 4, !noalias !30
+  %306 = atomicrmw add ptr %302, i32 1 seq_cst, align 4, !noalias !29
   br label %_ZN14StructureSynth5Model9Rendering17TemplatePrimitive7getTextEv.exit
 
 _ZN14StructureSynth5Model9Rendering17TemplatePrimitive7getTextEv.exit: ; preds = %_ZN7QStringD2Ev.exit255, %305
@@ -3376,7 +3376,7 @@ define void @_ZN11MyTrenderer7drawDotEN12SyntopiaCore4Math7Vector3IfEEPNS0_8GLEn
           to label %25 unwind label %144
 
 25:                                               ; preds = %4
-  store ptr @_ZN10QArrayData11shared_nullE, ptr %5, align 8, !alias.scope !33
+  store ptr @_ZN10QArrayData11shared_nullE, ptr %5, align 8, !alias.scope !32
   %26 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN7QStringaSERKS_(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %24) #12
   %27 = load ptr, ptr %6, align 8
   %28 = load atomic i32, ptr %27 monotonic, align 4
@@ -3816,16 +3816,16 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i117: ; preds = %_ZN9QtPrivate8RefCo
 
 _ZN7QStringD2Ev.exit122:                          ; preds = %_ZN7QStringD2Ev.exit116, %_ZN9QtPrivate8RefCount5derefEv.exit.i118, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i117
   %129 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  call void @llvm.experimental.noalias.scope.decl(metadata !36)
-  %130 = load ptr, ptr %5, align 8, !noalias !36
-  store ptr %130, ptr %21, align 8, !alias.scope !36
-  %131 = load atomic i32, ptr %130 monotonic, align 4, !noalias !36
+  call void @llvm.experimental.noalias.scope.decl(metadata !35)
+  %130 = load ptr, ptr %5, align 8, !noalias !35
+  store ptr %130, ptr %21, align 8, !alias.scope !35
+  %131 = load atomic i32, ptr %130 monotonic, align 4, !noalias !35
   %132 = add i32 %131, -1
   %or.cond.not.i.i.i = icmp ult i32 %132, -2
   br i1 %or.cond.not.i.i.i, label %133, label %_ZN14StructureSynth5Model9Rendering17TemplatePrimitive7getTextEv.exit
 
 133:                                              ; preds = %_ZN7QStringD2Ev.exit122
-  %134 = atomicrmw add ptr %130, i32 1 seq_cst, align 4, !noalias !36
+  %134 = atomicrmw add ptr %130, i32 1 seq_cst, align 4, !noalias !35
   br label %_ZN14StructureSynth5Model9Rendering17TemplatePrimitive7getTextEv.exit
 
 _ZN14StructureSynth5Model9Rendering17TemplatePrimitive7getTextEv.exit: ; preds = %_ZN7QStringD2Ev.exit122, %133
@@ -4053,7 +4053,7 @@ define void @_ZN11MyTrenderer10drawSphereEN12SyntopiaCore4Math7Vector3IfEEfPNS0_
           to label %35 unwind label %127
 
 35:                                               ; preds = %5
-  store ptr @_ZN10QArrayData11shared_nullE, ptr %6, align 8, !alias.scope !39
+  store ptr @_ZN10QArrayData11shared_nullE, ptr %6, align 8, !alias.scope !38
   %36 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN7QStringaSERKS_(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(8) %34) #12
   %37 = load ptr, ptr %7, align 8
   %38 = load atomic i32, ptr %37 monotonic, align 4
@@ -4865,16 +4865,16 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i193: ; preds = %_ZN9QtPrivate8RefCo
 
 _ZN7QStringD2Ev.exit198:                          ; preds = %_ZN7QStringD2Ev.exit192, %_ZN9QtPrivate8RefCount5derefEv.exit.i194, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i193
   %233 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  call void @llvm.experimental.noalias.scope.decl(metadata !42)
-  %234 = load ptr, ptr %6, align 8, !noalias !42
-  store ptr %234, ptr %31, align 8, !alias.scope !42
-  %235 = load atomic i32, ptr %234 monotonic, align 4, !noalias !42
+  call void @llvm.experimental.noalias.scope.decl(metadata !41)
+  %234 = load ptr, ptr %6, align 8, !noalias !41
+  store ptr %234, ptr %31, align 8, !alias.scope !41
+  %235 = load atomic i32, ptr %234 monotonic, align 4, !noalias !41
   %236 = add i32 %235, -1
   %or.cond.not.i.i.i = icmp ult i32 %236, -2
   br i1 %or.cond.not.i.i.i, label %237, label %_ZN14StructureSynth5Model9Rendering17TemplatePrimitive7getTextEv.exit
 
 237:                                              ; preds = %_ZN7QStringD2Ev.exit198
-  %238 = atomicrmw add ptr %234, i32 1 seq_cst, align 4, !noalias !42
+  %238 = atomicrmw add ptr %234, i32 1 seq_cst, align 4, !noalias !41
   br label %_ZN14StructureSynth5Model9Rendering17TemplatePrimitive7getTextEv.exit
 
 _ZN14StructureSynth5Model9Rendering17TemplatePrimitive7getTextEv.exit: ; preds = %_ZN7QStringD2Ev.exit198, %237
@@ -5062,7 +5062,7 @@ define void @_ZN11MyTrenderer12drawTriangleEN12SyntopiaCore4Math7Vector3IfEES3_S
           to label %41 unwind label %238
 
 41:                                               ; preds = %8
-  store ptr @_ZN10QArrayData11shared_nullE, ptr %9, align 8, !alias.scope !45
+  store ptr @_ZN10QArrayData11shared_nullE, ptr %9, align 8, !alias.scope !44
   %42 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN7QStringaSERKS_(ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull align 8 dereferenceable(8) %40) #12
   %43 = load ptr, ptr %10, align 8
   %44 = load atomic i32, ptr %43 monotonic, align 4
@@ -5854,16 +5854,16 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i223: ; preds = %_ZN9QtPrivate8RefCo
 
 _ZN7QStringD2Ev.exit228:                          ; preds = %_ZN7QStringD2Ev.exit222, %_ZN9QtPrivate8RefCount5derefEv.exit.i224, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i223
   %223 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  call void @llvm.experimental.noalias.scope.decl(metadata !48)
-  %224 = load ptr, ptr %9, align 8, !noalias !48
-  store ptr %224, ptr %37, align 8, !alias.scope !48
-  %225 = load atomic i32, ptr %224 monotonic, align 4, !noalias !48
+  call void @llvm.experimental.noalias.scope.decl(metadata !47)
+  %224 = load ptr, ptr %9, align 8, !noalias !47
+  store ptr %224, ptr %37, align 8, !alias.scope !47
+  %225 = load atomic i32, ptr %224 monotonic, align 4, !noalias !47
   %226 = add i32 %225, -1
   %or.cond.not.i.i.i = icmp ult i32 %226, -2
   br i1 %or.cond.not.i.i.i, label %227, label %_ZN14StructureSynth5Model9Rendering17TemplatePrimitive7getTextEv.exit
 
 227:                                              ; preds = %_ZN7QStringD2Ev.exit228
-  %228 = atomicrmw add ptr %224, i32 1 seq_cst, align 4, !noalias !48
+  %228 = atomicrmw add ptr %224, i32 1 seq_cst, align 4, !noalias !47
   br label %_ZN14StructureSynth5Model9Rendering17TemplatePrimitive7getTextEv.exit
 
 _ZN14StructureSynth5Model9Rendering17TemplatePrimitive7getTextEv.exit: ; preds = %_ZN7QStringD2Ev.exit228, %227
@@ -6382,7 +6382,7 @@ _ZN4QMapI7QStringN14StructureSynth5Model9Rendering17TemplatePrimitiveEE6detachEv
   %.1.i.i = select i1 %12, ptr %.011.i.i, ptr %.0810.i.i
   %.19.i.i = load ptr, ptr %.19.in.i.i, align 8
   %.not.i.i = icmp eq ptr %.19.i.i, null
-  br i1 %.not.i.i, label %_ZN8QMapNodeI7QStringN14StructureSynth5Model9Rendering17TemplatePrimitiveEE10lowerBoundERKS0_.exit.i, label %.preheader.i, !llvm.loop !51
+  br i1 %.not.i.i, label %_ZN8QMapNodeI7QStringN14StructureSynth5Model9Rendering17TemplatePrimitiveEE10lowerBoundERKS0_.exit.i, label %.preheader.i, !llvm.loop !50
 
 _ZN8QMapNodeI7QStringN14StructureSynth5Model9Rendering17TemplatePrimitiveEE10lowerBoundERKS0_.exit.i: ; preds = %.preheader.i
   %.not11.i = icmp eq ptr %.1.i.i, null
@@ -6466,7 +6466,7 @@ _ZN4QMapI7QStringN14StructureSynth5Model9Rendering17TemplatePrimitiveEE6detachEv
   %.1.in = getelementptr inbounds nuw i8, ptr %.027, i64 %.1.in.v
   %.0 = load ptr, ptr %.1.in, align 8
   %.not = icmp eq ptr %.0, null
-  br i1 %.not, label %13, label %.lr.ph, !llvm.loop !52
+  br i1 %.not, label %13, label %.lr.ph, !llvm.loop !51
 
 13:                                               ; preds = %.lr.ph
   %.119.le = xor i1 %12, true
@@ -6803,7 +6803,7 @@ _ZN7QStringC2ERKS_.exit.i:                        ; preds = %24, %.lr.ph.i
   %26 = getelementptr inbounds nuw i8, ptr %.010.i, i64 8
   %27 = getelementptr inbounds nuw i8, ptr %.079.i, i64 8
   %.not.i = icmp eq ptr %26, %20
-  br i1 %.not.i, label %_ZN5QListI7QStringE9node_copyEPNS1_4NodeES3_S3_.exit.loopexit, label %.lr.ph.i, !llvm.loop !53
+  br i1 %.not.i, label %_ZN5QListI7QStringE9node_copyEPNS1_4NodeES3_S3_.exit.loopexit, label %.lr.ph.i, !llvm.loop !52
 
 _ZN5QListI7QStringE9node_copyEPNS1_4NodeES3_S3_.exit.loopexit: ; preds = %_ZN7QStringC2ERKS_.exit.i
   %.pre = load ptr, ptr %0, align 8
@@ -6854,7 +6854,7 @@ _ZN7QStringC2ERKS_.exit.i11:                      ; preds = %44, %.lr.ph.i7
   %46 = getelementptr inbounds nuw i8, ptr %.010.i8, i64 8
   %47 = getelementptr inbounds nuw i8, ptr %.079.i9, i64 8
   %.not.i12 = icmp eq ptr %46, %38
-  br i1 %.not.i12, label %_ZN5QListI7QStringE9node_copyEPNS1_4NodeES3_S3_.exit13, label %.lr.ph.i7, !llvm.loop !53
+  br i1 %.not.i12, label %_ZN5QListI7QStringE9node_copyEPNS1_4NodeES3_S3_.exit13, label %.lr.ph.i7, !llvm.loop !52
 
 _ZN5QListI7QStringE9node_copyEPNS1_4NodeES3_S3_.exit13: ; preds = %_ZN7QStringC2ERKS_.exit.i11, %_ZN5QListI7QStringE9node_copyEPNS1_4NodeES3_S3_.exit
   %48 = load atomic i32, ptr %11 monotonic, align 4
@@ -6975,10 +6975,10 @@ define void @_ZN11MyTrenderer9getOutputEv(ptr dead_on_unwind noalias writable sr
   %7 = tail call noundef ptr @_ZN7QString16fromAscii_helperEPKci(ptr noundef nonnull @.str.18, i32 noundef 0)
   store ptr %7, ptr %3, align 8
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %9 = load i64, ptr %8, align 8, !noalias !54
+  %9 = load i64, ptr %8, align 8, !noalias !53
   %10 = getelementptr inbounds i8, ptr %7, i64 %9
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 4
-  %12 = load i32, ptr %11, align 4, !noalias !54
+  %12 = load i32, ptr %11, align 4, !noalias !53
   invoke void @_ZN9QtPrivate16QStringList_joinEPK11QStringListPK5QChari(ptr dead_on_unwind writable sret(%class.QString) align 8 %0, ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef nonnull %10, i32 noundef %12)
           to label %_ZNK19QListSpecialMethodsI7QStringE4joinERKS0_.exit unwind label %31
 
@@ -7441,55 +7441,54 @@ attributes #15 = { noreturn }
 !2 = !{i32 8, !"PIC Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6, !7}
+!5 = distinct !{!5, !6}
 !6 = !{!"llvm.loop.mustprogress"}
-!7 = !{!"llvm.loop.estimated_trip_count"}
-!8 = !{!9}
-!9 = distinct !{!9, !10, !"_ZN14StructureSynth5Model9Rendering8Template3getE7QString: argument 0"}
-!10 = distinct !{!10, !"_ZN14StructureSynth5Model9Rendering8Template3getE7QString"}
-!11 = !{!12}
-!12 = distinct !{!12, !13, !"_ZN14StructureSynth5Model9Rendering17TemplatePrimitive7getTextEv: argument 0"}
-!13 = distinct !{!13, !"_ZN14StructureSynth5Model9Rendering17TemplatePrimitive7getTextEv"}
-!14 = !{!15}
-!15 = distinct !{!15, !16, !"_ZN14StructureSynth5Model9Rendering8Template3getE7QString: argument 0"}
-!16 = distinct !{!16, !"_ZN14StructureSynth5Model9Rendering8Template3getE7QString"}
-!17 = !{!18}
-!18 = distinct !{!18, !19, !"_ZN14StructureSynth5Model9Rendering17TemplatePrimitive7getTextEv: argument 0"}
-!19 = distinct !{!19, !"_ZN14StructureSynth5Model9Rendering17TemplatePrimitive7getTextEv"}
-!20 = !{!21}
-!21 = distinct !{!21, !22, !"_ZN14StructureSynth5Model9Rendering8Template3getE7QString: argument 0"}
-!22 = distinct !{!22, !"_ZN14StructureSynth5Model9Rendering8Template3getE7QString"}
-!23 = !{!24}
-!24 = distinct !{!24, !25, !"_ZN14StructureSynth5Model9Rendering17TemplatePrimitive7getTextEv: argument 0"}
-!25 = distinct !{!25, !"_ZN14StructureSynth5Model9Rendering17TemplatePrimitive7getTextEv"}
-!26 = !{!27}
-!27 = distinct !{!27, !28, !"_ZN14StructureSynth5Model9Rendering8Template3getE7QString: argument 0"}
-!28 = distinct !{!28, !"_ZN14StructureSynth5Model9Rendering8Template3getE7QString"}
-!29 = distinct !{!29, !6, !7}
-!30 = !{!31}
-!31 = distinct !{!31, !32, !"_ZN14StructureSynth5Model9Rendering17TemplatePrimitive7getTextEv: argument 0"}
-!32 = distinct !{!32, !"_ZN14StructureSynth5Model9Rendering17TemplatePrimitive7getTextEv"}
-!33 = !{!34}
-!34 = distinct !{!34, !35, !"_ZN14StructureSynth5Model9Rendering8Template3getE7QString: argument 0"}
-!35 = distinct !{!35, !"_ZN14StructureSynth5Model9Rendering8Template3getE7QString"}
-!36 = !{!37}
-!37 = distinct !{!37, !38, !"_ZN14StructureSynth5Model9Rendering17TemplatePrimitive7getTextEv: argument 0"}
-!38 = distinct !{!38, !"_ZN14StructureSynth5Model9Rendering17TemplatePrimitive7getTextEv"}
-!39 = !{!40}
-!40 = distinct !{!40, !41, !"_ZN14StructureSynth5Model9Rendering8Template3getE7QString: argument 0"}
-!41 = distinct !{!41, !"_ZN14StructureSynth5Model9Rendering8Template3getE7QString"}
-!42 = !{!43}
-!43 = distinct !{!43, !44, !"_ZN14StructureSynth5Model9Rendering17TemplatePrimitive7getTextEv: argument 0"}
-!44 = distinct !{!44, !"_ZN14StructureSynth5Model9Rendering17TemplatePrimitive7getTextEv"}
-!45 = !{!46}
-!46 = distinct !{!46, !47, !"_ZN14StructureSynth5Model9Rendering8Template3getE7QString: argument 0"}
-!47 = distinct !{!47, !"_ZN14StructureSynth5Model9Rendering8Template3getE7QString"}
-!48 = !{!49}
-!49 = distinct !{!49, !50, !"_ZN14StructureSynth5Model9Rendering17TemplatePrimitive7getTextEv: argument 0"}
-!50 = distinct !{!50, !"_ZN14StructureSynth5Model9Rendering17TemplatePrimitive7getTextEv"}
-!51 = distinct !{!51, !6, !7}
-!52 = distinct !{!52, !6, !7}
-!53 = distinct !{!53, !6, !7}
-!54 = !{!55}
-!55 = distinct !{!55, !56, !"_ZNK19QListSpecialMethodsI7QStringE4joinERKS0_: argument 0"}
-!56 = distinct !{!56, !"_ZNK19QListSpecialMethodsI7QStringE4joinERKS0_"}
+!7 = !{!8}
+!8 = distinct !{!8, !9, !"_ZN14StructureSynth5Model9Rendering8Template3getE7QString: argument 0"}
+!9 = distinct !{!9, !"_ZN14StructureSynth5Model9Rendering8Template3getE7QString"}
+!10 = !{!11}
+!11 = distinct !{!11, !12, !"_ZN14StructureSynth5Model9Rendering17TemplatePrimitive7getTextEv: argument 0"}
+!12 = distinct !{!12, !"_ZN14StructureSynth5Model9Rendering17TemplatePrimitive7getTextEv"}
+!13 = !{!14}
+!14 = distinct !{!14, !15, !"_ZN14StructureSynth5Model9Rendering8Template3getE7QString: argument 0"}
+!15 = distinct !{!15, !"_ZN14StructureSynth5Model9Rendering8Template3getE7QString"}
+!16 = !{!17}
+!17 = distinct !{!17, !18, !"_ZN14StructureSynth5Model9Rendering17TemplatePrimitive7getTextEv: argument 0"}
+!18 = distinct !{!18, !"_ZN14StructureSynth5Model9Rendering17TemplatePrimitive7getTextEv"}
+!19 = !{!20}
+!20 = distinct !{!20, !21, !"_ZN14StructureSynth5Model9Rendering8Template3getE7QString: argument 0"}
+!21 = distinct !{!21, !"_ZN14StructureSynth5Model9Rendering8Template3getE7QString"}
+!22 = !{!23}
+!23 = distinct !{!23, !24, !"_ZN14StructureSynth5Model9Rendering17TemplatePrimitive7getTextEv: argument 0"}
+!24 = distinct !{!24, !"_ZN14StructureSynth5Model9Rendering17TemplatePrimitive7getTextEv"}
+!25 = !{!26}
+!26 = distinct !{!26, !27, !"_ZN14StructureSynth5Model9Rendering8Template3getE7QString: argument 0"}
+!27 = distinct !{!27, !"_ZN14StructureSynth5Model9Rendering8Template3getE7QString"}
+!28 = distinct !{!28, !6}
+!29 = !{!30}
+!30 = distinct !{!30, !31, !"_ZN14StructureSynth5Model9Rendering17TemplatePrimitive7getTextEv: argument 0"}
+!31 = distinct !{!31, !"_ZN14StructureSynth5Model9Rendering17TemplatePrimitive7getTextEv"}
+!32 = !{!33}
+!33 = distinct !{!33, !34, !"_ZN14StructureSynth5Model9Rendering8Template3getE7QString: argument 0"}
+!34 = distinct !{!34, !"_ZN14StructureSynth5Model9Rendering8Template3getE7QString"}
+!35 = !{!36}
+!36 = distinct !{!36, !37, !"_ZN14StructureSynth5Model9Rendering17TemplatePrimitive7getTextEv: argument 0"}
+!37 = distinct !{!37, !"_ZN14StructureSynth5Model9Rendering17TemplatePrimitive7getTextEv"}
+!38 = !{!39}
+!39 = distinct !{!39, !40, !"_ZN14StructureSynth5Model9Rendering8Template3getE7QString: argument 0"}
+!40 = distinct !{!40, !"_ZN14StructureSynth5Model9Rendering8Template3getE7QString"}
+!41 = !{!42}
+!42 = distinct !{!42, !43, !"_ZN14StructureSynth5Model9Rendering17TemplatePrimitive7getTextEv: argument 0"}
+!43 = distinct !{!43, !"_ZN14StructureSynth5Model9Rendering17TemplatePrimitive7getTextEv"}
+!44 = !{!45}
+!45 = distinct !{!45, !46, !"_ZN14StructureSynth5Model9Rendering8Template3getE7QString: argument 0"}
+!46 = distinct !{!46, !"_ZN14StructureSynth5Model9Rendering8Template3getE7QString"}
+!47 = !{!48}
+!48 = distinct !{!48, !49, !"_ZN14StructureSynth5Model9Rendering17TemplatePrimitive7getTextEv: argument 0"}
+!49 = distinct !{!49, !"_ZN14StructureSynth5Model9Rendering17TemplatePrimitive7getTextEv"}
+!50 = distinct !{!50, !6}
+!51 = distinct !{!51, !6}
+!52 = distinct !{!52, !6}
+!53 = !{!54}
+!54 = distinct !{!54, !55, !"_ZNK19QListSpecialMethodsI7QStringE4joinERKS0_: argument 0"}
+!55 = distinct !{!55, !"_ZNK19QListSpecialMethodsI7QStringE4joinERKS0_"}

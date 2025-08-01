@@ -893,7 +893,7 @@ ositp_decode_CR_CC.exit:                          ; preds = %44, %92, %100
   %151 = call i32 @tvb_reported_length_remaining(ptr noundef %.1110, i32 noundef range(i32 0, -1) %.2)
   %152 = zext i8 %23 to i32
   %153 = icmp ugt i8 %23, 2
-  %154 = load i8, ptr @cotp_decode_atn, align 1, !range !9, !noundef !10
+  %154 = load i8, ptr @cotp_decode_atn, align 1, !range !8, !noundef !9
   %155 = trunc nuw i8 %154 to i1
   br i1 %155, label %204, label %156
 
@@ -1224,7 +1224,7 @@ proto_item_set_generated.exit.thread.i:           ; preds = %.thread260.i
   br label %300
 
 300:                                              ; preds = %299, %296
-  %301 = load i8, ptr @cotp_reassemble, align 1, !range !9, !noundef !10
+  %301 = load i8, ptr @cotp_reassemble, align 1, !range !8, !noundef !9
   %302 = trunc nuw i8 %301 to i1
   br i1 %302, label %303, label %323
 
@@ -1278,7 +1278,7 @@ proto_item_set_generated.exit.thread.i:           ; preds = %.thread260.i
   br i1 %326, label %335, label %.sink.split235
 
 327:                                              ; preds = %323
-  %328 = load i8, ptr @cotp_reassemble, align 1, !range !9, !noundef !10
+  %328 = load i8, ptr @cotp_reassemble, align 1, !range !8, !noundef !9
   %329 = trunc nuw i8 %328 to i1
   %330 = select i1 %329, i1 %249, i1 false
   br i1 %330, label %335, label %331
@@ -1307,7 +1307,7 @@ ositp_decode_DT.exit:                             ; preds = %156, %157, %165, %2
 338:                                              ; preds = %41
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #9
   %339 = call i32 @tvb_reported_length_remaining(ptr noundef %.1110, i32 noundef range(i32 0, -1) %.2)
-  %340 = load i8, ptr @cotp_decode_atn, align 1, !range !9, !noundef !10
+  %340 = load i8, ptr @cotp_decode_atn, align 1, !range !8, !noundef !9
   %341 = trunc nuw i8 %340 to i1
   br i1 %341, label %360, label %342
 
@@ -1539,7 +1539,7 @@ ositp_decode_ED.exit:                             ; preds = %342, %343, %346, %3
   br label %ositp_decode_DR.exit
 
 448:                                              ; preds = %41
-  %449 = load i8, ptr @cotp_decode_atn, align 1, !range !9, !noundef !10
+  %449 = load i8, ptr @cotp_decode_atn, align 1, !range !8, !noundef !9
   %450 = trunc nuw i8 %449 to i1
   br i1 %450, label %461, label %451
 
@@ -1643,7 +1643,7 @@ ositp_decode_ED.exit:                             ; preds = %342, %343, %346, %3
   br label %ositp_decode_DR.exit
 
 509:                                              ; preds = %41
-  %510 = load i8, ptr @cotp_decode_atn, align 1, !range !9, !noundef !10
+  %510 = load i8, ptr @cotp_decode_atn, align 1, !range !8, !noundef !9
   %511 = trunc nuw i8 %510 to i1
   br i1 %511, label %514, label %512
 
@@ -1704,7 +1704,7 @@ ositp_decode_ED.exit:                             ; preds = %342, %343, %346, %3
   br label %ositp_decode_DR.exit
 
 548:                                              ; preds = %41
-  %549 = load i8, ptr @cotp_decode_atn, align 1, !range !9, !noundef !10
+  %549 = load i8, ptr @cotp_decode_atn, align 1, !range !8, !noundef !9
   %550 = trunc nuw i8 %549 to i1
   br i1 %550, label %553, label %551
 
@@ -1814,7 +1814,7 @@ ositp_decode_ED.exit:                             ; preds = %342, %343, %346, %3
   br label %ositp_decode_DR.exit
 
 622:                                              ; preds = %41
-  %623 = load i8, ptr @cotp_decode_atn, align 1, !range !9, !noundef !10
+  %623 = load i8, ptr @cotp_decode_atn, align 1, !range !8, !noundef !9
   %624 = trunc nuw i8 %623 to i1
   br i1 %624, label %647, label %625
 
@@ -2023,7 +2023,7 @@ ositp_decode_ED.exit:                             ; preds = %342, %343, %346, %3
   br label %ositp_decode_DR.exit
 
 726:                                              ; preds = %41
-  %727 = load i8, ptr @cotp_decode_atn, align 1, !range !9, !noundef !10
+  %727 = load i8, ptr @cotp_decode_atn, align 1, !range !8, !noundef !9
   %728 = trunc nuw i8 %727 to i1
   br i1 %728, label %731, label %729
 
@@ -2166,7 +2166,7 @@ ositp_decode_DR.exit.thread.thread173:            ; preds = %793, %ositp_decode_
 802:                                              ; preds = %798, %799
   %.1105 = phi i8 [ %.0104.mux, %798 ], [ 1, %799 ]
   %803 = call zeroext i1 @tvb_offset_exists(ptr noundef %.1110, i32 noundef %.0106)
-  br i1 %803, label %17, label %.loopexit, !llvm.loop !11
+  br i1 %803, label %17, label %.loopexit, !llvm.loop !10
 
 .loopexit:                                        ; preds = %802, %4, %ositp_decode_DR.exit.thread.thread, %ositp_decode_DR.exit.thread, %ositp_decode_DR.exit.thread.thread173
   %.0104178 = phi i8 [ %.0104198, %ositp_decode_DR.exit.thread ], [ %.0104198, %ositp_decode_DR.exit.thread.thread173 ], [ %.0104198, %ositp_decode_DR.exit.thread.thread ], [ 0, %4 ], [ %.1105, %802 ]
@@ -2289,7 +2289,7 @@ define internal fastcc void @ositp_decode_var_part(ptr noundef %0, i32 noundef %
   ]
 
 27:                                               ; preds = %20
-  %28 = load i8, ptr @cotp_decode_atn, align 1, !range !9, !noundef !10
+  %28 = load i8, ptr @cotp_decode_atn, align 1, !range !8, !noundef !9
   %29 = trunc nuw i8 %28 to i1
   %30 = zext i8 %22 to i32
   br i1 %29, label %31, label %53
@@ -2307,7 +2307,7 @@ define internal fastcc void @ositp_decode_var_part(ptr noundef %0, i32 noundef %
   %36 = zext i8 %42 to i32
   %37 = add i32 %41, %36
   %38 = icmp slt i32 %37, %26
-  br i1 %38, label %.lr.ph412, label %.loopexit, !llvm.loop !12
+  br i1 %38, label %.lr.ph412, label %.loopexit, !llvm.loop !11
 
 .lr.ph412:                                        ; preds = %32, %35
   %.0384411 = phi i32 [ %37, %35 ], [ %33, %32 ]
@@ -2343,7 +2343,7 @@ define internal fastcc void @ositp_decode_var_part(ptr noundef %0, i32 noundef %
   br label %331
 
 59:                                               ; preds = %20
-  %60 = load i8, ptr @cotp_decode_atn, align 1, !range !9, !noundef !10
+  %60 = load i8, ptr @cotp_decode_atn, align 1, !range !8, !noundef !9
   %61 = trunc nuw i8 %60 to i1
   %62 = zext i8 %22 to i32
   br i1 %61, label %63, label %84
@@ -2361,7 +2361,7 @@ define internal fastcc void @ositp_decode_var_part(ptr noundef %0, i32 noundef %
   %68 = zext i8 %74 to i32
   %69 = add i32 %73, %68
   %70 = icmp slt i32 %69, %26
-  br i1 %70, label %.lr.ph, label %.loopexit405, !llvm.loop !13
+  br i1 %70, label %.lr.ph, label %.loopexit405, !llvm.loop !12
 
 .lr.ph:                                           ; preds = %64, %67
   %.1385408 = phi i32 [ %69, %67 ], [ %65, %64 ]
@@ -2791,7 +2791,7 @@ proto_item_set_hidden.exit401:                    ; preds = %239, %236, %._crit_
   %.3 = phi i32 [ %.0386418, %325 ], [ %.2, %56 ], [ %.5, %87 ], [ %.0386418, %90 ], [ %.0386418, %96 ], [ %.0386418, %113 ], [ %.0386418, %119 ], [ %.0386418, %147 ], [ %.0386418, %133 ], [ %.0386418, %161 ], [ %.0386418, %167 ], [ %.0386418, %173 ], [ %.0386418, %184 ], [ %.0386418, %proto_item_set_hidden.exit ], [ %.0386418, %proto_item_set_hidden.exit401 ], [ %25, %278 ], [ %.0386418, %281 ], [ %.0386418, %293 ], [ %.0386418, %313 ], [ %.0386418, %319 ]
   %.1 = phi i32 [ %329, %325 ], [ %57, %56 ], [ %88, %87 ], [ %94, %90 ], [ %111, %96 ], [ %117, %113 ], [ %131, %119 ], [ %159, %147 ], [ %145, %133 ], [ %165, %161 ], [ %171, %167 ], [ %182, %173 ], [ %192, %184 ], [ %224, %proto_item_set_hidden.exit ], [ %256, %proto_item_set_hidden.exit401 ], [ %279, %278 ], [ %285, %281 ], [ %297, %293 ], [ %317, %313 ], [ %323, %319 ]
   %.not = icmp eq i32 %.1389, 0
-  br i1 %.not, label %.loopexit406, label %15, !llvm.loop !14
+  br i1 %.not, label %.loopexit406, label %15, !llvm.loop !13
 
 .loopexit406:                                     ; preds = %15, %331, %7, %311
   ret void
@@ -2865,7 +2865,7 @@ define internal fastcc noundef ptr @print_tsap(ptr noundef %0, ptr noundef %1, i
   %.146.us = getelementptr i8, ptr %.04549.us, i64 1
   %27 = add nsw i32 %.04450.us, -1
   %.not.us = icmp eq i32 %27, 0
-  br i1 %.not.us, label %.loopexit, label %.lr.ph.split.us, !llvm.loop !15
+  br i1 %.not.us, label %.loopexit, label %.lr.ph.split.us, !llvm.loop !14
 
 .lr.ph.split:                                     ; preds = %.lr.ph.split.preheader, %.lr.ph.split
   %.151 = phi i32 [ %.2, %.lr.ph.split ], [ %13, %.lr.ph.split.preheader ]
@@ -2889,7 +2889,7 @@ define internal fastcc noundef ptr @print_tsap(ptr noundef %0, ptr noundef %1, i
   %.146 = getelementptr i8, ptr %.04549, i64 1
   %41 = add nsw i32 %.04450, -1
   %.not = icmp eq i32 %41, 0
-  br i1 %.not, label %.loopexit, label %.lr.ph.split, !llvm.loop !17
+  br i1 %.not, label %.loopexit, label %.lr.ph.split, !llvm.loop !16
 
 .loopexit:                                        ; preds = %.lr.ph.split, %.lr.ph.split.us, %8
   ret ptr %6
@@ -2936,7 +2936,7 @@ declare void @register_frame_end_routine(ptr noundef, ptr noundef) local_unnamed
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
 define internal void @cotp_frame_end() #6 {
-  %1 = load i8, ptr @cotp_last_fragment, align 1, !range !9, !noundef !10
+  %1 = load i8, ptr @cotp_last_fragment, align 1, !range !8, !noundef !9
   %2 = trunc nuw i8 %1 to i1
   br i1 %2, label %6, label %3
 
@@ -2989,15 +2989,14 @@ attributes #10 = { allocsize(1) }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = !{i8 0, i8 2}
-!10 = !{}
-!11 = distinct !{!11, !7, !8}
-!12 = distinct !{!12, !7, !8}
-!13 = distinct !{!13, !7, !8}
-!14 = distinct !{!14, !7, !8}
-!15 = distinct !{!15, !7, !8, !16}
-!16 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!17 = distinct !{!17, !7, !8}
+!8 = !{i8 0, i8 2}
+!9 = !{}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7}
+!12 = distinct !{!12, !7}
+!13 = distinct !{!13, !7}
+!14 = distinct !{!14, !7, !15}
+!15 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!16 = distinct !{!16, !7}

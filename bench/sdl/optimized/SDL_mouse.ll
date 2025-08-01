@@ -765,7 +765,7 @@ define hidden void @SDL_AddMouse(i32 noundef %0, ptr noundef %1, i1 noundef zero
 10:                                               ; preds = %6
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %SDL_GetMouseIndex.exit.thread, label %6, !llvm.loop !8
+  br i1 %exitcond.not.i, label %SDL_GetMouseIndex.exit.thread, label %6, !llvm.loop !7
 
 SDL_GetMouseIndex.exit.thread:                    ; preds = %10, %3
   %11 = add nsw i32 %5, 1
@@ -834,7 +834,7 @@ define hidden void @SDL_RemoveMouse(i32 noundef %0, i1 noundef zeroext %1) local
 10:                                               ; preds = %6
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %SDL_GetMouseIndex.exit.thread, label %6, !llvm.loop !8
+  br i1 %exitcond.not.i, label %SDL_GetMouseIndex.exit.thread, label %6, !llvm.loop !7
 
 SDL_GetMouseIndex.exit:                           ; preds = %6
   %11 = trunc nuw nsw i64 %indvars.iv.i to i32
@@ -907,7 +907,7 @@ SDL_GetMouseIndex.exit:                           ; preds = %6
 .critedge:                                        ; preds = %29
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %29, !llvm.loop !9
+  br i1 %exitcond.not, label %.loopexit, label %29, !llvm.loop !8
 
 .loopexit:                                        ; preds = %.critedge, %25, %46
   br i1 %1, label %47, label %SDL_GetMouseIndex.exit.thread
@@ -952,7 +952,7 @@ define hidden void @SDL_SetMouseName(i32 noundef %0, ptr noundef %1) local_unnam
 9:                                                ; preds = %5
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %SDL_GetMouseIndex.exit.thread, label %5, !llvm.loop !8
+  br i1 %exitcond.not.i, label %SDL_GetMouseIndex.exit.thread, label %5, !llvm.loop !7
 
 SDL_GetMouseIndex.exit:                           ; preds = %5
   %10 = and i64 %indvars.iv.i, 4294967295
@@ -1012,7 +1012,7 @@ define hidden noalias ptr @SDL_GetMice_REAL(ptr noundef writeonly captures(addre
   store i32 %14, ptr %15, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.loopexit, label %12, !llvm.loop !10
+  br i1 %exitcond.not, label %._crit_edge.loopexit, label %12, !llvm.loop !9
 
 ._crit_edge.loopexit:                             ; preds = %12
   %16 = zext nneg i32 %.pre to i64
@@ -1058,7 +1058,7 @@ define hidden ptr @SDL_GetMouseNameForID_REAL(i32 noundef %0) local_unnamed_addr
 8:                                                ; preds = %4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %SDL_GetMouseIndex.exit.thread, label %4, !llvm.loop !8
+  br i1 %exitcond.not.i, label %SDL_GetMouseIndex.exit.thread, label %4, !llvm.loop !7
 
 SDL_GetMouseIndex.exit.thread:                    ; preds = %8, %1
   %9 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.16, i32 noundef %0) #13
@@ -1101,7 +1101,7 @@ define hidden zeroext i1 @SDL_SetCursor_REAL(ptr noundef %0) local_unnamed_addr 
   %.not18.not = icmp eq ptr %.0, null
   %6 = icmp eq ptr %.0, %0
   %or.cond = or i1 %.not18.not, %6
-  br i1 %or.cond, label %7, label %.preheader, !llvm.loop !11
+  br i1 %or.cond, label %7, label %.preheader, !llvm.loop !10
 
 7:                                                ; preds = %.preheader
   br i1 %.not18.not, label %.thread, label %9
@@ -1342,7 +1342,7 @@ define hidden void @SDL_SendMouseMotion(i64 noundef %0, ptr noundef %1, i32 noun
   %indvars.iv7.i = phi i64 [ %indvars.iv.next8.i, %.lr.ph.split.us.i ], [ 0, %.lr.ph.i ]
   %indvars.iv.next8.i = add nuw nsw i64 %indvars.iv7.i, 1
   %exitcond11.not.i = icmp eq i64 %indvars.iv.next8.i, %wide.trip.count10.i
-  br i1 %exitcond11.not.i, label %SDL_GetMouseButtonState.exit, label %.lr.ph.split.us.i, !llvm.loop !12
+  br i1 %exitcond11.not.i, label %SDL_GetMouseButtonState.exit, label %.lr.ph.split.us.i, !llvm.loop !11
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i, %.lr.ph.split.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.split.i ], [ 0, %.lr.ph.i ]
@@ -1352,7 +1352,7 @@ define hidden void @SDL_SendMouseMotion(i64 noundef %0, ptr noundef %1, i32 noun
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count10.i
   %or.cond29 = select i1 %15, i1 true, i1 %exitcond.not.i
-  br i1 %or.cond29, label %SDL_GetMouseButtonState.exit, label %.lr.ph.split.i, !llvm.loop !14
+  br i1 %or.cond29, label %SDL_GetMouseButtonState.exit, label %.lr.ph.split.i, !llvm.loop !13
 
 SDL_GetMouseButtonState.exit:                     ; preds = %.lr.ph.split.i, %.lr.ph.split.us.i, %8
   %16 = icmp ult i32 %2, -2
@@ -1700,7 +1700,7 @@ define internal fastcc void @SDL_PrivateSendMouseMotion(i64 noundef %0, ptr noun
   %111 = or i32 %110, %.03.us.i
   %indvars.iv.next8.i = add nuw nsw i64 %indvars.iv7.i, 1
   %exitcond11.not.i = icmp eq i64 %indvars.iv.next8.i, %wide.trip.count10.i
-  br i1 %exitcond11.not.i, label %SDL_GetMouseButtonState.exit, label %.lr.ph.split.us.i, !llvm.loop !12
+  br i1 %exitcond11.not.i, label %SDL_GetMouseButtonState.exit, label %.lr.ph.split.us.i, !llvm.loop !11
 
 SDL_GetMouseButtonState.exit:                     ; preds = %.lr.ph.split.us.i
   %.not151 = icmp eq i32 %111, 0
@@ -1860,7 +1860,7 @@ SDL_GetMouseButtonState.exit.thread:              ; preds = %105, %SDL_GetMouseB
   %175 = or i32 %174, %.03.us.i167
   %indvars.iv.next8.i168 = add nuw nsw i64 %indvars.iv7.i166, 1
   %exitcond11.not.i169 = icmp eq i64 %indvars.iv.next8.i168, %wide.trip.count10.i164
-  br i1 %exitcond11.not.i169, label %SDL_GetMouseButtonState.exit170, label %.lr.ph.split.us.i165, !llvm.loop !12
+  br i1 %exitcond11.not.i169, label %SDL_GetMouseButtonState.exit170, label %.lr.ph.split.us.i165, !llvm.loop !11
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i163, %182
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %182 ], [ 0, %.lr.ph.i163 ]
@@ -1877,7 +1877,7 @@ SDL_GetMouseButtonState.exit.thread:              ; preds = %105, %SDL_GetMouseB
 182:                                              ; preds = %.lr.ph.split.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count10.i164
-  br i1 %exitcond.not.i, label %SDL_GetMouseButtonState.exit170, label %.lr.ph.split.i, !llvm.loop !14
+  br i1 %exitcond.not.i, label %SDL_GetMouseButtonState.exit170, label %.lr.ph.split.i, !llvm.loop !13
 
 SDL_GetMouseButtonState.exit170:                  ; preds = %182, %.lr.ph.split.us.i165, %163, %179
   %.1.i162 = phi i32 [ %181, %179 ], [ 0, %163 ], [ %175, %.lr.ph.split.us.i165 ], [ 0, %182 ]
@@ -1924,7 +1924,7 @@ define internal fastcc void @SDL_PrivateSendMouseButton(i64 noundef %0, ptr noun
 12:                                               ; preds = %13
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %.thread.i, label %13, !llvm.loop !15
+  br i1 %exitcond.not.i, label %.thread.i, label %13, !llvm.loop !14
 
 13:                                               ; preds = %12, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %12 ]
@@ -1964,7 +1964,7 @@ define internal fastcc void @SDL_PrivateSendMouseButton(i64 noundef %0, ptr noun
 29:                                               ; preds = %30
   %indvars.iv.next24.i = add nuw nsw i64 %indvars.iv23.i, 1
   %exitcond27.not.i = icmp eq i64 %indvars.iv.next24.i, %wide.trip.count26.i
-  br i1 %exitcond27.not.i, label %._crit_edge.i, label %30, !llvm.loop !16
+  br i1 %exitcond27.not.i, label %._crit_edge.i, label %30, !llvm.loop !15
 
 30:                                               ; preds = %29, %.lr.ph18.i
   %indvars.iv23.i = phi i64 [ 0, %.lr.ph18.i ], [ %indvars.iv.next24.i, %29 ]
@@ -2119,7 +2119,7 @@ define internal fastcc void @SDL_PrivateSendMouseButton(i64 noundef %0, ptr noun
   %indvars.iv.next.i119 = add nsw i64 %indvars.iv.i118, 1
   %lftr.wideiv.i = trunc i64 %indvars.iv.next.i119 to i32
   %exitcond.not.i120 = icmp eq i32 %93, %lftr.wideiv.i
-  br i1 %exitcond.not.i120, label %._crit_edge.i121, label %.lr.ph.i117, !llvm.loop !17
+  br i1 %exitcond.not.i120, label %._crit_edge.i121, label %.lr.ph.i117, !llvm.loop !16
 
 ._crit_edge.i121:                                 ; preds = %.lr.ph.i117, %99
   store i32 %93, ptr %90, align 8
@@ -2670,7 +2670,7 @@ SDL_SetCursor_REAL.exit.i:                        ; preds = %SDL_SetCursor_REAL.
 
 82:                                               ; preds = %SDL_SetCursor_REAL.exit.i
   %83 = icmp eq ptr %.022.i, %.03959
-  br i1 %83, label %84, label %SDL_SetCursor_REAL.exit.i, !llvm.loop !18
+  br i1 %83, label %84, label %SDL_SetCursor_REAL.exit.i, !llvm.loop !17
 
 84:                                               ; preds = %82
   %.not27.i = icmp eq ptr %.0.i50, null
@@ -2706,7 +2706,7 @@ SDL_SetCursor_REAL.exit.i:                        ; preds = %SDL_SetCursor_REAL.
 
 SDL_DestroyCursor_REAL.exit:                      ; preds = %SDL_SetCursor_REAL.exit.i, %.lr.ph, %93, %94
   %.not42 = icmp eq ptr %60, null
-  br i1 %.not42, label %._crit_edge, label %.lr.ph, !llvm.loop !19
+  br i1 %.not42, label %._crit_edge, label %.lr.ph, !llvm.loop !18
 
 ._crit_edge:                                      ; preds = %SDL_DestroyCursor_REAL.exit, %58
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @SDL_mouse, i64 264), align 8
@@ -2740,7 +2740,7 @@ SDL_DestroyCursor_REAL.exit:                      ; preds = %SDL_SetCursor_REAL.
   %102 = load i32, ptr getelementptr inbounds nuw (i8, ptr @SDL_mouse, i64 248), align 8
   %103 = sext i32 %102 to i64
   %104 = icmp slt i64 %indvars.iv.next, %103
-  br i1 %104, label %.lr.ph61, label %._crit_edge62.loopexit, !llvm.loop !20
+  br i1 %104, label %.lr.ph61, label %._crit_edge62.loopexit, !llvm.loop !19
 
 105:                                              ; preds = %._crit_edge62, %._crit_edge
   store i32 0, ptr getelementptr inbounds nuw (i8, ptr @SDL_mouse, i64 248), align 8
@@ -2781,7 +2781,7 @@ SDL_DestroyCursor_REAL.exit:                      ; preds = %SDL_SetCursor_REAL.
   %111 = load i32, ptr %110, align 8
   tail call void @SDL_RemoveMouse(i32 noundef %111, i1 noundef zeroext false)
   %.not44 = icmp eq i64 %indvars.iv.next74, 0
-  br i1 %.not44, label %._crit_edge67, label %.lr.ph66, !llvm.loop !21
+  br i1 %.not44, label %._crit_edge67, label %.lr.ph66, !llvm.loop !20
 }
 
 declare void @SDL_DelTouch(i64 noundef) local_unnamed_addr #4
@@ -2871,7 +2871,7 @@ define hidden noundef zeroext i1 @SDL_UpdateMouseCapture(i1 noundef zeroext %0) 
   %.2.us.i = phi i32 [ %22, %19 ], [ %.03.us.i, %.lr.ph.split.us.i ]
   %indvars.iv.next8.i = add nuw nsw i64 %indvars.iv7.i, 1
   %exitcond11.not.i = icmp eq i64 %indvars.iv.next8.i, %wide.trip.count10.i
-  br i1 %exitcond11.not.i, label %SDL_GetMouseButtonState.exit, label %.lr.ph.split.us.i, !llvm.loop !12
+  br i1 %exitcond11.not.i, label %SDL_GetMouseButtonState.exit, label %.lr.ph.split.us.i, !llvm.loop !11
 
 SDL_GetMouseButtonState.exit:                     ; preds = %23
   %.not28 = icmp eq i32 %.2.us.i, 0
@@ -3265,7 +3265,7 @@ SDL_SetCursor_REAL.exit:                          ; preds = %SDL_SetCursor_REAL.
 
 24:                                               ; preds = %SDL_SetCursor_REAL.exit
   %25 = icmp eq ptr %.022, %0
-  br i1 %25, label %26, label %SDL_SetCursor_REAL.exit, !llvm.loop !18
+  br i1 %25, label %26, label %SDL_SetCursor_REAL.exit, !llvm.loop !17
 
 26:                                               ; preds = %24
   %.not27 = icmp eq ptr %.0, null
@@ -3362,7 +3362,7 @@ define hidden i32 @SDL_GetMouseState_REAL(ptr noundef writeonly captures(address
   %14 = or i32 %13, %.03.us.i
   %indvars.iv.next8.i = add nuw nsw i64 %indvars.iv7.i, 1
   %exitcond11.not.i = icmp eq i64 %indvars.iv.next8.i, %wide.trip.count10.i
-  br i1 %exitcond11.not.i, label %SDL_GetMouseButtonState.exit, label %.lr.ph.split.us.i, !llvm.loop !12
+  br i1 %exitcond11.not.i, label %SDL_GetMouseButtonState.exit, label %.lr.ph.split.us.i, !llvm.loop !11
 
 SDL_GetMouseButtonState.exit:                     ; preds = %.lr.ph.split.us.i, %8
   %.1.i = phi i32 [ 0, %8 ], [ %14, %.lr.ph.split.us.i ]
@@ -3408,7 +3408,7 @@ define hidden i32 @SDL_GetRelativeMouseState_REAL(ptr noundef writeonly captures
   %14 = or i32 %13, %.03.us.i
   %indvars.iv.next8.i = add nuw nsw i64 %indvars.iv7.i, 1
   %exitcond11.not.i = icmp eq i64 %indvars.iv.next8.i, %wide.trip.count10.i
-  br i1 %exitcond11.not.i, label %SDL_GetMouseButtonState.exit, label %.lr.ph.split.us.i, !llvm.loop !12
+  br i1 %exitcond11.not.i, label %SDL_GetMouseButtonState.exit, label %.lr.ph.split.us.i, !llvm.loop !11
 
 SDL_GetMouseButtonState.exit:                     ; preds = %.lr.ph.split.us.i, %8
   %.1.i = phi i32 [ 0, %8 ], [ %14, %.lr.ph.split.us.i ]
@@ -3474,7 +3474,7 @@ define hidden i32 @SDL_GetGlobalMouseState_REAL(ptr noundef %0, ptr noundef %1) 
   %21 = or i32 %20, %.03.us.i.i
   %indvars.iv.next8.i.i = add nuw nsw i64 %indvars.iv7.i.i, 1
   %exitcond11.not.i.i = icmp eq i64 %indvars.iv.next8.i.i, %wide.trip.count10.i.i
-  br i1 %exitcond11.not.i.i, label %SDL_GetMouseState_REAL.exit, label %.lr.ph.split.us.i.i, !llvm.loop !12
+  br i1 %exitcond11.not.i.i, label %SDL_GetMouseState_REAL.exit, label %.lr.ph.split.us.i.i, !llvm.loop !11
 
 SDL_GetMouseState_REAL.exit:                      ; preds = %.lr.ph.split.us.i.i, %15, %6
   %.0 = phi i32 [ %8, %6 ], [ 0, %15 ], [ %21, %.lr.ph.split.us.i.i ]
@@ -3802,12 +3802,12 @@ define hidden ptr @SDL_CreateCursor_REAL(ptr noundef readonly captures(none) %0,
   %31 = shl i8 %.234.us, 1
   %32 = add nuw nsw i32 %.04147.us, 1
   %exitcond.not = icmp eq i32 %32, %8
-  br i1 %exitcond.not, label %._crit_edge.us, label %19, !llvm.loop !22
+  br i1 %exitcond.not, label %._crit_edge.us, label %19, !llvm.loop !21
 
 ._crit_edge.us:                                   ; preds = %27
   %33 = add nuw nsw i32 %.04056.us, 1
   %exitcond65.not = icmp eq i32 %33, %3
-  br i1 %exitcond65.not, label %._crit_edge62, label %.lr.ph.us, !llvm.loop !23
+  br i1 %exitcond65.not, label %._crit_edge62, label %.lr.ph.us, !llvm.loop !22
 
 ._crit_edge62:                                    ; preds = %._crit_edge.us, %.lr.ph61, %.preheader
   %34 = tail call ptr @SDL_CreateColorCursor_REAL(ptr noundef nonnull %9, i32 noundef %4, i32 noundef %5)
@@ -4072,22 +4072,21 @@ attributes #15 = { nounwind allocsize(1) }
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i8 0, i8 2}
 !4 = !{}
-!5 = distinct !{!5, !6, !7}
+!5 = distinct !{!5, !6}
 !6 = !{!"llvm.loop.mustprogress"}
-!7 = !{!"llvm.loop.estimated_trip_count"}
-!8 = distinct !{!8, !6, !7}
-!9 = distinct !{!9, !6, !7}
-!10 = distinct !{!10, !6, !7}
-!11 = distinct !{!11, !6, !7}
-!12 = distinct !{!12, !6, !7, !13}
-!13 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!14 = distinct !{!14, !6, !7}
-!15 = distinct !{!15, !6, !7}
-!16 = distinct !{!16, !6, !7}
-!17 = distinct !{!17, !6, !7}
-!18 = distinct !{!18, !6, !7}
-!19 = distinct !{!19, !6, !7}
-!20 = distinct !{!20, !6, !7}
-!21 = distinct !{!21, !6, !7}
-!22 = distinct !{!22, !6, !7}
-!23 = distinct !{!23, !6, !7, !13}
+!7 = distinct !{!7, !6}
+!8 = distinct !{!8, !6}
+!9 = distinct !{!9, !6}
+!10 = distinct !{!10, !6}
+!11 = distinct !{!11, !6, !12}
+!12 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!13 = distinct !{!13, !6}
+!14 = distinct !{!14, !6}
+!15 = distinct !{!15, !6}
+!16 = distinct !{!16, !6}
+!17 = distinct !{!17, !6}
+!18 = distinct !{!18, !6}
+!19 = distinct !{!19, !6}
+!20 = distinct !{!20, !6}
+!21 = distinct !{!21, !6}
+!22 = distinct !{!22, !6, !12}

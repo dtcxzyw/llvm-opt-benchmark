@@ -17750,6 +17750,5 @@ attributes #21 = { noreturn nounwind }
 !866 = !{!849, !48, i64 48}
 !867 = !{!49, !49, i64 0}
 !868 = !{!849, !49, i64 88}
-!869 = distinct !{!869, !870, !871}
+!869 = distinct !{!869, !870}
 !870 = !{!"llvm.loop.mustprogress"}
-!871 = !{!"llvm.loop.estimated_trip_count"}

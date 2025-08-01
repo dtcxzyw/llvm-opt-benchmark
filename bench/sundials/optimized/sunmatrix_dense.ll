@@ -53,7 +53,7 @@ define noundef ptr @SUNDenseMatrix(i64 noundef %0, i64 noundef %1, ptr noundef %
   store ptr %26, ptr %27, align 8, !tbaa !30
   %28 = add nuw nsw i64 %.035, 1
   %exitcond.not = icmp eq i64 %28, %1
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !31
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   ret ptr %4
@@ -73,7 +73,7 @@ define noundef ptr @SUNMatClone_Dense(ptr noundef readonly captures(none) %0) #0
   %4 = load i64, ptr %3, align 8, !tbaa !21
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %6 = load i64, ptr %5, align 8, !tbaa !26
-  %7 = load ptr, ptr %2, align 8, !tbaa !33
+  %7 = load ptr, ptr %2, align 8, !tbaa !31
   %8 = tail call ptr @SUNMatNewEmpty(ptr noundef %7) #16
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8, !tbaa !3
@@ -120,7 +120,7 @@ define noundef ptr @SUNMatClone_Dense(ptr noundef readonly captures(none) %0) #0
   store ptr %30, ptr %31, align 8, !tbaa !30
   %32 = add nuw nsw i64 %.035.i, 1
   %exitcond.not.i = icmp eq i64 %32, %6
-  br i1 %exitcond.not.i, label %SUNDenseMatrix.exit, label %.lr.ph.i, !llvm.loop !31
+  br i1 %exitcond.not.i, label %SUNDenseMatrix.exit, label %.lr.ph.i
 
 SUNDenseMatrix.exit:                              ; preds = %.lr.ph.i, %1
   ret ptr %8
@@ -199,7 +199,7 @@ define noundef i32 @SUNMatZero_Dense(ptr noundef readonly captures(none) %0) #4 
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %7 = load ptr, ptr %6, align 8, !tbaa !28
   %8 = shl nuw i64 %4, 3
-  tail call void @llvm.memset.p0.i64(ptr align 8 %7, i8 0, i64 %8, i1 false), !tbaa !34
+  tail call void @llvm.memset.p0.i64(ptr align 8 %7, i8 0, i64 %8, i1 false), !tbaa !32
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph.preheader, %1
@@ -238,17 +238,17 @@ define noundef i32 @SUNMatCopy_Dense(ptr noundef readonly captures(none) %0, ptr
 18:                                               ; preds = %.preheader.us, %18
   %.01213.us = phi i64 [ 0, %.preheader.us ], [ %22, %18 ]
   %19 = getelementptr inbounds nuw double, ptr %15, i64 %.01213.us
-  %20 = load double, ptr %19, align 8, !tbaa !34
+  %20 = load double, ptr %19, align 8, !tbaa !32
   %21 = getelementptr inbounds nuw double, ptr %17, i64 %.01213.us
-  store double %20, ptr %21, align 8, !tbaa !34
+  store double %20, ptr %21, align 8, !tbaa !32
   %22 = add nuw nsw i64 %.01213.us, 1
   %exitcond.not = icmp eq i64 %22, %7
-  br i1 %exitcond.not, label %._crit_edge.us, label %18, !llvm.loop !36
+  br i1 %exitcond.not, label %._crit_edge.us, label %18
 
 ._crit_edge.us:                                   ; preds = %18
   %23 = add nuw nsw i64 %.014.us, 1
   %exitcond17.not = icmp eq i64 %23, %5
-  br i1 %exitcond17.not, label %._crit_edge15, label %.preheader.us, !llvm.loop !37
+  br i1 %exitcond17.not, label %._crit_edge15, label %.preheader.us, !llvm.loop !34
 
 ._crit_edge15:                                    ; preds = %._crit_edge.us, %.preheader.lr.ph, %2
   ret i32 0
@@ -286,19 +286,19 @@ define noundef i32 @SUNMatScaleAdd_Dense(double noundef %0, ptr noundef readonly
 19:                                               ; preds = %.preheader.us, %19
   %.01617.us = phi i64 [ 0, %.preheader.us ], [ %25, %19 ]
   %20 = getelementptr inbounds nuw double, ptr %16, i64 %.01617.us
-  %21 = load double, ptr %20, align 8, !tbaa !34
+  %21 = load double, ptr %20, align 8, !tbaa !32
   %22 = getelementptr inbounds nuw double, ptr %18, i64 %.01617.us
-  %23 = load double, ptr %22, align 8, !tbaa !34
+  %23 = load double, ptr %22, align 8, !tbaa !32
   %24 = tail call double @llvm.fmuladd.f64(double %0, double %21, double %23)
-  store double %24, ptr %20, align 8, !tbaa !34
+  store double %24, ptr %20, align 8, !tbaa !32
   %25 = add nuw nsw i64 %.01617.us, 1
   %exitcond.not = icmp eq i64 %25, %8
-  br i1 %exitcond.not, label %._crit_edge.us, label %19, !llvm.loop !39
+  br i1 %exitcond.not, label %._crit_edge.us, label %19
 
 ._crit_edge.us:                                   ; preds = %19
   %26 = add nuw nsw i64 %.018.us, 1
   %exitcond21.not = icmp eq i64 %26, %6
-  br i1 %exitcond21.not, label %._crit_edge19, label %.preheader.us, !llvm.loop !40
+  br i1 %exitcond21.not, label %._crit_edge19, label %.preheader.us, !llvm.loop !36
 
 ._crit_edge19:                                    ; preds = %._crit_edge.us, %.preheader.lr.ph, %3
   ret i32 0
@@ -331,20 +331,20 @@ define noundef i32 @SUNMatScaleAddI_Dense(double noundef %0, ptr noundef readonl
 13:                                               ; preds = %.preheader.us, %13
   %.01516.us = phi i64 [ 0, %.preheader.us ], [ %19, %13 ]
   %14 = getelementptr inbounds nuw double, ptr %12, i64 %.01516.us
-  %15 = load double, ptr %14, align 8, !tbaa !34
+  %15 = load double, ptr %14, align 8, !tbaa !32
   %16 = fmul double %0, %15
   %17 = icmp eq i64 %.01516.us, %.017.us
   %18 = fadd double %16, 1.000000e+00
   %storemerge.us = select i1 %17, double %18, double %16
-  store double %storemerge.us, ptr %14, align 8, !tbaa !34
+  store double %storemerge.us, ptr %14, align 8, !tbaa !32
   %19 = add nuw nsw i64 %.01516.us, 1
   %exitcond.not = icmp eq i64 %19, %7
-  br i1 %exitcond.not, label %._crit_edge.us, label %13, !llvm.loop !41
+  br i1 %exitcond.not, label %._crit_edge.us, label %13
 
 ._crit_edge.us:                                   ; preds = %13
   %20 = add nuw nsw i64 %.017.us, 1
   %exitcond20.not = icmp eq i64 %20, %5
-  br i1 %exitcond20.not, label %._crit_edge18, label %.preheader.us, !llvm.loop !42
+  br i1 %exitcond20.not, label %._crit_edge18, label %.preheader.us, !llvm.loop !37
 
 ._crit_edge18:                                    ; preds = %._crit_edge.us, %.preheader.lr.ph, %2
   ret i32 0
@@ -361,7 +361,7 @@ define noundef i32 @SUNMatMatvec_Dense(ptr noundef readonly captures(none) %0, p
 
 .preheader:                                       ; preds = %3
   %9 = shl nuw i64 %7, 3
-  tail call void @llvm.memset.p0.i64(ptr align 8 %5, i8 0, i64 %9, i1 false), !tbaa !34
+  tail call void @llvm.memset.p0.i64(ptr align 8 %5, i8 0, i64 %9, i1 false), !tbaa !32
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %11 = load i64, ptr %10, align 8, !tbaa !26
   %12 = icmp sgt i64 %11, 0
@@ -382,20 +382,20 @@ define noundef i32 @SUNMatMatvec_Dense(ptr noundef readonly captures(none) %0, p
 18:                                               ; preds = %.lr.ph26.us, %18
   %.125.us = phi i64 [ 0, %.lr.ph26.us ], [ %25, %18 ]
   %19 = getelementptr inbounds nuw double, ptr %16, i64 %.125.us
-  %20 = load double, ptr %19, align 8, !tbaa !34
-  %21 = load double, ptr %17, align 8, !tbaa !34
+  %20 = load double, ptr %19, align 8, !tbaa !32
+  %21 = load double, ptr %17, align 8, !tbaa !32
   %22 = getelementptr inbounds nuw double, ptr %5, i64 %.125.us
-  %23 = load double, ptr %22, align 8, !tbaa !34
+  %23 = load double, ptr %22, align 8, !tbaa !32
   %24 = tail call double @llvm.fmuladd.f64(double %20, double %21, double %23)
-  store double %24, ptr %22, align 8, !tbaa !34
+  store double %24, ptr %22, align 8, !tbaa !32
   %25 = add nuw nsw i64 %.125.us, 1
   %exitcond.not = icmp eq i64 %25, %7
-  br i1 %exitcond.not, label %._crit_edge.us, label %18, !llvm.loop !43
+  br i1 %exitcond.not, label %._crit_edge.us, label %18
 
 ._crit_edge.us:                                   ; preds = %18
   %26 = add nuw nsw i64 %.02127.us, 1
   %exitcond31.not = icmp eq i64 %26, %11
-  br i1 %exitcond31.not, label %._crit_edge29, label %.lr.ph26.us, !llvm.loop !44
+  br i1 %exitcond31.not, label %._crit_edge29, label %.lr.ph26.us, !llvm.loop !38
 
 ._crit_edge29:                                    ; preds = %._crit_edge.us, %3, %.preheader
   ret i32 0
@@ -406,11 +406,11 @@ define noundef i32 @SUNMatSpace_Dense(ptr noundef readonly captures(none) %0, pt
   %4 = load ptr, ptr %0, align 8, !tbaa !20
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %6 = load i64, ptr %5, align 8, !tbaa !27
-  store i64 %6, ptr %1, align 8, !tbaa !45
+  store i64 %6, ptr %1, align 8, !tbaa !39
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %8 = load i64, ptr %7, align 8, !tbaa !26
   %9 = add nsw i64 %8, 3
-  store i64 %9, ptr %2, align 8, !tbaa !45
+  store i64 %9, ptr %2, align 8, !tbaa !39
   ret i32 0
 }
 
@@ -444,14 +444,14 @@ define void @SUNDenseMatrix_Print(ptr noundef readonly captures(none) %0, ptr no
   %13 = getelementptr inbounds nuw ptr, ptr %12, i64 %.016
   %14 = load ptr, ptr %13, align 8, !tbaa !30
   %15 = getelementptr inbounds nuw double, ptr %14, i64 %.01317
-  %16 = load double, ptr %15, align 8, !tbaa !34
+  %16 = load double, ptr %15, align 8, !tbaa !32
   %17 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.1, double noundef %16) #16
   %18 = add nuw nsw i64 %.016, 1
   %19 = load ptr, ptr %0, align 8, !tbaa !20
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %21 = load i64, ptr %20, align 8, !tbaa !26
   %22 = icmp slt i64 %18, %21
-  br i1 %22, label %.lr.ph, label %._crit_edge, !llvm.loop !46
+  br i1 %22, label %.lr.ph, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
   %fputc15 = tail call i32 @fputc(i32 10, ptr %1)
@@ -459,7 +459,7 @@ define void @SUNDenseMatrix_Print(ptr noundef readonly captures(none) %0, ptr no
   %24 = load ptr, ptr %0, align 8, !tbaa !20
   %25 = load i64, ptr %24, align 8, !tbaa !21
   %26 = icmp slt i64 %23, %25
-  br i1 %26, label %.preheader, label %._crit_edge18, !llvm.loop !47
+  br i1 %26, label %.preheader, label %._crit_edge18
 
 ._crit_edge18:                                    ; preds = %._crit_edge, %2
   %fputc14 = tail call i32 @fputc(i32 10, ptr %1)
@@ -585,20 +585,12 @@ attributes #18 = { nounwind allocsize(0,1) }
 !28 = !{!22, !24, i64 16}
 !29 = !{!22, !25, i64 32}
 !30 = !{!24, !24, i64 0}
-!31 = distinct !{!31, !32}
-!32 = !{!"llvm.loop.estimated_trip_count"}
-!33 = !{!4, !9, i64 16}
-!34 = !{!35, !35, i64 0}
-!35 = !{!"double", !6, i64 0}
-!36 = distinct !{!36, !32}
-!37 = distinct !{!37, !32, !38}
-!38 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!39 = distinct !{!39, !32}
-!40 = distinct !{!40, !32, !38}
-!41 = distinct !{!41, !32}
-!42 = distinct !{!42, !32, !38}
-!43 = distinct !{!43, !32}
-!44 = distinct !{!44, !32, !38}
-!45 = !{!23, !23, i64 0}
-!46 = distinct !{!46, !32}
-!47 = distinct !{!47, !32}
+!31 = !{!4, !9, i64 16}
+!32 = !{!33, !33, i64 0}
+!33 = !{!"double", !6, i64 0}
+!34 = distinct !{!34, !35}
+!35 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!36 = distinct !{!36, !35}
+!37 = distinct !{!37, !35}
+!38 = distinct !{!38, !35}
+!39 = !{!23, !23, i64 0}

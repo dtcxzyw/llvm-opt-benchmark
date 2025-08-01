@@ -745,7 +745,7 @@ define internal i32 @H5VL_pass_through_dataset_write(i64 noundef %0, ptr noundef
 16:                                               ; preds = %18
   %17 = add nuw i64 %.02938, 1
   %exitcond.not = icmp eq i64 %17, %0
-  br i1 %exitcond.not, label %._crit_edge, label %18, !llvm.loop !25
+  br i1 %exitcond.not, label %._crit_edge, label %18, !llvm.loop !24
 
 18:                                               ; preds = %.lr.ph, %16
   %.02938 = phi i64 [ 0, %.lr.ph ], [ %17, %16 ]
@@ -1125,13 +1125,13 @@ define internal noalias noundef ptr @H5VL_pass_through_file_create(ptr noundef %
   %7 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #10
   %8 = call i32 @H5Pget_vol_info(i64 noundef %3, ptr noundef nonnull %7) #10
-  %9 = load ptr, ptr %7, align 8, !tbaa !26
+  %9 = load ptr, ptr %7, align 8, !tbaa !25
   %.not = icmp eq ptr %9, null
   br i1 %.not, label %44, label %10
 
 10:                                               ; preds = %6
   %11 = call i64 @H5Pcopy(i64 noundef %3) #10
-  %12 = load ptr, ptr %7, align 8, !tbaa !26
+  %12 = load ptr, ptr %7, align 8, !tbaa !25
   %13 = load i64, ptr %12, align 8, !tbaa !3
   %14 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %15 = load ptr, ptr %14, align 8, !tbaa !9
@@ -1141,7 +1141,7 @@ define internal noalias noundef ptr @H5VL_pass_through_file_create(ptr noundef %
   br i1 %.not21, label %32, label %18
 
 18:                                               ; preds = %10
-  %19 = load ptr, ptr %7, align 8, !tbaa !26
+  %19 = load ptr, ptr %7, align 8, !tbaa !25
   %20 = load i64, ptr %19, align 8, !tbaa !3
   %21 = call noalias dereferenceable_or_null(16) ptr @calloc(i64 noundef 1, i64 noundef 16) #11
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
@@ -1157,7 +1157,7 @@ define internal noalias noundef ptr @H5VL_pass_through_file_create(ptr noundef %
   br i1 %.not23, label %32, label %26
 
 26:                                               ; preds = %24
-  %27 = load ptr, ptr %7, align 8, !tbaa !26
+  %27 = load ptr, ptr %7, align 8, !tbaa !25
   %28 = load i64, ptr %27, align 8, !tbaa !3
   %29 = call noalias dereferenceable_or_null(16) ptr @calloc(i64 noundef 1, i64 noundef 16) #11
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 8
@@ -1170,7 +1170,7 @@ define internal noalias noundef ptr @H5VL_pass_through_file_create(ptr noundef %
 32:                                               ; preds = %10, %18, %24, %26
   %.017 = phi ptr [ %21, %26 ], [ %21, %24 ], [ %21, %18 ], [ null, %10 ]
   %33 = call i32 @H5Pclose(i64 noundef %11) #10
-  %34 = load ptr, ptr %7, align 8, !tbaa !26
+  %34 = load ptr, ptr %7, align 8, !tbaa !25
   %35 = call i64 @H5Eget_current_stack() #10
   %36 = getelementptr inbounds nuw i8, ptr %34, i64 8
   %37 = load ptr, ptr %36, align 8, !tbaa !9
@@ -1200,13 +1200,13 @@ define internal noalias noundef ptr @H5VL_pass_through_file_open(ptr noundef %0,
   %6 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #10
   %7 = call i32 @H5Pget_vol_info(i64 noundef %2, ptr noundef nonnull %6) #10
-  %8 = load ptr, ptr %6, align 8, !tbaa !26
+  %8 = load ptr, ptr %6, align 8, !tbaa !25
   %.not = icmp eq ptr %8, null
   br i1 %.not, label %43, label %9
 
 9:                                                ; preds = %5
   %10 = call i64 @H5Pcopy(i64 noundef %2) #10
-  %11 = load ptr, ptr %6, align 8, !tbaa !26
+  %11 = load ptr, ptr %6, align 8, !tbaa !25
   %12 = load i64, ptr %11, align 8, !tbaa !3
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %14 = load ptr, ptr %13, align 8, !tbaa !9
@@ -1216,7 +1216,7 @@ define internal noalias noundef ptr @H5VL_pass_through_file_open(ptr noundef %0,
   br i1 %.not20, label %31, label %17
 
 17:                                               ; preds = %9
-  %18 = load ptr, ptr %6, align 8, !tbaa !26
+  %18 = load ptr, ptr %6, align 8, !tbaa !25
   %19 = load i64, ptr %18, align 8, !tbaa !3
   %20 = call noalias dereferenceable_or_null(16) ptr @calloc(i64 noundef 1, i64 noundef 16) #11
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
@@ -1232,7 +1232,7 @@ define internal noalias noundef ptr @H5VL_pass_through_file_open(ptr noundef %0,
   br i1 %.not22, label %31, label %25
 
 25:                                               ; preds = %23
-  %26 = load ptr, ptr %6, align 8, !tbaa !26
+  %26 = load ptr, ptr %6, align 8, !tbaa !25
   %27 = load i64, ptr %26, align 8, !tbaa !3
   %28 = call noalias dereferenceable_or_null(16) ptr @calloc(i64 noundef 1, i64 noundef 16) #11
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 8
@@ -1245,7 +1245,7 @@ define internal noalias noundef ptr @H5VL_pass_through_file_open(ptr noundef %0,
 31:                                               ; preds = %9, %17, %23, %25
   %.016 = phi ptr [ %20, %25 ], [ %20, %23 ], [ %20, %17 ], [ null, %9 ]
   %32 = call i32 @H5Pclose(i64 noundef %10) #10
-  %33 = load ptr, ptr %6, align 8, !tbaa !26
+  %33 = load ptr, ptr %6, align 8, !tbaa !25
   %34 = call i64 @H5Eget_current_stack() #10
   %35 = getelementptr inbounds nuw i8, ptr %33, i64 8
   %36 = load ptr, ptr %35, align 8, !tbaa !9
@@ -1304,8 +1304,8 @@ define internal i32 @H5VL_pass_through_file_specific(ptr noundef readonly captur
   %6 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #10
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #10
-  store ptr null, ptr %6, align 8, !tbaa !26
-  %7 = load i32, ptr %1, align 8, !tbaa !28
+  store ptr null, ptr %6, align 8, !tbaa !25
+  %7 = load i32, ptr %1, align 8, !tbaa !27
   switch i32 %7, label %38 [
     i32 2, label %8
     i32 3, label %23
@@ -1316,7 +1316,7 @@ define internal i32 @H5VL_pass_through_file_specific(ptr noundef readonly captur
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %10 = load i64, ptr %9, align 8, !tbaa !15
   %11 = call i32 @H5Pget_vol_info(i64 noundef %10, ptr noundef nonnull %6) #10
-  %12 = load ptr, ptr %6, align 8, !tbaa !26
+  %12 = load ptr, ptr %6, align 8, !tbaa !25
   %.not42 = icmp eq ptr %12, null
   br i1 %.not42, label %92, label %13
 
@@ -1326,7 +1326,7 @@ define internal i32 @H5VL_pass_through_file_specific(ptr noundef readonly captur
   %16 = call i64 @H5Pcopy(i64 noundef %15) #10
   %17 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i64 %16, ptr %17, align 8, !tbaa !15
-  %18 = load ptr, ptr %6, align 8, !tbaa !26
+  %18 = load ptr, ptr %6, align 8, !tbaa !25
   %19 = load i64, ptr %18, align 8, !tbaa !3
   %20 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %21 = load ptr, ptr %20, align 8, !tbaa !9
@@ -1338,7 +1338,7 @@ define internal i32 @H5VL_pass_through_file_specific(ptr noundef readonly captur
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %25 = load i64, ptr %24, align 8, !tbaa !15
   %26 = call i32 @H5Pget_vol_info(i64 noundef %25, ptr noundef nonnull %6) #10
-  %27 = load ptr, ptr %6, align 8, !tbaa !26
+  %27 = load ptr, ptr %6, align 8, !tbaa !25
   %.not = icmp eq ptr %27, null
   br i1 %.not, label %92, label %28
 
@@ -1348,7 +1348,7 @@ define internal i32 @H5VL_pass_through_file_specific(ptr noundef readonly captur
   %31 = call i64 @H5Pcopy(i64 noundef %30) #10
   %32 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i64 %31, ptr %32, align 8, !tbaa !15
-  %33 = load ptr, ptr %6, align 8, !tbaa !26
+  %33 = load ptr, ptr %6, align 8, !tbaa !25
   %34 = load i64, ptr %33, align 8, !tbaa !3
   %35 = getelementptr inbounds nuw i8, ptr %33, i64 8
   %36 = load ptr, ptr %35, align 8, !tbaa !9
@@ -1384,7 +1384,7 @@ define internal i32 @H5VL_pass_through_file_specific(ptr noundef readonly captur
   br label %50
 
 50:                                               ; preds = %46, %44, %42
-  %51 = load i32, ptr %1, align 8, !tbaa !28
+  %51 = load i32, ptr %1, align 8, !tbaa !27
   switch i32 %51, label %80 [
     i32 2, label %52
     i32 3, label %66
@@ -1394,7 +1394,7 @@ define internal i32 @H5VL_pass_through_file_specific(ptr noundef readonly captur
   %53 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %54 = load i64, ptr %53, align 8, !tbaa !15
   %55 = call i32 @H5Pclose(i64 noundef %54) #10
-  %56 = load ptr, ptr %6, align 8, !tbaa !26
+  %56 = load ptr, ptr %6, align 8, !tbaa !25
   %57 = call i64 @H5Eget_current_stack() #10
   %58 = getelementptr inbounds nuw i8, ptr %56, i64 8
   %59 = load ptr, ptr %58, align 8, !tbaa !9
@@ -1417,7 +1417,7 @@ H5VL_pass_through_info_free.exit:                 ; preds = %52, %60
   %67 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %68 = load i64, ptr %67, align 8, !tbaa !15
   %69 = call i32 @H5Pclose(i64 noundef %68) #10
-  %70 = load ptr, ptr %6, align 8, !tbaa !26
+  %70 = load ptr, ptr %6, align 8, !tbaa !25
   %71 = call i64 @H5Eget_current_stack() #10
   %72 = getelementptr inbounds nuw i8, ptr %70, i64 8
   %73 = load ptr, ptr %72, align 8, !tbaa !9
@@ -1644,13 +1644,13 @@ define internal i32 @H5VL_pass_through_group_get(ptr noundef readonly captures(n
 define internal i32 @H5VL_pass_through_group_specific(ptr noundef readonly captures(none) %0, ptr noundef %1, i64 noundef %2, ptr noundef %3) #1 {
   %5 = alloca %struct.H5VL_group_specific_args_t, align 8
   %6 = load i64, ptr %0, align 8, !tbaa !18
-  %7 = load i32, ptr %1, align 8, !tbaa !30
+  %7 = load i32, ptr %1, align 8, !tbaa !29
   %8 = icmp eq i32 %7, 0
   br i1 %8, label %9, label %24
 
 9:                                                ; preds = %4
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #10
-  store i32 0, ptr %5, align 8, !tbaa !30
+  store i32 0, ptr %5, align 8, !tbaa !29
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %11 = load ptr, ptr %10, align 8, !tbaa !15
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -1779,7 +1779,7 @@ define internal i32 @H5VL_pass_through_link_create(ptr noundef %0, ptr noundef r
 
 10:                                               ; preds = %8, %7
   %.0 = phi i64 [ %9, %8 ], [ -1, %7 ]
-  %11 = load i32, ptr %0, align 8, !tbaa !32
+  %11 = load i32, ptr %0, align 8, !tbaa !31
   %12 = icmp eq i32 %11, 0
   br i1 %12, label %13, label %23
 
@@ -2185,7 +2185,7 @@ define internal i32 @H5VL_pass_through_introspect_get_conn_cls(ptr noundef reado
   br i1 %4, label %5, label %6
 
 5:                                                ; preds = %3
-  store ptr @H5VL_pass_through_g, ptr %2, align 8, !tbaa !34
+  store ptr @H5VL_pass_through_g, ptr %2, align 8, !tbaa !33
   br label %11
 
 6:                                                ; preds = %3
@@ -2664,17 +2664,16 @@ attributes #13 = { nounwind allocsize(0) }
 !19 = !{!20, !5, i64 0}
 !20 = !{!"H5VL_pass_through_wrap_ctx_t", !5, i64 0, !8, i64 8}
 !21 = !{!20, !8, i64 8}
-!22 = distinct !{!22, !23, !24}
+!22 = distinct !{!22, !23}
 !23 = !{!"llvm.loop.mustprogress"}
-!24 = !{!"llvm.loop.estimated_trip_count"}
-!25 = distinct !{!25, !23, !24}
-!26 = !{!27, !27, i64 0}
-!27 = !{!"p1 _ZTS24H5VL_pass_through_info_t", !8, i64 0}
-!28 = !{!29, !11, i64 0}
-!29 = !{!"H5VL_file_specific_args_t", !11, i64 0, !6, i64 8}
-!30 = !{!31, !11, i64 0}
-!31 = !{!"H5VL_group_specific_args_t", !11, i64 0, !6, i64 8}
-!32 = !{!33, !11, i64 0}
-!33 = !{!"H5VL_link_create_args_t", !11, i64 0, !6, i64 8}
-!34 = !{!35, !35, i64 0}
-!35 = !{!"p1 _ZTS12H5VL_class_t", !8, i64 0}
+!24 = distinct !{!24, !23}
+!25 = !{!26, !26, i64 0}
+!26 = !{!"p1 _ZTS24H5VL_pass_through_info_t", !8, i64 0}
+!27 = !{!28, !11, i64 0}
+!28 = !{!"H5VL_file_specific_args_t", !11, i64 0, !6, i64 8}
+!29 = !{!30, !11, i64 0}
+!30 = !{!"H5VL_group_specific_args_t", !11, i64 0, !6, i64 8}
+!31 = !{!32, !11, i64 0}
+!32 = !{!"H5VL_link_create_args_t", !11, i64 0, !6, i64 8}
+!33 = !{!34, !34, i64 0}
+!34 = !{!"p1 _ZTS12H5VL_class_t", !8, i64 0}

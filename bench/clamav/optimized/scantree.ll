@@ -179,10 +179,10 @@ define noundef range(i32 0, 2) i32 @_ZN8ScanTree7GetNextEP8FindData(ptr noundef 
   br label %.backedge.backedge
 
 .backedge.backedge:                               ; preds = %18, %26, %30, %21, %16
-  br label %.backedge, !llvm.loop !34
+  br label %.backedge, !llvm.loop !33
 
 21:                                               ; preds = %16
-  %22 = load i8, ptr %7, align 4, !tbaa !35, !range !38, !noundef !39
+  %22 = load i8, ptr %7, align 4, !tbaa !34, !range !37, !noundef !38
   %23 = trunc nuw i8 %22 to i1
   %24 = load i32, ptr %8, align 8
   %25 = icmp eq i32 %24, 0
@@ -197,7 +197,7 @@ default.unreachable:                              ; preds = %16
   br i1 %27, label %.backedge.backedge, label %.thread16
 
 28:                                               ; preds = %21
-  %29 = load i64, ptr %9, align 8, !tbaa !40
+  %29 = load i64, ptr %9, align 8, !tbaa !39
   %.not = icmp eq i64 %29, 0
   br i1 %.not, label %.thread16, label %30
 
@@ -307,7 +307,7 @@ define noundef zeroext i1 @_ZN8ScanTree11GetNextMaskEv(ptr noundef nonnull align
   %50 = sub i64 %48, %49
   %51 = ashr exact i64 %50, 2
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 25008
-  store i64 %51, ptr %52, align 8, !tbaa !41
+  store i64 %51, ptr %52, align 8, !tbaa !40
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 8192
   store i32 0, ptr %53, align 8, !tbaa !28
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 16420
@@ -346,25 +346,25 @@ define noundef range(i32 0, 4) i32 @_ZN8ScanTree8FindProcEP8FindData(ptr noundef
 
 21:                                               ; preds = %19
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 8212
-  %23 = load i8, ptr %22, align 4, !tbaa !20, !range !38, !noundef !39
+  %23 = load i8, ptr %22, align 4, !tbaa !20, !range !37, !noundef !38
   %24 = trunc nuw i8 %23 to i1
   %25 = tail call noundef zeroext i1 @_ZN8FindFile8FastFindEPKwP8FindDatab(ptr noundef nonnull %9, ptr noundef %1, i1 noundef zeroext %24)
   br i1 %25, label %26, label %.thread77
 
 26:                                               ; preds = %21
   %27 = getelementptr inbounds nuw i8, ptr %1, i64 8204
-  %28 = load i8, ptr %27, align 4, !tbaa !35, !range !38, !noundef !39
+  %28 = load i8, ptr %27, align 4, !tbaa !34, !range !37, !noundef !38
   %29 = trunc nuw i8 %28 to i1
   br i1 %29, label %30, label %.thread77
 
 30:                                               ; preds = %26
-  %31 = load i8, ptr %22, align 4, !tbaa !20, !range !38, !noundef !39
+  %31 = load i8, ptr %22, align 4, !tbaa !20, !range !37, !noundef !38
   %32 = trunc nuw i8 %31 to i1
   br i1 %32, label %33, label %.thread78
 
 33:                                               ; preds = %30
   %34 = getelementptr inbounds nuw i8, ptr %1, i64 8205
-  %35 = load i8, ptr %34, align 1, !tbaa !42, !range !38, !noundef !39
+  %35 = load i8, ptr %34, align 1, !tbaa !41, !range !37, !noundef !38
   %36 = trunc nuw i8 %35 to i1
   br i1 %36, label %.thread77, label %.thread78
 
@@ -382,7 +382,7 @@ define noundef range(i32 0, 4) i32 @_ZN8ScanTree8FindProcEP8FindData(ptr noundef
 
 44:                                               ; preds = %40
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 25000
-  %46 = load i8, ptr %45, align 8, !tbaa !43, !range !38, !noundef !39
+  %46 = load i8, ptr %45, align 8, !tbaa !42, !range !37, !noundef !38
   %47 = trunc nuw i8 %46 to i1
   %.not = icmp ne i32 %42, 1
   %or.cond64.not103 = and i1 %.not, %47
@@ -393,7 +393,7 @@ define noundef range(i32 0, 4) i32 @_ZN8ScanTree8FindProcEP8FindData(ptr noundef
 
 49:                                               ; preds = %44
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 8224
-  %51 = load i8, ptr %50, align 8, !tbaa !22, !range !38, !noundef !39
+  %51 = load i8, ptr %50, align 8, !tbaa !22, !range !37, !noundef !38
   %52 = trunc nuw i8 %51 to i1
   %spec.select = and i1 %.not, %52
   br label %.thread78
@@ -409,7 +409,7 @@ define noundef range(i32 0, 4) i32 @_ZN8ScanTree8FindProcEP8FindData(ptr noundef
 54:                                               ; preds = %.thread78
   %55 = zext i1 %.ph81 to i8
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 25001
-  store i8 %55, ptr %56, align 1, !tbaa !44
+  store i8 %55, ptr %56, align 1, !tbaa !43
   br label %57
 
 57:                                               ; preds = %54, %.thread78
@@ -454,7 +454,7 @@ define noundef range(i32 0, 4) i32 @_ZN8ScanTree8FindProcEP8FindData(ptr noundef
 
 72:                                               ; preds = %71
   %73 = getelementptr inbounds nuw i8, ptr %1, i64 8236
-  %74 = load i8, ptr %73, align 4, !tbaa !45, !range !38, !noundef !39
+  %74 = load i8, ptr %73, align 4, !tbaa !44, !range !37, !noundef !38
   %75 = trunc nuw i8 %74 to i1
   %76 = select i1 %75, i32 2, i32 3
   %77 = getelementptr inbounds nuw i8, ptr %0, i64 33208
@@ -493,7 +493,7 @@ define noundef range(i32 0, 4) i32 @_ZN8ScanTree8FindProcEP8FindData(ptr noundef
 .thread91:                                        ; preds = %12, %84
   %89 = phi ptr [ %17, %12 ], [ %.pre108, %84 ]
   %90 = getelementptr inbounds nuw i8, ptr %0, i64 8212
-  %91 = load i8, ptr %90, align 4, !tbaa !20, !range !38, !noundef !39
+  %91 = load i8, ptr %90, align 4, !tbaa !20, !range !37, !noundef !38
   %92 = trunc nuw i8 %91 to i1
   %93 = call noundef zeroext i1 @_ZN8FindFile4NextEP8FindDatab(ptr noundef nonnull align 8 dereferenceable(8208) %89, ptr noundef %1, i1 noundef zeroext %92)
   br i1 %93, label %.thread95, label %94
@@ -501,9 +501,9 @@ define noundef range(i32 0, 4) i32 @_ZN8ScanTree8FindProcEP8FindData(ptr noundef
 94:                                               ; preds = %.thread91
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #13
   %95 = getelementptr inbounds nuw i8, ptr %1, i64 8236
-  %96 = load i8, ptr %95, align 4, !tbaa !45, !range !38, !noundef !39
+  %96 = load i8, ptr %95, align 4, !tbaa !44, !range !37, !noundef !38
   %97 = trunc nuw i8 %96 to i1
-  store i8 %96, ptr %5, align 1, !tbaa !46
+  store i8 %96, ptr %5, align 1, !tbaa !45
   br i1 %97, label %98, label %99
 
 98:                                               ; preds = %94
@@ -549,10 +549,10 @@ define noundef range(i32 0, 4) i32 @_ZN8ScanTree8FindProcEP8FindData(ptr noundef
   %117 = add nsw i32 %111, -1
   store i32 %117, ptr %13, align 8, !tbaa !28
   %118 = icmp sgt i32 %111, 0
-  br i1 %118, label %.lr.ph, label %._crit_edge, !llvm.loop !47
+  br i1 %118, label %.lr.ph, label %._crit_edge, !llvm.loop !46
 
 ._crit_edge:                                      ; preds = %116, %106
-  %119 = load i8, ptr %5, align 1, !tbaa !46, !range !38, !noundef !39
+  %119 = load i8, ptr %5, align 1, !tbaa !45, !range !37, !noundef !38
   %120 = trunc nuw i8 %119 to i1
   br i1 %120, label %121, label %165
 
@@ -573,7 +573,7 @@ define noundef range(i32 0, 4) i32 @_ZN8ScanTree8FindProcEP8FindData(ptr noundef
   call void @_Z8wcsncpyzPwPKwm(ptr noundef nonnull %7, ptr noundef nonnull %125, i64 noundef 2048)
   %127 = load i32, ptr %13, align 8, !tbaa !28
   %128 = getelementptr inbounds nuw i8, ptr %0, i64 8196
-  %129 = load i32, ptr %128, align 4, !tbaa !48
+  %129 = load i32, ptr %128, align 4, !tbaa !47
   %130 = icmp slt i32 %127, %129
   br i1 %130, label %131, label %135
 
@@ -612,29 +612,29 @@ define noundef range(i32 0, 4) i32 @_ZN8ScanTree8FindProcEP8FindData(ptr noundef
   br i1 %145, label %146, label %161
 
 146:                                              ; preds = %142
-  %147 = load i8, ptr %90, align 4, !tbaa !20, !range !38, !noundef !39
+  %147 = load i8, ptr %90, align 4, !tbaa !20, !range !37, !noundef !38
   %148 = trunc nuw i8 %147 to i1
   %149 = call noundef zeroext i1 @_ZN8FindFile8FastFindEPKwP8FindDatab(ptr noundef nonnull %6, ptr noundef %1, i1 noundef zeroext %148)
   br i1 %149, label %150, label %161
 
 150:                                              ; preds = %146
   %151 = getelementptr inbounds nuw i8, ptr %1, i64 8204
-  %152 = load i8, ptr %151, align 4, !tbaa !35, !range !38, !noundef !39
+  %152 = load i8, ptr %151, align 4, !tbaa !34, !range !37, !noundef !38
   %153 = trunc nuw i8 %152 to i1
   br i1 %153, label %154, label %161
 
 154:                                              ; preds = %150
   %155 = getelementptr inbounds nuw i8, ptr %1, i64 8232
-  %156 = load i32, ptr %155, align 8, !tbaa !49
+  %156 = load i32, ptr %155, align 8, !tbaa !48
   %157 = or i32 %156, 1
-  store i32 %157, ptr %155, align 8, !tbaa !49
-  %158 = load i8, ptr %5, align 1, !tbaa !46, !range !38, !noundef !39
+  store i32 %157, ptr %155, align 8, !tbaa !48
+  %158 = load i8, ptr %5, align 1, !tbaa !45, !range !37, !noundef !38
   %159 = shl nuw nsw i8 %158, 1
   %160 = zext nneg i8 %159 to i32
   br label %165
 
 161:                                              ; preds = %150, %146, %142
-  %162 = load i8, ptr %5, align 1, !tbaa !46, !range !38, !noundef !39
+  %162 = load i8, ptr %5, align 1, !tbaa !45, !range !37, !noundef !38
   %163 = trunc nuw i8 %162 to i1
   %164 = select i1 %163, i32 2, i32 3
   br label %165
@@ -648,19 +648,19 @@ define noundef range(i32 0, 4) i32 @_ZN8ScanTree8FindProcEP8FindData(ptr noundef
 .thread95:                                        ; preds = %67, %.thread91
   %.04794 = phi i1 [ false, %.thread91 ], [ true, %67 ]
   %166 = getelementptr inbounds nuw i8, ptr %1, i64 8204
-  %167 = load i8, ptr %166, align 4, !tbaa !35, !range !38, !noundef !39
+  %167 = load i8, ptr %166, align 4, !tbaa !34, !range !37, !noundef !38
   %168 = trunc nuw i8 %167 to i1
   br i1 %168, label %169, label %226
 
 169:                                              ; preds = %.thread95
   %170 = getelementptr inbounds nuw i8, ptr %0, i64 8212
-  %171 = load i8, ptr %170, align 4, !tbaa !20, !range !38, !noundef !39
+  %171 = load i8, ptr %170, align 4, !tbaa !20, !range !37, !noundef !38
   %172 = trunc nuw i8 %171 to i1
   br i1 %172, label %173, label %177
 
 173:                                              ; preds = %169
   %174 = getelementptr inbounds nuw i8, ptr %1, i64 8205
-  %175 = load i8, ptr %174, align 1, !tbaa !42, !range !38, !noundef !39
+  %175 = load i8, ptr %174, align 1, !tbaa !41, !range !37, !noundef !38
   %176 = trunc nuw i8 %175 to i1
   br i1 %176, label %226, label %177
 
@@ -669,7 +669,7 @@ define noundef range(i32 0, 4) i32 @_ZN8ScanTree8FindProcEP8FindData(ptr noundef
   %179 = icmp ne i32 %178, 0
   %or.cond71.not106 = select i1 %.04794, i1 true, i1 %179
   %180 = getelementptr inbounds nuw i8, ptr %0, i64 25001
-  %181 = load i8, ptr %180, align 1, !range !38
+  %181 = load i8, ptr %180, align 1, !range !37
   %182 = trunc nuw i8 %181 to i1
   %or.cond74 = select i1 %or.cond71.not106, i1 true, i1 %182
   br i1 %or.cond74, label %188, label %183
@@ -694,7 +694,7 @@ define noundef range(i32 0, 4) i32 @_ZN8ScanTree8FindProcEP8FindData(ptr noundef
 193:                                              ; preds = %191
   %194 = load ptr, ptr %189, align 8, !tbaa !26
   %195 = getelementptr inbounds nuw i8, ptr %1, i64 8200
-  %196 = load i32, ptr %195, align 8, !tbaa !50
+  %196 = load i32, ptr %195, align 8, !tbaa !49
   %197 = call noundef zeroext i1 @_ZN11CommandData13ExclDirByAttrEj(ptr noundef nonnull align 8 dereferenceable(100904) %194, i32 noundef %196)
   br i1 %197, label %198, label %200
 
@@ -731,10 +731,10 @@ define noundef range(i32 0, 4) i32 @_ZN8ScanTree8FindProcEP8FindData(ptr noundef
 213:                                              ; preds = %213, %212
   %indvars.iv.i.i = phi i64 [ 0, %212 ], [ %indvars.iv.next.i.i, %213 ]
   %214 = getelementptr inbounds nuw [8 x ptr], ptr %3, i64 0, i64 %indvars.iv.i.i
-  store ptr @.str.3, ptr %214, align 8, !tbaa !51
+  store ptr @.str.3, ptr %214, align 8, !tbaa !50
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 8
-  br i1 %exitcond.not.i.i, label %220, label %213, !llvm.loop !52
+  br i1 %exitcond.not.i.i, label %220, label %213, !llvm.loop !51
 
 215:                                              ; preds = %203
   call void @_Z11AddEndSlashPwm(ptr noundef nonnull %9, i64 noundef 2048)
@@ -746,7 +746,7 @@ define noundef range(i32 0, 4) i32 @_ZN8ScanTree8FindProcEP8FindData(ptr noundef
 
 218:                                              ; preds = %215
   %219 = getelementptr inbounds nuw i8, ptr %0, i64 8196
-  store i32 %217, ptr %219, align 4, !tbaa !48
+  store i32 %217, ptr %219, align 4, !tbaa !47
   br label %.thread99
 
 .thread99:                                        ; preds = %218, %215
@@ -757,14 +757,14 @@ define noundef range(i32 0, 4) i32 @_ZN8ScanTree8FindProcEP8FindData(ptr noundef
   %221 = getelementptr inbounds nuw i8, ptr %3, i64 64
   %222 = getelementptr inbounds nuw i8, ptr %3, i64 104
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %221, i8 0, i64 40, i1 false)
-  store i32 86, ptr %222, align 8, !tbaa !53
+  store i32 86, ptr %222, align 8, !tbaa !52
   %223 = getelementptr inbounds nuw i8, ptr %3, i64 96
-  store ptr %9, ptr %3, align 8, !tbaa !51
+  store ptr %9, ptr %3, align 8, !tbaa !50
   %224 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store ptr @.str.2, ptr %224, align 8, !tbaa !51
-  store i32 3, ptr %223, align 8, !tbaa !56
+  store ptr @.str.2, ptr %224, align 8, !tbaa !50
+  store i32 3, ptr %223, align 8, !tbaa !55
   %225 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store ptr %8, ptr %225, align 8, !tbaa !51
+  store ptr %8, ptr %225, align 8, !tbaa !50
   call void @_ZN10uiMsgStore3MsgEv(ptr noundef nonnull align 8 dereferenceable(108) %3)
   call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %3) #13
   call void @llvm.lifetime.end.p0(i64 8192, ptr nonnull %8) #13
@@ -816,7 +816,7 @@ define noundef zeroext i1 @_ZN8ScanTree16ExpandFolderMaskEv(ptr noundef nonnull 
 11:                                               ; preds = %9, %.thread
   %.12025 = phi i1 [ false, %9 ], [ true, %.thread ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  br label %6, !llvm.loop !57
+  br label %6, !llvm.loop !56
 
 12:                                               ; preds = %.thread, %6
   %.018 = phi i64 [ 0, %6 ], [ %indvars.iv, %.thread ]
@@ -847,7 +847,7 @@ define noundef zeroext i1 @_ZN8ScanTree16ExpandFolderMaskEv(ptr noundef nonnull 
   br i1 %20, label %22, label %40
 
 22:                                               ; preds = %21
-  %23 = load i8, ptr %17, align 4, !tbaa !35, !range !38, !noundef !39
+  %23 = load i8, ptr %17, align 4, !tbaa !34, !range !37, !noundef !38
   %24 = trunc nuw i8 %23 to i1
   br i1 %24, label %25, label %.backedge
 
@@ -898,11 +898,11 @@ define noundef zeroext i1 @_ZN8ScanTree16ExpandFolderMaskEv(ptr noundef nonnull 
           to label %.backedge unwind label %37
 
 .backedge:                                        ; preds = %39, %22
-  br label %19, !llvm.loop !58
+  br label %19, !llvm.loop !57
 
 40:                                               ; preds = %21
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 24656
-  %42 = load i64, ptr %41, align 8, !tbaa !40
+  %42 = load i64, ptr %41, align 8, !tbaa !39
   %43 = icmp ne i64 %42, 0
   br i1 %43, label %44, label %46
 
@@ -959,7 +959,7 @@ declare noundef zeroext i1 @_ZN10StringList9GetStringEPwm(ptr noundef nonnull al
 define noundef zeroext i1 @_ZN8ScanTree15GetFilteredMaskEv(ptr noundef nonnull align 8 dereferenceable(33216) %0) local_unnamed_addr #0 align 2 {
   %2 = alloca [2048 x i32], align 16
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24656
-  %4 = load i64, ptr %3, align 8, !tbaa !40
+  %4 = load i64, ptr %3, align 8, !tbaa !39
   %.not = icmp eq i64 %4, 0
   br i1 %.not, label %9, label %5
 
@@ -971,7 +971,7 @@ define noundef zeroext i1 @_ZN8ScanTree15GetFilteredMaskEv(ptr noundef nonnull a
 
 9:                                                ; preds = %5, %1
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 25000
-  store i8 0, ptr %10, align 8, !tbaa !43
+  store i8 0, ptr %10, align 8, !tbaa !42
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 24800
   tail call void @_ZN10StringList5ResetEv(ptr noundef nonnull align 8 dereferenceable(184) %11)
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8200
@@ -1023,10 +1023,10 @@ define noundef zeroext i1 @_ZN8ScanTree15GetFilteredMaskEv(ptr noundef nonnull a
   %.233 = phi i32 [ %.031, %24 ], [ %spec.select, %27 ]
   %.3 = phi i8 [ %.130, %24 ], [ 0, %27 ]
   %31 = add i32 %.034, 1
-  br label %.preheader, !llvm.loop !59
+  br label %.preheader, !llvm.loop !58
 
 32:                                               ; preds = %19
-  store i8 1, ptr %10, align 8, !tbaa !43
+  store i8 1, ptr %10, align 8, !tbaa !42
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 8208
   %34 = load i32, ptr %33, align 8, !tbaa !19
   %35 = icmp eq i32 %34, 0
@@ -1135,7 +1135,7 @@ declare void @_ZN12ErrorHandler12SetErrorCodeE8RAR_EXIT(ptr noundef nonnull alig
 define void @_ZN8ScanTree9ScanErrorERb(ptr noundef nonnull align 8 dereferenceable(33216) %0, ptr noundef nonnull align 1 captures(none) dereferenceable(1) %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %class.uiMsgStore, align 8
   %4 = alloca [2048 x i32], align 16
-  %5 = load i8, ptr %1, align 1, !tbaa !46, !range !38, !noundef !39
+  %5 = load i8, ptr %1, align 1, !tbaa !45, !range !37, !noundef !38
   %6 = trunc nuw i8 %5 to i1
   br i1 %6, label %7, label %.thread
 
@@ -1151,17 +1151,17 @@ define void @_ZN8ScanTree9ScanErrorERb(ptr noundef nonnull align 8 dereferenceab
   br i1 %12, label %13, label %14
 
 13:                                               ; preds = %10
-  store i8 0, ptr %1, align 1, !tbaa !46
+  store i8 0, ptr %1, align 1, !tbaa !45
   br label %.thread
 
 14:                                               ; preds = %10
-  %.pre = load i8, ptr %1, align 1, !tbaa !46, !range !38
+  %.pre = load i8, ptr %1, align 1, !tbaa !45, !range !37
   %15 = trunc nuw i8 %.pre to i1
   br i1 %15, label %.thread8, label %.thread
 
 .thread8:                                         ; preds = %7, %14
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 24984
-  %17 = load ptr, ptr %16, align 8, !tbaa !60
+  %17 = load ptr, ptr %16, align 8, !tbaa !59
   %.not6 = icmp eq ptr %17, null
   br i1 %.not6, label %20, label %18
 
@@ -1172,30 +1172,30 @@ define void @_ZN8ScanTree9ScanErrorERb(ptr noundef nonnull align 8 dereferenceab
 
 20:                                               ; preds = %18, %.thread8
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 24992
-  %22 = load ptr, ptr %21, align 8, !tbaa !61
+  %22 = load ptr, ptr %21, align 8, !tbaa !60
   %.not7 = icmp eq ptr %22, null
   br i1 %.not7, label %54, label %23
 
 23:                                               ; preds = %20
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 25008
-  %25 = load i64, ptr %24, align 8, !tbaa !41
+  %25 = load i64, ptr %24, align 8, !tbaa !40
   %26 = trunc i64 %25 to i32
   %27 = getelementptr inbounds nuw i8, ptr %22, i64 8
-  %28 = load i64, ptr %27, align 8, !tbaa !62
+  %28 = load i64, ptr %27, align 8, !tbaa !61
   %29 = add i64 %28, 1
-  store i64 %29, ptr %27, align 8, !tbaa !62
+  store i64 %29, ptr %27, align 8, !tbaa !61
   %30 = getelementptr inbounds nuw i8, ptr %22, i64 16
-  %31 = load i64, ptr %30, align 8, !tbaa !65
+  %31 = load i64, ptr %30, align 8, !tbaa !64
   %32 = icmp ugt i64 %29, %31
   br i1 %32, label %33, label %._ZN5ArrayIjE3AddEm.exit_crit_edge.i
 
 ._ZN5ArrayIjE3AddEm.exit_crit_edge.i:             ; preds = %23
-  %.pre1.i = load ptr, ptr %22, align 8, !tbaa !66
+  %.pre1.i = load ptr, ptr %22, align 8, !tbaa !65
   br label %_ZN5ArrayIjE4PushEj.exit
 
 33:                                               ; preds = %23
   %34 = getelementptr inbounds nuw i8, ptr %22, i64 24
-  %35 = load i64, ptr %34, align 8, !tbaa !67
+  %35 = load i64, ptr %34, align 8, !tbaa !66
   %.not.i.i = icmp ne i64 %35, 0
   %36 = icmp ugt i64 %29, %35
   %or.cond.i.i = and i1 %.not.i.i, %36
@@ -1204,8 +1204,8 @@ define void @_ZN8ScanTree9ScanErrorERb(ptr noundef nonnull align 8 dereferenceab
 37:                                               ; preds = %33
   tail call void (ptr, ptr, ...) @_ZN12ErrorHandler13GeneralErrMsgEPKwz(ptr noundef nonnull align 4 dereferenceable(14) @ErrHandler, ptr noundef nonnull @.str.4, i64 noundef %35)
   tail call void @_ZN12ErrorHandler11MemoryErrorEv(ptr noundef nonnull align 4 dereferenceable(14) @ErrHandler)
-  %.pre.i.i = load i64, ptr %30, align 8, !tbaa !65
-  %.pre10.i.i = load i64, ptr %27, align 8, !tbaa !62
+  %.pre.i.i = load i64, ptr %30, align 8, !tbaa !64
+  %.pre10.i.i = load i64, ptr %27, align 8, !tbaa !61
   br label %38
 
 38:                                               ; preds = %37, %33
@@ -1215,7 +1215,7 @@ define void @_ZN8ScanTree9ScanErrorERb(ptr noundef nonnull align 8 dereferenceab
   %42 = add i64 %40, 32
   %43 = add i64 %42, %41
   %..i.i = tail call i64 @llvm.umax.i64(i64 %39, i64 %43)
-  %44 = load ptr, ptr %22, align 8, !tbaa !66
+  %44 = load ptr, ptr %22, align 8, !tbaa !65
   %45 = shl i64 %..i.i, 2
   %46 = tail call ptr @realloc(ptr noundef %44, i64 noundef %45) #17
   %47 = icmp eq ptr %46, null
@@ -1226,9 +1226,9 @@ define void @_ZN8ScanTree9ScanErrorERb(ptr noundef nonnull align 8 dereferenceab
   br label %49
 
 49:                                               ; preds = %48, %38
-  store ptr %46, ptr %22, align 8, !tbaa !66
-  store i64 %..i.i, ptr %30, align 8, !tbaa !65
-  %.pre.i = load i64, ptr %27, align 8, !tbaa !62
+  store ptr %46, ptr %22, align 8, !tbaa !65
+  store i64 %..i.i, ptr %30, align 8, !tbaa !64
+  %.pre.i = load i64, ptr %27, align 8, !tbaa !61
   br label %_ZN5ArrayIjE4PushEj.exit
 
 _ZN5ArrayIjE4PushEj.exit:                         ; preds = %._ZN5ArrayIjE3AddEm.exit_crit_edge.i, %49
@@ -1236,7 +1236,7 @@ _ZN5ArrayIjE4PushEj.exit:                         ; preds = %._ZN5ArrayIjE3AddEm
   %51 = phi i64 [ %29, %._ZN5ArrayIjE3AddEm.exit_crit_edge.i ], [ %.pre.i, %49 ]
   %52 = getelementptr i32, ptr %50, i64 %51
   %53 = getelementptr i8, ptr %52, i64 -4
-  store i32 %26, ptr %53, align 4, !tbaa !68
+  store i32 %26, ptr %53, align 4, !tbaa !67
   br label %54
 
 54:                                               ; preds = %_ZN5ArrayIjE4PushEj.exit, %20
@@ -1249,19 +1249,19 @@ _ZN5ArrayIjE4PushEj.exit:                         ; preds = %._ZN5ArrayIjE3AddEm
 56:                                               ; preds = %56, %54
   %indvars.iv.i.i = phi i64 [ 0, %54 ], [ %indvars.iv.next.i.i, %56 ]
   %57 = getelementptr inbounds nuw [8 x ptr], ptr %3, i64 0, i64 %indvars.iv.i.i
-  store ptr @.str.3, ptr %57, align 8, !tbaa !51
+  store ptr @.str.3, ptr %57, align 8, !tbaa !50
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 8
-  br i1 %exitcond.not.i.i, label %_Z5uiMsgIJRA2048_wEEv14UIMESSAGE_CODEDpOT_.exit, label %56, !llvm.loop !52
+  br i1 %exitcond.not.i.i, label %_Z5uiMsgIJRA2048_wEEv14UIMESSAGE_CODEDpOT_.exit, label %56, !llvm.loop !51
 
 _Z5uiMsgIJRA2048_wEEv14UIMESSAGE_CODEDpOT_.exit:  ; preds = %56
   %58 = getelementptr inbounds nuw i8, ptr %3, i64 64
   %59 = getelementptr inbounds nuw i8, ptr %3, i64 104
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %58, i8 0, i64 40, i1 false)
-  store i32 87, ptr %59, align 8, !tbaa !53
+  store i32 87, ptr %59, align 8, !tbaa !52
   %60 = getelementptr inbounds nuw i8, ptr %3, i64 96
-  store i32 1, ptr %60, align 8, !tbaa !56
-  store ptr %4, ptr %3, align 8, !tbaa !51
+  store i32 1, ptr %60, align 8, !tbaa !55
+  store ptr %4, ptr %3, align 8, !tbaa !50
   call void @_ZN10uiMsgStore3MsgEv(ptr noundef nonnull align 8 dereferenceable(108) %3)
   call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %3) #13
   call void @_ZN12ErrorHandler9SysErrMsgEv(ptr noundef nonnull align 4 dereferenceable(14) @ErrHandler)
@@ -1353,41 +1353,40 @@ attributes #17 = { nounwind allocsize(1) }
 !28 = !{!4, !7, i64 8192}
 !29 = !{!30, !30, i64 0}
 !30 = !{!"p1 _ZTS8FindFile", !9, i64 0}
-!31 = distinct !{!31, !32, !33}
+!31 = distinct !{!31, !32}
 !32 = !{!"llvm.loop.mustprogress"}
-!33 = !{!"llvm.loop.estimated_trip_count"}
-!34 = distinct !{!34, !33}
-!35 = !{!36, !11, i64 8204}
-!36 = !{!"_ZTS8FindData", !5, i64 0, !16, i64 8192, !7, i64 8200, !11, i64 8204, !11, i64 8205, !37, i64 8208, !37, i64 8216, !37, i64 8224, !7, i64 8232, !11, i64 8236}
-!37 = !{!"_ZTS7RarTime", !16, i64 0}
-!38 = !{i8 0, i8 2}
-!39 = !{}
-!40 = !{!13, !16, i64 40}
-!41 = !{!4, !16, i64 25008}
-!42 = !{!36, !11, i64 8205}
-!43 = !{!4, !11, i64 25000}
-!44 = !{!4, !11, i64 25001}
-!45 = !{!36, !11, i64 8236}
-!46 = !{!11, !11, i64 0}
-!47 = distinct !{!47, !32, !33}
-!48 = !{!4, !7, i64 8196}
-!49 = !{!36, !7, i64 8232}
-!50 = !{!36, !7, i64 8200}
-!51 = !{!15, !15, i64 0}
-!52 = distinct !{!52, !32, !33}
-!53 = !{!54, !55, i64 104}
-!54 = !{!"_ZTS10uiMsgStore", !5, i64 0, !5, i64 64, !7, i64 96, !7, i64 100, !55, i64 104}
-!55 = !{!"_ZTS14UIMESSAGE_CODE", !5, i64 0}
-!56 = !{!54, !7, i64 96}
-!57 = distinct !{!57, !32, !33}
-!58 = distinct !{!58, !32, !33}
-!59 = distinct !{!59, !32, !33}
-!60 = !{!4, !8, i64 24984}
-!61 = !{!4, !17, i64 24992}
-!62 = !{!63, !16, i64 8}
-!63 = !{!"_ZTS5ArrayIjE", !64, i64 0, !16, i64 8, !16, i64 16, !16, i64 24}
-!64 = !{!"p1 int", !9, i64 0}
-!65 = !{!63, !16, i64 16}
-!66 = !{!63, !64, i64 0}
-!67 = !{!63, !16, i64 24}
-!68 = !{!7, !7, i64 0}
+!33 = distinct !{!33, !32}
+!34 = !{!35, !11, i64 8204}
+!35 = !{!"_ZTS8FindData", !5, i64 0, !16, i64 8192, !7, i64 8200, !11, i64 8204, !11, i64 8205, !36, i64 8208, !36, i64 8216, !36, i64 8224, !7, i64 8232, !11, i64 8236}
+!36 = !{!"_ZTS7RarTime", !16, i64 0}
+!37 = !{i8 0, i8 2}
+!38 = !{}
+!39 = !{!13, !16, i64 40}
+!40 = !{!4, !16, i64 25008}
+!41 = !{!35, !11, i64 8205}
+!42 = !{!4, !11, i64 25000}
+!43 = !{!4, !11, i64 25001}
+!44 = !{!35, !11, i64 8236}
+!45 = !{!11, !11, i64 0}
+!46 = distinct !{!46, !32}
+!47 = !{!4, !7, i64 8196}
+!48 = !{!35, !7, i64 8232}
+!49 = !{!35, !7, i64 8200}
+!50 = !{!15, !15, i64 0}
+!51 = distinct !{!51, !32}
+!52 = !{!53, !54, i64 104}
+!53 = !{!"_ZTS10uiMsgStore", !5, i64 0, !5, i64 64, !7, i64 96, !7, i64 100, !54, i64 104}
+!54 = !{!"_ZTS14UIMESSAGE_CODE", !5, i64 0}
+!55 = !{!53, !7, i64 96}
+!56 = distinct !{!56, !32}
+!57 = distinct !{!57, !32}
+!58 = distinct !{!58, !32}
+!59 = !{!4, !8, i64 24984}
+!60 = !{!4, !17, i64 24992}
+!61 = !{!62, !16, i64 8}
+!62 = !{!"_ZTS5ArrayIjE", !63, i64 0, !16, i64 8, !16, i64 16, !16, i64 24}
+!63 = !{!"p1 int", !9, i64 0}
+!64 = !{!62, !16, i64 16}
+!65 = !{!62, !63, i64 0}
+!66 = !{!62, !16, i64 24}
+!67 = !{!7, !7, i64 0}

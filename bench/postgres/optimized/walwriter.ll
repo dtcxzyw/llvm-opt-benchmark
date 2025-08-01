@@ -107,7 +107,7 @@ define dso_local void @WalWriterMain(ptr noundef readnone captures(none) %0, i64
   %.0 = sext i32 %.0.in to i64
   %31 = load ptr, ptr @MyLatch, align 8
   %32 = call i32 @WaitLatch(ptr noundef %31, i32 noundef 41, i64 noundef %.0, i32 noundef 83886096) #5
-  br label %19, !llvm.loop !4
+  br label %19
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
@@ -181,5 +181,3 @@ attributes #6 = { nounwind returns_twice }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.estimated_trip_count"}

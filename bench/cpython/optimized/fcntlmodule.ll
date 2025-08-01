@@ -281,7 +281,7 @@ define internal ptr @fcntl_fcntl(ptr readnone captures(none) %0, ptr noundef rea
 74:                                               ; preds = %70
   %75 = call i32 @PyErr_CheckSignals() #7
   %.not35.i = icmp eq i32 %75, 0
-  br i1 %.not35.i, label %65, label %fcntl_fcntl_impl.exit, !llvm.loop !17
+  br i1 %.not35.i, label %65, label %fcntl_fcntl_impl.exit, !llvm.loop !16
 
 .critedge2.i:                                     ; preds = %65
   %76 = icmp slt i32 %68, 0
@@ -342,7 +342,7 @@ define internal ptr @fcntl_ioctl(ptr readnone captures(none) %0, ptr noundef rea
   %21 = getelementptr i8, ptr %1, i64 8
   %22 = load ptr, ptr %21, align 8, !tbaa !3
   %23 = getelementptr i8, ptr %22, i64 8
-  %.val = load ptr, ptr %23, align 8, !tbaa !18
+  %.val = load ptr, ptr %23, align 8, !tbaa !17
   %24 = tail call i64 @PyType_GetFlags(ptr noundef %.val) #7
   %25 = and i64 %24, 16777216
   %.not = icmp eq i64 %25, 0
@@ -406,9 +406,9 @@ define internal ptr @fcntl_ioctl(ptr readnone captures(none) %0, ptr noundef rea
   br i1 %.not57.i, label %81, label %50
 
 50:                                               ; preds = %.thread1.i
-  %51 = load ptr, ptr %5, align 8, !tbaa !21
+  %51 = load ptr, ptr %5, align 8, !tbaa !20
   %52 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %53 = load i64, ptr %52, align 8, !tbaa !24
+  %53 = load i64, ptr %52, align 8, !tbaa !23
   %54 = icmp ne i32 %.0, 0
   br i1 %54, label %55, label %57
 
@@ -433,7 +433,7 @@ define internal ptr @fcntl_ioctl(ptr readnone captures(none) %0, ptr noundef rea
 .thread2.sink.split.i:                            ; preds = %57, %55
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %6, ptr align 1 %51, i64 %53, i1 false)
   %63 = getelementptr [1025 x i8], ptr %6, i64 0, i64 %53
-  store i8 0, ptr %63, align 1, !tbaa !25
+  store i8 0, ptr %63, align 1, !tbaa !24
   br label %.thread2.i
 
 .thread2.i:                                       ; preds = %.thread2.sink.split.i, %61
@@ -490,7 +490,7 @@ define internal ptr @fcntl_ioctl(ptr readnone captures(none) %0, ptr noundef rea
 
 83:                                               ; preds = %81
   %84 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %85 = load i64, ptr %84, align 8, !tbaa !24
+  %85 = load i64, ptr %84, align 8, !tbaa !23
   %86 = icmp sgt i64 %85, 1024
   br i1 %86, label %87, label %89
 
@@ -501,10 +501,10 @@ define internal ptr @fcntl_ioctl(ptr readnone captures(none) %0, ptr noundef rea
   br label %fcntl_ioctl_impl.exit
 
 89:                                               ; preds = %83
-  %90 = load ptr, ptr %5, align 8, !tbaa !21
+  %90 = load ptr, ptr %5, align 8, !tbaa !20
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %6, ptr align 1 %90, i64 %85, i1 false)
   %91 = getelementptr [1025 x i8], ptr %6, i64 0, i64 %85
-  store i8 0, ptr %91, align 1, !tbaa !25
+  store i8 0, ptr %91, align 1, !tbaa !24
   %92 = call ptr @PyEval_SaveThread() #7
   %93 = call i32 (i32, i64, ...) @ioctl(i32 noundef range(i32 0, -2147483648) %18, i64 noundef %32, ptr noundef nonnull %6) #7
   call void @PyEval_RestoreThread(ptr noundef %92) #7
@@ -718,7 +718,7 @@ define internal ptr @fcntl_lockf(ptr readnone captures(none) %0, ptr noundef rea
 
 59:                                               ; preds = %55, %53, %51
   %.sink.i = phi i16 [ 2, %51 ], [ 0, %53 ], [ 1, %55 ]
-  store i16 %.sink.i, ptr %4, align 8, !tbaa !26
+  store i16 %.sink.i, ptr %4, align 8, !tbaa !25
   %60 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %61 = getelementptr inbounds nuw i8, ptr %4, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %61, i8 0, i64 16, i1 false)
@@ -726,7 +726,7 @@ define internal ptr @fcntl_lockf(ptr readnone captures(none) %0, ptr noundef rea
 
 62:                                               ; preds = %59
   %63 = tail call i64 @PyLong_AsLong(ptr noundef nonnull %.02136) #7
-  store i64 %63, ptr %61, align 8, !tbaa !29
+  store i64 %63, ptr %61, align 8, !tbaa !28
   %64 = tail call ptr @PyErr_Occurred() #7
   %.not33.i = icmp eq ptr %64, null
   br i1 %.not33.i, label %65, label %.critedge39.i
@@ -736,7 +736,7 @@ define internal ptr @fcntl_lockf(ptr readnone captures(none) %0, ptr noundef rea
 
 66:                                               ; preds = %65
   %67 = tail call i64 @PyLong_AsLong(ptr noundef nonnull %.02234) #7
-  store i64 %67, ptr %60, align 8, !tbaa !30
+  store i64 %67, ptr %60, align 8, !tbaa !29
   %68 = tail call ptr @PyErr_Occurred() #7
   %.not34.i = icmp eq ptr %68, null
   br i1 %.not34.i, label %69, label %.critedge39.i
@@ -744,7 +744,7 @@ define internal ptr @fcntl_lockf(ptr readnone captures(none) %0, ptr noundef rea
 69:                                               ; preds = %66, %65
   %70 = trunc i32 %.038 to i16
   %71 = getelementptr inbounds nuw i8, ptr %4, i64 2
-  store i16 %70, ptr %71, align 2, !tbaa !31
+  store i16 %70, ptr %71, align 2, !tbaa !30
   %72 = and i32 %21, 4
   %.not35.i = icmp eq i32 %72, 0
   %73 = select i1 %.not35.i, i32 7, i32 6
@@ -770,7 +770,7 @@ define internal ptr @fcntl_lockf(ptr readnone captures(none) %0, ptr noundef rea
 82:                                               ; preds = %78
   %83 = call i32 @PyErr_CheckSignals() #7
   %.not36.i = icmp eq i32 %83, 0
-  br i1 %.not36.i, label %74, label %.critedge.thread.i, !llvm.loop !32
+  br i1 %.not36.i, label %74, label %.critedge.thread.i, !llvm.loop !31
 
 .critedge.thread.i:                               ; preds = %82
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #7
@@ -876,7 +876,7 @@ define internal fastcc ptr @fcntl_flock_impl(i32 noundef range(i32 0, -214748364
 12:                                               ; preds = %8
   %13 = tail call i32 @PyErr_CheckSignals() #7
   %.not = icmp eq i32 %13, 0
-  br i1 %.not, label %.preheader, label %.loopexit, !llvm.loop !33
+  br i1 %.not, label %.preheader, label %.loopexit, !llvm.loop !32
 
 .critedge:                                        ; preds = %.preheader
   %14 = icmp slt i32 %6, 0
@@ -1292,23 +1292,22 @@ attributes #8 = { nounwind willreturn memory(none) }
 !11 = !{!"long", !6, i64 0}
 !12 = !{!13, !13, i64 0}
 !13 = !{!"p1 omnipotent char", !5, i64 0}
-!14 = distinct !{!14, !15, !16}
+!14 = distinct !{!14, !15}
 !15 = !{!"llvm.loop.mustprogress"}
-!16 = !{!"llvm.loop.estimated_trip_count"}
-!17 = distinct !{!17, !15, !16}
-!18 = !{!19, !20, i64 8}
-!19 = !{!"_object", !6, i64 0, !20, i64 8}
-!20 = !{!"p1 _ZTS11_typeobject", !5, i64 0}
-!21 = !{!22, !5, i64 0}
-!22 = !{!"", !5, i64 0, !4, i64 8, !11, i64 16, !11, i64 24, !9, i64 32, !9, i64 36, !13, i64 40, !23, i64 48, !23, i64 56, !23, i64 64, !5, i64 72}
-!23 = !{!"p1 long", !5, i64 0}
-!24 = !{!22, !11, i64 16}
-!25 = !{!6, !6, i64 0}
-!26 = !{!27, !28, i64 0}
-!27 = !{!"flock", !28, i64 0, !28, i64 2, !11, i64 8, !11, i64 16, !9, i64 24}
-!28 = !{!"short", !6, i64 0}
-!29 = !{!27, !11, i64 8}
-!30 = !{!27, !11, i64 16}
-!31 = !{!27, !28, i64 2}
-!32 = distinct !{!32, !15, !16}
-!33 = distinct !{!33, !15, !16}
+!16 = distinct !{!16, !15}
+!17 = !{!18, !19, i64 8}
+!18 = !{!"_object", !6, i64 0, !19, i64 8}
+!19 = !{!"p1 _ZTS11_typeobject", !5, i64 0}
+!20 = !{!21, !5, i64 0}
+!21 = !{!"", !5, i64 0, !4, i64 8, !11, i64 16, !11, i64 24, !9, i64 32, !9, i64 36, !13, i64 40, !22, i64 48, !22, i64 56, !22, i64 64, !5, i64 72}
+!22 = !{!"p1 long", !5, i64 0}
+!23 = !{!21, !11, i64 16}
+!24 = !{!6, !6, i64 0}
+!25 = !{!26, !27, i64 0}
+!26 = !{!"flock", !27, i64 0, !27, i64 2, !11, i64 8, !11, i64 16, !9, i64 24}
+!27 = !{!"short", !6, i64 0}
+!28 = !{!26, !11, i64 8}
+!29 = !{!26, !11, i64 16}
+!30 = !{!26, !27, i64 2}
+!31 = distinct !{!31, !15}
+!32 = distinct !{!32, !15}

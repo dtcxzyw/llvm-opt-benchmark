@@ -36,7 +36,7 @@ define hidden void @lxb_html_tree_active_formatting_up_to_last_marker(ptr nounde
   %10 = getelementptr inbounds nuw ptr, ptr %4, i64 %9
   %11 = load ptr, ptr %10, align 8, !tbaa !20
   %12 = icmp eq ptr %11, @lxb_html_tree_active_formatting_marker_static
-  br i1 %12, label %13, label %6, !llvm.loop !21
+  br i1 %12, label %13, label %6
 
 13:                                               ; preds = %8, %6
   ret void
@@ -67,7 +67,7 @@ define hidden void @lxb_html_tree_active_formatting_remove_by_node(ptr noundef r
   %11 = getelementptr inbounds nuw ptr, ptr %5, i64 %10
   %12 = load ptr, ptr %11, align 8, !tbaa !20
   %13 = icmp eq ptr %12, %1
-  br i1 %13, label %14, label %8, !llvm.loop !23
+  br i1 %13, label %14, label %8
 
 14:                                               ; preds = %9
   %15 = getelementptr inbounds nuw ptr, ptr %5, i64 %10
@@ -113,7 +113,7 @@ define hidden noundef zeroext i1 @lxb_html_tree_active_formatting_find_by_node(p
 13:                                               ; preds = %.lr.ph
   %14 = add nuw i64 %.01323, 1
   %exitcond.not = icmp eq i64 %14, %8
-  br i1 %exitcond.not, label %.critedge, label %.lr.ph, !llvm.loop !24
+  br i1 %exitcond.not, label %.critedge, label %.lr.ph
 
 .critedge:                                        ; preds = %13, %3
   %.not18.old = icmp eq ptr %2, null
@@ -122,7 +122,7 @@ define hidden noundef zeroext i1 @lxb_html_tree_active_formatting_find_by_node(p
 .sink.split:                                      ; preds = %.critedge, %12
   %.01323.lcssa.sink = phi i64 [ %.01323, %12 ], [ 0, %.critedge ]
   %.not1720.ph = phi i1 [ true, %12 ], [ false, %.critedge ]
-  store i64 %.01323.lcssa.sink, ptr %2, align 8, !tbaa !25
+  store i64 %.01323.lcssa.sink, ptr %2, align 8, !tbaa !21
   br label %15
 
 15:                                               ; preds = %.sink.split, %12, %.critedge
@@ -149,7 +149,7 @@ define hidden noundef zeroext i1 @lxb_html_tree_active_formatting_find_by_node_r
   %12 = getelementptr inbounds nuw ptr, ptr %6, i64 %11
   %13 = load ptr, ptr %12, align 8, !tbaa !20
   %14 = icmp eq ptr %13, %1
-  br i1 %14, label %15, label %9, !llvm.loop !26
+  br i1 %14, label %15, label %9
 
 15:                                               ; preds = %10
   %.not15 = icmp eq ptr %2, null
@@ -161,7 +161,7 @@ define hidden noundef zeroext i1 @lxb_html_tree_active_formatting_find_by_node_r
 
 .sink.split:                                      ; preds = %16, %15
   %.sink = phi i64 [ %11, %15 ], [ 0, %16 ]
-  store i64 %.sink, ptr %2, align 8, !tbaa !25
+  store i64 %.sink, ptr %2, align 8, !tbaa !21
   br label %17
 
 17:                                               ; preds = %.sink.split, %16, %15
@@ -205,7 +205,7 @@ define hidden range(i32 0, 3) i32 @lxb_html_tree_active_formatting_reconstruct_e
 
 21:                                               ; preds = %16
   %22 = tail call zeroext i1 @lxb_html_tree_open_elements_find_by_node_reverse(ptr noundef nonnull %0, ptr noundef %19, ptr noundef null) #8
-  br i1 %22, label %23, label %.preheader, !llvm.loop !27
+  br i1 %22, label %23, label %.preheader
 
 23:                                               ; preds = %16, %21, %.preheader
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %2) #8
@@ -224,9 +224,9 @@ define hidden range(i32 0, 3) i32 @lxb_html_tree_active_formatting_reconstruct_e
   %29 = getelementptr inbounds nuw ptr, ptr %9, i64 %.23136
   %30 = load ptr, ptr %29, align 8, !tbaa !20
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 8
-  %32 = load i64, ptr %31, align 8, !tbaa !28
-  store i64 %32, ptr %26, align 8, !tbaa !32
-  store ptr %30, ptr %27, align 8, !tbaa !36
+  %32 = load i64, ptr %31, align 8, !tbaa !22
+  store i64 %32, ptr %26, align 8, !tbaa !26
+  store ptr %30, ptr %27, align 8, !tbaa !30
   %33 = call ptr @lxb_html_tree_insert_foreign_element(ptr noundef nonnull %0, ptr noundef nonnull %2, i64 noundef 2) #8
   %34 = icmp eq ptr %33, null
   br i1 %34, label %._crit_edge, label %35
@@ -236,7 +236,7 @@ define hidden range(i32 0, 3) i32 @lxb_html_tree_active_formatting_reconstruct_e
   %36 = add nuw i64 %.23136, 1
   %37 = load i64, ptr %5, align 8, !tbaa !19
   %38 = icmp ult i64 %36, %37
-  br i1 %38, label %28, label %._crit_edge, !llvm.loop !37
+  br i1 %38, label %28, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %28, %35, %23
   %.2 = phi i32 [ 0, %23 ], [ 0, %35 ], [ 2, %28 ]
@@ -267,19 +267,19 @@ define hidden ptr @lxb_html_tree_active_formatting_between_last_marker(ptr nound
   %.022 = phi i64 [ %9, %23 ], [ %8, %3 ]
   %9 = add i64 %.022, -1
   %10 = getelementptr inbounds nuw ptr, ptr %6, i64 %9
-  %11 = load ptr, ptr %10, align 8, !tbaa !38
+  %11 = load ptr, ptr %10, align 8, !tbaa !31
   %12 = icmp eq ptr %11, @lxb_html_tree_active_formatting_marker_static
   br i1 %12, label %.loopexit, label %13
 
 13:                                               ; preds = %.lr.ph
   %14 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  %15 = load i64, ptr %14, align 8, !tbaa !28
+  %15 = load i64, ptr %14, align 8, !tbaa !22
   %16 = icmp eq i64 %15, %1
   br i1 %16, label %17, label %23
 
 17:                                               ; preds = %13
   %18 = getelementptr inbounds nuw i8, ptr %11, i64 24
-  %19 = load i64, ptr %18, align 8, !tbaa !39
+  %19 = load i64, ptr %18, align 8, !tbaa !32
   %20 = icmp eq i64 %19, 2
   br i1 %20, label %21, label %23
 
@@ -288,12 +288,12 @@ define hidden ptr @lxb_html_tree_active_formatting_between_last_marker(ptr nound
   br i1 %.not19, label %.loopexit, label %22
 
 22:                                               ; preds = %21
-  store i64 %9, ptr %2, align 8, !tbaa !25
+  store i64 %9, ptr %2, align 8, !tbaa !21
   br label %.loopexit
 
 23:                                               ; preds = %17, %13
   %.not = icmp eq i64 %9, 0
-  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !40
+  br i1 %.not, label %.loopexit, label %.lr.ph
 
 .loopexit:                                        ; preds = %.lr.ph, %23, %3, %21, %22
   %.016 = phi ptr [ %11, %22 ], [ %11, %21 ], [ null, %3 ], [ null, %23 ], [ null, %.lr.ph ]
@@ -322,21 +322,21 @@ define hidden void @lxb_html_tree_active_formatting_push_with_check_dupl(ptr nou
   %.02530 = phi i64 [ %7, %.lr.ph ], [ %12, %29 ]
   %12 = add i64 %.02530, -1
   %13 = getelementptr inbounds nuw ptr, ptr %5, i64 %12
-  %14 = load ptr, ptr %13, align 8, !tbaa !38
+  %14 = load ptr, ptr %13, align 8, !tbaa !31
   %15 = icmp eq ptr %14, @lxb_html_tree_active_formatting_marker_static
   br i1 %15, label %._crit_edge, label %16
 
 16:                                               ; preds = %11
   %17 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %18 = load i64, ptr %17, align 8, !tbaa !28
-  %19 = load i64, ptr %9, align 8, !tbaa !28
+  %18 = load i64, ptr %17, align 8, !tbaa !22
+  %19 = load i64, ptr %9, align 8, !tbaa !22
   %20 = icmp eq i64 %18, %19
   br i1 %20, label %21, label %29
 
 21:                                               ; preds = %16
   %22 = getelementptr inbounds nuw i8, ptr %14, i64 24
-  %23 = load i64, ptr %22, align 8, !tbaa !39
-  %24 = load i64, ptr %10, align 8, !tbaa !39
+  %23 = load i64, ptr %22, align 8, !tbaa !32
+  %24 = load i64, ptr %10, align 8, !tbaa !32
   %25 = icmp eq i64 %23, %24
   br i1 %25, label %26, label %29
 
@@ -351,7 +351,7 @@ define hidden void @lxb_html_tree_active_formatting_push_with_check_dupl(ptr nou
   %.124 = phi i64 [ %.02331, %21 ], [ %.02331, %16 ], [ %spec.select, %26 ]
   %.1 = phi i64 [ %.032, %21 ], [ %.032, %16 ], [ %spec.select27, %26 ]
   %.not = icmp eq i64 %12, 0
-  br i1 %.not, label %._crit_edge, label %11, !llvm.loop !41
+  br i1 %.not, label %._crit_edge, label %11
 
 ._crit_edge:                                      ; preds = %29, %11
   %.023.lcssa.ph = phi i64 [ %.124, %29 ], [ %.02331, %11 ]
@@ -412,24 +412,15 @@ attributes #8 = { nounwind }
 !18 = !{!"", !7, i64 0, !16, i64 8, !16, i64 16}
 !19 = !{!18, !16, i64 16}
 !20 = !{!7, !7, i64 0}
-!21 = distinct !{!21, !22}
-!22 = !{!"llvm.loop.estimated_trip_count"}
-!23 = distinct !{!23, !22}
-!24 = distinct !{!24, !22}
-!25 = !{!16, !16, i64 0}
-!26 = distinct !{!26, !22}
-!27 = distinct !{!27, !22}
-!28 = !{!29, !16, i64 8}
-!29 = !{!"lxb_dom_node", !30, i64 0, !16, i64 8, !16, i64 16, !16, i64 24, !31, i64 32, !11, i64 40, !11, i64 48, !11, i64 56, !11, i64 64, !11, i64 72, !7, i64 80, !15, i64 88, !16, i64 96}
-!30 = !{!"lxb_dom_event_target", !7, i64 0}
-!31 = !{!"p1 _ZTS16lxb_dom_document", !7, i64 0}
-!32 = !{!33, !16, i64 80}
-!33 = !{!"", !34, i64 0, !34, i64 8, !16, i64 16, !16, i64 24, !34, i64 32, !34, i64 40, !35, i64 48, !35, i64 56, !7, i64 64, !16, i64 72, !16, i64 80, !15, i64 88}
-!34 = !{!"p1 omnipotent char", !7, i64 0}
-!35 = !{!"p1 _ZTS19lxb_html_token_attr", !7, i64 0}
-!36 = !{!33, !7, i64 64}
-!37 = distinct !{!37, !22}
-!38 = !{!11, !11, i64 0}
-!39 = !{!29, !16, i64 24}
-!40 = distinct !{!40, !22}
-!41 = distinct !{!41, !22}
+!21 = !{!16, !16, i64 0}
+!22 = !{!23, !16, i64 8}
+!23 = !{!"lxb_dom_node", !24, i64 0, !16, i64 8, !16, i64 16, !16, i64 24, !25, i64 32, !11, i64 40, !11, i64 48, !11, i64 56, !11, i64 64, !11, i64 72, !7, i64 80, !15, i64 88, !16, i64 96}
+!24 = !{!"lxb_dom_event_target", !7, i64 0}
+!25 = !{!"p1 _ZTS16lxb_dom_document", !7, i64 0}
+!26 = !{!27, !16, i64 80}
+!27 = !{!"", !28, i64 0, !28, i64 8, !16, i64 16, !16, i64 24, !28, i64 32, !28, i64 40, !29, i64 48, !29, i64 56, !7, i64 64, !16, i64 72, !16, i64 80, !15, i64 88}
+!28 = !{!"p1 omnipotent char", !7, i64 0}
+!29 = !{!"p1 _ZTS19lxb_html_token_attr", !7, i64 0}
+!30 = !{!27, !7, i64 64}
+!31 = !{!11, !11, i64 0}
+!32 = !{!23, !16, i64 24}

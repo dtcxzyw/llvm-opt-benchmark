@@ -95,7 +95,7 @@ nxsig_alloc_block.exit8:                          ; preds = %.preheader.i2, %nxs
   store ptr %.023.i11, ptr getelementptr inbounds nuw (i8, ptr @g_sigpendingsignal, i64 8), align 8
   %18 = add nuw nsw i32 %.01922.i12, 1
   %exitcond.not.i15 = icmp eq i32 %18, 4
-  br i1 %exitcond.not.i15, label %nxsig_alloc_pendingsignalblock.exit, label %.preheader.i10, !llvm.loop !9
+  br i1 %exitcond.not.i15, label %nxsig_alloc_pendingsignalblock.exit, label %.preheader.i10, !llvm.loop !8
 
 nxsig_alloc_pendingsignalblock.exit:              ; preds = %.preheader.i10, %nxsig_alloc_block.exit8
   store ptr %13, ptr @g_sigpendingsignalalloc, align 8
@@ -122,7 +122,7 @@ nxsig_alloc_pendingsignalblock.exit:              ; preds = %.preheader.i10, %nx
   store ptr %.023.i18, ptr getelementptr inbounds nuw (i8, ptr @g_sigpendingirqsignal, i64 8), align 8
   %24 = add nuw nsw i32 %.01922.i19, 1
   %exitcond.not.i22 = icmp eq i32 %24, 8
-  br i1 %exitcond.not.i22, label %nxsig_alloc_pendingsignalblock.exit23, label %.preheader.i17, !llvm.loop !9
+  br i1 %exitcond.not.i22, label %nxsig_alloc_pendingsignalblock.exit23, label %.preheader.i17, !llvm.loop !8
 
 nxsig_alloc_pendingsignalblock.exit23:            ; preds = %.preheader.i17, %nxsig_alloc_pendingsignalblock.exit
   store ptr %19, ptr @g_sigpendingirqsignalalloc, align 8
@@ -148,7 +148,6 @@ attributes #3 = { allocsize(0) }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
+!8 = distinct !{!8, !7}

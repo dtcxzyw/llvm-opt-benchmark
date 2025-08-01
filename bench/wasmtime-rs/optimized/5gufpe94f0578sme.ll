@@ -86,14 +86,14 @@ default.unreachable17:                            ; preds = %tailrecurse
   call void @_ZN14cranelift_isle3ast7Pattern5terms17h37d5985ce11ca323E(ptr nonnull align 16 %32, ptr align 1 %1, ptr nonnull align 8 %2)
   %33 = call align 16 ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcfba2b9cebf8f0d4E"(ptr nonnull align 8 %5)
   %34 = icmp eq ptr %33, null
-  br i1 %34, label %.loopexit, label %.lr.ph11, !llvm.loop !6
+  br i1 %34, label %.loopexit, label %.lr.ph11
 
 .lr.ph:                                           ; preds = %24, %.lr.ph
   %35 = phi ptr [ %36, %.lr.ph ], [ %30, %24 ]
   call void @_ZN14cranelift_isle3ast7Pattern5terms17h37d5985ce11ca323E(ptr nonnull align 16 %35, ptr align 1 %1, ptr align 8 %2)
   %36 = call align 16 ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcfba2b9cebf8f0d4E"(ptr nonnull align 8 %4)
   %37 = icmp eq ptr %36, null
-  br i1 %37, label %.loopexit, label %.lr.ph, !llvm.loop !8
+  br i1 %37, label %.loopexit, label %.lr.ph
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -398,7 +398,7 @@ default.unreachable69:                            ; preds = %4
   %39 = getelementptr inbounds nuw i8, ptr %9, i64 24
   store i64 %3, ptr %39, align 8
   call void @_ZN4core4iter8adapters11try_process17hdbb6aa62511132f0E(ptr nonnull sret({ i64, [2 x i64] }) align 8 %10, ptr nonnull align 8 %9)
-  %40 = load i64, ptr %10, align 8, !range !9, !noundef !4
+  %40 = load i64, ptr %10, align 8, !range !6, !noundef !4
   %41 = icmp eq i64 %40, -9223372036854775808
   br i1 %41, label %79, label %77
 
@@ -420,7 +420,7 @@ default.unreachable69:                            ; preds = %4
   %52 = getelementptr inbounds nuw i8, ptr %13, i64 24
   store i64 %3, ptr %52, align 8
   call void @_ZN4core4iter8adapters11try_process17h622de98237ae9689E(ptr nonnull sret({ i64, [2 x i64] }) align 8 %14, ptr nonnull align 8 %13)
-  %53 = load i64, ptr %14, align 8, !range !9, !noundef !4
+  %53 = load i64, ptr %14, align 8, !range !6, !noundef !4
   %54 = icmp eq i64 %53, -9223372036854775808
   br i1 %54, label %86, label %85
 
@@ -440,7 +440,7 @@ default.unreachable69:                            ; preds = %4
           to label %76 unwind label %74
 
 62:                                               ; preds = %22
-  %63 = load i64, ptr %17, align 16, !range !10, !noundef !4
+  %63 = load i64, ptr %17, align 16, !range !7, !noundef !4
   %64 = icmp eq i64 %63, 8
   br i1 %64, label %71, label %65
 
@@ -559,7 +559,7 @@ switch.lookup:
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
 define void @_ZN14cranelift_isle3ast4Expr3pos17h2b71ba7499a60f7eE(ptr writeonly sret({ i64, i64, i64, i64 }) align 8 captures(none) initializes((0, 32)) %0, ptr readonly align 16 captures(none) %1) unnamed_addr #2 {
-  %3 = load i64, ptr %1, align 16, !range !11, !noundef !4
+  %3 = load i64, ptr %1, align 16, !range !8, !noundef !4
   %switch = icmp eq i64 %3, 2
   %. = select i1 %switch, i64 32, i64 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 %.
@@ -572,7 +572,7 @@ define void @_ZN14cranelift_isle3ast4Expr5terms17h91248d50fb7319c4E(ptr align 16
   %4 = alloca { ptr, ptr, {} }, align 8
   %5 = alloca { ptr, ptr, {} }, align 8
   %6 = alloca { { i64, i64, i64, i64 }, ptr }, align 8
-  %7 = load i64, ptr %0, align 16, !range !11, !noundef !4
+  %7 = load i64, ptr %0, align 16, !range !8, !noundef !4
   switch i64 %7, label %default.unreachable6 [
     i64 0, label %8
     i64 1, label %.loopexit
@@ -624,7 +624,7 @@ default.unreachable6:                             ; preds = %3
   call void @_ZN14cranelift_isle3ast4Expr5terms17h91248d50fb7319c4E(ptr nonnull align 16 %29, ptr align 1 %1, ptr nonnull align 8 %2)
   %30 = call align 16 ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h64ea978ad71fdb74E"(ptr nonnull align 8 %5)
   %31 = icmp eq ptr %30, null
-  br i1 %31, label %.loopexit, label %.lr.ph5, !llvm.loop !12
+  br i1 %31, label %.loopexit, label %.lr.ph5
 
 ._crit_edge:                                      ; preds = %.lr.ph, %21
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -639,7 +639,7 @@ default.unreachable6:                             ; preds = %3
   call void @_ZN14cranelift_isle3ast4Expr5terms17h91248d50fb7319c4E(ptr nonnull align 16 %36, ptr align 1 %1, ptr align 8 %2)
   %37 = call align 8 ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc36180e214b8f394E"(ptr nonnull align 8 %4)
   %38 = icmp eq ptr %37, null
-  br i1 %38, label %._crit_edge, label %.lr.ph, !llvm.loop !13
+  br i1 %38, label %._crit_edge, label %.lr.ph
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
@@ -831,7 +831,7 @@ define hidden void @"_ZN64_$LT$cranelift_isle..ast..Expr$u20$as$u20$core..clone.
   %13 = alloca { i64, i64, i64, i64 }, align 8
   %14 = alloca { { i64, ptr, {} }, i64 }, align 8
   %15 = alloca { { { { i64, ptr, {} }, i64 } }, { i64, i64, i64, i64 } }, align 8
-  %16 = load i64, ptr %1, align 16, !range !11, !noundef !4
+  %16 = load i64, ptr %1, align 16, !range !8, !noundef !4
   switch i64 %16, label %default.unreachable2 [
     i64 0, label %17
     i64 1, label %22
@@ -1120,11 +1120,6 @@ attributes #11 = { cold noreturn nounwind }
 !3 = !{i64 0, i64 8}
 !4 = !{}
 !5 = !{i64 16}
-!6 = distinct !{!6, !7}
-!7 = !{!"llvm.loop.estimated_trip_count"}
-!8 = distinct !{!8, !7}
-!9 = !{i64 0, i64 -9223372036854775807}
-!10 = !{i64 0, i64 9}
-!11 = !{i64 0, i64 5}
-!12 = distinct !{!12, !7}
-!13 = distinct !{!13, !7}
+!6 = !{i64 0, i64 -9223372036854775807}
+!7 = !{i64 0, i64 9}
+!8 = !{i64 0, i64 5}

@@ -166,7 +166,7 @@ _ZNK20b3AlignedObjectArrayI6b3Int4E4copyEiiPS0_.exit.i: ; preds = %19, %.noexc10
   %.0.i = phi i32 [ 0, %.noexc10 ], [ 2, %.split.i ], [ 2, %19 ]
   %23 = load ptr, ptr %3, align 8, !tbaa !15
   %.not.i16.i = icmp ne ptr %23, null
-  %24 = load i8, ptr %2, align 8, !range !34
+  %24 = load i8, ptr %2, align 8, !range !33
   %25 = trunc nuw i8 %24 to i1
   %or.cond.i = select i1 %.not.i16.i, i1 %25, i1 false
   br i1 %or.cond.i, label %26, label %27
@@ -248,11 +248,11 @@ _ZN20b3AlignedObjectArrayIiE8allocateEi.exit.i.i: ; preds = %11
   %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i, %20 ]
   %21 = getelementptr inbounds nuw i32, ptr %14, i64 %indvars.iv.i.i.i
   %22 = getelementptr inbounds nuw i32, ptr %19, i64 %indvars.iv.i.i.i
-  %23 = load i32, ptr %22, align 4, !tbaa !35
-  store i32 %23, ptr %21, align 4, !tbaa !35
+  %23 = load i32, ptr %22, align 4, !tbaa !34
+  store i32 %23, ptr %21, align 4, !tbaa !34
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, %wide.trip.count.i.i.i
-  br i1 %exitcond.not.i.i.i, label %_ZNK20b3AlignedObjectArrayIiE4copyEiiPi.exit.i.i, label %20, !llvm.loop !36
+  br i1 %exitcond.not.i.i.i, label %_ZNK20b3AlignedObjectArrayIiE4copyEiiPi.exit.i.i, label %20, !llvm.loop !35
 
 _ZNK20b3AlignedObjectArrayIiE4copyEiiPi.exit15.i.i: ; preds = %_ZN20b3AlignedObjectArrayIiE8allocateEi.exit.i.i, %11
   tail call void (ptr, ...) @b3OutputErrorMessageVarArgsInternal(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 301)
@@ -267,7 +267,7 @@ _ZNK20b3AlignedObjectArrayIiE4copyEiiPi.exit.i.i: ; preds = %20, %_ZNK20b3Aligne
   %25 = load ptr, ptr %24, align 8, !tbaa !26
   %.not.i16.i.i = icmp ne ptr %25, null
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %27 = load i8, ptr %26, align 8, !range !34
+  %27 = load i8, ptr %26, align 8, !range !33
   %28 = trunc nuw i8 %27 to i1
   %or.cond.i.i = select i1 %.not.i16.i.i, i1 %28, i1 false
   br i1 %or.cond.i.i, label %29, label %_ZN20b3AlignedObjectArrayIiE10deallocateEv.exit.i.i
@@ -291,7 +291,7 @@ _ZN20b3AlignedObjectArrayIiE10deallocateEv.exit.i.i: ; preds = %29, %_ZNK20b3Ali
   %scevgep = getelementptr i8, ptr %30, i64 %33
   %34 = shl nsw i64 %wide.trip.count.i, 2
   %35 = sub nsw i64 %34, %33
-  tail call void @llvm.memset.p0.i64(ptr align 4 %scevgep, i8 0, i64 %35, i1 false), !tbaa !35
+  tail call void @llvm.memset.p0.i64(ptr align 4 %scevgep, i8 0, i64 %35, i1 false), !tbaa !34
   store i32 %3, ptr %4, align 4, !tbaa !27
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 84
   %37 = load i32, ptr %36, align 4, !tbaa !27
@@ -333,11 +333,11 @@ _ZN20b3AlignedObjectArrayIiE8allocateEi.exit.i.i31: ; preds = %43
   %indvars.iv.i.i.i41 = phi i64 [ 0, %.lr.ph.i.i.i39 ], [ %indvars.iv.next.i.i.i42, %50 ]
   %51 = getelementptr inbounds nuw i32, ptr %44, i64 %indvars.iv.i.i.i41
   %52 = getelementptr inbounds nuw i32, ptr %49, i64 %indvars.iv.i.i.i41
-  %53 = load i32, ptr %52, align 4, !tbaa !35
-  store i32 %53, ptr %51, align 4, !tbaa !35
+  %53 = load i32, ptr %52, align 4, !tbaa !34
+  store i32 %53, ptr %51, align 4, !tbaa !34
   %indvars.iv.next.i.i.i42 = add nuw nsw i64 %indvars.iv.i.i.i41, 1
   %exitcond.not.i.i.i43 = icmp eq i64 %indvars.iv.next.i.i.i42, %wide.trip.count.i.i.i40
-  br i1 %exitcond.not.i.i.i43, label %_ZNK20b3AlignedObjectArrayIiE4copyEiiPi.exit.i.i33, label %50, !llvm.loop !36
+  br i1 %exitcond.not.i.i.i43, label %_ZNK20b3AlignedObjectArrayIiE4copyEiiPi.exit.i.i33, label %50, !llvm.loop !35
 
 _ZNK20b3AlignedObjectArrayIiE4copyEiiPi.exit15.i.i44: ; preds = %_ZN20b3AlignedObjectArrayIiE8allocateEi.exit.i.i31, %43
   tail call void (ptr, ...) @b3OutputErrorMessageVarArgsInternal(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 301)
@@ -352,7 +352,7 @@ _ZNK20b3AlignedObjectArrayIiE4copyEiiPi.exit.i.i33: ; preds = %50, %_ZNK20b3Alig
   %55 = load ptr, ptr %54, align 8, !tbaa !26
   %.not.i16.i.i36 = icmp ne ptr %55, null
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %57 = load i8, ptr %56, align 8, !range !34
+  %57 = load i8, ptr %56, align 8, !range !33
   %58 = trunc nuw i8 %57 to i1
   %or.cond.i.i37 = select i1 %.not.i16.i.i36, i1 %58, i1 false
   br i1 %or.cond.i.i37, label %59, label %_ZN20b3AlignedObjectArrayIiE10deallocateEv.exit.i.i38
@@ -373,7 +373,7 @@ _ZN20b3AlignedObjectArrayIiE10deallocateEv.exit.i.i38: ; preds = %59, %_ZNK20b3A
   %62 = shl nsw i64 %61, 2
   %scevgep53 = getelementptr i8, ptr %60, i64 %62
   %63 = sub nsw i64 %34, %62
-  tail call void @llvm.memset.p0.i64(ptr align 4 %scevgep53, i8 0, i64 %63, i1 false), !tbaa !35
+  tail call void @llvm.memset.p0.i64(ptr align 4 %scevgep53, i8 0, i64 %63, i1 false), !tbaa !34
   br label %_ZN20b3AlignedObjectArrayIiE6resizeEiRKi.exit45
 
 _ZN20b3AlignedObjectArrayIiE6resizeEiRKi.exit45:  ; preds = %.lr.ph.i24, %.lr.ph.i
@@ -385,12 +385,12 @@ _ZN20b3AlignedObjectArrayIiE6resizeEiRKi.exit45:  ; preds = %.lr.ph.i24, %.lr.ph
   %65 = load ptr, ptr %31, align 8, !tbaa !26
   %66 = zext nneg i32 %3 to i64
   %67 = shl nuw nsw i64 %66, 2
-  tail call void @llvm.memset.p0.i64(ptr align 4 %65, i8 -1, i64 %67, i1 false), !tbaa !35
+  tail call void @llvm.memset.p0.i64(ptr align 4 %65, i8 -1, i64 %67, i1 false), !tbaa !34
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %69 = load ptr, ptr %68, align 8, !tbaa !26
   %70 = zext nneg i32 %3 to i64
   %71 = shl nuw nsw i64 %70, 2
-  tail call void @llvm.memset.p0.i64(ptr align 4 %69, i8 -1, i64 %71, i1 false), !tbaa !35
+  tail call void @llvm.memset.p0.i64(ptr align 4 %69, i8 -1, i64 %71, i1 false), !tbaa !34
   br label %.preheader
 
 .preheader:                                       ; preds = %_ZN20b3AlignedObjectArrayIiE6resizeEiRKi.exit45, %.lr.ph50
@@ -432,14 +432,14 @@ _ZN20b3AlignedObjectArrayIiE6resizeEiRKi.exit45:  ; preds = %.lr.ph.i24, %.lr.ph
   %100 = and i32 %97, %99
   %101 = sext i32 %100 to i64
   %102 = getelementptr inbounds i32, ptr %75, i64 %101
-  %103 = load i32, ptr %102, align 4, !tbaa !35
+  %103 = load i32, ptr %102, align 4, !tbaa !34
   %104 = getelementptr inbounds nuw i32, ptr %77, i64 %indvars.iv
-  store i32 %103, ptr %104, align 4, !tbaa !35
+  store i32 %103, ptr %104, align 4, !tbaa !34
   %105 = trunc nuw nsw i64 %indvars.iv to i32
-  store i32 %105, ptr %102, align 4, !tbaa !35
+  store i32 %105, ptr %102, align 4, !tbaa !34
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %78, !llvm.loop !37
+  br i1 %exitcond.not, label %.loopexit, label %78, !llvm.loop !36
 
 .loopexit:                                        ; preds = %78, %.preheader, %1
   ret void
@@ -454,7 +454,7 @@ define linkonce_odr dso_local void @_ZN20b3AlignedObjectArrayIiED2Ev(ptr noundef
   %3 = load ptr, ptr %2, align 8, !tbaa !26
   %.not.i.i = icmp ne ptr %3, null
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %5 = load i8, ptr %4, align 8, !range !34
+  %5 = load i8, ptr %4, align 8, !range !33
   %6 = trunc nuw i8 %5 to i1
   %or.cond.i = select i1 %.not.i.i, i1 %6, i1 false
   br i1 %or.cond.i, label %7, label %8
@@ -486,7 +486,7 @@ define linkonce_odr dso_local void @_ZN20b3AlignedObjectArrayI6b3Int4ED2Ev(ptr n
   %3 = load ptr, ptr %2, align 8, !tbaa !15
   %.not.i.i = icmp ne ptr %3, null
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %5 = load i8, ptr %4, align 8, !range !34
+  %5 = load i8, ptr %4, align 8, !range !33
   %6 = trunc nuw i8 %5 to i1
   %or.cond.i = select i1 %.not.i.i, i1 %6, i1 false
   br i1 %or.cond.i, label %7, label %8
@@ -519,7 +519,7 @@ define dso_local void @_ZN28b3HashedOverlappingPairCacheD2Ev(ptr noundef nonnull
   %3 = load ptr, ptr %2, align 8, !tbaa !26
   %.not.i.i.i = icmp ne ptr %3, null
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %5 = load i8, ptr %4, align 8, !range !34
+  %5 = load i8, ptr %4, align 8, !range !33
   %6 = trunc nuw i8 %5 to i1
   %or.cond.i.i = select i1 %.not.i.i.i, i1 %6, i1 false
   br i1 %or.cond.i.i, label %7, label %_ZN20b3AlignedObjectArrayIiED2Ev.exit
@@ -546,7 +546,7 @@ _ZN20b3AlignedObjectArrayIiED2Ev.exit:            ; preds = %1, %7
   %14 = load ptr, ptr %13, align 8, !tbaa !26
   %.not.i.i.i1 = icmp ne ptr %14, null
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %16 = load i8, ptr %15, align 8, !range !34
+  %16 = load i8, ptr %15, align 8, !range !33
   %17 = trunc nuw i8 %16 to i1
   %or.cond.i.i2 = select i1 %.not.i.i.i1, i1 %17, i1 false
   br i1 %or.cond.i.i2, label %18, label %_ZN20b3AlignedObjectArrayIiED2Ev.exit3
@@ -573,7 +573,7 @@ _ZN20b3AlignedObjectArrayIiED2Ev.exit3:           ; preds = %_ZN20b3AlignedObjec
   %25 = load ptr, ptr %24, align 8, !tbaa !15
   %.not.i.i.i4 = icmp ne ptr %25, null
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %27 = load i8, ptr %26, align 8, !range !34
+  %27 = load i8, ptr %26, align 8, !range !33
   %28 = trunc nuw i8 %27 to i1
   %or.cond.i.i5 = select i1 %.not.i.i.i4, i1 %28, i1 false
   br i1 %or.cond.i.i5, label %29, label %_ZN20b3AlignedObjectArrayI6b3Int4ED2Ev.exit
@@ -620,11 +620,11 @@ define dso_local void @_ZN28b3HashedOverlappingPairCache19cleanProxyFromPairsEiP
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #14
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVZN28b3HashedOverlappingPairCache19cleanProxyFromPairsEiP12b3DispatcherE17CleanPairCallback, i64 16), ptr %4, align 8, !tbaa !4
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store i32 %1, ptr %5, align 8, !tbaa !38
+  store i32 %1, ptr %5, align 8, !tbaa !37
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store ptr %0, ptr %6, align 8, !tbaa !43
+  store ptr %0, ptr %6, align 8, !tbaa !42
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  store ptr %2, ptr %7, align 8, !tbaa !44
+  store ptr %2, ptr %7, align 8, !tbaa !43
   %8 = load ptr, ptr %0, align 8, !tbaa !4
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 72
   %10 = load ptr, ptr %9, align 8
@@ -639,7 +639,7 @@ define dso_local void @_ZN28b3HashedOverlappingPairCache37removeOverlappingPairs
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #14
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVZN28b3HashedOverlappingPairCache37removeOverlappingPairsContainingProxyEiP12b3DispatcherE18RemovePairCallback, i64 16), ptr %4, align 8, !tbaa !4
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store i32 %1, ptr %5, align 8, !tbaa !45
+  store i32 %1, ptr %5, align 8, !tbaa !44
   %6 = load ptr, ptr %0, align 8, !tbaa !4
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 72
   %8 = load ptr, ptr %7, align 8
@@ -650,9 +650,9 @@ define dso_local void @_ZN28b3HashedOverlappingPairCache37removeOverlappingPairs
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, argmem: read, inaccessiblemem: none) uwtable
 define dso_local noundef ptr @_ZN28b3HashedOverlappingPairCache8findPairEii(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(112) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #5 align 2 {
-  %4 = load i32, ptr @b3g_findPairs, align 4, !tbaa !35
+  %4 = load i32, ptr @b3g_findPairs, align 4, !tbaa !34
   %5 = add nsw i32 %4, 1
-  store i32 %5, ptr @b3g_findPairs, align 4, !tbaa !35
+  store i32 %5, ptr @b3g_findPairs, align 4, !tbaa !34
   %spec.select = tail call i32 @llvm.smin.i32(i32 %1, i32 %2)
   %spec.select20 = tail call i32 @llvm.smax.i32(i32 %1, i32 %2)
   %6 = shl i32 %spec.select20, 16
@@ -684,7 +684,7 @@ define dso_local noundef ptr @_ZN28b3HashedOverlappingPairCache8findPairEii(ptr 
   %29 = load ptr, ptr %28, align 8, !tbaa !26
   %30 = sext i32 %24 to i64
   %31 = getelementptr inbounds i32, ptr %29, i64 %30
-  %.021 = load i32, ptr %31, align 4, !tbaa !35
+  %.021 = load i32, ptr %31, align 4, !tbaa !34
   %cond22 = icmp eq i32 %.021, -1
   br i1 %cond22, label %.critedge, label %.lr.ph
 
@@ -709,9 +709,9 @@ define dso_local noundef ptr @_ZN28b3HashedOverlappingPairCache8findPairEii(ptr 
 
 45:                                               ; preds = %36
   %46 = getelementptr inbounds i32, ptr %35, i64 %37
-  %.0 = load i32, ptr %46, align 4, !tbaa !35
+  %.0 = load i32, ptr %46, align 4, !tbaa !34
   %cond = icmp eq i32 %.0, -1
-  br i1 %cond, label %.critedge, label %36, !llvm.loop !47
+  br i1 %cond, label %.critedge, label %36, !llvm.loop !46
 
 .critedge:                                        ; preds = %45, %36, %27, %3
   %.012 = phi ptr [ null, %3 ], [ null, %27 ], [ null, %45 ], [ %38, %36 ]
@@ -745,7 +745,7 @@ define dso_local noundef nonnull ptr @_ZN28b3HashedOverlappingPairCache15interna
   %24 = load ptr, ptr %23, align 8, !tbaa !26
   %25 = sext i32 %22 to i64
   %26 = getelementptr inbounds i32, ptr %24, i64 %25
-  %.012.i = load i32, ptr %26, align 4, !tbaa !35
+  %.012.i = load i32, ptr %26, align 4, !tbaa !34
   %cond13.i = icmp eq i32 %.012.i, -1
   br i1 %cond13.i, label %.loopexit, label %.lr.ph.i
 
@@ -770,9 +770,9 @@ define dso_local noundef nonnull ptr @_ZN28b3HashedOverlappingPairCache15interna
 
 40:                                               ; preds = %31
   %41 = getelementptr inbounds i32, ptr %30, i64 %32
-  %.0.i = load i32, ptr %41, align 4, !tbaa !35
+  %.0.i = load i32, ptr %41, align 4, !tbaa !34
   %cond.i = icmp eq i32 %.0.i, -1
-  br i1 %cond.i, label %.loopexit, label %31, !llvm.loop !48
+  br i1 %cond.i, label %.loopexit, label %31, !llvm.loop !47
 
 .loopexit:                                        ; preds = %40, %3
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 12
@@ -831,7 +831,7 @@ _ZNK20b3AlignedObjectArrayI6b3Int4E4copyEiiPS0_.exit.i.i: ; preds = %57, %_ZNK20
   %62 = load ptr, ptr %61, align 8, !tbaa !15
   %.not.i16.i.i = icmp ne ptr %62, null
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %64 = load i8, ptr %63, align 8, !range !34
+  %64 = load i8, ptr %63, align 8, !range !33
   %65 = trunc nuw i8 %64 to i1
   %or.cond.i.i = select i1 %.not.i16.i.i, i1 %65, i1 false
   br i1 %or.cond.i.i, label %66, label %_ZN20b3AlignedObjectArrayI6b3Int4E21expandNonInitializingEv.exit
@@ -885,12 +885,12 @@ _ZN20b3AlignedObjectArrayI6b3Int4E21expandNonInitializingEv.exit: ; preds = %_ZN
   store i64 -1, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !30
   %85 = load ptr, ptr %23, align 8, !tbaa !26
   %86 = getelementptr inbounds i32, ptr %85, i64 %.pre-phi
-  %87 = load i32, ptr %86, align 4, !tbaa !35
+  %87 = load i32, ptr %86, align 4, !tbaa !34
   %88 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %89 = load ptr, ptr %88, align 8, !tbaa !26
   %90 = getelementptr inbounds i32, ptr %89, i64 %84
-  store i32 %87, ptr %90, align 4, !tbaa !35
-  store i32 %43, ptr %86, align 4, !tbaa !35
+  store i32 %87, ptr %90, align 4, !tbaa !34
+  store i32 %43, ptr %86, align 4, !tbaa !34
   br label %_ZN28b3HashedOverlappingPairCache16internalFindPairEiii.exit
 
 _ZN28b3HashedOverlappingPairCache16internalFindPairEiii.exit: ; preds = %31, %82
@@ -903,9 +903,9 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr no
 
 ; Function Attrs: mustprogress uwtable
 define dso_local noalias noundef ptr @_ZN28b3HashedOverlappingPairCache21removeOverlappingPairEiiP12b3Dispatcher(ptr noundef nonnull align 8 dereferenceable(112) %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) unnamed_addr #0 align 2 {
-  %5 = load i32, ptr @b3g_removePairs, align 4, !tbaa !35
+  %5 = load i32, ptr @b3g_removePairs, align 4, !tbaa !34
   %6 = add nsw i32 %5, 1
-  store i32 %6, ptr @b3g_removePairs, align 4, !tbaa !35
+  store i32 %6, ptr @b3g_removePairs, align 4, !tbaa !34
   %spec.select = tail call i32 @llvm.smin.i32(i32 %1, i32 %2)
   %spec.select55 = tail call i32 @llvm.smax.i32(i32 %1, i32 %2)
   %7 = shl i32 %spec.select55, 16
@@ -931,7 +931,7 @@ define dso_local noalias noundef ptr @_ZN28b3HashedOverlappingPairCache21removeO
   %27 = load ptr, ptr %26, align 8, !tbaa !26
   %28 = sext i32 %25 to i64
   %29 = getelementptr inbounds i32, ptr %27, i64 %28
-  %.012.i = load i32, ptr %29, align 4, !tbaa !35
+  %.012.i = load i32, ptr %29, align 4, !tbaa !34
   %cond13.i = icmp eq i32 %.012.i, -1
   br i1 %cond13.i, label %_ZN28b3HashedOverlappingPairCache16internalFindPairEiii.exit.thread, label %.lr.ph.i
 
@@ -956,9 +956,9 @@ define dso_local noalias noundef ptr @_ZN28b3HashedOverlappingPairCache21removeO
 
 43:                                               ; preds = %34
   %44 = getelementptr inbounds i32, ptr %33, i64 %35
-  %.0.i = load i32, ptr %44, align 4, !tbaa !35
+  %.0.i = load i32, ptr %44, align 4, !tbaa !34
   %cond.i = icmp eq i32 %.0.i, -1
-  br i1 %cond.i, label %_ZN28b3HashedOverlappingPairCache16internalFindPairEiii.exit.thread, label %34, !llvm.loop !48
+  br i1 %cond.i, label %_ZN28b3HashedOverlappingPairCache16internalFindPairEiii.exit.thread, label %34, !llvm.loop !47
 
 _ZN28b3HashedOverlappingPairCache16internalFindPairEiii.exit: ; preds = %34
   %45 = load ptr, ptr %0, align 8, !tbaa !4
@@ -973,7 +973,7 @@ _ZN28b3HashedOverlappingPairCache16internalFindPairEiii.exit: ; preds = %34
   %53 = trunc i64 %52 to i32
   %54 = load ptr, ptr %26, align 8, !tbaa !26
   %55 = getelementptr inbounds i32, ptr %54, i64 %28
-  %.03959 = load i32, ptr %55, align 4, !tbaa !35
+  %.03959 = load i32, ptr %55, align 4, !tbaa !34
   %.not60 = icmp eq i32 %.03959, %53
   br i1 %.not60, label %._crit_edge.thread, label %.lr.ph
 
@@ -985,9 +985,9 @@ _ZN28b3HashedOverlappingPairCache16internalFindPairEiii.exit: ; preds = %34
   %.03961 = phi i32 [ %.03959, %.lr.ph ], [ %.039, %57 ]
   %58 = sext i32 %.03961 to i64
   %59 = getelementptr inbounds i32, ptr %56, i64 %58
-  %.039 = load i32, ptr %59, align 4, !tbaa !35
+  %.039 = load i32, ptr %59, align 4, !tbaa !34
   %.not = icmp eq i32 %.039, %53
-  br i1 %.not, label %._crit_edge, label %57, !llvm.loop !49
+  br i1 %.not, label %._crit_edge, label %57, !llvm.loop !48
 
 ._crit_edge:                                      ; preds = %57
   %.not45 = icmp eq i32 %.03961, -1
@@ -998,10 +998,10 @@ _ZN28b3HashedOverlappingPairCache16internalFindPairEiii.exit: ; preds = %34
   %sext = shl i64 %51, 28
   %62 = ashr i64 %sext, 32
   %63 = getelementptr inbounds i32, ptr %61, i64 %62
-  %64 = load i32, ptr %63, align 4, !tbaa !35
+  %64 = load i32, ptr %63, align 4, !tbaa !34
   %65 = sext i32 %.03961 to i64
   %66 = getelementptr inbounds i32, ptr %61, i64 %65
-  store i32 %64, ptr %66, align 4, !tbaa !35
+  store i32 %64, ptr %66, align 4, !tbaa !34
   br label %71
 
 ._crit_edge.thread:                               ; preds = %_ZN28b3HashedOverlappingPairCache16internalFindPairEiii.exit, %._crit_edge
@@ -1009,8 +1009,8 @@ _ZN28b3HashedOverlappingPairCache16internalFindPairEiii.exit: ; preds = %34
   %sext56 = shl i64 %51, 28
   %68 = ashr i64 %sext56, 32
   %69 = getelementptr inbounds i32, ptr %67, i64 %68
-  %70 = load i32, ptr %69, align 4, !tbaa !35
-  store i32 %70, ptr %55, align 4, !tbaa !35
+  %70 = load i32, ptr %69, align 4, !tbaa !34
+  store i32 %70, ptr %55, align 4, !tbaa !34
   br label %71
 
 71:                                               ; preds = %._crit_edge.thread, %60
@@ -1047,7 +1047,7 @@ _ZN28b3HashedOverlappingPairCache16internalFindPairEiii.exit: ; preds = %34
   %100 = and i32 %97, %99
   %101 = sext i32 %100 to i64
   %102 = getelementptr inbounds i32, ptr %54, i64 %101
-  %.14062 = load i32, ptr %102, align 4, !tbaa !35
+  %.14062 = load i32, ptr %102, align 4, !tbaa !34
   %.not4663 = icmp eq i32 %.14062, %75
   br i1 %.not4663, label %._crit_edge67.thread, label %.lr.ph66
 
@@ -1055,9 +1055,9 @@ _ZN28b3HashedOverlappingPairCache16internalFindPairEiii.exit: ; preds = %34
   %.14064 = phi i32 [ %.140, %.lr.ph66 ], [ %.14062, %77 ]
   %103 = sext i32 %.14064 to i64
   %104 = getelementptr inbounds i32, ptr %72, i64 %103
-  %.140 = load i32, ptr %104, align 4, !tbaa !35
+  %.140 = load i32, ptr %104, align 4, !tbaa !34
   %.not46 = icmp eq i32 %.140, %75
-  br i1 %.not46, label %._crit_edge67, label %.lr.ph66, !llvm.loop !50
+  br i1 %.not46, label %._crit_edge67, label %.lr.ph66, !llvm.loop !49
 
 ._crit_edge67:                                    ; preds = %.lr.ph66
   %.not47 = icmp eq i32 %.14064, -1
@@ -1065,16 +1065,16 @@ _ZN28b3HashedOverlappingPairCache16internalFindPairEiii.exit: ; preds = %34
 
 105:                                              ; preds = %._crit_edge67
   %106 = getelementptr inbounds i32, ptr %72, i64 %78
-  %107 = load i32, ptr %106, align 4, !tbaa !35
+  %107 = load i32, ptr %106, align 4, !tbaa !34
   %108 = sext i32 %.14064 to i64
   %109 = getelementptr inbounds i32, ptr %72, i64 %108
-  store i32 %107, ptr %109, align 4, !tbaa !35
+  store i32 %107, ptr %109, align 4, !tbaa !34
   br label %112
 
 ._crit_edge67.thread:                             ; preds = %77, %._crit_edge67
   %110 = getelementptr inbounds i32, ptr %72, i64 %78
-  %111 = load i32, ptr %110, align 4, !tbaa !35
-  store i32 %111, ptr %102, align 4, !tbaa !35
+  %111 = load i32, ptr %110, align 4, !tbaa !34
+  store i32 %111, ptr %102, align 4, !tbaa !34
   br label %112
 
 112:                                              ; preds = %._crit_edge67.thread, %105
@@ -1084,11 +1084,11 @@ _ZN28b3HashedOverlappingPairCache16internalFindPairEiii.exit: ; preds = %34
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %114, ptr noundef nonnull align 16 dereferenceable(16) %79, i64 16, i1 false), !tbaa.struct !29
   %115 = load ptr, ptr %26, align 8, !tbaa !26
   %116 = getelementptr inbounds i32, ptr %115, i64 %101
-  %117 = load i32, ptr %116, align 4, !tbaa !35
+  %117 = load i32, ptr %116, align 4, !tbaa !34
   %118 = load ptr, ptr %32, align 8, !tbaa !26
   %119 = getelementptr inbounds i32, ptr %118, i64 %113
-  store i32 %117, ptr %119, align 4, !tbaa !35
-  store i32 %53, ptr %116, align 4, !tbaa !35
+  store i32 %117, ptr %119, align 4, !tbaa !34
+  store i32 %53, ptr %116, align 4, !tbaa !34
   %120 = load i32, ptr %73, align 4, !tbaa !16
   %121 = add nsw i32 %120, -1
   br label %_ZN28b3HashedOverlappingPairCache16internalFindPairEiii.exit.thread.sink.split
@@ -1132,9 +1132,9 @@ define dso_local void @_ZN28b3HashedOverlappingPairCache26processAllOverlappingP
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 104
   %22 = load ptr, ptr %21, align 8
   %23 = tail call noundef ptr %22(ptr noundef nonnull align 8 dereferenceable(112) %0, i32 noundef %17, i32 noundef %19, ptr noundef %2)
-  %24 = load i32, ptr @b3g_overlappingPairs, align 4, !tbaa !35
+  %24 = load i32, ptr @b3g_overlappingPairs, align 4, !tbaa !34
   %25 = add nsw i32 %24, -1
-  store i32 %25, ptr @b3g_overlappingPairs, align 4, !tbaa !35
+  store i32 %25, ptr @b3g_overlappingPairs, align 4, !tbaa !34
   br label %28
 
 26:                                               ; preds = %8
@@ -1145,7 +1145,7 @@ define dso_local void @_ZN28b3HashedOverlappingPairCache26processAllOverlappingP
   %.1 = phi i32 [ %.08, %16 ], [ %27, %26 ]
   %29 = load i32, ptr %4, align 4, !tbaa !16
   %30 = icmp slt i32 %.1, %29
-  br i1 %30, label %8, label %._crit_edge, !llvm.loop !51
+  br i1 %30, label %8, label %._crit_edge, !llvm.loop !50
 
 ._crit_edge:                                      ; preds = %28, %3
   ret void
@@ -1246,7 +1246,7 @@ _ZNK20b3AlignedObjectArrayI6b3Int4E4copyEiiPS0_.exit.i.i: ; preds = %32, %.noexc
   %.0.i18.i.i = phi ptr [ null, %.noexc21 ], [ %28, %.split.i.i ], [ %28, %32 ]
   %.0.i.i = phi i32 [ 0, %.noexc21 ], [ %23, %.split.i.i ], [ %23, %32 ]
   %.not.i16.i.i = icmp ne ptr %35, null
-  %36 = load i8, ptr %5, align 8, !range !34
+  %36 = load i8, ptr %5, align 8, !range !33
   %37 = trunc nuw i8 %36 to i1
   %or.cond.i.i = select i1 %.not.i16.i.i, i1 %37, i1 false
   br i1 %or.cond.i.i, label %38, label %_ZN20b3AlignedObjectArrayI6b3Int4E10deallocateEv.exit.i.i
@@ -1279,7 +1279,7 @@ _ZN20b3AlignedObjectArrayI6b3Int4E10deallocateEv.exit.i.i: ; preds = %._ZN20b3Al
   %46 = load i32, ptr %9, align 4, !tbaa !16
   %47 = sext i32 %46 to i64
   %48 = icmp slt i64 %indvars.iv.next, %47
-  br i1 %48, label %14, label %.preheader26, !llvm.loop !52
+  br i1 %48, label %14, label %.preheader26, !llvm.loop !51
 
 .loopexit:                                        ; preds = %.lr.ph36
   %lpad.loopexit = landingpad { ptr, i32 }
@@ -1326,17 +1326,17 @@ _ZN20b3AlignedObjectArrayI6b3Int4E10deallocateEv.exit.i.i: ; preds = %._ZN20b3Al
   %65 = load i32, ptr %7, align 4, !tbaa !16
   %66 = sext i32 %65 to i64
   %67 = icmp slt i64 %indvars.iv.next40, %66
-  br i1 %67, label %.lr.ph32, label %.preheader, !llvm.loop !53
+  br i1 %67, label %.lr.ph32, label %.preheader, !llvm.loop !52
 
 68:                                               ; preds = %.lr.ph34, %68
   %indvars.iv42 = phi i64 [ 0, %.lr.ph34 ], [ %indvars.iv.next43, %68 ]
   %69 = getelementptr inbounds nuw i32, ptr %54, i64 %indvars.iv42
-  store i32 -1, ptr %69, align 4, !tbaa !35
+  store i32 -1, ptr %69, align 4, !tbaa !34
   %indvars.iv.next43 = add nuw nsw i64 %indvars.iv42, 1
   %70 = load i32, ptr %50, align 4, !tbaa !27
   %71 = sext i32 %70 to i64
   %72 = icmp slt i64 %indvars.iv.next43, %71
-  br i1 %72, label %68, label %._crit_edge.loopexit, !llvm.loop !54
+  br i1 %72, label %68, label %._crit_edge.loopexit, !llvm.loop !53
 
 ._crit_edge.loopexit:                             ; preds = %68
   %.pre51 = load i32, ptr %7, align 4, !tbaa !16
@@ -1381,7 +1381,7 @@ _ZN20b3AlignedObjectArrayI6b3Int4E9quickSortI29b3BroadphasePairSortPredicateEEvR
   %89 = load i32, ptr %7, align 4, !tbaa !16
   %90 = sext i32 %89 to i64
   %91 = icmp slt i64 %indvars.iv.next46, %90
-  br i1 %91, label %.lr.ph36, label %._crit_edge37, !llvm.loop !55
+  br i1 %91, label %.lr.ph36, label %._crit_edge37, !llvm.loop !54
 
 92:                                               ; preds = %75
   %93 = landingpad { ptr, i32 }
@@ -1392,7 +1392,7 @@ _ZN20b3AlignedObjectArrayI6b3Int4E9quickSortI29b3BroadphasePairSortPredicateEEvR
 ._crit_edge37:                                    ; preds = %88, %_ZN20b3AlignedObjectArrayI6b3Int4E9quickSortI29b3BroadphasePairSortPredicateEEvRKT_.exit
   %94 = load ptr, ptr %6, align 8, !tbaa !15
   %.not.i.i.i24 = icmp ne ptr %94, null
-  %95 = load i8, ptr %5, align 8, !range !34
+  %95 = load i8, ptr %5, align 8, !range !33
   %96 = trunc nuw i8 %95 to i1
   %or.cond.i.i25 = select i1 %.not.i.i.i24, i1 %96, i1 false
   br i1 %or.cond.i.i25, label %97, label %_ZN20b3AlignedObjectArrayI6b3Int4ED2Ev.exit
@@ -1456,7 +1456,7 @@ define dso_local noalias noundef ptr @_ZN28b3SortedOverlappingPairCache21removeO
 23:                                               ; preds = %15
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %_ZNK20b3AlignedObjectArrayI6b3Int4E16findLinearSearchERKS0_.exit.thread, label %15, !llvm.loop !56
+  br i1 %exitcond.not.i, label %_ZNK20b3AlignedObjectArrayI6b3Int4E16findLinearSearchERKS0_.exit.thread, label %15, !llvm.loop !55
 
 _ZNK20b3AlignedObjectArrayI6b3Int4E16findLinearSearchERKS0_.exit: ; preds = %15
   %24 = trunc nuw nsw i64 %indvars.iv.i to i32
@@ -1464,9 +1464,9 @@ _ZNK20b3AlignedObjectArrayI6b3Int4E16findLinearSearchERKS0_.exit: ; preds = %15
   br i1 %25, label %26, label %_ZNK20b3AlignedObjectArrayI6b3Int4E16findLinearSearchERKS0_.exit.thread
 
 26:                                               ; preds = %_ZNK20b3AlignedObjectArrayI6b3Int4E16findLinearSearchERKS0_.exit
-  %27 = load i32, ptr @b3g_overlappingPairs, align 4, !tbaa !35
+  %27 = load i32, ptr @b3g_overlappingPairs, align 4, !tbaa !34
   %28 = add nsw i32 %27, -1
-  store i32 %28, ptr @b3g_overlappingPairs, align 4, !tbaa !35
+  store i32 %28, ptr @b3g_overlappingPairs, align 4, !tbaa !34
   %sext = shl i64 %indvars.iv.i, 32
   %29 = ashr exact i64 %sext, 32
   %30 = getelementptr inbounds %struct.b3Int4, ptr %14, i64 %29
@@ -1500,7 +1500,7 @@ _ZNK20b3AlignedObjectArrayI6b3Int4E16findLinearSearchERKS0_.exit.thread: ; preds
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef ptr @_ZN28b3SortedOverlappingPairCache18addOverlappingPairEii(ptr noundef nonnull align 8 captures(none) dereferenceable(56) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %5 = load ptr, ptr %4, align 8, !tbaa !57
+  %5 = load ptr, ptr %4, align 8, !tbaa !56
   %.not.i = icmp eq ptr %5, null
   br i1 %.not.i, label %_ZNK28b3SortedOverlappingPairCache24needsBroadphaseCollisionEii.exit.thread, label %_ZNK28b3SortedOverlappingPairCache24needsBroadphaseCollisionEii.exit
 
@@ -1570,7 +1570,7 @@ _ZNK20b3AlignedObjectArrayI6b3Int4E4copyEiiPS0_.exit.i.i: ; preds = %27, %_ZNK20
   %32 = load ptr, ptr %31, align 8, !tbaa !15
   %.not.i16.i.i = icmp ne ptr %32, null
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %34 = load i8, ptr %33, align 8, !range !34
+  %34 = load i8, ptr %33, align 8, !range !33
   %35 = trunc nuw i8 %34 to i1
   %or.cond.i.i = select i1 %.not.i16.i.i, i1 %35, i1 false
   br i1 %or.cond.i.i, label %36, label %_ZN20b3AlignedObjectArrayI6b3Int4E10deallocateEv.exit.i.i
@@ -1603,12 +1603,12 @@ _ZN20b3AlignedObjectArrayI6b3Int4E21expandNonInitializingEv.exit: ; preds = %_ZN
   store i64 %.sroa.0.0.insert.insert.i, ptr %42, align 16
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %42, i64 8
   store i64 -1, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !30
-  %43 = load i32, ptr @b3g_overlappingPairs, align 4, !tbaa !35
+  %43 = load i32, ptr @b3g_overlappingPairs, align 4, !tbaa !34
   %44 = add nsw i32 %43, 1
-  store i32 %44, ptr @b3g_overlappingPairs, align 4, !tbaa !35
-  %45 = load i32, ptr @b3g_addedPairs, align 4, !tbaa !35
+  store i32 %44, ptr @b3g_overlappingPairs, align 4, !tbaa !34
+  %45 = load i32, ptr @b3g_addedPairs, align 4, !tbaa !34
   %46 = add nsw i32 %45, 1
-  store i32 %46, ptr @b3g_addedPairs, align 4, !tbaa !35
+  store i32 %46, ptr @b3g_addedPairs, align 4, !tbaa !34
   br label %47
 
 47:                                               ; preds = %_ZNK28b3SortedOverlappingPairCache24needsBroadphaseCollisionEii.exit, %_ZN20b3AlignedObjectArrayI6b3Int4E21expandNonInitializingEv.exit
@@ -1619,7 +1619,7 @@ _ZN20b3AlignedObjectArrayI6b3Int4E21expandNonInitializingEv.exit: ; preds = %_ZN
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef ptr @_ZN28b3SortedOverlappingPairCache8findPairEii(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %5 = load ptr, ptr %4, align 8, !tbaa !57
+  %5 = load ptr, ptr %4, align 8, !tbaa !56
   %.not.i = icmp eq ptr %5, null
   br i1 %.not.i, label %_ZNK28b3SortedOverlappingPairCache24needsBroadphaseCollisionEii.exit.thread, label %_ZNK28b3SortedOverlappingPairCache24needsBroadphaseCollisionEii.exit
 
@@ -1658,7 +1658,7 @@ _ZNK28b3SortedOverlappingPairCache24needsBroadphaseCollisionEii.exit.thread: ; p
 23:                                               ; preds = %15
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %_ZNK20b3AlignedObjectArrayI6b3Int4E16findLinearSearchERKS0_.exit.thread, label %15, !llvm.loop !56
+  br i1 %exitcond.not.i, label %_ZNK20b3AlignedObjectArrayI6b3Int4E16findLinearSearchERKS0_.exit.thread, label %15, !llvm.loop !55
 
 _ZNK20b3AlignedObjectArrayI6b3Int4E16findLinearSearchERKS0_.exit: ; preds = %15
   %24 = trunc nuw nsw i64 %indvars.iv.i to i32
@@ -1723,9 +1723,9 @@ define dso_local void @_ZN28b3SortedOverlappingPairCache26processAllOverlappingP
   %29 = load i32, ptr %4, align 4, !tbaa !16
   %30 = add nsw i32 %29, -1
   store i32 %30, ptr %4, align 4, !tbaa !16
-  %31 = load i32, ptr @b3g_overlappingPairs, align 4, !tbaa !35
+  %31 = load i32, ptr @b3g_overlappingPairs, align 4, !tbaa !34
   %32 = add nsw i32 %31, -1
-  store i32 %32, ptr @b3g_overlappingPairs, align 4, !tbaa !35
+  store i32 %32, ptr @b3g_overlappingPairs, align 4, !tbaa !34
   br label %35
 
 33:                                               ; preds = %8
@@ -1737,7 +1737,7 @@ define dso_local void @_ZN28b3SortedOverlappingPairCache26processAllOverlappingP
   %36 = phi i32 [ %30, %16 ], [ %.pre, %33 ]
   %.1 = phi i32 [ %.010, %16 ], [ %34, %33 ]
   %37 = icmp slt i32 %.1, %36
-  br i1 %37, label %8, label %._crit_edge, !llvm.loop !59
+  br i1 %37, label %8, label %._crit_edge, !llvm.loop !58
 
 ._crit_edge:                                      ; preds = %35, %3
   ret void
@@ -1755,11 +1755,11 @@ define dso_local void @_ZN28b3SortedOverlappingPairCacheC2Ev(ptr noundef nonnull
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 0, ptr %5, align 8, !tbaa !17
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store i8 0, ptr %6, align 8, !tbaa !60
+  store i8 0, ptr %6, align 8, !tbaa !59
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 41
-  store i8 1, ptr %7, align 1, !tbaa !61
+  store i8 1, ptr %7, align 1, !tbaa !60
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store ptr null, ptr %8, align 8, !tbaa !57
+  store ptr null, ptr %8, align 8, !tbaa !56
   %9 = invoke noundef ptr @_Z22b3AlignedAllocInternalmi(i64 noundef 32, i32 noundef 16)
           to label %.noexc unwind label %22
 
@@ -1802,7 +1802,7 @@ _ZNK20b3AlignedObjectArrayI6b3Int4E4copyEiiPS0_.exit.i: ; preds = %13, %.noexc6,
   %.0.i = phi i32 [ 0, %.noexc6 ], [ 2, %.split.i ], [ 2, %13 ]
   %17 = load ptr, ptr %3, align 8, !tbaa !15
   %.not.i16.i = icmp ne ptr %17, null
-  %18 = load i8, ptr %2, align 8, !range !34
+  %18 = load i8, ptr %2, align 8, !range !33
   %19 = trunc nuw i8 %18 to i1
   %or.cond.i = select i1 %.not.i16.i, i1 %19, i1 false
   br i1 %or.cond.i, label %20, label %21
@@ -1832,7 +1832,7 @@ define dso_local void @_ZN28b3SortedOverlappingPairCacheD2Ev(ptr noundef nonnull
   %3 = load ptr, ptr %2, align 8, !tbaa !15
   %.not.i.i.i = icmp ne ptr %3, null
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %5 = load i8, ptr %4, align 8, !range !34
+  %5 = load i8, ptr %4, align 8, !range !33
   %6 = trunc nuw i8 %5 to i1
   %or.cond.i.i = select i1 %.not.i.i.i, i1 %6, i1 false
   br i1 %or.cond.i.i, label %7, label %_ZN20b3AlignedObjectArrayI6b3Int4ED2Ev.exit
@@ -1865,7 +1865,7 @@ define dso_local void @_ZN28b3SortedOverlappingPairCacheD0Ev(ptr noundef nonnull
   %3 = load ptr, ptr %2, align 8, !tbaa !15
   %.not.i.i.i.i = icmp ne ptr %3, null
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %5 = load i8, ptr %4, align 8, !range !34
+  %5 = load i8, ptr %4, align 8, !range !33
   %6 = trunc nuw i8 %5 to i1
   %or.cond.i.i.i = select i1 %.not.i.i.i.i, i1 %6, i1 false
   br i1 %or.cond.i.i.i, label %7, label %_ZN28b3SortedOverlappingPairCacheD2Ev.exit
@@ -1897,11 +1897,11 @@ define dso_local void @_ZN28b3SortedOverlappingPairCache19cleanProxyFromPairsEiP
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #14
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVZN28b3SortedOverlappingPairCache19cleanProxyFromPairsEiP12b3DispatcherE17CleanPairCallback, i64 16), ptr %4, align 8, !tbaa !4
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store i32 %1, ptr %5, align 8, !tbaa !62
+  store i32 %1, ptr %5, align 8, !tbaa !61
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store ptr %0, ptr %6, align 8, !tbaa !64
+  store ptr %0, ptr %6, align 8, !tbaa !63
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  store ptr %2, ptr %7, align 8, !tbaa !65
+  store ptr %2, ptr %7, align 8, !tbaa !64
   %8 = load ptr, ptr %0, align 8, !tbaa !4
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 72
   %10 = load ptr, ptr %9, align 8
@@ -1916,7 +1916,7 @@ define dso_local void @_ZN28b3SortedOverlappingPairCache37removeOverlappingPairs
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #14
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVZN28b3SortedOverlappingPairCache37removeOverlappingPairsContainingProxyEiP12b3DispatcherE18RemovePairCallback, i64 16), ptr %4, align 8, !tbaa !4
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store i32 %1, ptr %5, align 8, !tbaa !66
+  store i32 %1, ptr %5, align 8, !tbaa !65
   %6 = load ptr, ptr %0, align 8, !tbaa !4
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 72
   %8 = load ptr, ptr %7, align 8
@@ -1976,9 +1976,9 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN28b3HashedOverlappingPairCa
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef ptr @_ZN28b3HashedOverlappingPairCache18addOverlappingPairEii(ptr noundef nonnull align 8 dereferenceable(112) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #0 comdat align 2 {
-  %4 = load i32, ptr @b3g_addedPairs, align 4, !tbaa !35
+  %4 = load i32, ptr @b3g_addedPairs, align 4, !tbaa !34
   %5 = add nsw i32 %4, 1
-  store i32 %5, ptr @b3g_addedPairs, align 4, !tbaa !35
+  store i32 %5, ptr @b3g_addedPairs, align 4, !tbaa !34
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %7 = load ptr, ptr %6, align 8, !tbaa !18
   %.not.i = icmp eq ptr %7, null
@@ -2030,14 +2030,14 @@ define linkonce_odr dso_local noundef i32 @_ZNK28b3SortedOverlappingPairCache22g
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN28b3SortedOverlappingPairCache24setOverlapFilterCallbackEP23b3OverlapFilterCallback(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef %1) unnamed_addr #2 comdat align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store ptr %1, ptr %3, align 8, !tbaa !57
+  store ptr %1, ptr %3, align 8, !tbaa !56
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef zeroext i1 @_ZN28b3SortedOverlappingPairCache18hasDeferredRemovalEv(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #2 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 41
-  %3 = load i8, ptr %2, align 1, !tbaa !61, !range !34, !noundef !68
+  %3 = load i8, ptr %2, align 1, !tbaa !60, !range !33, !noundef !67
   %4 = trunc nuw i8 %3 to i1
   ret i1 %4
 }
@@ -2052,7 +2052,7 @@ define internal void @_ZZN28b3HashedOverlappingPairCache19cleanProxyFromPairsEiP
 define internal noundef zeroext i1 @_ZZN28b3HashedOverlappingPairCache19cleanProxyFromPairsEiP12b3DispatcherEN17CleanPairCallback14processOverlapER6b3Int4(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull align 16 dereferenceable(16) %1) unnamed_addr #0 align 2 {
   %3 = load i32, ptr %1, align 16, !tbaa !30
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = load i32, ptr %4, align 8, !tbaa !38
+  %5 = load i32, ptr %4, align 8, !tbaa !37
   %6 = icmp eq i32 %3, %5
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %8 = load i32, ptr %7, align 4
@@ -2062,9 +2062,9 @@ define internal noundef zeroext i1 @_ZZN28b3HashedOverlappingPairCache19cleanPro
 
 10:                                               ; preds = %2
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %12 = load ptr, ptr %11, align 8, !tbaa !43
+  %12 = load ptr, ptr %11, align 8, !tbaa !42
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %14 = load ptr, ptr %13, align 8, !tbaa !44
+  %14 = load ptr, ptr %13, align 8, !tbaa !43
   %15 = load ptr, ptr %12, align 8, !tbaa !4
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 40
   %17 = load ptr, ptr %16, align 8
@@ -2085,7 +2085,7 @@ define internal void @_ZZN28b3HashedOverlappingPairCache37removeOverlappingPairs
 define internal noundef zeroext i1 @_ZZN28b3HashedOverlappingPairCache37removeOverlappingPairsContainingProxyEiP12b3DispatcherEN18RemovePairCallback14processOverlapER6b3Int4(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(12) %0, ptr noundef nonnull readonly align 16 captures(none) dereferenceable(16) %1) unnamed_addr #8 align 2 {
   %3 = load i32, ptr %1, align 16, !tbaa !30
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = load i32, ptr %4, align 8, !tbaa !45
+  %5 = load i32, ptr %4, align 8, !tbaa !44
   %6 = icmp eq i32 %3, %5
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %8 = load i32, ptr %7, align 4
@@ -2104,7 +2104,7 @@ define internal void @_ZZN28b3SortedOverlappingPairCache19cleanProxyFromPairsEiP
 define internal noundef zeroext i1 @_ZZN28b3SortedOverlappingPairCache19cleanProxyFromPairsEiP12b3DispatcherEN17CleanPairCallback14processOverlapER6b3Int4(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull align 16 dereferenceable(16) %1) unnamed_addr #0 align 2 {
   %3 = load i32, ptr %1, align 16, !tbaa !30
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = load i32, ptr %4, align 8, !tbaa !62
+  %5 = load i32, ptr %4, align 8, !tbaa !61
   %6 = icmp eq i32 %3, %5
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %8 = load i32, ptr %7, align 4
@@ -2114,9 +2114,9 @@ define internal noundef zeroext i1 @_ZZN28b3SortedOverlappingPairCache19cleanPro
 
 10:                                               ; preds = %2
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %12 = load ptr, ptr %11, align 8, !tbaa !64
+  %12 = load ptr, ptr %11, align 8, !tbaa !63
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %14 = load ptr, ptr %13, align 8, !tbaa !65
+  %14 = load ptr, ptr %13, align 8, !tbaa !64
   %15 = load ptr, ptr %12, align 8, !tbaa !4
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 40
   %17 = load ptr, ptr %16, align 8
@@ -2137,7 +2137,7 @@ define internal void @_ZZN28b3SortedOverlappingPairCache37removeOverlappingPairs
 define internal noundef zeroext i1 @_ZZN28b3SortedOverlappingPairCache37removeOverlappingPairsContainingProxyEiP12b3DispatcherEN18RemovePairCallback14processOverlapER6b3Int4(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(12) %0, ptr noundef nonnull readonly align 16 captures(none) dereferenceable(16) %1) unnamed_addr #8 align 2 {
   %3 = load i32, ptr %1, align 16, !tbaa !30
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = load i32, ptr %4, align 8, !tbaa !66
+  %5 = load i32, ptr %4, align 8, !tbaa !65
   %6 = icmp eq i32 %3, %5
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %8 = load i32, ptr %7, align 4
@@ -2210,7 +2210,7 @@ _ZNK29b3BroadphasePairSortPredicateclERK6b3Int4S2_.exit: ; preds = %14
 
 _ZNK29b3BroadphasePairSortPredicateclERK6b3Int4S2_.exit.thread: ; preds = %14, %_ZNK29b3BroadphasePairSortPredicateclERK6b3Int4S2_.exit
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
-  br label %14, !llvm.loop !69
+  br label %14, !llvm.loop !68
 
 24:                                               ; preds = %.preheader, %_ZNK29b3BroadphasePairSortPredicateclERK6b3Int4S2_.exit34.thread
   %indvars.iv46 = phi i64 [ %23, %.preheader ], [ %indvars.iv.next47, %_ZNK29b3BroadphasePairSortPredicateclERK6b3Int4S2_.exit34.thread ]
@@ -2229,7 +2229,7 @@ _ZNK29b3BroadphasePairSortPredicateclERK6b3Int4S2_.exit34: ; preds = %24
 
 _ZNK29b3BroadphasePairSortPredicateclERK6b3Int4S2_.exit34.thread: ; preds = %24, %_ZNK29b3BroadphasePairSortPredicateclERK6b3Int4S2_.exit34
   %indvars.iv.next47 = add nsw i64 %indvars.iv46, -1
-  br label %24, !llvm.loop !70
+  br label %24, !llvm.loop !69
 
 33:                                               ; preds = %_ZNK29b3BroadphasePairSortPredicateclERK6b3Int4S2_.exit34
   %34 = trunc nsw i64 %indvars.iv to i32
@@ -2253,7 +2253,7 @@ _ZNK29b3BroadphasePairSortPredicateclERK6b3Int4S2_.exit34.thread: ; preds = %24,
   %.230 = phi i32 [ %39, %36 ], [ %34, %33 ]
   %.2 = phi i32 [ %40, %36 ], [ %35, %33 ]
   %.not33 = icmp sgt i32 %.230, %.2
-  br i1 %.not33, label %42, label %11, !llvm.loop !71
+  br i1 %.not33, label %42, label %11, !llvm.loop !70
 
 42:                                               ; preds = %41
   %43 = icmp slt i32 %.tr38, %.2
@@ -2331,44 +2331,43 @@ attributes #16 = { builtin nounwind }
 !28 = !{!22, !10, i64 8}
 !29 = !{i64 0, i64 16, !30}
 !30 = !{!11, !11, i64 0}
-!31 = distinct !{!31, !32, !33}
+!31 = distinct !{!31, !32}
 !32 = !{!"llvm.loop.mustprogress"}
-!33 = !{!"llvm.loop.estimated_trip_count"}
-!34 = !{i8 0, i8 2}
-!35 = !{!10, !10, i64 0}
-!36 = distinct !{!36, !32, !33}
-!37 = distinct !{!37, !32, !33}
-!38 = !{!39, !10, i64 8}
-!39 = !{!"_ZTSZN28b3HashedOverlappingPairCache19cleanProxyFromPairsEiP12b3DispatcherE17CleanPairCallback", !40, i64 0, !10, i64 8, !41, i64 16, !42, i64 24}
-!40 = !{!"_ZTS17b3OverlapCallback"}
-!41 = !{!"p1 _ZTS22b3OverlappingPairCache", !13, i64 0}
-!42 = !{!"p1 _ZTS12b3Dispatcher", !13, i64 0}
-!43 = !{!39, !41, i64 16}
-!44 = !{!39, !42, i64 24}
-!45 = !{!46, !10, i64 8}
-!46 = !{!"_ZTSZN28b3HashedOverlappingPairCache37removeOverlappingPairsContainingProxyEiP12b3DispatcherE18RemovePairCallback", !40, i64 0, !10, i64 8}
-!47 = distinct !{!47, !32, !33}
-!48 = distinct !{!48, !32, !33}
-!49 = distinct !{!49, !32, !33}
-!50 = distinct !{!50, !32, !33}
-!51 = distinct !{!51, !32, !33}
-!52 = distinct !{!52, !32, !33}
-!53 = distinct !{!53, !32, !33}
-!54 = distinct !{!54, !32, !33}
-!55 = distinct !{!55, !32, !33}
-!56 = distinct !{!56, !32, !33}
-!57 = !{!58, !21, i64 48}
-!58 = !{!"_ZTS28b3SortedOverlappingPairCache", !20, i64 0, !8, i64 8, !14, i64 40, !14, i64 41, !21, i64 48}
-!59 = distinct !{!59, !32, !33}
-!60 = !{!58, !14, i64 40}
-!61 = !{!58, !14, i64 41}
-!62 = !{!63, !10, i64 8}
-!63 = !{!"_ZTSZN28b3SortedOverlappingPairCache19cleanProxyFromPairsEiP12b3DispatcherE17CleanPairCallback", !40, i64 0, !10, i64 8, !41, i64 16, !42, i64 24}
-!64 = !{!63, !41, i64 16}
-!65 = !{!63, !42, i64 24}
-!66 = !{!67, !10, i64 8}
-!67 = !{!"_ZTSZN28b3SortedOverlappingPairCache37removeOverlappingPairsContainingProxyEiP12b3DispatcherE18RemovePairCallback", !40, i64 0, !10, i64 8}
-!68 = !{}
-!69 = distinct !{!69, !32, !33}
-!70 = distinct !{!70, !32, !33}
-!71 = distinct !{!71, !32, !33}
+!33 = !{i8 0, i8 2}
+!34 = !{!10, !10, i64 0}
+!35 = distinct !{!35, !32}
+!36 = distinct !{!36, !32}
+!37 = !{!38, !10, i64 8}
+!38 = !{!"_ZTSZN28b3HashedOverlappingPairCache19cleanProxyFromPairsEiP12b3DispatcherE17CleanPairCallback", !39, i64 0, !10, i64 8, !40, i64 16, !41, i64 24}
+!39 = !{!"_ZTS17b3OverlapCallback"}
+!40 = !{!"p1 _ZTS22b3OverlappingPairCache", !13, i64 0}
+!41 = !{!"p1 _ZTS12b3Dispatcher", !13, i64 0}
+!42 = !{!38, !40, i64 16}
+!43 = !{!38, !41, i64 24}
+!44 = !{!45, !10, i64 8}
+!45 = !{!"_ZTSZN28b3HashedOverlappingPairCache37removeOverlappingPairsContainingProxyEiP12b3DispatcherE18RemovePairCallback", !39, i64 0, !10, i64 8}
+!46 = distinct !{!46, !32}
+!47 = distinct !{!47, !32}
+!48 = distinct !{!48, !32}
+!49 = distinct !{!49, !32}
+!50 = distinct !{!50, !32}
+!51 = distinct !{!51, !32}
+!52 = distinct !{!52, !32}
+!53 = distinct !{!53, !32}
+!54 = distinct !{!54, !32}
+!55 = distinct !{!55, !32}
+!56 = !{!57, !21, i64 48}
+!57 = !{!"_ZTS28b3SortedOverlappingPairCache", !20, i64 0, !8, i64 8, !14, i64 40, !14, i64 41, !21, i64 48}
+!58 = distinct !{!58, !32}
+!59 = !{!57, !14, i64 40}
+!60 = !{!57, !14, i64 41}
+!61 = !{!62, !10, i64 8}
+!62 = !{!"_ZTSZN28b3SortedOverlappingPairCache19cleanProxyFromPairsEiP12b3DispatcherE17CleanPairCallback", !39, i64 0, !10, i64 8, !40, i64 16, !41, i64 24}
+!63 = !{!62, !40, i64 16}
+!64 = !{!62, !41, i64 24}
+!65 = !{!66, !10, i64 8}
+!66 = !{!"_ZTSZN28b3SortedOverlappingPairCache37removeOverlappingPairsContainingProxyEiP12b3DispatcherE18RemovePairCallback", !39, i64 0, !10, i64 8}
+!67 = !{}
+!68 = distinct !{!68, !32}
+!69 = distinct !{!69, !32}
+!70 = distinct !{!70, !32}

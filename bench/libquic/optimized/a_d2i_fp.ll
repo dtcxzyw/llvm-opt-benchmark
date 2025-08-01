@@ -236,7 +236,7 @@ define internal fastcc range(i32 -1, -2147483648) i32 @asn1_d2i_read_bio(ptr nou
 
 .outer.backedge:                                  ; preds = %57, %66
   %.0101.ph.be = phi i32 [ %67, %66 ], [ %58, %57 ]
-  br label %.outer, !llvm.loop !21
+  br label %.outer
 
 59:                                               ; preds = %48
   %60 = load i64, ptr %9, align 8
@@ -313,17 +313,17 @@ define internal fastcc range(i32 -1, -2147483648) i32 @asn1_d2i_read_bio(ptr nou
   %92 = add i64 %.7144, %91
   %93 = sub i64 %.0145, %91
   %.not124 = icmp eq i64 %93, 0
-  br i1 %.not124, label %94, label %83, !llvm.loop !23
+  br i1 %.not124, label %94, label %83, !llvm.loop !21
 
 94:                                               ; preds = %90
   %95 = icmp samesign ult i64 %.090149, 1073741823
   %96 = zext i1 %95 to i64
   %spec.select = shl nuw nsw i64 %.090149, %96
   %.not122 = icmp eq i64 %82, 0
-  br i1 %.not122, label %.loopexit.loopexit, label %.lr.ph, !llvm.loop !25
+  br i1 %.not122, label %.loopexit.loopexit, label %.lr.ph, !llvm.loop !23
 
 .loopexit.loopexit:                               ; preds = %94
-  %.pre150 = load i64, ptr %9, align 8, !tbaa !26
+  %.pre150 = load i64, ptr %9, align 8, !tbaa !24
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %.preheader, %68
@@ -338,7 +338,7 @@ define internal fastcc range(i32 -1, -2147483648) i32 @asn1_d2i_read_bio(ptr nou
   br label %.thread138
 
 101:                                              ; preds = %.loopexit
-  br i1 %14, label %.loopexit152, label %15, !llvm.loop !21
+  br i1 %14, label %.loopexit152, label %15
 
 .loopexit152:                                     ; preds = %64, %101
   %.2100 = phi i64 [ %98, %101 ], [ %55, %64 ]
@@ -501,8 +501,6 @@ attributes #4 = { nounwind }
 !19 = !{!"p2 omnipotent char", !8, i64 0}
 !20 = !{!17, !18, i64 16}
 !21 = distinct !{!21, !22}
-!22 = !{!"llvm.loop.estimated_trip_count"}
-!23 = distinct !{!23, !24, !22}
-!24 = !{!"llvm.loop.mustprogress"}
-!25 = distinct !{!25, !24, !22}
-!26 = !{!17, !13, i64 32}
+!22 = !{!"llvm.loop.mustprogress"}
+!23 = distinct !{!23, !22}
+!24 = !{!17, !13, i64 32}

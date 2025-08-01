@@ -95,7 +95,7 @@ define void @"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %35, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false)
   %.pr = load i64, ptr %.sroa.2.0..sroa_idx, align 8
   %36 = icmp eq i64 %.pr, 0
-  br i1 %36, label %.thread, label %.lr.ph, !llvm.loop !4
+  br i1 %36, label %.thread, label %.lr.ph
 
 37:                                               ; preds = %39, %15
   %38 = landingpad { ptr, i32 }
@@ -113,7 +113,7 @@ define void @"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17
 
 ; Function Attrs: nonlazybind uwtable
 define zeroext i1 @"_ZN62_$LT$$RF$T$u20$as$u20$quote..ident_fragment..IdentFragment$GT$3fmt17h73a873740ecbf6a1E"(ptr readonly align 8 captures(none) %0, ptr align 8 %1) unnamed_addr #1 {
-  %3 = load ptr, ptr %0, align 8, !nonnull !6, !align !7, !noundef !6
+  %3 = load ptr, ptr %0, align 8, !nonnull !4, !align !5, !noundef !4
   %4 = tail call zeroext i1 @"_ZN78_$LT$alloc..string..String$u20$as$u20$quote..ident_fragment..IdentFragment$GT$3fmt17h1aa6a38f5fca48eaE"(ptr nonnull align 8 %3, ptr align 8 %1)
   ret i1 %4
 }
@@ -171,7 +171,5 @@ attributes #8 = { cold noreturn nounwind }
 !1 = !{i32 2, !"RtLibUseGOT", i32 1}
 !2 = !{!"rustc version 1.77.2 (25ef9e3d8 2024-04-09)"}
 !3 = !{!"branch_weights", !"expected", i32 2000, i32 1}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.estimated_trip_count"}
-!6 = !{}
-!7 = !{i64 8}
+!4 = !{}
+!5 = !{i64 8}

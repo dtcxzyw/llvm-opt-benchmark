@@ -67,7 +67,7 @@ define dso_local ptr @acpi_ns_get_normalized_pathname(ptr noundef readonly captu
   %37 = icmp ne ptr %36, null
   %38 = icmp ne ptr %36, %8
   %39 = and i1 %37, %38
-  br i1 %39, label %.preheader16, label %40, !llvm.loop !9
+  br i1 %39, label %.preheader16, label %40, !llvm.loop !8
 
 40:                                               ; preds = %34
   %41 = add i32 %31, 1
@@ -90,7 +90,7 @@ define dso_local ptr @acpi_ns_get_normalized_pathname(ptr noundef readonly captu
   store i8 %48, ptr %46, align 1
   %51 = getelementptr i8, ptr %46, i64 -1
   %52 = icmp ult ptr %50, %51
-  br i1 %52, label %.preheader15, label %.thread12, !llvm.loop !10
+  br i1 %52, label %.preheader15, label %.thread12, !llvm.loop !9
 
 .thread12:                                        ; preds = %.preheader15, %2, %7
   %.ph = phi i32 [ 1, %2 ], [ 2, %7 ], [ 1, %.preheader15 ]
@@ -106,8 +106,8 @@ define dso_local ptr @acpi_ns_get_normalized_pathname(ptr noundef readonly captu
 56:                                               ; preds = %.thread12, %53
   %57 = phi i32 [ %.ph, %.thread12 ], [ %54, %53 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #7
-  store i64 0, ptr %4, align 8, !annotation !11
-  call void asm sideeffect "# __raw_save_flags\0A\09pushf ; pop $0", "=*rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %4) #7, !srcloc !12
+  store i64 0, ptr %4, align 8, !annotation !10
+  call void asm sideeffect "# __raw_save_flags\0A\09pushf ; pop $0", "=*rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %4) #7, !srcloc !11
   %58 = load i64, ptr %4, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #7
   %59 = and i64 %58, 512
@@ -191,7 +191,7 @@ define dso_local ptr @acpi_ns_get_normalized_pathname(ptr noundef readonly captu
   %105 = phi i32 [ %87, %84 ], [ %103, %102 ]
   %106 = add nuw nsw i32 %86, 1
   %107 = icmp eq i32 %106, 4
-  br i1 %107, label %108, label %84, !llvm.loop !13
+  br i1 %107, label %108, label %84, !llvm.loop !5
 
 108:                                              ; preds = %104
   %109 = getelementptr inbounds nuw i8, ptr %70, i64 16
@@ -199,7 +199,7 @@ define dso_local ptr @acpi_ns_get_normalized_pathname(ptr noundef readonly captu
   %111 = icmp ne ptr %110, null
   %112 = icmp ne ptr %110, %68
   %113 = and i1 %111, %112
-  br i1 %113, label %.preheader13, label %.loopexit14, !llvm.loop !14
+  br i1 %113, label %.preheader13, label %.loopexit14, !llvm.loop !8
 
 .loopexit14:                                      ; preds = %108
   %114 = icmp ult i32 %105, %57
@@ -233,7 +233,7 @@ define dso_local ptr @acpi_ns_get_normalized_pathname(ptr noundef readonly captu
   store i8 %129, ptr %127, align 1
   %132 = getelementptr i8, ptr %127, i64 -1
   %133 = icmp ult ptr %131, %132
-  br i1 %133, label %.preheader, label %.loopexit, !llvm.loop !15
+  br i1 %133, label %.preheader, label %.loopexit, !llvm.loop !9
 
 .loopexit:                                        ; preds = %.preheader, %118
   %134 = icmp ult i32 %120, %57
@@ -291,7 +291,7 @@ define dso_local range(i64 0, 4294967296) i64 @acpi_ns_get_pathname_length(ptr n
   %20 = icmp ne ptr %19, null
   %21 = icmp ne ptr %19, %10
   %22 = and i1 %20, %21
-  br i1 %22, label %.preheader4, label %23, !llvm.loop !16
+  br i1 %22, label %.preheader4, label %23, !llvm.loop !8
 
 23:                                               ; preds = %.preheader4
   %24 = add i32 %13, 3
@@ -316,7 +316,7 @@ define dso_local range(i64 0, 4294967296) i64 @acpi_ns_get_pathname_length(ptr n
   store i8 %33, ptr %31, align 1
   %36 = getelementptr i8, ptr %31, i64 -1
   %37 = icmp ult ptr %35, %36
-  br i1 %37, label %.preheader, label %.thread, !llvm.loop !17
+  br i1 %37, label %.preheader, label %.thread, !llvm.loop !9
 
 .thread:                                          ; preds = %.preheader, %9, %23, %7
   %38 = phi i32 [ %26, %23 ], [ 0, %7 ], [ 1, %9 ], [ 0, %.preheader ]
@@ -406,7 +406,7 @@ define dso_local i32 @acpi_ns_build_normalized_path(ptr noundef readonly capture
   %47 = phi i32 [ %29, %26 ], [ %45, %44 ]
   %48 = add nuw nsw i32 %28, 1
   %49 = icmp eq i32 %48, 4
-  br i1 %49, label %50, label %26, !llvm.loop !18
+  br i1 %49, label %50, label %26, !llvm.loop !5
 
 50:                                               ; preds = %46
   %51 = getelementptr inbounds nuw i8, ptr %12, i64 16
@@ -415,7 +415,7 @@ define dso_local i32 @acpi_ns_build_normalized_path(ptr noundef readonly capture
   %54 = load ptr, ptr @acpi_gbl_root_node, align 8
   %55 = icmp ne ptr %52, %54
   %56 = select i1 %53, i1 %55, i1 false
-  br i1 %56, label %.preheader9, label %.loopexit10, !llvm.loop !19
+  br i1 %56, label %.preheader9, label %.loopexit10, !llvm.loop !8
 
 .loopexit10:                                      ; preds = %50, %9
   %57 = phi i32 [ 0, %9 ], [ %47, %50 ]
@@ -448,7 +448,7 @@ define dso_local i32 @acpi_ns_build_normalized_path(ptr noundef readonly capture
   store i8 %72, ptr %70, align 1
   %75 = getelementptr i8, ptr %70, i64 -1
   %76 = icmp ult ptr %74, %75
-  br i1 %76, label %.preheader, label %.loopexit, !llvm.loop !20
+  br i1 %76, label %.preheader, label %.loopexit, !llvm.loop !9
 
 .loopexit:                                        ; preds = %.preheader, %62, %4
   %77 = phi i32 [ %63, %62 ], [ 0, %4 ], [ %63, %.preheader ]
@@ -545,7 +545,7 @@ define dso_local i32 @acpi_ns_handle_to_pathname(ptr noundef %0, ptr noundef %1,
   %32 = add i32 %21, %31
   %33 = add nuw nsw i32 %20, 1
   %34 = icmp eq i32 %33, 4
-  br i1 %34, label %35, label %18, !llvm.loop !21
+  br i1 %34, label %35, label %18, !llvm.loop !5
 
 35:                                               ; preds = %18
   %36 = getelementptr inbounds nuw i8, ptr %11, i64 16
@@ -553,7 +553,7 @@ define dso_local i32 @acpi_ns_handle_to_pathname(ptr noundef %0, ptr noundef %1,
   %38 = icmp ne ptr %37, null
   %39 = icmp ne ptr %37, %9
   %40 = and i1 %38, %39
-  br i1 %40, label %.preheader16, label %41, !llvm.loop !22
+  br i1 %40, label %.preheader16, label %41, !llvm.loop !8
 
 41:                                               ; preds = %35
   %42 = add i32 %32, 1
@@ -576,7 +576,7 @@ define dso_local i32 @acpi_ns_handle_to_pathname(ptr noundef %0, ptr noundef %1,
   store i8 %49, ptr %47, align 1
   %52 = getelementptr i8, ptr %47, i64 -1
   %53 = icmp ult ptr %51, %52
-  br i1 %53, label %.preheader15, label %.thread12, !llvm.loop !23
+  br i1 %53, label %.preheader15, label %.thread12, !llvm.loop !9
 
 .thread12:                                        ; preds = %.preheader15, %8
   %.ph = phi i32 [ 2, %8 ], [ 1, %.preheader15 ]
@@ -666,7 +666,7 @@ define dso_local i32 @acpi_ns_handle_to_pathname(ptr noundef %0, ptr noundef %1,
   %104 = phi i32 [ %86, %83 ], [ %102, %101 ]
   %105 = add nuw nsw i32 %85, 1
   %106 = icmp eq i32 %105, 4
-  br i1 %106, label %107, label %83, !llvm.loop !24
+  br i1 %106, label %107, label %83, !llvm.loop !5
 
 107:                                              ; preds = %103
   %108 = getelementptr inbounds nuw i8, ptr %69, i64 16
@@ -675,7 +675,7 @@ define dso_local i32 @acpi_ns_handle_to_pathname(ptr noundef %0, ptr noundef %1,
   %111 = load ptr, ptr @acpi_gbl_root_node, align 8
   %112 = icmp ne ptr %109, %111
   %113 = select i1 %110, i1 %112, i1 false
-  br i1 %113, label %.preheader13, label %.loopexit14, !llvm.loop !25
+  br i1 %113, label %.preheader13, label %.loopexit14, !llvm.loop !8
 
 .loopexit14:                                      ; preds = %107, %62
   %114 = phi i32 [ 0, %62 ], [ %104, %107 ]
@@ -708,7 +708,7 @@ define dso_local i32 @acpi_ns_handle_to_pathname(ptr noundef %0, ptr noundef %1,
   store i8 %129, ptr %127, align 1
   %132 = getelementptr i8, ptr %127, i64 -1
   %133 = icmp ult ptr %131, %132
-  br i1 %133, label %.preheader, label %.loopexit, !llvm.loop !26
+  br i1 %133, label %.preheader, label %.loopexit, !llvm.loop !9
 
 .loopexit:                                        ; preds = %.preheader, %119
   %134 = icmp ult i32 %120, %66
@@ -763,8 +763,8 @@ define dso_local ptr @acpi_ns_build_prefixed_pathname(ptr noundef readonly captu
   %22 = load ptr, ptr %4, align 8
   %23 = call i64 @strlen(ptr noundef %22) #7
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #7
-  store i64 0, ptr %3, align 8, !annotation !11
-  call void asm sideeffect "# __raw_save_flags\0A\09pushf ; pop $0", "=*rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %3) #7, !srcloc !12
+  store i64 0, ptr %3, align 8, !annotation !10
+  call void asm sideeffect "# __raw_save_flags\0A\09pushf ; pop $0", "=*rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %3) #7, !srcloc !11
   %24 = load i64, ptr %3, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #7
   %25 = and i64 %24, 512
@@ -843,8 +843,8 @@ define dso_local void @acpi_ns_normalize_pathname(ptr noundef %0) local_unnamed_
   %2 = alloca i64, align 8
   %3 = tail call i64 @strlen(ptr noundef %0) #7
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #7
-  store i64 0, ptr %2, align 8, !annotation !11
-  call void asm sideeffect "# __raw_save_flags\0A\09pushf ; pop $0", "=*rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %2) #7, !srcloc !12
+  store i64 0, ptr %2, align 8, !annotation !10
+  call void asm sideeffect "# __raw_save_flags\0A\09pushf ; pop $0", "=*rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %2) #7, !srcloc !11
   %4 = load i64, ptr %2, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #7
   %5 = and i64 %4, 512
@@ -889,7 +889,7 @@ define dso_local void @acpi_ns_normalize_pathname(ptr noundef %0) local_unnamed_
   %28 = getelementptr i8, ptr %26, i64 1
   %29 = load i8, ptr %28, align 1
   %30 = icmp eq i8 %29, 94
-  br i1 %30, label %.preheader11, label %.loopexit, !llvm.loop !27
+  br i1 %30, label %.preheader11, label %.loopexit, !llvm.loop !12
 
 .lr.ph:                                           ; preds = %.loopexit, %._crit_edge
   %31 = phi i8 [ %45, %._crit_edge ], [ %21, %.loopexit ]
@@ -920,7 +920,7 @@ define dso_local void @acpi_ns_normalize_pathname(ptr noundef %0) local_unnamed_
   %47 = phi ptr [ %58, %55 ], [ %41, %40 ]
   %48 = phi ptr [ %57, %55 ], [ %42, %40 ]
   %49 = icmp eq i8 %45, 0
-  br i1 %49, label %.thread10, label %.lr.ph, !llvm.loop !28
+  br i1 %49, label %.thread10, label %.lr.ph, !llvm.loop !13
 
 50:                                               ; preds = %40
   %51 = icmp eq i8 %.pr8, 46
@@ -977,27 +977,12 @@ attributes #8 = { nounwind allocsize(0) }
 !2 = !{i32 4, !"function_return_thunk_extern", i32 1}
 !3 = !{i32 4, !"indirect_branch_cs_prefix", i32 1}
 !4 = !{i32 4, !"SkipRaxSetup", i32 1}
-!5 = distinct !{!5, !6, !7, !8}
+!5 = distinct !{!5, !6, !7}
 !6 = !{!"llvm.loop.mustprogress"}
 !7 = !{!"llvm.loop.unroll.disable"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !6, !7, !8}
-!10 = distinct !{!10, !6, !7, !8}
-!11 = !{!"auto-init"}
-!12 = !{i64 1810379, i64 1810400}
-!13 = distinct !{!13, !6, !7, !8}
-!14 = distinct !{!14, !6, !7, !8}
-!15 = distinct !{!15, !6, !7, !8}
-!16 = distinct !{!16, !6, !7, !8}
-!17 = distinct !{!17, !6, !7, !8}
-!18 = distinct !{!18, !6, !7, !8}
-!19 = distinct !{!19, !6, !7, !8}
-!20 = distinct !{!20, !6, !7, !8}
-!21 = distinct !{!21, !6, !7, !8}
-!22 = distinct !{!22, !6, !7, !8}
-!23 = distinct !{!23, !6, !7, !8}
-!24 = distinct !{!24, !6, !7, !8}
-!25 = distinct !{!25, !6, !7, !8}
-!26 = distinct !{!26, !6, !7, !8}
-!27 = distinct !{!27, !6, !7, !8}
-!28 = distinct !{!28, !6, !7, !8}
+!8 = distinct !{!8, !6, !7}
+!9 = distinct !{!9, !6, !7}
+!10 = !{!"auto-init"}
+!11 = !{i64 1810379, i64 1810400}
+!12 = distinct !{!12, !6, !7}
+!13 = distinct !{!13, !6, !7}

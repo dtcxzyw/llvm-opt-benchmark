@@ -67,18 +67,18 @@ define noundef i32 @Nwk_ManCheck(ptr noundef readonly captures(none) %0) local_u
   %25 = phi i32 [ %39, %38 ], [ %22, %21 ]
   %26 = phi i32 [ %40, %38 ], [ %22, %21 ]
   %indvars.iv86 = phi i64 [ %indvars.iv.next87, %38 ], [ %indvars.iv, %21 ]
-  %27 = load ptr, ptr %18, align 8, !tbaa !28
+  %27 = load ptr, ptr %18, align 8, !tbaa !27
   %28 = getelementptr inbounds nuw ptr, ptr %27, i64 %indvars.iv89
-  %29 = load ptr, ptr %28, align 8, !tbaa !29
+  %29 = load ptr, ptr %28, align 8, !tbaa !28
   %30 = getelementptr inbounds nuw ptr, ptr %27, i64 %indvars.iv86
-  %31 = load ptr, ptr %30, align 8, !tbaa !29
+  %31 = load ptr, ptr %30, align 8, !tbaa !28
   %32 = icmp eq ptr %29, %31
   br i1 %32, label %33, label %38
 
 33:                                               ; preds = %.lr.ph
-  %34 = load i32, ptr %19, align 4, !tbaa !31
+  %34 = load i32, ptr %19, align 4, !tbaa !30
   %35 = getelementptr inbounds nuw i8, ptr %29, i64 36
-  %36 = load i32, ptr %35, align 4, !tbaa !31
+  %36 = load i32, ptr %35, align 4, !tbaa !30
   %37 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, i32 noundef %34, i32 noundef %36)
   %.pre = load i32, ptr %15, align 4, !tbaa !19
   br label %38
@@ -89,7 +89,7 @@ define noundef i32 @Nwk_ManCheck(ptr noundef readonly captures(none) %0) local_u
   %indvars.iv.next87 = add nuw nsw i64 %indvars.iv86, 1
   %41 = trunc nuw i64 %indvars.iv.next87 to i32
   %42 = icmp sgt i32 %40, %41
-  br i1 %42, label %.lr.ph, label %.loopexit, !llvm.loop !32
+  br i1 %42, label %.lr.ph, label %.loopexit, !llvm.loop !31
 
 .loopexit69.loopexit:                             ; preds = %21, %.loopexit
   %.pre101 = load ptr, ptr %2, align 8, !tbaa !3
@@ -102,7 +102,7 @@ define noundef i32 @Nwk_ManCheck(ptr noundef readonly captures(none) %0) local_u
   %.val = load i32, ptr %44, align 4, !tbaa !15
   %45 = sext i32 %.val to i64
   %46 = icmp slt i64 %indvars.iv.next93, %45
-  br i1 %46, label %.lr.ph76, label %.critedge.preheader, !llvm.loop !33
+  br i1 %46, label %.lr.ph76, label %.critedge.preheader, !llvm.loop !32
 
 .lr.ph85:                                         ; preds = %.critedge.preheader, %.critedge6
   %indvars.iv98 = phi i64 [ %indvars.iv.next99, %.critedge6 ], [ 0, %.critedge.preheader ]
@@ -127,15 +127,15 @@ define noundef i32 @Nwk_ManCheck(ptr noundef readonly captures(none) %0) local_u
 
 57:                                               ; preds = %.lr.ph78, %72
   %indvars.iv95 = phi i64 [ 0, %.lr.ph78 ], [ %indvars.iv.next96, %72 ]
-  %58 = load ptr, ptr %52, align 8, !tbaa !28
+  %58 = load ptr, ptr %52, align 8, !tbaa !27
   %59 = getelementptr inbounds nuw ptr, ptr %58, i64 %indvars.iv95
-  %60 = load ptr, ptr %59, align 8, !tbaa !29
+  %60 = load ptr, ptr %59, align 8, !tbaa !28
   %.not = icmp eq ptr %60, null
   br i1 %.not, label %.critedge4, label %61
 
 61:                                               ; preds = %57
   %62 = getelementptr i8, ptr %60, i64 64
-  %.val66 = load i32, ptr %62, align 8, !tbaa !34
+  %.val66 = load i32, ptr %62, align 8, !tbaa !33
   %63 = icmp slt i32 %.val66, 100
   br i1 %63, label %64, label %72
 
@@ -145,9 +145,9 @@ define noundef i32 @Nwk_ManCheck(ptr noundef readonly captures(none) %0) local_u
   br i1 %66, label %67, label %72
 
 67:                                               ; preds = %64
-  %68 = load i32, ptr %56, align 4, !tbaa !31
+  %68 = load i32, ptr %56, align 4, !tbaa !30
   %69 = getelementptr inbounds nuw i8, ptr %60, i64 36
-  %70 = load i32, ptr %69, align 4, !tbaa !31
+  %70 = load i32, ptr %69, align 4, !tbaa !30
   %71 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1, i32 noundef %68, i32 noundef %70)
   br label %72
 
@@ -156,11 +156,11 @@ define noundef i32 @Nwk_ManCheck(ptr noundef readonly captures(none) %0) local_u
   %73 = load i32, ptr %53, align 4, !tbaa !19
   %74 = sext i32 %73 to i64
   %75 = icmp slt i64 %indvars.iv.next96, %74
-  br i1 %75, label %57, label %.critedge4, !llvm.loop !35
+  br i1 %75, label %57, label %.critedge4, !llvm.loop !34
 
 .critedge4:                                       ; preds = %57, %72, %.preheader
   %76 = getelementptr inbounds nuw i8, ptr %50, i64 64
-  %77 = load i32, ptr %76, align 8, !tbaa !34
+  %77 = load i32, ptr %76, align 8, !tbaa !33
   %78 = icmp sgt i32 %77, 0
   br i1 %78, label %.lr.ph81, label %.critedge6
 
@@ -170,12 +170,12 @@ define noundef i32 @Nwk_ManCheck(ptr noundef readonly captures(none) %0) local_u
 
 80:                                               ; preds = %.lr.ph81, %95
   %.280 = phi i32 [ 0, %.lr.ph81 ], [ %96, %95 ]
-  %81 = load ptr, ptr %52, align 8, !tbaa !28
+  %81 = load ptr, ptr %52, align 8, !tbaa !27
   %82 = load i32, ptr %53, align 4, !tbaa !19
   %83 = add nsw i32 %82, %.280
   %84 = sext i32 %83 to i64
   %85 = getelementptr inbounds ptr, ptr %81, i64 %84
-  %86 = load ptr, ptr %85, align 8, !tbaa !29
+  %86 = load ptr, ptr %85, align 8, !tbaa !28
   %.not60 = icmp eq ptr %86, null
   br i1 %.not60, label %.critedge6, label %87
 
@@ -185,17 +185,17 @@ define noundef i32 @Nwk_ManCheck(ptr noundef readonly captures(none) %0) local_u
   br i1 %89, label %90, label %95
 
 90:                                               ; preds = %87
-  %91 = load i32, ptr %79, align 4, !tbaa !31
+  %91 = load i32, ptr %79, align 4, !tbaa !30
   %92 = getelementptr inbounds nuw i8, ptr %86, i64 36
-  %93 = load i32, ptr %92, align 4, !tbaa !31
+  %93 = load i32, ptr %92, align 4, !tbaa !30
   %94 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.2, i32 noundef %91, i32 noundef %93)
   br label %95
 
 95:                                               ; preds = %87, %90
   %96 = add nuw nsw i32 %.280, 1
-  %97 = load i32, ptr %76, align 8, !tbaa !34
+  %97 = load i32, ptr %76, align 8, !tbaa !33
   %98 = icmp slt i32 %96, %97
-  br i1 %98, label %80, label %.critedge6, !llvm.loop !36
+  br i1 %98, label %80, label %.critedge6, !llvm.loop !35
 
 .critedge6:                                       ; preds = %80, %95, %.critedge4, %.lr.ph85
   %indvars.iv.next99 = add nuw nsw i64 %indvars.iv98, 1
@@ -204,7 +204,7 @@ define noundef i32 @Nwk_ManCheck(ptr noundef readonly captures(none) %0) local_u
   %.val62 = load i32, ptr %100, align 4, !tbaa !15
   %101 = sext i32 %.val62 to i64
   %102 = icmp slt i64 %indvars.iv.next99, %101
-  br i1 %102, label %.lr.ph85, label %.critedge2, !llvm.loop !37
+  br i1 %102, label %.lr.ph85, label %.critedge2, !llvm.loop !36
 
 .critedge2:                                       ; preds = %.critedge6, %1, %.critedge.preheader
   ret i32 1
@@ -249,16 +249,15 @@ attributes #3 = { nounwind }
 !22 = !{!"p1 _ZTS10Hop_Obj_t_", !6, i64 0}
 !23 = !{!"float", !7, i64 0}
 !24 = !{!"p2 _ZTS10Nwk_Obj_t_", !6, i64 0}
-!25 = distinct !{!25, !26, !27}
+!25 = distinct !{!25, !26}
 !26 = !{!"llvm.loop.mustprogress"}
-!27 = !{!"llvm.loop.estimated_trip_count"}
-!28 = !{!20, !24, i64 72}
-!29 = !{!30, !30, i64 0}
-!30 = !{!"p1 _ZTS10Nwk_Obj_t_", !6, i64 0}
-!31 = !{!20, !10, i64 36}
-!32 = distinct !{!32, !26, !27}
-!33 = distinct !{!33, !26, !27}
-!34 = !{!20, !10, i64 64}
-!35 = distinct !{!35, !26, !27}
-!36 = distinct !{!36, !26, !27}
-!37 = distinct !{!37, !26, !27}
+!27 = !{!20, !24, i64 72}
+!28 = !{!29, !29, i64 0}
+!29 = !{!"p1 _ZTS10Nwk_Obj_t_", !6, i64 0}
+!30 = !{!20, !10, i64 36}
+!31 = distinct !{!31, !26}
+!32 = distinct !{!32, !26}
+!33 = !{!20, !10, i64 64}
+!34 = distinct !{!34, !26}
+!35 = distinct !{!35, !26}
+!36 = distinct !{!36, !26}

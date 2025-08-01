@@ -79,7 +79,7 @@ define internal range(i32 0, 52) i32 @alias_pix_read_probe(ptr noundef readonly 
 38:                                               ; preds = %35
   %39 = add nuw nsw i32 %.02552, 1
   %exitcond.not = icmp eq i32 %39, %invariant.umin
-  br i1 %exitcond.not, label %.thread, label %.preheader, !llvm.loop !16
+  br i1 %exitcond.not, label %.thread, label %.preheader, !llvm.loop !15
 
 .thread:                                          ; preds = %38, %33, %25, %29, %1
   %.0 = phi i32 [ 0, %1 ], [ 0, %29 ], [ 0, %25 ], [ 12, %33 ], [ 51, %38 ]
@@ -117,7 +117,6 @@ attributes #2 = { nocallback nofree nosync nounwind speculatable willreturn memo
 !10 = !{!"int", !8, i64 0}
 !11 = !{!5, !10, i64 16}
 !12 = !{!8, !8, i64 0}
-!13 = distinct !{!13, !14, !15}
+!13 = distinct !{!13, !14}
 !14 = !{!"llvm.loop.mustprogress"}
-!15 = !{!"llvm.loop.estimated_trip_count"}
-!16 = distinct !{!16, !14, !15}
+!15 = distinct !{!15, !14}

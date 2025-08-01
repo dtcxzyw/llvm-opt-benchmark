@@ -928,7 +928,7 @@ _ZN6icu_7712LocalPointerINS_8TimeZoneEEC2EPS1_R10UErrorCode.exit: ; preds = %18
 
 .noexc:                                           ; preds = %33
   %37 = getelementptr inbounds nuw i8, ptr %6, i64 56
-  store i32 0, ptr %37, align 8, !tbaa !28
+  store i32 0, ptr %37, align 8, !tbaa !27
   %38 = load ptr, ptr %6, align 8, !tbaa !3
   store i8 0, ptr %38, align 1, !tbaa !17
   %39 = invoke noundef nonnull align 8 dereferenceable(60) ptr @_ZN6icu_7710CharString6appendEPKciR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(60) %6, ptr noundef %34, i32 noundef %36, ptr noundef nonnull align 4 dereferenceable(4) %4)
@@ -1442,8 +1442,8 @@ define void @ucal_setGregorianChange_77(ptr noundef %0, double noundef %1, ptr n
   %11 = getelementptr inbounds i8, ptr %10, i64 -8
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  %14 = load ptr, ptr %13, align 8, !tbaa !30
-  %15 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTIN6icu_7717GregorianCalendarE, i64 8), align 8, !tbaa !30
+  %14 = load ptr, ptr %13, align 8, !tbaa !29
+  %15 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTIN6icu_7717GregorianCalendarE, i64 8), align 8, !tbaa !29
   %16 = icmp eq ptr %14, %15
   br i1 %16, label %_ZNKSt9type_infoneERKS_.exit.thread16, label %17
 
@@ -1466,12 +1466,12 @@ _ZNKSt9type_infoneERKS_.exit:                     ; preds = %17
   br label %31
 
 _ZNKSt9type_infoneERKS_.exit.thread:              ; preds = %17
-  %23 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTIN6icu_7715ISO8601CalendarE, i64 8), align 8, !tbaa !30
+  %23 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTIN6icu_7715ISO8601CalendarE, i64 8), align 8, !tbaa !29
   %24 = icmp eq ptr %14, %23
   br i1 %24, label %_ZNKSt9type_infoneERKS_.exit.thread16, label %_ZNKSt9type_infoneERKS_.exit14.thread
 
 _ZNKSt9type_infoneERKS_.exit.thread.thread:       ; preds = %_ZNKSt9type_infoneERKS_.exit
-  %25 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTIN6icu_7715ISO8601CalendarE, i64 8), align 8, !tbaa !30
+  %25 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTIN6icu_7715ISO8601CalendarE, i64 8), align 8, !tbaa !29
   %26 = icmp eq ptr %14, %25
   br i1 %26, label %_ZNKSt9type_infoneERKS_.exit.thread16, label %_ZNKSt9type_infoneERKS_.exit14
 
@@ -1514,8 +1514,8 @@ define noundef double @ucal_getGregorianChange_77(ptr noundef %0, ptr noundef ca
   %10 = getelementptr inbounds i8, ptr %9, i64 -8
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  %13 = load ptr, ptr %12, align 8, !tbaa !30
-  %14 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTIN6icu_7717GregorianCalendarE, i64 8), align 8, !tbaa !30
+  %13 = load ptr, ptr %12, align 8, !tbaa !29
+  %14 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTIN6icu_7717GregorianCalendarE, i64 8), align 8, !tbaa !29
   %15 = icmp eq ptr %13, %14
   br i1 %15, label %_ZNKSt9type_infoneERKS_.exit.thread17, label %16
 
@@ -1538,12 +1538,12 @@ _ZNKSt9type_infoneERKS_.exit:                     ; preds = %16
   br label %31
 
 _ZNKSt9type_infoneERKS_.exit.thread:              ; preds = %16
-  %22 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTIN6icu_7715ISO8601CalendarE, i64 8), align 8, !tbaa !30
+  %22 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTIN6icu_7715ISO8601CalendarE, i64 8), align 8, !tbaa !29
   %23 = icmp eq ptr %13, %22
   br i1 %23, label %_ZNKSt9type_infoneERKS_.exit.thread17, label %_ZNKSt9type_infoneERKS_.exit15.thread
 
 _ZNKSt9type_infoneERKS_.exit.thread.thread:       ; preds = %_ZNKSt9type_infoneERKS_.exit
-  %24 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTIN6icu_7715ISO8601CalendarE, i64 8), align 8, !tbaa !30
+  %24 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTIN6icu_7715ISO8601CalendarE, i64 8), align 8, !tbaa !29
   %25 = icmp eq ptr %13, %24
   br i1 %25, label %_ZNKSt9type_infoneERKS_.exit.thread17, label %_ZNKSt9type_infoneERKS_.exit15
 
@@ -2389,7 +2389,7 @@ define noalias noundef ptr @ucal_getKeywordValuesForLocale_77(ptr noundef readno
   %59 = icmp slt i32 %58, 1
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #14
   %60 = add nuw nsw i32 %.073, 1
-  br i1 %59, label %.preheader92, label %.loopexit.thread, !llvm.loop !32
+  br i1 %59, label %.preheader92, label %.loopexit.thread, !llvm.loop !31
 
 61:                                               ; preds = %49, %47
   %.pn = phi { ptr, i32 } [ %50, %49 ], [ %48, %47 ]
@@ -2407,7 +2407,7 @@ define noalias noundef ptr @ucal_getKeywordValuesForLocale_77(ptr noundef readno
   %.06494 = phi i32 [ %.06494.be, %.preheader.backedge ], [ 0, %.loopexit93 ]
   %64 = zext nneg i32 %.06494 to i64
   %65 = getelementptr inbounds nuw [19 x ptr], ptr @_ZL9CAL_TYPES, i64 0, i64 %64
-  %66 = load ptr, ptr %65, align 8, !tbaa !33
+  %66 = load ptr, ptr %65, align 8, !tbaa !32
   %67 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %66) #17
   %68 = trunc i64 %67 to i32
   %69 = invoke signext i8 @ulist_containsString_77(ptr noundef %27, ptr noundef nonnull %66, i32 noundef %68)
@@ -2441,7 +2441,7 @@ define noalias noundef ptr @ucal_getKeywordValuesForLocale_77(ptr noundef readno
 
 .preheader.backedge:                              ; preds = %78, %72
   %.06494.be = phi i32 [ %.old, %78 ], [ %75, %72 ]
-  br label %.preheader, !llvm.loop !34
+  br label %.preheader, !llvm.loop !33
 
 ..loopexit.loopexit_crit_edge:                    ; preds = %78
   %.pre97.pre = load i32, ptr %3, align 4, !tbaa !13
@@ -2497,7 +2497,7 @@ define noalias noundef ptr @ucal_getKeywordValuesForLocale_77(ptr noundef readno
 95:                                               ; preds = %94
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %88, ptr noundef nonnull align 8 dereferenceable(56) @_ZL20defaultKeywordValues, i64 56, i1 false)
   %96 = getelementptr inbounds nuw i8, ptr %88, i64 8
-  store ptr %.074, ptr %96, align 8, !tbaa !35
+  store ptr %.074, ptr %96, align 8, !tbaa !34
   br label %97
 
 97:                                               ; preds = %95, %91, %83
@@ -2582,7 +2582,7 @@ define signext range(i8 0, 2) i8 @ucal_getTimeZoneTransitionDate_77(ptr noundef 
           to label %25 unwind label %26
 
 25:                                               ; preds = %23
-  store double %24, ptr %2, align 8, !tbaa !37
+  store double %24, ptr %2, align 8, !tbaa !36
   br label %.sink.split
 
 26:                                               ; preds = %.invoke, %23
@@ -2903,17 +2903,16 @@ attributes #17 = { nounwind willreturn memory(read) }
 !22 = !{!23, !20, i64 0}
 !23 = !{!"_ZTSN6icu_7714ConstChar16PtrE", !20, i64 0}
 !24 = !{i64 2150470719}
-!25 = distinct !{!25, !26, !27}
+!25 = distinct !{!25, !26}
 !26 = !{!"llvm.loop.mustprogress"}
-!27 = !{!"llvm.loop.estimated_trip_count"}
-!28 = !{!29, !9, i64 56}
-!29 = !{!"_ZTSN6icu_7710CharStringE", !4, i64 0, !9, i64 56}
-!30 = !{!31, !5, i64 8}
-!31 = !{!"_ZTSSt9type_info", !5, i64 8}
-!32 = distinct !{!32, !26, !27}
-!33 = !{!5, !5, i64 0}
-!34 = distinct !{!34, !26, !27}
-!35 = !{!36, !6, i64 8}
-!36 = !{!"_ZTS12UEnumeration", !6, i64 0, !6, i64 8, !6, i64 16, !6, i64 24, !6, i64 32, !6, i64 40, !6, i64 48}
-!37 = !{!38, !38, i64 0}
-!38 = !{!"double", !7, i64 0}
+!27 = !{!28, !9, i64 56}
+!28 = !{!"_ZTSN6icu_7710CharStringE", !4, i64 0, !9, i64 56}
+!29 = !{!30, !5, i64 8}
+!30 = !{!"_ZTSSt9type_info", !5, i64 8}
+!31 = distinct !{!31, !26}
+!32 = !{!5, !5, i64 0}
+!33 = distinct !{!33, !26}
+!34 = !{!35, !6, i64 8}
+!35 = !{!"_ZTS12UEnumeration", !6, i64 0, !6, i64 8, !6, i64 16, !6, i64 24, !6, i64 32, !6, i64 40, !6, i64 48}
+!36 = !{!37, !37, i64 0}
+!37 = !{!"double", !7, i64 0}

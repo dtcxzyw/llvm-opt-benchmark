@@ -239,7 +239,7 @@ define hidden noundef ptr @_ZN13LogFileOutput14make_file_nameEPKcS1_S1_(ptr nonn
   %54 = getelementptr inbounds i8, ptr %36, i64 %.097.us.us.us
   store i8 %46, ptr %54, align 1
   %55 = icmp ult i64 %53, %.2
-  br i1 %55, label %.lr.ph.split.us.split.us.us, label %.outer83._crit_edge, !llvm.loop !10
+  br i1 %55, label %.lr.ph.split.us.split.us.us, label %.outer83._crit_edge, !llvm.loop !9
 
 .lr.ph.us.us:                                     ; preds = %.split137.us.us.us, %.lr.ph.lr.ph.us
   %.0.ph86142.us.us = phi i64 [ %.0.ph82155.us, %.lr.ph.lr.ph.us ], [ %75, %.split137.us.us.us ]
@@ -283,7 +283,7 @@ sub_176.us.us.us:                                 ; preds = %59, %.tail70.us129.
   %70 = getelementptr inbounds i8, ptr %36, i64 %.097.us125.us.us
   store i8 %57, ptr %70, align 1
   %71 = icmp ult i64 %69, %.2
-  br i1 %71, label %.lr.ph.split.us143.us, label %.outer83._crit_edge, !llvm.loop !11
+  br i1 %71, label %.lr.ph.split.us143.us, label %.outer83._crit_edge, !llvm.loop !10
 
 .split137.us.us.us:                               ; preds = %.tail74.us.us.us
   %72 = getelementptr inbounds i8, ptr %36, i64 %.097.us125.us.us
@@ -292,7 +292,7 @@ sub_176.us.us.us:                                 ; preds = %59, %.tail70.us129.
   %75 = add i64 %74, %.097.us125.us.us
   %76 = add i64 %.05996.us126.us.us, 3
   %77 = icmp ult i64 %75, %.2
-  br i1 %77, label %.lr.ph.us.us, label %.outer83._crit_edge, !llvm.loop !12
+  br i1 %77, label %.lr.ph.us.us, label %.outer83._crit_edge, !llvm.loop !11
 
 .lr.ph.lr.ph:                                     ; preds = %.lr.ph.lr.ph.lr.ph, %.outer78
   %.0.ph82155 = phi i64 [ %112, %.outer78 ], [ %.0.ph167, %.lr.ph.lr.ph.lr.ph ]
@@ -338,7 +338,7 @@ sub_176.us.us.us:                                 ; preds = %59, %.tail70.us129.
   %91 = getelementptr inbounds i8, ptr %36, i64 %.097.us
   store i8 %79, ptr %91, align 1
   %92 = icmp ult i64 %90, %.2
-  br i1 %92, label %.lr.ph.split.us.split, label %.outer83._crit_edge, !llvm.loop !13
+  br i1 %92, label %.lr.ph.split.us.split, label %.outer83._crit_edge, !llvm.loop !12
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.tail74.thread
   %.097 = phi i64 [ %127, %.tail74.thread ], [ %.0.ph86142, %.lr.ph ]
@@ -364,7 +364,7 @@ sub_176.us.us.us:                                 ; preds = %59, %.tail70.us129.
   %102 = add i64 %101, %.us-phi100
   %103 = add i64 %.us-phi99, 2
   %104 = icmp ult i64 %102, %.2
-  br i1 %104, label %.lr.ph.lr.ph.lr.ph, label %.outer83._crit_edge, !llvm.loop !13
+  br i1 %104, label %.lr.ph.lr.ph.lr.ph, label %.outer83._crit_edge, !llvm.loop !12
 
 105:                                              ; preds = %.tail
   br i1 %.not68, label %sub_176, label %.tail70
@@ -385,7 +385,7 @@ sub_176.us.us.us:                                 ; preds = %59, %.tail70.us129.
   %112 = add i64 %111, %.us-phi105
   %113 = add i64 %.us-phi104, 2
   %114 = icmp ult i64 %112, %.2
-  br i1 %114, label %.lr.ph.lr.ph, label %.outer83._crit_edge, !llvm.loop !13
+  br i1 %114, label %.lr.ph.lr.ph, label %.outer83._crit_edge, !llvm.loop !12
 
 sub_176:                                          ; preds = %105, %.tail70
   %115 = getelementptr inbounds nuw i8, ptr %93, i64 1
@@ -406,7 +406,7 @@ sub_176:                                          ; preds = %105, %.tail70
   %123 = add i64 %122, %.097
   %124 = add i64 %.05996, 3
   %125 = icmp ult i64 %123, %.2
-  br i1 %125, label %.lr.ph, label %.outer83._crit_edge, !llvm.loop !13
+  br i1 %125, label %.lr.ph, label %.outer83._crit_edge, !llvm.loop !12
 
 .tail74.thread:                                   ; preds = %sub_176, %.tail74, %.lr.ph.split
   %126 = add i64 %.05996, 1
@@ -414,7 +414,7 @@ sub_176:                                          ; preds = %105, %.tail70
   %128 = getelementptr inbounds i8, ptr %36, i64 %.097
   store i8 %94, ptr %128, align 1
   %129 = icmp ult i64 %127, %.2
-  br i1 %129, label %.lr.ph.split, label %.outer83._crit_edge, !llvm.loop !13
+  br i1 %129, label %.lr.ph.split, label %.outer83._crit_edge, !llvm.loop !12
 
 .outer83._crit_edge:                              ; preds = %.outer, %.outer78, %.split137, %88, %.tail74.thread, %.outer78.us, %.split137.us.us.us, %51, %.tail74.us.us.us.thread, %34
   %130 = getelementptr inbounds i8, ptr %36, i64 %.2
@@ -772,7 +772,7 @@ define hidden noundef zeroext i1 @_ZN13LogFileOutput10initializeEPKcP12outputStr
   %.2.i = phi i32 [ %.02630.i, %86 ], [ %.02729.i, %83 ]
   %89 = add nuw i32 %.02630.i, 1
   %exitcond.not.i = icmp eq i32 %89, %63
-  br i1 %exitcond.not.i, label %_ZL16next_file_numberPKcjjP12outputStream.exit, label %71, !llvm.loop !14
+  br i1 %exitcond.not.i, label %_ZL16next_file_numberPKcjjP12outputStream.exit, label %71, !llvm.loop !13
 
 _ZL16next_file_numberPKcjjP12outputStream.exit:   ; preds = %80, %88, %60, %79
   %.128.i = phi i32 [ -1, %79 ], [ 0, %60 ], [ %.02630.i, %80 ], [ %.2.i, %88 ]
@@ -1308,12 +1308,11 @@ attributes #15 = { nounwind willreturn memory(none) }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7, !8, !9}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!10 = distinct !{!10, !7, !8, !9}
-!11 = distinct !{!11, !7, !8, !9}
-!12 = distinct !{!12, !7, !8, !9}
-!13 = distinct !{!13, !7, !8}
-!14 = distinct !{!14, !7, !8}
+!8 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = distinct !{!11, !7, !8}
+!12 = distinct !{!12, !7}
+!13 = distinct !{!13, !7}

@@ -111,7 +111,7 @@ define internal noundef range(i32 0, 2) i32 @_ZL18Abc_CommandGlucoseP12Abc_Frame
 
 30:                                               ; preds = %22
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 288
-  %32 = load ptr, ptr %31, align 8, !tbaa !13
+  %32 = load ptr, ptr %31, align 8, !tbaa !12
   %33 = icmp eq ptr %32, null
   br i1 %33, label %34, label %35
 
@@ -125,7 +125,7 @@ define internal noundef range(i32 0, 2) i32 @_ZL18Abc_CommandGlucoseP12Abc_Frame
   br i1 %37, label %38, label %41
 
 38:                                               ; preds = %35
-  %39 = load ptr, ptr %31, align 8, !tbaa !13
+  %39 = load ptr, ptr %31, align 8, !tbaa !12
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 368
   call void @Abc_FrameReplaceCex(ptr noundef nonnull %0, ptr noundef nonnull %40) #10
   br label %41
@@ -184,7 +184,7 @@ define internal void @_ZL9Abc_PrintiPKcz(i32 noundef range(i32 -2, 0) %0, ptr no
   br i1 %7, label %12, label %15
 
 12:                                               ; preds = %11
-  %13 = load ptr, ptr @stdout, align 8, !tbaa !28
+  %13 = load ptr, ptr @stdout, align 8, !tbaa !27
   %14 = tail call i32 @Gia_ManToBridgeText(ptr noundef %13, i32 noundef 7, ptr noundef nonnull @.str.12) #10
   br label %15
 
@@ -196,7 +196,7 @@ define internal void @_ZL9Abc_PrintiPKcz(i32 noundef range(i32 -2, 0) %0, ptr no
 
 17:                                               ; preds = %15
   %18 = call ptr @vnsprintf(ptr noundef %1, ptr noundef nonnull %3) #10
-  %19 = load ptr, ptr @stdout, align 8, !tbaa !28
+  %19 = load ptr, ptr @stdout, align 8, !tbaa !27
   %20 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %18) #11
   %21 = trunc i64 %20 to i32
   %22 = call i32 @Gia_ManToBridgeText(ptr noundef %19, i32 noundef %21, ptr noundef nonnull %18) #10
@@ -204,7 +204,7 @@ define internal void @_ZL9Abc_PrintiPKcz(i32 noundef range(i32 -2, 0) %0, ptr no
   br label %26
 
 23:                                               ; preds = %15
-  %24 = load ptr, ptr @stdout, align 8, !tbaa !28, !noalias !29
+  %24 = load ptr, ptr @stdout, align 8, !tbaa !27, !noalias !28
   %25 = call i32 @vfprintf(ptr noundef %24, ptr noundef %1, ptr noundef nonnull %3) #10
   br label %26
 
@@ -278,25 +278,24 @@ attributes #11 = { nounwind willreturn memory(read) }
 !7 = !{!8, !8, i64 0}
 !8 = !{!"p1 omnipotent char", !9, i64 0}
 !9 = !{!"any pointer", !5, i64 0}
-!10 = distinct !{!10, !11, !12}
+!10 = distinct !{!10, !11}
 !11 = !{!"llvm.loop.mustprogress"}
-!12 = !{!"llvm.loop.estimated_trip_count"}
-!13 = !{!14, !22, i64 288}
-!14 = !{!"_ZTS12Abc_Frame_t_", !8, i64 0, !8, i64 8, !15, i64 16, !15, i64 24, !15, i64 32, !16, i64 40, !17, i64 48, !17, i64 56, !17, i64 64, !17, i64 72, !4, i64 80, !4, i64 84, !4, i64 88, !4, i64 92, !4, i64 96, !17, i64 104, !18, i64 112, !18, i64 116, !4, i64 120, !4, i64 124, !19, i64 128, !19, i64 136, !19, i64 144, !20, i64 152, !20, i64 160, !16, i64 168, !9, i64 176, !9, i64 184, !9, i64 192, !9, i64 200, !9, i64 208, !9, i64 216, !9, i64 224, !9, i64 232, !9, i64 240, !9, i64 248, !8, i64 256, !18, i64 264, !21, i64 272, !4, i64 280, !22, i64 288, !22, i64 296, !22, i64 304, !22, i64 312, !22, i64 320, !4, i64 328, !4, i64 332, !4, i64 336, !4, i64 340, !4, i64 344, !4, i64 348, !23, i64 352, !23, i64 360, !16, i64 368, !16, i64 376, !21, i64 384, !21, i64 392, !4, i64 400, !4, i64 404, !16, i64 408, !16, i64 416, !16, i64 424, !8, i64 432, !9, i64 440, !9, i64 448, !9, i64 456, !9, i64 464, !9, i64 472, !9, i64 480, !9, i64 488, !9, i64 496, !9, i64 504, !21, i64 512, !9, i64 520, !9, i64 528, !9, i64 536, !9, i64 544, !24, i64 552, !25, i64 560, !26, i64 568, !22, i64 576, !22, i64 584, !21, i64 592, !21, i64 600, !27, i64 608, !27, i64 616, !9, i64 624, !27, i64 632, !9, i64 640}
-!15 = !{!"p1 _ZTS9st__table", !9, i64 0}
-!16 = !{!"p1 _ZTS10Vec_Ptr_t_", !9, i64 0}
-!17 = !{!"p1 _ZTS10Abc_Ntk_t_", !9, i64 0}
-!18 = !{!"float", !5, i64 0}
-!19 = !{!"p1 _ZTS8_IO_FILE", !9, i64 0}
-!20 = !{!"double", !5, i64 0}
-!21 = !{!"p1 _ZTS10Vec_Int_t_", !9, i64 0}
-!22 = !{!"p1 _ZTS10Gia_Man_t_", !9, i64 0}
-!23 = !{!"p1 _ZTS10Abc_Cex_t_", !9, i64 0}
-!24 = !{!"p1 _ZTS10Abc_Nam_t_", !9, i64 0}
-!25 = !{!"p1 _ZTS10Vec_Wec_t_", !9, i64 0}
-!26 = !{!"p1 _ZTS9DdManager", !9, i64 0}
-!27 = !{!"p1 int", !9, i64 0}
-!28 = !{!19, !19, i64 0}
-!29 = !{!30}
-!30 = distinct !{!30, !31, !"vprintf: argument 0"}
-!31 = distinct !{!31, !"vprintf"}
+!12 = !{!13, !21, i64 288}
+!13 = !{!"_ZTS12Abc_Frame_t_", !8, i64 0, !8, i64 8, !14, i64 16, !14, i64 24, !14, i64 32, !15, i64 40, !16, i64 48, !16, i64 56, !16, i64 64, !16, i64 72, !4, i64 80, !4, i64 84, !4, i64 88, !4, i64 92, !4, i64 96, !16, i64 104, !17, i64 112, !17, i64 116, !4, i64 120, !4, i64 124, !18, i64 128, !18, i64 136, !18, i64 144, !19, i64 152, !19, i64 160, !15, i64 168, !9, i64 176, !9, i64 184, !9, i64 192, !9, i64 200, !9, i64 208, !9, i64 216, !9, i64 224, !9, i64 232, !9, i64 240, !9, i64 248, !8, i64 256, !17, i64 264, !20, i64 272, !4, i64 280, !21, i64 288, !21, i64 296, !21, i64 304, !21, i64 312, !21, i64 320, !4, i64 328, !4, i64 332, !4, i64 336, !4, i64 340, !4, i64 344, !4, i64 348, !22, i64 352, !22, i64 360, !15, i64 368, !15, i64 376, !20, i64 384, !20, i64 392, !4, i64 400, !4, i64 404, !15, i64 408, !15, i64 416, !15, i64 424, !8, i64 432, !9, i64 440, !9, i64 448, !9, i64 456, !9, i64 464, !9, i64 472, !9, i64 480, !9, i64 488, !9, i64 496, !9, i64 504, !20, i64 512, !9, i64 520, !9, i64 528, !9, i64 536, !9, i64 544, !23, i64 552, !24, i64 560, !25, i64 568, !21, i64 576, !21, i64 584, !20, i64 592, !20, i64 600, !26, i64 608, !26, i64 616, !9, i64 624, !26, i64 632, !9, i64 640}
+!14 = !{!"p1 _ZTS9st__table", !9, i64 0}
+!15 = !{!"p1 _ZTS10Vec_Ptr_t_", !9, i64 0}
+!16 = !{!"p1 _ZTS10Abc_Ntk_t_", !9, i64 0}
+!17 = !{!"float", !5, i64 0}
+!18 = !{!"p1 _ZTS8_IO_FILE", !9, i64 0}
+!19 = !{!"double", !5, i64 0}
+!20 = !{!"p1 _ZTS10Vec_Int_t_", !9, i64 0}
+!21 = !{!"p1 _ZTS10Gia_Man_t_", !9, i64 0}
+!22 = !{!"p1 _ZTS10Abc_Cex_t_", !9, i64 0}
+!23 = !{!"p1 _ZTS10Abc_Nam_t_", !9, i64 0}
+!24 = !{!"p1 _ZTS10Vec_Wec_t_", !9, i64 0}
+!25 = !{!"p1 _ZTS9DdManager", !9, i64 0}
+!26 = !{!"p1 int", !9, i64 0}
+!27 = !{!18, !18, i64 0}
+!28 = !{!29}
+!29 = distinct !{!29, !30, !"vprintf: argument 0"}
+!30 = distinct !{!30, !"vprintf"}

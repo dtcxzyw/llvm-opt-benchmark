@@ -828,7 +828,7 @@ define noundef zeroext i1 @_ZN10OpenSubdiv6v3_6_03Far26TopologyRefinerFactoryBas
   store i8 %73, ptr %71, align 1
   %indvars.iv.next282 = add nuw nsw i64 %indvars.iv281, 1
   %exitcond285.not = icmp eq i64 %indvars.iv.next282, %wide.trip.count284
-  br i1 %exitcond285.not, label %.critedge213._crit_edge, label %.critedge213, !llvm.loop !8
+  br i1 %exitcond285.not, label %.critedge213._crit_edge, label %.critedge213, !llvm.loop !7
 
 .critedge213._crit_edge:                          ; preds = %.critedge213, %.critedge213.preheader
   %74 = load i16, ptr %25, align 8
@@ -842,7 +842,7 @@ define noundef zeroext i1 @_ZN10OpenSubdiv6v3_6_03Far26TopologyRefinerFactoryBas
   %indvars.iv.next287 = add nuw nsw i64 %indvars.iv286, 1
   %77 = sext i32 %76 to i64
   %78 = icmp slt i64 %indvars.iv.next287, %77
-  br i1 %78, label %26, label %.loopexit251, !llvm.loop !9
+  br i1 %78, label %26, label %.loopexit251, !llvm.loop !8
 
 .loopexit251:                                     ; preds = %.critedge, %.preheader, %.thread, %9
   %79 = phi i1 [ %8, %.thread ], [ false, %9 ], [ false, %.preheader ], [ false, %.critedge ]
@@ -909,7 +909,7 @@ define noundef zeroext i1 @_ZN10OpenSubdiv6v3_6_03Far26TopologyRefinerFactoryBas
   %117 = load i32, ptr %80, align 4
   %118 = sext i32 %117 to i64
   %119 = icmp slt i64 %indvars.iv.next290, %118
-  br i1 %119, label %88, label %._crit_edge, !llvm.loop !10
+  br i1 %119, label %88, label %._crit_edge, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %103, %.loopexit251
   %120 = load i32, ptr %0, align 8
@@ -993,7 +993,7 @@ define noundef zeroext i1 @_ZN10OpenSubdiv6v3_6_03Far26TopologyRefinerFactoryBas
   %181 = add nuw nsw i32 %.0185259, %180
   %indvars.iv.next293 = add nuw nsw i64 %indvars.iv292, 1
   %exitcond296.not = icmp eq i64 %indvars.iv.next293, %wide.trip.count295
-  br i1 %exitcond296.not, label %._crit_edge265.loopexit, label %161, !llvm.loop !11
+  br i1 %exitcond296.not, label %._crit_edge265.loopexit, label %161, !llvm.loop !10
 
 ._crit_edge265.loopexit:                          ; preds = %161
   %182 = icmp eq i32 %181, 2
@@ -1251,7 +1251,7 @@ define noundef zeroext i1 @_ZN10OpenSubdiv6v3_6_03Far26TopologyRefinerFactoryBas
 325:                                              ; preds = %326
   %indvars.iv.next298 = add nuw nsw i64 %indvars.iv297, 1
   %exitcond301.not = icmp eq i64 %indvars.iv.next298, %wide.trip.count300
-  br i1 %exitcond301.not, label %.loopexit, label %326, !llvm.loop !12
+  br i1 %exitcond301.not, label %.loopexit, label %326, !llvm.loop !11
 
 326:                                              ; preds = %.lr.ph271, %325
   %indvars.iv297 = phi i64 [ 0, %.lr.ph271 ], [ %indvars.iv.next298, %325 ]
@@ -1275,7 +1275,7 @@ define noundef zeroext i1 @_ZN10OpenSubdiv6v3_6_03Far26TopologyRefinerFactoryBas
   %336 = load i32, ptr %123, align 8
   %337 = sext i32 %336 to i64
   %338 = icmp slt i64 %indvars.iv.next303, %337
-  br i1 %338, label %137, label %._crit_edge275, !llvm.loop !13
+  br i1 %338, label %137, label %._crit_edge275, !llvm.loop !12
 
 ._crit_edge275:                                   ; preds = %.loopexit, %._crit_edge
   ret i1 true
@@ -1336,7 +1336,7 @@ define noundef zeroext i1 @_ZN10OpenSubdiv6v3_6_03Far26TopologyRefinerFactoryBas
   %36 = lshr exact i64 %35, 3
   %37 = trunc i64 %36 to i32
   %.not = icmp slt i32 %26, %37
-  br i1 %.not, label %.lr.ph, label %.loopexit, !llvm.loop !14
+  br i1 %.not, label %.lr.ph, label %.loopexit, !llvm.loop !13
 
 .loopexit:                                        ; preds = %25, %1, %23
   %38 = phi i1 [ false, %23 ], [ true, %1 ], [ true, %25 ]
@@ -1384,13 +1384,12 @@ attributes #13 = { builtin nounwind }
 !2 = !{i32 8, !"PIC Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6, !7}
+!5 = distinct !{!5, !6}
 !6 = !{!"llvm.loop.mustprogress"}
-!7 = !{!"llvm.loop.estimated_trip_count"}
-!8 = distinct !{!8, !6, !7}
-!9 = distinct !{!9, !6, !7}
-!10 = distinct !{!10, !6, !7}
-!11 = distinct !{!11, !6, !7}
-!12 = distinct !{!12, !6, !7}
-!13 = distinct !{!13, !6, !7}
-!14 = distinct !{!14, !6, !7}
+!7 = distinct !{!7, !6}
+!8 = distinct !{!8, !6}
+!9 = distinct !{!9, !6}
+!10 = distinct !{!10, !6}
+!11 = distinct !{!11, !6}
+!12 = distinct !{!12, !6}
+!13 = distinct !{!13, !6}

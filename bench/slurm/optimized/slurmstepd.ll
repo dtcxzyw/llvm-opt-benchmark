@@ -525,7 +525,7 @@ _process_cmdline.exit:                            ; preds = %.critedge.thread.i
   br label %.lr.ph.i33.backedge
 
 .lr.ph.i33.backedge:                              ; preds = %120, %119
-  br label %.lr.ph.i33, !llvm.loop !12
+  br label %.lr.ph.i33, !llvm.loop !11
 
 .outer55._crit_edge.i:                            ; preds = %.split135.us.i
   br i1 %118, label %121, label %123
@@ -619,7 +619,7 @@ _process_cmdline.exit:                            ; preds = %.critedge.thread.i
   br label %.lr.ph163.i.backedge
 
 .lr.ph163.i.backedge:                             ; preds = %153, %150
-  br label %.lr.ph163.i, !llvm.loop !13
+  br label %.lr.ph163.i, !llvm.loop !12
 
 .lr.ph163.i:                                      ; preds = %123, %.lr.ph163.i.backedge
   %.0305.ph194.i = phi i64 [ %149, %.lr.ph163.i.backedge ], [ 4, %123 ]
@@ -745,7 +745,7 @@ _process_cmdline.exit:                            ; preds = %.critedge.thread.i
   br label %.lr.ph197.i.backedge
 
 .lr.ph197.i.backedge:                             ; preds = %196, %193
-  br label %.lr.ph197.i, !llvm.loop !14
+  br label %.lr.ph197.i, !llvm.loop !13
 
 .lr.ph197.i:                                      ; preds = %.split168.i, %.lr.ph197.i.backedge
   %.0309.ph228.i = phi i64 [ %192, %.lr.ph197.i.backedge ], [ 4, %.split168.i ]
@@ -871,7 +871,7 @@ _process_cmdline.exit:                            ; preds = %.critedge.thread.i
   br label %.lr.ph231.i.backedge
 
 .lr.ph231.i.backedge:                             ; preds = %239, %236
-  br label %.lr.ph231.i, !llvm.loop !15
+  br label %.lr.ph231.i, !llvm.loop !14
 
 .lr.ph231.i:                                      ; preds = %.split202.i, %.lr.ph231.i.backedge
   %.0315.ph262.i = phi i64 [ %235, %.lr.ph231.i.backedge ], [ 4, %.split202.i ]
@@ -997,7 +997,7 @@ _process_cmdline.exit:                            ; preds = %.critedge.thread.i
   br label %.lr.ph265.i.backedge
 
 .lr.ph265.i.backedge:                             ; preds = %282, %279
-  br label %.lr.ph265.i, !llvm.loop !16
+  br label %.lr.ph265.i, !llvm.loop !15
 
 .lr.ph265.i:                                      ; preds = %.split236.i, %.lr.ph265.i.backedge
   %.0316.ph296.i = phi ptr [ %277, %.lr.ph265.i.backedge ], [ getelementptr inbounds nuw (i8, ptr @step_complete, i64 92), %.split236.i ]
@@ -1123,7 +1123,7 @@ _process_cmdline.exit:                            ; preds = %.critedge.thread.i
   br label %.lr.ph299.i.backedge
 
 .lr.ph299.i.backedge:                             ; preds = %325, %322
-  br label %.lr.ph299.i, !llvm.loop !17
+  br label %.lr.ph299.i, !llvm.loop !16
 
 .lr.ph299.i:                                      ; preds = %.split270.i, %.lr.ph299.i.backedge
   %.0313.ph330.i = phi ptr [ %320, %.lr.ph299.i.backedge ], [ getelementptr inbounds nuw (i8, ptr @step_complete, i64 116), %.split270.i ]
@@ -1249,7 +1249,7 @@ _process_cmdline.exit:                            ; preds = %.critedge.thread.i
   br label %.lr.ph333.i.backedge
 
 .lr.ph333.i.backedge:                             ; preds = %368, %365
-  br label %.lr.ph333.i, !llvm.loop !18
+  br label %.lr.ph333.i, !llvm.loop !17
 
 .lr.ph333.i:                                      ; preds = %.split304.i, %.lr.ph333.i.backedge
   %.0310.ph365.i = phi ptr [ %363, %.lr.ph333.i.backedge ], [ %9, %.split304.i ]
@@ -1436,7 +1436,7 @@ _process_cmdline.exit:                            ; preds = %.critedge.thread.i
   br label %.lr.ph368.i.backedge
 
 .lr.ph368.i.backedge:                             ; preds = %430, %427
-  br label %.lr.ph368.i, !llvm.loop !19
+  br label %.lr.ph368.i, !llvm.loop !18
 
 .loopexit.i:                                      ; preds = %.split373.us.i, %.outer44._crit_edge.i
   %431 = load i32, ptr getelementptr inbounds nuw (i8, ptr @step_complete, i64 112), align 8
@@ -1600,7 +1600,7 @@ _process_cmdline.exit:                            ; preds = %.critedge.thread.i
   br label %.lr.ph402.i.backedge
 
 .lr.ph402.i.backedge:                             ; preds = %488, %485
-  br label %.lr.ph402.i, !llvm.loop !20
+  br label %.lr.ph402.i, !llvm.loop !19
 
 .outer41._crit_edge.i:                            ; preds = %.split408.us.i
   %489 = load i32, ptr %9, align 4
@@ -1733,7 +1733,7 @@ _process_cmdline.exit:                            ; preds = %.critedge.thread.i
   br label %.lr.ph437.i.backedge
 
 .lr.ph437.i.backedge:                             ; preds = %534, %531
-  br label %.lr.ph437.i, !llvm.loop !21
+  br label %.lr.ph437.i, !llvm.loop !20
 
 .outer40._crit_edge.i:                            ; preds = %.split443.us.i, %.outer41._crit_edge.i
   %535 = tail call ptr @create_buf(ptr noundef %491, i32 noundef %489) #15
@@ -1884,7 +1884,7 @@ _process_cmdline.exit:                            ; preds = %.critedge.thread.i
   br label %.lr.ph473.i.backedge
 
 .lr.ph473.i.backedge:                             ; preds = %586, %583
-  br label %.lr.ph473.i, !llvm.loop !22
+  br label %.lr.ph473.i, !llvm.loop !21
 
 .split520.i:                                      ; preds = %.lr.ph507.split.split.i, %600
   %587 = tail call i32 @get_log_level() #15
@@ -1959,7 +1959,7 @@ _process_cmdline.exit:                            ; preds = %.critedge.thread.i
   br label %.lr.ph507.i.backedge
 
 .lr.ph507.i.backedge:                             ; preds = %613, %610
-  br label %.lr.ph507.i, !llvm.loop !23
+  br label %.lr.ph507.i, !llvm.loop !22
 
 .lr.ph507.i:                                      ; preds = %.split478.us.i, %.lr.ph507.i.backedge
   %.0294.ph539.i = phi ptr [ %608, %.lr.ph507.i.backedge ], [ %9, %.split478.us.i ]
@@ -2143,7 +2143,7 @@ _process_cmdline.exit:                            ; preds = %.critedge.thread.i
   br label %.lr.ph542.i.backedge
 
 .lr.ph542.i.backedge:                             ; preds = %675, %672
-  br label %.lr.ph542.i, !llvm.loop !24
+  br label %.lr.ph542.i, !llvm.loop !23
 
 .outer._crit_edge.i:                              ; preds = %.split548.us.i, %.outer38._crit_edge.i
   %676 = tail call ptr @create_buf(ptr noundef %632, i32 noundef %630) #15
@@ -2765,7 +2765,7 @@ _init_from_slurmd.exit:                           ; preds = %794, %810
 
 946:                                              ; preds = %936, %929
   %947 = getelementptr inbounds nuw i8, ptr %.040.i, i64 441
-  %948 = load i8, ptr %947, align 1, !range !25, !noundef !26
+  %948 = load i8, ptr %947, align 1, !range !24, !noundef !25
   %949 = trunc nuw i8 %948 to i1
   br i1 %949, label %958, label %950
 
@@ -3211,7 +3211,7 @@ define internal fastcc void @_send_fail_to_slurmd(i32 noundef range(i32 1, 0) %0
   br label %.lr.ph.split.backedge
 
 .lr.ph.split.backedge:                            ; preds = %20, %17
-  br label %.lr.ph.split, !llvm.loop !27
+  br label %.lr.ph.split, !llvm.loop !26
 
 21:                                               ; preds = %13, %.split24.us
   %22 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.74) #15
@@ -3303,7 +3303,7 @@ define dso_local void @close_slurmd_conn(i32 noundef %0) local_unnamed_addr #1 {
   br label %.lr.ph.split.i.backedge
 
 .lr.ph.split.i.backedge:                          ; preds = %28, %25
-  br label %.lr.ph.split.i, !llvm.loop !28
+  br label %.lr.ph.split.i, !llvm.loop !27
 
 29:                                               ; preds = %21, %.split24.us.i
   %30 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.73) #15
@@ -3441,7 +3441,7 @@ _send_ok_to_slurmd.exit:                          ; preds = %.split.us.i, %29
   br label %.lr.ph.i.backedge
 
 .lr.ph.i.backedge:                                ; preds = %74, %71
-  br label %.lr.ph.i, !llvm.loop !29
+  br label %.lr.ph.i, !llvm.loop !28
 
 75:                                               ; preds = %67, %.split35.us.i, %56, %51
   %76 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.75) #15
@@ -3500,7 +3500,7 @@ define dso_local noundef i32 @stepd_cleanup(ptr readnone captures(none) %0, ptr 
 
 14:                                               ; preds = %13
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 441
-  %16 = load i8, ptr %15, align 1, !range !25, !noundef !26
+  %16 = load i8, ptr %15, align 1, !range !24, !noundef !25
   %17 = trunc nuw i8 %16 to i1
   br i1 %17, label %18, label %19
 
@@ -3830,7 +3830,7 @@ declare i32 @acct_storage_g_init() local_unnamed_addr #4
 define internal noalias noundef ptr @_step_time_limit_thread(ptr readnone captures(none) %0) #1 {
   %2 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #15
-  %3 = load i8, ptr @time_limit_thread_shutdown, align 1, !range !25, !noundef !26
+  %3 = load i8, ptr @time_limit_thread_shutdown, align 1, !range !24, !noundef !25
   %4 = trunc nuw i8 %3 to i1
   br i1 %4, label %._crit_edge, label %.lr.ph
 
@@ -3864,9 +3864,9 @@ define internal noalias noundef ptr @_step_time_limit_thread(ptr readnone captur
 
 17:                                               ; preds = %9
   %18 = call i32 @sleep(i32 noundef 1) #15
-  %19 = load i8, ptr @time_limit_thread_shutdown, align 1, !range !25, !noundef !26
+  %19 = load i8, ptr @time_limit_thread_shutdown, align 1, !range !24, !noundef !25
   %20 = trunc nuw i8 %19 to i1
-  br i1 %20, label %._crit_edge, label %.lr.ph, !llvm.loop !30
+  br i1 %20, label %._crit_edge, label %.lr.ph, !llvm.loop !29
 
 ._crit_edge:                                      ; preds = %17, %1
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #15
@@ -4231,7 +4231,7 @@ define internal fastcc ptr @_read_slurmd_conf_lite() unnamed_addr #1 {
   br label %.lr.ph.backedge
 
 .lr.ph.backedge:                                  ; preds = %53, %50
-  br label %.lr.ph, !llvm.loop !31
+  br label %.lr.ph, !llvm.loop !30
 
 .outer114._crit_edge:                             ; preds = %.split128.us
   %54 = load i32, ptr %1, align 4
@@ -4364,7 +4364,7 @@ define internal fastcc ptr @_read_slurmd_conf_lite() unnamed_addr #1 {
   br label %.lr.ph156.backedge
 
 .lr.ph156.backedge:                               ; preds = %102, %99
-  br label %.lr.ph156, !llvm.loop !32
+  br label %.lr.ph156, !llvm.loop !31
 
 .outer._crit_edge:                                ; preds = %.split162.us, %.outer114._crit_edge
   %103 = tail call i32 @unpack_slurmd_conf_lite_no_alloc(ptr noundef %.076, ptr noundef %55) #15
@@ -4411,7 +4411,7 @@ define internal fastcc ptr @_read_slurmd_conf_lite() unnamed_addr #1 {
   %120 = getelementptr inbounds nuw i8, ptr %.076, i64 4396
   store i32 %119, ptr %120, align 4
   %121 = getelementptr inbounds nuw i8, ptr %.076, i64 4424
-  %122 = load i8, ptr %121, align 8, !range !25, !noundef !26
+  %122 = load i8, ptr %121, align 8, !range !24, !noundef !25
   %123 = trunc nuw i8 %122 to i1
   %124 = getelementptr inbounds nuw i8, ptr %.076, i64 4352
   br i1 %123, label %125, label %.thread107
@@ -4698,28 +4698,27 @@ attributes #18 = { cold noreturn nounwind }
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i32 7, !"frame-pointer", i32 2}
 !7 = !{i32 7, !"debug-info-assignment-tracking", i1 true}
-!8 = distinct !{!8, !9, !10, !11}
+!8 = distinct !{!8, !9, !10}
 !9 = !{!"llvm.loop.mustprogress"}
 !10 = !{!"llvm.loop.unroll.disable"}
-!11 = !{!"llvm.loop.estimated_trip_count"}
-!12 = distinct !{!12, !9, !10, !11}
-!13 = distinct !{!13, !9, !10, !11}
-!14 = distinct !{!14, !9, !10, !11}
-!15 = distinct !{!15, !9, !10, !11}
-!16 = distinct !{!16, !9, !10, !11}
-!17 = distinct !{!17, !9, !10, !11}
-!18 = distinct !{!18, !9, !10, !11}
-!19 = distinct !{!19, !9, !10, !11}
-!20 = distinct !{!20, !9, !10, !11}
-!21 = distinct !{!21, !9, !10, !11}
-!22 = distinct !{!22, !9, !10, !11}
-!23 = distinct !{!23, !9, !10, !11}
-!24 = distinct !{!24, !9, !10, !11}
-!25 = !{i8 0, i8 2}
-!26 = !{}
-!27 = distinct !{!27, !9, !10, !11}
-!28 = distinct !{!28, !9, !10, !11}
-!29 = distinct !{!29, !9, !10, !11}
-!30 = distinct !{!30, !9, !10, !11}
-!31 = distinct !{!31, !9, !10, !11}
-!32 = distinct !{!32, !9, !10, !11}
+!11 = distinct !{!11, !9, !10}
+!12 = distinct !{!12, !9, !10}
+!13 = distinct !{!13, !9, !10}
+!14 = distinct !{!14, !9, !10}
+!15 = distinct !{!15, !9, !10}
+!16 = distinct !{!16, !9, !10}
+!17 = distinct !{!17, !9, !10}
+!18 = distinct !{!18, !9, !10}
+!19 = distinct !{!19, !9, !10}
+!20 = distinct !{!20, !9, !10}
+!21 = distinct !{!21, !9, !10}
+!22 = distinct !{!22, !9, !10}
+!23 = distinct !{!23, !9, !10}
+!24 = !{i8 0, i8 2}
+!25 = !{}
+!26 = distinct !{!26, !9, !10}
+!27 = distinct !{!27, !9, !10}
+!28 = distinct !{!28, !9, !10}
+!29 = distinct !{!29, !9, !10}
+!30 = distinct !{!30, !9, !10}
+!31 = distinct !{!31, !9, !10}

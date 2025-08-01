@@ -90,7 +90,7 @@ define internal i32 @adler32_x86_avx512_vl512_vnni(i32 noundef %0, ptr noundef %
   %17 = ptrtoint ptr %11 to i64
   %18 = and i64 %17, 63
   %.not = icmp eq i64 %18, 0
-  br i1 %.not, label %19, label %.preheader392, !llvm.loop !12
+  br i1 %.not, label %19, label %.preheader392
 
 19:                                               ; preds = %.preheader392
   %20 = urem i32 %14, 65521
@@ -161,7 +161,7 @@ define internal i32 @adler32_x86_avx512_vl512_vnni(i32 noundef %0, ptr noundef %
   %64 = getelementptr inbounds nuw i8, ptr %.4, i64 256
   %65 = add i64 %.1136, -256
   %66 = icmp ugt i64 %65, 255
-  br i1 %66, label %.preheader, label %67, !llvm.loop !14
+  br i1 %66, label %.preheader, label %67
 
 67:                                               ; preds = %.preheader
   %68 = add <16 x i32> %61, %60
@@ -285,7 +285,7 @@ define internal i32 @adler32_x86_avx512_vl512_vnni(i32 noundef %0, ptr noundef %
   %161 = urem i32 %158, 65521
   %162 = urem i32 %160, 65521
   %.not164 = icmp eq i64 %31, 0
-  br i1 %.not164, label %._crit_edge, label %26, !llvm.loop !15
+  br i1 %.not164, label %._crit_edge, label %26
 
 ._crit_edge:                                      ; preds = %134, %22
   %.2391.lcssa = phi i32 [ %.0389, %22 ], [ %162, %134 ]
@@ -320,7 +320,7 @@ define internal i32 @adler32_x86_avx512_vl256_vnni(i32 noundef %0, ptr noundef %
   %17 = ptrtoint ptr %11 to i64
   %18 = and i64 %17, 31
   %.not = icmp eq i64 %18, 0
-  br i1 %.not, label %19, label %.preheader281, !llvm.loop !16
+  br i1 %.not, label %19, label %.preheader281
 
 19:                                               ; preds = %.preheader281
   %20 = urem i32 %14, 65521
@@ -385,7 +385,7 @@ define internal i32 @adler32_x86_avx512_vl256_vnni(i32 noundef %0, ptr noundef %
   %60 = getelementptr inbounds nuw i8, ptr %.4, i64 128
   %61 = add i64 %.1136, -128
   %62 = icmp ugt i64 %61, 127
-  br i1 %62, label %.preheader, label %63, !llvm.loop !17
+  br i1 %62, label %.preheader, label %63
 
 63:                                               ; preds = %.preheader
   %64 = add <8 x i32> %57, %56
@@ -505,7 +505,7 @@ define internal i32 @adler32_x86_avx512_vl256_vnni(i32 noundef %0, ptr noundef %
   %151 = urem i32 %148, 65521
   %152 = urem i32 %150, 65521
   %.not164 = icmp eq i64 %27, 0
-  br i1 %.not164, label %._crit_edge, label %.lr.ph, !llvm.loop !18
+  br i1 %.not164, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %130, %22
   %.2280.lcssa = phi i32 [ %.0278, %22 ], [ %152, %130 ]
@@ -541,7 +541,7 @@ define internal i32 @adler32_x86_avx2_vnni(i32 noundef %0, ptr noundef %1, i64 n
   %18 = ptrtoint ptr %12 to i64
   %19 = and i64 %18, 31
   %.not = icmp eq i64 %19, 0
-  br i1 %.not, label %20, label %.preheader386, !llvm.loop !19
+  br i1 %.not, label %20, label %.preheader386
 
 20:                                               ; preds = %.preheader386
   %21 = urem i32 %15, 65521
@@ -606,7 +606,7 @@ define internal i32 @adler32_x86_avx2_vnni(i32 noundef %0, ptr noundef %1, i64 n
   %61 = getelementptr inbounds nuw i8, ptr %.4, i64 128
   %62 = add i64 %.1137, -128
   %63 = icmp ugt i64 %62, 127
-  br i1 %63, label %.preheader, label %64, !llvm.loop !20
+  br i1 %63, label %.preheader, label %64
 
 64:                                               ; preds = %.preheader
   %65 = add <8 x i32> %58, %57
@@ -724,7 +724,7 @@ define internal i32 @adler32_x86_avx2_vnni(i32 noundef %0, ptr noundef %1, i64 n
   %147 = urem i32 %144, 65521
   %148 = urem i32 %146, 65521
   %.not165 = icmp eq i64 %28, 0
-  br i1 %.not165, label %._crit_edge, label %.lr.ph, !llvm.loop !21
+  br i1 %.not165, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %126, %23
   %.2384.lcssa = phi i32 [ %.0382, %23 ], [ %148, %126 ]
@@ -759,7 +759,7 @@ define internal i32 @adler32_x86_avx2(i32 noundef %0, ptr noundef %1, i64 nounde
   %17 = ptrtoint ptr %11 to i64
   %18 = and i64 %17, 31
   %.not = icmp eq i64 %18, 0
-  br i1 %.not, label %19, label %.preheader223, !llvm.loop !22
+  br i1 %.not, label %19, label %.preheader223
 
 19:                                               ; preds = %.preheader223
   %20 = urem i32 %14, 65521
@@ -818,7 +818,7 @@ define internal i32 @adler32_x86_avx2(i32 noundef %0, ptr noundef %1, i64 nounde
   %54 = getelementptr inbounds nuw i8, ptr %.3, i64 64
   %55 = add i64 %.088, -64
   %56 = icmp ugt i64 %55, 63
-  br i1 %56, label %.preheader307, label %57, !llvm.loop !23
+  br i1 %56, label %.preheader307, label %57
 
 57:                                               ; preds = %.preheader307
   %58 = trunc nuw nsw i64 %23 to i32
@@ -892,7 +892,7 @@ define internal i32 @adler32_x86_avx2(i32 noundef %0, ptr noundef %1, i64 nounde
   %109 = getelementptr inbounds nuw i8, ptr %.6, i64 4
   %110 = add i64 %.391, -4
   %111 = icmp ugt i64 %110, 3
-  br i1 %111, label %.preheader, label %112, !llvm.loop !24
+  br i1 %111, label %.preheader, label %112
 
 112:                                              ; preds = %.preheader
   %113 = add i32 %105, %89
@@ -925,7 +925,7 @@ define internal i32 @adler32_x86_avx2(i32 noundef %0, ptr noundef %1, i64 nounde
   %126 = add nsw i64 %.492246, -1
   %127 = getelementptr inbounds nuw i8, ptr %.7247, i64 1
   %.not105 = icmp eq i64 %126, 0
-  br i1 %.not105, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !25
+  br i1 %.not105, label %._crit_edge.loopexit, label %.lr.ph
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
   %scevgep = getelementptr i8, ptr %.5, i64 %.290
@@ -938,7 +938,7 @@ define internal i32 @adler32_x86_avx2(i32 noundef %0, ptr noundef %1, i64 nounde
   %128 = urem i32 %.6216.lcssa, 65521
   %129 = urem i32 %.5222.lcssa, 65521
   %.not104 = icmp eq i64 %24, 0
-  br i1 %.not104, label %._crit_edge257, label %.lr.ph256, !llvm.loop !26
+  br i1 %.not104, label %._crit_edge257, label %.lr.ph256
 
 ._crit_edge257:                                   ; preds = %._crit_edge, %22
   %.2219.lcssa = phi i32 [ %.0217, %22 ], [ %129, %._crit_edge ]
@@ -973,7 +973,7 @@ define internal i32 @adler32_x86_sse2(i32 noundef %0, ptr noundef %1, i64 nounde
   %17 = ptrtoint ptr %11 to i64
   %18 = and i64 %17, 15
   %.not = icmp eq i64 %18, 0
-  br i1 %.not, label %19, label %.preheader134, !llvm.loop !27
+  br i1 %.not, label %19, label %.preheader134
 
 19:                                               ; preds = %.preheader134
   %20 = urem i32 %14, 65521
@@ -1032,7 +1032,7 @@ define internal i32 @adler32_x86_sse2(i32 noundef %0, ptr noundef %1, i64 nounde
   %54 = getelementptr inbounds nuw i8, ptr %.3, i64 32
   %55 = add i64 %.088, -32
   %56 = icmp ugt i64 %55, 31
-  br i1 %56, label %.preheader218, label %57, !llvm.loop !28
+  br i1 %56, label %.preheader218, label %57
 
 57:                                               ; preds = %.preheader218
   %58 = trunc nuw nsw i64 %23 to i32
@@ -1100,7 +1100,7 @@ define internal i32 @adler32_x86_sse2(i32 noundef %0, ptr noundef %1, i64 nounde
   %103 = getelementptr inbounds nuw i8, ptr %.6, i64 4
   %104 = add i64 %.391, -4
   %105 = icmp ugt i64 %104, 3
-  br i1 %105, label %.preheader, label %106, !llvm.loop !29
+  br i1 %105, label %.preheader, label %106
 
 106:                                              ; preds = %.preheader
   %107 = add i32 %99, %83
@@ -1133,7 +1133,7 @@ define internal i32 @adler32_x86_sse2(i32 noundef %0, ptr noundef %1, i64 nounde
   %120 = add nsw i64 %.492157, -1
   %121 = getelementptr inbounds nuw i8, ptr %.7158, i64 1
   %.not105 = icmp eq i64 %120, 0
-  br i1 %.not105, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !30
+  br i1 %.not105, label %._crit_edge.loopexit, label %.lr.ph
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
   %scevgep = getelementptr i8, ptr %.5, i64 %.290
@@ -1146,7 +1146,7 @@ define internal i32 @adler32_x86_sse2(i32 noundef %0, ptr noundef %1, i64 nounde
   %122 = urem i32 %.6133.lcssa, 65521
   %123 = urem i32 %.5126.lcssa, 65521
   %.not104 = icmp eq i64 %24, 0
-  br i1 %.not104, label %._crit_edge168, label %.lr.ph167, !llvm.loop !31
+  br i1 %.not104, label %._crit_edge168, label %.lr.ph167
 
 ._crit_edge168:                                   ; preds = %._crit_edge, %22
   %.2129.lcssa = phi i32 [ %.0127, %22 ], [ %122, %._crit_edge ]
@@ -1217,23 +1217,3 @@ attributes #12 = { nounwind }
 !9 = !{!"int", !6, i64 0}
 !10 = !{!"branch_weights", !"expected", i32 1, i32 2000}
 !11 = !{!6, !6, i64 0}
-!12 = distinct !{!12, !13}
-!13 = !{!"llvm.loop.estimated_trip_count"}
-!14 = distinct !{!14, !13}
-!15 = distinct !{!15, !13}
-!16 = distinct !{!16, !13}
-!17 = distinct !{!17, !13}
-!18 = distinct !{!18, !13}
-!19 = distinct !{!19, !13}
-!20 = distinct !{!20, !13}
-!21 = distinct !{!21, !13}
-!22 = distinct !{!22, !13}
-!23 = distinct !{!23, !13}
-!24 = distinct !{!24, !13}
-!25 = distinct !{!25, !13}
-!26 = distinct !{!26, !13}
-!27 = distinct !{!27, !13}
-!28 = distinct !{!28, !13}
-!29 = distinct !{!29, !13}
-!30 = distinct !{!30, !13}
-!31 = distinct !{!31, !13}

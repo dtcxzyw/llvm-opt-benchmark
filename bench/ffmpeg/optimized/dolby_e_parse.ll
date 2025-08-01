@@ -152,7 +152,7 @@ put_bits.exit:                                    ; preds = %46, %51, %57
   %60 = getelementptr inbounds nuw i8, ptr %.15278, i64 3
   %.sroa.19.0.ptr = getelementptr inbounds nuw i8, ptr %0, i64 %.sroa.19.1.idx
   %exitcond93.not = icmp eq i32 %59, %1
-  br i1 %exitcond93.not, label %._crit_edge, label %.lr.ph81, !llvm.loop !20
+  br i1 %exitcond93.not, label %._crit_edge, label %.lr.ph81, !llvm.loop !19
 
 ._crit_edge:                                      ; preds = %put_bits.exit
   %61 = icmp slt i32 %58, 32
@@ -183,7 +183,7 @@ put_bits.exit:                                    ; preds = %46, %51, %57
   %69 = shl i32 %.sroa.0.1, 8
   %70 = add nsw i32 %.sroa.11.1, 8
   %71 = icmp slt i32 %.sroa.11.1, 24
-  br i1 %71, label %63, label %flush_put_bits.exit, !llvm.loop !21
+  br i1 %71, label %63, label %flush_put_bits.exit, !llvm.loop !20
 
 72:                                               ; preds = %.lr.ph, %72
   %.273 = phi i32 [ 0, %.lr.ph ], [ %83, %72 ]
@@ -206,7 +206,7 @@ put_bits.exit:                                    ; preds = %46, %51, %57
   %84 = getelementptr inbounds nuw i8, ptr %.25371, i64 3
   %85 = getelementptr inbounds nuw i8, ptr %.15072, i64 3
   %exitcond.not = icmp eq i32 %83, %1
-  br i1 %exitcond.not, label %flush_put_bits.exit, label %72, !llvm.loop !22
+  br i1 %exitcond.not, label %flush_put_bits.exit, label %72, !llvm.loop !21
 
 86:                                               ; preds = %15
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.2, i32 noundef 91) #4
@@ -223,18 +223,18 @@ flush_put_bits.exit:                              ; preds = %72, %66, %25, %.pre
   %.0.i = select i1 %or.cond.i, i32 0, i32 -1094995529
   %90 = add nuw nsw i32 %.018.i, 7
   %91 = lshr i32 %90, 3
-  store ptr %.017.i, ptr %87, align 8, !tbaa !23
+  store ptr %.017.i, ptr %87, align 8, !tbaa !22
   %92 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  store i32 %.018.i, ptr %92, align 4, !tbaa !24
+  store i32 %.018.i, ptr %92, align 4, !tbaa !23
   %93 = add nuw nsw i32 %.018.i, 8
   %94 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i32 %93, ptr %94, align 8, !tbaa !25
+  store i32 %93, ptr %94, align 8, !tbaa !24
   %95 = zext nneg i32 %91 to i64
   %96 = getelementptr inbounds nuw i8, ptr %.017.i, i64 %95
   %97 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %96, ptr %97, align 8, !tbaa !26
+  store ptr %96, ptr %97, align 8, !tbaa !25
   %98 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i32 0, ptr %98, align 8, !tbaa !27
+  store i32 0, ptr %98, align 8, !tbaa !26
   br label %99
 
 99:                                               ; preds = %12, %14, %flush_put_bits.exit
@@ -296,7 +296,7 @@ define range(i32 -1094995529, 1) i32 @ff_dolby_e_parse_header(ptr noundef %0, pt
   %32 = add nuw nsw i32 %.sink, 7
   %33 = lshr i32 %32, 3
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store i32 %33, ptr %34, align 8, !tbaa !28
+  store i32 %33, ptr %34, align 8, !tbaa !27
   %35 = zext nneg i32 %33 to i64
   %36 = getelementptr inbounds nuw i8, ptr %1, i64 %35
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -309,7 +309,7 @@ define range(i32 -1094995529, 1) i32 @ff_dolby_e_parse_header(ptr noundef %0, pt
   %42 = lshr i32 %18, %41
   %43 = and i32 %42, 1
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 60
-  store i32 %43, ptr %44, align 4, !tbaa !29
+  store i32 %43, ptr %44, align 4, !tbaa !28
   %.not.i = icmp eq i32 %43, 0
   br i1 %.not.i, label %63, label %45
 
@@ -346,13 +346,13 @@ define range(i32 -1094995529, 1) i32 @ff_dolby_e_parse_header(ptr noundef %0, pt
 66:                                               ; preds = %63
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %69 = load i32, ptr %68, align 8, !tbaa !27
+  %69 = load i32, ptr %68, align 8, !tbaa !26
   %70 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %71 = load i32, ptr %70, align 8, !tbaa !25
+  %71 = load i32, ptr %70, align 8, !tbaa !24
   %72 = add i32 %69, 4
   %73 = tail call i32 @llvm.umin.i32(i32 %71, i32 %72)
-  store i32 %73, ptr %68, align 8, !tbaa !27
-  %74 = load ptr, ptr %67, align 8, !tbaa !23
+  store i32 %73, ptr %68, align 8, !tbaa !26
+  %74 = load ptr, ptr %67, align 8, !tbaa !22
   %75 = lshr i32 %73, 3
   %76 = zext nneg i32 %75 to i64
   %77 = getelementptr inbounds nuw i8, ptr %74, i64 %76
@@ -363,7 +363,7 @@ define range(i32 -1094995529, 1) i32 @ff_dolby_e_parse_header(ptr noundef %0, pt
   %82 = lshr i32 %81, 22
   %83 = add i32 %73, 10
   %84 = tail call i32 @llvm.umin.i32(i32 %71, i32 %83)
-  store i32 %84, ptr %68, align 8, !tbaa !27
+  store i32 %84, ptr %68, align 8, !tbaa !26
   %.not101 = icmp ult i32 %81, 4194304
   br i1 %.not101, label %85, label %88
 
@@ -382,12 +382,12 @@ define range(i32 -1094995529, 1) i32 @ff_dolby_e_parse_header(ptr noundef %0, pt
   br i1 %90, label %parse_key.exit, label %91
 
 91:                                               ; preds = %88
-  %92 = load i32, ptr %68, align 8, !tbaa !27
-  %93 = load i32, ptr %70, align 8, !tbaa !25
+  %92 = load i32, ptr %68, align 8, !tbaa !26
+  %93 = load i32, ptr %70, align 8, !tbaa !24
   %94 = add i32 %92, 14
   %95 = tail call i32 @llvm.umin.i32(i32 %93, i32 %94)
-  store i32 %95, ptr %68, align 8, !tbaa !27
-  %96 = load ptr, ptr %67, align 8, !tbaa !23
+  store i32 %95, ptr %68, align 8, !tbaa !26
+  %96 = load ptr, ptr %67, align 8, !tbaa !22
   %97 = lshr i32 %95, 3
   %98 = zext nneg i32 %97 to i64
   %99 = getelementptr inbounds nuw i8, ptr %96, i64 %98
@@ -398,8 +398,8 @@ define range(i32 -1094995529, 1) i32 @ff_dolby_e_parse_header(ptr noundef %0, pt
   %104 = lshr i32 %103, 26
   %105 = add i32 %95, 6
   %106 = tail call i32 @llvm.umin.i32(i32 %93, i32 %105)
-  store i32 %106, ptr %68, align 8, !tbaa !27
-  store i32 %104, ptr %4, align 4, !tbaa !30
+  store i32 %106, ptr %68, align 8, !tbaa !26
+  store i32 %104, ptr %4, align 4, !tbaa !29
   %107 = icmp ugt i32 %103, 1610612735
   br i1 %107, label %108, label %111
 
@@ -418,12 +418,12 @@ define range(i32 -1094995529, 1) i32 @ff_dolby_e_parse_header(ptr noundef %0, pt
   %114 = load i8, ptr %113, align 1, !tbaa !16
   %115 = zext i8 %114 to i32
   %116 = getelementptr inbounds nuw i8, ptr %0, i64 68
-  store i32 %115, ptr %116, align 4, !tbaa !31
+  store i32 %115, ptr %116, align 4, !tbaa !30
   %117 = getelementptr inbounds nuw [24 x i8], ptr @nb_programs_tab, i64 0, i64 %112
   %118 = load i8, ptr %117, align 1, !tbaa !16
   %119 = zext i8 %118 to i32
   %120 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  store i32 %119, ptr %120, align 4, !tbaa !32
+  store i32 %119, ptr %120, align 4, !tbaa !31
   %121 = lshr i32 %106, 3
   %122 = zext nneg i32 %121 to i64
   %123 = getelementptr inbounds nuw i8, ptr %96, i64 %122
@@ -434,9 +434,9 @@ define range(i32 -1094995529, 1) i32 @ff_dolby_e_parse_header(ptr noundef %0, pt
   %128 = lshr i32 %127, 28
   %129 = add i32 %106, 4
   %130 = tail call i32 @llvm.umin.i32(i32 %93, i32 %129)
-  store i32 %130, ptr %68, align 8, !tbaa !27
+  store i32 %130, ptr %68, align 8, !tbaa !26
   %131 = getelementptr inbounds nuw i8, ptr %0, i64 76
-  store i32 %128, ptr %131, align 4, !tbaa !33
+  store i32 %128, ptr %131, align 4, !tbaa !32
   %132 = lshr i32 %130, 3
   %133 = zext nneg i32 %132 to i64
   %134 = getelementptr inbounds nuw i8, ptr %96, i64 %133
@@ -447,22 +447,22 @@ define range(i32 -1094995529, 1) i32 @ff_dolby_e_parse_header(ptr noundef %0, pt
   %139 = lshr i32 %138, 28
   %140 = add i32 %130, 4
   %141 = tail call i32 @llvm.umin.i32(i32 %93, i32 %140)
-  store i32 %141, ptr %68, align 8, !tbaa !27
+  store i32 %141, ptr %68, align 8, !tbaa !26
   %142 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  store i32 %139, ptr %142, align 4, !tbaa !34
+  store i32 %139, ptr %142, align 4, !tbaa !33
   %143 = zext nneg i32 %128 to i64
   %144 = getelementptr inbounds nuw [16 x i16], ptr @sample_rate_tab, i64 0, i64 %143
-  %145 = load i16, ptr %144, align 2, !tbaa !35
+  %145 = load i16, ptr %144, align 2, !tbaa !34
   %146 = zext i16 %145 to i32
   %147 = getelementptr inbounds nuw i8, ptr %0, i64 228
-  store i32 %146, ptr %147, align 4, !tbaa !37
+  store i32 %146, ptr %147, align 4, !tbaa !36
   %.not103 = icmp eq i16 %145, 0
   br i1 %.not103, label %152, label %148
 
 148:                                              ; preds = %111
   %149 = zext nneg i32 %139 to i64
   %150 = getelementptr inbounds nuw [16 x i16], ptr @sample_rate_tab, i64 0, i64 %149
-  %151 = load i16, ptr %150, align 2, !tbaa !35
+  %151 = load i16, ptr %150, align 2, !tbaa !34
   %.not104 = icmp eq i16 %151, 0
   br i1 %.not104, label %152, label %.lr.ph
 
@@ -482,7 +482,7 @@ define range(i32 -1094995529, 1) i32 @ff_dolby_e_parse_header(ptr noundef %0, pt
   %..i.i = tail call i32 @llvm.smin.i32(i32 %156, i32 88)
   %.0.i.i = select i1 %157, i32 %155, i32 %..i.i
   %158 = add nsw i32 %.0.i.i, %141
-  store i32 %158, ptr %68, align 8, !tbaa !27
+  store i32 %158, ptr %68, align 8, !tbaa !26
   %159 = getelementptr inbounds nuw i8, ptr %0, i64 84
   %umax = tail call i32 @llvm.umax.i32(i32 %115, i32 1)
   %wide.trip.count = zext nneg i32 %umax to i64
@@ -499,9 +499,9 @@ define range(i32 -1094995529, 1) i32 @ff_dolby_e_parse_header(ptr noundef %0, pt
   %167 = lshr i32 %166, 24
   %168 = add i32 %201, 8
   %169 = tail call i32 @llvm.umin.i32(i32 %93, i32 %168)
-  store i32 %169, ptr %68, align 8, !tbaa !27
+  store i32 %169, ptr %68, align 8, !tbaa !26
   %170 = getelementptr inbounds nuw i8, ptr %0, i64 116
-  store i32 %167, ptr %170, align 4, !tbaa !38
+  store i32 %167, ptr %170, align 4, !tbaa !37
   %171 = lshr i32 %169, 3
   %172 = zext nneg i32 %171 to i64
   %173 = getelementptr inbounds nuw i8, ptr %96, i64 %172
@@ -513,7 +513,7 @@ define range(i32 -1094995529, 1) i32 @ff_dolby_e_parse_header(ptr noundef %0, pt
   %179 = add i32 %169, 8
   %180 = tail call i32 @llvm.umin.i32(i32 %93, i32 %179)
   %181 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  store i32 %178, ptr %181, align 4, !tbaa !39
+  store i32 %178, ptr %181, align 4, !tbaa !38
   %182 = mul nuw nsw i32 %119, 10
   %183 = sub nsw i32 0, %180
   %184 = sub nsw i32 %93, %180
@@ -521,7 +521,7 @@ define range(i32 -1094995529, 1) i32 @ff_dolby_e_parse_header(ptr noundef %0, pt
   %..i.i109 = tail call i32 @llvm.smin.i32(i32 %182, i32 %184)
   %.0.i.i110 = select i1 %185, i32 %183, i32 %..i.i109
   %186 = add nsw i32 %.0.i.i110, %180
-  store i32 %186, ptr %68, align 8, !tbaa !27
+  store i32 %186, ptr %68, align 8, !tbaa !26
   %187 = getelementptr inbounds nuw i8, ptr %0, i64 124
   %188 = getelementptr inbounds nuw i8, ptr %0, i64 156
   %189 = getelementptr inbounds nuw i8, ptr %0, i64 188
@@ -542,16 +542,16 @@ define range(i32 -1094995529, 1) i32 @ff_dolby_e_parse_header(ptr noundef %0, pt
   %199 = lshr i32 %198, 22
   %200 = add i32 %191, 10
   %201 = tail call i32 @llvm.umin.i32(i32 %93, i32 %200)
-  store i32 %201, ptr %68, align 8, !tbaa !27
+  store i32 %201, ptr %68, align 8, !tbaa !26
   %202 = getelementptr inbounds nuw [8 x i32], ptr %159, i64 0, i64 %indvars.iv
-  store i32 %199, ptr %202, align 4, !tbaa !40
+  store i32 %199, ptr %202, align 4, !tbaa !39
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.lr.ph117, label %190, !llvm.loop !41
+  br i1 %exitcond.not, label %.lr.ph117, label %190, !llvm.loop !40
 
 ._crit_edge118:                                   ; preds = %205
   %203 = getelementptr i8, ptr %0, i64 28
-  %.val108 = load i32, ptr %203, align 4, !tbaa !24
+  %.val108 = load i32, ptr %203, align 4, !tbaa !23
   %204 = icmp slt i32 %.val108, %240
   br i1 %204, label %242, label %245
 
@@ -569,10 +569,10 @@ define range(i32 -1094995529, 1) i32 @ff_dolby_e_parse_header(ptr noundef %0, pt
   %215 = add i32 %206, 4
   %216 = tail call i32 @llvm.umin.i32(i32 %93, i32 %215)
   %217 = getelementptr inbounds nuw [8 x i32], ptr %187, i64 0, i64 %indvars.iv123
-  store i32 %214, ptr %217, align 4, !tbaa !40
+  store i32 %214, ptr %217, align 4, !tbaa !39
   %218 = add i32 %216, 1
   %219 = tail call i32 @llvm.umin.i32(i32 %93, i32 %218)
-  store i32 %219, ptr %68, align 8, !tbaa !27
+  store i32 %219, ptr %68, align 8, !tbaa !26
   %220 = lshr i32 %219, 3
   %221 = zext nneg i32 %220 to i64
   %222 = getelementptr inbounds nuw i8, ptr %96, i64 %221
@@ -583,9 +583,9 @@ define range(i32 -1094995529, 1) i32 @ff_dolby_e_parse_header(ptr noundef %0, pt
   %227 = lshr i32 %226, 22
   %228 = add i32 %219, 10
   %229 = tail call i32 @llvm.umin.i32(i32 %93, i32 %228)
-  store i32 %229, ptr %68, align 8, !tbaa !27
+  store i32 %229, ptr %68, align 8, !tbaa !26
   %230 = getelementptr inbounds nuw [8 x i32], ptr %188, i64 0, i64 %indvars.iv123
-  store i32 %227, ptr %230, align 4, !tbaa !40
+  store i32 %227, ptr %230, align 4, !tbaa !39
   %231 = lshr i32 %229, 3
   %232 = zext nneg i32 %231 to i64
   %233 = getelementptr inbounds nuw i8, ptr %96, i64 %232
@@ -596,12 +596,12 @@ define range(i32 -1094995529, 1) i32 @ff_dolby_e_parse_header(ptr noundef %0, pt
   %238 = lshr i32 %237, 22
   %239 = add i32 %229, 10
   %240 = tail call i32 @llvm.umin.i32(i32 %93, i32 %239)
-  store i32 %240, ptr %68, align 8, !tbaa !27
+  store i32 %240, ptr %68, align 8, !tbaa !26
   %241 = getelementptr inbounds nuw [8 x i32], ptr %189, i64 0, i64 %indvars.iv123
-  store i32 %238, ptr %241, align 4, !tbaa !40
+  store i32 %238, ptr %241, align 4, !tbaa !39
   %indvars.iv.next124 = add nuw nsw i64 %indvars.iv123, 1
   %exitcond128.not = icmp eq i64 %indvars.iv.next124, %wide.trip.count127
-  br i1 %exitcond128.not, label %._crit_edge118, label %205, !llvm.loop !42
+  br i1 %exitcond128.not, label %._crit_edge118, label %205, !llvm.loop !41
 
 242:                                              ; preds = %._crit_edge118
   %243 = load ptr, ptr %0, align 8, !tbaa !14
@@ -619,7 +619,7 @@ define range(i32 -1094995529, 1) i32 @ff_dolby_e_parse_header(ptr noundef %0, pt
 
 247:                                              ; preds = %245
   %248 = add nuw nsw i32 %82, 1
-  %249 = load i32, ptr %34, align 8, !tbaa !28
+  %249 = load i32, ptr %34, align 8, !tbaa !27
   %250 = mul nsw i32 %249, %248
   %251 = load ptr, ptr %37, align 8, !tbaa !4
   %252 = sext i32 %250 to i64
@@ -675,29 +675,28 @@ attributes #5 = { noreturn nounwind }
 !14 = !{!5, !6, i64 0}
 !15 = !{!5, !11, i64 52}
 !16 = !{!7, !7, i64 0}
-!17 = distinct !{!17, !18, !19}
+!17 = distinct !{!17, !18}
 !18 = !{!"llvm.loop.mustprogress"}
-!19 = !{!"llvm.loop.estimated_trip_count"}
-!20 = distinct !{!20, !18, !19}
-!21 = distinct !{!21, !18, !19}
-!22 = distinct !{!22, !18, !19}
-!23 = !{!9, !10, i64 0}
-!24 = !{!9, !11, i64 20}
-!25 = !{!9, !11, i64 24}
-!26 = !{!9, !10, i64 8}
-!27 = !{!9, !11, i64 16}
-!28 = !{!5, !11, i64 56}
-!29 = !{!5, !11, i64 60}
-!30 = !{!12, !11, i64 0}
-!31 = !{!12, !11, i64 4}
-!32 = !{!12, !11, i64 8}
-!33 = !{!12, !11, i64 12}
-!34 = !{!12, !11, i64 16}
-!35 = !{!36, !36, i64 0}
-!36 = !{!"short", !7, i64 0}
-!37 = !{!12, !11, i64 164}
-!38 = !{!12, !11, i64 52}
-!39 = !{!12, !11, i64 56}
-!40 = !{!11, !11, i64 0}
-!41 = distinct !{!41, !18, !19}
-!42 = distinct !{!42, !18, !19}
+!19 = distinct !{!19, !18}
+!20 = distinct !{!20, !18}
+!21 = distinct !{!21, !18}
+!22 = !{!9, !10, i64 0}
+!23 = !{!9, !11, i64 20}
+!24 = !{!9, !11, i64 24}
+!25 = !{!9, !10, i64 8}
+!26 = !{!9, !11, i64 16}
+!27 = !{!5, !11, i64 56}
+!28 = !{!5, !11, i64 60}
+!29 = !{!12, !11, i64 0}
+!30 = !{!12, !11, i64 4}
+!31 = !{!12, !11, i64 8}
+!32 = !{!12, !11, i64 12}
+!33 = !{!12, !11, i64 16}
+!34 = !{!35, !35, i64 0}
+!35 = !{!"short", !7, i64 0}
+!36 = !{!12, !11, i64 164}
+!37 = !{!12, !11, i64 52}
+!38 = !{!12, !11, i64 56}
+!39 = !{!11, !11, i64 0}
+!40 = distinct !{!40, !18}
+!41 = distinct !{!41, !18}

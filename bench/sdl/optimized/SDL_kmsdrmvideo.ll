@@ -437,7 +437,7 @@ define hidden noundef zeroext i1 @KMSDRM_WaitPageflip(ptr noundef readonly captu
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i16 1, ptr %10, align 4
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %12 = load i8, ptr %11, align 8, !range !6, !noundef !7
+  %12 = load i8, ptr %11, align 8, !range !5, !noundef !6
   %13 = trunc nuw i8 %12 to i1
   br i1 %13, label %.lr.ph, label %.loopexit
 
@@ -475,9 +475,9 @@ define hidden noundef zeroext i1 @KMSDRM_WaitPageflip(ptr noundef readonly captu
   br label %.backedge
 
 .backedge:                                        ; preds = %25, %27, %18
-  %31 = load i8, ptr %11, align 8, !range !6, !noundef !7
+  %31 = load i8, ptr %11, align 8, !range !5, !noundef !6
   %32 = trunc nuw i8 %31 to i1
-  br i1 %32, label %15, label %.loopexit, !llvm.loop !8
+  br i1 %32, label %15, label %.loopexit, !llvm.loop !7
 
 .loopexit.sink.split:                             ; preds = %22, %18
   %.str.4.sink = phi ptr [ @.str.3, %18 ], [ @.str.4, %22 ]
@@ -541,7 +541,7 @@ define hidden zeroext i1 @KMSDRM_CreateSurfaces(ptr noundef %0, ptr noundef %1) 
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 128
   %24 = load ptr, ptr %23, align 8
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 93
-  %26 = load i8, ptr %25, align 1, !range !6, !noundef !7
+  %26 = load i8, ptr %25, align 1, !range !5, !noundef !6
   %27 = trunc nuw i8 %26 to i1
   br i1 %27, label %28, label %30
 
@@ -907,7 +907,7 @@ define hidden zeroext i1 @KMSDRM_VideoInit(ptr noundef %0) #0 {
   %81 = load i32, ptr %25, align 8
   %82 = sext i32 %81 to i64
   %83 = icmp slt i64 %indvars.iv.next.i.i, %82
-  br i1 %83, label %67, label %.preheader42.i.i, !llvm.loop !9
+  br i1 %83, label %67, label %.preheader42.i.i, !llvm.loop !8
 
 84:                                               ; preds = %102, %.lr.ph63.i.i
   %indvars.iv95.i.i = phi i64 [ 0, %.lr.ph63.i.i ], [ %indvars.iv.next96.i.i, %102 ]
@@ -941,7 +941,7 @@ define hidden zeroext i1 @KMSDRM_VideoInit(ptr noundef %0) #0 {
 99:                                               ; preds = %95
   %indvars.iv.next93.i.i = add nuw nsw i64 %indvars.iv92.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next93.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %._crit_edge.thread.i.i, label %95, !llvm.loop !10
+  br i1 %exitcond.not.i.i, label %._crit_edge.thread.i.i, label %95, !llvm.loop !9
 
 ._crit_edge.loopexit.i.i:                         ; preds = %95
   %100 = trunc nuw nsw i64 %indvars.iv92.i.i to i32
@@ -962,7 +962,7 @@ define hidden zeroext i1 @KMSDRM_VideoInit(ptr noundef %0) #0 {
   %103 = load i32, ptr %25, align 8
   %104 = sext i32 %103 to i64
   %105 = icmp slt i64 %indvars.iv.next96.i.i, %104
-  br i1 %105, label %84, label %.thread30.i.i, !llvm.loop !11
+  br i1 %105, label %84, label %.thread30.i.i, !llvm.loop !10
 
 .thread6.i.i:                                     ; preds = %74, %._crit_edge.i.i
   %.49.i.i = phi ptr [ %90, %._crit_edge.i.i ], [ %73, %74 ]
@@ -994,7 +994,7 @@ define hidden zeroext i1 @KMSDRM_VideoInit(ptr noundef %0) #0 {
 118:                                              ; preds = %115
   %119 = add nuw nsw i32 %.213464.i.i, 1
   %exitcond98.not.i.i = icmp eq i32 %119, %111
-  br i1 %exitcond98.not.i.i, label %.loopexit.i.i, label %115, !llvm.loop !12
+  br i1 %exitcond98.not.i.i, label %.loopexit.i.i, label %115, !llvm.loop !11
 
 120:                                              ; preds = %115
   %121 = load ptr, ptr %28, align 8
@@ -1032,7 +1032,7 @@ define hidden zeroext i1 @KMSDRM_VideoInit(ptr noundef %0) #0 {
   %137 = load i32, ptr %52, align 8
   %138 = sext i32 %137 to i64
   %139 = icmp slt i64 %indvars.iv.next100.i.i, %138
-  br i1 %139, label %132, label %.preheader.i.i, !llvm.loop !13
+  br i1 %139, label %132, label %.preheader.i.i, !llvm.loop !12
 
 ._crit_edge68.i.i:                                ; preds = %132
   %140 = trunc nuw nsw i64 %indvars.iv99.i.i to i32
@@ -1072,7 +1072,7 @@ define hidden zeroext i1 @KMSDRM_VideoInit(ptr noundef %0) #0 {
   %spec.select177.i.i = call i32 @llvm.smax.i32(i32 %155, i32 %.074.i.i)
   %indvars.iv.next103.i.i = add nuw nsw i64 %indvars.iv102.i.i, 1
   %exitcond106.not.i.i = icmp eq i64 %indvars.iv.next103.i.i, %wide.trip.count105.i.i
-  br i1 %exitcond106.not.i.i, label %._crit_edge76.i.i, label %143, !llvm.loop !14
+  br i1 %exitcond106.not.i.i, label %._crit_edge76.i.i, label %143, !llvm.loop !13
 
 ._crit_edge76.i.i:                                ; preds = %148
   %.not169.i.i = icmp eq i32 %spec.select.i.i, -1
@@ -1171,7 +1171,7 @@ define hidden zeroext i1 @KMSDRM_VideoInit(ptr noundef %0) #0 {
   %.1.i.i.i.i.i = phi i32 [ %.2.i.i.i.i.i, %200 ], [ 0, %188 ]
   %indvars.iv.next.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i.i, 1
   %.not.i.i.i.i.i = icmp eq i32 %.1.i.i.i.i.i, 0
-  br i1 %.not.i.i.i.i.i, label %184, label %203, !llvm.loop !15
+  br i1 %.not.i.i.i.i.i, label %184, label %203, !llvm.loop !14
 
 203:                                              ; preds = %202, %184
   %.012.lcssa.i.i.i.i.i = phi i32 [ %.1.i.i.i.i.i, %202 ], [ 0, %184 ]
@@ -1222,7 +1222,7 @@ define hidden zeroext i1 @KMSDRM_VideoInit(ptr noundef %0) #0 {
   %227 = load i32, ptr %206, align 8
   %228 = zext i32 %227 to i64
   %229 = icmp samesign ult i64 %indvars.iv.next.i.i.i, %228
-  br i1 %229, label %210, label %KMSDRM_CrtcGetVrr.exit.i.i, !llvm.loop !16
+  br i1 %229, label %210, label %KMSDRM_CrtcGetVrr.exit.i.i, !llvm.loop !15
 
 KMSDRM_CrtcGetVrr.exit.i.i:                       ; preds = %226, %223, %.preheader.i.i.i, %203, %176
   %.0.i.i.i = phi i8 [ %225, %223 ], [ 0, %203 ], [ 0, %176 ], [ 0, %.preheader.i.i.i ], [ 0, %226 ]
@@ -1268,7 +1268,7 @@ KMSDRM_CrtcGetVrr.exit.i.i:                       ; preds = %226, %223, %.prehea
   %249 = load i32, ptr %234, align 8
   %250 = zext i32 %249 to i64
   %251 = icmp samesign ult i64 %indvars.iv.next.i182.i.i, %250
-  br i1 %251, label %.lr.ph79.i.i, label %KMSDRM_CrtcSetVrr.exit.i.i, !llvm.loop !17
+  br i1 %251, label %.lr.ph79.i.i, label %KMSDRM_CrtcSetVrr.exit.i.i, !llvm.loop !16
 
 KMSDRM_ConnectorCheckVrrCapable.exit.i.i:         ; preds = %243
   %252 = load ptr, ptr %236, align 8
@@ -1328,7 +1328,7 @@ KMSDRM_ConnectorCheckVrrCapable.exit.i.i:         ; preds = %243
   %.1.i.i.i188.i.i = phi i32 [ %.2.i.i.i187.i.i, %279 ], [ 0, %267 ]
   %indvars.iv.next.i.i.i189.i.i = add nuw nsw i64 %indvars.iv.i.i.i184.i.i, 1
   %.not.i.i.i190.i.i = icmp eq i32 %.1.i.i.i188.i.i, 0
-  br i1 %.not.i.i.i190.i.i, label %263, label %282, !llvm.loop !15
+  br i1 %.not.i.i.i190.i.i, label %263, label %282, !llvm.loop !14
 
 282:                                              ; preds = %281, %263
   %.012.lcssa.i.i.i185.i.i = phi i32 [ %.1.i.i.i188.i.i, %281 ], [ 0, %263 ]
@@ -1475,7 +1475,7 @@ CalculateRefreshRate.exit.i.i:                    ; preds = %325, %320
   %.1.i.i.i203.i.i = phi i32 [ %.2.i.i.i202.i.i, %354 ], [ 0, %342 ]
   %indvars.iv.next.i.i.i204.i.i = add nuw nsw i64 %indvars.iv.i.i.i193.i.i, 1
   %.not.i.i.i205.i.i = icmp eq i32 %.1.i.i.i203.i.i, 0
-  br i1 %.not.i.i.i205.i.i, label %338, label %357, !llvm.loop !15
+  br i1 %.not.i.i.i205.i.i, label %338, label %357, !llvm.loop !14
 
 357:                                              ; preds = %356, %338
   %.012.lcssa.i.i.i194.i.i = phi i32 [ %.1.i.i.i203.i.i, %356 ], [ 0, %338 ]
@@ -1562,7 +1562,7 @@ CalculateRefreshRate.exit.i.i:                    ; preds = %325, %320
   %400 = zext i32 %399 to i64
   %401 = icmp samesign uge i64 %indvars.iv.next.i199.i.i, %400
   %.not32.i.i.i = or i1 %.126.i.i.i, %401
-  br i1 %.not32.i.i.i, label %._crit_edge.i.loopexit.i.i, label %364, !llvm.loop !18
+  br i1 %.not32.i.i.i, label %._crit_edge.i.loopexit.i.i, label %364, !llvm.loop !17
 
 ._crit_edge.i.loopexit.i.i:                       ; preds = %398
   %402 = zext nneg i32 %.1.i.i.i to i64
@@ -1639,7 +1639,7 @@ KMSDRM_AddDisplay.exit.i:                         ; preds = %420, %.thread30.i.i
   %424 = load i32, ptr %21, align 8
   %425 = sext i32 %424 to i64
   %426 = icmp slt i64 %indvars.iv.next.i, %425
-  br i1 %426, label %40, label %._crit_edge.i, !llvm.loop !19
+  br i1 %426, label %40, label %._crit_edge.i, !llvm.loop !18
 
 ._crit_edge.i:                                    ; preds = %423, %.preheader.i
   %427 = call i32 @SDL_GetPrimaryDisplay_REAL() #13
@@ -1727,13 +1727,13 @@ KMSDRM_AddDisplay.exit.i:                         ; preds = %420, %.thread30.i.i
   %indvars.iv.next.i57.i = add nuw nsw i64 %indvars.iv.i55.i, 1
   %466 = sext i32 %465 to i64
   %467 = icmp slt i64 %indvars.iv.next.i57.i, %466
-  br i1 %467, label %.lr.ph.i54.i, label %.loopexit.i49.i, !llvm.loop !20
+  br i1 %467, label %.lr.ph.i54.i, label %.loopexit.i49.i, !llvm.loop !19
 
 .loopexit.i49.i:                                  ; preds = %464, %458, %.preheader51.i.i
   %.2.i.i = phi i32 [ %459, %458 ], [ %.03558.i.i, %.preheader51.i.i ], [ %.03558.i.i, %464 ]
   %468 = call ptr @SDL_strtok_r_REAL(ptr noundef null, ptr noundef nonnull @.str.54, ptr noundef nonnull %2) #13
   %.not45.i.i = icmp eq ptr %468, null
-  br i1 %.not45.i.i, label %.preheader.i50.i, label %.preheader51.i.i, !llvm.loop !21
+  br i1 %.not45.i.i, label %.preheader.i50.i, label %.preheader51.i.i, !llvm.loop !20
 
 ._crit_edge.i51.i:                                ; preds = %478, %.preheader.i50.i
   %469 = sext i32 %445 to i64
@@ -1760,7 +1760,7 @@ KMSDRM_AddDisplay.exit.i:                         ; preds = %420, %.thread30.i.i
   %.5.i.i = phi i32 [ %475, %474 ], [ %.459.i.i, %471 ]
   %indvars.iv.next68.i.i = add nuw nsw i64 %indvars.iv67.i.i, 1
   %exitcond.not.i53.i = icmp eq i64 %indvars.iv.next68.i.i, %wide.trip.count.i52.i
-  br i1 %exitcond.not.i53.i, label %._crit_edge.i51.i, label %471, !llvm.loop !22
+  br i1 %exitcond.not.i53.i, label %._crit_edge.i51.i, label %471, !llvm.loop !21
 
 479:                                              ; preds = %._crit_edge.i51.i, %431
   call void @SDL_free_REAL(ptr noundef %432) #13
@@ -1887,7 +1887,7 @@ define internal void @KMSDRM_ReleaseVT(ptr noundef %0) #0 {
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %19 = sext i32 %18 to i64
   %20 = icmp slt i64 %indvars.iv.next, %19
-  br i1 %20, label %8, label %._crit_edge, !llvm.loop !23
+  br i1 %20, label %8, label %._crit_edge, !llvm.loop !22
 
 ._crit_edge:                                      ; preds = %17, %1
   %21 = load ptr, ptr @KMSDRM_drmDropMaster, align 8
@@ -1936,7 +1936,7 @@ define internal void @KMSDRM_AcquireVT(ptr noundef %0) #0 {
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %24 = sext i32 %23 to i64
   %25 = icmp slt i64 %indvars.iv.next, %24
-  br i1 %25, label %12, label %._crit_edge, !llvm.loop !24
+  br i1 %25, label %12, label %._crit_edge, !llvm.loop !23
 
 ._crit_edge:                                      ; preds = %22, %1
   ret void
@@ -1990,7 +1990,7 @@ define hidden void @KMSDRM_VideoQuit(ptr noundef readonly captures(none) %0) #0 
   %17 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv.next.i
   %18 = load i32, ptr %17, align 4
   %.not24.i = icmp eq i32 %18, 0
-  br i1 %.not24.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !25
+  br i1 %.not24.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !24
 
 ._crit_edge.i:                                    ; preds = %.critedge.i, %.preheader.i
   tail call void @SDL_free_REAL(ptr noundef nonnull %4) #13
@@ -2128,7 +2128,7 @@ CalculateRefreshRate.exit:                        ; preds = %49, %54
   %60 = load i32, ptr %7, align 8
   %61 = sext i32 %60 to i64
   %62 = icmp slt i64 %indvars.iv.next, %61
-  br i1 %62, label %17, label %._crit_edge, !llvm.loop !26
+  br i1 %62, label %17, label %._crit_edge, !llvm.loop !25
 
 ._crit_edge:                                      ; preds = %59, %2
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3) #13
@@ -2148,7 +2148,7 @@ define hidden zeroext i1 @KMSDRM_SetDisplayMode(ptr noundef readonly captures(no
   %10 = load ptr, ptr %9, align 8
   %11 = load ptr, ptr %8, align 8
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 49
-  %13 = load i8, ptr %12, align 1, !range !6, !noundef !7
+  %13 = load i8, ptr %12, align 1, !range !5, !noundef !6
   %14 = trunc nuw i8 %13 to i1
   br i1 %14, label %.loopexit, label %15
 
@@ -2191,7 +2191,7 @@ define hidden zeroext i1 @KMSDRM_SetDisplayMode(ptr noundef readonly captures(no
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 128
   %39 = load ptr, ptr %38, align 8
   %40 = getelementptr inbounds nuw i8, ptr %33, i64 93
-  %41 = load i8, ptr %40, align 1, !range !6, !noundef !7
+  %41 = load i8, ptr %40, align 1, !range !5, !noundef !6
   %42 = trunc nuw i8 %41 to i1
   br i1 %42, label %43, label %44
 
@@ -2248,7 +2248,7 @@ KMSDRM_DirtySurfaces.exit:                        ; preds = %43, %54, %57
   %61 = load i32, ptr %25, align 4
   %62 = sext i32 %61 to i64
   %63 = icmp slt i64 %indvars.iv.next, %62
-  br i1 %63, label %30, label %.loopexit, !llvm.loop !27
+  br i1 %63, label %30, label %.loopexit, !llvm.loop !26
 
 .loopexit:                                        ; preds = %KMSDRM_DirtySurfaces.exit, %18, %3, %16
   %.014 = phi i1 [ %17, %16 ], [ true, %3 ], [ true, %18 ], [ true, %KMSDRM_DirtySurfaces.exit ]
@@ -2278,7 +2278,7 @@ define hidden void @KMSDRM_DestroyWindow(ptr noundef %0, ptr noundef %1) #0 {
   %14 = load ptr, ptr %13, align 8
   %15 = load i32, ptr %14, align 4
   %16 = getelementptr inbounds nuw i8, ptr %5, i64 232
-  %17 = load i8, ptr %16, align 8, !range !6, !noundef !7
+  %17 = load i8, ptr %16, align 8, !range !5, !noundef !6
   %18 = zext nneg i8 %17 to i64
   %19 = load ptr, ptr @KMSDRM_drmModeObjectGetProperties, align 8
   %20 = tail call ptr %19(i32 noundef %12, i32 noundef %15, i32 noundef -858993460) #13
@@ -2325,7 +2325,7 @@ define hidden void @KMSDRM_DestroyWindow(ptr noundef %0, ptr noundef %1) #0 {
   %.1.i.i.i = phi i32 [ %.2.i.i.i, %39 ], [ 0, %27 ]
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %.not.i.i.i = icmp eq i32 %.1.i.i.i, 0
-  br i1 %.not.i.i.i, label %23, label %42, !llvm.loop !15
+  br i1 %.not.i.i.i, label %23, label %42, !llvm.loop !14
 
 42:                                               ; preds = %41, %23
   %.012.lcssa.i.i.i = phi i32 [ %.1.i.i.i, %41 ], [ 0, %23 ]
@@ -2341,7 +2341,7 @@ KMSDRM_CrtcSetVrr.exit:                           ; preds = %6, %42
 
 47:                                               ; preds = %KMSDRM_CrtcSetVrr.exit
   %48 = getelementptr inbounds nuw i8, ptr %46, i64 72
-  %49 = load i8, ptr %48, align 8, !range !6, !noundef !7
+  %49 = load i8, ptr %48, align 8, !range !5, !noundef !6
   %50 = trunc nuw i8 %49 to i1
   br i1 %50, label %51, label %86
 
@@ -2415,7 +2415,7 @@ KMSDRM_GBMDeinit.exit:                            ; preds = %68, %72, %KMSDRM_Dr
 
 86:                                               ; preds = %47, %KMSDRM_CrtcSetVrr.exit
   %87 = getelementptr inbounds nuw i8, ptr %46, i64 49
-  %88 = load i8, ptr %87, align 1, !range !6, !noundef !7
+  %88 = load i8, ptr %87, align 1, !range !5, !noundef !6
   %89 = trunc nuw i8 %88 to i1
   br i1 %89, label %90, label %91
 
@@ -2460,12 +2460,12 @@ KMSDRM_GBMDeinit.exit:                            ; preds = %68, %72, %KMSDRM_Dr
   %108 = load i32, ptr %92, align 4
   %109 = zext i32 %108 to i64
   %110 = icmp samesign ult i64 %indvars.iv.next58, %109
-  br i1 %110, label %.lr.ph51, label %.loopexit, !llvm.loop !28
+  br i1 %110, label %.lr.ph51, label %.loopexit, !llvm.loop !27
 
 111:                                              ; preds = %96
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %96, !llvm.loop !29
+  br i1 %exitcond.not, label %.loopexit, label %96, !llvm.loop !28
 
 .loopexit:                                        ; preds = %111, %.lr.ph51, %91, %100
   %112 = load ptr, ptr %3, align 8
@@ -2499,7 +2499,7 @@ define hidden zeroext i1 @KMSDRM_CreateWindow(ptr noundef %0, ptr noundef %1, i3
   %.lobit = lshr exact i64 %13, 28
   %15 = trunc nuw nsw i64 %.lobit to i8
   %16 = getelementptr inbounds nuw i8, ptr %7, i64 49
-  %17 = load i8, ptr %16, align 1, !range !6, !noundef !7
+  %17 = load i8, ptr %16, align 1, !range !5, !noundef !6
   %18 = trunc nuw i8 %17 to i1
   %19 = tail call noalias dereferenceable_or_null(56) ptr @SDL_calloc_REAL(i64 noundef 1, i64 noundef 56) #14
   %.not = icmp eq ptr %19, null
@@ -2527,7 +2527,7 @@ define hidden zeroext i1 @KMSDRM_CreateWindow(ptr noundef %0, ptr noundef %1, i3
   %28 = or i64 %27, 2
   store i64 %28, ptr %11, align 8
   %29 = getelementptr inbounds nuw i8, ptr %7, i64 72
-  %30 = load i8, ptr %29, align 8, !range !6, !noundef !7
+  %30 = load i8, ptr %29, align 8, !range !5, !noundef !6
   %31 = trunc nuw i8 %30 to i1
   br i1 %31, label %55, label %32
 
@@ -2765,7 +2765,7 @@ define hidden void @KMSDRM_SetWindowSize(ptr noundef readonly captures(none) %0,
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1656
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 49
-  %7 = load i8, ptr %6, align 1, !range !6, !noundef !7
+  %7 = load i8, ptr %6, align 1, !range !5, !noundef !6
   %8 = trunc nuw i8 %7 to i1
   br i1 %8, label %38, label %9
 
@@ -2778,7 +2778,7 @@ define hidden void @KMSDRM_SetWindowSize(ptr noundef readonly captures(none) %0,
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 128
   %15 = load ptr, ptr %14, align 8
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 93
-  %17 = load i8, ptr %16, align 1, !range !6, !noundef !7
+  %17 = load i8, ptr %16, align 1, !range !5, !noundef !6
   %18 = trunc nuw i8 %17 to i1
   br i1 %18, label %19, label %20
 
@@ -2844,7 +2844,7 @@ define hidden noundef i32 @KMSDRM_SetWindowFullscreen(ptr noundef readonly captu
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 1656
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 49
-  %9 = load i8, ptr %8, align 1, !range !6, !noundef !7
+  %9 = load i8, ptr %8, align 1, !range !5, !noundef !6
   %10 = trunc nuw i8 %9 to i1
   br i1 %10, label %40, label %11
 
@@ -2857,7 +2857,7 @@ define hidden noundef i32 @KMSDRM_SetWindowFullscreen(ptr noundef readonly captu
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 128
   %17 = load ptr, ptr %16, align 8
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 93
-  %19 = load i8, ptr %18, align 1, !range !6, !noundef !7
+  %19 = load i8, ptr %18, align 1, !range !5, !noundef !6
   %20 = trunc nuw i8 %19 to i1
   br i1 %20, label %21, label %22
 
@@ -3113,7 +3113,7 @@ define internal fastcc i32 @get_driindex() unnamed_addr #0 {
   %97 = icmp slt i64 %indvars.iv.next, %96
   %98 = icmp slt i32 %.6, 0
   %99 = select i1 %97, i1 %98, i1 false
-  br i1 %99, label %72, label %.loopexit, !llvm.loop !30
+  br i1 %99, label %72, label %.loopexit, !llvm.loop !29
 
 .loopexit:                                        ; preds = %94, %68, %65, %56
   %.4 = phi i32 [ %.04267, %68 ], [ %.04267, %65 ], [ %.04267, %56 ], [ %.6, %94 ]
@@ -3143,7 +3143,7 @@ define internal fastcc i32 @get_driindex() unnamed_addr #0 {
   %109 = icmp ne ptr %108, null
   %110 = icmp slt i32 %.143, 0
   %111 = select i1 %109, i1 %110, i1 false
-  br i1 %111, label %.lr.ph68, label %._crit_edge, !llvm.loop !31
+  br i1 %111, label %.lr.ph68, label %._crit_edge, !llvm.loop !30
 
 ._crit_edge:                                      ; preds = %107, %18
   %.042.lcssa = phi i32 [ -2, %18 ], [ %.143, %107 ]
@@ -3287,32 +3287,31 @@ attributes #16 = { nounwind allocsize(1) }
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = distinct !{!3, !4, !5}
+!3 = distinct !{!3, !4}
 !4 = !{!"llvm.loop.mustprogress"}
-!5 = !{!"llvm.loop.estimated_trip_count"}
-!6 = !{i8 0, i8 2}
-!7 = !{}
-!8 = distinct !{!8, !4, !5}
-!9 = distinct !{!9, !4, !5}
-!10 = distinct !{!10, !4, !5}
-!11 = distinct !{!11, !4, !5}
-!12 = distinct !{!12, !4, !5}
-!13 = distinct !{!13, !4, !5}
-!14 = distinct !{!14, !4, !5}
-!15 = distinct !{!15, !4, !5}
-!16 = distinct !{!16, !4, !5}
-!17 = distinct !{!17, !4, !5}
-!18 = distinct !{!18, !4, !5}
-!19 = distinct !{!19, !4, !5}
-!20 = distinct !{!20, !4, !5}
-!21 = distinct !{!21, !4, !5}
-!22 = distinct !{!22, !4, !5}
-!23 = distinct !{!23, !4, !5}
-!24 = distinct !{!24, !4, !5}
-!25 = distinct !{!25, !4, !5}
-!26 = distinct !{!26, !4, !5}
-!27 = distinct !{!27, !4, !5}
-!28 = distinct !{!28, !4, !5}
-!29 = distinct !{!29, !4, !5}
-!30 = distinct !{!30, !4, !5}
-!31 = distinct !{!31, !4, !5}
+!5 = !{i8 0, i8 2}
+!6 = !{}
+!7 = distinct !{!7, !4}
+!8 = distinct !{!8, !4}
+!9 = distinct !{!9, !4}
+!10 = distinct !{!10, !4}
+!11 = distinct !{!11, !4}
+!12 = distinct !{!12, !4}
+!13 = distinct !{!13, !4}
+!14 = distinct !{!14, !4}
+!15 = distinct !{!15, !4}
+!16 = distinct !{!16, !4}
+!17 = distinct !{!17, !4}
+!18 = distinct !{!18, !4}
+!19 = distinct !{!19, !4}
+!20 = distinct !{!20, !4}
+!21 = distinct !{!21, !4}
+!22 = distinct !{!22, !4}
+!23 = distinct !{!23, !4}
+!24 = distinct !{!24, !4}
+!25 = distinct !{!25, !4}
+!26 = distinct !{!26, !4}
+!27 = distinct !{!27, !4}
+!28 = distinct !{!28, !4}
+!29 = distinct !{!29, !4}
+!30 = distinct !{!30, !4}

@@ -752,7 +752,7 @@ format_number.exit151.thread.thread:              ; preds = %._crit_edge.i.i133
   %185 = add nuw nsw i32 %.01937.i138, 1
   %186 = shl i64 %.038.i137, 3
   %exitcond.not.i139 = icmp eq i32 %.01937.i138, 8
-  br i1 %exitcond.not.i139, label %.loopexit.i140, label %.lr.ph.i136, !llvm.loop !41
+  br i1 %exitcond.not.i139, label %.loopexit.i140, label %.lr.ph.i136, !llvm.loop !40
 
 .loopexit.i140:                                   ; preds = %184, %format_number.exit.thread.thread399, %169
   %.14401403 = phi i32 [ %.11, %format_number.exit.thread.thread399 ], [ -25, %169 ], [ %.14401402, %184 ]
@@ -770,7 +770,7 @@ format_number.exit151.thread.thread:              ; preds = %._crit_edge.i.i133
   store i8 %191, ptr %192, align 1, !tbaa !26
   %193 = ashr i64 %.078.i.i143, 8
   %194 = icmp samesign ugt i32 %.010.i.i141, 1
-  br i1 %194, label %189, label %format_256.exit.i144, !llvm.loop !42
+  br i1 %194, label %189, label %format_256.exit.i144, !llvm.loop !41
 
 format_256.exit.i144:                             ; preds = %189
   %195 = or i8 %191, -128
@@ -870,7 +870,7 @@ format_number.exit177.thread.thread:              ; preds = %._crit_edge.i.i157
   %229 = add nuw nsw i32 %.01937.i164, 1
   %230 = shl i64 %.038.i163, 3
   %exitcond.not.i165 = icmp eq i32 %.01937.i164, 8
-  br i1 %exitcond.not.i165, label %.loopexit.i166, label %.lr.ph.i162, !llvm.loop !41
+  br i1 %exitcond.not.i165, label %.loopexit.i166, label %.lr.ph.i162, !llvm.loop !40
 
 .loopexit.i166:                                   ; preds = %228, %215
   %231 = getelementptr inbounds nuw i8, ptr %1, i64 124
@@ -886,7 +886,7 @@ format_number.exit177.thread.thread:              ; preds = %._crit_edge.i.i157
   store i8 %234, ptr %235, align 1, !tbaa !26
   %236 = ashr i64 %.078.i.i169, 8
   %237 = icmp samesign ugt i32 %.010.i.i167, 1
-  br i1 %237, label %232, label %format_256.exit.i170, !llvm.loop !42
+  br i1 %237, label %232, label %format_256.exit.i170, !llvm.loop !41
 
 format_256.exit.i170:                             ; preds = %232
   %238 = or i8 %234, -128
@@ -985,7 +985,7 @@ format_number.exit203.thread.thread:              ; preds = %._crit_edge.i.i183
   %271 = add nuw nsw i32 %.01937.i190, 1
   %272 = shl i64 %.038.i189, 3
   %exitcond.not.i191 = icmp eq i32 %.01937.i190, 12
-  br i1 %exitcond.not.i191, label %.loopexit.i192, label %.lr.ph.i188, !llvm.loop !41
+  br i1 %exitcond.not.i191, label %.loopexit.i192, label %.lr.ph.i188, !llvm.loop !40
 
 .loopexit.i192:                                   ; preds = %270, %257
   %273 = getelementptr inbounds nuw i8, ptr %1, i64 136
@@ -1001,7 +1001,7 @@ format_number.exit203.thread.thread:              ; preds = %._crit_edge.i.i183
   store i8 %276, ptr %277, align 1, !tbaa !26
   %278 = ashr i64 %.078.i.i195, 8
   %279 = icmp samesign ugt i32 %.010.i.i193, 1
-  br i1 %279, label %274, label %format_256.exit.i196, !llvm.loop !42
+  br i1 %279, label %274, label %format_256.exit.i196, !llvm.loop !41
 
 format_256.exit.i196:                             ; preds = %274
   %280 = or i8 %276, -128
@@ -1091,7 +1091,7 @@ format_number.exit203.thread:                     ; preds = %._crit_edge.i27.i20
   store i8 %307, ptr %308, align 1, !tbaa !26
   %309 = ashr i64 %.078.i.i221, 8
   %310 = icmp samesign ugt i32 %.010.i.i219, 1
-  br i1 %310, label %.loopexit.i218, label %format_256.exit.i222, !llvm.loop !42
+  br i1 %310, label %.loopexit.i218, label %format_256.exit.i222, !llvm.loop !41
 
 format_256.exit.i222:                             ; preds = %.loopexit.i218
   %311 = or i8 %307, -128
@@ -1198,7 +1198,7 @@ format_number.exit255.thread.thread:              ; preds = %._crit_edge.i.i235
   %349 = add nuw nsw i32 %.01937.i242, 1
   %350 = shl i64 %.038.i241, 3
   %exitcond.not.i243 = icmp eq i32 %.01937.i242, 8
-  br i1 %exitcond.not.i243, label %.loopexit.i244, label %.lr.ph.i240, !llvm.loop !41
+  br i1 %exitcond.not.i243, label %.loopexit.i244, label %.lr.ph.i240, !llvm.loop !40
 
 .loopexit.i244:                                   ; preds = %348, %335
   %351 = getelementptr inbounds nuw i8, ptr %1, i64 337
@@ -1214,7 +1214,7 @@ format_number.exit255.thread.thread:              ; preds = %._crit_edge.i.i235
   store i8 %354, ptr %355, align 1, !tbaa !26
   %356 = ashr i64 %.078.i.i247, 8
   %357 = icmp samesign ugt i32 %.010.i.i245, 1
-  br i1 %357, label %352, label %format_256.exit.i248, !llvm.loop !42
+  br i1 %357, label %352, label %format_256.exit.i248, !llvm.loop !41
 
 format_256.exit.i248:                             ; preds = %352
   %358 = or i8 %354, -128
@@ -1308,7 +1308,7 @@ format_number.exit255.thread:                     ; preds = %._crit_edge.i27.i25
   %389 = add nuw nsw i32 %.01937.i268, 1
   %390 = shl i64 %.038.i267, 3
   %exitcond.not.i269 = icmp eq i32 %.01937.i268, 8
-  br i1 %exitcond.not.i269, label %.loopexit.i270, label %.lr.ph.i266, !llvm.loop !41
+  br i1 %exitcond.not.i269, label %.loopexit.i270, label %.lr.ph.i266, !llvm.loop !40
 
 .loopexit.i270:                                   ; preds = %388, %375
   %391 = getelementptr inbounds nuw i8, ptr %1, i64 345
@@ -1324,7 +1324,7 @@ format_number.exit255.thread:                     ; preds = %._crit_edge.i27.i25
   store i8 %394, ptr %395, align 1, !tbaa !26
   %396 = ashr i64 %.078.i.i273, 8
   %397 = icmp samesign ugt i32 %.010.i.i271, 1
-  br i1 %397, label %392, label %format_256.exit.i274, !llvm.loop !42
+  br i1 %397, label %392, label %format_256.exit.i274, !llvm.loop !41
 
 format_256.exit.i274:                             ; preds = %392
   %398 = or i8 %394, -128
@@ -1414,7 +1414,7 @@ format_number.exit281.thread:                     ; preds = %._crit_edge.i27.i27
   %428 = add i32 %.0101359, %427
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 512
-  br i1 %exitcond.not, label %429, label %424, !llvm.loop !43
+  br i1 %exitcond.not, label %429, label %424, !llvm.loop !42
 
 429:                                              ; preds = %424
   %430 = getelementptr inbounds nuw i8, ptr %1, i64 154
@@ -1596,9 +1596,8 @@ attributes #14 = { nounwind willreturn memory(none) }
 !35 = !{!7, !7, i64 0}
 !36 = !{!12, !12, i64 0}
 !37 = !{!14, !14, i64 0}
-!38 = distinct !{!38, !39, !40}
+!38 = distinct !{!38, !39}
 !39 = !{!"llvm.loop.mustprogress"}
-!40 = !{!"llvm.loop.estimated_trip_count"}
-!41 = distinct !{!41, !39, !40}
-!42 = distinct !{!42, !39, !40}
-!43 = distinct !{!43, !39, !40}
+!40 = distinct !{!40, !39}
+!41 = distinct !{!41, !39}
+!42 = distinct !{!42, !39}

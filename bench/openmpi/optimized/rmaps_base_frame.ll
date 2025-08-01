@@ -152,16 +152,16 @@ define internal i32 @prte_rmaps_base_open(i32 noundef %0) #0 {
   br i1 %.not.i, label %pmix_obj_run_constructors.exit, label %.lr.ph.i, !llvm.loop !29
 
 pmix_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %5
-  store i16 0, ptr getelementptr inbounds nuw (i8, ptr @prte_rmaps_base, i64 272), align 8, !tbaa !32
-  store i16 0, ptr getelementptr inbounds nuw (i8, ptr @prte_rmaps_base, i64 274), align 2, !tbaa !33
-  %11 = load i8, ptr @rmaps_base_inherit, align 1, !tbaa !21, !range !34, !noundef !35
-  store i8 %11, ptr getelementptr inbounds nuw (i8, ptr @prte_rmaps_base, i64 288), align 8, !tbaa !36
-  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @prte_rmaps_base, i64 289), align 1, !tbaa !37
-  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @prte_rmaps_base, i64 328), align 8, !tbaa !38
+  store i16 0, ptr getelementptr inbounds nuw (i8, ptr @prte_rmaps_base, i64 272), align 8, !tbaa !31
+  store i16 0, ptr getelementptr inbounds nuw (i8, ptr @prte_rmaps_base, i64 274), align 2, !tbaa !32
+  %11 = load i8, ptr @rmaps_base_inherit, align 1, !tbaa !21, !range !33, !noundef !34
+  store i8 %11, ptr getelementptr inbounds nuw (i8, ptr @prte_rmaps_base, i64 288), align 8, !tbaa !35
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @prte_rmaps_base, i64 289), align 1, !tbaa !36
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @prte_rmaps_base, i64 328), align 8, !tbaa !37
   %12 = tail call noalias ptr @hwloc_bitmap_alloc() #16
-  store ptr %12, ptr getelementptr inbounds nuw (i8, ptr @prte_rmaps_base, i64 304), align 8, !tbaa !39
+  store ptr %12, ptr getelementptr inbounds nuw (i8, ptr @prte_rmaps_base, i64 304), align 8, !tbaa !38
   %13 = tail call noalias ptr @hwloc_bitmap_alloc() #16
-  store ptr %13, ptr getelementptr inbounds nuw (i8, ptr @prte_rmaps_base, i64 312), align 8, !tbaa !40
+  store ptr %13, ptr getelementptr inbounds nuw (i8, ptr @prte_rmaps_base, i64 312), align 8, !tbaa !39
   %14 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @prte_rmaps_base, i64 320), align 8, !tbaa !3
   %.not10 = icmp eq ptr %14, null
   br i1 %.not10, label %17, label %15
@@ -194,7 +194,7 @@ pmix_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %5
 
 prte_rmaps_base_set_ranking_policy.exit.thread:   ; preds = %19, %21, %23, %25
   %.1.i = phi i16 [ 4098, %19 ], [ 4097, %21 ], [ 4099, %23 ], [ 4100, %25 ]
-  store i16 %.1.i, ptr getelementptr inbounds nuw (i8, ptr @prte_rmaps_base, i64 274), align 2, !tbaa !33
+  store i16 %.1.i, ptr getelementptr inbounds nuw (i8, ptr @prte_rmaps_base, i64 274), align 2, !tbaa !32
   br label %28
 
 prte_rmaps_base_set_ranking_policy.exit:          ; preds = %25
@@ -212,23 +212,23 @@ prte_rmaps_base_set_ranking_policy.exit:          ; preds = %25
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @prte_rmaps_base_close() #0 {
-  %1 = load volatile i64, ptr getelementptr inbounds nuw (i8, ptr @prte_rmaps_base, i64 264), align 8, !tbaa !41
+  %1 = load volatile i64, ptr getelementptr inbounds nuw (i8, ptr @prte_rmaps_base, i64 264), align 8, !tbaa !40
   %2 = icmp eq i64 %1, 0
   br i1 %2, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %0, %35
-  %3 = load volatile i64, ptr getelementptr inbounds nuw (i8, ptr @prte_rmaps_base, i64 264), align 8, !tbaa !41
+  %3 = load volatile i64, ptr getelementptr inbounds nuw (i8, ptr @prte_rmaps_base, i64 264), align 8, !tbaa !40
   %4 = add i64 %3, -1
-  store volatile i64 %4, ptr getelementptr inbounds nuw (i8, ptr @prte_rmaps_base, i64 264), align 8, !tbaa !41
-  %5 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @prte_rmaps_base, i64 240), align 8, !tbaa !42
+  store volatile i64 %4, ptr getelementptr inbounds nuw (i8, ptr @prte_rmaps_base, i64 264), align 8, !tbaa !40
+  %5 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @prte_rmaps_base, i64 240), align 8, !tbaa !41
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 128
-  %7 = load volatile ptr, ptr %6, align 8, !tbaa !43
+  %7 = load volatile ptr, ptr %6, align 8, !tbaa !42
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 120
-  %9 = load volatile ptr, ptr %8, align 8, !tbaa !44
+  %9 = load volatile ptr, ptr %8, align 8, !tbaa !43
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 128
-  store volatile ptr %7, ptr %10, align 8, !tbaa !43
-  %11 = load volatile ptr, ptr %8, align 8, !tbaa !44
-  store ptr %11, ptr getelementptr inbounds nuw (i8, ptr @prte_rmaps_base, i64 240), align 8, !tbaa !42
+  store volatile ptr %7, ptr %10, align 8, !tbaa !42
+  %11 = load volatile ptr, ptr %8, align 8, !tbaa !43
+  store ptr %11, ptr getelementptr inbounds nuw (i8, ptr @prte_rmaps_base, i64 240), align 8, !tbaa !41
   %12 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %5) #16
   %13 = icmp eq i32 %12, 35
   br i1 %13, label %14, label %pmix_obj_update.exit
@@ -253,7 +253,7 @@ pmix_obj_update.exit:                             ; preds = %.lr.ph
   %22 = getelementptr inbounds nuw i8, ptr %5, i64 40
   %23 = load ptr, ptr %22, align 8, !tbaa !25
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 48
-  %25 = load ptr, ptr %24, align 8, !tbaa !45
+  %25 = load ptr, ptr %24, align 8, !tbaa !44
   %26 = load ptr, ptr %25, align 8, !tbaa !28
   %.not6.i = icmp eq ptr %26, null
   br i1 %.not6.i, label %pmix_obj_run_destructors.exit, label %.lr.ph.i
@@ -265,11 +265,11 @@ pmix_obj_update.exit:                             ; preds = %.lr.ph
   %28 = getelementptr inbounds nuw i8, ptr %.07.i, i64 8
   %29 = load ptr, ptr %28, align 8, !tbaa !28
   %.not.i = icmp eq ptr %29, null
-  br i1 %.not.i, label %pmix_obj_run_destructors.exit, label %.lr.ph.i, !llvm.loop !46
+  br i1 %.not.i, label %pmix_obj_run_destructors.exit, label %.lr.ph.i, !llvm.loop !45
 
 pmix_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %21
   %30 = getelementptr inbounds nuw i8, ptr %5, i64 96
-  %31 = load ptr, ptr %30, align 8, !tbaa !47
+  %31 = load ptr, ptr %30, align 8, !tbaa !46
   %.not7 = icmp eq ptr %31, null
   br i1 %.not7, label %34, label %32
 
@@ -283,14 +283,14 @@ pmix_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %21
   br label %35
 
 35:                                               ; preds = %32, %34, %pmix_obj_update.exit
-  %36 = load volatile i64, ptr getelementptr inbounds nuw (i8, ptr @prte_rmaps_base, i64 264), align 8, !tbaa !41
+  %36 = load volatile i64, ptr getelementptr inbounds nuw (i8, ptr @prte_rmaps_base, i64 264), align 8, !tbaa !40
   %37 = icmp eq i64 %36, 0
-  br i1 %37, label %._crit_edge, label %.lr.ph, !llvm.loop !48
+  br i1 %37, label %._crit_edge, label %.lr.ph, !llvm.loop !47
 
 ._crit_edge:                                      ; preds = %35, %0
   %38 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @prte_rmaps_base, i64 40), align 8, !tbaa !25
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 48
-  %40 = load ptr, ptr %39, align 8, !tbaa !45
+  %40 = load ptr, ptr %39, align 8, !tbaa !44
   %41 = load ptr, ptr %40, align 8, !tbaa !28
   %.not6.i8 = icmp eq ptr %41, null
   br i1 %.not6.i8, label %pmix_obj_run_destructors.exit12, label %.lr.ph.i9
@@ -302,12 +302,12 @@ pmix_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %21
   %43 = getelementptr inbounds nuw i8, ptr %.07.i10, i64 8
   %44 = load ptr, ptr %43, align 8, !tbaa !28
   %.not.i11 = icmp eq ptr %44, null
-  br i1 %.not.i11, label %pmix_obj_run_destructors.exit12, label %.lr.ph.i9, !llvm.loop !46
+  br i1 %.not.i11, label %pmix_obj_run_destructors.exit12, label %.lr.ph.i9, !llvm.loop !45
 
 pmix_obj_run_destructors.exit12:                  ; preds = %.lr.ph.i9, %._crit_edge
-  %45 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @prte_rmaps_base, i64 304), align 8, !tbaa !39
+  %45 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @prte_rmaps_base, i64 304), align 8, !tbaa !38
   tail call void @hwloc_bitmap_free(ptr noundef %45) #16
-  %46 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @prte_rmaps_base, i64 312), align 8, !tbaa !40
+  %46 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @prte_rmaps_base, i64 312), align 8, !tbaa !39
   tail call void @hwloc_bitmap_free(ptr noundef %46) #16
   %47 = tail call i32 @pmix_mca_base_framework_components_close(ptr noundef nonnull @prte_rmaps_base_framework, ptr noundef null) #16
   ret i32 %47
@@ -315,19 +315,19 @@ pmix_obj_run_destructors.exit12:                  ; preds = %.lr.ph.i9, %._crit_
 
 ; Function Attrs: nounwind uwtable
 define noundef i32 @prte_rmaps_base_set_default_mapping(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
-  %3 = load i16, ptr %1, align 8, !tbaa !49
+  %3 = load i16, ptr %1, align 8, !tbaa !48
   %4 = icmp ugt i16 %3, 1
   br i1 %4, label %5, label %20
 
 5:                                                ; preds = %2
-  %6 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prte_rmaps_base_framework, i64 76), align 4, !tbaa !52
+  %6 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prte_rmaps_base_framework, i64 76), align 4, !tbaa !51
   %or.cond = icmp ult i32 %6, 64
   br i1 %or.cond, label %7, label %13
 
 7:                                                ; preds = %5
   %8 = zext nneg i32 %6 to i64
   %9 = getelementptr inbounds nuw [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %8, i32 2
-  %10 = load i32, ptr %9, align 4, !tbaa !55
+  %10 = load i32, ptr %9, align 4, !tbaa !54
   %11 = icmp sgt i32 %10, 4
   br i1 %11, label %12, label %13
 
@@ -337,19 +337,19 @@ define noundef i32 @prte_rmaps_base_set_default_mapping(ptr noundef readonly cap
 
 13:                                               ; preds = %12, %7, %5
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 480
-  %15 = load ptr, ptr %14, align 8, !tbaa !57
+  %15 = load ptr, ptr %14, align 8, !tbaa !56
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 136
-  %17 = load i16, ptr %16, align 8, !tbaa !66
+  %17 = load i16, ptr %16, align 8, !tbaa !65
   %18 = and i16 %17, -256
   %19 = or disjoint i16 %18, 9
-  store i16 %19, ptr %16, align 8, !tbaa !66
+  store i16 %19, ptr %16, align 8, !tbaa !65
   br label %127
 
 20:                                               ; preds = %2
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 480
-  %22 = load ptr, ptr %21, align 8, !tbaa !57
+  %22 = load ptr, ptr %21, align 8, !tbaa !56
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 140
-  %24 = load i16, ptr %23, align 4, !tbaa !68
+  %24 = load i16, ptr %23, align 4, !tbaa !67
   %25 = and i16 %24, 16384
   %.not = icmp eq i16 %25, 0
   br i1 %.not, label %42, label %26
@@ -357,7 +357,7 @@ define noundef i32 @prte_rmaps_base_set_default_mapping(ptr noundef readonly cap
 26:                                               ; preds = %20
   %trunc = trunc i16 %24 to i8
   %27 = getelementptr inbounds nuw i8, ptr %22, i64 136
-  %28 = load i16, ptr %27, align 8, !tbaa !66
+  %28 = load i16, ptr %27, align 8, !tbaa !65
   %29 = and i16 %28, -256
   %switch.tableidx = add i8 %trunc, -2
   %30 = icmp ult i8 %switch.tableidx, 7
@@ -372,15 +372,15 @@ switch.lookup:                                    ; preds = %26
 32:                                               ; preds = %26, %switch.lookup
   %.sink68 = phi i16 [ %switch.load, %switch.lookup ], [ 9, %26 ]
   %33 = or disjoint i16 %29, %.sink68
-  store i16 %33, ptr %27, align 8, !tbaa !66
-  %34 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prte_rmaps_base_framework, i64 76), align 4, !tbaa !52
+  store i16 %33, ptr %27, align 8, !tbaa !65
+  %34 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prte_rmaps_base_framework, i64 76), align 4, !tbaa !51
   %or.cond3 = icmp ult i32 %34, 64
   br i1 %or.cond3, label %35, label %127
 
 35:                                               ; preds = %32
   %36 = zext nneg i32 %34 to i64
   %37 = getelementptr inbounds nuw [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %36, i32 2
-  %38 = load i32, ptr %37, align 4, !tbaa !55
+  %38 = load i32, ptr %37, align 4, !tbaa !54
   %39 = icmp sgt i32 %38, 4
   br i1 %39, label %40, label %127
 
@@ -391,16 +391,16 @@ switch.lookup:                                    ; preds = %26
 
 42:                                               ; preds = %20
   %43 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %44 = load i32, ptr %43, align 8, !tbaa !69
+  %44 = load i32, ptr %43, align 8, !tbaa !68
   %45 = icmp slt i32 %44, 3
   br i1 %45, label %46, label %80
 
 46:                                               ; preds = %42
   %47 = getelementptr inbounds nuw i8, ptr %1, i64 2
-  %48 = load i8, ptr %47, align 2, !tbaa !70, !range !34, !noundef !35
+  %48 = load i8, ptr %47, align 2, !tbaa !69, !range !33, !noundef !34
   %49 = trunc nuw i8 %48 to i1
   %50 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %51 = load i32, ptr %50, align 4, !tbaa !71
+  %51 = load i32, ptr %50, align 4, !tbaa !70
   %or.cond65 = icmp ult i32 %51, 64
   br i1 %49, label %52, label %66
 
@@ -410,24 +410,24 @@ switch.lookup:                                    ; preds = %26
 53:                                               ; preds = %52
   %54 = zext nneg i32 %51 to i64
   %55 = getelementptr inbounds nuw [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %54, i32 2
-  %56 = load i32, ptr %55, align 4, !tbaa !55
+  %56 = load i32, ptr %55, align 4, !tbaa !54
   %57 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %58 = load i32, ptr %57, align 8, !tbaa !72
+  %58 = load i32, ptr %57, align 8, !tbaa !71
   %.not64 = icmp slt i32 %56, %58
   br i1 %.not64, label %60, label %59
 
 59:                                               ; preds = %53
   tail call void (i32, ptr, ...) @pmix_output(i32 noundef %51, ptr noundef nonnull @.str.6) #16
-  %.pre67 = load ptr, ptr %21, align 8, !tbaa !57
+  %.pre67 = load ptr, ptr %21, align 8, !tbaa !56
   br label %60
 
 60:                                               ; preds = %59, %53, %52
   %61 = phi ptr [ %.pre67, %59 ], [ %22, %53 ], [ %22, %52 ]
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 136
-  %63 = load i16, ptr %62, align 8, !tbaa !66
+  %63 = load i16, ptr %62, align 8, !tbaa !65
   %64 = and i16 %63, -256
   %65 = or disjoint i16 %64, 8
-  store i16 %65, ptr %62, align 8, !tbaa !66
+  store i16 %65, ptr %62, align 8, !tbaa !65
   br label %127
 
 66:                                               ; preds = %46
@@ -436,41 +436,41 @@ switch.lookup:                                    ; preds = %26
 67:                                               ; preds = %66
   %68 = zext nneg i32 %51 to i64
   %69 = getelementptr inbounds nuw [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %68, i32 2
-  %70 = load i32, ptr %69, align 4, !tbaa !55
+  %70 = load i32, ptr %69, align 4, !tbaa !54
   %71 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %72 = load i32, ptr %71, align 8, !tbaa !72
+  %72 = load i32, ptr %71, align 8, !tbaa !71
   %.not63 = icmp slt i32 %70, %72
   br i1 %.not63, label %74, label %73
 
 73:                                               ; preds = %67
   tail call void (i32, ptr, ...) @pmix_output(i32 noundef %51, ptr noundef nonnull @.str.7) #16
-  %.pre = load ptr, ptr %21, align 8, !tbaa !57
+  %.pre = load ptr, ptr %21, align 8, !tbaa !56
   br label %74
 
 74:                                               ; preds = %73, %67, %66
   %75 = phi ptr [ %.pre, %73 ], [ %22, %67 ], [ %22, %66 ]
   %76 = getelementptr inbounds nuw i8, ptr %75, i64 136
-  %77 = load i16, ptr %76, align 8, !tbaa !66
+  %77 = load i16, ptr %76, align 8, !tbaa !65
   %78 = and i16 %77, -256
   %79 = or disjoint i16 %78, 7
-  store i16 %79, ptr %76, align 8, !tbaa !66
+  store i16 %79, ptr %76, align 8, !tbaa !65
   br label %127
 
 80:                                               ; preds = %42
-  %81 = load ptr, ptr @prte_hwloc_topology, align 8, !tbaa !73
+  %81 = load ptr, ptr @prte_hwloc_topology, align 8, !tbaa !72
   %82 = tail call ptr @prte_hwloc_base_get_obj_by_type(ptr noundef %81, i32 noundef 1, i32 noundef 0) #16
   %.not61 = icmp eq ptr %82, null
   br i1 %.not61, label %97, label %83
 
 83:                                               ; preds = %80
-  %84 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prte_rmaps_base_framework, i64 76), align 4, !tbaa !52
+  %84 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prte_rmaps_base_framework, i64 76), align 4, !tbaa !51
   %or.cond5 = icmp ult i32 %84, 64
   br i1 %or.cond5, label %85, label %91
 
 85:                                               ; preds = %83
   %86 = zext nneg i32 %84 to i64
   %87 = getelementptr inbounds nuw [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %86, i32 2
-  %88 = load i32, ptr %87, align 4, !tbaa !55
+  %88 = load i32, ptr %87, align 4, !tbaa !54
   %89 = icmp sgt i32 %88, 4
   br i1 %89, label %90, label %91
 
@@ -479,19 +479,19 @@ switch.lookup:                                    ; preds = %26
   br label %91
 
 91:                                               ; preds = %90, %85, %83
-  %92 = load ptr, ptr %21, align 8, !tbaa !57
+  %92 = load ptr, ptr %21, align 8, !tbaa !56
   %93 = getelementptr inbounds nuw i8, ptr %92, i64 136
-  %94 = load i16, ptr %93, align 8, !tbaa !66
+  %94 = load i16, ptr %93, align 8, !tbaa !65
   %95 = and i16 %94, -256
   %96 = or disjoint i16 %95, 3
-  store i16 %96, ptr %93, align 8, !tbaa !66
+  store i16 %96, ptr %93, align 8, !tbaa !65
   br label %127
 
 97:                                               ; preds = %80
-  %98 = load ptr, ptr @prte_hwloc_topology, align 8, !tbaa !73
+  %98 = load ptr, ptr @prte_hwloc_topology, align 8, !tbaa !72
   %99 = tail call ptr @prte_hwloc_base_get_obj_by_type(ptr noundef %98, i32 noundef 13, i32 noundef 0) #16
   %.not62 = icmp eq ptr %99, null
-  %100 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prte_rmaps_base_framework, i64 76), align 4, !tbaa !52
+  %100 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prte_rmaps_base_framework, i64 76), align 4, !tbaa !51
   %or.cond9 = icmp ult i32 %100, 64
   br i1 %.not62, label %114, label %101
 
@@ -501,7 +501,7 @@ switch.lookup:                                    ; preds = %26
 102:                                              ; preds = %101
   %103 = zext nneg i32 %100 to i64
   %104 = getelementptr inbounds nuw [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %103, i32 2
-  %105 = load i32, ptr %104, align 4, !tbaa !55
+  %105 = load i32, ptr %104, align 4, !tbaa !54
   %106 = icmp sgt i32 %105, 4
   br i1 %106, label %107, label %108
 
@@ -510,12 +510,12 @@ switch.lookup:                                    ; preds = %26
   br label %108
 
 108:                                              ; preds = %107, %102, %101
-  %109 = load ptr, ptr %21, align 8, !tbaa !57
+  %109 = load ptr, ptr %21, align 8, !tbaa !56
   %110 = getelementptr inbounds nuw i8, ptr %109, i64 136
-  %111 = load i16, ptr %110, align 8, !tbaa !66
+  %111 = load i16, ptr %110, align 8, !tbaa !65
   %112 = and i16 %111, -256
   %113 = or disjoint i16 %112, 2
-  store i16 %113, ptr %110, align 8, !tbaa !66
+  store i16 %113, ptr %110, align 8, !tbaa !65
   br label %127
 
 114:                                              ; preds = %97
@@ -524,7 +524,7 @@ switch.lookup:                                    ; preds = %26
 115:                                              ; preds = %114
   %116 = zext nneg i32 %100 to i64
   %117 = getelementptr inbounds nuw [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %116, i32 2
-  %118 = load i32, ptr %117, align 4, !tbaa !55
+  %118 = load i32, ptr %117, align 4, !tbaa !54
   %119 = icmp sgt i32 %118, 4
   br i1 %119, label %120, label %121
 
@@ -533,12 +533,12 @@ switch.lookup:                                    ; preds = %26
   br label %121
 
 121:                                              ; preds = %120, %115, %114
-  %122 = load ptr, ptr %21, align 8, !tbaa !57
+  %122 = load ptr, ptr %21, align 8, !tbaa !56
   %123 = getelementptr inbounds nuw i8, ptr %122, i64 136
-  %124 = load i16, ptr %123, align 8, !tbaa !66
+  %124 = load i16, ptr %123, align 8, !tbaa !65
   %125 = and i16 %124, -256
   %126 = or disjoint i16 %125, 9
-  store i16 %126, ptr %123, align 8, !tbaa !66
+  store i16 %126, ptr %123, align 8, !tbaa !65
   br label %127
 
 127:                                              ; preds = %40, %35, %32, %91, %121, %108, %60, %74, %13
@@ -565,15 +565,15 @@ define range(i32 -43, 1) i32 @prte_rmaps_base_set_mapping_policy(ptr noundef %0,
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #16
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %4) #16
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #16
-  store i16 0, ptr %4, align 2, !tbaa !75
-  %6 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prte_rmaps_base_framework, i64 76), align 4, !tbaa !52
+  store i16 0, ptr %4, align 2, !tbaa !74
+  %6 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prte_rmaps_base_framework, i64 76), align 4, !tbaa !51
   %or.cond = icmp ult i32 %6, 64
   br i1 %or.cond, label %7, label %16
 
 7:                                                ; preds = %2
   %8 = zext nneg i32 %6 to i64
   %9 = getelementptr inbounds nuw [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %8, i32 2
-  %10 = load i32, ptr %9, align 4, !tbaa !55
+  %10 = load i32, ptr %9, align 4, !tbaa !54
   %11 = icmp sgt i32 %10, 4
   br i1 %11, label %12, label %16
 
@@ -598,7 +598,7 @@ define range(i32 -43, 1) i32 @prte_rmaps_base_set_mapping_policy(ptr noundef %0,
   %23 = load ptr, ptr %19, align 8, !tbaa !20
   %24 = tail call i32 @strcasecmp(ptr noundef %23, ptr noundef nonnull @.str.13) #20
   %25 = icmp eq i32 %24, 0
-  %26 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prte_rmaps_base_framework, i64 76), align 4, !tbaa !52
+  %26 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prte_rmaps_base_framework, i64 76), align 4, !tbaa !51
   br i1 %25, label %27, label %62
 
 27:                                               ; preds = %22
@@ -612,7 +612,7 @@ define range(i32 -43, 1) i32 @prte_rmaps_base_set_mapping_policy(ptr noundef %0,
   %33 = getelementptr inbounds nuw i8, ptr %19, i64 16
   %34 = load ptr, ptr %33, align 8, !tbaa !20
   %35 = call i32 (ptr, ptr, ...) @pmix_asprintf(ptr noundef nonnull %3, ptr noundef nonnull @.str.14, ptr noundef %32, ptr noundef %34) #16
-  %36 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prte_rmaps_base_framework, i64 76), align 4, !tbaa !52
+  %36 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prte_rmaps_base_framework, i64 76), align 4, !tbaa !51
   %37 = call ptr @prte_util_print_name_args(ptr noundef nonnull @prte_process_info) #16
   %38 = load ptr, ptr %19, align 8, !tbaa !20
   %39 = load ptr, ptr %3, align 8, !tbaa !20
@@ -649,7 +649,7 @@ define range(i32 -43, 1) i32 @prte_rmaps_base_set_mapping_policy(ptr noundef %0,
   br label %57
 
 57:                                               ; preds = %47, %46
-  store i16 16407, ptr %4, align 2, !tbaa !75
+  store i16 16407, ptr %4, align 2, !tbaa !74
   %58 = getelementptr inbounds nuw i8, ptr %19, i64 24
   %59 = load ptr, ptr %58, align 8, !tbaa !20
   %60 = icmp eq ptr %59, null
@@ -666,7 +666,7 @@ define range(i32 -43, 1) i32 @prte_rmaps_base_set_mapping_policy(ptr noundef %0,
 63:                                               ; preds = %62
   %64 = zext nneg i32 %26 to i64
   %65 = getelementptr inbounds nuw [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %64, i32 2
-  %66 = load i32, ptr %65, align 4, !tbaa !55
+  %66 = load i32, ptr %65, align 4, !tbaa !54
   %67 = icmp sgt i32 %66, 4
   br i1 %67, label %68, label %73
 
@@ -709,7 +709,7 @@ define range(i32 -43, 1) i32 @prte_rmaps_base_set_mapping_policy(ptr noundef %0,
   br label %273
 
 83:                                               ; preds = %81, %18
-  %84 = load i8, ptr %1, align 1, !tbaa !76
+  %84 = load i8, ptr %1, align 1, !tbaa !75
   %85 = icmp eq i8 %84, 58
   br i1 %85, label %86, label %93
 
@@ -742,11 +742,11 @@ define range(i32 -43, 1) i32 @prte_rmaps_base_set_mapping_policy(ptr noundef %0,
   br i1 %.not133, label %101, label %96
 
 96:                                               ; preds = %93
-  store i8 0, ptr %95, align 1, !tbaa !76
+  store i8 0, ptr %95, align 1, !tbaa !75
   %97 = load ptr, ptr %19, align 8, !tbaa !20
   %98 = call noalias ptr @strdup(ptr noundef %97) #16
   store ptr %98, ptr %3, align 8, !tbaa !20
-  store i8 61, ptr %95, align 1, !tbaa !76
+  store i8 61, ptr %95, align 1, !tbaa !75
   %99 = getelementptr inbounds nuw i8, ptr %95, i64 1
   %100 = call noalias ptr @strdup(ptr noundef nonnull %99) #16
   %.pre = load ptr, ptr %3, align 8, !tbaa !20
@@ -765,7 +765,7 @@ define range(i32 -43, 1) i32 @prte_rmaps_base_set_mapping_policy(ptr noundef %0,
   br i1 %105, label %106, label %110
 
 106:                                              ; preds = %103
-  %107 = load i16, ptr %4, align 2, !tbaa !75
+  %107 = load i16, ptr %4, align 2, !tbaa !74
   %108 = and i16 %107, -256
   %109 = or disjoint i16 %108, 9
   br label %267
@@ -776,7 +776,7 @@ define range(i32 -43, 1) i32 @prte_rmaps_base_set_mapping_policy(ptr noundef %0,
   br i1 %112, label %113, label %117
 
 113:                                              ; preds = %110
-  %114 = load i16, ptr %4, align 2, !tbaa !75
+  %114 = load i16, ptr %4, align 2, !tbaa !74
   %115 = and i16 %114, -256
   %116 = or disjoint i16 %115, 1
   br label %267
@@ -787,7 +787,7 @@ define range(i32 -43, 1) i32 @prte_rmaps_base_set_mapping_policy(ptr noundef %0,
   br i1 %119, label %120, label %124
 
 120:                                              ; preds = %117
-  %121 = load i16, ptr %4, align 2, !tbaa !75
+  %121 = load i16, ptr %4, align 2, !tbaa !74
   %122 = and i16 %121, -256
   %123 = or disjoint i16 %122, 20
   br label %267
@@ -798,9 +798,9 @@ define range(i32 -43, 1) i32 @prte_rmaps_base_set_mapping_policy(ptr noundef %0,
   br i1 %126, label %127, label %136
 
 127:                                              ; preds = %124
-  %128 = load i8, ptr getelementptr inbounds nuw (i8, ptr @prte_rmaps_base, i64 328), align 8, !tbaa !38, !range !34, !noundef !35
+  %128 = load i8, ptr getelementptr inbounds nuw (i8, ptr @prte_rmaps_base, i64 328), align 8, !tbaa !37, !range !33, !noundef !34
   %129 = trunc nuw i8 %128 to i1
-  %130 = load i16, ptr %4, align 2, !tbaa !75
+  %130 = load i16, ptr %4, align 2, !tbaa !74
   %131 = and i16 %130, -256
   br i1 %129, label %132, label %134
 
@@ -818,7 +818,7 @@ define range(i32 -43, 1) i32 @prte_rmaps_base_set_mapping_policy(ptr noundef %0,
   br i1 %138, label %139, label %143
 
 139:                                              ; preds = %136
-  %140 = load i16, ptr %4, align 2, !tbaa !75
+  %140 = load i16, ptr %4, align 2, !tbaa !74
   %141 = and i16 %140, -256
   %142 = or disjoint i16 %141, 6
   br label %267
@@ -829,7 +829,7 @@ define range(i32 -43, 1) i32 @prte_rmaps_base_set_mapping_policy(ptr noundef %0,
   br i1 %145, label %146, label %150
 
 146:                                              ; preds = %143
-  %147 = load i16, ptr %4, align 2, !tbaa !75
+  %147 = load i16, ptr %4, align 2, !tbaa !74
   %148 = and i16 %147, -256
   %149 = or disjoint i16 %148, 5
   br label %267
@@ -840,7 +840,7 @@ define range(i32 -43, 1) i32 @prte_rmaps_base_set_mapping_policy(ptr noundef %0,
   br i1 %152, label %153, label %157
 
 153:                                              ; preds = %150
-  %154 = load i16, ptr %4, align 2, !tbaa !75
+  %154 = load i16, ptr %4, align 2, !tbaa !74
   %155 = and i16 %154, -256
   %156 = or disjoint i16 %155, 4
   br label %267
@@ -851,7 +851,7 @@ define range(i32 -43, 1) i32 @prte_rmaps_base_set_mapping_policy(ptr noundef %0,
   br i1 %159, label %160, label %164
 
 160:                                              ; preds = %157
-  %161 = load i16, ptr %4, align 2, !tbaa !75
+  %161 = load i16, ptr %4, align 2, !tbaa !74
   %162 = and i16 %161, -256
   %163 = or disjoint i16 %162, 2
   br label %267
@@ -862,7 +862,7 @@ define range(i32 -43, 1) i32 @prte_rmaps_base_set_mapping_policy(ptr noundef %0,
   br i1 %166, label %167, label %171
 
 167:                                              ; preds = %164
-  %168 = load i16, ptr %4, align 2, !tbaa !75
+  %168 = load i16, ptr %4, align 2, !tbaa !74
   %169 = and i16 %168, -256
   %170 = or disjoint i16 %169, 3
   br label %267
@@ -904,7 +904,7 @@ define range(i32 -43, 1) i32 @prte_rmaps_base_set_mapping_policy(ptr noundef %0,
   br i1 %187, label %.critedge, label %188
 
 188:                                              ; preds = %186
-  %189 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @prte_rmaps_base, i64 296), align 8, !tbaa !77
+  %189 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @prte_rmaps_base, i64 296), align 8, !tbaa !76
   %190 = icmp eq ptr %189, null
   br i1 %190, label %191, label %195
 
@@ -925,10 +925,10 @@ define range(i32 -43, 1) i32 @prte_rmaps_base_set_mapping_policy(ptr noundef %0,
   br label %.critedge
 
 .critedge:                                        ; preds = %178, %186, %195
-  %197 = load i16, ptr %4, align 2, !tbaa !75
+  %197 = load i16, ptr %4, align 2, !tbaa !74
   %198 = and i16 %197, -256
   %199 = or disjoint i16 %198, 22
-  store i16 %199, ptr %4, align 2, !tbaa !75
+  store i16 %199, ptr %4, align 2, !tbaa !74
   br label %267
 
 200:                                              ; preds = %171
@@ -937,15 +937,15 @@ define range(i32 -43, 1) i32 @prte_rmaps_base_set_mapping_policy(ptr noundef %0,
   br i1 %202, label %203, label %212
 
 203:                                              ; preds = %200
-  %204 = load i16, ptr %4, align 2, !tbaa !75
+  %204 = load i16, ptr %4, align 2, !tbaa !74
   %205 = and i16 %204, -256
   %206 = or disjoint i16 %205, 8
-  store i16 %206, ptr %4, align 2, !tbaa !75
+  store i16 %206, ptr %4, align 2, !tbaa !74
   %207 = icmp eq ptr %0, null
   br i1 %207, label %208, label %209
 
 208:                                              ; preds = %203
-  store i8 1, ptr getelementptr inbounds nuw (i8, ptr @prte_rmaps_base, i64 289), align 1, !tbaa !37
+  store i8 1, ptr getelementptr inbounds nuw (i8, ptr @prte_rmaps_base, i64 289), align 1, !tbaa !36
   br label %267
 
 209:                                              ; preds = %203
@@ -1019,14 +1019,14 @@ define range(i32 -43, 1) i32 @prte_rmaps_base_set_mapping_policy(ptr noundef %0,
   %240 = getelementptr inbounds nuw ptr, ptr %230, i64 %indvars.iv.next
   %241 = load ptr, ptr %240, align 8, !tbaa !20
   %.not136 = icmp eq ptr %241, null
-  br i1 %.not136, label %._crit_edge, label %.lr.ph, !llvm.loop !78
+  br i1 %.not136, label %._crit_edge, label %.lr.ph, !llvm.loop !77
 
 .lr.ph:                                           ; preds = %237, %239
   %indvars.iv = phi i64 [ %indvars.iv.next, %239 ], [ 0, %237 ]
   %242 = phi ptr [ %241, %239 ], [ %238, %237 ]
   %243 = call i64 @strtol(ptr noundef nonnull %242, ptr noundef nonnull %5, i32 noundef 10) #16
   %244 = load ptr, ptr %5, align 8, !tbaa !20
-  %245 = load i8, ptr %244, align 1, !tbaa !76
+  %245 = load i8, ptr %244, align 1, !tbaa !75
   %.not137 = icmp eq i8 %245, 0
   br i1 %.not137, label %239, label %246
 
@@ -1043,15 +1043,15 @@ define range(i32 -43, 1) i32 @prte_rmaps_base_set_mapping_policy(ptr noundef %0,
   call void @PMIx_Argv_free(ptr noundef nonnull %230) #16
   %249 = call ptr @strtok(ptr noundef null, ptr noundef nonnull @.str.35) #16
   %.not135 = icmp eq ptr %249, null
-  br i1 %.not135, label %._crit_edge150, label %.lr.ph149, !llvm.loop !79
+  br i1 %.not135, label %._crit_edge150, label %.lr.ph149, !llvm.loop !78
 
 ._crit_edge150:                                   ; preds = %._crit_edge, %228
   %250 = getelementptr inbounds nuw i8, ptr %0, i64 792
   %251 = call i32 @prte_set_attribute(ptr noundef nonnull %250, i16 noundef zeroext 237, i1 noundef zeroext false, ptr noundef %.0117, i16 noundef zeroext 3) #16
-  %252 = load i16, ptr %4, align 2, !tbaa !75
+  %252 = load i16, ptr %4, align 2, !tbaa !74
   %253 = and i16 %252, -16640
   %254 = or disjoint i16 %253, 16395
-  store i16 %254, ptr %4, align 2, !tbaa !75
+  store i16 %254, ptr %4, align 2, !tbaa !74
   br label %267
 
 255:                                              ; preds = %212
@@ -1060,10 +1060,10 @@ define range(i32 -43, 1) i32 @prte_rmaps_base_set_mapping_policy(ptr noundef %0,
   br i1 %257, label %258, label %262
 
 258:                                              ; preds = %255
-  %259 = load i16, ptr %4, align 2, !tbaa !75
+  %259 = load i16, ptr %4, align 2, !tbaa !74
   %260 = and i16 %259, -256
   %261 = or disjoint i16 %260, 17
-  store i16 %261, ptr %4, align 2, !tbaa !75
+  store i16 %261, ptr %4, align 2, !tbaa !74
   br label %267
 
 262:                                              ; preds = %255
@@ -1093,7 +1093,7 @@ define range(i32 -43, 1) i32 @prte_rmaps_base_set_mapping_policy(ptr noundef %0,
 
 271:                                              ; preds = %270, %267
   %272 = or i16 %268, 16384
-  store i16 %272, ptr %4, align 2, !tbaa !75
+  store i16 %272, ptr %4, align 2, !tbaa !74
   br label %273
 
 273:                                              ; preds = %271, %92, %82, %61
@@ -1101,13 +1101,13 @@ define range(i32 -43, 1) i32 @prte_rmaps_base_set_mapping_policy(ptr noundef %0,
   br i1 %274, label %275, label %277
 
 275:                                              ; preds = %273
-  %276 = load i16, ptr %4, align 2, !tbaa !75
-  store i16 %276, ptr getelementptr inbounds nuw (i8, ptr @prte_rmaps_base, i64 272), align 8, !tbaa !32
+  %276 = load i16, ptr %4, align 2, !tbaa !74
+  store i16 %276, ptr getelementptr inbounds nuw (i8, ptr @prte_rmaps_base, i64 272), align 8, !tbaa !31
   br label %286
 
 277:                                              ; preds = %273
   %278 = getelementptr inbounds nuw i8, ptr %0, i64 480
-  %279 = load ptr, ptr %278, align 8, !tbaa !57
+  %279 = load ptr, ptr %278, align 8, !tbaa !56
   %280 = icmp eq ptr %279, null
   br i1 %280, label %281, label %283
 
@@ -1117,9 +1117,9 @@ define range(i32 -43, 1) i32 @prte_rmaps_base_set_mapping_policy(ptr noundef %0,
   br label %286
 
 283:                                              ; preds = %277
-  %284 = load i16, ptr %4, align 2, !tbaa !75
+  %284 = load i16, ptr %4, align 2, !tbaa !74
   %285 = getelementptr inbounds nuw i8, ptr %279, i64 136
-  store i16 %284, ptr %285, align 8, !tbaa !66
+  store i16 %284, ptr %285, align 8, !tbaa !65
   br label %286
 
 286:                                              ; preds = %275, %283, %262, %266, %217, %221, %191, %194, %182, %185, %16, %281, %246, %224, %91, %80, %44
@@ -1158,14 +1158,14 @@ define internal fastcc range(i32 -43, 1) i32 @check_modifiers(ptr noundef %0, pt
   %5 = alloca i16, align 2
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #16
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %5) #16
-  %6 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prte_rmaps_base_framework, i64 76), align 4, !tbaa !52
+  %6 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prte_rmaps_base_framework, i64 76), align 4, !tbaa !51
   %or.cond = icmp ult i32 %6, 64
   br i1 %or.cond, label %7, label %16
 
 7:                                                ; preds = %3
   %8 = zext nneg i32 %6 to i64
   %9 = getelementptr inbounds nuw [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %8, i32 2
-  %10 = load i32, ptr %9, align 4, !tbaa !55
+  %10 = load i32, ptr %9, align 4, !tbaa !54
   %11 = icmp sgt i32 %10, 4
   br i1 %11, label %12, label %16
 
@@ -1205,9 +1205,9 @@ define internal fastcc range(i32 -43, 1) i32 @check_modifiers(ptr noundef %0, pt
   br i1 %26, label %27, label %30
 
 27:                                               ; preds = %23
-  %28 = load i16, ptr %2, align 2, !tbaa !75
+  %28 = load i16, ptr %2, align 2, !tbaa !74
   %29 = or i16 %28, 18432
-  store i16 %29, ptr %2, align 2, !tbaa !75
+  store i16 %29, ptr %2, align 2, !tbaa !74
   br label %145
 
 30:                                               ; preds = %23
@@ -1224,10 +1224,10 @@ define internal fastcc range(i32 -43, 1) i32 @check_modifiers(ptr noundef %0, pt
   br label %148
 
 36:                                               ; preds = %33
-  %37 = load i16, ptr %2, align 2, !tbaa !75
+  %37 = load i16, ptr %2, align 2, !tbaa !74
   %38 = and i16 %37, -1537
   %39 = or disjoint i16 %38, 1024
-  store i16 %39, ptr %2, align 2, !tbaa !75
+  store i16 %39, ptr %2, align 2, !tbaa !74
   br label %145
 
 40:                                               ; preds = %30
@@ -1244,9 +1244,9 @@ define internal fastcc range(i32 -43, 1) i32 @check_modifiers(ptr noundef %0, pt
   br label %148
 
 46:                                               ; preds = %43
-  %47 = load i16, ptr %2, align 2, !tbaa !75
+  %47 = load i16, ptr %2, align 2, !tbaa !74
   %48 = or i16 %47, 1536
-  store i16 %48, ptr %2, align 2, !tbaa !75
+  store i16 %48, ptr %2, align 2, !tbaa !74
   br label %145
 
 49:                                               ; preds = %40
@@ -1255,9 +1255,9 @@ define internal fastcc range(i32 -43, 1) i32 @check_modifiers(ptr noundef %0, pt
   br i1 %51, label %52, label %55
 
 52:                                               ; preds = %49
-  %53 = load i16, ptr %2, align 2, !tbaa !75
+  %53 = load i16, ptr %2, align 2, !tbaa !74
   %54 = or i16 %53, 256
-  store i16 %54, ptr %2, align 2, !tbaa !75
+  store i16 %54, ptr %2, align 2, !tbaa !74
   br label %145
 
 55:                                               ; preds = %49
@@ -1274,9 +1274,9 @@ define internal fastcc range(i32 -43, 1) i32 @check_modifiers(ptr noundef %0, pt
   br label %148
 
 62:                                               ; preds = %58
-  %63 = load i16, ptr %2, align 2, !tbaa !75
+  %63 = load i16, ptr %2, align 2, !tbaa !74
   %64 = or i16 %63, 4096
-  store i16 %64, ptr %2, align 2, !tbaa !75
+  store i16 %64, ptr %2, align 2, !tbaa !74
   br label %145
 
 65:                                               ; preds = %55
@@ -1296,9 +1296,9 @@ define internal fastcc range(i32 -43, 1) i32 @check_modifiers(ptr noundef %0, pt
   %73 = getelementptr inbounds nuw i8, ptr %68, i64 3
   %74 = call i64 @strtol(ptr noundef nonnull %73, ptr noundef nonnull %4, i32 noundef 10) #16
   %75 = trunc i64 %74 to i16
-  store i16 %75, ptr %5, align 2, !tbaa !75
+  store i16 %75, ptr %5, align 2, !tbaa !74
   %76 = load ptr, ptr %4, align 8, !tbaa !20
-  %77 = load i8, ptr %76, align 1, !tbaa !76
+  %77 = load i8, ptr %76, align 1, !tbaa !75
   %.not102 = icmp eq i8 %77, 0
   br i1 %.not102, label %81, label %78
 
@@ -1328,7 +1328,7 @@ define internal fastcc range(i32 -43, 1) i32 @check_modifiers(ptr noundef %0, pt
   br i1 %21, label %89, label %90
 
 89:                                               ; preds = %88
-  store i8 1, ptr getelementptr inbounds nuw (i8, ptr @prte_rmaps_base, i64 288), align 8, !tbaa !36
+  store i8 1, ptr getelementptr inbounds nuw (i8, ptr @prte_rmaps_base, i64 288), align 8, !tbaa !35
   br label %145
 
 90:                                               ; preds = %88
@@ -1352,7 +1352,7 @@ define internal fastcc range(i32 -43, 1) i32 @check_modifiers(ptr noundef %0, pt
   br i1 %21, label %99, label %100
 
 99:                                               ; preds = %98
-  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @prte_rmaps_base, i64 288), align 8, !tbaa !36
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @prte_rmaps_base, i64 288), align 8, !tbaa !35
   br label %145
 
 100:                                              ; preds = %98
@@ -1376,7 +1376,7 @@ define internal fastcc range(i32 -43, 1) i32 @check_modifiers(ptr noundef %0, pt
   br i1 %21, label %109, label %110
 
 109:                                              ; preds = %108
-  store i8 1, ptr getelementptr inbounds nuw (i8, ptr @prte_rmaps_base, i64 289), align 1, !tbaa !37
+  store i8 1, ptr getelementptr inbounds nuw (i8, ptr @prte_rmaps_base, i64 289), align 1, !tbaa !36
   br label %145
 
 110:                                              ; preds = %108
@@ -1397,7 +1397,7 @@ define internal fastcc range(i32 -43, 1) i32 @check_modifiers(ptr noundef %0, pt
   br label %148
 
 118:                                              ; preds = %115
-  %119 = load i8, ptr getelementptr inbounds nuw (i8, ptr @prte_rmaps_base, i64 328), align 8, !tbaa !38, !range !34, !noundef !35
+  %119 = load i8, ptr getelementptr inbounds nuw (i8, ptr @prte_rmaps_base, i64 328), align 8, !tbaa !37, !range !33, !noundef !34
   %120 = trunc nuw i8 %119 to i1
   br i1 %120, label %121, label %125
 
@@ -1405,7 +1405,7 @@ define internal fastcc range(i32 -43, 1) i32 @check_modifiers(ptr noundef %0, pt
   br i1 %21, label %122, label %123
 
 122:                                              ; preds = %121
-  store i8 1, ptr getelementptr inbounds nuw (i8, ptr @prte_rmaps_base, i64 289), align 1, !tbaa !37
+  store i8 1, ptr getelementptr inbounds nuw (i8, ptr @prte_rmaps_base, i64 289), align 1, !tbaa !36
   br label %145
 
 123:                                              ; preds = %121
@@ -1416,7 +1416,7 @@ define internal fastcc range(i32 -43, 1) i32 @check_modifiers(ptr noundef %0, pt
   br i1 %21, label %126, label %127
 
 126:                                              ; preds = %125
-  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @prte_rmaps_base, i64 289), align 1, !tbaa !37
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @prte_rmaps_base, i64 289), align 1, !tbaa !36
   br label %145
 
 127:                                              ; preds = %125
@@ -1431,7 +1431,7 @@ define internal fastcc range(i32 -43, 1) i32 @check_modifiers(ptr noundef %0, pt
 132:                                              ; preds = %129
   %133 = load ptr, ptr %25, align 8, !tbaa !20
   %134 = getelementptr inbounds nuw i8, ptr %133, i64 5
-  %135 = load i8, ptr %134, align 1, !tbaa !76
+  %135 = load i8, ptr %134, align 1, !tbaa !75
   %136 = icmp eq i8 %135, 0
   br i1 %136, label %137, label %139
 
@@ -1445,7 +1445,7 @@ define internal fastcc range(i32 -43, 1) i32 @check_modifiers(ptr noundef %0, pt
 
 140:                                              ; preds = %139
   %141 = call noalias ptr @strdup(ptr noundef nonnull %134) #16
-  store ptr %141, ptr getelementptr inbounds nuw (i8, ptr @prte_rmaps_base, i64 296), align 8, !tbaa !77
+  store ptr %141, ptr getelementptr inbounds nuw (i8, ptr @prte_rmaps_base, i64 296), align 8, !tbaa !76
   br label %145
 
 142:                                              ; preds = %139
@@ -1467,7 +1467,7 @@ define internal fastcc range(i32 -43, 1) i32 @check_modifiers(ptr noundef %0, pt
   %146 = getelementptr inbounds nuw ptr, ptr %19, i64 %indvars.iv.next
   %147 = load ptr, ptr %146, align 8, !tbaa !20
   %.not = icmp eq ptr %147, null
-  br i1 %.not, label %._crit_edge, label %23, !llvm.loop !80
+  br i1 %.not, label %._crit_edge, label %23, !llvm.loop !79
 
 ._crit_edge:                                      ; preds = %145, %18
   call void @PMIx_Argv_free(ptr noundef nonnull %19) #16
@@ -1536,7 +1536,7 @@ define internal fastcc zeroext i1 @pmix_check_cli_option(ptr noundef %0, ptr nou
   %25 = getelementptr inbounds nuw ptr, ptr %7, i64 %24
   %26 = load ptr, ptr %25, align 8, !tbaa !20
   %.not47 = icmp eq ptr %26, null
-  br i1 %.not47, label %.critedge.loopexit, label %.lr.ph, !llvm.loop !81
+  br i1 %.not47, label %.critedge.loopexit, label %.lr.ph, !llvm.loop !80
 
 27:                                               ; preds = %17
   tail call void @PMIx_Argv_free(ptr noundef nonnull %7) #16
@@ -1596,12 +1596,12 @@ define range(i32 -43, 1) i32 @prte_rmaps_base_set_ranking_policy(ptr noundef cap
 
 6:                                                ; preds = %4
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 480
-  %8 = load ptr, ptr %7, align 8, !tbaa !57
+  %8 = load ptr, ptr %7, align 8, !tbaa !56
   %9 = icmp eq ptr %8, null
   br i1 %9, label %10, label %28
 
 10:                                               ; preds = %6
-  %11 = load i64, ptr getelementptr inbounds nuw (i8, ptr @prte_job_map_t_class, i64 56), align 8, !tbaa !82
+  %11 = load i64, ptr getelementptr inbounds nuw (i8, ptr @prte_job_map_t_class, i64 56), align 8, !tbaa !81
   %12 = tail call noalias noundef ptr @malloc(i64 noundef %11) #21
   %13 = load i32, ptr @pmix_class_init_epoch, align 4, !tbaa !22
   %14 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prte_job_map_t_class, i64 32), align 8, !tbaa !23
@@ -1641,20 +1641,20 @@ define range(i32 -43, 1) i32 @prte_rmaps_base_set_ranking_policy(ptr noundef cap
   br i1 %.not.i.i, label %pmix_obj_new_tma.exit, label %.lr.ph.i.i, !llvm.loop !29
 
 pmix_obj_new_tma.exit:                            ; preds = %.lr.ph.i.i, %16, %17
-  store ptr %12, ptr %7, align 8, !tbaa !57
+  store ptr %12, ptr %7, align 8, !tbaa !56
   br label %28
 
 28:                                               ; preds = %pmix_obj_new_tma.exit, %6
   %29 = phi ptr [ %12, %pmix_obj_new_tma.exit ], [ %8, %6 ]
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 138
-  %31 = load i16, ptr %30, align 2, !tbaa !83
+  %31 = load i16, ptr %30, align 2, !tbaa !82
   %32 = and i16 %31, 4095
   %.not = icmp eq i16 %32, 0
   br i1 %.not, label %33, label %81
 
 33:                                               ; preds = %28
   %34 = getelementptr inbounds nuw i8, ptr %29, i64 136
-  %35 = load i16, ptr %34, align 8, !tbaa !66
+  %35 = load i16, ptr %34, align 8, !tbaa !65
   %36 = and i16 %35, 255
   %trunc = trunc i16 %35 to i8
   switch i8 %trunc, label %38 [
@@ -1678,7 +1678,7 @@ pmix_obj_new_tma.exit:                            ; preds = %.lr.ph.i.i, %16, %1
 
 42:                                               ; preds = %40, %38, %33, %37
   %.036 = phi i16 [ 2, %37 ], [ 1, %33 ], [ 4, %38 ], [ %., %40 ]
-  store i16 %.036, ptr %30, align 2, !tbaa !83
+  store i16 %.036, ptr %30, align 2, !tbaa !82
   br label %81
 
 43:                                               ; preds = %2
@@ -1707,17 +1707,17 @@ pmix_obj_new_tma.exit:                            ; preds = %.lr.ph.i.i, %16, %1
   br i1 %54, label %55, label %56
 
 55:                                               ; preds = %53
-  store i16 %.1, ptr getelementptr inbounds nuw (i8, ptr @prte_rmaps_base, i64 274), align 2, !tbaa !33
+  store i16 %.1, ptr getelementptr inbounds nuw (i8, ptr @prte_rmaps_base, i64 274), align 2, !tbaa !32
   br label %81
 
 56:                                               ; preds = %53
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 480
-  %58 = load ptr, ptr %57, align 8, !tbaa !57
+  %58 = load ptr, ptr %57, align 8, !tbaa !56
   %59 = icmp eq ptr %58, null
   br i1 %59, label %60, label %78
 
 60:                                               ; preds = %56
-  %61 = load i64, ptr getelementptr inbounds nuw (i8, ptr @prte_job_map_t_class, i64 56), align 8, !tbaa !82
+  %61 = load i64, ptr getelementptr inbounds nuw (i8, ptr @prte_job_map_t_class, i64 56), align 8, !tbaa !81
   %62 = tail call noalias noundef ptr @malloc(i64 noundef %61) #21
   %63 = load i32, ptr @pmix_class_init_epoch, align 4, !tbaa !22
   %64 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prte_job_map_t_class, i64 32), align 8, !tbaa !23
@@ -1757,13 +1757,13 @@ pmix_obj_new_tma.exit:                            ; preds = %.lr.ph.i.i, %16, %1
   br i1 %.not.i.i47, label %pmix_obj_new_tma.exit48, label %.lr.ph.i.i45, !llvm.loop !29
 
 pmix_obj_new_tma.exit48:                          ; preds = %.lr.ph.i.i45, %66, %67
-  store ptr %62, ptr %57, align 8, !tbaa !57
+  store ptr %62, ptr %57, align 8, !tbaa !56
   br label %78
 
 78:                                               ; preds = %pmix_obj_new_tma.exit48, %56
   %79 = phi ptr [ %62, %pmix_obj_new_tma.exit48 ], [ %58, %56 ]
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 138
-  store i16 %.1, ptr %80, align 2, !tbaa !83
+  store i16 %.1, ptr %80, align 2, !tbaa !82
   br label %81
 
 81:                                               ; preds = %55, %78, %28, %4, %51, %42
@@ -1870,58 +1870,57 @@ attributes #21 = { nounwind allocsize(0) }
 !26 = !{!6, !11, i64 48}
 !27 = !{!24, !10, i64 40}
 !28 = !{!10, !10, i64 0}
-!29 = distinct !{!29, !30, !31}
+!29 = distinct !{!29, !30}
 !30 = !{!"llvm.loop.mustprogress"}
-!31 = !{!"llvm.loop.estimated_trip_count"}
-!32 = !{!4, !16, i64 272}
-!33 = !{!4, !16, i64 274}
-!34 = !{i8 0, i8 2}
-!35 = !{}
-!36 = !{!4, !18, i64 288}
-!37 = !{!4, !18, i64 289}
-!38 = !{!4, !18, i64 328}
-!39 = !{!4, !19, i64 304}
-!40 = !{!4, !19, i64 312}
-!41 = !{!5, !15, i64 264}
-!42 = !{!5, !14, i64 240}
-!43 = !{!13, !14, i64 128}
-!44 = !{!13, !14, i64 120}
-!45 = !{!24, !10, i64 48}
-!46 = distinct !{!46, !30, !31}
-!47 = !{!6, !10, i64 96}
-!48 = distinct !{!48, !30, !31}
-!49 = !{!50, !16, i64 0}
-!50 = !{!"", !16, i64 0, !18, i64 2, !11, i64 4, !11, i64 8, !17, i64 16, !19, i64 24, !18, i64 32, !18, i64 33, !18, i64 34, !18, i64 35, !18, i64 36, !16, i64 38, !18, i64 40, !18, i64 41, !16, i64 42, !11, i64 44, !11, i64 48, !11, i64 52, !11, i64 56, !16, i64 60, !18, i64 62, !11, i64 64, !11, i64 68, !11, i64 72, !16, i64 76, !18, i64 78, !11, i64 80, !16, i64 84, !19, i64 88, !51, i64 96}
-!51 = !{!"p1 _ZTS9hwloc_obj", !10, i64 0}
-!52 = !{!53, !11, i64 76}
-!53 = !{!"pmix_mca_base_framework_t", !17, i64 0, !17, i64 8, !17, i64 16, !10, i64 24, !10, i64 32, !10, i64 40, !11, i64 48, !11, i64 52, !54, i64 56, !17, i64 64, !11, i64 72, !11, i64 76, !5, i64 80, !5, i64 352}
-!54 = !{!"p2 _ZTS31pmix_mca_base_component_2_1_0_t", !10, i64 0}
-!55 = !{!56, !11, i64 4}
-!56 = !{!"", !18, i64 0, !18, i64 1, !11, i64 4, !18, i64 8, !11, i64 12, !17, i64 16, !17, i64 24, !11, i64 32, !17, i64 40, !11, i64 48, !18, i64 52, !18, i64 53, !18, i64 54, !18, i64 55, !17, i64 56, !11, i64 64, !11, i64 68}
-!57 = !{!58, !62, i64 480}
-!58 = !{!"", !13, i64 0, !11, i64 144, !59, i64 152, !60, i64 160, !7, i64 168, !17, i64 424, !11, i64 432, !11, i64 436, !10, i64 440, !61, i64 448, !11, i64 456, !11, i64 460, !11, i64 464, !11, i64 468, !61, i64 472, !62, i64 480, !10, i64 488, !11, i64 496, !11, i64 500, !11, i64 504, !11, i64 508, !11, i64 512, !11, i64 516, !11, i64 520, !63, i64 524, !11, i64 784, !16, i64 788, !5, i64 792, !64, i64 1064, !5, i64 1104, !7, i64 1376, !11, i64 1632, !59, i64 1640, !65, i64 1648}
-!59 = !{!"p2 omnipotent char", !10, i64 0}
-!60 = !{!"p1 _ZTS25prte_schizo_base_module_t", !10, i64 0}
-!61 = !{!"p1 _ZTS20pmix_pointer_array_t", !10, i64 0}
-!62 = !{!"p1 _ZTS14prte_job_map_t", !10, i64 0}
-!63 = !{!"pmix_proc", !7, i64 0, !11, i64 256}
-!64 = !{!"pmix_data_buffer", !17, i64 0, !17, i64 8, !17, i64 16, !15, i64 24, !15, i64 32}
-!65 = !{!"", !6, i64 0, !5, i64 120, !59, i64 392}
-!66 = !{!67, !16, i64 136}
-!67 = !{!"prte_job_map_t", !6, i64 0, !17, i64 120, !17, i64 128, !16, i64 136, !16, i64 138, !16, i64 140, !18, i64 142, !11, i64 144, !11, i64 148, !11, i64 152, !61, i64 160}
-!68 = !{!67, !16, i64 140}
-!69 = !{!50, !11, i64 48}
-!70 = !{!50, !18, i64 2}
-!71 = !{!50, !11, i64 4}
-!72 = !{!50, !11, i64 8}
-!73 = !{!74, !74, i64 0}
-!74 = !{!"p1 _ZTS14hwloc_topology", !10, i64 0}
-!75 = !{!16, !16, i64 0}
-!76 = !{!7, !7, i64 0}
-!77 = !{!4, !17, i64 296}
-!78 = distinct !{!78, !30, !31}
-!79 = distinct !{!79, !30, !31}
-!80 = distinct !{!80, !30, !31}
-!81 = distinct !{!81, !30, !31}
-!82 = !{!24, !15, i64 56}
-!83 = !{!67, !16, i64 138}
+!31 = !{!4, !16, i64 272}
+!32 = !{!4, !16, i64 274}
+!33 = !{i8 0, i8 2}
+!34 = !{}
+!35 = !{!4, !18, i64 288}
+!36 = !{!4, !18, i64 289}
+!37 = !{!4, !18, i64 328}
+!38 = !{!4, !19, i64 304}
+!39 = !{!4, !19, i64 312}
+!40 = !{!5, !15, i64 264}
+!41 = !{!5, !14, i64 240}
+!42 = !{!13, !14, i64 128}
+!43 = !{!13, !14, i64 120}
+!44 = !{!24, !10, i64 48}
+!45 = distinct !{!45, !30}
+!46 = !{!6, !10, i64 96}
+!47 = distinct !{!47, !30}
+!48 = !{!49, !16, i64 0}
+!49 = !{!"", !16, i64 0, !18, i64 2, !11, i64 4, !11, i64 8, !17, i64 16, !19, i64 24, !18, i64 32, !18, i64 33, !18, i64 34, !18, i64 35, !18, i64 36, !16, i64 38, !18, i64 40, !18, i64 41, !16, i64 42, !11, i64 44, !11, i64 48, !11, i64 52, !11, i64 56, !16, i64 60, !18, i64 62, !11, i64 64, !11, i64 68, !11, i64 72, !16, i64 76, !18, i64 78, !11, i64 80, !16, i64 84, !19, i64 88, !50, i64 96}
+!50 = !{!"p1 _ZTS9hwloc_obj", !10, i64 0}
+!51 = !{!52, !11, i64 76}
+!52 = !{!"pmix_mca_base_framework_t", !17, i64 0, !17, i64 8, !17, i64 16, !10, i64 24, !10, i64 32, !10, i64 40, !11, i64 48, !11, i64 52, !53, i64 56, !17, i64 64, !11, i64 72, !11, i64 76, !5, i64 80, !5, i64 352}
+!53 = !{!"p2 _ZTS31pmix_mca_base_component_2_1_0_t", !10, i64 0}
+!54 = !{!55, !11, i64 4}
+!55 = !{!"", !18, i64 0, !18, i64 1, !11, i64 4, !18, i64 8, !11, i64 12, !17, i64 16, !17, i64 24, !11, i64 32, !17, i64 40, !11, i64 48, !18, i64 52, !18, i64 53, !18, i64 54, !18, i64 55, !17, i64 56, !11, i64 64, !11, i64 68}
+!56 = !{!57, !61, i64 480}
+!57 = !{!"", !13, i64 0, !11, i64 144, !58, i64 152, !59, i64 160, !7, i64 168, !17, i64 424, !11, i64 432, !11, i64 436, !10, i64 440, !60, i64 448, !11, i64 456, !11, i64 460, !11, i64 464, !11, i64 468, !60, i64 472, !61, i64 480, !10, i64 488, !11, i64 496, !11, i64 500, !11, i64 504, !11, i64 508, !11, i64 512, !11, i64 516, !11, i64 520, !62, i64 524, !11, i64 784, !16, i64 788, !5, i64 792, !63, i64 1064, !5, i64 1104, !7, i64 1376, !11, i64 1632, !58, i64 1640, !64, i64 1648}
+!58 = !{!"p2 omnipotent char", !10, i64 0}
+!59 = !{!"p1 _ZTS25prte_schizo_base_module_t", !10, i64 0}
+!60 = !{!"p1 _ZTS20pmix_pointer_array_t", !10, i64 0}
+!61 = !{!"p1 _ZTS14prte_job_map_t", !10, i64 0}
+!62 = !{!"pmix_proc", !7, i64 0, !11, i64 256}
+!63 = !{!"pmix_data_buffer", !17, i64 0, !17, i64 8, !17, i64 16, !15, i64 24, !15, i64 32}
+!64 = !{!"", !6, i64 0, !5, i64 120, !58, i64 392}
+!65 = !{!66, !16, i64 136}
+!66 = !{!"prte_job_map_t", !6, i64 0, !17, i64 120, !17, i64 128, !16, i64 136, !16, i64 138, !16, i64 140, !18, i64 142, !11, i64 144, !11, i64 148, !11, i64 152, !60, i64 160}
+!67 = !{!66, !16, i64 140}
+!68 = !{!49, !11, i64 48}
+!69 = !{!49, !18, i64 2}
+!70 = !{!49, !11, i64 4}
+!71 = !{!49, !11, i64 8}
+!72 = !{!73, !73, i64 0}
+!73 = !{!"p1 _ZTS14hwloc_topology", !10, i64 0}
+!74 = !{!16, !16, i64 0}
+!75 = !{!7, !7, i64 0}
+!76 = !{!4, !17, i64 296}
+!77 = distinct !{!77, !30}
+!78 = distinct !{!78, !30}
+!79 = distinct !{!79, !30}
+!80 = distinct !{!80, !30}
+!81 = !{!24, !15, i64 56}
+!82 = !{!66, !16, i64 138}

@@ -1025,8 +1025,8 @@ define void @fcrypt_body(ptr noundef writeonly captures(none) %0, ptr noundef re
   br i1 %exitcond.not, label %1014, label %38, !llvm.loop !23
 
 1014:                                             ; preds = %38
-  %1015 = tail call i32 asm "rorl $1,$0", "=r,I,0,~{cc},~{dirflag},~{fpsr},~{flags}"(i32 3, i32 %1012) #1, !srcloc !26
-  %1016 = tail call i32 asm "rorl $1,$0", "=r,I,0,~{cc},~{dirflag},~{fpsr},~{flags}"(i32 3, i32 %951) #1, !srcloc !27
+  %1015 = tail call i32 asm "rorl $1,$0", "=r,I,0,~{cc},~{dirflag},~{fpsr},~{flags}"(i32 3, i32 %1012) #1, !srcloc !25
+  %1016 = tail call i32 asm "rorl $1,$0", "=r,I,0,~{cc},~{dirflag},~{fpsr},~{flags}"(i32 3, i32 %951) #1, !srcloc !26
   %1017 = lshr i32 %1015, 1
   %1018 = xor i32 %1017, %1016
   %1019 = and i32 %1018, 1431655765
@@ -1091,8 +1091,7 @@ attributes #1 = { nounwind memory(none) }
 !20 = !{i64 2147948580}
 !21 = !{i64 2147949631}
 !22 = !{i64 2147950682}
-!23 = distinct !{!23, !24, !25}
+!23 = distinct !{!23, !24}
 !24 = !{!"llvm.loop.mustprogress"}
-!25 = !{!"llvm.loop.estimated_trip_count"}
-!26 = !{i64 2147951037}
-!27 = !{i64 2147951392}
+!25 = !{i64 2147951037}
+!26 = !{i64 2147951392}

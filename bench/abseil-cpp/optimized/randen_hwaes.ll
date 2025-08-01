@@ -233,7 +233,7 @@ define dso_local void @_ZN4absl15random_internal11RandenHwAes8GenerateEPKvPv(ptr
   %78 = tail call noundef <2 x i64> @llvm.x86.aesni.aesenc(<2 x i64> %70, <2 x i64> %28)
   %79 = getelementptr inbounds nuw i8, ptr %.0454.i, i64 256
   %80 = add nuw nsw i64 %.055.i, 2
-  br label %18, !llvm.loop !17
+  br label %18, !llvm.loop !16
 
 _ZN12_GLOBAL__N_17PermuteEPN4absl7uint128EPKS1_.exit: ; preds = %18
   store <2 x i64> %20, ptr %3, align 16, !tbaa !4, !noalias !7
@@ -283,9 +283,8 @@ attributes #4 = { nocallback nofree nosync nounwind willreturn memory(inaccessib
 !10 = !{!11, !8}
 !11 = distinct !{!11, !12, !"_ZN12_GLOBAL__N_112FeistelRoundEPN4absl7uint128EPKS1_: argument 0"}
 !12 = distinct !{!12, !"_ZN12_GLOBAL__N_112FeistelRoundEPN4absl7uint128EPKS1_"}
-!13 = distinct !{!13, !14, !15, !16}
+!13 = distinct !{!13, !14, !15}
 !14 = !{!"llvm.loop.mustprogress"}
 !15 = !{!"llvm.loop.unroll.count", i32 2}
-!16 = !{!"llvm.loop.estimated_trip_count"}
-!17 = distinct !{!17, !18}
-!18 = !{!"llvm.loop.unroll.disable"}
+!16 = distinct !{!16, !17}
+!17 = !{!"llvm.loop.unroll.disable"}

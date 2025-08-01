@@ -89,7 +89,7 @@ define ptr @group_find_child(ptr noundef readonly captures(none) %0, i32 noundef
   %6 = getelementptr inbounds nuw i8, ptr %.0, i64 12
   %7 = load i32, ptr %6, align 4
   %8 = icmp eq i32 %7, %1
-  br i1 %8, label %9, label %4, !llvm.loop !9
+  br i1 %8, label %9, label %4, !llvm.loop !8
 
 9:                                                ; preds = %4, %5
   ret ptr %.0
@@ -111,7 +111,7 @@ define ptr @group_exit_child(ptr noundef readonly captures(none) %0) local_unnam
   %6 = load i8, ptr %5, align 8
   %7 = and i8 %6, 4
   %.not7 = icmp eq i8 %7, 0
-  br i1 %.not7, label %3, label %8, !llvm.loop !10
+  br i1 %.not7, label %3, label %8, !llvm.loop !9
 
 8:                                                ; preds = %3, %4
   ret ptr %.0
@@ -133,7 +133,7 @@ define ptr @group_remove_child(ptr noundef captures(none) %0, i32 noundef %1) lo
   %6 = getelementptr inbounds nuw i8, ptr %.013, i64 12
   %7 = load i32, ptr %6, align 4
   %8 = icmp eq i32 %7, %1
-  br i1 %8, label %9, label %4, !llvm.loop !11
+  br i1 %8, label %9, label %4, !llvm.loop !10
 
 9:                                                ; preds = %5
   %.not14 = icmp eq ptr %.0, null
@@ -174,7 +174,7 @@ group_free_child.exit:                            ; preds = %group_free_child.ex
   store ptr %4, ptr %.07, align 8
   store ptr %.07, ptr getelementptr inbounds nuw (i8, ptr @g_child_pool, i64 384), align 8
   %.not = icmp eq ptr %5, null
-  br i1 %.not, label %._crit_edge, label %group_free_child.exit, !llvm.loop !12
+  br i1 %.not, label %._crit_edge, label %group_free_child.exit, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %group_free_child.exit, %1
   store ptr null, ptr %2, align 8
@@ -198,10 +198,9 @@ attributes #7 = { nounwind allocsize(0) }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7, !8}
-!11 = distinct !{!11, !7, !8}
-!12 = distinct !{!12, !7, !8}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7}

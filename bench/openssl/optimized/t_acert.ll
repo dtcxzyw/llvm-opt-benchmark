@@ -340,7 +340,7 @@ define range(i32 0, 2) i32 @X509_ACERT_print_ex(ptr noundef %0, ptr noundef %1, 
 .lr.ph.i:                                         ; preds = %.preheader.i, %200
   %.03340.i = phi i32 [ %201, %200 ], [ 0, %.preheader.i ]
   %173 = tail call ptr @X509_ATTRIBUTE_get0_type(ptr noundef %152, i32 noundef %.03340.i) #3
-  %174 = load i32, ptr %173, align 8, !tbaa !6
+  %174 = load i32, ptr %173, align 8, !tbaa !5
   switch i32 %174, label %197 [
     i32 19, label %175
     i32 20, label %175
@@ -352,12 +352,12 @@ define range(i32 0, 2) i32 @X509_ACERT_print_ex(ptr noundef %0, ptr noundef %1, 
 
 175:                                              ; preds = %.lr.ph.i, %.lr.ph.i, %.lr.ph.i, %.lr.ph.i, %.lr.ph.i
   %176 = getelementptr inbounds nuw i8, ptr %173, i64 8
-  %177 = load ptr, ptr %176, align 8, !tbaa !11
+  %177 = load ptr, ptr %176, align 8, !tbaa !10
   %178 = getelementptr inbounds nuw i8, ptr %177, i64 8
-  %179 = load ptr, ptr %178, align 8, !tbaa !12
-  %180 = load i32, ptr %177, align 8, !tbaa !17
+  %179 = load ptr, ptr %178, align 8, !tbaa !11
+  %180 = load i32, ptr %177, align 8, !tbaa !16
   %181 = tail call i32 @BIO_write(ptr noundef %0, ptr noundef %179, i32 noundef %180) #3
-  %182 = load i32, ptr %177, align 8, !tbaa !17
+  %182 = load i32, ptr %177, align 8, !tbaa !16
   %.not.i = icmp eq i32 %181, %182
   br i1 %.not.i, label %183, label %.thread
 
@@ -373,10 +373,10 @@ define range(i32 0, 2) i32 @X509_ACERT_print_ex(ptr noundef %0, ptr noundef %1, 
 
 189:                                              ; preds = %186
   %190 = getelementptr inbounds nuw i8, ptr %173, i64 8
-  %191 = load ptr, ptr %190, align 8, !tbaa !11
+  %191 = load ptr, ptr %190, align 8, !tbaa !10
   %192 = getelementptr inbounds nuw i8, ptr %191, i64 8
-  %193 = load ptr, ptr %192, align 8, !tbaa !12
-  %194 = load i32, ptr %191, align 8, !tbaa !17
+  %193 = load ptr, ptr %192, align 8, !tbaa !11
+  %194 = load i32, ptr %191, align 8, !tbaa !16
   %195 = sext i32 %194 to i64
   %196 = tail call i32 @ASN1_parse_dump(ptr noundef %0, ptr noundef %193, i64 noundef %195, i32 noundef %.03340.i, i32 noundef 1) #3
   br label %200
@@ -389,13 +389,13 @@ define range(i32 0, 2) i32 @X509_ACERT_print_ex(ptr noundef %0, ptr noundef %1, 
 200:                                              ; preds = %197, %189, %183
   %201 = add nuw nsw i32 %.03340.i, 1
   %exitcond.not.i = icmp eq i32 %201, %160
-  br i1 %exitcond.not.i, label %print_attribute.exit, label %.lr.ph.i, !llvm.loop !18
+  br i1 %exitcond.not.i, label %print_attribute.exit, label %.lr.ph.i, !llvm.loop !17
 
 print_attribute.exit:                             ; preds = %200, %.preheader.i
   %202 = add nuw nsw i32 %.1119197, 1
   %203 = tail call i32 @X509_ACERT_get_attr_count(ptr noundef %1) #3
   %204 = icmp slt i32 %202, %203
-  br i1 %204, label %.lr.ph198, label %.loopexit, !llvm.loop !19
+  br i1 %204, label %.lr.ph198, label %.loopexit, !llvm.loop !18
 
 .loopexit:                                        ; preds = %print_attribute.exit, %.preheader190, %149, %138
   %205 = and i64 %3, 256
@@ -421,7 +421,7 @@ print_attribute.exit:                             ; preds = %200, %.preheader.i
   %215 = add nuw nsw i32 %.2199, 1
   %216 = tail call i32 @OPENSSL_sk_num(ptr noundef nonnull %208) #3
   %217 = icmp slt i32 %215, %216
-  br i1 %217, label %.lr.ph200, label %.thread183, !llvm.loop !20
+  br i1 %217, label %.lr.ph200, label %.thread183, !llvm.loop !19
 
 .lr.ph200:                                        ; preds = %.preheader, %214
   %.2199 = phi i32 [ %215, %214 ], [ 0, %.preheader ]
@@ -474,8 +474,8 @@ print_attribute.exit:                             ; preds = %200, %.preheader.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #3
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #3
   call void @X509_ACERT_get0_signature(ptr noundef %1, ptr noundef nonnull %6, ptr noundef nonnull %5) #3
-  %246 = load ptr, ptr %5, align 8, !tbaa !21
-  %247 = load ptr, ptr %6, align 8, !tbaa !23
+  %246 = load ptr, ptr %5, align 8, !tbaa !20
+  %247 = load ptr, ptr %6, align 8, !tbaa !22
   %248 = call i32 @X509_signature_print(ptr noundef %0, ptr noundef %246, ptr noundef %247) #3
   %249 = icmp sgt i32 %248, 0
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #3
@@ -594,25 +594,24 @@ attributes #3 = { nounwind }
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = distinct !{!3, !4, !5}
+!3 = distinct !{!3, !4}
 !4 = !{!"llvm.loop.mustprogress"}
-!5 = !{!"llvm.loop.estimated_trip_count"}
-!6 = !{!7, !8, i64 0}
-!7 = !{!"asn1_type_st", !8, i64 0, !9, i64 8}
-!8 = !{!"int", !9, i64 0}
-!9 = !{!"omnipotent char", !10, i64 0}
-!10 = !{!"Simple C/C++ TBAA"}
-!11 = !{!9, !9, i64 0}
-!12 = !{!13, !14, i64 8}
-!13 = !{!"asn1_string_st", !8, i64 0, !8, i64 4, !14, i64 8, !16, i64 16}
-!14 = !{!"p1 omnipotent char", !15, i64 0}
-!15 = !{!"any pointer", !9, i64 0}
-!16 = !{!"long", !9, i64 0}
-!17 = !{!13, !8, i64 0}
-!18 = distinct !{!18, !4, !5}
-!19 = distinct !{!19, !4, !5}
-!20 = distinct !{!20, !4, !5}
-!21 = !{!22, !22, i64 0}
-!22 = !{!"p1 _ZTS13X509_algor_st", !15, i64 0}
-!23 = !{!24, !24, i64 0}
-!24 = !{!"p1 _ZTS14asn1_string_st", !15, i64 0}
+!5 = !{!6, !7, i64 0}
+!6 = !{!"asn1_type_st", !7, i64 0, !8, i64 8}
+!7 = !{!"int", !8, i64 0}
+!8 = !{!"omnipotent char", !9, i64 0}
+!9 = !{!"Simple C/C++ TBAA"}
+!10 = !{!8, !8, i64 0}
+!11 = !{!12, !13, i64 8}
+!12 = !{!"asn1_string_st", !7, i64 0, !7, i64 4, !13, i64 8, !15, i64 16}
+!13 = !{!"p1 omnipotent char", !14, i64 0}
+!14 = !{!"any pointer", !8, i64 0}
+!15 = !{!"long", !8, i64 0}
+!16 = !{!12, !7, i64 0}
+!17 = distinct !{!17, !4}
+!18 = distinct !{!18, !4}
+!19 = distinct !{!19, !4}
+!20 = !{!21, !21, i64 0}
+!21 = !{!"p1 _ZTS13X509_algor_st", !14, i64 0}
+!22 = !{!23, !23, i64 0}
+!23 = !{!"p1 _ZTS14asn1_string_st", !14, i64 0}

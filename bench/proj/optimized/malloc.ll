@@ -68,7 +68,7 @@ define noalias noundef ptr @proj_destroy(ptr noundef %0) local_unnamed_addr #4 {
 
 3:                                                ; preds = %1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  %5 = load ptr, ptr %4, align 8, !tbaa !11
+  %5 = load ptr, ptr %4, align 8, !tbaa !10
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %9, label %6
 
@@ -89,7 +89,7 @@ define hidden void @_ZN8PJconstsC2Ev(ptr noundef nonnull align 8 dereferenceable
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 152
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(100) %0, i8 0, i64 100, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %2, i8 0, i64 48, i1 false)
-  store ptr @_Z21pj_default_destructorP8PJconstsi, ptr %3, align 8, !tbaa !11
+  store ptr @_Z21pj_default_destructorP8PJconstsi, ptr %3, align 8, !tbaa !10
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 392
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 536
@@ -97,45 +97,45 @@ define hidden void @_ZN8PJconstsC2Ev(ptr noundef nonnull align 8 dereferenceable
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(140) %5, i8 0, i64 140, i1 false)
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 600
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 664
-  store double 0.000000e+00, ptr %8, align 8, !tbaa !40
+  store double 0.000000e+00, ptr %8, align 8, !tbaa !39
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 672
-  store i8 0, ptr %9, align 8, !tbaa !41
+  store i8 0, ptr %9, align 8, !tbaa !40
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 680
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 696
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(60) %6, i8 0, i64 60, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(57) %7, i8 0, i64 57, i1 false)
-  store ptr %11, ptr %10, align 8, !tbaa !42
+  store ptr %11, ptr %10, align 8, !tbaa !41
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 688
-  store i64 0, ptr %12, align 8, !tbaa !43
-  store i8 0, ptr %11, align 8, !tbaa !44
+  store i64 0, ptr %12, align 8, !tbaa !42
+  store i8 0, ptr %11, align 8, !tbaa !43
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 712
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 728
-  store ptr %14, ptr %13, align 8, !tbaa !42
+  store ptr %14, ptr %13, align 8, !tbaa !41
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 720
-  store i64 0, ptr %15, align 8, !tbaa !43
-  store i8 0, ptr %14, align 8, !tbaa !44
+  store i64 0, ptr %15, align 8, !tbaa !42
+  store i8 0, ptr %14, align 8, !tbaa !43
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 744
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 760
-  store ptr %17, ptr %16, align 8, !tbaa !42
+  store ptr %17, ptr %16, align 8, !tbaa !41
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 752
-  store i64 0, ptr %18, align 8, !tbaa !43
-  store i8 0, ptr %17, align 8, !tbaa !44
+  store i64 0, ptr %18, align 8, !tbaa !42
+  store i8 0, ptr %17, align 8, !tbaa !43
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 776
-  store i8 0, ptr %19, align 8, !tbaa !45
+  store i8 0, ptr %19, align 8, !tbaa !44
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 784
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 816
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 840
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %20, i8 0, i64 28, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %21, i8 0, i64 24, i1 false)
-  store i32 -1, ptr %22, align 8, !tbaa !46
+  store i32 -1, ptr %22, align 8, !tbaa !45
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 844
-  store i8 0, ptr %23, align 4, !tbaa !47
+  store i8 0, ptr %23, align 4, !tbaa !46
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 845
-  store i8 1, ptr %24, align 1, !tbaa !48
+  store i8 1, ptr %24, align 1, !tbaa !47
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 846
-  store i8 1, ptr %25, align 2, !tbaa !49
+  store i8 1, ptr %25, align 2, !tbaa !48
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 848
-  store ptr null, ptr %26, align 8, !tbaa !50
+  store ptr null, ptr %26, align 8, !tbaa !49
   ret void
 }
 
@@ -155,50 +155,50 @@ define hidden noalias noundef ptr @_Z21pj_default_destructorP8PJconstsi(ptr noun
 
 7:                                                ; preds = %5
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %9 = load ptr, ptr %8, align 8, !tbaa !51
+  %9 = load ptr, ptr %8, align 8, !tbaa !50
   tail call void @free(ptr noundef %9) #19
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %11 = load ptr, ptr %10, align 8, !tbaa !52
+  %11 = load ptr, ptr %10, align 8, !tbaa !51
   tail call void @free(ptr noundef %11) #19
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %13 = load ptr, ptr %12, align 8, !tbaa !53
+  %13 = load ptr, ptr %12, align 8, !tbaa !52
   tail call void @free(ptr noundef %13) #19
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %15 = load ptr, ptr %14, align 8, !tbaa !54
+  %15 = load ptr, ptr %14, align 8, !tbaa !53
   tail call void @free(ptr noundef %15) #19
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 600
-  %17 = load ptr, ptr %16, align 8, !tbaa !55
+  %17 = load ptr, ptr %16, align 8, !tbaa !54
   %18 = icmp eq ptr %17, null
   br i1 %18, label %35, label %19
 
 19:                                               ; preds = %7
-  %20 = load ptr, ptr %17, align 8, !tbaa !56
+  %20 = load ptr, ptr %17, align 8, !tbaa !55
   %21 = getelementptr inbounds nuw i8, ptr %17, i64 8
-  %22 = load ptr, ptr %21, align 8, !tbaa !59
+  %22 = load ptr, ptr %21, align 8, !tbaa !58
   %.not4.i.i.i.i = icmp eq ptr %20, %22
   br i1 %.not4.i.i.i.i, label %_ZSt8_DestroyIPSt10unique_ptrIN5osgeo4proj22HorizontalShiftGridSetESt14default_deleteIS3_EES6_EvT_S8_RSaIT0_E.exit.i, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %19, %_ZSt8_DestroyISt10unique_ptrIN5osgeo4proj22HorizontalShiftGridSetESt14default_deleteIS3_EEEvPT_.exit.i.i.i.i
   %.05.i.i.i.i = phi ptr [ %27, %_ZSt8_DestroyISt10unique_ptrIN5osgeo4proj22HorizontalShiftGridSetESt14default_deleteIS3_EEEvPT_.exit.i.i.i.i ], [ %20, %19 ]
-  %23 = load ptr, ptr %.05.i.i.i.i, align 8, !tbaa !60
+  %23 = load ptr, ptr %.05.i.i.i.i, align 8, !tbaa !59
   %.not.i.i.i.i.i.i = icmp eq ptr %23, null
   br i1 %.not.i.i.i.i.i.i, label %_ZSt8_DestroyISt10unique_ptrIN5osgeo4proj22HorizontalShiftGridSetESt14default_deleteIS3_EEEvPT_.exit.i.i.i.i, label %_ZNKSt14default_deleteIN5osgeo4proj22HorizontalShiftGridSetEEclEPS2_.exit.i.i.i.i.i.i
 
 _ZNKSt14default_deleteIN5osgeo4proj22HorizontalShiftGridSetEEclEPS2_.exit.i.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i
-  %24 = load ptr, ptr %23, align 8, !tbaa !62
+  %24 = load ptr, ptr %23, align 8, !tbaa !61
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %26 = load ptr, ptr %25, align 8
   tail call void %26(ptr noundef nonnull align 8 dereferenceable(96) %23) #19
   br label %_ZSt8_DestroyISt10unique_ptrIN5osgeo4proj22HorizontalShiftGridSetESt14default_deleteIS3_EEEvPT_.exit.i.i.i.i
 
 _ZSt8_DestroyISt10unique_ptrIN5osgeo4proj22HorizontalShiftGridSetESt14default_deleteIS3_EEEvPT_.exit.i.i.i.i: ; preds = %_ZNKSt14default_deleteIN5osgeo4proj22HorizontalShiftGridSetEEclEPS2_.exit.i.i.i.i.i.i, %.lr.ph.i.i.i.i
-  store ptr null, ptr %.05.i.i.i.i, align 8, !tbaa !60
+  store ptr null, ptr %.05.i.i.i.i, align 8, !tbaa !59
   %27 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i, i64 8
   %.not.i.i.i.i = icmp eq ptr %27, %22
-  br i1 %.not.i.i.i.i, label %_ZSt8_DestroyIPSt10unique_ptrIN5osgeo4proj22HorizontalShiftGridSetESt14default_deleteIS3_EES6_EvT_S8_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i, !llvm.loop !64
+  br i1 %.not.i.i.i.i, label %_ZSt8_DestroyIPSt10unique_ptrIN5osgeo4proj22HorizontalShiftGridSetESt14default_deleteIS3_EES6_EvT_S8_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i, !llvm.loop !63
 
 _ZSt8_DestroyIPSt10unique_ptrIN5osgeo4proj22HorizontalShiftGridSetESt14default_deleteIS3_EES6_EvT_S8_RSaIT0_E.exitthread-pre-split.i: ; preds = %_ZSt8_DestroyISt10unique_ptrIN5osgeo4proj22HorizontalShiftGridSetESt14default_deleteIS3_EEEvPT_.exit.i.i.i.i
-  %.pr.i = load ptr, ptr %17, align 8, !tbaa !56
+  %.pr.i = load ptr, ptr %17, align 8, !tbaa !55
   br label %_ZSt8_DestroyIPSt10unique_ptrIN5osgeo4proj22HorizontalShiftGridSetESt14default_deleteIS3_EES6_EvT_S8_RSaIT0_E.exit.i
 
 _ZSt8_DestroyIPSt10unique_ptrIN5osgeo4proj22HorizontalShiftGridSetESt14default_deleteIS3_EES6_EvT_S8_RSaIT0_E.exit.i: ; preds = %_ZSt8_DestroyIPSt10unique_ptrIN5osgeo4proj22HorizontalShiftGridSetESt14default_deleteIS3_EES6_EvT_S8_RSaIT0_E.exitthread-pre-split.i, %19
@@ -208,7 +208,7 @@ _ZSt8_DestroyIPSt10unique_ptrIN5osgeo4proj22HorizontalShiftGridSetESt14default_d
 
 29:                                               ; preds = %_ZSt8_DestroyIPSt10unique_ptrIN5osgeo4proj22HorizontalShiftGridSetESt14default_deleteIS3_EES6_EvT_S8_RSaIT0_E.exit.i
   %30 = getelementptr inbounds nuw i8, ptr %17, i64 16
-  %31 = load ptr, ptr %30, align 8, !tbaa !65
+  %31 = load ptr, ptr %30, align 8, !tbaa !64
   %32 = ptrtoint ptr %31 to i64
   %33 = ptrtoint ptr %28 to i64
   %34 = sub i64 %32, %33
@@ -221,38 +221,38 @@ _ZNSt6vectorISt10unique_ptrIN5osgeo4proj22HorizontalShiftGridSetESt14default_del
 
 35:                                               ; preds = %_ZNSt6vectorISt10unique_ptrIN5osgeo4proj22HorizontalShiftGridSetESt14default_deleteIS3_EESaIS6_EED2Ev.exit, %7
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 608
-  %37 = load ptr, ptr %36, align 8, !tbaa !66
+  %37 = load ptr, ptr %36, align 8, !tbaa !65
   %38 = icmp eq ptr %37, null
   br i1 %38, label %55, label %39
 
 39:                                               ; preds = %35
-  %40 = load ptr, ptr %37, align 8, !tbaa !67
+  %40 = load ptr, ptr %37, align 8, !tbaa !66
   %41 = getelementptr inbounds nuw i8, ptr %37, i64 8
-  %42 = load ptr, ptr %41, align 8, !tbaa !70
+  %42 = load ptr, ptr %41, align 8, !tbaa !69
   %.not4.i.i.i.i27 = icmp eq ptr %40, %42
   br i1 %.not4.i.i.i.i27, label %_ZSt8_DestroyIPSt10unique_ptrIN5osgeo4proj20VerticalShiftGridSetESt14default_deleteIS3_EES6_EvT_S8_RSaIT0_E.exit.i, label %.lr.ph.i.i.i.i28
 
 .lr.ph.i.i.i.i28:                                 ; preds = %39, %_ZSt8_DestroyISt10unique_ptrIN5osgeo4proj20VerticalShiftGridSetESt14default_deleteIS3_EEEvPT_.exit.i.i.i.i
   %.05.i.i.i.i29 = phi ptr [ %47, %_ZSt8_DestroyISt10unique_ptrIN5osgeo4proj20VerticalShiftGridSetESt14default_deleteIS3_EEEvPT_.exit.i.i.i.i ], [ %40, %39 ]
-  %43 = load ptr, ptr %.05.i.i.i.i29, align 8, !tbaa !71
+  %43 = load ptr, ptr %.05.i.i.i.i29, align 8, !tbaa !70
   %.not.i.i.i.i.i.i30 = icmp eq ptr %43, null
   br i1 %.not.i.i.i.i.i.i30, label %_ZSt8_DestroyISt10unique_ptrIN5osgeo4proj20VerticalShiftGridSetESt14default_deleteIS3_EEEvPT_.exit.i.i.i.i, label %_ZNKSt14default_deleteIN5osgeo4proj20VerticalShiftGridSetEEclEPS2_.exit.i.i.i.i.i.i
 
 _ZNKSt14default_deleteIN5osgeo4proj20VerticalShiftGridSetEEclEPS2_.exit.i.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i28
-  %44 = load ptr, ptr %43, align 8, !tbaa !62
+  %44 = load ptr, ptr %43, align 8, !tbaa !61
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 8
   %46 = load ptr, ptr %45, align 8
   tail call void %46(ptr noundef nonnull align 8 dereferenceable(96) %43) #19
   br label %_ZSt8_DestroyISt10unique_ptrIN5osgeo4proj20VerticalShiftGridSetESt14default_deleteIS3_EEEvPT_.exit.i.i.i.i
 
 _ZSt8_DestroyISt10unique_ptrIN5osgeo4proj20VerticalShiftGridSetESt14default_deleteIS3_EEEvPT_.exit.i.i.i.i: ; preds = %_ZNKSt14default_deleteIN5osgeo4proj20VerticalShiftGridSetEEclEPS2_.exit.i.i.i.i.i.i, %.lr.ph.i.i.i.i28
-  store ptr null, ptr %.05.i.i.i.i29, align 8, !tbaa !71
+  store ptr null, ptr %.05.i.i.i.i29, align 8, !tbaa !70
   %47 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i29, i64 8
   %.not.i.i.i.i31 = icmp eq ptr %47, %42
-  br i1 %.not.i.i.i.i31, label %_ZSt8_DestroyIPSt10unique_ptrIN5osgeo4proj20VerticalShiftGridSetESt14default_deleteIS3_EES6_EvT_S8_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i28, !llvm.loop !73
+  br i1 %.not.i.i.i.i31, label %_ZSt8_DestroyIPSt10unique_ptrIN5osgeo4proj20VerticalShiftGridSetESt14default_deleteIS3_EES6_EvT_S8_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i28, !llvm.loop !72
 
 _ZSt8_DestroyIPSt10unique_ptrIN5osgeo4proj20VerticalShiftGridSetESt14default_deleteIS3_EES6_EvT_S8_RSaIT0_E.exitthread-pre-split.i: ; preds = %_ZSt8_DestroyISt10unique_ptrIN5osgeo4proj20VerticalShiftGridSetESt14default_deleteIS3_EEEvPT_.exit.i.i.i.i
-  %.pr.i32 = load ptr, ptr %37, align 8, !tbaa !67
+  %.pr.i32 = load ptr, ptr %37, align 8, !tbaa !66
   br label %_ZSt8_DestroyIPSt10unique_ptrIN5osgeo4proj20VerticalShiftGridSetESt14default_deleteIS3_EES6_EvT_S8_RSaIT0_E.exit.i
 
 _ZSt8_DestroyIPSt10unique_ptrIN5osgeo4proj20VerticalShiftGridSetESt14default_deleteIS3_EES6_EvT_S8_RSaIT0_E.exit.i: ; preds = %_ZSt8_DestroyIPSt10unique_ptrIN5osgeo4proj20VerticalShiftGridSetESt14default_deleteIS3_EES6_EvT_S8_RSaIT0_E.exitthread-pre-split.i, %39
@@ -262,7 +262,7 @@ _ZSt8_DestroyIPSt10unique_ptrIN5osgeo4proj20VerticalShiftGridSetESt14default_del
 
 49:                                               ; preds = %_ZSt8_DestroyIPSt10unique_ptrIN5osgeo4proj20VerticalShiftGridSetESt14default_deleteIS3_EES6_EvT_S8_RSaIT0_E.exit.i
   %50 = getelementptr inbounds nuw i8, ptr %37, i64 16
-  %51 = load ptr, ptr %50, align 8, !tbaa !74
+  %51 = load ptr, ptr %50, align 8, !tbaa !73
   %52 = ptrtoint ptr %51 to i64
   %53 = ptrtoint ptr %48 to i64
   %54 = sub i64 %52, %53
@@ -275,11 +275,11 @@ _ZNSt6vectorISt10unique_ptrIN5osgeo4proj20VerticalShiftGridSetESt14default_delet
 
 55:                                               ; preds = %_ZNSt6vectorISt10unique_ptrIN5osgeo4proj20VerticalShiftGridSetESt14default_deleteIS3_EESaIS6_EED2Ev.exit, %35
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %57 = load ptr, ptr %56, align 8, !tbaa !75
+  %57 = load ptr, ptr %56, align 8, !tbaa !74
   tail call void @free(ptr noundef %57) #19
   %58 = tail call noundef ptr @_Z10pj_get_ctxP8PJconsts(ptr noundef %0)
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %60 = load ptr, ptr %59, align 8, !tbaa !76
+  %60 = load ptr, ptr %59, align 8, !tbaa !75
   %.not6.i = icmp eq ptr %60, null
   br i1 %.not6.i, label %_Z11free_paramsP6pj_ctxP8ARG_listi.exit, label %.lr.ph.i
 
@@ -293,16 +293,16 @@ _ZNSt6vectorISt10unique_ptrIN5osgeo4proj20VerticalShiftGridSetESt14default_delet
 _Z11free_paramsP6pj_ctxP8ARG_listi.exit:          ; preds = %.lr.ph.i, %55
   tail call void @_Z22proj_context_errno_setP6pj_ctxi(ptr noundef %58, i32 noundef %1)
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %63 = load ptr, ptr %62, align 8, !tbaa !77
+  %63 = load ptr, ptr %62, align 8, !tbaa !76
   tail call void @free(ptr noundef %63) #19
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 392
-  %65 = load ptr, ptr %64, align 8, !tbaa !78
+  %65 = load ptr, ptr %64, align 8, !tbaa !77
   %66 = icmp eq ptr %65, null
   br i1 %66, label %proj_destroy.exit, label %67
 
 67:                                               ; preds = %_Z11free_paramsP6pj_ctxP8ARG_listi.exit
   %68 = getelementptr inbounds nuw i8, ptr %65, i64 152
-  %69 = load ptr, ptr %68, align 8, !tbaa !11
+  %69 = load ptr, ptr %68, align 8, !tbaa !10
   %.not.i34 = icmp eq ptr %69, null
   br i1 %.not.i34, label %proj_destroy.exit, label %70
 
@@ -313,13 +313,13 @@ _Z11free_paramsP6pj_ctxP8ARG_listi.exit:          ; preds = %.lr.ph.i, %55
 
 proj_destroy.exit:                                ; preds = %_Z11free_paramsP6pj_ctxP8ARG_listi.exit, %67, %70
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 416
-  %74 = load ptr, ptr %73, align 8, !tbaa !79
+  %74 = load ptr, ptr %73, align 8, !tbaa !78
   %75 = icmp eq ptr %74, null
   br i1 %75, label %proj_destroy.exit36, label %76
 
 76:                                               ; preds = %proj_destroy.exit
   %77 = getelementptr inbounds nuw i8, ptr %74, i64 152
-  %78 = load ptr, ptr %77, align 8, !tbaa !11
+  %78 = load ptr, ptr %77, align 8, !tbaa !10
   %.not.i35 = icmp eq ptr %78, null
   br i1 %.not.i35, label %proj_destroy.exit36, label %79
 
@@ -330,13 +330,13 @@ proj_destroy.exit:                                ; preds = %_Z11free_paramsP6pj
 
 proj_destroy.exit36:                              ; preds = %proj_destroy.exit, %76, %79
   %82 = getelementptr inbounds nuw i8, ptr %0, i64 400
-  %83 = load ptr, ptr %82, align 8, !tbaa !80
+  %83 = load ptr, ptr %82, align 8, !tbaa !79
   %84 = icmp eq ptr %83, null
   br i1 %84, label %proj_destroy.exit38, label %85
 
 85:                                               ; preds = %proj_destroy.exit36
   %86 = getelementptr inbounds nuw i8, ptr %83, i64 152
-  %87 = load ptr, ptr %86, align 8, !tbaa !11
+  %87 = load ptr, ptr %86, align 8, !tbaa !10
   %.not.i37 = icmp eq ptr %87, null
   br i1 %.not.i37, label %proj_destroy.exit38, label %88
 
@@ -347,13 +347,13 @@ proj_destroy.exit36:                              ; preds = %proj_destroy.exit, 
 
 proj_destroy.exit38:                              ; preds = %proj_destroy.exit36, %85, %88
   %91 = getelementptr inbounds nuw i8, ptr %0, i64 408
-  %92 = load ptr, ptr %91, align 8, !tbaa !81
+  %92 = load ptr, ptr %91, align 8, !tbaa !80
   %93 = icmp eq ptr %92, null
   br i1 %93, label %proj_destroy.exit40, label %94
 
 94:                                               ; preds = %proj_destroy.exit38
   %95 = getelementptr inbounds nuw i8, ptr %92, i64 152
-  %96 = load ptr, ptr %95, align 8, !tbaa !11
+  %96 = load ptr, ptr %95, align 8, !tbaa !10
   %.not.i39 = icmp eq ptr %96, null
   br i1 %.not.i39, label %proj_destroy.exit40, label %97
 
@@ -364,13 +364,13 @@ proj_destroy.exit38:                              ; preds = %proj_destroy.exit36
 
 proj_destroy.exit40:                              ; preds = %proj_destroy.exit38, %94, %97
   %100 = getelementptr inbounds nuw i8, ptr %0, i64 424
-  %101 = load ptr, ptr %100, align 8, !tbaa !82
+  %101 = load ptr, ptr %100, align 8, !tbaa !81
   %102 = icmp eq ptr %101, null
   br i1 %102, label %proj_destroy.exit42, label %103
 
 103:                                              ; preds = %proj_destroy.exit40
   %104 = getelementptr inbounds nuw i8, ptr %101, i64 152
-  %105 = load ptr, ptr %104, align 8, !tbaa !11
+  %105 = load ptr, ptr %104, align 8, !tbaa !10
   %.not.i41 = icmp eq ptr %105, null
   br i1 %.not.i41, label %proj_destroy.exit42, label %106
 
@@ -381,13 +381,13 @@ proj_destroy.exit40:                              ; preds = %proj_destroy.exit38
 
 proj_destroy.exit42:                              ; preds = %proj_destroy.exit40, %103, %106
   %109 = getelementptr inbounds nuw i8, ptr %0, i64 432
-  %110 = load ptr, ptr %109, align 8, !tbaa !83
+  %110 = load ptr, ptr %109, align 8, !tbaa !82
   %111 = icmp eq ptr %110, null
   br i1 %111, label %proj_destroy.exit44, label %112
 
 112:                                              ; preds = %proj_destroy.exit42
   %113 = getelementptr inbounds nuw i8, ptr %110, i64 152
-  %114 = load ptr, ptr %113, align 8, !tbaa !11
+  %114 = load ptr, ptr %113, align 8, !tbaa !10
   %.not.i43 = icmp eq ptr %114, null
   br i1 %.not.i43, label %proj_destroy.exit44, label %115
 
@@ -398,13 +398,13 @@ proj_destroy.exit42:                              ; preds = %proj_destroy.exit40
 
 proj_destroy.exit44:                              ; preds = %proj_destroy.exit42, %112, %115
   %118 = getelementptr inbounds nuw i8, ptr %0, i64 848
-  %119 = load ptr, ptr %118, align 8, !tbaa !50
+  %119 = load ptr, ptr %118, align 8, !tbaa !49
   %120 = icmp eq ptr %119, null
   br i1 %120, label %proj_destroy.exit46, label %121
 
 121:                                              ; preds = %proj_destroy.exit44
   %122 = getelementptr inbounds nuw i8, ptr %119, i64 152
-  %123 = load ptr, ptr %122, align 8, !tbaa !11
+  %123 = load ptr, ptr %122, align 8, !tbaa !10
   %.not.i45 = icmp eq ptr %123, null
   br i1 %.not.i45, label %proj_destroy.exit46, label %124
 
@@ -415,7 +415,7 @@ proj_destroy.exit44:                              ; preds = %proj_destroy.exit42
 
 proj_destroy.exit46:                              ; preds = %proj_destroy.exit44, %121, %124
   %127 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %128 = load ptr, ptr %127, align 8, !tbaa !84
+  %128 = load ptr, ptr %127, align 8, !tbaa !83
   tail call void @free(ptr noundef %128) #19
   tail call void @_ZN8PJconstsD2Ev(ptr noundef nonnull align 8 dereferenceable(856) %0) #19
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 856) #20
@@ -431,21 +431,21 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define hidden void @_ZN8PJconsts13copyStateFromERKS_(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(856) initializes((344, 348), (844, 847)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(856) %1) local_unnamed_addr #9 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 344
-  %4 = load i32, ptr %3, align 8, !tbaa !85
+  %4 = load i32, ptr %3, align 8, !tbaa !84
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 344
-  store i32 %4, ptr %5, align 8, !tbaa !85
+  store i32 %4, ptr %5, align 8, !tbaa !84
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 844
-  %7 = load i8, ptr %6, align 4, !tbaa !47, !range !86, !noundef !87
+  %7 = load i8, ptr %6, align 4, !tbaa !46, !range !85, !noundef !86
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 844
-  store i8 %7, ptr %8, align 4, !tbaa !47
+  store i8 %7, ptr %8, align 4, !tbaa !46
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 845
-  %10 = load i8, ptr %9, align 1, !tbaa !48, !range !86, !noundef !87
+  %10 = load i8, ptr %9, align 1, !tbaa !47, !range !85, !noundef !86
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 845
-  store i8 %10, ptr %11, align 1, !tbaa !48
+  store i8 %10, ptr %11, align 1, !tbaa !47
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 846
-  %13 = load i8, ptr %12, align 2, !tbaa !49, !range !86, !noundef !87
+  %13 = load i8, ptr %12, align 2, !tbaa !48, !range !85, !noundef !86
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 846
-  store i8 %13, ptr %14, align 2, !tbaa !49
+  store i8 %13, ptr %14, align 2, !tbaa !48
   ret void
 }
 
@@ -460,7 +460,7 @@ define hidden noundef ptr @_Z6pj_newv() local_unnamed_addr #10 personality ptr @
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 152
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(856) %1, i8 0, i64 100, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %4, i8 0, i64 48, i1 false)
-  store ptr @_Z21pj_default_destructorP8PJconstsi, ptr %5, align 8, !tbaa !11
+  store ptr @_Z21pj_default_destructorP8PJconstsi, ptr %5, align 8, !tbaa !10
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 160
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 392
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 536
@@ -468,45 +468,45 @@ define hidden noundef ptr @_Z6pj_newv() local_unnamed_addr #10 personality ptr @
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(140) %7, i8 0, i64 140, i1 false)
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 600
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 664
-  store double 0.000000e+00, ptr %10, align 8, !tbaa !40
+  store double 0.000000e+00, ptr %10, align 8, !tbaa !39
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 672
-  store i8 0, ptr %11, align 8, !tbaa !41
+  store i8 0, ptr %11, align 8, !tbaa !40
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 680
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 696
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(60) %8, i8 0, i64 60, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(57) %9, i8 0, i64 57, i1 false)
-  store ptr %13, ptr %12, align 8, !tbaa !42
+  store ptr %13, ptr %12, align 8, !tbaa !41
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 688
-  store i64 0, ptr %14, align 8, !tbaa !43
-  store i8 0, ptr %13, align 1, !tbaa !44
+  store i64 0, ptr %14, align 8, !tbaa !42
+  store i8 0, ptr %13, align 1, !tbaa !43
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 712
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 728
-  store ptr %16, ptr %15, align 8, !tbaa !42
+  store ptr %16, ptr %15, align 8, !tbaa !41
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 720
-  store i64 0, ptr %17, align 8, !tbaa !43
-  store i8 0, ptr %16, align 1, !tbaa !44
+  store i64 0, ptr %17, align 8, !tbaa !42
+  store i8 0, ptr %16, align 1, !tbaa !43
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 744
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 760
-  store ptr %19, ptr %18, align 8, !tbaa !42
+  store ptr %19, ptr %18, align 8, !tbaa !41
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 752
-  store i64 0, ptr %20, align 8, !tbaa !43
-  store i8 0, ptr %19, align 1, !tbaa !44
+  store i64 0, ptr %20, align 8, !tbaa !42
+  store i8 0, ptr %19, align 1, !tbaa !43
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 776
-  store i8 0, ptr %21, align 8, !tbaa !45
+  store i8 0, ptr %21, align 8, !tbaa !44
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 784
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 816
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 840
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %22, i8 0, i64 28, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %23, i8 0, i64 24, i1 false)
-  store i32 -1, ptr %24, align 8, !tbaa !46
+  store i32 -1, ptr %24, align 8, !tbaa !45
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 844
-  store i8 0, ptr %25, align 4, !tbaa !47
+  store i8 0, ptr %25, align 4, !tbaa !46
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 845
-  store i8 1, ptr %26, align 1, !tbaa !48
+  store i8 1, ptr %26, align 1, !tbaa !47
   %27 = getelementptr inbounds nuw i8, ptr %1, i64 846
-  store i8 1, ptr %27, align 2, !tbaa !49
+  store i8 1, ptr %27, align 2, !tbaa !48
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 848
-  store ptr null, ptr %28, align 8, !tbaa !50
+  store ptr null, ptr %28, align 8, !tbaa !49
   br label %29
 
 29:                                               ; preds = %3, %0
@@ -526,9 +526,9 @@ declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #12
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8PJconstsD2Ev(ptr noundef nonnull align 8 dereferenceable(856) %0) unnamed_addr #13 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 816
-  %3 = load ptr, ptr %2, align 8, !tbaa !88
+  %3 = load ptr, ptr %2, align 8, !tbaa !87
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 824
-  %5 = load ptr, ptr %4, align 8, !tbaa !89
+  %5 = load ptr, ptr %4, align 8, !tbaa !88
   %.not4.i.i.i.i = icmp eq ptr %3, %5
   br i1 %.not4.i.i.i.i, label %_ZSt8_DestroyIP16PJCoordOperationS0_EvT_S2_RSaIT0_E.exit.i, label %.lr.ph.i.i.i.i
 
@@ -537,10 +537,10 @@ define linkonce_odr hidden void @_ZN8PJconstsD2Ev(ptr noundef nonnull align 8 de
   tail call void @_ZN16PJCoordOperationD1Ev(ptr noundef nonnull align 8 dereferenceable(188) %.05.i.i.i.i) #19
   %6 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i, i64 192
   %.not.i.i.i.i = icmp eq ptr %6, %5
-  br i1 %.not.i.i.i.i, label %_ZSt8_DestroyIP16PJCoordOperationS0_EvT_S2_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i, !llvm.loop !90
+  br i1 %.not.i.i.i.i, label %_ZSt8_DestroyIP16PJCoordOperationS0_EvT_S2_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i, !llvm.loop !89
 
 _ZSt8_DestroyIP16PJCoordOperationS0_EvT_S2_RSaIT0_E.exitthread-pre-split.i: ; preds = %.lr.ph.i.i.i.i
-  %.pr.i = load ptr, ptr %2, align 8, !tbaa !88
+  %.pr.i = load ptr, ptr %2, align 8, !tbaa !87
   br label %_ZSt8_DestroyIP16PJCoordOperationS0_EvT_S2_RSaIT0_E.exit.i
 
 _ZSt8_DestroyIP16PJCoordOperationS0_EvT_S2_RSaIT0_E.exit.i: ; preds = %_ZSt8_DestroyIP16PJCoordOperationS0_EvT_S2_RSaIT0_E.exitthread-pre-split.i, %1
@@ -550,7 +550,7 @@ _ZSt8_DestroyIP16PJCoordOperationS0_EvT_S2_RSaIT0_E.exit.i: ; preds = %_ZSt8_Des
 
 8:                                                ; preds = %_ZSt8_DestroyIP16PJCoordOperationS0_EvT_S2_RSaIT0_E.exit.i
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 832
-  %10 = load ptr, ptr %9, align 8, !tbaa !91
+  %10 = load ptr, ptr %9, align 8, !tbaa !90
   %11 = ptrtoint ptr %10 to i64
   %12 = ptrtoint ptr %7 to i64
   %13 = sub i64 %11, %12
@@ -559,9 +559,9 @@ _ZSt8_DestroyIP16PJCoordOperationS0_EvT_S2_RSaIT0_E.exit.i: ; preds = %_ZSt8_Des
 
 _ZNSt6vectorI16PJCoordOperationSaIS0_EED2Ev.exit: ; preds = %_ZSt8_DestroyIP16PJCoordOperationS0_EvT_S2_RSaIT0_E.exit.i, %8
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 784
-  %15 = load ptr, ptr %14, align 8, !tbaa !92
+  %15 = load ptr, ptr %14, align 8, !tbaa !91
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 792
-  %17 = load ptr, ptr %16, align 8, !tbaa !93
+  %17 = load ptr, ptr %16, align 8, !tbaa !92
   %.not4.i.i.i.i1 = icmp eq ptr %15, %17
   br i1 %.not4.i.i.i.i1, label %_ZSt8_DestroyIPN5osgeo4proj9operation15GridDescriptionES3_EvT_S5_RSaIT0_E.exit.i, label %.lr.ph.i.i.i.i2
 
@@ -570,10 +570,10 @@ _ZNSt6vectorI16PJCoordOperationSaIS0_EED2Ev.exit: ; preds = %_ZSt8_DestroyIP16PJ
   tail call void @_ZN5osgeo4proj9operation15GridDescriptionD1Ev(ptr noundef nonnull align 8 dereferenceable(131) %.05.i.i.i.i3) #19
   %18 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i3, i64 136
   %.not.i.i.i.i4 = icmp eq ptr %18, %17
-  br i1 %.not.i.i.i.i4, label %_ZSt8_DestroyIPN5osgeo4proj9operation15GridDescriptionES3_EvT_S5_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i2, !llvm.loop !94
+  br i1 %.not.i.i.i.i4, label %_ZSt8_DestroyIPN5osgeo4proj9operation15GridDescriptionES3_EvT_S5_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i2, !llvm.loop !93
 
 _ZSt8_DestroyIPN5osgeo4proj9operation15GridDescriptionES3_EvT_S5_RSaIT0_E.exitthread-pre-split.i: ; preds = %.lr.ph.i.i.i.i2
-  %.pr.i5 = load ptr, ptr %14, align 8, !tbaa !92
+  %.pr.i5 = load ptr, ptr %14, align 8, !tbaa !91
   br label %_ZSt8_DestroyIPN5osgeo4proj9operation15GridDescriptionES3_EvT_S5_RSaIT0_E.exit.i
 
 _ZSt8_DestroyIPN5osgeo4proj9operation15GridDescriptionES3_EvT_S5_RSaIT0_E.exit.i: ; preds = %_ZSt8_DestroyIPN5osgeo4proj9operation15GridDescriptionES3_EvT_S5_RSaIT0_E.exitthread-pre-split.i, %_ZNSt6vectorI16PJCoordOperationSaIS0_EED2Ev.exit
@@ -583,7 +583,7 @@ _ZSt8_DestroyIPN5osgeo4proj9operation15GridDescriptionES3_EvT_S5_RSaIT0_E.exit.i
 
 20:                                               ; preds = %_ZSt8_DestroyIPN5osgeo4proj9operation15GridDescriptionES3_EvT_S5_RSaIT0_E.exit.i
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 800
-  %22 = load ptr, ptr %21, align 8, !tbaa !95
+  %22 = load ptr, ptr %21, align 8, !tbaa !94
   %23 = ptrtoint ptr %22 to i64
   %24 = ptrtoint ptr %19 to i64
   %25 = sub i64 %23, %24
@@ -592,67 +592,67 @@ _ZSt8_DestroyIPN5osgeo4proj9operation15GridDescriptionES3_EvT_S5_RSaIT0_E.exit.i
 
 _ZNSt6vectorIN5osgeo4proj9operation15GridDescriptionESaIS3_EED2Ev.exit: ; preds = %_ZSt8_DestroyIPN5osgeo4proj9operation15GridDescriptionES3_EvT_S5_RSaIT0_E.exit.i, %20
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 744
-  %27 = load ptr, ptr %26, align 8, !tbaa !96
+  %27 = load ptr, ptr %26, align 8, !tbaa !95
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 760
   %29 = icmp eq ptr %27, %28
   br i1 %29, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i: ; preds = %_ZNSt6vectorIN5osgeo4proj9operation15GridDescriptionESaIS3_EED2Ev.exit
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 752
-  %31 = load i64, ptr %30, align 8, !tbaa !43
+  %31 = load i64, ptr %30, align 8, !tbaa !42
   %32 = icmp ult i64 %31, 16
   tail call void @llvm.assume(i1 %32)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: ; preds = %_ZNSt6vectorIN5osgeo4proj9operation15GridDescriptionESaIS3_EED2Ev.exit
-  %33 = load i64, ptr %28, align 8, !tbaa !44
+  %33 = load i64, ptr %28, align 8, !tbaa !43
   %34 = add i64 %33, 1
   tail call void @_ZdlPvm(ptr noundef %27, i64 noundef %34) #20
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 712
-  %36 = load ptr, ptr %35, align 8, !tbaa !96
+  %36 = load ptr, ptr %35, align 8, !tbaa !95
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 728
   %38 = icmp eq ptr %36, %37
   br i1 %38, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i8, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i7
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i8: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 720
-  %40 = load i64, ptr %39, align 8, !tbaa !43
+  %40 = load i64, ptr %39, align 8, !tbaa !42
   %41 = icmp ult i64 %40, 16
   tail call void @llvm.assume(i1 %41)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit9
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i7: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
-  %42 = load i64, ptr %37, align 8, !tbaa !44
+  %42 = load i64, ptr %37, align 8, !tbaa !43
   %43 = add i64 %42, 1
   tail call void @_ZdlPvm(ptr noundef %36, i64 noundef %43) #20
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit9
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit9: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i8, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i7
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 680
-  %45 = load ptr, ptr %44, align 8, !tbaa !96
+  %45 = load ptr, ptr %44, align 8, !tbaa !95
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 696
   %47 = icmp eq ptr %45, %46
   br i1 %47, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i11, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i10
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i11: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit9
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 688
-  %49 = load i64, ptr %48, align 8, !tbaa !43
+  %49 = load i64, ptr %48, align 8, !tbaa !42
   %50 = icmp ult i64 %49, 16
   tail call void @llvm.assume(i1 %50)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit12
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i10: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit9
-  %51 = load i64, ptr %46, align 8, !tbaa !44
+  %51 = load i64, ptr %46, align 8, !tbaa !43
   %52 = add i64 %51, 1
   tail call void @_ZdlPvm(ptr noundef %45, i64 noundef %52) #20
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit12
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit12: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i11, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i10
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 648
-  %54 = load ptr, ptr %53, align 8, !tbaa !97
+  %54 = load ptr, ptr %53, align 8, !tbaa !96
   %.not.i.i = icmp eq ptr %54, null
   br i1 %.not.i.i, label %_ZNSt12__shared_ptrIN5osgeo4proj4util10BaseObjectELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, label %55
 
@@ -664,27 +664,27 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit12: ; preds = %_ZN
   br i1 %58, label %60, label %68
 
 60:                                               ; preds = %55
-  store i32 0, ptr %56, align 8, !tbaa !98
+  store i32 0, ptr %56, align 8, !tbaa !97
   %61 = getelementptr inbounds nuw i8, ptr %54, i64 12
-  store i32 0, ptr %61, align 4, !tbaa !100
-  %62 = load ptr, ptr %54, align 8, !tbaa !62
+  store i32 0, ptr %61, align 4, !tbaa !99
+  %62 = load ptr, ptr %54, align 8, !tbaa !61
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 16
   %64 = load ptr, ptr %63, align 8
   tail call void %64(ptr noundef nonnull align 8 dereferenceable(16) %54) #19
-  %65 = load ptr, ptr %54, align 8, !tbaa !62
+  %65 = load ptr, ptr %54, align 8, !tbaa !61
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 24
   %67 = load ptr, ptr %66, align 8
   tail call void %67(ptr noundef nonnull align 8 dereferenceable(16) %54) #19
   br label %_ZNSt12__shared_ptrIN5osgeo4proj4util10BaseObjectELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
 68:                                               ; preds = %55
-  %69 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !44
+  %69 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !43
   %.not.i.i.i13 = icmp eq i8 %69, 0
   br i1 %.not.i.i.i13, label %72, label %70
 
 70:                                               ; preds = %68
   %71 = add nsw i32 %59, -1
-  store i32 %71, ptr %56, align 4, !tbaa !101
+  store i32 %71, ptr %56, align 4, !tbaa !100
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i
 
 72:                                               ; preds = %68
@@ -694,7 +694,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit12: ; preds = %_ZN
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i: ; preds = %72, %70
   %.0.i.i.i.i = phi i32 [ %59, %70 ], [ %73, %72 ]
   %74 = icmp eq i32 %.0.i.i.i.i, 1
-  br i1 %74, label %75, label %_ZNSt12__shared_ptrIN5osgeo4proj4util10BaseObjectELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, !prof !102
+  br i1 %74, label %75, label %_ZNSt12__shared_ptrIN5osgeo4proj4util10BaseObjectELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, !prof !101
 
 75:                                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i
   tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %54) #19
@@ -708,17 +708,17 @@ _ZNSt12__shared_ptrIN5osgeo4proj4util10BaseObjectELN9__gnu_cxx12_Lock_policyE2EE
 define void @proj_cleanup() local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %1 = tail call noundef ptr @_Z18pj_get_default_ctxv()
   %2 = getelementptr inbounds nuw i8, ptr %1, i64 376
-  store i8 0, ptr %2, align 8, !tbaa !103
+  store i8 0, ptr %2, align 8, !tbaa !102
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  %4 = load ptr, ptr %3, align 8, !tbaa !127
+  %4 = load ptr, ptr %3, align 8, !tbaa !126
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %_ZN14projCppContext7closeDbEv.exit, label %5
 
 5:                                                ; preds = %0
-  store ptr null, ptr %4, align 8, !tbaa !128
+  store ptr null, ptr %4, align 8, !tbaa !127
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %7 = load ptr, ptr %6, align 8, !tbaa !97
-  store ptr null, ptr %6, align 8, !tbaa !97
+  %7 = load ptr, ptr %6, align 8, !tbaa !96
+  store ptr null, ptr %6, align 8, !tbaa !96
   %.not.i.i.i.i.i = icmp eq ptr %7, null
   br i1 %.not.i.i.i.i.i, label %_ZN14projCppContext7closeDbEv.exit, label %8
 
@@ -730,27 +730,27 @@ define void @proj_cleanup() local_unnamed_addr #4 personality ptr @__gxx_persona
   br i1 %11, label %13, label %21
 
 13:                                               ; preds = %8
-  store i32 0, ptr %9, align 8, !tbaa !98
+  store i32 0, ptr %9, align 8, !tbaa !97
   %14 = getelementptr inbounds nuw i8, ptr %7, i64 12
-  store i32 0, ptr %14, align 4, !tbaa !100
-  %15 = load ptr, ptr %7, align 8, !tbaa !62
+  store i32 0, ptr %14, align 4, !tbaa !99
+  %15 = load ptr, ptr %7, align 8, !tbaa !61
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %17 = load ptr, ptr %16, align 8
   tail call void %17(ptr noundef nonnull align 8 dereferenceable(16) %7) #19
-  %18 = load ptr, ptr %7, align 8, !tbaa !62
+  %18 = load ptr, ptr %7, align 8, !tbaa !61
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 24
   %20 = load ptr, ptr %19, align 8
   tail call void %20(ptr noundef nonnull align 8 dereferenceable(16) %7) #19
   br label %_ZN14projCppContext7closeDbEv.exit
 
 21:                                               ; preds = %8
-  %22 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !44
+  %22 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !43
   %.not.i.i.i.i.i.i = icmp eq i8 %22, 0
   br i1 %.not.i.i.i.i.i.i, label %25, label %23
 
 23:                                               ; preds = %21
   %24 = add nsw i32 %12, -1
-  store i32 %24, ptr %9, align 4, !tbaa !101
+  store i32 %24, ptr %9, align 4, !tbaa !100
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i
 
 25:                                               ; preds = %21
@@ -760,7 +760,7 @@ define void @proj_cleanup() local_unnamed_addr #4 personality ptr @__gxx_persona
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i: ; preds = %25, %23
   %.0.i.i.i.i.i.i.i = phi i32 [ %12, %23 ], [ %26, %25 ]
   %27 = icmp eq i32 %.0.i.i.i.i.i.i.i, 1
-  br i1 %27, label %28, label %_ZN14projCppContext7closeDbEv.exit, !prof !102
+  br i1 %27, label %28, label %_ZN14projCppContext7closeDbEv.exit, !prof !101
 
 28:                                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i
   tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %7) #19
@@ -798,19 +798,19 @@ declare void @_ZN5osgeo4proj9operation15GridDescriptionD1Ev(ptr noundef nonnull 
 
 ; Function Attrs: mustprogress noinline nounwind uwtable
 define linkonce_odr void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #15 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !62
+  %2 = load ptr, ptr %0, align 8, !tbaa !61
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %4 = load ptr, ptr %3, align 8
   tail call void %4(ptr noundef nonnull align 8 dereferenceable(16) %0) #19
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %6 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !44
+  %6 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !43
   %.not.i = icmp eq i8 %6, 0
   br i1 %.not.i, label %10, label %7
 
 7:                                                ; preds = %1
-  %8 = load i32, ptr %5, align 4, !tbaa !101
+  %8 = load i32, ptr %5, align 4, !tbaa !100
   %9 = add nsw i32 %8, -1
-  store i32 %9, ptr %5, align 4, !tbaa !101
+  store i32 %9, ptr %5, align 4, !tbaa !100
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i
 
 10:                                               ; preds = %1
@@ -823,7 +823,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i: ; preds = %10, %7
   br i1 %12, label %13, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE19_M_release_last_useEv.exit
 
 13:                                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i
-  %14 = load ptr, ptr %0, align 8, !tbaa !62
+  %14 = load ptr, ptr %0, align 8, !tbaa !61
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 24
   %16 = load ptr, ptr %15, align 8
   tail call void %16(ptr noundef nonnull align 8 dereferenceable(16) %0) #19
@@ -869,125 +869,124 @@ attributes #21 = { builtin nounwind allocsize(0) }
 !5 = !{!"any pointer", !6, i64 0}
 !6 = !{!"omnipotent char", !7, i64 0}
 !7 = !{!"Simple C++ TBAA"}
-!8 = distinct !{!8, !9, !10}
+!8 = distinct !{!8, !9}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = !{!"llvm.loop.estimated_trip_count"}
-!11 = !{!12, !5, i64 152}
-!12 = !{!"_ZTS8PJconsts", !13, i64 0, !14, i64 8, !14, i64 16, !4, i64 24, !14, i64 32, !15, i64 40, !14, i64 48, !14, i64 56, !14, i64 64, !14, i64 72, !16, i64 80, !5, i64 88, !17, i64 96, !5, i64 104, !5, i64 112, !5, i64 120, !5, i64 128, !5, i64 136, !5, i64 144, !5, i64 152, !5, i64 160, !18, i64 168, !18, i64 176, !18, i64 184, !18, i64 192, !18, i64 200, !18, i64 208, !18, i64 216, !18, i64 224, !18, i64 232, !18, i64 240, !18, i64 248, !18, i64 256, !18, i64 264, !18, i64 272, !18, i64 280, !18, i64 288, !18, i64 296, !18, i64 304, !18, i64 312, !18, i64 320, !18, i64 328, !18, i64 336, !17, i64 344, !17, i64 348, !17, i64 352, !17, i64 356, !17, i64 360, !17, i64 364, !17, i64 368, !17, i64 372, !17, i64 376, !19, i64 380, !19, i64 384, !15, i64 392, !15, i64 400, !15, i64 408, !15, i64 416, !15, i64 424, !15, i64 432, !18, i64 440, !18, i64 448, !18, i64 456, !18, i64 464, !18, i64 472, !18, i64 480, !18, i64 488, !18, i64 496, !18, i64 504, !18, i64 512, !18, i64 520, !17, i64 528, !6, i64 536, !17, i64 592, !5, i64 600, !5, i64 608, !18, i64 616, !18, i64 624, !17, i64 632, !6, i64 636, !20, i64 640, !25, i64 656, !18, i64 664, !25, i64 672, !26, i64 680, !26, i64 712, !26, i64 744, !25, i64 776, !29, i64 784, !34, i64 808, !35, i64 816, !17, i64 840, !25, i64 844, !25, i64 845, !25, i64 846, !15, i64 848}
-!13 = !{!"p1 _ZTS6pj_ctx", !5, i64 0}
-!14 = !{!"p1 omnipotent char", !5, i64 0}
-!15 = !{!"p1 _ZTS8PJconsts", !5, i64 0}
-!16 = !{!"p1 _ZTS13geod_geodesic", !5, i64 0}
-!17 = !{!"int", !6, i64 0}
-!18 = !{!"double", !6, i64 0}
-!19 = !{!"_ZTS11pj_io_units", !6, i64 0}
-!20 = !{!"_ZTSSt10shared_ptrIN5osgeo4proj4util10BaseObjectEE", !21, i64 0}
-!21 = !{!"_ZTSSt12__shared_ptrIN5osgeo4proj4util10BaseObjectELN9__gnu_cxx12_Lock_policyE2EE", !22, i64 0, !23, i64 8}
-!22 = !{!"p1 _ZTSN5osgeo4proj4util10BaseObjectE", !5, i64 0}
-!23 = !{!"_ZTSSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EE", !24, i64 0}
-!24 = !{!"p1 _ZTSSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE", !5, i64 0}
-!25 = !{!"bool", !6, i64 0}
-!26 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE", !27, i64 0, !28, i64 8, !6, i64 16}
-!27 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderE", !14, i64 0}
-!28 = !{!"long", !6, i64 0}
-!29 = !{!"_ZTSSt6vectorIN5osgeo4proj9operation15GridDescriptionESaIS3_EE", !30, i64 0}
-!30 = !{!"_ZTSSt12_Vector_baseIN5osgeo4proj9operation15GridDescriptionESaIS3_EE", !31, i64 0}
-!31 = !{!"_ZTSNSt12_Vector_baseIN5osgeo4proj9operation15GridDescriptionESaIS3_EE12_Vector_implE", !32, i64 0}
-!32 = !{!"_ZTSNSt12_Vector_baseIN5osgeo4proj9operation15GridDescriptionESaIS3_EE17_Vector_impl_dataE", !33, i64 0, !33, i64 8, !33, i64 16}
-!33 = !{!"p1 _ZTSN5osgeo4proj9operation15GridDescriptionE", !5, i64 0}
-!34 = !{!"_ZTS7PJ_TYPE", !6, i64 0}
-!35 = !{!"_ZTSSt6vectorI16PJCoordOperationSaIS0_EE", !36, i64 0}
-!36 = !{!"_ZTSSt12_Vector_baseI16PJCoordOperationSaIS0_EE", !37, i64 0}
-!37 = !{!"_ZTSNSt12_Vector_baseI16PJCoordOperationSaIS0_EE12_Vector_implE", !38, i64 0}
-!38 = !{!"_ZTSNSt12_Vector_baseI16PJCoordOperationSaIS0_EE17_Vector_impl_dataE", !39, i64 0, !39, i64 8, !39, i64 16}
-!39 = !{!"p1 _ZTS16PJCoordOperation", !5, i64 0}
-!40 = !{!12, !18, i64 664}
-!41 = !{!12, !25, i64 672}
-!42 = !{!27, !14, i64 0}
-!43 = !{!26, !28, i64 8}
-!44 = !{!6, !6, i64 0}
-!45 = !{!12, !25, i64 776}
-!46 = !{!12, !17, i64 840}
-!47 = !{!12, !25, i64 844}
-!48 = !{!12, !25, i64 845}
-!49 = !{!12, !25, i64 846}
-!50 = !{!12, !15, i64 848}
-!51 = !{!12, !14, i64 48}
-!52 = !{!12, !14, i64 56}
-!53 = !{!12, !14, i64 64}
-!54 = !{!12, !14, i64 72}
-!55 = !{!12, !5, i64 600}
-!56 = !{!57, !58, i64 0}
-!57 = !{!"_ZTSNSt12_Vector_baseISt10unique_ptrIN5osgeo4proj22HorizontalShiftGridSetESt14default_deleteIS3_EESaIS6_EE17_Vector_impl_dataE", !58, i64 0, !58, i64 8, !58, i64 16}
-!58 = !{!"p1 _ZTSSt10unique_ptrIN5osgeo4proj22HorizontalShiftGridSetESt14default_deleteIS2_EE", !5, i64 0}
-!59 = !{!57, !58, i64 8}
-!60 = !{!61, !61, i64 0}
-!61 = !{!"p1 _ZTSN5osgeo4proj22HorizontalShiftGridSetE", !5, i64 0}
-!62 = !{!63, !63, i64 0}
-!63 = !{!"vtable pointer", !7, i64 0}
-!64 = distinct !{!64, !9, !10}
-!65 = !{!57, !58, i64 16}
-!66 = !{!12, !5, i64 608}
-!67 = !{!68, !69, i64 0}
-!68 = !{!"_ZTSNSt12_Vector_baseISt10unique_ptrIN5osgeo4proj20VerticalShiftGridSetESt14default_deleteIS3_EESaIS6_EE17_Vector_impl_dataE", !69, i64 0, !69, i64 8, !69, i64 16}
-!69 = !{!"p1 _ZTSSt10unique_ptrIN5osgeo4proj20VerticalShiftGridSetESt14default_deleteIS2_EE", !5, i64 0}
-!70 = !{!68, !69, i64 8}
-!71 = !{!72, !72, i64 0}
-!72 = !{!"p1 _ZTSN5osgeo4proj20VerticalShiftGridSetE", !5, i64 0}
-!73 = distinct !{!73, !9, !10}
-!74 = !{!68, !69, i64 16}
-!75 = !{!12, !16, i64 80}
-!76 = !{!12, !4, i64 24}
-!77 = !{!12, !14, i64 32}
-!78 = !{!12, !15, i64 392}
-!79 = !{!12, !15, i64 416}
-!80 = !{!12, !15, i64 400}
-!81 = !{!12, !15, i64 408}
-!82 = !{!12, !15, i64 424}
-!83 = !{!12, !15, i64 432}
-!84 = !{!12, !5, i64 88}
-!85 = !{!12, !17, i64 344}
-!86 = !{i8 0, i8 2}
-!87 = !{}
-!88 = !{!38, !39, i64 0}
-!89 = !{!38, !39, i64 8}
-!90 = distinct !{!90, !9, !10}
-!91 = !{!38, !39, i64 16}
-!92 = !{!32, !33, i64 0}
-!93 = !{!32, !33, i64 8}
-!94 = distinct !{!94, !9, !10}
-!95 = !{!32, !33, i64 16}
-!96 = !{!26, !14, i64 0}
-!97 = !{!23, !24, i64 0}
-!98 = !{!99, !17, i64 8}
-!99 = !{!"_ZTSSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE", !17, i64 8, !17, i64 12}
-!100 = !{!99, !17, i64 12}
-!101 = !{!17, !17, i64 0}
-!102 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!103 = !{!104, !25, i64 376}
-!104 = !{!"_ZTS6pj_ctx", !26, i64 0, !17, i64 32, !17, i64 36, !25, i64 40, !25, i64 41, !5, i64 48, !5, i64 56, !105, i64 64, !17, i64 72, !25, i64 76, !17, i64 80, !26, i64 88, !106, i64 120, !111, i64 144, !5, i64 152, !5, i64 160, !113, i64 168, !25, i64 216, !122, i64 224, !26, i64 312, !26, i64 344, !25, i64 376, !26, i64 384, !123, i64 416, !26, i64 464, !25, i64 496, !124, i64 504, !126, i64 560, !17, i64 564, !17, i64 568}
-!105 = !{!"p1 _ZTS14projCppContext", !5, i64 0}
-!106 = !{!"_ZTSSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE", !107, i64 0}
-!107 = !{!"_ZTSSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE", !108, i64 0}
-!108 = !{!"_ZTSNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12_Vector_implE", !109, i64 0}
-!109 = !{!"_ZTSNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE17_Vector_impl_dataE", !110, i64 0, !110, i64 8, !110, i64 16}
-!110 = !{!"p1 _ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE", !5, i64 0}
-!111 = !{!"p2 omnipotent char", !112, i64 0}
-!112 = !{!"any p2 pointer", !5, i64 0}
-!113 = !{!"_ZTSSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEE", !114, i64 0}
-!114 = !{!"_ZTSSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE", !115, i64 0}
-!115 = !{!"_ZTSNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE13_Rb_tree_implISC_Lb1EEE", !116, i64 0, !118, i64 8}
-!116 = !{!"_ZTSSt20_Rb_tree_key_compareISt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE", !117, i64 0}
-!117 = !{!"_ZTSSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE"}
-!118 = !{!"_ZTSSt15_Rb_tree_header", !119, i64 0, !28, i64 32}
-!119 = !{!"_ZTSSt18_Rb_tree_node_base", !120, i64 0, !121, i64 8, !121, i64 16, !121, i64 24}
-!120 = !{!"_ZTSSt14_Rb_tree_color", !6, i64 0}
-!121 = !{!"p1 _ZTSSt18_Rb_tree_node_base", !5, i64 0}
-!122 = !{!"_ZTS26projFileApiCallbackAndData", !5, i64 0, !5, i64 8, !5, i64 16, !5, i64 24, !5, i64 32, !5, i64 40, !5, i64 48, !5, i64 56, !5, i64 64, !5, i64 72, !5, i64 80}
-!123 = !{!"_ZTS27projNetworkCallbacksAndData", !25, i64 0, !5, i64 8, !5, i64 16, !5, i64 24, !5, i64 32, !5, i64 40}
-!124 = !{!"_ZTS18projGridChunkCache", !25, i64 0, !26, i64 8, !125, i64 40, !17, i64 48}
-!125 = !{!"long long", !6, i64 0}
-!126 = !{!"_ZTS9TMercAlgo", !6, i64 0}
-!127 = !{!104, !105, i64 64}
-!128 = !{!129, !129, i64 0}
-!129 = !{!"p1 _ZTSN5osgeo4proj2io15DatabaseContextE", !5, i64 0}
+!10 = !{!11, !5, i64 152}
+!11 = !{!"_ZTS8PJconsts", !12, i64 0, !13, i64 8, !13, i64 16, !4, i64 24, !13, i64 32, !14, i64 40, !13, i64 48, !13, i64 56, !13, i64 64, !13, i64 72, !15, i64 80, !5, i64 88, !16, i64 96, !5, i64 104, !5, i64 112, !5, i64 120, !5, i64 128, !5, i64 136, !5, i64 144, !5, i64 152, !5, i64 160, !17, i64 168, !17, i64 176, !17, i64 184, !17, i64 192, !17, i64 200, !17, i64 208, !17, i64 216, !17, i64 224, !17, i64 232, !17, i64 240, !17, i64 248, !17, i64 256, !17, i64 264, !17, i64 272, !17, i64 280, !17, i64 288, !17, i64 296, !17, i64 304, !17, i64 312, !17, i64 320, !17, i64 328, !17, i64 336, !16, i64 344, !16, i64 348, !16, i64 352, !16, i64 356, !16, i64 360, !16, i64 364, !16, i64 368, !16, i64 372, !16, i64 376, !18, i64 380, !18, i64 384, !14, i64 392, !14, i64 400, !14, i64 408, !14, i64 416, !14, i64 424, !14, i64 432, !17, i64 440, !17, i64 448, !17, i64 456, !17, i64 464, !17, i64 472, !17, i64 480, !17, i64 488, !17, i64 496, !17, i64 504, !17, i64 512, !17, i64 520, !16, i64 528, !6, i64 536, !16, i64 592, !5, i64 600, !5, i64 608, !17, i64 616, !17, i64 624, !16, i64 632, !6, i64 636, !19, i64 640, !24, i64 656, !17, i64 664, !24, i64 672, !25, i64 680, !25, i64 712, !25, i64 744, !24, i64 776, !28, i64 784, !33, i64 808, !34, i64 816, !16, i64 840, !24, i64 844, !24, i64 845, !24, i64 846, !14, i64 848}
+!12 = !{!"p1 _ZTS6pj_ctx", !5, i64 0}
+!13 = !{!"p1 omnipotent char", !5, i64 0}
+!14 = !{!"p1 _ZTS8PJconsts", !5, i64 0}
+!15 = !{!"p1 _ZTS13geod_geodesic", !5, i64 0}
+!16 = !{!"int", !6, i64 0}
+!17 = !{!"double", !6, i64 0}
+!18 = !{!"_ZTS11pj_io_units", !6, i64 0}
+!19 = !{!"_ZTSSt10shared_ptrIN5osgeo4proj4util10BaseObjectEE", !20, i64 0}
+!20 = !{!"_ZTSSt12__shared_ptrIN5osgeo4proj4util10BaseObjectELN9__gnu_cxx12_Lock_policyE2EE", !21, i64 0, !22, i64 8}
+!21 = !{!"p1 _ZTSN5osgeo4proj4util10BaseObjectE", !5, i64 0}
+!22 = !{!"_ZTSSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EE", !23, i64 0}
+!23 = !{!"p1 _ZTSSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE", !5, i64 0}
+!24 = !{!"bool", !6, i64 0}
+!25 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE", !26, i64 0, !27, i64 8, !6, i64 16}
+!26 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderE", !13, i64 0}
+!27 = !{!"long", !6, i64 0}
+!28 = !{!"_ZTSSt6vectorIN5osgeo4proj9operation15GridDescriptionESaIS3_EE", !29, i64 0}
+!29 = !{!"_ZTSSt12_Vector_baseIN5osgeo4proj9operation15GridDescriptionESaIS3_EE", !30, i64 0}
+!30 = !{!"_ZTSNSt12_Vector_baseIN5osgeo4proj9operation15GridDescriptionESaIS3_EE12_Vector_implE", !31, i64 0}
+!31 = !{!"_ZTSNSt12_Vector_baseIN5osgeo4proj9operation15GridDescriptionESaIS3_EE17_Vector_impl_dataE", !32, i64 0, !32, i64 8, !32, i64 16}
+!32 = !{!"p1 _ZTSN5osgeo4proj9operation15GridDescriptionE", !5, i64 0}
+!33 = !{!"_ZTS7PJ_TYPE", !6, i64 0}
+!34 = !{!"_ZTSSt6vectorI16PJCoordOperationSaIS0_EE", !35, i64 0}
+!35 = !{!"_ZTSSt12_Vector_baseI16PJCoordOperationSaIS0_EE", !36, i64 0}
+!36 = !{!"_ZTSNSt12_Vector_baseI16PJCoordOperationSaIS0_EE12_Vector_implE", !37, i64 0}
+!37 = !{!"_ZTSNSt12_Vector_baseI16PJCoordOperationSaIS0_EE17_Vector_impl_dataE", !38, i64 0, !38, i64 8, !38, i64 16}
+!38 = !{!"p1 _ZTS16PJCoordOperation", !5, i64 0}
+!39 = !{!11, !17, i64 664}
+!40 = !{!11, !24, i64 672}
+!41 = !{!26, !13, i64 0}
+!42 = !{!25, !27, i64 8}
+!43 = !{!6, !6, i64 0}
+!44 = !{!11, !24, i64 776}
+!45 = !{!11, !16, i64 840}
+!46 = !{!11, !24, i64 844}
+!47 = !{!11, !24, i64 845}
+!48 = !{!11, !24, i64 846}
+!49 = !{!11, !14, i64 848}
+!50 = !{!11, !13, i64 48}
+!51 = !{!11, !13, i64 56}
+!52 = !{!11, !13, i64 64}
+!53 = !{!11, !13, i64 72}
+!54 = !{!11, !5, i64 600}
+!55 = !{!56, !57, i64 0}
+!56 = !{!"_ZTSNSt12_Vector_baseISt10unique_ptrIN5osgeo4proj22HorizontalShiftGridSetESt14default_deleteIS3_EESaIS6_EE17_Vector_impl_dataE", !57, i64 0, !57, i64 8, !57, i64 16}
+!57 = !{!"p1 _ZTSSt10unique_ptrIN5osgeo4proj22HorizontalShiftGridSetESt14default_deleteIS2_EE", !5, i64 0}
+!58 = !{!56, !57, i64 8}
+!59 = !{!60, !60, i64 0}
+!60 = !{!"p1 _ZTSN5osgeo4proj22HorizontalShiftGridSetE", !5, i64 0}
+!61 = !{!62, !62, i64 0}
+!62 = !{!"vtable pointer", !7, i64 0}
+!63 = distinct !{!63, !9}
+!64 = !{!56, !57, i64 16}
+!65 = !{!11, !5, i64 608}
+!66 = !{!67, !68, i64 0}
+!67 = !{!"_ZTSNSt12_Vector_baseISt10unique_ptrIN5osgeo4proj20VerticalShiftGridSetESt14default_deleteIS3_EESaIS6_EE17_Vector_impl_dataE", !68, i64 0, !68, i64 8, !68, i64 16}
+!68 = !{!"p1 _ZTSSt10unique_ptrIN5osgeo4proj20VerticalShiftGridSetESt14default_deleteIS2_EE", !5, i64 0}
+!69 = !{!67, !68, i64 8}
+!70 = !{!71, !71, i64 0}
+!71 = !{!"p1 _ZTSN5osgeo4proj20VerticalShiftGridSetE", !5, i64 0}
+!72 = distinct !{!72, !9}
+!73 = !{!67, !68, i64 16}
+!74 = !{!11, !15, i64 80}
+!75 = !{!11, !4, i64 24}
+!76 = !{!11, !13, i64 32}
+!77 = !{!11, !14, i64 392}
+!78 = !{!11, !14, i64 416}
+!79 = !{!11, !14, i64 400}
+!80 = !{!11, !14, i64 408}
+!81 = !{!11, !14, i64 424}
+!82 = !{!11, !14, i64 432}
+!83 = !{!11, !5, i64 88}
+!84 = !{!11, !16, i64 344}
+!85 = !{i8 0, i8 2}
+!86 = !{}
+!87 = !{!37, !38, i64 0}
+!88 = !{!37, !38, i64 8}
+!89 = distinct !{!89, !9}
+!90 = !{!37, !38, i64 16}
+!91 = !{!31, !32, i64 0}
+!92 = !{!31, !32, i64 8}
+!93 = distinct !{!93, !9}
+!94 = !{!31, !32, i64 16}
+!95 = !{!25, !13, i64 0}
+!96 = !{!22, !23, i64 0}
+!97 = !{!98, !16, i64 8}
+!98 = !{!"_ZTSSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE", !16, i64 8, !16, i64 12}
+!99 = !{!98, !16, i64 12}
+!100 = !{!16, !16, i64 0}
+!101 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!102 = !{!103, !24, i64 376}
+!103 = !{!"_ZTS6pj_ctx", !25, i64 0, !16, i64 32, !16, i64 36, !24, i64 40, !24, i64 41, !5, i64 48, !5, i64 56, !104, i64 64, !16, i64 72, !24, i64 76, !16, i64 80, !25, i64 88, !105, i64 120, !110, i64 144, !5, i64 152, !5, i64 160, !112, i64 168, !24, i64 216, !121, i64 224, !25, i64 312, !25, i64 344, !24, i64 376, !25, i64 384, !122, i64 416, !25, i64 464, !24, i64 496, !123, i64 504, !125, i64 560, !16, i64 564, !16, i64 568}
+!104 = !{!"p1 _ZTS14projCppContext", !5, i64 0}
+!105 = !{!"_ZTSSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE", !106, i64 0}
+!106 = !{!"_ZTSSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE", !107, i64 0}
+!107 = !{!"_ZTSNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12_Vector_implE", !108, i64 0}
+!108 = !{!"_ZTSNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE17_Vector_impl_dataE", !109, i64 0, !109, i64 8, !109, i64 16}
+!109 = !{!"p1 _ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE", !5, i64 0}
+!110 = !{!"p2 omnipotent char", !111, i64 0}
+!111 = !{!"any p2 pointer", !5, i64 0}
+!112 = !{!"_ZTSSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEE", !113, i64 0}
+!113 = !{!"_ZTSSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE", !114, i64 0}
+!114 = !{!"_ZTSNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE13_Rb_tree_implISC_Lb1EEE", !115, i64 0, !117, i64 8}
+!115 = !{!"_ZTSSt20_Rb_tree_key_compareISt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE", !116, i64 0}
+!116 = !{!"_ZTSSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE"}
+!117 = !{!"_ZTSSt15_Rb_tree_header", !118, i64 0, !27, i64 32}
+!118 = !{!"_ZTSSt18_Rb_tree_node_base", !119, i64 0, !120, i64 8, !120, i64 16, !120, i64 24}
+!119 = !{!"_ZTSSt14_Rb_tree_color", !6, i64 0}
+!120 = !{!"p1 _ZTSSt18_Rb_tree_node_base", !5, i64 0}
+!121 = !{!"_ZTS26projFileApiCallbackAndData", !5, i64 0, !5, i64 8, !5, i64 16, !5, i64 24, !5, i64 32, !5, i64 40, !5, i64 48, !5, i64 56, !5, i64 64, !5, i64 72, !5, i64 80}
+!122 = !{!"_ZTS27projNetworkCallbacksAndData", !24, i64 0, !5, i64 8, !5, i64 16, !5, i64 24, !5, i64 32, !5, i64 40}
+!123 = !{!"_ZTS18projGridChunkCache", !24, i64 0, !25, i64 8, !124, i64 40, !16, i64 48}
+!124 = !{!"long long", !6, i64 0}
+!125 = !{!"_ZTS9TMercAlgo", !6, i64 0}
+!126 = !{!103, !104, i64 64}
+!127 = !{!128, !128, i64 0}
+!128 = !{!"p1 _ZTSN5osgeo4proj2io15DatabaseContextE", !5, i64 0}

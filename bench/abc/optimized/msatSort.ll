@@ -69,7 +69,7 @@ tailrecurse._crit_edge:                           ; preds = %tailrecurse, %2
   store ptr %17, ptr %19, align 8, !tbaa !3
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond36.not.i = icmp eq i64 %indvars.iv.next33.i, %wide.trip.count35.i
-  br i1 %exitcond36.not.i, label %Msat_SolverSortSelection.exit, label %.lr.ph.preheader.i, !llvm.loop !11
+  br i1 %exitcond36.not.i, label %Msat_SolverSortSelection.exit, label %.lr.ph.preheader.i, !llvm.loop !10
 
 .lr.ph:                                           ; preds = %2, %tailrecurse
   %.tr4047 = phi i32 [ %50, %tailrecurse ], [ %1, %2 ]
@@ -97,7 +97,7 @@ tailrecurse._crit_edge:                           ; preds = %tailrecurse, %2
   %32 = tail call float @Msat_ClauseReadActivity(ptr noundef %31) #2
   %33 = tail call float @Msat_ClauseReadActivity(ptr noundef %26) #2
   %34 = fcmp olt float %32, %33
-  br i1 %34, label %29, label %.preheader, !llvm.loop !12
+  br i1 %34, label %29, label %.preheader, !llvm.loop !11
 
 .preheader:                                       ; preds = %29
   %35 = getelementptr inbounds ptr, ptr %.tr46, i64 %indvars.iv.next
@@ -112,7 +112,7 @@ tailrecurse._crit_edge:                           ; preds = %tailrecurse, %2
   %40 = load ptr, ptr %39, align 8, !tbaa !3
   %41 = tail call float @Msat_ClauseReadActivity(ptr noundef %40) #2
   %42 = fcmp olt float %38, %41
-  br i1 %42, label %37, label %43, !llvm.loop !13
+  br i1 %42, label %37, label %43, !llvm.loop !12
 
 43:                                               ; preds = %37
   %.not = icmp slt i64 %indvars.iv.next, %indvars.iv.next56
@@ -125,7 +125,7 @@ tailrecurse._crit_edge:                           ; preds = %tailrecurse, %2
   %48 = load ptr, ptr %45, align 8, !tbaa !3
   store ptr %48, ptr %35, align 8, !tbaa !3
   store ptr %47, ptr %45, align 8, !tbaa !3
-  br label %27, !llvm.loop !14
+  br label %27
 
 tailrecurse:                                      ; preds = %43
   %49 = trunc nsw i64 %indvars.iv.next to i32
@@ -183,7 +183,7 @@ define void @Msat_SolverSortSelection(ptr noundef captures(none) %0, i32 noundef
   store ptr %16, ptr %18, align 8, !tbaa !3
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond36.not = icmp eq i64 %indvars.iv.next33, %wide.trip.count35
-  br i1 %exitcond36.not, label %._crit_edge28, label %.lr.ph.preheader, !llvm.loop !11
+  br i1 %exitcond36.not, label %._crit_edge28, label %.lr.ph.preheader, !llvm.loop !10
 
 ._crit_edge28:                                    ; preds = %._crit_edge, %2
   ret void
@@ -205,10 +205,8 @@ attributes #2 = { nounwind }
 !5 = !{!"any pointer", !6, i64 0}
 !6 = !{!"omnipotent char", !7, i64 0}
 !7 = !{!"Simple C/C++ TBAA"}
-!8 = distinct !{!8, !9, !10}
+!8 = distinct !{!8, !9}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = !{!"llvm.loop.estimated_trip_count"}
-!11 = distinct !{!11, !9, !10}
-!12 = distinct !{!12, !9, !10}
-!13 = distinct !{!13, !9, !10}
-!14 = distinct !{!14, !10}
+!10 = distinct !{!10, !9}
+!11 = distinct !{!11, !9}
+!12 = distinct !{!12, !9}

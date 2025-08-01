@@ -234,7 +234,7 @@ define dso_local noundef range(i32 -22, 1) i32 @acpi_dma_controller_register(ptr
   %127 = zext i32 %126 to i64
   %128 = getelementptr i8, ptr %43, i64 %127
   %129 = icmp ult ptr %128, %33
-  br i1 %129, label %42, label %.loopexit9, !llvm.loop !10
+  br i1 %129, label %42, label %.loopexit9, !llvm.loop !9
 
 130:                                              ; preds = %42
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #7
@@ -297,7 +297,7 @@ define dso_local noundef range(i32 -22, 1) i32 @acpi_dma_controller_free(ptr nou
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %10 = load ptr, ptr %9, align 8
   %11 = icmp eq ptr %10, %0
-  br i1 %11, label %12, label %4, !llvm.loop !11
+  br i1 %11, label %12, label %4, !llvm.loop !10
 
 12:                                               ; preds = %8
   %13 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -331,7 +331,7 @@ define dso_local noundef range(i32 -22, 1) i32 @devm_acpi_dma_controller_registe
   br i1 %5, label %11, label %6
 
 6:                                                ; preds = %3
-  %7 = tail call i32 @acpi_dma_controller_register(ptr noundef %0, ptr noundef %1, ptr noundef %2), !range !12
+  %7 = tail call i32 @acpi_dma_controller_register(ptr noundef %0, ptr noundef %1, ptr noundef %2), !range !11
   %8 = icmp eq i32 %7, 0
   br i1 %8, label %10, label %9
 
@@ -370,7 +370,7 @@ define internal void @devm_acpi_dma_release(ptr noundef readnone captures(addres
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %11 = load ptr, ptr %10, align 8
   %12 = icmp eq ptr %11, %0
-  br i1 %12, label %13, label %5, !llvm.loop !13
+  br i1 %12, label %13, label %5, !llvm.loop !10
 
 13:                                               ; preds = %9
   %14 = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -403,12 +403,12 @@ declare dso_local void @devres_add(ptr noundef, ptr noundef) local_unnamed_addr 
 define dso_local void @devm_acpi_dma_controller_free(ptr noundef %0) #0 align 16 {
   %2 = tail call i32 @devres_release(ptr noundef %0, ptr noundef nonnull @devm_acpi_dma_release, ptr noundef null, ptr noundef null) #7
   %3 = icmp eq i32 %2, 0
-  br i1 %3, label %5, label %4, !prof !14
+  br i1 %3, label %5, label %4, !prof !12
 
 4:                                                ; preds = %1
-  tail call void asm sideeffect "361: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 361b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 361) #7, !srcloc !15
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.1, i32 290, i32 2305, i64 12) #7, !srcloc !16
-  tail call void asm sideeffect "362: nop\0A\09.pushsection .discard.instr_end\0A\09.long 362b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 362) #7, !srcloc !17
+  tail call void asm sideeffect "361: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 361b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 361) #7, !srcloc !13
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.1, i32 290, i32 2305, i64 12) #7, !srcloc !14
+  tail call void asm sideeffect "362: nop\0A\09.pushsection .discard.instr_end\0A\09.long 362b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 362) #7, !srcloc !15
   br label %5
 
 5:                                                ; preds = %4, %1
@@ -513,7 +513,7 @@ define dso_local ptr @acpi_dma_request_slave_chan_by_index(ptr noundef readonly 
 .critedge:                                        ; preds = %45, %41, %52
   %59 = load ptr, ptr %31, align 8
   %60 = icmp eq ptr %59, @acpi_dma_list
-  br i1 %60, label %.loopexit, label %30, !llvm.loop !18
+  br i1 %60, label %.loopexit, label %30, !llvm.loop !16
 
 .loopexit:                                        ; preds = %.critedge, %52, %25
   %61 = phi ptr [ null, %25 ], [ %56, %52 ], [ null, %.critedge ]
@@ -686,16 +686,14 @@ attributes #9 = { cold nounwind }
 !3 = !{i32 4, !"indirect_branch_cs_prefix", i32 1}
 !4 = !{i32 4, !"SkipRaxSetup", i32 1}
 !5 = !{!"auto-init"}
-!6 = distinct !{!6, !7, !8, !9}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
 !8 = !{!"llvm.loop.unroll.disable"}
-!9 = !{!"llvm.loop.estimated_trip_count"}
-!10 = distinct !{!10, !7, !8, !9}
-!11 = distinct !{!11, !7, !8, !9}
-!12 = !{i32 -22, i32 1}
-!13 = distinct !{!13, !7, !8, !9}
-!14 = !{!"branch_weights", i32 2000, i32 1}
-!15 = !{i64 2155488133, i64 2155487942, i64 2155487994, i64 2155488040, i64 2155488068}
-!16 = !{i64 2155488207, i64 2155488236, i64 2155488282, i64 2155488340, i64 2155488394, i64 2155488448, i64 2155488503, i64 2155488534, i64 2155488842, i64 2155488848, i64 2155488895, i64 2155488918, i64 2155488944}
-!17 = !{i64 2155489399, i64 2155489210, i64 2155489260, i64 2155489306, i64 2155489334}
-!18 = distinct !{!18, !7, !8, !9}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = !{i32 -22, i32 1}
+!12 = !{!"branch_weights", i32 2000, i32 1}
+!13 = !{i64 2155488133, i64 2155487942, i64 2155487994, i64 2155488040, i64 2155488068}
+!14 = !{i64 2155488207, i64 2155488236, i64 2155488282, i64 2155488340, i64 2155488394, i64 2155488448, i64 2155488503, i64 2155488534, i64 2155488842, i64 2155488848, i64 2155488895, i64 2155488918, i64 2155488944}
+!15 = !{i64 2155489399, i64 2155489210, i64 2155489260, i64 2155489306, i64 2155489334}
+!16 = distinct !{!16, !7, !8}

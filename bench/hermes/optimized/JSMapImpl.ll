@@ -559,7 +559,7 @@ for.inc:                                          ; preds = %for.body
   store i64 %storemerge, ptr %retval.0.i.i.i.i.i.i, align 8
   %and.i.i = and i64 %storemerge.in, 281474976710655
   %tobool.i.not = icmp eq i64 %and.i.i, 0
-  br i1 %tobool.i.not, label %cleanup, label %for.body, !llvm.loop !7
+  br i1 %tobool.i.not, label %cleanup, label %for.body, !llvm.loop !6
 
 cleanup:                                          ; preds = %for.body, %for.inc, %_ZN6hermes2vm13MutableHandleINS0_12HashMapEntryEEC2ERNS0_15HandleRootOwnerEPS2_.exit
   %retval.0 = phi i32 [ 1, %_ZN6hermes2vm13MutableHandleINS0_12HashMapEntryEEC2ERNS0_15HandleRootOwnerEPS2_.exit ], [ 1, %for.inc ], [ 0, %for.body ]
@@ -1045,7 +1045,7 @@ for.inc:                                          ; preds = %for.body
   store i64 %storemerge, ptr %retval.0.i.i.i.i.i.i, align 8
   %and.i.i = and i64 %storemerge.in, 281474976710655
   %tobool.i.not = icmp eq i64 %and.i.i, 0
-  br i1 %tobool.i.not, label %cleanup, label %for.body, !llvm.loop !8
+  br i1 %tobool.i.not, label %cleanup, label %for.body, !llvm.loop !7
 
 cleanup:                                          ; preds = %for.body, %for.inc, %_ZN6hermes2vm13MutableHandleINS0_12HashMapEntryEEC2ERNS0_15HandleRootOwnerEPS2_.exit
   %retval.0 = phi i32 [ 1, %_ZN6hermes2vm13MutableHandleINS0_12HashMapEntryEEC2ERNS0_15HandleRootOwnerEPS2_.exit ], [ 1, %for.inc ], [ 0, %for.body ]
@@ -1904,8 +1904,7 @@ attributes #2 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5, !6}
+!4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{!"llvm.loop.estimated_trip_count"}
-!7 = distinct !{!7, !5, !6}
-!8 = distinct !{!8, !5, !6}
+!6 = distinct !{!6, !5}
+!7 = distinct !{!7, !5}

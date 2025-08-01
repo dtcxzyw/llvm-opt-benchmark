@@ -1002,39 +1002,39 @@ define internal range(i32 0, 2) i32 @self_test_events(ptr noundef %0, ptr readno
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %7 = load i32, ptr %6, align 8, !tbaa !19
+  %7 = load i32, ptr %6, align 8, !tbaa !18
   %.not = icmp eq i32 %7, 4
   br i1 %.not, label %8, label %59
 
 8:                                                ; preds = %5
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %10 = load ptr, ptr %9, align 8, !tbaa !21
+  %10 = load ptr, ptr %9, align 8, !tbaa !20
   %11 = tail call ptr @OSSL_PARAM_locate_const(ptr noundef %0, ptr noundef nonnull @.str.187) #6
   %12 = icmp eq ptr %11, null
   br i1 %12, label %59, label %13
 
 13:                                               ; preds = %8
   %14 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  %15 = load i32, ptr %14, align 8, !tbaa !19
+  %15 = load i32, ptr %14, align 8, !tbaa !18
   %.not28 = icmp eq i32 %15, 4
   br i1 %.not28, label %16, label %59
 
 16:                                               ; preds = %13
   %17 = getelementptr inbounds nuw i8, ptr %11, i64 16
-  %18 = load ptr, ptr %17, align 8, !tbaa !21
+  %18 = load ptr, ptr %17, align 8, !tbaa !20
   %19 = tail call ptr @OSSL_PARAM_locate_const(ptr noundef %0, ptr noundef nonnull @.str.188) #6
   %20 = icmp eq ptr %19, null
   br i1 %20, label %59, label %21
 
 21:                                               ; preds = %16
   %22 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  %23 = load i32, ptr %22, align 8, !tbaa !19
+  %23 = load i32, ptr %22, align 8, !tbaa !18
   %.not29 = icmp eq i32 %23, 4
   br i1 %.not29, label %24, label %59
 
 24:                                               ; preds = %21
   %25 = getelementptr inbounds nuw i8, ptr %19, i64 16
-  %26 = load ptr, ptr %25, align 8, !tbaa !21
+  %26 = load ptr, ptr %25, align 8, !tbaa !20
   %.b = load i1, ptr @self_test_log, align 4
   br i1 %.b, label %42, label %27
 
@@ -1155,7 +1155,7 @@ define internal fastcc range(i32 0, 2) i32 @do_mac(ptr noundef nonnull %0, ptr n
   %15 = zext nneg i32 %11 to i64
   %16 = tail call i32 @EVP_MAC_update(ptr noundef nonnull %0, ptr noundef nonnull %1, i64 noundef %15) #6
   %.not16 = icmp eq i32 %16, 0
-  br i1 %.not16, label %.loopexit18, label %.preheader, !llvm.loop !22
+  br i1 %.not16, label %.loopexit18, label %.preheader, !llvm.loop !21
 
 .loopexit:                                        ; preds = %.preheader, %8
   %17 = tail call i32 @EVP_MAC_final(ptr noundef nonnull %0, ptr noundef nonnull %3, ptr noundef nonnull %4, i64 noundef %6) #6
@@ -1383,16 +1383,16 @@ define internal fastcc range(i32 0, 2) i32 @load_fips_prov_and_run_self_test(ptr
   %19 = getelementptr inbounds nuw i8, ptr %3, i64 80
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %7) #6
   call void @OSSL_PARAM_construct_utf8_ptr(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %7, ptr noundef nonnull @.str.145, ptr noundef nonnull %5, i64 noundef 8) #6
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %17, ptr noundef nonnull align 8 dereferenceable(40) %7, i64 40, i1 false), !tbaa.struct !23
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %17, ptr noundef nonnull align 8 dereferenceable(40) %7, i64 40, i1 false), !tbaa.struct !22
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7) #6
   %20 = getelementptr inbounds nuw i8, ptr %3, i64 120
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %8) #6
   call void @OSSL_PARAM_construct_utf8_ptr(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %8, ptr noundef nonnull @.str.146, ptr noundef nonnull %6, i64 noundef 8) #6
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %19, ptr noundef nonnull align 8 dereferenceable(40) %8, i64 40, i1 false), !tbaa.struct !23
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %19, ptr noundef nonnull align 8 dereferenceable(40) %8, i64 40, i1 false), !tbaa.struct !22
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %8) #6
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %9) #6
   call void @OSSL_PARAM_construct_end(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %9) #6
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %20, ptr noundef nonnull align 8 dereferenceable(40) %9, i64 40, i1 false), !tbaa.struct !23
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %20, ptr noundef nonnull align 8 dereferenceable(40) %9, i64 40, i1 false), !tbaa.struct !22
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %9) #6
   %21 = call i32 @OSSL_PROVIDER_get_params(ptr noundef nonnull %11, ptr noundef nonnull %3) #6
   %.not = icmp eq i32 %21, 0
@@ -1440,7 +1440,7 @@ define internal fastcc range(i32 0, 2) i32 @load_fips_prov_and_run_self_test(ptr
   call void @OSSL_PARAM_construct_utf8_ptr(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %3, ptr noundef nonnull @.str.145, ptr noundef nonnull %5, i64 noundef 8) #6
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %10) #6
   call void @OSSL_PARAM_construct_end(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %10) #6
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %17, ptr noundef nonnull align 8 dereferenceable(40) %10, i64 40, i1 false), !tbaa.struct !23
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %17, ptr noundef nonnull align 8 dereferenceable(40) %10, i64 40, i1 false), !tbaa.struct !22
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %10) #6
   %44 = call i32 @OSSL_PROVIDER_get_params(ptr noundef nonnull %11, ptr noundef nonnull %3) #6
   %.not16 = icmp eq i32 %44, 0
@@ -1888,12 +1888,11 @@ attributes #7 = { nounwind willreturn memory(read) }
 !13 = !{!6, !6, i64 0}
 !14 = !{!15, !15, i64 0}
 !15 = !{!"p1 omnipotent char", !12, i64 0}
-!16 = distinct !{!16, !17, !18}
+!16 = distinct !{!16, !17}
 !17 = !{!"llvm.loop.mustprogress"}
-!18 = !{!"llvm.loop.estimated_trip_count"}
-!19 = !{!20, !5, i64 8}
-!20 = !{!"ossl_param_st", !15, i64 0, !5, i64 8, !12, i64 16, !9, i64 24, !9, i64 32}
-!21 = !{!20, !12, i64 16}
-!22 = distinct !{!22, !17, !18}
-!23 = !{i64 0, i64 8, !14, i64 8, i64 4, !4, i64 16, i64 8, !24, i64 24, i64 8, !8, i64 32, i64 8, !8}
-!24 = !{!12, !12, i64 0}
+!18 = !{!19, !5, i64 8}
+!19 = !{!"ossl_param_st", !15, i64 0, !5, i64 8, !12, i64 16, !9, i64 24, !9, i64 32}
+!20 = !{!19, !12, i64 16}
+!21 = distinct !{!21, !17}
+!22 = !{i64 0, i64 8, !14, i64 8, i64 4, !4, i64 16, i64 8, !23, i64 24, i64 8, !8, i64 32, i64 8, !8}
+!23 = !{!12, !12, i64 0}

@@ -198,7 +198,7 @@ is_andclause.exit:                                ; preds = %15
 
 34:                                               ; preds = %.lr.ph95
   %35 = getelementptr inbounds nuw i8, ptr %30, i64 18
-  %36 = load i8, ptr %35, align 2, !range !7, !noundef !8
+  %36 = load i8, ptr %35, align 2, !range !6, !noundef !7
   %37 = trunc nuw i8 %36 to i1
   br i1 %37, label %is_safe_restriction_clause_for.exit.thread, label %38
 
@@ -234,7 +234,7 @@ is_safe_restriction_clause_for.exit.thread:       ; preds = %is_safe_restriction
 
 is_andclause.exit.thread:                         ; preds = %.lr.ph114, %15, %is_andclause.exit
   %52 = getelementptr inbounds nuw i8, ptr %14, i64 18
-  %53 = load i8, ptr %52, align 2, !range !7, !noundef !8
+  %53 = load i8, ptr %52, align 2, !range !6, !noundef !7
   %54 = trunc nuw i8 %53 to i1
   br i1 %54, label %.thread81, label %55
 
@@ -347,8 +347,7 @@ attributes #4 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = distinct !{!4, !5, !6}
+!4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{!"llvm.loop.estimated_trip_count"}
-!7 = !{i8 0, i8 2}
-!8 = !{}
+!6 = !{i8 0, i8 2}
+!7 = !{}

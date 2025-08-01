@@ -264,7 +264,7 @@ define internal range(i32 -12, 1) i32 @config_input(ptr noundef readonly capture
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 72
   %5 = load ptr, ptr %4, align 8, !tbaa !4
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %7 = load i32, ptr %6, align 8, !tbaa !56
+  %7 = load i32, ptr %6, align 8, !tbaa !55
   %8 = mul nsw i32 %7, 40
   %9 = sitofp i32 %8 to double
   %10 = fmul nsz double %9, 1.000000e-03
@@ -275,7 +275,7 @@ define internal range(i32 -12, 1) i32 @config_input(ptr noundef readonly capture
   %.0 = phi i64 [ 1, %1 ], [ %14, %12 ]
   %13 = icmp ult i64 %.0, %11
   %14 = shl i64 %.0, 1
-  br i1 %13, label %12, label %15, !llvm.loop !57
+  br i1 %13, label %12, label %15, !llvm.loop !56
 
 15:                                               ; preds = %12
   %16 = getelementptr inbounds nuw i8, ptr %5, i64 104
@@ -291,41 +291,41 @@ define internal range(i32 -12, 1) i32 @config_input(ptr noundef readonly capture
   %20 = getelementptr inbounds nuw i8, ptr %5, i64 120
   store i32 0, ptr %20, align 8, !tbaa !49
   %21 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %22 = load double, ptr %21, align 8, !tbaa !58
+  %22 = load double, ptr %21, align 8, !tbaa !57
   %23 = fmul nsz double %22, 1.000000e-03
-  %24 = load i32, ptr %6, align 8, !tbaa !56
+  %24 = load i32, ptr %6, align 8, !tbaa !55
   %25 = sitofp i32 %24 to double
   %26 = fmul nsz double %23, %25
   %27 = fptoui double %26 to i32
   %28 = getelementptr inbounds nuw i8, ptr %5, i64 124
   store i32 %27, ptr %28, align 4, !tbaa !50
   %29 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  %30 = load double, ptr %29, align 8, !tbaa !59
+  %30 = load double, ptr %29, align 8, !tbaa !58
   %31 = fmul nsz double %30, 1.000000e-03
-  %32 = load i32, ptr %6, align 8, !tbaa !56
+  %32 = load i32, ptr %6, align 8, !tbaa !55
   %33 = sitofp i32 %32 to double
   %34 = fmul nsz double %31, %33
   %35 = fptoui double %34 to i32
   %36 = getelementptr inbounds nuw i8, ptr %5, i64 128
   store i32 %35, ptr %36, align 4, !tbaa !50
   %37 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  %38 = load i32, ptr %37, align 8, !tbaa !60
+  %38 = load i32, ptr %37, align 8, !tbaa !59
   %.not40 = icmp eq i32 %38, 0
   %39 = select nsz i1 %.not40, double -1.000000e+00, double 1.000000e+00
   %40 = getelementptr inbounds nuw i8, ptr %5, i64 168
-  store double %39, ptr %40, align 8, !tbaa !61
+  store double %39, ptr %40, align 8, !tbaa !60
   %41 = getelementptr inbounds nuw i8, ptr %5, i64 36
-  %42 = load i32, ptr %41, align 4, !tbaa !62
+  %42 = load i32, ptr %41, align 4, !tbaa !61
   %.not41 = icmp eq i32 %42, 0
   %43 = select nsz i1 %.not41, double -1.000000e+00, double 1.000000e+00
   %44 = getelementptr inbounds nuw i8, ptr %5, i64 176
-  store double %43, ptr %44, align 8, !tbaa !63
+  store double %43, ptr %44, align 8, !tbaa !62
   %45 = getelementptr inbounds nuw i8, ptr %5, i64 72
-  %46 = load double, ptr %45, align 8, !tbaa !64
+  %46 = load double, ptr %45, align 8, !tbaa !63
   %47 = fadd nsz double %46, 1.000000e+00
   %48 = fmul nsz double %47, 5.000000e-01
   %49 = getelementptr inbounds nuw i8, ptr %5, i64 56
-  %50 = load double, ptr %49, align 8, !tbaa !65
+  %50 = load double, ptr %49, align 8, !tbaa !64
   %51 = fmul nsz double %50, %48
   %52 = fmul nsz double %39, %51
   %53 = getelementptr inbounds nuw i8, ptr %5, i64 136
@@ -336,11 +336,11 @@ define internal range(i32 -12, 1) i32 @config_input(ptr noundef readonly capture
   %57 = getelementptr inbounds nuw i8, ptr %5, i64 152
   store double %56, ptr %57, align 8, !tbaa !51
   %58 = getelementptr inbounds nuw i8, ptr %5, i64 80
-  %59 = load double, ptr %58, align 8, !tbaa !66
+  %59 = load double, ptr %58, align 8, !tbaa !65
   %60 = fadd nsz double %59, 1.000000e+00
   %61 = fmul nsz double %60, 5.000000e-01
   %62 = getelementptr inbounds nuw i8, ptr %5, i64 64
-  %63 = load double, ptr %62, align 8, !tbaa !67
+  %63 = load double, ptr %62, align 8, !tbaa !66
   %64 = fmul nsz double %63, %61
   %65 = fmul nsz double %43, %64
   %66 = getelementptr inbounds nuw i8, ptr %5, i64 144
@@ -445,18 +445,17 @@ attributes #5 = { nounwind }
 !50 = !{!15, !15, i64 0}
 !51 = !{!22, !22, i64 0}
 !52 = !{!21, !22, i64 48}
-!53 = distinct !{!53, !54, !55}
+!53 = distinct !{!53, !54}
 !54 = !{!"llvm.loop.mustprogress"}
-!55 = !{!"llvm.loop.estimated_trip_count"}
-!56 = !{!27, !15, i64 64}
-!57 = distinct !{!57, !54, !55}
-!58 = !{!21, !22, i64 16}
-!59 = !{!21, !22, i64 24}
-!60 = !{!21, !15, i64 32}
-!61 = !{!21, !22, i64 168}
-!62 = !{!21, !15, i64 36}
-!63 = !{!21, !22, i64 176}
-!64 = !{!21, !22, i64 72}
-!65 = !{!21, !22, i64 56}
-!66 = !{!21, !22, i64 80}
-!67 = !{!21, !22, i64 64}
+!55 = !{!27, !15, i64 64}
+!56 = distinct !{!56, !54}
+!57 = !{!21, !22, i64 16}
+!58 = !{!21, !22, i64 24}
+!59 = !{!21, !15, i64 32}
+!60 = !{!21, !22, i64 168}
+!61 = !{!21, !15, i64 36}
+!62 = !{!21, !22, i64 176}
+!63 = !{!21, !22, i64 72}
+!64 = !{!21, !22, i64 56}
+!65 = !{!21, !22, i64 80}
+!66 = !{!21, !22, i64 64}

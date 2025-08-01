@@ -50,31 +50,31 @@ define hidden ptr @lj_mcode_reserve(ptr noundef %0, ptr noundef writeonly captur
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 3044
-  %8 = load i32, ptr %7, align 4, !tbaa !34
+  %8 = load i32, ptr %7, align 4, !tbaa !33
   %.not.i = icmp eq i32 %8, 3
   br i1 %.not.i, label %mcode_protect.exit, label %9
 
 9:                                                ; preds = %6
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 3072
-  %11 = load i64, ptr %10, align 8, !tbaa !35
+  %11 = load i64, ptr %10, align 8, !tbaa !34
   %12 = tail call i32 @mprotect(ptr noundef nonnull %4, i64 noundef %11, i32 noundef range(i32 3, 6) 3) #8
   %.not7.i = icmp eq i32 %12, 0
-  br i1 %.not7.i, label %14, label %13, !prof !36
+  br i1 %.not7.i, label %14, label %13, !prof !35
 
 13:                                               ; preds = %9
   tail call fastcc void @mcode_protfail(ptr noundef nonnull %0) #9
   unreachable
 
 14:                                               ; preds = %9
-  store i32 3, ptr %7, align 4, !tbaa !34
+  store i32 3, ptr %7, align 4, !tbaa !33
   br label %mcode_protect.exit
 
 mcode_protect.exit:                               ; preds = %14, %6, %5
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 3064
-  %16 = load ptr, ptr %15, align 8, !tbaa !37
-  store ptr %16, ptr %1, align 8, !tbaa !38
+  %16 = load ptr, ptr %15, align 8, !tbaa !36
+  store ptr %16, ptr %1, align 8, !tbaa !37
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 3056
-  %18 = load ptr, ptr %17, align 8, !tbaa !39
+  %18 = load ptr, ptr %17, align 8, !tbaa !38
   ret ptr %18
 }
 
@@ -84,7 +84,7 @@ select.unfold.preheader:
   %1 = getelementptr inbounds nuw i8, ptr %0, i64 3048
   %2 = load ptr, ptr %1, align 8, !tbaa !4
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1688
-  %4 = load i32, ptr %3, align 4, !tbaa !40
+  %4 = load i32, ptr %3, align 4, !tbaa !39
   %5 = sext i32 %4 to i64
   %6 = shl nsw i64 %5, 10
   %7 = add nsw i64 %6, 4095
@@ -134,13 +134,13 @@ select.unfold:                                    ; preds = %select.unfold.prehe
   %26 = and i64 %25, 2147418112
   %27 = add nsw i64 %26, %8
   %28 = icmp ugt i64 %27, 2143289343
-  br i1 %28, label %.critedge.thread.i, label %29, !llvm.loop !41
+  br i1 %28, label %.critedge.thread.i, label %29, !llvm.loop !40
 
 29:                                               ; preds = %.critedge.thread.i
   %30 = add i64 %14, %26
   %31 = add nuw nsw i32 %.02842.i, 1
   %exitcond.not.i = icmp eq i32 %31, 31
-  br i1 %exitcond.not.i, label %32, label %select.unfold, !llvm.loop !42
+  br i1 %exitcond.not.i, label %32, label %select.unfold, !llvm.loop !41
 
 32:                                               ; preds = %29
   tail call void @lj_trace_err(ptr noundef nonnull %0, i32 noundef 27) #10
@@ -149,15 +149,15 @@ select.unfold:                                    ; preds = %select.unfold.prehe
 mcode_alloc.exit:                                 ; preds = %18
   store ptr %17, ptr %1, align 8, !tbaa !4
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 3072
-  store i64 %8, ptr %33, align 8, !tbaa !35
+  store i64 %8, ptr %33, align 8, !tbaa !34
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 3044
-  store i32 3, ptr %34, align 4, !tbaa !34
+  store i32 3, ptr %34, align 4, !tbaa !33
   %35 = getelementptr inbounds nuw i8, ptr %17, i64 %8
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 3056
-  store ptr %35, ptr %36, align 8, !tbaa !39
+  store ptr %35, ptr %36, align 8, !tbaa !38
   %37 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 3064
-  store ptr %37, ptr %38, align 8, !tbaa !37
+  store ptr %37, ptr %38, align 8, !tbaa !36
   store ptr %2, ptr %17, align 8, !tbaa !28
   %39 = getelementptr inbounds nuw i8, ptr %17, i64 8
   store i64 %8, ptr %39, align 8, !tbaa !30
@@ -166,16 +166,16 @@ mcode_alloc.exit:                                 ; preds = %18
   %42 = add i64 %41, %8
   store i64 %42, ptr %40, align 8, !tbaa !27
   %43 = tail call ptr @lj_err_register_mcode(ptr noundef nonnull %17, i64 noundef %8, ptr noundef nonnull %37) #8
-  store ptr %43, ptr %38, align 8, !tbaa !37
+  store ptr %43, ptr %38, align 8, !tbaa !36
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define hidden void @lj_mcode_commit(ptr noundef captures(none) initializes((3056, 3064)) %0, ptr noundef %1) local_unnamed_addr #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 3056
-  store ptr %1, ptr %3, align 8, !tbaa !39
+  store ptr %1, ptr %3, align 8, !tbaa !38
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 3044
-  %5 = load i32, ptr %4, align 4, !tbaa !34
+  %5 = load i32, ptr %4, align 4, !tbaa !33
   %.not.i = icmp eq i32 %5, 5
   br i1 %.not.i, label %mcode_protect.exit, label %6
 
@@ -183,17 +183,17 @@ define hidden void @lj_mcode_commit(ptr noundef captures(none) initializes((3056
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 3048
   %8 = load ptr, ptr %7, align 8, !tbaa !4
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 3072
-  %10 = load i64, ptr %9, align 8, !tbaa !35
+  %10 = load i64, ptr %9, align 8, !tbaa !34
   %11 = tail call i32 @mprotect(ptr noundef %8, i64 noundef %10, i32 noundef range(i32 3, 6) 5) #8
   %.not7.i = icmp eq i32 %11, 0
-  br i1 %.not7.i, label %13, label %12, !prof !36
+  br i1 %.not7.i, label %13, label %12, !prof !35
 
 12:                                               ; preds = %6
   tail call fastcc void @mcode_protfail(ptr noundef nonnull %0) #9
   unreachable
 
 13:                                               ; preds = %6
-  store i32 5, ptr %4, align 4, !tbaa !34
+  store i32 5, ptr %4, align 4, !tbaa !33
   br label %mcode_protect.exit
 
 mcode_protect.exit:                               ; preds = %2, %13
@@ -209,23 +209,23 @@ define hidden void @lj_mcode_abort(ptr noundef captures(none) %0) local_unnamed_
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 3044
-  %6 = load i32, ptr %5, align 4, !tbaa !34
+  %6 = load i32, ptr %5, align 4, !tbaa !33
   %.not.i = icmp eq i32 %6, 5
   br i1 %.not.i, label %mcode_protect.exit, label %7
 
 7:                                                ; preds = %4
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 3072
-  %9 = load i64, ptr %8, align 8, !tbaa !35
+  %9 = load i64, ptr %8, align 8, !tbaa !34
   %10 = tail call i32 @mprotect(ptr noundef nonnull %3, i64 noundef %9, i32 noundef range(i32 3, 6) 5) #8
   %.not7.i = icmp eq i32 %10, 0
-  br i1 %.not7.i, label %12, label %11, !prof !36
+  br i1 %.not7.i, label %12, label %11, !prof !35
 
 11:                                               ; preds = %7
   tail call fastcc void @mcode_protfail(ptr noundef nonnull %0) #9
   unreachable
 
 12:                                               ; preds = %7
-  store i32 5, ptr %5, align 4, !tbaa !34
+  store i32 5, ptr %5, align 4, !tbaa !33
   br label %mcode_protect.exit
 
 mcode_protect.exit:                               ; preds = %12, %4, %1
@@ -245,23 +245,23 @@ define hidden ptr @lj_mcode_patch(ptr noundef captures(none) %0, ptr noundef %1,
 
 8:                                                ; preds = %6
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 3044
-  %10 = load i32, ptr %9, align 4, !tbaa !34
+  %10 = load i32, ptr %9, align 4, !tbaa !33
   %.not.i = icmp eq i32 %10, 5
   br i1 %.not.i, label %mcode_protect.exit, label %11
 
 11:                                               ; preds = %8
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 3072
-  %13 = load i64, ptr %12, align 8, !tbaa !35
+  %13 = load i64, ptr %12, align 8, !tbaa !34
   %14 = tail call i32 @mprotect(ptr noundef %5, i64 noundef %13, i32 noundef range(i32 3, 6) 5) #8
   %.not7.i = icmp eq i32 %14, 0
-  br i1 %.not7.i, label %16, label %15, !prof !36
+  br i1 %.not7.i, label %16, label %15, !prof !35
 
 15:                                               ; preds = %11
   tail call fastcc void @mcode_protfail(ptr noundef nonnull %0) #9
   unreachable
 
 16:                                               ; preds = %11
-  store i32 5, ptr %9, align 4, !tbaa !34
+  store i32 5, ptr %9, align 4, !tbaa !33
   br label %mcode_protect.exit
 
 17:                                               ; preds = %6
@@ -269,7 +269,7 @@ define hidden ptr @lj_mcode_patch(ptr noundef captures(none) %0, ptr noundef %1,
   %19 = load i64, ptr %18, align 8, !tbaa !30
   %20 = tail call i32 @mprotect(ptr noundef %1, i64 noundef %19, i32 noundef 5) #8
   %.not33 = icmp eq i32 %20, 0
-  br i1 %.not33, label %mcode_protect.exit, label %21, !prof !36
+  br i1 %.not33, label %mcode_protect.exit, label %21, !prof !35
 
 21:                                               ; preds = %17
   tail call fastcc void @mcode_protfail(ptr noundef nonnull %0) #9
@@ -284,28 +284,28 @@ define hidden ptr @lj_mcode_patch(ptr noundef captures(none) %0, ptr noundef %1,
 
 23:                                               ; preds = %22
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 3072
-  %25 = load i64, ptr %24, align 8, !tbaa !35
+  %25 = load i64, ptr %24, align 8, !tbaa !34
   %26 = getelementptr inbounds nuw i8, ptr %5, i64 %25
   %27 = icmp ult ptr %1, %26
   br i1 %27, label %28, label %.preheader
 
 28:                                               ; preds = %23
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 3044
-  %30 = load i32, ptr %29, align 4, !tbaa !34
+  %30 = load i32, ptr %29, align 4, !tbaa !33
   %.not.i34 = icmp eq i32 %30, 3
   br i1 %.not.i34, label %mcode_protect.exit, label %31
 
 31:                                               ; preds = %28
   %32 = tail call i32 @mprotect(ptr noundef %5, i64 noundef %25, i32 noundef range(i32 3, 6) 3) #8
   %.not7.i35 = icmp eq i32 %32, 0
-  br i1 %.not7.i35, label %34, label %33, !prof !36
+  br i1 %.not7.i35, label %34, label %33, !prof !35
 
 33:                                               ; preds = %31
   tail call fastcc void @mcode_protfail(ptr noundef nonnull %0) #9
   unreachable
 
 34:                                               ; preds = %31
-  store i32 3, ptr %29, align 4, !tbaa !34
+  store i32 3, ptr %29, align 4, !tbaa !33
   br label %mcode_protect.exit
 
 35:                                               ; preds = %.backedge, %.preheader
@@ -322,12 +322,12 @@ define hidden ptr @lj_mcode_patch(ptr noundef captures(none) %0, ptr noundef %1,
   br i1 %41, label %42, label %.backedge
 
 .backedge:                                        ; preds = %37, %35
-  br label %35, !llvm.loop !43
+  br label %35
 
 42:                                               ; preds = %37
   %43 = tail call i32 @mprotect(ptr noundef nonnull %36, i64 noundef %39, i32 noundef 3) #8
   %.not32 = icmp eq i32 %43, 0
-  br i1 %.not32, label %mcode_protect.exit, label %44, !prof !36
+  br i1 %.not32, label %mcode_protect.exit, label %44, !prof !35
 
 44:                                               ; preds = %42
   tail call fastcc void @mcode_protfail(ptr noundef %0) #9
@@ -341,21 +341,21 @@ mcode_protect.exit:                               ; preds = %34, %28, %16, %8, %
 ; Function Attrs: noinline noreturn nounwind uwtable
 define internal fastcc void @mcode_protfail(ptr noundef readonly captures(none) %0) unnamed_addr #3 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -384
-  %3 = load ptr, ptr %2, align 8, !tbaa !44
+  %3 = load ptr, ptr %2, align 8, !tbaa !42
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %14, label %4
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %6 = load ptr, ptr %5, align 8, !tbaa !56
+  %6 = load ptr, ptr %5, align 8, !tbaa !54
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 40
-  %8 = load ptr, ptr %7, align 8, !tbaa !57
+  %8 = load ptr, ptr %7, align 8, !tbaa !55
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store ptr %9, ptr %7, align 8, !tbaa !57
+  store ptr %9, ptr %7, align 8, !tbaa !55
   %10 = tail call ptr @lj_err_str(ptr noundef %6, i32 noundef 2023) #8
   %11 = ptrtoint ptr %10 to i64
   %12 = or i64 %11, -703687441776640
-  store i64 %12, ptr %8, align 8, !tbaa !58
+  store i64 %12, ptr %8, align 8, !tbaa !56
   %13 = tail call i32 %3(ptr noundef %6) #8
   br label %14
 
@@ -373,28 +373,28 @@ define hidden void @lj_mcode_limiterr(ptr noundef %0, i64 noundef %1) local_unna
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 3044
-  %7 = load i32, ptr %6, align 4, !tbaa !34
+  %7 = load i32, ptr %6, align 4, !tbaa !33
   %.not.i.i = icmp eq i32 %7, 5
   br i1 %.not.i.i, label %lj_mcode_abort.exit, label %8
 
 8:                                                ; preds = %5
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 3072
-  %10 = load i64, ptr %9, align 8, !tbaa !35
+  %10 = load i64, ptr %9, align 8, !tbaa !34
   %11 = tail call i32 @mprotect(ptr noundef nonnull %4, i64 noundef %10, i32 noundef range(i32 3, 6) 5) #8
   %.not7.i.i = icmp eq i32 %11, 0
-  br i1 %.not7.i.i, label %13, label %12, !prof !36
+  br i1 %.not7.i.i, label %13, label %12, !prof !35
 
 12:                                               ; preds = %8
   tail call fastcc void @mcode_protfail(ptr noundef nonnull %0) #9
   unreachable
 
 13:                                               ; preds = %8
-  store i32 5, ptr %6, align 4, !tbaa !34
+  store i32 5, ptr %6, align 4, !tbaa !33
   br label %lj_mcode_abort.exit
 
 lj_mcode_abort.exit:                              ; preds = %2, %5, %13
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 1688
-  %15 = load i32, ptr %14, align 4, !tbaa !40
+  %15 = load i32, ptr %14, align 4, !tbaa !39
   %16 = sext i32 %15 to i64
   %17 = shl nsw i64 %16, 10
   %18 = add nsw i64 %17, 4095
@@ -408,7 +408,7 @@ lj_mcode_abort.exit:                              ; preds = %2, %5, %13
 
 22:                                               ; preds = %lj_mcode_abort.exit
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 1692
-  %24 = load i32, ptr %23, align 4, !tbaa !40
+  %24 = load i32, ptr %23, align 4, !tbaa !39
   %25 = sext i32 %24 to i64
   %26 = shl nsw i64 %25, 10
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 3080
@@ -494,31 +494,29 @@ attributes #11 = { cold noreturn nounwind }
 !28 = !{!29, !18, i64 0}
 !29 = !{!"MCLink", !18, i64 0, !8, i64 8}
 !30 = !{!29, !8, i64 8}
-!31 = distinct !{!31, !32, !33}
+!31 = distinct !{!31, !32}
 !32 = !{!"llvm.loop.mustprogress"}
-!33 = !{!"llvm.loop.estimated_trip_count"}
-!34 = !{!5, !12, i64 3044}
-!35 = !{!5, !8, i64 3072}
-!36 = !{!"branch_weights", !"expected", i32 2000, i32 1}
-!37 = !{!5, !18, i64 3064}
-!38 = !{!18, !18, i64 0}
-!39 = !{!5, !18, i64 3056}
-!40 = !{!12, !12, i64 0}
-!41 = distinct !{!41, !32, !33}
-!42 = distinct !{!42, !32, !33}
-!43 = distinct !{!43, !33}
-!44 = !{!45, !14, i64 448}
-!45 = !{!"GG_State", !46, i64 0, !48, i64 96, !5, i64 832, !9, i64 3944, !9, i64 4072, !9, i64 6016}
-!46 = !{!"lua_State", !7, i64 0, !9, i64 8, !9, i64 9, !9, i64 10, !9, i64 11, !17, i64 16, !7, i64 24, !47, i64 32, !47, i64 40, !17, i64 48, !17, i64 56, !7, i64 64, !7, i64 72, !14, i64 80, !12, i64 88}
-!47 = !{!"p1 _ZTS6TValue", !14, i64 0}
-!48 = !{!"global_State", !14, i64 0, !14, i64 8, !49, i64 16, !50, i64 120, !9, i64 144, !9, i64 145, !9, i64 146, !9, i64 147, !51, i64 152, !12, i64 184, !7, i64 192, !52, i64 200, !9, i64 232, !9, i64 240, !53, i64 248, !9, i64 272, !54, i64 280, !12, i64 328, !12, i64 332, !14, i64 336, !14, i64 344, !14, i64 352, !12, i64 360, !12, i64 364, !7, i64 368, !17, i64 376, !17, i64 384, !55, i64 392, !9, i64 424}
-!49 = !{!"GCState", !8, i64 0, !8, i64 8, !9, i64 16, !9, i64 17, !9, i64 18, !9, i64 19, !12, i64 20, !7, i64 24, !17, i64 32, !7, i64 40, !7, i64 48, !7, i64 56, !7, i64 64, !8, i64 72, !8, i64 80, !12, i64 88, !12, i64 92, !17, i64 96}
-!50 = !{!"GCstr", !7, i64 0, !9, i64 8, !9, i64 9, !9, i64 10, !9, i64 11, !12, i64 12, !12, i64 16, !12, i64 20}
-!51 = !{!"StrInternState", !25, i64 0, !12, i64 8, !12, i64 12, !12, i64 16, !9, i64 20, !9, i64 21, !9, i64 22, !9, i64 23, !8, i64 24}
-!52 = !{!"SBuf", !18, i64 0, !18, i64 8, !18, i64 16, !17, i64 24}
-!53 = !{!"Node", !9, i64 0, !9, i64 8, !17, i64 16}
-!54 = !{!"GCupval", !7, i64 0, !9, i64 8, !9, i64 9, !9, i64 10, !9, i64 11, !9, i64 16, !17, i64 32, !12, i64 40}
-!55 = !{!"PRNGState", !9, i64 0}
-!56 = !{!5, !20, i64 128}
-!57 = !{!46, !47, i64 40}
-!58 = !{!9, !9, i64 0}
+!33 = !{!5, !12, i64 3044}
+!34 = !{!5, !8, i64 3072}
+!35 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!36 = !{!5, !18, i64 3064}
+!37 = !{!18, !18, i64 0}
+!38 = !{!5, !18, i64 3056}
+!39 = !{!12, !12, i64 0}
+!40 = distinct !{!40, !32}
+!41 = distinct !{!41, !32}
+!42 = !{!43, !14, i64 448}
+!43 = !{!"GG_State", !44, i64 0, !46, i64 96, !5, i64 832, !9, i64 3944, !9, i64 4072, !9, i64 6016}
+!44 = !{!"lua_State", !7, i64 0, !9, i64 8, !9, i64 9, !9, i64 10, !9, i64 11, !17, i64 16, !7, i64 24, !45, i64 32, !45, i64 40, !17, i64 48, !17, i64 56, !7, i64 64, !7, i64 72, !14, i64 80, !12, i64 88}
+!45 = !{!"p1 _ZTS6TValue", !14, i64 0}
+!46 = !{!"global_State", !14, i64 0, !14, i64 8, !47, i64 16, !48, i64 120, !9, i64 144, !9, i64 145, !9, i64 146, !9, i64 147, !49, i64 152, !12, i64 184, !7, i64 192, !50, i64 200, !9, i64 232, !9, i64 240, !51, i64 248, !9, i64 272, !52, i64 280, !12, i64 328, !12, i64 332, !14, i64 336, !14, i64 344, !14, i64 352, !12, i64 360, !12, i64 364, !7, i64 368, !17, i64 376, !17, i64 384, !53, i64 392, !9, i64 424}
+!47 = !{!"GCState", !8, i64 0, !8, i64 8, !9, i64 16, !9, i64 17, !9, i64 18, !9, i64 19, !12, i64 20, !7, i64 24, !17, i64 32, !7, i64 40, !7, i64 48, !7, i64 56, !7, i64 64, !8, i64 72, !8, i64 80, !12, i64 88, !12, i64 92, !17, i64 96}
+!48 = !{!"GCstr", !7, i64 0, !9, i64 8, !9, i64 9, !9, i64 10, !9, i64 11, !12, i64 12, !12, i64 16, !12, i64 20}
+!49 = !{!"StrInternState", !25, i64 0, !12, i64 8, !12, i64 12, !12, i64 16, !9, i64 20, !9, i64 21, !9, i64 22, !9, i64 23, !8, i64 24}
+!50 = !{!"SBuf", !18, i64 0, !18, i64 8, !18, i64 16, !17, i64 24}
+!51 = !{!"Node", !9, i64 0, !9, i64 8, !17, i64 16}
+!52 = !{!"GCupval", !7, i64 0, !9, i64 8, !9, i64 9, !9, i64 10, !9, i64 11, !9, i64 16, !17, i64 32, !12, i64 40}
+!53 = !{!"PRNGState", !9, i64 0}
+!54 = !{!5, !20, i64 128}
+!55 = !{!44, !45, i64 40}
+!56 = !{!9, !9, i64 0}

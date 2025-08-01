@@ -208,7 +208,7 @@ define void @Mvc_CubeBitRemoveDcs(ptr noundef captures(none) %0) local_unnamed_a
   store i32 %14, ptr %8, align 4, !tbaa !21
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %.not = icmp eq i64 %indvars.iv, 0
-  br i1 %.not, label %15, label %7, !llvm.loop !25
+  br i1 %.not, label %15, label %7, !llvm.loop !24
 
 15:                                               ; preds = %7
   ret void
@@ -246,7 +246,6 @@ attributes #6 = { nounwind allocsize(0) }
 !19 = !{!16, !17, i64 24}
 !20 = !{!4, !5, i64 4}
 !21 = !{!5, !5, i64 0}
-!22 = distinct !{!22, !23, !24}
+!22 = distinct !{!22, !23}
 !23 = !{!"llvm.loop.mustprogress"}
-!24 = !{!"llvm.loop.estimated_trip_count"}
-!25 = distinct !{!25, !23, !24}
+!24 = distinct !{!24, !23}

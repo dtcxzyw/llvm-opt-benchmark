@@ -225,7 +225,7 @@ define linkonce_odr noundef i32 @_ZN9grpc_core24GrpcPolledFdFactoryPosix5CloseEi
   %17 = urem i64 %14, %16
   %18 = load ptr, ptr %13, align 8, !tbaa !17
   %19 = getelementptr inbounds nuw ptr, ptr %18, i64 %17
-  %20 = load ptr, ptr %19, align 8, !tbaa !38
+  %20 = load ptr, ptr %19, align 8, !tbaa !37
   %.not.i.i.i.i = icmp eq ptr %20, null
   br i1 %.not.i.i.i.i, label %.loopexit, label %21
 
@@ -238,7 +238,7 @@ define linkonce_odr noundef i32 @_ZN9grpc_core24GrpcPolledFdFactoryPosix5CloseEi
 
 26:                                               ; preds = %29
   %27 = icmp eq i32 %0, %31
-  br i1 %27, label %_ZNSt13unordered_setIiSt4hashIiESt8equal_toIiESaIiEE4findERKi.exit, label %.lr.ph.i.i.i.i, !llvm.loop !39
+  br i1 %27, label %_ZNSt13unordered_setIiSt4hashIiESt8equal_toIiESaIiEE4findERKi.exit, label %.lr.ph.i.i.i.i, !llvm.loop !38
 
 .lr.ph.i.i.i.i:                                   ; preds = %21, %26
   %.020.i.i.i.i = phi ptr [ %28, %26 ], [ %22, %21 ]
@@ -252,10 +252,10 @@ define linkonce_odr noundef i32 @_ZN9grpc_core24GrpcPolledFdFactoryPosix5CloseEi
   %32 = sext i32 %31 to i64
   %33 = urem i64 %32, %16
   %.not19.i.i.i.i = icmp eq i64 %33, %17
-  br i1 %.not19.i.i.i.i, label %26, label %..loopexit_crit_edge21.i.i.i.i, !llvm.loop !39
+  br i1 %.not19.i.i.i.i, label %26, label %..loopexit_crit_edge21.i.i.i.i, !llvm.loop !38
 
 ..loopexit_crit_edge21.i.i.i.i:                   ; preds = %29
-  br label %.loopexit, !llvm.loop !39
+  br label %.loopexit, !llvm.loop !38
 
 .loopexit:                                        ; preds = %.lr.ph.i.i.i.i, %7, %12, %..loopexit_crit_edge21.i.i.i.i
   %34 = tail call i32 @close(i32 noundef %0)
@@ -297,7 +297,7 @@ define linkonce_odr void @_ZN9grpc_core24GrpcPolledFdFactoryPosixD2Ev(ptr nounde
   br i1 %.not, label %5, label %18
 
 5:                                                ; preds = %4
-  %6 = load ptr, ptr %3, align 8, !tbaa !40
+  %6 = load ptr, ptr %3, align 8, !tbaa !39
   %.not5.i.i.i.i = icmp eq ptr %6, null
   br i1 %.not5.i.i.i.i, label %_ZNSt10_HashtableIiiSaIiENSt8__detail9_IdentityESt8equal_toIiESt4hashIiENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE5clearEv.exit.i.i, label %.lr.ph.i.i.i.i
 
@@ -306,7 +306,7 @@ define linkonce_odr void @_ZN9grpc_core24GrpcPolledFdFactoryPosixD2Ev(ptr nounde
   %7 = load ptr, ptr %.06.i.i.i.i, align 8, !tbaa !32
   tail call void @_ZdlPvm(ptr noundef nonnull %.06.i.i.i.i, i64 noundef 16) #20
   %.not.i.i.i.i = icmp eq ptr %7, null
-  br i1 %.not.i.i.i.i, label %_ZNSt10_HashtableIiiSaIiENSt8__detail9_IdentityESt8equal_toIiESt4hashIiENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE5clearEv.exit.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !41
+  br i1 %.not.i.i.i.i, label %_ZNSt10_HashtableIiiSaIiENSt8__detail9_IdentityESt8equal_toIiESt4hashIiENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE5clearEv.exit.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !40
 
 _ZNSt10_HashtableIiiSaIiENSt8__detail9_IdentityESt8equal_toIiESt4hashIiENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE5clearEv.exit.i.i: ; preds = %.lr.ph.i.i.i.i, %5
   %8 = load ptr, ptr %2, align 8, !tbaa !17
@@ -333,7 +333,7 @@ _ZNSt13unordered_setIiSt4hashIiESt8equal_toIiESaIiEED2Ev.exit: ; preds = %_ZNSt1
   %19 = getelementptr inbounds nuw i8, ptr %.sroa.04.0, i64 8
   %20 = load i32, ptr %19, align 4, !tbaa !33
   %21 = invoke i32 @close(i32 noundef %20)
-          to label %4 unwind label %22, !llvm.loop !42
+          to label %4 unwind label %22
 
 22:                                               ; preds = %18
   %23 = landingpad { ptr, i32 }
@@ -356,7 +356,7 @@ define linkonce_odr void @_ZN9grpc_core24GrpcPolledFdFactoryPosixD0Ev(ptr nounde
   br i1 %.not.i, label %5, label %18
 
 5:                                                ; preds = %4
-  %6 = load ptr, ptr %3, align 8, !tbaa !40
+  %6 = load ptr, ptr %3, align 8, !tbaa !39
   %.not5.i.i.i.i.i = icmp eq ptr %6, null
   br i1 %.not5.i.i.i.i.i, label %_ZNSt10_HashtableIiiSaIiENSt8__detail9_IdentityESt8equal_toIiESt4hashIiENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE5clearEv.exit.i.i.i, label %.lr.ph.i.i.i.i.i
 
@@ -365,7 +365,7 @@ define linkonce_odr void @_ZN9grpc_core24GrpcPolledFdFactoryPosixD0Ev(ptr nounde
   %7 = load ptr, ptr %.06.i.i.i.i.i, align 8, !tbaa !32
   tail call void @_ZdlPvm(ptr noundef nonnull %.06.i.i.i.i.i, i64 noundef 16) #20
   %.not.i.i.i.i.i = icmp eq ptr %7, null
-  br i1 %.not.i.i.i.i.i, label %_ZNSt10_HashtableIiiSaIiENSt8__detail9_IdentityESt8equal_toIiESt4hashIiENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE5clearEv.exit.i.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !41
+  br i1 %.not.i.i.i.i.i, label %_ZNSt10_HashtableIiiSaIiENSt8__detail9_IdentityESt8equal_toIiESt4hashIiENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE5clearEv.exit.i.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !40
 
 _ZNSt10_HashtableIiiSaIiENSt8__detail9_IdentityESt8equal_toIiESt4hashIiENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE5clearEv.exit.i.i.i: ; preds = %.lr.ph.i.i.i.i.i, %5
   %8 = load ptr, ptr %2, align 8, !tbaa !17
@@ -389,7 +389,7 @@ _ZNSt10_HashtableIiiSaIiENSt8__detail9_IdentityESt8equal_toIiESt4hashIiENS1_18_M
   %19 = getelementptr inbounds nuw i8, ptr %.sroa.04.0.i, i64 8
   %20 = load i32, ptr %19, align 4, !tbaa !33
   %21 = invoke i32 @close(i32 noundef %20)
-          to label %4 unwind label %22, !llvm.loop !42
+          to label %4 unwind label %22
 
 22:                                               ; preds = %18
   %23 = landingpad { ptr, i32 }
@@ -411,12 +411,12 @@ define linkonce_odr noundef ptr @_ZN9grpc_core24GrpcPolledFdFactoryPosix21NewGrp
   store i32 %1, ptr %5, align 4, !tbaa !33
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 48
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #19
-  store ptr %7, ptr %4, align 8, !tbaa !43
+  store ptr %7, ptr %4, align 8, !tbaa !41
   %8 = call { ptr, i8 } @_ZNSt10_HashtableIiiSaIiENSt8__detail9_IdentityESt8equal_toIiESt4hashIiENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE16_M_insert_uniqueIRKiSF_NS1_10_AllocNodeISaINS1_10_Hash_nodeIiLb0EEEEEEEESt4pairINS1_14_Node_iteratorIiLb1ELb0EEEbEOT_OT0_RKT1_(ptr noundef nonnull align 8 dereferenceable(56) %7, ptr noundef nonnull align 4 dereferenceable(4) %5, ptr noundef nonnull align 4 dereferenceable(4) %5, ptr noundef nonnull align 8 dereferenceable(8) %4)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #19
   %.fca.1.extract = extractvalue { ptr, i8 } %8, 1
   %9 = trunc i8 %.fca.1.extract to i1
-  br i1 %9, label %.critedge, label %10, !prof !45
+  br i1 %9, label %.critedge, label %10, !prof !43
 
 10:                                               ; preds = %3
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #19
@@ -498,23 +498,23 @@ define linkonce_odr void @_ZN9grpc_core17GrpcPolledFdPosixC2EiP16grpc_pollset_se
   %10 = ptrtoint ptr %9 to i64
   %11 = ptrtoint ptr %8 to i64
   %12 = sub i64 %10, %11
-  store i64 %12, ptr %5, align 8, !tbaa !46
+  store i64 %12, ptr %5, align 8, !tbaa !44
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store ptr %8, ptr %13, align 8, !tbaa !49
+  store ptr %8, ptr %13, align 8, !tbaa !47
   call void @_ZN4absl12lts_202407226StrCatB5cxx11ERKNS0_8AlphaNumES3_(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %6, ptr noundef nonnull align 8 dereferenceable(48) %4, ptr noundef nonnull align 8 dereferenceable(48) %5)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %5) #19
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4) #19
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store i32 %1, ptr %14, align 8, !tbaa !50
-  %15 = load ptr, ptr %6, align 8, !tbaa !57
+  store i32 %1, ptr %14, align 8, !tbaa !48
+  %15 = load ptr, ptr %6, align 8, !tbaa !55
   %16 = invoke noundef ptr @_Z14grpc_fd_createiPKcb(i32 noundef %1, ptr noundef %15, i1 noundef zeroext false)
           to label %17 unwind label %21
 
 17:                                               ; preds = %3
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store ptr %16, ptr %18, align 8, !tbaa !58
+  store ptr %16, ptr %18, align 8, !tbaa !56
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store ptr %2, ptr %19, align 8, !tbaa !59
+  store ptr %2, ptr %19, align 8, !tbaa !57
   invoke void @_Z23grpc_pollset_set_add_fdP16grpc_pollset_setP7grpc_fd(ptr noundef %2, ptr noundef %16)
           to label %20 unwind label %21
 
@@ -524,20 +524,20 @@ define linkonce_odr void @_ZN9grpc_core17GrpcPolledFdPosixC2EiP16grpc_pollset_se
 21:                                               ; preds = %17, %3
   %22 = landingpad { ptr, i32 }
           cleanup
-  %23 = load ptr, ptr %6, align 8, !tbaa !57
+  %23 = load ptr, ptr %6, align 8, !tbaa !55
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %25 = icmp eq ptr %23, %24
   br i1 %25, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i: ; preds = %21
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %27 = load i64, ptr %26, align 8, !tbaa !60
+  %27 = load i64, ptr %26, align 8, !tbaa !58
   %28 = icmp ult i64 %27, 16
   call void @llvm.assume(i1 %28)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: ; preds = %21
-  %29 = load i64, ptr %24, align 8, !tbaa !61
+  %29 = load i64, ptr %24, align 8, !tbaa !59
   %30 = add i64 %29, 1
   call void @_ZdlPvm(ptr noundef %23, i64 noundef %30) #20
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
@@ -561,7 +561,7 @@ define linkonce_odr { ptr, i8 } @_ZNSt10_HashtableIiiSaIiENSt8__detail9_Identity
   %11 = urem i64 %8, %10
   %12 = load ptr, ptr %0, align 8, !tbaa !17
   %13 = getelementptr inbounds nuw ptr, ptr %12, i64 %11
-  %14 = load ptr, ptr %13, align 8, !tbaa !38
+  %14 = load ptr, ptr %13, align 8, !tbaa !37
   %.not.i.i = icmp eq ptr %14, null
   br i1 %.not.i.i, label %.critedge, label %28
 
@@ -580,7 +580,7 @@ define linkonce_odr { ptr, i8 } @_ZNSt10_HashtableIiiSaIiENSt8__detail9_Identity
   %20 = getelementptr inbounds nuw i8, ptr %.sroa.028.0, i64 8
   %21 = load i32, ptr %20, align 4, !tbaa !33
   %22 = icmp eq i32 %17, %21
-  br i1 %22, label %_ZNKSt10_HashtableIiiSaIiENSt8__detail9_IdentityESt8equal_toIiESt4hashIiENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE15_M_find_node_trIiEEPNS1_10_Hash_nodeIiLb0EEEmRKT_m.exit, label %18, !llvm.loop !62
+  br i1 %22, label %_ZNKSt10_HashtableIiiSaIiENSt8__detail9_IdentityESt8equal_toIiESt4hashIiENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE15_M_find_node_trIiEEPNS1_10_Hash_nodeIiLb0EEEmRKT_m.exit, label %18, !llvm.loop !60
 
 23:                                               ; preds = %18
   %24 = sext i32 %17 to i64
@@ -598,7 +598,7 @@ define linkonce_odr { ptr, i8 } @_ZNSt10_HashtableIiiSaIiENSt8__detail9_Identity
 
 33:                                               ; preds = %36
   %34 = icmp eq i32 %7, %38
-  br i1 %34, label %_ZNKSt10_HashtableIiiSaIiENSt8__detail9_IdentityESt8equal_toIiESt4hashIiENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE15_M_find_node_trIiEEPNS1_10_Hash_nodeIiLb0EEEmRKT_m.exit, label %.lr.ph.i.i, !llvm.loop !63
+  br i1 %34, label %_ZNKSt10_HashtableIiiSaIiENSt8__detail9_IdentityESt8equal_toIiESt4hashIiENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE15_M_find_node_trIiEEPNS1_10_Hash_nodeIiLb0EEEmRKT_m.exit, label %.lr.ph.i.i, !llvm.loop !61
 
 .lr.ph.i.i:                                       ; preds = %28, %33
   %.020.i.i = phi ptr [ %35, %33 ], [ %29, %28 ]
@@ -612,10 +612,10 @@ define linkonce_odr { ptr, i8 } @_ZNSt10_HashtableIiiSaIiENSt8__detail9_Identity
   %39 = sext i32 %38 to i64
   %40 = urem i64 %39, %10
   %.not19.i.i = icmp eq i64 %40, %11
-  br i1 %.not19.i.i, label %33, label %..loopexit_crit_edge21.i.i, !llvm.loop !63
+  br i1 %.not19.i.i, label %33, label %..loopexit_crit_edge21.i.i, !llvm.loop !61
 
 ..loopexit_crit_edge21.i.i:                       ; preds = %36
-  br label %.critedge, !llvm.loop !63
+  br label %.critedge, !llvm.loop !61
 
 .critedge:                                        ; preds = %.lr.ph.i.i, %23, %..loopexit_crit_edge21.i.i, %.thread36
   %41 = phi i64 [ %27, %23 ], [ %11, %.thread36 ], [ %11, %..loopexit_crit_edge21.i.i ], [ %11, %.lr.ph.i.i ]
@@ -646,7 +646,7 @@ _ZNKSt10_HashtableIiiSaIiENSt8__detail9_IdentityESt8equal_toIiESt4hashIiENS1_18_
 define linkonce_odr ptr @_ZNSt10_HashtableIiiSaIiENSt8__detail9_IdentityESt8equal_toIiESt4hashIiENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE21_M_insert_unique_nodeEmmPNS1_10_Hash_nodeIiLb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %0, i64 noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %8 = load i64, ptr %7, align 8, !tbaa !64
+  %8 = load i64, ptr %7, align 8, !tbaa !62
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load i64, ptr %9, align 8, !tbaa !26
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -666,7 +666,7 @@ define linkonce_odr ptr @_ZNSt10_HashtableIiiSaIiENSt8__detail9_IdentityESt8equa
           catch ptr null
   %20 = extractvalue { ptr, i32 } %19, 0
   %21 = tail call ptr @__cxa_begin_catch(ptr %20) #19
-  store i64 %8, ptr %7, align 8, !tbaa !64
+  store i64 %8, ptr %7, align 8, !tbaa !62
   invoke void @__cxa_rethrow() #23
           to label %28 unwind label %22
 
@@ -698,22 +698,22 @@ _ZNSt10_HashtableIiiSaIiENSt8__detail9_IdentityESt8equal_toIiESt4hashIiENS1_18_M
   %.0 = phi i64 [ %30, %_ZNSt10_HashtableIiiSaIiENSt8__detail9_IdentityESt8equal_toIiESt4hashIiENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE9_M_rehashEmRKm.exit ], [ %1, %5 ]
   %32 = load ptr, ptr %0, align 8, !tbaa !17
   %33 = getelementptr inbounds nuw ptr, ptr %32, i64 %.0
-  %34 = load ptr, ptr %33, align 8, !tbaa !38
+  %34 = load ptr, ptr %33, align 8, !tbaa !37
   %.not.i = icmp eq ptr %34, null
   br i1 %.not.i, label %38, label %35
 
 35:                                               ; preds = %31
   %36 = load ptr, ptr %34, align 8, !tbaa !32
   store ptr %36, ptr %3, align 8, !tbaa !32
-  %37 = load ptr, ptr %33, align 8, !tbaa !38
+  %37 = load ptr, ptr %33, align 8, !tbaa !37
   store ptr %3, ptr %37, align 8, !tbaa !32
   br label %_ZNSt10_HashtableIiiSaIiENSt8__detail9_IdentityESt8equal_toIiESt4hashIiENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE22_M_insert_bucket_beginEmPNS1_10_Hash_nodeIiLb0EEE.exit
 
 38:                                               ; preds = %31
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %40 = load ptr, ptr %39, align 8, !tbaa !40
+  %40 = load ptr, ptr %39, align 8, !tbaa !39
   store ptr %40, ptr %3, align 8, !tbaa !32
-  store ptr %3, ptr %39, align 8, !tbaa !40
+  store ptr %3, ptr %39, align 8, !tbaa !39
   %41 = load ptr, ptr %3, align 8, !tbaa !32
   %.not11.i = icmp eq ptr %41, null
   br i1 %.not11.i, label %49, label %42
@@ -725,11 +725,11 @@ _ZNSt10_HashtableIiiSaIiENSt8__detail9_IdentityESt8equal_toIiESt4hashIiENS1_18_M
   %46 = sext i32 %45 to i64
   %47 = urem i64 %46, %44
   %48 = getelementptr inbounds nuw ptr, ptr %32, i64 %47
-  store ptr %3, ptr %48, align 8, !tbaa !38
+  store ptr %3, ptr %48, align 8, !tbaa !37
   br label %49
 
 49:                                               ; preds = %42, %38
-  store ptr %39, ptr %33, align 8, !tbaa !38
+  store ptr %39, ptr %33, align 8, !tbaa !37
   br label %_ZNSt10_HashtableIiiSaIiENSt8__detail9_IdentityESt8equal_toIiESt4hashIiENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE22_M_insert_bucket_beginEmPNS1_10_Hash_nodeIiLb0EEE.exit
 
 _ZNSt10_HashtableIiiSaIiENSt8__detail9_IdentityESt8equal_toIiESt4hashIiENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE22_M_insert_bucket_beginEmPNS1_10_Hash_nodeIiLb0EEE.exit: ; preds = %35, %49
@@ -754,16 +754,16 @@ declare { i8, i64 } @_ZNKSt8__detail20_Prime_rehash_policy14_M_need_rehashEmmm(p
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt10_HashtableIiiSaIiENSt8__detail9_IdentityESt8equal_toIiESt4hashIiENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE13_M_rehash_auxEmSt17integral_constantIbLb1EE(ptr noundef nonnull align 8 dereferenceable(56) %0, i64 noundef %1) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = icmp eq i64 %1, 1
-  br i1 %3, label %4, label %6, !prof !65
+  br i1 %3, label %4, label %6, !prof !63
 
 4:                                                ; preds = %2
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store ptr null, ptr %5, align 8, !tbaa !66
+  store ptr null, ptr %5, align 8, !tbaa !64
   br label %_ZNSt10_HashtableIiiSaIiENSt8__detail9_IdentityESt8equal_toIiESt4hashIiENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE19_M_allocate_bucketsEm.exit
 
 6:                                                ; preds = %2
   %7 = icmp ugt i64 %1, 1152921504606846975
-  br i1 %7, label %8, label %_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeIiLb0EEEEE19_M_allocate_bucketsEm.exit.i, !prof !65
+  br i1 %7, label %8, label %_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeIiLb0EEEEE19_M_allocate_bucketsEm.exit.i, !prof !63
 
 8:                                                ; preds = %6
   %9 = icmp ugt i64 %1, 2305843009213693951
@@ -786,8 +786,8 @@ _ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeIiLb0EEEEE19_M_allocate_bucke
 _ZNSt10_HashtableIiiSaIiENSt8__detail9_IdentityESt8equal_toIiESt4hashIiENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE19_M_allocate_bucketsEm.exit: ; preds = %4, %_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeIiLb0EEEEE19_M_allocate_bucketsEm.exit.i
   %.0.i = phi ptr [ %5, %4 ], [ %11, %_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeIiLb0EEEEE19_M_allocate_bucketsEm.exit.i ]
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %13 = load ptr, ptr %12, align 8, !tbaa !40
-  store ptr null, ptr %12, align 8, !tbaa !40
+  %13 = load ptr, ptr %12, align 8, !tbaa !39
+  store ptr null, ptr %12, align 8, !tbaa !39
   %.not29 = icmp eq ptr %13, null
   br i1 %.not29, label %._crit_edge, label %.lr.ph
 
@@ -800,35 +800,35 @@ _ZNSt10_HashtableIiiSaIiENSt8__detail9_IdentityESt8equal_toIiESt4hashIiENS1_18_M
   %17 = sext i32 %16 to i64
   %18 = urem i64 %17, %1
   %19 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %18
-  %20 = load ptr, ptr %19, align 8, !tbaa !38
+  %20 = load ptr, ptr %19, align 8, !tbaa !37
   %.not27 = icmp eq ptr %20, null
   br i1 %.not27, label %21, label %26
 
 21:                                               ; preds = %.lr.ph
-  %22 = load ptr, ptr %12, align 8, !tbaa !40
+  %22 = load ptr, ptr %12, align 8, !tbaa !39
   store ptr %22, ptr %.031, align 8, !tbaa !32
-  store ptr %.031, ptr %12, align 8, !tbaa !40
-  store ptr %12, ptr %19, align 8, !tbaa !38
+  store ptr %.031, ptr %12, align 8, !tbaa !39
+  store ptr %12, ptr %19, align 8, !tbaa !37
   %23 = load ptr, ptr %.031, align 8, !tbaa !32
   %.not28 = icmp eq ptr %23, null
   br i1 %.not28, label %29, label %24
 
 24:                                               ; preds = %21
   %25 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %.02530
-  store ptr %.031, ptr %25, align 8, !tbaa !38
+  store ptr %.031, ptr %25, align 8, !tbaa !37
   br label %29
 
 26:                                               ; preds = %.lr.ph
   %27 = load ptr, ptr %20, align 8, !tbaa !32
   store ptr %27, ptr %.031, align 8, !tbaa !32
-  %28 = load ptr, ptr %19, align 8, !tbaa !38
+  %28 = load ptr, ptr %19, align 8, !tbaa !37
   store ptr %.031, ptr %28, align 8, !tbaa !32
   br label %29
 
 29:                                               ; preds = %21, %24, %26
   %.1 = phi i64 [ %.02530, %26 ], [ %18, %24 ], [ %18, %21 ]
   %.not = icmp eq ptr %14, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !67
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !65
 
 ._crit_edge:                                      ; preds = %29, %_ZNSt10_HashtableIiiSaIiENSt8__detail9_IdentityESt8equal_toIiESt4hashIiENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE19_M_allocate_bucketsEm.exit
   %30 = load ptr, ptr %0, align 8, !tbaa !17
@@ -860,35 +860,35 @@ declare void @_Z23grpc_pollset_set_add_fdP16grpc_pollset_setP7grpc_fd(ptr nounde
 define linkonce_odr void @_ZN9grpc_core17GrpcPolledFdPosixD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #8 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca i32, align 4
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %4 = load ptr, ptr %3, align 8, !tbaa !59
+  %4 = load ptr, ptr %3, align 8, !tbaa !57
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %6 = load ptr, ptr %5, align 8, !tbaa !58
+  %6 = load ptr, ptr %5, align 8, !tbaa !56
   invoke void @_Z23grpc_pollset_set_del_fdP16grpc_pollset_setP7grpc_fd(ptr noundef %4, ptr noundef %6)
           to label %7 unwind label %19
 
 7:                                                ; preds = %1
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #19
-  %8 = load ptr, ptr %5, align 8, !tbaa !58
+  %8 = load ptr, ptr %5, align 8, !tbaa !56
   invoke void @_Z14grpc_fd_orphanP7grpc_fdP12grpc_closurePiPKc(ptr noundef %8, ptr noundef null, ptr noundef nonnull %2, ptr noundef nonnull @.str.4)
           to label %9 unwind label %19
 
 9:                                                ; preds = %7
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #19
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %11 = load ptr, ptr %10, align 8, !tbaa !57
+  %11 = load ptr, ptr %10, align 8, !tbaa !55
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %13 = icmp eq ptr %11, %12
   br i1 %13, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i: ; preds = %9
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %15 = load i64, ptr %14, align 8, !tbaa !60
+  %15 = load i64, ptr %14, align 8, !tbaa !58
   %16 = icmp ult i64 %15, 16
   call void @llvm.assume(i1 %16)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: ; preds = %9
-  %17 = load i64, ptr %12, align 8, !tbaa !61
+  %17 = load i64, ptr %12, align 8, !tbaa !59
   %18 = add i64 %17, 1
   call void @_ZdlPvm(ptr noundef %11, i64 noundef %18) #20
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
@@ -908,35 +908,35 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 define linkonce_odr void @_ZN9grpc_core17GrpcPolledFdPosixD0Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #8 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca i32, align 4
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %4 = load ptr, ptr %3, align 8, !tbaa !59
+  %4 = load ptr, ptr %3, align 8, !tbaa !57
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %6 = load ptr, ptr %5, align 8, !tbaa !58
+  %6 = load ptr, ptr %5, align 8, !tbaa !56
   invoke void @_Z23grpc_pollset_set_del_fdP16grpc_pollset_setP7grpc_fd(ptr noundef %4, ptr noundef %6)
           to label %7 unwind label %19
 
 7:                                                ; preds = %1
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #19
-  %8 = load ptr, ptr %5, align 8, !tbaa !58
+  %8 = load ptr, ptr %5, align 8, !tbaa !56
   invoke void @_Z14grpc_fd_orphanP7grpc_fdP12grpc_closurePiPKc(ptr noundef %8, ptr noundef null, ptr noundef nonnull %2, ptr noundef nonnull @.str.4)
           to label %9 unwind label %19
 
 9:                                                ; preds = %7
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #19
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %11 = load ptr, ptr %10, align 8, !tbaa !57
+  %11 = load ptr, ptr %10, align 8, !tbaa !55
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %13 = icmp eq ptr %11, %12
   br i1 %13, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i: ; preds = %9
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %15 = load i64, ptr %14, align 8, !tbaa !60
+  %15 = load i64, ptr %14, align 8, !tbaa !58
   %16 = icmp ult i64 %15, 16
   call void @llvm.assume(i1 %16)
   br label %_ZN9grpc_core17GrpcPolledFdPosixD2Ev.exit
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i: ; preds = %9
-  %17 = load i64, ptr %12, align 8, !tbaa !61
+  %17 = load i64, ptr %12, align 8, !tbaa !59
   %18 = add i64 %17, 1
   call void @_ZdlPvm(ptr noundef %11, i64 noundef %18) #20
   br label %_ZN9grpc_core17GrpcPolledFdPosixD2Ev.exit
@@ -956,7 +956,7 @@ _ZN9grpc_core17GrpcPolledFdPosixD2Ev.exit:        ; preds = %_ZNKSt7__cxx1112bas
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN9grpc_core17GrpcPolledFdPosix27RegisterForOnReadableLockedEP12grpc_closure(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %1) unnamed_addr #3 comdat align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %4 = load ptr, ptr %3, align 8, !tbaa !58
+  %4 = load ptr, ptr %3, align 8, !tbaa !56
   tail call void @_Z22grpc_fd_notify_on_readP7grpc_fdP12grpc_closure(ptr noundef %4, ptr noundef %1)
   ret void
 }
@@ -964,7 +964,7 @@ define linkonce_odr void @_ZN9grpc_core17GrpcPolledFdPosix27RegisterForOnReadabl
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN9grpc_core17GrpcPolledFdPosix28RegisterForOnWriteableLockedEP12grpc_closure(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %1) unnamed_addr #3 comdat align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %4 = load ptr, ptr %3, align 8, !tbaa !58
+  %4 = load ptr, ptr %3, align 8, !tbaa !56
   tail call void @_Z23grpc_fd_notify_on_writeP7grpc_fdP12grpc_closure(ptr noundef %4, ptr noundef %1)
   ret void
 }
@@ -973,9 +973,9 @@ define linkonce_odr void @_ZN9grpc_core17GrpcPolledFdPosix28RegisterForOnWriteab
 define linkonce_odr noundef zeroext i1 @_ZN9grpc_core17GrpcPolledFdPosix23IsFdStillReadableLockedEv(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #3 comdat align 2 {
   %2 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #19
-  store i64 0, ptr %2, align 8, !tbaa !68
+  store i64 0, ptr %2, align 8, !tbaa !66
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %4 = load ptr, ptr %3, align 8, !tbaa !58
+  %4 = load ptr, ptr %3, align 8, !tbaa !56
   %5 = tail call noundef i32 @_Z18grpc_fd_wrapped_fdP7grpc_fd(ptr noundef %4)
   %6 = call i32 (i32, i64, ...) @ioctl(i32 noundef %5, i64 noundef 21531, ptr noundef nonnull %2) #19
   %7 = icmp eq i32 %6, 0
@@ -990,9 +990,9 @@ define linkonce_odr noundef zeroext i1 @_ZN9grpc_core17GrpcPolledFdPosix23IsFdSt
 define linkonce_odr void @_ZN9grpc_core17GrpcPolledFdPosix14ShutdownLockedEN4absl12lts_202407226StatusE(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %1) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.absl::lts_20240722::Status", align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %5 = load ptr, ptr %4, align 8, !tbaa !58
-  %6 = load i64, ptr %1, align 8, !tbaa !69
-  store i64 %6, ptr %3, align 8, !tbaa !69
+  %5 = load ptr, ptr %4, align 8, !tbaa !56
+  %6 = load i64, ptr %1, align 8, !tbaa !67
+  store i64 %6, ptr %3, align 8, !tbaa !67
   %7 = and i64 %6, 1
   %.not.i.i = icmp eq i64 %7, 0
   br i1 %.not.i.i, label %8, label %_ZN4absl12lts_202407226StatusC2ERKS1_.exit
@@ -1007,7 +1007,7 @@ _ZN4absl12lts_202407226StatusC2ERKS1_.exit:       ; preds = %2, %8
           to label %11 unwind label %19
 
 11:                                               ; preds = %_ZN4absl12lts_202407226StatusC2ERKS1_.exit
-  %12 = load i64, ptr %3, align 8, !tbaa !69
+  %12 = load i64, ptr %3, align 8, !tbaa !67
   %13 = and i64 %12, 1
   %.not.i.i2 = icmp eq i64 %13, 0
   br i1 %.not.i.i2, label %14, label %_ZN4absl12lts_202407226StatusD2Ev.exit
@@ -1037,14 +1037,14 @@ _ZN4absl12lts_202407226StatusD2Ev.exit:           ; preds = %11, %14
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef i32 @_ZN9grpc_core17GrpcPolledFdPosix26GetWrappedAresSocketLockedEv(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #8 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %3 = load i32, ptr %2, align 8, !tbaa !50
+  %3 = load i32, ptr %2, align 8, !tbaa !48
   ret i32 %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef ptr @_ZNK9grpc_core17GrpcPolledFdPosix7GetNameEv(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #8 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load ptr, ptr %2, align 8, !tbaa !57
+  %3 = load ptr, ptr %2, align 8, !tbaa !55
   ret ptr %3
 }
 
@@ -1067,7 +1067,7 @@ declare void @_Z16grpc_fd_shutdownP7grpc_fdN4absl12lts_202407226StatusE(ptr noun
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN4absl12lts_202407226StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #15 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %2 = load i64, ptr %0, align 8, !tbaa !69
+  %2 = load i64, ptr %0, align 8, !tbaa !67
   %3 = and i64 %2, 1
   %.not.i = icmp eq i64 %3, 0
   br i1 %.not.i, label %4, label %_ZN4absl12lts_202407226Status5UnrefEm.exit
@@ -1101,13 +1101,13 @@ define linkonce_odr noundef i32 @_ZN9grpc_core24GrpcPolledFdFactoryPosix15Config
   %6 = alloca %"class.absl::lts_20240722::Status", align 8
   %7 = alloca %"class.absl::lts_20240722::Status", align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #19
-  store i64 1, ptr %4, align 8, !tbaa !69
+  store i64 1, ptr %4, align 8, !tbaa !67
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #19
   invoke void @_Z27grpc_set_socket_nonblockingii(ptr dead_on_unwind nonnull writable sret(%"class.absl::lts_20240722::Status") align 8 %5, i32 noundef %0, i32 noundef 1)
           to label %8 unwind label %10
 
 8:                                                ; preds = %3
-  %9 = load i64, ptr %5, align 8, !tbaa !69
+  %9 = load i64, ptr %5, align 8, !tbaa !67
   %.not.i = icmp eq i64 %9, 1
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #19
   br i1 %.not.i, label %12, label %_ZN4absl12lts_202407226StatusD2Ev.exit
@@ -1124,7 +1124,7 @@ define linkonce_odr noundef i32 @_ZN9grpc_core24GrpcPolledFdFactoryPosix15Config
           to label %13 unwind label %15
 
 13:                                               ; preds = %12
-  %14 = load i64, ptr %6, align 8, !tbaa !69
+  %14 = load i64, ptr %6, align 8, !tbaa !67
   %.not.i10 = icmp eq i64 %14, 1
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #19
   br i1 %.not.i10, label %17, label %_ZN4absl12lts_202407226StatusD2Ev.exit
@@ -1145,7 +1145,7 @@ define linkonce_odr noundef i32 @_ZN9grpc_core24GrpcPolledFdFactoryPosix15Config
           to label %20 unwind label %22
 
 20:                                               ; preds = %19
-  %21 = load i64, ptr %7, align 8, !tbaa !69
+  %21 = load i64, ptr %7, align 8, !tbaa !67
   %.not.i15 = icmp eq i64 %21, 1
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #19
   br i1 %.not.i15, label %_ZN4absl12lts_202407226StatusD2Ev.exit21, label %_ZN4absl12lts_202407226StatusD2Ev.exit
@@ -1264,39 +1264,37 @@ attributes #23 = { noreturn }
 !32 = !{!22, !23, i64 0}
 !33 = !{!34, !34, i64 0}
 !34 = !{!"int", !12, i64 0}
-!35 = distinct !{!35, !36, !37}
+!35 = distinct !{!35, !36}
 !36 = !{!"llvm.loop.mustprogress"}
-!37 = !{!"llvm.loop.estimated_trip_count"}
-!38 = !{!23, !23, i64 0}
-!39 = distinct !{!39, !36, !37}
-!40 = !{!18, !23, i64 16}
-!41 = distinct !{!41, !36, !37}
-!42 = distinct !{!42, !37}
-!43 = !{!44, !44, i64 0}
-!44 = !{!"p1 _ZTSNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeIiLb0EEEEEE", !11, i64 0}
-!45 = !{!"branch_weights", !"expected", i32 2000, i32 1}
-!46 = !{!47, !21, i64 0}
-!47 = !{!"_ZTSSt17basic_string_viewIcSt11char_traitsIcEE", !21, i64 0, !48, i64 8}
-!48 = !{!"p1 omnipotent char", !11, i64 0}
-!49 = !{!47, !48, i64 8}
-!50 = !{!51, !34, i64 40}
-!51 = !{!"_ZTSN9grpc_core17GrpcPolledFdPosixE", !52, i64 0, !53, i64 8, !34, i64 40, !55, i64 48, !56, i64 56}
-!52 = !{!"_ZTSN9grpc_core12GrpcPolledFdE"}
-!53 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE", !54, i64 0, !21, i64 8, !12, i64 16}
-!54 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderE", !48, i64 0}
-!55 = !{!"p1 _ZTS7grpc_fd", !11, i64 0}
-!56 = !{!"p1 _ZTS16grpc_pollset_set", !11, i64 0}
-!57 = !{!53, !48, i64 0}
-!58 = !{!51, !55, i64 48}
-!59 = !{!51, !56, i64 56}
-!60 = !{!53, !21, i64 8}
-!61 = !{!12, !12, i64 0}
-!62 = distinct !{!62, !36, !37}
-!63 = distinct !{!63, !36, !37}
-!64 = !{!24, !21, i64 8}
-!65 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!66 = !{!18, !23, i64 48}
-!67 = distinct !{!67, !36, !37}
-!68 = !{!21, !21, i64 0}
-!69 = !{!70, !21, i64 0}
-!70 = !{!"_ZTSN4absl12lts_202407226StatusE", !21, i64 0}
+!37 = !{!23, !23, i64 0}
+!38 = distinct !{!38, !36}
+!39 = !{!18, !23, i64 16}
+!40 = distinct !{!40, !36}
+!41 = !{!42, !42, i64 0}
+!42 = !{!"p1 _ZTSNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeIiLb0EEEEEE", !11, i64 0}
+!43 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!44 = !{!45, !21, i64 0}
+!45 = !{!"_ZTSSt17basic_string_viewIcSt11char_traitsIcEE", !21, i64 0, !46, i64 8}
+!46 = !{!"p1 omnipotent char", !11, i64 0}
+!47 = !{!45, !46, i64 8}
+!48 = !{!49, !34, i64 40}
+!49 = !{!"_ZTSN9grpc_core17GrpcPolledFdPosixE", !50, i64 0, !51, i64 8, !34, i64 40, !53, i64 48, !54, i64 56}
+!50 = !{!"_ZTSN9grpc_core12GrpcPolledFdE"}
+!51 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE", !52, i64 0, !21, i64 8, !12, i64 16}
+!52 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderE", !46, i64 0}
+!53 = !{!"p1 _ZTS7grpc_fd", !11, i64 0}
+!54 = !{!"p1 _ZTS16grpc_pollset_set", !11, i64 0}
+!55 = !{!51, !46, i64 0}
+!56 = !{!49, !53, i64 48}
+!57 = !{!49, !54, i64 56}
+!58 = !{!51, !21, i64 8}
+!59 = !{!12, !12, i64 0}
+!60 = distinct !{!60, !36}
+!61 = distinct !{!61, !36}
+!62 = !{!24, !21, i64 8}
+!63 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!64 = !{!18, !23, i64 48}
+!65 = distinct !{!65, !36}
+!66 = !{!21, !21, i64 0}
+!67 = !{!68, !21, i64 0}
+!68 = !{!"_ZTSN4absl12lts_202407226StatusE", !21, i64 0}

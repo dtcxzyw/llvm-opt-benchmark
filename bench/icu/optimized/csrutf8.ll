@@ -143,7 +143,7 @@ define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7717CharsetRecog_UTF85matchEP
   %.150 = phi i32 [ %.04969, %37 ], [ %.04969, %.lr.ph ], [ %46, %45 ], [ %40, %51 ], [ %53, %.loopexit.loopexit ]
   %54 = add nsw i32 %.150, 1
   %55 = icmp slt i32 %54, %7
-  br i1 %55, label %.lr.ph, label %._crit_edge, !llvm.loop !16
+  br i1 %55, label %.lr.ph, label %._crit_edge, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %.loopexit
   %56 = icmp eq i32 %.153, 0
@@ -212,7 +212,6 @@ attributes #5 = { nounwind }
 !10 = !{!"p1 short", !6, i64 0}
 !11 = !{!4, !9, i64 48}
 !12 = !{!7, !7, i64 0}
-!13 = distinct !{!13, !14, !15}
+!13 = distinct !{!13, !14}
 !14 = !{!"llvm.loop.mustprogress"}
-!15 = !{!"llvm.loop.estimated_trip_count"}
-!16 = distinct !{!16, !14, !15}
+!15 = distinct !{!15, !14}

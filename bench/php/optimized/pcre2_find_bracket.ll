@@ -175,7 +175,7 @@ define hidden noundef ptr @_pcre2_find_bracket_8(ptr noundef readonly captures(r
   %.163 = phi ptr [ %19, %10 ], [ %31, %22 ], [ %39, %34 ], [ %87, %81 ], [ %76, %77 ], [ %76, %71 ], [ %55, %50 ], [ %70, %.thread ]
   %89 = load i8, ptr %.163, align 1, !tbaa !4
   %90 = icmp eq i8 %89, 0
-  br i1 %90, label %._crit_edge, label %7, !llvm.loop !7
+  br i1 %90, label %._crit_edge, label %7
 
 ._crit_edge:                                      ; preds = %41, %33, %88, %3
   %.1.ph = phi ptr [ null, %3 ], [ null, %88 ], [ %.06291, %33 ], [ %.06291, %41 ]
@@ -193,5 +193,3 @@ attributes #0 = { nofree norecurse nosync nounwind memory(argmem: read) uwtable 
 !4 = !{!5, !5, i64 0}
 !5 = !{!"omnipotent char", !6, i64 0}
 !6 = !{!"Simple C/C++ TBAA"}
-!7 = distinct !{!7, !8}
-!8 = !{!"llvm.loop.estimated_trip_count"}

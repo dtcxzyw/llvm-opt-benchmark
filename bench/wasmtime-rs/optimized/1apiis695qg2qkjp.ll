@@ -1701,7 +1701,7 @@ define noundef i64 @"_ZN83_$LT$I$u20$as$u20$alloc..vec..in_place_collect..SpecIn
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 64
   store ptr %19, ptr %10, align 8
   %.not = icmp ult i64 %13, %9
-  br i1 %.not, label %12, label %.critedge, !llvm.loop !9
+  br i1 %.not, label %12, label %.critedge
 
 20:                                               ; preds = %14
   %21 = landingpad { ptr, i32 }
@@ -1761,7 +1761,7 @@ define noundef i64 @"_ZN83_$LT$I$u20$as$u20$alloc..vec..in_place_collect..SpecIn
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 2
   store ptr %19, ptr %7, align 8
   %.not = icmp ult i64 %10, %6
-  br i1 %.not, label %9, label %.critedge, !llvm.loop !11
+  br i1 %.not, label %9, label %.critedge
 
 20:                                               ; preds = %11
   %21 = landingpad { ptr, i32 }
@@ -1833,7 +1833,7 @@ define noundef i64 @"_ZN83_$LT$I$u20$as$u20$alloc..vec..in_place_collect..SpecIn
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 2
   store ptr %19, ptr %7, align 8
   %.not = icmp ult i64 %10, %6
-  br i1 %.not, label %9, label %.critedge, !llvm.loop !12
+  br i1 %.not, label %9, label %.critedge
 
 20:                                               ; preds = %11
   %21 = landingpad { ptr, i32 }
@@ -2350,7 +2350,3 @@ attributes #8 = { cold noreturn nounwind }
 !6 = !{i64 0, i64 -9223372036854775807}
 !7 = !{i64 0, i64 2}
 !8 = !{i64 1}
-!9 = distinct !{!9, !10}
-!10 = !{!"llvm.loop.estimated_trip_count"}
-!11 = distinct !{!11, !10}
-!12 = distinct !{!12, !10}

@@ -51,7 +51,7 @@ define range(i32 0, 9) i32 @dt_imageio_open_pfm(ptr noundef %0, ptr noundef read
 
 21:                                               ; preds = %.preheader147
   %22 = icmp slt i32 %20, 48
-  br i1 %22, label %23, label %.preheader147, !llvm.loop !9
+  br i1 %22, label %23, label %.preheader147
 
 23:                                               ; preds = %21, %.preheader147, %.preheader147
   %24 = call i32 @fseek(ptr noundef nonnull %10, i64 noundef 3, i32 noundef 0)
@@ -64,27 +64,27 @@ define range(i32 0, 9) i32 @dt_imageio_open_pfm(ptr noundef %0, ptr noundef read
 
 26:                                               ; preds = %23
   %27 = tail call ptr @__errno_location() #10
-  store i32 0, ptr %27, align 4, !tbaa !11
+  store i32 0, ptr %27, align 4, !tbaa !9
   %28 = call i64 @strtol(ptr noundef nonnull captures(none) %6, ptr noundef null, i32 noundef 0) #9
   %29 = trunc i64 %28 to i32
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 1372
-  store i32 %29, ptr %30, align 4, !tbaa !13
+  store i32 %29, ptr %30, align 4, !tbaa !11
   %31 = call i64 @strtol(ptr noundef nonnull captures(none) %7, ptr noundef null, i32 noundef 0) #9
   %32 = trunc i64 %31 to i32
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 1376
-  store i32 %32, ptr %33, align 16, !tbaa !29
+  store i32 %32, ptr %33, align 16, !tbaa !27
   %34 = call reassoc nsz arcp contract afn double @g_ascii_strtod(ptr noundef nonnull %8, ptr noundef null) #9
-  %35 = load i32, ptr %27, align 4, !tbaa !11
+  %35 = load i32, ptr %27, align 4, !tbaa !9
   %.not132 = icmp eq i32 %35, 0
   br i1 %.not132, label %36, label %133
 
 36:                                               ; preds = %26
-  %37 = load i32, ptr %30, align 4, !tbaa !13
+  %37 = load i32, ptr %30, align 4, !tbaa !11
   %38 = icmp slt i32 %37, 1
   br i1 %38, label %133, label %39
 
 39:                                               ; preds = %36
-  %40 = load i32, ptr %33, align 16, !tbaa !29
+  %40 = load i32, ptr %33, align 16, !tbaa !27
   %41 = icmp slt i32 %40, 1
   br i1 %41, label %133, label %42
 
@@ -97,17 +97,17 @@ define range(i32 0, 9) i32 @dt_imageio_open_pfm(ptr noundef %0, ptr noundef read
 45:                                               ; preds = %42
   %46 = fcmp reassoc nsz arcp contract afn oge double %34, 0xB690000000000000
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 1488
-  store i32 4, ptr %47, align 16, !tbaa !30
+  store i32 4, ptr %47, align 16, !tbaa !28
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 1492
-  store i32 1, ptr %48, align 4, !tbaa !31
+  store i32 1, ptr %48, align 4, !tbaa !29
   %49 = call ptr @dt_mipmap_cache_alloc(ptr noundef %2, ptr noundef nonnull %0) #9
   %.not134 = icmp eq ptr %49, null
   br i1 %.not134, label %135, label %50
 
 50:                                               ; preds = %45
-  %51 = load i32, ptr %30, align 4, !tbaa !13
+  %51 = load i32, ptr %30, align 4, !tbaa !11
   %52 = sext i32 %51 to i64
-  %53 = load i32, ptr %33, align 16, !tbaa !29
+  %53 = load i32, ptr %33, align 16, !tbaa !27
   %54 = sext i32 %53 to i64
   %55 = mul nsw i64 %54, %52
   %56 = shl i64 %55, 4
@@ -121,12 +121,12 @@ define range(i32 0, 9) i32 @dt_imageio_open_pfm(ptr noundef %0, ptr noundef read
 
 59:                                               ; preds = %58
   %60 = call i64 @fread(ptr noundef nonnull %57, i64 noundef 12, i64 noundef %55, ptr noundef nonnull %10)
-  %61 = load i32, ptr %33, align 16, !tbaa !29
+  %61 = load i32, ptr %33, align 16, !tbaa !27
   %.not157 = icmp eq i32 %61, 0
   br i1 %.not157, label %.loopexit, label %.preheader.preheader
 
 .preheader.preheader:                             ; preds = %59
-  %.pre = load i32, ptr %30, align 4, !tbaa !13
+  %.pre = load i32, ptr %30, align 4, !tbaa !11
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.preheader, %._crit_edge153
@@ -141,7 +141,7 @@ define range(i32 0, 9) i32 @dt_imageio_open_pfm(ptr noundef %0, ptr noundef read
   br label %.lr.ph152
 
 ._crit_edge153.loopexit:                          ; preds = %80
-  %.pre162 = load i32, ptr %33, align 16, !tbaa !29
+  %.pre162 = load i32, ptr %33, align 16, !tbaa !27
   br label %._crit_edge153
 
 ._crit_edge153:                                   ; preds = %._crit_edge153.loopexit, %.preheader
@@ -150,7 +150,7 @@ define range(i32 0, 9) i32 @dt_imageio_open_pfm(ptr noundef %0, ptr noundef read
   %67 = add nuw i64 %.0124154, 1
   %68 = sext i32 %65 to i64
   %69 = icmp ult i64 %67, %68
-  br i1 %69, label %.preheader, label %.loopexit, !llvm.loop !32
+  br i1 %69, label %.preheader, label %.loopexit
 
 .lr.ph152:                                        ; preds = %.lr.ph152.preheader, %80
   %70 = phi i64 [ %86, %80 ], [ %64, %.lr.ph152.preheader ]
@@ -163,7 +163,7 @@ define range(i32 0, 9) i32 @dt_imageio_open_pfm(ptr noundef %0, ptr noundef read
   ]
 
 71:                                               ; preds = %.lr.ph152
-  %72 = load i32, ptr %33, align 16, !tbaa !29
+  %72 = load i32, ptr %33, align 16, !tbaa !27
   %73 = add nsw i32 %72, -1
   %74 = sext i32 %73 to i64
   %75 = sub i64 %74, %.0124154
@@ -183,43 +183,43 @@ define range(i32 0, 9) i32 @dt_imageio_open_pfm(ptr noundef %0, ptr noundef read
   %.idx142 = shl i64 %82, 4
   %83 = getelementptr inbounds nuw i8, ptr %49, i64 %.idx142
   %.val = load <4 x float>, ptr %9, align 16, !tbaa !6
-  store <4 x float> %.val, ptr %83, align 16, !tbaa !6, !alias.scope !33, !nontemporal !36
+  store <4 x float> %.val, ptr %83, align 16, !tbaa !6, !alias.scope !30, !nontemporal !33
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #9
   %84 = add nuw i64 %.0123151, 1
-  %85 = load i32, ptr %30, align 4, !tbaa !13
+  %85 = load i32, ptr %30, align 4, !tbaa !11
   %86 = sext i32 %85 to i64
   %87 = icmp ult i64 %84, %86
-  br i1 %87, label %.lr.ph152, label %._crit_edge153.loopexit, !llvm.loop !37
+  br i1 %87, label %.lr.ph152, label %._crit_edge153.loopexit
 
 88:                                               ; preds = %76, %95
   %.0122150 = phi i64 [ 0, %76 ], [ %97, %95 ]
   %89 = getelementptr float, ptr %79, i64 %.0122150
-  %90 = load float, ptr %89, align 4, !tbaa !38
+  %90 = load float, ptr %89, align 4, !tbaa !34
   br i1 %46, label %91, label %95
 
 91:                                               ; preds = %88
   %92 = bitcast float %90 to i32
-  %93 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %92) #11, !srcloc !39
+  %93 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %92) #11, !srcloc !35
   %94 = bitcast i32 %93 to float
   br label %95
 
 95:                                               ; preds = %91, %88
   %.sroa.0.0 = phi nsz float [ %94, %91 ], [ %90, %88 ]
   %96 = getelementptr inbounds nuw [4 x float], ptr %9, i64 0, i64 %.0122150
-  store float %.sroa.0.0, ptr %96, align 4, !tbaa !38
+  store float %.sroa.0.0, ptr %96, align 4, !tbaa !34
   %97 = add nuw nsw i64 %.0122150, 1
   %exitcond161.not = icmp eq i64 %97, 3
-  br i1 %exitcond161.not, label %80, label %88, !llvm.loop !40
+  br i1 %exitcond161.not, label %80, label %88
 
 98:                                               ; preds = %58
   %99 = call i64 @fread(ptr noundef nonnull %57, i64 noundef 4, i64 noundef %55, ptr noundef nonnull %10)
-  %100 = load i32, ptr %33, align 16, !tbaa !29
+  %100 = load i32, ptr %33, align 16, !tbaa !27
   %101 = sext i32 %100 to i64
   %.not155 = icmp eq i32 %100, 0
   br i1 %.not155, label %.loopexit, label %.preheader145.lr.ph
 
 .preheader145.lr.ph:                              ; preds = %98
-  %102 = load i32, ptr %30, align 4, !tbaa !13
+  %102 = load i32, ptr %30, align 4, !tbaa !11
   %103 = sext i32 %102 to i64
   %.not156 = icmp eq i32 %102, 0
   %104 = add nsw i32 %100, -1
@@ -239,7 +239,7 @@ define range(i32 0, 9) i32 @dt_imageio_open_pfm(ptr noundef %0, ptr noundef read
 ._crit_edge:                                      ; preds = %119, %.preheader145
   %108 = add nuw i64 %.0117149, 1
   %exitcond160.not = icmp eq i64 %108, %101
-  br i1 %exitcond160.not, label %.loopexit, label %.preheader145, !llvm.loop !41
+  br i1 %exitcond160.not, label %.loopexit, label %.preheader145
 
 109:                                              ; preds = %.lr.ph, %119
   %.0116148 = phi i64 [ 0, %.lr.ph ], [ %124, %119 ]
@@ -255,12 +255,12 @@ define range(i32 0, 9) i32 @dt_imageio_open_pfm(ptr noundef %0, ptr noundef read
   %.pre-phi = phi i64 [ %107, %109 ], [ %107, %109 ], [ %.pre163, %110 ]
   %112 = getelementptr float, ptr %57, i64 %.pre-phi
   %113 = getelementptr float, ptr %112, i64 %.0116148
-  %114 = load float, ptr %113, align 4, !tbaa !38
+  %114 = load float, ptr %113, align 4, !tbaa !34
   br i1 %46, label %115, label %119
 
 115:                                              ; preds = %111
   %116 = bitcast float %114 to i32
-  %117 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %116) #11, !srcloc !42
+  %117 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %116) #11, !srcloc !36
   %118 = bitcast i32 %117 to float
   br label %119
 
@@ -269,29 +269,29 @@ define range(i32 0, 9) i32 @dt_imageio_open_pfm(ptr noundef %0, ptr noundef read
   %120 = add i64 %107, %.0116148
   %.idx = shl i64 %120, 4
   %121 = getelementptr inbounds nuw i8, ptr %49, i64 %.idx
-  store float %.sroa.0.1, ptr %121, align 4, !tbaa !38
+  store float %.sroa.0.1, ptr %121, align 4, !tbaa !34
   %122 = getelementptr inbounds nuw i8, ptr %121, i64 4
-  store float %.sroa.0.1, ptr %122, align 4, !tbaa !38
+  store float %.sroa.0.1, ptr %122, align 4, !tbaa !34
   %123 = getelementptr inbounds nuw i8, ptr %121, i64 8
-  store float %.sroa.0.1, ptr %123, align 4, !tbaa !38
+  store float %.sroa.0.1, ptr %123, align 4, !tbaa !34
   %124 = add nuw i64 %.0116148, 1
   %exitcond.not = icmp eq i64 %124, %103
-  br i1 %exitcond.not, label %._crit_edge, label %109, !llvm.loop !43
+  br i1 %exitcond.not, label %._crit_edge, label %109
 
 .loopexit:                                        ; preds = %._crit_edge, %._crit_edge153, %98, %59
   %125 = call i32 @fclose(ptr noundef nonnull %10)
   call void @free(ptr noundef %57) #9
   %126 = getelementptr inbounds nuw i8, ptr %0, i64 1600
-  store i32 2, ptr %126, align 16, !tbaa !44
+  store i32 2, ptr %126, align 16, !tbaa !37
   %127 = getelementptr inbounds nuw i8, ptr %0, i64 1496
-  store i32 0, ptr %127, align 8, !tbaa !45
+  store i32 0, ptr %127, align 8, !tbaa !38
   %128 = getelementptr inbounds nuw i8, ptr %0, i64 1420
-  %129 = load i32, ptr %128, align 4, !tbaa !46
+  %129 = load i32, ptr %128, align 4, !tbaa !39
   %130 = and i32 %129, -131297
   %131 = or disjoint i32 %130, 128
-  store i32 %131, ptr %128, align 4, !tbaa !46
+  store i32 %131, ptr %128, align 4, !tbaa !39
   %132 = getelementptr inbounds nuw i8, ptr %0, i64 1472
-  store i32 7, ptr %132, align 16, !tbaa !47
+  store i32 7, ptr %132, align 16, !tbaa !40
   br label %137
 
 133:                                              ; preds = %17, %42, %36, %39, %26, %23, %11
@@ -381,42 +381,35 @@ attributes #11 = { nounwind memory(none) }
 !6 = !{!7, !7, i64 0}
 !7 = !{!"omnipotent char", !8, i64 0}
 !8 = !{!"Simple C/C++ TBAA"}
-!9 = distinct !{!9, !10}
-!10 = !{!"llvm.loop.estimated_trip_count"}
-!11 = !{!12, !12, i64 0}
-!12 = !{!"int", !7, i64 0}
-!13 = !{!14, !12, i64 1372}
-!14 = !{!"dt_image_t", !12, i64 0, !12, i64 4, !15, i64 8, !15, i64 12, !15, i64 16, !15, i64 20, !15, i64 24, !15, i64 28, !15, i64 32, !7, i64 36, !7, i64 100, !7, i64 164, !7, i64 292, !7, i64 356, !7, i64 420, !7, i64 484, !16, i64 552, !12, i64 560, !7, i64 564, !7, i64 792, !7, i64 856, !7, i64 920, !7, i64 984, !12, i64 1112, !7, i64 1116, !12, i64 1372, !12, i64 1376, !12, i64 1380, !12, i64 1384, !12, i64 1388, !12, i64 1392, !12, i64 1396, !12, i64 1400, !12, i64 1404, !12, i64 1408, !15, i64 1412, !12, i64 1416, !12, i64 1420, !12, i64 1424, !12, i64 1428, !12, i64 1432, !12, i64 1436, !16, i64 1440, !16, i64 1448, !16, i64 1456, !16, i64 1464, !12, i64 1472, !17, i64 1488, !7, i64 1616, !21, i64 1656, !12, i64 1664, !12, i64 1668, !23, i64 1672, !24, i64 1680, !26, i64 1704, !19, i64 1716, !7, i64 1718, !12, i64 1728, !12, i64 1732, !15, i64 1736, !15, i64 1740, !7, i64 1744, !7, i64 1760, !7, i64 1808, !27, i64 1824, !28, i64 1832, !12, i64 1840, !12, i64 1844}
-!15 = !{!"float", !7, i64 0}
-!16 = !{!"long", !7, i64 0}
-!17 = !{!"dt_iop_buffer_dsc_t", !12, i64 0, !12, i64 4, !12, i64 8, !7, i64 12, !18, i64 48, !20, i64 64, !7, i64 96, !12, i64 112}
-!18 = !{!"", !19, i64 0, !19, i64 2}
-!19 = !{!"short", !7, i64 0}
-!20 = !{!"", !12, i64 0, !7, i64 16}
-!21 = !{!"p1 omnipotent char", !22, i64 0}
-!22 = !{!"any pointer", !7, i64 0}
-!23 = !{!"dt_image_raw_parameters_t", !12, i64 0, !12, i64 3}
-!24 = !{!"dt_image_geoloc_t", !25, i64 0, !25, i64 8, !25, i64 16}
-!25 = !{!"double", !7, i64 0}
-!26 = !{!"_color_harmony_t", !12, i64 0, !12, i64 4, !12, i64 8}
-!27 = !{!"p1 _ZTS6_GList", !22, i64 0}
-!28 = !{!"p1 _ZTS16dt_cache_entry_t", !22, i64 0}
-!29 = !{!14, !12, i64 1376}
-!30 = !{!14, !12, i64 1488}
-!31 = !{!14, !12, i64 1492}
-!32 = distinct !{!32, !10}
-!33 = !{!34}
-!34 = distinct !{!34, !35, !"copy_pixel_nontemporal: argument 0"}
-!35 = distinct !{!35, !"copy_pixel_nontemporal"}
-!36 = !{i32 1}
-!37 = distinct !{!37, !10}
-!38 = !{!15, !15, i64 0}
-!39 = !{i64 2159276509}
-!40 = distinct !{!40, !10}
-!41 = distinct !{!41, !10}
-!42 = !{i64 2159277209}
-!43 = distinct !{!43, !10}
-!44 = !{!14, !12, i64 1600}
-!45 = !{!14, !12, i64 1496}
-!46 = !{!14, !12, i64 1420}
-!47 = !{!14, !12, i64 1472}
+!9 = !{!10, !10, i64 0}
+!10 = !{!"int", !7, i64 0}
+!11 = !{!12, !10, i64 1372}
+!12 = !{!"dt_image_t", !10, i64 0, !10, i64 4, !13, i64 8, !13, i64 12, !13, i64 16, !13, i64 20, !13, i64 24, !13, i64 28, !13, i64 32, !7, i64 36, !7, i64 100, !7, i64 164, !7, i64 292, !7, i64 356, !7, i64 420, !7, i64 484, !14, i64 552, !10, i64 560, !7, i64 564, !7, i64 792, !7, i64 856, !7, i64 920, !7, i64 984, !10, i64 1112, !7, i64 1116, !10, i64 1372, !10, i64 1376, !10, i64 1380, !10, i64 1384, !10, i64 1388, !10, i64 1392, !10, i64 1396, !10, i64 1400, !10, i64 1404, !10, i64 1408, !13, i64 1412, !10, i64 1416, !10, i64 1420, !10, i64 1424, !10, i64 1428, !10, i64 1432, !10, i64 1436, !14, i64 1440, !14, i64 1448, !14, i64 1456, !14, i64 1464, !10, i64 1472, !15, i64 1488, !7, i64 1616, !19, i64 1656, !10, i64 1664, !10, i64 1668, !21, i64 1672, !22, i64 1680, !24, i64 1704, !17, i64 1716, !7, i64 1718, !10, i64 1728, !10, i64 1732, !13, i64 1736, !13, i64 1740, !7, i64 1744, !7, i64 1760, !7, i64 1808, !25, i64 1824, !26, i64 1832, !10, i64 1840, !10, i64 1844}
+!13 = !{!"float", !7, i64 0}
+!14 = !{!"long", !7, i64 0}
+!15 = !{!"dt_iop_buffer_dsc_t", !10, i64 0, !10, i64 4, !10, i64 8, !7, i64 12, !16, i64 48, !18, i64 64, !7, i64 96, !10, i64 112}
+!16 = !{!"", !17, i64 0, !17, i64 2}
+!17 = !{!"short", !7, i64 0}
+!18 = !{!"", !10, i64 0, !7, i64 16}
+!19 = !{!"p1 omnipotent char", !20, i64 0}
+!20 = !{!"any pointer", !7, i64 0}
+!21 = !{!"dt_image_raw_parameters_t", !10, i64 0, !10, i64 3}
+!22 = !{!"dt_image_geoloc_t", !23, i64 0, !23, i64 8, !23, i64 16}
+!23 = !{!"double", !7, i64 0}
+!24 = !{!"_color_harmony_t", !10, i64 0, !10, i64 4, !10, i64 8}
+!25 = !{!"p1 _ZTS6_GList", !20, i64 0}
+!26 = !{!"p1 _ZTS16dt_cache_entry_t", !20, i64 0}
+!27 = !{!12, !10, i64 1376}
+!28 = !{!12, !10, i64 1488}
+!29 = !{!12, !10, i64 1492}
+!30 = !{!31}
+!31 = distinct !{!31, !32, !"copy_pixel_nontemporal: argument 0"}
+!32 = distinct !{!32, !"copy_pixel_nontemporal"}
+!33 = !{i32 1}
+!34 = !{!13, !13, i64 0}
+!35 = !{i64 2159276509}
+!36 = !{i64 2159277209}
+!37 = !{!12, !10, i64 1600}
+!38 = !{!12, !10, i64 1496}
+!39 = !{!12, !10, i64 1420}
+!40 = !{!12, !10, i64 1472}

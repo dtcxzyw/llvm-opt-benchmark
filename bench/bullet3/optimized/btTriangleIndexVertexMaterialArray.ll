@@ -71,7 +71,7 @@ define dso_local void @_ZN34btTriangleIndexVertexMaterialArrayC2EiPiiiPfiiPhiS0_
 _ZNK20btAlignedObjectArrayI20btMaterialPropertiesE4copyEiiPS0_.exit.i.i.i: ; preds = %19, %.noexc
   %23 = load ptr, ptr %14, align 8, !tbaa !15
   %.not.i5.i.i.i = icmp ne ptr %23, null
-  %24 = load i8, ptr %13, align 8, !range !27
+  %24 = load i8, ptr %13, align 8, !range !26
   %25 = trunc nuw i8 %24 to i1
   %or.cond.i.i.i = select i1 %.not.i5.i.i.i, i1 %25, i1 false
   br i1 %or.cond.i.i.i, label %26, label %_ZN20btAlignedObjectArrayI20btMaterialPropertiesE10deallocateEv.exit.i.i.i
@@ -107,7 +107,7 @@ _ZN20btAlignedObjectArrayI20btMaterialPropertiesE10deallocateEv.exit.i.i.i: ; pr
   store i32 %30, ptr %15, align 4, !tbaa !16
   %31 = sext i32 %29 to i64
   %32 = getelementptr inbounds %struct.btMaterialProperties, ptr %17, i64 %31, i32 7
-  store i32 2, ptr %32, align 4, !tbaa !28
+  store i32 2, ptr %32, align 4, !tbaa !27
   ret void
 
 33:                                               ; preds = %26, %12
@@ -129,7 +129,7 @@ define linkonce_odr dso_local void @_ZN20btAlignedObjectArrayI20btMaterialProper
   %3 = load ptr, ptr %2, align 8, !tbaa !15
   %.not.i.i = icmp ne ptr %3, null
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %5 = load i8, ptr %4, align 8, !range !27
+  %5 = load i8, ptr %4, align 8, !range !26
   %6 = trunc nuw i8 %5 to i1
   %or.cond.i = select i1 %.not.i.i, i1 %6, i1 false
   br i1 %or.cond.i, label %7, label %8
@@ -164,26 +164,26 @@ define dso_local void @_ZN34btTriangleIndexVertexMaterialArray21getLockedMateria
   %12 = load ptr, ptr %11, align 8, !tbaa !15
   %13 = sext i32 %9 to i64
   %14 = getelementptr inbounds %struct.btMaterialProperties, ptr %12, i64 %13
-  %15 = load i32, ptr %14, align 8, !tbaa !30
+  %15 = load i32, ptr %14, align 8, !tbaa !29
   store i32 %15, ptr %2, align 4, !tbaa !19
   %16 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %17 = load ptr, ptr %16, align 8, !tbaa !31
+  %17 = load ptr, ptr %16, align 8, !tbaa !30
   store ptr %17, ptr %1, align 8, !tbaa !20
   store i32 0, ptr %3, align 4, !tbaa !22
   %18 = getelementptr inbounds nuw i8, ptr %14, i64 16
-  %19 = load i32, ptr %18, align 8, !tbaa !32
+  %19 = load i32, ptr %18, align 8, !tbaa !31
   store i32 %19, ptr %4, align 4, !tbaa !19
   %20 = getelementptr inbounds nuw i8, ptr %14, i64 24
-  %21 = load i32, ptr %20, align 8, !tbaa !33
+  %21 = load i32, ptr %20, align 8, !tbaa !32
   store i32 %21, ptr %6, align 4, !tbaa !19
   %22 = getelementptr inbounds nuw i8, ptr %14, i64 32
-  %23 = load ptr, ptr %22, align 8, !tbaa !34
+  %23 = load ptr, ptr %22, align 8, !tbaa !33
   store ptr %23, ptr %5, align 8, !tbaa !20
   %24 = getelementptr inbounds nuw i8, ptr %14, i64 40
-  %25 = load i32, ptr %24, align 8, !tbaa !35
+  %25 = load i32, ptr %24, align 8, !tbaa !34
   store i32 %25, ptr %7, align 4, !tbaa !19
   %26 = getelementptr inbounds nuw i8, ptr %14, i64 44
-  %27 = load i32, ptr %26, align 4, !tbaa !28
+  %27 = load i32, ptr %26, align 4, !tbaa !27
   store i32 %27, ptr %8, align 4, !tbaa !22
   ret void
 }
@@ -194,26 +194,26 @@ define dso_local void @_ZN34btTriangleIndexVertexMaterialArray29getLockedReadOnl
   %12 = load ptr, ptr %11, align 8, !tbaa !15
   %13 = sext i32 %9 to i64
   %14 = getelementptr inbounds %struct.btMaterialProperties, ptr %12, i64 %13
-  %15 = load i32, ptr %14, align 8, !tbaa !30
+  %15 = load i32, ptr %14, align 8, !tbaa !29
   store i32 %15, ptr %2, align 4, !tbaa !19
   %16 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %17 = load ptr, ptr %16, align 8, !tbaa !31
+  %17 = load ptr, ptr %16, align 8, !tbaa !30
   store ptr %17, ptr %1, align 8, !tbaa !20
   store i32 0, ptr %3, align 4, !tbaa !22
   %18 = getelementptr inbounds nuw i8, ptr %14, i64 16
-  %19 = load i32, ptr %18, align 8, !tbaa !32
+  %19 = load i32, ptr %18, align 8, !tbaa !31
   store i32 %19, ptr %4, align 4, !tbaa !19
   %20 = getelementptr inbounds nuw i8, ptr %14, i64 24
-  %21 = load i32, ptr %20, align 8, !tbaa !33
+  %21 = load i32, ptr %20, align 8, !tbaa !32
   store i32 %21, ptr %6, align 4, !tbaa !19
   %22 = getelementptr inbounds nuw i8, ptr %14, i64 32
-  %23 = load ptr, ptr %22, align 8, !tbaa !34
+  %23 = load ptr, ptr %22, align 8, !tbaa !33
   store ptr %23, ptr %5, align 8, !tbaa !20
   %24 = getelementptr inbounds nuw i8, ptr %14, i64 40
-  %25 = load i32, ptr %24, align 8, !tbaa !35
+  %25 = load i32, ptr %24, align 8, !tbaa !34
   store i32 %25, ptr %7, align 4, !tbaa !19
   %26 = getelementptr inbounds nuw i8, ptr %14, i64 44
-  %27 = load i32, ptr %26, align 4, !tbaa !28
+  %27 = load i32, ptr %26, align 4, !tbaa !27
   store i32 %27, ptr %8, align 4, !tbaa !22
   ret void
 }
@@ -225,7 +225,7 @@ define linkonce_odr dso_local void @_ZN34btTriangleIndexVertexMaterialArrayD2Ev(
   %3 = load ptr, ptr %2, align 8, !tbaa !15
   %.not.i.i.i = icmp ne ptr %3, null
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %5 = load i8, ptr %4, align 8, !range !27
+  %5 = load i8, ptr %4, align 8, !range !26
   %6 = trunc nuw i8 %5 to i1
   %or.cond.i.i = select i1 %.not.i.i.i, i1 %6, i1 false
   br i1 %or.cond.i.i, label %7, label %_ZN20btAlignedObjectArrayI20btMaterialPropertiesED2Ev.exit
@@ -259,7 +259,7 @@ define linkonce_odr dso_local void @_ZN34btTriangleIndexVertexMaterialArrayD0Ev(
   %3 = load ptr, ptr %2, align 8, !tbaa !15
   %.not.i.i.i.i = icmp ne ptr %3, null
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %5 = load i8, ptr %4, align 8, !range !27
+  %5 = load i8, ptr %4, align 8, !range !26
   %6 = trunc nuw i8 %5 to i1
   %or.cond.i.i.i = select i1 %.not.i.i.i.i, i1 %6, i1 false
   br i1 %or.cond.i.i.i, label %7, label %_ZN34btTriangleIndexVertexMaterialArrayD2Ev.exit
@@ -316,7 +316,7 @@ define linkonce_odr dso_local void @_ZNK26btTriangleIndexVertexArray24unLockRead
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef i32 @_ZNK26btTriangleIndexVertexArray14getNumSubPartsEv(ptr noundef nonnull align 8 dereferenceable(100) %0) unnamed_addr #0 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %3 = load i32, ptr %2, align 4, !tbaa !36
+  %3 = load i32, ptr %2, align 4, !tbaa !35
   ret i32 %3
 }
 
@@ -400,19 +400,18 @@ attributes #10 = { noreturn nounwind }
 !21 = !{!"p1 omnipotent char", !13, i64 0}
 !22 = !{!23, !23, i64 0}
 !23 = !{!"_ZTS14PHY_ScalarType", !11, i64 0}
-!24 = distinct !{!24, !25, !26}
+!24 = distinct !{!24, !25}
 !25 = !{!"llvm.loop.mustprogress"}
-!26 = !{!"llvm.loop.estimated_trip_count"}
-!27 = !{i8 0, i8 2}
-!28 = !{!29, !23, i64 44}
-!29 = !{!"_ZTS20btMaterialProperties", !10, i64 0, !21, i64 8, !10, i64 16, !23, i64 20, !10, i64 24, !21, i64 32, !10, i64 40, !23, i64 44}
-!30 = !{!29, !10, i64 0}
-!31 = !{!29, !21, i64 8}
-!32 = !{!29, !10, i64 16}
-!33 = !{!29, !10, i64 24}
-!34 = !{!29, !21, i64 32}
-!35 = !{!29, !10, i64 40}
-!36 = !{!37, !10, i64 4}
-!37 = !{!"_ZTS20btAlignedObjectArrayI13btIndexedMeshE", !38, i64 0, !10, i64 4, !10, i64 8, !39, i64 16, !14, i64 24}
-!38 = !{!"_ZTS18btAlignedAllocatorI13btIndexedMeshLj16EE"}
-!39 = !{!"p1 _ZTS13btIndexedMesh", !13, i64 0}
+!26 = !{i8 0, i8 2}
+!27 = !{!28, !23, i64 44}
+!28 = !{!"_ZTS20btMaterialProperties", !10, i64 0, !21, i64 8, !10, i64 16, !23, i64 20, !10, i64 24, !21, i64 32, !10, i64 40, !23, i64 44}
+!29 = !{!28, !10, i64 0}
+!30 = !{!28, !21, i64 8}
+!31 = !{!28, !10, i64 16}
+!32 = !{!28, !10, i64 24}
+!33 = !{!28, !21, i64 32}
+!34 = !{!28, !10, i64 40}
+!35 = !{!36, !10, i64 4}
+!36 = !{!"_ZTS20btAlignedObjectArrayI13btIndexedMeshE", !37, i64 0, !10, i64 4, !10, i64 8, !38, i64 16, !14, i64 24}
+!37 = !{!"_ZTS18btAlignedAllocatorI13btIndexedMeshLj16EE"}
+!38 = !{!"p1 _ZTS13btIndexedMesh", !13, i64 0}

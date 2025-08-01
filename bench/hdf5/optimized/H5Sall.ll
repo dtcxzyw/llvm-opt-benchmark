@@ -420,12 +420,12 @@ define internal range(i32 0, 2) i32 @H5S__all_shape_same(ptr noundef readonly ca
   %30 = getelementptr inbounds nuw i64, ptr %29, i64 %25
   %31 = load i64, ptr %30, align 8, !tbaa !29
   %.not15 = icmp eq i64 %28, %31
-  br i1 %.not15, label %18, label %.loopexit, !llvm.loop !35
+  br i1 %.not15, label %18, label %.loopexit, !llvm.loop !34
 
 32:                                               ; preds = %35
   %33 = add nsw i32 %.118, -1
   %34 = icmp sgt i32 %.118, 0
-  br i1 %34, label %35, label %.loopexit, !llvm.loop !36
+  br i1 %34, label %35, label %.loopexit, !llvm.loop !35
 
 35:                                               ; preds = %.lr.ph, %32
   %.118 = phi i32 [ %22, %.lr.ph ], [ %33, %32 ]
@@ -512,7 +512,7 @@ define internal noundef i32 @H5S__all_iter_init(ptr readnone captures(none) %0, 
 9:                                                ; preds = %2
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 552
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %10, i8 0, i64 16, i1 false)
-  store ptr @H5S_sel_iter_all, ptr %1, align 8, !tbaa !37
+  store ptr @H5S_sel_iter_all, ptr %1, align 8, !tbaa !36
   br label %11
 
 11:                                               ; preds = %9, %2
@@ -610,7 +610,7 @@ define range(i32 -1, 1) i32 @H5Sselect_all(i64 noundef %0) local_unnamed_addr #4
 8:                                                ; preds = %1
   %9 = tail call i32 @H5_init_library() #12
   %10 = icmp slt i32 %9, 0
-  br i1 %10, label %11, label %._crit_edge, !prof !40
+  br i1 %10, label %11, label %._crit_edge, !prof !39
 
 ._crit_edge:                                      ; preds = %8
   %.pre = load i8, ptr @H5_libterm_g, align 1, !range !7
@@ -634,7 +634,7 @@ define range(i32 -1, 1) i32 @H5Sselect_all(i64 noundef %0) local_unnamed_addr #4
   store i8 1, ptr @H5S_init_g, align 1, !tbaa !3
   %22 = tail call i32 @H5S__init_package() #12
   %23 = icmp slt i32 %22, 0
-  br i1 %23, label %24, label %28, !prof !41
+  br i1 %23, label %24, label %28, !prof !40
 
 24:                                               ; preds = %21
   store i8 0, ptr @H5S_init_g, align 1, !tbaa !3
@@ -646,7 +646,7 @@ define range(i32 -1, 1) i32 @H5Sselect_all(i64 noundef %0) local_unnamed_addr #4
 28:                                               ; preds = %15, %21
   %29 = call i32 @H5CX_push(ptr noundef nonnull %2) #12
   %30 = icmp slt i32 %29, 0
-  br i1 %30, label %31, label %35, !prof !40
+  br i1 %30, label %31, label %35, !prof !39
 
 31:                                               ; preds = %28
   %32 = load i64, ptr @H5E_FUNC_g, align 8, !tbaa !29
@@ -658,7 +658,7 @@ define range(i32 -1, 1) i32 @H5Sselect_all(i64 noundef %0) local_unnamed_addr #4
   %36 = call i32 @H5E_clear_stack() #12
   %37 = call ptr @H5I_object_verify(i64 noundef %0, i32 noundef 4) #12
   %38 = icmp eq ptr %37, null
-  br i1 %38, label %39, label %43, !prof !42
+  br i1 %38, label %39, label %43, !prof !41
 
 39:                                               ; preds = %35
   %40 = load i64, ptr @H5E_ARGS_g, align 8, !tbaa !29
@@ -669,7 +669,7 @@ define range(i32 -1, 1) i32 @H5Sselect_all(i64 noundef %0) local_unnamed_addr #4
 43:                                               ; preds = %35
   %44 = call i32 @H5S_select_all(ptr noundef nonnull %37, i1 noundef zeroext true)
   %45 = icmp slt i32 %44, 0
-  br i1 %45, label %46, label %51, !prof !42
+  br i1 %45, label %46, label %51, !prof !41
 
 46:                                               ; preds = %43
   %47 = load i64, ptr @H5E_DATASPACE_g, align 8, !tbaa !29
@@ -724,7 +724,7 @@ define internal range(i32 -1, 1) i32 @H5S__all_iter_coords(ptr noundef %0, ptr n
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 552
   %11 = load i64, ptr %10, align 8, !tbaa !26
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %13 = load i32, ptr %12, align 8, !tbaa !43
+  %13 = load i32, ptr %12, align 8, !tbaa !42
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %15 = tail call i32 @H5VM_array_calc(i64 noundef %11, i32 noundef %13, ptr noundef nonnull %14, ptr noundef %1) #12
   %16 = icmp slt i32 %15, 0
@@ -753,7 +753,7 @@ define internal noundef i32 @H5S__all_iter_block(ptr noundef readonly captures(n
 
 .preheader:                                       ; preds = %3
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %11 = load i32, ptr %10, align 8, !tbaa !43
+  %11 = load i32, ptr %10, align 8, !tbaa !42
   %.not = icmp eq i32 %11, 0
   br i1 %.not, label %.loopexit, label %.lr.ph
 
@@ -773,7 +773,7 @@ define internal noundef i32 @H5S__all_iter_block(ptr noundef readonly captures(n
   store i64 %17, ptr %18, align 8, !tbaa !29
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %13, !llvm.loop !44
+  br i1 %exitcond.not, label %.loopexit, label %13, !llvm.loop !43
 
 .loopexit:                                        ; preds = %13, %.preheader, %3
   ret i32 0
@@ -782,7 +782,7 @@ define internal noundef i32 @H5S__all_iter_block(ptr noundef readonly captures(n
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define internal i64 @H5S__all_iter_nelmts(ptr noundef readonly captures(none) %0) #10 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 528
-  %3 = load i64, ptr %2, align 8, !tbaa !45
+  %3 = load i64, ptr %2, align 8, !tbaa !44
   ret i64 %3
 }
 
@@ -807,7 +807,7 @@ define internal noundef i32 @H5S__all_iter_next(ptr noundef captures(none) %0, i
   %12 = add i64 %11, %1
   store i64 %12, ptr %10, align 8, !tbaa !26
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 536
-  %14 = load i64, ptr %13, align 8, !tbaa !46
+  %14 = load i64, ptr %13, align 8, !tbaa !45
   %15 = mul i64 %14, %1
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 560
   %17 = load i64, ptr %16, align 8, !tbaa !26
@@ -836,21 +836,21 @@ define internal noundef i32 @H5S__all_iter_get_seq_list(ptr noundef captures(non
 
 14:                                               ; preds = %7
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 528
-  %16 = load i64, ptr %15, align 8, !tbaa !45
+  %16 = load i64, ptr %15, align 8, !tbaa !44
   %. = tail call i64 @llvm.umin.i64(i64 %2, i64 %16)
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 552
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 560
   %19 = load i64, ptr %18, align 8, !tbaa !26
   store i64 %19, ptr %5, align 8, !tbaa !29
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 536
-  %21 = load i64, ptr %20, align 8, !tbaa !46
+  %21 = load i64, ptr %20, align 8, !tbaa !45
   %22 = mul i64 %21, %.
   store i64 %22, ptr %6, align 8, !tbaa !29
   store i64 1, ptr %3, align 8, !tbaa !29
   store i64 %., ptr %4, align 8, !tbaa !29
-  %23 = load i64, ptr %15, align 8, !tbaa !45
+  %23 = load i64, ptr %15, align 8, !tbaa !44
   %24 = sub i64 %23, %.
-  store i64 %24, ptr %15, align 8, !tbaa !45
+  store i64 %24, ptr %15, align 8, !tbaa !44
   %25 = load i64, ptr %17, align 8, !tbaa !26
   %26 = add i64 %25, %.
   store i64 %26, ptr %17, align 8, !tbaa !26
@@ -926,18 +926,17 @@ attributes #12 = { nounwind }
 !29 = !{!17, !17, i64 0}
 !30 = !{!11, !14, i64 56}
 !31 = !{!11, !18, i64 64}
-!32 = distinct !{!32, !33, !34}
+!32 = distinct !{!32, !33}
 !33 = !{!"llvm.loop.mustprogress"}
-!34 = !{!"llvm.loop.estimated_trip_count"}
-!35 = distinct !{!35, !33, !34}
-!36 = distinct !{!36, !33, !34}
-!37 = !{!38, !39, i64 0}
-!38 = !{!"H5S_sel_iter_t", !39, i64 0, !14, i64 8, !5, i64 16, !5, i64 272, !17, i64 528, !17, i64 536, !14, i64 544, !5, i64 552}
-!39 = !{!"p1 _ZTS20H5S_sel_iter_class_t", !16, i64 0}
-!40 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!41 = !{!"branch_weights", i32 1073205, i32 2146410443}
-!42 = !{!"branch_weights", i32 0, i32 -2147483648}
-!43 = !{!38, !14, i64 8}
-!44 = distinct !{!44, !33, !34}
-!45 = !{!38, !17, i64 528}
-!46 = !{!38, !17, i64 536}
+!34 = distinct !{!34, !33}
+!35 = distinct !{!35, !33}
+!36 = !{!37, !38, i64 0}
+!37 = !{!"H5S_sel_iter_t", !38, i64 0, !14, i64 8, !5, i64 16, !5, i64 272, !17, i64 528, !17, i64 536, !14, i64 544, !5, i64 552}
+!38 = !{!"p1 _ZTS20H5S_sel_iter_class_t", !16, i64 0}
+!39 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!40 = !{!"branch_weights", i32 1073205, i32 2146410443}
+!41 = !{!"branch_weights", i32 0, i32 -2147483648}
+!42 = !{!37, !14, i64 8}
+!43 = distinct !{!43, !33}
+!44 = !{!37, !17, i64 528}
+!45 = !{!37, !17, i64 536}

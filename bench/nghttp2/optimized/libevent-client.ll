@@ -994,6 +994,5 @@ attributes #24 = { cold nounwind }
 !43 = !{!42, !11, i64 8}
 !44 = !{!42, !26, i64 16}
 !45 = !{!42, !26, i64 24}
-!46 = distinct !{!46, !47, !48}
+!46 = distinct !{!46, !47}
 !47 = !{!"llvm.loop.mustprogress"}
-!48 = !{!"llvm.loop.estimated_trip_count"}

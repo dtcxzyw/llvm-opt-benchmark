@@ -136,7 +136,7 @@ define hidden noundef ptr @_Z37pj_projection_specific_setup_airoceanP8PJconsts(p
   store double %46, ptr %47, align 8, !tbaa !43
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 4
-  br i1 %exitcond.not.i.i, label %33, label %34, !llvm.loop !47
+  br i1 %exitcond.not.i.i, label %33, label %34, !llvm.loop !46
 
 _ZN12_GLOBAL__N_116pj_airocean_data8mat_multEPA4_KdS3_PA4_d.exit.i: ; preds = %33
   %48 = getelementptr inbounds nuw [23 x [4 x [4 x double]]], ptr @_ZL18base_air_ico_trans, i64 0, i64 %indvars.iv.i
@@ -179,13 +179,13 @@ _ZN12_GLOBAL__N_116pj_airocean_data8mat_multEPA4_KdS3_PA4_d.exit.i: ; preds = %3
   store double %72, ptr %73, align 8, !tbaa !43
   %indvars.iv.next.i18.i = add nuw nsw i64 %indvars.iv.i17.i, 1
   %exitcond.not.i19.i = icmp eq i64 %indvars.iv.next.i18.i, 4
-  br i1 %exitcond.not.i19.i, label %59, label %60, !llvm.loop !47
+  br i1 %exitcond.not.i19.i, label %59, label %60, !llvm.loop !46
 
 _ZN12_GLOBAL__N_116pj_airocean_data8mat_multEPA4_KdS3_PA4_d.exit22.i: ; preds = %59
   %74 = getelementptr inbounds nuw [23 x %"struct.(anonymous namespace)::pj_face"], ptr @_ZL19base_airocean_faces, i64 0, i64 %indvars.iv.i
-  %75 = load double, ptr %74, align 8, !tbaa !48, !noalias !50
+  %75 = load double, ptr %74, align 8, !tbaa !47, !noalias !49
   %76 = getelementptr inbounds nuw i8, ptr %74, i64 8
-  %77 = load double, ptr %76, align 8, !tbaa !53, !noalias !50
+  %77 = load double, ptr %76, align 8, !tbaa !52, !noalias !49
   %78 = fneg double %77
   %79 = tail call double @llvm.fmuladd.f64(double %75, double 0.000000e+00, double %78)
   %80 = fadd double %79, 0.000000e+00
@@ -196,9 +196,9 @@ _ZN12_GLOBAL__N_116pj_airocean_data8mat_multEPA4_KdS3_PA4_d.exit22.i: ; preds = 
   %85 = tail call double @llvm.fmuladd.f64(double %75, double 0.000000e+00, double %82)
   %86 = fadd double %85, 1.000000e+00
   %87 = getelementptr inbounds nuw i8, ptr %74, i64 24
-  %88 = load double, ptr %87, align 8, !tbaa !48, !noalias !54
+  %88 = load double, ptr %87, align 8, !tbaa !47, !noalias !53
   %89 = getelementptr inbounds nuw i8, ptr %74, i64 32
-  %90 = load double, ptr %89, align 8, !tbaa !53, !noalias !54
+  %90 = load double, ptr %89, align 8, !tbaa !52, !noalias !53
   %91 = fneg double %90
   %92 = tail call double @llvm.fmuladd.f64(double %88, double 0.000000e+00, double %91)
   %93 = fadd double %92, 0.000000e+00
@@ -209,9 +209,9 @@ _ZN12_GLOBAL__N_116pj_airocean_data8mat_multEPA4_KdS3_PA4_d.exit22.i: ; preds = 
   %98 = tail call double @llvm.fmuladd.f64(double %88, double 0.000000e+00, double %95)
   %99 = fadd double %98, 1.000000e+00
   %100 = getelementptr inbounds nuw i8, ptr %74, i64 48
-  %101 = load double, ptr %100, align 8, !tbaa !48, !noalias !57
+  %101 = load double, ptr %100, align 8, !tbaa !47, !noalias !56
   %102 = getelementptr inbounds nuw i8, ptr %74, i64 56
-  %103 = load double, ptr %102, align 8, !tbaa !53, !noalias !57
+  %103 = load double, ptr %102, align 8, !tbaa !52, !noalias !56
   %104 = fneg double %103
   %105 = tail call double @llvm.fmuladd.f64(double %101, double 0.000000e+00, double %104)
   %106 = fadd double %105, 0.000000e+00
@@ -241,7 +241,7 @@ _ZN12_GLOBAL__N_116pj_airocean_data8mat_multEPA4_KdS3_PA4_d.exit22.i: ; preds = 
   store double %112, ptr %.sroa.11.0..sroa_idx.i, align 8, !tbaa !43
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 23
-  br i1 %exitcond.not.i, label %_ZN12_GLOBAL__N_116pj_airocean_data9transformEPA4_KdS3_.exit, label %.preheader, !llvm.loop !60
+  br i1 %exitcond.not.i, label %_ZN12_GLOBAL__N_116pj_airocean_data9transformEPA4_KdS3_.exit, label %.preheader, !llvm.loop !59
 
 114:                                              ; preds = %17
   %115 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.sroa.0.0..sroa.0.0..cast, ptr noundef nonnull dereferenceable(9) @.str.3) #10
@@ -255,9 +255,9 @@ _ZN12_GLOBAL__N_116pj_airocean_data8mat_multEPA4_KdS3_PA4_d.exit22.i: ; preds = 
 
 _ZN12_GLOBAL__N_116pj_airocean_data9transformEPA4_KdS3_.exit: ; preds = %_ZN12_GLOBAL__N_116pj_airocean_data8mat_multEPA4_KdS3_PA4_d.exit22.i, %114, %6
   %118 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  store ptr @_ZL16airocean_inverse5PJ_XYP8PJconsts, ptr %118, align 8, !tbaa !61
+  store ptr @_ZL16airocean_inverse5PJ_XYP8PJconsts, ptr %118, align 8, !tbaa !60
   %119 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  store ptr @_ZL16airocean_forward5PJ_LPP8PJconsts, ptr %119, align 8, !tbaa !62
+  store ptr @_ZL16airocean_forward5PJ_LPP8PJconsts, ptr %119, align 8, !tbaa !61
   br label %120
 
 120:                                              ; preds = %_ZN12_GLOBAL__N_116pj_airocean_data9transformEPA4_KdS3_.exit, %116, %4
@@ -300,22 +300,22 @@ define internal { double, double } @_ZL16airocean_inverse5PJ_XYP8PJconsts(double
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 24
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 48
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 32
-  %14 = load double, ptr %13, align 8, !tbaa !53
+  %14 = load double, ptr %13, align 8, !tbaa !52
   %15 = getelementptr inbounds nuw i8, ptr %10, i64 64
-  %16 = load double, ptr %15, align 8, !tbaa !63
+  %16 = load double, ptr %15, align 8, !tbaa !62
   %17 = getelementptr inbounds nuw i8, ptr %10, i64 40
-  %18 = load double, ptr %17, align 8, !tbaa !63
+  %18 = load double, ptr %17, align 8, !tbaa !62
   %19 = getelementptr inbounds nuw i8, ptr %10, i64 56
-  %20 = load double, ptr %19, align 8, !tbaa !53
+  %20 = load double, ptr %19, align 8, !tbaa !52
   %21 = fneg double %20
   %22 = fmul double %18, %21
   %23 = tail call double @llvm.fmuladd.f64(double %14, double %16, double %22)
-  %24 = load double, ptr %11, align 8, !tbaa !48
+  %24 = load double, ptr %11, align 8, !tbaa !47
   %25 = tail call double @llvm.fmuladd.f64(double %1, double %16, double %21)
   %26 = fneg double %25
   %27 = fmul double %24, %26
   %28 = tail call double @llvm.fmuladd.f64(double %0, double %23, double %27)
-  %29 = load double, ptr %12, align 8, !tbaa !48
+  %29 = load double, ptr %12, align 8, !tbaa !47
   %30 = fneg double %14
   %31 = tail call double @llvm.fmuladd.f64(double %1, double %18, double %30)
   %32 = tail call noundef double @llvm.fmuladd.f64(double %29, double %31, double %28)
@@ -323,11 +323,11 @@ define internal { double, double } @_ZL16airocean_inverse5PJ_XYP8PJconsts(double
   br i1 %33, label %_Z16is_point_in_facePK6PJ_XYZPKN12_GLOBAL__N_17pj_faceE.exit.thread.i, label %34
 
 34:                                               ; preds = %9
-  %35 = load double, ptr %10, align 8, !tbaa !48
+  %35 = load double, ptr %10, align 8, !tbaa !47
   %36 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %37 = load double, ptr %36, align 8, !tbaa !53
+  %37 = load double, ptr %36, align 8, !tbaa !52
   %38 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  %39 = load double, ptr %38, align 8, !tbaa !63
+  %39 = load double, ptr %38, align 8, !tbaa !62
   %40 = fmul double %39, %21
   %41 = tail call double @llvm.fmuladd.f64(double %37, double %16, double %40)
   %42 = fneg double %41
@@ -354,7 +354,7 @@ _Z16is_point_in_facePK6PJ_XYZPKN12_GLOBAL__N_17pj_faceE.exit.i: ; preds = %34
 _Z16is_point_in_facePK6PJ_XYZPKN12_GLOBAL__N_17pj_faceE.exit.thread.i: ; preds = %_Z16is_point_in_facePK6PJ_XYZPKN12_GLOBAL__N_17pj_faceE.exit.i, %34, %9
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.i = icmp eq i64 %indvars.iv.next.i, 23
-  br i1 %exitcond.i, label %_Z18get_dym_face_indexPKN12_GLOBAL__N_116pj_airocean_dataEPK5PJ_XY.exit.thread, label %9, !llvm.loop !64
+  br i1 %exitcond.i, label %_Z18get_dym_face_indexPKN12_GLOBAL__N_116pj_airocean_dataEPK5PJ_XY.exit.thread, label %9, !llvm.loop !63
 
 _Z18get_dym_face_indexPKN12_GLOBAL__N_116pj_airocean_dataEPK5PJ_XY.exit: ; preds = %_Z16is_point_in_facePK6PJ_XYZPKN12_GLOBAL__N_17pj_faceE.exit.i
   %58 = icmp eq i64 %indvars.iv.i, 23
@@ -368,31 +368,31 @@ _Z18get_dym_face_indexPKN12_GLOBAL__N_116pj_airocean_dataEPK5PJ_XY.exit.thread: 
   %61 = getelementptr inbounds nuw i8, ptr %7, i64 7360
   %62 = and i64 %indvars.iv.i, 255
   %63 = getelementptr inbounds nuw [23 x [4 x [4 x double]]], ptr %61, i64 0, i64 %62
-  %64 = load double, ptr %63, align 8, !tbaa !43, !noalias !65
+  %64 = load double, ptr %63, align 8, !tbaa !43, !noalias !64
   %65 = getelementptr inbounds nuw i8, ptr %63, i64 8
-  %66 = load double, ptr %65, align 8, !tbaa !43, !noalias !65
+  %66 = load double, ptr %65, align 8, !tbaa !43, !noalias !64
   %67 = fmul double %1, %66
   %68 = tail call double @llvm.fmuladd.f64(double %64, double %0, double %67)
   %69 = getelementptr inbounds nuw i8, ptr %63, i64 24
-  %70 = load double, ptr %69, align 8, !tbaa !43, !noalias !65
+  %70 = load double, ptr %69, align 8, !tbaa !43, !noalias !64
   %71 = fadd double %70, %68
   %72 = getelementptr inbounds nuw i8, ptr %63, i64 32
-  %73 = load double, ptr %72, align 8, !tbaa !43, !noalias !65
+  %73 = load double, ptr %72, align 8, !tbaa !43, !noalias !64
   %74 = getelementptr inbounds nuw i8, ptr %63, i64 40
-  %75 = load double, ptr %74, align 8, !tbaa !43, !noalias !65
+  %75 = load double, ptr %74, align 8, !tbaa !43, !noalias !64
   %76 = fmul double %1, %75
   %77 = tail call double @llvm.fmuladd.f64(double %73, double %0, double %76)
   %78 = getelementptr inbounds nuw i8, ptr %63, i64 56
-  %79 = load double, ptr %78, align 8, !tbaa !43, !noalias !65
+  %79 = load double, ptr %78, align 8, !tbaa !43, !noalias !64
   %80 = fadd double %79, %77
   %81 = getelementptr inbounds nuw i8, ptr %63, i64 64
-  %82 = load double, ptr %81, align 8, !tbaa !43, !noalias !65
+  %82 = load double, ptr %81, align 8, !tbaa !43, !noalias !64
   %83 = getelementptr inbounds nuw i8, ptr %63, i64 72
-  %84 = load double, ptr %83, align 8, !tbaa !43, !noalias !65
+  %84 = load double, ptr %83, align 8, !tbaa !43, !noalias !64
   %85 = fmul double %1, %84
   %86 = tail call double @llvm.fmuladd.f64(double %82, double %0, double %85)
   %87 = getelementptr inbounds nuw i8, ptr %63, i64 88
-  %88 = load double, ptr %87, align 8, !tbaa !43, !noalias !65
+  %88 = load double, ptr %87, align 8, !tbaa !43, !noalias !64
   %89 = fadd double %88, %86
   %90 = fmul double %80, %80
   %91 = tail call double @llvm.fmuladd.f64(double %71, double %71, double %90)
@@ -402,11 +402,11 @@ _Z18get_dym_face_indexPKN12_GLOBAL__N_116pj_airocean_dataEPK5PJ_XY.exit.thread: 
   %94 = fdiv double %80, %sqrt
   %95 = fneg double %89
   %96 = fdiv double %95, %sqrt
-  %97 = tail call double @acos(double noundef %96) #11, !tbaa !68
+  %97 = tail call double @acos(double noundef %96) #11, !tbaa !67
   %98 = fadd double %97, 0xBFF921FB54442D18
-  %99 = tail call double @atan2(double noundef %94, double noundef %93) #11, !tbaa !68
+  %99 = tail call double @atan2(double noundef %94, double noundef %93) #11, !tbaa !67
   %100 = getelementptr inbounds nuw i8, ptr %2, i64 216
-  %101 = load double, ptr %100, align 8, !tbaa !69
+  %101 = load double, ptr %100, align 8, !tbaa !68
   %102 = fcmp une double %101, 0.000000e+00
   br i1 %102, label %103, label %125
 
@@ -414,12 +414,12 @@ _Z18get_dym_face_indexPKN12_GLOBAL__N_116pj_airocean_dataEPK5PJ_XY.exit.thread: 
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   %104 = fcmp olt double %98, 0.000000e+00
-  %105 = tail call double @tan(double noundef %98) #11, !tbaa !68
+  %105 = tail call double @tan(double noundef %98) #11, !tbaa !67
   store volatile double %105, ptr %4, align 8, !tbaa !43
   %106 = getelementptr inbounds nuw i8, ptr %2, i64 168
-  %107 = load double, ptr %106, align 8, !tbaa !70
+  %107 = load double, ptr %106, align 8, !tbaa !69
   %108 = getelementptr inbounds nuw i8, ptr %2, i64 176
-  %109 = load double, ptr %108, align 8, !tbaa !71
+  %109 = load double, ptr %108, align 8, !tbaa !70
   %110 = fsub double %107, %109
   %111 = fdiv double %110, %107
   %112 = fsub double 1.000000e+00, %111
@@ -428,18 +428,18 @@ _Z18get_dym_face_indexPKN12_GLOBAL__N_116pj_airocean_dataEPK5PJ_XY.exit.thread: 
   %.0..0..0..0.8 = load volatile double, ptr %4, align 8, !tbaa !43
   %114 = fmul double %112, %112
   %115 = tail call double @llvm.fmuladd.f64(double %.0..0..0..0.7, double %.0..0..0..0.8, double %114)
-  %116 = tail call double @sqrt(double noundef %115) #11, !tbaa !68
+  %116 = tail call double @sqrt(double noundef %115) #11, !tbaa !67
   %117 = fdiv double %109, %116
   store volatile double %117, ptr %5, align 8, !tbaa !43
   %.0..0..0..0.4 = load volatile double, ptr %5, align 8, !tbaa !43
   %.0..0..0..0.5 = load volatile double, ptr %5, align 8, !tbaa !43
   %118 = fneg double %.0..0..0..0.4
   %119 = tail call double @llvm.fmuladd.f64(double %118, double %.0..0..0..0.5, double %113)
-  %120 = tail call double @sqrt(double noundef %119) #11, !tbaa !68
+  %120 = tail call double @sqrt(double noundef %119) #11, !tbaa !67
   %.0..0..0..0.6 = load volatile double, ptr %5, align 8, !tbaa !43
   %121 = fmul double %112, %.0..0..0..0.6
   %122 = fdiv double %120, %121
-  %123 = tail call double @atan(double noundef %122) #11, !tbaa !68
+  %123 = tail call double @atan(double noundef %122) #11, !tbaa !67
   %124 = fneg double %123
   %.sroa.4.2 = select i1 %104, double %124, double %123
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
@@ -459,30 +459,30 @@ define internal { double, double } @_ZL16airocean_forward5PJ_LPP8PJconsts(double
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 88
   %5 = load ptr, ptr %4, align 8, !tbaa !40
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 216
-  %7 = load double, ptr %6, align 8, !tbaa !69
+  %7 = load double, ptr %6, align 8, !tbaa !68
   %8 = fcmp une double %7, 0.000000e+00
   br i1 %8, label %9, label %21
 
 9:                                                ; preds = %3
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 168
-  %11 = load double, ptr %10, align 8, !tbaa !70
+  %11 = load double, ptr %10, align 8, !tbaa !69
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 176
-  %13 = load double, ptr %12, align 8, !tbaa !71
+  %13 = load double, ptr %12, align 8, !tbaa !70
   %14 = fsub double %11, %13
   %15 = fdiv double %14, %11
   %16 = fsub double 1.000000e+00, %15
   %17 = fmul double %16, %16
-  %18 = tail call double @tan(double noundef %1) #11, !tbaa !68
+  %18 = tail call double @tan(double noundef %1) #11, !tbaa !67
   %19 = fmul double %18, %17
-  %20 = tail call double @atan(double noundef %19) #11, !tbaa !68
+  %20 = tail call double @atan(double noundef %19) #11, !tbaa !67
   br label %21
 
 21:                                               ; preds = %3, %9
   %.0 = phi double [ %20, %9 ], [ %1, %3 ]
-  %22 = tail call double @sin(double noundef %.0) #11, !tbaa !68
-  %23 = tail call double @cos(double noundef %.0) #11, !tbaa !68
-  %24 = tail call double @sin(double noundef %0) #11, !tbaa !68
-  %25 = tail call double @cos(double noundef %0) #11, !tbaa !68
+  %22 = tail call double @sin(double noundef %.0) #11, !tbaa !67
+  %23 = tail call double @cos(double noundef %.0) #11, !tbaa !67
+  %24 = tail call double @sin(double noundef %0) #11, !tbaa !67
+  %25 = tail call double @cos(double noundef %0) #11, !tbaa !67
   %26 = fmul double %23, %25
   %27 = fmul double %23, %24
   %28 = fneg double %27
@@ -494,23 +494,23 @@ define internal { double, double } @_ZL16airocean_forward5PJ_LPP8PJconsts(double
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 24
   %32 = getelementptr inbounds nuw i8, ptr %30, i64 48
   %33 = getelementptr inbounds nuw i8, ptr %30, i64 32
-  %34 = load double, ptr %33, align 8, !tbaa !53
+  %34 = load double, ptr %33, align 8, !tbaa !52
   %35 = getelementptr inbounds nuw i8, ptr %30, i64 64
-  %36 = load double, ptr %35, align 8, !tbaa !63
+  %36 = load double, ptr %35, align 8, !tbaa !62
   %37 = getelementptr inbounds nuw i8, ptr %30, i64 40
-  %38 = load double, ptr %37, align 8, !tbaa !63
+  %38 = load double, ptr %37, align 8, !tbaa !62
   %39 = getelementptr inbounds nuw i8, ptr %30, i64 56
-  %40 = load double, ptr %39, align 8, !tbaa !53
+  %40 = load double, ptr %39, align 8, !tbaa !52
   %41 = fneg double %40
   %42 = fmul double %38, %41
   %43 = tail call double @llvm.fmuladd.f64(double %34, double %36, double %42)
-  %44 = load double, ptr %31, align 8, !tbaa !48
+  %44 = load double, ptr %31, align 8, !tbaa !47
   %45 = fmul double %22, %41
   %46 = tail call double @llvm.fmuladd.f64(double %27, double %36, double %45)
   %47 = fneg double %46
   %48 = fmul double %44, %47
   %49 = tail call double @llvm.fmuladd.f64(double %26, double %43, double %48)
-  %50 = load double, ptr %32, align 8, !tbaa !48
+  %50 = load double, ptr %32, align 8, !tbaa !47
   %51 = fneg double %34
   %52 = fmul double %22, %51
   %53 = tail call double @llvm.fmuladd.f64(double %27, double %38, double %52)
@@ -519,11 +519,11 @@ define internal { double, double } @_ZL16airocean_forward5PJ_LPP8PJconsts(double
   br i1 %55, label %_Z16is_point_in_facePK6PJ_XYZPKN12_GLOBAL__N_17pj_faceE.exit.thread.i, label %56
 
 56:                                               ; preds = %29
-  %57 = load double, ptr %30, align 8, !tbaa !48
+  %57 = load double, ptr %30, align 8, !tbaa !47
   %58 = getelementptr inbounds nuw i8, ptr %30, i64 8
-  %59 = load double, ptr %58, align 8, !tbaa !53
+  %59 = load double, ptr %58, align 8, !tbaa !52
   %60 = getelementptr inbounds nuw i8, ptr %30, i64 16
-  %61 = load double, ptr %60, align 8, !tbaa !63
+  %61 = load double, ptr %60, align 8, !tbaa !62
   %62 = fmul double %61, %41
   %63 = tail call double @llvm.fmuladd.f64(double %59, double %36, double %62)
   %64 = fneg double %63
@@ -550,7 +550,7 @@ _Z16is_point_in_facePK6PJ_XYZPKN12_GLOBAL__N_17pj_faceE.exit.i: ; preds = %56
 _Z16is_point_in_facePK6PJ_XYZPKN12_GLOBAL__N_17pj_faceE.exit.thread.i: ; preds = %_Z16is_point_in_facePK6PJ_XYZPKN12_GLOBAL__N_17pj_faceE.exit.i, %56, %29
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.i = icmp eq i64 %indvars.iv.next.i, 23
-  br i1 %exitcond.i, label %_Z18get_ico_face_indexPKN12_GLOBAL__N_116pj_airocean_dataEPK6PJ_XYZ.exit.thread, label %29, !llvm.loop !72
+  br i1 %exitcond.i, label %_Z18get_ico_face_indexPKN12_GLOBAL__N_116pj_airocean_dataEPK6PJ_XYZ.exit.thread, label %29, !llvm.loop !71
 
 _Z18get_ico_face_indexPKN12_GLOBAL__N_116pj_airocean_dataEPK6PJ_XYZ.exit: ; preds = %_Z16is_point_in_facePK6PJ_XYZPKN12_GLOBAL__N_17pj_faceE.exit.i
   %80 = icmp eq i64 %indvars.iv.i, 23
@@ -566,18 +566,18 @@ _Z18get_ico_face_indexPKN12_GLOBAL__N_116pj_airocean_dataEPK6PJ_XYZ.exit.thread:
   %85 = getelementptr inbounds nuw [23 x %struct.PJ_XYZ], ptr %83, i64 0, i64 %84
   %86 = getelementptr inbounds nuw i8, ptr %5, i64 2208
   %87 = getelementptr inbounds nuw [23 x %struct.PJ_XYZ], ptr %86, i64 0, i64 %84
-  %88 = load double, ptr %85, align 8, !tbaa !48, !noalias !73
-  %89 = load double, ptr %87, align 8, !tbaa !48, !noalias !73
+  %88 = load double, ptr %85, align 8, !tbaa !47, !noalias !72
+  %89 = load double, ptr %87, align 8, !tbaa !47, !noalias !72
   %90 = getelementptr inbounds nuw i8, ptr %85, i64 8
-  %91 = load double, ptr %90, align 8, !tbaa !53, !noalias !73
+  %91 = load double, ptr %90, align 8, !tbaa !52, !noalias !72
   %92 = getelementptr inbounds nuw i8, ptr %87, i64 8
-  %93 = load double, ptr %92, align 8, !tbaa !53, !noalias !73
+  %93 = load double, ptr %92, align 8, !tbaa !52, !noalias !72
   %94 = fmul double %91, %93
   %95 = tail call double @llvm.fmuladd.f64(double %88, double %89, double %94)
   %96 = getelementptr inbounds nuw i8, ptr %85, i64 16
-  %97 = load double, ptr %96, align 8, !tbaa !63, !noalias !73
+  %97 = load double, ptr %96, align 8, !tbaa !62, !noalias !72
   %98 = getelementptr inbounds nuw i8, ptr %87, i64 16
-  %99 = load double, ptr %98, align 8, !tbaa !63, !noalias !73
+  %99 = load double, ptr %98, align 8, !tbaa !62, !noalias !72
   %100 = tail call double @llvm.fmuladd.f64(double %97, double %99, double %95)
   %101 = fmul double %27, %93
   %102 = tail call double @llvm.fmuladd.f64(double %26, double %89, double %101)
@@ -714,35 +714,34 @@ attributes #11 = { nounwind }
 !41 = !{!4, !5, i64 0}
 !42 = !{!4, !10, i64 24}
 !43 = !{!14, !14, i64 0}
-!44 = distinct !{!44, !45, !46}
+!44 = distinct !{!44, !45}
 !45 = !{!"llvm.loop.mustprogress"}
-!46 = !{!"llvm.loop.estimated_trip_count"}
-!47 = distinct !{!47, !45, !46}
-!48 = !{!49, !14, i64 0}
-!49 = !{!"_ZTS6PJ_XYZ", !14, i64 0, !14, i64 8, !14, i64 16}
-!50 = !{!51}
-!51 = distinct !{!51, !52, !"_ZN12_GLOBAL__N_116pj_airocean_data8vec_multEPA4_KdPK6PJ_XYZ: argument 0"}
-!52 = distinct !{!52, !"_ZN12_GLOBAL__N_116pj_airocean_data8vec_multEPA4_KdPK6PJ_XYZ"}
-!53 = !{!49, !14, i64 8}
-!54 = !{!55}
-!55 = distinct !{!55, !56, !"_ZN12_GLOBAL__N_116pj_airocean_data8vec_multEPA4_KdPK6PJ_XYZ: argument 0"}
-!56 = distinct !{!56, !"_ZN12_GLOBAL__N_116pj_airocean_data8vec_multEPA4_KdPK6PJ_XYZ"}
-!57 = !{!58}
-!58 = distinct !{!58, !59, !"_ZN12_GLOBAL__N_116pj_airocean_data8vec_multEPA4_KdPK6PJ_XYZ: argument 0"}
-!59 = distinct !{!59, !"_ZN12_GLOBAL__N_116pj_airocean_data8vec_multEPA4_KdPK6PJ_XYZ"}
-!60 = distinct !{!60, !45, !46}
-!61 = !{!4, !6, i64 112}
-!62 = !{!4, !6, i64 104}
-!63 = !{!49, !14, i64 16}
-!64 = distinct !{!64, !45, !46}
-!65 = !{!66}
-!66 = distinct !{!66, !67, !"_Z10dym_to_icoPKN12_GLOBAL__N_116pj_airocean_dataEPK5PJ_XYh: argument 0"}
-!67 = distinct !{!67, !"_Z10dym_to_icoPKN12_GLOBAL__N_116pj_airocean_dataEPK5PJ_XYh"}
-!68 = !{!13, !13, i64 0}
-!69 = !{!4, !14, i64 216}
-!70 = !{!4, !14, i64 168}
-!71 = !{!4, !14, i64 176}
-!72 = distinct !{!72, !45, !46}
-!73 = !{!74}
-!74 = distinct !{!74, !75, !"_Z16cartesian_to_icoPKN12_GLOBAL__N_116pj_airocean_dataEPK6PJ_XYZh: argument 0"}
-!75 = distinct !{!75, !"_Z16cartesian_to_icoPKN12_GLOBAL__N_116pj_airocean_dataEPK6PJ_XYZh"}
+!46 = distinct !{!46, !45}
+!47 = !{!48, !14, i64 0}
+!48 = !{!"_ZTS6PJ_XYZ", !14, i64 0, !14, i64 8, !14, i64 16}
+!49 = !{!50}
+!50 = distinct !{!50, !51, !"_ZN12_GLOBAL__N_116pj_airocean_data8vec_multEPA4_KdPK6PJ_XYZ: argument 0"}
+!51 = distinct !{!51, !"_ZN12_GLOBAL__N_116pj_airocean_data8vec_multEPA4_KdPK6PJ_XYZ"}
+!52 = !{!48, !14, i64 8}
+!53 = !{!54}
+!54 = distinct !{!54, !55, !"_ZN12_GLOBAL__N_116pj_airocean_data8vec_multEPA4_KdPK6PJ_XYZ: argument 0"}
+!55 = distinct !{!55, !"_ZN12_GLOBAL__N_116pj_airocean_data8vec_multEPA4_KdPK6PJ_XYZ"}
+!56 = !{!57}
+!57 = distinct !{!57, !58, !"_ZN12_GLOBAL__N_116pj_airocean_data8vec_multEPA4_KdPK6PJ_XYZ: argument 0"}
+!58 = distinct !{!58, !"_ZN12_GLOBAL__N_116pj_airocean_data8vec_multEPA4_KdPK6PJ_XYZ"}
+!59 = distinct !{!59, !45}
+!60 = !{!4, !6, i64 112}
+!61 = !{!4, !6, i64 104}
+!62 = !{!48, !14, i64 16}
+!63 = distinct !{!63, !45}
+!64 = !{!65}
+!65 = distinct !{!65, !66, !"_Z10dym_to_icoPKN12_GLOBAL__N_116pj_airocean_dataEPK5PJ_XYh: argument 0"}
+!66 = distinct !{!66, !"_Z10dym_to_icoPKN12_GLOBAL__N_116pj_airocean_dataEPK5PJ_XYh"}
+!67 = !{!13, !13, i64 0}
+!68 = !{!4, !14, i64 216}
+!69 = !{!4, !14, i64 168}
+!70 = !{!4, !14, i64 176}
+!71 = distinct !{!71, !45}
+!72 = !{!73}
+!73 = distinct !{!73, !74, !"_Z16cartesian_to_icoPKN12_GLOBAL__N_116pj_airocean_dataEPK6PJ_XYZh: argument 0"}
+!74 = distinct !{!74, !"_Z16cartesian_to_icoPKN12_GLOBAL__N_116pj_airocean_dataEPK6PJ_XYZh"}

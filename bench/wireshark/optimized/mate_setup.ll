@@ -248,7 +248,7 @@ define hidden noundef zeroext i1 @add_hfid(ptr noundef readonly captures(none) %
   %24 = getelementptr inbounds nuw i8, ptr %.155, i64 64
   %25 = load ptr, ptr %24, align 8
   %.not45 = icmp eq ptr %25, null
-  br i1 %.not45, label %._crit_edge, label %.lr.ph56, !llvm.loop !9
+  br i1 %.not45, label %._crit_edge, label %.lr.ph56, !llvm.loop !8
 
 .critedge:                                        ; preds = %4
   tail call void (ptr, ptr, ...) @report_error(ptr noundef %0, ptr noundef nonnull @.str.2, ptr noundef %2)
@@ -507,7 +507,7 @@ define hidden ptr @mate_make_config(ptr noundef %0, i32 noundef %1) local_unname
   %114 = load i32, ptr %113, align 8
   %115 = zext i32 %114 to i64
   %116 = icmp samesign ult i64 %indvars.iv.next.i.i, %115
-  br i1 %116, label %102, label %analyze_pdu_config.exit.i, !llvm.loop !10
+  br i1 %116, label %102, label %analyze_pdu_config.exit.i, !llvm.loop !9
 
 analyze_pdu_config.exit.i:                        ; preds = %102, %68
   %117 = getelementptr inbounds nuw i8, ptr %72, i64 56
@@ -533,7 +533,7 @@ analyze_pdu_config.exit.i:                        ; preds = %102, %68
   %130 = load i32, ptr %129, align 8
   %131 = zext i32 %130 to i64
   %132 = icmp samesign ult i64 %indvars.iv.next.i, %131
-  br i1 %132, label %68, label %analyze_config.exit, !llvm.loop !11
+  br i1 %132, label %68, label %analyze_config.exit, !llvm.loop !10
 
 analyze_config.exit:                              ; preds = %analyze_pdu_config.exit.i, %55
   %133 = load ptr, ptr %20, align 8
@@ -786,7 +786,7 @@ define internal void @analyze_gop_config(ptr readnone captures(none) %0, ptr nou
   %109 = load ptr, ptr %82, align 8
   %110 = call ptr @get_next_avp(ptr noundef %109, ptr noundef nonnull %8)
   %.not = icmp eq ptr %110, null
-  br i1 %.not, label %._crit_edge, label %92, !llvm.loop !12
+  br i1 %.not, label %._crit_edge, label %92, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %108, %81
   %111 = getelementptr inbounds nuw i8, ptr %1, i64 48
@@ -846,7 +846,7 @@ define internal void @analyze_gop_config(ptr readnone captures(none) %0, ptr nou
   %139 = load ptr, ptr %111, align 8
   %140 = call ptr @get_next_avp(ptr noundef %139, ptr noundef nonnull %8)
   %.not86 = icmp eq ptr %140, null
-  br i1 %.not86, label %.loopexit94, label %122, !llvm.loop !13
+  br i1 %.not86, label %.loopexit94, label %122, !llvm.loop !12
 
 .loopexit94:                                      ; preds = %138, %113, %._crit_edge
   %141 = getelementptr inbounds nuw i8, ptr %1, i64 56
@@ -906,7 +906,7 @@ define internal void @analyze_gop_config(ptr readnone captures(none) %0, ptr nou
   %169 = load ptr, ptr %141, align 8
   %170 = call ptr @get_next_avp(ptr noundef %169, ptr noundef nonnull %8)
   %.not88 = icmp eq ptr %170, null
-  br i1 %.not88, label %.loopexit, label %152, !llvm.loop !14
+  br i1 %.not88, label %.loopexit, label %152, !llvm.loop !13
 
 .loopexit:                                        ; preds = %168, %143, %.loopexit94
   store ptr null, ptr %8, align 8
@@ -962,7 +962,7 @@ define internal void @analyze_gop_config(ptr readnone captures(none) %0, ptr nou
   %198 = load ptr, ptr %171, align 8
   %199 = call ptr @get_next_avp(ptr noundef %198, ptr noundef nonnull %8)
   %.not89 = icmp eq ptr %199, null
-  br i1 %.not89, label %._crit_edge105, label %181, !llvm.loop !15
+  br i1 %.not89, label %._crit_edge105, label %181, !llvm.loop !14
 
 ._crit_edge105:                                   ; preds = %197, %.loopexit
   %200 = load ptr, ptr %1, align 8
@@ -1137,7 +1137,7 @@ define internal void @analyze_gog_config(ptr readnone captures(none) %0, ptr nou
   %84 = load ptr, ptr %73, align 8
   %85 = call ptr @get_next_avpl(ptr noundef %84, ptr noundef nonnull %7)
   %.not = icmp eq ptr %85, null
-  br i1 %.not, label %._crit_edge, label %86, !llvm.loop !16
+  br i1 %.not, label %._crit_edge, label %86, !llvm.loop !15
 
 86:                                               ; preds = %.lr.ph85, %.loopexit
   %87 = phi ptr [ %75, %.lr.ph85 ], [ %85, %.loopexit ]
@@ -1201,7 +1201,7 @@ define internal void @analyze_gog_config(ptr readnone captures(none) %0, ptr nou
 117:                                              ; preds = %105, %.lr.ph
   %118 = call ptr @get_next_avp(ptr noundef nonnull %87, ptr noundef nonnull %6)
   %.not81 = icmp eq ptr %118, null
-  br i1 %.not81, label %.loopexit, label %.lr.ph, !llvm.loop !17
+  br i1 %.not81, label %.loopexit, label %.lr.ph, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %.loopexit, %3
   store ptr null, ptr %6, align 8
@@ -1257,7 +1257,7 @@ define internal void @analyze_gog_config(ptr readnone captures(none) %0, ptr nou
   %146 = load ptr, ptr %119, align 8
   %147 = call ptr @get_next_avp(ptr noundef %146, ptr noundef nonnull %6)
   %.not78 = icmp eq ptr %147, null
-  br i1 %.not78, label %._crit_edge89, label %129, !llvm.loop !18
+  br i1 %.not78, label %._crit_edge89, label %129, !llvm.loop !17
 
 ._crit_edge89:                                    ; preds = %145, %._crit_edge
   %148 = load ptr, ptr %119, align 8
@@ -1416,13 +1416,13 @@ define internal fastcc void @analyze_transform_hfrs(ptr noundef readonly capture
   %36 = load ptr, ptr %20, align 8
   %37 = call ptr @get_next_avp(ptr noundef %36, ptr noundef nonnull %6)
   %.not15 = icmp eq ptr %37, null
-  br i1 %.not15, label %._crit_edge, label %.lr.ph, !llvm.loop !19
+  br i1 %.not15, label %._crit_edge, label %.lr.ph, !llvm.loop !18
 
 ._crit_edge:                                      ; preds = %35, %.lr.ph22
   %38 = getelementptr inbounds nuw i8, ptr %.01320, i64 40
   %.013 = load ptr, ptr %38, align 8
   %.not = icmp eq ptr %.013, null
-  br i1 %.not, label %._crit_edge23.loopexit, label %.lr.ph22, !llvm.loop !20
+  br i1 %.not, label %._crit_edge23.loopexit, label %.lr.ph22, !llvm.loop !19
 
 ._crit_edge23.loopexit:                           ; preds = %._crit_edge
   %.pre = load i32, ptr %7, align 8
@@ -1433,7 +1433,7 @@ define internal fastcc void @analyze_transform_hfrs(ptr noundef readonly capture
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %40 = zext i32 %39 to i64
   %41 = icmp samesign ult i64 %indvars.iv.next, %40
-  br i1 %41, label %16, label %._crit_edge27, !llvm.loop !21
+  br i1 %41, label %16, label %._crit_edge27, !llvm.loop !20
 
 ._crit_edge27:                                    ; preds = %._crit_edge23, %4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #9
@@ -1480,19 +1480,18 @@ attributes #9 = { nounwind }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7, !8}
-!11 = distinct !{!11, !7, !8}
-!12 = distinct !{!12, !7, !8}
-!13 = distinct !{!13, !7, !8}
-!14 = distinct !{!14, !7, !8}
-!15 = distinct !{!15, !7, !8}
-!16 = distinct !{!16, !7, !8}
-!17 = distinct !{!17, !7, !8}
-!18 = distinct !{!18, !7, !8}
-!19 = distinct !{!19, !7, !8}
-!20 = distinct !{!20, !7, !8}
-!21 = distinct !{!21, !7, !8}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7}
+!12 = distinct !{!12, !7}
+!13 = distinct !{!13, !7}
+!14 = distinct !{!14, !7}
+!15 = distinct !{!15, !7}
+!16 = distinct !{!16, !7}
+!17 = distinct !{!17, !7}
+!18 = distinct !{!18, !7}
+!19 = distinct !{!19, !7}
+!20 = distinct !{!20, !7}

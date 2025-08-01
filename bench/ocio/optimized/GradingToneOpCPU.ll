@@ -533,7 +533,7 @@ define internal noundef zeroext i1 @_ZNK19OpenColorIO_v2_5dev12_GLOBAL__N_116Gra
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !65
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 12
-  %5 = load i8, ptr %4, align 4, !tbaa !84, !range !78, !noundef !37
+  %5 = load i8, ptr %4, align 4, !tbaa !83, !range !78, !noundef !37
   %6 = trunc nuw i8 %5 to i1
   ret i1 %6
 }
@@ -547,7 +547,7 @@ define internal noundef zeroext i1 @_ZNK19OpenColorIO_v2_5dev12_GLOBAL__N_116Gra
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8, !tbaa !65
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 12
-  %8 = load i8, ptr %7, align 4, !tbaa !84, !range !78, !noundef !37
+  %8 = load i8, ptr %7, align 4, !tbaa !83, !range !78, !noundef !37
   %9 = trunc nuw i8 %8 to i1
   br label %10
 
@@ -565,12 +565,12 @@ define internal void @_ZNK19OpenColorIO_v2_5dev12_GLOBAL__N_116GradingToneOpCPU1
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8, !tbaa !65
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 12
-  %9 = load i8, ptr %8, align 4, !tbaa !84, !range !78, !noundef !37
+  %9 = load i8, ptr %8, align 4, !tbaa !83, !range !78, !noundef !37
   %10 = trunc nuw i8 %9 to i1
   br i1 %10, label %11, label %23
 
 11:                                               ; preds = %5
-  store ptr %7, ptr %0, align 8, !tbaa !85
+  store ptr %7, ptr %0, align 8, !tbaa !84
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %14 = load ptr, ptr %13, align 8, !tbaa !59
@@ -640,35 +640,35 @@ define internal fastcc void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_116GradingTone
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false)
   %5 = load ptr, ptr %1, align 8, !tbaa !3
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 176
-  %7 = load ptr, ptr %6, align 8, !tbaa !65, !noalias !88
+  %7 = load ptr, ptr %6, align 8, !tbaa !65, !noalias !87
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 184
-  %9 = load ptr, ptr %8, align 8, !tbaa !59, !noalias !88
+  %9 = load ptr, ptr %8, align 8, !tbaa !59, !noalias !87
   %.not.i.i.i.i = icmp eq ptr %9, null
   br i1 %.not.i.i.i.i, label %_ZNK19OpenColorIO_v2_5dev17GradingToneOpData26getDynamicPropertyInternalEv.exit.thread, label %10
 
 10:                                               ; preds = %2
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %12 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !60, !noalias !88
+  %12 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !60, !noalias !87
   %.not.i.i.i.i.i = icmp eq i8 %12, 0
   br i1 %.not.i.i.i.i.i, label %_ZNK19OpenColorIO_v2_5dev17GradingToneOpData26getDynamicPropertyInternalEv.exit, label %13
 
 13:                                               ; preds = %10
-  %14 = load i32, ptr %11, align 4, !tbaa !61, !noalias !88
+  %14 = load i32, ptr %11, align 4, !tbaa !61, !noalias !87
   %15 = add nsw i32 %14, 1
-  store i32 %15, ptr %11, align 4, !tbaa !61, !noalias !88
+  store i32 %15, ptr %11, align 4, !tbaa !61, !noalias !87
   br label %_ZNK19OpenColorIO_v2_5dev17GradingToneOpData26getDynamicPropertyInternalEv.exit.thread
 
 _ZNK19OpenColorIO_v2_5dev17GradingToneOpData26getDynamicPropertyInternalEv.exit.thread: ; preds = %2, %13
-  store ptr %7, ptr %4, align 8, !tbaa !91
+  store ptr %7, ptr %4, align 8, !tbaa !90
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %9, ptr %16, align 8, !tbaa !59
   br label %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev30DynamicPropertyGradingToneImplELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
 _ZNK19OpenColorIO_v2_5dev17GradingToneOpData26getDynamicPropertyInternalEv.exit: ; preds = %10
-  %17 = atomicrmw volatile add ptr %11, i32 1 acq_rel, align 4, !noalias !88
+  %17 = atomicrmw volatile add ptr %11, i32 1 acq_rel, align 4, !noalias !87
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.pre = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !59
-  store ptr %7, ptr %4, align 8, !tbaa !91
+  store ptr %7, ptr %4, align 8, !tbaa !90
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %9, ptr %18, align 8, !tbaa !59
   %.not.i.i.i.i4 = icmp eq ptr %.pre, null
@@ -724,10 +724,10 @@ _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev30DynamicPropertyGradingToneImplELN9__
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 168
   %43 = load i32, ptr %42, align 8, !tbaa !11
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i32 %43, ptr %44, align 8, !tbaa !92
+  store i32 %43, ptr %44, align 8, !tbaa !91
   %45 = load ptr, ptr %4, align 8, !tbaa !65
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 12
-  %47 = load i8, ptr %46, align 4, !tbaa !84, !range !78, !noundef !37
+  %47 = load i8, ptr %46, align 4, !tbaa !83, !range !78, !noundef !37
   %48 = trunc nuw i8 %47 to i1
   br i1 %48, label %49, label %100
 
@@ -741,7 +741,7 @@ _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev30DynamicPropertyGradingToneImplELN9__
   %52 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %53 = load ptr, ptr %52, align 8, !tbaa !59
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
-  store ptr %51, ptr %4, align 8, !tbaa !91
+  store ptr %51, ptr %4, align 8, !tbaa !90
   %54 = load ptr, ptr %40, align 8, !tbaa !59
   store ptr %53, ptr %40, align 8, !tbaa !59
   %.not.i.i.i.i6 = icmp eq ptr %54, null
@@ -989,7 +989,7 @@ define internal void @_ZNK19OpenColorIO_v2_5dev12_GLOBAL__N_119GradingToneFwdOpC
   %32 = getelementptr inbounds nuw i8, ptr %.07982, i64 16
   %33 = add nuw nsw i64 %.084, 1
   %exitcond.not = icmp eq i64 %33, %3
-  br i1 %exitcond.not, label %.loopexit, label %22, !llvm.loop !95
+  br i1 %exitcond.not, label %.loopexit, label %22, !llvm.loop !94
 
 .loopexit:                                        ; preds = %22, %13, %10, %11
   ret void
@@ -2015,7 +2015,7 @@ define internal fastcc void @_ZNK19OpenColorIO_v2_5dev12_GLOBAL__N_119GradingTon
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %20 = load float, ptr %19, align 4, !tbaa !80
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 924
-  %22 = load float, ptr %21, align 4, !tbaa !96
+  %22 = load float, ptr %21, align 4, !tbaa !95
   %23 = fsub float %16, %22
   %24 = fsub float %18, %22
   %25 = fsub float %20, %22
@@ -2766,7 +2766,7 @@ define internal void @_ZNK19OpenColorIO_v2_5dev12_GLOBAL__N_125GradingToneLinear
   %85 = getelementptr inbounds nuw i8, ptr %.08084, i64 16
   %86 = add nuw nsw i64 %.086, 1
   %exitcond.not = icmp eq i64 %86, %3
-  br i1 %exitcond.not, label %.loopexit, label %22, !llvm.loop !97
+  br i1 %exitcond.not, label %.loopexit, label %22, !llvm.loop !96
 
 .loopexit:                                        ; preds = %22, %13, %10, %11
   ret void
@@ -2906,7 +2906,7 @@ define internal void @_ZNK19OpenColorIO_v2_5dev12_GLOBAL__N_119GradingToneRevOpC
   %32 = getelementptr inbounds nuw i8, ptr %.07982, i64 16
   %33 = add nuw nsw i64 %.084, 1
   %exitcond.not = icmp eq i64 %33, %3
-  br i1 %exitcond.not, label %.loopexit, label %22, !llvm.loop !98
+  br i1 %exitcond.not, label %.loopexit, label %22, !llvm.loop !97
 
 .loopexit:                                        ; preds = %22, %13, %10, %11
   ret void
@@ -2943,7 +2943,7 @@ define internal fastcc void @_ZNK19OpenColorIO_v2_5dev12_GLOBAL__N_119GradingTon
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %20 = load float, ptr %19, align 4, !tbaa !80
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 924
-  %22 = load float, ptr %21, align 4, !tbaa !96
+  %22 = load float, ptr %21, align 4, !tbaa !95
   %23 = fsub float %16, %22
   %24 = fsub float %18, %22
   %25 = fsub float %20, %22
@@ -4340,21 +4340,20 @@ attributes #30 = { noreturn nounwind }
 !78 = !{i8 0, i8 2}
 !79 = !{!73, !75, i64 240}
 !80 = !{!77, !77, i64 0}
-!81 = distinct !{!81, !82, !83}
+!81 = distinct !{!81, !82}
 !82 = !{!"llvm.loop.mustprogress"}
-!83 = !{!"llvm.loop.estimated_trip_count"}
-!84 = !{!68, !71, i64 12}
-!85 = !{!86, !87, i64 0}
-!86 = !{!"_ZTSSt12__shared_ptrIN19OpenColorIO_v2_5dev15DynamicPropertyELN9__gnu_cxx12_Lock_policyE2EE", !87, i64 0, !9, i64 8}
-!87 = !{!"p1 _ZTSN19OpenColorIO_v2_5dev15DynamicPropertyE", !6, i64 0}
-!88 = !{!89}
-!89 = distinct !{!89, !90, !"_ZNK19OpenColorIO_v2_5dev17GradingToneOpData26getDynamicPropertyInternalEv: argument 0"}
-!90 = distinct !{!90, !"_ZNK19OpenColorIO_v2_5dev17GradingToneOpData26getDynamicPropertyInternalEv"}
-!91 = !{!35, !35, i64 0}
-!92 = !{!93, !32, i64 24}
-!93 = !{!"_ZTSN19OpenColorIO_v2_5dev12_GLOBAL__N_116GradingToneOpCPUE", !94, i64 0, !33, i64 8, !32, i64 24}
-!94 = !{!"_ZTSN19OpenColorIO_v2_5dev5OpCPUE"}
-!95 = distinct !{!95, !82, !83}
-!96 = !{!76, !77, i64 924}
-!97 = distinct !{!97, !82, !83}
-!98 = distinct !{!98, !82, !83}
+!83 = !{!68, !71, i64 12}
+!84 = !{!85, !86, i64 0}
+!85 = !{!"_ZTSSt12__shared_ptrIN19OpenColorIO_v2_5dev15DynamicPropertyELN9__gnu_cxx12_Lock_policyE2EE", !86, i64 0, !9, i64 8}
+!86 = !{!"p1 _ZTSN19OpenColorIO_v2_5dev15DynamicPropertyE", !6, i64 0}
+!87 = !{!88}
+!88 = distinct !{!88, !89, !"_ZNK19OpenColorIO_v2_5dev17GradingToneOpData26getDynamicPropertyInternalEv: argument 0"}
+!89 = distinct !{!89, !"_ZNK19OpenColorIO_v2_5dev17GradingToneOpData26getDynamicPropertyInternalEv"}
+!90 = !{!35, !35, i64 0}
+!91 = !{!92, !32, i64 24}
+!92 = !{!"_ZTSN19OpenColorIO_v2_5dev12_GLOBAL__N_116GradingToneOpCPUE", !93, i64 0, !33, i64 8, !32, i64 24}
+!93 = !{!"_ZTSN19OpenColorIO_v2_5dev5OpCPUE"}
+!94 = distinct !{!94, !82}
+!95 = !{!76, !77, i64 924}
+!96 = distinct !{!96, !82}
+!97 = distinct !{!97, !82}

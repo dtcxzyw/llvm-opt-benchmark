@@ -380,7 +380,7 @@ define internal noundef range(i32 0, 2) i32 @nf_nat_sip(ptr noundef %0, i32 noun
   %56 = load i32, ptr %15, align 4
   %57 = load i32, ptr %16, align 4
   %58 = load i16, ptr %18, align 2
-  %59 = call fastcc i32 @map_addr(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %56, i32 noundef %57, ptr noundef nonnull %17, i16 noundef zeroext %58), !range !15
+  %59 = call fastcc i32 @map_addr(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %56, i32 noundef %57, ptr noundef nonnull %17, i16 noundef zeroext %58), !range !14
   %60 = icmp eq i32 %59, 0
   br i1 %60, label %.loopexit, label %61
 
@@ -451,7 +451,7 @@ define internal noundef range(i32 0, 2) i32 @nf_nat_sip(ptr noundef %0, i32 noun
   %103 = load i32, ptr %4, align 4
   %104 = load i32, ptr %15, align 4
   %105 = load i32, ptr %16, align 4
-  %106 = call fastcc i32 @map_addr(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %104, i32 noundef %105, ptr noundef nonnull %17, i16 noundef zeroext %102), !range !15
+  %106 = call fastcc i32 @map_addr(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %104, i32 noundef %105, ptr noundef nonnull %17, i16 noundef zeroext %102), !range !14
   %107 = icmp eq i32 %106, 0
   br i1 %107, label %201, label %108
 
@@ -499,7 +499,7 @@ define internal noundef range(i32 0, 2) i32 @nf_nat_sip(ptr noundef %0, i32 noun
   %140 = call noundef i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %23, ptr noundef nonnull dereferenceable(1) %139, ptr noundef %129) #9
   %141 = load i32, ptr %20, align 4
   %142 = load i32, ptr %21, align 4
-  %143 = call fastcc i32 @mangle_packet(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %141, i32 noundef %142, ptr noundef nonnull %23, i32 noundef %140), !range !15
+  %143 = call fastcc i32 @mangle_packet(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %141, i32 noundef %142, ptr noundef nonnull %23, i32 noundef %140), !range !14
   %144 = icmp eq i32 %143, 0
   br i1 %144, label %201, label %145
 
@@ -542,7 +542,7 @@ define internal noundef range(i32 0, 2) i32 @nf_nat_sip(ptr noundef %0, i32 noun
   %172 = call noundef i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %23, ptr noundef nonnull dereferenceable(1) %171, ptr noundef %161) #9
   %173 = load i32, ptr %20, align 4
   %174 = load i32, ptr %21, align 4
-  %175 = call fastcc i32 @mangle_packet(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %173, i32 noundef %174, ptr noundef nonnull %23, i32 noundef %172), !range !15
+  %175 = call fastcc i32 @mangle_packet(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %173, i32 noundef %174, ptr noundef nonnull %23, i32 noundef %172), !range !14
   %176 = icmp eq i32 %175, 0
   br i1 %176, label %201, label %177
 
@@ -576,7 +576,7 @@ define internal noundef range(i32 0, 2) i32 @nf_nat_sip(ptr noundef %0, i32 noun
   %196 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %23, ptr noundef nonnull dereferenceable(1) @.str.10, i32 noundef %195) #9
   %197 = load i32, ptr %20, align 4
   %198 = load i32, ptr %21, align 4
-  %199 = call fastcc i32 @mangle_packet(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %197, i32 noundef %198, ptr noundef nonnull %23, i32 noundef %196), !range !15
+  %199 = call fastcc i32 @mangle_packet(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %197, i32 noundef %198, ptr noundef nonnull %23, i32 noundef %196), !range !14
   %200 = icmp eq i32 %199, 0
   br i1 %200, label %201, label %.thread
 
@@ -612,9 +612,9 @@ define internal noundef range(i32 0, 2) i32 @nf_nat_sip(ptr noundef %0, i32 noun
   %210 = load i32, ptr %15, align 4
   %211 = load i32, ptr %16, align 4
   %212 = load i16, ptr %18, align 2
-  %213 = call fastcc i32 @map_addr(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %210, i32 noundef %211, ptr noundef nonnull %17, i16 noundef zeroext %212), !range !15
+  %213 = call fastcc i32 @map_addr(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %210, i32 noundef %211, ptr noundef nonnull %17, i16 noundef zeroext %212), !range !14
   %214 = icmp eq i32 %213, 0
-  br i1 %214, label %.loopexit, label %204, !llvm.loop !16
+  br i1 %214, label %.loopexit, label %204, !llvm.loop !15
 
 215:                                              ; preds = %204
   %216 = load i64, ptr %24, align 8
@@ -638,7 +638,7 @@ define internal noundef range(i32 0, 2) i32 @nf_nat_sip(ptr noundef %0, i32 noun
   %224 = load i32, ptr %11, align 4
   %225 = load i32, ptr %10, align 4
   %226 = load i16, ptr %13, align 2
-  %227 = call fastcc i32 @map_addr(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %224, i32 noundef %225, ptr noundef nonnull %12, i16 noundef zeroext %226), !range !15
+  %227 = call fastcc i32 @map_addr(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %224, i32 noundef %225, ptr noundef nonnull %12, i16 noundef zeroext %226), !range !14
   %228 = icmp eq i32 %227, 0
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %13) #9
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12) #9
@@ -675,7 +675,7 @@ define internal noundef range(i32 0, 2) i32 @nf_nat_sip(ptr noundef %0, i32 noun
   %239 = load i32, ptr %7, align 4
   %240 = load i32, ptr %6, align 4
   %241 = load i16, ptr %9, align 2
-  %242 = call fastcc i32 @map_addr(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %239, i32 noundef %240, ptr noundef nonnull %8, i16 noundef zeroext %241), !range !15
+  %242 = call fastcc i32 @map_addr(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %239, i32 noundef %240, ptr noundef nonnull %8, i16 noundef zeroext %241), !range !14
   %243 = icmp eq i32 %242, 0
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %9) #9
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #9
@@ -964,7 +964,7 @@ define internal noundef range(i32 0, 2) i32 @nf_nat_sdp_addr(ptr noundef %0, i32
   br i1 %21, label %22, label %24
 
 22:                                               ; preds = %9
-  %23 = call fastcc i32 @mangle_content_len(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4), !range !15
+  %23 = call fastcc i32 @mangle_content_len(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4), !range !14
   br label %24
 
 24:                                               ; preds = %22, %9
@@ -1024,7 +1024,7 @@ define internal noundef range(i32 0, 2) i32 @nf_nat_sdp_port(ptr noundef %0, i32
   %45 = load i32, ptr %4, align 4
   %46 = add i32 %44, %45
   store i32 %46, ptr %4, align 4
-  %47 = call fastcc i32 @mangle_content_len(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4), !range !15
+  %47 = call fastcc i32 @mangle_content_len(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4), !range !14
   br label %48
 
 48:                                               ; preds = %39, %35, %21
@@ -1059,7 +1059,7 @@ define internal noundef range(i32 0, 2) i32 @nf_nat_sdp_session(ptr noundef %0, 
   ]
 
 22:                                               ; preds = %20, %20
-  %23 = call fastcc i32 @mangle_content_len(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4), !range !15
+  %23 = call fastcc i32 @mangle_content_len(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4), !range !14
   br label %24
 
 24:                                               ; preds = %22, %20, %7
@@ -1159,7 +1159,7 @@ define internal noundef range(i32 0, 2) i32 @nf_nat_sdp_media(ptr noundef %0, i3
 .thread6:                                         ; preds = %58, %.preheader, %60
   %61 = add i16 %48, 2
   %62 = icmp eq i16 %61, 0
-  br i1 %62, label %.thread9, label %.preheader, !llvm.loop !17
+  br i1 %62, label %.thread9, label %.preheader, !llvm.loop !16
 
 .thread:                                          ; preds = %54, %10
   %63 = phi i16 [ %46, %10 ], [ %48, %54 ]
@@ -1177,7 +1177,7 @@ define internal noundef range(i32 0, 2) i32 @nf_nat_sdp_media(ptr noundef %0, i3
   br i1 %68, label %73, label %69
 
 69:                                               ; preds = %65
-  %70 = tail call i32 @nf_nat_sdp_port(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %7, i32 noundef %8, i16 noundef zeroext %63), !range !15
+  %70 = tail call i32 @nf_nat_sdp_port(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %7, i32 noundef %8, i16 noundef zeroext %63), !range !14
   %71 = icmp eq i32 %70, 0
   br i1 %71, label %72, label %73
 
@@ -1654,10 +1654,9 @@ attributes #9 = { nounwind }
 !8 = !{!"auto-init"}
 !9 = !{i64 2159248616, i64 2159248425, i64 2159248477, i64 2159248523, i64 2159248551}
 !10 = !{i64 2159248690, i64 2159248719, i64 2159248765, i64 2159248823, i64 2159248877, i64 2159248931, i64 2159248986, i64 2159249017}
-!11 = distinct !{!11, !12, !13, !14}
+!11 = distinct !{!11, !12, !13}
 !12 = !{!"llvm.loop.mustprogress"}
 !13 = !{!"llvm.loop.unroll.disable"}
-!14 = !{!"llvm.loop.estimated_trip_count"}
-!15 = !{i32 0, i32 2}
-!16 = distinct !{!16, !12, !13, !14}
-!17 = distinct !{!17, !12, !13, !14}
+!14 = !{i32 0, i32 2}
+!15 = distinct !{!15, !12, !13}
+!16 = distinct !{!16, !12, !13}

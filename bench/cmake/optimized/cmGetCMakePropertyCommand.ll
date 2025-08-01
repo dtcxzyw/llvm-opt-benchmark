@@ -829,19 +829,19 @@ define internal void @_GLOBAL__sub_I_cmGetCMakePropertyCommand.cxx() #10 section
   tail call void @_ZN5cmsys18SystemToolsManagerC1Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN5cmsysL26SystemToolsManagerInstanceE)
   %2 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN5cmsys18SystemToolsManagerD1Ev, ptr nonnull @_ZN5cmsysL26SystemToolsManagerInstanceE, ptr nonnull @__dso_handle) #13
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %1) #13
-  store i32 0, ptr %1, align 4, !tbaa !48
+  store i32 0, ptr %1, align 4, !tbaa !47
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  store i32 1, ptr %3, align 4, !tbaa !48
+  store i32 1, ptr %3, align 4, !tbaa !47
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i32 2, ptr %4, align 4, !tbaa !48
-  store i64 0, ptr @_ZN12cmStateEnumsL16AllTargetDomainsE, align 8, !tbaa !50
+  store i32 2, ptr %4, align 4, !tbaa !47
+  store i64 0, ptr @_ZN12cmStateEnumsL16AllTargetDomainsE, align 8, !tbaa !49
   br label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %_ZNSt6bitsetILm32EE3setEmb.exit.i.i.i, %0
   %.09.i.i.idx.i = phi i64 [ %.09.i.i.add.i, %_ZNSt6bitsetILm32EE3setEmb.exit.i.i.i ], [ 0, %0 ]
   %5 = phi i64 [ %11, %_ZNSt6bitsetILm32EE3setEmb.exit.i.i.i ], [ 0, %0 ]
   %.09.i.i.ptr.i = getelementptr inbounds nuw i8, ptr %1, i64 %.09.i.i.idx.i
-  %6 = load i32, ptr %.09.i.i.ptr.i, align 4, !tbaa !48
+  %6 = load i32, ptr %.09.i.i.ptr.i, align 4, !tbaa !47
   %7 = zext i32 %6 to i64
   %8 = icmp ugt i32 %6, 31
   br i1 %8, label %9, label %_ZNSt6bitsetILm32EE3setEmb.exit.i.i.i
@@ -856,7 +856,7 @@ _ZNSt6bitsetILm32EE3setEmb.exit.i.i.i:            ; preds = %.lr.ph.i.i.i
   store i64 %11, ptr @_ZN12cmStateEnumsL16AllTargetDomainsE, align 8, !tbaa !14
   %.09.i.i.add.i = add nuw nsw i64 %.09.i.i.idx.i, 4
   %.not.i.i.i = icmp eq i64 %.09.i.i.add.i, 12
-  br i1 %.not.i.i.i, label %__cxx_global_var_init.1.exit, label %.lr.ph.i.i.i, !llvm.loop !52
+  br i1 %.not.i.i.i, label %__cxx_global_var_init.1.exit, label %.lr.ph.i.i.i
 
 __cxx_global_var_init.1.exit:                     ; preds = %_ZNSt6bitsetILm32EE3setEmb.exit.i.i.i
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %1) #13
@@ -939,11 +939,9 @@ attributes #16 = { nounwind willreturn memory(read) }
 !42 = !{!"p1 _ZTSSt18_Rb_tree_node_base", !7, i64 0}
 !43 = !{!36, !32}
 !44 = !{!39, !42, i64 16}
-!45 = distinct !{!45, !46, !47}
+!45 = distinct !{!45, !46}
 !46 = !{!"llvm.loop.mustprogress"}
-!47 = !{!"llvm.loop.estimated_trip_count"}
-!48 = !{!49, !49, i64 0}
-!49 = !{!"_ZTSN12cmStateEnums12TargetDomainE", !8, i64 0}
-!50 = !{!51, !15, i64 0}
-!51 = !{!"_ZTSSt12_Base_bitsetILm1EE", !15, i64 0}
-!52 = distinct !{!52, !47}
+!47 = !{!48, !48, i64 0}
+!48 = !{!"_ZTSN12cmStateEnums12TargetDomainE", !8, i64 0}
+!49 = !{!50, !15, i64 0}
+!50 = !{!"_ZTSSt12_Base_bitsetILm1EE", !15, i64 0}

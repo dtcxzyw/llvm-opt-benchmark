@@ -396,7 +396,7 @@ fmap_readn.exit161.thread:                        ; preds = %126, %124, %fmap_re
   store i32 %136, ptr %3, align 4, !tbaa !3
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.34, i32 noundef %136) #7
   %137 = add i64 %.3172, 4
-  br i1 %.2122, label %.thread188, label %13, !llvm.loop !31
+  br i1 %.2122, label %.thread188, label %13
 
 fmap_readn.exit.thread:                           ; preds = %15, %13, %fmap_readn.exit, %.thread175, %71
   %.1.ph = phi i64 [ %55, %71 ], [ %.3174179, %.thread175 ], [ %.0, %fmap_readn.exit ], [ %.0, %13 ], [ %.0, %15 ]
@@ -501,5 +501,3 @@ attributes #7 = { nounwind }
 !28 = !{!29, !4, i64 8}
 !29 = !{!"cl_scan_options", !4, i64 0, !4, i64 4, !4, i64 8, !4, i64 12, !4, i64 16}
 !30 = !{!5, !5, i64 0}
-!31 = distinct !{!31, !32}
-!32 = !{!"llvm.loop.estimated_trip_count"}

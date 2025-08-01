@@ -3115,9 +3115,9 @@ rb_scan_args_set.exit:                            ; preds = %.preheader.split.sp
 20:                                               ; preds = %18
   %21 = tail call i32 @BN_bn2mpi(ptr noundef nonnull %15, ptr noundef null) #11
   %22 = sext i32 %21 to i64
-  %23 = tail call i64 @rb_str_new(ptr noundef null, i64 noundef %22) #11, !callees !30
+  %23 = tail call i64 @rb_str_new(ptr noundef null, i64 noundef %22) #11, !callees !29
   %24 = inttoptr i64 %23 to ptr
-  %25 = load i64, ptr %24, align 8, !tbaa !15, !noalias !31
+  %25 = load i64, ptr %24, align 8, !tbaa !15, !noalias !30
   %26 = and i64 %25, 8192
   %.not.i.i = icmp eq i64 %26, 0
   %27 = getelementptr inbounds nuw i8, ptr %24, i64 24
@@ -3143,9 +3143,9 @@ RSTRING_PTR.exit:                                 ; preds = %20, %28
   %34 = add nsw i32 %33, 7
   %35 = sdiv i32 %34, 8
   %36 = sext i32 %35 to i64
-  %37 = tail call i64 @rb_str_new(ptr noundef null, i64 noundef %36) #11, !callees !30
+  %37 = tail call i64 @rb_str_new(ptr noundef null, i64 noundef %36) #11, !callees !29
   %38 = inttoptr i64 %37 to ptr
-  %39 = load i64, ptr %38, align 8, !tbaa !15, !noalias !34
+  %39 = load i64, ptr %38, align 8, !tbaa !15, !noalias !33
   %40 = and i64 %39, 8192
   %.not.i.i34 = icmp eq i64 %40, 0
   %41 = getelementptr inbounds nuw i8, ptr %38, i64 24
@@ -3419,11 +3419,11 @@ define internal fastcc nonnull ptr @integer_to_bnptr(i64 noundef %0, ptr noundef
   %.02733 = phi i64 [ %8, %6 ], [ %12, %9 ]
   %10 = trunc i64 %.02733 to i8
   %11 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 0, i64 %.02634
-  store i8 %10, ptr %11, align 1, !tbaa !37
+  store i8 %10, ptr %11, align 1, !tbaa !36
   %12 = lshr i64 %.02733, 8
   %13 = add nsw i64 %.02634, -1
   %.not35 = icmp eq i64 %.02634, 0
-  br i1 %.not35, label %14, label %9, !llvm.loop !38
+  br i1 %.not35, label %14, label %9, !llvm.loop !37
 
 14:                                               ; preds = %9
   %15 = call ptr @BN_bin2bn(ptr noundef nonnull %3, i32 noundef 8, ptr noundef %1) #11
@@ -3709,15 +3709,14 @@ attributes #16 = { nounwind allocsize(1,2) }
 !24 = !{!"RString", !12, i64 0, !7, i64 16, !8, i64 24}
 !25 = !{!26, !26, i64 0}
 !26 = !{!"p1 long", !14, i64 0}
-!27 = distinct !{!27, !28, !29}
+!27 = distinct !{!27, !28}
 !28 = !{!"llvm.loop.mustprogress"}
-!29 = !{!"llvm.loop.estimated_trip_count"}
-!30 = distinct !{ptr @rb_str_new, null}
-!31 = !{!32}
-!32 = distinct !{!32, !33, !"rbimpl_rstring_getmem: argument 0"}
-!33 = distinct !{!33, !"rbimpl_rstring_getmem"}
-!34 = !{!35}
-!35 = distinct !{!35, !36, !"rbimpl_rstring_getmem: argument 0"}
-!36 = distinct !{!36, !"rbimpl_rstring_getmem"}
-!37 = !{!8, !8, i64 0}
-!38 = distinct !{!38, !28, !29}
+!29 = distinct !{ptr @rb_str_new, null}
+!30 = !{!31}
+!31 = distinct !{!31, !32, !"rbimpl_rstring_getmem: argument 0"}
+!32 = distinct !{!32, !"rbimpl_rstring_getmem"}
+!33 = !{!34}
+!34 = distinct !{!34, !35, !"rbimpl_rstring_getmem: argument 0"}
+!35 = distinct !{!35, !"rbimpl_rstring_getmem"}
+!36 = !{!8, !8, i64 0}
+!37 = distinct !{!37, !28}

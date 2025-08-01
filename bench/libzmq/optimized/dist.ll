@@ -780,7 +780,7 @@ define void @_ZN3zmq6dist_t10distributeEPNS_5msg_tE(ptr noundef nonnull align 8 
 
 8:                                                ; preds = %6
   %9 = tail call ptr @__errno_location() #26
-  %10 = load i32, ptr %9, align 4, !tbaa !37
+  %10 = load i32, ptr %9, align 4, !tbaa !36
   %11 = tail call ptr @strerror(i32 noundef %10) #23
   %12 = load ptr, ptr @stderr, align 8, !tbaa !10
   %13 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %12, ptr noundef nonnull @.str.3, ptr noundef %11, ptr noundef nonnull @.str.2, i32 noundef 149) #20
@@ -818,7 +818,7 @@ define void @_ZN3zmq6dist_t10distributeEPNS_5msg_tE(ptr noundef nonnull align 8 
   %spec.select = add nuw i64 %.040, %26
   %27 = load i64, ptr %3, align 8, !tbaa !33
   %28 = icmp ult i64 %spec.select, %27
-  br i1 %28, label %.lr.ph41, label %._crit_edge42, !llvm.loop !38
+  br i1 %28, label %.lr.ph41, label %._crit_edge42, !llvm.loop !37
 
 29:                                               ; preds = %18
   %30 = trunc i64 %20 to i32
@@ -830,7 +830,7 @@ define void @_ZN3zmq6dist_t10distributeEPNS_5msg_tE(ptr noundef nonnull align 8 
 
 ._crit_edge:                                      ; preds = %.lr.ph
   %.not = icmp eq i32 %.133, 0
-  br i1 %.not, label %._crit_edge.thread, label %41, !prof !39
+  br i1 %.not, label %._crit_edge.thread, label %41, !prof !38
 
 .lr.ph:                                           ; preds = %29, %.lr.ph
   %.03039 = phi i64 [ %.131, %.lr.ph ], [ 0, %29 ]
@@ -846,7 +846,7 @@ define void @_ZN3zmq6dist_t10distributeEPNS_5msg_tE(ptr noundef nonnull align 8 
   %.131 = add nuw i64 %.03039, %38
   %39 = load i64, ptr %3, align 8, !tbaa !33
   %40 = icmp ult i64 %.131, %39
-  br i1 %40, label %.lr.ph, label %._crit_edge, !llvm.loop !40
+  br i1 %40, label %.lr.ph, label %._crit_edge, !llvm.loop !39
 
 41:                                               ; preds = %._crit_edge
   %42 = tail call noundef zeroext i1 @_ZN3zmq5msg_t7rm_refsEi(ptr noundef nonnull align 8 dereferenceable(64) %1, i32 noundef %.133)
@@ -860,7 +860,7 @@ define void @_ZN3zmq6dist_t10distributeEPNS_5msg_tE(ptr noundef nonnull align 8 
 .sink.split:                                      ; preds = %._crit_edge.thread, %._crit_edge42, %16
   %.sink50 = phi i32 [ 151, %16 ], [ 164, %._crit_edge42 ], [ 188, %._crit_edge.thread ]
   %44 = tail call ptr @__errno_location() #26
-  %45 = load i32, ptr %44, align 4, !tbaa !37
+  %45 = load i32, ptr %44, align 4, !tbaa !36
   %46 = tail call ptr @strerror(i32 noundef %45) #23
   %47 = load ptr, ptr @stderr, align 8, !tbaa !10
   %48 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %47, ptr noundef nonnull @.str.3, ptr noundef %46, ptr noundef nonnull @.str.2, i32 noundef %.sink50) #20
@@ -1022,7 +1022,7 @@ define noundef zeroext i1 @_ZN3zmq6dist_t9check_hwmEv(ptr noundef nonnull readon
   %6 = add nuw i64 %.057, 1
   %7 = load i64, ptr %2, align 8, !tbaa !33
   %.not = icmp ult i64 %6, %7
-  br i1 %.not, label %.lr.ph, label %._crit_edge, !llvm.loop !41
+  br i1 %.not, label %.lr.ph, label %._crit_edge, !llvm.loop !40
 
 .lr.ph:                                           ; preds = %1, %5
   %.057 = phi i64 [ %6, %5 ], [ 0, %1 ]
@@ -1127,11 +1127,10 @@ attributes #26 = { nounwind willreturn memory(none) }
 !31 = !{!15, !20, i64 40}
 !32 = !{!15, !20, i64 32}
 !33 = !{!15, !20, i64 24}
-!34 = distinct !{!34, !35, !36}
+!34 = distinct !{!34, !35}
 !35 = !{!"llvm.loop.mustprogress"}
-!36 = !{!"llvm.loop.estimated_trip_count"}
-!37 = !{!27, !27, i64 0}
-!38 = distinct !{!38, !35, !36}
-!39 = !{!"branch_weights", !"expected", i32 2145766520, i32 1717128}
-!40 = distinct !{!40, !35, !36}
-!41 = distinct !{!41, !35, !36}
+!36 = !{!27, !27, i64 0}
+!37 = distinct !{!37, !35}
+!38 = !{!"branch_weights", !"expected", i32 2145766520, i32 1717128}
+!39 = distinct !{!39, !35}
+!40 = distinct !{!40, !35}

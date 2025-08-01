@@ -148,7 +148,7 @@ define dso_local i32 @cmd_diff_tree(i32 noundef %0, ptr noundef %1, ptr noundef 
   %.133 = phi i32 [ %.03262, %.lr.ph ], [ 1, %46 ]
   %.131 = phi i32 [ 1, %.lr.ph ], [ %.03063, %46 ]
   %50 = icmp samesign ugt i32 %.in, 2
-  br i1 %50, label %.lr.ph, label %._crit_edge, !llvm.loop !83
+  br i1 %50, label %.lr.ph, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %49
   %51 = icmp ne i32 %.131, 0
@@ -176,7 +176,7 @@ define dso_local i32 @cmd_diff_tree(i32 noundef %0, ptr noundef %1, ptr noundef 
   %60 = phi i32 [ %41, %.thread79 ], [ %56, %55 ]
   %.032.lcssa7785 = phi i1 [ false, %.thread79 ], [ %52, %55 ]
   %.030.lcssa7884 = phi i1 [ false, %.thread79 ], [ %51, %55 ]
-  store i32 1, ptr getelementptr inbounds nuw (i8, ptr @log_tree_opt, i64 1492), align 4, !tbaa !85
+  store i32 1, ptr getelementptr inbounds nuw (i8, ptr @log_tree_opt, i64 1492), align 4, !tbaa !83
   switch i32 %60, label %diff_tree_commit_oid.exit [
     i32 0, label %61
     i32 1, label %63
@@ -191,8 +191,8 @@ define dso_local i32 @cmd_diff_tree(i32 noundef %0, ptr noundef %1, ptr noundef 
   unreachable
 
 63:                                               ; preds = %59
-  %64 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @log_tree_opt, i64 16), align 8, !tbaa !86
-  %65 = load ptr, ptr %64, align 8, !tbaa !87
+  %64 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @log_tree_opt, i64 16), align 8, !tbaa !84
+  %65 = load ptr, ptr %64, align 8, !tbaa !85
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 4
   %67 = load ptr, ptr @the_repository, align 8, !tbaa !4
   %68 = call ptr @lookup_commit_reference(ptr noundef %67, ptr noundef nonnull %66) #11
@@ -204,9 +204,9 @@ define dso_local i32 @cmd_diff_tree(i32 noundef %0, ptr noundef %1, ptr noundef 
   br label %diff_tree_commit_oid.exit
 
 71:                                               ; preds = %59
-  %72 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @log_tree_opt, i64 16), align 8, !tbaa !86
+  %72 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @log_tree_opt, i64 16), align 8, !tbaa !84
   %73 = getelementptr inbounds nuw i8, ptr %72, i64 32
-  %74 = load ptr, ptr %73, align 8, !tbaa !87
+  %74 = load ptr, ptr %73, align 8, !tbaa !85
   br i1 %.032.lcssa7785, label %75, label %78
 
 75:                                               ; preds = %71
@@ -218,7 +218,7 @@ define dso_local i32 @cmd_diff_tree(i32 noundef %0, ptr noundef %1, ptr noundef 
   br label %82
 
 78:                                               ; preds = %71
-  %79 = load ptr, ptr %72, align 8, !tbaa !87
+  %79 = load ptr, ptr %72, align 8, !tbaa !85
   %80 = load i32, ptr %74, align 4
   %81 = and i32 %80, 32
   %.not44 = icmp eq i32 %81, 0
@@ -239,17 +239,17 @@ diff_tree_commit_oid.exit:                        ; preds = %69, %63, %82, %59
   br i1 %.030.lcssa7884, label %.critedge, label %192
 
 .critedge:                                        ; preds = %61, %diff_tree_commit_oid.exit
-  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @log_tree_opt, i64 1492), align 4, !tbaa !85
-  store i32 1, ptr getelementptr inbounds nuw (i8, ptr @log_tree_opt, i64 2056), align 8, !tbaa !90
-  %86 = load i32, ptr getelementptr inbounds nuw (i8, ptr @log_tree_opt, i64 1732), align 4, !tbaa !91
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @log_tree_opt, i64 1492), align 4, !tbaa !83
+  store i32 1, ptr getelementptr inbounds nuw (i8, ptr @log_tree_opt, i64 2056), align 8, !tbaa !88
+  %86 = load i32, ptr getelementptr inbounds nuw (i8, ptr @log_tree_opt, i64 1732), align 4, !tbaa !89
   %.not45 = icmp eq i32 %86, 0
   br i1 %.not45, label %97, label %87
 
 87:                                               ; preds = %.critedge
   %88 = load ptr, ptr @the_repository, align 8, !tbaa !4
   %89 = getelementptr inbounds nuw i8, ptr %88, i64 384
-  %90 = load ptr, ptr %89, align 8, !tbaa !92
-  %91 = load ptr, ptr %90, align 8, !tbaa !93
+  %90 = load ptr, ptr %89, align 8, !tbaa !90
+  %91 = load ptr, ptr %90, align 8, !tbaa !91
   %.not46 = icmp eq ptr %91, null
   br i1 %.not46, label %94, label %92
 
@@ -258,13 +258,13 @@ diff_tree_commit_oid.exit:                        ; preds = %69, %63, %82, %59
   br label %94
 
 94:                                               ; preds = %92, %87
-  %95 = load i32, ptr getelementptr inbounds nuw (i8, ptr @log_tree_opt, i64 1776), align 8, !tbaa !104
+  %95 = load i32, ptr getelementptr inbounds nuw (i8, ptr @log_tree_opt, i64 1776), align 8, !tbaa !102
   %96 = or i32 %95, 4
-  store i32 %96, ptr getelementptr inbounds nuw (i8, ptr @log_tree_opt, i64 1776), align 8, !tbaa !104
+  store i32 %96, ptr getelementptr inbounds nuw (i8, ptr @log_tree_opt, i64 1776), align 8, !tbaa !102
   br label %97
 
 97:                                               ; preds = %94, %.critedge
-  %98 = load ptr, ptr @stdin, align 8, !tbaa !105
+  %98 = load ptr, ptr @stdin, align 8, !tbaa !103
   %99 = call ptr @fgets(ptr noundef nonnull %11, i32 noundef 1000, ptr noundef %98)
   %.not4766 = icmp eq ptr %99, null
   br i1 %.not4766, label %._crit_edge71, label %.lr.ph70
@@ -278,9 +278,9 @@ diff_tree_commit_oid.exit:                        ; preds = %69, %63, %82, %59
   br i1 %.not48, label %106, label %101
 
 101:                                              ; preds = %.lr.ph70
-  %102 = load ptr, ptr @stdout, align 8, !tbaa !105
+  %102 = load ptr, ptr @stdout, align 8, !tbaa !103
   %103 = call i32 @fputs(ptr noundef nonnull %11, ptr noundef %102)
-  %104 = load ptr, ptr @stdout, align 8, !tbaa !105
+  %104 = load ptr, ptr @stdout, align 8, !tbaa !103
   %105 = call i32 @fflush(ptr noundef %104)
   br label %189
 
@@ -297,12 +297,12 @@ diff_tree_commit_oid.exit:                        ; preds = %69, %63, %82, %59
   %sext.i = add i64 %110, -4294967296
   %111 = ashr exact i64 %sext.i, 32
   %112 = getelementptr inbounds i8, ptr %11, i64 %111
-  %113 = load i8, ptr %112, align 1, !tbaa !106
+  %113 = load i8, ptr %112, align 1, !tbaa !104
   %.not16.i = icmp eq i8 %113, 10
   br i1 %.not16.i, label %114, label %diff_tree_stdin.exit
 
 114:                                              ; preds = %109
-  store i8 0, ptr %112, align 1, !tbaa !106
+  store i8 0, ptr %112, align 1, !tbaa !104
   %115 = call i32 @parse_oid_hex(ptr noundef nonnull %11, ptr noundef nonnull %9, ptr noundef nonnull %10) #11
   %.not17.i = icmp eq i32 %115, 0
   br i1 %.not17.i, label %116, label %diff_tree_stdin.exit
@@ -328,10 +328,10 @@ diff_tree_commit_oid.exit:                        ; preds = %69, %63, %82, %59
   call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %8) #11
   %125 = getelementptr inbounds nuw i8, ptr %124, i64 1
   store ptr %125, ptr %7, align 8, !tbaa !80
-  %126 = load i8, ptr %124, align 1, !tbaa !106
+  %126 = load i8, ptr %124, align 1, !tbaa !104
   %127 = zext i8 %126 to i64
   %128 = getelementptr inbounds nuw [256 x i8], ptr @sane_ctype, i64 0, i64 %127
-  %129 = load i8, ptr %128, align 1, !tbaa !106
+  %129 = load i8, ptr %128, align 1, !tbaa !104
   %130 = and i8 %129, 1
   %.not12.i.i = icmp eq i8 %130, 0
   br i1 %.not12.i.i, label %stdin_diff_commit.exit.i, label %.lr.ph.i.i
@@ -354,9 +354,9 @@ diff_tree_commit_oid.exit:                        ; preds = %69, %63, %82, %59
   br i1 %.not10.i.i, label %138, label %140
 
 138:                                              ; preds = %135
-  %139 = load ptr, ptr %131, align 8, !tbaa !107
+  %139 = load ptr, ptr %131, align 8, !tbaa !105
   call void @free_commit_list(ptr noundef %139) #11
-  store ptr null, ptr %131, align 8, !tbaa !107
+  store ptr null, ptr %131, align 8, !tbaa !105
   br label %140
 
 140:                                              ; preds = %138, %135
@@ -374,13 +374,13 @@ diff_tree_commit_oid.exit:                        ; preds = %69, %63, %82, %59
   %145 = load ptr, ptr %7, align 8, !tbaa !80
   %146 = getelementptr inbounds nuw i8, ptr %145, i64 1
   store ptr %146, ptr %7, align 8, !tbaa !80
-  %147 = load i8, ptr %145, align 1, !tbaa !106
+  %147 = load i8, ptr %145, align 1, !tbaa !104
   %148 = zext i8 %147 to i64
   %149 = getelementptr inbounds nuw [256 x i8], ptr @sane_ctype, i64 0, i64 %148
-  %150 = load i8, ptr %149, align 1, !tbaa !106
+  %150 = load i8, ptr %149, align 1, !tbaa !104
   %151 = and i8 %150, 1
   %.not.i.i = icmp eq i8 %151, 0
-  br i1 %.not.i.i, label %stdin_diff_commit.exit.i, label %132, !llvm.loop !111
+  br i1 %.not.i.i, label %stdin_diff_commit.exit.i, label %132, !llvm.loop !109
 
 stdin_diff_commit.exit.i:                         ; preds = %144, %132, %123
   %152 = call i32 @log_tree_commit(ptr noundef nonnull @log_tree_opt, ptr noundef nonnull %118) #11
@@ -394,10 +394,10 @@ stdin_diff_commit.exit.i:                         ; preds = %144, %132, %123
   call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %6) #11
   %155 = getelementptr inbounds nuw i8, ptr %154, i64 1
   store ptr %155, ptr %5, align 8, !tbaa !80
-  %156 = load i8, ptr %154, align 1, !tbaa !106
+  %156 = load i8, ptr %154, align 1, !tbaa !104
   %157 = zext i8 %156 to i64
   %158 = getelementptr inbounds nuw [256 x i8], ptr @sane_ctype, i64 0, i64 %157
-  %159 = load i8, ptr %158, align 1, !tbaa !106
+  %159 = load i8, ptr %158, align 1, !tbaa !104
   %160 = and i8 %159, 1
   %.not.i19.i = icmp eq i8 %160, 0
   br i1 %.not.i19.i, label %166, label %161
@@ -409,7 +409,7 @@ stdin_diff_commit.exit.i:                         ; preds = %144, %132, %123
 
 163:                                              ; preds = %161
   %164 = load ptr, ptr %5, align 8, !tbaa !80
-  %165 = load i8, ptr %164, align 1, !tbaa !106
+  %165 = load i8, ptr %164, align 1, !tbaa !104
   %.not8.i.i = icmp eq i8 %165, 0
   br i1 %.not8.i.i, label %168, label %166
 
@@ -455,9 +455,9 @@ stdin_diff_trees.exit.i:                          ; preds = %173, %171, %168, %1
 diff_tree_stdin.exit:                             ; preds = %106, %109, %114, %116, %stdin_diff_commit.exit.i, %stdin_diff_trees.exit.i, %180
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #11
   call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %9) #11
-  %187 = load i32, ptr getelementptr inbounds nuw (i8, ptr @log_tree_opt, i64 1760), align 8, !tbaa !112
+  %187 = load i32, ptr getelementptr inbounds nuw (i8, ptr @log_tree_opt, i64 1760), align 8, !tbaa !110
   %spec.select55 = call i32 @llvm.smax.i32(i32 %.02667, i32 %187)
-  %188 = load i32, ptr getelementptr inbounds nuw (i8, ptr @log_tree_opt, i64 1764), align 4, !tbaa !113
+  %188 = load i32, ptr getelementptr inbounds nuw (i8, ptr @log_tree_opt, i64 1764), align 4, !tbaa !111
   %.not49 = icmp eq i32 %188, 0
   %spec.select56 = select i1 %.not49, i32 %.068, i32 1
   br label %189
@@ -466,17 +466,17 @@ diff_tree_stdin.exit:                             ; preds = %106, %109, %114, %1
   %.127 = phi i32 [ %.02667, %101 ], [ %spec.select55, %diff_tree_stdin.exit ]
   %.1 = phi i32 [ %.068, %101 ], [ %spec.select56, %diff_tree_stdin.exit ]
   call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %15) #11
-  %190 = load ptr, ptr @stdin, align 8, !tbaa !105
+  %190 = load ptr, ptr @stdin, align 8, !tbaa !103
   %191 = call ptr @fgets(ptr noundef nonnull %11, i32 noundef 1000, ptr noundef %190)
   %.not47 = icmp eq ptr %191, null
-  br i1 %.not47, label %._crit_edge71, label %.lr.ph70, !llvm.loop !114
+  br i1 %.not47, label %._crit_edge71, label %.lr.ph70, !llvm.loop !112
 
 ._crit_edge71:                                    ; preds = %189, %97
   %.026.lcssa = phi i32 [ 0, %97 ], [ %.127, %189 ]
   %.0.lcssa = phi i32 [ 0, %97 ], [ %.1, %189 ]
-  store i32 %.0.lcssa, ptr getelementptr inbounds nuw (i8, ptr @log_tree_opt, i64 1764), align 4, !tbaa !113
-  store i32 %.026.lcssa, ptr getelementptr inbounds nuw (i8, ptr @log_tree_opt, i64 1760), align 8, !tbaa !112
-  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @log_tree_opt, i64 2056), align 8, !tbaa !90
+  store i32 %.0.lcssa, ptr getelementptr inbounds nuw (i8, ptr @log_tree_opt, i64 1764), align 4, !tbaa !111
+  store i32 %.026.lcssa, ptr getelementptr inbounds nuw (i8, ptr @log_tree_opt, i64 1760), align 8, !tbaa !110
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @log_tree_opt, i64 2056), align 8, !tbaa !88
   call void @diff_free(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @log_tree_opt, i64 1472)) #11
   br label %192
 
@@ -506,12 +506,12 @@ declare void @die(ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: inlinehint nounwind uwtable
 define internal fastcc ptr @_(ptr noundef %0) unnamed_addr #4 {
-  %2 = load i8, ptr %0, align 1, !tbaa !106
+  %2 = load i8, ptr %0, align 1, !tbaa !104
   %.not = icmp eq i8 %2, 0
   br i1 %.not, label %7, label %3
 
 3:                                                ; preds = %1
-  %4 = load i32, ptr @git_gettext_enabled, align 4, !tbaa !115
+  %4 = load i32, ptr @git_gettext_enabled, align 4, !tbaa !113
   %.not4 = icmp eq i32 %4, 0
   br i1 %.not4, label %7, label %5
 
@@ -530,7 +530,7 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal void @diff_tree_tweak_rev(ptr noundef captures(none) %0) #6 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1748
-  %3 = load i32, ptr %2, align 4, !tbaa !116
+  %3 = load i32, ptr %2, align 4, !tbaa !114
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %.sink.split, label %7
 
@@ -540,7 +540,7 @@ define internal void @diff_tree_tweak_rev(ptr noundef captures(none) %0) #6 {
   %6 = and i64 %5, 144115188075855872
   %.not4 = icmp eq i64 %6, 0
   %. = select i1 %.not4, i32 1, i32 16
-  store i32 %., ptr %2, align 4, !tbaa !116
+  store i32 %., ptr %2, align 4, !tbaa !114
   br label %7
 
 7:                                                ; preds = %.sink.split, %1
@@ -723,37 +723,35 @@ attributes #13 = { nounwind willreturn memory(read) }
 !80 = !{!11, !11, i64 0}
 !81 = distinct !{!81, !82}
 !82 = !{!"llvm.loop.mustprogress"}
-!83 = distinct !{!83, !84}
-!84 = !{!"llvm.loop.estimated_trip_count"}
-!85 = !{!31, !18, i64 1492}
-!86 = !{!31, !34, i64 16}
-!87 = !{!88, !89, i64 0}
-!88 = !{!"object_array_entry", !89, i64 0, !11, i64 8, !11, i64 16, !18, i64 24}
-!89 = !{!"p1 _ZTS6object", !6, i64 0}
-!90 = !{!31, !18, i64 2056}
-!91 = !{!31, !18, i64 1732}
-!92 = !{!10, !26, i64 384}
-!93 = !{!94, !95, i64 0}
-!94 = !{!"index_state", !95, i64 0, !18, i64 8, !18, i64 12, !18, i64 16, !18, i64 20, !50, i64 24, !96, i64 32, !97, i64 40, !98, i64 48, !18, i64 56, !18, i64 56, !18, i64 56, !18, i64 56, !18, i64 56, !18, i64 56, !18, i64 60, !16, i64 64, !16, i64 112, !99, i64 160, !100, i64 200, !11, i64 208, !101, i64 216, !19, i64 224, !102, i64 232, !5, i64 240, !103, i64 248}
-!95 = !{!"p2 _ZTS11cache_entry", !6, i64 0}
-!96 = !{!"p1 _ZTS10cache_tree", !6, i64 0}
-!97 = !{!"p1 _ZTS11split_index", !6, i64 0}
-!98 = !{!"cache_time", !18, i64 0, !18, i64 4}
-!99 = !{!"object_id", !7, i64 0, !18, i64 32}
-!100 = !{!"p1 _ZTS15untracked_cache", !6, i64 0}
-!101 = !{!"p1 _ZTS11ewah_bitmap", !6, i64 0}
-!102 = !{!"p1 _ZTS8progress", !6, i64 0}
-!103 = !{!"p1 _ZTS12pattern_list", !6, i64 0}
-!104 = !{!31, !18, i64 1776}
-!105 = !{!60, !60, i64 0}
-!106 = !{!7, !7, i64 0}
-!107 = !{!108, !32, i64 48}
-!108 = !{!"commit", !109, i64 0, !23, i64 40, !32, i64 48, !110, i64 56, !18, i64 64}
-!109 = !{!"object", !18, i64 0, !18, i64 0, !18, i64 0, !99, i64 4}
-!110 = !{!"p1 _ZTS4tree", !6, i64 0}
-!111 = distinct !{!111, !82, !84}
-!112 = !{!31, !18, i64 1760}
-!113 = !{!31, !18, i64 1764}
-!114 = distinct !{!114, !82, !84}
-!115 = !{!18, !18, i64 0}
-!116 = !{!31, !18, i64 1748}
+!83 = !{!31, !18, i64 1492}
+!84 = !{!31, !34, i64 16}
+!85 = !{!86, !87, i64 0}
+!86 = !{!"object_array_entry", !87, i64 0, !11, i64 8, !11, i64 16, !18, i64 24}
+!87 = !{!"p1 _ZTS6object", !6, i64 0}
+!88 = !{!31, !18, i64 2056}
+!89 = !{!31, !18, i64 1732}
+!90 = !{!10, !26, i64 384}
+!91 = !{!92, !93, i64 0}
+!92 = !{!"index_state", !93, i64 0, !18, i64 8, !18, i64 12, !18, i64 16, !18, i64 20, !50, i64 24, !94, i64 32, !95, i64 40, !96, i64 48, !18, i64 56, !18, i64 56, !18, i64 56, !18, i64 56, !18, i64 56, !18, i64 56, !18, i64 60, !16, i64 64, !16, i64 112, !97, i64 160, !98, i64 200, !11, i64 208, !99, i64 216, !19, i64 224, !100, i64 232, !5, i64 240, !101, i64 248}
+!93 = !{!"p2 _ZTS11cache_entry", !6, i64 0}
+!94 = !{!"p1 _ZTS10cache_tree", !6, i64 0}
+!95 = !{!"p1 _ZTS11split_index", !6, i64 0}
+!96 = !{!"cache_time", !18, i64 0, !18, i64 4}
+!97 = !{!"object_id", !7, i64 0, !18, i64 32}
+!98 = !{!"p1 _ZTS15untracked_cache", !6, i64 0}
+!99 = !{!"p1 _ZTS11ewah_bitmap", !6, i64 0}
+!100 = !{!"p1 _ZTS8progress", !6, i64 0}
+!101 = !{!"p1 _ZTS12pattern_list", !6, i64 0}
+!102 = !{!31, !18, i64 1776}
+!103 = !{!60, !60, i64 0}
+!104 = !{!7, !7, i64 0}
+!105 = !{!106, !32, i64 48}
+!106 = !{!"commit", !107, i64 0, !23, i64 40, !32, i64 48, !108, i64 56, !18, i64 64}
+!107 = !{!"object", !18, i64 0, !18, i64 0, !18, i64 0, !97, i64 4}
+!108 = !{!"p1 _ZTS4tree", !6, i64 0}
+!109 = distinct !{!109, !82}
+!110 = !{!31, !18, i64 1760}
+!111 = !{!31, !18, i64 1764}
+!112 = distinct !{!112, !82}
+!113 = !{!18, !18, i64 0}
+!114 = !{!31, !18, i64 1748}

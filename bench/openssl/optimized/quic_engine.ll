@@ -190,9 +190,9 @@ declare i32 @ossl_quic_port_update_poll_descriptors(ptr noundef, i32 noundef) lo
 define ptr @ossl_quic_engine_create_port(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca %struct.quic_port_args_st, align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3) #10
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %3, ptr noundef nonnull align 8 dereferenceable(40) %1, i64 40, i1 false), !tbaa.struct !33
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %3, ptr noundef nonnull align 8 dereferenceable(40) %1, i64 40, i1 false), !tbaa.struct !32
   %4 = getelementptr i8, ptr %0, i64 152
-  %.val = load i64, ptr %4, align 8, !tbaa !40
+  %.val = load i64, ptr %4, align 8, !tbaa !39
   %.not = icmp eq i64 %.val, 0
   %5 = load ptr, ptr %3, align 8
   %.not4 = icmp eq ptr %5, null
@@ -200,7 +200,7 @@ define ptr @ossl_quic_engine_create_port(ptr noundef %0, ptr noundef readonly ca
   br i1 %or.cond, label %6, label %8
 
 6:                                                ; preds = %2
-  store ptr %0, ptr %3, align 8, !tbaa !41
+  store ptr %0, ptr %3, align 8, !tbaa !40
   %7 = call ptr @ossl_quic_port_new(ptr noundef nonnull %3) #10
   br label %8
 
@@ -218,12 +218,12 @@ declare i32 @ossl_quic_reactor_init(ptr noundef, ptr noundef, ptr noundef, ptr n
 define internal void @qeng_tick(ptr noundef captures(none) initializes((0, 11)) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) #0 {
   %4 = alloca %struct.quic_tick_result_st, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i8 0, ptr %5, align 8, !tbaa !43
+  store i8 0, ptr %5, align 8, !tbaa !42
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 9
-  store i8 0, ptr %6, align 1, !tbaa !45
+  store i8 0, ptr %6, align 1, !tbaa !44
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 10
-  store i8 0, ptr %7, align 2, !tbaa !46
-  store i64 -1, ptr %0, align 8, !tbaa !47
+  store i8 0, ptr %7, align 2, !tbaa !45
+  store i64 -1, ptr %0, align 8, !tbaa !46
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 160
   %9 = load i8, ptr %8, align 8
   %10 = and i8 %9, 1
@@ -247,36 +247,36 @@ ossl_quic_tick_result_merge_into.exit:            ; preds = %ossl_quic_tick_resu
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #10
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false)
   call void @ossl_quic_port_subtick(ptr noundef nonnull %.016, ptr noundef nonnull %4, i32 noundef %2) #10
-  %16 = load i8, ptr %5, align 8, !tbaa !43
+  %16 = load i8, ptr %5, align 8, !tbaa !42
   %.not.i = icmp ne i8 %16, 0
   %17 = load i8, ptr %13, align 8
   %18 = icmp ne i8 %17, 0
   %narrow = select i1 %.not.i, i1 true, i1 %18
   %19 = zext i1 %narrow to i8
-  store i8 %19, ptr %5, align 8, !tbaa !43
-  %20 = load i8, ptr %6, align 1, !tbaa !45
+  store i8 %19, ptr %5, align 8, !tbaa !42
+  %20 = load i8, ptr %6, align 1, !tbaa !44
   %.not12.i = icmp ne i8 %20, 0
   %21 = load i8, ptr %14, align 1
   %22 = icmp ne i8 %21, 0
   %narrow12 = select i1 %.not12.i, i1 true, i1 %22
   %23 = zext i1 %narrow12 to i8
-  store i8 %23, ptr %6, align 1, !tbaa !45
-  %24 = load i8, ptr %7, align 2, !tbaa !46
+  store i8 %23, ptr %6, align 1, !tbaa !44
+  %24 = load i8, ptr %7, align 2, !tbaa !45
   %.not13.i = icmp ne i8 %24, 0
   %25 = load i8, ptr %15, align 2
   %26 = icmp ne i8 %25, 0
   %narrow13 = select i1 %.not13.i, i1 true, i1 %26
   %27 = zext i1 %narrow13 to i8
-  store i8 %27, ptr %7, align 2, !tbaa !46
+  store i8 %27, ptr %7, align 2, !tbaa !45
   %28 = load i64, ptr %0, align 8
   %29 = load i64, ptr %4, align 8
   %..i.i = call i64 @llvm.umin.i64(i64 %28, i64 %29)
-  store i64 %..i.i, ptr %0, align 8, !tbaa !47
+  store i64 %..i.i, ptr %0, align 8, !tbaa !46
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #10
   %30 = getelementptr i8, ptr %.016, i64 8
   %.0 = load ptr, ptr %30, align 8, !tbaa !29
   %.not11 = icmp eq ptr %.0, null
-  br i1 %.not11, label %.loopexit, label %ossl_quic_tick_result_merge_into.exit, !llvm.loop !48
+  br i1 %.not11, label %.loopexit, label %ossl_quic_tick_result_merge_into.exit, !llvm.loop !47
 
 .loopexit:                                        ; preds = %ossl_quic_tick_result_merge_into.exit, %11, %3
   ret void
@@ -342,22 +342,21 @@ attributes #10 = { nounwind }
 !27 = !{!13, !6, i64 24}
 !28 = !{!13, !6, i64 32}
 !29 = !{!21, !21, i64 0}
-!30 = distinct !{!30, !31, !32}
+!30 = distinct !{!30, !31}
 !31 = !{!"llvm.loop.mustprogress"}
-!32 = !{!"llvm.loop.estimated_trip_count"}
-!33 = !{i64 0, i64 8, !34, i64 8, i64 8, !36, i64 16, i64 8, !36, i64 24, i64 8, !37, i64 32, i64 4, !39, i64 36, i64 4, !39}
-!34 = !{!35, !35, i64 0}
-!35 = !{!"p1 _ZTS14quic_engine_st", !6, i64 0}
-!36 = !{!6, !6, i64 0}
-!37 = !{!38, !38, i64 0}
-!38 = !{!"p1 _ZTS10ssl_ctx_st", !6, i64 0}
-!39 = !{!16, !16, i64 0}
-!40 = !{!20, !11, i64 16}
-!41 = !{!42, !35, i64 0}
-!42 = !{!"quic_port_args_st", !35, i64 0, !6, i64 8, !6, i64 16, !38, i64 24, !16, i64 32, !16, i64 36}
-!43 = !{!44, !7, i64 8}
-!44 = !{!"quic_tick_result_st", !17, i64 0, !7, i64 8, !7, i64 9, !7, i64 10}
-!45 = !{!44, !7, i64 9}
-!46 = !{!44, !7, i64 10}
-!47 = !{!11, !11, i64 0}
-!48 = distinct !{!48, !31, !32}
+!32 = !{i64 0, i64 8, !33, i64 8, i64 8, !35, i64 16, i64 8, !35, i64 24, i64 8, !36, i64 32, i64 4, !38, i64 36, i64 4, !38}
+!33 = !{!34, !34, i64 0}
+!34 = !{!"p1 _ZTS14quic_engine_st", !6, i64 0}
+!35 = !{!6, !6, i64 0}
+!36 = !{!37, !37, i64 0}
+!37 = !{!"p1 _ZTS10ssl_ctx_st", !6, i64 0}
+!38 = !{!16, !16, i64 0}
+!39 = !{!20, !11, i64 16}
+!40 = !{!41, !34, i64 0}
+!41 = !{!"quic_port_args_st", !34, i64 0, !6, i64 8, !6, i64 16, !37, i64 24, !16, i64 32, !16, i64 36}
+!42 = !{!43, !7, i64 8}
+!43 = !{!"quic_tick_result_st", !17, i64 0, !7, i64 8, !7, i64 9, !7, i64 10}
+!44 = !{!43, !7, i64 9}
+!45 = !{!43, !7, i64 10}
+!46 = !{!11, !11, i64 0}
+!47 = distinct !{!47, !31}

@@ -129,7 +129,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @rtc_dev_read(ptr noundef
   %32 = load volatile i64, ptr %10, align 8
   %33 = and i64 %32, 131072
   %34 = icmp eq i64 %33, 0
-  br i1 %34, label %35, label %.critedge, !prof !10
+  br i1 %34, label %35, label %.critedge, !prof !9
 
 35:                                               ; preds = %.preheader
   %36 = load volatile i64, ptr %10, align 8
@@ -145,13 +145,13 @@ define internal range(i64 -2147483648, 2147483648) i64 @rtc_dev_read(ptr noundef
   store i64 0, ptr %21, align 8
   call void @_raw_spin_unlock_irq(ptr noundef nonnull %20) #9
   %41 = icmp eq i64 %40, 0
-  br i1 %41, label %28, label %.critedge, !llvm.loop !11
+  br i1 %41, label %28, label %.critedge, !llvm.loop !7
 
 .critedge:                                        ; preds = %.preheader, %39, %35, %28, %24, %16
   %42 = phi i64 [ %22, %16 ], [ 0, %24 ], [ 0, %.preheader ], [ 0, %35 ], [ 0, %28 ], [ %40, %39 ]
   %43 = phi i1 [ false, %16 ], [ true, %24 ], [ true, %.preheader ], [ true, %35 ], [ true, %28 ], [ false, %39 ]
   %44 = phi i64 [ 0, %16 ], [ -11, %24 ], [ -512, %.preheader ], [ -512, %35 ], [ -11, %28 ], [ 0, %39 ]
-  %45 = call i32 asm sideeffect "xchgl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %19, i32 0, ptr nonnull elementtype(i32) %19) #9, !srcloc !12
+  %45 = call i32 asm sideeffect "xchgl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %19, i32 0, ptr nonnull elementtype(i32) %19) #9, !srcloc !10
   call void @remove_wait_queue(ptr noundef nonnull %17, ptr noundef nonnull %5) #9
   br i1 %43, label %62, label %46
 
@@ -162,12 +162,12 @@ define internal range(i64 -2147483648, 2147483648) i64 @rtc_dev_read(ptr noundef
 48:                                               ; preds = %46
   %49 = trunc i64 %42 to i32
   %50 = call i64 @llvm.read_register.i64(metadata !0)
-  %51 = call { ptr, i64 } asm sideeffect "call __put_user_${4:P}", "={cx},={rsp},0,{rax},i,{rsp},~{ebx},~{dirflag},~{fpsr},~{flags}"(ptr %1, i32 %49, i64 4, i64 %50) #9, !srcloc !13
+  %51 = call { ptr, i64 } asm sideeffect "call __put_user_${4:P}", "={cx},={rsp},0,{rax},i,{rsp},~{ebx},~{dirflag},~{fpsr},~{flags}"(ptr %1, i32 %49, i64 4, i64 %50) #9, !srcloc !11
   br label %.sink.split
 
 52:                                               ; preds = %46
   %53 = call i64 @llvm.read_register.i64(metadata !0)
-  %54 = call { ptr, i64 } asm sideeffect "call __put_user_${4:P}", "={cx},={rsp},0,{rax},i,{rsp},~{ebx},~{dirflag},~{fpsr},~{flags}"(ptr %1, i64 %42, i64 8, i64 %53) #9, !srcloc !14
+  %54 = call { ptr, i64 } asm sideeffect "call __put_user_${4:P}", "={cx},={rsp},0,{rax},i,{rsp},~{ebx},~{dirflag},~{fpsr},~{flags}"(ptr %1, i64 %42, i64 8, i64 %53) #9, !srcloc !12
   br label %.sink.split
 
 .sink.split:                                      ; preds = %48, %52
@@ -238,9 +238,9 @@ define internal range(i64 -2147483648, 2147483648) i64 @rtc_dev_ioctl(ptr nounde
   br label %219
 
 18:                                               ; preds = %3
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %4, i8 0, i64 36, i1 false), !annotation !15
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(40) %5, i8 0, i64 40, i1 false), !annotation !15
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false), !annotation !15
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %4, i8 0, i64 36, i1 false), !annotation !13
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(40) %5, i8 0, i64 40, i1 false), !annotation !13
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false), !annotation !13
   switch i32 %1, label %208 [
     i32 1074294798, label %19
     i32 1076129802, label %19
@@ -452,7 +452,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @rtc_dev_ioctl(ptr nounde
   %121 = load i32, ptr %120, align 8
   %122 = sext i32 %121 to i64
   %123 = tail call i64 @llvm.read_register.i64(metadata !0)
-  %124 = tail call { ptr, i64 } asm sideeffect "call __put_user_${4:P}", "={cx},={rsp},0,{rax},i,{rsp},~{ebx},~{dirflag},~{fpsr},~{flags}"(ptr %12, i64 %122, i64 8, i64 %123) #9, !srcloc !16
+  %124 = tail call { ptr, i64 } asm sideeffect "call __put_user_${4:P}", "={cx},={rsp},0,{rax},i,{rsp},~{ebx},~{dirflag},~{fpsr},~{flags}"(ptr %12, i64 %122, i64 8, i64 %123) #9, !srcloc !14
   %125 = extractvalue { ptr, i64 } %124, 0
   %126 = extractvalue { ptr, i64 } %124, 1
   %127 = ptrtoint ptr %125 to i64
@@ -516,7 +516,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @rtc_dev_ioctl(ptr nounde
 
 158:                                              ; preds = %149
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #9
-  store i64 0, ptr %7, align 8, !annotation !15
+  store i64 0, ptr %7, align 8, !annotation !13
   call void @mutex_unlock(ptr noundef nonnull %13) #9
   %159 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %160 = load i32, ptr %159, align 8
@@ -654,7 +654,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @rtc_dev_compat_ioctl(ptr
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 944
   %11 = load i32, ptr %10, align 8
   %12 = tail call i64 @llvm.read_register.i64(metadata !0)
-  %13 = tail call { ptr, i64 } asm sideeffect "call __put_user_${4:P}", "={cx},={rsp},0,{rax},i,{rsp},~{ebx},~{dirflag},~{fpsr},~{flags}"(ptr %9, i32 %11, i64 4, i64 %12) #9, !srcloc !17
+  %13 = tail call { ptr, i64 } asm sideeffect "call __put_user_${4:P}", "={cx},={rsp},0,{rax},i,{rsp},~{ebx},~{dirflag},~{fpsr},~{flags}"(ptr %9, i32 %11, i64 4, i64 %12) #9, !srcloc !15
   %14 = extractvalue { ptr, i64 } %13, 0
   %15 = extractvalue { ptr, i64 } %13, 1
   %16 = ptrtoint ptr %14 to i64
@@ -743,7 +743,7 @@ define internal noundef range(i32 -16, 1) i32 @rtc_dev_open(ptr noundef readonly
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 568
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr i8, ptr %4, i64 104
-  %6 = tail call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $2, $0\0A\09/* output condition code c*/\0A", "=*m,={@ccc},Ir,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %5, i64 0, ptr elementtype(i64) %5) #9, !srcloc !18
+  %6 = tail call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $2, $0\0A\09/* output condition code c*/\0A", "=*m,={@ccc},Ir,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %5, i64 0, ptr elementtype(i64) %5) #9, !srcloc !16
   %7 = icmp ult i8 %6, 2
   tail call void @llvm.assume(i1 %7)
   %8 = icmp eq i8 %6, 0
@@ -783,8 +783,8 @@ define internal noundef i32 @rtc_dev_release(ptr readnone captures(none) %0, ptr
   %11 = tail call i32 @rtc_update_irq_enable(ptr noundef %4, i32 noundef 0) #9
   %12 = tail call i32 @rtc_irq_set_state(ptr noundef %4, i32 noundef 0) #9
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 888
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !19
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; andb ${1:b},$0", "=*m,iq,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %13, i32 -2, ptr nonnull elementtype(i8) %13) #9, !srcloc !20
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !17
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; andb ${1:b},$0", "=*m,iq,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %13, i32 -2, ptr nonnull elementtype(i8) %13) #9, !srcloc !18
   ret i32 0
 }
 
@@ -910,17 +910,15 @@ attributes #11 = { nounwind memory(none) }
 !4 = !{i32 4, !"indirect_branch_cs_prefix", i32 1}
 !5 = !{i32 4, !"SkipRaxSetup", i32 1}
 !6 = !{i64 2148232694}
-!7 = distinct !{!7, !8, !9}
+!7 = distinct !{!7, !8}
 !8 = !{!"llvm.loop.unroll.disable"}
-!9 = !{!"llvm.loop.estimated_trip_count"}
-!10 = !{!"branch_weights", i32 2000, i32 1}
-!11 = distinct !{!11, !8}
-!12 = !{i64 2154305672}
-!13 = !{i64 2154306186}
-!14 = !{i64 2154307395}
-!15 = !{!"auto-init"}
-!16 = !{i64 2154319686}
-!17 = !{i64 2154325056}
-!18 = !{i64 2148356427, i64 2148356466, i64 2148356487, i64 2148356524, i64 2148356547, i64 2148356556, i64 2148356659}
-!19 = !{i64 2148352111}
-!20 = !{i64 2148351264, i64 2148351303, i64 2148351324, i64 2148351361, i64 2148351384, i64 2148351254}
+!9 = !{!"branch_weights", i32 2000, i32 1}
+!10 = !{i64 2154305672}
+!11 = !{i64 2154306186}
+!12 = !{i64 2154307395}
+!13 = !{!"auto-init"}
+!14 = !{i64 2154319686}
+!15 = !{i64 2154325056}
+!16 = !{i64 2148356427, i64 2148356466, i64 2148356487, i64 2148356524, i64 2148356547, i64 2148356556, i64 2148356659}
+!17 = !{i64 2148352111}
+!18 = !{i64 2148351264, i64 2148351303, i64 2148351324, i64 2148351361, i64 2148351384, i64 2148351254}

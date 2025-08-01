@@ -4326,15 +4326,15 @@ _ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit217: ; preds 
   br label %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit218
 
 _ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit218: ; preds = %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit217, %393
-  call void @llvm.experimental.noalias.scope.decl(metadata !9)
-  %394 = load ptr, ptr %37, align 8, !noalias !9
+  call void @llvm.experimental.noalias.scope.decl(metadata !8)
+  %394 = load ptr, ptr %37, align 8, !noalias !8
   %395 = getelementptr inbounds nuw i8, ptr %394, i64 16
-  %396 = load ptr, ptr %395, align 8, !noalias !9
+  %396 = load ptr, ptr %395, align 8, !noalias !8
   call void %396(ptr noundef nonnull align 8 dereferenceable(56) %37, ptr noundef nonnull align 8 dereferenceable(56) %38) #7
   %397 = getelementptr inbounds nuw i8, ptr %38, i64 40
   %398 = getelementptr inbounds nuw i8, ptr %37, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %397, ptr noundef nonnull align 8 dereferenceable(16) %398, i64 16, i1 false)
-  store i8 1, ptr %397, align 8, !alias.scope !9
+  store i8 1, ptr %397, align 8, !alias.scope !8
   call void @_ZN14MacroAssembler6cmpptrE8Register14AddressLiteralS0_(ptr noundef nonnull align 8 dereferenceable(40) %390, i32 0, ptr noundef nonnull %38, i32 10) #7
   %399 = load ptr, ptr %0, align 8
   %400 = load i8, ptr @PrintInterpreter, align 1
@@ -8640,9 +8640,8 @@ attributes #8 = { noreturn nounwind }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = !{!10}
-!10 = distinct !{!10, !11, !"_ZN14AddressLiteral4addrEv: argument 0"}
-!11 = distinct !{!11, !"_ZN14AddressLiteral4addrEv"}
+!8 = !{!9}
+!9 = distinct !{!9, !10, !"_ZN14AddressLiteral4addrEv: argument 0"}
+!10 = distinct !{!10, !"_ZN14AddressLiteral4addrEv"}

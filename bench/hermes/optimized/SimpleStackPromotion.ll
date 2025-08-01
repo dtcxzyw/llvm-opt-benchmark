@@ -165,7 +165,7 @@ _ZN6hermes9IRBuilder20InstructionDestroyer3addEPNS_11InstructionE.exit.i.i.i: ; 
   store i32 %add.i.i.i.i.i, ptr %Size.i.i.i.i.i.i.i.i.i, align 8
   %incdec.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %__begin2.011.i.i.i, i64 8
   %cmp.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %add.ptr.i.i.i.i
-  br i1 %cmp.not.i.i.i, label %for.end.i.i.i, label %for.body.i.i.i, !llvm.loop !7
+  br i1 %cmp.not.i.i.i, label %for.end.i.i.i, label %for.body.i.i.i
 
 for.end.i.i.i:                                    ; preds = %_ZN6hermes9IRBuilder20InstructionDestroyer3addEPNS_11InstructionE.exit.i.i.i, %do.end.for.end_crit_edge.i.i.i
   %17 = phi i32 [ %.pre.i.i.i, %do.end.for.end_crit_edge.i.i.i ], [ %add.i.i.i.i.i, %_ZN6hermes9IRBuilder20InstructionDestroyer3addEPNS_11InstructionE.exit.i.i.i ]
@@ -182,7 +182,7 @@ for.body.i.i.i.i:                                 ; preds = %for.end.i.i.i, %for
   call void @_ZN6hermes11Instruction15eraseFromParentEv(ptr noundef nonnull align 8 dereferenceable(132) %19) #10
   %incdec.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %__begin2.05.i.i.i.i, i64 8
   %cmp.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %add.ptr.i.i.i.i.i
-  br i1 %cmp.not.i.i.i.i, label %for.end.loopexit.i.i.i.i, label %for.body.i.i.i.i, !llvm.loop !9
+  br i1 %cmp.not.i.i.i.i, label %for.end.loopexit.i.i.i.i, label %for.body.i.i.i.i
 
 for.end.loopexit.i.i.i.i:                         ; preds = %for.body.i.i.i.i
   %.pre.i.i.i.i = load ptr, ptr %destroyer.i.i.i, align 8
@@ -248,7 +248,7 @@ for.inc.i.i.i:                                    ; preds = %if.else.i.i.i, %if.
   %hasLoadInOwningFunction.1.i.i.i = phi i1 [ %or19.i.i.i, %if.then.i.i.i ], [ %hasLoadInOwningFunction.038.i.i.i, %if.else.i.i.i ]
   %incdec.ptr.i25.i.i = getelementptr inbounds nuw i8, ptr %__begin2.036.i.i.i, i64 8
   %cmp.not.i26.i.i = icmp eq ptr %incdec.ptr.i25.i.i, %add.ptr.i72.i.i.i
-  br i1 %cmp.not.i26.i.i, label %for.end.i27.i.i, label %for.body.i22.i.i, !llvm.loop !10
+  br i1 %cmp.not.i26.i.i, label %for.end.i27.i.i, label %for.body.i22.i.i
 
 for.end.i27.i.i:                                  ; preds = %for.inc.i.i.i
   %29 = xor i1 %hasStoreInInnerFunction.1.i.i.i, true
@@ -335,7 +335,7 @@ if.else54.i.i.i:                                  ; preds = %for.body43.i.i.i
 for.inc59.i.i.i:                                  ; preds = %if.else54.i.i.i, %_ZN6hermes9IRBuilder20InstructionDestroyer3addEPNS_11InstructionE.exit.i50.i.i, %if.then46.i.i.i
   %incdec.ptr60.i.i.i = getelementptr inbounds nuw i8, ptr %__begin237.041.i.i.i, i64 8
   %cmp42.not.i.i.i = icmp eq ptr %incdec.ptr60.i.i.i, %add.ptr.i.i33.i.i
-  br i1 %cmp42.not.i.i.i, label %for.end61.i.i.i, label %for.body43.i.i.i, !llvm.loop !11
+  br i1 %cmp42.not.i.i.i, label %for.end61.i.i.i, label %for.body43.i.i.i
 
 for.end61.i.i.i:                                  ; preds = %for.inc59.i.i.i, %do.end.i28.i.i
   %47 = load ptr, ptr %destroyer.i18.i.i, align 8
@@ -352,7 +352,7 @@ for.body.i.i38.i.i:                               ; preds = %for.end61.i.i.i, %f
   call void @_ZN6hermes11Instruction15eraseFromParentEv(ptr noundef nonnull align 8 dereferenceable(132) %49) #10
   %incdec.ptr.i.i40.i.i = getelementptr inbounds nuw i8, ptr %__begin2.05.i.i39.i.i, i64 8
   %cmp.not.i.i41.i.i = icmp eq ptr %incdec.ptr.i.i40.i.i, %add.ptr.i.i.i36.i.i
-  br i1 %cmp.not.i.i41.i.i, label %for.end.loopexit.i.i42.i.i, label %for.body.i.i38.i.i, !llvm.loop !9
+  br i1 %cmp.not.i.i41.i.i, label %for.end.loopexit.i.i42.i.i, label %for.body.i.i38.i.i
 
 for.end.loopexit.i.i42.i.i:                       ; preds = %for.body.i.i38.i.i
   %.pre.i.i43.i.i = load ptr, ptr %destroyer.i18.i.i, align 8
@@ -390,7 +390,7 @@ if.end.i.i.i:                                     ; preds = %_ZN6hermes12_GLOBAL
 for.cond.i.i.i:                                   ; preds = %for.body.i59.i.i
   %incdec.ptr.i62.i.i = getelementptr inbounds nuw i8, ptr %__begin2.014.i.i.i, i64 8
   %cmp.not.i63.i.i = icmp eq ptr %incdec.ptr.i62.i.i, %add.ptr.i31.i.i.i
-  br i1 %cmp.not.i63.i.i, label %do.end.i64.i.i, label %for.body.i59.i.i, !llvm.loop !12
+  br i1 %cmp.not.i63.i.i, label %do.end.i64.i.i, label %for.body.i59.i.i
 
 for.body.i59.i.i:                                 ; preds = %if.end.i.i.i, %for.cond.i.i.i
   %__begin2.014.i.i.i = phi ptr [ %incdec.ptr.i62.i.i, %for.cond.i.i.i ], [ %51, %if.end.i.i.i ]
@@ -440,7 +440,7 @@ _ZN6hermes9IRBuilder20InstructionDestroyer3addEPNS_11InstructionE.exit.i73.i.i: 
   store i32 %add.i.i.i76.i.i, ptr %Size.i.i.i.i.i.i.i66.i.i, align 8
   %incdec.ptr19.i.i.i = getelementptr inbounds nuw i8, ptr %__begin29.016.i.i.i, i64 8
   %cmp14.not.i.i.i = icmp eq ptr %incdec.ptr19.i.i.i, %add.ptr.i.i69.i.i
-  br i1 %cmp14.not.i.i.i, label %for.end20.i.i.i, label %for.body15.i.i.i, !llvm.loop !13
+  br i1 %cmp14.not.i.i.i, label %for.end20.i.i.i, label %for.body15.i.i.i
 
 for.end20.i.i.i:                                  ; preds = %_ZN6hermes9IRBuilder20InstructionDestroyer3addEPNS_11InstructionE.exit.i73.i.i, %do.end.i64.i.i
   %64 = phi i32 [ %.pre17.i.i.i, %do.end.i64.i.i ], [ %add.i.i.i76.i.i, %_ZN6hermes9IRBuilder20InstructionDestroyer3addEPNS_11InstructionE.exit.i73.i.i ]
@@ -457,7 +457,7 @@ for.body.i.i81.i.i:                               ; preds = %for.end20.i.i.i, %f
   call void @_ZN6hermes11Instruction15eraseFromParentEv(ptr noundef nonnull align 8 dereferenceable(132) %66) #10
   %incdec.ptr.i.i83.i.i = getelementptr inbounds nuw i8, ptr %__begin2.05.i.i82.i.i, i64 8
   %cmp.not.i.i84.i.i = icmp eq ptr %incdec.ptr.i.i83.i.i, %add.ptr.i.i.i79.i.i
-  br i1 %cmp.not.i.i84.i.i, label %for.end.loopexit.i.i85.i.i, label %for.body.i.i81.i.i, !llvm.loop !9
+  br i1 %cmp.not.i.i84.i.i, label %for.end.loopexit.i.i85.i.i, label %for.body.i.i81.i.i
 
 for.end.loopexit.i.i85.i.i:                       ; preds = %for.body.i.i81.i.i
   %.pre.i.i86.i.i = load ptr, ptr %destroyer.i54.i.i, align 8
@@ -482,7 +482,7 @@ for.inc.i.i:                                      ; preds = %_ZN6hermes12_GLOBAL
   %changed.1.i.i = phi i1 [ %or1216.i.i, %_ZN6hermes12_GLOBAL__N_126tryDeleteStoreOnlyVariableEPNS_8VariableE.exit.i.i ], [ true, %_ZN6hermes12_GLOBAL__N_123tryPromoteConstVariableEPNS_8VariableE.exit.thread.i.i ]
   %incdec.ptr.i.i = getelementptr inbounds nuw i8, ptr %__begin2.03.i.i, i64 8
   %cmp.not.i.i = icmp eq ptr %incdec.ptr.i.i, %add.ptr.i40.i.i
-  br i1 %cmp.not.i.i, label %for.end.i.i, label %for.body.i.i, !llvm.loop !14
+  br i1 %cmp.not.i.i, label %for.end.i.i, label %for.body.i.i
 
 for.end.i.i:                                      ; preds = %for.inc.i.i
   %.pre.i.i = load ptr, ptr %variables_.i.i.i, align 8
@@ -510,7 +510,7 @@ for.inc27.i.i:                                    ; preds = %if.then25.i.i, %for
   %changed.3.i.i = phi i1 [ %changed.27.i.i, %for.body22.i.i ], [ true, %if.then25.i.i ]
   %incdec.ptr28.i.i = getelementptr inbounds nuw i8, ptr %__begin216.06.i.i, i64 8
   %cmp21.not.i.i = icmp eq ptr %incdec.ptr28.i.i, %add.ptr.i.i.i
-  br i1 %cmp21.not.i.i, label %for.end29.i.i, label %for.body22.i.i, !llvm.loop !15
+  br i1 %cmp21.not.i.i, label %for.end29.i.i, label %for.body22.i.i
 
 for.end29.i.i:                                    ; preds = %for.inc27.i.i
   %C.val.i.pre.i.i = load ptr, ptr %variables_.i.i.i, align 8
@@ -556,7 +556,7 @@ if.end12.i.i.i.i.i.i.i.i:                         ; preds = %if.end8.i.i.i.i.i.i
   %incdec.ptr13.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.044.i.i.i.i.i.i.i.i, i64 32
   %dec.i.i.i.i.i.i.i.i = add nsw i64 %__trip_count.045.i.i.i.i.i.i.i.i, -1
   %cmp.i.i.i.i.i.i.i.i = icmp sgt i64 %__trip_count.045.i.i.i.i.i.i.i.i, 1
-  br i1 %cmp.i.i.i.i.i.i.i.i, label %for.body.i.i.i.i.i.i.i.i, label %for.end.loopexit.i.i.i.i.i.i.i.i, !llvm.loop !16
+  br i1 %cmp.i.i.i.i.i.i.i.i, label %for.body.i.i.i.i.i.i.i.i, label %for.end.loopexit.i.i.i.i.i.i.i.i, !llvm.loop !7
 
 for.end.loopexit.i.i.i.i.i.i.i.i:                 ; preds = %if.end12.i.i.i.i.i.i.i.i
   %71 = and i32 %C.val3.i.pre.i.i, 3
@@ -633,7 +633,7 @@ for.inc.i.i.i.i.i.i:                              ; preds = %if.then3.i.i.i.i.i.
   %__result.1.i.i.i.i.i.i = phi ptr [ %__result.025.i.i.i.i.i.i, %for.body.i.i.i.i.i.i ], [ %incdec.ptr4.i.i.i.i.i.i, %if.then3.i.i.i.i.i.i ]
   %__first.addr.0.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.026.i.i.i.i.i.i, i64 8
   %cmp1.not.i.i.i.i.i.i = icmp eq ptr %__first.addr.0.i.i.i.i.i.i, %add.ptr.i.i.i.i.i.i92.i.i
-  br i1 %cmp1.not.i.i.i.i.i.i, label %_ZN4llvh15SmallVectorImplIPN6hermes8VariableEE5eraseEPKS3_S6_.exit.loopexit.i.i.i, label %for.body.i.i.i.i.i.i, !llvm.loop !18
+  br i1 %cmp1.not.i.i.i.i.i.i, label %_ZN4llvh15SmallVectorImplIPN6hermes8VariableEE5eraseEPKS3_S6_.exit.loopexit.i.i.i, label %for.body.i.i.i.i.i.i, !llvm.loop !9
 
 for.end.i.i.i.i.unreachabledefault.i.i.i.i:       ; preds = %for.end.i.i.i.i.i.i.i.i
   unreachable
@@ -656,7 +656,7 @@ _ZN6hermes12_GLOBAL__N_113runOnFunctionEPNS_8FunctionE.exit.i: ; preds = %_ZN4ll
   %Next.i.i.i.i = getelementptr inbounds nuw i8, ptr %__begin2.sroa.0.018.i, i64 8
   %__begin2.sroa.0.0.i = load ptr, ptr %Next.i.i.i.i, align 8
   %cmp.i.not.i = icmp eq ptr %__begin2.sroa.0.0.i, %FunctionList.i.i
-  br i1 %cmp.i.not.i, label %_ZN6hermes12_GLOBAL__N_123runSimpleStackPromotionEPNS_6ModuleE.exit, label %for.body.i, !llvm.loop !19
+  br i1 %cmp.i.not.i, label %_ZN6hermes12_GLOBAL__N_123runSimpleStackPromotionEPNS_6ModuleE.exit, label %for.body.i
 
 _ZN6hermes12_GLOBAL__N_123runSimpleStackPromotionEPNS_6ModuleE.exit: ; preds = %_ZN6hermes12_GLOBAL__N_113runOnFunctionEPNS_8FunctionE.exit.i, %entry
   %changed.0.lcssa.i = phi i1 [ false, %entry ], [ %or3.i, %_ZN6hermes12_GLOBAL__N_113runOnFunctionEPNS_8FunctionE.exit.i ]
@@ -724,15 +724,5 @@ attributes #10 = { nounwind }
 !5 = distinct !{!5, !6, !"_ZSt11make_uniqueIZN6hermes26createSimpleStackPromotionEvE8ThisPassJEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: %agg.result"}
 !6 = distinct !{!6, !"_ZSt11make_uniqueIZN6hermes26createSimpleStackPromotionEvE8ThisPassJEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
 !7 = distinct !{!7, !8}
-!8 = !{!"llvm.loop.estimated_trip_count"}
+!8 = !{!"llvm.loop.mustprogress"}
 !9 = distinct !{!9, !8}
-!10 = distinct !{!10, !8}
-!11 = distinct !{!11, !8}
-!12 = distinct !{!12, !8}
-!13 = distinct !{!13, !8}
-!14 = distinct !{!14, !8}
-!15 = distinct !{!15, !8}
-!16 = distinct !{!16, !17, !8}
-!17 = !{!"llvm.loop.mustprogress"}
-!18 = distinct !{!18, !17, !8}
-!19 = distinct !{!19, !8}

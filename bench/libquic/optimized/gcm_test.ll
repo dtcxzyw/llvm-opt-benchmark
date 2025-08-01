@@ -403,7 +403,7 @@ define internal fastcc range(i32 0, 2) i32 @decode_hex(ptr noundef nonnull write
 .lr.ph:                                           ; preds = %.preheader, %47
   %.02965 = phi i64 [ %52, %47 ], [ 0, %.preheader ]
   %21 = getelementptr inbounds nuw i8, ptr %2, i64 %.02965
-  %22 = load i8, ptr %21, align 1, !tbaa !25
+  %22 = load i8, ptr %21, align 1, !tbaa !24
   %23 = add i8 %22, -48
   %or.cond.i = icmp ult i8 %23, 10
   br i1 %or.cond.i, label %32, label %24
@@ -429,7 +429,7 @@ define internal fastcc range(i32 0, 2) i32 @decode_hex(ptr noundef nonnull write
 32:                                               ; preds = %30, %26, %.lr.ph
   %.147.ph = phi i8 [ %23, %.lr.ph ], [ %27, %26 ], [ %31, %30 ]
   %33 = getelementptr inbounds nuw i8, ptr %21, i64 1
-  %34 = load i8, ptr %33, align 1, !tbaa !25
+  %34 = load i8, ptr %33, align 1, !tbaa !24
   %35 = add i8 %34, -48
   %or.cond.i37 = icmp ult i8 %35, 10
   br i1 %or.cond.i37, label %47, label %36
@@ -463,10 +463,10 @@ define internal fastcc range(i32 0, 2) i32 @decode_hex(ptr noundef nonnull write
   %49 = or i8 %.3.ph, %48
   %50 = lshr exact i64 %.02965, 1
   %51 = getelementptr inbounds nuw i8, ptr %16, i64 %50
-  store i8 %49, ptr %51, align 1, !tbaa !25
+  store i8 %49, ptr %51, align 1, !tbaa !24
   %52 = add i64 %.02965, 2
   %53 = icmp ult i64 %52, %9
-  br i1 %53, label %.lr.ph, label %._crit_edge, !llvm.loop !26
+  br i1 %53, label %.lr.ph, label %._crit_edge, !llvm.loop !25
 
 ._crit_edge:                                      ; preds = %47, %.preheader
   store ptr %16, ptr %0, align 8, !tbaa !6
@@ -561,8 +561,7 @@ attributes #13 = { nounwind willreturn memory(read) }
 !19 = !{!"long", !9, i64 0}
 !20 = !{!21, !21, i64 0}
 !21 = !{!"p1 _ZTS8_IO_FILE", !8, i64 0}
-!22 = distinct !{!22, !23, !24}
+!22 = distinct !{!22, !23}
 !23 = !{!"llvm.loop.mustprogress"}
-!24 = !{!"llvm.loop.estimated_trip_count"}
-!25 = !{!9, !9, i64 0}
-!26 = distinct !{!26, !23, !24}
+!24 = !{!9, !9, i64 0}
+!25 = distinct !{!25, !23}

@@ -82,14 +82,14 @@ malloc_mutex_trylock_final.exit.thread:           ; preds = %12, %9
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store atomic i8 1, ptr %35 monotonic, align 1
   %36 = atomicrmw sub ptr %22, i32 1 monotonic, align 4
-  %37 = load ptr, ptr @je_nstime_update, align 8, !tbaa !20
+  %37 = load ptr, ptr @je_nstime_update, align 8, !tbaa !19
   call void %37(ptr noundef nonnull %3) #7
   call void @je_nstime_copy(ptr noundef nonnull %4, ptr noundef nonnull %3) #7
   call void @je_nstime_subtract(ptr noundef nonnull %4, ptr noundef nonnull %2) #7
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %39 = load i64, ptr %38, align 8, !tbaa !21
+  %39 = load i64, ptr %38, align 8, !tbaa !20
   %40 = add i64 %39, 1
-  store i64 %40, ptr %38, align 8, !tbaa !21
+  store i64 %40, ptr %38, align 8, !tbaa !20
   call void @je_nstime_add(ptr noundef nonnull %0, ptr noundef nonnull %4) #7
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %42 = call i32 @je_nstime_compare(ptr noundef nonnull %41, ptr noundef nonnull %4) #7
@@ -102,12 +102,12 @@ malloc_mutex_trylock_final.exit.thread:           ; preds = %12, %9
 
 45:                                               ; preds = %44, %33
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %47 = load i32, ptr %46, align 8, !tbaa !22
+  %47 = load i32, ptr %46, align 8, !tbaa !21
   %48 = icmp ugt i32 %24, %47
   br i1 %48, label %49, label %50
 
 49:                                               ; preds = %45
-  store i32 %24, ptr %46, align 8, !tbaa !22
+  store i32 %24, ptr %46, align 8, !tbaa !21
   br label %50
 
 50:                                               ; preds = %45, %49, %27, %14
@@ -138,7 +138,7 @@ define hidden void @je_malloc_mutex_prof_data_reset(ptr noundef readnone capture
   tail call void @je_nstime_copy(ptr noundef nonnull %3, ptr noundef nonnull @nstime_zero) #7
   tail call void @je_nstime_copy(ptr noundef nonnull %1, ptr noundef nonnull @nstime_zero) #7
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  store ptr null, ptr %4, align 8, !tbaa !23
+  store ptr null, ptr %4, align 8, !tbaa !22
   ret void
 }
 
@@ -150,7 +150,7 @@ define hidden zeroext i1 @je_malloc_mutex_init(ptr noundef initializes((0, 64)) 
   tail call void @je_nstime_copy(ptr noundef nonnull %6, ptr noundef nonnull @nstime_zero) #7
   tail call void @je_nstime_copy(ptr noundef nonnull %0, ptr noundef nonnull @nstime_zero) #7
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store ptr null, ptr %7, align 8, !tbaa !23
+  store ptr null, ptr %7, align 8, !tbaa !22
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #7
   %8 = call i32 @pthread_mutexattr_init(ptr noundef nonnull %5) #7
   %.not = icmp eq i32 %8, 0
@@ -200,20 +200,20 @@ malloc_mutex_trylock_final.exit.i:                ; preds = %2
 
 7:                                                ; preds = %6, %malloc_mutex_trylock_final.exit.i
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %9 = load i64, ptr %8, align 8, !tbaa !24
+  %9 = load i64, ptr %8, align 8, !tbaa !23
   %10 = add i64 %9, 1
-  store i64 %10, ptr %8, align 8, !tbaa !24
+  store i64 %10, ptr %8, align 8, !tbaa !23
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %12 = load ptr, ptr %11, align 8, !tbaa !23
+  %12 = load ptr, ptr %11, align 8, !tbaa !22
   %.not.i.i = icmp eq ptr %12, %0
   br i1 %.not.i.i, label %malloc_mutex_lock.exit, label %13
 
 13:                                               ; preds = %7
-  store ptr %0, ptr %11, align 8, !tbaa !23
+  store ptr %0, ptr %11, align 8, !tbaa !22
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %15 = load i64, ptr %14, align 8, !tbaa !25
+  %15 = load i64, ptr %14, align 8, !tbaa !24
   %16 = add i64 %15, 1
-  store i64 %16, ptr %14, align 8, !tbaa !25
+  store i64 %16, ptr %14, align 8, !tbaa !24
   br label %malloc_mutex_lock.exit
 
 malloc_mutex_lock.exit:                           ; preds = %7, %13
@@ -237,7 +237,7 @@ define hidden void @je_malloc_mutex_postfork_child(ptr noundef readnone captures
   tail call void @je_nstime_copy(ptr noundef nonnull %4, ptr noundef nonnull @nstime_zero) #7
   tail call void @je_nstime_copy(ptr noundef nonnull %1, ptr noundef nonnull @nstime_zero) #7
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  store ptr null, ptr %5, align 8, !tbaa !23
+  store ptr null, ptr %5, align 8, !tbaa !22
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #7
   %6 = call i32 @pthread_mutexattr_init(ptr noundef nonnull %3) #7
   %.not.i = icmp eq i32 %6, 0
@@ -258,7 +258,7 @@ je_malloc_mutex_init.exit:                        ; preds = %2
 
 11:                                               ; preds = %je_malloc_mutex_init.exit.thread, %je_malloc_mutex_init.exit
   call void (ptr, ...) @je_malloc_printf(ptr noundef nonnull @.str) #7
-  %12 = load i8, ptr @je_opt_abort, align 1, !tbaa !26, !range !28, !noundef !29
+  %12 = load i8, ptr @je_opt_abort, align 1, !tbaa !25, !range !27, !noundef !28
   %13 = trunc nuw i8 %12 to i1
   br i1 %13, label %14, label %15
 
@@ -321,16 +321,15 @@ attributes #8 = { noreturn nounwind }
 !14 = !{!"p1 _ZTS6tsdn_s", !15, i64 0}
 !15 = !{!"any pointer", !6, i64 0}
 !16 = !{!12, !12, i64 0}
-!17 = distinct !{!17, !18, !19}
+!17 = distinct !{!17, !18}
 !18 = !{!"llvm.loop.mustprogress"}
-!19 = !{!"llvm.loop.estimated_trip_count"}
-!20 = !{!15, !15, i64 0}
-!21 = !{!10, !12, i64 16}
-!22 = !{!10, !5, i64 32}
-!23 = !{!10, !14, i64 48}
-!24 = !{!10, !12, i64 56}
-!25 = !{!10, !12, i64 40}
-!26 = !{!27, !27, i64 0}
-!27 = !{!"_Bool", !6, i64 0}
-!28 = !{i8 0, i8 2}
-!29 = !{}
+!19 = !{!15, !15, i64 0}
+!20 = !{!10, !12, i64 16}
+!21 = !{!10, !5, i64 32}
+!22 = !{!10, !14, i64 48}
+!23 = !{!10, !12, i64 56}
+!24 = !{!10, !12, i64 40}
+!25 = !{!26, !26, i64 0}
+!26 = !{!"_Bool", !6, i64 0}
+!27 = !{i8 0, i8 2}
+!28 = !{}

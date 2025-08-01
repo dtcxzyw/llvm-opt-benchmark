@@ -180,7 +180,7 @@ define void @_ZN3std2io19default_read_to_end16small_probe_read17hea6d948d50699aa
   call void @"_ZN59_$LT$std..process..ChildStdout$u20$as$u20$std..io..Read$GT$4read17h35a508155fe00843E"(ptr nonnull sret({ i64, [1 x i64] }) align 8 %4, ptr align 4 %1, ptr nonnull align 1 %5, i64 32)
   %27 = load i64, ptr %4, align 8, !range !4, !noundef !3
   %28 = icmp eq i64 %27, 0
-  br i1 %28, label %._crit_edge, label %12, !llvm.loop !6
+  br i1 %28, label %._crit_edge, label %12
 
 29:                                               ; preds = %14
   %30 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -320,7 +320,7 @@ define void @_ZN3std2io19default_read_to_end17ha6a2b98f2fd0f9afE(ptr writeonly s
   %70 = call { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11try_reserve17h88a58bd621640934E"(ptr nonnull align 8 %2, i64 %54, i64 32)
   %71 = extractvalue { i64, i64 } %70, 0
   %72 = extractvalue { i64, i64 } %70, 1
-  %73 = call i8 @"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17hdb491e80988efdc3E"(i64 %71, i64 %72), !range !8
+  %73 = call i8 @"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17hdb491e80988efdc3E"(i64 %71, i64 %72), !range !6
   %74 = icmp eq i8 %73, 41
   br i1 %74, label %75, label %89
 
@@ -358,7 +358,7 @@ define void @_ZN3std2io19default_read_to_end17ha6a2b98f2fd0f9afE(ptr writeonly s
   br label %128
 
 ._crit_edge:                                      ; preds = %125, %75
-  %95 = load ptr, ptr %8, align 8, !nonnull !3, !align !9, !noundef !3
+  %95 = load ptr, ptr %8, align 8, !nonnull !3, !align !7, !noundef !3
   %96 = load i64, ptr %34, align 8, !noundef !3
   %97 = load i64, ptr %35, align 8, !noundef !3
   %98 = load i64, ptr %36, align 8, !noundef !3
@@ -385,7 +385,7 @@ define void @_ZN3std2io19default_read_to_end17ha6a2b98f2fd0f9afE(ptr writeonly s
   %110 = extractvalue { ptr, i64 } %99, 1
   %111 = add i64 %102, %109
   store i64 %111, ptr %11, align 8
-  br i1 %.not, label %112, label %48, !llvm.loop !10
+  br i1 %.not, label %112, label %48
 
 112:                                              ; preds = %107
   %113 = icmp eq i64 %108, %79
@@ -406,7 +406,7 @@ define void @_ZN3std2io19default_read_to_end17ha6a2b98f2fd0f9afE(ptr writeonly s
 
 .outer.backedge:                                  ; preds = %116, %112
   %.1.ph.be = phi i64 [ %spec.select, %112 ], [ %117, %116 ]
-  br label %.outer, !llvm.loop !10
+  br label %.outer
 
 118:                                              ; preds = %.lr.ph
   %119 = landingpad { ptr, i32 }
@@ -427,7 +427,7 @@ define void @_ZN3std2io19default_read_to_end17ha6a2b98f2fd0f9afE(ptr writeonly s
 
 125:                                              ; preds = %121
   store ptr %122, ptr %6, align 8
-  call void @"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h458c62b95238965fE"(ptr nonnull align 8 %6), !llvm.loop !11
+  call void @"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h458c62b95238965fE"(ptr nonnull align 8 %6)
   %126 = call ptr @"_ZN59_$LT$std..process..ChildStdout$u20$as$u20$std..io..Read$GT$8read_buf17h89760e5263f7afe6E"(ptr align 4 %1, ptr nonnull align 8 %8, i64 %86)
   store ptr %126, ptr %7, align 8
   %127 = icmp eq ptr %126, null
@@ -582,9 +582,5 @@ attributes #11 = { cold noreturn nounwind }
 !3 = !{}
 !4 = !{i64 0, i64 2}
 !5 = !{i64 8}
-!6 = distinct !{!6, !7}
-!7 = !{!"llvm.loop.estimated_trip_count"}
-!8 = !{i8 0, i8 42}
-!9 = !{i64 1}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
+!6 = !{i8 0, i8 42}
+!7 = !{i64 1}

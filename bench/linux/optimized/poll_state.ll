@@ -86,16 +86,16 @@ define internal noundef i32 @poll_idle(ptr noundef %0, ptr noundef %1, i32 nound
   br label %.loopexit
 
 .loopexit:                                        ; preds = %21, %30, %13, %3
-  tail call void asm sideeffect "cli", "~{memory},~{dirflag},~{fpsr},~{flags}"() #5, !srcloc !13
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; andb ${1:b},$0", "=*m,iq,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %9, i32 -33, ptr elementtype(i8) %9) #5, !srcloc !14
-  tail call void asm sideeffect "lock; addl $$0,-4(%rsp)", "~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"() #5, !srcloc !15
+  tail call void asm sideeffect "cli", "~{memory},~{dirflag},~{fpsr},~{flags}"() #5, !srcloc !12
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; andb ${1:b},$0", "=*m,iq,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %9, i32 -33, ptr elementtype(i8) %9) #5, !srcloc !13
+  tail call void asm sideeffect "lock; addl $$0,-4(%rsp)", "~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"() #5, !srcloc !14
   %33 = load volatile i64, ptr %8, align 8
   %34 = and i64 %33, 8
   %35 = icmp eq i64 %34, 0
   br i1 %35, label %37, label %36
 
 36:                                               ; preds = %.loopexit
-  tail call void asm "andl $1, %gs:$0", "=*m,ri,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8), i32 2147483647, ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8)) #5, !srcloc !16
+  tail call void asm "andl $1, %gs:$0", "=*m,ri,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8), i32 2147483647, ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8)) #5, !srcloc !15
   br label %37
 
 37:                                               ; preds = %36, %.loopexit
@@ -133,11 +133,10 @@ attributes #6 = { nounwind memory(none) }
 !6 = !{i64 2147926636}
 !7 = !{i64 2148203931, i64 2148203970, i64 2148203991, i64 2148204028, i64 2148204051, i64 2148203921}
 !8 = !{i64 1982288}
-!9 = distinct !{!9, !10, !11, !12}
+!9 = distinct !{!9, !10, !11}
 !10 = !{!"llvm.loop.mustprogress"}
 !11 = !{!"llvm.loop.unroll.disable"}
-!12 = !{!"llvm.loop.estimated_trip_count"}
-!13 = !{i64 1941265}
-!14 = !{i64 2148205219, i64 2148205258, i64 2148205279, i64 2148205316, i64 2148205339, i64 2148205209}
-!15 = !{i64 2150404864}
-!16 = !{i64 2147933328}
+!12 = !{i64 1941265}
+!13 = !{i64 2148205219, i64 2148205258, i64 2148205279, i64 2148205316, i64 2148205339, i64 2148205209}
+!14 = !{i64 2150404864}
+!15 = !{i64 2147933328}

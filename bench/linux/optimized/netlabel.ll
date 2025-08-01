@@ -242,7 +242,7 @@ define dso_local i32 @selinux_netlbl_skbuff_getsid(ptr noundef %0, i16 noundef z
   %66 = load ptr, ptr %65, align 8
   call void @kfree(ptr noundef nonnull %64) #9
   %67 = icmp eq ptr %66, null
-  br i1 %67, label %.loopexit, label %.preheader, !llvm.loop !12
+  br i1 %67, label %.loopexit, label %.preheader, !llvm.loop !8
 
 .loopexit:                                        ; preds = %.preheader, %.thread, %8
   %68 = phi i32 [ 0, %8 ], [ %29, %.thread ], [ %29, %.preheader ]
@@ -269,7 +269,7 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 define dso_local i32 @selinux_netlbl_skbuff_setsid(ptr noundef %0, i16 noundef zeroext %1, i32 noundef %2) local_unnamed_addr #0 align 16 {
   %4 = alloca %struct.netlbl_lsm_secattr, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4) #9
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %4, i8 0, i64 48, i1 false), !annotation !13
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %4, i8 0, i64 48, i1 false), !annotation !11
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, null
@@ -399,7 +399,7 @@ define dso_local i32 @selinux_netlbl_skbuff_setsid(ptr noundef %0, i16 noundef z
   %76 = load ptr, ptr %75, align 8
   call void @kfree(ptr noundef nonnull %74) #9
   %77 = icmp eq ptr %76, null
-  br i1 %77, label %.critedge, label %.preheader, !llvm.loop !14
+  br i1 %77, label %.critedge, label %.preheader, !llvm.loop !8
 
 .critedge:                                        ; preds = %.preheader, %.thread9, %70, %.thread14, %36
   %78 = phi i32 [ %37, %36 ], [ %40, %.thread14 ], [ %40, %70 ], [ 0, %.thread9 ], [ %40, %.preheader ]
@@ -425,7 +425,7 @@ define dso_local i32 @selinux_netlbl_sctp_assoc_request(ptr noundef readonly cap
   %9 = load ptr, ptr %8, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #9
   call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %5) #9
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %5, i8 0, i64 28, i1 false), !annotation !13
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %5, i8 0, i64 28, i1 false), !annotation !11
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %11 = load i16, ptr %10, align 8
   switch i16 %11, label %.loopexit [
@@ -434,7 +434,7 @@ define dso_local i32 @selinux_netlbl_sctp_assoc_request(ptr noundef readonly cap
   ]
 
 12:                                               ; preds = %2, %2
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %4, i8 0, i64 16, i1 false), !annotation !13
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %4, i8 0, i64 16, i1 false), !annotation !11
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %3, i8 0, i64 48, i1 false)
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 2088
   %14 = load i32, ptr %13, align 8
@@ -550,7 +550,7 @@ define dso_local i32 @selinux_netlbl_sctp_assoc_request(ptr noundef readonly cap
   %75 = load ptr, ptr %74, align 8
   call void @kfree(ptr noundef nonnull %73) #9
   %76 = icmp eq ptr %75, null
-  br i1 %76, label %.loopexit, label %.preheader, !llvm.loop !15
+  br i1 %76, label %.loopexit, label %.preheader, !llvm.loop !8
 
 .loopexit:                                        ; preds = %.preheader, %.thread5, %2
   %77 = phi i32 [ 0, %2 ], [ %39, %.thread5 ], [ %39, %.preheader ]
@@ -654,7 +654,7 @@ define dso_local i32 @selinux_netlbl_inet_conn_request(ptr noundef %0, i16 nound
   %50 = load ptr, ptr %49, align 8
   call void @kfree(ptr noundef nonnull %48) #9
   %51 = icmp eq ptr %50, null
-  br i1 %51, label %.loopexit, label %.preheader, !llvm.loop !16
+  br i1 %51, label %.loopexit, label %.preheader, !llvm.loop !8
 
 .loopexit:                                        ; preds = %.preheader, %.thread, %2
   %52 = phi i32 [ 0, %2 ], [ %14, %.thread ], [ %14, %.preheader ]
@@ -827,7 +827,7 @@ define dso_local i32 @selinux_netlbl_sock_rcv_skb(ptr noundef readonly captures(
   br i1 %8, label %79, label %9
 
 9:                                                ; preds = %4
-  store i32 0, ptr %5, align 4, !annotation !13
+  store i32 0, ptr %5, align 4, !annotation !11
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %6, i8 0, i64 48, i1 false)
   %10 = call i32 @netlbl_skbuff_getattr(ptr noundef %1, i16 noundef zeroext %2, ptr noundef nonnull %6) #9
   %11 = icmp eq i32 %10, 0
@@ -927,7 +927,7 @@ define dso_local i32 @selinux_netlbl_sock_rcv_skb(ptr noundef readonly captures(
   %64 = load ptr, ptr %63, align 8
   call void @kfree(ptr noundef nonnull %62) #9
   %65 = icmp eq ptr %64, null
-  br i1 %65, label %.loopexit, label %.preheader, !llvm.loop !17
+  br i1 %65, label %.loopexit, label %.preheader, !llvm.loop !8
 
 .loopexit:                                        ; preds = %.preheader, %.thread
   %66 = icmp eq i32 %29, 0
@@ -1061,7 +1061,7 @@ define dso_local i32 @selinux_netlbl_socket_setsockopt(ptr noundef readonly capt
   %59 = load ptr, ptr %58, align 8
   call void @kfree(ptr noundef nonnull %57) #9
   %60 = icmp eq ptr %59, null
-  br i1 %60, label %.loopexit, label %.preheader, !llvm.loop !18
+  br i1 %60, label %.loopexit, label %.preheader, !llvm.loop !8
 
 .loopexit:                                        ; preds = %.preheader, %.thread, %16, %3
   %61 = phi i32 [ 0, %3 ], [ 0, %16 ], [ %23, %.thread ], [ %23, %.preheader ]
@@ -1258,14 +1258,7 @@ attributes #10 = { nounwind allocsize(2) }
 !5 = !{i64 2148775595, i64 2148775634, i64 2148775655, i64 2148775692, i64 2148775715, i64 2148775724}
 !6 = !{!"branch_weights", i32 2000, i32 1}
 !7 = !{i64 2150298251}
-!8 = distinct !{!8, !9, !10, !11}
+!8 = distinct !{!8, !9, !10}
 !9 = !{!"llvm.loop.mustprogress"}
 !10 = !{!"llvm.loop.unroll.disable"}
-!11 = !{!"llvm.loop.estimated_trip_count"}
-!12 = distinct !{!12, !9, !10, !11}
-!13 = !{!"auto-init"}
-!14 = distinct !{!14, !9, !10, !11}
-!15 = distinct !{!15, !9, !10, !11}
-!16 = distinct !{!16, !9, !10, !11}
-!17 = distinct !{!17, !9, !10, !11}
-!18 = distinct !{!18, !9, !10, !11}
+!11 = !{!"auto-init"}

@@ -1006,7 +1006,7 @@ _ZN6icu_7713UnicodeString6removeEii.exit:         ; preds = %107, %111
   %179 = add nuw nsw i32 %.095, 1
   %180 = load i32, ptr %153, align 8, !tbaa !30
   %181 = icmp slt i32 %179, %180
-  br i1 %181, label %.lr.ph, label %.loopexit, !llvm.loop !38
+  br i1 %181, label %.lr.ph, label %.loopexit, !llvm.loop !37
 
 .loopexit:                                        ; preds = %178, %.preheader, %165
   %.147 = phi ptr [ %157, %165 ], [ null, %.preheader ], [ null, %178 ]
@@ -1130,7 +1130,7 @@ define void @_ZN6icu_7718TransliteratorSpecC2ERKNS_13UnicodeStringE(ptr noundef 
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 208
   store i16 2, ptr %15, align 8, !tbaa !17
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 272
-  store ptr null, ptr %16, align 8, !tbaa !39
+  store ptr null, ptr %16, align 8, !tbaa !38
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #18
   store i32 0, ptr %3, align 4, !tbaa !13
   call void @llvm.lifetime.start.p0(i64 224, ptr nonnull %4) #18
@@ -1143,7 +1143,7 @@ define void @_ZN6icu_7718TransliteratorSpecC2ERKNS_13UnicodeStringE(ptr noundef 
 
 19:                                               ; preds = %17
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 216
-  %21 = load i8, ptr %20, align 8, !tbaa !42
+  %21 = load i8, ptr %20, align 8, !tbaa !41
   %.not = icmp eq i8 %21, 0
   br i1 %.not, label %22, label %40
 
@@ -1153,7 +1153,7 @@ define void @_ZN6icu_7718TransliteratorSpecC2ERKNS_13UnicodeStringE(ptr noundef 
   br i1 %24, label %.thread, label %25
 
 .thread:                                          ; preds = %22
-  store ptr null, ptr %16, align 8, !tbaa !39
+  store ptr null, ptr %16, align 8, !tbaa !38
   br label %91
 
 25:                                               ; preds = %22
@@ -1177,7 +1177,7 @@ define void @_ZN6icu_7718TransliteratorSpecC2ERKNS_13UnicodeStringE(ptr noundef 
   br label %93
 
 32:                                               ; preds = %25
-  store ptr %23, ptr %16, align 8, !tbaa !39
+  store ptr %23, ptr %16, align 8, !tbaa !38
   %33 = load i32, ptr %3, align 4, !tbaa !13
   %34 = icmp sgt i32 %33, 0
   %35 = icmp eq i32 %33, -127
@@ -1189,7 +1189,7 @@ define void @_ZN6icu_7718TransliteratorSpecC2ERKNS_13UnicodeStringE(ptr noundef 
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 8
   %39 = load ptr, ptr %38, align 8
   call void %39(ptr noundef nonnull align 8 dereferenceable(24) %23) #18
-  store ptr null, ptr %16, align 8, !tbaa !39
+  store ptr null, ptr %16, align 8, !tbaa !38
   br label %40
 
 40:                                               ; preds = %36, %32, %19
@@ -1203,7 +1203,7 @@ define void @_ZN6icu_7718TransliteratorSpecC2ERKNS_13UnicodeStringE(ptr noundef 
 
 41:                                               ; preds = %40
   %42 = getelementptr inbounds nuw i8, ptr %6, i64 56
-  store i32 0, ptr %42, align 8, !tbaa !44
+  store i32 0, ptr %42, align 8, !tbaa !43
   %43 = load ptr, ptr %6, align 8, !tbaa !3
   store i8 0, ptr %43, align 1, !tbaa !17
   %44 = invoke noundef nonnull align 8 dereferenceable(60) ptr @_ZN6icu_7710CharString20appendInvariantCharsERKNS_13UnicodeStringER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(60) %6, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 4 dereferenceable(4) %3)
@@ -1261,7 +1261,7 @@ define void @_ZN6icu_7718TransliteratorSpecC2ERKNS_13UnicodeStringE(ptr noundef 
   br label %92
 
 64:                                               ; preds = %55, %48
-  %65 = load ptr, ptr %16, align 8, !tbaa !39
+  %65 = load ptr, ptr %16, align 8, !tbaa !38
   %.not23 = icmp eq ptr %65, null
   br i1 %.not23, label %77, label %66
 
@@ -1426,11 +1426,11 @@ _ZNK6icu_7713UnicodeStringneERKS0_.exit:          ; preds = %11
 _ZNK6icu_7713UnicodeStringneERKS0_.exit.thread:   ; preds = %7, %11, %_ZNK6icu_7713UnicodeStringneERKS0_.exit
   %34 = tail call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeStringaSERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %2, ptr noundef nonnull align 8 dereferenceable(64) %3)
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 272
-  %36 = load ptr, ptr %35, align 8, !tbaa !39
+  %36 = load ptr, ptr %35, align 8, !tbaa !38
   %37 = icmp ne ptr %36, null
   %38 = zext i1 %37 to i8
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 264
-  store i8 %38, ptr %39, align 8, !tbaa !46
+  store i8 %38, ptr %39, align 8, !tbaa !45
   tail call void @_ZN6icu_7718TransliteratorSpec9setupNextEv(ptr noundef nonnull align 8 dereferenceable(280) %0)
   br label %40
 
@@ -1444,7 +1444,7 @@ declare void @_ZN6icu_776LocaleD1Ev(ptr noundef nonnull align 8 dereferenceable(
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN6icu_7718TransliteratorSpecD2Ev(ptr noundef nonnull align 8 dereferenceable(280) %0) unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 272
-  %3 = load ptr, ptr %2, align 8, !tbaa !39
+  %3 = load ptr, ptr %2, align 8, !tbaa !38
   %4 = icmp eq ptr %3, null
   br i1 %4, label %9, label %5
 
@@ -1485,9 +1485,9 @@ define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7718TransliteratorSpec11hasFa
 ; Function Attrs: mustprogress uwtable
 define void @_ZN6icu_7718TransliteratorSpec9setupNextEv(ptr noundef nonnull align 8 dereferenceable(280) initializes((265, 266)) %0) local_unnamed_addr #1 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 265
-  store i8 0, ptr %2, align 1, !tbaa !47
+  store i8 0, ptr %2, align 1, !tbaa !46
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 264
-  %4 = load i8, ptr %3, align 8, !tbaa !46
+  %4 = load i8, ptr %3, align 8, !tbaa !45
   %.not = icmp eq i8 %4, 0
   br i1 %.not, label %38, label %5
 
@@ -1536,7 +1536,7 @@ define void @_ZN6icu_7718TransliteratorSpec9setupNextEv(ptr noundef nonnull alig
   br label %_ZN6icu_7713UnicodeString8truncateEi.exit
 
 _ZN6icu_7713UnicodeString8truncateEi.exit:        ; preds = %19, %29, %33
-  store i8 1, ptr %2, align 1, !tbaa !47
+  store i8 1, ptr %2, align 1, !tbaa !46
   br label %_ZN6icu_7713UnicodeString8truncateEi.exit4
 
 35:                                               ; preds = %5
@@ -1581,9 +1581,9 @@ define noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7718Transliterat
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %4 = tail call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeStringaSERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %3, ptr noundef nonnull align 8 dereferenceable(64) %2)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 265
-  %6 = load i8, ptr %5, align 1, !tbaa !47
+  %6 = load i8, ptr %5, align 1, !tbaa !46
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 264
-  store i8 %6, ptr %7, align 8, !tbaa !46
+  store i8 %6, ptr %7, align 8, !tbaa !45
   tail call void @_ZN6icu_7718TransliteratorSpec9setupNextEv(ptr noundef nonnull align 8 dereferenceable(280) %0)
   ret ptr %3
 }
@@ -1597,14 +1597,14 @@ define noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_7718Translitera
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef signext i8 @_ZNK6icu_7718TransliteratorSpec8isLocaleEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(280) %0) local_unnamed_addr #12 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 264
-  %3 = load i8, ptr %2, align 8, !tbaa !46
+  %3 = load i8, ptr %2, align 8, !tbaa !45
   ret i8 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef nonnull align 8 dereferenceable(24) ptr @_ZNK6icu_7718TransliteratorSpec9getBundleEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(280) %0) local_unnamed_addr #12 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 272
-  %3 = load ptr, ptr %2, align 8, !tbaa !39
+  %3 = load ptr, ptr %2, align 8, !tbaa !38
   ret ptr %3
 }
 
@@ -1616,13 +1616,13 @@ define void @_ZN6icu_7719TransliteratorEntryC2Ev(ptr noundef nonnull writeonly a
   store i16 2, ptr %3, align 8, !tbaa !17
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 80
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false)
-  store i32 8, ptr %0, align 8, !tbaa !48
+  store i32 8, ptr %0, align 8, !tbaa !47
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN6icu_7719TransliteratorEntryD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
-  %2 = load i32, ptr %0, align 8, !tbaa !48
+  %2 = load i32, ptr %0, align 8, !tbaa !47
   switch i32 %2, label %.critedge.thread [
     i32 3, label %5
     i32 4, label %13
@@ -1682,7 +1682,7 @@ define void @_ZN6icu_7719TransliteratorEntryD2Ev(ptr noundef nonnull align 8 der
 26:                                               ; preds = %25, %23
   %27 = load ptr, ptr %3, align 8, !tbaa !17
   %.not = icmp eq ptr %27, null
-  br i1 %.not, label %.critedge.thread, label %.lr.ph, !llvm.loop !51
+  br i1 %.not, label %.critedge.thread, label %.lr.ph, !llvm.loop !50
 
 .critedge:                                        ; preds = %.lr.ph
   %28 = load ptr, ptr %18, align 8, !tbaa !15
@@ -1693,7 +1693,7 @@ define void @_ZN6icu_7719TransliteratorEntryD2Ev(ptr noundef nonnull align 8 der
 
 .critedge.thread:                                 ; preds = %26, %.preheader, %1, %17, %13, %.critedge, %5, %9
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %32 = load ptr, ptr %31, align 8, !tbaa !52
+  %32 = load ptr, ptr %31, align 8, !tbaa !51
   %33 = icmp eq ptr %32, null
   br i1 %33, label %35, label %34
 
@@ -1723,7 +1723,7 @@ declare void @_ZN6icu_7710UnicodeSetD1Ev(ptr noundef nonnull align 8 dereference
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN6icu_7719TransliteratorEntry14adoptPrototypeEPNS_14TransliteratorE(ptr noundef nonnull align 8 captures(none) dereferenceable(104) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
-  %3 = load i32, ptr %0, align 8, !tbaa !48
+  %3 = load i32, ptr %0, align 8, !tbaa !47
   %4 = icmp eq i32 %3, 3
   br i1 %4, label %5, label %13
 
@@ -1741,7 +1741,7 @@ define void @_ZN6icu_7719TransliteratorEntry14adoptPrototypeEPNS_14Transliterato
   br label %13
 
 13:                                               ; preds = %5, %9, %2
-  store i32 3, ptr %0, align 8, !tbaa !48
+  store i32 3, ptr %0, align 8, !tbaa !47
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 88
   store ptr %1, ptr %14, align 8, !tbaa !17
   ret void
@@ -1749,7 +1749,7 @@ define void @_ZN6icu_7719TransliteratorEntry14adoptPrototypeEPNS_14Transliterato
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN6icu_7719TransliteratorEntry10setFactoryEPFPNS_14TransliteratorERKNS_13UnicodeStringENS1_5TokenEES6_(ptr noundef nonnull align 8 captures(none) dereferenceable(104) initializes((96, 104)) %0, ptr noundef %1, ptr %2) local_unnamed_addr #0 align 2 {
-  %4 = load i32, ptr %0, align 8, !tbaa !48
+  %4 = load i32, ptr %0, align 8, !tbaa !47
   %5 = icmp eq i32 %4, 3
   br i1 %5, label %6, label %14
 
@@ -1767,7 +1767,7 @@ define void @_ZN6icu_7719TransliteratorEntry10setFactoryEPFPNS_14TransliteratorE
   br label %14
 
 14:                                               ; preds = %6, %10, %3
-  store i32 7, ptr %0, align 8, !tbaa !48
+  store i32 7, ptr %0, align 8, !tbaa !47
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 88
   store ptr %1, ptr %15, align 8, !tbaa !17
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 96
@@ -1778,7 +1778,7 @@ define void @_ZN6icu_7719TransliteratorEntry10setFactoryEPFPNS_14TransliteratorE
 ; Function Attrs: mustprogress uwtable
 define void @_ZN6icu_7722TransliteratorRegistryC2ER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(312) initializes((8, 16)) %0, ptr noundef nonnull align 4 dereferenceable(4) %1) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr null, ptr %3, align 8, !tbaa !53
+  store ptr null, ptr %3, align 8, !tbaa !52
   %4 = load i32, ptr %1, align 4, !tbaa !13
   %5 = icmp slt i32 %4, 1
   br i1 %5, label %6, label %_ZN6icu_779HashtableC2EaR10UErrorCode.exit.thread
@@ -1792,15 +1792,15 @@ define void @_ZN6icu_7722TransliteratorRegistryC2ER10UErrorCode(ptr noundef nonn
 
 _ZN6icu_779HashtableC2EaR10UErrorCode.exit.thread: ; preds = %2, %6
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  store ptr null, ptr %11, align 8, !tbaa !53
+  store ptr null, ptr %11, align 8, !tbaa !52
   br label %_ZN6icu_779HashtableC2EaiR10UErrorCode.exit
 
 _ZN6icu_779HashtableC2EaR10UErrorCode.exit:       ; preds = %6
-  store ptr %7, ptr %3, align 8, !tbaa !53
+  store ptr %7, ptr %3, align 8, !tbaa !52
   %12 = tail call ptr @uhash_setKeyDeleter_77(ptr noundef nonnull %7, ptr noundef nonnull @uprv_deleteUObject_77)
   %.pr = load i32, ptr %1, align 4, !tbaa !13
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  store ptr null, ptr %13, align 8, !tbaa !53
+  store ptr null, ptr %13, align 8, !tbaa !52
   %14 = icmp slt i32 %.pr, 1
   br i1 %14, label %15, label %_ZN6icu_779HashtableC2EaiR10UErrorCode.exit
 
@@ -1815,7 +1815,7 @@ _ZN6icu_779HashtableC2EaR10UErrorCode.exit:       ; preds = %6
   br i1 %19, label %_ZN6icu_779HashtableC2EaiR10UErrorCode.exit, label %20
 
 20:                                               ; preds = %.noexc
-  store ptr %16, ptr %13, align 8, !tbaa !53
+  store ptr %16, ptr %13, align 8, !tbaa !52
   %21 = invoke ptr @uhash_setKeyDeleter_77(ptr noundef nonnull %16, ptr noundef nonnull @uprv_deleteUObject_77)
           to label %_ZN6icu_779HashtableC2EaiR10UErrorCode.exit unwind label %45
 
@@ -1827,7 +1827,7 @@ _ZN6icu_779HashtableC2EaiR10UErrorCode.exit:      ; preds = %.noexc, %_ZN6icu_77
 
 24:                                               ; preds = %_ZN6icu_779HashtableC2EaiR10UErrorCode.exit
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 224
-  store ptr null, ptr %25, align 8, !tbaa !53
+  store ptr null, ptr %25, align 8, !tbaa !52
   %26 = load i32, ptr %1, align 4, !tbaa !13
   %27 = icmp slt i32 %26, 1
   br i1 %27, label %28, label %_ZN6icu_779HashtableC2EaiR10UErrorCode.exit26
@@ -1843,12 +1843,12 @@ _ZN6icu_779HashtableC2EaiR10UErrorCode.exit:      ; preds = %.noexc, %_ZN6icu_77
   br i1 %32, label %_ZN6icu_779HashtableC2EaiR10UErrorCode.exit26, label %33
 
 33:                                               ; preds = %.noexc24
-  store ptr %29, ptr %25, align 8, !tbaa !53
+  store ptr %29, ptr %25, align 8, !tbaa !52
   %34 = invoke ptr @uhash_setKeyDeleter_77(ptr noundef nonnull %29, ptr noundef nonnull @uprv_deleteUObject_77)
           to label %_ZN6icu_779HashtableC2EaiR10UErrorCode.exit26 unwind label %49
 
 _ZN6icu_779HashtableC2EaiR10UErrorCode.exit26:    ; preds = %.noexc24, %24, %33
-  %35 = load ptr, ptr %3, align 8, !tbaa !53
+  %35 = load ptr, ptr %3, align 8, !tbaa !52
   %36 = invoke noundef ptr @uhash_setValueDeleter_77(ptr noundef %35, ptr noundef nonnull @_ZN6icu_77L11deleteEntryEPv)
           to label %_ZN6icu_779Hashtable15setValueDeleterEPFvPvE.exit unwind label %51
 
@@ -1898,7 +1898,7 @@ _ZN6icu_779Hashtable15setValueDeleterEPFvPvE.exit: ; preds = %_ZN6icu_779Hashtab
   br label %57
 
 .thread:                                          ; preds = %40, %43
-  %55 = load ptr, ptr %22, align 8, !tbaa !53
+  %55 = load ptr, ptr %22, align 8, !tbaa !52
   %56 = invoke noundef ptr @uhash_setValueDeleter_77(ptr noundef %55, ptr noundef nonnull @uhash_deleteHashtable_77)
           to label %_ZN6icu_779Hashtable15setValueDeleterEPFvPvE.exit29 unwind label %53
 
@@ -1950,7 +1950,7 @@ declare void @uhash_deleteHashtable_77(ptr noundef) #9
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6icu_779HashtableD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !53
+  %2 = load ptr, ptr %0, align 8, !tbaa !52
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %4, label %3
 
@@ -1972,7 +1972,7 @@ define linkonce_odr void @_ZN6icu_779HashtableD2Ev(ptr noundef nonnull align 8 d
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN6icu_7722TransliteratorRegistryD2Ev(ptr noundef nonnull align 8 dereferenceable(312) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 224
-  %3 = load ptr, ptr %2, align 8, !tbaa !53
+  %3 = load ptr, ptr %2, align 8, !tbaa !52
   %.not.i = icmp eq ptr %3, null
   br i1 %.not.i, label %_ZN6icu_779HashtableD2Ev.exit, label %4
 
@@ -1991,7 +1991,7 @@ _ZN6icu_779HashtableD2Ev.exit:                    ; preds = %1, %4
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 184
   tail call void @_ZN6icu_777UVectorD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %8) #18
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %10 = load ptr, ptr %9, align 8, !tbaa !53
+  %10 = load ptr, ptr %9, align 8, !tbaa !52
   %.not.i1 = icmp eq ptr %10, null
   br i1 %.not.i1, label %_ZN6icu_779HashtableD2Ev.exit2, label %11
 
@@ -2008,7 +2008,7 @@ _ZN6icu_779HashtableD2Ev.exit:                    ; preds = %1, %4
 
 _ZN6icu_779HashtableD2Ev.exit2:                   ; preds = %_ZN6icu_779HashtableD2Ev.exit, %11
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %16 = load ptr, ptr %15, align 8, !tbaa !53
+  %16 = load ptr, ptr %15, align 8, !tbaa !52
   %.not.i3 = icmp eq ptr %16, null
   br i1 %.not.i3, label %_ZN6icu_779HashtableD2Ev.exit4, label %17
 
@@ -2098,7 +2098,7 @@ define noundef ptr @_ZN6icu_7722TransliteratorRegistry16instantiateEntryERKNS_13
   %8 = alloca %"class.icu_77::UnicodeString", align 8
   %9 = alloca %"class.icu_77::TransliteratorParser", align 8
   %10 = alloca %"class.icu_77::UnicodeString", align 8
-  %11 = load i32, ptr %2, align 8, !tbaa !48
+  %11 = load i32, ptr %2, align 8, !tbaa !47
   switch i32 %11, label %138 [
     i32 4, label %12
     i32 3, label %21
@@ -2153,16 +2153,16 @@ define noundef ptr @_ZN6icu_7722TransliteratorRegistry16instantiateEntryERKNS_13
 33:                                               ; preds = %30
   %34 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %35 = getelementptr inbounds nuw i8, ptr %2, i64 80
-  %36 = load ptr, ptr %35, align 8, !tbaa !52
+  %36 = load ptr, ptr %35, align 8, !tbaa !51
   invoke void @_ZN6icu_7719TransliteratorAliasC1ERKNS_13UnicodeStringEPKNS_10UnicodeSetE(ptr noundef nonnull align 8 dereferenceable(160) %31, ptr noundef nonnull align 8 dereferenceable(64) %34, ptr noundef %36)
           to label %37 unwind label %39
 
 37:                                               ; preds = %33
-  store ptr %31, ptr %3, align 8, !tbaa !59
+  store ptr %31, ptr %3, align 8, !tbaa !58
   br label %139
 
 38:                                               ; preds = %30
-  store ptr null, ptr %3, align 8, !tbaa !59
+  store ptr null, ptr %3, align 8, !tbaa !58
   store i32 7, ptr %4, align 4, !tbaa !13
   br label %139
 
@@ -2244,7 +2244,7 @@ define noundef ptr @_ZN6icu_7722TransliteratorRegistry16instantiateEntryERKNS_13
   %71 = load i16, ptr %70, align 2, !tbaa !33
   %72 = icmp eq i16 %71, 0
   %73 = add i64 %.0.i.i.i.i, 1
-  br i1 %72, label %74, label %69, !llvm.loop !61
+  br i1 %72, label %74, label %69, !llvm.loop !60
 
 74:                                               ; preds = %69
   %75 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeString8doAppendESt17basic_string_viewIDsSt11char_traitsIDsEE(ptr noundef nonnull align 8 dereferenceable(64) %7, i64 %.0.i.i.i.i, ptr nonnull @_ZN6icu_7722CompoundTransliterator11PASS_STRINGE)
@@ -2324,7 +2324,7 @@ _ZN6icu_7713UnicodeStringC2IA_DsvEERKT_.exit:     ; preds = %74
   %.pre = load i32, ptr %4, align 4, !tbaa !13
   %93 = add nuw nsw i32 %.0105160, 1
   %94 = icmp sgt i32 %.pre, 0
-  br i1 %94, label %.thread147, label %61, !llvm.loop !62
+  br i1 %94, label %.thread147, label %61, !llvm.loop !61
 
 .thread147:                                       ; preds = %92, %.preheader, %.thread
   %95 = load ptr, ptr %49, align 8, !tbaa !15
@@ -2342,16 +2342,16 @@ _ZN6icu_7713UnicodeStringC2IA_DsvEERKT_.exit:     ; preds = %74
 102:                                              ; preds = %98
   %103 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %104 = getelementptr inbounds nuw i8, ptr %2, i64 80
-  %105 = load ptr, ptr %104, align 8, !tbaa !52
+  %105 = load ptr, ptr %104, align 8, !tbaa !51
   invoke void @_ZN6icu_7719TransliteratorAliasC1ERKNS_13UnicodeStringES3_PNS_7UVectorEPKNS_10UnicodeSetE(ptr noundef nonnull align 8 dereferenceable(160) %100, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 8 dereferenceable(64) %103, ptr noundef nonnull %49, ptr noundef %105)
           to label %106 unwind label %108
 
 106:                                              ; preds = %102
-  store ptr %100, ptr %3, align 8, !tbaa !59
+  store ptr %100, ptr %3, align 8, !tbaa !58
   br label %139
 
 107:                                              ; preds = %98
-  store ptr %100, ptr %3, align 8, !tbaa !59
+  store ptr %100, ptr %3, align 8, !tbaa !58
   store i32 7, ptr %4, align 4, !tbaa !13
   br label %139
 
@@ -2369,16 +2369,16 @@ _ZN6icu_7713UnicodeStringC2IA_DsvEERKT_.exit:     ; preds = %74
 113:                                              ; preds = %110
   %114 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %115 = getelementptr inbounds nuw i8, ptr %2, i64 72
-  %116 = load i32, ptr %115, align 8, !tbaa !63
+  %116 = load i32, ptr %115, align 8, !tbaa !62
   invoke void @_ZN6icu_7719TransliteratorAliasC1ERKNS_13UnicodeStringES3_15UTransDirection(ptr noundef nonnull align 8 dereferenceable(160) %111, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 8 dereferenceable(64) %114, i32 noundef %116)
           to label %117 unwind label %119
 
 117:                                              ; preds = %113
-  store ptr %111, ptr %3, align 8, !tbaa !59
+  store ptr %111, ptr %3, align 8, !tbaa !58
   br label %139
 
 118:                                              ; preds = %110
-  store ptr null, ptr %3, align 8, !tbaa !59
+  store ptr null, ptr %3, align 8, !tbaa !58
   store i32 7, ptr %4, align 4, !tbaa !13
   br label %139
 
@@ -2402,18 +2402,18 @@ _ZN6icu_7713UnicodeStringC2IA_DsvEERKT_.exit:     ; preds = %74
   br i1 %125, label %131, label %126
 
 126:                                              ; preds = %123
-  %127 = load i32, ptr %2, align 8, !tbaa !48
+  %127 = load i32, ptr %2, align 8, !tbaa !47
   %128 = icmp eq i32 %127, 1
   %129 = zext i1 %128 to i32
   invoke void @_ZN6icu_7719TransliteratorAliasC1ERKNS_13UnicodeStringES3_15UTransDirection(ptr noundef nonnull align 8 dereferenceable(160) %124, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 8 dereferenceable(64) %10, i32 noundef %129)
           to label %130 unwind label %134
 
 130:                                              ; preds = %126
-  store ptr %124, ptr %3, align 8, !tbaa !59
+  store ptr %124, ptr %3, align 8, !tbaa !58
   br label %136
 
 131:                                              ; preds = %123
-  store ptr null, ptr %3, align 8, !tbaa !59
+  store ptr null, ptr %3, align 8, !tbaa !58
   store i32 7, ptr %4, align 4, !tbaa !13
   br label %136
 
@@ -2466,7 +2466,7 @@ define noundef ptr @_ZN6icu_7722TransliteratorRegistry5regetERKNS_13UnicodeStrin
   br i1 %10, label %88, label %11
 
 11:                                               ; preds = %5
-  %12 = load i32, ptr %9, align 8, !tbaa !48
+  %12 = load i32, ptr %9, align 8, !tbaa !47
   %switch = icmp ult i32 %12, 3
   br i1 %switch, label %13, label %.loopexit
 
@@ -2490,9 +2490,9 @@ define noundef ptr @_ZN6icu_7722TransliteratorRegistry5regetERKNS_13UnicodeStrin
 20:                                               ; preds = %17
   %21 = getelementptr inbounds nuw i8, ptr %9, i64 88
   store ptr null, ptr %21, align 8, !tbaa !17
-  store i32 6, ptr %9, align 8, !tbaa !48
+  store i32 6, ptr %9, align 8, !tbaa !47
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %7) #18
-  store ptr @.str.2, ptr %8, align 8, !tbaa !64
+  store ptr @.str.2, ptr %8, align 8, !tbaa !63
   invoke void @_ZN6icu_7713UnicodeStringC1EaNS_14ConstChar16PtrEi(ptr noundef nonnull align 8 dereferenceable(64) %7, i8 noundef signext 1, ptr noundef nonnull %8, i32 noundef -1)
           to label %22 unwind label %26
 
@@ -2500,16 +2500,16 @@ define noundef ptr @_ZN6icu_7722TransliteratorRegistry5regetERKNS_13UnicodeStrin
   %23 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %24 = call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeStringaSEOS0_(ptr noundef nonnull align 8 dereferenceable(64) %23, ptr noundef nonnull align 8 dereferenceable(64) %7) #18
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %7) #18
-  %25 = load ptr, ptr %8, align 8, !tbaa !64
-  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %25) #18, !srcloc !67
+  %25 = load ptr, ptr %8, align 8, !tbaa !63
+  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %25) #18, !srcloc !66
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %7) #18
   br label %.loopexit
 
 26:                                               ; preds = %20
   %27 = landingpad { ptr, i32 }
           cleanup
-  %28 = load ptr, ptr %8, align 8, !tbaa !64
-  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %28) #18, !srcloc !67
+  %28 = load ptr, ptr %8, align 8, !tbaa !63
+  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %28) #18, !srcloc !66
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %7) #18
   br label %89
 
@@ -2518,7 +2518,7 @@ define noundef ptr @_ZN6icu_7722TransliteratorRegistry5regetERKNS_13UnicodeStrin
   %31 = tail call noundef ptr @_ZN6icu_777UVector15orphanElementAtEi(ptr noundef nonnull align 8 dereferenceable(40) %30, i32 noundef 0)
   %32 = getelementptr inbounds nuw i8, ptr %9, i64 88
   store ptr %31, ptr %32, align 8, !tbaa !17
-  store i32 4, ptr %9, align 8, !tbaa !48
+  store i32 4, ptr %9, align 8, !tbaa !47
   br label %.loopexit
 
 33:                                               ; preds = %13
@@ -2533,15 +2533,15 @@ define noundef ptr @_ZN6icu_7722TransliteratorRegistry5regetERKNS_13UnicodeStrin
   %37 = tail call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeStringaSERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %36, ptr noundef nonnull align 8 dereferenceable(64) %35)
   %38 = tail call noundef ptr @_ZN6icu_7720TransliteratorParser20orphanCompoundFilterEv(ptr noundef nonnull align 8 dereferenceable(498) %2)
   %39 = getelementptr inbounds nuw i8, ptr %9, i64 80
-  store ptr %38, ptr %39, align 8, !tbaa !52
-  store i32 6, ptr %9, align 8, !tbaa !48
+  store ptr %38, ptr %39, align 8, !tbaa !51
+  store i32 6, ptr %9, align 8, !tbaa !47
   br label %.loopexit
 
 .thread:                                          ; preds = %17, %13, %33
-  store i32 5, ptr %9, align 8, !tbaa !48
+  store i32 5, ptr %9, align 8, !tbaa !47
   %40 = tail call noundef ptr @_ZN6icu_7720TransliteratorParser20orphanCompoundFilterEv(ptr noundef nonnull align 8 dereferenceable(498) %2)
   %41 = getelementptr inbounds nuw i8, ptr %9, i64 80
-  store ptr %40, ptr %41, align 8, !tbaa !52
+  store ptr %40, ptr %41, align 8, !tbaa !51
   %42 = tail call noundef ptr @_ZN6icu_777UMemorynwEm(i64 noundef 40) #18
   %43 = icmp eq ptr %42, null
   br i1 %43, label %45, label %44
@@ -2628,7 +2628,7 @@ define noundef ptr @_ZN6icu_7722TransliteratorRegistry5regetERKNS_13UnicodeStrin
 85:                                               ; preds = %74, %83
   %86 = add nuw nsw i32 %.06181, 1
   %exitcond.not = icmp eq i32 %86, %spec.select
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !68
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !67
 
 .loopexit:                                        ; preds = %85, %45, %11, %22, %34, %29
   %87 = call noundef ptr @_ZN6icu_7722TransliteratorRegistry16instantiateEntryERKNS_13UnicodeStringEPNS_19TransliteratorEntryERPNS_19TransliteratorAliasER10UErrorCode(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull %9, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 4 dereferenceable(4) %4)
@@ -2672,7 +2672,7 @@ define void @_ZN6icu_7722TransliteratorRegistry3putEPNS_14TransliteratorEaR10UEr
   resume { ptr, i32 } %10
 
 11:                                               ; preds = %7
-  %12 = load i32, ptr %5, align 8, !tbaa !48
+  %12 = load i32, ptr %5, align 8, !tbaa !47
   %13 = icmp eq i32 %12, 3
   br i1 %13, label %14, label %_ZN6icu_7719TransliteratorEntry14adoptPrototypeEPNS_14TransliteratorE.exit
 
@@ -2690,7 +2690,7 @@ define void @_ZN6icu_7722TransliteratorRegistry3putEPNS_14TransliteratorEaR10UEr
   br label %_ZN6icu_7719TransliteratorEntry14adoptPrototypeEPNS_14TransliteratorE.exit
 
 _ZN6icu_7719TransliteratorEntry14adoptPrototypeEPNS_14TransliteratorE.exit: ; preds = %11, %14, %18
-  store i32 3, ptr %5, align 8, !tbaa !48
+  store i32 3, ptr %5, align 8, !tbaa !47
   %22 = getelementptr inbounds nuw i8, ptr %5, i64 88
   store ptr %1, ptr %22, align 8, !tbaa !17
   %23 = load ptr, ptr %1, align 8, !tbaa !15
@@ -2796,7 +2796,7 @@ define void @_ZN6icu_7722TransliteratorRegistry3putERKNS_13UnicodeStringEPFPNS_1
   resume { ptr, i32 } %12
 
 13:                                               ; preds = %9
-  %14 = load i32, ptr %7, align 8, !tbaa !48
+  %14 = load i32, ptr %7, align 8, !tbaa !47
   %15 = icmp eq i32 %14, 3
   br i1 %15, label %16, label %_ZN6icu_7719TransliteratorEntry10setFactoryEPFPNS_14TransliteratorERKNS_13UnicodeStringENS1_5TokenEES6_.exit
 
@@ -2814,7 +2814,7 @@ define void @_ZN6icu_7722TransliteratorRegistry3putERKNS_13UnicodeStringEPFPNS_1
   br label %_ZN6icu_7719TransliteratorEntry10setFactoryEPFPNS_14TransliteratorERKNS_13UnicodeStringENS1_5TokenEES6_.exit
 
 _ZN6icu_7719TransliteratorEntry10setFactoryEPFPNS_14TransliteratorERKNS_13UnicodeStringENS1_5TokenEES6_.exit: ; preds = %13, %16, %20
-  store i32 7, ptr %7, align 8, !tbaa !48
+  store i32 7, ptr %7, align 8, !tbaa !47
   %24 = getelementptr inbounds nuw i8, ptr %7, i64 88
   store ptr %2, ptr %24, align 8, !tbaa !17
   %25 = getelementptr inbounds nuw i8, ptr %7, i64 96
@@ -2850,7 +2850,7 @@ define void @_ZN6icu_7722TransliteratorRegistry3putERKNS_13UnicodeStringES3_15UT
 15:                                               ; preds = %11
   %16 = icmp ne i32 %3, 0
   %17 = zext i1 %16 to i32
-  store i32 %17, ptr %9, align 8, !tbaa !48
+  store i32 %17, ptr %9, align 8, !tbaa !47
   %.not = icmp eq i8 %4, 0
   %18 = getelementptr inbounds nuw i8, ptr %9, i64 8
   br i1 %.not, label %36, label %19
@@ -2878,20 +2878,20 @@ define void @_ZN6icu_7722TransliteratorRegistry3putERKNS_13UnicodeStringES3_15UT
 
 _ZNK6icu_7713UnicodeString9getBufferEv.exit:      ; preds = %19, %25, %27
   %.0.i = phi ptr [ %26, %25 ], [ %29, %27 ], [ null, %19 ]
-  store ptr %.0.i, ptr %8, align 8, !tbaa !64
+  store ptr %.0.i, ptr %8, align 8, !tbaa !63
   %30 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeString5setToEaNS_14ConstChar16PtrEi(ptr noundef nonnull align 8 dereferenceable(64) %18, i8 noundef signext 1, ptr noundef nonnull %8, i32 noundef -1)
           to label %31 unwind label %33
 
 31:                                               ; preds = %_ZNK6icu_7713UnicodeString9getBufferEv.exit
-  %32 = load ptr, ptr %8, align 8, !tbaa !64
-  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %32) #18, !srcloc !67
+  %32 = load ptr, ptr %8, align 8, !tbaa !63
+  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %32) #18, !srcloc !66
   br label %38
 
 33:                                               ; preds = %_ZNK6icu_7713UnicodeString9getBufferEv.exit
   %34 = landingpad { ptr, i32 }
           cleanup
-  %35 = load ptr, ptr %8, align 8, !tbaa !64
-  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %35) #18, !srcloc !67
+  %35 = load ptr, ptr %8, align 8, !tbaa !63
+  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %35) #18, !srcloc !66
   br label %40
 
 36:                                               ; preds = %15
@@ -2924,7 +2924,7 @@ define void @_ZN6icu_7722TransliteratorRegistry3putERKNS_13UnicodeStringES3_aaR1
           to label %11 unwind label %27
 
 11:                                               ; preds = %10
-  store i32 6, ptr %8, align 8, !tbaa !48
+  store i32 6, ptr %8, align 8, !tbaa !47
   %.not16 = icmp eq i8 %3, 0
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 8
   br i1 %.not16, label %32, label %13
@@ -2952,13 +2952,13 @@ define void @_ZN6icu_7722TransliteratorRegistry3putERKNS_13UnicodeStringES3_aaR1
 
 _ZNK6icu_7713UnicodeString9getBufferEv.exit:      ; preds = %13, %19, %21
   %.0.i = phi ptr [ %20, %19 ], [ %23, %21 ], [ null, %13 ]
-  store ptr %.0.i, ptr %7, align 8, !tbaa !64
+  store ptr %.0.i, ptr %7, align 8, !tbaa !63
   %24 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeString5setToEaNS_14ConstChar16PtrEi(ptr noundef nonnull align 8 dereferenceable(64) %12, i8 noundef signext 1, ptr noundef nonnull %7, i32 noundef -1)
           to label %25 unwind label %29
 
 25:                                               ; preds = %_ZNK6icu_7713UnicodeString9getBufferEv.exit
-  %26 = load ptr, ptr %7, align 8, !tbaa !64
-  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %26) #18, !srcloc !67
+  %26 = load ptr, ptr %7, align 8, !tbaa !63
+  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %26) #18, !srcloc !66
   br label %34
 
 27:                                               ; preds = %10
@@ -2970,8 +2970,8 @@ _ZNK6icu_7713UnicodeString9getBufferEv.exit:      ; preds = %13, %19, %21
 29:                                               ; preds = %_ZNK6icu_7713UnicodeString9getBufferEv.exit
   %30 = landingpad { ptr, i32 }
           cleanup
-  %31 = load ptr, ptr %7, align 8, !tbaa !64
-  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %31) #18, !srcloc !67
+  %31 = load ptr, ptr %7, align 8, !tbaa !63
+  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %31) #18, !srcloc !66
   br label %35
 
 32:                                               ; preds = %11
@@ -3023,7 +3023,7 @@ define void @_ZN6icu_7722TransliteratorRegistry6removeERKNS_13UnicodeStringE(ptr
 
 13:                                               ; preds = %11
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %15 = load ptr, ptr %14, align 8, !tbaa !53
+  %15 = load ptr, ptr %14, align 8, !tbaa !52
   %16 = invoke noundef ptr @uhash_remove_77(ptr noundef %15, ptr noundef nonnull align 8 dereferenceable(64) %7)
           to label %_ZN6icu_779Hashtable6removeERKNS_13UnicodeStringE.exit unwind label %23
 
@@ -3033,7 +3033,7 @@ _ZN6icu_779Hashtable6removeERKNS_13UnicodeStringE.exit: ; preds = %13
 
 17:                                               ; preds = %_ZN6icu_779Hashtable6removeERKNS_13UnicodeStringE.exit
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 224
-  %19 = load ptr, ptr %18, align 8, !tbaa !53
+  %19 = load ptr, ptr %18, align 8, !tbaa !52
   %20 = invoke noundef ptr @uhash_remove_77(ptr noundef %19, ptr noundef nonnull align 8 dereferenceable(64) %7)
           to label %_ZN6icu_779Hashtable6removeERKNS_13UnicodeStringE.exit11 unwind label %23
 
@@ -3083,13 +3083,13 @@ define void @_ZN6icu_7722TransliteratorRegistry9removeSTVERKNS_13UnicodeStringES
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #18
   store i32 0, ptr %5, align 4, !tbaa !13
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %7 = load ptr, ptr %6, align 8, !tbaa !53
+  %7 = load ptr, ptr %6, align 8, !tbaa !52
   %8 = tail call noundef ptr @uhash_get_77(ptr noundef %7, ptr noundef nonnull align 8 dereferenceable(64) %1)
   %9 = icmp eq ptr %8, null
   br i1 %9, label %38, label %10
 
 10:                                               ; preds = %4
-  %11 = load ptr, ptr %8, align 8, !tbaa !53
+  %11 = load ptr, ptr %8, align 8, !tbaa !52
   %12 = tail call noundef i32 @uhash_geti_77(ptr noundef %11, ptr noundef nonnull align 8 dereferenceable(64) %2)
   %13 = icmp eq i32 %12, 0
   br i1 %13, label %38, label %14
@@ -3105,7 +3105,7 @@ define void @_ZN6icu_7722TransliteratorRegistry9removeSTVERKNS_13UnicodeStringES
   %20 = xor i32 %19, -1
   %21 = and i32 %12, %20
   %.not = icmp eq i32 %21, 0
-  %22 = load ptr, ptr %8, align 8, !tbaa !53
+  %22 = load ptr, ptr %8, align 8, !tbaa !52
   br i1 %.not, label %30, label %23
 
 23:                                               ; preds = %18
@@ -3129,13 +3129,13 @@ _ZN6icu_779Hashtable4putiERKNS_13UnicodeStringEiR10UErrorCode.exit: ; preds = %2
 
 30:                                               ; preds = %18
   %31 = tail call noundef ptr @uhash_remove_77(ptr noundef %22, ptr noundef nonnull align 8 dereferenceable(64) %2)
-  %32 = load ptr, ptr %8, align 8, !tbaa !53
+  %32 = load ptr, ptr %8, align 8, !tbaa !52
   %33 = tail call noundef i32 @uhash_count_77(ptr noundef %32)
   %34 = icmp eq i32 %33, 0
   br i1 %34, label %35, label %38
 
 35:                                               ; preds = %30
-  %36 = load ptr, ptr %6, align 8, !tbaa !53
+  %36 = load ptr, ptr %6, align 8, !tbaa !52
   %37 = tail call noundef ptr @uhash_remove_77(ptr noundef %36, ptr noundef nonnull align 8 dereferenceable(64) %1)
   br label %38
 
@@ -3147,7 +3147,7 @@ _ZN6icu_779Hashtable4putiERKNS_13UnicodeStringEiR10UErrorCode.exit: ; preds = %2
 ; Function Attrs: mustprogress uwtable
 define noundef i32 @_ZNK6icu_7722TransliteratorRegistry17countAvailableIDsEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(312) %0) local_unnamed_addr #1 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 224
-  %3 = load ptr, ptr %2, align 8, !tbaa !53
+  %3 = load ptr, ptr %2, align 8, !tbaa !52
   %4 = tail call noundef i32 @uhash_count_77(ptr noundef %3)
   ret i32 %4
 }
@@ -3160,7 +3160,7 @@ define noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_7722Translitera
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 224
-  %7 = load ptr, ptr %6, align 8, !tbaa !53
+  %7 = load ptr, ptr %6, align 8, !tbaa !52
   %8 = tail call noundef i32 @uhash_count_77(ptr noundef %7)
   %.not = icmp slt i32 %1, %8
   br i1 %.not, label %10, label %9
@@ -3178,14 +3178,14 @@ define noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_7722Translitera
 12:                                               ; preds = %15
   %13 = add nsw i32 %.120, -1
   %14 = icmp sgt i32 %.120, 0
-  br i1 %14, label %15, label %19, !llvm.loop !69
+  br i1 %14, label %15, label %19, !llvm.loop !68
 
 15:                                               ; preds = %10, %12
   %.120 = phi i32 [ %.09, %10 ], [ %13, %12 ]
-  %16 = load ptr, ptr %11, align 8, !tbaa !53
+  %16 = load ptr, ptr %11, align 8, !tbaa !52
   %17 = call noundef ptr @uhash_nextElement_77(ptr noundef %16, ptr noundef nonnull align 4 dereferenceable(4) %3)
   %18 = icmp eq ptr %17, null
-  br i1 %18, label %.thread, label %12, !llvm.loop !69
+  br i1 %18, label %.thread, label %12, !llvm.loop !68
 
 19:                                               ; preds = %12
   %20 = getelementptr inbounds nuw i8, ptr %17, i64 16
@@ -3195,7 +3195,7 @@ define noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_7722Translitera
 .thread:                                          ; preds = %15
   %22 = load atomic i8, ptr @_ZGVZNK6icu_7722TransliteratorRegistry14getAvailableIDEiE5empty acquire, align 8
   %23 = icmp eq i8 %22, 0
-  br i1 %23, label %24, label %28, !prof !70
+  br i1 %23, label %24, label %28, !prof !69
 
 24:                                               ; preds = %.thread
   %25 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZNK6icu_7722TransliteratorRegistry14getAvailableIDEiE5empty) #18
@@ -3247,7 +3247,7 @@ define noundef ptr @_ZNK6icu_7722TransliteratorRegistry15getAvailableIDsEv(ptr n
 ; Function Attrs: mustprogress uwtable
 define noundef i32 @_ZNK6icu_7722TransliteratorRegistry21countAvailableSourcesEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(312) %0) local_unnamed_addr #1 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %3 = load ptr, ptr %2, align 8, !tbaa !53
+  %3 = load ptr, ptr %2, align 8, !tbaa !52
   %4 = tail call noundef i32 @uhash_count_77(ptr noundef %3)
   ret i32 %4
 }
@@ -3267,14 +3267,14 @@ define noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_7722Translitera
 7:                                                ; preds = %10
   %8 = add nsw i32 %.0713, -1
   %9 = icmp sgt i32 %.0713, 0
-  br i1 %9, label %10, label %._crit_edge, !llvm.loop !71
+  br i1 %9, label %10, label %._crit_edge, !llvm.loop !70
 
 10:                                               ; preds = %.lr.ph, %7
   %.0713 = phi i32 [ %1, %.lr.ph ], [ %8, %7 ]
-  %11 = load ptr, ptr %6, align 8, !tbaa !53
+  %11 = load ptr, ptr %6, align 8, !tbaa !52
   %12 = call noundef ptr @uhash_nextElement_77(ptr noundef %11, ptr noundef nonnull align 4 dereferenceable(4) %4)
   %13 = icmp eq ptr %12, null
-  br i1 %13, label %.thread, label %7, !llvm.loop !71
+  br i1 %13, label %.thread, label %7, !llvm.loop !70
 
 .thread:                                          ; preds = %10, %3
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -3316,13 +3316,13 @@ _ZN6icu_7713UnicodeString8truncateEi.exit:        ; preds = %25, %18, %17, %._cr
 ; Function Attrs: mustprogress uwtable
 define noundef i32 @_ZNK6icu_7722TransliteratorRegistry21countAvailableTargetsERKNS_13UnicodeStringE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(312) %0, ptr noundef nonnull align 8 dereferenceable(64) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %4 = load ptr, ptr %3, align 8, !tbaa !53
+  %4 = load ptr, ptr %3, align 8, !tbaa !52
   %5 = tail call noundef ptr @uhash_get_77(ptr noundef %4, ptr noundef nonnull align 8 dereferenceable(64) %1)
   %6 = icmp eq ptr %5, null
   br i1 %6, label %10, label %7
 
 7:                                                ; preds = %2
-  %8 = load ptr, ptr %5, align 8, !tbaa !53
+  %8 = load ptr, ptr %5, align 8, !tbaa !52
   %9 = tail call noundef i32 @uhash_count_77(ptr noundef %8)
   br label %10
 
@@ -3335,7 +3335,7 @@ define noundef i32 @_ZNK6icu_7722TransliteratorRegistry21countAvailableTargetsER
 define noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_7722TransliteratorRegistry18getAvailableTargetEiRKNS_13UnicodeStringERS1_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(312) %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(64) %2, ptr noundef nonnull returned align 8 dereferenceable(64) %3) local_unnamed_addr #1 align 2 {
   %5 = alloca i32, align 4
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %7 = load ptr, ptr %6, align 8, !tbaa !53
+  %7 = load ptr, ptr %6, align 8, !tbaa !52
   %8 = tail call noundef ptr @uhash_get_77(ptr noundef %7, ptr noundef nonnull align 8 dereferenceable(64) %2)
   %9 = icmp eq ptr %8, null
   br i1 %9, label %10, label %24
@@ -3375,14 +3375,14 @@ define noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_7722Translitera
 26:                                               ; preds = %.lr.ph
   %27 = add nsw i32 %.01425, -1
   %28 = icmp sgt i32 %.01425, 0
-  br i1 %28, label %.lr.ph, label %._crit_edge, !llvm.loop !72
+  br i1 %28, label %.lr.ph, label %._crit_edge, !llvm.loop !71
 
 .lr.ph:                                           ; preds = %24, %26
   %.01425 = phi i32 [ %27, %26 ], [ %1, %24 ]
-  %29 = load ptr, ptr %8, align 8, !tbaa !53
+  %29 = load ptr, ptr %8, align 8, !tbaa !52
   %30 = call noundef ptr @uhash_nextElement_77(ptr noundef %29, ptr noundef nonnull align 4 dereferenceable(4) %5)
   %31 = icmp eq ptr %30, null
-  br i1 %31, label %.thread, label %26, !llvm.loop !72
+  br i1 %31, label %.thread, label %26, !llvm.loop !71
 
 .thread:                                          ; preds = %.lr.ph, %24
   %32 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -3427,13 +3427,13 @@ _ZN6icu_7713UnicodeString8truncateEi.exit:        ; preds = %22, %15, %14, %_ZN6
 ; Function Attrs: mustprogress uwtable
 define noundef i32 @_ZNK6icu_7722TransliteratorRegistry22countAvailableVariantsERKNS_13UnicodeStringES3_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(312) %0, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 8 dereferenceable(64) %2) local_unnamed_addr #1 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %5 = load ptr, ptr %4, align 8, !tbaa !53
+  %5 = load ptr, ptr %4, align 8, !tbaa !52
   %6 = tail call noundef ptr @uhash_get_77(ptr noundef %5, ptr noundef nonnull align 8 dereferenceable(64) %1)
   %7 = icmp eq ptr %6, null
   br i1 %7, label %.loopexit, label %8
 
 8:                                                ; preds = %3
-  %9 = load ptr, ptr %6, align 8, !tbaa !53
+  %9 = load ptr, ptr %6, align 8, !tbaa !52
   %10 = tail call noundef i32 @uhash_geti_77(ptr noundef %9, ptr noundef nonnull align 8 dereferenceable(64) %2)
   %.not14 = icmp eq i32 %10, 0
   br i1 %.not14, label %.loopexit, label %.lr.ph
@@ -3445,7 +3445,7 @@ define noundef i32 @_ZNK6icu_7722TransliteratorRegistry22countAvailableVariantsE
   %spec.select = add nuw nsw i32 %.016, %11
   %12 = lshr i32 %.01015, 1
   %.not = icmp ult i32 %.01015, 2
-  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !73
+  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !72
 
 .loopexit:                                        ; preds = %.lr.ph, %8, %3
   %.011 = phi i32 [ 0, %3 ], [ 0, %8 ], [ %spec.select, %.lr.ph ]
@@ -3455,7 +3455,7 @@ define noundef i32 @_ZNK6icu_7722TransliteratorRegistry22countAvailableVariantsE
 ; Function Attrs: mustprogress uwtable
 define noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_7722TransliteratorRegistry19getAvailableVariantEiRKNS_13UnicodeStringES3_RS1_(ptr noundef nonnull align 8 dereferenceable(312) %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(64) %2, ptr noundef nonnull align 8 dereferenceable(64) %3, ptr noundef nonnull returned align 8 dereferenceable(64) %4) local_unnamed_addr #1 align 2 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %7 = load ptr, ptr %6, align 8, !tbaa !53
+  %7 = load ptr, ptr %6, align 8, !tbaa !52
   %8 = tail call noundef ptr @uhash_get_77(ptr noundef %7, ptr noundef nonnull align 8 dereferenceable(64) %2)
   %9 = icmp eq ptr %8, null
   br i1 %9, label %10, label %24
@@ -3487,7 +3487,7 @@ define noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_7722Translitera
   br label %_ZN6icu_7713UnicodeString8truncateEi.exit
 
 24:                                               ; preds = %5
-  %25 = load ptr, ptr %8, align 8, !tbaa !53
+  %25 = load ptr, ptr %8, align 8, !tbaa !52
   %26 = tail call noundef i32 @uhash_geti_77(ptr noundef %25, ptr noundef nonnull align 8 dereferenceable(64) %3)
   %.not37 = icmp eq i32 %26, 0
   br i1 %.not37, label %.critedge, label %.lr.ph
@@ -3523,7 +3523,7 @@ define noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_7722Translitera
   %38 = lshr i32 %.02538, 1
   %39 = add nuw nsw i32 %.02240, 1
   %.not = icmp ult i32 %.02538, 2
-  br i1 %.not, label %.critedge, label %.lr.ph, !llvm.loop !74
+  br i1 %.not, label %.critedge, label %.lr.ph, !llvm.loop !73
 
 .critedge:                                        ; preds = %37, %24, %30
   %40 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -3560,17 +3560,17 @@ define void @_ZN6icu_7722TransliteratorRegistry11EnumerationC2ERKS0_(ptr noundef
   tail call void @_ZN6icu_7717StringEnumerationC2Ev(ptr noundef nonnull align 8 dereferenceable(116) %0)
   store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN6icu_7722TransliteratorRegistry11EnumerationE, i64 16), ptr %0, align 8, !tbaa !15
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 116
-  store i32 -1, ptr %3, align 4, !tbaa !75
+  store i32 -1, ptr %3, align 4, !tbaa !74
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 224
-  %5 = load ptr, ptr %4, align 8, !tbaa !53
+  %5 = load ptr, ptr %4, align 8, !tbaa !52
   %6 = invoke noundef i32 @uhash_count_77(ptr noundef %5)
           to label %_ZNK6icu_779Hashtable5countEv.exit unwind label %9
 
 _ZNK6icu_779Hashtable5countEv.exit:               ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  store i32 %6, ptr %7, align 8, !tbaa !79
+  store i32 %6, ptr %7, align 8, !tbaa !78
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  store ptr %1, ptr %8, align 8, !tbaa !80
+  store ptr %1, ptr %8, align 8, !tbaa !79
   ret void
 
 9:                                                ; preds = %2
@@ -3601,7 +3601,7 @@ define void @_ZN6icu_7722TransliteratorRegistry11EnumerationD0Ev(ptr noundef non
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef i32 @_ZNK6icu_7722TransliteratorRegistry11Enumeration5countER10UErrorCode(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(136) %0, ptr nonnull readnone align 4 captures(none) %1) unnamed_addr #12 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  %4 = load i32, ptr %3, align 8, !tbaa !79
+  %4 = load i32, ptr %3, align 8, !tbaa !78
   ret i32 %4
 }
 
@@ -3613,12 +3613,12 @@ define noundef ptr @_ZN6icu_7722TransliteratorRegistry11Enumeration5snextER10UEr
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %7 = load ptr, ptr %6, align 8, !tbaa !81
+  %7 = load ptr, ptr %6, align 8, !tbaa !80
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 224
-  %9 = load ptr, ptr %8, align 8, !tbaa !53
+  %9 = load ptr, ptr %8, align 8, !tbaa !52
   %10 = tail call noundef i32 @uhash_count_77(ptr noundef %9)
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  %12 = load i32, ptr %11, align 8, !tbaa !79
+  %12 = load i32, ptr %11, align 8, !tbaa !78
   %.not7 = icmp eq i32 %10, %12
   br i1 %.not7, label %14, label %13
 
@@ -3627,10 +3627,10 @@ define noundef ptr @_ZN6icu_7722TransliteratorRegistry11Enumeration5snextER10UEr
   br label %26
 
 14:                                               ; preds = %5
-  %15 = load ptr, ptr %6, align 8, !tbaa !81
+  %15 = load ptr, ptr %6, align 8, !tbaa !80
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 224
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 116
-  %18 = load ptr, ptr %16, align 8, !tbaa !53
+  %18 = load ptr, ptr %16, align 8, !tbaa !52
   %19 = tail call noundef ptr @uhash_nextElement_77(ptr noundef %18, ptr noundef nonnull align 4 dereferenceable(4) %17)
   %20 = icmp eq ptr %19, null
   br i1 %20, label %26, label %21
@@ -3650,14 +3650,14 @@ define noundef ptr @_ZN6icu_7722TransliteratorRegistry11Enumeration5snextER10UEr
 ; Function Attrs: mustprogress uwtable
 define void @_ZN6icu_7722TransliteratorRegistry11Enumeration5resetER10UErrorCode(ptr noundef nonnull align 8 captures(none) dereferenceable(136) initializes((116, 124)) %0, ptr nonnull readnone align 4 captures(none) %1) unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 116
-  store i32 -1, ptr %3, align 4, !tbaa !75
+  store i32 -1, ptr %3, align 4, !tbaa !74
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %5 = load ptr, ptr %4, align 8, !tbaa !81
+  %5 = load ptr, ptr %4, align 8, !tbaa !80
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 224
-  %7 = load ptr, ptr %6, align 8, !tbaa !53
+  %7 = load ptr, ptr %6, align 8, !tbaa !52
   %8 = tail call noundef i32 @uhash_count_77(ptr noundef %7)
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  store i32 %8, ptr %9, align 8, !tbaa !79
+  store i32 %8, ptr %9, align 8, !tbaa !78
   ret void
 }
 
@@ -3697,13 +3697,13 @@ define void @_ZN6icu_7722TransliteratorRegistry13registerEntryERKNS_13UnicodeStr
   br i1 %20, label %21, label %32
 
 21:                                               ; preds = %11
-  store ptr @_ZL3ANY, ptr %9, align 8, !tbaa !64
+  store ptr @_ZL3ANY, ptr %9, align 8, !tbaa !63
   %22 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeString5setToEaNS_14ConstChar16PtrEi(ptr noundef nonnull align 8 dereferenceable(64) %8, i8 noundef signext 1, ptr noundef nonnull %9, i32 noundef 3)
           to label %23 unwind label %29
 
 23:                                               ; preds = %21
-  %24 = load ptr, ptr %9, align 8, !tbaa !64
-  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %24) #18, !srcloc !67
+  %24 = load ptr, ptr %9, align 8, !tbaa !63
+  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %24) #18, !srcloc !66
   br label %32
 
 25:                                               ; preds = %6
@@ -3719,8 +3719,8 @@ define void @_ZN6icu_7722TransliteratorRegistry13registerEntryERKNS_13UnicodeStr
 29:                                               ; preds = %21
   %30 = landingpad { ptr, i32 }
           cleanup
-  %31 = load ptr, ptr %9, align 8, !tbaa !64
-  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %31) #18, !srcloc !67
+  %31 = load ptr, ptr %9, align 8, !tbaa !63
+  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %31) #18, !srcloc !66
   br label %35
 
 32:                                               ; preds = %23, %11
@@ -3757,7 +3757,7 @@ define void @_ZN6icu_7722TransliteratorRegistry13registerEntryERKNS_13UnicodeStr
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #18
   store i32 0, ptr %8, align 4, !tbaa !13
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %10 = load ptr, ptr %9, align 8, !tbaa !53
+  %10 = load ptr, ptr %9, align 8, !tbaa !52
   %11 = tail call noundef ptr @_ZN6icu_777UMemorynwEm(i64 noundef 64) #18
   %12 = icmp eq ptr %11, null
   br i1 %12, label %_ZN6icu_779Hashtable3putERKNS_13UnicodeStringEPvR10UErrorCode.exit, label %13
@@ -3784,13 +3784,13 @@ _ZN6icu_779Hashtable3putERKNS_13UnicodeStringEPvR10UErrorCode.exit: ; preds = %7
 
 18:                                               ; preds = %_ZN6icu_779Hashtable3putERKNS_13UnicodeStringEPvR10UErrorCode.exit
   call void @_ZN6icu_7722TransliteratorRegistry11registerSTVERKNS_13UnicodeStringES3_S3_(ptr noundef nonnull align 8 dereferenceable(312) %0, ptr noundef nonnull align 8 dereferenceable(64) %2, ptr noundef nonnull align 8 dereferenceable(64) %3, ptr noundef nonnull align 8 dereferenceable(64) %4)
-  %19 = load ptr, ptr %17, align 8, !tbaa !53
+  %19 = load ptr, ptr %17, align 8, !tbaa !52
   %20 = call noundef signext i8 @uhash_containsKey_77(ptr noundef %19, ptr noundef nonnull align 8 dereferenceable(64) %1)
   %.not12 = icmp eq i8 %20, 0
   br i1 %.not12, label %21, label %32
 
 21:                                               ; preds = %18
-  %22 = load ptr, ptr %17, align 8, !tbaa !53
+  %22 = load ptr, ptr %17, align 8, !tbaa !52
   %23 = call noundef ptr @_ZN6icu_777UMemorynwEm(i64 noundef 64) #18
   %24 = icmp eq ptr %23, null
   br i1 %24, label %_ZN6icu_779Hashtable4putiERKNS_13UnicodeStringEiR10UErrorCode.exit, label %25
@@ -3811,7 +3811,7 @@ _ZN6icu_779Hashtable4putiERKNS_13UnicodeStringEiR10UErrorCode.exit: ; preds = %2
 
 29:                                               ; preds = %_ZN6icu_779Hashtable3putERKNS_13UnicodeStringEPvR10UErrorCode.exit
   call void @_ZN6icu_7722TransliteratorRegistry9removeSTVERKNS_13UnicodeStringES3_S3_(ptr noundef nonnull align 8 dereferenceable(312) %0, ptr noundef nonnull align 8 dereferenceable(64) %2, ptr noundef nonnull align 8 dereferenceable(64) %3, ptr noundef nonnull align 8 dereferenceable(64) %4)
-  %30 = load ptr, ptr %17, align 8, !tbaa !53
+  %30 = load ptr, ptr %17, align 8, !tbaa !52
   %31 = call noundef ptr @uhash_remove_77(ptr noundef %30, ptr noundef nonnull align 8 dereferenceable(64) %1)
   br label %32
 
@@ -3826,7 +3826,7 @@ define void @_ZN6icu_7722TransliteratorRegistry11registerSTVERKNS_13UnicodeStrin
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #18
   store i32 0, ptr %5, align 4, !tbaa !13
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %7 = load ptr, ptr %6, align 8, !tbaa !53
+  %7 = load ptr, ptr %6, align 8, !tbaa !52
   %8 = tail call noundef ptr @uhash_get_77(ptr noundef %7, ptr noundef nonnull align 8 dereferenceable(64) %1)
   %9 = icmp eq ptr %8, null
   br i1 %9, label %10, label %58
@@ -3845,13 +3845,13 @@ define void @_ZN6icu_7722TransliteratorRegistry11registerSTVERKNS_13UnicodeStrin
 
 _ZNK6icu_7713UnicodeString7compareENS_14ConstChar16PtrEi.exit: ; preds = %10
   %20 = icmp eq i8 %19, 0
-  tail call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull @_ZL3ANY) #18, !srcloc !67
+  tail call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull @_ZL3ANY) #18, !srcloc !66
   br i1 %20, label %34, label %23
 
 21:                                               ; preds = %10
   %22 = landingpad { ptr, i32 }
           cleanup
-  tail call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull @_ZL3ANY) #18, !srcloc !67
+  tail call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull @_ZL3ANY) #18, !srcloc !66
   br label %91
 
 23:                                               ; preds = %_ZNK6icu_7713UnicodeString7compareENS_14ConstChar16PtrEi.exit
@@ -3866,14 +3866,14 @@ _ZNK6icu_7713UnicodeString7compareENS_14ConstChar16PtrEi.exit: ; preds = %10
 
 _ZNK6icu_7713UnicodeString7compareENS_14ConstChar16PtrEi.exit51: ; preds = %23
   %31 = icmp eq i8 %30, 0
-  tail call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull @_ZL3LAT) #18, !srcloc !67
+  tail call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull @_ZL3LAT) #18, !srcloc !66
   %spec.select = select i1 %31, i32 23, i32 3
   br label %34
 
 32:                                               ; preds = %23
   %33 = landingpad { ptr, i32 }
           cleanup
-  tail call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull @_ZL3LAT) #18, !srcloc !67
+  tail call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull @_ZL3LAT) #18, !srcloc !66
   br label %91
 
 34:                                               ; preds = %_ZNK6icu_7713UnicodeString7compareENS_14ConstChar16PtrEi.exit51, %_ZNK6icu_7713UnicodeString7compareENS_14ConstChar16PtrEi.exit
@@ -3883,7 +3883,7 @@ _ZNK6icu_7713UnicodeString7compareENS_14ConstChar16PtrEi.exit51: ; preds = %23
   br i1 %36, label %.critedge, label %37
 
 37:                                               ; preds = %34
-  store ptr null, ptr %35, align 8, !tbaa !53
+  store ptr null, ptr %35, align 8, !tbaa !52
   %38 = load i32, ptr %5, align 4, !tbaa !13
   %39 = icmp slt i32 %38, 1
   br i1 %39, label %40, label %.critedge
@@ -3899,7 +3899,7 @@ _ZNK6icu_7713UnicodeString7compareENS_14ConstChar16PtrEi.exit51: ; preds = %23
   br i1 %44, label %.critedge, label %45
 
 45:                                               ; preds = %.noexc
-  store ptr %41, ptr %35, align 8, !tbaa !53
+  store ptr %41, ptr %35, align 8, !tbaa !52
   %46 = invoke ptr @uhash_setKeyDeleter_77(ptr noundef nonnull %41, ptr noundef nonnull @uprv_deleteUObject_77)
           to label %_ZN6icu_779HashtableC2EaiR10UErrorCode.exit unwind label %48
 
@@ -3915,7 +3915,7 @@ _ZN6icu_779HashtableC2EaiR10UErrorCode.exit:      ; preds = %45
   br label %91
 
 50:                                               ; preds = %_ZN6icu_779HashtableC2EaiR10UErrorCode.exit
-  %51 = load ptr, ptr %6, align 8, !tbaa !53
+  %51 = load ptr, ptr %6, align 8, !tbaa !52
   %52 = call noundef ptr @_ZN6icu_777UMemorynwEm(i64 noundef 64) #18
   %53 = icmp eq ptr %52, null
   br i1 %53, label %_ZN6icu_779Hashtable3putERKNS_13UnicodeStringEPvR10UErrorCode.exit, label %54
@@ -3981,10 +3981,10 @@ _ZN6icu_779Hashtable3putERKNS_13UnicodeStringEPvR10UErrorCode.exit: ; preds = %5
 79:                                               ; preds = %75, %58
   %.035 = phi i32 [ %77, %75 ], [ %60, %58 ]
   %80 = shl nuw i32 1, %.035
-  %81 = load ptr, ptr %.0, align 8, !tbaa !53
+  %81 = load ptr, ptr %.0, align 8, !tbaa !52
   %82 = call noundef i32 @uhash_geti_77(ptr noundef %81, ptr noundef nonnull align 8 dereferenceable(64) %2)
   %83 = or i32 %82, %80
-  %84 = load ptr, ptr %.0, align 8, !tbaa !53
+  %84 = load ptr, ptr %.0, align 8, !tbaa !52
   %85 = call noundef ptr @_ZN6icu_777UMemorynwEm(i64 noundef 64) #18
   %86 = icmp eq ptr %85, null
   br i1 %86, label %_ZN6icu_779Hashtable4putiERKNS_13UnicodeStringEiR10UErrorCode.exit, label %87
@@ -4029,7 +4029,7 @@ define noundef ptr @_ZNK6icu_7722TransliteratorRegistry18findInDynamicStoreERKNS
 
 9:                                                ; preds = %4
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %11 = load ptr, ptr %10, align 8, !tbaa !53
+  %11 = load ptr, ptr %10, align 8, !tbaa !52
   %12 = invoke noundef ptr @uhash_get_77(ptr noundef %11, ptr noundef nonnull align 8 dereferenceable(64) %5)
           to label %_ZNK6icu_779Hashtable3getERKNS_13UnicodeStringE.exit unwind label %15
 
@@ -4058,7 +4058,7 @@ _ZNK6icu_779Hashtable3getERKNS_13UnicodeStringE.exit: ; preds = %9
 ; Function Attrs: mustprogress uwtable
 define noundef ptr @_ZN6icu_7722TransliteratorRegistry17findInStaticStoreERKNS_18TransliteratorSpecES3_RKNS_13UnicodeStringE(ptr noundef nonnull align 8 dereferenceable(312) %0, ptr noundef nonnull align 8 dereferenceable(280) %1, ptr noundef nonnull align 8 dereferenceable(280) %2, ptr noundef nonnull align 8 dereferenceable(64) %3) local_unnamed_addr #1 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 264
-  %6 = load i8, ptr %5, align 8, !tbaa !46
+  %6 = load i8, ptr %5, align 8, !tbaa !45
   %.not = icmp eq i8 %6, 0
   br i1 %.not, label %9, label %7
 
@@ -4068,7 +4068,7 @@ define noundef ptr @_ZN6icu_7722TransliteratorRegistry17findInStaticStoreERKNS_1
 
 9:                                                ; preds = %4
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 264
-  %11 = load i8, ptr %10, align 8, !tbaa !46
+  %11 = load i8, ptr %10, align 8, !tbaa !45
   %.not15 = icmp eq i8 %11, 0
   br i1 %.not15, label %.thread, label %12
 
@@ -4161,7 +4161,7 @@ _ZN6icu_7713UnicodeString8truncateEi.exit:        ; preds = %42, %36, %35
           to label %_ZN6icu_7713UnicodeString6appendENS_14ConstChar16PtrEi.exit unwind label %48
 
 _ZN6icu_7713UnicodeString6appendENS_14ConstChar16PtrEi.exit: ; preds = %44
-  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %19) #18, !srcloc !67
+  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %19) #18, !srcloc !66
   br label %54
 
 46:                                               ; preds = %35
@@ -4172,7 +4172,7 @@ _ZN6icu_7713UnicodeString6appendENS_14ConstChar16PtrEi.exit: ; preds = %44
 48:                                               ; preds = %44
   %49 = landingpad { ptr, i32 }
           cleanup
-  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %19) #18, !srcloc !67
+  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %19) #18, !srcloc !66
   br label %184
 
 50:                                               ; preds = %_ZN6icu_7713UnicodeString8truncateEi.exit
@@ -4180,13 +4180,13 @@ _ZN6icu_7713UnicodeString6appendENS_14ConstChar16PtrEi.exit: ; preds = %44
           to label %_ZN6icu_7713UnicodeString6appendENS_14ConstChar16PtrEi.exit57 unwind label %52
 
 _ZN6icu_7713UnicodeString6appendENS_14ConstChar16PtrEi.exit57: ; preds = %50
-  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull @_ZN6icu_77L13TRANSLITERATEE) #18, !srcloc !67
+  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull @_ZN6icu_77L13TRANSLITERATEE) #18, !srcloc !66
   br label %54
 
 52:                                               ; preds = %50
   %53 = landingpad { ptr, i32 }
           cleanup
-  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull @_ZN6icu_77L13TRANSLITERATEE) #18, !srcloc !67
+  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull @_ZN6icu_77L13TRANSLITERATEE) #18, !srcloc !66
   br label %184
 
 54:                                               ; preds = %_ZN6icu_7713UnicodeString6appendENS_14ConstChar16PtrEi.exit57, %_ZN6icu_7713UnicodeString6appendENS_14ConstChar16PtrEi.exit
@@ -4221,13 +4221,13 @@ _ZN6icu_7713UnicodeString6appendERKS0_.exit:      ; preds = %58
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #18
   store i32 0, ptr %9, align 4, !tbaa !13
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10) #18
-  %68 = load ptr, ptr %21, align 8, !tbaa !39
+  %68 = load ptr, ptr %21, align 8, !tbaa !38
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %11) #18
   invoke void @_ZN6icu_7715MaybeStackArrayIcLi40EEC1Ev(ptr noundef nonnull align 8 dereferenceable(60) %11)
           to label %69 unwind label %85
 
 69:                                               ; preds = %_ZN6icu_7713UnicodeString6appendERKS0_.exit
-  store i32 0, ptr %22, align 8, !tbaa !44
+  store i32 0, ptr %22, align 8, !tbaa !43
   %70 = load ptr, ptr %11, align 8, !tbaa !3
   store i8 0, ptr %70, align 1, !tbaa !17
   %71 = invoke noundef nonnull align 8 dereferenceable(60) ptr @_ZN6icu_7710CharString20appendInvariantCharsERKNS_13UnicodeStringER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(60) %11, ptr noundef nonnull align 8 dereferenceable(64) %5, ptr noundef nonnull align 4 dereferenceable(4) %9)
@@ -4386,7 +4386,7 @@ _ZN6icu_7713UnicodeString8truncateEi.exit62:      ; preds = %102, %96, %95
           to label %146 unwind label %155
 
 146:                                              ; preds = %145
-  store i32 0, ptr %30, align 8, !tbaa !44
+  store i32 0, ptr %30, align 8, !tbaa !43
   %147 = load ptr, ptr %13, align 8, !tbaa !3
   store i8 0, ptr %147, align 1, !tbaa !17
   %148 = invoke noundef nonnull align 8 dereferenceable(60) ptr @_ZN6icu_7710CharString20appendInvariantCharsERKNS_13UnicodeStringER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(60) %13, ptr noundef nonnull align 8 dereferenceable(64) %2, ptr noundef nonnull align 4 dereferenceable(4) %9)
@@ -4449,7 +4449,7 @@ _ZN6icu_7713UnicodeString8truncateEi.exit62:      ; preds = %102, %96, %95
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #18
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %7) #18
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %7) #18
-  br i1 %32, label %31, label %.thread73, !llvm.loop !82
+  br i1 %32, label %31, label %.thread73, !llvm.loop !81
 
 167:                                              ; preds = %165, %159, %90
   %.pn43.pn = phi { ptr, i32 } [ %.pn43, %159 ], [ %166, %165 ], [ %91, %90 ]
@@ -4488,14 +4488,14 @@ _ZN6icu_7713UnicodeString8truncateEi.exit62:      ; preds = %102, %96, %95
           to label %175 unwind label %180
 
 175:                                              ; preds = %174
-  store i32 2, ptr %172, align 8, !tbaa !48
+  store i32 2, ptr %172, align 8, !tbaa !47
   %176 = getelementptr inbounds nuw i8, ptr %172, i64 8
   %177 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeStringaSERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %176, ptr noundef nonnull align 8 dereferenceable(64) %6)
           to label %178 unwind label %182
 
 178:                                              ; preds = %175
   %179 = getelementptr inbounds nuw i8, ptr %172, i64 72
-  store i32 %171, ptr %179, align 8, !tbaa !63
+  store i32 %171, ptr %179, align 8, !tbaa !62
   br label %.thread73
 
 180:                                              ; preds = %174
@@ -4564,7 +4564,7 @@ define noundef ptr @_ZN6icu_7722TransliteratorRegistry4findERNS_13UnicodeStringE
 
 14:                                               ; preds = %12
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %16 = load ptr, ptr %15, align 8, !tbaa !53
+  %16 = load ptr, ptr %15, align 8, !tbaa !52
   %17 = invoke noundef ptr @uhash_get_77(ptr noundef %16, ptr noundef nonnull align 8 dereferenceable(64) %9)
           to label %_ZNK6icu_779Hashtable3getERKNS_13UnicodeStringE.exit unwind label %.loopexit.split-lp73.loopexit.split-lp
 
@@ -4615,7 +4615,7 @@ _ZNK6icu_779Hashtable3getERKNS_13UnicodeStringE.exit: ; preds = %14
           to label %33 unwind label %36
 
 33:                                               ; preds = %29
-  %34 = load ptr, ptr %15, align 8, !tbaa !53
+  %34 = load ptr, ptr %15, align 8, !tbaa !52
   %35 = invoke noundef ptr @uhash_get_77(ptr noundef %34, ptr noundef nonnull align 8 dereferenceable(64) %6)
           to label %41 unwind label %38
 
@@ -4643,13 +4643,13 @@ _ZNK6icu_779Hashtable3getERKNS_13UnicodeStringE.exit: ; preds = %14
 
 42:                                               ; preds = %41
   %43 = getelementptr inbounds nuw i8, ptr %7, i64 264
-  %44 = load i8, ptr %43, align 8, !tbaa !46
+  %44 = load i8, ptr %43, align 8, !tbaa !45
   %.not.i = icmp eq i8 %44, 0
   br i1 %.not.i, label %45, label %.invoke
 
 45:                                               ; preds = %42
   %46 = getelementptr inbounds nuw i8, ptr %8, i64 264
-  %47 = load i8, ptr %46, align 8, !tbaa !46
+  %47 = load i8, ptr %46, align 8, !tbaa !45
   %.not15.i = icmp eq i8 %47, 0
   br i1 %.not15.i, label %_ZN6icu_7722TransliteratorRegistry17findInStaticStoreERKNS_18TransliteratorSpecES3_RKNS_13UnicodeStringE.exit.thread, label %.invoke
 
@@ -4703,7 +4703,7 @@ _ZN6icu_7718TransliteratorSpec4nextEv.exit:       ; preds = %_ZN6icu_7718Transli
           to label %70 unwind label %73
 
 70:                                               ; preds = %_ZN6icu_7718TransliteratorSpec4nextEv.exit
-  %71 = load ptr, ptr %15, align 8, !tbaa !53
+  %71 = load ptr, ptr %15, align 8, !tbaa !52
   %72 = invoke noundef ptr @uhash_get_77(ptr noundef %71, ptr noundef nonnull align 8 dereferenceable(64) %5)
           to label %77 unwind label %75
 
@@ -4737,7 +4737,7 @@ _ZN6icu_7718TransliteratorSpec4nextEv.exit:       ; preds = %_ZN6icu_7718Transli
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %11) #18
   store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN6icu_7713UnicodeStringE, i64 16), ptr %11, align 8, !tbaa !15
   store i16 2, ptr %59, align 8, !tbaa !17
-  %79 = load i8, ptr %60, align 8, !tbaa !46
+  %79 = load i8, ptr %60, align 8, !tbaa !45
   %.not.i52 = icmp eq i8 %79, 0
   br i1 %.not.i52, label %84, label %.invoke102
 
@@ -4749,7 +4749,7 @@ _ZN6icu_7718TransliteratorSpec4nextEv.exit:       ; preds = %_ZN6icu_7718Transli
           to label %.noexc57 unwind label %.loopexit
 
 84:                                               ; preds = %78
-  %85 = load i8, ptr %61, align 8, !tbaa !46
+  %85 = load i8, ptr %61, align 8, !tbaa !45
   %.not15.i56 = icmp eq i8 %85, 0
   br i1 %.not15.i56, label %90, label %.invoke102
 
@@ -4801,8 +4801,8 @@ _ZN6icu_7722TransliteratorRegistry17findInStaticStoreERKNS_18TransliteratorSpecE
           to label %.noexc61 unwind label %.loopexit72
 
 .noexc61:                                         ; preds = %97
-  %99 = load i8, ptr %65, align 1, !tbaa !47
-  store i8 %99, ptr %60, align 8, !tbaa !46
+  %99 = load i8, ptr %65, align 1, !tbaa !46
+  store i8 %99, ptr %60, align 8, !tbaa !45
   invoke void @_ZN6icu_7718TransliteratorSpec9setupNextEv(ptr noundef nonnull align 8 dereferenceable(280) %7)
           to label %_ZN6icu_7718TransliteratorSpec4nextEv.exit unwind label %.loopexit72
 
@@ -4821,8 +4821,8 @@ _ZN6icu_7722TransliteratorRegistry17findInStaticStoreERKNS_18TransliteratorSpecE
           to label %.noexc63 unwind label %.loopexit.split-lp73.loopexit
 
 .noexc63:                                         ; preds = %107
-  %109 = load i8, ptr %69, align 1, !tbaa !47
-  store i8 %109, ptr %61, align 8, !tbaa !46
+  %109 = load i8, ptr %69, align 1, !tbaa !46
+  store i8 %109, ptr %61, align 8, !tbaa !45
   invoke void @_ZN6icu_7718TransliteratorSpec9setupNextEv(ptr noundef nonnull align 8 dereferenceable(280) %8)
           to label %_ZN6icu_7718TransliteratorSpec4nextEv.exit65 unwind label %.loopexit.split-lp73.loopexit
 
@@ -4997,51 +4997,50 @@ attributes #20 = { noreturn nounwind }
 !32 = !{!"p1 _ZTS8UElement", !6, i64 0}
 !33 = !{!34, !34, i64 0}
 !34 = !{!"char16_t", !7, i64 0}
-!35 = distinct !{!35, !36, !37}
+!35 = distinct !{!35, !36}
 !36 = !{!"llvm.loop.mustprogress"}
-!37 = !{!"llvm.loop.estimated_trip_count"}
-!38 = distinct !{!38, !36, !37}
-!39 = !{!40, !41, i64 272}
-!40 = !{!"_ZTSN6icu_7718TransliteratorSpecE", !20, i64 8, !20, i64 72, !20, i64 136, !20, i64 200, !7, i64 264, !7, i64 265, !41, i64 272}
-!41 = !{!"p1 _ZTSN6icu_7714ResourceBundleE", !6, i64 0}
-!42 = !{!43, !7, i64 216}
-!43 = !{!"_ZTSN6icu_776LocaleE", !22, i64 0, !7, i64 8, !7, i64 20, !7, i64 26, !9, i64 32, !5, i64 40, !7, i64 48, !5, i64 208, !7, i64 216}
-!44 = !{!45, !9, i64 56}
-!45 = !{!"_ZTSN6icu_7710CharStringE", !4, i64 0, !9, i64 56}
-!46 = !{!40, !7, i64 264}
-!47 = !{!40, !7, i64 265}
-!48 = !{!49, !50, i64 0}
-!49 = !{!"_ZTSN6icu_7719TransliteratorEntryE", !50, i64 0, !20, i64 8, !9, i64 72, !24, i64 80, !7, i64 88}
-!50 = !{!"_ZTSN6icu_7719TransliteratorEntry4TypeE", !7, i64 0}
-!51 = distinct !{!51, !36, !37}
-!52 = !{!49, !24, i64 80}
-!53 = !{!54, !55, i64 0}
-!54 = !{!"_ZTSN6icu_779HashtableE", !55, i64 0, !56, i64 8}
-!55 = !{!"p1 _ZTS10UHashtable", !6, i64 0}
-!56 = !{!"_ZTS10UHashtable", !57, i64 0, !6, i64 8, !6, i64 16, !6, i64 24, !6, i64 32, !6, i64 40, !9, i64 48, !9, i64 52, !9, i64 56, !9, i64 60, !58, i64 64, !58, i64 68, !7, i64 72, !7, i64 73}
-!57 = !{!"p1 _ZTS12UHashElement", !6, i64 0}
-!58 = !{!"float", !7, i64 0}
-!59 = !{!60, !60, i64 0}
-!60 = !{!"p1 _ZTSN6icu_7719TransliteratorAliasE", !6, i64 0}
-!61 = distinct !{!61, !36, !37}
-!62 = distinct !{!62, !36, !37}
-!63 = !{!49, !9, i64 72}
-!64 = !{!65, !66, i64 0}
-!65 = !{!"_ZTSN6icu_7714ConstChar16PtrE", !66, i64 0}
-!66 = !{!"p1 char16_t", !6, i64 0}
-!67 = !{i64 2148960525}
-!68 = distinct !{!68, !36, !37}
-!69 = distinct !{!69, !36, !37}
-!70 = !{!"branch_weights", i32 1, i32 1048575}
-!71 = distinct !{!71, !36, !37}
-!72 = distinct !{!72, !36, !37}
-!73 = distinct !{!73, !36, !37}
-!74 = distinct !{!74, !36, !37}
-!75 = !{!76, !9, i64 116}
-!76 = !{!"_ZTSN6icu_7722TransliteratorRegistry11EnumerationE", !77, i64 0, !9, i64 116, !9, i64 120, !78, i64 128}
-!77 = !{!"_ZTSN6icu_7717StringEnumerationE", !22, i64 0, !20, i64 8, !7, i64 72, !5, i64 104, !9, i64 112}
-!78 = !{!"p1 _ZTSN6icu_7722TransliteratorRegistryE", !6, i64 0}
-!79 = !{!76, !9, i64 120}
-!80 = !{!78, !78, i64 0}
-!81 = !{!76, !78, i64 128}
-!82 = distinct !{!82, !36, !37}
+!37 = distinct !{!37, !36}
+!38 = !{!39, !40, i64 272}
+!39 = !{!"_ZTSN6icu_7718TransliteratorSpecE", !20, i64 8, !20, i64 72, !20, i64 136, !20, i64 200, !7, i64 264, !7, i64 265, !40, i64 272}
+!40 = !{!"p1 _ZTSN6icu_7714ResourceBundleE", !6, i64 0}
+!41 = !{!42, !7, i64 216}
+!42 = !{!"_ZTSN6icu_776LocaleE", !22, i64 0, !7, i64 8, !7, i64 20, !7, i64 26, !9, i64 32, !5, i64 40, !7, i64 48, !5, i64 208, !7, i64 216}
+!43 = !{!44, !9, i64 56}
+!44 = !{!"_ZTSN6icu_7710CharStringE", !4, i64 0, !9, i64 56}
+!45 = !{!39, !7, i64 264}
+!46 = !{!39, !7, i64 265}
+!47 = !{!48, !49, i64 0}
+!48 = !{!"_ZTSN6icu_7719TransliteratorEntryE", !49, i64 0, !20, i64 8, !9, i64 72, !24, i64 80, !7, i64 88}
+!49 = !{!"_ZTSN6icu_7719TransliteratorEntry4TypeE", !7, i64 0}
+!50 = distinct !{!50, !36}
+!51 = !{!48, !24, i64 80}
+!52 = !{!53, !54, i64 0}
+!53 = !{!"_ZTSN6icu_779HashtableE", !54, i64 0, !55, i64 8}
+!54 = !{!"p1 _ZTS10UHashtable", !6, i64 0}
+!55 = !{!"_ZTS10UHashtable", !56, i64 0, !6, i64 8, !6, i64 16, !6, i64 24, !6, i64 32, !6, i64 40, !9, i64 48, !9, i64 52, !9, i64 56, !9, i64 60, !57, i64 64, !57, i64 68, !7, i64 72, !7, i64 73}
+!56 = !{!"p1 _ZTS12UHashElement", !6, i64 0}
+!57 = !{!"float", !7, i64 0}
+!58 = !{!59, !59, i64 0}
+!59 = !{!"p1 _ZTSN6icu_7719TransliteratorAliasE", !6, i64 0}
+!60 = distinct !{!60, !36}
+!61 = distinct !{!61, !36}
+!62 = !{!48, !9, i64 72}
+!63 = !{!64, !65, i64 0}
+!64 = !{!"_ZTSN6icu_7714ConstChar16PtrE", !65, i64 0}
+!65 = !{!"p1 char16_t", !6, i64 0}
+!66 = !{i64 2148960525}
+!67 = distinct !{!67, !36}
+!68 = distinct !{!68, !36}
+!69 = !{!"branch_weights", i32 1, i32 1048575}
+!70 = distinct !{!70, !36}
+!71 = distinct !{!71, !36}
+!72 = distinct !{!72, !36}
+!73 = distinct !{!73, !36}
+!74 = !{!75, !9, i64 116}
+!75 = !{!"_ZTSN6icu_7722TransliteratorRegistry11EnumerationE", !76, i64 0, !9, i64 116, !9, i64 120, !77, i64 128}
+!76 = !{!"_ZTSN6icu_7717StringEnumerationE", !22, i64 0, !20, i64 8, !7, i64 72, !5, i64 104, !9, i64 112}
+!77 = !{!"p1 _ZTSN6icu_7722TransliteratorRegistryE", !6, i64 0}
+!78 = !{!75, !9, i64 120}
+!79 = !{!77, !77, i64 0}
+!80 = !{!75, !77, i64 128}
+!81 = distinct !{!81, !36}

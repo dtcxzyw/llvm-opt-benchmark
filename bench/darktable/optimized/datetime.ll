@@ -1047,14 +1047,13 @@ define void @dt_datetime_add_subsec_to_exif(ptr noundef %0, i64 noundef %1, ptr 
   %4 = icmp eq ptr %0, null
   %5 = icmp ult i64 %1, 21
   %or.cond = or i1 %4, %5
-  br i1 %or.cond, label %17, label %6
+  br i1 %or.cond, label %19, label %6
 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 19
   %8 = add i64 %1, -19
   %9 = tail call i64 @g_strlcpy(ptr noundef nonnull %7, ptr noundef nonnull @.str.5, i64 noundef %8) #7
   %10 = add i64 %1, -21
-  %invariant.gep = getelementptr inbounds nuw i8, ptr %0, i64 20
   br label %11
 
 11:                                               ; preds = %6, %16
@@ -1070,16 +1069,17 @@ define void @dt_datetime_add_subsec_to_exif(ptr noundef %0, i64 noundef %1, ptr 
   %14 = getelementptr i8, ptr %0, i64 %1
   %15 = getelementptr i8, ptr %14, i64 -1
   store i8 0, ptr %15, align 1, !tbaa !57
-  br label %17
+  br label %19
 
 16:                                               ; preds = %11
-  %gep = getelementptr inbounds nuw i8, ptr %invariant.gep, i64 %indvars.iv
-  store i8 %13, ptr %gep, align 1, !tbaa !57
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 20
+  store i8 %13, ptr %18, align 1, !tbaa !57
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond21.not = icmp eq i64 %indvars.iv.next, 6
-  br i1 %exitcond21.not, label %.critedge, label %11, !llvm.loop !72
+  br i1 %exitcond21.not, label %.critedge, label %11
 
-17:                                               ; preds = %3, %.critedge
+19:                                               ; preds = %3, %.critedge
   ret void
 }
 
@@ -1365,7 +1365,7 @@ dt_datetime_gdatetime_to_exif.exit:               ; preds = %31, %33, %35
   call void @g_date_time_unref(ptr noundef nonnull %.1.i) #7
   call void @g_date_time_unref(ptr noundef %32) #7
   %37 = call noalias ptr @g_strdup(ptr noundef nonnull %6) #7
-  store ptr %37, ptr %3, align 8, !tbaa !74
+  store ptr %37, ptr %3, align 8, !tbaa !72
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %6) #7
   br label %38
 
@@ -1468,6 +1468,4 @@ attributes #8 = { nounwind willreturn memory(read) }
 !69 = !{!"_color_harmony_t", !9, i64 0, !9, i64 4, !9, i64 8}
 !70 = !{!"p1 _ZTS16dt_cache_entry_t", !13, i64 0}
 !71 = !{!44, !44, i64 0}
-!72 = distinct !{!72, !73}
-!73 = !{!"llvm.loop.estimated_trip_count"}
-!74 = !{!38, !38, i64 0}
+!72 = !{!38, !38, i64 0}

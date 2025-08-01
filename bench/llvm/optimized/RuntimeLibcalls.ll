@@ -2089,7 +2089,7 @@ _ZNK4llvm6Triple11isOSCygMingEv.exit.thread:      ; preds = %670, %670, %thread-
 685:                                              ; preds = %683, %.preheader
   %indvars.iv.next73 = add nuw nsw i64 %indvars.iv72, 1
   %exitcond75.not = icmp eq i64 %indvars.iv.next73, 717
-  br i1 %exitcond75.not, label %.loopexit, label %.preheader, !llvm.loop !27
+  br i1 %exitcond75.not, label %.loopexit, label %.preheader, !llvm.loop !26
 
 .loopexit:                                        ; preds = %685, %.loopexit66
   %686 = load i32, ptr %648, align 8
@@ -2184,7 +2184,6 @@ attributes #3 = { nounwind }
 !21 = !{!9, !14, i64 36}
 !22 = !{!23, !23, i64 0}
 !23 = !{!"int", !6, i64 0}
-!24 = distinct !{!24, !25, !26}
+!24 = distinct !{!24, !25}
 !25 = !{!"llvm.loop.mustprogress"}
-!26 = !{!"llvm.loop.estimated_trip_count"}
-!27 = distinct !{!27, !25, !26}
+!26 = distinct !{!26, !25}

@@ -622,7 +622,7 @@ define dso_local i32 @intel_gsc_uc_heci_cmd_submit_nonpriv(ptr noundef readonly 
   %207 = getelementptr inbounds nuw i8, ptr %123, i64 448
   %208 = getelementptr inbounds nuw i8, ptr %123, i64 40
   %209 = call i64 @ktime_get_raw() #7
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !21
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !20
   %210 = load volatile i64, ptr %206, align 8
   %211 = and i64 %210, 1
   %212 = icmp eq i64 %211, 0
@@ -663,7 +663,7 @@ define dso_local i32 @intel_gsc_uc_heci_cmd_submit_nonpriv(ptr noundef readonly 
   %229 = icmp slt i64 %213, 1000
   %230 = select i1 %229, i64 %228, i64 %213
   %231 = call i64 @ktime_get_raw() #7
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !21
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !20
   %232 = load volatile i64, ptr %206, align 8
   %233 = and i64 %232, 1
   %234 = icmp eq i64 %233, 0
@@ -744,12 +744,12 @@ define dso_local i32 @intel_gsc_uc_heci_cmd_submit_nonpriv(ptr noundef readonly 
 271:                                              ; preds = %.lr.ph48
   %272 = extractvalue { i8, i32 } %267, 1
   %273 = icmp eq i32 %272, 1
-  br i1 %273, label %._crit_edge49, label %.lr.ph48, !prof !16, !llvm.loop !22
+  br i1 %273, label %._crit_edge49, label %.lr.ph48, !prof !16, !llvm.loop !17
 
 ._crit_edge49:                                    ; preds = %271, %.preheader
-  %274 = call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $2,$1", "={ax},=*m,r,0,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %9, i32 2, i32 1, ptr nonnull elementtype(i32) %9) #7, !srcloc !23
+  %274 = call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $2,$1", "={ax},=*m,r,0,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %9, i32 2, i32 1, ptr nonnull elementtype(i32) %9) #7, !srcloc !21
   %275 = icmp eq i32 %274, 1
-  br i1 %275, label %276, label %.preheader, !llvm.loop !24
+  br i1 %275, label %276, label %.preheader, !llvm.loop !22
 
 276:                                              ; preds = %._crit_edge49
   %277 = load ptr, ptr %23, align 8
@@ -776,7 +776,7 @@ define dso_local i32 @intel_gsc_uc_heci_cmd_submit_nonpriv(ptr noundef readonly 
 284:                                              ; preds = %.thread41
   %285 = add nuw nsw i32 %29, 1
   %286 = icmp eq i32 %285, 10
-  br i1 %286, label %.thread43, label %28, !llvm.loop !25
+  br i1 %286, label %.thread43, label %28
 
 .thread43:                                        ; preds = %97, %57, %284, %.thread41, %.loopexit
   %287 = phi i32 [ %282, %.thread41 ], [ %280, %.loopexit ], [ -11, %284 ], [ %42, %57 ], [ %82, %97 ]
@@ -865,12 +865,9 @@ attributes #8 = { cold nounwind }
 !14 = !{!"branch_weights", i32 1, i32 127}
 !15 = !{i64 2148418390, i64 2148418429, i64 2148418450, i64 2148418487, i64 2148418510, i64 2148418519, i64 2148418817}
 !16 = !{!"branch_weights", i32 127, i32 255873}
-!17 = distinct !{!17, !18, !19, !20}
+!17 = distinct !{!17, !18, !19}
 !18 = !{!"llvm.loop.mustprogress"}
 !19 = !{!"llvm.loop.unroll.disable"}
-!20 = !{!"llvm.loop.estimated_trip_count"}
-!21 = !{i64 2159429508}
-!22 = distinct !{!22, !18, !19, !20}
-!23 = !{i64 2148415295, i64 2148415334, i64 2148415355, i64 2148415392, i64 2148415415, i64 2148415424}
-!24 = distinct !{!24, !18, !19, !20}
-!25 = distinct !{!25, !20}
+!20 = !{i64 2159429508}
+!21 = !{i64 2148415295, i64 2148415334, i64 2148415355, i64 2148415392, i64 2148415415, i64 2148415424}
+!22 = distinct !{!22, !18, !19}

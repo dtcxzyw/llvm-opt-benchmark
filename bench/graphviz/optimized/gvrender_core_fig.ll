@@ -239,15 +239,15 @@ define internal void @fig_resolve_color(ptr noundef %0, ptr noundef captures(non
   %.041.i = phi i64 [ 195075, %.lr.ph.i ], [ %.1.i, %47 ]
   %.03239.i = phi i32 [ -1, %.lr.ph.i ], [ %.133.i, %47 ]
   %26 = getelementptr inbounds nuw [512 x i16], ptr @figColorResolve.red, i64 0, i64 %indvars.iv.i
-  %27 = load i16, ptr %26, align 2, !tbaa !56
+  %27 = load i16, ptr %26, align 2, !tbaa !55
   %28 = sext i16 %27 to i64
   %29 = sub nsw i64 %28, %22
   %30 = getelementptr inbounds nuw [512 x i16], ptr @figColorResolve.green, i64 0, i64 %indvars.iv.i
-  %31 = load i16, ptr %30, align 2, !tbaa !56
+  %31 = load i16, ptr %30, align 2, !tbaa !55
   %32 = sext i16 %31 to i64
   %33 = sub nsw i64 %32, %23
   %34 = getelementptr inbounds nuw [512 x i16], ptr @figColorResolve.blue, i64 0, i64 %indvars.iv.i
-  %35 = load i16, ptr %34, align 2, !tbaa !56
+  %35 = load i16, ptr %34, align 2, !tbaa !55
   %36 = sext i16 %35 to i64
   %37 = sub nsw i64 %36, %24
   %38 = mul nsw i64 %29, %29
@@ -268,7 +268,7 @@ define internal void @fig_resolve_color(ptr noundef %0, ptr noundef captures(non
   %.1.i = phi i64 [ %.041.i, %25 ], [ %42, %44 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %25, !llvm.loop !58
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %25, !llvm.loop !57
 
 ._crit_edge.i:                                    ; preds = %47
   %48 = icmp eq i32 %20, 512
@@ -286,13 +286,13 @@ figColorResolve.exit.thread:                      ; preds = %44, %._crit_edge.i
   %51 = zext i8 %15 to i16
   %52 = zext nneg i32 %.031.lcssa48.i to i64
   %53 = getelementptr inbounds nuw [512 x i16], ptr @figColorResolve.red, i64 0, i64 %52
-  store i16 %51, ptr %53, align 2, !tbaa !56
+  store i16 %51, ptr %53, align 2, !tbaa !55
   %54 = zext i8 %17 to i16
   %55 = getelementptr inbounds nuw [512 x i16], ptr @figColorResolve.green, i64 0, i64 %52
-  store i16 %54, ptr %55, align 2, !tbaa !56
+  store i16 %54, ptr %55, align 2, !tbaa !55
   %56 = zext i8 %19 to i16
   %57 = getelementptr inbounds nuw [512 x i16], ptr @figColorResolve.blue, i64 0, i64 %52
-  store i16 %56, ptr %57, align 2, !tbaa !56
+  store i16 %56, ptr %57, align 2, !tbaa !55
   %58 = add nuw nsw i32 %.031.lcssa48.i, 32
   %59 = zext i8 %15 to i32
   %60 = zext i8 %17 to i32
@@ -301,7 +301,7 @@ figColorResolve.exit.thread:                      ; preds = %44, %._crit_edge.i
   br label %.loopexit.sink.split
 
 62:                                               ; preds = %2
-  %63 = load ptr, ptr @stderr, align 8, !tbaa !59
+  %63 = load ptr, ptr @stderr, align 8, !tbaa !58
   %64 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %63, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.20, i32 noundef 117) #20
   tail call void @abort() #21
   unreachable
@@ -322,14 +322,14 @@ fig_line_style.exit:
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8, !tbaa !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 176
-  %6 = load double, ptr %5, align 8, !tbaa !60
+  %6 = load double, ptr %5, align 8, !tbaa !59
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %8 = load i32, ptr %7, align 8, !tbaa !35
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %10 = load i32, ptr %9, align 8, !tbaa !35
   %11 = load i32, ptr @Depth, align 4, !tbaa !38
   %12 = getelementptr i8, ptr %4, i64 168
-  %.val = load i32, ptr %12, align 8, !tbaa !64
+  %.val = load i32, ptr %12, align 8, !tbaa !63
   %.val.off = add i32 %.val, -1
   %switch = icmp ult i32 %.val.off, 2
   %.sink1.i = select i1 %switch, i32 %.val, i32 0
@@ -337,17 +337,17 @@ fig_line_style.exit:
   %.not = icmp eq i32 %2, 0
   %13 = select i1 %.not, i32 -1, i32 20
   %14 = tail call double @llvm.round.f64(double %6)
-  %15 = load double, ptr %1, align 8, !tbaa !65
+  %15 = load double, ptr %1, align 8, !tbaa !64
   %16 = tail call double @llvm.round.f64(double %15)
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %18 = load double, ptr %17, align 8, !tbaa !66
+  %18 = load double, ptr %17, align 8, !tbaa !65
   %19 = tail call double @llvm.round.f64(double %18)
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %21 = load double, ptr %20, align 8, !tbaa !65
+  %21 = load double, ptr %20, align 8, !tbaa !64
   %22 = fsub double %21, %15
   %23 = tail call double @llvm.round.f64(double %22)
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %25 = load double, ptr %24, align 8, !tbaa !66
+  %25 = load double, ptr %24, align 8, !tbaa !65
   %26 = fsub double %25, %18
   %27 = tail call double @llvm.round.f64(double %26)
   %28 = tail call double @llvm.round.f64(double %21)
@@ -362,7 +362,7 @@ fig_line_style.exit:
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load ptr, ptr %4, align 8, !tbaa !3
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 176
-  %7 = load double, ptr %6, align 8, !tbaa !60
+  %7 = load double, ptr %6, align 8, !tbaa !59
   %8 = tail call double @llvm.round.f64(double %7)
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %10 = load i32, ptr %9, align 8, !tbaa !35
@@ -373,7 +373,7 @@ fig_line_style.exit:
   %14 = select i1 %.not, i32 -1, i32 20
   %15 = add i64 %2, 1
   %16 = getelementptr i8, ptr %5, i64 168
-  %.val = load i32, ptr %16, align 8, !tbaa !64
+  %.val = load i32, ptr %16, align 8, !tbaa !63
   %.val.off = add i32 %.val, -1
   %switch = icmp ult i32 %.val.off, 2
   %.sink1.i = select i1 %switch, i32 %.val, i32 0
@@ -385,18 +385,18 @@ fig_line_style.exit:
 .lr.ph.i:                                         ; preds = %fig_line_style.exit, %.lr.ph.i
   %.012.i = phi i64 [ %21, %.lr.ph.i ], [ 0, %fig_line_style.exit ]
   %17 = getelementptr inbounds nuw %struct.pointf_s, ptr %1, i64 %.012.i
-  %18 = load double, ptr %17, align 8, !tbaa !65
+  %18 = load double, ptr %17, align 8, !tbaa !64
   %19 = getelementptr inbounds nuw i8, ptr %17, i64 8
-  %20 = load double, ptr %19, align 8, !tbaa !66
+  %20 = load double, ptr %19, align 8, !tbaa !65
   tail call void (ptr, ptr, ...) @gvprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.31, double noundef %18, double noundef %20) #18
   %21 = add nuw i64 %.012.i, 1
   %exitcond.not.i = icmp eq i64 %21, %2
-  br i1 %exitcond.not.i, label %figptarray.exit, label %.lr.ph.i, !llvm.loop !67
+  br i1 %exitcond.not.i, label %figptarray.exit, label %.lr.ph.i, !llvm.loop !66
 
 figptarray.exit:                                  ; preds = %.lr.ph.i, %fig_line_style.exit
-  %22 = load double, ptr %1, align 8, !tbaa !65
+  %22 = load double, ptr %1, align 8, !tbaa !64
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %24 = load double, ptr %23, align 8, !tbaa !66
+  %24 = load double, ptr %23, align 8, !tbaa !65
   tail call void (ptr, ptr, ...) @gvprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.31, double noundef %22, double noundef %24) #18
   %25 = tail call i32 @gvputs(ptr noundef nonnull %0, ptr noundef nonnull @.str.32) #18
   ret void
@@ -410,7 +410,7 @@ fig_line_style.exit:
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %7 = load ptr, ptr %6, align 8, !tbaa !3
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 176
-  %9 = load double, ptr %8, align 8, !tbaa !60
+  %9 = load double, ptr %8, align 8, !tbaa !59
   %10 = tail call double @llvm.round.f64(double %9)
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %12 = load i32, ptr %11, align 8, !tbaa !35
@@ -419,7 +419,7 @@ fig_line_style.exit:
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #18
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, i8 0, i64 32, i1 false)
   %14 = getelementptr i8, ptr %7, i64 168
-  %.val = load i32, ptr %14, align 8, !tbaa !64
+  %.val = load i32, ptr %14, align 8, !tbaa !63
   %.val.off = add i32 %.val, -1
   %switch = icmp ult i32 %.val.off, 2
   %.sink1.i = select i1 %switch, i32 %.val, i32 0
@@ -436,13 +436,13 @@ fig_line_style.exit:
   %.057 = phi i32 [ 20, %15 ], [ -1, %fig_line_style.exit ]
   %.052 = phi i32 [ %17, %15 ], [ 0, %fig_line_style.exit ]
   %.051 = phi i32 [ 5, %15 ], [ 4, %fig_line_style.exit ]
-  %19 = load double, ptr %1, align 8, !tbaa !65
+  %19 = load double, ptr %1, align 8, !tbaa !64
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 48
-  store double %19, ptr %20, align 16, !tbaa !65
+  store double %19, ptr %20, align 16, !tbaa !64
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %22 = load double, ptr %21, align 8, !tbaa !66
+  %22 = load double, ptr %21, align 8, !tbaa !65
   %23 = getelementptr inbounds nuw i8, ptr %4, i64 56
-  store double %22, ptr %23, align 8, !tbaa !66
+  store double %22, ptr %23, align 8, !tbaa !65
   call void (ptr, ptr, ...) @agxbprint(ptr noundef %5, ptr nonnull poison, double noundef %19, double noundef %22)
   %24 = icmp ugt i64 %2, 3
   br i1 %24, label %.lr.ph, label %._crit_edge
@@ -451,7 +451,7 @@ fig_line_style.exit:
   %25 = add i32 %.05565, 6
   %26 = add i64 %54, 3
   %27 = icmp ult i64 %26, %2
-  br i1 %27, label %.lr.ph, label %._crit_edge, !llvm.loop !68
+  br i1 %27, label %.lr.ph, label %._crit_edge, !llvm.loop !67
 
 ._crit_edge:                                      ; preds = %.loopexit, %18
   %.055.lcssa = phi i32 [ 1, %18 ], [ %25, %.loopexit ]
@@ -542,23 +542,23 @@ agxbfree.exit:                                    ; preds = %agxbuse.exit, %51
   %54 = phi i64 [ %26, %.loopexit ], [ 3, %18 ]
   %.05466 = phi i64 [ %54, %.loopexit ], [ 0, %18 ]
   %.05565 = phi i32 [ %25, %.loopexit ], [ 1, %18 ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %4, ptr noundef nonnull align 16 dereferenceable(16) %20, i64 16, i1 false), !tbaa.struct !69
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %4, ptr noundef nonnull align 16 dereferenceable(16) %20, i64 16, i1 false), !tbaa.struct !68
   %55 = getelementptr %struct.pointf_s, ptr %1, i64 %.05466
   br label %56
 
 56:                                               ; preds = %.lr.ph, %56
   %.05362 = phi i64 [ 1, %.lr.ph ], [ %63, %56 ]
   %57 = getelementptr %struct.pointf_s, ptr %55, i64 %.05362
-  %58 = load double, ptr %57, align 8, !tbaa !65
+  %58 = load double, ptr %57, align 8, !tbaa !64
   %59 = getelementptr inbounds nuw [4 x %struct.pointf_s], ptr %4, i64 0, i64 %.05362
-  store double %58, ptr %59, align 16, !tbaa !65
+  store double %58, ptr %59, align 16, !tbaa !64
   %60 = getelementptr inbounds nuw i8, ptr %57, i64 8
-  %61 = load double, ptr %60, align 8, !tbaa !66
+  %61 = load double, ptr %60, align 8, !tbaa !65
   %62 = getelementptr inbounds nuw i8, ptr %59, i64 8
-  store double %61, ptr %62, align 8, !tbaa !66
+  store double %61, ptr %62, align 8, !tbaa !65
   %63 = add nuw nsw i64 %.05362, 1
   %exitcond.not = icmp eq i64 %63, 4
-  br i1 %exitcond.not, label %.preheader, label %56, !llvm.loop !71
+  br i1 %exitcond.not, label %.preheader, label %56, !llvm.loop !70
 
 .preheader:                                       ; preds = %56, %.preheader
   %.05663 = phi i32 [ %69, %.preheader ], [ 1, %56 ]
@@ -570,7 +570,7 @@ agxbfree.exit:                                    ; preds = %agxbuse.exit, %51
   call void (ptr, ptr, ...) @agxbprint(ptr noundef %5, ptr nonnull poison, double noundef %67, double noundef %68)
   %69 = add nuw nsw i32 %.05663, 1
   %exitcond70.not = icmp eq i32 %69, 7
-  br i1 %exitcond70.not, label %.loopexit, label %.preheader, !llvm.loop !72
+  br i1 %exitcond70.not, label %.loopexit, label %.preheader, !llvm.loop !71
 
 ._crit_edge69:                                    ; preds = %71, %agxbfree.exit
   %70 = call i32 @gvputs(ptr noundef %0, ptr noundef nonnull @.str.32) #18
@@ -586,7 +586,7 @@ agxbfree.exit:                                    ; preds = %agxbuse.exit, %51
   call void (ptr, ptr, ...) @gvprintf(ptr noundef %0, ptr noundef nonnull @.str.35, i32 noundef %73) #18
   %74 = add nuw nsw i32 %.067, 1
   %exitcond71.not = icmp eq i32 %74, %.055.lcssa
-  br i1 %exitcond71.not, label %._crit_edge69, label %71, !llvm.loop !73
+  br i1 %exitcond71.not, label %._crit_edge69, label %71, !llvm.loop !72
 }
 
 ; Function Attrs: nounwind uwtable
@@ -595,13 +595,13 @@ fig_line_style.exit:
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8, !tbaa !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 176
-  %6 = load double, ptr %5, align 8, !tbaa !60
+  %6 = load double, ptr %5, align 8, !tbaa !59
   %7 = tail call double @llvm.round.f64(double %6)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %9 = load i32, ptr %8, align 8, !tbaa !35
   %10 = load i32, ptr @Depth, align 4, !tbaa !38
   %11 = getelementptr i8, ptr %4, i64 168
-  %.val = load i32, ptr %11, align 8, !tbaa !64
+  %.val = load i32, ptr %11, align 8, !tbaa !63
   %.val.off = add i32 %.val, -1
   %switch = icmp ult i32 %.val.off, 2
   %.sink1.i = select i1 %switch, i32 %.val, i32 0
@@ -613,13 +613,13 @@ fig_line_style.exit:
 .lr.ph.i:                                         ; preds = %fig_line_style.exit, %.lr.ph.i
   %.012.i = phi i64 [ %16, %.lr.ph.i ], [ 0, %fig_line_style.exit ]
   %12 = getelementptr inbounds nuw %struct.pointf_s, ptr %1, i64 %.012.i
-  %13 = load double, ptr %12, align 8, !tbaa !65
+  %13 = load double, ptr %12, align 8, !tbaa !64
   %14 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  %15 = load double, ptr %14, align 8, !tbaa !66
+  %15 = load double, ptr %14, align 8, !tbaa !65
   tail call void (ptr, ptr, ...) @gvprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.31, double noundef %13, double noundef %15) #18
   %16 = add nuw i64 %.012.i, 1
   %exitcond.not.i = icmp eq i64 %16, %2
-  br i1 %exitcond.not.i, label %figptarray.exit, label %.lr.ph.i, !llvm.loop !67
+  br i1 %exitcond.not.i, label %figptarray.exit, label %.lr.ph.i, !llvm.loop !66
 
 figptarray.exit:                                  ; preds = %.lr.ph.i, %fig_line_style.exit
   %17 = tail call i32 @gvputs(ptr noundef nonnull %0, ptr noundef nonnull @.str.32) #18
@@ -841,7 +841,7 @@ agxbsizeof.exit:                                  ; preds = %2
   br i1 %14, label %15, label %18
 
 15:                                               ; preds = %12
-  %16 = load ptr, ptr @stderr, align 8, !tbaa !59
+  %16 = load ptr, ptr @stderr, align 8, !tbaa !58
   %17 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %16, ptr noundef nonnull @.str.37, i64 noundef %spec.select33) #20
   tail call fastcc void @graphviz_exit() #23
   unreachable
@@ -864,7 +864,7 @@ agxbsizeof.exit:                                  ; preds = %2
   br i1 %26, label %27, label %gv_calloc.exit
 
 27:                                               ; preds = %23
-  %28 = load ptr, ptr @stderr, align 8, !tbaa !59
+  %28 = load ptr, ptr @stderr, align 8, !tbaa !58
   %29 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %28, ptr noundef nonnull @.str.37, i64 noundef %spec.select) #20
   tail call fastcc void @graphviz_exit() #23
   unreachable
@@ -989,24 +989,23 @@ attributes #25 = { cold noreturn nounwind }
 !50 = !{!40, !7, i64 64}
 !51 = !{!52, !13, i64 32}
 !52 = !{!"color_s", !7, i64 0, !13, i64 32}
-!53 = distinct !{!53, !54, !55}
+!53 = distinct !{!53, !54}
 !54 = !{!"llvm.loop.mustprogress"}
-!55 = !{!"llvm.loop.estimated_trip_count"}
-!56 = !{!57, !57, i64 0}
-!57 = !{!"short", !7, i64 0}
-!58 = distinct !{!58, !54, !55}
-!59 = !{!14, !14, i64 0}
-!60 = !{!61, !24, i64 176}
-!61 = !{!"obj_state_s", !11, i64 0, !13, i64 8, !7, i64 16, !13, i64 24, !52, i64 32, !52, i64 72, !52, i64 112, !13, i64 152, !24, i64 160, !13, i64 168, !13, i64 172, !24, i64 176, !33, i64 184, !24, i64 192, !24, i64 200, !24, i64 208, !12, i64 216, !12, i64 224, !12, i64 232, !12, i64 240, !12, i64 248, !12, i64 256, !12, i64 264, !12, i64 272, !12, i64 280, !12, i64 288, !12, i64 296, !12, i64 304, !12, i64 312, !12, i64 320, !12, i64 328, !12, i64 336, !12, i64 344, !13, i64 352, !13, i64 352, !13, i64 352, !13, i64 352, !13, i64 352, !13, i64 352, !13, i64 352, !13, i64 352, !13, i64 353, !13, i64 353, !13, i64 356, !15, i64 360, !62, i64 368, !15, i64 376, !63, i64 384, !62, i64 392, !13, i64 400, !62, i64 408, !13, i64 416, !62, i64 424}
-!62 = !{!"p1 _ZTS8pointf_s", !6, i64 0}
-!63 = !{!"p1 long", !6, i64 0}
-!64 = !{!61, !13, i64 168}
-!65 = !{!23, !24, i64 0}
-!66 = !{!23, !24, i64 8}
-!67 = distinct !{!67, !54, !55}
-!68 = distinct !{!68, !54, !55}
-!69 = !{i64 0, i64 8, !70, i64 8, i64 8, !70}
-!70 = !{!24, !24, i64 0}
-!71 = distinct !{!71, !54, !55}
-!72 = distinct !{!72, !54, !55}
-!73 = distinct !{!73, !54, !55}
+!55 = !{!56, !56, i64 0}
+!56 = !{!"short", !7, i64 0}
+!57 = distinct !{!57, !54}
+!58 = !{!14, !14, i64 0}
+!59 = !{!60, !24, i64 176}
+!60 = !{!"obj_state_s", !11, i64 0, !13, i64 8, !7, i64 16, !13, i64 24, !52, i64 32, !52, i64 72, !52, i64 112, !13, i64 152, !24, i64 160, !13, i64 168, !13, i64 172, !24, i64 176, !33, i64 184, !24, i64 192, !24, i64 200, !24, i64 208, !12, i64 216, !12, i64 224, !12, i64 232, !12, i64 240, !12, i64 248, !12, i64 256, !12, i64 264, !12, i64 272, !12, i64 280, !12, i64 288, !12, i64 296, !12, i64 304, !12, i64 312, !12, i64 320, !12, i64 328, !12, i64 336, !12, i64 344, !13, i64 352, !13, i64 352, !13, i64 352, !13, i64 352, !13, i64 352, !13, i64 352, !13, i64 352, !13, i64 352, !13, i64 353, !13, i64 353, !13, i64 356, !15, i64 360, !61, i64 368, !15, i64 376, !62, i64 384, !61, i64 392, !13, i64 400, !61, i64 408, !13, i64 416, !61, i64 424}
+!61 = !{!"p1 _ZTS8pointf_s", !6, i64 0}
+!62 = !{!"p1 long", !6, i64 0}
+!63 = !{!60, !13, i64 168}
+!64 = !{!23, !24, i64 0}
+!65 = !{!23, !24, i64 8}
+!66 = distinct !{!66, !54}
+!67 = distinct !{!67, !54}
+!68 = !{i64 0, i64 8, !69, i64 8, i64 8, !69}
+!69 = !{!24, !24, i64 0}
+!70 = distinct !{!70, !54}
+!71 = distinct !{!71, !54}
+!72 = distinct !{!72, !54}

@@ -84,7 +84,7 @@ define ptr @arrow_strptime(ptr noalias noundef %0, ptr noalias noundef %1, ptr n
 .critedge:                                        ; preds = %30, %.lr.ph, %.preheader, %34
   %.2156 = phi ptr [ %35, %34 ], [ %.0154, %.preheader ], [ %31, %30 ], [ %.1155210, %.lr.ph ]
   %36 = getelementptr inbounds nuw i8, ptr %.0151, i64 1
-  br label %15, !llvm.loop !16
+  br label %15, !llvm.loop !15
 
 37:                                               ; preds = %15
   %38 = getelementptr inbounds nuw i8, ptr %.0151, i64 1
@@ -106,7 +106,7 @@ define ptr @arrow_strptime(ptr noalias noundef %0, ptr noalias noundef %1, ptr n
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #8
   %50 = call i64 @strtoul(ptr noundef nonnull %spec.select, ptr noundef nonnull %7, i32 noundef 10) #8
   %51 = trunc i64 %50 to i32
-  %52 = load ptr, ptr %7, align 8, !tbaa !17
+  %52 = load ptr, ptr %7, align 8, !tbaa !16
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #8
   %.pre = load i8, ptr %52, align 1, !tbaa !7
   br label %53
@@ -210,7 +210,7 @@ define ptr @arrow_strptime(ptr noalias noundef %0, ptr noalias noundef %1, ptr n
   %81 = getelementptr inbounds nuw i8, ptr %.4214, i64 1
   %82 = load i8, ptr %81, align 1, !tbaa !7
   %.not182 = icmp eq i8 %82, 0
-  br i1 %.not182, label %.critedge2, label %74, !llvm.loop !19
+  br i1 %.not182, label %.critedge2, label %74, !llvm.loop !18
 
 83:                                               ; preds = %53
   %84 = tail call ptr @nl_langinfo(i32 noundef 131110) #8
@@ -220,9 +220,9 @@ define ptr @arrow_strptime(ptr noalias noundef %0, ptr noalias noundef %1, ptr n
   br i1 %.not180, label %87, label %91
 
 87:                                               ; preds = %83
-  %88 = load i32, ptr %10, align 8, !tbaa !20
+  %88 = load i32, ptr %10, align 8, !tbaa !19
   %89 = srem i32 %88, 12
-  store i32 %89, ptr %10, align 8, !tbaa !20
+  store i32 %89, ptr %10, align 8, !tbaa !19
   %90 = getelementptr inbounds nuw i8, ptr %.0154, i64 %85
   br label %.critedge2
 
@@ -234,10 +234,10 @@ define ptr @arrow_strptime(ptr noalias noundef %0, ptr noalias noundef %1, ptr n
   br i1 %.not181, label %95, label %.thread
 
 95:                                               ; preds = %91
-  %96 = load i32, ptr %10, align 8, !tbaa !20
+  %96 = load i32, ptr %10, align 8, !tbaa !19
   %97 = srem i32 %96, 12
   %98 = add nsw i32 %97, 12
-  store i32 %98, ptr %10, align 8, !tbaa !20
+  store i32 %98, ptr %10, align 8, !tbaa !19
   %99 = getelementptr inbounds nuw i8, ptr %.0154, i64 %93
   br label %.critedge2
 
@@ -330,7 +330,7 @@ define ptr @arrow_strptime(ptr noalias noundef %0, ptr noalias noundef %1, ptr n
   store i32 %141, ptr %.2137, align 4, !tbaa !3
   %142 = mul nuw nsw i32 %.0147221, 10
   %.not186 = icmp samesign ugt i32 %142, %129
-  br i1 %.not186, label %.critedge5, label %.lr.ph222, !llvm.loop !23
+  br i1 %.not186, label %.critedge5, label %.lr.ph222, !llvm.loop !22
 
 .critedge5:                                       ; preds = %.lr.ph222, %136
   %143 = phi i32 [ %130, %.lr.ph222 ], [ %141, %136 ]
@@ -401,7 +401,7 @@ define ptr @arrow_strptime(ptr noalias noundef %0, ptr noalias noundef %1, ptr n
   store i32 %173, ptr %.1136, align 4, !tbaa !3
   %174 = add nuw nsw i32 %.1148227, 1
   %exitcond.not = icmp eq i32 %174, %.1146
-  br i1 %exitcond.not, label %.critedge7, label %.lr.ph228, !llvm.loop !24
+  br i1 %exitcond.not, label %.critedge7, label %.lr.ph228, !llvm.loop !23
 
 .critedge7:                                       ; preds = %.lr.ph228, %168, %160
   %175 = phi i32 [ 0, %160 ], [ %173, %168 ], [ %162, %.lr.ph228 ]
@@ -431,7 +431,7 @@ define ptr @arrow_strptime(ptr noalias noundef %0, ptr noalias noundef %1, ptr n
   %185 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %184) #9
   %186 = tail call i32 @strncasecmp(ptr noundef %.0154, ptr noundef nonnull %184, i64 noundef %185) #9
   %.not193 = icmp eq i32 %186, 0
-  br i1 %.not193, label %187, label %180, !llvm.loop !25
+  br i1 %.not193, label %187, label %180, !llvm.loop !24
 
 187:                                              ; preds = %182
   %188 = getelementptr inbounds nuw i8, ptr %.0154, i64 %185
@@ -442,7 +442,7 @@ define ptr @arrow_strptime(ptr noalias noundef %0, ptr noalias noundef %1, ptr n
 .critedge2:                                       ; preds = %80, %74, %71, %187, %145, %.critedge7, %119, %112, %109, %105, %103, %100, %64, %57, %95, %87
   %.3 = phi ptr [ %188, %187 ], [ %59, %57 ], [ %.7.lcssa, %.critedge7 ], [ %.5.lcssa.ph, %145 ], [ %65, %64 ], [ %99, %95 ], [ %90, %87 ], [ %102, %100 ], [ %104, %103 ], [ %106, %105 ], [ %111, %109 ], [ %114, %112 ], [ %120, %119 ], [ %.0154, %71 ], [ %81, %80 ], [ %.4214, %74 ]
   %.1 = phi i32 [ %.0.ph, %187 ], [ %.0.ph, %57 ], [ %.2, %.critedge7 ], [ %.0.ph, %145 ], [ %.0.ph, %64 ], [ %.0.ph, %95 ], [ %.0.ph, %87 ], [ %.0.ph, %100 ], [ %.0.ph, %103 ], [ %.0.ph, %105 ], [ %.0.ph, %109 ], [ %.0.ph, %112 ], [ %.0.ph, %119 ], [ %.0.ph, %71 ], [ %.0.ph, %74 ], [ %.0.ph, %80 ]
-  br label %.outer, !llvm.loop !16
+  br label %.outer, !llvm.loop !15
 
 190:                                              ; preds = %15
   %.not170 = icmp eq i32 %.0.ph, 0
@@ -450,7 +450,7 @@ define ptr @arrow_strptime(ptr noalias noundef %0, ptr noalias noundef %1, ptr n
 
 191:                                              ; preds = %190
   %.0..0..0..0. = load i32, ptr %6, align 4, !tbaa !3
-  store i32 %.0..0..0..0., ptr %8, align 4, !tbaa !26
+  store i32 %.0..0..0..0., ptr %8, align 4, !tbaa !25
   %192 = and i32 %.0.ph, 2
   %.not171 = icmp eq i32 %192, 0
   br i1 %.not171, label %197, label %193
@@ -472,7 +472,7 @@ define ptr @arrow_strptime(ptr noalias noundef %0, ptr noalias noundef %1, ptr n
 
 .thread.sink.split:                               ; preds = %193, %199
   %.sink = phi i32 [ %200, %199 ], [ %196, %193 ]
-  store i32 %.sink, ptr %8, align 4, !tbaa !26
+  store i32 %.sink, ptr %8, align 4, !tbaa !25
   br label %.thread
 
 .thread:                                          ; preds = %153, %.critedge5, %122, %53, %119, %112, %109, %105, %103, %100, %91, %64, %57, %33, %180, %.thread.sink.split, %190, %197
@@ -530,17 +530,16 @@ attributes #9 = { nounwind willreturn memory(read) }
 !10 = !{!"any pointer", !5, i64 0}
 !11 = !{!12, !12, i64 0}
 !12 = !{!"short", !5, i64 0}
-!13 = distinct !{!13, !14, !15}
+!13 = distinct !{!13, !14}
 !14 = !{!"llvm.loop.mustprogress"}
-!15 = !{!"llvm.loop.estimated_trip_count"}
-!16 = distinct !{!16, !14, !15}
-!17 = !{!18, !18, i64 0}
-!18 = !{!"p1 omnipotent char", !10, i64 0}
-!19 = distinct !{!19, !14, !15}
-!20 = !{!21, !4, i64 8}
-!21 = !{!"tm", !4, i64 0, !4, i64 4, !4, i64 8, !4, i64 12, !4, i64 16, !4, i64 20, !4, i64 24, !4, i64 28, !4, i64 32, !22, i64 40, !18, i64 48}
-!22 = !{!"long", !5, i64 0}
-!23 = distinct !{!23, !14, !15}
-!24 = distinct !{!24, !14, !15}
-!25 = distinct !{!25, !14, !15}
-!26 = !{!21, !4, i64 20}
+!15 = distinct !{!15, !14}
+!16 = !{!17, !17, i64 0}
+!17 = !{!"p1 omnipotent char", !10, i64 0}
+!18 = distinct !{!18, !14}
+!19 = !{!20, !4, i64 8}
+!20 = !{!"tm", !4, i64 0, !4, i64 4, !4, i64 8, !4, i64 12, !4, i64 16, !4, i64 20, !4, i64 24, !4, i64 28, !4, i64 32, !21, i64 40, !17, i64 48}
+!21 = !{!"long", !5, i64 0}
+!22 = distinct !{!22, !14}
+!23 = distinct !{!23, !14}
+!24 = distinct !{!24, !14}
+!25 = !{!20, !4, i64 20}

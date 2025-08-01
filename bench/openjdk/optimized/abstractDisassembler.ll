@@ -218,7 +218,7 @@ define hidden noundef i32 @_ZN20AbstractDisassembler17print_instructionEPhiiP12o
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef nonnull @.str.10, i32 noundef %23) #3
   %24 = getelementptr inbounds nuw i8, ptr %.144, i64 1
   %25 = icmp ult ptr %24, %13
-  br i1 %25, label %.lr.ph, label %.loopexit, !llvm.loop !9
+  br i1 %25, label %.lr.ph, label %.loopexit, !llvm.loop !8
 
 .loopexit:                                        ; preds = %.lr.ph, %._crit_edge
   %.03645 = add nsw i32 %1, 1
@@ -230,7 +230,7 @@ define hidden noundef i32 @_ZN20AbstractDisassembler17print_instructionEPhiiP12o
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef nonnull @.str.11) #3
   %.036 = add i32 %.03646, 1
   %exitcond.not = icmp eq i32 %.036, %2
-  br i1 %exitcond.not, label %._crit_edge49, label %.lr.ph48, !llvm.loop !10
+  br i1 %exitcond.not, label %._crit_edge49, label %.lr.ph48, !llvm.loop !9
 
 ._crit_edge49:                                    ; preds = %.lr.ph48, %.loopexit
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef nonnull @.str) #3
@@ -569,7 +569,7 @@ define hidden noundef ptr @_ZN20AbstractDisassembler27decode_instruction_abstrac
 20:                                               ; preds = %19, %.lr.ph.split.us
   %21 = add nuw i32 %.02633.us, 1
   %exitcond42.not = icmp eq i32 %.02633.us, %2
-  br i1 %exitcond42.not, label %.preheader, label %.lr.ph.split.us, !llvm.loop !11
+  br i1 %exitcond42.not, label %.preheader, label %.lr.ph.split.us, !llvm.loop !10
 
 .preheader:                                       ; preds = %31, %20, %11
   %.027.lcssa = phi ptr [ %0, %11 ], [ %16, %20 ], [ %28, %31 ]
@@ -596,7 +596,7 @@ define hidden noundef ptr @_ZN20AbstractDisassembler27decode_instruction_abstrac
 25:                                               ; preds = %24, %.lr.ph38.split.us
   %.0.us = add i32 %.037.us, 1
   %exitcond44.not = icmp eq i32 %.037.us, %12
-  br i1 %exitcond44.not, label %._crit_edge, label %.lr.ph38.split.us, !llvm.loop !13
+  br i1 %exitcond44.not, label %._crit_edge, label %.lr.ph38.split.us, !llvm.loop !12
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %31
   %.02633 = phi i32 [ %32, %31 ], [ 1, %.lr.ph ]
@@ -615,7 +615,7 @@ define hidden noundef ptr @_ZN20AbstractDisassembler27decode_instruction_abstrac
 31:                                               ; preds = %30, %.lr.ph.split
   %32 = add nuw i32 %.02633, 1
   %exitcond.not = icmp eq i32 %.02633, %2
-  br i1 %exitcond.not, label %.preheader, label %.lr.ph.split, !llvm.loop !14
+  br i1 %exitcond.not, label %.preheader, label %.lr.ph.split, !llvm.loop !13
 
 .lr.ph38.split:                                   ; preds = %.lr.ph38, %35
   %.037 = phi i32 [ %.0, %35 ], [ %.034, %.lr.ph38 ]
@@ -630,7 +630,7 @@ define hidden noundef ptr @_ZN20AbstractDisassembler27decode_instruction_abstrac
 35:                                               ; preds = %34, %.lr.ph38.split
   %.0 = add i32 %.037, 1
   %exitcond43.not = icmp eq i32 %.037, %12
-  br i1 %exitcond43.not, label %._crit_edge, label %.lr.ph38.split, !llvm.loop !15
+  br i1 %exitcond43.not, label %._crit_edge, label %.lr.ph38.split, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %35, %25, %.preheader
   ret ptr %.027.lcssa
@@ -686,7 +686,7 @@ _ZN20AbstractDisassembler15print_delimiterEP12outputStream.exit: ; preds = %16, 
   %25 = icmp ne ptr %.123, null
   %26 = icmp ult ptr %.123, %1
   %27 = and i1 %25, %26
-  br i1 %27, label %.lr.ph, label %._crit_edge, !llvm.loop !16
+  br i1 %27, label %.lr.ph, label %._crit_edge, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %24, %6
   ret void
@@ -758,7 +758,7 @@ _ZN20AbstractDisassembler15print_delimiterEP12outputStream.exit.i: ; preds = %21
   %30 = icmp ne ptr %.123.i, null
   %31 = icmp ult ptr %.123.i, %1
   %32 = and i1 %30, %31
-  br i1 %32, label %.lr.ph.i, label %_ZN20AbstractDisassembler21decode_range_abstractEPhS0_S0_S0_P12outputStreami.exit, !llvm.loop !16
+  br i1 %32, label %.lr.ph.i, label %_ZN20AbstractDisassembler21decode_range_abstractEPhS0_S0_S0_P12outputStreami.exit, !llvm.loop !15
 
 _ZN20AbstractDisassembler21decode_range_abstractEPhS0_S0_S0_P12outputStreami.exit: ; preds = %29, %_ZN12outputStream3bolEv.exit
   %33 = load i32, ptr %8, align 8
@@ -877,14 +877,13 @@ attributes #3 = { nounwind }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7, !8}
-!11 = distinct !{!11, !7, !8, !12}
-!12 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!13 = distinct !{!13, !7, !8, !12}
-!14 = distinct !{!14, !7, !8}
-!15 = distinct !{!15, !7, !8}
-!16 = distinct !{!16, !7, !8}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7, !11}
+!11 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!12 = distinct !{!12, !7, !11}
+!13 = distinct !{!13, !7}
+!14 = distinct !{!14, !7}
+!15 = distinct !{!15, !7}

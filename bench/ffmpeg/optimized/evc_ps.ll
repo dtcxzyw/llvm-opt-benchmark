@@ -1848,7 +1848,7 @@ get_ue_golomb.exit461:                            ; preds = %1231, %1241
   %1276 = load i8, ptr %1272, align 1, !tbaa !13
   %1277 = zext i8 %1276 to i64
   %1278 = icmp samesign ult i64 %indvars.iv.next555, %1277
-  br i1 %1278, label %1279, label %.thread495, !llvm.loop !68
+  br i1 %1278, label %1279, label %.thread495, !llvm.loop !67
 
 1279:                                             ; preds = %.lr.ph526, %1275
   %indvars.iv554 = phi i64 [ 0, %.lr.ph526 ], [ %indvars.iv.next555, %1275 ]
@@ -1876,23 +1876,23 @@ get_ue_golomb.exit461:                            ; preds = %1231, %1241
   %1296 = and i32 %1295, 1
   %1297 = trunc nuw nsw i32 %1296 to i8
   %1298 = getelementptr inbounds nuw i8, ptr %43, i64 11372
-  store i8 %1297, ptr %1298, align 4, !tbaa !69
+  store i8 %1297, ptr %1298, align 4, !tbaa !68
   %.not217 = icmp eq i32 %1296, 0
   br i1 %.not217, label %1308, label %1299
 
 1299:                                             ; preds = %.thread495
   %1300 = tail call fastcc i32 @get_ue_golomb_long(ptr noundef nonnull %0)
   %1301 = getelementptr inbounds nuw i8, ptr %43, i64 11376
-  store i32 %1300, ptr %1301, align 4, !tbaa !70
+  store i32 %1300, ptr %1301, align 4, !tbaa !69
   %1302 = tail call fastcc i32 @get_ue_golomb_long(ptr noundef nonnull %0)
   %1303 = getelementptr inbounds nuw i8, ptr %43, i64 11380
-  store i32 %1302, ptr %1303, align 4, !tbaa !71
+  store i32 %1302, ptr %1303, align 4, !tbaa !70
   %1304 = tail call fastcc i32 @get_ue_golomb_long(ptr noundef nonnull %0)
   %1305 = getelementptr inbounds nuw i8, ptr %43, i64 11384
-  store i32 %1304, ptr %1305, align 4, !tbaa !72
+  store i32 %1304, ptr %1305, align 4, !tbaa !71
   %1306 = tail call fastcc i32 @get_ue_golomb_long(ptr noundef nonnull %0)
   %1307 = getelementptr inbounds nuw i8, ptr %43, i64 11388
-  store i32 %1306, ptr %1307, align 4, !tbaa !73
+  store i32 %1306, ptr %1307, align 4, !tbaa !72
   %.pre574.pre = load i32, ptr %3, align 8, !tbaa !4
   %.pre575.pre = load ptr, ptr %0, align 8, !tbaa !12
   %.pre576.pre = load i32, ptr %5, align 8, !tbaa !11
@@ -1922,7 +1922,7 @@ get_ue_golomb.exit461:                            ; preds = %1231, %1241
   %1321 = and i32 %1320, 1
   %1322 = trunc nuw nsw i32 %1321 to i8
   %1323 = getelementptr inbounds nuw i8, ptr %43, i64 11392
-  store i8 %1322, ptr %1323, align 4, !tbaa !74
+  store i8 %1322, ptr %1323, align 4, !tbaa !73
   %.not219 = icmp eq i32 %1321, 0
   br i1 %.not219, label %.thread500, label %1324
 
@@ -1941,7 +1941,7 @@ get_ue_golomb.exit461:                            ; preds = %1231, %1241
   %1334 = trunc i32 %1333 to i8
   %1335 = lshr i8 %1334, 7
   %1336 = getelementptr inbounds nuw i8, ptr %43, i64 11393
-  store i8 %1335, ptr %1336, align 1, !tbaa !75
+  store i8 %1335, ptr %1336, align 1, !tbaa !74
   %1337 = lshr i32 %spec.select.i464, 3
   %1338 = zext nneg i32 %1337 to i64
   %1339 = getelementptr inbounds nuw i8, ptr %.pre575, i64 %1338
@@ -1956,7 +1956,7 @@ get_ue_golomb.exit461:                            ; preds = %1231, %1241
   %1346 = trunc i32 %1345 to i8
   %1347 = lshr i8 %1346, 7
   %1348 = getelementptr inbounds nuw i8, ptr %43, i64 11394
-  store i8 %1347, ptr %1348, align 2, !tbaa !76
+  store i8 %1347, ptr %1348, align 2, !tbaa !75
   %1349 = getelementptr inbounds nuw i8, ptr %43, i64 11395
   %1350 = getelementptr inbounds nuw i8, ptr %43, i64 11397
   %1351 = getelementptr inbounds nuw i8, ptr %43, i64 11516
@@ -2037,7 +2037,7 @@ get_ue_golomb.exit477:                            ; preds = %1362, %1372
 
 1395:                                             ; preds = %get_se_golomb_long.exit
   %1396 = and i1 %.not220, %1353
-  br i1 %1396, label %1352, label %.thread500, !llvm.loop !77
+  br i1 %1396, label %1352, label %.thread500, !llvm.loop !76
 
 1397:                                             ; preds = %.preheader, %get_se_golomb_long.exit
   %indvars.iv557 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next558, %get_se_golomb_long.exit ]
@@ -2154,7 +2154,7 @@ get_se_golomb_long.exit:                          ; preds = %1397, %1452, %1456
   store i32 %1480, ptr %1481, align 4, !tbaa !58
   %indvars.iv.next558 = add nuw nsw i64 %indvars.iv557, 1
   %.not221.not = icmp samesign ult i64 %indvars.iv557, %1394
-  br i1 %.not221.not, label %1397, label %1395, !llvm.loop !78
+  br i1 %.not221.not, label %1397, label %1395, !llvm.loop !77
 
 .thread500:                                       ; preds = %1395, %1310, %1308
   %1482 = phi i32 [ %spec.select.i463, %1310 ], [ %.pre574, %1308 ], [ %1474, %1395 ]
@@ -2173,7 +2173,7 @@ get_se_golomb_long.exit:                          ; preds = %1397, %1452, %1456
   %1493 = and i32 %1492, 1
   %1494 = trunc nuw nsw i32 %1493 to i8
   %1495 = getelementptr inbounds nuw i8, ptr %43, i64 11980
-  store i8 %1494, ptr %1495, align 4, !tbaa !79
+  store i8 %1494, ptr %1495, align 4, !tbaa !78
   %.not222 = icmp eq i32 %1493, 0
   br i1 %.not222, label %1500, label %1496
 
@@ -2187,7 +2187,7 @@ get_se_golomb_long.exit:                          ; preds = %1397, %1452, %1456
   %1501 = zext nneg i32 %.0.i to i64
   %1502 = getelementptr inbounds nuw [16 x ptr], ptr %1, i64 0, i64 %1501
   tail call void @av_freep(ptr noundef %1502) #5
-  store ptr %43, ptr %1502, align 8, !tbaa !80
+  store ptr %43, ptr %1502, align 8, !tbaa !79
   br label %get_ue_golomb.exit.thread
 
 .loopexit.sink.split:                             ; preds = %.thread486, %1091, %1051
@@ -2465,7 +2465,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @ref_pic_list_struct(ptr no
 get_ue_golomb_long.exit:                          ; preds = %3, %45, %49
   %.0.i.i = phi i32 [ %46, %45 ], [ %66, %49 ], [ 0, %3 ]
   %67 = add i32 %.0.i.i, -1
-  store i32 %67, ptr %2, align 4, !tbaa !82
+  store i32 %67, ptr %2, align 4, !tbaa !81
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 100
   %69 = load i32, ptr %68, align 4, !tbaa !62
   %70 = icmp ugt i32 %67, %69
@@ -2734,7 +2734,7 @@ get_ue_golomb_long.exit62.thread:                 ; preds = %159, %get_ue_golomb
   store i32 %244, ptr %245, align 4, !tbaa !58
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %159, !llvm.loop !84
+  br i1 %exitcond.not, label %.loopexit, label %159, !llvm.loop !83
 
 .loopexit:                                        ; preds = %236, %71, %157, %get_ue_golomb_long.exit
   %.025 = phi i32 [ -1094995529, %get_ue_golomb_long.exit ], [ 0, %157 ], [ 0, %71 ], [ 0, %236 ]
@@ -2760,7 +2760,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @vui_parameters(ptr noundef
   %17 = tail call i32 @llvm.umin.i32(i32 %6, i32 %16)
   store i32 %17, ptr %3, align 8, !tbaa !4
   %18 = trunc nuw nsw i32 %15 to i8
-  store i8 %18, ptr %1, align 4, !tbaa !85
+  store i8 %18, ptr %1, align 4, !tbaa !84
   %.not = icmp sgt i32 %14, -1
   br i1 %.not, label %58, label %19
 
@@ -2778,7 +2778,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @vui_parameters(ptr noundef
   store i32 %29, ptr %3, align 8, !tbaa !4
   %30 = trunc nuw i32 %27 to i8
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 1
-  store i8 %30, ptr %31, align 1, !tbaa !86
+  store i8 %30, ptr %31, align 1, !tbaa !85
   %32 = icmp eq i32 %27, 255
   br i1 %32, label %33, label %58
 
@@ -2796,7 +2796,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @vui_parameters(ptr noundef
   store i32 %43, ptr %3, align 8, !tbaa !4
   %44 = trunc nuw i32 %41 to i16
   %45 = getelementptr inbounds nuw i8, ptr %1, i64 2
-  store i16 %44, ptr %45, align 2, !tbaa !87
+  store i16 %44, ptr %45, align 2, !tbaa !86
   %46 = lshr i32 %43, 3
   %47 = zext nneg i32 %46 to i64
   %48 = getelementptr inbounds nuw i8, ptr %7, i64 %47
@@ -2810,7 +2810,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @vui_parameters(ptr noundef
   store i32 %55, ptr %3, align 8, !tbaa !4
   %56 = trunc nuw i32 %53 to i16
   %57 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  store i16 %56, ptr %57, align 4, !tbaa !88
+  store i16 %56, ptr %57, align 4, !tbaa !87
   br label %58
 
 58:                                               ; preds = %19, %33, %2
@@ -2828,7 +2828,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @vui_parameters(ptr noundef
   store i32 %69, ptr %3, align 8, !tbaa !4
   %70 = trunc nuw nsw i32 %67 to i8
   %71 = getelementptr inbounds nuw i8, ptr %1, i64 6
-  store i8 %70, ptr %71, align 2, !tbaa !89
+  store i8 %70, ptr %71, align 2, !tbaa !88
   %.not90 = icmp sgt i32 %66, -1
   br i1 %.not90, label %85, label %72
 
@@ -2846,7 +2846,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @vui_parameters(ptr noundef
   store i32 %82, ptr %3, align 8, !tbaa !4
   %83 = trunc nuw nsw i32 %80 to i8
   %84 = getelementptr inbounds nuw i8, ptr %1, i64 7
-  store i8 %83, ptr %84, align 1, !tbaa !90
+  store i8 %83, ptr %84, align 1, !tbaa !89
   br label %85
 
 85:                                               ; preds = %72, %58
@@ -2864,7 +2864,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @vui_parameters(ptr noundef
   store i32 %96, ptr %3, align 8, !tbaa !4
   %97 = trunc nuw nsw i32 %94 to i8
   %98 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i8 %97, ptr %98, align 4, !tbaa !91
+  store i8 %97, ptr %98, align 4, !tbaa !90
   %.not91 = icmp sgt i32 %93, -1
   br i1 %.not91, label %173, label %99
 
@@ -2882,7 +2882,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @vui_parameters(ptr noundef
   store i32 %109, ptr %3, align 8, !tbaa !4
   %110 = trunc nuw nsw i32 %107 to i8
   %111 = getelementptr inbounds nuw i8, ptr %1, i64 9
-  store i8 %110, ptr %111, align 1, !tbaa !92
+  store i8 %110, ptr %111, align 1, !tbaa !91
   %112 = lshr i32 %109, 3
   %113 = zext nneg i32 %112 to i64
   %114 = getelementptr inbounds nuw i8, ptr %7, i64 %113
@@ -2896,7 +2896,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @vui_parameters(ptr noundef
   store i32 %121, ptr %3, align 8, !tbaa !4
   %122 = trunc nuw nsw i32 %119 to i8
   %123 = getelementptr inbounds nuw i8, ptr %1, i64 10
-  store i8 %122, ptr %123, align 2, !tbaa !93
+  store i8 %122, ptr %123, align 2, !tbaa !92
   %124 = lshr i32 %121, 3
   %125 = zext nneg i32 %124 to i64
   %126 = getelementptr inbounds nuw i8, ptr %7, i64 %125
@@ -2910,7 +2910,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @vui_parameters(ptr noundef
   store i32 %133, ptr %3, align 8, !tbaa !4
   %134 = trunc nuw nsw i32 %131 to i8
   %135 = getelementptr inbounds nuw i8, ptr %1, i64 11
-  store i8 %134, ptr %135, align 1, !tbaa !94
+  store i8 %134, ptr %135, align 1, !tbaa !93
   %.not92 = icmp sgt i32 %130, -1
   br i1 %.not92, label %173, label %136
 
@@ -2928,7 +2928,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @vui_parameters(ptr noundef
   store i32 %146, ptr %3, align 8, !tbaa !4
   %147 = trunc nuw i32 %144 to i8
   %148 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  store i8 %147, ptr %148, align 4, !tbaa !95
+  store i8 %147, ptr %148, align 4, !tbaa !94
   %149 = lshr i32 %146, 3
   %150 = zext nneg i32 %149 to i64
   %151 = getelementptr inbounds nuw i8, ptr %7, i64 %150
@@ -2942,7 +2942,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @vui_parameters(ptr noundef
   store i32 %158, ptr %3, align 8, !tbaa !4
   %159 = trunc nuw i32 %156 to i8
   %160 = getelementptr inbounds nuw i8, ptr %1, i64 13
-  store i8 %159, ptr %160, align 1, !tbaa !96
+  store i8 %159, ptr %160, align 1, !tbaa !95
   %161 = lshr i32 %158, 3
   %162 = zext nneg i32 %161 to i64
   %163 = getelementptr inbounds nuw i8, ptr %7, i64 %162
@@ -2956,7 +2956,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @vui_parameters(ptr noundef
   store i32 %170, ptr %3, align 8, !tbaa !4
   %171 = trunc nuw i32 %168 to i8
   %172 = getelementptr inbounds nuw i8, ptr %1, i64 14
-  store i8 %171, ptr %172, align 2, !tbaa !97
+  store i8 %171, ptr %172, align 2, !tbaa !96
   br label %173
 
 173:                                              ; preds = %99, %136, %85
@@ -2974,7 +2974,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @vui_parameters(ptr noundef
   store i32 %184, ptr %3, align 8, !tbaa !4
   %185 = trunc nuw nsw i32 %182 to i8
   %186 = getelementptr inbounds nuw i8, ptr %1, i64 15
-  store i8 %185, ptr %186, align 1, !tbaa !98
+  store i8 %185, ptr %186, align 1, !tbaa !97
   %.not93 = icmp sgt i32 %181, -1
   br i1 %.not93, label %220, label %187
 
@@ -2997,7 +2997,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @vui_parameters(ptr noundef
   %201 = getelementptr inbounds nuw [512 x i8], ptr @ff_ue_golomb_vlc_code, i64 0, i64 %196
   %202 = load i8, ptr %201, align 1, !tbaa !13
   %203 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  store i8 %202, ptr %203, align 4, !tbaa !99
+  store i8 %202, ptr %203, align 4, !tbaa !98
   %204 = lshr i32 %..i, 3
   %205 = zext nneg i32 %204 to i64
   %206 = getelementptr inbounds nuw i8, ptr %7, i64 %205
@@ -3016,7 +3016,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @vui_parameters(ptr noundef
   %217 = getelementptr inbounds nuw [512 x i8], ptr @ff_ue_golomb_vlc_code, i64 0, i64 %212
   %218 = load i8, ptr %217, align 1, !tbaa !13
   %219 = getelementptr inbounds nuw i8, ptr %1, i64 17
-  store i8 %218, ptr %219, align 1, !tbaa !100
+  store i8 %218, ptr %219, align 1, !tbaa !99
   br label %220
 
 220:                                              ; preds = %187, %173
@@ -3034,7 +3034,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @vui_parameters(ptr noundef
   store i32 %231, ptr %3, align 8, !tbaa !4
   %232 = trunc nuw nsw i32 %229 to i8
   %233 = getelementptr inbounds nuw i8, ptr %1, i64 18
-  store i8 %232, ptr %233, align 2, !tbaa !101
+  store i8 %232, ptr %233, align 2, !tbaa !100
   %234 = lshr i32 %231, 3
   %235 = zext nneg i32 %234 to i64
   %236 = getelementptr inbounds nuw i8, ptr %7, i64 %235
@@ -3048,7 +3048,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @vui_parameters(ptr noundef
   store i32 %243, ptr %3, align 8, !tbaa !4
   %244 = trunc nuw nsw i32 %241 to i8
   %245 = getelementptr inbounds nuw i8, ptr %1, i64 19
-  store i8 %244, ptr %245, align 1, !tbaa !102
+  store i8 %244, ptr %245, align 1, !tbaa !101
   %246 = lshr i32 %243, 3
   %247 = zext nneg i32 %246 to i64
   %248 = getelementptr inbounds nuw i8, ptr %7, i64 %247
@@ -3062,7 +3062,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @vui_parameters(ptr noundef
   store i32 %255, ptr %3, align 8, !tbaa !4
   %256 = trunc nuw nsw i32 %253 to i8
   %257 = getelementptr inbounds nuw i8, ptr %1, i64 20
-  store i8 %256, ptr %257, align 4, !tbaa !103
+  store i8 %256, ptr %257, align 4, !tbaa !102
   %.not94 = icmp sgt i32 %252, -1
   br i1 %.not94, label %315, label %258
 
@@ -3091,7 +3091,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @vui_parameters(ptr noundef
   store i32 %278, ptr %3, align 8, !tbaa !4
   %279 = or disjoint i32 %276, %266
   %280 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  store i32 %279, ptr %280, align 4, !tbaa !104
+  store i32 %279, ptr %280, align 4, !tbaa !103
   %281 = lshr i32 %278, 3
   %282 = zext nneg i32 %281 to i64
   %283 = getelementptr inbounds nuw i8, ptr %7, i64 %282
@@ -3116,7 +3116,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @vui_parameters(ptr noundef
   store i32 %300, ptr %3, align 8, !tbaa !4
   %301 = or disjoint i32 %298, %288
   %302 = getelementptr inbounds nuw i8, ptr %1, i64 28
-  store i32 %301, ptr %302, align 4, !tbaa !105
+  store i32 %301, ptr %302, align 4, !tbaa !104
   %303 = lshr i32 %300, 3
   %304 = zext nneg i32 %303 to i64
   %305 = getelementptr inbounds nuw i8, ptr %7, i64 %304
@@ -3130,7 +3130,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @vui_parameters(ptr noundef
   store i32 %312, ptr %3, align 8, !tbaa !4
   %313 = trunc nuw nsw i32 %310 to i8
   %314 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  store i8 %313, ptr %314, align 4, !tbaa !106
+  store i8 %313, ptr %314, align 4, !tbaa !105
   br label %315
 
 315:                                              ; preds = %258, %220
@@ -3148,7 +3148,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @vui_parameters(ptr noundef
   store i32 %326, ptr %3, align 8, !tbaa !4
   %327 = trunc nuw nsw i32 %324 to i8
   %328 = getelementptr inbounds nuw i8, ptr %1, i64 33
-  store i8 %327, ptr %328, align 1, !tbaa !107
+  store i8 %327, ptr %328, align 1, !tbaa !106
   %.not95 = icmp sgt i32 %323, -1
   br i1 %.not95, label %333, label %329
 
@@ -3181,7 +3181,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @vui_parameters(ptr noundef
   store i32 %346, ptr %3, align 8, !tbaa !4
   %347 = trunc nuw nsw i32 %344 to i8
   %348 = getelementptr inbounds nuw i8, ptr %1, i64 34
-  store i8 %347, ptr %348, align 2, !tbaa !108
+  store i8 %347, ptr %348, align 2, !tbaa !107
   %.not96 = icmp sgt i32 %343, -1
   br i1 %.not96, label %353, label %349
 
@@ -3192,7 +3192,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @vui_parameters(ptr noundef
   br i1 %352, label %607, label %353
 
 353:                                              ; preds = %349, %333
-  %354 = load i8, ptr %328, align 1, !tbaa !107
+  %354 = load i8, ptr %328, align 1, !tbaa !106
   %.not97 = icmp eq i8 %354, 0
   br i1 %.not97, label %355, label %._crit_edge130
 
@@ -3203,7 +3203,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @vui_parameters(ptr noundef
   br label %357
 
 355:                                              ; preds = %353
-  %356 = load i8, ptr %348, align 2, !tbaa !108
+  %356 = load i8, ptr %348, align 2, !tbaa !107
   %.not98 = icmp eq i8 %356, 0
   %.pre132 = load i32, ptr %3, align 8, !tbaa !4
   %.pre134 = load i32, ptr %5, align 8, !tbaa !11
@@ -3227,7 +3227,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @vui_parameters(ptr noundef
   store i32 %370, ptr %3, align 8, !tbaa !4
   %371 = trunc nuw nsw i32 %368 to i8
   %372 = getelementptr inbounds nuw i8, ptr %1, i64 35
-  store i8 %371, ptr %372, align 1, !tbaa !109
+  store i8 %371, ptr %372, align 1, !tbaa !108
   br label %._crit_edge126
 
 ._crit_edge126:                                   ; preds = %355, %357
@@ -3247,7 +3247,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @vui_parameters(ptr noundef
   store i32 %385, ptr %3, align 8, !tbaa !4
   %386 = trunc nuw nsw i32 %383 to i8
   %387 = getelementptr inbounds nuw i8, ptr %1, i64 36
-  store i8 %386, ptr %387, align 4, !tbaa !110
+  store i8 %386, ptr %387, align 4, !tbaa !109
   %388 = lshr i32 %385, 3
   %389 = zext nneg i32 %388 to i64
   %390 = getelementptr inbounds nuw i8, ptr %373, i64 %389
@@ -3261,7 +3261,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @vui_parameters(ptr noundef
   store i32 %397, ptr %3, align 8, !tbaa !4
   %398 = trunc nuw nsw i32 %395 to i8
   %399 = getelementptr inbounds nuw i8, ptr %1, i64 37
-  store i8 %398, ptr %399, align 1, !tbaa !111
+  store i8 %398, ptr %399, align 1, !tbaa !110
   %.not99 = icmp sgt i32 %394, -1
   br i1 %.not99, label %607, label %400
 
@@ -3279,7 +3279,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @vui_parameters(ptr noundef
   store i32 %410, ptr %3, align 8, !tbaa !4
   %411 = trunc nuw nsw i32 %408 to i8
   %412 = getelementptr inbounds nuw i8, ptr %1, i64 38
-  store i8 %411, ptr %412, align 2, !tbaa !112
+  store i8 %411, ptr %412, align 2, !tbaa !111
   %413 = lshr i32 %410, 3
   %414 = zext nneg i32 %413 to i64
   %415 = getelementptr inbounds nuw i8, ptr %373, i64 %414
@@ -3298,7 +3298,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @vui_parameters(ptr noundef
   %426 = getelementptr inbounds nuw [512 x i8], ptr @ff_ue_golomb_vlc_code, i64 0, i64 %421
   %427 = load i8, ptr %426, align 1, !tbaa !13
   %428 = getelementptr inbounds nuw i8, ptr %1, i64 39
-  store i8 %427, ptr %428, align 1, !tbaa !113
+  store i8 %427, ptr %428, align 1, !tbaa !112
   %429 = lshr i32 %..i101, 3
   %430 = zext nneg i32 %429 to i64
   %431 = getelementptr inbounds nuw i8, ptr %373, i64 %430
@@ -3317,7 +3317,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @vui_parameters(ptr noundef
   %442 = getelementptr inbounds nuw [512 x i8], ptr @ff_ue_golomb_vlc_code, i64 0, i64 %437
   %443 = load i8, ptr %442, align 1, !tbaa !13
   %444 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  store i8 %443, ptr %444, align 4, !tbaa !114
+  store i8 %443, ptr %444, align 4, !tbaa !113
   %445 = lshr i32 %..i102, 3
   %446 = zext nneg i32 %445 to i64
   %447 = getelementptr inbounds nuw i8, ptr %373, i64 %446
@@ -3336,7 +3336,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @vui_parameters(ptr noundef
   %458 = getelementptr inbounds nuw [512 x i8], ptr @ff_ue_golomb_vlc_code, i64 0, i64 %453
   %459 = load i8, ptr %458, align 1, !tbaa !13
   %460 = getelementptr inbounds nuw i8, ptr %1, i64 41
-  store i8 %459, ptr %460, align 1, !tbaa !115
+  store i8 %459, ptr %460, align 1, !tbaa !114
   %461 = lshr i32 %..i103, 3
   %462 = zext nneg i32 %461 to i64
   %463 = getelementptr inbounds nuw i8, ptr %373, i64 %462
@@ -3355,7 +3355,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @vui_parameters(ptr noundef
   %474 = getelementptr inbounds nuw [512 x i8], ptr @ff_ue_golomb_vlc_code, i64 0, i64 %469
   %475 = load i8, ptr %474, align 1, !tbaa !13
   %476 = getelementptr inbounds nuw i8, ptr %1, i64 42
-  store i8 %475, ptr %476, align 2, !tbaa !116
+  store i8 %475, ptr %476, align 2, !tbaa !115
   %477 = lshr i32 %..i104, 3
   %478 = zext nneg i32 %477 to i64
   %479 = getelementptr inbounds nuw i8, ptr %373, i64 %478
@@ -3445,7 +3445,7 @@ get_ue_golomb_long.exit:                          ; preds = %400, %518, %522
   %.0.i.i = phi i32 [ %519, %518 ], [ %539, %522 ], [ 0, %400 ]
   %540 = add i32 %.0.i.i, -1
   %541 = getelementptr inbounds nuw i8, ptr %1, i64 44
-  store i32 %540, ptr %541, align 4, !tbaa !117
+  store i32 %540, ptr %541, align 4, !tbaa !116
   %.sroa.46.0.copyload.i.i107 = load i32, ptr %3, align 8, !tbaa !58
   %.sroa.77.0.copyload.i.i109 = load i32, ptr %5, align 8, !tbaa !58
   %542 = lshr i32 %.sroa.46.0.copyload.i.i107, 3
@@ -3537,7 +3537,7 @@ get_ue_golomb_long.exit121:                       ; preds = %get_ue_golomb_long.
   %.0.i.i119 = phi i32 [ %584, %583 ], [ %604, %587 ], [ 0, %get_ue_golomb_long.exit ]
   %605 = add i32 %.0.i.i119, -1
   %606 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  store i32 %605, ptr %606, align 4, !tbaa !118
+  store i32 %605, ptr %606, align 4, !tbaa !117
   br label %607
 
 607:                                              ; preds = %._crit_edge126, %get_ue_golomb_long.exit121, %349, %329
@@ -3618,7 +3618,7 @@ get_ue_golomb.exit:                               ; preds = %26, %16
 
 44:                                               ; preds = %42
   %45 = trunc nuw nsw i32 %.0.i to i8
-  store i8 %45, ptr %43, align 4, !tbaa !119
+  store i8 %45, ptr %43, align 4, !tbaa !118
   %46 = load i32, ptr %3, align 8, !tbaa !4
   %47 = load i32, ptr %5, align 8, !tbaa !11
   %48 = load ptr, ptr %0, align 8, !tbaa !12
@@ -3678,7 +3678,7 @@ get_ue_golomb.exit110:                            ; preds = %57, %67
   %.0.i108 = phi i32 [ %66, %57 ], [ %.1.i107, %67 ]
   %83 = trunc i32 %.0.i108 to i8
   %84 = getelementptr inbounds nuw i8, ptr %43, i64 1
-  store i8 %83, ptr %84, align 1, !tbaa !121
+  store i8 %83, ptr %84, align 1, !tbaa !120
   %85 = and i32 %.0.i108, 240
   %.not90 = icmp eq i32 %85, 0
   br i1 %.not90, label %86, label %619
@@ -3851,7 +3851,7 @@ get_ue_golomb.exit146:                            ; preds = %167, %176
   %193 = phi i32 [ %..i145, %167 ], [ %.38.i142, %176 ]
   %.0.i144 = phi i8 [ %175, %167 ], [ %192, %176 ]
   %194 = getelementptr inbounds nuw i8, ptr %43, i64 4
-  store i8 %.0.i144, ptr %194, align 4, !tbaa !122
+  store i8 %.0.i144, ptr %194, align 4, !tbaa !121
   %195 = lshr i32 %193, 3
   %196 = zext nneg i32 %195 to i64
   %197 = getelementptr inbounds nuw i8, ptr %48, i64 %196
@@ -3866,7 +3866,7 @@ get_ue_golomb.exit146:                            ; preds = %167, %176
   %204 = trunc i32 %203 to i8
   %205 = lshr i8 %204, 7
   %206 = getelementptr inbounds nuw i8, ptr %43, i64 5
-  store i8 %205, ptr %206, align 1, !tbaa !123
+  store i8 %205, ptr %206, align 1, !tbaa !122
   %207 = lshr i32 %spec.select.i, 3
   %208 = zext nneg i32 %207 to i64
   %209 = getelementptr inbounds nuw i8, ptr %48, i64 %208
@@ -3882,7 +3882,7 @@ get_ue_golomb.exit146:                            ; preds = %167, %176
   %217 = and i32 %216, 1
   %218 = trunc nuw nsw i32 %217 to i8
   %219 = getelementptr inbounds nuw i8, ptr %43, i64 6
-  store i8 %218, ptr %219, align 2, !tbaa !124
+  store i8 %218, ptr %219, align 2, !tbaa !123
   %.not91 = icmp eq i32 %217, 0
   br i1 %.not91, label %220, label %437
 
@@ -3942,7 +3942,7 @@ get_ue_golomb.exit159:                            ; preds = %229, %239
   %254 = phi i32 [ %..i158, %229 ], [ %.38.i155, %239 ]
   %255 = phi i32 [ %238, %229 ], [ %.1.i156, %239 ]
   %256 = getelementptr inbounds nuw i8, ptr %43, i64 8
-  store i32 %255, ptr %256, align 4, !tbaa !125
+  store i32 %255, ptr %256, align 4, !tbaa !124
   %257 = lshr i32 %254, 3
   %258 = zext nneg i32 %257 to i64
   %259 = getelementptr inbounds nuw i8, ptr %48, i64 %258
@@ -3998,7 +3998,7 @@ get_ue_golomb.exit171:                            ; preds = %265, %275
   %290 = phi i32 [ %..i170, %265 ], [ %.38.i167, %275 ]
   %291 = phi i32 [ %274, %265 ], [ %.1.i168, %275 ]
   %292 = getelementptr inbounds nuw i8, ptr %43, i64 12
-  store i32 %291, ptr %292, align 4, !tbaa !126
+  store i32 %291, ptr %292, align 4, !tbaa !125
   %293 = icmp ugt i32 %255, 19
   %294 = icmp ugt i32 %291, 21
   %or.cond = select i1 %293, i1 true, i1 %294
@@ -4020,7 +4020,7 @@ get_ue_golomb.exit171:                            ; preds = %265, %275
   %306 = and i32 %305, 1
   %307 = trunc nuw nsw i32 %306 to i8
   %308 = getelementptr inbounds nuw i8, ptr %43, i64 16
-  store i8 %307, ptr %308, align 4, !tbaa !127
+  store i8 %307, ptr %308, align 4, !tbaa !126
   %.not92 = icmp eq i32 %306, 0
   br i1 %.not92, label %.preheader254, label %.loopexit253
 
@@ -4104,7 +4104,7 @@ get_ue_golomb.exit184:                            ; preds = %323, %333
   store i32 %.0.i182, ptr %349, align 4, !tbaa !58
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %350 = icmp samesign ult i64 %indvars.iv.next, %310
-  br i1 %350, label %313, label %.preheader252, !llvm.loop !128
+  br i1 %350, label %313, label %.preheader252, !llvm.loop !127
 
 351:                                              ; preds = %.lr.ph257, %get_ue_golomb.exit196
   %indvars.iv268 = phi i64 [ 0, %.lr.ph257 ], [ %indvars.iv.next269, %get_ue_golomb.exit196 ]
@@ -4167,7 +4167,7 @@ get_ue_golomb.exit196:                            ; preds = %361, %371
   store i32 %.0.i194, ptr %387, align 4, !tbaa !58
   %indvars.iv.next269 = add nuw nsw i64 %indvars.iv268, 1
   %388 = icmp samesign ult i64 %indvars.iv.next269, %312
-  br i1 %388, label %351, label %.loopexit253, !llvm.loop !129
+  br i1 %388, label %351, label %.loopexit253, !llvm.loop !128
 
 .loopexit253:                                     ; preds = %get_ue_golomb.exit196, %.preheader252, %295
   %389 = phi i32 [ %.promoted258, %.preheader252 ], [ %spec.select.i172, %295 ], [ %386, %get_ue_golomb.exit196 ]
@@ -4185,7 +4185,7 @@ get_ue_golomb.exit196:                            ; preds = %361, %371
   %399 = trunc i32 %398 to i8
   %400 = lshr i8 %399, 7
   %401 = getelementptr inbounds nuw i8, ptr %43, i64 188
-  store i8 %400, ptr %401, align 4, !tbaa !130
+  store i8 %400, ptr %401, align 4, !tbaa !129
   %402 = lshr i32 %spec.select.i197, 3
   %403 = zext nneg i32 %402 to i64
   %404 = getelementptr inbounds nuw i8, ptr %48, i64 %403
@@ -4241,7 +4241,7 @@ get_ue_golomb.exit209:                            ; preds = %410, %420
   %435 = phi i32 [ %..i208, %410 ], [ %.38.i205, %420 ]
   %.0.i207 = phi i32 [ %419, %410 ], [ %.1.i206, %420 ]
   %436 = getelementptr inbounds nuw i8, ptr %43, i64 192
-  store i32 %.0.i207, ptr %436, align 4, !tbaa !131
+  store i32 %.0.i207, ptr %436, align 4, !tbaa !130
   br label %437
 
 437:                                              ; preds = %get_ue_golomb.exit209, %get_ue_golomb.exit146
@@ -4302,7 +4302,7 @@ get_ue_golomb.exit221:                            ; preds = %447, %457
   %.0.i219 = phi i32 [ %456, %447 ], [ %.1.i218, %457 ]
   %473 = trunc i32 %.0.i219 to i8
   %474 = getelementptr inbounds nuw i8, ptr %43, i64 196
-  store i8 %473, ptr %474, align 4, !tbaa !132
+  store i8 %473, ptr %474, align 4, !tbaa !131
   %475 = and i32 %.0.i219, 240
   %.not93 = icmp eq i32 %475, 0
   br i1 %.not93, label %476, label %619
@@ -4323,7 +4323,7 @@ get_ue_golomb.exit221:                            ; preds = %447, %457
   %487 = and i32 %486, 1
   %488 = trunc nuw nsw i32 %487 to i8
   %489 = getelementptr inbounds nuw i8, ptr %43, i64 197
-  store i8 %488, ptr %489, align 1, !tbaa !133
+  store i8 %488, ptr %489, align 1, !tbaa !132
   %.not94 = icmp eq i32 %487, 0
   br i1 %.not94, label %.loopexit, label %.preheader251
 
@@ -4334,7 +4334,7 @@ get_ue_golomb.exit221:                            ; preds = %447, %457
   %493 = add nuw nsw i32 %492, 1
   %494 = xor i32 %492, 31
   %495 = getelementptr inbounds nuw i8, ptr %43, i64 200
-  %.pre.pre = load i32, ptr %491, align 4, !tbaa !125
+  %.pre.pre = load i32, ptr %491, align 4, !tbaa !124
   %496 = zext i32 %.pre.pre to i64
   br label %.preheader
 
@@ -4346,10 +4346,10 @@ get_ue_golomb.exit221:                            ; preds = %447, %457
 
 498:                                              ; preds = %501
   %indvars.iv.next275 = add nuw nsw i64 %indvars.iv274, 1
-  %499 = load i32, ptr %490, align 4, !tbaa !126
+  %499 = load i32, ptr %490, align 4, !tbaa !125
   %500 = zext i32 %499 to i64
   %.not95.not = icmp samesign ult i64 %indvars.iv274, %500
-  br i1 %.not95.not, label %.preheader, label %.loopexit, !llvm.loop !134
+  br i1 %.not95.not, label %.preheader, label %.loopexit, !llvm.loop !133
 
 501:                                              ; preds = %.preheader, %501
   %indvars.iv271 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next272, %501 ]
@@ -4369,12 +4369,12 @@ get_ue_golomb.exit221:                            ; preds = %447, %457
   store i32 %510, ptr %513, align 4, !tbaa !58
   %indvars.iv.next272 = add nuw nsw i64 %indvars.iv271, 1
   %.not98.not = icmp samesign ult i64 %indvars.iv271, %496
-  br i1 %.not98.not, label %501, label %498, !llvm.loop !135
+  br i1 %.not98.not, label %501, label %498, !llvm.loop !134
 
 .loopexit:                                        ; preds = %498, %476
   %514 = phi i32 [ %spec.select.i222, %476 ], [ %512, %498 ]
   %515 = getelementptr inbounds nuw i8, ptr %43, i64 1960
-  store i8 0, ptr %515, align 4, !tbaa !136
+  store i8 0, ptr %515, align 4, !tbaa !135
   %516 = lshr i32 %514, 3
   %517 = zext nneg i32 %516 to i64
   %518 = getelementptr inbounds nuw i8, ptr %48, i64 %517
@@ -4389,7 +4389,7 @@ get_ue_golomb.exit221:                            ; preds = %447, %457
   store i32 %spec.select.i223, ptr %3, align 8, !tbaa !4
   %526 = and i32 %525, 1
   %527 = trunc nuw nsw i32 %526 to i8
-  store i8 %527, ptr %515, align 4, !tbaa !136
+  store i8 %527, ptr %515, align 4, !tbaa !135
   %.not96 = icmp eq i32 %526, 0
   br i1 %.not96, label %541, label %528
 
@@ -4407,7 +4407,7 @@ get_ue_golomb.exit221:                            ; preds = %447, %457
   store i32 %538, ptr %3, align 8, !tbaa !4
   %539 = trunc nuw nsw i32 %536 to i8
   %540 = getelementptr inbounds nuw i8, ptr %43, i64 1961
-  store i8 %539, ptr %540, align 1, !tbaa !137
+  store i8 %539, ptr %540, align 1, !tbaa !136
   br label %541
 
 541:                                              ; preds = %528, %.loopexit
@@ -4426,7 +4426,7 @@ get_ue_golomb.exit221:                            ; preds = %447, %457
   %552 = trunc i32 %551 to i8
   %553 = lshr i8 %552, 7
   %554 = getelementptr inbounds nuw i8, ptr %43, i64 1962
-  store i8 %553, ptr %554, align 2, !tbaa !138
+  store i8 %553, ptr %554, align 2, !tbaa !137
   %555 = lshr i32 %spec.select.i224, 3
   %556 = zext nneg i32 %555 to i64
   %557 = getelementptr inbounds nuw i8, ptr %48, i64 %556
@@ -4441,7 +4441,7 @@ get_ue_golomb.exit221:                            ; preds = %447, %457
   %564 = trunc i32 %563 to i8
   %565 = lshr i8 %564, 7
   %566 = getelementptr inbounds nuw i8, ptr %43, i64 1963
-  store i8 %565, ptr %566, align 1, !tbaa !139
+  store i8 %565, ptr %566, align 1, !tbaa !138
   %567 = lshr i32 %spec.select.i225, 3
   %568 = zext nneg i32 %567 to i64
   %569 = getelementptr inbounds nuw i8, ptr %48, i64 %568
@@ -4457,7 +4457,7 @@ get_ue_golomb.exit221:                            ; preds = %447, %457
   %577 = and i32 %576, 1
   %578 = trunc nuw nsw i32 %577 to i8
   %579 = getelementptr inbounds nuw i8, ptr %43, i64 1964
-  store i8 %578, ptr %579, align 4, !tbaa !140
+  store i8 %578, ptr %579, align 4, !tbaa !139
   %.not97 = icmp eq i32 %577, 0
   br i1 %.not97, label %615, label %580
 
@@ -4516,7 +4516,7 @@ get_ue_golomb.exit221:                            ; preds = %447, %457
 get_ue_golomb.exit238:                            ; preds = %589, %599
   %.0.i236 = phi i32 [ %598, %589 ], [ %.1.i235, %599 ]
   %614 = getelementptr inbounds nuw i8, ptr %43, i64 1968
-  store i32 %.0.i236, ptr %614, align 4, !tbaa !141
+  store i32 %.0.i236, ptr %614, align 4, !tbaa !140
   br label %615
 
 615:                                              ; preds = %get_ue_golomb.exit238, %541
@@ -4524,7 +4524,7 @@ get_ue_golomb.exit238:                            ; preds = %589, %599
   %617 = zext nneg i32 %.0.i to i64
   %618 = getelementptr inbounds nuw [64 x ptr], ptr %616, i64 0, i64 %617
   tail call void @av_freep(ptr noundef nonnull %618) #5
-  store ptr %43, ptr %618, align 8, !tbaa !142
+  store ptr %43, ptr %618, align 8, !tbaa !141
   br label %get_ue_golomb.exit.thread
 
 619:                                              ; preds = %get_ue_golomb.exit221, %get_ue_golomb.exit171, %get_ue_golomb.exit110
@@ -4550,7 +4550,7 @@ define void @ff_evc_ps_free(ptr noundef %0) local_unnamed_addr #0 {
   tail call void @av_freep(ptr noundef %4) #5
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
-  br i1 %exitcond.not, label %.preheader, label %3, !llvm.loop !144
+  br i1 %exitcond.not, label %.preheader, label %3, !llvm.loop !143
 
 5:                                                ; preds = %6
   ret void
@@ -4561,7 +4561,7 @@ define void @ff_evc_ps_free(ptr noundef %0) local_unnamed_addr #0 {
   tail call void @av_freep(ptr noundef nonnull %7) #5
   %indvars.iv.next12 = add nuw nsw i64 %indvars.iv11, 1
   %exitcond14.not = icmp eq i64 %indvars.iv.next12, 64
-  br i1 %exitcond14.not, label %5, label %6, !llvm.loop !145
+  br i1 %exitcond14.not, label %5, label %6, !llvm.loop !144
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
@@ -4588,7 +4588,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @hrd_parameters(ptr noundef
   store i32 %..i, ptr %3, align 8, !tbaa !4
   %21 = getelementptr inbounds nuw [512 x i8], ptr @ff_ue_golomb_vlc_code, i64 0, i64 %16
   %22 = load i8, ptr %21, align 1, !tbaa !13
-  store i8 %22, ptr %1, align 4, !tbaa !146
+  store i8 %22, ptr %1, align 4, !tbaa !145
   %23 = icmp ugt i8 %22, 31
   br i1 %23, label %248, label %24
 
@@ -4606,7 +4606,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @hrd_parameters(ptr noundef
   store i32 %34, ptr %3, align 8, !tbaa !4
   %35 = trunc nuw nsw i32 %32 to i8
   %36 = getelementptr inbounds nuw i8, ptr %1, i64 1
-  store i8 %35, ptr %36, align 1, !tbaa !147
+  store i8 %35, ptr %36, align 1, !tbaa !146
   %37 = lshr i32 %34, 3
   %38 = zext nneg i32 %37 to i64
   %39 = getelementptr inbounds nuw i8, ptr %7, i64 %38
@@ -4620,7 +4620,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @hrd_parameters(ptr noundef
   store i32 %46, ptr %3, align 8, !tbaa !4
   %47 = trunc nuw nsw i32 %44 to i8
   %48 = getelementptr inbounds nuw i8, ptr %1, i64 2
-  store i8 %47, ptr %48, align 2, !tbaa !148
+  store i8 %47, ptr %48, align 2, !tbaa !147
   %49 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %50 = getelementptr inbounds nuw i8, ptr %1, i64 132
   %51 = getelementptr inbounds nuw i8, ptr %1, i64 260
@@ -4645,7 +4645,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @hrd_parameters(ptr noundef
   store i32 %65, ptr %3, align 8, !tbaa !4
   %66 = trunc nuw nsw i32 %63 to i8
   %67 = getelementptr inbounds nuw i8, ptr %1, i64 292
-  store i8 %66, ptr %67, align 4, !tbaa !149
+  store i8 %66, ptr %67, align 4, !tbaa !148
   %68 = lshr i32 %65, 3
   %69 = zext nneg i32 %68 to i64
   %70 = getelementptr inbounds nuw i8, ptr %55, i64 %69
@@ -4659,7 +4659,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @hrd_parameters(ptr noundef
   store i32 %77, ptr %3, align 8, !tbaa !4
   %78 = trunc nuw nsw i32 %75 to i8
   %79 = getelementptr inbounds nuw i8, ptr %1, i64 293
-  store i8 %78, ptr %79, align 1, !tbaa !150
+  store i8 %78, ptr %79, align 1, !tbaa !149
   %80 = lshr i32 %77, 3
   %81 = zext nneg i32 %80 to i64
   %82 = getelementptr inbounds nuw i8, ptr %55, i64 %81
@@ -4672,7 +4672,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @hrd_parameters(ptr noundef
   %89 = tail call i32 @llvm.umin.i32(i32 %54, i32 %88)
   store i32 %89, ptr %3, align 8, !tbaa !4
   %90 = trunc nuw nsw i32 %87 to i8
-  store i8 %90, ptr %79, align 1, !tbaa !150
+  store i8 %90, ptr %79, align 1, !tbaa !149
   %91 = lshr i32 %89, 3
   %92 = zext nneg i32 %91 to i64
   %93 = getelementptr inbounds nuw i8, ptr %55, i64 %92
@@ -4686,7 +4686,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @hrd_parameters(ptr noundef
   store i32 %100, ptr %3, align 8, !tbaa !4
   %101 = trunc nuw nsw i32 %98 to i8
   %102 = getelementptr inbounds nuw i8, ptr %1, i64 295
-  store i8 %101, ptr %102, align 1, !tbaa !151
+  store i8 %101, ptr %102, align 1, !tbaa !150
   br label %248
 
 103:                                              ; preds = %24, %get_ue_golomb_long.exit44
@@ -4894,7 +4894,7 @@ get_ue_golomb_long.exit44:                        ; preds = %get_ue_golomb_long.
   store i8 %246, ptr %247, align 1, !tbaa !13
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %52, label %103, !llvm.loop !152
+  br i1 %exitcond.not, label %52, label %103, !llvm.loop !151
 
 248:                                              ; preds = %2, %52
   %.027 = phi i32 [ 0, %52 ], [ -1094995529, %2 ]
@@ -4984,91 +4984,90 @@ attributes #5 = { nounwind }
 !62 = !{!15, !10, i64 100}
 !63 = !{!15, !8, i64 104}
 !64 = !{!15, !8, i64 105}
-!65 = distinct !{!65, !66, !67}
+!65 = distinct !{!65, !66}
 !66 = !{!"llvm.loop.mustprogress"}
-!67 = !{!"llvm.loop.estimated_trip_count"}
-!68 = distinct !{!68, !66, !67}
-!69 = !{!15, !8, i64 11372}
-!70 = !{!15, !10, i64 11376}
-!71 = !{!15, !10, i64 11380}
-!72 = !{!15, !10, i64 11384}
-!73 = !{!15, !10, i64 11388}
-!74 = !{!15, !8, i64 11392}
-!75 = !{!15, !8, i64 11393}
-!76 = !{!15, !8, i64 11394}
-!77 = distinct !{!77, !66, !67}
-!78 = distinct !{!78, !66, !67}
-!79 = !{!15, !8, i64 11980}
-!80 = !{!81, !81, i64 0}
-!81 = !{!"p1 _ZTS12EVCParserSPS", !7, i64 0}
-!82 = !{!83, !10, i64 0}
-!83 = !{!"RefPicListStruct", !10, i64 0, !8, i64 4}
-!84 = distinct !{!84, !66, !67}
-!85 = !{!17, !8, i64 0}
-!86 = !{!17, !8, i64 1}
-!87 = !{!17, !18, i64 2}
-!88 = !{!17, !18, i64 4}
-!89 = !{!17, !8, i64 6}
-!90 = !{!17, !8, i64 7}
-!91 = !{!17, !8, i64 8}
-!92 = !{!17, !8, i64 9}
-!93 = !{!17, !8, i64 10}
-!94 = !{!17, !8, i64 11}
-!95 = !{!17, !8, i64 12}
-!96 = !{!17, !8, i64 13}
-!97 = !{!17, !8, i64 14}
-!98 = !{!17, !8, i64 15}
-!99 = !{!17, !8, i64 16}
-!100 = !{!17, !8, i64 17}
-!101 = !{!17, !8, i64 18}
-!102 = !{!17, !8, i64 19}
-!103 = !{!17, !8, i64 20}
-!104 = !{!17, !10, i64 24}
-!105 = !{!17, !10, i64 28}
-!106 = !{!17, !8, i64 32}
-!107 = !{!17, !8, i64 33}
-!108 = !{!17, !8, i64 34}
-!109 = !{!17, !8, i64 35}
-!110 = !{!17, !8, i64 36}
-!111 = !{!17, !8, i64 37}
-!112 = !{!17, !8, i64 38}
-!113 = !{!17, !8, i64 39}
-!114 = !{!17, !8, i64 40}
-!115 = !{!17, !8, i64 41}
-!116 = !{!17, !8, i64 42}
-!117 = !{!17, !10, i64 44}
-!118 = !{!17, !10, i64 48}
-!119 = !{!120, !8, i64 0}
-!120 = !{!"EVCParserPPS", !8, i64 0, !8, i64 1, !8, i64 2, !8, i64 4, !8, i64 5, !8, i64 6, !10, i64 8, !10, i64 12, !8, i64 16, !8, i64 20, !8, i64 100, !8, i64 188, !10, i64 192, !8, i64 196, !8, i64 197, !8, i64 200, !8, i64 1960, !8, i64 1961, !8, i64 1962, !8, i64 1963, !8, i64 1964, !10, i64 1968}
-!121 = !{!120, !8, i64 1}
-!122 = !{!120, !8, i64 4}
-!123 = !{!120, !8, i64 5}
-!124 = !{!120, !8, i64 6}
-!125 = !{!120, !10, i64 8}
-!126 = !{!120, !10, i64 12}
-!127 = !{!120, !8, i64 16}
-!128 = distinct !{!128, !66, !67}
-!129 = distinct !{!129, !66, !67}
-!130 = !{!120, !8, i64 188}
-!131 = !{!120, !10, i64 192}
-!132 = !{!120, !8, i64 196}
-!133 = !{!120, !8, i64 197}
-!134 = distinct !{!134, !66, !67}
-!135 = distinct !{!135, !66, !67}
-!136 = !{!120, !8, i64 1960}
-!137 = !{!120, !8, i64 1961}
-!138 = !{!120, !8, i64 1962}
-!139 = !{!120, !8, i64 1963}
-!140 = !{!120, !8, i64 1964}
-!141 = !{!120, !10, i64 1968}
-!142 = !{!143, !143, i64 0}
-!143 = !{!"p1 _ZTS12EVCParserPPS", !7, i64 0}
-!144 = distinct !{!144, !66, !67}
-!145 = distinct !{!145, !66, !67}
-!146 = !{!19, !8, i64 0}
-!147 = !{!19, !8, i64 1}
-!148 = !{!19, !8, i64 2}
-!149 = !{!19, !8, i64 292}
-!150 = !{!19, !8, i64 293}
-!151 = !{!19, !8, i64 295}
-!152 = distinct !{!152, !66, !67}
+!67 = distinct !{!67, !66}
+!68 = !{!15, !8, i64 11372}
+!69 = !{!15, !10, i64 11376}
+!70 = !{!15, !10, i64 11380}
+!71 = !{!15, !10, i64 11384}
+!72 = !{!15, !10, i64 11388}
+!73 = !{!15, !8, i64 11392}
+!74 = !{!15, !8, i64 11393}
+!75 = !{!15, !8, i64 11394}
+!76 = distinct !{!76, !66}
+!77 = distinct !{!77, !66}
+!78 = !{!15, !8, i64 11980}
+!79 = !{!80, !80, i64 0}
+!80 = !{!"p1 _ZTS12EVCParserSPS", !7, i64 0}
+!81 = !{!82, !10, i64 0}
+!82 = !{!"RefPicListStruct", !10, i64 0, !8, i64 4}
+!83 = distinct !{!83, !66}
+!84 = !{!17, !8, i64 0}
+!85 = !{!17, !8, i64 1}
+!86 = !{!17, !18, i64 2}
+!87 = !{!17, !18, i64 4}
+!88 = !{!17, !8, i64 6}
+!89 = !{!17, !8, i64 7}
+!90 = !{!17, !8, i64 8}
+!91 = !{!17, !8, i64 9}
+!92 = !{!17, !8, i64 10}
+!93 = !{!17, !8, i64 11}
+!94 = !{!17, !8, i64 12}
+!95 = !{!17, !8, i64 13}
+!96 = !{!17, !8, i64 14}
+!97 = !{!17, !8, i64 15}
+!98 = !{!17, !8, i64 16}
+!99 = !{!17, !8, i64 17}
+!100 = !{!17, !8, i64 18}
+!101 = !{!17, !8, i64 19}
+!102 = !{!17, !8, i64 20}
+!103 = !{!17, !10, i64 24}
+!104 = !{!17, !10, i64 28}
+!105 = !{!17, !8, i64 32}
+!106 = !{!17, !8, i64 33}
+!107 = !{!17, !8, i64 34}
+!108 = !{!17, !8, i64 35}
+!109 = !{!17, !8, i64 36}
+!110 = !{!17, !8, i64 37}
+!111 = !{!17, !8, i64 38}
+!112 = !{!17, !8, i64 39}
+!113 = !{!17, !8, i64 40}
+!114 = !{!17, !8, i64 41}
+!115 = !{!17, !8, i64 42}
+!116 = !{!17, !10, i64 44}
+!117 = !{!17, !10, i64 48}
+!118 = !{!119, !8, i64 0}
+!119 = !{!"EVCParserPPS", !8, i64 0, !8, i64 1, !8, i64 2, !8, i64 4, !8, i64 5, !8, i64 6, !10, i64 8, !10, i64 12, !8, i64 16, !8, i64 20, !8, i64 100, !8, i64 188, !10, i64 192, !8, i64 196, !8, i64 197, !8, i64 200, !8, i64 1960, !8, i64 1961, !8, i64 1962, !8, i64 1963, !8, i64 1964, !10, i64 1968}
+!120 = !{!119, !8, i64 1}
+!121 = !{!119, !8, i64 4}
+!122 = !{!119, !8, i64 5}
+!123 = !{!119, !8, i64 6}
+!124 = !{!119, !10, i64 8}
+!125 = !{!119, !10, i64 12}
+!126 = !{!119, !8, i64 16}
+!127 = distinct !{!127, !66}
+!128 = distinct !{!128, !66}
+!129 = !{!119, !8, i64 188}
+!130 = !{!119, !10, i64 192}
+!131 = !{!119, !8, i64 196}
+!132 = !{!119, !8, i64 197}
+!133 = distinct !{!133, !66}
+!134 = distinct !{!134, !66}
+!135 = !{!119, !8, i64 1960}
+!136 = !{!119, !8, i64 1961}
+!137 = !{!119, !8, i64 1962}
+!138 = !{!119, !8, i64 1963}
+!139 = !{!119, !8, i64 1964}
+!140 = !{!119, !10, i64 1968}
+!141 = !{!142, !142, i64 0}
+!142 = !{!"p1 _ZTS12EVCParserPPS", !7, i64 0}
+!143 = distinct !{!143, !66}
+!144 = distinct !{!144, !66}
+!145 = !{!19, !8, i64 0}
+!146 = !{!19, !8, i64 1}
+!147 = !{!19, !8, i64 2}
+!148 = !{!19, !8, i64 292}
+!149 = !{!19, !8, i64 293}
+!150 = !{!19, !8, i64 295}
+!151 = distinct !{!151, !66}

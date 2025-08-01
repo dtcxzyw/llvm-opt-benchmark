@@ -2557,7 +2557,7 @@ define noundef i64 @"_ZN83_$LT$I$u20$as$u20$alloc..vec..in_place_collect..SpecIn
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 24
   store ptr %20, ptr %8, align 8
   %.not = icmp ult i64 %11, %7
-  br i1 %.not, label %10, label %.critedge, !llvm.loop !8
+  br i1 %.not, label %10, label %.critedge
 
 21:                                               ; preds = %12
   %22 = landingpad { ptr, i32 }
@@ -3260,5 +3260,3 @@ attributes #9 = { cold noreturn nounwind }
 !5 = !{i64 8}
 !6 = !{i8 0, i8 3}
 !7 = !{i8 31, i8 65}
-!8 = distinct !{!8, !9}
-!9 = !{!"llvm.loop.estimated_trip_count"}

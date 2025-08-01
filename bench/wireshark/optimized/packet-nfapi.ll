@@ -9924,7 +9924,7 @@ dissect_rx_indication_rel9_value.exit:            ; preds = %110, %115
   %119 = call i32 @ptvcursor_current_offset(ptr noundef %0)
   %120 = call i32 @tvb_reported_length_remaining(ptr noundef %118, i32 noundef %119)
   %121 = icmp sgt i32 %120, 0
-  br i1 %121, label %.lr.ph, label %.critedge, !llvm.loop !11
+  br i1 %121, label %.lr.ph, label %.critedge, !llvm.loop !10
 
 .critedge:                                        ; preds = %.lr.ph, %117, %14
   call void @ptvcursor_pop_subtree(ptr noundef %0)
@@ -9946,7 +9946,7 @@ dissect_rx_indication_rel9_value.exit:            ; preds = %110, %115
   %129 = add nuw i32 %.292, 1
   %130 = call i32 @wmem_array_get_count(ptr noundef %10)
   %131 = icmp ult i32 %129, %130
-  br i1 %131, label %.lr.ph93, label %._crit_edge, !llvm.loop !12
+  br i1 %131, label %.lr.ph93, label %._crit_edge, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %.lr.ph93, %122
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #8
@@ -10350,7 +10350,7 @@ dissect_harq_indication_data_format_3_value.exit: ; preds = %66, %71
   %74 = add nuw i32 %.037, 1
   %75 = load i32, ptr %9, align 4
   %76 = icmp ult i32 %74, %75
-  br i1 %76, label %.lr.ph, label %._crit_edge, !llvm.loop !13
+  br i1 %76, label %.lr.ph, label %._crit_edge, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %73, %31
   call void @ptvcursor_pop_subtree(ptr noundef %0)
@@ -10637,7 +10637,7 @@ define internal void @dissect_rx_cqi_indication_body_value(ptr noundef %0, ptr n
   %30 = zext i16 %26 to i32
   %31 = add i32 %27, %30
   %32 = icmp ult i32 %31, %20
-  br i1 %32, label %23, label %._crit_edge, !llvm.loop !14
+  br i1 %32, label %23, label %._crit_edge, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %29, %.lr.ph47
   %.139.lcssa = phi i32 [ %19, %.lr.ph47 ], [ %31, %29 ]
@@ -10645,7 +10645,7 @@ define internal void @dissect_rx_cqi_indication_body_value(ptr noundef %0, ptr n
   %33 = load i32, ptr %4, align 4
   %34 = zext i32 %33 to i64
   %35 = icmp samesign ult i64 %indvars.iv.next, %34
-  br i1 %35, label %.lr.ph47, label %._crit_edge48, !llvm.loop !15
+  br i1 %35, label %.lr.ph47, label %._crit_edge48, !llvm.loop !14
 
 ._crit_edge48:                                    ; preds = %._crit_edge
   %36 = load i32, ptr @ett_nfapi_cqi_indication_pdu_list, align 4
@@ -10692,7 +10692,7 @@ dissect_array_value.exit:                         ; preds = %39
   %57 = load i32, ptr %4, align 4
   %58 = zext i32 %57 to i64
   %59 = icmp samesign ult i64 %indvars.iv.next59, %58
-  br i1 %59, label %.lr.ph51, label %._crit_edge52, !llvm.loop !16
+  br i1 %59, label %.lr.ph51, label %._crit_edge52, !llvm.loop !15
 
 ._crit_edge52:                                    ; preds = %.lr.ph51, %2, %10, %._crit_edge48, %dissect_array_value.exit
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #8
@@ -12710,7 +12710,7 @@ dissect_harq_indication_data_format_5_value.exit: ; preds = %86, %91
   %94 = add nuw i32 %.049, 1
   %95 = load i32, ptr %11, align 4
   %96 = icmp ult i32 %94, %95
-  br i1 %96, label %.lr.ph, label %._crit_edge, !llvm.loop !17
+  br i1 %96, label %.lr.ph, label %._crit_edge, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %93, %37
   call void @ptvcursor_pop_subtree(ptr noundef %0)
@@ -12922,7 +12922,7 @@ define internal void @dissect_tdd_channel_measurement_value(ptr noundef %0, ptr 
   %25 = add nuw i32 %.019, 1
   %26 = load i32, ptr %4, align 4
   %27 = icmp ult i32 %25, %26
-  br i1 %27, label %.lr.ph, label %._crit_edge, !llvm.loop !18
+  br i1 %27, label %.lr.ph, label %._crit_edge, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.lr.ph22
   call void @ptvcursor_pop_subtree(ptr noundef %0)
@@ -12930,7 +12930,7 @@ define internal void @dissect_tdd_channel_measurement_value(ptr noundef %0, ptr 
   %28 = add nuw i32 %.01820, 1
   %29 = load i32, ptr %3, align 4
   %30 = icmp ult i32 %28, %29
-  br i1 %30, label %.lr.ph22, label %._crit_edge23, !llvm.loop !19
+  br i1 %30, label %.lr.ph22, label %._crit_edge23, !llvm.loop !18
 
 ._crit_edge23:                                    ; preds = %._crit_edge, %2
   call void @ptvcursor_pop_subtree(ptr noundef %0)
@@ -13734,7 +13734,7 @@ look_up_tlv.exit.thread:                          ; preds = %29, %37, %34, %look
   tail call void @ptvcursor_pop_subtree(ptr noundef %0)
   %75 = tail call i32 @ptvcursor_current_offset(ptr noundef %0)
   %76 = icmp slt i32 %75, %2
-  br i1 %76, label %7, label %._crit_edge, !llvm.loop !20
+  br i1 %76, label %7, label %._crit_edge, !llvm.loop !19
 
 ._crit_edge:                                      ; preds = %74, %3
   ret void
@@ -14682,16 +14682,15 @@ attributes #9 = { allocsize(1) }
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i8 0, i8 2}
 !7 = !{}
-!8 = distinct !{!8, !9, !10}
+!8 = distinct !{!8, !9}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = !{!"llvm.loop.estimated_trip_count"}
-!11 = distinct !{!11, !9, !10}
-!12 = distinct !{!12, !9, !10}
-!13 = distinct !{!13, !9, !10}
-!14 = distinct !{!14, !9, !10}
-!15 = distinct !{!15, !9, !10}
-!16 = distinct !{!16, !9, !10}
-!17 = distinct !{!17, !9, !10}
-!18 = distinct !{!18, !9, !10}
-!19 = distinct !{!19, !9, !10}
-!20 = distinct !{!20, !9, !10}
+!10 = distinct !{!10, !9}
+!11 = distinct !{!11, !9}
+!12 = distinct !{!12, !9}
+!13 = distinct !{!13, !9}
+!14 = distinct !{!14, !9}
+!15 = distinct !{!15, !9}
+!16 = distinct !{!16, !9}
+!17 = distinct !{!17, !9}
+!18 = distinct !{!18, !9}
+!19 = distinct !{!19, !9}

@@ -313,7 +313,7 @@ define dso_local i32 @sha_test() local_unnamed_addr #0 {
 20:                                               ; preds = %.preheader
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %21, label %.preheader, !llvm.loop !18
+  br i1 %exitcond.not, label %21, label %.preheader, !llvm.loop !17
 
 21:                                               ; preds = %20
   call void @wc_ShaFree(ptr noundef nonnull %1) #6
@@ -376,7 +376,7 @@ define dso_local i32 @sha224_test() local_unnamed_addr #0 {
   br i1 %.not22, label %17, label %.loopexit
 
 17:                                               ; preds = %14
-  br i1 %6, label %.preheader, label %18, !llvm.loop !19
+  br i1 %6, label %.preheader, label %18, !llvm.loop !18
 
 18:                                               ; preds = %17
   call void @wc_Sha224Free(ptr noundef nonnull %1) #6
@@ -439,7 +439,7 @@ define dso_local i32 @sha256_test() local_unnamed_addr #0 {
   br i1 %.not24, label %17, label %.loopexit
 
 17:                                               ; preds = %14
-  br i1 %6, label %.preheader, label %18, !llvm.loop !20
+  br i1 %6, label %.preheader, label %18, !llvm.loop !19
 
 18:                                               ; preds = %17
   call void @wc_Sha256Free(ptr noundef nonnull %1) #6
@@ -502,7 +502,7 @@ define dso_local i32 @sha512_test() local_unnamed_addr #0 {
   br i1 %.not24, label %17, label %.loopexit
 
 17:                                               ; preds = %14
-  br i1 %6, label %.preheader, label %18, !llvm.loop !21
+  br i1 %6, label %.preheader, label %18, !llvm.loop !20
 
 18:                                               ; preds = %17
   call void @wc_Sha512Free(ptr noundef nonnull %1) #6
@@ -565,7 +565,7 @@ define dso_local i32 @sha384_test() local_unnamed_addr #0 {
   br i1 %.not24, label %17, label %.loopexit
 
 17:                                               ; preds = %14
-  br i1 %6, label %.preheader, label %18, !llvm.loop !22
+  br i1 %6, label %.preheader, label %18, !llvm.loop !21
 
 18:                                               ; preds = %17
   call void @wc_Sha384Free(ptr noundef nonnull %1) #6
@@ -648,7 +648,7 @@ define dso_local range(i32 -20009, 1) i32 @hmac_md5_test() local_unnamed_addr #0
 27:                                               ; preds = %21
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %28, label %.preheader, !llvm.loop !23
+  br i1 %exitcond.not, label %28, label %.preheader, !llvm.loop !22
 
 28:                                               ; preds = %27
   call void @wc_HmacFree(ptr noundef nonnull %1) #6
@@ -731,7 +731,7 @@ define dso_local range(i32 -20009, 1) i32 @hmac_sha_test() local_unnamed_addr #0
 27:                                               ; preds = %21
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %28, label %.preheader, !llvm.loop !24
+  br i1 %exitcond.not, label %28, label %.preheader, !llvm.loop !23
 
 28:                                               ; preds = %27
   call void @wc_HmacFree(ptr noundef nonnull %1) #6
@@ -814,7 +814,7 @@ define dso_local range(i32 -20009, 1) i32 @hmac_sha224_test() local_unnamed_addr
 27:                                               ; preds = %21
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %28, label %.preheader, !llvm.loop !25
+  br i1 %exitcond.not, label %28, label %.preheader, !llvm.loop !24
 
 28:                                               ; preds = %27
   call void @wc_HmacFree(ptr noundef nonnull %1) #6
@@ -897,7 +897,7 @@ define dso_local range(i32 -20009, 1) i32 @hmac_sha256_test() local_unnamed_addr
 27:                                               ; preds = %21
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %28, label %.preheader, !llvm.loop !26
+  br i1 %exitcond.not, label %28, label %.preheader, !llvm.loop !25
 
 28:                                               ; preds = %27
   call void @wc_HmacFree(ptr noundef nonnull %1) #6
@@ -980,7 +980,7 @@ define dso_local range(i32 -20009, 1) i32 @hmac_sha384_test() local_unnamed_addr
 27:                                               ; preds = %21
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %28, label %.preheader, !llvm.loop !27
+  br i1 %exitcond.not, label %28, label %.preheader, !llvm.loop !26
 
 28:                                               ; preds = %27
   call void @wc_HmacFree(ptr noundef nonnull %1) #6
@@ -1090,16 +1090,15 @@ attributes #7 = { nounwind willreturn memory(read) }
 !12 = !{!"testVector", !5, i64 0, !5, i64 8, !10, i64 16, !10, i64 24}
 !13 = !{!12, !10, i64 16}
 !14 = !{!12, !5, i64 8}
-!15 = distinct !{!15, !16, !17}
+!15 = distinct !{!15, !16}
 !16 = !{!"llvm.loop.mustprogress"}
-!17 = !{!"llvm.loop.estimated_trip_count"}
-!18 = distinct !{!18, !16, !17}
-!19 = distinct !{!19, !16, !17}
-!20 = distinct !{!20, !16, !17}
-!21 = distinct !{!21, !16, !17}
-!22 = distinct !{!22, !16, !17}
-!23 = distinct !{!23, !16, !17}
-!24 = distinct !{!24, !16, !17}
-!25 = distinct !{!25, !16, !17}
-!26 = distinct !{!26, !16, !17}
-!27 = distinct !{!27, !16, !17}
+!17 = distinct !{!17, !16}
+!18 = distinct !{!18, !16}
+!19 = distinct !{!19, !16}
+!20 = distinct !{!20, !16}
+!21 = distinct !{!21, !16}
+!22 = distinct !{!22, !16}
+!23 = distinct !{!23, !16}
+!24 = distinct !{!24, !16}
+!25 = distinct !{!25, !16}
+!26 = distinct !{!26, !16}

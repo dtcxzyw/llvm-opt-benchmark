@@ -337,7 +337,7 @@ _ZNSt6vectorIPN5faiss19InvertedListsIOHookESaIS2_EED2Ev.exit: ; preds = %._crit_
 18:                                               ; preds = %14, %.lr.ph
   %19 = getelementptr inbounds nuw i8, ptr %.sroa.04.08, i64 8
   %.not = icmp eq ptr %19, %4
-  br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !25
+  br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph
 }
 
 ; Function Attrs: nofree nounwind
@@ -377,7 +377,7 @@ define noundef ptr @_ZN5faiss19InvertedListsIOHook6lookupEi(i32 noundef %0) loca
 10:                                               ; preds = %.lr.ph
   %11 = getelementptr inbounds nuw i8, ptr %.sroa.023.033, i64 8
   %.not30 = icmp eq ptr %11, %6
-  br i1 %.not30, label %._crit_edge, label %.lr.ph, !llvm.loop !27
+  br i1 %.not30, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %10, %1
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2) #20
@@ -593,7 +593,7 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
 _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread18: ; preds = %8, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit
   %17 = getelementptr inbounds nuw i8, ptr %.sroa.015.025, i64 8
   %.not = icmp eq ptr %17, %4
-  br i1 %.not, label %._crit_edge, label %8, !llvm.loop !28
+  br i1 %.not, label %._crit_edge, label %8
 
 ._crit_edge:                                      ; preds = %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread18, %1
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2) #20
@@ -663,7 +663,7 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN5faiss19InvertedListsIOHook12add_callbackEPS0_(ptr noundef %0) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
-  %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN5faiss12_GLOBAL__N_125InvertedListsIOHook_tableE, i64 8), align 8, !tbaa !29
+  %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN5faiss12_GLOBAL__N_125InvertedListsIOHook_tableE, i64 8), align 8, !tbaa !25
   %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN5faiss12_GLOBAL__N_125InvertedListsIOHook_tableE, i64 16), align 8, !tbaa !22
   %.not.i = icmp eq ptr %2, %3
   br i1 %.not.i, label %6, label %4
@@ -671,7 +671,7 @@ define void @_ZN5faiss19InvertedListsIOHook12add_callbackEPS0_(ptr noundef %0) l
 4:                                                ; preds = %1
   store ptr %0, ptr %2, align 8, !tbaa !23
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store ptr %5, ptr getelementptr inbounds nuw (i8, ptr @_ZN5faiss12_GLOBAL__N_125InvertedListsIOHook_tableE, i64 8), align 8, !tbaa !29
+  store ptr %5, ptr getelementptr inbounds nuw (i8, ptr @_ZN5faiss12_GLOBAL__N_125InvertedListsIOHook_tableE, i64 8), align 8, !tbaa !25
   br label %_ZNSt6vectorIPN5faiss19InvertedListsIOHookESaIS2_EE9push_backERKS2_.exit
 
 6:                                                ; preds = %1
@@ -717,7 +717,7 @@ _ZNSt6vectorIPN5faiss19InvertedListsIOHookESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.
 
 _ZNSt6vectorIPN5faiss19InvertedListsIOHookESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %24, %_ZNSt6vectorIPN5faiss19InvertedListsIOHookESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
   store ptr %19, ptr @_ZN5faiss12_GLOBAL__N_125InvertedListsIOHook_tableE, align 8, !tbaa !20
-  store ptr %23, ptr getelementptr inbounds nuw (i8, ptr @_ZN5faiss12_GLOBAL__N_125InvertedListsIOHook_tableE, i64 8), align 8, !tbaa !29
+  store ptr %23, ptr getelementptr inbounds nuw (i8, ptr @_ZN5faiss12_GLOBAL__N_125InvertedListsIOHook_tableE, i64 8), align 8, !tbaa !25
   %25 = getelementptr inbounds nuw ptr, ptr %19, i64 %17
   store ptr %25, ptr getelementptr inbounds nuw (i8, ptr @_ZN5faiss12_GLOBAL__N_125InvertedListsIOHook_tableE, i64 16), align 8, !tbaa !22
   br label %_ZNSt6vectorIPN5faiss19InvertedListsIOHookESaIS2_EE9push_backERKS2_.exit
@@ -728,7 +728,7 @@ _ZNSt6vectorIPN5faiss19InvertedListsIOHookESaIS2_EE9push_backERKS2_.exit: ; pred
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN5faiss19InvertedListsIOHook15print_callbacksEv() local_unnamed_addr #2 align 2 {
-  %1 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN5faiss12_GLOBAL__N_125InvertedListsIOHook_tableE, i64 8), align 8, !tbaa !29
+  %1 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN5faiss12_GLOBAL__N_125InvertedListsIOHook_tableE, i64 8), align 8, !tbaa !25
   %2 = load ptr, ptr @_ZN5faiss12_GLOBAL__N_125InvertedListsIOHook_tableE, align 8, !tbaa !20
   %3 = ptrtoint ptr %1 to i64
   %4 = ptrtoint ptr %2 to i64
@@ -757,7 +757,7 @@ define void @_ZN5faiss19InvertedListsIOHook15print_callbacksEv() local_unnamed_a
   %19 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.5, i32 noundef %13, ptr noundef %16, ptr noundef %18)
   %20 = getelementptr inbounds nuw i8, ptr %.sroa.03.07, i64 8
   %.not = icmp eq ptr %20, %9
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !30
+  br i1 %.not, label %._crit_edge, label %.lr.ph
 }
 
 ; Function Attrs: nofree nounwind
@@ -779,7 +779,7 @@ define internal void @_GLOBAL__sub_I_InvertedListsIOHook.cpp() #15 section ".tex
           to label %3 unwind label %57
 
 3:                                                ; preds = %2
-  %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN5faiss12_GLOBAL__N_125InvertedListsIOHook_tableE, i64 8), align 8, !tbaa !29
+  %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN5faiss12_GLOBAL__N_125InvertedListsIOHook_tableE, i64 8), align 8, !tbaa !25
   %5 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN5faiss12_GLOBAL__N_125InvertedListsIOHook_tableE, i64 16), align 8, !tbaa !22
   %.not.i.i.i.i = icmp eq ptr %4, %5
   br i1 %.not.i.i.i.i, label %8, label %6
@@ -787,7 +787,7 @@ define internal void @_GLOBAL__sub_I_InvertedListsIOHook.cpp() #15 section ".tex
 6:                                                ; preds = %3
   store ptr %1, ptr %4, align 8, !tbaa !23
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store ptr %7, ptr getelementptr inbounds nuw (i8, ptr @_ZN5faiss12_GLOBAL__N_125InvertedListsIOHook_tableE, i64 8), align 8, !tbaa !29
+  store ptr %7, ptr getelementptr inbounds nuw (i8, ptr @_ZN5faiss12_GLOBAL__N_125InvertedListsIOHook_tableE, i64 8), align 8, !tbaa !25
   br label %_ZNSt6vectorIPN5faiss19InvertedListsIOHookESaIS2_EE9push_backEOS2_.exit.i.i
 
 8:                                                ; preds = %3
@@ -839,7 +839,7 @@ _ZNSt6vectorIPN5faiss19InvertedListsIOHookESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.
 
 _ZNSt6vectorIPN5faiss19InvertedListsIOHookESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i.i.i: ; preds = %26, %_ZNSt6vectorIPN5faiss19InvertedListsIOHookESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i.i.i.i
   store ptr %21, ptr @_ZN5faiss12_GLOBAL__N_125InvertedListsIOHook_tableE, align 8, !tbaa !20
-  store ptr %25, ptr getelementptr inbounds nuw (i8, ptr @_ZN5faiss12_GLOBAL__N_125InvertedListsIOHook_tableE, i64 8), align 8, !tbaa !29
+  store ptr %25, ptr getelementptr inbounds nuw (i8, ptr @_ZN5faiss12_GLOBAL__N_125InvertedListsIOHook_tableE, i64 8), align 8, !tbaa !25
   %27 = getelementptr inbounds nuw ptr, ptr %21, i64 %19
   store ptr %27, ptr getelementptr inbounds nuw (i8, ptr @_ZN5faiss12_GLOBAL__N_125InvertedListsIOHook_tableE, i64 16), align 8, !tbaa !22
   br label %_ZNSt6vectorIPN5faiss19InvertedListsIOHookESaIS2_EE9push_backEOS2_.exit.i.i
@@ -853,7 +853,7 @@ _ZNSt6vectorIPN5faiss19InvertedListsIOHookESaIS2_EE9push_backEOS2_.exit.i.i: ; p
           to label %30 unwind label %61
 
 30:                                               ; preds = %29
-  %31 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN5faiss12_GLOBAL__N_125InvertedListsIOHook_tableE, i64 8), align 8, !tbaa !29
+  %31 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN5faiss12_GLOBAL__N_125InvertedListsIOHook_tableE, i64 8), align 8, !tbaa !25
   %32 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN5faiss12_GLOBAL__N_125InvertedListsIOHook_tableE, i64 16), align 8, !tbaa !22
   %.not.i.i10.i.i = icmp eq ptr %31, %32
   br i1 %.not.i.i10.i.i, label %35, label %33
@@ -861,7 +861,7 @@ _ZNSt6vectorIPN5faiss19InvertedListsIOHookESaIS2_EE9push_backEOS2_.exit.i.i: ; p
 33:                                               ; preds = %30
   store ptr %28, ptr %31, align 8, !tbaa !23
   %34 = getelementptr inbounds nuw i8, ptr %31, i64 8
-  store ptr %34, ptr getelementptr inbounds nuw (i8, ptr @_ZN5faiss12_GLOBAL__N_125InvertedListsIOHook_tableE, i64 8), align 8, !tbaa !29
+  store ptr %34, ptr getelementptr inbounds nuw (i8, ptr @_ZN5faiss12_GLOBAL__N_125InvertedListsIOHook_tableE, i64 8), align 8, !tbaa !25
   br label %__cxx_global_var_init.exit
 
 35:                                               ; preds = %30
@@ -913,7 +913,7 @@ _ZNSt6vectorIPN5faiss19InvertedListsIOHookESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.
 
 _ZNSt6vectorIPN5faiss19InvertedListsIOHookESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i16.i.i: ; preds = %53, %_ZNSt6vectorIPN5faiss19InvertedListsIOHookESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i.i14.i.i
   store ptr %48, ptr @_ZN5faiss12_GLOBAL__N_125InvertedListsIOHook_tableE, align 8, !tbaa !20
-  store ptr %52, ptr getelementptr inbounds nuw (i8, ptr @_ZN5faiss12_GLOBAL__N_125InvertedListsIOHook_tableE, i64 8), align 8, !tbaa !29
+  store ptr %52, ptr getelementptr inbounds nuw (i8, ptr @_ZN5faiss12_GLOBAL__N_125InvertedListsIOHook_tableE, i64 8), align 8, !tbaa !25
   %54 = getelementptr inbounds nuw ptr, ptr %48, i64 %46
   store ptr %54, ptr getelementptr inbounds nuw (i8, ptr @_ZN5faiss12_GLOBAL__N_125InvertedListsIOHook_tableE, i64 16), align 8, !tbaa !22
   br label %__cxx_global_var_init.exit
@@ -1030,9 +1030,4 @@ attributes #24 = { builtin allocsize(0) }
 !22 = !{!21, !19, i64 16}
 !23 = !{!24, !24, i64 0}
 !24 = !{!"p1 _ZTSN5faiss19InvertedListsIOHookE", !7, i64 0}
-!25 = distinct !{!25, !26}
-!26 = !{!"llvm.loop.estimated_trip_count"}
-!27 = distinct !{!27, !26}
-!28 = distinct !{!28, !26}
-!29 = !{!21, !19, i64 8}
-!30 = distinct !{!30, !26}
+!25 = !{!21, !19, i64 8}

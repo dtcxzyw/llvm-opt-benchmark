@@ -93,65 +93,65 @@ define hidden void @_ZN21intrusive_collections6rbtree11post_insert17h877714c470e
   %.sroa.0.0.val = load i64, ptr %28, align 8, !noundef !3
   %29 = and i64 %.sroa.0.0.val, -2
   %.not = icmp eq i64 %29, 0
-  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !4
+  br i1 %.not, label %.loopexit, label %.lr.ph
 
 30:                                               ; preds = %.critedge.thread
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !6)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !4)
   %31 = getelementptr i8, ptr %.val62, i64 8
-  %.val21.i = load ptr, ptr %31, align 8, !noalias !6, !noundef !3
-  store ptr %.val21.i, ptr %7, align 8, !noalias !6
+  %.val21.i = load ptr, ptr %31, align 8, !noalias !4, !noundef !3
+  store ptr %.val21.i, ptr %7, align 8, !noalias !4
   %.not.i73 = icmp eq ptr %.val21.i, null
   br i1 %.not.i73, label %37, label %32
 
 32:                                               ; preds = %30
   %33 = getelementptr inbounds nuw i8, ptr %.val21.i, i64 16
-  %34 = load i64, ptr %33, align 8, !noalias !6, !noundef !3
+  %34 = load i64, ptr %33, align 8, !noalias !4, !noundef !3
   %35 = and i64 %34, 1
   %36 = or disjoint i64 %35, %6
-  store i64 %36, ptr %33, align 8, !noalias !6
-  %.val15.i.pre = load i64, ptr %8, align 8, !noalias !6
+  store i64 %36, ptr %33, align 8, !noalias !4
+  %.val15.i.pre = load i64, ptr %8, align 8, !noalias !4
   br label %37
 
 37:                                               ; preds = %32, %30
   %.val15.i = phi i64 [ %.val15.i.pre, %32 ], [ %.val60, %30 ]
   %38 = and i64 %.val15.i, -2
   %39 = getelementptr inbounds nuw i8, ptr %.val62, i64 16
-  %40 = load i64, ptr %39, align 8, !noalias !6, !noundef !3
+  %40 = load i64, ptr %39, align 8, !noalias !4, !noundef !3
   %41 = and i64 %40, 1
   %42 = or disjoint i64 %41, %38
-  store i64 %42, ptr %39, align 8, !noalias !6
-  %.val.i = load i64, ptr %8, align 8, !noalias !6, !noundef !3
+  store i64 %42, ptr %39, align 8, !noalias !4
+  %.val.i = load i64, ptr %8, align 8, !noalias !4, !noundef !3
   %43 = and i64 %.val.i, -2
   %44 = inttoptr i64 %43 to ptr
   %.not13.i = icmp eq i64 %43, 0
   br i1 %.not13.i, label %47, label %45
 
 45:                                               ; preds = %37
-  %.val16.i = load ptr, ptr %44, align 8, !noalias !6, !noundef !3
+  %.val16.i = load ptr, ptr %44, align 8, !noalias !4, !noundef !3
   %46 = icmp eq ptr %.val16.i, %7
   br i1 %46, label %49, label %.critedge.i
 
 47:                                               ; preds = %37
-  store ptr %.val62, ptr %2, align 8, !alias.scope !6
+  store ptr %.val62, ptr %2, align 8, !alias.scope !4
   br label %_ZN21intrusive_collections6rbtree12rotate_right17h57c1cd0a5ca62f79E.exit
 
 .critedge.i:                                      ; preds = %45
   %48 = getelementptr inbounds nuw i8, ptr %44, i64 8
-  store ptr %.val62, ptr %48, align 8, !noalias !6
+  store ptr %.val62, ptr %48, align 8, !noalias !4
   br label %_ZN21intrusive_collections6rbtree12rotate_right17h57c1cd0a5ca62f79E.exit
 
 49:                                               ; preds = %45
-  store ptr %.val62, ptr %44, align 8, !noalias !6
+  store ptr %.val62, ptr %44, align 8, !noalias !4
   br label %_ZN21intrusive_collections6rbtree12rotate_right17h57c1cd0a5ca62f79E.exit
 
 _ZN21intrusive_collections6rbtree12rotate_right17h57c1cd0a5ca62f79E.exit: ; preds = %47, %.critedge.i, %49
-  store ptr %7, ptr %31, align 8, !noalias !6
-  %50 = load i64, ptr %8, align 8, !noalias !6, !noundef !3
+  store ptr %7, ptr %31, align 8, !noalias !4
+  %50 = load i64, ptr %8, align 8, !noalias !4, !noundef !3
   %51 = and i64 %50, 1
   %52 = ptrtoint ptr %.sroa.0.0119 to i64
   %53 = and i64 %52, -2
   %54 = or disjoint i64 %51, %53
-  store i64 %54, ptr %8, align 8, !noalias !6
+  store i64 %54, ptr %8, align 8, !noalias !4
   br label %.critedge51
 
 .critedge51:                                      ; preds = %.critedge.thread..critedge51_crit_edge, %_ZN21intrusive_collections6rbtree12rotate_right17h57c1cd0a5ca62f79E.exit
@@ -169,63 +169,63 @@ _ZN21intrusive_collections6rbtree12rotate_right17h57c1cd0a5ca62f79E.exit: ; pred
   %63 = load i64, ptr %62, align 8, !noundef !3
   %64 = and i64 %63, -2
   store i64 %64, ptr %62, align 8
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !9)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !7)
   %65 = getelementptr i8, ptr %61, i64 8
-  %.val21.i74 = load ptr, ptr %65, align 8, !noalias !9, !nonnull !3, !noundef !3
-  %.val17.i = load ptr, ptr %.val21.i74, align 8, !noalias !9, !noundef !3
-  store ptr %.val17.i, ptr %65, align 8, !noalias !9
+  %.val21.i74 = load ptr, ptr %65, align 8, !noalias !7, !nonnull !3, !noundef !3
+  %.val17.i = load ptr, ptr %.val21.i74, align 8, !noalias !7, !noundef !3
+  store ptr %.val17.i, ptr %65, align 8, !noalias !7
   %.not.i75 = icmp eq ptr %.val17.i, null
   br i1 %.not.i75, label %72, label %66
 
 66:                                               ; preds = %.critedge51
   %67 = getelementptr inbounds nuw i8, ptr %.val17.i, i64 16
-  %68 = load i64, ptr %67, align 8, !noalias !9, !noundef !3
+  %68 = load i64, ptr %67, align 8, !noalias !7, !noundef !3
   %69 = and i64 %68, 1
   %70 = or disjoint i64 %69, %59
-  store i64 %70, ptr %67, align 8, !noalias !9
-  %.val15.i76.pre = load i64, ptr %62, align 8, !noalias !9
+  store i64 %70, ptr %67, align 8, !noalias !7
+  %.val15.i76.pre = load i64, ptr %62, align 8, !noalias !7
   %71 = and i64 %.val15.i76.pre, -2
   br label %72
 
 72:                                               ; preds = %66, %.critedge51
   %.val15.i76 = phi i64 [ %71, %66 ], [ %64, %.critedge51 ]
   %73 = getelementptr inbounds nuw i8, ptr %.val21.i74, i64 16
-  %74 = load i64, ptr %73, align 8, !noalias !9, !noundef !3
+  %74 = load i64, ptr %73, align 8, !noalias !7, !noundef !3
   %75 = and i64 %74, 1
   %76 = or disjoint i64 %75, %.val15.i76
-  store i64 %76, ptr %73, align 8, !noalias !9
-  %.val.i77 = load i64, ptr %62, align 8, !noalias !9, !noundef !3
+  store i64 %76, ptr %73, align 8, !noalias !7
+  %.val.i77 = load i64, ptr %62, align 8, !noalias !7, !noundef !3
   %77 = and i64 %.val.i77, -2
   %78 = inttoptr i64 %77 to ptr
   %.not13.i78 = icmp eq i64 %77, 0
   br i1 %.not13.i78, label %81, label %79
 
 79:                                               ; preds = %72
-  %.val16.i79 = load ptr, ptr %78, align 8, !noalias !9, !noundef !3
+  %.val16.i79 = load ptr, ptr %78, align 8, !noalias !7, !noundef !3
   %80 = icmp eq ptr %.val16.i79, %61
   br i1 %80, label %83, label %.critedge.i80
 
 81:                                               ; preds = %72
-  store ptr %.val21.i74, ptr %2, align 8, !alias.scope !9
+  store ptr %.val21.i74, ptr %2, align 8, !alias.scope !7
   br label %_ZN21intrusive_collections6rbtree11rotate_left17h1488459667eb098fE.exit
 
 .critedge.i80:                                    ; preds = %79
   %82 = getelementptr inbounds nuw i8, ptr %78, i64 8
-  store ptr %.val21.i74, ptr %82, align 8, !noalias !9
+  store ptr %.val21.i74, ptr %82, align 8, !noalias !7
   br label %_ZN21intrusive_collections6rbtree11rotate_left17h1488459667eb098fE.exit
 
 83:                                               ; preds = %79
-  store ptr %.val21.i74, ptr %78, align 8, !noalias !9
+  store ptr %.val21.i74, ptr %78, align 8, !noalias !7
   br label %_ZN21intrusive_collections6rbtree11rotate_left17h1488459667eb098fE.exit
 
 _ZN21intrusive_collections6rbtree11rotate_left17h1488459667eb098fE.exit: ; preds = %81, %.critedge.i80, %83
-  store ptr %61, ptr %.val21.i74, align 8, !noalias !9
-  %84 = load i64, ptr %62, align 8, !noalias !9, !noundef !3
+  store ptr %61, ptr %.val21.i74, align 8, !noalias !7
+  %84 = load i64, ptr %62, align 8, !noalias !7, !noundef !3
   %85 = and i64 %84, 1
   %86 = ptrtoint ptr %.val21.i74 to i64
   %87 = and i64 %86, -2
   %88 = or disjoint i64 %85, %87
-  store i64 %88, ptr %62, align 8, !noalias !9
+  store i64 %88, ptr %62, align 8, !noalias !7
   br label %.loopexit
 
 89:                                               ; preds = %15
@@ -258,63 +258,63 @@ _ZN21intrusive_collections6rbtree11rotate_left17h1488459667eb098fE.exit: ; preds
   br label %27
 
 .critedge53:                                      ; preds = %92
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !12)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !10)
   %101 = getelementptr i8, ptr %7, i64 8
-  %.val21.i82 = load ptr, ptr %101, align 8, !noalias !12, !nonnull !3, !noundef !3
-  %.val17.i83 = load ptr, ptr %.val21.i82, align 8, !noalias !12, !noundef !3
-  store ptr %.val17.i83, ptr %101, align 8, !noalias !12
+  %.val21.i82 = load ptr, ptr %101, align 8, !noalias !10, !nonnull !3, !noundef !3
+  %.val17.i83 = load ptr, ptr %.val21.i82, align 8, !noalias !10, !noundef !3
+  store ptr %.val17.i83, ptr %101, align 8, !noalias !10
   %.not.i84 = icmp eq ptr %.val17.i83, null
   br i1 %.not.i84, label %107, label %102
 
 102:                                              ; preds = %.critedge53
   %103 = getelementptr inbounds nuw i8, ptr %.val17.i83, i64 16
-  %104 = load i64, ptr %103, align 8, !noalias !12, !noundef !3
+  %104 = load i64, ptr %103, align 8, !noalias !10, !noundef !3
   %105 = and i64 %104, 1
   %106 = or disjoint i64 %105, %6
-  store i64 %106, ptr %103, align 8, !noalias !12
-  %.val15.i85.pre = load i64, ptr %8, align 8, !noalias !12
+  store i64 %106, ptr %103, align 8, !noalias !10
+  %.val15.i85.pre = load i64, ptr %8, align 8, !noalias !10
   br label %107
 
 107:                                              ; preds = %102, %.critedge53
   %.val15.i85 = phi i64 [ %.val15.i85.pre, %102 ], [ %.val60, %.critedge53 ]
   %108 = and i64 %.val15.i85, -2
   %109 = getelementptr inbounds nuw i8, ptr %.val21.i82, i64 16
-  %110 = load i64, ptr %109, align 8, !noalias !12, !noundef !3
+  %110 = load i64, ptr %109, align 8, !noalias !10, !noundef !3
   %111 = and i64 %110, 1
   %112 = or disjoint i64 %111, %108
-  store i64 %112, ptr %109, align 8, !noalias !12
-  %.val.i86 = load i64, ptr %8, align 8, !noalias !12, !noundef !3
+  store i64 %112, ptr %109, align 8, !noalias !10
+  %.val.i86 = load i64, ptr %8, align 8, !noalias !10, !noundef !3
   %113 = and i64 %.val.i86, -2
   %114 = inttoptr i64 %113 to ptr
   %.not13.i87 = icmp eq i64 %113, 0
   br i1 %.not13.i87, label %117, label %115
 
 115:                                              ; preds = %107
-  %.val16.i88 = load ptr, ptr %114, align 8, !noalias !12, !noundef !3
+  %.val16.i88 = load ptr, ptr %114, align 8, !noalias !10, !noundef !3
   %116 = icmp eq ptr %.val16.i88, %7
   br i1 %116, label %119, label %.critedge.i89
 
 117:                                              ; preds = %107
-  store ptr %.val21.i82, ptr %2, align 8, !alias.scope !12
+  store ptr %.val21.i82, ptr %2, align 8, !alias.scope !10
   br label %_ZN21intrusive_collections6rbtree11rotate_left17h1488459667eb098fE.exit90
 
 .critedge.i89:                                    ; preds = %115
   %118 = getelementptr inbounds nuw i8, ptr %114, i64 8
-  store ptr %.val21.i82, ptr %118, align 8, !noalias !12
+  store ptr %.val21.i82, ptr %118, align 8, !noalias !10
   br label %_ZN21intrusive_collections6rbtree11rotate_left17h1488459667eb098fE.exit90
 
 119:                                              ; preds = %115
-  store ptr %.val21.i82, ptr %114, align 8, !noalias !12
+  store ptr %.val21.i82, ptr %114, align 8, !noalias !10
   br label %_ZN21intrusive_collections6rbtree11rotate_left17h1488459667eb098fE.exit90
 
 _ZN21intrusive_collections6rbtree11rotate_left17h1488459667eb098fE.exit90: ; preds = %117, %.critedge.i89, %119
-  store ptr %7, ptr %.val21.i82, align 8, !noalias !12
-  %120 = load i64, ptr %8, align 8, !noalias !12, !noundef !3
+  store ptr %7, ptr %.val21.i82, align 8, !noalias !10
+  %120 = load i64, ptr %8, align 8, !noalias !10, !noundef !3
   %121 = and i64 %120, 1
   %122 = ptrtoint ptr %.val21.i82 to i64
   %123 = and i64 %122, -2
   %124 = or disjoint i64 %121, %123
-  store i64 %124, ptr %8, align 8, !noalias !12
+  store i64 %124, ptr %8, align 8, !noalias !10
   br label %125
 
 125:                                              ; preds = %._crit_edge, %_ZN21intrusive_collections6rbtree11rotate_left17h1488459667eb098fE.exit90
@@ -332,63 +332,63 @@ _ZN21intrusive_collections6rbtree11rotate_left17h1488459667eb098fE.exit90: ; pre
   %134 = load i64, ptr %133, align 8, !noundef !3
   %135 = and i64 %134, -2
   store i64 %135, ptr %133, align 8
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !15)
-  %.val18.i91 = load ptr, ptr %132, align 8, !noalias !15, !nonnull !3, !noundef !3
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !13)
+  %.val18.i91 = load ptr, ptr %132, align 8, !noalias !13, !nonnull !3, !noundef !3
   %136 = getelementptr i8, ptr %.val18.i91, i64 8
-  %.val21.i92 = load ptr, ptr %136, align 8, !noalias !15, !noundef !3
-  store ptr %.val21.i92, ptr %132, align 8, !noalias !15
+  %.val21.i92 = load ptr, ptr %136, align 8, !noalias !13, !noundef !3
+  store ptr %.val21.i92, ptr %132, align 8, !noalias !13
   %.not.i93 = icmp eq ptr %.val21.i92, null
   br i1 %.not.i93, label %143, label %137
 
 137:                                              ; preds = %125
   %138 = getelementptr inbounds nuw i8, ptr %.val21.i92, i64 16
-  %139 = load i64, ptr %138, align 8, !noalias !15, !noundef !3
+  %139 = load i64, ptr %138, align 8, !noalias !13, !noundef !3
   %140 = and i64 %139, 1
   %141 = or disjoint i64 %140, %130
-  store i64 %141, ptr %138, align 8, !noalias !15
-  %.val15.i94.pre = load i64, ptr %133, align 8, !noalias !15
+  store i64 %141, ptr %138, align 8, !noalias !13
+  %.val15.i94.pre = load i64, ptr %133, align 8, !noalias !13
   %142 = and i64 %.val15.i94.pre, -2
   br label %143
 
 143:                                              ; preds = %137, %125
   %.val15.i94 = phi i64 [ %142, %137 ], [ %135, %125 ]
   %144 = getelementptr inbounds nuw i8, ptr %.val18.i91, i64 16
-  %145 = load i64, ptr %144, align 8, !noalias !15, !noundef !3
+  %145 = load i64, ptr %144, align 8, !noalias !13, !noundef !3
   %146 = and i64 %145, 1
   %147 = or disjoint i64 %146, %.val15.i94
-  store i64 %147, ptr %144, align 8, !noalias !15
-  %.val.i95 = load i64, ptr %133, align 8, !noalias !15, !noundef !3
+  store i64 %147, ptr %144, align 8, !noalias !13
+  %.val.i95 = load i64, ptr %133, align 8, !noalias !13, !noundef !3
   %148 = and i64 %.val.i95, -2
   %149 = inttoptr i64 %148 to ptr
   %.not13.i96 = icmp eq i64 %148, 0
   br i1 %.not13.i96, label %152, label %150
 
 150:                                              ; preds = %143
-  %.val16.i97 = load ptr, ptr %149, align 8, !noalias !15, !noundef !3
+  %.val16.i97 = load ptr, ptr %149, align 8, !noalias !13, !noundef !3
   %151 = icmp eq ptr %.val16.i97, %132
   br i1 %151, label %154, label %.critedge.i98
 
 152:                                              ; preds = %143
-  store ptr %.val18.i91, ptr %2, align 8, !alias.scope !15
+  store ptr %.val18.i91, ptr %2, align 8, !alias.scope !13
   br label %_ZN21intrusive_collections6rbtree12rotate_right17h57c1cd0a5ca62f79E.exit99
 
 .critedge.i98:                                    ; preds = %150
   %153 = getelementptr inbounds nuw i8, ptr %149, i64 8
-  store ptr %.val18.i91, ptr %153, align 8, !noalias !15
+  store ptr %.val18.i91, ptr %153, align 8, !noalias !13
   br label %_ZN21intrusive_collections6rbtree12rotate_right17h57c1cd0a5ca62f79E.exit99
 
 154:                                              ; preds = %150
-  store ptr %.val18.i91, ptr %149, align 8, !noalias !15
+  store ptr %.val18.i91, ptr %149, align 8, !noalias !13
   br label %_ZN21intrusive_collections6rbtree12rotate_right17h57c1cd0a5ca62f79E.exit99
 
 _ZN21intrusive_collections6rbtree12rotate_right17h57c1cd0a5ca62f79E.exit99: ; preds = %152, %.critedge.i98, %154
-  store ptr %132, ptr %136, align 8, !noalias !15
-  %155 = load i64, ptr %133, align 8, !noalias !15, !noundef !3
+  store ptr %132, ptr %136, align 8, !noalias !13
+  %155 = load i64, ptr %133, align 8, !noalias !13, !noundef !3
   %156 = and i64 %155, 1
   %157 = ptrtoint ptr %.val18.i91 to i64
   %158 = and i64 %157, -2
   %159 = or disjoint i64 %156, %158
-  store i64 %159, ptr %133, align 8, !noalias !15
+  store i64 %159, ptr %133, align 8, !noalias !13
   br label %.loopexit
 }
 
@@ -471,7 +471,7 @@ define hidden void @_ZN21intrusive_collections6rbtree6remove17hc4ca33355d2b1a4fE
   %.sroa.08.0.i = phi ptr [ %.sroa.08.0.val.i, %.preheader.i ], [ %.val263, %4 ]
   %.sroa.08.0.val.i = load ptr, ptr %.sroa.08.0.i, align 8, !noundef !3
   %.not15.i = icmp eq ptr %.sroa.08.0.val.i, null
-  br i1 %.not15.i, label %.thread362, label %.preheader.i, !llvm.loop !18
+  br i1 %.not15.i, label %.thread362, label %.preheader.i
 
 .thread362:                                       ; preds = %.preheader.i, %3
   %storemerge361 = phi ptr [ %1, %3 ], [ %.sroa.08.0.i, %.preheader.i ]
@@ -646,63 +646,63 @@ define hidden void @_ZN21intrusive_collections6rbtree6remove17hc4ca33355d2b1a4fE
   %75 = load i64, ptr %74, align 8, !noundef !3
   %76 = and i64 %75, -2
   store i64 %76, ptr %74, align 8
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !19)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !16)
   %77 = getelementptr i8, ptr %68, i64 8
-  %.val21.i = load ptr, ptr %77, align 8, !noalias !19, !nonnull !3, !noundef !3
-  %.val17.i = load ptr, ptr %.val21.i, align 8, !noalias !19, !noundef !3
-  store ptr %.val17.i, ptr %77, align 8, !noalias !19
+  %.val21.i = load ptr, ptr %77, align 8, !noalias !16, !nonnull !3, !noundef !3
+  %.val17.i = load ptr, ptr %.val21.i, align 8, !noalias !16, !noundef !3
+  store ptr %.val17.i, ptr %77, align 8, !noalias !16
   %.not.i270 = icmp eq ptr %.val17.i, null
   br i1 %.not.i270, label %84, label %78
 
 78:                                               ; preds = %72
   %79 = getelementptr inbounds nuw i8, ptr %.val17.i, i64 16
-  %80 = load i64, ptr %79, align 8, !noalias !19, !noundef !3
+  %80 = load i64, ptr %79, align 8, !noalias !16, !noundef !3
   %81 = and i64 %80, 1
   %82 = or disjoint i64 %81, %.sroa.0101.0.val
-  store i64 %82, ptr %79, align 8, !noalias !19
-  %.val15.i.pre = load i64, ptr %74, align 8, !noalias !19
+  store i64 %82, ptr %79, align 8, !noalias !16
+  %.val15.i.pre = load i64, ptr %74, align 8, !noalias !16
   %83 = and i64 %.val15.i.pre, -2
   br label %84
 
 84:                                               ; preds = %78, %72
   %.val15.i = phi i64 [ %83, %78 ], [ %76, %72 ]
   %85 = getelementptr inbounds nuw i8, ptr %.val21.i, i64 16
-  %86 = load i64, ptr %85, align 8, !noalias !19, !noundef !3
+  %86 = load i64, ptr %85, align 8, !noalias !16, !noundef !3
   %87 = and i64 %86, 1
   %88 = or disjoint i64 %87, %.val15.i
-  store i64 %88, ptr %85, align 8, !noalias !19
-  %.val.i271 = load i64, ptr %74, align 8, !noalias !19, !noundef !3
+  store i64 %88, ptr %85, align 8, !noalias !16
+  %.val.i271 = load i64, ptr %74, align 8, !noalias !16, !noundef !3
   %89 = and i64 %.val.i271, -2
   %90 = inttoptr i64 %89 to ptr
   %.not13.i272 = icmp eq i64 %89, 0
   br i1 %.not13.i272, label %93, label %91
 
 91:                                               ; preds = %84
-  %.val16.i = load ptr, ptr %90, align 8, !noalias !19, !noundef !3
+  %.val16.i = load ptr, ptr %90, align 8, !noalias !16, !noundef !3
   %92 = icmp eq ptr %.val16.i, %68
   br i1 %92, label %95, label %.critedge.i273
 
 93:                                               ; preds = %84
-  store ptr %.val21.i, ptr %2, align 8, !alias.scope !19
+  store ptr %.val21.i, ptr %2, align 8, !alias.scope !16
   br label %_ZN21intrusive_collections6rbtree11rotate_left17h1488459667eb098fE.exit
 
 .critedge.i273:                                   ; preds = %91
   %94 = getelementptr inbounds nuw i8, ptr %90, i64 8
-  store ptr %.val21.i, ptr %94, align 8, !noalias !19
+  store ptr %.val21.i, ptr %94, align 8, !noalias !16
   br label %_ZN21intrusive_collections6rbtree11rotate_left17h1488459667eb098fE.exit
 
 95:                                               ; preds = %91
-  store ptr %.val21.i, ptr %90, align 8, !noalias !19
+  store ptr %.val21.i, ptr %90, align 8, !noalias !16
   br label %_ZN21intrusive_collections6rbtree11rotate_left17h1488459667eb098fE.exit
 
 _ZN21intrusive_collections6rbtree11rotate_left17h1488459667eb098fE.exit: ; preds = %93, %.critedge.i273, %95
-  store ptr %68, ptr %.val21.i, align 8, !noalias !19
-  %96 = load i64, ptr %74, align 8, !noalias !19, !noundef !3
+  store ptr %68, ptr %.val21.i, align 8, !noalias !16
+  %96 = load i64, ptr %74, align 8, !noalias !16, !noundef !3
   %97 = and i64 %96, 1
   %98 = ptrtoint ptr %.val21.i to i64
   %99 = and i64 %98, -2
   %100 = or disjoint i64 %97, %99
-  store i64 %100, ptr %74, align 8, !noalias !19
+  store i64 %100, ptr %74, align 8, !noalias !16
   %.sroa.0101.0.val232 = load ptr, ptr %.sroa.0101.0, align 8, !nonnull !3, !noundef !3
   %101 = getelementptr i8, ptr %.sroa.0101.0.val232, i64 8
   %.val258 = load ptr, ptr %101, align 8, !nonnull !3, !noundef !3
@@ -784,65 +784,65 @@ _ZN21intrusive_collections6rbtree11rotate_left17h1488459667eb098fE.exit: ; preds
   %132 = load i64, ptr %131, align 8, !noundef !3
   %133 = and i64 %132, -2
   store i64 %133, ptr %131, align 8
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !22)
-  %.val18.i277 = load ptr, ptr %.sroa.0101.1, align 8, !noalias !22, !nonnull !3, !noundef !3
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !19)
+  %.val18.i277 = load ptr, ptr %.sroa.0101.1, align 8, !noalias !19, !nonnull !3, !noundef !3
   %134 = getelementptr i8, ptr %.val18.i277, i64 8
-  %.val21.i278 = load ptr, ptr %134, align 8, !noalias !22, !noundef !3
-  store ptr %.val21.i278, ptr %.sroa.0101.1, align 8, !noalias !22
+  %.val21.i278 = load ptr, ptr %134, align 8, !noalias !19, !noundef !3
+  store ptr %.val21.i278, ptr %.sroa.0101.1, align 8, !noalias !19
   %.not.i279 = icmp eq ptr %.val21.i278, null
   br i1 %.not.i279, label %143, label %135
 
 135:                                              ; preds = %.thread381
   %136 = getelementptr inbounds nuw i8, ptr %.val21.i278, i64 16
-  %137 = load i64, ptr %136, align 8, !noalias !22, !noundef !3
+  %137 = load i64, ptr %136, align 8, !noalias !19, !noundef !3
   %138 = and i64 %137, 1
   %139 = ptrtoint ptr %.sroa.0101.1 to i64
   %140 = and i64 %139, -2
   %141 = or disjoint i64 %138, %140
-  store i64 %141, ptr %136, align 8, !noalias !22
-  %.val15.i280.pre = load i64, ptr %131, align 8, !noalias !22
+  store i64 %141, ptr %136, align 8, !noalias !19
+  %.val15.i280.pre = load i64, ptr %131, align 8, !noalias !19
   %142 = and i64 %.val15.i280.pre, -2
   br label %143
 
 143:                                              ; preds = %135, %.thread381
   %.val15.i280 = phi i64 [ %142, %135 ], [ %133, %.thread381 ]
   %144 = getelementptr inbounds nuw i8, ptr %.val18.i277, i64 16
-  %145 = load i64, ptr %144, align 8, !noalias !22, !noundef !3
+  %145 = load i64, ptr %144, align 8, !noalias !19, !noundef !3
   %146 = and i64 %145, 1
   %147 = or disjoint i64 %146, %.val15.i280
-  store i64 %147, ptr %144, align 8, !noalias !22
-  %.val.i281 = load i64, ptr %131, align 8, !noalias !22, !noundef !3
+  store i64 %147, ptr %144, align 8, !noalias !19
+  %.val.i281 = load i64, ptr %131, align 8, !noalias !19, !noundef !3
   %148 = and i64 %.val.i281, -2
   %149 = inttoptr i64 %148 to ptr
   %.not13.i282 = icmp eq i64 %148, 0
   br i1 %.not13.i282, label %152, label %150
 
 150:                                              ; preds = %143
-  %.val16.i283 = load ptr, ptr %149, align 8, !noalias !22, !noundef !3
+  %.val16.i283 = load ptr, ptr %149, align 8, !noalias !19, !noundef !3
   %151 = icmp eq ptr %.val16.i283, %.sroa.0101.1
   br i1 %151, label %154, label %.critedge.i284
 
 152:                                              ; preds = %143
-  store ptr %.val18.i277, ptr %2, align 8, !alias.scope !22
+  store ptr %.val18.i277, ptr %2, align 8, !alias.scope !19
   br label %_ZN21intrusive_collections6rbtree12rotate_right17h57c1cd0a5ca62f79E.exit
 
 .critedge.i284:                                   ; preds = %150
   %153 = getelementptr inbounds nuw i8, ptr %149, i64 8
-  store ptr %.val18.i277, ptr %153, align 8, !noalias !22
+  store ptr %.val18.i277, ptr %153, align 8, !noalias !19
   br label %_ZN21intrusive_collections6rbtree12rotate_right17h57c1cd0a5ca62f79E.exit
 
 154:                                              ; preds = %150
-  store ptr %.val18.i277, ptr %149, align 8, !noalias !22
+  store ptr %.val18.i277, ptr %149, align 8, !noalias !19
   br label %_ZN21intrusive_collections6rbtree12rotate_right17h57c1cd0a5ca62f79E.exit
 
 _ZN21intrusive_collections6rbtree12rotate_right17h57c1cd0a5ca62f79E.exit: ; preds = %152, %.critedge.i284, %154
-  store ptr %.sroa.0101.1, ptr %134, align 8, !noalias !22
-  %155 = load i64, ptr %131, align 8, !noalias !22, !noundef !3
+  store ptr %.sroa.0101.1, ptr %134, align 8, !noalias !19
+  %155 = load i64, ptr %131, align 8, !noalias !19, !noundef !3
   %156 = and i64 %155, 1
   %157 = ptrtoint ptr %.val18.i277 to i64
   %158 = and i64 %157, -2
   %159 = or disjoint i64 %156, %158
-  store i64 %159, ptr %131, align 8, !noalias !22
+  store i64 %159, ptr %131, align 8, !noalias !19
   %160 = inttoptr i64 %158 to ptr
   %161 = getelementptr i8, ptr %160, i64 16
   %.val205 = load i64, ptr %161, align 8, !noundef !3
@@ -869,64 +869,64 @@ _ZN21intrusive_collections6rbtree12rotate_right17h57c1cd0a5ca62f79E.exit: ; pred
   %173 = load i64, ptr %172, align 8, !noundef !3
   %174 = or i64 %173, 1
   store i64 %174, ptr %172, align 8
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !25)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !22)
   %175 = getelementptr i8, ptr %.sroa.0133.1, i64 8
-  %.val21.i287 = load ptr, ptr %175, align 8, !noalias !25, !nonnull !3, !noundef !3
-  %.val17.i288 = load ptr, ptr %.val21.i287, align 8, !noalias !25, !noundef !3
-  store ptr %.val17.i288, ptr %175, align 8, !noalias !25
+  %.val21.i287 = load ptr, ptr %175, align 8, !noalias !22, !nonnull !3, !noundef !3
+  %.val17.i288 = load ptr, ptr %.val21.i287, align 8, !noalias !22, !noundef !3
+  store ptr %.val17.i288, ptr %175, align 8, !noalias !22
   %.not.i289 = icmp eq ptr %.val17.i288, null
   br i1 %.not.i289, label %183, label %176
 
 176:                                              ; preds = %164
   %177 = getelementptr inbounds nuw i8, ptr %.val17.i288, i64 16
-  %178 = load i64, ptr %177, align 8, !noalias !25, !noundef !3
+  %178 = load i64, ptr %177, align 8, !noalias !22, !noundef !3
   %179 = and i64 %178, 1
   %180 = ptrtoint ptr %.sroa.0133.1 to i64
   %181 = and i64 %180, -2
   %182 = or disjoint i64 %179, %181
-  store i64 %182, ptr %177, align 8, !noalias !25
+  store i64 %182, ptr %177, align 8, !noalias !22
   br label %183
 
 183:                                              ; preds = %176, %164
-  %.val15.i290 = load i64, ptr %165, align 8, !noalias !25, !noundef !3
+  %.val15.i290 = load i64, ptr %165, align 8, !noalias !22, !noundef !3
   %184 = and i64 %.val15.i290, -2
   %185 = getelementptr inbounds nuw i8, ptr %.val21.i287, i64 16
-  %186 = load i64, ptr %185, align 8, !noalias !25, !noundef !3
+  %186 = load i64, ptr %185, align 8, !noalias !22, !noundef !3
   %187 = and i64 %186, 1
   %188 = or disjoint i64 %187, %184
-  store i64 %188, ptr %185, align 8, !noalias !25
-  %.val.i291 = load i64, ptr %165, align 8, !noalias !25, !noundef !3
+  store i64 %188, ptr %185, align 8, !noalias !22
+  %.val.i291 = load i64, ptr %165, align 8, !noalias !22, !noundef !3
   %189 = and i64 %.val.i291, -2
   %190 = inttoptr i64 %189 to ptr
   %.not13.i292 = icmp eq i64 %189, 0
   br i1 %.not13.i292, label %193, label %191
 
 191:                                              ; preds = %183
-  %.val16.i293 = load ptr, ptr %190, align 8, !noalias !25, !noundef !3
+  %.val16.i293 = load ptr, ptr %190, align 8, !noalias !22, !noundef !3
   %192 = icmp eq ptr %.val16.i293, %.sroa.0133.1
   br i1 %192, label %195, label %.critedge.i294
 
 193:                                              ; preds = %183
-  store ptr %.val21.i287, ptr %2, align 8, !alias.scope !25
+  store ptr %.val21.i287, ptr %2, align 8, !alias.scope !22
   br label %_ZN21intrusive_collections6rbtree11rotate_left17h1488459667eb098fE.exit295
 
 .critedge.i294:                                   ; preds = %191
   %194 = getelementptr inbounds nuw i8, ptr %190, i64 8
-  store ptr %.val21.i287, ptr %194, align 8, !noalias !25
+  store ptr %.val21.i287, ptr %194, align 8, !noalias !22
   br label %_ZN21intrusive_collections6rbtree11rotate_left17h1488459667eb098fE.exit295
 
 195:                                              ; preds = %191
-  store ptr %.val21.i287, ptr %190, align 8, !noalias !25
+  store ptr %.val21.i287, ptr %190, align 8, !noalias !22
   br label %_ZN21intrusive_collections6rbtree11rotate_left17h1488459667eb098fE.exit295
 
 _ZN21intrusive_collections6rbtree11rotate_left17h1488459667eb098fE.exit295: ; preds = %193, %.critedge.i294, %195
-  store ptr %.sroa.0133.1, ptr %.val21.i287, align 8, !noalias !25
-  %196 = load i64, ptr %165, align 8, !noalias !25, !noundef !3
+  store ptr %.sroa.0133.1, ptr %.val21.i287, align 8, !noalias !22
+  %196 = load i64, ptr %165, align 8, !noalias !22, !noundef !3
   %197 = and i64 %196, 1
   %198 = ptrtoint ptr %.val21.i287 to i64
   %199 = and i64 %198, -2
   %200 = or disjoint i64 %197, %199
-  store i64 %200, ptr %165, align 8, !noalias !25
+  store i64 %200, ptr %165, align 8, !noalias !22
   br label %56
 
 201:                                              ; preds = %119
@@ -957,63 +957,63 @@ _ZN21intrusive_collections6rbtree11rotate_left17h1488459667eb098fE.exit295: ; pr
   %212 = load i64, ptr %211, align 8, !noundef !3
   %213 = and i64 %212, -2
   store i64 %213, ptr %211, align 8
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !28)
-  %.val18.i297 = load ptr, ptr %68, align 8, !noalias !28, !nonnull !3, !noundef !3
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !25)
+  %.val18.i297 = load ptr, ptr %68, align 8, !noalias !25, !nonnull !3, !noundef !3
   %214 = getelementptr i8, ptr %.val18.i297, i64 8
-  %.val21.i298 = load ptr, ptr %214, align 8, !noalias !28, !noundef !3
-  store ptr %.val21.i298, ptr %68, align 8, !noalias !28
+  %.val21.i298 = load ptr, ptr %214, align 8, !noalias !25, !noundef !3
+  store ptr %.val21.i298, ptr %68, align 8, !noalias !25
   %.not.i299 = icmp eq ptr %.val21.i298, null
   br i1 %.not.i299, label %221, label %215
 
 215:                                              ; preds = %209
   %216 = getelementptr inbounds nuw i8, ptr %.val21.i298, i64 16
-  %217 = load i64, ptr %216, align 8, !noalias !28, !noundef !3
+  %217 = load i64, ptr %216, align 8, !noalias !25, !noundef !3
   %218 = and i64 %217, 1
   %219 = or disjoint i64 %218, %.sroa.0101.0.val
-  store i64 %219, ptr %216, align 8, !noalias !28
-  %.val15.i300.pre = load i64, ptr %211, align 8, !noalias !28
+  store i64 %219, ptr %216, align 8, !noalias !25
+  %.val15.i300.pre = load i64, ptr %211, align 8, !noalias !25
   %220 = and i64 %.val15.i300.pre, -2
   br label %221
 
 221:                                              ; preds = %215, %209
   %.val15.i300 = phi i64 [ %220, %215 ], [ %213, %209 ]
   %222 = getelementptr inbounds nuw i8, ptr %.val18.i297, i64 16
-  %223 = load i64, ptr %222, align 8, !noalias !28, !noundef !3
+  %223 = load i64, ptr %222, align 8, !noalias !25, !noundef !3
   %224 = and i64 %223, 1
   %225 = or disjoint i64 %224, %.val15.i300
-  store i64 %225, ptr %222, align 8, !noalias !28
-  %.val.i301 = load i64, ptr %211, align 8, !noalias !28, !noundef !3
+  store i64 %225, ptr %222, align 8, !noalias !25
+  %.val.i301 = load i64, ptr %211, align 8, !noalias !25, !noundef !3
   %226 = and i64 %.val.i301, -2
   %227 = inttoptr i64 %226 to ptr
   %.not13.i302 = icmp eq i64 %226, 0
   br i1 %.not13.i302, label %230, label %228
 
 228:                                              ; preds = %221
-  %.val16.i303 = load ptr, ptr %227, align 8, !noalias !28, !noundef !3
+  %.val16.i303 = load ptr, ptr %227, align 8, !noalias !25, !noundef !3
   %229 = icmp eq ptr %.val16.i303, %68
   br i1 %229, label %232, label %.critedge.i304
 
 230:                                              ; preds = %221
-  store ptr %.val18.i297, ptr %2, align 8, !alias.scope !28
+  store ptr %.val18.i297, ptr %2, align 8, !alias.scope !25
   br label %_ZN21intrusive_collections6rbtree12rotate_right17h57c1cd0a5ca62f79E.exit305
 
 .critedge.i304:                                   ; preds = %228
   %231 = getelementptr inbounds nuw i8, ptr %227, i64 8
-  store ptr %.val18.i297, ptr %231, align 8, !noalias !28
+  store ptr %.val18.i297, ptr %231, align 8, !noalias !25
   br label %_ZN21intrusive_collections6rbtree12rotate_right17h57c1cd0a5ca62f79E.exit305
 
 232:                                              ; preds = %228
-  store ptr %.val18.i297, ptr %227, align 8, !noalias !28
+  store ptr %.val18.i297, ptr %227, align 8, !noalias !25
   br label %_ZN21intrusive_collections6rbtree12rotate_right17h57c1cd0a5ca62f79E.exit305
 
 _ZN21intrusive_collections6rbtree12rotate_right17h57c1cd0a5ca62f79E.exit305: ; preds = %230, %.critedge.i304, %232
-  store ptr %68, ptr %214, align 8, !noalias !28
-  %233 = load i64, ptr %211, align 8, !noalias !28, !noundef !3
+  store ptr %68, ptr %214, align 8, !noalias !25
+  %233 = load i64, ptr %211, align 8, !noalias !25, !noundef !3
   %234 = and i64 %233, 1
   %235 = ptrtoint ptr %.val18.i297 to i64
   %236 = and i64 %235, -2
   %237 = or disjoint i64 %234, %236
-  store i64 %237, ptr %211, align 8, !noalias !28
+  store i64 %237, ptr %211, align 8, !noalias !25
   %238 = getelementptr i8, ptr %.sroa.0101.0, i64 8
   %.sroa.0101.0.val254 = load ptr, ptr %238, align 8, !nonnull !3, !noundef !3
   %.val227 = load ptr, ptr %.sroa.0101.0.val254, align 8, !nonnull !3, !noundef !3
@@ -1130,64 +1130,64 @@ _ZN21intrusive_collections6rbtree12rotate_right17h57c1cd0a5ca62f79E.exit305: ; p
   %289 = load i64, ptr %288, align 8, !noundef !3
   %290 = or i64 %289, 1
   store i64 %290, ptr %288, align 8
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !31)
-  %.val18.i311 = load ptr, ptr %.sroa.0133.3, align 8, !noalias !31, !nonnull !3, !noundef !3
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !28)
+  %.val18.i311 = load ptr, ptr %.sroa.0133.3, align 8, !noalias !28, !nonnull !3, !noundef !3
   %291 = getelementptr i8, ptr %.val18.i311, i64 8
-  %.val21.i312 = load ptr, ptr %291, align 8, !noalias !31, !noundef !3
-  store ptr %.val21.i312, ptr %.sroa.0133.3, align 8, !noalias !31
+  %.val21.i312 = load ptr, ptr %291, align 8, !noalias !28, !noundef !3
+  store ptr %.val21.i312, ptr %.sroa.0133.3, align 8, !noalias !28
   %.not.i313 = icmp eq ptr %.val21.i312, null
   br i1 %.not.i313, label %299, label %292
 
 292:                                              ; preds = %281
   %293 = getelementptr inbounds nuw i8, ptr %.val21.i312, i64 16
-  %294 = load i64, ptr %293, align 8, !noalias !31, !noundef !3
+  %294 = load i64, ptr %293, align 8, !noalias !28, !noundef !3
   %295 = and i64 %294, 1
   %296 = ptrtoint ptr %.sroa.0133.3 to i64
   %297 = and i64 %296, -2
   %298 = or disjoint i64 %295, %297
-  store i64 %298, ptr %293, align 8, !noalias !31
+  store i64 %298, ptr %293, align 8, !noalias !28
   br label %299
 
 299:                                              ; preds = %292, %281
-  %.val15.i314 = load i64, ptr %282, align 8, !noalias !31, !noundef !3
+  %.val15.i314 = load i64, ptr %282, align 8, !noalias !28, !noundef !3
   %300 = and i64 %.val15.i314, -2
   %301 = getelementptr inbounds nuw i8, ptr %.val18.i311, i64 16
-  %302 = load i64, ptr %301, align 8, !noalias !31, !noundef !3
+  %302 = load i64, ptr %301, align 8, !noalias !28, !noundef !3
   %303 = and i64 %302, 1
   %304 = or disjoint i64 %303, %300
-  store i64 %304, ptr %301, align 8, !noalias !31
-  %.val.i315 = load i64, ptr %282, align 8, !noalias !31, !noundef !3
+  store i64 %304, ptr %301, align 8, !noalias !28
+  %.val.i315 = load i64, ptr %282, align 8, !noalias !28, !noundef !3
   %305 = and i64 %.val.i315, -2
   %306 = inttoptr i64 %305 to ptr
   %.not13.i316 = icmp eq i64 %305, 0
   br i1 %.not13.i316, label %309, label %307
 
 307:                                              ; preds = %299
-  %.val16.i317 = load ptr, ptr %306, align 8, !noalias !31, !noundef !3
+  %.val16.i317 = load ptr, ptr %306, align 8, !noalias !28, !noundef !3
   %308 = icmp eq ptr %.val16.i317, %.sroa.0133.3
   br i1 %308, label %311, label %.critedge.i318
 
 309:                                              ; preds = %299
-  store ptr %.val18.i311, ptr %2, align 8, !alias.scope !31
+  store ptr %.val18.i311, ptr %2, align 8, !alias.scope !28
   br label %_ZN21intrusive_collections6rbtree12rotate_right17h57c1cd0a5ca62f79E.exit319
 
 .critedge.i318:                                   ; preds = %307
   %310 = getelementptr inbounds nuw i8, ptr %306, i64 8
-  store ptr %.val18.i311, ptr %310, align 8, !noalias !31
+  store ptr %.val18.i311, ptr %310, align 8, !noalias !28
   br label %_ZN21intrusive_collections6rbtree12rotate_right17h57c1cd0a5ca62f79E.exit319
 
 311:                                              ; preds = %307
-  store ptr %.val18.i311, ptr %306, align 8, !noalias !31
+  store ptr %.val18.i311, ptr %306, align 8, !noalias !28
   br label %_ZN21intrusive_collections6rbtree12rotate_right17h57c1cd0a5ca62f79E.exit319
 
 _ZN21intrusive_collections6rbtree12rotate_right17h57c1cd0a5ca62f79E.exit319: ; preds = %309, %.critedge.i318, %311
-  store ptr %.sroa.0133.3, ptr %291, align 8, !noalias !31
-  %312 = load i64, ptr %282, align 8, !noalias !31, !noundef !3
+  store ptr %.sroa.0133.3, ptr %291, align 8, !noalias !28
+  %312 = load i64, ptr %282, align 8, !noalias !28, !noundef !3
   %313 = and i64 %312, 1
   %314 = ptrtoint ptr %.val18.i311 to i64
   %315 = and i64 %314, -2
   %316 = or disjoint i64 %313, %315
-  store i64 %316, ptr %282, align 8, !noalias !31
+  store i64 %316, ptr %282, align 8, !noalias !28
   br label %56
 
 317:                                              ; preds = %259
@@ -1208,7 +1208,7 @@ _ZN21intrusive_collections6rbtree12rotate_right17h57c1cd0a5ca62f79E.exit319: ; p
 
 .backedge:                                        ; preds = %.critedge196, %323, %.critedge194, %207
   %.sroa.0101.0.be = phi ptr [ %.val255, %207 ], [ %.val229, %.critedge194 ], [ %.val251, %323 ], [ %.val224, %.critedge196 ]
-  br label %65, !llvm.loop !34
+  br label %65
 
 323:                                              ; preds = %317
   %324 = getelementptr i8, ptr %264, i64 8
@@ -1219,7 +1219,7 @@ _ZN21intrusive_collections6rbtree12rotate_right17h57c1cd0a5ca62f79E.exit319: ; p
 ; Function Attrs: nonlazybind uwtable
 define hidden { i64, i64 } @"_ZN3std6thread5local17LocalKey$LT$T$GT$4with17he6ad52f72d029d9cE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0) unnamed_addr #3 personality ptr @rust_eh_personality {
   %.val = load ptr, ptr %0, align 8, !nonnull !3, !noundef !3
-  %2 = tail call noundef ptr %.val(ptr noalias noundef align 8 dereferenceable_or_null(24) null), !noalias !35
+  %2 = tail call noundef ptr %.val(ptr noalias noundef align 8 dereferenceable_or_null(24) null), !noalias !31
   %3 = icmp eq ptr %2, null
   br i1 %3, label %4, label %5
 
@@ -1228,11 +1228,11 @@ define hidden { i64, i64 } @"_ZN3std6thread5local17LocalKey$LT$T$GT$4with17he6ad
   unreachable
 
 5:                                                ; preds = %1
-  %6 = load i64, ptr %2, align 8, !noalias !35, !noundef !3
+  %6 = load i64, ptr %2, align 8, !noalias !31, !noundef !3
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %8 = load i64, ptr %7, align 8, !noalias !35, !noundef !3
+  %8 = load i64, ptr %7, align 8, !noalias !31, !noundef !3
   %9 = add i64 %6, 1
-  store i64 %9, ptr %2, align 8, !noalias !35
+  store i64 %9, ptr %2, align 8, !noalias !31
   %10 = insertvalue { i64, i64 } poison, i64 %6, 0
   %11 = insertvalue { i64, i64 } %10, i64 %8, 1
   ret { i64, i64 } %11
@@ -1240,7 +1240,7 @@ define hidden { i64, i64 } @"_ZN3std6thread5local17LocalKey$LT$T$GT$4with17he6ad
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h0c2a93e1dc3bf3b0E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0, ptr noalias noundef align 8 dereferenceable(24) %1) unnamed_addr #3 {
-  %3 = load ptr, ptr %0, align 8, !nonnull !3, !align !38, !noundef !3
+  %3 = load ptr, ptr %0, align 8, !nonnull !3, !align !34, !noundef !3
   %4 = tail call noundef zeroext i1 @"_ZN68_$LT$core..ptr..alignment..Alignment$u20$as$u20$core..fmt..Debug$GT$3fmt17hde2ab6b1613dc0b9E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %3, ptr noalias noundef nonnull align 8 dereferenceable(24) %1)
   ret i1 %4
 }
@@ -1248,22 +1248,22 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h3ca3673e59ce9e1eE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0, ptr noalias noundef align 8 dereferenceable(24) %1) unnamed_addr #3 {
   %3 = alloca [8 x i8], align 8
-  %4 = load ptr, ptr %0, align 8, !nonnull !3, !align !39, !noundef !3
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !40)
-  %5 = load i8, ptr %4, align 1, !range !43, !alias.scope !40, !noalias !44, !noundef !3
+  %4 = load ptr, ptr %0, align 8, !nonnull !3, !align !35, !noundef !3
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !36)
+  %5 = load i8, ptr %4, align 1, !range !39, !alias.scope !36, !noalias !40, !noundef !3
   %6 = trunc nuw i8 %5 to i1
   br i1 %6, label %7, label %10
 
 7:                                                ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3), !noalias !46
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3), !noalias !42
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 1
-  store ptr %8, ptr %3, align 8, !noalias !46
+  store ptr %8, ptr %3, align 8, !noalias !42
   %9 = call noundef zeroext i1 @_ZN4core3fmt9Formatter25debug_tuple_field1_finish17hc07ced22773ccad9E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.d99780aad4bd734ab5d5ecc97210ccd5.25, i64 noundef 4, ptr noundef nonnull align 1 %3, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.d99780aad4bd734ab5d5ecc97210ccd5.9)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !46
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !42
   br label %"_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h074675c3c4965a6eE.exit"
 
 10:                                               ; preds = %2
-  %11 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17he69b0a0ceac09084E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.d99780aad4bd734ab5d5ecc97210ccd5.24, i64 noundef 4), !noalias !40
+  %11 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17he69b0a0ceac09084E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.d99780aad4bd734ab5d5ecc97210ccd5.24, i64 noundef 4), !noalias !36
   br label %"_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h074675c3c4965a6eE.exit"
 
 "_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h074675c3c4965a6eE.exit": ; preds = %7, %10
@@ -1273,7 +1273,7 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h583a581f1367b017E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0, ptr noalias noundef align 8 dereferenceable(24) %1) unnamed_addr #3 {
-  %3 = load ptr, ptr %0, align 8, !nonnull !3, !align !38, !noundef !3
+  %3 = load ptr, ptr %0, align 8, !nonnull !3, !align !34, !noundef !3
   %.val = load ptr, ptr %3, align 8, !noundef !3
   %4 = ptrtoint ptr %.val to i64
   %5 = tail call noundef zeroext i1 @_ZN4core3fmt17pointer_fmt_inner17hb987031289982626E(i64 noundef %4, ptr noalias noundef nonnull align 8 dereferenceable(24) %1)
@@ -1283,8 +1283,8 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h5b59c3c8e8c01f6aE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0, ptr noalias noundef align 8 dereferenceable(24) %1) unnamed_addr #3 {
 switch.lookup:
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !39, !noundef !3
-  %.val = load i8, ptr %2, align 1, !range !47, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !35, !noundef !3
+  %.val = load i8, ptr %2, align 1, !range !43, !noundef !3
   %3 = zext nneg i8 %.val to i64
   %switch.gep = getelementptr inbounds nuw [5 x i64], ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h5b59c3c8e8c01f6aE", i64 0, i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
@@ -1311,7 +1311,7 @@ define hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN4core3fmt8buil
   %8 = call noundef align 8 dereferenceable(16) ptr @_ZN4core3fmt8builders9DebugList5entry17h70bbfb3afd8c1d1cE(ptr noalias noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 1 %4, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.d99780aad4bd734ab5d5ecc97210ccd5.8)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   %9 = icmp eq ptr %7, %2
-  br i1 %9, label %._crit_edge, label %.lr.ph, !llvm.loop !48
+  br i1 %9, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   ret ptr %0
@@ -1333,7 +1333,7 @@ define hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN4core3fmt8buil
   %8 = call noundef align 8 dereferenceable(16) ptr @_ZN4core3fmt8builders9DebugList5entry17h70bbfb3afd8c1d1cE(ptr noalias noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 1 %4, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.d99780aad4bd734ab5d5ecc97210ccd5.9)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   %9 = icmp eq ptr %7, %2
-  br i1 %9, label %._crit_edge, label %.lr.ph, !llvm.loop !49
+  br i1 %9, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   ret ptr %0
@@ -1355,7 +1355,7 @@ define hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN4core3fmt8buil
   %8 = call noundef align 8 dereferenceable(16) ptr @_ZN4core3fmt8builders9DebugList5entry17h70bbfb3afd8c1d1cE(ptr noalias noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 1 %4, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.d99780aad4bd734ab5d5ecc97210ccd5.10)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   %9 = icmp eq ptr %7, %2
-  br i1 %9, label %._crit_edge, label %.lr.ph, !llvm.loop !50
+  br i1 %9, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   ret ptr %0
@@ -1377,7 +1377,7 @@ define hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN4core3fmt8buil
   %8 = call noundef align 8 dereferenceable(16) ptr @_ZN4core3fmt8builders9DebugList5entry17h70bbfb3afd8c1d1cE(ptr noalias noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 1 %4, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.d99780aad4bd734ab5d5ecc97210ccd5.11)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   %9 = icmp eq ptr %7, %2
-  br i1 %9, label %._crit_edge, label %.lr.ph, !llvm.loop !51
+  br i1 %9, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   ret ptr %0
@@ -1395,26 +1395,26 @@ define hidden noundef zeroext i1 @"_ZN66_$LT$alloc..borrow..Cow$LT$B$GT$$u20$as$
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN6either8iterator96_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$either..Either$LT$L$C$R$GT$$GT$4next17h8a743976d11cdfa8E"(ptr dead_on_unwind noalias noundef writable writeonly sret([24 x i8]) align 8 captures(none) dereferenceable(24) initializes((0, 8)) %0, ptr noalias noundef align 8 dereferenceable(72) %1) unnamed_addr #3 {
-  %3 = load i64, ptr %1, align 8, !range !52, !noundef !3
+  %3 = load i64, ptr %1, align 8, !range !44, !noundef !3
   %4 = icmp eq i64 %3, 2
   br i1 %4, label %5, label %14
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %7 = load ptr, ptr %6, align 8, !alias.scope !53, !noalias !58, !nonnull !3, !noundef !3
+  %7 = load ptr, ptr %6, align 8, !alias.scope !45, !noalias !50, !nonnull !3, !noundef !3
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %9 = load ptr, ptr %8, align 8, !alias.scope !53, !noalias !58, !nonnull !3, !noundef !3
+  %9 = load ptr, ptr %8, align 8, !alias.scope !45, !noalias !50, !nonnull !3, !noundef !3
   %10 = icmp eq ptr %7, %9
   br i1 %10, label %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h134c404ebd5d6a21E.exit", label %11
 
 11:                                               ; preds = %5
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  store ptr %12, ptr %6, align 8, !alias.scope !53, !noalias !58
+  store ptr %12, ptr %6, align 8, !alias.scope !45, !noalias !50
   %13 = getelementptr i8, ptr %7, i64 8
   br label %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h134c404ebd5d6a21E.exit.sink.split"
 
 14:                                               ; preds = %2
-  %15 = tail call { ptr, ptr } @"_ZN108_$LT$alloc..collections..btree..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h739f4b86b8963a33E"(ptr noalias noundef nonnull align 8 dereferenceable(72) %1), !noalias !60
+  %15 = tail call { ptr, ptr } @"_ZN108_$LT$alloc..collections..btree..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h739f4b86b8963a33E"(ptr noalias noundef nonnull align 8 dereferenceable(72) %1), !noalias !52
   %16 = extractvalue { ptr, ptr } %15, 0
   %.not.i = icmp eq ptr %16, null
   br i1 %.not.i, label %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h134c404ebd5d6a21E.exit", label %17
@@ -1515,62 +1515,54 @@ attributes #10 = { noreturn }
 !1 = !{i32 2, !"RtLibUseGOT", i32 1}
 !2 = !{!"rustc version 1.89.0-nightly (60dabef95 2025-05-19)"}
 !3 = !{}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.estimated_trip_count"}
-!6 = !{!7}
-!7 = distinct !{!7, !8, !"_ZN21intrusive_collections6rbtree12rotate_right17h57c1cd0a5ca62f79E: argument 0"}
-!8 = distinct !{!8, !"_ZN21intrusive_collections6rbtree12rotate_right17h57c1cd0a5ca62f79E"}
-!9 = !{!10}
-!10 = distinct !{!10, !11, !"_ZN21intrusive_collections6rbtree11rotate_left17h1488459667eb098fE: argument 0"}
-!11 = distinct !{!11, !"_ZN21intrusive_collections6rbtree11rotate_left17h1488459667eb098fE"}
-!12 = !{!13}
-!13 = distinct !{!13, !14, !"_ZN21intrusive_collections6rbtree11rotate_left17h1488459667eb098fE: argument 0"}
-!14 = distinct !{!14, !"_ZN21intrusive_collections6rbtree11rotate_left17h1488459667eb098fE"}
-!15 = !{!16}
-!16 = distinct !{!16, !17, !"_ZN21intrusive_collections6rbtree12rotate_right17h57c1cd0a5ca62f79E: argument 0"}
-!17 = distinct !{!17, !"_ZN21intrusive_collections6rbtree12rotate_right17h57c1cd0a5ca62f79E"}
-!18 = distinct !{!18, !5}
+!4 = !{!5}
+!5 = distinct !{!5, !6, !"_ZN21intrusive_collections6rbtree12rotate_right17h57c1cd0a5ca62f79E: argument 0"}
+!6 = distinct !{!6, !"_ZN21intrusive_collections6rbtree12rotate_right17h57c1cd0a5ca62f79E"}
+!7 = !{!8}
+!8 = distinct !{!8, !9, !"_ZN21intrusive_collections6rbtree11rotate_left17h1488459667eb098fE: argument 0"}
+!9 = distinct !{!9, !"_ZN21intrusive_collections6rbtree11rotate_left17h1488459667eb098fE"}
+!10 = !{!11}
+!11 = distinct !{!11, !12, !"_ZN21intrusive_collections6rbtree11rotate_left17h1488459667eb098fE: argument 0"}
+!12 = distinct !{!12, !"_ZN21intrusive_collections6rbtree11rotate_left17h1488459667eb098fE"}
+!13 = !{!14}
+!14 = distinct !{!14, !15, !"_ZN21intrusive_collections6rbtree12rotate_right17h57c1cd0a5ca62f79E: argument 0"}
+!15 = distinct !{!15, !"_ZN21intrusive_collections6rbtree12rotate_right17h57c1cd0a5ca62f79E"}
+!16 = !{!17}
+!17 = distinct !{!17, !18, !"_ZN21intrusive_collections6rbtree11rotate_left17h1488459667eb098fE: argument 0"}
+!18 = distinct !{!18, !"_ZN21intrusive_collections6rbtree11rotate_left17h1488459667eb098fE"}
 !19 = !{!20}
-!20 = distinct !{!20, !21, !"_ZN21intrusive_collections6rbtree11rotate_left17h1488459667eb098fE: argument 0"}
-!21 = distinct !{!21, !"_ZN21intrusive_collections6rbtree11rotate_left17h1488459667eb098fE"}
+!20 = distinct !{!20, !21, !"_ZN21intrusive_collections6rbtree12rotate_right17h57c1cd0a5ca62f79E: argument 0"}
+!21 = distinct !{!21, !"_ZN21intrusive_collections6rbtree12rotate_right17h57c1cd0a5ca62f79E"}
 !22 = !{!23}
-!23 = distinct !{!23, !24, !"_ZN21intrusive_collections6rbtree12rotate_right17h57c1cd0a5ca62f79E: argument 0"}
-!24 = distinct !{!24, !"_ZN21intrusive_collections6rbtree12rotate_right17h57c1cd0a5ca62f79E"}
+!23 = distinct !{!23, !24, !"_ZN21intrusive_collections6rbtree11rotate_left17h1488459667eb098fE: argument 0"}
+!24 = distinct !{!24, !"_ZN21intrusive_collections6rbtree11rotate_left17h1488459667eb098fE"}
 !25 = !{!26}
-!26 = distinct !{!26, !27, !"_ZN21intrusive_collections6rbtree11rotate_left17h1488459667eb098fE: argument 0"}
-!27 = distinct !{!27, !"_ZN21intrusive_collections6rbtree11rotate_left17h1488459667eb098fE"}
+!26 = distinct !{!26, !27, !"_ZN21intrusive_collections6rbtree12rotate_right17h57c1cd0a5ca62f79E: argument 0"}
+!27 = distinct !{!27, !"_ZN21intrusive_collections6rbtree12rotate_right17h57c1cd0a5ca62f79E"}
 !28 = !{!29}
 !29 = distinct !{!29, !30, !"_ZN21intrusive_collections6rbtree12rotate_right17h57c1cd0a5ca62f79E: argument 0"}
 !30 = distinct !{!30, !"_ZN21intrusive_collections6rbtree12rotate_right17h57c1cd0a5ca62f79E"}
 !31 = !{!32}
-!32 = distinct !{!32, !33, !"_ZN21intrusive_collections6rbtree12rotate_right17h57c1cd0a5ca62f79E: argument 0"}
-!33 = distinct !{!33, !"_ZN21intrusive_collections6rbtree12rotate_right17h57c1cd0a5ca62f79E"}
-!34 = distinct !{!34, !5}
-!35 = !{!36}
-!36 = distinct !{!36, !37, !"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17hd95577b73d492f17E: argument 0"}
-!37 = distinct !{!37, !"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17hd95577b73d492f17E"}
-!38 = !{i64 8}
-!39 = !{i64 1}
+!32 = distinct !{!32, !33, !"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17hd95577b73d492f17E: argument 0"}
+!33 = distinct !{!33, !"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17hd95577b73d492f17E"}
+!34 = !{i64 8}
+!35 = !{i64 1}
+!36 = !{!37}
+!37 = distinct !{!37, !38, !"_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h074675c3c4965a6eE: argument 0"}
+!38 = distinct !{!38, !"_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h074675c3c4965a6eE"}
+!39 = !{i8 0, i8 2}
 !40 = !{!41}
-!41 = distinct !{!41, !42, !"_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h074675c3c4965a6eE: argument 0"}
-!42 = distinct !{!42, !"_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h074675c3c4965a6eE"}
-!43 = !{i8 0, i8 2}
-!44 = !{!45}
-!45 = distinct !{!45, !42, !"_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h074675c3c4965a6eE: argument 1"}
-!46 = !{!41, !45}
-!47 = !{i8 0, i8 5}
-!48 = distinct !{!48, !5}
-!49 = distinct !{!49, !5}
-!50 = distinct !{!50, !5}
-!51 = distinct !{!51, !5}
-!52 = !{i64 0, i64 3}
-!53 = !{!54, !56}
-!54 = distinct !{!54, !55, !"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h94c94f9f6eabcfa8E: argument 0"}
-!55 = distinct !{!55, !"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h94c94f9f6eabcfa8E"}
-!56 = distinct !{!56, !57, !"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h134c404ebd5d6a21E: argument 1"}
-!57 = distinct !{!57, !"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h134c404ebd5d6a21E"}
-!58 = !{!59}
-!59 = distinct !{!59, !57, !"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h134c404ebd5d6a21E: argument 0"}
-!60 = !{!61}
-!61 = distinct !{!61, !62, !"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1574ab63af972aa7E: argument 0"}
-!62 = distinct !{!62, !"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1574ab63af972aa7E"}
+!41 = distinct !{!41, !38, !"_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h074675c3c4965a6eE: argument 1"}
+!42 = !{!37, !41}
+!43 = !{i8 0, i8 5}
+!44 = !{i64 0, i64 3}
+!45 = !{!46, !48}
+!46 = distinct !{!46, !47, !"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h94c94f9f6eabcfa8E: argument 0"}
+!47 = distinct !{!47, !"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h94c94f9f6eabcfa8E"}
+!48 = distinct !{!48, !49, !"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h134c404ebd5d6a21E: argument 1"}
+!49 = distinct !{!49, !"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h134c404ebd5d6a21E"}
+!50 = !{!51}
+!51 = distinct !{!51, !49, !"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h134c404ebd5d6a21E: argument 0"}
+!52 = !{!53}
+!53 = distinct !{!53, !54, !"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1574ab63af972aa7E: argument 0"}
+!54 = distinct !{!54, !"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1574ab63af972aa7E"}

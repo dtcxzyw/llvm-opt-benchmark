@@ -208,7 +208,7 @@ define internal noundef i32 @v410_decode_slice(ptr noundef readonly captures(non
   %70 = getelementptr inbounds i16, ptr %.04855.us, i64 %32
   %71 = add nsw i32 %.04657.us, 1
   %exitcond61.not = icmp eq i32 %71, %15
-  br i1 %exitcond61.not, label %._crit_edge58, label %.preheader.us, !llvm.loop !49
+  br i1 %exitcond61.not, label %._crit_edge58, label %.preheader.us, !llvm.loop !48
 
 ._crit_edge58:                                    ; preds = %._crit_edge.us, %.preheader.lr.ph, %4
   ret i32 0
@@ -276,8 +276,7 @@ attributes #6 = { nounwind }
 !43 = !{!8, !8, i64 0}
 !44 = !{!45, !45, i64 0}
 !45 = !{!"short", !8, i64 0}
-!46 = distinct !{!46, !47, !48}
+!46 = distinct !{!46, !47}
 !47 = !{!"llvm.loop.mustprogress"}
-!48 = !{!"llvm.loop.estimated_trip_count"}
-!49 = distinct !{!49, !47, !48, !50}
-!50 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!48 = distinct !{!48, !47, !49}
+!49 = !{!"llvm.loop.unswitch.nontrivial.disable"}

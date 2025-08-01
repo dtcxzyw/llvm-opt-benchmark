@@ -109,7 +109,7 @@ define internal noundef zeroext i1 @guid_from_literal(ptr noundef writeonly capt
   store i8 %49, ptr %50, align 1
   %51 = add nuw nsw i64 %.13139.i, 1
   %exitcond42.not.i = icmp eq i64 %51, 8
-  br i1 %exitcond42.not.i, label %54, label %41, !llvm.loop !9
+  br i1 %exitcond42.not.i, label %54, label %41, !llvm.loop !8
 
 .loopexit:                                        ; preds = %12, %19, %4
   call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %5) #8
@@ -227,7 +227,6 @@ attributes #9 = { nounwind willreturn memory(read) }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
+!8 = distinct !{!8, !7}

@@ -55,7 +55,7 @@ define void @ff_init_ff_sine_windows(i32 noundef %0) local_unnamed_addr #2 {
   %3 = sext i32 %2 to i64
   %4 = getelementptr inbounds [9 x i32], ptr @init_sine_window_once, i64 0, i64 %3
   %5 = getelementptr inbounds [9 x ptr], ptr @sine_window_init_func_array, i64 0, i64 %3
-  %6 = load ptr, ptr %5, align 8, !tbaa !11
+  %6 = load ptr, ptr %5, align 8, !tbaa !10
   %7 = tail call i32 @pthread_once(ptr noundef nonnull %4, ptr noundef %6) #5
   ret void
 }
@@ -277,8 +277,7 @@ attributes #5 = { nounwind }
 !5 = !{!"float", !6, i64 0}
 !6 = !{!"omnipotent char", !7, i64 0}
 !7 = !{!"Simple C/C++ TBAA"}
-!8 = distinct !{!8, !9, !10}
+!8 = distinct !{!8, !9}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = !{!"llvm.loop.estimated_trip_count"}
-!11 = !{!12, !12, i64 0}
-!12 = !{!"any pointer", !6, i64 0}
+!10 = !{!11, !11, i64 0}
+!11 = !{!"any pointer", !6, i64 0}

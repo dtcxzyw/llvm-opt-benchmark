@@ -603,7 +603,7 @@ define internal i32 @dissect_AllJoyn_name_server(ptr noundef %0, ptr noundef rea
   %78 = tail call ptr @proto_tree_add_item(ptr noundef %73, i32 noundef %77, ptr noundef %0, i32 noundef %76, i32 noundef %68, i32 noundef 0)
   %79 = add i32 %76, %68
   %.not43.i = icmp eq i32 %66, 0
-  br i1 %.not43.i, label %.loopexit.i, label %.lr.ph.i, !llvm.loop !9
+  br i1 %.not43.i, label %.loopexit.i, label %.lr.ph.i, !llvm.loop !8
 
 ns_parse_questions.exit:                          ; preds = %.loopexit.i, %37
   %.3 = phi i32 [ 4, %37 ], [ %.2, %.loopexit.i ]
@@ -618,7 +618,7 @@ ns_parse_questions.exit:                          ; preds = %.loopexit.i, %37
 .loopexit.i46:                                    ; preds = %.lr.ph.i45, %138
   %81 = phi i32 [ %.7, %138 ], [ %156, %.lr.ph.i45 ]
   %.not.i47 = icmp eq i8 %83, 0
-  br i1 %.not.i47, label %ns_parse_answers_v0.exit, label %.lr.ph94.i, !llvm.loop !10
+  br i1 %.not.i47, label %ns_parse_answers_v0.exit, label %.lr.ph94.i, !llvm.loop !9
 
 .lr.ph94.i:                                       ; preds = %80, %.loopexit.i46
   %82 = phi i32 [ %81, %.loopexit.i46 ], [ %.3, %80 ]
@@ -722,7 +722,7 @@ ns_parse_questions.exit:                          ; preds = %.loopexit.i, %37
   %155 = tail call ptr @proto_tree_add_item(ptr noundef %150, i32 noundef %154, ptr noundef %0, i32 noundef %153, i32 noundef %141, i32 noundef 0)
   %156 = add i32 %153, %141
   %.not90.i = icmp eq i32 %139, 0
-  br i1 %.not90.i, label %.loopexit.i46, label %.lr.ph.i45, !llvm.loop !11
+  br i1 %.not90.i, label %.loopexit.i46, label %.lr.ph.i45, !llvm.loop !10
 
 157:                                              ; preds = %ns_parse_questions.exit
   br i1 %.not, label %ns_parse_answers_v0.exit, label %.lr.ph143.i
@@ -730,7 +730,7 @@ ns_parse_questions.exit:                          ; preds = %.loopexit.i, %37
 .loopexit.i51:                                    ; preds = %.lr.ph.i50, %253
   %158 = phi i32 [ %.15, %253 ], [ %271, %.lr.ph.i50 ]
   %.not.i52 = icmp eq i8 %160, 0
-  br i1 %.not.i52, label %ns_parse_answers_v0.exit, label %.lr.ph143.i, !llvm.loop !12
+  br i1 %.not.i52, label %ns_parse_answers_v0.exit, label %.lr.ph143.i, !llvm.loop !11
 
 .lr.ph143.i:                                      ; preds = %157, %.loopexit.i51
   %159 = phi i32 [ %158, %.loopexit.i51 ], [ %.3, %157 ]
@@ -884,7 +884,7 @@ ns_parse_questions.exit:                          ; preds = %.loopexit.i, %37
   %270 = tail call ptr @proto_tree_add_item(ptr noundef %265, i32 noundef %269, ptr noundef %0, i32 noundef %268, i32 noundef %256, i32 noundef 0)
   %271 = add i32 %268, %256
   %.not139.i = icmp eq i32 %254, 0
-  br i1 %.not139.i, label %.loopexit.i51, label %.lr.ph.i50, !llvm.loop !13
+  br i1 %.not139.i, label %.loopexit.i51, label %.lr.ph.i50, !llvm.loop !12
 
 ns_parse_answers_v0.exit:                         ; preds = %.loopexit.i51, %.loopexit.i46, %157, %80, %.thread, %ns_parse_questions.exit, %37
   %272 = tail call i32 @tvb_reported_length(ptr noundef %0)
@@ -1233,7 +1233,7 @@ define internal fastcc zeroext i1 @protocol_is_alljoyn_message(ptr noundef %0, i
 11:                                               ; preds = %.preheader
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 7
-  br i1 %exitcond.not.i, label %find_sasl_command.exit.thread, label %.preheader, !llvm.loop !14
+  br i1 %exitcond.not.i, label %find_sasl_command.exit.thread, label %.preheader, !llvm.loop !13
 
 .preheader:                                       ; preds = %8, %11
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %11 ], [ 0, %8 ]
@@ -1326,7 +1326,7 @@ handle_message_connect.exit:                      ; preds = %24, %27
 32:                                               ; preds = %.preheader
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 7
-  br i1 %exitcond.not.i.i, label %handle_message_sasl.exit, label %.preheader, !llvm.loop !14
+  br i1 %exitcond.not.i.i, label %handle_message_sasl.exit, label %.preheader, !llvm.loop !13
 
 .preheader:                                       ; preds = %handle_message_connect.exit, %32
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %32 ], [ 0, %handle_message_connect.exit ]
@@ -1641,7 +1641,7 @@ handle_message_field.exit.i.i:                    ; preds = %206, %203
   %.0.i.i.i = phi i32 [ %207, %206 ], [ %191, %203 ]
   call void @proto_item_set_end(ptr noundef %164, ptr noundef %0, i32 noundef %.0.i.i.i)
   %208 = icmp slt i32 %.0.i.i.i, %157
-  br i1 %208, label %.lr.ph.i.i, label %._crit_edge.loopexit.i.i, !llvm.loop !15
+  br i1 %208, label %.lr.ph.i.i, label %._crit_edge.loopexit.i.i, !llvm.loop !14
 
 ._crit_edge.loopexit.i.i:                         ; preds = %handle_message_field.exit.i.i
   %.pre.i.i = load ptr, ptr %7, align 8
@@ -1701,7 +1701,7 @@ handle_message_header_fields.exit.i:              ; preds = %._crit_edge.loopexi
   %236 = load ptr, ptr %5, align 8
   %237 = icmp ne ptr %236, null
   %or.cond4.i.i = select i1 %or.cond.i.i, i1 %237, i1 false
-  br i1 %or.cond4.i.i, label %.lr.ph.i150.i, label %handle_message_body_parameters.exit.i, !llvm.loop !16
+  br i1 %or.cond4.i.i, label %.lr.ph.i150.i, label %handle_message_body_parameters.exit.i, !llvm.loop !15
 
 handle_message_body_parameters.exit.i:            ; preds = %231, %.lr.ph.i150.i, %221
   %.0.lcssa.i.i = phi i32 [ %210, %221 ], [ %232, %231 ], [ %.030.i.i, %.lr.ph.i150.i ]
@@ -1715,7 +1715,7 @@ handle_message_header_body.exit:                  ; preds = %62, %73, %93, %98, 
   %238 = icmp slt i32 %.0.i40, %10
   %239 = icmp sgt i32 %.0.i40, %.046
   %240 = and i1 %238, %239
-  br i1 %240, label %23, label %handle_message_sasl.exit._crit_edge, !llvm.loop !17
+  br i1 %240, label %23, label %handle_message_sasl.exit._crit_edge, !llvm.loop !16
 
 handle_message_sasl.exit._crit_edge:              ; preds = %handle_message_header_body.exit, %handle_message_connect.exit, %handle_message_sasl.exit, %4
   %.1 = phi i32 [ %3, %4 ], [ %.1.i, %handle_message_sasl.exit ], [ %.0.i, %handle_message_connect.exit ], [ %.0.i40, %handle_message_header_body.exit ]
@@ -1904,7 +1904,7 @@ get_uint32.exit:                                  ; preds = %53, %55
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #5
   %84 = sub i32 %81, %60
   %85 = icmp slt i32 %84, %57
-  br i1 %85, label %.lr.ph493, label %._crit_edge, !llvm.loop !18
+  br i1 %85, label %.lr.ph493, label %._crit_edge, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %.lr.ph493
   call void @decrement_dissection_depth(ptr noundef %1)
@@ -2427,7 +2427,7 @@ get_uint32.exit464:                               ; preds = %333, %335
   %399 = ptrtoint ptr %397 to i64
   %400 = sub i64 %398, %399
   %401 = icmp slt i64 %400, %375
-  br i1 %401, label %382, label %.critedge, !llvm.loop !19
+  br i1 %401, label %382, label %.critedge, !llvm.loop !18
 
 .critedge:                                        ; preds = %382, %385, %358
   %.6.lcssa = phi i32 [ %373, %358 ], [ %395, %385 ], [ %.6486, %382 ]
@@ -2527,7 +2527,7 @@ add_padding_item.exit465:                         ; preds = %402, %408, %411, %4
   %452 = getelementptr i8, ptr %.0.i, i64 1
   %453 = add nuw nsw i32 %.017.i, 1
   %exitcond.not.i = icmp eq i32 %453, %umax.i
-  br i1 %exitcond.not.i, label %.critedge.thread.i, label %438, !llvm.loop !20
+  br i1 %exitcond.not.i, label %.critedge.thread.i, label %438, !llvm.loop !19
 
 .critedge.i:                                      ; preds = %438
   %.not22.i = icmp samesign ult i32 %.017.i, %435
@@ -2592,7 +2592,7 @@ add_padding_item.exit466:                         ; preds = %append_struct_signa
   %481 = tail call fastcc i32 @parse_arg(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %.8481, ptr noundef %455, i1 noundef zeroext %6, i8 noundef zeroext %480, i8 noundef zeroext %8, ptr noundef %9, ptr noundef %10, i32 noundef %11)
   %482 = load ptr, ptr %9, align 8
   %.not = icmp eq ptr %482, null
-  br i1 %.not, label %.thread474, label %.lr.ph, !llvm.loop !21
+  br i1 %.not, label %.thread474, label %.lr.ph, !llvm.loop !20
 
 .thread474:                                       ; preds = %.lr.ph, %478, %475, %add_padding_item.exit466
   %.8.lcssa = phi i32 [ %457, %add_padding_item.exit466 ], [ %.8481, %475 ], [ %481, %478 ], [ %.8481, %.lr.ph ]
@@ -2738,7 +2738,7 @@ define internal fastcc void @advance_to_end_of_signature(ptr noundef %0, ptr nou
   br i1 %.not2634, label %.critedge, label %.lr.ph.split.us
 
 .lr.ph:                                           ; preds = %thread-pre-split.backedge
-  br i1 %.not25.be, label %.lr.ph.split.us, label %.lr.ph.split, !llvm.loop !22
+  br i1 %.not25.be, label %.lr.ph.split.us, label %.lr.ph.split, !llvm.loop !21
 
 .lr.ph.split.us:                                  ; preds = %3, %.lr.ph
   %.021.ph3547 = phi i1 [ %.021.ph.be, %.lr.ph ], [ false, %3 ]
@@ -2778,7 +2778,7 @@ define internal fastcc void @advance_to_end_of_signature(ptr noundef %0, ptr nou
   store i8 %18, ptr %2, align 1
   %19 = icmp eq i8 %.0.ph.be, %16
   %.not = icmp eq i8 %18, 0
-  br i1 %.not, label %.critedge, label %.lr.ph.split, !llvm.loop !22
+  br i1 %.not, label %.critedge, label %.lr.ph.split, !llvm.loop !21
 
 thread-pre-split.backedgethread-pre-split:        ; preds = %.split.us, %20, %21
   %.not25.be.ph = phi i1 [ false, %21 ], [ false, %20 ], [ true, %.split.us ]
@@ -2793,7 +2793,7 @@ thread-pre-split.backedge:                        ; preds = %thread-pre-split.ba
   %.not25.be = phi i1 [ %.not25.be.ph, %thread-pre-split.backedgethread-pre-split ], [ true, %.split.us ]
   %.0.ph.be = phi i8 [ %.0.ph.be.ph, %thread-pre-split.backedgethread-pre-split ], [ 0, %.split.us ]
   %.not26 = icmp eq i8 %.pr, 0
-  br i1 %.not26, label %.critedge, label %.lr.ph, !llvm.loop !22
+  br i1 %.not26, label %.critedge, label %.lr.ph, !llvm.loop !21
 
 20:                                               ; preds = %.split.us
   br label %thread-pre-split.backedgethread-pre-split
@@ -2848,20 +2848,19 @@ attributes #5 = { nounwind }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7, !8}
-!11 = distinct !{!11, !7, !8}
-!12 = distinct !{!12, !7, !8}
-!13 = distinct !{!13, !7, !8}
-!14 = distinct !{!14, !7, !8}
-!15 = distinct !{!15, !7, !8}
-!16 = distinct !{!16, !7, !8}
-!17 = distinct !{!17, !7, !8}
-!18 = distinct !{!18, !7, !8}
-!19 = distinct !{!19, !7, !8}
-!20 = distinct !{!20, !7, !8}
-!21 = distinct !{!21, !7, !8}
-!22 = distinct !{!22, !7, !8}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7}
+!12 = distinct !{!12, !7}
+!13 = distinct !{!13, !7}
+!14 = distinct !{!14, !7}
+!15 = distinct !{!15, !7}
+!16 = distinct !{!16, !7}
+!17 = distinct !{!17, !7}
+!18 = distinct !{!18, !7}
+!19 = distinct !{!19, !7}
+!20 = distinct !{!20, !7}
+!21 = distinct !{!21, !7}

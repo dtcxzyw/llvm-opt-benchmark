@@ -226,23 +226,23 @@ define i32 @insertPM(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef
   %5 = alloca %struct.mpair, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #11
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store i32 %1, ptr %6, align 8, !tbaa !24
+  store i32 %1, ptr %6, align 8, !tbaa !23
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 20
-  store i32 %2, ptr %7, align 4, !tbaa !27
+  store i32 %2, ptr %7, align 4, !tbaa !26
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  store i32 %3, ptr %8, align 8, !tbaa !28
+  store i32 %3, ptr %8, align 8, !tbaa !27
   %9 = load ptr, ptr %0, align 8, !tbaa !11
   %10 = call ptr %9(ptr noundef nonnull %0, ptr noundef nonnull %5, i32 noundef 1) #11
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 24
-  %12 = load i32, ptr %11, align 8, !tbaa !28
+  %12 = load i32, ptr %11, align 8, !tbaa !27
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #11
   ret i32 %12
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define internal range(i32 -1, 2) i32 @cmppair(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #5 {
-  %3 = load double, ptr %0, align 8, !tbaa !29
-  %4 = load double, ptr %1, align 8, !tbaa !29
+  %3 = load double, ptr %0, align 8, !tbaa !28
+  %4 = load double, ptr %1, align 8, !tbaa !28
   %5 = fcmp ogt double %3, %4
   br i1 %5, label %16, label %6
 
@@ -252,9 +252,9 @@ define internal range(i32 -1, 2) i32 @cmppair(ptr noundef readonly captures(none
 
 8:                                                ; preds = %6
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %10 = load double, ptr %9, align 8, !tbaa !31
+  %10 = load double, ptr %9, align 8, !tbaa !30
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %12 = load double, ptr %11, align 8, !tbaa !31
+  %12 = load double, ptr %11, align 8, !tbaa !30
   %13 = fcmp ogt double %10, %12
   br i1 %13, label %16, label %14
 
@@ -301,16 +301,16 @@ gv_alloc.exit:                                    ; preds = %2
   %10 = load i64, ptr %9, align 8
   store i64 %10, ptr %8, align 8
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %12 = load i32, ptr %11, align 8, !tbaa !28
+  %12 = load i32, ptr %11, align 8, !tbaa !27
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  store i32 %12, ptr %13, align 8, !tbaa !28
+  store i32 %12, ptr %13, align 8, !tbaa !27
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define internal range(i32 -1, 2) i32 @cmpmpair(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #5 {
-  %3 = load i32, ptr %0, align 4, !tbaa !32
-  %4 = load i32, ptr %1, align 4, !tbaa !32
+  %3 = load i32, ptr %0, align 4, !tbaa !31
+  %4 = load i32, ptr %1, align 4, !tbaa !31
   %5 = icmp sgt i32 %3, %4
   br i1 %5, label %16, label %6
 
@@ -320,9 +320,9 @@ define internal range(i32 -1, 2) i32 @cmpmpair(ptr noundef readonly captures(non
 
 8:                                                ; preds = %6
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %10 = load i32, ptr %9, align 4, !tbaa !33
+  %10 = load i32, ptr %9, align 4, !tbaa !32
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %12 = load i32, ptr %11, align 4, !tbaa !33
+  %12 = load i32, ptr %11, align 4, !tbaa !32
   %13 = icmp sgt i32 %10, %12
   br i1 %13, label %16, label %14
 
@@ -376,16 +376,15 @@ attributes #15 = { cold noreturn nounwind }
 !18 = !{i64 0, i64 8, !9, i64 8, i64 8, !9}
 !19 = !{!20, !16, i64 0}
 !20 = !{!"dtlink_s_", !16, i64 0, !5, i64 8}
-!21 = distinct !{!21, !22, !23}
+!21 = distinct !{!21, !22}
 !22 = !{!"llvm.loop.mustprogress"}
-!23 = !{!"llvm.loop.estimated_trip_count"}
-!24 = !{!25, !15, i64 16}
-!25 = !{!"", !20, i64 0, !26, i64 16, !15, i64 24}
-!26 = !{!"", !15, i64 0, !15, i64 4}
-!27 = !{!25, !15, i64 20}
-!28 = !{!25, !15, i64 24}
-!29 = !{!30, !10, i64 0}
-!30 = !{!"pointf_s", !10, i64 0, !10, i64 8}
-!31 = !{!30, !10, i64 8}
-!32 = !{!26, !15, i64 0}
-!33 = !{!26, !15, i64 4}
+!23 = !{!24, !15, i64 16}
+!24 = !{!"", !20, i64 0, !25, i64 16, !15, i64 24}
+!25 = !{!"", !15, i64 0, !15, i64 4}
+!26 = !{!24, !15, i64 20}
+!27 = !{!24, !15, i64 24}
+!28 = !{!29, !10, i64 0}
+!29 = !{!"pointf_s", !10, i64 0, !10, i64 8}
+!30 = !{!29, !10, i64 8}
+!31 = !{!25, !15, i64 0}
+!32 = !{!25, !15, i64 4}

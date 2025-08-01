@@ -716,7 +716,7 @@ define internal noalias noundef ptr @_rpc_queue_worker(ptr noundef %0) #0 {
 .backedge:                                        ; preds = %115, %143
   %.079.be = phi i64 [ %148, %143 ], [ 0, %115 ]
   %.0.be = phi i32 [ %146, %143 ], [ 0, %115 ]
-  br label %31, !llvm.loop !14
+  br label %31, !llvm.loop !13
 
 116:                                              ; preds = %38
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #9
@@ -867,7 +867,7 @@ define dso_local void @rpc_queue_shutdown() local_unnamed_addr #0 {
   %26 = getelementptr inbounds nuw i8, ptr %.02442, i64 208
   %27 = load i16, ptr %26, align 8
   %.not = icmp eq i16 %27, 0
-  br i1 %.not, label %.preheader, label %.lr.ph, !llvm.loop !15
+  br i1 %.not, label %.preheader, label %.lr.ph, !llvm.loop !14
 
 .lr.ph45:                                         ; preds = %.preheader, %43
   %.02344 = phi ptr [ %44, %43 ], [ @slurmctld_rpcs, %.preheader ]
@@ -912,7 +912,7 @@ define dso_local void @rpc_queue_shutdown() local_unnamed_addr #0 {
   %44 = getelementptr inbounds nuw i8, ptr %.02344, i64 208
   %45 = load i16, ptr %44, align 8
   %.not30 = icmp eq i16 %45, 0
-  br i1 %.not30, label %.loopexit, label %.lr.ph45, !llvm.loop !16
+  br i1 %.not30, label %.loopexit, label %.lr.ph45, !llvm.loop !15
 
 .loopexit:                                        ; preds = %43, %3, %.preheader, %0
   ret void
@@ -1070,7 +1070,7 @@ define dso_local range(i32 0, 2037) i32 @rpc_enqueue(ptr noundef %0) local_unnam
   %60 = getelementptr inbounds nuw i8, ptr %.03453, i64 208
   %61 = load i16, ptr %60, align 8
   %.not = icmp eq i16 %61, 0
-  br i1 %.not, label %.loopexit, label %7, !llvm.loop !17
+  br i1 %.not, label %.loopexit, label %7, !llvm.loop !16
 
 .loopexit:                                        ; preds = %59, %.preheader, %10, %33, %55, %1
   %.0 = phi i32 [ 2036, %1 ], [ 2036, %10 ], [ %., %33 ], [ 0, %55 ], [ 2036, %.preheader ], [ 2036, %59 ]
@@ -1186,11 +1186,10 @@ attributes #11 = { nounwind willreturn memory(none) }
 !7 = !{i32 7, !"debug-info-assignment-tracking", i1 true}
 !8 = !{i8 0, i8 2}
 !9 = !{}
-!10 = distinct !{!10, !11, !12, !13}
+!10 = distinct !{!10, !11, !12}
 !11 = !{!"llvm.loop.mustprogress"}
 !12 = !{!"llvm.loop.unroll.disable"}
-!13 = !{!"llvm.loop.estimated_trip_count"}
-!14 = distinct !{!14, !12, !13}
-!15 = distinct !{!15, !11, !12, !13}
-!16 = distinct !{!16, !11, !12, !13}
-!17 = distinct !{!17, !11, !12, !13}
+!13 = distinct !{!13, !12}
+!14 = distinct !{!14, !11, !12}
+!15 = distinct !{!15, !11, !12}
+!16 = distinct !{!16, !11, !12}

@@ -184,7 +184,7 @@ define hidden range(i32 0, 2) i32 @_cmsMAT3isIdentity(ptr noundef readonly captu
 18:                                               ; preds = %9
   %indvars.iv.next17 = add nuw nsw i64 %indvars.iv16, 1
   %exitcond19.not = icmp eq i64 %indvars.iv.next17, 3
-  br i1 %exitcond19.not, label %.loopexit, label %.preheader, !llvm.loop !9
+  br i1 %exitcond19.not, label %.loopexit, label %.preheader, !llvm.loop !8
 
 .loopexit:                                        ; preds = %18, %10
   %.010 = phi i32 [ 0, %10 ], [ 1, %18 ]
@@ -567,7 +567,6 @@ attributes #6 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
+!8 = distinct !{!8, !7}

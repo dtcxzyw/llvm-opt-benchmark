@@ -237,7 +237,7 @@ define internal noundef i32 @_listening_socket_read(ptr noundef readonly capture
     i32 4, label %.preheader.i
     i32 11, label %.thread.i
     i32 103, label %.thread.i
-  ], !llvm.loop !10
+  ]
 
 43:                                               ; preds = %40
   %44 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.19) #10
@@ -438,7 +438,7 @@ _read_io_init_msg.exit.thread.i:                  ; preds = %136, %134
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %5) #10
   %140 = add nuw nsw i32 %.01021.i, 1
   %exitcond.not.i = icmp eq i32 %140, 15
-  br i1 %exitcond.not.i, label %_handle_io_init_msg.exit, label %31, !llvm.loop !12
+  br i1 %exitcond.not.i, label %_handle_io_init_msg.exit, label %31, !llvm.loop !10
 
 _handle_io_init_msg.exit:                         ; preds = %139, %.thread.i
   ret i32 0
@@ -955,7 +955,7 @@ _outgoing_buf_free.exit:                          ; preds = %18
     i32 4, label %151
     i32 11, label %.loopexit
     i32 104, label %161
-  ], !llvm.loop !15
+  ]
 
 161:                                              ; preds = %158
   %162 = tail call i32 @get_log_level() #10
@@ -1157,7 +1157,7 @@ define internal range(i32 -1, 1) i32 @_server_write(ptr noundef readonly capture
   switch i32 %57, label %62 [
     i32 4, label %48
     i32 11, label %58
-  ], !llvm.loop !16
+  ]
 
 58:                                               ; preds = %55
   %59 = tail call i32 @get_log_level() #10
@@ -1735,7 +1735,7 @@ _incoming_buf_free.exit:                          ; preds = %21
   switch i32 %63, label %84 [
     i32 4, label %56
     i32 11, label %64
-  ], !llvm.loop !17
+  ]
 
 64:                                               ; preds = %61
   %65 = tail call i32 @get_log_level() #10
@@ -1892,7 +1892,7 @@ _incoming_buf_free.exit:                          ; preds = %21
   %140 = load i32, ptr %139, align 4
   %141 = sext i32 %140 to i64
   %142 = icmp slt i64 %indvars.iv.next, %141
-  br i1 %142, label %.lr.ph, label %.loopexit, !llvm.loop !18
+  br i1 %142, label %.lr.ph, label %.loopexit, !llvm.loop !13
 
 143:                                              ; preds = %113
   %144 = call i32 @get_log_level() #10
@@ -1980,7 +1980,7 @@ define dso_local noundef ptr @client_io_handler_create(ptr noundef readonly byva
   %17 = add nuw nsw i32 %.09.i, 1
   %.04.off.i = add nsw i32 %16, 9
   %.not.i = icmp ult i32 %.04.off.i, 19
-  br i1 %.not.i, label %_wid.exit, label %.lr.ph.i, !llvm.loop !19
+  br i1 %.not.i, label %_wid.exit, label %.lr.ph.i, !llvm.loop !14
 
 _wid.exit:                                        ; preds = %.lr.ph.i, %7, %14
   %.sink = phi i32 [ 1, %14 ], [ 0, %7 ], [ %17, %.lr.ph.i ]
@@ -2213,7 +2213,7 @@ _init_stdio_eio_objs.exit:                        ; preds = %82, %86, %88
   %129 = load i32, ptr %28, align 8
   %130 = sext i32 %129 to i64
   %131 = icmp slt i64 %indvars.iv.next, %130
-  br i1 %131, label %103, label %._crit_edge, !llvm.loop !20
+  br i1 %131, label %103, label %._crit_edge, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %123, %_init_stdio_eio_objs.exit
   %132 = tail call ptr @list_create(ptr noundef nonnull @_free_io_buf) #10
@@ -2236,7 +2236,7 @@ _init_stdio_eio_objs.exit:                        ; preds = %82, %86, %88
   tail call void @list_enqueue(ptr noundef %136, ptr noundef nonnull %137) #10
   %141 = add nuw nsw i32 %.174, 1
   %exitcond.not = icmp eq i32 %141, 1024
-  br i1 %exitcond.not, label %142, label %135, !llvm.loop !21
+  br i1 %exitcond.not, label %142, label %135, !llvm.loop !16
 
 142:                                              ; preds = %135
   %143 = tail call ptr @list_create(ptr noundef nonnull @_free_io_buf) #10
@@ -2259,7 +2259,7 @@ _init_stdio_eio_objs.exit:                        ; preds = %82, %86, %88
   tail call void @list_enqueue(ptr noundef %147, ptr noundef nonnull %148) #10
   %152 = add nuw nsw i32 %.275, 1
   %exitcond77.not = icmp eq i32 %152, 1024
-  br i1 %exitcond77.not, label %153, label %146, !llvm.loop !22
+  br i1 %exitcond77.not, label %153, label %146, !llvm.loop !17
 
 153:                                              ; preds = %146
   %154 = getelementptr inbounds nuw i8, ptr %9, i64 272
@@ -2499,7 +2499,7 @@ define internal noalias noundef ptr @_io_thr_internal(ptr noundef %0) #0 {
   %20 = load i32, ptr %12, align 8
   %21 = sext i32 %20 to i64
   %22 = icmp slt i64 %indvars.iv.next.i, %21
-  br i1 %22, label %16, label %_set_listensocks_nonblocking.exit, !llvm.loop !23
+  br i1 %22, label %16, label %_set_listensocks_nonblocking.exit, !llvm.loop !18
 
 _set_listensocks_nonblocking.exit:                ; preds = %16, %8
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 152
@@ -2799,7 +2799,7 @@ define dso_local void @client_io_handler_downnodes(ptr noundef %0, ptr noundef r
 43:                                               ; preds = %29, %39, %15
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %15, !llvm.loop !24
+  br i1 %exitcond.not, label %._crit_edge, label %15, !llvm.loop !19
 
 ._crit_edge:                                      ; preds = %43, %.preheader
   %44 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %6) #10
@@ -2902,7 +2902,7 @@ define dso_local void @client_io_handler_abort(ptr noundef %0) local_unnamed_add
   %36 = load i32, ptr %6, align 4
   %37 = sext i32 %36 to i64
   %38 = icmp slt i64 %indvars.iv.next, %37
-  br i1 %38, label %14, label %._crit_edge, !llvm.loop !25
+  br i1 %38, label %14, label %._crit_edge, !llvm.loop !20
 
 ._crit_edge:                                      ; preds = %35, %.preheader
   %39 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %4) #10
@@ -3138,19 +3138,14 @@ attributes #12 = { noreturn nounwind }
 !7 = !{i32 7, !"debug-info-assignment-tracking", i1 true}
 !8 = !{i8 0, i8 2}
 !9 = !{}
-!10 = distinct !{!10, !11}
-!11 = !{!"llvm.loop.estimated_trip_count"}
-!12 = distinct !{!12, !13, !14, !11}
-!13 = !{!"llvm.loop.mustprogress"}
-!14 = !{!"llvm.loop.unroll.disable"}
-!15 = distinct !{!15, !11}
-!16 = distinct !{!16, !11}
-!17 = distinct !{!17, !11}
-!18 = distinct !{!18, !13, !14, !11}
-!19 = distinct !{!19, !13, !14, !11}
-!20 = distinct !{!20, !13, !14, !11}
-!21 = distinct !{!21, !13, !14, !11}
-!22 = distinct !{!22, !13, !14, !11}
-!23 = distinct !{!23, !13, !14, !11}
-!24 = distinct !{!24, !13, !14, !11}
-!25 = distinct !{!25, !13, !14, !11}
+!10 = distinct !{!10, !11, !12}
+!11 = !{!"llvm.loop.mustprogress"}
+!12 = !{!"llvm.loop.unroll.disable"}
+!13 = distinct !{!13, !11, !12}
+!14 = distinct !{!14, !11, !12}
+!15 = distinct !{!15, !11, !12}
+!16 = distinct !{!16, !11, !12}
+!17 = distinct !{!17, !11, !12}
+!18 = distinct !{!18, !11, !12}
+!19 = distinct !{!19, !11, !12}
+!20 = distinct !{!20, !11, !12}

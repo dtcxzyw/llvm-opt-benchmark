@@ -123,7 +123,7 @@ parse_timecode.exit:                              ; preds = %.preheader.i, %31, 
   %.0.i = phi i64 [ %56, %55 ], [ -9223372036854775808, %38 ], [ -9223372036854775808, %35 ], [ -9223372036854775808, %31 ], [ -9223372036854775808, %.preheader.i ]
   %57 = trunc i64 %.0.i to i32
   %58 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  store i32 %57, ptr %58, align 4, !tbaa !36
+  store i32 %57, ptr %58, align 4, !tbaa !35
   %59 = getelementptr inbounds nuw i8, ptr %6, i64 14
   %60 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %61 = load i8, ptr %60, align 1, !tbaa !31
@@ -167,14 +167,14 @@ parse_timecode.exit:                              ; preds = %.preheader.i, %31, 
 
 parse_timecode.exit136.thread:                    ; preds = %.preheader.i131, %65, %62, %parse_timecode.exit
   %82 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i32 0, ptr %82, align 8, !tbaa !40
+  store i32 0, ptr %82, align 8, !tbaa !39
   br label %86
 
 parse_timecode.exit136:                           ; preds = %75
   %83 = sub nsw i64 %81, %.0106
   %84 = trunc i64 %83 to i32
   %85 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i32 %84, ptr %85, align 8, !tbaa !40
+  store i32 %84, ptr %85, align 8, !tbaa !39
   %.not118 = icmp ult i64 %.0.i, 4294967296
   %.not119 = icmp ult i64 %83, 4294967296
   %or.cond = select i1 %.not118, i1 %.not119, i1 false
@@ -213,49 +213,49 @@ parse_timecode.exit136:                           ; preds = %75
 108:                                              ; preds = %96
   %109 = tail call noalias ptr @av_mallocz(i64 noundef 8) #6
   %110 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  store ptr %109, ptr %110, align 8, !tbaa !41
+  store ptr %109, ptr %110, align 8, !tbaa !40
   %.not120 = icmp eq ptr %109, null
   br i1 %.not120, label %209, label %111
 
 111:                                              ; preds = %108
   %112 = tail call noalias ptr @av_mallocz(i64 noundef 96) #6
-  %113 = load ptr, ptr %110, align 8, !tbaa !41
-  store ptr %112, ptr %113, align 8, !tbaa !42
+  %113 = load ptr, ptr %110, align 8, !tbaa !40
+  store ptr %112, ptr %113, align 8, !tbaa !41
   %.not121 = icmp eq ptr %112, null
   br i1 %.not121, label %209, label %114
 
 114:                                              ; preds = %111
   %115 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  store i32 1, ptr %115, align 4, !tbaa !44
-  store i32 %100, ptr %112, align 8, !tbaa !45
+  store i32 1, ptr %115, align 4, !tbaa !43
+  store i32 %100, ptr %112, align 8, !tbaa !44
   %116 = getelementptr inbounds nuw i8, ptr %112, i64 4
-  store i32 %102, ptr %116, align 4, !tbaa !47
+  store i32 %102, ptr %116, align 4, !tbaa !46
   %117 = getelementptr inbounds nuw i8, ptr %112, i64 8
-  store i32 %91, ptr %117, align 8, !tbaa !48
+  store i32 %91, ptr %117, align 8, !tbaa !47
   %118 = getelementptr inbounds nuw i8, ptr %112, i64 12
-  store i32 %93, ptr %118, align 4, !tbaa !49
+  store i32 %93, ptr %118, align 4, !tbaa !48
   %119 = getelementptr inbounds nuw i8, ptr %112, i64 76
-  store i32 1, ptr %119, align 4, !tbaa !50
+  store i32 1, ptr %119, align 4, !tbaa !49
   %120 = getelementptr inbounds nuw i8, ptr %112, i64 56
-  store i32 %91, ptr %120, align 8, !tbaa !51
+  store i32 %91, ptr %120, align 8, !tbaa !50
   %121 = mul nuw nsw i32 %93, %91
   %122 = zext nneg i32 %121 to i64
   %123 = tail call noalias ptr @av_malloc(i64 noundef %122) #6
   %124 = getelementptr inbounds nuw i8, ptr %112, i64 24
-  store ptr %123, ptr %124, align 8, !tbaa !52
+  store ptr %123, ptr %124, align 8, !tbaa !51
   %125 = getelementptr inbounds nuw i8, ptr %112, i64 16
-  store i32 4, ptr %125, align 8, !tbaa !53
+  store i32 4, ptr %125, align 8, !tbaa !52
   %126 = tail call noalias ptr @av_mallocz(i64 noundef 1024) #6
   %127 = getelementptr inbounds nuw i8, ptr %112, i64 32
-  store ptr %126, ptr %127, align 8, !tbaa !52
-  %128 = load ptr, ptr %124, align 8, !tbaa !52
+  store ptr %126, ptr %127, align 8, !tbaa !51
+  %128 = load ptr, ptr %124, align 8, !tbaa !51
   %.not122 = icmp eq ptr %128, null
   %.not123 = icmp eq ptr %126, null
   %or.cond125 = select i1 %.not122, i1 true, i1 %.not123
   br i1 %or.cond125, label %209, label %.preheader169
 
 .preheader169:                                    ; preds = %114
-  %129 = load i32, ptr %125, align 8, !tbaa !53
+  %129 = load i32, ptr %125, align 8, !tbaa !52
   %130 = icmp sgt i32 %129, 0
   br i1 %130, label %.lr.ph.preheader, label %.loopexit
 
@@ -280,10 +280,10 @@ parse_timecode.exit136:                           ; preds = %75
   %142 = zext i8 %141 to i32
   %143 = or disjoint i32 %139, %142
   %144 = getelementptr inbounds nuw i32, ptr %126, i64 %indvars.iv
-  store i32 %143, ptr %144, align 4, !tbaa !51
+  store i32 %143, ptr %144, align 4, !tbaa !50
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !54
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !53
 
 ._crit_edge:                                      ; preds = %.lr.ph
   br i1 %13, label %.lr.ph177.preheader, label %.preheader167
@@ -303,12 +303,12 @@ parse_timecode.exit136:                           ; preds = %75
 .lr.ph174:                                        ; preds = %.lr.ph174.preheader, %.lr.ph174
   %indvars.iv202 = phi i64 [ 1, %.lr.ph174.preheader ], [ %indvars.iv.next203, %.lr.ph174 ]
   %145 = getelementptr inbounds nuw i32, ptr %126, i64 %indvars.iv202
-  %146 = load i32, ptr %145, align 4, !tbaa !51
+  %146 = load i32, ptr %145, align 4, !tbaa !50
   %147 = or i32 %146, -16777216
-  store i32 %147, ptr %145, align 4, !tbaa !51
+  store i32 %147, ptr %145, align 4, !tbaa !50
   %indvars.iv.next203 = add nuw nsw i64 %indvars.iv202, 1
   %exitcond206.not = icmp eq i64 %indvars.iv.next203, %wide.trip.count205
-  br i1 %exitcond206.not, label %.loopexit, label %.lr.ph174, !llvm.loop !55
+  br i1 %exitcond206.not, label %.loopexit, label %.lr.ph174, !llvm.loop !54
 
 .lr.ph177:                                        ; preds = %.lr.ph177.preheader, %.lr.ph177
   %indvars.iv207 = phi i64 [ 0, %.lr.ph177.preheader ], [ %indvars.iv.next208, %.lr.ph177 ]
@@ -318,12 +318,12 @@ parse_timecode.exit136:                           ; preds = %75
   %150 = zext i8 %149 to i32
   %151 = shl nuw i32 %150, 24
   %152 = getelementptr inbounds nuw i32, ptr %126, i64 %indvars.iv207
-  %153 = load i32, ptr %152, align 4, !tbaa !51
+  %153 = load i32, ptr %152, align 4, !tbaa !50
   %154 = or i32 %151, %153
-  store i32 %154, ptr %152, align 4, !tbaa !51
+  store i32 %154, ptr %152, align 4, !tbaa !50
   %indvars.iv.next208 = add nuw nsw i64 %indvars.iv207, 1
   %exitcond211.not = icmp eq i64 %indvars.iv.next208, %wide.trip.count210
-  br i1 %exitcond211.not, label %.loopexit, label %.lr.ph177, !llvm.loop !56
+  br i1 %exitcond211.not, label %.loopexit, label %.lr.ph177, !llvm.loop !55
 
 .loopexit:                                        ; preds = %.lr.ph174, %.lr.ph177, %.preheader169, %.preheader167
   %.1160 = phi ptr [ %131, %.preheader167 ], [ %103, %.preheader169 ], [ %148, %.lr.ph177 ], [ %131, %.lr.ph174 ]
@@ -357,7 +357,7 @@ parse_timecode.exit136:                           ; preds = %75
   br i1 %165, label %166, label %.lr.ph183.us.preheader
 
 166:                                              ; preds = %.lr.ph189.split.us
-  %167 = load ptr, ptr %124, align 8, !tbaa !52
+  %167 = load ptr, ptr %124, align 8, !tbaa !51
   %168 = getelementptr inbounds nuw i8, ptr %167, i64 %164
   br label %.lr.ph183.us.preheader
 
@@ -408,7 +408,7 @@ parse_timecode.exit136:                           ; preds = %75
   %201 = getelementptr inbounds nuw i8, ptr %.2181.us, i64 %200
   %202 = add nuw nsw i32 %spec.select.us, %.0101180.us
   %203 = icmp samesign ult i32 %202, %91
-  br i1 %203, label %.lr.ph183.us, label %.align_get_bits.exit_crit_edge.us, !llvm.loop !57
+  br i1 %203, label %.lr.ph183.us, label %.align_get_bits.exit_crit_edge.us, !llvm.loop !56
 
 .align_get_bits.exit_crit_edge.us:                ; preds = %.lr.ph183.us
   %204 = getelementptr inbounds nuw i8, ptr %201, i64 %164
@@ -420,10 +420,10 @@ parse_timecode.exit136:                           ; preds = %75
   %.sroa.8.2.us = tail call i32 @llvm.umin.i32(i32 %minmaxop, i32 %161)
   %208 = add nuw nsw i32 %.0102187.us, 1
   %exitcond212.not = icmp eq i32 %208, %93
-  br i1 %exitcond212.not, label %._crit_edge190, label %.lr.ph189.split.us, !llvm.loop !58
+  br i1 %exitcond212.not, label %._crit_edge190, label %.lr.ph189.split.us, !llvm.loop !57
 
 ._crit_edge190:                                   ; preds = %.align_get_bits.exit_crit_edge.us, %.lr.ph189, %.preheader
-  store i32 1, ptr %2, align 4, !tbaa !51
+  store i32 1, ptr %2, align 4, !tbaa !50
   br label %209
 
 209:                                              ; preds = %.loopexit, %114, %111, %108, %96, %87, %._crit_edge190, %86, %25, %16
@@ -498,30 +498,29 @@ attributes #7 = { nounwind willreturn memory(none) }
 !30 = !{!5, !10, i64 28}
 !31 = !{!8, !8, i64 0}
 !32 = !{!28, !13, i64 8}
-!33 = distinct !{!33, !34, !35}
+!33 = distinct !{!33, !34}
 !34 = !{!"llvm.loop.mustprogress"}
-!35 = !{!"llvm.loop.estimated_trip_count"}
-!36 = !{!37, !10, i64 4}
-!37 = !{!"AVSubtitle", !38, i64 0, !10, i64 4, !10, i64 8, !10, i64 12, !39, i64 16, !13, i64 24}
-!38 = !{!"short", !8, i64 0}
-!39 = !{!"p2 _ZTS14AVSubtitleRect", !26, i64 0}
-!40 = !{!37, !10, i64 8}
-!41 = !{!37, !39, i64 16}
-!42 = !{!43, !43, i64 0}
-!43 = !{!"p1 _ZTS14AVSubtitleRect", !7, i64 0}
-!44 = !{!37, !10, i64 12}
-!45 = !{!46, !10, i64 0}
-!46 = !{!"AVSubtitleRect", !10, i64 0, !10, i64 4, !10, i64 8, !10, i64 12, !10, i64 16, !8, i64 24, !8, i64 56, !10, i64 72, !10, i64 76, !14, i64 80, !14, i64 88}
-!47 = !{!46, !10, i64 4}
-!48 = !{!46, !10, i64 8}
-!49 = !{!46, !10, i64 12}
-!50 = !{!46, !10, i64 76}
-!51 = !{!10, !10, i64 0}
-!52 = !{!14, !14, i64 0}
-!53 = !{!46, !10, i64 16}
-!54 = distinct !{!54, !34, !35}
-!55 = distinct !{!55, !34, !35}
-!56 = distinct !{!56, !34, !35}
-!57 = distinct !{!57, !34, !35}
-!58 = distinct !{!58, !34, !35, !59}
-!59 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!35 = !{!36, !10, i64 4}
+!36 = !{!"AVSubtitle", !37, i64 0, !10, i64 4, !10, i64 8, !10, i64 12, !38, i64 16, !13, i64 24}
+!37 = !{!"short", !8, i64 0}
+!38 = !{!"p2 _ZTS14AVSubtitleRect", !26, i64 0}
+!39 = !{!36, !10, i64 8}
+!40 = !{!36, !38, i64 16}
+!41 = !{!42, !42, i64 0}
+!42 = !{!"p1 _ZTS14AVSubtitleRect", !7, i64 0}
+!43 = !{!36, !10, i64 12}
+!44 = !{!45, !10, i64 0}
+!45 = !{!"AVSubtitleRect", !10, i64 0, !10, i64 4, !10, i64 8, !10, i64 12, !10, i64 16, !8, i64 24, !8, i64 56, !10, i64 72, !10, i64 76, !14, i64 80, !14, i64 88}
+!46 = !{!45, !10, i64 4}
+!47 = !{!45, !10, i64 8}
+!48 = !{!45, !10, i64 12}
+!49 = !{!45, !10, i64 76}
+!50 = !{!10, !10, i64 0}
+!51 = !{!14, !14, i64 0}
+!52 = !{!45, !10, i64 16}
+!53 = distinct !{!53, !34}
+!54 = distinct !{!54, !34}
+!55 = distinct !{!55, !34}
+!56 = distinct !{!56, !34}
+!57 = distinct !{!57, !34, !58}
+!58 = !{!"llvm.loop.unswitch.nontrivial.disable"}

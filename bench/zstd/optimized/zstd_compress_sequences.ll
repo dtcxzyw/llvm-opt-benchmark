@@ -114,7 +114,7 @@ define range(i64 0, 72057594037927936) i64 @ZSTD_crossEntropyCost(ptr noundef re
   %18 = add i64 %.018, %17
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond, label %19, label %7, !llvm.loop !14
+  br i1 %exitcond, label %19, label %7, !llvm.loop !13
 
 19:                                               ; preds = %7
   %20 = lshr i64 %18, 8
@@ -199,7 +199,7 @@ define range(i32 0, 4) i32 @ZSTD_selectEncodingType(ptr noundef captures(none) %
   %53 = add i64 %.018.i, %52
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.i, label %ZSTD_crossEntropyCost.exit, label %42, !llvm.loop !14
+  br i1 %exitcond.i, label %ZSTD_crossEntropyCost.exit, label %42, !llvm.loop !13
 
 ZSTD_crossEntropyCost.exit:                       ; preds = %42
   %54 = lshr i64 %53, 8
@@ -317,7 +317,7 @@ ZSTD_NCountCost.exit:                             ; preds = %ZSTD_fseBitCost.exi
   %118 = add i32 %117, %.016.i
   %indvars.iv.next.i72 = add nuw nsw i64 %indvars.iv.i71, 1
   %exitcond.i73 = icmp eq i64 %indvars.iv.next.i72, %wide.trip.count.i70
-  br i1 %exitcond.i73, label %ZSTD_entropyCost.exit, label %106, !llvm.loop !15
+  br i1 %exitcond.i73, label %ZSTD_entropyCost.exit, label %106, !llvm.loop !14
 
 ZSTD_entropyCost.exit:                            ; preds = %106
   %119 = shl i64 %.1.i, 3
@@ -366,8 +366,8 @@ define i64 @ZSTD_buildCTable(ptr noundef %0, i64 noundef %1, ptr noundef %2, i32
   br i1 %22, label %53, label %23
 
 23:                                               ; preds = %21
-  %24 = load i8, ptr %7, align 1, !tbaa !16
-  store i8 %24, ptr %0, align 1, !tbaa !16
+  %24 = load i8, ptr %7, align 1, !tbaa !15
+  store i8 %24, ptr %0, align 1, !tbaa !15
   br label %53
 
 25:                                               ; preds = %16
@@ -384,7 +384,7 @@ define i64 @ZSTD_buildCTable(ptr noundef %0, i64 noundef %1, ptr noundef %2, i32
   %30 = tail call i32 @FSE_optimalTableLog(i32 noundef %3, i64 noundef %8, i32 noundef %6) #8
   %31 = getelementptr i8, ptr %7, i64 %8
   %32 = getelementptr i8, ptr %31, i64 -1
-  %33 = load i8, ptr %32, align 1, !tbaa !16
+  %33 = load i8, ptr %32, align 1, !tbaa !15
   %34 = zext i8 %33 to i64
   %35 = getelementptr inbounds nuw i32, ptr %5, i64 %34
   %36 = load i32, ptr %35, align 4, !tbaa !10
@@ -453,7 +453,7 @@ define range(i64 1, 0) i64 @ZSTD_encodeSequences(ptr noundef %0, i64 noundef %1,
 19:                                               ; preds = %15
   %20 = add i64 %9, -1
   %21 = getelementptr inbounds nuw i8, ptr %3, i64 %20
-  %22 = load i8, ptr %21, align 1, !tbaa !16
+  %22 = load i8, ptr %21, align 1, !tbaa !15
   %.val.i.i.i = load i16, ptr %2, align 1, !tbaa !3
   %23 = zext i16 %.val.i.i.i to i32
   %24 = getelementptr inbounds nuw i8, ptr %2, i64 4
@@ -480,7 +480,7 @@ define range(i64 1, 0) i64 @ZSTD_encodeSequences(ptr noundef %0, i64 noundef %1,
   %41 = getelementptr i16, ptr %40, i64 %39
   %42 = load i16, ptr %41, align 2, !tbaa !3
   %43 = getelementptr inbounds nuw i8, ptr %5, i64 %20
-  %44 = load i8, ptr %43, align 1, !tbaa !16
+  %44 = load i8, ptr %43, align 1, !tbaa !15
   %45 = zext i8 %44 to i32
   %.val.i.i11.i = load i16, ptr %4, align 1, !tbaa !3
   %46 = zext i16 %.val.i.i11.i to i32
@@ -508,7 +508,7 @@ define range(i64 1, 0) i64 @ZSTD_encodeSequences(ptr noundef %0, i64 noundef %1,
   %64 = getelementptr i16, ptr %63, i64 %62
   %65 = load i16, ptr %64, align 2, !tbaa !3
   %66 = getelementptr inbounds nuw i8, ptr %7, i64 %20
-  %67 = load i8, ptr %66, align 1, !tbaa !16
+  %67 = load i8, ptr %66, align 1, !tbaa !15
   %.val.i.i16.i = load i16, ptr %6, align 1, !tbaa !3
   %68 = zext i16 %.val.i.i16.i to i32
   %69 = getelementptr inbounds nuw i8, ptr %6, i64 4
@@ -536,9 +536,9 @@ define range(i64 1, 0) i64 @ZSTD_encodeSequences(ptr noundef %0, i64 noundef %1,
   %87 = load i16, ptr %86, align 2, !tbaa !3
   %88 = getelementptr inbounds nuw %struct.SeqDef_s, ptr %8, i64 %20
   %89 = getelementptr inbounds nuw i8, ptr %88, i64 4
-  %90 = load i16, ptr %89, align 4, !tbaa !17
+  %90 = load i16, ptr %89, align 4, !tbaa !16
   %91 = getelementptr inbounds nuw [36 x i8], ptr @LL_bits, i64 0, i64 %75
-  %92 = load i8, ptr %91, align 1, !tbaa !16
+  %92 = load i8, ptr %91, align 1, !tbaa !15
   %93 = zext i8 %92 to i32
   %94 = zext i8 %92 to i64
   %95 = getelementptr inbounds nuw [32 x i32], ptr @BIT_mask, i64 0, i64 %94
@@ -547,9 +547,9 @@ define range(i64 1, 0) i64 @ZSTD_encodeSequences(ptr noundef %0, i64 noundef %1,
   %98 = and i32 %96, %97
   %99 = zext nneg i32 %98 to i64
   %100 = getelementptr inbounds nuw i8, ptr %88, i64 6
-  %101 = load i16, ptr %100, align 2, !tbaa !19
+  %101 = load i16, ptr %100, align 2, !tbaa !18
   %102 = getelementptr inbounds nuw [53 x i8], ptr @ML_bits, i64 0, i64 %30
-  %103 = load i8, ptr %102, align 1, !tbaa !16
+  %103 = load i8, ptr %102, align 1, !tbaa !15
   %104 = zext i8 %103 to i32
   %105 = zext i8 %103 to i64
   %106 = getelementptr inbounds nuw [32 x i32], ptr @BIT_mask, i64 0, i64 %105
@@ -568,12 +568,12 @@ define range(i64 1, 0) i64 @ZSTD_encodeSequences(ptr noundef %0, i64 noundef %1,
   br i1 %115, label %..thread_crit_edge.i, label %116
 
 ..thread_crit_edge.i:                             ; preds = %114
-  %.pre.i = load i32, ptr %88, align 4, !tbaa !20
+  %.pre.i = load i32, ptr %88, align 4, !tbaa !19
   br label %.thread.i
 
 116:                                              ; preds = %114
   %.not93.i.i = icmp eq i8 %44, 56
-  %.pre153.i = load i32, ptr %88, align 4, !tbaa !20
+  %.pre153.i = load i32, ptr %88, align 4, !tbaa !19
   br i1 %.not93.i.i, label %.thread.i, label %117
 
 117:                                              ; preds = %116
@@ -589,7 +589,7 @@ define range(i64 1, 0) i64 @ZSTD_encodeSequences(ptr noundef %0, i64 noundef %1,
   %127 = add nsw i32 %113, %118
   %128 = lshr i32 %127, 3
   %129 = zext nneg i32 %128 to i64
-  store i64 %126, ptr %0, align 1, !tbaa !21
+  store i64 %126, ptr %0, align 1, !tbaa !20
   %130 = getelementptr inbounds nuw i8, ptr %0, i64 %129
   %131 = icmp ugt ptr %130, %17
   %spec.store.select.i.i = select i1 %131, ptr %17, ptr %130
@@ -618,7 +618,7 @@ define range(i64 1, 0) i64 @ZSTD_encodeSequences(ptr noundef %0, i64 noundef %1,
   br label %158
 
 148:                                              ; preds = %19
-  %149 = load i32, ptr %88, align 4, !tbaa !20
+  %149 = load i32, ptr %88, align 4, !tbaa !19
   %150 = getelementptr inbounds nuw [32 x i32], ptr @BIT_mask, i64 0, i64 %53
   %151 = load i32, ptr %150, align 4, !tbaa !10
   %152 = and i32 %151, %149
@@ -635,7 +635,7 @@ define range(i64 1, 0) i64 @ZSTD_encodeSequences(ptr noundef %0, i64 noundef %1,
   %.sroa.112.1.i = phi ptr [ %0, %148 ], [ %.sroa.112.0.i, %.thread.i ]
   %159 = lshr i32 %.sroa.63.1.i, 3
   %160 = zext nneg i32 %159 to i64
-  store i64 %.sroa.053.1.i, ptr %.sroa.112.1.i, align 1, !tbaa !21
+  store i64 %.sroa.053.1.i, ptr %.sroa.112.1.i, align 1, !tbaa !20
   %161 = getelementptr inbounds nuw i8, ptr %.sroa.112.1.i, i64 %160
   %162 = icmp ugt ptr %161, %17
   %spec.store.select.i21.i = select i1 %162, ptr %17, ptr %161
@@ -661,19 +661,19 @@ define range(i64 1, 0) i64 @ZSTD_encodeSequences(ptr noundef %0, i64 noundef %1,
   %.sroa.112.2138.i = phi ptr [ %spec.store.select.i34.i, %328 ], [ %spec.store.select.i21.i, %.lr.ph.preheader.i ]
   %.sroa.053.2137.i = phi i64 [ %334, %328 ], [ %164, %.lr.ph.preheader.i ]
   %167 = getelementptr inbounds nuw i8, ptr %7, i64 %.086.i139.i
-  %168 = load i8, ptr %167, align 1, !tbaa !16
+  %168 = load i8, ptr %167, align 1, !tbaa !15
   %169 = getelementptr inbounds nuw i8, ptr %5, i64 %.086.i139.i
-  %170 = load i8, ptr %169, align 1, !tbaa !16
+  %170 = load i8, ptr %169, align 1, !tbaa !15
   %171 = getelementptr inbounds nuw i8, ptr %3, i64 %.086.i139.i
-  %172 = load i8, ptr %171, align 1, !tbaa !16
+  %172 = load i8, ptr %171, align 1, !tbaa !15
   %173 = zext i8 %168 to i64
   %174 = getelementptr inbounds nuw [36 x i8], ptr @LL_bits, i64 0, i64 %173
-  %175 = load i8, ptr %174, align 1, !tbaa !16
+  %175 = load i8, ptr %174, align 1, !tbaa !15
   %176 = zext i8 %175 to i32
   %177 = zext i8 %170 to i32
   %178 = zext i8 %172 to i64
   %179 = getelementptr inbounds nuw [53 x i8], ptr @ML_bits, i64 0, i64 %178
-  %180 = load i8, ptr %179, align 1, !tbaa !16
+  %180 = load i8, ptr %179, align 1, !tbaa !15
   %181 = zext i8 %180 to i32
   %182 = zext i8 %170 to i64
   %183 = getelementptr inbounds nuw %struct.FSE_symbolCompressionTransform, ptr %52, i64 %182
@@ -747,7 +747,7 @@ define range(i64 1, 0) i64 @ZSTD_encodeSequences(ptr noundef %0, i64 noundef %1,
 240:                                              ; preds = %.lr.ph.i
   %241 = lshr i32 %231, 3
   %242 = zext nneg i32 %241 to i64
-  store i64 %230, ptr %.sroa.112.2138.i, align 1, !tbaa !21
+  store i64 %230, ptr %.sroa.112.2138.i, align 1, !tbaa !20
   %243 = getelementptr inbounds nuw i8, ptr %.sroa.112.2138.i, i64 %242
   %244 = icmp ugt ptr %243, %17
   %spec.store.select.i31.i = select i1 %244, ptr %17, ptr %243
@@ -762,7 +762,7 @@ define range(i64 1, 0) i64 @ZSTD_encodeSequences(ptr noundef %0, i64 noundef %1,
   %.sroa.112.3.i = phi ptr [ %spec.store.select.i31.i, %240 ], [ %.sroa.112.2138.i, %.lr.ph.i ]
   %249 = getelementptr inbounds nuw %struct.SeqDef_s, ptr %8, i64 %.086.i139.i
   %250 = getelementptr inbounds nuw i8, ptr %249, i64 4
-  %251 = load i16, ptr %250, align 4, !tbaa !17
+  %251 = load i16, ptr %250, align 4, !tbaa !16
   %252 = zext i8 %175 to i64
   %253 = getelementptr inbounds nuw [32 x i32], ptr @BIT_mask, i64 0, i64 %252
   %254 = load i32, ptr %253, align 4, !tbaa !10
@@ -774,7 +774,7 @@ define range(i64 1, 0) i64 @ZSTD_encodeSequences(ptr noundef %0, i64 noundef %1,
   %260 = or i64 %259, %.sroa.053.3.i
   %261 = add nuw nsw i32 %.sroa.63.3.i, %176
   %262 = getelementptr inbounds nuw i8, ptr %249, i64 6
-  %263 = load i16, ptr %262, align 2, !tbaa !19
+  %263 = load i16, ptr %262, align 2, !tbaa !18
   %264 = zext i8 %180 to i64
   %265 = getelementptr inbounds nuw [32 x i32], ptr @BIT_mask, i64 0, i64 %264
   %266 = load i32, ptr %265, align 4, !tbaa !10
@@ -791,7 +791,7 @@ define range(i64 1, 0) i64 @ZSTD_encodeSequences(ptr noundef %0, i64 noundef %1,
 275:                                              ; preds = %248
   %276 = lshr i32 %273, 3
   %277 = zext nneg i32 %276 to i64
-  store i64 %272, ptr %.sroa.112.3.i, align 1, !tbaa !21
+  store i64 %272, ptr %.sroa.112.3.i, align 1, !tbaa !20
   %278 = getelementptr inbounds nuw i8, ptr %.sroa.112.3.i, i64 %277
   %279 = icmp ugt ptr %278, %17
   %spec.store.select.i32.i = select i1 %279, ptr %17, ptr %278
@@ -811,12 +811,12 @@ define range(i64 1, 0) i64 @ZSTD_encodeSequences(ptr noundef %0, i64 noundef %1,
   br i1 %285, label %..thread128_crit_edge.i, label %286
 
 ..thread128_crit_edge.i:                          ; preds = %284
-  %.pre154.i = load i32, ptr %249, align 4, !tbaa !20
+  %.pre154.i = load i32, ptr %249, align 4, !tbaa !19
   br label %.thread128.i
 
 286:                                              ; preds = %284
   %.not94.i.i = icmp eq i8 %170, 56
-  %.pre155.i = load i32, ptr %249, align 4, !tbaa !20
+  %.pre155.i = load i32, ptr %249, align 4, !tbaa !19
   br i1 %.not94.i.i, label %.thread128.i, label %287
 
 287:                                              ; preds = %286
@@ -832,7 +832,7 @@ define range(i64 1, 0) i64 @ZSTD_encodeSequences(ptr noundef %0, i64 noundef %1,
   %297 = add nsw i32 %.sroa.63.4.i, %288
   %298 = lshr i32 %297, 3
   %299 = zext nneg i32 %298 to i64
-  store i64 %296, ptr %.sroa.112.4.i, align 1, !tbaa !21
+  store i64 %296, ptr %.sroa.112.4.i, align 1, !tbaa !20
   %300 = getelementptr inbounds nuw i8, ptr %.sroa.112.4.i, i64 %299
   %301 = icmp ugt ptr %300, %17
   %spec.store.select.i33.i = select i1 %301, ptr %17, ptr %300
@@ -861,7 +861,7 @@ define range(i64 1, 0) i64 @ZSTD_encodeSequences(ptr noundef %0, i64 noundef %1,
   br label %328
 
 318:                                              ; preds = %283
-  %319 = load i32, ptr %249, align 4, !tbaa !20
+  %319 = load i32, ptr %249, align 4, !tbaa !19
   %320 = getelementptr inbounds nuw [32 x i32], ptr @BIT_mask, i64 0, i64 %182
   %321 = load i32, ptr %320, align 4, !tbaa !10
   %322 = and i32 %321, %319
@@ -878,7 +878,7 @@ define range(i64 1, 0) i64 @ZSTD_encodeSequences(ptr noundef %0, i64 noundef %1,
   %.sroa.112.6.i = phi ptr [ %.sroa.112.4.i, %318 ], [ %.sroa.112.5.i, %.thread128.i ]
   %329 = lshr i32 %.sroa.63.6.i, 3
   %330 = zext nneg i32 %329 to i64
-  store i64 %.sroa.053.6.i, ptr %.sroa.112.6.i, align 1, !tbaa !21
+  store i64 %.sroa.053.6.i, ptr %.sroa.112.6.i, align 1, !tbaa !20
   %331 = getelementptr inbounds nuw i8, ptr %.sroa.112.6.i, i64 %330
   %332 = icmp ugt ptr %331, %17
   %spec.store.select.i34.i = select i1 %332, ptr %17, ptr %331
@@ -890,7 +890,7 @@ define range(i64 1, 0) i64 @ZSTD_encodeSequences(ptr noundef %0, i64 noundef %1,
   %.sroa.047.0.i = zext i16 %216 to i64
   %.sroa.041.0.i = zext i16 %199 to i64
   %336 = icmp ult i64 %335, %9
-  br i1 %336, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !23
+  br i1 %336, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !22
 
 ._crit_edge.i:                                    ; preds = %328, %158
   %.sroa.053.2.lcssa.i = phi i64 [ %164, %158 ], [ %334, %328 ]
@@ -910,7 +910,7 @@ define range(i64 1, 0) i64 @ZSTD_encodeSequences(ptr noundef %0, i64 noundef %1,
   %345 = add nuw nsw i32 %.sroa.63.2.lcssa.i, %23
   %346 = lshr i32 %345, 3
   %347 = zext nneg i32 %346 to i64
-  store i64 %344, ptr %.sroa.112.2.lcssa.i, align 1, !tbaa !21
+  store i64 %344, ptr %.sroa.112.2.lcssa.i, align 1, !tbaa !20
   %348 = getelementptr inbounds nuw i8, ptr %.sroa.112.2.lcssa.i, i64 %347
   %349 = icmp ugt ptr %348, %17
   %spec.store.select.i.i.i = select i1 %349, ptr %17, ptr %348
@@ -928,7 +928,7 @@ define range(i64 1, 0) i64 @ZSTD_encodeSequences(ptr noundef %0, i64 noundef %1,
   %361 = add nuw nsw i32 %350, %46
   %362 = lshr i32 %361, 3
   %363 = zext nneg i32 %362 to i64
-  store i64 %360, ptr %spec.store.select.i.i.i, align 1, !tbaa !21
+  store i64 %360, ptr %spec.store.select.i.i.i, align 1, !tbaa !20
   %364 = getelementptr inbounds nuw i8, ptr %spec.store.select.i.i.i, i64 %363
   %365 = icmp ugt ptr %364, %17
   %spec.store.select.i.i35.i = select i1 %365, ptr %17, ptr %364
@@ -946,7 +946,7 @@ define range(i64 1, 0) i64 @ZSTD_encodeSequences(ptr noundef %0, i64 noundef %1,
   %377 = add nuw nsw i32 %366, %68
   %378 = lshr i32 %377, 3
   %379 = zext nneg i32 %378 to i64
-  store i64 %376, ptr %spec.store.select.i.i35.i, align 1, !tbaa !21
+  store i64 %376, ptr %spec.store.select.i.i35.i, align 1, !tbaa !20
   %380 = getelementptr inbounds nuw i8, ptr %spec.store.select.i.i35.i, i64 %379
   %381 = icmp ugt ptr %380, %17
   %spec.store.select.i.i36.i = select i1 %381, ptr %17, ptr %380
@@ -959,7 +959,7 @@ define range(i64 1, 0) i64 @ZSTD_encodeSequences(ptr noundef %0, i64 noundef %1,
   %388 = add nuw nsw i32 %382, 1
   %389 = lshr i32 %388, 3
   %390 = zext nneg i32 %389 to i64
-  store i64 %387, ptr %spec.store.select.i.i36.i, align 1, !tbaa !21
+  store i64 %387, ptr %spec.store.select.i.i36.i, align 1, !tbaa !20
   %391 = getelementptr inbounds nuw i8, ptr %spec.store.select.i.i36.i, i64 %390
   %392 = icmp ugt ptr %391, %17
   %spec.store.select.i.i37.i = select i1 %392, ptr %17, ptr %391
@@ -996,7 +996,7 @@ define internal fastcc range(i64 1, 0) i64 @ZSTD_encodeSequences_bmi2(ptr nounde
 15:                                               ; preds = %11
   %16 = add i64 %9, -1
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 %16
-  %18 = load i8, ptr %17, align 1, !tbaa !16
+  %18 = load i8, ptr %17, align 1, !tbaa !15
   %.val.i.i = load i16, ptr %2, align 1, !tbaa !3
   %19 = zext i16 %.val.i.i to i32
   %20 = getelementptr inbounds nuw i8, ptr %2, i64 4
@@ -1023,7 +1023,7 @@ define internal fastcc range(i64 1, 0) i64 @ZSTD_encodeSequences_bmi2(ptr nounde
   %37 = getelementptr i16, ptr %36, i64 %35
   %38 = load i16, ptr %37, align 2, !tbaa !3
   %39 = getelementptr inbounds nuw i8, ptr %5, i64 %16
-  %40 = load i8, ptr %39, align 1, !tbaa !16
+  %40 = load i8, ptr %39, align 1, !tbaa !15
   %41 = zext i8 %40 to i32
   %.val.i.i11 = load i16, ptr %4, align 1, !tbaa !3
   %42 = zext i16 %.val.i.i11 to i32
@@ -1051,7 +1051,7 @@ define internal fastcc range(i64 1, 0) i64 @ZSTD_encodeSequences_bmi2(ptr nounde
   %60 = getelementptr i16, ptr %59, i64 %58
   %61 = load i16, ptr %60, align 2, !tbaa !3
   %62 = getelementptr inbounds nuw i8, ptr %7, i64 %16
-  %63 = load i8, ptr %62, align 1, !tbaa !16
+  %63 = load i8, ptr %62, align 1, !tbaa !15
   %.val.i.i16 = load i16, ptr %6, align 1, !tbaa !3
   %64 = zext i16 %.val.i.i16 to i32
   %65 = getelementptr inbounds nuw i8, ptr %6, i64 4
@@ -1079,9 +1079,9 @@ define internal fastcc range(i64 1, 0) i64 @ZSTD_encodeSequences_bmi2(ptr nounde
   %83 = load i16, ptr %82, align 2, !tbaa !3
   %84 = getelementptr inbounds nuw %struct.SeqDef_s, ptr %8, i64 %16
   %85 = getelementptr inbounds nuw i8, ptr %84, i64 4
-  %86 = load i16, ptr %85, align 4, !tbaa !17
+  %86 = load i16, ptr %85, align 4, !tbaa !16
   %87 = getelementptr inbounds nuw [36 x i8], ptr @LL_bits, i64 0, i64 %71
-  %88 = load i8, ptr %87, align 1, !tbaa !16
+  %88 = load i8, ptr %87, align 1, !tbaa !15
   %89 = zext i8 %88 to i32
   %90 = zext i8 %88 to i64
   %91 = getelementptr inbounds nuw [32 x i32], ptr @BIT_mask, i64 0, i64 %90
@@ -1090,9 +1090,9 @@ define internal fastcc range(i64 1, 0) i64 @ZSTD_encodeSequences_bmi2(ptr nounde
   %94 = and i32 %92, %93
   %95 = zext nneg i32 %94 to i64
   %96 = getelementptr inbounds nuw i8, ptr %84, i64 6
-  %97 = load i16, ptr %96, align 2, !tbaa !19
+  %97 = load i16, ptr %96, align 2, !tbaa !18
   %98 = getelementptr inbounds nuw [53 x i8], ptr @ML_bits, i64 0, i64 %26
-  %99 = load i8, ptr %98, align 1, !tbaa !16
+  %99 = load i8, ptr %98, align 1, !tbaa !15
   %100 = zext i8 %99 to i32
   %101 = zext i8 %99 to i64
   %102 = getelementptr inbounds nuw [32 x i32], ptr @BIT_mask, i64 0, i64 %101
@@ -1111,12 +1111,12 @@ define internal fastcc range(i64 1, 0) i64 @ZSTD_encodeSequences_bmi2(ptr nounde
   br i1 %111, label %..thread_crit_edge, label %112
 
 ..thread_crit_edge:                               ; preds = %110
-  %.pre = load i32, ptr %84, align 4, !tbaa !20
+  %.pre = load i32, ptr %84, align 4, !tbaa !19
   br label %.thread
 
 112:                                              ; preds = %110
   %.not93.i = icmp eq i8 %40, 56
-  %.pre153 = load i32, ptr %84, align 4, !tbaa !20
+  %.pre153 = load i32, ptr %84, align 4, !tbaa !19
   br i1 %.not93.i, label %.thread, label %113
 
 113:                                              ; preds = %112
@@ -1132,7 +1132,7 @@ define internal fastcc range(i64 1, 0) i64 @ZSTD_encodeSequences_bmi2(ptr nounde
   %123 = add nsw i32 %109, %114
   %124 = lshr i32 %123, 3
   %125 = zext nneg i32 %124 to i64
-  store i64 %122, ptr %0, align 1, !tbaa !21
+  store i64 %122, ptr %0, align 1, !tbaa !20
   %126 = getelementptr inbounds nuw i8, ptr %0, i64 %125
   %127 = icmp ugt ptr %126, %13
   %spec.store.select.i = select i1 %127, ptr %13, ptr %126
@@ -1161,7 +1161,7 @@ define internal fastcc range(i64 1, 0) i64 @ZSTD_encodeSequences_bmi2(ptr nounde
   br label %154
 
 144:                                              ; preds = %15
-  %145 = load i32, ptr %84, align 4, !tbaa !20
+  %145 = load i32, ptr %84, align 4, !tbaa !19
   %146 = getelementptr inbounds nuw [32 x i32], ptr @BIT_mask, i64 0, i64 %49
   %147 = load i32, ptr %146, align 4, !tbaa !10
   %148 = and i32 %147, %145
@@ -1178,7 +1178,7 @@ define internal fastcc range(i64 1, 0) i64 @ZSTD_encodeSequences_bmi2(ptr nounde
   %.sroa.112.1 = phi ptr [ %0, %144 ], [ %.sroa.112.0, %.thread ]
   %155 = lshr i32 %.sroa.63.1, 3
   %156 = zext nneg i32 %155 to i64
-  store i64 %.sroa.053.1, ptr %.sroa.112.1, align 1, !tbaa !21
+  store i64 %.sroa.053.1, ptr %.sroa.112.1, align 1, !tbaa !20
   %157 = getelementptr inbounds nuw i8, ptr %.sroa.112.1, i64 %156
   %158 = icmp ugt ptr %157, %13
   %spec.store.select.i21 = select i1 %158, ptr %13, ptr %157
@@ -1204,19 +1204,19 @@ define internal fastcc range(i64 1, 0) i64 @ZSTD_encodeSequences_bmi2(ptr nounde
   %.sroa.112.2138 = phi ptr [ %spec.store.select.i34, %324 ], [ %spec.store.select.i21, %.lr.ph.preheader ]
   %.sroa.053.2137 = phi i64 [ %330, %324 ], [ %160, %.lr.ph.preheader ]
   %163 = getelementptr inbounds nuw i8, ptr %7, i64 %.086.i139
-  %164 = load i8, ptr %163, align 1, !tbaa !16
+  %164 = load i8, ptr %163, align 1, !tbaa !15
   %165 = getelementptr inbounds nuw i8, ptr %5, i64 %.086.i139
-  %166 = load i8, ptr %165, align 1, !tbaa !16
+  %166 = load i8, ptr %165, align 1, !tbaa !15
   %167 = getelementptr inbounds nuw i8, ptr %3, i64 %.086.i139
-  %168 = load i8, ptr %167, align 1, !tbaa !16
+  %168 = load i8, ptr %167, align 1, !tbaa !15
   %169 = zext i8 %164 to i64
   %170 = getelementptr inbounds nuw [36 x i8], ptr @LL_bits, i64 0, i64 %169
-  %171 = load i8, ptr %170, align 1, !tbaa !16
+  %171 = load i8, ptr %170, align 1, !tbaa !15
   %172 = zext i8 %171 to i32
   %173 = zext i8 %166 to i32
   %174 = zext i8 %168 to i64
   %175 = getelementptr inbounds nuw [53 x i8], ptr @ML_bits, i64 0, i64 %174
-  %176 = load i8, ptr %175, align 1, !tbaa !16
+  %176 = load i8, ptr %175, align 1, !tbaa !15
   %177 = zext i8 %176 to i32
   %178 = zext i8 %166 to i64
   %179 = getelementptr inbounds nuw %struct.FSE_symbolCompressionTransform, ptr %48, i64 %178
@@ -1290,7 +1290,7 @@ define internal fastcc range(i64 1, 0) i64 @ZSTD_encodeSequences_bmi2(ptr nounde
 236:                                              ; preds = %.lr.ph
   %237 = lshr i32 %227, 3
   %238 = zext nneg i32 %237 to i64
-  store i64 %226, ptr %.sroa.112.2138, align 1, !tbaa !21
+  store i64 %226, ptr %.sroa.112.2138, align 1, !tbaa !20
   %239 = getelementptr inbounds nuw i8, ptr %.sroa.112.2138, i64 %238
   %240 = icmp ugt ptr %239, %13
   %spec.store.select.i31 = select i1 %240, ptr %13, ptr %239
@@ -1305,7 +1305,7 @@ define internal fastcc range(i64 1, 0) i64 @ZSTD_encodeSequences_bmi2(ptr nounde
   %.sroa.112.3 = phi ptr [ %spec.store.select.i31, %236 ], [ %.sroa.112.2138, %.lr.ph ]
   %245 = getelementptr inbounds nuw %struct.SeqDef_s, ptr %8, i64 %.086.i139
   %246 = getelementptr inbounds nuw i8, ptr %245, i64 4
-  %247 = load i16, ptr %246, align 4, !tbaa !17
+  %247 = load i16, ptr %246, align 4, !tbaa !16
   %248 = zext i8 %171 to i64
   %249 = getelementptr inbounds nuw [32 x i32], ptr @BIT_mask, i64 0, i64 %248
   %250 = load i32, ptr %249, align 4, !tbaa !10
@@ -1317,7 +1317,7 @@ define internal fastcc range(i64 1, 0) i64 @ZSTD_encodeSequences_bmi2(ptr nounde
   %256 = or i64 %255, %.sroa.053.3
   %257 = add nuw nsw i32 %.sroa.63.3, %172
   %258 = getelementptr inbounds nuw i8, ptr %245, i64 6
-  %259 = load i16, ptr %258, align 2, !tbaa !19
+  %259 = load i16, ptr %258, align 2, !tbaa !18
   %260 = zext i8 %176 to i64
   %261 = getelementptr inbounds nuw [32 x i32], ptr @BIT_mask, i64 0, i64 %260
   %262 = load i32, ptr %261, align 4, !tbaa !10
@@ -1334,7 +1334,7 @@ define internal fastcc range(i64 1, 0) i64 @ZSTD_encodeSequences_bmi2(ptr nounde
 271:                                              ; preds = %244
   %272 = lshr i32 %269, 3
   %273 = zext nneg i32 %272 to i64
-  store i64 %268, ptr %.sroa.112.3, align 1, !tbaa !21
+  store i64 %268, ptr %.sroa.112.3, align 1, !tbaa !20
   %274 = getelementptr inbounds nuw i8, ptr %.sroa.112.3, i64 %273
   %275 = icmp ugt ptr %274, %13
   %spec.store.select.i32 = select i1 %275, ptr %13, ptr %274
@@ -1354,12 +1354,12 @@ define internal fastcc range(i64 1, 0) i64 @ZSTD_encodeSequences_bmi2(ptr nounde
   br i1 %281, label %..thread128_crit_edge, label %282
 
 ..thread128_crit_edge:                            ; preds = %280
-  %.pre154 = load i32, ptr %245, align 4, !tbaa !20
+  %.pre154 = load i32, ptr %245, align 4, !tbaa !19
   br label %.thread128
 
 282:                                              ; preds = %280
   %.not94.i = icmp eq i8 %166, 56
-  %.pre155 = load i32, ptr %245, align 4, !tbaa !20
+  %.pre155 = load i32, ptr %245, align 4, !tbaa !19
   br i1 %.not94.i, label %.thread128, label %283
 
 283:                                              ; preds = %282
@@ -1375,7 +1375,7 @@ define internal fastcc range(i64 1, 0) i64 @ZSTD_encodeSequences_bmi2(ptr nounde
   %293 = add nsw i32 %.sroa.63.4, %284
   %294 = lshr i32 %293, 3
   %295 = zext nneg i32 %294 to i64
-  store i64 %292, ptr %.sroa.112.4, align 1, !tbaa !21
+  store i64 %292, ptr %.sroa.112.4, align 1, !tbaa !20
   %296 = getelementptr inbounds nuw i8, ptr %.sroa.112.4, i64 %295
   %297 = icmp ugt ptr %296, %13
   %spec.store.select.i33 = select i1 %297, ptr %13, ptr %296
@@ -1404,7 +1404,7 @@ define internal fastcc range(i64 1, 0) i64 @ZSTD_encodeSequences_bmi2(ptr nounde
   br label %324
 
 314:                                              ; preds = %279
-  %315 = load i32, ptr %245, align 4, !tbaa !20
+  %315 = load i32, ptr %245, align 4, !tbaa !19
   %316 = getelementptr inbounds nuw [32 x i32], ptr @BIT_mask, i64 0, i64 %178
   %317 = load i32, ptr %316, align 4, !tbaa !10
   %318 = and i32 %317, %315
@@ -1421,7 +1421,7 @@ define internal fastcc range(i64 1, 0) i64 @ZSTD_encodeSequences_bmi2(ptr nounde
   %.sroa.112.6 = phi ptr [ %.sroa.112.4, %314 ], [ %.sroa.112.5, %.thread128 ]
   %325 = lshr i32 %.sroa.63.6, 3
   %326 = zext nneg i32 %325 to i64
-  store i64 %.sroa.053.6, ptr %.sroa.112.6, align 1, !tbaa !21
+  store i64 %.sroa.053.6, ptr %.sroa.112.6, align 1, !tbaa !20
   %327 = getelementptr inbounds nuw i8, ptr %.sroa.112.6, i64 %326
   %328 = icmp ugt ptr %327, %13
   %spec.store.select.i34 = select i1 %328, ptr %13, ptr %327
@@ -1433,7 +1433,7 @@ define internal fastcc range(i64 1, 0) i64 @ZSTD_encodeSequences_bmi2(ptr nounde
   %.sroa.047.0 = zext i16 %212 to i64
   %.sroa.041.0 = zext i16 %195 to i64
   %332 = icmp ult i64 %331, %9
-  br i1 %332, label %.lr.ph, label %._crit_edge, !llvm.loop !23
+  br i1 %332, label %.lr.ph, label %._crit_edge, !llvm.loop !22
 
 ._crit_edge:                                      ; preds = %324, %154
   %.sroa.053.2.lcssa = phi i64 [ %160, %154 ], [ %330, %324 ]
@@ -1453,7 +1453,7 @@ define internal fastcc range(i64 1, 0) i64 @ZSTD_encodeSequences_bmi2(ptr nounde
   %341 = add nuw nsw i32 %.sroa.63.2.lcssa, %19
   %342 = lshr i32 %341, 3
   %343 = zext nneg i32 %342 to i64
-  store i64 %340, ptr %.sroa.112.2.lcssa, align 1, !tbaa !21
+  store i64 %340, ptr %.sroa.112.2.lcssa, align 1, !tbaa !20
   %344 = getelementptr inbounds nuw i8, ptr %.sroa.112.2.lcssa, i64 %343
   %345 = icmp ugt ptr %344, %13
   %spec.store.select.i.i = select i1 %345, ptr %13, ptr %344
@@ -1471,7 +1471,7 @@ define internal fastcc range(i64 1, 0) i64 @ZSTD_encodeSequences_bmi2(ptr nounde
   %357 = add nuw nsw i32 %346, %42
   %358 = lshr i32 %357, 3
   %359 = zext nneg i32 %358 to i64
-  store i64 %356, ptr %spec.store.select.i.i, align 1, !tbaa !21
+  store i64 %356, ptr %spec.store.select.i.i, align 1, !tbaa !20
   %360 = getelementptr inbounds nuw i8, ptr %spec.store.select.i.i, i64 %359
   %361 = icmp ugt ptr %360, %13
   %spec.store.select.i.i35 = select i1 %361, ptr %13, ptr %360
@@ -1489,7 +1489,7 @@ define internal fastcc range(i64 1, 0) i64 @ZSTD_encodeSequences_bmi2(ptr nounde
   %373 = add nuw nsw i32 %362, %64
   %374 = lshr i32 %373, 3
   %375 = zext nneg i32 %374 to i64
-  store i64 %372, ptr %spec.store.select.i.i35, align 1, !tbaa !21
+  store i64 %372, ptr %spec.store.select.i.i35, align 1, !tbaa !20
   %376 = getelementptr inbounds nuw i8, ptr %spec.store.select.i.i35, i64 %375
   %377 = icmp ugt ptr %376, %13
   %spec.store.select.i.i36 = select i1 %377, ptr %13, ptr %376
@@ -1502,7 +1502,7 @@ define internal fastcc range(i64 1, 0) i64 @ZSTD_encodeSequences_bmi2(ptr nounde
   %384 = add nuw nsw i32 %378, 1
   %385 = lshr i32 %384, 3
   %386 = zext nneg i32 %385 to i64
-  store i64 %383, ptr %spec.store.select.i.i36, align 1, !tbaa !21
+  store i64 %383, ptr %spec.store.select.i.i36, align 1, !tbaa !20
   %387 = getelementptr inbounds nuw i8, ptr %spec.store.select.i.i36, i64 %386
   %388 = icmp ugt ptr %387, %13
   %spec.store.select.i.i37 = select i1 %388, ptr %13, ptr %387
@@ -1555,16 +1555,15 @@ attributes #8 = { nounwind }
 !8 = !{!"", !9, i64 0, !9, i64 4}
 !9 = !{!"int", !5, i64 0}
 !10 = !{!9, !9, i64 0}
-!11 = distinct !{!11, !12, !13}
+!11 = distinct !{!11, !12}
 !12 = !{!"llvm.loop.mustprogress"}
-!13 = !{!"llvm.loop.estimated_trip_count"}
-!14 = distinct !{!14, !12, !13}
-!15 = distinct !{!15, !12, !13}
-!16 = !{!5, !5, i64 0}
-!17 = !{!18, !4, i64 4}
-!18 = !{!"SeqDef_s", !9, i64 0, !4, i64 4, !4, i64 6}
-!19 = !{!18, !4, i64 6}
-!20 = !{!18, !9, i64 0}
-!21 = !{!22, !22, i64 0}
-!22 = !{!"long", !5, i64 0}
-!23 = distinct !{!23, !12, !13}
+!13 = distinct !{!13, !12}
+!14 = distinct !{!14, !12}
+!15 = !{!5, !5, i64 0}
+!16 = !{!17, !4, i64 4}
+!17 = !{!"SeqDef_s", !9, i64 0, !4, i64 4, !4, i64 6}
+!18 = !{!17, !4, i64 6}
+!19 = !{!17, !9, i64 0}
+!20 = !{!21, !21, i64 0}
+!21 = !{!"long", !5, i64 0}
+!22 = distinct !{!22, !12}

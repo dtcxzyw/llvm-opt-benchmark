@@ -391,7 +391,7 @@ _ZN4absl7debian28AlphaNumC2ISaIcEEERKNSt7__cxx1112basic_stringIcSt11char_traitsI
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %13) #22
   %58 = getelementptr inbounds nuw i8, ptr %.sroa.041.046, i64 56
   %.not = icmp eq ptr %58, %24
-  br i1 %.not, label %._crit_edge, label %32, !llvm.loop !4
+  br i1 %.not, label %._crit_edge, label %32
 
 59:                                               ; preds = %_ZN4absl7debian28AlphaNumC2ISaIcEEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcET_EE.exit32
   %60 = landingpad { ptr, i32 }
@@ -574,7 +574,7 @@ define void @_ZN10open_spiel4json8ToStringB5cxx11ERKNS0_5ValueEbi(ptr dead_on_un
   %.1.i.i.i = phi i64 [ %.079.i.i.i, %31 ], [ %.010.i.i.i, %35 ]
   %38 = add nuw nsw i64 %.010.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %38, 7
-  br i1 %exitcond.not.i.i.i, label %_ZNK10open_spiel4json5Value6IsNullEv.exit, label %31, !llvm.loop !6
+  br i1 %exitcond.not.i.i.i, label %_ZNK10open_spiel4json5Value6IsNullEv.exit, label %31, !llvm.loop !4
 
 _ZNK10open_spiel4json5Value6IsNullEv.exit:        ; preds = %35, %37
   %.08.i.i.i = phi i64 [ 7, %35 ], [ %.1.i.i.i, %37 ]
@@ -631,7 +631,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
   %.1.i.i.i29 = phi i64 [ %.079.i.i.i28, %.preheader77 ], [ %.010.i.i.i27, %50 ]
   %53 = add nuw nsw i64 %.010.i.i.i27, 1
   %exitcond.not.i.i.i30 = icmp eq i64 %53, 7
-  br i1 %exitcond.not.i.i.i30, label %_ZNK10open_spiel4json5Value6IsBoolEv.exit, label %.preheader77, !llvm.loop !8
+  br i1 %exitcond.not.i.i.i30, label %_ZNK10open_spiel4json5Value6IsBoolEv.exit, label %.preheader77, !llvm.loop !6
 
 _ZNK10open_spiel4json5Value6IsBoolEv.exit:        ; preds = %50, %52
   %.08.i.i.i31 = phi i64 [ 7, %50 ], [ %.1.i.i.i29, %52 ]
@@ -740,7 +740,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit36: ; 
   %.1.i.i.i39 = phi i64 [ %.079.i.i.i38, %.preheader76 ], [ %.010.i.i.i37, %82 ]
   %85 = add nuw nsw i64 %.010.i.i.i37, 1
   %exitcond.not.i.i.i40 = icmp eq i64 %85, 7
-  br i1 %exitcond.not.i.i.i40, label %_ZNK10open_spiel4json5Value5IsIntEv.exit, label %.preheader76, !llvm.loop !9
+  br i1 %exitcond.not.i.i.i40, label %_ZNK10open_spiel4json5Value5IsIntEv.exit, label %.preheader76, !llvm.loop !7
 
 _ZNK10open_spiel4json5Value5IsIntEv.exit:         ; preds = %82, %84
   %.08.i.i.i41 = phi i64 [ 7, %82 ], [ %.1.i.i.i39, %84 ]
@@ -812,7 +812,7 @@ _ZNK10open_spiel4json5Value6GetIntEv.exit:        ; preds = %87
   %.1.i.i.i47 = phi i64 [ %.079.i.i.i46, %.preheader75 ], [ %.010.i.i.i45, %105 ]
   %108 = add nuw nsw i64 %.010.i.i.i45, 1
   %exitcond.not.i.i.i48 = icmp eq i64 %108, 7
-  br i1 %exitcond.not.i.i.i48, label %_ZNK10open_spiel4json5Value8IsDoubleEv.exit, label %.preheader75, !llvm.loop !10
+  br i1 %exitcond.not.i.i.i48, label %_ZNK10open_spiel4json5Value8IsDoubleEv.exit, label %.preheader75, !llvm.loop !8
 
 _ZNK10open_spiel4json5Value8IsDoubleEv.exit:      ; preds = %105, %107
   %.08.i.i.i49 = phi i64 [ 7, %105 ], [ %.1.i.i.i47, %107 ]
@@ -923,7 +923,7 @@ _ZN4absl7debian28AlphaNumC2EPKc.exit:             ; preds = %_ZNK10open_spiel4js
   %.1.i.i.i56 = phi i64 [ %.079.i.i.i55, %.preheader74 ], [ %.010.i.i.i54, %142 ]
   %145 = add nuw nsw i64 %.010.i.i.i54, 1
   %exitcond.not.i.i.i57 = icmp eq i64 %145, 7
-  br i1 %exitcond.not.i.i.i57, label %_ZNK10open_spiel4json5Value8IsStringEv.exit, label %.preheader74, !llvm.loop !11
+  br i1 %exitcond.not.i.i.i57, label %_ZNK10open_spiel4json5Value8IsStringEv.exit, label %.preheader74, !llvm.loop !9
 
 _ZNK10open_spiel4json5Value8IsStringEv.exit:      ; preds = %142, %144
   %.08.i.i.i58 = phi i64 [ 7, %142 ], [ %.1.i.i.i56, %144 ]
@@ -1010,7 +1010,7 @@ _ZNK10open_spiel4json5Value9GetStringB5cxx11Ev.exit: ; preds = %_ZN4absl7debian2
   %.1.i.i.i65 = phi i64 [ %.079.i.i.i64, %.preheader73 ], [ %.010.i.i.i63, %166 ]
   %169 = add nuw nsw i64 %.010.i.i.i63, 1
   %exitcond.not.i.i.i66 = icmp eq i64 %169, 7
-  br i1 %exitcond.not.i.i.i66, label %_ZNK10open_spiel4json5Value7IsArrayEv.exit, label %.preheader73, !llvm.loop !12
+  br i1 %exitcond.not.i.i.i66, label %_ZNK10open_spiel4json5Value7IsArrayEv.exit, label %.preheader73, !llvm.loop !10
 
 _ZNK10open_spiel4json5Value7IsArrayEv.exit:       ; preds = %166, %168
   %.08.i.i.i67 = phi i64 [ 7, %166 ], [ %.1.i.i.i65, %168 ]
@@ -1038,7 +1038,7 @@ _ZNK10open_spiel4json5Value7IsArrayEv.exit:       ; preds = %166, %168
   %.1.i.i.i70 = phi i64 [ %.079.i.i.i69, %.preheader ], [ %.010.i.i.i68, %176 ]
   %179 = add nuw nsw i64 %.010.i.i.i68, 1
   %exitcond.not.i.i.i71 = icmp eq i64 %179, 7
-  br i1 %exitcond.not.i.i.i71, label %_ZNK10open_spiel4json5Value8IsObjectEv.exit, label %.preheader, !llvm.loop !13
+  br i1 %exitcond.not.i.i.i71, label %_ZNK10open_spiel4json5Value8IsObjectEv.exit, label %.preheader, !llvm.loop !11
 
 _ZNK10open_spiel4json5Value8IsObjectEv.exit:      ; preds = %176, %178
   %.08.i.i.i72 = phi i64 [ 7, %176 ], [ %.1.i.i.i70, %178 ]
@@ -1289,7 +1289,7 @@ _ZN4absl7debian28AlphaNumC2ISaIcEEERKNSt7__cxx1112basic_stringIcSt11char_traitsI
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %14) #22
   %72 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.049.054) #24
   %.not = icmp eq ptr %72, %28
-  br i1 %.not, label %._crit_edge, label %39, !llvm.loop !14
+  br i1 %.not, label %._crit_edge, label %39
 
 73:                                               ; preds = %_ZN4absl7debian28AlphaNumC2ISaIcEEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcET_EE.exit38
   %74 = landingpad { ptr, i32 }
@@ -1464,7 +1464,7 @@ define internal fastcc void @_ZN10open_spiel4json12_GLOBAL__N_16EscapeERKNSt7__c
 18:                                               ; preds = %.invoke, %17
   %19 = getelementptr inbounds nuw i8, ptr %.sroa.08.012, i64 1
   %.not = icmp eq ptr %19, %6
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !15
+  br i1 %.not, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %18, %4
   ret void
@@ -1507,7 +1507,7 @@ define linkonce_odr void @_ZNSt7__cxx119to_stringEl(ptr dead_on_unwind noalias w
   %18 = udiv i64 %.02229.i, 10000
   %19 = add i32 %.02328.i, 4
   %20 = icmp ult i64 %.02229.i, 100000
-  br i1 %20, label %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit, label %.lr.ph.i, !llvm.loop !16
+  br i1 %20, label %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit, label %.lr.ph.i, !llvm.loop !12
 
 _ZNSt8__detail14__to_chars_lenImEEjT_i.exit:      ; preds = %17, %2, %7, %11, %15
   %.0.i = phi i32 [ %8, %7 ], [ %12, %11 ], [ %16, %15 ], [ 1, %2 ], [ %19, %17 ]
@@ -1566,7 +1566,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit: ; pre
   store i8 %40, ptr %43, align 1
   %44 = add i32 %.01819.i, -2
   %45 = icmp ugt i64 %.020.i, 9999
-  br i1 %45, label %.lr.ph.i16, label %._crit_edge.i, !llvm.loop !17
+  br i1 %45, label %.lr.ph.i16, label %._crit_edge.i, !llvm.loop !13
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i16, %28
   %.0.lcssa.i = phi i64 [ %4, %28 ], [ %33, %.lr.ph.i16 ]
@@ -1909,7 +1909,7 @@ _ZN4absl7debian211string_view13remove_prefixEm.exit.i: ; preds = %30
 37:                                               ; preds = %.lr.ph.i, %.lr.ph.i, %.lr.ph.i, %.lr.ph.i
   %38 = getelementptr inbounds nuw i8, ptr %.012.i, i64 1
   %39 = icmp ult ptr %38, %27
-  br i1 %39, label %.lr.ph.i, label %_ZN10open_spiel4json12_GLOBAL__N_117ConsumeWhitespaceEPN4absl7debian211string_viewE.exit, !llvm.loop !18
+  br i1 %39, label %.lr.ph.i, label %_ZN10open_spiel4json12_GLOBAL__N_117ConsumeWhitespaceEPN4absl7debian211string_viewE.exit, !llvm.loop !14
 
 _ZN10open_spiel4json12_GLOBAL__N_117ConsumeWhitespaceEPN4absl7debian211string_viewE.exit: ; preds = %37, %2, %_ZN4absl7debian211string_view13remove_prefixEm.exit.i
   %.sroa.01.0.copyload = phi ptr [ %24, %2 ], [ %35, %_ZN4absl7debian211string_view13remove_prefixEm.exit.i ], [ %24, %37 ]
@@ -1969,15 +1969,15 @@ _ZNK4absl7debian211string_view2atEm.exit:         ; preds = %_ZN10open_spiel4jso
   ]
 
 46:                                               ; preds = %_ZNK4absl7debian211string_view2atEm.exit, %_ZNK4absl7debian211string_view2atEm.exit, %_ZNK4absl7debian211string_view2atEm.exit, %_ZNK4absl7debian211string_view2atEm.exit, %_ZNK4absl7debian211string_view2atEm.exit, %_ZNK4absl7debian211string_view2atEm.exit, %_ZNK4absl7debian211string_view2atEm.exit, %_ZNK4absl7debian211string_view2atEm.exit, %_ZNK4absl7debian211string_view2atEm.exit, %_ZNK4absl7debian211string_view2atEm.exit, %_ZNK4absl7debian211string_view2atEm.exit
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !19)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !15)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %19)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %20)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %21)
-  %47 = tail call noundef i64 @_ZNK4absl7debian211string_view17find_first_not_ofES1_m(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr nonnull @.str.32, i64 15, i64 noundef 0) #22, !noalias !19
-  %48 = load i64, ptr %25, align 8, !noalias !19
+  %47 = tail call noundef i64 @_ZNK4absl7debian211string_view17find_first_not_ofES1_m(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr nonnull @.str.32, i64 15, i64 noundef 0) #22, !noalias !15
+  %48 = load i64, ptr %25, align 8, !noalias !15
   %.sroa.speculated41.i = tail call i64 @llvm.umin.i64(i64 %48, i64 %47)
-  %49 = tail call noundef i64 @_ZNK4absl7debian211string_view17find_first_not_ofES1_m(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr nonnull @.str.33, i64 11, i64 noundef 0) #22, !noalias !19
-  %50 = load i64, ptr %25, align 8, !noalias !19
+  %49 = tail call noundef i64 @_ZNK4absl7debian211string_view17find_first_not_ofES1_m(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr nonnull @.str.33, i64 11, i64 noundef 0) #22, !noalias !15
+  %50 = load i64, ptr %25, align 8, !noalias !15
   %.sroa.speculated.i = tail call i64 @llvm.umin.i64(i64 %50, i64 %49)
   %51 = icmp eq i64 %.sroa.speculated41.i, %.sroa.speculated.i
   br i1 %51, label %52, label %72
@@ -1991,15 +1991,15 @@ _ZNK4absl7debian211string_view2atEm.exit:         ; preds = %_ZN10open_spiel4jso
   unreachable
 
 _ZNK4absl7debian211string_view6substrEmm.exit.i:  ; preds = %52
-  %55 = load ptr, ptr %1, align 8, !noalias !19
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %18), !noalias !19
-  %56 = call noundef zeroext i1 @_ZN4absl7debian216numbers_internal17safe_strto64_baseENS0_11string_viewEPli(ptr %55, i64 %.sroa.speculated41.i, ptr noundef nonnull %18, i32 noundef 10), !noalias !19
-  %57 = load i64, ptr %18, align 8, !noalias !19
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %18), !noalias !19
+  %55 = load ptr, ptr %1, align 8, !noalias !15
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %18), !noalias !15
+  %56 = call noundef zeroext i1 @_ZN4absl7debian216numbers_internal17safe_strto64_baseENS0_11string_viewEPli(ptr %55, i64 %.sroa.speculated41.i, ptr noundef nonnull %18, i32 noundef 10), !noalias !15
+  %57 = load i64, ptr %18, align 8, !noalias !15
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %18), !noalias !15
   br i1 %56, label %58, label %_ZN4absl7debian211string_viewC2EPKc.exit34.i
 
 58:                                               ; preds = %_ZNK4absl7debian211string_view6substrEmm.exit.i
-  %59 = load i64, ptr %25, align 8, !noalias !19
+  %59 = load i64, ptr %25, align 8, !noalias !15
   %.not.i.i17 = icmp ugt i64 %.sroa.speculated41.i, %59
   br i1 %.not.i.i17, label %60, label %61
 
@@ -2008,19 +2008,19 @@ _ZNK4absl7debian211string_view6substrEmm.exit.i:  ; preds = %52
   unreachable
 
 61:                                               ; preds = %58
-  %62 = load ptr, ptr %1, align 8, !noalias !19
+  %62 = load ptr, ptr %1, align 8, !noalias !15
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 %.sroa.speculated41.i
-  store ptr %63, ptr %1, align 8, !noalias !19
+  store ptr %63, ptr %1, align 8, !noalias !15
   %64 = sub nuw i64 %59, %.sroa.speculated41.i
-  store i64 %64, ptr %25, align 8, !noalias !19
-  store i64 %57, ptr %19, align 8, !noalias !19
+  store i64 %64, ptr %25, align 8, !noalias !15
+  store i64 %57, ptr %19, align 8, !noalias !15
   %65 = getelementptr inbounds nuw i8, ptr %19, i64 48
-  store i8 2, ptr %65, align 8, !noalias !19
-  store i8 1, ptr %0, align 8, !alias.scope !19
+  store i8 2, ptr %65, align 8, !noalias !15
+  store i8 1, ptr %0, align 8, !alias.scope !15
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @_ZNSt8__detail9__variant15_Move_ctor_baseILb0EJN10open_spiel4json4NullEbldNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorINS3_5ValueESaISC_EESt3mapISA_SC_St4lessISA_ESaISt4pairIKSA_SC_EEEEEC2EOSN_(ptr noundef nonnull align 8 dereferenceable(49) %66, ptr noundef nonnull align 8 dereferenceable(49) %19) #22
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %17), !noalias !19
-  %67 = load i8, ptr %65, align 8, !noalias !19
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %17), !noalias !15
+  %67 = load i8, ptr %65, align 8, !noalias !15
   %.not.i.i.i = icmp eq i8 %67, -1
   br i1 %.not.i.i.i, label %_ZN10open_spiel4json5ValueD2Ev.exit.i, label %68
 
@@ -2036,7 +2036,7 @@ _ZNK4absl7debian211string_view6substrEmm.exit.i:  ; preds = %52
   unreachable
 
 _ZN10open_spiel4json5ValueD2Ev.exit.i:            ; preds = %68, %61
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %17), !noalias !19
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %17), !noalias !15
   br label %_ZN10open_spiel4json12_GLOBAL__N_111ParseNumberEPN4absl7debian211string_viewE.exit
 
 72:                                               ; preds = %46
@@ -2049,12 +2049,12 @@ _ZN10open_spiel4json5ValueD2Ev.exit.i:            ; preds = %68, %61
   unreachable
 
 _ZNK4absl7debian211string_view6substrEmm.exit28.i: ; preds = %72
-  %76 = load ptr, ptr %1, align 8, !noalias !19
-  %77 = call noundef zeroext i1 @_ZN4absl7debian210SimpleAtodENS0_11string_viewEPd(ptr %76, i64 %73, ptr noundef nonnull %20), !noalias !19
+  %76 = load ptr, ptr %1, align 8, !noalias !15
+  %77 = call noundef zeroext i1 @_ZN4absl7debian210SimpleAtodENS0_11string_viewEPd(ptr %76, i64 %73, ptr noundef nonnull %20), !noalias !15
   br i1 %77, label %78, label %_ZN4absl7debian211string_viewC2EPKc.exit34.i
 
 78:                                               ; preds = %_ZNK4absl7debian211string_view6substrEmm.exit28.i
-  %79 = load i64, ptr %25, align 8, !noalias !19
+  %79 = load i64, ptr %25, align 8, !noalias !15
   %.not.i29.i = icmp ugt i64 %.sroa.speculated41.i, %79
   br i1 %.not.i29.i, label %80, label %81
 
@@ -2063,20 +2063,20 @@ _ZNK4absl7debian211string_view6substrEmm.exit28.i: ; preds = %72
   unreachable
 
 81:                                               ; preds = %78
-  %82 = load ptr, ptr %1, align 8, !noalias !19
+  %82 = load ptr, ptr %1, align 8, !noalias !15
   %83 = getelementptr inbounds i8, ptr %82, i64 %.sroa.speculated41.i
-  store ptr %83, ptr %1, align 8, !noalias !19
+  store ptr %83, ptr %1, align 8, !noalias !15
   %84 = sub nuw i64 %79, %.sroa.speculated41.i
-  store i64 %84, ptr %25, align 8, !noalias !19
-  %85 = load double, ptr %20, align 8, !noalias !19
-  store double %85, ptr %21, align 8, !noalias !19
+  store i64 %84, ptr %25, align 8, !noalias !15
+  %85 = load double, ptr %20, align 8, !noalias !15
+  store double %85, ptr %21, align 8, !noalias !15
   %86 = getelementptr inbounds nuw i8, ptr %21, i64 48
-  store i8 3, ptr %86, align 8, !noalias !19
-  store i8 1, ptr %0, align 8, !alias.scope !19
+  store i8 3, ptr %86, align 8, !noalias !15
+  store i8 1, ptr %0, align 8, !alias.scope !15
   %87 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @_ZNSt8__detail9__variant15_Move_ctor_baseILb0EJN10open_spiel4json4NullEbldNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorINS3_5ValueESaISC_EESt3mapISA_SC_St4lessISA_ESaISt4pairIKSA_SC_EEEEEC2EOSN_(ptr noundef nonnull align 8 dereferenceable(49) %87, ptr noundef nonnull align 8 dereferenceable(49) %21) #22
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %16), !noalias !19
-  %88 = load i8, ptr %86, align 8, !noalias !19
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %16), !noalias !15
+  %88 = load i8, ptr %86, align 8, !noalias !15
   %.not.i.i31.i = icmp eq i8 %88, -1
   br i1 %.not.i.i31.i, label %_ZN10open_spiel4json5ValueD2Ev.exit33.i, label %89
 
@@ -2092,16 +2092,16 @@ _ZNK4absl7debian211string_view6substrEmm.exit28.i: ; preds = %72
   unreachable
 
 _ZN10open_spiel4json5ValueD2Ev.exit33.i:          ; preds = %89, %81
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %16), !noalias !19
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %16), !noalias !15
   br label %_ZN10open_spiel4json12_GLOBAL__N_111ParseNumberEPN4absl7debian211string_viewE.exit
 
 _ZN4absl7debian211string_viewC2EPKc.exit34.i:     ; preds = %_ZNK4absl7debian211string_view6substrEmm.exit28.i, %_ZNK4absl7debian211string_view6substrEmm.exit.i
-  %.sroa.0.0.copyload.i = load ptr, ptr %1, align 8, !noalias !19
-  %.sroa.2.0.copyload.i = load i64, ptr %25, align 8, !noalias !19
-  call fastcc void @_ZN10open_spiel4json12_GLOBAL__N_110ParseErrorEN4absl7debian211string_viewES4_(ptr nonnull @.str.34, i64 14, ptr %.sroa.0.0.copyload.i, i64 %.sroa.2.0.copyload.i), !noalias !19
-  store i8 0, ptr %0, align 8, !alias.scope !19
+  %.sroa.0.0.copyload.i = load ptr, ptr %1, align 8, !noalias !15
+  %.sroa.2.0.copyload.i = load i64, ptr %25, align 8, !noalias !15
+  call fastcc void @_ZN10open_spiel4json12_GLOBAL__N_110ParseErrorEN4absl7debian211string_viewES4_(ptr nonnull @.str.34, i64 14, ptr %.sroa.0.0.copyload.i, i64 %.sroa.2.0.copyload.i), !noalias !15
+  store i8 0, ptr %0, align 8, !alias.scope !15
   %93 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %93, i8 0, i64 56, i1 false), !alias.scope !19
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %93, i8 0, i64 56, i1 false), !alias.scope !15
   br label %_ZN10open_spiel4json12_GLOBAL__N_111ParseNumberEPN4absl7debian211string_viewE.exit
 
 _ZN10open_spiel4json12_GLOBAL__N_111ParseNumberEPN4absl7debian211string_viewE.exit: ; preds = %_ZN10open_spiel4json5ValueD2Ev.exit.i, %_ZN10open_spiel4json5ValueD2Ev.exit33.i, %_ZN4absl7debian211string_viewC2EPKc.exit34.i
@@ -2111,88 +2111,88 @@ _ZN10open_spiel4json12_GLOBAL__N_111ParseNumberEPN4absl7debian211string_viewE.ex
   br label %_ZN10open_spiel4json12_GLOBAL__N_113ParseConstantINS0_4NullEEEN4absl7debian28optionalINS0_5ValueEEEPNS5_11string_viewES9_T_.exit
 
 _ZN4absl7debian211string_viewC2EPKc.exit18:       ; preds = %_ZNK4absl7debian211string_view2atEm.exit
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !22)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !18)
   %.not.i.i.i19 = icmp ult i64 %.sroa.26.0.copyload.i, 4
   br i1 %.not.i.i.i19, label %_ZN4absl7debian211string_viewC2EPKc.exit.i, label %_ZN4absl7debian210StartsWithENS0_11string_viewES1_.exit.i.i
 
 _ZN4absl7debian210StartsWithENS0_11string_viewES1_.exit.i.i: ; preds = %_ZN4absl7debian211string_viewC2EPKc.exit18
-  %bcmp.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %.sroa.01.0.copyload, ptr noundef nonnull readonly dereferenceable(4) @.str.9, i64 4), !noalias !22
+  %bcmp.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %.sroa.01.0.copyload, ptr noundef nonnull readonly dereferenceable(4) @.str.9, i64 4), !noalias !18
   %94 = icmp eq i32 %bcmp.i.i.i, 0
   br i1 %94, label %_ZN4absl7debian210StartsWithENS0_11string_viewES1_.exit.thread.i.i, label %_ZN4absl7debian211string_viewC2EPKc.exit.i
 
 _ZN4absl7debian210StartsWithENS0_11string_viewES1_.exit.thread.i.i: ; preds = %_ZN4absl7debian210StartsWithENS0_11string_viewES1_.exit.i.i
   %95 = getelementptr inbounds nuw i8, ptr %.sroa.01.0.copyload, i64 4
-  store ptr %95, ptr %1, align 8, !noalias !22
+  store ptr %95, ptr %1, align 8, !noalias !18
   %96 = add i64 %.sroa.26.0.copyload.i, -4
-  store i64 %96, ptr %25, align 8, !noalias !22
-  store i8 1, ptr %0, align 8, !alias.scope !22
+  store i64 %96, ptr %25, align 8, !noalias !18
+  store i8 1, ptr %0, align 8, !alias.scope !18
   %97 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store i8 0, ptr %97, align 8, !alias.scope !22
+  store i8 0, ptr %97, align 8, !alias.scope !18
   br label %_ZN10open_spiel4json12_GLOBAL__N_113ParseConstantINS0_4NullEEEN4absl7debian28optionalINS0_5ValueEEEPNS5_11string_viewES9_T_.exit
 
 _ZN4absl7debian211string_viewC2EPKc.exit.i:       ; preds = %_ZN4absl7debian210StartsWithENS0_11string_viewES1_.exit.i.i, %_ZN4absl7debian211string_viewC2EPKc.exit18
-  tail call fastcc void @_ZN10open_spiel4json12_GLOBAL__N_110ParseErrorEN4absl7debian211string_viewES4_(ptr nonnull @.str.35, i64 18, ptr nonnull %.sroa.01.0.copyload, i64 %.sroa.26.0.copyload.i), !noalias !22
-  store i8 0, ptr %0, align 8, !alias.scope !22
+  tail call fastcc void @_ZN10open_spiel4json12_GLOBAL__N_110ParseErrorEN4absl7debian211string_viewES4_(ptr nonnull @.str.35, i64 18, ptr nonnull %.sroa.01.0.copyload, i64 %.sroa.26.0.copyload.i), !noalias !18
+  store i8 0, ptr %0, align 8, !alias.scope !18
   %98 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %98, i8 0, i64 56, i1 false), !alias.scope !22
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %98, i8 0, i64 56, i1 false), !alias.scope !18
   br label %_ZN10open_spiel4json12_GLOBAL__N_113ParseConstantINS0_4NullEEEN4absl7debian28optionalINS0_5ValueEEEPNS5_11string_viewES9_T_.exit
 
 _ZN4absl7debian211string_viewC2EPKc.exit20:       ; preds = %_ZNK4absl7debian211string_view2atEm.exit
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !25)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !21)
   %.not.i.i.i24 = icmp ult i64 %.sroa.26.0.copyload.i, 4
   br i1 %.not.i.i.i24, label %_ZN4absl7debian211string_viewC2EPKc.exit.i27, label %_ZN4absl7debian210StartsWithENS0_11string_viewES1_.exit.i.i25
 
 _ZN4absl7debian210StartsWithENS0_11string_viewES1_.exit.i.i25: ; preds = %_ZN4absl7debian211string_viewC2EPKc.exit20
-  %bcmp.i.i.i26 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %.sroa.01.0.copyload, ptr noundef nonnull readonly dereferenceable(4) @.str.10, i64 4), !noalias !25
+  %bcmp.i.i.i26 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %.sroa.01.0.copyload, ptr noundef nonnull readonly dereferenceable(4) @.str.10, i64 4), !noalias !21
   %99 = icmp eq i32 %bcmp.i.i.i26, 0
   br i1 %99, label %_ZN4absl7debian210StartsWithENS0_11string_viewES1_.exit.thread.i.i28, label %_ZN4absl7debian211string_viewC2EPKc.exit.i27
 
 _ZN4absl7debian210StartsWithENS0_11string_viewES1_.exit.thread.i.i28: ; preds = %_ZN4absl7debian210StartsWithENS0_11string_viewES1_.exit.i.i25
   %100 = getelementptr inbounds nuw i8, ptr %.sroa.01.0.copyload, i64 4
-  store ptr %100, ptr %1, align 8, !noalias !25
+  store ptr %100, ptr %1, align 8, !noalias !21
   %101 = add i64 %.sroa.26.0.copyload.i, -4
-  store i64 %101, ptr %25, align 8, !noalias !25
-  store i8 1, ptr %0, align 8, !alias.scope !25
+  store i64 %101, ptr %25, align 8, !noalias !21
+  store i8 1, ptr %0, align 8, !alias.scope !21
   %102 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i8 1, ptr %102, align 8, !alias.scope !25
+  store i8 1, ptr %102, align 8, !alias.scope !21
   %103 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store i8 1, ptr %103, align 8, !alias.scope !25
+  store i8 1, ptr %103, align 8, !alias.scope !21
   br label %_ZN10open_spiel4json12_GLOBAL__N_113ParseConstantINS0_4NullEEEN4absl7debian28optionalINS0_5ValueEEEPNS5_11string_viewES9_T_.exit
 
 _ZN4absl7debian211string_viewC2EPKc.exit.i27:     ; preds = %_ZN4absl7debian210StartsWithENS0_11string_viewES1_.exit.i.i25, %_ZN4absl7debian211string_viewC2EPKc.exit20
-  tail call fastcc void @_ZN10open_spiel4json12_GLOBAL__N_110ParseErrorEN4absl7debian211string_viewES4_(ptr nonnull @.str.35, i64 18, ptr nonnull %.sroa.01.0.copyload, i64 %.sroa.26.0.copyload.i), !noalias !25
-  store i8 0, ptr %0, align 8, !alias.scope !25
+  tail call fastcc void @_ZN10open_spiel4json12_GLOBAL__N_110ParseErrorEN4absl7debian211string_viewES4_(ptr nonnull @.str.35, i64 18, ptr nonnull %.sroa.01.0.copyload, i64 %.sroa.26.0.copyload.i), !noalias !21
+  store i8 0, ptr %0, align 8, !alias.scope !21
   %104 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %104, i8 0, i64 56, i1 false), !alias.scope !25
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %104, i8 0, i64 56, i1 false), !alias.scope !21
   br label %_ZN10open_spiel4json12_GLOBAL__N_113ParseConstantINS0_4NullEEEN4absl7debian28optionalINS0_5ValueEEEPNS5_11string_viewES9_T_.exit
 
 _ZN4absl7debian211string_viewC2EPKc.exit30:       ; preds = %_ZNK4absl7debian211string_view2atEm.exit
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !28)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !24)
   %.not.i.i.i34 = icmp ult i64 %.sroa.26.0.copyload.i, 5
   br i1 %.not.i.i.i34, label %_ZN4absl7debian211string_viewC2EPKc.exit.i37, label %_ZN4absl7debian210StartsWithENS0_11string_viewES1_.exit.i.i35
 
 _ZN4absl7debian210StartsWithENS0_11string_viewES1_.exit.i.i35: ; preds = %_ZN4absl7debian211string_viewC2EPKc.exit30
-  %bcmp.i.i.i36 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(5) %.sroa.01.0.copyload, ptr noundef nonnull readonly dereferenceable(5) @.str.11, i64 5), !noalias !28
+  %bcmp.i.i.i36 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(5) %.sroa.01.0.copyload, ptr noundef nonnull readonly dereferenceable(5) @.str.11, i64 5), !noalias !24
   %105 = icmp eq i32 %bcmp.i.i.i36, 0
   br i1 %105, label %_ZN4absl7debian210StartsWithENS0_11string_viewES1_.exit.thread.i.i38, label %_ZN4absl7debian211string_viewC2EPKc.exit.i37
 
 _ZN4absl7debian210StartsWithENS0_11string_viewES1_.exit.thread.i.i38: ; preds = %_ZN4absl7debian210StartsWithENS0_11string_viewES1_.exit.i.i35
   %106 = getelementptr inbounds nuw i8, ptr %.sroa.01.0.copyload, i64 5
-  store ptr %106, ptr %1, align 8, !noalias !28
+  store ptr %106, ptr %1, align 8, !noalias !24
   %107 = add i64 %.sroa.26.0.copyload.i, -5
-  store i64 %107, ptr %25, align 8, !noalias !28
-  store i8 1, ptr %0, align 8, !alias.scope !28
+  store i64 %107, ptr %25, align 8, !noalias !24
+  store i8 1, ptr %0, align 8, !alias.scope !24
   %108 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i8 0, ptr %108, align 8, !alias.scope !28
+  store i8 0, ptr %108, align 8, !alias.scope !24
   %109 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store i8 1, ptr %109, align 8, !alias.scope !28
+  store i8 1, ptr %109, align 8, !alias.scope !24
   br label %_ZN10open_spiel4json12_GLOBAL__N_113ParseConstantINS0_4NullEEEN4absl7debian28optionalINS0_5ValueEEEPNS5_11string_viewES9_T_.exit
 
 _ZN4absl7debian211string_viewC2EPKc.exit.i37:     ; preds = %_ZN4absl7debian210StartsWithENS0_11string_viewES1_.exit.i.i35, %_ZN4absl7debian211string_viewC2EPKc.exit30
-  tail call fastcc void @_ZN10open_spiel4json12_GLOBAL__N_110ParseErrorEN4absl7debian211string_viewES4_(ptr nonnull @.str.35, i64 18, ptr nonnull %.sroa.01.0.copyload, i64 %.sroa.26.0.copyload.i), !noalias !28
-  store i8 0, ptr %0, align 8, !alias.scope !28
+  tail call fastcc void @_ZN10open_spiel4json12_GLOBAL__N_110ParseErrorEN4absl7debian211string_viewES4_(ptr nonnull @.str.35, i64 18, ptr nonnull %.sroa.01.0.copyload, i64 %.sroa.26.0.copyload.i), !noalias !24
+  store i8 0, ptr %0, align 8, !alias.scope !24
   %110 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %110, i8 0, i64 56, i1 false), !alias.scope !28
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %110, i8 0, i64 56, i1 false), !alias.scope !24
   br label %_ZN10open_spiel4json12_GLOBAL__N_113ParseConstantINS0_4NullEEEN4absl7debian28optionalINS0_5ValueEEEPNS5_11string_viewES9_T_.exit
 
 111:                                              ; preds = %_ZNK4absl7debian211string_view2atEm.exit
@@ -2227,10 +2227,10 @@ _ZN4absl7debian210StartsWithENS0_11string_viewES1_.exit.thread.i87: ; preds = %_
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %14)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %15)
   %122 = getelementptr inbounds nuw i8, ptr %.sroa.01.0.copyload, i64 1
-  store ptr %122, ptr %1, align 8, !noalias !31
+  store ptr %122, ptr %1, align 8, !noalias !27
   %123 = add i64 %.sroa.26.0.copyload.i, -1
-  store i64 %123, ptr %25, align 8, !noalias !31
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %14, i8 0, i64 24, i1 false), !noalias !31
+  store i64 %123, ptr %25, align 8, !noalias !27
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %14, i8 0, i64 24, i1 false), !noalias !27
   %124 = icmp eq i64 %123, 0
   br i1 %124, label %_ZN4absl7debian211string_viewC2EPKc.exit57.invoke, label %.lr.ph
 
@@ -2285,7 +2285,7 @@ _ZN4absl7debian211string_view13remove_prefixEm.exit.i78: ; preds = %136
 143:                                              ; preds = %.lr.ph.i75, %.lr.ph.i75, %.lr.ph.i75, %.lr.ph.i75
   %144 = getelementptr inbounds nuw i8, ptr %.012.i76, i64 1
   %145 = icmp ult ptr %144, %133
-  br i1 %145, label %.lr.ph.i75, label %_ZN4absl7debian211string_viewC2EPKc.exit74, !llvm.loop !18
+  br i1 %145, label %.lr.ph.i75, label %_ZN4absl7debian211string_viewC2EPKc.exit74, !llvm.loop !14
 
 _ZN4absl7debian211string_viewC2EPKc.exit74:       ; preds = %143, %_ZN4absl7debian211string_view13remove_prefixEm.exit.i78
   %.sroa.01.0.copyload.i = phi ptr [ %141, %_ZN4absl7debian211string_view13remove_prefixEm.exit.i78 ], [ %132, %143 ]
@@ -2398,7 +2398,7 @@ _ZN4absl7debian211string_view13remove_prefixEm.exit.i55: ; preds = %170
 177:                                              ; preds = %.lr.ph.i52, %.lr.ph.i52, %.lr.ph.i52, %.lr.ph.i52
   %178 = getelementptr inbounds nuw i8, ptr %.012.i53, i64 1
   %179 = icmp ult ptr %178, %167
-  br i1 %179, label %.lr.ph.i52, label %_ZN10open_spiel4json12_GLOBAL__N_117ConsumeWhitespaceEPN4absl7debian211string_viewE.exit56, !llvm.loop !18
+  br i1 %179, label %.lr.ph.i52, label %_ZN10open_spiel4json12_GLOBAL__N_117ConsumeWhitespaceEPN4absl7debian211string_viewE.exit56, !llvm.loop !14
 
 _ZN10open_spiel4json12_GLOBAL__N_117ConsumeWhitespaceEPN4absl7debian211string_viewE.exit56: ; preds = %177, %157, %_ZN4absl7debian211string_view13remove_prefixEm.exit.i55, %thread-pre-split207
   invoke fastcc void @_ZN10open_spiel4json12_GLOBAL__N_110ParseValueEPN4absl7debian211string_viewE(ptr dead_on_unwind noalias nonnull writable align 8 %15, ptr noundef nonnull %1)
@@ -2474,7 +2474,7 @@ _ZN10open_spiel4json5ValueD2Ev.exit.i.i.i.i.i:    ; preds = %.noexc.i.i.i.i.i.i.
   br label %_ZN4absl7debian28optionalIN10open_spiel4json5ValueEED2Ev.exit
 
 _ZN4absl7debian28optionalIN10open_spiel4json5ValueEED2Ev.exit: ; preds = %_ZNSt6vectorIN10open_spiel4json5ValueESaIS2_EE9push_backERKS2_.exit, %_ZN10open_spiel4json5ValueD2Ev.exit.i.i.i.i.i
-  br i1 %182, label %thread-pre-split, label %_ZN10open_spiel4json12_GLOBAL__N_113ParseConstantINS0_4NullEEEN4absl7debian28optionalINS0_5ValueEEEPNS5_11string_viewES9_T_.exit.critedge, !llvm.loop !34
+  br i1 %182, label %thread-pre-split, label %_ZN10open_spiel4json12_GLOBAL__N_113ParseConstantINS0_4NullEEEN4absl7debian28optionalINS0_5ValueEEEPNS5_11string_viewES9_T_.exit.critedge, !llvm.loop !30
 
 202:                                              ; preds = %193
   %203 = landingpad { ptr, i32 }
@@ -2487,7 +2487,7 @@ _ZN4absl7debian28optionalIN10open_spiel4json5ValueEED2Ev.exit: ; preds = %_ZNSt6
   br label %204
 
 _ZN4absl7debian211string_viewC2EPKc.exit50.loopexit: ; preds = %thread-pre-split
-  %.sroa.0.0.copyload.i42.pre = load ptr, ptr %1, align 8, !noalias !31
+  %.sroa.0.0.copyload.i42.pre = load ptr, ptr %1, align 8, !noalias !27
   br label %_ZN4absl7debian211string_viewC2EPKc.exit57.invoke
 
 204:                                              ; preds = %.loopexit, %.loopexit.split-lp, %.body
@@ -2500,9 +2500,9 @@ _ZN4absl7debian210StartsWithENS0_11string_viewES1_.exit.thread.i166: ; preds = %
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %12)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %13)
   %205 = getelementptr inbounds nuw i8, ptr %.sroa.01.0.copyload, i64 1
-  store ptr %205, ptr %1, align 8, !noalias !35
+  store ptr %205, ptr %1, align 8, !noalias !31
   %206 = add i64 %.sroa.26.0.copyload.i, -1
-  store i64 %206, ptr %25, align 8, !noalias !35
+  store i64 %206, ptr %25, align 8, !noalias !31
   %207 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store i32 0, ptr %207, align 8
   %208 = getelementptr inbounds nuw i8, ptr %11, i64 16
@@ -2562,7 +2562,7 @@ _ZN4absl7debian211string_view13remove_prefixEm.exit.i157: ; preds = %223
 230:                                              ; preds = %.lr.ph.i154, %.lr.ph.i154, %.lr.ph.i154, %.lr.ph.i154
   %231 = getelementptr inbounds nuw i8, ptr %.012.i155, i64 1
   %232 = icmp ult ptr %231, %220
-  br i1 %232, label %.lr.ph.i154, label %_ZN4absl7debian211string_viewC2EPKc.exit153, !llvm.loop !18
+  br i1 %232, label %.lr.ph.i154, label %_ZN4absl7debian211string_viewC2EPKc.exit153, !llvm.loop !14
 
 _ZN4absl7debian211string_viewC2EPKc.exit153:      ; preds = %230, %_ZN4absl7debian211string_view13remove_prefixEm.exit.i157
   %.sroa.04.0.copyload.i = phi ptr [ %228, %_ZN4absl7debian211string_view13remove_prefixEm.exit.i157 ], [ %.sroa.0.0.copyload.i46, %230 ]
@@ -2698,7 +2698,7 @@ _ZN4absl7debian211string_view13remove_prefixEm.exit.i128: ; preds = %263
 270:                                              ; preds = %.lr.ph.i125, %.lr.ph.i125, %.lr.ph.i125, %.lr.ph.i125
   %271 = getelementptr inbounds nuw i8, ptr %.012.i126, i64 1
   %272 = icmp ult ptr %271, %260
-  br i1 %272, label %.lr.ph.i125, label %_ZN10open_spiel4json12_GLOBAL__N_117ConsumeWhitespaceEPN4absl7debian211string_viewE.exit129, !llvm.loop !18
+  br i1 %272, label %.lr.ph.i125, label %_ZN10open_spiel4json12_GLOBAL__N_117ConsumeWhitespaceEPN4absl7debian211string_viewE.exit129, !llvm.loop !14
 
 _ZN10open_spiel4json12_GLOBAL__N_117ConsumeWhitespaceEPN4absl7debian211string_viewE.exit129: ; preds = %270, %253, %_ZN4absl7debian211string_view13remove_prefixEm.exit.i128, %thread-pre-split209
   invoke fastcc void @_ZN10open_spiel4json12_GLOBAL__N_111ParseStringB5cxx11EPN4absl7debian211string_viewE(ptr dead_on_unwind noalias writable align 8 %12, ptr noundef nonnull %1)
@@ -2752,7 +2752,7 @@ _ZN4absl7debian211string_view13remove_prefixEm.exit.i123: ; preds = %283
 290:                                              ; preds = %.lr.ph.i120, %.lr.ph.i120, %.lr.ph.i120, %.lr.ph.i120
   %291 = getelementptr inbounds nuw i8, ptr %.012.i121, i64 1
   %292 = icmp ult ptr %291, %280
-  br i1 %292, label %.lr.ph.i120, label %_ZN4absl7debian211string_viewC2EPKc.exit119, !llvm.loop !18
+  br i1 %292, label %.lr.ph.i120, label %_ZN4absl7debian211string_viewC2EPKc.exit119, !llvm.loop !14
 
 _ZN4absl7debian211string_viewC2EPKc.exit119:      ; preds = %290, %277, %_ZN4absl7debian211string_view13remove_prefixEm.exit.i123
   %.sroa.23.0.copyload.i = phi i64 [ %279, %277 ], [ %289, %_ZN4absl7debian211string_view13remove_prefixEm.exit.i123 ], [ %279, %290 ]
@@ -2825,7 +2825,7 @@ _ZN4absl7debian211string_view13remove_prefixEm.exit.i106: ; preds = %300
 307:                                              ; preds = %.lr.ph.i103, %.lr.ph.i103, %.lr.ph.i103, %.lr.ph.i103
   %308 = getelementptr inbounds nuw i8, ptr %.012.i104, i64 1
   %309 = icmp ult ptr %308, %296
-  br i1 %309, label %.lr.ph.i103, label %_ZN10open_spiel4json12_GLOBAL__N_117ConsumeWhitespaceEPN4absl7debian211string_viewE.exit107, !llvm.loop !18
+  br i1 %309, label %.lr.ph.i103, label %_ZN10open_spiel4json12_GLOBAL__N_117ConsumeWhitespaceEPN4absl7debian211string_viewE.exit107, !llvm.loop !14
 
 _ZN10open_spiel4json12_GLOBAL__N_117ConsumeWhitespaceEPN4absl7debian211string_viewE.exit107: ; preds = %307, %_ZN4absl7debian211string_view13remove_prefixEm.exit.i106, %_ZN4absl7debian210StartsWithENS0_11string_viewES1_.exit.thread.i115
   invoke fastcc void @_ZN10open_spiel4json12_GLOBAL__N_110ParseValueEPN4absl7debian211string_viewE(ptr dead_on_unwind noalias nonnull writable align 8 %13, ptr noundef nonnull %1)
@@ -2876,7 +2876,7 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
   %.1.in.i.i.i.i = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i, i64 %.1.in.v.i.i.i.i
   %.1.i.i.i.i = load ptr, ptr %.1.in.i.i.i.i, align 8
   %.not.i.i.i.i = icmp eq ptr %.1.i.i.i.i, null
-  br i1 %.not.i.i.i.i, label %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN10open_spiel4json5ValueESt4lessIS5_ESaISt4pairIKS5_S8_EEE11lower_boundERSC_.exit.i, label %.lr.ph.i.i.i.i, !llvm.loop !38
+  br i1 %.not.i.i.i.i, label %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN10open_spiel4json5ValueESt4lessIS5_ESaISt4pairIKS5_S8_EEE11lower_boundERSC_.exit.i, label %.lr.ph.i.i.i.i, !llvm.loop !34
 
 _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN10open_spiel4json5ValueESt4lessIS5_ESaISt4pairIKS5_S8_EEE11lower_boundERSC_.exit.i: ; preds = %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i.i.i
   %326 = icmp eq ptr %.19.i.i.i.i, %207
@@ -2946,7 +2946,7 @@ _ZN4absl7debian28optionalIN10open_spiel4json5ValueEED2Ev.exit99: ; preds = %_ZNS
   br label %_ZN4absl7debian28optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit95
 
 _ZN4absl7debian28optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit95: ; preds = %_ZN4absl7debian28optionalIN10open_spiel4json5ValueEED2Ev.exit99, %344
-  br i1 %312, label %216, label %_ZN10open_spiel4json12_GLOBAL__N_111ParseObjectB5cxx11EPN4absl7debian211string_viewE.exit, !llvm.loop !39
+  br i1 %312, label %216, label %_ZN10open_spiel4json12_GLOBAL__N_111ParseObjectB5cxx11EPN4absl7debian211string_viewE.exit, !llvm.loop !35
 
 345:                                              ; preds = %.critedge.i100
   %346 = landingpad { ptr, i32 }
@@ -3096,7 +3096,7 @@ _ZNSt8__detail9__variant13_Variant_baseIJN10open_spiel4json4NullEbldNSt7__cxx111
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3)
   %394 = getelementptr inbounds nuw i8, ptr %.0.i3.i.i, i64 56
   %.not.i.i1.i = icmp eq ptr %394, %387
-  br i1 %.not.i.i1.i, label %_ZSt8_DestroyIPN10open_spiel4json5ValueES2_EvT_S4_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i, !llvm.loop !40
+  br i1 %.not.i.i1.i, label %_ZSt8_DestroyIPN10open_spiel4json5ValueES2_EvT_S4_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i, !llvm.loop !36
 
 _ZSt8_DestroyIPN10open_spiel4json5ValueES2_EvT_S4_RSaIT0_E.exitthread-pre-split.i: ; preds = %_ZNSt8__detail9__variant13_Variant_baseIJN10open_spiel4json4NullEbldNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorINS3_5ValueESaISC_EESt3mapISA_SC_St4lessISA_ESaISt4pairIKSA_SC_EEEEED2Ev.exit.i.i
   %.pr.i = load ptr, ptr %14, align 8
@@ -3398,7 +3398,7 @@ _ZNSt8__detail9__variant13_Variant_baseIJN10open_spiel4json4NullEbldNSt7__cxx111
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3)
   %17 = getelementptr inbounds nuw i8, ptr %.0.i.i17, i64 56
   %.not.i.i = icmp eq ptr %17, %10
-  br i1 %.not.i.i, label %_ZSt8_DestroyIPN10open_spiel4json5ValueES2_EvT_S4_RSaIT0_E.exit.i.i.loopexit, label %.lr.ph, !llvm.loop !40
+  br i1 %.not.i.i, label %_ZSt8_DestroyIPN10open_spiel4json5ValueES2_EvT_S4_RSaIT0_E.exit.i.i.loopexit, label %.lr.ph, !llvm.loop !36
 
 _ZSt8_DestroyIPN10open_spiel4json5ValueES2_EvT_S4_RSaIT0_E.exit.i.i.loopexit: ; preds = %_ZNSt8__detail9__variant13_Variant_baseIJN10open_spiel4json4NullEbldNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorINS3_5ValueESaISC_EESt3mapISA_SC_St4lessISA_ESaISt4pairIKSA_SC_EEEEED2Ev.exit.i
   %.pre = load ptr, ptr %1, align 8
@@ -3474,7 +3474,7 @@ _ZNSt8__detail9__variant13_Variant_baseIJN10open_spiel4json4NullEbldNSt7__cxx111
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2)
   %12 = getelementptr inbounds nuw i8, ptr %.0.i3.i, i64 56
   %.not.i.i1 = icmp eq ptr %12, %5
-  br i1 %.not.i.i1, label %_ZSt8_DestroyIPN10open_spiel4json5ValueES2_EvT_S4_RSaIT0_E.exitthread-pre-split, label %.lr.ph.i, !llvm.loop !40
+  br i1 %.not.i.i1, label %_ZSt8_DestroyIPN10open_spiel4json5ValueES2_EvT_S4_RSaIT0_E.exitthread-pre-split, label %.lr.ph.i, !llvm.loop !36
 
 _ZSt8_DestroyIPN10open_spiel4json5ValueES2_EvT_S4_RSaIT0_E.exitthread-pre-split: ; preds = %_ZNSt8__detail9__variant13_Variant_baseIJN10open_spiel4json4NullEbldNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorINS3_5ValueESaISC_EESt3mapISA_SC_St4lessISA_ESaISt4pairIKSA_SC_EEEEED2Ev.exit.i
   %.pr = load ptr, ptr %0, align 8
@@ -3531,7 +3531,7 @@ _ZNSt8__detail9__variant13_Variant_baseIJN10open_spiel4json4NullEbldNSt7__cxx111
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3)
   %10 = getelementptr inbounds nuw i8, ptr %.0.i3, i64 56
   %.not.i = icmp eq ptr %10, %1
-  br i1 %.not.i, label %_ZNSt12_Destroy_auxILb0EE9__destroyIPN10open_spiel4json5ValueEEEvT_S6_.exit, label %.lr.ph, !llvm.loop !40
+  br i1 %.not.i, label %_ZNSt12_Destroy_auxILb0EE9__destroyIPN10open_spiel4json5ValueEEEvT_S6_.exit, label %.lr.ph, !llvm.loop !36
 
 _ZNSt12_Destroy_auxILb0EE9__destroyIPN10open_spiel4json5ValueEEEvT_S6_.exit: ; preds = %_ZNSt8__detail9__variant13_Variant_baseIJN10open_spiel4json4NullEbldNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorINS3_5ValueESaISC_EESt3mapISA_SC_St4lessISA_ESaISt4pairIKSA_SC_EEEEED2Ev.exit, %2
   ret void
@@ -3599,7 +3599,7 @@ _ZNSt8__detail9__variant17_Copy_assign_baseILb0EJN10open_spiel4json4NullEbldNSt7
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(88) %8) #22
   call void @_ZdlPvm(ptr noundef nonnull %.08, i64 noundef 120) #26
   %.not = icmp eq ptr %7, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !41
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !37
 
 ._crit_edge:                                      ; preds = %_ZNSt8__detail9__variant17_Copy_assign_baseILb0EJN10open_spiel4json4NullEbldNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorINS3_5ValueESaISC_EESt3mapISA_SC_St4lessISA_ESaISt4pairIKSA_SC_EEEEED2Ev.exit, %2
   ret void
@@ -3789,7 +3789,7 @@ switch.lookup:                                    ; preds = %33
   %42 = load i64, ptr %.sroa.22.0..sroa_idx.i, align 8
   %43 = getelementptr inbounds i8, ptr %41, i64 %42
   %44 = icmp ult ptr %40, %43
-  br i1 %44, label %.lr.ph, label %_ZN4absl7debian211string_viewC2EPKc.exit23, !llvm.loop !42
+  br i1 %44, label %.lr.ph, label %_ZN4absl7debian211string_viewC2EPKc.exit23, !llvm.loop !38
 
 _ZN4absl7debian211string_viewC2EPKc.exit23:       ; preds = %39, %_ZN4absl7debian210StartsWithENS0_11string_viewES1_.exit.thread.i
   %.lcssa30 = phi ptr [ %7, %_ZN4absl7debian210StartsWithENS0_11string_viewES1_.exit.thread.i ], [ %41, %39 ]
@@ -4103,11 +4103,11 @@ _ZNSt12_Vector_baseIN10open_spiel4json5ValueESaIS2_EE11_M_allocateEm.exit: ; pre
 .lr.ph.i.i.i:                                     ; preds = %28, %_ZSt19__relocate_object_aIN10open_spiel4json5ValueES2_SaIS2_EEvPT_PT0_RT1_.exit.i.i.i
   %.013.i.i.i = phi ptr [ %38, %_ZSt19__relocate_object_aIN10open_spiel4json5ValueES2_SaIS2_EEvPT_PT0_RT1_.exit.i.i.i ], [ %25, %28 ]
   %.0912.i.i.i = phi ptr [ %37, %_ZSt19__relocate_object_aIN10open_spiel4json5ValueES2_SaIS2_EEvPT_PT0_RT1_.exit.i.i.i ], [ %9, %28 ]
-  call void @llvm.experimental.noalias.scope.decl(metadata !43)
+  call void @llvm.experimental.noalias.scope.decl(metadata !39)
   call void @_ZNSt8__detail9__variant15_Move_ctor_baseILb0EJN10open_spiel4json4NullEbldNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorINS3_5ValueESaISC_EESt3mapISA_SC_St4lessISA_ESaISt4pairIKSA_SC_EEEEEC2EOSN_(ptr noundef nonnull align 8 dereferenceable(49) %.013.i.i.i, ptr noundef nonnull align 8 dereferenceable(49) %.0912.i.i.i) #22
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5), !noalias !46
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5), !noalias !42
   %31 = getelementptr inbounds nuw i8, ptr %.0912.i.i.i, i64 48
-  %32 = load i8, ptr %31, align 8, !alias.scope !43, !noalias !48
+  %32 = load i8, ptr %31, align 8, !alias.scope !39, !noalias !44
   %.not.i.i.i.i.i.i.i.i = icmp eq i8 %32, -1
   br i1 %.not.i.i.i.i.i.i.i.i, label %_ZSt19__relocate_object_aIN10open_spiel4json5ValueES2_SaIS2_EEvPT_PT0_RT1_.exit.i.i.i, label %33
 
@@ -4116,7 +4116,7 @@ _ZNSt12_Vector_baseIN10open_spiel4json5ValueESaIS2_EE11_M_allocateEm.exit: ; pre
           to label %.noexc.i.i.i.i.i.i.i.i unwind label %34
 
 .noexc.i.i.i.i.i.i.i.i:                           ; preds = %33
-  store i8 -1, ptr %31, align 8, !alias.scope !43, !noalias !48
+  store i8 -1, ptr %31, align 8, !alias.scope !39, !noalias !44
   br label %_ZSt19__relocate_object_aIN10open_spiel4json5ValueES2_SaIS2_EEvPT_PT0_RT1_.exit.i.i.i
 
 34:                                               ; preds = %33
@@ -4127,11 +4127,11 @@ _ZNSt12_Vector_baseIN10open_spiel4json5ValueESaIS2_EE11_M_allocateEm.exit: ; pre
   unreachable
 
 _ZSt19__relocate_object_aIN10open_spiel4json5ValueES2_SaIS2_EEvPT_PT0_RT1_.exit.i.i.i: ; preds = %.noexc.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5), !noalias !46
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5), !noalias !42
   %37 = getelementptr inbounds nuw i8, ptr %.0912.i.i.i, i64 56
   %38 = getelementptr inbounds nuw i8, ptr %.013.i.i.i, i64 56
   %.not.i.i.i = icmp eq ptr %37, %1
-  br i1 %.not.i.i.i, label %_ZNSt6vectorIN10open_spiel4json5ValueESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit, label %.lr.ph.i.i.i, !llvm.loop !49
+  br i1 %.not.i.i.i, label %_ZNSt6vectorIN10open_spiel4json5ValueESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit, label %.lr.ph.i.i.i, !llvm.loop !45
 
 _ZNSt6vectorIN10open_spiel4json5ValueESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit: ; preds = %_ZSt19__relocate_object_aIN10open_spiel4json5ValueES2_SaIS2_EEvPT_PT0_RT1_.exit.i.i.i, %28
   %.0.lcssa.i.i.i = phi ptr [ %25, %28 ], [ %38, %_ZSt19__relocate_object_aIN10open_spiel4json5ValueES2_SaIS2_EEvPT_PT0_RT1_.exit.i.i.i ]
@@ -4142,11 +4142,11 @@ _ZNSt6vectorIN10open_spiel4json5ValueESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit:
 .lr.ph.i.i.i27:                                   ; preds = %_ZNSt6vectorIN10open_spiel4json5ValueESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit, %_ZSt19__relocate_object_aIN10open_spiel4json5ValueES2_SaIS2_EEvPT_PT0_RT1_.exit.i.i.i32
   %.013.i.i.i28 = phi ptr [ %47, %_ZSt19__relocate_object_aIN10open_spiel4json5ValueES2_SaIS2_EEvPT_PT0_RT1_.exit.i.i.i32 ], [ %39, %_ZNSt6vectorIN10open_spiel4json5ValueESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit ]
   %.0912.i.i.i29 = phi ptr [ %46, %_ZSt19__relocate_object_aIN10open_spiel4json5ValueES2_SaIS2_EEvPT_PT0_RT1_.exit.i.i.i32 ], [ %1, %_ZNSt6vectorIN10open_spiel4json5ValueESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit ]
-  call void @llvm.experimental.noalias.scope.decl(metadata !50)
+  call void @llvm.experimental.noalias.scope.decl(metadata !46)
   call void @_ZNSt8__detail9__variant15_Move_ctor_baseILb0EJN10open_spiel4json4NullEbldNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorINS3_5ValueESaISC_EESt3mapISA_SC_St4lessISA_ESaISt4pairIKSA_SC_EEEEEC2EOSN_(ptr noundef nonnull align 8 dereferenceable(49) %.013.i.i.i28, ptr noundef nonnull align 8 dereferenceable(49) %.0912.i.i.i29) #22
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4), !noalias !53
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4), !noalias !49
   %40 = getelementptr inbounds nuw i8, ptr %.0912.i.i.i29, i64 48
-  %41 = load i8, ptr %40, align 8, !alias.scope !50, !noalias !55
+  %41 = load i8, ptr %40, align 8, !alias.scope !46, !noalias !51
   %.not.i.i.i.i.i.i.i.i30 = icmp eq i8 %41, -1
   br i1 %.not.i.i.i.i.i.i.i.i30, label %_ZSt19__relocate_object_aIN10open_spiel4json5ValueES2_SaIS2_EEvPT_PT0_RT1_.exit.i.i.i32, label %42
 
@@ -4155,7 +4155,7 @@ _ZNSt6vectorIN10open_spiel4json5ValueESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit:
           to label %.noexc.i.i.i.i.i.i.i.i31 unwind label %43
 
 .noexc.i.i.i.i.i.i.i.i31:                         ; preds = %42
-  store i8 -1, ptr %40, align 8, !alias.scope !50, !noalias !55
+  store i8 -1, ptr %40, align 8, !alias.scope !46, !noalias !51
   br label %_ZSt19__relocate_object_aIN10open_spiel4json5ValueES2_SaIS2_EEvPT_PT0_RT1_.exit.i.i.i32
 
 43:                                               ; preds = %42
@@ -4166,11 +4166,11 @@ _ZNSt6vectorIN10open_spiel4json5ValueESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit:
   unreachable
 
 _ZSt19__relocate_object_aIN10open_spiel4json5ValueES2_SaIS2_EEvPT_PT0_RT1_.exit.i.i.i32: ; preds = %.noexc.i.i.i.i.i.i.i.i31, %.lr.ph.i.i.i27
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4), !noalias !53
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4), !noalias !49
   %46 = getelementptr inbounds nuw i8, ptr %.0912.i.i.i29, i64 56
   %47 = getelementptr inbounds nuw i8, ptr %.013.i.i.i28, i64 56
   %.not.i.i.i33 = icmp eq ptr %46, %8
-  br i1 %.not.i.i.i33, label %_ZNSt6vectorIN10open_spiel4json5ValueESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit35, label %.lr.ph.i.i.i27, !llvm.loop !49
+  br i1 %.not.i.i.i33, label %_ZNSt6vectorIN10open_spiel4json5ValueESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit35, label %.lr.ph.i.i.i27, !llvm.loop !45
 
 _ZNSt6vectorIN10open_spiel4json5ValueESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit35: ; preds = %_ZSt19__relocate_object_aIN10open_spiel4json5ValueES2_SaIS2_EEvPT_PT0_RT1_.exit.i.i.i32, %_ZNSt6vectorIN10open_spiel4json5ValueESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit
   %.0.lcssa.i.i.i34 = phi ptr [ %39, %_ZNSt6vectorIN10open_spiel4json5ValueESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit ], [ %47, %_ZSt19__relocate_object_aIN10open_spiel4json5ValueES2_SaIS2_EEvPT_PT0_RT1_.exit.i.i.i32 ]
@@ -4292,7 +4292,7 @@ define linkonce_odr void @_ZNSt8__detail9__variant17_Copy_assign_baseILb0EJN10op
   %26 = getelementptr inbounds nuw i8, ptr %.0.i.i2.i.i, i64 16
   %27 = load ptr, ptr %26, align 8
   %.not.i.i3.i.i = icmp eq ptr %27, null
-  br i1 %.not.i.i3.i.i, label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N10open_spiel4json5ValueEESt10_Select1stISB_ESt4lessIS5_ESaISB_EE10_S_minimumEPSt18_Rb_tree_node_base.exit.i.i, label %.noexc.i, !llvm.loop !56
+  br i1 %.not.i.i3.i.i, label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N10open_spiel4json5ValueEESt10_Select1stISB_ESt4lessIS5_ESaISB_EE10_S_minimumEPSt18_Rb_tree_node_base.exit.i.i, label %.noexc.i, !llvm.loop !52
 
 _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N10open_spiel4json5ValueEESt10_Select1stISB_ESt4lessIS5_ESaISB_EE10_S_minimumEPSt18_Rb_tree_node_base.exit.i.i: ; preds = %.noexc.i
   store ptr %.0.i.i2.i.i, ptr %19, align 8
@@ -4303,7 +4303,7 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N
   %29 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 24
   %30 = load ptr, ptr %29, align 8
   %.not.i.i.i.i = icmp eq ptr %30, null
-  br i1 %.not.i.i.i.i, label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N10open_spiel4json5ValueEESt10_Select1stISB_ESt4lessIS5_ESaISB_EE7_M_copyERKSH_.exit.i, label %28, !llvm.loop !57
+  br i1 %.not.i.i.i.i, label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N10open_spiel4json5ValueEESt10_Select1stISB_ESt4lessIS5_ESaISB_EE7_M_copyERKSH_.exit.i, label %28, !llvm.loop !53
 
 _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N10open_spiel4json5ValueEESt10_Select1stISB_ESt4lessIS5_ESaISB_EE7_M_copyERKSH_.exit.i: ; preds = %28
   store ptr %.0.i.i.i.i, ptr %20, align 8
@@ -4411,7 +4411,7 @@ define linkonce_odr void @_ZSt10__do_visitINSt8__detail9__variant20__variant_idx
   %31 = getelementptr inbounds nuw i8, ptr %.0.i.i2.i, i64 16
   %32 = load ptr, ptr %31, align 8
   %.not.i.i3.i = icmp eq ptr %32, null
-  br i1 %.not.i.i3.i, label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N10open_spiel4json5ValueEESt10_Select1stISB_ESt4lessIS5_ESaISB_EE10_S_minimumEPSt18_Rb_tree_node_base.exit.i, label %.noexc, !llvm.loop !56
+  br i1 %.not.i.i3.i, label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N10open_spiel4json5ValueEESt10_Select1stISB_ESt4lessIS5_ESaISB_EE10_S_minimumEPSt18_Rb_tree_node_base.exit.i, label %.noexc, !llvm.loop !52
 
 _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N10open_spiel4json5ValueEESt10_Select1stISB_ESt4lessIS5_ESaISB_EE10_S_minimumEPSt18_Rb_tree_node_base.exit.i: ; preds = %.noexc
   store ptr %.0.i.i2.i, ptr %24, align 8
@@ -4422,7 +4422,7 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N
   %34 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 24
   %35 = load ptr, ptr %34, align 8
   %.not.i.i.i = icmp eq ptr %35, null
-  br i1 %.not.i.i.i, label %36, label %33, !llvm.loop !57
+  br i1 %.not.i.i.i, label %36, label %33, !llvm.loop !53
 
 36:                                               ; preds = %33
   store ptr %.0.i.i.i, ptr %25, align 8
@@ -4490,7 +4490,7 @@ _ZN10open_spiel4json5ValueC2ERKS1_.exit.i:        ; preds = %.lr.ph
   %20 = getelementptr inbounds nuw i8, ptr %.sroa.013.018, i64 56
   %21 = getelementptr inbounds nuw i8, ptr %.0.i19, i64 56
   %.not = icmp eq ptr %20, %19
-  br i1 %.not, label %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPKN10open_spiel4json5ValueESt6vectorIS4_SaIS4_EEEEPS4_S4_ET0_T_SD_SC_RSaIT1_E.exit, label %.lr.ph, !llvm.loop !58
+  br i1 %.not, label %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPKN10open_spiel4json5ValueESt6vectorIS4_SaIS4_EEEEPS4_S4_ET0_T_SD_SC_RSaIT1_E.exit, label %.lr.ph, !llvm.loop !54
 
 22:                                               ; preds = %.lr.ph
   %23 = landingpad { ptr, i32 }
@@ -4644,7 +4644,7 @@ define linkonce_odr noundef ptr @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11c
   %.0.in = getelementptr inbounds nuw i8, ptr %.039, i64 16
   %.0 = load ptr, ptr %.0.in, align 8
   %.not31 = icmp eq ptr %.0, null
-  br i1 %.not31, label %._crit_edge, label %.lr.ph, !llvm.loop !59
+  br i1 %.not31, label %._crit_edge, label %.lr.ph, !llvm.loop !55
 
 37:                                               ; preds = %20, %17
   %38 = landingpad { ptr, i32 }
@@ -4888,7 +4888,7 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
   %.in.i = getelementptr inbounds nuw i8, ptr %.02127.i, i64 %.in.v.i
   %.021.i = load ptr, ptr %.in.i, align 8
   %.not.i = icmp eq ptr %.021.i, null
-  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !60
+  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !56
 
 ._crit_edge.i:                                    ; preds = %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i
   br i1 %27, label %._crit_edge.thread.i, label %33
@@ -4996,7 +4996,7 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
   %.in.i18 = getelementptr inbounds nuw i8, ptr %.02127.i15, i64 %.in.v.i17
   %.021.i19 = load ptr, ptr %.in.i18, align 8
   %.not.i20 = icmp eq ptr %.021.i19, null
-  br i1 %.not.i20, label %._crit_edge.i21, label %.lr.ph.i14, !llvm.loop !60
+  br i1 %.not.i20, label %._crit_edge.i21, label %.lr.ph.i14, !llvm.loop !56
 
 ._crit_edge.i21:                                  ; preds = %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i16
   br i1 %70, label %._crit_edge.thread.i31, label %75
@@ -5102,7 +5102,7 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
   %.in.i42 = getelementptr inbounds nuw i8, ptr %.02127.i39, i64 %.in.v.i41
   %.021.i43 = load ptr, ptr %.in.i42, align 8
   %.not.i44 = icmp eq ptr %.021.i43, null
-  br i1 %.not.i44, label %._crit_edge.i45, label %.lr.ph.i38, !llvm.loop !60
+  br i1 %.not.i44, label %._crit_edge.i45, label %.lr.ph.i38, !llvm.loop !56
 
 ._crit_edge.i45:                                  ; preds = %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i40
   br i1 %111, label %._crit_edge.thread.i55, label %117
@@ -5422,59 +5422,55 @@ attributes #27 = { builtin allocsize(0) }
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
 !4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.estimated_trip_count"}
-!6 = distinct !{!6, !7, !5}
-!7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7, !5}
-!9 = distinct !{!9, !7, !5}
-!10 = distinct !{!10, !7, !5}
-!11 = distinct !{!11, !7, !5}
-!12 = distinct !{!12, !7, !5}
-!13 = distinct !{!13, !7, !5}
+!5 = !{!"llvm.loop.mustprogress"}
+!6 = distinct !{!6, !5}
+!7 = distinct !{!7, !5}
+!8 = distinct !{!8, !5}
+!9 = distinct !{!9, !5}
+!10 = distinct !{!10, !5}
+!11 = distinct !{!11, !5}
+!12 = distinct !{!12, !5}
+!13 = distinct !{!13, !5}
 !14 = distinct !{!14, !5}
-!15 = distinct !{!15, !5}
-!16 = distinct !{!16, !7, !5}
-!17 = distinct !{!17, !7, !5}
-!18 = distinct !{!18, !7, !5}
-!19 = !{!20}
-!20 = distinct !{!20, !21, !"_ZN10open_spiel4json12_GLOBAL__N_111ParseNumberEPN4absl7debian211string_viewE: argument 0"}
-!21 = distinct !{!21, !"_ZN10open_spiel4json12_GLOBAL__N_111ParseNumberEPN4absl7debian211string_viewE"}
-!22 = !{!23}
-!23 = distinct !{!23, !24, !"_ZN10open_spiel4json12_GLOBAL__N_113ParseConstantINS0_4NullEEEN4absl7debian28optionalINS0_5ValueEEEPNS5_11string_viewES9_T_: argument 0"}
-!24 = distinct !{!24, !"_ZN10open_spiel4json12_GLOBAL__N_113ParseConstantINS0_4NullEEEN4absl7debian28optionalINS0_5ValueEEEPNS5_11string_viewES9_T_"}
-!25 = !{!26}
-!26 = distinct !{!26, !27, !"_ZN10open_spiel4json12_GLOBAL__N_113ParseConstantIbEEN4absl7debian28optionalINS0_5ValueEEEPNS4_11string_viewES8_T_: argument 0"}
-!27 = distinct !{!27, !"_ZN10open_spiel4json12_GLOBAL__N_113ParseConstantIbEEN4absl7debian28optionalINS0_5ValueEEEPNS4_11string_viewES8_T_"}
-!28 = !{!29}
-!29 = distinct !{!29, !30, !"_ZN10open_spiel4json12_GLOBAL__N_113ParseConstantIbEEN4absl7debian28optionalINS0_5ValueEEEPNS4_11string_viewES8_T_: argument 0"}
-!30 = distinct !{!30, !"_ZN10open_spiel4json12_GLOBAL__N_113ParseConstantIbEEN4absl7debian28optionalINS0_5ValueEEEPNS4_11string_viewES8_T_"}
+!15 = !{!16}
+!16 = distinct !{!16, !17, !"_ZN10open_spiel4json12_GLOBAL__N_111ParseNumberEPN4absl7debian211string_viewE: argument 0"}
+!17 = distinct !{!17, !"_ZN10open_spiel4json12_GLOBAL__N_111ParseNumberEPN4absl7debian211string_viewE"}
+!18 = !{!19}
+!19 = distinct !{!19, !20, !"_ZN10open_spiel4json12_GLOBAL__N_113ParseConstantINS0_4NullEEEN4absl7debian28optionalINS0_5ValueEEEPNS5_11string_viewES9_T_: argument 0"}
+!20 = distinct !{!20, !"_ZN10open_spiel4json12_GLOBAL__N_113ParseConstantINS0_4NullEEEN4absl7debian28optionalINS0_5ValueEEEPNS5_11string_viewES9_T_"}
+!21 = !{!22}
+!22 = distinct !{!22, !23, !"_ZN10open_spiel4json12_GLOBAL__N_113ParseConstantIbEEN4absl7debian28optionalINS0_5ValueEEEPNS4_11string_viewES8_T_: argument 0"}
+!23 = distinct !{!23, !"_ZN10open_spiel4json12_GLOBAL__N_113ParseConstantIbEEN4absl7debian28optionalINS0_5ValueEEEPNS4_11string_viewES8_T_"}
+!24 = !{!25}
+!25 = distinct !{!25, !26, !"_ZN10open_spiel4json12_GLOBAL__N_113ParseConstantIbEEN4absl7debian28optionalINS0_5ValueEEEPNS4_11string_viewES8_T_: argument 0"}
+!26 = distinct !{!26, !"_ZN10open_spiel4json12_GLOBAL__N_113ParseConstantIbEEN4absl7debian28optionalINS0_5ValueEEEPNS4_11string_viewES8_T_"}
+!27 = !{!28}
+!28 = distinct !{!28, !29, !"_ZN10open_spiel4json12_GLOBAL__N_110ParseArrayEPN4absl7debian211string_viewE: argument 0"}
+!29 = distinct !{!29, !"_ZN10open_spiel4json12_GLOBAL__N_110ParseArrayEPN4absl7debian211string_viewE"}
+!30 = distinct !{!30, !5}
 !31 = !{!32}
-!32 = distinct !{!32, !33, !"_ZN10open_spiel4json12_GLOBAL__N_110ParseArrayEPN4absl7debian211string_viewE: argument 0"}
-!33 = distinct !{!33, !"_ZN10open_spiel4json12_GLOBAL__N_110ParseArrayEPN4absl7debian211string_viewE"}
-!34 = distinct !{!34, !7, !5}
-!35 = !{!36}
-!36 = distinct !{!36, !37, !"_ZN10open_spiel4json12_GLOBAL__N_111ParseObjectB5cxx11EPN4absl7debian211string_viewE: argument 0"}
-!37 = distinct !{!37, !"_ZN10open_spiel4json12_GLOBAL__N_111ParseObjectB5cxx11EPN4absl7debian211string_viewE"}
-!38 = distinct !{!38, !7, !5}
-!39 = distinct !{!39, !7, !5}
-!40 = distinct !{!40, !7, !5}
-!41 = distinct !{!41, !7, !5}
-!42 = distinct !{!42, !7, !5}
-!43 = !{!44}
-!44 = distinct !{!44, !45, !"_ZSt19__relocate_object_aIN10open_spiel4json5ValueES2_SaIS2_EEvPT_PT0_RT1_: argument 1"}
-!45 = distinct !{!45, !"_ZSt19__relocate_object_aIN10open_spiel4json5ValueES2_SaIS2_EEvPT_PT0_RT1_"}
-!46 = !{!47, !44}
-!47 = distinct !{!47, !45, !"_ZSt19__relocate_object_aIN10open_spiel4json5ValueES2_SaIS2_EEvPT_PT0_RT1_: argument 0"}
-!48 = !{!47}
-!49 = distinct !{!49, !7, !5}
-!50 = !{!51}
-!51 = distinct !{!51, !52, !"_ZSt19__relocate_object_aIN10open_spiel4json5ValueES2_SaIS2_EEvPT_PT0_RT1_: argument 1"}
-!52 = distinct !{!52, !"_ZSt19__relocate_object_aIN10open_spiel4json5ValueES2_SaIS2_EEvPT_PT0_RT1_"}
-!53 = !{!54, !51}
-!54 = distinct !{!54, !52, !"_ZSt19__relocate_object_aIN10open_spiel4json5ValueES2_SaIS2_EEvPT_PT0_RT1_: argument 0"}
-!55 = !{!54}
-!56 = distinct !{!56, !7, !5}
-!57 = distinct !{!57, !7, !5}
-!58 = distinct !{!58, !7, !5}
-!59 = distinct !{!59, !7, !5}
-!60 = distinct !{!60, !7, !5}
+!32 = distinct !{!32, !33, !"_ZN10open_spiel4json12_GLOBAL__N_111ParseObjectB5cxx11EPN4absl7debian211string_viewE: argument 0"}
+!33 = distinct !{!33, !"_ZN10open_spiel4json12_GLOBAL__N_111ParseObjectB5cxx11EPN4absl7debian211string_viewE"}
+!34 = distinct !{!34, !5}
+!35 = distinct !{!35, !5}
+!36 = distinct !{!36, !5}
+!37 = distinct !{!37, !5}
+!38 = distinct !{!38, !5}
+!39 = !{!40}
+!40 = distinct !{!40, !41, !"_ZSt19__relocate_object_aIN10open_spiel4json5ValueES2_SaIS2_EEvPT_PT0_RT1_: argument 1"}
+!41 = distinct !{!41, !"_ZSt19__relocate_object_aIN10open_spiel4json5ValueES2_SaIS2_EEvPT_PT0_RT1_"}
+!42 = !{!43, !40}
+!43 = distinct !{!43, !41, !"_ZSt19__relocate_object_aIN10open_spiel4json5ValueES2_SaIS2_EEvPT_PT0_RT1_: argument 0"}
+!44 = !{!43}
+!45 = distinct !{!45, !5}
+!46 = !{!47}
+!47 = distinct !{!47, !48, !"_ZSt19__relocate_object_aIN10open_spiel4json5ValueES2_SaIS2_EEvPT_PT0_RT1_: argument 1"}
+!48 = distinct !{!48, !"_ZSt19__relocate_object_aIN10open_spiel4json5ValueES2_SaIS2_EEvPT_PT0_RT1_"}
+!49 = !{!50, !47}
+!50 = distinct !{!50, !48, !"_ZSt19__relocate_object_aIN10open_spiel4json5ValueES2_SaIS2_EEvPT_PT0_RT1_: argument 0"}
+!51 = !{!50}
+!52 = distinct !{!52, !5}
+!53 = distinct !{!53, !5}
+!54 = distinct !{!54, !5}
+!55 = distinct !{!55, !5}
+!56 = distinct !{!56, !5}

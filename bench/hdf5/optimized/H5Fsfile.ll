@@ -122,14 +122,14 @@ define range(i32 -1, 1) i32 @H5F__sfile_remove(ptr noundef readnone captures(add
 .lr.ph:                                           ; preds = %.lr.ph30
   %9 = load ptr, ptr %.013, align 8, !tbaa !12
   %.not14 = icmp eq ptr %9, %0
-  br i1 %.not14, label %.critedge, label %.lr.ph30, !llvm.loop !46
+  br i1 %.not14, label %.critedge, label %.lr.ph30, !llvm.loop !45
 
 .lr.ph30:                                         ; preds = %.lr.ph.preheader, %.lr.ph
   %.0132129 = phi ptr [ %.013, %.lr.ph ], [ %.01318, %.lr.ph.preheader ]
   %10 = getelementptr inbounds nuw i8, ptr %.0132129, i64 8
   %.013 = load ptr, ptr %10, align 8, !tbaa !17
   %cond = icmp eq ptr %.013, null
-  br i1 %cond, label %._crit_edge, label %.lr.ph, !llvm.loop !46
+  br i1 %cond, label %._crit_edge, label %.lr.ph, !llvm.loop !45
 
 ._crit_edge:                                      ; preds = %.lr.ph30, %.preheader
   %11 = load i64, ptr @H5E_FILE_g, align 8, !tbaa !10
@@ -215,7 +215,6 @@ attributes #3 = { nounwind }
 !40 = !{!"H5F_blk_aggr_t", !11, i64 0, !11, i64 8, !11, i64 16, !11, i64 24, !11, i64 32}
 !41 = !{!"H5F_meta_accum_t", !34, i64 0, !11, i64 8, !11, i64 16, !11, i64 24, !11, i64 32, !11, i64 40, !4, i64 48}
 !42 = !{!"H5F_object_flush_t", !15, i64 0, !15, i64 8}
-!43 = distinct !{!43, !44, !45}
+!43 = distinct !{!43, !44}
 !44 = !{!"llvm.loop.mustprogress"}
-!45 = !{!"llvm.loop.estimated_trip_count"}
-!46 = distinct !{!46, !44, !45}
+!45 = distinct !{!45, !44}

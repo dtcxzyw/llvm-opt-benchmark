@@ -289,7 +289,7 @@ define void @Nwk_ManPrintLutSizes(ptr noundef readonly captures(none) %0, ptr no
 .critedge:                                        ; preds = %22, %2
   %23 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str)
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %25 = load i32, ptr %24, align 8, !tbaa !39
+  %25 = load i32, ptr %24, align 8, !tbaa !38
   %.not19 = icmp slt i32 %25, 0
   br i1 %.not19, label %._crit_edge, label %.lr.ph21
 
@@ -300,10 +300,10 @@ define void @Nwk_ManPrintLutSizes(ptr noundef readonly captures(none) %0, ptr no
   %28 = trunc nuw nsw i64 %indvars.iv23 to i32
   %29 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1, i32 noundef %28, i32 noundef %27)
   %indvars.iv.next24 = add nuw nsw i64 %indvars.iv23, 1
-  %30 = load i32, ptr %24, align 8, !tbaa !39
+  %30 = load i32, ptr %24, align 8, !tbaa !38
   %31 = sext i32 %30 to i64
   %.not.not = icmp slt i64 %indvars.iv23, %31
-  br i1 %.not.not, label %.lr.ph21, label %._crit_edge, !llvm.loop !41
+  br i1 %.not.not, label %.lr.ph21, label %._crit_edge, !llvm.loop !40
 
 ._crit_edge:                                      ; preds = %.lr.ph21, %.critedge
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %3) #15
@@ -319,27 +319,27 @@ define range(i32 0, 2) i32 @Nwk_ManCompareAndSaveBest(ptr noundef %0, ptr readno
   br i1 %3, label %4, label %7
 
 4:                                                ; preds = %2
-  %5 = load ptr, ptr @Nwk_ManCompareAndSaveBest.ParsBest.0, align 8, !tbaa !42
+  %5 = load ptr, ptr @Nwk_ManCompareAndSaveBest.ParsBest.0, align 8, !tbaa !41
   %.not15 = icmp eq ptr %5, null
   br i1 %.not15, label %46, label %6
 
 6:                                                ; preds = %4
   tail call void @free(ptr noundef nonnull %5) #15
-  store ptr null, ptr @Nwk_ManCompareAndSaveBest.ParsBest.0, align 8, !tbaa !42
+  store ptr null, ptr @Nwk_ManCompareAndSaveBest.ParsBest.0, align 8, !tbaa !41
   br label %46
 
 7:                                                ; preds = %2
   %8 = tail call i32 @Nwk_ManLevel(ptr noundef nonnull %0) #15
-  store i32 %8, ptr @Nwk_ManCompareAndSaveBest.ParsNew.0, align 8, !tbaa !44
+  store i32 %8, ptr @Nwk_ManCompareAndSaveBest.ParsNew.0, align 8, !tbaa !43
   %9 = getelementptr i8, ptr %0, i64 56
   %.val = load i32, ptr %9, align 8, !tbaa !35
-  store i32 %.val, ptr @Nwk_ManCompareAndSaveBest.ParsNew.1, align 4, !tbaa !45
+  store i32 %.val, ptr @Nwk_ManCompareAndSaveBest.ParsNew.1, align 4, !tbaa !44
   %10 = getelementptr i8, ptr %0, i64 52
   %.val16 = load i32, ptr %10, align 4, !tbaa !35
-  store i32 %.val16, ptr @Nwk_ManCompareAndSaveBest.ParsNew.2, align 8, !tbaa !46
+  store i32 %.val16, ptr @Nwk_ManCompareAndSaveBest.ParsNew.2, align 8, !tbaa !45
   %11 = tail call i32 @Nwk_ManPiNum(ptr noundef nonnull %0) #15
   %12 = tail call i32 @Nwk_ManPoNum(ptr noundef nonnull %0) #15
-  %13 = load ptr, ptr @Nwk_ManCompareAndSaveBest.ParsBest.0, align 8, !tbaa !42
+  %13 = load ptr, ptr @Nwk_ManCompareAndSaveBest.ParsBest.0, align 8, !tbaa !41
   %14 = icmp eq ptr %13, null
   br i1 %14, label %35, label %15
 
@@ -350,8 +350,8 @@ define range(i32 0, 2) i32 @Nwk_ManCompareAndSaveBest(ptr noundef %0, ptr readno
   br i1 %.not, label %18, label %34
 
 18:                                               ; preds = %15
-  %19 = load i32, ptr @Nwk_ManCompareAndSaveBest.ParsBest.1, align 8, !tbaa !44
-  %20 = load i32, ptr @Nwk_ManCompareAndSaveBest.ParsNew.0, align 8, !tbaa !44
+  %19 = load i32, ptr @Nwk_ManCompareAndSaveBest.ParsBest.1, align 8, !tbaa !43
+  %20 = load i32, ptr @Nwk_ManCompareAndSaveBest.ParsNew.0, align 8, !tbaa !43
   %21 = icmp sgt i32 %19, %20
   br i1 %21, label %34, label %22
 
@@ -360,8 +360,8 @@ define range(i32 0, 2) i32 @Nwk_ManCompareAndSaveBest(ptr noundef %0, ptr readno
   br i1 %23, label %24, label %46
 
 24:                                               ; preds = %22
-  %25 = load i32, ptr @Nwk_ManCompareAndSaveBest.ParsBest.2, align 4, !tbaa !45
-  %26 = load i32, ptr @Nwk_ManCompareAndSaveBest.ParsNew.1, align 4, !tbaa !45
+  %25 = load i32, ptr @Nwk_ManCompareAndSaveBest.ParsBest.2, align 4, !tbaa !44
+  %26 = load i32, ptr @Nwk_ManCompareAndSaveBest.ParsNew.1, align 4, !tbaa !44
   %27 = icmp sgt i32 %25, %26
   br i1 %27, label %34, label %28
 
@@ -370,8 +370,8 @@ define range(i32 0, 2) i32 @Nwk_ManCompareAndSaveBest(ptr noundef %0, ptr readno
   br i1 %29, label %30, label %46
 
 30:                                               ; preds = %28
-  %31 = load i32, ptr @Nwk_ManCompareAndSaveBest.ParsBest.3, align 8, !tbaa !46
-  %32 = load i32, ptr @Nwk_ManCompareAndSaveBest.ParsNew.2, align 8, !tbaa !46
+  %31 = load i32, ptr @Nwk_ManCompareAndSaveBest.ParsBest.3, align 8, !tbaa !45
+  %32 = load i32, ptr @Nwk_ManCompareAndSaveBest.ParsNew.2, align 8, !tbaa !45
   %33 = icmp sgt i32 %31, %32
   br i1 %33, label %34, label %46
 
@@ -393,13 +393,13 @@ define range(i32 0, 2) i32 @Nwk_ManCompareAndSaveBest(ptr noundef %0, ptr readno
 
 Abc_UtilStrsav.exit:                              ; preds = %35, %37
   %42 = phi ptr [ %40, %37 ], [ null, %35 ]
-  store ptr %42, ptr @Nwk_ManCompareAndSaveBest.ParsBest.0, align 8, !tbaa !42
-  %43 = load i32, ptr @Nwk_ManCompareAndSaveBest.ParsNew.0, align 8, !tbaa !44
-  store i32 %43, ptr @Nwk_ManCompareAndSaveBest.ParsBest.1, align 8, !tbaa !44
-  %44 = load i32, ptr @Nwk_ManCompareAndSaveBest.ParsNew.1, align 4, !tbaa !45
-  store i32 %44, ptr @Nwk_ManCompareAndSaveBest.ParsBest.2, align 4, !tbaa !45
-  %45 = load i32, ptr @Nwk_ManCompareAndSaveBest.ParsNew.2, align 8, !tbaa !46
-  store i32 %45, ptr @Nwk_ManCompareAndSaveBest.ParsBest.3, align 8, !tbaa !46
+  store ptr %42, ptr @Nwk_ManCompareAndSaveBest.ParsBest.0, align 8, !tbaa !41
+  %43 = load i32, ptr @Nwk_ManCompareAndSaveBest.ParsNew.0, align 8, !tbaa !43
+  store i32 %43, ptr @Nwk_ManCompareAndSaveBest.ParsBest.1, align 8, !tbaa !43
+  %44 = load i32, ptr @Nwk_ManCompareAndSaveBest.ParsNew.1, align 4, !tbaa !44
+  store i32 %44, ptr @Nwk_ManCompareAndSaveBest.ParsBest.2, align 4, !tbaa !44
+  %45 = load i32, ptr @Nwk_ManCompareAndSaveBest.ParsNew.2, align 8, !tbaa !45
+  store i32 %45, ptr @Nwk_ManCompareAndSaveBest.ParsBest.3, align 8, !tbaa !45
   br label %46
 
 46:                                               ; preds = %22, %28, %30, %6, %4, %Abc_UtilStrsav.exit
@@ -435,7 +435,7 @@ Abc_UtilStrsav.exit:                              ; preds = %1, %2
   br i1 %.not, label %10, label %9
 
 9:                                                ; preds = %Abc_UtilStrsav.exit
-  store i8 0, ptr %8, align 1, !tbaa !47
+  store i8 0, ptr %8, align 1, !tbaa !46
   br label %10
 
 10:                                               ; preds = %9, %Abc_UtilStrsav.exit
@@ -450,7 +450,7 @@ define float @Nwl_ManComputeTotalSwitching(ptr noundef %0) local_unnamed_addr #0
   %2 = tail call ptr @Nwk_ManStrash(ptr noundef %0) #15
   %3 = tail call ptr @Saig_ManComputeSwitchProbs(ptr noundef %2, i32 noundef 48, i32 noundef 16, i32 noundef 0) #15
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %5 = load ptr, ptr %4, align 8, !tbaa !48
+  %5 = load ptr, ptr %4, align 8, !tbaa !47
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %7 = load ptr, ptr %6, align 8, !tbaa !20
   %8 = getelementptr i8, ptr %7, i64 4
@@ -474,7 +474,7 @@ define float @Nwl_ManComputeTotalSwitching(ptr noundef %0) local_unnamed_addr #0
 
 15:                                               ; preds = %11
   %16 = getelementptr inbounds nuw i8, ptr %13, i64 16
-  %17 = load ptr, ptr %16, align 8, !tbaa !51
+  %17 = load ptr, ptr %16, align 8, !tbaa !50
   %18 = ptrtoint ptr %17 to i64
   %19 = and i64 %18, -2
   %.not = icmp eq i64 %19, 0
@@ -483,13 +483,13 @@ define float @Nwl_ManComputeTotalSwitching(ptr noundef %0) local_unnamed_addr #0
 20:                                               ; preds = %15
   %21 = inttoptr i64 %19 to ptr
   %22 = getelementptr i8, ptr %13, i64 64
-  %.val20 = load i32, ptr %22, align 8, !tbaa !52
+  %.val20 = load i32, ptr %22, align 8, !tbaa !51
   %23 = sitofp i32 %.val20 to float
   %24 = getelementptr inbounds nuw i8, ptr %21, i64 36
-  %25 = load i32, ptr %24, align 4, !tbaa !53
+  %25 = load i32, ptr %24, align 4, !tbaa !52
   %26 = sext i32 %25 to i64
   %27 = getelementptr inbounds float, ptr %5, i64 %26
-  %28 = load float, ptr %27, align 4, !tbaa !56
+  %28 = load float, ptr %27, align 4, !tbaa !55
   %29 = tail call float @llvm.fmuladd.f32(float %23, float %28, float %.01621)
   br label %30
 
@@ -497,7 +497,7 @@ define float @Nwl_ManComputeTotalSwitching(ptr noundef %0) local_unnamed_addr #0
   %.1 = phi float [ %.01621, %11 ], [ %29, %20 ], [ %.01621, %15 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.critedge, label %11, !llvm.loop !57
+  br i1 %exitcond.not, label %.critedge, label %11, !llvm.loop !56
 
 .critedge:                                        ; preds = %30, %1
   %.016.lcssa = phi float [ 0.000000e+00, %1 ], [ %.1, %30 ]
@@ -555,7 +555,7 @@ Abc_UtilStrsav.exit.i:                            ; preds = %12
   br i1 %.not.i, label %Nwk_FileNameGeneric.exit, label %20
 
 20:                                               ; preds = %Abc_UtilStrsav.exit.i
-  store i8 0, ptr %19, align 1, !tbaa !47
+  store i8 0, ptr %19, align 1, !tbaa !46
   br label %Nwk_FileNameGeneric.exit
 
 Nwk_FileNameGeneric.exit:                         ; preds = %20, %Abc_UtilStrsav.exit.i, %12
@@ -575,7 +575,7 @@ Nwk_FileNameGeneric.exit:                         ; preds = %20, %Abc_UtilStrsav
 
 26:                                               ; preds = %25, %11
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  store ptr %1, ptr %27, align 8, !tbaa !58
+  store ptr %1, ptr %27, align 8, !tbaa !57
   %28 = load ptr, ptr %0, align 8, !tbaa !25
   %29 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.4, ptr noundef %28)
   %30 = tail call i32 @Nwk_ManPiNum(ptr noundef nonnull %0) #15
@@ -657,7 +657,7 @@ Nwk_FileNameGeneric.exit:                         ; preds = %20, %Abc_UtilStrsav
 .critedge.i:                                      ; preds = %72, %53
   %73 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str)
   %74 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %75 = load i32, ptr %74, align 8, !tbaa !39
+  %75 = load i32, ptr %74, align 8, !tbaa !38
   %.not19.i = icmp slt i32 %75, 0
   br i1 %.not19.i, label %Nwk_ManPrintLutSizes.exit, label %.lr.ph21.i
 
@@ -668,15 +668,15 @@ Nwk_FileNameGeneric.exit:                         ; preds = %20, %Abc_UtilStrsav
   %78 = trunc nuw nsw i64 %indvars.iv23.i to i32
   %79 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1, i32 noundef %78, i32 noundef %77)
   %indvars.iv.next24.i = add nuw nsw i64 %indvars.iv23.i, 1
-  %80 = load i32, ptr %74, align 8, !tbaa !39
+  %80 = load i32, ptr %74, align 8, !tbaa !38
   %81 = sext i32 %80 to i64
   %.not.not.i = icmp slt i64 %indvars.iv23.i, %81
-  br i1 %.not.not.i, label %.lr.ph21.i, label %Nwk_ManPrintLutSizes.exit, !llvm.loop !41
+  br i1 %.not.not.i, label %.lr.ph21.i, label %Nwk_ManPrintLutSizes.exit, !llvm.loop !40
 
 Nwk_ManPrintLutSizes.exit:                        ; preds = %.lr.ph21.i, %.critedge.i
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %7) #15
   %putchar = tail call i32 @putchar(i32 10)
-  %82 = load ptr, ptr @stdout, align 8, !tbaa !59
+  %82 = load ptr, ptr @stdout, align 8, !tbaa !58
   %83 = tail call i32 @fflush(ptr noundef %82)
   ret void
 }
@@ -761,28 +761,27 @@ attributes #16 = { nounwind willreturn memory(read) }
 !33 = !{!"float", !6, i64 0}
 !34 = !{!"p2 _ZTS10Nwk_Obj_t_", !8, i64 0}
 !35 = !{!5, !5, i64 0}
-!36 = distinct !{!36, !37, !38}
+!36 = distinct !{!36, !37}
 !37 = !{!"llvm.loop.mustprogress"}
-!38 = !{!"llvm.loop.estimated_trip_count"}
-!39 = !{!40, !5, i64 8}
-!40 = !{!"If_LibLut_t_", !13, i64 0, !5, i64 8, !5, i64 12, !6, i64 16, !6, i64 148}
-!41 = distinct !{!41, !37, !38}
-!42 = !{!43, !13, i64 0}
-!43 = !{!"ParStruct", !13, i64 0, !5, i64 8, !5, i64 12, !5, i64 16, !5, i64 20, !5, i64 24}
-!44 = !{!43, !5, i64 8}
-!45 = !{!43, !5, i64 12}
-!46 = !{!43, !5, i64 16}
-!47 = !{!6, !6, i64 0}
-!48 = !{!49, !50, i64 8}
-!49 = !{!"Vec_Int_t_", !5, i64 0, !5, i64 4, !50, i64 8}
-!50 = !{!"p1 int", !8, i64 0}
-!51 = !{!30, !8, i64 16}
-!52 = !{!30, !5, i64 64}
-!53 = !{!54, !5, i64 36}
-!54 = !{!"Aig_Obj_t_", !6, i64 0, !55, i64 8, !55, i64 16, !5, i64 24, !5, i64 24, !5, i64 24, !5, i64 24, !5, i64 24, !5, i64 28, !5, i64 31, !5, i64 32, !5, i64 36, !6, i64 40}
-!55 = !{!"p1 _ZTS10Aig_Obj_t_", !8, i64 0}
-!56 = !{!33, !33, i64 0}
-!57 = distinct !{!57, !37, !38}
-!58 = !{!12, !17, i64 80}
-!59 = !{!60, !60, i64 0}
-!60 = !{!"p1 _ZTS8_IO_FILE", !8, i64 0}
+!38 = !{!39, !5, i64 8}
+!39 = !{!"If_LibLut_t_", !13, i64 0, !5, i64 8, !5, i64 12, !6, i64 16, !6, i64 148}
+!40 = distinct !{!40, !37}
+!41 = !{!42, !13, i64 0}
+!42 = !{!"ParStruct", !13, i64 0, !5, i64 8, !5, i64 12, !5, i64 16, !5, i64 20, !5, i64 24}
+!43 = !{!42, !5, i64 8}
+!44 = !{!42, !5, i64 12}
+!45 = !{!42, !5, i64 16}
+!46 = !{!6, !6, i64 0}
+!47 = !{!48, !49, i64 8}
+!48 = !{!"Vec_Int_t_", !5, i64 0, !5, i64 4, !49, i64 8}
+!49 = !{!"p1 int", !8, i64 0}
+!50 = !{!30, !8, i64 16}
+!51 = !{!30, !5, i64 64}
+!52 = !{!53, !5, i64 36}
+!53 = !{!"Aig_Obj_t_", !6, i64 0, !54, i64 8, !54, i64 16, !5, i64 24, !5, i64 24, !5, i64 24, !5, i64 24, !5, i64 24, !5, i64 28, !5, i64 31, !5, i64 32, !5, i64 36, !6, i64 40}
+!54 = !{!"p1 _ZTS10Aig_Obj_t_", !8, i64 0}
+!55 = !{!33, !33, i64 0}
+!56 = distinct !{!56, !37}
+!57 = !{!12, !17, i64 80}
+!58 = !{!59, !59, i64 0}
+!59 = !{!"p1 _ZTS8_IO_FILE", !8, i64 0}

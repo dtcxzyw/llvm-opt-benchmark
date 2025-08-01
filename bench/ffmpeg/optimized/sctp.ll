@@ -216,7 +216,7 @@ define internal range(i32 -22, 1) i32 @sctp_open(ptr noundef %0, ptr noundef %1,
   br label %.backedge
 
 .backedge:                                        ; preds = %91, %90
-  br label %44, !llvm.loop !39
+  br label %44
 
 93:                                               ; preds = %86
   br i1 %89, label %.thread, label %.thread71
@@ -255,7 +255,7 @@ define internal range(i32 -2147483647, -2147483648) i32 @sctp_read(ptr noundef r
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = load ptr, ptr %8, align 8, !tbaa !4
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %11 = load i32, ptr %10, align 8, !tbaa !41
+  %11 = load i32, ptr %10, align 8, !tbaa !39
   %12 = and i32 %11, 8
   %.not = icmp eq i32 %12, 0
   br i1 %.not, label %13, label %sctp_wait_fd.exit.thread21
@@ -264,17 +264,17 @@ define internal range(i32 -2147483647, -2147483648) i32 @sctp_read(ptr noundef r
   %14 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %15 = load i32, ptr %14, align 8, !tbaa !38
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #12
-  store i32 %15, ptr %7, align 4, !tbaa !42
+  store i32 %15, ptr %7, align 4, !tbaa !40
   %16 = getelementptr inbounds nuw i8, ptr %7, i64 4
-  store i16 1, ptr %16, align 4, !tbaa !44
+  store i16 1, ptr %16, align 4, !tbaa !42
   %17 = getelementptr inbounds nuw i8, ptr %7, i64 6
-  store i16 0, ptr %17, align 2, !tbaa !45
+  store i16 0, ptr %17, align 2, !tbaa !43
   %18 = call i32 @poll(ptr noundef nonnull %7, i64 noundef 1, i32 noundef 100) #12
   %19 = icmp slt i32 %18, 0
   br i1 %19, label %sctp_wait_fd.exit, label %20
 
 20:                                               ; preds = %13
-  %21 = load i16, ptr %17, align 2, !tbaa !45
+  %21 = load i16, ptr %17, align 2, !tbaa !43
   %22 = and i16 %21, 1
   %.not5.i = icmp eq i16 %22, 0
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #12
@@ -305,25 +305,25 @@ sctp_wait_fd.exit.thread21:                       ; preds = %20, %sctp_wait_fd.e
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %6) #12
   %35 = getelementptr inbounds nuw i8, ptr %6, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %35, i8 0, i64 48, i1 false)
-  store ptr %32, ptr %4, align 8, !tbaa !46
+  store ptr %32, ptr %4, align 8, !tbaa !44
   %36 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store i64 %34, ptr %36, align 8, !tbaa !48
-  store ptr null, ptr %6, align 8, !tbaa !49
+  store i64 %34, ptr %36, align 8, !tbaa !46
+  store ptr null, ptr %6, align 8, !tbaa !47
   %37 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  store ptr %4, ptr %37, align 8, !tbaa !52
+  store ptr %4, ptr %37, align 8, !tbaa !50
   %38 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  store i64 1, ptr %38, align 8, !tbaa !53
+  store i64 1, ptr %38, align 8, !tbaa !51
   %39 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  store ptr %5, ptr %39, align 8, !tbaa !54
+  store ptr %5, ptr %39, align 8, !tbaa !52
   %40 = getelementptr inbounds nuw i8, ptr %6, i64 40
-  store i64 48, ptr %40, align 8, !tbaa !55
+  store i64 48, ptr %40, align 8, !tbaa !53
   %41 = call i64 @recvmsg(i32 noundef %30, ptr noundef nonnull %6, i32 noundef 0) #12
   %42 = trunc i64 %41 to i32
   %43 = icmp slt i32 %42, 0
   br i1 %43, label %ff_sctp_recvmsg.exit, label %44
 
 44:                                               ; preds = %31
-  %45 = load i64, ptr %40, align 8, !tbaa !55
+  %45 = load i64, ptr %40, align 8, !tbaa !53
   %46 = icmp ult i64 %45, 16
   %47 = load ptr, ptr %39, align 8
   %.not24.i = icmp eq ptr %47, null
@@ -349,7 +349,7 @@ sctp_wait_fd.exit.thread21:                       ; preds = %20, %sctp_wait_fd.e
   br i1 %57, label %73, label %58
 
 58:                                               ; preds = %54, %50
-  %59 = load i64, ptr %.03.i, align 8, !tbaa !56
+  %59 = load i64, ptr %.03.i, align 8, !tbaa !54
   %60 = icmp ult i64 %59, 16
   br i1 %60, label %ff_sctp_recvmsg.exit, label %61
 
@@ -382,7 +382,7 @@ ff_sctp_recvmsg.exit:                             ; preds = %58, %61, %31, %44, 
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %6) #12
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %5) #12
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #12
-  store i16 %.sroa.0.0, ptr %1, align 1, !tbaa !57
+  store i16 %.sroa.0.0, ptr %1, align 1, !tbaa !55
   %76 = add nuw nsw i32 %42, 2
   %77 = select i1 %43, i32 %42, i32 %76
   br label %82
@@ -418,7 +418,7 @@ define internal range(i32 -2147483647, -2147483648) i32 @sctp_write(ptr noundef 
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = load ptr, ptr %8, align 8, !tbaa !4
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %11 = load i32, ptr %10, align 8, !tbaa !41
+  %11 = load i32, ptr %10, align 8, !tbaa !39
   %12 = and i32 %11, 8
   %.not = icmp eq i32 %12, 0
   br i1 %.not, label %13, label %sctp_wait_fd.exit.thread25
@@ -427,17 +427,17 @@ define internal range(i32 -2147483647, -2147483648) i32 @sctp_write(ptr noundef 
   %14 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %15 = load i32, ptr %14, align 8, !tbaa !38
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #12
-  store i32 %15, ptr %7, align 4, !tbaa !42
+  store i32 %15, ptr %7, align 4, !tbaa !40
   %16 = getelementptr inbounds nuw i8, ptr %7, i64 4
-  store i16 4, ptr %16, align 4, !tbaa !44
+  store i16 4, ptr %16, align 4, !tbaa !42
   %17 = getelementptr inbounds nuw i8, ptr %7, i64 6
-  store i16 0, ptr %17, align 2, !tbaa !45
+  store i16 0, ptr %17, align 2, !tbaa !43
   %18 = call i32 @poll(ptr noundef nonnull %7, i64 noundef 1, i32 noundef 100) #12
   %19 = icmp slt i32 %18, 0
   br i1 %19, label %sctp_wait_fd.exit, label %20
 
 20:                                               ; preds = %13
-  %21 = load i16, ptr %17, align 2, !tbaa !45
+  %21 = load i16, ptr %17, align 2, !tbaa !43
   %22 = and i16 %21, 4
   %.not5.i = icmp eq i16 %22, 0
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #12
@@ -458,7 +458,7 @@ sctp_wait_fd.exit.thread25:                       ; preds = %20, %sctp_wait_fd.e
   br i1 %.not23, label %47, label %29
 
 29:                                               ; preds = %sctp_wait_fd.exit.thread25
-  %30 = load i16, ptr %1, align 1, !tbaa !57
+  %30 = load i16, ptr %1, align 1, !tbaa !55
   %31 = call i16 @llvm.bswap.i16(i16 %30)
   %32 = zext i16 %31 to i32
   %.not24 = icmp slt i32 %28, %32
@@ -478,22 +478,22 @@ sctp_wait_fd.exit.thread25:                       ; preds = %20, %sctp_wait_fd.e
   %39 = getelementptr inbounds nuw i8, ptr %4, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %39, i8 0, i64 48, i1 false)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #12
-  store ptr null, ptr %4, align 8, !tbaa !49
-  store i32 0, ptr %39, align 8, !tbaa !58
+  store ptr null, ptr %4, align 8, !tbaa !47
+  store i32 0, ptr %39, align 8, !tbaa !56
   %40 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store ptr %5, ptr %40, align 8, !tbaa !52
-  store ptr %36, ptr %5, align 8, !tbaa !46
+  store ptr %5, ptr %40, align 8, !tbaa !50
+  store ptr %36, ptr %5, align 8, !tbaa !44
   %41 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store i64 %38, ptr %41, align 8, !tbaa !48
+  store i64 %38, ptr %41, align 8, !tbaa !46
   %42 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  store i64 1, ptr %42, align 8, !tbaa !53
+  store i64 1, ptr %42, align 8, !tbaa !51
   %43 = getelementptr inbounds nuw i8, ptr %4, i64 40
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %6) #12
   %44 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  store ptr %6, ptr %44, align 8, !tbaa !54
+  store ptr %6, ptr %44, align 8, !tbaa !52
   %45 = getelementptr inbounds nuw i8, ptr %4, i64 48
-  store i32 0, ptr %45, align 8, !tbaa !59
-  store i64 48, ptr %43, align 8, !tbaa !55
+  store i32 0, ptr %45, align 8, !tbaa !57
+  store i64 48, ptr %43, align 8, !tbaa !53
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %6) #12
   %46 = call i64 @sendmsg(i32 noundef %35, ptr noundef nonnull %4, i32 noundef 16512) #12
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #12
@@ -664,24 +664,22 @@ attributes #14 = { nounwind willreturn memory(none) }
 !36 = !{!35, !19, i64 0}
 !37 = !{!5, !12, i64 40}
 !38 = !{!17, !12, i64 8}
-!39 = distinct !{!39, !40}
-!40 = !{!"llvm.loop.estimated_trip_count"}
-!41 = !{!5, !12, i64 32}
-!42 = !{!43, !12, i64 0}
-!43 = !{!"pollfd", !12, i64 0, !19, i64 4, !19, i64 6}
-!44 = !{!43, !19, i64 4}
-!45 = !{!43, !19, i64 6}
-!46 = !{!47, !7, i64 0}
-!47 = !{!"iovec", !7, i64 0, !14, i64 8}
-!48 = !{!47, !14, i64 8}
-!49 = !{!50, !7, i64 0}
-!50 = !{!"msghdr", !7, i64 0, !12, i64 8, !51, i64 16, !14, i64 24, !7, i64 32, !14, i64 40, !12, i64 48}
-!51 = !{!"p1 _ZTS5iovec", !7, i64 0}
-!52 = !{!50, !51, i64 16}
-!53 = !{!50, !14, i64 24}
-!54 = !{!50, !7, i64 32}
-!55 = !{!50, !14, i64 40}
-!56 = !{!14, !14, i64 0}
-!57 = !{!8, !8, i64 0}
-!58 = !{!50, !12, i64 8}
-!59 = !{!50, !12, i64 48}
+!39 = !{!5, !12, i64 32}
+!40 = !{!41, !12, i64 0}
+!41 = !{!"pollfd", !12, i64 0, !19, i64 4, !19, i64 6}
+!42 = !{!41, !19, i64 4}
+!43 = !{!41, !19, i64 6}
+!44 = !{!45, !7, i64 0}
+!45 = !{!"iovec", !7, i64 0, !14, i64 8}
+!46 = !{!45, !14, i64 8}
+!47 = !{!48, !7, i64 0}
+!48 = !{!"msghdr", !7, i64 0, !12, i64 8, !49, i64 16, !14, i64 24, !7, i64 32, !14, i64 40, !12, i64 48}
+!49 = !{!"p1 _ZTS5iovec", !7, i64 0}
+!50 = !{!48, !49, i64 16}
+!51 = !{!48, !14, i64 24}
+!52 = !{!48, !7, i64 32}
+!53 = !{!48, !14, i64 40}
+!54 = !{!14, !14, i64 0}
+!55 = !{!8, !8, i64 0}
+!56 = !{!48, !12, i64 8}
+!57 = !{!48, !12, i64 48}

@@ -1048,7 +1048,7 @@ _ZN22cranelift_codegen_meta6srcgen9Formatter6indent17h4628b67f1bc073b1E.exit.i: 
 
 68:                                               ; preds = %_ZN22cranelift_codegen_meta6srcgen9Formatter6indent17h4628b67f1bc073b1E.exit.i
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hff29d85a8da6fe3aE"(ptr nonnull align 8 %11)
-          to label %30 unwind label %34, !llvm.loop !18
+          to label %30 unwind label %34
 
 69:                                               ; preds = %32
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hff29d85a8da6fe3aE"(ptr nonnull align 8 %13) #11
@@ -1812,13 +1812,13 @@ define hidden align 8 ptr @_ZN22cranelift_codegen_meta6srcgen9Formatter11update_
           to label %40 unwind label %36
 
 40:                                               ; preds = %39
-  %41 = load i32, ptr %7, align 8, !range !20, !noundef !3
+  %41 = load i32, ptr %7, align 8, !range !18, !noundef !3
   %42 = icmp eq i32 %41, 0
   br i1 %42, label %43, label %52
 
 43:                                               ; preds = %40
   %44 = getelementptr inbounds nuw i8, ptr %7, i64 4
-  %45 = load i32, ptr %44, align 4, !range !21
+  %45 = load i32, ptr %44, align 4, !range !19
   store i32 %45, ptr %8, align 4
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %47 = load ptr, ptr %46, align 8, !nonnull !3, !noundef !3
@@ -1876,7 +1876,7 @@ define hidden align 8 ptr @_ZN22cranelift_codegen_meta6srcgen9Formatter11update_
 
 67:                                               ; preds = %63
   %68 = icmp eq ptr %65, null
-  br i1 %68, label %56, label %69, !llvm.loop !22
+  br i1 %68, label %56, label %69
 
 69:                                               ; preds = %67
   %70 = invoke align 8 ptr @"_ZN105_$LT$cranelift_codegen_meta..error..Error$u20$as$u20$core..convert..From$LT$std..io..error..Error$GT$$GT$4from17h95dbd1d5419d433cE"(ptr nonnull %65)
@@ -3423,8 +3423,5 @@ attributes #13 = { noreturn }
 !15 = distinct !{!15, !16, !"_ZN22cranelift_codegen_meta6srcgen9Formatter9add_match28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hc241ebcca4aded31E: argument 0"}
 !16 = distinct !{!16, !"_ZN22cranelift_codegen_meta6srcgen9Formatter9add_match28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hc241ebcca4aded31E"}
 !17 = !{i64 0, i64 -9223372036854775807}
-!18 = distinct !{!18, !19}
-!19 = !{!"llvm.loop.estimated_trip_count"}
-!20 = !{i32 0, i32 2}
-!21 = !{i32 0, i32 -1}
-!22 = distinct !{!22, !19}
+!18 = !{i32 0, i32 2}
+!19 = !{i32 0, i32 -1}

@@ -246,7 +246,7 @@ define internal fastcc i32 @dissect_riemann(ptr noundef %0, ptr noundef %1, ptr 
   %16 = or i64 %15, %.015.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 7
   %17 = icmp slt i8 %12, 0
-  br i1 %17, label %.preheader.i, label %riemann_get_uint64.exit.i, !llvm.loop !6
+  br i1 %17, label %.preheader.i, label %riemann_get_uint64.exit.i
 
 riemann_get_uint64.exit.i:                        ; preds = %10
   %18 = lshr i64 %16, 3
@@ -310,7 +310,7 @@ riemann_get_uint64.exit.thread.i19:               ; preds = %35
   %indvars.iv.next.i.i17 = add nuw nsw i64 %indvars.iv.i.i14, 7
   %45 = add nuw nsw i32 %.1139.i, 1
   %46 = icmp slt i8 %40, 0
-  br i1 %46, label %35, label %riemann_get_uint64.exit.i18, !llvm.loop !6
+  br i1 %46, label %35, label %riemann_get_uint64.exit.i18
 
 riemann_get_uint64.exit.i18:                      ; preds = %38
   %47 = lshr i64 %44, 3
@@ -371,7 +371,7 @@ riemann_verify_wire_format.exit74.i:              ; preds = %59, %58
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 7
   %72 = add nuw nsw i32 %.0.i.i, 1
   %73 = icmp slt i8 %67, 0
-  br i1 %73, label %63, label %riemann_dissect_string.exit.i, !llvm.loop !6
+  br i1 %73, label %63, label %riemann_dissect_string.exit.i
 
 riemann_dissect_string.exit.i:                    ; preds = %65, %63
   %.1.i.i = phi i32 [ 10, %63 ], [ %72, %65 ]
@@ -421,7 +421,7 @@ riemann_verify_wire_format.exit77.i:              ; preds = %79, %78
   %indvars.iv.next.i.i82.i = add nuw nsw i64 %indvars.iv.i.i79.i, 7
   %94 = add nuw nsw i32 %.1.i78.i, 1
   %95 = icmp slt i8 %89, 0
-  br i1 %95, label %85, label %riemann_get_uint64.exit.i.i, !llvm.loop !6
+  br i1 %95, label %85, label %riemann_get_uint64.exit.i.i
 
 riemann_get_uint64.exit.i.i:                      ; preds = %87, %85
   %.2.i.i = phi i32 [ 10, %85 ], [ %94, %87 ]
@@ -463,7 +463,7 @@ riemann_get_uint64.exit46.thread.i.i:             ; preds = %104
   %indvars.iv.next.i44.i.i = add nuw nsw i64 %indvars.iv.i41.i.i, 7
   %114 = add nuw nsw i32 %.3.i.i, 1
   %115 = icmp slt i8 %109, 0
-  br i1 %115, label %104, label %riemann_get_uint64.exit46.i.i, !llvm.loop !6
+  br i1 %115, label %104, label %riemann_get_uint64.exit46.i.i
 
 riemann_get_uint64.exit46.i.i:                    ; preds = %107
   %116 = lshr i64 %113, 3
@@ -506,7 +506,7 @@ riemann_verify_wire_format.exit.i.i:              ; preds = %122, %121
   %indvars.iv.next.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i, 7
   %136 = add nuw nsw i32 %.0.i.i.i, 1
   %137 = icmp slt i8 %131, 0
-  br i1 %137, label %127, label %riemann_get_string.exit.i.i, !llvm.loop !6
+  br i1 %137, label %127, label %riemann_get_string.exit.i.i
 
 riemann_get_string.exit.i.i:                      ; preds = %129, %127
   %.1.i.i.i = phi i32 [ 10, %127 ], [ %136, %129 ]
@@ -536,7 +536,7 @@ riemann_get_string.exit.i.i:                      ; preds = %129, %127
   %indvars.iv.next.i.i51.i.i = add nuw nsw i64 %indvars.iv.i.i48.i.i, 7
   %151 = add nuw nsw i32 %.0.i47.i.i, 1
   %152 = icmp slt i8 %146, 0
-  br i1 %152, label %142, label %riemann_dissect_string.exit.i.i, !llvm.loop !6
+  br i1 %152, label %142, label %riemann_dissect_string.exit.i.i
 
 riemann_dissect_string.exit.i.i:                  ; preds = %144, %142
   %.1.i52.i.i = phi i32 [ 10, %142 ], [ %151, %144 ]
@@ -566,7 +566,7 @@ riemann_dissect_string.exit.i.i:                  ; preds = %144, %142
   %170 = add nuw nsw i64 %166, %169
   %171 = sub i64 %.03967.i.i, %170
   %172 = icmp sgt i64 %171, 0
-  br i1 %172, label %.preheader.i.i, label %._crit_edge.i.i, !llvm.loop !8
+  br i1 %172, label %.preheader.i.i, label %._crit_edge.i.i, !llvm.loop !6
 
 ._crit_edge.i.i:                                  ; preds = %165, %riemann_get_uint64.exit.i.i
   %.039.lcssa.i.i = phi i64 [ %.124.i.i83.i, %riemann_get_uint64.exit.i.i ], [ %171, %165 ]
@@ -623,7 +623,7 @@ riemann_verify_wire_format.exit86.i:              ; preds = %180, %179
   %indvars.iv.next.i.i90.i = add nuw nsw i64 %indvars.iv.i.i87.i, 7
   %195 = add nuw nsw i32 %.1251.i.i, 1
   %196 = icmp slt i8 %190, 0
-  br i1 %196, label %186, label %riemann_get_uint64.exit.i91.i, !llvm.loop !6
+  br i1 %196, label %186, label %riemann_get_uint64.exit.i91.i
 
 riemann_get_uint64.exit.i91.i:                    ; preds = %188, %186
   %.2.i92.i = phi i32 [ 10, %186 ], [ %195, %188 ]
@@ -667,7 +667,7 @@ riemann_get_uint64.exit134.thread.i.i:            ; preds = %206
   %indvars.iv.next.i132.i.i = add nuw nsw i64 %indvars.iv.i129.i.i, 7
   %216 = add nuw nsw i32 %.3.i96.i, 1
   %217 = icmp slt i8 %211, 0
-  br i1 %217, label %206, label %riemann_get_uint64.exit134.i.i, !llvm.loop !6
+  br i1 %217, label %206, label %riemann_get_uint64.exit134.i.i
 
 riemann_get_uint64.exit134.i.i:                   ; preds = %209
   %218 = lshr i64 %215, 3
@@ -721,7 +721,7 @@ riemann_verify_wire_format.exit.i101.i:           ; preds = %224, %223
   %indvars.iv.next.i.i.i106.i = add nuw nsw i64 %indvars.iv.i.i.i103.i, 7
   %237 = add nuw nsw i32 %.0.i.i102.i, 1
   %238 = icmp slt i8 %232, 0
-  br i1 %238, label %228, label %riemann_dissect_int64.exit.i.i, !llvm.loop !6
+  br i1 %238, label %228, label %riemann_dissect_int64.exit.i.i
 
 riemann_dissect_int64.exit.i.i:                   ; preds = %230, %228
   %.1.i.i107.i = phi i32 [ 10, %228 ], [ %237, %230 ]
@@ -760,7 +760,7 @@ riemann_verify_wire_format.exit137.i.i:           ; preds = %241, %240
   %indvars.iv.next.i.i142.i.i = add nuw nsw i64 %indvars.iv.i.i139.i.i, 7
   %254 = add nuw nsw i32 %.0.i138.i.i, 1
   %255 = icmp slt i8 %249, 0
-  br i1 %255, label %245, label %riemann_dissect_string.exit.i99.i, !llvm.loop !6
+  br i1 %255, label %245, label %riemann_dissect_string.exit.i99.i
 
 riemann_dissect_string.exit.i99.i:                ; preds = %247, %245
   %.1.i143.i.i = phi i32 [ 10, %245 ], [ %254, %247 ]
@@ -803,7 +803,7 @@ riemann_verify_wire_format.exit147.i.i:           ; preds = %261, %260
   %indvars.iv.next.i.i152.i.i = add nuw nsw i64 %indvars.iv.i.i149.i.i, 7
   %275 = add nuw nsw i32 %.0.i148.i.i, 1
   %276 = icmp slt i8 %270, 0
-  br i1 %276, label %266, label %riemann_get_string.exit.i98.i, !llvm.loop !6
+  br i1 %276, label %266, label %riemann_get_string.exit.i98.i
 
 riemann_get_string.exit.i98.i:                    ; preds = %268, %266
   %.1.i153.i.i = phi i32 [ 10, %266 ], [ %275, %268 ]
@@ -833,7 +833,7 @@ riemann_get_string.exit.i98.i:                    ; preds = %268, %266
   %indvars.iv.next.i.i159.i.i = add nuw nsw i64 %indvars.iv.i.i156.i.i, 7
   %290 = add nuw nsw i32 %.0.i155.i.i, 1
   %291 = icmp slt i8 %285, 0
-  br i1 %291, label %281, label %riemann_dissect_string.exit162.i.i, !llvm.loop !6
+  br i1 %291, label %281, label %riemann_dissect_string.exit162.i.i
 
 riemann_dissect_string.exit162.i.i:               ; preds = %283, %281
   %.1.i160.i.i = phi i32 [ 10, %281 ], [ %290, %283 ]
@@ -876,7 +876,7 @@ riemann_verify_wire_format.exit165.i.i:           ; preds = %297, %296
   %indvars.iv.next.i.i170.i.i = add nuw nsw i64 %indvars.iv.i.i167.i.i, 7
   %311 = add nuw nsw i32 %.0.i166.i.i, 1
   %312 = icmp slt i8 %306, 0
-  br i1 %312, label %302, label %riemann_get_string.exit173.i.i, !llvm.loop !6
+  br i1 %312, label %302, label %riemann_get_string.exit173.i.i
 
 riemann_get_string.exit173.i.i:                   ; preds = %304, %302
   %.1.i171.i.i = phi i32 [ 10, %302 ], [ %311, %304 ]
@@ -906,7 +906,7 @@ riemann_get_string.exit173.i.i:                   ; preds = %304, %302
   %indvars.iv.next.i.i178.i.i = add nuw nsw i64 %indvars.iv.i.i175.i.i, 7
   %326 = add nuw nsw i32 %.0.i174.i.i, 1
   %327 = icmp slt i8 %321, 0
-  br i1 %327, label %317, label %riemann_dissect_string.exit181.i.i, !llvm.loop !6
+  br i1 %327, label %317, label %riemann_dissect_string.exit181.i.i
 
 riemann_dissect_string.exit181.i.i:               ; preds = %319, %317
   %.1.i179.i.i = phi i32 [ 10, %317 ], [ %326, %319 ]
@@ -948,7 +948,7 @@ riemann_verify_wire_format.exit184.i.i:           ; preds = %333, %332
   %indvars.iv.next.i.i189.i.i = add nuw nsw i64 %indvars.iv.i.i186.i.i, 7
   %346 = add nuw nsw i32 %.0.i185.i.i, 1
   %347 = icmp slt i8 %341, 0
-  br i1 %347, label %337, label %riemann_dissect_string.exit192.i.i, !llvm.loop !6
+  br i1 %347, label %337, label %riemann_dissect_string.exit192.i.i
 
 riemann_dissect_string.exit192.i.i:               ; preds = %339, %337
   %.1.i190.i.i = phi i32 [ 10, %337 ], [ %346, %339 ]
@@ -990,7 +990,7 @@ riemann_verify_wire_format.exit195.i.i:           ; preds = %353, %352
   %indvars.iv.next.i.i200.i.i = add nuw nsw i64 %indvars.iv.i.i197.i.i, 7
   %366 = add nuw nsw i32 %.0.i196.i.i, 1
   %367 = icmp slt i8 %361, 0
-  br i1 %367, label %357, label %riemann_dissect_string.exit203.i.i, !llvm.loop !6
+  br i1 %367, label %357, label %riemann_dissect_string.exit203.i.i
 
 riemann_dissect_string.exit203.i.i:               ; preds = %359, %357
   %.1.i201.i.i = phi i32 [ 10, %357 ], [ %366, %359 ]
@@ -1045,7 +1045,7 @@ riemann_verify_wire_format.exit209.i.i:           ; preds = %riemann_verify_wire
   %indvars.iv.next.i.i214.i.i = add nuw nsw i64 %indvars.iv.i.i211.i.i, 7
   %390 = add nuw nsw i32 %.1.i210.i.i, 1
   %391 = icmp slt i8 %385, 0
-  br i1 %391, label %riemann_verify_wire_format.exit209.i.i, label %riemann_get_uint64.exit.i.i.i, !llvm.loop !6
+  br i1 %391, label %riemann_verify_wire_format.exit209.i.i, label %riemann_get_uint64.exit.i.i.i
 
 riemann_get_uint64.exit.i.i.i:                    ; preds = %383, %riemann_verify_wire_format.exit209.i.i
   %.2.i.i.i = phi i32 [ 10, %riemann_verify_wire_format.exit209.i.i ], [ %390, %383 ]
@@ -1087,7 +1087,7 @@ riemann_get_uint64.exit49.thread.i.i.i:           ; preds = %400
   %indvars.iv.next.i47.i.i.i = add nuw nsw i64 %indvars.iv.i44.i.i.i, 7
   %410 = add nuw nsw i32 %.3.i.i.i, 1
   %411 = icmp slt i8 %405, 0
-  br i1 %411, label %400, label %riemann_get_uint64.exit49.i.i.i, !llvm.loop !6
+  br i1 %411, label %400, label %riemann_get_uint64.exit49.i.i.i
 
 riemann_get_uint64.exit49.i.i.i:                  ; preds = %403
   %412 = lshr i64 %409, 3
@@ -1131,7 +1131,7 @@ riemann_verify_wire_format.exit.i.i.i:            ; preds = %418, %417
   %indvars.iv.next.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i.i, 7
   %431 = add nuw nsw i32 %.0.i.i.i.i, 1
   %432 = icmp slt i8 %426, 0
-  br i1 %432, label %422, label %riemann_dissect_string.exit.i.i.i, !llvm.loop !6
+  br i1 %432, label %422, label %riemann_dissect_string.exit.i.i.i
 
 riemann_dissect_string.exit.i.i.i:                ; preds = %424, %422
   %.1.i.i.i.i = phi i32 [ 10, %422 ], [ %431, %424 ]
@@ -1173,7 +1173,7 @@ riemann_verify_wire_format.exit52.i.i.i:          ; preds = %438, %437
   %indvars.iv.next.i.i57.i.i.i = add nuw nsw i64 %indvars.iv.i.i54.i.i.i, 7
   %451 = add nuw nsw i32 %.0.i53.i.i.i, 1
   %452 = icmp slt i8 %446, 0
-  br i1 %452, label %442, label %riemann_dissect_string.exit60.i.i.i, !llvm.loop !6
+  br i1 %452, label %442, label %riemann_dissect_string.exit60.i.i.i
 
 riemann_dissect_string.exit60.i.i.i:              ; preds = %444, %442
   %.1.i58.i.i.i = phi i32 [ 10, %442 ], [ %451, %444 ]
@@ -1203,7 +1203,7 @@ riemann_dissect_string.exit60.i.i.i:              ; preds = %444, %442
   %470 = add nuw nsw i64 %466, %469
   %471 = sub i64 %.04273.i.i.i, %470
   %472 = icmp sgt i64 %471, 0
-  br i1 %472, label %.preheader.i.i.i, label %._crit_edge.i.i.i, !llvm.loop !10
+  br i1 %472, label %.preheader.i.i.i, label %._crit_edge.i.i.i, !llvm.loop !8
 
 ._crit_edge.i.i.i:                                ; preds = %465, %riemann_get_uint64.exit.i.i.i
   %.042.lcssa.i.i.i = phi i64 [ %.124.i.i215.i.i, %riemann_get_uint64.exit.i.i.i ], [ %471, %465 ]
@@ -1252,7 +1252,7 @@ riemann_verify_wire_format.exit218.i.i:           ; preds = %480, %479
   %indvars.iv.next.i.i223.i.i = add nuw nsw i64 %indvars.iv.i.i220.i.i, 7
   %493 = add nuw nsw i32 %.0.i219.i.i, 1
   %494 = icmp slt i8 %488, 0
-  br i1 %494, label %484, label %riemann_dissect_int64.exit227.i.i, !llvm.loop !6
+  br i1 %494, label %484, label %riemann_dissect_int64.exit227.i.i
 
 riemann_dissect_int64.exit227.i.i:                ; preds = %486, %484
   %.1.i225.i.i = phi i32 [ 10, %484 ], [ %493, %486 ]
@@ -1291,7 +1291,7 @@ riemann_verify_wire_format.exit230.i.i:           ; preds = %497, %496
   %indvars.iv.next.i.i234.i.i = add nuw nsw i64 %indvars.iv.i.i231.i.i, 7
   %510 = add nuw nsw i32 %.011.i.i.i, 1
   %511 = icmp slt i8 %505, 0
-  br i1 %511, label %501, label %riemann_dissect_sint64.exit.i.i, !llvm.loop !6
+  br i1 %511, label %501, label %riemann_dissect_sint64.exit.i.i
 
 riemann_dissect_sint64.exit.i.i:                  ; preds = %503, %501
   %.1.i236.i.i = phi i32 [ 10, %501 ], [ %510, %503 ]
@@ -1351,7 +1351,7 @@ riemann_verify_wire_format.exit244.i.i:           ; preds = %522, %521
   %540 = add nuw nsw i64 %536, %539
   %541 = sub i64 %.0126265.i.i, %540
   %542 = icmp sgt i64 %541, 0
-  br i1 %542, label %.lr.ph.i.i, label %._crit_edge.i94.i, !llvm.loop !11
+  br i1 %542, label %.lr.ph.i.i, label %._crit_edge.i94.i, !llvm.loop !9
 
 ._crit_edge.i94.i:                                ; preds = %535, %riemann_get_uint64.exit.i91.i
   %.0126.lcssa.i.i = phi i64 [ %.124.i.i93.i, %riemann_get_uint64.exit.i91.i ], [ %541, %535 ]
@@ -1410,7 +1410,7 @@ riemann_verify_wire_format.exit111.i:             ; preds = %551, %550
   %indvars.iv.next.i.i115.i = add nuw nsw i64 %indvars.iv.i.i112.i, 7
   %566 = add nuw nsw i32 %.1187.i.i, 1
   %567 = icmp slt i8 %561, 0
-  br i1 %567, label %557, label %riemann_get_uint64.exit.i116.i, !llvm.loop !6
+  br i1 %567, label %557, label %riemann_get_uint64.exit.i116.i
 
 riemann_get_uint64.exit.i116.i:                   ; preds = %559, %557
   %.2.i117.i = phi i32 [ 10, %557 ], [ %566, %559 ]
@@ -1454,7 +1454,7 @@ riemann_get_uint64.exit105.thread.i.i:            ; preds = %577
   %indvars.iv.next.i103.i.i = add nuw nsw i64 %indvars.iv.i100.i.i, 7
   %587 = add nuw nsw i32 %.3.i122.i, 1
   %588 = icmp slt i8 %582, 0
-  br i1 %588, label %577, label %riemann_get_uint64.exit105.i.i, !llvm.loop !6
+  br i1 %588, label %577, label %riemann_get_uint64.exit105.i.i
 
 riemann_get_uint64.exit105.i.i:                   ; preds = %580
   %589 = lshr i64 %586, 3
@@ -1504,7 +1504,7 @@ riemann_verify_wire_format.exit.i127.i:           ; preds = %595, %594
   %indvars.iv.next.i.i.i132.i = add nuw nsw i64 %indvars.iv.i.i.i129.i, 7
   %608 = add nuw nsw i32 %.0.i.i128.i, 1
   %609 = icmp slt i8 %603, 0
-  br i1 %609, label %599, label %riemann_dissect_int64.exit.i133.i, !llvm.loop !6
+  br i1 %609, label %599, label %riemann_dissect_int64.exit.i133.i
 
 riemann_dissect_int64.exit.i133.i:                ; preds = %601, %599
   %.1.i.i134.i = phi i32 [ 10, %599 ], [ %608, %601 ]
@@ -1544,7 +1544,7 @@ riemann_verify_wire_format.exit108.i.i:           ; preds = %612, %611
   %indvars.iv.next.i.i113.i.i = add nuw nsw i64 %indvars.iv.i.i110.i.i, 7
   %626 = add nuw nsw i32 %.0.i109.i.i, 1
   %627 = icmp slt i8 %621, 0
-  br i1 %627, label %617, label %riemann_get_string.exit.i124.i, !llvm.loop !6
+  br i1 %627, label %617, label %riemann_get_string.exit.i124.i
 
 riemann_get_string.exit.i124.i:                   ; preds = %619, %617
   %.1.i114.i.i = phi i32 [ 10, %617 ], [ %626, %619 ]
@@ -1574,7 +1574,7 @@ riemann_get_string.exit.i124.i:                   ; preds = %619, %617
   %indvars.iv.next.i.i120.i.i = add nuw nsw i64 %indvars.iv.i.i117.i.i, 7
   %641 = add nuw nsw i32 %.0.i116.i.i, 1
   %642 = icmp slt i8 %636, 0
-  br i1 %642, label %632, label %riemann_dissect_string.exit.i125.i, !llvm.loop !6
+  br i1 %642, label %632, label %riemann_dissect_string.exit.i125.i
 
 riemann_dissect_string.exit.i125.i:               ; preds = %634, %632
   %.1.i121.i.i = phi i32 [ 10, %632 ], [ %641, %634 ]
@@ -1617,7 +1617,7 @@ riemann_verify_wire_format.exit125.i.i:           ; preds = %648, %647
   %indvars.iv.next.i.i130.i.i = add nuw nsw i64 %indvars.iv.i.i127.i.i, 7
   %662 = add nuw nsw i32 %.0.i126.i.i, 1
   %663 = icmp slt i8 %657, 0
-  br i1 %663, label %653, label %riemann_get_string.exit133.i.i, !llvm.loop !6
+  br i1 %663, label %653, label %riemann_get_string.exit133.i.i
 
 riemann_get_string.exit133.i.i:                   ; preds = %655, %653
   %.1.i131.i.i = phi i32 [ 10, %653 ], [ %662, %655 ]
@@ -1647,7 +1647,7 @@ riemann_get_string.exit133.i.i:                   ; preds = %655, %653
   %indvars.iv.next.i.i138.i.i = add nuw nsw i64 %indvars.iv.i.i135.i.i, 7
   %677 = add nuw nsw i32 %.0.i134.i.i, 1
   %678 = icmp slt i8 %672, 0
-  br i1 %678, label %668, label %riemann_dissect_string.exit141.i.i, !llvm.loop !6
+  br i1 %678, label %668, label %riemann_dissect_string.exit141.i.i
 
 riemann_dissect_string.exit141.i.i:               ; preds = %670, %668
   %.1.i139.i.i = phi i32 [ 10, %668 ], [ %677, %670 ]
@@ -1689,7 +1689,7 @@ riemann_verify_wire_format.exit144.i.i:           ; preds = %684, %683
   %indvars.iv.next.i.i149.i.i = add nuw nsw i64 %indvars.iv.i.i146.i.i, 7
   %697 = add nuw nsw i32 %.0.i145.i.i, 1
   %698 = icmp slt i8 %692, 0
-  br i1 %698, label %688, label %riemann_dissect_string.exit152.i.i, !llvm.loop !6
+  br i1 %698, label %688, label %riemann_dissect_string.exit152.i.i
 
 riemann_dissect_string.exit152.i.i:               ; preds = %690, %688
   %.1.i150.i.i = phi i32 [ 10, %688 ], [ %697, %690 ]
@@ -1731,7 +1731,7 @@ riemann_verify_wire_format.exit155.i.i:           ; preds = %704, %703
   %indvars.iv.next.i.i160.i.i = add nuw nsw i64 %indvars.iv.i.i157.i.i, 7
   %717 = add nuw nsw i32 %.0.i156.i.i, 1
   %718 = icmp slt i8 %712, 0
-  br i1 %718, label %708, label %riemann_dissect_string.exit163.i.i, !llvm.loop !6
+  br i1 %718, label %708, label %riemann_dissect_string.exit163.i.i
 
 riemann_dissect_string.exit163.i.i:               ; preds = %710, %708
   %.1.i161.i.i = phi i32 [ 10, %708 ], [ %717, %710 ]
@@ -1787,7 +1787,7 @@ riemann_verify_wire_format.exit169.i.i:           ; preds = %730, %729
   %indvars.iv.next.i.i174.i.i = add nuw nsw i64 %indvars.iv.i.i171.i.i, 7
   %743 = add nuw nsw i32 %.0.i170.i.i, 1
   %744 = icmp slt i8 %738, 0
-  br i1 %744, label %734, label %riemann_dissect_string.exit177.i.i, !llvm.loop !6
+  br i1 %744, label %734, label %riemann_dissect_string.exit177.i.i
 
 riemann_dissect_string.exit177.i.i:               ; preds = %736, %734
   %.1.i175.i.i = phi i32 [ 10, %734 ], [ %743, %736 ]
@@ -1832,7 +1832,7 @@ riemann_verify_wire_format.exit180.i.i:           ; preds = %750, %749
   %768 = add nuw nsw i64 %764, %767
   %769 = sub i64 %.097194.i.i, %768
   %770 = icmp sgt i64 %769, 0
-  br i1 %770, label %.lr.ph.i121.i, label %._crit_edge.i119.i, !llvm.loop !12
+  br i1 %770, label %.lr.ph.i121.i, label %._crit_edge.i119.i, !llvm.loop !10
 
 ._crit_edge.i119.i:                               ; preds = %763, %riemann_get_uint64.exit.i116.i
   %.097.lcssa.i.i = phi i64 [ %.124.i.i118.i, %riemann_get_uint64.exit.i116.i ], [ %769, %763 ]
@@ -1872,7 +1872,7 @@ riemann_dissect_state.exit.i:                     ; preds = %773, %._crit_edge.i
   %791 = add nuw nsw i64 %787, %790
   %792 = sub i64 %.067175.i, %791
   %793 = icmp sgt i64 %792, 0
-  br i1 %793, label %.preheader.i13, label %._crit_edge.i, !llvm.loop !13
+  br i1 %793, label %.preheader.i13, label %._crit_edge.i, !llvm.loop !11
 
 ._crit_edge.i:                                    ; preds = %786, %is_riemann.exit.thread
   %.067.lcssa.i = phi i64 [ %32, %is_riemann.exit.thread ], [ %792, %786 ]
@@ -1965,10 +1965,8 @@ attributes #1 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protect
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = distinct !{!6, !7}
-!7 = !{!"llvm.loop.estimated_trip_count"}
-!8 = distinct !{!8, !9, !7}
-!9 = !{!"llvm.loop.mustprogress"}
-!10 = distinct !{!10, !9, !7}
-!11 = distinct !{!11, !9, !7}
-!12 = distinct !{!12, !9, !7}
-!13 = distinct !{!13, !9, !7}
+!7 = !{!"llvm.loop.mustprogress"}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7}

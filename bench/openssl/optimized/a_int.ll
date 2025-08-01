@@ -127,7 +127,7 @@ define i32 @ossl_i2c_ASN1_INTEGER(ptr noundef readonly captures(none) %0, ptr no
   br i1 %31, label %i2c_ibuf.exit, label %32
 
 32:                                               ; preds = %30
-  %33 = load ptr, ptr %1, align 8, !tbaa !17
+  %33 = load ptr, ptr %1, align 8, !tbaa !16
   %34 = icmp eq ptr %33, null
   br i1 %34, label %i2c_ibuf.exit, label %35
 
@@ -160,12 +160,12 @@ define i32 @ossl_i2c_ASN1_INTEGER(ptr noundef readonly captures(none) %0, ptr no
   store i8 %47, ptr %48, align 1, !tbaa !13
   %49 = lshr i32 %46, 8
   %.not16.i.i = icmp eq i64 %41, 0
-  br i1 %.not16.i.i, label %twos_complement.exit.i, label %.lr.ph.i.i, !llvm.loop !18
+  br i1 %.not16.i.i, label %twos_complement.exit.i, label %.lr.ph.i.i, !llvm.loop !17
 
 twos_complement.exit.i:                           ; preds = %.lr.ph.i.i, %35
-  %50 = load ptr, ptr %1, align 8, !tbaa !17
+  %50 = load ptr, ptr %1, align 8, !tbaa !16
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 %.037.i
-  store ptr %51, ptr %1, align 8, !tbaa !17
+  store ptr %51, ptr %1, align 8, !tbaa !16
   br label %i2c_ibuf.exit
 
 i2c_ibuf.exit:                                    ; preds = %30, %32, %twos_complement.exit.i
@@ -177,7 +177,7 @@ i2c_ibuf.exit:                                    ; preds = %30, %32, %twos_comp
 define noundef ptr @ossl_c2i_ASN1_INTEGER(ptr noundef captures(address_is_null) %0, ptr noundef captures(none) %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #6
-  %5 = load ptr, ptr %1, align 8, !tbaa !17
+  %5 = load ptr, ptr %1, align 8, !tbaa !16
   %6 = tail call fastcc i64 @c2i_ibuf(ptr noundef null, ptr noundef null, ptr noundef %5, i64 noundef %2)
   %7 = icmp eq i64 %6, 0
   br i1 %7, label %38, label %8
@@ -187,7 +187,7 @@ define noundef ptr @ossl_c2i_ASN1_INTEGER(ptr noundef captures(address_is_null) 
   br i1 %9, label %13, label %10
 
 10:                                               ; preds = %8
-  %11 = load ptr, ptr %0, align 8, !tbaa !19
+  %11 = load ptr, ptr %0, align 8, !tbaa !18
   %12 = icmp eq ptr %11, null
   br i1 %12, label %13, label %18
 
@@ -217,9 +217,9 @@ define noundef ptr @ossl_c2i_ASN1_INTEGER(ptr noundef captures(address_is_null) 
 23:                                               ; preds = %18
   %24 = getelementptr inbounds nuw i8, ptr %.025, i64 8
   %25 = load ptr, ptr %24, align 8, !tbaa !11
-  %26 = load ptr, ptr %1, align 8, !tbaa !17
+  %26 = load ptr, ptr %1, align 8, !tbaa !16
   %27 = call fastcc i64 @c2i_ibuf(ptr noundef %25, ptr noundef nonnull %4, ptr noundef %26, i64 noundef %2)
-  %28 = load i32, ptr %4, align 4, !tbaa !21
+  %28 = load i32, ptr %4, align 4, !tbaa !20
   %.not = icmp eq i32 %28, 0
   %29 = getelementptr inbounds nuw i8, ptr %.025, i64 4
   %30 = load i32, ptr %29, align 4, !tbaa !3
@@ -227,17 +227,17 @@ define noundef ptr @ossl_c2i_ASN1_INTEGER(ptr noundef captures(address_is_null) 
   %masksel = select i1 %.not, i32 0, i32 256
   %.sink = or disjoint i32 %31, %masksel
   store i32 %.sink, ptr %29, align 4, !tbaa !3
-  %32 = load ptr, ptr %1, align 8, !tbaa !17
+  %32 = load ptr, ptr %1, align 8, !tbaa !16
   %33 = getelementptr inbounds i8, ptr %32, i64 %2
-  store ptr %33, ptr %1, align 8, !tbaa !17
+  store ptr %33, ptr %1, align 8, !tbaa !16
   br i1 %9, label %38, label %34
 
 34:                                               ; preds = %23
-  store ptr %.025, ptr %0, align 8, !tbaa !19
+  store ptr %.025, ptr %0, align 8, !tbaa !18
   br label %38
 
 35:                                               ; preds = %22
-  %36 = load ptr, ptr %0, align 8, !tbaa !19
+  %36 = load ptr, ptr %0, align 8, !tbaa !18
   %.not31 = icmp eq ptr %36, %.025
   br i1 %.not31, label %38, label %37
 
@@ -270,7 +270,7 @@ define internal fastcc noundef i64 @c2i_ibuf(ptr noundef writeonly captures(addr
 
 10:                                               ; preds = %7
   %11 = zext i8 %9 to i32
-  store i32 %11, ptr %1, align 4, !tbaa !21
+  store i32 %11, ptr %1, align 4, !tbaa !20
   br label %12
 
 12:                                               ; preds = %10, %7
@@ -311,7 +311,7 @@ define internal fastcc noundef i64 @c2i_ibuf(ptr noundef writeonly captures(addr
   %25 = or i32 %.154, %24
   %26 = add nuw i64 %.055, 1
   %exitcond.not = icmp eq i64 %26, %3
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !22
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !21
 
 ._crit_edge:                                      ; preds = %.lr.ph
   %.not41.not = icmp eq i32 %25, 0
@@ -360,7 +360,7 @@ define internal fastcc noundef i64 @c2i_ibuf(ptr noundef writeonly captures(addr
   store i8 %43, ptr %44, align 1, !tbaa !13
   %45 = lshr i32 %42, 8
   %.not16.i = icmp eq i64 %37, 0
-  br i1 %.not16.i, label %twos_complement.exit, label %.lr.ph.i, !llvm.loop !18
+  br i1 %.not16.i, label %twos_complement.exit, label %.lr.ph.i, !llvm.loop !17
 
 twos_complement.exit:                             ; preds = %.lr.ph.i, %.thread, %14, %19, %17, %31, %6
   %.035 = phi i64 [ 0, %6 ], [ 0, %31 ], [ 1, %17 ], [ 1, %19 ], [ 1, %14 ], [ %32, %.thread ], [ %32, %.lr.ph.i ]
@@ -387,14 +387,14 @@ define ptr @d2i_ASN1_UINTEGER(ptr noundef captures(address_is_null) %0, ptr noun
   %7 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #6
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #6
-  store i64 0, ptr %5, align 8, !tbaa !23
+  store i64 0, ptr %5, align 8, !tbaa !22
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #6
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #6
   %8 = icmp eq ptr %0, null
   br i1 %8, label %12, label %9
 
 9:                                                ; preds = %3
-  %10 = load ptr, ptr %0, align 8, !tbaa !19
+  %10 = load ptr, ptr %0, align 8, !tbaa !18
   %11 = icmp eq ptr %10, null
   br i1 %11, label %12, label %17
 
@@ -410,20 +410,20 @@ define ptr @d2i_ASN1_UINTEGER(ptr noundef captures(address_is_null) %0, ptr noun
 
 17:                                               ; preds = %9, %15
   %.025 = phi ptr [ %13, %15 ], [ %10, %9 ]
-  %18 = load ptr, ptr %1, align 8, !tbaa !17
-  store ptr %18, ptr %4, align 8, !tbaa !17
+  %18 = load ptr, ptr %1, align 8, !tbaa !16
+  store ptr %18, ptr %4, align 8, !tbaa !16
   %19 = call i32 @ASN1_get_object(ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7, i64 noundef %2) #6
   %20 = and i32 %19, 128
   %.not = icmp eq i32 %20, 0
   br i1 %.not, label %21, label %53
 
 21:                                               ; preds = %17
-  %22 = load i32, ptr %6, align 4, !tbaa !21
+  %22 = load i32, ptr %6, align 4, !tbaa !20
   %.not32 = icmp eq i32 %22, 2
   br i1 %.not32, label %23, label %53
 
 23:                                               ; preds = %21
-  %24 = load i64, ptr %5, align 8, !tbaa !23
+  %24 = load i64, ptr %5, align 8, !tbaa !22
   %25 = icmp slt i64 %24, 0
   br i1 %25, label %53, label %26
 
@@ -438,12 +438,12 @@ define ptr @d2i_ASN1_UINTEGER(ptr noundef captures(address_is_null) %0, ptr noun
 31:                                               ; preds = %26
   %32 = getelementptr inbounds nuw i8, ptr %.025, i64 4
   store i32 2, ptr %32, align 4, !tbaa !3
-  %33 = load i64, ptr %5, align 8, !tbaa !23
+  %33 = load i64, ptr %5, align 8, !tbaa !22
   %.not33 = icmp eq i64 %33, 0
   br i1 %.not33, label %48, label %34
 
 34:                                               ; preds = %31
-  %35 = load ptr, ptr %4, align 8, !tbaa !17
+  %35 = load ptr, ptr %4, align 8, !tbaa !16
   %36 = load i8, ptr %35, align 1, !tbaa !13
   %37 = icmp eq i8 %36, 0
   %38 = icmp ne i64 %33, 1
@@ -452,9 +452,9 @@ define ptr @d2i_ASN1_UINTEGER(ptr noundef captures(address_is_null) %0, ptr noun
 
 39:                                               ; preds = %34
   %40 = getelementptr inbounds nuw i8, ptr %35, i64 1
-  store ptr %40, ptr %4, align 8, !tbaa !17
+  store ptr %40, ptr %4, align 8, !tbaa !16
   %41 = add nsw i64 %33, -1
-  store i64 %41, ptr %5, align 8, !tbaa !23
+  store i64 %41, ptr %5, align 8, !tbaa !22
   br label %42
 
 42:                                               ; preds = %39, %34
@@ -464,7 +464,7 @@ define ptr @d2i_ASN1_UINTEGER(ptr noundef captures(address_is_null) %0, ptr noun
   %45 = ashr exact i64 %sext34, 32
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %29, ptr nonnull align 1 %44, i64 %45, i1 false)
   %46 = getelementptr inbounds i8, ptr %44, i64 %43
-  store ptr %46, ptr %4, align 8, !tbaa !17
+  store ptr %46, ptr %4, align 8, !tbaa !16
   %47 = trunc i64 %43 to i32
   br label %48
 
@@ -474,12 +474,12 @@ define ptr @d2i_ASN1_UINTEGER(ptr noundef captures(address_is_null) %0, ptr noun
   br i1 %8, label %51, label %50
 
 50:                                               ; preds = %48
-  store ptr %.025, ptr %0, align 8, !tbaa !19
+  store ptr %.025, ptr %0, align 8, !tbaa !18
   br label %51
 
 51:                                               ; preds = %50, %48
-  %52 = load ptr, ptr %4, align 8, !tbaa !17
-  store ptr %52, ptr %1, align 8, !tbaa !17
+  %52 = load ptr, ptr %4, align 8, !tbaa !16
+  store ptr %52, ptr %1, align 8, !tbaa !16
   br label %57
 
 53:                                               ; preds = %17, %21, %23
@@ -493,7 +493,7 @@ define ptr @d2i_ASN1_UINTEGER(ptr noundef captures(address_is_null) %0, ptr noun
   br i1 %8, label %56, label %54
 
 54:                                               ; preds = %.critedge
-  %55 = load ptr, ptr %0, align 8, !tbaa !19
+  %55 = load ptr, ptr %0, align 8, !tbaa !18
   %.not37 = icmp eq ptr %55, %.025
   br i1 %.not37, label %57, label %56
 
@@ -582,7 +582,7 @@ define internal fastcc range(i32 0, 2) i32 @asn1_string_get_int64(ptr noundef wr
   %25 = or disjoint i64 %21, %24
   %26 = add nuw nsw i64 %.01115.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %26, %15
-  br i1 %exitcond.not.i.i, label %asn1_get_uint64.exit.i, label %.lr.ph.i.i, !llvm.loop !24
+  br i1 %exitcond.not.i.i, label %asn1_get_uint64.exit.i, label %.lr.ph.i.i, !llvm.loop !23
 
 asn1_get_uint64.exit.i:                           ; preds = %.lr.ph.i.i
   %.not.i = icmp eq i32 %16, 0
@@ -599,7 +599,7 @@ asn1_get_uint64.exit.thread12.i:                  ; preds = %.preheader.i.i
 .thread.i:                                        ; preds = %28, %asn1_get_uint64.exit.thread12.i
   %.091719.i = phi i64 [ %25, %28 ], [ 0, %asn1_get_uint64.exit.thread12.i ]
   %29 = sub nsw i64 0, %.091719.i
-  store i64 %29, ptr %0, align 8, !tbaa !23
+  store i64 %29, ptr %0, align 8, !tbaa !22
   br label %asn1_get_int64.exit
 
 30:                                               ; preds = %28
@@ -607,7 +607,7 @@ asn1_get_uint64.exit.thread12.i:                  ; preds = %.preheader.i.i
   br i1 %31, label %32, label %33
 
 32:                                               ; preds = %30
-  store i64 -9223372036854775808, ptr %0, align 8, !tbaa !23
+  store i64 -9223372036854775808, ptr %0, align 8, !tbaa !22
   br label %asn1_get_int64.exit
 
 33:                                               ; preds = %30
@@ -621,7 +621,7 @@ asn1_get_uint64.exit.thread12.i:                  ; preds = %.preheader.i.i
 
 .thread20.i:                                      ; preds = %34, %asn1_get_uint64.exit.thread12.i
   %.091622.i = phi i64 [ %25, %34 ], [ 0, %asn1_get_uint64.exit.thread12.i ]
-  store i64 %.091622.i, ptr %0, align 8, !tbaa !23
+  store i64 %.091622.i, ptr %0, align 8, !tbaa !22
   br label %asn1_get_int64.exit
 
 35:                                               ; preds = %34
@@ -655,7 +655,7 @@ define i32 @ASN1_INTEGER_set_int64(ptr noundef %0, i64 noundef %1) local_unnamed
   store i8 %8, ptr %10, align 1, !tbaa !13
   %11 = lshr i64 %.04.i.i, 8
   %.not.i.i = icmp ult i64 %.04.i.i, 256
-  br i1 %.not.i.i, label %asn1_string_set_int64.exit, label %7, !llvm.loop !25
+  br i1 %.not.i.i, label %asn1_string_set_int64.exit, label %7, !llvm.loop !24
 
 .preheader.i:                                     ; preds = %2, %.preheader.i
   %.04.i10.i = phi i64 [ %15, %.preheader.i ], [ %1, %2 ]
@@ -666,7 +666,7 @@ define i32 @ASN1_INTEGER_set_int64(ptr noundef %0, i64 noundef %1) local_unnamed
   store i8 %12, ptr %14, align 1, !tbaa !13
   %15 = lshr i64 %.04.i10.i, 8
   %.not.i12.i = icmp samesign ult i64 %.04.i10.i, 256
-  br i1 %.not.i12.i, label %asn1_string_set_int64.exit, label %.preheader.i, !llvm.loop !25
+  br i1 %.not.i12.i, label %asn1_string_set_int64.exit, label %.preheader.i, !llvm.loop !24
 
 asn1_string_set_int64.exit:                       ; preds = %.preheader.i, %7
   %storemerge.i = phi i32 [ 258, %7 ], [ 2, %.preheader.i ]
@@ -747,11 +747,11 @@ define range(i32 0, 2) i32 @ASN1_INTEGER_get_uint64(ptr noundef writeonly captur
   %25 = or disjoint i64 %21, %24
   %26 = add nuw nsw i64 %.01115.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %26, %16
-  br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !24
+  br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !23
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i, %.preheader.i.i
   %.0.lcssa.i.i = phi i64 [ 0, %.preheader.i.i ], [ %25, %.lr.ph.i.i ]
-  store i64 %.0.lcssa.i.i, ptr %0, align 8, !tbaa !23
+  store i64 %.0.lcssa.i.i, ptr %0, align 8, !tbaa !22
   br label %asn1_string_get_uint64.exit
 
 asn1_string_get_uint64.exit:                      ; preds = %4, %9, %11, %18, %19, %._crit_edge.i.i
@@ -776,7 +776,7 @@ define i32 @ASN1_INTEGER_set_uint64(ptr noundef initializes((4, 8)) %0, i64 noun
   store i8 %6, ptr %8, align 1, !tbaa !13
   %9 = lshr i64 %.04.i.i, 8
   %.not.i.i = icmp ult i64 %.04.i.i, 256
-  br i1 %.not.i.i, label %asn1_string_set_uint64.exit, label %5, !llvm.loop !25
+  br i1 %.not.i.i, label %asn1_string_set_uint64.exit, label %5, !llvm.loop !24
 
 asn1_string_set_uint64.exit:                      ; preds = %5
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 %7
@@ -807,7 +807,7 @@ define i32 @ASN1_INTEGER_set(ptr noundef %0, i64 noundef %1) local_unnamed_addr 
   store i8 %8, ptr %10, align 1, !tbaa !13
   %11 = lshr i64 %.04.i.i.i, 8
   %.not.i.i.i = icmp ult i64 %.04.i.i.i, 256
-  br i1 %.not.i.i.i, label %ASN1_INTEGER_set_int64.exit, label %7, !llvm.loop !25
+  br i1 %.not.i.i.i, label %ASN1_INTEGER_set_int64.exit, label %7, !llvm.loop !24
 
 .preheader.i.i:                                   ; preds = %2, %.preheader.i.i
   %.04.i10.i.i = phi i64 [ %15, %.preheader.i.i ], [ %1, %2 ]
@@ -818,7 +818,7 @@ define i32 @ASN1_INTEGER_set(ptr noundef %0, i64 noundef %1) local_unnamed_addr 
   store i8 %12, ptr %14, align 1, !tbaa !13
   %15 = lshr i64 %.04.i10.i.i, 8
   %.not.i12.i.i = icmp samesign ult i64 %.04.i10.i.i, 256
-  br i1 %.not.i12.i.i, label %ASN1_INTEGER_set_int64.exit, label %.preheader.i.i, !llvm.loop !25
+  br i1 %.not.i12.i.i, label %ASN1_INTEGER_set_int64.exit, label %.preheader.i.i, !llvm.loop !24
 
 ASN1_INTEGER_set_int64.exit:                      ; preds = %.preheader.i.i, %7
   %storemerge.i.i = phi i32 [ 258, %7 ], [ 2, %.preheader.i.i ]
@@ -1017,7 +1017,7 @@ define i32 @ASN1_ENUMERATED_set_int64(ptr noundef %0, i64 noundef %1) local_unna
   store i8 %8, ptr %10, align 1, !tbaa !13
   %11 = lshr i64 %.04.i.i, 8
   %.not.i.i = icmp ult i64 %.04.i.i, 256
-  br i1 %.not.i.i, label %asn1_string_set_int64.exit, label %7, !llvm.loop !25
+  br i1 %.not.i.i, label %asn1_string_set_int64.exit, label %7, !llvm.loop !24
 
 .preheader.i:                                     ; preds = %2, %.preheader.i
   %.04.i10.i = phi i64 [ %15, %.preheader.i ], [ %1, %2 ]
@@ -1028,7 +1028,7 @@ define i32 @ASN1_ENUMERATED_set_int64(ptr noundef %0, i64 noundef %1) local_unna
   store i8 %12, ptr %14, align 1, !tbaa !13
   %15 = lshr i64 %.04.i10.i, 8
   %.not.i12.i = icmp samesign ult i64 %.04.i10.i, 256
-  br i1 %.not.i12.i, label %asn1_string_set_int64.exit, label %.preheader.i, !llvm.loop !25
+  br i1 %.not.i12.i, label %asn1_string_set_int64.exit, label %.preheader.i, !llvm.loop !24
 
 asn1_string_set_int64.exit:                       ; preds = %.preheader.i, %7
   %storemerge.i = phi i32 [ 266, %7 ], [ 10, %.preheader.i ]
@@ -1063,7 +1063,7 @@ define i32 @ASN1_ENUMERATED_set(ptr noundef %0, i64 noundef %1) local_unnamed_ad
   store i8 %8, ptr %10, align 1, !tbaa !13
   %11 = lshr i64 %.04.i.i.i, 8
   %.not.i.i.i = icmp ult i64 %.04.i.i.i, 256
-  br i1 %.not.i.i.i, label %ASN1_ENUMERATED_set_int64.exit, label %7, !llvm.loop !25
+  br i1 %.not.i.i.i, label %ASN1_ENUMERATED_set_int64.exit, label %7, !llvm.loop !24
 
 .preheader.i.i:                                   ; preds = %2, %.preheader.i.i
   %.04.i10.i.i = phi i64 [ %15, %.preheader.i.i ], [ %1, %2 ]
@@ -1074,7 +1074,7 @@ define i32 @ASN1_ENUMERATED_set(ptr noundef %0, i64 noundef %1) local_unnamed_ad
   store i8 %12, ptr %14, align 1, !tbaa !13
   %15 = lshr i64 %.04.i10.i.i, 8
   %.not.i12.i.i = icmp samesign ult i64 %.04.i10.i.i, 256
-  br i1 %.not.i12.i.i, label %ASN1_ENUMERATED_set_int64.exit, label %.preheader.i.i, !llvm.loop !25
+  br i1 %.not.i12.i.i, label %ASN1_ENUMERATED_set_int64.exit, label %.preheader.i.i, !llvm.loop !24
 
 ASN1_ENUMERATED_set_int64.exit:                   ; preds = %.preheader.i.i, %7
   %storemerge.i.i = phi i32 [ 266, %7 ], [ 10, %.preheader.i.i ]
@@ -1137,7 +1137,7 @@ define ptr @ASN1_ENUMERATED_to_BN(ptr noundef readonly captures(none) %0, ptr no
 define range(i32 0, 2) i32 @ossl_c2i_uint64_int(ptr noundef writeonly captures(none) %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef readonly captures(none) %2, i64 noundef %3) local_unnamed_addr #0 {
   %5 = alloca [8 x i8], align 1
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #6
-  %6 = load ptr, ptr %2, align 8, !tbaa !17
+  %6 = load ptr, ptr %2, align 8, !tbaa !16
   %7 = tail call fastcc i64 @c2i_ibuf(ptr noundef null, ptr noundef null, ptr noundef %6, i64 noundef %3)
   %8 = icmp eq i64 %7, 0
   br i1 %8, label %21, label %9
@@ -1153,7 +1153,7 @@ define range(i32 0, 2) i32 @ossl_c2i_uint64_int(ptr noundef writeonly captures(n
   br label %21
 
 12:                                               ; preds = %9
-  %13 = load ptr, ptr %2, align 8, !tbaa !17
+  %13 = load ptr, ptr %2, align 8, !tbaa !16
   %14 = call fastcc i64 @c2i_ibuf(ptr noundef nonnull %5, ptr noundef %1, ptr noundef %13, i64 noundef %3)
   br label %.lr.ph.i
 
@@ -1167,10 +1167,10 @@ define range(i32 0, 2) i32 @ossl_c2i_uint64_int(ptr noundef writeonly captures(n
   %19 = or disjoint i64 %15, %18
   %20 = add nuw nsw i64 %.01115.i, 1
   %exitcond.not.i = icmp eq i64 %20, %7
-  br i1 %exitcond.not.i, label %asn1_get_uint64.exit, label %.lr.ph.i, !llvm.loop !24
+  br i1 %exitcond.not.i, label %asn1_get_uint64.exit, label %.lr.ph.i, !llvm.loop !23
 
 asn1_get_uint64.exit:                             ; preds = %.lr.ph.i
-  store i64 %19, ptr %0, align 8, !tbaa !23
+  store i64 %19, ptr %0, align 8, !tbaa !22
   br label %21
 
 21:                                               ; preds = %4, %asn1_get_uint64.exit, %11
@@ -1194,7 +1194,7 @@ define i32 @ossl_i2c_uint64_int(ptr noundef writeonly captures(address_is_null) 
   store i8 %6, ptr %8, align 1, !tbaa !13
   %9 = lshr i64 %.04.i, 8
   %.not.i = icmp ult i64 %.04.i, 256
-  br i1 %.not.i, label %asn1_put_uint64.exit, label %5, !llvm.loop !25
+  br i1 %.not.i, label %asn1_put_uint64.exit, label %5, !llvm.loop !24
 
 asn1_put_uint64.exit:                             ; preds = %5
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 %7
@@ -1280,7 +1280,7 @@ asn1_put_uint64.exit:                             ; preds = %5
   store i8 %42, ptr %43, align 1, !tbaa !13
   %44 = lshr i32 %41, 8
   %.not16.i.i = icmp eq i64 %36, 0
-  br i1 %.not16.i.i, label %i2c_ibuf.exit, label %.lr.ph.i.i, !llvm.loop !18
+  br i1 %.not16.i.i, label %i2c_ibuf.exit, label %.lr.ph.i.i, !llvm.loop !17
 
 i2c_ibuf.exit:                                    ; preds = %.lr.ph.i.i, %.thread15, %.thread, %27
   %.037.i13 = phi i64 [ 1, %.thread ], [ %28, %27 ], [ 1, %.thread15 ], [ %28, %.lr.ph.i.i ]
@@ -1327,15 +1327,14 @@ attributes #6 = { nounwind }
 !11 = !{!4, !8, i64 8}
 !12 = !{!4, !5, i64 0}
 !13 = !{!6, !6, i64 0}
-!14 = distinct !{!14, !15, !16}
+!14 = distinct !{!14, !15}
 !15 = !{!"llvm.loop.mustprogress"}
-!16 = !{!"llvm.loop.estimated_trip_count"}
-!17 = !{!8, !8, i64 0}
-!18 = distinct !{!18, !15, !16}
-!19 = !{!20, !20, i64 0}
-!20 = !{!"p1 _ZTS14asn1_string_st", !9, i64 0}
-!21 = !{!5, !5, i64 0}
-!22 = distinct !{!22, !15, !16}
-!23 = !{!10, !10, i64 0}
-!24 = distinct !{!24, !15, !16}
-!25 = distinct !{!25, !15, !16}
+!16 = !{!8, !8, i64 0}
+!17 = distinct !{!17, !15}
+!18 = !{!19, !19, i64 0}
+!19 = !{!"p1 _ZTS14asn1_string_st", !9, i64 0}
+!20 = !{!5, !5, i64 0}
+!21 = distinct !{!21, !15}
+!22 = !{!10, !10, i64 0}
+!23 = distinct !{!23, !15}
+!24 = distinct !{!24, !15}

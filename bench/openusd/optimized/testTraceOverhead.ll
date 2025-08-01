@@ -138,7 +138,7 @@ define dso_local noundef i32 @_Z8TestTicki(i32 noundef %0) local_unnamed_addr #4
   %.09 = phi i32 [ %10, %.lr.ph ], [ 0, %1 ]
   %.078 = phi i32 [ %6, %.lr.ph ], [ 0, %1 ]
   fence syncscope("singlethread") seq_cst
-  %3 = tail call noundef i64 asm sideeffect "lfence\0A\09rdtsc\0A\09shl $$32, %rdx\0A\09or %rdx, $0\0A\09lfence", "={ax},~{rdx},~{cc},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !10
+  %3 = tail call noundef i64 asm sideeffect "lfence\0A\09rdtsc\0A\09shl $$32, %rdx\0A\09or %rdx, $0\0A\09lfence", "={ax},~{rdx},~{cc},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !9
   %4 = load i64, ptr @observableValue, align 8
   %5 = add i64 %4, %3
   store i64 %5, ptr @observableValue, align 8
@@ -150,7 +150,7 @@ define dso_local noundef i32 @_Z8TestTicki(i32 noundef %0) local_unnamed_addr #4
   store i64 %9, ptr @observableValue, align 8
   %10 = add nuw nsw i32 %.09, 1
   %exitcond.not = icmp eq i32 %10, %0
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !11
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
   %.07.lcssa = phi i32 [ 0, %1 ], [ %6, %.lr.ph ]
@@ -171,7 +171,7 @@ define dso_local noundef i32 @_Z12TestPushBackiRSt6vectorImSaImEE(i32 noundef %0
   %.023 = phi i32 [ 0, %.lr.ph ], [ %60, %_ZNSt6vectorImSaImEE9push_backEOm.exit16 ]
   %.0822 = phi i32 [ 0, %.lr.ph ], [ %33, %_ZNSt6vectorImSaImEE9push_backEOm.exit16 ]
   fence syncscope("singlethread") seq_cst
-  %7 = tail call noundef i64 asm sideeffect "lfence\0A\09rdtsc\0A\09shl $$32, %rdx\0A\09or %rdx, $0\0A\09lfence", "={ax},~{rdx},~{cc},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !10
+  %7 = tail call noundef i64 asm sideeffect "lfence\0A\09rdtsc\0A\09shl $$32, %rdx\0A\09or %rdx, $0\0A\09lfence", "={ax},~{rdx},~{cc},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !9
   %8 = load ptr, ptr %4, align 8
   %9 = load ptr, ptr %5, align 8
   %.not.i.i = icmp eq ptr %8, %9
@@ -299,7 +299,7 @@ _ZNSt6vectorImSaImEE17_M_realloc_insertIJmEEEvN9__gnu_cxx17__normal_iteratorIPmS
 _ZNSt6vectorImSaImEE9push_backEOm.exit16:         ; preds = %37, %_ZNSt6vectorImSaImEE17_M_realloc_insertIJmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i.i15
   %60 = add nuw nsw i32 %.023, 1
   %exitcond.not = icmp eq i32 %60, %0
-  br i1 %exitcond.not, label %._crit_edge, label %6, !llvm.loop !12
+  br i1 %exitcond.not, label %._crit_edge, label %6, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %_ZNSt6vectorImSaImEE9push_backEOm.exit16, %2
   %.08.lcssa = phi i32 [ 0, %2 ], [ %33, %_ZNSt6vectorImSaImEE9push_backEOm.exit16 ]
@@ -333,7 +333,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__14TraceCollector11GetInstanceEv.exit: ; pre
 
 15:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__14TraceCollector11GetInstanceEv.exit
   fence syncscope("singlethread") seq_cst
-  %16 = tail call noundef i64 asm sideeffect "lfence\0A\09rdtsc\0A\09shl $$32, %rdx\0A\09or %rdx, $0\0A\09lfence", "={ax},~{rdx},~{cc},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !10
+  %16 = tail call noundef i64 asm sideeffect "lfence\0A\09rdtsc\0A\09shl $$32, %rdx\0A\09or %rdx, $0\0A\09lfence", "={ax},~{rdx},~{cc},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !9
   %17 = icmp sgt i32 %13, 0
   br i1 %17, label %.lr.ph.i, label %_Z14TestTraceScopei.exit
 
@@ -402,7 +402,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__11TfStopwatch10GetSecondsEv.exit: ; preds 
 
 39:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__11TfStopwatch10GetSecondsEv.exit
   fence syncscope("singlethread") seq_cst
-  %40 = call noundef i64 asm sideeffect "lfence\0A\09rdtsc\0A\09shl $$32, %rdx\0A\09or %rdx, $0\0A\09lfence", "={ax},~{rdx},~{cc},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !10
+  %40 = call noundef i64 asm sideeffect "lfence\0A\09rdtsc\0A\09shl $$32, %rdx\0A\09or %rdx, $0\0A\09lfence", "={ax},~{rdx},~{cc},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !9
   br i1 %17, label %.lr.ph.i52, label %_Z14TestTraceScopei.exit62
 
 .lr.ph.i52:                                       ; preds = %39, %_ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoD2Ev.exit.i56
@@ -466,14 +466,14 @@ _Z14TestTraceScopei.exit62:                       ; preds = %_ZN32pxrInternal_v0
 
 _ZNK32pxrInternal_v0_24__pxrReserved__11TfStopwatch10GetSecondsEv.exit64: ; preds = %59
   fence syncscope("singlethread") seq_cst
-  %62 = call noundef i64 asm sideeffect "lfence\0A\09rdtsc\0A\09shl $$32, %rdx\0A\09or %rdx, $0\0A\09lfence", "={ax},~{rdx},~{cc},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !10
+  %62 = call noundef i64 asm sideeffect "lfence\0A\09rdtsc\0A\09shl $$32, %rdx\0A\09or %rdx, $0\0A\09lfence", "={ax},~{rdx},~{cc},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !9
   br i1 %17, label %.lr.ph.i65, label %_Z8TestTicki.exit
 
 .lr.ph.i65:                                       ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__11TfStopwatch10GetSecondsEv.exit64, %.lr.ph.i65
   %.09.i = phi i32 [ %70, %.lr.ph.i65 ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__11TfStopwatch10GetSecondsEv.exit64 ]
   %.078.i = phi i32 [ %66, %.lr.ph.i65 ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__11TfStopwatch10GetSecondsEv.exit64 ]
   fence syncscope("singlethread") seq_cst
-  %63 = call noundef i64 asm sideeffect "lfence\0A\09rdtsc\0A\09shl $$32, %rdx\0A\09or %rdx, $0\0A\09lfence", "={ax},~{rdx},~{cc},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !10
+  %63 = call noundef i64 asm sideeffect "lfence\0A\09rdtsc\0A\09shl $$32, %rdx\0A\09or %rdx, $0\0A\09lfence", "={ax},~{rdx},~{cc},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !9
   %64 = load i64, ptr @observableValue, align 8
   %65 = add i64 %64, %63
   store i64 %65, ptr @observableValue, align 8
@@ -485,7 +485,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__11TfStopwatch10GetSecondsEv.exit64: ; pred
   store i64 %69, ptr @observableValue, align 8
   %70 = add nuw nsw i32 %.09.i, 1
   %exitcond.not.i66 = icmp eq i32 %70, %13
-  br i1 %exitcond.not.i66, label %_Z8TestTicki.exit, label %.lr.ph.i65, !llvm.loop !11
+  br i1 %exitcond.not.i66, label %_Z8TestTicki.exit, label %.lr.ph.i65, !llvm.loop !10
 
 _Z8TestTicki.exit:                                ; preds = %.lr.ph.i65, %_ZNK32pxrInternal_v0_24__pxrReserved__11TfStopwatch10GetSecondsEv.exit64
   %.07.lcssa.i = phi i32 [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__11TfStopwatch10GetSecondsEv.exit64 ], [ %66, %.lr.ph.i65 ]
@@ -509,7 +509,7 @@ _Z8TestTicki.exit:                                ; preds = %.lr.ph.i65, %_ZNK32
 
 _ZNK32pxrInternal_v0_24__pxrReserved__11TfStopwatch10GetSecondsEv.exit67: ; preds = %78
   fence syncscope("singlethread") seq_cst
-  %80 = call noundef i64 asm sideeffect "lfence\0A\09rdtsc\0A\09shl $$32, %rdx\0A\09or %rdx, $0\0A\09lfence", "={ax},~{rdx},~{cc},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !10
+  %80 = call noundef i64 asm sideeffect "lfence\0A\09rdtsc\0A\09shl $$32, %rdx\0A\09or %rdx, $0\0A\09lfence", "={ax},~{rdx},~{cc},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !9
   %81 = invoke noundef i32 @_Z12TestPushBackiRSt6vectorImSaImEE(i32 noundef %13, ptr noundef nonnull align 8 dereferenceable(24) %5)
           to label %82 unwind label %213
 
@@ -534,7 +534,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__11TfStopwatch10GetSecondsEv.exit67: ; pred
 
 _ZNK32pxrInternal_v0_24__pxrReserved__11TfStopwatch10GetSecondsEv.exit68: ; preds = %90
   fence syncscope("singlethread") seq_cst
-  %92 = call noundef i64 asm sideeffect "lfence\0A\09rdtsc\0A\09shl $$32, %rdx\0A\09or %rdx, $0\0A\09lfence", "={ax},~{rdx},~{cc},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !10
+  %92 = call noundef i64 asm sideeffect "lfence\0A\09rdtsc\0A\09shl $$32, %rdx\0A\09or %rdx, $0\0A\09lfence", "={ax},~{rdx},~{cc},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !9
   br i1 %17, label %.lr.ph.preheader.i, label %_Z9TestEmptyi.exit
 
 .lr.ph.preheader.i:                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__11TfStopwatch10GetSecondsEv.exit68
@@ -876,9 +876,8 @@ attributes #22 = { nounwind willreturn memory(read) }
 !4 = !{i32 7, !"frame-pointer", i32 2}
 !5 = !{i64 6807302, i64 6807311, i64 6807335}
 !6 = !{i64 6806248, i64 6806257, i64 6806286, i64 6806313}
-!7 = distinct !{!7, !8, !9}
+!7 = distinct !{!7, !8}
 !8 = !{!"llvm.loop.mustprogress"}
-!9 = !{!"llvm.loop.estimated_trip_count"}
-!10 = !{i64 6804996, i64 6805005, i64 6805025, i64 6805054, i64 6805081}
-!11 = distinct !{!11, !8, !9}
-!12 = distinct !{!12, !8, !9}
+!9 = !{i64 6804996, i64 6805005, i64 6805025, i64 6805054, i64 6805081}
+!10 = distinct !{!10, !8}
+!11 = distinct !{!11, !8}

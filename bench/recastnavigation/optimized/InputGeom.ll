@@ -395,7 +395,7 @@ _ZL8parseRowPcS_S_i.exit:                         ; preds = %81
   %88 = sext i8 %86 to i32
   %89 = call i32 @isspace(i32 noundef %88) #20
   %.not74 = icmp eq i32 %89, 0
-  br i1 %.not74, label %.critedge, label %.preheader, !llvm.loop !8
+  br i1 %.not74, label %.critedge, label %.preheader, !llvm.loop !7
 
 .critedge:                                        ; preds = %87
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #18
@@ -576,7 +576,7 @@ _ZL8parseRowPcS_S_i.exit92:                       ; preds = %.lr.ph, %._crit_edg
   %172 = load i32, ptr %143, align 4
   %173 = sext i32 %172 to i64
   %174 = icmp slt i64 %indvars.iv.next, %173
-  br i1 %174, label %.lr.ph, label %.critedge.thread, !llvm.loop !9
+  br i1 %174, label %.lr.ph, label %.critedge.thread, !llvm.loop !8
 
 175:                                              ; preds = %_ZL8parseRowPcS_S_i.exit
   store i8 1, ptr %40, align 4
@@ -586,7 +586,7 @@ _ZL8parseRowPcS_S_i.exit92:                       ; preds = %.lr.ph, %._crit_edg
 .critedge.thread:                                 ; preds = %_ZL8parseRowPcS_S_i.exit92, %.preheader, %139, %_ZL8parseRowPcS_S_i.exit, %105, %102, %175, %136, %96
   %.1 = phi ptr [ %71, %96 ], [ %71, %105 ], [ %71, %102 ], [ %71, %136 ], [ %71, %175 ], [ %71, %_ZL8parseRowPcS_S_i.exit ], [ %71, %139 ], [ %71, %.preheader ], [ %.0.lcssa.i81, %_ZL8parseRowPcS_S_i.exit92 ]
   %177 = icmp ult ptr %.1, %39
-  br i1 %177, label %69, label %._crit_edge, !llvm.loop !10
+  br i1 %177, label %69, label %._crit_edge, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %.critedge.thread, %38
   call void @_ZdaPv(ptr noundef nonnull %27) #17
@@ -659,7 +659,7 @@ define dso_local noundef zeroext i1 @_ZN9InputGeom4loadEP9rcContextRKNSt7__cxx11
   %15 = getelementptr inbounds nuw i8, ptr %.sroa.03.07.i, i64 1
   %16 = getelementptr inbounds nuw i8, ptr %.sroa.0.08.i, i64 1
   %.not.i = icmp eq ptr %15, %9
-  br i1 %.not.i, label %_ZSt9transformIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES9_PDoFiiEET0_T_SD_SC_T1_.exit, label %.lr.ph.i, !llvm.loop !11
+  br i1 %.not.i, label %_ZSt9transformIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES9_PDoFiiEET0_T_SD_SC_T1_.exit, label %.lr.ph.i, !llvm.loop !10
 
 _ZSt9transformIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES9_PDoFiiEET0_T_SD_SC_T1_.exit: ; preds = %.lr.ph.i, %7
   %17 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull @.str.9) #18
@@ -883,7 +883,7 @@ define dso_local noundef zeroext i1 @_ZN9InputGeom11saveGeomSetEPK13BuildSetting
   %132 = load i32, ptr %87, align 8
   %133 = sext i32 %132 to i64
   %134 = icmp slt i64 %indvars.iv.next, %133
-  br i1 %134, label %99, label %.preheader, !llvm.loop !12
+  br i1 %134, label %99, label %.preheader, !llvm.loop !11
 
 135:                                              ; preds = %.lr.ph81, %._crit_edge
   %indvars.iv87 = phi i64 [ 0, %.lr.ph81 ], [ %indvars.iv.next88, %._crit_edge ]
@@ -922,14 +922,14 @@ define dso_local noundef zeroext i1 @_ZN9InputGeom11saveGeomSetEPK13BuildSetting
   %163 = load i32, ptr %137, align 4
   %164 = sext i32 %163 to i64
   %165 = icmp slt i64 %indvars.iv.next85, %164
-  br i1 %165, label %.lr.ph79, label %._crit_edge, !llvm.loop !13
+  br i1 %165, label %.lr.ph79, label %._crit_edge, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %.lr.ph79, %135
   %indvars.iv.next88 = add nuw nsw i64 %indvars.iv87, 1
   %166 = load i32, ptr %95, align 4
   %167 = sext i32 %166 to i64
   %168 = icmp slt i64 %indvars.iv.next88, %167
-  br i1 %168, label %135, label %._crit_edge82, !llvm.loop !14
+  br i1 %168, label %135, label %._crit_edge82, !llvm.loop !13
 
 ._crit_edge82:                                    ; preds = %._crit_edge, %.preheader
   %169 = call i32 @fclose(ptr noundef nonnull %18)
@@ -1041,7 +1041,7 @@ define dso_local noundef zeroext i1 @_ZN9InputGeom11raycastMeshEPfS0_Rf(ptr noun
   %64 = phi float [ %28, %39 ], [ %60, %43 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.i = icmp eq i64 %indvars.iv.next.i, 3
-  br i1 %exitcond.i, label %65, label %26, !llvm.loop !15
+  br i1 %exitcond.i, label %65, label %26, !llvm.loop !14
 
 _ZL12isectSegAABBPKfS0_S0_S0_RfS1_.exit.thread:   ; preds = %43, %33, %39
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %5)
@@ -1222,14 +1222,14 @@ _ZL24intersectSegmentTrianglePKfS0_S0_S0_S0_Rf.exit.thread: ; preds = %182, %167
   %.2 = phi i1 [ true, %192 ], [ true, %189 ], [ %.162, %.lr.ph ], [ %.162, %158 ], [ %.162, %167 ], [ %.162, %182 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 3
   %194 = icmp samesign ult i64 %indvars.iv.next, %98
-  br i1 %194, label %.lr.ph, label %._crit_edge, !llvm.loop !16
+  br i1 %194, label %.lr.ph, label %._crit_edge, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %_ZL24intersectSegmentTrianglePKfS0_S0_S0_S0_Rf.exit.thread, %.lr.ph67
   %195 = phi float [ %80, %.lr.ph67 ], [ %193, %_ZL24intersectSegmentTrianglePKfS0_S0_S0_S0_Rf.exit.thread ]
   %.1.lcssa = phi i1 [ %.04165, %.lr.ph67 ], [ %.2, %_ZL24intersectSegmentTrianglePKfS0_S0_S0_S0_Rf.exit.thread ]
   %indvars.iv.next70 = add nuw nsw i64 %indvars.iv69, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next70, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph67, !llvm.loop !17
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph67, !llvm.loop !16
 
 .loopexit:                                        ; preds = %._crit_edge, %74, %_ZL12isectSegAABBPKfS0_S0_S0_RfS1_.exit.thread, %65
   %.040 = phi i1 [ false, %65 ], [ false, %_ZL12isectSegAABBPKfS0_S0_S0_RfS1_.exit.thread ], [ false, %74 ], [ %.1.lcssa, %._crit_edge ]
@@ -1470,7 +1470,7 @@ define dso_local void @_ZN9InputGeom22drawOffMeshConnectionsEP11duDebugDrawb(ptr
   %73 = load i32, ptr %10, align 8
   %74 = sext i32 %73 to i64
   %75 = icmp slt i64 %indvars.iv.next, %74
-  br i1 %75, label %16, label %._crit_edge, !llvm.loop !18
+  br i1 %75, label %16, label %._crit_edge, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %72, %3
   %76 = load ptr, ptr %1, align 8
@@ -1664,14 +1664,14 @@ define dso_local void @_ZN9InputGeom17drawConvexVolumesEP11duDebugDrawb(ptr noun
   %97 = sext i32 %96 to i64
   %98 = icmp slt i64 %indvars.iv.next, %97
   %99 = trunc nuw nsw i64 %indvars.iv to i32
-  br i1 %98, label %34, label %._crit_edge, !llvm.loop !19
+  br i1 %98, label %34, label %._crit_edge, !llvm.loop !18
 
 ._crit_edge:                                      ; preds = %34, %14
   %indvars.iv.next171 = add nuw nsw i64 %indvars.iv170, 1
   %100 = load i32, ptr %10, align 4
   %101 = sext i32 %100 to i64
   %102 = icmp slt i64 %indvars.iv.next171, %101
-  br i1 %102, label %14, label %._crit_edge151, !llvm.loop !20
+  br i1 %102, label %14, label %._crit_edge151, !llvm.loop !19
 
 ._crit_edge151:                                   ; preds = %._crit_edge, %3
   %103 = load ptr, ptr %1, align 8
@@ -1772,14 +1772,14 @@ define dso_local void @_ZN9InputGeom17drawConvexVolumesEP11duDebugDrawb(ptr noun
   %176 = sext i32 %175 to i64
   %177 = icmp slt i64 %indvars.iv.next174, %176
   %178 = trunc nuw nsw i64 %indvars.iv173 to i32
-  br i1 %177, label %131, label %._crit_edge156, !llvm.loop !21
+  br i1 %177, label %131, label %._crit_edge156, !llvm.loop !20
 
 ._crit_edge156:                                   ; preds = %131, %112
   %indvars.iv.next177 = add nuw nsw i64 %indvars.iv176, 1
   %179 = load i32, ptr %10, align 4
   %180 = sext i32 %179 to i64
   %181 = icmp slt i64 %indvars.iv.next177, %180
-  br i1 %181, label %112, label %._crit_edge160, !llvm.loop !22
+  br i1 %181, label %112, label %._crit_edge160, !llvm.loop !21
 
 ._crit_edge160:                                   ; preds = %._crit_edge156, %._crit_edge151
   %182 = load ptr, ptr %1, align 8
@@ -1854,14 +1854,14 @@ define dso_local void @_ZN9InputGeom17drawConvexVolumesEP11duDebugDrawb(ptr noun
   %233 = load i32, ptr %202, align 4
   %234 = sext i32 %233 to i64
   %235 = icmp slt i64 %indvars.iv.next180, %234
-  br i1 %235, label %207, label %._crit_edge164, !llvm.loop !23
+  br i1 %235, label %207, label %._crit_edge164, !llvm.loop !22
 
 ._crit_edge164:                                   ; preds = %207, %191
   %indvars.iv.next183 = add nuw nsw i64 %indvars.iv182, 1
   %236 = load i32, ptr %10, align 4
   %237 = sext i32 %236 to i64
   %238 = icmp slt i64 %indvars.iv.next183, %237
-  br i1 %238, label %191, label %._crit_edge168, !llvm.loop !24
+  br i1 %238, label %191, label %._crit_edge168, !llvm.loop !23
 
 ._crit_edge168:                                   ; preds = %._crit_edge164, %._crit_edge160
   %239 = load ptr, ptr %1, align 8
@@ -2026,23 +2026,22 @@ attributes #21 = { noreturn nounwind }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6, !7}
+!5 = distinct !{!5, !6}
 !6 = !{!"llvm.loop.mustprogress"}
-!7 = !{!"llvm.loop.estimated_trip_count"}
-!8 = distinct !{!8, !6, !7}
-!9 = distinct !{!9, !6, !7}
-!10 = distinct !{!10, !6, !7}
-!11 = distinct !{!11, !6, !7}
-!12 = distinct !{!12, !6, !7}
-!13 = distinct !{!13, !6, !7}
-!14 = distinct !{!14, !6, !7}
-!15 = distinct !{!15, !6, !7}
-!16 = distinct !{!16, !6, !7}
-!17 = distinct !{!17, !6, !7}
-!18 = distinct !{!18, !6, !7}
-!19 = distinct !{!19, !6, !7}
-!20 = distinct !{!20, !6, !7}
-!21 = distinct !{!21, !6, !7}
-!22 = distinct !{!22, !6, !7}
-!23 = distinct !{!23, !6, !7}
-!24 = distinct !{!24, !6, !7}
+!7 = distinct !{!7, !6}
+!8 = distinct !{!8, !6}
+!9 = distinct !{!9, !6}
+!10 = distinct !{!10, !6}
+!11 = distinct !{!11, !6}
+!12 = distinct !{!12, !6}
+!13 = distinct !{!13, !6}
+!14 = distinct !{!14, !6}
+!15 = distinct !{!15, !6}
+!16 = distinct !{!16, !6}
+!17 = distinct !{!17, !6}
+!18 = distinct !{!18, !6}
+!19 = distinct !{!19, !6}
+!20 = distinct !{!20, !6}
+!21 = distinct !{!21, !6}
+!22 = distinct !{!22, !6}
+!23 = distinct !{!23, !6}

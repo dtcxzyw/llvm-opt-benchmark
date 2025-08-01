@@ -157,12 +157,12 @@ define internal noundef i32 @sm4_ofb_cipher(ptr noundef %0, ptr noundef %1, ptr 
   %6 = tail call ptr @EVP_CIPHER_CTX_get_cipher_data(ptr noundef %0) #4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #4
   %7 = tail call i32 @EVP_CIPHER_CTX_get_num(ptr noundef %0) #4
-  store i32 %7, ptr %5, align 4, !tbaa !12
+  store i32 %7, ptr %5, align 4, !tbaa !11
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 128
   %10 = load ptr, ptr %9, align 8, !tbaa !3
   call void @CRYPTO_ofb128_encrypt(ptr noundef %2, ptr noundef %1, i64 noundef %3, ptr noundef %6, ptr noundef nonnull %8, ptr noundef nonnull %5, ptr noundef %10) #4
-  %11 = load i32, ptr %5, align 4, !tbaa !12
+  %11 = load i32, ptr %5, align 4, !tbaa !11
   %12 = call i32 @EVP_CIPHER_CTX_set_num(ptr noundef %0, i32 noundef %11) #4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #4
   ret i32 1
@@ -180,13 +180,13 @@ define internal noundef i32 @sm4_cfb_cipher(ptr noundef %0, ptr noundef %1, ptr 
   %6 = tail call ptr @EVP_CIPHER_CTX_get_cipher_data(ptr noundef %0) #4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #4
   %7 = tail call i32 @EVP_CIPHER_CTX_get_num(ptr noundef %0) #4
-  store i32 %7, ptr %5, align 4, !tbaa !12
+  store i32 %7, ptr %5, align 4, !tbaa !11
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %9 = tail call i32 @EVP_CIPHER_CTX_is_encrypting(ptr noundef %0) #4
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 128
   %11 = load ptr, ptr %10, align 8, !tbaa !3
   call void @CRYPTO_cfb128_encrypt(ptr noundef %2, ptr noundef %1, i64 noundef %3, ptr noundef %6, ptr noundef nonnull %8, ptr noundef nonnull %5, i32 noundef %9, ptr noundef %11) #4
-  %12 = load i32, ptr %5, align 4, !tbaa !12
+  %12 = load i32, ptr %5, align 4, !tbaa !11
   %13 = call i32 @EVP_CIPHER_CTX_set_num(ptr noundef %0, i32 noundef %12) #4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #4
   ret i32 1
@@ -204,7 +204,7 @@ define internal range(i32 0, 2) i32 @sm4_ctr_cipher(ptr noundef %0, ptr noundef 
   br i1 %8, label %22, label %9
 
 9:                                                ; preds = %4
-  store i32 %6, ptr %5, align 4, !tbaa !12
+  store i32 %6, ptr %5, align 4, !tbaa !11
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 136
   %11 = load ptr, ptr %10, align 8, !tbaa !8
   %.not = icmp eq ptr %11, null
@@ -224,7 +224,7 @@ define internal range(i32 0, 2) i32 @sm4_ctr_cipher(ptr noundef %0, ptr noundef 
   br label %19
 
 19:                                               ; preds = %16, %14
-  %20 = load i32, ptr %5, align 4, !tbaa !12
+  %20 = load i32, ptr %5, align 4, !tbaa !11
   %21 = call i32 @EVP_CIPHER_CTX_set_num(ptr noundef nonnull %0, i32 noundef %20) #4
   br label %22
 
@@ -257,8 +257,7 @@ attributes #4 = { nounwind }
 !6 = !{!"Simple C/C++ TBAA"}
 !7 = !{!"any pointer", !5, i64 0}
 !8 = !{!5, !5, i64 0}
-!9 = distinct !{!9, !10, !11}
+!9 = distinct !{!9, !10}
 !10 = !{!"llvm.loop.mustprogress"}
-!11 = !{!"llvm.loop.estimated_trip_count"}
-!12 = !{!13, !13, i64 0}
-!13 = !{!"int", !5, i64 0}
+!11 = !{!12, !12, i64 0}
+!12 = !{!"int", !5, i64 0}

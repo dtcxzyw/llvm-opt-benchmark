@@ -175,12 +175,12 @@ _ZN5draco12_GLOBAL__N_126GetFileWriterOpenFunctionsB5cxx11Ev.exit: ; preds = %2,
 _ZNSt10unique_ptrIN5draco19FileWriterInterfaceESt14default_deleteIS1_EED2Ev.exit: ; preds = %.lr.ph
   %18 = getelementptr inbounds nuw i8, ptr %.sroa.09.016, i64 8
   %.not = icmp eq ptr %18, %15
-  br i1 %.not, label %.critedge.thread, label %.lr.ph, !llvm.loop !17
+  br i1 %.not, label %.critedge.thread, label %.lr.ph
 
 .critedge.thread:                                 ; preds = %_ZNSt10unique_ptrIN5draco19FileWriterInterfaceESt14default_deleteIS1_EED2Ev.exit, %_ZN5draco12_GLOBAL__N_126GetFileWriterOpenFunctionsB5cxx11Ev.exit
-  %19 = load ptr, ptr @stderr, align 8, !tbaa !19
+  %19 = load ptr, ptr @stderr, align 8, !tbaa !17
   %20 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %19, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 42, ptr noundef nonnull @__func__._ZN5draco17FileWriterFactory10OpenWriterERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE, ptr noundef nonnull @.str.2) #16
-  store ptr null, ptr %0, align 8, !tbaa !21
+  store ptr null, ptr %0, align 8, !tbaa !19
   br label %.critedge
 
 .critedge:                                        ; preds = %.lr.ph, %.critedge.thread
@@ -262,9 +262,7 @@ attributes #16 = { cold nounwind }
 !14 = !{!7, !7, i64 0}
 !15 = !{!16, !16, i64 0}
 !16 = !{!"p1 _ZTSN5draco19FileWriterInterfaceE", !7, i64 0}
-!17 = distinct !{!17, !18}
-!18 = !{!"llvm.loop.estimated_trip_count"}
-!19 = !{!20, !20, i64 0}
-!20 = !{!"p1 _ZTS8_IO_FILE", !7, i64 0}
-!21 = !{!22, !16, i64 0}
-!22 = !{!"_ZTSSt10_Head_baseILm0EPN5draco19FileWriterInterfaceELb0EE", !16, i64 0}
+!17 = !{!18, !18, i64 0}
+!18 = !{!"p1 _ZTS8_IO_FILE", !7, i64 0}
+!19 = !{!20, !16, i64 0}
+!20 = !{!"_ZTSSt10_Head_baseILm0EPN5draco19FileWriterInterfaceELb0EE", !16, i64 0}

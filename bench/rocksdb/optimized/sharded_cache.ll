@@ -423,7 +423,7 @@ _ZSt8_DestroyIPN7rocksdb12Configurable17RegisteredOptionsES2_EvT_S4_RSaIT0_E.exi
 
 47:                                               ; preds = %_ZSt8_DestroyIPN7rocksdb12Configurable17RegisteredOptionsES2_EvT_S4_RSaIT0_E.exit.i.i
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %49 = load ptr, ptr %48, align 8, !tbaa !84
+  %49 = load ptr, ptr %48, align 8, !tbaa !83
   %50 = ptrtoint ptr %49 to i64
   %51 = ptrtoint ptr %46 to i64
   %52 = sub i64 %50, %51
@@ -507,8 +507,8 @@ _ZN7rocksdb9MutexLockD2Ev.exit:                   ; preds = %1
 define void @_ZNK7rocksdb16ShardedCacheBase25GetSecondaryCacheCapacityERm(ptr dead_on_unwind noalias writable writeonly sret(%"class.rocksdb::Status") align 8 captures(none) initializes((0, 6), (8, 16)) %0, ptr nonnull readnone align 8 captures(none) %1, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) initializes((0, 8)) %2) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   store i64 0, ptr %2, align 8, !tbaa !65
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr null, ptr %4, align 8, !tbaa !85, !alias.scope !86
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 6, i1 false), !alias.scope !86
+  store ptr null, ptr %4, align 8, !tbaa !84, !alias.scope !85
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 6, i1 false), !alias.scope !85
   ret void
 }
 
@@ -516,8 +516,8 @@ define void @_ZNK7rocksdb16ShardedCacheBase25GetSecondaryCacheCapacityERm(ptr de
 define void @_ZNK7rocksdb16ShardedCacheBase28GetSecondaryCachePinnedUsageERm(ptr dead_on_unwind noalias writable writeonly sret(%"class.rocksdb::Status") align 8 captures(none) initializes((0, 6), (8, 16)) %0, ptr nonnull readnone align 8 captures(none) %1, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) initializes((0, 8)) %2) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   store i64 0, ptr %2, align 8, !tbaa !65
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr null, ptr %4, align 8, !tbaa !85, !alias.scope !89
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 6, i1 false), !alias.scope !89
+  store ptr null, ptr %4, align 8, !tbaa !84, !alias.scope !88
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 6, i1 false), !alias.scope !88
   ret void
 }
 
@@ -757,7 +757,7 @@ define noundef i32 @_ZN7rocksdb24GetDefaultCacheShardBitsEmm(i64 noundef %0, i64
   %6 = lshr i64 %.0, 1
   %7 = add nuw nsw i32 %.07, 1
   %exitcond = icmp eq i32 %7, 6
-  br i1 %exitcond, label %8, label %4, !llvm.loop !92
+  br i1 %exitcond, label %8, label %4, !llvm.loop !91
 
 8:                                                ; preds = %4, %5
   %.08 = phi i32 [ 6, %5 ], [ %.07, %4 ]
@@ -1193,15 +1193,14 @@ attributes #25 = { noreturn }
 !78 = !{!"branch_weights", !"expected", i32 1, i32 2000}
 !79 = !{!37, !38, i64 0}
 !80 = !{!37, !38, i64 8}
-!81 = distinct !{!81, !82, !83}
+!81 = distinct !{!81, !82}
 !82 = !{!"llvm.loop.mustprogress"}
-!83 = !{!"llvm.loop.estimated_trip_count"}
-!84 = !{!37, !38, i64 16}
-!85 = !{!60, !47, i64 0}
-!86 = !{!87}
-!87 = distinct !{!87, !88, !"_ZN7rocksdb6Status2OKEv: argument 0"}
-!88 = distinct !{!88, !"_ZN7rocksdb6Status2OKEv"}
-!89 = !{!90}
-!90 = distinct !{!90, !91, !"_ZN7rocksdb6Status2OKEv: argument 0"}
-!91 = distinct !{!91, !"_ZN7rocksdb6Status2OKEv"}
-!92 = distinct !{!92, !82, !83}
+!83 = !{!37, !38, i64 16}
+!84 = !{!60, !47, i64 0}
+!85 = !{!86}
+!86 = distinct !{!86, !87, !"_ZN7rocksdb6Status2OKEv: argument 0"}
+!87 = distinct !{!87, !"_ZN7rocksdb6Status2OKEv"}
+!88 = !{!89}
+!89 = distinct !{!89, !90, !"_ZN7rocksdb6Status2OKEv: argument 0"}
+!90 = distinct !{!90, !"_ZN7rocksdb6Status2OKEv"}
+!91 = distinct !{!91, !82}

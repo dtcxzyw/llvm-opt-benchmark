@@ -136,7 +136,7 @@ define hidden void @lut3d_decompress_clut(ptr noundef readonly captures(none) %0
   %43 = extractvalue { ptr, i32 } %38, 0
   %44 = call ptr @__cxa_begin_catch(ptr %43) #15
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 56
-  %46 = load ptr, ptr %45, align 8, !tbaa !37
+  %46 = load ptr, ptr %45, align 8, !tbaa !36
   %.not.i = icmp eq ptr %46, null
   %spec.select.i = select i1 %.not.i, ptr @.str.8, ptr %46
   %47 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1, ptr noundef nonnull %spec.select.i)
@@ -168,7 +168,7 @@ define hidden void @lut3d_decompress_clut(ptr noundef readonly captures(none) %0
           catch ptr null
   %59 = extractvalue { ptr, i32 } %58, 0
   %60 = call ptr @__cxa_begin_catch(ptr %59) #15
-  %61 = load ptr, ptr @stderr, align 8, !tbaa !39
+  %61 = load ptr, ptr @stderr, align 8, !tbaa !38
   %62 = call i64 @fwrite(ptr nonnull @.str.3, i64 69, i64 1, ptr %61) #16
   invoke void @__cxa_end_catch()
           to label %63 unwind label %30
@@ -190,7 +190,7 @@ define hidden void @lut3d_decompress_clut(ptr noundef readonly captures(none) %0
   %71 = extractvalue { ptr, i32 } %66, 0
   %72 = call ptr @__cxa_begin_catch(ptr %71) #15
   %73 = getelementptr inbounds nuw i8, ptr %72, i64 56
-  %74 = load ptr, ptr %73, align 8, !tbaa !37
+  %74 = load ptr, ptr %73, align 8, !tbaa !36
   %.not.i39 = icmp eq ptr %74, null
   %spec.select.i40 = select i1 %.not.i39, ptr @.str.8, ptr %74
   %75 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1, ptr noundef nonnull %spec.select.i40)
@@ -214,15 +214,15 @@ define hidden void @lut3d_decompress_clut(ptr noundef readonly captures(none) %0
 
 82:                                               ; preds = %63
   %83 = load ptr, ptr %14, align 8, !tbaa !27
-  %84 = load i32, ptr %83, align 8, !tbaa !41
+  %84 = load i32, ptr %83, align 8, !tbaa !40
   %85 = getelementptr inbounds nuw i8, ptr %83, i64 4
-  %86 = load i32, ptr %85, align 4, !tbaa !42
+  %86 = load i32, ptr %85, align 4, !tbaa !41
   %87 = mul i32 %86, %84
   %88 = getelementptr inbounds nuw i8, ptr %83, i64 8
-  %89 = load i32, ptr %88, align 8, !tbaa !43
+  %89 = load i32, ptr %88, align 8, !tbaa !42
   %90 = mul i32 %87, %89
   %91 = getelementptr inbounds nuw i8, ptr %83, i64 12
-  %92 = load i32, ptr %91, align 4, !tbaa !44
+  %92 = load i32, ptr %91, align 4, !tbaa !43
   %93 = mul i32 %90, %92
   %94 = zext i32 %93 to i64
   %95 = getelementptr inbounds nuw i8, ptr %83, i64 24
@@ -237,7 +237,7 @@ define hidden void @lut3d_decompress_clut(ptr noundef readonly captures(none) %0
   call void @_ZN4gmicD1Ev(ptr noundef nonnull align 8 dereferenceable(416) %8) #15
   call void @llvm.lifetime.end.p0(i64 416, ptr nonnull %8) #15
   %100 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %101 = load ptr, ptr %100, align 8, !tbaa !45
+  %101 = load ptr, ptr %100, align 8, !tbaa !44
   %102 = icmp eq ptr %101, null
   br i1 %102, label %_ZN12cimg_library8CImgListIcED2Ev.exit, label %103
 
@@ -256,13 +256,13 @@ define hidden void @lut3d_decompress_clut(ptr noundef readonly captures(none) %0
   %108 = phi ptr [ %109, %_ZN12cimg_library4CImgIcED2Ev.exit.i ], [ %107, %.preheader.preheader.i ]
   %109 = getelementptr inbounds i8, ptr %108, i64 -32
   %110 = getelementptr inbounds i8, ptr %108, i64 -16
-  %111 = load i8, ptr %110, align 8, !tbaa !46, !range !47, !noundef !48
+  %111 = load i8, ptr %110, align 8, !tbaa !45, !range !46, !noundef !47
   %112 = trunc nuw i8 %111 to i1
   br i1 %112, label %_ZN12cimg_library4CImgIcED2Ev.exit.i, label %113
 
 113:                                              ; preds = %.preheader.i
   %114 = getelementptr inbounds i8, ptr %108, i64 -8
-  %115 = load ptr, ptr %114, align 8, !tbaa !49
+  %115 = load ptr, ptr %114, align 8, !tbaa !48
   %116 = icmp eq ptr %115, null
   br i1 %116, label %_ZN12cimg_library4CImgIcED2Ev.exit.i, label %117
 
@@ -272,7 +272,7 @@ define hidden void @lut3d_decompress_clut(ptr noundef readonly captures(none) %0
 
 _ZN12cimg_library4CImgIcED2Ev.exit.i:             ; preds = %117, %113, %.preheader.i
   %118 = icmp eq ptr %109, %101
-  br i1 %118, label %.loopexit.i, label %.preheader.i, !llvm.loop !50
+  br i1 %118, label %.loopexit.i, label %.preheader.i
 
 .loopexit.i:                                      ; preds = %_ZN12cimg_library4CImgIcED2Ev.exit.i, %103
   %119 = or disjoint i64 %.idx.i, 8
@@ -300,7 +300,7 @@ _ZN12cimg_library8CImgListIcED2Ev.exit:           ; preds = %99, %.loopexit.i
   %127 = phi ptr [ %128, %_ZN12cimg_library4CImgIfED2Ev.exit.i ], [ %126, %.preheader.preheader.i42 ]
   %128 = getelementptr inbounds i8, ptr %127, i64 -32
   %129 = getelementptr inbounds i8, ptr %127, i64 -16
-  %130 = load i8, ptr %129, align 8, !tbaa !51, !range !47, !noundef !48
+  %130 = load i8, ptr %129, align 8, !tbaa !49, !range !46, !noundef !47
   %131 = trunc nuw i8 %130 to i1
   br i1 %131, label %_ZN12cimg_library4CImgIfED2Ev.exit.i, label %132
 
@@ -316,7 +316,7 @@ _ZN12cimg_library8CImgListIcED2Ev.exit:           ; preds = %99, %.loopexit.i
 
 _ZN12cimg_library4CImgIfED2Ev.exit.i:             ; preds = %136, %132, %.preheader.i43
   %137 = icmp eq ptr %128, %120
-  br i1 %137, label %.loopexit.i44, label %.preheader.i43, !llvm.loop !52
+  br i1 %137, label %.loopexit.i44, label %.preheader.i43
 
 .loopexit.i44:                                    ; preds = %_ZN12cimg_library4CImgIfED2Ev.exit.i, %122
   %138 = or disjoint i64 %.idx.i41, 8
@@ -403,7 +403,7 @@ declare void @_ZN4gmicD1Ev(ptr noundef nonnull align 8 dereferenceable(416)) unn
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN12cimg_library8CImgListIcED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #10 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load ptr, ptr %2, align 8, !tbaa !45
+  %3 = load ptr, ptr %2, align 8, !tbaa !44
   %4 = icmp eq ptr %3, null
   br i1 %4, label %22, label %5
 
@@ -422,13 +422,13 @@ define linkonce_odr hidden void @_ZN12cimg_library8CImgListIcED2Ev(ptr noundef n
   %10 = phi ptr [ %11, %_ZN12cimg_library4CImgIcED2Ev.exit ], [ %9, %.preheader.preheader ]
   %11 = getelementptr inbounds i8, ptr %10, i64 -32
   %12 = getelementptr inbounds i8, ptr %10, i64 -16
-  %13 = load i8, ptr %12, align 8, !tbaa !46, !range !47, !noundef !48
+  %13 = load i8, ptr %12, align 8, !tbaa !45, !range !46, !noundef !47
   %14 = trunc nuw i8 %13 to i1
   br i1 %14, label %_ZN12cimg_library4CImgIcED2Ev.exit, label %15
 
 15:                                               ; preds = %.preheader
   %16 = getelementptr inbounds i8, ptr %10, i64 -8
-  %17 = load ptr, ptr %16, align 8, !tbaa !49
+  %17 = load ptr, ptr %16, align 8, !tbaa !48
   %18 = icmp eq ptr %17, null
   br i1 %18, label %_ZN12cimg_library4CImgIcED2Ev.exit, label %19
 
@@ -438,7 +438,7 @@ define linkonce_odr hidden void @_ZN12cimg_library8CImgListIcED2Ev(ptr noundef n
 
 _ZN12cimg_library4CImgIcED2Ev.exit:               ; preds = %.preheader, %15, %19
   %20 = icmp eq ptr %11, %3
-  br i1 %20, label %.loopexit, label %.preheader, !llvm.loop !50
+  br i1 %20, label %.loopexit, label %.preheader
 
 .loopexit:                                        ; preds = %_ZN12cimg_library4CImgIcED2Ev.exit, %5
   %21 = or disjoint i64 %.idx, 8
@@ -471,7 +471,7 @@ define linkonce_odr hidden void @_ZN12cimg_library8CImgListIfED2Ev(ptr noundef n
   %10 = phi ptr [ %11, %_ZN12cimg_library4CImgIfED2Ev.exit ], [ %9, %.preheader.preheader ]
   %11 = getelementptr inbounds i8, ptr %10, i64 -32
   %12 = getelementptr inbounds i8, ptr %10, i64 -16
-  %13 = load i8, ptr %12, align 8, !tbaa !51, !range !47, !noundef !48
+  %13 = load i8, ptr %12, align 8, !tbaa !49, !range !46, !noundef !47
   %14 = trunc nuw i8 %13 to i1
   br i1 %14, label %_ZN12cimg_library4CImgIfED2Ev.exit, label %15
 
@@ -487,7 +487,7 @@ define linkonce_odr hidden void @_ZN12cimg_library8CImgListIfED2Ev(ptr noundef n
 
 _ZN12cimg_library4CImgIfED2Ev.exit:               ; preds = %.preheader, %15, %19
   %20 = icmp eq ptr %11, %3
-  br i1 %20, label %.loopexit, label %.preheader, !llvm.loop !52
+  br i1 %20, label %.loopexit, label %.preheader
 
 .loopexit:                                        ; preds = %_ZN12cimg_library4CImgIfED2Ev.exit, %5
   %21 = or disjoint i64 %.idx, 8
@@ -554,15 +554,15 @@ define hidden i32 @lut3d_get_cached_clut(ptr noundef writeonly captures(none) %0
   %27 = mul i32 %26, %1
   %28 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %29 = load ptr, ptr %28, align 8, !tbaa !27
-  %30 = load i32, ptr %29, align 8, !tbaa !41
+  %30 = load i32, ptr %29, align 8, !tbaa !40
   %31 = getelementptr inbounds nuw i8, ptr %29, i64 4
-  %32 = load i32, ptr %31, align 4, !tbaa !42
+  %32 = load i32, ptr %31, align 4, !tbaa !41
   %33 = mul i32 %32, %30
   %34 = getelementptr inbounds nuw i8, ptr %29, i64 8
-  %35 = load i32, ptr %34, align 8, !tbaa !43
+  %35 = load i32, ptr %34, align 8, !tbaa !42
   %36 = mul i32 %33, %35
   %37 = getelementptr inbounds nuw i8, ptr %29, i64 12
-  %38 = load i32, ptr %37, align 4, !tbaa !44
+  %38 = load i32, ptr %37, align 4, !tbaa !43
   %39 = mul i32 %36, %38
   %40 = icmp ult i32 %27, %39
   br i1 %40, label %41, label %75
@@ -590,7 +590,7 @@ define hidden i32 @lut3d_get_cached_clut(ptr noundef writeonly captures(none) %0
   %52 = extractvalue { ptr, i32 } %47, 0
   %53 = call ptr @__cxa_begin_catch(ptr %52) #15
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 56
-  %55 = load ptr, ptr %54, align 8, !tbaa !37
+  %55 = load ptr, ptr %54, align 8, !tbaa !36
   %.not.i = icmp eq ptr %55, null
   %spec.select.i = select i1 %.not.i, ptr @.str.8, ptr %55
   %56 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1, ptr noundef nonnull %spec.select.i)
@@ -614,15 +614,15 @@ define hidden i32 @lut3d_get_cached_clut(ptr noundef writeonly captures(none) %0
 
 63:                                               ; preds = %41
   %64 = load ptr, ptr %28, align 8, !tbaa !27
-  %65 = load i32, ptr %64, align 8, !tbaa !41
+  %65 = load i32, ptr %64, align 8, !tbaa !40
   %66 = getelementptr inbounds nuw i8, ptr %64, i64 4
-  %67 = load i32, ptr %66, align 4, !tbaa !42
+  %67 = load i32, ptr %66, align 4, !tbaa !41
   %68 = mul i32 %67, %65
   %69 = getelementptr inbounds nuw i8, ptr %64, i64 8
-  %70 = load i32, ptr %69, align 8, !tbaa !43
+  %70 = load i32, ptr %69, align 8, !tbaa !42
   %71 = mul i32 %68, %70
   %72 = getelementptr inbounds nuw i8, ptr %64, i64 12
-  %73 = load i32, ptr %72, align 4, !tbaa !44
+  %73 = load i32, ptr %72, align 4, !tbaa !43
   %74 = mul i32 %71, %73
   br label %77
 
@@ -650,7 +650,7 @@ define hidden i32 @lut3d_get_cached_clut(ptr noundef writeonly captures(none) %0
   %85 = extractvalue { ptr, i32 } %80, 0
   %86 = call ptr @__cxa_begin_catch(ptr %85) #15
   %87 = getelementptr inbounds nuw i8, ptr %86, i64 56
-  %88 = load ptr, ptr %87, align 8, !tbaa !37
+  %88 = load ptr, ptr %87, align 8, !tbaa !36
   %.not.i42 = icmp eq ptr %88, null
   %spec.select.i43 = select i1 %.not.i42, ptr @.str.8, ptr %88
   %89 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1, ptr noundef nonnull %spec.select.i43)
@@ -688,7 +688,7 @@ define hidden i32 @lut3d_get_cached_clut(ptr noundef writeonly captures(none) %0
   call void @llvm.lifetime.end.p0(i64 416, ptr nonnull %7) #15
   call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %6) #15
   %103 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %104 = load ptr, ptr %103, align 8, !tbaa !45
+  %104 = load ptr, ptr %103, align 8, !tbaa !44
   %105 = icmp eq ptr %104, null
   br i1 %105, label %_ZN12cimg_library8CImgListIcED2Ev.exit, label %106
 
@@ -707,13 +707,13 @@ define hidden i32 @lut3d_get_cached_clut(ptr noundef writeonly captures(none) %0
   %111 = phi ptr [ %112, %_ZN12cimg_library4CImgIcED2Ev.exit.i ], [ %110, %.preheader.preheader.i ]
   %112 = getelementptr inbounds i8, ptr %111, i64 -32
   %113 = getelementptr inbounds i8, ptr %111, i64 -16
-  %114 = load i8, ptr %113, align 8, !tbaa !46, !range !47, !noundef !48
+  %114 = load i8, ptr %113, align 8, !tbaa !45, !range !46, !noundef !47
   %115 = trunc nuw i8 %114 to i1
   br i1 %115, label %_ZN12cimg_library4CImgIcED2Ev.exit.i, label %116
 
 116:                                              ; preds = %.preheader.i
   %117 = getelementptr inbounds i8, ptr %111, i64 -8
-  %118 = load ptr, ptr %117, align 8, !tbaa !49
+  %118 = load ptr, ptr %117, align 8, !tbaa !48
   %119 = icmp eq ptr %118, null
   br i1 %119, label %_ZN12cimg_library4CImgIcED2Ev.exit.i, label %120
 
@@ -723,7 +723,7 @@ define hidden i32 @lut3d_get_cached_clut(ptr noundef writeonly captures(none) %0
 
 _ZN12cimg_library4CImgIcED2Ev.exit.i:             ; preds = %120, %116, %.preheader.i
   %121 = icmp eq ptr %112, %104
-  br i1 %121, label %.loopexit.i, label %.preheader.i, !llvm.loop !50
+  br i1 %121, label %.loopexit.i, label %.preheader.i
 
 .loopexit.i:                                      ; preds = %_ZN12cimg_library4CImgIcED2Ev.exit.i, %106
   %122 = or disjoint i64 %.idx.i, 8
@@ -752,7 +752,7 @@ _ZN12cimg_library8CImgListIcED2Ev.exit:           ; preds = %102, %.loopexit.i
   %131 = phi ptr [ %132, %_ZN12cimg_library4CImgIfED2Ev.exit.i ], [ %130, %.preheader.preheader.i45 ]
   %132 = getelementptr inbounds i8, ptr %131, i64 -32
   %133 = getelementptr inbounds i8, ptr %131, i64 -16
-  %134 = load i8, ptr %133, align 8, !tbaa !51, !range !47, !noundef !48
+  %134 = load i8, ptr %133, align 8, !tbaa !49, !range !46, !noundef !47
   %135 = trunc nuw i8 %134 to i1
   br i1 %135, label %_ZN12cimg_library4CImgIfED2Ev.exit.i, label %136
 
@@ -768,7 +768,7 @@ _ZN12cimg_library8CImgListIcED2Ev.exit:           ; preds = %102, %.loopexit.i
 
 _ZN12cimg_library4CImgIfED2Ev.exit.i:             ; preds = %140, %136, %.preheader.i46
   %141 = icmp eq ptr %132, %124
-  br i1 %141, label %.loopexit.i47, label %.preheader.i46, !llvm.loop !52
+  br i1 %141, label %.loopexit.i47, label %.preheader.i46
 
 .loopexit.i47:                                    ; preds = %_ZN12cimg_library4CImgIfED2Ev.exit.i, %126
   %142 = or disjoint i64 %.idx.i44, 8
@@ -842,11 +842,11 @@ define hidden range(i32 0, 2) i32 @lut3d_read_gmz(ptr noundef writeonly captures
   %24 = extractvalue { ptr, i32 } %19, 0
   %25 = call ptr @__cxa_begin_catch(ptr %24) #15
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 56
-  %27 = load ptr, ptr %26, align 8, !tbaa !37
+  %27 = load ptr, ptr %26, align 8, !tbaa !36
   %.not.i = icmp eq ptr %27, null
   %spec.select.i = select i1 %.not.i, ptr @.str.8, ptr %27
   %28 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1, ptr noundef nonnull %spec.select.i)
-  store i32 0, ptr %3, align 4, !tbaa !53
+  store i32 0, ptr %3, align 4, !tbaa !50
   %29 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN12cimg_library8CImgListIfE6assignEj(ptr noundef nonnull align 8 dereferenceable(16) %8, i32 noundef 0)
           to label %30 unwind label %33
 
@@ -872,21 +872,21 @@ define hidden range(i32 0, 2) i32 @lut3d_read_gmz(ptr noundef writeonly captures
 37:                                               ; preds = %12
   %38 = load i8, ptr %5, align 1, !tbaa !32
   %.not = icmp eq i8 %38, 0
-  %.pre = load i32, ptr %9, align 8, !tbaa !54
+  %.pre = load i32, ptr %9, align 8, !tbaa !51
   %.not113 = icmp eq i32 %.pre, 0
   %or.cond = select i1 %.not, i1 true, i1 %.not113
   br i1 %or.cond, label %.loopexit98, label %.lr.ph
 
 .lr.ph:                                           ; preds = %37
   %39 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %40 = load ptr, ptr %39, align 8, !tbaa !45
+  %40 = load ptr, ptr %39, align 8, !tbaa !44
   %wide.trip.count = zext i32 %.pre to i64
   br label %41
 
 41:                                               ; preds = %.lr.ph, %46
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %46 ]
   %42 = getelementptr inbounds nuw %"struct.cimg_library::CImg.3", ptr %40, i64 %indvars.iv, i32 5
-  %43 = load ptr, ptr %42, align 8, !tbaa !49
+  %43 = load ptr, ptr %42, align 8, !tbaa !48
   %44 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %43, ptr noundef nonnull dereferenceable(1) %5) #19
   %45 = icmp eq i32 %44, 0
   br i1 %45, label %.loopexit98.loopexit.split.loop.exit139, label %46
@@ -894,7 +894,7 @@ define hidden range(i32 0, 2) i32 @lut3d_read_gmz(ptr noundef writeonly captures
 46:                                               ; preds = %41
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit98, label %41, !llvm.loop !55
+  br i1 %exitcond.not, label %.loopexit98, label %41, !llvm.loop !52
 
 .loopexit98.loopexit.split.loop.exit139:          ; preds = %41
   %47 = trunc nuw i64 %indvars.iv to i32
@@ -903,7 +903,7 @@ define hidden range(i32 0, 2) i32 @lut3d_read_gmz(ptr noundef writeonly captures
 .loopexit98:                                      ; preds = %46, %.loopexit98.loopexit.split.loop.exit139, %37
   %.077 = phi i32 [ 0, %37 ], [ 1, %.loopexit98.loopexit.split.loop.exit139 ], [ 0, %46 ]
   %.075 = phi i32 [ 0, %37 ], [ %47, %.loopexit98.loopexit.split.loop.exit139 ], [ 0, %46 ]
-  store i32 %.pre, ptr %3, align 4, !tbaa !53
+  store i32 %.pre, ptr %3, align 4, !tbaa !50
   %.not83 = icmp eq i32 %6, 0
   br i1 %.not83, label %48, label %.loopexit96
 
@@ -912,7 +912,7 @@ define hidden range(i32 0, 2) i32 @lut3d_read_gmz(ptr noundef writeonly captures
           to label %.preheader95 unwind label %51
 
 .preheader95:                                     ; preds = %48
-  %49 = load i32, ptr %9, align 8, !tbaa !54
+  %49 = load i32, ptr %9, align 8, !tbaa !51
   %.not114 = icmp eq i32 %49, 0
   br i1 %.not114, label %.loopexit96, label %.lr.ph105
 
@@ -927,18 +927,18 @@ define hidden range(i32 0, 2) i32 @lut3d_read_gmz(ptr noundef writeonly captures
 
 53:                                               ; preds = %.lr.ph105, %57
   %indvars.iv117 = phi i64 [ 0, %.lr.ph105 ], [ %indvars.iv.next118, %57 ]
-  %54 = load ptr, ptr %50, align 8, !tbaa !45
+  %54 = load ptr, ptr %50, align 8, !tbaa !44
   %55 = getelementptr inbounds nuw %"struct.cimg_library::CImg.3", ptr %54, i64 %indvars.iv117, i32 5
-  %56 = load ptr, ptr %55, align 8, !tbaa !49
+  %56 = load ptr, ptr %55, align 8, !tbaa !48
   invoke void @lut3d_add_lutname_to_list(ptr noundef %4, ptr noundef %56)
           to label %57 unwind label %61
 
 57:                                               ; preds = %53
   %indvars.iv.next118 = add nuw nsw i64 %indvars.iv117, 1
-  %58 = load i32, ptr %9, align 8, !tbaa !54
+  %58 = load i32, ptr %9, align 8, !tbaa !51
   %59 = zext i32 %58 to i64
   %60 = icmp samesign ult i64 %indvars.iv.next118, %59
-  br i1 %60, label %53, label %.loopexit96, !llvm.loop !56
+  br i1 %60, label %53, label %.loopexit96, !llvm.loop !53
 
 61:                                               ; preds = %53
   %62 = landingpad { ptr, i32 }
@@ -950,10 +950,10 @@ define hidden range(i32 0, 2) i32 @lut3d_read_gmz(ptr noundef writeonly captures
   %64 = load ptr, ptr %63, align 8, !tbaa !27
   %65 = zext i32 %.075 to i64
   %66 = getelementptr inbounds nuw %"struct.cimg_library::CImg.4", ptr %64, i64 %65, i32 1
-  %67 = load i32, ptr %66, align 4, !tbaa !42
-  store i32 %67, ptr %0, align 4, !tbaa !53
+  %67 = load i32, ptr %66, align 4, !tbaa !41
+  store i32 %67, ptr %0, align 4, !tbaa !50
   %68 = getelementptr inbounds nuw %"struct.cimg_library::CImg.4", ptr %64, i64 %65
-  %69 = load i32, ptr %68, align 8, !tbaa !41
+  %69 = load i32, ptr %68, align 8, !tbaa !40
   %70 = icmp eq i32 %69, 1
   %71 = icmp ult i32 %67, 2049
   %or.cond144 = select i1 %70, i1 %71, i1 false
@@ -961,13 +961,13 @@ define hidden range(i32 0, 2) i32 @lut3d_read_gmz(ptr noundef writeonly captures
 
 72:                                               ; preds = %.loopexit96
   %73 = getelementptr inbounds nuw %"struct.cimg_library::CImg.4", ptr %64, i64 %65, i32 2
-  %74 = load i32, ptr %73, align 8, !tbaa !43
+  %74 = load i32, ptr %73, align 8, !tbaa !42
   %75 = icmp eq i32 %74, 1
   br i1 %75, label %76, label %.thread91
 
 76:                                               ; preds = %72
   %77 = getelementptr inbounds nuw %"struct.cimg_library::CImg.4", ptr %64, i64 %65, i32 3
-  %78 = load i32, ptr %77, align 4, !tbaa !44
+  %78 = load i32, ptr %77, align 4, !tbaa !43
   %79 = icmp eq i32 %78, 6
   br i1 %79, label %.preheader, label %90
 
@@ -996,11 +996,11 @@ define hidden range(i32 0, 2) i32 @lut3d_read_gmz(ptr noundef writeonly captures
   store i8 %88, ptr %89, align 1, !tbaa !32
   %indvars.iv.next131 = add nuw nsw i64 %indvars.iv130, 1
   %exitcond135.not = icmp eq i64 %indvars.iv.next131, %wide.trip.count134
-  br i1 %exitcond135.not, label %.loopexit, label %84, !llvm.loop !57
+  br i1 %exitcond135.not, label %.loopexit, label %84, !llvm.loop !54
 
 90:                                               ; preds = %76
   %91 = getelementptr inbounds nuw %"struct.cimg_library::CImg.4", ptr %64, i64 %65, i32 3
-  %92 = load i32, ptr %91, align 4, !tbaa !44
+  %92 = load i32, ptr %91, align 4, !tbaa !43
   %93 = icmp eq i32 %92, 4
   br i1 %93, label %.preheader94, label %.thread91
 
@@ -1036,7 +1036,7 @@ define hidden range(i32 0, 2) i32 @lut3d_read_gmz(ptr noundef writeonly captures
   store i8 %106, ptr %107, align 1, !tbaa !32
   %indvars.iv.next121 = add nuw nsw i64 %indvars.iv120, 1
   %exitcond124.not = icmp eq i64 %indvars.iv.next121, %wide.trip.count123
-  br i1 %exitcond124.not, label %.lr.ph110, label %102, !llvm.loop !58
+  br i1 %exitcond124.not, label %.lr.ph110, label %102, !llvm.loop !55
 
 108:                                              ; preds = %.lr.ph110, %108
   %indvars.iv125 = phi i64 [ 0, %.lr.ph110 ], [ %indvars.iv.next126, %108 ]
@@ -1053,13 +1053,13 @@ define hidden range(i32 0, 2) i32 @lut3d_read_gmz(ptr noundef writeonly captures
   store i8 %113, ptr %114, align 1, !tbaa !32
   %indvars.iv.next126 = add nuw nsw i64 %indvars.iv125, 1
   %exitcond129.not = icmp eq i64 %indvars.iv.next126, %wide.trip.count128
-  br i1 %exitcond129.not, label %.loopexit, label %108, !llvm.loop !59
+  br i1 %exitcond129.not, label %.loopexit, label %108, !llvm.loop !56
 
 .thread91:                                        ; preds = %72, %.loopexit96, %90
   %115 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %116 = load ptr, ptr %115, align 8, !tbaa !45
+  %116 = load ptr, ptr %115, align 8, !tbaa !44
   %117 = getelementptr inbounds nuw %"struct.cimg_library::CImg.3", ptr %116, i64 %65, i32 5
-  %118 = load ptr, ptr %117, align 8, !tbaa !49
+  %118 = load ptr, ptr %117, align 8, !tbaa !48
   %119 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.7, i32 noundef %.075, ptr noundef %118)
   br label %.loopexit
 
@@ -1077,7 +1077,7 @@ define hidden range(i32 0, 2) i32 @lut3d_read_gmz(ptr noundef writeonly captures
   call void @llvm.lifetime.end.p0(i64 416, ptr nonnull %11) #15
   call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %10) #15
   %124 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %125 = load ptr, ptr %124, align 8, !tbaa !45
+  %125 = load ptr, ptr %124, align 8, !tbaa !44
   %126 = icmp eq ptr %125, null
   br i1 %126, label %_ZN12cimg_library8CImgListIcED2Ev.exit, label %127
 
@@ -1096,13 +1096,13 @@ define hidden range(i32 0, 2) i32 @lut3d_read_gmz(ptr noundef writeonly captures
   %132 = phi ptr [ %133, %_ZN12cimg_library4CImgIcED2Ev.exit.i ], [ %131, %.preheader.preheader.i ]
   %133 = getelementptr inbounds i8, ptr %132, i64 -32
   %134 = getelementptr inbounds i8, ptr %132, i64 -16
-  %135 = load i8, ptr %134, align 8, !tbaa !46, !range !47, !noundef !48
+  %135 = load i8, ptr %134, align 8, !tbaa !45, !range !46, !noundef !47
   %136 = trunc nuw i8 %135 to i1
   br i1 %136, label %_ZN12cimg_library4CImgIcED2Ev.exit.i, label %137
 
 137:                                              ; preds = %.preheader.i
   %138 = getelementptr inbounds i8, ptr %132, i64 -8
-  %139 = load ptr, ptr %138, align 8, !tbaa !49
+  %139 = load ptr, ptr %138, align 8, !tbaa !48
   %140 = icmp eq ptr %139, null
   br i1 %140, label %_ZN12cimg_library4CImgIcED2Ev.exit.i, label %141
 
@@ -1112,7 +1112,7 @@ define hidden range(i32 0, 2) i32 @lut3d_read_gmz(ptr noundef writeonly captures
 
 _ZN12cimg_library4CImgIcED2Ev.exit.i:             ; preds = %141, %137, %.preheader.i
   %142 = icmp eq ptr %133, %125
-  br i1 %142, label %.loopexit.i, label %.preheader.i, !llvm.loop !50
+  br i1 %142, label %.loopexit.i, label %.preheader.i
 
 .loopexit.i:                                      ; preds = %_ZN12cimg_library4CImgIcED2Ev.exit.i, %127
   %143 = or disjoint i64 %.idx.i, 8
@@ -1141,7 +1141,7 @@ _ZN12cimg_library8CImgListIcED2Ev.exit:           ; preds = %123, %.loopexit.i
   %152 = phi ptr [ %153, %_ZN12cimg_library4CImgIfED2Ev.exit.i ], [ %151, %.preheader.preheader.i88 ]
   %153 = getelementptr inbounds i8, ptr %152, i64 -32
   %154 = getelementptr inbounds i8, ptr %152, i64 -16
-  %155 = load i8, ptr %154, align 8, !tbaa !51, !range !47, !noundef !48
+  %155 = load i8, ptr %154, align 8, !tbaa !49, !range !46, !noundef !47
   %156 = trunc nuw i8 %155 to i1
   br i1 %156, label %_ZN12cimg_library4CImgIfED2Ev.exit.i, label %157
 
@@ -1157,7 +1157,7 @@ _ZN12cimg_library8CImgListIcED2Ev.exit:           ; preds = %123, %.loopexit.i
 
 _ZN12cimg_library4CImgIfED2Ev.exit.i:             ; preds = %161, %157, %.preheader.i89
   %162 = icmp eq ptr %153, %145
-  br i1 %162, label %.loopexit.i90, label %.preheader.i89, !llvm.loop !52
+  br i1 %162, label %.loopexit.i90, label %.preheader.i89
 
 .loopexit.i90:                                    ; preds = %_ZN12cimg_library4CImgIfED2Ev.exit.i, %147
   %163 = or disjoint i64 %.idx.i87, 8
@@ -1276,29 +1276,26 @@ attributes #19 = { nounwind willreturn memory(read) }
 !31 = !{!"_ZTSN12cimg_library4CImgIfEE", !14, i64 0, !14, i64 4, !14, i64 8, !14, i64 12, !17, i64 16, !24, i64 24}
 !32 = !{!10, !10, i64 0}
 !33 = !{!23, !23, i64 0}
-!34 = distinct !{!34, !35, !36}
+!34 = distinct !{!34, !35}
 !35 = !{!"llvm.loop.mustprogress"}
-!36 = !{!"llvm.loop.estimated_trip_count"}
-!37 = !{!38, !20, i64 56}
-!38 = !{!"_ZTS14gmic_exception", !22, i64 0, !22, i64 32}
-!39 = !{!40, !40, i64 0}
-!40 = !{!"p1 _ZTS8_IO_FILE", !9, i64 0}
-!41 = !{!31, !14, i64 0}
-!42 = !{!31, !14, i64 4}
-!43 = !{!31, !14, i64 8}
-!44 = !{!31, !14, i64 12}
-!45 = !{!13, !15, i64 8}
-!46 = !{!22, !17, i64 16}
-!47 = !{i8 0, i8 2}
-!48 = !{}
-!49 = !{!22, !20, i64 24}
-!50 = distinct !{!50, !36}
-!51 = !{!31, !17, i64 16}
-!52 = distinct !{!52, !36}
-!53 = !{!14, !14, i64 0}
-!54 = !{!13, !14, i64 0}
-!55 = distinct !{!55, !35, !36}
-!56 = distinct !{!56, !35, !36}
-!57 = distinct !{!57, !35, !36}
-!58 = distinct !{!58, !35, !36}
-!59 = distinct !{!59, !35, !36}
+!36 = !{!37, !20, i64 56}
+!37 = !{!"_ZTS14gmic_exception", !22, i64 0, !22, i64 32}
+!38 = !{!39, !39, i64 0}
+!39 = !{!"p1 _ZTS8_IO_FILE", !9, i64 0}
+!40 = !{!31, !14, i64 0}
+!41 = !{!31, !14, i64 4}
+!42 = !{!31, !14, i64 8}
+!43 = !{!31, !14, i64 12}
+!44 = !{!13, !15, i64 8}
+!45 = !{!22, !17, i64 16}
+!46 = !{i8 0, i8 2}
+!47 = !{}
+!48 = !{!22, !20, i64 24}
+!49 = !{!31, !17, i64 16}
+!50 = !{!14, !14, i64 0}
+!51 = !{!13, !14, i64 0}
+!52 = distinct !{!52, !35}
+!53 = distinct !{!53, !35}
+!54 = distinct !{!54, !35}
+!55 = distinct !{!55, !35}
+!56 = distinct !{!56, !35}

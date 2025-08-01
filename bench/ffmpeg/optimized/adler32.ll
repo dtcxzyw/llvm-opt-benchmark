@@ -65,7 +65,7 @@ define i32 @av_adler32_update(i32 noundef %0, ptr noundef readonly captures(none
   %39 = urem i64 %36, 65521
   %40 = urem i64 %37, 65521
   %.not = icmp eq i64 %38, 0
-  br i1 %.not, label %._crit_edge48, label %.preheader, !llvm.loop !10
+  br i1 %.not, label %._crit_edge48, label %.preheader, !llvm.loop !9
 
 ._crit_edge48:                                    ; preds = %._crit_edge, %3
   %.030.lcssa = phi i64 [ %5, %3 ], [ %39, %._crit_edge ]
@@ -87,7 +87,6 @@ attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memor
 !4 = !{!5, !5, i64 0}
 !5 = !{!"omnipotent char", !6, i64 0}
 !6 = !{!"Simple C/C++ TBAA"}
-!7 = distinct !{!7, !8, !9}
+!7 = distinct !{!7, !8}
 !8 = !{!"llvm.loop.mustprogress"}
-!9 = !{!"llvm.loop.estimated_trip_count"}
-!10 = distinct !{!10, !8, !9}
+!9 = distinct !{!9, !8}

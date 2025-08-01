@@ -79,7 +79,7 @@ define void @_ZNK5ZXing12BinaryBitmap8binarizeEh(ptr dead_on_unwind noalias nonn
 
 29:                                               ; preds = %12, %3
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %31 = load i32, ptr %30, align 4, !tbaa !21
+  %31 = load i32, ptr %30, align 4, !tbaa !20
   %32 = icmp sgt i32 %31, 0
   br i1 %32, label %.lr.ph, label %.loopexit
 
@@ -96,13 +96,13 @@ define void @_ZNK5ZXing12BinaryBitmap8binarizeEh(ptr dead_on_unwind noalias nonn
   %39 = mul nsw i32 %38, %.056
   %40 = sext i32 %39 to i64
   %41 = getelementptr inbounds i8, ptr %37, i64 %40
-  %42 = load i32, ptr %34, align 8, !tbaa !26
+  %42 = load i32, ptr %34, align 8, !tbaa !25
   %43 = lshr i32 %42, 8
   %44 = and i32 %43, 255
   %45 = zext nneg i32 %44 to i64
   %46 = getelementptr inbounds nuw i8, ptr %41, i64 %45
   %47 = load i32, ptr %9, align 4, !tbaa !12
-  %.val31.val = load i32, ptr %0, align 8, !tbaa !27
+  %.val31.val = load i32, ptr %0, align 8, !tbaa !26
   %.val31.val33 = load ptr, ptr %35, align 8, !tbaa !15
   %48 = add nuw nsw i32 %.056, 1
   %49 = mul nsw i32 %.val31.val, %48
@@ -133,7 +133,7 @@ define void @_ZNK5ZXing12BinaryBitmap8binarizeEh(ptr dead_on_unwind noalias nonn
   %59 = getelementptr inbounds nuw i8, ptr %.03.i, i64 1
   %60 = getelementptr inbounds nuw i8, ptr %.0112.i, i64 1
   %.not.i = icmp eq ptr %60, %51
-  br i1 %.not.i, label %"_ZZNK5ZXing12BinaryBitmap8binarizeEhENK3$_0clIhEEDaiPKT_i.exit", label %56, !llvm.loop !28
+  br i1 %.not.i, label %"_ZZNK5ZXing12BinaryBitmap8binarizeEhENK3$_0clIhEEDaiPKT_i.exit", label %56
 
 61:                                               ; preds = %36
   br i1 %.not1.i43, label %"_ZZNK5ZXing12BinaryBitmap8binarizeEhENK3$_0clIhEEDaiPKT_i.exit", label %.lr.ph.i37
@@ -154,7 +154,7 @@ define void @_ZNK5ZXing12BinaryBitmap8binarizeEh(ptr dead_on_unwind noalias nonn
   %68 = getelementptr inbounds nuw i8, ptr %.03.i38, i64 4
   %69 = getelementptr inbounds nuw i8, ptr %.0112.i39, i64 1
   %.not.i41 = icmp eq ptr %69, %51
-  br i1 %.not.i41, label %"_ZZNK5ZXing12BinaryBitmap8binarizeEhENK3$_0clIhEEDaiPKT_i.exit", label %65, !llvm.loop !28
+  br i1 %.not.i41, label %"_ZZNK5ZXing12BinaryBitmap8binarizeEhENK3$_0clIhEEDaiPKT_i.exit", label %65
 
 70:                                               ; preds = %36
   br i1 %.not1.i43, label %"_ZZNK5ZXing12BinaryBitmap8binarizeEhENK3$_0clIhEEDaiPKT_i.exit", label %.lr.ph.i44
@@ -176,12 +176,12 @@ define void @_ZNK5ZXing12BinaryBitmap8binarizeEh(ptr dead_on_unwind noalias nonn
   %78 = getelementptr inbounds i8, ptr %.03.i45, i64 %74
   %79 = getelementptr inbounds nuw i8, ptr %.0112.i46, i64 1
   %.not.i48 = icmp eq ptr %79, %51
-  br i1 %.not.i48, label %"_ZZNK5ZXing12BinaryBitmap8binarizeEhENK3$_0clIhEEDaiPKT_i.exit", label %75, !llvm.loop !28
+  br i1 %.not.i48, label %"_ZZNK5ZXing12BinaryBitmap8binarizeEhENK3$_0clIhEEDaiPKT_i.exit", label %75
 
 "_ZZNK5ZXing12BinaryBitmap8binarizeEhENK3$_0clIhEEDaiPKT_i.exit": ; preds = %65, %56, %75, %70, %61, %52
-  %80 = load i32, ptr %30, align 4, !tbaa !21
+  %80 = load i32, ptr %30, align 4, !tbaa !20
   %81 = icmp slt i32 %48, %80
-  br i1 %81, label %36, label %.loopexit, !llvm.loop !29
+  br i1 %81, label %36, label %.loopexit, !llvm.loop !27
 
 .loopexit:                                        ; preds = %"_ZZNK5ZXing12BinaryBitmap8binarizeEhENK3$_0clIhEEDaiPKT_i.exit", %.lr.ph60, %29, %17
   ret void
@@ -189,9 +189,9 @@ define void @_ZNK5ZXing12BinaryBitmap8binarizeEh(ptr dead_on_unwind noalias nonn
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN5ZXing9BitMatrixC2Eii(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store i32 %1, ptr %0, align 8, !tbaa !27
+  store i32 %1, ptr %0, align 8, !tbaa !26
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 %2, ptr %4, align 4, !tbaa !21
+  store i32 %2, ptr %4, align 4, !tbaa !20
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = mul nsw i32 %2, %1
   %7 = sext i32 %6 to i64
@@ -215,10 +215,10 @@ _ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.thread.i: ; preds = %_ZNSt6vectorIhSaI
   %10 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %7) #18
   store ptr %10, ptr %5, align 8, !tbaa !15
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %10, ptr %11, align 8, !tbaa !30
+  store ptr %10, ptr %11, align 8, !tbaa !28
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 %7
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr %12, ptr %13, align 8, !tbaa !31
+  store ptr %12, ptr %13, align 8, !tbaa !29
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %10, i8 0, i64 %7, i1 false)
   %14 = ptrtoint ptr %10 to i64
   br label %15
@@ -227,7 +227,7 @@ _ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.thread.i: ; preds = %_ZNSt6vectorIhSaI
   %16 = phi i64 [ %14, %.noexc15 ], [ 0, %_ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.thread.i ]
   %17 = phi ptr [ %11, %.noexc15 ], [ %9, %_ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.thread.i ]
   %18 = phi ptr [ %12, %.noexc15 ], [ null, %_ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.thread.i ]
-  store ptr %18, ptr %17, align 8, !tbaa !30
+  store ptr %18, ptr %17, align 8, !tbaa !28
   %.not = icmp eq i32 %1, 0
   br i1 %.not, label %31, label %19
 
@@ -270,7 +270,7 @@ _ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.thread.i: ; preds = %_ZNSt6vectorIhSaI
 
 34:                                               ; preds = %32
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %36 = load ptr, ptr %35, align 8, !tbaa !31
+  %36 = load ptr, ptr %35, align 8, !tbaa !29
   %37 = ptrtoint ptr %36 to i64
   %38 = ptrtoint ptr %33 to i64
   %39 = sub i64 %37, %38
@@ -294,19 +294,19 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN5ZXing12BinaryBitmapC2ERKNS_9ImageViewE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(56) initializes((0, 18), (24, 56)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(28) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN5ZXing12BinaryBitmapE, i64 16), ptr %0, align 8, !tbaa !32
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN5ZXing12BinaryBitmapE, i64 16), ptr %0, align 8, !tbaa !30
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #18
-  store i32 0, ptr %4, align 4, !tbaa !34
+  store i32 0, ptr %4, align 4, !tbaa !32
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false)
-  store ptr %4, ptr %3, align 8, !tbaa !36
+  store ptr %4, ptr %3, align 8, !tbaa !34
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i8 0, ptr %6, align 8, !tbaa !38
+  store i8 0, ptr %6, align 8, !tbaa !36
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 17
-  store i8 0, ptr %7, align 1, !tbaa !47
+  store i8 0, ptr %7, align 1, !tbaa !45
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 32, i1 false), !tbaa.struct !48
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 32, i1 false), !tbaa.struct !46
   ret void
 }
 
@@ -318,15 +318,15 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr no
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN5ZXing12BinaryBitmapD2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(56) initializes((0, 8)) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN5ZXing12BinaryBitmapE, i64 16), ptr %0, align 8, !tbaa !32
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN5ZXing12BinaryBitmapE, i64 16), ptr %0, align 8, !tbaa !30
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load ptr, ptr %2, align 8, !tbaa !36
+  %3 = load ptr, ptr %2, align 8, !tbaa !34
   %.not.i = icmp eq ptr %3, null
   br i1 %.not.i, label %_ZNSt10unique_ptrIN5ZXing12BinaryBitmap5CacheESt14default_deleteIS2_EED2Ev.exit, label %4
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %6 = load ptr, ptr %5, align 8, !tbaa !52
+  %6 = load ptr, ptr %5, align 8, !tbaa !50
   %.not.i.i.i.i.i = icmp eq ptr %6, null
   br i1 %.not.i.i.i.i.i, label %_ZNKSt14default_deleteIN5ZXing12BinaryBitmap5CacheEEclEPS2_.exit.i, label %7
 
@@ -338,14 +338,14 @@ define void @_ZN5ZXing12BinaryBitmapD2Ev(ptr noundef nonnull align 8 captures(no
   br i1 %10, label %12, label %20
 
 12:                                               ; preds = %7
-  store i32 0, ptr %8, align 8, !tbaa !55
+  store i32 0, ptr %8, align 8, !tbaa !53
   %13 = getelementptr inbounds nuw i8, ptr %6, i64 12
-  store i32 0, ptr %13, align 4, !tbaa !57
-  %14 = load ptr, ptr %6, align 8, !tbaa !32
+  store i32 0, ptr %13, align 4, !tbaa !55
+  %14 = load ptr, ptr %6, align 8, !tbaa !30
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %16 = load ptr, ptr %15, align 8
   tail call void %16(ptr noundef nonnull align 8 dereferenceable(16) %6) #19
-  %17 = load ptr, ptr %6, align 8, !tbaa !32
+  %17 = load ptr, ptr %6, align 8, !tbaa !30
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 24
   %19 = load ptr, ptr %18, align 8
   tail call void %19(ptr noundef nonnull align 8 dereferenceable(16) %6) #19
@@ -358,7 +358,7 @@ define void @_ZN5ZXing12BinaryBitmapD2Ev(ptr noundef nonnull align 8 captures(no
 
 22:                                               ; preds = %20
   %23 = add nsw i32 %11, -1
-  store i32 %23, ptr %8, align 4, !tbaa !51
+  store i32 %23, ptr %8, align 4, !tbaa !49
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i
 
 24:                                               ; preds = %20
@@ -368,7 +368,7 @@ define void @_ZN5ZXing12BinaryBitmapD2Ev(ptr noundef nonnull align 8 captures(no
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i: ; preds = %24, %22
   %.0.i.i.i.i.i.i.i = phi i32 [ %11, %22 ], [ %25, %24 ]
   %26 = icmp eq i32 %.0.i.i.i.i.i.i.i, 1
-  br i1 %26, label %27, label %_ZNKSt14default_deleteIN5ZXing12BinaryBitmap5CacheEEclEPS2_.exit.i, !prof !58
+  br i1 %26, label %27, label %_ZNKSt14default_deleteIN5ZXing12BinaryBitmap5CacheEEclEPS2_.exit.i, !prof !56
 
 27:                                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i
   tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %6) #19
@@ -379,7 +379,7 @@ _ZNKSt14default_deleteIN5ZXing12BinaryBitmap5CacheEEclEPS2_.exit.i: ; preds = %2
   br label %_ZNSt10unique_ptrIN5ZXing12BinaryBitmap5CacheESt14default_deleteIS2_EED2Ev.exit
 
 _ZNSt10unique_ptrIN5ZXing12BinaryBitmap5CacheESt14default_deleteIS2_EED2Ev.exit: ; preds = %1, %_ZNKSt14default_deleteIN5ZXing12BinaryBitmap5CacheEEclEPS2_.exit.i
-  store ptr null, ptr %2, align 8, !tbaa !36
+  store ptr null, ptr %2, align 8, !tbaa !34
   ret void
 }
 
@@ -397,15 +397,15 @@ define noundef ptr @_ZNK5ZXing12BinaryBitmap12getBitMatrixEv(ptr noundef nonnull
   %2 = alloca %class.anon.7, align 8
   %3 = alloca %class.anon.2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = load ptr, ptr %4, align 8, !tbaa !36
+  %5 = load ptr, ptr %4, align 8, !tbaa !34
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #19
-  store ptr %0, ptr %3, align 8, !tbaa !59
+  store ptr %0, ptr %3, align 8, !tbaa !57
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #19
-  store ptr %3, ptr %2, align 8, !tbaa !62
+  store ptr %3, ptr %2, align 8, !tbaa !60
   %6 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZSt15__once_callable)
-  store ptr %2, ptr %6, align 8, !tbaa !62
+  store ptr %2, ptr %6, align 8, !tbaa !60
   %7 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZSt11__once_call)
-  store ptr @"_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZNK5ZXing12BinaryBitmap12getBitMatrixEvE3$_0JEEvRS_OT_DpOT0_EUlvE_EERS7_ENUlvE_8__invokeEv", ptr %7, align 8, !tbaa !62
+  store ptr @"_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZNK5ZXing12BinaryBitmap12getBitMatrixEvE3$_0JEEvRS_OT_DpOT0_EUlvE_EERS7_ENUlvE_8__invokeEv", ptr %7, align 8, !tbaa !60
   %8 = invoke noundef i32 @pthread_once(ptr noundef nonnull align 4 dereferenceable(4) %5, ptr noundef nonnull @__once_proxy)
           to label %_ZL14__gthread_oncePiPFvvE.exit.i unwind label %11
 
@@ -423,36 +423,36 @@ _ZL14__gthread_oncePiPFvvE.exit.i:                ; preds = %1
 11:                                               ; preds = %9, %1
   %12 = landingpad { ptr, i32 }
           cleanup
-  store ptr null, ptr %6, align 8, !tbaa !62
-  store ptr null, ptr %7, align 8, !tbaa !62
+  store ptr null, ptr %6, align 8, !tbaa !60
+  store ptr null, ptr %7, align 8, !tbaa !60
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #19
   resume { ptr, i32 } %12
 
 "_ZSt9call_onceIZNK5ZXing12BinaryBitmap12getBitMatrixEvE3$_0JEEvRSt9once_flagOT_DpOT0_.exit": ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i
-  store ptr null, ptr %6, align 8, !tbaa !62
-  store ptr null, ptr %7, align 8, !tbaa !62
+  store ptr null, ptr %6, align 8, !tbaa !60
+  store ptr null, ptr %7, align 8, !tbaa !60
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #19
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #19
-  %13 = load ptr, ptr %4, align 8, !tbaa !36
+  %13 = load ptr, ptr %4, align 8, !tbaa !34
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  %15 = load ptr, ptr %14, align 8, !tbaa !63
+  %15 = load ptr, ptr %14, align 8, !tbaa !61
   ret ptr %15
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define void @_ZN5ZXing12BinaryBitmap6invertEv(ptr noundef nonnull align 8 captures(none) dereferenceable(56) %0) local_unnamed_addr #7 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load ptr, ptr %2, align 8, !tbaa !36
+  %3 = load ptr, ptr %2, align 8, !tbaa !34
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %5 = load ptr, ptr %4, align 8, !tbaa !63
+  %5 = load ptr, ptr %4, align 8, !tbaa !61
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %_ZN5ZXing9BitMatrix7flipAllEv.exit, label %6
 
 6:                                                ; preds = %1
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %8 = load ptr, ptr %7, align 8, !tbaa !49
+  %8 = load ptr, ptr %7, align 8, !tbaa !47
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %10 = load ptr, ptr %9, align 8, !tbaa !49
+  %10 = load ptr, ptr %9, align 8, !tbaa !47
   %11 = icmp eq ptr %8, %10
   br i1 %11, label %_ZN5ZXing9BitMatrix7flipAllEv.exit, label %.lr.ph.i
 
@@ -464,11 +464,11 @@ define void @_ZN5ZXing12BinaryBitmap6invertEv(ptr noundef nonnull align 8 captur
   store i8 %13, ptr %.sroa.05.08.i, align 1, !tbaa !17
   %14 = getelementptr inbounds nuw i8, ptr %.sroa.05.08.i, i64 1
   %15 = icmp eq ptr %14, %10
-  br i1 %15, label %_ZN5ZXing9BitMatrix7flipAllEv.exit, label %.lr.ph.i, !llvm.loop !66
+  br i1 %15, label %_ZN5ZXing9BitMatrix7flipAllEv.exit, label %.lr.ph.i
 
 _ZN5ZXing9BitMatrix7flipAllEv.exit:               ; preds = %.lr.ph.i, %6, %1
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i8 1, ptr %16, align 8, !tbaa !38
+  store i8 1, ptr %16, align 8, !tbaa !36
   ret void
 }
 
@@ -476,25 +476,25 @@ _ZN5ZXing9BitMatrix7flipAllEv.exit:               ; preds = %.lr.ph.i, %6, %1
 define void @_ZN5ZXing12BinaryBitmap5closeEv(ptr noundef nonnull align 8 captures(none) dereferenceable(56) %0) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.ZXing::BitMatrix", align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !tbaa !36
+  %4 = load ptr, ptr %3, align 8, !tbaa !34
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %6 = load ptr, ptr %5, align 8, !tbaa !63
+  %6 = load ptr, ptr %5, align 8, !tbaa !61
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %88, label %7
 
 7:                                                ; preds = %1
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2) #19
-  %8 = load i32, ptr %6, align 8, !tbaa !27
+  %8 = load i32, ptr %6, align 8, !tbaa !26
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 4
-  %10 = load i32, ptr %9, align 4, !tbaa !21
+  %10 = load i32, ptr %9, align 4, !tbaa !20
   call void @_ZN5ZXing9BitMatrixC2Eii(ptr noundef nonnull align 8 dereferenceable(32) %2, i32 noundef %8, i32 noundef %10)
   %11 = getelementptr i8, ptr %6, i64 8
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %13 = load ptr, ptr %12, align 8, !tbaa !15
-  %14 = load i32, ptr %2, align 8, !tbaa !27
+  %14 = load i32, ptr %2, align 8, !tbaa !26
   %15 = sext i32 %14 to i64
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  %17 = load i32, ptr %16, align 4, !tbaa !21
+  %17 = load i32, ptr %16, align 4, !tbaa !20
   %18 = add nsw i32 %17, -1
   %19 = mul nsw i32 %18, %14
   %20 = sext i32 %19 to i64
@@ -506,7 +506,7 @@ define void @_ZN5ZXing12BinaryBitmap5closeEv(ptr noundef nonnull align 8 capture
 
 .preheader.preheader.i:                           ; preds = %7
   %.val6 = load ptr, ptr %11, align 8, !tbaa !15
-  %.val = load i32, ptr %6, align 8, !tbaa !27
+  %.val = load i32, ptr %6, align 8, !tbaa !26
   %.02412.i = getelementptr inbounds i8, ptr %13, i64 %23
   %24 = shl nsw i32 %.val, 1
   %25 = sext i32 %24 to i64
@@ -531,7 +531,7 @@ define void @_ZN5ZXing12BinaryBitmap5closeEv(ptr noundef nonnull align 8 capture
   %33 = getelementptr inbounds nuw i8, ptr %.02515.i, i64 1
   %.024.i = getelementptr inbounds nuw i8, ptr %.02417.i, i64 1
   %.not.i = icmp eq ptr %.024.i, %22
-  br i1 %.not.i, label %"_ZN5ZXing9SumFilterIZNS_12BinaryBitmap5closeEvE3$_0EEvRKNS_9BitMatrixERS3_T_.exit.loopexit", label %.preheader.i, !llvm.loop !67
+  br i1 %.not.i, label %"_ZN5ZXing9SumFilterIZNS_12BinaryBitmap5closeEvE3$_0EEvRKNS_9BitMatrixERS3_T_.exit.loopexit", label %.preheader.i, !llvm.loop !64
 
 34:                                               ; preds = %34, %.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %34 ]
@@ -550,7 +550,7 @@ define void @_ZN5ZXing12BinaryBitmap5closeEv(ptr noundef nonnull align 8 capture
   %46 = add nuw nsw i32 %45, %43
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 3
-  br i1 %exitcond.not.i, label %29, label %34, !llvm.loop !68
+  br i1 %exitcond.not.i, label %29, label %34, !llvm.loop !65
 
 "_ZN5ZXing9SumFilterIZNS_12BinaryBitmap5closeEvE3$_0EEvRKNS_9BitMatrixERS3_T_.exit.loopexit": ; preds = %29
   %.pre20.pre = load ptr, ptr %12, align 8, !tbaa !15
@@ -559,9 +559,9 @@ define void @_ZN5ZXing12BinaryBitmap5closeEv(ptr noundef nonnull align 8 capture
 "_ZN5ZXing9SumFilterIZNS_12BinaryBitmap5closeEvE3$_0EEvRKNS_9BitMatrixERS3_T_.exit": ; preds = %"_ZN5ZXing9SumFilterIZNS_12BinaryBitmap5closeEvE3$_0EEvRKNS_9BitMatrixERS3_T_.exit.loopexit", %7
   %.pre20 = phi ptr [ %.pre20.pre, %"_ZN5ZXing9SumFilterIZNS_12BinaryBitmap5closeEvE3$_0EEvRKNS_9BitMatrixERS3_T_.exit.loopexit" ], [ %13, %7 ]
   %47 = load ptr, ptr %11, align 8, !tbaa !15
-  %48 = load i32, ptr %6, align 8, !tbaa !27
+  %48 = load i32, ptr %6, align 8, !tbaa !26
   %49 = sext i32 %48 to i64
-  %50 = load i32, ptr %9, align 4, !tbaa !21
+  %50 = load i32, ptr %9, align 4, !tbaa !20
   %51 = add nsw i32 %50, -1
   %52 = mul nsw i32 %51, %48
   %53 = sext i32 %52 to i64
@@ -572,7 +572,7 @@ define void @_ZN5ZXing12BinaryBitmap5closeEv(ptr noundef nonnull align 8 capture
   br i1 %.not12.i, label %"_ZN5ZXing9SumFilterIZNS_12BinaryBitmap5closeEvE3$_1EEvRKNS_9BitMatrixERS3_T_.exit", label %.preheader.preheader.i9
 
 .preheader.preheader.i9:                          ; preds = %"_ZN5ZXing9SumFilterIZNS_12BinaryBitmap5closeEvE3$_0EEvRKNS_9BitMatrixERS3_T_.exit"
-  %.val7 = load i32, ptr %2, align 8, !tbaa !27
+  %.val7 = load i32, ptr %2, align 8, !tbaa !26
   %.02411.i = getelementptr inbounds i8, ptr %47, i64 %56
   %57 = shl nsw i32 %.val7, 1
   %58 = sext i32 %57 to i64
@@ -597,7 +597,7 @@ define void @_ZN5ZXing12BinaryBitmap5closeEv(ptr noundef nonnull align 8 capture
   %67 = getelementptr inbounds nuw i8, ptr %.02514.i, i64 1
   %.024.i14 = getelementptr inbounds nuw i8, ptr %.02416.i, i64 1
   %.not.i15 = icmp eq ptr %.024.i14, %55
-  br i1 %.not.i15, label %"_ZN5ZXing9SumFilterIZNS_12BinaryBitmap5closeEvE3$_1EEvRKNS_9BitMatrixERS3_T_.exit.loopexit", label %.preheader.i10, !llvm.loop !69
+  br i1 %.not.i15, label %"_ZN5ZXing9SumFilterIZNS_12BinaryBitmap5closeEvE3$_1EEvRKNS_9BitMatrixERS3_T_.exit.loopexit", label %.preheader.i10, !llvm.loop !66
 
 68:                                               ; preds = %68, %.preheader.i10
   %indvars.iv.i11 = phi i64 [ 0, %.preheader.i10 ], [ %indvars.iv.next.i12, %68 ]
@@ -616,7 +616,7 @@ define void @_ZN5ZXing12BinaryBitmap5closeEv(ptr noundef nonnull align 8 capture
   %80 = add nuw nsw i32 %79, %77
   %indvars.iv.next.i12 = add nuw nsw i64 %indvars.iv.i11, 1
   %exitcond.not.i13 = icmp eq i64 %indvars.iv.next.i12, 3
-  br i1 %exitcond.not.i13, label %62, label %68, !llvm.loop !70
+  br i1 %exitcond.not.i13, label %62, label %68, !llvm.loop !67
 
 "_ZN5ZXing9SumFilterIZNS_12BinaryBitmap5closeEvE3$_1EEvRKNS_9BitMatrixERS3_T_.exit.loopexit": ; preds = %62
   %.pre = load ptr, ptr %12, align 8, !tbaa !15
@@ -629,7 +629,7 @@ define void @_ZN5ZXing12BinaryBitmap5closeEv(ptr noundef nonnull align 8 capture
 
 82:                                               ; preds = %"_ZN5ZXing9SumFilterIZNS_12BinaryBitmap5closeEvE3$_1EEvRKNS_9BitMatrixERS3_T_.exit"
   %83 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %84 = load ptr, ptr %83, align 8, !tbaa !31
+  %84 = load ptr, ptr %83, align 8, !tbaa !29
   %85 = ptrtoint ptr %84 to i64
   %86 = ptrtoint ptr %81 to i64
   %87 = sub i64 %85, %86
@@ -642,7 +642,7 @@ _ZN5ZXing9BitMatrixD2Ev.exit:                     ; preds = %"_ZN5ZXing9SumFilte
 
 88:                                               ; preds = %_ZN5ZXing9BitMatrixD2Ev.exit, %1
   %89 = getelementptr inbounds nuw i8, ptr %0, i64 17
-  store i8 1, ptr %89, align 1, !tbaa !47
+  store i8 1, ptr %89, align 1, !tbaa !45
   ret void
 }
 
@@ -671,7 +671,7 @@ declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #13
 
 ; Function Attrs: mustprogress noinline nounwind uwtable
 define linkonce_odr void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #14 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !32
+  %2 = load ptr, ptr %0, align 8, !tbaa !30
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %4 = load ptr, ptr %3, align 8
   tail call void %4(ptr noundef nonnull align 8 dereferenceable(16) %0) #19
@@ -681,9 +681,9 @@ define linkonce_odr void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE
   br i1 %.not.i, label %10, label %7
 
 7:                                                ; preds = %1
-  %8 = load i32, ptr %5, align 4, !tbaa !51
+  %8 = load i32, ptr %5, align 4, !tbaa !49
   %9 = add nsw i32 %8, -1
-  store i32 %9, ptr %5, align 4, !tbaa !51
+  store i32 %9, ptr %5, align 4, !tbaa !49
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i
 
 10:                                               ; preds = %1
@@ -696,7 +696,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i: ; preds = %10, %7
   br i1 %12, label %13, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE19_M_release_last_useEv.exit
 
 13:                                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i
-  %14 = load ptr, ptr %0, align 8, !tbaa !32
+  %14 = load ptr, ptr %0, align 8, !tbaa !30
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 24
   %16 = load ptr, ptr %15, align 8
   tail call void %16(ptr noundef nonnull align 8 dereferenceable(16) %0) #19
@@ -718,24 +718,24 @@ declare nonnull ptr @llvm.threadlocal.address.p0(ptr nonnull) #15
 define internal void @"_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZNK5ZXing12BinaryBitmap12getBitMatrixEvE3$_0JEEvRS_OT_DpOT0_EUlvE_EERS7_ENUlvE_8__invokeEv"() #16 align 2 personality ptr @__gxx_personality_v0 {
   %1 = alloca %"class.std::shared_ptr", align 8
   %2 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZSt15__once_callable)
-  %3 = load ptr, ptr %2, align 8, !tbaa !62
-  %.val.i = load ptr, ptr %3, align 8, !tbaa !71
-  %.val.val.i = load ptr, ptr %.val.i, align 8, !tbaa !59
+  %3 = load ptr, ptr %2, align 8, !tbaa !60
+  %.val.i = load ptr, ptr %3, align 8, !tbaa !68
+  %.val.val.i = load ptr, ptr %.val.i, align 8, !tbaa !57
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %1) #19
-  %4 = load ptr, ptr %.val.val.i, align 8, !tbaa !32
+  %4 = load ptr, ptr %.val.val.i, align 8, !tbaa !30
   %5 = load ptr, ptr %4, align 8
   call void %5(ptr dead_on_unwind nonnull writable sret(%"class.std::shared_ptr") align 8 %1, ptr noundef nonnull align 8 dereferenceable(56) %.val.val.i)
   %6 = getelementptr inbounds nuw i8, ptr %.val.val.i, i64 8
-  %7 = load ptr, ptr %6, align 8, !tbaa !36
+  %7 = load ptr, ptr %6, align 8, !tbaa !34
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %9 = load ptr, ptr %1, align 8, !tbaa !63
+  %9 = load ptr, ptr %1, align 8, !tbaa !61
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %11 = load ptr, ptr %10, align 8, !tbaa !52
+  %11 = load ptr, ptr %10, align 8, !tbaa !50
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1, i8 0, i64 16, i1 false)
-  store ptr %9, ptr %8, align 8, !tbaa !73
+  store ptr %9, ptr %8, align 8, !tbaa !70
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %13 = load ptr, ptr %12, align 8, !tbaa !52
-  store ptr %11, ptr %12, align 8, !tbaa !52
+  %13 = load ptr, ptr %12, align 8, !tbaa !50
+  store ptr %11, ptr %12, align 8, !tbaa !50
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %13, null
   br i1 %.not.i.i.i.i.i.i.i.i.i, label %_ZNSt10shared_ptrIKN5ZXing9BitMatrixEEaSEOS3_.exit.i.i.i.i.i, label %14
 
@@ -747,14 +747,14 @@ define internal void @"_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZNK5
   br i1 %17, label %19, label %27
 
 19:                                               ; preds = %14
-  store i32 0, ptr %15, align 8, !tbaa !55
+  store i32 0, ptr %15, align 8, !tbaa !53
   %20 = getelementptr inbounds nuw i8, ptr %13, i64 12
-  store i32 0, ptr %20, align 4, !tbaa !57
-  %21 = load ptr, ptr %13, align 8, !tbaa !32
+  store i32 0, ptr %20, align 4, !tbaa !55
+  %21 = load ptr, ptr %13, align 8, !tbaa !30
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %23 = load ptr, ptr %22, align 8
   call void %23(ptr noundef nonnull align 8 dereferenceable(16) %13) #19
-  %24 = load ptr, ptr %13, align 8, !tbaa !32
+  %24 = load ptr, ptr %13, align 8, !tbaa !30
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 24
   %26 = load ptr, ptr %25, align 8
   call void %26(ptr noundef nonnull align 8 dereferenceable(16) %13) #19
@@ -767,7 +767,7 @@ define internal void @"_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZNK5
 
 29:                                               ; preds = %27
   %30 = add nsw i32 %18, -1
-  store i32 %30, ptr %15, align 4, !tbaa !51
+  store i32 %30, ptr %15, align 4, !tbaa !49
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i
 
 31:                                               ; preds = %27
@@ -777,14 +777,14 @@ define internal void @"_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZNK5
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i: ; preds = %31, %29
   %.0.i.i.i.i.i.i.i.i.i.i.i = phi i32 [ %18, %29 ], [ %32, %31 ]
   %33 = icmp eq i32 %.0.i.i.i.i.i.i.i.i.i.i.i, 1
-  br i1 %33, label %34, label %_ZNSt10shared_ptrIKN5ZXing9BitMatrixEEaSEOS3_.exit.i.i.i.i.i, !prof !58
+  br i1 %33, label %34, label %_ZNSt10shared_ptrIKN5ZXing9BitMatrixEEaSEOS3_.exit.i.i.i.i.i, !prof !56
 
 34:                                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %13) #19
   br label %_ZNSt10shared_ptrIKN5ZXing9BitMatrixEEaSEOS3_.exit.i.i.i.i.i
 
 _ZNSt10shared_ptrIKN5ZXing9BitMatrixEEaSEOS3_.exit.i.i.i.i.i: ; preds = %34, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i, %19, %0
-  %35 = load ptr, ptr %10, align 8, !tbaa !52
+  %35 = load ptr, ptr %10, align 8, !tbaa !50
   %.not.i.i.i.i.i.i.i = icmp eq ptr %35, null
   br i1 %.not.i.i.i.i.i.i.i, label %"_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZNK5ZXing12BinaryBitmap12getBitMatrixEvE3$_0JEEvRS_OT_DpOT0_EUlvE_EERS7_ENKUlvE_clEv.exit", label %36
 
@@ -796,14 +796,14 @@ _ZNSt10shared_ptrIKN5ZXing9BitMatrixEEaSEOS3_.exit.i.i.i.i.i: ; preds = %34, %_Z
   br i1 %39, label %41, label %49
 
 41:                                               ; preds = %36
-  store i32 0, ptr %37, align 8, !tbaa !55
+  store i32 0, ptr %37, align 8, !tbaa !53
   %42 = getelementptr inbounds nuw i8, ptr %35, i64 12
-  store i32 0, ptr %42, align 4, !tbaa !57
-  %43 = load ptr, ptr %35, align 8, !tbaa !32
+  store i32 0, ptr %42, align 4, !tbaa !55
+  %43 = load ptr, ptr %35, align 8, !tbaa !30
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 16
   %45 = load ptr, ptr %44, align 8
   call void %45(ptr noundef nonnull align 8 dereferenceable(16) %35) #19
-  %46 = load ptr, ptr %35, align 8, !tbaa !32
+  %46 = load ptr, ptr %35, align 8, !tbaa !30
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 24
   %48 = load ptr, ptr %47, align 8
   call void %48(ptr noundef nonnull align 8 dereferenceable(16) %35) #19
@@ -816,7 +816,7 @@ _ZNSt10shared_ptrIKN5ZXing9BitMatrixEEaSEOS3_.exit.i.i.i.i.i: ; preds = %34, %_Z
 
 51:                                               ; preds = %49
   %52 = add nsw i32 %40, -1
-  store i32 %52, ptr %37, align 4, !tbaa !51
+  store i32 %52, ptr %37, align 4, !tbaa !49
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i
 
 53:                                               ; preds = %49
@@ -826,7 +826,7 @@ _ZNSt10shared_ptrIKN5ZXing9BitMatrixEEaSEOS3_.exit.i.i.i.i.i: ; preds = %34, %_Z
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i: ; preds = %53, %51
   %.0.i.i.i.i.i.i.i.i.i = phi i32 [ %40, %51 ], [ %54, %53 ]
   %55 = icmp eq i32 %.0.i.i.i.i.i.i.i.i.i, 1
-  br i1 %55, label %56, label %"_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZNK5ZXing12BinaryBitmap12getBitMatrixEvE3$_0JEEvRS_OT_DpOT0_EUlvE_EERS7_ENKUlvE_clEv.exit", !prof !58
+  br i1 %55, label %56, label %"_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZNK5ZXing12BinaryBitmap12getBitMatrixEvE3$_0JEEvRS_OT_DpOT0_EUlvE_EERS7_ENKUlvE_clEv.exit", !prof !56
 
 56:                                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %35) #19
@@ -883,59 +883,56 @@ attributes #21 = { noreturn nounwind }
 !15 = !{!16, !5, i64 0}
 !16 = !{!"_ZTSNSt12_Vector_baseIhSaIhEE17_Vector_impl_dataE", !5, i64 0, !5, i64 8, !5, i64 16}
 !17 = !{!7, !7, i64 0}
-!18 = distinct !{!18, !19, !20}
+!18 = distinct !{!18, !19}
 !19 = !{!"llvm.loop.mustprogress"}
-!20 = !{!"llvm.loop.estimated_trip_count"}
-!21 = !{!22, !10, i64 4}
-!22 = !{!"_ZTSN5ZXing9BitMatrixE", !10, i64 0, !10, i64 4, !23, i64 8}
-!23 = !{!"_ZTSSt6vectorIhSaIhEE", !24, i64 0}
-!24 = !{!"_ZTSSt12_Vector_baseIhSaIhEE", !25, i64 0}
-!25 = !{!"_ZTSNSt12_Vector_baseIhSaIhEE12_Vector_implE", !16, i64 0}
-!26 = !{!4, !9, i64 8}
-!27 = !{!22, !10, i64 0}
-!28 = distinct !{!28, !20}
-!29 = distinct !{!29, !19, !20}
-!30 = !{!16, !5, i64 8}
-!31 = !{!16, !5, i64 16}
-!32 = !{!33, !33, i64 0}
-!33 = !{!"vtable pointer", !8, i64 0}
-!34 = !{!35, !10, i64 0}
-!35 = !{!"_ZTSSt9once_flag", !10, i64 0}
-!36 = !{!37, !37, i64 0}
-!37 = !{!"p1 _ZTSN5ZXing12BinaryBitmap5CacheE", !6, i64 0}
-!38 = !{!39, !46, i64 16}
-!39 = !{!"_ZTSN5ZXing12BinaryBitmapE", !40, i64 8, !46, i64 16, !46, i64 17, !4, i64 24}
-!40 = !{!"_ZTSSt10unique_ptrIN5ZXing12BinaryBitmap5CacheESt14default_deleteIS2_EE", !41, i64 0}
-!41 = !{!"_ZTSSt15__uniq_ptr_dataIN5ZXing12BinaryBitmap5CacheESt14default_deleteIS2_ELb1ELb1EE", !42, i64 0}
-!42 = !{!"_ZTSSt15__uniq_ptr_implIN5ZXing12BinaryBitmap5CacheESt14default_deleteIS2_EE", !43, i64 0}
-!43 = !{!"_ZTSSt5tupleIJPN5ZXing12BinaryBitmap5CacheESt14default_deleteIS2_EEE", !44, i64 0}
-!44 = !{!"_ZTSSt11_Tuple_implILm0EJPN5ZXing12BinaryBitmap5CacheESt14default_deleteIS2_EEE", !45, i64 0}
-!45 = !{!"_ZTSSt10_Head_baseILm0EPN5ZXing12BinaryBitmap5CacheELb0EE", !37, i64 0}
-!46 = !{!"bool", !7, i64 0}
-!47 = !{!39, !46, i64 17}
-!48 = !{i64 0, i64 8, !49, i64 8, i64 4, !50, i64 12, i64 4, !51, i64 16, i64 4, !51, i64 20, i64 4, !51, i64 24, i64 4, !51}
-!49 = !{!5, !5, i64 0}
-!50 = !{!9, !9, i64 0}
-!51 = !{!10, !10, i64 0}
-!52 = !{!53, !54, i64 0}
-!53 = !{!"_ZTSSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EE", !54, i64 0}
-!54 = !{!"p1 _ZTSSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE", !6, i64 0}
-!55 = !{!56, !10, i64 8}
-!56 = !{!"_ZTSSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE", !10, i64 8, !10, i64 12}
-!57 = !{!56, !10, i64 12}
-!58 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!59 = !{!60, !61, i64 0}
-!60 = !{!"_ZTSZNK5ZXing12BinaryBitmap12getBitMatrixEvE3$_0", !61, i64 0}
-!61 = !{!"p1 _ZTSN5ZXing12BinaryBitmapE", !6, i64 0}
-!62 = !{!6, !6, i64 0}
-!63 = !{!64, !65, i64 0}
-!64 = !{!"_ZTSSt12__shared_ptrIKN5ZXing9BitMatrixELN9__gnu_cxx12_Lock_policyE2EE", !65, i64 0, !53, i64 8}
-!65 = !{!"p1 _ZTSN5ZXing9BitMatrixE", !6, i64 0}
-!66 = distinct !{!66, !20}
-!67 = distinct !{!67, !19, !20}
-!68 = distinct !{!68, !19, !20}
-!69 = distinct !{!69, !19, !20}
-!70 = distinct !{!70, !19, !20}
-!71 = !{!72, !6, i64 0}
-!72 = !{!"_ZTSZSt9call_onceIZNK5ZXing12BinaryBitmap12getBitMatrixEvE3$_0JEEvRSt9once_flagOT_DpOT0_EUlvE_", !6, i64 0}
-!73 = !{!65, !65, i64 0}
+!20 = !{!21, !10, i64 4}
+!21 = !{!"_ZTSN5ZXing9BitMatrixE", !10, i64 0, !10, i64 4, !22, i64 8}
+!22 = !{!"_ZTSSt6vectorIhSaIhEE", !23, i64 0}
+!23 = !{!"_ZTSSt12_Vector_baseIhSaIhEE", !24, i64 0}
+!24 = !{!"_ZTSNSt12_Vector_baseIhSaIhEE12_Vector_implE", !16, i64 0}
+!25 = !{!4, !9, i64 8}
+!26 = !{!21, !10, i64 0}
+!27 = distinct !{!27, !19}
+!28 = !{!16, !5, i64 8}
+!29 = !{!16, !5, i64 16}
+!30 = !{!31, !31, i64 0}
+!31 = !{!"vtable pointer", !8, i64 0}
+!32 = !{!33, !10, i64 0}
+!33 = !{!"_ZTSSt9once_flag", !10, i64 0}
+!34 = !{!35, !35, i64 0}
+!35 = !{!"p1 _ZTSN5ZXing12BinaryBitmap5CacheE", !6, i64 0}
+!36 = !{!37, !44, i64 16}
+!37 = !{!"_ZTSN5ZXing12BinaryBitmapE", !38, i64 8, !44, i64 16, !44, i64 17, !4, i64 24}
+!38 = !{!"_ZTSSt10unique_ptrIN5ZXing12BinaryBitmap5CacheESt14default_deleteIS2_EE", !39, i64 0}
+!39 = !{!"_ZTSSt15__uniq_ptr_dataIN5ZXing12BinaryBitmap5CacheESt14default_deleteIS2_ELb1ELb1EE", !40, i64 0}
+!40 = !{!"_ZTSSt15__uniq_ptr_implIN5ZXing12BinaryBitmap5CacheESt14default_deleteIS2_EE", !41, i64 0}
+!41 = !{!"_ZTSSt5tupleIJPN5ZXing12BinaryBitmap5CacheESt14default_deleteIS2_EEE", !42, i64 0}
+!42 = !{!"_ZTSSt11_Tuple_implILm0EJPN5ZXing12BinaryBitmap5CacheESt14default_deleteIS2_EEE", !43, i64 0}
+!43 = !{!"_ZTSSt10_Head_baseILm0EPN5ZXing12BinaryBitmap5CacheELb0EE", !35, i64 0}
+!44 = !{!"bool", !7, i64 0}
+!45 = !{!37, !44, i64 17}
+!46 = !{i64 0, i64 8, !47, i64 8, i64 4, !48, i64 12, i64 4, !49, i64 16, i64 4, !49, i64 20, i64 4, !49, i64 24, i64 4, !49}
+!47 = !{!5, !5, i64 0}
+!48 = !{!9, !9, i64 0}
+!49 = !{!10, !10, i64 0}
+!50 = !{!51, !52, i64 0}
+!51 = !{!"_ZTSSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EE", !52, i64 0}
+!52 = !{!"p1 _ZTSSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE", !6, i64 0}
+!53 = !{!54, !10, i64 8}
+!54 = !{!"_ZTSSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE", !10, i64 8, !10, i64 12}
+!55 = !{!54, !10, i64 12}
+!56 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!57 = !{!58, !59, i64 0}
+!58 = !{!"_ZTSZNK5ZXing12BinaryBitmap12getBitMatrixEvE3$_0", !59, i64 0}
+!59 = !{!"p1 _ZTSN5ZXing12BinaryBitmapE", !6, i64 0}
+!60 = !{!6, !6, i64 0}
+!61 = !{!62, !63, i64 0}
+!62 = !{!"_ZTSSt12__shared_ptrIKN5ZXing9BitMatrixELN9__gnu_cxx12_Lock_policyE2EE", !63, i64 0, !51, i64 8}
+!63 = !{!"p1 _ZTSN5ZXing9BitMatrixE", !6, i64 0}
+!64 = distinct !{!64, !19}
+!65 = distinct !{!65, !19}
+!66 = distinct !{!66, !19}
+!67 = distinct !{!67, !19}
+!68 = !{!69, !6, i64 0}
+!69 = !{!"_ZTSZSt9call_onceIZNK5ZXing12BinaryBitmap12getBitMatrixEvE3$_0JEEvRSt9once_flagOT_DpOT0_EUlvE_", !6, i64 0}
+!70 = !{!63, !63, i64 0}

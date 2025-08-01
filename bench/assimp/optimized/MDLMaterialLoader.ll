@@ -410,7 +410,7 @@ _ZN6Assimp11MDLImporter11FreePaletteEPKh.exit:    ; preds = %._crit_edge, %31
   store i8 %57, ptr %58, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %59 = icmp samesign ult i64 %indvars.iv.next, %27
-  br i1 %59, label %.lr.ph, label %._crit_edge, !llvm.loop !6
+  br i1 %59, label %.lr.ph, label %._crit_edge, !llvm.loop !5
 
 ._crit_edge49.loopexit:                           ; preds = %.lr.ph48
   %60 = zext i32 %77 to i64
@@ -446,7 +446,7 @@ _ZN6Assimp11MDLImporter11FreePaletteEPKh.exit:    ; preds = %._crit_edge, %31
   %77 = load i32, ptr %76, align 8
   %78 = zext i32 %77 to i64
   %79 = icmp samesign ult i64 %indvars.iv.next57, %78
-  br i1 %79, label %.lr.ph48, label %._crit_edge49.loopexit, !llvm.loop !7
+  br i1 %79, label %.lr.ph48, label %._crit_edge49.loopexit, !llvm.loop !6
 
 80:                                               ; preds = %._crit_edge49
   tail call void @_ZdaPv(ptr noundef nonnull %35) #22
@@ -632,7 +632,7 @@ _ZN9aiTextureD2Ev.exit:                           ; preds = %9
   %60 = load i32, ptr %59, align 8
   %61 = zext i32 %60 to i64
   %62 = icmp samesign ult i64 %indvars.iv.next, %61
-  br i1 %62, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !8
+  br i1 %62, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !7
 
 63:                                               ; preds = %._crit_edge
   tail call void @_ZdaPv(ptr noundef nonnull %35) #22
@@ -742,7 +742,7 @@ define hidden void @_ZN6Assimp11MDLImporter21ParseTextureColorDataEPKhjPjP9aiTex
   %52 = mul i32 %51, %50
   %53 = zext i32 %52 to i64
   %54 = icmp samesign ult i64 %indvars.iv.next, %53
-  br i1 %54, label %.lr.ph, label %.loopexit195.loopexit, !llvm.loop !9
+  br i1 %54, label %.lr.ph, label %.loopexit195.loopexit, !llvm.loop !8
 
 .loopexit195.loopexit:                            ; preds = %.lr.ph
   %55 = trunc nuw i64 %indvars.iv.next to i32
@@ -824,7 +824,7 @@ define hidden void @_ZN6Assimp11MDLImporter21ParseTextureColorDataEPKhjPjP9aiTex
   %99 = mul i32 %98, %97
   %100 = zext i32 %99 to i64
   %101 = icmp samesign ult i64 %indvars.iv.next220, %100
-  br i1 %101, label %.lr.ph198, label %.loopexit193.loopexit, !llvm.loop !10
+  br i1 %101, label %.lr.ph198, label %.loopexit193.loopexit, !llvm.loop !9
 
 .loopexit193.loopexit:                            ; preds = %.lr.ph198
   %102 = trunc nuw i64 %indvars.iv.next220 to i32
@@ -903,7 +903,7 @@ define hidden void @_ZN6Assimp11MDLImporter21ParseTextureColorDataEPKhjPjP9aiTex
   %145 = mul i32 %144, %143
   %146 = zext i32 %145 to i64
   %147 = icmp samesign ult i64 %indvars.iv.next223, %146
-  br i1 %147, label %.lr.ph201, label %.loopexit191.loopexit, !llvm.loop !11
+  br i1 %147, label %.lr.ph201, label %.loopexit191.loopexit, !llvm.loop !10
 
 .loopexit191.loopexit:                            ; preds = %.lr.ph201
   %148 = trunc nuw i64 %indvars.iv.next223 to i32
@@ -985,7 +985,7 @@ define hidden void @_ZN6Assimp11MDLImporter21ParseTextureColorDataEPKhjPjP9aiTex
   %193 = mul i32 %192, %191
   %194 = zext i32 %193 to i64
   %195 = icmp samesign ult i64 %indvars.iv.next229, %194
-  br i1 %195, label %.lr.ph207, label %.loopexit.loopexit, !llvm.loop !12
+  br i1 %195, label %.lr.ph207, label %.loopexit.loopexit, !llvm.loop !11
 
 .loopexit.loopexit:                               ; preds = %.lr.ph207
   %196 = trunc nuw i64 %indvars.iv.next229 to i32
@@ -1060,7 +1060,7 @@ define hidden void @_ZN6Assimp11MDLImporter21ParseTextureColorDataEPKhjPjP9aiTex
   %236 = mul i32 %235, %234
   %237 = zext i32 %236 to i64
   %238 = icmp samesign ult i64 %indvars.iv.next226, %237
-  br i1 %238, label %.lr.ph204, label %._crit_edge.loopexit, !llvm.loop !13
+  br i1 %238, label %.lr.ph204, label %._crit_edge.loopexit, !llvm.loop !12
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph204
   %239 = trunc nuw i64 %indvars.iv.next226 to i32
@@ -1228,7 +1228,7 @@ define hidden void @_ZN6Assimp11MDLImporter23CreateTexture_3DGS_MDL5EPKhjPj(ptr 
   %70 = load i32, ptr %69, align 8
   %71 = zext i32 %70 to i64
   %72 = icmp samesign ult i64 %indvars.iv.next, %71
-  br i1 %72, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !14
+  br i1 %72, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !13
 
 73:                                               ; preds = %._crit_edge
   tail call void @_ZdaPv(ptr noundef nonnull %45) #22
@@ -1448,7 +1448,7 @@ _ZNSt10unique_ptrI9aiTextureSt14default_deleteIS0_EE5resetEPS0_.exit142: ; preds
 86:                                               ; preds = %87
   %indvars.iv.next169 = add nuw nsw i64 %indvars.iv168, 1
   %exitcond171.not = icmp eq i64 %indvars.iv.next169, 8
-  br i1 %exitcond171.not, label %.loopexit193, label %.preheader, !llvm.loop !15
+  br i1 %exitcond171.not, label %.loopexit193, label %.preheader, !llvm.loop !14
 
 87:                                               ; preds = %.preheader, %87
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %87 ]
@@ -1469,7 +1469,7 @@ _ZNSt10unique_ptrI9aiTextureSt14default_deleteIS0_EE5resetEPS0_.exit142: ; preds
   store i8 -1, ptr %97, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond.not, label %86, label %87, !llvm.loop !16
+  br i1 %exitcond.not, label %86, label %87, !llvm.loop !15
 
 98:                                               ; preds = %_ZNSt10unique_ptrI9aiTextureSt14default_deleteIS0_EE5resetEPS0_.exit142
   store i32 %5, ptr %75, align 8
@@ -1975,7 +1975,7 @@ _ZNSt10unique_ptrI9aiTextureSt14default_deleteIS0_EE5resetEPS0_.exit152: ; preds
   %335 = load i32, ptr %334, align 8
   %336 = zext i32 %335 to i64
   %337 = icmp samesign ult i64 %indvars.iv.next173, %336
-  br i1 %337, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !17
+  br i1 %337, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !16
 
 338:                                              ; preds = %._crit_edge
   call void @_ZdaPv(ptr noundef nonnull %307) #22
@@ -2434,19 +2434,19 @@ define linkonce_odr hidden void @_ZN6Assimp9Formatter15basic_formatterIcSt11char
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   tail call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(112) %0)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #21
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !18)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !21)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !24)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !17)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !20)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !23)
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store ptr %4, ptr %3, align 8, !alias.scope !27
+  store ptr %4, ptr %3, align 8, !alias.scope !26
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store i64 0, ptr %5, align 8, !alias.scope !27
-  store i8 0, ptr %4, align 8, !alias.scope !27
+  store i64 0, ptr %5, align 8, !alias.scope !26
+  store i8 0, ptr %4, align 8, !alias.scope !26
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %7 = load ptr, ptr %6, align 8, !noalias !27
+  %7 = load ptr, ptr %6, align 8, !noalias !26
   %.not.i.not.i.i.i = icmp eq ptr %7, null
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %9 = load ptr, ptr %8, align 8, !noalias !27
+  %9 = load ptr, ptr %8, align 8, !noalias !26
   %10 = icmp ugt ptr %7, %9
   %.08.i.i.i.i = select i1 %10, ptr %7, ptr %9
   %.not5.i.i.i = icmp eq ptr %.08.i.i.i.i, null
@@ -2455,7 +2455,7 @@ define linkonce_odr hidden void @_ZN6Assimp9Formatter15basic_formatterIcSt11char
 
 11:                                               ; preds = %2
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %13 = load ptr, ptr %12, align 8, !noalias !27
+  %13 = load ptr, ptr %12, align 8, !noalias !26
   %14 = ptrtoint ptr %.08.i.i.i.i to i64
   %15 = ptrtoint ptr %13 to i64
   %16 = sub i64 %14, %15
@@ -2465,18 +2465,18 @@ define linkonce_odr hidden void @_ZN6Assimp9Formatter15basic_formatterIcSt11char
 18:                                               ; preds = %26, %11
   %19 = landingpad { ptr, i32 }
           cleanup
-  %20 = load ptr, ptr %3, align 8, !alias.scope !27
+  %20 = load ptr, ptr %3, align 8, !alias.scope !26
   %21 = icmp eq ptr %20, %4
   br i1 %21, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i: ; preds = %18
-  %22 = load i64, ptr %5, align 8, !alias.scope !27
+  %22 = load i64, ptr %5, align 8, !alias.scope !26
   %23 = icmp ult i64 %22, 16
   call void @llvm.assume(i1 %23)
   br label %.body
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i: ; preds = %18
-  %24 = load i64, ptr %4, align 8, !alias.scope !27
+  %24 = load i64, ptr %4, align 8, !alias.scope !26
   %25 = add i64 %24, 1
   call void @_ZdlPvm(ptr noundef %20, i64 noundef %25) #22
   br label %.body
@@ -2608,28 +2608,27 @@ attributes #26 = { noreturn nounwind }
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = distinct !{!3, !4, !5}
+!3 = distinct !{!3, !4}
 !4 = !{!"llvm.loop.mustprogress"}
-!5 = !{!"llvm.loop.estimated_trip_count"}
-!6 = distinct !{!6, !4, !5}
-!7 = distinct !{!7, !4, !5}
-!8 = distinct !{!8, !4, !5}
-!9 = distinct !{!9, !4, !5}
-!10 = distinct !{!10, !4, !5}
-!11 = distinct !{!11, !4, !5}
-!12 = distinct !{!12, !4, !5}
-!13 = distinct !{!13, !4, !5}
-!14 = distinct !{!14, !4, !5}
-!15 = distinct !{!15, !4, !5}
-!16 = distinct !{!16, !4, !5}
-!17 = distinct !{!17, !4, !5}
-!18 = !{!19}
-!19 = distinct !{!19, !20, !"_ZNK6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEEcvNSt7__cxx1112basic_stringIcS3_S4_EEEv: argument 0"}
-!20 = distinct !{!20, !"_ZNK6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEEcvNSt7__cxx1112basic_stringIcS3_S4_EEEv"}
-!21 = !{!22}
-!22 = distinct !{!22, !23, !"_ZNKSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEE3strEv: argument 0"}
-!23 = distinct !{!23, !"_ZNKSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEE3strEv"}
-!24 = !{!25}
-!25 = distinct !{!25, !26, !"_ZNKSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEE3strEv: argument 0"}
-!26 = distinct !{!26, !"_ZNKSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEE3strEv"}
-!27 = !{!25, !22, !19}
+!5 = distinct !{!5, !4}
+!6 = distinct !{!6, !4}
+!7 = distinct !{!7, !4}
+!8 = distinct !{!8, !4}
+!9 = distinct !{!9, !4}
+!10 = distinct !{!10, !4}
+!11 = distinct !{!11, !4}
+!12 = distinct !{!12, !4}
+!13 = distinct !{!13, !4}
+!14 = distinct !{!14, !4}
+!15 = distinct !{!15, !4}
+!16 = distinct !{!16, !4}
+!17 = !{!18}
+!18 = distinct !{!18, !19, !"_ZNK6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEEcvNSt7__cxx1112basic_stringIcS3_S4_EEEv: argument 0"}
+!19 = distinct !{!19, !"_ZNK6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEEcvNSt7__cxx1112basic_stringIcS3_S4_EEEv"}
+!20 = !{!21}
+!21 = distinct !{!21, !22, !"_ZNKSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEE3strEv: argument 0"}
+!22 = distinct !{!22, !"_ZNKSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEE3strEv"}
+!23 = !{!24}
+!24 = distinct !{!24, !25, !"_ZNKSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEE3strEv: argument 0"}
+!25 = distinct !{!25, !"_ZNKSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEE3strEv"}
+!26 = !{!24, !21, !18}

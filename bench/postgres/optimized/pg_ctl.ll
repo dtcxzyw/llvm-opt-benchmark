@@ -1196,7 +1196,7 @@ postmaster_is_alive.exit18:                       ; preds = %20
   %32 = getelementptr inbounds nuw i8, ptr %.022, i64 8
   %33 = load ptr, ptr %32, align 8
   %.not16 = icmp eq ptr %33, null
-  br i1 %.not16, label %.preheader.i, label %.lr.ph, !llvm.loop !7
+  br i1 %.not16, label %.preheader.i, label %.lr.ph, !llvm.loop !6
 
 .preheader.i:                                     ; preds = %.lr.ph
   %.pre = load ptr, ptr %28, align 8
@@ -1212,7 +1212,7 @@ postmaster_is_alive.exit18:                       ; preds = %20
   %37 = getelementptr inbounds ptr, ptr %28, i64 %36
   %38 = load ptr, ptr %37, align 8
   %.not5.i = icmp eq ptr %38, null
-  br i1 %.not5.i, label %free_readfile.exit, label %.lr.ph.i, !llvm.loop !8
+  br i1 %.not5.i, label %free_readfile.exit, label %.lr.ph.i, !llvm.loop !7
 
 free_readfile.exit:                               ; preds = %.lr.ph.i, %.preheader, %.preheader.i
   tail call void @free(ptr noundef nonnull %28) #17
@@ -1329,7 +1329,7 @@ thread-pre-split:                                 ; preds = %10, %8
   %41 = getelementptr inbounds ptr, ptr %18, i64 %40
   %42 = load ptr, ptr %41, align 8
   %.not5.i.i = icmp eq ptr %42, null
-  br i1 %.not5.i.i, label %free_readfile.exit.i, label %.lr.ph.i.i, !llvm.loop !8
+  br i1 %.not5.i.i, label %free_readfile.exit.i, label %.lr.ph.i.i, !llvm.loop !7
 
 free_readfile.exit.i:                             ; preds = %.lr.ph.i.i, %.preheader.i.i
   tail call void @free(ptr noundef nonnull %18) #17
@@ -1524,7 +1524,7 @@ print_msg.exit:                                   ; preds = %93, %94
   %129 = getelementptr inbounds ptr, ptr %102, i64 %128
   %130 = load ptr, ptr %129, align 8
   %.not5.i.i13 = icmp eq ptr %130, null
-  br i1 %.not5.i.i13, label %.loopexit, label %.lr.ph.i.i11, !llvm.loop !8
+  br i1 %.not5.i.i13, label %.loopexit, label %.lr.ph.i.i11, !llvm.loop !7
 
 131:                                              ; preds = %.lr.ph.i
   %.not.i31.i = icmp eq ptr %102, null
@@ -1544,7 +1544,7 @@ print_msg.exit:                                   ; preds = %93, %94
   %136 = getelementptr inbounds ptr, ptr %102, i64 %135
   %137 = load ptr, ptr %136, align 8
   %.not5.i36.i = icmp eq ptr %137, null
-  br i1 %.not5.i36.i, label %._crit_edge.i37.i, label %.lr.ph.i34.i, !llvm.loop !8
+  br i1 %.not5.i36.i, label %._crit_edge.i37.i, label %.lr.ph.i34.i, !llvm.loop !7
 
 ._crit_edge.i37.i:                                ; preds = %.lr.ph.i34.i, %.preheader.i32.i
   call void @free(ptr noundef nonnull %102) #17
@@ -1560,7 +1560,7 @@ free_readfile.exit38.i:                           ; preds = %._crit_edge.i37.i, 
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %1) #17
   %140 = load ptr, ptr @pg_data, align 8
   %141 = call ptr @get_controlfile(ptr noundef %140, ptr noundef nonnull %1) #17
-  %142 = load i8, ptr %1, align 1, !range !9, !noundef !10
+  %142 = load i8, ptr %1, align 1, !range !8, !noundef !9
   %143 = trunc nuw i8 %142 to i1
   br i1 %143, label %.thread43.i, label %144
 
@@ -1604,7 +1604,7 @@ free_readfile.exit38.i:                           ; preds = %._crit_edge.i37.i, 
   %159 = load i32, ptr @wait_seconds, align 4
   %160 = mul i32 %159, 10
   %161 = icmp slt i32 %158, %160
-  br i1 %161, label %.lr.ph.i, label %.loopexit31, !llvm.loop !11
+  br i1 %161, label %.lr.ph.i, label %.loopexit31, !llvm.loop !10
 
 .loopexit:                                        ; preds = %.lr.ph.i.i11, %.preheader.i.i9
   call void @free(ptr noundef nonnull %102) #17
@@ -1990,7 +1990,7 @@ define internal fastcc void @do_promote() unnamed_addr #5 {
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2) #17
   %13 = load ptr, ptr @pg_data, align 8
   %14 = call ptr @get_controlfile(ptr noundef %13, ptr noundef nonnull %2) #17
-  %15 = load i8, ptr %2, align 1, !range !9, !noundef !10
+  %15 = load i8, ptr %2, align 1, !range !8, !noundef !9
   %16 = trunc nuw i8 %15 to i1
   br i1 %16, label %get_control_dbstate.exit, label %17
 
@@ -2096,7 +2096,7 @@ print_msg.exit:                                   ; preds = %43, %44
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %1) #17
   %57 = load ptr, ptr @pg_data, align 8
   %58 = call ptr @get_controlfile(ptr noundef %57, ptr noundef nonnull %1) #17
-  %59 = load i8, ptr %1, align 1, !range !9, !noundef !10
+  %59 = load i8, ptr %1, align 1, !range !8, !noundef !9
   %60 = trunc nuw i8 %59 to i1
   br i1 %60, label %get_control_dbstate.exit.i, label %61
 
@@ -2136,7 +2136,7 @@ get_control_dbstate.exit.i:                       ; preds = %56
   %76 = load i32, ptr @wait_seconds, align 4
   %77 = mul i32 %76, 10
   %78 = icmp slt i32 %75, %77
-  br i1 %78, label %.lr.ph.i, label %.loopexit, !llvm.loop !12
+  br i1 %78, label %.lr.ph.i, label %.loopexit, !llvm.loop !11
 
 wait_for_postmaster_promote.exit:                 ; preds = %get_control_dbstate.exit.i
   %.b1.i10 = load i1, ptr @silent_mode, align 1
@@ -2463,7 +2463,7 @@ define internal fastcc ptr @readfile(ptr noundef readonly captures(none) %0, ptr
   store i32 0, ptr %1, align 4
   %4 = tail call i32 (ptr, i32, ...) @open(ptr noundef %0, i32 noundef 0, i32 noundef 0) #17
   %5 = icmp slt i32 %4, 0
-  br i1 %5, label %63, label %6
+  br i1 %5, label %64, label %6
 
 6:                                                ; preds = %2
   %7 = call i32 @fstat(i32 noundef %4, ptr noundef nonnull %3) #17
@@ -2472,7 +2472,7 @@ define internal fastcc ptr @readfile(ptr noundef readonly captures(none) %0, ptr
 
 9:                                                ; preds = %6
   %10 = tail call i32 @close(i32 noundef %4) #17
-  br label %63
+  br label %64
 
 11:                                               ; preds = %6
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 48
@@ -2484,7 +2484,7 @@ define internal fastcc ptr @readfile(ptr noundef readonly captures(none) %0, ptr
   %16 = tail call i32 @close(i32 noundef %4) #17
   %17 = tail call ptr @pg_malloc(i64 noundef 8) #17
   store ptr null, ptr %17, align 8
-  br label %63
+  br label %64
 
 18:                                               ; preds = %11
   %19 = add i64 %13, 1
@@ -2507,7 +2507,7 @@ define internal fastcc ptr @readfile(ptr noundef readonly captures(none) %0, ptr
 
 26:                                               ; preds = %18
   tail call void @free(ptr noundef %20) #17
-  br label %63
+  br label %64
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
@@ -2519,7 +2519,7 @@ define internal fastcc ptr @readfile(ptr noundef readonly captures(none) %0, ptr
   %spec.select = add i32 %.05168, %30
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !13
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
   %.051.lcssa = phi i32 [ 0, %.preheader ], [ %spec.select, %.lr.ph ]
@@ -2528,21 +2528,20 @@ define internal fastcc ptr @readfile(ptr noundef readonly captures(none) %0, ptr
   %33 = shl nsw i64 %32, 3
   %34 = tail call ptr @pg_malloc(i64 noundef %33) #17
   store i32 %.051.lcssa, ptr %1, align 4
-  %invariant.gep = getelementptr inbounds nuw i8, ptr %20, i64 1
   br i1 %25, label %.lr.ph73.preheader, label %._crit_edge74
 
 .lr.ph73.preheader:                               ; preds = %._crit_edge
   %wide.trip.count80 = and i64 %21, 2147483647
   br label %.lr.ph73
 
-.lr.ph73:                                         ; preds = %.lr.ph73.preheader, %60
-  %indvars.iv77 = phi i64 [ 0, %.lr.ph73.preheader ], [ %indvars.iv.next78, %60 ]
-  %.05271 = phi i32 [ 0, %.lr.ph73.preheader ], [ %.153, %60 ]
-  %.05669 = phi ptr [ %20, %.lr.ph73.preheader ], [ %.157, %60 ]
+.lr.ph73:                                         ; preds = %.lr.ph73.preheader, %61
+  %indvars.iv77 = phi i64 [ 0, %.lr.ph73.preheader ], [ %indvars.iv.next78, %61 ]
+  %.05271 = phi i32 [ 0, %.lr.ph73.preheader ], [ %.153, %61 ]
+  %.05669 = phi ptr [ %20, %.lr.ph73.preheader ], [ %.157, %61 ]
   %35 = getelementptr inbounds nuw i8, ptr %20, i64 %indvars.iv77
   %36 = load i8, ptr %35, align 1
   %37 = icmp eq i8 %36, 10
-  br i1 %37, label %38, label %60
+  br i1 %37, label %38, label %61
 
 38:                                               ; preds = %.lr.ph73
   %39 = ptrtoint ptr %35 to i64
@@ -2578,28 +2577,28 @@ define internal fastcc ptr @readfile(ptr noundef readonly captures(none) %0, ptr
   %58 = sext i32 %.05271 to i64
   %59 = getelementptr inbounds ptr, ptr %34, i64 %58
   store ptr %45, ptr %59, align 8
-  %gep = getelementptr inbounds nuw i8, ptr %invariant.gep, i64 %indvars.iv77
-  br label %60
+  %60 = getelementptr inbounds nuw i8, ptr %35, i64 1
+  br label %61
 
-60:                                               ; preds = %.lr.ph73, %55
-  %.157 = phi ptr [ %gep, %55 ], [ %.05669, %.lr.ph73 ]
+61:                                               ; preds = %.lr.ph73, %55
+  %.157 = phi ptr [ %60, %55 ], [ %.05669, %.lr.ph73 ]
   %.153 = phi i32 [ %57, %55 ], [ %.05271, %.lr.ph73 ]
   %indvars.iv.next78 = add nuw nsw i64 %indvars.iv77, 1
   %exitcond81.not = icmp eq i64 %indvars.iv.next78, %wide.trip.count80
-  br i1 %exitcond81.not, label %._crit_edge74.loopexit, label %.lr.ph73, !llvm.loop !14
+  br i1 %exitcond81.not, label %._crit_edge74.loopexit, label %.lr.ph73, !llvm.loop !13
 
-._crit_edge74.loopexit:                           ; preds = %60
-  %61 = sext i32 %.153 to i64
+._crit_edge74.loopexit:                           ; preds = %61
+  %62 = sext i32 %.153 to i64
   br label %._crit_edge74
 
 ._crit_edge74:                                    ; preds = %._crit_edge74.loopexit, %._crit_edge
-  %.052.lcssa = phi i64 [ 0, %._crit_edge ], [ %61, %._crit_edge74.loopexit ]
-  %62 = getelementptr inbounds ptr, ptr %34, i64 %.052.lcssa
-  store ptr null, ptr %62, align 8
+  %.052.lcssa = phi i64 [ 0, %._crit_edge ], [ %62, %._crit_edge74.loopexit ]
+  %63 = getelementptr inbounds ptr, ptr %34, i64 %.052.lcssa
+  store ptr null, ptr %63, align 8
   tail call void @free(ptr noundef %20) #17
-  br label %63
+  br label %64
 
-63:                                               ; preds = %2, %._crit_edge74, %26, %15, %9
+64:                                               ; preds = %2, %._crit_edge74, %26, %15, %9
   %.0 = phi ptr [ null, %9 ], [ %17, %15 ], [ null, %26 ], [ %34, %._crit_edge74 ], [ null, %2 ]
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %3) #17
   ret ptr %.0
@@ -2764,7 +2763,7 @@ define internal fastcc zeroext i1 @wait_for_postmaster_stop() unnamed_addr #5 {
   %21 = load i32, ptr @wait_seconds, align 4
   %22 = mul i32 %21, 10
   %23 = icmp slt i32 %20, %22
-  br i1 %23, label %.lr.ph, label %.thread, !llvm.loop !15
+  br i1 %23, label %.lr.ph, label %.thread, !llvm.loop !14
 
 .thread:                                          ; preds = %19, %.lr.ph, %0, %8
   %.2 = phi i1 [ %10, %8 ], [ false, %0 ], [ %5, %.lr.ph ], [ %5, %19 ]
@@ -2809,15 +2808,14 @@ attributes #21 = { nounwind willreturn memory(none) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = distinct !{!4, !5, !6}
+!4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{!"llvm.loop.estimated_trip_count"}
-!7 = distinct !{!7, !5, !6}
-!8 = distinct !{!8, !5, !6}
-!9 = !{i8 0, i8 2}
-!10 = !{}
-!11 = distinct !{!11, !5, !6}
-!12 = distinct !{!12, !5, !6}
-!13 = distinct !{!13, !5, !6}
-!14 = distinct !{!14, !5, !6}
-!15 = distinct !{!15, !5, !6}
+!6 = distinct !{!6, !5}
+!7 = distinct !{!7, !5}
+!8 = !{i8 0, i8 2}
+!9 = !{}
+!10 = distinct !{!10, !5}
+!11 = distinct !{!11, !5}
+!12 = distinct !{!12, !5}
+!13 = distinct !{!13, !5}
+!14 = distinct !{!14, !5}

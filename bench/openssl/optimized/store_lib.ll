@@ -262,18 +262,18 @@ loader_set_params.exit.thread138:                 ; preds = %68, %71, %.thread.i
 
 94:                                               ; preds = %91
   %95 = getelementptr inbounds nuw i8, ptr %92, i64 48
-  store ptr %.186, ptr %95, align 8, !tbaa !28
+  store ptr %.186, ptr %95, align 8, !tbaa !27
   %96 = getelementptr inbounds nuw i8, ptr %92, i64 8
-  store ptr %.394, ptr %96, align 8, !tbaa !34
-  store ptr %.2, ptr %92, align 8, !tbaa !35
+  store ptr %.394, ptr %96, align 8, !tbaa !33
+  store ptr %.2, ptr %92, align 8, !tbaa !34
   %97 = getelementptr inbounds nuw i8, ptr %92, i64 16
-  store ptr %.4, ptr %97, align 8, !tbaa !36
+  store ptr %.4, ptr %97, align 8, !tbaa !35
   %98 = getelementptr inbounds nuw i8, ptr %92, i64 24
-  store ptr %6, ptr %98, align 8, !tbaa !37
+  store ptr %6, ptr %98, align 8, !tbaa !36
   %99 = getelementptr inbounds nuw i8, ptr %92, i64 32
-  store ptr %7, ptr %99, align 8, !tbaa !38
+  store ptr %7, ptr %99, align 8, !tbaa !37
   %100 = getelementptr inbounds nuw i8, ptr %92, i64 72
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %100, ptr noundef nonnull align 8 dereferenceable(48) %11, i64 48, i1 false), !tbaa.struct !39
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %100, ptr noundef nonnull align 8 dereferenceable(48) %11, i64 48, i1 false), !tbaa.struct !38
   %101 = call i32 @ERR_pop_to_mark() #9
   br label %126
 
@@ -292,10 +292,10 @@ loader_set_params.exit.thread138:                 ; preds = %68, %71, %.thread.i
   %106 = getelementptr inbounds nuw i8, ptr %14, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %106, i8 0, i64 96, i1 false)
   %107 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  store ptr %.394, ptr %107, align 8, !tbaa !34
-  store ptr %.2, ptr %14, align 8, !tbaa !35
+  store ptr %.394, ptr %107, align 8, !tbaa !33
+  store ptr %.2, ptr %14, align 8, !tbaa !34
   %108 = getelementptr inbounds nuw i8, ptr %14, i64 16
-  store ptr %.4, ptr %108, align 8, !tbaa !36
+  store ptr %.4, ptr %108, align 8, !tbaa !35
   %.not.i125 = icmp eq ptr %.394, null
   br i1 %.not.i125, label %.thread.i126, label %109
 
@@ -303,32 +303,32 @@ loader_set_params.exit.thread138:                 ; preds = %68, %71, %.thread.i
   %110 = getelementptr inbounds nuw i8, ptr %.2, i64 184
   %111 = load ptr, ptr %110, align 8, !tbaa !24
   %112 = call i32 %111(ptr noundef nonnull %.4) #9
-  %.pr.i = load ptr, ptr %107, align 8, !tbaa !34
+  %.pr.i = load ptr, ptr %107, align 8, !tbaa !33
   %113 = icmp eq ptr %.pr.i, null
   br i1 %113, label %..thread.i126_crit_edge, label %ossl_store_close_it.exit
 
 ..thread.i126_crit_edge:                          ; preds = %109
-  %.pre = load ptr, ptr %14, align 8, !tbaa !35
-  %.pre165 = load ptr, ptr %108, align 8, !tbaa !36
+  %.pre = load ptr, ptr %14, align 8, !tbaa !34
+  %.pre165 = load ptr, ptr %108, align 8, !tbaa !35
   br label %.thread.i126
 
 .thread.i126:                                     ; preds = %..thread.i126_crit_edge, %105
   %114 = phi ptr [ %.pre165, %..thread.i126_crit_edge ], [ %.4, %105 ]
   %115 = phi ptr [ %.pre, %..thread.i126_crit_edge ], [ %.2, %105 ]
   %116 = getelementptr inbounds nuw i8, ptr %115, i64 80
-  %117 = load ptr, ptr %116, align 8, !tbaa !40
+  %117 = load ptr, ptr %116, align 8, !tbaa !39
   %118 = call i32 %117(ptr noundef %114) #9
-  %.pre166 = load ptr, ptr %107, align 8, !tbaa !34
+  %.pre166 = load ptr, ptr %107, align 8, !tbaa !33
   br label %ossl_store_close_it.exit
 
 ossl_store_close_it.exit:                         ; preds = %109, %.thread.i126
   %119 = phi ptr [ %.pr.i, %109 ], [ %.pre166, %.thread.i126 ]
   %120 = getelementptr inbounds nuw i8, ptr %14, i64 64
-  %121 = load ptr, ptr %120, align 8, !tbaa !41
+  %121 = load ptr, ptr %120, align 8, !tbaa !40
   call void @OPENSSL_sk_pop_free(ptr noundef %121, ptr noundef nonnull @OSSL_STORE_INFO_free) #9
   call void @OSSL_STORE_LOADER_free(ptr noundef %119) #9
   %122 = getelementptr inbounds nuw i8, ptr %14, i64 48
-  %123 = load ptr, ptr %122, align 8, !tbaa !28
+  %123 = load ptr, ptr %122, align 8, !tbaa !27
   call void @CRYPTO_free(ptr noundef %123, ptr noundef nonnull @.str.2, i32 noundef 587) #9
   %124 = getelementptr inbounds nuw i8, ptr %14, i64 72
   call void @ossl_pw_clear_passphrase_data(ptr noundef nonnull %124) #9
@@ -420,7 +420,7 @@ define i32 @OSSL_STORE_ctrl(ptr noundef readonly captures(none) %0, i32 noundef 
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #9
   call void @llvm.va_start.p0(ptr nonnull %5)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %7 = load ptr, ptr %6, align 8, !tbaa !34
+  %7 = load ptr, ptr %6, align 8, !tbaa !33
   %.not.i = icmp eq ptr %7, null
   br i1 %.not.i, label %34, label %8
 
@@ -460,12 +460,12 @@ define i32 @OSSL_STORE_ctrl(ptr noundef readonly captures(none) %0, i32 noundef 
 
 25:                                               ; preds = %21, %15
   %26 = phi ptr [ %19, %15 ], [ %23, %21 ]
-  %27 = load ptr, ptr %26, align 8, !tbaa !42
+  %27 = load ptr, ptr %26, align 8, !tbaa !41
   %28 = load i32, ptr %27, align 4, !tbaa !20
   store i32 %28, ptr %4, align 4, !tbaa !20
   call void @OSSL_PARAM_construct_int(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %3, ptr noundef nonnull @.str.3, ptr noundef nonnull %4) #9
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #9
-  %.pre.i = load ptr, ptr %6, align 8, !tbaa !34
+  %.pre.i = load ptr, ptr %6, align 8, !tbaa !33
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %.pre.i, i64 160
   %.pre16.i = load ptr, ptr %.phi.trans.insert.i, align 8, !tbaa !18
   br label %29
@@ -473,21 +473,21 @@ define i32 @OSSL_STORE_ctrl(ptr noundef readonly captures(none) %0, i32 noundef 
 29:                                               ; preds = %25, %11
   %30 = phi ptr [ %10, %11 ], [ %.pre16.i, %25 ]
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %32 = load ptr, ptr %31, align 8, !tbaa !36
+  %32 = load ptr, ptr %31, align 8, !tbaa !35
   %33 = call i32 %30(ptr noundef %32, ptr noundef nonnull %3) #9
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %3) #9
   br label %OSSL_STORE_vctrl.exit
 
 34:                                               ; preds = %2
-  %35 = load ptr, ptr %0, align 8, !tbaa !35
+  %35 = load ptr, ptr %0, align 8, !tbaa !34
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 32
-  %37 = load ptr, ptr %36, align 8, !tbaa !44
+  %37 = load ptr, ptr %36, align 8, !tbaa !43
   %.not14.i = icmp eq ptr %37, null
   br i1 %.not14.i, label %OSSL_STORE_vctrl.exit, label %38
 
 38:                                               ; preds = %34
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %40 = load ptr, ptr %39, align 8, !tbaa !36
+  %40 = load ptr, ptr %39, align 8, !tbaa !35
   %41 = call i32 %37(ptr noundef %40, i32 noundef %1, ptr noundef nonnull %5) #9
   br label %OSSL_STORE_vctrl.exit
 
@@ -506,7 +506,7 @@ define i32 @OSSL_STORE_vctrl(ptr noundef readonly captures(none) %0, i32 noundef
   %4 = alloca [2 x %struct.ossl_param_st], align 16
   %5 = alloca i32, align 4
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %7 = load ptr, ptr %6, align 8, !tbaa !34
+  %7 = load ptr, ptr %6, align 8, !tbaa !33
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %34, label %8
 
@@ -546,12 +546,12 @@ define i32 @OSSL_STORE_vctrl(ptr noundef readonly captures(none) %0, i32 noundef
 
 25:                                               ; preds = %21, %15
   %26 = phi ptr [ %19, %15 ], [ %23, %21 ]
-  %27 = load ptr, ptr %26, align 8, !tbaa !42
+  %27 = load ptr, ptr %26, align 8, !tbaa !41
   %28 = load i32, ptr %27, align 4, !tbaa !20
   store i32 %28, ptr %5, align 4, !tbaa !20
   call void @OSSL_PARAM_construct_int(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %4, ptr noundef nonnull @.str.3, ptr noundef nonnull %5) #9
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #9
-  %.pre = load ptr, ptr %6, align 8, !tbaa !34
+  %.pre = load ptr, ptr %6, align 8, !tbaa !33
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 160
   %.pre16 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !18
   br label %29
@@ -559,21 +559,21 @@ define i32 @OSSL_STORE_vctrl(ptr noundef readonly captures(none) %0, i32 noundef
 29:                                               ; preds = %11, %25
   %30 = phi ptr [ %10, %11 ], [ %.pre16, %25 ]
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %32 = load ptr, ptr %31, align 8, !tbaa !36
+  %32 = load ptr, ptr %31, align 8, !tbaa !35
   %33 = call i32 %30(ptr noundef %32, ptr noundef nonnull %4) #9
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %4) #9
   br label %42
 
 34:                                               ; preds = %3
-  %35 = load ptr, ptr %0, align 8, !tbaa !35
+  %35 = load ptr, ptr %0, align 8, !tbaa !34
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 32
-  %37 = load ptr, ptr %36, align 8, !tbaa !44
+  %37 = load ptr, ptr %36, align 8, !tbaa !43
   %.not14 = icmp eq ptr %37, null
   br i1 %.not14, label %42, label %38
 
 38:                                               ; preds = %34
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %40 = load ptr, ptr %39, align 8, !tbaa !36
+  %40 = load ptr, ptr %39, align 8, !tbaa !35
   %41 = tail call i32 %37(ptr noundef %40, i32 noundef %1, ptr noundef %2) #9
   br label %42
 
@@ -605,7 +605,7 @@ define i32 @OSSL_STORE_expect(ptr noundef captures(address_is_null) %0, i32 noun
 
 8:                                                ; preds = %2
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %10 = load i32, ptr %9, align 8, !tbaa !45
+  %10 = load i32, ptr %9, align 8, !tbaa !44
   %.not = icmp eq i32 %10, 0
   br i1 %.not, label %12, label %11
 
@@ -617,9 +617,9 @@ define i32 @OSSL_STORE_expect(ptr noundef captures(address_is_null) %0, i32 noun
 
 12:                                               ; preds = %8
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store i32 %1, ptr %13, align 8, !tbaa !46
+  store i32 %1, ptr %13, align 8, !tbaa !45
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %15 = load ptr, ptr %14, align 8, !tbaa !34
+  %15 = load ptr, ptr %14, align 8, !tbaa !33
   %.not20 = icmp eq ptr %15, null
   br i1 %.not20, label %.thread, label %16
 
@@ -634,28 +634,28 @@ define i32 @OSSL_STORE_expect(ptr noundef captures(address_is_null) %0, i32 noun
   call void @OSSL_PARAM_construct_int(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %4, ptr noundef nonnull @.str.4, ptr noundef nonnull %3) #9
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %20, i8 0, i64 40, i1 false)
-  %21 = load ptr, ptr %14, align 8, !tbaa !34
+  %21 = load ptr, ptr %14, align 8, !tbaa !33
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 160
   %23 = load ptr, ptr %22, align 8, !tbaa !18
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %25 = load ptr, ptr %24, align 8, !tbaa !36
+  %25 = load ptr, ptr %24, align 8, !tbaa !35
   %26 = call i32 %23(ptr noundef %25, ptr noundef nonnull %4) #9
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %4) #9
-  %.pr.pre = load ptr, ptr %14, align 8, !tbaa !34
+  %.pr.pre = load ptr, ptr %14, align 8, !tbaa !33
   %27 = icmp eq ptr %.pr.pre, null
   br i1 %27, label %.thread, label %.thread26
 
 .thread:                                          ; preds = %12, %19
   %.024 = phi i32 [ %26, %19 ], [ 1, %12 ]
-  %28 = load ptr, ptr %0, align 8, !tbaa !35
+  %28 = load ptr, ptr %0, align 8, !tbaa !34
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 40
-  %30 = load ptr, ptr %29, align 8, !tbaa !47
+  %30 = load ptr, ptr %29, align 8, !tbaa !46
   %.not22 = icmp eq ptr %30, null
   br i1 %.not22, label %.thread26, label %31
 
 31:                                               ; preds = %.thread
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %33 = load ptr, ptr %32, align 8, !tbaa !36
+  %33 = load ptr, ptr %32, align 8, !tbaa !35
   %34 = load i32, ptr %3, align 4, !tbaa !20
   %35 = call i32 %30(ptr noundef %33, i32 noundef %34) #9
   br label %.thread26
@@ -669,7 +669,7 @@ define i32 @OSSL_STORE_expect(ptr noundef captures(address_is_null) %0, i32 noun
 define i32 @OSSL_STORE_find(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %5 = load i32, ptr %4, align 8, !tbaa !45
+  %5 = load i32, ptr %4, align 8, !tbaa !44
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %7, label %6
 
@@ -691,7 +691,7 @@ define i32 @OSSL_STORE_find(ptr noundef readonly captures(none) %0, ptr noundef 
 
 10:                                               ; preds = %7
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %12 = load ptr, ptr %11, align 8, !tbaa !34
+  %12 = load ptr, ptr %11, align 8, !tbaa !33
   %.not46 = icmp eq ptr %12, null
   br i1 %.not46, label %72, label %13
 
@@ -709,7 +709,7 @@ define i32 @OSSL_STORE_find(ptr noundef readonly captures(none) %0, ptr noundef 
   br i1 %19, label %.critedge, label %20
 
 20:                                               ; preds = %17
-  %21 = load i32, ptr %1, align 8, !tbaa !48
+  %21 = load i32, ptr %1, align 8, !tbaa !47
   switch i32 %21, label %.thread [
     i32 1, label %22
     i32 2, label %31
@@ -719,7 +719,7 @@ define i32 @OSSL_STORE_find(ptr noundef readonly captures(none) %0, ptr noundef 
 
 22:                                               ; preds = %20
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %24 = load ptr, ptr %23, align 8, !tbaa !53
+  %24 = load ptr, ptr %23, align 8, !tbaa !52
   %25 = call i32 @i2d_X509_NAME(ptr noundef %24, ptr noundef nonnull %3) #9
   %26 = icmp sgt i32 %25, 0
   br i1 %26, label %27, label %.thread
@@ -733,14 +733,14 @@ define i32 @OSSL_STORE_find(ptr noundef readonly captures(none) %0, ptr noundef 
 
 31:                                               ; preds = %20
   %32 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %33 = load ptr, ptr %32, align 8, !tbaa !53
+  %33 = load ptr, ptr %32, align 8, !tbaa !52
   %34 = call i32 @i2d_X509_NAME(ptr noundef %33, ptr noundef nonnull %3) #9
   %35 = icmp sgt i32 %34, 0
   br i1 %35, label %36, label %.thread
 
 36:                                               ; preds = %31
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %38 = load ptr, ptr %37, align 8, !tbaa !54
+  %38 = load ptr, ptr %37, align 8, !tbaa !53
   %39 = call ptr @ASN1_INTEGER_to_BN(ptr noundef %38, ptr noundef null) #9
   %.not50 = icmp eq ptr %39, null
   br i1 %.not50, label %.thread, label %40
@@ -759,7 +759,7 @@ define i32 @OSSL_STORE_find(ptr noundef readonly captures(none) %0, ptr noundef 
 
 46:                                               ; preds = %20
   %47 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %48 = load ptr, ptr %47, align 8, !tbaa !55
+  %48 = load ptr, ptr %47, align 8, !tbaa !54
   %49 = tail call ptr @EVP_MD_get0_name(ptr noundef %48) #9
   %50 = tail call i32 @OSSL_PARAM_BLD_push_utf8_string(ptr noundef nonnull %18, ptr noundef nonnull @.str.8, ptr noundef %49, i64 noundef 0) #9
   %.not48 = icmp eq i32 %50, 0
@@ -767,18 +767,18 @@ define i32 @OSSL_STORE_find(ptr noundef readonly captures(none) %0, ptr noundef 
 
 51:                                               ; preds = %46
   %52 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %53 = load ptr, ptr %52, align 8, !tbaa !56
+  %53 = load ptr, ptr %52, align 8, !tbaa !55
   %54 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %55 = load i64, ptr %54, align 8, !tbaa !57
+  %55 = load i64, ptr %54, align 8, !tbaa !56
   %56 = tail call i32 @OSSL_PARAM_BLD_push_octet_string(ptr noundef nonnull %18, ptr noundef nonnull @.str.9, ptr noundef %53, i64 noundef %55) #9
   %.not49 = icmp eq i32 %56, 0
   br i1 %.not49, label %.thread, label %63
 
 57:                                               ; preds = %20
   %58 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %59 = load ptr, ptr %58, align 8, !tbaa !56
+  %59 = load ptr, ptr %58, align 8, !tbaa !55
   %60 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %61 = load i64, ptr %60, align 8, !tbaa !57
+  %61 = load i64, ptr %60, align 8, !tbaa !56
   %62 = tail call i32 @OSSL_PARAM_BLD_push_utf8_string(ptr noundef nonnull %18, ptr noundef nonnull @.str.10, ptr noundef %59, i64 noundef %61) #9
   %.not47 = icmp eq i32 %62, 0
   br i1 %.not47, label %.thread, label %63
@@ -786,11 +786,11 @@ define i32 @OSSL_STORE_find(ptr noundef readonly captures(none) %0, ptr noundef 
 63:                                               ; preds = %51, %44, %27, %57
   %.061 = phi ptr [ null, %27 ], [ null, %57 ], [ %39, %44 ], [ null, %51 ]
   %64 = call ptr @OSSL_PARAM_BLD_to_param(ptr noundef nonnull %18) #9
-  %65 = load ptr, ptr %11, align 8, !tbaa !34
+  %65 = load ptr, ptr %11, align 8, !tbaa !33
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 160
   %67 = load ptr, ptr %66, align 8, !tbaa !18
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %69 = load ptr, ptr %68, align 8, !tbaa !36
+  %69 = load ptr, ptr %68, align 8, !tbaa !35
   %70 = call i32 %67(ptr noundef %69, ptr noundef %64) #9
   call void @OSSL_PARAM_free(ptr noundef %64) #9
   br label %.thread
@@ -806,9 +806,9 @@ define i32 @OSSL_STORE_find(ptr noundef readonly captures(none) %0, ptr noundef 
   br label %82
 
 72:                                               ; preds = %10
-  %73 = load ptr, ptr %0, align 8, !tbaa !35
+  %73 = load ptr, ptr %0, align 8, !tbaa !34
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 48
-  %75 = load ptr, ptr %74, align 8, !tbaa !58
+  %75 = load ptr, ptr %74, align 8, !tbaa !57
   %76 = icmp eq ptr %75, null
   br i1 %76, label %77, label %78
 
@@ -820,7 +820,7 @@ define i32 @OSSL_STORE_find(ptr noundef readonly captures(none) %0, ptr noundef 
 
 78:                                               ; preds = %72
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %80 = load ptr, ptr %79, align 8, !tbaa !36
+  %80 = load ptr, ptr %79, align 8, !tbaa !35
   %81 = tail call i32 %75(ptr noundef %80, ptr noundef nonnull %1) #9
   br label %82
 
@@ -864,7 +864,7 @@ declare void @BN_free(ptr noundef) local_unnamed_addr #3
 define ptr @OSSL_STORE_load(ptr noundef initializes((56, 60)) %0) local_unnamed_addr #0 {
   %2 = alloca %struct.ossl_load_result_data_st, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store i32 1, ptr %3, align 8, !tbaa !45
+  store i32 1, ptr %3, align 8, !tbaa !44
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -879,25 +879,25 @@ define ptr @OSSL_STORE_load(ptr noundef initializes((56, 60)) %0) local_unnamed_
   br label %.backedge
 
 .backedge:                                        ; preds = %.backedge.backedge, %1
-  %15 = load ptr, ptr %4, align 8, !tbaa !34
+  %15 = load ptr, ptr %4, align 8, !tbaa !33
   %.not.i = icmp eq ptr %15, null
   br i1 %.not.i, label %.thread.i, label %16
 
 16:                                               ; preds = %.backedge
-  %17 = load ptr, ptr %0, align 8, !tbaa !35
+  %17 = load ptr, ptr %0, align 8, !tbaa !34
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 176
-  %19 = load ptr, ptr %18, align 8, !tbaa !59
-  %20 = load ptr, ptr %5, align 8, !tbaa !36
+  %19 = load ptr, ptr %18, align 8, !tbaa !58
+  %20 = load ptr, ptr %5, align 8, !tbaa !35
   %21 = call i32 %19(ptr noundef %20) #9
-  %.pr.i = load ptr, ptr %4, align 8, !tbaa !34
+  %.pr.i = load ptr, ptr %4, align 8, !tbaa !33
   %22 = icmp eq ptr %.pr.i, null
   br i1 %22, label %.thread.i, label %OSSL_STORE_eof.exit
 
 .thread.i:                                        ; preds = %16, %.backedge
-  %23 = load ptr, ptr %0, align 8, !tbaa !35
+  %23 = load ptr, ptr %0, align 8, !tbaa !34
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 64
-  %25 = load ptr, ptr %24, align 8, !tbaa !60
-  %26 = load ptr, ptr %5, align 8, !tbaa !36
+  %25 = load ptr, ptr %24, align 8, !tbaa !59
+  %26 = load ptr, ptr %5, align 8, !tbaa !35
   %27 = call i32 %25(ptr noundef %26) #9
   br label %OSSL_STORE_eof.exit
 
@@ -907,19 +907,19 @@ OSSL_STORE_eof.exit:                              ; preds = %16, %.thread.i
   br i1 %.not78, label %28, label %.thread74
 
 28:                                               ; preds = %OSSL_STORE_eof.exit
-  %29 = load ptr, ptr %6, align 8, !tbaa !41
+  %29 = load ptr, ptr %6, align 8, !tbaa !40
   %.not56 = icmp eq ptr %29, null
   br i1 %.not56, label %.thread, label %30
 
 30:                                               ; preds = %28
   %31 = call i32 @OPENSSL_sk_num(ptr noundef nonnull %29) #9
   %32 = icmp eq i32 %31, 0
-  %33 = load ptr, ptr %6, align 8, !tbaa !41
+  %33 = load ptr, ptr %6, align 8, !tbaa !40
   br i1 %32, label %34, label %35
 
 34:                                               ; preds = %30
   call void @OPENSSL_sk_free(ptr noundef %33) #9
-  store ptr null, ptr %6, align 8, !tbaa !41
+  store ptr null, ptr %6, align 8, !tbaa !40
   br label %.thread
 
 35:                                               ; preds = %30
@@ -931,39 +931,39 @@ OSSL_STORE_eof.exit:                              ; preds = %16, %.thread.i
   br label %54
 
 .thread:                                          ; preds = %28, %34, %35
-  %38 = load ptr, ptr %4, align 8, !tbaa !34
+  %38 = load ptr, ptr %4, align 8, !tbaa !33
   %.not58 = icmp eq ptr %38, null
   br i1 %.not58, label %.thread67, label %39
 
 39:                                               ; preds = %.thread
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #9
-  store ptr null, ptr %2, align 8, !tbaa !61
-  store ptr %0, ptr %7, align 8, !tbaa !65
-  store i32 0, ptr %8, align 4, !tbaa !66
+  store ptr null, ptr %2, align 8, !tbaa !60
+  store ptr %0, ptr %7, align 8, !tbaa !64
+  store i32 0, ptr %8, align 4, !tbaa !65
   %40 = getelementptr inbounds nuw i8, ptr %38, i64 168
-  %41 = load ptr, ptr %40, align 8, !tbaa !67
-  %42 = load ptr, ptr %5, align 8, !tbaa !36
+  %41 = load ptr, ptr %40, align 8, !tbaa !66
+  %42 = load ptr, ptr %5, align 8, !tbaa !35
   %43 = call i32 %41(ptr noundef %42, ptr noundef nonnull @ossl_store_handle_load_result, ptr noundef nonnull %2, ptr noundef nonnull @ossl_pw_passphrase_callback_dec, ptr noundef nonnull %9) #9
   %.not59.not = icmp eq i32 %43, 0
   br i1 %.not59.not, label %.thread64, label %44
 
 .thread64:                                        ; preds = %39
-  store i32 1, ptr %8, align 4, !tbaa !66
+  store i32 1, ptr %8, align 4, !tbaa !65
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #9
   br label %.thread74
 
 44:                                               ; preds = %39
-  %45 = load ptr, ptr %2, align 8, !tbaa !61
+  %45 = load ptr, ptr %2, align 8, !tbaa !60
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #9
-  %.pr66 = load ptr, ptr %4, align 8, !tbaa !34
+  %.pr66 = load ptr, ptr %4, align 8, !tbaa !33
   %46 = icmp eq ptr %.pr66, null
   br i1 %46, label %.thread67, label %54
 
 .thread67:                                        ; preds = %.thread, %44
-  %47 = load ptr, ptr %0, align 8, !tbaa !35
+  %47 = load ptr, ptr %0, align 8, !tbaa !34
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 56
-  %49 = load ptr, ptr %48, align 8, !tbaa !68
-  %50 = load ptr, ptr %5, align 8, !tbaa !36
+  %49 = load ptr, ptr %48, align 8, !tbaa !67
+  %50 = load ptr, ptr %5, align 8, !tbaa !35
   %51 = load ptr, ptr %10, align 8, !tbaa !8
   %52 = load ptr, ptr %11, align 8, !tbaa !8
   %53 = call ptr %49(ptr noundef %50, ptr noundef %51, ptr noundef %52) #9
@@ -971,20 +971,20 @@ OSSL_STORE_eof.exit:                              ; preds = %16, %.thread.i
 
 54:                                               ; preds = %44, %.thread67, %36
   %.146 = phi ptr [ %37, %36 ], [ %53, %.thread67 ], [ %45, %44 ]
-  %55 = load ptr, ptr %12, align 8, !tbaa !37
+  %55 = load ptr, ptr %12, align 8, !tbaa !36
   %56 = icmp ne ptr %55, null
   %57 = icmp ne ptr %.146, null
   %or.cond = select i1 %56, i1 %57, i1 false
   br i1 %or.cond, label %58, label %62
 
 58:                                               ; preds = %54
-  %59 = load ptr, ptr %13, align 8, !tbaa !38
+  %59 = load ptr, ptr %13, align 8, !tbaa !37
   %60 = call ptr %55(ptr noundef nonnull %.146, ptr noundef %59) #9
   %61 = icmp eq ptr %60, null
   br i1 %61, label %.backedge.backedge, label %.thread69
 
 .backedge.backedge:                               ; preds = %58, %67
-  br label %.backedge, !llvm.loop !69
+  br label %.backedge
 
 .thread69:                                        ; preds = %58
   call void @ossl_pw_clear_passphrase_cache(ptr noundef nonnull %9) #9
@@ -997,12 +997,12 @@ OSSL_STORE_eof.exit:                              ; preds = %16, %.thread.i
 
 63:                                               ; preds = %.thread69, %62
   %.44972 = phi ptr [ %60, %.thread69 ], [ %.146, %62 ]
-  %64 = load i32, ptr %14, align 8, !tbaa !46
+  %64 = load i32, ptr %14, align 8, !tbaa !45
   %.not61 = icmp eq i32 %64, 0
   br i1 %.not61, label %.thread74, label %65
 
 65:                                               ; preds = %63
-  %66 = load i32, ptr %.44972, align 8, !tbaa !70
+  %66 = load i32, ptr %.44972, align 8, !tbaa !68
   %or.cond3 = icmp ult i32 %66, 2
   %.not62 = icmp eq i32 %64, %66
   %or.cond77 = or i1 %or.cond3, %.not62
@@ -1020,27 +1020,27 @@ OSSL_STORE_eof.exit:                              ; preds = %16, %.thread.i
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @OSSL_STORE_eof(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load ptr, ptr %2, align 8, !tbaa !34
+  %3 = load ptr, ptr %2, align 8, !tbaa !33
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %.thread, label %4
 
 4:                                                ; preds = %1
-  %5 = load ptr, ptr %0, align 8, !tbaa !35
+  %5 = load ptr, ptr %0, align 8, !tbaa !34
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 176
-  %7 = load ptr, ptr %6, align 8, !tbaa !59
+  %7 = load ptr, ptr %6, align 8, !tbaa !58
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %9 = load ptr, ptr %8, align 8, !tbaa !36
+  %9 = load ptr, ptr %8, align 8, !tbaa !35
   %10 = tail call i32 %7(ptr noundef %9) #9
-  %.pr = load ptr, ptr %2, align 8, !tbaa !34
+  %.pr = load ptr, ptr %2, align 8, !tbaa !33
   %11 = icmp eq ptr %.pr, null
   br i1 %11, label %.thread, label %18
 
 .thread:                                          ; preds = %1, %4
-  %12 = load ptr, ptr %0, align 8, !tbaa !35
+  %12 = load ptr, ptr %0, align 8, !tbaa !34
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 64
-  %14 = load ptr, ptr %13, align 8, !tbaa !60
+  %14 = load ptr, ptr %13, align 8, !tbaa !59
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %16 = load ptr, ptr %15, align 8, !tbaa !36
+  %16 = load ptr, ptr %15, align 8, !tbaa !35
   %17 = tail call i32 %14(ptr noundef %16) #9
   br label %18
 
@@ -1055,7 +1055,7 @@ declare i32 @ossl_store_handle_load_result(ptr noundef, ptr noundef) #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define i32 @OSSL_STORE_INFO_get_type(ptr noundef readonly captures(none) %0) local_unnamed_addr #7 {
-  %2 = load i32, ptr %0, align 8, !tbaa !70
+  %2 = load i32, ptr %0, align 8, !tbaa !68
   ret i32 %2
 }
 
@@ -1065,7 +1065,7 @@ define void @OSSL_STORE_INFO_free(ptr noundef %0) #0 {
   br i1 %.not, label %25, label %2
 
 2:                                                ; preds = %1
-  %3 = load i32, ptr %0, align 8, !tbaa !70
+  %3 = load i32, ptr %0, align 8, !tbaa !68
   switch i32 %3, label %24 [
     i32 1, label %4
     i32 2, label %9
@@ -1162,14 +1162,14 @@ define i32 @OSSL_STORE_delete(ptr noundef %0, ptr noundef %1, ptr noundef %2, pt
 
 19:                                               ; preds = %17
   %20 = getelementptr inbounds nuw i8, ptr %18, i64 200
-  %21 = load ptr, ptr %20, align 8, !tbaa !72
+  %21 = load ptr, ptr %20, align 8, !tbaa !70
   %.not25 = icmp eq ptr %21, null
   br i1 %.not25, label %27, label %22
 
 22:                                               ; preds = %19
   %23 = call ptr @OSSL_STORE_LOADER_get0_provider(ptr noundef nonnull %18) #9
   %24 = call ptr @OSSL_PROVIDER_get0_provider_ctx(ptr noundef %23) #9
-  %25 = load ptr, ptr %20, align 8, !tbaa !72
+  %25 = load ptr, ptr %20, align 8, !tbaa !70
   %26 = call i32 %25(ptr noundef %24, ptr noundef %0, ptr noundef %5, ptr noundef nonnull @ossl_pw_passphrase_callback_dec, ptr noundef nonnull %8) #9
   br label %27
 
@@ -1189,21 +1189,21 @@ define i32 @OSSL_STORE_delete(ptr noundef %0, ptr noundef %1, ptr noundef %2, pt
 ; Function Attrs: nounwind uwtable
 define i32 @OSSL_STORE_error(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load ptr, ptr %2, align 8, !tbaa !34
+  %3 = load ptr, ptr %2, align 8, !tbaa !33
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %7, label %4
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 60
-  %6 = load i32, ptr %5, align 4, !tbaa !66
+  %6 = load i32, ptr %5, align 4, !tbaa !65
   br label %14
 
 7:                                                ; preds = %1
-  %8 = load ptr, ptr %0, align 8, !tbaa !35
+  %8 = load ptr, ptr %0, align 8, !tbaa !34
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 72
-  %10 = load ptr, ptr %9, align 8, !tbaa !73
+  %10 = load ptr, ptr %9, align 8, !tbaa !71
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %12 = load ptr, ptr %11, align 8, !tbaa !36
+  %12 = load ptr, ptr %11, align 8, !tbaa !35
   %13 = tail call i32 %10(ptr noundef %12) #9
   br label %14
 
@@ -1219,39 +1219,39 @@ define i32 @OSSL_STORE_close(ptr noundef %0) local_unnamed_addr #0 {
 
 3:                                                ; preds = %1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = load ptr, ptr %4, align 8, !tbaa !34
+  %5 = load ptr, ptr %4, align 8, !tbaa !33
   %.not.i = icmp eq ptr %5, null
   br i1 %.not.i, label %.thread.i, label %6
 
 6:                                                ; preds = %3
-  %7 = load ptr, ptr %0, align 8, !tbaa !35
+  %7 = load ptr, ptr %0, align 8, !tbaa !34
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 184
   %9 = load ptr, ptr %8, align 8, !tbaa !24
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %11 = load ptr, ptr %10, align 8, !tbaa !36
+  %11 = load ptr, ptr %10, align 8, !tbaa !35
   %12 = tail call i32 %9(ptr noundef %11) #9
-  %.pr.i = load ptr, ptr %4, align 8, !tbaa !34
+  %.pr.i = load ptr, ptr %4, align 8, !tbaa !33
   %13 = icmp eq ptr %.pr.i, null
   br i1 %13, label %.thread.i, label %20
 
 .thread.i:                                        ; preds = %6, %3
-  %14 = load ptr, ptr %0, align 8, !tbaa !35
+  %14 = load ptr, ptr %0, align 8, !tbaa !34
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 80
-  %16 = load ptr, ptr %15, align 8, !tbaa !40
+  %16 = load ptr, ptr %15, align 8, !tbaa !39
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %18 = load ptr, ptr %17, align 8, !tbaa !36
+  %18 = load ptr, ptr %17, align 8, !tbaa !35
   %19 = tail call i32 %16(ptr noundef %18) #9
   br label %20
 
 20:                                               ; preds = %.thread.i, %6
   %.1.i = phi i32 [ %19, %.thread.i ], [ %12, %6 ]
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %22 = load ptr, ptr %21, align 8, !tbaa !41
+  %22 = load ptr, ptr %21, align 8, !tbaa !40
   tail call void @OPENSSL_sk_pop_free(ptr noundef %22, ptr noundef nonnull @OSSL_STORE_INFO_free) #9
-  %23 = load ptr, ptr %4, align 8, !tbaa !34
+  %23 = load ptr, ptr %4, align 8, !tbaa !33
   tail call void @OSSL_STORE_LOADER_free(ptr noundef %23) #9
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %25 = load ptr, ptr %24, align 8, !tbaa !28
+  %25 = load ptr, ptr %24, align 8, !tbaa !27
   tail call void @CRYPTO_free(ptr noundef %25, ptr noundef nonnull @.str.2, i32 noundef 587) #9
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 72
   tail call void @ossl_pw_clear_passphrase_data(ptr noundef nonnull %26) #9
@@ -1270,7 +1270,7 @@ define noalias ptr @OSSL_STORE_INFO_new(i32 noundef %0, ptr noundef %1) local_un
   br i1 %4, label %7, label %5
 
 5:                                                ; preds = %2
-  store i32 %0, ptr %3, align 8, !tbaa !70
+  store i32 %0, ptr %3, align 8, !tbaa !68
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %1, ptr %6, align 8, !tbaa !8
   br label %7
@@ -1292,7 +1292,7 @@ define noalias ptr @OSSL_STORE_INFO_new_NAME(ptr noundef %0) local_unnamed_addr 
   br label %8
 
 5:                                                ; preds = %1
-  store i32 1, ptr %2, align 8, !tbaa !70
+  store i32 1, ptr %2, align 8, !tbaa !68
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %0, ptr %6, align 8, !tbaa !8
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
@@ -1305,7 +1305,7 @@ define noalias ptr @OSSL_STORE_INFO_new_NAME(ptr noundef %0) local_unnamed_addr 
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @OSSL_STORE_INFO_set0_NAME_description(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
-  %3 = load i32, ptr %0, align 8, !tbaa !70
+  %3 = load i32, ptr %0, align 8, !tbaa !68
   %.not = icmp eq i32 %3, 1
   br i1 %.not, label %5, label %4
 
@@ -1332,7 +1332,7 @@ define noalias ptr @OSSL_STORE_INFO_new_PARAMS(ptr noundef %0) local_unnamed_add
   br i1 %3, label %5, label %OSSL_STORE_INFO_new.exit
 
 OSSL_STORE_INFO_new.exit:                         ; preds = %1
-  store i32 2, ptr %2, align 8, !tbaa !70
+  store i32 2, ptr %2, align 8, !tbaa !68
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %0, ptr %4, align 8, !tbaa !8
   br label %6
@@ -1354,7 +1354,7 @@ define noalias ptr @OSSL_STORE_INFO_new_PUBKEY(ptr noundef %0) local_unnamed_add
   br i1 %3, label %5, label %OSSL_STORE_INFO_new.exit
 
 OSSL_STORE_INFO_new.exit:                         ; preds = %1
-  store i32 3, ptr %2, align 8, !tbaa !70
+  store i32 3, ptr %2, align 8, !tbaa !68
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %0, ptr %4, align 8, !tbaa !8
   br label %6
@@ -1376,7 +1376,7 @@ define noalias ptr @OSSL_STORE_INFO_new_PKEY(ptr noundef %0) local_unnamed_addr 
   br i1 %3, label %5, label %OSSL_STORE_INFO_new.exit
 
 OSSL_STORE_INFO_new.exit:                         ; preds = %1
-  store i32 4, ptr %2, align 8, !tbaa !70
+  store i32 4, ptr %2, align 8, !tbaa !68
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %0, ptr %4, align 8, !tbaa !8
   br label %6
@@ -1398,7 +1398,7 @@ define noalias ptr @OSSL_STORE_INFO_new_CERT(ptr noundef %0) local_unnamed_addr 
   br i1 %3, label %5, label %OSSL_STORE_INFO_new.exit
 
 OSSL_STORE_INFO_new.exit:                         ; preds = %1
-  store i32 5, ptr %2, align 8, !tbaa !70
+  store i32 5, ptr %2, align 8, !tbaa !68
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %0, ptr %4, align 8, !tbaa !8
   br label %6
@@ -1420,7 +1420,7 @@ define noalias ptr @OSSL_STORE_INFO_new_CRL(ptr noundef %0) local_unnamed_addr #
   br i1 %3, label %5, label %OSSL_STORE_INFO_new.exit
 
 OSSL_STORE_INFO_new.exit:                         ; preds = %1
-  store i32 6, ptr %2, align 8, !tbaa !70
+  store i32 6, ptr %2, align 8, !tbaa !68
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %0, ptr %4, align 8, !tbaa !8
   br label %6
@@ -1437,7 +1437,7 @@ OSSL_STORE_INFO_new.exit:                         ; preds = %1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define ptr @OSSL_STORE_INFO_get0_data(i32 noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #7 {
-  %3 = load i32, ptr %1, align 8, !tbaa !70
+  %3 = load i32, ptr %1, align 8, !tbaa !68
   %4 = icmp eq i32 %3, %0
   br i1 %4, label %5, label %8
 
@@ -1453,7 +1453,7 @@ define ptr @OSSL_STORE_INFO_get0_data(i32 noundef %0, ptr noundef readonly captu
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define ptr @OSSL_STORE_INFO_get0_NAME(ptr noundef readonly captures(none) %0) local_unnamed_addr #7 {
-  %2 = load i32, ptr %0, align 8, !tbaa !70
+  %2 = load i32, ptr %0, align 8, !tbaa !68
   %3 = icmp eq i32 %2, 1
   br i1 %3, label %4, label %7
 
@@ -1469,7 +1469,7 @@ define ptr @OSSL_STORE_INFO_get0_NAME(ptr noundef readonly captures(none) %0) lo
 
 ; Function Attrs: nounwind uwtable
 define noalias ptr @OSSL_STORE_INFO_get1_NAME(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
-  %2 = load i32, ptr %0, align 8, !tbaa !70
+  %2 = load i32, ptr %0, align 8, !tbaa !68
   %3 = icmp eq i32 %2, 1
   br i1 %3, label %4, label %8
 
@@ -1492,7 +1492,7 @@ define noalias ptr @OSSL_STORE_INFO_get1_NAME(ptr noundef readonly captures(none
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define ptr @OSSL_STORE_INFO_get0_NAME_description(ptr noundef readonly captures(none) %0) local_unnamed_addr #7 {
-  %2 = load i32, ptr %0, align 8, !tbaa !70
+  %2 = load i32, ptr %0, align 8, !tbaa !68
   %3 = icmp eq i32 %2, 1
   br i1 %3, label %4, label %7
 
@@ -1508,7 +1508,7 @@ define ptr @OSSL_STORE_INFO_get0_NAME_description(ptr noundef readonly captures(
 
 ; Function Attrs: nounwind uwtable
 define noalias ptr @OSSL_STORE_INFO_get1_NAME_description(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
-  %2 = load i32, ptr %0, align 8, !tbaa !70
+  %2 = load i32, ptr %0, align 8, !tbaa !68
   %3 = icmp eq i32 %2, 1
   br i1 %3, label %4, label %8
 
@@ -1533,7 +1533,7 @@ define noalias ptr @OSSL_STORE_INFO_get1_NAME_description(ptr noundef readonly c
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define ptr @OSSL_STORE_INFO_get0_PARAMS(ptr noundef readonly captures(none) %0) local_unnamed_addr #7 {
-  %2 = load i32, ptr %0, align 8, !tbaa !70
+  %2 = load i32, ptr %0, align 8, !tbaa !68
   %3 = icmp eq i32 %2, 2
   br i1 %3, label %4, label %7
 
@@ -1549,7 +1549,7 @@ define ptr @OSSL_STORE_INFO_get0_PARAMS(ptr noundef readonly captures(none) %0) 
 
 ; Function Attrs: nounwind uwtable
 define ptr @OSSL_STORE_INFO_get1_PARAMS(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
-  %2 = load i32, ptr %0, align 8, !tbaa !70
+  %2 = load i32, ptr %0, align 8, !tbaa !68
   %3 = icmp eq i32 %2, 2
   br i1 %3, label %4, label %9
 
@@ -1575,7 +1575,7 @@ declare i32 @EVP_PKEY_up_ref(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define ptr @OSSL_STORE_INFO_get0_PUBKEY(ptr noundef readonly captures(none) %0) local_unnamed_addr #7 {
-  %2 = load i32, ptr %0, align 8, !tbaa !70
+  %2 = load i32, ptr %0, align 8, !tbaa !68
   %3 = icmp eq i32 %2, 3
   br i1 %3, label %4, label %7
 
@@ -1591,7 +1591,7 @@ define ptr @OSSL_STORE_INFO_get0_PUBKEY(ptr noundef readonly captures(none) %0) 
 
 ; Function Attrs: nounwind uwtable
 define ptr @OSSL_STORE_INFO_get1_PUBKEY(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
-  %2 = load i32, ptr %0, align 8, !tbaa !70
+  %2 = load i32, ptr %0, align 8, !tbaa !68
   %3 = icmp eq i32 %2, 3
   br i1 %3, label %4, label %9
 
@@ -1615,7 +1615,7 @@ define ptr @OSSL_STORE_INFO_get1_PUBKEY(ptr noundef readonly captures(none) %0) 
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define ptr @OSSL_STORE_INFO_get0_PKEY(ptr noundef readonly captures(none) %0) local_unnamed_addr #7 {
-  %2 = load i32, ptr %0, align 8, !tbaa !70
+  %2 = load i32, ptr %0, align 8, !tbaa !68
   %3 = icmp eq i32 %2, 4
   br i1 %3, label %4, label %7
 
@@ -1631,7 +1631,7 @@ define ptr @OSSL_STORE_INFO_get0_PKEY(ptr noundef readonly captures(none) %0) lo
 
 ; Function Attrs: nounwind uwtable
 define ptr @OSSL_STORE_INFO_get1_PKEY(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
-  %2 = load i32, ptr %0, align 8, !tbaa !70
+  %2 = load i32, ptr %0, align 8, !tbaa !68
   %3 = icmp eq i32 %2, 4
   br i1 %3, label %4, label %9
 
@@ -1655,7 +1655,7 @@ define ptr @OSSL_STORE_INFO_get1_PKEY(ptr noundef readonly captures(none) %0) lo
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define ptr @OSSL_STORE_INFO_get0_CERT(ptr noundef readonly captures(none) %0) local_unnamed_addr #7 {
-  %2 = load i32, ptr %0, align 8, !tbaa !70
+  %2 = load i32, ptr %0, align 8, !tbaa !68
   %3 = icmp eq i32 %2, 5
   br i1 %3, label %4, label %7
 
@@ -1671,7 +1671,7 @@ define ptr @OSSL_STORE_INFO_get0_CERT(ptr noundef readonly captures(none) %0) lo
 
 ; Function Attrs: nounwind uwtable
 define ptr @OSSL_STORE_INFO_get1_CERT(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
-  %2 = load i32, ptr %0, align 8, !tbaa !70
+  %2 = load i32, ptr %0, align 8, !tbaa !68
   %3 = icmp eq i32 %2, 5
   br i1 %3, label %4, label %9
 
@@ -1697,7 +1697,7 @@ declare i32 @X509_up_ref(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define ptr @OSSL_STORE_INFO_get0_CRL(ptr noundef readonly captures(none) %0) local_unnamed_addr #7 {
-  %2 = load i32, ptr %0, align 8, !tbaa !70
+  %2 = load i32, ptr %0, align 8, !tbaa !68
   %3 = icmp eq i32 %2, 6
   br i1 %3, label %4, label %7
 
@@ -1713,7 +1713,7 @@ define ptr @OSSL_STORE_INFO_get0_CRL(ptr noundef readonly captures(none) %0) loc
 
 ; Function Attrs: nounwind uwtable
 define ptr @OSSL_STORE_INFO_get1_CRL(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
-  %2 = load i32, ptr %0, align 8, !tbaa !70
+  %2 = load i32, ptr %0, align 8, !tbaa !68
   %3 = icmp eq i32 %2, 6
   br i1 %3, label %4, label %9
 
@@ -1747,16 +1747,16 @@ declare void @X509_CRL_free(ptr noundef) local_unnamed_addr #3
 define i32 @OSSL_STORE_supports_search(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = alloca %struct.ossl_store_search_st, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = load ptr, ptr %4, align 8, !tbaa !34
+  %5 = load ptr, ptr %4, align 8, !tbaa !33
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %.thread, label %6
 
 6:                                                ; preds = %2
   %7 = tail call ptr @OSSL_STORE_LOADER_get0_provider(ptr noundef nonnull %5) #9
   %8 = tail call ptr @ossl_provider_ctx(ptr noundef %7) #9
-  %9 = load ptr, ptr %4, align 8, !tbaa !34
+  %9 = load ptr, ptr %4, align 8, !tbaa !33
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 152
-  %11 = load ptr, ptr %10, align 8, !tbaa !74
+  %11 = load ptr, ptr %10, align 8, !tbaa !72
   %.not32 = icmp eq ptr %11, null
   br i1 %.not32, label %.critedge, label %12
 
@@ -1795,20 +1795,20 @@ define i32 @OSSL_STORE_supports_search(ptr noundef readonly captures(none) %0, i
 29:                                               ; preds = %12, %19, %21, %25, %27
   %.228.shrunk = phi i1 [ false, %12 ], [ %20, %19 ], [ %24, %21 ], [ %26, %25 ], [ %28, %27 ]
   %.228 = zext i1 %.228.shrunk to i32
-  %.pr = load ptr, ptr %4, align 8, !tbaa !34
+  %.pr = load ptr, ptr %4, align 8, !tbaa !33
   %30 = icmp eq ptr %.pr, null
   br i1 %30, label %.thread, label %.critedge
 
 .thread:                                          ; preds = %2, %29
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3) #9
-  %31 = load ptr, ptr %0, align 8, !tbaa !35
+  %31 = load ptr, ptr %0, align 8, !tbaa !34
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 48
-  %33 = load ptr, ptr %32, align 8, !tbaa !58
+  %33 = load ptr, ptr %32, align 8, !tbaa !57
   %.not33 = icmp eq ptr %33, null
   br i1 %.not33, label %.critedge.sink.split, label %34
 
 34:                                               ; preds = %.thread
-  store i32 %1, ptr %3, align 8, !tbaa !48
+  store i32 %1, ptr %3, align 8, !tbaa !47
   %35 = call i32 %33(ptr noundef null, ptr noundef nonnull %3) #9
   br label %.critedge.sink.split
 
@@ -1833,9 +1833,9 @@ define noalias ptr @OSSL_STORE_SEARCH_by_name(ptr noundef %0) local_unnamed_addr
   br i1 %3, label %6, label %4
 
 4:                                                ; preds = %1
-  store i32 1, ptr %2, align 8, !tbaa !48
+  store i32 1, ptr %2, align 8, !tbaa !47
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store ptr %0, ptr %5, align 8, !tbaa !53
+  store ptr %0, ptr %5, align 8, !tbaa !52
   br label %6
 
 6:                                                ; preds = %1, %4
@@ -1849,11 +1849,11 @@ define noalias ptr @OSSL_STORE_SEARCH_by_issuer_serial(ptr noundef %0, ptr nound
   br i1 %4, label %8, label %5
 
 5:                                                ; preds = %2
-  store i32 2, ptr %3, align 8, !tbaa !48
+  store i32 2, ptr %3, align 8, !tbaa !47
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store ptr %0, ptr %6, align 8, !tbaa !53
+  store ptr %0, ptr %6, align 8, !tbaa !52
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store ptr %1, ptr %7, align 8, !tbaa !54
+  store ptr %1, ptr %7, align 8, !tbaa !53
   br label %8
 
 8:                                                ; preds = %2, %5
@@ -1891,13 +1891,13 @@ define ptr @OSSL_STORE_SEARCH_by_key_fingerprint(ptr noundef %0, ptr noundef %1,
   br label %18
 
 14:                                               ; preds = %10
-  store i32 3, ptr %4, align 8, !tbaa !48
+  store i32 3, ptr %4, align 8, !tbaa !47
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  store ptr %0, ptr %15, align 8, !tbaa !55
+  store ptr %0, ptr %15, align 8, !tbaa !54
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  store ptr %1, ptr %16, align 8, !tbaa !56
+  store ptr %1, ptr %16, align 8, !tbaa !55
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 40
-  store i64 %2, ptr %17, align 8, !tbaa !57
+  store i64 %2, ptr %17, align 8, !tbaa !56
   br label %18
 
 18:                                               ; preds = %3, %14, %12, %9
@@ -1914,12 +1914,12 @@ define noalias ptr @OSSL_STORE_SEARCH_by_alias(ptr noundef %0) local_unnamed_add
   br i1 %3, label %8, label %4
 
 4:                                                ; preds = %1
-  store i32 4, ptr %2, align 8, !tbaa !48
+  store i32 4, ptr %2, align 8, !tbaa !47
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  store ptr %0, ptr %5, align 8, !tbaa !56
+  store ptr %0, ptr %5, align 8, !tbaa !55
   %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #10
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 40
-  store i64 %6, ptr %7, align 8, !tbaa !57
+  store i64 %6, ptr %7, align 8, !tbaa !56
   br label %8
 
 8:                                                ; preds = %1, %4
@@ -1937,45 +1937,45 @@ define void @OSSL_STORE_SEARCH_free(ptr noundef %0) local_unnamed_addr #0 {
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define i32 @OSSL_STORE_SEARCH_get_type(ptr noundef readonly captures(none) %0) local_unnamed_addr #7 {
-  %2 = load i32, ptr %0, align 8, !tbaa !48
+  %2 = load i32, ptr %0, align 8, !tbaa !47
   ret i32 %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define ptr @OSSL_STORE_SEARCH_get0_name(ptr noundef readonly captures(none) %0) local_unnamed_addr #7 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load ptr, ptr %2, align 8, !tbaa !53
+  %3 = load ptr, ptr %2, align 8, !tbaa !52
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define ptr @OSSL_STORE_SEARCH_get0_serial(ptr noundef readonly captures(none) %0) local_unnamed_addr #7 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %3 = load ptr, ptr %2, align 8, !tbaa !54
+  %3 = load ptr, ptr %2, align 8, !tbaa !53
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define ptr @OSSL_STORE_SEARCH_get0_bytes(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1) local_unnamed_addr #8 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %4 = load i64, ptr %3, align 8, !tbaa !57
+  %4 = load i64, ptr %3, align 8, !tbaa !56
   store i64 %4, ptr %1, align 8, !tbaa !22
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %6 = load ptr, ptr %5, align 8, !tbaa !56
+  %6 = load ptr, ptr %5, align 8, !tbaa !55
   ret ptr %6
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define ptr @OSSL_STORE_SEARCH_get0_string(ptr noundef readonly captures(none) %0) local_unnamed_addr #7 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %3 = load ptr, ptr %2, align 8, !tbaa !56
+  %3 = load ptr, ptr %2, align 8, !tbaa !55
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define ptr @OSSL_STORE_SEARCH_get0_digest(ptr noundef readonly captures(none) %0) local_unnamed_addr #7 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %3 = load ptr, ptr %2, align 8, !tbaa !55
+  %3 = load ptr, ptr %2, align 8, !tbaa !54
   ret ptr %3
 }
 
@@ -1992,7 +1992,7 @@ define ptr @OSSL_STORE_attach(ptr noundef %0, ptr noundef %1, ptr noundef %2, pt
 
 15:                                               ; preds = %9
   %16 = getelementptr inbounds nuw i8, ptr %14, i64 24
-  %17 = load ptr, ptr %16, align 8, !tbaa !75
+  %17 = load ptr, ptr %16, align 8, !tbaa !73
   %18 = tail call ptr %17(ptr noundef nonnull %14, ptr noundef %0, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #9
   br label %52
 
@@ -2010,7 +2010,7 @@ define ptr @OSSL_STORE_attach(ptr noundef %0, ptr noundef %1, ptr noundef %2, pt
 
 26:                                               ; preds = %21
   %27 = getelementptr inbounds nuw i8, ptr %20, i64 144
-  %28 = load ptr, ptr %27, align 8, !tbaa !76
+  %28 = load ptr, ptr %27, align 8, !tbaa !74
   %29 = icmp eq ptr %28, null
   br i1 %29, label %33, label %30
 
@@ -2112,14 +2112,14 @@ loader_set_params.exit:                           ; preds = %39, %42, %.thread.i
 
 66:                                               ; preds = %61, %60
   %67 = getelementptr inbounds nuw i8, ptr %56, i64 8
-  store ptr %.051, ptr %67, align 8, !tbaa !34
-  store ptr %.049, ptr %56, align 8, !tbaa !35
+  store ptr %.051, ptr %67, align 8, !tbaa !33
+  store ptr %.049, ptr %56, align 8, !tbaa !34
   %68 = getelementptr inbounds nuw i8, ptr %56, i64 16
-  store ptr %.1, ptr %68, align 8, !tbaa !36
+  store ptr %.1, ptr %68, align 8, !tbaa !35
   %69 = getelementptr inbounds nuw i8, ptr %56, i64 24
-  store ptr %7, ptr %69, align 8, !tbaa !37
+  store ptr %7, ptr %69, align 8, !tbaa !36
   %70 = getelementptr inbounds nuw i8, ptr %56, i64 32
-  store ptr %8, ptr %70, align 8, !tbaa !38
+  store ptr %8, ptr %70, align 8, !tbaa !37
   %71 = call i32 @ERR_pop_to_mark() #9
   br label %72
 
@@ -2185,55 +2185,53 @@ attributes #10 = { nounwind willreturn memory(read) }
 !22 = !{!23, !23, i64 0}
 !23 = !{!"long", !6, i64 0}
 !24 = !{!10, !5, i64 184}
-!25 = distinct !{!25, !26, !27}
+!25 = distinct !{!25, !26}
 !26 = !{!"llvm.loop.mustprogress"}
-!27 = !{!"llvm.loop.estimated_trip_count"}
-!28 = !{!29, !4, i64 48}
-!29 = !{!"ossl_store_ctx_st", !30, i64 0, !30, i64 8, !31, i64 16, !5, i64 24, !5, i64 32, !13, i64 40, !4, i64 48, !13, i64 56, !13, i64 60, !32, i64 64, !33, i64 72}
-!30 = !{!"p1 _ZTS20ossl_store_loader_st", !5, i64 0}
-!31 = !{!"p1 _ZTS24ossl_store_loader_ctx_st", !5, i64 0}
-!32 = !{!"p1 _ZTS24stack_st_OSSL_STORE_INFO", !5, i64 0}
-!33 = !{!"ossl_passphrase_data_st", !13, i64 0, !6, i64 8, !13, i64 24, !4, i64 32, !23, i64 40}
-!34 = !{!29, !30, i64 8}
-!35 = !{!29, !30, i64 0}
-!36 = !{!29, !31, i64 16}
-!37 = !{!29, !5, i64 24}
-!38 = !{!29, !5, i64 32}
-!39 = !{i64 0, i64 4, !20, i64 8, i64 16, !8, i64 24, i64 1, !8, i64 32, i64 8, !3, i64 40, i64 8, !22}
-!40 = !{!10, !5, i64 80}
-!41 = !{!29, !32, i64 64}
-!42 = !{!43, !43, i64 0}
-!43 = !{!"p1 int", !5, i64 0}
-!44 = !{!10, !5, i64 32}
-!45 = !{!29, !13, i64 56}
-!46 = !{!29, !13, i64 40}
-!47 = !{!10, !5, i64 40}
-!48 = !{!49, !13, i64 0}
-!49 = !{!"ossl_store_search_st", !13, i64 0, !50, i64 8, !51, i64 16, !52, i64 24, !4, i64 32, !23, i64 40}
-!50 = !{!"p1 _ZTS12X509_name_st", !5, i64 0}
-!51 = !{!"p1 _ZTS14asn1_string_st", !5, i64 0}
-!52 = !{!"p1 _ZTS9evp_md_st", !5, i64 0}
-!53 = !{!49, !50, i64 8}
-!54 = !{!49, !51, i64 16}
-!55 = !{!49, !52, i64 24}
-!56 = !{!49, !4, i64 32}
-!57 = !{!49, !23, i64 40}
-!58 = !{!10, !5, i64 48}
-!59 = !{!10, !5, i64 176}
-!60 = !{!10, !5, i64 64}
-!61 = !{!62, !63, i64 0}
-!62 = !{!"ossl_load_result_data_st", !63, i64 0, !64, i64 8}
-!63 = !{!"p1 _ZTS18ossl_store_info_st", !5, i64 0}
-!64 = !{!"p1 _ZTS17ossl_store_ctx_st", !5, i64 0}
-!65 = !{!62, !64, i64 8}
-!66 = !{!29, !13, i64 60}
-!67 = !{!10, !5, i64 168}
-!68 = !{!10, !5, i64 56}
-!69 = distinct !{!69, !27}
-!70 = !{!71, !13, i64 0}
-!71 = !{!"ossl_store_info_st", !13, i64 0, !6, i64 8}
-!72 = !{!10, !5, i64 200}
-!73 = !{!10, !5, i64 72}
-!74 = !{!10, !5, i64 152}
-!75 = !{!10, !5, i64 24}
-!76 = !{!10, !5, i64 144}
+!27 = !{!28, !4, i64 48}
+!28 = !{!"ossl_store_ctx_st", !29, i64 0, !29, i64 8, !30, i64 16, !5, i64 24, !5, i64 32, !13, i64 40, !4, i64 48, !13, i64 56, !13, i64 60, !31, i64 64, !32, i64 72}
+!29 = !{!"p1 _ZTS20ossl_store_loader_st", !5, i64 0}
+!30 = !{!"p1 _ZTS24ossl_store_loader_ctx_st", !5, i64 0}
+!31 = !{!"p1 _ZTS24stack_st_OSSL_STORE_INFO", !5, i64 0}
+!32 = !{!"ossl_passphrase_data_st", !13, i64 0, !6, i64 8, !13, i64 24, !4, i64 32, !23, i64 40}
+!33 = !{!28, !29, i64 8}
+!34 = !{!28, !29, i64 0}
+!35 = !{!28, !30, i64 16}
+!36 = !{!28, !5, i64 24}
+!37 = !{!28, !5, i64 32}
+!38 = !{i64 0, i64 4, !20, i64 8, i64 16, !8, i64 24, i64 1, !8, i64 32, i64 8, !3, i64 40, i64 8, !22}
+!39 = !{!10, !5, i64 80}
+!40 = !{!28, !31, i64 64}
+!41 = !{!42, !42, i64 0}
+!42 = !{!"p1 int", !5, i64 0}
+!43 = !{!10, !5, i64 32}
+!44 = !{!28, !13, i64 56}
+!45 = !{!28, !13, i64 40}
+!46 = !{!10, !5, i64 40}
+!47 = !{!48, !13, i64 0}
+!48 = !{!"ossl_store_search_st", !13, i64 0, !49, i64 8, !50, i64 16, !51, i64 24, !4, i64 32, !23, i64 40}
+!49 = !{!"p1 _ZTS12X509_name_st", !5, i64 0}
+!50 = !{!"p1 _ZTS14asn1_string_st", !5, i64 0}
+!51 = !{!"p1 _ZTS9evp_md_st", !5, i64 0}
+!52 = !{!48, !49, i64 8}
+!53 = !{!48, !50, i64 16}
+!54 = !{!48, !51, i64 24}
+!55 = !{!48, !4, i64 32}
+!56 = !{!48, !23, i64 40}
+!57 = !{!10, !5, i64 48}
+!58 = !{!10, !5, i64 176}
+!59 = !{!10, !5, i64 64}
+!60 = !{!61, !62, i64 0}
+!61 = !{!"ossl_load_result_data_st", !62, i64 0, !63, i64 8}
+!62 = !{!"p1 _ZTS18ossl_store_info_st", !5, i64 0}
+!63 = !{!"p1 _ZTS17ossl_store_ctx_st", !5, i64 0}
+!64 = !{!61, !63, i64 8}
+!65 = !{!28, !13, i64 60}
+!66 = !{!10, !5, i64 168}
+!67 = !{!10, !5, i64 56}
+!68 = !{!69, !13, i64 0}
+!69 = !{!"ossl_store_info_st", !13, i64 0, !6, i64 8}
+!70 = !{!10, !5, i64 200}
+!71 = !{!10, !5, i64 72}
+!72 = !{!10, !5, i64 152}
+!73 = !{!10, !5, i64 24}
+!74 = !{!10, !5, i64 144}

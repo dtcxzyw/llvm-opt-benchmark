@@ -85,13 +85,13 @@ define ptr @ossl_HPKE_KEM_INFO_find_curve(ptr noundef %0) local_unnamed_addr #0 
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %2 ]
   %4 = getelementptr inbounds nuw [5 x %struct.OSSL_HPKE_KEM_INFO], ptr @hpke_kem_tab, i64 0, i64 %indvars.iv
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %6 = load ptr, ptr %5, align 8, !tbaa !6
+  %6 = load ptr, ptr %5, align 8, !tbaa !5
   %7 = icmp eq ptr %6, null
   br i1 %7, label %8, label %11
 
 8:                                                ; preds = %3
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %10 = load ptr, ptr %9, align 8, !tbaa !14
+  %10 = load ptr, ptr %9, align 8, !tbaa !13
   br label %11
 
 11:                                               ; preds = %8, %3
@@ -133,12 +133,12 @@ define noundef ptr @ossl_HPKE_KEM_INFO_find_id(i16 noundef zeroext %0) local_unn
 3:                                                ; preds = %.preheader
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.not = icmp eq i64 %indvars.iv.next, 5
-  br i1 %.not, label %.loopexit.sink.split, label %.preheader, !llvm.loop !15
+  br i1 %.not, label %.loopexit.sink.split, label %.preheader, !llvm.loop !14
 
 .preheader:                                       ; preds = %1, %3
   %indvars.iv = phi i64 [ %indvars.iv.next, %3 ], [ 0, %1 ]
   %4 = getelementptr inbounds nuw [5 x %struct.OSSL_HPKE_KEM_INFO], ptr @hpke_kem_tab, i64 0, i64 %indvars.iv
-  %5 = load i16, ptr %4, align 8, !tbaa !16
+  %5 = load i16, ptr %4, align 8, !tbaa !15
   %6 = icmp eq i16 %5, %0
   br i1 %6, label %.loopexit, label %3
 
@@ -158,9 +158,9 @@ define noundef ptr @ossl_HPKE_KEM_INFO_find_id(i16 noundef zeroext %0) local_unn
 define ptr @ossl_HPKE_KEM_INFO_find_random(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #5
-  store i32 0, ptr %2, align 4, !tbaa !17
+  store i32 0, ptr %2, align 4, !tbaa !16
   %3 = call i32 @ossl_rand_uniform_uint32(ptr noundef %0, i32 noundef 5, ptr noundef nonnull %2) #5
-  %4 = load i32, ptr %2, align 4, !tbaa !17
+  %4 = load i32, ptr %2, align 4, !tbaa !16
   %5 = icmp eq i32 %4, 1
   %6 = zext i32 %3 to i64
   %7 = getelementptr inbounds nuw [5 x %struct.OSSL_HPKE_KEM_INFO], ptr @hpke_kem_tab, i64 0, i64 %6
@@ -178,12 +178,12 @@ define noundef ptr @ossl_HPKE_KDF_INFO_find_id(i16 noundef zeroext %0) local_unn
 2:                                                ; preds = %3
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %.not, label %7, label %3, !llvm.loop !19
+  br i1 %.not, label %7, label %3, !llvm.loop !18
 
 3:                                                ; preds = %1, %2
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %2 ]
   %4 = getelementptr inbounds nuw [3 x %struct.OSSL_HPKE_KDF_INFO], ptr @hpke_kdf_tab, i64 0, i64 %indvars.iv
-  %5 = load i16, ptr %4, align 8, !tbaa !20
+  %5 = load i16, ptr %4, align 8, !tbaa !19
   %6 = icmp eq i16 %5, %0
   br i1 %6, label %.loopexit, label %2
 
@@ -202,9 +202,9 @@ define noundef ptr @ossl_HPKE_KDF_INFO_find_id(i16 noundef zeroext %0) local_unn
 define ptr @ossl_HPKE_KDF_INFO_find_random(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #5
-  store i32 0, ptr %2, align 4, !tbaa !17
+  store i32 0, ptr %2, align 4, !tbaa !16
   %3 = call i32 @ossl_rand_uniform_uint32(ptr noundef %0, i32 noundef 3, ptr noundef nonnull %2) #5
-  %4 = load i32, ptr %2, align 4, !tbaa !17
+  %4 = load i32, ptr %2, align 4, !tbaa !16
   %5 = icmp eq i32 %4, 1
   %6 = zext i32 %3 to i64
   %7 = getelementptr inbounds nuw [3 x %struct.OSSL_HPKE_KDF_INFO], ptr @hpke_kdf_tab, i64 0, i64 %6
@@ -220,12 +220,12 @@ define noundef ptr @ossl_HPKE_AEAD_INFO_find_id(i16 noundef zeroext %0) local_un
 2:                                                ; preds = %3
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %.not, label %7, label %3, !llvm.loop !22
+  br i1 %.not, label %7, label %3, !llvm.loop !21
 
 3:                                                ; preds = %1, %2
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %2 ]
   %4 = getelementptr inbounds nuw [4 x %struct.OSSL_HPKE_AEAD_INFO], ptr @hpke_aead_tab, i64 0, i64 %indvars.iv
-  %5 = load i16, ptr %4, align 8, !tbaa !23
+  %5 = load i16, ptr %4, align 8, !tbaa !22
   %6 = icmp eq i16 %5, %0
   br i1 %6, label %.loopexit, label %2
 
@@ -244,9 +244,9 @@ define noundef ptr @ossl_HPKE_AEAD_INFO_find_id(i16 noundef zeroext %0) local_un
 define ptr @ossl_HPKE_AEAD_INFO_find_random(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #5
-  store i32 0, ptr %2, align 4, !tbaa !17
+  store i32 0, ptr %2, align 4, !tbaa !16
   %3 = call i32 @ossl_rand_uniform_uint32(ptr noundef %0, i32 noundef 3, ptr noundef nonnull %2) #5
-  %4 = load i32, ptr %2, align 4, !tbaa !17
+  %4 = load i32, ptr %2, align 4, !tbaa !16
   %5 = icmp eq i32 %4, 1
   %6 = zext i32 %3 to i64
   %7 = getelementptr inbounds nuw [4 x %struct.OSSL_HPKE_AEAD_INFO], ptr @hpke_aead_tab, i64 0, i64 %6
@@ -269,7 +269,7 @@ define internal fastcc range(i32 0, 2) i32 @kdf_derive(ptr noundef %0, ptr nound
   %14 = alloca %struct.ossl_param_st, align 8
   %15 = alloca %struct.ossl_param_st, align 8
   %16 = alloca %struct.ossl_param_st, align 8
-  store i32 %3, ptr %11, align 4, !tbaa !17
+  store i32 %3, ptr %11, align 4, !tbaa !16
   call void @llvm.lifetime.start.p0(i64 200, ptr nonnull %12) #5
   %17 = getelementptr inbounds nuw i8, ptr %12, i64 40
   call void @OSSL_PARAM_construct_int(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %12, ptr noundef nonnull @.str.18, ptr noundef nonnull %11) #5
@@ -280,7 +280,7 @@ define internal fastcc range(i32 0, 2) i32 @kdf_derive(ptr noundef %0, ptr nound
   %19 = getelementptr inbounds nuw i8, ptr %12, i64 80
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %13) #5
   call void @OSSL_PARAM_construct_octet_string(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %13, ptr noundef nonnull @.str.19, ptr noundef nonnull %4, i64 noundef %5) #5
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %17, ptr noundef nonnull align 8 dereferenceable(40) %13, i64 40, i1 false), !tbaa.struct !25
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %17, ptr noundef nonnull align 8 dereferenceable(40) %13, i64 40, i1 false), !tbaa.struct !24
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %13) #5
   br label %20
 
@@ -293,7 +293,7 @@ define internal fastcc range(i32 0, 2) i32 @kdf_derive(ptr noundef %0, ptr nound
   %22 = getelementptr inbounds nuw i8, ptr %.0, i64 40
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %14) #5
   call void @OSSL_PARAM_construct_octet_string(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %14, ptr noundef nonnull @.str.20, ptr noundef nonnull %6, i64 noundef %7) #5
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.0, ptr noundef nonnull align 8 dereferenceable(40) %14, i64 40, i1 false), !tbaa.struct !25
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.0, ptr noundef nonnull align 8 dereferenceable(40) %14, i64 40, i1 false), !tbaa.struct !24
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %14) #5
   br label %23
 
@@ -306,7 +306,7 @@ define internal fastcc range(i32 0, 2) i32 @kdf_derive(ptr noundef %0, ptr nound
   %25 = getelementptr inbounds nuw i8, ptr %.1, i64 40
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %15) #5
   call void @OSSL_PARAM_construct_octet_string(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %15, ptr noundef nonnull @.str.21, ptr noundef nonnull %8, i64 noundef %9) #5
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.1, ptr noundef nonnull align 8 dereferenceable(40) %15, i64 40, i1 false), !tbaa.struct !25
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.1, ptr noundef nonnull align 8 dereferenceable(40) %15, i64 40, i1 false), !tbaa.struct !24
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %15) #5
   br label %26
 
@@ -314,7 +314,7 @@ define internal fastcc range(i32 0, 2) i32 @kdf_derive(ptr noundef %0, ptr nound
   %.2 = phi ptr [ %25, %24 ], [ %.1, %23 ]
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %16) #5
   call void @OSSL_PARAM_construct_end(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %16) #5
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.2, ptr noundef nonnull align 8 dereferenceable(40) %16, i64 40, i1 false), !tbaa.struct !25
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.2, ptr noundef nonnull align 8 dereferenceable(40) %16, i64 40, i1 false), !tbaa.struct !24
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %16) #5
   %27 = call i32 @EVP_KDF_derive(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef nonnull %12) #5
   %28 = icmp sgt i32 %27, 0
@@ -350,7 +350,7 @@ define range(i32 0, 2) i32 @ossl_hpke_labeled_extract(ptr noundef %0, ptr nounde
   %17 = add i64 %16, %10
   %18 = add i64 %17, %14
   %19 = add i64 %18, %15
-  store i64 %19, ptr %12, align 8, !tbaa !28
+  store i64 %19, ptr %12, align 8, !tbaa !27
   %20 = tail call noalias ptr @CRYPTO_malloc(i64 noundef %19, ptr noundef nonnull @.str, i32 noundef 316) #5
   %21 = icmp eq ptr %20, null
   br i1 %21, label %44, label %22
@@ -402,14 +402,14 @@ define range(i32 0, 2) i32 @ossl_hpke_labeled_extract(ptr noundef %0, ptr nounde
   br label %42
 
 39:                                               ; preds = %36
-  %40 = load i64, ptr %12, align 8, !tbaa !28
+  %40 = load i64, ptr %12, align 8, !tbaa !27
   %41 = call fastcc range(i32 0, 2) i32 @kdf_derive(ptr noundef %0, ptr noundef %1, i64 noundef %2, i32 noundef 1, ptr noundef %3, i64 noundef %4, ptr noundef nonnull %20, i64 noundef %40, ptr noundef null, i64 noundef 0)
   br label %42
 
 42:                                               ; preds = %39, %38
   %.0 = phi i32 [ %41, %39 ], [ 0, %38 ]
   call void @WPACKET_cleanup(ptr noundef nonnull %13) #5
-  %43 = load i64, ptr %12, align 8, !tbaa !28
+  %43 = load i64, ptr %12, align 8, !tbaa !27
   call void @OPENSSL_cleanse(ptr noundef nonnull %20, i64 noundef %43) #5
   call void @CRYPTO_free(ptr noundef nonnull %20, ptr noundef nonnull @.str, i32 noundef 338) #5
   br label %44
@@ -454,7 +454,7 @@ define range(i32 0, 2) i32 @ossl_hpke_labeled_expand(ptr noundef %0, ptr noundef
   %19 = add i64 %18, %10
   %20 = add i64 %19, %14
   %21 = add i64 %20, %15
-  store i64 %21, ptr %12, align 8, !tbaa !28
+  store i64 %21, ptr %12, align 8, !tbaa !27
   %22 = tail call noalias ptr @CRYPTO_malloc(i64 noundef %21, ptr noundef nonnull @.str, i32 noundef 366) #5
   %23 = icmp eq ptr %22, null
   br i1 %23, label %47, label %24
@@ -511,7 +511,7 @@ define range(i32 0, 2) i32 @ossl_hpke_labeled_expand(ptr noundef %0, ptr noundef
   br label %46
 
 43:                                               ; preds = %40
-  %44 = load i64, ptr %12, align 8, !tbaa !28
+  %44 = load i64, ptr %12, align 8, !tbaa !27
   %45 = call fastcc range(i32 0, 2) i32 @kdf_derive(ptr noundef %0, ptr noundef %1, i64 noundef %2, i32 noundef 2, ptr noundef null, i64 noundef 0, ptr noundef %3, i64 noundef %4, ptr noundef nonnull %22, i64 noundef %44)
   br label %46
 
@@ -564,7 +564,7 @@ define ptr @ossl_kdf_ctx_create(ptr noundef %0, ptr noundef %1, ptr noundef %2, 
   %18 = getelementptr inbounds nuw i8, ptr %5, i64 80
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6) #5
   call void @OSSL_PARAM_construct_utf8_string(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %6, ptr noundef nonnull @.str.2, ptr noundef nonnull %3, i64 noundef 0) #5
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %16, ptr noundef nonnull align 8 dereferenceable(40) %6, i64 40, i1 false), !tbaa.struct !25
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %16, ptr noundef nonnull align 8 dereferenceable(40) %6, i64 40, i1 false), !tbaa.struct !24
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6) #5
   br label %19
 
@@ -572,7 +572,7 @@ define ptr @ossl_kdf_ctx_create(ptr noundef %0, ptr noundef %1, ptr noundef %2, 
   %.1 = phi ptr [ %18, %17 ], [ %16, %15 ]
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %7) #5
   call void @OSSL_PARAM_construct_end(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %7) #5
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.1, ptr noundef nonnull align 8 dereferenceable(40) %7, i64 40, i1 false), !tbaa.struct !25
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.1, ptr noundef nonnull align 8 dereferenceable(40) %7, i64 40, i1 false), !tbaa.struct !24
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7) #5
   %20 = call i32 @EVP_KDF_CTX_set_params(ptr noundef nonnull %12, ptr noundef nonnull %5) #5
   %21 = icmp sgt i32 %20, 0
@@ -615,7 +615,7 @@ define range(i32 0, 2) i32 @ossl_hpke_str2suite(ptr noundef %0, ptr noundef writ
   br i1 %3, label %8, label %4
 
 4:                                                ; preds = %2
-  %5 = load i8, ptr %0, align 1, !tbaa !29
+  %5 = load i8, ptr %0, align 1, !tbaa !28
   %6 = icmp eq i8 %5, 0
   %7 = icmp eq ptr %1, null
   %or.cond = or i1 %7, %6
@@ -641,14 +641,14 @@ define range(i32 0, 2) i32 @ossl_hpke_str2suite(ptr noundef %0, ptr noundef writ
 13:                                               ; preds = %9
   %14 = getelementptr i8, ptr %0, i64 %10
   %15 = getelementptr i8, ptr %14, i64 -1
-  %16 = load i8, ptr %15, align 1, !tbaa !29
+  %16 = load i8, ptr %15, align 1, !tbaa !28
   %17 = icmp eq i8 %16, 44
   br i1 %17, label %85, label %.preheader96
 
 .preheader96:                                     ; preds = %13, %21
   %.052 = phi ptr [ %22, %21 ], [ %0, %13 ]
   %.046 = phi i32 [ %.1, %21 ], [ 0, %13 ]
-  %18 = load i8, ptr %.052, align 1, !tbaa !29
+  %18 = load i8, ptr %.052, align 1, !tbaa !28
   switch i8 %18, label %21 [
     i8 0, label %23
     i8 44, label %19
@@ -661,7 +661,7 @@ define range(i32 0, 2) i32 @ossl_hpke_str2suite(ptr noundef %0, ptr noundef writ
 21:                                               ; preds = %.preheader96, %19
   %.1 = phi i32 [ %20, %19 ], [ %.046, %.preheader96 ]
   %22 = getelementptr inbounds nuw i8, ptr %.052, i64 1
-  br label %.preheader96, !llvm.loop !30
+  br label %.preheader96, !llvm.loop !29
 
 23:                                               ; preds = %.preheader96
   %.not68 = icmp eq i32 %.046, 2
@@ -684,7 +684,7 @@ define range(i32 0, 2) i32 @ossl_hpke_str2suite(ptr noundef %0, ptr noundef writ
   br i1 %.not69, label %29, label %30
 
 29:                                               ; preds = %.preheader
-  store i8 0, ptr %28, align 1, !tbaa !29
+  store i8 0, ptr %28, align 1, !tbaa !28
   br label %30
 
 30:                                               ; preds = %29, %.preheader
@@ -700,12 +700,12 @@ define range(i32 0, 2) i32 @ossl_hpke_str2suite(ptr noundef %0, ptr noundef writ
 34:                                               ; preds = %36
   %35 = add nuw nsw i64 %.013.i, 1
   %exitcond.not.i = icmp eq i64 %35, 4
-  br i1 %exitcond.not.i, label %41, label %36, !llvm.loop !31
+  br i1 %exitcond.not.i, label %41, label %36, !llvm.loop !30
 
 36:                                               ; preds = %34, %.preheader.i
   %.013.i = phi i64 [ 0, %.preheader.i ], [ %35, %34 ]
   %37 = getelementptr inbounds nuw [4 x ptr], ptr %33, i64 0, i64 %.013.i
-  %38 = load ptr, ptr %37, align 8, !tbaa !26
+  %38 = load ptr, ptr %37, align 8, !tbaa !25
   %39 = tail call i32 @OPENSSL_strcasecmp(ptr noundef nonnull %.153125, ptr noundef %38) #5
   %40 = icmp eq i32 %39, 0
   br i1 %40, label %synonyms_name2id.exit, label %34
@@ -713,10 +713,10 @@ define range(i32 0, 2) i32 @ossl_hpke_str2suite(ptr noundef %0, ptr noundef writ
 41:                                               ; preds = %34
   %42 = add nuw nsw i64 %.01114.i, 1
   %exitcond16.not.i = icmp eq i64 %42, 5
-  br i1 %exitcond16.not.i, label %.thread, label %.preheader.i, !llvm.loop !32
+  br i1 %exitcond16.not.i, label %.thread, label %.preheader.i, !llvm.loop !31
 
 synonyms_name2id.exit:                            ; preds = %36
-  %43 = load i16, ptr %32, align 8, !tbaa !33
+  %43 = load i16, ptr %32, align 8, !tbaa !32
   %44 = icmp eq i16 %43, 0
   br i1 %44, label %.thread, label %45
 
@@ -734,12 +734,12 @@ synonyms_name2id.exit:                            ; preds = %36
 49:                                               ; preds = %51
   %50 = add nuw nsw i64 %.013.i72, 1
   %exitcond.not.i73 = icmp eq i64 %50, 4
-  br i1 %exitcond.not.i73, label %56, label %51, !llvm.loop !31
+  br i1 %exitcond.not.i73, label %56, label %51, !llvm.loop !30
 
 51:                                               ; preds = %49, %.preheader.i70
   %.013.i72 = phi i64 [ 0, %.preheader.i70 ], [ %50, %49 ]
   %52 = getelementptr inbounds nuw [4 x ptr], ptr %48, i64 0, i64 %.013.i72
-  %53 = load ptr, ptr %52, align 8, !tbaa !26
+  %53 = load ptr, ptr %52, align 8, !tbaa !25
   %54 = tail call i32 @OPENSSL_strcasecmp(ptr noundef nonnull %.153125, ptr noundef %53) #5
   %55 = icmp eq i32 %54, 0
   br i1 %55, label %synonyms_name2id.exit76, label %49
@@ -747,10 +747,10 @@ synonyms_name2id.exit:                            ; preds = %36
 56:                                               ; preds = %49
   %57 = add nuw nsw i64 %.01114.i71, 1
   %exitcond16.not.i74 = icmp eq i64 %57, 3
-  br i1 %exitcond16.not.i74, label %.thread, label %.preheader.i70, !llvm.loop !32
+  br i1 %exitcond16.not.i74, label %.thread, label %.preheader.i70, !llvm.loop !31
 
 synonyms_name2id.exit76:                          ; preds = %51
-  %58 = load i16, ptr %47, align 8, !tbaa !33
+  %58 = load i16, ptr %47, align 8, !tbaa !32
   %59 = icmp eq i16 %58, 0
   br i1 %59, label %.thread, label %60
 
@@ -768,12 +768,12 @@ synonyms_name2id.exit76:                          ; preds = %51
 64:                                               ; preds = %66
   %65 = add nuw nsw i64 %.013.i79, 1
   %exitcond.not.i80 = icmp eq i64 %65, 4
-  br i1 %exitcond.not.i80, label %71, label %66, !llvm.loop !31
+  br i1 %exitcond.not.i80, label %71, label %66, !llvm.loop !30
 
 66:                                               ; preds = %64, %.preheader.i77
   %.013.i79 = phi i64 [ 0, %.preheader.i77 ], [ %65, %64 ]
   %67 = getelementptr inbounds nuw [4 x ptr], ptr %63, i64 0, i64 %.013.i79
-  %68 = load ptr, ptr %67, align 8, !tbaa !26
+  %68 = load ptr, ptr %67, align 8, !tbaa !25
   %69 = tail call i32 @OPENSSL_strcasecmp(ptr noundef nonnull %.153125, ptr noundef %68) #5
   %70 = icmp eq i32 %69, 0
   br i1 %70, label %synonyms_name2id.exit83, label %64
@@ -781,10 +781,10 @@ synonyms_name2id.exit76:                          ; preds = %51
 71:                                               ; preds = %64
   %72 = add nuw nsw i64 %.01114.i78, 1
   %exitcond16.not.i81 = icmp eq i64 %72, 4
-  br i1 %exitcond16.not.i81, label %.thread, label %.preheader.i77, !llvm.loop !32
+  br i1 %exitcond16.not.i81, label %.thread, label %.preheader.i77, !llvm.loop !31
 
 synonyms_name2id.exit83:                          ; preds = %66
-  %73 = load i16, ptr %62, align 8, !tbaa !33
+  %73 = load i16, ptr %62, align 8, !tbaa !32
   %74 = icmp eq i16 %73, 0
   br i1 %74, label %.thread, label %75
 
@@ -803,11 +803,11 @@ synonyms_name2id.exit83:                          ; preds = %66
   br i1 %or.cond3, label %.thread, label %82
 
 82:                                               ; preds = %80
-  store i16 %.151, ptr %1, align 2, !tbaa !35
+  store i16 %.151, ptr %1, align 2, !tbaa !34
   %83 = getelementptr inbounds nuw i8, ptr %1, i64 2
-  store i16 %.260, ptr %83, align 2, !tbaa !37
+  store i16 %.260, ptr %83, align 2, !tbaa !36
   %84 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  store i16 %.257, ptr %84, align 2, !tbaa !38
+  store i16 %.257, ptr %84, align 2, !tbaa !37
   br label %.thread
 
 .thread:                                          ; preds = %synonyms_name2id.exit83, %synonyms_name2id.exit76, %synonyms_name2id.exit, %41, %56, %71, %80, %24, %82
@@ -846,39 +846,38 @@ attributes #6 = { nounwind willreturn memory(read) }
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = distinct !{!3, !4, !5}
+!3 = distinct !{!3, !4}
 !4 = !{!"llvm.loop.mustprogress"}
-!5 = !{!"llvm.loop.estimated_trip_count"}
-!6 = !{!7, !11, i64 16}
-!7 = !{!"", !8, i64 0, !11, i64 8, !11, i64 16, !11, i64 24, !13, i64 32, !13, i64 40, !13, i64 48, !13, i64 56, !9, i64 64}
-!8 = !{!"short", !9, i64 0}
-!9 = !{!"omnipotent char", !10, i64 0}
-!10 = !{!"Simple C/C++ TBAA"}
-!11 = !{!"p1 omnipotent char", !12, i64 0}
-!12 = !{!"any pointer", !9, i64 0}
-!13 = !{!"long", !9, i64 0}
-!14 = !{!7, !11, i64 8}
-!15 = distinct !{!15, !4, !5}
-!16 = !{!7, !8, i64 0}
-!17 = !{!18, !18, i64 0}
-!18 = !{!"int", !9, i64 0}
-!19 = distinct !{!19, !4, !5}
-!20 = !{!21, !8, i64 0}
-!21 = !{!"", !8, i64 0, !11, i64 8, !13, i64 16}
-!22 = distinct !{!22, !4, !5}
-!23 = !{!24, !8, i64 0}
-!24 = !{!"", !8, i64 0, !11, i64 8, !13, i64 16, !13, i64 24, !13, i64 32}
-!25 = !{i64 0, i64 8, !26, i64 8, i64 4, !17, i64 16, i64 8, !27, i64 24, i64 8, !28, i64 32, i64 8, !28}
+!5 = !{!6, !10, i64 16}
+!6 = !{!"", !7, i64 0, !10, i64 8, !10, i64 16, !10, i64 24, !12, i64 32, !12, i64 40, !12, i64 48, !12, i64 56, !8, i64 64}
+!7 = !{!"short", !8, i64 0}
+!8 = !{!"omnipotent char", !9, i64 0}
+!9 = !{!"Simple C/C++ TBAA"}
+!10 = !{!"p1 omnipotent char", !11, i64 0}
+!11 = !{!"any pointer", !8, i64 0}
+!12 = !{!"long", !8, i64 0}
+!13 = !{!6, !10, i64 8}
+!14 = distinct !{!14, !4}
+!15 = !{!6, !7, i64 0}
+!16 = !{!17, !17, i64 0}
+!17 = !{!"int", !8, i64 0}
+!18 = distinct !{!18, !4}
+!19 = !{!20, !7, i64 0}
+!20 = !{!"", !7, i64 0, !10, i64 8, !12, i64 16}
+!21 = distinct !{!21, !4}
+!22 = !{!23, !7, i64 0}
+!23 = !{!"", !7, i64 0, !10, i64 8, !12, i64 16, !12, i64 24, !12, i64 32}
+!24 = !{i64 0, i64 8, !25, i64 8, i64 4, !16, i64 16, i64 8, !26, i64 24, i64 8, !27, i64 32, i64 8, !27}
+!25 = !{!10, !10, i64 0}
 !26 = !{!11, !11, i64 0}
 !27 = !{!12, !12, i64 0}
-!28 = !{!13, !13, i64 0}
-!29 = !{!9, !9, i64 0}
-!30 = distinct !{!30, !4, !5}
-!31 = distinct !{!31, !4, !5}
-!32 = distinct !{!32, !4, !5}
-!33 = !{!34, !8, i64 0}
-!34 = !{!"", !8, i64 0, !9, i64 8}
-!35 = !{!36, !8, i64 0}
-!36 = !{!"", !8, i64 0, !8, i64 2, !8, i64 4}
-!37 = !{!36, !8, i64 2}
-!38 = !{!36, !8, i64 4}
+!28 = !{!8, !8, i64 0}
+!29 = distinct !{!29, !4}
+!30 = distinct !{!30, !4}
+!31 = distinct !{!31, !4}
+!32 = !{!33, !7, i64 0}
+!33 = !{!"", !7, i64 0, !8, i64 8}
+!34 = !{!35, !7, i64 0}
+!35 = !{!"", !7, i64 0, !7, i64 2, !7, i64 4}
+!36 = !{!35, !7, i64 2}
+!37 = !{!35, !7, i64 4}

@@ -273,6 +273,5 @@ attributes #11 = { builtin nounwind }
 !7 = !{!"Simple C++ TBAA"}
 !8 = !{!6, !6, i64 0}
 !9 = !{i64 0, i64 16, !8}
-!10 = distinct !{!10, !11, !12}
+!10 = distinct !{!10, !11}
 !11 = !{!"llvm.loop.mustprogress"}
-!12 = !{!"llvm.loop.estimated_trip_count"}

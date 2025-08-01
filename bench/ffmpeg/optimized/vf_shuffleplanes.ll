@@ -103,7 +103,7 @@ define internal i32 @query_formats(ptr noundef %0, ptr noundef %1, ptr noundef %
   %38 = trunc nuw i64 %indvars.iv.next53 to i32
   %39 = call ptr @av_pix_fmt_desc_get(i32 noundef %38) #6
   %.not = icmp eq ptr %39, null
-  br i1 %.not, label %._crit_edge.loopexit, label %9, !llvm.loop !31
+  br i1 %.not, label %._crit_edge.loopexit, label %9, !llvm.loop !30
 
 ._crit_edge.loopexit:                             ; preds = %.thread
   %.pre = load ptr, ptr %4, align 8, !tbaa !4
@@ -126,9 +126,9 @@ define internal i32 @shuffleplanes_filter_frame(ptr noundef readonly captures(no
   %4 = alloca [4 x ptr], align 16
   %5 = alloca [4 x i32], align 16
   %6 = alloca ptr, align 8
-  store ptr %1, ptr %3, align 8, !tbaa !32
+  store ptr %1, ptr %3, align 8, !tbaa !31
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %8 = load ptr, ptr %7, align 8, !tbaa !34
+  %8 = load ptr, ptr %7, align 8, !tbaa !33
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 72
   %10 = load ptr, ptr %9, align 8, !tbaa !9
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #6
@@ -136,7 +136,7 @@ define internal i32 @shuffleplanes_filter_frame(ptr noundef readonly captures(no
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #6
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %5, i8 0, i64 16, i1 false)
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %12 = load i32, ptr %11, align 8, !tbaa !42
+  %12 = load i32, ptr %11, align 8, !tbaa !41
   %13 = icmp sgt i32 %12, 0
   br i1 %13, label %.lr.ph, label %._crit_edge
 
@@ -152,37 +152,37 @@ define internal i32 @shuffleplanes_filter_frame(ptr noundef readonly captures(no
   %18 = load i32, ptr %17, align 4, !tbaa !25
   %19 = sext i32 %18 to i64
   %20 = getelementptr inbounds [8 x ptr], ptr %1, i64 0, i64 %19
-  %21 = load ptr, ptr %20, align 8, !tbaa !44
+  %21 = load ptr, ptr %20, align 8, !tbaa !43
   %22 = getelementptr inbounds nuw [4 x ptr], ptr %4, i64 0, i64 %indvars.iv
-  store ptr %21, ptr %22, align 8, !tbaa !44
+  store ptr %21, ptr %22, align 8, !tbaa !43
   %23 = getelementptr inbounds [8 x i32], ptr %15, i64 0, i64 %19
   %24 = load i32, ptr %23, align 4, !tbaa !25
   %25 = getelementptr inbounds nuw [4 x i32], ptr %5, i64 0, i64 %indvars.iv
   store i32 %24, ptr %25, align 4, !tbaa !25
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %16, !llvm.loop !45
+  br i1 %exitcond.not, label %._crit_edge, label %16, !llvm.loop !44
 
 ._crit_edge:                                      ; preds = %16, %2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 16 dereferenceable(32) %4, i64 32, i1 false)
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %26, ptr noundef nonnull align 16 dereferenceable(16) %5, i64 16, i1 false)
   %27 = getelementptr inbounds nuw i8, ptr %10, i64 28
-  %28 = load i32, ptr %27, align 4, !tbaa !46
+  %28 = load i32, ptr %27, align 4, !tbaa !45
   %.not = icmp eq i32 %28, 0
   br i1 %.not, label %44, label %29
 
 29:                                               ; preds = %._crit_edge
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #6
   %30 = getelementptr inbounds nuw i8, ptr %8, i64 56
-  %31 = load ptr, ptr %30, align 8, !tbaa !47
-  %32 = load ptr, ptr %31, align 8, !tbaa !48
+  %31 = load ptr, ptr %30, align 8, !tbaa !46
+  %32 = load ptr, ptr %31, align 8, !tbaa !47
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 104
-  %34 = load i32, ptr %33, align 8, !tbaa !50
+  %34 = load i32, ptr %33, align 8, !tbaa !49
   %35 = getelementptr inbounds nuw i8, ptr %1, i64 108
-  %36 = load i32, ptr %35, align 4, !tbaa !55
+  %36 = load i32, ptr %35, align 4, !tbaa !54
   %37 = tail call ptr @ff_get_video_buffer(ptr noundef %32, i32 noundef %34, i32 noundef %36) #6
-  store ptr %37, ptr %6, align 8, !tbaa !32
+  store ptr %37, ptr %6, align 8, !tbaa !31
   %.not22 = icmp eq ptr %37, null
   br i1 %.not22, label %50, label %38
 
@@ -198,15 +198,15 @@ define internal i32 @shuffleplanes_filter_frame(ptr noundef readonly captures(no
 
 43:                                               ; preds = %38
   call void @av_frame_free(ptr noundef nonnull %3) #6
-  store ptr %37, ptr %3, align 8, !tbaa !32
+  store ptr %37, ptr %3, align 8, !tbaa !31
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #6
   br label %44
 
 44:                                               ; preds = %43, %._crit_edge
   %45 = phi ptr [ %37, %43 ], [ %1, %._crit_edge ]
   %46 = getelementptr inbounds nuw i8, ptr %8, i64 56
-  %47 = load ptr, ptr %46, align 8, !tbaa !47
-  %48 = load ptr, ptr %47, align 8, !tbaa !48
+  %47 = load ptr, ptr %46, align 8, !tbaa !46
+  %48 = load ptr, ptr %47, align 8, !tbaa !47
   %49 = call i32 @ff_filter_frame(ptr noundef %48, ptr noundef nonnull %45) #6
   br label %51
 
@@ -227,18 +227,18 @@ define internal i32 @shuffleplanes_filter_frame(ptr noundef readonly captures(no
 define internal noundef i32 @shuffleplanes_config_input(ptr noundef readonly captures(none) %0) #1 {
   %2 = alloca [4 x i32], align 16
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %4 = load ptr, ptr %3, align 8, !tbaa !34
+  %4 = load ptr, ptr %3, align 8, !tbaa !33
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %6 = load ptr, ptr %5, align 8, !tbaa !9
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #6
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %2, i8 0, i64 16, i1 false)
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 28
-  store i32 0, ptr %7, align 4, !tbaa !46
+  store i32 0, ptr %7, align 4, !tbaa !45
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 36
-  %9 = load i32, ptr %8, align 4, !tbaa !56
+  %9 = load i32, ptr %8, align 4, !tbaa !55
   %10 = tail call i32 @av_pix_fmt_count_planes(i32 noundef %9) #6
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store i32 %10, ptr %11, align 8, !tbaa !42
+  store i32 %10, ptr %11, align 8, !tbaa !41
   %12 = icmp sgt i32 %10, 0
   br i1 %12, label %.lr.ph, label %._crit_edge
 
@@ -258,7 +258,7 @@ define internal noundef i32 @shuffleplanes_config_input(ptr noundef readonly cap
   br i1 %.not, label %22, label %20
 
 20:                                               ; preds = %14
-  store i32 1, ptr %7, align 4, !tbaa !46
+  store i32 1, ptr %7, align 4, !tbaa !45
   %.pre = load i32, ptr %15, align 4, !tbaa !25
   %.phi.trans.insert = sext i32 %.pre to i64
   %.phi.trans.insert14 = getelementptr inbounds [4 x i32], ptr %2, i64 0, i64 %.phi.trans.insert
@@ -273,7 +273,7 @@ define internal noundef i32 @shuffleplanes_config_input(ptr noundef readonly cap
   store i32 %23, ptr %24, align 4, !tbaa !25
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %14, !llvm.loop !57
+  br i1 %exitcond.not, label %._crit_edge, label %14, !llvm.loop !56
 
 ._crit_edge:                                      ; preds = %22, %1
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #6
@@ -350,33 +350,32 @@ attributes #6 = { nounwind }
 !25 = !{!17, !17, i64 0}
 !26 = !{!23, !7, i64 10}
 !27 = !{!23, !7, i64 9}
-!28 = distinct !{!28, !29, !30}
+!28 = distinct !{!28, !29}
 !29 = !{!"llvm.loop.mustprogress"}
-!30 = !{!"llvm.loop.estimated_trip_count"}
-!31 = distinct !{!31, !29, !30}
-!32 = !{!33, !33, i64 0}
-!33 = !{!"p1 _ZTS7AVFrame", !6, i64 0}
-!34 = !{!35, !36, i64 16}
-!35 = !{!"AVFilterLink", !36, i64 0, !14, i64 8, !36, i64 16, !14, i64 24, !17, i64 32, !17, i64 36, !17, i64 40, !17, i64 44, !37, i64 48, !17, i64 56, !17, i64 60, !17, i64 64, !38, i64 72, !37, i64 96, !39, i64 104, !17, i64 112, !40, i64 120, !40, i64 160}
-!36 = !{!"p1 _ZTS15AVFilterContext", !6, i64 0}
-!37 = !{!"AVRational", !17, i64 0, !17, i64 4}
-!38 = !{!"AVChannelLayout", !17, i64 0, !17, i64 4, !7, i64 8, !6, i64 16}
-!39 = !{!"p2 _ZTS15AVFrameSideData", !16, i64 0}
-!40 = !{!"AVFilterFormatsConfig", !5, i64 0, !5, i64 8, !41, i64 16, !5, i64 24, !5, i64 32}
-!41 = !{!"p1 _ZTS22AVFilterChannelLayouts", !6, i64 0}
-!42 = !{!43, !17, i64 8}
-!43 = !{!"ShufflePlanesContext", !11, i64 0, !17, i64 8, !7, i64 12, !17, i64 28}
-!44 = !{!13, !13, i64 0}
-!45 = distinct !{!45, !29, !30}
-!46 = !{!43, !17, i64 28}
-!47 = !{!10, !15, i64 56}
-!48 = !{!49, !49, i64 0}
-!49 = !{!"p1 _ZTS12AVFilterLink", !6, i64 0}
-!50 = !{!51, !17, i64 104}
-!51 = !{!"AVFrame", !7, i64 0, !7, i64 64, !52, i64 96, !17, i64 104, !17, i64 108, !17, i64 112, !17, i64 116, !17, i64 120, !37, i64 124, !24, i64 136, !24, i64 144, !37, i64 152, !17, i64 160, !6, i64 168, !17, i64 176, !17, i64 180, !7, i64 184, !53, i64 248, !17, i64 256, !39, i64 264, !17, i64 272, !17, i64 276, !17, i64 280, !17, i64 284, !17, i64 288, !17, i64 292, !17, i64 296, !24, i64 304, !54, i64 312, !17, i64 320, !21, i64 328, !21, i64 336, !24, i64 344, !24, i64 352, !24, i64 360, !24, i64 368, !6, i64 376, !38, i64 384, !24, i64 408}
-!52 = !{!"p2 omnipotent char", !16, i64 0}
-!53 = !{!"p2 _ZTS11AVBufferRef", !16, i64 0}
-!54 = !{!"p1 _ZTS12AVDictionary", !6, i64 0}
-!55 = !{!51, !17, i64 108}
-!56 = !{!35, !17, i64 36}
-!57 = distinct !{!57, !29, !30}
+!30 = distinct !{!30, !29}
+!31 = !{!32, !32, i64 0}
+!32 = !{!"p1 _ZTS7AVFrame", !6, i64 0}
+!33 = !{!34, !35, i64 16}
+!34 = !{!"AVFilterLink", !35, i64 0, !14, i64 8, !35, i64 16, !14, i64 24, !17, i64 32, !17, i64 36, !17, i64 40, !17, i64 44, !36, i64 48, !17, i64 56, !17, i64 60, !17, i64 64, !37, i64 72, !36, i64 96, !38, i64 104, !17, i64 112, !39, i64 120, !39, i64 160}
+!35 = !{!"p1 _ZTS15AVFilterContext", !6, i64 0}
+!36 = !{!"AVRational", !17, i64 0, !17, i64 4}
+!37 = !{!"AVChannelLayout", !17, i64 0, !17, i64 4, !7, i64 8, !6, i64 16}
+!38 = !{!"p2 _ZTS15AVFrameSideData", !16, i64 0}
+!39 = !{!"AVFilterFormatsConfig", !5, i64 0, !5, i64 8, !40, i64 16, !5, i64 24, !5, i64 32}
+!40 = !{!"p1 _ZTS22AVFilterChannelLayouts", !6, i64 0}
+!41 = !{!42, !17, i64 8}
+!42 = !{!"ShufflePlanesContext", !11, i64 0, !17, i64 8, !7, i64 12, !17, i64 28}
+!43 = !{!13, !13, i64 0}
+!44 = distinct !{!44, !29}
+!45 = !{!42, !17, i64 28}
+!46 = !{!10, !15, i64 56}
+!47 = !{!48, !48, i64 0}
+!48 = !{!"p1 _ZTS12AVFilterLink", !6, i64 0}
+!49 = !{!50, !17, i64 104}
+!50 = !{!"AVFrame", !7, i64 0, !7, i64 64, !51, i64 96, !17, i64 104, !17, i64 108, !17, i64 112, !17, i64 116, !17, i64 120, !36, i64 124, !24, i64 136, !24, i64 144, !36, i64 152, !17, i64 160, !6, i64 168, !17, i64 176, !17, i64 180, !7, i64 184, !52, i64 248, !17, i64 256, !38, i64 264, !17, i64 272, !17, i64 276, !17, i64 280, !17, i64 284, !17, i64 288, !17, i64 292, !17, i64 296, !24, i64 304, !53, i64 312, !17, i64 320, !21, i64 328, !21, i64 336, !24, i64 344, !24, i64 352, !24, i64 360, !24, i64 368, !6, i64 376, !37, i64 384, !24, i64 408}
+!51 = !{!"p2 omnipotent char", !16, i64 0}
+!52 = !{!"p2 _ZTS11AVBufferRef", !16, i64 0}
+!53 = !{!"p1 _ZTS12AVDictionary", !6, i64 0}
+!54 = !{!50, !17, i64 108}
+!55 = !{!34, !17, i64 36}
+!56 = distinct !{!56, !29}

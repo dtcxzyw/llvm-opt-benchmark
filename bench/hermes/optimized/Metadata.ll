@@ -80,7 +80,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %inc = add i64 %i.061, 1
   %call.i = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %__begin2.sroa.0.060) #15
   %cmp.i.not = icmp eq ptr %call.i, %add.ptr.i.i
-  br i1 %cmp.i.not, label %for.end, label %for.body, !llvm.loop !4
+  br i1 %cmp.i.not, label %for.end, label %for.body
 
 for.end:                                          ; preds = %for.body, %entry
   %i.0.lcssa = phi i64 [ 0, %entry ], [ %inc, %for.body ]
@@ -110,7 +110,7 @@ for.body22:                                       ; preds = %for.body22.lr.ph, %
   %inc32 = add i64 %i.164, 1
   %call.i36 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %__begin214.sroa.0.063) #15
   %cmp.i32.not = icmp eq ptr %call.i36, %add.ptr.i.i31
-  br i1 %cmp.i32.not, label %for.end35.loopexit, label %for.body22, !llvm.loop !6
+  br i1 %cmp.i32.not, label %for.end35.loopexit, label %for.body22
 
 for.end35.loopexit:                               ; preds = %for.body22
   %.pre = trunc i64 %inc32 to i8
@@ -145,7 +145,7 @@ for.body47:                                       ; preds = %for.body47.lr.ph, %
   %inc57 = add i64 %i.268, 1
   %call.i43 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %__begin239.sroa.0.067) #15
   %cmp.i39.not = icmp eq ptr %call.i43, %add.ptr.i.i38
-  br i1 %cmp.i39.not, label %for.end60.loopexit, label %for.body47, !llvm.loop !7
+  br i1 %cmp.i39.not, label %for.end60.loopexit, label %for.body47
 
 for.end60.loopexit:                               ; preds = %for.body47
   %.pre74 = trunc i64 %inc57 to i8
@@ -180,7 +180,7 @@ for.body72:                                       ; preds = %for.body72.lr.ph, %
   %inc82 = add i64 %i.372, 1
   %call.i50 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %__begin264.sroa.0.071) #15
   %cmp.i46.not = icmp eq ptr %call.i50, %add.ptr.i.i45
-  br i1 %cmp.i46.not, label %for.end85.loopexit, label %for.body72, !llvm.loop !8
+  br i1 %cmp.i46.not, label %for.end85.loopexit, label %for.body72
 
 for.end85.loopexit:                               ; preds = %for.body72
   %.pre75 = trunc i64 %inc82 to i8
@@ -421,7 +421,7 @@ while.body.i.i.i:                                 ; preds = %entry, %while.body.
   %__x.addr.1.in.i.i.i = getelementptr inbounds nuw i8, ptr %__x.addr.07.i.i.i, i64 %__x.addr.1.in.v.i.i.i
   %__x.addr.1.i.i.i = load ptr, ptr %__x.addr.1.in.i.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %__x.addr.1.i.i.i, null
-  br i1 %cmp.not.i.i.i, label %_ZNSt3mapIhPKcSt4lessIhESaISt4pairIKhS1_EEE11lower_boundERS5_.exit, label %while.body.i.i.i, !llvm.loop !9
+  br i1 %cmp.not.i.i.i, label %_ZNSt3mapIhPKcSt4lessIhESaISt4pairIKhS1_EEE11lower_boundERS5_.exit, label %while.body.i.i.i, !llvm.loop !4
 
 _ZNSt3mapIhPKcSt4lessIhESaISt4pairIKhS1_EEE11lower_boundERS5_.exit: ; preds = %while.body.i.i.i
   %cmp.i = icmp eq ptr %__y.addr.1.i.i.i, %add.ptr.i.i.i
@@ -716,7 +716,7 @@ if.then4.i.i106:                                  ; preds = %_ZN4llvh11raw_ostre
 _ZN4llvh11raw_ostreamlsEPKc.exit111:              ; preds = %if.then.i.i109, %if.then4.i.i106
   %inc = add nuw nsw i64 %i.0209, 1
   %exitcond.not = icmp eq i64 %inc, %conv6
-  br i1 %exitcond.not, label %if.then18, label %for.body, !llvm.loop !11
+  br i1 %exitcond.not, label %if.then18, label %for.body, !llvm.loop !6
 
 if.then18:                                        ; preds = %_ZN4llvh11raw_ostreamlsEPKc.exit111
   %25 = load ptr, ptr %OutBufEnd.i5.i, align 8
@@ -1172,7 +1172,7 @@ while.body.i:                                     ; preds = %while.body.i, %whil
   %cond.in.i = getelementptr inbounds nuw i8, ptr %__x.021.i, i64 %cond.in.v.i
   %__x.0.i = load ptr, ptr %cond.in.i, align 8
   %cmp.not.i = icmp eq ptr %__x.0.i, null
-  br i1 %cmp.not.i, label %while.end.i, label %while.body.i, !llvm.loop !12
+  br i1 %cmp.not.i, label %while.end.i, label %while.body.i, !llvm.loop !7
 
 while.end.i:                                      ; preds = %while.body.i
   br i1 %cmp.i.i, label %if.then.i, label %if.end12.i
@@ -1244,7 +1244,7 @@ while.body.i26:                                   ; preds = %if.else42, %while.b
   %cond.in.i31 = getelementptr inbounds nuw i8, ptr %__x.021.i27, i64 %cond.in.v.i30
   %__x.0.i32 = load ptr, ptr %cond.in.i31, align 8
   %cmp.not.i33 = icmp eq ptr %__x.0.i32, null
-  br i1 %cmp.not.i33, label %while.end.i34, label %while.body.i26, !llvm.loop !12
+  br i1 %cmp.not.i33, label %while.end.i34, label %while.body.i26, !llvm.loop !7
 
 while.end.i34:                                    ; preds = %while.body.i26
   br i1 %cmp.i.i29, label %if.then.i46, label %if.end12.i35
@@ -1309,7 +1309,7 @@ while.body.i69:                                   ; preds = %if.else74, %while.b
   %cond.in.i74 = getelementptr inbounds nuw i8, ptr %__x.021.i70, i64 %cond.in.v.i73
   %__x.0.i75 = load ptr, ptr %cond.in.i74, align 8
   %cmp.not.i76 = icmp eq ptr %__x.0.i75, null
-  br i1 %cmp.not.i76, label %while.end.i77, label %while.body.i69, !llvm.loop !12
+  br i1 %cmp.not.i76, label %while.end.i77, label %while.body.i69, !llvm.loop !7
 
 while.end.i77:                                    ; preds = %while.body.i69
   br i1 %cmp.i.i72, label %if.then.i89, label %if.end12.i78
@@ -1370,7 +1370,7 @@ arrayinit.body.i:                                 ; preds = %arrayinit.body.i, %
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %names.i.i, i8 0, i64 72, i1 false)
   %arrayinit.cur.add.i = add nuw nsw i64 %arrayinit.cur.idx.i, 96
   %arrayinit.done.i = icmp eq i64 %arrayinit.cur.add.i, 7584
-  br i1 %arrayinit.done.i, label %__cxx_global_var_init.exit, label %arrayinit.body.i, !llvm.loop !13
+  br i1 %arrayinit.done.i, label %__cxx_global_var_init.exit, label %arrayinit.body.i
 
 __cxx_global_var_init.exit:                       ; preds = %arrayinit.body.i
   ret void
@@ -1409,12 +1409,6 @@ attributes #18 = { builtin nounwind }
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
 !4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.estimated_trip_count"}
+!5 = !{!"llvm.loop.mustprogress"}
 !6 = distinct !{!6, !5}
 !7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5}
-!9 = distinct !{!9, !10, !5}
-!10 = !{!"llvm.loop.mustprogress"}
-!11 = distinct !{!11, !10, !5}
-!12 = distinct !{!12, !10, !5}
-!13 = distinct !{!13, !5}

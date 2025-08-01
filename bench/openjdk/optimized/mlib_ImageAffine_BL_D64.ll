@@ -181,7 +181,7 @@ define hidden noundef i32 @mlib_ImageAffine_d64_1ch_bl(ptr noundef readonly capt
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
   %exitcond.not = icmp eq i32 %34, %lftr.wideiv
-  br i1 %exitcond.not, label %._crit_edge162, label %35, !llvm.loop !9
+  br i1 %exitcond.not, label %._crit_edge162, label %35, !llvm.loop !8
 
 ._crit_edge162:                                   ; preds = %122, %1
   ret i32 0
@@ -372,7 +372,7 @@ define hidden noundef i32 @mlib_ImageAffine_d64_2ch_bl(ptr noundef readonly capt
   store double %100, ptr %137, align 8
   %138 = getelementptr inbounds nuw i8, ptr %.0156166, i64 16
   %139 = icmp ult ptr %138, %55
-  br i1 %139, label %.lr.ph, label %._crit_edge, !llvm.loop !10
+  br i1 %139, label %.lr.ph, label %._crit_edge, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %.lr.ph, %49
   %.0156.lcssa = phi ptr [ %52, %49 ], [ %138, %.lr.ph ]
@@ -405,7 +405,7 @@ define hidden noundef i32 @mlib_ImageAffine_d64_2ch_bl(ptr noundef readonly capt
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
   %exitcond.not = icmp eq i32 %31, %lftr.wideiv
-  br i1 %exitcond.not, label %._crit_edge200, label %32, !llvm.loop !11
+  br i1 %exitcond.not, label %._crit_edge200, label %32, !llvm.loop !10
 
 ._crit_edge200:                                   ; preds = %149, %1
   ret i32 0
@@ -619,7 +619,7 @@ define hidden noundef i32 @mlib_ImageAffine_d64_3ch_bl(ptr noundef readonly capt
   store double %112, ptr %158, align 8
   %159 = getelementptr inbounds nuw i8, ptr %.0188198, i64 24
   %160 = icmp ult ptr %159, %55
-  br i1 %160, label %.lr.ph, label %._crit_edge, !llvm.loop !12
+  br i1 %160, label %.lr.ph, label %._crit_edge, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %.lr.ph, %49
   %.0188.lcssa = phi ptr [ %52, %49 ], [ %159, %.lr.ph ]
@@ -662,7 +662,7 @@ define hidden noundef i32 @mlib_ImageAffine_d64_3ch_bl(ptr noundef readonly capt
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
   %exitcond.not = icmp eq i32 %31, %lftr.wideiv
-  br i1 %exitcond.not, label %._crit_edge240, label %32, !llvm.loop !13
+  br i1 %exitcond.not, label %._crit_edge240, label %32, !llvm.loop !12
 
 ._crit_edge240:                                   ; preds = %175, %1
   ret i32 0
@@ -902,7 +902,7 @@ define hidden noundef i32 @mlib_ImageAffine_d64_4ch_bl(ptr noundef readonly capt
   store double %124, ptr %179, align 8
   %180 = getelementptr inbounds nuw i8, ptr %.0220230, i64 32
   %181 = icmp ult ptr %180, %55
-  br i1 %181, label %.lr.ph, label %._crit_edge, !llvm.loop !14
+  br i1 %181, label %.lr.ph, label %._crit_edge, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %.lr.ph, %49
   %.0220.lcssa = phi ptr [ %52, %49 ], [ %180, %.lr.ph ]
@@ -955,7 +955,7 @@ define hidden noundef i32 @mlib_ImageAffine_d64_4ch_bl(ptr noundef readonly capt
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
   %exitcond.not = icmp eq i32 %31, %lftr.wideiv
-  br i1 %exitcond.not, label %._crit_edge280, label %32, !llvm.loop !15
+  br i1 %exitcond.not, label %._crit_edge280, label %32, !llvm.loop !14
 
 ._crit_edge280:                                   ; preds = %201, %1
   ret i32 0
@@ -972,13 +972,12 @@ attributes #1 = { mustprogress nocallback nofree nosync nounwind speculatable wi
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7, !8}
-!11 = distinct !{!11, !7, !8}
-!12 = distinct !{!12, !7, !8}
-!13 = distinct !{!13, !7, !8}
-!14 = distinct !{!14, !7, !8}
-!15 = distinct !{!15, !7, !8}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7}
+!12 = distinct !{!12, !7}
+!13 = distinct !{!13, !7}
+!14 = distinct !{!14, !7}

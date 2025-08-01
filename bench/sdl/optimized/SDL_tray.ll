@@ -836,7 +836,7 @@ define hidden void @SDL_RemoveTrayEntry_REAL(ptr noundef %0) local_unnamed_addr 
   %22 = add nsw i32 %21, -1
   %23 = sext i32 %22 to i64
   %24 = icmp slt i64 %indvars.iv.next, %23
-  br i1 %24, label %11, label %._crit_edge, !llvm.loop !6
+  br i1 %24, label %11, label %._crit_edge, !llvm.loop !5
 
 25:                                               ; preds = %._crit_edge
   tail call fastcc void @DestroySDLMenu(ptr noundef %10)
@@ -919,7 +919,7 @@ define internal fastcc void @DestroySDLMenu(ptr noundef nonnull %0) unnamed_addr
   %17 = load i32, ptr %2, align 8
   %18 = sext i32 %17 to i64
   %19 = icmp slt i64 %indvars.iv.next, %18
-  br i1 %19, label %7, label %._crit_edge, !llvm.loop !7
+  br i1 %19, label %7, label %._crit_edge, !llvm.loop !6
 
 20:                                               ; preds = %._crit_edge
   %21 = load ptr, ptr @g_object_unref, align 8
@@ -1079,7 +1079,7 @@ define hidden noundef ptr @SDL_InsertTrayEntryAt_REAL(ptr noundef %0, i32 nounde
   store ptr %74, ptr %72, align 8
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %75 = icmp sgt i64 %indvars.iv.next, %55
-  br i1 %75, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !8
+  br i1 %75, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !7
 
 76:                                               ; preds = %15, %._crit_edge, %49, %13, %5
   %.058 = phi ptr [ null, %13 ], [ null, %5 ], [ null, %15 ], [ %17, %._crit_edge ], [ null, %49 ]
@@ -1089,7 +1089,7 @@ define hidden noundef ptr @SDL_InsertTrayEntryAt_REAL(ptr noundef %0, i32 nounde
 ; Function Attrs: nounwind uwtable
 define internal void @call_callback(ptr readnone captures(none) %0, ptr noundef %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %4 = load i8, ptr %3, align 8, !range !9, !noundef !10
+  %4 = load i8, ptr %3, align 8, !range !8, !noundef !9
   %5 = trunc nuw i8 %4 to i1
   br i1 %5, label %12, label %6
 
@@ -1446,11 +1446,10 @@ attributes #13 = { nounwind allocsize(1) }
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = distinct !{!3, !4, !5}
+!3 = distinct !{!3, !4}
 !4 = !{!"llvm.loop.mustprogress"}
-!5 = !{!"llvm.loop.estimated_trip_count"}
-!6 = distinct !{!6, !4, !5}
-!7 = distinct !{!7, !4, !5}
-!8 = distinct !{!8, !4, !5}
-!9 = !{i8 0, i8 2}
-!10 = !{}
+!5 = distinct !{!5, !4}
+!6 = distinct !{!6, !4}
+!7 = distinct !{!7, !4}
+!8 = !{i8 0, i8 2}
+!9 = !{}

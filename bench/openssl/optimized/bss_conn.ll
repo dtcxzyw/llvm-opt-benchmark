@@ -366,9 +366,9 @@ define internal i64 @conn_ctrl(ptr noundef %0, i32 noundef %1, i64 noundef %2, p
 
 conn_close_socket.exit:                           ; preds = %7, %10
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 40
-  %13 = load ptr, ptr %12, align 8, !tbaa !28
+  %13 = load ptr, ptr %12, align 8, !tbaa !27
   tail call void @BIO_ADDRINFO_free(ptr noundef %13) #11
-  store ptr null, ptr %12, align 8, !tbaa !28
+  store ptr null, ptr %12, align 8, !tbaa !27
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i32 0, ptr %14, align 8, !tbaa !23
   br label %176
@@ -398,26 +398,26 @@ conn_close_socket.exit:                           ; preds = %7, %10
 
 22:                                               ; preds = %21
   %23 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %24 = load ptr, ptr %23, align 8, !tbaa !29
-  store ptr %24, ptr %3, align 8, !tbaa !30
+  %24 = load ptr, ptr %23, align 8, !tbaa !28
+  store ptr %24, ptr %3, align 8, !tbaa !29
   br label %176
 
 25:                                               ; preds = %21
   %26 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  %27 = load ptr, ptr %26, align 8, !tbaa !31
-  store ptr %27, ptr %3, align 8, !tbaa !30
+  %27 = load ptr, ptr %26, align 8, !tbaa !30
+  store ptr %27, ptr %3, align 8, !tbaa !29
   br label %176
 
 28:                                               ; preds = %21
   %29 = getelementptr inbounds nuw i8, ptr %6, i64 48
-  %30 = load ptr, ptr %29, align 8, !tbaa !32
+  %30 = load ptr, ptr %29, align 8, !tbaa !31
   %31 = tail call ptr @BIO_ADDRINFO_address(ptr noundef %30) #11
-  store ptr %31, ptr %3, align 8, !tbaa !30
+  store ptr %31, ptr %3, align 8, !tbaa !29
   br label %176
 
 32:                                               ; preds = %21
   %33 = getelementptr inbounds nuw i8, ptr %6, i64 48
-  %34 = load ptr, ptr %33, align 8, !tbaa !32
+  %34 = load ptr, ptr %33, align 8, !tbaa !31
   %35 = tail call i32 @BIO_ADDRINFO_family(ptr noundef %34) #11
   switch i32 %35, label %41 [
     i32 10, label %176
@@ -430,7 +430,7 @@ conn_close_socket.exit:                           ; preds = %7, %10
 
 37:                                               ; preds = %32
   %38 = getelementptr inbounds nuw i8, ptr %6, i64 4
-  %39 = load i32, ptr %38, align 4, !tbaa !33
+  %39 = load i32, ptr %38, align 4, !tbaa !32
   %40 = sext i32 %39 to i64
   br label %176
 
@@ -439,7 +439,7 @@ conn_close_socket.exit:                           ; preds = %7, %10
 
 42:                                               ; preds = %21
   %43 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  %44 = load i32, ptr %43, align 8, !tbaa !34
+  %44 = load i32, ptr %43, align 8, !tbaa !33
   %45 = sext i32 %44 to i64
   br label %176
 
@@ -449,7 +449,7 @@ conn_close_socket.exit:                           ; preds = %7, %10
 
 47:                                               ; preds = %46
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store i32 1, ptr %48, align 8, !tbaa !35
+  store i32 1, ptr %48, align 8, !tbaa !34
   switch i64 %2, label %176 [
     i64 0, label %49
     i64 1, label %58
@@ -459,14 +459,14 @@ conn_close_socket.exit:                           ; preds = %7, %10
 
 49:                                               ; preds = %47
   %50 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  %51 = load ptr, ptr %50, align 8, !tbaa !31
+  %51 = load ptr, ptr %50, align 8, !tbaa !30
   %52 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %53 = load ptr, ptr %52, align 8, !tbaa !29
+  %53 = load ptr, ptr %52, align 8, !tbaa !28
   tail call void @CRYPTO_free(ptr noundef %53, ptr noundef nonnull @.str.2, i32 noundef 526) #11
-  store ptr null, ptr %52, align 8, !tbaa !29
+  store ptr null, ptr %52, align 8, !tbaa !28
   %54 = tail call i32 @BIO_parse_hostserv(ptr noundef nonnull %3, ptr noundef nonnull %52, ptr noundef nonnull %50, i32 noundef 0) #11
   %55 = sext i32 %54 to i64
-  %56 = load ptr, ptr %50, align 8, !tbaa !31
+  %56 = load ptr, ptr %50, align 8, !tbaa !30
   %.not158 = icmp eq ptr %51, %56
   br i1 %.not158, label %176, label %57
 
@@ -476,10 +476,10 @@ conn_close_socket.exit:                           ; preds = %7, %10
 
 58:                                               ; preds = %47
   %59 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  %60 = load ptr, ptr %59, align 8, !tbaa !31
+  %60 = load ptr, ptr %59, align 8, !tbaa !30
   tail call void @CRYPTO_free(ptr noundef %60, ptr noundef nonnull @.str.2, i32 noundef 535) #11
   %61 = tail call noalias ptr @CRYPTO_strdup(ptr noundef nonnull %3, ptr noundef nonnull @.str.2, i32 noundef 536) #11
-  store ptr %61, ptr %59, align 8, !tbaa !31
+  store ptr %61, ptr %59, align 8, !tbaa !30
   %62 = icmp ne ptr %61, null
   %spec.select = zext i1 %62 to i64
   br label %176
@@ -494,15 +494,15 @@ conn_close_socket.exit:                           ; preds = %7, %10
 
 69:                                               ; preds = %63
   %70 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %71 = load ptr, ptr %70, align 8, !tbaa !29
+  %71 = load ptr, ptr %70, align 8, !tbaa !28
   tail call void @CRYPTO_free(ptr noundef %71, ptr noundef nonnull @.str.2, i32 noundef 545) #11
-  store ptr %64, ptr %70, align 8, !tbaa !29
+  store ptr %64, ptr %70, align 8, !tbaa !28
   %72 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  %73 = load ptr, ptr %72, align 8, !tbaa !31
+  %73 = load ptr, ptr %72, align 8, !tbaa !30
   tail call void @CRYPTO_free(ptr noundef %73, ptr noundef nonnull @.str.2, i32 noundef 547) #11
-  store ptr %65, ptr %72, align 8, !tbaa !31
+  store ptr %65, ptr %72, align 8, !tbaa !30
   %74 = getelementptr inbounds nuw i8, ptr %6, i64 40
-  %75 = load ptr, ptr %74, align 8, !tbaa !28
+  %75 = load ptr, ptr %74, align 8, !tbaa !27
   tail call void @BIO_ADDRINFO_free(ptr noundef %75) #11
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %74, i8 0, i64 16, i1 false)
   br label %176
@@ -515,7 +515,7 @@ conn_close_socket.exit:                           ; preds = %7, %10
 77:                                               ; preds = %47
   %78 = load i32, ptr %3, align 4, !tbaa !21
   %79 = getelementptr inbounds nuw i8, ptr %6, i64 4
-  store i32 %78, ptr %79, align 4, !tbaa !33
+  store i32 %78, ptr %79, align 4, !tbaa !32
   br label %176
 
 80:                                               ; preds = %4
@@ -531,12 +531,12 @@ conn_close_socket.exit:                           ; preds = %7, %10
 85:                                               ; preds = %82
   %86 = trunc nuw nsw i64 %2 to i32
   %87 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store i32 %86, ptr %87, align 8, !tbaa !36
+  store i32 %86, ptr %87, align 8, !tbaa !35
   br label %176
 
 88:                                               ; preds = %4
   %89 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %90 = load i32, ptr %89, align 8, !tbaa !36
+  %90 = load i32, ptr %89, align 8, !tbaa !35
   %91 = sext i32 %90 to i64
   br label %176
 
@@ -547,7 +547,7 @@ conn_close_socket.exit:                           ; preds = %7, %10
   br i1 %.not156, label %176, label %95
 
 95:                                               ; preds = %92
-  store ptr %94, ptr %3, align 8, !tbaa !37
+  store ptr %94, ptr %3, align 8, !tbaa !36
   br label %176
 
 96:                                               ; preds = %4, %4
@@ -563,7 +563,7 @@ conn_close_socket.exit:                           ; preds = %7, %10
 
 .thread:                                          ; preds = %96, %98
   %101 = getelementptr inbounds nuw i8, ptr %6, i64 48
-  %102 = load ptr, ptr %101, align 8, !tbaa !32
+  %102 = load ptr, ptr %101, align 8, !tbaa !31
   %.not154 = icmp eq ptr %102, null
   br i1 %.not154, label %176, label %103
 
@@ -593,7 +593,7 @@ conn_close_socket.exit:                           ; preds = %7, %10
   br i1 %114, label %.thread163, label %176
 
 .thread163:                                       ; preds = %110, %112
-  store i32 1, ptr %3, align 8, !tbaa !38
+  store i32 1, ptr %3, align 8, !tbaa !37
   %115 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %116 = load i32, ptr %115, align 8, !tbaa !22
   %117 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -603,11 +603,11 @@ conn_close_socket.exit:                           ; preds = %7, %10
 118:                                              ; preds = %4
   %.not150 = icmp eq i64 %2, 0
   %119 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  %120 = load i32, ptr %119, align 8, !tbaa !34
+  %120 = load i32, ptr %119, align 8, !tbaa !33
   %121 = and i32 %120, -9
   %masksel = select i1 %.not150, i32 0, i32 8
   %.sink = or disjoint i32 %121, %masksel
-  store i32 %.sink, ptr %119, align 8, !tbaa !34
+  store i32 %.sink, ptr %119, align 8, !tbaa !33
   %122 = getelementptr inbounds nuw i8, ptr %6, i64 64
   %123 = load ptr, ptr %122, align 8, !tbaa !20
   %.not151 = icmp eq ptr %123, null
@@ -620,23 +620,23 @@ conn_close_socket.exit:                           ; preds = %7, %10
 126:                                              ; preds = %4
   %127 = trunc i64 %2 to i32
   %128 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  store i32 %127, ptr %128, align 8, !tbaa !34
+  store i32 %127, ptr %128, align 8, !tbaa !33
   %129 = and i64 %2, 32
   %.not149 = icmp eq i64 %129, 0
   %130 = getelementptr inbounds nuw i8, ptr %6, i64 36
   br i1 %.not149, label %132, label %131
 
 131:                                              ; preds = %126
-  store i32 1, ptr %130, align 4, !tbaa !40
+  store i32 1, ptr %130, align 4, !tbaa !39
   br label %176
 
 132:                                              ; preds = %126
-  store i32 0, ptr %130, align 4, !tbaa !40
+  store i32 0, ptr %130, align 4, !tbaa !39
   br label %176
 
 133:                                              ; preds = %4
   %134 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %135 = load i32, ptr %134, align 8, !tbaa !35
+  %135 = load i32, ptr %134, align 8, !tbaa !34
   %.not147 = icmp eq i32 %135, 0
   br i1 %.not147, label %176, label %136
 
@@ -656,19 +656,19 @@ conn_close_socket.exit:                           ; preds = %7, %10
 
 139:                                              ; preds = %4
   %140 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  %141 = load i32, ptr %140, align 4, !tbaa !41
+  %141 = load i32, ptr %140, align 4, !tbaa !40
   %142 = sext i32 %141 to i64
   br label %176
 
 143:                                              ; preds = %4
   %144 = trunc i64 %2 to i32
   %145 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  store i32 %144, ptr %145, align 4, !tbaa !41
+  store i32 %144, ptr %145, align 4, !tbaa !40
   br label %176
 
 146:                                              ; preds = %4
   %147 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %148 = load ptr, ptr %147, align 8, !tbaa !29
+  %148 = load ptr, ptr %147, align 8, !tbaa !28
   %.not = icmp eq ptr %148, null
   br i1 %.not, label %151, label %149
 
@@ -678,7 +678,7 @@ conn_close_socket.exit:                           ; preds = %7, %10
 
 151:                                              ; preds = %149, %146
   %152 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  %153 = load ptr, ptr %152, align 8, !tbaa !31
+  %153 = load ptr, ptr %152, align 8, !tbaa !30
   %.not146 = icmp eq ptr %153, null
   br i1 %.not146, label %156, label %154
 
@@ -688,21 +688,21 @@ conn_close_socket.exit:                           ; preds = %7, %10
 
 156:                                              ; preds = %154, %151
   %157 = getelementptr inbounds nuw i8, ptr %6, i64 4
-  %158 = load i32, ptr %157, align 4, !tbaa !33
+  %158 = load i32, ptr %157, align 4, !tbaa !32
   %159 = tail call i64 @BIO_int_ctrl(ptr noundef %3, i32 noundef 100, i64 noundef 3, i32 noundef %158) #11
   %160 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  %161 = load i32, ptr %160, align 8, !tbaa !34
+  %161 = load i32, ptr %160, align 8, !tbaa !33
   %162 = sext i32 %161 to i64
   %163 = tail call i64 @BIO_ctrl(ptr noundef %3, i32 noundef 155, i64 noundef %162, ptr noundef null) #11
   %164 = getelementptr inbounds nuw i8, ptr %6, i64 56
-  %165 = load ptr, ptr %164, align 8, !tbaa !42
+  %165 = load ptr, ptr %164, align 8, !tbaa !41
   %166 = tail call i64 @BIO_callback_ctrl(ptr noundef %3, i32 noundef 14, ptr noundef %165) #11
   br label %176
 
 167:                                              ; preds = %4
   %168 = getelementptr inbounds nuw i8, ptr %6, i64 56
-  %169 = load ptr, ptr %168, align 8, !tbaa !42
-  store ptr %169, ptr %3, align 8, !tbaa !43
+  %169 = load ptr, ptr %168, align 8, !tbaa !41
+  store ptr %169, ptr %3, align 8, !tbaa !42
   br label %176
 
 170:                                              ; preds = %4
@@ -724,7 +724,7 @@ conn_close_socket.exit:                           ; preds = %7, %10
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @conn_new(ptr noundef writeonly captures(none) initializes((40, 44), (48, 52), (56, 60), (64, 72)) %0) #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store i32 0, ptr %2, align 8, !tbaa !35
+  store i32 0, ptr %2, align 8, !tbaa !34
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i32 -1, ptr %3, align 8, !tbaa !22
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -736,9 +736,9 @@ define internal range(i32 0, 2) i32 @conn_new(ptr noundef writeonly captures(non
 7:                                                ; preds = %1
   store i32 1, ptr %5, align 8, !tbaa !17
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  store i32 256, ptr %8, align 4, !tbaa !33
+  store i32 256, ptr %8, align 4, !tbaa !32
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store i32 1, ptr %9, align 8, !tbaa !36
+  store i32 1, ptr %9, align 8, !tbaa !35
   br label %BIO_CONNECT_new.exit
 
 BIO_CONNECT_new.exit:                             ; preds = %1, %7
@@ -760,7 +760,7 @@ define internal range(i32 0, 2) i32 @conn_free(ptr noundef captures(address_is_n
   %7 = load ptr, ptr %6, align 8, !tbaa !20
   %8 = tail call i32 @BIO_free(ptr noundef %7) #11
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  %10 = load i32, ptr %9, align 4, !tbaa !41
+  %10 = load i32, ptr %9, align 4, !tbaa !40
   %.not = icmp eq i32 %10, 0
   br i1 %.not, label %31, label %11
 
@@ -789,20 +789,20 @@ define internal range(i32 0, 2) i32 @conn_free(ptr noundef captures(address_is_n
 
 BIO_CONNECT_free.exit:                            ; preds = %11, %20
   %23 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %24 = load ptr, ptr %23, align 8, !tbaa !29
+  %24 = load ptr, ptr %23, align 8, !tbaa !28
   tail call void @CRYPTO_free(ptr noundef %24, ptr noundef nonnull @.str.2, i32 noundef 310) #11
   %25 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  %26 = load ptr, ptr %25, align 8, !tbaa !31
+  %26 = load ptr, ptr %25, align 8, !tbaa !30
   tail call void @CRYPTO_free(ptr noundef %26, ptr noundef nonnull @.str.2, i32 noundef 311) #11
   %27 = getelementptr inbounds nuw i8, ptr %5, i64 40
-  %28 = load ptr, ptr %27, align 8, !tbaa !28
+  %28 = load ptr, ptr %27, align 8, !tbaa !27
   tail call void @BIO_ADDRINFO_free(ptr noundef %28) #11
   tail call void @CRYPTO_free(ptr noundef nonnull %5, ptr noundef nonnull @.str.2, i32 noundef 313) #11
   store ptr null, ptr %4, align 8, !tbaa !3
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i32 0, ptr %29, align 8, !tbaa !23
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store i32 0, ptr %30, align 8, !tbaa !35
+  store i32 0, ptr %30, align 8, !tbaa !34
   br label %31
 
 31:                                               ; preds = %3, %BIO_CONNECT_free.exit, %1
@@ -819,7 +819,7 @@ define internal range(i64 0, 2) i64 @conn_callback_ctrl(ptr noundef readonly cap
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %6 = load ptr, ptr %5, align 8, !tbaa !3
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 56
-  store ptr %2, ptr %7, align 8, !tbaa !42
+  store ptr %2, ptr %7, align 8, !tbaa !41
   br label %8
 
 8:                                                ; preds = %3, %4
@@ -833,7 +833,7 @@ define internal i32 @conn_sendmmsg(ptr noundef %0, ptr noundef %1, i64 noundef %
   br i1 %7, label %8, label %9
 
 8:                                                ; preds = %6
-  store i64 0, ptr %5, align 8, !tbaa !44
+  store i64 0, ptr %5, align 8, !tbaa !43
   tail call void @ERR_new() #11
   tail call void @ERR_set_debug(ptr noundef nonnull @.str.2, i32 noundef 824, ptr noundef nonnull @__func__.conn_sendmmsg) #11
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 32, i32 noundef 786690, ptr noundef null) #11
@@ -852,7 +852,7 @@ define internal i32 @conn_sendmmsg(ptr noundef %0, ptr noundef %1, i64 noundef %
   br i1 %15, label %16, label %17
 
 16:                                               ; preds = %13
-  store i64 0, ptr %5, align 8, !tbaa !44
+  store i64 0, ptr %5, align 8, !tbaa !43
   br label %24
 
 17:                                               ; preds = %13, %9
@@ -862,7 +862,7 @@ define internal i32 @conn_sendmmsg(ptr noundef %0, ptr noundef %1, i64 noundef %
   br i1 %20, label %21, label %22
 
 21:                                               ; preds = %17
-  store i64 0, ptr %5, align 8, !tbaa !44
+  store i64 0, ptr %5, align 8, !tbaa !43
   tail call void @ERR_new() #11
   tail call void @ERR_set_debug(ptr noundef nonnull @.str.2, i32 noundef 839, ptr noundef nonnull @__func__.conn_sendmmsg) #11
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 32, i32 noundef 786689, ptr noundef null) #11
@@ -883,7 +883,7 @@ define internal i32 @conn_recvmmsg(ptr noundef %0, ptr noundef %1, i64 noundef %
   br i1 %7, label %8, label %9
 
 8:                                                ; preds = %6
-  store i64 0, ptr %5, align 8, !tbaa !44
+  store i64 0, ptr %5, align 8, !tbaa !43
   tail call void @ERR_new() #11
   tail call void @ERR_set_debug(ptr noundef nonnull @.str.2, i32 noundef 855, ptr noundef nonnull @__func__.conn_recvmmsg) #11
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 32, i32 noundef 786690, ptr noundef null) #11
@@ -902,7 +902,7 @@ define internal i32 @conn_recvmmsg(ptr noundef %0, ptr noundef %1, i64 noundef %
   br i1 %15, label %16, label %17
 
 16:                                               ; preds = %13
-  store i64 0, ptr %5, align 8, !tbaa !44
+  store i64 0, ptr %5, align 8, !tbaa !43
   br label %24
 
 17:                                               ; preds = %13, %9
@@ -912,7 +912,7 @@ define internal i32 @conn_recvmmsg(ptr noundef %0, ptr noundef %1, i64 noundef %
   br i1 %20, label %21, label %22
 
 21:                                               ; preds = %17
-  store i64 0, ptr %5, align 8, !tbaa !44
+  store i64 0, ptr %5, align 8, !tbaa !43
   tail call void @ERR_new() #11
   tail call void @ERR_set_debug(ptr noundef nonnull @.str.2, i32 noundef 870, ptr noundef nonnull @__func__.conn_recvmmsg) #11
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 32, i32 noundef 786689, ptr noundef null) #11
@@ -930,7 +930,7 @@ define internal i32 @conn_recvmmsg(ptr noundef %0, ptr noundef %1, i64 noundef %
 ; Function Attrs: nounwind uwtable
 define internal fastcc i32 @conn_state(ptr noundef %0, ptr noundef %1) unnamed_addr #1 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %4 = load ptr, ptr %3, align 8, !tbaa !42
+  %4 = load ptr, ptr %3, align 8, !tbaa !41
   %.not = icmp eq ptr %4, null
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 48
@@ -958,20 +958,20 @@ define internal fastcc i32 @conn_state(ptr noundef %0, ptr noundef %1) unnamed_a
   ]
 
 17:                                               ; preds = %15
-  %18 = load ptr, ptr %11, align 8, !tbaa !29
+  %18 = load ptr, ptr %11, align 8, !tbaa !28
   %19 = icmp eq ptr %18, null
   br i1 %19, label %20, label %26
 
 20:                                               ; preds = %17
-  %21 = load ptr, ptr %12, align 8, !tbaa !31
+  %21 = load ptr, ptr %12, align 8, !tbaa !30
   %22 = icmp eq ptr %21, null
   br i1 %22, label %23, label %26
 
 23:                                               ; preds = %20
   tail call void @ERR_new() #11
   tail call void @ERR_set_debug(ptr noundef nonnull @.str.2, i32 noundef 123, ptr noundef nonnull @__func__.conn_state) #11
-  %24 = load ptr, ptr %11, align 8, !tbaa !29
-  %25 = load ptr, ptr %12, align 8, !tbaa !31
+  %24 = load ptr, ptr %11, align 8, !tbaa !28
+  %25 = load ptr, ptr %12, align 8, !tbaa !30
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 32, i32 noundef 144, ptr noundef nonnull @.str.3, ptr noundef %24, ptr noundef %25) #11
   br label %.thread
 
@@ -980,7 +980,7 @@ define internal fastcc i32 @conn_state(ptr noundef %0, ptr noundef %1) unnamed_a
   br label %120
 
 27:                                               ; preds = %15
-  %28 = load i32, ptr %13, align 4, !tbaa !33
+  %28 = load i32, ptr %13, align 4, !tbaa !32
   switch i32 %28, label %31 [
     i32 6, label %32
     i32 4, label %29
@@ -1001,15 +1001,15 @@ define internal fastcc i32 @conn_state(ptr noundef %0, ptr noundef %1) unnamed_a
 
 32:                                               ; preds = %27, %30, %29
   %.076 = phi i32 [ 2, %29 ], [ 0, %30 ], [ 10, %27 ]
-  %33 = load ptr, ptr %11, align 8, !tbaa !29
-  %34 = load ptr, ptr %12, align 8, !tbaa !31
-  %35 = load i32, ptr %7, align 8, !tbaa !36
+  %33 = load ptr, ptr %11, align 8, !tbaa !28
+  %34 = load ptr, ptr %12, align 8, !tbaa !30
+  %35 = load i32, ptr %7, align 8, !tbaa !35
   %36 = tail call i32 @BIO_lookup(ptr noundef %33, ptr noundef %34, i32 noundef 0, i32 noundef %.076, i32 noundef %35, ptr noundef nonnull %14) #11
   %37 = icmp eq i32 %36, 0
   br i1 %37, label %.thread.loopexit, label %38
 
 38:                                               ; preds = %32
-  %39 = load ptr, ptr %14, align 8, !tbaa !28
+  %39 = load ptr, ptr %14, align 8, !tbaa !27
   %40 = icmp eq ptr %39, null
   br i1 %40, label %41, label %42
 
@@ -1020,16 +1020,16 @@ define internal fastcc i32 @conn_state(ptr noundef %0, ptr noundef %1) unnamed_a
   br label %.thread
 
 42:                                               ; preds = %38
-  store ptr %39, ptr %6, align 8, !tbaa !32
+  store ptr %39, ptr %6, align 8, !tbaa !31
   store i32 3, ptr %1, align 8, !tbaa !17
   br label %120
 
 43:                                               ; preds = %15
-  %44 = load ptr, ptr %6, align 8, !tbaa !32
+  %44 = load ptr, ptr %6, align 8, !tbaa !31
   %45 = tail call i32 @BIO_ADDRINFO_family(ptr noundef %44) #11
-  %46 = load ptr, ptr %6, align 8, !tbaa !32
+  %46 = load ptr, ptr %6, align 8, !tbaa !31
   %47 = tail call i32 @BIO_ADDRINFO_socktype(ptr noundef %46) #11
-  %48 = load ptr, ptr %6, align 8, !tbaa !32
+  %48 = load ptr, ptr %6, align 8, !tbaa !31
   %49 = tail call i32 @BIO_ADDRINFO_protocol(ptr noundef %48) #11
   %50 = tail call i32 @BIO_socket(i32 noundef %45, i32 noundef %47, i32 noundef %49, i32 noundef 0) #11
   %51 = icmp eq i32 %50, -1
@@ -1040,8 +1040,8 @@ define internal fastcc i32 @conn_state(ptr noundef %0, ptr noundef %1) unnamed_a
   tail call void @ERR_set_debug(ptr noundef nonnull @.str.2, i32 noundef 178, ptr noundef nonnull @__func__.conn_state) #11
   %53 = tail call ptr @__errno_location() #12
   %54 = load i32, ptr %53, align 4, !tbaa !21
-  %55 = load ptr, ptr %11, align 8, !tbaa !29
-  %56 = load ptr, ptr %12, align 8, !tbaa !31
+  %55 = load ptr, ptr %11, align 8, !tbaa !28
+  %56 = load ptr, ptr %12, align 8, !tbaa !30
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 2, i32 noundef %54, ptr noundef nonnull @.str.4, ptr noundef %55, ptr noundef %56) #11
   tail call void @ERR_new() #11
   tail call void @ERR_set_debug(ptr noundef nonnull @.str.2, i32 noundef 181, ptr noundef nonnull @__func__.conn_state) #11
@@ -1056,17 +1056,17 @@ define internal fastcc i32 @conn_state(ptr noundef %0, ptr noundef %1) unnamed_a
 58:                                               ; preds = %15
   tail call void @BIO_clear_flags(ptr noundef %0, i32 noundef 15) #11
   %59 = tail call i32 @ERR_set_mark() #11
-  %60 = load i32, ptr %9, align 8, !tbaa !34
-  %61 = load ptr, ptr %6, align 8, !tbaa !32
+  %60 = load i32, ptr %9, align 8, !tbaa !33
+  %61 = load ptr, ptr %6, align 8, !tbaa !31
   %62 = tail call i32 @BIO_ADDRINFO_socktype(ptr noundef %61) #11
   %63 = icmp eq i32 %62, 1
   %64 = or i32 %60, 4
   %spec.select98 = select i1 %63, i32 %64, i32 %60
   %65 = load i32, ptr %5, align 8, !tbaa !22
-  %66 = load ptr, ptr %6, align 8, !tbaa !32
+  %66 = load ptr, ptr %6, align 8, !tbaa !31
   %67 = tail call ptr @BIO_ADDRINFO_address(ptr noundef %66) #11
   %68 = tail call i32 @BIO_connect(i32 noundef %65, ptr noundef %67, i32 noundef %spec.select98) #11
-  store i32 0, ptr %10, align 4, !tbaa !45
+  store i32 0, ptr %10, align 4, !tbaa !44
   %69 = icmp eq i32 %68, 0
   br i1 %69, label %70, label %87
 
@@ -1078,14 +1078,14 @@ define internal fastcc i32 @conn_state(ptr noundef %0, ptr noundef %1) unnamed_a
 72:                                               ; preds = %70
   tail call void @BIO_set_flags(ptr noundef nonnull %0, i32 noundef 12) #11
   store i32 6, ptr %1, align 8, !tbaa !17
-  store i32 2, ptr %10, align 4, !tbaa !45
+  store i32 2, ptr %10, align 4, !tbaa !44
   %73 = tail call i32 @ERR_pop_to_mark() #11
   br label %.thread
 
 74:                                               ; preds = %70
-  %75 = load ptr, ptr %6, align 8, !tbaa !32
+  %75 = load ptr, ptr %6, align 8, !tbaa !31
   %76 = tail call ptr @BIO_ADDRINFO_next(ptr noundef %75) #11
-  store ptr %76, ptr %6, align 8, !tbaa !32
+  store ptr %76, ptr %6, align 8, !tbaa !31
   %.not95 = icmp eq ptr %76, null
   br i1 %.not95, label %81, label %77
 
@@ -1102,15 +1102,15 @@ define internal fastcc i32 @conn_state(ptr noundef %0, ptr noundef %1) unnamed_a
   tail call void @ERR_set_debug(ptr noundef nonnull @.str.2, i32 noundef 215, ptr noundef nonnull @__func__.conn_state) #11
   %83 = tail call ptr @__errno_location() #12
   %84 = load i32, ptr %83, align 4, !tbaa !21
-  %85 = load ptr, ptr %11, align 8, !tbaa !29
-  %86 = load ptr, ptr %12, align 8, !tbaa !31
+  %85 = load ptr, ptr %11, align 8, !tbaa !28
+  %86 = load ptr, ptr %12, align 8, !tbaa !30
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 2, i32 noundef %84, ptr noundef nonnull @.str.5, ptr noundef %85, ptr noundef %86) #11
   store i32 7, ptr %1, align 8, !tbaa !17
   br label %120
 
 87:                                               ; preds = %58
   %88 = tail call i32 @ERR_clear_last_mark() #11
-  %89 = load i32, ptr %7, align 8, !tbaa !36
+  %89 = load i32, ptr %7, align 8, !tbaa !35
   %.not.i = icmp eq i32 %89, 2
   br i1 %.not.i, label %90, label %94
 
@@ -1144,9 +1144,9 @@ conn_create_dgram_bio.exit:                       ; preds = %90
 
 103:                                              ; preds = %100
   tail call void @BIO_clear_flags(ptr noundef nonnull %0, i32 noundef 15) #11
-  %104 = load ptr, ptr %6, align 8, !tbaa !32
+  %104 = load ptr, ptr %6, align 8, !tbaa !31
   %105 = tail call ptr @BIO_ADDRINFO_next(ptr noundef %104) #11
-  store ptr %105, ptr %6, align 8, !tbaa !32
+  store ptr %105, ptr %6, align 8, !tbaa !31
   %.not92 = icmp eq ptr %105, null
   br i1 %.not92, label %109, label %106
 
@@ -1159,8 +1159,8 @@ conn_create_dgram_bio.exit:                       ; preds = %90
 109:                                              ; preds = %103
   tail call void @ERR_new() #11
   tail call void @ERR_set_debug(ptr noundef nonnull @.str.2, i32 noundef 245, ptr noundef nonnull @__func__.conn_state) #11
-  %110 = load ptr, ptr %11, align 8, !tbaa !29
-  %111 = load ptr, ptr %12, align 8, !tbaa !31
+  %110 = load ptr, ptr %11, align 8, !tbaa !28
+  %111 = load ptr, ptr %12, align 8, !tbaa !30
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 2, i32 noundef %102, ptr noundef nonnull @.str.5, ptr noundef %110, ptr noundef %111) #11
   tail call void @ERR_new() #11
   tail call void @ERR_set_debug(ptr noundef nonnull @.str.2, i32 noundef 248, ptr noundef nonnull @__func__.conn_state) #11
@@ -1168,7 +1168,7 @@ conn_create_dgram_bio.exit:                       ; preds = %90
   br label %.thread
 
 112:                                              ; preds = %100
-  %113 = load i32, ptr %7, align 8, !tbaa !36
+  %113 = load i32, ptr %7, align 8, !tbaa !35
   %.not.i99 = icmp eq i32 %113, 2
   br i1 %.not.i99, label %114, label %118
 
@@ -1205,7 +1205,7 @@ conn_create_dgram_bio.exit101:                    ; preds = %114
 
 .backedge:                                        ; preds = %121, %120
   %.080.be = phi i32 [ %123, %121 ], [ %.2, %120 ]
-  br label %15, !llvm.loop !46
+  br label %15
 
 .thread.loopexit:                                 ; preds = %15, %32
   br label %.thread
@@ -1365,25 +1365,23 @@ attributes #13 = { nounwind willreturn memory(read) }
 !22 = !{!4, !11, i64 56}
 !23 = !{!4, !11, i64 48}
 !24 = !{!7, !7, i64 0}
-!25 = distinct !{!25, !26, !27}
+!25 = distinct !{!25, !26}
 !26 = !{!"llvm.loop.mustprogress"}
-!27 = !{!"llvm.loop.estimated_trip_count"}
-!28 = !{!18, !19, i64 40}
-!29 = !{!18, !10, i64 16}
-!30 = !{!10, !10, i64 0}
-!31 = !{!18, !10, i64 24}
-!32 = !{!18, !19, i64 48}
-!33 = !{!18, !11, i64 4}
-!34 = !{!18, !11, i64 32}
-!35 = !{!4, !11, i64 40}
-!36 = !{!18, !11, i64 8}
-!37 = !{!12, !12, i64 0}
-!38 = !{!39, !11, i64 0}
-!39 = !{!"bio_poll_descriptor_st", !11, i64 0, !7, i64 8}
-!40 = !{!18, !11, i64 36}
-!41 = !{!4, !11, i64 44}
-!42 = !{!18, !6, i64 56}
-!43 = !{!6, !6, i64 0}
-!44 = !{!14, !14, i64 0}
-!45 = !{!4, !11, i64 52}
-!46 = distinct !{!46, !27}
+!27 = !{!18, !19, i64 40}
+!28 = !{!18, !10, i64 16}
+!29 = !{!10, !10, i64 0}
+!30 = !{!18, !10, i64 24}
+!31 = !{!18, !19, i64 48}
+!32 = !{!18, !11, i64 4}
+!33 = !{!18, !11, i64 32}
+!34 = !{!4, !11, i64 40}
+!35 = !{!18, !11, i64 8}
+!36 = !{!12, !12, i64 0}
+!37 = !{!38, !11, i64 0}
+!38 = !{!"bio_poll_descriptor_st", !11, i64 0, !7, i64 8}
+!39 = !{!18, !11, i64 36}
+!40 = !{!4, !11, i64 44}
+!41 = !{!18, !6, i64 56}
+!42 = !{!6, !6, i64 0}
+!43 = !{!14, !14, i64 0}
+!44 = !{!4, !11, i64 52}

@@ -3115,13 +3115,13 @@ dissect_tds_type_info.exit.i:                     ; preds = %.sink.split.i.i, %.
   %329 = load i32, ptr %35, align 4
   %330 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %.0181, i32 noundef %329)
   %331 = icmp sgt i32 %330, 0
-  br i1 %331, label %.lr.ph.i, label %.thread91.i, !llvm.loop !8
+  br i1 %331, label %.lr.ph.i, label %.thread91.i
 
 .thread91.i:                                      ; preds = %326, %dissect_tds_type_info.exit.i, %dissect_tds_type_info.exit.thread.i, %205, %182
   %332 = load i32, ptr %35, align 4
   %333 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %.0181, i32 noundef %332)
   %334 = icmp sgt i32 %333, 0
-  br i1 %334, label %.lr.ph99.i, label %dissect_tds_rpc.exit, !llvm.loop !10
+  br i1 %334, label %.lr.ph99.i, label %dissect_tds_rpc.exit, !llvm.loop !8
 
 dissect_tds_rpc.exit:                             ; preds = %.thread91.i, %139
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %35) #13
@@ -3420,7 +3420,7 @@ thread-pre-split.i.i:                             ; preds = %476, %466
   %494 = add i32 %493, %491
   %.0.neg.i.i = sub i32 0, %494
   %495 = icmp ult i32 %494, %489
-  br i1 %495, label %.lr.ph.i.i, label %dissect_tds45_remotepassword.exit.i, !llvm.loop !12
+  br i1 %495, label %.lr.ph.i.i, label %dissect_tds45_remotepassword.exit.i, !llvm.loop !10
 
 dissect_tds45_remotepassword.exit.i:              ; preds = %488, %447
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %33) #13
@@ -3740,7 +3740,7 @@ dissect_tds45_login.exit:                         ; preds = %dissect_tds45_login
 679:                                              ; preds = %678, %677
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
   %680 = icmp samesign ult i64 %indvars.iv.next.i, %666
-  br i1 %680, label %.lr.ph.i196, label %._crit_edge.i, !llvm.loop !13
+  br i1 %680, label %.lr.ph.i196, label %._crit_edge.i, !llvm.loop !11
 
 ._crit_edge.i:                                    ; preds = %679
   %681 = call ptr @wmem_strbuf_get_str(ptr noundef %671)
@@ -3752,7 +3752,7 @@ dissect_tds45_login.exit:                         ; preds = %dissect_tds45_login
   %.1.i = phi i32 [ %662, %661 ], [ %664, %._crit_edge.i ], [ 0, %658 ], [ 0, %.thread.i197 ]
   %684 = add nuw nsw i32 %.0155.i, 1
   %exitcond.not.i = icmp eq i32 %684, 9
-  br i1 %exitcond.not.i, label %685, label %630, !llvm.loop !14
+  br i1 %exitcond.not.i, label %685, label %630, !llvm.loop !12
 
 685:                                              ; preds = %683
   %686 = add nuw nsw i32 %.1.i, %634
@@ -4595,7 +4595,7 @@ dissect_tds5_dbrpc_token.exit.i:                  ; preds = %1074, %._crit_edge.
   %1108 = trunc nuw i64 %indvars.iv.next.i.i to i32
   call fastcc void @dissect_tds_type_varbyte(ptr noundef nonnull %.0181, ptr noundef nonnull %5, ptr noundef %1, ptr noundef %747, i32 noundef %1100, ptr noundef readonly %.0, i8 noundef zeroext %1104, i8 noundef zeroext %1106, i1 noundef zeroext false, i32 noundef %1108, ptr noundef %1107)
   %exitcond.not.i203 = icmp eq i64 %indvars.iv.next.i.i, %1098
-  br i1 %exitcond.not.i203, label %._crit_edge.loopexit.i.i, label %1099, !llvm.loop !15
+  br i1 %exitcond.not.i203, label %._crit_edge.loopexit.i.i, label %1099, !llvm.loop !13
 
 ._crit_edge.loopexit.i.i:                         ; preds = %1099
   %.pre.i124.i = load i32, ptr %5, align 4
@@ -4615,7 +4615,7 @@ dissect_tds5_params_token.exit.i:                 ; preds = %._crit_edge.loopexi
   %1114 = add i32 %.1.i204, %.0133.i
   %1115 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %.0181, i32 noundef %1114)
   %1116 = icmp sgt i32 %1115, 0
-  br i1 %1116, label %725, label %dissect_tds5_tokenized_request_packet.exit, !llvm.loop !16
+  br i1 %1116, label %725, label %dissect_tds5_tokenized_request_packet.exit, !llvm.loop !14
 
 dissect_tds5_tokenized_request_packet.exit:       ; preds = %1113, %715, %749
   call void @llvm.lifetime.end.p0(i64 2056, ptr nonnull %28) #13
@@ -4777,13 +4777,13 @@ define internal fastcc void @dissect_tds_resp(ptr noundef nonnull %0, ptr nounde
   %49 = add i32 %.02432.i330, 5
   %50 = tail call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %49)
   %51 = icmp sgt i32 %50, 0
-  br i1 %51, label %.lr.ph.i, label %dissect_tds_prelogin_response.exit, !llvm.loop !17
+  br i1 %51, label %.lr.ph.i, label %dissect_tds_prelogin_response.exit, !llvm.loop !15
 
 .lr.ph.i:                                         ; preds = %48
   %52 = tail call zeroext i8 @tvb_get_uint8(ptr noundef nonnull %0, i32 noundef %49)
   %53 = add i32 %.02432.i330, 6
   %54 = icmp eq i8 %52, -1
-  br i1 %54, label %dissect_tds_prelogin_response.exit.thread, label %.lr.ph, !llvm.loop !17
+  br i1 %54, label %dissect_tds_prelogin_response.exit.thread, label %.lr.ph, !llvm.loop !15
 
 .lr.ph:                                           ; preds = %.lr.ph.i.preheader, %.lr.ph.i
   %55 = phi i32 [ %53, %.lr.ph.i ], [ 1, %.lr.ph.i.preheader ]
@@ -5186,7 +5186,7 @@ tds45_token_to_idx.exit:                          ; preds = %85, %86, %87, %88, 
   %229 = add i32 %228, %.03747.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %40) #13
   %230 = icmp ult i32 %229, %202
-  br i1 %230, label %.lr.ph.i209, label %._crit_edge.i, !llvm.loop !18
+  br i1 %230, label %.lr.ph.i209, label %._crit_edge.i, !llvm.loop !16
 
 ._crit_edge.i:                                    ; preds = %226, %194
   %.039.lcssa.i = phi i32 [ 0, %194 ], [ %223, %226 ]
@@ -5343,7 +5343,7 @@ dissect_tds_col_name_token.exit:                  ; preds = %.thread.i, %._crit_
   %302 = sub i32 %.2119.i, %.0117136.i
   call void @proto_item_set_len(ptr noundef %244, i32 noundef %302)
   %303 = icmp ult i32 %.2119.i, %240
-  br i1 %303, label %.lr.ph.i216, label %._crit_edge.i214, !llvm.loop !19
+  br i1 %303, label %.lr.ph.i216, label %._crit_edge.i214, !llvm.loop !17
 
 ._crit_edge.i214:                                 ; preds = %301, %232
   %.0120.lcssa.i = phi i32 [ 0, %232 ], [ %247, %301 ]
@@ -5400,7 +5400,7 @@ dissect_tds_colfmt_token.exit:                    ; preds = %.thread.i225, %._cr
   %326 = add i32 %325, %.0222.i
   %indvars.iv.next.i230 = add nuw nsw i64 %indvars.iv.i228, 1
   %327 = icmp ult i32 %326, %313
-  br i1 %327, label %.lr.ph.i227, label %._crit_edge.i226, !llvm.loop !20
+  br i1 %327, label %.lr.ph.i227, label %._crit_edge.i226, !llvm.loop !18
 
 ._crit_edge.i226:                                 ; preds = %322, %305
   %.022.lcssa.i = phi i32 [ %311, %305 ], [ %326, %322 ]
@@ -5489,7 +5489,7 @@ dissect_tds_control_token.exit:                   ; preds = %315, %._crit_edge.i
   %378 = trunc nuw i64 %indvars.iv.next.i235 to i32
   call fastcc void @dissect_tds_type_varbyte(ptr noundef nonnull %0, ptr noundef nonnull %35, ptr noundef %1, ptr noundef %119, i32 noundef %370, ptr noundef readonly %3, i8 noundef zeroext %374, i8 noundef zeroext %376, i1 noundef zeroext false, i32 noundef %378, ptr noundef %377)
   %exitcond352.not = icmp eq i64 %indvars.iv.next.i235, %368
-  br i1 %exitcond352.not, label %._crit_edge.loopexit.i236, label %369, !llvm.loop !15
+  br i1 %exitcond352.not, label %._crit_edge.loopexit.i236, label %369, !llvm.loop !13
 
 ._crit_edge.loopexit.i236:                        ; preds = %369
   %.pre.i = load i32, ptr %35, align 4
@@ -5753,7 +5753,7 @@ dissect_tds5_params_token.exit:                   ; preds = %365, %._crit_edge.l
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %29) #13
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %28) #13
   %513 = icmp ult i32 %510, %412
-  br i1 %513, label %.lr.ph.i241, label %._crit_edge.i238, !llvm.loop !21
+  br i1 %513, label %.lr.ph.i241, label %._crit_edge.i238, !llvm.loop !19
 
 ._crit_edge.i238:                                 ; preds = %506, %397
   %514 = phi i32 [ 0, %397 ], [ %417, %506 ]
@@ -5820,7 +5820,7 @@ dissect_tds5_params_token.exit:                   ; preds = %365, %._crit_edge.l
   store i8 %546, ptr %547, align 2
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond350.not = icmp eq i64 %indvars.iv.next.i.i, %523
-  br i1 %exitcond350.not, label %copy_nl_data.exit.i, label %524, !llvm.loop !22
+  br i1 %exitcond350.not, label %copy_nl_data.exit.i, label %524, !llvm.loop !20
 
 copy_nl_data.exit.i:                              ; preds = %532, %519
   %548 = getelementptr inbounds nuw i8, ptr %401, i64 16
@@ -6177,7 +6177,7 @@ dissect_tds_rowfmt_token.exit:                    ; preds = %.thread.i251, %551
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13) #13
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #13
   %713 = icmp ult i32 %710, %568
-  br i1 %713, label %.lr.ph.i261, label %._crit_edge.i252, !llvm.loop !23
+  br i1 %713, label %.lr.ph.i261, label %._crit_edge.i252, !llvm.loop !21
 
 ._crit_edge.i252:                                 ; preds = %706, %553
   %714 = phi i32 [ 0, %553 ], [ %573, %706 ]
@@ -6244,7 +6244,7 @@ dissect_tds_rowfmt_token.exit:                    ; preds = %.thread.i251, %551
   store i8 %746, ptr %747, align 2
   %indvars.iv.next.i.i259 = add nuw nsw i64 %indvars.iv.i.i257, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next.i.i259, %723
-  br i1 %exitcond.not, label %copy_nl_data.exit.i260, label %724, !llvm.loop !22
+  br i1 %exitcond.not, label %copy_nl_data.exit.i260, label %724, !llvm.loop !20
 
 copy_nl_data.exit.i260:                           ; preds = %732, %719
   %748 = getelementptr inbounds nuw i8, ptr %557, i64 16
@@ -6966,7 +6966,7 @@ thread-pre-split690.i:                            ; preds = %.thread647.i
   %1095 = add i32 %1093, %1092
   %1096 = add nuw nsw i32 %.0605655.i, 1
   %exitcond668.not.i = icmp eq i32 %1096, %1083
-  br i1 %exitcond668.not.i, label %.loopexit.i, label %.lr.ph657.i, !llvm.loop !24
+  br i1 %exitcond668.not.i, label %.loopexit.i, label %.lr.ph657.i, !llvm.loop !22
 
 1097:                                             ; preds = %1079, %1076
   %1098 = call zeroext i16 @tvb_get_letohs(ptr noundef nonnull %0, i32 noundef %1073)
@@ -7032,7 +7032,7 @@ thread-pre-split690.i:                            ; preds = %.thread647.i
   %1143 = add i32 %1141, %1140
   %1144 = add nuw nsw i32 %.0603653.i, 1
   %exitcond.not.i281 = icmp eq i32 %1144, %1131
-  br i1 %exitcond.not.i281, label %.loopexit.i, label %.lr.ph.i280, !llvm.loop !25
+  br i1 %exitcond.not.i281, label %.loopexit.i, label %.lr.ph.i280, !llvm.loop !23
 
 1145:                                             ; preds = %1127, %1124
   %1146 = call zeroext i16 @tvb_get_letohs(ptr noundef nonnull %0, i32 noundef %1121)
@@ -7074,7 +7074,7 @@ thread-pre-split690.i:                            ; preds = %.thread647.i
   %1170 = sub i32 %.12.i, %.0602661.i
   call void @proto_item_set_len(ptr noundef %793, i32 noundef %1170)
   %.not626.i = icmp eq i64 %indvars.iv.next.i276, %790
-  br i1 %.not626.i, label %._crit_edge.i278, label %791, !llvm.loop !26
+  br i1 %.not626.i, label %._crit_edge.i278, label %791, !llvm.loop !24
 
 ._crit_edge.i278:                                 ; preds = %1169, %788
   %.0602.lcssa.i = phi i32 [ %789, %788 ], [ %.12.i, %1169 ]
@@ -7148,7 +7148,7 @@ thread-pre-split690.i:                            ; preds = %.thread647.i
   %1218 = add i32 %1202, %1215
   %1219 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %1218)
   %1220 = icmp sgt i32 %1219, 0
-  br i1 %1220, label %.lr.ph.i285, label %dissect_tds_featureextack_token.exit, !llvm.loop !27
+  br i1 %1220, label %.lr.ph.i285, label %dissect_tds_featureextack_token.exit, !llvm.loop !25
 
 dissect_tds_featureextack_token.exit:             ; preds = %.lr.ph.i285, %1212, %1196
   %.1.i284 = phi i32 [ %1197, %1196 ], [ %1218, %1212 ], [ %1201, %.lr.ph.i285 ]
@@ -7232,7 +7232,7 @@ dissect_tds_type_info_minimal.exit.i:             ; preds = %.sink.split.i.i, %1
 1259:                                             ; preds = %dissect_tds_type_info_minimal.exit.i, %._crit_edge31.i
   %indvars.iv.next.pre-phi.i = phi i64 [ %.pre32.i, %._crit_edge31.i ], [ %1256, %dissect_tds_type_info_minimal.exit.i ]
   %1260 = icmp samesign ult i64 %indvars.iv.next.pre-phi.i, %1233
-  br i1 %1260, label %1234, label %._crit_edge.loopexit.i289, !llvm.loop !28
+  br i1 %1260, label %1234, label %._crit_edge.loopexit.i289, !llvm.loop !26
 
 ._crit_edge.loopexit.i289:                        ; preds = %1259
   %.pre.i290 = load i32, ptr %9, align 4
@@ -7329,7 +7329,7 @@ dissect_tds_nbc_row_token.exit:                   ; preds = %1226, %._crit_edge.
   %1320 = add i32 %1319, -3
   %1321 = load i32, ptr %8, align 4
   %1322 = icmp ult i32 %1320, %1321
-  br i1 %1322, label %.lr.ph.i293, label %dissect_tds_sessionstate_token.exit.loopexit, !llvm.loop !29
+  br i1 %1322, label %.lr.ph.i293, label %dissect_tds_sessionstate_token.exit.loopexit, !llvm.loop !27
 
 dissect_tds_sessionstate_token.exit.loopexit:     ; preds = %1314
   %1323 = add i32 %1319, 1
@@ -7403,7 +7403,7 @@ dissect_tds7_colmetadata_token.exit:              ; preds = %._crit_edge.i278, %
   %.1203 = add i32 %.0.pn, %.0202331
   %1349 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %.1203)
   %1350 = icmp sgt i32 %1349, 0
-  br i1 %1350, label %76, label %.thread305, !llvm.loop !30
+  br i1 %1350, label %76, label %.thread305, !llvm.loop !28
 
 .thread305:                                       ; preds = %dissect_tds7_colmetadata_token.exit, %1348, %tds7_token_to_idx.exit, %dissect_tds_prelogin_response.exit, %dissect_tds_prelogin_response.exit.thread, %.thread299
   call void @llvm.lifetime.end.p0(i64 2056, ptr nonnull %43) #13
@@ -7711,7 +7711,7 @@ set_tds_version_from_prog_version.exit:           ; preds = %63, %91
 135:                                              ; preds = %104, %106, %129, %123, %117, %111, %98, %92, %set_tds_version_from_prog_version.exit, %53
   %136 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %62)
   %137 = icmp sgt i32 %136, 0
-  br i1 %137, label %43, label %.loopexit, !llvm.loop !31
+  br i1 %137, label %43, label %.loopexit, !llvm.loop !29
 
 .loopexit:                                        ; preds = %135, %set_tds_version.exit, %51, %detect_tls.exit
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #13
@@ -7814,7 +7814,7 @@ define internal fastcc void @dissect_tds_all_headers(ptr noundef nonnull %0, ptr
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #13
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #13
   %62 = icmp slt i32 %61, %20
-  br i1 %62, label %22, label %.loopexit, !llvm.loop !32
+  br i1 %62, label %22, label %.loopexit, !llvm.loop !30
 
 .loopexit:                                        ; preds = %58, %56
   %63 = phi i32 [ %.pre, %56 ], [ %61, %58 ]
@@ -7971,7 +7971,7 @@ proto_item_set_generated.exit:                    ; preds = %44, %41, %37, %35, 
   store i32 %83, ptr %1, align 4
   %84 = load i32, ptr %12, align 4
   %85 = icmp eq i32 %84, 0
-  br i1 %85, label %._crit_edge668, label %.lr.ph667, !llvm.loop !33
+  br i1 %85, label %._crit_edge668, label %.lr.ph667
 
 86:                                               ; preds = %._crit_edge668
   call void @tvb_composite_finalize(ptr noundef nonnull %.1568)
@@ -8562,7 +8562,7 @@ proto_item_set_generated.exit:                    ; preds = %44, %41, %37, %35, 
   %388 = or disjoint i64 %.0564653, %387
   %389 = shl i64 %388, 8
   %390 = icmp samesign ugt i32 %.0565654.in, 2
-  br i1 %390, label %.lr.ph656, label %._crit_edge657.loopexit, !llvm.loop !34
+  br i1 %390, label %.lr.ph656, label %._crit_edge657.loopexit, !llvm.loop !31
 
 ._crit_edge657.loopexit:                          ; preds = %.lr.ph656
   %.pre694 = load i32, ptr %1, align 4
@@ -8585,7 +8585,7 @@ proto_item_set_generated.exit:                    ; preds = %44, %41, %37, %35, 
   %397 = fdiv double %.0563660, 1.000000e+01
   %398 = add nuw nsw i32 %.1566659, 1
   %exitcond690.not = icmp eq i32 %398, %396
-  br i1 %exitcond690.not, label %._crit_edge663, label %.lr.ph662, !llvm.loop !35
+  br i1 %exitcond690.not, label %._crit_edge663, label %.lr.ph662, !llvm.loop !32
 
 ._crit_edge663:                                   ; preds = %.lr.ph662, %._crit_edge657
   %.0563.lcssa = phi double [ %395, %._crit_edge657 ], [ %397, %.lr.ph662 ]
@@ -8677,7 +8677,7 @@ proto_item_set_generated.exit:                    ; preds = %44, %41, %37, %35, 
   %444 = or disjoint i64 %.0557641, %443
   %445 = shl i64 %444, 8
   %446 = icmp samesign ugt i32 %.0561.in640, 2
-  br i1 %446, label %.lr.ph643, label %._crit_edge644.loopexit, !llvm.loop !36
+  br i1 %446, label %.lr.ph643, label %._crit_edge644.loopexit, !llvm.loop !33
 
 ._crit_edge644.loopexit:                          ; preds = %.lr.ph643
   %.pre693 = load i32, ptr %1, align 4
@@ -8699,7 +8699,7 @@ proto_item_set_generated.exit:                    ; preds = %44, %41, %37, %35, 
   %452 = fdiv double %.0556647, 1.000000e+01
   %453 = add nuw nsw i32 %.1562646, 1
   %exitcond689.not = icmp eq i32 %453, %435
-  br i1 %exitcond689.not, label %._crit_edge650, label %.lr.ph649, !llvm.loop !37
+  br i1 %exitcond689.not, label %._crit_edge650, label %.lr.ph649, !llvm.loop !34
 
 ._crit_edge650:                                   ; preds = %.lr.ph649, %._crit_edge644
   %.0556.lcssa = phi double [ %451, %._crit_edge644 ], [ %452, %.lr.ph649 ]
@@ -8781,7 +8781,7 @@ proto_item_set_generated.exit:                    ; preds = %44, %41, %37, %35, 
   %506 = or disjoint i64 %.0552629, %505
   %507 = shl i64 %506, 8
   %508 = icmp samesign ugt i32 %.0554.in628, 2
-  br i1 %508, label %.lr.ph631, label %._crit_edge632.loopexit, !llvm.loop !38
+  br i1 %508, label %.lr.ph631, label %._crit_edge632.loopexit, !llvm.loop !35
 
 ._crit_edge632.loopexit:                          ; preds = %.lr.ph631
   %.pre692 = load i32, ptr %1, align 4
@@ -8803,7 +8803,7 @@ proto_item_set_generated.exit:                    ; preds = %44, %41, %37, %35, 
   %514 = fdiv double %.0551635, 1.000000e+01
   %515 = add nuw nsw i32 %.1555634, 1
   %exitcond688.not = icmp eq i32 %515, %497
-  br i1 %exitcond688.not, label %._crit_edge638, label %.lr.ph637, !llvm.loop !39
+  br i1 %exitcond688.not, label %._crit_edge638, label %.lr.ph637, !llvm.loop !36
 
 ._crit_edge638:                                   ; preds = %.lr.ph637, %._crit_edge632
   %.0551.lcssa = phi double [ %513, %._crit_edge632 ], [ %514, %.lr.ph637 ]
@@ -8924,7 +8924,7 @@ proto_item_set_generated.exit:                    ; preds = %44, %41, %37, %35, 
   %592 = or disjoint i64 %588, %591
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !40
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !37
 
 ._crit_edge:                                      ; preds = %.lr.ph, %583
   %.0549.lcssa = phi i64 [ 0, %583 ], [ %592, %.lr.ph ]
@@ -9006,7 +9006,7 @@ proto_item_set_generated.exit:                    ; preds = %44, %41, %37, %35, 
   %636 = or disjoint i64 %632, %635
   %indvars.iv.next686 = add nsw i64 %indvars.iv685, -1
   %.not716 = icmp eq i64 %indvars.iv685, 0
-  br i1 %.not716, label %._crit_edge626, label %.lr.ph625, !llvm.loop !41
+  br i1 %.not716, label %._crit_edge626, label %.lr.ph625, !llvm.loop !38
 
 ._crit_edge626:                                   ; preds = %.lr.ph625, %625
   %.0.lcssa = phi i64 [ 0, %625 ], [ %636, %.lr.ph625 ]
@@ -9657,7 +9657,7 @@ define internal fastcc i32 @dissect_tds5_capability_token(ptr noundef nonnull %0
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %55 = zext i32 %54 to i64
   %56 = icmp samesign ult i64 %indvars.iv.next, %55
-  br i1 %56, label %33, label %._crit_edge.loopexit, !llvm.loop !42
+  br i1 %56, label %33, label %._crit_edge.loopexit, !llvm.loop !39
 
 ._crit_edge.loopexit:                             ; preds = %.thread
   %.pre16 = load i32, ptr %5, align 4
@@ -9670,7 +9670,7 @@ define internal fastcc i32 @dissect_tds5_capability_token(ptr noundef nonnull %0
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #13
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #13
   %59 = icmp ult i32 %58, %57
-  br i1 %59, label %.lr.ph8, label %._crit_edge9, !llvm.loop !43
+  br i1 %59, label %.lr.ph8, label %._crit_edge9, !llvm.loop !40
 
 ._crit_edge9:                                     ; preds = %._crit_edge, %4
   %.038.lcssa = phi i32 [ 2, %4 ], [ %58, %._crit_edge ]
@@ -10630,7 +10630,7 @@ define internal fastcc noundef i32 @dissect_tds_order_token(ptr noundef nonnull 
   %25 = add nuw i32 %.027, 1
   %26 = load i32, ptr %5, align 4
   %27 = icmp ult i32 %25, %26
-  br i1 %27, label %.lr.ph28, label %.loopexit, !llvm.loop !44
+  br i1 %27, label %.lr.ph28, label %.loopexit, !llvm.loop !41
 
 28:                                               ; preds = %18, %14
   %29 = load i32, ptr %5, align 4
@@ -10647,7 +10647,7 @@ define internal fastcc noundef i32 @dissect_tds_order_token(ptr noundef nonnull 
   %34 = load i32, ptr %5, align 4
   %35 = lshr i32 %34, 1
   %36 = icmp samesign ult i32 %33, %35
-  br i1 %36, label %.lr.ph, label %.loopexit, !llvm.loop !45
+  br i1 %36, label %.lr.ph, label %.loopexit, !llvm.loop !42
 
 .loopexit:                                        ; preds = %.lr.ph, %.lr.ph28, %28, %20
   %.121 = phi i32 [ %11, %20 ], [ %11, %28 ], [ %24, %.lr.ph28 ], [ %32, %.lr.ph ]
@@ -10814,7 +10814,7 @@ define internal fastcc i32 @dissect_tds_paramfmt_token(ptr noundef %0, ptr nound
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #13
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #13
   %89 = icmp ult i32 %88, %23
-  br i1 %89, label %28, label %._crit_edge.loopexit, !llvm.loop !46
+  br i1 %89, label %28, label %._crit_edge.loopexit, !llvm.loop !43
 
 ._crit_edge.loopexit:                             ; preds = %84
   %90 = trunc nuw nsw i64 %indvars.iv.next to i32
@@ -10995,7 +10995,7 @@ define internal fastcc i32 @dissect_tds_paramfmt2_token(ptr noundef %0, ptr noun
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #13
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #13
   %91 = icmp ult i32 %90, %23
-  br i1 %91, label %28, label %._crit_edge.loopexit, !llvm.loop !47
+  br i1 %91, label %28, label %._crit_edge.loopexit, !llvm.loop !44
 
 ._crit_edge.loopexit:                             ; preds = %86
   %92 = trunc nuw nsw i64 %indvars.iv.next to i32
@@ -11108,7 +11108,7 @@ dissect_tds_type_info_minimal.exit:               ; preds = %34, %39, %.sink.spl
   %48 = load i32, ptr %.0, align 8
   %49 = zext i32 %48 to i64
   %50 = icmp samesign ult i64 %indvars.iv.next, %49
-  br i1 %50, label %34, label %._crit_edge.loopexit, !llvm.loop !48
+  br i1 %50, label %34, label %._crit_edge.loopexit, !llvm.loop !45
 
 ._crit_edge.loopexit:                             ; preds = %dissect_tds_type_info_minimal.exit
   %.pre = load i32, ptr %7, align 4
@@ -11377,43 +11377,40 @@ attributes #14 = { nounwind willreturn memory(read) }
 !6 = !{i8 0, i8 2}
 !7 = !{}
 !8 = distinct !{!8, !9}
-!9 = !{!"llvm.loop.estimated_trip_count"}
-!10 = distinct !{!10, !11, !9}
-!11 = !{!"llvm.loop.mustprogress"}
-!12 = distinct !{!12, !11, !9}
-!13 = distinct !{!13, !11, !9}
-!14 = distinct !{!14, !11, !9}
-!15 = distinct !{!15, !11, !9}
-!16 = distinct !{!16, !11, !9}
-!17 = distinct !{!17, !11, !9}
-!18 = distinct !{!18, !11, !9}
-!19 = distinct !{!19, !11, !9}
-!20 = distinct !{!20, !11, !9}
-!21 = distinct !{!21, !11, !9}
-!22 = distinct !{!22, !11, !9}
-!23 = distinct !{!23, !11, !9}
-!24 = distinct !{!24, !11, !9}
-!25 = distinct !{!25, !11, !9}
-!26 = distinct !{!26, !11, !9}
-!27 = distinct !{!27, !11, !9}
-!28 = distinct !{!28, !11, !9}
-!29 = distinct !{!29, !11, !9}
-!30 = distinct !{!30, !11, !9}
-!31 = distinct !{!31, !11, !9}
-!32 = distinct !{!32, !11, !9}
+!9 = !{!"llvm.loop.mustprogress"}
+!10 = distinct !{!10, !9}
+!11 = distinct !{!11, !9}
+!12 = distinct !{!12, !9}
+!13 = distinct !{!13, !9}
+!14 = distinct !{!14, !9}
+!15 = distinct !{!15, !9}
+!16 = distinct !{!16, !9}
+!17 = distinct !{!17, !9}
+!18 = distinct !{!18, !9}
+!19 = distinct !{!19, !9}
+!20 = distinct !{!20, !9}
+!21 = distinct !{!21, !9}
+!22 = distinct !{!22, !9}
+!23 = distinct !{!23, !9}
+!24 = distinct !{!24, !9}
+!25 = distinct !{!25, !9}
+!26 = distinct !{!26, !9}
+!27 = distinct !{!27, !9}
+!28 = distinct !{!28, !9}
+!29 = distinct !{!29, !9}
+!30 = distinct !{!30, !9}
+!31 = distinct !{!31, !9}
+!32 = distinct !{!32, !9}
 !33 = distinct !{!33, !9}
-!34 = distinct !{!34, !11, !9}
-!35 = distinct !{!35, !11, !9}
-!36 = distinct !{!36, !11, !9}
-!37 = distinct !{!37, !11, !9}
-!38 = distinct !{!38, !11, !9}
-!39 = distinct !{!39, !11, !9}
-!40 = distinct !{!40, !11, !9}
-!41 = distinct !{!41, !11, !9}
-!42 = distinct !{!42, !11, !9}
-!43 = distinct !{!43, !11, !9}
-!44 = distinct !{!44, !11, !9}
-!45 = distinct !{!45, !11, !9}
-!46 = distinct !{!46, !11, !9}
-!47 = distinct !{!47, !11, !9}
-!48 = distinct !{!48, !11, !9}
+!34 = distinct !{!34, !9}
+!35 = distinct !{!35, !9}
+!36 = distinct !{!36, !9}
+!37 = distinct !{!37, !9}
+!38 = distinct !{!38, !9}
+!39 = distinct !{!39, !9}
+!40 = distinct !{!40, !9}
+!41 = distinct !{!41, !9}
+!42 = distinct !{!42, !9}
+!43 = distinct !{!43, !9}
+!44 = distinct !{!44, !9}
+!45 = distinct !{!45, !9}

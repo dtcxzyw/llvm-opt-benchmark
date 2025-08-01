@@ -145,7 +145,7 @@ define void @uart_recvchars(ptr noundef %0) local_unnamed_addr #0 {
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 56
   %38 = load ptr, ptr %37, align 8
   %39 = call zeroext i1 %38(ptr noundef nonnull %0) #2
-  br i1 %39, label %17, label %._crit_edge, !llvm.loop !9
+  br i1 %39, label %17, label %._crit_edge, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %35, %1
   %40 = load volatile i16, ptr %3, align 8
@@ -195,7 +195,6 @@ attributes #2 = { nounwind }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
+!8 = distinct !{!8, !7}

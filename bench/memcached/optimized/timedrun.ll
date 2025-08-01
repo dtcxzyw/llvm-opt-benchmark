@@ -130,7 +130,7 @@ define dso_local range(i32 0, 256) i32 @main(i32 noundef %0, ptr noundef %1) loc
   %.116.ph.i.i = phi i32 [ 1, %31 ], [ 1, %35 ], [ %56, %54 ]
   %58 = call i32 @waitpid(i32 noundef %13, ptr noundef nonnull %3, i32 noundef 0) #11
   %59 = icmp eq i32 %58, %13
-  br i1 %59, label %wait_for_process.exit.i, label %.lr.ph.i.i, !llvm.loop !14
+  br i1 %59, label %wait_for_process.exit.i, label %.lr.ph.i.i
 
 wait_for_process.exit.i:                          ; preds = %57, %19
   %60 = load i32, ptr %3, align 4, !tbaa !9
@@ -232,5 +232,3 @@ attributes #13 = { cold noreturn nounwind }
 !11 = !{!7, !7, i64 0}
 !12 = !{!13, !13, i64 0}
 !13 = !{!"p1 _ZTS8_IO_FILE", !6, i64 0}
-!14 = distinct !{!14, !15}
-!15 = !{!"llvm.loop.estimated_trip_count"}

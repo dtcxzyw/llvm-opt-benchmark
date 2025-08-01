@@ -27,7 +27,7 @@ define void @softfloat_shortShiftRightExtendM(i8 noundef zeroext %0, ptr noundef
   %18 = lshr i32 %14, %5
   %19 = icmp eq i64 %indvars.iv, %11
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  br i1 %19, label %20, label %12, !llvm.loop !7
+  br i1 %19, label %20, label %12
 
 20:                                               ; preds = %12
   store i32 %18, ptr %17, align 4, !tbaa !3
@@ -45,5 +45,3 @@ attributes #0 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwt
 !4 = !{!"int", !5, i64 0}
 !5 = !{!"omnipotent char", !6, i64 0}
 !6 = !{!"Simple C/C++ TBAA"}
-!7 = distinct !{!7, !8}
-!8 = !{!"llvm.loop.estimated_trip_count"}

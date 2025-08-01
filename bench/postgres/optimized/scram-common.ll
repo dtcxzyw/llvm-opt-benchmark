@@ -105,7 +105,7 @@ define range(i32 -1, 1) i32 @scram_SaltedPassword(ptr noundef %0, i32 noundef %1
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %11, ptr nonnull align 16 %10, i64 %29, i1 false)
   %49 = add i32 %.04044.us, 1
   %.not.us = icmp sgt i32 %49, %5
-  br i1 %.not.us, label %._crit_edge47, label %.lr.ph46.split.us, !llvm.loop !6
+  br i1 %.not.us, label %._crit_edge47, label %.lr.ph46.split.us, !llvm.loop !5
 
 .lr.ph46.split:                                   ; preds = %.lr.ph46, %.preheader
   %.04044 = phi i32 [ %58, %.preheader ], [ 2, %.lr.ph46 ]
@@ -127,7 +127,7 @@ define range(i32 -1, 1) i32 @scram_SaltedPassword(ptr noundef %0, i32 noundef %1
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %11, ptr nonnull align 16 %10, i64 %29, i1 false)
   %58 = add i32 %.04044, 1
   %.not = icmp sgt i32 %58, %5
-  br i1 %.not, label %._crit_edge47, label %.lr.ph46.split, !llvm.loop !8
+  br i1 %.not, label %._crit_edge47, label %.lr.ph46.split, !llvm.loop !7
 
 .split.us:                                        ; preds = %.lr.ph46.split, %52, %55, %.lr.ph46.split.us, %38, %41
   %59 = call ptr @pg_hmac_error(ptr noundef nonnull %13) #8
@@ -435,9 +435,8 @@ attributes #9 = { nounwind allocsize(0) }
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = distinct !{!3, !4, !5}
+!3 = distinct !{!3, !4}
 !4 = !{!"llvm.loop.mustprogress"}
-!5 = !{!"llvm.loop.estimated_trip_count"}
-!6 = distinct !{!6, !4, !5, !7}
-!7 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!8 = distinct !{!8, !4, !5}
+!5 = distinct !{!5, !4, !6}
+!6 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!7 = distinct !{!7, !4}

@@ -855,7 +855,7 @@ _ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit: ; preds = %19, %6
 ._crit_edge.us:                                   ; preds = %52
   %indvars.iv.next51 = add nuw nsw i64 %indvars.iv50, 1
   %exitcond54.not = icmp eq i64 %indvars.iv.next51, %wide.trip.count53
-  br i1 %exitcond54.not, label %._crit_edge45, label %.lr.ph.us, !llvm.loop !28
+  br i1 %exitcond54.not, label %._crit_edge45, label %.lr.ph.us, !llvm.loop !27
 
 ._crit_edge45:                                    ; preds = %.lr.ph44.split, %._crit_edge.us, %_ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit
   ret i1 true
@@ -877,7 +877,7 @@ _ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit: ; preds = %19, %6
   %69 = tail call noundef zeroext i1 %68(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 4 dereferenceable(2049) %0, i32 noundef %3, i64 noundef %65, ptr noundef %1, i64 noundef %29)
   %70 = add nuw i32 %.03643, 1
   %exitcond.not = icmp eq i32 %70, %32
-  br i1 %exitcond.not, label %._crit_edge45, label %.lr.ph44.split, !llvm.loop !30
+  br i1 %exitcond.not, label %._crit_edge45, label %.lr.ph44.split, !llvm.loop !29
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -965,12 +965,12 @@ _ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit: ; preds = %19, %6
   store i8 %57, ptr %gep, align 1, !tbaa !24
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond53.not = icmp eq i64 %indvars.iv.next, %35
-  br i1 %exitcond53.not, label %._crit_edge.us, label %53, !llvm.loop !31
+  br i1 %exitcond53.not, label %._crit_edge.us, label %53, !llvm.loop !30
 
 ._crit_edge.us:                                   ; preds = %53
   %indvars.iv.next55 = add nuw nsw i64 %indvars.iv54, 1
   %exitcond58.not = icmp eq i64 %indvars.iv.next55, %wide.trip.count57
-  br i1 %exitcond58.not, label %._crit_edge49, label %.lr.ph.us, !llvm.loop !32
+  br i1 %exitcond58.not, label %._crit_edge49, label %.lr.ph.us, !llvm.loop !31
 
 ._crit_edge49:                                    ; preds = %.lr.ph48.split, %._crit_edge.us, %_ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit
   ret i1 true
@@ -992,7 +992,7 @@ _ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit: ; preds = %19, %6
   %70 = tail call noundef zeroext i1 %69(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 4 dereferenceable(2049) %0, i32 noundef %3, i64 noundef %66, ptr noundef %1, i64 noundef %30)
   %71 = add nuw i32 %.04147, 1
   %exitcond.not = icmp eq i32 %71, %33
-  br i1 %exitcond.not, label %._crit_edge49, label %.lr.ph48.split, !llvm.loop !33
+  br i1 %exitcond.not, label %._crit_edge49, label %.lr.ph48.split, !llvm.loop !32
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -1063,7 +1063,7 @@ _ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit: ; preds = %19, %6
   %51 = tail call noundef zeroext i1 %50(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 4 dereferenceable(2049) %0, i32 noundef %3, i64 noundef %45, ptr noundef %47, i64 noundef %31)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %35, !llvm.loop !34
+  br i1 %exitcond.not, label %._crit_edge, label %35, !llvm.loop !33
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -1145,18 +1145,18 @@ _ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit: ; preds = %19, %6
   %indvars.iv = phi i64 [ 0, %.lr.ph.us ], [ %indvars.iv.next, %53 ]
   %54 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
   %gep = getelementptr inbounds nuw i8, ptr %invariant.gep, i64 %indvars.iv
-  %55 = load i32, ptr %54, align 4, !tbaa !35
+  %55 = load i32, ptr %54, align 4, !tbaa !34
   %56 = lshr i32 %55, 24
   %57 = trunc nuw i32 %56 to i8
   store i8 %57, ptr %gep, align 1, !tbaa !24
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond53.not = icmp eq i64 %indvars.iv.next, %35
-  br i1 %exitcond53.not, label %._crit_edge.us, label %53, !llvm.loop !36
+  br i1 %exitcond53.not, label %._crit_edge.us, label %53, !llvm.loop !35
 
 ._crit_edge.us:                                   ; preds = %53
   %indvars.iv.next55 = add nuw nsw i64 %indvars.iv54, 1
   %exitcond58.not = icmp eq i64 %indvars.iv.next55, %wide.trip.count57
-  br i1 %exitcond58.not, label %._crit_edge49, label %.lr.ph.us, !llvm.loop !37
+  br i1 %exitcond58.not, label %._crit_edge49, label %.lr.ph.us, !llvm.loop !36
 
 ._crit_edge49:                                    ; preds = %.lr.ph48.split, %._crit_edge.us, %_ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit
   ret i1 true
@@ -1178,7 +1178,7 @@ _ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit: ; preds = %19, %6
   %70 = tail call noundef zeroext i1 %69(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 4 dereferenceable(2049) %0, i32 noundef %3, i64 noundef %66, ptr noundef %1, i64 noundef %30)
   %71 = add nuw i32 %.04147, 1
   %exitcond.not = icmp eq i32 %71, %33
-  br i1 %exitcond.not, label %._crit_edge49, label %.lr.ph48.split, !llvm.loop !38
+  br i1 %exitcond.not, label %._crit_edge49, label %.lr.ph48.split, !llvm.loop !37
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -1260,17 +1260,17 @@ _ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit: ; preds = %19, %6
   %indvars.iv = phi i64 [ 0, %.lr.ph.us ], [ %indvars.iv.next, %53 ]
   %54 = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv
   %gep = getelementptr inbounds nuw i8, ptr %invariant.gep, i64 %indvars.iv
-  %55 = load float, ptr %54, align 4, !tbaa !39
+  %55 = load float, ptr %54, align 4, !tbaa !38
   %56 = fptoui float %55 to i8
   store i8 %56, ptr %gep, align 1, !tbaa !24
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond53.not = icmp eq i64 %indvars.iv.next, %35
-  br i1 %exitcond53.not, label %._crit_edge.us, label %53, !llvm.loop !40
+  br i1 %exitcond53.not, label %._crit_edge.us, label %53, !llvm.loop !39
 
 ._crit_edge.us:                                   ; preds = %53
   %indvars.iv.next55 = add nuw nsw i64 %indvars.iv54, 1
   %exitcond58.not = icmp eq i64 %indvars.iv.next55, %wide.trip.count57
-  br i1 %exitcond58.not, label %._crit_edge49, label %.lr.ph.us, !llvm.loop !41
+  br i1 %exitcond58.not, label %._crit_edge49, label %.lr.ph.us, !llvm.loop !40
 
 ._crit_edge49:                                    ; preds = %.lr.ph48.split, %._crit_edge.us, %_ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit
   ret i1 true
@@ -1292,7 +1292,7 @@ _ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit: ; preds = %19, %6
   %69 = tail call noundef zeroext i1 %68(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 4 dereferenceable(2049) %0, i32 noundef %3, i64 noundef %65, ptr noundef %1, i64 noundef %30)
   %70 = add nuw i32 %.04147, 1
   %exitcond.not = icmp eq i32 %70, %33
-  br i1 %exitcond.not, label %._crit_edge49, label %.lr.ph48.split, !llvm.loop !42
+  br i1 %exitcond.not, label %._crit_edge49, label %.lr.ph48.split, !llvm.loop !41
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -1374,17 +1374,17 @@ _ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit: ; preds = %19, %6
   %indvars.iv = phi i64 [ 0, %.lr.ph.us ], [ %indvars.iv.next, %53 ]
   %54 = getelementptr inbounds nuw double, ptr %1, i64 %indvars.iv
   %gep = getelementptr inbounds nuw i8, ptr %invariant.gep, i64 %indvars.iv
-  %55 = load double, ptr %54, align 8, !tbaa !43
+  %55 = load double, ptr %54, align 8, !tbaa !42
   %56 = fptoui double %55 to i8
   store i8 %56, ptr %gep, align 1, !tbaa !24
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond53.not = icmp eq i64 %indvars.iv.next, %35
-  br i1 %exitcond53.not, label %._crit_edge.us, label %53, !llvm.loop !45
+  br i1 %exitcond53.not, label %._crit_edge.us, label %53, !llvm.loop !44
 
 ._crit_edge.us:                                   ; preds = %53
   %indvars.iv.next55 = add nuw nsw i64 %indvars.iv54, 1
   %exitcond58.not = icmp eq i64 %indvars.iv.next55, %wide.trip.count57
-  br i1 %exitcond58.not, label %._crit_edge49, label %.lr.ph.us, !llvm.loop !46
+  br i1 %exitcond58.not, label %._crit_edge49, label %.lr.ph.us, !llvm.loop !45
 
 ._crit_edge49:                                    ; preds = %.lr.ph48.split, %._crit_edge.us, %_ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit
   ret i1 true
@@ -1406,7 +1406,7 @@ _ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit: ; preds = %19, %6
   %69 = tail call noundef zeroext i1 %68(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 4 dereferenceable(2049) %0, i32 noundef %3, i64 noundef %65, ptr noundef %1, i64 noundef %30)
   %70 = add nuw i32 %.04147, 1
   %exitcond.not = icmp eq i32 %70, %33
-  br i1 %exitcond.not, label %._crit_edge49, label %.lr.ph48.split, !llvm.loop !47
+  br i1 %exitcond.not, label %._crit_edge49, label %.lr.ph48.split, !llvm.loop !46
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -1493,7 +1493,6 @@ _ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit: ; preds = %6, %12
   %reass.sub68 = sub i32 %64, %60
   %65 = add i32 %reass.sub68, 1
   %66 = mul nsw i32 %65, %11
-  %invariant.gep = getelementptr inbounds nuw i8, ptr %59, i64 1
   %67 = icmp sgt i32 %66, 0
   br i1 %67, label %.lr.ph, label %._crit_edge
 
@@ -1513,7 +1512,7 @@ _ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit: ; preds = %6, %12
   %72 = sdiv i32 %71, 3
   %73 = sext i32 %72 to i64
   %74 = getelementptr inbounds i32, ptr %1, i64 %73
-  %75 = load i32, ptr %74, align 4, !tbaa !35
+  %75 = load i32, ptr %74, align 4, !tbaa !34
   %76 = srem i32 %71, 3
   %77 = sub nsw i32 2, %76
   %78 = mul nuw nsw i32 %77, 10
@@ -1525,21 +1524,21 @@ _ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit: ; preds = %6, %12
   store i8 %83, ptr %81, align 1, !tbaa !24
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %.not = icmp eq i64 %indvars.iv, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !48
+  br i1 %.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !47
 
-._crit_edge:                                      ; preds = %.lr.ph.split.us, %101, %32
+._crit_edge:                                      ; preds = %.lr.ph.split.us, %103, %32
   %indvars.iv.next79 = add nuw nsw i64 %indvars.iv78, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next79, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge67, label %32, !llvm.loop !49
+  br i1 %exitcond.not, label %._crit_edge67, label %32, !llvm.loop !48
 
-.lr.ph.split:                                     ; preds = %.lr.ph.split.preheader, %101
-  %indvars.iv73 = phi i64 [ %69, %.lr.ph.split.preheader ], [ %indvars.iv.next74, %101 ]
-  %indvars.iv71 = phi i64 [ %68, %.lr.ph.split.preheader ], [ %indvars.iv.next72, %101 ]
+.lr.ph.split:                                     ; preds = %.lr.ph.split.preheader, %103
+  %indvars.iv73 = phi i64 [ %69, %.lr.ph.split.preheader ], [ %indvars.iv.next74, %103 ]
+  %indvars.iv71 = phi i64 [ %68, %.lr.ph.split.preheader ], [ %indvars.iv.next72, %103 ]
   %84 = trunc nuw nsw i64 %indvars.iv71 to i32
   %85 = sdiv i32 %84, 3
   %86 = sext i32 %85 to i64
   %87 = getelementptr inbounds i32, ptr %1, i64 %86
-  %88 = load i32, ptr %87, align 4, !tbaa !35
+  %88 = load i32, ptr %87, align 4, !tbaa !34
   %89 = srem i32 %84, 3
   %90 = sub nsw i32 2, %89
   %91 = mul nuw nsw i32 %90, 10
@@ -1551,20 +1550,21 @@ _ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit: ; preds = %6, %12
   store i8 %96, ptr %94, align 1, !tbaa !24
   %97 = urem i32 %84, 3
   %98 = icmp eq i32 %97, 0
-  br i1 %98, label %99, label %101
+  br i1 %98, label %99, label %103
 
 99:                                               ; preds = %.lr.ph.split
-  %gep = getelementptr inbounds nuw i8, ptr %invariant.gep, i64 %indvars.iv73
-  %100 = load i8, ptr %gep, align 1, !tbaa !24
-  store i8 %100, ptr %94, align 1, !tbaa !24
-  store i8 %96, ptr %gep, align 1, !tbaa !24
-  br label %101
+  %100 = getelementptr inbounds nuw i8, ptr %59, i64 %indvars.iv73
+  %101 = getelementptr inbounds nuw i8, ptr %100, i64 1
+  %102 = load i8, ptr %101, align 1, !tbaa !24
+  store i8 %102, ptr %94, align 1, !tbaa !24
+  store i8 %96, ptr %101, align 1, !tbaa !24
+  br label %103
 
-101:                                              ; preds = %99, %.lr.ph.split
+103:                                              ; preds = %99, %.lr.ph.split
   %indvars.iv.next72 = add nsw i64 %indvars.iv71, -1
-  %102 = icmp sgt i64 %indvars.iv71, 0
+  %104 = icmp sgt i64 %indvars.iv71, 0
   %indvars.iv.next74 = add nsw i64 %indvars.iv73, -1
-  br i1 %102, label %.lr.ph.split, label %._crit_edge, !llvm.loop !50
+  br i1 %104, label %.lr.ph.split, label %._crit_edge, !llvm.loop !49
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -1651,7 +1651,6 @@ _ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit: ; preds = %6, %12
   %reass.sub68 = sub i32 %64, %60
   %65 = add i32 %reass.sub68, 1
   %66 = mul nsw i32 %65, %11
-  %invariant.gep = getelementptr inbounds nuw i8, ptr %59, i64 1
   %67 = icmp sgt i32 %66, 0
   br i1 %67, label %.lr.ph, label %._crit_edge
 
@@ -1671,7 +1670,7 @@ _ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit: ; preds = %6, %12
   %72 = sdiv i32 %71, 3
   %73 = sext i32 %72 to i64
   %74 = getelementptr inbounds i32, ptr %1, i64 %73
-  %75 = load i32, ptr %74, align 4, !tbaa !35
+  %75 = load i32, ptr %74, align 4, !tbaa !34
   %76 = srem i32 %71, 3
   %77 = sub nsw i32 2, %76
   %78 = mul nuw nsw i32 %77, 10
@@ -1682,21 +1681,21 @@ _ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit: ; preds = %6, %12
   store i8 %82, ptr %80, align 1, !tbaa !24
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %.not = icmp eq i64 %indvars.iv, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !51
+  br i1 %.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !50
 
-._crit_edge:                                      ; preds = %.lr.ph.split.us, %99, %32
+._crit_edge:                                      ; preds = %.lr.ph.split.us, %101, %32
   %indvars.iv.next79 = add nuw nsw i64 %indvars.iv78, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next79, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge67, label %32, !llvm.loop !52
+  br i1 %exitcond.not, label %._crit_edge67, label %32, !llvm.loop !51
 
-.lr.ph.split:                                     ; preds = %.lr.ph.split.preheader, %99
-  %indvars.iv73 = phi i64 [ %69, %.lr.ph.split.preheader ], [ %indvars.iv.next74, %99 ]
-  %indvars.iv71 = phi i64 [ %68, %.lr.ph.split.preheader ], [ %indvars.iv.next72, %99 ]
+.lr.ph.split:                                     ; preds = %.lr.ph.split.preheader, %101
+  %indvars.iv73 = phi i64 [ %69, %.lr.ph.split.preheader ], [ %indvars.iv.next74, %101 ]
+  %indvars.iv71 = phi i64 [ %68, %.lr.ph.split.preheader ], [ %indvars.iv.next72, %101 ]
   %83 = trunc nuw nsw i64 %indvars.iv71 to i32
   %84 = sdiv i32 %83, 3
   %85 = sext i32 %84 to i64
   %86 = getelementptr inbounds i32, ptr %1, i64 %85
-  %87 = load i32, ptr %86, align 4, !tbaa !35
+  %87 = load i32, ptr %86, align 4, !tbaa !34
   %88 = srem i32 %83, 3
   %89 = sub nsw i32 2, %88
   %90 = mul nuw nsw i32 %89, 10
@@ -1707,20 +1706,21 @@ _ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit: ; preds = %6, %12
   store i8 %94, ptr %92, align 1, !tbaa !24
   %95 = urem i32 %83, 3
   %96 = icmp eq i32 %95, 0
-  br i1 %96, label %97, label %99
+  br i1 %96, label %97, label %101
 
 97:                                               ; preds = %.lr.ph.split
-  %gep = getelementptr inbounds nuw i8, ptr %invariant.gep, i64 %indvars.iv73
-  %98 = load i8, ptr %gep, align 1, !tbaa !24
-  store i8 %98, ptr %92, align 1, !tbaa !24
-  store i8 %94, ptr %gep, align 1, !tbaa !24
-  br label %99
+  %98 = getelementptr inbounds nuw i8, ptr %59, i64 %indvars.iv73
+  %99 = getelementptr inbounds nuw i8, ptr %98, i64 1
+  %100 = load i8, ptr %99, align 1, !tbaa !24
+  store i8 %100, ptr %92, align 1, !tbaa !24
+  store i8 %94, ptr %99, align 1, !tbaa !24
+  br label %101
 
-99:                                               ; preds = %97, %.lr.ph.split
+101:                                              ; preds = %97, %.lr.ph.split
   %indvars.iv.next72 = add nsw i64 %indvars.iv71, -1
-  %100 = icmp sgt i64 %indvars.iv71, 0
+  %102 = icmp sgt i64 %indvars.iv71, 0
   %indvars.iv.next74 = add nsw i64 %indvars.iv73, -1
-  br i1 %100, label %.lr.ph.split, label %._crit_edge, !llvm.loop !53
+  br i1 %102, label %.lr.ph.split, label %._crit_edge, !llvm.loop !52
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -1841,7 +1841,7 @@ _ZNK3dpx13GenericHeader8BitDepthEi.exit:          ; preds = %6, %12
   store i8 %83, ptr %81, align 1, !tbaa !24
   %indvars.iv.next28.i = add nsw i64 %indvars.iv27.i, -1
   %.not36.i = icmp eq i64 %indvars.iv27.i, 0
-  br i1 %.not36.i, label %_ZN3dpx12UnPackPackedIhLj65472ELi2ELi4ELi6EEEvPjiPT_ii.exit, label %.lr.ph.split.us.i, !llvm.loop !54
+  br i1 %.not36.i, label %_ZN3dpx12UnPackPackedIhLj65472ELi2ELi4ELi6EEEvPjiPT_ii.exit, label %.lr.ph.split.us.i, !llvm.loop !53
 
 .lr.ph.split.us19.i:                              ; preds = %.lr.ph.i, %.lr.ph.split.us19.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.split.us19.i ], [ %71, %.lr.ph.i ]
@@ -1862,7 +1862,7 @@ _ZNK3dpx13GenericHeader8BitDepthEi.exit:          ; preds = %6, %12
   store i8 %95, ptr %94, align 1, !tbaa !24
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
   %.not35.i = icmp eq i64 %indvars.iv.i, 0
-  br i1 %.not35.i, label %_ZN3dpx12UnPackPackedIhLj65472ELi2ELi4ELi6EEEvPjiPT_ii.exit, label %.lr.ph.split.us19.i, !llvm.loop !55
+  br i1 %.not35.i, label %_ZN3dpx12UnPackPackedIhLj65472ELi2ELi4ELi6EEEvPjiPT_ii.exit, label %.lr.ph.split.us19.i, !llvm.loop !54
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i, %.lr.ph.split.i
   %indvars.iv30.i = phi i64 [ %indvars.iv.next31.i, %.lr.ph.split.i ], [ %71, %.lr.ph.i ]
@@ -1883,12 +1883,12 @@ _ZNK3dpx13GenericHeader8BitDepthEi.exit:          ; preds = %6, %12
   store i8 %107, ptr %105, align 1, !tbaa !24
   %indvars.iv.next31.i = add nsw i64 %indvars.iv30.i, -1
   %.not37.i = icmp eq i64 %indvars.iv30.i, 0
-  br i1 %.not37.i, label %_ZN3dpx12UnPackPackedIhLj65472ELi2ELi4ELi6EEEvPjiPT_ii.exit, label %.lr.ph.split.i, !llvm.loop !56
+  br i1 %.not37.i, label %_ZN3dpx12UnPackPackedIhLj65472ELi2ELi4ELi6EEEvPjiPT_ii.exit, label %.lr.ph.split.i, !llvm.loop !55
 
 _ZN3dpx12UnPackPackedIhLj65472ELi2ELi4ELi6EEEvPjiPT_ii.exit: ; preds = %.lr.ph.split.us19.i, %.lr.ph.split.us.i, %.lr.ph.split.i, %33
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %33, !llvm.loop !57
+  br i1 %exitcond.not, label %._crit_edge, label %33, !llvm.loop !56
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -2009,7 +2009,7 @@ _ZNK3dpx13GenericHeader8BitDepthEi.exit:          ; preds = %6, %12
   store i8 %84, ptr %82, align 1, !tbaa !24
   %indvars.iv.next28.i = add nsw i64 %indvars.iv27.i, -1
   %.not36.i = icmp eq i64 %indvars.iv27.i, 0
-  br i1 %.not36.i, label %_ZN3dpx12UnPackPackedIhLj65520ELi4ELi2ELi4EEEvPjiPT_ii.exit, label %.lr.ph.split.us.i, !llvm.loop !58
+  br i1 %.not36.i, label %_ZN3dpx12UnPackPackedIhLj65520ELi4ELi2ELi4EEEvPjiPT_ii.exit, label %.lr.ph.split.us.i, !llvm.loop !57
 
 .lr.ph.split.us19.i:                              ; preds = %.lr.ph.i, %.lr.ph.split.us19.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.split.us19.i ], [ %71, %.lr.ph.i ]
@@ -2030,7 +2030,7 @@ _ZNK3dpx13GenericHeader8BitDepthEi.exit:          ; preds = %6, %12
   store i8 %97, ptr %95, align 1, !tbaa !24
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
   %.not35.i = icmp eq i64 %indvars.iv.i, 0
-  br i1 %.not35.i, label %_ZN3dpx12UnPackPackedIhLj65520ELi4ELi2ELi4EEEvPjiPT_ii.exit, label %.lr.ph.split.us19.i, !llvm.loop !59
+  br i1 %.not35.i, label %_ZN3dpx12UnPackPackedIhLj65520ELi4ELi2ELi4EEEvPjiPT_ii.exit, label %.lr.ph.split.us19.i, !llvm.loop !58
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i, %.lr.ph.split.i
   %indvars.iv30.i = phi i64 [ %indvars.iv.next31.i, %.lr.ph.split.i ], [ %71, %.lr.ph.i ]
@@ -2051,12 +2051,12 @@ _ZNK3dpx13GenericHeader8BitDepthEi.exit:          ; preds = %6, %12
   store i8 %110, ptr %108, align 1, !tbaa !24
   %indvars.iv.next31.i = add nsw i64 %indvars.iv30.i, -1
   %.not37.i = icmp eq i64 %indvars.iv30.i, 0
-  br i1 %.not37.i, label %_ZN3dpx12UnPackPackedIhLj65520ELi4ELi2ELi4EEEvPjiPT_ii.exit, label %.lr.ph.split.i, !llvm.loop !60
+  br i1 %.not37.i, label %_ZN3dpx12UnPackPackedIhLj65520ELi4ELi2ELi4EEEvPjiPT_ii.exit, label %.lr.ph.split.i, !llvm.loop !59
 
 _ZN3dpx12UnPackPackedIhLj65520ELi4ELi2ELi4EEEvPjiPT_ii.exit: ; preds = %.lr.ph.split.us19.i, %.lr.ph.split.us.i, %.lr.ph.split.i, %33
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %33, !llvm.loop !61
+  br i1 %exitcond.not, label %._crit_edge, label %33, !llvm.loop !60
 }
 
 declare noundef i32 @_ZNK3dpx13GenericHeader18ComponentByteCountEi(ptr noundef nonnull align 4 dereferenceable(1664), i32 noundef) local_unnamed_addr #1
@@ -2146,12 +2146,12 @@ _ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit: ; preds = %19, %6
   store i16 %57, ptr %gep, align 2, !tbaa !23
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond49.not = icmp eq i64 %indvars.iv.next, %34
-  br i1 %exitcond49.not, label %._crit_edge.us, label %52, !llvm.loop !62
+  br i1 %exitcond49.not, label %._crit_edge.us, label %52, !llvm.loop !61
 
 ._crit_edge.us:                                   ; preds = %52
   %indvars.iv.next51 = add nuw nsw i64 %indvars.iv50, 1
   %exitcond54.not = icmp eq i64 %indvars.iv.next51, %wide.trip.count53
-  br i1 %exitcond54.not, label %._crit_edge45, label %.lr.ph.us, !llvm.loop !63
+  br i1 %exitcond54.not, label %._crit_edge45, label %.lr.ph.us, !llvm.loop !62
 
 ._crit_edge45:                                    ; preds = %.lr.ph44.split, %._crit_edge.us, %_ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit
   ret i1 true
@@ -2173,7 +2173,7 @@ _ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit: ; preds = %19, %6
   %70 = tail call noundef zeroext i1 %69(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 4 dereferenceable(2049) %0, i32 noundef %3, i64 noundef %66, ptr noundef %1, i64 noundef %29)
   %71 = add nuw i32 %.03643, 1
   %exitcond.not = icmp eq i32 %71, %32
-  br i1 %exitcond.not, label %._crit_edge45, label %.lr.ph44.split, !llvm.loop !64
+  br i1 %exitcond.not, label %._crit_edge45, label %.lr.ph44.split, !llvm.loop !63
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -2244,7 +2244,7 @@ _ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit: ; preds = %19, %6
   %51 = tail call noundef zeroext i1 %50(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 4 dereferenceable(2049) %0, i32 noundef %3, i64 noundef %45, ptr noundef %47, i64 noundef %31)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %35, !llvm.loop !65
+  br i1 %exitcond.not, label %._crit_edge, label %35, !llvm.loop !64
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -2333,12 +2333,12 @@ _ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit: ; preds = %19, %6
   store i16 %58, ptr %gep, align 2, !tbaa !23
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond53.not = icmp eq i64 %indvars.iv.next, %35
-  br i1 %exitcond53.not, label %._crit_edge.us, label %53, !llvm.loop !66
+  br i1 %exitcond53.not, label %._crit_edge.us, label %53, !llvm.loop !65
 
 ._crit_edge.us:                                   ; preds = %53
   %indvars.iv.next55 = add nuw nsw i64 %indvars.iv54, 1
   %exitcond58.not = icmp eq i64 %indvars.iv.next55, %wide.trip.count57
-  br i1 %exitcond58.not, label %._crit_edge49, label %.lr.ph.us, !llvm.loop !67
+  br i1 %exitcond58.not, label %._crit_edge49, label %.lr.ph.us, !llvm.loop !66
 
 ._crit_edge49:                                    ; preds = %.lr.ph48.split, %._crit_edge.us, %_ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit
   ret i1 true
@@ -2360,7 +2360,7 @@ _ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit: ; preds = %19, %6
   %71 = tail call noundef zeroext i1 %70(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 4 dereferenceable(2049) %0, i32 noundef %3, i64 noundef %67, ptr noundef %1, i64 noundef %30)
   %72 = add nuw i32 %.04147, 1
   %exitcond.not = icmp eq i32 %72, %33
-  br i1 %exitcond.not, label %._crit_edge49, label %.lr.ph48.split, !llvm.loop !68
+  br i1 %exitcond.not, label %._crit_edge49, label %.lr.ph48.split, !llvm.loop !67
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -2442,18 +2442,18 @@ _ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit: ; preds = %19, %6
   %indvars.iv = phi i64 [ 0, %.lr.ph.us ], [ %indvars.iv.next, %53 ]
   %54 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
   %gep = getelementptr inbounds nuw i16, ptr %invariant.gep, i64 %indvars.iv
-  %55 = load i32, ptr %54, align 4, !tbaa !35
+  %55 = load i32, ptr %54, align 4, !tbaa !34
   %56 = lshr i32 %55, 16
   %57 = trunc nuw i32 %56 to i16
   store i16 %57, ptr %gep, align 2, !tbaa !23
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond53.not = icmp eq i64 %indvars.iv.next, %35
-  br i1 %exitcond53.not, label %._crit_edge.us, label %53, !llvm.loop !69
+  br i1 %exitcond53.not, label %._crit_edge.us, label %53, !llvm.loop !68
 
 ._crit_edge.us:                                   ; preds = %53
   %indvars.iv.next55 = add nuw nsw i64 %indvars.iv54, 1
   %exitcond58.not = icmp eq i64 %indvars.iv.next55, %wide.trip.count57
-  br i1 %exitcond58.not, label %._crit_edge49, label %.lr.ph.us, !llvm.loop !70
+  br i1 %exitcond58.not, label %._crit_edge49, label %.lr.ph.us, !llvm.loop !69
 
 ._crit_edge49:                                    ; preds = %.lr.ph48.split, %._crit_edge.us, %_ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit
   ret i1 true
@@ -2475,7 +2475,7 @@ _ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit: ; preds = %19, %6
   %70 = tail call noundef zeroext i1 %69(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 4 dereferenceable(2049) %0, i32 noundef %3, i64 noundef %66, ptr noundef %1, i64 noundef %30)
   %71 = add nuw i32 %.04147, 1
   %exitcond.not = icmp eq i32 %71, %33
-  br i1 %exitcond.not, label %._crit_edge49, label %.lr.ph48.split, !llvm.loop !71
+  br i1 %exitcond.not, label %._crit_edge49, label %.lr.ph48.split, !llvm.loop !70
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -2557,17 +2557,17 @@ _ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit: ; preds = %19, %6
   %indvars.iv = phi i64 [ 0, %.lr.ph.us ], [ %indvars.iv.next, %53 ]
   %54 = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv
   %gep = getelementptr inbounds nuw i16, ptr %invariant.gep, i64 %indvars.iv
-  %55 = load float, ptr %54, align 4, !tbaa !39
+  %55 = load float, ptr %54, align 4, !tbaa !38
   %56 = fptoui float %55 to i16
   store i16 %56, ptr %gep, align 2, !tbaa !23
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond53.not = icmp eq i64 %indvars.iv.next, %35
-  br i1 %exitcond53.not, label %._crit_edge.us, label %53, !llvm.loop !72
+  br i1 %exitcond53.not, label %._crit_edge.us, label %53, !llvm.loop !71
 
 ._crit_edge.us:                                   ; preds = %53
   %indvars.iv.next55 = add nuw nsw i64 %indvars.iv54, 1
   %exitcond58.not = icmp eq i64 %indvars.iv.next55, %wide.trip.count57
-  br i1 %exitcond58.not, label %._crit_edge49, label %.lr.ph.us, !llvm.loop !73
+  br i1 %exitcond58.not, label %._crit_edge49, label %.lr.ph.us, !llvm.loop !72
 
 ._crit_edge49:                                    ; preds = %.lr.ph48.split, %._crit_edge.us, %_ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit
   ret i1 true
@@ -2589,7 +2589,7 @@ _ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit: ; preds = %19, %6
   %69 = tail call noundef zeroext i1 %68(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 4 dereferenceable(2049) %0, i32 noundef %3, i64 noundef %65, ptr noundef %1, i64 noundef %30)
   %70 = add nuw i32 %.04147, 1
   %exitcond.not = icmp eq i32 %70, %33
-  br i1 %exitcond.not, label %._crit_edge49, label %.lr.ph48.split, !llvm.loop !74
+  br i1 %exitcond.not, label %._crit_edge49, label %.lr.ph48.split, !llvm.loop !73
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -2671,17 +2671,17 @@ _ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit: ; preds = %19, %6
   %indvars.iv = phi i64 [ 0, %.lr.ph.us ], [ %indvars.iv.next, %53 ]
   %54 = getelementptr inbounds nuw double, ptr %1, i64 %indvars.iv
   %gep = getelementptr inbounds nuw i16, ptr %invariant.gep, i64 %indvars.iv
-  %55 = load double, ptr %54, align 8, !tbaa !43
+  %55 = load double, ptr %54, align 8, !tbaa !42
   %56 = fptoui double %55 to i16
   store i16 %56, ptr %gep, align 2, !tbaa !23
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond53.not = icmp eq i64 %indvars.iv.next, %35
-  br i1 %exitcond53.not, label %._crit_edge.us, label %53, !llvm.loop !75
+  br i1 %exitcond53.not, label %._crit_edge.us, label %53, !llvm.loop !74
 
 ._crit_edge.us:                                   ; preds = %53
   %indvars.iv.next55 = add nuw nsw i64 %indvars.iv54, 1
   %exitcond58.not = icmp eq i64 %indvars.iv.next55, %wide.trip.count57
-  br i1 %exitcond58.not, label %._crit_edge49, label %.lr.ph.us, !llvm.loop !76
+  br i1 %exitcond58.not, label %._crit_edge49, label %.lr.ph.us, !llvm.loop !75
 
 ._crit_edge49:                                    ; preds = %.lr.ph48.split, %._crit_edge.us, %_ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit
   ret i1 true
@@ -2703,7 +2703,7 @@ _ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit: ; preds = %19, %6
   %69 = tail call noundef zeroext i1 %68(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 4 dereferenceable(2049) %0, i32 noundef %3, i64 noundef %65, ptr noundef %1, i64 noundef %30)
   %70 = add nuw i32 %.04147, 1
   %exitcond.not = icmp eq i32 %70, %33
-  br i1 %exitcond.not, label %._crit_edge49, label %.lr.ph48.split, !llvm.loop !77
+  br i1 %exitcond.not, label %._crit_edge49, label %.lr.ph48.split, !llvm.loop !76
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -2792,7 +2792,6 @@ _ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit: ; preds = %6, %12
   %reass.sub68 = sub i32 %64, %60
   %65 = add i32 %reass.sub68, 1
   %66 = mul nsw i32 %65, %11
-  %invariant.gep = getelementptr inbounds nuw i8, ptr %59, i64 2
   %67 = icmp sgt i32 %66, 0
   br i1 %67, label %.lr.ph, label %._crit_edge
 
@@ -2812,7 +2811,7 @@ _ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit: ; preds = %6, %12
   %72 = sdiv i32 %71, 3
   %73 = sext i32 %72 to i64
   %74 = getelementptr inbounds i32, ptr %1, i64 %73
-  %75 = load i32, ptr %74, align 4, !tbaa !35
+  %75 = load i32, ptr %74, align 4, !tbaa !34
   %76 = srem i32 %71, 3
   %77 = sub nsw i32 2, %76
   %78 = mul nuw nsw i32 %77, 10
@@ -2827,21 +2826,21 @@ _ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit: ; preds = %6, %12
   store i16 %85, ptr %86, align 2, !tbaa !23
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %.not = icmp eq i64 %indvars.iv, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !78
+  br i1 %.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !77
 
-._crit_edge:                                      ; preds = %.lr.ph.split.us, %107, %32
+._crit_edge:                                      ; preds = %.lr.ph.split.us, %109, %32
   %indvars.iv.next79 = add nuw nsw i64 %indvars.iv78, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next79, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge67, label %32, !llvm.loop !79
+  br i1 %exitcond.not, label %._crit_edge67, label %32, !llvm.loop !78
 
-.lr.ph.split:                                     ; preds = %.lr.ph.split.preheader, %107
-  %indvars.iv73 = phi i64 [ %69, %.lr.ph.split.preheader ], [ %indvars.iv.next74, %107 ]
-  %indvars.iv71 = phi i64 [ %68, %.lr.ph.split.preheader ], [ %indvars.iv.next72, %107 ]
+.lr.ph.split:                                     ; preds = %.lr.ph.split.preheader, %109
+  %indvars.iv73 = phi i64 [ %69, %.lr.ph.split.preheader ], [ %indvars.iv.next74, %109 ]
+  %indvars.iv71 = phi i64 [ %68, %.lr.ph.split.preheader ], [ %indvars.iv.next72, %109 ]
   %87 = trunc nuw nsw i64 %indvars.iv71 to i32
   %88 = sdiv i32 %87, 3
   %89 = sext i32 %88 to i64
   %90 = getelementptr inbounds i32, ptr %1, i64 %89
-  %91 = load i32, ptr %90, align 4, !tbaa !35
+  %91 = load i32, ptr %90, align 4, !tbaa !34
   %92 = srem i32 %87, 3
   %93 = sub nsw i32 2, %92
   %94 = mul nuw nsw i32 %93, 10
@@ -2856,20 +2855,21 @@ _ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit: ; preds = %6, %12
   store i16 %101, ptr %102, align 2, !tbaa !23
   %103 = urem i32 %87, 3
   %104 = icmp eq i32 %103, 0
-  br i1 %104, label %105, label %107
+  br i1 %104, label %105, label %109
 
 105:                                              ; preds = %.lr.ph.split
-  %gep = getelementptr inbounds nuw i16, ptr %invariant.gep, i64 %indvars.iv73
-  %106 = load i16, ptr %gep, align 2, !tbaa !23
-  store i16 %106, ptr %102, align 2, !tbaa !23
-  store i16 %101, ptr %gep, align 2, !tbaa !23
-  br label %107
+  %106 = getelementptr inbounds nuw i16, ptr %59, i64 %indvars.iv73
+  %107 = getelementptr inbounds nuw i8, ptr %106, i64 2
+  %108 = load i16, ptr %107, align 2, !tbaa !23
+  store i16 %108, ptr %102, align 2, !tbaa !23
+  store i16 %101, ptr %107, align 2, !tbaa !23
+  br label %109
 
-107:                                              ; preds = %105, %.lr.ph.split
+109:                                              ; preds = %105, %.lr.ph.split
   %indvars.iv.next72 = add nsw i64 %indvars.iv71, -1
-  %108 = icmp sgt i64 %indvars.iv71, 0
+  %110 = icmp sgt i64 %indvars.iv71, 0
   %indvars.iv.next74 = add nsw i64 %indvars.iv73, -1
-  br i1 %108, label %.lr.ph.split, label %._crit_edge, !llvm.loop !80
+  br i1 %110, label %.lr.ph.split, label %._crit_edge, !llvm.loop !79
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -2958,7 +2958,6 @@ _ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit: ; preds = %6, %12
   %reass.sub68 = sub i32 %64, %60
   %65 = add i32 %reass.sub68, 1
   %66 = mul nsw i32 %65, %11
-  %invariant.gep = getelementptr inbounds nuw i8, ptr %59, i64 2
   %67 = icmp sgt i32 %66, 0
   br i1 %67, label %.lr.ph, label %._crit_edge
 
@@ -2978,7 +2977,7 @@ _ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit: ; preds = %6, %12
   %72 = sdiv i32 %71, 3
   %73 = sext i32 %72 to i64
   %74 = getelementptr inbounds i32, ptr %1, i64 %73
-  %75 = load i32, ptr %74, align 4, !tbaa !35
+  %75 = load i32, ptr %74, align 4, !tbaa !34
   %76 = srem i32 %71, 3
   %77 = sub nsw i32 2, %76
   %78 = mul nuw nsw i32 %77, 10
@@ -2992,21 +2991,21 @@ _ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit: ; preds = %6, %12
   store i16 %84, ptr %85, align 2, !tbaa !23
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %.not = icmp eq i64 %indvars.iv, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !81
+  br i1 %.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !80
 
-._crit_edge:                                      ; preds = %.lr.ph.split.us, %105, %32
+._crit_edge:                                      ; preds = %.lr.ph.split.us, %107, %32
   %indvars.iv.next79 = add nuw nsw i64 %indvars.iv78, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next79, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge67, label %32, !llvm.loop !82
+  br i1 %exitcond.not, label %._crit_edge67, label %32, !llvm.loop !81
 
-.lr.ph.split:                                     ; preds = %.lr.ph.split.preheader, %105
-  %indvars.iv73 = phi i64 [ %69, %.lr.ph.split.preheader ], [ %indvars.iv.next74, %105 ]
-  %indvars.iv71 = phi i64 [ %68, %.lr.ph.split.preheader ], [ %indvars.iv.next72, %105 ]
+.lr.ph.split:                                     ; preds = %.lr.ph.split.preheader, %107
+  %indvars.iv73 = phi i64 [ %69, %.lr.ph.split.preheader ], [ %indvars.iv.next74, %107 ]
+  %indvars.iv71 = phi i64 [ %68, %.lr.ph.split.preheader ], [ %indvars.iv.next72, %107 ]
   %86 = trunc nuw nsw i64 %indvars.iv71 to i32
   %87 = sdiv i32 %86, 3
   %88 = sext i32 %87 to i64
   %89 = getelementptr inbounds i32, ptr %1, i64 %88
-  %90 = load i32, ptr %89, align 4, !tbaa !35
+  %90 = load i32, ptr %89, align 4, !tbaa !34
   %91 = srem i32 %86, 3
   %92 = sub nsw i32 2, %91
   %93 = mul nuw nsw i32 %92, 10
@@ -3020,20 +3019,21 @@ _ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit: ; preds = %6, %12
   store i16 %99, ptr %100, align 2, !tbaa !23
   %101 = urem i32 %86, 3
   %102 = icmp eq i32 %101, 0
-  br i1 %102, label %103, label %105
+  br i1 %102, label %103, label %107
 
 103:                                              ; preds = %.lr.ph.split
-  %gep = getelementptr inbounds nuw i16, ptr %invariant.gep, i64 %indvars.iv73
-  %104 = load i16, ptr %gep, align 2, !tbaa !23
-  store i16 %104, ptr %100, align 2, !tbaa !23
-  store i16 %99, ptr %gep, align 2, !tbaa !23
-  br label %105
+  %104 = getelementptr inbounds nuw i16, ptr %59, i64 %indvars.iv73
+  %105 = getelementptr inbounds nuw i8, ptr %104, i64 2
+  %106 = load i16, ptr %105, align 2, !tbaa !23
+  store i16 %106, ptr %100, align 2, !tbaa !23
+  store i16 %99, ptr %105, align 2, !tbaa !23
+  br label %107
 
-105:                                              ; preds = %103, %.lr.ph.split
+107:                                              ; preds = %103, %.lr.ph.split
   %indvars.iv.next72 = add nsw i64 %indvars.iv71, -1
-  %106 = icmp sgt i64 %indvars.iv71, 0
+  %108 = icmp sgt i64 %indvars.iv71, 0
   %indvars.iv.next74 = add nsw i64 %indvars.iv73, -1
-  br i1 %106, label %.lr.ph.split, label %._crit_edge, !llvm.loop !83
+  br i1 %108, label %.lr.ph.split, label %._crit_edge, !llvm.loop !82
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -3157,7 +3157,7 @@ _ZNK3dpx13GenericHeader8BitDepthEi.exit:          ; preds = %6, %12
   store i16 %83, ptr %84, align 2, !tbaa !23
   %indvars.iv.next28.i = add nsw i64 %indvars.iv27.i, -1
   %.not36.i = icmp eq i64 %indvars.iv27.i, 0
-  br i1 %.not36.i, label %_ZN3dpx12UnPackPackedItLj65472ELi2ELi4ELi6EEEvPjiPT_ii.exit, label %.lr.ph.split.us.i, !llvm.loop !84
+  br i1 %.not36.i, label %_ZN3dpx12UnPackPackedItLj65472ELi2ELi4ELi6EEEvPjiPT_ii.exit, label %.lr.ph.split.us.i, !llvm.loop !83
 
 .lr.ph.split.us19.i:                              ; preds = %.lr.ph.i, %.lr.ph.split.us19.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.split.us19.i ], [ %71, %.lr.ph.i ]
@@ -3180,7 +3180,7 @@ _ZNK3dpx13GenericHeader8BitDepthEi.exit:          ; preds = %6, %12
   store i16 %97, ptr %98, align 2, !tbaa !23
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
   %.not35.i = icmp eq i64 %indvars.iv.i, 0
-  br i1 %.not35.i, label %_ZN3dpx12UnPackPackedItLj65472ELi2ELi4ELi6EEEvPjiPT_ii.exit, label %.lr.ph.split.us19.i, !llvm.loop !85
+  br i1 %.not35.i, label %_ZN3dpx12UnPackPackedItLj65472ELi2ELi4ELi6EEEvPjiPT_ii.exit, label %.lr.ph.split.us19.i, !llvm.loop !84
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i, %.lr.ph.split.i
   %indvars.iv30.i = phi i64 [ %indvars.iv.next31.i, %.lr.ph.split.i ], [ %71, %.lr.ph.i ]
@@ -3200,12 +3200,12 @@ _ZNK3dpx13GenericHeader8BitDepthEi.exit:          ; preds = %6, %12
   store i16 %108, ptr %109, align 2, !tbaa !23
   %indvars.iv.next31.i = add nsw i64 %indvars.iv30.i, -1
   %.not37.i = icmp eq i64 %indvars.iv30.i, 0
-  br i1 %.not37.i, label %_ZN3dpx12UnPackPackedItLj65472ELi2ELi4ELi6EEEvPjiPT_ii.exit, label %.lr.ph.split.i, !llvm.loop !86
+  br i1 %.not37.i, label %_ZN3dpx12UnPackPackedItLj65472ELi2ELi4ELi6EEEvPjiPT_ii.exit, label %.lr.ph.split.i, !llvm.loop !85
 
 _ZN3dpx12UnPackPackedItLj65472ELi2ELi4ELi6EEEvPjiPT_ii.exit: ; preds = %.lr.ph.split.us19.i, %.lr.ph.split.us.i, %.lr.ph.split.i, %33
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %33, !llvm.loop !87
+  br i1 %exitcond.not, label %._crit_edge, label %33, !llvm.loop !86
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -3330,7 +3330,7 @@ _ZNK3dpx13GenericHeader8BitDepthEi.exit:          ; preds = %6, %12
   store i16 %85, ptr %86, align 2, !tbaa !23
   %indvars.iv.next28.i = add nsw i64 %indvars.iv27.i, -1
   %.not36.i = icmp eq i64 %indvars.iv27.i, 0
-  br i1 %.not36.i, label %_ZN3dpx12UnPackPackedItLj65520ELi4ELi2ELi4EEEvPjiPT_ii.exit, label %.lr.ph.split.us.i, !llvm.loop !88
+  br i1 %.not36.i, label %_ZN3dpx12UnPackPackedItLj65520ELi4ELi2ELi4EEEvPjiPT_ii.exit, label %.lr.ph.split.us.i, !llvm.loop !87
 
 .lr.ph.split.us19.i:                              ; preds = %.lr.ph.i, %.lr.ph.split.us19.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.split.us19.i ], [ %71, %.lr.ph.i ]
@@ -3352,7 +3352,7 @@ _ZNK3dpx13GenericHeader8BitDepthEi.exit:          ; preds = %6, %12
   store i16 %99, ptr %100, align 2, !tbaa !23
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
   %.not35.i = icmp eq i64 %indvars.iv.i, 0
-  br i1 %.not35.i, label %_ZN3dpx12UnPackPackedItLj65520ELi4ELi2ELi4EEEvPjiPT_ii.exit, label %.lr.ph.split.us19.i, !llvm.loop !89
+  br i1 %.not35.i, label %_ZN3dpx12UnPackPackedItLj65520ELi4ELi2ELi4EEEvPjiPT_ii.exit, label %.lr.ph.split.us19.i, !llvm.loop !88
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i, %.lr.ph.split.i
   %indvars.iv30.i = phi i64 [ %indvars.iv.next31.i, %.lr.ph.split.i ], [ %71, %.lr.ph.i ]
@@ -3372,12 +3372,12 @@ _ZNK3dpx13GenericHeader8BitDepthEi.exit:          ; preds = %6, %12
   store i16 %111, ptr %112, align 2, !tbaa !23
   %indvars.iv.next31.i = add nsw i64 %indvars.iv30.i, -1
   %.not37.i = icmp eq i64 %indvars.iv30.i, 0
-  br i1 %.not37.i, label %_ZN3dpx12UnPackPackedItLj65520ELi4ELi2ELi4EEEvPjiPT_ii.exit, label %.lr.ph.split.i, !llvm.loop !90
+  br i1 %.not37.i, label %_ZN3dpx12UnPackPackedItLj65520ELi4ELi2ELi4EEEvPjiPT_ii.exit, label %.lr.ph.split.i, !llvm.loop !89
 
 _ZN3dpx12UnPackPackedItLj65520ELi4ELi2ELi4EEEvPjiPT_ii.exit: ; preds = %.lr.ph.split.us19.i, %.lr.ph.split.us.i, %.lr.ph.split.i, %33
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %33, !llvm.loop !91
+  br i1 %exitcond.not, label %._crit_edge, label %33, !llvm.loop !90
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -3464,15 +3464,15 @@ _ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit: ; preds = %19, %6
   %gep = getelementptr inbounds nuw i32, ptr %invariant.gep, i64 %indvars.iv
   %58 = zext i16 %57 to i32
   %59 = mul nuw i32 %58, 65537
-  store i32 %59, ptr %gep, align 4, !tbaa !35
+  store i32 %59, ptr %gep, align 4, !tbaa !34
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond49.not = icmp eq i64 %indvars.iv.next, %34
-  br i1 %exitcond49.not, label %._crit_edge.us, label %52, !llvm.loop !92
+  br i1 %exitcond49.not, label %._crit_edge.us, label %52, !llvm.loop !91
 
 ._crit_edge.us:                                   ; preds = %52
   %indvars.iv.next51 = add nuw nsw i64 %indvars.iv50, 1
   %exitcond54.not = icmp eq i64 %indvars.iv.next51, %wide.trip.count53
-  br i1 %exitcond54.not, label %._crit_edge45, label %.lr.ph.us, !llvm.loop !93
+  br i1 %exitcond54.not, label %._crit_edge45, label %.lr.ph.us, !llvm.loop !92
 
 ._crit_edge45:                                    ; preds = %.lr.ph44.split, %._crit_edge.us, %_ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit
   ret i1 true
@@ -3494,7 +3494,7 @@ _ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit: ; preds = %19, %6
   %72 = tail call noundef zeroext i1 %71(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 4 dereferenceable(2049) %0, i32 noundef %3, i64 noundef %68, ptr noundef %1, i64 noundef %29)
   %73 = add nuw i32 %.03643, 1
   %exitcond.not = icmp eq i32 %73, %32
-  br i1 %exitcond.not, label %._crit_edge45, label %.lr.ph44.split, !llvm.loop !94
+  br i1 %exitcond.not, label %._crit_edge45, label %.lr.ph44.split, !llvm.loop !93
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -3580,15 +3580,15 @@ _ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit: ; preds = %19, %6
   %56 = zext i16 %55 to i32
   %57 = shl nuw i32 %56, 16
   %58 = or disjoint i32 %57, %56
-  store i32 %58, ptr %gep, align 4, !tbaa !35
+  store i32 %58, ptr %gep, align 4, !tbaa !34
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond53.not = icmp eq i64 %indvars.iv.next, %35
-  br i1 %exitcond53.not, label %._crit_edge.us, label %53, !llvm.loop !95
+  br i1 %exitcond53.not, label %._crit_edge.us, label %53, !llvm.loop !94
 
 ._crit_edge.us:                                   ; preds = %53
   %indvars.iv.next55 = add nuw nsw i64 %indvars.iv54, 1
   %exitcond58.not = icmp eq i64 %indvars.iv.next55, %wide.trip.count57
-  br i1 %exitcond58.not, label %._crit_edge49, label %.lr.ph.us, !llvm.loop !96
+  br i1 %exitcond58.not, label %._crit_edge49, label %.lr.ph.us, !llvm.loop !95
 
 ._crit_edge49:                                    ; preds = %.lr.ph48.split, %._crit_edge.us, %_ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit
   ret i1 true
@@ -3610,7 +3610,7 @@ _ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit: ; preds = %19, %6
   %71 = tail call noundef zeroext i1 %70(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 4 dereferenceable(2049) %0, i32 noundef %3, i64 noundef %67, ptr noundef %1, i64 noundef %30)
   %72 = add nuw i32 %.04147, 1
   %exitcond.not = icmp eq i32 %72, %33
-  br i1 %exitcond.not, label %._crit_edge49, label %.lr.ph48.split, !llvm.loop !97
+  br i1 %exitcond.not, label %._crit_edge49, label %.lr.ph48.split, !llvm.loop !96
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -3700,15 +3700,15 @@ _ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit: ; preds = %19, %6
   %60 = or disjoint i32 %57, %58
   %61 = or disjoint i32 %60, %59
   %62 = or disjoint i32 %61, %56
-  store i32 %62, ptr %gep, align 4, !tbaa !35
+  store i32 %62, ptr %gep, align 4, !tbaa !34
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond53.not = icmp eq i64 %indvars.iv.next, %35
-  br i1 %exitcond53.not, label %._crit_edge.us, label %53, !llvm.loop !98
+  br i1 %exitcond53.not, label %._crit_edge.us, label %53, !llvm.loop !97
 
 ._crit_edge.us:                                   ; preds = %53
   %indvars.iv.next55 = add nuw nsw i64 %indvars.iv54, 1
   %exitcond58.not = icmp eq i64 %indvars.iv.next55, %wide.trip.count57
-  br i1 %exitcond58.not, label %._crit_edge49, label %.lr.ph.us, !llvm.loop !99
+  br i1 %exitcond58.not, label %._crit_edge49, label %.lr.ph.us, !llvm.loop !98
 
 ._crit_edge49:                                    ; preds = %.lr.ph48.split, %._crit_edge.us, %_ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit
   ret i1 true
@@ -3730,7 +3730,7 @@ _ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit: ; preds = %19, %6
   %75 = tail call noundef zeroext i1 %74(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 4 dereferenceable(2049) %0, i32 noundef %3, i64 noundef %71, ptr noundef %1, i64 noundef %30)
   %76 = add nuw i32 %.04147, 1
   %exitcond.not = icmp eq i32 %76, %33
-  br i1 %exitcond.not, label %._crit_edge49, label %.lr.ph48.split, !llvm.loop !100
+  br i1 %exitcond.not, label %._crit_edge49, label %.lr.ph48.split, !llvm.loop !99
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -3801,7 +3801,7 @@ _ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit: ; preds = %19, %6
   %51 = tail call noundef zeroext i1 %50(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 4 dereferenceable(2049) %0, i32 noundef %3, i64 noundef %45, ptr noundef %47, i64 noundef %31)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %35, !llvm.loop !101
+  br i1 %exitcond.not, label %._crit_edge, label %35, !llvm.loop !100
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -3883,17 +3883,17 @@ _ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit: ; preds = %19, %6
   %indvars.iv = phi i64 [ 0, %.lr.ph.us ], [ %indvars.iv.next, %53 ]
   %54 = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv
   %gep = getelementptr inbounds nuw i32, ptr %invariant.gep, i64 %indvars.iv
-  %55 = load float, ptr %54, align 4, !tbaa !39
+  %55 = load float, ptr %54, align 4, !tbaa !38
   %56 = fptoui float %55 to i32
-  store i32 %56, ptr %gep, align 4, !tbaa !35
+  store i32 %56, ptr %gep, align 4, !tbaa !34
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond53.not = icmp eq i64 %indvars.iv.next, %35
-  br i1 %exitcond53.not, label %._crit_edge.us, label %53, !llvm.loop !102
+  br i1 %exitcond53.not, label %._crit_edge.us, label %53, !llvm.loop !101
 
 ._crit_edge.us:                                   ; preds = %53
   %indvars.iv.next55 = add nuw nsw i64 %indvars.iv54, 1
   %exitcond58.not = icmp eq i64 %indvars.iv.next55, %wide.trip.count57
-  br i1 %exitcond58.not, label %._crit_edge49, label %.lr.ph.us, !llvm.loop !103
+  br i1 %exitcond58.not, label %._crit_edge49, label %.lr.ph.us, !llvm.loop !102
 
 ._crit_edge49:                                    ; preds = %.lr.ph48.split, %._crit_edge.us, %_ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit
   ret i1 true
@@ -3915,7 +3915,7 @@ _ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit: ; preds = %19, %6
   %69 = tail call noundef zeroext i1 %68(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 4 dereferenceable(2049) %0, i32 noundef %3, i64 noundef %65, ptr noundef %1, i64 noundef %30)
   %70 = add nuw i32 %.04147, 1
   %exitcond.not = icmp eq i32 %70, %33
-  br i1 %exitcond.not, label %._crit_edge49, label %.lr.ph48.split, !llvm.loop !104
+  br i1 %exitcond.not, label %._crit_edge49, label %.lr.ph48.split, !llvm.loop !103
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -3997,17 +3997,17 @@ _ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit: ; preds = %19, %6
   %indvars.iv = phi i64 [ 0, %.lr.ph.us ], [ %indvars.iv.next, %53 ]
   %54 = getelementptr inbounds nuw double, ptr %1, i64 %indvars.iv
   %gep = getelementptr inbounds nuw i32, ptr %invariant.gep, i64 %indvars.iv
-  %55 = load double, ptr %54, align 8, !tbaa !43
+  %55 = load double, ptr %54, align 8, !tbaa !42
   %56 = fptoui double %55 to i32
-  store i32 %56, ptr %gep, align 4, !tbaa !35
+  store i32 %56, ptr %gep, align 4, !tbaa !34
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond53.not = icmp eq i64 %indvars.iv.next, %35
-  br i1 %exitcond53.not, label %._crit_edge.us, label %53, !llvm.loop !105
+  br i1 %exitcond53.not, label %._crit_edge.us, label %53, !llvm.loop !104
 
 ._crit_edge.us:                                   ; preds = %53
   %indvars.iv.next55 = add nuw nsw i64 %indvars.iv54, 1
   %exitcond58.not = icmp eq i64 %indvars.iv.next55, %wide.trip.count57
-  br i1 %exitcond58.not, label %._crit_edge49, label %.lr.ph.us, !llvm.loop !106
+  br i1 %exitcond58.not, label %._crit_edge49, label %.lr.ph.us, !llvm.loop !105
 
 ._crit_edge49:                                    ; preds = %.lr.ph48.split, %._crit_edge.us, %_ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit
   ret i1 true
@@ -4029,7 +4029,7 @@ _ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit: ; preds = %19, %6
   %69 = tail call noundef zeroext i1 %68(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 4 dereferenceable(2049) %0, i32 noundef %3, i64 noundef %65, ptr noundef %1, i64 noundef %30)
   %70 = add nuw i32 %.04147, 1
   %exitcond.not = icmp eq i32 %70, %33
-  br i1 %exitcond.not, label %._crit_edge49, label %.lr.ph48.split, !llvm.loop !107
+  br i1 %exitcond.not, label %._crit_edge49, label %.lr.ph48.split, !llvm.loop !106
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -4116,7 +4116,6 @@ _ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit: ; preds = %6, %12
   %reass.sub68 = sub i32 %64, %60
   %65 = add i32 %reass.sub68, 1
   %66 = mul nsw i32 %65, %11
-  %invariant.gep = getelementptr inbounds nuw i8, ptr %59, i64 4
   %67 = icmp sgt i32 %66, 0
   br i1 %67, label %.lr.ph, label %._crit_edge
 
@@ -4136,7 +4135,7 @@ _ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit: ; preds = %6, %12
   %72 = sdiv i32 %71, 3
   %73 = sext i32 %72 to i64
   %74 = getelementptr inbounds i32, ptr %1, i64 %73
-  %75 = load i32, ptr %74, align 4, !tbaa !35
+  %75 = load i32, ptr %74, align 4, !tbaa !34
   %76 = srem i32 %71, 3
   %77 = sub nsw i32 2, %76
   %78 = mul nuw nsw i32 %77, 10
@@ -4150,24 +4149,24 @@ _ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit: ; preds = %6, %12
   %86 = getelementptr inbounds nuw i32, ptr %59, i64 %indvars.iv
   %87 = zext i16 %85 to i32
   %88 = mul nuw i32 %87, 65537
-  store i32 %88, ptr %86, align 4, !tbaa !35
+  store i32 %88, ptr %86, align 4, !tbaa !34
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %.not = icmp eq i64 %indvars.iv, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !108
+  br i1 %.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !107
 
-._crit_edge:                                      ; preds = %.lr.ph.split.us, %111, %32
+._crit_edge:                                      ; preds = %.lr.ph.split.us, %113, %32
   %indvars.iv.next79 = add nuw nsw i64 %indvars.iv78, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next79, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge67, label %32, !llvm.loop !109
+  br i1 %exitcond.not, label %._crit_edge67, label %32, !llvm.loop !108
 
-.lr.ph.split:                                     ; preds = %.lr.ph.split.preheader, %111
-  %indvars.iv73 = phi i64 [ %69, %.lr.ph.split.preheader ], [ %indvars.iv.next74, %111 ]
-  %indvars.iv71 = phi i64 [ %68, %.lr.ph.split.preheader ], [ %indvars.iv.next72, %111 ]
+.lr.ph.split:                                     ; preds = %.lr.ph.split.preheader, %113
+  %indvars.iv73 = phi i64 [ %69, %.lr.ph.split.preheader ], [ %indvars.iv.next74, %113 ]
+  %indvars.iv71 = phi i64 [ %68, %.lr.ph.split.preheader ], [ %indvars.iv.next72, %113 ]
   %89 = trunc nuw nsw i64 %indvars.iv71 to i32
   %90 = sdiv i32 %89, 3
   %91 = sext i32 %90 to i64
   %92 = getelementptr inbounds i32, ptr %1, i64 %91
-  %93 = load i32, ptr %92, align 4, !tbaa !35
+  %93 = load i32, ptr %92, align 4, !tbaa !34
   %94 = srem i32 %89, 3
   %95 = sub nsw i32 2, %94
   %96 = mul nuw nsw i32 %95, 10
@@ -4181,23 +4180,24 @@ _ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit: ; preds = %6, %12
   %104 = getelementptr inbounds nuw i32, ptr %59, i64 %indvars.iv71
   %105 = zext i16 %103 to i32
   %106 = mul nuw i32 %105, 65537
-  store i32 %106, ptr %104, align 4, !tbaa !35
+  store i32 %106, ptr %104, align 4, !tbaa !34
   %107 = urem i32 %89, 3
   %108 = icmp eq i32 %107, 0
-  br i1 %108, label %109, label %111
+  br i1 %108, label %109, label %113
 
 109:                                              ; preds = %.lr.ph.split
-  %gep = getelementptr inbounds nuw i32, ptr %invariant.gep, i64 %indvars.iv73
-  %110 = load i32, ptr %gep, align 4, !tbaa !35
-  store i32 %110, ptr %104, align 4, !tbaa !35
-  store i32 %106, ptr %gep, align 4, !tbaa !35
-  br label %111
+  %110 = getelementptr inbounds nuw i32, ptr %59, i64 %indvars.iv73
+  %111 = getelementptr inbounds nuw i8, ptr %110, i64 4
+  %112 = load i32, ptr %111, align 4, !tbaa !34
+  store i32 %112, ptr %104, align 4, !tbaa !34
+  store i32 %106, ptr %111, align 4, !tbaa !34
+  br label %113
 
-111:                                              ; preds = %109, %.lr.ph.split
+113:                                              ; preds = %109, %.lr.ph.split
   %indvars.iv.next72 = add nsw i64 %indvars.iv71, -1
-  %112 = icmp sgt i64 %indvars.iv71, 0
+  %114 = icmp sgt i64 %indvars.iv71, 0
   %indvars.iv.next74 = add nsw i64 %indvars.iv73, -1
-  br i1 %112, label %.lr.ph.split, label %._crit_edge, !llvm.loop !110
+  br i1 %114, label %.lr.ph.split, label %._crit_edge, !llvm.loop !109
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -4284,7 +4284,6 @@ _ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit: ; preds = %6, %12
   %reass.sub68 = sub i32 %64, %60
   %65 = add i32 %reass.sub68, 1
   %66 = mul nsw i32 %65, %11
-  %invariant.gep = getelementptr inbounds nuw i8, ptr %59, i64 4
   %67 = icmp sgt i32 %66, 0
   br i1 %67, label %.lr.ph, label %._crit_edge
 
@@ -4304,7 +4303,7 @@ _ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit: ; preds = %6, %12
   %72 = sdiv i32 %71, 3
   %73 = sext i32 %72 to i64
   %74 = getelementptr inbounds i32, ptr %1, i64 %73
-  %75 = load i32, ptr %74, align 4, !tbaa !35
+  %75 = load i32, ptr %74, align 4, !tbaa !34
   %76 = srem i32 %71, 3
   %77 = sub nsw i32 2, %76
   %78 = mul nuw nsw i32 %77, 10
@@ -4317,24 +4316,24 @@ _ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit: ; preds = %6, %12
   %85 = getelementptr inbounds nuw i32, ptr %59, i64 %indvars.iv
   %86 = zext i16 %84 to i32
   %87 = mul nuw i32 %86, 65537
-  store i32 %87, ptr %85, align 4, !tbaa !35
+  store i32 %87, ptr %85, align 4, !tbaa !34
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %.not = icmp eq i64 %indvars.iv, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !111
+  br i1 %.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !110
 
-._crit_edge:                                      ; preds = %.lr.ph.split.us, %109, %32
+._crit_edge:                                      ; preds = %.lr.ph.split.us, %111, %32
   %indvars.iv.next79 = add nuw nsw i64 %indvars.iv78, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next79, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge67, label %32, !llvm.loop !112
+  br i1 %exitcond.not, label %._crit_edge67, label %32, !llvm.loop !111
 
-.lr.ph.split:                                     ; preds = %.lr.ph.split.preheader, %109
-  %indvars.iv73 = phi i64 [ %69, %.lr.ph.split.preheader ], [ %indvars.iv.next74, %109 ]
-  %indvars.iv71 = phi i64 [ %68, %.lr.ph.split.preheader ], [ %indvars.iv.next72, %109 ]
+.lr.ph.split:                                     ; preds = %.lr.ph.split.preheader, %111
+  %indvars.iv73 = phi i64 [ %69, %.lr.ph.split.preheader ], [ %indvars.iv.next74, %111 ]
+  %indvars.iv71 = phi i64 [ %68, %.lr.ph.split.preheader ], [ %indvars.iv.next72, %111 ]
   %88 = trunc nuw nsw i64 %indvars.iv71 to i32
   %89 = sdiv i32 %88, 3
   %90 = sext i32 %89 to i64
   %91 = getelementptr inbounds i32, ptr %1, i64 %90
-  %92 = load i32, ptr %91, align 4, !tbaa !35
+  %92 = load i32, ptr %91, align 4, !tbaa !34
   %93 = srem i32 %88, 3
   %94 = sub nsw i32 2, %93
   %95 = mul nuw nsw i32 %94, 10
@@ -4347,23 +4346,24 @@ _ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit: ; preds = %6, %12
   %102 = getelementptr inbounds nuw i32, ptr %59, i64 %indvars.iv71
   %103 = zext i16 %101 to i32
   %104 = mul nuw i32 %103, 65537
-  store i32 %104, ptr %102, align 4, !tbaa !35
+  store i32 %104, ptr %102, align 4, !tbaa !34
   %105 = urem i32 %88, 3
   %106 = icmp eq i32 %105, 0
-  br i1 %106, label %107, label %109
+  br i1 %106, label %107, label %111
 
 107:                                              ; preds = %.lr.ph.split
-  %gep = getelementptr inbounds nuw i32, ptr %invariant.gep, i64 %indvars.iv73
-  %108 = load i32, ptr %gep, align 4, !tbaa !35
-  store i32 %108, ptr %102, align 4, !tbaa !35
-  store i32 %104, ptr %gep, align 4, !tbaa !35
-  br label %109
+  %108 = getelementptr inbounds nuw i32, ptr %59, i64 %indvars.iv73
+  %109 = getelementptr inbounds nuw i8, ptr %108, i64 4
+  %110 = load i32, ptr %109, align 4, !tbaa !34
+  store i32 %110, ptr %102, align 4, !tbaa !34
+  store i32 %104, ptr %109, align 4, !tbaa !34
+  br label %111
 
-109:                                              ; preds = %107, %.lr.ph.split
+111:                                              ; preds = %107, %.lr.ph.split
   %indvars.iv.next72 = add nsw i64 %indvars.iv71, -1
-  %110 = icmp sgt i64 %indvars.iv71, 0
+  %112 = icmp sgt i64 %indvars.iv71, 0
   %indvars.iv.next74 = add nsw i64 %indvars.iv73, -1
-  br i1 %110, label %.lr.ph.split, label %._crit_edge, !llvm.loop !113
+  br i1 %112, label %.lr.ph.split, label %._crit_edge, !llvm.loop !112
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -4484,10 +4484,10 @@ _ZNK3dpx13GenericHeader8BitDepthEi.exit:          ; preds = %6, %12
   %84 = getelementptr inbounds nuw i32, ptr %69, i64 %indvars.iv27.i
   %85 = zext i16 %83 to i32
   %86 = mul nuw i32 %85, 65537
-  store i32 %86, ptr %84, align 4, !tbaa !35
+  store i32 %86, ptr %84, align 4, !tbaa !34
   %indvars.iv.next28.i = add nsw i64 %indvars.iv27.i, -1
   %.not36.i = icmp eq i64 %indvars.iv27.i, 0
-  br i1 %.not36.i, label %_ZN3dpx12UnPackPackedIjLj65472ELi2ELi4ELi6EEEvPjiPT_ii.exit, label %.lr.ph.split.us.i, !llvm.loop !114
+  br i1 %.not36.i, label %_ZN3dpx12UnPackPackedIjLj65472ELi2ELi4ELi6EEEvPjiPT_ii.exit, label %.lr.ph.split.us.i, !llvm.loop !113
 
 .lr.ph.split.us19.i:                              ; preds = %.lr.ph.i, %.lr.ph.split.us19.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.split.us19.i ], [ %71, %.lr.ph.i ]
@@ -4509,10 +4509,10 @@ _ZNK3dpx13GenericHeader8BitDepthEi.exit:          ; preds = %6, %12
   %100 = getelementptr inbounds nuw i32, ptr %69, i64 %indvars.iv.i
   %101 = zext nneg i16 %99 to i32
   %102 = mul nuw nsw i32 %101, 65537
-  store i32 %102, ptr %100, align 4, !tbaa !35
+  store i32 %102, ptr %100, align 4, !tbaa !34
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
   %.not35.i = icmp eq i64 %indvars.iv.i, 0
-  br i1 %.not35.i, label %_ZN3dpx12UnPackPackedIjLj65472ELi2ELi4ELi6EEEvPjiPT_ii.exit, label %.lr.ph.split.us19.i, !llvm.loop !115
+  br i1 %.not35.i, label %_ZN3dpx12UnPackPackedIjLj65472ELi2ELi4ELi6EEEvPjiPT_ii.exit, label %.lr.ph.split.us19.i, !llvm.loop !114
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i, %.lr.ph.split.i
   %indvars.iv30.i = phi i64 [ %indvars.iv.next31.i, %.lr.ph.split.i ], [ %71, %.lr.ph.i ]
@@ -4530,15 +4530,15 @@ _ZNK3dpx13GenericHeader8BitDepthEi.exit:          ; preds = %6, %12
   %113 = and i32 %112, 65472
   %114 = getelementptr inbounds nuw i32, ptr %69, i64 %indvars.iv30.i
   %115 = mul nuw i32 %113, 65537
-  store i32 %115, ptr %114, align 4, !tbaa !35
+  store i32 %115, ptr %114, align 4, !tbaa !34
   %indvars.iv.next31.i = add nsw i64 %indvars.iv30.i, -1
   %.not37.i = icmp eq i64 %indvars.iv30.i, 0
-  br i1 %.not37.i, label %_ZN3dpx12UnPackPackedIjLj65472ELi2ELi4ELi6EEEvPjiPT_ii.exit, label %.lr.ph.split.i, !llvm.loop !116
+  br i1 %.not37.i, label %_ZN3dpx12UnPackPackedIjLj65472ELi2ELi4ELi6EEEvPjiPT_ii.exit, label %.lr.ph.split.i, !llvm.loop !115
 
 _ZN3dpx12UnPackPackedIjLj65472ELi2ELi4ELi6EEEvPjiPT_ii.exit: ; preds = %.lr.ph.split.us19.i, %.lr.ph.split.us.i, %.lr.ph.split.i, %33
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %33, !llvm.loop !117
+  br i1 %exitcond.not, label %._crit_edge, label %33, !llvm.loop !116
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -4660,10 +4660,10 @@ _ZNK3dpx13GenericHeader8BitDepthEi.exit:          ; preds = %6, %12
   %86 = getelementptr inbounds nuw i32, ptr %69, i64 %indvars.iv27.i
   %87 = zext i16 %85 to i32
   %88 = mul nuw i32 %87, 65537
-  store i32 %88, ptr %86, align 4, !tbaa !35
+  store i32 %88, ptr %86, align 4, !tbaa !34
   %indvars.iv.next28.i = add nsw i64 %indvars.iv27.i, -1
   %.not36.i = icmp eq i64 %indvars.iv27.i, 0
-  br i1 %.not36.i, label %_ZN3dpx12UnPackPackedIjLj65520ELi4ELi2ELi4EEEvPjiPT_ii.exit, label %.lr.ph.split.us.i, !llvm.loop !118
+  br i1 %.not36.i, label %_ZN3dpx12UnPackPackedIjLj65520ELi4ELi2ELi4EEEvPjiPT_ii.exit, label %.lr.ph.split.us.i, !llvm.loop !117
 
 .lr.ph.split.us19.i:                              ; preds = %.lr.ph.i, %.lr.ph.split.us19.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.split.us19.i ], [ %71, %.lr.ph.i ]
@@ -4684,10 +4684,10 @@ _ZNK3dpx13GenericHeader8BitDepthEi.exit:          ; preds = %6, %12
   %102 = getelementptr inbounds nuw i32, ptr %69, i64 %indvars.iv.i
   %103 = zext i16 %101 to i32
   %104 = mul nuw i32 %103, 65537
-  store i32 %104, ptr %102, align 4, !tbaa !35
+  store i32 %104, ptr %102, align 4, !tbaa !34
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
   %.not35.i = icmp eq i64 %indvars.iv.i, 0
-  br i1 %.not35.i, label %_ZN3dpx12UnPackPackedIjLj65520ELi4ELi2ELi4EEEvPjiPT_ii.exit, label %.lr.ph.split.us19.i, !llvm.loop !119
+  br i1 %.not35.i, label %_ZN3dpx12UnPackPackedIjLj65520ELi4ELi2ELi4EEEvPjiPT_ii.exit, label %.lr.ph.split.us19.i, !llvm.loop !118
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i, %.lr.ph.split.i
   %indvars.iv30.i = phi i64 [ %indvars.iv.next31.i, %.lr.ph.split.i ], [ %71, %.lr.ph.i ]
@@ -4705,15 +4705,15 @@ _ZNK3dpx13GenericHeader8BitDepthEi.exit:          ; preds = %6, %12
   %115 = and i32 %114, 65520
   %116 = getelementptr inbounds nuw i32, ptr %69, i64 %indvars.iv30.i
   %117 = mul nuw i32 %115, 65537
-  store i32 %117, ptr %116, align 4, !tbaa !35
+  store i32 %117, ptr %116, align 4, !tbaa !34
   %indvars.iv.next31.i = add nsw i64 %indvars.iv30.i, -1
   %.not37.i = icmp eq i64 %indvars.iv30.i, 0
-  br i1 %.not37.i, label %_ZN3dpx12UnPackPackedIjLj65520ELi4ELi2ELi4EEEvPjiPT_ii.exit, label %.lr.ph.split.i, !llvm.loop !120
+  br i1 %.not37.i, label %_ZN3dpx12UnPackPackedIjLj65520ELi4ELi2ELi4EEEvPjiPT_ii.exit, label %.lr.ph.split.i, !llvm.loop !119
 
 _ZN3dpx12UnPackPackedIjLj65520ELi4ELi2ELi4EEEvPjiPT_ii.exit: ; preds = %.lr.ph.split.us19.i, %.lr.ph.split.us.i, %.lr.ph.split.i, %33
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %33, !llvm.loop !121
+  br i1 %exitcond.not, label %._crit_edge, label %33, !llvm.loop !120
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -4799,15 +4799,15 @@ _ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit: ; preds = %19, %6
   %57 = or i16 %55, %56
   %gep = getelementptr inbounds nuw float, ptr %invariant.gep, i64 %indvars.iv
   %58 = uitofp i16 %57 to float
-  store float %58, ptr %gep, align 4, !tbaa !39
+  store float %58, ptr %gep, align 4, !tbaa !38
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond49.not = icmp eq i64 %indvars.iv.next, %34
-  br i1 %exitcond49.not, label %._crit_edge.us, label %52, !llvm.loop !122
+  br i1 %exitcond49.not, label %._crit_edge.us, label %52, !llvm.loop !121
 
 ._crit_edge.us:                                   ; preds = %52
   %indvars.iv.next51 = add nuw nsw i64 %indvars.iv50, 1
   %exitcond54.not = icmp eq i64 %indvars.iv.next51, %wide.trip.count53
-  br i1 %exitcond54.not, label %._crit_edge45, label %.lr.ph.us, !llvm.loop !123
+  br i1 %exitcond54.not, label %._crit_edge45, label %.lr.ph.us, !llvm.loop !122
 
 ._crit_edge45:                                    ; preds = %.lr.ph44.split, %._crit_edge.us, %_ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit
   ret i1 true
@@ -4829,7 +4829,7 @@ _ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit: ; preds = %19, %6
   %71 = tail call noundef zeroext i1 %70(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 4 dereferenceable(2049) %0, i32 noundef %3, i64 noundef %67, ptr noundef %1, i64 noundef %29)
   %72 = add nuw i32 %.03643, 1
   %exitcond.not = icmp eq i32 %72, %32
-  br i1 %exitcond.not, label %._crit_edge45, label %.lr.ph44.split, !llvm.loop !124
+  br i1 %exitcond.not, label %._crit_edge45, label %.lr.ph44.split, !llvm.loop !123
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -4913,15 +4913,15 @@ _ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit: ; preds = %19, %6
   %gep = getelementptr inbounds nuw float, ptr %invariant.gep, i64 %indvars.iv
   %55 = load i16, ptr %54, align 2, !tbaa !23
   %56 = uitofp i16 %55 to float
-  store float %56, ptr %gep, align 4, !tbaa !39
+  store float %56, ptr %gep, align 4, !tbaa !38
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond53.not = icmp eq i64 %indvars.iv.next, %35
-  br i1 %exitcond53.not, label %._crit_edge.us, label %53, !llvm.loop !125
+  br i1 %exitcond53.not, label %._crit_edge.us, label %53, !llvm.loop !124
 
 ._crit_edge.us:                                   ; preds = %53
   %indvars.iv.next55 = add nuw nsw i64 %indvars.iv54, 1
   %exitcond58.not = icmp eq i64 %indvars.iv.next55, %wide.trip.count57
-  br i1 %exitcond58.not, label %._crit_edge49, label %.lr.ph.us, !llvm.loop !126
+  br i1 %exitcond58.not, label %._crit_edge49, label %.lr.ph.us, !llvm.loop !125
 
 ._crit_edge49:                                    ; preds = %.lr.ph48.split, %._crit_edge.us, %_ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit
   ret i1 true
@@ -4943,7 +4943,7 @@ _ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit: ; preds = %19, %6
   %69 = tail call noundef zeroext i1 %68(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 4 dereferenceable(2049) %0, i32 noundef %3, i64 noundef %65, ptr noundef %1, i64 noundef %30)
   %70 = add nuw i32 %.04147, 1
   %exitcond.not = icmp eq i32 %70, %33
-  br i1 %exitcond.not, label %._crit_edge49, label %.lr.ph48.split, !llvm.loop !127
+  br i1 %exitcond.not, label %._crit_edge49, label %.lr.ph48.split, !llvm.loop !126
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -5027,15 +5027,15 @@ _ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit: ; preds = %19, %6
   %gep = getelementptr inbounds nuw float, ptr %invariant.gep, i64 %indvars.iv
   %55 = load i8, ptr %54, align 1, !tbaa !24
   %56 = uitofp i8 %55 to float
-  store float %56, ptr %gep, align 4, !tbaa !39
+  store float %56, ptr %gep, align 4, !tbaa !38
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond53.not = icmp eq i64 %indvars.iv.next, %35
-  br i1 %exitcond53.not, label %._crit_edge.us, label %53, !llvm.loop !128
+  br i1 %exitcond53.not, label %._crit_edge.us, label %53, !llvm.loop !127
 
 ._crit_edge.us:                                   ; preds = %53
   %indvars.iv.next55 = add nuw nsw i64 %indvars.iv54, 1
   %exitcond58.not = icmp eq i64 %indvars.iv.next55, %wide.trip.count57
-  br i1 %exitcond58.not, label %._crit_edge49, label %.lr.ph.us, !llvm.loop !129
+  br i1 %exitcond58.not, label %._crit_edge49, label %.lr.ph.us, !llvm.loop !128
 
 ._crit_edge49:                                    ; preds = %.lr.ph48.split, %._crit_edge.us, %_ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit
   ret i1 true
@@ -5057,7 +5057,7 @@ _ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit: ; preds = %19, %6
   %69 = tail call noundef zeroext i1 %68(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 4 dereferenceable(2049) %0, i32 noundef %3, i64 noundef %65, ptr noundef %1, i64 noundef %30)
   %70 = add nuw i32 %.04147, 1
   %exitcond.not = icmp eq i32 %70, %33
-  br i1 %exitcond.not, label %._crit_edge49, label %.lr.ph48.split, !llvm.loop !130
+  br i1 %exitcond.not, label %._crit_edge49, label %.lr.ph48.split, !llvm.loop !129
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -5139,17 +5139,17 @@ _ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit: ; preds = %19, %6
   %indvars.iv = phi i64 [ 0, %.lr.ph.us ], [ %indvars.iv.next, %53 ]
   %54 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
   %gep = getelementptr inbounds nuw float, ptr %invariant.gep, i64 %indvars.iv
-  %55 = load i32, ptr %54, align 4, !tbaa !35
+  %55 = load i32, ptr %54, align 4, !tbaa !34
   %56 = uitofp i32 %55 to float
-  store float %56, ptr %gep, align 4, !tbaa !39
+  store float %56, ptr %gep, align 4, !tbaa !38
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond53.not = icmp eq i64 %indvars.iv.next, %35
-  br i1 %exitcond53.not, label %._crit_edge.us, label %53, !llvm.loop !131
+  br i1 %exitcond53.not, label %._crit_edge.us, label %53, !llvm.loop !130
 
 ._crit_edge.us:                                   ; preds = %53
   %indvars.iv.next55 = add nuw nsw i64 %indvars.iv54, 1
   %exitcond58.not = icmp eq i64 %indvars.iv.next55, %wide.trip.count57
-  br i1 %exitcond58.not, label %._crit_edge49, label %.lr.ph.us, !llvm.loop !132
+  br i1 %exitcond58.not, label %._crit_edge49, label %.lr.ph.us, !llvm.loop !131
 
 ._crit_edge49:                                    ; preds = %.lr.ph48.split, %._crit_edge.us, %_ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit
   ret i1 true
@@ -5171,7 +5171,7 @@ _ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit: ; preds = %19, %6
   %69 = tail call noundef zeroext i1 %68(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 4 dereferenceable(2049) %0, i32 noundef %3, i64 noundef %65, ptr noundef %1, i64 noundef %30)
   %70 = add nuw i32 %.04147, 1
   %exitcond.not = icmp eq i32 %70, %33
-  br i1 %exitcond.not, label %._crit_edge49, label %.lr.ph48.split, !llvm.loop !133
+  br i1 %exitcond.not, label %._crit_edge49, label %.lr.ph48.split, !llvm.loop !132
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -5242,7 +5242,7 @@ _ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit: ; preds = %19, %6
   %51 = tail call noundef zeroext i1 %50(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 4 dereferenceable(2049) %0, i32 noundef %3, i64 noundef %45, ptr noundef %47, i64 noundef %31)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %35, !llvm.loop !134
+  br i1 %exitcond.not, label %._crit_edge, label %35, !llvm.loop !133
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -5324,17 +5324,17 @@ _ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit: ; preds = %19, %6
   %indvars.iv = phi i64 [ 0, %.lr.ph.us ], [ %indvars.iv.next, %53 ]
   %54 = getelementptr inbounds nuw double, ptr %1, i64 %indvars.iv
   %gep = getelementptr inbounds nuw float, ptr %invariant.gep, i64 %indvars.iv
-  %55 = load double, ptr %54, align 8, !tbaa !43
+  %55 = load double, ptr %54, align 8, !tbaa !42
   %56 = fptrunc double %55 to float
-  store float %56, ptr %gep, align 4, !tbaa !39
+  store float %56, ptr %gep, align 4, !tbaa !38
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond53.not = icmp eq i64 %indvars.iv.next, %35
-  br i1 %exitcond53.not, label %._crit_edge.us, label %53, !llvm.loop !135
+  br i1 %exitcond53.not, label %._crit_edge.us, label %53, !llvm.loop !134
 
 ._crit_edge.us:                                   ; preds = %53
   %indvars.iv.next55 = add nuw nsw i64 %indvars.iv54, 1
   %exitcond58.not = icmp eq i64 %indvars.iv.next55, %wide.trip.count57
-  br i1 %exitcond58.not, label %._crit_edge49, label %.lr.ph.us, !llvm.loop !136
+  br i1 %exitcond58.not, label %._crit_edge49, label %.lr.ph.us, !llvm.loop !135
 
 ._crit_edge49:                                    ; preds = %.lr.ph48.split, %._crit_edge.us, %_ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit
   ret i1 true
@@ -5356,7 +5356,7 @@ _ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit: ; preds = %19, %6
   %69 = tail call noundef zeroext i1 %68(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 4 dereferenceable(2049) %0, i32 noundef %3, i64 noundef %65, ptr noundef %1, i64 noundef %30)
   %70 = add nuw i32 %.04147, 1
   %exitcond.not = icmp eq i32 %70, %33
-  br i1 %exitcond.not, label %._crit_edge49, label %.lr.ph48.split, !llvm.loop !137
+  br i1 %exitcond.not, label %._crit_edge49, label %.lr.ph48.split, !llvm.loop !136
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -5445,7 +5445,6 @@ _ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit: ; preds = %6, %12
   %reass.sub68 = sub i32 %64, %60
   %65 = add i32 %reass.sub68, 1
   %66 = mul nsw i32 %65, %11
-  %invariant.gep = getelementptr inbounds nuw i8, ptr %59, i64 4
   %67 = icmp sgt i32 %66, 0
   br i1 %67, label %.lr.ph, label %._crit_edge
 
@@ -5465,7 +5464,7 @@ _ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit: ; preds = %6, %12
   %72 = sdiv i32 %71, 3
   %73 = sext i32 %72 to i64
   %74 = getelementptr inbounds i32, ptr %1, i64 %73
-  %75 = load i32, ptr %74, align 4, !tbaa !35
+  %75 = load i32, ptr %74, align 4, !tbaa !34
   %76 = srem i32 %71, 3
   %77 = sub nsw i32 2, %76
   %78 = mul nuw nsw i32 %77, 10
@@ -5478,24 +5477,24 @@ _ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit: ; preds = %6, %12
   %85 = or disjoint i16 %83, %84
   %86 = getelementptr inbounds nuw float, ptr %59, i64 %indvars.iv
   %87 = uitofp i16 %85 to float
-  store float %87, ptr %86, align 4, !tbaa !39
+  store float %87, ptr %86, align 4, !tbaa !38
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %.not = icmp eq i64 %indvars.iv, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !138
+  br i1 %.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !137
 
-._crit_edge:                                      ; preds = %.lr.ph.split.us, %109, %32
+._crit_edge:                                      ; preds = %.lr.ph.split.us, %111, %32
   %indvars.iv.next79 = add nuw nsw i64 %indvars.iv78, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next79, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge67, label %32, !llvm.loop !139
+  br i1 %exitcond.not, label %._crit_edge67, label %32, !llvm.loop !138
 
-.lr.ph.split:                                     ; preds = %.lr.ph.split.preheader, %109
-  %indvars.iv73 = phi i64 [ %69, %.lr.ph.split.preheader ], [ %indvars.iv.next74, %109 ]
-  %indvars.iv71 = phi i64 [ %68, %.lr.ph.split.preheader ], [ %indvars.iv.next72, %109 ]
+.lr.ph.split:                                     ; preds = %.lr.ph.split.preheader, %111
+  %indvars.iv73 = phi i64 [ %69, %.lr.ph.split.preheader ], [ %indvars.iv.next74, %111 ]
+  %indvars.iv71 = phi i64 [ %68, %.lr.ph.split.preheader ], [ %indvars.iv.next72, %111 ]
   %88 = trunc nuw nsw i64 %indvars.iv71 to i32
   %89 = sdiv i32 %88, 3
   %90 = sext i32 %89 to i64
   %91 = getelementptr inbounds i32, ptr %1, i64 %90
-  %92 = load i32, ptr %91, align 4, !tbaa !35
+  %92 = load i32, ptr %91, align 4, !tbaa !34
   %93 = srem i32 %88, 3
   %94 = sub nsw i32 2, %93
   %95 = mul nuw nsw i32 %94, 10
@@ -5508,23 +5507,24 @@ _ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit: ; preds = %6, %12
   %102 = or disjoint i16 %100, %101
   %103 = getelementptr inbounds nuw float, ptr %59, i64 %indvars.iv71
   %104 = uitofp i16 %102 to float
-  store float %104, ptr %103, align 4, !tbaa !39
+  store float %104, ptr %103, align 4, !tbaa !38
   %105 = urem i32 %88, 3
   %106 = icmp eq i32 %105, 0
-  br i1 %106, label %107, label %109
+  br i1 %106, label %107, label %111
 
 107:                                              ; preds = %.lr.ph.split
-  %gep = getelementptr inbounds nuw float, ptr %invariant.gep, i64 %indvars.iv73
-  %108 = load float, ptr %gep, align 4, !tbaa !39
-  store float %108, ptr %103, align 4, !tbaa !39
-  store float %104, ptr %gep, align 4, !tbaa !39
-  br label %109
+  %108 = getelementptr inbounds nuw float, ptr %59, i64 %indvars.iv73
+  %109 = getelementptr inbounds nuw i8, ptr %108, i64 4
+  %110 = load float, ptr %109, align 4, !tbaa !38
+  store float %110, ptr %103, align 4, !tbaa !38
+  store float %104, ptr %109, align 4, !tbaa !38
+  br label %111
 
-109:                                              ; preds = %107, %.lr.ph.split
+111:                                              ; preds = %107, %.lr.ph.split
   %indvars.iv.next72 = add nsw i64 %indvars.iv71, -1
-  %110 = icmp sgt i64 %indvars.iv71, 0
+  %112 = icmp sgt i64 %indvars.iv71, 0
   %indvars.iv.next74 = add nsw i64 %indvars.iv73, -1
-  br i1 %110, label %.lr.ph.split, label %._crit_edge, !llvm.loop !140
+  br i1 %112, label %.lr.ph.split, label %._crit_edge, !llvm.loop !139
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -5613,7 +5613,6 @@ _ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit: ; preds = %6, %12
   %reass.sub68 = sub i32 %64, %60
   %65 = add i32 %reass.sub68, 1
   %66 = mul nsw i32 %65, %11
-  %invariant.gep = getelementptr inbounds nuw i8, ptr %59, i64 4
   %67 = icmp sgt i32 %66, 0
   br i1 %67, label %.lr.ph, label %._crit_edge
 
@@ -5633,7 +5632,7 @@ _ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit: ; preds = %6, %12
   %72 = sdiv i32 %71, 3
   %73 = sext i32 %72 to i64
   %74 = getelementptr inbounds i32, ptr %1, i64 %73
-  %75 = load i32, ptr %74, align 4, !tbaa !35
+  %75 = load i32, ptr %74, align 4, !tbaa !34
   %76 = srem i32 %71, 3
   %77 = sub nsw i32 2, %76
   %78 = mul nuw nsw i32 %77, 10
@@ -5645,24 +5644,24 @@ _ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit: ; preds = %6, %12
   %84 = or disjoint i16 %82, %83
   %85 = getelementptr inbounds nuw float, ptr %59, i64 %indvars.iv
   %86 = uitofp i16 %84 to float
-  store float %86, ptr %85, align 4, !tbaa !39
+  store float %86, ptr %85, align 4, !tbaa !38
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %.not = icmp eq i64 %indvars.iv, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !141
+  br i1 %.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !140
 
-._crit_edge:                                      ; preds = %.lr.ph.split.us, %107, %32
+._crit_edge:                                      ; preds = %.lr.ph.split.us, %109, %32
   %indvars.iv.next79 = add nuw nsw i64 %indvars.iv78, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next79, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge67, label %32, !llvm.loop !142
+  br i1 %exitcond.not, label %._crit_edge67, label %32, !llvm.loop !141
 
-.lr.ph.split:                                     ; preds = %.lr.ph.split.preheader, %107
-  %indvars.iv73 = phi i64 [ %69, %.lr.ph.split.preheader ], [ %indvars.iv.next74, %107 ]
-  %indvars.iv71 = phi i64 [ %68, %.lr.ph.split.preheader ], [ %indvars.iv.next72, %107 ]
+.lr.ph.split:                                     ; preds = %.lr.ph.split.preheader, %109
+  %indvars.iv73 = phi i64 [ %69, %.lr.ph.split.preheader ], [ %indvars.iv.next74, %109 ]
+  %indvars.iv71 = phi i64 [ %68, %.lr.ph.split.preheader ], [ %indvars.iv.next72, %109 ]
   %87 = trunc nuw nsw i64 %indvars.iv71 to i32
   %88 = sdiv i32 %87, 3
   %89 = sext i32 %88 to i64
   %90 = getelementptr inbounds i32, ptr %1, i64 %89
-  %91 = load i32, ptr %90, align 4, !tbaa !35
+  %91 = load i32, ptr %90, align 4, !tbaa !34
   %92 = srem i32 %87, 3
   %93 = sub nsw i32 2, %92
   %94 = mul nuw nsw i32 %93, 10
@@ -5674,23 +5673,24 @@ _ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit: ; preds = %6, %12
   %100 = or disjoint i16 %98, %99
   %101 = getelementptr inbounds nuw float, ptr %59, i64 %indvars.iv71
   %102 = uitofp i16 %100 to float
-  store float %102, ptr %101, align 4, !tbaa !39
+  store float %102, ptr %101, align 4, !tbaa !38
   %103 = urem i32 %87, 3
   %104 = icmp eq i32 %103, 0
-  br i1 %104, label %105, label %107
+  br i1 %104, label %105, label %109
 
 105:                                              ; preds = %.lr.ph.split
-  %gep = getelementptr inbounds nuw float, ptr %invariant.gep, i64 %indvars.iv73
-  %106 = load float, ptr %gep, align 4, !tbaa !39
-  store float %106, ptr %101, align 4, !tbaa !39
-  store float %102, ptr %gep, align 4, !tbaa !39
-  br label %107
+  %106 = getelementptr inbounds nuw float, ptr %59, i64 %indvars.iv73
+  %107 = getelementptr inbounds nuw i8, ptr %106, i64 4
+  %108 = load float, ptr %107, align 4, !tbaa !38
+  store float %108, ptr %101, align 4, !tbaa !38
+  store float %102, ptr %107, align 4, !tbaa !38
+  br label %109
 
-107:                                              ; preds = %105, %.lr.ph.split
+109:                                              ; preds = %105, %.lr.ph.split
   %indvars.iv.next72 = add nsw i64 %indvars.iv71, -1
-  %108 = icmp sgt i64 %indvars.iv71, 0
+  %110 = icmp sgt i64 %indvars.iv71, 0
   %indvars.iv.next74 = add nsw i64 %indvars.iv73, -1
-  br i1 %108, label %.lr.ph.split, label %._crit_edge, !llvm.loop !143
+  br i1 %110, label %.lr.ph.split, label %._crit_edge, !llvm.loop !142
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -5812,10 +5812,10 @@ _ZNK3dpx13GenericHeader8BitDepthEi.exit:          ; preds = %6, %12
   %83 = or disjoint i16 %82, %81
   %84 = getelementptr inbounds nuw float, ptr %69, i64 %indvars.iv27.i
   %85 = uitofp i16 %83 to float
-  store float %85, ptr %84, align 4, !tbaa !39
+  store float %85, ptr %84, align 4, !tbaa !38
   %indvars.iv.next28.i = add nsw i64 %indvars.iv27.i, -1
   %.not36.i = icmp eq i64 %indvars.iv27.i, 0
-  br i1 %.not36.i, label %_ZN3dpx12UnPackPackedIfLj65472ELi2ELi4ELi6EEEvPjiPT_ii.exit, label %.lr.ph.split.us.i, !llvm.loop !144
+  br i1 %.not36.i, label %_ZN3dpx12UnPackPackedIfLj65472ELi2ELi4ELi6EEEvPjiPT_ii.exit, label %.lr.ph.split.us.i, !llvm.loop !143
 
 .lr.ph.split.us19.i:                              ; preds = %.lr.ph.i, %.lr.ph.split.us19.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.split.us19.i ], [ %71, %.lr.ph.i ]
@@ -5836,10 +5836,10 @@ _ZNK3dpx13GenericHeader8BitDepthEi.exit:          ; preds = %6, %12
   %98 = or disjoint i16 %96, %97
   %99 = getelementptr inbounds nuw float, ptr %69, i64 %indvars.iv.i
   %100 = uitofp nneg i16 %98 to float
-  store float %100, ptr %99, align 4, !tbaa !39
+  store float %100, ptr %99, align 4, !tbaa !38
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
   %.not35.i = icmp eq i64 %indvars.iv.i, 0
-  br i1 %.not35.i, label %_ZN3dpx12UnPackPackedIfLj65472ELi2ELi4ELi6EEEvPjiPT_ii.exit, label %.lr.ph.split.us19.i, !llvm.loop !145
+  br i1 %.not35.i, label %_ZN3dpx12UnPackPackedIfLj65472ELi2ELi4ELi6EEEvPjiPT_ii.exit, label %.lr.ph.split.us19.i, !llvm.loop !144
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i, %.lr.ph.split.i
   %indvars.iv30.i = phi i64 [ %indvars.iv.next31.i, %.lr.ph.split.i ], [ %71, %.lr.ph.i ]
@@ -5857,15 +5857,15 @@ _ZNK3dpx13GenericHeader8BitDepthEi.exit:          ; preds = %6, %12
   %110 = and i16 %109, -64
   %111 = getelementptr inbounds nuw float, ptr %69, i64 %indvars.iv30.i
   %112 = uitofp i16 %110 to float
-  store float %112, ptr %111, align 4, !tbaa !39
+  store float %112, ptr %111, align 4, !tbaa !38
   %indvars.iv.next31.i = add nsw i64 %indvars.iv30.i, -1
   %.not37.i = icmp eq i64 %indvars.iv30.i, 0
-  br i1 %.not37.i, label %_ZN3dpx12UnPackPackedIfLj65472ELi2ELi4ELi6EEEvPjiPT_ii.exit, label %.lr.ph.split.i, !llvm.loop !146
+  br i1 %.not37.i, label %_ZN3dpx12UnPackPackedIfLj65472ELi2ELi4ELi6EEEvPjiPT_ii.exit, label %.lr.ph.split.i, !llvm.loop !145
 
 _ZN3dpx12UnPackPackedIfLj65472ELi2ELi4ELi6EEEvPjiPT_ii.exit: ; preds = %.lr.ph.split.us19.i, %.lr.ph.split.us.i, %.lr.ph.split.i, %33
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %33, !llvm.loop !147
+  br i1 %exitcond.not, label %._crit_edge, label %33, !llvm.loop !146
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -5988,10 +5988,10 @@ _ZNK3dpx13GenericHeader8BitDepthEi.exit:          ; preds = %6, %12
   %85 = or i16 %83, %84
   %86 = getelementptr inbounds nuw float, ptr %69, i64 %indvars.iv27.i
   %87 = uitofp i16 %85 to float
-  store float %87, ptr %86, align 4, !tbaa !39
+  store float %87, ptr %86, align 4, !tbaa !38
   %indvars.iv.next28.i = add nsw i64 %indvars.iv27.i, -1
   %.not36.i = icmp eq i64 %indvars.iv27.i, 0
-  br i1 %.not36.i, label %_ZN3dpx12UnPackPackedIfLj65520ELi4ELi2ELi4EEEvPjiPT_ii.exit, label %.lr.ph.split.us.i, !llvm.loop !148
+  br i1 %.not36.i, label %_ZN3dpx12UnPackPackedIfLj65520ELi4ELi2ELi4EEEvPjiPT_ii.exit, label %.lr.ph.split.us.i, !llvm.loop !147
 
 .lr.ph.split.us19.i:                              ; preds = %.lr.ph.i, %.lr.ph.split.us19.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.split.us19.i ], [ %71, %.lr.ph.i ]
@@ -6011,10 +6011,10 @@ _ZNK3dpx13GenericHeader8BitDepthEi.exit:          ; preds = %6, %12
   %100 = or disjoint i16 %99, %98
   %101 = getelementptr inbounds nuw float, ptr %69, i64 %indvars.iv.i
   %102 = uitofp i16 %100 to float
-  store float %102, ptr %101, align 4, !tbaa !39
+  store float %102, ptr %101, align 4, !tbaa !38
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
   %.not35.i = icmp eq i64 %indvars.iv.i, 0
-  br i1 %.not35.i, label %_ZN3dpx12UnPackPackedIfLj65520ELi4ELi2ELi4EEEvPjiPT_ii.exit, label %.lr.ph.split.us19.i, !llvm.loop !149
+  br i1 %.not35.i, label %_ZN3dpx12UnPackPackedIfLj65520ELi4ELi2ELi4EEEvPjiPT_ii.exit, label %.lr.ph.split.us19.i, !llvm.loop !148
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i, %.lr.ph.split.i
   %indvars.iv30.i = phi i64 [ %indvars.iv.next31.i, %.lr.ph.split.i ], [ %71, %.lr.ph.i ]
@@ -6032,15 +6032,15 @@ _ZNK3dpx13GenericHeader8BitDepthEi.exit:          ; preds = %6, %12
   %113 = and i16 %112, -16
   %114 = getelementptr inbounds nuw float, ptr %69, i64 %indvars.iv30.i
   %115 = uitofp i16 %113 to float
-  store float %115, ptr %114, align 4, !tbaa !39
+  store float %115, ptr %114, align 4, !tbaa !38
   %indvars.iv.next31.i = add nsw i64 %indvars.iv30.i, -1
   %.not37.i = icmp eq i64 %indvars.iv30.i, 0
-  br i1 %.not37.i, label %_ZN3dpx12UnPackPackedIfLj65520ELi4ELi2ELi4EEEvPjiPT_ii.exit, label %.lr.ph.split.i, !llvm.loop !150
+  br i1 %.not37.i, label %_ZN3dpx12UnPackPackedIfLj65520ELi4ELi2ELi4EEEvPjiPT_ii.exit, label %.lr.ph.split.i, !llvm.loop !149
 
 _ZN3dpx12UnPackPackedIfLj65520ELi4ELi2ELi4EEEvPjiPT_ii.exit: ; preds = %.lr.ph.split.us19.i, %.lr.ph.split.us.i, %.lr.ph.split.i, %33
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %33, !llvm.loop !151
+  br i1 %exitcond.not, label %._crit_edge, label %33, !llvm.loop !150
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -6126,15 +6126,15 @@ _ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit: ; preds = %19, %6
   %57 = or i16 %55, %56
   %gep = getelementptr inbounds nuw double, ptr %invariant.gep, i64 %indvars.iv
   %58 = uitofp i16 %57 to double
-  store double %58, ptr %gep, align 8, !tbaa !43
+  store double %58, ptr %gep, align 8, !tbaa !42
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond49.not = icmp eq i64 %indvars.iv.next, %34
-  br i1 %exitcond49.not, label %._crit_edge.us, label %52, !llvm.loop !152
+  br i1 %exitcond49.not, label %._crit_edge.us, label %52, !llvm.loop !151
 
 ._crit_edge.us:                                   ; preds = %52
   %indvars.iv.next51 = add nuw nsw i64 %indvars.iv50, 1
   %exitcond54.not = icmp eq i64 %indvars.iv.next51, %wide.trip.count53
-  br i1 %exitcond54.not, label %._crit_edge45, label %.lr.ph.us, !llvm.loop !153
+  br i1 %exitcond54.not, label %._crit_edge45, label %.lr.ph.us, !llvm.loop !152
 
 ._crit_edge45:                                    ; preds = %.lr.ph44.split, %._crit_edge.us, %_ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit
   ret i1 true
@@ -6156,7 +6156,7 @@ _ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit: ; preds = %19, %6
   %71 = tail call noundef zeroext i1 %70(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 4 dereferenceable(2049) %0, i32 noundef %3, i64 noundef %67, ptr noundef %1, i64 noundef %29)
   %72 = add nuw i32 %.03643, 1
   %exitcond.not = icmp eq i32 %72, %32
-  br i1 %exitcond.not, label %._crit_edge45, label %.lr.ph44.split, !llvm.loop !154
+  br i1 %exitcond.not, label %._crit_edge45, label %.lr.ph44.split, !llvm.loop !153
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -6240,15 +6240,15 @@ _ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit: ; preds = %19, %6
   %gep = getelementptr inbounds nuw double, ptr %invariant.gep, i64 %indvars.iv
   %55 = load i16, ptr %54, align 2, !tbaa !23
   %56 = uitofp i16 %55 to double
-  store double %56, ptr %gep, align 8, !tbaa !43
+  store double %56, ptr %gep, align 8, !tbaa !42
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond53.not = icmp eq i64 %indvars.iv.next, %35
-  br i1 %exitcond53.not, label %._crit_edge.us, label %53, !llvm.loop !155
+  br i1 %exitcond53.not, label %._crit_edge.us, label %53, !llvm.loop !154
 
 ._crit_edge.us:                                   ; preds = %53
   %indvars.iv.next55 = add nuw nsw i64 %indvars.iv54, 1
   %exitcond58.not = icmp eq i64 %indvars.iv.next55, %wide.trip.count57
-  br i1 %exitcond58.not, label %._crit_edge49, label %.lr.ph.us, !llvm.loop !156
+  br i1 %exitcond58.not, label %._crit_edge49, label %.lr.ph.us, !llvm.loop !155
 
 ._crit_edge49:                                    ; preds = %.lr.ph48.split, %._crit_edge.us, %_ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit
   ret i1 true
@@ -6270,7 +6270,7 @@ _ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit: ; preds = %19, %6
   %69 = tail call noundef zeroext i1 %68(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 4 dereferenceable(2049) %0, i32 noundef %3, i64 noundef %65, ptr noundef %1, i64 noundef %30)
   %70 = add nuw i32 %.04147, 1
   %exitcond.not = icmp eq i32 %70, %33
-  br i1 %exitcond.not, label %._crit_edge49, label %.lr.ph48.split, !llvm.loop !157
+  br i1 %exitcond.not, label %._crit_edge49, label %.lr.ph48.split, !llvm.loop !156
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -6354,15 +6354,15 @@ _ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit: ; preds = %19, %6
   %gep = getelementptr inbounds nuw double, ptr %invariant.gep, i64 %indvars.iv
   %55 = load i8, ptr %54, align 1, !tbaa !24
   %56 = uitofp i8 %55 to double
-  store double %56, ptr %gep, align 8, !tbaa !43
+  store double %56, ptr %gep, align 8, !tbaa !42
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond53.not = icmp eq i64 %indvars.iv.next, %35
-  br i1 %exitcond53.not, label %._crit_edge.us, label %53, !llvm.loop !158
+  br i1 %exitcond53.not, label %._crit_edge.us, label %53, !llvm.loop !157
 
 ._crit_edge.us:                                   ; preds = %53
   %indvars.iv.next55 = add nuw nsw i64 %indvars.iv54, 1
   %exitcond58.not = icmp eq i64 %indvars.iv.next55, %wide.trip.count57
-  br i1 %exitcond58.not, label %._crit_edge49, label %.lr.ph.us, !llvm.loop !159
+  br i1 %exitcond58.not, label %._crit_edge49, label %.lr.ph.us, !llvm.loop !158
 
 ._crit_edge49:                                    ; preds = %.lr.ph48.split, %._crit_edge.us, %_ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit
   ret i1 true
@@ -6384,7 +6384,7 @@ _ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit: ; preds = %19, %6
   %69 = tail call noundef zeroext i1 %68(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 4 dereferenceable(2049) %0, i32 noundef %3, i64 noundef %65, ptr noundef %1, i64 noundef %30)
   %70 = add nuw i32 %.04147, 1
   %exitcond.not = icmp eq i32 %70, %33
-  br i1 %exitcond.not, label %._crit_edge49, label %.lr.ph48.split, !llvm.loop !160
+  br i1 %exitcond.not, label %._crit_edge49, label %.lr.ph48.split, !llvm.loop !159
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -6466,17 +6466,17 @@ _ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit: ; preds = %19, %6
   %indvars.iv = phi i64 [ 0, %.lr.ph.us ], [ %indvars.iv.next, %53 ]
   %54 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
   %gep = getelementptr inbounds nuw double, ptr %invariant.gep, i64 %indvars.iv
-  %55 = load i32, ptr %54, align 4, !tbaa !35
+  %55 = load i32, ptr %54, align 4, !tbaa !34
   %56 = uitofp i32 %55 to double
-  store double %56, ptr %gep, align 8, !tbaa !43
+  store double %56, ptr %gep, align 8, !tbaa !42
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond53.not = icmp eq i64 %indvars.iv.next, %35
-  br i1 %exitcond53.not, label %._crit_edge.us, label %53, !llvm.loop !161
+  br i1 %exitcond53.not, label %._crit_edge.us, label %53, !llvm.loop !160
 
 ._crit_edge.us:                                   ; preds = %53
   %indvars.iv.next55 = add nuw nsw i64 %indvars.iv54, 1
   %exitcond58.not = icmp eq i64 %indvars.iv.next55, %wide.trip.count57
-  br i1 %exitcond58.not, label %._crit_edge49, label %.lr.ph.us, !llvm.loop !162
+  br i1 %exitcond58.not, label %._crit_edge49, label %.lr.ph.us, !llvm.loop !161
 
 ._crit_edge49:                                    ; preds = %.lr.ph48.split, %._crit_edge.us, %_ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit
   ret i1 true
@@ -6498,7 +6498,7 @@ _ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit: ; preds = %19, %6
   %69 = tail call noundef zeroext i1 %68(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 4 dereferenceable(2049) %0, i32 noundef %3, i64 noundef %65, ptr noundef %1, i64 noundef %30)
   %70 = add nuw i32 %.04147, 1
   %exitcond.not = icmp eq i32 %70, %33
-  br i1 %exitcond.not, label %._crit_edge49, label %.lr.ph48.split, !llvm.loop !163
+  br i1 %exitcond.not, label %._crit_edge49, label %.lr.ph48.split, !llvm.loop !162
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -6580,17 +6580,17 @@ _ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit: ; preds = %19, %6
   %indvars.iv = phi i64 [ 0, %.lr.ph.us ], [ %indvars.iv.next, %53 ]
   %54 = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv
   %gep = getelementptr inbounds nuw double, ptr %invariant.gep, i64 %indvars.iv
-  %55 = load float, ptr %54, align 4, !tbaa !39
+  %55 = load float, ptr %54, align 4, !tbaa !38
   %56 = fpext float %55 to double
-  store double %56, ptr %gep, align 8, !tbaa !43
+  store double %56, ptr %gep, align 8, !tbaa !42
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond53.not = icmp eq i64 %indvars.iv.next, %35
-  br i1 %exitcond53.not, label %._crit_edge.us, label %53, !llvm.loop !164
+  br i1 %exitcond53.not, label %._crit_edge.us, label %53, !llvm.loop !163
 
 ._crit_edge.us:                                   ; preds = %53
   %indvars.iv.next55 = add nuw nsw i64 %indvars.iv54, 1
   %exitcond58.not = icmp eq i64 %indvars.iv.next55, %wide.trip.count57
-  br i1 %exitcond58.not, label %._crit_edge49, label %.lr.ph.us, !llvm.loop !165
+  br i1 %exitcond58.not, label %._crit_edge49, label %.lr.ph.us, !llvm.loop !164
 
 ._crit_edge49:                                    ; preds = %.lr.ph48.split, %._crit_edge.us, %_ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit
   ret i1 true
@@ -6612,7 +6612,7 @@ _ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit: ; preds = %19, %6
   %69 = tail call noundef zeroext i1 %68(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 4 dereferenceable(2049) %0, i32 noundef %3, i64 noundef %65, ptr noundef %1, i64 noundef %30)
   %70 = add nuw i32 %.04147, 1
   %exitcond.not = icmp eq i32 %70, %33
-  br i1 %exitcond.not, label %._crit_edge49, label %.lr.ph48.split, !llvm.loop !166
+  br i1 %exitcond.not, label %._crit_edge49, label %.lr.ph48.split, !llvm.loop !165
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -6683,7 +6683,7 @@ _ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit: ; preds = %19, %6
   %51 = tail call noundef zeroext i1 %50(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 4 dereferenceable(2049) %0, i32 noundef %3, i64 noundef %45, ptr noundef %47, i64 noundef %31)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %35, !llvm.loop !167
+  br i1 %exitcond.not, label %._crit_edge, label %35, !llvm.loop !166
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -6772,7 +6772,6 @@ _ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit: ; preds = %6, %12
   %reass.sub68 = sub i32 %64, %60
   %65 = add i32 %reass.sub68, 1
   %66 = mul nsw i32 %65, %11
-  %invariant.gep = getelementptr inbounds nuw i8, ptr %59, i64 8
   %67 = icmp sgt i32 %66, 0
   br i1 %67, label %.lr.ph, label %._crit_edge
 
@@ -6792,7 +6791,7 @@ _ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit: ; preds = %6, %12
   %72 = sdiv i32 %71, 3
   %73 = sext i32 %72 to i64
   %74 = getelementptr inbounds i32, ptr %1, i64 %73
-  %75 = load i32, ptr %74, align 4, !tbaa !35
+  %75 = load i32, ptr %74, align 4, !tbaa !34
   %76 = srem i32 %71, 3
   %77 = sub nsw i32 2, %76
   %78 = mul nuw nsw i32 %77, 10
@@ -6805,24 +6804,24 @@ _ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit: ; preds = %6, %12
   %85 = or disjoint i16 %83, %84
   %86 = getelementptr inbounds nuw double, ptr %59, i64 %indvars.iv
   %87 = uitofp i16 %85 to double
-  store double %87, ptr %86, align 8, !tbaa !43
+  store double %87, ptr %86, align 8, !tbaa !42
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %.not = icmp eq i64 %indvars.iv, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !168
+  br i1 %.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !167
 
-._crit_edge:                                      ; preds = %.lr.ph.split.us, %109, %32
+._crit_edge:                                      ; preds = %.lr.ph.split.us, %111, %32
   %indvars.iv.next79 = add nuw nsw i64 %indvars.iv78, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next79, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge67, label %32, !llvm.loop !169
+  br i1 %exitcond.not, label %._crit_edge67, label %32, !llvm.loop !168
 
-.lr.ph.split:                                     ; preds = %.lr.ph.split.preheader, %109
-  %indvars.iv73 = phi i64 [ %69, %.lr.ph.split.preheader ], [ %indvars.iv.next74, %109 ]
-  %indvars.iv71 = phi i64 [ %68, %.lr.ph.split.preheader ], [ %indvars.iv.next72, %109 ]
+.lr.ph.split:                                     ; preds = %.lr.ph.split.preheader, %111
+  %indvars.iv73 = phi i64 [ %69, %.lr.ph.split.preheader ], [ %indvars.iv.next74, %111 ]
+  %indvars.iv71 = phi i64 [ %68, %.lr.ph.split.preheader ], [ %indvars.iv.next72, %111 ]
   %88 = trunc nuw nsw i64 %indvars.iv71 to i32
   %89 = sdiv i32 %88, 3
   %90 = sext i32 %89 to i64
   %91 = getelementptr inbounds i32, ptr %1, i64 %90
-  %92 = load i32, ptr %91, align 4, !tbaa !35
+  %92 = load i32, ptr %91, align 4, !tbaa !34
   %93 = srem i32 %88, 3
   %94 = sub nsw i32 2, %93
   %95 = mul nuw nsw i32 %94, 10
@@ -6835,23 +6834,24 @@ _ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit: ; preds = %6, %12
   %102 = or disjoint i16 %100, %101
   %103 = getelementptr inbounds nuw double, ptr %59, i64 %indvars.iv71
   %104 = uitofp i16 %102 to double
-  store double %104, ptr %103, align 8, !tbaa !43
+  store double %104, ptr %103, align 8, !tbaa !42
   %105 = urem i32 %88, 3
   %106 = icmp eq i32 %105, 0
-  br i1 %106, label %107, label %109
+  br i1 %106, label %107, label %111
 
 107:                                              ; preds = %.lr.ph.split
-  %gep = getelementptr inbounds nuw double, ptr %invariant.gep, i64 %indvars.iv73
-  %108 = load double, ptr %gep, align 8, !tbaa !43
-  store double %108, ptr %103, align 8, !tbaa !43
-  store double %104, ptr %gep, align 8, !tbaa !43
-  br label %109
+  %108 = getelementptr inbounds nuw double, ptr %59, i64 %indvars.iv73
+  %109 = getelementptr inbounds nuw i8, ptr %108, i64 8
+  %110 = load double, ptr %109, align 8, !tbaa !42
+  store double %110, ptr %103, align 8, !tbaa !42
+  store double %104, ptr %109, align 8, !tbaa !42
+  br label %111
 
-109:                                              ; preds = %107, %.lr.ph.split
+111:                                              ; preds = %107, %.lr.ph.split
   %indvars.iv.next72 = add nsw i64 %indvars.iv71, -1
-  %110 = icmp sgt i64 %indvars.iv71, 0
+  %112 = icmp sgt i64 %indvars.iv71, 0
   %indvars.iv.next74 = add nsw i64 %indvars.iv73, -1
-  br i1 %110, label %.lr.ph.split, label %._crit_edge, !llvm.loop !170
+  br i1 %112, label %.lr.ph.split, label %._crit_edge, !llvm.loop !169
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -6940,7 +6940,6 @@ _ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit: ; preds = %6, %12
   %reass.sub68 = sub i32 %64, %60
   %65 = add i32 %reass.sub68, 1
   %66 = mul nsw i32 %65, %11
-  %invariant.gep = getelementptr inbounds nuw i8, ptr %59, i64 8
   %67 = icmp sgt i32 %66, 0
   br i1 %67, label %.lr.ph, label %._crit_edge
 
@@ -6960,7 +6959,7 @@ _ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit: ; preds = %6, %12
   %72 = sdiv i32 %71, 3
   %73 = sext i32 %72 to i64
   %74 = getelementptr inbounds i32, ptr %1, i64 %73
-  %75 = load i32, ptr %74, align 4, !tbaa !35
+  %75 = load i32, ptr %74, align 4, !tbaa !34
   %76 = srem i32 %71, 3
   %77 = sub nsw i32 2, %76
   %78 = mul nuw nsw i32 %77, 10
@@ -6972,24 +6971,24 @@ _ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit: ; preds = %6, %12
   %84 = or disjoint i16 %82, %83
   %85 = getelementptr inbounds nuw double, ptr %59, i64 %indvars.iv
   %86 = uitofp i16 %84 to double
-  store double %86, ptr %85, align 8, !tbaa !43
+  store double %86, ptr %85, align 8, !tbaa !42
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %.not = icmp eq i64 %indvars.iv, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !171
+  br i1 %.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !170
 
-._crit_edge:                                      ; preds = %.lr.ph.split.us, %107, %32
+._crit_edge:                                      ; preds = %.lr.ph.split.us, %109, %32
   %indvars.iv.next79 = add nuw nsw i64 %indvars.iv78, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next79, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge67, label %32, !llvm.loop !172
+  br i1 %exitcond.not, label %._crit_edge67, label %32, !llvm.loop !171
 
-.lr.ph.split:                                     ; preds = %.lr.ph.split.preheader, %107
-  %indvars.iv73 = phi i64 [ %69, %.lr.ph.split.preheader ], [ %indvars.iv.next74, %107 ]
-  %indvars.iv71 = phi i64 [ %68, %.lr.ph.split.preheader ], [ %indvars.iv.next72, %107 ]
+.lr.ph.split:                                     ; preds = %.lr.ph.split.preheader, %109
+  %indvars.iv73 = phi i64 [ %69, %.lr.ph.split.preheader ], [ %indvars.iv.next74, %109 ]
+  %indvars.iv71 = phi i64 [ %68, %.lr.ph.split.preheader ], [ %indvars.iv.next72, %109 ]
   %87 = trunc nuw nsw i64 %indvars.iv71 to i32
   %88 = sdiv i32 %87, 3
   %89 = sext i32 %88 to i64
   %90 = getelementptr inbounds i32, ptr %1, i64 %89
-  %91 = load i32, ptr %90, align 4, !tbaa !35
+  %91 = load i32, ptr %90, align 4, !tbaa !34
   %92 = srem i32 %87, 3
   %93 = sub nsw i32 2, %92
   %94 = mul nuw nsw i32 %93, 10
@@ -7001,23 +7000,24 @@ _ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit: ; preds = %6, %12
   %100 = or disjoint i16 %98, %99
   %101 = getelementptr inbounds nuw double, ptr %59, i64 %indvars.iv71
   %102 = uitofp i16 %100 to double
-  store double %102, ptr %101, align 8, !tbaa !43
+  store double %102, ptr %101, align 8, !tbaa !42
   %103 = urem i32 %87, 3
   %104 = icmp eq i32 %103, 0
-  br i1 %104, label %105, label %107
+  br i1 %104, label %105, label %109
 
 105:                                              ; preds = %.lr.ph.split
-  %gep = getelementptr inbounds nuw double, ptr %invariant.gep, i64 %indvars.iv73
-  %106 = load double, ptr %gep, align 8, !tbaa !43
-  store double %106, ptr %101, align 8, !tbaa !43
-  store double %102, ptr %gep, align 8, !tbaa !43
-  br label %107
+  %106 = getelementptr inbounds nuw double, ptr %59, i64 %indvars.iv73
+  %107 = getelementptr inbounds nuw i8, ptr %106, i64 8
+  %108 = load double, ptr %107, align 8, !tbaa !42
+  store double %108, ptr %101, align 8, !tbaa !42
+  store double %102, ptr %107, align 8, !tbaa !42
+  br label %109
 
-107:                                              ; preds = %105, %.lr.ph.split
+109:                                              ; preds = %105, %.lr.ph.split
   %indvars.iv.next72 = add nsw i64 %indvars.iv71, -1
-  %108 = icmp sgt i64 %indvars.iv71, 0
+  %110 = icmp sgt i64 %indvars.iv71, 0
   %indvars.iv.next74 = add nsw i64 %indvars.iv73, -1
-  br i1 %108, label %.lr.ph.split, label %._crit_edge, !llvm.loop !173
+  br i1 %110, label %.lr.ph.split, label %._crit_edge, !llvm.loop !172
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -7139,10 +7139,10 @@ _ZNK3dpx13GenericHeader8BitDepthEi.exit:          ; preds = %6, %12
   %83 = or disjoint i16 %82, %81
   %84 = getelementptr inbounds nuw double, ptr %69, i64 %indvars.iv27.i
   %85 = uitofp i16 %83 to double
-  store double %85, ptr %84, align 8, !tbaa !43
+  store double %85, ptr %84, align 8, !tbaa !42
   %indvars.iv.next28.i = add nsw i64 %indvars.iv27.i, -1
   %.not36.i = icmp eq i64 %indvars.iv27.i, 0
-  br i1 %.not36.i, label %_ZN3dpx12UnPackPackedIdLj65472ELi2ELi4ELi6EEEvPjiPT_ii.exit, label %.lr.ph.split.us.i, !llvm.loop !174
+  br i1 %.not36.i, label %_ZN3dpx12UnPackPackedIdLj65472ELi2ELi4ELi6EEEvPjiPT_ii.exit, label %.lr.ph.split.us.i, !llvm.loop !173
 
 .lr.ph.split.us19.i:                              ; preds = %.lr.ph.i, %.lr.ph.split.us19.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.split.us19.i ], [ %71, %.lr.ph.i ]
@@ -7163,10 +7163,10 @@ _ZNK3dpx13GenericHeader8BitDepthEi.exit:          ; preds = %6, %12
   %98 = or disjoint i16 %96, %97
   %99 = getelementptr inbounds nuw double, ptr %69, i64 %indvars.iv.i
   %100 = uitofp nneg i16 %98 to double
-  store double %100, ptr %99, align 8, !tbaa !43
+  store double %100, ptr %99, align 8, !tbaa !42
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
   %.not35.i = icmp eq i64 %indvars.iv.i, 0
-  br i1 %.not35.i, label %_ZN3dpx12UnPackPackedIdLj65472ELi2ELi4ELi6EEEvPjiPT_ii.exit, label %.lr.ph.split.us19.i, !llvm.loop !175
+  br i1 %.not35.i, label %_ZN3dpx12UnPackPackedIdLj65472ELi2ELi4ELi6EEEvPjiPT_ii.exit, label %.lr.ph.split.us19.i, !llvm.loop !174
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i, %.lr.ph.split.i
   %indvars.iv30.i = phi i64 [ %indvars.iv.next31.i, %.lr.ph.split.i ], [ %71, %.lr.ph.i ]
@@ -7184,15 +7184,15 @@ _ZNK3dpx13GenericHeader8BitDepthEi.exit:          ; preds = %6, %12
   %110 = and i16 %109, -64
   %111 = getelementptr inbounds nuw double, ptr %69, i64 %indvars.iv30.i
   %112 = uitofp i16 %110 to double
-  store double %112, ptr %111, align 8, !tbaa !43
+  store double %112, ptr %111, align 8, !tbaa !42
   %indvars.iv.next31.i = add nsw i64 %indvars.iv30.i, -1
   %.not37.i = icmp eq i64 %indvars.iv30.i, 0
-  br i1 %.not37.i, label %_ZN3dpx12UnPackPackedIdLj65472ELi2ELi4ELi6EEEvPjiPT_ii.exit, label %.lr.ph.split.i, !llvm.loop !176
+  br i1 %.not37.i, label %_ZN3dpx12UnPackPackedIdLj65472ELi2ELi4ELi6EEEvPjiPT_ii.exit, label %.lr.ph.split.i, !llvm.loop !175
 
 _ZN3dpx12UnPackPackedIdLj65472ELi2ELi4ELi6EEEvPjiPT_ii.exit: ; preds = %.lr.ph.split.us19.i, %.lr.ph.split.us.i, %.lr.ph.split.i, %33
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %33, !llvm.loop !177
+  br i1 %exitcond.not, label %._crit_edge, label %33, !llvm.loop !176
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -7315,10 +7315,10 @@ _ZNK3dpx13GenericHeader8BitDepthEi.exit:          ; preds = %6, %12
   %85 = or i16 %83, %84
   %86 = getelementptr inbounds nuw double, ptr %69, i64 %indvars.iv27.i
   %87 = uitofp i16 %85 to double
-  store double %87, ptr %86, align 8, !tbaa !43
+  store double %87, ptr %86, align 8, !tbaa !42
   %indvars.iv.next28.i = add nsw i64 %indvars.iv27.i, -1
   %.not36.i = icmp eq i64 %indvars.iv27.i, 0
-  br i1 %.not36.i, label %_ZN3dpx12UnPackPackedIdLj65520ELi4ELi2ELi4EEEvPjiPT_ii.exit, label %.lr.ph.split.us.i, !llvm.loop !178
+  br i1 %.not36.i, label %_ZN3dpx12UnPackPackedIdLj65520ELi4ELi2ELi4EEEvPjiPT_ii.exit, label %.lr.ph.split.us.i, !llvm.loop !177
 
 .lr.ph.split.us19.i:                              ; preds = %.lr.ph.i, %.lr.ph.split.us19.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.split.us19.i ], [ %71, %.lr.ph.i ]
@@ -7338,10 +7338,10 @@ _ZNK3dpx13GenericHeader8BitDepthEi.exit:          ; preds = %6, %12
   %100 = or disjoint i16 %99, %98
   %101 = getelementptr inbounds nuw double, ptr %69, i64 %indvars.iv.i
   %102 = uitofp i16 %100 to double
-  store double %102, ptr %101, align 8, !tbaa !43
+  store double %102, ptr %101, align 8, !tbaa !42
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
   %.not35.i = icmp eq i64 %indvars.iv.i, 0
-  br i1 %.not35.i, label %_ZN3dpx12UnPackPackedIdLj65520ELi4ELi2ELi4EEEvPjiPT_ii.exit, label %.lr.ph.split.us19.i, !llvm.loop !179
+  br i1 %.not35.i, label %_ZN3dpx12UnPackPackedIdLj65520ELi4ELi2ELi4EEEvPjiPT_ii.exit, label %.lr.ph.split.us19.i, !llvm.loop !178
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i, %.lr.ph.split.i
   %indvars.iv30.i = phi i64 [ %indvars.iv.next31.i, %.lr.ph.split.i ], [ %71, %.lr.ph.i ]
@@ -7359,15 +7359,15 @@ _ZNK3dpx13GenericHeader8BitDepthEi.exit:          ; preds = %6, %12
   %113 = and i16 %112, -16
   %114 = getelementptr inbounds nuw double, ptr %69, i64 %indvars.iv30.i
   %115 = uitofp i16 %113 to double
-  store double %115, ptr %114, align 8, !tbaa !43
+  store double %115, ptr %114, align 8, !tbaa !42
   %indvars.iv.next31.i = add nsw i64 %indvars.iv30.i, -1
   %.not37.i = icmp eq i64 %indvars.iv30.i, 0
-  br i1 %.not37.i, label %_ZN3dpx12UnPackPackedIdLj65520ELi4ELi2ELi4EEEvPjiPT_ii.exit, label %.lr.ph.split.i, !llvm.loop !180
+  br i1 %.not37.i, label %_ZN3dpx12UnPackPackedIdLj65520ELi4ELi2ELi4EEEvPjiPT_ii.exit, label %.lr.ph.split.i, !llvm.loop !179
 
 _ZN3dpx12UnPackPackedIdLj65520ELi4ELi2ELi4EEEvPjiPT_ii.exit: ; preds = %.lr.ph.split.us19.i, %.lr.ph.split.us.i, %.lr.ph.split.i, %33
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %33, !llvm.loop !181
+  br i1 %exitcond.not, label %._crit_edge, label %33, !llvm.loop !180
 }
 
 ; Function Attrs: uwtable
@@ -7417,160 +7417,159 @@ attributes #11 = { nounwind }
 !22 = !{!12, !13, i64 32}
 !23 = !{!15, !15, i64 0}
 !24 = !{!10, !10, i64 0}
-!25 = distinct !{!25, !26, !27}
+!25 = distinct !{!25, !26}
 !26 = !{!"llvm.loop.mustprogress"}
-!27 = !{!"llvm.loop.estimated_trip_count"}
-!28 = distinct !{!28, !26, !27, !29}
-!29 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!30 = distinct !{!30, !26, !27}
-!31 = distinct !{!31, !26, !27}
-!32 = distinct !{!32, !26, !27, !29}
-!33 = distinct !{!33, !26, !27}
-!34 = distinct !{!34, !26, !27}
-!35 = !{!13, !13, i64 0}
-!36 = distinct !{!36, !26, !27}
-!37 = distinct !{!37, !26, !27, !29}
-!38 = distinct !{!38, !26, !27}
-!39 = !{!14, !14, i64 0}
-!40 = distinct !{!40, !26, !27}
-!41 = distinct !{!41, !26, !27, !29}
-!42 = distinct !{!42, !26, !27}
-!43 = !{!44, !44, i64 0}
-!44 = !{!"double", !10, i64 0}
-!45 = distinct !{!45, !26, !27}
-!46 = distinct !{!46, !26, !27, !29}
-!47 = distinct !{!47, !26, !27}
-!48 = distinct !{!48, !26, !27, !29}
-!49 = distinct !{!49, !26, !27}
-!50 = distinct !{!50, !26, !27}
-!51 = distinct !{!51, !26, !27, !29}
-!52 = distinct !{!52, !26, !27}
-!53 = distinct !{!53, !26, !27}
-!54 = distinct !{!54, !26, !27, !29}
-!55 = distinct !{!55, !26, !27, !29}
-!56 = distinct !{!56, !26, !27}
-!57 = distinct !{!57, !26, !27}
-!58 = distinct !{!58, !26, !27, !29}
-!59 = distinct !{!59, !26, !27, !29}
-!60 = distinct !{!60, !26, !27}
-!61 = distinct !{!61, !26, !27}
-!62 = distinct !{!62, !26, !27}
-!63 = distinct !{!63, !26, !27, !29}
-!64 = distinct !{!64, !26, !27}
-!65 = distinct !{!65, !26, !27}
-!66 = distinct !{!66, !26, !27}
-!67 = distinct !{!67, !26, !27, !29}
-!68 = distinct !{!68, !26, !27}
-!69 = distinct !{!69, !26, !27}
-!70 = distinct !{!70, !26, !27, !29}
-!71 = distinct !{!71, !26, !27}
-!72 = distinct !{!72, !26, !27}
-!73 = distinct !{!73, !26, !27, !29}
-!74 = distinct !{!74, !26, !27}
-!75 = distinct !{!75, !26, !27}
-!76 = distinct !{!76, !26, !27, !29}
-!77 = distinct !{!77, !26, !27}
-!78 = distinct !{!78, !26, !27, !29}
-!79 = distinct !{!79, !26, !27}
-!80 = distinct !{!80, !26, !27}
-!81 = distinct !{!81, !26, !27, !29}
-!82 = distinct !{!82, !26, !27}
-!83 = distinct !{!83, !26, !27}
-!84 = distinct !{!84, !26, !27, !29}
-!85 = distinct !{!85, !26, !27, !29}
-!86 = distinct !{!86, !26, !27}
-!87 = distinct !{!87, !26, !27}
-!88 = distinct !{!88, !26, !27, !29}
-!89 = distinct !{!89, !26, !27, !29}
-!90 = distinct !{!90, !26, !27}
-!91 = distinct !{!91, !26, !27}
-!92 = distinct !{!92, !26, !27}
-!93 = distinct !{!93, !26, !27, !29}
-!94 = distinct !{!94, !26, !27}
-!95 = distinct !{!95, !26, !27}
-!96 = distinct !{!96, !26, !27, !29}
-!97 = distinct !{!97, !26, !27}
-!98 = distinct !{!98, !26, !27}
-!99 = distinct !{!99, !26, !27, !29}
-!100 = distinct !{!100, !26, !27}
-!101 = distinct !{!101, !26, !27}
-!102 = distinct !{!102, !26, !27}
-!103 = distinct !{!103, !26, !27, !29}
-!104 = distinct !{!104, !26, !27}
-!105 = distinct !{!105, !26, !27}
-!106 = distinct !{!106, !26, !27, !29}
-!107 = distinct !{!107, !26, !27}
-!108 = distinct !{!108, !26, !27, !29}
-!109 = distinct !{!109, !26, !27}
-!110 = distinct !{!110, !26, !27}
-!111 = distinct !{!111, !26, !27, !29}
-!112 = distinct !{!112, !26, !27}
-!113 = distinct !{!113, !26, !27}
-!114 = distinct !{!114, !26, !27, !29}
-!115 = distinct !{!115, !26, !27, !29}
-!116 = distinct !{!116, !26, !27}
-!117 = distinct !{!117, !26, !27}
-!118 = distinct !{!118, !26, !27, !29}
-!119 = distinct !{!119, !26, !27, !29}
-!120 = distinct !{!120, !26, !27}
-!121 = distinct !{!121, !26, !27}
-!122 = distinct !{!122, !26, !27}
-!123 = distinct !{!123, !26, !27, !29}
-!124 = distinct !{!124, !26, !27}
-!125 = distinct !{!125, !26, !27}
-!126 = distinct !{!126, !26, !27, !29}
-!127 = distinct !{!127, !26, !27}
-!128 = distinct !{!128, !26, !27}
-!129 = distinct !{!129, !26, !27, !29}
-!130 = distinct !{!130, !26, !27}
-!131 = distinct !{!131, !26, !27}
-!132 = distinct !{!132, !26, !27, !29}
-!133 = distinct !{!133, !26, !27}
-!134 = distinct !{!134, !26, !27}
-!135 = distinct !{!135, !26, !27}
-!136 = distinct !{!136, !26, !27, !29}
-!137 = distinct !{!137, !26, !27}
-!138 = distinct !{!138, !26, !27, !29}
-!139 = distinct !{!139, !26, !27}
-!140 = distinct !{!140, !26, !27}
-!141 = distinct !{!141, !26, !27, !29}
-!142 = distinct !{!142, !26, !27}
-!143 = distinct !{!143, !26, !27}
-!144 = distinct !{!144, !26, !27, !29}
-!145 = distinct !{!145, !26, !27, !29}
-!146 = distinct !{!146, !26, !27}
-!147 = distinct !{!147, !26, !27}
-!148 = distinct !{!148, !26, !27, !29}
-!149 = distinct !{!149, !26, !27, !29}
-!150 = distinct !{!150, !26, !27}
-!151 = distinct !{!151, !26, !27}
-!152 = distinct !{!152, !26, !27}
-!153 = distinct !{!153, !26, !27, !29}
-!154 = distinct !{!154, !26, !27}
-!155 = distinct !{!155, !26, !27}
-!156 = distinct !{!156, !26, !27, !29}
-!157 = distinct !{!157, !26, !27}
-!158 = distinct !{!158, !26, !27}
-!159 = distinct !{!159, !26, !27, !29}
-!160 = distinct !{!160, !26, !27}
-!161 = distinct !{!161, !26, !27}
-!162 = distinct !{!162, !26, !27, !29}
-!163 = distinct !{!163, !26, !27}
-!164 = distinct !{!164, !26, !27}
-!165 = distinct !{!165, !26, !27, !29}
-!166 = distinct !{!166, !26, !27}
-!167 = distinct !{!167, !26, !27}
-!168 = distinct !{!168, !26, !27, !29}
-!169 = distinct !{!169, !26, !27}
-!170 = distinct !{!170, !26, !27}
-!171 = distinct !{!171, !26, !27, !29}
-!172 = distinct !{!172, !26, !27}
-!173 = distinct !{!173, !26, !27}
-!174 = distinct !{!174, !26, !27, !29}
-!175 = distinct !{!175, !26, !27, !29}
-!176 = distinct !{!176, !26, !27}
-!177 = distinct !{!177, !26, !27}
-!178 = distinct !{!178, !26, !27, !29}
-!179 = distinct !{!179, !26, !27, !29}
-!180 = distinct !{!180, !26, !27}
-!181 = distinct !{!181, !26, !27}
+!27 = distinct !{!27, !26, !28}
+!28 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!29 = distinct !{!29, !26}
+!30 = distinct !{!30, !26}
+!31 = distinct !{!31, !26, !28}
+!32 = distinct !{!32, !26}
+!33 = distinct !{!33, !26}
+!34 = !{!13, !13, i64 0}
+!35 = distinct !{!35, !26}
+!36 = distinct !{!36, !26, !28}
+!37 = distinct !{!37, !26}
+!38 = !{!14, !14, i64 0}
+!39 = distinct !{!39, !26}
+!40 = distinct !{!40, !26, !28}
+!41 = distinct !{!41, !26}
+!42 = !{!43, !43, i64 0}
+!43 = !{!"double", !10, i64 0}
+!44 = distinct !{!44, !26}
+!45 = distinct !{!45, !26, !28}
+!46 = distinct !{!46, !26}
+!47 = distinct !{!47, !26, !28}
+!48 = distinct !{!48, !26}
+!49 = distinct !{!49, !26}
+!50 = distinct !{!50, !26, !28}
+!51 = distinct !{!51, !26}
+!52 = distinct !{!52, !26}
+!53 = distinct !{!53, !26, !28}
+!54 = distinct !{!54, !26, !28}
+!55 = distinct !{!55, !26}
+!56 = distinct !{!56, !26}
+!57 = distinct !{!57, !26, !28}
+!58 = distinct !{!58, !26, !28}
+!59 = distinct !{!59, !26}
+!60 = distinct !{!60, !26}
+!61 = distinct !{!61, !26}
+!62 = distinct !{!62, !26, !28}
+!63 = distinct !{!63, !26}
+!64 = distinct !{!64, !26}
+!65 = distinct !{!65, !26}
+!66 = distinct !{!66, !26, !28}
+!67 = distinct !{!67, !26}
+!68 = distinct !{!68, !26}
+!69 = distinct !{!69, !26, !28}
+!70 = distinct !{!70, !26}
+!71 = distinct !{!71, !26}
+!72 = distinct !{!72, !26, !28}
+!73 = distinct !{!73, !26}
+!74 = distinct !{!74, !26}
+!75 = distinct !{!75, !26, !28}
+!76 = distinct !{!76, !26}
+!77 = distinct !{!77, !26, !28}
+!78 = distinct !{!78, !26}
+!79 = distinct !{!79, !26}
+!80 = distinct !{!80, !26, !28}
+!81 = distinct !{!81, !26}
+!82 = distinct !{!82, !26}
+!83 = distinct !{!83, !26, !28}
+!84 = distinct !{!84, !26, !28}
+!85 = distinct !{!85, !26}
+!86 = distinct !{!86, !26}
+!87 = distinct !{!87, !26, !28}
+!88 = distinct !{!88, !26, !28}
+!89 = distinct !{!89, !26}
+!90 = distinct !{!90, !26}
+!91 = distinct !{!91, !26}
+!92 = distinct !{!92, !26, !28}
+!93 = distinct !{!93, !26}
+!94 = distinct !{!94, !26}
+!95 = distinct !{!95, !26, !28}
+!96 = distinct !{!96, !26}
+!97 = distinct !{!97, !26}
+!98 = distinct !{!98, !26, !28}
+!99 = distinct !{!99, !26}
+!100 = distinct !{!100, !26}
+!101 = distinct !{!101, !26}
+!102 = distinct !{!102, !26, !28}
+!103 = distinct !{!103, !26}
+!104 = distinct !{!104, !26}
+!105 = distinct !{!105, !26, !28}
+!106 = distinct !{!106, !26}
+!107 = distinct !{!107, !26, !28}
+!108 = distinct !{!108, !26}
+!109 = distinct !{!109, !26}
+!110 = distinct !{!110, !26, !28}
+!111 = distinct !{!111, !26}
+!112 = distinct !{!112, !26}
+!113 = distinct !{!113, !26, !28}
+!114 = distinct !{!114, !26, !28}
+!115 = distinct !{!115, !26}
+!116 = distinct !{!116, !26}
+!117 = distinct !{!117, !26, !28}
+!118 = distinct !{!118, !26, !28}
+!119 = distinct !{!119, !26}
+!120 = distinct !{!120, !26}
+!121 = distinct !{!121, !26}
+!122 = distinct !{!122, !26, !28}
+!123 = distinct !{!123, !26}
+!124 = distinct !{!124, !26}
+!125 = distinct !{!125, !26, !28}
+!126 = distinct !{!126, !26}
+!127 = distinct !{!127, !26}
+!128 = distinct !{!128, !26, !28}
+!129 = distinct !{!129, !26}
+!130 = distinct !{!130, !26}
+!131 = distinct !{!131, !26, !28}
+!132 = distinct !{!132, !26}
+!133 = distinct !{!133, !26}
+!134 = distinct !{!134, !26}
+!135 = distinct !{!135, !26, !28}
+!136 = distinct !{!136, !26}
+!137 = distinct !{!137, !26, !28}
+!138 = distinct !{!138, !26}
+!139 = distinct !{!139, !26}
+!140 = distinct !{!140, !26, !28}
+!141 = distinct !{!141, !26}
+!142 = distinct !{!142, !26}
+!143 = distinct !{!143, !26, !28}
+!144 = distinct !{!144, !26, !28}
+!145 = distinct !{!145, !26}
+!146 = distinct !{!146, !26}
+!147 = distinct !{!147, !26, !28}
+!148 = distinct !{!148, !26, !28}
+!149 = distinct !{!149, !26}
+!150 = distinct !{!150, !26}
+!151 = distinct !{!151, !26}
+!152 = distinct !{!152, !26, !28}
+!153 = distinct !{!153, !26}
+!154 = distinct !{!154, !26}
+!155 = distinct !{!155, !26, !28}
+!156 = distinct !{!156, !26}
+!157 = distinct !{!157, !26}
+!158 = distinct !{!158, !26, !28}
+!159 = distinct !{!159, !26}
+!160 = distinct !{!160, !26}
+!161 = distinct !{!161, !26, !28}
+!162 = distinct !{!162, !26}
+!163 = distinct !{!163, !26}
+!164 = distinct !{!164, !26, !28}
+!165 = distinct !{!165, !26}
+!166 = distinct !{!166, !26}
+!167 = distinct !{!167, !26, !28}
+!168 = distinct !{!168, !26}
+!169 = distinct !{!169, !26}
+!170 = distinct !{!170, !26, !28}
+!171 = distinct !{!171, !26}
+!172 = distinct !{!172, !26}
+!173 = distinct !{!173, !26, !28}
+!174 = distinct !{!174, !26, !28}
+!175 = distinct !{!175, !26}
+!176 = distinct !{!176, !26}
+!177 = distinct !{!177, !26, !28}
+!178 = distinct !{!178, !26, !28}
+!179 = distinct !{!179, !26}
+!180 = distinct !{!180, !26}

@@ -510,7 +510,7 @@ define void @dggev_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef 
   %254 = select i1 %253, double %.2433543, double %252
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count608
-  br i1 %exitcond.not, label %.loopexit540.thread, label %243, !llvm.loop !13
+  br i1 %exitcond.not, label %.loopexit540.thread, label %243, !llvm.loop !12
 
 .loopexit540:                                     ; preds = %234
   %255 = fcmp olt double %240, %224
@@ -544,7 +544,7 @@ define void @dggev_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef 
   store double %265, ptr %gep670, align 8, !tbaa !7
   %indvars.iv.next601 = add nuw nsw i64 %indvars.iv600, 1
   %exitcond604.not = icmp eq i64 %indvars.iv.next601, %wide.trip.count608
-  br i1 %exitcond604.not, label %.loopexit538, label %263, !llvm.loop !14
+  br i1 %exitcond604.not, label %.loopexit538, label %263, !llvm.loop !13
 
 266:                                              ; preds = %.thread647, %266
   %indvars.iv595 = phi i64 [ 1, %.thread647 ], [ %indvars.iv.next596, %266 ]
@@ -558,12 +558,12 @@ define void @dggev_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef 
   store double %270, ptr %gep668, align 8, !tbaa !7
   %indvars.iv.next596 = add nuw nsw i64 %indvars.iv595, 1
   %exitcond599.not = icmp eq i64 %indvars.iv.next596, %wide.trip.count608
-  br i1 %exitcond599.not, label %.loopexit538, label %266, !llvm.loop !15
+  br i1 %exitcond599.not, label %.loopexit538, label %266, !llvm.loop !14
 
 .loopexit538:                                     ; preds = %266, %263, %.loopexit540.thread, %227, %.loopexit540
   %indvars.iv.next606 = add nuw nsw i64 %indvars.iv605, 1
   %exitcond609.not = icmp eq i64 %indvars.iv.next606, %wide.trip.count608
-  br i1 %exitcond609.not, label %.thread514, label %227, !llvm.loop !16
+  br i1 %exitcond609.not, label %.thread514, label %227, !llvm.loop !15
 
 .thread514:                                       ; preds = %.loopexit538, %222, %.thread512
   br i1 %.not455641, label %271, label %.loopexit537
@@ -611,7 +611,7 @@ define void @dggev_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef 
   %289 = select i1 %288, double %.3434565, double %287
   %indvars.iv.next616 = add nuw nsw i64 %indvars.iv615, 1
   %exitcond619.not = icmp eq i64 %indvars.iv.next616, %wide.trip.count633
-  br i1 %exitcond619.not, label %.loopexit535, label %283, !llvm.loop !17
+  br i1 %exitcond619.not, label %.loopexit535, label %283, !llvm.loop !16
 
 .lr.ph562:                                        ; preds = %280
   %290 = add nuw nsw i64 %indvars.iv630, 1
@@ -638,7 +638,7 @@ define void @dggev_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef 
   %303 = select i1 %302, double %.5436560, double %301
   %indvars.iv.next611 = add nuw nsw i64 %indvars.iv610, 1
   %exitcond614.not = icmp eq i64 %indvars.iv.next611, %wide.trip.count633
-  br i1 %exitcond614.not, label %.loopexit535.thread, label %292, !llvm.loop !18
+  br i1 %exitcond614.not, label %.loopexit535.thread, label %292, !llvm.loop !17
 
 .loopexit535:                                     ; preds = %283
   %304 = fcmp olt double %289, %273
@@ -672,7 +672,7 @@ define void @dggev_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef 
   store double %314, ptr %gep682, align 8, !tbaa !7
   %indvars.iv.next626 = add nuw nsw i64 %indvars.iv625, 1
   %exitcond629.not = icmp eq i64 %indvars.iv.next626, %wide.trip.count633
-  br i1 %exitcond629.not, label %.loopexit, label %312, !llvm.loop !19
+  br i1 %exitcond629.not, label %.loopexit, label %312, !llvm.loop !18
 
 315:                                              ; preds = %.thread651, %315
   %indvars.iv620 = phi i64 [ 1, %.thread651 ], [ %indvars.iv.next621, %315 ]
@@ -686,12 +686,12 @@ define void @dggev_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef 
   store double %319, ptr %gep680, align 8, !tbaa !7
   %indvars.iv.next621 = add nuw nsw i64 %indvars.iv620, 1
   %exitcond624.not = icmp eq i64 %indvars.iv.next621, %wide.trip.count633
-  br i1 %exitcond624.not, label %.loopexit, label %315, !llvm.loop !20
+  br i1 %exitcond624.not, label %.loopexit, label %315, !llvm.loop !19
 
 .loopexit:                                        ; preds = %315, %312, %.loopexit535.thread, %276, %.loopexit535
   %indvars.iv.next631 = add nuw nsw i64 %indvars.iv630, 1
   %exitcond634.not = icmp eq i64 %indvars.iv.next631, %wide.trip.count633
-  br i1 %exitcond634.not, label %.loopexit537, label %276, !llvm.loop !21
+  br i1 %exitcond634.not, label %.loopexit537, label %276, !llvm.loop !20
 
 .loopexit537.sink.split:                          ; preds = %205, %219, %210, %212
   %.sink684 = phi i32 [ %213, %212 ], [ %211, %210 ], [ %221, %219 ], [ %204, %205 ]
@@ -805,15 +805,14 @@ attributes #5 = { nounwind }
 !7 = !{!8, !8, i64 0}
 !8 = !{!"double", !5, i64 0}
 !9 = !{!5, !5, i64 0}
-!10 = distinct !{!10, !11, !12}
+!10 = distinct !{!10, !11}
 !11 = !{!"llvm.loop.mustprogress"}
-!12 = !{!"llvm.loop.estimated_trip_count"}
-!13 = distinct !{!13, !11, !12}
-!14 = distinct !{!14, !11, !12}
-!15 = distinct !{!15, !11, !12}
-!16 = distinct !{!16, !11, !12}
-!17 = distinct !{!17, !11, !12}
-!18 = distinct !{!18, !11, !12}
-!19 = distinct !{!19, !11, !12}
-!20 = distinct !{!20, !11, !12}
-!21 = distinct !{!21, !11, !12}
+!12 = distinct !{!12, !11}
+!13 = distinct !{!13, !11}
+!14 = distinct !{!14, !11}
+!15 = distinct !{!15, !11}
+!16 = distinct !{!16, !11}
+!17 = distinct !{!17, !11}
+!18 = distinct !{!18, !11}
+!19 = distinct !{!19, !11}
+!20 = distinct !{!20, !11}

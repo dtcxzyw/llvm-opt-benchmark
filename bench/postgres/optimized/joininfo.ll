@@ -150,7 +150,7 @@ define dso_local void @add_join_clause_to_rels(ptr noundef %0, ptr noundef %1, p
 43:                                               ; preds = %.lr.ph, %39
   %44 = tail call i32 @bms_next_member(ptr noundef %2, i32 noundef %36) #2
   %45 = icmp sgt i32 %44, -1
-  br i1 %45, label %.lr.ph, label %.loopexit, !llvm.loop !8
+  br i1 %45, label %.lr.ph, label %.loopexit
 
 .loopexit:                                        ; preds = %43, %33, %3
   ret void
@@ -180,7 +180,7 @@ define dso_local void @remove_join_clause_from_rels(ptr noundef %0, ptr noundef 
   %6 = phi i32 [ %14, %13 ], [ %4, %3 ]
   %7 = tail call ptr @find_base_rel_ignore_join(ptr noundef %0, i32 noundef %6) #2
   %8 = icmp eq ptr %7, null
-  br i1 %8, label %13, label %9, !llvm.loop !10
+  br i1 %8, label %13, label %9, !llvm.loop !8
 
 9:                                                ; preds = %.lr.ph
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 328
@@ -192,7 +192,7 @@ define dso_local void @remove_join_clause_from_rels(ptr noundef %0, ptr noundef 
 13:                                               ; preds = %.lr.ph, %9
   %14 = tail call i32 @bms_next_member(ptr noundef %2, i32 noundef %6) #2
   %15 = icmp sgt i32 %14, -1
-  br i1 %15, label %.lr.ph, label %._crit_edge, !llvm.loop !11
+  br i1 %15, label %.lr.ph, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %13, %3
   ret void
@@ -214,7 +214,4 @@ attributes #2 = { nounwind }
 !5 = !{}
 !6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !9}
-!9 = !{!"llvm.loop.estimated_trip_count"}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !9}
+!8 = distinct !{!8, !7}

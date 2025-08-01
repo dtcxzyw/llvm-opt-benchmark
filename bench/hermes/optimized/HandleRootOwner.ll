@@ -60,13 +60,13 @@ for.body7.i:                                      ; preds = %for.body.i, %for.bo
 for.inc8.i:                                       ; preds = %for.body7.i, %for.body.i
   %incdec.ptr9.i = getelementptr inbounds nuw i8, ptr %it.011.i, i64 8
   %cmp.not.i = icmp eq ptr %it.011.i, %2
-  br i1 %cmp.not.i, label %_ZN6hermes2vm7GCScope4markERNS0_12RootAcceptorE.exit, label %for.body.i, !llvm.loop !7
+  br i1 %cmp.not.i, label %_ZN6hermes2vm7GCScope4markERNS0_12RootAcceptorE.exit, label %for.body.i, !llvm.loop !6
 
 _ZN6hermes2vm7GCScope4markERNS0_12RootAcceptorE.exit: ; preds = %for.inc8.i
   %gcScope.0.in = getelementptr inbounds nuw i8, ptr %gcScope.06, i64 8
   %gcScope.0 = load ptr, ptr %gcScope.0.in, align 8
   %tobool.not = icmp eq ptr %gcScope.0, null
-  br i1 %tobool.not, label %for.end, label %for.body, !llvm.loop !8
+  br i1 %tobool.not, label %for.end, label %for.body, !llvm.loop !7
 
 for.end:                                          ; preds = %_ZN6hermes2vm7GCScope4markERNS0_12RootAcceptorE.exit, %entry
   ret void
@@ -110,7 +110,7 @@ for.body7:                                        ; preds = %for.body, %for.body
 for.inc8:                                         ; preds = %for.body7, %for.body
   %incdec.ptr9 = getelementptr inbounds nuw i8, ptr %it.011, i64 8
   %cmp.not = icmp eq ptr %it.011, %2
-  br i1 %cmp.not, label %for.end10, label %for.body, !llvm.loop !7
+  br i1 %cmp.not, label %for.end10, label %for.body, !llvm.loop !6
 
 for.end10:                                        ; preds = %for.inc8
   ret void
@@ -144,7 +144,7 @@ for.body:                                         ; preds = %for.body.preheader,
   tail call void @free(ptr noundef %4) #3
   %it.0 = getelementptr inbounds nuw i8, ptr %it.06, i64 8
   %cmp.not = icmp eq ptr %it.0, %add.ptr.i
-  br i1 %cmp.not, label %for.end.loopexit, label %for.body, !llvm.loop !9
+  br i1 %cmp.not, label %for.end.loopexit, label %for.body, !llvm.loop !8
 
 for.end.loopexit:                                 ; preds = %for.body
   %.pre = load ptr, ptr %chunks_, align 8
@@ -244,9 +244,8 @@ attributes #3 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5, !6}
+!4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{!"llvm.loop.estimated_trip_count"}
-!7 = distinct !{!7, !5, !6}
-!8 = distinct !{!8, !5, !6}
-!9 = distinct !{!9, !5, !6}
+!6 = distinct !{!6, !5}
+!7 = distinct !{!7, !5}
+!8 = distinct !{!8, !5}

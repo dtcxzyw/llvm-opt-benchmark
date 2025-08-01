@@ -132,7 +132,7 @@ define internal range(i32 0, 61) i32 @uudecode_bidder_bid(ptr readnone captures(
   store i64 %44, ptr %4, align 8, !tbaa !9
   %45 = load i64, ptr %7, align 8, !tbaa !9
   %46 = icmp ugt i64 %45, 131071
-  br i1 %46, label %.loopexit83, label %12, !llvm.loop !12
+  br i1 %46, label %.loopexit83, label %12
 
 47:                                               ; preds = %39
   %48 = getelementptr inbounds nuw i8, ptr %.pre, i64 %13
@@ -219,7 +219,7 @@ define internal range(i32 0, 61) i32 @uudecode_bidder_bid(ptr readnone captures(
   %86 = add nsw i64 %.04093, -1
   %87 = add nsw i32 %.294, -1
   %.not59 = icmp eq i32 %87, 0
-  br i1 %.not59, label %._crit_edge96, label %.lr.ph95, !llvm.loop !14
+  br i1 %.not59, label %._crit_edge96, label %.lr.ph95, !llvm.loop !12
 
 ._crit_edge96:                                    ; preds = %84, %.preheader
   %88 = phi ptr [ %68, %.preheader ], [ %scevgep107, %84 ]
@@ -262,7 +262,7 @@ define internal range(i32 0, 61) i32 @uudecode_bidder_bid(ptr readnone captures(
   %107 = getelementptr inbounds nuw i8, ptr %110, i64 1
   %108 = add nsw i64 %.14188, -1
   %109 = icmp sgt i64 %108, %54
-  br i1 %109, label %.lr.ph, label %._crit_edge, !llvm.loop !16
+  br i1 %109, label %.lr.ph, label %._crit_edge, !llvm.loop !14
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %106
   %.14188 = phi i64 [ %108, %106 ], [ %52, %.lr.ph.preheader ]
@@ -329,9 +329,9 @@ define internal range(i32 0, 61) i32 @uudecode_bidder_bid(ptr readnone captures(
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -30, 1) i32 @uudecode_bidder_init(ptr noundef captures(none) initializes((48, 60)) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store i32 7, ptr %2, align 8, !tbaa !17
+  store i32 7, ptr %2, align 8, !tbaa !15
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store ptr @.str, ptr %3, align 8, !tbaa !24
+  store ptr @.str, ptr %3, align 8, !tbaa !22
   %4 = tail call noalias dereferenceable_or_null(64) ptr @calloc(i64 noundef 1, i64 noundef 64) #11
   %5 = tail call noalias dereferenceable_or_null(65536) ptr @malloc(i64 noundef 65536) #12
   %6 = tail call noalias dereferenceable_or_null(1024) ptr @malloc(i64 noundef 1024) #12
@@ -344,7 +344,7 @@ define internal range(i32 -30, 1) i32 @uudecode_bidder_init(ptr noundef captures
 
 10:                                               ; preds = %1
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %12 = load ptr, ptr %11, align 8, !tbaa !25
+  %12 = load ptr, ptr %11, align 8, !tbaa !23
   tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %12, i32 noundef 12, ptr noundef nonnull @.str.8) #10
   tail call void @free(ptr noundef %4) #10
   tail call void @free(ptr noundef %5) #10
@@ -353,15 +353,15 @@ define internal range(i32 -30, 1) i32 @uudecode_bidder_init(ptr noundef captures
 
 13:                                               ; preds = %1
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store ptr %4, ptr %14, align 8, !tbaa !26
+  store ptr %4, ptr %14, align 8, !tbaa !24
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store ptr %6, ptr %15, align 8, !tbaa !27
+  store ptr %6, ptr %15, align 8, !tbaa !25
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  store i64 1024, ptr %16, align 8, !tbaa !29
+  store i64 1024, ptr %16, align 8, !tbaa !27
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  store ptr %5, ptr %17, align 8, !tbaa !30
+  store ptr %5, ptr %17, align 8, !tbaa !28
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr @uudecode_reader_vtable, ptr %18, align 8, !tbaa !31
+  store ptr @uudecode_reader_vtable, ptr %18, align 8, !tbaa !29
   br label %19
 
 19:                                               ; preds = %13, %10
@@ -429,7 +429,7 @@ define internal fastcc i64 @bid_get_line(ptr noundef %0, ptr noundef nonnull cap
   %.121.i = phi ptr [ %.02033.i, %.lr.ph.i ], [ %27, %26 ]
   %.1.i = phi i64 [ %.034.i, %.lr.ph.i ], [ %28, %26 ]
   %30 = icmp slt i64 %.1.i, %7
-  br i1 %30, label %.lr.ph.i, label %.lr.ph.preheader, !llvm.loop !32
+  br i1 %30, label %.lr.ph.i, label %.lr.ph.preheader, !llvm.loop !30
 
 .lr.ph.preheader:                                 ; preds = %29, %.lr.ph.i, %9, %6
   %.049.ph = phi i64 [ 0, %6 ], [ %7, %9 ], [ -1, %.lr.ph.i ], [ %7, %29 ]
@@ -528,7 +528,7 @@ get_line.exit73.thread:                           ; preds = %.lr.ph.i67
   %.121.i70 = phi ptr [ %.02033.i69, %.lr.ph.i67 ], [ %70, %69 ]
   %.1.i71 = phi i64 [ %.034.i68, %.lr.ph.i67 ], [ %71, %69 ]
   %73 = icmp slt i64 %.1.i71, %.019.i66.fr
-  br i1 %73, label %.lr.ph.i67, label %.loopexit, !llvm.loop !32
+  br i1 %73, label %.lr.ph.i67, label %.loopexit, !llvm.loop !30
 
 .thread:                                          ; preds = %65, %.loopexit.i72
   %.sink160 = phi i64 [ 1, %.loopexit.i72 ], [ 2, %65 ]
@@ -551,7 +551,7 @@ get_line.exit73.thread:                           ; preds = %.lr.ph.i67
   %79 = load i64, ptr %2, align 8, !tbaa !9
   %80 = icmp ne i64 %.15092.be, %79
   %or.cond = or i1 %43, %80
-  br i1 %or.cond, label %.critedge, label %.lr.ph155, !llvm.loop !33
+  br i1 %or.cond, label %.critedge, label %.lr.ph155, !llvm.loop !31
 
 .critedge:                                        ; preds = %44, %.lr.ph155, %.lr.ph.backedge, %.lr.ph.preheader, %.thread, %23, %.loopexit.i
   %.2 = phi i64 [ %24, %23 ], [ %25, %.loopexit.i ], [ %spec.select76117, %.thread ], [ %.049.ph, %.lr.ph.preheader ], [ %.15092.be, %.lr.ph.backedge ], [ %.15092154, %.lr.ph155 ], [ 0, %44 ]
@@ -574,9 +574,9 @@ define internal i64 @uudecode_filter_read(ptr noundef readonly captures(none) %0
   %3 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #10
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %5 = load ptr, ptr %4, align 8, !tbaa !26
+  %5 = load ptr, ptr %4, align 8, !tbaa !24
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %7 = load ptr, ptr %6, align 8, !tbaa !34
+  %7 = load ptr, ptr %6, align 8, !tbaa !32
   %8 = call ptr @__archive_read_filter_ahead(ptr noundef %7, i64 noundef 1, ptr noundef nonnull %3) #10
   %9 = icmp eq ptr %8, null
   %10 = load i64, ptr %3, align 8
@@ -607,13 +607,13 @@ define internal i64 @uudecode_filter_read(ptr noundef readonly captures(none) %0
 
 24:                                               ; preds = %23, %19
   %25 = phi i64 [ 0, %23 ], [ %20, %19 ]
-  %26 = load ptr, ptr %12, align 8, !tbaa !30
-  %27 = load i32, ptr %13, align 8, !tbaa !35
+  %26 = load ptr, ptr %12, align 8, !tbaa !28
+  %27 = load i32, ptr %13, align 8, !tbaa !33
   %28 = icmp eq i32 %27, 4
   br i1 %28, label %.critedge.thread384, label %29
 
 29:                                               ; preds = %24
-  %30 = load i64, ptr %14, align 8, !tbaa !36
+  %30 = load i64, ptr %14, align 8, !tbaa !34
   %.not = icmp eq i64 %30, 0
   br i1 %.not, label %58, label %31
 
@@ -623,18 +623,18 @@ define internal i64 @uudecode_filter_read(ptr noundef readonly captures(none) %0
 
 33:                                               ; preds = %31
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %35 = load ptr, ptr %34, align 8, !tbaa !25
+  %35 = load ptr, ptr %34, align 8, !tbaa !23
   call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %35, i32 noundef 84, ptr noundef nonnull @.str.9) #10
   br label %.critedge.thread377
 
 36:                                               ; preds = %31
   %37 = add nsw i64 %30, %25
-  %38 = load i64, ptr %15, align 8, !tbaa !29
+  %38 = load i64, ptr %15, align 8, !tbaa !27
   %39 = icmp ugt i64 %37, %38
   br i1 %39, label %.preheader.i, label %._crit_edge704
 
 ._crit_edge704:                                   ; preds = %36
-  %.pre = load ptr, ptr %.phi.trans.insert.i, align 8, !tbaa !27
+  %.pre = load ptr, ptr %.phi.trans.insert.i, align 8, !tbaa !25
   br label %49
 
 .preheader.i:                                     ; preds = %36, %.preheader.i
@@ -644,7 +644,7 @@ define internal i64 @uudecode_filter_read(ptr noundef readonly captures(none) %0
   %42 = add i64 %.022.i, 1024
   %.1.i = select i1 %40, i64 %41, i64 %42
   %43 = icmp ugt i64 %37, %.1.i
-  br i1 %43, label %.preheader.i, label %44, !llvm.loop !37
+  br i1 %43, label %.preheader.i, label %44, !llvm.loop !35
 
 44:                                               ; preds = %.preheader.i
   %45 = call noalias ptr @malloc(i64 noundef %.1.i) #12
@@ -652,18 +652,18 @@ define internal i64 @uudecode_filter_read(ptr noundef readonly captures(none) %0
   br i1 %46, label %ensure_in_buff_size.exit, label %.thread.i
 
 .thread.i:                                        ; preds = %44
-  %.pre.i = load ptr, ptr %.phi.trans.insert.i, align 8, !tbaa !27
+  %.pre.i = load ptr, ptr %.phi.trans.insert.i, align 8, !tbaa !25
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %45, ptr align 1 %.pre.i, i64 %30, i1 false)
   call void @free(ptr noundef %.pre.i) #10
-  store ptr %45, ptr %.phi.trans.insert.i, align 8, !tbaa !27
-  store i64 %.1.i, ptr %15, align 8, !tbaa !29
-  %.pre705 = load i64, ptr %14, align 8, !tbaa !36
+  store ptr %45, ptr %.phi.trans.insert.i, align 8, !tbaa !25
+  store i64 %.1.i, ptr %15, align 8, !tbaa !27
+  %.pre705 = load i64, ptr %14, align 8, !tbaa !34
   %.pre706 = load i64, ptr %3, align 8, !tbaa !9
   br label %49
 
 ensure_in_buff_size.exit:                         ; preds = %44
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %48 = load ptr, ptr %47, align 8, !tbaa !25
+  %48 = load ptr, ptr %47, align 8, !tbaa !23
   call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %48, i32 noundef 12, ptr noundef nonnull @.str.8) #10
   br label %.critedge.thread377
 
@@ -673,12 +673,12 @@ ensure_in_buff_size.exit:                         ; preds = %44
   %52 = phi ptr [ %.pre, %._crit_edge704 ], [ %45, %.thread.i ]
   %53 = getelementptr inbounds i8, ptr %52, i64 %51
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %53, ptr align 1 %22, i64 %50, i1 false)
-  %54 = load ptr, ptr %.phi.trans.insert.i, align 8, !tbaa !27
-  %55 = load i64, ptr %14, align 8, !tbaa !36
+  %54 = load ptr, ptr %.phi.trans.insert.i, align 8, !tbaa !25
+  %55 = load i64, ptr %14, align 8, !tbaa !34
   %56 = load i64, ptr %3, align 8, !tbaa !9
   %57 = add nsw i64 %56, %55
   store i64 %57, ptr %3, align 8, !tbaa !9
-  store i64 0, ptr %14, align 8, !tbaa !36
+  store i64 0, ptr %14, align 8, !tbaa !34
   br label %58
 
 58:                                               ; preds = %49, %29
@@ -733,7 +733,7 @@ ensure_in_buff_size.exit:                         ; preds = %44
   %.121.i = phi ptr [ %.02033.i, %.lr.ph.i ], [ %75, %74 ]
   %.1.i300 = phi i64 [ %.034.i, %.lr.ph.i ], [ %76, %74 ]
   %78 = icmp slt i64 %.1.i300, %62
-  br i1 %78, label %.lr.ph.i, label %get_line.exit.thread712, !llvm.loop !32
+  br i1 %78, label %.lr.ph.i, label %get_line.exit.thread712, !llvm.loop !30
 
 get_line.exit:                                    ; preds = %70, %.loopexit.i
   %.sink = phi i64 [ 1, %.loopexit.i ], [ 2, %70 ]
@@ -746,29 +746,29 @@ get_line.exit.thread712:                          ; preds = %77
   br i1 %81, label %get_line.exit.thread, label %92
 
 get_line.exit.thread:                             ; preds = %get_line.exit.thread712, %get_line.exit, %.lr.ph.i
-  %82 = load i32, ptr %13, align 8, !tbaa !35
+  %82 = load i32, ptr %13, align 8, !tbaa !33
   %83 = icmp eq i32 %82, 0
   br i1 %83, label %84, label %89
 
 84:                                               ; preds = %get_line.exit.thread
-  %85 = load i64, ptr %5, align 8, !tbaa !38
+  %85 = load i64, ptr %5, align 8, !tbaa !36
   %86 = icmp sgt i64 %85, 0
   %87 = icmp sgt i64 %.1227569, 0
   %or.cond3 = select i1 %86, i1 true, i1 %87
   br i1 %or.cond3, label %88, label %89
 
 88:                                               ; preds = %84
-  store i32 4, ptr %13, align 8, !tbaa !35
+  store i32 4, ptr %13, align 8, !tbaa !33
   br label %.critedge.thread384
 
 89:                                               ; preds = %84, %get_line.exit.thread
   %90 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %91 = load ptr, ptr %90, align 8, !tbaa !25
+  %91 = load ptr, ptr %90, align 8, !tbaa !23
   call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %91, i32 noundef -1, ptr noundef nonnull @.str.10) #10
   br label %.critedge.thread377
 
 92:                                               ; preds = %get_line.exit.thread712
-  %93 = load i32, ptr %13, align 8, !tbaa !35
+  %93 = load i32, ptr %13, align 8, !tbaa !33
   %.not275 = icmp eq i32 %93, 2
   br i1 %.not275, label %.thread, label %94
 
@@ -780,17 +780,17 @@ get_line.exit.thread:                             ; preds = %get_line.exit.threa
 
 97:                                               ; preds = %94
   %98 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %99 = load ptr, ptr %98, align 8, !tbaa !25
+  %99 = load ptr, ptr %98, align 8, !tbaa !23
   call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %99, i32 noundef 84, ptr noundef nonnull @.str.11) #10
   br label %.critedge.thread377
 
 100:                                              ; preds = %94
-  %101 = load i64, ptr %15, align 8, !tbaa !29
+  %101 = load i64, ptr %15, align 8, !tbaa !27
   %102 = icmp ugt i64 %62, %101
   br i1 %102, label %.preheader.i302, label %._crit_edge709
 
 ._crit_edge709:                                   ; preds = %100
-  %.pre710 = load ptr, ptr %.phi.trans.insert.i, align 8, !tbaa !27
+  %.pre710 = load ptr, ptr %.phi.trans.insert.i, align 8, !tbaa !25
   br label %115
 
 .preheader.i302:                                  ; preds = %100, %.preheader.i302
@@ -800,7 +800,7 @@ get_line.exit.thread:                             ; preds = %get_line.exit.threa
   %105 = add nuw i64 %.022.i303, 1024
   %.1.i304 = select i1 %103, i64 %104, i64 %105
   %106 = icmp ugt i64 %62, %.1.i304
-  br i1 %106, label %.preheader.i302, label %107, !llvm.loop !37
+  br i1 %106, label %.preheader.i302, label %107, !llvm.loop !35
 
 107:                                              ; preds = %.preheader.i302
   %108 = call noalias ptr @malloc(i64 noundef %.1.i304) #12
@@ -808,9 +808,9 @@ get_line.exit.thread:                             ; preds = %get_line.exit.threa
   br i1 %109, label %ensure_in_buff_size.exit309, label %110
 
 110:                                              ; preds = %107
-  %111 = load i64, ptr %14, align 8, !tbaa !36
+  %111 = load i64, ptr %14, align 8, !tbaa !34
   %.not.i305 = icmp eq i64 %111, 0
-  %.pre.i307 = load ptr, ptr %.phi.trans.insert.i, align 8, !tbaa !27
+  %.pre.i307 = load ptr, ptr %.phi.trans.insert.i, align 8, !tbaa !25
   br i1 %.not.i305, label %.thread.i308, label %112
 
 112:                                              ; preds = %110
@@ -819,13 +819,13 @@ get_line.exit.thread:                             ; preds = %get_line.exit.threa
 
 .thread.i308:                                     ; preds = %112, %110
   call void @free(ptr noundef %.pre.i307) #10
-  store ptr %108, ptr %.phi.trans.insert.i, align 8, !tbaa !27
-  store i64 %.1.i304, ptr %15, align 8, !tbaa !29
+  store ptr %108, ptr %.phi.trans.insert.i, align 8, !tbaa !25
+  store i64 %.1.i304, ptr %15, align 8, !tbaa !27
   br label %115
 
 ensure_in_buff_size.exit309:                      ; preds = %107
   %113 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %114 = load ptr, ptr %113, align 8, !tbaa !25
+  %114 = load ptr, ptr %113, align 8, !tbaa !23
   call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %114, i32 noundef 12, ptr noundef nonnull @.str.8) #10
   br label %.critedge.thread377
 
@@ -839,7 +839,7 @@ ensure_in_buff_size.exit309:                      ; preds = %107
   br label %118
 
 118:                                              ; preds = %117, %115
-  store i64 %62, ptr %14, align 8, !tbaa !36
+  store i64 %62, ptr %14, align 8, !tbaa !34
   br i1 %95, label %.critedge, label %119
 
 119:                                              ; preds = %118
@@ -847,7 +847,7 @@ ensure_in_buff_size.exit309:                      ; preds = %107
   br label %.critedge.thread384
 
 120:                                              ; preds = %get_line.exit
-  %.pr = load i32, ptr %13, align 8, !tbaa !35
+  %.pr = load i32, ptr %13, align 8, !tbaa !33
   switch i32 %.pr, label %121 [
     i32 3, label %267
     i32 1, label %181
@@ -861,7 +861,7 @@ ensure_in_buff_size.exit309:                      ; preds = %107
 
 124:                                              ; preds = %121
   %125 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %126 = load ptr, ptr %125, align 8, !tbaa !25
+  %126 = load ptr, ptr %125, align 8, !tbaa !23
   call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %126, i32 noundef 84, ptr noundef nonnull @.str.9) #10
   br label %.critedge.thread377
 
@@ -913,7 +913,7 @@ ensure_in_buff_size.exit309:                      ; preds = %107
 
 151:                                              ; preds = %147
   %. = select i1 %130, i32 1, i32 3
-  store i32 %., ptr %13, align 8, !tbaa !35
+  store i32 %., ptr %13, align 8, !tbaa !33
   %152 = load i8, ptr %136, align 1, !tbaa !11
   %153 = zext i8 %152 to i32
   %154 = shl nuw nsw i32 %153, 6
@@ -925,8 +925,8 @@ ensure_in_buff_size.exit309:                      ; preds = %107
   %160 = add nsw i32 %154, -3504
   %161 = add nsw i32 %160, %157
   %162 = add nsw i32 %161, %159
-  store i32 %162, ptr %16, align 4, !tbaa !39
-  store i32 1, ptr %17, align 8, !tbaa !40
+  store i32 %162, ptr %16, align 4, !tbaa !37
+  store i32 1, ptr %17, align 8, !tbaa !38
   %163 = add nsw i64 %79, -4
   %164 = add nuw nsw i64 %.sink, %.0206
   %165 = sub nsw i64 %163, %164
@@ -934,7 +934,7 @@ ensure_in_buff_size.exit309:                      ; preds = %107
   br i1 %166, label %167, label %.thread323
 
 167:                                              ; preds = %151
-  %168 = load ptr, ptr %18, align 8, !tbaa !41
+  %168 = load ptr, ptr %18, align 8, !tbaa !39
   %.not292 = icmp eq ptr %168, null
   br i1 %.not292, label %170, label %169
 
@@ -945,13 +945,13 @@ ensure_in_buff_size.exit309:                      ; preds = %107
 170:                                              ; preds = %169, %167
   %171 = add nuw nsw i64 %165, 1
   %172 = call noalias ptr @malloc(i64 noundef %171) #12
-  store ptr %172, ptr %18, align 8, !tbaa !41
+  store ptr %172, ptr %18, align 8, !tbaa !39
   %173 = icmp eq ptr %172, null
   br i1 %173, label %174, label %177
 
 174:                                              ; preds = %170
   %175 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %176 = load ptr, ptr %175, align 8, !tbaa !25
+  %176 = load ptr, ptr %175, align 8, !tbaa !23
   call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %176, i32 noundef 12, ptr noundef nonnull @.str.8) #10
   br label %.critedge.thread377
 
@@ -980,7 +980,7 @@ ensure_in_buff_size.exit309:                      ; preds = %107
 
 192:                                              ; preds = %185
   %193 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %194 = load ptr, ptr %193, align 8, !tbaa !25
+  %194 = load ptr, ptr %193, align 8, !tbaa !23
   call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %194, i32 noundef -1, ptr noundef nonnull @.str.10) #10
   br label %.critedge.thread377
 
@@ -993,7 +993,7 @@ ensure_in_buff_size.exit309:                      ; preds = %107
 
 199:                                              ; preds = %195
   %200 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %201 = load ptr, ptr %200, align 8, !tbaa !25
+  %201 = load ptr, ptr %200, align 8, !tbaa !23
   call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %201, i32 noundef -1, ptr noundef nonnull @.str.10) #10
   br label %.critedge.thread377
 
@@ -1006,7 +1006,7 @@ ensure_in_buff_size.exit309:                      ; preds = %107
   br label %.lr.ph
 
 205:                                              ; preds = %202
-  store i32 2, ptr %13, align 8, !tbaa !35
+  store i32 2, ptr %13, align 8, !tbaa !33
   br label %.thread323
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.thread324
@@ -1088,11 +1088,11 @@ ensure_in_buff_size.exit309:                      ; preds = %107
   %253 = add nsw i64 %.4230549, 3
   %254 = add nsw i64 %.1551, -3
   %255 = icmp sgt i64 %.1551, 3
-  br i1 %255, label %.lr.ph, label %.thread323, !llvm.loop !42
+  br i1 %255, label %.lr.ph, label %.thread323
 
 256:                                              ; preds = %243, %228, %.lr.ph, %210
   %257 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %258 = load ptr, ptr %257, align 8, !tbaa !25
+  %258 = load ptr, ptr %257, align 8, !tbaa !23
   call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %258, i32 noundef -1, ptr noundef nonnull @.str.10) #10
   br label %.critedge.thread377
 
@@ -1109,12 +1109,12 @@ ensure_in_buff_size.exit309:                      ; preds = %107
   br i1 %262, label %263, label %264
 
 263:                                              ; preds = %261
-  store i32 0, ptr %13, align 8, !tbaa !35
+  store i32 0, ptr %13, align 8, !tbaa !33
   br label %.thread323
 
 264:                                              ; preds = %261, %.thread
   %265 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %266 = load ptr, ptr %265, align 8, !tbaa !25
+  %266 = load ptr, ptr %265, align 8, !tbaa !23
   call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %266, i32 noundef -1, ptr noundef nonnull @.str.10) #10
   br label %.critedge.thread377
 
@@ -1146,7 +1146,7 @@ ensure_in_buff_size.exit309:                      ; preds = %107
   br i1 %283, label %284, label %.lr.ph557.preheader
 
 284:                                              ; preds = %280
-  store i32 0, ptr %13, align 8, !tbaa !35
+  store i32 0, ptr %13, align 8, !tbaa !33
   br label %.thread323
 
 285:                                              ; preds = %271
@@ -1179,11 +1179,11 @@ ensure_in_buff_size.exit309:                      ; preds = %107
 
 297:                                              ; preds = %291
   %298 = getelementptr inbounds nuw [128 x i32], ptr @base64num, i64 0, i64 %288
-  %299 = load i32, ptr %298, align 4, !tbaa !43
+  %299 = load i32, ptr %298, align 4, !tbaa !40
   %300 = shl i32 %299, 18
   %301 = getelementptr inbounds nuw i8, ptr %.4221555, i64 2
   %302 = getelementptr inbounds nuw [128 x i32], ptr @base64num, i64 0, i64 %294
-  %303 = load i32, ptr %302, align 4, !tbaa !43
+  %303 = load i32, ptr %302, align 4, !tbaa !40
   %304 = shl i32 %303, 12
   %305 = or i32 %304, %300
   %306 = lshr i32 %305, 16
@@ -1207,7 +1207,7 @@ ensure_in_buff_size.exit309:                      ; preds = %107
 
 317:                                              ; preds = %313
   %318 = getelementptr inbounds nuw [128 x i32], ptr @base64num, i64 0, i64 %314
-  %319 = load i32, ptr %318, align 4, !tbaa !43
+  %319 = load i32, ptr %318, align 4, !tbaa !40
   %320 = shl i32 %319, 6
   %321 = or i32 %320, %304
   %322 = lshr i32 %321, 8
@@ -1233,7 +1233,7 @@ ensure_in_buff_size.exit309:                      ; preds = %107
 .thread342:                                       ; preds = %329
   %333 = getelementptr inbounds nuw i8, ptr %.4221555, i64 4
   %334 = getelementptr inbounds nuw [128 x i32], ptr @base64num, i64 0, i64 %330
-  %335 = load i32, ptr %334, align 4, !tbaa !43
+  %335 = load i32, ptr %334, align 4, !tbaa !40
   %336 = or i32 %335, %320
   %337 = trunc i32 %336 to i8
   %338 = getelementptr inbounds nuw i8, ptr %.8251553, i64 3
@@ -1241,7 +1241,7 @@ ensure_in_buff_size.exit309:                      ; preds = %107
   %339 = add nsw i64 %.9235554, 3
   %340 = add nsw i64 %.6556, -4
   %341 = icmp sgt i64 %.6556, 4
-  br i1 %341, label %.lr.ph557, label %._crit_edge, !llvm.loop !44
+  br i1 %341, label %.lr.ph557, label %._crit_edge
 
 ._crit_edge.loopexit.split.loop.exit872:          ; preds = %297
   %342 = add nsw i64 %.9235554, 1
@@ -1269,14 +1269,14 @@ ensure_in_buff_size.exit309:                      ; preds = %107
 
 .thread356.thread:                                ; preds = %.thread356, %329, %313
   %345 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %346 = load ptr, ptr %345, align 8, !tbaa !25
+  %346 = load ptr, ptr %345, align 8, !tbaa !23
   call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %346, i32 noundef -1, ptr noundef nonnull @.str.10) #10
   br label %.critedge.thread377
 
 .critedge:                                        ; preds = %118
-  %347 = load ptr, ptr %6, align 8, !tbaa !34
+  %347 = load ptr, ptr %6, align 8, !tbaa !32
   %348 = call i64 @__archive_read_filter_consume(ptr noundef %347, i64 noundef %25) #10
-  %349 = load ptr, ptr %6, align 8, !tbaa !34
+  %349 = load ptr, ptr %6, align 8, !tbaa !32
   %350 = call ptr @__archive_read_filter_ahead(ptr noundef %349, i64 noundef 1, ptr noundef nonnull %3) #10
   %351 = icmp eq ptr %350, null
   %352 = load i64, ptr %3, align 8
@@ -1312,7 +1312,7 @@ ensure_in_buff_size.exit309:                      ; preds = %107
   %360 = add nuw nsw i64 %.019.i716722, %.1238567
   %361 = load i64, ptr %3, align 8, !tbaa !9
   %362 = icmp slt i64 %360, %361
-  br i1 %362, label %.lr.ph.i.preheader, label %.critedge.thread384, !llvm.loop !45
+  br i1 %362, label %.lr.ph.i.preheader, label %.critedge.thread384, !llvm.loop !41
 
 .critedge.thread384:                              ; preds = %24, %58, %267, %181, %.thread323, %119, %88
   %363 = phi i64 [ %.pre711, %119 ], [ %61, %88 ], [ %61, %267 ], [ %61, %181 ], [ %361, %.thread323 ], [ %25, %24 ], [ %59, %58 ]
@@ -1322,13 +1322,13 @@ ensure_in_buff_size.exit309:                      ; preds = %107
   %.neg = sub i64 %25, %363
   %365 = select i1 %364, i64 %.neg, i64 0
   %.3240 = add i64 %365, %.0237
-  %366 = load ptr, ptr %6, align 8, !tbaa !34
+  %366 = load ptr, ptr %6, align 8, !tbaa !32
   %367 = call i64 @__archive_read_filter_consume(ptr noundef %366, i64 noundef %.3240) #10
-  %368 = load ptr, ptr %12, align 8, !tbaa !30
-  store ptr %368, ptr %1, align 8, !tbaa !46
-  %369 = load i64, ptr %5, align 8, !tbaa !38
+  %368 = load ptr, ptr %12, align 8, !tbaa !28
+  store ptr %368, ptr %1, align 8, !tbaa !42
+  %369 = load i64, ptr %5, align 8, !tbaa !36
   %370 = add nsw i64 %369, %.0226
-  store i64 %370, ptr %5, align 8, !tbaa !38
+  store i64 %370, ptr %5, align 8, !tbaa !36
   br label %.critedge.thread377
 
 .critedge.thread377:                              ; preds = %.critedge, %2, %ensure_in_buff_size.exit309, %264, %256, %199, %192, %.thread356.thread, %174, %124, %97, %89, %ensure_in_buff_size.exit, %.critedge.thread384, %33
@@ -1340,15 +1340,15 @@ ensure_in_buff_size.exit309:                      ; preds = %107
 ; Function Attrs: mustprogress nounwind willreturn uwtable
 define internal noundef i32 @uudecode_filter_close(ptr noundef readonly captures(none) %0) #6 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %3 = load ptr, ptr %2, align 8, !tbaa !26
+  %3 = load ptr, ptr %2, align 8, !tbaa !24
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %5 = load ptr, ptr %4, align 8, !tbaa !27
+  %5 = load ptr, ptr %4, align 8, !tbaa !25
   tail call void @free(ptr noundef %5) #10
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  %7 = load ptr, ptr %6, align 8, !tbaa !30
+  %7 = load ptr, ptr %6, align 8, !tbaa !28
   tail call void @free(ptr noundef %7) #10
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 56
-  %9 = load ptr, ptr %8, align 8, !tbaa !41
+  %9 = load ptr, ptr %8, align 8, !tbaa !39
   tail call void @free(ptr noundef %9) #10
   tail call void @free(ptr noundef %3) #10
   ret i32 0
@@ -1357,22 +1357,22 @@ define internal noundef i32 @uudecode_filter_close(ptr noundef readonly captures
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @uudecode_read_header(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %4 = load ptr, ptr %3, align 8, !tbaa !26
+  %4 = load ptr, ptr %3, align 8, !tbaa !24
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 48
-  %6 = load i32, ptr %5, align 8, !tbaa !40
+  %6 = load i32, ptr %5, align 8, !tbaa !38
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %11, label %7
 
 7:                                                ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 44
-  %9 = load i32, ptr %8, align 4, !tbaa !39
+  %9 = load i32, ptr %8, align 4, !tbaa !37
   %10 = or i32 %9, 32768
   tail call void @archive_entry_set_mode(ptr noundef %1, i32 noundef %10) #10
   br label %11
 
 11:                                               ; preds = %7, %2
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 56
-  %13 = load ptr, ptr %12, align 8, !tbaa !41
+  %13 = load ptr, ptr %12, align 8, !tbaa !39
   %.not7 = icmp eq ptr %13, null
   br i1 %.not7, label %15, label %14
 
@@ -1431,37 +1431,33 @@ attributes #12 = { nounwind allocsize(0) }
 !10 = !{!"long", !7, i64 0}
 !11 = !{!7, !7, i64 0}
 !12 = distinct !{!12, !13}
-!13 = !{!"llvm.loop.estimated_trip_count"}
-!14 = distinct !{!14, !15, !13}
-!15 = !{!"llvm.loop.mustprogress"}
-!16 = distinct !{!16, !15, !13}
-!17 = !{!18, !23, i64 56}
-!18 = !{!"archive_read_filter", !10, i64 0, !19, i64 8, !20, i64 16, !21, i64 24, !22, i64 32, !6, i64 40, !5, i64 48, !23, i64 56, !23, i64 60, !23, i64 64, !5, i64 72, !10, i64 80, !5, i64 88, !10, i64 96, !6, i64 104, !10, i64 112, !5, i64 120, !10, i64 128, !7, i64 136, !7, i64 137, !7, i64 138}
-!19 = !{!"p1 _ZTS26archive_read_filter_bidder", !6, i64 0}
-!20 = !{!"p1 _ZTS19archive_read_filter", !6, i64 0}
-!21 = !{!"p1 _ZTS12archive_read", !6, i64 0}
-!22 = !{!"p1 _ZTS26archive_read_filter_vtable", !6, i64 0}
-!23 = !{!"int", !7, i64 0}
-!24 = !{!18, !5, i64 48}
-!25 = !{!18, !21, i64 24}
-!26 = !{!18, !6, i64 40}
-!27 = !{!28, !5, i64 8}
-!28 = !{!"uudecode", !10, i64 0, !5, i64 8, !10, i64 16, !10, i64 24, !5, i64 32, !23, i64 40, !23, i64 44, !23, i64 48, !5, i64 56}
-!29 = !{!28, !10, i64 24}
-!30 = !{!28, !5, i64 32}
-!31 = !{!18, !22, i64 32}
-!32 = distinct !{!32, !15, !13}
-!33 = distinct !{!33, !15, !13}
-!34 = !{!18, !20, i64 16}
-!35 = !{!28, !23, i64 40}
-!36 = !{!28, !10, i64 16}
-!37 = distinct !{!37, !15, !13}
-!38 = !{!28, !10, i64 0}
-!39 = !{!28, !23, i64 44}
-!40 = !{!28, !23, i64 48}
-!41 = !{!28, !5, i64 56}
-!42 = distinct !{!42, !13}
-!43 = !{!23, !23, i64 0}
-!44 = distinct !{!44, !13}
-!45 = distinct !{!45, !15, !13}
-!46 = !{!6, !6, i64 0}
+!13 = !{!"llvm.loop.mustprogress"}
+!14 = distinct !{!14, !13}
+!15 = !{!16, !21, i64 56}
+!16 = !{!"archive_read_filter", !10, i64 0, !17, i64 8, !18, i64 16, !19, i64 24, !20, i64 32, !6, i64 40, !5, i64 48, !21, i64 56, !21, i64 60, !21, i64 64, !5, i64 72, !10, i64 80, !5, i64 88, !10, i64 96, !6, i64 104, !10, i64 112, !5, i64 120, !10, i64 128, !7, i64 136, !7, i64 137, !7, i64 138}
+!17 = !{!"p1 _ZTS26archive_read_filter_bidder", !6, i64 0}
+!18 = !{!"p1 _ZTS19archive_read_filter", !6, i64 0}
+!19 = !{!"p1 _ZTS12archive_read", !6, i64 0}
+!20 = !{!"p1 _ZTS26archive_read_filter_vtable", !6, i64 0}
+!21 = !{!"int", !7, i64 0}
+!22 = !{!16, !5, i64 48}
+!23 = !{!16, !19, i64 24}
+!24 = !{!16, !6, i64 40}
+!25 = !{!26, !5, i64 8}
+!26 = !{!"uudecode", !10, i64 0, !5, i64 8, !10, i64 16, !10, i64 24, !5, i64 32, !21, i64 40, !21, i64 44, !21, i64 48, !5, i64 56}
+!27 = !{!26, !10, i64 24}
+!28 = !{!26, !5, i64 32}
+!29 = !{!16, !20, i64 32}
+!30 = distinct !{!30, !13}
+!31 = distinct !{!31, !13}
+!32 = !{!16, !18, i64 16}
+!33 = !{!26, !21, i64 40}
+!34 = !{!26, !10, i64 16}
+!35 = distinct !{!35, !13}
+!36 = !{!26, !10, i64 0}
+!37 = !{!26, !21, i64 44}
+!38 = !{!26, !21, i64 48}
+!39 = !{!26, !5, i64 56}
+!40 = !{!21, !21, i64 0}
+!41 = distinct !{!41, !13}
+!42 = !{!6, !6, i64 0}

@@ -426,7 +426,7 @@ define internal fastcc range(i32 0, 3) i32 @validate_client_hello(ptr noundef %0
 
 PACKET_get_1.exit:                                ; preds = %1
   %4 = load ptr, ptr %2, align 8, !tbaa !4
-  %5 = load i8, ptr %4, align 1, !tbaa !20
+  %5 = load i8, ptr %4, align 1, !tbaa !19
   %6 = icmp ne i8 %5, 22
   %7 = icmp samesign ult i64 %3, 3
   %or.cond194 = or i1 %7, %6
@@ -434,11 +434,11 @@ PACKET_get_1.exit:                                ; preds = %1
 
 PACKET_get_net_2.exit:                            ; preds = %PACKET_get_1.exit
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 1
-  %9 = load i8, ptr %8, align 1, !tbaa !20
+  %9 = load i8, ptr %8, align 1, !tbaa !19
   %10 = zext i8 %9 to i32
   %11 = shl nuw nsw i32 %10, 8
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 2
-  %13 = load i8, ptr %12, align 1, !tbaa !20
+  %13 = load i8, ptr %12, align 1, !tbaa !19
   %14 = zext i8 %13 to i32
   %15 = or disjoint i32 %11, %14
   %16 = icmp ne i32 %15, 256
@@ -449,7 +449,7 @@ PACKET_get_net_2.exit:                            ; preds = %PACKET_get_1.exit
 
 PACKET_get_1.exit42:                              ; preds = %PACKET_get_net_2.exit
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 13
-  %20 = load i8, ptr %19, align 1, !tbaa !20
+  %20 = load i8, ptr %19, align 1, !tbaa !19
   %21 = add nsw i64 %3, -14
   %22 = icmp ne i8 %20, 1
   %23 = icmp samesign ult i64 %21, 11
@@ -461,11 +461,11 @@ PACKET_get_1.exit42:                              ; preds = %PACKET_get_net_2.ex
 
 PACKET_get_net_2.exit48:                          ; preds = %PACKET_get_1.exit42
   %26 = getelementptr inbounds nuw i8, ptr %4, i64 25
-  %27 = load i8, ptr %26, align 1, !tbaa !20
+  %27 = load i8, ptr %26, align 1, !tbaa !19
   %28 = zext i8 %27 to i32
   %29 = shl nuw nsw i32 %28, 8
   %30 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %31 = load i8, ptr %30, align 1, !tbaa !20
+  %31 = load i8, ptr %30, align 1, !tbaa !19
   %32 = zext i8 %31 to i32
   %33 = or disjoint i32 %29, %32
   %34 = add nsw i64 %3, -27
@@ -482,7 +482,7 @@ PACKET_get_net_2.exit48:                          ; preds = %PACKET_get_1.exit42
 
 39:                                               ; preds = %37
   %40 = getelementptr inbounds nuw i8, ptr %4, i64 59
-  %41 = load i8, ptr %40, align 1, !tbaa !20
+  %41 = load i8, ptr %40, align 1, !tbaa !19
   %42 = add nsw i64 %3, -60
   %43 = zext i8 %41 to i64
   %44 = icmp samesign ult i64 %42, %43
@@ -502,7 +502,7 @@ PACKET_equal.exit:                                ; preds = %45
   br i1 %or.cond198, label %PACKET_get_1.exit.thread, label %50
 
 50:                                               ; preds = %PACKET_equal.exit
-  %51 = load i8, ptr %47, align 1, !tbaa !20
+  %51 = load i8, ptr %47, align 1, !tbaa !19
   %52 = add nsw i64 %3, -93
   %53 = zext i8 %51 to i64
   %54 = icmp samesign ult i64 %52, %53
@@ -530,11 +530,11 @@ PACKET_equal.exit61:                              ; preds = %59
   br i1 %62, label %PACKET_get_1.exit.thread, label %63
 
 63:                                               ; preds = %61
-  %64 = load i8, ptr %57, align 1, !tbaa !20
+  %64 = load i8, ptr %57, align 1, !tbaa !19
   %65 = zext i8 %64 to i64
   %66 = shl nuw nsw i64 %65, 8
   %67 = getelementptr inbounds nuw i8, ptr %57, i64 1
-  %68 = load i8, ptr %67, align 1, !tbaa !20
+  %68 = load i8, ptr %67, align 1, !tbaa !19
   %69 = zext i8 %68 to i64
   %70 = or disjoint i64 %66, %69
   %71 = add nsw i64 %58, -2
@@ -544,7 +544,7 @@ PACKET_equal.exit61:                              ; preds = %59
 72:                                               ; preds = %63
   %73 = getelementptr inbounds nuw i8, ptr %57, i64 2
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 %70
-  %75 = load i8, ptr %74, align 1, !tbaa !20
+  %75 = load i8, ptr %74, align 1, !tbaa !19
   %76 = xor i64 %70, -1
   %77 = add nsw i64 %71, %76
   %78 = zext i8 %75 to i64
@@ -559,11 +559,11 @@ PACKET_equal.exit61:                              ; preds = %59
 83:                                               ; preds = %80
   %84 = getelementptr inbounds nuw i8, ptr %74, i64 1
   %85 = getelementptr inbounds nuw i8, ptr %84, i64 %78
-  %86 = load i8, ptr %85, align 1, !tbaa !20
+  %86 = load i8, ptr %85, align 1, !tbaa !19
   %87 = zext i8 %86 to i64
   %88 = shl nuw nsw i64 %87, 8
   %89 = getelementptr inbounds nuw i8, ptr %85, i64 1
-  %90 = load i8, ptr %89, align 1, !tbaa !20
+  %90 = load i8, ptr %89, align 1, !tbaa !19
   %91 = zext i8 %90 to i64
   %92 = or disjoint i64 %88, %91
   %93 = add nsw i64 %81, -2
@@ -675,7 +675,7 @@ define internal fastcc range(i32 0, 2) i32 @validate_ccs(ptr noundef %0) unnamed
 
 PACKET_get_1.exit:                                ; preds = %1
   %4 = load ptr, ptr %2, align 8, !tbaa !4
-  %5 = load i8, ptr %4, align 1, !tbaa !20
+  %5 = load i8, ptr %4, align 1, !tbaa !19
   %6 = icmp ne i8 %5, 20
   %7 = icmp samesign ult i64 %3, 3
   %or.cond92 = or i1 %7, %6
@@ -683,11 +683,11 @@ PACKET_get_1.exit:                                ; preds = %1
 
 PACKET_get_net_2.exit:                            ; preds = %PACKET_get_1.exit
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 1
-  %9 = load i8, ptr %8, align 1, !tbaa !20
+  %9 = load i8, ptr %8, align 1, !tbaa !19
   %10 = zext i8 %9 to i32
   %11 = shl nuw nsw i32 %10, 8
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 2
-  %13 = load i8, ptr %12, align 1, !tbaa !20
+  %13 = load i8, ptr %12, align 1, !tbaa !19
   %14 = zext i8 %13 to i32
   %15 = or disjoint i32 %11, %14
   %16 = icmp ne i32 %15, 256
@@ -698,7 +698,7 @@ PACKET_get_net_2.exit:                            ; preds = %PACKET_get_1.exit
 
 PACKET_get_1.exit23:                              ; preds = %PACKET_get_net_2.exit
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 13
-  %20 = load i8, ptr %19, align 1, !tbaa !20
+  %20 = load i8, ptr %19, align 1, !tbaa !19
   %21 = icmp ne i8 %20, 1
   %22 = and i64 %3, 9223372036854775806
   %23 = icmp eq i64 %22, 14
@@ -707,11 +707,11 @@ PACKET_get_1.exit23:                              ; preds = %PACKET_get_net_2.ex
 
 PACKET_get_net_2.exit26:                          ; preds = %PACKET_get_1.exit23
   %24 = getelementptr inbounds nuw i8, ptr %4, i64 14
-  %25 = load i8, ptr %24, align 1, !tbaa !20
+  %25 = load i8, ptr %24, align 1, !tbaa !19
   %26 = zext i8 %25 to i32
   %27 = shl nuw nsw i32 %26, 8
   %28 = getelementptr inbounds nuw i8, ptr %4, i64 15
-  %29 = load i8, ptr %28, align 1, !tbaa !20
+  %29 = load i8, ptr %28, align 1, !tbaa !19
   %30 = zext i8 %29 to i32
   %31 = or disjoint i32 %27, %30
   %32 = icmp ne i32 %31, 2
@@ -721,7 +721,7 @@ PACKET_get_net_2.exit26:                          ; preds = %PACKET_get_1.exit23
 
 PACKET_get_1.exit30:                              ; preds = %PACKET_get_net_2.exit26
   %33 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %34 = load i8, ptr %33, align 1, !tbaa !20
+  %34 = load i8, ptr %33, align 1, !tbaa !19
   %35 = add nsw i64 %3, -17
   %36 = icmp ne i8 %34, 22
   %37 = icmp samesign ult i64 %35, 2
@@ -730,11 +730,11 @@ PACKET_get_1.exit30:                              ; preds = %PACKET_get_net_2.ex
 
 PACKET_get_net_2.exit33:                          ; preds = %PACKET_get_1.exit30
   %38 = getelementptr inbounds nuw i8, ptr %4, i64 17
-  %39 = load i8, ptr %38, align 1, !tbaa !20
+  %39 = load i8, ptr %38, align 1, !tbaa !19
   %40 = zext i8 %39 to i32
   %41 = shl nuw nsw i32 %40, 8
   %42 = getelementptr inbounds nuw i8, ptr %4, i64 18
-  %43 = load i8, ptr %42, align 1, !tbaa !20
+  %43 = load i8, ptr %42, align 1, !tbaa !19
   %44 = zext i8 %43 to i32
   %45 = or disjoint i32 %41, %44
   %.not = icmp ne i32 %45, 256
@@ -745,11 +745,11 @@ PACKET_get_net_2.exit33:                          ; preds = %PACKET_get_1.exit30
 
 48:                                               ; preds = %PACKET_get_net_2.exit33
   %49 = getelementptr inbounds nuw i8, ptr %4, i64 19
-  %50 = load i8, ptr %49, align 1, !tbaa !20
+  %50 = load i8, ptr %49, align 1, !tbaa !19
   %51 = zext i8 %50 to i32
   %52 = shl nuw nsw i32 %51, 8
   %53 = getelementptr inbounds nuw i8, ptr %4, i64 20
-  %54 = load i8, ptr %53, align 1, !tbaa !20
+  %54 = load i8, ptr %53, align 1, !tbaa !19
   %55 = zext i8 %54 to i32
   %56 = or disjoint i32 %52, %55
   %57 = icmp eq i32 %56, 1
@@ -769,27 +769,27 @@ define internal fastcc range(i32 0, 2) i32 @send_record(ptr noundef %0, i8 nound
   %8 = alloca [16 x i8], align 16
   %9 = alloca [2 x %struct.ossl_param_st], align 16
   %10 = alloca %struct.ossl_param_st, align 8
-  store i8 %1, ptr %6, align 1, !tbaa !20
+  store i8 %1, ptr %6, align 1, !tbaa !19
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %7) #6
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #6
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %9) #6
   %11 = lshr i64 %2, 40
   %12 = trunc i64 %11 to i8
-  store i8 %12, ptr @send_record.seq, align 1, !tbaa !20
+  store i8 %12, ptr @send_record.seq, align 1, !tbaa !19
   %13 = lshr i64 %2, 32
   %14 = trunc i64 %13 to i8
-  store i8 %14, ptr getelementptr inbounds nuw (i8, ptr @send_record.seq, i64 1), align 1, !tbaa !20
+  store i8 %14, ptr getelementptr inbounds nuw (i8, ptr @send_record.seq, i64 1), align 1, !tbaa !19
   %15 = lshr i64 %2, 24
   %16 = trunc i64 %15 to i8
-  store i8 %16, ptr getelementptr inbounds nuw (i8, ptr @send_record.seq, i64 2), align 1, !tbaa !20
+  store i8 %16, ptr getelementptr inbounds nuw (i8, ptr @send_record.seq, i64 2), align 1, !tbaa !19
   %17 = lshr i64 %2, 16
   %18 = trunc i64 %17 to i8
-  store i8 %18, ptr getelementptr inbounds nuw (i8, ptr @send_record.seq, i64 3), align 1, !tbaa !20
+  store i8 %18, ptr getelementptr inbounds nuw (i8, ptr @send_record.seq, i64 3), align 1, !tbaa !19
   %19 = lshr i64 %2, 8
   %20 = trunc i64 %19 to i8
-  store i8 %20, ptr getelementptr inbounds nuw (i8, ptr @send_record.seq, i64 4), align 1, !tbaa !20
+  store i8 %20, ptr getelementptr inbounds nuw (i8, ptr @send_record.seq, i64 4), align 1, !tbaa !19
   %21 = trunc i64 %2 to i8
-  store i8 %21, ptr getelementptr inbounds nuw (i8, ptr @send_record.seq, i64 5), align 1, !tbaa !20
+  store i8 %21, ptr getelementptr inbounds nuw (i8, ptr @send_record.seq, i64 5), align 1, !tbaa !19
   %22 = add nuw nsw i64 %4, 20
   %23 = trunc nuw nsw i64 %22 to i8
   %24 = and i8 %23, 15
@@ -819,12 +819,12 @@ define internal fastcc range(i32 0, 2) i32 @send_record(ptr noundef %0, i8 nound
   %38 = getelementptr inbounds nuw i8, ptr %9, i64 40
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %10) #6
   call void @OSSL_PARAM_construct_end(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %10) #6
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %38, ptr noundef nonnull align 8 dereferenceable(40) %10, i64 40, i1 false), !tbaa.struct !21
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %38, ptr noundef nonnull align 8 dereferenceable(40) %10, i64 40, i1 false), !tbaa.struct !20
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %10) #6
-  store i8 0, ptr %7, align 1, !tbaa !20
+  store i8 0, ptr %7, align 1, !tbaa !19
   %39 = trunc nuw nsw i64 %4 to i8
   %40 = getelementptr inbounds nuw i8, ptr %7, i64 1
-  store i8 %39, ptr %40, align 1, !tbaa !20
+  store i8 %39, ptr %40, align 1, !tbaa !19
   %41 = call i32 @EVP_MAC_init(ptr noundef %35, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @key_block, i64 20), i64 noundef 20, ptr noundef nonnull %9) #6
   %.not60 = icmp eq i32 %41, 0
   br i1 %.not60, label %87, label %42
@@ -870,7 +870,7 @@ define internal fastcc range(i32 0, 2) i32 @send_record(ptr noundef %0, i8 nound
   %57 = sub nsw i64 11, %4
   %58 = and i64 %57, 15
   %59 = add nuw nsw i64 %58, 1
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %scevgep, i8 %25, i64 %59, i1 false), !tbaa !20
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %scevgep, i8 %25, i64 %59, i1 false), !tbaa !19
   %60 = add nuw nsw i64 %4, %58
   %61 = call i32 @RAND_bytes(ptr noundef nonnull %8, i32 noundef 16) #6
   %62 = call i32 @test_int_gt(ptr noundef nonnull @.str.1, i32 noundef 334, ptr noundef nonnull @.str.41, ptr noundef nonnull @.str.18, i32 noundef %61, i32 noundef 0) #6
@@ -905,10 +905,10 @@ define internal fastcc range(i32 0, 2) i32 @send_record(ptr noundef %0, i8 nound
   %79 = call i32 @BIO_write(ptr noundef %0, ptr noundef nonnull @send_record.ver, i32 noundef 2) #6
   %80 = call i32 @BIO_write(ptr noundef %0, ptr noundef nonnull @send_record.epoch, i32 noundef 2) #6
   %81 = call i32 @BIO_write(ptr noundef %0, ptr noundef nonnull @send_record.seq, i32 noundef 6) #6
-  store i8 0, ptr %7, align 1, !tbaa !20
+  store i8 0, ptr %7, align 1, !tbaa !19
   %82 = trunc nuw nsw i64 %60 to i8
   %83 = add nuw nsw i8 %82, 37
-  store i8 %83, ptr %40, align 1, !tbaa !20
+  store i8 %83, ptr %40, align 1, !tbaa !19
   %84 = call i32 @BIO_write(ptr noundef %0, ptr noundef nonnull %7, i32 noundef 2) #6
   %85 = call i32 @BIO_write(ptr noundef %0, ptr noundef nonnull %8, i32 noundef 16) #6
   %86 = call i32 @BIO_write(ptr noundef %0, ptr noundef nonnull %29, i32 noundef %74) #6
@@ -1043,10 +1043,9 @@ attributes #6 = { nounwind }
 !14 = !{!"int", !7, i64 0}
 !15 = !{!12, !14, i64 8}
 !16 = !{!13, !13, i64 0}
-!17 = distinct !{!17, !18, !19}
+!17 = distinct !{!17, !18}
 !18 = !{!"llvm.loop.mustprogress"}
-!19 = !{!"llvm.loop.estimated_trip_count"}
-!20 = !{!7, !7, i64 0}
-!21 = !{i64 0, i64 8, !4, i64 8, i64 4, !22, i64 16, i64 8, !23, i64 24, i64 8, !16, i64 32, i64 8, !16}
-!22 = !{!14, !14, i64 0}
-!23 = !{!6, !6, i64 0}
+!19 = !{!7, !7, i64 0}
+!20 = !{i64 0, i64 8, !4, i64 8, i64 4, !21, i64 16, i64 8, !22, i64 24, i64 8, !16, i64 32, i64 8, !16}
+!21 = !{!14, !14, i64 0}
+!22 = !{!6, !6, i64 0}

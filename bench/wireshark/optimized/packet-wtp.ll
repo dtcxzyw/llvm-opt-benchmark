@@ -669,7 +669,7 @@ retransmission_indicator.exit:                    ; preds = %46, %49
   %212 = tail call ptr @proto_tree_add_item(ptr noundef %115, i32 noundef %210, ptr noundef %0, i32 noundef %211, i32 noundef 1, i32 noundef -2147483648)
   %213 = add nuw nsw i32 %.1378402, 1
   %exitcond.not = icmp eq i32 %213, %.0379
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !9
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %.lr.ph, %201
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %113, ptr noundef nonnull @.str.162, i32 noundef 7, i32 noundef %.0379)
@@ -719,7 +719,7 @@ wtp_handle_tpi.exit.us:                           ; preds = %226, %222
   %.0365.us = phi i32 [ %225, %222 ], [ %228, %226 ]
   %229 = add i32 %.0365.us, %.0369.us
   %.not396.us = icmp sgt i8 %219, -1
-  br i1 %.not396.us, label %.loopexit, label %217, !llvm.loop !10
+  br i1 %.not396.us, label %.loopexit, label %217, !llvm.loop !9
 
 .preheader.split:                                 ; preds = %216, %wtp_handle_tpi.exit
   %.0369 = phi i32 [ %274, %wtp_handle_tpi.exit ], [ 0, %216 ]
@@ -799,7 +799,7 @@ wtp_handle_tpi.exit.us:                           ; preds = %226, %222
 wtp_handle_tpi.exit:                              ; preds = %271, %263, %259, %252
   %274 = add i32 %.0365, %.0369
   %.not396 = icmp sgt i8 %231, -1
-  br i1 %.not396, label %.loopexit, label %.preheader.split, !llvm.loop !12
+  br i1 %.not396, label %.loopexit, label %.preheader.split, !llvm.loop !11
 
 .loopexit:                                        ; preds = %wtp_handle_tpi.exit, %wtp_handle_tpi.exit.us, %216
   %.1374421 = phi ptr [ %113, %216 ], [ null, %wtp_handle_tpi.exit.us ], [ %113, %wtp_handle_tpi.exit ]
@@ -848,7 +848,7 @@ wtp_handle_tpi.exit:                              ; preds = %271, %263, %259, %2
 
 290:                                              ; preds = %288
   %291 = getelementptr inbounds nuw i8, ptr %1, i64 272
-  %292 = load i8, ptr %291, align 8, !range !13, !noundef !14
+  %292 = load i8, ptr %291, align 8, !range !12, !noundef !13
   store i8 1, ptr %291, align 8
   %293 = zext i16 %.0375 to i32
   %.not397 = icmp eq i8 %.0367, 0
@@ -1010,12 +1010,11 @@ attributes #6 = { allocsize(1) }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7, !8, !11}
-!11 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!12 = distinct !{!12, !7, !8}
-!13 = !{i8 0, i8 2}
-!14 = !{}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7, !10}
+!10 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!11 = distinct !{!11, !7}
+!12 = !{i8 0, i8 2}
+!13 = !{}

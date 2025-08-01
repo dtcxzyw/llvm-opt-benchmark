@@ -904,7 +904,7 @@ define linkonce_odr void @_ZN5boost6detail18sp_counted_impl_pdIPN8QuantLib15Besp
 entry:
   store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN5boost6detail18sp_counted_impl_pdIPN8QuantLib15BespokeCalendar4ImplENS0_13sp_ms_deleterIS4_EEEE, i64 16), ptr %this, align 8, !tbaa !15
   %del = getelementptr inbounds nuw i8, ptr %this, i64 24
-  %0 = load i8, ptr %del, align 8, !tbaa !47, !range !54, !noundef !55
+  %0 = load i8, ptr %del, align 8, !tbaa !47, !range !53, !noundef !54
   %loadedv.i.i = trunc nuw i8 %0 to i1
   br i1 %loadedv.i.i, label %if.then.i.i, label %_ZN5boost6detail13sp_ms_deleterIN8QuantLib15BespokeCalendar4ImplEED2Ev.exit
 
@@ -971,7 +971,7 @@ define linkonce_odr void @_ZN5boost6detail18sp_counted_impl_pdIPN8QuantLib15Besp
 entry:
   store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN5boost6detail18sp_counted_impl_pdIPN8QuantLib15BespokeCalendar4ImplENS0_13sp_ms_deleterIS4_EEEE, i64 16), ptr %this, align 8, !tbaa !15
   %del.i = getelementptr inbounds nuw i8, ptr %this, i64 24
-  %0 = load i8, ptr %del.i, align 8, !tbaa !47, !range !54, !noundef !55
+  %0 = load i8, ptr %del.i, align 8, !tbaa !47, !range !53, !noundef !54
   %loadedv.i.i.i = trunc nuw i8 %0 to i1
   br i1 %loadedv.i.i.i, label %if.then.i.i.i, label %_ZN5boost6detail18sp_counted_impl_pdIPN8QuantLib15BespokeCalendar4ImplENS0_13sp_ms_deleterIS4_EEED2Ev.exit
 
@@ -1034,7 +1034,7 @@ _ZN5boost6detail18sp_counted_impl_pdIPN8QuantLib15BespokeCalendar4ImplENS0_13sp_
 define linkonce_odr void @_ZN5boost6detail18sp_counted_impl_pdIPN8QuantLib15BespokeCalendar4ImplENS0_13sp_ms_deleterIS4_EEE7disposeEv(ptr noundef nonnull align 8 dereferenceable(176) %this) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %del = getelementptr inbounds nuw i8, ptr %this, i64 24
-  %0 = load i8, ptr %del, align 8, !tbaa !47, !range !54, !noundef !55
+  %0 = load i8, ptr %del, align 8, !tbaa !47, !range !53, !noundef !54
   %loadedv.i.i = trunc nuw i8 %0 to i1
   br i1 %loadedv.i.i, label %if.then.i.i, label %_ZN5boost6detail13sp_ms_deleterIN8QuantLib15BespokeCalendar4ImplEEclEPS4_.exit
 
@@ -1110,7 +1110,7 @@ entry:
 define linkonce_odr noundef ptr @_ZN5boost6detail18sp_counted_impl_pdIPN8QuantLib15BespokeCalendar4ImplENS0_13sp_ms_deleterIS4_EEE11get_deleterERKSt9type_info(ptr noundef nonnull align 8 dereferenceable(176) %this, ptr noundef nonnull align 8 dereferenceable(16) %ti) unnamed_addr #6 comdat align 2 {
 entry:
   %__name.i = getelementptr inbounds nuw i8, ptr %ti, i64 8
-  %0 = load ptr, ptr %__name.i, align 8, !tbaa !56
+  %0 = load ptr, ptr %__name.i, align 8, !tbaa !55
   %cmp.i = icmp eq ptr %0, @_ZTSN5boost6detail13sp_ms_deleterIN8QuantLib15BespokeCalendar4ImplEEE
   br i1 %cmp.i, label %_ZNKSt9type_infoeqERKS_.exit.thread, label %if.end.i
 
@@ -1236,10 +1236,9 @@ attributes #21 = { builtin nounwind }
 !48 = !{!"branch_weights", !"expected", i32 1, i32 2000}
 !49 = !{!5, !9, i64 24}
 !50 = !{!5, !9, i64 16}
-!51 = distinct !{!51, !52, !53}
+!51 = distinct !{!51, !52}
 !52 = !{!"llvm.loop.mustprogress"}
-!53 = !{!"llvm.loop.estimated_trip_count"}
-!54 = !{i8 0, i8 2}
-!55 = !{}
-!56 = !{!57, !9, i64 8}
-!57 = !{!"_ZTSSt9type_info", !9, i64 8}
+!53 = !{i8 0, i8 2}
+!54 = !{}
+!55 = !{!56, !9, i64 8}
+!56 = !{!"_ZTSSt9type_info", !9, i64 8}

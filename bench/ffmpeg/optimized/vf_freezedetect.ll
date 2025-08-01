@@ -172,23 +172,23 @@ is_frozen.exit:                                   ; preds = %81
   %83 = uitofp i64 %.129.i to double
   %84 = fdiv nsz double %82, %83
   %85 = getelementptr inbounds nuw i8, ptr %16, i64 80
-  %86 = load i32, ptr %85, align 8, !tbaa !54
+  %86 = load i32, ptr %85, align 8, !tbaa !53
   %87 = zext nneg i32 %86 to i64
   %88 = shl nuw i64 1, %87
   %89 = uitofp i64 %88 to double
   %90 = fdiv nsz double %84, %89
   %91 = getelementptr inbounds nuw i8, ptr %16, i64 120
-  %92 = load double, ptr %91, align 8, !tbaa !55
+  %92 = load double, ptr %91, align 8, !tbaa !54
   %93 = fcmp nsz ole double %90, %92
   %94 = zext i1 %93 to i32
   %95 = getelementptr inbounds nuw i8, ptr %16, i64 128
-  %96 = load i64, ptr %95, align 8, !tbaa !56
+  %96 = load i64, ptr %95, align 8, !tbaa !55
   %.not65 = icmp slt i64 %.056, %96
   br i1 %.not65, label %117, label %97
 
 97:                                               ; preds = %is_frozen.exit
   %98 = getelementptr inbounds nuw i8, ptr %16, i64 112
-  %99 = load i32, ptr %98, align 8, !tbaa !57
+  %99 = load i32, ptr %98, align 8, !tbaa !56
   %.not66 = icmp eq i32 %99, 0
   br i1 %.not66, label %100, label %107
 
@@ -223,7 +223,7 @@ is_frozen.exit:                                   ; preds = %81
   br label %116
 
 116:                                              ; preds = %108, %107
-  store i32 %94, ptr %98, align 8, !tbaa !57
+  store i32 %94, ptr %98, align 8, !tbaa !56
   br label %117
 
 117:                                              ; preds = %116, %is_frozen.exit
@@ -284,16 +284,16 @@ is_frozen.exit:                                   ; preds = %81
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -22, 1) i32 @config_input(ptr noundef readonly captures(none) %0) #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %3 = load ptr, ptr %2, align 8, !tbaa !58
+  %3 = load ptr, ptr %2, align 8, !tbaa !57
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 72
   %5 = load ptr, ptr %4, align 8, !tbaa !4
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 36
-  %7 = load i32, ptr %6, align 4, !tbaa !59
+  %7 = load i32, ptr %6, align 4, !tbaa !58
   %8 = tail call ptr @av_pix_fmt_desc_get(i32 noundef %7) #7
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 40
-  %10 = load i32, ptr %9, align 8, !tbaa !60
+  %10 = load i32, ptr %9, align 8, !tbaa !59
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 80
-  store i32 %10, ptr %11, align 8, !tbaa !54
+  store i32 %10, ptr %11, align 8, !tbaa !53
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 44
@@ -313,25 +313,25 @@ define internal range(i32 -22, 1) i32 @config_input(ptr noundef readonly capture
 
 22:                                               ; preds = %1, %39
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %39 ]
-  %23 = load i32, ptr %6, align 4, !tbaa !59
-  %24 = load i32, ptr %12, align 8, !tbaa !62
+  %23 = load i32, ptr %6, align 4, !tbaa !58
+  %24 = load i32, ptr %12, align 8, !tbaa !61
   %25 = trunc nuw nsw i64 %indvars.iv to i32
   %26 = tail call i32 @av_image_get_linesize(i32 noundef %23, i32 noundef %24, i32 noundef %25) #7
   %27 = sext i32 %26 to i64
-  %28 = load i32, ptr %11, align 8, !tbaa !54
+  %28 = load i32, ptr %11, align 8, !tbaa !53
   %29 = icmp sgt i32 %28, 8
   %30 = zext i1 %29 to i64
   %31 = ashr i64 %27, %30
   %32 = getelementptr inbounds nuw [4 x i64], ptr %13, i64 0, i64 %indvars.iv
   store i64 %31, ptr %32, align 8, !tbaa !47
-  %33 = load i32, ptr %14, align 4, !tbaa !63
+  %33 = load i32, ptr %14, align 4, !tbaa !62
   %34 = trunc i64 %indvars.iv to i32
   %35 = add i32 %34, -1
   %or.cond = icmp ult i32 %35, 2
   br i1 %or.cond, label %36, label %39
 
 36:                                               ; preds = %22
-  %37 = load i8, ptr %15, align 2, !tbaa !64
+  %37 = load i8, ptr %15, align 2, !tbaa !63
   %38 = zext i8 %37 to i32
   br label %39
 
@@ -343,7 +343,7 @@ define internal range(i32 -22, 1) i32 @config_input(ptr noundef readonly capture
   store i64 %42, ptr %43, align 8, !tbaa !47
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %17, label %22, !llvm.loop !66
+  br i1 %exitcond.not, label %17, label %22, !llvm.loop !65
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
@@ -466,19 +466,18 @@ attributes #8 = { nounwind willreturn memory(none) }
 !48 = !{!27, !7, i64 72}
 !49 = !{!11, !11, i64 0}
 !50 = !{!15, !15, i64 0}
-!51 = distinct !{!51, !52, !53}
+!51 = distinct !{!51, !52}
 !52 = !{!"llvm.loop.mustprogress"}
-!53 = !{!"llvm.loop.estimated_trip_count"}
-!54 = !{!27, !15, i64 80}
-!55 = !{!27, !29, i64 120}
-!56 = !{!27, !28, i64 128}
-!57 = !{!27, !15, i64 112}
-!58 = !{!41, !42, i64 16}
-!59 = !{!41, !15, i64 36}
-!60 = !{!61, !15, i64 16}
-!61 = !{!"AVComponentDescriptor", !15, i64 0, !15, i64 4, !15, i64 8, !15, i64 12, !15, i64 16}
-!62 = !{!41, !15, i64 40}
-!63 = !{!41, !15, i64 44}
-!64 = !{!65, !8, i64 10}
-!65 = !{!"AVPixFmtDescriptor", !11, i64 0, !8, i64 8, !8, i64 9, !8, i64 10, !28, i64 16, !8, i64 24, !11, i64 104}
-!66 = distinct !{!66, !52, !53}
+!53 = !{!27, !15, i64 80}
+!54 = !{!27, !29, i64 120}
+!55 = !{!27, !28, i64 128}
+!56 = !{!27, !15, i64 112}
+!57 = !{!41, !42, i64 16}
+!58 = !{!41, !15, i64 36}
+!59 = !{!60, !15, i64 16}
+!60 = !{!"AVComponentDescriptor", !15, i64 0, !15, i64 4, !15, i64 8, !15, i64 12, !15, i64 16}
+!61 = !{!41, !15, i64 40}
+!62 = !{!41, !15, i64 44}
+!63 = !{!64, !8, i64 10}
+!64 = !{!"AVPixFmtDescriptor", !11, i64 0, !8, i64 8, !8, i64 9, !8, i64 10, !28, i64 16, !8, i64 24, !11, i64 104}
+!65 = distinct !{!65, !52}

@@ -830,7 +830,7 @@ define internal fastcc noundef i32 @dissect_bfcp_attributes(ptr noundef %0, ptr 
   %120 = tail call ptr @proto_tree_add_item(ptr noundef %24, i32 noundef %119, ptr noundef %0, i32 noundef %.3238277, i32 noundef 1, i32 noundef 0)
   %121 = add i32 %.3238277, 1
   %exitcond297.not = icmp eq i32 %121, %40
-  br i1 %exitcond297.not, label %._crit_edge279, label %.lr.ph278, !llvm.loop !11
+  br i1 %exitcond297.not, label %._crit_edge279, label %.lr.ph278, !llvm.loop !10
 
 ._crit_edge279:                                   ; preds = %.lr.ph278, %.preheader
   %.3238.lcssa = phi i32 [ %37, %.preheader ], [ %40, %.lr.ph278 ]
@@ -856,7 +856,7 @@ define internal fastcc noundef i32 @dissect_bfcp_attributes(ptr noundef %0, ptr 
   %130 = tail call ptr @proto_tree_add_item(ptr noundef %24, i32 noundef %129, ptr noundef %0, i32 noundef %.4239274, i32 noundef 1, i32 noundef 0)
   %131 = add i32 %.4239274, 1
   %exitcond.not = icmp eq i32 %131, %38
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph275, !llvm.loop !12
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph275, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %.lr.ph275, %.preheader266
   %.4239.lcssa = phi i32 [ %37, %.preheader266 ], [ %38, %.lr.ph275 ]
@@ -1041,8 +1041,7 @@ attributes #9 = { allocsize(2) }
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i8 0, i8 2}
 !7 = !{}
-!8 = distinct !{!8, !9, !10}
+!8 = distinct !{!8, !9}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = !{!"llvm.loop.estimated_trip_count"}
-!11 = distinct !{!11, !9, !10}
-!12 = distinct !{!12, !9, !10}
+!10 = distinct !{!10, !9}
+!11 = distinct !{!11, !9}

@@ -78,7 +78,7 @@ define hidden noundef i32 @_ZN6google24glog_internal_namespace_13GetStackTraceEP
   %.3 = phi i32 [ %.011, %24 ], [ %28, %26 ]
   %32 = call i32 @_ULx86_64_step(ptr noundef nonnull %5)
   %33 = icmp slt i32 %32, 1
-  br i1 %33, label %.thread, label %17, !llvm.loop !11
+  br i1 %33, label %.thread, label %17
 
 .thread:                                          ; preds = %31, %19, %17
   %.1 = phi i32 [ %.011, %17 ], [ %.011, %19 ], [ %.3, %31 ]
@@ -131,5 +131,3 @@ attributes #4 = { nounwind }
 !8 = !{}
 !9 = !{!10, !10, i64 0}
 !10 = !{!"any pointer", !5, i64 0}
-!11 = distinct !{!11, !12}
-!12 = !{!"llvm.loop.estimated_trip_count"}

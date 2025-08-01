@@ -93,20 +93,20 @@ _ZNSt6vectorIN4Luau5EqSat2IdESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17
 _ZNSt6vectorIN4Luau5EqSat2IdESaIS2_EE9push_backERKS2_.exit: ; preds = %14, %_ZNSt6vectorIN4Luau5EqSat2IdESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %41 = load ptr, ptr %40, align 8, !tbaa !22
+  %41 = load ptr, ptr %40, align 8, !tbaa !21
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %43 = load ptr, ptr %42, align 8, !tbaa !25
+  %43 = load ptr, ptr %42, align 8, !tbaa !24
   %.not.i.i = icmp eq ptr %41, %43
   br i1 %.not.i.i, label %46, label %44
 
 44:                                               ; preds = %_ZNSt6vectorIN4Luau5EqSat2IdESaIS2_EE9push_backERKS2_.exit
   store i32 0, ptr %41, align 4, !tbaa !12
   %45 = getelementptr inbounds nuw i8, ptr %41, i64 4
-  store ptr %45, ptr %40, align 8, !tbaa !22
+  store ptr %45, ptr %40, align 8, !tbaa !21
   br label %_ZNSt6vectorIiSaIiEE9push_backEOi.exit
 
 46:                                               ; preds = %_ZNSt6vectorIN4Luau5EqSat2IdESaIS2_EE9push_backERKS2_.exit
-  %47 = load ptr, ptr %39, align 8, !tbaa !26
+  %47 = load ptr, ptr %39, align 8, !tbaa !25
   %48 = ptrtoint ptr %41 to i64
   %49 = ptrtoint ptr %47 to i64
   %50 = sub i64 %48, %49
@@ -147,10 +147,10 @@ _ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i.i: ; preds = %62, %_ZN
   br label %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i
 
 _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i: ; preds = %64, %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i.i
-  store ptr %59, ptr %39, align 8, !tbaa !26
-  store ptr %63, ptr %40, align 8, !tbaa !22
+  store ptr %59, ptr %39, align 8, !tbaa !25
+  store ptr %63, ptr %40, align 8, !tbaa !21
   %65 = getelementptr inbounds nuw i32, ptr %59, i64 %57
-  store ptr %65, ptr %42, align 8, !tbaa !25
+  store ptr %65, ptr %42, align 8, !tbaa !24
   br label %_ZNSt6vectorIiSaIiEE9push_backEOi.exit
 
 _ZNSt6vectorIiSaIiEE9push_backEOi.exit:           ; preds = %44, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i
@@ -192,7 +192,7 @@ define dso_local i32 @_ZNK4Luau5EqSat9UnionFind4findENS0_2IdE(ptr noundef nonnul
   %17 = getelementptr inbounds nuw %"struct.Luau::EqSat::Id", ptr %16, i64 %15
   %.sroa.0.0.copyload.i = load i32, ptr %17, align 4, !tbaa !12
   %18 = call noundef zeroext i1 @_ZNK4Luau5EqSat2IdneES1_(ptr noundef nonnull align 4 dereferenceable(4) %3, i32 %.sroa.0.0.copyload.i)
-  br i1 %18, label %.lr.ph.i, label %_ZNK4Luau5EqSat9UnionFind12canonicalizeENS0_2IdE.exit, !llvm.loop !27
+  br i1 %18, label %.lr.ph.i, label %_ZNK4Luau5EqSat9UnionFind12canonicalizeENS0_2IdE.exit, !llvm.loop !26
 
 _ZNK4Luau5EqSat9UnionFind12canonicalizeENS0_2IdE.exit: ; preds = %.lr.ph.i, %2
   %.sroa.01.0.copyload.i = load i32, ptr %3, align 4, !tbaa !12
@@ -225,7 +225,7 @@ define dso_local i32 @_ZNK4Luau5EqSat9UnionFind12canonicalizeENS0_2IdE(ptr nound
   %17 = getelementptr inbounds nuw %"struct.Luau::EqSat::Id", ptr %16, i64 %15
   %.sroa.0.0.copyload = load i32, ptr %17, align 4, !tbaa !12
   %18 = call noundef zeroext i1 @_ZNK4Luau5EqSat2IdneES1_(ptr noundef nonnull align 4 dereferenceable(4) %3, i32 %.sroa.0.0.copyload)
-  br i1 %18, label %.lr.ph, label %._crit_edge, !llvm.loop !27
+  br i1 %18, label %.lr.ph, label %._crit_edge, !llvm.loop !26
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   %.sroa.01.0.copyload = load i32, ptr %3, align 4, !tbaa !12
@@ -260,7 +260,7 @@ define dso_local i32 @_ZN4Luau5EqSat9UnionFind4findENS0_2IdE(ptr noundef nonnull
   %18 = getelementptr inbounds nuw %"struct.Luau::EqSat::Id", ptr %17, i64 %16
   %.sroa.0.0.copyload.i = load i32, ptr %18, align 4, !tbaa !12
   %19 = call noundef zeroext i1 @_ZNK4Luau5EqSat2IdneES1_(ptr noundef nonnull align 4 dereferenceable(4) %3, i32 %.sroa.0.0.copyload.i)
-  br i1 %19, label %.lr.ph.i, label %_ZNK4Luau5EqSat9UnionFind12canonicalizeENS0_2IdE.exit, !llvm.loop !27
+  br i1 %19, label %.lr.ph.i, label %_ZNK4Luau5EqSat9UnionFind12canonicalizeENS0_2IdE.exit, !llvm.loop !26
 
 _ZNK4Luau5EqSat9UnionFind12canonicalizeENS0_2IdE.exit: ; preds = %.lr.ph.i, %2
   %.sroa.01.0.copyload.i = load i32, ptr %3, align 4, !tbaa !12
@@ -291,7 +291,7 @@ _ZNK4Luau5EqSat9UnionFind12canonicalizeENS0_2IdE.exit: ; preds = %.lr.ph.i, %2
   %36 = getelementptr inbounds nuw %"struct.Luau::EqSat::Id", ptr %35, i64 %34
   %.sroa.02.0.copyload = load i32, ptr %36, align 4, !tbaa !12
   %37 = call noundef zeroext i1 @_ZNK4Luau5EqSat2IdneES1_(ptr noundef nonnull align 4 dereferenceable(4) %4, i32 %.sroa.02.0.copyload)
-  br i1 %37, label %.lr.ph, label %._crit_edge, !llvm.loop !28
+  br i1 %37, label %.lr.ph, label %._crit_edge, !llvm.loop !27
 
 ._crit_edge:                                      ; preds = %.lr.ph, %_ZNK4Luau5EqSat9UnionFind12canonicalizeENS0_2IdE.exit
   ret i32 %.sroa.01.0.copyload.i
@@ -317,12 +317,12 @@ define dso_local i32 @_ZN4Luau5EqSat9UnionFind5mergeENS0_2IdES2_(ptr noundef non
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %11 = call noundef i32 @_ZNK4Luau5EqSat2IdcvjEv(ptr noundef nonnull align 4 dereferenceable(4) %4)
   %12 = zext i32 %11 to i64
-  %13 = load ptr, ptr %10, align 8, !tbaa !26
+  %13 = load ptr, ptr %10, align 8, !tbaa !25
   %14 = getelementptr inbounds nuw i32, ptr %13, i64 %12
   %15 = load i32, ptr %14, align 4, !tbaa !12
   %16 = call noundef i32 @_ZNK4Luau5EqSat2IdcvjEv(ptr noundef nonnull align 4 dereferenceable(4) %5)
   %17 = zext i32 %16 to i64
-  %18 = load ptr, ptr %10, align 8, !tbaa !26
+  %18 = load ptr, ptr %10, align 8, !tbaa !25
   %19 = getelementptr inbounds nuw i32, ptr %18, i64 %17
   %20 = load i32, ptr %19, align 4, !tbaa !12
   %21 = icmp sgt i32 %15, %20
@@ -344,12 +344,12 @@ define dso_local i32 @_ZN4Luau5EqSat9UnionFind5mergeENS0_2IdES2_(ptr noundef non
   store i32 %29, ptr %28, align 4, !tbaa !12
   %30 = call noundef i32 @_ZNK4Luau5EqSat2IdcvjEv(ptr noundef nonnull align 4 dereferenceable(4) %4)
   %31 = zext i32 %30 to i64
-  %32 = load ptr, ptr %10, align 8, !tbaa !26
+  %32 = load ptr, ptr %10, align 8, !tbaa !25
   %33 = getelementptr inbounds nuw i32, ptr %32, i64 %31
   %34 = load i32, ptr %33, align 4, !tbaa !12
   %35 = call noundef i32 @_ZNK4Luau5EqSat2IdcvjEv(ptr noundef nonnull align 4 dereferenceable(4) %5)
   %36 = zext i32 %35 to i64
-  %37 = load ptr, ptr %10, align 8, !tbaa !26
+  %37 = load ptr, ptr %10, align 8, !tbaa !25
   %38 = getelementptr inbounds nuw i32, ptr %37, i64 %36
   %39 = load i32, ptr %38, align 4, !tbaa !12
   %40 = icmp eq i32 %34, %39
@@ -358,7 +358,7 @@ define dso_local i32 @_ZN4Luau5EqSat9UnionFind5mergeENS0_2IdES2_(ptr noundef non
 41:                                               ; preds = %24
   %42 = call noundef i32 @_ZNK4Luau5EqSat2IdcvjEv(ptr noundef nonnull align 4 dereferenceable(4) %4)
   %43 = zext i32 %42 to i64
-  %44 = load ptr, ptr %10, align 8, !tbaa !26
+  %44 = load ptr, ptr %10, align 8, !tbaa !25
   %45 = getelementptr inbounds nuw i32, ptr %44, i64 %43
   %46 = load i32, ptr %45, align 4, !tbaa !12
   %47 = add nsw i32 %46, 1
@@ -435,13 +435,12 @@ attributes #13 = { nounwind }
 !16 = distinct !{!16, !"_ZSt19__relocate_object_aIN4Luau5EqSat2IdES2_SaIS2_EEvPT_PT0_RT1_"}
 !17 = !{!18}
 !18 = distinct !{!18, !16, !"_ZSt19__relocate_object_aIN4Luau5EqSat2IdES2_SaIS2_EEvPT_PT0_RT1_: argument 1"}
-!19 = distinct !{!19, !20, !21}
+!19 = distinct !{!19, !20}
 !20 = !{!"llvm.loop.mustprogress"}
-!21 = !{!"llvm.loop.estimated_trip_count"}
-!22 = !{!23, !24, i64 8}
-!23 = !{!"_ZTSNSt12_Vector_baseIiSaIiEE17_Vector_impl_dataE", !24, i64 0, !24, i64 8, !24, i64 16}
-!24 = !{!"p1 int", !7, i64 0}
-!25 = !{!23, !24, i64 16}
-!26 = !{!23, !24, i64 0}
-!27 = distinct !{!27, !20, !21}
-!28 = distinct !{!28, !20, !21}
+!21 = !{!22, !23, i64 8}
+!22 = !{!"_ZTSNSt12_Vector_baseIiSaIiEE17_Vector_impl_dataE", !23, i64 0, !23, i64 8, !23, i64 16}
+!23 = !{!"p1 int", !7, i64 0}
+!24 = !{!22, !23, i64 16}
+!25 = !{!22, !23, i64 0}
+!26 = distinct !{!26, !20}
+!27 = distinct !{!27, !20}

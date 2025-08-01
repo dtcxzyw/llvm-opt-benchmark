@@ -27,7 +27,7 @@ define hidden void @_ZN4lean16initialize_asciiEv() local_unnamed_addr #0 {
   store i8 1, ptr %3, align 1, !tbaa !3
   %.019.add = add nuw nsw i64 %.019.idx30, 1
   %.not = icmp eq i64 %.019.add, 36
-  br i1 %.not, label %0, label %.preheader, !llvm.loop !6
+  br i1 %.not, label %0, label %.preheader
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
@@ -58,7 +58,7 @@ define hidden noundef zeroext i1 @_ZN4lean13is_safe_asciiEPKc(ptr noundef readon
   %4 = getelementptr inbounds nuw i8, ptr %.010, i64 1
   %5 = load i8, ptr %4, align 1, !tbaa !3
   %.not7 = icmp eq i8 %5, 0
-  br i1 %.not7, label %.loopexit, label %.lr.ph, !llvm.loop !8
+  br i1 %.not7, label %.loopexit, label %.lr.ph, !llvm.loop !6
 
 .lr.ph:                                           ; preds = %.preheader, %3
   %6 = phi i8 [ %5, %3 ], [ %2, %.preheader ]
@@ -90,7 +90,7 @@ define hidden noundef zeroext i1 @_ZN4lean13is_safe_asciiEPKcm(ptr noundef reado
   %9 = add nuw i64 %.068, 1
   %exitcond.not = icmp ne i64 %9, %1
   %or.cond.not = select i1 %.not.not, i1 %exitcond.not, i1 false
-  br i1 %or.cond.not, label %.lr.ph, label %._crit_edge, !llvm.loop !10
+  br i1 %or.cond.not, label %.lr.ph, label %._crit_edge, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   %.lcssa = phi i1 [ true, %2 ], [ %.not.not, %.lr.ph ]
@@ -115,7 +115,5 @@ attributes #4 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 !4 = !{!"omnipotent char", !5, i64 0}
 !5 = !{!"Simple C++ TBAA"}
 !6 = distinct !{!6, !7}
-!7 = !{!"llvm.loop.estimated_trip_count"}
-!8 = distinct !{!8, !9, !7}
-!9 = !{!"llvm.loop.mustprogress"}
-!10 = distinct !{!10, !9, !7}
+!7 = !{!"llvm.loop.mustprogress"}
+!8 = distinct !{!8, !7}

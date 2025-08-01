@@ -98,9 +98,9 @@ gt.exit.backedge:                                 ; preds = %40, %.lr.ph
   store ptr %.lcssa, ptr %50, align 8, !tbaa !23
   store ptr %1, ptr %49, align 8, !tbaa !23
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %52 = load i32, ptr %51, align 4, !tbaa !28
+  %52 = load i32, ptr %51, align 4, !tbaa !27
   %53 = add nsw i32 %52, 1
-  store i32 %53, ptr %51, align 4, !tbaa !28
+  store i32 %53, ptr %51, align 4, !tbaa !27
   ret void
 }
 
@@ -162,7 +162,7 @@ PQbucket.exit:                                    ; preds = %24, %28
   %32 = getelementptr inbounds nuw i8, ptr %.0, i64 48
   %33 = load ptr, ptr %32, align 8, !tbaa !23
   %.not14 = icmp eq ptr %33, %1
-  br i1 %.not14, label %34, label %31, !llvm.loop !29
+  br i1 %.not14, label %34, label %31, !llvm.loop !28
 
 34:                                               ; preds = %31
   %35 = getelementptr inbounds nuw i8, ptr %.0, i64 48
@@ -170,9 +170,9 @@ PQbucket.exit:                                    ; preds = %24, %28
   %37 = load ptr, ptr %36, align 8, !tbaa !23
   store ptr %37, ptr %35, align 8, !tbaa !23
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %39 = load i32, ptr %38, align 4, !tbaa !28
+  %39 = load i32, ptr %38, align 4, !tbaa !27
   %40 = add nsw i32 %39, -1
-  store i32 %40, ptr %38, align 4, !tbaa !28
+  store i32 %40, ptr %38, align 4, !tbaa !27
   tail call void @deref(ptr noundef nonnull %4) #12
   store ptr null, ptr %3, align 8, !tbaa !3
   br label %41
@@ -186,7 +186,7 @@ declare void @deref(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define zeroext i1 @PQempty(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %3 = load i32, ptr %2, align 4, !tbaa !28
+  %3 = load i32, ptr %2, align 4, !tbaa !27
   %4 = icmp eq i32 %3, 0
   ret i1 %4
 }
@@ -208,7 +208,7 @@ define { double, double } @PQ_min(ptr noundef captures(none) %0) local_unnamed_a
   %8 = getelementptr inbounds %struct.Halfedge, ptr %2, i64 %indvars.iv.next, i32 7
   %9 = load ptr, ptr %8, align 8, !tbaa !23
   %10 = icmp eq ptr %9, null
-  br i1 %10, label %.lr.ph, label %._crit_edge, !llvm.loop !30
+  br i1 %10, label %.lr.ph, label %._crit_edge, !llvm.loop !29
 
 ._crit_edge:                                      ; preds = %.lr.ph
   %11 = trunc nsw i64 %indvars.iv.next to i32
@@ -239,9 +239,9 @@ define ptr @PQextractmin(ptr noundef captures(none) %0) local_unnamed_addr #4 {
   %9 = load ptr, ptr %8, align 8, !tbaa !23
   store ptr %9, ptr %6, align 8, !tbaa !23
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %11 = load i32, ptr %10, align 4, !tbaa !28
+  %11 = load i32, ptr %10, align 4, !tbaa !27
   %12 = add nsw i32 %11, -1
-  store i32 %12, ptr %10, align 4, !tbaa !28
+  store i32 %12, ptr %10, align 4, !tbaa !27
   ret ptr %7
 }
 
@@ -270,13 +270,13 @@ define noalias noundef ptr @PQinitialize() local_unnamed_addr #7 {
   br i1 %2, label %3, label %gv_alloc.exit
 
 3:                                                ; preds = %0
-  %4 = load ptr, ptr @stderr, align 8, !tbaa !31
+  %4 = load ptr, ptr @stderr, align 8, !tbaa !30
   %5 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %4, ptr noundef nonnull @.str.1, i64 noundef 24) #14
   tail call fastcc void @graphviz_exit() #15
   unreachable
 
 gv_alloc.exit:                                    ; preds = %0
-  %6 = load i32, ptr @sqrt_nsites, align 4, !tbaa !33
+  %6 = load i32, ptr @sqrt_nsites, align 4, !tbaa !32
   %7 = shl nsw i32 %6, 2
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 %7, ptr %8, align 8, !tbaa !21
@@ -293,7 +293,7 @@ gv_alloc.exit:                                    ; preds = %0
   br i1 %mul.ov.i, label %12, label %15
 
 12:                                               ; preds = %11
-  %13 = load ptr, ptr @stderr, align 8, !tbaa !31
+  %13 = load ptr, ptr @stderr, align 8, !tbaa !30
   %14 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %13, ptr noundef nonnull @.str, i64 noundef range(i64 -2147483648, 2147483648) %9, i64 noundef 56) #14
   tail call fastcc void @graphviz_exit() #15
   unreachable
@@ -304,7 +304,7 @@ gv_alloc.exit:                                    ; preds = %0
   br i1 %17, label %18, label %gv_calloc.exit
 
 18:                                               ; preds = %15
-  %19 = load ptr, ptr @stderr, align 8, !tbaa !31
+  %19 = load ptr, ptr @stderr, align 8, !tbaa !30
   %20 = mul nuw nsw i64 %9, 56
   %21 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %19, ptr noundef nonnull @.str.1, i64 noundef %20) #14
   tail call fastcc void @graphviz_exit() #15
@@ -376,12 +376,11 @@ attributes #16 = { cold noreturn nounwind }
 !22 = !{!19, !10, i64 16}
 !23 = !{!4, !5, i64 48}
 !24 = !{!14, !12, i64 0}
-!25 = distinct !{!25, !26, !27}
+!25 = distinct !{!25, !26}
 !26 = !{!"llvm.loop.mustprogress"}
-!27 = !{!"llvm.loop.estimated_trip_count"}
-!28 = !{!19, !10, i64 12}
-!29 = distinct !{!29, !26, !27}
-!30 = distinct !{!30, !26, !27}
-!31 = !{!32, !32, i64 0}
-!32 = !{!"p1 _ZTS8_IO_FILE", !6, i64 0}
-!33 = !{!10, !10, i64 0}
+!27 = !{!19, !10, i64 12}
+!28 = distinct !{!28, !26}
+!29 = distinct !{!29, !26}
+!30 = !{!31, !31, i64 0}
+!31 = !{!"p1 _ZTS8_IO_FILE", !6, i64 0}
+!32 = !{!10, !10, i64 0}

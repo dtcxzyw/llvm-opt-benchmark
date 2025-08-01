@@ -441,7 +441,7 @@ _ZN4lean6mk_appERKSt16initializer_listINS_4exprEE.exit: ; preds = %_ZN4lean4expr
 
 _ZN4lean10object_refD2Ev.exit:                    ; preds = %36, %45, %47, %48
   %52 = icmp eq ptr %38, %5
-  br i1 %52, label %53, label %36, !llvm.loop !15
+  br i1 %52, label %53, label %36
 
 53:                                               ; preds = %_ZN4lean10object_refD2Ev.exit
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #7
@@ -458,7 +458,7 @@ _ZN4lean10object_refD2Ev.exit:                    ; preds = %36, %45, %47, %48
   %58 = getelementptr inbounds i8, ptr %57, i64 -8
   call void @_ZN4lean10object_refD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %58) #7
   %59 = icmp eq ptr %58, %5
-  br i1 %59, label %.loopexit, label %56, !llvm.loop !16
+  br i1 %59, label %.loopexit, label %56
 
 60:                                               ; preds = %_ZN4lean4exprC2ERKS0_.exit18
   %61 = landingpad { ptr, i32 }
@@ -471,7 +471,7 @@ _ZN4lean10object_refD2Ev.exit:                    ; preds = %36, %45, %47, %48
   %65 = getelementptr inbounds i8, ptr %64, i64 -8
   call void @_ZN4lean10object_refD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %65) #7
   %66 = icmp eq ptr %65, %5
-  br i1 %66, label %.loopexit, label %63, !llvm.loop !17
+  br i1 %66, label %.loopexit, label %63
 
 .loopexit:                                        ; preds = %56, %63
   %.pn = phi { ptr, i32 } [ %61, %63 ], [ %55, %56 ]
@@ -524,9 +524,9 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN4lean10mk_bin_ropERKNS_4exprES2_RKSt16initializer_listIS0_E(ptr dead_on_unwind noalias writable sret(%"class.lean::expr") align 8 initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %6 = load i64, ptr %5, align 8, !tbaa !18
+  %6 = load i64, ptr %5, align 8, !tbaa !14
   %7 = trunc i64 %6 to i32
-  %8 = load ptr, ptr %3, align 8, !tbaa !22
+  %8 = load ptr, ptr %3, align 8, !tbaa !18
   tail call void @_ZN4lean10mk_bin_ropERKNS_4exprES2_jPS1_(ptr dead_on_unwind writable sret(%"class.lean::expr") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %2, i32 noundef %7, ptr noundef %8)
   ret void
 }
@@ -635,7 +635,7 @@ _ZN4lean10object_refD2Ev.exit:                    ; preds = %39, %29, %36, %38
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #7
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %_ZN4lean4exprC2ERKS0_.exit, label %.lr.ph, !llvm.loop !23
+  br i1 %exitcond.not, label %_ZN4lean4exprC2ERKS0_.exit, label %.lr.ph, !llvm.loop !19
 
 41:                                               ; preds = %.lr.ph
   %42 = landingpad { ptr, i32 }
@@ -661,9 +661,9 @@ _ZN4lean4exprC2ERKS0_.exit:                       ; preds = %_ZN4lean10object_re
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN4lean10mk_bin_lopERKNS_4exprES2_RKSt16initializer_listIS0_E(ptr dead_on_unwind noalias writable sret(%"class.lean::expr") align 8 initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %6 = load i64, ptr %5, align 8, !tbaa !18
+  %6 = load i64, ptr %5, align 8, !tbaa !14
   %7 = trunc i64 %6 to i32
-  %8 = load ptr, ptr %3, align 8, !tbaa !22
+  %8 = load ptr, ptr %3, align 8, !tbaa !18
   tail call void @_ZN4lean10mk_bin_lopERKNS_4exprES2_jPS1_(ptr dead_on_unwind writable sret(%"class.lean::expr") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %2, i32 noundef %7, ptr noundef %8)
   ret void
 }
@@ -712,15 +712,11 @@ attributes #8 = { noreturn nounwind }
 !9 = !{!"_ZTS11lean_object", !10, i64 0, !10, i64 4, !10, i64 6, !10, i64 7}
 !10 = !{!"int", !6, i64 0}
 !11 = !{!"branch_weights", !"expected", i32 2000, i32 1}
-!12 = distinct !{!12, !13, !14}
+!12 = distinct !{!12, !13}
 !13 = !{!"llvm.loop.mustprogress"}
-!14 = !{!"llvm.loop.estimated_trip_count"}
-!15 = distinct !{!15, !14}
-!16 = distinct !{!16, !14}
-!17 = distinct !{!17, !14}
-!18 = !{!19, !21, i64 8}
-!19 = !{!"_ZTSSt16initializer_listIN4lean4exprEE", !20, i64 0, !21, i64 8}
-!20 = !{!"p1 _ZTSN4lean4exprE", !5, i64 0}
-!21 = !{!"long", !6, i64 0}
-!22 = !{!19, !20, i64 0}
-!23 = distinct !{!23, !13, !14}
+!14 = !{!15, !17, i64 8}
+!15 = !{!"_ZTSSt16initializer_listIN4lean4exprEE", !16, i64 0, !17, i64 8}
+!16 = !{!"p1 _ZTSN4lean4exprE", !5, i64 0}
+!17 = !{!"long", !6, i64 0}
+!18 = !{!15, !16, i64 0}
+!19 = distinct !{!19, !13}

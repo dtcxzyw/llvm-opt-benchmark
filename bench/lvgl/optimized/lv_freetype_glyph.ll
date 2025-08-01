@@ -244,19 +244,19 @@ define void @lv_freetype_set_cbs_glyph(ptr noundef captures(address_is_null) %0)
   br i1 %.not, label %.preheader, label %2
 
 .preheader:                                       ; preds = %1, %.preheader
-  br label %.preheader, !llvm.loop !72
+  br label %.preheader
 
 2:                                                ; preds = %1
-  %3 = load i32, ptr %0, align 8, !tbaa !74
+  %3 = load i32, ptr %0, align 8, !tbaa !72
   %4 = icmp eq i32 %3, 1600079444
   br i1 %4, label %5, label %.preheader3
 
 .preheader3:                                      ; preds = %2, %.preheader3
-  br label %.preheader3, !llvm.loop !75
+  br label %.preheader3
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr @freetype_get_glyph_dsc_cb, ptr %6, align 8, !tbaa !76
+  store ptr @freetype_get_glyph_dsc_cb, ptr %6, align 8, !tbaa !73
   ret void
 }
 
@@ -267,14 +267,14 @@ define internal noundef zeroext i1 @freetype_get_glyph_dsc_cb(ptr noundef readon
   br i1 %.not, label %.preheader, label %6
 
 .preheader:                                       ; preds = %4, %.preheader
-  br label %.preheader, !llvm.loop !77
+  br label %.preheader
 
 6:                                                ; preds = %4
   %.not35 = icmp eq ptr %1, null
   br i1 %.not35, label %.preheader37, label %7
 
 .preheader37:                                     ; preds = %6, %.preheader37
-  br label %.preheader37, !llvm.loop !78
+  br label %.preheader37
 
 7:                                                ; preds = %6
   %8 = icmp ult i32 %2, 32
@@ -289,20 +289,20 @@ define internal noundef zeroext i1 @freetype_get_glyph_dsc_cb(ptr noundef readon
 
 12:                                               ; preds = %7
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %14 = load ptr, ptr %13, align 8, !tbaa !79
+  %14 = load ptr, ptr %13, align 8, !tbaa !74
   %.not36 = icmp eq ptr %14, null
   br i1 %.not36, label %.preheader38, label %15
 
 .preheader38:                                     ; preds = %12, %.preheader38
-  br label %.preheader38, !llvm.loop !80
+  br label %.preheader38
 
 15:                                               ; preds = %12
-  %16 = load i32, ptr %14, align 8, !tbaa !74
+  %16 = load i32, ptr %14, align 8, !tbaa !72
   %17 = icmp eq i32 %16, 1600079444
   br i1 %17, label %18, label %.preheader39
 
 .preheader39:                                     ; preds = %15, %.preheader39
-  br label %.preheader39, !llvm.loop !81
+  br label %.preheader39
 
 18:                                               ; preds = %15
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %5) #8
@@ -316,7 +316,7 @@ define internal noundef zeroext i1 @freetype_get_glyph_dsc_cb(ptr noundef readon
   %23 = getelementptr inbounds nuw i8, ptr %14, i64 96
   %24 = load ptr, ptr %23, align 8, !tbaa !14
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 40
-  %26 = load ptr, ptr %25, align 8, !tbaa !82
+  %26 = load ptr, ptr %25, align 8, !tbaa !75
   %27 = call ptr @lv_cache_acquire_or_create(ptr noundef %26, ptr noundef nonnull %5, ptr noundef nonnull %14) #8
   %28 = icmp ne ptr %27, null
   br i1 %28, label %29, label %46
@@ -324,7 +324,7 @@ define internal noundef zeroext i1 @freetype_get_glyph_dsc_cb(ptr noundef readon
 29:                                               ; preds = %18
   %30 = call ptr @lv_cache_entry_get_data(ptr noundef nonnull %27) #8
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull align 8 dereferenceable(48) %31, i64 48, i1 false), !tbaa.struct !83
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull align 8 dereferenceable(48) %31, i64 48, i1 false), !tbaa.struct !76
   %32 = getelementptr inbounds nuw i8, ptr %14, i64 76
   %33 = load i32, ptr %32, align 4, !tbaa !64
   %34 = and i32 %33, 1
@@ -345,7 +345,7 @@ define internal noundef zeroext i1 @freetype_get_glyph_dsc_cb(ptr noundef readon
 
 44:                                               ; preds = %37, %29
   %45 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  store ptr null, ptr %45, align 8, !tbaa !88
+  store ptr null, ptr %45, align 8, !tbaa !81
   call void @lv_cache_release(ptr noundef %26, ptr noundef nonnull %27, ptr noundef null) #8
   br label %46
 
@@ -461,20 +461,13 @@ attributes #8 = { nounwind }
 !69 = !{!44, !5, i64 196}
 !70 = !{!44, !5, i64 144}
 !71 = !{!6, !6, i64 0}
-!72 = distinct !{!72, !73}
-!73 = !{!"llvm.loop.estimated_trip_count"}
-!74 = !{!15, !5, i64 0}
-!75 = distinct !{!75, !73}
-!76 = !{!15, !10, i64 8}
-!77 = distinct !{!77, !73}
-!78 = distinct !{!78, !73}
-!79 = !{!16, !10, i64 40}
-!80 = distinct !{!80, !73}
-!81 = distinct !{!81, !73}
-!82 = !{!20, !23, i64 40}
-!83 = !{i64 0, i64 8, !84, i64 8, i64 2, !85, i64 10, i64 2, !85, i64 12, i64 2, !85, i64 14, i64 2, !85, i64 16, i64 2, !85, i64 20, i64 4, !86, i64 24, i64 1, !71, i64 32, i64 8, !71, i64 40, i64 8, !87}
-!84 = !{!9, !9, i64 0}
-!85 = !{!11, !11, i64 0}
-!86 = !{!5, !5, i64 0}
-!87 = !{!12, !12, i64 0}
-!88 = !{!8, !12, i64 40}
+!72 = !{!15, !5, i64 0}
+!73 = !{!15, !10, i64 8}
+!74 = !{!16, !10, i64 40}
+!75 = !{!20, !23, i64 40}
+!76 = !{i64 0, i64 8, !77, i64 8, i64 2, !78, i64 10, i64 2, !78, i64 12, i64 2, !78, i64 14, i64 2, !78, i64 16, i64 2, !78, i64 20, i64 4, !79, i64 24, i64 1, !71, i64 32, i64 8, !71, i64 40, i64 8, !80}
+!77 = !{!9, !9, i64 0}
+!78 = !{!11, !11, i64 0}
+!79 = !{!5, !5, i64 0}
+!80 = !{!12, !12, i64 0}
+!81 = !{!8, !12, i64 40}

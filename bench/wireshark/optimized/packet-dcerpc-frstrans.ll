@@ -652,7 +652,7 @@ frstrans_dissect_element_Update_sha1_hash.exit:   ; preds = %35, %frstrans_disse
   %40 = tail call i32 @PIDL_dissect_uint8(ptr noundef %0, i32 noundef %.089.i127, ptr noundef %2, ptr noundef %.0119, ptr noundef %4, ptr noundef %5, i32 noundef %39, i32 noundef 0)
   %41 = add nuw nsw i32 %.010.i126, 1
   %exitcond.not.i128 = icmp eq i32 %41, 16
-  br i1 %exitcond.not.i128, label %frstrans_dissect_element_Update_rdc_similarity.exit, label %frstrans_dissect_element_Update_sha1_hash.exit, !llvm.loop !11
+  br i1 %exitcond.not.i128, label %frstrans_dissect_element_Update_rdc_similarity.exit, label %frstrans_dissect_element_Update_sha1_hash.exit, !llvm.loop !10
 
 frstrans_dissect_element_Update_rdc_similarity.exit: ; preds = %frstrans_dissect_element_Update_sha1_hash.exit
   %42 = load i32, ptr @hf_frstrans_frstrans_Update_uid_db_guid, align 4
@@ -1058,7 +1058,7 @@ define hidden i32 @frstrans_dissect_struct_RdcParameterGeneric(ptr noundef %0, i
   %38 = call i32 @PIDL_dissect_uint8(ptr noundef %0, i32 noundef %.089.i, ptr noundef %2, ptr noundef %.037, ptr noundef %4, ptr noundef %5, i32 noundef %37, i32 noundef 0)
   %39 = add nuw nsw i32 %.010.i, 1
   %exitcond.not.i = icmp eq i32 %39, 64
-  br i1 %exitcond.not.i, label %frstrans_dissect_element_RdcParameterGeneric_chunker_parameters.exit, label %36, !llvm.loop !12
+  br i1 %exitcond.not.i, label %frstrans_dissect_element_RdcParameterGeneric_chunker_parameters.exit, label %36, !llvm.loop !11
 
 frstrans_dissect_element_RdcParameterGeneric_chunker_parameters.exit: ; preds = %36
   %40 = sub i32 %38, %.0
@@ -2290,8 +2290,7 @@ attributes #4 = { nounwind }
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i8 0, i8 2}
 !7 = !{}
-!8 = distinct !{!8, !9, !10}
+!8 = distinct !{!8, !9}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = !{!"llvm.loop.estimated_trip_count"}
-!11 = distinct !{!11, !9, !10}
-!12 = distinct !{!12, !9, !10}
+!10 = distinct !{!10, !9}
+!11 = distinct !{!11, !9}

@@ -88,7 +88,7 @@ sub_1:                                            ; preds = %sub_0
   %43 = load i8, ptr %42, align 1
   %44 = add i8 %43, -58
   %or.cond.i = icmp ult i8 %44, -10
-  br i1 %or.cond.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !4
+  br i1 %or.cond.i, label %._crit_edge.i, label %.lr.ph.i
 
 ._crit_edge.i:                                    ; preds = %40
   %45 = icmp eq ptr %42, %29
@@ -324,7 +324,7 @@ define internal fastcc noundef ptr @decode_decimal(ptr noundef readonly captures
   %15 = load i8, ptr %14, align 1
   %16 = add i8 %15, -58
   %or.cond = icmp ult i8 %16, -10
-  br i1 %or.cond, label %._crit_edge, label %.lr.ph, !llvm.loop !4
+  br i1 %or.cond, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %12
   %17 = icmp eq ptr %14, %0
@@ -406,7 +406,7 @@ define hidden i32 @_sodium_argon2_encode_string(ptr noundef %0, i64 noundef %1, 
   store i8 %25, ptr %27, align 1
   %28 = udiv i32 %.09.i, 10
   %29 = icmp samesign ugt i32 %.09.i, 9
-  br i1 %29, label %22, label %u32_to_string.exit, !llvm.loop !6
+  br i1 %29, label %22, label %u32_to_string.exit, !llvm.loop !4
 
 u32_to_string.exit:                               ; preds = %22
   %30 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -449,14 +449,14 @@ u32_to_string.exit:                               ; preds = %22
   %49 = icmp ugt i32 %.09.i222, 9
   %50 = icmp ne i64 %46, 0
   %51 = and i1 %49, %50
-  br i1 %51, label %42, label %u32_to_string.exit224, !llvm.loop !6
+  br i1 %51, label %42, label %u32_to_string.exit224, !llvm.loop !4
 
 u32_to_string.exit224:                            ; preds = %42
   %52 = getelementptr [10 x i8], ptr %5, i64 0, i64 %46
   %53 = getelementptr i8, ptr %39, i64 3
   %54 = add i64 %36, -3
   %55 = sub i64 11, %.0.i223
-  %56 = call ptr @__memcpy_chk(ptr noundef nonnull %8, ptr noundef nonnull %52, i64 noundef %55, i64 noundef 11) #9, !alias.scope !8
+  %56 = call ptr @__memcpy_chk(ptr noundef nonnull %8, ptr noundef nonnull %52, i64 noundef %55, i64 noundef 11) #9, !alias.scope !6
   %57 = getelementptr i8, ptr %8, i64 %55
   store i8 0, ptr %57, align 1
   call void @llvm.lifetime.end.p0(i64 10, ptr nonnull %5) #9
@@ -588,7 +588,7 @@ define internal fastcc void @u32_to_string(ptr noundef nonnull %0, i32 noundef %
   %11 = icmp ugt i32 %.09, 9
   %12 = icmp ne i64 %8, 0
   %13 = and i1 %11, %12
-  br i1 %13, label %4, label %14, !llvm.loop !6
+  br i1 %13, label %4, label %14, !llvm.loop !4
 
 14:                                               ; preds = %4
   %15 = getelementptr [10 x i8], ptr %3, i64 0, i64 %8
@@ -626,10 +626,8 @@ attributes #9 = { nounwind }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.estimated_trip_count"}
-!6 = distinct !{!6, !7, !5}
-!7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!9, !11}
-!9 = distinct !{!9, !10, !"memcpy.inline: argument 0"}
-!10 = distinct !{!10, !"memcpy.inline"}
-!11 = distinct !{!11, !10, !"memcpy.inline: argument 1"}
+!5 = !{!"llvm.loop.mustprogress"}
+!6 = !{!7, !9}
+!7 = distinct !{!7, !8, !"memcpy.inline: argument 0"}
+!8 = distinct !{!8, !"memcpy.inline"}
+!9 = distinct !{!9, !8, !"memcpy.inline: argument 1"}

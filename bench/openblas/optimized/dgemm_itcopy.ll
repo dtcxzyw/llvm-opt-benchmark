@@ -184,21 +184,21 @@ define noundef i32 @dgemm_itcopy(i64 noundef %0, i64 noundef %1, ptr noundef rea
 94:                                               ; preds = %92
   %95 = sub nsw i64 0, %14
   %96 = getelementptr inbounds double, ptr %.3335, i64 %95
-  %97 = load double, ptr %.4300, align 8, !tbaa !9
+  %97 = load double, ptr %.4300, align 8, !tbaa !8
   %98 = getelementptr inbounds nuw i8, ptr %.4300, i64 8
-  %99 = load double, ptr %.4312, align 8, !tbaa !9
+  %99 = load double, ptr %.4312, align 8, !tbaa !8
   %100 = getelementptr inbounds nuw i8, ptr %.4312, i64 8
-  %101 = load double, ptr %.4324, align 8, !tbaa !9
+  %101 = load double, ptr %.4324, align 8, !tbaa !8
   %102 = getelementptr inbounds nuw i8, ptr %.4324, i64 8
-  %103 = load double, ptr %.4330, align 8, !tbaa !9
+  %103 = load double, ptr %.4330, align 8, !tbaa !8
   %104 = getelementptr inbounds nuw i8, ptr %.4330, i64 8
-  store double %97, ptr %96, align 8, !tbaa !9
+  store double %97, ptr %96, align 8, !tbaa !8
   %105 = getelementptr inbounds nuw i8, ptr %96, i64 8
-  store double %99, ptr %105, align 8, !tbaa !9
+  store double %99, ptr %105, align 8, !tbaa !8
   %106 = getelementptr inbounds nuw i8, ptr %96, i64 16
-  store double %101, ptr %106, align 8, !tbaa !9
+  store double %101, ptr %106, align 8, !tbaa !8
   %107 = getelementptr inbounds nuw i8, ptr %96, i64 24
-  store double %103, ptr %107, align 8, !tbaa !9
+  store double %103, ptr %107, align 8, !tbaa !8
   br label %108
 
 108:                                              ; preds = %94, %92
@@ -212,7 +212,7 @@ define noundef i32 @dgemm_itcopy(i64 noundef %0, i64 noundef %1, ptr noundef rea
   %112 = getelementptr inbounds double, ptr %.5331, i64 %7
   %113 = add nsw i64 %.0382, -4
   %114 = icmp sgt i64 %.0382, 7
-  br i1 %114, label %13, label %._crit_edge385, !llvm.loop !11
+  br i1 %114, label %13, label %._crit_edge385, !llvm.loop !10
 
 ._crit_edge385:                                   ; preds = %108, %5
   %.0308.lcssa = phi ptr [ %8, %5 ], [ %110, %108 ]
@@ -307,13 +307,13 @@ define noundef i32 @dgemm_itcopy(i64 noundef %0, i64 noundef %1, ptr noundef rea
 153:                                              ; preds = %151
   %154 = sub i64 0, %119
   %155 = getelementptr inbounds double, ptr %.7339.us, i64 %154
-  %156 = load double, ptr %.10306.us, align 8, !tbaa !9
+  %156 = load double, ptr %.10306.us, align 8, !tbaa !8
   %157 = getelementptr inbounds nuw i8, ptr %.10306.us, i64 8
-  %158 = load double, ptr %.10318.us, align 8, !tbaa !9
+  %158 = load double, ptr %.10318.us, align 8, !tbaa !8
   %159 = getelementptr inbounds nuw i8, ptr %.10318.us, i64 8
-  store double %156, ptr %155, align 8, !tbaa !9
+  store double %156, ptr %155, align 8, !tbaa !8
   %160 = getelementptr inbounds nuw i8, ptr %155, i64 8
-  store double %158, ptr %160, align 8, !tbaa !9
+  store double %158, ptr %160, align 8, !tbaa !8
   br label %161
 
 161:                                              ; preds = %153, %151
@@ -323,7 +323,7 @@ define noundef i32 @dgemm_itcopy(i64 noundef %0, i64 noundef %1, ptr noundef rea
   %163 = getelementptr inbounds double, ptr %.11319.us, i64 %116
   %164 = add nsw i64 %.1402.us, -2
   %165 = icmp sgt i64 %.1402.us, 3
-  br i1 %165, label %.lr.ph394.us, label %._crit_edge405, !llvm.loop !12
+  br i1 %165, label %.lr.ph394.us, label %._crit_edge405, !llvm.loop !11
 
 166:                                              ; preds = %.lr.ph394.us, %166
   %.4392.us = phi i64 [ %1, %.lr.ph394.us ], [ %179, %166 ]
@@ -348,7 +348,7 @@ define noundef i32 @dgemm_itcopy(i64 noundef %0, i64 noundef %1, ptr noundef rea
   %178 = getelementptr inbounds i8, ptr %.4336389.us, i64 %.idx358
   %179 = add nsw i64 %.4392.us, -16
   %180 = icmp sgt i64 %.4392.us, 31
-  br i1 %180, label %166, label %._crit_edge395.us, !llvm.loop !14
+  br i1 %180, label %166, label %._crit_edge395.us, !llvm.loop !13
 
 ._crit_edge395.us:                                ; preds = %166
   %.idx352.us = mul i64 %119, -64
@@ -438,13 +438,13 @@ define noundef i32 @dgemm_itcopy(i64 noundef %0, i64 noundef %1, ptr noundef rea
 220:                                              ; preds = %218
   %221 = sub i64 0, %186
   %222 = getelementptr inbounds double, ptr %.7339, i64 %221
-  %223 = load double, ptr %.10306, align 8, !tbaa !9
+  %223 = load double, ptr %.10306, align 8, !tbaa !8
   %224 = getelementptr inbounds nuw i8, ptr %.10306, i64 8
-  %225 = load double, ptr %.10318, align 8, !tbaa !9
+  %225 = load double, ptr %.10318, align 8, !tbaa !8
   %226 = getelementptr inbounds nuw i8, ptr %.10318, i64 8
-  store double %223, ptr %222, align 8, !tbaa !9
+  store double %223, ptr %222, align 8, !tbaa !8
   %227 = getelementptr inbounds nuw i8, ptr %222, i64 8
-  store double %225, ptr %227, align 8, !tbaa !9
+  store double %225, ptr %227, align 8, !tbaa !8
   br label %228
 
 228:                                              ; preds = %220, %218
@@ -454,7 +454,7 @@ define noundef i32 @dgemm_itcopy(i64 noundef %0, i64 noundef %1, ptr noundef rea
   %230 = getelementptr inbounds double, ptr %.11319, i64 %116
   %231 = add nsw i64 %.1402, -2
   %232 = icmp sgt i64 %.1402, 3
-  br i1 %232, label %185, label %._crit_edge405, !llvm.loop !15
+  br i1 %232, label %185, label %._crit_edge405, !llvm.loop !14
 
 ._crit_edge405:                                   ; preds = %228, %161, %._crit_edge385
   %.6302.lcssa = phi ptr [ %.0296.lcssa, %._crit_edge385 ], [ %162, %161 ], [ %229, %228 ]
@@ -487,7 +487,7 @@ define noundef i32 @dgemm_itcopy(i64 noundef %0, i64 noundef %1, ptr noundef rea
   %244 = getelementptr inbounds i8, ptr %.8340409, i64 %.idx350
   %245 = add nsw i64 %.8411, -16
   %246 = icmp samesign ugt i64 %.8411, 31
-  br i1 %246, label %238, label %._crit_edge414, !llvm.loop !16
+  br i1 %246, label %238, label %._crit_edge414, !llvm.loop !15
 
 ._crit_edge414:                                   ; preds = %238, %234
   %.8340.lcssa = phi ptr [ %236, %234 ], [ %244, %238 ]
@@ -553,8 +553,8 @@ define noundef i32 @dgemm_itcopy(i64 noundef %0, i64 noundef %1, ptr noundef rea
 272:                                              ; preds = %270
   %273 = sub i64 1, %0
   %274 = getelementptr inbounds double, ptr %.11343, i64 %273
-  %275 = load double, ptr %.16, align 8, !tbaa !9
-  store double %275, ptr %274, align 8, !tbaa !9
+  %275 = load double, ptr %.16, align 8, !tbaa !8
+  store double %275, ptr %274, align 8, !tbaa !8
   br label %.critedge
 
 .critedge:                                        ; preds = %270, %272, %._crit_edge405
@@ -571,14 +571,13 @@ attributes #0 = { nofree norecurse nosync nounwind memory(read, argmem: readwrit
 !3 = !{!4, !4, i64 0}
 !4 = !{!"omnipotent char", !5, i64 0}
 !5 = !{!"Simple C/C++ TBAA"}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = !{!10, !10, i64 0}
-!10 = !{!"double", !4, i64 0}
-!11 = distinct !{!11, !7, !8}
-!12 = distinct !{!12, !7, !8, !13}
-!13 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!14 = distinct !{!14, !7, !8}
-!15 = distinct !{!15, !7, !8}
-!16 = distinct !{!16, !7, !8}
+!8 = !{!9, !9, i64 0}
+!9 = !{!"double", !4, i64 0}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7, !12}
+!12 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!13 = distinct !{!13, !7}
+!14 = distinct !{!14, !7}
+!15 = distinct !{!15, !7}

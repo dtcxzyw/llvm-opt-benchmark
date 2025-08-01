@@ -356,7 +356,7 @@ define hidden void @_ZN10ODDLParser9ReferenceC2ERKS0_(ptr noundef nonnull align 
   %36 = add nuw i64 %.011, 1
   %37 = load i64, ptr %0, align 8
   %38 = icmp ult i64 %36, %37
-  br i1 %38, label %10, label %.loopexit, !llvm.loop !6
+  br i1 %38, label %10, label %.loopexit, !llvm.loop !5
 
 39:                                               ; preds = %10
   %40 = landingpad { ptr, i32 }
@@ -427,7 +427,7 @@ _ZN10ODDLParser4NameD2Ev.exit:                    ; preds = %13, %_ZN10ODDLParse
   %23 = phi i64 [ %8, %7 ], [ %.pre, %_ZN10ODDLParser4NameD2Ev.exit ]
   %24 = add nuw i64 %.05, 1
   %25 = icmp ult i64 %24, %23
-  br i1 %25, label %7, label %._crit_edge, !llvm.loop !7
+  br i1 %25, label %7, label %._crit_edge, !llvm.loop !6
 
 26:                                               ; preds = %._crit_edge
   tail call void @_ZdaPv(ptr noundef nonnull %5) #13
@@ -469,7 +469,7 @@ define hidden noundef i64 @_ZN10ODDLParser9Reference11sizeInBytesEv(ptr noundef 
   %.1 = phi i64 [ %14, %9 ], [ %.0911, %6 ]
   %16 = add nuw i64 %.0812, 1
   %exitcond.not = icmp eq i64 %16, %2
-  br i1 %exitcond.not, label %.loopexit, label %6, !llvm.loop !8
+  br i1 %exitcond.not, label %.loopexit, label %6, !llvm.loop !7
 
 .loopexit:                                        ; preds = %15, %1
   %.0 = phi i64 [ 0, %1 ], [ %.1, %15 ]
@@ -575,7 +575,7 @@ _ZN10ODDLParser4NameD2Ev.exit.i:                  ; preds = %_ZN10ODDLParser4Tex
   %38 = phi i64 [ %23, %22 ], [ %.pre.i, %_ZN10ODDLParser4NameD2Ev.exit.i ]
   %39 = add nuw i64 %.05.i, 1
   %40 = icmp ult i64 %39, %38
-  br i1 %40, label %22, label %._crit_edge.i, !llvm.loop !7
+  br i1 %40, label %22, label %._crit_edge.i, !llvm.loop !6
 
 41:                                               ; preds = %._crit_edge.i
   tail call void @_ZdaPv(ptr noundef nonnull %20) #13
@@ -692,7 +692,7 @@ _ZN10ODDLParser4NameD2Ev.exit.i:                  ; preds = %_ZN10ODDLParser4Tex
   %35 = phi i64 [ %20, %19 ], [ %.pre.i, %_ZN10ODDLParser4NameD2Ev.exit.i ]
   %36 = add nuw i64 %.05.i, 1
   %37 = icmp ult i64 %36, %35
-  br i1 %37, label %19, label %._crit_edge.i, !llvm.loop !7
+  br i1 %37, label %19, label %._crit_edge.i, !llvm.loop !6
 
 38:                                               ; preds = %._crit_edge.i
   tail call void @_ZdaPv(ptr noundef nonnull %17) #13
@@ -727,7 +727,7 @@ define hidden noundef i64 @_ZN10ODDLParser13DataArrayList4sizeEv(ptr noundef non
   %9 = getelementptr inbounds nuw i8, ptr %.011, i64 16
   %10 = load ptr, ptr %9, align 8
   %.not = icmp eq ptr %10, null
-  br i1 %.not, label %.loopexit, label %.preheader, !llvm.loop !9
+  br i1 %.not, label %.loopexit, label %.preheader, !llvm.loop !8
 
 .loopexit:                                        ; preds = %.preheader, %5
   %.07 = phi i64 [ %spec.select, %5 ], [ %8, %.preheader ]
@@ -799,10 +799,9 @@ attributes #14 = { nounwind willreturn memory(read) }
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = distinct !{!3, !4, !5}
+!3 = distinct !{!3, !4}
 !4 = !{!"llvm.loop.mustprogress"}
-!5 = !{!"llvm.loop.estimated_trip_count"}
-!6 = distinct !{!6, !4, !5}
-!7 = distinct !{!7, !4, !5}
-!8 = distinct !{!8, !4, !5}
-!9 = distinct !{!9, !4, !5}
+!5 = distinct !{!5, !4}
+!6 = distinct !{!6, !4}
+!7 = distinct !{!7, !4}
+!8 = distinct !{!8, !4}

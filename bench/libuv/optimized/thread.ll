@@ -275,7 +275,7 @@ define dso_local i32 @uv_thread_setaffinity(ptr noundef readonly captures(none) 
   store i8 %32, ptr %33, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %17
-  br i1 %exitcond.not.i, label %uv_thread_getaffinity.exit.thread29, label %.lr.ph.i, !llvm.loop !4
+  br i1 %exitcond.not.i, label %uv_thread_getaffinity.exit.thread29, label %.lr.ph.i
 
 uv_thread_getaffinity.exit.thread:                ; preds = %13, %16
   %.0.i.ph = phi i32 [ -22, %16 ], [ %14, %13 ]
@@ -324,7 +324,7 @@ uv_thread_getaffinity.exit:                       ; preds = %19
 47:                                               ; preds = %40, %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !6
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %47, %36
   %48 = load i64, ptr %0, align 8
@@ -389,7 +389,7 @@ define dso_local i32 @uv_thread_getaffinity(ptr noundef readonly captures(none) 
   store i8 %25, ptr %26, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %8
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !4
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph
 
 .loopexit:                                        ; preds = %24, %.preheader, %7, %3, %13
   %.0 = phi i32 [ %14, %13 ], [ %5, %3 ], [ -22, %7 ], [ 0, %.preheader ], [ 0, %24 ]
@@ -1098,7 +1098,7 @@ uv_mutex_lock.exit.i:                             ; preds = %10, %uv_mutex_lock.
 10:                                               ; preds = %uv_mutex_lock.exit.i
   %11 = tail call i32 @pthread_cond_wait(ptr noundef nonnull %6, ptr noundef nonnull %.val) #12
   %.not.i7.i = icmp eq i32 %11, 0
-  br i1 %.not.i7.i, label %uv_mutex_lock.exit.i, label %12, !llvm.loop !7
+  br i1 %.not.i7.i, label %uv_mutex_lock.exit.i, label %12
 
 12:                                               ; preds = %10
   tail call void @abort() #14
@@ -1126,7 +1126,7 @@ uv_mutex_lock.exit.i:                             ; preds = %10, %uv_mutex_lock.
   %19 = tail call ptr @__errno_location() #13
   %20 = load i32, ptr %19, align 4
   %21 = icmp eq i32 %20, 4
-  br i1 %21, label %.preheader, label %.critedge.i, !llvm.loop !8
+  br i1 %21, label %.preheader, label %.critedge.i
 
 .critedge.i:                                      ; preds = %18, %.preheader
   tail call void @abort() #14
@@ -1197,7 +1197,7 @@ define dso_local range(i32 -11, 1) i32 @uv_sem_trywait(ptr noundef %0) local_unn
   %19 = tail call ptr @__errno_location() #13
   %20 = load i32, ptr %19, align 4
   %21 = icmp eq i32 %20, 4
-  br i1 %21, label %.preheader, label %.critedge.i, !llvm.loop !9
+  br i1 %21, label %.preheader, label %.critedge.i
 
 .critedge.i:                                      ; preds = %18, %..critedge_crit_edge.i
   %22 = phi i32 [ %.pr.i, %..critedge_crit_edge.i ], [ %20, %18 ]
@@ -1489,9 +1489,3 @@ attributes #14 = { noreturn nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.estimated_trip_count"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5}
-!9 = distinct !{!9, !5}

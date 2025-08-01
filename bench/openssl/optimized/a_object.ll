@@ -237,7 +237,7 @@ define i32 @a2d_ASN1_OBJECT(ptr noundef writeonly captures(address_is_null) %0, 
   %.1115160 = phi i32 [ %.1115161, %46 ], [ 0, %50 ]
   %.199 = phi i64 [ %.098228, %46 ], [ %54, %50 ]
   %56 = icmp samesign ult i32 %.2124225, 2
-  br i1 %56, label %._crit_edge, label %.lr.ph, !llvm.loop !13
+  br i1 %56, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %55, %.lr.ph, %.lr.ph
   %.0114.lcssa.ph = phi i32 [ %.1115160, %55 ], [ %.0114226, %.lr.ph ], [ %.0114226, %.lr.ph ]
@@ -315,7 +315,7 @@ define i32 @a2d_ASN1_OBJECT(ptr noundef writeonly captures(address_is_null) %0, 
   %82 = getelementptr inbounds nuw i8, ptr %.2111, i64 %indvars.iv
   store i8 %81, ptr %82, align 1, !tbaa !12
   %.not149 = icmp eq i32 %80, 0
-  br i1 %.not149, label %.loopexit.loopexit272, label %.lr.ph252, !llvm.loop !15
+  br i1 %.not149, label %.loopexit.loopexit272, label %.lr.ph252, !llvm.loop !13
 
 .preheader186:                                    ; preds = %.preheader186.preheader, %.preheader186
   %indvars.iv308 = phi i64 [ %indvars.iv.next309, %.preheader186 ], [ 0, %.preheader186.preheader ]
@@ -327,7 +327,7 @@ define i32 @a2d_ASN1_OBJECT(ptr noundef writeonly captures(address_is_null) %0, 
   store i8 %84, ptr %85, align 1, !tbaa !12
   %86 = lshr i64 %.3101, 7
   %87 = icmp ult i64 %.3101, 128
-  br i1 %87, label %.loopexit.loopexit, label %.preheader186, !llvm.loop !17
+  br i1 %87, label %.loopexit.loopexit, label %.preheader186
 
 .loopexit.loopexit:                               ; preds = %.preheader186
   %88 = trunc nuw nsw i64 %indvars.iv.next309 to i32
@@ -368,7 +368,7 @@ define i32 @a2d_ASN1_OBJECT(ptr noundef writeonly captures(address_is_null) %0, 
   %99 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv311
   store i8 %98, ptr %99, align 1, !tbaa !12
   %100 = icmp samesign ugt i64 %indvars.iv313, 2
-  br i1 %100, label %.lr.ph256, label %._crit_edge257.loopexit, !llvm.loop !18
+  br i1 %100, label %.lr.ph256, label %._crit_edge257.loopexit, !llvm.loop !15
 
 ._crit_edge257.loopexit:                          ; preds = %.lr.ph256
   %101 = trunc nsw i64 %indvars.iv.next312 to i32
@@ -386,7 +386,7 @@ define i32 @a2d_ASN1_OBJECT(ptr noundef writeonly captures(address_is_null) %0, 
 106:                                              ; preds = %.loopexit, %._crit_edge257
   %.2121 = phi i32 [ %103, %._crit_edge257 ], [ %90, %.loopexit ]
   %107 = icmp slt i32 %.3125.ph, 1
-  br i1 %107, label %._crit_edge268, label %28, !llvm.loop !19
+  br i1 %107, label %._crit_edge268, label %28
 
 ._crit_edge268:                                   ; preds = %106
   %.not152 = icmp eq ptr %.4113, %5
@@ -559,12 +559,12 @@ define ptr @d2i_ASN1_OBJECT(ptr noundef captures(address_is_null) %0, ptr nounde
   br i1 %.not, label %11, label %18
 
 11:                                               ; preds = %3
-  %12 = load i32, ptr %6, align 4, !tbaa !20
+  %12 = load i32, ptr %6, align 4, !tbaa !16
   %.not9 = icmp eq i32 %12, 6
   br i1 %.not9, label %13, label %18
 
 13:                                               ; preds = %11
-  %14 = load i64, ptr %5, align 8, !tbaa !21
+  %14 = load i64, ptr %5, align 8, !tbaa !17
   %15 = call ptr @ossl_c2i_ASN1_OBJECT(ptr noundef %0, ptr noundef nonnull %4, i64 noundef %14)
   %.not10 = icmp eq ptr %15, null
   br i1 %.not10, label %19, label %16
@@ -623,13 +623,13 @@ define ptr @ossl_c2i_ASN1_OBJECT(ptr noundef captures(address_is_null) %0, ptr n
 15:                                               ; preds = %10
   %16 = trunc nuw nsw i64 %2 to i32
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store i32 0, ptr %17, align 8, !tbaa !23
+  store i32 0, ptr %17, align 8, !tbaa !19
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store ptr %8, ptr %18, align 8, !tbaa !3
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 20
   store i32 %16, ptr %19, align 4, !tbaa !10
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  store i32 0, ptr %20, align 8, !tbaa !24
+  store i32 0, ptr %20, align 8, !tbaa !20
   %21 = call i32 @OBJ_obj2nid(ptr noundef nonnull %4) #6
   %.not83 = icmp eq i32 %21, 0
   br i1 %.not83, label %.lr.ph, label %22
@@ -640,25 +640,25 @@ define ptr @ossl_c2i_ASN1_OBJECT(ptr noundef captures(address_is_null) %0, ptr n
   br i1 %.not90, label %46, label %24
 
 24:                                               ; preds = %22
-  %25 = load ptr, ptr %0, align 8, !tbaa !25
+  %25 = load ptr, ptr %0, align 8, !tbaa !21
   %26 = icmp eq ptr %25, null
   br i1 %26, label %ASN1_OBJECT_free.exit, label %27
 
 27:                                               ; preds = %24
   %28 = getelementptr inbounds nuw i8, ptr %25, i64 32
-  %29 = load i32, ptr %28, align 8, !tbaa !24
+  %29 = load i32, ptr %28, align 8, !tbaa !20
   %30 = and i32 %29, 4
   %.not.i = icmp eq i32 %30, 0
   br i1 %.not.i, label %35, label %31
 
 31:                                               ; preds = %27
-  %32 = load ptr, ptr %25, align 8, !tbaa !27
+  %32 = load ptr, ptr %25, align 8, !tbaa !23
   call void @CRYPTO_free(ptr noundef %32, ptr noundef nonnull @.str, i32 noundef 357) #6
   %33 = getelementptr inbounds nuw i8, ptr %25, i64 8
-  %34 = load ptr, ptr %33, align 8, !tbaa !28
+  %34 = load ptr, ptr %33, align 8, !tbaa !24
   call void @CRYPTO_free(ptr noundef %34, ptr noundef nonnull @.str, i32 noundef 358) #6
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %25, i8 0, i64 16, i1 false)
-  %.pre.i = load i32, ptr %28, align 8, !tbaa !24
+  %.pre.i = load i32, ptr %28, align 8, !tbaa !20
   br label %35
 
 35:                                               ; preds = %31, %27
@@ -674,7 +674,7 @@ define ptr @ossl_c2i_ASN1_OBJECT(ptr noundef captures(address_is_null) %0, ptr n
   store ptr null, ptr %39, align 8, !tbaa !3
   %41 = getelementptr inbounds nuw i8, ptr %25, i64 20
   store i32 0, ptr %41, align 4, !tbaa !10
-  %.pre14.i = load i32, ptr %28, align 8, !tbaa !24
+  %.pre14.i = load i32, ptr %28, align 8, !tbaa !20
   br label %42
 
 42:                                               ; preds = %38, %35
@@ -688,7 +688,7 @@ define ptr @ossl_c2i_ASN1_OBJECT(ptr noundef captures(address_is_null) %0, ptr n
   br label %ASN1_OBJECT_free.exit
 
 ASN1_OBJECT_free.exit:                            ; preds = %24, %42, %45
-  store ptr %23, ptr %0, align 8, !tbaa !25
+  store ptr %23, ptr %0, align 8, !tbaa !21
   br label %46
 
 46:                                               ; preds = %ASN1_OBJECT_free.exit, %22
@@ -724,20 +724,20 @@ ASN1_OBJECT_free.exit:                            ; preds = %24, %42, %45
   %57 = add nuw nsw i32 %.06993, 1
   %58 = getelementptr inbounds nuw i8, ptr %.07192, i64 1
   %exitcond.not = icmp eq i32 %57, %16
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !29
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !25
 
 ._crit_edge:                                      ; preds = %56
   %59 = icmp eq ptr %0, null
   br i1 %59, label %67, label %60
 
 60:                                               ; preds = %._crit_edge
-  %61 = load ptr, ptr %0, align 8, !tbaa !25
+  %61 = load ptr, ptr %0, align 8, !tbaa !21
   %62 = icmp eq ptr %61, null
   br i1 %62, label %67, label %63
 
 63:                                               ; preds = %60
   %64 = getelementptr inbounds nuw i8, ptr %61, i64 32
-  %65 = load i32, ptr %64, align 8, !tbaa !24
+  %65 = load i32, ptr %64, align 8, !tbaa !20
   %66 = and i32 %65, 1
   %.not84 = icmp eq i32 %66, 0
   br i1 %.not84, label %67, label %71
@@ -749,7 +749,7 @@ ASN1_OBJECT_free.exit:                            ; preds = %24, %42, %45
 
 ASN1_OBJECT_new.exit:                             ; preds = %67
   %70 = getelementptr inbounds nuw i8, ptr %68, i64 32
-  store i32 1, ptr %70, align 8, !tbaa !24
+  store i32 1, ptr %70, align 8, !tbaa !20
   br label %71
 
 71:                                               ; preds = %ASN1_OBJECT_new.exit, %63
@@ -777,29 +777,29 @@ ASN1_OBJECT_new.exit:                             ; preds = %67
 
 84:                                               ; preds = %80
   %85 = getelementptr inbounds nuw i8, ptr %.072, i64 32
-  %86 = load i32, ptr %85, align 8, !tbaa !24
+  %86 = load i32, ptr %85, align 8, !tbaa !20
   %87 = or i32 %86, 8
-  store i32 %87, ptr %85, align 8, !tbaa !24
+  store i32 %87, ptr %85, align 8, !tbaa !20
   br label %88
 
 88:                                               ; preds = %84, %76
   %.070 = phi ptr [ %82, %84 ], [ %74, %76 ]
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %.070, ptr align 1 %72, i64 %2, i1 false)
   %89 = getelementptr inbounds nuw i8, ptr %.072, i64 32
-  %90 = load i32, ptr %89, align 8, !tbaa !24
+  %90 = load i32, ptr %89, align 8, !tbaa !20
   %91 = and i32 %90, 4
   %.not85 = icmp eq i32 %91, 0
   br i1 %.not85, label %98, label %92
 
 92:                                               ; preds = %88
-  %93 = load ptr, ptr %.072, align 8, !tbaa !27
+  %93 = load ptr, ptr %.072, align 8, !tbaa !23
   call void @CRYPTO_free(ptr noundef %93, ptr noundef nonnull @.str, i32 noundef 313) #6
   %94 = getelementptr inbounds nuw i8, ptr %.072, i64 8
-  %95 = load ptr, ptr %94, align 8, !tbaa !28
+  %95 = load ptr, ptr %94, align 8, !tbaa !24
   call void @CRYPTO_free(ptr noundef %95, ptr noundef nonnull @.str, i32 noundef 314) #6
-  %96 = load i32, ptr %89, align 8, !tbaa !24
+  %96 = load i32, ptr %89, align 8, !tbaa !20
   %97 = and i32 %96, -5
-  store i32 %97, ptr %89, align 8, !tbaa !24
+  store i32 %97, ptr %89, align 8, !tbaa !20
   br label %98
 
 98:                                               ; preds = %92, %88
@@ -811,7 +811,7 @@ ASN1_OBJECT_new.exit:                             ; preds = %67
   br i1 %59, label %102, label %101
 
 101:                                              ; preds = %98
-  store ptr %.072, ptr %0, align 8, !tbaa !25
+  store ptr %.072, ptr %0, align 8, !tbaa !21
   br label %102
 
 102:                                              ; preds = %101, %98
@@ -825,7 +825,7 @@ ASN1_OBJECT_new.exit:                             ; preds = %67
   br i1 %59, label %106, label %104
 
 104:                                              ; preds = %103
-  %105 = load ptr, ptr %0, align 8, !tbaa !25
+  %105 = load ptr, ptr %0, align 8, !tbaa !21
   %.not87 = icmp eq ptr %105, %.072
   br i1 %.not87, label %ASN1_OBJECT_new.exit.thread, label %106
 
@@ -850,19 +850,19 @@ define void @ASN1_OBJECT_free(ptr noundef %0) local_unnamed_addr #0 {
 
 3:                                                ; preds = %1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %5 = load i32, ptr %4, align 8, !tbaa !24
+  %5 = load i32, ptr %4, align 8, !tbaa !20
   %6 = and i32 %5, 4
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %11, label %7
 
 7:                                                ; preds = %3
-  %8 = load ptr, ptr %0, align 8, !tbaa !27
+  %8 = load ptr, ptr %0, align 8, !tbaa !23
   tail call void @CRYPTO_free(ptr noundef %8, ptr noundef nonnull @.str, i32 noundef 357) #6
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %10 = load ptr, ptr %9, align 8, !tbaa !28
+  %10 = load ptr, ptr %9, align 8, !tbaa !24
   tail call void @CRYPTO_free(ptr noundef %10, ptr noundef nonnull @.str, i32 noundef 358) #6
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
-  %.pre = load i32, ptr %4, align 8, !tbaa !24
+  %.pre = load i32, ptr %4, align 8, !tbaa !20
   br label %11
 
 11:                                               ; preds = %7, %3
@@ -878,7 +878,7 @@ define void @ASN1_OBJECT_free(ptr noundef %0) local_unnamed_addr #0 {
   store ptr null, ptr %15, align 8, !tbaa !3
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 0, ptr %17, align 4, !tbaa !10
-  %.pre14 = load i32, ptr %4, align 8, !tbaa !24
+  %.pre14 = load i32, ptr %4, align 8, !tbaa !20
   br label %18
 
 18:                                               ; preds = %14, %11
@@ -903,7 +903,7 @@ define noalias ptr @ASN1_OBJECT_new() local_unnamed_addr #0 {
 
 3:                                                ; preds = %0
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  store i32 1, ptr %4, align 8, !tbaa !24
+  store i32 1, ptr %4, align 8, !tbaa !20
   br label %5
 
 5:                                                ; preds = %0, %3
@@ -916,17 +916,17 @@ declare noalias ptr @CRYPTO_zalloc(i64 noundef, ptr noundef, i32 noundef) local_
 define ptr @ASN1_OBJECT_create(i32 noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
   %6 = alloca %struct.asn1_object_st, align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6) #6
-  store ptr %3, ptr %6, align 8, !tbaa !27
+  store ptr %3, ptr %6, align 8, !tbaa !23
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store ptr %4, ptr %7, align 8, !tbaa !28
+  store ptr %4, ptr %7, align 8, !tbaa !24
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store ptr %1, ptr %8, align 8, !tbaa !3
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  store i32 %0, ptr %9, align 8, !tbaa !23
+  store i32 %0, ptr %9, align 8, !tbaa !19
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 20
   store i32 %2, ptr %10, align 4, !tbaa !10
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  store i32 13, ptr %11, align 8, !tbaa !24
+  store i32 13, ptr %11, align 8, !tbaa !20
   %12 = call ptr @OBJ_dup(ptr noundef nonnull %6) #6
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6) #6
   ret ptr %12
@@ -962,19 +962,15 @@ attributes #7 = { nounwind willreturn memory(read) }
 !11 = !{!5, !5, i64 0}
 !12 = !{!7, !7, i64 0}
 !13 = distinct !{!13, !14}
-!14 = !{!"llvm.loop.estimated_trip_count"}
-!15 = distinct !{!15, !16, !14}
-!16 = !{!"llvm.loop.mustprogress"}
-!17 = distinct !{!17, !14}
-!18 = distinct !{!18, !16, !14}
-!19 = distinct !{!19, !14}
-!20 = !{!9, !9, i64 0}
+!14 = !{!"llvm.loop.mustprogress"}
+!15 = distinct !{!15, !14}
+!16 = !{!9, !9, i64 0}
+!17 = !{!18, !18, i64 0}
+!18 = !{!"long", !7, i64 0}
+!19 = !{!4, !9, i64 16}
+!20 = !{!4, !9, i64 32}
 !21 = !{!22, !22, i64 0}
-!22 = !{!"long", !7, i64 0}
-!23 = !{!4, !9, i64 16}
-!24 = !{!4, !9, i64 32}
-!25 = !{!26, !26, i64 0}
-!26 = !{!"p1 _ZTS14asn1_object_st", !6, i64 0}
-!27 = !{!4, !5, i64 0}
-!28 = !{!4, !5, i64 8}
-!29 = distinct !{!29, !16, !14}
+!22 = !{!"p1 _ZTS14asn1_object_st", !6, i64 0}
+!23 = !{!4, !5, i64 0}
+!24 = !{!4, !5, i64 8}
+!25 = distinct !{!25, !14}

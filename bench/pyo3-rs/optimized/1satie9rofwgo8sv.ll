@@ -46,7 +46,7 @@ define { ptr, i64 } @_ZN8pyo3_ffi32_cstr_from_utf8_with_nul_checked17h7d192abfde
 16:                                               ; preds = %.lr.ph
   %17 = add nuw i64 %.sroa.0.08, 1
   %exitcond.not = icmp eq i64 %17, %12
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !5
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %16, %.preheader.split
   %18 = insertvalue { ptr, i64 } poison, ptr %0, 0
@@ -94,5 +94,3 @@ attributes #3 = { noreturn }
 !2 = !{i32 1, !"LTOPostLink", i32 1}
 !3 = !{!"rustc version 1.79.0 (129f3b996 2024-06-10)"}
 !4 = !{}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.estimated_trip_count"}

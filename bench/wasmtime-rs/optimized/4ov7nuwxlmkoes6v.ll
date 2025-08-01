@@ -81,7 +81,7 @@ define void @_ZN4core4iter6traits8iterator8Iterator4fold17h0ebd7c016e805ba0E(ptr
 8:                                                ; preds = %6
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %3, ptr noundef nonnull align 8 dereferenceable(80) %4, i64 80, i1 false)
   invoke void @"_ZN4core4iter6traits8iterator8Iterator8for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h15817e5a1f9bc7c3E"(ptr align 8 %1, ptr nonnull align 8 %3)
-          to label %6 unwind label %.loopexit, !llvm.loop !6
+          to label %6 unwind label %.loopexit
 
 9:                                                ; preds = %6
   invoke void @"_ZN4core3ptr85drop_in_place$LT$core..option..Option$LT$wiggle_generate..config..ConfigField$GT$$GT$17hec90696597030441E"(ptr nonnull align 8 %4)
@@ -139,14 +139,14 @@ define void @_ZN4core4iter6traits8iterator8Iterator4fold17h1330aabd60c721ffE(ptr
 6:                                                ; preds = %2, %8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %4, ptr noundef nonnull align 8 dereferenceable(88) %0, i64 88, i1 false)
   store i64 -9223372036854775807, ptr %0, align 8
-  %7 = load i64, ptr %4, align 8, !range !8, !noundef !3
+  %7 = load i64, ptr %4, align 8, !range !6, !noundef !3
   %.not = icmp eq i64 %7, -9223372036854775807
   br i1 %.not, label %9, label %8
 
 8:                                                ; preds = %6
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %3, ptr noundef nonnull align 8 dereferenceable(88) %4, i64 88, i1 false)
   invoke void @"_ZN4core4iter6traits8iterator8Iterator8for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h71911eaaef3cfb69E"(ptr align 8 %1, ptr nonnull align 8 %3)
-          to label %6 unwind label %.loopexit, !llvm.loop !9
+          to label %6 unwind label %.loopexit
 
 9:                                                ; preds = %6
   invoke void @"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$wiggle_generate..config..ErrorConfField$GT$$GT$17h9f1a0a6f2b8960deE"(ptr nonnull align 8 %4)
@@ -204,14 +204,14 @@ define void @_ZN4core4iter6traits8iterator8Iterator4fold17ha6d24344efe80715E(ptr
 6:                                                ; preds = %2, %8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %4, ptr noundef nonnull align 8 dereferenceable(64) %0, i64 64, i1 false)
   store i64 -9223372036854775808, ptr %0, align 8
-  %7 = load i64, ptr %4, align 8, !range !10, !noundef !3
+  %7 = load i64, ptr %4, align 8, !range !7, !noundef !3
   %.not = icmp eq i64 %7, -9223372036854775808
   br i1 %.not, label %9, label %8
 
 8:                                                ; preds = %6
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %3, ptr noundef nonnull align 8 dereferenceable(64) %4, i64 64, i1 false)
   invoke void @"_ZN4core4iter6traits8iterator8Iterator8for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17hf2ac2413ef804adaE"(ptr align 8 %1, ptr nonnull align 8 %3)
-          to label %6 unwind label %.loopexit, !llvm.loop !11
+          to label %6 unwind label %.loopexit
 
 9:                                                ; preds = %6
   invoke void @"_ZN4core3ptr87drop_in_place$LT$core..option..Option$LT$wiggle_generate..config..FunctionField$GT$$GT$17h800fb000567b609bE"(ptr nonnull align 8 %4)
@@ -269,14 +269,14 @@ define void @_ZN4core4iter6traits8iterator8Iterator4fold17hf68aba33098dc390E(ptr
 6:                                                ; preds = %2, %8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %4, ptr noundef nonnull align 8 dereferenceable(80) %0, i64 80, i1 false)
   store i64 -9223372036854775799, ptr %0, align 8
-  %7 = load i64, ptr %4, align 8, !range !12, !noundef !3
+  %7 = load i64, ptr %4, align 8, !range !8, !noundef !3
   %.not = icmp eq i64 %7, -9223372036854775799
   br i1 %.not, label %9, label %8
 
 8:                                                ; preds = %6
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %3, ptr noundef nonnull align 8 dereferenceable(80) %4, i64 80, i1 false)
   invoke void @"_ZN4core4iter6traits8iterator8Iterator8for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h74c52cca7f7cbe48E"(ptr align 8 %1, ptr nonnull align 8 %3)
-          to label %6 unwind label %.loopexit, !llvm.loop !13
+          to label %6 unwind label %.loopexit
 
 9:                                                ; preds = %6
   invoke void @"_ZN4core3ptr93drop_in_place$LT$core..option..Option$LT$wiggle_generate..config..WasmtimeConfigField$GT$$GT$17heefec05e0cfbf8b2E"(ptr nonnull align 8 %4)
@@ -338,14 +338,14 @@ define void @_ZN4core4iter6traits8iterator8Iterator8for_each17h021b6d063f486ecaE
 7:                                                ; preds = %9, %2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %4, ptr noundef nonnull align 8 dereferenceable(64) %0, i64 64, i1 false)
   store i64 -9223372036854775808, ptr %0, align 8
-  %8 = load i64, ptr %4, align 8, !range !10, !noundef !3
+  %8 = load i64, ptr %4, align 8, !range !7, !noundef !3
   %.not.i = icmp eq i64 %8, -9223372036854775808
   br i1 %.not.i, label %10, label %9
 
 9:                                                ; preds = %7
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %3, ptr noundef nonnull align 8 dereferenceable(64) %4, i64 64, i1 false)
   invoke void @"_ZN4core4iter6traits8iterator8Iterator8for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17hf2ac2413ef804adaE"(ptr nonnull align 8 %5, ptr nonnull align 8 %3)
-          to label %7 unwind label %.loopexit.i, !llvm.loop !11
+          to label %7 unwind label %.loopexit.i
 
 10:                                               ; preds = %7
   invoke void @"_ZN4core3ptr87drop_in_place$LT$core..option..Option$LT$wiggle_generate..config..FunctionField$GT$$GT$17h800fb000567b609bE"(ptr nonnull align 8 %4)
@@ -416,7 +416,7 @@ define void @_ZN4core4iter6traits8iterator8Iterator8for_each17h3beb70458733c8aaE
 9:                                                ; preds = %7
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %3, ptr noundef nonnull align 8 dereferenceable(80) %4, i64 80, i1 false)
   invoke void @"_ZN4core4iter6traits8iterator8Iterator8for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h15817e5a1f9bc7c3E"(ptr nonnull align 8 %5, ptr nonnull align 8 %3)
-          to label %7 unwind label %.loopexit.i, !llvm.loop !6
+          to label %7 unwind label %.loopexit.i
 
 10:                                               ; preds = %7
   invoke void @"_ZN4core3ptr85drop_in_place$LT$core..option..Option$LT$wiggle_generate..config..ConfigField$GT$$GT$17hec90696597030441E"(ptr nonnull align 8 %4)
@@ -480,14 +480,14 @@ define void @_ZN4core4iter6traits8iterator8Iterator8for_each17hf1f6ab5a5411cc45E
 7:                                                ; preds = %9, %2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %4, ptr noundef nonnull align 8 dereferenceable(80) %0, i64 80, i1 false)
   store i64 -9223372036854775799, ptr %0, align 8
-  %8 = load i64, ptr %4, align 8, !range !12, !noundef !3
+  %8 = load i64, ptr %4, align 8, !range !8, !noundef !3
   %.not.i = icmp eq i64 %8, -9223372036854775799
   br i1 %.not.i, label %10, label %9
 
 9:                                                ; preds = %7
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %3, ptr noundef nonnull align 8 dereferenceable(80) %4, i64 80, i1 false)
   invoke void @"_ZN4core4iter6traits8iterator8Iterator8for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h74c52cca7f7cbe48E"(ptr nonnull align 8 %5, ptr nonnull align 8 %3)
-          to label %7 unwind label %.loopexit.i, !llvm.loop !13
+          to label %7 unwind label %.loopexit.i
 
 10:                                               ; preds = %7
   invoke void @"_ZN4core3ptr93drop_in_place$LT$core..option..Option$LT$wiggle_generate..config..WasmtimeConfigField$GT$$GT$17heefec05e0cfbf8b2E"(ptr nonnull align 8 %4)
@@ -551,14 +551,14 @@ define void @_ZN4core4iter6traits8iterator8Iterator8for_each17hfef36e3de4d67ab0E
 7:                                                ; preds = %9, %2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %4, ptr noundef nonnull align 8 dereferenceable(88) %0, i64 88, i1 false)
   store i64 -9223372036854775807, ptr %0, align 8
-  %8 = load i64, ptr %4, align 8, !range !8, !noundef !3
+  %8 = load i64, ptr %4, align 8, !range !6, !noundef !3
   %.not.i = icmp eq i64 %8, -9223372036854775807
   br i1 %.not.i, label %10, label %9
 
 9:                                                ; preds = %7
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %3, ptr noundef nonnull align 8 dereferenceable(88) %4, i64 88, i1 false)
   invoke void @"_ZN4core4iter6traits8iterator8Iterator8for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h71911eaaef3cfb69E"(ptr nonnull align 8 %5, ptr nonnull align 8 %3)
-          to label %7 unwind label %.loopexit.i, !llvm.loop !9
+          to label %7 unwind label %.loopexit.i
 
 10:                                               ; preds = %7
   invoke void @"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$wiggle_generate..config..ErrorConfField$GT$$GT$17h9f1a0a6f2b8960deE"(ptr nonnull align 8 %4)
@@ -678,7 +678,7 @@ define void @_ZN4core6option6Option4Some17hb3ec54781e42413dE(ptr writeonly sret(
 ; Function Attrs: inlinehint nonlazybind uwtable
 define zeroext i1 @"_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h69a93243df398900E"(ptr align 8 %0, ptr align 8 %1) unnamed_addr #2 {
   %3 = alloca ptr, align 8
-  %4 = load i64, ptr %0, align 8, !range !14, !noundef !3
+  %4 = load i64, ptr %0, align 8, !range !9, !noundef !3
   %5 = icmp eq i64 %4, 2
   br i1 %5, label %6, label %8
 
@@ -720,7 +720,7 @@ define zeroext i1 @"_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..fmt
 ; Function Attrs: inlinehint nonlazybind uwtable
 define zeroext i1 @"_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h79c203b1e91a05cdE"(ptr align 8 %0, ptr align 8 %1) unnamed_addr #2 {
   %3 = alloca ptr, align 8
-  %4 = load i64, ptr %0, align 8, !range !10, !noundef !3
+  %4 = load i64, ptr %0, align 8, !range !7, !noundef !3
   %5 = icmp eq i64 %4, -9223372036854775808
   br i1 %5, label %6, label %8
 
@@ -741,7 +741,7 @@ define zeroext i1 @"_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..fmt
 ; Function Attrs: inlinehint nonlazybind uwtable
 define zeroext i1 @"_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17haa210ba22fed137bE"(ptr align 8 %0, ptr align 8 %1) unnamed_addr #2 {
   %3 = alloca ptr, align 8
-  %4 = load i64, ptr %0, align 8, !range !10, !noundef !3
+  %4 = load i64, ptr %0, align 8, !range !7, !noundef !3
   %5 = icmp eq i64 %4, -9223372036854775808
   br i1 %5, label %6, label %8
 
@@ -828,7 +828,7 @@ define void @"_ZN90_$LT$core..option..IntoIter$LT$A$GT$$u20$as$u20$core..iter..t
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
 define void @"_ZN90_$LT$core..option..IntoIter$LT$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h8b16964f7e162447E"(ptr writeonly sret({ i64, { i64, [1 x i64] } }) align 8 captures(none) initializes((0, 24)) %0, ptr readonly align 8 captures(none) %1) unnamed_addr #3 {
-  %3 = load i64, ptr %1, align 8, !range !10, !noundef !3
+  %3 = load i64, ptr %1, align 8, !range !7, !noundef !3
   %4 = icmp ne i64 %3, -9223372036854775808
   %spec.select = zext i1 %4 to i64
   store i64 %spec.select, ptr %0, align 8
@@ -841,7 +841,7 @@ define void @"_ZN90_$LT$core..option..IntoIter$LT$A$GT$$u20$as$u20$core..iter..t
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
 define void @"_ZN90_$LT$core..option..IntoIter$LT$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17he82fad1c1a61c797E"(ptr writeonly sret({ i64, { i64, [1 x i64] } }) align 8 captures(none) initializes((0, 24)) %0, ptr readonly align 8 captures(none) %1) unnamed_addr #3 {
-  %3 = load i64, ptr %1, align 8, !range !8, !noundef !3
+  %3 = load i64, ptr %1, align 8, !range !6, !noundef !3
   %4 = icmp ne i64 %3, -9223372036854775807
   %spec.select = zext i1 %4 to i64
   store i64 %spec.select, ptr %0, align 8
@@ -854,7 +854,7 @@ define void @"_ZN90_$LT$core..option..IntoIter$LT$A$GT$$u20$as$u20$core..iter..t
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
 define void @"_ZN90_$LT$core..option..IntoIter$LT$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hf481a7d61ac71f74E"(ptr writeonly sret({ i64, { i64, [1 x i64] } }) align 8 captures(none) initializes((0, 24)) %0, ptr readonly align 8 captures(none) %1) unnamed_addr #3 {
-  %3 = load i64, ptr %1, align 8, !range !12, !noundef !3
+  %3 = load i64, ptr %1, align 8, !range !8, !noundef !3
   %4 = icmp ne i64 %3, -9223372036854775799
   %spec.select = zext i1 %4 to i64
   store i64 %spec.select, ptr %0, align 8
@@ -992,12 +992,7 @@ attributes #8 = { cold noreturn nounwind }
 !3 = !{}
 !4 = !{i64 8}
 !5 = !{i64 0, i64 -9223372036854775799}
-!6 = distinct !{!6, !7}
-!7 = !{!"llvm.loop.estimated_trip_count"}
-!8 = !{i64 0, i64 -9223372036854775806}
-!9 = distinct !{!9, !7}
-!10 = !{i64 0, i64 -9223372036854775807}
-!11 = distinct !{!11, !7}
-!12 = !{i64 0, i64 -9223372036854775798}
-!13 = distinct !{!13, !7}
-!14 = !{i64 0, i64 3}
+!6 = !{i64 0, i64 -9223372036854775806}
+!7 = !{i64 0, i64 -9223372036854775807}
+!8 = !{i64 0, i64 -9223372036854775798}
+!9 = !{i64 0, i64 3}

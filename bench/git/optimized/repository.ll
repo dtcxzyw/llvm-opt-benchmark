@@ -380,7 +380,7 @@ hash_algo_by_ptr.exit:                            ; preds = %7, %.split.loop.exi
   %14 = getelementptr inbounds [3 x %struct.git_hash_algo], ptr @hash_algos, i64 0, i64 %13
   %15 = select i1 %.not, ptr null, ptr %14
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 408
-  store ptr %15, ptr %16, align 8, !tbaa !70
+  store ptr %15, ptr %16, align 8, !tbaa !69
   br i1 %.not, label %19, label %17
 
 17:                                               ; preds = %12
@@ -396,7 +396,7 @@ declare i32 @repo_read_loose_object_map(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define dso_local void @repo_set_ref_storage_format(ptr noundef writeonly captures(none) initializes((416, 420)) %0, i32 noundef %1) local_unnamed_addr #6 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 416
-  store i32 %1, ptr %3, align 8, !tbaa !71
+  store i32 %1, ptr %3, align 8, !tbaa !70
   ret void
 }
 
@@ -435,7 +435,7 @@ define dso_local range(i32 -1, 1) i32 @repo_init(ptr noundef initializes((0, 464
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(464) %0, i8 0, i64 464, i1 false)
   tail call void @initialize_repository(ptr noundef nonnull %0)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #10
-  store i32 0, ptr %5, align 4, !tbaa !72
+  store i32 0, ptr %5, align 4, !tbaa !71
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %6) #10
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %6, i8 0, i64 48, i1 false)
   %13 = tail call ptr @real_pathdup(ptr noundef %1, i32 noundef 0) #10
@@ -464,16 +464,16 @@ repo_init_gitdir.exit.thread:                     ; preds = %3, %14
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) @__const.read_and_verify_repository_format.sb, i64 24, i1 false)
   call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %4, ptr noundef nonnull @.str.15, ptr noundef %18) #10
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %20 = load ptr, ptr %19, align 8, !tbaa !73
+  %20 = load ptr, ptr %19, align 8, !tbaa !72
   %21 = call i32 @read_repository_format(ptr noundef nonnull %7, ptr noundef %20) #10
   %22 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store i64 0, ptr %22, align 8, !tbaa !75
-  %23 = load ptr, ptr %19, align 8, !tbaa !73
+  store i64 0, ptr %22, align 8, !tbaa !74
+  %23 = load ptr, ptr %19, align 8, !tbaa !72
   %.not9.i.i = icmp eq ptr %23, @strbuf_slopbuf
   br i1 %.not9.i.i, label %strbuf_setlen.exit.i, label %24
 
 24:                                               ; preds = %16
-  store i8 0, ptr %23, align 1, !tbaa !76
+  store i8 0, ptr %23, align 1, !tbaa !75
   br label %strbuf_setlen.exit.i
 
 strbuf_setlen.exit.i:                             ; preds = %24, %16
@@ -482,7 +482,7 @@ strbuf_setlen.exit.i:                             ; preds = %24, %16
   br i1 %26, label %read_and_verify_repository_format.exit, label %hash_algo_by_ptr.exit.i
 
 read_and_verify_repository_format.exit:           ; preds = %strbuf_setlen.exit.i
-  %27 = load ptr, ptr %19, align 8, !tbaa !73
+  %27 = load ptr, ptr %19, align 8, !tbaa !72
   call void (ptr, ...) @warning(ptr noundef nonnull @.str.7, ptr noundef %27) #10
   call void @strbuf_release(ptr noundef nonnull %4) #10
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #10
@@ -491,13 +491,13 @@ read_and_verify_repository_format.exit:           ; preds = %strbuf_setlen.exit.
 hash_algo_by_ptr.exit.i:                          ; preds = %strbuf_setlen.exit.i
   call void @strbuf_release(ptr noundef nonnull %4) #10
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #10
-  %28 = load i32, ptr %9, align 4, !tbaa !77
+  %28 = load i32, ptr %9, align 4, !tbaa !76
   %29 = sext i32 %28 to i64
   %30 = getelementptr inbounds [3 x %struct.git_hash_algo], ptr @hash_algos, i64 0, i64 %29
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 400
   store ptr %30, ptr %31, align 8, !tbaa !33
   %32 = getelementptr inbounds nuw i8, ptr %7, i64 32
-  %33 = load i32, ptr %32, align 8, !tbaa !81
+  %33 = load i32, ptr %32, align 8, !tbaa !80
   %34 = icmp ult i32 %28, 3
   %spec.select = select i1 %34, i32 %28, i32 0
   %35 = icmp eq i32 %spec.select, %33
@@ -513,7 +513,7 @@ hash_algo_by_ptr.exit.i:                          ; preds = %strbuf_setlen.exit.
   %39 = getelementptr inbounds [3 x %struct.git_hash_algo], ptr @hash_algos, i64 0, i64 %38
   %40 = select i1 %.not.i22, ptr null, ptr %39
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 408
-  store ptr %40, ptr %41, align 8, !tbaa !70
+  store ptr %40, ptr %41, align 8, !tbaa !69
   br i1 %.not.i22, label %repo_set_compat_hash_algo.exit, label %42
 
 42:                                               ; preds = %37
@@ -521,22 +521,22 @@ hash_algo_by_ptr.exit.i:                          ; preds = %strbuf_setlen.exit.
   br label %repo_set_compat_hash_algo.exit
 
 repo_set_compat_hash_algo.exit:                   ; preds = %37, %42
-  %44 = load i32, ptr %10, align 4, !tbaa !82
+  %44 = load i32, ptr %10, align 4, !tbaa !81
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 416
-  store i32 %44, ptr %45, align 8, !tbaa !71
+  store i32 %44, ptr %45, align 8, !tbaa !70
   %46 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %47 = load i32, ptr %46, align 8, !tbaa !83
+  %47 = load i32, ptr %46, align 8, !tbaa !82
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 448
-  store i32 %47, ptr %48, align 8, !tbaa !84
+  store i32 %47, ptr %48, align 8, !tbaa !83
   %49 = getelementptr inbounds nuw i8, ptr %7, i64 20
-  %50 = load i32, ptr %49, align 4, !tbaa !85
+  %50 = load i32, ptr %49, align 4, !tbaa !84
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 452
-  store i32 %50, ptr %51, align 4, !tbaa !86
+  store i32 %50, ptr %51, align 4, !tbaa !85
   %52 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %53 = load ptr, ptr %52, align 8, !tbaa !87
+  %53 = load ptr, ptr %52, align 8, !tbaa !86
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 432
-  store ptr %53, ptr %54, align 8, !tbaa !88
-  store ptr null, ptr %52, align 8, !tbaa !87
+  store ptr %53, ptr %54, align 8, !tbaa !87
+  store ptr null, ptr %52, align 8, !tbaa !86
   %.not19 = icmp eq ptr %2, null
   br i1 %.not19, label %58, label %55
 
@@ -548,7 +548,7 @@ repo_set_compat_hash_algo.exit:                   ; preds = %37, %42
   br label %58
 
 58:                                               ; preds = %55, %repo_set_compat_hash_algo.exit
-  %59 = load ptr, ptr %41, align 8, !tbaa !70
+  %59 = load ptr, ptr %41, align 8, !tbaa !69
   %.not20 = icmp eq ptr %59, null
   br i1 %.not20, label %62, label %60
 
@@ -599,9 +599,9 @@ define dso_local void @repo_clear(ptr noundef %0) local_unnamed_addr #0 {
   tail call void @free(ptr noundef %11) #10
   store ptr null, ptr %10, align 8, !tbaa !55
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 248
-  %13 = load ptr, ptr %12, align 8, !tbaa !89
+  %13 = load ptr, ptr %12, align 8, !tbaa !88
   tail call void @free(ptr noundef %13) #10
-  store ptr null, ptr %12, align 8, !tbaa !89
+  store ptr null, ptr %12, align 8, !tbaa !88
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %15 = load ptr, ptr %14, align 8, !tbaa !4
   tail call void @raw_object_store_clear(ptr noundef %15) #10
@@ -615,30 +615,30 @@ define dso_local void @repo_clear(ptr noundef %0) local_unnamed_addr #0 {
   tail call void @free(ptr noundef %19) #10
   store ptr null, ptr %17, align 8, !tbaa !29
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 304
-  %21 = load ptr, ptr %20, align 8, !tbaa !90
+  %21 = load ptr, ptr %20, align 8, !tbaa !89
   tail call void @free(ptr noundef %21) #10
-  store ptr null, ptr %20, align 8, !tbaa !90
+  store ptr null, ptr %20, align 8, !tbaa !89
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 368
-  %23 = load ptr, ptr %22, align 8, !tbaa !91
+  %23 = load ptr, ptr %22, align 8, !tbaa !90
   %.not = icmp eq ptr %23, null
   br i1 %.not, label %26, label %24
 
 24:                                               ; preds = %1
   tail call void @git_configset_clear(ptr noundef nonnull %23) #10
-  %25 = load ptr, ptr %22, align 8, !tbaa !91
+  %25 = load ptr, ptr %22, align 8, !tbaa !90
   tail call void @free(ptr noundef %25) #10
-  store ptr null, ptr %22, align 8, !tbaa !91
+  store ptr null, ptr %22, align 8, !tbaa !90
   br label %26
 
 26:                                               ; preds = %24, %1
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 376
-  %28 = load ptr, ptr %27, align 8, !tbaa !92
+  %28 = load ptr, ptr %27, align 8, !tbaa !91
   %.not53 = icmp eq ptr %28, null
   br i1 %.not53, label %30, label %29
 
 29:                                               ; preds = %26
   tail call void @submodule_cache_free(ptr noundef nonnull %28) #10
-  store ptr null, ptr %27, align 8, !tbaa !92
+  store ptr null, ptr %27, align 8, !tbaa !91
   br label %30
 
 30:                                               ; preds = %29, %26
@@ -656,15 +656,15 @@ define dso_local void @repo_clear(ptr noundef %0) local_unnamed_addr #0 {
 
 35:                                               ; preds = %33, %30
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 440
-  %37 = load ptr, ptr %36, align 8, !tbaa !93
+  %37 = load ptr, ptr %36, align 8, !tbaa !92
   %.not55 = icmp eq ptr %37, null
   br i1 %.not55, label %40, label %38
 
 38:                                               ; preds = %35
   tail call void @promisor_remote_clear(ptr noundef nonnull %37) #10
-  %39 = load ptr, ptr %36, align 8, !tbaa !93
+  %39 = load ptr, ptr %36, align 8, !tbaa !92
   tail call void @free(ptr noundef %39) #10
-  store ptr null, ptr %36, align 8, !tbaa !93
+  store ptr null, ptr %36, align 8, !tbaa !92
   br label %40
 
 40:                                               ; preds = %38, %35
@@ -690,11 +690,11 @@ define dso_local void @repo_clear(ptr noundef %0) local_unnamed_addr #0 {
 .lr.ph:                                           ; preds = %45, %.lr.ph
   %.060 = phi ptr [ %50, %.lr.ph ], [ %47, %45 ]
   %48 = getelementptr inbounds nuw i8, ptr %.060, i64 24
-  %49 = load ptr, ptr %48, align 8, !tbaa !94
+  %49 = load ptr, ptr %48, align 8, !tbaa !93
   call void @ref_store_release(ptr noundef %49) #10
   %50 = call ptr @hashmap_iter_next(ptr noundef nonnull %2) #10
   %.not57 = icmp eq ptr %50, null
-  br i1 %.not57, label %._crit_edge, label %.lr.ph, !llvm.loop !98
+  br i1 %.not57, label %._crit_edge, label %.lr.ph, !llvm.loop !97
 
 ._crit_edge:                                      ; preds = %.lr.ph, %45
   call void @strmap_clear(ptr noundef nonnull %46, i32 noundef 1) #10
@@ -707,42 +707,42 @@ define dso_local void @repo_clear(ptr noundef %0) local_unnamed_addr #0 {
 .lr.ph64:                                         ; preds = %._crit_edge, %.lr.ph64
   %.162 = phi ptr [ %55, %.lr.ph64 ], [ %52, %._crit_edge ]
   %53 = getelementptr inbounds nuw i8, ptr %.162, i64 24
-  %54 = load ptr, ptr %53, align 8, !tbaa !94
+  %54 = load ptr, ptr %53, align 8, !tbaa !93
   call void @ref_store_release(ptr noundef %54) #10
   %55 = call ptr @hashmap_iter_next(ptr noundef nonnull %2) #10
   %.not58 = icmp eq ptr %55, null
-  br i1 %.not58, label %._crit_edge65, label %.lr.ph64, !llvm.loop !99
+  br i1 %.not58, label %._crit_edge65, label %.lr.ph64, !llvm.loop !98
 
 ._crit_edge65:                                    ; preds = %.lr.ph64, %._crit_edge
   call void @strmap_clear(ptr noundef nonnull %51, i32 noundef 1) #10
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 168
-  %57 = load ptr, ptr %56, align 8, !tbaa !100
+  %57 = load ptr, ptr %56, align 8, !tbaa !99
   call void @free(ptr noundef %57) #10
-  store ptr null, ptr %56, align 8, !tbaa !100
+  store ptr null, ptr %56, align 8, !tbaa !99
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %59 = load ptr, ptr %58, align 8, !tbaa !101
+  %59 = load ptr, ptr %58, align 8, !tbaa !100
   call void @free(ptr noundef %59) #10
-  store ptr null, ptr %58, align 8, !tbaa !101
+  store ptr null, ptr %58, align 8, !tbaa !100
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 184
-  %61 = load ptr, ptr %60, align 8, !tbaa !102
+  %61 = load ptr, ptr %60, align 8, !tbaa !101
   call void @free(ptr noundef %61) #10
-  store ptr null, ptr %60, align 8, !tbaa !102
+  store ptr null, ptr %60, align 8, !tbaa !101
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 192
-  %63 = load ptr, ptr %62, align 8, !tbaa !103
+  %63 = load ptr, ptr %62, align 8, !tbaa !102
   call void @free(ptr noundef %63) #10
-  store ptr null, ptr %62, align 8, !tbaa !103
+  store ptr null, ptr %62, align 8, !tbaa !102
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 200
-  %65 = load ptr, ptr %64, align 8, !tbaa !104
+  %65 = load ptr, ptr %64, align 8, !tbaa !103
   call void @free(ptr noundef %65) #10
-  store ptr null, ptr %64, align 8, !tbaa !104
+  store ptr null, ptr %64, align 8, !tbaa !103
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 208
-  %67 = load ptr, ptr %66, align 8, !tbaa !105
+  %67 = load ptr, ptr %66, align 8, !tbaa !104
   call void @free(ptr noundef %67) #10
-  store ptr null, ptr %66, align 8, !tbaa !105
+  store ptr null, ptr %66, align 8, !tbaa !104
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 216
-  %69 = load ptr, ptr %68, align 8, !tbaa !106
+  %69 = load ptr, ptr %68, align 8, !tbaa !105
   call void @free(ptr noundef %69) #10
-  store ptr null, ptr %68, align 8, !tbaa !106
+  store ptr null, ptr %68, align 8, !tbaa !105
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2) #10
   ret void
 }
@@ -758,9 +758,9 @@ define dso_local range(i32 -1, 1) i32 @repo_submodule_init(ptr noundef initializ
   call void (ptr, ptr, ptr, ...) @strbuf_repo_worktree_path(ptr noundef nonnull %5, ptr noundef %1, ptr noundef nonnull @.str.6, ptr noundef %2) #10
   call void (ptr, ptr, ptr, ...) @strbuf_repo_worktree_path(ptr noundef nonnull %6, ptr noundef %1, ptr noundef nonnull @.str.7, ptr noundef %2) #10
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %8 = load ptr, ptr %7, align 8, !tbaa !73
+  %8 = load ptr, ptr %7, align 8, !tbaa !72
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %10 = load ptr, ptr %9, align 8, !tbaa !73
+  %10 = load ptr, ptr %9, align 8, !tbaa !72
   %11 = call i32 @repo_init(ptr noundef %0, ptr noundef %8, ptr noundef %10)
   %.not = icmp eq i32 %11, 0
   br i1 %.not, label %22, label %12
@@ -772,32 +772,32 @@ define dso_local range(i32 -1, 1) i32 @repo_submodule_init(ptr noundef initializ
 
 14:                                               ; preds = %12
   %15 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store i64 0, ptr %15, align 8, !tbaa !75
-  %16 = load ptr, ptr %7, align 8, !tbaa !73
+  store i64 0, ptr %15, align 8, !tbaa !74
+  %16 = load ptr, ptr %7, align 8, !tbaa !72
   %.not9.i = icmp eq ptr %16, @strbuf_slopbuf
   br i1 %.not9.i, label %strbuf_setlen.exit, label %17
 
 17:                                               ; preds = %14
-  store i8 0, ptr %16, align 1, !tbaa !76
+  store i8 0, ptr %16, align 1, !tbaa !75
   br label %strbuf_setlen.exit
 
 strbuf_setlen.exit:                               ; preds = %14, %17
   %18 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  %19 = load ptr, ptr %18, align 8, !tbaa !107
+  %19 = load ptr, ptr %18, align 8, !tbaa !106
   call void @submodule_name_to_gitdir(ptr noundef nonnull %5, ptr noundef %1, ptr noundef %19) #10
-  %20 = load ptr, ptr %7, align 8, !tbaa !73
+  %20 = load ptr, ptr %7, align 8, !tbaa !72
   %21 = call i32 @repo_init(ptr noundef %0, ptr noundef %20, ptr noundef null)
   %.not23 = icmp eq i32 %21, 0
   br i1 %.not23, label %22, label %.thread
 
 22:                                               ; preds = %strbuf_setlen.exit, %4
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 248
-  %24 = load ptr, ptr %23, align 8, !tbaa !89
+  %24 = load ptr, ptr %23, align 8, !tbaa !88
   %.not24 = icmp eq ptr %24, null
   %spec.select = select i1 %.not24, ptr @.str.9, ptr %24
   %25 = call ptr (ptr, ...) @xstrfmt(ptr noundef nonnull @.str.8, ptr noundef nonnull %spec.select, ptr noundef %2) #10
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 248
-  store ptr %25, ptr %26, align 8, !tbaa !89
+  store ptr %25, ptr %26, align 8, !tbaa !88
   br label %.thread
 
 .thread:                                          ; preds = %strbuf_setlen.exit, %12, %22
@@ -858,7 +858,7 @@ define dso_local i32 @repo_read_index(ptr noundef %0) local_unnamed_addr #0 {
 
 6:                                                ; preds = %1
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 240
-  %8 = load ptr, ptr %7, align 8, !tbaa !111
+  %8 = load ptr, ptr %7, align 8, !tbaa !110
   %.not13 = icmp eq ptr %8, %0
   br i1 %.not13, label %10, label %9
 
@@ -874,7 +874,7 @@ define dso_local i32 @repo_read_index(ptr noundef %0) local_unnamed_addr #0 {
   %15 = tail call i32 @read_index_from(ptr noundef %11, ptr noundef %13, ptr noundef %14) #10
   tail call void @prepare_repo_settings(ptr noundef nonnull %0) #10
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 280
-  %17 = load i32, ptr %16, align 8, !tbaa !122
+  %17 = load i32, ptr %16, align 8, !tbaa !121
   %.not14 = icmp eq i32 %17, 0
   br i1 %.not14, label %20, label %18
 
@@ -1018,59 +1018,58 @@ attributes #11 = { noreturn nounwind }
 !64 = !{!57, !6, i64 32}
 !65 = !{!57, !6, i64 16}
 !66 = !{!57, !6, i64 24}
-!67 = distinct !{!67, !68, !69}
+!67 = distinct !{!67, !68}
 !68 = !{!"llvm.loop.mustprogress"}
-!69 = !{!"llvm.loop.estimated_trip_count"}
-!70 = !{!5, !26, i64 408}
-!71 = !{!5, !16, i64 416}
-!72 = !{!16, !16, i64 0}
-!73 = !{!74, !6, i64 16}
-!74 = !{!"strbuf", !21, i64 0, !21, i64 8, !6, i64 16}
-!75 = !{!74, !21, i64 8}
-!76 = !{!8, !8, i64 0}
-!77 = !{!78, !16, i64 28}
-!78 = !{!"repository_format", !16, i64 0, !16, i64 4, !6, i64 8, !16, i64 16, !16, i64 20, !16, i64 24, !16, i64 28, !16, i64 32, !16, i64 36, !16, i64 40, !6, i64 48, !79, i64 56, !79, i64 96}
-!79 = !{!"string_list", !80, i64 0, !21, i64 8, !21, i64 16, !16, i64 24, !7, i64 32}
-!80 = !{!"p1 _ZTS16string_list_item", !7, i64 0}
-!81 = !{!78, !16, i64 32}
-!82 = !{!78, !16, i64 36}
-!83 = !{!78, !16, i64 16}
-!84 = !{!5, !16, i64 448}
-!85 = !{!78, !16, i64 20}
-!86 = !{!5, !16, i64 452}
-!87 = !{!78, !6, i64 8}
-!88 = !{!5, !6, i64 432}
-!89 = !{!5, !6, i64 248}
-!90 = !{!5, !20, i64 304}
-!91 = !{!5, !22, i64 368}
-!92 = !{!5, !23, i64 376}
-!93 = !{!5, !27, i64 440}
-!94 = !{!95, !7, i64 24}
-!95 = !{!"strmap_entry", !96, i64 0, !6, i64 16, !7, i64 24}
-!96 = !{!"hashmap_entry", !97, i64 0, !16, i64 8}
-!97 = !{!"p1 _ZTS13hashmap_entry", !7, i64 0}
-!98 = distinct !{!98, !68, !69}
-!99 = distinct !{!99, !68, !69}
-!100 = !{!18, !6, i64 0}
-!101 = !{!18, !6, i64 8}
-!102 = !{!18, !6, i64 16}
-!103 = !{!18, !6, i64 24}
-!104 = !{!18, !6, i64 32}
-!105 = !{!18, !6, i64 40}
-!106 = !{!18, !6, i64 48}
-!107 = !{!108, !6, i64 8}
-!108 = !{!"submodule", !6, i64 0, !6, i64 8, !6, i64 16, !16, i64 24, !6, i64 32, !6, i64 40, !109, i64 48, !110, i64 64, !16, i64 100}
-!109 = !{!"submodule_update_strategy", !16, i64 0, !6, i64 8}
-!110 = !{!"object_id", !8, i64 0, !16, i64 32}
-!111 = !{!112, !32, i64 240}
-!112 = !{!"index_state", !113, i64 0, !16, i64 8, !16, i64 12, !16, i64 16, !16, i64 20, !114, i64 24, !115, i64 32, !116, i64 40, !117, i64 48, !16, i64 56, !16, i64 56, !16, i64 56, !16, i64 56, !16, i64 56, !16, i64 56, !16, i64 60, !14, i64 64, !14, i64 112, !110, i64 160, !118, i64 200, !6, i64 208, !119, i64 216, !17, i64 224, !120, i64 232, !32, i64 240, !121, i64 248}
-!113 = !{!"p2 _ZTS11cache_entry", !7, i64 0}
-!114 = !{!"p1 _ZTS11string_list", !7, i64 0}
-!115 = !{!"p1 _ZTS10cache_tree", !7, i64 0}
-!116 = !{!"p1 _ZTS11split_index", !7, i64 0}
-!117 = !{!"cache_time", !16, i64 0, !16, i64 4}
-!118 = !{!"p1 _ZTS15untracked_cache", !7, i64 0}
-!119 = !{!"p1 _ZTS11ewah_bitmap", !7, i64 0}
-!120 = !{!"p1 _ZTS8progress", !7, i64 0}
-!121 = !{!"p1 _ZTS12pattern_list", !7, i64 0}
-!122 = !{!5, !16, i64 280}
+!69 = !{!5, !26, i64 408}
+!70 = !{!5, !16, i64 416}
+!71 = !{!16, !16, i64 0}
+!72 = !{!73, !6, i64 16}
+!73 = !{!"strbuf", !21, i64 0, !21, i64 8, !6, i64 16}
+!74 = !{!73, !21, i64 8}
+!75 = !{!8, !8, i64 0}
+!76 = !{!77, !16, i64 28}
+!77 = !{!"repository_format", !16, i64 0, !16, i64 4, !6, i64 8, !16, i64 16, !16, i64 20, !16, i64 24, !16, i64 28, !16, i64 32, !16, i64 36, !16, i64 40, !6, i64 48, !78, i64 56, !78, i64 96}
+!78 = !{!"string_list", !79, i64 0, !21, i64 8, !21, i64 16, !16, i64 24, !7, i64 32}
+!79 = !{!"p1 _ZTS16string_list_item", !7, i64 0}
+!80 = !{!77, !16, i64 32}
+!81 = !{!77, !16, i64 36}
+!82 = !{!77, !16, i64 16}
+!83 = !{!5, !16, i64 448}
+!84 = !{!77, !16, i64 20}
+!85 = !{!5, !16, i64 452}
+!86 = !{!77, !6, i64 8}
+!87 = !{!5, !6, i64 432}
+!88 = !{!5, !6, i64 248}
+!89 = !{!5, !20, i64 304}
+!90 = !{!5, !22, i64 368}
+!91 = !{!5, !23, i64 376}
+!92 = !{!5, !27, i64 440}
+!93 = !{!94, !7, i64 24}
+!94 = !{!"strmap_entry", !95, i64 0, !6, i64 16, !7, i64 24}
+!95 = !{!"hashmap_entry", !96, i64 0, !16, i64 8}
+!96 = !{!"p1 _ZTS13hashmap_entry", !7, i64 0}
+!97 = distinct !{!97, !68}
+!98 = distinct !{!98, !68}
+!99 = !{!18, !6, i64 0}
+!100 = !{!18, !6, i64 8}
+!101 = !{!18, !6, i64 16}
+!102 = !{!18, !6, i64 24}
+!103 = !{!18, !6, i64 32}
+!104 = !{!18, !6, i64 40}
+!105 = !{!18, !6, i64 48}
+!106 = !{!107, !6, i64 8}
+!107 = !{!"submodule", !6, i64 0, !6, i64 8, !6, i64 16, !16, i64 24, !6, i64 32, !6, i64 40, !108, i64 48, !109, i64 64, !16, i64 100}
+!108 = !{!"submodule_update_strategy", !16, i64 0, !6, i64 8}
+!109 = !{!"object_id", !8, i64 0, !16, i64 32}
+!110 = !{!111, !32, i64 240}
+!111 = !{!"index_state", !112, i64 0, !16, i64 8, !16, i64 12, !16, i64 16, !16, i64 20, !113, i64 24, !114, i64 32, !115, i64 40, !116, i64 48, !16, i64 56, !16, i64 56, !16, i64 56, !16, i64 56, !16, i64 56, !16, i64 56, !16, i64 60, !14, i64 64, !14, i64 112, !109, i64 160, !117, i64 200, !6, i64 208, !118, i64 216, !17, i64 224, !119, i64 232, !32, i64 240, !120, i64 248}
+!112 = !{!"p2 _ZTS11cache_entry", !7, i64 0}
+!113 = !{!"p1 _ZTS11string_list", !7, i64 0}
+!114 = !{!"p1 _ZTS10cache_tree", !7, i64 0}
+!115 = !{!"p1 _ZTS11split_index", !7, i64 0}
+!116 = !{!"cache_time", !16, i64 0, !16, i64 4}
+!117 = !{!"p1 _ZTS15untracked_cache", !7, i64 0}
+!118 = !{!"p1 _ZTS11ewah_bitmap", !7, i64 0}
+!119 = !{!"p1 _ZTS8progress", !7, i64 0}
+!120 = !{!"p1 _ZTS12pattern_list", !7, i64 0}
+!121 = !{!5, !16, i64 280}

@@ -702,7 +702,7 @@ define void @rpc_init_prog(i32 noundef %0, i32 noundef %1, i32 noundef %2, i64 n
 ._crit_edge:                                      ; preds = %75, %21
   %79 = add nuw i64 %.062, 1
   %exitcond.not = icmp eq i64 %79, %3
-  br i1 %exitcond.not, label %._crit_edge65, label %21, !llvm.loop !11
+  br i1 %exitcond.not, label %._crit_edge65, label %21, !llvm.loop !10
 
 ._crit_edge65:                                    ; preds = %._crit_edge, %5
   ret void
@@ -1113,7 +1113,7 @@ define noundef i32 @dissect_rpc_list(ptr noundef %0, ptr noundef %1, ptr noundef
   %18 = tail call ptr @proto_tree_add_boolean(ptr noundef %2, i32 noundef %16, ptr noundef %0, i32 noundef %14, i32 noundef 4, i64 noundef %17)
   %19 = add i32 %14, 4
   %20 = icmp eq i32 %15, 1
-  br i1 %20, label %.lr.ph, label %._crit_edge, !llvm.loop !12
+  br i1 %20, label %.lr.ph, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph, %6
   %.lcssa = phi i32 [ %11, %6 ], [ %19, %.lr.ph ]
@@ -1149,7 +1149,7 @@ define noundef i32 @dissect_rpc_array(ptr noundef %0, ptr noundef %1, ptr nounde
   %20 = add i32 %.033, -1
   %21 = tail call i32 %4(ptr noundef %0, i32 noundef %.03032, ptr noundef %1, ptr noundef %10, ptr noundef null)
   %.not = icmp eq i32 %20, 0
-  br i1 %.not, label %.loopexit, label %19, !llvm.loop !13
+  br i1 %.not, label %.loopexit, label %19, !llvm.loop !11
 
 .loopexit:                                        ; preds = %19, %13
   %.lcssa.sink = phi i32 [ %12, %13 ], [ %21, %19 ]
@@ -1378,7 +1378,7 @@ rpc_roundup.exit:                                 ; preds = %4
   %127 = add nuw i32 %.03640.us.i.i, 1
   %.0.us.i.i = add i32 %.041.us.i.i, 4
   %exitcond.not.i.i = icmp eq i32 %127, %117
-  br i1 %exitcond.not.i.i, label %dissect_rpc_authunix_groups.exit.i, label %.lr.ph.split.us.i.i, !llvm.loop !14
+  br i1 %exitcond.not.i.i, label %dissect_rpc_authunix_groups.exit.i, label %.lr.ph.split.us.i.i, !llvm.loop !12
 
 dissect_rpc_authunix_groups.exit.i:               ; preds = %126, %.split.i
   %.0.lcssa63.i.i = phi i32 [ %.039.i.i, %.split.i ], [ %.0.us.i.i, %126 ]
@@ -1964,7 +1964,7 @@ define internal range(i32 0, 2) i32 @rpc_prog_stat_packet(ptr noundef readonly c
   %29 = add nuw i32 %.06376, 1
   %30 = load i32, ptr %13, align 4
   %31 = icmp ult i32 %29, %30
-  br i1 %31, label %16, label %._crit_edge, !llvm.loop !16
+  br i1 %31, label %16, label %._crit_edge, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %28, %.._crit_edge_crit_edge
   %32 = phi i32 [ %.pre, %.._crit_edge_crit_edge ], [ %19, %28 ]
@@ -2105,7 +2105,7 @@ define internal void @rpc_prog_stat_reset(ptr noundef %0) #0 {
   %12 = add nuw i32 %.026, 1
   %13 = load i32, ptr %2, align 4
   %14 = icmp ult i32 %12, %13
-  br i1 %14, label %.lr.ph, label %._crit_edge, !llvm.loop !17
+  br i1 %14, label %.lr.ph, label %._crit_edge, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
   ret void
@@ -2443,7 +2443,7 @@ rpc_prog_hf.exit:                                 ; preds = %5, %14
   %36 = add nuw nsw i32 %.021, 1
   %37 = load i32, ptr %30, align 8
   %38 = icmp slt i32 %36, %37
-  br i1 %38, label %.lr.ph, label %._crit_edge, !llvm.loop !18
+  br i1 %38, label %.lr.ph, label %._crit_edge, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %.lr.ph, %rpc_prog_hf.exit
   ret void
@@ -2700,7 +2700,7 @@ define internal fastcc noundef i32 @dissect_rpc_authunix_groups(ptr noundef %0, 
   %19 = add nuw i32 %.03640.us, 1
   %.0.us = add i32 %.041.us, 4
   %exitcond.not = icmp eq i32 %19, %5
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !14
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !12
 
 .lr.ph.split:                                     ; preds = %.lr.ph
   br i1 %.not, label %.lr.ph.split.split.us.preheader, label %.lr.ph.split.split.preheader
@@ -2747,7 +2747,7 @@ define internal fastcc noundef i32 @dissect_rpc_authunix_groups(ptr noundef %0, 
   %32 = add nuw i32 %.03640.us43, 1
   %.0.us44 = add i32 %.041.us42, 4
   %exitcond52.not = icmp eq i32 %32, %5
-  br i1 %exitcond52.not, label %._crit_edge, label %.lr.ph.split.split.us, !llvm.loop !19
+  br i1 %exitcond52.not, label %._crit_edge, label %.lr.ph.split.split.us, !llvm.loop !17
 
 .lr.ph.split.split:                               ; preds = %.lr.ph.split.split.preheader, %46
   %.041 = phi i32 [ %.0, %46 ], [ %.041.ph, %.lr.ph.split.split.preheader ]
@@ -2785,7 +2785,7 @@ define internal fastcc noundef i32 @dissect_rpc_authunix_groups(ptr noundef %0, 
   %47 = add nuw i32 %.03640, 1
   %.0 = add i32 %.041, 4
   %exitcond51.not = icmp eq i32 %47, %5
-  br i1 %exitcond51.not, label %._crit_edge, label %.lr.ph.split.split, !llvm.loop !20
+  br i1 %exitcond51.not, label %._crit_edge, label %.lr.ph.split.split, !llvm.loop !18
 
 ._crit_edge:                                      ; preds = %18, %46, %31
   %.0.lcssa = phi i32 [ %.0.us44, %31 ], [ %.0, %46 ], [ %.0.us, %18 ]
@@ -4642,10 +4642,10 @@ define internal fastcc noundef zeroext i1 @dissect_rpc_tcp_common(ptr noundef %0
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 344
   br label %12
 
-12:                                               ; preds = %.lr.ph, %105
-  %.03752 = phi i1 [ true, %.lr.ph ], [ false, %105 ]
-  %.03851 = phi i1 [ false, %.lr.ph ], [ true, %105 ]
-  %.03950 = phi i32 [ 0, %.lr.ph ], [ %106, %105 ]
+12:                                               ; preds = %.lr.ph, %107
+  %.03752 = phi i1 [ true, %.lr.ph ], [ false, %107 ]
+  %.03851 = phi i1 [ false, %.lr.ph ], [ true, %107 ]
+  %.03950 = phi i32 [ 0, %.lr.ph ], [ %108, %107 ]
   %13 = load i32, ptr @proto_rpc, align 4
   %14 = load i32, ptr @ett_rpc, align 4
   %15 = tail call fastcc i32 @dissect_rpc_fragment(ptr noundef %0, i32 noundef %.03950, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %3, i32 noundef %13, i32 noundef %14, i1 noundef zeroext %.03752, ptr noundef %4, ptr noundef %5)
@@ -4665,160 +4665,157 @@ define internal fastcc noundef zeroext i1 @dissect_rpc_tcp_common(ptr noundef %0
 
 24:                                               ; preds = %19
   %25 = tail call ptr @tvb_get_ptr(ptr noundef %0, i32 noundef %.03950, i32 noundef %22)
-  %26 = icmp eq ptr %25, null
-  br i1 %26, label %.thread, label %.preheader.i.i
+  %26 = icmp ne ptr %25, null
+  %27 = icmp ne i32 %22, 28
+  %or.cond.i.i = and i1 %27, %26
+  br i1 %or.cond.i.i, label %.lr.ph.i.i, label %.thread
 
-.preheader.i.i:                                   ; preds = %24
-  %invariant.gep.i.i = getelementptr i8, ptr %25, i64 15
-  %.not42.i.i = icmp eq i32 %22, 28
-  br i1 %.not42.i.i, label %.thread, label %.lr.ph.i.i
-
-.lr.ph.i.i:                                       ; preds = %.preheader.i.i
-  %27 = load i32, ptr @max_rpc_tcp_pdu_size, align 4
+.lr.ph.i.i:                                       ; preds = %24
+  %28 = load i32, ptr @max_rpc_tcp_pdu_size, align 4
   %scevgep.i.i = getelementptr i8, ptr %25, i64 -1
-  br label %28
+  br label %29
 
-28:                                               ; preds = %.backedge.i.i, %.lr.ph.i.i
+29:                                               ; preds = %.backedge.i.i, %.lr.ph.i.i
   %.02941.i.i = phi i32 [ 12, %.lr.ph.i.i ], [ %.029.be.i.i, %.backedge.i.i ]
-  %29 = sext i32 %.02941.i.i to i64
-  %gep.i.i = getelementptr i8, ptr %invariant.gep.i.i, i64 %29
-  %scevgep45.i.i = getelementptr i8, ptr %scevgep.i.i, i64 %29
-  br label %30
+  %30 = sext i32 %.02941.i.i to i64
+  %31 = getelementptr i8, ptr %25, i64 %30
+  %32 = getelementptr i8, ptr %31, i64 15
+  %scevgep45.i.i = getelementptr i8, ptr %scevgep.i.i, i64 %30
+  br label %33
 
-30:                                               ; preds = %33, %28
-  %.040.i.i = phi i32 [ 16, %28 ], [ %35, %33 ]
-  %.03039.i.i = phi ptr [ %gep.i.i, %28 ], [ %34, %33 ]
-  %31 = load i8, ptr %.03039.i.i, align 1
-  %.not.i.i = icmp eq i8 %31, 0
-  br i1 %.not.i.i, label %33, label %.loopexit.thread.i.i
+33:                                               ; preds = %36, %29
+  %.040.i.i = phi i32 [ 16, %29 ], [ %38, %36 ]
+  %.03039.i.i = phi ptr [ %32, %29 ], [ %37, %36 ]
+  %34 = load i8, ptr %.03039.i.i, align 1
+  %.not.i.i = icmp eq i8 %34, 0
+  br i1 %.not.i.i, label %36, label %.loopexit.thread.i.i
 
-.loopexit.thread.i.i:                             ; preds = %30
-  %32 = add i32 %.040.i.i, %.02941.i.i
+.loopexit.thread.i.i:                             ; preds = %33
+  %35 = add i32 %.040.i.i, %.02941.i.i
   br label %.backedge.i.i
 
-33:                                               ; preds = %30
-  %34 = getelementptr i8, ptr %.03039.i.i, i64 -1
-  %35 = add nsw i32 %.040.i.i, -1
-  %36 = icmp samesign ugt i32 %.040.i.i, 1
-  br i1 %36, label %30, label %.loopexit.i.i, !llvm.loop !21
+36:                                               ; preds = %33
+  %37 = getelementptr i8, ptr %.03039.i.i, i64 -1
+  %38 = add nsw i32 %.040.i.i, -1
+  %39 = icmp samesign ugt i32 %.040.i.i, 1
+  br i1 %39, label %33, label %.loopexit.i.i, !llvm.loop !19
 
-.loopexit.i.i:                                    ; preds = %33
-  %37 = icmp eq ptr %scevgep45.i.i, null
-  br i1 %37, label %.backedge.i.i, label %38
+.loopexit.i.i:                                    ; preds = %36
+  %40 = icmp eq ptr %scevgep45.i.i, null
+  br i1 %40, label %.backedge.i.i, label %41
 
-38:                                               ; preds = %.loopexit.i.i
-  %39 = getelementptr i8, ptr %25, i64 %29
-  %40 = getelementptr i8, ptr %39, i64 -4
-  %41 = load i8, ptr %40, align 1
-  %42 = zext i8 %41 to i32
-  %43 = shl nuw i32 %42, 24
-  %44 = getelementptr i8, ptr %39, i64 -3
-  %45 = load i8, ptr %44, align 1
-  %46 = zext i8 %45 to i32
-  %47 = shl nuw nsw i32 %46, 16
-  %48 = or disjoint i32 %47, %43
-  %49 = getelementptr i8, ptr %39, i64 -2
-  %50 = load i8, ptr %49, align 1
-  %51 = zext i8 %50 to i32
-  %52 = shl nuw nsw i32 %51, 8
-  %53 = or disjoint i32 %48, %52
-  %54 = getelementptr i8, ptr %39, i64 -1
-  %55 = load i8, ptr %54, align 1
-  %56 = zext i8 %55 to i32
-  %57 = or disjoint i32 %53, %56
-  %58 = icmp eq i32 %57, 1
-  br i1 %58, label %59, label %76
+41:                                               ; preds = %.loopexit.i.i
+  %42 = getelementptr i8, ptr %31, i64 -4
+  %43 = load i8, ptr %42, align 1
+  %44 = zext i8 %43 to i32
+  %45 = shl nuw i32 %44, 24
+  %46 = getelementptr i8, ptr %31, i64 -3
+  %47 = load i8, ptr %46, align 1
+  %48 = zext i8 %47 to i32
+  %49 = shl nuw nsw i32 %48, 16
+  %50 = or disjoint i32 %49, %45
+  %51 = getelementptr i8, ptr %31, i64 -2
+  %52 = load i8, ptr %51, align 1
+  %53 = zext i8 %52 to i32
+  %54 = shl nuw nsw i32 %53, 8
+  %55 = or disjoint i32 %50, %54
+  %56 = getelementptr i8, ptr %31, i64 -1
+  %57 = load i8, ptr %56, align 1
+  %58 = zext i8 %57 to i32
+  %59 = or disjoint i32 %55, %58
+  %60 = icmp eq i32 %59, 1
+  br i1 %60, label %61, label %78
 
-59:                                               ; preds = %38
-  %60 = getelementptr i8, ptr %39, i64 -11
-  %61 = load i8, ptr %60, align 1
-  %62 = zext i8 %61 to i32
-  %63 = shl nuw nsw i32 %62, 16
-  %64 = getelementptr i8, ptr %39, i64 -12
-  %65 = load i8, ptr %64, align 1
-  %66 = zext i8 %65 to i32
-  %67 = shl nuw i32 %66, 24
-  %68 = getelementptr i8, ptr %39, i64 -10
-  %69 = load i8, ptr %68, align 1
-  %70 = zext i8 %69 to i32
-  %71 = shl nuw nsw i32 %70, 8
-  %72 = getelementptr i8, ptr %39, i64 -9
-  %73 = load i8, ptr %72, align 1
-  %74 = zext i8 %73 to i32
-  %.masked35.i.i = and i32 %67, 2130706432
-  %.masked34.i.i = or disjoint i32 %.masked35.i.i, %63
-  %.masked.i.i = or disjoint i32 %.masked34.i.i, %71
-  %75 = or disjoint i32 %.masked.i.i, %74
-  %.not33.i.i = icmp ugt i32 %75, %27
-  br i1 %.not33.i.i, label %76, label %find_rpc_over_tcp_reply_start.exit.i
+61:                                               ; preds = %41
+  %62 = getelementptr i8, ptr %31, i64 -11
+  %63 = load i8, ptr %62, align 1
+  %64 = zext i8 %63 to i32
+  %65 = shl nuw nsw i32 %64, 16
+  %66 = getelementptr i8, ptr %31, i64 -12
+  %67 = load i8, ptr %66, align 1
+  %68 = zext i8 %67 to i32
+  %69 = shl nuw i32 %68, 24
+  %70 = getelementptr i8, ptr %31, i64 -10
+  %71 = load i8, ptr %70, align 1
+  %72 = zext i8 %71 to i32
+  %73 = shl nuw nsw i32 %72, 8
+  %74 = getelementptr i8, ptr %31, i64 -9
+  %75 = load i8, ptr %74, align 1
+  %76 = zext i8 %75 to i32
+  %.masked35.i.i = and i32 %69, 2130706432
+  %.masked34.i.i = or disjoint i32 %.masked35.i.i, %65
+  %.masked.i.i = or disjoint i32 %.masked34.i.i, %73
+  %77 = or disjoint i32 %.masked.i.i, %76
+  %.not33.i.i = icmp ugt i32 %77, %28
+  br i1 %.not33.i.i, label %78, label %find_rpc_over_tcp_reply_start.exit.i
 
-76:                                               ; preds = %59, %38
-  %77 = add i32 %.02941.i.i, 1
+78:                                               ; preds = %61, %41
+  %79 = add i32 %.02941.i.i, 1
   br label %.backedge.i.i
 
-.backedge.i.i:                                    ; preds = %76, %.loopexit.i.i, %.loopexit.thread.i.i
-  %.029.be.i.i = phi i32 [ %.02941.i.i, %.loopexit.i.i ], [ %77, %76 ], [ %32, %.loopexit.thread.i.i ]
-  %78 = sub i32 %22, %.029.be.i.i
-  %79 = icmp sgt i32 %78, 16
-  br i1 %79, label %28, label %.thread, !llvm.loop !22
+.backedge.i.i:                                    ; preds = %78, %.loopexit.i.i, %.loopexit.thread.i.i
+  %.029.be.i.i = phi i32 [ %.02941.i.i, %.loopexit.i.i ], [ %79, %78 ], [ %35, %.loopexit.thread.i.i ]
+  %80 = sub i32 %22, %.029.be.i.i
+  %81 = icmp sgt i32 %80, 16
+  br i1 %81, label %29, label %.thread, !llvm.loop !20
 
-find_rpc_over_tcp_reply_start.exit.i:             ; preds = %59
-  %80 = add i32 %.03950, -12
-  %81 = add i32 %80, %.02941.i.i
-  %82 = icmp slt i32 %81, 0
-  br i1 %82, label %.thread, label %83
+find_rpc_over_tcp_reply_start.exit.i:             ; preds = %61
+  %82 = add i32 %.03950, -12
+  %83 = add i32 %82, %.02941.i.i
+  %84 = icmp slt i32 %83, 0
+  br i1 %84, label %.thread, label %85
 
-83:                                               ; preds = %find_rpc_over_tcp_reply_start.exit.i
-  %84 = tail call fastcc i32 @dissect_rpc_fragment(ptr noundef %0, i32 noundef %81, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %3, i32 noundef %20, i32 noundef %21, i1 noundef zeroext true, ptr noundef readonly %4, ptr noundef readonly %5)
-  %85 = icmp eq i32 %84, 0
-  br i1 %85, label %.thread, label %86
+85:                                               ; preds = %find_rpc_over_tcp_reply_start.exit.i
+  %86 = tail call fastcc i32 @dissect_rpc_fragment(ptr noundef %0, i32 noundef %83, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %3, i32 noundef %20, i32 noundef %21, i1 noundef zeroext true, ptr noundef readonly %4, ptr noundef readonly %5)
+  %87 = icmp eq i32 %86, 0
+  br i1 %87, label %.thread, label %88
 
-86:                                               ; preds = %83
-  %87 = icmp sgt i32 %84, 0
-  %88 = sub i32 %81, %.03950
-  %89 = select i1 %87, i32 %88, i32 0
-  %.0.i = add i32 %89, %84
+88:                                               ; preds = %85
+  %89 = icmp sgt i32 %86, 0
+  %90 = sub i32 %83, %.03950
+  %91 = select i1 %89, i32 %90, i32 0
+  %.0.i = add i32 %91, %86
   br label %find_and_dissect_rpc_fragment.exit
 
-find_and_dissect_rpc_fragment.exit:               ; preds = %86, %12
-  %.0 = phi i32 [ %15, %12 ], [ %.0.i, %86 ]
-  %90 = icmp slt i32 %.0, 0
-  br i1 %90, label %.thread, label %91
-
-91:                                               ; preds = %find_and_dissect_rpc_fragment.exit
-  %92 = icmp eq i32 %.0, 0
+find_and_dissect_rpc_fragment.exit:               ; preds = %88, %12
+  %.0 = phi i32 [ %15, %12 ], [ %.0.i, %88 ]
+  %92 = icmp slt i32 %.0, 0
   br i1 %92, label %.thread, label %93
 
-93:                                               ; preds = %91
-  %94 = load ptr, ptr %8, align 8
-  tail call void @col_set_fence(ptr noundef %94, i32 noundef 25)
-  %95 = load ptr, ptr %9, align 8
-  %96 = getelementptr inbounds nuw i8, ptr %95, i64 57
-  %97 = load i16, ptr %96, align 1
-  %98 = and i16 %97, 8
-  %.not41 = icmp eq i16 %98, 0
-  br i1 %.not41, label %99, label %105
+93:                                               ; preds = %find_and_dissect_rpc_fragment.exit
+  %94 = icmp eq i32 %.0, 0
+  br i1 %94, label %.thread, label %95
 
-99:                                               ; preds = %93
-  %100 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.03950)
-  %101 = icmp sgt i32 %.0, %100
-  br i1 %101, label %102, label %105
+95:                                               ; preds = %93
+  %96 = load ptr, ptr %8, align 8
+  tail call void @col_set_fence(ptr noundef %96, i32 noundef 25)
+  %97 = load ptr, ptr %9, align 8
+  %98 = getelementptr inbounds nuw i8, ptr %97, i64 57
+  %99 = load i16, ptr %98, align 1
+  %100 = and i16 %99, 8
+  %.not41 = icmp eq i16 %100, 0
+  br i1 %.not41, label %101, label %107
 
-102:                                              ; preds = %99
+101:                                              ; preds = %95
+  %102 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.03950)
+  %103 = icmp sgt i32 %.0, %102
+  br i1 %103, label %104, label %107
+
+104:                                              ; preds = %101
   store i16 2, ptr %10, align 4
-  %103 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.03950)
-  %104 = sub i32 %.0, %103
-  store i32 %104, ptr %11, align 8
-  br label %105
+  %105 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.03950)
+  %106 = sub i32 %.0, %105
+  store i32 %106, ptr %11, align 8
+  br label %107
 
-105:                                              ; preds = %99, %102, %93
-  %106 = add i32 %.0, %.03950
-  %107 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %106)
-  %.not = icmp eq i32 %107, 0
-  br i1 %.not, label %.thread, label %12, !llvm.loop !23
+107:                                              ; preds = %101, %104, %95
+  %108 = add i32 %.0, %.03950
+  %109 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %108)
+  %.not = icmp eq i32 %109, 0
+  br i1 %.not, label %.thread, label %12, !llvm.loop !21
 
-.thread:                                          ; preds = %find_and_dissect_rpc_fragment.exit, %91, %105, %.preheader.i.i, %24, %19, %83, %find_rpc_over_tcp_reply_start.exit.i, %.backedge.i.i, %6
-  %.040 = phi i1 [ false, %6 ], [ %.03851, %.backedge.i.i ], [ true, %find_and_dissect_rpc_fragment.exit ], [ %.03851, %91 ], [ true, %105 ], [ %.03851, %.preheader.i.i ], [ %.03851, %24 ], [ %.03851, %19 ], [ %.03851, %83 ], [ %.03851, %find_rpc_over_tcp_reply_start.exit.i ]
+.thread:                                          ; preds = %find_and_dissect_rpc_fragment.exit, %93, %107, %24, %19, %85, %find_rpc_over_tcp_reply_start.exit.i, %.backedge.i.i, %6
+  %.040 = phi i1 [ false, %6 ], [ %.03851, %.backedge.i.i ], [ true, %find_and_dissect_rpc_fragment.exit ], [ %.03851, %93 ], [ true, %107 ], [ %.03851, %24 ], [ %.03851, %19 ], [ %.03851, %85 ], [ %.03851, %find_rpc_over_tcp_reply_start.exit.i ]
   ret i1 %.040
 }
 
@@ -5431,19 +5428,17 @@ attributes #22 = { nounwind returns_twice }
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i8 0, i8 2}
 !7 = !{}
-!8 = distinct !{!8, !9, !10}
+!8 = distinct !{!8, !9}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = !{!"llvm.loop.estimated_trip_count"}
-!11 = distinct !{!11, !9, !10}
-!12 = distinct !{!12, !10}
-!13 = distinct !{!13, !9, !10}
-!14 = distinct !{!14, !9, !10, !15}
-!15 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!16 = distinct !{!16, !9, !10}
-!17 = distinct !{!17, !9, !10}
-!18 = distinct !{!18, !9, !10}
-!19 = distinct !{!19, !9, !10, !15}
-!20 = distinct !{!20, !9, !10}
-!21 = distinct !{!21, !9, !10}
-!22 = distinct !{!22, !9, !10}
-!23 = distinct !{!23, !9, !10}
+!10 = distinct !{!10, !9}
+!11 = distinct !{!11, !9}
+!12 = distinct !{!12, !9, !13}
+!13 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!14 = distinct !{!14, !9}
+!15 = distinct !{!15, !9}
+!16 = distinct !{!16, !9}
+!17 = distinct !{!17, !9, !13}
+!18 = distinct !{!18, !9}
+!19 = distinct !{!19, !9}
+!20 = distinct !{!20, !9}
+!21 = distinct !{!21, !9}

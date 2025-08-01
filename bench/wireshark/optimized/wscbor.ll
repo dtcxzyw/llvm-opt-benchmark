@@ -675,7 +675,7 @@ define internal fastcc zeroext i1 @wscbor_skip_next_item_internal(ptr noundef %0
 35:                                               ; preds = %37
   %36 = add nuw i64 %.06175, 1
   %exitcond.not = icmp eq i64 %36, %33
-  br i1 %exitcond.not, label %.critedge67thread-pre-split, label %37, !llvm.loop !11
+  br i1 %exitcond.not, label %.critedge67thread-pre-split, label %37, !llvm.loop !10
 
 37:                                               ; preds = %.lr.ph, %35
   %.06175 = phi i64 [ 0, %.lr.ph ], [ %36, %35 ]
@@ -701,7 +701,7 @@ define internal fastcc zeroext i1 @wscbor_skip_next_item_internal(ptr noundef %0
 47:                                               ; preds = %45
   %48 = load i8, ptr %7, align 1, !range !6, !noundef !7
   %49 = trunc nuw i8 %48 to i1
-  br i1 %49, label %50, label %45, !llvm.loop !12
+  br i1 %49, label %50, label %45, !llvm.loop !11
 
 50:                                               ; preds = %47
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7) #9
@@ -720,7 +720,7 @@ define internal fastcc zeroext i1 @wscbor_skip_next_item_internal(ptr noundef %0
 55:                                               ; preds = %59
   %56 = add nuw i64 %.05677, 1
   %exitcond81.not = icmp eq i64 %56, %53
-  br i1 %exitcond81.not, label %.critedge67thread-pre-split, label %57, !llvm.loop !13
+  br i1 %exitcond81.not, label %.critedge67thread-pre-split, label %57, !llvm.loop !12
 
 57:                                               ; preds = %.lr.ph78, %55
   %.05677 = phi i64 [ 0, %.lr.ph78 ], [ %56, %55 ]
@@ -1377,7 +1377,7 @@ switch.lookup:                                    ; preds = %8
   store i8 %27, ptr %28, align 1
   %29 = lshr i64 %.03133, 8
   %30 = icmp samesign ugt i64 %indvars.iv, 1
-  br i1 %30, label %26, label %24, !llvm.loop !14
+  br i1 %30, label %26, label %24, !llvm.loop !13
 
 31:                                               ; preds = %24
   %32 = load i64, ptr %7, align 8
@@ -1637,10 +1637,9 @@ attributes #10 = { noreturn }
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i8 0, i8 2}
 !7 = !{}
-!8 = distinct !{!8, !9, !10}
+!8 = distinct !{!8, !9}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = !{!"llvm.loop.estimated_trip_count"}
-!11 = distinct !{!11, !9, !10}
-!12 = distinct !{!12, !9, !10}
-!13 = distinct !{!13, !9, !10}
-!14 = distinct !{!14, !9, !10}
+!10 = distinct !{!10, !9}
+!11 = distinct !{!11, !9}
+!12 = distinct !{!12, !9}
+!13 = distinct !{!13, !9}

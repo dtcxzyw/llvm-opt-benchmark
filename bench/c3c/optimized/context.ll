@@ -132,7 +132,7 @@ char_is_letter.exit.thread.i:                     ; preds = %char_is_letter.exit
   %indvars.iv.next42.i = add nuw nsw i64 %indvars.iv41.i, 1
   %28 = trunc nuw i64 %indvars.iv.next42.i to i32
   %29 = icmp sgt i32 %.028.lcssa.i, %28
-  br i1 %29, label %.lr.ph39.i, label %filename_to_module_in_buffer.exit.thread, !llvm.loop !10
+  br i1 %29, label %.lr.ph39.i, label %filename_to_module_in_buffer.exit.thread, !llvm.loop !9
 
 filename_to_module_in_buffer.exit.thread20:       ; preds = %._crit_edge.i
   tail call void (ptr, ptr, ...) @sema_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.1, ptr noundef nonnull %8) #6
@@ -158,7 +158,7 @@ filename_to_module_in_buffer.exit.thread:         ; preds = %char_is_letter.exit
   %35 = mul i32 %34, 16777619
   %indvars.iv.next.i17 = add nuw nsw i64 %indvars.iv.i16, 1
   %exitcond.not.i18 = icmp eq i64 %indvars.iv.next.i17, %wide.trip.count.i14
-  br i1 %exitcond.not.i18, label %fnv1a.exit, label %.lr.ph.i15, !llvm.loop !11
+  br i1 %exitcond.not.i18, label %fnv1a.exit, label %.lr.ph.i15, !llvm.loop !10
 
 fnv1a.exit:                                       ; preds = %.lr.ph.i15, %filename_to_module_in_buffer.exit.thread
   %.06.lcssa.i = phi i32 [ -2128831035, %filename_to_module_in_buffer.exit.thread ], [ %35, %.lr.ph.i15 ]
@@ -1506,8 +1506,7 @@ attributes #8 = { noreturn nounwind }
 !4 = !{i32 7, !"PIE Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i32 7, !"frame-pointer", i32 2}
-!7 = distinct !{!7, !8, !9}
+!7 = distinct !{!7, !8}
 !8 = !{!"llvm.loop.mustprogress"}
-!9 = !{!"llvm.loop.estimated_trip_count"}
-!10 = distinct !{!10, !8, !9}
-!11 = distinct !{!11, !8, !9}
+!9 = distinct !{!9, !8}
+!10 = distinct !{!10, !8}

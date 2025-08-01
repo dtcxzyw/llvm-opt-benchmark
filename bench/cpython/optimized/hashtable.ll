@@ -72,7 +72,7 @@ define hidden ptr @_Py_hashtable_get_entry_generic(ptr noundef readonly captures
 23:                                               ; preds = %18, %.lr.ph
   %.0 = load ptr, ptr %.016, align 8, !tbaa !14
   %24 = icmp eq ptr %.0, null
-  br i1 %24, label %._crit_edge, label %.lr.ph, !llvm.loop !21
+  br i1 %24, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %23, %18, %2
   %.0.lcssa = phi ptr [ null, %2 ], [ %.016, %18 ], [ null, %23 ]
@@ -118,22 +118,22 @@ define dso_local ptr @_Py_hashtable_steal(ptr noundef captures(none) %0, ptr nou
 24:                                               ; preds = %19, %15
   %.027 = load ptr, ptr %.02733, align 8, !tbaa !14
   %25 = icmp eq ptr %.027, null
-  br i1 %25, label %hashtable_rehash.exit, label %15, !llvm.loop !23
+  br i1 %25, label %hashtable_rehash.exit, label %15
 
 26:                                               ; preds = %19
   %27 = load ptr, ptr %10, align 8, !tbaa !13
   %28 = getelementptr %struct._Py_slist_t, ptr %27, i64 %9
   %.not.i = icmp eq ptr %.02632, null
-  %29 = load ptr, ptr %.02733, align 8, !tbaa !24
+  %29 = load ptr, ptr %.02733, align 8, !tbaa !21
   %..i = select i1 %.not.i, ptr %28, ptr %.02632
   store ptr %29, ptr %..i, align 8, !tbaa !14
   %30 = load i64, ptr %0, align 8, !tbaa !11
   %31 = add i64 %30, -1
   store i64 %31, ptr %0, align 8, !tbaa !11
   %32 = getelementptr inbounds nuw i8, ptr %.02733, i64 24
-  %33 = load ptr, ptr %32, align 8, !tbaa !25
+  %33 = load ptr, ptr %32, align 8, !tbaa !22
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %35 = load ptr, ptr %34, align 8, !tbaa !26
+  %35 = load ptr, ptr %34, align 8, !tbaa !23
   tail call void %35(ptr noundef nonnull %.02733) #7
   %36 = load i64, ptr %0, align 8, !tbaa !11
   %37 = uitofp i64 %36 to float
@@ -156,7 +156,7 @@ define dso_local ptr @_Py_hashtable_steal(ptr noundef captures(none) %0, ptr nou
   %.0.i.i = phi i64 [ %50, %.preheader.i.i ], [ 1, %43 ]
   %49 = icmp ult i64 %.0.i.i, %47
   %50 = shl i64 %.0.i.i, 1
-  br i1 %49, label %.preheader.i.i, label %round_size.exit.i, !llvm.loop !27
+  br i1 %49, label %.preheader.i.i, label %round_size.exit.i, !llvm.loop !24
 
 round_size.exit.i:                                ; preds = %.preheader.i.i, %43
   %.06.i.i = phi i64 [ 16, %43 ], [ %.0.i.i, %.preheader.i.i ]
@@ -166,7 +166,7 @@ round_size.exit.i:                                ; preds = %.preheader.i.i, %43
 52:                                               ; preds = %round_size.exit.i
   %53 = shl i64 %.06.i.i, 3
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %55 = load ptr, ptr %54, align 8, !tbaa !29
+  %55 = load ptr, ptr %54, align 8, !tbaa !26
   %56 = tail call ptr %55(i64 noundef %53) #7
   %57 = icmp eq ptr %56, null
   br i1 %57, label %hashtable_rehash.exit, label %58
@@ -183,7 +183,7 @@ round_size.exit.i:                                ; preds = %.preheader.i.i, %43
   br label %62
 
 ._crit_edge37.i:                                  ; preds = %._crit_edge.i, %58
-  %61 = load ptr, ptr %34, align 8, !tbaa !26
+  %61 = load ptr, ptr %34, align 8, !tbaa !23
   tail call void %61(ptr noundef %.pre.i) #7
   store i64 %.06.i.i, ptr %6, align 8, !tbaa !4
   store ptr %56, ptr %10, align 8, !tbaa !13
@@ -192,27 +192,27 @@ round_size.exit.i:                                ; preds = %.preheader.i.i, %43
 62:                                               ; preds = %._crit_edge.i, %.lr.ph36.i
   %.02934.i = phi i64 [ 0, %.lr.ph36.i ], [ %71, %._crit_edge.i ]
   %63 = getelementptr %struct._Py_slist_t, ptr %.pre.i, i64 %.02934.i
-  %64 = load ptr, ptr %63, align 8, !tbaa !30
+  %64 = load ptr, ptr %63, align 8, !tbaa !27
   %.not32.i = icmp eq ptr %64, null
   br i1 %.not32.i, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %62, %.lr.ph.i
   %.02833.i = phi ptr [ %65, %.lr.ph.i ], [ %64, %62 ]
-  %65 = load ptr, ptr %.02833.i, align 8, !tbaa !24
+  %65 = load ptr, ptr %.02833.i, align 8, !tbaa !21
   %66 = getelementptr inbounds nuw i8, ptr %.02833.i, i64 8
   %67 = load i64, ptr %66, align 8, !tbaa !16
   %68 = and i64 %67, %60
   %69 = getelementptr %struct._Py_slist_t, ptr %56, i64 %68
-  %70 = load ptr, ptr %69, align 8, !tbaa !30
-  store ptr %70, ptr %.02833.i, align 8, !tbaa !24
-  store ptr %.02833.i, ptr %69, align 8, !tbaa !30
+  %70 = load ptr, ptr %69, align 8, !tbaa !27
+  store ptr %70, ptr %.02833.i, align 8, !tbaa !21
+  store ptr %.02833.i, ptr %69, align 8, !tbaa !27
   %.not.i28 = icmp eq ptr %65, null
-  br i1 %.not.i28, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !32
+  br i1 %.not.i28, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !29
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %62
   %71 = add nuw i64 %.02934.i, 1
   %exitcond.not.i = icmp eq i64 %71, %59
-  br i1 %exitcond.not.i, label %._crit_edge37.i, label %62, !llvm.loop !33
+  br i1 %exitcond.not.i, label %._crit_edge37.i, label %62, !llvm.loop !30
 
 hashtable_rehash.exit:                            ; preds = %24, %2, %._crit_edge37.i, %52, %round_size.exit.i, %26
   %.0 = phi ptr [ %33, %26 ], [ %33, %round_size.exit.i ], [ %33, %52 ], [ %33, %._crit_edge37.i ], [ null, %2 ], [ null, %24 ]
@@ -222,7 +222,7 @@ hashtable_rehash.exit:                            ; preds = %24, %2, %._crit_edg
 ; Function Attrs: nounwind uwtable
 define dso_local range(i32 -1, 1) i32 @_Py_hashtable_set(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %5 = load ptr, ptr %4, align 8, !tbaa !29
+  %5 = load ptr, ptr %4, align 8, !tbaa !26
   %6 = tail call ptr %5(i64 noundef 32) #7
   %7 = icmp eq ptr %6, null
   br i1 %7, label %64, label %8
@@ -236,7 +236,7 @@ define dso_local range(i32 -1, 1) i32 @_Py_hashtable_set(ptr noundef captures(no
   %13 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr %1, ptr %13, align 8, !tbaa !20
   %14 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  store ptr %2, ptr %14, align 8, !tbaa !25
+  store ptr %2, ptr %14, align 8, !tbaa !22
   %15 = load i64, ptr %0, align 8, !tbaa !11
   %16 = add i64 %15, 1
   store i64 %16, ptr %0, align 8, !tbaa !11
@@ -260,7 +260,7 @@ define dso_local range(i32 -1, 1) i32 @_Py_hashtable_set(ptr noundef captures(no
   %.0.i.i = phi i64 [ %30, %.preheader.i.i ], [ 1, %23 ]
   %29 = icmp ult i64 %.0.i.i, %27
   %30 = shl i64 %.0.i.i, 1
-  br i1 %29, label %.preheader.i.i, label %round_size.exit.i, !llvm.loop !27
+  br i1 %29, label %.preheader.i.i, label %round_size.exit.i, !llvm.loop !24
 
 round_size.exit.i:                                ; preds = %.preheader.i.i, %23
   %.06.i.i = phi i64 [ 16, %23 ], [ %.0.i.i, %.preheader.i.i ]
@@ -269,7 +269,7 @@ round_size.exit.i:                                ; preds = %.preheader.i.i, %23
 
 32:                                               ; preds = %round_size.exit.i
   %33 = shl i64 %.06.i.i, 3
-  %34 = load ptr, ptr %4, align 8, !tbaa !29
+  %34 = load ptr, ptr %4, align 8, !tbaa !26
   %35 = tail call ptr %34(i64 noundef %33) #7
   %36 = icmp eq ptr %35, null
   br i1 %36, label %hashtable_rehash.exit, label %37
@@ -288,7 +288,7 @@ round_size.exit.i:                                ; preds = %.preheader.i.i, %23
 
 ._crit_edge37.i:                                  ; preds = %._crit_edge.i, %37
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %41 = load ptr, ptr %40, align 8, !tbaa !26
+  %41 = load ptr, ptr %40, align 8, !tbaa !23
   tail call void %41(ptr noundef %.pre.i) #7
   store i64 %.06.i.i, ptr %18, align 8, !tbaa !4
   store ptr %35, ptr %.phi.trans.insert.i, align 8, !tbaa !13
@@ -298,34 +298,34 @@ round_size.exit.i:                                ; preds = %.preheader.i.i, %23
 42:                                               ; preds = %._crit_edge.i, %.lr.ph36.i
   %.02934.i = phi i64 [ 0, %.lr.ph36.i ], [ %51, %._crit_edge.i ]
   %43 = getelementptr %struct._Py_slist_t, ptr %.pre.i, i64 %.02934.i
-  %44 = load ptr, ptr %43, align 8, !tbaa !30
+  %44 = load ptr, ptr %43, align 8, !tbaa !27
   %.not32.i = icmp eq ptr %44, null
   br i1 %.not32.i, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %42, %.lr.ph.i
   %.02833.i = phi ptr [ %45, %.lr.ph.i ], [ %44, %42 ]
-  %45 = load ptr, ptr %.02833.i, align 8, !tbaa !24
+  %45 = load ptr, ptr %.02833.i, align 8, !tbaa !21
   %46 = getelementptr inbounds nuw i8, ptr %.02833.i, i64 8
   %47 = load i64, ptr %46, align 8, !tbaa !16
   %48 = and i64 %47, %39
   %49 = getelementptr %struct._Py_slist_t, ptr %35, i64 %48
-  %50 = load ptr, ptr %49, align 8, !tbaa !30
-  store ptr %50, ptr %.02833.i, align 8, !tbaa !24
-  store ptr %.02833.i, ptr %49, align 8, !tbaa !30
+  %50 = load ptr, ptr %49, align 8, !tbaa !27
+  store ptr %50, ptr %.02833.i, align 8, !tbaa !21
+  store ptr %.02833.i, ptr %49, align 8, !tbaa !27
   %.not.i = icmp eq ptr %45, null
-  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !32
+  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !29
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %42
   %51 = add nuw i64 %.02934.i, 1
   %exitcond.not.i = icmp eq i64 %51, %38
-  br i1 %exitcond.not.i, label %._crit_edge37.i, label %42, !llvm.loop !33
+  br i1 %exitcond.not.i, label %._crit_edge37.i, label %42, !llvm.loop !30
 
 hashtable_rehash.exit:                            ; preds = %32
   %52 = load i64, ptr %0, align 8, !tbaa !11
   %53 = add i64 %52, -1
   store i64 %53, ptr %0, align 8, !tbaa !11
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %55 = load ptr, ptr %54, align 8, !tbaa !26
+  %55 = load ptr, ptr %54, align 8, !tbaa !23
   tail call void %55(ptr noundef nonnull %6) #7
   br label %64
 
@@ -337,9 +337,9 @@ hashtable_rehash.exit.thread:                     ; preds = %._crit_edge37.i, %r
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %61 = load ptr, ptr %60, align 8, !tbaa !13
   %62 = getelementptr %struct._Py_slist_t, ptr %61, i64 %59
-  %63 = load ptr, ptr %62, align 8, !tbaa !30
-  store ptr %63, ptr %6, align 8, !tbaa !24
-  store ptr %6, ptr %62, align 8, !tbaa !30
+  %63 = load ptr, ptr %62, align 8, !tbaa !27
+  store ptr %63, ptr %6, align 8, !tbaa !21
+  store ptr %6, ptr %62, align 8, !tbaa !27
   br label %64
 
 64:                                               ; preds = %3, %hashtable_rehash.exit.thread, %hashtable_rehash.exit
@@ -350,14 +350,14 @@ hashtable_rehash.exit.thread:                     ; preds = %._crit_edge37.i, %r
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @_Py_hashtable_get(ptr noundef %0, ptr noundef %1) local_unnamed_addr #2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %4 = load ptr, ptr %3, align 8, !tbaa !34
+  %4 = load ptr, ptr %3, align 8, !tbaa !31
   %5 = tail call ptr %4(ptr noundef %0, ptr noundef %1) #7
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %9, label %6
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  %8 = load ptr, ptr %7, align 8, !tbaa !25
+  %8 = load ptr, ptr %7, align 8, !tbaa !22
   br label %9
 
 9:                                                ; preds = %2, %6
@@ -392,16 +392,16 @@ define dso_local i32 @_Py_hashtable_foreach(ptr noundef %0, ptr noundef readonly
   %12 = getelementptr inbounds nuw i8, ptr %.018, i64 16
   %13 = load ptr, ptr %12, align 8, !tbaa !20
   %14 = getelementptr inbounds nuw i8, ptr %.018, i64 24
-  %15 = load ptr, ptr %14, align 8, !tbaa !25
+  %15 = load ptr, ptr %14, align 8, !tbaa !22
   %16 = tail call i32 %1(ptr noundef %0, ptr noundef %13, ptr noundef %15, ptr noundef %2) #7
   %.not25 = icmp eq i32 %16, 0
-  br i1 %.not25, label %10, label %.loopexit, !llvm.loop !35
+  br i1 %.not25, label %10, label %.loopexit, !llvm.loop !32
 
 17:                                               ; preds = %10
   %18 = add nuw i64 %.02334, 1
   %19 = load i64, ptr %4, align 8, !tbaa !4
   %.not31 = icmp ult i64 %18, %19
-  br i1 %.not31, label %7, label %.loopexit, !llvm.loop !36
+  br i1 %.not31, label %7, label %.loopexit, !llvm.loop !33
 
 .loopexit:                                        ; preds = %17, %11, %3
   %spec.select = phi i32 [ 0, %3 ], [ %16, %11 ], [ 0, %17 ]
@@ -414,9 +414,9 @@ define dso_local ptr @_Py_hashtable_new_full(ptr noundef %0, ptr noundef %1, ptr
   br i1 %6, label %8, label %7
 
 7:                                                ; preds = %5
-  %.sroa.0.0.copyload = load ptr, ptr %4, align 8, !tbaa !37
+  %.sroa.0.0.copyload = load ptr, ptr %4, align 8, !tbaa !34
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %.sroa.7.0.copyload = load ptr, ptr %.sroa.7.0..sroa_idx, align 8, !tbaa !37
+  %.sroa.7.0.copyload = load ptr, ptr %.sroa.7.0..sroa_idx, align 8, !tbaa !34
   br label %8
 
 8:                                                ; preds = %5, %7
@@ -443,26 +443,26 @@ define dso_local ptr @_Py_hashtable_new_full(ptr noundef %0, ptr noundef %1, ptr
 17:                                               ; preds = %11
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %13, i8 0, i64 128, i1 false)
   %18 = getelementptr inbounds nuw i8, ptr %9, i64 24
-  store ptr @_Py_hashtable_get_entry_generic, ptr %18, align 8, !tbaa !34
+  store ptr @_Py_hashtable_get_entry_generic, ptr %18, align 8, !tbaa !31
   %19 = getelementptr inbounds nuw i8, ptr %9, i64 32
   store ptr %0, ptr %19, align 8, !tbaa !12
   %20 = getelementptr inbounds nuw i8, ptr %9, i64 40
   store ptr %1, ptr %20, align 8, !tbaa !19
   %21 = getelementptr inbounds nuw i8, ptr %9, i64 48
-  store ptr %2, ptr %21, align 8, !tbaa !38
+  store ptr %2, ptr %21, align 8, !tbaa !35
   %22 = getelementptr inbounds nuw i8, ptr %9, i64 56
-  store ptr %3, ptr %22, align 8, !tbaa !39
+  store ptr %3, ptr %22, align 8, !tbaa !36
   %23 = getelementptr inbounds nuw i8, ptr %9, i64 64
-  store ptr %.sroa.0.0, ptr %23, align 8, !tbaa !37
+  store ptr %.sroa.0.0, ptr %23, align 8, !tbaa !34
   %.sroa.7.0..sroa_idx22 = getelementptr inbounds nuw i8, ptr %9, i64 72
-  store ptr %.sroa.7.0, ptr %.sroa.7.0..sroa_idx22, align 8, !tbaa !37
+  store ptr %.sroa.7.0, ptr %.sroa.7.0..sroa_idx22, align 8, !tbaa !34
   %24 = icmp eq ptr %0, @_Py_hashtable_hash_ptr
   %25 = icmp eq ptr %1, @_Py_hashtable_compare_direct
   %or.cond = and i1 %24, %25
   br i1 %or.cond, label %26, label %27
 
 26:                                               ; preds = %17
-  store ptr @_Py_hashtable_get_entry_ptr, ptr %18, align 8, !tbaa !34
+  store ptr @_Py_hashtable_get_entry_ptr, ptr %18, align 8, !tbaa !31
   br label %27
 
 27:                                               ; preds = %16, %26, %17, %8
@@ -500,7 +500,7 @@ define internal ptr @_Py_hashtable_get_entry_ptr(ptr noundef readonly captures(n
   %15 = getelementptr inbounds nuw i8, ptr %.0, i64 16
   %16 = load ptr, ptr %15, align 8, !tbaa !20
   %17 = icmp eq ptr %16, %1
-  br i1 %17, label %18, label %12, !llvm.loop !40
+  br i1 %17, label %18, label %12
 
 18:                                               ; preds = %14, %12
   ret ptr %.0
@@ -529,7 +529,7 @@ define dso_local ptr @_Py_hashtable_new(ptr noundef %0, ptr noundef %1) local_un
 11:                                               ; preds = %5
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %7, i8 0, i64 128, i1 false)
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  store ptr @_Py_hashtable_get_entry_generic, ptr %12, align 8, !tbaa !34
+  store ptr @_Py_hashtable_get_entry_generic, ptr %12, align 8, !tbaa !31
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store ptr %0, ptr %13, align 8, !tbaa !12
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 40
@@ -537,16 +537,16 @@ define dso_local ptr @_Py_hashtable_new(ptr noundef %0, ptr noundef %1) local_un
   %15 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 64
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %15, i8 0, i64 16, i1 false)
-  store ptr @PyMem_Malloc, ptr %16, align 8, !tbaa !37
+  store ptr @PyMem_Malloc, ptr %16, align 8, !tbaa !34
   %.sroa.7.0..sroa_idx22.i = getelementptr inbounds nuw i8, ptr %3, i64 72
-  store ptr @PyMem_Free, ptr %.sroa.7.0..sroa_idx22.i, align 8, !tbaa !37
+  store ptr @PyMem_Free, ptr %.sroa.7.0..sroa_idx22.i, align 8, !tbaa !34
   %17 = icmp eq ptr %0, @_Py_hashtable_hash_ptr
   %18 = icmp eq ptr %1, @_Py_hashtable_compare_direct
   %or.cond.i = and i1 %17, %18
   br i1 %or.cond.i, label %19, label %_Py_hashtable_new_full.exit
 
 19:                                               ; preds = %11
-  store ptr @_Py_hashtable_get_entry_ptr, ptr %12, align 8, !tbaa !34
+  store ptr @_Py_hashtable_get_entry_ptr, ptr %12, align 8, !tbaa !31
   br label %_Py_hashtable_new_full.exit
 
 _Py_hashtable_new_full.exit:                      ; preds = %2, %10, %11, %19
@@ -580,7 +580,7 @@ round_size.exit.i:                                ; preds = %._crit_edge
 
 9:                                                ; preds = %round_size.exit.i.thread, %round_size.exit.i
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %11 = load ptr, ptr %10, align 8, !tbaa !29
+  %11 = load ptr, ptr %10, align 8, !tbaa !26
   %12 = tail call ptr %11(i64 noundef 128) #7
   %13 = icmp eq ptr %12, null
   br i1 %13, label %hashtable_rehash.exit, label %14
@@ -595,7 +595,7 @@ round_size.exit.i:                                ; preds = %._crit_edge
 
 ._crit_edge37.i:                                  ; preds = %._crit_edge.i, %14
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %17 = load ptr, ptr %16, align 8, !tbaa !26
+  %17 = load ptr, ptr %16, align 8, !tbaa !23
   tail call void %17(ptr noundef %.pre.i) #7
   store i64 16, ptr %2, align 8, !tbaa !4
   store ptr %12, ptr %.phi.trans.insert.i, align 8, !tbaa !13
@@ -604,27 +604,27 @@ round_size.exit.i:                                ; preds = %._crit_edge
 .lr.ph36.i:                                       ; preds = %14, %._crit_edge.i
   %.02934.i = phi i64 [ %26, %._crit_edge.i ], [ 0, %14 ]
   %18 = getelementptr %struct._Py_slist_t, ptr %.pre.i, i64 %.02934.i
-  %19 = load ptr, ptr %18, align 8, !tbaa !30
+  %19 = load ptr, ptr %18, align 8, !tbaa !27
   %.not32.i = icmp eq ptr %19, null
   br i1 %.not32.i, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph36.i, %.lr.ph.i
   %.02833.i = phi ptr [ %20, %.lr.ph.i ], [ %19, %.lr.ph36.i ]
-  %20 = load ptr, ptr %.02833.i, align 8, !tbaa !24
+  %20 = load ptr, ptr %.02833.i, align 8, !tbaa !21
   %21 = getelementptr inbounds nuw i8, ptr %.02833.i, i64 8
   %22 = load i64, ptr %21, align 8, !tbaa !16
   %23 = and i64 %22, 15
   %24 = getelementptr %struct._Py_slist_t, ptr %12, i64 %23
-  %25 = load ptr, ptr %24, align 8, !tbaa !30
-  store ptr %25, ptr %.02833.i, align 8, !tbaa !24
-  store ptr %.02833.i, ptr %24, align 8, !tbaa !30
+  %25 = load ptr, ptr %24, align 8, !tbaa !27
+  store ptr %25, ptr %.02833.i, align 8, !tbaa !21
+  store ptr %.02833.i, ptr %24, align 8, !tbaa !27
   %.not.i = icmp eq ptr %20, null
-  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !32
+  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !29
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %.lr.ph36.i
   %26 = add nuw i64 %.02934.i, 1
   %exitcond.not.i = icmp eq i64 %26, %15
-  br i1 %exitcond.not.i, label %._crit_edge37.i, label %.lr.ph36.i, !llvm.loop !33
+  br i1 %exitcond.not.i, label %._crit_edge37.i, label %.lr.ph36.i, !llvm.loop !30
 
 hashtable_rehash.exit:                            ; preds = %round_size.exit.i, %9, %._crit_edge37.i
   ret void
@@ -634,14 +634,14 @@ hashtable_rehash.exit:                            ; preds = %round_size.exit.i, 
   %29 = phi ptr [ %.pre, %.lr.ph20 ], [ %44, %._crit_edge ]
   %.018 = phi i64 [ 0, %.lr.ph20 ], [ %46, %._crit_edge ]
   %30 = getelementptr %struct._Py_slist_t, ptr %29, i64 %.018
-  %31 = load ptr, ptr %30, align 8, !tbaa !30
+  %31 = load ptr, ptr %30, align 8, !tbaa !27
   %.not16 = icmp eq ptr %31, null
   br i1 %.not16, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %27, %_Py_hashtable_destroy_entry.exit
   %.01317 = phi ptr [ %32, %_Py_hashtable_destroy_entry.exit ], [ %31, %27 ]
-  %32 = load ptr, ptr %.01317, align 8, !tbaa !24
-  %33 = load ptr, ptr %5, align 8, !tbaa !38
+  %32 = load ptr, ptr %.01317, align 8, !tbaa !21
+  %33 = load ptr, ptr %5, align 8, !tbaa !35
   %.not.i14 = icmp eq ptr %33, null
   br i1 %.not.i14, label %37, label %34
 
@@ -652,21 +652,21 @@ hashtable_rehash.exit:                            ; preds = %round_size.exit.i, 
   br label %37
 
 37:                                               ; preds = %34, %.lr.ph
-  %38 = load ptr, ptr %6, align 8, !tbaa !39
+  %38 = load ptr, ptr %6, align 8, !tbaa !36
   %.not9.i = icmp eq ptr %38, null
   br i1 %.not9.i, label %_Py_hashtable_destroy_entry.exit, label %39
 
 39:                                               ; preds = %37
   %40 = getelementptr inbounds nuw i8, ptr %.01317, i64 24
-  %41 = load ptr, ptr %40, align 8, !tbaa !25
+  %41 = load ptr, ptr %40, align 8, !tbaa !22
   tail call void %38(ptr noundef %41) #7
   br label %_Py_hashtable_destroy_entry.exit
 
 _Py_hashtable_destroy_entry.exit:                 ; preds = %37, %39
-  %42 = load ptr, ptr %7, align 8, !tbaa !26
+  %42 = load ptr, ptr %7, align 8, !tbaa !23
   tail call void %42(ptr noundef nonnull %.01317) #7
   %.not = icmp eq ptr %32, null
-  br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !41
+  br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !37
 
 ._crit_edge.loopexit:                             ; preds = %_Py_hashtable_destroy_entry.exit
   %.pre23 = load ptr, ptr %4, align 8, !tbaa !13
@@ -677,10 +677,10 @@ _Py_hashtable_destroy_entry.exit:                 ; preds = %37, %39
   %43 = phi i64 [ %.pre24, %._crit_edge.loopexit ], [ %28, %27 ]
   %44 = phi ptr [ %.pre23, %._crit_edge.loopexit ], [ %29, %27 ]
   %45 = getelementptr %struct._Py_slist_t, ptr %44, i64 %.018
-  store ptr null, ptr %45, align 8, !tbaa !30
+  store ptr null, ptr %45, align 8, !tbaa !27
   %46 = add nuw i64 %.018, 1
   %47 = icmp ult i64 %46, %43
-  br i1 %47, label %27, label %round_size.exit.i, !llvm.loop !42
+  br i1 %47, label %27, label %round_size.exit.i, !llvm.loop !38
 }
 
 ; Function Attrs: nounwind uwtable
@@ -699,11 +699,11 @@ define dso_local void @_Py_hashtable_destroy(ptr noundef %0) local_unnamed_addr 
 
 ._crit_edge19:                                    ; preds = %._crit_edge, %1
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %9 = load ptr, ptr %8, align 8, !tbaa !26
+  %9 = load ptr, ptr %8, align 8, !tbaa !23
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %11 = load ptr, ptr %10, align 8, !tbaa !13
   tail call void %9(ptr noundef %11) #7
-  %12 = load ptr, ptr %8, align 8, !tbaa !26
+  %12 = load ptr, ptr %8, align 8, !tbaa !23
   tail call void %12(ptr noundef nonnull %0) #7
   ret void
 
@@ -712,14 +712,14 @@ define dso_local void @_Py_hashtable_destroy(ptr noundef %0) local_unnamed_addr 
   %.016 = phi i64 [ 0, %.lr.ph18 ], [ %30, %._crit_edge ]
   %15 = load ptr, ptr %4, align 8, !tbaa !13
   %16 = getelementptr %struct._Py_slist_t, ptr %15, i64 %.016
-  %17 = load ptr, ptr %16, align 8, !tbaa !30
+  %17 = load ptr, ptr %16, align 8, !tbaa !27
   %.not14 = icmp eq ptr %17, null
   br i1 %.not14, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %13, %_Py_hashtable_destroy_entry.exit
   %.01315 = phi ptr [ %18, %_Py_hashtable_destroy_entry.exit ], [ %17, %13 ]
-  %18 = load ptr, ptr %.01315, align 8, !tbaa !24
-  %19 = load ptr, ptr %5, align 8, !tbaa !38
+  %18 = load ptr, ptr %.01315, align 8, !tbaa !21
+  %19 = load ptr, ptr %5, align 8, !tbaa !35
   %.not.i = icmp eq ptr %19, null
   br i1 %.not.i, label %23, label %20
 
@@ -730,21 +730,21 @@ define dso_local void @_Py_hashtable_destroy(ptr noundef %0) local_unnamed_addr 
   br label %23
 
 23:                                               ; preds = %20, %.lr.ph
-  %24 = load ptr, ptr %6, align 8, !tbaa !39
+  %24 = load ptr, ptr %6, align 8, !tbaa !36
   %.not9.i = icmp eq ptr %24, null
   br i1 %.not9.i, label %_Py_hashtable_destroy_entry.exit, label %25
 
 25:                                               ; preds = %23
   %26 = getelementptr inbounds nuw i8, ptr %.01315, i64 24
-  %27 = load ptr, ptr %26, align 8, !tbaa !25
+  %27 = load ptr, ptr %26, align 8, !tbaa !22
   tail call void %24(ptr noundef %27) #7
   br label %_Py_hashtable_destroy_entry.exit
 
 _Py_hashtable_destroy_entry.exit:                 ; preds = %23, %25
-  %28 = load ptr, ptr %7, align 8, !tbaa !26
+  %28 = load ptr, ptr %7, align 8, !tbaa !23
   tail call void %28(ptr noundef nonnull %.01315) #7
   %.not = icmp eq ptr %18, null
-  br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !43
+  br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !39
 
 ._crit_edge.loopexit:                             ; preds = %_Py_hashtable_destroy_entry.exit
   %.pre = load i64, ptr %2, align 8, !tbaa !4
@@ -754,7 +754,7 @@ _Py_hashtable_destroy_entry.exit:                 ; preds = %23, %25
   %29 = phi i64 [ %.pre, %._crit_edge.loopexit ], [ %14, %13 ]
   %30 = add nuw i64 %.016, 1
   %31 = icmp ult i64 %30, %29
-  br i1 %31, label %13, label %._crit_edge19, !llvm.loop !44
+  br i1 %31, label %13, label %._crit_edge19, !llvm.loop !40
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
@@ -792,27 +792,23 @@ attributes #7 = { nounwind }
 !18 = !{!"_Py_slist_item_s", !15, i64 0}
 !19 = !{!5, !9, i64 40}
 !20 = !{!17, !9, i64 16}
-!21 = distinct !{!21, !22}
-!22 = !{!"llvm.loop.estimated_trip_count"}
-!23 = distinct !{!23, !22}
-!24 = !{!18, !15, i64 0}
-!25 = !{!17, !9, i64 24}
-!26 = !{!5, !9, i64 72}
-!27 = distinct !{!27, !28, !22}
-!28 = !{!"llvm.loop.mustprogress"}
-!29 = !{!5, !9, i64 64}
-!30 = !{!31, !15, i64 0}
-!31 = !{!"", !15, i64 0}
-!32 = distinct !{!32, !28, !22}
-!33 = distinct !{!33, !28, !22}
-!34 = !{!5, !9, i64 24}
-!35 = distinct !{!35, !28, !22}
-!36 = distinct !{!36, !28, !22}
-!37 = !{!9, !9, i64 0}
-!38 = !{!5, !9, i64 48}
-!39 = !{!5, !9, i64 56}
-!40 = distinct !{!40, !22}
-!41 = distinct !{!41, !28, !22}
-!42 = distinct !{!42, !28, !22}
-!43 = distinct !{!43, !28, !22}
-!44 = distinct !{!44, !28, !22}
+!21 = !{!18, !15, i64 0}
+!22 = !{!17, !9, i64 24}
+!23 = !{!5, !9, i64 72}
+!24 = distinct !{!24, !25}
+!25 = !{!"llvm.loop.mustprogress"}
+!26 = !{!5, !9, i64 64}
+!27 = !{!28, !15, i64 0}
+!28 = !{!"", !15, i64 0}
+!29 = distinct !{!29, !25}
+!30 = distinct !{!30, !25}
+!31 = !{!5, !9, i64 24}
+!32 = distinct !{!32, !25}
+!33 = distinct !{!33, !25}
+!34 = !{!9, !9, i64 0}
+!35 = !{!5, !9, i64 48}
+!36 = !{!5, !9, i64 56}
+!37 = distinct !{!37, !25}
+!38 = distinct !{!38, !25}
+!39 = distinct !{!39, !25}
+!40 = distinct !{!40, !25}

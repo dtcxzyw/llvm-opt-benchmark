@@ -531,7 +531,7 @@ define range(i32 0, 2) i32 @ossl_cms_Receipt_verify(ptr noundef %0, ptr noundef 
 
 52:                                               ; preds = %49
   %53 = load i32, ptr %5, align 4, !tbaa !25
-  %54 = load i32, ptr %47, align 8, !tbaa !49
+  %54 = load i32, ptr %47, align 8, !tbaa !48
   %.not51 = icmp eq i32 %53, %54
   br i1 %.not51, label %56, label %55
 
@@ -569,7 +569,7 @@ define range(i32 0, 2) i32 @ossl_cms_Receipt_verify(ptr noundef %0, ptr noundef 
 
 65:                                               ; preds = %61
   %66 = getelementptr inbounds nuw i8, ptr %26, i64 8
-  %67 = load ptr, ptr %66, align 8, !tbaa !50
+  %67 = load ptr, ptr %66, align 8, !tbaa !49
   %68 = call i32 @OBJ_cmp(ptr noundef nonnull %63, ptr noundef %67) #5
   %.not54 = icmp eq i32 %68, 0
   br i1 %.not54, label %70, label %69
@@ -596,7 +596,7 @@ define range(i32 0, 2) i32 @ossl_cms_Receipt_verify(ptr noundef %0, ptr noundef 
   %75 = load ptr, ptr %3, align 8, !tbaa !3
   %76 = load ptr, ptr %75, align 8, !tbaa !8
   %77 = getelementptr inbounds nuw i8, ptr %26, i64 16
-  %78 = load ptr, ptr %77, align 8, !tbaa !51
+  %78 = load ptr, ptr %77, align 8, !tbaa !50
   %79 = call i32 @ASN1_STRING_cmp(ptr noundef %76, ptr noundef %78) #5
   %.not55 = icmp eq i32 %79, 0
   br i1 %.not55, label %81, label %80
@@ -673,12 +673,12 @@ CMS_get1_ReceiptRequest.exit:                     ; preds = %6
   br label %23
 
 14:                                               ; preds = %CMS_get1_ReceiptRequest.exit
-  store i32 1, ptr %2, align 8, !tbaa !52
+  store i32 1, ptr %2, align 8, !tbaa !51
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store ptr %12, ptr %15, align 8, !tbaa !50
+  store ptr %12, ptr %15, align 8, !tbaa !49
   %16 = load ptr, ptr %8, align 8, !tbaa !8
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store ptr %16, ptr %17, align 8, !tbaa !51
+  store ptr %16, ptr %17, align 8, !tbaa !50
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %19 = load ptr, ptr %18, align 8, !tbaa !43
   %20 = getelementptr inbounds nuw i8, ptr %2, i64 24
@@ -772,10 +772,9 @@ attributes #5 = { nounwind }
 !43 = !{!28, !10, i64 40}
 !44 = !{!45, !10, i64 24}
 !45 = !{!"CMS_Receipt_st", !15, i64 0, !39, i64 8, !10, i64 16, !10, i64 24}
-!46 = distinct !{!46, !47, !48}
+!46 = distinct !{!46, !47}
 !47 = !{!"llvm.loop.mustprogress"}
-!48 = !{!"llvm.loop.estimated_trip_count"}
-!49 = !{!14, !15, i64 0}
-!50 = !{!45, !39, i64 8}
-!51 = !{!45, !10, i64 16}
-!52 = !{!45, !15, i64 0}
+!48 = !{!14, !15, i64 0}
+!49 = !{!45, !39, i64 8}
+!50 = !{!45, !10, i64 16}
+!51 = !{!45, !15, i64 0}

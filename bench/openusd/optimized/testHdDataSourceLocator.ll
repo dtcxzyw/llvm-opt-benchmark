@@ -756,7 +756,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE9_Destruct
 
 _ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev.exit265: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE9_DestructEv.exit.i.i264, %178
   %180 = icmp eq ptr %159, %10
-  br i1 %180, label %181, label %157, !llvm.loop !8
+  br i1 %180, label %181, label %157
 
 181:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev.exit265
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %13) #21
@@ -849,7 +849,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev.exit265: ; preds 
   %210 = getelementptr inbounds i8, ptr %209, i64 -56
   call void @_ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %210) #21
   %211 = icmp eq ptr %210, %10
-  br i1 %211, label %.loopexit890, label %208, !llvm.loop !9
+  br i1 %211, label %.loopexit890, label %208
 
 .loopexit890:                                     ; preds = %208, %203
   %.pn133 = phi { ptr, i32 } [ %204, %203 ], [ %206, %208 ]
@@ -883,7 +883,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev.exit265: ; preds 
   %215 = getelementptr inbounds i8, ptr %214, i64 -56
   call void @_ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %215) #21
   %216 = icmp eq ptr %215, %10
-  br i1 %216, label %.loopexit889, label %.preheader888, !llvm.loop !10
+  br i1 %216, label %.loopexit889, label %.preheader888
 
 217:                                              ; preds = %181
   %218 = landingpad { ptr, i32 }
@@ -956,7 +956,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE9_Destruct
 _ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev.exit.i.i.i: ; preds = %246, %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE9_DestructEv.exit.i.i.i.i.i
   %248 = getelementptr inbounds nuw i8, ptr %.08.i.i.i270, i64 56
   %.not.i.i.i271 = icmp eq ptr %248, %227
-  br i1 %.not.i.i.i271, label %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_19HdDataSourceLocatorELj8EE9_DestructEv.exit.loopexit.i.i, label %.lr.ph.i.i.i269, !llvm.loop !11
+  br i1 %.not.i.i.i271, label %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_19HdDataSourceLocatorELj8EE9_DestructEv.exit.loopexit.i.i, label %.lr.ph.i.i.i269, !llvm.loop !7
 
 _ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_19HdDataSourceLocatorELj8EE9_DestructEv.exit.loopexit.i.i: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev.exit.i.i.i
   %.pre.i.i272 = load i32, ptr %220, align 4
@@ -1035,7 +1035,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE9_Destruct
 _ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev.exit.i.i.i289: ; preds = %277, %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE9_DestructEv.exit.i.i.i.i.i288
   %279 = getelementptr inbounds nuw i8, ptr %.08.i.i.i277, i64 56
   %.not.i.i.i290 = icmp eq ptr %279, %258
-  br i1 %.not.i.i.i290, label %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_19HdDataSourceLocatorELj8EE9_DestructEv.exit.loopexit.i.i291, label %.lr.ph.i.i.i276, !llvm.loop !11
+  br i1 %.not.i.i.i290, label %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_19HdDataSourceLocatorELj8EE9_DestructEv.exit.loopexit.i.i291, label %.lr.ph.i.i.i276, !llvm.loop !7
 
 _ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_19HdDataSourceLocatorELj8EE9_DestructEv.exit.loopexit.i.i291: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev.exit.i.i.i289
   %.pre.i.i292 = load i32, ptr %94, align 4
@@ -1955,7 +1955,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE9_Destruct
 _ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev.exit.i.i.i447: ; preds = %574, %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE9_DestructEv.exit.i.i.i.i.i446
   %576 = getelementptr inbounds nuw i8, ptr %.08.i.i.i435, i64 56
   %.not.i.i.i448 = icmp eq ptr %576, %555
-  br i1 %.not.i.i.i448, label %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_19HdDataSourceLocatorELj8EE9_DestructEv.exit.loopexit.i.i449, label %.lr.ph.i.i.i434, !llvm.loop !11
+  br i1 %.not.i.i.i448, label %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_19HdDataSourceLocatorELj8EE9_DestructEv.exit.loopexit.i.i449, label %.lr.ph.i.i.i434, !llvm.loop !7
 
 _ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_19HdDataSourceLocatorELj8EE9_DestructEv.exit.loopexit.i.i449: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev.exit.i.i.i447
   %.pre.i.i450 = load i32, ptr %414, align 4
@@ -2034,7 +2034,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE9_Destruct
 _ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev.exit.i.i.i469: ; preds = %605, %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE9_DestructEv.exit.i.i.i.i.i468
   %607 = getelementptr inbounds nuw i8, ptr %.08.i.i.i457, i64 56
   %.not.i.i.i470 = icmp eq ptr %607, %586
-  br i1 %.not.i.i.i470, label %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_19HdDataSourceLocatorELj8EE9_DestructEv.exit.loopexit.i.i471, label %.lr.ph.i.i.i456, !llvm.loop !11
+  br i1 %.not.i.i.i470, label %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_19HdDataSourceLocatorELj8EE9_DestructEv.exit.loopexit.i.i471, label %.lr.ph.i.i.i456, !llvm.loop !7
 
 _ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_19HdDataSourceLocatorELj8EE9_DestructEv.exit.loopexit.i.i471: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev.exit.i.i.i469
   %.pre.i.i472 = load i32, ptr %286, align 4
@@ -2186,7 +2186,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE9_Destruct
 
 _ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev.exit501: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE9_DestructEv.exit.i.i500, %651
   %653 = icmp eq ptr %632, %43
-  br i1 %653, label %654, label %630, !llvm.loop !12
+  br i1 %653, label %654, label %630
 
 654:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev.exit501
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %48) #21
@@ -2303,7 +2303,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE9_Destruct
 
 _ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev.exit523: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE9_DestructEv.exit.i.i522, %688
   %690 = icmp eq ptr %669, %52
-  br i1 %690, label %691, label %667, !llvm.loop !13
+  br i1 %690, label %691, label %667
 
 691:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev.exit523
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %55) #21
@@ -2600,7 +2600,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev.exit574: ; preds 
   %790 = getelementptr inbounds i8, ptr %789, i64 -56
   call void @_ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %790) #21
   %791 = icmp eq ptr %790, %43
-  br i1 %791, label %.loopexit887, label %788, !llvm.loop !14
+  br i1 %791, label %.loopexit887, label %788
 
 .loopexit887:                                     ; preds = %788, %783
   %.pn167 = phi { ptr, i32 } [ %784, %783 ], [ %786, %788 ]
@@ -2648,7 +2648,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev.exit574: ; preds 
   %796 = getelementptr inbounds i8, ptr %795, i64 -56
   call void @_ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %796) #21
   %797 = icmp eq ptr %796, %43
-  br i1 %797, label %.loopexit886, label %.preheader885, !llvm.loop !15
+  br i1 %797, label %.loopexit886, label %.preheader885
 
 798:                                              ; preds = %.noexc502, %654
   %799 = landingpad { ptr, i32 }
@@ -2681,7 +2681,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev.exit574: ; preds 
   %811 = getelementptr inbounds i8, ptr %810, i64 -56
   call void @_ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %811) #21
   %812 = icmp eq ptr %811, %52
-  br i1 %812, label %.loopexit884, label %809, !llvm.loop !16
+  br i1 %812, label %.loopexit884, label %809
 
 .loopexit884:                                     ; preds = %809, %804
   %.pn174 = phi { ptr, i32 } [ %805, %804 ], [ %807, %809 ]
@@ -2715,7 +2715,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev.exit574: ; preds 
   %816 = getelementptr inbounds i8, ptr %815, i64 -56
   call void @_ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %816) #21
   %817 = icmp eq ptr %816, %52
-  br i1 %817, label %.loopexit, label %.preheader, !llvm.loop !17
+  br i1 %817, label %.loopexit, label %.preheader
 
 818:                                              ; preds = %691
   %819 = landingpad { ptr, i32 }
@@ -2868,7 +2868,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE9_Destruct
 _ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev.exit.i.i.i591: ; preds = %868, %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE9_DestructEv.exit.i.i.i.i.i590
   %870 = getelementptr inbounds nuw i8, ptr %.08.i.i.i579, i64 56
   %.not.i.i.i592 = icmp eq ptr %870, %849
-  br i1 %.not.i.i.i592, label %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_19HdDataSourceLocatorELj8EE9_DestructEv.exit.loopexit.i.i593, label %.lr.ph.i.i.i578, !llvm.loop !11
+  br i1 %.not.i.i.i592, label %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_19HdDataSourceLocatorELj8EE9_DestructEv.exit.loopexit.i.i593, label %.lr.ph.i.i.i578, !llvm.loop !7
 
 _ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_19HdDataSourceLocatorELj8EE9_DestructEv.exit.loopexit.i.i593: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev.exit.i.i.i591
   %.pre.i.i594 = load i32, ptr %694, align 4
@@ -2949,7 +2949,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE9_Destruct
 _ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev.exit.i.i.i613: ; preds = %901, %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE9_DestructEv.exit.i.i.i.i.i612
   %903 = getelementptr inbounds nuw i8, ptr %.08.i.i.i601, i64 56
   %.not.i.i.i614 = icmp eq ptr %903, %882
-  br i1 %.not.i.i.i614, label %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_19HdDataSourceLocatorELj8EE9_DestructEv.exit.loopexit.i.i615, label %.lr.ph.i.i.i600, !llvm.loop !11
+  br i1 %.not.i.i.i614, label %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_19HdDataSourceLocatorELj8EE9_DestructEv.exit.loopexit.i.i615, label %.lr.ph.i.i.i600, !llvm.loop !7
 
 _ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_19HdDataSourceLocatorELj8EE9_DestructEv.exit.loopexit.i.i615: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev.exit.i.i.i613
   %.pre.i.i616 = load i32, ptr %875, align 4
@@ -3030,7 +3030,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE9_Destruct
 _ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev.exit.i.i.i635: ; preds = %934, %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE9_DestructEv.exit.i.i.i.i.i634
   %936 = getelementptr inbounds nuw i8, ptr %.08.i.i.i623, i64 56
   %.not.i.i.i636 = icmp eq ptr %936, %915
-  br i1 %.not.i.i.i636, label %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_19HdDataSourceLocatorELj8EE9_DestructEv.exit.loopexit.i.i637, label %.lr.ph.i.i.i622, !llvm.loop !11
+  br i1 %.not.i.i.i636, label %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_19HdDataSourceLocatorELj8EE9_DestructEv.exit.loopexit.i.i637, label %.lr.ph.i.i.i622, !llvm.loop !7
 
 _ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_19HdDataSourceLocatorELj8EE9_DestructEv.exit.loopexit.i.i637: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev.exit.i.i.i635
   %.pre.i.i638 = load i32, ptr %908, align 4
@@ -3577,7 +3577,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE9_Destruct
 _ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev.exit.i.i.i732: ; preds = %1123, %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE9_DestructEv.exit.i.i.i.i.i731
   %1125 = getelementptr inbounds nuw i8, ptr %.08.i.i.i720, i64 56
   %.not.i.i.i733 = icmp eq ptr %1125, %1104
-  br i1 %.not.i.i.i733, label %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_19HdDataSourceLocatorELj8EE9_DestructEv.exit.loopexit.i.i734, label %.lr.ph.i.i.i719, !llvm.loop !11
+  br i1 %.not.i.i.i733, label %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_19HdDataSourceLocatorELj8EE9_DestructEv.exit.loopexit.i.i734, label %.lr.ph.i.i.i719, !llvm.loop !7
 
 _ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_19HdDataSourceLocatorELj8EE9_DestructEv.exit.loopexit.i.i734: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev.exit.i.i.i732
   %.pre.i.i735 = load i32, ptr %1043, align 4
@@ -3656,7 +3656,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE9_Destruct
 _ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev.exit.i.i.i754: ; preds = %1154, %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE9_DestructEv.exit.i.i.i.i.i753
   %1156 = getelementptr inbounds nuw i8, ptr %.08.i.i.i742, i64 56
   %.not.i.i.i755 = icmp eq ptr %1156, %1135
-  br i1 %.not.i.i.i755, label %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_19HdDataSourceLocatorELj8EE9_DestructEv.exit.loopexit.i.i756, label %.lr.ph.i.i.i741, !llvm.loop !11
+  br i1 %.not.i.i.i755, label %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_19HdDataSourceLocatorELj8EE9_DestructEv.exit.loopexit.i.i756, label %.lr.ph.i.i.i741, !llvm.loop !7
 
 _ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_19HdDataSourceLocatorELj8EE9_DestructEv.exit.loopexit.i.i756: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev.exit.i.i.i754
   %.pre.i.i757 = load i32, ptr %943, align 4
@@ -4105,7 +4105,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE9_Destruct
 _ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev.exit.i.i.i858: ; preds = %1306, %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE9_DestructEv.exit.i.i.i.i.i857
   %1308 = getelementptr inbounds nuw i8, ptr %.08.i.i.i846, i64 56
   %.not.i.i.i859 = icmp eq ptr %1308, %1287
-  br i1 %.not.i.i.i859, label %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_19HdDataSourceLocatorELj8EE9_DestructEv.exit.loopexit.i.i860, label %.lr.ph.i.i.i845, !llvm.loop !11
+  br i1 %.not.i.i.i859, label %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_19HdDataSourceLocatorELj8EE9_DestructEv.exit.loopexit.i.i860, label %.lr.ph.i.i.i845, !llvm.loop !7
 
 _ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_19HdDataSourceLocatorELj8EE9_DestructEv.exit.loopexit.i.i860: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev.exit.i.i.i858
   %.pre.i.i861 = load i32, ptr %1163, align 4
@@ -4297,7 +4297,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.05.i.i.i.i) #21
   %17 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i, i64 32
   %.not.i.i.i.i = icmp eq ptr %17, %.pre35
-  br i1 %.not.i.i.i.i, label %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i, !llvm.loop !18
+  br i1 %.not.i.i.i.i, label %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i, !llvm.loop !8
 
 _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exitthread-pre-split.i: ; preds = %.lr.ph.i.i.i.i
   %.pr.i = load ptr, ptr %4, align 8
@@ -4406,15 +4406,15 @@ _ZNKSt6vectorIN32pxrInternal_v0_24__pxrReserved__7TfTokenESaIS1_EE12_M_check_len
 .lr.ph.i.i.i.i25:                                 ; preds = %.noexc28, %.lr.ph.i.i.i.i25
   %.012.i.i.i.i = phi ptr [ %62, %.lr.ph.i.i.i.i25 ], [ %57, %.noexc28 ]
   %.0911.i.i.i.i = phi ptr [ %61, %.lr.ph.i.i.i.i25 ], [ %45, %.noexc28 ]
-  call void @llvm.experimental.noalias.scope.decl(metadata !19)
-  call void @llvm.experimental.noalias.scope.decl(metadata !22)
-  %60 = load i64, ptr %.0911.i.i.i.i, align 8, !alias.scope !22, !noalias !19
-  store i64 %60, ptr %.012.i.i.i.i, align 8, !alias.scope !19, !noalias !22
-  store i64 0, ptr %.0911.i.i.i.i, align 8, !alias.scope !22, !noalias !19
+  call void @llvm.experimental.noalias.scope.decl(metadata !9)
+  call void @llvm.experimental.noalias.scope.decl(metadata !12)
+  %60 = load i64, ptr %.0911.i.i.i.i, align 8, !alias.scope !12, !noalias !9
+  store i64 %60, ptr %.012.i.i.i.i, align 8, !alias.scope !9, !noalias !12
+  store i64 0, ptr %.0911.i.i.i.i, align 8, !alias.scope !12, !noalias !9
   %61 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i, i64 8
   %62 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i, i64 8
   %.not.i.i.i.i26 = icmp eq ptr %61, %40
-  br i1 %.not.i.i.i.i26, label %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7TfTokenESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i, label %.lr.ph.i.i.i.i25, !llvm.loop !24
+  br i1 %.not.i.i.i.i26, label %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7TfTokenESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i, label %.lr.ph.i.i.i.i25, !llvm.loop !14
 
 _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7TfTokenESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i: ; preds = %.lr.ph.i.i.i.i25, %.noexc28
   %.0.lcssa.i.i.i.i = phi ptr [ %57, %.noexc28 ], [ %62, %.lr.ph.i.i.i.i25 ]
@@ -4475,7 +4475,7 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7TfTokenESaIS1_EE9push_backEOS1_
 _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit: ; preds = %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7TfTokenESaIS1_EE9push_backEOS1_.exit.thread, %68, %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7TfTokenESaIS1_EE9push_backEOS1_.exit, %36
   %82 = getelementptr inbounds nuw i8, ptr %.sroa.029.033, i64 32
   %.not = icmp eq ptr %82, %14
-  br i1 %.not, label %._crit_edge, label %36, !llvm.loop !25
+  br i1 %.not, label %._crit_edge, label %36
 
 _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit17: ; preds = %78, %74, %72
   %.pn10 = phi { ptr, i32 } [ %73, %72 ], [ %lpad.phi, %74 ], [ %lpad.phi, %78 ]
@@ -4503,7 +4503,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit17: ; preds = %78, %74, %7
 _ZSt8_DestroyIN32pxrInternal_v0_24__pxrReserved__7TfTokenEEvPT_.exit.i.i.i.i: ; preds = %87, %.lr.ph.i.i.i.i19
   %91 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i20, i64 8
   %.not.i.i.i.i21 = icmp eq ptr %91, %26
-  br i1 %.not.i.i.i.i21, label %_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__7TfTokenES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i19, !llvm.loop !26
+  br i1 %.not.i.i.i.i21, label %_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__7TfTokenES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i19, !llvm.loop !15
 
 _ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__7TfTokenES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i: ; preds = %_ZSt8_DestroyIN32pxrInternal_v0_24__pxrReserved__7TfTokenEEvPT_.exit.i.i.i.i
   %.pr.i22 = load ptr, ptr %3, align 8
@@ -4706,13 +4706,13 @@ define linkonce_odr dso_local noundef zeroext i1 @_Z13_ValueCompareIN32pxrIntern
   %42 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i.i.i.i.i.i.i.i.i.i, i64 8
   %43 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i.i.i.i.i.i.i.i.i.i, i64 8
   %.not.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %42, %30
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i.i, label %.loopexit.i.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i.i, !llvm.loop !27
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i.i, label %.loopexit.i.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i.i, !llvm.loop !16
 
 .loopexit.i.i.i.i.i.i.i:                          ; preds = %41, %24
   %44 = getelementptr inbounds nuw i8, ptr %.0813.i.i.i.i.i.i.i, i64 56
   %45 = getelementptr inbounds nuw i8, ptr %.014.i.i.i.i.i.i.i, i64 56
   %.not.i.i.i.i.i.i.i = icmp eq ptr %44, %15
-  br i1 %.not.i.i.i.i.i.i.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__22HdDataSourceLocatorSetneERKS0_.exit, label %.lr.ph.i.i.i.i.i.i.i, !llvm.loop !28
+  br i1 %.not.i.i.i.i.i.i.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__22HdDataSourceLocatorSetneERKS0_.exit, label %.lr.ph.i.i.i.i.i.i.i, !llvm.loop !17
 
 .loopexit:                                        ; preds = %.lr.ph.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i.i, %3
   %46 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, ptr noundef %0)
@@ -4794,7 +4794,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE9_Destruct
 _ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev.exit.i.i: ; preds = %28, %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE9_DestructEv.exit.i.i.i.i
   %30 = getelementptr inbounds nuw i8, ptr %.08.i.i, i64 56
   %.not.i.i = icmp eq ptr %30, %9
-  br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_19HdDataSourceLocatorELj8EE9_DestructEv.exit.loopexit.i, label %.lr.ph.i.i, !llvm.loop !11
+  br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_19HdDataSourceLocatorELj8EE9_DestructEv.exit.loopexit.i, label %.lr.ph.i.i, !llvm.loop !7
 
 _ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_19HdDataSourceLocatorELj8EE9_DestructEv.exit.loopexit.i: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev.exit.i.i
   %.pre.i = load i32, ptr %2, align 4
@@ -6651,7 +6651,7 @@ _ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__7TfTokenEJRKS1_EEvPT_DpOT0_.
   %.0810.i.i.i.i.i.i.add.i = add nuw nsw i64 %.0810.i.i.i.i.i.i.idx.i, 8
   %883 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i.i.i.i, i64 8
   %.not.i.i.i.i.i.i.i = icmp eq i64 %.0810.i.i.i.i.i.i.add.i, 48
-  br i1 %.not.i.i.i.i.i.i.i, label %884, label %.lr.ph.i.i.i.i.i.i.i, !llvm.loop !29
+  br i1 %.not.i.i.i.i.i.i.i, label %884, label %.lr.ph.i.i.i.i.i.i.i, !llvm.loop !18
 
 884:                                              ; preds = %_ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__7TfTokenEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i.i.i
   %885 = getelementptr inbounds nuw i8, ptr %162, i64 8
@@ -6675,7 +6675,7 @@ _ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__7TfTokenEJRKS1_EEvPT_DpOT0_.
 
 _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit431.i: ; preds = %892, %886
   %896 = icmp eq ptr %888, %163
-  br i1 %896, label %897, label %886, !llvm.loop !30
+  br i1 %896, label %897, label %886
 
 897:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit431.i
   %898 = load ptr, ptr %885, align 8
@@ -6761,7 +6761,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev.exit443.i: ; pred
 _ZSt8_DestroyIN32pxrInternal_v0_24__pxrReserved__7TfTokenEEvPT_.exit.i.i.i.i.i: ; preds = %932, %.lr.ph.i.i.i.i.i
   %936 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i, i64 8
   %.not.i.i.i.i.i = icmp eq ptr %936, %928
-  br i1 %.not.i.i.i.i.i, label %_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__7TfTokenES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !26
+  br i1 %.not.i.i.i.i.i, label %_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__7TfTokenES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !15
 
 _ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__7TfTokenES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i.i: ; preds = %_ZSt8_DestroyIN32pxrInternal_v0_24__pxrReserved__7TfTokenEEvPT_.exit.i.i.i.i.i
   %.pr.i.i = load ptr, ptr %162, align 8
@@ -6806,7 +6806,7 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7TfTokenESaIS1_EED2Ev.exit.i: ; 
 
 _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit447.i: ; preds = %951, %945
   %955 = icmp eq ptr %947, %163
-  br i1 %955, label %common.resume, label %945, !llvm.loop !31
+  br i1 %955, label %common.resume, label %945
 
 .body.i:                                          ; preds = %866
   %956 = landingpad { ptr, i32 }
@@ -6830,7 +6830,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit447.i: ; preds = %951, %94
 
 _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit449.i: ; preds = %963, %957
   %967 = icmp eq ptr %959, %163
-  br i1 %967, label %common.resume, label %957, !llvm.loop !32
+  br i1 %967, label %common.resume, label %957
 
 968:                                              ; preds = %897
   %969 = landingpad { ptr, i32 }
@@ -7377,7 +7377,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit70.i: 
   %1104 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i.i.i.i31, i64 8
   %.not.i.i.i.i.i.i.i32 = icmp ne ptr %1103, %1093
   %or.cond.not = select i1 %1102, i1 %.not.i.i.i.i.i.i.i32, i1 false
-  br i1 %or.cond.not, label %.lr.ph.i.i.i.i.i.i.i30, label %_ZNK32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatoreqERKS0_.exit.i, !llvm.loop !27
+  br i1 %or.cond.not, label %.lr.ph.i.i.i.i.i.i.i30, label %_ZNK32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatoreqERKS0_.exit.i, !llvm.loop !16
 
 _ZNK32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatoreqERKS0_.exit.i: ; preds = %.lr.ph.i.i.i.i.i.i.i30, %1087, %._ZNK32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatoreqERKS0_.exit_crit_edge.i
   %1105 = phi ptr [ %.pre.i, %._ZNK32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatoreqERKS0_.exit_crit_edge.i ], [ %.pre267.i, %1087 ], [ %.pre267.i, %.lr.ph.i.i.i.i.i.i.i30 ]
@@ -7648,7 +7648,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit92.i: 
   %1195 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i.i.i.i.i, i64 8
   %.not.i.i.i.i.i.i.i.i29 = icmp eq ptr %1194, %1184
   %or.cond211 = select i1 %1193, i1 true, i1 %.not.i.i.i.i.i.i.i.i29
-  br i1 %or.cond211, label %_ZNK32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorneERKS0_.exit.i, label %.lr.ph.i.i.i.i.i.i.i.i, !llvm.loop !27
+  br i1 %or.cond211, label %_ZNK32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorneERKS0_.exit.i, label %.lr.ph.i.i.i.i.i.i.i.i, !llvm.loop !16
 
 _ZNK32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorneERKS0_.exit.i: ; preds = %.lr.ph.i.i.i.i.i.i.i.i, %1178, %._ZNK32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorneERKS0_.exit_crit_edge.i
   %1196 = phi ptr [ %.pre268.i, %._ZNK32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorneERKS0_.exit_crit_edge.i ], [ %.pre269.i, %1178 ], [ %.pre269.i, %.lr.ph.i.i.i.i.i.i.i.i ]
@@ -7919,7 +7919,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit128.i:
   %1286 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i.i.i135.i, i64 8
   %.not.i.i.i.i.i.i137.i = icmp ne ptr %1285, %1275
   %or.cond214.not = select i1 %1284, i1 %.not.i.i.i.i.i.i137.i, i1 false
-  br i1 %or.cond214.not, label %.lr.ph.i.i.i.i.i.i134.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatoreqERKS0_.exit138.i, !llvm.loop !27
+  br i1 %or.cond214.not, label %.lr.ph.i.i.i.i.i.i134.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatoreqERKS0_.exit138.i, !llvm.loop !16
 
 _ZNK32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatoreqERKS0_.exit138.i: ; preds = %.lr.ph.i.i.i.i.i.i134.i, %1269, %._ZNK32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatoreqERKS0_.exit138_crit_edge.i
   %1287 = phi ptr [ %.pre270.i, %._ZNK32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatoreqERKS0_.exit138_crit_edge.i ], [ %.pre271.i, %1269 ], [ %.pre271.i, %.lr.ph.i.i.i.i.i.i134.i ]
@@ -8439,12 +8439,12 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit201.i:
   %1472 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i.i.i.i.i.i, i64 8
   %1473 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i.i.i.i.i.i, i64 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %1472, %1464
-  br i1 %.not.i.i.i.i.i.i.i.i.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__14TfDenseHashSetINS_19HdDataSourceLocatorENS_6TfHashESt8equal_toIS1_ELj128EE4findERKS1_.exit.i, label %.lr.ph.i.i.i.i.i.i.i.i.i, !llvm.loop !27
+  br i1 %.not.i.i.i.i.i.i.i.i.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__14TfDenseHashSetINS_19HdDataSourceLocatorENS_6TfHashESt8equal_toIS1_ELj128EE4findERKS1_.exit.i, label %.lr.ph.i.i.i.i.i.i.i.i.i, !llvm.loop !16
 
 _ZNKSt8equal_toIN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorEEclERKS1_S4_.exit.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i, %1455
   %1474 = getelementptr inbounds nuw i8, ptr %.sroa.08.116.i.i, i64 56
   %.not12.i.i = icmp eq ptr %1474, %1446
-  br i1 %.not12.i.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__14TfDenseHashSetINS_19HdDataSourceLocatorENS_6TfHashESt8equal_toIS1_ELj128EE4findERKS1_.exit.i, label %1455, !llvm.loop !33
+  br i1 %.not12.i.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__14TfDenseHashSetINS_19HdDataSourceLocatorENS_6TfHashESt8equal_toIS1_ELj128EE4findERKS1_.exit.i, label %1455, !llvm.loop !19
 
 _ZNK32pxrInternal_v0_24__pxrReserved__14TfDenseHashSetINS_19HdDataSourceLocatorENS_6TfHashESt8equal_toIS1_ELj128EE4findERKS1_.exit.i: ; preds = %_ZNKSt8equal_toIN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorEEclERKS1_S4_.exit.i.i, %1459, %1471, %1445, %1440, %1438
   %1475 = phi ptr [ %1439, %1438 ], [ %.pre272.i, %1440 ], [ %1446, %1445 ], [ %1446, %1471 ], [ %1446, %1459 ], [ %1446, %_ZNKSt8equal_toIN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorEEclERKS1_S4_.exit.i.i ]
@@ -8625,12 +8625,12 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit219.i:
   %1547 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i.i.i.i.i233.i, i64 8
   %1548 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i.i.i.i.i232.i, i64 8
   %.not.i.i.i.i.i.i.i.i234.i = icmp eq ptr %1547, %1539
-  br i1 %.not.i.i.i.i.i.i.i.i234.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__14TfDenseHashSetINS_19HdDataSourceLocatorENS_6TfHashESt8equal_toIS1_ELj128EE4findERKS1_.exit236.i, label %.lr.ph.i.i.i.i.i.i.i.i231.i, !llvm.loop !27
+  br i1 %.not.i.i.i.i.i.i.i.i234.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__14TfDenseHashSetINS_19HdDataSourceLocatorENS_6TfHashESt8equal_toIS1_ELj128EE4findERKS1_.exit236.i, label %.lr.ph.i.i.i.i.i.i.i.i231.i, !llvm.loop !16
 
 _ZNKSt8equal_toIN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorEEclERKS1_S4_.exit.i228.i: ; preds = %.lr.ph.i.i.i.i.i.i.i.i231.i, %1530
   %1549 = getelementptr inbounds nuw i8, ptr %.sroa.08.116.i227.i, i64 56
   %.not12.i229.i = icmp eq ptr %1549, %1521
-  br i1 %.not12.i229.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__14TfDenseHashSetINS_19HdDataSourceLocatorENS_6TfHashESt8equal_toIS1_ELj128EE4findERKS1_.exit236.i, label %1530, !llvm.loop !33
+  br i1 %.not12.i229.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__14TfDenseHashSetINS_19HdDataSourceLocatorENS_6TfHashESt8equal_toIS1_ELj128EE4findERKS1_.exit236.i, label %1530, !llvm.loop !19
 
 _ZNK32pxrInternal_v0_24__pxrReserved__14TfDenseHashSetINS_19HdDataSourceLocatorENS_6TfHashESt8equal_toIS1_ELj128EE4findERKS1_.exit236.i: ; preds = %_ZNKSt8equal_toIN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorEEclERKS1_S4_.exit.i228.i, %1534, %1546, %1520, %1515, %1513
   %1550 = phi ptr [ %1514, %1513 ], [ %.pre273.i, %1515 ], [ %1521, %1520 ], [ %1521, %1546 ], [ %1521, %1534 ], [ %1521, %_ZNKSt8equal_toIN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorEEclERKS1_S4_.exit.i228.i ]
@@ -12686,7 +12686,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE9_Destruct
 
 _ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE9_DestructEv.exit.i.i, %238
   %240 = icmp eq ptr %219, %3
-  br i1 %240, label %241, label %217, !llvm.loop !34
+  br i1 %240, label %241, label %217
 
 241:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev.exit
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %12) #21
@@ -13377,7 +13377,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE9_Destruct
 _ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev.exit.i.i.i: ; preds = %473, %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE9_DestructEv.exit.i.i.i.i.i
   %475 = getelementptr inbounds nuw i8, ptr %.08.i.i.i820, i64 56
   %.not.i.i.i821 = icmp eq ptr %475, %454
-  br i1 %.not.i.i.i821, label %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_19HdDataSourceLocatorELj8EE9_DestructEv.exit.loopexit.i.i, label %.lr.ph.i.i.i819, !llvm.loop !11
+  br i1 %.not.i.i.i821, label %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_19HdDataSourceLocatorELj8EE9_DestructEv.exit.loopexit.i.i, label %.lr.ph.i.i.i819, !llvm.loop !7
 
 _ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_19HdDataSourceLocatorELj8EE9_DestructEv.exit.loopexit.i.i: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev.exit.i.i.i
   %.pre.i.i822 = load i32, ptr %447, align 4
@@ -13457,7 +13457,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__22HdDataSourceLocatorSetD2Ev.exit: ; preds 
   %505 = getelementptr inbounds i8, ptr %504, i64 -56
   call void @_ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %505) #21
   %506 = icmp eq ptr %505, %3
-  br i1 %506, label %.loopexit1972, label %503, !llvm.loop !35
+  br i1 %506, label %.loopexit1972, label %503
 
 .loopexit1972:                                    ; preds = %503, %498
   %507 = phi i1 [ false, %498 ], [ true, %503 ]
@@ -13533,7 +13533,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__22HdDataSourceLocatorSetD2Ev.exit: ; preds 
   %513 = getelementptr inbounds i8, ptr %512, i64 -56
   call void @_ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %513) #21
   %514 = icmp eq ptr %513, %3
-  br i1 %514, label %.loopexit1949, label %.preheader1970, !llvm.loop !36
+  br i1 %514, label %.loopexit1949, label %.preheader1970
 
 515:                                              ; preds = %.noexc673, %241
   %516 = landingpad { ptr, i32 }
@@ -13993,7 +13993,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE9_Destruct
 
 _ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev.exit884: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE9_DestructEv.exit.i.i883, %631
   %633 = icmp eq ptr %612, %32
-  br i1 %633, label %634, label %610, !llvm.loop !37
+  br i1 %633, label %634, label %610
 
 634:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev.exit884
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %51) #21
@@ -14674,7 +14674,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE9_Destruct
 _ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev.exit.i.i.i1038: ; preds = %861, %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE9_DestructEv.exit.i.i.i.i.i1037
   %863 = getelementptr inbounds nuw i8, ptr %.08.i.i.i1026, i64 56
   %.not.i.i.i1039 = icmp eq ptr %863, %842
-  br i1 %.not.i.i.i1039, label %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_19HdDataSourceLocatorELj8EE9_DestructEv.exit.loopexit.i.i1040, label %.lr.ph.i.i.i1025, !llvm.loop !11
+  br i1 %.not.i.i.i1039, label %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_19HdDataSourceLocatorELj8EE9_DestructEv.exit.loopexit.i.i1040, label %.lr.ph.i.i.i1025, !llvm.loop !7
 
 _ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_19HdDataSourceLocatorELj8EE9_DestructEv.exit.loopexit.i.i1040: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev.exit.i.i.i1038
   %.pre.i.i1041 = load i32, ptr %835, align 4
@@ -14804,7 +14804,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__22HdDataSourceLocatorSetD2Ev.exit1043: ; pr
   %913 = getelementptr inbounds i8, ptr %912, i64 -56
   call void @_ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %913) #21
   %914 = icmp eq ptr %913, %32
-  br i1 %914, label %.loopexit1969, label %911, !llvm.loop !38
+  br i1 %914, label %.loopexit1969, label %911
 
 .loopexit1969:                                    ; preds = %911, %906
   %915 = phi i1 [ false, %906 ], [ true, %911 ]
@@ -14950,7 +14950,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__22HdDataSourceLocatorSetD2Ev.exit1043: ; pr
   %926 = getelementptr inbounds i8, ptr %925, i64 -56
   call void @_ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %926) #21
   %927 = icmp eq ptr %926, %32
-  br i1 %927, label %.loopexit1949, label %.preheader1967, !llvm.loop !39
+  br i1 %927, label %.loopexit1949, label %.preheader1967
 
 928:                                              ; preds = %.noexc885, %634
   %929 = landingpad { ptr, i32 }
@@ -15290,7 +15290,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE9_Destruct
 
 _ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev.exit1080: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE9_DestructEv.exit.i.i1079, %1019
   %1021 = icmp eq ptr %1000, %73
-  br i1 %1021, label %1022, label %998, !llvm.loop !40
+  br i1 %1021, label %1022, label %998
 
 1022:                                             ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev.exit1080
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %82) #21
@@ -15473,7 +15473,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE9_Destruct
 
 _ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev.exit1114: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE9_DestructEv.exit.i.i1113, %1081
   %1083 = icmp eq ptr %1062, %90
-  br i1 %1083, label %1084, label %1060, !llvm.loop !41
+  br i1 %1083, label %1084, label %1060
 
 1084:                                             ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev.exit1114
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %93) #21
@@ -15588,7 +15588,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE9_Destruct
 
 _ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev.exit1136: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE9_DestructEv.exit.i.i1135, %1118
   %1120 = icmp eq ptr %1099, %97
-  br i1 %1120, label %1121, label %1097, !llvm.loop !42
+  br i1 %1120, label %1121, label %1097
 
 1121:                                             ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev.exit1136
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %100) #21
@@ -15703,7 +15703,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE9_Destruct
 
 _ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev.exit1158: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE9_DestructEv.exit.i.i1157, %1155
   %1157 = icmp eq ptr %1136, %104
-  br i1 %1157, label %1158, label %1134, !llvm.loop !43
+  br i1 %1157, label %1158, label %1134
 
 1158:                                             ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev.exit1158
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %107) #21
@@ -15818,7 +15818,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE9_Destruct
 
 _ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev.exit1180: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE9_DestructEv.exit.i.i1179, %1192
   %1194 = icmp eq ptr %1173, %111
-  br i1 %1194, label %1195, label %1171, !llvm.loop !44
+  br i1 %1194, label %1195, label %1171
 
 1195:                                             ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev.exit1180
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %114) #21
@@ -15987,7 +15987,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE9_Destruct
 _ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev.exit.i.i.i1229: ; preds = %1259, %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE9_DestructEv.exit.i.i.i.i.i1228
   %1261 = getelementptr inbounds nuw i8, ptr %.08.i.i.i1217, i64 56
   %.not.i.i.i1230 = icmp eq ptr %1261, %1240
-  br i1 %.not.i.i.i1230, label %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_19HdDataSourceLocatorELj8EE9_DestructEv.exit.loopexit.i.i1231, label %.lr.ph.i.i.i1216, !llvm.loop !11
+  br i1 %.not.i.i.i1230, label %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_19HdDataSourceLocatorELj8EE9_DestructEv.exit.loopexit.i.i1231, label %.lr.ph.i.i.i1216, !llvm.loop !7
 
 _ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_19HdDataSourceLocatorELj8EE9_DestructEv.exit.loopexit.i.i1231: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev.exit.i.i.i1229
   %.pre.i.i1232 = load i32, ptr %1233, align 4
@@ -16068,7 +16068,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE9_Destruct
 _ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev.exit.i.i.i1251: ; preds = %1292, %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE9_DestructEv.exit.i.i.i.i.i1250
   %1294 = getelementptr inbounds nuw i8, ptr %.08.i.i.i1239, i64 56
   %.not.i.i.i1252 = icmp eq ptr %1294, %1273
-  br i1 %.not.i.i.i1252, label %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_19HdDataSourceLocatorELj8EE9_DestructEv.exit.loopexit.i.i1253, label %.lr.ph.i.i.i1238, !llvm.loop !11
+  br i1 %.not.i.i.i1252, label %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_19HdDataSourceLocatorELj8EE9_DestructEv.exit.loopexit.i.i1253, label %.lr.ph.i.i.i1238, !llvm.loop !7
 
 _ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_19HdDataSourceLocatorELj8EE9_DestructEv.exit.loopexit.i.i1253: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev.exit.i.i.i1251
   %.pre.i.i1254 = load i32, ptr %1266, align 4
@@ -16149,7 +16149,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE9_Destruct
 _ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev.exit.i.i.i1273: ; preds = %1325, %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE9_DestructEv.exit.i.i.i.i.i1272
   %1327 = getelementptr inbounds nuw i8, ptr %.08.i.i.i1261, i64 56
   %.not.i.i.i1274 = icmp eq ptr %1327, %1306
-  br i1 %.not.i.i.i1274, label %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_19HdDataSourceLocatorELj8EE9_DestructEv.exit.loopexit.i.i1275, label %.lr.ph.i.i.i1260, !llvm.loop !11
+  br i1 %.not.i.i.i1274, label %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_19HdDataSourceLocatorELj8EE9_DestructEv.exit.loopexit.i.i1275, label %.lr.ph.i.i.i1260, !llvm.loop !7
 
 _ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_19HdDataSourceLocatorELj8EE9_DestructEv.exit.loopexit.i.i1275: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev.exit.i.i.i1273
   %.pre.i.i1276 = load i32, ptr %1299, align 4
@@ -16230,7 +16230,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE9_Destruct
 _ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev.exit.i.i.i1295: ; preds = %1358, %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE9_DestructEv.exit.i.i.i.i.i1294
   %1360 = getelementptr inbounds nuw i8, ptr %.08.i.i.i1283, i64 56
   %.not.i.i.i1296 = icmp eq ptr %1360, %1339
-  br i1 %.not.i.i.i1296, label %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_19HdDataSourceLocatorELj8EE9_DestructEv.exit.loopexit.i.i1297, label %.lr.ph.i.i.i1282, !llvm.loop !11
+  br i1 %.not.i.i.i1296, label %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_19HdDataSourceLocatorELj8EE9_DestructEv.exit.loopexit.i.i1297, label %.lr.ph.i.i.i1282, !llvm.loop !7
 
 _ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_19HdDataSourceLocatorELj8EE9_DestructEv.exit.loopexit.i.i1297: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev.exit.i.i.i1295
   %.pre.i.i1298 = load i32, ptr %1332, align 4
@@ -16311,7 +16311,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE9_Destruct
 _ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev.exit.i.i.i1317: ; preds = %1391, %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE9_DestructEv.exit.i.i.i.i.i1316
   %1393 = getelementptr inbounds nuw i8, ptr %.08.i.i.i1305, i64 56
   %.not.i.i.i1318 = icmp eq ptr %1393, %1372
-  br i1 %.not.i.i.i1318, label %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_19HdDataSourceLocatorELj8EE9_DestructEv.exit.loopexit.i.i1319, label %.lr.ph.i.i.i1304, !llvm.loop !11
+  br i1 %.not.i.i.i1318, label %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_19HdDataSourceLocatorELj8EE9_DestructEv.exit.loopexit.i.i1319, label %.lr.ph.i.i.i1304, !llvm.loop !7
 
 _ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_19HdDataSourceLocatorELj8EE9_DestructEv.exit.loopexit.i.i1319: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev.exit.i.i.i1317
   %.pre.i.i1320 = load i32, ptr %1365, align 4
@@ -16390,7 +16390,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE9_Destruct
 _ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev.exit.i.i.i1339: ; preds = %1422, %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE9_DestructEv.exit.i.i.i.i.i1338
   %1424 = getelementptr inbounds nuw i8, ptr %.08.i.i.i1327, i64 56
   %.not.i.i.i1340 = icmp eq ptr %1424, %1403
-  br i1 %.not.i.i.i1340, label %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_19HdDataSourceLocatorELj8EE9_DestructEv.exit.loopexit.i.i1341, label %.lr.ph.i.i.i1326, !llvm.loop !11
+  br i1 %.not.i.i.i1340, label %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_19HdDataSourceLocatorELj8EE9_DestructEv.exit.loopexit.i.i1341, label %.lr.ph.i.i.i1326, !llvm.loop !7
 
 _ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_19HdDataSourceLocatorELj8EE9_DestructEv.exit.loopexit.i.i1341: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev.exit.i.i.i1339
   %.pre.i.i1342 = load i32, ptr %1024, align 4
@@ -16471,7 +16471,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE9_Destruct
 _ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev.exit.i.i.i1361: ; preds = %1455, %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE9_DestructEv.exit.i.i.i.i.i1360
   %1457 = getelementptr inbounds nuw i8, ptr %.08.i.i.i1349, i64 56
   %.not.i.i.i1362 = icmp eq ptr %1457, %1436
-  br i1 %.not.i.i.i1362, label %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_19HdDataSourceLocatorELj8EE9_DestructEv.exit.loopexit.i.i1363, label %.lr.ph.i.i.i1348, !llvm.loop !11
+  br i1 %.not.i.i.i1362, label %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_19HdDataSourceLocatorELj8EE9_DestructEv.exit.loopexit.i.i1363, label %.lr.ph.i.i.i1348, !llvm.loop !7
 
 _ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_19HdDataSourceLocatorELj8EE9_DestructEv.exit.loopexit.i.i1363: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev.exit.i.i.i1361
   %.pre.i.i1364 = load i32, ptr %1429, align 4
@@ -16551,7 +16551,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__22HdDataSourceLocatorSetD2Ev.exit1366: ; pr
   %1487 = getelementptr inbounds i8, ptr %1486, i64 -56
   call void @_ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %1487) #21
   %1488 = icmp eq ptr %1487, %73
-  br i1 %1488, label %.loopexit1966, label %1485, !llvm.loop !45
+  br i1 %1488, label %.loopexit1966, label %1485
 
 .loopexit1966:                                    ; preds = %1485, %1480
   %1489 = phi i1 [ false, %1480 ], [ true, %1485 ]
@@ -16627,7 +16627,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__22HdDataSourceLocatorSetD2Ev.exit1366: ; pr
   %1495 = getelementptr inbounds i8, ptr %1494, i64 -56
   call void @_ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %1495) #21
   %1496 = icmp eq ptr %1495, %73
-  br i1 %1496, label %.loopexit1949, label %.preheader1964, !llvm.loop !46
+  br i1 %1496, label %.loopexit1949, label %.preheader1964
 
 1497:                                             ; preds = %1022
   %1498 = landingpad { ptr, i32 }
@@ -16671,7 +16671,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__22HdDataSourceLocatorSetD2Ev.exit1366: ; pr
   %1513 = getelementptr inbounds i8, ptr %1512, i64 -56
   call void @_ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %1513) #21
   %1514 = icmp eq ptr %1513, %90
-  br i1 %1514, label %.loopexit1962, label %1511, !llvm.loop !47
+  br i1 %1514, label %.loopexit1962, label %1511
 
 .loopexit1962:                                    ; preds = %1511, %1506
   %1515 = phi i1 [ false, %1506 ], [ true, %1511 ]
@@ -16705,7 +16705,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__22HdDataSourceLocatorSetD2Ev.exit1366: ; pr
   %1518 = getelementptr inbounds i8, ptr %1517, i64 -56
   call void @_ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %1518) #21
   %1519 = icmp eq ptr %1518, %90
-  br i1 %1519, label %.loopexit1961, label %.preheader1960, !llvm.loop !48
+  br i1 %1519, label %.loopexit1961, label %.preheader1960
 
 1520:                                             ; preds = %.noexc1115, %1084
   %1521 = landingpad { ptr, i32 }
@@ -16738,7 +16738,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__22HdDataSourceLocatorSetD2Ev.exit1366: ; pr
   %1533 = getelementptr inbounds i8, ptr %1532, i64 -56
   call void @_ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %1533) #21
   %1534 = icmp eq ptr %1533, %97
-  br i1 %1534, label %.loopexit1959, label %1531, !llvm.loop !49
+  br i1 %1534, label %.loopexit1959, label %1531
 
 .loopexit1959:                                    ; preds = %1531, %1526
   %1535 = phi i1 [ false, %1526 ], [ true, %1531 ]
@@ -16772,7 +16772,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__22HdDataSourceLocatorSetD2Ev.exit1366: ; pr
   %1538 = getelementptr inbounds i8, ptr %1537, i64 -56
   call void @_ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %1538) #21
   %1539 = icmp eq ptr %1538, %97
-  br i1 %1539, label %.loopexit1958, label %.preheader1957, !llvm.loop !50
+  br i1 %1539, label %.loopexit1958, label %.preheader1957
 
 1540:                                             ; preds = %.noexc1137, %1121
   %1541 = landingpad { ptr, i32 }
@@ -16805,7 +16805,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__22HdDataSourceLocatorSetD2Ev.exit1366: ; pr
   %1553 = getelementptr inbounds i8, ptr %1552, i64 -56
   call void @_ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %1553) #21
   %1554 = icmp eq ptr %1553, %104
-  br i1 %1554, label %.loopexit1956, label %1551, !llvm.loop !51
+  br i1 %1554, label %.loopexit1956, label %1551
 
 .loopexit1956:                                    ; preds = %1551, %1546
   %1555 = phi i1 [ false, %1546 ], [ true, %1551 ]
@@ -16839,7 +16839,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__22HdDataSourceLocatorSetD2Ev.exit1366: ; pr
   %1558 = getelementptr inbounds i8, ptr %1557, i64 -56
   call void @_ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %1558) #21
   %1559 = icmp eq ptr %1558, %104
-  br i1 %1559, label %.loopexit1955, label %.preheader1954, !llvm.loop !52
+  br i1 %1559, label %.loopexit1955, label %.preheader1954
 
 1560:                                             ; preds = %.noexc1159, %1158
   %1561 = landingpad { ptr, i32 }
@@ -16872,7 +16872,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__22HdDataSourceLocatorSetD2Ev.exit1366: ; pr
   %1573 = getelementptr inbounds i8, ptr %1572, i64 -56
   call void @_ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %1573) #21
   %1574 = icmp eq ptr %1573, %111
-  br i1 %1574, label %.loopexit1953, label %1571, !llvm.loop !53
+  br i1 %1574, label %.loopexit1953, label %1571
 
 .loopexit1953:                                    ; preds = %1571, %1566
   %1575 = phi i1 [ false, %1566 ], [ true, %1571 ]
@@ -16906,7 +16906,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__22HdDataSourceLocatorSetD2Ev.exit1366: ; pr
   %1578 = getelementptr inbounds i8, ptr %1577, i64 -56
   call void @_ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %1578) #21
   %1579 = icmp eq ptr %1578, %111
-  br i1 %1579, label %.loopexit1952, label %.preheader1951, !llvm.loop !54
+  br i1 %1579, label %.loopexit1952, label %.preheader1951
 
 1580:                                             ; preds = %.invoke1979, %.invoke, %.noexc1198.invoke, %.noexc1206.invoke, %.noexc1199.invoke, %.noexc1207.invoke, %.noexc1200.invoke, %.noexc1208.invoke, %.noexc1209.invoke, %.noexc1210.invoke, %1229, %1227, %1223, %1221, %1209, %1201, %1198, %1195
   %1581 = landingpad { ptr, i32 }
@@ -17263,7 +17263,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE9_Destruct
 
 _ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev.exit1438: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE9_DestructEv.exit.i.i1437, %1666
   %1668 = icmp eq ptr %1647, %122
-  br i1 %1668, label %1669, label %1645, !llvm.loop !55
+  br i1 %1668, label %1669, label %1645
 
 1669:                                             ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev.exit1438
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %145) #21
@@ -17456,7 +17456,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE9_Destruct
 
 _ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev.exit1472: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE9_DestructEv.exit.i.i1471, %1726
   %1728 = icmp eq ptr %1707, %152
-  br i1 %1728, label %1729, label %1705, !llvm.loop !56
+  br i1 %1728, label %1729, label %1705
 
 1729:                                             ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev.exit1472
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %155) #21
@@ -17571,7 +17571,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE9_Destruct
 
 _ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev.exit1494: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE9_DestructEv.exit.i.i1493, %1763
   %1765 = icmp eq ptr %1744, %159
-  br i1 %1765, label %1766, label %1742, !llvm.loop !57
+  br i1 %1765, label %1766, label %1742
 
 1766:                                             ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev.exit1494
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %162) #21
@@ -17686,7 +17686,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE9_Destruct
 
 _ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev.exit1516: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE9_DestructEv.exit.i.i1515, %1800
   %1802 = icmp eq ptr %1781, %166
-  br i1 %1802, label %1803, label %1779, !llvm.loop !58
+  br i1 %1802, label %1803, label %1779
 
 1803:                                             ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev.exit1516
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %169) #21
@@ -17801,7 +17801,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE9_Destruct
 
 _ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev.exit1538: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE9_DestructEv.exit.i.i1537, %1837
   %1839 = icmp eq ptr %1818, %173
-  br i1 %1839, label %1840, label %1816, !llvm.loop !59
+  br i1 %1839, label %1840, label %1816
 
 1840:                                             ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev.exit1538
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %176) #21
@@ -17962,7 +17962,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE9_Destruct
 _ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev.exit.i.i.i1579: ; preds = %1901, %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE9_DestructEv.exit.i.i.i.i.i1578
   %1903 = getelementptr inbounds nuw i8, ptr %.08.i.i.i1567, i64 56
   %.not.i.i.i1580 = icmp eq ptr %1903, %1882
-  br i1 %.not.i.i.i1580, label %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_19HdDataSourceLocatorELj8EE9_DestructEv.exit.loopexit.i.i1581, label %.lr.ph.i.i.i1566, !llvm.loop !11
+  br i1 %.not.i.i.i1580, label %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_19HdDataSourceLocatorELj8EE9_DestructEv.exit.loopexit.i.i1581, label %.lr.ph.i.i.i1566, !llvm.loop !7
 
 _ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_19HdDataSourceLocatorELj8EE9_DestructEv.exit.loopexit.i.i1581: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev.exit.i.i.i1579
   %.pre.i.i1582 = load i32, ptr %1875, align 4
@@ -18043,7 +18043,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE9_Destruct
 _ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev.exit.i.i.i1601: ; preds = %1934, %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE9_DestructEv.exit.i.i.i.i.i1600
   %1936 = getelementptr inbounds nuw i8, ptr %.08.i.i.i1589, i64 56
   %.not.i.i.i1602 = icmp eq ptr %1936, %1915
-  br i1 %.not.i.i.i1602, label %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_19HdDataSourceLocatorELj8EE9_DestructEv.exit.loopexit.i.i1603, label %.lr.ph.i.i.i1588, !llvm.loop !11
+  br i1 %.not.i.i.i1602, label %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_19HdDataSourceLocatorELj8EE9_DestructEv.exit.loopexit.i.i1603, label %.lr.ph.i.i.i1588, !llvm.loop !7
 
 _ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_19HdDataSourceLocatorELj8EE9_DestructEv.exit.loopexit.i.i1603: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev.exit.i.i.i1601
   %.pre.i.i1604 = load i32, ptr %1908, align 4
@@ -18124,7 +18124,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE9_Destruct
 _ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev.exit.i.i.i1623: ; preds = %1967, %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE9_DestructEv.exit.i.i.i.i.i1622
   %1969 = getelementptr inbounds nuw i8, ptr %.08.i.i.i1611, i64 56
   %.not.i.i.i1624 = icmp eq ptr %1969, %1948
-  br i1 %.not.i.i.i1624, label %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_19HdDataSourceLocatorELj8EE9_DestructEv.exit.loopexit.i.i1625, label %.lr.ph.i.i.i1610, !llvm.loop !11
+  br i1 %.not.i.i.i1624, label %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_19HdDataSourceLocatorELj8EE9_DestructEv.exit.loopexit.i.i1625, label %.lr.ph.i.i.i1610, !llvm.loop !7
 
 _ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_19HdDataSourceLocatorELj8EE9_DestructEv.exit.loopexit.i.i1625: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev.exit.i.i.i1623
   %.pre.i.i1626 = load i32, ptr %1941, align 4
@@ -18205,7 +18205,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE9_Destruct
 _ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev.exit.i.i.i1645: ; preds = %2000, %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE9_DestructEv.exit.i.i.i.i.i1644
   %2002 = getelementptr inbounds nuw i8, ptr %.08.i.i.i1633, i64 56
   %.not.i.i.i1646 = icmp eq ptr %2002, %1981
-  br i1 %.not.i.i.i1646, label %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_19HdDataSourceLocatorELj8EE9_DestructEv.exit.loopexit.i.i1647, label %.lr.ph.i.i.i1632, !llvm.loop !11
+  br i1 %.not.i.i.i1646, label %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_19HdDataSourceLocatorELj8EE9_DestructEv.exit.loopexit.i.i1647, label %.lr.ph.i.i.i1632, !llvm.loop !7
 
 _ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_19HdDataSourceLocatorELj8EE9_DestructEv.exit.loopexit.i.i1647: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev.exit.i.i.i1645
   %.pre.i.i1648 = load i32, ptr %1974, align 4
@@ -18286,7 +18286,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE9_Destruct
 _ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev.exit.i.i.i1667: ; preds = %2033, %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE9_DestructEv.exit.i.i.i.i.i1666
   %2035 = getelementptr inbounds nuw i8, ptr %.08.i.i.i1655, i64 56
   %.not.i.i.i1668 = icmp eq ptr %2035, %2014
-  br i1 %.not.i.i.i1668, label %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_19HdDataSourceLocatorELj8EE9_DestructEv.exit.loopexit.i.i1669, label %.lr.ph.i.i.i1654, !llvm.loop !11
+  br i1 %.not.i.i.i1668, label %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_19HdDataSourceLocatorELj8EE9_DestructEv.exit.loopexit.i.i1669, label %.lr.ph.i.i.i1654, !llvm.loop !7
 
 _ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_19HdDataSourceLocatorELj8EE9_DestructEv.exit.loopexit.i.i1669: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev.exit.i.i.i1667
   %.pre.i.i1670 = load i32, ptr %2007, align 4
@@ -18367,7 +18367,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE9_Destruct
 _ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev.exit.i.i.i1689: ; preds = %2066, %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE9_DestructEv.exit.i.i.i.i.i1688
   %2068 = getelementptr inbounds nuw i8, ptr %.08.i.i.i1677, i64 56
   %.not.i.i.i1690 = icmp eq ptr %2068, %2047
-  br i1 %.not.i.i.i1690, label %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_19HdDataSourceLocatorELj8EE9_DestructEv.exit.loopexit.i.i1691, label %.lr.ph.i.i.i1676, !llvm.loop !11
+  br i1 %.not.i.i.i1690, label %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_19HdDataSourceLocatorELj8EE9_DestructEv.exit.loopexit.i.i1691, label %.lr.ph.i.i.i1676, !llvm.loop !7
 
 _ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_19HdDataSourceLocatorELj8EE9_DestructEv.exit.loopexit.i.i1691: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev.exit.i.i.i1689
   %.pre.i.i1692 = load i32, ptr %2040, align 4
@@ -18543,7 +18543,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__22HdDataSourceLocatorSetD2Ev.exit1694: ; pr
   %2126 = getelementptr inbounds i8, ptr %2125, i64 -56
   call void @_ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %2126) #21
   %2127 = icmp eq ptr %2126, %122
-  br i1 %2127, label %.loopexit1950, label %2124, !llvm.loop !60
+  br i1 %2127, label %.loopexit1950, label %2124
 
 .loopexit1950:                                    ; preds = %2124, %2119
   %2128 = phi i1 [ false, %2119 ], [ true, %2124 ]
@@ -18717,7 +18717,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__22HdDataSourceLocatorSetD2Ev.exit1694: ; pr
   %2141 = getelementptr inbounds i8, ptr %2140, i64 -56
   call void @_ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %2141) #21
   %2142 = icmp eq ptr %2141, %122
-  br i1 %2142, label %.loopexit1949, label %.preheader1948, !llvm.loop !61
+  br i1 %2142, label %.loopexit1949, label %.preheader1948
 
 2143:                                             ; preds = %1669
   %2144 = landingpad { ptr, i32 }
@@ -18761,7 +18761,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__22HdDataSourceLocatorSetD2Ev.exit1694: ; pr
   %2159 = getelementptr inbounds i8, ptr %2158, i64 -56
   call void @_ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %2159) #21
   %2160 = icmp eq ptr %2159, %152
-  br i1 %2160, label %.loopexit1946, label %2157, !llvm.loop !62
+  br i1 %2160, label %.loopexit1946, label %2157
 
 .loopexit1946:                                    ; preds = %2157, %2152
   %.pn595 = phi { ptr, i32 } [ %2153, %2152 ], [ %2155, %2157 ]
@@ -18795,7 +18795,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__22HdDataSourceLocatorSetD2Ev.exit1694: ; pr
   %2164 = getelementptr inbounds i8, ptr %2163, i64 -56
   call void @_ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %2164) #21
   %2165 = icmp eq ptr %2164, %152
-  br i1 %2165, label %.loopexit1945, label %.preheader1944, !llvm.loop !63
+  br i1 %2165, label %.loopexit1945, label %.preheader1944
 
 2166:                                             ; preds = %.noexc1473, %1729
   %2167 = landingpad { ptr, i32 }
@@ -18828,7 +18828,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__22HdDataSourceLocatorSetD2Ev.exit1694: ; pr
   %2179 = getelementptr inbounds i8, ptr %2178, i64 -56
   call void @_ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %2179) #21
   %2180 = icmp eq ptr %2179, %159
-  br i1 %2180, label %.loopexit1943, label %2177, !llvm.loop !64
+  br i1 %2180, label %.loopexit1943, label %2177
 
 .loopexit1943:                                    ; preds = %2177, %2172
   %.pn600 = phi { ptr, i32 } [ %2173, %2172 ], [ %2175, %2177 ]
@@ -18862,7 +18862,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__22HdDataSourceLocatorSetD2Ev.exit1694: ; pr
   %2184 = getelementptr inbounds i8, ptr %2183, i64 -56
   call void @_ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %2184) #21
   %2185 = icmp eq ptr %2184, %159
-  br i1 %2185, label %.loopexit1942, label %.preheader1941, !llvm.loop !65
+  br i1 %2185, label %.loopexit1942, label %.preheader1941
 
 2186:                                             ; preds = %.noexc1495, %1766
   %2187 = landingpad { ptr, i32 }
@@ -18895,7 +18895,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__22HdDataSourceLocatorSetD2Ev.exit1694: ; pr
   %2199 = getelementptr inbounds i8, ptr %2198, i64 -56
   call void @_ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %2199) #21
   %2200 = icmp eq ptr %2199, %166
-  br i1 %2200, label %.loopexit1940, label %2197, !llvm.loop !66
+  br i1 %2200, label %.loopexit1940, label %2197
 
 .loopexit1940:                                    ; preds = %2197, %2192
   %.pn605 = phi { ptr, i32 } [ %2193, %2192 ], [ %2195, %2197 ]
@@ -18929,7 +18929,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__22HdDataSourceLocatorSetD2Ev.exit1694: ; pr
   %2204 = getelementptr inbounds i8, ptr %2203, i64 -56
   call void @_ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %2204) #21
   %2205 = icmp eq ptr %2204, %166
-  br i1 %2205, label %.loopexit1939, label %.preheader1938, !llvm.loop !67
+  br i1 %2205, label %.loopexit1939, label %.preheader1938
 
 2206:                                             ; preds = %.noexc1517, %1803
   %2207 = landingpad { ptr, i32 }
@@ -18962,7 +18962,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__22HdDataSourceLocatorSetD2Ev.exit1694: ; pr
   %2219 = getelementptr inbounds i8, ptr %2218, i64 -56
   call void @_ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %2219) #21
   %2220 = icmp eq ptr %2219, %173
-  br i1 %2220, label %.loopexit1937, label %2217, !llvm.loop !68
+  br i1 %2220, label %.loopexit1937, label %2217
 
 .loopexit1937:                                    ; preds = %2217, %2212
   %.pn610 = phi { ptr, i32 } [ %2213, %2212 ], [ %2215, %2217 ]
@@ -18996,7 +18996,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__22HdDataSourceLocatorSetD2Ev.exit1694: ; pr
   %2224 = getelementptr inbounds i8, ptr %2223, i64 -56
   call void @_ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %2224) #21
   %2225 = icmp eq ptr %2224, %173
-  br i1 %2225, label %.loopexit1936, label %.preheader, !llvm.loop !69
+  br i1 %2225, label %.loopexit1936, label %.preheader
 
 2226:                                             ; preds = %.invoke1980, %.noexc1556.invoke, %.noexc1557.invoke, %.noexc1558.invoke, %.noexc1559.invoke, %.noexc1560.invoke, %.noexc1550, %.noexc1549, %.noexc1548, %1846, %1871, %1869, %1865, %1863, %1851, %1843, %1840
   %2227 = landingpad { ptr, i32 }
@@ -19196,7 +19196,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE9_Destruct
 _ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev.exit.i.i.i1739: ; preds = %2304, %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE9_DestructEv.exit.i.i.i.i.i1738
   %2306 = getelementptr inbounds nuw i8, ptr %.08.i.i.i1727, i64 56
   %.not.i.i.i1740 = icmp eq ptr %2306, %2285
-  br i1 %.not.i.i.i1740, label %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_19HdDataSourceLocatorELj8EE9_DestructEv.exit.loopexit.i.i1741, label %.lr.ph.i.i.i1726, !llvm.loop !11
+  br i1 %.not.i.i.i1740, label %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_19HdDataSourceLocatorELj8EE9_DestructEv.exit.loopexit.i.i1741, label %.lr.ph.i.i.i1726, !llvm.loop !7
 
 _ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_19HdDataSourceLocatorELj8EE9_DestructEv.exit.loopexit.i.i1741: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev.exit.i.i.i1739
   %.pre.i.i1742 = load i32, ptr %2278, align 4
@@ -19275,7 +19275,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE9_Destruct
 _ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev.exit.i.i.i1761: ; preds = %2335, %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE9_DestructEv.exit.i.i.i.i.i1760
   %2337 = getelementptr inbounds nuw i8, ptr %.08.i.i.i1749, i64 56
   %.not.i.i.i1762 = icmp eq ptr %2337, %2316
-  br i1 %.not.i.i.i1762, label %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_19HdDataSourceLocatorELj8EE9_DestructEv.exit.loopexit.i.i1763, label %.lr.ph.i.i.i1748, !llvm.loop !11
+  br i1 %.not.i.i.i1762, label %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_19HdDataSourceLocatorELj8EE9_DestructEv.exit.loopexit.i.i1763, label %.lr.ph.i.i.i1748, !llvm.loop !7
 
 _ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_19HdDataSourceLocatorELj8EE9_DestructEv.exit.loopexit.i.i1763: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev.exit.i.i.i1761
   %.pre.i.i1764 = load i32, ptr %2230, align 4
@@ -19881,7 +19881,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE9_Destruct
 _ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev.exit.i.i.i: ; preds = %278, %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE9_DestructEv.exit.i.i.i.i.i
   %280 = getelementptr inbounds nuw i8, ptr %.08.i.i.i644, i64 56
   %.not.i.i.i645 = icmp eq ptr %280, %259
-  br i1 %.not.i.i.i645, label %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_19HdDataSourceLocatorELj8EE9_DestructEv.exit.loopexit.i.i, label %.lr.ph.i.i.i643, !llvm.loop !11
+  br i1 %.not.i.i.i645, label %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_19HdDataSourceLocatorELj8EE9_DestructEv.exit.loopexit.i.i, label %.lr.ph.i.i.i643, !llvm.loop !7
 
 _ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_19HdDataSourceLocatorELj8EE9_DestructEv.exit.loopexit.i.i: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev.exit.i.i.i
   %.pre.i.i646 = load i32, ptr %150, align 4
@@ -20448,7 +20448,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE9_Destruct
 _ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev.exit.i.i.i755: ; preds = %464, %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE9_DestructEv.exit.i.i.i.i.i754
   %466 = getelementptr inbounds nuw i8, ptr %.08.i.i.i743, i64 56
   %.not.i.i.i756 = icmp eq ptr %466, %445
-  br i1 %.not.i.i.i756, label %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_19HdDataSourceLocatorELj8EE9_DestructEv.exit.loopexit.i.i757, label %.lr.ph.i.i.i742, !llvm.loop !11
+  br i1 %.not.i.i.i756, label %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_19HdDataSourceLocatorELj8EE9_DestructEv.exit.loopexit.i.i757, label %.lr.ph.i.i.i742, !llvm.loop !7
 
 _ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_19HdDataSourceLocatorELj8EE9_DestructEv.exit.loopexit.i.i757: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev.exit.i.i.i755
   %.pre.i.i758 = load i32, ptr %438, align 4
@@ -20689,7 +20689,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE9_Destruct
 
 _ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev.exit782: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE9_DestructEv.exit.i.i781, %533
   %535 = icmp eq ptr %514, %27
-  br i1 %535, label %536, label %512, !llvm.loop !70
+  br i1 %535, label %536, label %512
 
 536:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev.exit782
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %30) #21
@@ -21637,7 +21637,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE9_Destruct
 _ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev.exit.i.i.i971: ; preds = %874, %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE9_DestructEv.exit.i.i.i.i.i970
   %876 = getelementptr inbounds nuw i8, ptr %.08.i.i.i959, i64 56
   %.not.i.i.i972 = icmp eq ptr %876, %855
-  br i1 %.not.i.i.i972, label %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_19HdDataSourceLocatorELj8EE9_DestructEv.exit.loopexit.i.i973, label %.lr.ph.i.i.i958, !llvm.loop !11
+  br i1 %.not.i.i.i972, label %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_19HdDataSourceLocatorELj8EE9_DestructEv.exit.loopexit.i.i973, label %.lr.ph.i.i.i958, !llvm.loop !7
 
 _ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_19HdDataSourceLocatorELj8EE9_DestructEv.exit.loopexit.i.i973: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev.exit.i.i.i971
   %.pre.i.i974 = load i32, ptr %848, align 4
@@ -21687,7 +21687,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__22HdDataSourceLocatorSetD2Ev.exit976: ; pre
   %894 = getelementptr inbounds i8, ptr %893, i64 -56
   call void @_ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %894) #21
   %895 = icmp eq ptr %894, %27
-  br i1 %895, label %.loopexit1482, label %892, !llvm.loop !71
+  br i1 %895, label %.loopexit1482, label %892
 
 .loopexit1482:                                    ; preds = %892, %887
   %.pn421 = phi { ptr, i32 } [ %888, %887 ], [ %890, %892 ]
@@ -21721,7 +21721,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__22HdDataSourceLocatorSetD2Ev.exit976: ; pre
   %899 = getelementptr inbounds i8, ptr %898, i64 -56
   call void @_ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %899) #21
   %900 = icmp eq ptr %899, %27
-  br i1 %900, label %.loopexit, label %.preheader1480, !llvm.loop !72
+  br i1 %900, label %.loopexit, label %.preheader1480
 
 901:                                              ; preds = %.noexc783, %536
   %902 = landingpad { ptr, i32 }
@@ -22417,7 +22417,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE9_Destruct
 
 _ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev.exit1058: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE9_DestructEv.exit.i.i1057, %1080
   %1082 = icmp eq ptr %1061, %76
-  br i1 %1082, label %1083, label %1059, !llvm.loop !73
+  br i1 %1082, label %1083, label %1059
 
 1083:                                             ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev.exit1058
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %103) #21
@@ -23358,7 +23358,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE9_Destruct
 _ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev.exit.i.i.i1234: ; preds = %1415, %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE9_DestructEv.exit.i.i.i.i.i1233
   %1417 = getelementptr inbounds nuw i8, ptr %.08.i.i.i1222, i64 56
   %.not.i.i.i1235 = icmp eq ptr %1417, %1396
-  br i1 %.not.i.i.i1235, label %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_19HdDataSourceLocatorELj8EE9_DestructEv.exit.loopexit.i.i1236, label %.lr.ph.i.i.i1221, !llvm.loop !11
+  br i1 %.not.i.i.i1235, label %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_19HdDataSourceLocatorELj8EE9_DestructEv.exit.loopexit.i.i1236, label %.lr.ph.i.i.i1221, !llvm.loop !7
 
 _ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_19HdDataSourceLocatorELj8EE9_DestructEv.exit.loopexit.i.i1236: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev.exit.i.i.i1234
   %.pre.i.i1237 = load i32, ptr %1389, align 4
@@ -23525,7 +23525,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_19HdDataSourceLocatorELj
   %1483 = getelementptr inbounds i8, ptr %1482, i64 -56
   call void @_ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %1483) #21
   %1484 = icmp eq ptr %1483, %76
-  br i1 %1484, label %.loopexit1479, label %1481, !llvm.loop !74
+  br i1 %1484, label %.loopexit1479, label %1481
 
 .loopexit1479:                                    ; preds = %1481, %1476
   %.pn456 = phi { ptr, i32 } [ %1477, %1476 ], [ %1479, %1481 ]
@@ -23727,7 +23727,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_19HdDataSourceLocatorELj
   %1500 = getelementptr inbounds i8, ptr %1499, i64 -56
   call void @_ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %1500) #21
   %1501 = icmp eq ptr %1500, %76
-  br i1 %1501, label %.loopexit, label %.preheader, !llvm.loop !75
+  br i1 %1501, label %.loopexit, label %.preheader
 
 1502:                                             ; preds = %.noexc1059, %1083
   %1503 = landingpad { ptr, i32 }
@@ -24489,7 +24489,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE9_Destruct
 _ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev.exit.i.i.i: ; preds = %337, %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE9_DestructEv.exit.i.i.i.i.i
   %339 = getelementptr inbounds nuw i8, ptr %.08.i.i.i, i64 56
   %.not.i.i.i = icmp eq ptr %339, %318
-  br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_19HdDataSourceLocatorELj8EE9_DestructEv.exit.loopexit.i.i, label %.lr.ph.i.i.i, !llvm.loop !11
+  br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_19HdDataSourceLocatorELj8EE9_DestructEv.exit.loopexit.i.i, label %.lr.ph.i.i.i, !llvm.loop !7
 
 _ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_19HdDataSourceLocatorELj8EE9_DestructEv.exit.loopexit.i.i: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev.exit.i.i.i
   %.pre.i.i = load i32, ptr %311, align 4
@@ -24672,7 +24672,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE9_Destruct
 _ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev.exit.i.i.i1217: ; preds = %411, %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE9_DestructEv.exit.i.i.i.i.i1216
   %413 = getelementptr inbounds nuw i8, ptr %.08.i.i.i1205, i64 56
   %.not.i.i.i1218 = icmp eq ptr %413, %392
-  br i1 %.not.i.i.i1218, label %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_19HdDataSourceLocatorELj8EE9_DestructEv.exit.loopexit.i.i1219, label %.lr.ph.i.i.i1204, !llvm.loop !11
+  br i1 %.not.i.i.i1218, label %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_19HdDataSourceLocatorELj8EE9_DestructEv.exit.loopexit.i.i1219, label %.lr.ph.i.i.i1204, !llvm.loop !7
 
 _ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_19HdDataSourceLocatorELj8EE9_DestructEv.exit.loopexit.i.i1219: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev.exit.i.i.i1217
   %.pre.i.i1220 = load i32, ptr %385, align 4
@@ -24802,7 +24802,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE9_Destruct
 _ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev.exit.i.i.i1251: ; preds = %464, %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE9_DestructEv.exit.i.i.i.i.i1250
   %466 = getelementptr inbounds nuw i8, ptr %.08.i.i.i1239, i64 56
   %.not.i.i.i1252 = icmp eq ptr %466, %445
-  br i1 %.not.i.i.i1252, label %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_19HdDataSourceLocatorELj8EE9_DestructEv.exit.loopexit.i.i1253, label %.lr.ph.i.i.i1238, !llvm.loop !11
+  br i1 %.not.i.i.i1252, label %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_19HdDataSourceLocatorELj8EE9_DestructEv.exit.loopexit.i.i1253, label %.lr.ph.i.i.i1238, !llvm.loop !7
 
 _ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_19HdDataSourceLocatorELj8EE9_DestructEv.exit.loopexit.i.i1253: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev.exit.i.i.i1251
   %.pre.i.i1254 = load i32, ptr %438, align 4
@@ -24881,7 +24881,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE9_Destruct
 _ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev.exit.i.i.i1273: ; preds = %495, %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE9_DestructEv.exit.i.i.i.i.i1272
   %497 = getelementptr inbounds nuw i8, ptr %.08.i.i.i1261, i64 56
   %.not.i.i.i1274 = icmp eq ptr %497, %476
-  br i1 %.not.i.i.i1274, label %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_19HdDataSourceLocatorELj8EE9_DestructEv.exit.loopexit.i.i1275, label %.lr.ph.i.i.i1260, !llvm.loop !11
+  br i1 %.not.i.i.i1274, label %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_19HdDataSourceLocatorELj8EE9_DestructEv.exit.loopexit.i.i1275, label %.lr.ph.i.i.i1260, !llvm.loop !7
 
 _ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_19HdDataSourceLocatorELj8EE9_DestructEv.exit.loopexit.i.i1275: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev.exit.i.i.i1273
   %.pre.i.i1276 = load i32, ptr %290, align 4
@@ -25322,7 +25322,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE9_Destruct
 _ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev.exit.i.i.i1344: ; preds = %631, %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE9_DestructEv.exit.i.i.i.i.i1343
   %633 = getelementptr inbounds nuw i8, ptr %.08.i.i.i1332, i64 56
   %.not.i.i.i1345 = icmp eq ptr %633, %612
-  br i1 %.not.i.i.i1345, label %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_19HdDataSourceLocatorELj8EE9_DestructEv.exit.loopexit.i.i1346, label %.lr.ph.i.i.i1331, !llvm.loop !11
+  br i1 %.not.i.i.i1345, label %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_19HdDataSourceLocatorELj8EE9_DestructEv.exit.loopexit.i.i1346, label %.lr.ph.i.i.i1331, !llvm.loop !7
 
 _ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_19HdDataSourceLocatorELj8EE9_DestructEv.exit.loopexit.i.i1346: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev.exit.i.i.i1344
   %.pre.i.i1347 = load i32, ptr %605, align 4
@@ -25505,7 +25505,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE9_Destruct
 _ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev.exit.i.i.i1390: ; preds = %705, %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE9_DestructEv.exit.i.i.i.i.i1389
   %707 = getelementptr inbounds nuw i8, ptr %.08.i.i.i1378, i64 56
   %.not.i.i.i1391 = icmp eq ptr %707, %686
-  br i1 %.not.i.i.i1391, label %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_19HdDataSourceLocatorELj8EE9_DestructEv.exit.loopexit.i.i1392, label %.lr.ph.i.i.i1377, !llvm.loop !11
+  br i1 %.not.i.i.i1391, label %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_19HdDataSourceLocatorELj8EE9_DestructEv.exit.loopexit.i.i1392, label %.lr.ph.i.i.i1377, !llvm.loop !7
 
 _ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_19HdDataSourceLocatorELj8EE9_DestructEv.exit.loopexit.i.i1392: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev.exit.i.i.i1390
   %.pre.i.i1393 = load i32, ptr %679, align 4
@@ -25635,7 +25635,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE9_Destruct
 _ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev.exit.i.i.i1424: ; preds = %758, %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE9_DestructEv.exit.i.i.i.i.i1423
   %760 = getelementptr inbounds nuw i8, ptr %.08.i.i.i1412, i64 56
   %.not.i.i.i1425 = icmp eq ptr %760, %739
-  br i1 %.not.i.i.i1425, label %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_19HdDataSourceLocatorELj8EE9_DestructEv.exit.loopexit.i.i1426, label %.lr.ph.i.i.i1411, !llvm.loop !11
+  br i1 %.not.i.i.i1425, label %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_19HdDataSourceLocatorELj8EE9_DestructEv.exit.loopexit.i.i1426, label %.lr.ph.i.i.i1411, !llvm.loop !7
 
 _ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_19HdDataSourceLocatorELj8EE9_DestructEv.exit.loopexit.i.i1426: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev.exit.i.i.i1424
   %.pre.i.i1427 = load i32, ptr %732, align 4
@@ -25716,7 +25716,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE9_Destruct
 _ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev.exit.i.i.i1446: ; preds = %791, %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE9_DestructEv.exit.i.i.i.i.i1445
   %793 = getelementptr inbounds nuw i8, ptr %.08.i.i.i1434, i64 56
   %.not.i.i.i1447 = icmp eq ptr %793, %772
-  br i1 %.not.i.i.i1447, label %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_19HdDataSourceLocatorELj8EE9_DestructEv.exit.loopexit.i.i1448, label %.lr.ph.i.i.i1433, !llvm.loop !11
+  br i1 %.not.i.i.i1447, label %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_19HdDataSourceLocatorELj8EE9_DestructEv.exit.loopexit.i.i1448, label %.lr.ph.i.i.i1433, !llvm.loop !7
 
 _ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_19HdDataSourceLocatorELj8EE9_DestructEv.exit.loopexit.i.i1448: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev.exit.i.i.i1446
   %.pre.i.i1449 = load i32, ptr %765, align 4
@@ -26056,7 +26056,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE9_Destruct
 
 _ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev.exit1483: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE9_DestructEv.exit.i.i1482, %882
   %884 = icmp eq ptr %863, %37
-  br i1 %884, label %885, label %861, !llvm.loop !76
+  br i1 %884, label %885, label %861
 
 885:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev.exit1483
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %44) #21
@@ -26223,7 +26223,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE9_Destruct
 
 _ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev.exit1515: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE9_DestructEv.exit.i.i1514, %929
   %931 = icmp eq ptr %910, %48
-  br i1 %931, label %932, label %908, !llvm.loop !77
+  br i1 %931, label %932, label %908
 
 932:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev.exit1515
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %55) #21
@@ -26366,7 +26366,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE9_Destruct
 
 _ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev.exit1542: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE9_DestructEv.exit.i.i1541, %971
   %973 = icmp eq ptr %952, %59
-  br i1 %973, label %974, label %950, !llvm.loop !78
+  br i1 %973, label %974, label %950
 
 974:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev.exit1542
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %64) #21
@@ -26531,7 +26531,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE9_Destruct
 
 _ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev.exit1574: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE9_DestructEv.exit.i.i1573, %1018
   %1020 = icmp eq ptr %999, %68
-  br i1 %1020, label %1021, label %997, !llvm.loop !79
+  br i1 %1020, label %1021, label %997
 
 1021:                                             ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev.exit1574
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %75) #21
@@ -26698,7 +26698,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE9_Destruct
 
 _ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev.exit1606: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE9_DestructEv.exit.i.i1605, %1065
   %1067 = icmp eq ptr %1046, %79
-  br i1 %1067, label %1068, label %1044, !llvm.loop !80
+  br i1 %1067, label %1068, label %1044
 
 1068:                                             ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev.exit1606
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %86) #21
@@ -26865,7 +26865,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE9_Destruct
 
 _ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev.exit1638: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE9_DestructEv.exit.i.i1637, %1112
   %1114 = icmp eq ptr %1093, %90
-  br i1 %1114, label %1115, label %1091, !llvm.loop !81
+  br i1 %1114, label %1115, label %1091
 
 1115:                                             ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev.exit1638
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %97) #21
@@ -27223,7 +27223,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE9_Destruct
 _ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev.exit.i.i.i1695: ; preds = %1204, %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE9_DestructEv.exit.i.i.i.i.i1694
   %1206 = getelementptr inbounds nuw i8, ptr %.08.i.i.i1683, i64 56
   %.not.i.i.i1696 = icmp eq ptr %1206, %1185
-  br i1 %.not.i.i.i1696, label %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_19HdDataSourceLocatorELj8EE9_DestructEv.exit.loopexit.i.i1697, label %.lr.ph.i.i.i1682, !llvm.loop !11
+  br i1 %.not.i.i.i1696, label %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_19HdDataSourceLocatorELj8EE9_DestructEv.exit.loopexit.i.i1697, label %.lr.ph.i.i.i1682, !llvm.loop !7
 
 _ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_19HdDataSourceLocatorELj8EE9_DestructEv.exit.loopexit.i.i1697: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev.exit.i.i.i1695
   %.pre.i.i1698 = load i32, ptr %1178, align 4
@@ -27406,7 +27406,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE9_Destruct
 _ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev.exit.i.i.i1741: ; preds = %1278, %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE9_DestructEv.exit.i.i.i.i.i1740
   %1280 = getelementptr inbounds nuw i8, ptr %.08.i.i.i1729, i64 56
   %.not.i.i.i1742 = icmp eq ptr %1280, %1259
-  br i1 %.not.i.i.i1742, label %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_19HdDataSourceLocatorELj8EE9_DestructEv.exit.loopexit.i.i1743, label %.lr.ph.i.i.i1728, !llvm.loop !11
+  br i1 %.not.i.i.i1742, label %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_19HdDataSourceLocatorELj8EE9_DestructEv.exit.loopexit.i.i1743, label %.lr.ph.i.i.i1728, !llvm.loop !7
 
 _ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_19HdDataSourceLocatorELj8EE9_DestructEv.exit.loopexit.i.i1743: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev.exit.i.i.i1741
   %.pre.i.i1744 = load i32, ptr %1252, align 4
@@ -27589,7 +27589,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE9_Destruct
 _ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev.exit.i.i.i1787: ; preds = %1352, %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE9_DestructEv.exit.i.i.i.i.i1786
   %1354 = getelementptr inbounds nuw i8, ptr %.08.i.i.i1775, i64 56
   %.not.i.i.i1788 = icmp eq ptr %1354, %1333
-  br i1 %.not.i.i.i1788, label %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_19HdDataSourceLocatorELj8EE9_DestructEv.exit.loopexit.i.i1789, label %.lr.ph.i.i.i1774, !llvm.loop !11
+  br i1 %.not.i.i.i1788, label %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_19HdDataSourceLocatorELj8EE9_DestructEv.exit.loopexit.i.i1789, label %.lr.ph.i.i.i1774, !llvm.loop !7
 
 _ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_19HdDataSourceLocatorELj8EE9_DestructEv.exit.loopexit.i.i1789: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev.exit.i.i.i1787
   %.pre.i.i1790 = load i32, ptr %1326, align 4
@@ -27772,7 +27772,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE9_Destruct
 _ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev.exit.i.i.i1833: ; preds = %1426, %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE9_DestructEv.exit.i.i.i.i.i1832
   %1428 = getelementptr inbounds nuw i8, ptr %.08.i.i.i1821, i64 56
   %.not.i.i.i1834 = icmp eq ptr %1428, %1407
-  br i1 %.not.i.i.i1834, label %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_19HdDataSourceLocatorELj8EE9_DestructEv.exit.loopexit.i.i1835, label %.lr.ph.i.i.i1820, !llvm.loop !11
+  br i1 %.not.i.i.i1834, label %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_19HdDataSourceLocatorELj8EE9_DestructEv.exit.loopexit.i.i1835, label %.lr.ph.i.i.i1820, !llvm.loop !7
 
 _ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_19HdDataSourceLocatorELj8EE9_DestructEv.exit.loopexit.i.i1835: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev.exit.i.i.i1833
   %.pre.i.i1836 = load i32, ptr %1400, align 4
@@ -27955,7 +27955,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE9_Destruct
 _ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev.exit.i.i.i1879: ; preds = %1500, %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE9_DestructEv.exit.i.i.i.i.i1878
   %1502 = getelementptr inbounds nuw i8, ptr %.08.i.i.i1867, i64 56
   %.not.i.i.i1880 = icmp eq ptr %1502, %1481
-  br i1 %.not.i.i.i1880, label %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_19HdDataSourceLocatorELj8EE9_DestructEv.exit.loopexit.i.i1881, label %.lr.ph.i.i.i1866, !llvm.loop !11
+  br i1 %.not.i.i.i1880, label %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_19HdDataSourceLocatorELj8EE9_DestructEv.exit.loopexit.i.i1881, label %.lr.ph.i.i.i1866, !llvm.loop !7
 
 _ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_19HdDataSourceLocatorELj8EE9_DestructEv.exit.loopexit.i.i1881: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev.exit.i.i.i1879
   %.pre.i.i1882 = load i32, ptr %1474, align 4
@@ -28138,7 +28138,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE9_Destruct
 _ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev.exit.i.i.i1925: ; preds = %1574, %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE9_DestructEv.exit.i.i.i.i.i1924
   %1576 = getelementptr inbounds nuw i8, ptr %.08.i.i.i1913, i64 56
   %.not.i.i.i1926 = icmp eq ptr %1576, %1555
-  br i1 %.not.i.i.i1926, label %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_19HdDataSourceLocatorELj8EE9_DestructEv.exit.loopexit.i.i1927, label %.lr.ph.i.i.i1912, !llvm.loop !11
+  br i1 %.not.i.i.i1926, label %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_19HdDataSourceLocatorELj8EE9_DestructEv.exit.loopexit.i.i1927, label %.lr.ph.i.i.i1912, !llvm.loop !7
 
 _ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_19HdDataSourceLocatorELj8EE9_DestructEv.exit.loopexit.i.i1927: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev.exit.i.i.i1925
   %.pre.i.i1928 = load i32, ptr %1548, align 4
@@ -28317,7 +28317,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE9_Destruct
 _ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev.exit.i.i.i1971: ; preds = %1647, %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE9_DestructEv.exit.i.i.i.i.i1970
   %1649 = getelementptr inbounds nuw i8, ptr %.08.i.i.i1959, i64 56
   %.not.i.i.i1972 = icmp eq ptr %1649, %1628
-  br i1 %.not.i.i.i1972, label %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_19HdDataSourceLocatorELj8EE9_DestructEv.exit.loopexit.i.i1973, label %.lr.ph.i.i.i1958, !llvm.loop !11
+  br i1 %.not.i.i.i1972, label %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_19HdDataSourceLocatorELj8EE9_DestructEv.exit.loopexit.i.i1973, label %.lr.ph.i.i.i1958, !llvm.loop !7
 
 _ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_19HdDataSourceLocatorELj8EE9_DestructEv.exit.loopexit.i.i1973: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev.exit.i.i.i1971
   %.pre.i.i1974 = load i32, ptr %1621, align 4
@@ -28398,7 +28398,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE9_Destruct
 _ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev.exit.i.i.i1993: ; preds = %1680, %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE9_DestructEv.exit.i.i.i.i.i1992
   %1682 = getelementptr inbounds nuw i8, ptr %.08.i.i.i1981, i64 56
   %.not.i.i.i1994 = icmp eq ptr %1682, %1661
-  br i1 %.not.i.i.i1994, label %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_19HdDataSourceLocatorELj8EE9_DestructEv.exit.loopexit.i.i1995, label %.lr.ph.i.i.i1980, !llvm.loop !11
+  br i1 %.not.i.i.i1994, label %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_19HdDataSourceLocatorELj8EE9_DestructEv.exit.loopexit.i.i1995, label %.lr.ph.i.i.i1980, !llvm.loop !7
 
 _ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_19HdDataSourceLocatorELj8EE9_DestructEv.exit.loopexit.i.i1995: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev.exit.i.i.i1993
   %.pre.i.i1996 = load i32, ptr %1654, align 4
@@ -28479,7 +28479,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE9_Destruct
 _ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev.exit.i.i.i2015: ; preds = %1713, %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE9_DestructEv.exit.i.i.i.i.i2014
   %1715 = getelementptr inbounds nuw i8, ptr %.08.i.i.i2003, i64 56
   %.not.i.i.i2016 = icmp eq ptr %1715, %1694
-  br i1 %.not.i.i.i2016, label %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_19HdDataSourceLocatorELj8EE9_DestructEv.exit.loopexit.i.i2017, label %.lr.ph.i.i.i2002, !llvm.loop !11
+  br i1 %.not.i.i.i2016, label %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_19HdDataSourceLocatorELj8EE9_DestructEv.exit.loopexit.i.i2017, label %.lr.ph.i.i.i2002, !llvm.loop !7
 
 _ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_19HdDataSourceLocatorELj8EE9_DestructEv.exit.loopexit.i.i2017: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev.exit.i.i.i2015
   %.pre.i.i2018 = load i32, ptr %1687, align 4
@@ -28560,7 +28560,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE9_Destruct
 _ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev.exit.i.i.i2037: ; preds = %1746, %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE9_DestructEv.exit.i.i.i.i.i2036
   %1748 = getelementptr inbounds nuw i8, ptr %.08.i.i.i2025, i64 56
   %.not.i.i.i2038 = icmp eq ptr %1748, %1727
-  br i1 %.not.i.i.i2038, label %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_19HdDataSourceLocatorELj8EE9_DestructEv.exit.loopexit.i.i2039, label %.lr.ph.i.i.i2024, !llvm.loop !11
+  br i1 %.not.i.i.i2038, label %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_19HdDataSourceLocatorELj8EE9_DestructEv.exit.loopexit.i.i2039, label %.lr.ph.i.i.i2024, !llvm.loop !7
 
 _ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_19HdDataSourceLocatorELj8EE9_DestructEv.exit.loopexit.i.i2039: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev.exit.i.i.i2037
   %.pre.i.i2040 = load i32, ptr %1720, align 4
@@ -28641,7 +28641,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE9_Destruct
 _ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev.exit.i.i.i2059: ; preds = %1779, %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE9_DestructEv.exit.i.i.i.i.i2058
   %1781 = getelementptr inbounds nuw i8, ptr %.08.i.i.i2047, i64 56
   %.not.i.i.i2060 = icmp eq ptr %1781, %1760
-  br i1 %.not.i.i.i2060, label %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_19HdDataSourceLocatorELj8EE9_DestructEv.exit.loopexit.i.i2061, label %.lr.ph.i.i.i2046, !llvm.loop !11
+  br i1 %.not.i.i.i2060, label %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_19HdDataSourceLocatorELj8EE9_DestructEv.exit.loopexit.i.i2061, label %.lr.ph.i.i.i2046, !llvm.loop !7
 
 _ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_19HdDataSourceLocatorELj8EE9_DestructEv.exit.loopexit.i.i2061: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev.exit.i.i.i2059
   %.pre.i.i2062 = load i32, ptr %1753, align 4
@@ -28722,7 +28722,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE9_Destruct
 _ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev.exit.i.i.i2081: ; preds = %1812, %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE9_DestructEv.exit.i.i.i.i.i2080
   %1814 = getelementptr inbounds nuw i8, ptr %.08.i.i.i2069, i64 56
   %.not.i.i.i2082 = icmp eq ptr %1814, %1793
-  br i1 %.not.i.i.i2082, label %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_19HdDataSourceLocatorELj8EE9_DestructEv.exit.loopexit.i.i2083, label %.lr.ph.i.i.i2068, !llvm.loop !11
+  br i1 %.not.i.i.i2082, label %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_19HdDataSourceLocatorELj8EE9_DestructEv.exit.loopexit.i.i2083, label %.lr.ph.i.i.i2068, !llvm.loop !7
 
 _ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_19HdDataSourceLocatorELj8EE9_DestructEv.exit.loopexit.i.i2083: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev.exit.i.i.i2081
   %.pre.i.i2084 = load i32, ptr %1786, align 4
@@ -28802,7 +28802,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__22HdDataSourceLocatorSetD2Ev.exit2086: ; pr
   %1842 = getelementptr inbounds i8, ptr %1841, i64 -56
   call void @_ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %1842) #21
   %1843 = icmp eq ptr %1842, %37
-  br i1 %1843, label %.loopexit2942, label %1840, !llvm.loop !82
+  br i1 %1843, label %.loopexit2942, label %1840
 
 .loopexit2942:                                    ; preds = %1840, %1835
   %.pn857 = phi { ptr, i32 } [ %1836, %1835 ], [ %1838, %1840 ]
@@ -28864,7 +28864,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__22HdDataSourceLocatorSetD2Ev.exit2086: ; pr
   %1849 = getelementptr inbounds i8, ptr %1848, i64 -56
   call void @_ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %1849) #21
   %1850 = icmp eq ptr %1849, %37
-  br i1 %1850, label %.loopexit2923, label %.preheader2940, !llvm.loop !83
+  br i1 %1850, label %.loopexit2923, label %.preheader2940
 
 1851:                                             ; preds = %.noexc1484, %885
   %1852 = landingpad { ptr, i32 }
@@ -28917,7 +28917,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__22HdDataSourceLocatorSetD2Ev.exit2086: ; pr
   %1872 = getelementptr inbounds i8, ptr %1871, i64 -56
   call void @_ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %1872) #21
   %1873 = icmp eq ptr %1872, %48
-  br i1 %1873, label %.loopexit2939, label %1870, !llvm.loop !84
+  br i1 %1873, label %.loopexit2939, label %1870
 
 .loopexit2939:                                    ; preds = %1870, %1865
   %.pn866 = phi { ptr, i32 } [ %1866, %1865 ], [ %1868, %1870 ]
@@ -28979,7 +28979,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__22HdDataSourceLocatorSetD2Ev.exit2086: ; pr
   %1879 = getelementptr inbounds i8, ptr %1878, i64 -56
   call void @_ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %1879) #21
   %1880 = icmp eq ptr %1879, %48
-  br i1 %1880, label %.loopexit2938, label %.preheader2937, !llvm.loop !85
+  br i1 %1880, label %.loopexit2938, label %.preheader2937
 
 1881:                                             ; preds = %.noexc1516, %932
   %1882 = landingpad { ptr, i32 }
@@ -29022,7 +29022,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__22HdDataSourceLocatorSetD2Ev.exit2086: ; pr
   %1898 = getelementptr inbounds i8, ptr %1897, i64 -56
   call void @_ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %1898) #21
   %1899 = icmp eq ptr %1898, %59
-  br i1 %1899, label %.loopexit2936, label %1896, !llvm.loop !86
+  br i1 %1899, label %.loopexit2936, label %1896
 
 .loopexit2936:                                    ; preds = %1896, %1891
   %.pn875 = phi { ptr, i32 } [ %1892, %1891 ], [ %1894, %1896 ]
@@ -29070,7 +29070,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__22HdDataSourceLocatorSetD2Ev.exit2086: ; pr
   %1904 = getelementptr inbounds i8, ptr %1903, i64 -56
   call void @_ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %1904) #21
   %1905 = icmp eq ptr %1904, %59
-  br i1 %1905, label %.loopexit2935, label %.preheader2934, !llvm.loop !87
+  br i1 %1905, label %.loopexit2935, label %.preheader2934
 
 1906:                                             ; preds = %.noexc1543, %974
   %1907 = landingpad { ptr, i32 }
@@ -29123,7 +29123,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__22HdDataSourceLocatorSetD2Ev.exit2086: ; pr
   %1927 = getelementptr inbounds i8, ptr %1926, i64 -56
   call void @_ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %1927) #21
   %1928 = icmp eq ptr %1927, %68
-  br i1 %1928, label %.loopexit2933, label %1925, !llvm.loop !88
+  br i1 %1928, label %.loopexit2933, label %1925
 
 .loopexit2933:                                    ; preds = %1925, %1920
   %.pn882 = phi { ptr, i32 } [ %1921, %1920 ], [ %1923, %1925 ]
@@ -29185,7 +29185,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__22HdDataSourceLocatorSetD2Ev.exit2086: ; pr
   %1934 = getelementptr inbounds i8, ptr %1933, i64 -56
   call void @_ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %1934) #21
   %1935 = icmp eq ptr %1934, %68
-  br i1 %1935, label %.loopexit2932, label %.preheader2931, !llvm.loop !89
+  br i1 %1935, label %.loopexit2932, label %.preheader2931
 
 1936:                                             ; preds = %.noexc1575, %1021
   %1937 = landingpad { ptr, i32 }
@@ -29238,7 +29238,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__22HdDataSourceLocatorSetD2Ev.exit2086: ; pr
   %1957 = getelementptr inbounds i8, ptr %1956, i64 -56
   call void @_ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %1957) #21
   %1958 = icmp eq ptr %1957, %79
-  br i1 %1958, label %.loopexit2930, label %1955, !llvm.loop !90
+  br i1 %1958, label %.loopexit2930, label %1955
 
 .loopexit2930:                                    ; preds = %1955, %1950
   %.pn891 = phi { ptr, i32 } [ %1951, %1950 ], [ %1953, %1955 ]
@@ -29300,7 +29300,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__22HdDataSourceLocatorSetD2Ev.exit2086: ; pr
   %1964 = getelementptr inbounds i8, ptr %1963, i64 -56
   call void @_ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %1964) #21
   %1965 = icmp eq ptr %1964, %79
-  br i1 %1965, label %.loopexit2929, label %.preheader2928, !llvm.loop !91
+  br i1 %1965, label %.loopexit2929, label %.preheader2928
 
 1966:                                             ; preds = %.noexc1607, %1068
   %1967 = landingpad { ptr, i32 }
@@ -29353,7 +29353,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__22HdDataSourceLocatorSetD2Ev.exit2086: ; pr
   %1987 = getelementptr inbounds i8, ptr %1986, i64 -56
   call void @_ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %1987) #21
   %1988 = icmp eq ptr %1987, %90
-  br i1 %1988, label %.loopexit2927, label %1985, !llvm.loop !92
+  br i1 %1988, label %.loopexit2927, label %1985
 
 .loopexit2927:                                    ; preds = %1985, %1980
   %.pn900 = phi { ptr, i32 } [ %1981, %1980 ], [ %1983, %1985 ]
@@ -29415,7 +29415,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__22HdDataSourceLocatorSetD2Ev.exit2086: ; pr
   %1994 = getelementptr inbounds i8, ptr %1993, i64 -56
   call void @_ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %1994) #21
   %1995 = icmp eq ptr %1994, %90
-  br i1 %1995, label %.loopexit2926, label %.preheader2925, !llvm.loop !93
+  br i1 %1995, label %.loopexit2926, label %.preheader2925
 
 1996:                                             ; preds = %.noexc1639, %1115
   %1997 = landingpad { ptr, i32 }
@@ -30033,7 +30033,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE9_Destruct
 
 _ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev.exit2138: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE9_DestructEv.exit.i.i2137, %2159
   %2161 = icmp eq ptr %2140, %143
-  br i1 %2161, label %2162, label %2138, !llvm.loop !94
+  br i1 %2161, label %2162, label %2138
 
 2162:                                             ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev.exit2138
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %158) #21
@@ -30304,7 +30304,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE9_Destruct
 
 _ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev.exit2190: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE9_DestructEv.exit.i.i2189, %2226
   %2228 = icmp eq ptr %2207, %162
-  br i1 %2228, label %2229, label %2205, !llvm.loop !95
+  br i1 %2228, label %2229, label %2205
 
 2229:                                             ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev.exit2190
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %177) #21
@@ -30503,7 +30503,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE9_Destruct
 
 _ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev.exit2227: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE9_DestructEv.exit.i.i2226, %2278
   %2280 = icmp eq ptr %2259, %181
-  br i1 %2280, label %2281, label %2257, !llvm.loop !96
+  br i1 %2280, label %2281, label %2257
 
 2281:                                             ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev.exit2227
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %190) #21
@@ -30768,7 +30768,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE9_Destruct
 
 _ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev.exit2279: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE9_DestructEv.exit.i.i2278, %2345
   %2347 = icmp eq ptr %2326, %194
-  br i1 %2347, label %2348, label %2324, !llvm.loop !97
+  br i1 %2347, label %2348, label %2324
 
 2348:                                             ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev.exit2279
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %209) #21
@@ -31015,7 +31015,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE9_Destruct
 
 _ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev.exit2326: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE9_DestructEv.exit.i.i2325, %2407
   %2409 = icmp eq ptr %2388, %213
-  br i1 %2409, label %2410, label %2386, !llvm.loop !98
+  br i1 %2409, label %2410, label %2386
 
 2410:                                             ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev.exit2326
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %226) #21
@@ -31284,7 +31284,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE9_Destruct
 
 _ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev.exit2378: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE9_DestructEv.exit.i.i2377, %2474
   %2476 = icmp eq ptr %2455, %230
-  br i1 %2476, label %2477, label %2453, !llvm.loop !99
+  br i1 %2476, label %2477, label %2453
 
 2477:                                             ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev.exit2378
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %245) #21
@@ -31622,7 +31622,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE9_Destruct
 _ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev.exit.i.i.i2425: ; preds = %2562, %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE9_DestructEv.exit.i.i.i.i.i2424
   %2564 = getelementptr inbounds nuw i8, ptr %.08.i.i.i2413, i64 56
   %.not.i.i.i2426 = icmp eq ptr %2564, %2543
-  br i1 %.not.i.i.i2426, label %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_19HdDataSourceLocatorELj8EE9_DestructEv.exit.loopexit.i.i2427, label %.lr.ph.i.i.i2412, !llvm.loop !11
+  br i1 %.not.i.i.i2426, label %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_19HdDataSourceLocatorELj8EE9_DestructEv.exit.loopexit.i.i2427, label %.lr.ph.i.i.i2412, !llvm.loop !7
 
 _ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_19HdDataSourceLocatorELj8EE9_DestructEv.exit.loopexit.i.i2427: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev.exit.i.i.i2425
   %.pre.i.i2428 = load i32, ptr %2536, align 4
@@ -31805,7 +31805,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE9_Destruct
 _ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev.exit.i.i.i2471: ; preds = %2636, %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE9_DestructEv.exit.i.i.i.i.i2470
   %2638 = getelementptr inbounds nuw i8, ptr %.08.i.i.i2459, i64 56
   %.not.i.i.i2472 = icmp eq ptr %2638, %2617
-  br i1 %.not.i.i.i2472, label %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_19HdDataSourceLocatorELj8EE9_DestructEv.exit.loopexit.i.i2473, label %.lr.ph.i.i.i2458, !llvm.loop !11
+  br i1 %.not.i.i.i2472, label %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_19HdDataSourceLocatorELj8EE9_DestructEv.exit.loopexit.i.i2473, label %.lr.ph.i.i.i2458, !llvm.loop !7
 
 _ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_19HdDataSourceLocatorELj8EE9_DestructEv.exit.loopexit.i.i2473: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev.exit.i.i.i2471
   %.pre.i.i2474 = load i32, ptr %2610, align 4
@@ -31988,7 +31988,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE9_Destruct
 _ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev.exit.i.i.i2517: ; preds = %2710, %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE9_DestructEv.exit.i.i.i.i.i2516
   %2712 = getelementptr inbounds nuw i8, ptr %.08.i.i.i2505, i64 56
   %.not.i.i.i2518 = icmp eq ptr %2712, %2691
-  br i1 %.not.i.i.i2518, label %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_19HdDataSourceLocatorELj8EE9_DestructEv.exit.loopexit.i.i2519, label %.lr.ph.i.i.i2504, !llvm.loop !11
+  br i1 %.not.i.i.i2518, label %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_19HdDataSourceLocatorELj8EE9_DestructEv.exit.loopexit.i.i2519, label %.lr.ph.i.i.i2504, !llvm.loop !7
 
 _ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_19HdDataSourceLocatorELj8EE9_DestructEv.exit.loopexit.i.i2519: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev.exit.i.i.i2517
   %.pre.i.i2520 = load i32, ptr %2684, align 4
@@ -32171,7 +32171,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE9_Destruct
 _ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev.exit.i.i.i2563: ; preds = %2784, %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE9_DestructEv.exit.i.i.i.i.i2562
   %2786 = getelementptr inbounds nuw i8, ptr %.08.i.i.i2551, i64 56
   %.not.i.i.i2564 = icmp eq ptr %2786, %2765
-  br i1 %.not.i.i.i2564, label %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_19HdDataSourceLocatorELj8EE9_DestructEv.exit.loopexit.i.i2565, label %.lr.ph.i.i.i2550, !llvm.loop !11
+  br i1 %.not.i.i.i2564, label %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_19HdDataSourceLocatorELj8EE9_DestructEv.exit.loopexit.i.i2565, label %.lr.ph.i.i.i2550, !llvm.loop !7
 
 _ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_19HdDataSourceLocatorELj8EE9_DestructEv.exit.loopexit.i.i2565: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev.exit.i.i.i2563
   %.pre.i.i2566 = load i32, ptr %2758, align 4
@@ -32354,7 +32354,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE9_Destruct
 _ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev.exit.i.i.i2609: ; preds = %2858, %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE9_DestructEv.exit.i.i.i.i.i2608
   %2860 = getelementptr inbounds nuw i8, ptr %.08.i.i.i2597, i64 56
   %.not.i.i.i2610 = icmp eq ptr %2860, %2839
-  br i1 %.not.i.i.i2610, label %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_19HdDataSourceLocatorELj8EE9_DestructEv.exit.loopexit.i.i2611, label %.lr.ph.i.i.i2596, !llvm.loop !11
+  br i1 %.not.i.i.i2610, label %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_19HdDataSourceLocatorELj8EE9_DestructEv.exit.loopexit.i.i2611, label %.lr.ph.i.i.i2596, !llvm.loop !7
 
 _ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_19HdDataSourceLocatorELj8EE9_DestructEv.exit.loopexit.i.i2611: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev.exit.i.i.i2609
   %.pre.i.i2612 = load i32, ptr %2832, align 4
@@ -32537,7 +32537,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE9_Destruct
 _ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev.exit.i.i.i2655: ; preds = %2932, %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE9_DestructEv.exit.i.i.i.i.i2654
   %2934 = getelementptr inbounds nuw i8, ptr %.08.i.i.i2643, i64 56
   %.not.i.i.i2656 = icmp eq ptr %2934, %2913
-  br i1 %.not.i.i.i2656, label %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_19HdDataSourceLocatorELj8EE9_DestructEv.exit.loopexit.i.i2657, label %.lr.ph.i.i.i2642, !llvm.loop !11
+  br i1 %.not.i.i.i2656, label %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_19HdDataSourceLocatorELj8EE9_DestructEv.exit.loopexit.i.i2657, label %.lr.ph.i.i.i2642, !llvm.loop !7
 
 _ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_19HdDataSourceLocatorELj8EE9_DestructEv.exit.loopexit.i.i2657: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev.exit.i.i.i2655
   %.pre.i.i2658 = load i32, ptr %2906, align 4
@@ -32716,7 +32716,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE9_Destruct
 _ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev.exit.i.i.i2701: ; preds = %3005, %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE9_DestructEv.exit.i.i.i.i.i2700
   %3007 = getelementptr inbounds nuw i8, ptr %.08.i.i.i2689, i64 56
   %.not.i.i.i2702 = icmp eq ptr %3007, %2986
-  br i1 %.not.i.i.i2702, label %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_19HdDataSourceLocatorELj8EE9_DestructEv.exit.loopexit.i.i2703, label %.lr.ph.i.i.i2688, !llvm.loop !11
+  br i1 %.not.i.i.i2702, label %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_19HdDataSourceLocatorELj8EE9_DestructEv.exit.loopexit.i.i2703, label %.lr.ph.i.i.i2688, !llvm.loop !7
 
 _ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_19HdDataSourceLocatorELj8EE9_DestructEv.exit.loopexit.i.i2703: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev.exit.i.i.i2701
   %.pre.i.i2704 = load i32, ptr %2979, align 4
@@ -32797,7 +32797,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE9_Destruct
 _ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev.exit.i.i.i2723: ; preds = %3038, %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE9_DestructEv.exit.i.i.i.i.i2722
   %3040 = getelementptr inbounds nuw i8, ptr %.08.i.i.i2711, i64 56
   %.not.i.i.i2724 = icmp eq ptr %3040, %3019
-  br i1 %.not.i.i.i2724, label %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_19HdDataSourceLocatorELj8EE9_DestructEv.exit.loopexit.i.i2725, label %.lr.ph.i.i.i2710, !llvm.loop !11
+  br i1 %.not.i.i.i2724, label %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_19HdDataSourceLocatorELj8EE9_DestructEv.exit.loopexit.i.i2725, label %.lr.ph.i.i.i2710, !llvm.loop !7
 
 _ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_19HdDataSourceLocatorELj8EE9_DestructEv.exit.loopexit.i.i2725: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev.exit.i.i.i2723
   %.pre.i.i2726 = load i32, ptr %3012, align 4
@@ -32878,7 +32878,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE9_Destruct
 _ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev.exit.i.i.i2745: ; preds = %3071, %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE9_DestructEv.exit.i.i.i.i.i2744
   %3073 = getelementptr inbounds nuw i8, ptr %.08.i.i.i2733, i64 56
   %.not.i.i.i2746 = icmp eq ptr %3073, %3052
-  br i1 %.not.i.i.i2746, label %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_19HdDataSourceLocatorELj8EE9_DestructEv.exit.loopexit.i.i2747, label %.lr.ph.i.i.i2732, !llvm.loop !11
+  br i1 %.not.i.i.i2746, label %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_19HdDataSourceLocatorELj8EE9_DestructEv.exit.loopexit.i.i2747, label %.lr.ph.i.i.i2732, !llvm.loop !7
 
 _ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_19HdDataSourceLocatorELj8EE9_DestructEv.exit.loopexit.i.i2747: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev.exit.i.i.i2745
   %.pre.i.i2748 = load i32, ptr %3045, align 4
@@ -32959,7 +32959,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE9_Destruct
 _ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev.exit.i.i.i2767: ; preds = %3104, %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE9_DestructEv.exit.i.i.i.i.i2766
   %3106 = getelementptr inbounds nuw i8, ptr %.08.i.i.i2755, i64 56
   %.not.i.i.i2768 = icmp eq ptr %3106, %3085
-  br i1 %.not.i.i.i2768, label %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_19HdDataSourceLocatorELj8EE9_DestructEv.exit.loopexit.i.i2769, label %.lr.ph.i.i.i2754, !llvm.loop !11
+  br i1 %.not.i.i.i2768, label %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_19HdDataSourceLocatorELj8EE9_DestructEv.exit.loopexit.i.i2769, label %.lr.ph.i.i.i2754, !llvm.loop !7
 
 _ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_19HdDataSourceLocatorELj8EE9_DestructEv.exit.loopexit.i.i2769: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev.exit.i.i.i2767
   %.pre.i.i2770 = load i32, ptr %3078, align 4
@@ -33040,7 +33040,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE9_Destruct
 _ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev.exit.i.i.i2789: ; preds = %3137, %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE9_DestructEv.exit.i.i.i.i.i2788
   %3139 = getelementptr inbounds nuw i8, ptr %.08.i.i.i2777, i64 56
   %.not.i.i.i2790 = icmp eq ptr %3139, %3118
-  br i1 %.not.i.i.i2790, label %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_19HdDataSourceLocatorELj8EE9_DestructEv.exit.loopexit.i.i2791, label %.lr.ph.i.i.i2776, !llvm.loop !11
+  br i1 %.not.i.i.i2790, label %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_19HdDataSourceLocatorELj8EE9_DestructEv.exit.loopexit.i.i2791, label %.lr.ph.i.i.i2776, !llvm.loop !7
 
 _ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_19HdDataSourceLocatorELj8EE9_DestructEv.exit.loopexit.i.i2791: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev.exit.i.i.i2789
   %.pre.i.i2792 = load i32, ptr %3111, align 4
@@ -33121,7 +33121,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE9_Destruct
 _ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev.exit.i.i.i2811: ; preds = %3170, %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE9_DestructEv.exit.i.i.i.i.i2810
   %3172 = getelementptr inbounds nuw i8, ptr %.08.i.i.i2799, i64 56
   %.not.i.i.i2812 = icmp eq ptr %3172, %3151
-  br i1 %.not.i.i.i2812, label %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_19HdDataSourceLocatorELj8EE9_DestructEv.exit.loopexit.i.i2813, label %.lr.ph.i.i.i2798, !llvm.loop !11
+  br i1 %.not.i.i.i2812, label %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_19HdDataSourceLocatorELj8EE9_DestructEv.exit.loopexit.i.i2813, label %.lr.ph.i.i.i2798, !llvm.loop !7
 
 _ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_19HdDataSourceLocatorELj8EE9_DestructEv.exit.loopexit.i.i2813: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev.exit.i.i.i2811
   %.pre.i.i2814 = load i32, ptr %3144, align 4
@@ -33253,7 +33253,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_19HdDataSourceLocatorELj
   %3214 = getelementptr inbounds i8, ptr %3213, i64 -56
   call void @_ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %3214) #21
   %3215 = icmp eq ptr %3214, %143
-  br i1 %3215, label %.loopexit2924, label %3212, !llvm.loop !100
+  br i1 %3215, label %.loopexit2924, label %3212
 
 .loopexit2924:                                    ; preds = %3212, %3207
   %.pn950 = phi { ptr, i32 } [ %3208, %3207 ], [ %3210, %3212 ]
@@ -33371,7 +33371,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_19HdDataSourceLocatorELj
   %3225 = getelementptr inbounds i8, ptr %3224, i64 -56
   call void @_ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %3225) #21
   %3226 = icmp eq ptr %3225, %143
-  br i1 %3226, label %.loopexit2923, label %.preheader2922, !llvm.loop !101
+  br i1 %3226, label %.loopexit2923, label %.preheader2922
 
 3227:                                             ; preds = %.noexc2139, %2162
   %3228 = landingpad { ptr, i32 }
@@ -33464,7 +33464,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_19HdDataSourceLocatorELj
   %3264 = getelementptr inbounds i8, ptr %3263, i64 -56
   call void @_ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %3264) #21
   %3265 = icmp eq ptr %3264, %162
-  br i1 %3265, label %.loopexit2921, label %3262, !llvm.loop !102
+  br i1 %3265, label %.loopexit2921, label %3262
 
 .loopexit2921:                                    ; preds = %3262, %3257
   %.pn967 = phi { ptr, i32 } [ %3258, %3257 ], [ %3260, %3262 ]
@@ -33582,7 +33582,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_19HdDataSourceLocatorELj
   %3275 = getelementptr inbounds i8, ptr %3274, i64 -56
   call void @_ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %3275) #21
   %3276 = icmp eq ptr %3275, %162
-  br i1 %3276, label %.loopexit2920, label %.preheader2919, !llvm.loop !103
+  br i1 %3276, label %.loopexit2920, label %.preheader2919
 
 3277:                                             ; preds = %.noexc2191, %2229
   %3278 = landingpad { ptr, i32 }
@@ -33645,7 +33645,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_19HdDataSourceLocatorELj
   %3302 = getelementptr inbounds i8, ptr %3301, i64 -56
   call void @_ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %3302) #21
   %3303 = icmp eq ptr %3302, %181
-  br i1 %3303, label %.loopexit2918, label %3300, !llvm.loop !104
+  br i1 %3303, label %.loopexit2918, label %3300
 
 .loopexit2918:                                    ; preds = %3300, %3295
   %.pn984 = phi { ptr, i32 } [ %3296, %3295 ], [ %3298, %3300 ]
@@ -33721,7 +33721,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_19HdDataSourceLocatorELj
   %3310 = getelementptr inbounds i8, ptr %3309, i64 -56
   call void @_ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %3310) #21
   %3311 = icmp eq ptr %3310, %181
-  br i1 %3311, label %.loopexit2917, label %.preheader2916, !llvm.loop !105
+  br i1 %3311, label %.loopexit2917, label %.preheader2916
 
 3312:                                             ; preds = %.noexc2228, %2281
   %3313 = landingpad { ptr, i32 }
@@ -33814,7 +33814,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_19HdDataSourceLocatorELj
   %3349 = getelementptr inbounds i8, ptr %3348, i64 -56
   call void @_ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %3349) #21
   %3350 = icmp eq ptr %3349, %194
-  br i1 %3350, label %.loopexit2915, label %3347, !llvm.loop !106
+  br i1 %3350, label %.loopexit2915, label %3347
 
 .loopexit2915:                                    ; preds = %3347, %3342
   %.pn995 = phi { ptr, i32 } [ %3343, %3342 ], [ %3345, %3347 ]
@@ -33932,7 +33932,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_19HdDataSourceLocatorELj
   %3360 = getelementptr inbounds i8, ptr %3359, i64 -56
   call void @_ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %3360) #21
   %3361 = icmp eq ptr %3360, %194
-  br i1 %3361, label %.loopexit2914, label %.preheader2913, !llvm.loop !107
+  br i1 %3361, label %.loopexit2914, label %.preheader2913
 
 3362:                                             ; preds = %.noexc2280, %2348
   %3363 = landingpad { ptr, i32 }
@@ -34015,7 +34015,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_19HdDataSourceLocatorELj
   %3395 = getelementptr inbounds i8, ptr %3394, i64 -56
   call void @_ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %3395) #21
   %3396 = icmp eq ptr %3395, %213
-  br i1 %3396, label %.loopexit2912, label %3393, !llvm.loop !108
+  br i1 %3396, label %.loopexit2912, label %3393
 
 .loopexit2912:                                    ; preds = %3393, %3388
   %.pn1012 = phi { ptr, i32 } [ %3389, %3388 ], [ %3391, %3393 ]
@@ -34119,7 +34119,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_19HdDataSourceLocatorELj
   %3405 = getelementptr inbounds i8, ptr %3404, i64 -56
   call void @_ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %3405) #21
   %3406 = icmp eq ptr %3405, %213
-  br i1 %3406, label %.loopexit2911, label %.preheader2910, !llvm.loop !109
+  br i1 %3406, label %.loopexit2911, label %.preheader2910
 
 3407:                                             ; preds = %.noexc2327, %2410
   %3408 = landingpad { ptr, i32 }
@@ -34212,7 +34212,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_19HdDataSourceLocatorELj
   %3444 = getelementptr inbounds i8, ptr %3443, i64 -56
   call void @_ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %3444) #21
   %3445 = icmp eq ptr %3444, %230
-  br i1 %3445, label %.loopexit2909, label %3442, !llvm.loop !110
+  br i1 %3445, label %.loopexit2909, label %3442
 
 .loopexit2909:                                    ; preds = %3442, %3437
   %.pn1027 = phi { ptr, i32 } [ %3438, %3437 ], [ %3440, %3442 ]
@@ -34330,7 +34330,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_19HdDataSourceLocatorELj
   %3455 = getelementptr inbounds i8, ptr %3454, i64 -56
   call void @_ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %3455) #21
   %3456 = icmp eq ptr %3455, %230
-  br i1 %3456, label %.loopexit, label %.preheader, !llvm.loop !111
+  br i1 %3456, label %.loopexit, label %.preheader
 
 3457:                                             ; preds = %.noexc2379, %2477
   %3458 = landingpad { ptr, i32 }
@@ -35016,7 +35016,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE9_Destruct
 _ZSt8_DestroyIN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorEEvPT_.exit.i.i.i.i: ; preds = %167, %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE9_DestructEv.exit.i.i.i.i.i.i.i
   %169 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i, i64 56
   %.not.i.i.i.i = icmp eq ptr %169, %148
-  br i1 %.not.i.i.i.i, label %_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i, !llvm.loop !112
+  br i1 %.not.i.i.i.i, label %_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i, !llvm.loop !20
 
 _ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i: ; preds = %_ZSt8_DestroyIN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorEEvPT_.exit.i.i.i.i
   %.pr.i = load ptr, ptr %18, align 8
@@ -35094,7 +35094,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE9_Destruct
 _ZSt8_DestroyIN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorEEvPT_.exit.i.i.i.i419: ; preds = %198, %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE9_DestructEv.exit.i.i.i.i.i.i.i418
   %200 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i407, i64 56
   %.not.i.i.i.i420 = icmp eq ptr %200, %179
-  br i1 %.not.i.i.i.i420, label %_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i421, label %.lr.ph.i.i.i.i406, !llvm.loop !112
+  br i1 %.not.i.i.i.i420, label %_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i421, label %.lr.ph.i.i.i.i406, !llvm.loop !20
 
 _ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i421: ; preds = %_ZSt8_DestroyIN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorEEvPT_.exit.i.i.i.i419
   %.pr.i422 = load ptr, ptr %16, align 8
@@ -35269,7 +35269,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE9_Destruct
 _ZSt8_DestroyIN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorEEvPT_.exit.i.i.i.i440: ; preds = %272, %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE9_DestructEv.exit.i.i.i.i.i.i.i439
   %274 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i428, i64 56
   %.not.i.i.i.i441 = icmp eq ptr %274, %253
-  br i1 %.not.i.i.i.i441, label %_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i442, label %.lr.ph.i.i.i.i427, !llvm.loop !112
+  br i1 %.not.i.i.i.i441, label %_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i442, label %.lr.ph.i.i.i.i427, !llvm.loop !20
 
 _ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i442: ; preds = %_ZSt8_DestroyIN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorEEvPT_.exit.i.i.i.i440
   %.pr.i443 = load ptr, ptr %15, align 8
@@ -35347,7 +35347,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE9_Destruct
 _ZSt8_DestroyIN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorEEvPT_.exit.i.i.i.i461: ; preds = %303, %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE9_DestructEv.exit.i.i.i.i.i.i.i460
   %305 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i449, i64 56
   %.not.i.i.i.i462 = icmp eq ptr %305, %284
-  br i1 %.not.i.i.i.i462, label %_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i463, label %.lr.ph.i.i.i.i448, !llvm.loop !112
+  br i1 %.not.i.i.i.i462, label %_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i463, label %.lr.ph.i.i.i.i448, !llvm.loop !20
 
 _ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i463: ; preds = %_ZSt8_DestroyIN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorEEvPT_.exit.i.i.i.i461
   %.pr.i464 = load ptr, ptr %13, align 8
@@ -35526,7 +35526,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE9_Destruct
 _ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev.exit.i.i.i: ; preds = %379, %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE9_DestructEv.exit.i.i.i.i.i
   %381 = getelementptr inbounds nuw i8, ptr %.08.i.i.i, i64 56
   %.not.i.i.i493 = icmp eq ptr %381, %360
-  br i1 %.not.i.i.i493, label %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_19HdDataSourceLocatorELj8EE9_DestructEv.exit.loopexit.i.i, label %.lr.ph.i.i.i, !llvm.loop !11
+  br i1 %.not.i.i.i493, label %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_19HdDataSourceLocatorELj8EE9_DestructEv.exit.loopexit.i.i, label %.lr.ph.i.i.i, !llvm.loop !7
 
 _ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_19HdDataSourceLocatorELj8EE9_DestructEv.exit.loopexit.i.i: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev.exit.i.i.i
   %.pre.i.i = load i32, ptr %137, align 4
@@ -35762,7 +35762,7 @@ _ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__7TfTokenEJRKS1_EEvPT_DpOT0_.
   %489 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i.i, i64 8
   %490 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i.i, i64 8
   %.not.i.i.i.i.i506 = icmp eq ptr %489, %475
-  br i1 %.not.i.i.i.i.i506, label %_ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorC2ERKS0_.exit, label %.lr.ph.i.i.i.i.i504, !llvm.loop !29
+  br i1 %.not.i.i.i.i.i506, label %_ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorC2ERKS0_.exit, label %.lr.ph.i.i.i.i.i504, !llvm.loop !18
 
 _ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorC2ERKS0_.exit: ; preds = %_ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__7TfTokenEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i, %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE12_InitStorageEm.exit.i.i
   %491 = phi ptr [ %470, %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE12_InitStorageEm.exit.i.i ], [ %476, %_ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__7TfTokenEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i ]
@@ -35898,7 +35898,7 @@ _ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__7TfTokenEJRKS1_EEvPT_DpOT0_.
   %547 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i.i522, i64 8
   %548 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i.i521, i64 8
   %.not.i.i.i.i.i526 = icmp eq ptr %547, %533
-  br i1 %.not.i.i.i.i.i526, label %_ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorC2ERKS0_.exit527, label %.lr.ph.i.i.i.i.i520, !llvm.loop !29
+  br i1 %.not.i.i.i.i.i526, label %_ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorC2ERKS0_.exit527, label %.lr.ph.i.i.i.i.i520, !llvm.loop !18
 
 _ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorC2ERKS0_.exit527: ; preds = %_ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__7TfTokenEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i525, %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE12_InitStorageEm.exit.i.i515
   %549 = phi ptr [ %528, %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE12_InitStorageEm.exit.i.i515 ], [ %534, %_ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__7TfTokenEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i525 ]
@@ -35980,7 +35980,7 @@ _ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__7TfTokenEJRKS1_EEvPT_DpOT0_.
   %583 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i.i.i.i.i.i.i.i, i64 8
   %584 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i.i.i.i.i.i.i.i, i64 8
   %.not.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %583, %570
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i, label %_ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i.i.i.i, !llvm.loop !29
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i, label %_ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i.i.i.i, !llvm.loop !18
 
 _ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i: ; preds = %_ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__7TfTokenEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i.i.i.i.i.i.i, %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE12_InitStorageEm.exit.i.i.i.i.i.i.i.i
   %585 = getelementptr inbounds nuw i8, ptr %24, i64 8
@@ -36078,7 +36078,7 @@ _ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__7TfTokenEJRKS1_EEvPT_DpOT0_.
   %627 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i.i536, i64 8
   %628 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i.i535, i64 8
   %.not.i.i.i.i.i540 = icmp eq ptr %627, %613
-  br i1 %.not.i.i.i.i.i540, label %_ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorC2ERKS0_.exit541, label %.lr.ph.i.i.i.i.i534, !llvm.loop !29
+  br i1 %.not.i.i.i.i.i540, label %_ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorC2ERKS0_.exit541, label %.lr.ph.i.i.i.i.i534, !llvm.loop !18
 
 _ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorC2ERKS0_.exit541: ; preds = %_ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__7TfTokenEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i539, %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE12_InitStorageEm.exit.i.i529
   %629 = phi ptr [ %607, %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE12_InitStorageEm.exit.i.i529 ], [ %614, %_ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__7TfTokenEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i539 ]
@@ -36160,7 +36160,7 @@ _ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__7TfTokenEJRKS1_EEvPT_DpOT0_.
   %663 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i.i.i.i.i.i.i.i1996, i64 8
   %664 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i.i.i.i.i.i.i.i1995, i64 8
   %.not.i.i.i.i.i.i.i.i.i.i.i2000 = icmp eq ptr %663, %650
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i2000, label %_ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i2001, label %.lr.ph.i.i.i.i.i.i.i.i.i.i.i1994, !llvm.loop !29
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i2000, label %_ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i2001, label %.lr.ph.i.i.i.i.i.i.i.i.i.i.i1994, !llvm.loop !18
 
 _ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i2001: ; preds = %_ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__7TfTokenEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i.i.i.i.i.i.i1999, %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE12_InitStorageEm.exit.i.i.i.i.i.i.i.i2003
   %665 = getelementptr inbounds nuw i8, ptr %28, i64 8
@@ -36230,7 +36230,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE9_Destruct
 _ZSt8_DestroyIN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorEEvPT_.exit.i.i.i.i561: ; preds = %689, %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE9_DestructEv.exit.i.i.i.i.i.i.i560
   %691 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i549, i64 56
   %.not.i.i.i.i562 = icmp eq ptr %691, %670
-  br i1 %.not.i.i.i.i562, label %_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i563, label %.lr.ph.i.i.i.i548, !llvm.loop !112
+  br i1 %.not.i.i.i.i562, label %_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i563, label %.lr.ph.i.i.i.i548, !llvm.loop !20
 
 _ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i563: ; preds = %_ZSt8_DestroyIN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorEEvPT_.exit.i.i.i.i561
   %.pr.i564 = load ptr, ptr %28, align 8
@@ -36354,7 +36354,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE9_Destruct
 _ZSt8_DestroyIN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorEEvPT_.exit.i.i.i.i595: ; preds = %739, %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE9_DestructEv.exit.i.i.i.i.i.i.i594
   %741 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i583, i64 56
   %.not.i.i.i.i596 = icmp eq ptr %741, %720
-  br i1 %.not.i.i.i.i596, label %_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i597, label %.lr.ph.i.i.i.i582, !llvm.loop !112
+  br i1 %.not.i.i.i.i596, label %_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i597, label %.lr.ph.i.i.i.i582, !llvm.loop !20
 
 _ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i597: ; preds = %_ZSt8_DestroyIN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorEEvPT_.exit.i.i.i.i595
   %.pr.i598 = load ptr, ptr %26, align 8
@@ -36528,7 +36528,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE9_Destruct
 _ZSt8_DestroyIN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorEEvPT_.exit.i.i.i.i641: ; preds = %812, %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE9_DestructEv.exit.i.i.i.i.i.i.i640
   %814 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i629, i64 56
   %.not.i.i.i.i642 = icmp eq ptr %814, %793
-  br i1 %.not.i.i.i.i642, label %_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i643, label %.lr.ph.i.i.i.i628, !llvm.loop !112
+  br i1 %.not.i.i.i.i642, label %_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i643, label %.lr.ph.i.i.i.i628, !llvm.loop !20
 
 _ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i643: ; preds = %_ZSt8_DestroyIN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorEEvPT_.exit.i.i.i.i641
   %.pr.i644 = load ptr, ptr %24, align 8
@@ -36652,7 +36652,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE9_Destruct
 _ZSt8_DestroyIN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorEEvPT_.exit.i.i.i.i675: ; preds = %862, %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE9_DestructEv.exit.i.i.i.i.i.i.i674
   %864 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i663, i64 56
   %.not.i.i.i.i676 = icmp eq ptr %864, %843
-  br i1 %.not.i.i.i.i676, label %_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i677, label %.lr.ph.i.i.i.i662, !llvm.loop !112
+  br i1 %.not.i.i.i.i676, label %_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i677, label %.lr.ph.i.i.i.i662, !llvm.loop !20
 
 _ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i677: ; preds = %_ZSt8_DestroyIN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorEEvPT_.exit.i.i.i.i675
   %.pr.i678 = load ptr, ptr %22, align 8
@@ -36833,7 +36833,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE9_Destruct
 _ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev.exit.i.i.i723: ; preds = %940, %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE9_DestructEv.exit.i.i.i.i.i722
   %942 = getelementptr inbounds nuw i8, ptr %.08.i.i.i711, i64 56
   %.not.i.i.i724 = icmp eq ptr %942, %921
-  br i1 %.not.i.i.i724, label %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_19HdDataSourceLocatorELj8EE9_DestructEv.exit.loopexit.i.i725, label %.lr.ph.i.i.i710, !llvm.loop !11
+  br i1 %.not.i.i.i724, label %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_19HdDataSourceLocatorELj8EE9_DestructEv.exit.loopexit.i.i725, label %.lr.ph.i.i.i710, !llvm.loop !7
 
 _ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_19HdDataSourceLocatorELj8EE9_DestructEv.exit.loopexit.i.i725: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev.exit.i.i.i723
   %.pre.i.i726 = load i32, ptr %914, align 4
@@ -36990,7 +36990,7 @@ _ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__7TfTokenEJRKS1_EEvPT_DpOT0_.
   %997 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i.i736, i64 8
   %998 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i.i735, i64 8
   %.not.i.i.i.i.i740 = icmp eq ptr %997, %983
-  br i1 %.not.i.i.i.i.i740, label %_ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorC2ERKS0_.exit741, label %.lr.ph.i.i.i.i.i734, !llvm.loop !29
+  br i1 %.not.i.i.i.i.i740, label %_ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorC2ERKS0_.exit741, label %.lr.ph.i.i.i.i.i734, !llvm.loop !18
 
 _ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorC2ERKS0_.exit741: ; preds = %_ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__7TfTokenEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i739, %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE12_InitStorageEm.exit.i.i729
   %999 = phi ptr [ %978, %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE12_InitStorageEm.exit.i.i729 ], [ %984, %_ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__7TfTokenEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i739 ]
@@ -37068,7 +37068,7 @@ _ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__7TfTokenEJRKS1_EEvPT_DpOT0_.
   %1035 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i.i749, i64 8
   %1036 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i.i748, i64 8
   %.not.i.i.i.i.i753 = icmp eq ptr %1035, %1021
-  br i1 %.not.i.i.i.i.i753, label %_ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorC2ERKS0_.exit754, label %.lr.ph.i.i.i.i.i747, !llvm.loop !29
+  br i1 %.not.i.i.i.i.i753, label %_ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorC2ERKS0_.exit754, label %.lr.ph.i.i.i.i.i747, !llvm.loop !18
 
 _ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorC2ERKS0_.exit754: ; preds = %_ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__7TfTokenEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i752, %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE12_InitStorageEm.exit.i.i742
   %1037 = phi ptr [ %1016, %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE12_InitStorageEm.exit.i.i742 ], [ %1022, %_ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__7TfTokenEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i752 ]
@@ -37133,7 +37133,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE9_Destruct
 
 _ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev.exit766: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE9_DestructEv.exit.i.i765, %1062
   %1064 = icmp eq ptr %1043, %32
-  br i1 %1064, label %1065, label %1041, !llvm.loop !113
+  br i1 %1064, label %1065, label %1041
 
 1065:                                             ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev.exit766
   invoke void @_ZNK32pxrInternal_v0_24__pxrReserved__22HdDataSourceLocatorSet12IntersectionERKNS_19HdDataSourceLocatorE(ptr dead_on_unwind nonnull writable sret(%"class.pxrInternal_v0_24__pxrReserved__::HdDataSourceLocatorSet::IntersectionView") align 8 %34, ptr noundef nonnull align 8 dereferenceable(456) %30, ptr noundef nonnull align 8 dereferenceable(56) %1)
@@ -37213,7 +37213,7 @@ _ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__7TfTokenEJRKS1_EEvPT_DpOT0_.
   %1098 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i.i774, i64 8
   %1099 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i.i773, i64 8
   %.not.i.i.i.i.i778 = icmp eq ptr %1098, %1085
-  br i1 %.not.i.i.i.i.i778, label %_ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorC2ERKS0_.exit779, label %.lr.ph.i.i.i.i.i772, !llvm.loop !29
+  br i1 %.not.i.i.i.i.i778, label %_ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorC2ERKS0_.exit779, label %.lr.ph.i.i.i.i.i772, !llvm.loop !18
 
 _ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorC2ERKS0_.exit779: ; preds = %_ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__7TfTokenEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i777, %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE12_InitStorageEm.exit.i.i767
   %1100 = getelementptr inbounds nuw i8, ptr %36, i64 56
@@ -37286,7 +37286,7 @@ _ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__7TfTokenEJRKS1_EEvPT_DpOT0_.
   %1131 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i.i787, i64 8
   %1132 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i.i786, i64 8
   %.not.i.i.i.i.i791 = icmp eq ptr %1131, %1118
-  br i1 %.not.i.i.i.i.i791, label %_ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorC2ERKS0_.exit792, label %.lr.ph.i.i.i.i.i785, !llvm.loop !29
+  br i1 %.not.i.i.i.i.i791, label %_ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorC2ERKS0_.exit792, label %.lr.ph.i.i.i.i.i785, !llvm.loop !18
 
 _ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorC2ERKS0_.exit792: ; preds = %_ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__7TfTokenEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i790, %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE12_InitStorageEm.exit.i.i780
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %35, i8 0, i64 24, i1 false)
@@ -37377,13 +37377,13 @@ _ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__7TfTokenEJRKS1_EEvPT_DpOT0_.
   %1170 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i.i.i.i.i.i.i.i2020, i64 8
   %1171 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i.i.i.i.i.i.i.i2019, i64 8
   %.not.i.i.i.i.i.i.i.i.i.i.i2024 = icmp eq ptr %1170, %1157
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i2024, label %_ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i2025, label %.lr.ph.i.i.i.i.i.i.i.i.i.i.i2018, !llvm.loop !29
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i2024, label %_ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i2025, label %.lr.ph.i.i.i.i.i.i.i.i.i.i.i2018, !llvm.loop !18
 
 _ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i2025: ; preds = %_ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__7TfTokenEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i.i.i.i.i.i.i2023, %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE12_InitStorageEm.exit.i.i.i.i.i.i.i.i2027
   %.01214.i.i.i.i.i2012.add = add nuw nsw i64 %.01214.i.i.i.i.i2012.idx, 56
   %1172 = getelementptr inbounds nuw i8, ptr %.015.i.i.i.i.i2011, i64 56
   %.not.i.i.i.i.i2026 = icmp eq i64 %.01214.i.i.i.i.i2012.add, 112
-  br i1 %.not.i.i.i.i.i2026, label %1175, label %.lr.ph.i.i.i.i.i2010, !llvm.loop !114
+  br i1 %.not.i.i.i.i.i2026, label %1175, label %.lr.ph.i.i.i.i.i2010, !llvm.loop !21
 
 1173:                                             ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorC2ERKS0_.exit792
   %1174 = landingpad { ptr, i32 }
@@ -37478,7 +37478,7 @@ _ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__7TfTokenEJRKS1_EEvPT_DpOT0_.
   %1213 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i.i805, i64 8
   %1214 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i.i804, i64 8
   %.not.i.i.i.i.i809 = icmp eq ptr %1213, %1199
-  br i1 %.not.i.i.i.i.i809, label %_ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorC2ERKS0_.exit810, label %.lr.ph.i.i.i.i.i803, !llvm.loop !29
+  br i1 %.not.i.i.i.i.i809, label %_ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorC2ERKS0_.exit810, label %.lr.ph.i.i.i.i.i803, !llvm.loop !18
 
 _ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorC2ERKS0_.exit810: ; preds = %_ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__7TfTokenEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i808, %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE12_InitStorageEm.exit.i.i798
   %1215 = phi ptr [ %1194, %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE12_InitStorageEm.exit.i.i798 ], [ %1200, %_ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__7TfTokenEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i808 ]
@@ -37560,7 +37560,7 @@ _ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__7TfTokenEJRKS1_EEvPT_DpOT0_.
   %1249 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i.i.i.i.i.i.i.i2044, i64 8
   %1250 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i.i.i.i.i.i.i.i2043, i64 8
   %.not.i.i.i.i.i.i.i.i.i.i.i2048 = icmp eq ptr %1249, %1236
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i2048, label %_ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i2049, label %.lr.ph.i.i.i.i.i.i.i.i.i.i.i2042, !llvm.loop !29
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i2048, label %_ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i2049, label %.lr.ph.i.i.i.i.i.i.i.i.i.i.i2042, !llvm.loop !18
 
 _ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i2049: ; preds = %_ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__7TfTokenEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i.i.i.i.i.i.i2047, %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE12_InitStorageEm.exit.i.i.i.i.i.i.i.i2051
   %1251 = getelementptr inbounds nuw i8, ptr %39, i64 8
@@ -37655,7 +37655,7 @@ _ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__7TfTokenEJRKS1_EEvPT_DpOT0_.
   %1290 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i.i823, i64 8
   %1291 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i.i822, i64 8
   %.not.i.i.i.i.i827 = icmp eq ptr %1290, %1276
-  br i1 %.not.i.i.i.i.i827, label %_ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorC2ERKS0_.exit828, label %.lr.ph.i.i.i.i.i821, !llvm.loop !29
+  br i1 %.not.i.i.i.i.i827, label %_ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorC2ERKS0_.exit828, label %.lr.ph.i.i.i.i.i821, !llvm.loop !18
 
 _ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorC2ERKS0_.exit828: ; preds = %_ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__7TfTokenEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i826, %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE12_InitStorageEm.exit.i.i816
   %1292 = phi ptr [ %1271, %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE12_InitStorageEm.exit.i.i816 ], [ %1277, %_ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__7TfTokenEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i826 ]
@@ -37737,7 +37737,7 @@ _ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__7TfTokenEJRKS1_EEvPT_DpOT0_.
   %1326 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i.i.i.i.i.i.i.i2068, i64 8
   %1327 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i.i.i.i.i.i.i.i2067, i64 8
   %.not.i.i.i.i.i.i.i.i.i.i.i2072 = icmp eq ptr %1326, %1313
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i2072, label %_ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i2073, label %.lr.ph.i.i.i.i.i.i.i.i.i.i.i2066, !llvm.loop !29
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i2072, label %_ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i2073, label %.lr.ph.i.i.i.i.i.i.i.i.i.i.i2066, !llvm.loop !18
 
 _ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i2073: ; preds = %_ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__7TfTokenEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i.i.i.i.i.i.i2071, %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE12_InitStorageEm.exit.i.i.i.i.i.i.i.i2075
   %1328 = getelementptr inbounds nuw i8, ptr %43, i64 8
@@ -37835,7 +37835,7 @@ _ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__7TfTokenEJRKS1_EEvPT_DpOT0_.
   %1370 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i.i841, i64 8
   %1371 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i.i840, i64 8
   %.not.i.i.i.i.i845 = icmp eq ptr %1370, %1356
-  br i1 %.not.i.i.i.i.i845, label %_ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorC2ERKS0_.exit846, label %.lr.ph.i.i.i.i.i839, !llvm.loop !29
+  br i1 %.not.i.i.i.i.i845, label %_ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorC2ERKS0_.exit846, label %.lr.ph.i.i.i.i.i839, !llvm.loop !18
 
 _ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorC2ERKS0_.exit846: ; preds = %_ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__7TfTokenEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i844, %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE12_InitStorageEm.exit.i.i834
   %1372 = phi ptr [ %1350, %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE12_InitStorageEm.exit.i.i834 ], [ %1357, %_ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__7TfTokenEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i844 ]
@@ -37917,7 +37917,7 @@ _ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__7TfTokenEJRKS1_EEvPT_DpOT0_.
   %1406 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i.i.i.i.i.i.i.i2092, i64 8
   %1407 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i.i.i.i.i.i.i.i2091, i64 8
   %.not.i.i.i.i.i.i.i.i.i.i.i2096 = icmp eq ptr %1406, %1393
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i2096, label %_ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i2097, label %.lr.ph.i.i.i.i.i.i.i.i.i.i.i2090, !llvm.loop !29
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i2096, label %_ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i2097, label %.lr.ph.i.i.i.i.i.i.i.i.i.i.i2090, !llvm.loop !18
 
 _ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i2097: ; preds = %_ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__7TfTokenEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i.i.i.i.i.i.i2095, %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE12_InitStorageEm.exit.i.i.i.i.i.i.i.i2099
   %1408 = getelementptr inbounds nuw i8, ptr %47, i64 8
@@ -37987,7 +37987,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE9_Destruct
 _ZSt8_DestroyIN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorEEvPT_.exit.i.i.i.i866: ; preds = %1432, %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE9_DestructEv.exit.i.i.i.i.i.i.i865
   %1434 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i854, i64 56
   %.not.i.i.i.i867 = icmp eq ptr %1434, %1413
-  br i1 %.not.i.i.i.i867, label %_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i868, label %.lr.ph.i.i.i.i853, !llvm.loop !112
+  br i1 %.not.i.i.i.i867, label %_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i868, label %.lr.ph.i.i.i.i853, !llvm.loop !20
 
 _ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i868: ; preds = %_ZSt8_DestroyIN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorEEvPT_.exit.i.i.i.i866
   %.pr.i869 = load ptr, ptr %47, align 8
@@ -38111,7 +38111,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE9_Destruct
 _ZSt8_DestroyIN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorEEvPT_.exit.i.i.i.i900: ; preds = %1482, %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE9_DestructEv.exit.i.i.i.i.i.i.i899
   %1484 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i888, i64 56
   %.not.i.i.i.i901 = icmp eq ptr %1484, %1463
-  br i1 %.not.i.i.i.i901, label %_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i902, label %.lr.ph.i.i.i.i887, !llvm.loop !112
+  br i1 %.not.i.i.i.i901, label %_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i902, label %.lr.ph.i.i.i.i887, !llvm.loop !20
 
 _ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i902: ; preds = %_ZSt8_DestroyIN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorEEvPT_.exit.i.i.i.i900
   %.pr.i903 = load ptr, ptr %45, align 8
@@ -38285,7 +38285,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE9_Destruct
 _ZSt8_DestroyIN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorEEvPT_.exit.i.i.i.i946: ; preds = %1555, %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE9_DestructEv.exit.i.i.i.i.i.i.i945
   %1557 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i934, i64 56
   %.not.i.i.i.i947 = icmp eq ptr %1557, %1536
-  br i1 %.not.i.i.i.i947, label %_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i948, label %.lr.ph.i.i.i.i933, !llvm.loop !112
+  br i1 %.not.i.i.i.i947, label %_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i948, label %.lr.ph.i.i.i.i933, !llvm.loop !20
 
 _ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i948: ; preds = %_ZSt8_DestroyIN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorEEvPT_.exit.i.i.i.i946
   %.pr.i949 = load ptr, ptr %43, align 8
@@ -38409,7 +38409,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE9_Destruct
 _ZSt8_DestroyIN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorEEvPT_.exit.i.i.i.i980: ; preds = %1605, %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE9_DestructEv.exit.i.i.i.i.i.i.i979
   %1607 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i968, i64 56
   %.not.i.i.i.i981 = icmp eq ptr %1607, %1586
-  br i1 %.not.i.i.i.i981, label %_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i982, label %.lr.ph.i.i.i.i967, !llvm.loop !112
+  br i1 %.not.i.i.i.i981, label %_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i982, label %.lr.ph.i.i.i.i967, !llvm.loop !20
 
 _ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i982: ; preds = %_ZSt8_DestroyIN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorEEvPT_.exit.i.i.i.i980
   %.pr.i983 = load ptr, ptr %41, align 8
@@ -38583,7 +38583,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE9_Destruct
 _ZSt8_DestroyIN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorEEvPT_.exit.i.i.i.i1026: ; preds = %1678, %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE9_DestructEv.exit.i.i.i.i.i.i.i1025
   %1680 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i1014, i64 56
   %.not.i.i.i.i1027 = icmp eq ptr %1680, %1659
-  br i1 %.not.i.i.i.i1027, label %_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i1028, label %.lr.ph.i.i.i.i1013, !llvm.loop !112
+  br i1 %.not.i.i.i.i1027, label %_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i1028, label %.lr.ph.i.i.i.i1013, !llvm.loop !20
 
 _ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i1028: ; preds = %_ZSt8_DestroyIN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorEEvPT_.exit.i.i.i.i1026
   %.pr.i1029 = load ptr, ptr %39, align 8
@@ -38707,7 +38707,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE9_Destruct
 _ZSt8_DestroyIN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorEEvPT_.exit.i.i.i.i1060: ; preds = %1728, %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE9_DestructEv.exit.i.i.i.i.i.i.i1059
   %1730 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i1048, i64 56
   %.not.i.i.i.i1061 = icmp eq ptr %1730, %1709
-  br i1 %.not.i.i.i.i1061, label %_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i1062, label %.lr.ph.i.i.i.i1047, !llvm.loop !112
+  br i1 %.not.i.i.i.i1061, label %_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i1062, label %.lr.ph.i.i.i.i1047, !llvm.loop !20
 
 _ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i1062: ; preds = %_ZSt8_DestroyIN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorEEvPT_.exit.i.i.i.i1060
   %.pr.i1063 = load ptr, ptr %37, align 8
@@ -38881,7 +38881,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE9_Destruct
 _ZSt8_DestroyIN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorEEvPT_.exit.i.i.i.i1106: ; preds = %1801, %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE9_DestructEv.exit.i.i.i.i.i.i.i1105
   %1803 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i1094, i64 56
   %.not.i.i.i.i1107 = icmp eq ptr %1803, %1782
-  br i1 %.not.i.i.i.i1107, label %_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i1108, label %.lr.ph.i.i.i.i1093, !llvm.loop !112
+  br i1 %.not.i.i.i.i1107, label %_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i1108, label %.lr.ph.i.i.i.i1093, !llvm.loop !20
 
 _ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i1108: ; preds = %_ZSt8_DestroyIN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorEEvPT_.exit.i.i.i.i1106
   %.pr.i1109 = load ptr, ptr %35, align 8
@@ -38954,7 +38954,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE9_Destruct
 
 _ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev.exit1125: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE9_DestructEv.exit.i.i1124, %1830
   %1832 = icmp eq ptr %1811, %36
-  br i1 %1832, label %1833, label %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorESaIS1_EED2Ev.exit1113, !llvm.loop !115
+  br i1 %1832, label %1833, label %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorESaIS1_EED2Ev.exit1113
 
 1833:                                             ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev.exit1125
   %1834 = load ptr, ptr %33, align 8
@@ -39014,7 +39014,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE9_Destruct
 _ZSt8_DestroyIN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorEEvPT_.exit.i.i.i.i1140: ; preds = %1855, %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE9_DestructEv.exit.i.i.i.i.i.i.i1139
   %1857 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i1128, i64 56
   %.not.i.i.i.i1141 = icmp eq ptr %1857, %1836
-  br i1 %.not.i.i.i.i1141, label %_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i1142, label %.lr.ph.i.i.i.i1127, !llvm.loop !112
+  br i1 %.not.i.i.i.i1141, label %_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i1142, label %.lr.ph.i.i.i.i1127, !llvm.loop !20
 
 _ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i1142: ; preds = %_ZSt8_DestroyIN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorEEvPT_.exit.i.i.i.i1140
   %.pr.i1143 = load ptr, ptr %33, align 8
@@ -39195,7 +39195,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE9_Destruct
 _ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev.exit.i.i.i1188: ; preds = %1933, %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE9_DestructEv.exit.i.i.i.i.i1187
   %1935 = getelementptr inbounds nuw i8, ptr %.08.i.i.i1176, i64 56
   %.not.i.i.i1189 = icmp eq ptr %1935, %1914
-  br i1 %.not.i.i.i1189, label %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_19HdDataSourceLocatorELj8EE9_DestructEv.exit.loopexit.i.i1190, label %.lr.ph.i.i.i1175, !llvm.loop !11
+  br i1 %.not.i.i.i1189, label %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_19HdDataSourceLocatorELj8EE9_DestructEv.exit.loopexit.i.i1190, label %.lr.ph.i.i.i1175, !llvm.loop !7
 
 _ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_19HdDataSourceLocatorELj8EE9_DestructEv.exit.loopexit.i.i1190: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev.exit.i.i.i1188
   %.pre.i.i1191 = load i32, ptr %1907, align 4
@@ -39230,7 +39230,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__22HdDataSourceLocatorSetD2Ev.exit1193: ; pr
   %1946 = getelementptr inbounds i8, ptr %1945, i64 -56
   call void @_ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %1946) #21
   %1947 = icmp eq ptr %1946, %32
-  br i1 %1947, label %.loopexit2213, label %1944, !llvm.loop !116
+  br i1 %1947, label %.loopexit2213, label %1944
 
 1948:                                             ; preds = %1065
   %1949 = landingpad { ptr, i32 }
@@ -39335,7 +39335,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__22HdDataSourceLocatorSetD2Ev.exit1193: ; pr
   %1974 = getelementptr inbounds i8, ptr %1973, i64 -56
   call void @_ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %1974) #21
   %1975 = icmp eq ptr %1974, %36
-  br i1 %1975, label %1976, label %1972, !llvm.loop !117
+  br i1 %1975, label %1976, label %1972
 
 1976:                                             ; preds = %1972
   call void @_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %33) #21
@@ -39416,7 +39416,7 @@ _ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__7TfTokenEJRKS1_EEvPT_DpOT0_.
   %2009 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i.i1201, i64 8
   %2010 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i.i1200, i64 8
   %.not.i.i.i.i.i1205 = icmp eq ptr %2009, %1996
-  br i1 %.not.i.i.i.i.i1205, label %_ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorC2ERKS0_.exit1206, label %.lr.ph.i.i.i.i.i1199, !llvm.loop !29
+  br i1 %.not.i.i.i.i.i1205, label %_ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorC2ERKS0_.exit1206, label %.lr.ph.i.i.i.i.i1199, !llvm.loop !18
 
 _ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorC2ERKS0_.exit1206: ; preds = %_ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__7TfTokenEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i1204, %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE12_InitStorageEm.exit.i.i1194
   %2011 = getelementptr inbounds nuw i8, ptr %51, i64 56
@@ -39493,7 +39493,7 @@ _ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__7TfTokenEJRKS1_EEvPT_DpOT0_.
   %2046 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i.i1214, i64 8
   %2047 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i.i1213, i64 8
   %.not.i.i.i.i.i1218 = icmp eq ptr %2046, %2032
-  br i1 %.not.i.i.i.i.i1218, label %_ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorC2ERKS0_.exit1219, label %.lr.ph.i.i.i.i.i1212, !llvm.loop !29
+  br i1 %.not.i.i.i.i.i1218, label %_ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorC2ERKS0_.exit1219, label %.lr.ph.i.i.i.i.i1212, !llvm.loop !18
 
 _ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorC2ERKS0_.exit1219: ; preds = %_ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__7TfTokenEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i1217, %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE12_InitStorageEm.exit.i.i1207
   %2048 = phi ptr [ %2027, %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE12_InitStorageEm.exit.i.i1207 ], [ %2033, %_ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__7TfTokenEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i1217 ]
@@ -39571,7 +39571,7 @@ _ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__7TfTokenEJRKS1_EEvPT_DpOT0_.
   %2084 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i.i1227, i64 8
   %2085 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i.i1226, i64 8
   %.not.i.i.i.i.i1231 = icmp eq ptr %2084, %2070
-  br i1 %.not.i.i.i.i.i1231, label %_ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorC2ERKS0_.exit1232, label %.lr.ph.i.i.i.i.i1225, !llvm.loop !29
+  br i1 %.not.i.i.i.i.i1231, label %_ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorC2ERKS0_.exit1232, label %.lr.ph.i.i.i.i.i1225, !llvm.loop !18
 
 _ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorC2ERKS0_.exit1232: ; preds = %_ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__7TfTokenEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i1230, %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE12_InitStorageEm.exit.i.i1220
   %2086 = phi ptr [ %2065, %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE12_InitStorageEm.exit.i.i1220 ], [ %2071, %_ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__7TfTokenEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i1230 ]
@@ -39636,7 +39636,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE9_Destruct
 
 _ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev.exit1244: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE9_DestructEv.exit.i.i1243, %2111
   %2113 = icmp eq ptr %2092, %51
-  br i1 %2113, label %2114, label %2090, !llvm.loop !118
+  br i1 %2113, label %2114, label %2090
 
 2114:                                             ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev.exit1244
   invoke void @_ZNK32pxrInternal_v0_24__pxrReserved__22HdDataSourceLocatorSet12IntersectionERKNS_19HdDataSourceLocatorE(ptr dead_on_unwind nonnull writable sret(%"class.pxrInternal_v0_24__pxrReserved__::HdDataSourceLocatorSet::IntersectionView") align 8 %53, ptr noundef nonnull align 8 dereferenceable(456) %49, ptr noundef nonnull align 8 dereferenceable(56) %4)
@@ -39716,7 +39716,7 @@ _ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__7TfTokenEJRKS1_EEvPT_DpOT0_.
   %2147 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i.i1252, i64 8
   %2148 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i.i1251, i64 8
   %.not.i.i.i.i.i1256 = icmp eq ptr %2147, %2134
-  br i1 %.not.i.i.i.i.i1256, label %_ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorC2ERKS0_.exit1257, label %.lr.ph.i.i.i.i.i1250, !llvm.loop !29
+  br i1 %.not.i.i.i.i.i1256, label %_ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorC2ERKS0_.exit1257, label %.lr.ph.i.i.i.i.i1250, !llvm.loop !18
 
 _ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorC2ERKS0_.exit1257: ; preds = %_ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__7TfTokenEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i1255, %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE12_InitStorageEm.exit.i.i1245
   %2149 = getelementptr inbounds nuw i8, ptr %55, i64 56
@@ -39789,7 +39789,7 @@ _ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__7TfTokenEJRKS1_EEvPT_DpOT0_.
   %2180 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i.i1265, i64 8
   %2181 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i.i1264, i64 8
   %.not.i.i.i.i.i1269 = icmp eq ptr %2180, %2167
-  br i1 %.not.i.i.i.i.i1269, label %_ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorC2ERKS0_.exit1270, label %.lr.ph.i.i.i.i.i1263, !llvm.loop !29
+  br i1 %.not.i.i.i.i.i1269, label %_ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorC2ERKS0_.exit1270, label %.lr.ph.i.i.i.i.i1263, !llvm.loop !18
 
 _ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorC2ERKS0_.exit1270: ; preds = %_ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__7TfTokenEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i1268, %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE12_InitStorageEm.exit.i.i1258
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %54, i8 0, i64 24, i1 false)
@@ -39880,13 +39880,13 @@ _ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__7TfTokenEJRKS1_EEvPT_DpOT0_.
   %2219 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i.i.i.i.i.i.i.i2116, i64 8
   %2220 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i.i.i.i.i.i.i.i2115, i64 8
   %.not.i.i.i.i.i.i.i.i.i.i.i2120 = icmp eq ptr %2219, %2206
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i2120, label %_ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i2121, label %.lr.ph.i.i.i.i.i.i.i.i.i.i.i2114, !llvm.loop !29
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i2120, label %_ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i2121, label %.lr.ph.i.i.i.i.i.i.i.i.i.i.i2114, !llvm.loop !18
 
 _ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i2121: ; preds = %_ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__7TfTokenEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i.i.i.i.i.i.i2119, %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE12_InitStorageEm.exit.i.i.i.i.i.i.i.i2123
   %.01214.i.i.i.i.i2108.add = add nuw nsw i64 %.01214.i.i.i.i.i2108.idx, 56
   %2221 = getelementptr inbounds nuw i8, ptr %.015.i.i.i.i.i2107, i64 56
   %.not.i.i.i.i.i2122 = icmp eq i64 %.01214.i.i.i.i.i2108.add, 112
-  br i1 %.not.i.i.i.i.i2122, label %2224, label %.lr.ph.i.i.i.i.i2106, !llvm.loop !114
+  br i1 %.not.i.i.i.i.i2122, label %2224, label %.lr.ph.i.i.i.i.i2106, !llvm.loop !21
 
 2222:                                             ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorC2ERKS0_.exit1270
   %2223 = landingpad { ptr, i32 }
@@ -39981,7 +39981,7 @@ _ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__7TfTokenEJRKS1_EEvPT_DpOT0_.
   %2262 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i.i1283, i64 8
   %2263 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i.i1282, i64 8
   %.not.i.i.i.i.i1287 = icmp eq ptr %2262, %2248
-  br i1 %.not.i.i.i.i.i1287, label %_ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorC2ERKS0_.exit1288, label %.lr.ph.i.i.i.i.i1281, !llvm.loop !29
+  br i1 %.not.i.i.i.i.i1287, label %_ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorC2ERKS0_.exit1288, label %.lr.ph.i.i.i.i.i1281, !llvm.loop !18
 
 _ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorC2ERKS0_.exit1288: ; preds = %_ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__7TfTokenEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i1286, %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE12_InitStorageEm.exit.i.i1276
   %2264 = phi ptr [ %2243, %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE12_InitStorageEm.exit.i.i1276 ], [ %2249, %_ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__7TfTokenEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i1286 ]
@@ -40063,7 +40063,7 @@ _ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__7TfTokenEJRKS1_EEvPT_DpOT0_.
   %2298 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i.i.i.i.i.i.i.i2140, i64 8
   %2299 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i.i.i.i.i.i.i.i2139, i64 8
   %.not.i.i.i.i.i.i.i.i.i.i.i2144 = icmp eq ptr %2298, %2285
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i2144, label %_ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i2145, label %.lr.ph.i.i.i.i.i.i.i.i.i.i.i2138, !llvm.loop !29
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i2144, label %_ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i2145, label %.lr.ph.i.i.i.i.i.i.i.i.i.i.i2138, !llvm.loop !18
 
 _ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i2145: ; preds = %_ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__7TfTokenEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i.i.i.i.i.i.i2143, %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE12_InitStorageEm.exit.i.i.i.i.i.i.i.i2147
   %2300 = getelementptr inbounds nuw i8, ptr %58, i64 8
@@ -40133,7 +40133,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE9_Destruct
 _ZSt8_DestroyIN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorEEvPT_.exit.i.i.i.i1308: ; preds = %2324, %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE9_DestructEv.exit.i.i.i.i.i.i.i1307
   %2326 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i1296, i64 56
   %.not.i.i.i.i1309 = icmp eq ptr %2326, %2305
-  br i1 %.not.i.i.i.i1309, label %_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i1310, label %.lr.ph.i.i.i.i1295, !llvm.loop !112
+  br i1 %.not.i.i.i.i1309, label %_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i1310, label %.lr.ph.i.i.i.i1295, !llvm.loop !20
 
 _ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i1310: ; preds = %_ZSt8_DestroyIN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorEEvPT_.exit.i.i.i.i1308
   %.pr.i1311 = load ptr, ptr %58, align 8
@@ -40257,7 +40257,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE9_Destruct
 _ZSt8_DestroyIN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorEEvPT_.exit.i.i.i.i1342: ; preds = %2374, %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE9_DestructEv.exit.i.i.i.i.i.i.i1341
   %2376 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i1330, i64 56
   %.not.i.i.i.i1343 = icmp eq ptr %2376, %2355
-  br i1 %.not.i.i.i.i1343, label %_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i1344, label %.lr.ph.i.i.i.i1329, !llvm.loop !112
+  br i1 %.not.i.i.i.i1343, label %_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i1344, label %.lr.ph.i.i.i.i1329, !llvm.loop !20
 
 _ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i1344: ; preds = %_ZSt8_DestroyIN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorEEvPT_.exit.i.i.i.i1342
   %.pr.i1345 = load ptr, ptr %56, align 8
@@ -40431,7 +40431,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE9_Destruct
 _ZSt8_DestroyIN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorEEvPT_.exit.i.i.i.i1388: ; preds = %2447, %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE9_DestructEv.exit.i.i.i.i.i.i.i1387
   %2449 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i1376, i64 56
   %.not.i.i.i.i1389 = icmp eq ptr %2449, %2428
-  br i1 %.not.i.i.i.i1389, label %_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i1390, label %.lr.ph.i.i.i.i1375, !llvm.loop !112
+  br i1 %.not.i.i.i.i1389, label %_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i1390, label %.lr.ph.i.i.i.i1375, !llvm.loop !20
 
 _ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i1390: ; preds = %_ZSt8_DestroyIN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorEEvPT_.exit.i.i.i.i1388
   %.pr.i1391 = load ptr, ptr %54, align 8
@@ -40504,7 +40504,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE9_Destruct
 
 _ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev.exit1407: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE9_DestructEv.exit.i.i1406, %2476
   %2478 = icmp eq ptr %2457, %55
-  br i1 %2478, label %2479, label %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorESaIS1_EED2Ev.exit1395, !llvm.loop !119
+  br i1 %2478, label %2479, label %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorESaIS1_EED2Ev.exit1395
 
 2479:                                             ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev.exit1407
   %2480 = load ptr, ptr %52, align 8
@@ -40564,7 +40564,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE9_Destruct
 _ZSt8_DestroyIN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorEEvPT_.exit.i.i.i.i1422: ; preds = %2501, %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE9_DestructEv.exit.i.i.i.i.i.i.i1421
   %2503 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i1410, i64 56
   %.not.i.i.i.i1423 = icmp eq ptr %2503, %2482
-  br i1 %.not.i.i.i.i1423, label %_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i1424, label %.lr.ph.i.i.i.i1409, !llvm.loop !112
+  br i1 %.not.i.i.i.i1423, label %_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i1424, label %.lr.ph.i.i.i.i1409, !llvm.loop !20
 
 _ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i1424: ; preds = %_ZSt8_DestroyIN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorEEvPT_.exit.i.i.i.i1422
   %.pr.i1425 = load ptr, ptr %52, align 8
@@ -40745,7 +40745,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE9_Destruct
 _ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev.exit.i.i.i1470: ; preds = %2579, %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE9_DestructEv.exit.i.i.i.i.i1469
   %2581 = getelementptr inbounds nuw i8, ptr %.08.i.i.i1458, i64 56
   %.not.i.i.i1471 = icmp eq ptr %2581, %2560
-  br i1 %.not.i.i.i1471, label %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_19HdDataSourceLocatorELj8EE9_DestructEv.exit.loopexit.i.i1472, label %.lr.ph.i.i.i1457, !llvm.loop !11
+  br i1 %.not.i.i.i1471, label %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_19HdDataSourceLocatorELj8EE9_DestructEv.exit.loopexit.i.i1472, label %.lr.ph.i.i.i1457, !llvm.loop !7
 
 _ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_19HdDataSourceLocatorELj8EE9_DestructEv.exit.loopexit.i.i1472: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev.exit.i.i.i1470
   %.pre.i.i1473 = load i32, ptr %2553, align 4
@@ -40780,7 +40780,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__22HdDataSourceLocatorSetD2Ev.exit1475: ; pr
   %2592 = getelementptr inbounds i8, ptr %2591, i64 -56
   call void @_ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %2592) #21
   %2593 = icmp eq ptr %2592, %51
-  br i1 %2593, label %.loopexit2213, label %2590, !llvm.loop !120
+  br i1 %2593, label %.loopexit2213, label %2590
 
 2594:                                             ; preds = %2114
   %2595 = landingpad { ptr, i32 }
@@ -40833,7 +40833,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__22HdDataSourceLocatorSetD2Ev.exit1475: ; pr
   %2608 = getelementptr inbounds i8, ptr %2607, i64 -56
   call void @_ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %2608) #21
   %2609 = icmp eq ptr %2608, %55
-  br i1 %2609, label %2610, label %2606, !llvm.loop !121
+  br i1 %2609, label %2610, label %2606
 
 2610:                                             ; preds = %2606
   call void @_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %52) #21
@@ -40914,7 +40914,7 @@ _ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__7TfTokenEJRKS1_EEvPT_DpOT0_.
   %2643 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i.i1483, i64 8
   %2644 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i.i1482, i64 8
   %.not.i.i.i.i.i1487 = icmp eq ptr %2643, %2630
-  br i1 %.not.i.i.i.i.i1487, label %_ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorC2ERKS0_.exit1488, label %.lr.ph.i.i.i.i.i1481, !llvm.loop !29
+  br i1 %.not.i.i.i.i.i1487, label %_ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorC2ERKS0_.exit1488, label %.lr.ph.i.i.i.i.i1481, !llvm.loop !18
 
 _ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorC2ERKS0_.exit1488: ; preds = %_ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__7TfTokenEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i1486, %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE12_InitStorageEm.exit.i.i1476
   %2645 = getelementptr inbounds nuw i8, ptr %62, i64 56
@@ -40987,7 +40987,7 @@ _ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__7TfTokenEJRKS1_EEvPT_DpOT0_.
   %2676 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i.i1496, i64 8
   %2677 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i.i1495, i64 8
   %.not.i.i.i.i.i1500 = icmp eq ptr %2676, %2663
-  br i1 %.not.i.i.i.i.i1500, label %_ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorC2ERKS0_.exit1501, label %.lr.ph.i.i.i.i.i1494, !llvm.loop !29
+  br i1 %.not.i.i.i.i.i1500, label %_ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorC2ERKS0_.exit1501, label %.lr.ph.i.i.i.i.i1494, !llvm.loop !18
 
 _ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorC2ERKS0_.exit1501: ; preds = %_ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__7TfTokenEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i1499, %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE12_InitStorageEm.exit.i.i1489
   %2678 = getelementptr inbounds nuw i8, ptr %62, i64 112
@@ -41060,7 +41060,7 @@ _ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__7TfTokenEJRKS1_EEvPT_DpOT0_.
   %2709 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i.i1509, i64 8
   %2710 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i.i1508, i64 8
   %.not.i.i.i.i.i1513 = icmp eq ptr %2709, %2696
-  br i1 %.not.i.i.i.i.i1513, label %_ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorC2ERKS0_.exit1514, label %.lr.ph.i.i.i.i.i1507, !llvm.loop !29
+  br i1 %.not.i.i.i.i.i1513, label %_ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorC2ERKS0_.exit1514, label %.lr.ph.i.i.i.i.i1507, !llvm.loop !18
 
 _ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorC2ERKS0_.exit1514: ; preds = %_ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__7TfTokenEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i1512, %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE12_InitStorageEm.exit.i.i1502
   %2711 = getelementptr inbounds nuw i8, ptr %62, i64 168
@@ -41214,7 +41214,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE9_Destruct
 
 _ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev.exit1526: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE9_DestructEv.exit.i.i1525, %2765
   %2767 = icmp eq ptr %2746, %62
-  br i1 %2767, label %2768, label %2744, !llvm.loop !122
+  br i1 %2767, label %2768, label %2744
 
 2768:                                             ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev.exit1526
   %2769 = load ptr, ptr %72, align 8
@@ -41424,7 +41424,7 @@ _ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__7TfTokenEJRKS1_EEvPT_DpOT0_.
   %2871 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i.i1554, i64 8
   %2872 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i.i1553, i64 8
   %.not.i.i.i.i.i1558 = icmp eq ptr %2871, %2858
-  br i1 %.not.i.i.i.i.i1558, label %_ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorC2ERKS0_.exit1559, label %.lr.ph.i.i.i.i.i1552, !llvm.loop !29
+  br i1 %.not.i.i.i.i.i1558, label %_ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorC2ERKS0_.exit1559, label %.lr.ph.i.i.i.i.i1552, !llvm.loop !18
 
 _ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorC2ERKS0_.exit1559: ; preds = %_ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__7TfTokenEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i1557, %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE12_InitStorageEm.exit.i.i1547
   %2873 = getelementptr inbounds nuw i8, ptr %76, i64 56
@@ -41497,7 +41497,7 @@ _ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__7TfTokenEJRKS1_EEvPT_DpOT0_.
   %2904 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i.i1567, i64 8
   %2905 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i.i1566, i64 8
   %.not.i.i.i.i.i1571 = icmp eq ptr %2904, %2891
-  br i1 %.not.i.i.i.i.i1571, label %_ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorC2ERKS0_.exit1572, label %.lr.ph.i.i.i.i.i1565, !llvm.loop !29
+  br i1 %.not.i.i.i.i.i1571, label %_ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorC2ERKS0_.exit1572, label %.lr.ph.i.i.i.i.i1565, !llvm.loop !18
 
 _ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorC2ERKS0_.exit1572: ; preds = %_ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__7TfTokenEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i1570, %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE12_InitStorageEm.exit.i.i1560
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %75, i8 0, i64 24, i1 false)
@@ -41588,13 +41588,13 @@ _ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__7TfTokenEJRKS1_EEvPT_DpOT0_.
   %2943 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i.i.i.i.i.i.i.i2164, i64 8
   %2944 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i.i.i.i.i.i.i.i2163, i64 8
   %.not.i.i.i.i.i.i.i.i.i.i.i2168 = icmp eq ptr %2943, %2930
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i2168, label %_ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i2169, label %.lr.ph.i.i.i.i.i.i.i.i.i.i.i2162, !llvm.loop !29
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i2168, label %_ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i2169, label %.lr.ph.i.i.i.i.i.i.i.i.i.i.i2162, !llvm.loop !18
 
 _ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i2169: ; preds = %_ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__7TfTokenEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i.i.i.i.i.i.i2167, %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE12_InitStorageEm.exit.i.i.i.i.i.i.i.i2171
   %.01214.i.i.i.i.i2156.add = add nuw nsw i64 %.01214.i.i.i.i.i2156.idx, 56
   %2945 = getelementptr inbounds nuw i8, ptr %.015.i.i.i.i.i2155, i64 56
   %.not.i.i.i.i.i2170 = icmp eq i64 %.01214.i.i.i.i.i2156.add, 112
-  br i1 %.not.i.i.i.i.i2170, label %2948, label %.lr.ph.i.i.i.i.i2154, !llvm.loop !114
+  br i1 %.not.i.i.i.i.i2170, label %2948, label %.lr.ph.i.i.i.i.i2154, !llvm.loop !21
 
 2946:                                             ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorC2ERKS0_.exit1572
   %2947 = landingpad { ptr, i32 }
@@ -41689,7 +41689,7 @@ _ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__7TfTokenEJRKS1_EEvPT_DpOT0_.
   %2986 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i.i1585, i64 8
   %2987 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i.i1584, i64 8
   %.not.i.i.i.i.i1589 = icmp eq ptr %2986, %2972
-  br i1 %.not.i.i.i.i.i1589, label %_ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorC2ERKS0_.exit1590, label %.lr.ph.i.i.i.i.i1583, !llvm.loop !29
+  br i1 %.not.i.i.i.i.i1589, label %_ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorC2ERKS0_.exit1590, label %.lr.ph.i.i.i.i.i1583, !llvm.loop !18
 
 _ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorC2ERKS0_.exit1590: ; preds = %_ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__7TfTokenEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i1588, %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE12_InitStorageEm.exit.i.i1578
   %2988 = phi ptr [ %2967, %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE12_InitStorageEm.exit.i.i1578 ], [ %2973, %_ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__7TfTokenEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i1588 ]
@@ -41771,7 +41771,7 @@ _ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__7TfTokenEJRKS1_EEvPT_DpOT0_.
   %3022 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i.i.i.i.i.i.i.i2188, i64 8
   %3023 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i.i.i.i.i.i.i.i2187, i64 8
   %.not.i.i.i.i.i.i.i.i.i.i.i2192 = icmp eq ptr %3022, %3009
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i2192, label %_ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i2193, label %.lr.ph.i.i.i.i.i.i.i.i.i.i.i2186, !llvm.loop !29
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i2192, label %_ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i2193, label %.lr.ph.i.i.i.i.i.i.i.i.i.i.i2186, !llvm.loop !18
 
 _ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i2193: ; preds = %_ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__7TfTokenEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i.i.i.i.i.i.i2191, %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE12_InitStorageEm.exit.i.i.i.i.i.i.i.i2195
   %3024 = getelementptr inbounds nuw i8, ptr %79, i64 8
@@ -41841,7 +41841,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE9_Destruct
 _ZSt8_DestroyIN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorEEvPT_.exit.i.i.i.i1610: ; preds = %3048, %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE9_DestructEv.exit.i.i.i.i.i.i.i1609
   %3050 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i1598, i64 56
   %.not.i.i.i.i1611 = icmp eq ptr %3050, %3029
-  br i1 %.not.i.i.i.i1611, label %_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i1612, label %.lr.ph.i.i.i.i1597, !llvm.loop !112
+  br i1 %.not.i.i.i.i1611, label %_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i1612, label %.lr.ph.i.i.i.i1597, !llvm.loop !20
 
 _ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i1612: ; preds = %_ZSt8_DestroyIN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorEEvPT_.exit.i.i.i.i1610
   %.pr.i1613 = load ptr, ptr %79, align 8
@@ -41970,7 +41970,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE9_Destruct
 _ZSt8_DestroyIN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorEEvPT_.exit.i.i.i.i1644: ; preds = %3098, %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE9_DestructEv.exit.i.i.i.i.i.i.i1643
   %3100 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i1632, i64 56
   %.not.i.i.i.i1645 = icmp eq ptr %3100, %3079
-  br i1 %.not.i.i.i.i1645, label %_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i1646, label %.lr.ph.i.i.i.i1631, !llvm.loop !112
+  br i1 %.not.i.i.i.i1645, label %_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i1646, label %.lr.ph.i.i.i.i1631, !llvm.loop !20
 
 _ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i1646: ; preds = %_ZSt8_DestroyIN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorEEvPT_.exit.i.i.i.i1644
   %.pr.i1647 = load ptr, ptr %75, align 8
@@ -42043,7 +42043,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE9_Destruct
 
 _ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev.exit1663: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE9_DestructEv.exit.i.i1662, %3127
   %3129 = icmp eq ptr %3108, %76
-  br i1 %3129, label %3130, label %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorESaIS1_EED2Ev.exit1651, !llvm.loop !123
+  br i1 %3129, label %3130, label %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorESaIS1_EED2Ev.exit1651
 
 3130:                                             ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev.exit1663
   %3131 = load ptr, ptr %73, align 8
@@ -42103,7 +42103,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE9_Destruct
 _ZSt8_DestroyIN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorEEvPT_.exit.i.i.i.i1678: ; preds = %3152, %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE9_DestructEv.exit.i.i.i.i.i.i.i1677
   %3154 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i1666, i64 56
   %.not.i.i.i.i1679 = icmp eq ptr %3154, %3133
-  br i1 %.not.i.i.i.i1679, label %_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i1680, label %.lr.ph.i.i.i.i1665, !llvm.loop !112
+  br i1 %.not.i.i.i.i1679, label %_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i1680, label %.lr.ph.i.i.i.i1665, !llvm.loop !20
 
 _ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i1680: ; preds = %_ZSt8_DestroyIN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorEEvPT_.exit.i.i.i.i1678
   %.pr.i1681 = load ptr, ptr %73, align 8
@@ -42284,7 +42284,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE9_Destruct
 _ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev.exit.i.i.i1726: ; preds = %3230, %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE9_DestructEv.exit.i.i.i.i.i1725
   %3232 = getelementptr inbounds nuw i8, ptr %.08.i.i.i1714, i64 56
   %.not.i.i.i1727 = icmp eq ptr %3232, %3211
-  br i1 %.not.i.i.i1727, label %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_19HdDataSourceLocatorELj8EE9_DestructEv.exit.loopexit.i.i1728, label %.lr.ph.i.i.i1713, !llvm.loop !11
+  br i1 %.not.i.i.i1727, label %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_19HdDataSourceLocatorELj8EE9_DestructEv.exit.loopexit.i.i1728, label %.lr.ph.i.i.i1713, !llvm.loop !7
 
 _ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_19HdDataSourceLocatorELj8EE9_DestructEv.exit.loopexit.i.i1728: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev.exit.i.i.i1726
   %.pre.i.i1729 = load i32, ptr %3204, align 4
@@ -42383,7 +42383,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__22HdDataSourceLocatorSetD2Ev.exit1731: ; pr
   %3265 = getelementptr inbounds i8, ptr %3264, i64 -56
   call void @_ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %3265) #21
   %3266 = icmp eq ptr %3265, %62
-  br i1 %3266, label %.loopexit2215, label %3263, !llvm.loop !124
+  br i1 %3266, label %.loopexit2215, label %3263
 
 .loopexit2215:                                    ; preds = %3263, %3258
   %3267 = phi i1 [ false, %3258 ], [ true, %3263 ]
@@ -42557,7 +42557,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit1751: ; preds = %3334, %_Z
   %3340 = getelementptr inbounds i8, ptr %3339, i64 -56
   call void @_ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %3340) #21
   %3341 = icmp eq ptr %3340, %62
-  br i1 %3341, label %.loopexit2213, label %.preheader, !llvm.loop !125
+  br i1 %3341, label %.loopexit2213, label %.preheader
 
 3342:                                             ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit1546
   %3343 = landingpad { ptr, i32 }
@@ -42610,7 +42610,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit1751: ; preds = %3334, %_Z
   %3356 = getelementptr inbounds i8, ptr %3355, i64 -56
   call void @_ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %3356) #21
   %3357 = icmp eq ptr %3356, %76
-  br i1 %3357, label %3358, label %3354, !llvm.loop !126
+  br i1 %3357, label %3358, label %3354
 
 3358:                                             ; preds = %3354
   call void @_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %73) #21
@@ -42691,7 +42691,7 @@ _ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__7TfTokenEJRKS1_EEvPT_DpOT0_.
   %3391 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i.i1759, i64 8
   %3392 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i.i1758, i64 8
   %.not.i.i.i.i.i1763 = icmp eq ptr %3391, %3378
-  br i1 %.not.i.i.i.i.i1763, label %_ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorC2ERKS0_.exit1764, label %.lr.ph.i.i.i.i.i1757, !llvm.loop !29
+  br i1 %.not.i.i.i.i.i1763, label %_ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorC2ERKS0_.exit1764, label %.lr.ph.i.i.i.i.i1757, !llvm.loop !18
 
 _ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorC2ERKS0_.exit1764: ; preds = %_ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__7TfTokenEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i1762, %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE12_InitStorageEm.exit.i.i1752
   %3393 = getelementptr inbounds nuw i8, ptr %83, i64 56
@@ -42767,7 +42767,7 @@ _ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__7TfTokenEJRKS1_EEvPT_DpOT0_.
   %3427 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i.i1772, i64 8
   %3428 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i.i1771, i64 8
   %.not.i.i.i.i.i1776 = icmp eq ptr %3427, %3414
-  br i1 %.not.i.i.i.i.i1776, label %_ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorC2ERKS0_.exit1777, label %.lr.ph.i.i.i.i.i1770, !llvm.loop !29
+  br i1 %.not.i.i.i.i.i1776, label %_ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorC2ERKS0_.exit1777, label %.lr.ph.i.i.i.i.i1770, !llvm.loop !18
 
 _ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorC2ERKS0_.exit1777: ; preds = %_ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__7TfTokenEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i1775, %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE12_InitStorageEm.exit.i.i1765
   %3429 = getelementptr inbounds nuw i8, ptr %83, i64 112
@@ -42840,7 +42840,7 @@ _ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__7TfTokenEJRKS1_EEvPT_DpOT0_.
   %3460 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i.i1785, i64 8
   %3461 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i.i1784, i64 8
   %.not.i.i.i.i.i1789 = icmp eq ptr %3460, %3447
-  br i1 %.not.i.i.i.i.i1789, label %_ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorC2ERKS0_.exit1790, label %.lr.ph.i.i.i.i.i1783, !llvm.loop !29
+  br i1 %.not.i.i.i.i.i1789, label %_ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorC2ERKS0_.exit1790, label %.lr.ph.i.i.i.i.i1783, !llvm.loop !18
 
 _ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorC2ERKS0_.exit1790: ; preds = %_ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__7TfTokenEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i1788, %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE12_InitStorageEm.exit.i.i1778
   store ptr %83, ptr %82, align 8
@@ -42904,7 +42904,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE9_Destruct
 
 _ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev.exit1802: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE9_DestructEv.exit.i.i1801, %3486
   %3488 = icmp eq ptr %3467, %83
-  br i1 %3488, label %3489, label %3465, !llvm.loop !127
+  br i1 %3488, label %3489, label %3465
 
 3489:                                             ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev.exit1802
   invoke void @_ZNK32pxrInternal_v0_24__pxrReserved__22HdDataSourceLocatorSet12IntersectionERKNS_19HdDataSourceLocatorE(ptr dead_on_unwind nonnull writable sret(%"class.pxrInternal_v0_24__pxrReserved__::HdDataSourceLocatorSet::IntersectionView") align 8 %84, ptr noundef nonnull align 8 dereferenceable(456) %81, ptr noundef nonnull align 8 dereferenceable(56) %4)
@@ -42989,7 +42989,7 @@ _ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__7TfTokenEJRKS1_EEvPT_DpOT0_.
   %3528 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i.i.i, i64 8
   %3529 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i.i.i, i64 8
   %.not.i.i.i.i.i.i1806 = icmp eq ptr %3528, %3513
-  br i1 %.not.i.i.i.i.i.i1806, label %_ZN32pxrInternal_v0_24__pxrReserved__22HdDataSourceLocatorSet20IntersectionIteratorC2ERKS1_.exit, label %.lr.ph.i.i.i.i.i.i1805, !llvm.loop !29
+  br i1 %.not.i.i.i.i.i.i1806, label %_ZN32pxrInternal_v0_24__pxrReserved__22HdDataSourceLocatorSet20IntersectionIteratorC2ERKS1_.exit, label %.lr.ph.i.i.i.i.i.i1805, !llvm.loop !18
 
 _ZN32pxrInternal_v0_24__pxrReserved__22HdDataSourceLocatorSet20IntersectionIteratorC2ERKS1_.exit: ; preds = %_ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__7TfTokenEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i.i, %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE12_InitStorageEm.exit.i.i.i
   %3530 = phi ptr [ %3508, %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE12_InitStorageEm.exit.i.i.i ], [ %3514, %_ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__7TfTokenEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i.i ]
@@ -43079,7 +43079,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__22HdDataSourceLocatorSet20IntersectionItera
   %3567 = getelementptr inbounds i8, ptr %3566, i64 -56
   call void @_ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %3567) #21
   %3568 = icmp eq ptr %3567, %83
-  br i1 %3568, label %.loopexit2213, label %3565, !llvm.loop !128
+  br i1 %3568, label %.loopexit2213, label %3565
 
 3569:                                             ; preds = %3489
   %3570 = landingpad { ptr, i32 }
@@ -43192,7 +43192,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__22HdDataSourceLocatorSet20IntersectionItera
   %3614 = load ptr, ptr %3532, align 8
   %3615 = load ptr, ptr %3533, align 8
   %.not = icmp eq ptr %3614, %3615
-  br i1 %.not, label %._crit_edge, label %3573, !llvm.loop !129
+  br i1 %.not, label %._crit_edge, label %3573, !llvm.loop !22
 
 3616:                                             ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__22HdDataSourceLocatorSet20IntersectionIteratorD2Ev.exit
   %3617 = load i64, ptr %3559, align 8
@@ -43281,7 +43281,7 @@ _ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__7TfTokenEJRKS1_EEvPT_DpOT0_.
   %.0810.i.i.i.i.i.i1829.add = add nuw nsw i64 %.0810.i.i.i.i.i.i1829.idx, 8
   %3653 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i.i.i1828, i64 8
   %.not.i.i.i.i.i.i1833 = icmp eq i64 %.0810.i.i.i.i.i.i1829.add, 16
-  br i1 %.not.i.i.i.i.i.i1833, label %3656, label %.lr.ph.i.i.i.i.i.i1827, !llvm.loop !29
+  br i1 %.not.i.i.i.i.i.i1833, label %3656, label %.lr.ph.i.i.i.i.i.i1827, !llvm.loop !18
 
 3654:                                             ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit1826
   %3655 = landingpad { ptr, i32 }
@@ -43317,7 +43317,7 @@ _ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__7TfTokenEJRKS1_EEvPT_DpOT0_.
 _ZSt8_DestroyIN32pxrInternal_v0_24__pxrReserved__7TfTokenEEvPT_.exit.i.i.i.i: ; preds = %3665, %.lr.ph.i.i.i.i1837
   %3669 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i1838, i64 8
   %.not.i.i.i.i1840 = icmp eq ptr %3669, %3661
-  br i1 %.not.i.i.i.i1840, label %_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__7TfTokenES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i1837, !llvm.loop !26
+  br i1 %.not.i.i.i.i1840, label %_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__7TfTokenES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i1837, !llvm.loop !15
 
 _ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__7TfTokenES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i: ; preds = %_ZSt8_DestroyIN32pxrInternal_v0_24__pxrReserved__7TfTokenEEvPT_.exit.i.i.i.i
   %.pr.i1841 = load ptr, ptr %88, align 8
@@ -43356,7 +43356,7 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7TfTokenESaIS1_EED2Ev.exit: ; pr
 
 _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit1845: ; preds = %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7TfTokenESaIS1_EED2Ev.exit, %3681
   %3685 = icmp eq ptr %3677, %89
-  br i1 %3685, label %3706, label %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7TfTokenESaIS1_EED2Ev.exit, !llvm.loop !130
+  br i1 %3685, label %3706, label %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7TfTokenESaIS1_EED2Ev.exit
 
 3686:                                             ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit
   %3687 = landingpad { ptr, i32 }
@@ -43398,7 +43398,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit1845: ; preds = %_ZNSt6vec
 
 _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit1849: ; preds = %3695, %3701
   %3705 = icmp eq ptr %3697, %89
-  br i1 %3705, label %.loopexit, label %3695, !llvm.loop !131
+  br i1 %3705, label %.loopexit, label %3695
 
 3706:                                             ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit1845
   %3707 = load ptr, ptr %85, align 8
@@ -43424,7 +43424,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit1849: ; preds = %3695, %37
 _ZSt8_DestroyIN32pxrInternal_v0_24__pxrReserved__7TfTokenEEvPT_.exit.i.i.i.i1854: ; preds = %3713, %.lr.ph.i.i.i.i1851
   %3717 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i1852, i64 8
   %.not.i.i.i.i1855 = icmp eq ptr %3717, %3709
-  br i1 %.not.i.i.i.i1855, label %_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__7TfTokenES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i1856, label %.lr.ph.i.i.i.i1851, !llvm.loop !26
+  br i1 %.not.i.i.i.i1855, label %_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__7TfTokenES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i1856, label %.lr.ph.i.i.i.i1851, !llvm.loop !15
 
 _ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__7TfTokenES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i1856: ; preds = %_ZSt8_DestroyIN32pxrInternal_v0_24__pxrReserved__7TfTokenEEvPT_.exit.i.i.i.i1854
   %.pr.i1857 = load ptr, ptr %85, align 8
@@ -43602,7 +43602,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE9_Destruct
 _ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev.exit.i.i.i1902: ; preds = %3790, %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE9_DestructEv.exit.i.i.i.i.i1901
   %3792 = getelementptr inbounds nuw i8, ptr %.08.i.i.i1890, i64 56
   %.not.i.i.i1903 = icmp eq ptr %3792, %3771
-  br i1 %.not.i.i.i1903, label %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_19HdDataSourceLocatorELj8EE9_DestructEv.exit.loopexit.i.i1904, label %.lr.ph.i.i.i1889, !llvm.loop !11
+  br i1 %.not.i.i.i1903, label %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_19HdDataSourceLocatorELj8EE9_DestructEv.exit.loopexit.i.i1904, label %.lr.ph.i.i.i1889, !llvm.loop !7
 
 _ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_19HdDataSourceLocatorELj8EE9_DestructEv.exit.loopexit.i.i1904: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev.exit.i.i.i1902
   %.pre.i.i1905 = load i32, ptr %3764, align 4
@@ -43966,7 +43966,7 @@ define linkonce_odr dso_local void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.05.i.i.i) #21
   %5 = getelementptr inbounds nuw i8, ptr %.05.i.i.i, i64 32
   %.not.i.i.i = icmp eq ptr %5, %4
-  br i1 %.not.i.i.i, label %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exitthread-pre-split, label %.lr.ph.i.i.i, !llvm.loop !18
+  br i1 %.not.i.i.i, label %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exitthread-pre-split, label %.lr.ph.i.i.i, !llvm.loop !8
 
 _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exitthread-pre-split: ; preds = %.lr.ph.i.i.i
   %.pr = load ptr, ptr %0, align 8
@@ -44017,7 +44017,7 @@ define linkonce_odr dso_local void @_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserv
 _ZSt8_DestroyIN32pxrInternal_v0_24__pxrReserved__7TfTokenEEvPT_.exit.i.i.i: ; preds = %8, %.lr.ph.i.i.i
   %12 = getelementptr inbounds nuw i8, ptr %.05.i.i.i, i64 8
   %.not.i.i.i = icmp eq ptr %12, %4
-  br i1 %.not.i.i.i, label %_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__7TfTokenES1_EvT_S3_RSaIT0_E.exitthread-pre-split, label %.lr.ph.i.i.i, !llvm.loop !26
+  br i1 %.not.i.i.i, label %_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__7TfTokenES1_EvT_S3_RSaIT0_E.exitthread-pre-split, label %.lr.ph.i.i.i, !llvm.loop !15
 
 _ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__7TfTokenES1_EvT_S3_RSaIT0_E.exitthread-pre-split: ; preds = %_ZSt8_DestroyIN32pxrInternal_v0_24__pxrReserved__7TfTokenEEvPT_.exit.i.i.i
   %.pr = load ptr, ptr %0, align 8
@@ -44188,7 +44188,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrRe
   %26 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i.i.i, i64 8
   %.not.i.i.i.i.i.i = icmp eq ptr %25, %14
   %or.cond = select i1 %24, i1 true, i1 %.not.i.i.i.i.i.i
-  br i1 %or.cond, label %_ZNK32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EEneERKS2_.exit, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !27
+  br i1 %or.cond, label %_ZNK32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EEneERKS2_.exit, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !16
 
 _ZNK32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EEneERKS2_.exit: ; preds = %.lr.ph.i.i.i.i.i.i, %2, %8
   %27 = phi i1 [ true, %2 ], [ false, %8 ], [ %24, %.lr.ph.i.i.i.i.i.i ]
@@ -44213,11 +44213,11 @@ define linkonce_odr dso_local { ptr, i8 } @_ZN32pxrInternal_v0_24__pxrReserved__
   %13 = ptrtoint ptr %10 to i64
   %14 = sub i64 %12, %13
   %15 = sdiv exact i64 %14, 56
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !132)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !23)
   %16 = getelementptr inbounds nuw i8, ptr %5, i64 52
-  store i32 6, ptr %16, align 4, !alias.scope !132
+  store i32 6, ptr %16, align 4, !alias.scope !23
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %18 = load i32, ptr %17, align 8, !noalias !132
+  %18 = load i32, ptr %17, align 8, !noalias !23
   %19 = icmp ult i32 %18, 7
   br i1 %19, label %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE12_InitStorageEm.exit.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE12_InitStorageEm.exit.i.i.i.thread.i
 
@@ -44225,14 +44225,14 @@ _ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE12_InitSto
   %20 = zext i32 %18 to i64
   %21 = shl nuw nsw i64 %20, 3
   %22 = tail call noalias noundef ptr @malloc(i64 noundef %21) #26
-  store ptr %22, ptr %5, align 8, !alias.scope !132
-  store i32 %18, ptr %16, align 4, !alias.scope !132
+  store ptr %22, ptr %5, align 8, !alias.scope !23
+  store i32 %18, ptr %16, align 4, !alias.scope !23
   %23 = getelementptr inbounds nuw i8, ptr %5, i64 48
-  store i32 %18, ptr %23, align 8, !alias.scope !132
+  store i32 %18, ptr %23, align 8, !alias.scope !23
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 52
-  %25 = load i32, ptr %24, align 4, !noalias !132
+  %25 = load i32, ptr %24, align 4, !noalias !23
   %26 = icmp ult i32 %25, 7
-  %27 = load ptr, ptr %1, align 8, !noalias !132
+  %27 = load ptr, ptr %1, align 8, !noalias !23
   %spec.select.i.i.i.i.i5.i = select i1 %26, ptr %1, ptr %27
   %28 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i5.i, i64 %21
   br label %.lr.ph.i.i.i.i.i.i.preheader.i
@@ -44241,11 +44241,11 @@ _ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE12_InitSto
   %29 = shl nuw nsw i32 %18, 3
   %.pre2.i = zext nneg i32 %29 to i64
   %30 = getelementptr inbounds nuw i8, ptr %5, i64 48
-  store i32 %18, ptr %30, align 8, !alias.scope !132
+  store i32 %18, ptr %30, align 8, !alias.scope !23
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 52
-  %32 = load i32, ptr %31, align 4, !noalias !132
+  %32 = load i32, ptr %31, align 4, !noalias !23
   %33 = icmp ult i32 %32, 7
-  %34 = load ptr, ptr %1, align 8, !noalias !132
+  %34 = load ptr, ptr %1, align 8, !noalias !23
   %spec.select.i.i.i.i.i.i = select i1 %33, ptr %1, ptr %34
   %35 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i.i, i64 %.pre2.i
   %.not9.i.i.i.i.i.i.i = icmp eq i32 %18, 0
@@ -44253,7 +44253,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE12_InitSto
 
 _ZSt9make_pairIRKN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorEmESt4pairINSt25__strip_reference_wrapperINSt5decayIT_E4typeEE6__typeENS5_INS6_IT0_E4typeEE6__typeEEOS7_OSC_.exit.thread: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE12_InitStorageEm.exit.i.i.i.i
   %36 = getelementptr inbounds nuw i8, ptr %5, i64 56
-  store i64 %15, ptr %36, align 8, !alias.scope !132
+  store i64 %15, ptr %36, align 8, !alias.scope !23
   %37 = getelementptr inbounds nuw i8, ptr %4, i64 52
   store i32 6, ptr %37, align 4
   %38 = getelementptr inbounds nuw i8, ptr %5, i64 48
@@ -44268,7 +44268,7 @@ _ZSt9make_pairIRKN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorEmESt4p
 .lr.ph.i.i.i.i.i.i.i:                             ; preds = %_ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__7TfTokenEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.preheader.i
   %.011.i.i.i.i.i.i.i = phi ptr [ %53, %_ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__7TfTokenEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i.i.i ], [ %spec.select.i.i5.i.i.i7.i, %.lr.ph.i.i.i.i.i.i.preheader.i ]
   %.0810.i.i.i.i.i.i.i = phi ptr [ %52, %_ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__7TfTokenEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i.i.i ], [ %spec.select.i.i.i.i.i8.i, %.lr.ph.i.i.i.i.i.i.preheader.i ]
-  %40 = load i64, ptr %.0810.i.i.i.i.i.i.i, align 8, !noalias !132
+  %40 = load i64, ptr %.0810.i.i.i.i.i.i.i, align 8, !noalias !23
   store i64 %40, ptr %.011.i.i.i.i.i.i.i, align 8
   %41 = and i64 %40, 7
   %.not.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %41, 0
@@ -44277,7 +44277,7 @@ _ZSt9make_pairIRKN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorEmESt4p
 42:                                               ; preds = %.lr.ph.i.i.i.i.i.i.i
   %43 = and i64 %40, -8
   %44 = inttoptr i64 %43 to ptr
-  %45 = atomicrmw add ptr %44, i32 2 monotonic, align 4, !noalias !132
+  %45 = atomicrmw add ptr %44, i32 2 monotonic, align 4, !noalias !23
   %46 = and i32 %45, 1
   %.not1.i.i.i.i.i.i.i.i.i.i = icmp eq i32 %46, 0
   br i1 %.not1.i.i.i.i.i.i.i.i.i.i, label %47, label %_ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__7TfTokenEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i.i.i
@@ -44294,13 +44294,13 @@ _ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__7TfTokenEJRKS1_EEvPT_DpOT0_.
   %52 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i.i.i.i, i64 8
   %53 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i.i.i.i, i64 8
   %.not.i.i.i.i.i.i.i = icmp eq ptr %52, %39
-  br i1 %.not.i.i.i.i.i.i.i, label %_ZSt9make_pairIRKN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorEmESt4pairINSt25__strip_reference_wrapperINSt5decayIT_E4typeEE6__typeENS5_INS6_IT0_E4typeEE6__typeEEOS7_OSC_.exit, label %.lr.ph.i.i.i.i.i.i.i, !llvm.loop !29
+  br i1 %.not.i.i.i.i.i.i.i, label %_ZSt9make_pairIRKN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorEmESt4pairINSt25__strip_reference_wrapperINSt5decayIT_E4typeEE6__typeENS5_INS6_IT0_E4typeEE6__typeEEOS7_OSC_.exit, label %.lr.ph.i.i.i.i.i.i.i, !llvm.loop !18
 
 _ZSt9make_pairIRKN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorEmESt4pairINSt25__strip_reference_wrapperINSt5decayIT_E4typeEE6__typeENS5_INS6_IT0_E4typeEE6__typeEEOS7_OSC_.exit: ; preds = %_ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__7TfTokenEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i.i.i
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %5, i64 48
   %.pre = load i32, ptr %.phi.trans.insert, align 8
   %54 = getelementptr inbounds nuw i8, ptr %5, i64 56
-  store i64 %15, ptr %54, align 8, !alias.scope !132
+  store i64 %15, ptr %54, align 8, !alias.scope !23
   %55 = getelementptr inbounds nuw i8, ptr %4, i64 52
   store i32 6, ptr %55, align 4
   %56 = getelementptr inbounds nuw i8, ptr %5, i64 48
@@ -44376,7 +44376,7 @@ _ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__7TfTokenEJRKS1_EEvPT_DpOT0_.
   %91 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i.i.i, i64 8
   %92 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i.i.i, i64 8
   %.not.i.i.i.i.i.i = icmp eq ptr %91, %75
-  br i1 %.not.i.i.i.i.i.i, label %.loopexit, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !29
+  br i1 %.not.i.i.i.i.i.i, label %.loopexit, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !18
 
 .loopexit:                                        ; preds = %_ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__7TfTokenEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i.i, %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE12_InitStorageEm.exit.i.i.i
   %93 = phi ptr [ %70, %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE12_InitStorageEm.exit.i.i.i ], [ %76, %_ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__7TfTokenEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i.i ]
@@ -44532,7 +44532,7 @@ _ZNSt4pairIN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorEmED2Ev.exit.
 _ZNKSt8equal_toIN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorEEclERKS1_S4_.exit.i.us: ; preds = %.lr.ph.i.split.us
   %154 = getelementptr inbounds nuw i8, ptr %.sroa.08.116.i.us, i64 56
   %.not12.i.us = icmp eq ptr %154, %9
-  br i1 %.not12.i.us, label %_ZNK32pxrInternal_v0_24__pxrReserved__14TfDenseHashSetINS_19HdDataSourceLocatorENS_6TfHashESt8equal_toIS1_ELj128EE4findERKS1_.exit, label %.lr.ph.i.split.us, !llvm.loop !135
+  br i1 %.not12.i.us, label %_ZNK32pxrInternal_v0_24__pxrReserved__14TfDenseHashSetINS_19HdDataSourceLocatorENS_6TfHashESt8equal_toIS1_ELj128EE4findERKS1_.exit, label %.lr.ph.i.split.us, !llvm.loop !26
 
 .lr.ph.i.split:                                   ; preds = %.lr.ph.i, %_ZNKSt8equal_toIN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorEEclERKS1_S4_.exit.i
   %.sroa.08.116.i = phi ptr [ %172, %_ZNKSt8equal_toIN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorEEclERKS1_S4_.exit.i ], [ %10, %.lr.ph.i ]
@@ -44565,12 +44565,12 @@ _ZNKSt8equal_toIN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorEEclERKS
   %170 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i.i.i.i.i, i64 8
   %171 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i.i.i.i.i, i64 8
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %170, %162
-  br i1 %.not.i.i.i.i.i.i.i.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__14TfDenseHashSetINS_19HdDataSourceLocatorENS_6TfHashESt8equal_toIS1_ELj128EE4findERKS1_.exit, label %.lr.ph.i.i.i.i.i.i.i.i, !llvm.loop !27
+  br i1 %.not.i.i.i.i.i.i.i.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__14TfDenseHashSetINS_19HdDataSourceLocatorENS_6TfHashESt8equal_toIS1_ELj128EE4findERKS1_.exit, label %.lr.ph.i.i.i.i.i.i.i.i, !llvm.loop !16
 
 _ZNKSt8equal_toIN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorEEclERKS1_S4_.exit.i: ; preds = %.lr.ph.i.i.i.i.i.i.i.i, %.lr.ph.i.split
   %172 = getelementptr inbounds nuw i8, ptr %.sroa.08.116.i, i64 56
   %.not12.i = icmp eq ptr %172, %9
-  br i1 %.not12.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__14TfDenseHashSetINS_19HdDataSourceLocatorENS_6TfHashESt8equal_toIS1_ELj128EE4findERKS1_.exit, label %.lr.ph.i.split, !llvm.loop !33
+  br i1 %.not12.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__14TfDenseHashSetINS_19HdDataSourceLocatorENS_6TfHashESt8equal_toIS1_ELj128EE4findERKS1_.exit, label %.lr.ph.i.split, !llvm.loop !19
 
 _ZNK32pxrInternal_v0_24__pxrReserved__14TfDenseHashSetINS_19HdDataSourceLocatorENS_6TfHashESt8equal_toIS1_ELj128EE4findERKS1_.exit: ; preds = %_ZNKSt8equal_toIN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorEEclERKS1_S4_.exit.i, %169, %_ZNKSt8equal_toIN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorEEclERKS1_S4_.exit.i.us, %.lr.ph.i.split.us, %143
   %.sroa.08.0.i = phi ptr [ %10, %143 ], [ %154, %_ZNKSt8equal_toIN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorEEclERKS1_S4_.exit.i.us ], [ %.sroa.08.116.i.us, %.lr.ph.i.split.us ], [ %.sroa.08.116.i, %169 ], [ %172, %_ZNKSt8equal_toIN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorEEclERKS1_S4_.exit.i ]
@@ -44646,7 +44646,7 @@ _ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__7TfTokenEJRKS1_EEvPT_DpOT0_.
   %207 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i.i.i.i.i27, i64 8
   %208 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i.i.i.i.i26, i64 8
   %.not.i.i.i.i.i.i.i.i28 = icmp eq ptr %207, %194
-  br i1 %.not.i.i.i.i.i.i.i.i28, label %_ZNSt16allocator_traitsISaIN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorEEE9constructIS1_JRKS1_EEEvRS2_PT_DpOT0_.exit.i, label %.lr.ph.i.i.i.i.i.i.i.i25, !llvm.loop !29
+  br i1 %.not.i.i.i.i.i.i.i.i28, label %_ZNSt16allocator_traitsISaIN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorEEE9constructIS1_JRKS1_EEEvRS2_PT_DpOT0_.exit.i, label %.lr.ph.i.i.i.i.i.i.i.i25, !llvm.loop !18
 
 _ZNSt16allocator_traitsISaIN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorEEE9constructIS1_JRKS1_EEEvRS2_PT_DpOT0_.exit.i: ; preds = %_ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__7TfTokenEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i.i.i.i, %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE12_InitStorageEm.exit.i.i.i.i.i
   %209 = load ptr, ptr %175, align 8
@@ -44762,12 +44762,12 @@ define linkonce_odr dso_local ptr @_ZNK32pxrInternal_v0_24__pxrReserved__14TfDen
   %44 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i.i.i.i, i64 8
   %45 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i.i.i.i, i64 8
   %.not.i.i.i.i.i.i.i = icmp eq ptr %44, %36
-  br i1 %.not.i.i.i.i.i.i.i, label %_ZNKSt8equal_toIN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorEEclERKS1_S4_.exit.thread, label %.lr.ph.i.i.i.i.i.i.i, !llvm.loop !27
+  br i1 %.not.i.i.i.i.i.i.i, label %_ZNKSt8equal_toIN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorEEclERKS1_S4_.exit.thread, label %.lr.ph.i.i.i.i.i.i.i, !llvm.loop !16
 
 _ZNKSt8equal_toIN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorEEclERKS1_S4_.exit: ; preds = %.lr.ph.i.i.i.i.i.i.i, %27
   %46 = getelementptr inbounds nuw i8, ptr %.sroa.08.116, i64 56
   %.not12 = icmp eq ptr %46, %18
-  br i1 %.not12, label %_ZNKSt8equal_toIN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorEEclERKS1_S4_.exit.thread, label %27, !llvm.loop !33
+  br i1 %.not12, label %_ZNKSt8equal_toIN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorEEclERKS1_S4_.exit.thread, label %27, !llvm.loop !19
 
 _ZNKSt8equal_toIN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorEEclERKS1_S4_.exit.thread: ; preds = %_ZNKSt8equal_toIN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorEEclERKS1_S4_.exit, %31, %43, %16, %11, %8
   %.sroa.08.0 = phi ptr [ %10, %8 ], [ %15, %11 ], [ %19, %16 ], [ %.sroa.08.116, %43 ], [ %46, %_ZNKSt8equal_toIN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorEEclERKS1_S4_.exit ], [ %.sroa.08.116, %31 ]
@@ -44845,7 +44845,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE9_Destruct
 _ZSt8_DestroyIN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorEEvPT_.exit.i.i.i.i.i: ; preds = %25, %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE9_DestructEv.exit.i.i.i.i.i.i.i.i
   %27 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i, i64 56
   %.not.i.i.i.i.i = icmp eq ptr %27, %6
-  br i1 %.not.i.i.i.i.i, label %_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !112
+  br i1 %.not.i.i.i.i.i, label %_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !20
 
 _ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i.i: ; preds = %_ZSt8_DestroyIN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorEEvPT_.exit.i.i.i.i.i
   %.pr.i.i = load ptr, ptr %0, align 8
@@ -44932,7 +44932,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE9_Destruct
 _ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorEmELb1EEEEE18_M_deallocate_nodeEPS7_.exit.i.i: ; preds = %24, %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE9_DestructEv.exit.i.i.i.i.i.i.i.i
   tail call void @_ZdlPvm(ptr noundef nonnull %.06.i.i, i64 noundef 80) #22
   %.not.i.i = icmp eq ptr %4, null
-  br i1 %.not.i.i, label %_ZNSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorESt4pairIKS1_mESaIS4_ENSt8__detail10_Select1stESt8equal_toIS1_ENS0_6TfHashENS6_18_Mod_range_hashingENS6_20_Default_ranged_hashENS6_20_Prime_rehash_policyENS6_17_Hashtable_traitsILb1ELb0ELb1EEEE5clearEv.exit, label %.lr.ph.i.i, !llvm.loop !137
+  br i1 %.not.i.i, label %_ZNSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorESt4pairIKS1_mESaIS4_ENSt8__detail10_Select1stESt8equal_toIS1_ENS0_6TfHashENS6_18_Mod_range_hashingENS6_20_Default_ranged_hashENS6_20_Prime_rehash_policyENS6_17_Hashtable_traitsILb1ELb0ELb1EEEE5clearEv.exit, label %.lr.ph.i.i, !llvm.loop !28
 
 _ZNSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorESt4pairIKS1_mESaIS4_ENSt8__detail10_Select1stESt8equal_toIS1_ENS0_6TfHashENS6_18_Mod_range_hashingENS6_20_Default_ranged_hashENS6_20_Prime_rehash_policyENS6_17_Hashtable_traitsILb1ELb0ELb1EEEE5clearEv.exit: ; preds = %_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorEmELb1EEEEE18_M_deallocate_nodeEPS7_.exit.i.i, %1
   %26 = load ptr, ptr %0, align 8
@@ -45067,7 +45067,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE9_Destruct
 _ZSt8_DestroyIN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorEEvPT_.exit.i.i.i: ; preds = %23, %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE9_DestructEv.exit.i.i.i.i.i.i
   %25 = getelementptr inbounds nuw i8, ptr %.05.i.i.i, i64 56
   %.not.i.i.i = icmp eq ptr %25, %4
-  br i1 %.not.i.i.i, label %_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorES1_EvT_S3_RSaIT0_E.exitthread-pre-split, label %.lr.ph.i.i.i, !llvm.loop !112
+  br i1 %.not.i.i.i, label %_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorES1_EvT_S3_RSaIT0_E.exitthread-pre-split, label %.lr.ph.i.i.i, !llvm.loop !20
 
 _ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorES1_EvT_S3_RSaIT0_E.exitthread-pre-split: ; preds = %_ZSt8_DestroyIN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorEEvPT_.exit.i.i.i
   %.pr = load ptr, ptr %0, align 8
@@ -45147,7 +45147,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE9_Destruct
 _ZSt8_DestroyIN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorEEvPT_.exit.i: ; preds = %21, %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE9_DestructEv.exit.i.i.i.i
   %23 = getelementptr inbounds nuw i8, ptr %.05.i, i64 56
   %.not.i = icmp eq ptr %23, %1
-  br i1 %.not.i, label %_ZNSt12_Destroy_auxILb0EE9__destroyIPN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorEEEvT_S5_.exit, label %.lr.ph.i, !llvm.loop !112
+  br i1 %.not.i, label %_ZNSt12_Destroy_auxILb0EE9__destroyIPN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorEEEvT_S5_.exit, label %.lr.ph.i, !llvm.loop !20
 
 _ZNSt12_Destroy_auxILb0EE9__destroyIPN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorEEEvT_S5_.exit: ; preds = %_ZSt8_DestroyIN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorEEvPT_.exit.i, %2
   ret void
@@ -45244,7 +45244,7 @@ define linkonce_odr dso_local { ptr, i8 } @_ZNSt10_HashtableIN32pxrInternal_v0_2
 _ZNKSt8__detail15_Hashtable_baseIN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorESt4pairIKS2_mENS_10_Select1stESt8equal_toIS2_ENS1_6TfHashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE16_M_key_equals_trIS2_EEbRKT_RKNS_16_Hash_node_valueIS5_Lb1EEE.exit.us: ; preds = %.lr.ph.split.us
   %.sroa.029.0.us = load ptr, ptr %.sroa.029.048.us, align 8
   %.not.us = icmp eq ptr %.sroa.029.0.us, null
-  br i1 %.not.us, label %.loopexit, label %.lr.ph.split.us, !llvm.loop !138
+  br i1 %.not.us, label %.loopexit, label %.lr.ph.split.us, !llvm.loop !29
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %_ZNKSt8__detail15_Hashtable_baseIN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorESt4pairIKS2_mENS_10_Select1stESt8equal_toIS2_ENS1_6TfHashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE16_M_key_equals_trIS2_EEbRKT_RKNS_16_Hash_node_valueIS5_Lb1EEE.exit
   %.sroa.029.048 = phi ptr [ %.sroa.029.0, %_ZNKSt8__detail15_Hashtable_baseIN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorESt4pairIKS2_mENS_10_Select1stESt8equal_toIS2_ENS1_6TfHashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE16_M_key_equals_trIS2_EEbRKT_RKNS_16_Hash_node_valueIS5_Lb1EEE.exit ], [ %.sroa.029.046, %.lr.ph ]
@@ -45277,12 +45277,12 @@ _ZNKSt8__detail15_Hashtable_baseIN32pxrInternal_v0_24__pxrReserved__19HdDataSour
   %36 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i.i.i.i.i, i64 8
   %37 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i.i.i.i.i, i64 8
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %36, %17
-  br i1 %.not.i.i.i.i.i.i.i.i, label %_ZNSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorESt4pairIKS1_mESaIS4_ENSt8__detail10_Select1stESt8equal_toIS1_ENS0_6TfHashENS6_18_Mod_range_hashingENS6_20_Default_ranged_hashENS6_20_Prime_rehash_policyENS6_17_Hashtable_traitsILb1ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit, label %.lr.ph.i.i.i.i.i.i.i.i, !llvm.loop !27
+  br i1 %.not.i.i.i.i.i.i.i.i, label %_ZNSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorESt4pairIKS1_mESaIS4_ENSt8__detail10_Select1stESt8equal_toIS1_ENS0_6TfHashENS6_18_Mod_range_hashingENS6_20_Default_ranged_hashENS6_20_Prime_rehash_policyENS6_17_Hashtable_traitsILb1ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit, label %.lr.ph.i.i.i.i.i.i.i.i, !llvm.loop !16
 
 _ZNKSt8__detail15_Hashtable_baseIN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorESt4pairIKS2_mENS_10_Select1stESt8equal_toIS2_ENS1_6TfHashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE16_M_key_equals_trIS2_EEbRKT_RKNS_16_Hash_node_valueIS5_Lb1EEE.exit: ; preds = %.lr.ph.i.i.i.i.i.i.i.i, %.lr.ph.split
   %.sroa.029.0 = load ptr, ptr %.sroa.029.048, align 8
   %.not = icmp eq ptr %.sroa.029.0, null
-  br i1 %.not, label %.loopexit, label %.lr.ph.split, !llvm.loop !139
+  br i1 %.not, label %.loopexit, label %.lr.ph.split, !llvm.loop !30
 
 .loopexit:                                        ; preds = %_ZNKSt8__detail15_Hashtable_baseIN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorESt4pairIKS2_mENS_10_Select1stESt8equal_toIS2_ENS1_6TfHashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE16_M_key_equals_trIS2_EEbRKT_RKNS_16_Hash_node_valueIS5_Lb1EEE.exit, %_ZNKSt8__detail15_Hashtable_baseIN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorESt4pairIKS2_mENS_10_Select1stESt8equal_toIS2_ENS1_6TfHashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE16_M_key_equals_trIS2_EEbRKT_RKNS_16_Hash_node_valueIS5_Lb1EEE.exit.us, %8, %4
   %38 = getelementptr inbounds nuw i8, ptr %1, i64 48
@@ -45323,7 +45323,7 @@ _ZNKSt8__detail15_Hashtable_baseIN32pxrInternal_v0_24__pxrReserved__19HdDataSour
 _ZN32pxrInternal_v0_24__pxrReserved__15Tf_HashStateAPIINS_12Tf_HashStateEE6AppendIJRKNS_7TfTokenEEEEvDpOT_.exit.i.i.i.i.i.i: ; preds = %53, %45
   %.sink.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = phi i64 [ %58, %53 ], [ %52, %45 ]
   %.not.i.i.i.i.i.i = icmp eq i64 %48, 0
-  br i1 %.not.i.i.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__11Tf_HashImplINS_12Tf_HashStateERKNS_19HdDataSourceLocatorEEEDTcmcl12TfHashAppendfp_clsr3stdE7forwardIT0_Efp0_EEcvv_EERT_OS5_i.exit.loopexit.i.i, label %45, !llvm.loop !140
+  br i1 %.not.i.i.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__11Tf_HashImplINS_12Tf_HashStateERKNS_19HdDataSourceLocatorEEEDTcmcl12TfHashAppendfp_clsr3stdE7forwardIT0_Efp0_EEcvv_EERT_OS5_i.exit.loopexit.i.i, label %45, !llvm.loop !31
 
 _ZN32pxrInternal_v0_24__pxrReserved__11Tf_HashImplINS_12Tf_HashStateERKNS_19HdDataSourceLocatorEEEDTcmcl12TfHashAppendfp_clsr3stdE7forwardIT0_Efp0_EEcvv_EERT_OS5_i.exit.loopexit.i.i: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__15Tf_HashStateAPIINS_12Tf_HashStateEE6AppendIJRKNS_7TfTokenEEEEvDpOT_.exit.i.i.i.i.i.i
   %59 = mul i64 %.sink.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, -7046029254386353067
@@ -45380,7 +45380,7 @@ _ZNKSt8__detail15_Hash_code_baseIN32pxrInternal_v0_24__pxrReserved__19HdDataSour
   %86 = load i64, ptr %85, align 8
   %87 = urem i64 %86, %62
   %.not17.us.i.i = icmp eq i64 %87, %63
-  br i1 %.not17.us.i.i, label %.split.us.i.i, label %_ZNKSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorESt4pairIKS1_mESaIS4_ENSt8__detail10_Select1stESt8equal_toIS1_ENS0_6TfHashENS6_18_Mod_range_hashingENS6_20_Default_ranged_hashENS6_20_Prime_rehash_policyENS6_17_Hashtable_traitsILb1ELb0ELb1EEEE15_M_find_node_trIS1_EEPNS6_10_Hash_nodeIS4_Lb1EEEmRKT_m.exit.thread, !llvm.loop !141
+  br i1 %.not17.us.i.i, label %.split.us.i.i, label %_ZNKSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorESt4pairIKS1_mESaIS4_ENSt8__detail10_Select1stESt8equal_toIS1_ENS0_6TfHashENS6_18_Mod_range_hashingENS6_20_Default_ranged_hashENS6_20_Prime_rehash_policyENS6_17_Hashtable_traitsILb1ELb0ELb1EEEE15_M_find_node_trIS1_EEPNS6_10_Hash_nodeIS4_Lb1EEEmRKT_m.exit.thread, !llvm.loop !32
 
 .split.i.i:                                       ; preds = %68, %109
   %88 = phi i64 [ %111, %109 ], [ %.pre25.i.i, %68 ]
@@ -45418,7 +45418,7 @@ _ZNKSt8__detail15_Hash_code_baseIN32pxrInternal_v0_24__pxrReserved__19HdDataSour
   %106 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i.i.i.i.i.i.i.i, i64 8
   %107 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i.i.i.i.i.i.i.i, i64 8
   %.not.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %106, %75
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i, label %_ZNKSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorESt4pairIKS1_mESaIS4_ENSt8__detail10_Select1stESt8equal_toIS1_ENS0_6TfHashENS6_18_Mod_range_hashingENS6_20_Default_ranged_hashENS6_20_Prime_rehash_policyENS6_17_Hashtable_traitsILb1ELb0ELb1EEEE15_M_find_node_trIS1_EEPNS6_10_Hash_nodeIS4_Lb1EEEmRKT_m.exit, label %.lr.ph.i.i.i.i.i.i.i.i.i.i.i, !llvm.loop !27
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i, label %_ZNKSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorESt4pairIKS1_mESaIS4_ENSt8__detail10_Select1stESt8equal_toIS1_ENS0_6TfHashENS6_18_Mod_range_hashingENS6_20_Default_ranged_hashENS6_20_Prime_rehash_policyENS6_17_Hashtable_traitsILb1ELb0ELb1EEEE15_M_find_node_trIS1_EEPNS6_10_Hash_nodeIS4_Lb1EEEmRKT_m.exit, label %.lr.ph.i.i.i.i.i.i.i.i.i.i.i, !llvm.loop !16
 
 .loopexit.i.i:                                    ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i.i.i, %91, %.split.i.i
   %108 = load ptr, ptr %.0.i.i, align 8
@@ -45430,7 +45430,7 @@ _ZNKSt8__detail15_Hash_code_baseIN32pxrInternal_v0_24__pxrReserved__19HdDataSour
   %111 = load i64, ptr %110, align 8
   %112 = urem i64 %111, %62
   %.not17.i.i = icmp eq i64 %112, %63
-  br i1 %.not17.i.i, label %.split.i.i, label %_ZNKSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorESt4pairIKS1_mESaIS4_ENSt8__detail10_Select1stESt8equal_toIS1_ENS0_6TfHashENS6_18_Mod_range_hashingENS6_20_Default_ranged_hashENS6_20_Prime_rehash_policyENS6_17_Hashtable_traitsILb1ELb0ELb1EEEE15_M_find_node_trIS1_EEPNS6_10_Hash_nodeIS4_Lb1EEEmRKT_m.exit.thread, !llvm.loop !142
+  br i1 %.not17.i.i, label %.split.i.i, label %_ZNKSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorESt4pairIKS1_mESaIS4_ENSt8__detail10_Select1stESt8equal_toIS1_ENS0_6TfHashENS6_18_Mod_range_hashingENS6_20_Default_ranged_hashENS6_20_Prime_rehash_policyENS6_17_Hashtable_traitsILb1ELb0ELb1EEEE15_M_find_node_trIS1_EEPNS6_10_Hash_nodeIS4_Lb1EEEmRKT_m.exit.thread, !llvm.loop !33
 
 _ZNKSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorESt4pairIKS1_mESaIS4_ENSt8__detail10_Select1stESt8equal_toIS1_ENS0_6TfHashENS6_18_Mod_range_hashingENS6_20_Default_ranged_hashENS6_20_Prime_rehash_policyENS6_17_Hashtable_traitsILb1ELb0ELb1EEEE15_M_find_node_trIS1_EEPNS6_10_Hash_nodeIS4_Lb1EEEmRKT_m.exit: ; preds = %105
   %.not15 = icmp eq ptr %.0.i.i, null
@@ -45509,7 +45509,7 @@ _ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__7TfTokenEJRKS1_EEvPT_DpOT0_.
   %146 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i.i.i.i.i.i.i.i19, i64 8
   %147 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i.i.i.i.i.i.i.i18, i64 8
   %.not.i.i.i.i.i.i.i.i.i.i.i20 = icmp eq ptr %146, %133
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i20, label %_ZNSt8__detail12_NodeBuilderINS_10_Select1stEE8_S_buildIRKN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorERKSt4pairIS6_mENS_10_AllocNodeISaINS_10_Hash_nodeIS9_Lb1EEEEEEEEPNT1_11__node_typeEOT_OT0_RKSH_.exit, label %.lr.ph.i.i.i.i.i.i.i.i.i.i.i17, !llvm.loop !29
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i20, label %_ZNSt8__detail12_NodeBuilderINS_10_Select1stEE8_S_buildIRKN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorERKSt4pairIS6_mENS_10_AllocNodeISaINS_10_Hash_nodeIS9_Lb1EEEEEEEEPNT1_11__node_typeEOT_OT0_RKSH_.exit, label %.lr.ph.i.i.i.i.i.i.i.i.i.i.i17, !llvm.loop !18
 
 _ZNSt8__detail12_NodeBuilderINS_10_Select1stEE8_S_buildIRKN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorERKSt4pairIS6_mENS_10_AllocNodeISaINS_10_Hash_nodeIS9_Lb1EEEEEEEEPNT1_11__node_typeEOT_OT0_RKSH_.exit: ; preds = %_ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__7TfTokenEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i.i.i.i.i.i.i, %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE12_InitStorageEm.exit.i.i.i.i.i.i.i.i
   %148 = getelementptr inbounds nuw i8, ptr %2, i64 56
@@ -45783,7 +45783,7 @@ _ZNSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorESt4pa
 28:                                               ; preds = %20, %23, %25
   %.1 = phi i64 [ %.02530, %25 ], [ %17, %23 ], [ %17, %20 ]
   %.not = icmp eq ptr %14, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !143
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !34
 
 ._crit_edge:                                      ; preds = %28, %_ZNSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorESt4pairIKS1_mESaIS4_ENSt8__detail10_Select1stESt8equal_toIS1_ENS0_6TfHashENS6_18_Mod_range_hashingENS6_20_Default_ranged_hashENS6_20_Prime_rehash_policyENS6_17_Hashtable_traitsILb1ELb0ELb1EEEE19_M_allocate_bucketsEm.exit
   %29 = load ptr, ptr %0, align 8
@@ -45912,7 +45912,7 @@ _ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__7TfTokenEJRKS1_EEvPT_DpOT0_.
   %57 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i.i.i.i, i64 8
   %58 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i.i.i.i, i64 8
   %.not.i.i.i.i.i.i.i = icmp eq ptr %57, %44
-  br i1 %.not.i.i.i.i.i.i.i, label %_ZNSt16allocator_traitsISaIN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorEEE9constructIS1_JRKS1_EEEvRS2_PT_DpOT0_.exit, label %.lr.ph.i.i.i.i.i.i.i, !llvm.loop !29
+  br i1 %.not.i.i.i.i.i.i.i, label %_ZNSt16allocator_traitsISaIN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorEEE9constructIS1_JRKS1_EEEvRS2_PT_DpOT0_.exit, label %.lr.ph.i.i.i.i.i.i.i, !llvm.loop !18
 
 _ZNSt16allocator_traitsISaIN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorEEE9constructIS1_JRKS1_EEEvRS2_PT_DpOT0_.exit: ; preds = %_ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__7TfTokenEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i.i.i, %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE12_InitStorageEm.exit.i.i.i.i
   %.not13.i.i.i.i.i = icmp eq ptr %6, %1
@@ -45993,13 +45993,13 @@ _ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__7TfTokenEJRKS1_EEvPT_DpOT0_.
   %92 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i.i.i.i.i.i.i.i, i64 8
   %93 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i.i.i.i.i.i.i.i, i64 8
   %.not.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %92, %79
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i, label %_ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i.i.i.i, !llvm.loop !29
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i, label %_ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i.i.i.i, !llvm.loop !18
 
 _ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i: ; preds = %_ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__7TfTokenEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i.i.i.i.i.i.i, %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE12_InitStorageEm.exit.i.i.i.i.i.i.i.i
   %94 = getelementptr inbounds nuw i8, ptr %.01214.i.i.i.i.i, i64 56
   %95 = getelementptr inbounds nuw i8, ptr %.015.i.i.i.i.i, i64 56
   %.not.i.i.i.i.i = icmp eq ptr %94, %1
-  br i1 %.not.i.i.i.i.i, label %_ZSt34__uninitialized_move_if_noexcept_aIPN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorES2_SaIS1_EET0_T_S5_S4_RT1_.exit, label %.lr.ph.i.i.i.i.i, !llvm.loop !114
+  br i1 %.not.i.i.i.i.i, label %_ZSt34__uninitialized_move_if_noexcept_aIPN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorES2_SaIS1_EET0_T_S5_S4_RT1_.exit, label %.lr.ph.i.i.i.i.i, !llvm.loop !21
 
 _ZSt34__uninitialized_move_if_noexcept_aIPN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorES2_SaIS1_EET0_T_S5_S4_RT1_.exit: ; preds = %_ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i, %_ZNSt16allocator_traitsISaIN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorEEE9constructIS1_JRKS1_EEEvRS2_PT_DpOT0_.exit
   %.0.lcssa.i.i.i.i.i = phi ptr [ %22, %_ZNSt16allocator_traitsISaIN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorEEE9constructIS1_JRKS1_EEEvRS2_PT_DpOT0_.exit ], [ %95, %_ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i ]
@@ -46070,13 +46070,13 @@ _ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__7TfTokenEJRKS1_EEvPT_DpOT0_.
   %125 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i.i.i.i.i.i.i.i39, i64 8
   %126 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i.i.i.i.i.i.i.i38, i64 8
   %.not.i.i.i.i.i.i.i.i.i.i.i43 = icmp eq ptr %125, %112
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i43, label %_ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i44, label %.lr.ph.i.i.i.i.i.i.i.i.i.i.i37, !llvm.loop !29
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i43, label %_ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i44, label %.lr.ph.i.i.i.i.i.i.i.i.i.i.i37, !llvm.loop !18
 
 _ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i44: ; preds = %_ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__7TfTokenEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i.i.i.i.i.i.i42, %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE12_InitStorageEm.exit.i.i.i.i.i.i.i.i32
   %127 = getelementptr inbounds nuw i8, ptr %.01214.i.i.i.i.i31, i64 56
   %128 = getelementptr inbounds nuw i8, ptr %.015.i.i.i.i.i30, i64 56
   %.not.i.i.i.i.i45 = icmp eq ptr %127, %5
-  br i1 %.not.i.i.i.i.i45, label %_ZSt34__uninitialized_move_if_noexcept_aIPN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorES2_SaIS1_EET0_T_S5_S4_RT1_.exit47, label %.lr.ph.i.i.i.i.i29, !llvm.loop !114
+  br i1 %.not.i.i.i.i.i45, label %_ZSt34__uninitialized_move_if_noexcept_aIPN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorES2_SaIS1_EET0_T_S5_S4_RT1_.exit47, label %.lr.ph.i.i.i.i.i29, !llvm.loop !21
 
 _ZSt34__uninitialized_move_if_noexcept_aIPN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorES2_SaIS1_EET0_T_S5_S4_RT1_.exit47: ; preds = %_ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i44, %_ZSt34__uninitialized_move_if_noexcept_aIPN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorES2_SaIS1_EET0_T_S5_S4_RT1_.exit
   %.0.lcssa.i.i.i.i.i46 = phi ptr [ %96, %_ZSt34__uninitialized_move_if_noexcept_aIPN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorES2_SaIS1_EET0_T_S5_S4_RT1_.exit ], [ %128, %_ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i44 ]
@@ -46134,7 +46134,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE9_Destruct
 _ZSt8_DestroyIN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorEEvPT_.exit.i.i.i: ; preds = %147, %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE9_DestructEv.exit.i.i.i.i.i.i
   %149 = getelementptr inbounds nuw i8, ptr %.05.i.i.i, i64 56
   %.not.i.i.i = icmp eq ptr %149, %5
-  br i1 %.not.i.i.i, label %_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorES1_EvT_S3_RSaIT0_E.exit, label %.lr.ph.i.i.i, !llvm.loop !112
+  br i1 %.not.i.i.i, label %_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorES1_EvT_S3_RSaIT0_E.exit, label %.lr.ph.i.i.i, !llvm.loop !20
 
 _ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorES1_EvT_S3_RSaIT0_E.exit: ; preds = %_ZSt8_DestroyIN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorEEvPT_.exit.i.i.i, %_ZSt34__uninitialized_move_if_noexcept_aIPN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorES2_SaIS1_EET0_T_S5_S4_RT1_.exit47
   %150 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -46268,7 +46268,7 @@ _ZNSt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__9TfHashMapINS0_19HdDataSour
   %38 = sub i64 %36, %37
   %39 = sdiv exact i64 %38, 56
   %40 = icmp ult i64 %33, %39
-  br i1 %40, label %.lr.ph, label %.loopexit, !llvm.loop !144
+  br i1 %40, label %.lr.ph, label %.loopexit, !llvm.loop !35
 
 .loopexit:                                        ; preds = %.lr.ph, %_ZNSt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__9TfHashMapINS0_19HdDataSourceLocatorEmNS0_6TfHashESt8equal_toIS2_ESaISt4pairIKS2_mEEEESt14default_deleteISA_EE5resetEPSA_.exit, %1
   ret void
@@ -46317,7 +46317,7 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_Z
 _ZN32pxrInternal_v0_24__pxrReserved__15Tf_HashStateAPIINS_12Tf_HashStateEE6AppendIJRKNS_7TfTokenEEEEvDpOT_.exit.i.i.i.i.i.i: ; preds = %19, %11
   %.sink.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = phi i64 [ %24, %19 ], [ %18, %11 ]
   %.not.i.i.i.i.i.i = icmp eq i64 %14, 0
-  br i1 %.not.i.i.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__11Tf_HashImplINS_12Tf_HashStateERKNS_19HdDataSourceLocatorEEEDTcmcl12TfHashAppendfp_clsr3stdE7forwardIT0_Efp0_EEcvv_EERT_OS5_i.exit.loopexit.i.i, label %11, !llvm.loop !140
+  br i1 %.not.i.i.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__11Tf_HashImplINS_12Tf_HashStateERKNS_19HdDataSourceLocatorEEEDTcmcl12TfHashAppendfp_clsr3stdE7forwardIT0_Efp0_EEcvv_EERT_OS5_i.exit.loopexit.i.i, label %11, !llvm.loop !31
 
 _ZN32pxrInternal_v0_24__pxrReserved__11Tf_HashImplINS_12Tf_HashStateERKNS_19HdDataSourceLocatorEEEDTcmcl12TfHashAppendfp_clsr3stdE7forwardIT0_Efp0_EEcvv_EERT_OS5_i.exit.loopexit.i.i: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__15Tf_HashStateAPIINS_12Tf_HashStateEE6AppendIJRKNS_7TfTokenEEEEvDpOT_.exit.i.i.i.i.i.i
   %25 = mul i64 %.sink.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, -7046029254386353067
@@ -46371,7 +46371,7 @@ _ZNKSt8__detail15_Hash_code_baseIN32pxrInternal_v0_24__pxrReserved__19HdDataSour
   %51 = load i64, ptr %50, align 8
   %52 = urem i64 %51, %28
   %.not17.us.i.i = icmp eq i64 %52, %29
-  br i1 %.not17.us.i.i, label %.split.us.i.i, label %_ZNKSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorESt4pairIKS1_mESaIS4_ENSt8__detail10_Select1stESt8equal_toIS1_ENS0_6TfHashENS6_18_Mod_range_hashingENS6_20_Default_ranged_hashENS6_20_Prime_rehash_policyENS6_17_Hashtable_traitsILb1ELb0ELb1EEEE12_M_find_nodeEmRS3_m.exit.thread, !llvm.loop !145
+  br i1 %.not17.us.i.i, label %.split.us.i.i, label %_ZNKSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorESt4pairIKS1_mESaIS4_ENSt8__detail10_Select1stESt8equal_toIS1_ENS0_6TfHashENS6_18_Mod_range_hashingENS6_20_Default_ranged_hashENS6_20_Prime_rehash_policyENS6_17_Hashtable_traitsILb1ELb0ELb1EEEE12_M_find_nodeEmRS3_m.exit.thread, !llvm.loop !36
 
 .split.i.i:                                       ; preds = %33, %74
   %53 = phi i64 [ %76, %74 ], [ %.pre25.i.i, %33 ]
@@ -46409,7 +46409,7 @@ _ZNKSt8__detail15_Hash_code_baseIN32pxrInternal_v0_24__pxrReserved__19HdDataSour
   %71 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i.i.i.i.i.i.i.i, i64 8
   %72 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i.i.i.i.i.i.i.i, i64 8
   %.not.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %71, %40
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i, label %_ZNKSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorESt4pairIKS1_mESaIS4_ENSt8__detail10_Select1stESt8equal_toIS1_ENS0_6TfHashENS6_18_Mod_range_hashingENS6_20_Default_ranged_hashENS6_20_Prime_rehash_policyENS6_17_Hashtable_traitsILb1ELb0ELb1EEEE12_M_find_nodeEmRS3_m.exit, label %.lr.ph.i.i.i.i.i.i.i.i.i.i.i, !llvm.loop !27
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i, label %_ZNKSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorESt4pairIKS1_mESaIS4_ENSt8__detail10_Select1stESt8equal_toIS1_ENS0_6TfHashENS6_18_Mod_range_hashingENS6_20_Default_ranged_hashENS6_20_Prime_rehash_policyENS6_17_Hashtable_traitsILb1ELb0ELb1EEEE12_M_find_nodeEmRS3_m.exit, label %.lr.ph.i.i.i.i.i.i.i.i.i.i.i, !llvm.loop !16
 
 .loopexit.i.i:                                    ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i.i.i, %56, %.split.i.i
   %73 = load ptr, ptr %.0.i.i, align 8
@@ -46421,7 +46421,7 @@ _ZNKSt8__detail15_Hash_code_baseIN32pxrInternal_v0_24__pxrReserved__19HdDataSour
   %76 = load i64, ptr %75, align 8
   %77 = urem i64 %76, %28
   %.not17.i.i = icmp eq i64 %77, %29
-  br i1 %.not17.i.i, label %.split.i.i, label %_ZNKSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorESt4pairIKS1_mESaIS4_ENSt8__detail10_Select1stESt8equal_toIS1_ENS0_6TfHashENS6_18_Mod_range_hashingENS6_20_Default_ranged_hashENS6_20_Prime_rehash_policyENS6_17_Hashtable_traitsILb1ELb0ELb1EEEE12_M_find_nodeEmRS3_m.exit.thread, !llvm.loop !146
+  br i1 %.not17.i.i, label %.split.i.i, label %_ZNKSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorESt4pairIKS1_mESaIS4_ENSt8__detail10_Select1stESt8equal_toIS1_ENS0_6TfHashENS6_18_Mod_range_hashingENS6_20_Default_ranged_hashENS6_20_Prime_rehash_policyENS6_17_Hashtable_traitsILb1ELb0ELb1EEEE12_M_find_nodeEmRS3_m.exit.thread, !llvm.loop !37
 
 _ZNKSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorESt4pairIKS1_mESaIS4_ENSt8__detail10_Select1stESt8equal_toIS1_ENS0_6TfHashENS6_18_Mod_range_hashingENS6_20_Default_ranged_hashENS6_20_Prime_rehash_policyENS6_17_Hashtable_traitsILb1ELb0ELb1EEEE12_M_find_nodeEmRS3_m.exit: ; preds = %70
   %.not = icmp eq ptr %.0.i.i, null
@@ -46501,7 +46501,7 @@ _ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__7TfTokenEJRKS1_EEvPT_DpOT0_.
   %111 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i.i.i.i.i.i.i.i21, i64 8
   %112 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i.i.i.i.i.i.i.i20, i64 8
   %.not.i.i.i.i.i.i.i.i.i.i.i22 = icmp eq ptr %111, %98
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i22, label %_ZNSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorESt4pairIKS1_mESaIS4_ENSt8__detail10_Select1stESt8equal_toIS1_ENS0_6TfHashENS6_18_Mod_range_hashingENS6_20_Default_ranged_hashENS6_20_Prime_rehash_policyENS6_17_Hashtable_traitsILb1ELb0ELb1EEEE12_Scoped_nodeC2IJRKSt21piecewise_construct_tSt5tupleIJRS3_EESM_IJEEEEEPNS6_16_Hashtable_allocISaINS6_10_Hash_nodeIS4_Lb1EEEEEEDpOT_.exit, label %.lr.ph.i.i.i.i.i.i.i.i.i.i.i19, !llvm.loop !29
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i22, label %_ZNSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorESt4pairIKS1_mESaIS4_ENSt8__detail10_Select1stESt8equal_toIS1_ENS0_6TfHashENS6_18_Mod_range_hashingENS6_20_Default_ranged_hashENS6_20_Prime_rehash_policyENS6_17_Hashtable_traitsILb1ELb0ELb1EEEE12_Scoped_nodeC2IJRKSt21piecewise_construct_tSt5tupleIJRS3_EESM_IJEEEEEPNS6_16_Hashtable_allocISaINS6_10_Hash_nodeIS4_Lb1EEEEEEDpOT_.exit, label %.lr.ph.i.i.i.i.i.i.i.i.i.i.i19, !llvm.loop !18
 
 _ZNSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorESt4pairIKS1_mESaIS4_ENSt8__detail10_Select1stESt8equal_toIS1_ENS0_6TfHashENS6_18_Mod_range_hashingENS6_20_Default_ranged_hashENS6_20_Prime_rehash_policyENS6_17_Hashtable_traitsILb1ELb0ELb1EEEE12_Scoped_nodeC2IJRKSt21piecewise_construct_tSt5tupleIJRS3_EESM_IJEEEEEPNS6_16_Hashtable_allocISaINS6_10_Hash_nodeIS4_Lb1EEEEEEDpOT_.exit: ; preds = %_ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__7TfTokenEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i.i.i.i.i.i.i, %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE12_InitStorageEm.exit.i.i.i.i.i.i.i.i
   %113 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -46561,7 +46561,7 @@ define linkonce_odr dso_local ptr @_ZNSt10_HashtableIN32pxrInternal_v0_24__pxrRe
 _ZNKSt8__detail15_Hashtable_baseIN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorESt4pairIKS2_mENS_10_Select1stESt8equal_toIS2_ENS1_6TfHashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE13_M_key_equalsERS4_RKNS_16_Hash_node_valueIS5_Lb1EEE.exit.us: ; preds = %.lr.ph.split.us
   %.sroa.07.0.us = load ptr, ptr %.sroa.07.020.us, align 8
   %.not.us = icmp eq ptr %.sroa.07.0.us, null
-  br i1 %.not.us, label %_ZNKSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorESt4pairIKS1_mESaIS4_ENSt8__detail10_Select1stESt8equal_toIS1_ENS0_6TfHashENS6_18_Mod_range_hashingENS6_20_Default_ranged_hashENS6_20_Prime_rehash_policyENS6_17_Hashtable_traitsILb1ELb0ELb1EEEE12_M_find_nodeEmRS3_m.exit, label %.lr.ph.split.us, !llvm.loop !147
+  br i1 %.not.us, label %_ZNKSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorESt4pairIKS1_mESaIS4_ENSt8__detail10_Select1stESt8equal_toIS1_ENS0_6TfHashENS6_18_Mod_range_hashingENS6_20_Default_ranged_hashENS6_20_Prime_rehash_policyENS6_17_Hashtable_traitsILb1ELb0ELb1EEEE12_M_find_nodeEmRS3_m.exit, label %.lr.ph.split.us, !llvm.loop !38
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %_ZNKSt8__detail15_Hashtable_baseIN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorESt4pairIKS2_mENS_10_Select1stESt8equal_toIS2_ENS1_6TfHashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE13_M_key_equalsERS4_RKNS_16_Hash_node_valueIS5_Lb1EEE.exit
   %.sroa.07.020 = phi ptr [ %.sroa.07.0, %_ZNKSt8__detail15_Hashtable_baseIN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorESt4pairIKS2_mENS_10_Select1stESt8equal_toIS2_ENS1_6TfHashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE13_M_key_equalsERS4_RKNS_16_Hash_node_valueIS5_Lb1EEE.exit ], [ %.sroa.07.018, %.lr.ph ]
@@ -46594,12 +46594,12 @@ _ZNKSt8__detail15_Hashtable_baseIN32pxrInternal_v0_24__pxrReserved__19HdDataSour
   %33 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i.i.i.i.i, i64 8
   %34 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i.i.i.i.i, i64 8
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %33, %14
-  br i1 %.not.i.i.i.i.i.i.i.i, label %_ZNKSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorESt4pairIKS1_mESaIS4_ENSt8__detail10_Select1stESt8equal_toIS1_ENS0_6TfHashENS6_18_Mod_range_hashingENS6_20_Default_ranged_hashENS6_20_Prime_rehash_policyENS6_17_Hashtable_traitsILb1ELb0ELb1EEEE12_M_find_nodeEmRS3_m.exit, label %.lr.ph.i.i.i.i.i.i.i.i, !llvm.loop !27
+  br i1 %.not.i.i.i.i.i.i.i.i, label %_ZNKSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorESt4pairIKS1_mESaIS4_ENSt8__detail10_Select1stESt8equal_toIS1_ENS0_6TfHashENS6_18_Mod_range_hashingENS6_20_Default_ranged_hashENS6_20_Prime_rehash_policyENS6_17_Hashtable_traitsILb1ELb0ELb1EEEE12_M_find_nodeEmRS3_m.exit, label %.lr.ph.i.i.i.i.i.i.i.i, !llvm.loop !16
 
 _ZNKSt8__detail15_Hashtable_baseIN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorESt4pairIKS2_mENS_10_Select1stESt8equal_toIS2_ENS1_6TfHashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE13_M_key_equalsERS4_RKNS_16_Hash_node_valueIS5_Lb1EEE.exit: ; preds = %.lr.ph.i.i.i.i.i.i.i.i, %.lr.ph.split
   %.sroa.07.0 = load ptr, ptr %.sroa.07.020, align 8
   %.not = icmp eq ptr %.sroa.07.0, null
-  br i1 %.not, label %_ZNKSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorESt4pairIKS1_mESaIS4_ENSt8__detail10_Select1stESt8equal_toIS1_ENS0_6TfHashENS6_18_Mod_range_hashingENS6_20_Default_ranged_hashENS6_20_Prime_rehash_policyENS6_17_Hashtable_traitsILb1ELb0ELb1EEEE12_M_find_nodeEmRS3_m.exit, label %.lr.ph.split, !llvm.loop !148
+  br i1 %.not, label %_ZNKSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorESt4pairIKS1_mESaIS4_ENSt8__detail10_Select1stESt8equal_toIS1_ENS0_6TfHashENS6_18_Mod_range_hashingENS6_20_Default_ranged_hashENS6_20_Prime_rehash_policyENS6_17_Hashtable_traitsILb1ELb0ELb1EEEE12_M_find_nodeEmRS3_m.exit, label %.lr.ph.split, !llvm.loop !39
 
 35:                                               ; preds = %2
   %36 = getelementptr inbounds nuw i8, ptr %1, i64 48
@@ -46640,7 +46640,7 @@ _ZNKSt8__detail15_Hashtable_baseIN32pxrInternal_v0_24__pxrReserved__19HdDataSour
 _ZN32pxrInternal_v0_24__pxrReserved__15Tf_HashStateAPIINS_12Tf_HashStateEE6AppendIJRKNS_7TfTokenEEEEvDpOT_.exit.i.i.i.i.i.i: ; preds = %51, %43
   %.sink.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = phi i64 [ %56, %51 ], [ %50, %43 ]
   %.not.i.i.i.i.i.i = icmp eq i64 %46, 0
-  br i1 %.not.i.i.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__11Tf_HashImplINS_12Tf_HashStateERKNS_19HdDataSourceLocatorEEEDTcmcl12TfHashAppendfp_clsr3stdE7forwardIT0_Efp0_EEcvv_EERT_OS5_i.exit.loopexit.i.i, label %43, !llvm.loop !140
+  br i1 %.not.i.i.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__11Tf_HashImplINS_12Tf_HashStateERKNS_19HdDataSourceLocatorEEEDTcmcl12TfHashAppendfp_clsr3stdE7forwardIT0_Efp0_EEcvv_EERT_OS5_i.exit.loopexit.i.i, label %43, !llvm.loop !31
 
 _ZN32pxrInternal_v0_24__pxrReserved__11Tf_HashImplINS_12Tf_HashStateERKNS_19HdDataSourceLocatorEEEDTcmcl12TfHashAppendfp_clsr3stdE7forwardIT0_Efp0_EEcvv_EERT_OS5_i.exit.loopexit.i.i: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__15Tf_HashStateAPIINS_12Tf_HashStateEE6AppendIJRKNS_7TfTokenEEEEvDpOT_.exit.i.i.i.i.i.i
   %57 = mul i64 %.sink.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, -7046029254386353067
@@ -46694,7 +46694,7 @@ _ZNKSt8__detail15_Hash_code_baseIN32pxrInternal_v0_24__pxrReserved__19HdDataSour
   %83 = load i64, ptr %82, align 8
   %84 = urem i64 %83, %60
   %.not17.us.i.i = icmp eq i64 %84, %61
-  br i1 %.not17.us.i.i, label %.split.us.i.i, label %_ZNKSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorESt4pairIKS1_mESaIS4_ENSt8__detail10_Select1stESt8equal_toIS1_ENS0_6TfHashENS6_18_Mod_range_hashingENS6_20_Default_ranged_hashENS6_20_Prime_rehash_policyENS6_17_Hashtable_traitsILb1ELb0ELb1EEEE12_M_find_nodeEmRS3_m.exit, !llvm.loop !145
+  br i1 %.not17.us.i.i, label %.split.us.i.i, label %_ZNKSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorESt4pairIKS1_mESaIS4_ENSt8__detail10_Select1stESt8equal_toIS1_ENS0_6TfHashENS6_18_Mod_range_hashingENS6_20_Default_ranged_hashENS6_20_Prime_rehash_policyENS6_17_Hashtable_traitsILb1ELb0ELb1EEEE12_M_find_nodeEmRS3_m.exit, !llvm.loop !36
 
 .split.i.i:                                       ; preds = %65, %106
   %85 = phi i64 [ %108, %106 ], [ %.pre25.i.i, %65 ]
@@ -46732,7 +46732,7 @@ _ZNKSt8__detail15_Hash_code_baseIN32pxrInternal_v0_24__pxrReserved__19HdDataSour
   %103 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i.i.i.i.i.i.i.i, i64 8
   %104 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i.i.i.i.i.i.i.i, i64 8
   %.not.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %103, %72
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i, label %_ZNKSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorESt4pairIKS1_mESaIS4_ENSt8__detail10_Select1stESt8equal_toIS1_ENS0_6TfHashENS6_18_Mod_range_hashingENS6_20_Default_ranged_hashENS6_20_Prime_rehash_policyENS6_17_Hashtable_traitsILb1ELb0ELb1EEEE12_M_find_nodeEmRS3_m.exit, label %.lr.ph.i.i.i.i.i.i.i.i.i.i.i, !llvm.loop !27
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i, label %_ZNKSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorESt4pairIKS1_mESaIS4_ENSt8__detail10_Select1stESt8equal_toIS1_ENS0_6TfHashENS6_18_Mod_range_hashingENS6_20_Default_ranged_hashENS6_20_Prime_rehash_policyENS6_17_Hashtable_traitsILb1ELb0ELb1EEEE12_M_find_nodeEmRS3_m.exit, label %.lr.ph.i.i.i.i.i.i.i.i.i.i.i, !llvm.loop !16
 
 .loopexit.i.i:                                    ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i.i.i, %88, %.split.i.i
   %105 = load ptr, ptr %.0.i.i, align 8
@@ -46744,7 +46744,7 @@ _ZNKSt8__detail15_Hash_code_baseIN32pxrInternal_v0_24__pxrReserved__19HdDataSour
   %108 = load i64, ptr %107, align 8
   %109 = urem i64 %108, %60
   %.not17.i.i = icmp eq i64 %109, %61
-  br i1 %.not17.i.i, label %.split.i.i, label %_ZNKSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorESt4pairIKS1_mESaIS4_ENSt8__detail10_Select1stESt8equal_toIS1_ENS0_6TfHashENS6_18_Mod_range_hashingENS6_20_Default_ranged_hashENS6_20_Prime_rehash_policyENS6_17_Hashtable_traitsILb1ELb0ELb1EEEE12_M_find_nodeEmRS3_m.exit, !llvm.loop !146
+  br i1 %.not17.i.i, label %.split.i.i, label %_ZNKSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorESt4pairIKS1_mESaIS4_ENSt8__detail10_Select1stESt8equal_toIS1_ENS0_6TfHashENS6_18_Mod_range_hashingENS6_20_Default_ranged_hashENS6_20_Prime_rehash_policyENS6_17_Hashtable_traitsILb1ELb0ELb1EEEE12_M_find_nodeEmRS3_m.exit, !llvm.loop !37
 
 _ZNKSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorESt4pairIKS1_mESaIS4_ENSt8__detail10_Select1stESt8equal_toIS1_ENS0_6TfHashENS6_18_Mod_range_hashingENS6_20_Default_ranged_hashENS6_20_Prime_rehash_policyENS6_17_Hashtable_traitsILb1ELb0ELb1EEEE12_M_find_nodeEmRS3_m.exit: ; preds = %106, %.loopexit.i.i, %102, %81, %79, %75, %_ZNKSt8__detail15_Hashtable_baseIN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorESt4pairIKS2_mENS_10_Select1stESt8equal_toIS2_ENS1_6TfHashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE13_M_key_equalsERS4_RKNS_16_Hash_node_valueIS5_Lb1EEE.exit, %32, %_ZNKSt8__detail15_Hashtable_baseIN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorESt4pairIKS2_mENS_10_Select1stESt8equal_toIS2_ENS1_6TfHashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE13_M_key_equalsERS4_RKNS_16_Hash_node_valueIS5_Lb1EEE.exit.us, %.lr.ph.split.us, %5, %_ZNKSt8__detail15_Hash_code_baseIN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorESt4pairIKS2_mENS_10_Select1stENS1_6TfHashENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb1EE12_M_hash_codeERS4_.exit
   %.sroa.07.1 = phi ptr [ null, %_ZNKSt8__detail15_Hash_code_baseIN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorESt4pairIKS2_mENS_10_Select1stENS1_6TfHashENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb1EE12_M_hash_codeERS4_.exit ], [ null, %5 ], [ null, %_ZNKSt8__detail15_Hashtable_baseIN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorESt4pairIKS2_mENS_10_Select1stESt8equal_toIS2_ENS1_6TfHashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE13_M_key_equalsERS4_RKNS_16_Hash_node_valueIS5_Lb1EEE.exit.us ], [ %.sroa.07.020.us, %.lr.ph.split.us ], [ %.sroa.07.020, %32 ], [ null, %_ZNKSt8__detail15_Hashtable_baseIN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorESt4pairIKS2_mENS_10_Select1stESt8equal_toIS2_ENS1_6TfHashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE13_M_key_equalsERS4_RKNS_16_Hash_node_valueIS5_Lb1EEE.exit ], [ %.0.us.i.i, %75 ], [ null, %79 ], [ null, %81 ], [ %.0.i.i, %102 ], [ null, %.loopexit.i.i ], [ null, %106 ]
@@ -46879,13 +46879,13 @@ _ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__7TfTokenEJRKS1_EEvPT_DpOT0_.
   %47 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i.i.i.i.i.i, i64 8
   %48 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i.i.i.i.i.i, i64 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %47, %34
-  br i1 %.not.i.i.i.i.i.i.i.i.i, label %_ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorEJRKS1_EEvPT_DpOT0_.exit.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i.i, !llvm.loop !29
+  br i1 %.not.i.i.i.i.i.i.i.i.i, label %_ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorEJRKS1_EEvPT_DpOT0_.exit.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i.i, !llvm.loop !18
 
 _ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorEJRKS1_EEvPT_DpOT0_.exit.i.i.i: ; preds = %_ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__7TfTokenEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i.i.i.i.i, %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE12_InitStorageEm.exit.i.i.i.i.i.i
   %49 = getelementptr inbounds nuw i8, ptr %.01214.i.i.i, i64 56
   %50 = getelementptr inbounds nuw i8, ptr %.015.i.i.i, i64 56
   %.not.i.i.i = icmp eq ptr %49, %18
-  br i1 %.not.i.i.i, label %_ZSt18uninitialized_copyIPKN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorEPS1_ET0_T_S6_S5_.exit, label %.lr.ph.i.i.i, !llvm.loop !114
+  br i1 %.not.i.i.i, label %_ZSt18uninitialized_copyIPKN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorEPS1_ET0_T_S6_S5_.exit, label %.lr.ph.i.i.i, !llvm.loop !21
 
 _ZSt18uninitialized_copyIPKN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorEPS1_ET0_T_S6_S5_.exit: ; preds = %_ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorEJRKS1_EEvPT_DpOT0_.exit.i.i.i, %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_19HdDataSourceLocatorELj8EE12_InitStorageEm.exit
   ret void
@@ -46957,13 +46957,13 @@ define linkonce_odr dso_local noundef zeroext i1 @_Z13_ValueCompareISt6vectorIN3
   %40 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i.i.i.i.i.i.i.i.i, i64 8
   %41 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i.i.i.i.i.i.i.i.i, i64 8
   %.not.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %40, %28
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i, label %.loopexit.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i, !llvm.loop !27
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i, label %.loopexit.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i, !llvm.loop !16
 
 .loopexit.i.i.i.i.i.i:                            ; preds = %39, %22
   %42 = getelementptr inbounds nuw i8, ptr %.0813.i.i.i.i.i.i, i64 56
   %43 = getelementptr inbounds nuw i8, ptr %.014.i.i.i.i.i.i, i64 56
   %.not.i.i.i.i.i.i = icmp eq ptr %42, %5
-  br i1 %.not.i.i.i.i.i.i, label %_ZStneIN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorESaIS1_EEbRKSt6vectorIT_T0_ES8_.exit, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !28
+  br i1 %.not.i.i.i.i.i.i, label %_ZStneIN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorESaIS1_EEbRKSt6vectorIT_T0_ES8_.exit, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !17
 
 .loopexit:                                        ; preds = %.lr.ph.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i, %3
   %44 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, ptr noundef %0)
@@ -46987,7 +46987,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_Z13_ValueCompareISt6vectorIN3
   %52 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN32pxrInternal_v0_24__pxrReserved__lsERSoRKNS_19HdDataSourceLocatorE(ptr noundef nonnull align 8 dereferenceable(8) %45, ptr noundef nonnull align 8 dereferenceable(56) %.sroa.09.013.i)
   %53 = getelementptr inbounds nuw i8, ptr %.sroa.09.013.i, i64 56
   %.not.i6 = icmp eq ptr %53, %48
-  br i1 %.not.i6, label %_ZlsIN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorEERSoS2_RKSt6vectorIT_SaIS4_EE.exit, label %.lr.ph.i, !llvm.loop !149
+  br i1 %.not.i6, label %_ZlsIN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorEERSoS2_RKSt6vectorIT_SaIS4_EE.exit, label %.lr.ph.i
 
 _ZlsIN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorEERSoS2_RKSt6vectorIT_SaIS4_EE.exit: ; preds = %51, %.loopexit
   %54 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %45, ptr noundef nonnull @.str.251)
@@ -47011,7 +47011,7 @@ _ZlsIN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorEERSoS2_RKSt6vector
   %62 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN32pxrInternal_v0_24__pxrReserved__lsERSoRKNS_19HdDataSourceLocatorE(ptr noundef nonnull align 8 dereferenceable(8) %55, ptr noundef nonnull align 8 dereferenceable(56) %.sroa.09.013.i10)
   %63 = getelementptr inbounds nuw i8, ptr %.sroa.09.013.i10, i64 56
   %.not.i11 = icmp eq ptr %63, %58
-  br i1 %.not.i11, label %_ZlsIN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorEERSoS2_RKSt6vectorIT_SaIS4_EE.exit12, label %.lr.ph.i8, !llvm.loop !149
+  br i1 %.not.i11, label %_ZlsIN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorEERSoS2_RKSt6vectorIT_SaIS4_EE.exit12, label %.lr.ph.i8
 
 _ZlsIN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorEERSoS2_RKSt6vectorIT_SaIS4_EE.exit12: ; preds = %61, %_ZlsIN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorEERSoS2_RKSt6vectorIT_SaIS4_EE.exit
   %64 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %55, ptr noundef nonnull @.str.251)
@@ -47104,7 +47104,7 @@ _ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__7TfTokenEJRKS1_EEvPT_DpOT0_.
   %42 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i.i.i, i64 8
   %43 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i.i.i, i64 8
   %.not.i.i.i.i.i.i = icmp eq ptr %42, %28
-  br i1 %.not.i.i.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__22HdDataSourceLocatorSet20IntersectionIteratorC2ERKS1_.exit, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !29
+  br i1 %.not.i.i.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__22HdDataSourceLocatorSet20IntersectionIteratorC2ERKS1_.exit, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !18
 
 _ZN32pxrInternal_v0_24__pxrReserved__22HdDataSourceLocatorSet20IntersectionIteratorC2ERKS1_.exit: ; preds = %_ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__7TfTokenEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i.i, %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE12_InitStorageEm.exit.i.i.i
   %44 = phi ptr [ %22, %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE12_InitStorageEm.exit.i.i.i ], [ %29, %_ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__7TfTokenEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i.i ]
@@ -47185,7 +47185,7 @@ _ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__7TfTokenEJRKS1_EEvPT_DpOT0_.
   %82 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i.i.i12, i64 8
   %83 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i.i.i11, i64 8
   %.not.i.i.i.i.i.i16 = icmp eq ptr %82, %68
-  br i1 %.not.i.i.i.i.i.i16, label %_ZN32pxrInternal_v0_24__pxrReserved__22HdDataSourceLocatorSet20IntersectionIteratorC2ERKS1_.exit17, label %.lr.ph.i.i.i.i.i.i10, !llvm.loop !29
+  br i1 %.not.i.i.i.i.i.i16, label %_ZN32pxrInternal_v0_24__pxrReserved__22HdDataSourceLocatorSet20IntersectionIteratorC2ERKS1_.exit17, label %.lr.ph.i.i.i.i.i.i10, !llvm.loop !18
 
 _ZN32pxrInternal_v0_24__pxrReserved__22HdDataSourceLocatorSet20IntersectionIteratorC2ERKS1_.exit17: ; preds = %_ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__7TfTokenEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i.i15, %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE12_InitStorageEm.exit.i.i.i5
   %84 = phi ptr [ %62, %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE12_InitStorageEm.exit.i.i.i5 ], [ %69, %_ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__7TfTokenEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i.i15 ]
@@ -47487,7 +47487,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_Z13_ValueCompareISt6vectorIN3
   %25 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i.i.i, i64 8
   %26 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i.i.i, i64 8
   %.not.i.i.i.i.i.i = icmp eq ptr %25, %5
-  br i1 %.not.i.i.i.i.i.i, label %_ZStneIN32pxrInternal_v0_24__pxrReserved__7TfTokenESaIS1_EEbRKSt6vectorIT_T0_ES8_.exit, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !27
+  br i1 %.not.i.i.i.i.i.i, label %_ZStneIN32pxrInternal_v0_24__pxrReserved__7TfTokenESaIS1_EEbRKSt6vectorIT_T0_ES8_.exit, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !16
 
 .loopexit:                                        ; preds = %.lr.ph.i.i.i.i.i.i, %3
   %27 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, ptr noundef %0)
@@ -47511,7 +47511,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_Z13_ValueCompareISt6vectorIN3
   %35 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN32pxrInternal_v0_24__pxrReserved__lsERSoRKNS_7TfTokenE(ptr noundef nonnull align 8 dereferenceable(8) %28, ptr noundef nonnull align 8 dereferenceable(8) %.sroa.09.013.i)
   %36 = getelementptr inbounds nuw i8, ptr %.sroa.09.013.i, i64 8
   %.not.i = icmp eq ptr %36, %31
-  br i1 %.not.i, label %_ZlsIN32pxrInternal_v0_24__pxrReserved__7TfTokenEERSoS2_RKSt6vectorIT_SaIS4_EE.exit, label %.lr.ph.i, !llvm.loop !150
+  br i1 %.not.i, label %_ZlsIN32pxrInternal_v0_24__pxrReserved__7TfTokenEERSoS2_RKSt6vectorIT_SaIS4_EE.exit, label %.lr.ph.i
 
 _ZlsIN32pxrInternal_v0_24__pxrReserved__7TfTokenEERSoS2_RKSt6vectorIT_SaIS4_EE.exit: ; preds = %34, %.loopexit
   %37 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %28, ptr noundef nonnull @.str.251)
@@ -47535,7 +47535,7 @@ _ZlsIN32pxrInternal_v0_24__pxrReserved__7TfTokenEERSoS2_RKSt6vectorIT_SaIS4_EE.e
   %45 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN32pxrInternal_v0_24__pxrReserved__lsERSoRKNS_7TfTokenE(ptr noundef nonnull align 8 dereferenceable(8) %38, ptr noundef nonnull align 8 dereferenceable(8) %.sroa.09.013.i9)
   %46 = getelementptr inbounds nuw i8, ptr %.sroa.09.013.i9, i64 8
   %.not.i10 = icmp eq ptr %46, %41
-  br i1 %.not.i10, label %_ZlsIN32pxrInternal_v0_24__pxrReserved__7TfTokenEERSoS2_RKSt6vectorIT_SaIS4_EE.exit11, label %.lr.ph.i7, !llvm.loop !150
+  br i1 %.not.i10, label %_ZlsIN32pxrInternal_v0_24__pxrReserved__7TfTokenEERSoS2_RKSt6vectorIT_SaIS4_EE.exit11, label %.lr.ph.i7
 
 _ZlsIN32pxrInternal_v0_24__pxrReserved__7TfTokenEERSoS2_RKSt6vectorIT_SaIS4_EE.exit11: ; preds = %44, %_ZlsIN32pxrInternal_v0_24__pxrReserved__7TfTokenEERSoS2_RKSt6vectorIT_SaIS4_EE.exit
   %47 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %38, ptr noundef nonnull @.str.251)
@@ -47630,7 +47630,7 @@ _ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__7TfTokenEJRKS1_EEvPT_DpOT0_.
   %43 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i.i.i, i64 8
   %44 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i.i.i, i64 8
   %.not.i.i.i.i.i.i = icmp eq ptr %43, %29
-  br i1 %.not.i.i.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__22HdDataSourceLocatorSet20IntersectionIteratorC2ERKS1_.exit, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !29
+  br i1 %.not.i.i.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__22HdDataSourceLocatorSet20IntersectionIteratorC2ERKS1_.exit, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !18
 
 _ZN32pxrInternal_v0_24__pxrReserved__22HdDataSourceLocatorSet20IntersectionIteratorC2ERKS1_.exit: ; preds = %_ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__7TfTokenEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i.i, %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE12_InitStorageEm.exit.i.i.i
   %45 = phi ptr [ %23, %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE12_InitStorageEm.exit.i.i.i ], [ %30, %_ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__7TfTokenEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i.i ]
@@ -47710,7 +47710,7 @@ _ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__7TfTokenEJRKS1_EEvPT_DpOT0_.
   %82 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i.i.i14, i64 8
   %83 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i.i.i13, i64 8
   %.not.i.i.i.i.i.i18 = icmp eq ptr %82, %68
-  br i1 %.not.i.i.i.i.i.i18, label %_ZN32pxrInternal_v0_24__pxrReserved__22HdDataSourceLocatorSet20IntersectionIteratorC2ERKS1_.exit19, label %.lr.ph.i.i.i.i.i.i12, !llvm.loop !29
+  br i1 %.not.i.i.i.i.i.i18, label %_ZN32pxrInternal_v0_24__pxrReserved__22HdDataSourceLocatorSet20IntersectionIteratorC2ERKS1_.exit19, label %.lr.ph.i.i.i.i.i.i12, !llvm.loop !18
 
 _ZN32pxrInternal_v0_24__pxrReserved__22HdDataSourceLocatorSet20IntersectionIteratorC2ERKS1_.exit19: ; preds = %_ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__7TfTokenEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i.i17, %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE12_InitStorageEm.exit.i.i.i7
   %84 = phi ptr [ %62, %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE12_InitStorageEm.exit.i.i.i7 ], [ %69, %_ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__7TfTokenEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i.i17 ]
@@ -47915,7 +47915,7 @@ _ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__7TfTokenEJRKS1_EEvPT_DpOT0_.
   %45 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i.i.i, i64 8
   %46 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i.i.i, i64 8
   %.not.i.i.i.i.i.i = icmp eq ptr %45, %30
-  br i1 %.not.i.i.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__22HdDataSourceLocatorSet20IntersectionIteratorC2ERKS1_.exit, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !29
+  br i1 %.not.i.i.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__22HdDataSourceLocatorSet20IntersectionIteratorC2ERKS1_.exit, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !18
 
 _ZN32pxrInternal_v0_24__pxrReserved__22HdDataSourceLocatorSet20IntersectionIteratorC2ERKS1_.exit: ; preds = %_ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__7TfTokenEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i.i, %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE12_InitStorageEm.exit.i.i.i
   %47 = phi ptr [ %25, %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE12_InitStorageEm.exit.i.i.i ], [ %31, %_ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__7TfTokenEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i.i ]
@@ -47997,7 +47997,7 @@ _ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__7TfTokenEJRKS1_EEvPT_DpOT0_.
   %86 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i.i.i18, i64 8
   %87 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i.i.i17, i64 8
   %.not.i.i.i.i.i.i22 = icmp eq ptr %86, %71
-  br i1 %.not.i.i.i.i.i.i22, label %_ZN32pxrInternal_v0_24__pxrReserved__22HdDataSourceLocatorSet20IntersectionIteratorC2ERKS1_.exit23, label %.lr.ph.i.i.i.i.i.i16, !llvm.loop !29
+  br i1 %.not.i.i.i.i.i.i22, label %_ZN32pxrInternal_v0_24__pxrReserved__22HdDataSourceLocatorSet20IntersectionIteratorC2ERKS1_.exit23, label %.lr.ph.i.i.i.i.i.i16, !llvm.loop !18
 
 _ZN32pxrInternal_v0_24__pxrReserved__22HdDataSourceLocatorSet20IntersectionIteratorC2ERKS1_.exit23: ; preds = %_ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__7TfTokenEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i.i21, %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE12_InitStorageEm.exit.i.i.i11
   %88 = phi ptr [ %66, %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE12_InitStorageEm.exit.i.i.i11 ], [ %72, %_ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__7TfTokenEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i.i21 ]
@@ -48190,7 +48190,7 @@ _ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__7TfTokenEJRKS1_EEvPT_DpOT0_.
   %167 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i.i.i44, i64 8
   %168 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i.i.i43, i64 8
   %.not.i.i.i.i.i.i48 = icmp eq ptr %167, %153
-  br i1 %.not.i.i.i.i.i.i48, label %_ZN32pxrInternal_v0_24__pxrReserved__22HdDataSourceLocatorSet20IntersectionIteratorC2ERKS1_.exit49, label %.lr.ph.i.i.i.i.i.i42, !llvm.loop !29
+  br i1 %.not.i.i.i.i.i.i48, label %_ZN32pxrInternal_v0_24__pxrReserved__22HdDataSourceLocatorSet20IntersectionIteratorC2ERKS1_.exit49, label %.lr.ph.i.i.i.i.i.i42, !llvm.loop !18
 
 _ZN32pxrInternal_v0_24__pxrReserved__22HdDataSourceLocatorSet20IntersectionIteratorC2ERKS1_.exit49: ; preds = %_ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__7TfTokenEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i.i47, %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE12_InitStorageEm.exit.i.i.i37
   %169 = phi ptr [ %148, %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE12_InitStorageEm.exit.i.i.i37 ], [ %154, %_ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__7TfTokenEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i.i47 ]
@@ -48266,7 +48266,7 @@ _ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__7TfTokenEJRKS1_EEvPT_DpOT0_.
   %202 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i.i.i57, i64 8
   %203 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i.i.i56, i64 8
   %.not.i.i.i.i.i.i61 = icmp eq ptr %202, %188
-  br i1 %.not.i.i.i.i.i.i61, label %_ZN32pxrInternal_v0_24__pxrReserved__22HdDataSourceLocatorSet20IntersectionIteratorC2ERKS1_.exit62, label %.lr.ph.i.i.i.i.i.i55, !llvm.loop !29
+  br i1 %.not.i.i.i.i.i.i61, label %_ZN32pxrInternal_v0_24__pxrReserved__22HdDataSourceLocatorSet20IntersectionIteratorC2ERKS1_.exit62, label %.lr.ph.i.i.i.i.i.i55, !llvm.loop !18
 
 _ZN32pxrInternal_v0_24__pxrReserved__22HdDataSourceLocatorSet20IntersectionIteratorC2ERKS1_.exit62: ; preds = %_ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__7TfTokenEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i.i60, %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE12_InitStorageEm.exit.i.i.i50
   %204 = phi ptr [ %183, %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE12_InitStorageEm.exit.i.i.i50 ], [ %189, %_ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__7TfTokenEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i.i60 ]
@@ -48468,7 +48468,7 @@ _ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__7TfTokenEJRKS1_EEvPT_DpOT0_.
   %41 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i.i.i, i64 8
   %42 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i.i.i, i64 8
   %.not.i.i.i.i.i.i = icmp eq ptr %41, %27
-  br i1 %.not.i.i.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__22HdDataSourceLocatorSet20IntersectionIteratorC2ERKS1_.exit, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !29
+  br i1 %.not.i.i.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__22HdDataSourceLocatorSet20IntersectionIteratorC2ERKS1_.exit, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !18
 
 _ZN32pxrInternal_v0_24__pxrReserved__22HdDataSourceLocatorSet20IntersectionIteratorC2ERKS1_.exit: ; preds = %_ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__7TfTokenEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i.i, %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE12_InitStorageEm.exit.i.i.i
   %43 = phi ptr [ %21, %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE12_InitStorageEm.exit.i.i.i ], [ %28, %_ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__7TfTokenEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i.i ]
@@ -48548,7 +48548,7 @@ _ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__7TfTokenEJRKS1_EEvPT_DpOT0_.
   %80 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i.i.i10, i64 8
   %81 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i.i.i9, i64 8
   %.not.i.i.i.i.i.i14 = icmp eq ptr %80, %66
-  br i1 %.not.i.i.i.i.i.i14, label %_ZN32pxrInternal_v0_24__pxrReserved__22HdDataSourceLocatorSet20IntersectionIteratorC2ERKS1_.exit15, label %.lr.ph.i.i.i.i.i.i8, !llvm.loop !29
+  br i1 %.not.i.i.i.i.i.i14, label %_ZN32pxrInternal_v0_24__pxrReserved__22HdDataSourceLocatorSet20IntersectionIteratorC2ERKS1_.exit15, label %.lr.ph.i.i.i.i.i.i8, !llvm.loop !18
 
 _ZN32pxrInternal_v0_24__pxrReserved__22HdDataSourceLocatorSet20IntersectionIteratorC2ERKS1_.exit15: ; preds = %_ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__7TfTokenEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i.i13, %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE12_InitStorageEm.exit.i.i.i3
   %82 = phi ptr [ %60, %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE12_InitStorageEm.exit.i.i.i3 ], [ %67, %_ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__7TfTokenEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i.i13 ]
@@ -48568,7 +48568,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__22HdDataSourceLocatorSet20IntersectionItera
   %88 = add nuw nsw i64 %.03.i, 1
   %89 = load ptr, ptr %83, align 8
   %.not.i = icmp eq ptr %89, %86
-  br i1 %.not.i, label %_ZSt10__distanceIN32pxrInternal_v0_24__pxrReserved__22HdDataSourceLocatorSet20IntersectionIteratorEENSt15iterator_traitsIT_E15difference_typeES4_S4_St18input_iterator_tag.exit, label %.lr.ph.i, !llvm.loop !151
+  br i1 %.not.i, label %_ZSt10__distanceIN32pxrInternal_v0_24__pxrReserved__22HdDataSourceLocatorSet20IntersectionIteratorEENSt15iterator_traitsIT_E15difference_typeES4_S4_St18input_iterator_tag.exit, label %.lr.ph.i, !llvm.loop !40
 
 _ZSt10__distanceIN32pxrInternal_v0_24__pxrReserved__22HdDataSourceLocatorSet20IntersectionIteratorEENSt15iterator_traitsIT_E15difference_typeES4_S4_St18input_iterator_tag.exit: ; preds = %.noexc, %_ZN32pxrInternal_v0_24__pxrReserved__22HdDataSourceLocatorSet20IntersectionIteratorC2ERKS1_.exit15
   %.0.lcssa.i = phi i64 [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__22HdDataSourceLocatorSet20IntersectionIteratorC2ERKS1_.exit15 ], [ %88, %.noexc ]
@@ -48752,7 +48752,7 @@ _ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__7TfTokenEJRKS1_EEvPT_DpOT0_.
   %43 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i.i.i, i64 8
   %44 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i.i.i, i64 8
   %.not.i.i.i.i.i.i = icmp eq ptr %43, %29
-  br i1 %.not.i.i.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__22HdDataSourceLocatorSet20IntersectionIteratorC2ERKS1_.exit, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !29
+  br i1 %.not.i.i.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__22HdDataSourceLocatorSet20IntersectionIteratorC2ERKS1_.exit, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !18
 
 _ZN32pxrInternal_v0_24__pxrReserved__22HdDataSourceLocatorSet20IntersectionIteratorC2ERKS1_.exit: ; preds = %_ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__7TfTokenEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i.i, %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE12_InitStorageEm.exit.i.i.i
   %45 = phi ptr [ %23, %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE12_InitStorageEm.exit.i.i.i ], [ %30, %_ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__7TfTokenEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i.i ]
@@ -48832,7 +48832,7 @@ _ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__7TfTokenEJRKS1_EEvPT_DpOT0_.
   %82 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i.i.i11, i64 8
   %83 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i.i.i10, i64 8
   %.not.i.i.i.i.i.i15 = icmp eq ptr %82, %68
-  br i1 %.not.i.i.i.i.i.i15, label %_ZN32pxrInternal_v0_24__pxrReserved__22HdDataSourceLocatorSet20IntersectionIteratorC2ERKS1_.exit16, label %.lr.ph.i.i.i.i.i.i9, !llvm.loop !29
+  br i1 %.not.i.i.i.i.i.i15, label %_ZN32pxrInternal_v0_24__pxrReserved__22HdDataSourceLocatorSet20IntersectionIteratorC2ERKS1_.exit16, label %.lr.ph.i.i.i.i.i.i9, !llvm.loop !18
 
 _ZN32pxrInternal_v0_24__pxrReserved__22HdDataSourceLocatorSet20IntersectionIteratorC2ERKS1_.exit16: ; preds = %_ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__7TfTokenEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i.i14, %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE12_InitStorageEm.exit.i.i.i4
   %84 = phi ptr [ %62, %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE12_InitStorageEm.exit.i.i.i4 ], [ %69, %_ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__7TfTokenEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i.i14 ]
@@ -49022,7 +49022,7 @@ _ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__7TfTokenEJRKS1_EEvPT_DpOT0_.
   %42 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i.i.i, i64 8
   %43 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i.i.i, i64 8
   %.not.i.i.i.i.i.i = icmp eq ptr %42, %28
-  br i1 %.not.i.i.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__22HdDataSourceLocatorSet20IntersectionIteratorC2ERKS1_.exit, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !29
+  br i1 %.not.i.i.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__22HdDataSourceLocatorSet20IntersectionIteratorC2ERKS1_.exit, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !18
 
 _ZN32pxrInternal_v0_24__pxrReserved__22HdDataSourceLocatorSet20IntersectionIteratorC2ERKS1_.exit: ; preds = %_ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__7TfTokenEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i.i, %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE12_InitStorageEm.exit.i.i.i
   %44 = phi ptr [ %22, %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE12_InitStorageEm.exit.i.i.i ], [ %29, %_ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__7TfTokenEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i.i ]
@@ -49102,7 +49102,7 @@ _ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__7TfTokenEJRKS1_EEvPT_DpOT0_.
   %81 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i.i.i11, i64 8
   %82 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i.i.i10, i64 8
   %.not.i.i.i.i.i.i15 = icmp eq ptr %81, %67
-  br i1 %.not.i.i.i.i.i.i15, label %_ZN32pxrInternal_v0_24__pxrReserved__22HdDataSourceLocatorSet20IntersectionIteratorC2ERKS1_.exit16, label %.lr.ph.i.i.i.i.i.i9, !llvm.loop !29
+  br i1 %.not.i.i.i.i.i.i15, label %_ZN32pxrInternal_v0_24__pxrReserved__22HdDataSourceLocatorSet20IntersectionIteratorC2ERKS1_.exit16, label %.lr.ph.i.i.i.i.i.i9, !llvm.loop !18
 
 _ZN32pxrInternal_v0_24__pxrReserved__22HdDataSourceLocatorSet20IntersectionIteratorC2ERKS1_.exit16: ; preds = %_ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__7TfTokenEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i.i14, %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE12_InitStorageEm.exit.i.i.i4
   %83 = phi ptr [ %61, %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE12_InitStorageEm.exit.i.i.i4 ], [ %68, %_ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__7TfTokenEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i.i14 ]
@@ -49290,7 +49290,7 @@ _ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__7TfTokenEJRKS1_EEvPT_DpOT0_.
   %42 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i.i.i, i64 8
   %43 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i.i.i, i64 8
   %.not.i.i.i.i.i.i = icmp eq ptr %42, %28
-  br i1 %.not.i.i.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__22HdDataSourceLocatorSet20IntersectionIteratorC2ERKS1_.exit, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !29
+  br i1 %.not.i.i.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__22HdDataSourceLocatorSet20IntersectionIteratorC2ERKS1_.exit, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !18
 
 _ZN32pxrInternal_v0_24__pxrReserved__22HdDataSourceLocatorSet20IntersectionIteratorC2ERKS1_.exit: ; preds = %_ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__7TfTokenEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i.i, %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE12_InitStorageEm.exit.i.i.i
   %44 = phi ptr [ %22, %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE12_InitStorageEm.exit.i.i.i ], [ %29, %_ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__7TfTokenEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i.i ]
@@ -49370,7 +49370,7 @@ _ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__7TfTokenEJRKS1_EEvPT_DpOT0_.
   %81 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i.i.i11, i64 8
   %82 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i.i.i10, i64 8
   %.not.i.i.i.i.i.i15 = icmp eq ptr %81, %67
-  br i1 %.not.i.i.i.i.i.i15, label %_ZN32pxrInternal_v0_24__pxrReserved__22HdDataSourceLocatorSet20IntersectionIteratorC2ERKS1_.exit16, label %.lr.ph.i.i.i.i.i.i9, !llvm.loop !29
+  br i1 %.not.i.i.i.i.i.i15, label %_ZN32pxrInternal_v0_24__pxrReserved__22HdDataSourceLocatorSet20IntersectionIteratorC2ERKS1_.exit16, label %.lr.ph.i.i.i.i.i.i9, !llvm.loop !18
 
 _ZN32pxrInternal_v0_24__pxrReserved__22HdDataSourceLocatorSet20IntersectionIteratorC2ERKS1_.exit16: ; preds = %_ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__7TfTokenEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i.i14, %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE12_InitStorageEm.exit.i.i.i4
   %83 = phi ptr [ %61, %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE12_InitStorageEm.exit.i.i.i4 ], [ %68, %_ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__7TfTokenEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i.i14 ]
@@ -49553,7 +49553,7 @@ _ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__7TfTokenEJRKS1_EEvPT_DpOT0_.
   %38 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i.i.i, i64 8
   %39 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i.i.i, i64 8
   %.not.i.i.i.i.i.i = icmp eq ptr %38, %25
-  br i1 %.not.i.i.i.i.i.i, label %_ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorEJRKS1_EEvPT_DpOT0_.exit, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !29
+  br i1 %.not.i.i.i.i.i.i, label %_ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorEJRKS1_EEvPT_DpOT0_.exit, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !18
 
 _ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorEJRKS1_EEvPT_DpOT0_.exit: ; preds = %_ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__7TfTokenEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i.i, %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE12_InitStorageEm.exit.i.i.i
   %40 = invoke noundef nonnull align 8 dereferenceable(80) ptr @_ZN32pxrInternal_v0_24__pxrReserved__22HdDataSourceLocatorSet20IntersectionIteratorppEv(ptr noundef nonnull align 8 dereferenceable(80) %0)
@@ -49564,7 +49564,7 @@ _ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorEJRKS1_
   %43 = load ptr, ptr %4, align 8
   %44 = load ptr, ptr %5, align 8
   %.not = icmp eq ptr %43, %44
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !152
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !41
 
 45:                                               ; preds = %_ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorEJRKS1_EEvPT_DpOT0_.exit, %.lr.ph
   %46 = landingpad { ptr, i32 }
@@ -49658,15 +49658,15 @@ _ZNSt16allocator_traitsISaIN32pxrInternal_v0_24__pxrReserved__7TfTokenEEE9constr
 .lr.ph.i.i.i:                                     ; preds = %_ZNSt16allocator_traitsISaIN32pxrInternal_v0_24__pxrReserved__7TfTokenEEE9constructIS1_JRKS1_EEEvRS2_PT_DpOT0_.exit, %.lr.ph.i.i.i
   %.012.i.i.i = phi ptr [ %32, %.lr.ph.i.i.i ], [ %20, %_ZNSt16allocator_traitsISaIN32pxrInternal_v0_24__pxrReserved__7TfTokenEEE9constructIS1_JRKS1_EEEvRS2_PT_DpOT0_.exit ]
   %.0911.i.i.i = phi ptr [ %31, %.lr.ph.i.i.i ], [ %6, %_ZNSt16allocator_traitsISaIN32pxrInternal_v0_24__pxrReserved__7TfTokenEEE9constructIS1_JRKS1_EEEvRS2_PT_DpOT0_.exit ]
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !153)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !156)
-  %30 = load i64, ptr %.0911.i.i.i, align 8, !alias.scope !156, !noalias !153
-  store i64 %30, ptr %.012.i.i.i, align 8, !alias.scope !153, !noalias !156
-  store i64 0, ptr %.0911.i.i.i, align 8, !alias.scope !156, !noalias !153
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !42)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !45)
+  %30 = load i64, ptr %.0911.i.i.i, align 8, !alias.scope !45, !noalias !42
+  store i64 %30, ptr %.012.i.i.i, align 8, !alias.scope !42, !noalias !45
+  store i64 0, ptr %.0911.i.i.i, align 8, !alias.scope !45, !noalias !42
   %31 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 8
   %32 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 8
   %.not.i.i.i = icmp eq ptr %31, %1
-  br i1 %.not.i.i.i, label %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7TfTokenESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit, label %.lr.ph.i.i.i, !llvm.loop !24
+  br i1 %.not.i.i.i, label %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7TfTokenESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit, label %.lr.ph.i.i.i, !llvm.loop !14
 
 _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7TfTokenESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit: ; preds = %.lr.ph.i.i.i, %_ZNSt16allocator_traitsISaIN32pxrInternal_v0_24__pxrReserved__7TfTokenEEE9constructIS1_JRKS1_EEEvRS2_PT_DpOT0_.exit
   %.0.lcssa.i.i.i = phi ptr [ %20, %_ZNSt16allocator_traitsISaIN32pxrInternal_v0_24__pxrReserved__7TfTokenEEE9constructIS1_JRKS1_EEEvRS2_PT_DpOT0_.exit ], [ %32, %.lr.ph.i.i.i ]
@@ -49677,15 +49677,15 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7TfTokenESaIS1_EE11_S_relocateEP
 .lr.ph.i.i.i17:                                   ; preds = %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7TfTokenESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit, %.lr.ph.i.i.i17
   %.012.i.i.i18 = phi ptr [ %36, %.lr.ph.i.i.i17 ], [ %33, %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7TfTokenESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit ]
   %.0911.i.i.i19 = phi ptr [ %35, %.lr.ph.i.i.i17 ], [ %1, %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7TfTokenESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit ]
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !158)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !161)
-  %34 = load i64, ptr %.0911.i.i.i19, align 8, !alias.scope !161, !noalias !158
-  store i64 %34, ptr %.012.i.i.i18, align 8, !alias.scope !158, !noalias !161
-  store i64 0, ptr %.0911.i.i.i19, align 8, !alias.scope !161, !noalias !158
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !47)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !50)
+  %34 = load i64, ptr %.0911.i.i.i19, align 8, !alias.scope !50, !noalias !47
+  store i64 %34, ptr %.012.i.i.i18, align 8, !alias.scope !47, !noalias !50
+  store i64 0, ptr %.0911.i.i.i19, align 8, !alias.scope !50, !noalias !47
   %35 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i19, i64 8
   %36 = getelementptr inbounds nuw i8, ptr %.012.i.i.i18, i64 8
   %.not.i.i.i20 = icmp eq ptr %35, %5
-  br i1 %.not.i.i.i20, label %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7TfTokenESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22, label %.lr.ph.i.i.i17, !llvm.loop !24
+  br i1 %.not.i.i.i20, label %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7TfTokenESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22, label %.lr.ph.i.i.i17, !llvm.loop !14
 
 _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7TfTokenESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22: ; preds = %.lr.ph.i.i.i17, %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7TfTokenESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit
   %.0.lcssa.i.i.i21 = phi ptr [ %33, %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7TfTokenESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit ], [ %36, %.lr.ph.i.i.i17 ]
@@ -49875,161 +49875,50 @@ attributes #26 = { nounwind allocsize(0) }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6, !7}
+!5 = distinct !{!5, !6}
 !6 = !{!"llvm.loop.mustprogress"}
-!7 = !{!"llvm.loop.estimated_trip_count"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !6, !7}
-!12 = distinct !{!12, !7}
-!13 = distinct !{!13, !7}
-!14 = distinct !{!14, !7}
-!15 = distinct !{!15, !7}
-!16 = distinct !{!16, !7}
-!17 = distinct !{!17, !7}
-!18 = distinct !{!18, !6, !7}
-!19 = !{!20}
-!20 = distinct !{!20, !21, !"_ZSt19__relocate_object_aIN32pxrInternal_v0_24__pxrReserved__7TfTokenES1_SaIS1_EEvPT_PT0_RT1_: argument 0"}
-!21 = distinct !{!21, !"_ZSt19__relocate_object_aIN32pxrInternal_v0_24__pxrReserved__7TfTokenES1_SaIS1_EEvPT_PT0_RT1_"}
-!22 = !{!23}
-!23 = distinct !{!23, !21, !"_ZSt19__relocate_object_aIN32pxrInternal_v0_24__pxrReserved__7TfTokenES1_SaIS1_EEvPT_PT0_RT1_: argument 1"}
-!24 = distinct !{!24, !6, !7}
-!25 = distinct !{!25, !7}
-!26 = distinct !{!26, !6, !7}
-!27 = distinct !{!27, !6, !7}
-!28 = distinct !{!28, !6, !7}
-!29 = distinct !{!29, !6, !7}
-!30 = distinct !{!30, !7}
-!31 = distinct !{!31, !7}
-!32 = distinct !{!32, !7}
-!33 = distinct !{!33, !6, !7}
-!34 = distinct !{!34, !7}
-!35 = distinct !{!35, !7}
-!36 = distinct !{!36, !7}
-!37 = distinct !{!37, !7}
-!38 = distinct !{!38, !7}
-!39 = distinct !{!39, !7}
-!40 = distinct !{!40, !7}
-!41 = distinct !{!41, !7}
-!42 = distinct !{!42, !7}
-!43 = distinct !{!43, !7}
-!44 = distinct !{!44, !7}
-!45 = distinct !{!45, !7}
-!46 = distinct !{!46, !7}
-!47 = distinct !{!47, !7}
-!48 = distinct !{!48, !7}
-!49 = distinct !{!49, !7}
-!50 = distinct !{!50, !7}
-!51 = distinct !{!51, !7}
-!52 = distinct !{!52, !7}
-!53 = distinct !{!53, !7}
-!54 = distinct !{!54, !7}
-!55 = distinct !{!55, !7}
-!56 = distinct !{!56, !7}
-!57 = distinct !{!57, !7}
-!58 = distinct !{!58, !7}
-!59 = distinct !{!59, !7}
-!60 = distinct !{!60, !7}
-!61 = distinct !{!61, !7}
-!62 = distinct !{!62, !7}
-!63 = distinct !{!63, !7}
-!64 = distinct !{!64, !7}
-!65 = distinct !{!65, !7}
-!66 = distinct !{!66, !7}
-!67 = distinct !{!67, !7}
-!68 = distinct !{!68, !7}
-!69 = distinct !{!69, !7}
-!70 = distinct !{!70, !7}
-!71 = distinct !{!71, !7}
-!72 = distinct !{!72, !7}
-!73 = distinct !{!73, !7}
-!74 = distinct !{!74, !7}
-!75 = distinct !{!75, !7}
-!76 = distinct !{!76, !7}
-!77 = distinct !{!77, !7}
-!78 = distinct !{!78, !7}
-!79 = distinct !{!79, !7}
-!80 = distinct !{!80, !7}
-!81 = distinct !{!81, !7}
-!82 = distinct !{!82, !7}
-!83 = distinct !{!83, !7}
-!84 = distinct !{!84, !7}
-!85 = distinct !{!85, !7}
-!86 = distinct !{!86, !7}
-!87 = distinct !{!87, !7}
-!88 = distinct !{!88, !7}
-!89 = distinct !{!89, !7}
-!90 = distinct !{!90, !7}
-!91 = distinct !{!91, !7}
-!92 = distinct !{!92, !7}
-!93 = distinct !{!93, !7}
-!94 = distinct !{!94, !7}
-!95 = distinct !{!95, !7}
-!96 = distinct !{!96, !7}
-!97 = distinct !{!97, !7}
-!98 = distinct !{!98, !7}
-!99 = distinct !{!99, !7}
-!100 = distinct !{!100, !7}
-!101 = distinct !{!101, !7}
-!102 = distinct !{!102, !7}
-!103 = distinct !{!103, !7}
-!104 = distinct !{!104, !7}
-!105 = distinct !{!105, !7}
-!106 = distinct !{!106, !7}
-!107 = distinct !{!107, !7}
-!108 = distinct !{!108, !7}
-!109 = distinct !{!109, !7}
-!110 = distinct !{!110, !7}
-!111 = distinct !{!111, !7}
-!112 = distinct !{!112, !6, !7}
-!113 = distinct !{!113, !7}
-!114 = distinct !{!114, !6, !7}
-!115 = distinct !{!115, !7}
-!116 = distinct !{!116, !7}
-!117 = distinct !{!117, !7}
-!118 = distinct !{!118, !7}
-!119 = distinct !{!119, !7}
-!120 = distinct !{!120, !7}
-!121 = distinct !{!121, !7}
-!122 = distinct !{!122, !7}
-!123 = distinct !{!123, !7}
-!124 = distinct !{!124, !7}
-!125 = distinct !{!125, !7}
-!126 = distinct !{!126, !7}
-!127 = distinct !{!127, !7}
-!128 = distinct !{!128, !7}
-!129 = distinct !{!129, !6, !7}
-!130 = distinct !{!130, !7}
-!131 = distinct !{!131, !7}
-!132 = !{!133}
-!133 = distinct !{!133, !134, !"_ZSt9make_pairIRKN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorEmESt4pairINSt25__strip_reference_wrapperINSt5decayIT_E4typeEE6__typeENS5_INS6_IT0_E4typeEE6__typeEEOS7_OSC_: argument 0"}
-!134 = distinct !{!134, !"_ZSt9make_pairIRKN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorEmESt4pairINSt25__strip_reference_wrapperINSt5decayIT_E4typeEE6__typeENS5_INS6_IT0_E4typeEE6__typeEEOS7_OSC_"}
-!135 = distinct !{!135, !6, !7, !136}
-!136 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!137 = distinct !{!137, !6, !7}
-!138 = distinct !{!138, !6, !7, !136}
-!139 = distinct !{!139, !6, !7}
-!140 = distinct !{!140, !6, !7}
-!141 = distinct !{!141, !6, !7, !136}
-!142 = distinct !{!142, !6, !7}
-!143 = distinct !{!143, !6, !7}
-!144 = distinct !{!144, !6, !7}
-!145 = distinct !{!145, !6, !7, !136}
-!146 = distinct !{!146, !6, !7}
-!147 = distinct !{!147, !6, !7, !136}
-!148 = distinct !{!148, !6, !7}
-!149 = distinct !{!149, !7}
-!150 = distinct !{!150, !7}
-!151 = distinct !{!151, !6, !7}
-!152 = distinct !{!152, !6, !7}
-!153 = !{!154}
-!154 = distinct !{!154, !155, !"_ZSt19__relocate_object_aIN32pxrInternal_v0_24__pxrReserved__7TfTokenES1_SaIS1_EEvPT_PT0_RT1_: argument 0"}
-!155 = distinct !{!155, !"_ZSt19__relocate_object_aIN32pxrInternal_v0_24__pxrReserved__7TfTokenES1_SaIS1_EEvPT_PT0_RT1_"}
-!156 = !{!157}
-!157 = distinct !{!157, !155, !"_ZSt19__relocate_object_aIN32pxrInternal_v0_24__pxrReserved__7TfTokenES1_SaIS1_EEvPT_PT0_RT1_: argument 1"}
-!158 = !{!159}
-!159 = distinct !{!159, !160, !"_ZSt19__relocate_object_aIN32pxrInternal_v0_24__pxrReserved__7TfTokenES1_SaIS1_EEvPT_PT0_RT1_: argument 0"}
-!160 = distinct !{!160, !"_ZSt19__relocate_object_aIN32pxrInternal_v0_24__pxrReserved__7TfTokenES1_SaIS1_EEvPT_PT0_RT1_"}
-!161 = !{!162}
-!162 = distinct !{!162, !160, !"_ZSt19__relocate_object_aIN32pxrInternal_v0_24__pxrReserved__7TfTokenES1_SaIS1_EEvPT_PT0_RT1_: argument 1"}
+!7 = distinct !{!7, !6}
+!8 = distinct !{!8, !6}
+!9 = !{!10}
+!10 = distinct !{!10, !11, !"_ZSt19__relocate_object_aIN32pxrInternal_v0_24__pxrReserved__7TfTokenES1_SaIS1_EEvPT_PT0_RT1_: argument 0"}
+!11 = distinct !{!11, !"_ZSt19__relocate_object_aIN32pxrInternal_v0_24__pxrReserved__7TfTokenES1_SaIS1_EEvPT_PT0_RT1_"}
+!12 = !{!13}
+!13 = distinct !{!13, !11, !"_ZSt19__relocate_object_aIN32pxrInternal_v0_24__pxrReserved__7TfTokenES1_SaIS1_EEvPT_PT0_RT1_: argument 1"}
+!14 = distinct !{!14, !6}
+!15 = distinct !{!15, !6}
+!16 = distinct !{!16, !6}
+!17 = distinct !{!17, !6}
+!18 = distinct !{!18, !6}
+!19 = distinct !{!19, !6}
+!20 = distinct !{!20, !6}
+!21 = distinct !{!21, !6}
+!22 = distinct !{!22, !6}
+!23 = !{!24}
+!24 = distinct !{!24, !25, !"_ZSt9make_pairIRKN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorEmESt4pairINSt25__strip_reference_wrapperINSt5decayIT_E4typeEE6__typeENS5_INS6_IT0_E4typeEE6__typeEEOS7_OSC_: argument 0"}
+!25 = distinct !{!25, !"_ZSt9make_pairIRKN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorEmESt4pairINSt25__strip_reference_wrapperINSt5decayIT_E4typeEE6__typeENS5_INS6_IT0_E4typeEE6__typeEEOS7_OSC_"}
+!26 = distinct !{!26, !6, !27}
+!27 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!28 = distinct !{!28, !6}
+!29 = distinct !{!29, !6, !27}
+!30 = distinct !{!30, !6}
+!31 = distinct !{!31, !6}
+!32 = distinct !{!32, !6, !27}
+!33 = distinct !{!33, !6}
+!34 = distinct !{!34, !6}
+!35 = distinct !{!35, !6}
+!36 = distinct !{!36, !6, !27}
+!37 = distinct !{!37, !6}
+!38 = distinct !{!38, !6, !27}
+!39 = distinct !{!39, !6}
+!40 = distinct !{!40, !6}
+!41 = distinct !{!41, !6}
+!42 = !{!43}
+!43 = distinct !{!43, !44, !"_ZSt19__relocate_object_aIN32pxrInternal_v0_24__pxrReserved__7TfTokenES1_SaIS1_EEvPT_PT0_RT1_: argument 0"}
+!44 = distinct !{!44, !"_ZSt19__relocate_object_aIN32pxrInternal_v0_24__pxrReserved__7TfTokenES1_SaIS1_EEvPT_PT0_RT1_"}
+!45 = !{!46}
+!46 = distinct !{!46, !44, !"_ZSt19__relocate_object_aIN32pxrInternal_v0_24__pxrReserved__7TfTokenES1_SaIS1_EEvPT_PT0_RT1_: argument 1"}
+!47 = !{!48}
+!48 = distinct !{!48, !49, !"_ZSt19__relocate_object_aIN32pxrInternal_v0_24__pxrReserved__7TfTokenES1_SaIS1_EEvPT_PT0_RT1_: argument 0"}
+!49 = distinct !{!49, !"_ZSt19__relocate_object_aIN32pxrInternal_v0_24__pxrReserved__7TfTokenES1_SaIS1_EEvPT_PT0_RT1_"}
+!50 = !{!51}
+!51 = distinct !{!51, !49, !"_ZSt19__relocate_object_aIN32pxrInternal_v0_24__pxrReserved__7TfTokenES1_SaIS1_EEvPT_PT0_RT1_: argument 1"}

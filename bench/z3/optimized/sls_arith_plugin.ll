@@ -2432,6 +2432,5 @@ attributes #13 = { builtin nounwind }
 !59 = !{!24, !8, i64 0}
 !60 = !{!61, !18, i64 8}
 !61 = !{!"_ZTS3ast", !18, i64 0, !18, i64 4, !18, i64 6, !18, i64 6, !18, i64 6, !18, i64 8, !18, i64 12}
-!62 = distinct !{!62, !63, !64}
+!62 = distinct !{!62, !63}
 !63 = !{!"llvm.loop.mustprogress"}
-!64 = !{!"llvm.loop.estimated_trip_count"}

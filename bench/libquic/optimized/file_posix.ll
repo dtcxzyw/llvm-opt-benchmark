@@ -282,7 +282,7 @@ define noundef i32 @_ZN4base4File4ReadElPci(ptr noundef nonnull align 8 derefere
 33:                                               ; preds = %.critedge
   %34 = add nuw nsw i32 %.024, %29
   %35 = icmp slt i32 %34, %3
-  br i1 %35, label %14, label %.critedge.thread, !llvm.loop !31
+  br i1 %35, label %14, label %.critedge.thread, !llvm.loop !30
 
 .critedge.thread:                                 ; preds = %.critedge, %33, %25
   %36 = phi i32 [ -1, %25 ], [ %29, %33 ], [ %29, %.critedge ]
@@ -359,7 +359,7 @@ define noundef i32 @_ZN4base4File16ReadAtCurrentPosEPci(ptr noundef nonnull alig
   %24 = tail call ptr @__errno_location() #15
   %25 = load i32, ptr %24, align 4, !tbaa !27
   %26 = icmp eq i32 %25, 4
-  br i1 %26, label %18, label %.critedge.thread, !llvm.loop !32
+  br i1 %26, label %18, label %.critedge.thread, !llvm.loop !31
 
 .critedge:                                        ; preds = %21
   %27 = trunc i64 %20 to i32
@@ -374,7 +374,7 @@ define noundef i32 @_ZN4base4File16ReadAtCurrentPosEPci(ptr noundef nonnull alig
 31:                                               ; preds = %.critedge
   %32 = add nuw nsw i32 %.022, %27
   %33 = icmp slt i32 %32, %2
-  br i1 %33, label %13, label %.critedge.thread, !llvm.loop !33
+  br i1 %33, label %13, label %.critedge.thread, !llvm.loop !32
 
 .critedge.thread:                                 ; preds = %.critedge, %31, %23
   %34 = phi i32 [ -1, %23 ], [ %27, %31 ], [ %27, %.critedge ]
@@ -436,7 +436,7 @@ define noundef i32 @_ZN4base4File16ReadNoBestEffortElPci(ptr noundef nonnull ali
   %17 = tail call ptr @__errno_location() #15
   %18 = load i32, ptr %17, align 4, !tbaa !27
   %19 = icmp eq i32 %18, 4
-  br i1 %19, label %._crit_edge, label %.critedge, !llvm.loop !34
+  br i1 %19, label %._crit_edge, label %.critedge, !llvm.loop !33
 
 .critedge:                                        ; preds = %14, %16
   %20 = trunc i64 %13 to i32
@@ -497,7 +497,7 @@ define noundef i32 @_ZN4base4File28ReadAtCurrentPosNoBestEffortEPci(ptr noundef 
   %18 = tail call ptr @__errno_location() #15
   %19 = load i32, ptr %18, align 4, !tbaa !27
   %20 = icmp eq i32 %19, 4
-  br i1 %20, label %._crit_edge, label %.critedge, !llvm.loop !35
+  br i1 %20, label %._crit_edge, label %.critedge, !llvm.loop !34
 
 .critedge:                                        ; preds = %15, %17
   %21 = trunc i64 %14 to i32
@@ -582,7 +582,7 @@ define noundef i32 @_ZN4base4File5WriteElPKci(ptr noundef nonnull align 8 derefe
   %32 = tail call ptr @__errno_location() #15
   %33 = load i32, ptr %32, align 4, !tbaa !27
   %34 = icmp eq i32 %33, 4
-  br i1 %34, label %26, label %.critedge.thread, !llvm.loop !36
+  br i1 %34, label %26, label %.critedge.thread, !llvm.loop !35
 
 .critedge:                                        ; preds = %29
   %35 = trunc i64 %28 to i32
@@ -597,7 +597,7 @@ define noundef i32 @_ZN4base4File5WriteElPKci(ptr noundef nonnull align 8 derefe
 39:                                               ; preds = %.critedge
   %40 = add nuw nsw i32 %.026, %35
   %41 = icmp slt i32 %40, %3
-  br i1 %41, label %20, label %.critedge.thread, !llvm.loop !37
+  br i1 %41, label %20, label %.critedge.thread, !llvm.loop !36
 
 .critedge.thread:                                 ; preds = %.critedge, %39, %31
   %42 = phi i32 [ -1, %31 ], [ %35, %39 ], [ %35, %.critedge ]
@@ -668,7 +668,7 @@ define noundef i32 @_ZN4base4File17WriteAtCurrentPosEPKci(ptr noundef nonnull al
   %24 = tail call ptr @__errno_location() #15
   %25 = load i32, ptr %24, align 4, !tbaa !27
   %26 = icmp eq i32 %25, 4
-  br i1 %26, label %18, label %.critedge.thread, !llvm.loop !38
+  br i1 %26, label %18, label %.critedge.thread, !llvm.loop !37
 
 .critedge:                                        ; preds = %21
   %27 = trunc i64 %20 to i32
@@ -683,7 +683,7 @@ define noundef i32 @_ZN4base4File17WriteAtCurrentPosEPKci(ptr noundef nonnull al
 31:                                               ; preds = %.critedge
   %32 = add nuw nsw i32 %.022, %27
   %33 = icmp slt i32 %32, %2
-  br i1 %33, label %13, label %.critedge.thread, !llvm.loop !39
+  br i1 %33, label %13, label %.critedge.thread, !llvm.loop !38
 
 .critedge.thread:                                 ; preds = %.critedge, %31, %23
   %34 = phi i32 [ -1, %23 ], [ %27, %31 ], [ %27, %.critedge ]
@@ -752,7 +752,7 @@ define noundef i32 @_ZN4base4File29WriteAtCurrentPosNoBestEffortEPKci(ptr nounde
   %18 = tail call ptr @__errno_location() #15
   %19 = load i32, ptr %18, align 4, !tbaa !27
   %20 = icmp eq i32 %19, 4
-  br i1 %20, label %._crit_edge, label %.critedge, !llvm.loop !40
+  br i1 %20, label %._crit_edge, label %.critedge, !llvm.loop !39
 
 .critedge:                                        ; preds = %15, %17
   %21 = trunc i64 %14 to i32
@@ -848,7 +848,7 @@ define noundef zeroext i1 @_ZN4base4File9SetLengthEl(ptr noundef nonnull align 8
   %15 = tail call ptr @__errno_location() #15
   %16 = load i32, ptr %15, align 4, !tbaa !27
   %17 = icmp eq i32 %16, 4
-  br i1 %17, label %11, label %_ZN4base12_GLOBAL__N_113CallFtruncateEil.exit, !llvm.loop !41
+  br i1 %17, label %11, label %_ZN4base12_GLOBAL__N_113CallFtruncateEil.exit, !llvm.loop !40
 
 _ZN4base12_GLOBAL__N_113CallFtruncateEil.exit:    ; preds = %11, %14
   %.not = icmp eq i32 %12, 0
@@ -897,15 +897,15 @@ define noundef zeroext i1 @_ZN4base4File8SetTimesENS_4TimeES1_(ptr noundef nonnu
   %21 = extractvalue { i64, i64 } %16, 1
   %22 = load i32, ptr %0, align 8, !tbaa !27
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #14
-  store i64 %19, ptr %4, align 16, !tbaa !42
+  store i64 %19, ptr %4, align 16, !tbaa !41
   %23 = mul nsw i64 %18, 1000
   %24 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store i64 %23, ptr %24, align 8, !tbaa !43
+  store i64 %23, ptr %24, align 8, !tbaa !42
   %25 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store i64 %20, ptr %25, align 16, !tbaa !42
+  store i64 %20, ptr %25, align 16, !tbaa !41
   %26 = mul nsw i64 %21, 1000
   %27 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  store i64 %26, ptr %27, align 8, !tbaa !43
+  store i64 %26, ptr %27, align 8, !tbaa !42
   %28 = call noundef i32 @futimens(i32 noundef %22, ptr noundef nonnull %4) #14
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #14
   %.not = icmp eq i32 %28, 0
@@ -1076,9 +1076,9 @@ define noundef range(i32 -16, 1) i32 @_ZN4base4File4LockEv(ptr noundef nonnull a
 8:                                                ; preds = %6, %5
   %9 = load i32, ptr %0, align 8, !tbaa !27
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2) #14
-  store i16 1, ptr %2, align 8, !tbaa !44
+  store i16 1, ptr %2, align 8, !tbaa !43
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 2
-  store i16 0, ptr %10, align 2, !tbaa !47
+  store i16 0, ptr %10, align 2, !tbaa !46
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %11, i8 0, i64 16, i1 false)
   br label %12
@@ -1095,7 +1095,7 @@ define noundef range(i32 -16, 1) i32 @_ZN4base4File4LockEv(ptr noundef nonnull a
   %16 = tail call ptr @__errno_location() #15
   %17 = load i32, ptr %16, align 4, !tbaa !27
   %18 = icmp eq i32 %17, 4
-  br i1 %18, label %12, label %.critedge.i, !llvm.loop !48
+  br i1 %18, label %12, label %.critedge.i, !llvm.loop !47
 
 .critedge.i:                                      ; preds = %15
   %19 = invoke noundef i32 @_ZN4base4File18OSErrorToFileErrorEi(i32 noundef %17)
@@ -1144,9 +1144,9 @@ define noundef range(i32 -16, 1) i32 @_ZN4base4File6UnlockEv(ptr noundef nonnull
 8:                                                ; preds = %6, %5
   %9 = load i32, ptr %0, align 8, !tbaa !27
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2) #14
-  store i16 2, ptr %2, align 8, !tbaa !44
+  store i16 2, ptr %2, align 8, !tbaa !43
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 2
-  store i16 0, ptr %10, align 2, !tbaa !47
+  store i16 0, ptr %10, align 2, !tbaa !46
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %11, i8 0, i64 16, i1 false)
   br label %12
@@ -1163,7 +1163,7 @@ define noundef range(i32 -16, 1) i32 @_ZN4base4File6UnlockEv(ptr noundef nonnull
   %16 = tail call ptr @__errno_location() #15
   %17 = load i32, ptr %16, align 4, !tbaa !27
   %18 = icmp eq i32 %17, 4
-  br i1 %18, label %12, label %.critedge.i, !llvm.loop !48
+  br i1 %18, label %12, label %.critedge.i, !llvm.loop !47
 
 .critedge.i:                                      ; preds = %15
   %19 = invoke noundef i32 @_ZN4base4File18OSErrorToFileErrorEi(i32 noundef %17)
@@ -1233,13 +1233,13 @@ define void @_ZNK4base4File9DuplicateEv(ptr dead_on_unwind noalias writable sret
 
 24:                                               ; preds = %23
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 49
-  %26 = load i8, ptr %25, align 1, !tbaa !49, !range !58, !noundef !59
+  %26 = load i8, ptr %25, align 1, !tbaa !48, !range !57, !noundef !58
   %27 = trunc nuw i8 %26 to i1
   br i1 %27, label %28, label %30
 
 28:                                               ; preds = %24
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 49
-  store i8 1, ptr %29, align 1, !tbaa !49
+  store i8 1, ptr %29, align 1, !tbaa !48
   br label %30
 
 30:                                               ; preds = %24, %28, %20
@@ -1276,30 +1276,30 @@ define noundef range(i32 -16, 0) i32 @_ZN4base4File18OSErrorToFileErrorEi(i32 no
 .noexc.i:                                         ; preds = %1
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #14
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store ptr %5, ptr %3, align 8, !tbaa !60
+  store ptr %5, ptr %3, align 8, !tbaa !59
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #14
-  store i64 32, ptr %2, align 8, !tbaa !61
+  store i64 32, ptr %2, align 8, !tbaa !60
   %6 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(8) %2, i64 noundef 0)
-  store ptr %6, ptr %3, align 8, !tbaa !62
-  %7 = load i64, ptr %2, align 8, !tbaa !61
-  store i64 %7, ptr %5, align 8, !tbaa !63
+  store ptr %6, ptr %3, align 8, !tbaa !61
+  %7 = load i64, ptr %2, align 8, !tbaa !60
+  store i64 %7, ptr %5, align 8, !tbaa !62
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %6, ptr noundef nonnull align 1 dereferenceable(32) @.str.16, i64 32, i1 false)
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store i64 %7, ptr %8, align 8, !tbaa !64
-  %9 = load ptr, ptr %3, align 8, !tbaa !62
+  store i64 %7, ptr %8, align 8, !tbaa !63
+  %9 = load ptr, ptr %3, align 8, !tbaa !61
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 %7
-  store i8 0, ptr %10, align 1, !tbaa !63
+  store i8 0, ptr %10, align 1, !tbaa !62
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #14
   %11 = invoke noundef ptr @_ZN4base15SparseHistogram10FactoryGetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi(ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 1)
           to label %12 unwind label %20
 
 12:                                               ; preds = %.noexc.i
-  %13 = load ptr, ptr %3, align 8, !tbaa !62
+  %13 = load ptr, ptr %3, align 8, !tbaa !61
   %14 = icmp eq ptr %13, %5
   br i1 %14, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i: ; preds = %12
-  %15 = load i64, ptr %8, align 8, !tbaa !64
+  %15 = load i64, ptr %8, align 8, !tbaa !63
   %16 = icmp ult i64 %15, 16
   call void @llvm.assume(i1 %16)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
@@ -1310,7 +1310,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: 
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #14
-  %17 = load ptr, ptr %11, align 8, !tbaa !65
+  %17 = load ptr, ptr %11, align 8, !tbaa !64
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 40
   %19 = load ptr, ptr %18, align 8
   call void %19(ptr noundef nonnull align 8 dereferenceable(44) %11, i32 noundef %0)
@@ -1319,12 +1319,12 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 20:                                               ; preds = %.noexc.i
   %21 = landingpad { ptr, i32 }
           cleanup
-  %22 = load ptr, ptr %3, align 8, !tbaa !62
+  %22 = load ptr, ptr %3, align 8, !tbaa !61
   %23 = icmp eq ptr %22, %5
   br i1 %23, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i9, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i8
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i9: ; preds = %20
-  %24 = load i64, ptr %8, align 8, !tbaa !64
+  %24 = load i64, ptr %8, align 8, !tbaa !63
   %25 = icmp ult i64 %24, 16
   call void @llvm.assume(i1 %25)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit10
@@ -1360,7 +1360,7 @@ define void @_ZN4base4File12DoInitializeERKNS_8FilePathEj(ptr noundef nonnull al
   %.not = icmp eq i32 %4, 0
   %spec.store.select = select i1 %.not, i32 0, i32 192
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store i8 0, ptr %5, align 8, !tbaa !67
+  store i8 0, ptr %5, align 8, !tbaa !66
   %6 = and i32 %2, 8
   %.not42 = icmp eq i32 %6, 0
   %spec.select = select i1 %.not42, i32 %spec.store.select, i32 576
@@ -1377,7 +1377,7 @@ define void @_ZN4base4File12DoInitializeERKNS_8FilePathEj(ptr noundef nonnull al
   %12 = tail call ptr @__errno_location() #15
   store i32 95, ptr %12, align 4, !tbaa !27
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  store i32 -1, ptr %13, align 4, !tbaa !68
+  store i32 -1, ptr %13, align 4, !tbaa !67
   br label %75
 
 14:                                               ; preds = %3
@@ -1402,7 +1402,7 @@ define void @_ZN4base4File12DoInitializeERKNS_8FilePathEj(ptr noundef nonnull al
   br label %24
 
 24:                                               ; preds = %28, %14
-  %25 = load ptr, ptr %1, align 8, !tbaa !62
+  %25 = load ptr, ptr %1, align 8, !tbaa !61
   %26 = tail call i32 (ptr, i32, ...) @open(ptr noundef %25, i32 noundef %.4, i32 noundef 384)
   %27 = icmp eq i32 %26, -1
   br i1 %27, label %28, label %.critedge
@@ -1411,7 +1411,7 @@ define void @_ZN4base4File12DoInitializeERKNS_8FilePathEj(ptr noundef nonnull al
   %29 = tail call ptr @__errno_location() #15
   %30 = load i32, ptr %29, align 4, !tbaa !27
   %31 = icmp eq i32 %30, 4
-  br i1 %31, label %24, label %.critedge, !llvm.loop !69
+  br i1 %31, label %24, label %.critedge, !llvm.loop !68
 
 .critedge:                                        ; preds = %24, %28
   %32 = icmp ne i32 %8, 0
@@ -1439,7 +1439,7 @@ define void @_ZN4base4File12DoInitializeERKNS_8FilePathEj(ptr noundef nonnull al
   br label %42
 
 42:                                               ; preds = %46, %41
-  %43 = load ptr, ptr %1, align 8, !tbaa !62
+  %43 = load ptr, ptr %1, align 8, !tbaa !61
   %44 = tail call i32 (ptr, i32, ...) @open(ptr noundef %43, i32 noundef %.5, i32 noundef 384)
   %45 = icmp eq i32 %44, -1
   br i1 %45, label %46, label %.critedge2
@@ -1448,14 +1448,14 @@ define void @_ZN4base4File12DoInitializeERKNS_8FilePathEj(ptr noundef nonnull al
   %47 = tail call ptr @__errno_location() #15
   %48 = load i32, ptr %47, align 4, !tbaa !27
   %49 = icmp eq i32 %48, 4
-  br i1 %49, label %42, label %.thread, !llvm.loop !70
+  br i1 %49, label %42, label %.thread, !llvm.loop !69
 
 .critedge2:                                       ; preds = %42
   %50 = icmp sgt i32 %44, -1
   br i1 %50, label %.thread66, label %.thread
 
 .thread66:                                        ; preds = %.critedge2
-  store i8 1, ptr %5, align 8, !tbaa !67
+  store i8 1, ptr %5, align 8, !tbaa !66
   br label %56
 
 51:                                               ; preds = %.critedge
@@ -1466,7 +1466,7 @@ define void @_ZN4base4File12DoInitializeERKNS_8FilePathEj(ptr noundef nonnull al
   %53 = load i32, ptr %52, align 4, !tbaa !27
   %54 = tail call noundef i32 @_ZN4base4File18OSErrorToFileErrorEi(i32 noundef %53)
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  store i32 %54, ptr %55, align 4, !tbaa !68
+  store i32 %54, ptr %55, align 4, !tbaa !67
   br label %75
 
 56:                                               ; preds = %.thread66, %51
@@ -1476,7 +1476,7 @@ define void @_ZN4base4File12DoInitializeERKNS_8FilePathEj(ptr noundef nonnull al
   br i1 %.not54, label %59, label %58
 
 58:                                               ; preds = %56
-  store i8 1, ptr %5, align 8, !tbaa !67
+  store i8 1, ptr %5, align 8, !tbaa !66
   br label %59
 
 59:                                               ; preds = %58, %56
@@ -1485,7 +1485,7 @@ define void @_ZN4base4File12DoInitializeERKNS_8FilePathEj(ptr noundef nonnull al
   br i1 %.not55, label %64, label %61
 
 61:                                               ; preds = %59
-  %62 = load ptr, ptr %1, align 8, !tbaa !62
+  %62 = load ptr, ptr %1, align 8, !tbaa !61
   %63 = tail call i32 @unlink(ptr noundef %62) #14
   br label %64
 
@@ -1494,9 +1494,9 @@ define void @_ZN4base4File12DoInitializeERKNS_8FilePathEj(ptr noundef nonnull al
   %66 = lshr i32 %2, 10
   %67 = trunc i32 %66 to i8
   %68 = and i8 %67, 1
-  store i8 %68, ptr %65, align 1, !tbaa !49
+  store i8 %68, ptr %65, align 1, !tbaa !48
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  store i32 0, ptr %69, align 4, !tbaa !68
+  store i32 0, ptr %69, align 4, !tbaa !67
   %70 = load i32, ptr %0, align 8, !tbaa !24
   %.not.i = icmp eq i32 %70, -1
   br i1 %.not.i, label %_ZN4base13ScopedGenericIiNS_8internal19ScopedFDCloseTraitsEE5resetERKi.exit, label %71
@@ -1563,7 +1563,7 @@ define noundef zeroext i1 @_ZN4base4File5FlushEv(ptr noundef nonnull align 8 der
   %14 = tail call ptr @__errno_location() #15
   %15 = load i32, ptr %14, align 4, !tbaa !27
   %16 = icmp eq i32 %15, 4
-  br i1 %16, label %8, label %.critedge, !llvm.loop !71
+  br i1 %16, label %8, label %.critedge, !llvm.loop !70
 
 .critedge:                                        ; preds = %11, %13
   %.not = icmp eq i32 %10, 0
@@ -1686,47 +1686,46 @@ attributes #17 = { noreturn nounwind }
 !25 = !{!"_ZTSN4base13ScopedGenericIiNS_8internal19ScopedFDCloseTraitsEEE", !26, i64 0}
 !26 = !{!"_ZTSN4base13ScopedGenericIiNS_8internal19ScopedFDCloseTraitsEE4DataE", !8, i64 0}
 !27 = !{!8, !8, i64 0}
-!28 = distinct !{!28, !29, !30}
+!28 = distinct !{!28, !29}
 !29 = !{!"llvm.loop.mustprogress"}
-!30 = !{!"llvm.loop.estimated_trip_count"}
-!31 = distinct !{!31, !29, !30}
-!32 = distinct !{!32, !29, !30}
-!33 = distinct !{!33, !29, !30}
-!34 = distinct !{!34, !29, !30}
-!35 = distinct !{!35, !29, !30}
-!36 = distinct !{!36, !29, !30}
-!37 = distinct !{!37, !29, !30}
-!38 = distinct !{!38, !29, !30}
-!39 = distinct !{!39, !29, !30}
-!40 = distinct !{!40, !29, !30}
-!41 = distinct !{!41, !29, !30}
-!42 = !{!9, !5, i64 0}
-!43 = !{!9, !5, i64 8}
-!44 = !{!45, !46, i64 0}
-!45 = !{!"_ZTS5flock", !46, i64 0, !46, i64 2, !5, i64 8, !5, i64 16, !8, i64 24}
-!46 = !{!"short", !6, i64 0}
-!47 = !{!45, !46, i64 2}
-!48 = distinct !{!48, !29, !30}
-!49 = !{!50, !12, i64 49}
-!50 = !{!"_ZTSN4base4FileE", !25, i64 0, !51, i64 8, !56, i64 40, !57, i64 44, !12, i64 48, !12, i64 49}
-!51 = !{!"_ZTSN4base8FilePathE", !52, i64 0}
-!52 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE", !53, i64 0, !5, i64 8, !6, i64 16}
-!53 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderE", !54, i64 0}
-!54 = !{!"p1 omnipotent char", !55, i64 0}
-!55 = !{!"any pointer", !6, i64 0}
-!56 = !{!"_ZTSN4base11FileTracing13ScopedEnablerE"}
-!57 = !{!"_ZTSN4base4File5ErrorE", !6, i64 0}
-!58 = !{i8 0, i8 2}
-!59 = !{}
-!60 = !{!53, !54, i64 0}
-!61 = !{!5, !5, i64 0}
-!62 = !{!52, !54, i64 0}
-!63 = !{!6, !6, i64 0}
-!64 = !{!52, !5, i64 8}
-!65 = !{!66, !66, i64 0}
-!66 = !{!"vtable pointer", !7, i64 0}
-!67 = !{!50, !12, i64 48}
-!68 = !{!50, !57, i64 44}
-!69 = distinct !{!69, !29, !30}
-!70 = distinct !{!70, !29, !30}
-!71 = distinct !{!71, !29, !30}
+!30 = distinct !{!30, !29}
+!31 = distinct !{!31, !29}
+!32 = distinct !{!32, !29}
+!33 = distinct !{!33, !29}
+!34 = distinct !{!34, !29}
+!35 = distinct !{!35, !29}
+!36 = distinct !{!36, !29}
+!37 = distinct !{!37, !29}
+!38 = distinct !{!38, !29}
+!39 = distinct !{!39, !29}
+!40 = distinct !{!40, !29}
+!41 = !{!9, !5, i64 0}
+!42 = !{!9, !5, i64 8}
+!43 = !{!44, !45, i64 0}
+!44 = !{!"_ZTS5flock", !45, i64 0, !45, i64 2, !5, i64 8, !5, i64 16, !8, i64 24}
+!45 = !{!"short", !6, i64 0}
+!46 = !{!44, !45, i64 2}
+!47 = distinct !{!47, !29}
+!48 = !{!49, !12, i64 49}
+!49 = !{!"_ZTSN4base4FileE", !25, i64 0, !50, i64 8, !55, i64 40, !56, i64 44, !12, i64 48, !12, i64 49}
+!50 = !{!"_ZTSN4base8FilePathE", !51, i64 0}
+!51 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE", !52, i64 0, !5, i64 8, !6, i64 16}
+!52 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderE", !53, i64 0}
+!53 = !{!"p1 omnipotent char", !54, i64 0}
+!54 = !{!"any pointer", !6, i64 0}
+!55 = !{!"_ZTSN4base11FileTracing13ScopedEnablerE"}
+!56 = !{!"_ZTSN4base4File5ErrorE", !6, i64 0}
+!57 = !{i8 0, i8 2}
+!58 = !{}
+!59 = !{!52, !53, i64 0}
+!60 = !{!5, !5, i64 0}
+!61 = !{!51, !53, i64 0}
+!62 = !{!6, !6, i64 0}
+!63 = !{!51, !5, i64 8}
+!64 = !{!65, !65, i64 0}
+!65 = !{!"vtable pointer", !7, i64 0}
+!66 = !{!49, !12, i64 48}
+!67 = !{!49, !56, i64 44}
+!68 = distinct !{!68, !29}
+!69 = distinct !{!69, !29}
+!70 = distinct !{!70, !29}

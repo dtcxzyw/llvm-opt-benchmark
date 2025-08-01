@@ -1943,7 +1943,7 @@ dissect_tecmp_status_bus_vendor_data.exit.i:      ; preds = %401, %400, %396, %3
   %405 = sub i16 %.0132149.i, %315
   %406 = zext i16 %405 to i32
   %.not139.i = icmp samesign ugt i32 %314, %406
-  br i1 %.not139.i, label %dissect_tecmp_status_device.exit, label %316, !llvm.loop !11
+  br i1 %.not139.i, label %dissect_tecmp_status_device.exit, label %316, !llvm.loop !10
 
 407:                                              ; preds = %172
   %408 = load ptr, ptr %51, align 8
@@ -2754,7 +2754,7 @@ dissect_data.exit459.i:                           ; preds = %797, %.thread483.i,
   %844 = add i32 %813, 2
   %845 = load i32, ptr %13, align 4
   %.not428.i = icmp ugt i32 %844, %845
-  br i1 %.not428.i, label %.thread.i, label %812, !llvm.loop !12
+  br i1 %.not428.i, label %.thread.i, label %812, !llvm.loop !11
 
 846:                                              ; preds = %504
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %20) #7
@@ -2874,7 +2874,7 @@ proto_item_set_hidden.exit.i:                     ; preds = %proto_item_set_hidd
   %909 = add nsw i32 %.0414492.i, -2
   %910 = add nuw nsw i32 %.3493.i, 2
   %911 = icmp sgt i32 %.0414492.i, 3
-  br i1 %911, label %880, label %.loopexit.i86, !llvm.loop !13
+  br i1 %911, label %880, label %.loopexit.i86, !llvm.loop !12
 
 912:                                              ; preds = %proto_item_set_hidden.exit468.i, %.lr.ph491.i
   %.4490.i = phi i32 [ 16, %.lr.ph491.i ], [ %940, %proto_item_set_hidden.exit468.i ]
@@ -2936,7 +2936,7 @@ proto_item_set_hidden.exit468.i:                  ; preds = %935, %932, %proto_i
   %939 = add nsw i32 %.1415489.i, -4
   %940 = add nuw nsw i32 %.4490.i, 4
   %941 = icmp sgt i32 %.1415489.i, 7
-  br i1 %941, label %912, label %.loopexit.i86, !llvm.loop !14
+  br i1 %941, label %912, label %.loopexit.i86, !llvm.loop !13
 
 .loopexit.i86:                                    ; preds = %proto_item_set_hidden.exit468.i, %proto_item_set_hidden.exit.i, %.preheader.i, %.preheader484.i, %870, %846
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %21) #7
@@ -2963,7 +2963,7 @@ proto_item_set_hidden.exit468.i:                  ; preds = %935, %932, %proto_i
   %951 = add nuw i32 %.0409486.i, 1
   %952 = load i32, ptr %11, align 4
   %953 = icmp ult i32 %951, %952
-  br i1 %953, label %.lr.ph.i85, label %.critedge.thread510.i, !llvm.loop !15
+  br i1 %953, label %.lr.ph.i85, label %.critedge.thread510.i, !llvm.loop !14
 
 .critedge.i:                                      ; preds = %.lr.ph.i85
   %.not426.i = icmp eq i32 %.0409486.i, 0
@@ -3142,7 +3142,7 @@ proto_item_set_hidden.exit477.i:                  ; preds = %1013, %1009, %1006,
   %.1.i84 = phi i32 [ %1044, %.thread.i ], [ %503, %494 ]
   %1046 = call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %.1.i84)
   %1047 = icmp sgt i32 %1046, 15
-  br i1 %1047, label %485, label %dissect_tecmp_log_or_replay_stream.exit, !llvm.loop !16
+  br i1 %1047, label %485, label %dissect_tecmp_log_or_replay_stream.exit, !llvm.loop !15
 
 dissect_tecmp_log_or_replay_stream.exit:          ; preds = %485, %1045, %445
   %.0410.lcssa.i = phi i32 [ 12, %445 ], [ %.0410499.i, %485 ], [ %.1.i84, %1045 ]
@@ -3401,7 +3401,7 @@ reset_tecmp_devices_cb.exit:                      ; preds = %0, %2
   %14 = load i32, ptr @tecmp_devices_num, align 4
   %15 = zext i32 %14 to i64
   %16 = icmp samesign ult i64 %indvars.iv.next, %15
-  br i1 %16, label %.lr.ph, label %._crit_edge, !llvm.loop !17
+  br i1 %16, label %.lr.ph, label %._crit_edge, !llvm.loop !16
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
@@ -3518,7 +3518,7 @@ reset_tecmp_interfaces_cb.exit:                   ; preds = %0, %2
   %12 = load i32, ptr @tecmp_interfaces_num, align 4
   %13 = zext i32 %12 to i64
   %14 = icmp samesign ult i64 %indvars.iv.next, %13
-  br i1 %14, label %.lr.ph, label %._crit_edge, !llvm.loop !18
+  br i1 %14, label %.lr.ph, label %._crit_edge, !llvm.loop !17
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
@@ -3572,7 +3572,7 @@ reset_tecmp_control_messages_cb.exit:             ; preds = %0, %2
   %14 = load i32, ptr @tecmp_ctrl_msg_num, align 4
   %15 = zext i32 %14 to i64
   %16 = icmp samesign ult i64 %indvars.iv.next, %15
-  br i1 %16, label %.lr.ph, label %._crit_edge, !llvm.loop !19
+  br i1 %16, label %.lr.ph, label %._crit_edge, !llvm.loop !18
 }
 
 ; Function Attrs: null_pointer_is_valid
@@ -4129,15 +4129,14 @@ attributes #7 = { nounwind }
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i8 0, i8 2}
 !7 = !{}
-!8 = distinct !{!8, !9, !10}
+!8 = distinct !{!8, !9}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = !{!"llvm.loop.estimated_trip_count"}
-!11 = distinct !{!11, !9, !10}
-!12 = distinct !{!12, !9, !10}
-!13 = distinct !{!13, !9, !10}
-!14 = distinct !{!14, !9, !10}
-!15 = distinct !{!15, !9, !10}
-!16 = distinct !{!16, !9, !10}
-!17 = distinct !{!17, !9, !10}
-!18 = distinct !{!18, !9, !10}
-!19 = distinct !{!19, !9, !10}
+!10 = distinct !{!10, !9}
+!11 = distinct !{!11, !9}
+!12 = distinct !{!12, !9}
+!13 = distinct !{!13, !9}
+!14 = distinct !{!14, !9}
+!15 = distinct !{!15, !9}
+!16 = distinct !{!16, !9}
+!17 = distinct !{!17, !9}
+!18 = distinct !{!18, !9}

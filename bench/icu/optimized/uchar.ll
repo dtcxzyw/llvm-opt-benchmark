@@ -2531,15 +2531,15 @@ u_getUnicodeProperties_77.exit:                   ; preds = %14, %.sink.split.i
   %40 = lshr i32 %39, 24
   %41 = lshr i32 %39, 26
   %42 = trunc nuw nsw i32 %41 to i8
-  store i8 %42, ptr %1, align 1, !tbaa !16
+  store i8 %42, ptr %1, align 1, !tbaa !15
   %43 = trunc nuw i32 %40 to i8
   %44 = and i8 %43, 3
   %45 = getelementptr inbounds nuw i8, ptr %1, i64 1
-  store i8 %44, ptr %45, align 1, !tbaa !16
+  store i8 %44, ptr %45, align 1, !tbaa !15
   %46 = getelementptr inbounds nuw i8, ptr %1, i64 3
-  store i8 0, ptr %46, align 1, !tbaa !16
+  store i8 0, ptr %46, align 1, !tbaa !15
   %47 = getelementptr inbounds nuw i8, ptr %1, i64 2
-  store i8 0, ptr %47, align 1, !tbaa !16
+  store i8 0, ptr %47, align 1, !tbaa !15
   br label %48
 
 48:                                               ; preds = %u_getUnicodeProperties_77.exit, %2
@@ -2552,7 +2552,7 @@ define range(i32 -1, 65536) i32 @uscript_getScript_77(i32 noundef %0, ptr nounde
   br i1 %3, label %56, label %4
 
 4:                                                ; preds = %2
-  %5 = load i32, ptr %1, align 4, !tbaa !17
+  %5 = load i32, ptr %1, align 4, !tbaa !16
   %6 = icmp slt i32 %5, 1
   br i1 %6, label %7, label %56
 
@@ -2561,7 +2561,7 @@ define range(i32 -1, 65536) i32 @uscript_getScript_77(i32 noundef %0, ptr nounde
   br i1 %8, label %9, label %10
 
 9:                                                ; preds = %7
-  store i32 1, ptr %1, align 4, !tbaa !17
+  store i32 1, ptr %1, align 4, !tbaa !16
   br label %56
 
 10:                                               ; preds = %7
@@ -2723,7 +2723,7 @@ u_getUnicodeProperties_77.exit:                   ; preds = %13, %.sink.split.i
   %56 = zext i16 %55 to i32
   %57 = icmp samesign ugt i32 %1, %56
   %58 = getelementptr inbounds nuw i8, ptr %.116, i64 2
-  br i1 %57, label %.preheader, label %59, !llvm.loop !19
+  br i1 %57, label %.preheader, label %59, !llvm.loop !18
 
 59:                                               ; preds = %.preheader
   %60 = and i32 %56, 32767
@@ -2742,7 +2742,7 @@ define range(i32 -2147483647, -2147483648) i32 @uscript_getScriptExtensions_77(i
   br i1 %5, label %.loopexit, label %6
 
 6:                                                ; preds = %4
-  %7 = load i32, ptr %3, align 4, !tbaa !17
+  %7 = load i32, ptr %3, align 4, !tbaa !16
   %8 = icmp slt i32 %7, 1
   br i1 %8, label %9, label %.loopexit
 
@@ -2757,7 +2757,7 @@ define range(i32 -2147483647, -2147483648) i32 @uscript_getScriptExtensions_77(i
   br i1 %or.cond, label %14, label %15
 
 14:                                               ; preds = %11, %9
-  store i32 1, ptr %3, align 4, !tbaa !17
+  store i32 1, ptr %3, align 4, !tbaa !16
   br label %.loopexit
 
 15:                                               ; preds = %11
@@ -2824,11 +2824,11 @@ u_getUnicodeProperties_77.exit:                   ; preds = %26, %.sink.split.i
   br i1 %56, label %57, label %58
 
 57:                                               ; preds = %55
-  store i32 15, ptr %3, align 4, !tbaa !17
+  store i32 15, ptr %3, align 4, !tbaa !16
   br label %.loopexit
 
 58:                                               ; preds = %55
-  store i32 %53, ptr %1, align 4, !tbaa !20
+  store i32 %53, ptr %1, align 4, !tbaa !19
   br label %.loopexit
 
 59:                                               ; preds = %u_getUnicodeProperties_77.exit
@@ -2861,14 +2861,14 @@ u_getUnicodeProperties_77.exit:                   ; preds = %26, %.sink.split.i
   %73 = zext nneg i16 %72 to i32
   %74 = zext nneg i32 %.029 to i64
   %75 = getelementptr inbounds nuw i32, ptr %1, i64 %74
-  store i32 %73, ptr %75, align 4, !tbaa !20
+  store i32 %73, ptr %75, align 4, !tbaa !19
   %76 = add nuw nsw i32 %.029, 1
   %77 = icmp sgt i16 %69, -1
   br i1 %77, label %.backedge.backedge, label %.loopexit
 
 .backedge.backedge:                               ; preds = %71, %.thread
   %.029.be = phi i32 [ %76, %71 ], [ %78, %.thread ]
-  br label %.backedge, !llvm.loop !22
+  br label %.backedge, !llvm.loop !21
 
 .thread:                                          ; preds = %.backedge
   %78 = add nuw nsw i32 %.029, 1
@@ -2876,7 +2876,7 @@ u_getUnicodeProperties_77.exit:                   ; preds = %26, %.sink.split.i
   br i1 %79, label %.backedge.backedge, label %.thread36
 
 .thread36:                                        ; preds = %.thread
-  store i32 15, ptr %3, align 4, !tbaa !17
+  store i32 15, ptr %3, align 4, !tbaa !16
   br label %.loopexit
 
 .loopexit:                                        ; preds = %71, %58, %57, %.thread36, %4, %6, %14
@@ -2897,129 +2897,129 @@ declare i32 @ucptrie_get_77(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
 define void @uchar_addPropertyStarts_77(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #2 {
-  %3 = load i32, ptr %1, align 4, !tbaa !17
+  %3 = load i32, ptr %1, align 4, !tbaa !16
   %4 = icmp slt i32 %3, 1
   br i1 %4, label %5, label %85
 
 5:                                                ; preds = %2
   tail call void @utrie2_enum_77(ptr noundef nonnull @_ZL9propsTrie, ptr noundef null, ptr noundef nonnull @_ZL24_enumPropertyStartsRangePKviij, ptr noundef %0)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %7 = load ptr, ptr %6, align 8, !tbaa !23
-  %8 = load ptr, ptr %0, align 8, !tbaa !26
+  %7 = load ptr, ptr %6, align 8, !tbaa !22
+  %8 = load ptr, ptr %0, align 8, !tbaa !25
   tail call void %7(ptr noundef %8, i32 noundef 9)
-  %9 = load ptr, ptr %6, align 8, !tbaa !23
-  %10 = load ptr, ptr %0, align 8, !tbaa !26
+  %9 = load ptr, ptr %6, align 8, !tbaa !22
+  %10 = load ptr, ptr %0, align 8, !tbaa !25
   tail call void %9(ptr noundef %10, i32 noundef 10)
-  %11 = load ptr, ptr %6, align 8, !tbaa !23
-  %12 = load ptr, ptr %0, align 8, !tbaa !26
+  %11 = load ptr, ptr %6, align 8, !tbaa !22
+  %12 = load ptr, ptr %0, align 8, !tbaa !25
   tail call void %11(ptr noundef %12, i32 noundef 14)
-  %13 = load ptr, ptr %6, align 8, !tbaa !23
-  %14 = load ptr, ptr %0, align 8, !tbaa !26
+  %13 = load ptr, ptr %6, align 8, !tbaa !22
+  %14 = load ptr, ptr %0, align 8, !tbaa !25
   tail call void %13(ptr noundef %14, i32 noundef 28)
-  %15 = load ptr, ptr %6, align 8, !tbaa !23
-  %16 = load ptr, ptr %0, align 8, !tbaa !26
+  %15 = load ptr, ptr %6, align 8, !tbaa !22
+  %16 = load ptr, ptr %0, align 8, !tbaa !25
   tail call void %15(ptr noundef %16, i32 noundef 32)
-  %17 = load ptr, ptr %6, align 8, !tbaa !23
-  %18 = load ptr, ptr %0, align 8, !tbaa !26
+  %17 = load ptr, ptr %6, align 8, !tbaa !22
+  %18 = load ptr, ptr %0, align 8, !tbaa !25
   tail call void %17(ptr noundef %18, i32 noundef 133)
-  %19 = load ptr, ptr %6, align 8, !tbaa !23
-  %20 = load ptr, ptr %0, align 8, !tbaa !26
+  %19 = load ptr, ptr %6, align 8, !tbaa !22
+  %20 = load ptr, ptr %0, align 8, !tbaa !25
   tail call void %19(ptr noundef %20, i32 noundef 134)
-  %21 = load ptr, ptr %6, align 8, !tbaa !23
-  %22 = load ptr, ptr %0, align 8, !tbaa !26
+  %21 = load ptr, ptr %6, align 8, !tbaa !22
+  %22 = load ptr, ptr %0, align 8, !tbaa !25
   tail call void %21(ptr noundef %22, i32 noundef 127)
-  %23 = load ptr, ptr %6, align 8, !tbaa !23
-  %24 = load ptr, ptr %0, align 8, !tbaa !26
+  %23 = load ptr, ptr %6, align 8, !tbaa !22
+  %24 = load ptr, ptr %0, align 8, !tbaa !25
   tail call void %23(ptr noundef %24, i32 noundef 8202)
-  %25 = load ptr, ptr %6, align 8, !tbaa !23
-  %26 = load ptr, ptr %0, align 8, !tbaa !26
+  %25 = load ptr, ptr %6, align 8, !tbaa !22
+  %26 = load ptr, ptr %0, align 8, !tbaa !25
   tail call void %25(ptr noundef %26, i32 noundef 8208)
-  %27 = load ptr, ptr %6, align 8, !tbaa !23
-  %28 = load ptr, ptr %0, align 8, !tbaa !26
+  %27 = load ptr, ptr %6, align 8, !tbaa !22
+  %28 = load ptr, ptr %0, align 8, !tbaa !25
   tail call void %27(ptr noundef %28, i32 noundef 8298)
-  %29 = load ptr, ptr %6, align 8, !tbaa !23
-  %30 = load ptr, ptr %0, align 8, !tbaa !26
+  %29 = load ptr, ptr %6, align 8, !tbaa !22
+  %30 = load ptr, ptr %0, align 8, !tbaa !25
   tail call void %29(ptr noundef %30, i32 noundef 8304)
-  %31 = load ptr, ptr %6, align 8, !tbaa !23
-  %32 = load ptr, ptr %0, align 8, !tbaa !26
+  %31 = load ptr, ptr %6, align 8, !tbaa !22
+  %32 = load ptr, ptr %0, align 8, !tbaa !25
   tail call void %31(ptr noundef %32, i32 noundef 65279)
-  %33 = load ptr, ptr %6, align 8, !tbaa !23
-  %34 = load ptr, ptr %0, align 8, !tbaa !26
+  %33 = load ptr, ptr %6, align 8, !tbaa !22
+  %34 = load ptr, ptr %0, align 8, !tbaa !25
   tail call void %33(ptr noundef %34, i32 noundef 65280)
-  %35 = load ptr, ptr %6, align 8, !tbaa !23
-  %36 = load ptr, ptr %0, align 8, !tbaa !26
+  %35 = load ptr, ptr %6, align 8, !tbaa !22
+  %36 = load ptr, ptr %0, align 8, !tbaa !25
   tail call void %35(ptr noundef %36, i32 noundef 160)
-  %37 = load ptr, ptr %6, align 8, !tbaa !23
-  %38 = load ptr, ptr %0, align 8, !tbaa !26
+  %37 = load ptr, ptr %6, align 8, !tbaa !22
+  %38 = load ptr, ptr %0, align 8, !tbaa !25
   tail call void %37(ptr noundef %38, i32 noundef 161)
-  %39 = load ptr, ptr %6, align 8, !tbaa !23
-  %40 = load ptr, ptr %0, align 8, !tbaa !26
+  %39 = load ptr, ptr %6, align 8, !tbaa !22
+  %40 = load ptr, ptr %0, align 8, !tbaa !25
   tail call void %39(ptr noundef %40, i32 noundef 8199)
-  %41 = load ptr, ptr %6, align 8, !tbaa !23
-  %42 = load ptr, ptr %0, align 8, !tbaa !26
+  %41 = load ptr, ptr %6, align 8, !tbaa !22
+  %42 = load ptr, ptr %0, align 8, !tbaa !25
   tail call void %41(ptr noundef %42, i32 noundef 8200)
-  %43 = load ptr, ptr %6, align 8, !tbaa !23
-  %44 = load ptr, ptr %0, align 8, !tbaa !26
+  %43 = load ptr, ptr %6, align 8, !tbaa !22
+  %44 = load ptr, ptr %0, align 8, !tbaa !25
   tail call void %43(ptr noundef %44, i32 noundef 8239)
-  %45 = load ptr, ptr %6, align 8, !tbaa !23
-  %46 = load ptr, ptr %0, align 8, !tbaa !26
+  %45 = load ptr, ptr %6, align 8, !tbaa !22
+  %46 = load ptr, ptr %0, align 8, !tbaa !25
   tail call void %45(ptr noundef %46, i32 noundef 8240)
-  %47 = load ptr, ptr %6, align 8, !tbaa !23
-  %48 = load ptr, ptr %0, align 8, !tbaa !26
+  %47 = load ptr, ptr %6, align 8, !tbaa !22
+  %48 = load ptr, ptr %0, align 8, !tbaa !25
   tail call void %47(ptr noundef %48, i32 noundef 97)
-  %49 = load ptr, ptr %6, align 8, !tbaa !23
-  %50 = load ptr, ptr %0, align 8, !tbaa !26
+  %49 = load ptr, ptr %6, align 8, !tbaa !22
+  %50 = load ptr, ptr %0, align 8, !tbaa !25
   tail call void %49(ptr noundef %50, i32 noundef 123)
-  %51 = load ptr, ptr %6, align 8, !tbaa !23
-  %52 = load ptr, ptr %0, align 8, !tbaa !26
+  %51 = load ptr, ptr %6, align 8, !tbaa !22
+  %52 = load ptr, ptr %0, align 8, !tbaa !25
   tail call void %51(ptr noundef %52, i32 noundef 65)
-  %53 = load ptr, ptr %6, align 8, !tbaa !23
-  %54 = load ptr, ptr %0, align 8, !tbaa !26
+  %53 = load ptr, ptr %6, align 8, !tbaa !22
+  %54 = load ptr, ptr %0, align 8, !tbaa !25
   tail call void %53(ptr noundef %54, i32 noundef 91)
-  %55 = load ptr, ptr %6, align 8, !tbaa !23
-  %56 = load ptr, ptr %0, align 8, !tbaa !26
+  %55 = load ptr, ptr %6, align 8, !tbaa !22
+  %56 = load ptr, ptr %0, align 8, !tbaa !25
   tail call void %55(ptr noundef %56, i32 noundef 65345)
-  %57 = load ptr, ptr %6, align 8, !tbaa !23
-  %58 = load ptr, ptr %0, align 8, !tbaa !26
+  %57 = load ptr, ptr %6, align 8, !tbaa !22
+  %58 = load ptr, ptr %0, align 8, !tbaa !25
   tail call void %57(ptr noundef %58, i32 noundef 65371)
-  %59 = load ptr, ptr %6, align 8, !tbaa !23
-  %60 = load ptr, ptr %0, align 8, !tbaa !26
+  %59 = load ptr, ptr %6, align 8, !tbaa !22
+  %60 = load ptr, ptr %0, align 8, !tbaa !25
   tail call void %59(ptr noundef %60, i32 noundef 65313)
-  %61 = load ptr, ptr %6, align 8, !tbaa !23
-  %62 = load ptr, ptr %0, align 8, !tbaa !26
+  %61 = load ptr, ptr %6, align 8, !tbaa !22
+  %62 = load ptr, ptr %0, align 8, !tbaa !25
   tail call void %61(ptr noundef %62, i32 noundef 65339)
-  %63 = load ptr, ptr %6, align 8, !tbaa !23
-  %64 = load ptr, ptr %0, align 8, !tbaa !26
+  %63 = load ptr, ptr %6, align 8, !tbaa !22
+  %64 = load ptr, ptr %0, align 8, !tbaa !25
   tail call void %63(ptr noundef %64, i32 noundef 103)
-  %65 = load ptr, ptr %6, align 8, !tbaa !23
-  %66 = load ptr, ptr %0, align 8, !tbaa !26
+  %65 = load ptr, ptr %6, align 8, !tbaa !22
+  %66 = load ptr, ptr %0, align 8, !tbaa !25
   tail call void %65(ptr noundef %66, i32 noundef 71)
-  %67 = load ptr, ptr %6, align 8, !tbaa !23
-  %68 = load ptr, ptr %0, align 8, !tbaa !26
+  %67 = load ptr, ptr %6, align 8, !tbaa !22
+  %68 = load ptr, ptr %0, align 8, !tbaa !25
   tail call void %67(ptr noundef %68, i32 noundef 65351)
-  %69 = load ptr, ptr %6, align 8, !tbaa !23
-  %70 = load ptr, ptr %0, align 8, !tbaa !26
+  %69 = load ptr, ptr %6, align 8, !tbaa !22
+  %70 = load ptr, ptr %0, align 8, !tbaa !25
   tail call void %69(ptr noundef %70, i32 noundef 65319)
-  %71 = load ptr, ptr %6, align 8, !tbaa !23
-  %72 = load ptr, ptr %0, align 8, !tbaa !26
+  %71 = load ptr, ptr %6, align 8, !tbaa !22
+  %72 = load ptr, ptr %0, align 8, !tbaa !25
   tail call void %71(ptr noundef %72, i32 noundef 8288)
-  %73 = load ptr, ptr %6, align 8, !tbaa !23
-  %74 = load ptr, ptr %0, align 8, !tbaa !26
+  %73 = load ptr, ptr %6, align 8, !tbaa !22
+  %74 = load ptr, ptr %0, align 8, !tbaa !25
   tail call void %73(ptr noundef %74, i32 noundef 65520)
-  %75 = load ptr, ptr %6, align 8, !tbaa !23
-  %76 = load ptr, ptr %0, align 8, !tbaa !26
+  %75 = load ptr, ptr %6, align 8, !tbaa !22
+  %76 = load ptr, ptr %0, align 8, !tbaa !25
   tail call void %75(ptr noundef %76, i32 noundef 65532)
-  %77 = load ptr, ptr %6, align 8, !tbaa !23
-  %78 = load ptr, ptr %0, align 8, !tbaa !26
+  %77 = load ptr, ptr %6, align 8, !tbaa !22
+  %78 = load ptr, ptr %0, align 8, !tbaa !25
   tail call void %77(ptr noundef %78, i32 noundef 917504)
-  %79 = load ptr, ptr %6, align 8, !tbaa !23
-  %80 = load ptr, ptr %0, align 8, !tbaa !26
+  %79 = load ptr, ptr %6, align 8, !tbaa !22
+  %80 = load ptr, ptr %0, align 8, !tbaa !25
   tail call void %79(ptr noundef %80, i32 noundef 921600)
-  %81 = load ptr, ptr %6, align 8, !tbaa !23
-  %82 = load ptr, ptr %0, align 8, !tbaa !26
+  %81 = load ptr, ptr %6, align 8, !tbaa !22
+  %82 = load ptr, ptr %0, align 8, !tbaa !25
   tail call void %81(ptr noundef %82, i32 noundef 847)
-  %83 = load ptr, ptr %6, align 8, !tbaa !23
-  %84 = load ptr, ptr %0, align 8, !tbaa !26
+  %83 = load ptr, ptr %6, align 8, !tbaa !22
+  %84 = load ptr, ptr %0, align 8, !tbaa !25
   tail call void %83(ptr noundef %84, i32 noundef 848)
   br label %85
 
@@ -3030,15 +3030,15 @@ define void @uchar_addPropertyStarts_77(ptr noundef %0, ptr noundef readonly cap
 ; Function Attrs: mustprogress uwtable
 define internal noundef signext i8 @_ZL24_enumPropertyStartsRangePKviij(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 %2, i32 %3) #2 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %6 = load ptr, ptr %5, align 8, !tbaa !23
-  %7 = load ptr, ptr %0, align 8, !tbaa !26
+  %6 = load ptr, ptr %5, align 8, !tbaa !22
+  %7 = load ptr, ptr %0, align 8, !tbaa !25
   tail call void %6(ptr noundef %7, i32 noundef %1)
   ret i8 1
 }
 
 ; Function Attrs: mustprogress uwtable
 define void @upropsvec_addPropertyStarts_77(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #2 {
-  %3 = load i32, ptr %1, align 4, !tbaa !17
+  %3 = load i32, ptr %1, align 4, !tbaa !16
   %4 = icmp slt i32 %3, 1
   br i1 %4, label %5, label %6
 
@@ -3064,13 +3064,13 @@ define void @ublock_addPropertyStarts_77(ptr noundef readonly captures(none) %0,
   br i1 %7, label %8, label %.critedge
 
 8:                                                ; preds = %5
-  %9 = load ptr, ptr %4, align 8, !tbaa !23
-  %10 = load ptr, ptr %0, align 8, !tbaa !26
+  %9 = load ptr, ptr %4, align 8, !tbaa !22
+  %10 = load ptr, ptr %0, align 8, !tbaa !25
   %11 = shl nuw nsw i32 %.06, 4
   call void %9(ptr noundef %10, i32 noundef %11)
   %12 = add nuw nsw i32 %6, 1
   %13 = icmp samesign ult i32 %6, 69631
-  br i1 %13, label %5, label %.critedge, !llvm.loop !27
+  br i1 %13, label %5, label %.critedge, !llvm.loop !26
 
 .critedge:                                        ; preds = %8, %5
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #7
@@ -3103,18 +3103,17 @@ attributes #7 = { nounwind }
 !10 = !{!8, !9, i64 8}
 !11 = !{!12, !12, i64 0}
 !12 = !{!"int", !5, i64 0}
-!13 = distinct !{!13, !14, !15}
+!13 = distinct !{!13, !14}
 !14 = !{!"llvm.loop.mustprogress"}
-!15 = !{!"llvm.loop.estimated_trip_count"}
-!16 = !{!5, !5, i64 0}
-!17 = !{!18, !18, i64 0}
-!18 = !{!"_ZTS10UErrorCode", !5, i64 0}
-!19 = distinct !{!19, !14, !15}
-!20 = !{!21, !21, i64 0}
-!21 = !{!"_ZTS11UScriptCode", !5, i64 0}
-!22 = distinct !{!22, !14, !15}
-!23 = !{!24, !9, i64 8}
-!24 = !{!"_ZTS9USetAdder", !25, i64 0, !9, i64 8, !9, i64 16, !9, i64 24, !9, i64 32, !9, i64 40}
-!25 = !{!"p1 _ZTS4USet", !9, i64 0}
-!26 = !{!24, !25, i64 0}
-!27 = distinct !{!27, !14, !15}
+!15 = !{!5, !5, i64 0}
+!16 = !{!17, !17, i64 0}
+!17 = !{!"_ZTS10UErrorCode", !5, i64 0}
+!18 = distinct !{!18, !14}
+!19 = !{!20, !20, i64 0}
+!20 = !{!"_ZTS11UScriptCode", !5, i64 0}
+!21 = distinct !{!21, !14}
+!22 = !{!23, !9, i64 8}
+!23 = !{!"_ZTS9USetAdder", !24, i64 0, !9, i64 8, !9, i64 16, !9, i64 24, !9, i64 32, !9, i64 40}
+!24 = !{!"p1 _ZTS4USet", !9, i64 0}
+!25 = !{!23, !24, i64 0}
+!26 = distinct !{!26, !14}

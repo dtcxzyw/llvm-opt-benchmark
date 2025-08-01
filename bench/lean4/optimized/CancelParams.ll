@@ -212,7 +212,7 @@ lean_inc.exit13:                                  ; preds = %35, %34, %32, %lean
 
 lean_dec.exit:                                    ; preds = %42, %41, %39, %lean_inc.exit13
   %43 = tail call ptr @l_List_foldl___at_Array_appendList___spec__1___rarg(ptr noundef %.012, ptr noundef %17) #4
-  br label %3, !llvm.loop !12
+  br label %3
 }
 
 declare ptr @lean_array_to_list(ptr noundef) local_unnamed_addr #1
@@ -964,9 +964,9 @@ _init_l_Lean_Lsp_instBEqCancelParams___closed__1.exit: ; preds = %_init_l_Lean_L
   %30 = getelementptr inbounds nuw i8, ptr %26, i64 8
   store ptr @l_Lean_Lsp_beqCancelParams____x40_Lean_Data_Lsp_CancelParams___hyg_28____boxed, ptr %30, align 8, !tbaa !10
   %31 = getelementptr inbounds nuw i8, ptr %26, i64 16
-  store i16 2, ptr %31, align 8, !tbaa !14
+  store i16 2, ptr %31, align 8, !tbaa !12
   %32 = getelementptr inbounds nuw i8, ptr %26, i64 18
-  store i16 0, ptr %32, align 2, !tbaa !14
+  store i16 0, ptr %32, align 2, !tbaa !12
   store ptr %26, ptr @l_Lean_Lsp_instBEqCancelParams___closed__1, align 8, !tbaa !10
   tail call void @lean_mark_persistent(ptr noundef nonnull %26) #4
   %33 = load ptr, ptr @l_Lean_Lsp_instBEqCancelParams___closed__1, align 8, !tbaa !10
@@ -1054,9 +1054,9 @@ _init_l_Lean_Lsp_instToJsonCancelParams___closed__1.exit: ; preds = %_init_l___p
   %61 = getelementptr inbounds nuw i8, ptr %57, i64 8
   store ptr @l___private_Lean_Data_Lsp_CancelParams_0__Lean_Lsp_toJsonCancelParams____x40_Lean_Data_Lsp_CancelParams___hyg_86_, ptr %61, align 8, !tbaa !10
   %62 = getelementptr inbounds nuw i8, ptr %57, i64 16
-  store i16 1, ptr %62, align 8, !tbaa !14
+  store i16 1, ptr %62, align 8, !tbaa !12
   %63 = getelementptr inbounds nuw i8, ptr %57, i64 18
-  store i16 0, ptr %63, align 2, !tbaa !14
+  store i16 0, ptr %63, align 2, !tbaa !12
   store ptr %57, ptr @l_Lean_Lsp_instToJsonCancelParams___closed__1, align 8, !tbaa !10
   tail call void @lean_mark_persistent(ptr noundef nonnull %57) #4
   %64 = load ptr, ptr @l_Lean_Lsp_instToJsonCancelParams___closed__1, align 8, !tbaa !10
@@ -1093,9 +1093,9 @@ _init_l___private_Lean_Data_Lsp_CancelParams_0__Lean_Lsp_fromJsonCancelParams___
   %76 = getelementptr inbounds nuw i8, ptr %72, i64 8
   store ptr @l___private_Lean_Data_Lsp_CancelParams_0__Lean_Lsp_fromJsonCancelParams____x40_Lean_Data_Lsp_CancelParams___hyg_124____lambda__1___boxed, ptr %76, align 8, !tbaa !10
   %77 = getelementptr inbounds nuw i8, ptr %72, i64 16
-  store i16 1, ptr %77, align 8, !tbaa !14
+  store i16 1, ptr %77, align 8, !tbaa !12
   %78 = getelementptr inbounds nuw i8, ptr %72, i64 18
-  store i16 0, ptr %78, align 2, !tbaa !14
+  store i16 0, ptr %78, align 2, !tbaa !12
   store ptr %72, ptr @l___private_Lean_Data_Lsp_CancelParams_0__Lean_Lsp_fromJsonCancelParams____x40_Lean_Data_Lsp_CancelParams___hyg_124____closed__5, align 8, !tbaa !10
   tail call void @lean_mark_persistent(ptr noundef nonnull %72) #4
   %79 = load ptr, ptr @l___private_Lean_Data_Lsp_CancelParams_0__Lean_Lsp_fromJsonCancelParams____x40_Lean_Data_Lsp_CancelParams___hyg_124____closed__4, align 8, !tbaa !10
@@ -1149,9 +1149,9 @@ _init_l_Lean_Lsp_instFromJsonCancelParams___closed__1.exit: ; preds = %_init_l__
   %102 = getelementptr inbounds nuw i8, ptr %98, i64 8
   store ptr @l___private_Lean_Data_Lsp_CancelParams_0__Lean_Lsp_fromJsonCancelParams____x40_Lean_Data_Lsp_CancelParams___hyg_124_, ptr %102, align 8, !tbaa !10
   %103 = getelementptr inbounds nuw i8, ptr %98, i64 16
-  store i16 1, ptr %103, align 8, !tbaa !14
+  store i16 1, ptr %103, align 8, !tbaa !12
   %104 = getelementptr inbounds nuw i8, ptr %98, i64 18
-  store i16 0, ptr %104, align 2, !tbaa !14
+  store i16 0, ptr %104, align 2, !tbaa !12
   store ptr %98, ptr @l_Lean_Lsp_instFromJsonCancelParams___closed__1, align 8, !tbaa !10
   tail call void @lean_mark_persistent(ptr noundef nonnull %98) #4
   %105 = load ptr, ptr @l_Lean_Lsp_instFromJsonCancelParams___closed__1, align 8, !tbaa !10
@@ -1228,7 +1228,5 @@ attributes #5 = { noreturn nounwind }
 !9 = !{!"branch_weights", !"expected", i32 2000, i32 1}
 !10 = !{!11, !11, i64 0}
 !11 = !{!"any pointer", !7, i64 0}
-!12 = distinct !{!12, !13}
-!13 = !{!"llvm.loop.estimated_trip_count"}
-!14 = !{!15, !15, i64 0}
-!15 = !{!"short", !7, i64 0}
+!12 = !{!13, !13, i64 0}
+!13 = !{!"short", !7, i64 0}

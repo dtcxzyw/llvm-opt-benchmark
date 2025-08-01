@@ -480,7 +480,7 @@ tailrecurse.backedge:                             ; preds = %.critedge, %29
 
 tailrecurse.backedge277:                          ; preds = %tailrecurse.backedge, %.critedge89, %126, %6, %22, %45, %59, %71, %77, %.critedge87, %148, %150
   %.066.be = phi ptr [ %21, %tailrecurse.backedge ], [ %8, %6 ], [ %24, %22 ], [ %47, %45 ], [ %61, %59 ], [ %76, %71 ], [ %79, %77 ], [ %109, %.critedge87 ], [ %149, %148 ], [ %151, %150 ], [ %121, %126 ], [ %121, %.critedge89 ]
-  br label %tailrecurse, !llvm.loop !10
+  br label %tailrecurse
 
 22:                                               ; preds = %tailrecurse, %tailrecurse
   %23 = getelementptr inbounds nuw i8, ptr %.066, i64 24
@@ -533,7 +533,7 @@ tailrecurse.backedge277:                          ; preds = %tailrecurse.backedg
   %indvars.iv.next192 = add nuw nsw i64 %indvars.iv191, 1
   %exitcond195.not = icmp ne i64 %indvars.iv.next192, %wide.trip.count194
   %or.cond263.not = select i1 %44, i1 %exitcond195.not, i1 false
-  br i1 %or.cond263.not, label %.lr.ph151, label %expr_list_is_constant_eval.exit, !llvm.loop !11
+  br i1 %or.cond263.not, label %.lr.ph151, label %expr_list_is_constant_eval.exit, !llvm.loop !9
 
 45:                                               ; preds = %tailrecurse
   %46 = getelementptr inbounds nuw i8, ptr %.066, i64 32
@@ -595,7 +595,7 @@ tailrecurse.backedge277:                          ; preds = %tailrecurse.backedg
   %indvars.iv.next187 = add nuw nsw i64 %indvars.iv186, 1
   %exitcond190.not = icmp ne i64 %indvars.iv.next187, %wide.trip.count189
   %or.cond265.not = select i1 %70, i1 %exitcond190.not, i1 false
-  br i1 %or.cond265.not, label %.lr.ph145, label %expr_list_is_constant_eval.exit, !llvm.loop !11
+  br i1 %or.cond265.not, label %.lr.ph145, label %expr_list_is_constant_eval.exit, !llvm.loop !9
 
 71:                                               ; preds = %tailrecurse
   %72 = getelementptr inbounds nuw i8, ptr %.066, i64 24
@@ -634,7 +634,7 @@ tailrecurse.backedge277:                          ; preds = %tailrecurse.backedg
   %indvars.iv.next182 = add nuw nsw i64 %indvars.iv181, 1
   %exitcond185.not = icmp ne i64 %indvars.iv.next182, %wide.trip.count184
   %or.cond267.not = select i1 %88, i1 %exitcond185.not, i1 false
-  br i1 %or.cond267.not, label %.lr.ph139, label %expr_list_is_constant_eval.exit, !llvm.loop !11
+  br i1 %or.cond267.not, label %.lr.ph139, label %expr_list_is_constant_eval.exit, !llvm.loop !9
 
 89:                                               ; preds = %tailrecurse
   %90 = getelementptr inbounds nuw i8, ptr %.066, i64 24
@@ -660,7 +660,7 @@ tailrecurse.backedge277:                          ; preds = %tailrecurse.backedg
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp ne i64 %indvars.iv.next, %wide.trip.count
   %or.cond269.not = select i1 %97, i1 %exitcond.not, i1 false
-  br i1 %or.cond269.not, label %.lr.ph, label %expr_list_is_constant_eval.exit, !llvm.loop !11
+  br i1 %or.cond269.not, label %.lr.ph, label %expr_list_is_constant_eval.exit, !llvm.loop !9
 
 98:                                               ; preds = %tailrecurse
   %99 = getelementptr inbounds nuw i8, ptr %.066, i64 24
@@ -1241,7 +1241,7 @@ define dso_local noundef zeroext i1 @expr_is_compile_time(ptr noundef readonly c
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %13 = load i32, ptr %12, align 8
   %14 = tail call zeroext i1 @ast_is_compile_time(ptr noundef nonnull %11) #12
-  br i1 %14, label %7, label %.loopexit, !llvm.loop !12
+  br i1 %14, label %7, label %.loopexit, !llvm.loop !10
 
 15:                                               ; preds = %1
   br label %.loopexit
@@ -1348,7 +1348,7 @@ define dso_local void @expr_rewrite_to_const_zero(ptr noundef captures(none) %0,
 25:                                               ; preds = %22, %16
   %.1.in.i = phi ptr [ %21, %16 ], [ %23, %22 ]
   %.1.i = load ptr, ptr %.1.in.i, align 8
-  br label %12, !llvm.loop !13
+  br label %12
 
 type_flatten.exit:                                ; preds = %12
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -1396,7 +1396,7 @@ type_flatten.exit:                                ; preds = %12
 46:                                               ; preds = %43, %37
   %.1.in.i88 = phi ptr [ %42, %37 ], [ %44, %43 ]
   %.1.i89 = load ptr, ptr %.1.in.i88, align 8
-  br label %33, !llvm.loop !13
+  br label %33
 
 type_flatten.exit90:                              ; preds = %33
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -1566,7 +1566,7 @@ define dso_local noundef zeroext i1 @expr_rewrite_to_const_initializer_index(ptr
 36:                                               ; preds = %.lr.ph.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %.thread, label %.lr.ph.i, !llvm.loop !14
+  br i1 %exitcond.not.i, label %.thread, label %.lr.ph.i, !llvm.loop !11
 
 .lr.ph.i:                                         ; preds = %36, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %36 ]
@@ -1894,7 +1894,7 @@ tailrecurse.backedge:                             ; preds = %4, %10, %17, %32, %
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp ne i64 %indvars.iv.next, %wide.trip.count
   %or.cond.not = select i1 %89, i1 %exitcond.not, i1 false
-  br i1 %or.cond.not, label %.lr.ph246, label %.critedge, !llvm.loop !15
+  br i1 %or.cond.not, label %.lr.ph246, label %.critedge, !llvm.loop !12
 
 90:                                               ; preds = %.lr.ph
   %91 = getelementptr inbounds nuw i8, ptr %.tr135, i64 24
@@ -2097,7 +2097,7 @@ tailrecurse.us:                                   ; preds = %2, %tailrecurse.us.
 
 tailrecurse.us.backedge:                          ; preds = %.backedge.us, %tailrecurse.backedge.us
   %.024.us.be = phi ptr [ %.024.be.us, %.backedge.us ], [ %.tr.be.us, %tailrecurse.backedge.us ]
-  br label %tailrecurse.us, !llvm.loop !16
+  br label %tailrecurse.us, !llvm.loop !13
 
 tailrecurse.backedge.us:                          ; preds = %15, %9
   %.pn37.in.in = getelementptr inbounds nuw i8, ptr %.024.us, i64 28
@@ -2126,7 +2126,7 @@ tailrecurse:                                      ; preds = %2, %tailrecurse.bac
 
 tailrecurse.backedge82:                           ; preds = %.backedge, %tailrecurse.backedge
   %.024.be83 = phi ptr [ %.024.be, %.backedge ], [ %.tr.be, %tailrecurse.backedge ]
-  br label %tailrecurse, !llvm.loop !18
+  br label %tailrecurse
 
 23:                                               ; preds = %tailrecurse
   %24 = getelementptr inbounds nuw i8, ptr %.024, i64 32
@@ -2249,7 +2249,7 @@ define dso_local noundef ptr @expr_new_const_int(i64 %0, ptr noundef %1, i64 nou
 23:                                               ; preds = %20, %14
   %.1.in.i = phi ptr [ %19, %14 ], [ %21, %20 ]
   %.1.i = load ptr, ptr %.1.in.i, align 8
-  br label %10, !llvm.loop !13
+  br label %10
 
 type_flatten.exit:                                ; preds = %10
   %24 = add i32 %13, -3
@@ -2494,7 +2494,7 @@ define dso_local void @expr_rewrite_insert_deref(ptr noundef captures(none) %0) 
   br i1 %21, label %22, label %48
 
 22:                                               ; preds = %13
-  %23 = load ptr, ptr %14, align 8, !nonnull !19, !noundef !19
+  %23 = load ptr, ptr %14, align 8, !nonnull !15, !noundef !15
   %24 = load i32, ptr %23, align 8
   %25 = icmp eq i32 %24, 40
   br i1 %25, label %thread-pre-split, label %28
@@ -2640,16 +2640,12 @@ attributes #14 = { nounwind willreturn memory(read) }
 !4 = !{i32 7, !"PIE Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i32 7, !"frame-pointer", i32 2}
-!7 = distinct !{!7, !8, !9}
+!7 = distinct !{!7, !8}
 !8 = !{!"llvm.loop.mustprogress"}
-!9 = !{!"llvm.loop.estimated_trip_count"}
-!10 = distinct !{!10, !9}
-!11 = distinct !{!11, !8, !9}
-!12 = distinct !{!12, !8, !9}
-!13 = distinct !{!13, !9}
-!14 = distinct !{!14, !8, !9}
-!15 = distinct !{!15, !8, !9}
-!16 = distinct !{!16, !17}
-!17 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!18 = distinct !{!18, !9}
-!19 = !{}
+!9 = distinct !{!9, !8}
+!10 = distinct !{!10, !8}
+!11 = distinct !{!11, !8}
+!12 = distinct !{!12, !8}
+!13 = distinct !{!13, !14}
+!14 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!15 = !{}

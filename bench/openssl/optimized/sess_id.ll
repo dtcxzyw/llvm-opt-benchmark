@@ -83,7 +83,7 @@ define dso_local range(i32 0, 2) i32 @sess_id_main(i32 noundef %0, ptr noundef %
   br label %6, !llvm.loop !8
 
 .loopexit:                                        ; preds = %6, %14, %11, %29
-  %8 = load ptr, ptr @bio_err, align 8, !tbaa !11
+  %8 = load ptr, ptr @bio_err, align 8, !tbaa !10
   %9 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %8, ptr noundef nonnull @.str.21, ptr noundef %5) #4
   br label %.thread
 
@@ -156,9 +156,9 @@ define dso_local range(i32 0, 2) i32 @sess_id_main(i32 noundef %0, ptr noundef %
   br i1 %42, label %43, label %48
 
 43:                                               ; preds = %41
-  %44 = load ptr, ptr @bio_err, align 8, !tbaa !11
+  %44 = load ptr, ptr @bio_err, align 8, !tbaa !10
   %45 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %44, ptr noundef nonnull @.str.28) #4
-  %46 = load ptr, ptr @bio_err, align 8, !tbaa !11
+  %46 = load ptr, ptr @bio_err, align 8, !tbaa !10
   call void @ERR_print_errors(ptr noundef %46) #4
   br label %load_sess_id.exit.thread
 
@@ -178,7 +178,7 @@ load_sess_id.exit.thread:                         ; preds = %31, %43
   br i1 %53, label %54, label %57
 
 54:                                               ; preds = %51
-  %55 = load ptr, ptr @bio_err, align 8, !tbaa !11
+  %55 = load ptr, ptr @bio_err, align 8, !tbaa !10
   %56 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %55, ptr noundef nonnull @.str.22) #4
   br label %.thread
 
@@ -189,7 +189,7 @@ load_sess_id.exit.thread:                         ; preds = %31, %43
   br i1 %.not85, label %60, label %63
 
 60:                                               ; preds = %57
-  %61 = load ptr, ptr @bio_err, align 8, !tbaa !11
+  %61 = load ptr, ptr @bio_err, align 8, !tbaa !10
   %62 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %61, ptr noundef nonnull @.str.23) #4
   br label %.thread
 
@@ -252,7 +252,7 @@ load_sess_id.exit.thread:                         ; preds = %31, %43
   br label %93
 
 90:                                               ; preds = %82
-  %91 = load ptr, ptr @bio_err, align 8, !tbaa !11
+  %91 = load ptr, ptr @bio_err, align 8, !tbaa !10
   %92 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %91, ptr noundef nonnull @.str.25) #4
   br label %.thread
 
@@ -262,7 +262,7 @@ load_sess_id.exit.thread:                         ; preds = %31, %43
   br i1 %.not87, label %94, label %.thread
 
 94:                                               ; preds = %93
-  %95 = load ptr, ptr @bio_err, align 8, !tbaa !11
+  %95 = load ptr, ptr @bio_err, align 8, !tbaa !10
   %96 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %95, ptr noundef nonnull @.str.26) #4
   br label %.thread
 
@@ -287,7 +287,7 @@ load_sess_id.exit.thread:                         ; preds = %31, %43
   br label %107
 
 104:                                              ; preds = %98
-  %105 = load ptr, ptr @bio_err, align 8, !tbaa !11
+  %105 = load ptr, ptr @bio_err, align 8, !tbaa !10
   %106 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %105, ptr noundef nonnull @.str.25) #4
   br label %.thread
 
@@ -297,7 +297,7 @@ load_sess_id.exit.thread:                         ; preds = %31, %43
   br i1 %.not88, label %108, label %.thread
 
 108:                                              ; preds = %107
-  %109 = load ptr, ptr @bio_err, align 8, !tbaa !11
+  %109 = load ptr, ptr @bio_err, align 8, !tbaa !10
   %110 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %109, ptr noundef nonnull @.str.27) #4
   br label %.thread
 
@@ -392,9 +392,8 @@ attributes #5 = { nounwind willreturn memory(read) }
 !5 = !{!"int", !6, i64 0}
 !6 = !{!"omnipotent char", !7, i64 0}
 !7 = !{!"Simple C/C++ TBAA"}
-!8 = distinct !{!8, !9, !10}
+!8 = distinct !{!8, !9}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = !{!"llvm.loop.estimated_trip_count"}
-!11 = !{!12, !12, i64 0}
-!12 = !{!"p1 _ZTS6bio_st", !13, i64 0}
-!13 = !{!"any pointer", !6, i64 0}
+!10 = !{!11, !11, i64 0}
+!11 = !{!"p1 _ZTS6bio_st", !12, i64 0}
+!12 = !{!"any pointer", !6, i64 0}

@@ -147,7 +147,7 @@ define hidden noundef zeroext i1 @SDL_GetPowerInfo_Linux_proc_acpi(ptr noundef w
 35:                                               ; preds = %.preheader104.i
   %36 = getelementptr inbounds nuw i8, ptr %.1.i.i, i64 1
   %.pr.i = load i8, ptr %36, align 1
-  br label %.preheader104.i, !llvm.loop !6
+  br label %.preheader104.i, !llvm.loop !5
 
 37:                                               ; preds = %.preheader104.i
   store i8 0, ptr %.1.i.i, align 1
@@ -160,7 +160,7 @@ define hidden noundef zeroext i1 @SDL_GetPowerInfo_Linux_proc_acpi(ptr noundef w
   switch i8 %39, label %.preheader102.i [
     i8 32, label %38
     i8 0, label %.loopexit103.i.preheader
-  ], !llvm.loop !7
+  ]
 
 .preheader102.i:                                  ; preds = %38, %41
   %40 = phi i8 [ %.pr76.i, %41 ], [ %39, %38 ]
@@ -173,7 +173,7 @@ define hidden noundef zeroext i1 @SDL_GetPowerInfo_Linux_proc_acpi(ptr noundef w
 41:                                               ; preds = %.preheader102.i
   %42 = getelementptr inbounds nuw i8, ptr %.3.i.i, i64 1
   %.pr76.i = load i8, ptr %42, align 1
-  br label %.preheader102.i, !llvm.loop !8
+  br label %.preheader102.i, !llvm.loop !6
 
 43:                                               ; preds = %.preheader102.i
   %44 = getelementptr inbounds nuw i8, ptr %.3.i.i, i64 1
@@ -190,7 +190,7 @@ make_proc_acpi_key_val.exit.i:                    ; preds = %.preheader102.i, %4
   %48 = call i32 @SDL_strcasecmp_REAL(ptr noundef nonnull %.2.i.i, ptr noundef nonnull @.str.24) #6
   %49 = icmp eq i32 %48, 0
   %spec.select = select i1 %49, i1 true, i1 %.138.ph
-  br label %.outer240, !llvm.loop !9
+  br label %.outer240, !llvm.loop !7
 
 50:                                               ; preds = %make_proc_acpi_key_val.exit.i
   %51 = call i32 @SDL_strcasecmp_REAL(ptr noundef nonnull %.0.i44.i, ptr noundef nonnull @.str.25) #6
@@ -204,7 +204,7 @@ make_proc_acpi_key_val.exit.i:                    ; preds = %.preheader102.i, %4
 
 .outer245.backedge:                               ; preds = %53, %56
   %.0.i.ph247.be = phi i1 [ %spec.select.i, %56 ], [ true, %53 ]
-  br label %.outer245, !llvm.loop !9
+  br label %.outer245, !llvm.loop !7
 
 56:                                               ; preds = %53
   %57 = call i32 @SDL_strcasecmp_REAL(ptr noundef nonnull %.2.i.i, ptr noundef nonnull @.str.27) #6
@@ -215,7 +215,7 @@ make_proc_acpi_key_val.exit.i:                    ; preds = %.preheader102.i, %4
 59:                                               ; preds = %50
   %60 = call i32 @SDL_strcasecmp_REAL(ptr noundef nonnull %.0.i44.i, ptr noundef nonnull @.str.28) #6
   %61 = icmp eq i32 %60, 0
-  br i1 %61, label %62, label %29, !llvm.loop !9
+  br i1 %61, label %62, label %29, !llvm.loop !7
 
 62:                                               ; preds = %59
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #6
@@ -227,7 +227,7 @@ make_proc_acpi_key_val.exit.i:                    ; preds = %.preheader102.i, %4
   %67 = trunc i64 %63 to i32
   %spec.select37.i = select i1 %66, i32 %67, i32 %.033.i.ph243
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #6
-  br label %.outer241, !llvm.loop !9
+  br label %.outer241, !llvm.loop !7
 
 .loopexit103.i.preheader:                         ; preds = %30, %.preheader104.i, %38
   br label %.loopexit103.i.outer
@@ -264,7 +264,7 @@ make_proc_acpi_key_val.exit.i:                    ; preds = %.preheader102.i, %4
 73:                                               ; preds = %.preheader99.i
   %74 = getelementptr inbounds nuw i8, ptr %.1.i47.i, i64 1
   %.pr83.i = load i8, ptr %74, align 1
-  br label %.preheader99.i, !llvm.loop !6
+  br label %.preheader99.i, !llvm.loop !5
 
 75:                                               ; preds = %.preheader99.i
   store i8 0, ptr %.1.i47.i, align 1
@@ -277,7 +277,7 @@ make_proc_acpi_key_val.exit.i:                    ; preds = %.preheader102.i, %4
   switch i8 %77, label %.preheader.i [
     i8 32, label %76
     i8 0, label %.loopexit.i
-  ], !llvm.loop !7
+  ]
 
 .preheader.i:                                     ; preds = %76, %79
   %78 = phi i8 [ %.pr84.i, %79 ], [ %77, %76 ]
@@ -290,7 +290,7 @@ make_proc_acpi_key_val.exit.i:                    ; preds = %.preheader102.i, %4
 79:                                               ; preds = %.preheader.i
   %80 = getelementptr inbounds nuw i8, ptr %.3.i50.i, i64 1
   %.pr84.i = load i8, ptr %80, align 1
-  br label %.preheader.i, !llvm.loop !8
+  br label %.preheader.i, !llvm.loop !6
 
 81:                                               ; preds = %.preheader.i
   %82 = getelementptr inbounds nuw i8, ptr %.3.i50.i, i64 1
@@ -301,7 +301,7 @@ make_proc_acpi_key_val.exit53.i:                  ; preds = %.preheader.i, %81
   %.373.i = phi ptr [ %82, %81 ], [ %.3.i50.i, %.preheader.i ]
   %83 = call i32 @SDL_strcasecmp_REAL(ptr noundef nonnull %.0.i45.i, ptr noundef nonnull @.str.29) #6
   %84 = icmp eq i32 %83, 0
-  br i1 %84, label %85, label %.loopexit103.i, !llvm.loop !10
+  br i1 %84, label %85, label %.loopexit103.i, !llvm.loop !8
 
 85:                                               ; preds = %make_proc_acpi_key_val.exit53.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #6
@@ -313,7 +313,7 @@ make_proc_acpi_key_val.exit53.i:                  ; preds = %.preheader.i, %81
   %90 = trunc i64 %86 to i32
   %spec.select38.i = select i1 %89, i32 %90, i32 %.031.i.ph
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #6
-  br label %.loopexit103.i.outer, !llvm.loop !10
+  br label %.loopexit103.i.outer, !llvm.loop !8
 
 .loopexit.i:                                      ; preds = %68, %.preheader99.i, %76
   %91 = icmp sgt i32 %.031.i.ph, -1
@@ -377,7 +377,7 @@ check_proc_acpi_battery.exit:                     ; preds = %.lr.ph, %15, %19, %
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %5) #6
   %112 = call ptr @readdir(ptr noundef nonnull %9) #6
   %.not22 = icmp eq ptr %112, null
-  br i1 %.not22, label %._crit_edge, label %.lr.ph, !llvm.loop !11
+  br i1 %.not22, label %._crit_edge, label %.lr.ph, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %check_proc_acpi_battery.exit, %.preheader48
   %.037.lcssa = phi i1 [ false, %.preheader48 ], [ %.340, %check_proc_acpi_battery.exit ]
@@ -444,7 +444,7 @@ check_proc_acpi_battery.exit:                     ; preds = %.lr.ph, %15, %19, %
 132:                                              ; preds = %.preheader16.i
   %133 = getelementptr inbounds nuw i8, ptr %.1.i.i25, i64 1
   %.pr.i31 = load i8, ptr %133, align 1
-  br label %.preheader16.i, !llvm.loop !6
+  br label %.preheader16.i, !llvm.loop !5
 
 134:                                              ; preds = %.preheader16.i
   store i8 0, ptr %.1.i.i25, align 1
@@ -457,7 +457,7 @@ check_proc_acpi_battery.exit:                     ; preds = %.lr.ph, %15, %19, %
   switch i8 %136, label %.preheader.i28 [
     i8 32, label %135
     i8 0, label %check_proc_acpi_ac_adapter.exit
-  ], !llvm.loop !7
+  ]
 
 .preheader.i28:                                   ; preds = %135, %138
   %137 = phi i8 [ %.pr11.i, %138 ], [ %136, %135 ]
@@ -470,7 +470,7 @@ check_proc_acpi_battery.exit:                     ; preds = %.lr.ph, %15, %19, %
 138:                                              ; preds = %.preheader.i28
   %139 = getelementptr inbounds nuw i8, ptr %.3.i.i29, i64 1
   %.pr11.i = load i8, ptr %139, align 1
-  br label %.preheader.i28, !llvm.loop !8
+  br label %.preheader.i28, !llvm.loop !6
 
 140:                                              ; preds = %.preheader.i28
   %141 = getelementptr inbounds nuw i8, ptr %.3.i.i29, i64 1
@@ -481,20 +481,20 @@ make_proc_acpi_key_val.exit.i30:                  ; preds = %.preheader.i28, %14
   %.19.i = phi ptr [ %141, %140 ], [ %.3.i.i29, %.preheader.i28 ]
   %142 = call i32 @SDL_strcasecmp_REAL(ptr noundef nonnull %.0.i3.i, ptr noundef nonnull @.str.22) #6
   %143 = icmp eq i32 %142, 0
-  br i1 %143, label %144, label %126, !llvm.loop !12
+  br i1 %143, label %144, label %126, !llvm.loop !10
 
 144:                                              ; preds = %make_proc_acpi_key_val.exit.i30
   %145 = call i32 @SDL_strcasecmp_REAL(ptr noundef nonnull %.2.i.i27, ptr noundef nonnull @.str.31) #6
   %146 = icmp eq i32 %145, 0
   %spec.select41 = select i1 %146, i1 true, i1 %.136.ph
-  br label %.outer, !llvm.loop !12
+  br label %.outer, !llvm.loop !10
 
 check_proc_acpi_ac_adapter.exit:                  ; preds = %127, %.preheader16.i, %135, %.lr.ph92, %120
   %.3 = phi i1 [ %.03591, %.lr.ph92 ], [ %.03591, %120 ], [ %.136.ph, %135 ], [ %.136.ph, %.preheader16.i ], [ %.136.ph, %127 ]
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %4) #6
   %147 = call ptr @readdir(ptr noundef nonnull %114) #6
   %.not24 = icmp eq ptr %147, null
-  br i1 %.not24, label %._crit_edge93.loopexit, label %.lr.ph92, !llvm.loop !13
+  br i1 %.not24, label %._crit_edge93.loopexit, label %.lr.ph92, !llvm.loop !11
 
 ._crit_edge93.loopexit:                           ; preds = %check_proc_acpi_ac_adapter.exit
   %148 = select i1 %.3, i32 4, i32 1
@@ -580,7 +580,7 @@ define hidden noundef zeroext i1 @SDL_GetPowerInfo_Linux_proc_apm(ptr noundef wr
 22:                                               ; preds = %.preheader.i
   %23 = getelementptr inbounds nuw i8, ptr %.1.i, i64 1
   %.pr.i = load i8, ptr %23, align 1
-  br label %.preheader.i, !llvm.loop !14
+  br label %.preheader.i, !llvm.loop !12
 
 24:                                               ; preds = %.preheader.i, %.preheader.i
   %25 = getelementptr inbounds nuw i8, ptr %.1.i, i64 1
@@ -612,7 +612,7 @@ next_string.exit:                                 ; preds = %next_string.exit.pr
 29:                                               ; preds = %.preheader.i28
   %30 = getelementptr inbounds nuw i8, ptr %.1.i29, i64 1
   %.pr.i32 = load i8, ptr %30, align 1
-  br label %.preheader.i28, !llvm.loop !14
+  br label %.preheader.i28, !llvm.loop !12
 
 31:                                               ; preds = %.preheader.i28, %.preheader.i28
   %32 = getelementptr inbounds nuw i8, ptr %.1.i29, i64 1
@@ -644,7 +644,7 @@ next_string.exit33:                               ; preds = %next_string.exit33.
 36:                                               ; preds = %.preheader.i35
   %37 = getelementptr inbounds nuw i8, ptr %.1.i36, i64 1
   %.pr.i39 = load i8, ptr %37, align 1
-  br label %.preheader.i35, !llvm.loop !14
+  br label %.preheader.i35, !llvm.loop !12
 
 38:                                               ; preds = %.preheader.i35, %.preheader.i35
   %39 = getelementptr inbounds nuw i8, ptr %.1.i36, i64 1
@@ -676,7 +676,7 @@ next_string.exit40:                               ; preds = %next_string.exit40.
 43:                                               ; preds = %.preheader.i42
   %44 = getelementptr inbounds nuw i8, ptr %.1.i43, i64 1
   %.pr.i46 = load i8, ptr %44, align 1
-  br label %.preheader.i42, !llvm.loop !14
+  br label %.preheader.i42, !llvm.loop !12
 
 45:                                               ; preds = %.preheader.i42, %.preheader.i42
   %46 = getelementptr inbounds nuw i8, ptr %.1.i43, i64 1
@@ -724,7 +724,7 @@ int_string.exit:                                  ; preds = %next_string.exit47
 55:                                               ; preds = %.preheader.i49
   %56 = getelementptr inbounds nuw i8, ptr %.1.i50, i64 1
   %.pr.i53 = load i8, ptr %56, align 1
-  br label %.preheader.i49, !llvm.loop !14
+  br label %.preheader.i49, !llvm.loop !12
 
 57:                                               ; preds = %.preheader.i49, %.preheader.i49
   %58 = getelementptr inbounds nuw i8, ptr %.1.i50, i64 1
@@ -757,7 +757,7 @@ next_string.exit54:                               ; preds = %.preheader.i49, %57
 63:                                               ; preds = %.preheader.i56
   %64 = getelementptr inbounds nuw i8, ptr %.1.i57, i64 1
   %.pr.i60 = load i8, ptr %64, align 1
-  br label %.preheader.i56, !llvm.loop !14
+  br label %.preheader.i56, !llvm.loop !12
 
 65:                                               ; preds = %.preheader.i56, %.preheader.i56
   %66 = getelementptr inbounds nuw i8, ptr %.1.i57, i64 1
@@ -790,7 +790,7 @@ next_string.exit61:                               ; preds = %.preheader.i56, %65
 71:                                               ; preds = %.preheader.i63
   %72 = getelementptr inbounds nuw i8, ptr %.1.i64, i64 1
   %.pr.i67 = load i8, ptr %72, align 1
-  br label %.preheader.i63, !llvm.loop !14
+  br label %.preheader.i63, !llvm.loop !12
 
 73:                                               ; preds = %.preheader.i63, %.preheader.i63
   %74 = getelementptr inbounds nuw i8, ptr %.1.i64, i64 1
@@ -838,7 +838,7 @@ next_string.exit68:                               ; preds = %.preheader.i63, %73
 89:                                               ; preds = %.preheader.i70
   %90 = getelementptr inbounds nuw i8, ptr %.1.i71, i64 1
   %.pr.i74 = load i8, ptr %90, align 1
-  br label %.preheader.i70, !llvm.loop !14
+  br label %.preheader.i70, !llvm.loop !12
 
 91:                                               ; preds = %.preheader.i70, %.preheader.i70
   %92 = getelementptr inbounds nuw i8, ptr %.1.i71, i64 1
@@ -871,7 +871,7 @@ next_string.exit75:                               ; preds = %.preheader.i70, %91
 97:                                               ; preds = %.preheader.i77
   %98 = getelementptr inbounds nuw i8, ptr %.1.i78, i64 1
   %.pr.i81 = load i8, ptr %98, align 1
-  br label %.preheader.i77, !llvm.loop !14
+  br label %.preheader.i77, !llvm.loop !12
 
 99:                                               ; preds = %.preheader.i77, %.preheader.i77
   store i8 0, ptr %.1.i78, align 1
@@ -1000,12 +1000,12 @@ define hidden noundef zeroext i1 @SDL_GetPowerInfo_Linux_sys_class_power_supply(
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4) #6
   %10 = call i32 @SDL_strcmp_REAL(ptr noundef nonnull %9, ptr noundef nonnull @.str.1) #6
   %11 = icmp eq i32 %10, 0
-  br i1 %11, label %read_power_file.exit.thread, label %12, !llvm.loop !15
+  br i1 %11, label %read_power_file.exit.thread, label %12, !llvm.loop !13
 
 12:                                               ; preds = %.lr.ph
   %13 = call i32 @SDL_strcmp_REAL(ptr noundef nonnull %9, ptr noundef nonnull @.str.2) #6
   %14 = icmp eq i32 %13, 0
-  br i1 %14, label %read_power_file.exit.thread, label %15, !llvm.loop !15
+  br i1 %14, label %read_power_file.exit.thread, label %15, !llvm.loop !13
 
 15:                                               ; preds = %12
   %16 = call fastcc i32 @open_power_file(ptr noundef nonnull @.str.33, ptr noundef nonnull %9, ptr noundef nonnull @.str.3)
@@ -1023,7 +1023,7 @@ define hidden noundef zeroext i1 @SDL_GetPowerInfo_Linux_sys_class_power_supply(
   store i8 0, ptr %23, align 1
   %24 = call i32 @SDL_strcasecmp_REAL(ptr noundef nonnull %4, ptr noundef nonnull @.str.4) #6
   %.not60 = icmp eq i32 %24, 0
-  br i1 %.not60, label %25, label %read_power_file.exit.thread, !llvm.loop !15
+  br i1 %.not60, label %25, label %read_power_file.exit.thread, !llvm.loop !13
 
 25:                                               ; preds = %22
   %26 = call fastcc i32 @open_power_file(ptr noundef nonnull @.str.33, ptr noundef nonnull %9, ptr noundef nonnull @.str.5)
@@ -1041,7 +1041,7 @@ define hidden noundef zeroext i1 @SDL_GetPowerInfo_Linux_sys_class_power_supply(
   store i8 0, ptr %33, align 1
   %34 = call i32 @SDL_strcasecmp_REAL(ptr noundef nonnull %4, ptr noundef nonnull @.str.6) #6
   %35 = icmp eq i32 %34, 0
-  br i1 %35, label %read_power_file.exit.thread, label %read_power_file.exit64.thread, !llvm.loop !15
+  br i1 %35, label %read_power_file.exit.thread, label %read_power_file.exit64.thread, !llvm.loop !13
 
 read_power_file.exit64.thread:                    ; preds = %28, %25, %32
   %36 = call fastcc i32 @open_power_file(ptr noundef nonnull @.str.33, ptr noundef nonnull %9, ptr noundef nonnull @.str.7)
@@ -1216,7 +1216,7 @@ read_power_file.exit.thread:                      ; preds = %118, %18, %15, %.th
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4) #6
   %124 = call ptr @readdir(ptr noundef nonnull %5) #6
   %.not59 = icmp eq ptr %124, null
-  br i1 %.not59, label %._crit_edge, label %.lr.ph, !llvm.loop !16
+  br i1 %.not59, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %read_power_file.exit.thread, %6
   %125 = call i32 @closedir(ptr noundef nonnull %5)
@@ -1372,7 +1372,7 @@ check_upower_device.exit:                         ; preds = %.lr.ph, %23, %26, %
   %59 = load i32, ptr %8, align 4
   %60 = sext i32 %59 to i64
   %61 = icmp slt i64 %indvars.iv.next, %60
-  br i1 %61, label %.lr.ph, label %._crit_edge, !llvm.loop !17
+  br i1 %61, label %.lr.ph, label %._crit_edge, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %check_upower_device.exit, %14
   %62 = getelementptr inbounds nuw i8, ptr %9, i64 384
@@ -1431,18 +1431,15 @@ attributes #6 = { nounwind }
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = distinct !{!3, !4, !5}
+!3 = distinct !{!3, !4}
 !4 = !{!"llvm.loop.mustprogress"}
-!5 = !{!"llvm.loop.estimated_trip_count"}
-!6 = distinct !{!6, !4, !5}
-!7 = distinct !{!7, !5}
-!8 = distinct !{!8, !4, !5}
-!9 = distinct !{!9, !4, !5}
-!10 = distinct !{!10, !4, !5}
-!11 = distinct !{!11, !4, !5}
-!12 = distinct !{!12, !4, !5}
-!13 = distinct !{!13, !4, !5}
-!14 = distinct !{!14, !4, !5}
-!15 = distinct !{!15, !4}
-!16 = distinct !{!16, !5}
-!17 = distinct !{!17, !4, !5}
+!5 = distinct !{!5, !4}
+!6 = distinct !{!6, !4}
+!7 = distinct !{!7, !4}
+!8 = distinct !{!8, !4}
+!9 = distinct !{!9, !4}
+!10 = distinct !{!10, !4}
+!11 = distinct !{!11, !4}
+!12 = distinct !{!12, !4}
+!13 = distinct !{!13, !4}
+!14 = distinct !{!14, !4}

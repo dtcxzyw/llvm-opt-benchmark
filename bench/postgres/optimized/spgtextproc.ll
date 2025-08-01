@@ -311,7 +311,7 @@ formTextDatum.exit124:                            ; preds = %131, %127
   %.224.i = phi i32 [ %.02227.i, %158 ], [ %150, %.lr.ph.i125 ]
   %.221.i = phi i32 [ %159, %158 ], [ %.01928.i, %.lr.ph.i125 ]
   %161 = icmp slt i32 %.221.i, %.224.i
-  br i1 %161, label %.lr.ph.i125, label %.loopexit, !llvm.loop !9
+  br i1 %161, label %.lr.ph.i125, label %.loopexit, !llvm.loop !8
 
 searchChar.exit:                                  ; preds = %156
   store i32 1, ptr %7, align 8
@@ -584,7 +584,7 @@ commonPrefix.exit:                                ; preds = %.lr.ph.i, %100, %95
   %106 = icmp slt i64 %indvars.iv.next, %105
   %107 = icmp sgt i32 %spec.select, 0
   %108 = select i1 %106, i1 %107, i1 false
-  br i1 %108, label %42, label %._crit_edge, !llvm.loop !10
+  br i1 %108, label %42, label %._crit_edge, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %commonPrefix.exit, %34
   %.0130.lcssa = phi i32 [ %35, %34 ], [ %spec.select, %commonPrefix.exit ]
@@ -722,7 +722,7 @@ formTextDatum.exit:                               ; preds = %126, %122
   %185 = load i32, ptr %4, align 8
   %186 = sext i32 %185 to i64
   %187 = icmp slt i64 %indvars.iv.next191, %186
-  br i1 %187, label %139, label %._crit_edge182, !llvm.loop !11
+  br i1 %187, label %139, label %._crit_edge182, !llvm.loop !10
 
 ._crit_edge182:                                   ; preds = %177, %.._crit_edge182_crit_edge
   %.pre-phi = phi i64 [ %.pre197, %.._crit_edge182_crit_edge ], [ %186, %177 ]
@@ -905,7 +905,7 @@ formTextDatum.exit173:                            ; preds = %.sink.split.i170, %
   %297 = load i32, ptr %4, align 8
   %298 = sext i32 %297 to i64
   %299 = icmp slt i64 %indvars.iv.next194, %298
-  br i1 %299, label %208, label %._crit_edge187, !llvm.loop !12
+  br i1 %299, label %208, label %._crit_edge187, !llvm.loop !11
 
 ._crit_edge187:                                   ; preds = %formTextDatum.exit173, %._crit_edge182
   ret i64 0
@@ -1199,7 +1199,7 @@ define dso_local noundef i64 @spg_text_inner_consistent(ptr noundef readonly cap
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %166 = sext i32 %165 to i64
   %167 = icmp slt i64 %indvars.iv.next, %166
-  br i1 %167, label %.lr.ph, label %._crit_edge, !llvm.loop !13
+  br i1 %167, label %.lr.ph, label %._crit_edge, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %.thread, %106
   %168 = load ptr, ptr %78, align 8
@@ -1234,7 +1234,7 @@ define dso_local noundef i64 @spg_text_inner_consistent(ptr noundef readonly cap
   %188 = load i32, ptr %73, align 8
   %189 = sext i32 %188 to i64
   %190 = icmp slt i64 %indvars.iv.next144, %189
-  br i1 %190, label %98, label %._crit_edge141, !llvm.loop !14
+  br i1 %190, label %98, label %._crit_edge141, !llvm.loop !13
 
 ._crit_edge141:                                   ; preds = %._crit_edge.thread, %72
   ret i64 0
@@ -1564,7 +1564,7 @@ define dso_local range(i64 0, 2) i64 @spg_text_leaf_consistent(ptr noundef reado
   %174 = load i32, ptr %97, align 8
   %175 = sext i32 %174 to i64
   %176 = icmp slt i64 %indvars.iv.next, %175
-  br i1 %176, label %101, label %.thread172, !llvm.loop !15
+  br i1 %176, label %101, label %.thread172, !llvm.loop !14
 
 .thread172:                                       ; preds = %.thread166, %172, %135, %157, %159, %161, %163, %96
   %.1 = phi i64 [ 1, %96 ], [ 0, %163 ], [ 0, %161 ], [ 0, %159 ], [ 0, %157 ], [ 0, %135 ], [ 0, %172 ], [ 1, %.thread166 ]
@@ -1607,13 +1607,12 @@ attributes #11 = { cold nounwind }
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i8 0, i8 2}
 !5 = !{}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7, !8}
-!11 = distinct !{!11, !7, !8}
-!12 = distinct !{!12, !7, !8}
-!13 = distinct !{!13, !7, !8}
-!14 = distinct !{!14, !7, !8}
-!15 = distinct !{!15, !7, !8}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7}
+!12 = distinct !{!12, !7}
+!13 = distinct !{!13, !7}
+!14 = distinct !{!14, !7}

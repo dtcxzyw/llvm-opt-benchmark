@@ -207,7 +207,7 @@ _ZN6icu_7713UnicodeString6removeEii.exit.thread:  ; preds = %.critedge
 
 _ZNK6icu_7713UnicodeString6charAtEi.exit.thread:  ; preds = %34, %_ZNK6icu_7713UnicodeString6charAtEi.exit
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %6) #15
-  store ptr @.str, ptr %7, align 8, !tbaa !34
+  store ptr @.str, ptr %7, align 8, !tbaa !33
   invoke void @_ZN6icu_7713UnicodeStringC1EaNS_14ConstChar16PtrEi(ptr noundef nonnull align 8 dereferenceable(64) %6, i8 noundef signext 1, ptr noundef nonnull %7, i32 noundef -1)
           to label %88 unwind label %91
 
@@ -217,8 +217,8 @@ _ZNK6icu_7713UnicodeString6charAtEi.exit.thread:  ; preds = %34, %_ZNK6icu_7713U
 
 _ZN6icu_7713UnicodeString5setToERKS0_.exit:       ; preds = %88
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %6) #15
-  %90 = load ptr, ptr %7, align 8, !tbaa !34
-  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %90) #15, !srcloc !37
+  %90 = load ptr, ptr %7, align 8, !tbaa !33
+  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %90) #15, !srcloc !36
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6) #15
   br label %_ZN6icu_7713UnicodeString6removeEii.exit
 
@@ -235,8 +235,8 @@ _ZN6icu_7713UnicodeString5setToERKS0_.exit:       ; preds = %88
 
 95:                                               ; preds = %93, %91
   %.pn = phi { ptr, i32 } [ %94, %93 ], [ %92, %91 ]
-  %96 = load ptr, ptr %7, align 8, !tbaa !34
-  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %96) #15, !srcloc !37
+  %96 = load ptr, ptr %7, align 8, !tbaa !33
+  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %96) #15, !srcloc !36
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6) #15
   br label %142
 
@@ -278,7 +278,7 @@ _ZNK6icu_7713UnicodeString7indexOfEPKDsii.exit:   ; preds = %99
 
 _ZNK6icu_7713UnicodeString8endsWithENS_14ConstChar16PtrEi.exit: ; preds = %_ZNK6icu_7713UnicodeString7indexOfEPKDsii.exit
   %.not37 = icmp eq i8 %117, 0
-  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull @_ZN6icu_77L8gNoparseE) #15, !srcloc !37
+  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull @_ZN6icu_77L8gNoparseE) #15, !srcloc !36
   br i1 %.not37, label %_ZN6icu_7713UnicodeString8truncateEi.exit, label %118
 
 118:                                              ; preds = %_ZNK6icu_7713UnicodeString8endsWithENS_14ConstChar16PtrEi.exit
@@ -325,7 +325,7 @@ _ZNK6icu_7713UnicodeString8endsWithENS_14ConstChar16PtrEi.exit: ; preds = %_ZNK6
 140:                                              ; preds = %_ZNK6icu_7713UnicodeString7indexOfEPKDsii.exit
   %141 = landingpad { ptr, i32 }
           cleanup
-  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull @_ZN6icu_77L8gNoparseE) #15, !srcloc !37
+  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull @_ZN6icu_77L8gNoparseE) #15, !srcloc !36
   br label %142
 
 _ZN6icu_7713UnicodeString8truncateEi.exit:        ; preds = %138, %134, %130, %129, %31, %_ZNK6icu_7713UnicodeString8endsWithENS_14ConstChar16PtrEi.exit, %14
@@ -399,7 +399,7 @@ define linkonce_odr void @_ZN6icu_7710NFRuleListD2Ev(ptr noundef nonnull align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %14 = zext i32 %13 to i64
   %15 = icmp samesign ult i64 %indvars.iv.next, %14
-  br i1 %15, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !38
+  br i1 %15, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !37
 
 16:                                               ; preds = %._crit_edge, %1
   ret void
@@ -477,7 +477,7 @@ thread-pre-split.i.i.i:                           ; preds = %12
 32:                                               ; preds = %31, %.lr.ph.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !39
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !38
 
 ._crit_edge.i:                                    ; preds = %32
   tail call void @uprv_free_77(ptr noundef nonnull %23)
@@ -581,7 +581,7 @@ _ZNK6icu_7710NFRuleList4lastEv.exit:              ; preds = %_ZN6icu_7713Unicode
   %86 = load i32, ptr %35, align 4
   %87 = select i1 %83, i32 %86, i32 %85
   %88 = icmp slt i32 %81, %87
-  br i1 %88, label %_ZNK6icu_7713UnicodeString8pinIndexERi.exit.i, label %._crit_edge, !llvm.loop !40
+  br i1 %88, label %_ZNK6icu_7713UnicodeString8pinIndexERi.exit.i, label %._crit_edge, !llvm.loop !39
 
 ._crit_edge:                                      ; preds = %80, %_ZN6icu_7710NFRuleList9deleteAllEv.exit
   %89 = load i32, ptr %9, align 8, !tbaa !20
@@ -596,10 +596,10 @@ _ZNK6icu_7710NFRuleListixEj.exit.lr.ph:           ; preds = %._crit_edge
 _ZNK6icu_7710NFRuleListixEj.exit:                 ; preds = %_ZNK6icu_7710NFRuleListixEj.exit.lr.ph, %102
   %indvars.iv = phi i64 [ 0, %_ZNK6icu_7710NFRuleListixEj.exit.lr.ph ], [ %indvars.iv.next, %102 ]
   %.03646 = phi i64 [ 0, %_ZNK6icu_7710NFRuleListixEj.exit.lr.ph ], [ %spec.select, %102 ]
-  %92 = load ptr, ptr %8, align 8, !tbaa !19, !nonnull !41, !noundef !41
+  %92 = load ptr, ptr %8, align 8, !tbaa !19, !nonnull !40, !noundef !40
   %93 = getelementptr inbounds nuw ptr, ptr %92, i64 %indvars.iv
   %94 = load ptr, ptr %93, align 8, !tbaa !25
-  %95 = load i64, ptr %94, align 8, !tbaa !42
+  %95 = load i64, ptr %94, align 8, !tbaa !41
   %96 = icmp eq i64 %95, 0
   br i1 %96, label %97, label %100
 
@@ -628,7 +628,7 @@ _ZNK6icu_7710NFRuleListixEj.exit:                 ; preds = %_ZNK6icu_7710NFRule
   %spec.select = add nuw nsw i64 %.137, %104
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %_ZNK6icu_7710NFRuleListixEj.exit, !llvm.loop !48
+  br i1 %exitcond.not, label %.loopexit, label %_ZNK6icu_7710NFRuleListixEj.exit, !llvm.loop !47
 
 .loopexit:                                        ; preds = %102, %._crit_edge, %.critedge
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %4) #15
@@ -651,7 +651,7 @@ declare void @_ZN6icu_776NFRule12setBaseValueElR10UErrorCode(ptr noundef nonnull
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN6icu_779NFRuleSet19setNonNumericalRuleEPNS_6NFRuleE(ptr noundef nonnull align 8 captures(none) dereferenceable(163) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
-  %3 = load i64, ptr %1, align 8, !tbaa !42
+  %3 = load i64, ptr %1, align 8, !tbaa !41
   switch i64 %3, label %25 [
     i64 -1, label %4
     i64 -2, label %10
@@ -823,7 +823,7 @@ _ZN6icu_7710NFRuleList3addEPNS_6NFRuleE.exit:     ; preds = %21, %26
 _ZNK6icu_7713UnicodeString6charAtEi.exit:         ; preds = %46, %33
   %.0.i.i = phi i16 [ %52, %46 ], [ -1, %33 ]
   %53 = getelementptr inbounds nuw i8, ptr %2, i64 14
-  %54 = load i16, ptr %53, align 2, !tbaa !49
+  %54 = load i16, ptr %53, align 2, !tbaa !48
   %55 = icmp eq i16 %.0.i.i, %54
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %5) #15
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5) #15
@@ -885,7 +885,7 @@ define void @_ZN6icu_779NFRuleSetD2Ev(ptr noundef nonnull align 8 dereferenceabl
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %17 = zext i32 %16 to i64
   %18 = icmp samesign ult i64 %indvars.iv.next.i, %17
-  br i1 %18, label %.lr.ph.i, label %._crit_edge.loopexit.i, !llvm.loop !38
+  br i1 %18, label %.lr.ph.i, label %._crit_edge.loopexit.i, !llvm.loop !37
 
 19:                                               ; preds = %._crit_edge.i
   %20 = landingpad { ptr, i32 }
@@ -935,7 +935,7 @@ _ZN6icu_7710NFRuleListD2Ev.exit:                  ; preds = %3, %._crit_edge.i
   %indvars.iv.next.i16 = add nuw nsw i64 %indvars.iv.i14, 1
   %35 = zext i32 %34 to i64
   %36 = icmp samesign ult i64 %indvars.iv.next.i16, %35
-  br i1 %36, label %.lr.ph.i13, label %._crit_edge.loopexit.i17, !llvm.loop !38
+  br i1 %36, label %.lr.ph.i13, label %._crit_edge.loopexit.i17, !llvm.loop !37
 
 37:                                               ; preds = %._crit_edge.i19
   %38 = landingpad { ptr, i32 }
@@ -970,7 +970,7 @@ _ZN6icu_7710NFRuleListD2Ev.exit20:                ; preds = %_ZN6icu_7710NFRuleL
 49:                                               ; preds = %41, %48, %44
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 6
-  br i1 %exitcond.not, label %3, label %41, !llvm.loop !50
+  br i1 %exitcond.not, label %3, label %41, !llvm.loop !49
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -1072,21 +1072,21 @@ _ZN6icu_77L15util_equalRulesEPKNS_6NFRuleES2_.exit: ; preds = %57
 _ZN6icu_77L15util_equalRulesEPKNS_6NFRuleES2_.exit.thread30: ; preds = %58, %_ZN6icu_77L15util_equalRulesEPKNS_6NFRuleES2_.exit
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 6
-  br i1 %exitcond.not, label %.preheader, label %52, !llvm.loop !51
+  br i1 %exitcond.not, label %.preheader, label %52, !llvm.loop !50
 
 60:                                               ; preds = %_ZNK6icu_7710NFRuleListixEj.exit
   %indvars.iv.next46 = add nuw nsw i64 %indvars.iv45, 1
   %61 = load i32, ptr %4, align 8, !tbaa !20
   %62 = zext i32 %61 to i64
   %.not = icmp samesign ult i64 %indvars.iv.next46, %62
-  br i1 %.not, label %_ZNK6icu_7710NFRuleListixEj.exit, label %_ZNK6icu_7713UnicodeStringeqERKS0_.exit.thread, !llvm.loop !52
+  br i1 %.not, label %_ZNK6icu_7710NFRuleListixEj.exit, label %_ZNK6icu_7713UnicodeStringeqERKS0_.exit.thread, !llvm.loop !51
 
 _ZNK6icu_7710NFRuleListixEj.exit:                 ; preds = %.preheader, %60
   %indvars.iv45 = phi i64 [ %indvars.iv.next46, %60 ], [ 0, %.preheader ]
-  %63 = load ptr, ptr %3, align 8, !tbaa !19, !nonnull !41, !noundef !41
+  %63 = load ptr, ptr %3, align 8, !tbaa !19, !nonnull !40, !noundef !40
   %64 = getelementptr inbounds nuw ptr, ptr %63, i64 %indvars.iv45
   %65 = load ptr, ptr %64, align 8, !tbaa !25
-  %66 = load ptr, ptr %6, align 8, !tbaa !19, !nonnull !41, !noundef !41
+  %66 = load ptr, ptr %6, align 8, !tbaa !19, !nonnull !40, !noundef !40
   %67 = getelementptr inbounds nuw ptr, ptr %66, i64 %indvars.iv45
   %68 = load ptr, ptr %67, align 8, !tbaa !25
   %69 = tail call noundef zeroext i1 @_ZNK6icu_776NFRuleeqERKS0_(ptr noundef nonnull align 8 dereferenceable(112) %65, ptr noundef nonnull align 8 dereferenceable(112) %68)
@@ -1123,7 +1123,7 @@ _ZNK6icu_7710NFRuleListixEj.exit.lr.ph:           ; preds = %3
 
 _ZNK6icu_7710NFRuleListixEj.exit:                 ; preds = %_ZNK6icu_7710NFRuleListixEj.exit.lr.ph, %_ZNK6icu_7710NFRuleListixEj.exit
   %indvars.iv = phi i64 [ 0, %_ZNK6icu_7710NFRuleListixEj.exit.lr.ph ], [ %indvars.iv.next, %_ZNK6icu_7710NFRuleListixEj.exit ]
-  %16 = load ptr, ptr %7, align 8, !tbaa !19, !nonnull !41, !noundef !41
+  %16 = load ptr, ptr %7, align 8, !tbaa !19, !nonnull !40, !noundef !40
   %17 = getelementptr inbounds nuw ptr, ptr %16, i64 %indvars.iv
   %18 = load ptr, ptr %17, align 8, !tbaa !25
   tail call void @_ZN6icu_776NFRule23setDecimalFormatSymbolsERKNS_20DecimalFormatSymbolsER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(112) %18, ptr noundef nonnull align 8 dereferenceable(2579) %1, ptr noundef nonnull align 4 dereferenceable(4) %2)
@@ -1131,7 +1131,7 @@ _ZNK6icu_7710NFRuleListixEj.exit:                 ; preds = %_ZNK6icu_7710NFRule
   %19 = load i32, ptr %5, align 8, !tbaa !20
   %20 = zext i32 %19 to i64
   %21 = icmp samesign ult i64 %indvars.iv.next, %20
-  br i1 %21, label %_ZNK6icu_7710NFRuleListixEj.exit, label %.preheader30, !llvm.loop !53
+  br i1 %21, label %_ZNK6icu_7710NFRuleListixEj.exit, label %.preheader30, !llvm.loop !52
 
 22:                                               ; preds = %.preheader30, %.loopexit
   %23 = phi i32 [ %.pre, %.preheader30 ], [ %57, %.loopexit ]
@@ -1157,8 +1157,8 @@ _ZNK6icu_7710NFRuleListixEj.exit:                 ; preds = %_ZNK6icu_7710NFRule
 _ZNK6icu_7710NFRuleListixEj.exit28:               ; preds = %.lr.ph, %28
   %31 = phi ptr [ %30, %28 ], [ null, %.lr.ph ]
   %32 = load ptr, ptr %24, align 8, !tbaa !25
-  %33 = load i64, ptr %32, align 8, !tbaa !42
-  %34 = load i64, ptr %31, align 8, !tbaa !42
+  %33 = load i64, ptr %32, align 8, !tbaa !41
+  %34 = load i64, ptr %31, align 8, !tbaa !41
   %35 = icmp eq i64 %33, %34
   br i1 %35, label %36, label %_ZN6icu_779NFRuleSet19setBestFractionRuleEiPNS_6NFRuleEa.exit
 
@@ -1188,7 +1188,7 @@ _ZNK6icu_7710NFRuleListixEj.exit28:               ; preds = %.lr.ph, %28
 _ZNK6icu_7713UnicodeString6charAtEi.exit.i:       ; preds = %46, %36
   %.0.i.i.i = phi i16 [ %50, %46 ], [ -1, %36 ]
   %51 = getelementptr inbounds nuw i8, ptr %31, i64 14
-  %52 = load i16, ptr %51, align 2, !tbaa !49
+  %52 = load i16, ptr %51, align 2, !tbaa !48
   %53 = icmp eq i16 %.0.i.i.i, %52
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %4) #15
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4) #15
@@ -1203,13 +1203,13 @@ _ZN6icu_779NFRuleSet19setBestFractionRuleEiPNS_6NFRuleEa.exit: ; preds = %.sink.
   %54 = load i32, ptr %9, align 8, !tbaa !20
   %55 = zext i32 %54 to i64
   %56 = icmp samesign ult i64 %indvars.iv.next40, %55
-  br i1 %56, label %.lr.ph, label %.loopexit, !llvm.loop !54
+  br i1 %56, label %.lr.ph, label %.loopexit, !llvm.loop !53
 
 .loopexit:                                        ; preds = %_ZN6icu_779NFRuleSet19setBestFractionRuleEiPNS_6NFRuleEa.exit, %22
   %57 = phi i32 [ %23, %22 ], [ %54, %_ZN6icu_779NFRuleSet19setBestFractionRuleEiPNS_6NFRuleEa.exit ]
   %indvars.iv.next43 = add nuw nsw i64 %indvars.iv42, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next43, 4
-  br i1 %exitcond.not, label %.preheader, label %22, !llvm.loop !55
+  br i1 %exitcond.not, label %.preheader, label %22, !llvm.loop !54
 
 58:                                               ; preds = %62
   ret void
@@ -1228,7 +1228,7 @@ _ZN6icu_779NFRuleSet19setBestFractionRuleEiPNS_6NFRuleEa.exit: ; preds = %.sink.
 62:                                               ; preds = %61, %.preheader
   %indvars.iv.next46 = add nuw nsw i64 %indvars.iv45, 1
   %exitcond48.not = icmp eq i64 %indvars.iv.next46, 6
-  br i1 %exitcond48.not, label %58, label %.preheader, !llvm.loop !56
+  br i1 %exitcond48.not, label %58, label %.preheader, !llvm.loop !55
 }
 
 declare void @_ZN6icu_776NFRule23setDecimalFormatSymbolsERKNS_20DecimalFormatSymbolsER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(112), ptr noundef nonnull align 8 dereferenceable(2579), ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #2
@@ -1276,7 +1276,7 @@ define void @_ZNK6icu_779NFRuleSet6formatElRNS_13UnicodeStringEiiR10UErrorCode(p
   br i1 %26, label %.preheader.i, label %53
 
 .preheader.i:                                     ; preds = %22
-  %27 = load ptr, ptr %23, align 8, !tbaa !19, !nonnull !41, !noundef !41
+  %27 = load ptr, ptr %23, align 8, !tbaa !19, !nonnull !40, !noundef !40
   br label %_ZNK6icu_7710NFRuleListixEj.exit.thread.i
 
 _ZNK6icu_7710NFRuleListixEj.exit.thread.i:        ; preds = %_ZNK6icu_7710NFRuleListixEj.exit41.i, %.preheader.i
@@ -1287,7 +1287,7 @@ _ZNK6icu_7710NFRuleListixEj.exit.thread.i:        ; preds = %_ZNK6icu_7710NFRule
   %30 = zext nneg i32 %29 to i64
   %31 = getelementptr inbounds nuw ptr, ptr %27, i64 %30
   %32 = load ptr, ptr %31, align 8, !tbaa !25
-  %33 = load i64, ptr %32, align 8, !tbaa !42
+  %33 = load i64, ptr %32, align 8, !tbaa !41
   %.not3948.i = icmp eq i64 %33, %.032.i
   br i1 %.not3948.i, label %_ZNK6icu_779NFRuleSet14findNormalRuleEl.exit.thread14, label %_ZNK6icu_7710NFRuleListixEj.exit41.i
 
@@ -1383,7 +1383,7 @@ define noundef ptr @_ZNK6icu_779NFRuleSet14findNormalRuleEl(ptr noundef nonnull 
   br i1 %19, label %.preheader, label %46
 
 .preheader:                                       ; preds = %15
-  %20 = load ptr, ptr %16, align 8, !tbaa !19, !nonnull !41, !noundef !41
+  %20 = load ptr, ptr %16, align 8, !tbaa !19, !nonnull !40, !noundef !40
   br label %_ZNK6icu_7710NFRuleListixEj.exit.thread
 
 _ZNK6icu_7710NFRuleListixEj.exit.thread:          ; preds = %.preheader, %_ZNK6icu_7710NFRuleListixEj.exit41
@@ -1394,7 +1394,7 @@ _ZNK6icu_7710NFRuleListixEj.exit.thread:          ; preds = %.preheader, %_ZNK6i
   %23 = zext nneg i32 %22 to i64
   %24 = getelementptr inbounds nuw ptr, ptr %20, i64 %23
   %25 = load ptr, ptr %24, align 8, !tbaa !25
-  %26 = load i64, ptr %25, align 8, !tbaa !42
+  %26 = load i64, ptr %25, align 8, !tbaa !41
   %.not3948 = icmp eq i64 %26, %.032
   br i1 %.not3948, label %_ZNK6icu_7710NFRuleListixEj.exit47, label %_ZNK6icu_7710NFRuleListixEj.exit41
 
@@ -1572,9 +1572,9 @@ declare void @_ZNK6icu_776NFRule8doFormatEdRNS_13UnicodeStringEiiR10UErrorCode(p
 define noundef ptr @_ZNK6icu_779NFRuleSet23findFractionRuleSetRuleEd(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(163) %0, double noundef %1) local_unnamed_addr #0 align 2 {
 _ZNK6icu_7710NFRuleListixEj.exit:
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %3 = load ptr, ptr %2, align 8, !tbaa !19, !nonnull !41, !noundef !41
+  %3 = load ptr, ptr %2, align 8, !tbaa !19, !nonnull !40, !noundef !40
   %4 = load ptr, ptr %3, align 8, !tbaa !25
-  %5 = load i64, ptr %4, align 8, !tbaa !42
+  %5 = load i64, ptr %4, align 8, !tbaa !41
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %7 = load i32, ptr %6, align 8, !tbaa !20
   %8 = icmp ugt i32 %7, 1
@@ -1663,7 +1663,7 @@ _ZNK6icu_7710NFRuleListixEj.exit49:               ; preds = %_ZNK6icu_7710NFRule
   %.066 = phi i64 [ %5, %_ZNK6icu_7710NFRuleListixEj.exit49.preheader ], [ %69, %_ZN6icu_77L8util_lcmEll.exit ]
   %41 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv
   %42 = load ptr, ptr %41, align 8, !tbaa !25
-  %43 = load i64, ptr %42, align 8, !tbaa !42
+  %43 = load i64, ptr %42, align 8, !tbaa !41
   %44 = and i64 %.066, 1
   %45 = icmp eq i64 %44, 0
   %46 = or i64 %43, %.066
@@ -1683,7 +1683,7 @@ _ZNK6icu_7710NFRuleListixEj.exit49:               ; preds = %_ZNK6icu_7710NFRule
   %54 = and i64 %.02731.i, 2
   %55 = icmp eq i64 %54, 0
   %56 = select i1 %53, i1 %55, i1 false
-  br i1 %56, label %.lr.ph.i, label %._crit_edge.loopexit.i, !llvm.loop !57
+  br i1 %56, label %.lr.ph.i, label %._crit_edge.loopexit.i, !llvm.loop !56
 
 ._crit_edge.loopexit.i:                           ; preds = %.lr.ph.i
   %57 = zext nneg i32 %49 to i64
@@ -1710,7 +1710,7 @@ _ZNK6icu_7710NFRuleListixEj.exit49:               ; preds = %_ZNK6icu_7710NFRule
   %60 = and i64 %.225.i, 1
   %61 = icmp eq i64 %60, 0
   %62 = ashr exact i64 %.225.i, 1
-  br i1 %61, label %59, label %63, !llvm.loop !58
+  br i1 %61, label %59, label %63, !llvm.loop !57
 
 63:                                               ; preds = %59
   %64 = icmp sgt i64 %.225.i, 0
@@ -1719,7 +1719,7 @@ _ZNK6icu_7710NFRuleListixEj.exit49:               ; preds = %_ZNK6icu_7710NFRule
   %.2.i = select i1 %64, i64 %.225.i, i64 %.140.i
   %66 = sub nsw i64 %.2.i, %.229.i
   %.not30.i = icmp eq i64 %66, 0
-  br i1 %.not30.i, label %_ZN6icu_77L8util_lcmEll.exit, label %.preheader.i, !llvm.loop !59
+  br i1 %.not30.i, label %_ZN6icu_77L8util_lcmEll.exit, label %.preheader.i, !llvm.loop !58
 
 _ZN6icu_77L8util_lcmEll.exit:                     ; preds = %63, %._crit_edge.i
   %.1.lcssa.i = phi i64 [ %.0.lcssa.i, %._crit_edge.i ], [ %.2.i, %63 ]
@@ -1728,7 +1728,7 @@ _ZN6icu_77L8util_lcmEll.exit:                     ; preds = %63, %._crit_edge.i
   %69 = mul nsw i64 %68, %43
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %_ZNK6icu_7710NFRuleListixEj.exit49, !llvm.loop !60
+  br i1 %exitcond.not, label %._crit_edge, label %_ZNK6icu_7710NFRuleListixEj.exit49, !llvm.loop !59
 
 _ZNK6icu_7710NFRuleListixEj.exit51:               ; preds = %_ZNK6icu_7710NFRuleListixEj.exit51.lr.ph, %80
   %indvars.iv81 = phi i64 [ 0, %_ZNK6icu_7710NFRuleListixEj.exit51.lr.ph ], [ %indvars.iv.next82, %80 ]
@@ -1736,7 +1736,7 @@ _ZNK6icu_7710NFRuleListixEj.exit51:               ; preds = %_ZNK6icu_7710NFRule
   %.03367 = phi i64 [ %.013.i43, %_ZNK6icu_7710NFRuleListixEj.exit51.lr.ph ], [ %.134, %80 ]
   %70 = getelementptr inbounds nuw ptr, ptr %.pre.pre, i64 %indvars.iv81
   %71 = load ptr, ptr %70, align 8, !tbaa !25
-  %72 = load i64, ptr %71, align 8, !tbaa !42
+  %72 = load i64, ptr %71, align 8, !tbaa !41
   %73 = mul nsw i64 %72, %.013.i
   %74 = srem i64 %73, %.0.lcssa
   %75 = sub nsw i64 %.0.lcssa, %74
@@ -1754,7 +1754,7 @@ _ZNK6icu_7710NFRuleListixEj.exit51:               ; preds = %_ZNK6icu_7710NFRule
   %.2 = phi i32 [ %79, %77 ], [ %.03268, %_ZNK6icu_7710NFRuleListixEj.exit51 ]
   %indvars.iv.next82 = add nuw nsw i64 %indvars.iv81, 1
   %exitcond85.not = icmp eq i64 %indvars.iv.next82, %wide.trip.count84
-  br i1 %exitcond85.not, label %._crit_edge70, label %_ZNK6icu_7710NFRuleListixEj.exit51, !llvm.loop !61
+  br i1 %exitcond85.not, label %._crit_edge70, label %_ZNK6icu_7710NFRuleListixEj.exit51, !llvm.loop !60
 
 ._crit_edge70:                                    ; preds = %80, %77, %_ZN6icu_7717util64_fromDoubleEd.exit47
   %.1 = phi i32 [ 0, %_ZN6icu_7717util64_fromDoubleEd.exit47 ], [ %79, %77 ], [ %.2, %80 ]
@@ -1766,11 +1766,11 @@ _ZNK6icu_7710NFRuleListixEj.exit55.thread:        ; preds = %._crit_edge70
   %83 = zext i32 %81 to i64
   %84 = getelementptr inbounds nuw ptr, ptr %.pre.pre, i64 %83
   %85 = load ptr, ptr %84, align 8, !tbaa !25
-  %86 = load i64, ptr %85, align 8, !tbaa !42
+  %86 = load i64, ptr %85, align 8, !tbaa !41
   %87 = zext i32 %.1 to i64
   %88 = getelementptr inbounds nuw ptr, ptr %.pre.pre, i64 %87
   %89 = load ptr, ptr %88, align 8, !tbaa !25
-  %90 = load i64, ptr %89, align 8, !tbaa !42
+  %90 = load i64, ptr %89, align 8, !tbaa !41
   %91 = icmp eq i64 %86, %90
   br i1 %91, label %.thread, label %.thread86
 
@@ -1877,19 +1877,19 @@ define noundef signext range(i8 0, 2) i8 @_ZNK6icu_779NFRuleSet5parseERKNS_13Uni
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #15
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN6icu_7713ParsePositionE, i64 16), ptr %8, align 8, !tbaa !3
   %24 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store i32 0, ptr %24, align 8, !tbaa !62
+  store i32 0, ptr %24, align 8, !tbaa !61
   %25 = getelementptr inbounds nuw i8, ptr %8, i64 12
-  store i32 -1, ptr %25, align 4, !tbaa !64
+  store i32 -1, ptr %25, align 4, !tbaa !63
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #15
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN6icu_7713ParsePositionE, i64 16), ptr %9, align 8, !tbaa !3
   %26 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %27 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %28 = load i32, ptr %27, align 8, !tbaa !62
-  store i32 %28, ptr %26, align 8, !tbaa !62
+  %28 = load i32, ptr %27, align 8, !tbaa !61
+  store i32 %28, ptr %26, align 8, !tbaa !61
   %29 = getelementptr inbounds nuw i8, ptr %9, i64 12
   %30 = getelementptr inbounds nuw i8, ptr %2, i64 12
-  %31 = load i32, ptr %30, align 4, !tbaa !64
-  store i32 %31, ptr %29, align 4, !tbaa !64
+  %31 = load i32, ptr %30, align 4, !tbaa !63
+  store i32 %31, ptr %29, align 4, !tbaa !63
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %33 = add nsw i32 %5, 1
   br label %49
@@ -1963,8 +1963,8 @@ define noundef signext range(i8 0, 2) i8 @_ZNK6icu_779NFRuleSet5parseERKNS_13Uni
   br i1 %.not54, label %76, label %63
 
 63:                                               ; preds = %62
-  %64 = load i32, ptr %26, align 8, !tbaa !62
-  %65 = load i32, ptr %24, align 8, !tbaa !62
+  %64 = load i32, ptr %26, align 8, !tbaa !61
+  %65 = load i32, ptr %24, align 8, !tbaa !61
   %66 = icmp sgt i32 %64, %65
   br i1 %66, label %67, label %76
 
@@ -1973,10 +1973,10 @@ define noundef signext range(i8 0, 2) i8 @_ZNK6icu_779NFRuleSet5parseERKNS_13Uni
           to label %69 unwind label %74
 
 69:                                               ; preds = %67
-  %70 = load i32, ptr %26, align 8, !tbaa !62
-  store i32 %70, ptr %24, align 8, !tbaa !62
-  %71 = load i32, ptr %29, align 4, !tbaa !64
-  store i32 %71, ptr %25, align 4, !tbaa !64
+  %70 = load i32, ptr %26, align 8, !tbaa !61
+  store i32 %70, ptr %24, align 8, !tbaa !61
+  %71 = load i32, ptr %29, align 4, !tbaa !63
+  store i32 %71, ptr %25, align 4, !tbaa !63
   br label %76
 
 72:                                               ; preds = %57
@@ -1991,10 +1991,10 @@ define noundef signext range(i8 0, 2) i8 @_ZNK6icu_779NFRuleSet5parseERKNS_13Uni
   br label %79
 
 76:                                               ; preds = %69, %63, %62
-  %77 = load i32, ptr %27, align 8, !tbaa !62
-  store i32 %77, ptr %26, align 8, !tbaa !62
-  %78 = load i32, ptr %30, align 4, !tbaa !64
-  store i32 %78, ptr %29, align 4, !tbaa !64
+  %77 = load i32, ptr %27, align 8, !tbaa !61
+  store i32 %77, ptr %26, align 8, !tbaa !61
+  %78 = load i32, ptr %30, align 4, !tbaa !63
+  store i32 %78, ptr %29, align 4, !tbaa !63
   call void @_ZN6icu_7711FormattableD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %10) #15
   call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %10) #15
   br label %80
@@ -2008,7 +2008,7 @@ define noundef signext range(i8 0, 2) i8 @_ZNK6icu_779NFRuleSet5parseERKNS_13Uni
   %.1 = phi i32 [ %58, %76 ], [ %.03766, %52 ], [ %.03766, %49 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 6
-  br i1 %exitcond.not, label %34, label %49, !llvm.loop !65
+  br i1 %exitcond.not, label %34, label %49, !llvm.loop !64
 
 _ZN6icu_7717util64_fromDoubleEd.exit:             ; preds = %.noexc59, %.noexc
   %.013.i = phi i64 [ 0, %.noexc ], [ %.114.i, %.noexc59 ]
@@ -2026,7 +2026,7 @@ _ZN6icu_7717util64_fromDoubleEd.exit:             ; preds = %.noexc59, %.noexc
 87:                                               ; preds = %.lr.ph, %.backedge
   %indvars.iv69 = phi i64 [ %86, %.lr.ph ], [ %indvars.iv.next70, %.backedge ]
   %indvars.iv.next70 = add nsw i64 %indvars.iv69, -1
-  %88 = load i32, ptr %24, align 8, !tbaa !62
+  %88 = load i32, ptr %24, align 8, !tbaa !61
   %89 = load i16, ptr %14, align 8, !tbaa !6
   %90 = icmp slt i16 %89, 0
   %91 = ashr i16 %89, 5
@@ -2037,10 +2037,10 @@ _ZN6icu_7717util64_fromDoubleEd.exit:             ; preds = %.noexc59, %.noexc
   br i1 %95, label %100, label %.critedge
 
 .critedge:                                        ; preds = %87, %.backedge, %_ZN6icu_7717util64_fromDoubleEd.exit
-  %96 = load i32, ptr %24, align 8, !tbaa !62
-  store i32 %96, ptr %27, align 8, !tbaa !62
-  %97 = load i32, ptr %25, align 4, !tbaa !64
-  store i32 %97, ptr %30, align 4, !tbaa !64
+  %96 = load i32, ptr %24, align 8, !tbaa !61
+  store i32 %96, ptr %27, align 8, !tbaa !61
+  %97 = load i32, ptr %25, align 4, !tbaa !63
+  store i32 %97, ptr %30, align 4, !tbaa !63
   call void @_ZN6icu_7713ParsePositionD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %9) #15
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #15
   call void @_ZN6icu_7713ParsePositionD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %8) #15
@@ -2058,10 +2058,10 @@ _ZN6icu_7717util64_fromDoubleEd.exit:             ; preds = %.noexc59, %.noexc
   br i1 %.not, label %_ZNK6icu_7710NFRuleListixEj.exit, label %106
 
 _ZNK6icu_7710NFRuleListixEj.exit:                 ; preds = %100
-  %102 = load ptr, ptr %81, align 8, !tbaa !19, !nonnull !41, !noundef !41
+  %102 = load ptr, ptr %81, align 8, !tbaa !19, !nonnull !40, !noundef !40
   %103 = getelementptr inbounds nuw ptr, ptr %102, i64 %indvars.iv.next70
   %104 = load ptr, ptr %103, align 8, !tbaa !25
-  %105 = load i64, ptr %104, align 8, !tbaa !42
+  %105 = load i64, ptr %104, align 8, !tbaa !41
   %.not48 = icmp slt i64 %105, %.013.i
   br i1 %.not48, label %106, label %.backedge
 
@@ -2071,7 +2071,7 @@ _ZNK6icu_7710NFRuleListixEj.exit:                 ; preds = %100
           to label %_ZNK6icu_7710NFRuleListixEj.exit62 unwind label %122
 
 _ZNK6icu_7710NFRuleListixEj.exit62:               ; preds = %106
-  %107 = load ptr, ptr %81, align 8, !tbaa !19, !nonnull !41, !noundef !41
+  %107 = load ptr, ptr %81, align 8, !tbaa !19, !nonnull !40, !noundef !40
   %108 = getelementptr inbounds nuw ptr, ptr %107, i64 %indvars.iv.next70
   %109 = load ptr, ptr %108, align 8, !tbaa !25
   %110 = load i8, ptr %85, align 8, !tbaa !22
@@ -2083,8 +2083,8 @@ _ZNK6icu_7710NFRuleListixEj.exit62:               ; preds = %106
   br i1 %.not49, label %126, label %113
 
 113:                                              ; preds = %112
-  %114 = load i32, ptr %26, align 8, !tbaa !62
-  %115 = load i32, ptr %24, align 8, !tbaa !62
+  %114 = load i32, ptr %26, align 8, !tbaa !61
+  %115 = load i32, ptr %24, align 8, !tbaa !61
   %116 = icmp sgt i32 %114, %115
   br i1 %116, label %117, label %126
 
@@ -2093,10 +2093,10 @@ _ZNK6icu_7710NFRuleListixEj.exit62:               ; preds = %106
           to label %119 unwind label %124
 
 119:                                              ; preds = %117
-  %120 = load i32, ptr %26, align 8, !tbaa !62
-  store i32 %120, ptr %24, align 8, !tbaa !62
-  %121 = load i32, ptr %29, align 4, !tbaa !64
-  store i32 %121, ptr %25, align 4, !tbaa !64
+  %120 = load i32, ptr %26, align 8, !tbaa !61
+  store i32 %120, ptr %24, align 8, !tbaa !61
+  %121 = load i32, ptr %29, align 4, !tbaa !63
+  store i32 %121, ptr %25, align 4, !tbaa !63
   br label %126
 
 122:                                              ; preds = %106
@@ -2111,17 +2111,17 @@ _ZNK6icu_7710NFRuleListixEj.exit62:               ; preds = %106
   br label %130
 
 126:                                              ; preds = %119, %113, %112
-  %127 = load i32, ptr %27, align 8, !tbaa !62
-  store i32 %127, ptr %26, align 8, !tbaa !62
-  %128 = load i32, ptr %30, align 4, !tbaa !64
-  store i32 %128, ptr %29, align 4, !tbaa !64
+  %127 = load i32, ptr %27, align 8, !tbaa !61
+  store i32 %127, ptr %26, align 8, !tbaa !61
+  %128 = load i32, ptr %30, align 4, !tbaa !63
+  store i32 %128, ptr %29, align 4, !tbaa !63
   call void @_ZN6icu_7711FormattableD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %11) #15
   call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %11) #15
   br label %.backedge
 
 .backedge:                                        ; preds = %126, %_ZNK6icu_7710NFRuleListixEj.exit
   %129 = icmp samesign ugt i64 %indvars.iv69, 1
-  br i1 %129, label %87, label %.critedge, !llvm.loop !66
+  br i1 %129, label %87, label %.critedge, !llvm.loop !65
 
 130:                                              ; preds = %124, %122
   %.pn = phi { ptr, i32 } [ %125, %124 ], [ %123, %122 ]
@@ -2197,7 +2197,7 @@ _ZNK6icu_7710NFRuleListixEj.exit.lr.ph:           ; preds = %2
 
 _ZNK6icu_7710NFRuleListixEj.exit:                 ; preds = %_ZNK6icu_7710NFRuleListixEj.exit.lr.ph, %_ZNK6icu_7710NFRuleListixEj.exit
   %indvars.iv = phi i64 [ 0, %_ZNK6icu_7710NFRuleListixEj.exit.lr.ph ], [ %indvars.iv.next, %_ZNK6icu_7710NFRuleListixEj.exit ]
-  %26 = load ptr, ptr %22, align 8, !tbaa !19, !nonnull !41, !noundef !41
+  %26 = load ptr, ptr %22, align 8, !tbaa !19, !nonnull !40, !noundef !40
   %27 = getelementptr inbounds nuw ptr, ptr %26, i64 %indvars.iv
   %28 = load ptr, ptr %27, align 8, !tbaa !25
   call void @_ZNK6icu_776NFRule15_appendRuleTextERNS_13UnicodeStringE(ptr noundef nonnull align 8 dereferenceable(112) %28, ptr noundef nonnull align 8 dereferenceable(64) %1)
@@ -2209,7 +2209,7 @@ _ZNK6icu_7710NFRuleListixEj.exit:                 ; preds = %_ZNK6icu_7710NFRule
   %30 = load i32, ptr %20, align 8, !tbaa !20
   %31 = zext i32 %30 to i64
   %32 = icmp samesign ult i64 %indvars.iv.next, %31
-  br i1 %32, label %_ZNK6icu_7710NFRuleListixEj.exit, label %.preheader30, !llvm.loop !67
+  br i1 %32, label %_ZNK6icu_7710NFRuleListixEj.exit, label %.preheader30, !llvm.loop !66
 
 33:                                               ; preds = %.preheader30, %.loopexit
   %indvars.iv40 = phi i64 [ 0, %.preheader30 ], [ %indvars.iv.next41, %.loopexit ]
@@ -2219,7 +2219,7 @@ _ZNK6icu_7710NFRuleListixEj.exit:                 ; preds = %_ZNK6icu_7710NFRule
   br i1 %.not, label %.loopexit, label %36
 
 36:                                               ; preds = %33
-  %37 = load i64, ptr %35, align 8, !tbaa !42
+  %37 = load i64, ptr %35, align 8, !tbaa !41
   %.off = add i64 %37, 4
   %switch = icmp ult i64 %.off, 3
   br i1 %switch, label %.preheader, label %52
@@ -2232,11 +2232,11 @@ _ZNK6icu_7710NFRuleListixEj.exit:                 ; preds = %_ZNK6icu_7710NFRule
 _ZNK6icu_7710NFRuleListixEj.exit29:               ; preds = %.preheader, %48
   %39 = phi i32 [ %49, %48 ], [ %38, %.preheader ]
   %indvars.iv37 = phi i64 [ %indvars.iv.next38, %48 ], [ 0, %.preheader ]
-  %40 = load ptr, ptr %25, align 8, !tbaa !19, !nonnull !41, !noundef !41
+  %40 = load ptr, ptr %25, align 8, !tbaa !19, !nonnull !40, !noundef !40
   %41 = getelementptr inbounds nuw ptr, ptr %40, i64 %indvars.iv37
   %42 = load ptr, ptr %41, align 8, !tbaa !25
-  %43 = load i64, ptr %42, align 8, !tbaa !42
-  %44 = load i64, ptr %35, align 8, !tbaa !42
+  %43 = load i64, ptr %42, align 8, !tbaa !41
+  %44 = load i64, ptr %35, align 8, !tbaa !41
   %45 = icmp eq i64 %43, %44
   br i1 %45, label %46, label %48
 
@@ -2254,7 +2254,7 @@ _ZNK6icu_7710NFRuleListixEj.exit29:               ; preds = %.preheader, %48
   %indvars.iv.next38 = add nuw nsw i64 %indvars.iv37, 1
   %50 = zext i32 %49 to i64
   %51 = icmp samesign ult i64 %indvars.iv.next38, %50
-  br i1 %51, label %_ZNK6icu_7710NFRuleListixEj.exit29, label %.loopexit, !llvm.loop !68
+  br i1 %51, label %_ZNK6icu_7710NFRuleListixEj.exit29, label %.loopexit, !llvm.loop !67
 
 52:                                               ; preds = %36
   call void @_ZNK6icu_776NFRule15_appendRuleTextERNS_13UnicodeStringE(ptr noundef nonnull align 8 dereferenceable(112) %35, ptr noundef nonnull align 8 dereferenceable(64) %1)
@@ -2267,7 +2267,7 @@ _ZNK6icu_7710NFRuleListixEj.exit29:               ; preds = %.preheader, %48
 .loopexit:                                        ; preds = %48, %.preheader, %52, %33
   %indvars.iv.next41 = add nuw nsw i64 %indvars.iv40, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next41, 6
-  br i1 %exitcond.not, label %54, label %33, !llvm.loop !69
+  br i1 %exitcond.not, label %54, label %33, !llvm.loop !68
 
 54:                                               ; preds = %.loopexit
   ret void
@@ -2299,7 +2299,7 @@ define noundef i64 @_ZN6icu_7710util64_powEjt(i32 noundef %0, i16 noundef zeroex
   %12 = select i1 %.not, i64 1, i64 %10
   %spec.select = mul i64 %12, %spec.select18
   %13 = icmp ult i16 %.01216, 4
-  br i1 %13, label %.loopexit, label %.lr.ph, !llvm.loop !70
+  br i1 %13, label %.loopexit, label %.lr.ph, !llvm.loop !69
 
 .loopexit:                                        ; preds = %.lr.ph, %4, %2
   %.013 = phi i64 [ 0, %2 ], [ %7, %4 ], [ %spec.select, %.lr.ph ]
@@ -2369,7 +2369,7 @@ define noundef i32 @_ZN6icu_7710util64_touElPDsjja(i64 noundef %0, ptr noundef %
   %32 = icmp ne i32 %31, 0
   %33 = icmp ne i64 %24, 0
   %34 = and i1 %32, %33
-  br i1 %34, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !71
+  br i1 %34, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !70
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.split
   %.164 = phi i64 [ %35, %.lr.ph.split ], [ %.0, %.lr.ph ]
@@ -2385,7 +2385,7 @@ define noundef i32 @_ZN6icu_7710util64_touElPDsjja(i64 noundef %0, ptr noundef %
   %40 = icmp ne i32 %39, 0
   %41 = icmp ne i64 %35, 0
   %42 = select i1 %40, i1 %41, i1 false
-  br i1 %42, label %.lr.ph.split, label %._crit_edge, !llvm.loop !73
+  br i1 %42, label %.lr.ph.split, label %._crit_edge, !llvm.loop !72
 
 ._crit_edge:                                      ; preds = %.lr.ph.split, %.lr.ph.split.us, %20
   %.157.lcssa = phi ptr [ %.056, %20 ], [ %30, %.lr.ph.split.us ], [ %38, %.lr.ph.split ]
@@ -2417,7 +2417,7 @@ define noundef i32 @_ZN6icu_7710util64_touElPDsjja(i64 noundef %0, ptr noundef %
   %52 = getelementptr inbounds nuw i8, ptr %.15267, i64 2
   %53 = getelementptr inbounds i8, ptr %49, i64 -2
   %54 = icmp ugt ptr %53, %52
-  br i1 %54, label %.lr.ph69, label %._crit_edge70, !llvm.loop !74
+  br i1 %54, label %.lr.ph69, label %._crit_edge70, !llvm.loop !73
 
 ._crit_edge70:                                    ; preds = %.lr.ph69, %44
   %55 = ptrtoint ptr %.157.lcssa79 to i64
@@ -2542,47 +2542,46 @@ attributes #17 = { allocsize(1) }
 !28 = !{!"_ZTS10UErrorCode", !7, i64 0}
 !29 = !{!30, !30, i64 0}
 !30 = !{!"char16_t", !7, i64 0}
-!31 = distinct !{!31, !32, !33}
+!31 = distinct !{!31, !32}
 !32 = !{!"llvm.loop.mustprogress"}
-!33 = !{!"llvm.loop.estimated_trip_count"}
-!34 = !{!35, !36, i64 0}
-!35 = !{!"_ZTSN6icu_7714ConstChar16PtrE", !36, i64 0}
-!36 = !{!"p1 char16_t", !16, i64 0}
-!37 = !{i64 2150473562}
-!38 = distinct !{!38, !32, !33}
-!39 = distinct !{!39, !32, !33}
-!40 = distinct !{!40, !32, !33}
-!41 = !{}
-!42 = !{!43, !44, i64 0}
-!43 = !{!"_ZTSN6icu_776NFRuleE", !44, i64 0, !17, i64 8, !45, i64 12, !30, i64 14, !10, i64 16, !46, i64 80, !46, i64 88, !18, i64 96, !47, i64 104}
-!44 = !{!"long", !7, i64 0}
-!45 = !{!"short", !7, i64 0}
-!46 = !{!"p1 _ZTSN6icu_7714NFSubstitutionE", !16, i64 0}
-!47 = !{!"p1 _ZTSN6icu_7712PluralFormatE", !16, i64 0}
-!48 = distinct !{!48, !32, !33}
-!49 = !{!43, !30, i64 14}
-!50 = distinct !{!50, !32, !33}
-!51 = distinct !{!51, !32, !33}
-!52 = distinct !{!52, !32, !33}
-!53 = distinct !{!53, !32, !33}
-!54 = distinct !{!54, !32, !33}
-!55 = distinct !{!55, !32, !33}
-!56 = distinct !{!56, !32, !33}
-!57 = distinct !{!57, !32, !33}
-!58 = distinct !{!58, !32, !33}
-!59 = distinct !{!59, !32, !33}
-!60 = distinct !{!60, !32, !33}
-!61 = distinct !{!61, !32, !33}
-!62 = !{!63, !17, i64 8}
-!63 = !{!"_ZTSN6icu_7713ParsePositionE", !12, i64 0, !17, i64 8, !17, i64 12}
-!64 = !{!63, !17, i64 12}
-!65 = distinct !{!65, !32, !33}
-!66 = distinct !{!66, !32, !33}
-!67 = distinct !{!67, !32, !33}
-!68 = distinct !{!68, !32, !33}
-!69 = distinct !{!69, !32, !33}
-!70 = distinct !{!70, !32, !33}
-!71 = distinct !{!71, !32, !33, !72}
-!72 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!73 = distinct !{!73, !32, !33}
-!74 = distinct !{!74, !32, !33}
+!33 = !{!34, !35, i64 0}
+!34 = !{!"_ZTSN6icu_7714ConstChar16PtrE", !35, i64 0}
+!35 = !{!"p1 char16_t", !16, i64 0}
+!36 = !{i64 2150473562}
+!37 = distinct !{!37, !32}
+!38 = distinct !{!38, !32}
+!39 = distinct !{!39, !32}
+!40 = !{}
+!41 = !{!42, !43, i64 0}
+!42 = !{!"_ZTSN6icu_776NFRuleE", !43, i64 0, !17, i64 8, !44, i64 12, !30, i64 14, !10, i64 16, !45, i64 80, !45, i64 88, !18, i64 96, !46, i64 104}
+!43 = !{!"long", !7, i64 0}
+!44 = !{!"short", !7, i64 0}
+!45 = !{!"p1 _ZTSN6icu_7714NFSubstitutionE", !16, i64 0}
+!46 = !{!"p1 _ZTSN6icu_7712PluralFormatE", !16, i64 0}
+!47 = distinct !{!47, !32}
+!48 = !{!42, !30, i64 14}
+!49 = distinct !{!49, !32}
+!50 = distinct !{!50, !32}
+!51 = distinct !{!51, !32}
+!52 = distinct !{!52, !32}
+!53 = distinct !{!53, !32}
+!54 = distinct !{!54, !32}
+!55 = distinct !{!55, !32}
+!56 = distinct !{!56, !32}
+!57 = distinct !{!57, !32}
+!58 = distinct !{!58, !32}
+!59 = distinct !{!59, !32}
+!60 = distinct !{!60, !32}
+!61 = !{!62, !17, i64 8}
+!62 = !{!"_ZTSN6icu_7713ParsePositionE", !12, i64 0, !17, i64 8, !17, i64 12}
+!63 = !{!62, !17, i64 12}
+!64 = distinct !{!64, !32}
+!65 = distinct !{!65, !32}
+!66 = distinct !{!66, !32}
+!67 = distinct !{!67, !32}
+!68 = distinct !{!68, !32}
+!69 = distinct !{!69, !32}
+!70 = distinct !{!70, !32, !71}
+!71 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!72 = distinct !{!72, !32}
+!73 = distinct !{!73, !32}

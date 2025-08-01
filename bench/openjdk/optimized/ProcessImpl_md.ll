@@ -90,7 +90,7 @@ xmalloc.exit.i:                                   ; preds = %countOccurrences.ex
   %28 = getelementptr inbounds nuw i8, ptr %24, i64 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %29, label %22, !llvm.loop !9
+  br i1 %exitcond.not.i, label %29, label %22, !llvm.loop !8
 
 29:                                               ; preds = %22
   %30 = sext i32 %.0.lcssa.i.i to i64
@@ -707,7 +707,7 @@ define internal fastcc i32 @startChild(ptr noundef %0, ptr noundef nonnull %1, p
   %41 = getelementptr inbounds nuw i8, ptr %.019.i.i, i64 8
   %42 = load ptr, ptr %41, align 8
   %.not.i.i = icmp eq ptr %42, null
-  br i1 %.not.i.i, label %._crit_edge.loopexit.i.i, label %.lr.ph.i.i, !llvm.loop !10
+  br i1 %.not.i.i, label %._crit_edge.loopexit.i.i, label %.lr.ph.i.i, !llvm.loop !9
 
 ._crit_edge.loopexit.i.i:                         ; preds = %.lr.ph.i.i
   %43 = add nuw nsw i32 %.01218.i.i, 2
@@ -752,7 +752,7 @@ arraysize.exit.i:                                 ; preds = %._crit_edge.i.i, %3
   %58 = getelementptr inbounds nuw i8, ptr %.019.i69.i, i64 8
   %59 = load ptr, ptr %58, align 8
   %.not.i72.i = icmp eq ptr %59, null
-  br i1 %.not.i72.i, label %._crit_edge.loopexit.i73.i, label %.lr.ph.i68.i, !llvm.loop !10
+  br i1 %.not.i72.i, label %._crit_edge.loopexit.i73.i, label %.lr.ph.i68.i, !llvm.loop !9
 
 ._crit_edge.loopexit.i73.i:                       ; preds = %.lr.ph.i68.i
   %60 = add nuw nsw i32 %.01218.i70.i, 2
@@ -813,7 +813,7 @@ arraysize.exit77.i:                               ; preds = %._crit_edge.i74.i, 
   %86 = getelementptr inbounds nuw i8, ptr %.019.i81.i, i64 8
   %87 = load ptr, ptr %86, align 8
   %.not.i84.i = icmp eq ptr %87, null
-  br i1 %.not.i84.i, label %._crit_edge.loopexit.i85.i, label %.lr.ph.i80.i, !llvm.loop !10
+  br i1 %.not.i84.i, label %._crit_edge.loopexit.i85.i, label %.lr.ph.i80.i, !llvm.loop !9
 
 ._crit_edge.loopexit.i85.i:                       ; preds = %.lr.ph.i80.i
   %88 = add nuw nsw i32 %.01218.i82.i, 2
@@ -853,7 +853,7 @@ arraysize.exit89.i:                               ; preds = %._crit_edge.i86.i, 
 101:                                              ; preds = %97, %94, %91
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 3
-  br i1 %exitcond.not.i, label %102, label %91, !llvm.loop !11
+  br i1 %exitcond.not.i, label %102, label %91, !llvm.loop !10
 
 102:                                              ; preds = %101
   %103 = load ptr, ptr @environ, align 8
@@ -897,7 +897,7 @@ xmalloc.exit.i:                                   ; preds = %105
   %121 = getelementptr inbounds nuw i8, ptr %.01824.i.i, i64 8
   %122 = load ptr, ptr %121, align 8
   %.not.i91.i = icmp eq ptr %122, null
-  br i1 %.not.i91.i, label %copystrings.exit.i, label %.lr.ph.i90.i, !llvm.loop !12
+  br i1 %.not.i91.i, label %copystrings.exit.i, label %.lr.ph.i90.i, !llvm.loop !11
 
 copystrings.exit.i:                               ; preds = %.lr.ph.i90.i, %112, %xmalloc.exit.i
   %.0.i.i = phi i32 [ 0, %xmalloc.exit.i ], [ 0, %112 ], [ %120, %.lr.ph.i90.i ]
@@ -930,7 +930,7 @@ copystrings.exit.i:                               ; preds = %.lr.ph.i90.i, %112,
   %136 = getelementptr inbounds nuw i8, ptr %.01824.i97.i, i64 8
   %137 = load ptr, ptr %136, align 8
   %.not.i99.i = icmp eq ptr %137, null
-  br i1 %.not.i99.i, label %._crit_edge.i100.i, label %.lr.ph.i95.i, !llvm.loop !12
+  br i1 %.not.i99.i, label %._crit_edge.i100.i, label %.lr.ph.i95.i, !llvm.loop !11
 
 ._crit_edge.i100.i:                               ; preds = %.lr.ph.i95.i, %125
   %.017.lcssa.i101.i = phi i32 [ 0, %125 ], [ %135, %.lr.ph.i95.i ]
@@ -991,7 +991,7 @@ copystrings.exit103.i:                            ; preds = %._crit_edge.i100.i,
   %161 = getelementptr inbounds nuw i8, ptr %.01824.i108.i, i64 8
   %162 = load ptr, ptr %161, align 8
   %.not.i110.i = icmp eq ptr %162, null
-  br i1 %.not.i110.i, label %copystrings.exit114.i, label %.lr.ph.i106.i, !llvm.loop !12
+  br i1 %.not.i110.i, label %copystrings.exit114.i, label %.lr.ph.i106.i, !llvm.loop !11
 
 copystrings.exit114.i:                            ; preds = %.lr.ph.i106.i, %152, %149
   %163 = call i32 (...) @magicNumber() #13
@@ -1196,10 +1196,9 @@ attributes #17 = { nounwind returns_twice }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7, !8}
-!11 = distinct !{!11, !7, !8}
-!12 = distinct !{!12, !7, !8}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7}

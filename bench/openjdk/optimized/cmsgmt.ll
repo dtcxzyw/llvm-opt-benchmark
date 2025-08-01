@@ -547,7 +547,7 @@ define internal noundef i32 @EstimateTAC(ptr noundef %0, ptr readnone captures(n
   %10 = fadd float %.020, %9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.thread, label %.lr.ph, !llvm.loop !9
+  br i1 %exitcond.not, label %._crit_edge.thread, label %.lr.ph, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %3
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 16
@@ -580,7 +580,7 @@ define internal noundef i32 @EstimateTAC(ptr noundef %0, ptr readnone captures(n
   store float %22, ptr %23, align 4
   %indvars.iv.next28 = add nuw nsw i64 %indvars.iv27, 1
   %exitcond31.not = icmp eq i64 %indvars.iv.next28, %wide.trip.count30
-  br i1 %exitcond31.not, label %.loopexit, label %19, !llvm.loop !10
+  br i1 %exitcond31.not, label %.loopexit, label %19, !llvm.loop !9
 
 .loopexit:                                        ; preds = %19, %17, %._crit_edge.thread, %._crit_edge
   ret i32 1
@@ -750,7 +750,7 @@ define hidden double @cmsDetectRGBProfileGamma(ptr noundef %0, double noundef %1
   store i16 %19, ptr %20, align 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 256
-  br i1 %exitcond.not, label %23, label %.preheader, !llvm.loop !11
+  br i1 %exitcond.not, label %23, label %.preheader, !llvm.loop !10
 
 23:                                               ; preds = %.preheader
   call void @cmsDoTransform(ptr noundef nonnull %14, ptr noundef nonnull %3, ptr noundef nonnull %4, i32 noundef 256) #6
@@ -767,7 +767,7 @@ define hidden double @cmsDetectRGBProfileGamma(ptr noundef %0, double noundef %1
   store float %28, ptr %29, align 4
   %indvars.iv.next47 = add nuw nsw i64 %indvars.iv46, 1
   %exitcond49.not = icmp eq i64 %indvars.iv.next47, 256
-  br i1 %exitcond49.not, label %30, label %25, !llvm.loop !12
+  br i1 %exitcond49.not, label %30, label %25, !llvm.loop !11
 
 30:                                               ; preds = %25
   %31 = call ptr @cmsBuildTabulatedToneCurveFloat(ptr noundef %10, i32 noundef 256, ptr noundef nonnull %5) #6
@@ -826,10 +826,9 @@ attributes #6 = { nounwind }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7, !8}
-!11 = distinct !{!11, !7, !8}
-!12 = distinct !{!12, !7, !8}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7}

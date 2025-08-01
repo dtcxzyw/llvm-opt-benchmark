@@ -1868,7 +1868,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRKN2cv5RangeEEZN
   ]
 
 4:                                                ; preds = %3
-  store ptr @"_ZTIZN2cv5aruco25estimatePoseSingleMarkersERKNS_11_InputArrayEfS3_S3_RKNS_12_OutputArrayES6_S6_RKNS_3PtrINS0_18EstimateParametersEEEE3$_0", ptr %0, align 8, !tbaa !117
+  store ptr @"_ZTIZN2cv5aruco25estimatePoseSingleMarkersERKNS_11_InputArrayEfS3_S3_RKNS_12_OutputArrayES6_S6_RKNS_3PtrINS0_18EstimateParametersEEEE3$_0", ptr %0, align 8, !tbaa !116
   br label %"_ZNSt14_Function_base13_Base_managerIZN2cv5aruco25estimatePoseSingleMarkersERKNS1_11_InputArrayEfS5_S5_RKNS1_12_OutputArrayES8_S8_RKNS1_3PtrINS2_18EstimateParametersEEEE3$_0E10_M_managerERSt9_Any_dataRKSG_St18_Manager_operation.exit"
 
 5:                                                ; preds = %3
@@ -2054,8 +2054,7 @@ attributes #24 = { builtin allocsize(0) }
 !111 = !{i8 0, i8 2}
 !112 = !{}
 !113 = !{!62, !19, i64 8}
-!114 = distinct !{!114, !115, !116}
+!114 = distinct !{!114, !115}
 !115 = !{!"llvm.loop.mustprogress"}
-!116 = !{!"llvm.loop.estimated_trip_count"}
-!117 = !{!118, !118, i64 0}
-!118 = !{!"p1 _ZTSSt9type_info", !6, i64 0}
+!116 = !{!117, !117, i64 0}
+!117 = !{!"p1 _ZTSSt9type_info", !6, i64 0}

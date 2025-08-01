@@ -1300,7 +1300,7 @@ define hidden void @_ZN14StackWatermark25process_linked_watermarksEv(ptr noundef
   tail call void @_ZN14StackWatermark17finish_processingEPv(ptr noundef nonnull align 8 dereferenceable(176) %9, ptr noundef null)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.not = icmp eq i64 %indvars.iv.next, %5
-  br i1 %.not, label %._crit_edge, label %6, !llvm.loop !13
+  br i1 %.not, label %._crit_edge, label %6
 
 ._crit_edge:                                      ; preds = %6, %1
   ret void
@@ -1443,7 +1443,7 @@ _ZN14StackWatermark16start_processingEv.exit:     ; preds = %1, %_ZN11MutexLocke
   tail call void @_ZN14StackWatermark17finish_processingEPv(ptr noundef nonnull align 8 dereferenceable(176) %28, ptr noundef null)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %.not.i = icmp eq i64 %indvars.iv.next.i, %24
-  br i1 %.not.i, label %_ZN14StackWatermark25process_linked_watermarksEv.exit, label %25, !llvm.loop !13
+  br i1 %.not.i, label %_ZN14StackWatermark25process_linked_watermarksEv.exit, label %25
 
 _ZN14StackWatermark25process_linked_watermarksEv.exit: ; preds = %25, %_ZN14StackWatermark16start_processingEv.exit
   ret void
@@ -2149,7 +2149,7 @@ define linkonce_odr hidden noundef i32 @_ZN26GrowableArrayWithAllocatorIP14Stack
   %28 = load i32, ptr %0, align 8
   %29 = sext i32 %28 to i64
   %30 = icmp slt i64 %indvars.iv.next.i.i, %29
-  br i1 %30, label %23, label %.preheader15.loopexit.i.i, !llvm.loop !14
+  br i1 %30, label %23, label %.preheader15.loopexit.i.i, !llvm.loop !12
 
 .preheader.i.i:                                   ; preds = %.lr.ph18.i.i, %.preheader15.i.i
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -2165,7 +2165,7 @@ define linkonce_odr hidden noundef i32 @_ZN26GrowableArrayWithAllocatorIP14Stack
   %34 = load i32, ptr %4, align 4
   %35 = trunc nuw i64 %indvars.iv.next21.i.i to i32
   %36 = icmp sgt i32 %34, %35
-  br i1 %36, label %.lr.ph18.i.i, label %.preheader.i.i, !llvm.loop !15
+  br i1 %36, label %.lr.ph18.i.i, label %.preheader.i.i, !llvm.loop !13
 
 37:                                               ; preds = %.preheader.i.i
   tail call void @_ZN27GrowableArrayCHeapAllocator10deallocateEPv(ptr noundef nonnull %32) #17
@@ -2235,9 +2235,7 @@ attributes #18 = { noreturn nounwind }
 !7 = distinct !{!7, !8, !"_ZNK5frame6senderEP11RegisterMap: argument 0"}
 !8 = distinct !{!8, !"_ZNK5frame6senderEP11RegisterMap"}
 !9 = !{i64 2145392468}
-!10 = distinct !{!10, !11, !12}
+!10 = distinct !{!10, !11}
 !11 = !{!"llvm.loop.mustprogress"}
-!12 = !{!"llvm.loop.estimated_trip_count"}
-!13 = distinct !{!13, !12}
-!14 = distinct !{!14, !11, !12}
-!15 = distinct !{!15, !11, !12}
+!12 = distinct !{!12, !11}
+!13 = distinct !{!13, !11}

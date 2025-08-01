@@ -53,14 +53,14 @@ define internal noundef i32 @chacha_init_key(ptr noundef readonly captures(none)
   %15 = load i32, ptr %14, align 1
   %16 = lshr exact i64 %indvars.iv35, 2
   %17 = getelementptr inbounds nuw [4 x i32], ptr %12, i64 0, i64 %16
-  store i32 %15, ptr %17, align 4, !tbaa !16
+  store i32 %15, ptr %17, align 4, !tbaa !15
   %indvars.iv.next36 = add nuw nsw i64 %indvars.iv35, 4
   %18 = icmp samesign ult i64 %indvars.iv35, 12
-  br i1 %18, label %13, label %.loopexit, !llvm.loop !17
+  br i1 %18, label %13, label %.loopexit, !llvm.loop !16
 
 .loopexit:                                        ; preds = %13, %.loopexit31
   %19 = getelementptr inbounds nuw i8, ptr %6, i64 112
-  store i32 0, ptr %19, align 8, !tbaa !18
+  store i32 0, ptr %19, align 8, !tbaa !17
   ret i32 1
 }
 
@@ -69,7 +69,7 @@ define internal noundef i32 @chacha_cipher(ptr noundef readonly captures(none) %
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %6 = load ptr, ptr %5, align 8, !tbaa !3
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 112
-  %8 = load i32, ptr %7, align 8, !tbaa !18
+  %8 = load i32, ptr %7, align 8, !tbaa !17
   %.not = icmp eq i32 %8, 0
   br i1 %.not, label %38, label %.preheader
 
@@ -101,7 +101,7 @@ define internal noundef i32 @chacha_cipher(ptr noundef readonly captures(none) %
   %22 = icmp ne i64 %21, 0
   %23 = icmp samesign ult i64 %indvars.iv, 63
   %24 = and i1 %22, %23
-  br i1 %24, label %14, label %._crit_edge.loopexit, !llvm.loop !20
+  br i1 %24, label %14, label %._crit_edge.loopexit, !llvm.loop !19
 
 ._crit_edge.loopexit:                             ; preds = %14
   %25 = trunc nuw nsw i64 %indvars.iv.next to i32
@@ -112,7 +112,7 @@ define internal noundef i32 @chacha_cipher(ptr noundef readonly captures(none) %
   %.170.lcssa = phi i64 [ %3, %.preheader ], [ %21, %._crit_edge.loopexit ]
   %.168.lcssa = phi ptr [ %1, %.preheader ], [ %20, %._crit_edge.loopexit ]
   %.065.lcssa = phi i32 [ %8, %.preheader ], [ %25, %._crit_edge.loopexit ]
-  store i32 %.065.lcssa, ptr %7, align 8, !tbaa !18
+  store i32 %.065.lcssa, ptr %7, align 8, !tbaa !17
   %26 = icmp eq i64 %.170.lcssa, 0
   br i1 %26, label %71, label %27
 
@@ -121,19 +121,19 @@ define internal noundef i32 @chacha_cipher(ptr noundef readonly captures(none) %
   br i1 %28, label %29, label %38
 
 29:                                               ; preds = %27
-  store i32 0, ptr %7, align 8, !tbaa !18
+  store i32 0, ptr %7, align 8, !tbaa !17
   %30 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  %31 = load i32, ptr %30, align 8, !tbaa !16
+  %31 = load i32, ptr %30, align 8, !tbaa !15
   %32 = add i32 %31, 1
-  store i32 %32, ptr %30, align 8, !tbaa !16
+  store i32 %32, ptr %30, align 8, !tbaa !15
   %33 = icmp eq i32 %32, 0
   br i1 %33, label %34, label %38
 
 34:                                               ; preds = %29
   %35 = getelementptr inbounds nuw i8, ptr %6, i64 36
-  %36 = load i32, ptr %35, align 4, !tbaa !16
+  %36 = load i32, ptr %35, align 4, !tbaa !15
   %37 = add i32 %36, 1
-  store i32 %37, ptr %35, align 4, !tbaa !16
+  store i32 %37, ptr %35, align 4, !tbaa !15
   br label %38
 
 38:                                               ; preds = %27, %34, %29, %4
@@ -148,7 +148,7 @@ define internal noundef i32 @chacha_cipher(ptr noundef readonly captures(none) %
   br i1 %.not7888, label %._crit_edge95, label %.lr.ph94
 
 .lr.ph94:                                         ; preds = %38
-  %43 = load i32, ptr %42, align 8, !tbaa !16
+  %43 = load i32, ptr %42, align 8, !tbaa !15
   %44 = getelementptr inbounds nuw i8, ptr %6, i64 36
   br label %45
 
@@ -171,19 +171,19 @@ define internal noundef i32 @chacha_cipher(ptr noundef readonly captures(none) %
   %53 = sub i64 %.27190, %52
   %54 = getelementptr inbounds nuw i8, ptr %.27489, i64 %52
   %55 = getelementptr inbounds nuw i8, ptr %.291, i64 %52
-  store i32 %spec.select, ptr %42, align 8, !tbaa !16
+  store i32 %spec.select, ptr %42, align 8, !tbaa !15
   %56 = icmp eq i32 %spec.select, 0
   br i1 %56, label %57, label %60
 
 57:                                               ; preds = %45
-  %58 = load i32, ptr %44, align 4, !tbaa !16
+  %58 = load i32, ptr %44, align 4, !tbaa !15
   %59 = add i32 %58, 1
-  store i32 %59, ptr %44, align 4, !tbaa !16
+  store i32 %59, ptr %44, align 4, !tbaa !15
   br label %60
 
 60:                                               ; preds = %57, %45
   %.not78 = icmp eq i64 %53, 0
-  br i1 %.not78, label %._crit_edge95, label %45, !llvm.loop !21
+  br i1 %.not78, label %._crit_edge95, label %45, !llvm.loop !20
 
 ._crit_edge95:                                    ; preds = %60, %38
   %.274.lcssa = phi ptr [ %.072, %38 ], [ %54, %60 ]
@@ -209,10 +209,10 @@ define internal noundef i32 @chacha_cipher(ptr noundef readonly captures(none) %
   store i8 %68, ptr %69, align 1, !tbaa !12
   %indvars.iv.next106 = add nuw nsw i64 %indvars.iv105, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next106, %wide.trip.count
-  br i1 %exitcond.not, label %70, label %63, !llvm.loop !22
+  br i1 %exitcond.not, label %70, label %63, !llvm.loop !21
 
 70:                                               ; preds = %63
-  store i32 %40, ptr %7, align 8, !tbaa !18
+  store i32 %40, ptr %7, align 8, !tbaa !17
   br label %71
 
 71:                                               ; preds = %._crit_edge95, %70, %._crit_edge
@@ -244,14 +244,14 @@ define internal noundef i32 @chacha20_poly1305_init_key(ptr noundef readonly cap
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 168
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 200
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %11, i8 0, i64 24, i1 false)
-  store i64 -1, ptr %12, align 8, !tbaa !23
+  store i64 -1, ptr %12, align 8, !tbaa !22
   br i1 %9, label %13, label %39
 
 13:                                               ; preds = %10
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #9
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %5, i8 0, i64 16, i1 false)
   %14 = getelementptr inbounds nuw i8, ptr %7, i64 196
-  %15 = load i32, ptr %14, align 4, !tbaa !26
+  %15 = load i32, ptr %14, align 4, !tbaa !25
   %16 = icmp slt i32 %15, 17
   br i1 %16, label %17, label %22
 
@@ -282,19 +282,19 @@ define internal noundef i32 @chacha20_poly1305_init_key(ptr noundef readonly cap
   %28 = getelementptr inbounds nuw i8, ptr %7, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %28, ptr noundef nonnull align 16 dereferenceable(16) %5, i64 16, i1 false)
   %29 = getelementptr inbounds nuw i8, ptr %7, i64 112
-  store i32 0, ptr %29, align 8, !tbaa !18
+  store i32 0, ptr %29, align 8, !tbaa !17
   %30 = getelementptr inbounds nuw i8, ptr %7, i64 36
-  %31 = load i32, ptr %30, align 4, !tbaa !16
+  %31 = load i32, ptr %30, align 4, !tbaa !15
   %32 = getelementptr inbounds nuw i8, ptr %7, i64 120
-  store i32 %31, ptr %32, align 8, !tbaa !16
+  store i32 %31, ptr %32, align 8, !tbaa !15
   %33 = getelementptr inbounds nuw i8, ptr %7, i64 40
-  %34 = load i32, ptr %33, align 8, !tbaa !16
+  %34 = load i32, ptr %33, align 8, !tbaa !15
   %35 = getelementptr inbounds nuw i8, ptr %7, i64 124
-  store i32 %34, ptr %35, align 4, !tbaa !16
+  store i32 %34, ptr %35, align 4, !tbaa !15
   %36 = getelementptr inbounds nuw i8, ptr %7, i64 44
-  %37 = load i32, ptr %36, align 4, !tbaa !16
+  %37 = load i32, ptr %36, align 4, !tbaa !15
   %38 = getelementptr inbounds nuw i8, ptr %7, i64 128
-  store i32 %37, ptr %38, align 8, !tbaa !16
+  store i32 %37, ptr %38, align 8, !tbaa !15
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #9
   br label %46
 
@@ -315,7 +315,7 @@ define internal noundef i32 @chacha20_poly1305_init_key(ptr noundef readonly cap
 
 chacha_init_key.exit32:                           ; preds = %.preheader30.i28, %39
   %45 = getelementptr inbounds nuw i8, ptr %7, i64 112
-  store i32 0, ptr %45, align 8, !tbaa !18
+  store i32 0, ptr %45, align 8, !tbaa !17
   br label %46
 
 46:                                               ; preds = %.loopexit31.i, %chacha_init_key.exit32, %4
@@ -329,9 +329,9 @@ define internal noundef i32 @chacha20_poly1305_cipher(ptr noundef %0, ptr nounde
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %8 = load ptr, ptr %7, align 8, !tbaa !3
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 200
-  %10 = load i64, ptr %9, align 8, !tbaa !23
+  %10 = load i64, ptr %9, align 8, !tbaa !22
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 188
-  %12 = load i32, ptr %11, align 4, !tbaa !27
+  %12 = load i32, ptr %11, align 4, !tbaa !26
   %.not = icmp eq i32 %12, 0
   br i1 %.not, label %13, label %82
 
@@ -352,7 +352,7 @@ define internal noundef i32 @chacha20_poly1305_cipher(ptr noundef %0, ptr nounde
   %20 = getelementptr inbounds nuw i8, ptr %5, i64 48
   %21 = icmp ult i64 %10, 193
   %22 = getelementptr inbounds nuw i8, ptr %8, i64 32
-  store i32 0, ptr %22, align 8, !tbaa !16
+  store i32 0, ptr %22, align 8, !tbaa !15
   br i1 %21, label %23, label %43
 
 23:                                               ; preds = %18
@@ -362,13 +362,13 @@ define internal noundef i32 @chacha20_poly1305_cipher(ptr noundef %0, ptr nounde
   %26 = getelementptr inbounds nuw i8, ptr %8, i64 208
   call void @Poly1305_Init(ptr noundef nonnull %26, ptr noundef nonnull %5) #9
   %27 = getelementptr inbounds nuw i8, ptr %8, i64 112
-  store i32 0, ptr %27, align 8, !tbaa !28
+  store i32 0, ptr %27, align 8, !tbaa !27
   %28 = getelementptr inbounds nuw i8, ptr %8, i64 148
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %20, ptr noundef nonnull align 4 dereferenceable(16) %28, i64 16, i1 false)
   %29 = getelementptr inbounds nuw i8, ptr %8, i64 168
-  store i64 13, ptr %29, align 8, !tbaa !29
+  store i64 13, ptr %29, align 8, !tbaa !28
   %30 = getelementptr inbounds nuw i8, ptr %8, i64 176
-  store i64 %10, ptr %30, align 8, !tbaa !30
+  store i64 %10, ptr %30, align 8, !tbaa !29
   %.not106.i = icmp eq i64 %10, 0
   br i1 %.not106.i, label %57, label %31
 
@@ -399,15 +399,15 @@ define internal noundef i32 @chacha20_poly1305_cipher(ptr noundef %0, ptr nounde
   call void @ChaCha20_ctr32(ptr noundef nonnull %5, ptr noundef nonnull @zero, i64 noundef 64, ptr noundef nonnull %8, ptr noundef nonnull %22) #9
   %44 = getelementptr inbounds nuw i8, ptr %8, i64 208
   call void @Poly1305_Init(ptr noundef nonnull %44, ptr noundef nonnull %5) #9
-  store i32 1, ptr %22, align 8, !tbaa !16
+  store i32 1, ptr %22, align 8, !tbaa !15
   %45 = getelementptr inbounds nuw i8, ptr %8, i64 112
-  store i32 0, ptr %45, align 8, !tbaa !28
+  store i32 0, ptr %45, align 8, !tbaa !27
   %46 = getelementptr inbounds nuw i8, ptr %8, i64 148
   call void @Poly1305_Update(ptr noundef nonnull %44, ptr noundef nonnull %46, i64 noundef 16) #9
   %47 = getelementptr inbounds nuw i8, ptr %8, i64 168
-  store i64 13, ptr %47, align 8, !tbaa !29
+  store i64 13, ptr %47, align 8, !tbaa !28
   %48 = getelementptr inbounds nuw i8, ptr %8, i64 176
-  store i64 %10, ptr %48, align 8, !tbaa !30
+  store i64 %10, ptr %48, align 8, !tbaa !29
   %49 = call i32 @EVP_CIPHER_CTX_is_encrypting(ptr noundef nonnull %0) #9
   %.not105.i = icmp eq i32 %49, 0
   br i1 %.not105.i, label %51, label %50
@@ -447,7 +447,7 @@ define internal noundef i32 @chacha20_poly1305_cipher(ptr noundef %0, ptr nounde
   %61 = getelementptr inbounds nuw i8, ptr %8, i64 132
   %62 = select i1 %.not108.i, ptr %.098.i, ptr %61
   call void @Poly1305_Final(ptr noundef nonnull %59, ptr noundef nonnull %62) #9
-  store i64 -1, ptr %9, align 8, !tbaa !23
+  store i64 -1, ptr %9, align 8, !tbaa !22
   %63 = call i32 @EVP_CIPHER_CTX_is_encrypting(ptr noundef nonnull %0) #9
   %.not109.i = icmp eq i32 %63, 0
   br i1 %.not109.i, label %65, label %64
@@ -479,25 +479,25 @@ chacha20_poly1305_tls_cipher.exit:                ; preds = %16, %67, %71
 
 73:                                               ; preds = %13
   %74 = getelementptr inbounds nuw i8, ptr %8, i64 32
-  store i32 0, ptr %74, align 8, !tbaa !16
+  store i32 0, ptr %74, align 8, !tbaa !15
   %75 = getelementptr inbounds nuw i8, ptr %8, i64 48
   tail call void @ChaCha20_ctr32(ptr noundef nonnull %75, ptr noundef nonnull @zero, i64 noundef 64, ptr noundef nonnull %8, ptr noundef nonnull %74) #9
   %76 = getelementptr inbounds nuw i8, ptr %8, i64 208
   tail call void @Poly1305_Init(ptr noundef nonnull %76, ptr noundef nonnull %75) #9
-  store i32 1, ptr %74, align 8, !tbaa !16
+  store i32 1, ptr %74, align 8, !tbaa !15
   %77 = getelementptr inbounds nuw i8, ptr %8, i64 112
-  store i32 0, ptr %77, align 8, !tbaa !28
+  store i32 0, ptr %77, align 8, !tbaa !27
   %78 = getelementptr inbounds nuw i8, ptr %8, i64 168
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %78, i8 0, i64 16, i1 false)
-  store i32 1, ptr %11, align 4, !tbaa !27
+  store i32 1, ptr %11, align 4, !tbaa !26
   br i1 %14, label %79, label %82
 
 79:                                               ; preds = %73
   %80 = getelementptr inbounds nuw i8, ptr %8, i64 148
   tail call void @Poly1305_Update(ptr noundef nonnull %76, ptr noundef nonnull %80, i64 noundef 13) #9
-  store i64 13, ptr %78, align 8, !tbaa !29
+  store i64 13, ptr %78, align 8, !tbaa !28
   %81 = getelementptr inbounds nuw i8, ptr %8, i64 184
-  store i32 1, ptr %81, align 8, !tbaa !31
+  store i32 1, ptr %81, align 8, !tbaa !30
   br label %82
 
 82:                                               ; preds = %73, %79, %4
@@ -516,23 +516,23 @@ chacha20_poly1305_tls_cipher.exit:                ; preds = %16, %67, %71
   %86 = getelementptr inbounds nuw i8, ptr %8, i64 208
   tail call void @Poly1305_Update(ptr noundef nonnull %86, ptr noundef nonnull %2, i64 noundef %3) #9
   %87 = getelementptr inbounds nuw i8, ptr %8, i64 168
-  %88 = load i64, ptr %87, align 8, !tbaa !29
+  %88 = load i64, ptr %87, align 8, !tbaa !28
   %89 = add i64 %88, %3
-  store i64 %89, ptr %87, align 8, !tbaa !29
+  store i64 %89, ptr %87, align 8, !tbaa !28
   %90 = getelementptr inbounds nuw i8, ptr %8, i64 184
-  store i32 1, ptr %90, align 8, !tbaa !31
+  store i32 1, ptr %90, align 8, !tbaa !30
   %91 = trunc i64 %3 to i32
   br label %160
 
 92:                                               ; preds = %83
   %93 = getelementptr inbounds nuw i8, ptr %8, i64 184
-  %94 = load i32, ptr %93, align 8, !tbaa !31
+  %94 = load i32, ptr %93, align 8, !tbaa !30
   %.not117 = icmp eq i32 %94, 0
   br i1 %.not117, label %103, label %95
 
 95:                                               ; preds = %92
   %96 = getelementptr inbounds nuw i8, ptr %8, i64 168
-  %97 = load i64, ptr %96, align 8, !tbaa !29
+  %97 = load i64, ptr %96, align 8, !tbaa !28
   %98 = and i64 %97, 15
   %.not118 = icmp eq i64 %98, 0
   br i1 %.not118, label %102, label %99
@@ -544,11 +544,11 @@ chacha20_poly1305_tls_cipher.exit:                ; preds = %16, %67, %71
   br label %102
 
 102:                                              ; preds = %99, %95
-  store i32 0, ptr %93, align 8, !tbaa !31
+  store i32 0, ptr %93, align 8, !tbaa !30
   br label %103
 
 103:                                              ; preds = %102, %92
-  store i64 -1, ptr %9, align 8, !tbaa !23
+  store i64 -1, ptr %9, align 8, !tbaa !22
   %104 = icmp eq i64 %10, -1
   br i1 %104, label %107, label %105
 
@@ -577,9 +577,9 @@ chacha20_poly1305_tls_cipher.exit:                ; preds = %16, %67, %71
   br label %116
 
 116:                                              ; preds = %113, %110
-  %117 = load i64, ptr %109, align 8, !tbaa !30
+  %117 = load i64, ptr %109, align 8, !tbaa !29
   %118 = add i64 %117, %.1106
-  store i64 %118, ptr %109, align 8, !tbaa !30
+  store i64 %118, ptr %109, align 8, !tbaa !29
   %.0107 = getelementptr inbounds nuw i8, ptr %1, i64 %.1106
   %.0108 = getelementptr inbounds nuw i8, ptr %2, i64 %.1106
   %.not121 = icmp eq i64 %.1106, %3
@@ -592,13 +592,13 @@ chacha20_poly1305_tls_cipher.exit:                ; preds = %16, %67, %71
   %.0108139 = phi ptr [ null, %.thread ], [ %.0108, %116 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #9
   %120 = getelementptr inbounds nuw i8, ptr %8, i64 184
-  %121 = load i32, ptr %120, align 8, !tbaa !31
+  %121 = load i32, ptr %120, align 8, !tbaa !30
   %.not122 = icmp eq i32 %121, 0
   br i1 %.not122, label %130, label %122
 
 122:                                              ; preds = %119
   %123 = getelementptr inbounds nuw i8, ptr %8, i64 168
-  %124 = load i64, ptr %123, align 8, !tbaa !29
+  %124 = load i64, ptr %123, align 8, !tbaa !28
   %125 = and i64 %124, 15
   %.not123 = icmp eq i64 %125, 0
   br i1 %.not123, label %129, label %126
@@ -610,13 +610,13 @@ chacha20_poly1305_tls_cipher.exit:                ; preds = %16, %67, %71
   br label %129
 
 129:                                              ; preds = %126, %122
-  store i32 0, ptr %120, align 8, !tbaa !31
+  store i32 0, ptr %120, align 8, !tbaa !30
   br label %130
 
 130:                                              ; preds = %129, %119
   %131 = getelementptr inbounds nuw i8, ptr %8, i64 168
   %132 = getelementptr inbounds nuw i8, ptr %8, i64 176
-  %133 = load i64, ptr %132, align 8, !tbaa !30
+  %133 = load i64, ptr %132, align 8, !tbaa !29
   %134 = and i64 %133, 15
   %.not124 = icmp eq i64 %134, 0
   br i1 %.not124, label %138, label %135
@@ -635,7 +635,7 @@ chacha20_poly1305_tls_cipher.exit:                ; preds = %16, %67, %71
   %141 = getelementptr inbounds nuw i8, ptr %8, i64 132
   %142 = select i1 %.not125, ptr %6, ptr %141
   call void @Poly1305_Final(ptr noundef nonnull %139, ptr noundef nonnull %142) #9
-  store i32 0, ptr %11, align 4, !tbaa !27
+  store i32 0, ptr %11, align 4, !tbaa !26
   %.not126 = icmp eq ptr %.0108139, null
   %or.cond133 = select i1 %.not126, i1 true, i1 %.not121142
   %143 = call i32 @EVP_CIPHER_CTX_is_encrypting(ptr noundef nonnull %0) #9
@@ -665,7 +665,7 @@ chacha20_poly1305_tls_cipher.exit:                ; preds = %16, %67, %71
 
 152:                                              ; preds = %151
   %153 = getelementptr inbounds nuw i8, ptr %8, i64 192
-  %154 = load i32, ptr %153, align 8, !tbaa !32
+  %154 = load i32, ptr %153, align 8, !tbaa !31
   %155 = sext i32 %154 to i64
   %156 = call i32 @CRYPTO_memcmp(ptr noundef nonnull %6, ptr noundef nonnull %141, i64 noundef %155) #9
   %.not129 = icmp eq i32 %156, 0
@@ -744,9 +744,9 @@ define internal range(i32 -1, 17) i32 @chacha20_poly1305_ctrl(ptr noundef %0, i3
   %15 = getelementptr inbounds nuw i8, ptr %.096109, i64 168
   %16 = getelementptr inbounds nuw i8, ptr %.096109, i64 196
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %15, i8 0, i64 28, i1 false)
-  store i32 12, ptr %16, align 4, !tbaa !26
+  store i32 12, ptr %16, align 4, !tbaa !25
   %17 = getelementptr inbounds nuw i8, ptr %.096109, i64 200
-  store i64 -1, ptr %17, align 8, !tbaa !23
+  store i64 -1, ptr %17, align 8, !tbaa !22
   %18 = getelementptr inbounds nuw i8, ptr %.096109, i64 148
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %18, i8 0, i64 16, i1 false)
   br label %.critedge
@@ -772,8 +772,8 @@ define internal range(i32 -1, 17) i32 @chacha20_poly1305_ctrl(ptr noundef %0, i3
 
 26:                                               ; preds = %4
   %27 = getelementptr inbounds nuw i8, ptr %6, i64 196
-  %28 = load i32, ptr %27, align 4, !tbaa !26
-  store i32 %28, ptr %3, align 4, !tbaa !16
+  %28 = load i32, ptr %27, align 4, !tbaa !25
+  store i32 %28, ptr %3, align 4, !tbaa !15
   br label %.critedge
 
 29:                                               ; preds = %4
@@ -783,7 +783,7 @@ define internal range(i32 -1, 17) i32 @chacha20_poly1305_ctrl(ptr noundef %0, i3
 
 31:                                               ; preds = %29
   %32 = getelementptr inbounds nuw i8, ptr %6, i64 196
-  store i32 %2, ptr %32, align 4, !tbaa !26
+  store i32 %2, ptr %32, align 4, !tbaa !25
   br label %.critedge
 
 33:                                               ; preds = %4
@@ -804,9 +804,9 @@ define internal range(i32 -1, 17) i32 @chacha20_poly1305_ctrl(ptr noundef %0, i3
   %45 = shl nuw i32 %44, 24
   %46 = or disjoint i32 %41, %45
   %47 = getelementptr inbounds nuw i8, ptr %6, i64 36
-  store i32 %46, ptr %47, align 4, !tbaa !16
+  store i32 %46, ptr %47, align 4, !tbaa !15
   %48 = getelementptr inbounds nuw i8, ptr %6, i64 120
-  store i32 %46, ptr %48, align 8, !tbaa !16
+  store i32 %46, ptr %48, align 8, !tbaa !15
   %49 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %50 = load i16, ptr %49, align 1
   %51 = zext i16 %50 to i32
@@ -821,9 +821,9 @@ define internal range(i32 -1, 17) i32 @chacha20_poly1305_ctrl(ptr noundef %0, i3
   %60 = shl nuw i32 %59, 24
   %61 = or disjoint i32 %56, %60
   %62 = getelementptr inbounds nuw i8, ptr %6, i64 40
-  store i32 %61, ptr %62, align 8, !tbaa !16
+  store i32 %61, ptr %62, align 8, !tbaa !15
   %63 = getelementptr inbounds nuw i8, ptr %6, i64 124
-  store i32 %61, ptr %63, align 4, !tbaa !16
+  store i32 %61, ptr %63, align 4, !tbaa !15
   %64 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %65 = load i16, ptr %64, align 1
   %66 = zext i16 %65 to i32
@@ -838,9 +838,9 @@ define internal range(i32 -1, 17) i32 @chacha20_poly1305_ctrl(ptr noundef %0, i3
   %75 = shl nuw i32 %74, 24
   %76 = or disjoint i32 %71, %75
   %77 = getelementptr inbounds nuw i8, ptr %6, i64 44
-  store i32 %76, ptr %77, align 4, !tbaa !16
+  store i32 %76, ptr %77, align 4, !tbaa !15
   %78 = getelementptr inbounds nuw i8, ptr %6, i64 128
-  store i32 %76, ptr %78, align 8, !tbaa !16
+  store i32 %76, ptr %78, align 8, !tbaa !15
   br label %.critedge
 
 79:                                               ; preds = %4
@@ -857,7 +857,7 @@ define internal range(i32 -1, 17) i32 @chacha20_poly1305_ctrl(ptr noundef %0, i3
   %84 = zext nneg i32 %2 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %83, ptr nonnull align 1 %3, i64 %84, i1 false)
   %85 = getelementptr inbounds nuw i8, ptr %6, i64 192
-  store i32 %2, ptr %85, align 8, !tbaa !32
+  store i32 %2, ptr %85, align 8, !tbaa !31
   br label %.critedge
 
 86:                                               ; preds = %4
@@ -914,26 +914,26 @@ define internal range(i32 -1, 17) i32 @chacha20_poly1305_ctrl(ptr noundef %0, i3
   %.0 = phi i32 [ %103, %94 ], [ %108, %107 ]
   %115 = zext nneg i32 %.0 to i64
   %116 = getelementptr inbounds nuw i8, ptr %6, i64 200
-  store i64 %115, ptr %116, align 8, !tbaa !23
+  store i64 %115, ptr %116, align 8, !tbaa !22
   %117 = getelementptr inbounds nuw i8, ptr %6, i64 120
-  %118 = load i32, ptr %117, align 8, !tbaa !16
+  %118 = load i32, ptr %117, align 8, !tbaa !15
   %119 = getelementptr inbounds nuw i8, ptr %6, i64 36
-  store i32 %118, ptr %119, align 4, !tbaa !16
+  store i32 %118, ptr %119, align 4, !tbaa !15
   %120 = getelementptr inbounds nuw i8, ptr %6, i64 124
-  %121 = load i32, ptr %120, align 4, !tbaa !16
+  %121 = load i32, ptr %120, align 4, !tbaa !15
   %122 = load i32, ptr %95, align 1
   %123 = xor i32 %122, %121
   %124 = getelementptr inbounds nuw i8, ptr %6, i64 40
-  store i32 %123, ptr %124, align 8, !tbaa !16
+  store i32 %123, ptr %124, align 8, !tbaa !15
   %125 = getelementptr inbounds nuw i8, ptr %6, i64 128
-  %126 = load i32, ptr %125, align 8, !tbaa !16
+  %126 = load i32, ptr %125, align 8, !tbaa !15
   %127 = getelementptr inbounds nuw i8, ptr %6, i64 152
   %128 = load i32, ptr %127, align 1
   %129 = xor i32 %128, %126
   %130 = getelementptr inbounds nuw i8, ptr %6, i64 44
-  store i32 %129, ptr %130, align 4, !tbaa !16
+  store i32 %129, ptr %130, align 4, !tbaa !15
   %131 = getelementptr inbounds nuw i8, ptr %6, i64 188
-  store i32 0, ptr %131, align 4, !tbaa !27
+  store i32 0, ptr %131, align 4, !tbaa !26
   br label %.critedge
 
 132:                                              ; preds = %4
@@ -1004,23 +1004,22 @@ attributes #9 = { nounwind }
 !10 = !{!"int", !7, i64 0}
 !11 = !{!"long", !7, i64 0}
 !12 = !{!7, !7, i64 0}
-!13 = distinct !{!13, !14, !15}
+!13 = distinct !{!13, !14}
 !14 = !{!"llvm.loop.mustprogress"}
-!15 = !{!"llvm.loop.estimated_trip_count"}
-!16 = !{!10, !10, i64 0}
-!17 = distinct !{!17, !14, !15}
-!18 = !{!19, !10, i64 112}
-!19 = !{!"", !7, i64 0, !7, i64 32, !7, i64 48, !10, i64 112}
-!20 = distinct !{!20, !14, !15}
-!21 = distinct !{!21, !14, !15}
-!22 = distinct !{!22, !14, !15}
-!23 = !{!24, !11, i64 200}
-!24 = !{!"", !19, i64 0, !7, i64 120, !7, i64 132, !7, i64 148, !25, i64 168, !10, i64 184, !10, i64 188, !10, i64 192, !10, i64 196, !11, i64 200}
-!25 = !{!"", !11, i64 0, !11, i64 8}
-!26 = !{!24, !10, i64 196}
-!27 = !{!24, !10, i64 188}
-!28 = !{!24, !10, i64 112}
-!29 = !{!24, !11, i64 168}
-!30 = !{!24, !11, i64 176}
-!31 = !{!24, !10, i64 184}
-!32 = !{!24, !10, i64 192}
+!15 = !{!10, !10, i64 0}
+!16 = distinct !{!16, !14}
+!17 = !{!18, !10, i64 112}
+!18 = !{!"", !7, i64 0, !7, i64 32, !7, i64 48, !10, i64 112}
+!19 = distinct !{!19, !14}
+!20 = distinct !{!20, !14}
+!21 = distinct !{!21, !14}
+!22 = !{!23, !11, i64 200}
+!23 = !{!"", !18, i64 0, !7, i64 120, !7, i64 132, !7, i64 148, !24, i64 168, !10, i64 184, !10, i64 188, !10, i64 192, !10, i64 196, !11, i64 200}
+!24 = !{!"", !11, i64 0, !11, i64 8}
+!25 = !{!23, !10, i64 196}
+!26 = !{!23, !10, i64 188}
+!27 = !{!23, !10, i64 112}
+!28 = !{!23, !11, i64 168}
+!29 = !{!23, !11, i64 176}
+!30 = !{!23, !10, i64 184}
+!31 = !{!23, !10, i64 192}

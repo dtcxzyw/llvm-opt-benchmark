@@ -350,24 +350,24 @@ _ZN4llvm5ErrorD2Ev.exit32:                        ; preds = %_ZN4llvm5ErrorD2Ev.
 69:                                               ; preds = %_ZN4llvm5ErrorD2Ev.exit34
   %70 = getelementptr inbounds nuw i8, ptr %.sroa.041.051, i64 4
   %.not48 = icmp eq ptr %70, %68
-  br i1 %.not48, label %_ZN4llvm5ErrorD2Ev.exit35, label %_ZN4llvm5ErrorD2Ev.exit34, !llvm.loop !85
+  br i1 %.not48, label %_ZN4llvm5ErrorD2Ev.exit35, label %_ZN4llvm5ErrorD2Ev.exit34
 
 _ZN4llvm5ErrorD2Ev.exit34:                        ; preds = %_ZN4llvm5ErrorD2Ev.exit32, %69
   %.sroa.041.051 = phi ptr [ %70, %69 ], [ %66, %_ZN4llvm5ErrorD2Ev.exit32 ]
   %71 = load i32, ptr %.sroa.041.051, align 4, !tbaa !29
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #16, !noalias !87
-  %72 = load ptr, ptr %58, align 8, !tbaa !76, !noalias !87
-  %73 = load ptr, ptr %72, align 8, !tbaa !65, !noalias !87
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #16, !noalias !85
+  %72 = load ptr, ptr %58, align 8, !tbaa !76, !noalias !85
+  %73 = load ptr, ptr %72, align 8, !tbaa !65, !noalias !85
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 16
-  %75 = load ptr, ptr %74, align 8, !noalias !87
-  %76 = call noundef i32 %75(ptr noundef nonnull align 8 dereferenceable(8) %72) #16, !noalias !87
+  %75 = load ptr, ptr %74, align 8, !noalias !85
+  %76 = call noundef i32 %75(ptr noundef nonnull align 8 dereferenceable(8) %72) #16, !noalias !85
   %.not.i.i.i.i33 = icmp eq i32 %76, 1
   %77 = call i32 @llvm.bswap.i32(i32 %71)
   %spec.select.i.i.i.i = select i1 %.not.i.i.i.i33, i32 %71, i32 %77
   call void @llvm.assume(i1 true) [ "align"(ptr %5, i64 1) ]
-  store i32 %spec.select.i.i.i.i, ptr %5, align 4, !noalias !87
+  store i32 %spec.select.i.i.i.i, ptr %5, align 4, !noalias !85
   call void @_ZN4llvm18BinaryStreamWriter10writeBytesENS_8ArrayRefIhEE(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(64) %9, ptr nonnull %5, i64 4) #16
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #16, !noalias !87
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #16, !noalias !85
   %78 = load ptr, ptr %0, align 8, !tbaa !70
   %.not49 = icmp eq ptr %78, null
   br i1 %.not49, label %69, label %.critedge
@@ -745,10 +745,8 @@ attributes #16 = { nounwind }
 !82 = !{!"_ZTSSt17_Optional_payloadImLb1ELb1ELb1EE", !83, i64 0}
 !83 = !{!"_ZTSSt22_Optional_payload_baseImE", !6, i64 0, !20, i64 8}
 !84 = !{!5, !5, i64 0}
-!85 = distinct !{!85, !86}
-!86 = !{!"llvm.loop.estimated_trip_count"}
-!87 = !{!88, !90}
-!88 = distinct !{!88, !89, !"_ZN4llvm18BinaryStreamWriter12writeIntegerIjEENS_5ErrorET_: argument 0"}
-!89 = distinct !{!89, !"_ZN4llvm18BinaryStreamWriter12writeIntegerIjEENS_5ErrorET_"}
-!90 = distinct !{!90, !91, !"_ZN4llvm18BinaryStreamWriter9writeEnumINS_3pdb17PdbRaw_FeatureSigEEENS_5ErrorET_: argument 0"}
-!91 = distinct !{!91, !"_ZN4llvm18BinaryStreamWriter9writeEnumINS_3pdb17PdbRaw_FeatureSigEEENS_5ErrorET_"}
+!85 = !{!86, !88}
+!86 = distinct !{!86, !87, !"_ZN4llvm18BinaryStreamWriter12writeIntegerIjEENS_5ErrorET_: argument 0"}
+!87 = distinct !{!87, !"_ZN4llvm18BinaryStreamWriter12writeIntegerIjEENS_5ErrorET_"}
+!88 = distinct !{!88, !89, !"_ZN4llvm18BinaryStreamWriter9writeEnumINS_3pdb17PdbRaw_FeatureSigEEENS_5ErrorET_: argument 0"}
+!89 = distinct !{!89, !"_ZN4llvm18BinaryStreamWriter9writeEnumINS_3pdb17PdbRaw_FeatureSigEEENS_5ErrorET_"}

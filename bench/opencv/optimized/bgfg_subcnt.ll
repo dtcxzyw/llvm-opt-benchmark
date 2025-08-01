@@ -997,9 +997,9 @@ _ZN2cv4Mat_INS_3VecIiLi4EEEEaSERKNS_7MatExprE.exit: ; preds = %_ZN2cv4Mat_INS_3V
   %indvars.iv = phi i64 [ %indvars.iv.next, %236 ], [ 0, %.lr.ph93.split ]
   %228 = getelementptr inbounds nuw %"class.cv::Vec.1", ptr %207, i64 %indvars.iv
   %229 = getelementptr inbounds nuw i8, ptr %212, i64 %indvars.iv
-  %230 = load i8, ptr %229, align 1, !tbaa !89
+  %230 = load i8, ptr %229, align 1, !tbaa !88
   %231 = getelementptr inbounds nuw i8, ptr %217, i64 %indvars.iv
-  %232 = load i8, ptr %231, align 1, !tbaa !89
+  %232 = load i8, ptr %231, align 1, !tbaa !88
   %233 = getelementptr inbounds nuw i8, ptr %222, i64 %indvars.iv
   %234 = load ptr, ptr %.053, align 8, !tbaa !3
   %235 = load ptr, ptr %234, align 8
@@ -1011,7 +1011,7 @@ _ZN2cv4Mat_INS_3VecIiLi4EEEEaSERKNS_7MatExprE.exit: ; preds = %_ZN2cv4Mat_INS_3V
   %237 = load i32, ptr %185, align 4, !tbaa !56
   %238 = sext i32 %237 to i64
   %239 = icmp slt i64 %indvars.iv.next, %238
-  br i1 %239, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !90
+  br i1 %239, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !89
 
 240:                                              ; preds = %.lr.ph
   %241 = landingpad { ptr, i32 }
@@ -1103,49 +1103,49 @@ declare void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferen
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN2cv6bgsegm29createBackgroundSubtractorCNTEibib(ptr dead_on_unwind noalias writable writeonly sret(%"struct.cv::Ptr") align 8 captures(none) %0, i32 noundef %1, i1 noundef zeroext %2, i32 noundef %3, i1 noundef zeroext %4) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
-  %6 = tail call noalias noundef nonnull dereferenceable(328) ptr @_Znwm(i64 noundef 328) #18, !noalias !91
+  %6 = tail call noalias noundef nonnull dereferenceable(328) ptr @_Znwm(i64 noundef 328) #18, !noalias !90
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store i32 1, ptr %7, align 8, !tbaa !94, !noalias !91
+  store i32 1, ptr %7, align 8, !tbaa !93, !noalias !90
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 12
-  store i32 1, ptr %8, align 4, !tbaa !96, !noalias !91
-  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv6bgsegm27BackgroundSubtractorCNTImplESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %6, align 8, !tbaa !3, !noalias !91
+  store i32 1, ptr %8, align 4, !tbaa !95, !noalias !90
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv6bgsegm27BackgroundSubtractorCNTImplESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %6, align 8, !tbaa !3, !noalias !90
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 16
   invoke void @_ZN2cv9AlgorithmC2Ev(ptr noundef nonnull align 8 dereferenceable(312) %9)
-          to label %_ZNSt12__shared_ptrIN2cv6bgsegm27BackgroundSubtractorCNTImplELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv6bgsegm27BackgroundSubtractorCNTImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit13.i.i, !noalias !91
+          to label %_ZNSt12__shared_ptrIN2cv6bgsegm27BackgroundSubtractorCNTImplELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv6bgsegm27BackgroundSubtractorCNTImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit13.i.i, !noalias !90
 
 _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv6bgsegm27BackgroundSubtractorCNTImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit13.i.i: ; preds = %5
   %10 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPv(ptr noundef nonnull %6) #17, !noalias !91
+  tail call void @_ZdlPv(ptr noundef nonnull %6) #17, !noalias !90
   resume { ptr, i32 } %10
 
 _ZNSt12__shared_ptrIN2cv6bgsegm27BackgroundSubtractorCNTImplELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %5
   %11 = zext i1 %4 to i8
   %12 = zext i1 %2 to i8
-  store ptr getelementptr inbounds nuw inrange(-16, 144) (i8, ptr @_ZTVN2cv6bgsegm27BackgroundSubtractorCNTImplE, i64 16), ptr %9, align 8, !tbaa !3, !noalias !91
+  store ptr getelementptr inbounds nuw inrange(-16, 144) (i8, ptr @_ZTVN2cv6bgsegm27BackgroundSubtractorCNTImplE, i64 16), ptr %9, align 8, !tbaa !3, !noalias !90
   %13 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  store i32 %1, ptr %13, align 8, !tbaa !6, !noalias !91
+  store i32 %1, ptr %13, align 8, !tbaa !6, !noalias !90
   %14 = getelementptr inbounds nuw i8, ptr %6, i64 28
-  store i32 %3, ptr %14, align 4, !tbaa !24, !noalias !91
+  store i32 %3, ptr %14, align 4, !tbaa !24, !noalias !90
   %15 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  store i32 5, ptr %15, align 8, !tbaa !25, !noalias !91
+  store i32 5, ptr %15, align 8, !tbaa !25, !noalias !90
   %16 = getelementptr inbounds nuw i8, ptr %6, i64 36
-  store i8 %12, ptr %16, align 4, !tbaa !26, !noalias !91
+  store i8 %12, ptr %16, align 4, !tbaa !26, !noalias !90
   %17 = getelementptr inbounds nuw i8, ptr %6, i64 37
-  store i8 %11, ptr %17, align 1, !tbaa !27, !noalias !91
+  store i8 %11, ptr %17, align 1, !tbaa !27, !noalias !90
   %18 = getelementptr inbounds nuw i8, ptr %6, i64 40
-  tail call void @_ZN2cv3MatC2Ev(ptr noundef nonnull align 8 dereferenceable(96) %18) #15, !noalias !91
-  %19 = load i32, ptr %18, align 8, !tbaa !28, !noalias !91
+  tail call void @_ZN2cv3MatC2Ev(ptr noundef nonnull align 8 dereferenceable(96) %18) #15, !noalias !90
+  %19 = load i32, ptr %18, align 8, !tbaa !28, !noalias !90
   %20 = and i32 %19, -4096
   %21 = or disjoint i32 %20, 28
-  store i32 %21, ptr %18, align 8, !tbaa !28, !noalias !91
+  store i32 %21, ptr %18, align 8, !tbaa !28, !noalias !90
   %22 = getelementptr inbounds nuw i8, ptr %6, i64 136
-  tail call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %22) #15, !noalias !91
+  tail call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %22) #15, !noalias !90
   %23 = getelementptr inbounds nuw i8, ptr %6, i64 232
-  tail call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %23) #15, !noalias !91
-  store ptr %9, ptr %0, align 8, !tbaa !97
+  tail call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %23) #15, !noalias !90
+  store ptr %9, ptr %0, align 8, !tbaa !96
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %6, ptr %24, align 8, !tbaa !102
+  store ptr %6, ptr %24, align 8, !tbaa !101
   ret void
 }
 
@@ -1244,7 +1244,7 @@ _ZN2cv6bgsegm26BGSubtractPixelWithHistory13incrStabilityERi.exit: ; preds = %16,
   br i1 %.not30, label %27, label %26
 
 26:                                               ; preds = %_ZN2cv6bgsegm26BGSubtractPixelWithHistory13incrStabilityERi.exit
-  store i8 -1, ptr %4, align 1, !tbaa !89
+  store i8 -1, ptr %4, align 1, !tbaa !88
   br label %59
 
 27:                                               ; preds = %_ZN2cv6bgsegm26BGSubtractPixelWithHistory13incrStabilityERi.exit
@@ -1300,11 +1300,11 @@ _ZN2cv6bgsegm26BGSubtractPixelWithHistory13incrStabilityERi.exit31: ; preds = %3
   br label %_ZN2cv6bgsegm26BGSubtractPixelWithHistory13decrStabilityERi.exit
 
 _ZN2cv6bgsegm26BGSubtractPixelWithHistory13decrStabilityERi.exit: ; preds = %49, %51
-  store i8 -1, ptr %4, align 1, !tbaa !89
+  store i8 -1, ptr %4, align 1, !tbaa !88
   br label %59
 
 53:                                               ; preds = %_ZN2cv6bgsegm26BGSubtractPixelWithHistory13incrStabilityERi.exit31
-  store i8 -1, ptr %4, align 1, !tbaa !89
+  store i8 -1, ptr %4, align 1, !tbaa !88
   br label %59
 
 54:                                               ; preds = %28
@@ -1319,7 +1319,7 @@ _ZN2cv6bgsegm26BGSubtractPixelWithHistory13decrStabilityERi.exit: ; preds = %49,
   br label %_ZN2cv6bgsegm26BGSubtractPixelWithHistory13decrStabilityERi.exit32
 
 _ZN2cv6bgsegm26BGSubtractPixelWithHistory13decrStabilityERi.exit32: ; preds = %54, %57
-  store i8 -1, ptr %4, align 1, !tbaa !89
+  store i8 -1, ptr %4, align 1, !tbaa !88
   br label %59
 
 59:                                               ; preds = %_ZN2cv6bgsegm26BGSubtractPixelWithHistory13decrStabilityERi.exit32, %48, %_ZN2cv6bgsegm26BGSubtractPixelWithHistory13decrStabilityERi.exit, %53, %26, %27
@@ -1362,12 +1362,12 @@ define linkonce_odr hidden void @_ZN2cv6bgsegm15BGSubtractPixelclERNS_3VecIiLi4E
   br label %23
 
 21:                                               ; preds = %14
-  store i8 -1, ptr %4, align 1, !tbaa !89
+  store i8 -1, ptr %4, align 1, !tbaa !88
   br label %23
 
 22:                                               ; preds = %5
   store i32 0, ptr %1, align 4, !tbaa !35
-  store i8 -1, ptr %4, align 1, !tbaa !89
+  store i8 -1, ptr %4, align 1, !tbaa !88
   br label %23
 
 23:                                               ; preds = %20, %21, %22
@@ -1406,7 +1406,7 @@ define linkonce_odr hidden void @_ZNK2cv6bgsegm10CNTInvokerclERKNS_5RangeE(ptr n
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %12 = load ptr, ptr %7, align 8, !tbaa !103
+  %12 = load ptr, ptr %7, align 8, !tbaa !102
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 12
   %14 = load i32, ptr %13, align 4, !tbaa !56
   %15 = icmp sgt i32 %14, 0
@@ -1430,7 +1430,7 @@ define linkonce_odr hidden void @_ZNK2cv6bgsegm10CNTInvokerclERKNS_5RangeE(ptr n
   %23 = load i64, ptr %22, align 8, !tbaa !84
   %24 = mul i64 %23, %indvars.iv26
   %25 = getelementptr inbounds nuw i8, ptr %20, i64 %24
-  %26 = load ptr, ptr %8, align 8, !tbaa !106
+  %26 = load ptr, ptr %8, align 8, !tbaa !105
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %28 = load ptr, ptr %27, align 8, !tbaa !82
   %29 = getelementptr inbounds nuw i8, ptr %26, i64 72
@@ -1438,7 +1438,7 @@ define linkonce_odr hidden void @_ZNK2cv6bgsegm10CNTInvokerclERKNS_5RangeE(ptr n
   %31 = load i64, ptr %30, align 8, !tbaa !84
   %32 = mul i64 %31, %indvars.iv26
   %33 = getelementptr inbounds nuw i8, ptr %28, i64 %32
-  %34 = load ptr, ptr %9, align 8, !tbaa !107
+  %34 = load ptr, ptr %9, align 8, !tbaa !106
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 16
   %36 = load ptr, ptr %35, align 8, !tbaa !82
   %37 = getelementptr inbounds nuw i8, ptr %34, i64 72
@@ -1446,7 +1446,7 @@ define linkonce_odr hidden void @_ZNK2cv6bgsegm10CNTInvokerclERKNS_5RangeE(ptr n
   %39 = load i64, ptr %38, align 8, !tbaa !84
   %40 = mul i64 %39, %indvars.iv26
   %41 = getelementptr inbounds nuw i8, ptr %36, i64 %40
-  %42 = load ptr, ptr %10, align 8, !tbaa !108
+  %42 = load ptr, ptr %10, align 8, !tbaa !107
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 16
   %44 = load ptr, ptr %43, align 8, !tbaa !82
   %45 = getelementptr inbounds nuw i8, ptr %42, i64 72
@@ -1469,27 +1469,27 @@ define linkonce_odr hidden void @_ZNK2cv6bgsegm10CNTInvokerclERKNS_5RangeE(ptr n
   %indvars.iv.next27 = add nsw i64 %indvars.iv26, 1
   %55 = sext i32 %53 to i64
   %56 = icmp slt i64 %indvars.iv.next27, %55
-  br i1 %56, label %.lr.ph22.split, label %._crit_edge23, !llvm.loop !109
+  br i1 %56, label %.lr.ph22.split, label %._crit_edge23, !llvm.loop !108
 
 .lr.ph:                                           ; preds = %.lr.ph22.split, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.lr.ph22.split ]
-  %57 = load ptr, ptr %11, align 8, !tbaa !110
+  %57 = load ptr, ptr %11, align 8, !tbaa !109
   %58 = getelementptr inbounds nuw %"class.cv::Vec.1", ptr %25, i64 %indvars.iv
   %59 = getelementptr inbounds nuw i8, ptr %33, i64 %indvars.iv
-  %60 = load i8, ptr %59, align 1, !tbaa !89
+  %60 = load i8, ptr %59, align 1, !tbaa !88
   %61 = getelementptr inbounds nuw i8, ptr %41, i64 %indvars.iv
-  %62 = load i8, ptr %61, align 1, !tbaa !89
+  %62 = load i8, ptr %61, align 1, !tbaa !88
   %63 = getelementptr inbounds nuw i8, ptr %49, i64 %indvars.iv
   %64 = load ptr, ptr %57, align 8, !tbaa !3
   %65 = load ptr, ptr %64, align 8
   tail call void %65(ptr noundef nonnull align 8 dereferenceable(8) %57, ptr noundef nonnull align 4 dereferenceable(16) %58, i8 noundef zeroext %60, i8 noundef zeroext %62, ptr noundef nonnull align 1 dereferenceable(1) %63)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %66 = load ptr, ptr %7, align 8, !tbaa !103
+  %66 = load ptr, ptr %7, align 8, !tbaa !102
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 12
   %68 = load i32, ptr %67, align 4, !tbaa !56
   %69 = sext i32 %68 to i64
   %70 = icmp slt i64 %indvars.iv.next, %69
-  br i1 %70, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !111
+  br i1 %70, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !110
 }
 
 ; Function Attrs: nounwind
@@ -1541,12 +1541,12 @@ define linkonce_odr hidden noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN2cv6bgse
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %7 = load ptr, ptr %6, align 8, !tbaa !112
+  %7 = load ptr, ptr %6, align 8, !tbaa !111
   %8 = icmp eq ptr %7, @_ZTSSt19_Sp_make_shared_tag
   br i1 %8, label %_ZNKSt9type_infoeqERKS_.exit.thread, label %9
 
 9:                                                ; preds = %5
-  %10 = load i8, ptr %7, align 1, !tbaa !89
+  %10 = load i8, ptr %7, align 1, !tbaa !88
   %.not.i = icmp eq i8 %10, 42
   br i1 %.not.i, label %_ZNKSt9type_infoeqERKS_.exit.thread8, label %_ZNKSt9type_infoeqERKS_.exit
 
@@ -1680,32 +1680,31 @@ attributes #18 = { builtin allocsize(0) }
 !82 = !{!15, !16, i64 16}
 !83 = !{!15, !23, i64 72}
 !84 = !{!32, !32, i64 0}
-!85 = distinct !{!85, !86, !87, !88}
+!85 = distinct !{!85, !86, !87}
 !86 = !{!"llvm.loop.mustprogress"}
-!87 = !{!"llvm.loop.estimated_trip_count"}
-!88 = !{!"llvm.loop.unswitch.partial.disable"}
-!89 = !{!12, !12, i64 0}
-!90 = distinct !{!90, !86, !87}
-!91 = !{!92}
-!92 = distinct !{!92, !93, !"_ZN2cvL7makePtrINS_6bgsegm27BackgroundSubtractorCNTImplEJibibEEENS_3PtrIT_EEDpRKT0_: argument 0"}
-!93 = distinct !{!93, !"_ZN2cvL7makePtrINS_6bgsegm27BackgroundSubtractorCNTImplEJibibEEENS_3PtrIT_EEDpRKT0_"}
-!94 = !{!95, !11, i64 8}
-!95 = !{!"_ZTSSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE", !11, i64 8, !11, i64 12}
-!96 = !{!95, !11, i64 12}
-!97 = !{!98, !99, i64 0}
-!98 = !{!"_ZTSSt12__shared_ptrIN2cv6bgsegm23BackgroundSubtractorCNTELN9__gnu_cxx12_Lock_policyE2EE", !99, i64 0, !100, i64 8}
-!99 = !{!"p1 _ZTSN2cv6bgsegm23BackgroundSubtractorCNTE", !17, i64 0}
-!100 = !{!"_ZTSSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EE", !101, i64 0}
-!101 = !{!"p1 _ZTSSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE", !17, i64 0}
-!102 = !{!100, !101, i64 0}
-!103 = !{!104, !79, i64 8}
-!104 = !{!"_ZTSN2cv6bgsegm10CNTInvokerE", !105, i64 0, !79, i64 8, !67, i64 16, !67, i64 24, !67, i64 32, !81, i64 40}
-!105 = !{!"_ZTSN2cv16ParallelLoopBodyE"}
-!106 = !{!104, !67, i64 16}
-!107 = !{!104, !67, i64 24}
-!108 = !{!104, !67, i64 32}
-!109 = distinct !{!109, !86, !87, !88}
-!110 = !{!104, !81, i64 40}
-!111 = distinct !{!111, !86, !87}
-!112 = !{!113, !16, i64 8}
-!113 = !{!"_ZTSSt9type_info", !16, i64 8}
+!87 = !{!"llvm.loop.unswitch.partial.disable"}
+!88 = !{!12, !12, i64 0}
+!89 = distinct !{!89, !86}
+!90 = !{!91}
+!91 = distinct !{!91, !92, !"_ZN2cvL7makePtrINS_6bgsegm27BackgroundSubtractorCNTImplEJibibEEENS_3PtrIT_EEDpRKT0_: argument 0"}
+!92 = distinct !{!92, !"_ZN2cvL7makePtrINS_6bgsegm27BackgroundSubtractorCNTImplEJibibEEENS_3PtrIT_EEDpRKT0_"}
+!93 = !{!94, !11, i64 8}
+!94 = !{!"_ZTSSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE", !11, i64 8, !11, i64 12}
+!95 = !{!94, !11, i64 12}
+!96 = !{!97, !98, i64 0}
+!97 = !{!"_ZTSSt12__shared_ptrIN2cv6bgsegm23BackgroundSubtractorCNTELN9__gnu_cxx12_Lock_policyE2EE", !98, i64 0, !99, i64 8}
+!98 = !{!"p1 _ZTSN2cv6bgsegm23BackgroundSubtractorCNTE", !17, i64 0}
+!99 = !{!"_ZTSSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EE", !100, i64 0}
+!100 = !{!"p1 _ZTSSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE", !17, i64 0}
+!101 = !{!99, !100, i64 0}
+!102 = !{!103, !79, i64 8}
+!103 = !{!"_ZTSN2cv6bgsegm10CNTInvokerE", !104, i64 0, !79, i64 8, !67, i64 16, !67, i64 24, !67, i64 32, !81, i64 40}
+!104 = !{!"_ZTSN2cv16ParallelLoopBodyE"}
+!105 = !{!103, !67, i64 16}
+!106 = !{!103, !67, i64 24}
+!107 = !{!103, !67, i64 32}
+!108 = distinct !{!108, !86, !87}
+!109 = !{!103, !81, i64 40}
+!110 = distinct !{!110, !86}
+!111 = !{!112, !16, i64 8}
+!112 = !{!"_ZTSSt9type_info", !16, i64 8}

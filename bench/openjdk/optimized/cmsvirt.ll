@@ -1383,7 +1383,7 @@ define hidden ptr @cmsTransform2DeviceLink(ptr noundef %0, double noundef %1, i3
   %53 = add i32 %52, 1
   store i32 %53, ptr %4, align 4
   %54 = icmp ult i32 %53, %31
-  br i1 %54, label %48, label %._crit_edge.i, !llvm.loop !9
+  br i1 %54, label %48, label %._crit_edge.i, !llvm.loop !8
 
 ._crit_edge.i:                                    ; preds = %48, %34
   %55 = call i32 @cmsWriteTag(ptr noundef nonnull %21, i32 noundef 1852009522, ptr noundef nonnull %32) #7
@@ -1576,7 +1576,7 @@ FixColorSpaces.exit:                              ; preds = %88, %89, %90, %.thr
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %.011.i.i = load ptr, ptr %129, align 8
   %.not.i.i = icmp eq ptr %.011.i.i, null
-  br i1 %.not.i.i, label %._crit_edge.loopexit.i.i, label %123, !llvm.loop !10
+  br i1 %.not.i.i, label %._crit_edge.loopexit.i.i, label %123, !llvm.loop !9
 
 ._crit_edge.loopexit.i.i:                         ; preds = %128
   %130 = trunc nuw i64 %indvars.iv.next.i.i to i32
@@ -1591,7 +1591,7 @@ CheckOne.exit.i:                                  ; preds = %._crit_edge.loopexi
 CheckOne.exit.thread.i:                           ; preds = %124, %123, %CheckOne.exit.i, %116, %113
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond22.not.i = icmp eq i64 %indvars.iv.next.i, 11
-  br i1 %exitcond22.not.i, label %.critedge, label %113, !llvm.loop !11
+  br i1 %exitcond22.not.i, label %.critedge, label %113, !llvm.loop !10
 
 .critedge:                                        ; preds = %CheckOne.exit.thread.i, %FixColorSpaces.exit
   %132 = getelementptr inbounds nuw i8, ptr %0, i64 224
@@ -1652,7 +1652,7 @@ CheckOne.exit.thread.i:                           ; preds = %124, %123, %CheckOn
   %indvars.iv.next.i.i137 = add nuw nsw i64 %indvars.iv.i.i133, 1
   %.011.i.i138 = load ptr, ptr %154, align 8
   %.not.i.i139 = icmp eq ptr %.011.i.i138, null
-  br i1 %.not.i.i139, label %._crit_edge.loopexit.i.i140, label %148, !llvm.loop !10
+  br i1 %.not.i.i139, label %._crit_edge.loopexit.i.i140, label %148, !llvm.loop !9
 
 ._crit_edge.loopexit.i.i140:                      ; preds = %153
   %155 = trunc nuw i64 %indvars.iv.next.i.i137 to i32
@@ -1667,7 +1667,7 @@ CheckOne.exit.i141:                               ; preds = %._crit_edge.loopexi
 CheckOne.exit.thread.i121:                        ; preds = %149, %148, %CheckOne.exit.i141, %141, %138
   %indvars.iv.next.i122 = add nuw nsw i64 %indvars.iv.i119, 1
   %exitcond22.not.i123 = icmp eq i64 %indvars.iv.next.i122, 11
-  br i1 %exitcond22.not.i123, label %157, label %138, !llvm.loop !11
+  br i1 %exitcond22.not.i123, label %157, label %138, !llvm.loop !10
 
 157:                                              ; preds = %CheckOne.exit.thread.i121
   %158 = load i32, ptr %5, align 4
@@ -1766,7 +1766,7 @@ CheckOne.exit.thread.i121:                        ; preds = %149, %148, %CheckOn
   %indvars.iv.next.i.i165 = add nuw nsw i64 %indvars.iv.i.i161, 1
   %.011.i.i166 = load ptr, ptr %198, align 8
   %.not.i.i167 = icmp eq ptr %.011.i.i166, null
-  br i1 %.not.i.i167, label %._crit_edge.loopexit.i.i168, label %192, !llvm.loop !10
+  br i1 %.not.i.i167, label %._crit_edge.loopexit.i.i168, label %192, !llvm.loop !9
 
 ._crit_edge.loopexit.i.i168:                      ; preds = %197
   %199 = trunc nuw i64 %indvars.iv.next.i.i165 to i32
@@ -1781,7 +1781,7 @@ CheckOne.exit.i169:                               ; preds = %._crit_edge.loopexi
 CheckOne.exit.thread.i149:                        ; preds = %193, %192, %CheckOne.exit.i169, %185, %182
   %indvars.iv.next.i150 = add nuw nsw i64 %indvars.iv.i147, 1
   %exitcond22.not.i151 = icmp eq i64 %indvars.iv.next.i150, 11
-  br i1 %exitcond22.not.i151, label %FindCombination.exit174.thread, label %182, !llvm.loop !11
+  br i1 %exitcond22.not.i151, label %FindCombination.exit174.thread, label %182, !llvm.loop !10
 
 .critedge115:                                     ; preds = %CheckOne.exit.i, %CheckOne.exit.i141, %CheckOne.exit.i169
   %201 = load i32, ptr %5, align 4
@@ -1981,9 +1981,8 @@ attributes #7 = { nounwind }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7, !8}
-!11 = distinct !{!11, !7, !8}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}

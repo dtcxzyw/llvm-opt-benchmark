@@ -436,7 +436,7 @@ define hidden range(i32 0, 2) i32 @NET_IsEqual(ptr noundef readonly captures(non
 3:                                                ; preds = %4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
-  br i1 %exitcond.not, label %9, label %4, !llvm.loop !9
+  br i1 %exitcond.not, label %9, label %4, !llvm.loop !8
 
 4:                                                ; preds = %2, %3
   %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %3 ]
@@ -459,7 +459,7 @@ define hidden range(i32 0, 2) i32 @NET_IsZeroAddr(ptr noundef readonly captures(
 2:                                                ; preds = %3
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
-  br i1 %exitcond.not, label %6, label %3, !llvm.loop !10
+  br i1 %exitcond.not, label %6, label %3, !llvm.loop !9
 
 3:                                                ; preds = %1, %2
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %2 ]
@@ -630,7 +630,7 @@ define hidden i32 @NET_Wait(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 
 
 22:                                               ; preds = %.split.us
   %23 = icmp sgt i32 %18, 0
-  br i1 %23, label %.split28.us, label %.split.us, !llvm.loop !11
+  br i1 %23, label %.split28.us, label %.split.us, !llvm.loop !10
 
 .split:                                           ; preds = %.split.preheader, %32
   %.017 = phi i64 [ %28, %32 ], [ %8, %.split.preheader ]
@@ -655,7 +655,7 @@ define hidden i32 @NET_Wait(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 
 
 32:                                               ; preds = %.split
   %33 = icmp sgt i32 %26, 0
-  br i1 %33, label %.split28.us, label %.split, !llvm.loop !13
+  br i1 %33, label %.split28.us, label %.split
 
 .split28.us:                                      ; preds = %32, %22
   %.us-phi29 = phi i64 [ %20, %22 ], [ %28, %32 ]
@@ -699,11 +699,9 @@ attributes #17 = { nounwind allocsize(0) }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7, !8}
-!11 = distinct !{!11, !8, !12}
-!12 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!13 = distinct !{!13, !8}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !11}
+!11 = !{!"llvm.loop.unswitch.nontrivial.disable"}

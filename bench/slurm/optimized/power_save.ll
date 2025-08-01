@@ -421,7 +421,7 @@ _parse_exc_nodes.exit:                            ; preds = %16, %19, %._crit_ed
 80:                                               ; preds = %77, %78, %71
   %81 = call ptr @strtok_r(ptr noundef null, ptr noundef nonnull @.str.4, ptr noundef nonnull %7) #12
   %.not12 = icmp eq ptr %81, null
-  br i1 %.not12, label %._crit_edge, label %.lr.ph, !llvm.loop !12
+  br i1 %.not12, label %._crit_edge, label %.lr.ph, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %80, %67
   call void @slurm_xfree(ptr noundef nonnull %8) #12
@@ -474,11 +474,11 @@ _parse_exc_nodes.exit:                            ; preds = %16, %19, %._crit_ed
 98:                                               ; preds = %96, %93, %89
   %99 = call ptr @strtok_r(ptr noundef null, ptr noundef nonnull @.str.4, ptr noundef nonnull %2) #12
   %.not.i20 = icmp eq ptr %99, null
-  br i1 %.not.i20, label %._crit_edge.i21, label %.lr.ph.i19, !llvm.loop !13
+  br i1 %.not.i20, label %._crit_edge.i21, label %.lr.ph.i19, !llvm.loop !12
 
 ._crit_edge.i21:                                  ; preds = %98, %84
   call void @slurm_xfree(ptr noundef nonnull %1) #12
-  %100 = load i8, ptr @power_save_debug, align 1, !range !14, !noundef !15
+  %100 = load i8, ptr @power_save_debug, align 1, !range !13, !noundef !14
   %101 = trunc nuw i8 %100 to i1
   br i1 %101, label %102, label %_parse_exc_states.exit
 
@@ -514,7 +514,7 @@ _parse_exc_states.exit:                           ; preds = %._crit_edge.i21, %1
   br label %113
 
 113:                                              ; preds = %_parse_exc_states.exit, %82
-  %114 = load i8, ptr @power_save_debug, align 1, !range !14, !noundef !15
+  %114 = load i8, ptr @power_save_debug, align 1, !range !13, !noundef !14
   %115 = trunc nuw i8 %114 to i1
   br i1 %115, label %116, label %131
 
@@ -724,7 +724,7 @@ _clear_power_config.exit.i:                       ; preds = %21, %19
   call void @power_save_set_timeouts(ptr noundef nonnull %3)
   %52 = load i32, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 1380), align 4
   %53 = icmp ne i32 %52, -1
-  %54 = load i8, ptr %3, align 1, !range !14
+  %54 = load i8, ptr %3, align 1, !range !13
   %55 = trunc nuw i8 %54 to i1
   %or.cond.i = select i1 %53, i1 true, i1 %55
   br i1 %or.cond.i, label %60, label %56
@@ -888,7 +888,7 @@ _clear_power_config.exit.i:                       ; preds = %21, %19
 
 133:                                              ; preds = %63, %68, %73, %92, %118, %123, %104, %85, %59, %56
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3) #12
-  %134 = load i8, ptr @power_save_enabled, align 1, !range !14, !noundef !15
+  %134 = load i8, ptr @power_save_enabled, align 1, !range !13, !noundef !14
   %135 = trunc nuw i8 %134 to i1
   br i1 %135, label %136, label %140
 
@@ -1031,10 +1031,10 @@ define dso_local void @power_save_init() local_unnamed_addr #0 {
   unreachable
 
 5:                                                ; preds = %0
-  %6 = load i8, ptr @power_save_started, align 1, !range !14, !noundef !15
+  %6 = load i8, ptr @power_save_started, align 1, !range !13, !noundef !14
   %7 = trunc nuw i8 %6 to i1
   %.not = xor i1 %7, true
-  %8 = load i8, ptr @power_save_enabled, align 1, !range !14
+  %8 = load i8, ptr @power_save_enabled, align 1, !range !13
   %9 = trunc nuw i8 %8 to i1
   %or.cond = select i1 %.not, i1 %9, i1 false
   br i1 %or.cond, label %27, label %10
@@ -1278,7 +1278,7 @@ define internal noalias noundef ptr @_power_save_thread(ptr readnone captures(no
   br i1 %.not31, label %58, label %.loopexit
 
 58:                                               ; preds = %56
-  %59 = load i8, ptr @power_save_enabled, align 1, !range !14, !noundef !15
+  %59 = load i8, ptr @power_save_enabled, align 1, !range !13, !noundef !14
   %60 = trunc nuw i8 %59 to i1
   br i1 %60, label %65, label %61
 
@@ -1357,7 +1357,7 @@ define internal noalias noundef ptr @_power_save_thread(ptr readnone captures(no
 89:                                               ; preds = %.thread283.i, %86, %81
   %90 = phi ptr [ %.pre.i, %86 ], [ %88, %.thread283.i ], [ %.pre274.pre.i, %81 ]
   %91 = icmp ne ptr %90, null
-  %92 = load i8, ptr @power_save_debug, align 1, !range !14
+  %92 = load i8, ptr @power_save_debug, align 1, !range !13
   %93 = trunc nuw i8 %92 to i1
   %or.cond.i = select i1 %91, i1 %93, i1 false
   br i1 %or.cond.i, label %94, label %.thread286.i
@@ -1488,7 +1488,7 @@ _rl_get_tokens.exit.i:                            ; preds = %127, %._crit_edge.i
 
 152:                                              ; preds = %151, %148, %145
   %153 = call i32 @list_delete_item(ptr noundef %113) #12
-  br label %301, !llvm.loop !16
+  br label %301, !llvm.loop !15
 
 154:                                              ; preds = %142
   %155 = getelementptr inbounds nuw i8, ptr %144, i64 448
@@ -1514,7 +1514,7 @@ _rl_get_tokens.exit.i:                            ; preds = %127, %._crit_edge.i
 
 165:                                              ; preds = %164, %161, %158
   %166 = call i32 @list_delete_item(ptr noundef %113) #12
-  br label %301, !llvm.loop !16
+  br label %301, !llvm.loop !15
 
 167:                                              ; preds = %154
   %168 = getelementptr inbounds nuw i8, ptr %144, i64 584
@@ -1541,7 +1541,7 @@ _rl_get_tokens.exit.i:                            ; preds = %127, %._crit_edge.i
 
 179:                                              ; preds = %178, %175, %172
   %180 = call i32 @list_delete_item(ptr noundef %113) #12
-  br label %301, !llvm.loop !16
+  br label %301, !llvm.loop !15
 
 181:                                              ; preds = %167
   %182 = load i32, ptr @node_record_count, align 4
@@ -1668,7 +1668,7 @@ _rl_spend_token.exit.i:                           ; preds = %233, %231, %228
   %246 = load ptr, ptr %15, align 8
   %247 = call ptr @next_node_bitmap(ptr noundef %246, ptr noundef nonnull %17) #12
   %.not171.i = icmp eq ptr %247, null
-  br i1 %.not171.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !17
+  br i1 %.not171.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !16
 
 248:                                              ; preds = %._crit_edge.i
   %249 = call ptr @data_key_set(ptr noundef %191, ptr noundef nonnull @.str.54) #12
@@ -1720,7 +1720,7 @@ _rl_spend_token.exit.i:                           ; preds = %233, %231, %228
   br label %295
 
 281:                                              ; preds = %251
-  %282 = load i8, ptr @power_save_debug, align 1, !range !14, !noundef !15
+  %282 = load i8, ptr @power_save_debug, align 1, !range !13, !noundef !14
   %283 = trunc nuw i8 %282 to i1
   br i1 %283, label %284, label %295
 
@@ -2117,7 +2117,7 @@ _rl_spend_token.exit250.i:                        ; preds = %459, %457, %453
   call void @bit_clear(ptr noundef %472, i64 noundef %474) #12
   %475 = getelementptr inbounds nuw i8, ptr %305, i64 360
   store i64 %66, ptr %475, align 8
-  %476 = load i8, ptr @idle_on_node_suspend, align 1, !range !14, !noundef !15
+  %476 = load i8, ptr @idle_on_node_suspend, align 1, !range !13, !noundef !14
   %477 = trunc nuw i8 %476 to i1
   br i1 %477, label %478, label %_node_state_should_suspend.exit.thread.i
 
@@ -2289,7 +2289,7 @@ _node_state_should_suspend.exit.thread.i:         ; preds = %483, %_rl_spend_tok
   store i32 %567, ptr %6, align 4
   %568 = call ptr @next_node(ptr noundef nonnull %6) #12
   %.not179.i = icmp eq ptr %568, null
-  br i1 %.not179.i, label %._crit_edge272.i, label %.lr.ph271.i, !llvm.loop !18
+  br i1 %.not179.i, label %._crit_edge272.i, label %.lr.ph271.i, !llvm.loop !17
 
 ._crit_edge272.i:                                 ; preds = %565, %.loopexit.i
   %569 = phi ptr [ %111, %.loopexit.i ], [ %388, %565 ]
@@ -2305,7 +2305,7 @@ _node_state_should_suspend.exit.thread.i:         ; preds = %483, %_rl_spend_tok
 
 572:                                              ; preds = %571, %._crit_edge272.i
   store ptr null, ptr %7, align 8
-  %573 = load i8, ptr @power_save_debug, align 1, !range !14, !noundef !15
+  %573 = load i8, ptr @power_save_debug, align 1, !range !13, !noundef !14
   %574 = trunc nuw i8 %573 to i1
   br i1 %574, label %575, label %588
 
@@ -2517,7 +2517,7 @@ _do_power_work.exit:                              ; preds = %647, %648
   %.1 = phi i64 [ %66, %_do_power_work.exit ], [ %.041, %74 ], [ %.041, %65 ]
   %650 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurmctld_config, i64 328), align 8
   %.not28 = icmp eq i64 %650, 0
-  br i1 %.not28, label %40, label %.loopexit, !llvm.loop !19
+  br i1 %.not28, label %40, label %.loopexit, !llvm.loop !18
 
 .loopexit:                                        ; preds = %649, %56, %34, %64, %61
   %651 = call i32 @pthread_mutex_lock(ptr noundef nonnull @power_mutex) #12
@@ -2568,7 +2568,7 @@ define dso_local zeroext i1 @power_save_test() local_unnamed_addr #0 {
   br i1 %.not, label %.preheader, label %4
 
 .preheader:                                       ; preds = %0
-  %2 = load i8, ptr @power_save_config, align 1, !range !14, !noundef !15
+  %2 = load i8, ptr @power_save_config, align 1, !range !13, !noundef !14
   %3 = trunc nuw i8 %2 to i1
   br i1 %3, label %._crit_edge, label %.lr.ph
 
@@ -2590,12 +2590,12 @@ define dso_local zeroext i1 @power_save_test() local_unnamed_addr #0 {
   br label %10
 
 10:                                               ; preds = %7, %.lr.ph
-  %11 = load i8, ptr @power_save_config, align 1, !range !14, !noundef !15
+  %11 = load i8, ptr @power_save_config, align 1, !range !13, !noundef !14
   %12 = trunc nuw i8 %11 to i1
-  br i1 %12, label %._crit_edge, label %.lr.ph, !llvm.loop !20
+  br i1 %12, label %._crit_edge, label %.lr.ph, !llvm.loop !19
 
 ._crit_edge:                                      ; preds = %10, %.preheader
-  %13 = load i8, ptr @power_save_enabled, align 1, !range !14, !noundef !15
+  %13 = load i8, ptr @power_save_enabled, align 1, !range !13, !noundef !14
   %14 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @power_mutex) #12
   %.not9 = icmp eq i32 %14, 0
   br i1 %.not9, label %17, label %15
@@ -2654,7 +2654,7 @@ define dso_local void @power_save_fini() local_unnamed_addr #0 {
   unreachable
 
 15:                                               ; preds = %.thread
-  %16 = load i8, ptr @power_save_started, align 1, !range !14, !noundef !15
+  %16 = load i8, ptr @power_save_started, align 1, !range !13, !noundef !14
   %17 = trunc nuw i8 %16 to i1
   br i1 %17, label %18, label %22
 
@@ -2722,7 +2722,7 @@ define dso_local void @power_save_set_timeouts(ptr noundef %0) local_unnamed_add
   store i32 %13, ptr %2, align 4
   %14 = call ptr @next_node(ptr noundef nonnull %2) #12
   %.not = icmp eq ptr %14, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !21
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !20
 
 ._crit_edge24:                                    ; preds = %.lr.ph23, %._crit_edge
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #12
@@ -2753,7 +2753,7 @@ define dso_local void @power_save_set_timeouts(ptr noundef %0) local_unnamed_add
   store i32 %30, ptr %3, align 4
   %31 = call ptr @next_node(ptr noundef nonnull %3) #12
   %.not18 = icmp eq ptr %31, null
-  br i1 %.not18, label %._crit_edge24, label %.lr.ph23, !llvm.loop !22
+  br i1 %.not18, label %._crit_edge24, label %.lr.ph23, !llvm.loop !21
 }
 
 declare ptr @next_node(ptr noundef) local_unnamed_addr #2
@@ -2884,7 +2884,7 @@ define internal noundef i32 @_set_partition_options(ptr noundef readonly capture
   %49 = load ptr, ptr %20, align 8
   %50 = call ptr @next_node_bitmap(ptr noundef %49, ptr noundef nonnull %3) #12
   %.not56 = icmp eq ptr %50, null
-  br i1 %.not56, label %._crit_edge, label %24, !llvm.loop !23
+  br i1 %.not56, label %._crit_edge, label %24, !llvm.loop !22
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
@@ -3125,7 +3125,7 @@ define internal noundef i32 @_pick_exc_nodes(ptr noundef readonly captures(none)
 ._crit_edge:                                      ; preds = %_node_state_active.exit.thread, %14
   %.0.lcssa = phi i32 [ 0, %14 ], [ %.1, %_node_state_active.exit.thread ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #12
-  %20 = load i8, ptr @power_save_debug, align 1, !range !14, !noundef !15
+  %20 = load i8, ptr @power_save_debug, align 1, !range !13, !noundef !14
   %21 = trunc nuw i8 %20 to i1
   br i1 %21, label %41, label %60
 
@@ -3173,7 +3173,7 @@ _node_state_active.exit.thread:                   ; preds = %30, %27, %34, %_nod
   store i32 %39, ptr %7, align 4
   %40 = call ptr @next_node_bitmap(ptr noundef %9, ptr noundef nonnull %7) #12
   %.not35 = icmp eq ptr %40, null
-  br i1 %.not35, label %._crit_edge, label %.lr.ph, !llvm.loop !24
+  br i1 %.not35, label %._crit_edge, label %.lr.ph, !llvm.loop !23
 
 41:                                               ; preds = %._crit_edge
   %42 = call i32 @get_log_level() #12
@@ -3390,20 +3390,19 @@ attributes #15 = { noreturn nounwind }
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i32 7, !"frame-pointer", i32 2}
 !7 = !{i32 7, !"debug-info-assignment-tracking", i1 true}
-!8 = distinct !{!8, !9, !10, !11}
+!8 = distinct !{!8, !9, !10}
 !9 = !{!"llvm.loop.mustprogress"}
 !10 = !{!"llvm.loop.unroll.disable"}
-!11 = !{!"llvm.loop.estimated_trip_count"}
-!12 = distinct !{!12, !9, !10, !11}
-!13 = distinct !{!13, !9, !10, !11}
-!14 = !{i8 0, i8 2}
-!15 = !{}
+!11 = distinct !{!11, !9, !10}
+!12 = distinct !{!12, !9, !10}
+!13 = !{i8 0, i8 2}
+!14 = !{}
+!15 = distinct !{!15, !9, !10}
 !16 = distinct !{!16, !9, !10}
-!17 = distinct !{!17, !9, !10, !11}
-!18 = distinct !{!18, !9, !10, !11}
-!19 = distinct !{!19, !9, !10, !11}
-!20 = distinct !{!20, !9, !10, !11}
-!21 = distinct !{!21, !9, !10, !11}
-!22 = distinct !{!22, !9, !10, !11}
-!23 = distinct !{!23, !9, !10, !11}
-!24 = distinct !{!24, !9, !10, !11}
+!17 = distinct !{!17, !9, !10}
+!18 = distinct !{!18, !9, !10}
+!19 = distinct !{!19, !9, !10}
+!20 = distinct !{!20, !9, !10}
+!21 = distinct !{!21, !9, !10}
+!22 = distinct !{!22, !9, !10}
+!23 = distinct !{!23, !9, !10}

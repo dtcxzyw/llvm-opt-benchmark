@@ -136,24 +136,24 @@ define void @RSAZ_1024_mod_exp_avx2(ptr noundef %0, ptr noundef %1, ptr noundef 
   call void @rsaz_1024_red2norm_avx2(ptr noundef %0, ptr noundef nonnull %.294) #3
   %37 = call i64 @bn_sub_words(ptr noundef nonnull %8, ptr noundef %0, ptr noundef %3, i32 noundef 16) #3
   %38 = sub i64 0, %37
-  %39 = call i64 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 %38) #4, !srcloc !9
+  %39 = call i64 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 %38) #4, !srcloc !8
   %40 = add i64 %37, -1
-  %41 = call i64 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 %40) #4, !srcloc !9
+  %41 = call i64 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 %40) #4, !srcloc !8
   br label %42
 
 42:                                               ; preds = %42, %33
   %.09.i.i = phi i64 [ 0, %33 ], [ %50, %42 ]
   %43 = getelementptr inbounds nuw i64, ptr %0, i64 %.09.i.i
-  %44 = load i64, ptr %43, align 8, !tbaa !10
+  %44 = load i64, ptr %43, align 8, !tbaa !9
   %45 = getelementptr inbounds nuw i64, ptr %8, i64 %.09.i.i
-  %46 = load i64, ptr %45, align 8, !tbaa !10
+  %46 = load i64, ptr %45, align 8, !tbaa !9
   %47 = and i64 %44, %39
   %48 = and i64 %46, %41
   %49 = or i64 %48, %47
-  store i64 %49, ptr %43, align 8, !tbaa !10
+  store i64 %49, ptr %43, align 8, !tbaa !9
   %50 = add nuw nsw i64 %.09.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %50, 16
-  br i1 %exitcond.not.i.i, label %bn_reduce_once_in_place.exit, label %42, !llvm.loop !12
+  br i1 %exitcond.not.i.i, label %bn_reduce_once_in_place.exit, label %42, !llvm.loop !11
 
 bn_reduce_once_in_place.exit:                     ; preds = %42
   call void @OPENSSL_cleanse(ptr noundef nonnull %7, i64 noundef 5632) #3
@@ -195,44 +195,44 @@ define void @RSAZ_512_mod_exp(ptr noundef %0, ptr noundef %1, ptr noundef readon
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 1024
   %14 = getelementptr inbounds nuw i8, ptr %12, i64 1088
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %8) #3
-  %15 = load i64, ptr %3, align 8, !tbaa !10
+  %15 = load i64, ptr %3, align 8, !tbaa !9
   %16 = sub i64 0, %15
-  store i64 %16, ptr %14, align 16, !tbaa !10
+  store i64 %16, ptr %14, align 16, !tbaa !9
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %18 = load i64, ptr %17, align 8, !tbaa !10
+  %18 = load i64, ptr %17, align 8, !tbaa !9
   %19 = xor i64 %18, -1
   %20 = getelementptr inbounds nuw i8, ptr %12, i64 1096
-  store i64 %19, ptr %20, align 8, !tbaa !10
+  store i64 %19, ptr %20, align 8, !tbaa !9
   %21 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %22 = load i64, ptr %21, align 8, !tbaa !10
+  %22 = load i64, ptr %21, align 8, !tbaa !9
   %23 = xor i64 %22, -1
   %24 = getelementptr inbounds nuw i8, ptr %12, i64 1104
-  store i64 %23, ptr %24, align 16, !tbaa !10
+  store i64 %23, ptr %24, align 16, !tbaa !9
   %25 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %26 = load i64, ptr %25, align 8, !tbaa !10
+  %26 = load i64, ptr %25, align 8, !tbaa !9
   %27 = xor i64 %26, -1
   %28 = getelementptr inbounds nuw i8, ptr %12, i64 1112
-  store i64 %27, ptr %28, align 8, !tbaa !10
+  store i64 %27, ptr %28, align 8, !tbaa !9
   %29 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  %30 = load i64, ptr %29, align 8, !tbaa !10
+  %30 = load i64, ptr %29, align 8, !tbaa !9
   %31 = xor i64 %30, -1
   %32 = getelementptr inbounds nuw i8, ptr %12, i64 1120
-  store i64 %31, ptr %32, align 16, !tbaa !10
+  store i64 %31, ptr %32, align 16, !tbaa !9
   %33 = getelementptr inbounds nuw i8, ptr %3, i64 40
-  %34 = load i64, ptr %33, align 8, !tbaa !10
+  %34 = load i64, ptr %33, align 8, !tbaa !9
   %35 = xor i64 %34, -1
   %36 = getelementptr inbounds nuw i8, ptr %12, i64 1128
-  store i64 %35, ptr %36, align 8, !tbaa !10
+  store i64 %35, ptr %36, align 8, !tbaa !9
   %37 = getelementptr inbounds nuw i8, ptr %3, i64 48
-  %38 = load i64, ptr %37, align 8, !tbaa !10
+  %38 = load i64, ptr %37, align 8, !tbaa !9
   %39 = xor i64 %38, -1
   %40 = getelementptr inbounds nuw i8, ptr %12, i64 1136
-  store i64 %39, ptr %40, align 16, !tbaa !10
+  store i64 %39, ptr %40, align 16, !tbaa !9
   %41 = getelementptr inbounds nuw i8, ptr %3, i64 56
-  %42 = load i64, ptr %41, align 8, !tbaa !10
+  %42 = load i64, ptr %41, align 8, !tbaa !9
   %43 = xor i64 %42, -1
   %44 = getelementptr inbounds nuw i8, ptr %12, i64 1144
-  store i64 %43, ptr %44, align 8, !tbaa !10
+  store i64 %43, ptr %44, align 8, !tbaa !9
   call void @rsaz_512_scatter4(ptr noundef nonnull %12, ptr noundef nonnull %14, i32 noundef 0) #3
   call void @rsaz_512_mul(ptr noundef nonnull %13, ptr noundef %1, ptr noundef %5, ptr noundef nonnull %3, i64 noundef %4) #3
   call void @rsaz_512_scatter4(ptr noundef nonnull %12, ptr noundef nonnull %13, i32 noundef 1) #3
@@ -245,7 +245,7 @@ define void @RSAZ_512_mod_exp(ptr noundef %0, ptr noundef %1, ptr noundef readon
   call void @rsaz_512_mul_scatter4(ptr noundef nonnull %14, ptr noundef nonnull %13, ptr noundef nonnull %3, i64 noundef %4, ptr noundef nonnull %12, i32 noundef %.085) #3
   %46 = add nuw nsw i32 %.085, 1
   %exitcond.not = icmp eq i32 %46, 16
-  br i1 %exitcond.not, label %47, label %45, !llvm.loop !13
+  br i1 %exitcond.not, label %47, label %45, !llvm.loop !12
 
 47:                                               ; preds = %45
   %48 = getelementptr inbounds nuw i8, ptr %2, i64 63
@@ -271,30 +271,30 @@ define void @RSAZ_512_mod_exp(ptr noundef %0, ptr noundef %1, ptr noundef readon
   call void @rsaz_512_mul_gather4(ptr noundef nonnull %14, ptr noundef nonnull %14, ptr noundef nonnull %12, ptr noundef nonnull %3, i64 noundef %4, i32 noundef %58) #3
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %.not = icmp eq i64 %indvars.iv, 0
-  br i1 %.not, label %59, label %53, !llvm.loop !14
+  br i1 %.not, label %59, label %53, !llvm.loop !13
 
 59:                                               ; preds = %53
   call void @rsaz_512_mul_by_one(ptr noundef %0, ptr noundef nonnull %14, ptr noundef nonnull %3, i64 noundef %4) #3
   %60 = call i64 @bn_sub_words(ptr noundef nonnull %8, ptr noundef %0, ptr noundef nonnull %3, i32 noundef 8) #3
   %61 = sub i64 0, %60
-  %62 = call i64 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 %61) #4, !srcloc !9
+  %62 = call i64 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 %61) #4, !srcloc !8
   %63 = add i64 %60, -1
-  %64 = call i64 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 %63) #4, !srcloc !9
+  %64 = call i64 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 %63) #4, !srcloc !8
   br label %65
 
 65:                                               ; preds = %65, %59
   %.09.i.i = phi i64 [ 0, %59 ], [ %73, %65 ]
   %66 = getelementptr inbounds nuw i64, ptr %0, i64 %.09.i.i
-  %67 = load i64, ptr %66, align 8, !tbaa !10
+  %67 = load i64, ptr %66, align 8, !tbaa !9
   %68 = getelementptr inbounds nuw i64, ptr %8, i64 %.09.i.i
-  %69 = load i64, ptr %68, align 8, !tbaa !10
+  %69 = load i64, ptr %68, align 8, !tbaa !9
   %70 = and i64 %67, %62
   %71 = and i64 %69, %64
   %72 = or i64 %71, %70
-  store i64 %72, ptr %66, align 8, !tbaa !10
+  store i64 %72, ptr %66, align 8, !tbaa !9
   %73 = add nuw nsw i64 %.09.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %73, 8
-  br i1 %exitcond.not.i.i, label %bn_reduce_once_in_place.exit, label %65, !llvm.loop !12
+  br i1 %exitcond.not.i.i, label %bn_reduce_once_in_place.exit, label %65, !llvm.loop !11
 
 bn_reduce_once_in_place.exit:                     ; preds = %65
   call void @OPENSSL_cleanse(ptr noundef nonnull %7, i64 noundef 1216) #3
@@ -334,12 +334,11 @@ attributes #4 = { nounwind memory(none) }
 !3 = !{!4, !4, i64 0}
 !4 = !{!"omnipotent char", !5, i64 0}
 !5 = !{!"Simple C/C++ TBAA"}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = !{i64 947156}
-!10 = !{!11, !11, i64 0}
-!11 = !{!"long", !4, i64 0}
-!12 = distinct !{!12, !7, !8}
-!13 = distinct !{!13, !7, !8}
-!14 = distinct !{!14, !7, !8}
+!8 = !{i64 947156}
+!9 = !{!10, !10, i64 0}
+!10 = !{!"long", !4, i64 0}
+!11 = distinct !{!11, !7}
+!12 = distinct !{!12, !7}
+!13 = distinct !{!13, !7}

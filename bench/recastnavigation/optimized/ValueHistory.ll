@@ -47,7 +47,7 @@ define dso_local noundef float @_ZNK12ValueHistory12getSampleMaxEv(ptr noundef n
   %.1 = select i1 %6, float %5, float %.068
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 256
-  br i1 %exitcond.not, label %7, label %3, !llvm.loop !8
+  br i1 %exitcond.not, label %7, label %3, !llvm.loop !7
 
 7:                                                ; preds = %3
   ret float %.1
@@ -65,7 +65,7 @@ define dso_local noundef float @_ZNK12ValueHistory10getAverageEv(ptr noundef non
   %5 = fadd float %.056, %4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 256
-  br i1 %exitcond.not, label %6, label %2, !llvm.loop !9
+  br i1 %exitcond.not, label %6, label %2, !llvm.loop !8
 
 6:                                                ; preds = %2
   %7 = fmul float %5, 3.906250e-03
@@ -180,7 +180,7 @@ define dso_local void @_Z19drawGraphBackgroundPK11GraphParams(ptr noundef %0) lo
   %65 = add nuw nsw i32 %.039, 1
   %66 = load i32, ptr %33, align 4
   %.not.not = icmp slt i32 %.039, %66
-  br i1 %.not.not, label %36, label %._crit_edge, !llvm.loop !10
+  br i1 %.not.not, label %36, label %._crit_edge, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %36, %1
   ret void
@@ -255,7 +255,7 @@ define dso_local void @_Z9drawGraphPK11GraphParamsPK12ValueHistoryiPKcj(ptr noun
 47:                                               ; preds = %46, %36
   %48 = add nuw nsw i32 %.04648, 1
   %exitcond.not = icmp eq i32 %48, 255
-  br i1 %exitcond.not, label %49, label %36, !llvm.loop !11
+  br i1 %exitcond.not, label %49, label %36, !llvm.loop !10
 
 49:                                               ; preds = %47
   %50 = load i32, ptr %0, align 4
@@ -281,7 +281,7 @@ define dso_local void @_Z9drawGraphPK11GraphParamsPK12ValueHistoryiPKcj(ptr noun
   %63 = fadd float %.056.i, %62
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 256
-  br i1 %exitcond.not.i, label %_ZNK12ValueHistory10getAverageEv.exit, label %60, !llvm.loop !9
+  br i1 %exitcond.not.i, label %_ZNK12ValueHistory10getAverageEv.exit, label %60, !llvm.loop !8
 
 _ZNK12ValueHistory10getAverageEv.exit:            ; preds = %60
   %64 = fmul float %63, 3.906250e-03
@@ -317,10 +317,9 @@ attributes #9 = { nounwind }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6, !7}
+!5 = distinct !{!5, !6}
 !6 = !{!"llvm.loop.mustprogress"}
-!7 = !{!"llvm.loop.estimated_trip_count"}
-!8 = distinct !{!8, !6, !7}
-!9 = distinct !{!9, !6, !7}
-!10 = distinct !{!10, !6, !7}
-!11 = distinct !{!11, !6, !7}
+!7 = distinct !{!7, !6}
+!8 = distinct !{!8, !6}
+!9 = distinct !{!9, !6}
+!10 = distinct !{!10, !6}

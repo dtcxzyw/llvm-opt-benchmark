@@ -428,7 +428,7 @@ _ZN19LogFileStreamOutput17write_decorationsERK14LogDecorations.exit: ; preds = %
   %.3 = add nsw i32 %133, %.247
   %152 = call noundef ptr @strpbrk(ptr noundef nonnull %151, ptr noundef nonnull @.str.14) #9
   %153 = icmp eq ptr %152, null
-  br i1 %153, label %._crit_edge, label %128, !llvm.loop !9
+  br i1 %153, label %._crit_edge, label %128, !llvm.loop !8
 
 154:                                              ; preds = %._crit_edge, %111
   %.341 = add nsw i32 %109, %.2.lcssa
@@ -542,7 +542,7 @@ define hidden noundef i32 @_ZN19LogFileStreamOutput5writeEN16LogMessageBuffer8It
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 32
   %41 = load i64, ptr %40, align 8
   %42 = icmp eq i64 %38, %41
-  br i1 %42, label %._crit_edge, label %15, !llvm.loop !10
+  br i1 %42, label %._crit_edge, label %15, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %15, %5
   %.0.lcssa = phi i32 [ 0, %5 ], [ %35, %15 ]
@@ -657,8 +657,7 @@ attributes #12 = { noreturn nounwind }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7, !8}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}

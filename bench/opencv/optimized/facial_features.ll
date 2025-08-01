@@ -1887,7 +1887,7 @@ _ZNSt6vectorIN2cv5Rect_IiEESaIS2_EEC2ERKS4_.exit: ; preds = %.lr.ph.i.i.i.i.i, %
   %663 = add nsw i32 %.sroa.10.0.copyload.i, %.sroa.033.0.copyload.i
   %664 = add nsw i32 %.sroa.12.0.copyload.i, %.sroa.736.0.copyload.i
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %15) #14
-  store double 2.550000e+02, ptr %15, align 8, !tbaa !60
+  store double 2.550000e+02, ptr %15, align 8, !tbaa !59
   %.sroa.2152.0.insert.ext.i = zext i32 %.sroa.736.0.copyload.i to i64
   %.sroa.2152.0.insert.shift.i = shl nuw i64 %.sroa.2152.0.insert.ext.i, 32
   %.sroa.0151.0.insert.ext.i = zext i32 %.sroa.033.0.copyload.i to i64
@@ -1905,10 +1905,10 @@ _ZNSt6vectorIN2cv5Rect_IiEESaIS2_EEC2ERKS4_.exit: ; preds = %.lr.ph.i.i.i.i.i, %
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %14) #14
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %16) #14
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %17) #14
-  store i32 %.sroa.033.0.copyload.i, ptr %17, align 4, !tbaa !62
-  store i32 %.sroa.736.0.copyload.i, ptr %613, align 4, !tbaa !64
-  store i32 %.sroa.10.0.copyload.i, ptr %614, align 4, !tbaa !65
-  store i32 %.sroa.12.0.copyload.i, ptr %615, align 4, !tbaa !66
+  store i32 %.sroa.033.0.copyload.i, ptr %17, align 4, !tbaa !61
+  store i32 %.sroa.736.0.copyload.i, ptr %613, align 4, !tbaa !63
+  store i32 %.sroa.10.0.copyload.i, ptr %614, align 4, !tbaa !64
+  store i32 %.sroa.12.0.copyload.i, ptr %615, align 4, !tbaa !65
   invoke void @_ZN2cv3MatC1ERKS0_RKNS_5Rect_IiEE(ptr noundef nonnull align 8 dereferenceable(96) %16, ptr noundef nonnull align 8 dereferenceable(96) %56, ptr noundef nonnull align 4 dereferenceable(16) %17)
           to label %.noexc404 unwind label %979
 
@@ -2144,8 +2144,8 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i84
   %731 = sdiv i32 %.sroa.725.0.copyload.i, 2
   %732 = add nsw i32 %731, %.sroa.524.0.copyload.i
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %21) #14
-  store double 0.000000e+00, ptr %21, align 8, !tbaa !60
-  store double 2.550000e+02, ptr %626, align 8, !tbaa !60
+  store double 0.000000e+00, ptr %21, align 8, !tbaa !59
+  store double 2.550000e+02, ptr %626, align 8, !tbaa !59
   %.sroa.2148.0.insert.ext.i = zext i32 %732 to i64
   %.sroa.2148.0.insert.shift.i = shl nuw i64 %.sroa.2148.0.insert.ext.i, 32
   %.sroa.0147.0.insert.ext.i = zext i32 %730 to i64
@@ -2166,7 +2166,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i84
   %740 = sub i64 %738, %739
   %741 = ashr exact i64 %740, 4
   %742 = icmp ugt i64 %741, %735
-  br i1 %742, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !67
+  br i1 %742, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !66
 
 743:                                              ; preds = %.lr.ph.i
   %744 = landingpad { ptr, i32 }
@@ -2421,8 +2421,8 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i10
   %812 = sdiv i32 %.sroa.816.0.copyload.i, 2
   %813 = add nsw i32 %812, %.sroa.5.0.copyload.i
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %25) #14
-  store double 0.000000e+00, ptr %25, align 8, !tbaa !60
-  store double 2.550000e+02, ptr %638, align 8, !tbaa !60
+  store double 0.000000e+00, ptr %25, align 8, !tbaa !59
+  store double 2.550000e+02, ptr %638, align 8, !tbaa !59
   %.sroa.2146.0.insert.ext.i = zext i32 %813 to i64
   %.sroa.2146.0.insert.shift.i = shl nuw i64 %.sroa.2146.0.insert.ext.i, 32
   %.sroa.0145.0.insert.ext.i = zext i32 %811 to i64
@@ -2443,7 +2443,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i10
   %821 = sub i64 %819, %820
   %822 = ashr exact i64 %821, 4
   %823 = icmp ugt i64 %822, %816
-  br i1 %823, label %.lr.ph208.i, label %._crit_edge209.i, !llvm.loop !68
+  br i1 %823, label %.lr.ph208.i, label %._crit_edge209.i, !llvm.loop !67
 
 824:                                              ; preds = %.lr.ph208.i
   %825 = landingpad { ptr, i32 }
@@ -2699,8 +2699,8 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i13
   %894 = add nsw i32 %.sroa.13.0.copyload.i, %.sroa.0.0.copyload.i
   %895 = add nsw i32 %.sroa.15.0.copyload.i, %.sroa.8.0.copyload.i
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %29) #14
-  store double 0.000000e+00, ptr %29, align 8, !tbaa !60
-  store double 2.550000e+02, ptr %654, align 8, !tbaa !60
+  store double 0.000000e+00, ptr %29, align 8, !tbaa !59
+  store double 2.550000e+02, ptr %654, align 8, !tbaa !59
   %.sroa.2144.0.insert.ext.i = zext i32 %.sroa.8.0.copyload.i to i64
   %.sroa.2144.0.insert.shift.i = shl nuw i64 %.sroa.2144.0.insert.ext.i, 32
   %.sroa.0143.0.insert.ext.i = zext i32 %.sroa.0.0.copyload.i to i64
@@ -2738,8 +2738,8 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i13
   %902 = add nsw i32 %.sroa.13.0.copyload.i, %.sroa.0.0.copyload.i
   %903 = add nsw i32 %.sroa.15.0.copyload.i, %.sroa.8.0.copyload.i
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %31) #14
-  store double 0.000000e+00, ptr %31, align 8, !tbaa !60
-  store double 2.550000e+02, ptr %650, align 8, !tbaa !60
+  store double 0.000000e+00, ptr %31, align 8, !tbaa !59
+  store double 2.550000e+02, ptr %650, align 8, !tbaa !59
   %.sroa.2140.0.insert.ext.i = zext i32 %.sroa.8.0.copyload.i to i64
   %.sroa.2140.0.insert.shift.i = shl nuw i64 %.sroa.2140.0.insert.ext.i, 32
   %.sroa.0139.0.insert.ext.i = zext i32 %.sroa.0.0.copyload.i to i64
@@ -2774,7 +2774,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i13
   %914 = sub i64 %912, %913
   %915 = ashr exact i64 %914, 4
   %916 = icmp ugt i64 %915, %909
-  br i1 %916, label %.lr.ph214.i, label %._crit_edge215.i, !llvm.loop !69
+  br i1 %916, label %.lr.ph214.i, label %._crit_edge215.i, !llvm.loop !68
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit136.i: ; preds = %905, %897, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i134.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i135.i, %878
   %.pn75.pn.pn.i = phi { ptr, i32 } [ %879, %878 ], [ %898, %897 ], [ %906, %905 ], [ %eh.lpad-body128.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i135.i ], [ %eh.lpad-body128.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i134.i ]
@@ -2796,7 +2796,7 @@ _ZNSt6vectorIN2cv5Rect_IiEESaIS2_EED2Ev.exit138.i: ; preds = %918, %_ZNSt7__cxx1
   %920 = add i32 %.0217.i, 1
   %921 = zext i32 %920 to i64
   %922 = icmp ugt i64 %659, %921
-  br i1 %922, label %660, label %.loopexit, !llvm.loop !70
+  br i1 %922, label %660, label %.loopexit, !llvm.loop !69
 
 923:                                              ; preds = %_ZNSt6vectorIN2cv5Rect_IiEESaIS2_EED2Ev.exit138.i, %_ZNSt6vectorIN2cv5Rect_IiEESaIS2_EED2Ev.exit113.i, %_ZNSt6vectorIN2cv5Rect_IiEESaIS2_EED2Ev.exit88.i
   %.pn75.pn.pn.pn.pn.i = phi { ptr, i32 } [ %.pn.pn.i, %_ZNSt6vectorIN2cv5Rect_IiEESaIS2_EED2Ev.exit88.i ], [ %.pn75.pn.pn.i, %_ZNSt6vectorIN2cv5Rect_IiEESaIS2_EED2Ev.exit138.i ], [ %.pn70.pn.i, %_ZNSt6vectorIN2cv5Rect_IiEESaIS2_EED2Ev.exit113.i ]
@@ -3300,17 +3300,16 @@ attributes #17 = { builtin allocsize(0) }
 !54 = !{!"branch_weights", !"expected", i32 1, i32 2000}
 !55 = !{i64 0, i64 4, !56, i64 4, i64 4, !56, i64 8, i64 4, !56, i64 12, i64 4, !56}
 !56 = !{!25, !25, i64 0}
-!57 = distinct !{!57, !58, !59}
+!57 = distinct !{!57, !58}
 !58 = !{!"llvm.loop.mustprogress"}
-!59 = !{!"llvm.loop.estimated_trip_count"}
-!60 = !{!61, !61, i64 0}
-!61 = !{!"double", !8, i64 0}
-!62 = !{!63, !25, i64 0}
-!63 = !{!"_ZTSN2cv5Rect_IiEE", !25, i64 0, !25, i64 4, !25, i64 8, !25, i64 12}
-!64 = !{!63, !25, i64 4}
-!65 = !{!63, !25, i64 8}
-!66 = !{!63, !25, i64 12}
-!67 = distinct !{!67, !58, !59}
-!68 = distinct !{!68, !58, !59}
-!69 = distinct !{!69, !58, !59}
-!70 = distinct !{!70, !58, !59}
+!59 = !{!60, !60, i64 0}
+!60 = !{!"double", !8, i64 0}
+!61 = !{!62, !25, i64 0}
+!62 = !{!"_ZTSN2cv5Rect_IiEE", !25, i64 0, !25, i64 4, !25, i64 8, !25, i64 12}
+!63 = !{!62, !25, i64 4}
+!64 = !{!62, !25, i64 8}
+!65 = !{!62, !25, i64 12}
+!66 = distinct !{!66, !58}
+!67 = distinct !{!67, !58}
+!68 = distinct !{!68, !58}
+!69 = distinct !{!69, !58}

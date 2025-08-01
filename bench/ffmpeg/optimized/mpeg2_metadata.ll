@@ -168,24 +168,24 @@ define internal range(i32 -2147483648, 1) i32 @mpeg2_metadata_update_fragment(pt
 
 37:                                               ; preds = %36
   %38 = getelementptr inbounds nuw i8, ptr %10, i64 376
-  %39 = load i32, ptr %38, align 8, !tbaa !36
+  %39 = load i32, ptr %38, align 8, !tbaa !35
   %.not = icmp eq i32 %39, 0
   br i1 %.not, label %40, label %.thread118
 
 40:                                               ; preds = %37
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 24, ptr noundef nonnull @.str.20) #3
-  store i32 1, ptr %38, align 8, !tbaa !36
+  store i32 1, ptr %38, align 8, !tbaa !35
   br label %.thread118
 
 41:                                               ; preds = %._crit_edge
   %42 = getelementptr inbounds nuw i8, ptr %10, i64 344
-  %43 = load i32, ptr %42, align 8, !tbaa !37
+  %43 = load i32, ptr %42, align 8, !tbaa !36
   %.not98 = icmp eq i32 %43, 0
   br i1 %.not98, label %69, label %44
 
 44:                                               ; preds = %41
   %45 = getelementptr inbounds nuw i8, ptr %10, i64 348
-  %46 = load i32, ptr %45, align 4, !tbaa !38
+  %46 = load i32, ptr %45, align 4, !tbaa !37
   %.not99 = icmp eq i32 %46, 0
   br i1 %.not99, label %69, label %47
 
@@ -195,7 +195,7 @@ define internal range(i32 -2147483648, 1) i32 @mpeg2_metadata_update_fragment(pt
   %48 = sext i32 %43 to i64
   %49 = sext i32 %46 to i64
   %50 = call i32 @av_reduce(ptr noundef nonnull %4, ptr noundef nonnull %5, i64 noundef %48, i64 noundef %49, i64 noundef 65535) #3
-  %51 = load i32, ptr %4, align 4, !tbaa !39
+  %51 = load i32, ptr %4, align 4, !tbaa !38
   %52 = icmp eq i32 %51, 4
   %53 = load i32, ptr %5, align 4
   %54 = icmp eq i32 %53, 3
@@ -204,7 +204,7 @@ define internal range(i32 -2147483648, 1) i32 @mpeg2_metadata_update_fragment(pt
 
 55:                                               ; preds = %47
   %56 = getelementptr inbounds nuw i8, ptr %.181, i64 6
-  store i8 2, ptr %56, align 2, !tbaa !40
+  store i8 2, ptr %56, align 2, !tbaa !39
   br label %68
 
 57:                                               ; preds = %47
@@ -215,7 +215,7 @@ define internal range(i32 -2147483648, 1) i32 @mpeg2_metadata_update_fragment(pt
 
 60:                                               ; preds = %57
   %61 = getelementptr inbounds nuw i8, ptr %.181, i64 6
-  store i8 3, ptr %61, align 2, !tbaa !40
+  store i8 3, ptr %61, align 2, !tbaa !39
   br label %68
 
 62:                                               ; preds = %57
@@ -226,11 +226,11 @@ define internal range(i32 -2147483648, 1) i32 @mpeg2_metadata_update_fragment(pt
   br i1 %or.cond7, label %66, label %67
 
 66:                                               ; preds = %62
-  store i8 4, ptr %65, align 2, !tbaa !40
+  store i8 4, ptr %65, align 2, !tbaa !39
   br label %68
 
 67:                                               ; preds = %62
-  store i8 1, ptr %65, align 2, !tbaa !40
+  store i8 1, ptr %65, align 2, !tbaa !39
   br label %68
 
 68:                                               ; preds = %60, %67, %66, %55
@@ -240,13 +240,13 @@ define internal range(i32 -2147483648, 1) i32 @mpeg2_metadata_update_fragment(pt
 
 69:                                               ; preds = %68, %44, %41
   %70 = getelementptr inbounds nuw i8, ptr %10, i64 352
-  %71 = load i32, ptr %70, align 8, !tbaa !43
+  %71 = load i32, ptr %70, align 8, !tbaa !42
   %.not100 = icmp eq i32 %71, 0
   br i1 %.not100, label %86, label %72
 
 72:                                               ; preds = %69
   %73 = getelementptr inbounds nuw i8, ptr %10, i64 356
-  %74 = load i32, ptr %73, align 4, !tbaa !44
+  %74 = load i32, ptr %73, align 4, !tbaa !43
   %.not101 = icmp eq i32 %74, 0
   br i1 %.not101, label %86, label %75
 
@@ -256,18 +256,18 @@ define internal range(i32 -2147483648, 1) i32 @mpeg2_metadata_update_fragment(pt
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #3
   %76 = load i64, ptr %70, align 8
   call void @ff_mpeg12_find_best_frame_rate(i64 %76, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %8, i32 noundef 0) #3
-  %77 = load i32, ptr %6, align 4, !tbaa !39
+  %77 = load i32, ptr %6, align 4, !tbaa !38
   %78 = trunc i32 %77 to i8
   %79 = getelementptr inbounds nuw i8, ptr %.181, i64 7
-  store i8 %78, ptr %79, align 1, !tbaa !45
-  %80 = load i32, ptr %7, align 4, !tbaa !39
+  store i8 %78, ptr %79, align 1, !tbaa !44
+  %80 = load i32, ptr %7, align 4, !tbaa !38
   %81 = trunc i32 %80 to i8
   %82 = getelementptr inbounds nuw i8, ptr %.2, i64 10
-  store i8 %81, ptr %82, align 2, !tbaa !46
-  %83 = load i32, ptr %8, align 4, !tbaa !39
+  store i8 %81, ptr %82, align 2, !tbaa !45
+  %83 = load i32, ptr %8, align 4, !tbaa !38
   %84 = trunc i32 %83 to i8
   %85 = getelementptr inbounds nuw i8, ptr %.2, i64 11
-  store i8 %84, ptr %85, align 1, !tbaa !48
+  store i8 %84, ptr %85, align 1, !tbaa !47
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #3
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #3
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #3
@@ -275,7 +275,7 @@ define internal range(i32 -2147483648, 1) i32 @mpeg2_metadata_update_fragment(pt
 
 86:                                               ; preds = %75, %72, %69
   %87 = getelementptr inbounds nuw i8, ptr %10, i64 360
-  %88 = load i32, ptr %87, align 8, !tbaa !49
+  %88 = load i32, ptr %87, align 8, !tbaa !48
   %89 = icmp sgt i32 %88, -1
   br i1 %89, label %102, label %90
 
@@ -303,45 +303,45 @@ define internal range(i32 -2147483648, 1) i32 @mpeg2_metadata_update_fragment(pt
 
 103:                                              ; preds = %102
   %104 = getelementptr inbounds nuw i8, ptr %10, i64 80
-  store i8 -75, ptr %104, align 8, !tbaa !50
+  store i8 -75, ptr %104, align 8, !tbaa !49
   %105 = getelementptr inbounds nuw i8, ptr %10, i64 81
-  store i8 2, ptr %105, align 1, !tbaa !51
+  store i8 2, ptr %105, align 1, !tbaa !50
   %106 = getelementptr inbounds nuw i8, ptr %10, i64 82
   %107 = getelementptr inbounds nuw i8, ptr %.2, i64 3
-  %108 = load i8, ptr %107, align 1, !tbaa !52
+  %108 = load i8, ptr %107, align 1, !tbaa !51
   %109 = zext i8 %108 to i16
   %110 = shl i16 %109, 12
   %111 = getelementptr inbounds nuw i8, ptr %.181, i64 2
-  %112 = load i16, ptr %111, align 2, !tbaa !53
+  %112 = load i16, ptr %111, align 2, !tbaa !52
   %113 = or i16 %110, %112
   %114 = getelementptr inbounds nuw i8, ptr %.2, i64 4
-  %115 = load i8, ptr %114, align 2, !tbaa !54
+  %115 = load i8, ptr %114, align 2, !tbaa !53
   %116 = zext i8 %115 to i16
   %117 = shl i16 %116, 12
   %118 = getelementptr inbounds nuw i8, ptr %.181, i64 4
-  %119 = load i16, ptr %118, align 4, !tbaa !55
+  %119 = load i16, ptr %118, align 4, !tbaa !54
   %120 = or i16 %117, %119
-  store i8 5, ptr %106, align 2, !tbaa !56
+  store i8 5, ptr %106, align 2, !tbaa !55
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 83
-  store i8 0, ptr %.sroa.2.0..sroa_idx, align 1, !tbaa !56
+  store i8 0, ptr %.sroa.2.0..sroa_idx, align 1, !tbaa !55
   %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 84
-  store i8 2, ptr %.sroa.3.0..sroa_idx, align 2, !tbaa !56
+  store i8 2, ptr %.sroa.3.0..sroa_idx, align 2, !tbaa !55
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 85
-  store i8 2, ptr %.sroa.4.0..sroa_idx, align 1, !tbaa !56
+  store i8 2, ptr %.sroa.4.0..sroa_idx, align 1, !tbaa !55
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 86
-  store i8 2, ptr %.sroa.5.0..sroa_idx, align 2, !tbaa !56
+  store i8 2, ptr %.sroa.5.0..sroa_idx, align 2, !tbaa !55
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 87
   store i8 0, ptr %.sroa.6.0..sroa_idx, align 1
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 88
-  store i16 %113, ptr %.sroa.7.0..sroa_idx, align 2, !tbaa !57
+  store i16 %113, ptr %.sroa.7.0..sroa_idx, align 2, !tbaa !56
   %.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 90
-  store i16 %120, ptr %.sroa.8.0..sroa_idx, align 2, !tbaa !57
+  store i16 %120, ptr %.sroa.8.0..sroa_idx, align 2, !tbaa !56
   %121 = call i32 @ff_cbs_insert_unit_content(ptr noundef nonnull %2, i32 noundef %33, i32 noundef 181, ptr noundef nonnull %104, ptr noundef null) #3
   %122 = icmp sgt i32 %121, -1
   br i1 %122, label %..critedge_crit_edge, label %123
 
 ..critedge_crit_edge:                             ; preds = %103
-  %.pre = load i32, ptr %87, align 8, !tbaa !49
+  %.pre = load i32, ptr %87, align 8, !tbaa !48
   br label %.critedge
 
 123:                                              ; preds = %103
@@ -356,7 +356,7 @@ define internal range(i32 -2147483648, 1) i32 @mpeg2_metadata_update_fragment(pt
 
 126:                                              ; preds = %.critedge
   %127 = trunc i32 %124 to i8
-  store i8 %127, ptr %.3, align 2, !tbaa !58
+  store i8 %127, ptr %.3, align 2, !tbaa !57
   br label %128
 
 128:                                              ; preds = %126, %.critedge
@@ -379,15 +379,15 @@ define internal range(i32 -2147483648, 1) i32 @mpeg2_metadata_update_fragment(pt
 
 .thread:                                          ; preds = %136, %132
   %140 = getelementptr inbounds nuw i8, ptr %.3, i64 1
-  store i8 1, ptr %140, align 1, !tbaa !60
+  store i8 1, ptr %140, align 1, !tbaa !59
   br label %145
 
 141:                                              ; preds = %128
   %142 = getelementptr inbounds nuw i8, ptr %.3, i64 1
-  store i8 1, ptr %142, align 1, !tbaa !60
+  store i8 1, ptr %142, align 1, !tbaa !59
   %143 = trunc i32 %130 to i8
   %144 = getelementptr inbounds nuw i8, ptr %.3, i64 2
-  store i8 %143, ptr %144, align 2, !tbaa !61
+  store i8 %143, ptr %144, align 2, !tbaa !60
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %10, i64 368
   %.pre112 = load i32, ptr %.phi.trans.insert, align 8, !tbaa !25
   br label %145
@@ -400,7 +400,7 @@ define internal range(i32 -2147483648, 1) i32 @mpeg2_metadata_update_fragment(pt
 148:                                              ; preds = %145
   %149 = trunc i32 %146 to i8
   %150 = getelementptr inbounds nuw i8, ptr %.3, i64 3
-  store i8 %149, ptr %150, align 1, !tbaa !62
+  store i8 %149, ptr %150, align 1, !tbaa !61
   br label %151
 
 151:                                              ; preds = %148, %145
@@ -412,7 +412,7 @@ define internal range(i32 -2147483648, 1) i32 @mpeg2_metadata_update_fragment(pt
 155:                                              ; preds = %151
   %156 = trunc i32 %153 to i8
   %157 = getelementptr inbounds nuw i8, ptr %.3, i64 4
-  store i8 %156, ptr %157, align 2, !tbaa !63
+  store i8 %156, ptr %157, align 2, !tbaa !62
   br label %.thread118
 
 .thread118:                                       ; preds = %3, %123, %98, %151, %155, %136, %36, %37, %40
@@ -466,34 +466,33 @@ attributes #3 = { nounwind }
 !30 = !{!"CodedBitstreamUnit", !13, i64 0, !20, i64 8, !21, i64 16, !21, i64 24, !22, i64 32, !7, i64 40, !7, i64 48}
 !31 = !{!30, !7, i64 40}
 !32 = !{!24, !8, i64 1}
-!33 = distinct !{!33, !34, !35}
+!33 = distinct !{!33, !34}
 !34 = !{!"llvm.loop.mustprogress"}
-!35 = !{!"llvm.loop.estimated_trip_count"}
-!36 = !{!15, !13, i64 376}
-!37 = !{!15, !13, i64 344}
-!38 = !{!15, !13, i64 348}
-!39 = !{!13, !13, i64 0}
-!40 = !{!41, !8, i64 6}
-!41 = !{!"MPEG2RawSequenceHeader", !8, i64 0, !42, i64 2, !42, i64 4, !8, i64 6, !8, i64 7, !13, i64 8, !42, i64 12, !8, i64 14, !8, i64 15, !8, i64 16, !8, i64 80, !8, i64 81}
-!42 = !{!"short", !8, i64 0}
-!43 = !{!15, !13, i64 352}
-!44 = !{!15, !13, i64 356}
-!45 = !{!41, !8, i64 7}
-!46 = !{!47, !8, i64 10}
-!47 = !{!"MPEG2RawSequenceExtension", !8, i64 0, !8, i64 1, !8, i64 2, !8, i64 3, !8, i64 4, !42, i64 6, !8, i64 8, !8, i64 9, !8, i64 10, !8, i64 11}
-!48 = !{!47, !8, i64 11}
-!49 = !{!15, !13, i64 360}
-!50 = !{!15, !8, i64 80}
-!51 = !{!15, !8, i64 81}
-!52 = !{!47, !8, i64 3}
-!53 = !{!41, !42, i64 2}
-!54 = !{!47, !8, i64 4}
-!55 = !{!41, !42, i64 4}
-!56 = !{!8, !8, i64 0}
-!57 = !{!42, !42, i64 0}
-!58 = !{!59, !8, i64 0}
-!59 = !{!"MPEG2RawSequenceDisplayExtension", !8, i64 0, !8, i64 1, !8, i64 2, !8, i64 3, !8, i64 4, !42, i64 6, !42, i64 8}
-!60 = !{!59, !8, i64 1}
-!61 = !{!59, !8, i64 2}
-!62 = !{!59, !8, i64 3}
-!63 = !{!59, !8, i64 4}
+!35 = !{!15, !13, i64 376}
+!36 = !{!15, !13, i64 344}
+!37 = !{!15, !13, i64 348}
+!38 = !{!13, !13, i64 0}
+!39 = !{!40, !8, i64 6}
+!40 = !{!"MPEG2RawSequenceHeader", !8, i64 0, !41, i64 2, !41, i64 4, !8, i64 6, !8, i64 7, !13, i64 8, !41, i64 12, !8, i64 14, !8, i64 15, !8, i64 16, !8, i64 80, !8, i64 81}
+!41 = !{!"short", !8, i64 0}
+!42 = !{!15, !13, i64 352}
+!43 = !{!15, !13, i64 356}
+!44 = !{!40, !8, i64 7}
+!45 = !{!46, !8, i64 10}
+!46 = !{!"MPEG2RawSequenceExtension", !8, i64 0, !8, i64 1, !8, i64 2, !8, i64 3, !8, i64 4, !41, i64 6, !8, i64 8, !8, i64 9, !8, i64 10, !8, i64 11}
+!47 = !{!46, !8, i64 11}
+!48 = !{!15, !13, i64 360}
+!49 = !{!15, !8, i64 80}
+!50 = !{!15, !8, i64 81}
+!51 = !{!46, !8, i64 3}
+!52 = !{!40, !41, i64 2}
+!53 = !{!46, !8, i64 4}
+!54 = !{!40, !41, i64 4}
+!55 = !{!8, !8, i64 0}
+!56 = !{!41, !41, i64 0}
+!57 = !{!58, !8, i64 0}
+!58 = !{!"MPEG2RawSequenceDisplayExtension", !8, i64 0, !8, i64 1, !8, i64 2, !8, i64 3, !8, i64 4, !41, i64 6, !41, i64 8}
+!59 = !{!58, !8, i64 1}
+!60 = !{!58, !8, i64 2}
+!61 = !{!58, !8, i64 3}
+!62 = !{!58, !8, i64 4}

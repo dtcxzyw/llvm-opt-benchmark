@@ -56,7 +56,7 @@ define i32 @SuperFastHash(ptr noundef readonly captures(address_is_null) %0, i32
   %26 = add i32 %.056.lcssa, %25
   %27 = shl i32 %26, 16
   %28 = getelementptr inbounds nuw i8, ptr %.055.lcssa, i64 2
-  %29 = load i8, ptr %28, align 1, !tbaa !6
+  %29 = load i8, ptr %28, align 1, !tbaa !5
   %30 = sext i8 %29 to i32
   %31 = shl nsw i32 %30, 18
   %32 = xor i32 %31, %27
@@ -76,7 +76,7 @@ define i32 @SuperFastHash(ptr noundef readonly captures(address_is_null) %0, i32
   br label %52
 
 44:                                               ; preds = %._crit_edge
-  %45 = load i8, ptr %.055.lcssa, align 1, !tbaa !6
+  %45 = load i8, ptr %.055.lcssa, align 1, !tbaa !5
   %46 = sext i8 %45 to i32
   %47 = add i32 %.056.lcssa, %46
   %48 = shl i32 %47, 10
@@ -116,9 +116,8 @@ attributes #0 = { nofree norecurse nosync nounwind memory(argmem: read) uwtable 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 1}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = distinct !{!3, !4, !5}
+!3 = distinct !{!3, !4}
 !4 = !{!"llvm.loop.mustprogress"}
-!5 = !{!"llvm.loop.estimated_trip_count"}
-!6 = !{!7, !7, i64 0}
-!7 = !{!"omnipotent char", !8, i64 0}
-!8 = !{!"Simple C/C++ TBAA"}
+!5 = !{!6, !6, i64 0}
+!6 = !{!"omnipotent char", !7, i64 0}
+!7 = !{!"Simple C/C++ TBAA"}

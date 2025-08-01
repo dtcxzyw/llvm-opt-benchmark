@@ -216,7 +216,7 @@ define ptr @Java_sun_security_pkcs11_wrapper_PKCS11_getNativeKeyInfo(ptr noundef
   %.1 = phi ptr [ %94, %89 ], [ %.0163310, %85 ]
   %indvars.iv.next313 = add nuw nsw i64 %indvars.iv312, 1
   %exitcond315.not = icmp eq i64 %indvars.iv.next313, 61
-  br i1 %exitcond315.not, label %97, label %85, !llvm.loop !9
+  br i1 %exitcond315.not, label %97, label %85, !llvm.loop !8
 
 97:                                               ; preds = %96
   %98 = load ptr, ptr %26, align 8
@@ -448,7 +448,7 @@ define i64 @Java_sun_security_pkcs11_wrapper_PKCS11_createNativeKey(ptr noundef 
   %32 = add i32 %.05574, 1
   %33 = zext i32 %32 to i64
   %34 = icmp samesign ugt i64 %17, %33
-  br i1 %34, label %.lr.ph, label %._crit_edge, !llvm.loop !10
+  br i1 %34, label %.lr.ph, label %._crit_edge, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %29, %16
   %35 = icmp eq i64 %.0.copyload, 0
@@ -629,7 +629,7 @@ define ptr @Java_sun_security_pkcs11_wrapper_PKCS11_C_1GenerateKeyPair(ptr nound
   call void (ptr, ...) @printDebug(ptr noundef nonnull @.str) #5
   %44 = add nuw nsw i32 %.03544, 1
   %exitcond.not = icmp eq i32 %44, 3
-  br i1 %exitcond.not, label %45, label %35, !llvm.loop !11
+  br i1 %exitcond.not, label %45, label %35, !llvm.loop !10
 
 45:                                               ; preds = %35, %43
   %46 = call i64 @ckAssertReturnValueOK(ptr noundef nonnull %0, i64 noundef %41) #5
@@ -910,7 +910,7 @@ define hidden void @copyBackTLSPrfParams(ptr noundef %0, ptr noundef readonly ca
   store i8 %65, ptr %66, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !12
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
   %67 = load ptr, ptr %0, align 8
@@ -1395,7 +1395,7 @@ define internal fastcc void @copyBackKeyMatParams(ptr noundef %0, ptr noundef re
   store i8 %125, ptr %126, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !13
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader1
   %127 = load ptr, ptr %0, align 8
@@ -1450,7 +1450,7 @@ define internal fastcc void @copyBackKeyMatParams(ptr noundef %0, ptr noundef re
   store i8 %155, ptr %156, align 1
   %indvars.iv.next8 = add nuw nsw i64 %indvars.iv7, 1
   %exitcond11.not = icmp eq i64 %indvars.iv.next8, %wide.trip.count10
-  br i1 %exitcond11.not, label %._crit_edge5, label %.lr.ph4, !llvm.loop !14
+  br i1 %exitcond11.not, label %._crit_edge5, label %.lr.ph4, !llvm.loop !13
 
 ._crit_edge5:                                     ; preds = %.lr.ph4, %.preheader
   %157 = load ptr, ptr %0, align 8
@@ -1479,12 +1479,11 @@ attributes #6 = { nounwind allocsize(0,1) }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7, !8}
-!11 = distinct !{!11, !7, !8}
-!12 = distinct !{!12, !7, !8}
-!13 = distinct !{!13, !7, !8}
-!14 = distinct !{!14, !7, !8}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7}
+!12 = distinct !{!12, !7}
+!13 = distinct !{!13, !7}

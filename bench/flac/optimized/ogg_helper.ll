@@ -108,23 +108,23 @@ full_read_.exit.thread:                           ; preds = %.lr.ph.i, %.thread.
   %.119.i = sub i64 %.01828.i, %.pn.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #11
   %.not.i = icmp eq i64 %.119.i, 0
-  br i1 %.not.i, label %full_read_.exit, label %.lr.ph.i, !llvm.loop !24
+  br i1 %.not.i, label %full_read_.exit, label %.lr.ph.i
 
 full_read_.exit:                                  ; preds = %26
   %27 = load ptr, ptr %2, align 8, !tbaa !3
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 26
-  %29 = load i8, ptr %28, align 1, !tbaa !26
+  %29 = load i8, ptr %28, align 1, !tbaa !24
   %30 = zext i8 %29 to i64
   %31 = add nuw nsw i64 %30, 27
   %32 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store i64 %31, ptr %32, align 8, !tbaa !27
+  store i64 %31, ptr %32, align 8, !tbaa !25
   %bcmp = call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %27, ptr noundef nonnull dereferenceable(4) @.str, i64 4)
   %.not55 = icmp eq i32 %bcmp, 0
   br i1 %.not55, label %33, label %42
 
 33:                                               ; preds = %full_read_.exit
   %34 = getelementptr inbounds nuw i8, ptr %27, i64 5
-  %35 = load i8, ptr %34, align 1, !tbaa !26
+  %35 = load i8, ptr %34, align 1, !tbaa !24
   %36 = and i8 %35, 1
   %.not56 = icmp eq i8 %36, 0
   br i1 %.not56, label %37, label %42
@@ -136,7 +136,7 @@ full_read_.exit:                                  ; preds = %26
   br i1 %.not58, label %39, label %42
 
 39:                                               ; preds = %37
-  %40 = load i8, ptr %28, align 1, !tbaa !26
+  %40 = load i8, ptr %28, align 1, !tbaa !24
   %41 = icmp eq i8 %40, 0
   br i1 %41, label %42, label %44
 
@@ -155,7 +155,7 @@ full_read_.exit:                                  ; preds = %26
 .preheader:                                       ; preds = %44
   %48 = load ptr, ptr %2, align 8, !tbaa !3
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 26
-  %50 = load i8, ptr %49, align 1, !tbaa !26
+  %50 = load i8, ptr %49, align 1, !tbaa !24
   %51 = zext i8 %50 to i32
   %52 = add nsw i32 %51, -1
   %.not6169.not = icmp eq i32 %52, 0
@@ -171,7 +171,7 @@ full_read_.exit:                                  ; preds = %26
   %54 = add nuw i64 %indvars.iv, 27
   %55 = and i64 %54, 4294967295
   %56 = getelementptr inbounds nuw i8, ptr %48, i64 %55
-  %57 = load i8, ptr %56, align 1, !tbaa !26
+  %57 = load i8, ptr %56, align 1, !tbaa !24
   %.not60 = icmp eq i8 %57, -1
   br i1 %.not60, label %59, label %.thread
 
@@ -183,7 +183,7 @@ full_read_.exit:                                  ; preds = %26
 59:                                               ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !28
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !26
 
 ._crit_edge:                                      ; preds = %59, %.preheader
   %.0.lcssa = phi i32 [ 0, %.preheader ], [ %53, %59 ]
@@ -191,12 +191,12 @@ full_read_.exit:                                  ; preds = %26
   %61 = add nsw i32 %.0.lcssa, 27
   %62 = zext i32 %61 to i64
   %63 = getelementptr inbounds nuw i8, ptr %48, i64 %62
-  %64 = load i8, ptr %63, align 1, !tbaa !26
+  %64 = load i8, ptr %63, align 1, !tbaa !24
   %65 = zext i8 %64 to i32
   %66 = add nsw i32 %60, %65
   %67 = zext i32 %66 to i64
   %68 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  store i64 %67, ptr %68, align 8, !tbaa !30
+  store i64 %67, ptr %68, align 8, !tbaa !28
   %spec.select.i = call i64 @llvm.umax.i64(i64 %67, i64 1)
   %69 = call noalias noundef ptr @malloc(i64 noundef %spec.select.i) #12
   %70 = getelementptr inbounds nuw i8, ptr %2, i64 16
@@ -283,7 +283,7 @@ define internal fastcc range(i32 0, 2) i32 @full_read_(ptr noundef %0, ptr nound
   %.119 = sub i64 %.01828, %.pn
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #11
   %.not = icmp eq i64 %.119, 0
-  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !24
+  br i1 %.not, label %.loopexit, label %.lr.ph
 
 .loopexit:                                        ; preds = %14, %5, %.thread
   %.2 = phi i32 [ 0, %.thread ], [ 1, %5 ], [ 1, %14 ]
@@ -311,7 +311,7 @@ define hidden range(i32 0, 2) i32 @simple_ogg_page__set_at(ptr noundef %0, i64 n
   tail call void @ogg_page_checksum_set(ptr noundef %2) #11
   %11 = load ptr, ptr %2, align 8, !tbaa !3
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %13 = load i64, ptr %12, align 8, !tbaa !27
+  %13 = load i64, ptr %12, align 8, !tbaa !25
   %14 = tail call i32 %4(ptr noundef %0, ptr noundef %11, i64 noundef %13, i32 noundef 0, i32 noundef 0, ptr noundef %5) #11
   %.not22 = icmp eq i32 %14, 0
   br i1 %.not22, label %15, label %.sink.split
@@ -320,7 +320,7 @@ define hidden range(i32 0, 2) i32 @simple_ogg_page__set_at(ptr noundef %0, i64 n
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %17 = load ptr, ptr %16, align 8, !tbaa !10
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %19 = load i64, ptr %18, align 8, !tbaa !30
+  %19 = load i64, ptr %18, align 8, !tbaa !28
   %20 = tail call i32 %4(ptr noundef %0, ptr noundef %17, i64 noundef %19, i32 noundef 0, i32 noundef 0, ptr noundef %5) #11
   %.not23 = icmp eq i32 %20, 0
   br i1 %.not23, label %22, label %.sink.split
@@ -387,10 +387,8 @@ attributes #12 = { nounwind allocsize(0) }
 !21 = !{!"p1 int", !6, i64 0}
 !22 = !{!"p1 long", !6, i64 0}
 !23 = !{!9, !9, i64 0}
-!24 = distinct !{!24, !25}
-!25 = !{!"llvm.loop.estimated_trip_count"}
-!26 = !{!7, !7, i64 0}
-!27 = !{!4, !9, i64 8}
-!28 = distinct !{!28, !29, !25}
-!29 = !{!"llvm.loop.mustprogress"}
-!30 = !{!4, !9, i64 24}
+!24 = !{!7, !7, i64 0}
+!25 = !{!4, !9, i64 8}
+!26 = distinct !{!26, !27}
+!27 = !{!"llvm.loop.mustprogress"}
+!28 = !{!4, !9, i64 24}

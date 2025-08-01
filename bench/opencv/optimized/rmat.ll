@@ -438,14 +438,14 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %_ZNSt6vectorImSaImE
   resume { ptr, i32 } %59
 
 60:                                               ; preds = %.lr.ph, %60
-  %store_forwarded = phi i64 [ %load_initial, %.lr.ph ], [ %64, %60 ]
+  %store_forwarded = phi i64 [ %load_initial, %.lr.ph ], [ %65, %60 ]
   %indvars.iv = phi i64 [ %56, %.lr.ph ], [ %indvars.iv.next, %60 ]
-  %61 = getelementptr inbounds nuw i32, ptr %.sroa.039.052, i64 %indvars.iv
-  %62 = load i32, ptr %61, align 4, !tbaa !52
-  %63 = sext i32 %62 to i64
-  %64 = mul i64 %store_forwarded, %63
-  %65 = getelementptr inbounds nuw i64, ptr %29, i64 %indvars.iv
-  store i64 %64, ptr %65, align 8, !tbaa !35
+  %61 = getelementptr inbounds nuw i64, ptr %29, i64 %indvars.iv
+  %62 = getelementptr inbounds nuw i32, ptr %.sroa.039.052, i64 %indvars.iv
+  %63 = load i32, ptr %62, align 4, !tbaa !52
+  %64 = sext i32 %63 to i64
+  %65 = mul i64 %store_forwarded, %64
+  store i64 %65, ptr %61, align 8, !tbaa !35
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %.not = icmp eq i64 %indvars.iv, 0
   br i1 %.not, label %_ZNSt6vectorIiSaIiEED2Ev.exit36, label %60, !llvm.loop !53
@@ -536,13 +536,13 @@ _ZNSt8functionIFvvEEC2ERKS1_.exit.i:              ; preds = %22, %2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i, i64 16, i1 false), !tbaa.struct !38
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i.i)
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %37 = load ptr, ptr %36, align 8, !tbaa !56
-  store ptr %37, ptr %16, align 8, !tbaa !56
-  store ptr %35, ptr %36, align 8, !tbaa !56
+  %37 = load ptr, ptr %36, align 8, !tbaa !55
+  store ptr %37, ptr %16, align 8, !tbaa !55
+  store ptr %35, ptr %36, align 8, !tbaa !55
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %39 = load ptr, ptr %38, align 8, !tbaa !56
-  store ptr %39, ptr %17, align 8, !tbaa !56
-  store ptr %34, ptr %38, align 8, !tbaa !56
+  %39 = load ptr, ptr %38, align 8, !tbaa !55
+  store ptr %39, ptr %17, align 8, !tbaa !55
+  store ptr %34, ptr %38, align 8, !tbaa !55
   %.not.i.i = icmp eq ptr %37, null
   br i1 %.not.i.i, label %_ZNSt8functionIFvvEEaSERKS1_.exit, label %40
 
@@ -1014,7 +1014,6 @@ attributes #20 = { noreturn nounwind }
 !50 = !{!5, !6, i64 0}
 !51 = !{!5, !6, i64 4}
 !52 = !{!6, !6, i64 0}
-!53 = distinct !{!53, !54, !55}
+!53 = distinct !{!53, !54}
 !54 = !{!"llvm.loop.mustprogress"}
-!55 = !{!"llvm.loop.estimated_trip_count"}
-!56 = !{!16, !16, i64 0}
+!55 = !{!16, !16, i64 0}

@@ -817,7 +817,7 @@ aes128_lorawan_encrypt.exit.i:                    ; preds = %165
 172:                                              ; preds = %aes128_lorawan_encrypt.exit.i
   %173 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 0)
   store i8 %173, ptr %150, align 1
-  %174 = call ptr @__memcpy_chk(ptr noundef %153, ptr noundef %146, i64 noundef range(i64 -2147483648, 2147483648) %154, i64 noundef %155) #11, !alias.scope !9
+  %174 = call ptr @__memcpy_chk(ptr noundef %153, ptr noundef %146, i64 noundef range(i64 -2147483648, 2147483648) %154, i64 noundef %155) #11, !alias.scope !8
   %175 = load i32, ptr %156, align 1
   %176 = load ptr, ptr @root_keys, align 8
   %177 = getelementptr %struct._root_keys_t, ptr %176, i64 %indvars.iv.i, i32 3
@@ -838,7 +838,7 @@ aes128_lorawan_encrypt.exit.i:                    ; preds = %165
   %187 = load i32, ptr @root_num_keys, align 4
   %188 = zext i32 %187 to i64
   %189 = icmp samesign ult i64 %indvars.iv.next.i, %188
-  br i1 %189, label %158, label %.critedge.i, !llvm.loop !13
+  br i1 %189, label %158, label %.critedge.i, !llvm.loop !12
 
 190:                                              ; preds = %182
   %191 = call ptr @tvb_new_child_real_data(ptr noundef %0, ptr noundef %146, i32 noundef %131, i32 noundef %131)
@@ -1148,7 +1148,7 @@ define internal noundef ptr @root_keys_copy_cb(ptr noundef returned captures(ret
   %30 = lshr i32 %29, 1
   %31 = zext nneg i32 %30 to i64
   %32 = icmp samesign ult i64 %indvars.iv.next.i, %31
-  br i1 %32, label %.lr.ph.i, label %byte_array_reverse.exit, !llvm.loop !14
+  br i1 %32, label %.lr.ph.i, label %byte_array_reverse.exit, !llvm.loop !13
 
 33:                                               ; preds = %3
   store ptr null, ptr %0, align 8
@@ -1239,7 +1239,7 @@ define internal noundef zeroext i1 @root_keys_update_cb(ptr noundef captures(non
   %34 = lshr i32 %33, 1
   %35 = zext nneg i32 %34 to i64
   %36 = icmp samesign ult i64 %indvars.iv.next.i, %35
-  br i1 %36, label %.lr.ph.i, label %byte_array_reverse.exit, !llvm.loop !14
+  br i1 %36, label %.lr.ph.i, label %byte_array_reverse.exit, !llvm.loop !13
 
 byte_array_reverse.exit:                          ; preds = %.lr.ph.i
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1344,7 +1344,7 @@ define internal noundef ptr @session_keys_copy_cb(ptr noundef returned initializ
   %30 = lshr i32 %29, 1
   %31 = zext nneg i32 %30 to i64
   %32 = icmp samesign ult i64 %indvars.iv.next.i, %31
-  br i1 %32, label %.lr.ph.i, label %byte_array_reverse.exit, !llvm.loop !14
+  br i1 %32, label %.lr.ph.i, label %byte_array_reverse.exit, !llvm.loop !13
 
 byte_array_reverse.exit:                          ; preds = %.lr.ph.i
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -1462,7 +1462,7 @@ define internal noundef zeroext i1 @session_keys_update_cb(ptr noundef %0, ptr n
   %28 = lshr i32 %27, 1
   %29 = zext nneg i32 %28 to i64
   %30 = icmp samesign ult i64 %indvars.iv.next.i, %29
-  br i1 %30, label %.lr.ph.i, label %byte_array_reverse.exit, !llvm.loop !14
+  br i1 %30, label %.lr.ph.i, label %byte_array_reverse.exit, !llvm.loop !13
 
 byte_array_reverse.exit:                          ; preds = %.lr.ph.i
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -1710,7 +1710,7 @@ define internal fastcc i32 @dissect_lorawan_data(ptr noundef %0, ptr noundef %1,
 52:                                               ; preds = %53
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %.thread, label %53, !llvm.loop !15
+  br i1 %exitcond.not.i, label %.thread, label %53, !llvm.loop !14
 
 53:                                               ; preds = %52, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %52 ]
@@ -1846,14 +1846,14 @@ decrypt_lorawan_frame_payload.exit:               ; preds = %84
   %111 = select i1 %110, i64 0, i64 %109
   %112 = icmp ne i64 %111, -1
   call void @llvm.assume(i1 %112)
-  %113 = call ptr @__memcpy_chk(ptr noundef %108, ptr noundef nonnull %7, i64 noundef 4, i64 noundef %111) #11, !alias.scope !16
+  %113 = call ptr @__memcpy_chk(ptr noundef %108, ptr noundef nonnull %7, i64 noundef 4, i64 noundef %111) #11, !alias.scope !15
   %114 = getelementptr i8, ptr %106, i64 10
   %115 = add nsw i64 %105, -10
   %116 = icmp ult i32 %104, 10
   %117 = select i1 %116, i64 0, i64 %115
   %118 = icmp ne i64 %117, -1
   call void @llvm.assume(i1 %118)
-  %119 = call ptr @__memcpy_chk(ptr noundef %114, ptr noundef nonnull %8, i64 noundef 4, i64 noundef %117) #11, !alias.scope !20
+  %119 = call ptr @__memcpy_chk(ptr noundef %114, ptr noundef nonnull %8, i64 noundef 4, i64 noundef %117) #11, !alias.scope !19
   %120 = trunc i32 %.4144 to i8
   %121 = getelementptr i8, ptr %106, i64 15
   store i8 %120, ptr %121, align 1
@@ -2114,7 +2114,7 @@ define internal fastcc i32 @dissect_lorawan_mac_commands(ptr noundef %0, ptr nou
   %.1.us = phi i32 [ %11, %.split.us ], [ %11, %.split.us ], [ %11, %.split.us ], [ %11, %.split.us ], [ %11, %.split.us ], [ %11, %.split.us ], [ %67, %61 ], [ %60, %54 ], [ %53, %45 ], [ %44, %39 ], [ %38, %32 ], [ %31, %26 ], [ %25, %20 ], [ %19, %14 ]
   %69 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %.1.us)
   %.not.us = icmp eq i32 %69, 0
-  br i1 %.not.us, label %.split2.us, label %.split.us, !llvm.loop !24
+  br i1 %.not.us, label %.split2.us, label %.split.us, !llvm.loop !23
 
 .split:                                           ; preds = %3, %169
   %.0 = phi i32 [ %.1, %169 ], [ 0, %3 ]
@@ -2261,7 +2261,7 @@ define internal fastcc i32 @dissect_lorawan_mac_commands(ptr noundef %0, ptr nou
   %.1 = phi i32 [ %84, %76 ], [ %101, %85 ], [ %107, %102 ], [ %118, %108 ], [ %73, %.split ], [ %73, %.split ], [ %132, %119 ], [ %138, %133 ], [ %144, %139 ], [ %150, %145 ], [ %156, %151 ], [ %162, %157 ], [ %168, %163 ]
   %170 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %.1)
   %.not = icmp eq i32 %170, 0
-  br i1 %.not, label %.split2.us, label %.split, !llvm.loop !26
+  br i1 %.not, label %.split2.us, label %.split, !llvm.loop !25
 
 .split2.us:                                       ; preds = %169, %.split, %68, %.split.us
   %171 = tail call i32 @tvb_captured_length(ptr noundef %0)
@@ -2330,24 +2330,23 @@ attributes #13 = { nounwind willreturn memory(read) }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = !{!10, !12}
-!10 = distinct !{!10, !11, !"memcpy.inline: argument 0"}
-!11 = distinct !{!11, !"memcpy.inline"}
-!12 = distinct !{!12, !11, !"memcpy.inline: argument 1"}
-!13 = distinct !{!13, !7, !8}
-!14 = distinct !{!14, !7, !8}
-!15 = distinct !{!15, !7, !8}
-!16 = !{!17, !19}
-!17 = distinct !{!17, !18, !"memcpy.inline: argument 0"}
-!18 = distinct !{!18, !"memcpy.inline"}
-!19 = distinct !{!19, !18, !"memcpy.inline: argument 1"}
-!20 = !{!21, !23}
-!21 = distinct !{!21, !22, !"memcpy.inline: argument 0"}
-!22 = distinct !{!22, !"memcpy.inline"}
-!23 = distinct !{!23, !22, !"memcpy.inline: argument 1"}
-!24 = distinct !{!24, !7, !8, !25}
-!25 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!26 = distinct !{!26, !7, !8}
+!8 = !{!9, !11}
+!9 = distinct !{!9, !10, !"memcpy.inline: argument 0"}
+!10 = distinct !{!10, !"memcpy.inline"}
+!11 = distinct !{!11, !10, !"memcpy.inline: argument 1"}
+!12 = distinct !{!12, !7}
+!13 = distinct !{!13, !7}
+!14 = distinct !{!14, !7}
+!15 = !{!16, !18}
+!16 = distinct !{!16, !17, !"memcpy.inline: argument 0"}
+!17 = distinct !{!17, !"memcpy.inline"}
+!18 = distinct !{!18, !17, !"memcpy.inline: argument 1"}
+!19 = !{!20, !22}
+!20 = distinct !{!20, !21, !"memcpy.inline: argument 0"}
+!21 = distinct !{!21, !"memcpy.inline"}
+!22 = distinct !{!22, !21, !"memcpy.inline: argument 1"}
+!23 = distinct !{!23, !7, !24}
+!24 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!25 = distinct !{!25, !7}

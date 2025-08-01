@@ -176,7 +176,7 @@ entry:
 for.cond:                                         ; preds = %for.body
   %inc = add nuw nsw i64 %i.04, 1
   %exitcond.not = icmp eq i64 %inc, 128
-  br i1 %exitcond.not, label %return, label %for.body, !llvm.loop !8
+  br i1 %exitcond.not, label %return, label %for.body, !llvm.loop !7
 
 for.body:                                         ; preds = %entry, %for.cond
   %i.04 = phi i64 [ 0, %entry ], [ %inc, %for.cond ]
@@ -505,7 +505,7 @@ entry:
 for.cond.i:                                       ; preds = %for.body.i
   %inc.i = add nuw nsw i64 %i.04.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i, 128
-  br i1 %exitcond.not.i, label %for.body.i54, label %for.body.i, !llvm.loop !8
+  br i1 %exitcond.not.i, label %for.body.i54, label %for.body.i, !llvm.loop !7
 
 for.body.i:                                       ; preds = %for.cond.i, %entry
   %i.04.i = phi i64 [ 0, %entry ], [ %inc.i, %for.cond.i ]
@@ -1254,9 +1254,9 @@ while.body:                                       ; preds = %land.rhs
   store i64 1000000, ptr %tv_nsec.i14, align 8
   call void @_ZN2EA6Thread11ThreadSleepERKNS0_10ThreadTimeE(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp54)
   fence seq_cst
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #24, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #24, !srcloc !8
   %.pr = load ptr, ptr %this, align 8
-  br label %while.cond, !llvm.loop !10
+  br label %while.cond, !llvm.loop !9
 
 while.end:                                        ; preds = %land.rhs
   %.pre28 = load ptr, ptr %this, align 8
@@ -1713,7 +1713,7 @@ for.inc:                                          ; preds = %for.body, %if.end11
   %requiredCount.1 = phi i64 [ %inc, %if.end11 ], [ %requiredCount.010, %for.body ]
   %inc13 = add nuw nsw i64 %i.011, 1
   %exitcond.not = icmp eq i64 %inc13, 128
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !11
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !10
 
 for.end:                                          ; preds = %for.inc
   %call14 = tail call noundef i32 @_ZN2EA6Thread5Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(48) getelementptr inbounds nuw (i8, ptr @_ZN2EA6Thread19gEAThreadGlobalVarsE, i64 31232))
@@ -1821,10 +1821,9 @@ attributes #27 = { noreturn nounwind }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6, !7}
+!5 = distinct !{!5, !6}
 !6 = !{!"llvm.loop.mustprogress"}
-!7 = !{!"llvm.loop.estimated_trip_count"}
-!8 = distinct !{!8, !6, !7}
-!9 = !{i64 2150635893}
-!10 = distinct !{!10, !6, !7}
-!11 = distinct !{!11, !6, !7}
+!7 = distinct !{!7, !6}
+!8 = !{i64 2150635893}
+!9 = distinct !{!9, !6}
+!10 = distinct !{!10, !6}

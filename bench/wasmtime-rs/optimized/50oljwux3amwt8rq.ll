@@ -498,7 +498,7 @@ define void @"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %35, ptr noundef nonnull align 8 dereferenceable(48) %4, i64 48, i1 false)
   %.pr = load i64, ptr %.sroa.2.0..sroa_idx, align 8
   %36 = icmp eq i64 %.pr, 0
-  br i1 %36, label %.thread, label %.lr.ph, !llvm.loop !22
+  br i1 %36, label %.thread, label %.lr.ph
 
 37:                                               ; preds = %39, %15
   %38 = landingpad { ptr, i32 }
@@ -646,7 +646,7 @@ define void @_ZN20wasmtime_wit_bindgen4rust13RustGenerator10print_tyid17h70df38d
   %11 = alloca { i64, [2 x i64] }, align 8
   %12 = alloca { { { i64, ptr, {} }, i64 } }, align 8
   %13 = tail call i40 @"_ZN102_$LT$wasmtime_wit_bindgen..InterfaceGenerator$u20$as$u20$wasmtime_wit_bindgen..rust..RustGenerator$GT$4info17h7ee73b7b031a3440E"(ptr align 8 %0, i64 %1, i32 %2)
-  %14 = tail call i8 @"_ZN102_$LT$wasmtime_wit_bindgen..InterfaceGenerator$u20$as$u20$wasmtime_wit_bindgen..rust..RustGenerator$GT$9ownership17h1c94743b9a7d39e4E"(ptr align 8 %0), !range !24
+  %14 = tail call i8 @"_ZN102_$LT$wasmtime_wit_bindgen..InterfaceGenerator$u20$as$u20$wasmtime_wit_bindgen..rust..RustGenerator$GT$9ownership17h1c94743b9a7d39e4E"(ptr align 8 %0), !range !22
   %15 = icmp ne i8 %14, 2
   %.not.i = icmp ne ptr %3, null
   %or.cond.i.not74 = select i1 %15, i1 %.not.i, i1 false
@@ -665,7 +665,7 @@ define void @_ZN20wasmtime_wit_bindgen4rust13RustGenerator10print_tyid17h70df38d
   br i1 %.not75, label %_ZN20wasmtime_wit_bindgen4rust13RustGenerator12lifetime_for17h6bd602bf2742d020E.exit, label %_ZN20wasmtime_wit_bindgen4rust13RustGenerator14uses_two_names17hcf90db91714bb6faE.exit.i
 
 _ZN20wasmtime_wit_bindgen4rust13RustGenerator14uses_two_names17hcf90db91714bb6faE.exit.i: ; preds = %20
-  %22 = tail call i8 @"_ZN102_$LT$wasmtime_wit_bindgen..InterfaceGenerator$u20$as$u20$wasmtime_wit_bindgen..rust..RustGenerator$GT$9ownership17h1c94743b9a7d39e4E"(ptr align 8 %0), !range !24
+  %22 = tail call i8 @"_ZN102_$LT$wasmtime_wit_bindgen..InterfaceGenerator$u20$as$u20$wasmtime_wit_bindgen..rust..RustGenerator$GT$9ownership17h1c94743b9a7d39e4E"(ptr align 8 %0), !range !22
   %23 = trunc i8 %22 to i1
   br i1 %23, label %_ZN20wasmtime_wit_bindgen4rust13RustGenerator12lifetime_for17h6bd602bf2742d020E.exit, label %_ZN20wasmtime_wit_bindgen4rust13RustGenerator14uses_two_names17hcf90db91714bb6faE.exit.thread.thread4.i
 
@@ -994,14 +994,14 @@ _ZN20wasmtime_wit_bindgen4rust13RustGenerator17print_optional_ty17h9e43c6bc556ec
   call void @"_ZN102_$LT$wasmtime_wit_bindgen..InterfaceGenerator$u20$as$u20$wasmtime_wit_bindgen..rust..RustGenerator$GT$8push_str17h93b729a5f7565df6E"(ptr align 8 %0, ptr nonnull align 1 @anon.1ed22c87c0bfd8076dc71e37a923bb51.36, i64 1)
   %127 = call align 8 ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h2454e89c1de15270E"(ptr nonnull align 8 %9)
   %128 = icmp eq ptr %127, null
-  br i1 %128, label %._crit_edge, label %.lr.ph, !llvm.loop !25
+  br i1 %128, label %._crit_edge, label %.lr.ph
 }
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN20wasmtime_wit_bindgen4rust13RustGenerator28print_type_name_in_interface17ha1efa70b0c280a9aE(ptr align 8 %0, ptr readonly align 8 captures(none) %1, ptr align 1 %2, i64 %3) unnamed_addr #0 personality ptr @rust_eh_personality {
   %5 = alloca { { { i64, ptr, {} }, i64 } }, align 8
   %6 = alloca { i64, [2 x i64] }, align 8
-  %7 = load i64, ptr %1, align 8, !range !26, !noundef !3
+  %7 = load i64, ptr %1, align 8, !range !23, !noundef !3
   %8 = icmp eq i64 %7, 1
   br i1 %8, label %9, label %15
 
@@ -1054,7 +1054,7 @@ define void @_ZN20wasmtime_wit_bindgen4rust13RustGenerator28print_type_name_in_i
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN20wasmtime_wit_bindgen4rust13RustGenerator10print_list17h468cacc57d27acedE(ptr align 8 %0, ptr readonly align 8 captures(none) %1, ptr align 1 %2, i64 %3) unnamed_addr #0 {
-  %5 = tail call i8 @"_ZN102_$LT$wasmtime_wit_bindgen..InterfaceGenerator$u20$as$u20$wasmtime_wit_bindgen..rust..RustGenerator$GT$9ownership17h1c94743b9a7d39e4E"(ptr align 8 %0), !range !24
+  %5 = tail call i8 @"_ZN102_$LT$wasmtime_wit_bindgen..InterfaceGenerator$u20$as$u20$wasmtime_wit_bindgen..rust..RustGenerator$GT$9ownership17h1c94743b9a7d39e4E"(ptr align 8 %0), !range !22
   %6 = icmp eq ptr %2, null
   br i1 %6, label %7, label %8
 
@@ -1104,7 +1104,7 @@ define void @_ZN20wasmtime_wit_bindgen4rust13RustGenerator12print_handle17hdfad5
   %15 = tail call align 8 ptr @"_ZN102_$LT$wasmtime_wit_bindgen..InterfaceGenerator$u20$as$u20$wasmtime_wit_bindgen..rust..RustGenerator$GT$7resolve17hbfac70c8993c61e3E"(ptr align 8 %0)
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 64
   %17 = tail call align 8 ptr @"_ZN128_$LT$id_arena..Arena$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$$LT$A$u20$as$u20$id_arena..ArenaBehavior$GT$..Id$GT$$GT$5index17ha84aa2f870282f85E"(ptr nonnull align 8 %16, i64 %13, i32 %14, ptr nonnull align 8 @anon.1ed22c87c0bfd8076dc71e37a923bb51.54)
-  %18 = load i64, ptr %17, align 8, !range !26, !noundef !3
+  %18 = load i64, ptr %17, align 8, !range !23, !noundef !3
   %19 = icmp eq i64 %18, 1
   br i1 %19, label %20, label %.critedge
 
@@ -1219,7 +1219,7 @@ define void @_ZN20wasmtime_wit_bindgen4rust13RustGenerator8modes_of17hbef7543a83
 
 19:                                               ; preds = %12
   %20 = invoke i8 @"_ZN102_$LT$wasmtime_wit_bindgen..InterfaceGenerator$u20$as$u20$wasmtime_wit_bindgen..rust..RustGenerator$GT$9ownership17h1c94743b9a7d39e4E"(ptr align 8 %1)
-          to label %23 unwind label %21, !range !24
+          to label %23 unwind label %21, !range !22
 
 21:                                               ; preds = %30, %34, %33, %25, %_ZN20wasmtime_wit_bindgen4rust13RustGenerator14uses_two_names17hcf90db91714bb6faE.exit, %19
   %22 = landingpad { ptr, i32 }
@@ -1437,23 +1437,23 @@ _ZN20wasmtime_wit_bindgen4rust13RustGenerator14uses_two_names17hcf90db91714bb6fa
 ; Function Attrs: nonlazybind uwtable
 define zeroext i1 @_ZN20wasmtime_wit_bindgen4rust13RustGenerator14uses_two_names17hcf90db91714bb6faE(ptr align 8 %0, ptr readonly align 1 captures(none) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 3
-  %4 = load i8, ptr %3, align 1, !range !27, !noundef !3
+  %4 = load i8, ptr %3, align 1, !range !24, !noundef !3
   %5 = trunc nuw i8 %4 to i1
   br i1 %5, label %6, label %16
 
 6:                                                ; preds = %2
-  %7 = load i8, ptr %1, align 1, !range !27, !noundef !3
+  %7 = load i8, ptr %1, align 1, !range !24, !noundef !3
   %8 = trunc nuw i8 %7 to i1
   br i1 %8, label %9, label %16
 
 9:                                                ; preds = %6
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 1
-  %11 = load i8, ptr %10, align 1, !range !27, !noundef !3
+  %11 = load i8, ptr %10, align 1, !range !24, !noundef !3
   %12 = trunc nuw i8 %11 to i1
   br i1 %12, label %13, label %16
 
 13:                                               ; preds = %9
-  %14 = tail call i8 @"_ZN102_$LT$wasmtime_wit_bindgen..InterfaceGenerator$u20$as$u20$wasmtime_wit_bindgen..rust..RustGenerator$GT$9ownership17h1c94743b9a7d39e4E"(ptr align 8 %0), !range !24
+  %14 = tail call i8 @"_ZN102_$LT$wasmtime_wit_bindgen..InterfaceGenerator$u20$as$u20$wasmtime_wit_bindgen..rust..RustGenerator$GT$9ownership17h1c94743b9a7d39e4E"(ptr align 8 %0), !range !22
   %15 = trunc i8 %14 to i1
   br label %16
 
@@ -1464,7 +1464,7 @@ define zeroext i1 @_ZN20wasmtime_wit_bindgen4rust13RustGenerator14uses_two_names
 
 ; Function Attrs: nonlazybind uwtable
 define { ptr, i64 } @_ZN20wasmtime_wit_bindgen4rust13RustGenerator12lifetime_for17h6bd602bf2742d020E(ptr align 8 %0, ptr readonly align 1 captures(none) %1, ptr align 1 %2, i64 %3) unnamed_addr #0 {
-  %5 = tail call i8 @"_ZN102_$LT$wasmtime_wit_bindgen..InterfaceGenerator$u20$as$u20$wasmtime_wit_bindgen..rust..RustGenerator$GT$9ownership17h1c94743b9a7d39e4E"(ptr align 8 %0), !range !24
+  %5 = tail call i8 @"_ZN102_$LT$wasmtime_wit_bindgen..InterfaceGenerator$u20$as$u20$wasmtime_wit_bindgen..rust..RustGenerator$GT$9ownership17h1c94743b9a7d39e4E"(ptr align 8 %0), !range !22
   %6 = icmp eq i8 %5, 2
   %.not = icmp eq ptr %2, null
   %or.cond = select i1 %6, i1 true, i1 %.not
@@ -1479,28 +1479,28 @@ define { ptr, i64 } @_ZN20wasmtime_wit_bindgen4rust13RustGenerator12lifetime_for
 
 10:                                               ; preds = %4
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 3
-  %12 = load i8, ptr %11, align 1, !range !27, !noundef !3
+  %12 = load i8, ptr %11, align 1, !range !24, !noundef !3
   %13 = trunc nuw i8 %12 to i1
   br i1 %13, label %14, label %7
 
 14:                                               ; preds = %10
-  %15 = load i8, ptr %1, align 1, !range !27, !noundef !3
+  %15 = load i8, ptr %1, align 1, !range !24, !noundef !3
   %16 = trunc nuw i8 %15 to i1
   br i1 %16, label %17, label %_ZN20wasmtime_wit_bindgen4rust13RustGenerator14uses_two_names17hcf90db91714bb6faE.exit.thread.thread4
 
 17:                                               ; preds = %14
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 1
-  %19 = load i8, ptr %18, align 1, !range !27, !noundef !3
+  %19 = load i8, ptr %18, align 1, !range !24, !noundef !3
   %20 = trunc nuw i8 %19 to i1
   br i1 %20, label %_ZN20wasmtime_wit_bindgen4rust13RustGenerator14uses_two_names17hcf90db91714bb6faE.exit, label %_ZN20wasmtime_wit_bindgen4rust13RustGenerator14uses_two_names17hcf90db91714bb6faE.exit.thread.thread
 
 _ZN20wasmtime_wit_bindgen4rust13RustGenerator14uses_two_names17hcf90db91714bb6faE.exit: ; preds = %17
-  %21 = tail call i8 @"_ZN102_$LT$wasmtime_wit_bindgen..InterfaceGenerator$u20$as$u20$wasmtime_wit_bindgen..rust..RustGenerator$GT$9ownership17h1c94743b9a7d39e4E"(ptr align 8 %0), !range !24
+  %21 = tail call i8 @"_ZN102_$LT$wasmtime_wit_bindgen..InterfaceGenerator$u20$as$u20$wasmtime_wit_bindgen..rust..RustGenerator$GT$9ownership17h1c94743b9a7d39e4E"(ptr align 8 %0), !range !22
   %22 = trunc i8 %21 to i1
   br i1 %22, label %7, label %_ZN20wasmtime_wit_bindgen4rust13RustGenerator14uses_two_names17hcf90db91714bb6faE.exit.thread
 
 _ZN20wasmtime_wit_bindgen4rust13RustGenerator14uses_two_names17hcf90db91714bb6faE.exit.thread: ; preds = %_ZN20wasmtime_wit_bindgen4rust13RustGenerator14uses_two_names17hcf90db91714bb6faE.exit
-  %.pre = load i8, ptr %1, align 1, !range !27
+  %.pre = load i8, ptr %1, align 1, !range !24
   %23 = trunc nuw i8 %.pre to i1
   br i1 %23, label %_ZN20wasmtime_wit_bindgen4rust13RustGenerator14uses_two_names17hcf90db91714bb6faE.exit.thread.thread, label %_ZN20wasmtime_wit_bindgen4rust13RustGenerator14uses_two_names17hcf90db91714bb6faE.exit.thread.thread4
 
@@ -1509,7 +1509,7 @@ _ZN20wasmtime_wit_bindgen4rust13RustGenerator14uses_two_names17hcf90db91714bb6fa
 
 _ZN20wasmtime_wit_bindgen4rust13RustGenerator14uses_two_names17hcf90db91714bb6faE.exit.thread.thread: ; preds = %17, %_ZN20wasmtime_wit_bindgen4rust13RustGenerator14uses_two_names17hcf90db91714bb6faE.exit.thread
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 1
-  %25 = load i8, ptr %24, align 1, !range !27, !noundef !3
+  %25 = load i8, ptr %24, align 1, !range !24, !noundef !3
   %26 = trunc nuw i8 %25 to i1
   br i1 %26, label %_ZN20wasmtime_wit_bindgen4rust13RustGenerator14uses_two_names17hcf90db91714bb6faE.exit.thread.thread4, label %7
 }
@@ -1639,7 +1639,7 @@ define hidden void @_ZN20wasmtime_wit_bindgen18InterfaceGenerator15print_rust_en
 
 89:                                               ; preds = %85
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %35, ptr noundef nonnull align 8 dereferenceable(24) %36, i64 24, i1 false)
-  %90 = load ptr, ptr %46, align 8, !align !28, !noundef !3
+  %90 = load ptr, ptr %46, align 8, !align !25, !noundef !3
   %91 = load i64, ptr %47, align 8
   %92 = load ptr, ptr %48, align 8, !nonnull !3, !noundef !3
   %93 = load i64, ptr %49, align 8, !noundef !3
@@ -1683,18 +1683,18 @@ define hidden void @_ZN20wasmtime_wit_bindgen18InterfaceGenerator15print_rust_en
   %100 = icmp ne i8 %99, 2
   %.not.i = icmp ne ptr %90, null
   %or.cond.i.not143 = and i1 %.not.i, %100
-  %101 = load i8, ptr %50, align 1, !range !27
+  %101 = load i8, ptr %50, align 1, !range !24
   %102 = trunc nuw i8 %101 to i1
   %or.cond138 = select i1 %or.cond.i.not143, i1 %102, i1 false
   br i1 %or.cond138, label %103, label %_ZN20wasmtime_wit_bindgen4rust13RustGenerator14uses_two_names17hcf90db91714bb6faE.exit.thread.thread.i
 
 103:                                              ; preds = %.noexc
-  %104 = load i8, ptr %40, align 8, !range !27, !noundef !3
+  %104 = load i8, ptr %40, align 8, !range !24, !noundef !3
   %105 = trunc nuw i8 %104 to i1
   br i1 %105, label %106, label %_ZN20wasmtime_wit_bindgen4rust13RustGenerator14uses_two_names17hcf90db91714bb6faE.exit.thread.thread4.i
 
 106:                                              ; preds = %103
-  %107 = load i8, ptr %51, align 1, !range !27, !noundef !3
+  %107 = load i8, ptr %51, align 1, !range !24, !noundef !3
   %108 = trunc nuw i8 %107 to i1
   br i1 %108, label %_ZN20wasmtime_wit_bindgen4rust13RustGenerator14uses_two_names17hcf90db91714bb6faE.exit.i, label %_ZN20wasmtime_wit_bindgen4rust13RustGenerator14uses_two_names17hcf90db91714bb6faE.exit.thread.thread.i
 
@@ -1707,10 +1707,10 @@ _ZN20wasmtime_wit_bindgen4rust13RustGenerator14uses_two_names17hcf90db91714bb6fa
   br i1 %110, label %_ZN20wasmtime_wit_bindgen4rust13RustGenerator14uses_two_names17hcf90db91714bb6faE.exit.thread.thread.i, label %_ZN20wasmtime_wit_bindgen4rust13RustGenerator14uses_two_names17hcf90db91714bb6faE.exit.thread.i
 
 _ZN20wasmtime_wit_bindgen4rust13RustGenerator14uses_two_names17hcf90db91714bb6faE.exit.thread.i: ; preds = %.noexc72
-  %.pre.i = load i8, ptr %40, align 8, !range !27
+  %.pre.i = load i8, ptr %40, align 8, !range !24
   %111 = trunc nuw i8 %.pre.i to i1
   %.not139 = xor i1 %111, true
-  %112 = load i8, ptr %51, align 1, !range !27
+  %112 = load i8, ptr %51, align 1, !range !24
   %113 = trunc nuw i8 %112 to i1
   %or.cond141 = select i1 %.not139, i1 true, i1 %113
   br i1 %or.cond141, label %_ZN20wasmtime_wit_bindgen4rust13RustGenerator14uses_two_names17hcf90db91714bb6faE.exit.thread.thread4.i, label %_ZN20wasmtime_wit_bindgen4rust13RustGenerator14uses_two_names17hcf90db91714bb6faE.exit.thread.thread.i
@@ -2021,7 +2021,7 @@ _ZN20wasmtime_wit_bindgen4rust13RustGenerator14print_generics17h2d89f37bcf921759
 .lr.ph.i:                                         ; preds = %.noexc100, %.noexc105
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %13, ptr noundef nonnull align 8 dereferenceable(24) %14, i64 24, i1 false)
   %193 = load ptr, ptr %71, align 8, !align !4, !noundef !3
-  %194 = load ptr, ptr %16, align 8, !nonnull !3, !align !28, !noundef !3
+  %194 = load ptr, ptr %16, align 8, !nonnull !3, !align !25, !noundef !3
   %195 = load i64, ptr %69, align 8, !noundef !3
   invoke void @"_ZN102_$LT$wasmtime_wit_bindgen..InterfaceGenerator$u20$as$u20$wasmtime_wit_bindgen..rust..RustGenerator$GT$8push_str17h93b729a5f7565df6E"(ptr align 8 %0, ptr nonnull align 1 %194, i64 %195)
           to label %199 unwind label %197
@@ -2125,7 +2125,7 @@ _ZN20wasmtime_wit_bindgen4rust13RustGenerator14print_generics17h2d89f37bcf921759
 .noexc105:                                        ; preds = %.noexc104
   %219 = load i64, ptr %14, align 8, !range !7, !noundef !3
   %220 = icmp eq i64 %219, -9223372036854775808
-  br i1 %220, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !29
+  br i1 %220, label %._crit_edge.i, label %.lr.ph.i
 
 221:                                              ; preds = %211, %196
   %222 = landingpad { ptr, i32 }
@@ -2142,7 +2142,7 @@ _ZN20wasmtime_wit_bindgen4rust13RustGenerator14print_generics17h2d89f37bcf921759
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %14)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %15)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %16)
-  %224 = load i8, ptr %79, align 2, !range !27, !noundef !3
+  %224 = load i8, ptr %79, align 2, !range !24, !noundef !3
   %225 = trunc nuw i8 %224 to i1
   br i1 %225, label %229, label %226
 
@@ -2290,7 +2290,7 @@ _ZN20wasmtime_wit_bindgen4rust13RustGenerator14print_generics17h2d89f37bcf921759
 
 251:                                              ; preds = %250
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hcfc4ef542b4c7efcE"(ptr nonnull align 8 %35)
-          to label %81 unwind label %83, !llvm.loop !30
+          to label %81 unwind label %83
 
 252:                                              ; preds = %158, %260, %278, %279, %280, %281
   %.0 = phi i8 [ %.2, %279 ], [ %.2, %281 ], [ %.2, %280 ], [ %.2, %278 ], [ %.2, %260 ], [ 1, %158 ]
@@ -2396,7 +2396,7 @@ _ZN20wasmtime_wit_bindgen4rust13RustGenerator14print_generics17h2d89f37bcf921759
 
 286:                                              ; preds = %287, %282
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hcfc4ef542b4c7efcE"(ptr nonnull align 8 %23)
-          to label %152 unwind label %153, !llvm.loop !31
+          to label %152 unwind label %153
 
 287:                                              ; preds = %282
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hcfc4ef542b4c7efcE"(ptr nonnull align 8 %22)
@@ -2431,7 +2431,7 @@ define hidden void @_ZN20wasmtime_wit_bindgen18InterfaceGenerator21print_rust_en
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
   store i64 %6, ptr %18, align 8
   %19 = tail call i40 @"_ZN102_$LT$wasmtime_wit_bindgen..InterfaceGenerator$u20$as$u20$wasmtime_wit_bindgen..rust..RustGenerator$GT$4info17h7ee73b7b031a3440E"(ptr align 8 %0, i64 %1, i32 %2)
-  %20 = tail call i8 @"_ZN102_$LT$wasmtime_wit_bindgen..InterfaceGenerator$u20$as$u20$wasmtime_wit_bindgen..rust..RustGenerator$GT$9ownership17h1c94743b9a7d39e4E"(ptr align 8 %0), !range !24
+  %20 = tail call i8 @"_ZN102_$LT$wasmtime_wit_bindgen..InterfaceGenerator$u20$as$u20$wasmtime_wit_bindgen..rust..RustGenerator$GT$9ownership17h1c94743b9a7d39e4E"(ptr align 8 %0), !range !22
   %21 = icmp ne i8 %20, 2
   %.not.i = icmp ne ptr %3, null
   %or.cond.i.not22 = select i1 %21, i1 %.not.i, i1 false
@@ -2446,7 +2446,7 @@ define hidden void @_ZN20wasmtime_wit_bindgen18InterfaceGenerator21print_rust_en
   br i1 %.not23, label %_ZN20wasmtime_wit_bindgen4rust13RustGenerator14print_generics17h2d89f37bcf921759E.exit, label %_ZN20wasmtime_wit_bindgen4rust13RustGenerator14uses_two_names17hcf90db91714bb6faE.exit.i
 
 _ZN20wasmtime_wit_bindgen4rust13RustGenerator14uses_two_names17hcf90db91714bb6faE.exit.i: ; preds = %24
-  %26 = tail call i8 @"_ZN102_$LT$wasmtime_wit_bindgen..InterfaceGenerator$u20$as$u20$wasmtime_wit_bindgen..rust..RustGenerator$GT$9ownership17h1c94743b9a7d39e4E"(ptr align 8 %0), !range !24
+  %26 = tail call i8 @"_ZN102_$LT$wasmtime_wit_bindgen..InterfaceGenerator$u20$as$u20$wasmtime_wit_bindgen..rust..RustGenerator$GT$9ownership17h1c94743b9a7d39e4E"(ptr align 8 %0), !range !22
   %27 = trunc i8 %26 to i1
   br i1 %27, label %_ZN20wasmtime_wit_bindgen4rust13RustGenerator14print_generics17h2d89f37bcf921759E.exit, label %_ZN20wasmtime_wit_bindgen4rust13RustGenerator14print_generics17h2d89f37bcf921759E.exit18.critedge
 
@@ -2499,7 +2499,7 @@ _ZN20wasmtime_wit_bindgen4rust13RustGenerator14print_generics17h2d89f37bcf921759
 42:                                               ; preds = %.lr.ph, %68
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %14, ptr noundef nonnull align 8 dereferenceable(24) %15, i64 24, i1 false)
   %43 = load ptr, ptr %34, align 8, !align !4, !noundef !3
-  %44 = load ptr, ptr %17, align 8, !nonnull !3, !align !28, !noundef !3
+  %44 = load ptr, ptr %17, align 8, !nonnull !3, !align !25, !noundef !3
   %45 = load i64, ptr %18, align 8, !noundef !3
   invoke void @"_ZN102_$LT$wasmtime_wit_bindgen..InterfaceGenerator$u20$as$u20$wasmtime_wit_bindgen..rust..RustGenerator$GT$8push_str17h93b729a5f7565df6E"(ptr align 8 %0, ptr nonnull align 1 %44, i64 %45)
           to label %49 unwind label %47
@@ -2591,7 +2591,7 @@ _ZN20wasmtime_wit_bindgen4rust13RustGenerator14print_generics17h2d89f37bcf921759
   call void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf28894361ebdd39cE"(ptr nonnull sret({ i64, [3 x i64] }) align 8 %15, ptr nonnull align 8 %16)
   %69 = load i64, ptr %15, align 8, !range !7, !noundef !3
   %70 = icmp eq i64 %69, -9223372036854775808
-  br i1 %70, label %._crit_edge, label %42, !llvm.loop !32
+  br i1 %70, label %._crit_edge, label %42
 
 71:                                               ; preds = %61, %46
   %72 = landingpad { ptr, i32 }
@@ -2950,14 +2950,7 @@ attributes #14 = { cold noreturn nounwind }
 !19 = distinct !{!19, !20, !"_ZN20wasmtime_wit_bindgen18InterfaceGenerator15print_rust_enum28_$u7b$$u7b$closure$u7d$$u7d$17h964355a6edb0fafdE: argument 0"}
 !20 = distinct !{!20, !"_ZN20wasmtime_wit_bindgen18InterfaceGenerator15print_rust_enum28_$u7b$$u7b$closure$u7d$$u7d$17h964355a6edb0fafdE"}
 !21 = !{!"branch_weights", !"expected", i32 2000, i32 1}
-!22 = distinct !{!22, !23}
-!23 = !{!"llvm.loop.estimated_trip_count"}
-!24 = !{i8 0, i8 3}
-!25 = distinct !{!25, !23}
-!26 = !{i64 0, i64 3}
-!27 = !{i8 0, i8 2}
-!28 = !{i64 1}
-!29 = distinct !{!29, !23}
-!30 = distinct !{!30, !23}
-!31 = distinct !{!31, !23}
-!32 = distinct !{!32, !23}
+!22 = !{i8 0, i8 3}
+!23 = !{i64 0, i64 3}
+!24 = !{i8 0, i8 2}
+!25 = !{i64 1}

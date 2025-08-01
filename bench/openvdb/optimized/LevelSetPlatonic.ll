@@ -14177,7 +14177,7 @@ invoke.cont368:                                   ; preds = %invoke.cont368.lr.p
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = sdiv exact i64 %sub.ptr.sub.i, 12
   %cmp361 = icmp ult i64 %inc, %sub.ptr.div.i
-  br i1 %cmp361, label %invoke.cont368, label %for.end, !llvm.loop !7
+  br i1 %cmp361, label %invoke.cont368, label %for.end, !llvm.loop !6
 
 for.end:                                          ; preds = %invoke.cont368, %if.end359
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, i8 0, i64 16, i1 false)
@@ -14777,7 +14777,6 @@ attributes #22 = { noreturn nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5, !6}
+!4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{!"llvm.loop.estimated_trip_count"}
-!7 = distinct !{!7, !5, !6}
+!6 = distinct !{!6, !5}

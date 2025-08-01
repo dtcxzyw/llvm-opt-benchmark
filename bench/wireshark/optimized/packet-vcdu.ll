@@ -424,7 +424,7 @@ smex_time_to_string.exit:                         ; preds = %4, %.preheader.i
   %128 = icmp slt i32 %127, %116
   %129 = icmp sgt i32 %127, 3
   %or.cond = and i1 %128, %129
-  br i1 %or.cond, label %.lr.ph, label %.critedge166, !llvm.loop !9
+  br i1 %or.cond, label %.lr.ph, label %.critedge166, !llvm.loop !8
 
 .critedge169:                                     ; preds = %113
   %130 = call ptr @proto_tree_add_expert(ptr noundef %85, ptr noundef %1, ptr noundef nonnull @ei_vcdu_fhp_too_close_to_end_of_vcdu, ptr noundef %0, i32 noundef 0, i32 noundef -1)
@@ -479,7 +479,7 @@ define internal void @vcdu_prefs_apply_cb() #3 {
   store i32 1, ptr %8, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %4, !llvm.loop !10
+  br i1 %exitcond.not, label %.loopexit, label %4, !llvm.loop !9
 
 .loopexit:                                        ; preds = %4, %0
   ret void
@@ -605,8 +605,7 @@ attributes #7 = { nounwind }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7, !8}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}

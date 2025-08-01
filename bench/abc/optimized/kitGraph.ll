@@ -1085,7 +1085,7 @@ define i32 @Kit_GraphToTruth(ptr noundef readonly captures(none) %0) local_unnam
   %56 = load i32, ptr %16, align 8, !tbaa !11
   %57 = sext i32 %56 to i64
   %58 = icmp slt i64 %indvars.iv.next72, %57
-  br i1 %58, label %.critedge, label %.critedge2, !llvm.loop !20
+  br i1 %58, label %.critedge, label %.critedge2, !llvm.loop !19
 
 .critedge2:                                       ; preds = %.critedge, %.critedge.preheader
   %.039.lcssa = phi i32 [ 0, %.critedge.preheader ], [ %52, %.critedge ]
@@ -1108,7 +1108,7 @@ define ptr @Kit_TruthToGraph(ptr noundef %0, i32 noundef %1, ptr noundef %2) loc
 
 6:                                                ; preds = %3
   %7 = getelementptr i8, ptr %2, i64 4
-  %.val = load i32, ptr %7, align 4, !tbaa !21
+  %.val = load i32, ptr %7, align 4, !tbaa !20
   %8 = icmp sgt i32 %.val, 65536
   br i1 %8, label %11, label %9
 
@@ -1133,7 +1133,7 @@ define ptr @Kit_TruthToGraph2(ptr noundef %0, ptr noundef %1, i32 noundef %2, pt
 
 7:                                                ; preds = %4
   %8 = getelementptr i8, ptr %3, i64 4
-  %.val = load i32, ptr %8, align 4, !tbaa !21
+  %.val = load i32, ptr %8, align 4, !tbaa !20
   %9 = icmp sgt i32 %.val, 65536
   br i1 %9, label %12, label %10
 
@@ -1236,7 +1236,7 @@ define i32 @Kit_TruthStats(ptr noundef %0, i32 noundef %1, ptr noundef %2) local
 
 6:                                                ; preds = %3
   %7 = getelementptr i8, ptr %2, i64 4
-  %.val.i = load i32, ptr %7, align 4, !tbaa !21
+  %.val.i = load i32, ptr %7, align 4, !tbaa !20
   %8 = icmp sgt i32 %.val.i, 65536
   br i1 %8, label %Kit_GraphFree.exit, label %9
 
@@ -1270,11 +1270,11 @@ define noalias noundef ptr @Kit_TruthStatsArray(ptr noundef %0, i32 noundef %1, 
   %5 = tail call noalias ptr @calloc(i64 noundef %4, i64 noundef 4) #23
   %6 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #20
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 4
-  store i32 0, ptr %7, align 4, !tbaa !21
-  store i32 65536, ptr %6, align 8, !tbaa !24
+  store i32 0, ptr %7, align 4, !tbaa !20
+  store i32 65536, ptr %6, align 8, !tbaa !23
   %8 = tail call noalias dereferenceable_or_null(262144) ptr @malloc(i64 noundef 262144) #20
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store ptr %8, ptr %9, align 8, !tbaa !25
+  store ptr %8, ptr %9, align 8, !tbaa !24
   %10 = icmp sgt i32 %2, 0
   br i1 %10, label %.lr.ph, label %._crit_edge
 
@@ -1295,7 +1295,7 @@ define noalias noundef ptr @Kit_TruthStatsArray(ptr noundef %0, i32 noundef %1, 
   br i1 %19, label %Kit_TruthStats.exit, label %20
 
 20:                                               ; preds = %13
-  %.val.i.i = load i32, ptr %7, align 4, !tbaa !21
+  %.val.i.i = load i32, ptr %7, align 4, !tbaa !20
   %21 = icmp sgt i32 %.val.i.i, 65536
   br i1 %21, label %Kit_TruthStats.exit, label %22
 
@@ -1324,10 +1324,10 @@ Kit_TruthStats.exit:                              ; preds = %13, %20, %22
   store i32 %33, ptr %34, align 4, !tbaa !16
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.loopexit, label %13, !llvm.loop !26
+  br i1 %exitcond.not, label %._crit_edge.loopexit, label %13, !llvm.loop !25
 
 ._crit_edge.loopexit:                             ; preds = %Kit_TruthStats.exit
-  %.pre = load ptr, ptr %9, align 8, !tbaa !25
+  %.pre = load ptr, ptr %9, align 8, !tbaa !24
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %3
@@ -1361,7 +1361,7 @@ define i32 @Kit_TruthFindVarNum(ptr noundef readonly captures(none) %0) local_un
 5:                                                ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !27
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !26
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %5
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %5 ]
@@ -1395,10 +1395,10 @@ define noalias noundef ptr @Kit_TruthTest(ptr noundef %0) local_unnamed_addr #8 
   br i1 %5, label %Abc_Clock.exit, label %6
 
 6:                                                ; preds = %1
-  %7 = load i64, ptr %3, align 8, !tbaa !28
+  %7 = load i64, ptr %3, align 8, !tbaa !27
   %.neg28 = mul i64 %7, -1000000
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %9 = load i64, ptr %8, align 8, !tbaa !31
+  %9 = load i64, ptr %8, align 8, !tbaa !30
   %.neg = sdiv i64 %9, -1000
   %.neg29 = add i64 %.neg, %.neg28
   br label %Abc_Clock.exit
@@ -1419,7 +1419,7 @@ Abc_Clock.exit:                                   ; preds = %1, %6
 14:                                               ; preds = %.lr.ph.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %Kit_TruthFindVarNum.exit.thread, label %.lr.ph.i, !llvm.loop !27
+  br i1 %exitcond.not.i, label %Kit_TruthFindVarNum.exit.thread, label %.lr.ph.i, !llvm.loop !26
 
 .lr.ph.i:                                         ; preds = %14, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %14 ]
@@ -1454,10 +1454,10 @@ Kit_TruthFindVarNum.exit.thread:                  ; preds = %14, %Abc_Clock.exit
   br i1 %31, label %Abc_Clock.exit22, label %32
 
 32:                                               ; preds = %Kit_TruthFindVarNum.exit.thread
-  %33 = load i64, ptr %2, align 8, !tbaa !28
+  %33 = load i64, ptr %2, align 8, !tbaa !27
   %34 = mul nsw i64 %33, 1000000
   %35 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %36 = load i64, ptr %35, align 8, !tbaa !31
+  %36 = load i64, ptr %35, align 8, !tbaa !30
   %37 = sdiv i64 %36, 1000
   %38 = add nsw i64 %37, %34
   br label %Abc_Clock.exit22
@@ -1490,7 +1490,7 @@ Abc_Clock.exit22:                                 ; preds = %Kit_TruthFindVarNum
   %49 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.2, i32 noundef %48, i32 noundef %46, i32 noundef %47)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 5
-  br i1 %exitcond.not, label %50, label %43, !llvm.loop !32
+  br i1 %exitcond.not, label %50, label %43, !llvm.loop !31
 
 50:                                               ; preds = %43
   ret ptr %28
@@ -1511,7 +1511,7 @@ define range(i32 -2147483647, -2147483648) i32 @Kit_TruthLitNum(ptr noundef %0, 
 
 6:                                                ; preds = %3
   %7 = getelementptr i8, ptr %2, i64 4
-  %.val = load i32, ptr %7, align 4, !tbaa !21
+  %.val = load i32, ptr %7, align 4, !tbaa !20
   %8 = icmp sgt i32 %.val, 65536
   br i1 %8, label %17, label %9
 
@@ -1564,7 +1564,7 @@ define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #17 {
 
 8:                                                ; preds = %5
   %9 = call ptr @vnsprintf(ptr noundef %1, ptr noundef nonnull %3) #21
-  %10 = load ptr, ptr @stdout, align 8, !tbaa !33
+  %10 = load ptr, ptr @stdout, align 8, !tbaa !32
   %11 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %9) #24
   %12 = trunc i64 %11 to i32
   %13 = call i32 @Gia_ManToBridgeText(ptr noundef %10, i32 noundef %12, ptr noundef nonnull %9) #21
@@ -1572,7 +1572,7 @@ define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #17 {
   br label %17
 
 14:                                               ; preds = %5
-  %15 = load ptr, ptr @stdout, align 8, !tbaa !33, !noalias !35
+  %15 = load ptr, ptr @stdout, align 8, !tbaa !32, !noalias !34
   %16 = call i32 @vfprintf(ptr noundef %15, ptr noundef %1, ptr noundef nonnull %3) #21
   br label %17
 
@@ -1648,24 +1648,23 @@ attributes #24 = { nounwind willreturn memory(read) }
 !14 = !{!4, !5, i64 0}
 !15 = !{!6, !6, i64 0}
 !16 = !{!5, !5, i64 0}
-!17 = distinct !{!17, !18, !19}
+!17 = distinct !{!17, !18}
 !18 = !{!"llvm.loop.mustprogress"}
-!19 = !{!"llvm.loop.estimated_trip_count"}
-!20 = distinct !{!20, !18, !19}
-!21 = !{!22, !5, i64 4}
-!22 = !{!"Vec_Int_t_", !5, i64 0, !5, i64 4, !23, i64 8}
-!23 = !{!"p1 int", !9, i64 0}
-!24 = !{!22, !5, i64 0}
-!25 = !{!22, !23, i64 8}
-!26 = distinct !{!26, !18, !19}
-!27 = distinct !{!27, !18, !19}
-!28 = !{!29, !30, i64 0}
-!29 = !{!"timespec", !30, i64 0, !30, i64 8}
-!30 = !{!"long", !6, i64 0}
-!31 = !{!29, !30, i64 8}
-!32 = distinct !{!32, !18, !19}
-!33 = !{!34, !34, i64 0}
-!34 = !{!"p1 _ZTS8_IO_FILE", !9, i64 0}
-!35 = !{!36}
-!36 = distinct !{!36, !37, !"vprintf: argument 0"}
-!37 = distinct !{!37, !"vprintf"}
+!19 = distinct !{!19, !18}
+!20 = !{!21, !5, i64 4}
+!21 = !{!"Vec_Int_t_", !5, i64 0, !5, i64 4, !22, i64 8}
+!22 = !{!"p1 int", !9, i64 0}
+!23 = !{!21, !5, i64 0}
+!24 = !{!21, !22, i64 8}
+!25 = distinct !{!25, !18}
+!26 = distinct !{!26, !18}
+!27 = !{!28, !29, i64 0}
+!28 = !{!"timespec", !29, i64 0, !29, i64 8}
+!29 = !{!"long", !6, i64 0}
+!30 = !{!28, !29, i64 8}
+!31 = distinct !{!31, !18}
+!32 = !{!33, !33, i64 0}
+!33 = !{!"p1 _ZTS8_IO_FILE", !9, i64 0}
+!34 = !{!35}
+!35 = distinct !{!35, !36, !"vprintf: argument 0"}
+!36 = distinct !{!36, !"vprintf"}

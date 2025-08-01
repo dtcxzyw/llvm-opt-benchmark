@@ -355,7 +355,7 @@ entry:
   %frombool2 = zext i1 %color to i8
   %frombool3 = zext i1 %texCoord0 to i8
   %ClientStateVertex = getelementptr inbounds nuw i8, ptr %this, i64 212
-  %0 = load i8, ptr %ClientStateVertex, align 4, !tbaa !75, !range !47, !noundef !48
+  %0 = load i8, ptr %ClientStateVertex, align 4, !tbaa !74, !range !47, !noundef !48
   %cmp.not = icmp eq i8 %0, %frombool
   br i1 %cmp.not, label %if.end12, label %if.then
 
@@ -371,12 +371,12 @@ if.else:                                          ; preds = %if.then
   br label %if.end
 
 if.end:                                           ; preds = %if.else, %if.then8
-  store i8 %frombool, ptr %ClientStateVertex, align 4, !tbaa !75
+  store i8 %frombool, ptr %ClientStateVertex, align 4, !tbaa !74
   br label %if.end12
 
 if.end12:                                         ; preds = %if.end, %entry
   %ClientStateNormal = getelementptr inbounds nuw i8, ptr %this, i64 213
-  %1 = load i8, ptr %ClientStateNormal, align 1, !tbaa !76, !range !47, !noundef !48
+  %1 = load i8, ptr %ClientStateNormal, align 1, !tbaa !75, !range !47, !noundef !48
   %cmp17.not = icmp eq i8 %1, %frombool1
   br i1 %cmp17.not, label %if.end26, label %if.then18
 
@@ -392,12 +392,12 @@ if.else21:                                        ; preds = %if.then18
   br label %if.end22
 
 if.end22:                                         ; preds = %if.else21, %if.then20
-  store i8 %frombool1, ptr %ClientStateNormal, align 1, !tbaa !76
+  store i8 %frombool1, ptr %ClientStateNormal, align 1, !tbaa !75
   br label %if.end26
 
 if.end26:                                         ; preds = %if.end22, %if.end12
   %ClientStateColor = getelementptr inbounds nuw i8, ptr %this, i64 214
-  %2 = load i8, ptr %ClientStateColor, align 2, !tbaa !77, !range !47, !noundef !48
+  %2 = load i8, ptr %ClientStateColor, align 2, !tbaa !76, !range !47, !noundef !48
   %cmp31.not = icmp eq i8 %2, %frombool2
   br i1 %cmp31.not, label %if.end40, label %if.then32
 
@@ -413,12 +413,12 @@ if.else35:                                        ; preds = %if.then32
   br label %if.end36
 
 if.end36:                                         ; preds = %if.else35, %if.then34
-  store i8 %frombool2, ptr %ClientStateColor, align 2, !tbaa !77
+  store i8 %frombool2, ptr %ClientStateColor, align 2, !tbaa !76
   br label %if.end40
 
 if.end40:                                         ; preds = %if.end36, %if.end26
   %ClientStateTexCoord0 = getelementptr inbounds nuw i8, ptr %this, i64 215
-  %3 = load i8, ptr %ClientStateTexCoord0, align 1, !tbaa !78, !range !47, !noundef !48
+  %3 = load i8, ptr %ClientStateTexCoord0, align 1, !tbaa !77, !range !47, !noundef !48
   %cmp45.not = icmp eq i8 %3, %frombool3
   br i1 %cmp45.not, label %if.end54, label %if.then46
 
@@ -456,7 +456,7 @@ if.else49:                                        ; preds = %_ZN3irr5video19COpe
   br label %if.end50
 
 if.end50:                                         ; preds = %if.else49, %if.then48
-  store i8 %frombool3, ptr %ClientStateTexCoord0, align 1, !tbaa !78
+  store i8 %frombool3, ptr %ClientStateTexCoord0, align 1, !tbaa !77
   br label %if.end54
 
 if.end54:                                         ; preds = %if.end50, %if.end40
@@ -620,9 +620,9 @@ if.then:                                          ; preds = %entry
   %vbase.offset = load i64, ptr %vbase.offset.ptr, align 8
   %add.ptr = getelementptr inbounds i8, ptr %0, i64 %vbase.offset
   %ReferenceCounter.i = getelementptr inbounds nuw i8, ptr %add.ptr, i64 16
-  %1 = load i32, ptr %ReferenceCounter.i, align 8, !tbaa !79
+  %1 = load i32, ptr %ReferenceCounter.i, align 8, !tbaa !78
   %dec.i = add nsw i32 %1, -1
-  store i32 %dec.i, ptr %ReferenceCounter.i, align 8, !tbaa !79
+  store i32 %dec.i, ptr %ReferenceCounter.i, align 8, !tbaa !78
   %tobool.not.i = icmp eq i32 %dec.i, 0
   br i1 %tobool.not.i, label %delete.notnull.i, label %for.inc
 
@@ -646,9 +646,9 @@ if.then.1:                                        ; preds = %for.inc
   %vbase.offset.1 = load i64, ptr %vbase.offset.ptr.1, align 8
   %add.ptr.1 = getelementptr inbounds i8, ptr %3, i64 %vbase.offset.1
   %ReferenceCounter.i.1 = getelementptr inbounds nuw i8, ptr %add.ptr.1, i64 16
-  %4 = load i32, ptr %ReferenceCounter.i.1, align 8, !tbaa !79
+  %4 = load i32, ptr %ReferenceCounter.i.1, align 8, !tbaa !78
   %dec.i.1 = add nsw i32 %4, -1
-  store i32 %dec.i.1, ptr %ReferenceCounter.i.1, align 8, !tbaa !79
+  store i32 %dec.i.1, ptr %ReferenceCounter.i.1, align 8, !tbaa !78
   %tobool.not.i.1 = icmp eq i32 %dec.i.1, 0
   br i1 %tobool.not.i.1, label %delete.notnull.i.1, label %for.inc.1
 
@@ -672,9 +672,9 @@ if.then.2:                                        ; preds = %for.inc.1
   %vbase.offset.2 = load i64, ptr %vbase.offset.ptr.2, align 8
   %add.ptr.2 = getelementptr inbounds i8, ptr %6, i64 %vbase.offset.2
   %ReferenceCounter.i.2 = getelementptr inbounds nuw i8, ptr %add.ptr.2, i64 16
-  %7 = load i32, ptr %ReferenceCounter.i.2, align 8, !tbaa !79
+  %7 = load i32, ptr %ReferenceCounter.i.2, align 8, !tbaa !78
   %dec.i.2 = add nsw i32 %7, -1
-  store i32 %dec.i.2, ptr %ReferenceCounter.i.2, align 8, !tbaa !79
+  store i32 %dec.i.2, ptr %ReferenceCounter.i.2, align 8, !tbaa !78
   %tobool.not.i.2 = icmp eq i32 %dec.i.2, 0
   br i1 %tobool.not.i.2, label %delete.notnull.i.2, label %for.inc.2
 
@@ -698,9 +698,9 @@ if.then.3:                                        ; preds = %for.inc.2
   %vbase.offset.3 = load i64, ptr %vbase.offset.ptr.3, align 8
   %add.ptr.3 = getelementptr inbounds i8, ptr %9, i64 %vbase.offset.3
   %ReferenceCounter.i.3 = getelementptr inbounds nuw i8, ptr %add.ptr.3, i64 16
-  %10 = load i32, ptr %ReferenceCounter.i.3, align 8, !tbaa !79
+  %10 = load i32, ptr %ReferenceCounter.i.3, align 8, !tbaa !78
   %dec.i.3 = add nsw i32 %10, -1
-  store i32 %dec.i.3, ptr %ReferenceCounter.i.3, align 8, !tbaa !79
+  store i32 %dec.i.3, ptr %ReferenceCounter.i.3, align 8, !tbaa !78
   %tobool.not.i.3 = icmp eq i32 %dec.i.3, 0
   br i1 %tobool.not.i.3, label %delete.notnull.i.3, label %for.inc.3
 
@@ -805,12 +805,11 @@ attributes #8 = { builtin nounwind }
 !69 = !{!8, !13, i64 176}
 !70 = !{!14, !14, i64 0}
 !71 = !{!10, !10, i64 0}
-!72 = distinct !{!72, !73, !74}
+!72 = distinct !{!72, !73}
 !73 = !{!"llvm.loop.mustprogress"}
-!74 = !{!"llvm.loop.estimated_trip_count"}
-!75 = !{!7, !14, i64 212}
-!76 = !{!7, !14, i64 213}
-!77 = !{!7, !14, i64 214}
-!78 = !{!7, !14, i64 215}
-!79 = !{!80, !13, i64 16}
-!80 = !{!"_ZTSN3irr17IReferenceCountedE", !9, i64 8, !13, i64 16}
+!74 = !{!7, !14, i64 212}
+!75 = !{!7, !14, i64 213}
+!76 = !{!7, !14, i64 214}
+!77 = !{!7, !14, i64 215}
+!78 = !{!79, !13, i64 16}
+!79 = !{!"_ZTSN3irr17IReferenceCountedE", !9, i64 8, !13, i64 16}

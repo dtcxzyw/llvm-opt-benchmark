@@ -180,7 +180,7 @@ lean_dec.exit:                                    ; preds = %33, %32, %30, %19
 
 .backedge.backedge:                               ; preds = %.backedge.sink.split, %lean_dec.exit
   %.025.be = phi ptr [ %23, %lean_dec.exit ], [ %37, %.backedge.sink.split ]
-  br label %.backedge, !llvm.loop !13
+  br label %.backedge
 
 38:                                               ; preds = %lean_obj_tag.exit
   %39 = load ptr, ptr @l_Lean_Compiler_LCNF_Code_containsConst_goExpr___closed__4, align 8, !tbaa !7
@@ -539,7 +539,7 @@ l_Lean_Compiler_LCNF_Code_containsConst_goLetValue.exit: ; preds = %lean_obj_tag
 
 .critedge.backedge:                               ; preds = %l_Lean_Compiler_LCNF_Code_containsConst_goLetValue.exit, %31, %40, %lean_obj_tag.exit.i
   %.044.be = phi ptr [ %15, %l_Lean_Compiler_LCNF_Code_containsConst_goLetValue.exit ], [ %35, %31 ], [ %44, %40 ], [ %15, %lean_obj_tag.exit.i ]
-  br label %.critedge, !llvm.loop !15
+  br label %.critedge
 
 31:                                               ; preds = %lean_obj_tag.exit
   %32 = getelementptr inbounds nuw i8, ptr %.044, i64 8
@@ -569,7 +569,7 @@ lean_nat_lt.exit:                                 ; preds = %lean_obj_tag.exit
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 32
   %52 = load ptr, ptr %51, align 8, !tbaa !7
   %53 = getelementptr i8, ptr %52, i64 8
-  %.val = load i64, ptr %53, align 8, !tbaa !16
+  %.val = load i64, ptr %53, align 8, !tbaa !13
   %.mask = and i64 %.val, 9223372036854775807
   %.not = icmp eq i64 %.mask, 0
   br i1 %.not, label %lean_dec.exit55, label %lean_dec.exit
@@ -586,7 +586,7 @@ lean_dec.exit55:                                  ; preds = %40, %31, %l_Lean_Co
 ; Function Attrs: nounwind uwtable
 define nonnull ptr @l_Array_anyMUnsafe_any___at_Lean_Compiler_LCNF_Code_containsConst___spec__1___boxed(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = getelementptr i8, ptr %2, i64 8
-  %.val = load i64, ptr %5, align 8, !tbaa !16
+  %.val = load i64, ptr %5, align 8, !tbaa !13
   %6 = ptrtoint ptr %2 to i64
   %7 = and i64 %6, 1
   %.not = icmp eq i64 %7, 0
@@ -612,7 +612,7 @@ define nonnull ptr @l_Array_anyMUnsafe_any___at_Lean_Compiler_LCNF_Code_contains
 
 lean_dec.exit13:                                  ; preds = %14, %13, %11, %4
   %15 = getelementptr i8, ptr %3, i64 8
-  %.val20 = load i64, ptr %15, align 8, !tbaa !16
+  %.val20 = load i64, ptr %15, align 8, !tbaa !13
   %16 = ptrtoint ptr %3 to i64
   %17 = and i64 %16, 1
   %.not21 = icmp eq i64 %17, 0
@@ -807,7 +807,7 @@ lean_alloc_small_object.exit.i:                   ; preds = %3
 19:                                               ; preds = %lean_alloc_small_object.exit.i
   %20 = getelementptr inbounds nuw i8, ptr %10, i64 %9
   %21 = getelementptr inbounds i8, ptr %20, i64 -8
-  store i64 0, ptr %21, align 8, !tbaa !16
+  store i64 0, ptr %21, align 8, !tbaa !13
   %.pre = load i32, ptr %14, align 4
   br label %lean_alloc_ctor_memory.exit
 
@@ -868,9 +868,9 @@ lean_alloc_closure.exit:                          ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr @l_Lean_Compiler_LCNF_Testing_TestM_run___rarg, ptr %6, align 8, !tbaa !7
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store i16 8, ptr %7, align 8, !tbaa !18
+  store i16 8, ptr %7, align 8, !tbaa !15
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 18
-  store i16 0, ptr %8, align 2, !tbaa !18
+  store i16 0, ptr %8, align 2, !tbaa !15
   ret ptr %2
 }
 
@@ -917,9 +917,9 @@ lean_alloc_closure.exit:                          ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr @l_Lean_Compiler_LCNF_Testing_SimpleAssertionM_run___rarg, ptr %6, align 8, !tbaa !7
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store i16 9, ptr %7, align 8, !tbaa !18
+  store i16 9, ptr %7, align 8, !tbaa !15
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 18
-  store i16 0, ptr %8, align 2, !tbaa !18
+  store i16 0, ptr %8, align 2, !tbaa !15
   ret ptr %2
 }
 
@@ -981,9 +981,9 @@ lean_alloc_closure.exit:                          ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr @l_Lean_Compiler_LCNF_Testing_InOutAssertionM_run___rarg, ptr %6, align 8, !tbaa !7
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store i16 10, ptr %7, align 8, !tbaa !18
+  store i16 10, ptr %7, align 8, !tbaa !15
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 18
-  store i16 0, ptr %8, align 2, !tbaa !18
+  store i16 0, ptr %8, align 2, !tbaa !15
   ret ptr %2
 }
 
@@ -3811,7 +3811,7 @@ lean_dec.exit507:                                 ; preds = %161, %160, %158, %1
 163:                                              ; preds = %lean_dec.exit507
   %164 = getelementptr inbounds nuw i8, ptr %127, i64 8
   %165 = load ptr, ptr %164, align 8, !tbaa !7
-  %166 = load double, ptr @l_Lean_addTrace___at___private_Lean_Compiler_LCNF_Testing_0__Lean_Compiler_LCNF_Testing_assertAfterTest___elambda__1___spec__2___closed__1, align 8, !tbaa !20
+  %166 = load double, ptr @l_Lean_addTrace___at___private_Lean_Compiler_LCNF_Testing_0__Lean_Compiler_LCNF_Testing_assertAfterTest___elambda__1___spec__2___closed__1, align 8, !tbaa !17
   %167 = load ptr, ptr @l_Lean_addTrace___at___private_Lean_Compiler_LCNF_Testing_0__Lean_Compiler_LCNF_Testing_assertAfterTest___elambda__1___spec__2___closed__2, align 8, !tbaa !7
   tail call void @lean_inc_heartbeat() #5
   %168 = tail call noalias ptr @mi_malloc_small(i64 noundef 48) #5
@@ -3825,7 +3825,7 @@ lean_dec.exit507:                                 ; preds = %161, %160, %158, %1
 lean_alloc_ctor.exit648:                          ; preds = %163
   %171 = getelementptr inbounds nuw i8, ptr %168, i64 4
   %172 = getelementptr inbounds nuw i8, ptr %168, i64 40
-  store i64 0, ptr %172, align 8, !tbaa !16
+  store i64 0, ptr %172, align 8, !tbaa !13
   store i32 1, ptr %168, align 4, !tbaa !9
   store i32 131120, ptr %171, align 4
   %173 = getelementptr inbounds nuw i8, ptr %168, i64 8
@@ -3833,9 +3833,9 @@ lean_alloc_ctor.exit648:                          ; preds = %163
   %174 = getelementptr inbounds nuw i8, ptr %168, i64 16
   store ptr %167, ptr %174, align 8, !tbaa !7
   %175 = getelementptr inbounds nuw i8, ptr %168, i64 24
-  store double %166, ptr %175, align 8, !tbaa !20
+  store double %166, ptr %175, align 8, !tbaa !17
   %176 = getelementptr inbounds nuw i8, ptr %168, i64 32
-  store double %166, ptr %176, align 8, !tbaa !20
+  store double %166, ptr %176, align 8, !tbaa !17
   %177 = load ptr, ptr @l_Lean_addTrace___at___private_Lean_Compiler_LCNF_Testing_0__Lean_Compiler_LCNF_Testing_assertAfterTest___elambda__1___spec__2___closed__3, align 8, !tbaa !7
   tail call void @lean_inc_heartbeat() #5
   %178 = tail call noalias ptr @mi_malloc_small(i64 noundef 32) #5
@@ -3991,7 +3991,7 @@ lean_alloc_ctor.exit656:                          ; preds = %lean_dec.exit505
 
 234:                                              ; preds = %lean_dec.exit507
   %235 = getelementptr i8, ptr %127, i64 16
-  %.val625 = load i64, ptr %235, align 8, !tbaa !16
+  %.val625 = load i64, ptr %235, align 8, !tbaa !13
   %236 = getelementptr inbounds nuw i8, ptr %127, i64 8
   %237 = load ptr, ptr %236, align 8, !tbaa !7
   %238 = ptrtoint ptr %237 to i64
@@ -4039,7 +4039,7 @@ lean_inc.exit555:                                 ; preds = %245, %244, %242, %2
   br label %lean_dec.exit504
 
 lean_dec.exit504:                                 ; preds = %252, %251, %249, %lean_inc.exit555
-  %253 = load double, ptr @l_Lean_addTrace___at___private_Lean_Compiler_LCNF_Testing_0__Lean_Compiler_LCNF_Testing_assertAfterTest___elambda__1___spec__2___closed__1, align 8, !tbaa !20
+  %253 = load double, ptr @l_Lean_addTrace___at___private_Lean_Compiler_LCNF_Testing_0__Lean_Compiler_LCNF_Testing_assertAfterTest___elambda__1___spec__2___closed__1, align 8, !tbaa !17
   %254 = load ptr, ptr @l_Lean_addTrace___at___private_Lean_Compiler_LCNF_Testing_0__Lean_Compiler_LCNF_Testing_assertAfterTest___elambda__1___spec__2___closed__2, align 8, !tbaa !7
   tail call void @lean_inc_heartbeat() #5
   %255 = tail call noalias ptr @mi_malloc_small(i64 noundef 48) #5
@@ -4053,7 +4053,7 @@ lean_dec.exit504:                                 ; preds = %252, %251, %249, %l
 lean_alloc_ctor.exit661:                          ; preds = %lean_dec.exit504
   %258 = getelementptr inbounds nuw i8, ptr %255, i64 4
   %259 = getelementptr inbounds nuw i8, ptr %255, i64 40
-  store i64 0, ptr %259, align 8, !tbaa !16
+  store i64 0, ptr %259, align 8, !tbaa !13
   store i32 1, ptr %255, align 4, !tbaa !9
   store i32 131120, ptr %258, align 4
   %260 = getelementptr inbounds nuw i8, ptr %255, i64 8
@@ -4061,9 +4061,9 @@ lean_alloc_ctor.exit661:                          ; preds = %lean_dec.exit504
   %261 = getelementptr inbounds nuw i8, ptr %255, i64 16
   store ptr %254, ptr %261, align 8, !tbaa !7
   %262 = getelementptr inbounds nuw i8, ptr %255, i64 24
-  store double %253, ptr %262, align 8, !tbaa !20
+  store double %253, ptr %262, align 8, !tbaa !17
   %263 = getelementptr inbounds nuw i8, ptr %255, i64 32
-  store double %253, ptr %263, align 8, !tbaa !20
+  store double %253, ptr %263, align 8, !tbaa !17
   %264 = load ptr, ptr @l_Lean_addTrace___at___private_Lean_Compiler_LCNF_Testing_0__Lean_Compiler_LCNF_Testing_assertAfterTest___elambda__1___spec__2___closed__3, align 8, !tbaa !7
   tail call void @lean_inc_heartbeat() #5
   %265 = tail call noalias ptr @mi_malloc_small(i64 noundef 32) #5
@@ -4127,7 +4127,7 @@ lean_alloc_ctor.exit666:                          ; preds = %lean_inc.exit554
   %285 = getelementptr inbounds nuw i8, ptr %281, i64 8
   store ptr %280, ptr %285, align 8, !tbaa !7
   %286 = getelementptr inbounds nuw i8, ptr %281, i64 16
-  store i64 %.val625, ptr %286, align 8, !tbaa !16
+  store i64 %.val625, ptr %286, align 8, !tbaa !13
   store ptr %281, ptr %126, align 8, !tbaa !7
   %287 = tail call ptr @lean_st_ref_set(ptr noundef %5, ptr noundef nonnull %116, ptr noundef %138) #5
   %288 = getelementptr inbounds nuw i8, ptr %287, i64 8
@@ -4494,7 +4494,7 @@ lean_inc.exit545:                                 ; preds = %416, %415, %413, %l
 
 lean_dec.exit503:                                 ; preds = %423, %422, %420, %lean_inc.exit545
   %424 = getelementptr i8, ptr %127, i64 16
-  %.val626 = load i64, ptr %424, align 8, !tbaa !16
+  %.val626 = load i64, ptr %424, align 8, !tbaa !13
   %425 = getelementptr inbounds nuw i8, ptr %127, i64 8
   %426 = load ptr, ptr %425, align 8, !tbaa !7
   %427 = ptrtoint ptr %426 to i64
@@ -4573,7 +4573,7 @@ lean_ctor_release.exit704:                        ; preds = %436, %443, %445, %4
 
 lean_dec_ref.exit608:                             ; preds = %452, %451, %449, %lean_ctor_release.exit704
   %.0487 = phi ptr [ %127, %lean_ctor_release.exit704 ], [ inttoptr (i64 1 to ptr), %449 ], [ inttoptr (i64 1 to ptr), %451 ], [ inttoptr (i64 1 to ptr), %452 ]
-  %453 = load double, ptr @l_Lean_addTrace___at___private_Lean_Compiler_LCNF_Testing_0__Lean_Compiler_LCNF_Testing_assertAfterTest___elambda__1___spec__2___closed__1, align 8, !tbaa !20
+  %453 = load double, ptr @l_Lean_addTrace___at___private_Lean_Compiler_LCNF_Testing_0__Lean_Compiler_LCNF_Testing_assertAfterTest___elambda__1___spec__2___closed__1, align 8, !tbaa !17
   %454 = load ptr, ptr @l_Lean_addTrace___at___private_Lean_Compiler_LCNF_Testing_0__Lean_Compiler_LCNF_Testing_assertAfterTest___elambda__1___spec__2___closed__2, align 8, !tbaa !7
   tail call void @lean_inc_heartbeat() #5
   %455 = tail call noalias ptr @mi_malloc_small(i64 noundef 48) #5
@@ -4587,7 +4587,7 @@ lean_dec_ref.exit608:                             ; preds = %452, %451, %449, %l
 lean_alloc_ctor.exit706:                          ; preds = %lean_dec_ref.exit608
   %458 = getelementptr inbounds nuw i8, ptr %455, i64 4
   %459 = getelementptr inbounds nuw i8, ptr %455, i64 40
-  store i64 0, ptr %459, align 8, !tbaa !16
+  store i64 0, ptr %459, align 8, !tbaa !13
   store i32 1, ptr %455, align 4, !tbaa !9
   store i32 131120, ptr %458, align 4
   %460 = getelementptr inbounds nuw i8, ptr %455, i64 8
@@ -4595,9 +4595,9 @@ lean_alloc_ctor.exit706:                          ; preds = %lean_dec_ref.exit60
   %461 = getelementptr inbounds nuw i8, ptr %455, i64 16
   store ptr %454, ptr %461, align 8, !tbaa !7
   %462 = getelementptr inbounds nuw i8, ptr %455, i64 24
-  store double %453, ptr %462, align 8, !tbaa !20
+  store double %453, ptr %462, align 8, !tbaa !17
   %463 = getelementptr inbounds nuw i8, ptr %455, i64 32
-  store double %453, ptr %463, align 8, !tbaa !20
+  store double %453, ptr %463, align 8, !tbaa !17
   %464 = load ptr, ptr @l_Lean_addTrace___at___private_Lean_Compiler_LCNF_Testing_0__Lean_Compiler_LCNF_Testing_assertAfterTest___elambda__1___spec__2___closed__3, align 8, !tbaa !7
   tail call void @lean_inc_heartbeat() #5
   %465 = tail call noalias ptr @mi_malloc_small(i64 noundef 32) #5
@@ -4671,7 +4671,7 @@ lean_alloc_ctor.exit711:                          ; preds = %483
   %489 = getelementptr inbounds nuw i8, ptr %.0488, i64 8
   store ptr %480, ptr %489, align 8, !tbaa !7
   %490 = getelementptr inbounds nuw i8, ptr %.0488, i64 16
-  store i64 %.val626, ptr %490, align 8, !tbaa !16
+  store i64 %.val626, ptr %490, align 8, !tbaa !13
   tail call void @lean_inc_heartbeat() #5
   %491 = tail call noalias ptr @mi_malloc_small(i64 noundef 80) #5
   %492 = icmp eq ptr %491, null
@@ -5355,7 +5355,7 @@ lean_ctor_release.exit776:                        ; preds = %lean_ctor_release.e
 lean_dec_ref.exit604:                             ; preds = %748, %747, %745, %lean_ctor_release.exit776
   %.0491 = phi ptr [ %116, %lean_ctor_release.exit776 ], [ inttoptr (i64 1 to ptr), %745 ], [ inttoptr (i64 1 to ptr), %747 ], [ inttoptr (i64 1 to ptr), %748 ]
   %749 = getelementptr i8, ptr %127, i64 16
-  %.val627 = load i64, ptr %749, align 8, !tbaa !16
+  %.val627 = load i64, ptr %749, align 8, !tbaa !13
   %750 = getelementptr inbounds nuw i8, ptr %127, i64 8
   %751 = load ptr, ptr %750, align 8, !tbaa !7
   %752 = ptrtoint ptr %751 to i64
@@ -5434,7 +5434,7 @@ lean_ctor_release.exit782:                        ; preds = %761, %768, %770, %7
 
 lean_dec_ref.exit602:                             ; preds = %777, %776, %774, %lean_ctor_release.exit782
   %.0492 = phi ptr [ %127, %lean_ctor_release.exit782 ], [ inttoptr (i64 1 to ptr), %774 ], [ inttoptr (i64 1 to ptr), %776 ], [ inttoptr (i64 1 to ptr), %777 ]
-  %778 = load double, ptr @l_Lean_addTrace___at___private_Lean_Compiler_LCNF_Testing_0__Lean_Compiler_LCNF_Testing_assertAfterTest___elambda__1___spec__2___closed__1, align 8, !tbaa !20
+  %778 = load double, ptr @l_Lean_addTrace___at___private_Lean_Compiler_LCNF_Testing_0__Lean_Compiler_LCNF_Testing_assertAfterTest___elambda__1___spec__2___closed__1, align 8, !tbaa !17
   %779 = load ptr, ptr @l_Lean_addTrace___at___private_Lean_Compiler_LCNF_Testing_0__Lean_Compiler_LCNF_Testing_assertAfterTest___elambda__1___spec__2___closed__2, align 8, !tbaa !7
   tail call void @lean_inc_heartbeat() #5
   %780 = tail call noalias ptr @mi_malloc_small(i64 noundef 48) #5
@@ -5448,7 +5448,7 @@ lean_dec_ref.exit602:                             ; preds = %777, %776, %774, %l
 lean_alloc_ctor.exit784:                          ; preds = %lean_dec_ref.exit602
   %783 = getelementptr inbounds nuw i8, ptr %780, i64 4
   %784 = getelementptr inbounds nuw i8, ptr %780, i64 40
-  store i64 0, ptr %784, align 8, !tbaa !16
+  store i64 0, ptr %784, align 8, !tbaa !13
   store i32 1, ptr %780, align 4, !tbaa !9
   store i32 131120, ptr %783, align 4
   %785 = getelementptr inbounds nuw i8, ptr %780, i64 8
@@ -5456,9 +5456,9 @@ lean_alloc_ctor.exit784:                          ; preds = %lean_dec_ref.exit60
   %786 = getelementptr inbounds nuw i8, ptr %780, i64 16
   store ptr %779, ptr %786, align 8, !tbaa !7
   %787 = getelementptr inbounds nuw i8, ptr %780, i64 24
-  store double %778, ptr %787, align 8, !tbaa !20
+  store double %778, ptr %787, align 8, !tbaa !17
   %788 = getelementptr inbounds nuw i8, ptr %780, i64 32
-  store double %778, ptr %788, align 8, !tbaa !20
+  store double %778, ptr %788, align 8, !tbaa !17
   %789 = load ptr, ptr @l_Lean_addTrace___at___private_Lean_Compiler_LCNF_Testing_0__Lean_Compiler_LCNF_Testing_assertAfterTest___elambda__1___spec__2___closed__3, align 8, !tbaa !7
   tail call void @lean_inc_heartbeat() #5
   %790 = tail call noalias ptr @mi_malloc_small(i64 noundef 32) #5
@@ -5547,7 +5547,7 @@ lean_alloc_ctor.exit790:                          ; preds = %814
   %820 = getelementptr inbounds nuw i8, ptr %.0494, i64 8
   store ptr %811, ptr %820, align 8, !tbaa !7
   %821 = getelementptr inbounds nuw i8, ptr %.0494, i64 16
-  store i64 %.val627, ptr %821, align 8, !tbaa !16
+  store i64 %.val627, ptr %821, align 8, !tbaa !13
   %822 = ptrtoint ptr %.0491 to i64
   %823 = and i64 %822, 1
   %.not951 = icmp eq i64 %823, 0
@@ -6557,7 +6557,7 @@ lean_ctor_release.exit881:                        ; preds = %lean_ctor_release.e
 lean_dec_ref.exit596:                             ; preds = %1201, %1200, %1198, %lean_ctor_release.exit881
   %.0496 = phi ptr [ %967, %lean_ctor_release.exit881 ], [ inttoptr (i64 1 to ptr), %1198 ], [ inttoptr (i64 1 to ptr), %1200 ], [ inttoptr (i64 1 to ptr), %1201 ]
   %1202 = getelementptr i8, ptr %978, i64 16
-  %.val628 = load i64, ptr %1202, align 8, !tbaa !16
+  %.val628 = load i64, ptr %1202, align 8, !tbaa !13
   %1203 = getelementptr inbounds nuw i8, ptr %978, i64 8
   %1204 = load ptr, ptr %1203, align 8, !tbaa !7
   %1205 = ptrtoint ptr %1204 to i64
@@ -6636,7 +6636,7 @@ lean_ctor_release.exit887:                        ; preds = %1214, %1221, %1223,
 
 lean_dec_ref.exit594:                             ; preds = %1230, %1229, %1227, %lean_ctor_release.exit887
   %.0493 = phi ptr [ %978, %lean_ctor_release.exit887 ], [ inttoptr (i64 1 to ptr), %1227 ], [ inttoptr (i64 1 to ptr), %1229 ], [ inttoptr (i64 1 to ptr), %1230 ]
-  %1231 = load double, ptr @l_Lean_addTrace___at___private_Lean_Compiler_LCNF_Testing_0__Lean_Compiler_LCNF_Testing_assertAfterTest___elambda__1___spec__2___closed__1, align 8, !tbaa !20
+  %1231 = load double, ptr @l_Lean_addTrace___at___private_Lean_Compiler_LCNF_Testing_0__Lean_Compiler_LCNF_Testing_assertAfterTest___elambda__1___spec__2___closed__1, align 8, !tbaa !17
   %1232 = load ptr, ptr @l_Lean_addTrace___at___private_Lean_Compiler_LCNF_Testing_0__Lean_Compiler_LCNF_Testing_assertAfterTest___elambda__1___spec__2___closed__2, align 8, !tbaa !7
   tail call void @lean_inc_heartbeat() #5
   %1233 = tail call noalias ptr @mi_malloc_small(i64 noundef 48) #5
@@ -6650,7 +6650,7 @@ lean_dec_ref.exit594:                             ; preds = %1230, %1229, %1227,
 lean_alloc_ctor.exit889:                          ; preds = %lean_dec_ref.exit594
   %1236 = getelementptr inbounds nuw i8, ptr %1233, i64 4
   %1237 = getelementptr inbounds nuw i8, ptr %1233, i64 40
-  store i64 0, ptr %1237, align 8, !tbaa !16
+  store i64 0, ptr %1237, align 8, !tbaa !13
   store i32 1, ptr %1233, align 4, !tbaa !9
   store i32 131120, ptr %1236, align 4
   %1238 = getelementptr inbounds nuw i8, ptr %1233, i64 8
@@ -6658,9 +6658,9 @@ lean_alloc_ctor.exit889:                          ; preds = %lean_dec_ref.exit59
   %1239 = getelementptr inbounds nuw i8, ptr %1233, i64 16
   store ptr %1232, ptr %1239, align 8, !tbaa !7
   %1240 = getelementptr inbounds nuw i8, ptr %1233, i64 24
-  store double %1231, ptr %1240, align 8, !tbaa !20
+  store double %1231, ptr %1240, align 8, !tbaa !17
   %1241 = getelementptr inbounds nuw i8, ptr %1233, i64 32
-  store double %1231, ptr %1241, align 8, !tbaa !20
+  store double %1231, ptr %1241, align 8, !tbaa !17
   %1242 = load ptr, ptr @l_Lean_addTrace___at___private_Lean_Compiler_LCNF_Testing_0__Lean_Compiler_LCNF_Testing_assertAfterTest___elambda__1___spec__2___closed__3, align 8, !tbaa !7
   tail call void @lean_inc_heartbeat() #5
   %1243 = tail call noalias ptr @mi_malloc_small(i64 noundef 32) #5
@@ -6759,7 +6759,7 @@ lean_alloc_ctor.exit895:                          ; preds = %1271
   %1277 = getelementptr inbounds nuw i8, ptr %.0484, i64 8
   store ptr %1268, ptr %1277, align 8, !tbaa !7
   %1278 = getelementptr inbounds nuw i8, ptr %.0484, i64 16
-  store i64 %.val628, ptr %1278, align 8, !tbaa !16
+  store i64 %.val628, ptr %1278, align 8, !tbaa !13
   %1279 = ptrtoint ptr %.0496 to i64
   %1280 = and i64 %1279, 1
   %.not930 = icmp eq i64 %1280, 0
@@ -8733,9 +8733,9 @@ lean_alloc_closure.exit:                          ; preds = %lean_inc.exit
   %42 = getelementptr inbounds nuw i8, ptr %38, i64 8
   store ptr @l___private_Lean_Compiler_LCNF_Testing_0__Lean_Compiler_LCNF_Testing_assertAfterTest___elambda__1, ptr %42, align 8, !tbaa !7
   %43 = getelementptr inbounds nuw i8, ptr %38, i64 16
-  store i16 9, ptr %43, align 8, !tbaa !18
+  store i16 9, ptr %43, align 8, !tbaa !15
   %44 = getelementptr inbounds nuw i8, ptr %38, i64 18
-  store i16 3, ptr %44, align 2, !tbaa !18
+  store i16 3, ptr %44, align 2, !tbaa !15
   %45 = getelementptr inbounds nuw i8, ptr %38, i64 24
   store ptr %0, ptr %45, align 8, !tbaa !7
   %46 = getelementptr inbounds nuw i8, ptr %38, i64 32
@@ -8863,7 +8863,7 @@ lean_dec.exit:                                    ; preds = %89, %88, %86, %83
 lean_alloc_ctor.exit:                             ; preds = %lean_dec.exit
   %93 = getelementptr inbounds nuw i8, ptr %90, i64 4
   %94 = getelementptr inbounds nuw i8, ptr %90, i64 32
-  store i64 0, ptr %94, align 8, !tbaa !16
+  store i64 0, ptr %94, align 8, !tbaa !13
   store i32 1, ptr %90, align 4, !tbaa !9
   store i32 196648, ptr %93, align 4
   %95 = getelementptr inbounds nuw i8, ptr %90, i64 8
@@ -9327,9 +9327,9 @@ lean_alloc_closure.exit:                          ; preds = %lean_inc.exit
   %18 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store ptr @l___private_Lean_Compiler_LCNF_Testing_0__Lean_Compiler_LCNF_Testing_assertAfterTest, ptr %18, align 8, !tbaa !7
   %19 = getelementptr inbounds nuw i8, ptr %14, i64 16
-  store i16 3, ptr %19, align 8, !tbaa !18
+  store i16 3, ptr %19, align 8, !tbaa !15
   %20 = getelementptr inbounds nuw i8, ptr %14, i64 18
-  store i16 2, ptr %20, align 2, !tbaa !18
+  store i16 2, ptr %20, align 2, !tbaa !15
   %21 = getelementptr inbounds nuw i8, ptr %14, i64 24
   store ptr %0, ptr %21, align 8, !tbaa !7
   %22 = getelementptr inbounds nuw i8, ptr %14, i64 32
@@ -9350,9 +9350,9 @@ lean_alloc_closure.exit13:                        ; preds = %lean_alloc_closure.
   %27 = getelementptr inbounds nuw i8, ptr %23, i64 8
   store ptr @l_Lean_Compiler_LCNF_PassInstaller_installAfter___elambda__1___boxed, ptr %27, align 8, !tbaa !7
   %28 = getelementptr inbounds nuw i8, ptr %23, i64 16
-  store i16 7, ptr %28, align 8, !tbaa !18
+  store i16 7, ptr %28, align 8, !tbaa !15
   %29 = getelementptr inbounds nuw i8, ptr %23, i64 18
-  store i16 3, ptr %29, align 2, !tbaa !18
+  store i16 3, ptr %29, align 2, !tbaa !15
   %30 = getelementptr inbounds nuw i8, ptr %23, i64 24
   store ptr %5, ptr %30, align 8, !tbaa !7
   %31 = getelementptr inbounds nuw i8, ptr %23, i64 32
@@ -9408,9 +9408,9 @@ lean_alloc_closure.exit:                          ; preds = %lean_inc.exit
   %17 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store ptr @l___private_Lean_Compiler_LCNF_Testing_0__Lean_Compiler_LCNF_Testing_assertAfterTest, ptr %17, align 8, !tbaa !7
   %18 = getelementptr inbounds nuw i8, ptr %13, i64 16
-  store i16 3, ptr %18, align 8, !tbaa !18
+  store i16 3, ptr %18, align 8, !tbaa !15
   %19 = getelementptr inbounds nuw i8, ptr %13, i64 18
-  store i16 2, ptr %19, align 2, !tbaa !18
+  store i16 2, ptr %19, align 2, !tbaa !15
   %20 = getelementptr inbounds nuw i8, ptr %13, i64 24
   store ptr %0, ptr %20, align 8, !tbaa !7
   %21 = getelementptr inbounds nuw i8, ptr %13, i64 32
@@ -10461,9 +10461,9 @@ lean_alloc_closure.exit:                          ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr @l_ReaderT_bind___at_Lean_Compiler_LCNF_Testing_assertForEachDeclAfter___spec__2___rarg, ptr %7, align 8, !tbaa !7
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store i16 9, ptr %8, align 8, !tbaa !18
+  store i16 9, ptr %8, align 8, !tbaa !15
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 18
-  store i16 0, ptr %9, align 2, !tbaa !18
+  store i16 0, ptr %9, align 2, !tbaa !15
   ret ptr %3
 }
 
@@ -10477,7 +10477,7 @@ define ptr @l_Lean_Compiler_LCNF_Testing_assertForEachDeclAfter___lambda__1(ptr 
 define ptr @l_Lean_Compiler_LCNF_Testing_assertForEachDeclAfter___lambda__2(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3, ptr readnone captures(none) %4, ptr readnone captures(none) %5, ptr noundef %6, ptr noundef readonly captures(none) %7, ptr noundef %8, ptr noundef %9) local_unnamed_addr #0 {
 lean_nat_lt.exit:
   %10 = getelementptr i8, ptr %3, i64 8
-  %.val = load i64, ptr %10, align 8, !tbaa !16
+  %.val = load i64, ptr %10, align 8, !tbaa !13
   %.mask = and i64 %.val, 9223372036854775807
   %.not = icmp eq i64 %.mask, 0
   br i1 %.not, label %lean_dec.exit49, label %lean_dec.exit
@@ -10601,9 +10601,9 @@ lean_alloc_closure.exit:                          ; preds = %4
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr @l_Lean_Compiler_LCNF_Testing_assertForEachDeclAfter___lambda__2___boxed, ptr %9, align 8, !tbaa !7
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store i16 10, ptr %10, align 8, !tbaa !18
+  store i16 10, ptr %10, align 8, !tbaa !15
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 18
-  store i16 2, ptr %11, align 2, !tbaa !18
+  store i16 2, ptr %11, align 2, !tbaa !15
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store ptr %0, ptr %12, align 8, !tbaa !7
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 32
@@ -10625,9 +10625,9 @@ lean_alloc_closure.exit12:                        ; preds = %lean_alloc_closure.
   %19 = getelementptr inbounds nuw i8, ptr %15, i64 8
   store ptr @l_ReaderT_bind___at_Lean_Compiler_LCNF_Testing_assertForEachDeclAfter___spec__2___rarg, ptr %19, align 8, !tbaa !7
   %20 = getelementptr inbounds nuw i8, ptr %15, i64 16
-  store i16 9, ptr %20, align 8, !tbaa !18
+  store i16 9, ptr %20, align 8, !tbaa !15
   %21 = getelementptr inbounds nuw i8, ptr %15, i64 18
-  store i16 2, ptr %21, align 2, !tbaa !18
+  store i16 2, ptr %21, align 2, !tbaa !15
   %22 = getelementptr inbounds nuw i8, ptr %15, i64 24
   store ptr %14, ptr %22, align 8, !tbaa !7
   %23 = getelementptr inbounds nuw i8, ptr %15, i64 32
@@ -10789,7 +10789,7 @@ lean_dec.exit:                                    ; preds = %65, %64, %62, %lean
 ; Function Attrs: nounwind uwtable
 define ptr @l_Array_foldlMUnsafe_fold___at_Lean_Compiler_LCNF_Testing_assertForEachDeclAfter___spec__1___boxed(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef %9, ptr noundef %10, ptr noundef %11, ptr noundef %12, ptr noundef %13) local_unnamed_addr #0 {
   %15 = getelementptr i8, ptr %4, i64 8
-  %.val49 = load i64, ptr %15, align 8, !tbaa !16
+  %.val49 = load i64, ptr %15, align 8, !tbaa !13
   %16 = ptrtoint ptr %4 to i64
   %17 = and i64 %16, 1
   %.not = icmp eq i64 %17, 0
@@ -10815,7 +10815,7 @@ define ptr @l_Array_foldlMUnsafe_fold___at_Lean_Compiler_LCNF_Testing_assertForE
 
 lean_dec.exit32:                                  ; preds = %24, %23, %21, %14
   %25 = getelementptr i8, ptr %5, i64 8
-  %.val = load i64, ptr %25, align 8, !tbaa !16
+  %.val = load i64, ptr %25, align 8, !tbaa !13
   %26 = ptrtoint ptr %5 to i64
   %27 = and i64 %26, 1
   %.not50 = icmp eq i64 %27, 0
@@ -11662,7 +11662,7 @@ lean_dec.exit:                                    ; preds = %188, %187, %185, %l
 define ptr @l_Lean_Compiler_LCNF_Testing_assertForEachDeclAfterEachOccurrence___lambda__1(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3, ptr readnone captures(none) %4, ptr readnone captures(none) %5, ptr noundef %6, ptr noundef readonly captures(none) %7, ptr noundef %8, ptr noundef %9) local_unnamed_addr #0 {
 lean_nat_lt.exit:
   %10 = getelementptr i8, ptr %3, i64 8
-  %.val = load i64, ptr %10, align 8, !tbaa !16
+  %.val = load i64, ptr %10, align 8, !tbaa !13
   %.mask = and i64 %.val, 9223372036854775807
   %.not = icmp eq i64 %.mask, 0
   br i1 %.not, label %lean_dec.exit49, label %lean_dec.exit
@@ -11786,9 +11786,9 @@ lean_alloc_closure.exit:                          ; preds = %3
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr @l_Lean_Compiler_LCNF_Testing_assertForEachDeclAfterEachOccurrence___lambda__1___boxed, ptr %8, align 8, !tbaa !7
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store i16 10, ptr %9, align 8, !tbaa !18
+  store i16 10, ptr %9, align 8, !tbaa !15
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 18
-  store i16 2, ptr %10, align 2, !tbaa !18
+  store i16 2, ptr %10, align 2, !tbaa !15
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store ptr %0, ptr %11, align 8, !tbaa !7
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 32
@@ -11810,9 +11810,9 @@ lean_alloc_closure.exit11:                        ; preds = %lean_alloc_closure.
   %18 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store ptr @l_ReaderT_bind___at_Lean_Compiler_LCNF_Testing_assertForEachDeclAfter___spec__2___rarg, ptr %18, align 8, !tbaa !7
   %19 = getelementptr inbounds nuw i8, ptr %14, i64 16
-  store i16 9, ptr %19, align 8, !tbaa !18
+  store i16 9, ptr %19, align 8, !tbaa !15
   %20 = getelementptr inbounds nuw i8, ptr %14, i64 18
-  store i16 2, ptr %20, align 2, !tbaa !18
+  store i16 2, ptr %20, align 2, !tbaa !15
   %21 = getelementptr inbounds nuw i8, ptr %14, i64 24
   store ptr %13, ptr %21, align 8, !tbaa !7
   %22 = getelementptr inbounds nuw i8, ptr %14, i64 32
@@ -11859,9 +11859,9 @@ l_Lean_Compiler_LCNF_Testing_assertAfterEachOccurrence.exit: ; preds = %lean_inc
   %37 = getelementptr inbounds nuw i8, ptr %33, i64 8
   store ptr @l___private_Lean_Compiler_LCNF_Testing_0__Lean_Compiler_LCNF_Testing_assertAfterTest, ptr %37, align 8, !tbaa !7
   %38 = getelementptr inbounds nuw i8, ptr %33, i64 16
-  store i16 3, ptr %38, align 8, !tbaa !18
+  store i16 3, ptr %38, align 8, !tbaa !15
   %39 = getelementptr inbounds nuw i8, ptr %33, i64 18
-  store i16 2, ptr %39, align 2, !tbaa !18
+  store i16 2, ptr %39, align 2, !tbaa !15
   %40 = getelementptr inbounds nuw i8, ptr %33, i64 24
   store ptr %14, ptr %40, align 8, !tbaa !7
   %41 = getelementptr inbounds nuw i8, ptr %33, i64 32
@@ -12023,7 +12023,7 @@ lean_dec.exit:                                    ; preds = %65, %64, %62, %lean
 ; Function Attrs: nounwind uwtable
 define ptr @l_Array_foldlMUnsafe_fold___at_Lean_Compiler_LCNF_Testing_assertForEachDeclAfterEachOccurrence___spec__1___boxed(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef %9, ptr noundef %10, ptr noundef %11, ptr noundef %12, ptr noundef %13) local_unnamed_addr #0 {
   %15 = getelementptr i8, ptr %4, i64 8
-  %.val49 = load i64, ptr %15, align 8, !tbaa !16
+  %.val49 = load i64, ptr %15, align 8, !tbaa !13
   %16 = ptrtoint ptr %4 to i64
   %17 = and i64 %16, 1
   %.not = icmp eq i64 %17, 0
@@ -12049,7 +12049,7 @@ define ptr @l_Array_foldlMUnsafe_fold___at_Lean_Compiler_LCNF_Testing_assertForE
 
 lean_dec.exit32:                                  ; preds = %24, %23, %21, %14
   %25 = getelementptr i8, ptr %5, i64 8
-  %.val = load i64, ptr %25, align 8, !tbaa !16
+  %.val = load i64, ptr %25, align 8, !tbaa !13
   %26 = ptrtoint ptr %5 to i64
   %27 = and i64 %26, 1
   %.not50 = icmp eq i64 %27, 0
@@ -14562,7 +14562,7 @@ lean_dec.exit46:                                  ; preds = %22, %21, %19, %lean
 35:                                               ; preds = %34, %31
   %.val.i63 = phi i32 [ %.val.i63.pr, %34 ], [ %32, %31 ]
   %36 = icmp sgt i32 %.val.i63, 0
-  br i1 %36, label %37, label %39, !prof !22
+  br i1 %36, label %37, label %39, !prof !19
 
 37:                                               ; preds = %35
   %38 = add nuw i32 %.val.i63, 1
@@ -14618,9 +14618,9 @@ lean_alloc_closure.exit:                          ; preds = %lean_inc.exit
   %53 = getelementptr inbounds nuw i8, ptr %49, i64 8
   store ptr @l___private_Lean_Compiler_LCNF_Testing_0__Lean_Compiler_LCNF_Testing_assertAroundTest___elambda__1, ptr %53, align 8, !tbaa !7
   %54 = getelementptr inbounds nuw i8, ptr %49, i64 16
-  store i16 10, ptr %54, align 8, !tbaa !18
+  store i16 10, ptr %54, align 8, !tbaa !15
   %55 = getelementptr inbounds nuw i8, ptr %49, i64 18
-  store i16 4, ptr %55, align 2, !tbaa !18
+  store i16 4, ptr %55, align 2, !tbaa !15
   %56 = getelementptr inbounds nuw i8, ptr %49, i64 24
   store ptr %0, ptr %56, align 8, !tbaa !7
   %57 = getelementptr inbounds nuw i8, ptr %49, i64 32
@@ -14747,7 +14747,7 @@ lean_dec.exit:                                    ; preds = %99, %98, %96, %93
 lean_alloc_ctor.exit:                             ; preds = %lean_dec.exit
   %103 = getelementptr inbounds nuw i8, ptr %100, i64 4
   %104 = getelementptr inbounds nuw i8, ptr %100, i64 32
-  store i64 0, ptr %104, align 8, !tbaa !16
+  store i64 0, ptr %104, align 8, !tbaa !13
   store i32 1, ptr %100, align 4, !tbaa !9
   store i32 196648, ptr %103, align 4
   %105 = getelementptr inbounds nuw i8, ptr %100, i64 8
@@ -14840,9 +14840,9 @@ lean_alloc_closure.exit:                          ; preds = %lean_inc.exit
   %18 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store ptr @l___private_Lean_Compiler_LCNF_Testing_0__Lean_Compiler_LCNF_Testing_assertAroundTest, ptr %18, align 8, !tbaa !7
   %19 = getelementptr inbounds nuw i8, ptr %14, i64 16
-  store i16 3, ptr %19, align 8, !tbaa !18
+  store i16 3, ptr %19, align 8, !tbaa !15
   %20 = getelementptr inbounds nuw i8, ptr %14, i64 18
-  store i16 2, ptr %20, align 2, !tbaa !18
+  store i16 2, ptr %20, align 2, !tbaa !15
   %21 = getelementptr inbounds nuw i8, ptr %14, i64 24
   store ptr %0, ptr %21, align 8, !tbaa !7
   %22 = getelementptr inbounds nuw i8, ptr %14, i64 32
@@ -14863,9 +14863,9 @@ lean_alloc_closure.exit13:                        ; preds = %lean_alloc_closure.
   %27 = getelementptr inbounds nuw i8, ptr %23, i64 8
   store ptr @l_Lean_Compiler_LCNF_PassInstaller_replacePass___elambda__1___boxed, ptr %27, align 8, !tbaa !7
   %28 = getelementptr inbounds nuw i8, ptr %23, i64 16
-  store i16 7, ptr %28, align 8, !tbaa !18
+  store i16 7, ptr %28, align 8, !tbaa !15
   %29 = getelementptr inbounds nuw i8, ptr %23, i64 18
-  store i16 3, ptr %29, align 2, !tbaa !18
+  store i16 3, ptr %29, align 2, !tbaa !15
   %30 = getelementptr inbounds nuw i8, ptr %23, i64 24
   store ptr %5, ptr %30, align 8, !tbaa !7
   %31 = getelementptr inbounds nuw i8, ptr %23, i64 32
@@ -14921,9 +14921,9 @@ lean_alloc_closure.exit:                          ; preds = %lean_inc.exit
   %17 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store ptr @l___private_Lean_Compiler_LCNF_Testing_0__Lean_Compiler_LCNF_Testing_assertAroundTest, ptr %17, align 8, !tbaa !7
   %18 = getelementptr inbounds nuw i8, ptr %13, i64 16
-  store i16 3, ptr %18, align 8, !tbaa !18
+  store i16 3, ptr %18, align 8, !tbaa !15
   %19 = getelementptr inbounds nuw i8, ptr %13, i64 18
-  store i16 2, ptr %19, align 2, !tbaa !18
+  store i16 2, ptr %19, align 2, !tbaa !15
   %20 = getelementptr inbounds nuw i8, ptr %13, i64 24
   store ptr %0, ptr %20, align 8, !tbaa !7
   %21 = getelementptr inbounds nuw i8, ptr %13, i64 32
@@ -16538,7 +16538,7 @@ lean_nat_lt.exit:
   %8 = load ptr, ptr @l___private_Lean_Compiler_LCNF_Testing_0__Lean_Compiler_LCNF_Testing_throwFixPointError___closed__1, align 8, !tbaa !7
   %9 = tail call ptr @lean_string_append(ptr noundef %0, ptr noundef %8) #5
   %10 = getelementptr i8, ptr %1, i64 8
-  %.val231 = load i64, ptr %10, align 8, !tbaa !16
+  %.val231 = load i64, ptr %10, align 8, !tbaa !13
   %.mask = and i64 %.val231, 9223372036854775807
   %.not = icmp eq i64 %.mask, 0
   br i1 %.not, label %lean_nat_lt.exit225, label %lean_dec.exit163
@@ -16923,7 +16923,7 @@ lean_nat_lt.exit225:                              ; preds = %lean_inc.exit175, %
   %145 = load ptr, ptr @l___private_Lean_Compiler_LCNF_Testing_0__Lean_Compiler_LCNF_Testing_throwFixPointError___closed__2, align 8, !tbaa !7
   %146 = tail call ptr @lean_string_append(ptr noundef %.0127, ptr noundef %145) #5
   %147 = getelementptr i8, ptr %2, i64 8
-  %.val = load i64, ptr %147, align 8, !tbaa !16
+  %.val = load i64, ptr %147, align 8, !tbaa !13
   %.mask310 = and i64 %.val, 9223372036854775807
   %.not309 = icmp eq i64 %.mask310, 0
   br i1 %.not309, label %lean_dec.exit156, label %lean_dec.exit154
@@ -17527,7 +17527,7 @@ lean_dec.exit:                                    ; preds = %43, %42, %40, %lean
 ; Function Attrs: nounwind uwtable
 define ptr @l_Array_foldlMUnsafe_fold___at___private_Lean_Compiler_LCNF_Testing_0__Lean_Compiler_LCNF_Testing_throwFixPointError___spec__2___boxed(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8) local_unnamed_addr #0 {
   %10 = getelementptr i8, ptr %1, i64 8
-  %.val20 = load i64, ptr %10, align 8, !tbaa !16
+  %.val20 = load i64, ptr %10, align 8, !tbaa !13
   %11 = ptrtoint ptr %1 to i64
   %12 = and i64 %11, 1
   %.not = icmp eq i64 %12, 0
@@ -17553,7 +17553,7 @@ define ptr @l_Array_foldlMUnsafe_fold___at___private_Lean_Compiler_LCNF_Testing_
 
 lean_dec.exit15:                                  ; preds = %19, %18, %16, %9
   %20 = getelementptr i8, ptr %2, i64 8
-  %.val = load i64, ptr %20, align 8, !tbaa !16
+  %.val = load i64, ptr %20, align 8, !tbaa !13
   %21 = ptrtoint ptr %2 to i64
   %22 = and i64 %21, 1
   %.not21 = icmp eq i64 %22, 0
@@ -17671,7 +17671,7 @@ lean_dec.exit24:                                  ; preds = %lean_array_fget.exi
   %10 = ptrtoint ptr %.021 to i64
   %11 = and i64 %10, 1
   %.not = icmp eq i64 %11, 0
-  br i1 %.not, label %lean_nat_eq.exit.thread, label %lean_nat_eq.exit, !prof !23
+  br i1 %.not, label %lean_nat_eq.exit.thread, label %lean_nat_eq.exit, !prof !20
 
 lean_nat_eq.exit:                                 ; preds = %lean_dec.exit24
   %.not45 = icmp eq ptr %.021, inttoptr (i64 1 to ptr)
@@ -18003,12 +18003,12 @@ lean_obj_tag.exit:                                ; preds = %62, %65
 
 lean_nat_lt.exit:                                 ; preds = %69
   %75 = getelementptr i8, ptr %1, i64 8
-  %.val519 = load i64, ptr %75, align 8, !tbaa !16
+  %.val519 = load i64, ptr %75, align 8, !tbaa !13
   %76 = shl i64 %.val519, 1
   %77 = or disjoint i64 %76, 1
   %78 = inttoptr i64 %77 to ptr
   %79 = getelementptr i8, ptr %72, i64 8
-  %.val518 = load i64, ptr %79, align 8, !tbaa !16
+  %.val518 = load i64, ptr %79, align 8, !tbaa !13
   %80 = shl i64 %.val518, 1
   %.not605 = icmp ult i64 %76, %80
   br i1 %.not605, label %lean_dec.exit331, label %lean_nat_lt.exit510
@@ -18631,12 +18631,12 @@ lean_inc.exit361:                                 ; preds = %307, %306, %304, %l
 
 lean_nat_lt.exit513:                              ; preds = %lean_inc.exit361, %311, %313, %314
   %315 = getelementptr i8, ptr %1, i64 8
-  %.val517 = load i64, ptr %315, align 8, !tbaa !16
+  %.val517 = load i64, ptr %315, align 8, !tbaa !13
   %316 = shl i64 %.val517, 1
   %317 = or disjoint i64 %316, 1
   %318 = inttoptr i64 %317 to ptr
   %319 = getelementptr i8, ptr %72, i64 8
-  %.val = load i64, ptr %319, align 8, !tbaa !16
+  %.val = load i64, ptr %319, align 8, !tbaa !13
   %320 = shl i64 %.val, 1
   %.not589 = icmp ult i64 %316, %320
   br i1 %.not589, label %lean_dec.exit301, label %lean_nat_lt.exit516
@@ -19458,9 +19458,9 @@ l_Lean_Compiler_LCNF_Testing_assertAfterEachOccurrence.exit: ; preds = %lean_inc
   %17 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store ptr @l___private_Lean_Compiler_LCNF_Testing_0__Lean_Compiler_LCNF_Testing_assertAfterTest, ptr %17, align 8, !tbaa !7
   %18 = getelementptr inbounds nuw i8, ptr %13, i64 16
-  store i16 3, ptr %18, align 8, !tbaa !18
+  store i16 3, ptr %18, align 8, !tbaa !15
   %19 = getelementptr inbounds nuw i8, ptr %13, i64 18
-  store i16 2, ptr %19, align 2, !tbaa !18
+  store i16 2, ptr %19, align 2, !tbaa !15
   %20 = getelementptr inbounds nuw i8, ptr %13, i64 24
   store ptr %2, ptr %20, align 8, !tbaa !7
   %21 = getelementptr inbounds nuw i8, ptr %13, i64 32
@@ -19828,7 +19828,7 @@ lean_array_uget.exit.thread:                      ; preds = %6
   %22 = ptrtoint ptr %.01847 to i64
   %23 = and i64 %22, 1
   %.not42 = icmp eq i64 %23, 0
-  br i1 %.not42, label %lean_nat_add.exit.thread27, label %.thread, !prof !23
+  br i1 %.not42, label %lean_nat_add.exit.thread27, label %.thread, !prof !20
 
 lean_nat_add.exit.thread27:                       ; preds = %lean_array_uget.exit.thread
   %24 = tail call ptr @lean_nat_big_add(ptr noundef %.01847, ptr noundef %8) #5
@@ -20413,9 +20413,9 @@ lean_alloc_closure.exit:                          ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr @l_ReaderT_bind___at_Lean_Compiler_LCNF_Testing_assertSize___spec__3___rarg, ptr %7, align 8, !tbaa !7
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store i16 9, ptr %8, align 8, !tbaa !18
+  store i16 9, ptr %8, align 8, !tbaa !15
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 18
-  store i16 0, ptr %9, align 2, !tbaa !18
+  store i16 0, ptr %9, align 2, !tbaa !15
   ret ptr %3
 }
 
@@ -20536,17 +20536,17 @@ lean_inc.exit149:                                 ; preds = %41, %40, %38, %lean
 
 lean_nat_lt.exit187:                              ; preds = %50, %49, %47, %lean_inc.exit149
   %51 = getelementptr i8, ptr %2, i64 8
-  %.val193 = load i64, ptr %51, align 8, !tbaa !16
+  %.val193 = load i64, ptr %51, align 8, !tbaa !13
   %52 = tail call ptr @l_Array_mapMUnsafe_map___at_Lean_Compiler_LCNF_Testing_assertSize___spec__1(i64 noundef %.val193, i64 noundef 0, ptr noundef %2)
   %53 = getelementptr i8, ptr %52, i64 8
-  %.val195 = load i64, ptr %53, align 8, !tbaa !16
+  %.val195 = load i64, ptr %53, align 8, !tbaa !13
   %.mask = and i64 %.val195, 9223372036854775807
   %.not211 = icmp eq i64 %.mask, 0
   %54 = getelementptr i8, ptr %12, i64 8
-  %.val = load i64, ptr %54, align 8, !tbaa !16
+  %.val = load i64, ptr %54, align 8, !tbaa !13
   %55 = tail call ptr @l_Array_mapMUnsafe_map___at_Lean_Compiler_LCNF_Testing_assertSize___spec__1(i64 noundef %.val, i64 noundef 0, ptr noundef %12)
   %56 = getelementptr i8, ptr %55, i64 8
-  %.val194 = load i64, ptr %56, align 8, !tbaa !16
+  %.val194 = load i64, ptr %56, align 8, !tbaa !13
   %.mask217 = and i64 %.val194, 9223372036854775807
   %.not216 = icmp eq i64 %.mask217, 0
   %57 = load ptr, ptr @l_Lean_addTrace___at___private_Lean_Compiler_LCNF_Testing_0__Lean_Compiler_LCNF_Testing_assertAfterTest___elambda__1___spec__2___closed__2, align 8, !tbaa !7
@@ -20842,9 +20842,9 @@ lean_alloc_closure.exit:                          ; preds = %3
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr @l_Lean_Compiler_LCNF_Testing_assertSize___lambda__1___boxed, ptr %8, align 8, !tbaa !7
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store i16 10, ptr %9, align 8, !tbaa !18
+  store i16 10, ptr %9, align 8, !tbaa !15
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 18
-  store i16 2, ptr %10, align 2, !tbaa !18
+  store i16 2, ptr %10, align 2, !tbaa !15
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store ptr %1, ptr %11, align 8, !tbaa !7
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 32
@@ -20866,9 +20866,9 @@ lean_alloc_closure.exit11:                        ; preds = %lean_alloc_closure.
   %18 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store ptr @l_ReaderT_bind___at_Lean_Compiler_LCNF_Testing_assertSize___spec__3___rarg, ptr %18, align 8, !tbaa !7
   %19 = getelementptr inbounds nuw i8, ptr %14, i64 16
-  store i16 9, ptr %19, align 8, !tbaa !18
+  store i16 9, ptr %19, align 8, !tbaa !15
   %20 = getelementptr inbounds nuw i8, ptr %14, i64 18
-  store i16 2, ptr %20, align 2, !tbaa !18
+  store i16 2, ptr %20, align 2, !tbaa !15
   %21 = getelementptr inbounds nuw i8, ptr %14, i64 24
   store ptr %13, ptr %21, align 8, !tbaa !7
   %22 = getelementptr inbounds nuw i8, ptr %14, i64 32
@@ -20915,9 +20915,9 @@ l_Lean_Compiler_LCNF_Testing_assertAroundEachOccurrence.exit: ; preds = %lean_in
   %37 = getelementptr inbounds nuw i8, ptr %33, i64 8
   store ptr @l___private_Lean_Compiler_LCNF_Testing_0__Lean_Compiler_LCNF_Testing_assertAroundTest, ptr %37, align 8, !tbaa !7
   %38 = getelementptr inbounds nuw i8, ptr %33, i64 16
-  store i16 3, ptr %38, align 8, !tbaa !18
+  store i16 3, ptr %38, align 8, !tbaa !15
   %39 = getelementptr inbounds nuw i8, ptr %33, i64 18
-  store i16 2, ptr %39, align 2, !tbaa !18
+  store i16 2, ptr %39, align 2, !tbaa !15
   %40 = getelementptr inbounds nuw i8, ptr %33, i64 24
   store ptr %14, ptr %40, align 8, !tbaa !7
   %41 = getelementptr inbounds nuw i8, ptr %33, i64 32
@@ -21103,7 +21103,7 @@ lean_dec.exit:                                    ; preds = %74, %73, %71, %lean
 ; Function Attrs: nounwind uwtable
 define ptr @l_Array_mapMUnsafe_map___at_Lean_Compiler_LCNF_Testing_assertSize___spec__1___boxed(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr i8, ptr %0, i64 8
-  %.val10 = load i64, ptr %4, align 8, !tbaa !16
+  %.val10 = load i64, ptr %4, align 8, !tbaa !13
   %5 = ptrtoint ptr %0 to i64
   %6 = and i64 %5, 1
   %.not = icmp eq i64 %6, 0
@@ -21129,7 +21129,7 @@ define ptr @l_Array_mapMUnsafe_map___at_Lean_Compiler_LCNF_Testing_assertSize___
 
 lean_dec.exit7:                                   ; preds = %13, %12, %10, %3
   %14 = getelementptr i8, ptr %1, i64 8
-  %.val = load i64, ptr %14, align 8, !tbaa !16
+  %.val = load i64, ptr %14, align 8, !tbaa !13
   %15 = ptrtoint ptr %1 to i64
   %16 = and i64 %15, 1
   %.not11 = icmp eq i64 %16, 0
@@ -21161,7 +21161,7 @@ lean_dec.exit:                                    ; preds = %23, %22, %20, %lean
 ; Function Attrs: nounwind uwtable
 define ptr @l_Array_foldlMUnsafe_fold___at_Lean_Compiler_LCNF_Testing_assertSize___spec__2___boxed(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = getelementptr i8, ptr %1, i64 8
-  %.val15 = load i64, ptr %5, align 8, !tbaa !16
+  %.val15 = load i64, ptr %5, align 8, !tbaa !13
   %6 = ptrtoint ptr %1 to i64
   %7 = and i64 %6, 1
   %.not = icmp eq i64 %7, 0
@@ -21187,7 +21187,7 @@ define ptr @l_Array_foldlMUnsafe_fold___at_Lean_Compiler_LCNF_Testing_assertSize
 
 lean_dec.exit10:                                  ; preds = %14, %13, %11, %4
   %15 = getelementptr i8, ptr %2, i64 8
-  %.val = load i64, ptr %15, align 8, !tbaa !16
+  %.val = load i64, ptr %15, align 8, !tbaa !13
   %16 = ptrtoint ptr %2 to i64
   %17 = and i64 %16, 1
   %.not16 = icmp eq i64 %17, 0
@@ -21254,7 +21254,7 @@ define zeroext range(i8 0, 2) i8 @l_Lean_Compiler_LCNF_Testing_assertReducesSize
   %5 = and i64 %4, 1
   %6 = and i64 %5, %3
   %or.cond.not = icmp eq i64 %6, 0
-  br i1 %or.cond.not, label %.critedge.i, label %7, !prof !24
+  br i1 %or.cond.not, label %.critedge.i, label %7, !prof !21
 
 7:                                                ; preds = %2
   %8 = icmp ult ptr %1, %0
@@ -21284,7 +21284,7 @@ define nonnull ptr @l_Lean_Compiler_LCNF_Testing_assertReducesSize___lambda__1__
   %5 = and i64 %4, 1
   %6 = and i64 %5, %3
   %or.cond.not.i = icmp eq i64 %6, 0
-  br i1 %or.cond.not.i, label %.critedge.i.i, label %7, !prof !24
+  br i1 %or.cond.not.i, label %.critedge.i.i, label %7, !prof !21
 
 7:                                                ; preds = %2
   %8 = icmp ult ptr %1, %0
@@ -21352,7 +21352,7 @@ define zeroext range(i8 0, 2) i8 @l_Lean_Compiler_LCNF_Testing_assertReducesOrPr
   %5 = and i64 %4, 1
   %6 = and i64 %5, %3
   %or.cond.not = icmp eq i64 %6, 0
-  br i1 %or.cond.not, label %.critedge.i, label %7, !prof !24
+  br i1 %or.cond.not, label %.critedge.i, label %7, !prof !21
 
 7:                                                ; preds = %2
   %8 = icmp ule ptr %1, %0
@@ -21382,7 +21382,7 @@ define nonnull ptr @l_Lean_Compiler_LCNF_Testing_assertReducesOrPreservesSize___
   %5 = and i64 %4, 1
   %6 = and i64 %5, %3
   %or.cond.not.i = icmp eq i64 %6, 0
-  br i1 %or.cond.not.i, label %.critedge.i.i, label %7, !prof !24
+  br i1 %or.cond.not.i, label %.critedge.i.i, label %7, !prof !21
 
 7:                                                ; preds = %2
   %8 = icmp ule ptr %1, %0
@@ -21498,9 +21498,9 @@ lean_alloc_closure.exit:                          ; preds = %3
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr @l_Lean_Compiler_LCNF_Testing_assertDoesNotContainConstAfter___lambda__1___boxed, ptr %8, align 8, !tbaa !7
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store i16 3, ptr %9, align 8, !tbaa !18
+  store i16 3, ptr %9, align 8, !tbaa !15
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 18
-  store i16 1, ptr %10, align 2, !tbaa !18
+  store i16 1, ptr %10, align 2, !tbaa !15
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store ptr %0, ptr %11, align 8, !tbaa !7
   %12 = tail call ptr @l_Lean_Compiler_LCNF_Testing_assertForEachDeclAfterEachOccurrence(ptr noundef nonnull %4, ptr noundef %1, ptr noundef %2)
@@ -23858,7 +23858,7 @@ lean_dec.exit87:                                  ; preds = %91, %90, %88, %82
 102:                                              ; preds = %98, %101
   %.val.i = phi i32 [ %99, %98 ], [ %.val.i.pr, %101 ]
   %103 = icmp sgt i32 %.val.i, 0
-  br i1 %103, label %104, label %106, !prof !22
+  br i1 %103, label %104, label %106, !prof !19
 
 104:                                              ; preds = %102
   %105 = add nuw i32 %.val.i, 1
@@ -23890,9 +23890,9 @@ lean_alloc_closure.exit:                          ; preds = %lean_inc.exit103
   %112 = getelementptr inbounds nuw i8, ptr %108, i64 8
   store ptr @l_Array_forIn_x27Unsafe_loop___at_Lean_Compiler_LCNF_Testing_assertNoFun___spec__3___lambda__1___boxed, ptr %112, align 8, !tbaa !7
   %113 = getelementptr inbounds nuw i8, ptr %108, i64 16
-  store i16 9, ptr %113, align 8, !tbaa !18
+  store i16 9, ptr %113, align 8, !tbaa !15
   %114 = getelementptr inbounds nuw i8, ptr %108, i64 18
-  store i16 1, ptr %114, align 2, !tbaa !18
+  store i16 1, ptr %114, align 2, !tbaa !15
   %115 = getelementptr inbounds nuw i8, ptr %108, i64 24
   store ptr %93, ptr %115, align 8, !tbaa !7
   %116 = getelementptr inbounds nuw i8, ptr %93, i64 40
@@ -24528,7 +24528,7 @@ lean_dec.exit:                                    ; preds = %64, %63, %61, %lean
 ; Function Attrs: nounwind uwtable
 define ptr @l_Lean_Compiler_LCNF_Testing_assertNoFun___lambda__1(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7) local_unnamed_addr #0 {
   %9 = getelementptr i8, ptr %0, i64 8
-  %.val = load i64, ptr %9, align 8, !tbaa !16
+  %.val = load i64, ptr %9, align 8, !tbaa !13
   %10 = tail call ptr @l_Array_forIn_x27Unsafe_loop___at_Lean_Compiler_LCNF_Testing_assertNoFun___spec__3(ptr poison, ptr nonnull poison, ptr noundef %0, i64 noundef %.val, i64 noundef 0, ptr noundef nonnull inttoptr (i64 1 to ptr), ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7)
   %11 = ptrtoint ptr %10 to i64
   %12 = and i64 %11, 1
@@ -24914,7 +24914,7 @@ lean_dec.exit:                                    ; preds = %63, %62, %60, %lean
 ; Function Attrs: nounwind uwtable
 define ptr @l_Array_forIn_x27Unsafe_loop___at_Lean_Compiler_LCNF_Testing_assertNoFun___spec__3___boxed(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef %9, ptr noundef %10, ptr noundef %11, ptr noundef %12) local_unnamed_addr #0 {
   %14 = getelementptr i8, ptr %3, i64 8
-  %.val32 = load i64, ptr %14, align 8, !tbaa !16
+  %.val32 = load i64, ptr %14, align 8, !tbaa !13
   %15 = ptrtoint ptr %3 to i64
   %16 = and i64 %15, 1
   %.not = icmp eq i64 %16, 0
@@ -24940,7 +24940,7 @@ define ptr @l_Array_forIn_x27Unsafe_loop___at_Lean_Compiler_LCNF_Testing_assertN
 
 lean_dec.exit23:                                  ; preds = %23, %22, %20, %13
   %24 = getelementptr i8, ptr %4, i64 8
-  %.val = load i64, ptr %24, align 8, !tbaa !16
+  %.val = load i64, ptr %24, align 8, !tbaa !13
   %25 = ptrtoint ptr %4 to i64
   %26 = and i64 %25, 1
   %.not33 = icmp eq i64 %26, 0
@@ -25211,7 +25211,7 @@ _init_l_Lean_throwError___at_Lean_Compiler_LCNF_Testing_assert___spec__1___close
   store ptr %43, ptr @l_Lean_throwError___at_Lean_Compiler_LCNF_Testing_assert___spec__1___closed__3, align 8, !tbaa !7
   tail call void @lean_mark_persistent(ptr noundef nonnull %43) #5
   %56 = tail call double @l_Float_ofScientific(ptr noundef nonnull inttoptr (i64 1 to ptr), i8 noundef zeroext 0, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
-  store double %56, ptr @l_Lean_addTrace___at___private_Lean_Compiler_LCNF_Testing_0__Lean_Compiler_LCNF_Testing_assertAfterTest___elambda__1___spec__2___closed__1, align 8, !tbaa !20
+  store double %56, ptr @l_Lean_addTrace___at___private_Lean_Compiler_LCNF_Testing_0__Lean_Compiler_LCNF_Testing_assertAfterTest___elambda__1___spec__2___closed__1, align 8, !tbaa !17
   %57 = tail call ptr @lean_mk_string_unchecked(ptr noundef nonnull @.str.3, i64 noundef 0, i64 noundef 0) #5
   store ptr %57, ptr @l_Lean_addTrace___at___private_Lean_Compiler_LCNF_Testing_0__Lean_Compiler_LCNF_Testing_assertAfterTest___elambda__1___spec__2___closed__2, align 8, !tbaa !7
   tail call void @lean_mark_persistent(ptr noundef %57) #5
@@ -25284,9 +25284,9 @@ _init_l_Lean_Compiler_LCNF_Testing_assertForEachDeclAfter___closed__1.exit: ; pr
   %85 = getelementptr inbounds nuw i8, ptr %81, i64 8
   store ptr @l_Lean_Compiler_LCNF_Testing_assertForEachDeclAfter___lambda__1___boxed, ptr %85, align 8, !tbaa !7
   %86 = getelementptr inbounds nuw i8, ptr %81, i64 16
-  store i16 7, ptr %86, align 8, !tbaa !18
+  store i16 7, ptr %86, align 8, !tbaa !15
   %87 = getelementptr inbounds nuw i8, ptr %81, i64 18
-  store i16 0, ptr %87, align 2, !tbaa !18
+  store i16 0, ptr %87, align 2, !tbaa !15
   store ptr %81, ptr @l_Lean_Compiler_LCNF_Testing_assertForEachDeclAfter___closed__1, align 8, !tbaa !7
   tail call void @lean_mark_persistent(ptr noundef nonnull %81) #5
   %88 = tail call ptr @lean_mk_string_unchecked(ptr noundef nonnull @.str.11, i64 noundef 13, i64 noundef 13) #5
@@ -25328,9 +25328,9 @@ _init_l_Lean_Compiler_LCNF_Testing_assertIsAtFixPoint___lambda__2___closed__1.ex
   %101 = getelementptr inbounds nuw i8, ptr %97, i64 8
   store ptr @l_Lean_Compiler_LCNF_Testing_assertIsAtFixPoint___lambda__1___boxed, ptr %101, align 8, !tbaa !7
   %102 = getelementptr inbounds nuw i8, ptr %97, i64 16
-  store i16 1, ptr %102, align 8, !tbaa !18
+  store i16 1, ptr %102, align 8, !tbaa !15
   %103 = getelementptr inbounds nuw i8, ptr %97, i64 18
-  store i16 0, ptr %103, align 2, !tbaa !18
+  store i16 0, ptr %103, align 2, !tbaa !15
   store ptr %97, ptr @l_Lean_Compiler_LCNF_Testing_assertIsAtFixPoint___lambda__2___closed__1, align 8, !tbaa !7
   tail call void @lean_mark_persistent(ptr noundef nonnull %97) #5
   %104 = tail call ptr @lean_mk_string_unchecked(ptr noundef nonnull @.str.16, i64 noundef 5, i64 noundef 5) #5
@@ -25361,9 +25361,9 @@ _init_l_Lean_Compiler_LCNF_Testing_assertIsAtFixPoint___closed__1.exit: ; preds 
   %112 = getelementptr inbounds nuw i8, ptr %108, i64 8
   store ptr @l_Lean_Compiler_LCNF_Testing_assertIsAtFixPoint___lambda__2___boxed, ptr %112, align 8, !tbaa !7
   %113 = getelementptr inbounds nuw i8, ptr %108, i64 16
-  store i16 8, ptr %113, align 8, !tbaa !18
+  store i16 8, ptr %113, align 8, !tbaa !15
   %114 = getelementptr inbounds nuw i8, ptr %108, i64 18
-  store i16 0, ptr %114, align 2, !tbaa !18
+  store i16 0, ptr %114, align 2, !tbaa !15
   store ptr %108, ptr @l_Lean_Compiler_LCNF_Testing_assertIsAtFixPoint___closed__1, align 8, !tbaa !7
   tail call void @lean_mark_persistent(ptr noundef nonnull %108) #5
   %115 = load ptr, ptr @l_Lean_Compiler_LCNF_Testing_assertForEachDeclAfter___closed__1, align 8, !tbaa !7
@@ -25384,9 +25384,9 @@ _init_l_Lean_Compiler_LCNF_Testing_assertIsAtFixPoint___closed__2.exit: ; preds 
   %121 = getelementptr inbounds nuw i8, ptr %117, i64 8
   store ptr @l_ReaderT_bind___at_Lean_Compiler_LCNF_Testing_assertForEachDeclAfter___spec__2___rarg, ptr %121, align 8, !tbaa !7
   %122 = getelementptr inbounds nuw i8, ptr %117, i64 16
-  store i16 9, ptr %122, align 8, !tbaa !18
+  store i16 9, ptr %122, align 8, !tbaa !15
   %123 = getelementptr inbounds nuw i8, ptr %117, i64 18
-  store i16 2, ptr %123, align 2, !tbaa !18
+  store i16 2, ptr %123, align 2, !tbaa !15
   %124 = getelementptr inbounds nuw i8, ptr %117, i64 24
   store ptr %115, ptr %124, align 8, !tbaa !7
   %125 = getelementptr inbounds nuw i8, ptr %117, i64 32
@@ -25418,9 +25418,9 @@ _init_l_Lean_Compiler_LCNF_Testing_assertSize___closed__1.exit: ; preds = %_init
   %133 = getelementptr inbounds nuw i8, ptr %129, i64 8
   store ptr @l_Lean_Compiler_LCNF_Testing_getInputDecls___boxed, ptr %133, align 8, !tbaa !7
   %134 = getelementptr inbounds nuw i8, ptr %129, i64 16
-  store i16 7, ptr %134, align 8, !tbaa !18
+  store i16 7, ptr %134, align 8, !tbaa !15
   %135 = getelementptr inbounds nuw i8, ptr %129, i64 18
-  store i16 0, ptr %135, align 2, !tbaa !18
+  store i16 0, ptr %135, align 2, !tbaa !15
   store ptr %129, ptr @l_Lean_Compiler_LCNF_Testing_assertSize___closed__1, align 8, !tbaa !7
   tail call void @lean_mark_persistent(ptr noundef nonnull %129) #5
   tail call void @lean_inc_heartbeat() #5
@@ -25439,9 +25439,9 @@ _init_l_Lean_Compiler_LCNF_Testing_assertPreservesSize___closed__1.exit: ; preds
   %140 = getelementptr inbounds nuw i8, ptr %136, i64 8
   store ptr @l_Nat_decEq___boxed, ptr %140, align 8, !tbaa !7
   %141 = getelementptr inbounds nuw i8, ptr %136, i64 16
-  store i16 2, ptr %141, align 8, !tbaa !18
+  store i16 2, ptr %141, align 8, !tbaa !15
   %142 = getelementptr inbounds nuw i8, ptr %136, i64 18
-  store i16 0, ptr %142, align 2, !tbaa !18
+  store i16 0, ptr %142, align 2, !tbaa !15
   store ptr %136, ptr @l_Lean_Compiler_LCNF_Testing_assertPreservesSize___closed__1, align 8, !tbaa !7
   tail call void @lean_mark_persistent(ptr noundef nonnull %136) #5
   tail call void @lean_inc_heartbeat() #5
@@ -25460,9 +25460,9 @@ _init_l_Lean_Compiler_LCNF_Testing_assertReducesSize___closed__1.exit: ; preds =
   %147 = getelementptr inbounds nuw i8, ptr %143, i64 8
   store ptr @l_Lean_Compiler_LCNF_Testing_assertReducesSize___lambda__1___boxed, ptr %147, align 8, !tbaa !7
   %148 = getelementptr inbounds nuw i8, ptr %143, i64 16
-  store i16 2, ptr %148, align 8, !tbaa !18
+  store i16 2, ptr %148, align 8, !tbaa !15
   %149 = getelementptr inbounds nuw i8, ptr %143, i64 18
-  store i16 0, ptr %149, align 2, !tbaa !18
+  store i16 0, ptr %149, align 2, !tbaa !15
   store ptr %143, ptr @l_Lean_Compiler_LCNF_Testing_assertReducesSize___closed__1, align 8, !tbaa !7
   tail call void @lean_mark_persistent(ptr noundef nonnull %143) #5
   tail call void @lean_inc_heartbeat() #5
@@ -25481,9 +25481,9 @@ _init_l_Lean_Compiler_LCNF_Testing_assertReducesOrPreservesSize___closed__1.exit
   %154 = getelementptr inbounds nuw i8, ptr %150, i64 8
   store ptr @l_Lean_Compiler_LCNF_Testing_assertReducesOrPreservesSize___lambda__1___boxed, ptr %154, align 8, !tbaa !7
   %155 = getelementptr inbounds nuw i8, ptr %150, i64 16
-  store i16 2, ptr %155, align 8, !tbaa !18
+  store i16 2, ptr %155, align 8, !tbaa !15
   %156 = getelementptr inbounds nuw i8, ptr %150, i64 18
-  store i16 0, ptr %156, align 2, !tbaa !18
+  store i16 0, ptr %156, align 2, !tbaa !15
   store ptr %150, ptr @l_Lean_Compiler_LCNF_Testing_assertReducesOrPreservesSize___closed__1, align 8, !tbaa !7
   tail call void @lean_mark_persistent(ptr noundef nonnull %150) #5
   %157 = tail call ptr @lean_mk_string_unchecked(ptr noundef nonnull @.str.22, i64 noundef 13, i64 noundef 13) #5
@@ -25516,9 +25516,9 @@ _init_l_Lean_Compiler_LCNF_Testing_assertNoFun___closed__1.exit: ; preds = %_ini
   %167 = getelementptr inbounds nuw i8, ptr %163, i64 8
   store ptr @l_Lean_Compiler_LCNF_Testing_getDecls___boxed, ptr %167, align 8, !tbaa !7
   %168 = getelementptr inbounds nuw i8, ptr %163, i64 16
-  store i16 7, ptr %168, align 8, !tbaa !18
+  store i16 7, ptr %168, align 8, !tbaa !15
   %169 = getelementptr inbounds nuw i8, ptr %163, i64 18
-  store i16 0, ptr %169, align 2, !tbaa !18
+  store i16 0, ptr %169, align 2, !tbaa !15
   store ptr %163, ptr @l_Lean_Compiler_LCNF_Testing_assertNoFun___closed__1, align 8, !tbaa !7
   tail call void @lean_mark_persistent(ptr noundef nonnull %163) #5
   tail call void @lean_inc_heartbeat() #5
@@ -25537,9 +25537,9 @@ _init_l_Lean_Compiler_LCNF_Testing_assertNoFun___closed__2.exit: ; preds = %_ini
   %174 = getelementptr inbounds nuw i8, ptr %170, i64 8
   store ptr @l_Lean_Compiler_LCNF_Testing_assertNoFun___lambda__1___boxed, ptr %174, align 8, !tbaa !7
   %175 = getelementptr inbounds nuw i8, ptr %170, i64 16
-  store i16 8, ptr %175, align 8, !tbaa !18
+  store i16 8, ptr %175, align 8, !tbaa !15
   %176 = getelementptr inbounds nuw i8, ptr %170, i64 18
-  store i16 0, ptr %176, align 2, !tbaa !18
+  store i16 0, ptr %176, align 2, !tbaa !15
   store ptr %170, ptr @l_Lean_Compiler_LCNF_Testing_assertNoFun___closed__2, align 8, !tbaa !7
   tail call void @lean_mark_persistent(ptr noundef nonnull %170) #5
   %177 = load ptr, ptr @l_Lean_Compiler_LCNF_Testing_assertNoFun___closed__1, align 8, !tbaa !7
@@ -25560,9 +25560,9 @@ _init_l_Lean_Compiler_LCNF_Testing_assertNoFun___closed__3.exit: ; preds = %_ini
   %183 = getelementptr inbounds nuw i8, ptr %179, i64 8
   store ptr @l_ReaderT_bind___at_Lean_Compiler_LCNF_Testing_assertForEachDeclAfter___spec__2___rarg, ptr %183, align 8, !tbaa !7
   %184 = getelementptr inbounds nuw i8, ptr %179, i64 16
-  store i16 9, ptr %184, align 8, !tbaa !18
+  store i16 9, ptr %184, align 8, !tbaa !15
   %185 = getelementptr inbounds nuw i8, ptr %179, i64 18
-  store i16 2, ptr %185, align 2, !tbaa !18
+  store i16 2, ptr %185, align 2, !tbaa !15
   %186 = getelementptr inbounds nuw i8, ptr %179, i64 24
   store ptr %177, ptr %186, align 8, !tbaa !7
   %187 = getelementptr inbounds nuw i8, ptr %179, i64 32
@@ -25664,15 +25664,12 @@ attributes #6 = { noreturn nounwind }
 !10 = !{!"", !11, i64 0, !11, i64 4, !11, i64 6, !11, i64 7}
 !11 = !{!"int", !5, i64 0}
 !12 = !{!"branch_weights", !"expected", i32 2000, i32 1}
-!13 = distinct !{!13, !14}
-!14 = !{!"llvm.loop.estimated_trip_count"}
-!15 = distinct !{!15, !14}
-!16 = !{!17, !17, i64 0}
-!17 = !{!"long", !5, i64 0}
-!18 = !{!19, !19, i64 0}
-!19 = !{!"short", !5, i64 0}
-!20 = !{!21, !21, i64 0}
-!21 = !{!"double", !5, i64 0}
-!22 = !{!"branch_weights", !"expected", i32 2146812770, i32 670878}
-!23 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!24 = !{!"branch_weights", i32 4001, i32 4000000}
+!13 = !{!14, !14, i64 0}
+!14 = !{!"long", !5, i64 0}
+!15 = !{!16, !16, i64 0}
+!16 = !{!"short", !5, i64 0}
+!17 = !{!18, !18, i64 0}
+!18 = !{!"double", !5, i64 0}
+!19 = !{!"branch_weights", !"expected", i32 2146812770, i32 670878}
+!20 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!21 = !{!"branch_weights", i32 4001, i32 4000000}

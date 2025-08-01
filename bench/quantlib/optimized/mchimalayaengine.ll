@@ -473,7 +473,7 @@ for.cond36.invoke.cont66_crit_edge.us:            ; preds = %for.inc.us
   %add.us = fadd double %averagePrice.0135.us, %bestPrice.2.us
   %inc74.us = add nuw i64 %i.0136.us, 1
   %exitcond139.not = icmp eq i64 %inc74.us, %sub.ptr.div.i.i.i.i
-  br i1 %exitcond139.not, label %for.cond.cleanup, label %for.cond36.preheader.us, !llvm.loop !35
+  br i1 %exitcond139.not, label %for.cond.cleanup, label %for.cond36.preheader.us, !llvm.loop !34
 
 for.cond.cleanup:                                 ; preds = %for.cond36.invoke.cont66_crit_edge.us, %if.then.i.i42
   %averagePrice.0.lcssa = phi double [ 0.000000e+00, %if.then.i.i42 ], [ %add.us, %for.cond36.invoke.cont66_crit_edge.us ]
@@ -481,7 +481,7 @@ for.cond.cleanup:                                 ; preds = %for.cond36.invoke.c
   %payoff_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %34 = load ptr, ptr %payoff_, align 8, !tbaa !18
   %cmp.not.i = icmp eq ptr %34, null
-  br i1 %cmp.not.i, label %cond.false.i, label %invoke.cont82, !prof !37
+  br i1 %cmp.not.i, label %cond.false.i, label %invoke.cont82, !prof !36
 
 cond.false.i:                                     ; preds = %for.cond.cleanup
   invoke void @_ZN5boost16assertion_failedEPKcS1_S1_l(ptr noundef nonnull @.str.11, ptr noundef nonnull @__PRETTY_FUNCTION__._ZNK5boost10shared_ptrIN8QuantLib6PayoffEEdeEv, ptr noundef nonnull @.str.12, i64 noundef 778)
@@ -706,9 +706,8 @@ attributes #22 = { builtin allocsize(0) }
 !29 = !{!28, !5, i64 0}
 !30 = !{!5, !5, i64 0}
 !31 = !{!23, !23, i64 0}
-!32 = distinct !{!32, !33, !34}
+!32 = distinct !{!32, !33}
 !33 = !{!"llvm.loop.mustprogress"}
-!34 = !{!"llvm.loop.estimated_trip_count"}
-!35 = distinct !{!35, !33, !34, !36}
-!36 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!37 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!34 = distinct !{!34, !33, !35}
+!35 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!36 = !{!"branch_weights", !"expected", i32 1, i32 2000}

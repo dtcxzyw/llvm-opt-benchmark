@@ -149,7 +149,7 @@ define i32 @BIO_dump_indent_cb(ptr noundef readonly captures(none) %0, ptr nound
   %63 = add nuw nsw i64 %indvars.iv.next107, %21
   %.not = icmp slt i64 %63, %18
   %or.cond83 = select i1 %62, i1 %.not, i1 false
-  br i1 %or.cond83, label %50, label %._crit_edge95, !llvm.loop !9
+  br i1 %or.cond83, label %50, label %._crit_edge95, !llvm.loop !8
 
 ._crit_edge95:                                    ; preds = %61, %48
   %.3.lcssa = phi i32 [ %.2, %48 ], [ %.4, %61 ]
@@ -181,7 +181,7 @@ define i32 @BIO_dump_indent_cb(ptr noundef readonly captures(none) %0, ptr nound
   %75 = add nuw nsw i32 %72, %.07397
   %indvars.iv.next110 = add nuw nsw i64 %indvars.iv109, 1
   %exitcond113.not = icmp eq i64 %indvars.iv.next110, %wide.trip.count112
-  br i1 %exitcond113.not, label %._crit_edge101, label %20, !llvm.loop !10
+  br i1 %exitcond113.not, label %._crit_edge101, label %20, !llvm.loop !9
 
 ._crit_edge101:                                   ; preds = %71, %74, %5
   %.0 = phi i32 [ 0, %5 ], [ %75, %74 ], [ %72, %71 ]
@@ -278,7 +278,7 @@ define noundef i32 @BIO_hex_string(ptr noundef %0, i32 noundef %1, i32 noundef %
   %.1 = phi i32 [ 0, %18 ], [ %17, %12 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !11
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %20
   %.not38 = icmp eq i32 %.1, 0
@@ -333,9 +333,8 @@ attributes #7 = { nounwind }
 !3 = !{!4, !4, i64 0}
 !4 = !{!"omnipotent char", !5, i64 0}
 !5 = !{!"Simple C/C++ TBAA"}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7, !8}
-!11 = distinct !{!11, !7, !8}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}

@@ -35,7 +35,7 @@ do.body:                                          ; preds = %do.body.backedge, %
   ]
 
 do.body.backedge:                                 ; preds = %do.body, %do.body, %do.body, %do.body
-  br label %do.body, !llvm.loop !5
+  br label %do.body
 
 do.end:                                           ; preds = %do.body
   ret i32 %call
@@ -64,7 +64,7 @@ do.body:                                          ; preds = %do.body.backedge, %
   ]
 
 do.body.backedge:                                 ; preds = %do.body, %do.body, %do.body, %do.body
-  br label %do.body, !llvm.loop !7
+  br label %do.body
 
 if.end:                                           ; preds = %do.body
   %conv = sext i8 %0 to i32
@@ -112,7 +112,7 @@ while.cond:                                       ; preds = %entry, %while.body
 
 while.body:                                       ; preds = %while.cond, %while.cond, %while.cond, %while.cond
   %incdec.ptr = getelementptr inbounds nuw i8, ptr %storemerge, i64 1
-  br label %while.cond, !llvm.loop !8
+  br label %while.cond, !llvm.loop !5
 
 if.end12:                                         ; preds = %while.cond
   %incdec.ptr13 = getelementptr inbounds nuw i8, ptr %storemerge, i64 1
@@ -163,7 +163,7 @@ for.body.i.i.i.i.i.i.i.i.i.i.i:                   ; preds = %for.body.i.i.i.i.i,
   tail call void @_ZN7msdfgen10EdgeHolderD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %__first.addr.04.i.i.i.i.i.i.i.i.i.i.i) #13
   %incdec.ptr.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.04.i.i.i.i.i.i.i.i.i.i.i, i64 8
   %cmp.not.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i.i.i.i.i.i, %3
-  br i1 %cmp.not.i.i.i.i.i.i.i.i.i.i.i, label %invoke.contthread-pre-split.i.i.i.i.i.i.i.i, label %for.body.i.i.i.i.i.i.i.i.i.i.i, !llvm.loop !10
+  br i1 %cmp.not.i.i.i.i.i.i.i.i.i.i.i, label %invoke.contthread-pre-split.i.i.i.i.i.i.i.i, label %for.body.i.i.i.i.i.i.i.i.i.i.i, !llvm.loop !7
 
 invoke.contthread-pre-split.i.i.i.i.i.i.i.i:      ; preds = %for.body.i.i.i.i.i.i.i.i.i.i.i
   %.pr.i.i.i.i.i.i.i.i = load ptr, ptr %__first.addr.04.i.i.i.i.i, align 8
@@ -181,7 +181,7 @@ if.then.i.i.i.i.i.i.i.i.i.i:                      ; preds = %invoke.cont.i.i.i.i
 _ZSt8_DestroyIN7msdfgen7ContourEEvPT_.exit.i.i.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i.i.i.i, %invoke.cont.i.i.i.i.i.i.i.i
   %incdec.ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.04.i.i.i.i.i, i64 24
   %cmp.not.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i, %1
-  br i1 %cmp.not.i.i.i.i.i, label %invoke.cont.i.i, label %for.body.i.i.i.i.i, !llvm.loop !11
+  br i1 %cmp.not.i.i.i.i.i, label %invoke.cont.i.i, label %for.body.i.i.i.i.i, !llvm.loop !8
 
 invoke.cont.i.i:                                  ; preds = %_ZSt8_DestroyIN7msdfgen7ContourEEvPT_.exit.i.i.i.i.i
   store ptr %0, ptr %_M_finish.i.i, align 8
@@ -214,7 +214,7 @@ do.body.i:                                        ; preds = %_ZNSt6vectorIN7msdf
   ]
 
 do.body.i.backedge:                               ; preds = %do.body.i, %do.body.i, %do.body.i, %do.body.i
-  br label %do.body.i, !llvm.loop !5
+  br label %do.body.i
 
 if.then8:                                         ; preds = %do.body.i
   store i8 0, ptr %after, align 1
@@ -251,7 +251,7 @@ do.body.i25:                                      ; preds = %do.body.i25.backedg
   ]
 
 do.body.i25.backedge:                             ; preds = %do.body.i25, %do.body.i25, %do.body.i25, %do.body.i25
-  br label %do.body.i25, !llvm.loop !5
+  br label %do.body.i25
 
 if.end24:                                         ; preds = %do.body.i, %do.body.i25, %if.end
   %c.0 = phi i32 [ %conv, %if.end ], [ %call.i26, %do.body.i25 ], [ %call.i24, %do.body.i ]
@@ -271,7 +271,7 @@ do.body.i29:                                      ; preds = %for.body, %do.body.
     i32 10, label %do.body.i29.backedge
     i32 9, label %do.body.i29.backedge
     i32 123, label %for.body
-  ], !llvm.loop !5
+  ]
 
 do.body.i29.backedge:                             ; preds = %do.body.i29, %do.body.i29, %do.body.i29, %do.body.i29
   br label %do.body.i29
@@ -336,7 +336,7 @@ do.body.i:                                        ; preds = %if.else, %do.body.i
   ]
 
 do.body.i.backedge:                               ; preds = %do.body.i, %do.body.i, %do.body.i, %do.body.i
-  br label %do.body.i, !llvm.loop !5
+  br label %do.body.i
 
 _ZN7msdfgen9readCharFEP8_IO_FILE.exit:            ; preds = %do.body.i
   %cmp5 = icmp eq i32 %call.i34, %terminator
@@ -364,7 +364,7 @@ do.body.i35:                                      ; preds = %do.body.i35.backedg
   ]
 
 do.body.i35.backedge:                             ; preds = %do.body.i35, %do.body.i35, %do.body.i35, %do.body.i35, %invoke.cont, %invoke.cont33, %invoke.cont79, %invoke.cont91, %invoke.cont105
-  br label %do.body.i35, !llvm.loop !12
+  br label %do.body.i35, !llvm.loop !9
 
 _ZN7msdfgen9readCharFEP8_IO_FILE.exit38:          ; preds = %do.body.i35
   %cmp9.not = icmp eq i32 %call.i36, %terminator
@@ -423,7 +423,7 @@ do.body.i42:                                      ; preds = %if.end12, %do.body.
   ]
 
 do.body.i42.backedge:                             ; preds = %do.body.i42, %do.body.i42, %do.body.i42, %do.body.i42
-  br label %do.body.i42, !llvm.loop !5
+  br label %do.body.i42
 
 sw.bb:                                            ; preds = %do.body.i42
   %agg.tmp29.sroa.0.0.copyload = load double, ptr %p, align 16
@@ -474,7 +474,7 @@ do.body.i47:                                      ; preds = %do.body.i47.backedg
   ]
 
 do.body.i47.backedge:                             ; preds = %do.body.i47, %do.body.i47, %do.body.i47, %do.body.i47
-  br label %do.body.i47, !llvm.loop !5
+  br label %do.body.i47
 
 READ_CONTROL_POINTS:                              ; preds = %do.body.i42, %do.body.i47
   %color.1 = phi i32 [ %color.2, %do.body.i47 ], [ 7, %do.body.i42 ]
@@ -496,7 +496,7 @@ do.body.i.i:                                      ; preds = %READ_CONTROL_POINTS
   ]
 
 do.body.i.i.backedge:                             ; preds = %do.body.i.i, %do.body.i.i, %do.body.i.i, %do.body.i.i
-  br label %do.body.i.i, !llvm.loop !5
+  br label %do.body.i.i
 
 sw.epilog.i:                                      ; preds = %do.body.i.i
   %call.i10.i = call noundef i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef %input, ptr noundef nonnull @.str, ptr noundef nonnull align 8 dereferenceable(16) %arrayidx3.i, ptr noundef nonnull %y.i9.i)
@@ -514,7 +514,7 @@ do.body.i11.i:                                    ; preds = %sw.epilog.i, %do.bo
   ]
 
 do.body.i11.i.backedge:                           ; preds = %do.body.i11.i, %do.body.i11.i, %do.body.i11.i, %do.body.i11.i
-  br label %do.body.i11.i, !llvm.loop !5
+  br label %do.body.i11.i
 
 do.body.i15.i:                                    ; preds = %READ_CONTROL_POINTS, %do.body.i15.i.backedge
   %call.i16.i = call i32 @fgetc(ptr noundef %input)
@@ -527,7 +527,7 @@ do.body.i15.i:                                    ; preds = %READ_CONTROL_POINTS
   ]
 
 do.body.i15.i.backedge:                           ; preds = %do.body.i15.i, %do.body.i15.i, %do.body.i15.i, %do.body.i15.i
-  br label %do.body.i15.i, !llvm.loop !5
+  br label %do.body.i15.i
 
 sw.epilog50:                                      ; preds = %do.body.i.i, %do.body.i11.i, %do.body.i15.i
   %retval.0.i = phi i32 [ 0, %do.body.i15.i ], [ 2, %do.body.i11.i ], [ 1, %do.body.i.i ]
@@ -544,7 +544,7 @@ do.body.i51:                                      ; preds = %do.body.i51.backedg
   ]
 
 do.body.i51.backedge:                             ; preds = %do.body.i51, %do.body.i51, %do.body.i51, %do.body.i51
-  br label %do.body.i51, !llvm.loop !5
+  br label %do.body.i51
 
 FINISH_EDGE:                                      ; preds = %do.body.i42, %do.body.i47, %do.body.i51
   %controlPoints.0 = phi i32 [ %retval.0.i, %do.body.i51 ], [ 0, %do.body.i47 ], [ 0, %do.body.i42 ]
@@ -570,7 +570,7 @@ do.body.i57:                                      ; preds = %FINISH_EDGE, %do.bo
   ]
 
 do.body.i57.backedge:                             ; preds = %do.body.i57, %do.body.i57, %do.body.i57, %do.body.i57
-  br label %do.body.i57, !llvm.loop !5
+  br label %do.body.i57
 
 if.then64:                                        ; preds = %do.body.i57
   store double %start.sroa.0.0.copyload, ptr %arrayidx55, align 16
@@ -685,7 +685,7 @@ for.body.i.i.i.i.i.i.i.i.i.i.i:                   ; preds = %for.body.i.i.i.i.i,
   tail call void @_ZN7msdfgen10EdgeHolderD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %__first.addr.04.i.i.i.i.i.i.i.i.i.i.i) #13
   %incdec.ptr.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.04.i.i.i.i.i.i.i.i.i.i.i, i64 8
   %cmp.not.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i.i.i.i.i.i, %3
-  br i1 %cmp.not.i.i.i.i.i.i.i.i.i.i.i, label %invoke.contthread-pre-split.i.i.i.i.i.i.i.i, label %for.body.i.i.i.i.i.i.i.i.i.i.i, !llvm.loop !10
+  br i1 %cmp.not.i.i.i.i.i.i.i.i.i.i.i, label %invoke.contthread-pre-split.i.i.i.i.i.i.i.i, label %for.body.i.i.i.i.i.i.i.i.i.i.i, !llvm.loop !7
 
 invoke.contthread-pre-split.i.i.i.i.i.i.i.i:      ; preds = %for.body.i.i.i.i.i.i.i.i.i.i.i
   %.pr.i.i.i.i.i.i.i.i = load ptr, ptr %__first.addr.04.i.i.i.i.i, align 8
@@ -703,7 +703,7 @@ if.then.i.i.i.i.i.i.i.i.i.i:                      ; preds = %invoke.cont.i.i.i.i
 _ZSt8_DestroyIN7msdfgen7ContourEEvPT_.exit.i.i.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i.i.i.i, %invoke.cont.i.i.i.i.i.i.i.i
   %incdec.ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.04.i.i.i.i.i, i64 24
   %cmp.not.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i, %1
-  br i1 %cmp.not.i.i.i.i.i, label %invoke.cont.i.i, label %for.body.i.i.i.i.i, !llvm.loop !11
+  br i1 %cmp.not.i.i.i.i.i, label %invoke.cont.i.i, label %for.body.i.i.i.i.i, !llvm.loop !8
 
 invoke.cont.i.i:                                  ; preds = %_ZSt8_DestroyIN7msdfgen7ContourEEvPT_.exit.i.i.i.i.i
   store ptr %0, ptr %_M_finish.i.i, align 8
@@ -736,7 +736,7 @@ while.cond.i:                                     ; preds = %_ZNSt6vectorIN7msdf
 
 while.body.i:                                     ; preds = %while.cond.i, %while.cond.i, %while.cond.i, %while.cond.i
   %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %storemerge.i, i64 1
-  br label %while.cond.i, !llvm.loop !8
+  br label %while.cond.i, !llvm.loop !5
 
 if.end12.i:                                       ; preds = %while.cond.i
   %incdec.ptr13.i = getelementptr inbounds nuw i8, ptr %storemerge.i, i64 1
@@ -775,7 +775,7 @@ do.body.i:                                        ; preds = %do.body.i.backedge,
   ]
 
 do.body.i.backedge:                               ; preds = %do.body.i, %do.body.i, %do.body.i, %do.body.i
-  br label %do.body.i, !llvm.loop !7
+  br label %do.body.i
 
 _ZN7msdfgen9readCharSEPPKc.exit:                  ; preds = %do.body.i
   store ptr %incdec.ptr.i13, ptr %input.addr, align 8
@@ -785,7 +785,7 @@ _ZN7msdfgen9readCharSEPPKc.exit:                  ; preds = %do.body.i
 for.cond:                                         ; preds = %for.body
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !13
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !10
 
 for.body:                                         ; preds = %_ZN7msdfgen9readCharSEPPKc.exit, %for.cond
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.cond ], [ 0, %_ZN7msdfgen9readCharSEPPKc.exit ]
@@ -815,7 +815,7 @@ do.body.i16:                                      ; preds = %do.body.i16.backedg
   ]
 
 do.body.i16.backedge:                             ; preds = %do.body.i16, %do.body.i16, %do.body.i16, %do.body.i16
-  br label %do.body.i16, !llvm.loop !7
+  br label %do.body.i16
 
 if.end17:                                         ; preds = %do.body.i16, %_ZN7msdfgen9readCharSEPPKc.exit
   %c.0.in = phi i8 [ %9, %_ZN7msdfgen9readCharSEPPKc.exit ], [ %12, %do.body.i16 ]
@@ -845,12 +845,12 @@ do.body.i25:                                      ; preds = %do.body.i25.backedg
   ]
 
 do.body.i25.backedge:                             ; preds = %do.body.i25, %do.body.i25, %do.body.i25, %do.body.i25
-  br label %do.body.i25, !llvm.loop !7
+  br label %do.body.i25
 
 _ZN7msdfgen9readCharSEPPKc.exit32:                ; preds = %do.body.i25
   store ptr %incdec.ptr.i27, ptr %input.addr, align 8
   %cmp19 = icmp eq i8 %13, 123
-  br i1 %cmp19, label %for.body20, label %for.end27.loopexit82, !llvm.loop !14
+  br i1 %cmp19, label %for.body20, label %for.end27.loopexit82, !llvm.loop !11
 
 for.end27.loopexit82:                             ; preds = %_ZN7msdfgen9readCharSEPPKc.exit32
   %conv.i31 = sext i8 %13 to i32
@@ -926,7 +926,7 @@ while.cond.i:                                     ; preds = %if.else, %while.bod
 
 while.body.i:                                     ; preds = %while.cond.i, %while.cond.i, %while.cond.i, %while.cond.i
   %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %storemerge.i, i64 1
-  br label %while.cond.i, !llvm.loop !8
+  br label %while.cond.i, !llvm.loop !5
 
 if.end12.i:                                       ; preds = %while.cond.i
   %incdec.ptr13.i = getelementptr inbounds nuw i8, ptr %storemerge.i, i64 1
@@ -966,7 +966,7 @@ do.body.i:                                        ; preds = %do.body.i.backedge,
   ]
 
 do.body.i.backedge:                               ; preds = %do.body.i, %do.body.i, %do.body.i, %do.body.i
-  br label %do.body.i, !llvm.loop !7
+  br label %do.body.i
 
 if.end.i:                                         ; preds = %do.body.i
   %conv.i = sext i8 %6 to i32
@@ -1007,7 +1007,7 @@ do.body.i37:                                      ; preds = %do.body.i37.backedg
   ]
 
 do.body.i37.backedge:                             ; preds = %do.body.i37, %do.body.i37, %do.body.i37, %do.body.i37
-  br label %do.body.i37, !llvm.loop !7
+  br label %do.body.i37
 
 _ZN7msdfgen9readCharSEPPKc.exit44:                ; preds = %do.body.i37
   %conv.i43 = sext i8 %7 to i32
@@ -1044,7 +1044,7 @@ while.cond.i49:                                   ; preds = %if.end12, %while.bo
 
 while.body.i57:                                   ; preds = %while.cond.i49, %while.cond.i49, %while.cond.i49, %while.cond.i49
   %incdec.ptr.i58 = getelementptr inbounds nuw i8, ptr %storemerge.i50, i64 1
-  br label %while.cond.i49, !llvm.loop !8
+  br label %while.cond.i49, !llvm.loop !5
 
 if.end12.i51:                                     ; preds = %while.cond.i49
   %incdec.ptr13.i52 = getelementptr inbounds nuw i8, ptr %storemerge.i50, i64 1
@@ -1076,7 +1076,7 @@ invoke.cont:                                      ; preds = %if.then17
   br label %while.cond.backedge
 
 while.cond.backedge:                              ; preds = %invoke.cont, %invoke.cont33, %invoke.cont79, %invoke.cont91, %invoke.cont105
-  br label %while.cond, !llvm.loop !15
+  br label %while.cond, !llvm.loop !12
 
 default.unreachable:                              ; preds = %if.end71
   unreachable
@@ -1175,7 +1175,7 @@ do.body.i72:                                      ; preds = %do.body.i72.backedg
   ]
 
 do.body.i72.backedge:                             ; preds = %do.body.i72, %do.body.i72, %do.body.i72, %do.body.i72
-  br label %do.body.i72, !llvm.loop !7
+  br label %do.body.i72
 
 READ_CONTROL_POINTS:                              ; preds = %do.body.i62, %do.body.i72
   %17 = phi ptr [ %incdec.ptr.i74, %do.body.i72 ], [ %incdec.ptr.i64, %do.body.i62 ]
@@ -1203,7 +1203,7 @@ while.cond.i.i:                                   ; preds = %READ_CONTROL_POINTS
 
 while.body.i.i:                                   ; preds = %while.cond.i.i, %while.cond.i.i, %while.cond.i.i, %while.cond.i.i
   %incdec.ptr.i.i = getelementptr inbounds nuw i8, ptr %storemerge.i.i, i64 1
-  br label %while.cond.i.i, !llvm.loop !8
+  br label %while.cond.i.i, !llvm.loop !5
 
 if.end12.i.i:                                     ; preds = %while.cond.i.i
   %incdec.ptr13.i.i = getelementptr inbounds nuw i8, ptr %storemerge.i.i, i64 1
@@ -1238,7 +1238,7 @@ do.body.i.i:                                      ; preds = %do.body.i.i.backedg
   ]
 
 do.body.i.i.backedge:                             ; preds = %do.body.i.i, %do.body.i.i, %do.body.i.i, %do.body.i.i
-  br label %do.body.i.i, !llvm.loop !7
+  br label %do.body.i.i
 
 sw.epilog.i:                                      ; preds = %do.body.i.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %end.i10.i)
@@ -1264,7 +1264,7 @@ while.cond.i14.i:                                 ; preds = %sw.epilog.i, %while
 
 while.body.i22.i:                                 ; preds = %while.cond.i14.i, %while.cond.i14.i, %while.cond.i14.i, %while.cond.i14.i
   %incdec.ptr.i23.i = getelementptr inbounds nuw i8, ptr %storemerge.i15.i, i64 1
-  br label %while.cond.i14.i, !llvm.loop !8
+  br label %while.cond.i14.i, !llvm.loop !5
 
 if.end12.i16.i:                                   ; preds = %while.cond.i14.i
   %incdec.ptr13.i17.i = getelementptr inbounds nuw i8, ptr %storemerge.i15.i, i64 1
@@ -1298,7 +1298,7 @@ do.body.i26.i:                                    ; preds = %do.body.i26.i.backe
   ]
 
 do.body.i26.i.backedge:                           ; preds = %do.body.i26.i, %do.body.i26.i, %do.body.i26.i, %do.body.i26.i
-  br label %do.body.i26.i, !llvm.loop !7
+  br label %do.body.i26.i
 
 land.lhs.true10.i:                                ; preds = %READ_CONTROL_POINTS
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %end.i.i)
@@ -1318,7 +1318,7 @@ do.body.i35.i:                                    ; preds = %do.body.i35.i.backe
   ]
 
 do.body.i35.i.backedge:                           ; preds = %do.body.i35.i, %do.body.i35.i, %do.body.i35.i, %do.body.i35.i
-  br label %do.body.i35.i, !llvm.loop !7
+  br label %do.body.i35.i
 
 sw.epilog50:                                      ; preds = %do.body.i35.i, %do.body.i.i, %do.body.i26.i
   %input.promoted.i81 = phi ptr [ %incdec.ptr.i28.i, %do.body.i26.i ], [ %incdec.ptr.i8.i, %do.body.i.i ], [ %incdec.ptr.i37.i, %do.body.i35.i ]
@@ -1339,7 +1339,7 @@ do.body.i82:                                      ; preds = %do.body.i82.backedg
   ]
 
 do.body.i82.backedge:                             ; preds = %do.body.i82, %do.body.i82, %do.body.i82, %do.body.i82
-  br label %do.body.i82, !llvm.loop !7
+  br label %do.body.i82
 
 FINISH_EDGE:                                      ; preds = %do.body.i62, %do.body.i72, %do.body.i82
   %32 = phi ptr [ %incdec.ptr.i84, %do.body.i82 ], [ %incdec.ptr.i74, %do.body.i72 ], [ %incdec.ptr.i64, %do.body.i62 ]
@@ -1371,7 +1371,7 @@ while.cond.i94:                                   ; preds = %FINISH_EDGE, %while
 
 while.body.i102:                                  ; preds = %while.cond.i94, %while.cond.i94, %while.cond.i94, %while.cond.i94
   %incdec.ptr.i103 = getelementptr inbounds nuw i8, ptr %storemerge.i95, i64 1
-  br label %while.cond.i94, !llvm.loop !8
+  br label %while.cond.i94, !llvm.loop !5
 
 if.end12.i96:                                     ; preds = %while.cond.i94
   %incdec.ptr13.i97 = getelementptr inbounds nuw i8, ptr %storemerge.i95, i64 1
@@ -1411,7 +1411,7 @@ do.body.i106:                                     ; preds = %do.body.i106.backed
   ]
 
 do.body.i106.backedge:                            ; preds = %do.body.i106, %do.body.i106, %do.body.i106, %do.body.i106
-  br label %do.body.i106, !llvm.loop !7
+  br label %do.body.i106
 
 if.then64:                                        ; preds = %do.body.i106
   store double %start.sroa.0.0.copyload, ptr %arrayidx55, align 16
@@ -1521,7 +1521,7 @@ for.cond8.i:                                      ; preds = %for.body15.i
   %incdec.ptr.i.i = getelementptr inbounds nuw i8, ptr %edge.sroa.0.014.i, i64 8
   %5 = load ptr, ptr %_M_finish.i2.i, align 8
   %cmp.i3.not.i = icmp eq ptr %incdec.ptr.i.i, %5
-  br i1 %cmp.i3.not.i, label %for.inc19.loopexit.i, label %for.body15.i, !llvm.loop !16
+  br i1 %cmp.i3.not.i, label %for.inc19.loopexit.i, label %for.body15.i, !llvm.loop !13
 
 for.body15.i:                                     ; preds = %for.body.i, %for.cond8.i
   %edge.sroa.0.014.i = phi ptr [ %incdec.ptr.i.i, %for.cond8.i ], [ %3, %for.body.i ]
@@ -1539,7 +1539,7 @@ for.inc19.i:                                      ; preds = %for.inc19.loopexit.
   %7 = phi ptr [ %.pre.i, %for.inc19.loopexit.i ], [ %2, %for.body.i ]
   %incdec.ptr.i4.i = getelementptr inbounds nuw i8, ptr %contour.sroa.0.016.i, i64 24
   %cmp.i.not.i = icmp eq ptr %incdec.ptr.i4.i, %7
-  br i1 %cmp.i.not.i, label %_ZN7msdfgenL9isColoredERKNS_5ShapeE.exit, label %for.body.i, !llvm.loop !17
+  br i1 %cmp.i.not.i, label %_ZN7msdfgenL9isColoredERKNS_5ShapeE.exit, label %for.body.i, !llvm.loop !14
 
 _ZN7msdfgenL9isColoredERKNS_5ShapeE.exit:         ; preds = %for.inc19.i, %for.body15.i, %if.end
   %cmp.i12.i = phi i1 [ false, %if.end ], [ true, %for.body15.i ], [ false, %for.inc19.i ]
@@ -1682,7 +1682,7 @@ for.inc:                                          ; preds = %if.end33, %if.end60
   %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %edge.sroa.0.063, i64 8
   %24 = load ptr, ptr %_M_finish.i.i44, align 8
   %cmp.i46.not = icmp eq ptr %incdec.ptr.i, %24
-  br i1 %cmp.i46.not, label %for.end, label %for.body25, !llvm.loop !18
+  br i1 %cmp.i46.not, label %for.end, label %for.body25, !llvm.loop !15
 
 for.end:                                          ; preds = %for.inc
   %25 = tail call i64 @fwrite(ptr nonnull @.str.13, i64 3, i64 1, ptr %output)
@@ -1693,7 +1693,7 @@ if.end89:                                         ; preds = %for.end, %for.body
   %incdec.ptr.i52 = getelementptr inbounds nuw i8, ptr %contour.sroa.0.065, i64 24
   %27 = load ptr, ptr %_M_finish.i.i, align 8
   %cmp.i.not = icmp eq ptr %incdec.ptr.i52, %27
-  br i1 %cmp.i.not, label %return, label %for.body, !llvm.loop !19
+  br i1 %cmp.i.not, label %return, label %for.body, !llvm.loop !16
 
 return:                                           ; preds = %if.end89, %if.end4, %entry
   ret i1 %call
@@ -1764,17 +1764,14 @@ attributes #14 = { builtin nounwind }
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
 !5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.estimated_trip_count"}
+!6 = !{!"llvm.loop.mustprogress"}
 !7 = distinct !{!7, !6}
-!8 = distinct !{!8, !9, !6}
-!9 = !{!"llvm.loop.mustprogress"}
-!10 = distinct !{!10, !9, !6}
-!11 = distinct !{!11, !9, !6}
-!12 = distinct !{!12, !9, !6}
-!13 = distinct !{!13, !9, !6}
-!14 = distinct !{!14, !9, !6}
-!15 = distinct !{!15, !9, !6}
-!16 = distinct !{!16, !9, !6}
-!17 = distinct !{!17, !9, !6}
-!18 = distinct !{!18, !9, !6}
-!19 = distinct !{!19, !9, !6}
+!8 = distinct !{!8, !6}
+!9 = distinct !{!9, !6}
+!10 = distinct !{!10, !6}
+!11 = distinct !{!11, !6}
+!12 = distinct !{!12, !6}
+!13 = distinct !{!13, !6}
+!14 = distinct !{!14, !6}
+!15 = distinct !{!15, !6}
+!16 = distinct !{!16, !6}

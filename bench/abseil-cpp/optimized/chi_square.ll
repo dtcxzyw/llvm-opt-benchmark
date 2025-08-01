@@ -102,11 +102,11 @@ define dso_local noundef double @_ZN4absl15random_internal15ChiSquarePValueEdi(d
   %.071.i.i = phi double [ %20, %.preheader ], [ 1.952700e-02, %12 ]
   %17 = sub nuw nsw i64 5, %indvars.iv.i.i
   %18 = getelementptr inbounds nuw [5 x double], ptr @_ZZN4absl15random_internal12_GLOBAL__N_115normal_survivalEdE2kR, i64 0, i64 %17
-  %19 = load double, ptr %18, align 8, !tbaa !11
+  %19 = load double, ptr %18, align 8, !tbaa !10
   %20 = tail call double @llvm.fma.f64(double %.071.i.i, double %15, double %19)
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 6
-  br i1 %exitcond.not.i.i, label %_ZN4absl15random_internal12_GLOBAL__N_115normal_survivalEd.exit, label %.preheader, !llvm.loop !13
+  br i1 %exitcond.not.i.i, label %_ZN4absl15random_internal12_GLOBAL__N_115normal_survivalEd.exit, label %.preheader, !llvm.loop !12
 
 _ZN4absl15random_internal12_GLOBAL__N_115normal_survivalEd.exit: ; preds = %.preheader
   %21 = fmul double %20, %20
@@ -127,11 +127,11 @@ _ZN4absl15random_internal12_GLOBAL__N_115normal_survivalEd.exit: ; preds = %.pre
   %.071.i.i70 = phi double [ 1.952700e-02, %26 ], [ %32, %28 ]
   %29 = sub nuw nsw i64 5, %indvars.iv.i.i69
   %30 = getelementptr inbounds nuw [5 x double], ptr @_ZZN4absl15random_internal12_GLOBAL__N_115normal_survivalEdE2kR, i64 0, i64 %29
-  %31 = load double, ptr %30, align 8, !tbaa !11
+  %31 = load double, ptr %30, align 8, !tbaa !10
   %32 = tail call double @llvm.fma.f64(double %.071.i.i70, double %27, double %31)
   %indvars.iv.next.i.i71 = add nuw nsw i64 %indvars.iv.i.i69, 1
   %exitcond.not.i.i72 = icmp eq i64 %indvars.iv.next.i.i71, 6
-  br i1 %exitcond.not.i.i72, label %_ZN4absl15random_internal12_GLOBAL__N_115normal_survivalEd.exit73, label %28, !llvm.loop !13
+  br i1 %exitcond.not.i.i72, label %_ZN4absl15random_internal12_GLOBAL__N_115normal_survivalEd.exit73, label %28, !llvm.loop !12
 
 _ZN4absl15random_internal12_GLOBAL__N_115normal_survivalEd.exit73: ; preds = %28
   %33 = fmul double %32, %32
@@ -188,11 +188,11 @@ _ZN4absl15random_internal12_GLOBAL__N_115normal_survivalEd.exit73: ; preds = %28
   %.071.i.i75 = phi double [ 0x3F205C3AEF25BECF, %58 ], [ %64, %60 ]
   %61 = sub nuw nsw i64 9, %indvars.iv.i.i74
   %62 = getelementptr inbounds nuw [9 x double], ptr @_ZZN4absl15random_internal12_GLOBAL__N_13POZEdE3kP1, i64 0, i64 %61
-  %63 = load double, ptr %62, align 8, !tbaa !11
+  %63 = load double, ptr %62, align 8, !tbaa !10
   %64 = tail call double @llvm.fma.f64(double %.071.i.i75, double %59, double %63)
   %indvars.iv.next.i.i76 = add nuw nsw i64 %indvars.iv.i.i74, 1
   %exitcond.not.i.i77 = icmp eq i64 %indvars.iv.next.i.i76, 10
-  br i1 %exitcond.not.i.i77, label %_ZN4absl15random_internal12_GLOBAL__N_118EvaluatePolynomialIdLj9EEET_S3_RAT0__KS3_.exit.i, label %60, !llvm.loop !14
+  br i1 %exitcond.not.i.i77, label %_ZN4absl15random_internal12_GLOBAL__N_118EvaluatePolynomialIdLj9EEET_S3_RAT0__KS3_.exit.i, label %60, !llvm.loop !13
 
 _ZN4absl15random_internal12_GLOBAL__N_118EvaluatePolynomialIdLj9EEET_S3_RAT0__KS3_.exit.i: ; preds = %60
   %65 = fmul double %54, %64
@@ -208,11 +208,11 @@ _ZN4absl15random_internal12_GLOBAL__N_118EvaluatePolynomialIdLj9EEET_S3_RAT0__KS
   %.071.i18.i = phi double [ 0xBF07BA1C9A586733, %67 ], [ %73, %69 ]
   %70 = sub nuw nsw i64 15, %indvars.iv.i17.i
   %71 = getelementptr inbounds nuw [15 x double], ptr @_ZZN4absl15random_internal12_GLOBAL__N_13POZEdE3kP2, i64 0, i64 %70
-  %72 = load double, ptr %71, align 8, !tbaa !11
+  %72 = load double, ptr %71, align 8, !tbaa !10
   %73 = tail call double @llvm.fma.f64(double %.071.i18.i, double %68, double %72)
   %indvars.iv.next.i19.i = add nuw nsw i64 %indvars.iv.i17.i, 1
   %exitcond.not.i20.i = icmp eq i64 %indvars.iv.next.i19.i, 16
-  br i1 %exitcond.not.i20.i, label %_ZN4absl15random_internal12_GLOBAL__N_118EvaluatePolynomialIdLj15EEET_S3_RAT0__KS3_.exit.i, label %69, !llvm.loop !15
+  br i1 %exitcond.not.i20.i, label %_ZN4absl15random_internal12_GLOBAL__N_118EvaluatePolynomialIdLj15EEET_S3_RAT0__KS3_.exit.i, label %69, !llvm.loop !14
 
 _ZN4absl15random_internal12_GLOBAL__N_118EvaluatePolynomialIdLj15EEET_S3_RAT0__KS3_.exit.i: ; preds = %69, %_ZN4absl15random_internal12_GLOBAL__N_118EvaluatePolynomialIdLj9EEET_S3_RAT0__KS3_.exit.i, %52
   %.014.i = phi double [ %66, %_ZN4absl15random_internal12_GLOBAL__N_118EvaluatePolynomialIdLj9EEET_S3_RAT0__KS3_.exit.i ], [ 1.000000e+00, %52 ], [ %73, %69 ]
@@ -265,7 +265,7 @@ _ZN4absl15random_internal12_GLOBAL__N_13POZEd.exit: ; preds = %_ZN4absl15random_
   %97 = fadd double %.05887, %96
   %98 = fadd double %.05688, 1.000000e+00
   %99 = fcmp ugt double %98, %83
-  br i1 %99, label %.thread, label %.lr.ph91, !llvm.loop !16
+  br i1 %99, label %.thread, label %.lr.ph91, !llvm.loop !15
 
 100:                                              ; preds = %80
   br i1 %.not, label %104, label %101
@@ -289,7 +289,7 @@ _ZN4absl15random_internal12_GLOBAL__N_13POZEd.exit: ; preds = %_ZN4absl15random_
   %109 = fadd double %.086, %108
   %110 = fadd double %.15784, 1.000000e+00
   %111 = fcmp ugt double %110, %83
-  br i1 %111, label %._crit_edge, label %.lr.ph, !llvm.loop !17
+  br i1 %111, label %._crit_edge, label %.lr.ph, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %.lr.ph, %104
   %.0.lcssa = phi double [ 0.000000e+00, %104 ], [ %109, %.lr.ph ]
@@ -340,13 +340,12 @@ attributes #6 = { nounwind }
 !5 = !{!"int", !6, i64 0}
 !6 = !{!"omnipotent char", !7, i64 0}
 !7 = !{!"Simple C++ TBAA"}
-!8 = distinct !{!8, !9, !10}
+!8 = distinct !{!8, !9}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = !{!"llvm.loop.estimated_trip_count"}
-!11 = !{!12, !12, i64 0}
-!12 = !{!"double", !6, i64 0}
-!13 = distinct !{!13, !9, !10}
-!14 = distinct !{!14, !9, !10}
-!15 = distinct !{!15, !9, !10}
-!16 = distinct !{!16, !9, !10}
-!17 = distinct !{!17, !9, !10}
+!10 = !{!11, !11, i64 0}
+!11 = !{!"double", !6, i64 0}
+!12 = distinct !{!12, !9}
+!13 = distinct !{!13, !9}
+!14 = distinct !{!14, !9}
+!15 = distinct !{!15, !9}
+!16 = distinct !{!16, !9}

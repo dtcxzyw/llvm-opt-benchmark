@@ -3978,7 +3978,7 @@ _ZN4absl13time_internal4cctz6detail4impl13days_per_yearEla.exit124: ; preds = %.
   %.not111 = icmp sgt i64 %.6, %89
   %90 = sub nsw i64 %.6, %89
   %91 = add nsw i64 %.788, 1
-  br i1 %.not111, label %.preheader132, label %.loopexit, !llvm.loop !36
+  br i1 %.not111, label %.preheader132, label %.loopexit
 
 .loopexit:                                        ; preds = %_ZN4absl13time_internal4cctz6detail4impl13days_per_yearEla.exit124, %46
   %.283 = phi i64 [ %.182, %46 ], [ %.788, %_ZN4absl13time_internal4cctz6detail4impl13days_per_yearEla.exit124 ]
@@ -4024,7 +4024,7 @@ _ZN4absl13time_internal4cctz6detail4impl14days_per_monthEla.exit: ; preds = %.pr
   %112 = zext i1 %111 to i64
   %spec.select116 = add nsw i64 %.1091, %112
   %spec.select117 = select i1 %111, i8 1, i8 %110
-  br label %.preheader, !llvm.loop !38
+  br label %.preheader
 
 .thread:                                          ; preds = %_ZN4absl13time_internal4cctz6detail4impl14days_per_monthEla.exit, %.loopexit
   %.990 = phi i64 [ %.283, %.loopexit ], [ %.1091, %_ZN4absl13time_internal4cctz6detail4impl14days_per_monthEla.exit ]
@@ -4328,6 +4328,3 @@ attributes #16 = { nounwind willreturn memory(none) }
 !33 = !{!30, !7, i64 10}
 !34 = !{!30, !7, i64 11}
 !35 = !{!30, !7, i64 12}
-!36 = distinct !{!36, !37}
-!37 = !{!"llvm.loop.estimated_trip_count"}
-!38 = distinct !{!38, !37}

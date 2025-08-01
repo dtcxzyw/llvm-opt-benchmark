@@ -65,11 +65,11 @@ define dso_local void @_ZN5cmsys17RegularExpressionC2ERKS0_(ptr noundef nonnull 
   br i1 %.not20, label %._crit_edge, label %.lr.ph, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %.lr.ph, %7
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(520) %0, ptr noundef nonnull align 8 dereferenceable(520) %1, i64 520, i1 false), !tbaa.struct !18
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(520) %0, ptr noundef nonnull align 8 dereferenceable(520) %1, i64 520, i1 false), !tbaa.struct !17
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 528
-  %20 = load ptr, ptr %19, align 8, !tbaa !20
+  %20 = load ptr, ptr %19, align 8, !tbaa !19
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 528
-  store ptr %20, ptr %21, align 8, !tbaa !20
+  store ptr %20, ptr %21, align 8, !tbaa !19
   %.not21 = icmp eq ptr %20, null
   br i1 %.not21, label %29, label %._crit_edge30
 
@@ -83,26 +83,26 @@ define dso_local void @_ZN5cmsys17RegularExpressionC2ERKS0_(ptr noundef nonnull 
   %.1.lcssa = select i1 %.not2225, i64 0, i64 %26
   %27 = load ptr, ptr %13, align 8, !tbaa !4
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 %.1.lcssa
-  store ptr %28, ptr %21, align 8, !tbaa !20
+  store ptr %28, ptr %21, align 8, !tbaa !19
   br label %29
 
 29:                                               ; preds = %._crit_edge30, %._crit_edge
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 520
-  %31 = load i8, ptr %30, align 8, !tbaa !21
+  %31 = load i8, ptr %30, align 8, !tbaa !20
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 520
-  store i8 %31, ptr %32, align 8, !tbaa !21
+  store i8 %31, ptr %32, align 8, !tbaa !20
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 521
-  %34 = load i8, ptr %33, align 1, !tbaa !22
+  %34 = load i8, ptr %33, align 1, !tbaa !21
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 521
-  store i8 %34, ptr %35, align 1, !tbaa !22
+  store i8 %34, ptr %35, align 1, !tbaa !21
   %36 = getelementptr inbounds nuw i8, ptr %1, i64 536
-  %37 = load i64, ptr %36, align 8, !tbaa !23
+  %37 = load i64, ptr %36, align 8, !tbaa !22
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 536
-  store i64 %37, ptr %38, align 8, !tbaa !23
+  store i64 %37, ptr %38, align 8, !tbaa !22
   %39 = getelementptr inbounds nuw i8, ptr %1, i64 556
-  %40 = load i32, ptr %39, align 4, !tbaa !24
+  %40 = load i32, ptr %39, align 4, !tbaa !23
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 556
-  store i32 %40, ptr %41, align 4, !tbaa !24
+  store i32 %40, ptr %41, align 4, !tbaa !23
   br label %42
 
 42:                                               ; preds = %29, %5
@@ -170,14 +170,14 @@ define dso_local noundef nonnull align 8 dereferenceable(560) ptr @_ZN5cmsys17Re
   %25 = getelementptr inbounds i8, ptr %24, i64 %indvars.iv.next
   store i8 %23, ptr %25, align 1, !tbaa !14
   %.not26 = icmp eq i64 %indvars.iv.next, 0
-  br i1 %.not26, label %._crit_edge, label %.lr.ph, !llvm.loop !25
+  br i1 %.not26, label %._crit_edge, label %.lr.ph, !llvm.loop !24
 
 ._crit_edge:                                      ; preds = %.lr.ph, %17
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(520) %0, ptr noundef nonnull align 8 dereferenceable(520) %1, i64 520, i1 false), !tbaa.struct !18
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(520) %0, ptr noundef nonnull align 8 dereferenceable(520) %1, i64 520, i1 false), !tbaa.struct !17
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 528
-  %27 = load ptr, ptr %26, align 8, !tbaa !20
+  %27 = load ptr, ptr %26, align 8, !tbaa !19
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 528
-  store ptr %27, ptr %28, align 8, !tbaa !20
+  store ptr %27, ptr %28, align 8, !tbaa !19
   %.not27 = icmp eq ptr %27, null
   br i1 %.not27, label %36, label %._crit_edge36
 
@@ -191,26 +191,26 @@ define dso_local noundef nonnull align 8 dereferenceable(560) ptr @_ZN5cmsys17Re
   %.1.lcssa = select i1 %.not2831, i64 0, i64 %33
   %34 = load ptr, ptr %13, align 8, !tbaa !4
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 %.1.lcssa
-  store ptr %35, ptr %28, align 8, !tbaa !20
+  store ptr %35, ptr %28, align 8, !tbaa !19
   br label %36
 
 36:                                               ; preds = %._crit_edge36, %._crit_edge
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 520
-  %38 = load i8, ptr %37, align 8, !tbaa !21
+  %38 = load i8, ptr %37, align 8, !tbaa !20
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 520
-  store i8 %38, ptr %39, align 8, !tbaa !21
+  store i8 %38, ptr %39, align 8, !tbaa !20
   %40 = getelementptr inbounds nuw i8, ptr %1, i64 521
-  %41 = load i8, ptr %40, align 1, !tbaa !22
+  %41 = load i8, ptr %40, align 1, !tbaa !21
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 521
-  store i8 %41, ptr %42, align 1, !tbaa !22
+  store i8 %41, ptr %42, align 1, !tbaa !21
   %43 = getelementptr inbounds nuw i8, ptr %1, i64 536
-  %44 = load i64, ptr %43, align 8, !tbaa !23
+  %44 = load i64, ptr %43, align 8, !tbaa !22
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 536
-  store i64 %44, ptr %45, align 8, !tbaa !23
+  store i64 %44, ptr %45, align 8, !tbaa !22
   %46 = getelementptr inbounds nuw i8, ptr %1, i64 556
-  %47 = load i32, ptr %46, align 4, !tbaa !24
+  %47 = load i32, ptr %46, align 4, !tbaa !23
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 556
-  store i32 %47, ptr %48, align 4, !tbaa !24
+  store i32 %47, ptr %48, align 4, !tbaa !23
   br label %49
 
 49:                                               ; preds = %2, %36, %7
@@ -253,7 +253,7 @@ define dso_local noundef zeroext i1 @_ZNK5cmsys17RegularExpressioneqERKS0_(ptr n
   %18 = getelementptr inbounds i8, ptr %11, i64 %indvars.iv.next
   %19 = load i8, ptr %18, align 1, !tbaa !14
   %.not16 = icmp eq i8 %17, %19
-  br i1 %.not16, label %13, label %.thread, !llvm.loop !26
+  br i1 %.not16, label %13, label %.thread, !llvm.loop !25
 
 .thread:                                          ; preds = %15, %13, %3, %2
   %.1 = phi i1 [ true, %2 ], [ false, %3 ], [ %14, %13 ], [ %14, %15 ]
@@ -289,10 +289,10 @@ define dso_local noundef zeroext i1 @_ZNK5cmsys17RegularExpression10deep_equalER
   %17 = getelementptr inbounds i8, ptr %10, i64 %indvars.iv.next
   %18 = load i8, ptr %17, align 1, !tbaa !14
   %.not12 = icmp eq i8 %16, %18
-  br i1 %.not12, label %12, label %.loopexit, !llvm.loop !27
+  br i1 %.not12, label %12, label %.loopexit, !llvm.loop !26
 
 19:                                               ; preds = %12
-  %20 = load ptr, ptr %0, align 8, !tbaa !19
+  %20 = load ptr, ptr %0, align 8, !tbaa !18
   %.not.i = icmp eq ptr %20, null
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 512
   %22 = load ptr, ptr %21, align 8
@@ -300,7 +300,7 @@ define dso_local noundef zeroext i1 @_ZNK5cmsys17RegularExpression10deep_equalER
   %24 = ptrtoint ptr %22 to i64
   %25 = sub i64 %23, %24
   %.0.i = select i1 %.not.i, i64 -1, i64 %25
-  %26 = load ptr, ptr %1, align 8, !tbaa !19
+  %26 = load ptr, ptr %1, align 8, !tbaa !18
   %.not.i13 = icmp eq ptr %26, null
   %27 = getelementptr inbounds nuw i8, ptr %1, i64 512
   %28 = load ptr, ptr %27, align 8
@@ -313,13 +313,13 @@ define dso_local noundef zeroext i1 @_ZNK5cmsys17RegularExpression10deep_equalER
 
 33:                                               ; preds = %19
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  %35 = load ptr, ptr %34, align 8, !tbaa !19
+  %35 = load ptr, ptr %34, align 8, !tbaa !18
   %.not.i15 = icmp eq ptr %35, null
   %36 = ptrtoint ptr %35 to i64
   %37 = sub i64 %36, %24
   %.0.i16 = select i1 %.not.i15, i64 -1, i64 %37
   %38 = getelementptr inbounds nuw i8, ptr %1, i64 256
-  %39 = load ptr, ptr %38, align 8, !tbaa !19
+  %39 = load ptr, ptr %38, align 8, !tbaa !18
   %.not.i17 = icmp eq ptr %39, null
   %40 = ptrtoint ptr %39 to i64
   %41 = sub i64 %40, %30
@@ -346,13 +346,13 @@ define dso_local noundef zeroext i1 @_ZN5cmsys17RegularExpression7compileEPKc(pt
 
 _ZN5cmsys13RegExpCompile4regcEc.exit:             ; preds = %2
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #16
-  store ptr %1, ptr %4, align 8, !tbaa !28
+  store ptr %1, ptr %4, align 8, !tbaa !27
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store i32 1, ptr %6, align 8, !tbaa !30
+  store i32 1, ptr %6, align 8, !tbaa !29
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store ptr @_ZN5cmsysL8regdummyE, ptr %8, align 8, !tbaa !31
-  store i64 1, ptr %7, align 8, !tbaa !32
+  store ptr @_ZN5cmsysL8regdummyE, ptr %8, align 8, !tbaa !30
+  store i64 1, ptr %7, align 8, !tbaa !31
   %9 = call noundef ptr @_ZN5cmsys13RegExpCompile3regEiPi(ptr noundef nonnull align 8 dereferenceable(32) %4, i32 noundef 0, ptr noundef nonnull %3)
   %.not27 = icmp eq ptr %9, null
   br i1 %.not27, label %10, label %11
@@ -362,12 +362,12 @@ _ZN5cmsys13RegExpCompile4regcEc.exit:             ; preds = %2
   br label %84
 
 11:                                               ; preds = %_ZN5cmsys13RegExpCompile4regcEc.exit
-  store ptr null, ptr %0, align 8, !tbaa !19
+  store ptr null, ptr %0, align 8, !tbaa !18
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  store ptr null, ptr %12, align 8, !tbaa !19
+  store ptr null, ptr %12, align 8, !tbaa !18
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 512
-  store ptr null, ptr %13, align 8, !tbaa !33
-  %14 = load i64, ptr %7, align 8, !tbaa !32
+  store ptr null, ptr %13, align 8, !tbaa !32
+  %14 = load i64, ptr %7, align 8, !tbaa !31
   %15 = icmp sgt i64 %14, 65534
   br i1 %15, label %16, label %17
 
@@ -383,7 +383,7 @@ _ZN5cmsys13RegExpCompile4regcEc.exit:             ; preds = %2
 
 21:                                               ; preds = %17
   call void @_ZdaPv(ptr noundef nonnull %19) #15
-  %.pre = load i64, ptr %7, align 8, !tbaa !32
+  %.pre = load i64, ptr %7, align 8, !tbaa !31
   br label %_ZN5cmsys13RegExpCompile4regcEc.exit37
 
 _ZN5cmsys13RegExpCompile4regcEc.exit37:           ; preds = %17, %21
@@ -393,19 +393,19 @@ _ZN5cmsys13RegExpCompile4regcEc.exit37:           ; preds = %17, %21
   %24 = trunc i64 %22 to i32
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 552
   store i32 %24, ptr %25, align 8, !tbaa !13
-  %26 = load i32, ptr %6, align 8, !tbaa !30
+  %26 = load i32, ptr %6, align 8, !tbaa !29
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 556
-  store i32 %26, ptr %27, align 4, !tbaa !24
-  store ptr %1, ptr %4, align 8, !tbaa !28
-  store i32 1, ptr %6, align 8, !tbaa !30
+  store i32 %26, ptr %27, align 4, !tbaa !23
+  store ptr %1, ptr %4, align 8, !tbaa !27
+  store i32 1, ptr %6, align 8, !tbaa !29
   %28 = getelementptr inbounds nuw i8, ptr %23, i64 1
-  store ptr %28, ptr %8, align 8, !tbaa !31
+  store ptr %28, ptr %8, align 8, !tbaa !30
   store i8 -100, ptr %23, align 1, !tbaa !14
   %29 = call noundef ptr @_ZN5cmsys13RegExpCompile3regEiPi(ptr noundef nonnull align 8 dereferenceable(32) %4, i32 noundef 0, ptr noundef nonnull %3)
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 520
-  store i8 0, ptr %30, align 8, !tbaa !21
+  store i8 0, ptr %30, align 8, !tbaa !20
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 521
-  store i8 0, ptr %31, align 1, !tbaa !22
+  store i8 0, ptr %31, align 1, !tbaa !21
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 528
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 536
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %32, i8 0, i64 16, i1 false)
@@ -444,15 +444,15 @@ _ZN5cmsys13RegExpCompile4regcEc.exit37:           ; preds = %17, %21
 55:                                               ; preds = %52
   %56 = getelementptr inbounds nuw i8, ptr %34, i64 7
   %57 = load i8, ptr %56, align 1, !tbaa !14
-  store i8 %57, ptr %30, align 8, !tbaa !21
+  store i8 %57, ptr %30, align 8, !tbaa !20
   br label %59
 
 58:                                               ; preds = %52
-  store i8 1, ptr %31, align 1, !tbaa !22
+  store i8 1, ptr %31, align 1, !tbaa !21
   br label %59
 
 59:                                               ; preds = %52, %58, %55
-  %60 = load i32, ptr %3, align 4, !tbaa !34
+  %60 = load i32, ptr %3, align 4, !tbaa !33
   %61 = and i32 %60, 4
   %.not31 = icmp eq i32 %61, 0
   br i1 %.not31, label %84, label %.preheader
@@ -497,11 +497,11 @@ _ZN5cmsysL7regnextEPKc.exit39:                    ; preds = %69
   %81 = sub nsw i64 0, %80
   %.sink = select i1 %79, i64 %81, i64 %80
   %82 = getelementptr inbounds i8, ptr %.02040, i64 %.sink
-  br label %.preheader, !llvm.loop !35
+  br label %.preheader, !llvm.loop !34
 
 83:                                               ; preds = %67, %69
-  store ptr %.119, ptr %32, align 8, !tbaa !20
-  store i64 %.1, ptr %33, align 8, !tbaa !23
+  store ptr %.119, ptr %32, align 8, !tbaa !19
+  store i64 %.1, ptr %33, align 8, !tbaa !22
   br label %84
 
 84:                                               ; preds = %_ZN5cmsys13RegExpCompile4regcEc.exit37, %83, %59, %16, %10
@@ -518,21 +518,21 @@ _ZN5cmsysL7regnextEPKc.exit39:                    ; preds = %69
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
 define dso_local void @_ZN5cmsys13RegExpCompile4regcEc(ptr noundef nonnull align 8 captures(none) dereferenceable(32) %0, i8 noundef signext %1) local_unnamed_addr #6 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %4 = load ptr, ptr %3, align 8, !tbaa !31
+  %4 = load ptr, ptr %3, align 8, !tbaa !30
   %.not = icmp eq ptr %4, @_ZN5cmsysL8regdummyE
   br i1 %.not, label %7, label %5
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 1
-  store ptr %6, ptr %3, align 8, !tbaa !31
+  store ptr %6, ptr %3, align 8, !tbaa !30
   store i8 %1, ptr %4, align 1, !tbaa !14
   br label %11
 
 7:                                                ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %9 = load i64, ptr %8, align 8, !tbaa !32
+  %9 = load i64, ptr %8, align 8, !tbaa !31
   %10 = add nsw i64 %9, 1
-  store i64 %10, ptr %8, align 8, !tbaa !32
+  store i64 %10, ptr %8, align 8, !tbaa !31
   br label %11
 
 11:                                               ; preds = %7, %5
@@ -543,18 +543,18 @@ define dso_local void @_ZN5cmsys13RegExpCompile4regcEc(ptr noundef nonnull align
 define dso_local noundef ptr @_ZN5cmsys13RegExpCompile3regEiPi(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %1, ptr noundef captures(none) initializes((0, 4)) %2) local_unnamed_addr #7 align 2 {
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
-  store i32 1, ptr %2, align 4, !tbaa !34
+  store i32 1, ptr %2, align 4, !tbaa !33
   %.not = icmp eq i32 %1, 0
   br i1 %.not, label %._crit_edge121, label %6
 
 ._crit_edge121:                                   ; preds = %3
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %.pre = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !31
+  %.pre = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !30
   br label %28
 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %8 = load i32, ptr %7, align 8, !tbaa !30
+  %8 = load i32, ptr %7, align 8, !tbaa !29
   %9 = icmp sgt i32 %8, 31
   br i1 %9, label %10, label %11
 
@@ -564,18 +564,18 @@ define dso_local noundef ptr @_ZN5cmsys13RegExpCompile3regEiPi(ptr noundef nonnu
 
 11:                                               ; preds = %6
   %12 = add nsw i32 %8, 1
-  store i32 %12, ptr %7, align 8, !tbaa !30
+  store i32 %12, ptr %7, align 8, !tbaa !29
   %13 = trunc i32 %8 to i8
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %15 = load ptr, ptr %14, align 8, !tbaa !31
+  %15 = load ptr, ptr %14, align 8, !tbaa !30
   %16 = icmp eq ptr %15, @_ZN5cmsysL8regdummyE
   br i1 %16, label %17, label %21
 
 17:                                               ; preds = %11
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %19 = load i64, ptr %18, align 8, !tbaa !32
+  %19 = load i64, ptr %18, align 8, !tbaa !31
   %20 = add nsw i64 %19, 3
-  store i64 %20, ptr %18, align 8, !tbaa !32
+  store i64 %20, ptr %18, align 8, !tbaa !31
   br label %_ZN5cmsys13RegExpCompile7regnodeEc.exit
 
 21:                                               ; preds = %11
@@ -586,7 +586,7 @@ define dso_local noundef ptr @_ZN5cmsys13RegExpCompile3regEiPi(ptr noundef nonnu
   store i8 0, ptr %23, align 1, !tbaa !14
   %25 = getelementptr inbounds nuw i8, ptr %15, i64 3
   store i8 0, ptr %24, align 1, !tbaa !14
-  store ptr %25, ptr %14, align 8, !tbaa !31
+  store ptr %25, ptr %14, align 8, !tbaa !30
   br label %_ZN5cmsys13RegExpCompile7regnodeEc.exit
 
 _ZN5cmsys13RegExpCompile7regnodeEc.exit:          ; preds = %17, %21
@@ -605,9 +605,9 @@ _ZN5cmsys13RegExpCompile7regnodeEc.exit:          ; preds = %17, %21
 
 33:                                               ; preds = %28
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %35 = load i64, ptr %34, align 8, !tbaa !32
+  %35 = load i64, ptr %34, align 8, !tbaa !31
   %36 = add nsw i64 %35, 3
-  store i64 %36, ptr %34, align 8, !tbaa !32
+  store i64 %36, ptr %34, align 8, !tbaa !31
   br label %_ZN5cmsys13RegExpCompile7regnodeEc.exit88.preheader
 
 37:                                               ; preds = %28
@@ -617,7 +617,7 @@ _ZN5cmsys13RegExpCompile7regnodeEc.exit:          ; preds = %17, %21
   store i8 0, ptr %38, align 1, !tbaa !14
   %40 = getelementptr inbounds nuw i8, ptr %29, i64 3
   store i8 0, ptr %39, align 1, !tbaa !14
-  store ptr %40, ptr %31, align 8, !tbaa !31
+  store ptr %40, ptr %31, align 8, !tbaa !30
   br label %_ZN5cmsys13RegExpCompile7regnodeEc.exit88.preheader
 
 _ZN5cmsys13RegExpCompile7regnodeEc.exit88.preheader: ; preds = %33, %37
@@ -626,7 +626,7 @@ _ZN5cmsys13RegExpCompile7regnodeEc.exit88.preheader: ; preds = %33, %37
 _ZN5cmsys13RegExpCompile7regnodeEc.exit88:        ; preds = %_ZN5cmsys13RegExpCompile7regnodeEc.exit88.backedge, %_ZN5cmsys13RegExpCompile7regnodeEc.exit88.preheader
   %.0 = phi i32 [ 0, %_ZN5cmsys13RegExpCompile7regnodeEc.exit88.preheader ], [ %.0.be, %_ZN5cmsys13RegExpCompile7regnodeEc.exit88.backedge ]
   %.012.i = phi ptr [ null, %_ZN5cmsys13RegExpCompile7regnodeEc.exit88.preheader ], [ %44, %_ZN5cmsys13RegExpCompile7regnodeEc.exit88.backedge ]
-  %41 = load ptr, ptr %0, align 8, !tbaa !28
+  %41 = load ptr, ptr %0, align 8, !tbaa !27
   %42 = load i8, ptr %41, align 1, !tbaa !14
   switch i8 %42, label %43 [
     i8 0, label %.critedge.i
@@ -644,7 +644,7 @@ _ZN5cmsys13RegExpCompile9regbranchEPi.exit.thread: ; preds = %43
   br label %.loopexit
 
 45:                                               ; preds = %43
-  %46 = load i32, ptr %5, align 4, !tbaa !34
+  %46 = load i32, ptr %5, align 4, !tbaa !33
   %47 = and i32 %46, 1
   %48 = or i32 %47, %.0
   %.not19.i = icmp eq ptr %.012.i, null
@@ -680,7 +680,7 @@ _ZN5cmsysL7regnextEPc.exit.i80:                   ; preds = %.preheader.i78
   %.0.i.v.i81 = select i1 %64, i64 %66, i64 %65
   %.0.i.i82 = getelementptr inbounds i8, ptr %.01318.i79, i64 %.0.i.v.i81
   %67 = icmp eq ptr %.0.i.i82, @_ZN5cmsysL8regdummyE
-  br i1 %67, label %_ZN5cmsysL7regnextEPc.exit.thread.i83, label %.preheader.i78, !llvm.loop !36
+  br i1 %67, label %_ZN5cmsysL7regnextEPc.exit.thread.i83, label %.preheader.i78, !llvm.loop !35
 
 _ZN5cmsysL7regnextEPc.exit.thread.i83:            ; preds = %_ZN5cmsysL7regnextEPc.exit.i80, %.preheader.i78
   %.013.lcssa.i84 = phi ptr [ %.01318.i79, %.preheader.i78 ], [ @_ZN5cmsysL8regdummyE, %_ZN5cmsysL7regnextEPc.exit.i80 ]
@@ -702,22 +702,22 @@ _ZN5cmsysL7regnextEPc.exit.thread.i83:            ; preds = %_ZN5cmsysL7regnextE
 
 _ZN5cmsys13RegExpCompile7regnodeEc.exit88.backedge: ; preds = %_ZN5cmsysL7regnextEPc.exit.thread.i83, %52, %49
   %.0.be = phi i32 [ %51, %49 ], [ %48, %52 ], [ %48, %_ZN5cmsysL7regnextEPc.exit.thread.i83 ]
-  br label %_ZN5cmsys13RegExpCompile7regnodeEc.exit88, !llvm.loop !37
+  br label %_ZN5cmsys13RegExpCompile7regnodeEc.exit88, !llvm.loop !36
 
 .critedge.i:                                      ; preds = %_ZN5cmsys13RegExpCompile7regnodeEc.exit88, %_ZN5cmsys13RegExpCompile7regnodeEc.exit88, %_ZN5cmsys13RegExpCompile7regnodeEc.exit88
   %.not17.i = icmp eq ptr %.012.i, null
   br i1 %.not17.i, label %78, label %_ZN5cmsys13RegExpCompile9regbranchEPi.exit
 
 78:                                               ; preds = %.critedge.i
-  %79 = load ptr, ptr %31, align 8, !tbaa !31
+  %79 = load ptr, ptr %31, align 8, !tbaa !30
   %80 = icmp eq ptr %79, @_ZN5cmsysL8regdummyE
   br i1 %80, label %81, label %85
 
 81:                                               ; preds = %78
   %82 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %83 = load i64, ptr %82, align 8, !tbaa !32
+  %83 = load i64, ptr %82, align 8, !tbaa !31
   %84 = add nsw i64 %83, 3
-  store i64 %84, ptr %82, align 8, !tbaa !32
+  store i64 %84, ptr %82, align 8, !tbaa !31
   br label %_ZN5cmsys13RegExpCompile9regbranchEPi.exit
 
 85:                                               ; preds = %78
@@ -727,7 +727,7 @@ _ZN5cmsys13RegExpCompile7regnodeEc.exit88.backedge: ; preds = %_ZN5cmsysL7regnex
   store i8 0, ptr %86, align 1, !tbaa !14
   %88 = getelementptr inbounds nuw i8, ptr %79, i64 3
   store i8 0, ptr %87, align 1, !tbaa !14
-  store ptr %88, ptr %31, align 8, !tbaa !31
+  store ptr %88, ptr %31, align 8, !tbaa !30
   br label %_ZN5cmsys13RegExpCompile9regbranchEPi.exit
 
 _ZN5cmsys13RegExpCompile9regbranchEPi.exit:       ; preds = %85, %81, %.critedge.i
@@ -764,7 +764,7 @@ _ZN5cmsysL7regnextEPc.exit.i:                     ; preds = %.preheader.i
   %.0.i.v.i = select i1 %102, i64 %104, i64 %103
   %.0.i.i = getelementptr inbounds i8, ptr %.01318.i, i64 %.0.i.v.i
   %105 = icmp eq ptr %.0.i.i, @_ZN5cmsysL8regdummyE
-  br i1 %105, label %_ZN5cmsysL7regnextEPc.exit.thread.i, label %.preheader.i, !llvm.loop !36
+  br i1 %105, label %_ZN5cmsysL7regnextEPc.exit.thread.i, label %.preheader.i, !llvm.loop !35
 
 _ZN5cmsysL7regnextEPc.exit.thread.i:              ; preds = %_ZN5cmsysL7regnextEPc.exit.i, %.preheader.i
   %.013.lcssa.i = phi ptr [ %.01318.i, %.preheader.i ], [ @_ZN5cmsysL8regdummyE, %_ZN5cmsysL7regnextEPc.exit.i ]
@@ -788,13 +788,13 @@ _ZN5cmsys13RegExpCompile7regtailEPcPKc.exit:      ; preds = %_ZN5cmsysL7regnextE
   %.1 = phi ptr [ %29, %89 ], [ @_ZN5cmsysL8regdummyE, %90 ], [ %.030, %_ZN5cmsysL7regnextEPc.exit.thread.i ]
   %116 = and i32 %.0, 1
   %.not37 = icmp eq i32 %116, 0
-  %.pre122 = load i32, ptr %2, align 4, !tbaa !34
+  %.pre122 = load i32, ptr %2, align 4, !tbaa !33
   %117 = and i32 %.pre122, -2
   %spec.select = select i1 %.not37, i32 %117, i32 %.pre122
   %118 = and i32 %.0, 4
   %119 = or i32 %spec.select, %118
-  store i32 %119, ptr %2, align 4, !tbaa !34
-  %120 = load ptr, ptr %0, align 8, !tbaa !28
+  store i32 %119, ptr %2, align 4, !tbaa !33
+  %120 = load ptr, ptr %0, align 8, !tbaa !27
   %121 = load i8, ptr %120, align 1, !tbaa !14
   %122 = icmp eq i8 %121, 124
   br i1 %122, label %.lr.ph, label %._crit_edge
@@ -807,16 +807,16 @@ _ZN5cmsys13RegExpCompile7regtailEPcPKc.exit:      ; preds = %_ZN5cmsysL7regnextE
 125:                                              ; preds = %.lr.ph, %_ZN5cmsys13RegExpCompile7regtailEPcPKc.exit63
   %126 = phi ptr [ %120, %.lr.ph ], [ %213, %_ZN5cmsys13RegExpCompile7regtailEPcPKc.exit63 ]
   %127 = getelementptr inbounds nuw i8, ptr %126, i64 1
-  store ptr %127, ptr %0, align 8, !tbaa !28
+  store ptr %127, ptr %0, align 8, !tbaa !27
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #16
-  %128 = load ptr, ptr %31, align 8, !tbaa !31
+  %128 = load ptr, ptr %31, align 8, !tbaa !30
   %129 = icmp eq ptr %128, @_ZN5cmsysL8regdummyE
   br i1 %129, label %130, label %133
 
 130:                                              ; preds = %125
-  %131 = load i64, ptr %123, align 8, !tbaa !32
+  %131 = load i64, ptr %123, align 8, !tbaa !31
   %132 = add nsw i64 %131, 3
-  store i64 %132, ptr %123, align 8, !tbaa !32
+  store i64 %132, ptr %123, align 8, !tbaa !31
   br label %_ZN5cmsys13RegExpCompile7regnodeEc.exit100.preheader
 
 133:                                              ; preds = %125
@@ -826,7 +826,7 @@ _ZN5cmsys13RegExpCompile7regtailEPcPKc.exit:      ; preds = %_ZN5cmsysL7regnextE
   store i8 0, ptr %134, align 1, !tbaa !14
   %136 = getelementptr inbounds nuw i8, ptr %128, i64 3
   store i8 0, ptr %135, align 1, !tbaa !14
-  store ptr %136, ptr %31, align 8, !tbaa !31
+  store ptr %136, ptr %31, align 8, !tbaa !30
   br label %_ZN5cmsys13RegExpCompile7regnodeEc.exit100.preheader
 
 _ZN5cmsys13RegExpCompile7regnodeEc.exit100.preheader: ; preds = %130, %133
@@ -835,7 +835,7 @@ _ZN5cmsys13RegExpCompile7regnodeEc.exit100.preheader: ; preds = %130, %133
 _ZN5cmsys13RegExpCompile7regnodeEc.exit100:       ; preds = %_ZN5cmsys13RegExpCompile7regnodeEc.exit100.backedge, %_ZN5cmsys13RegExpCompile7regnodeEc.exit100.preheader
   %.2 = phi i32 [ 0, %_ZN5cmsys13RegExpCompile7regnodeEc.exit100.preheader ], [ %.2.be, %_ZN5cmsys13RegExpCompile7regnodeEc.exit100.backedge ]
   %.012.i47 = phi ptr [ null, %_ZN5cmsys13RegExpCompile7regnodeEc.exit100.preheader ], [ %140, %_ZN5cmsys13RegExpCompile7regnodeEc.exit100.backedge ]
-  %137 = load ptr, ptr %0, align 8, !tbaa !28
+  %137 = load ptr, ptr %0, align 8, !tbaa !27
   %138 = load i8, ptr %137, align 1, !tbaa !14
   switch i8 %138, label %139 [
     i8 0, label %.critedge.i48
@@ -853,7 +853,7 @@ _ZN5cmsys13RegExpCompile9regbranchEPi.exit53.thread: ; preds = %139
   br label %.loopexit
 
 141:                                              ; preds = %139
-  %142 = load i32, ptr %4, align 4, !tbaa !34
+  %142 = load i32, ptr %4, align 4, !tbaa !33
   %143 = and i32 %142, 1
   %144 = or i32 %143, %.2
   %.not19.i52 = icmp eq ptr %.012.i47, null
@@ -889,7 +889,7 @@ _ZN5cmsysL7regnextEPc.exit.i92:                   ; preds = %.preheader.i90
   %.0.i.v.i93 = select i1 %160, i64 %162, i64 %161
   %.0.i.i94 = getelementptr inbounds i8, ptr %.01318.i91, i64 %.0.i.v.i93
   %163 = icmp eq ptr %.0.i.i94, @_ZN5cmsysL8regdummyE
-  br i1 %163, label %_ZN5cmsysL7regnextEPc.exit.thread.i95, label %.preheader.i90, !llvm.loop !36
+  br i1 %163, label %_ZN5cmsysL7regnextEPc.exit.thread.i95, label %.preheader.i90, !llvm.loop !35
 
 _ZN5cmsysL7regnextEPc.exit.thread.i95:            ; preds = %_ZN5cmsysL7regnextEPc.exit.i92, %.preheader.i90
   %.013.lcssa.i96 = phi ptr [ %.01318.i91, %.preheader.i90 ], [ @_ZN5cmsysL8regdummyE, %_ZN5cmsysL7regnextEPc.exit.i92 ]
@@ -911,21 +911,21 @@ _ZN5cmsysL7regnextEPc.exit.thread.i95:            ; preds = %_ZN5cmsysL7regnextE
 
 _ZN5cmsys13RegExpCompile7regnodeEc.exit100.backedge: ; preds = %_ZN5cmsysL7regnextEPc.exit.thread.i95, %148, %145
   %.2.be = phi i32 [ %147, %145 ], [ %144, %148 ], [ %144, %_ZN5cmsysL7regnextEPc.exit.thread.i95 ]
-  br label %_ZN5cmsys13RegExpCompile7regnodeEc.exit100, !llvm.loop !37
+  br label %_ZN5cmsys13RegExpCompile7regnodeEc.exit100, !llvm.loop !36
 
 .critedge.i48:                                    ; preds = %_ZN5cmsys13RegExpCompile7regnodeEc.exit100, %_ZN5cmsys13RegExpCompile7regnodeEc.exit100, %_ZN5cmsys13RegExpCompile7regnodeEc.exit100
   %.not17.i49 = icmp eq ptr %.012.i47, null
   br i1 %.not17.i49, label %174, label %_ZN5cmsys13RegExpCompile9regbranchEPi.exit53
 
 174:                                              ; preds = %.critedge.i48
-  %175 = load ptr, ptr %31, align 8, !tbaa !31
+  %175 = load ptr, ptr %31, align 8, !tbaa !30
   %176 = icmp eq ptr %175, @_ZN5cmsysL8regdummyE
   br i1 %176, label %177, label %180
 
 177:                                              ; preds = %174
-  %178 = load i64, ptr %123, align 8, !tbaa !32
+  %178 = load i64, ptr %123, align 8, !tbaa !31
   %179 = add nsw i64 %178, 3
-  store i64 %179, ptr %123, align 8, !tbaa !32
+  store i64 %179, ptr %123, align 8, !tbaa !31
   br label %_ZN5cmsys13RegExpCompile9regbranchEPi.exit53
 
 180:                                              ; preds = %174
@@ -935,7 +935,7 @@ _ZN5cmsys13RegExpCompile7regnodeEc.exit100.backedge: ; preds = %_ZN5cmsysL7regne
   store i8 0, ptr %181, align 1, !tbaa !14
   %183 = getelementptr inbounds nuw i8, ptr %175, i64 3
   store i8 0, ptr %182, align 1, !tbaa !14
-  store ptr %183, ptr %31, align 8, !tbaa !31
+  store ptr %183, ptr %31, align 8, !tbaa !30
   br label %_ZN5cmsys13RegExpCompile9regbranchEPi.exit53
 
 _ZN5cmsys13RegExpCompile9regbranchEPi.exit53:     ; preds = %180, %177, %.critedge.i48
@@ -967,7 +967,7 @@ _ZN5cmsysL7regnextEPc.exit.i56:                   ; preds = %.preheader.i54
   %.0.i.v.i57 = select i1 %195, i64 %197, i64 %196
   %.0.i.i58 = getelementptr inbounds i8, ptr %.01318.i55, i64 %.0.i.v.i57
   %198 = icmp eq ptr %.0.i.i58, @_ZN5cmsysL8regdummyE
-  br i1 %198, label %_ZN5cmsysL7regnextEPc.exit.thread.i59, label %.preheader.i54, !llvm.loop !36
+  br i1 %198, label %_ZN5cmsysL7regnextEPc.exit.thread.i59, label %.preheader.i54, !llvm.loop !35
 
 _ZN5cmsysL7regnextEPc.exit.thread.i59:            ; preds = %_ZN5cmsysL7regnextEPc.exit.i56, %.preheader.i54
   %.013.lcssa.i60 = phi ptr [ %.01318.i55, %.preheader.i54 ], [ @_ZN5cmsysL8regdummyE, %_ZN5cmsysL7regnextEPc.exit.i56 ]
@@ -990,27 +990,27 @@ _ZN5cmsysL7regnextEPc.exit.thread.i59:            ; preds = %_ZN5cmsysL7regnextE
 _ZN5cmsys13RegExpCompile7regtailEPcPKc.exit63:    ; preds = %184, %_ZN5cmsysL7regnextEPc.exit.thread.i59
   %209 = and i32 %.2, 1
   %.not44 = icmp eq i32 %209, 0
-  %.pre123 = load i32, ptr %2, align 4, !tbaa !34
+  %.pre123 = load i32, ptr %2, align 4, !tbaa !33
   %210 = and i32 %.pre123, -2
   %spec.select131 = select i1 %.not44, i32 %210, i32 %.pre123
   %211 = and i32 %.2, 4
   %212 = or i32 %spec.select131, %211
-  store i32 %212, ptr %2, align 4, !tbaa !34
-  %213 = load ptr, ptr %0, align 8, !tbaa !28
+  store i32 %212, ptr %2, align 4, !tbaa !33
+  %213 = load ptr, ptr %0, align 8, !tbaa !27
   %214 = load i8, ptr %213, align 1, !tbaa !14
   %215 = icmp eq i8 %214, 124
-  br i1 %215, label %125, label %._crit_edge, !llvm.loop !38
+  br i1 %215, label %125, label %._crit_edge, !llvm.loop !37
 
 ._crit_edge:                                      ; preds = %_ZN5cmsys13RegExpCompile7regtailEPcPKc.exit63, %_ZN5cmsys13RegExpCompile7regtailEPcPKc.exit
-  %216 = load ptr, ptr %31, align 8, !tbaa !31
+  %216 = load ptr, ptr %31, align 8, !tbaa !30
   %217 = icmp eq ptr %216, @_ZN5cmsysL8regdummyE
   br i1 %217, label %218, label %222
 
 218:                                              ; preds = %._crit_edge
   %219 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %220 = load i64, ptr %219, align 8, !tbaa !32
+  %220 = load i64, ptr %219, align 8, !tbaa !31
   %221 = add nsw i64 %220, 3
-  store i64 %221, ptr %219, align 8, !tbaa !32
+  store i64 %221, ptr %219, align 8, !tbaa !31
   br label %_ZN5cmsys13RegExpCompile7regnodeEc.exit64
 
 222:                                              ; preds = %._crit_edge
@@ -1020,7 +1020,7 @@ _ZN5cmsys13RegExpCompile7regtailEPcPKc.exit63:    ; preds = %184, %_ZN5cmsysL7re
   store i8 0, ptr %223, align 1, !tbaa !14
   %225 = getelementptr inbounds nuw i8, ptr %216, i64 3
   store i8 0, ptr %224, align 1, !tbaa !14
-  store ptr %225, ptr %31, align 8, !tbaa !31
+  store ptr %225, ptr %31, align 8, !tbaa !30
   br label %_ZN5cmsys13RegExpCompile7regnodeEc.exit64
 
 _ZN5cmsys13RegExpCompile7regnodeEc.exit64:        ; preds = %218, %222
@@ -1052,7 +1052,7 @@ _ZN5cmsysL7regnextEPc.exit.i67:                   ; preds = %.preheader.i65
   %.0.i.v.i68 = select i1 %237, i64 %239, i64 %238
   %.0.i.i69 = getelementptr inbounds i8, ptr %.01318.i66, i64 %.0.i.v.i68
   %240 = icmp eq ptr %.0.i.i69, @_ZN5cmsysL8regdummyE
-  br i1 %240, label %_ZN5cmsysL7regnextEPc.exit.thread.i70, label %.preheader.i65, !llvm.loop !36
+  br i1 %240, label %_ZN5cmsysL7regnextEPc.exit.thread.i70, label %.preheader.i65, !llvm.loop !35
 
 _ZN5cmsysL7regnextEPc.exit.thread.i70:            ; preds = %_ZN5cmsysL7regnextEPc.exit.i67, %.preheader.i65
   %.013.lcssa.i71 = phi ptr [ %.01318.i66, %.preheader.i65 ], [ @_ZN5cmsysL8regdummyE, %_ZN5cmsysL7regnextEPc.exit.i67 ]
@@ -1107,7 +1107,7 @@ _ZN5cmsysL7regnextEPc.exit.i.i:                   ; preds = %.preheader.i.i
   %.0.i.v.i.i = select i1 %265, i64 %267, i64 %266
   %.0.i.i.i = getelementptr inbounds i8, ptr %.01318.i.i, i64 %.0.i.v.i.i
   %268 = icmp eq ptr %.0.i.i.i, @_ZN5cmsysL8regdummyE
-  br i1 %268, label %_ZN5cmsys13RegExpCompile9regoptailEPcPKc.exit, label %.preheader.i.i, !llvm.loop !36
+  br i1 %268, label %_ZN5cmsys13RegExpCompile9regoptailEPcPKc.exit, label %.preheader.i.i, !llvm.loop !35
 
 _ZN5cmsys13RegExpCompile9regoptailEPcPKc.exit:    ; preds = %.preheader.i.i, %_ZN5cmsysL7regnextEPc.exit.i.i
   %.013.lcssa.i.i = phi ptr [ %.01318.i.i, %.preheader.i.i ], [ @_ZN5cmsysL8regdummyE, %_ZN5cmsysL7regnextEPc.exit.i.i ]
@@ -1146,15 +1146,15 @@ _ZN5cmsysL7regnextEPc.exit:                       ; preds = %_ZN5cmsys13RegExpCo
   %.sink = select i1 %288, i64 %290, i64 %289
   %291 = getelementptr inbounds i8, ptr %.029116136, i64 %.sink
   %292 = icmp eq ptr %291, @_ZN5cmsysL8regdummyE
-  br i1 %292, label %_ZN5cmsysL7regnextEPc.exit.thread, label %.lr.ph137, !llvm.loop !39
+  br i1 %292, label %_ZN5cmsysL7regnextEPc.exit.thread, label %.lr.ph137, !llvm.loop !38
 
 _ZN5cmsysL7regnextEPc.exit.thread:                ; preds = %_ZN5cmsys13RegExpCompile9regoptailEPcPKc.exit.thread111, %_ZN5cmsysL7regnextEPc.exit, %_ZN5cmsys13RegExpCompile7regtailEPcPKc.exit74
-  %293 = load ptr, ptr %0, align 8, !tbaa !28
+  %293 = load ptr, ptr %0, align 8, !tbaa !27
   br i1 %.not, label %.critedge, label %294
 
 294:                                              ; preds = %_ZN5cmsysL7regnextEPc.exit.thread
   %295 = getelementptr inbounds nuw i8, ptr %293, i64 1
-  store ptr %295, ptr %0, align 8, !tbaa !28
+  store ptr %295, ptr %0, align 8, !tbaa !27
   %296 = load i8, ptr %293, align 1, !tbaa !14
   %.not39 = icmp eq i8 %296, 41
   br i1 %.not39, label %.loopexit, label %297
@@ -1189,15 +1189,15 @@ declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #8
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
 define dso_local noundef ptr @_ZN5cmsys13RegExpCompile7regnodeEc(ptr noundef nonnull align 8 captures(none) dereferenceable(32) %0, i8 noundef signext %1) local_unnamed_addr #6 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %4 = load ptr, ptr %3, align 8, !tbaa !31
+  %4 = load ptr, ptr %3, align 8, !tbaa !30
   %5 = icmp eq ptr %4, @_ZN5cmsysL8regdummyE
   br i1 %5, label %6, label %10
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %8 = load i64, ptr %7, align 8, !tbaa !32
+  %8 = load i64, ptr %7, align 8, !tbaa !31
   %9 = add nsw i64 %8, 3
-  store i64 %9, ptr %7, align 8, !tbaa !32
+  store i64 %9, ptr %7, align 8, !tbaa !31
   br label %14
 
 10:                                               ; preds = %2
@@ -1207,7 +1207,7 @@ define dso_local noundef ptr @_ZN5cmsys13RegExpCompile7regnodeEc(ptr noundef non
   store i8 0, ptr %11, align 1, !tbaa !14
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 3
   store i8 0, ptr %12, align 1, !tbaa !14
-  store ptr %13, ptr %3, align 8, !tbaa !31
+  store ptr %13, ptr %3, align 8, !tbaa !30
   br label %14
 
 14:                                               ; preds = %10, %6
@@ -1218,17 +1218,17 @@ define dso_local noundef ptr @_ZN5cmsys13RegExpCompile7regnodeEc(ptr noundef non
 define dso_local noundef ptr @_ZN5cmsys13RegExpCompile9regbranchEPi(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef captures(none) initializes((0, 4)) %1) local_unnamed_addr #7 align 2 {
   %3 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #16
-  store i32 0, ptr %1, align 4, !tbaa !34
+  store i32 0, ptr %1, align 4, !tbaa !33
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %5 = load ptr, ptr %4, align 8, !tbaa !31
+  %5 = load ptr, ptr %4, align 8, !tbaa !30
   %6 = icmp eq ptr %5, @_ZN5cmsysL8regdummyE
   br i1 %6, label %7, label %11
 
 7:                                                ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %9 = load i64, ptr %8, align 8, !tbaa !32
+  %9 = load i64, ptr %8, align 8, !tbaa !31
   %10 = add nsw i64 %9, 3
-  store i64 %10, ptr %8, align 8, !tbaa !32
+  store i64 %10, ptr %8, align 8, !tbaa !31
   br label %_ZN5cmsys13RegExpCompile7regnodeEc.exit.preheader
 
 11:                                               ; preds = %2
@@ -1238,7 +1238,7 @@ define dso_local noundef ptr @_ZN5cmsys13RegExpCompile9regbranchEPi(ptr noundef 
   store i8 0, ptr %12, align 1, !tbaa !14
   %14 = getelementptr inbounds nuw i8, ptr %5, i64 3
   store i8 0, ptr %13, align 1, !tbaa !14
-  store ptr %14, ptr %4, align 8, !tbaa !31
+  store ptr %14, ptr %4, align 8, !tbaa !30
   br label %_ZN5cmsys13RegExpCompile7regnodeEc.exit.preheader
 
 _ZN5cmsys13RegExpCompile7regnodeEc.exit.preheader: ; preds = %7, %11
@@ -1246,7 +1246,7 @@ _ZN5cmsys13RegExpCompile7regnodeEc.exit.preheader: ; preds = %7, %11
 
 _ZN5cmsys13RegExpCompile7regnodeEc.exit:          ; preds = %_ZN5cmsys13RegExpCompile7regnodeEc.exit.backedge, %_ZN5cmsys13RegExpCompile7regnodeEc.exit.preheader
   %.012 = phi ptr [ null, %_ZN5cmsys13RegExpCompile7regnodeEc.exit.preheader ], [ %18, %_ZN5cmsys13RegExpCompile7regnodeEc.exit.backedge ]
-  %15 = load ptr, ptr %0, align 8, !tbaa !28
+  %15 = load ptr, ptr %0, align 8, !tbaa !27
   %16 = load i8, ptr %15, align 1, !tbaa !14
   switch i8 %16, label %17 [
     i8 0, label %.critedge
@@ -1260,18 +1260,18 @@ _ZN5cmsys13RegExpCompile7regnodeEc.exit:          ; preds = %_ZN5cmsys13RegExpCo
   br i1 %.not18, label %_ZN5cmsys13RegExpCompile7regnodeEc.exit20, label %19
 
 19:                                               ; preds = %17
-  %20 = load i32, ptr %3, align 4, !tbaa !34
+  %20 = load i32, ptr %3, align 4, !tbaa !33
   %21 = and i32 %20, 1
-  %22 = load i32, ptr %1, align 4, !tbaa !34
+  %22 = load i32, ptr %1, align 4, !tbaa !33
   %23 = or i32 %22, %21
-  store i32 %23, ptr %1, align 4, !tbaa !34
+  store i32 %23, ptr %1, align 4, !tbaa !33
   %.not19 = icmp eq ptr %.012, null
   br i1 %.not19, label %24, label %27
 
 24:                                               ; preds = %19
   %25 = and i32 %20, 4
   %26 = or i32 %23, %25
-  store i32 %26, ptr %1, align 4, !tbaa !34
+  store i32 %26, ptr %1, align 4, !tbaa !33
   br label %_ZN5cmsys13RegExpCompile7regnodeEc.exit.backedge
 
 27:                                               ; preds = %19
@@ -1299,7 +1299,7 @@ _ZN5cmsysL7regnextEPc.exit.i:                     ; preds = %.preheader.i
   %.0.i.v.i = select i1 %39, i64 %41, i64 %40
   %.0.i.i = getelementptr inbounds i8, ptr %.01318.i, i64 %.0.i.v.i
   %42 = icmp eq ptr %.0.i.i, @_ZN5cmsysL8regdummyE
-  br i1 %42, label %_ZN5cmsysL7regnextEPc.exit.thread.i, label %.preheader.i, !llvm.loop !36
+  br i1 %42, label %_ZN5cmsysL7regnextEPc.exit.thread.i, label %.preheader.i, !llvm.loop !35
 
 _ZN5cmsysL7regnextEPc.exit.thread.i:              ; preds = %_ZN5cmsysL7regnextEPc.exit.i, %.preheader.i
   %.013.lcssa.i = phi ptr [ %.01318.i, %.preheader.i ], [ @_ZN5cmsysL8regdummyE, %_ZN5cmsysL7regnextEPc.exit.i ]
@@ -1320,22 +1320,22 @@ _ZN5cmsysL7regnextEPc.exit.thread.i:              ; preds = %_ZN5cmsysL7regnextE
   br label %_ZN5cmsys13RegExpCompile7regnodeEc.exit.backedge
 
 _ZN5cmsys13RegExpCompile7regnodeEc.exit.backedge: ; preds = %_ZN5cmsysL7regnextEPc.exit.thread.i, %27, %24
-  br label %_ZN5cmsys13RegExpCompile7regnodeEc.exit, !llvm.loop !37
+  br label %_ZN5cmsys13RegExpCompile7regnodeEc.exit, !llvm.loop !36
 
 .critedge:                                        ; preds = %_ZN5cmsys13RegExpCompile7regnodeEc.exit, %_ZN5cmsys13RegExpCompile7regnodeEc.exit, %_ZN5cmsys13RegExpCompile7regnodeEc.exit
   %.not17 = icmp eq ptr %.012, null
   br i1 %.not17, label %53, label %_ZN5cmsys13RegExpCompile7regnodeEc.exit20
 
 53:                                               ; preds = %.critedge
-  %54 = load ptr, ptr %4, align 8, !tbaa !31
+  %54 = load ptr, ptr %4, align 8, !tbaa !30
   %55 = icmp eq ptr %54, @_ZN5cmsysL8regdummyE
   br i1 %55, label %56, label %60
 
 56:                                               ; preds = %53
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %58 = load i64, ptr %57, align 8, !tbaa !32
+  %58 = load i64, ptr %57, align 8, !tbaa !31
   %59 = add nsw i64 %58, 3
-  store i64 %59, ptr %57, align 8, !tbaa !32
+  store i64 %59, ptr %57, align 8, !tbaa !31
   br label %_ZN5cmsys13RegExpCompile7regnodeEc.exit20
 
 60:                                               ; preds = %53
@@ -1345,7 +1345,7 @@ _ZN5cmsys13RegExpCompile7regnodeEc.exit.backedge: ; preds = %_ZN5cmsysL7regnextE
   store i8 0, ptr %61, align 1, !tbaa !14
   %63 = getelementptr inbounds nuw i8, ptr %54, i64 3
   store i8 0, ptr %62, align 1, !tbaa !14
-  store ptr %63, ptr %4, align 8, !tbaa !31
+  store ptr %63, ptr %4, align 8, !tbaa !30
   br label %_ZN5cmsys13RegExpCompile7regnodeEc.exit20
 
 _ZN5cmsys13RegExpCompile7regnodeEc.exit20:        ; preds = %17, %60, %56, %.critedge
@@ -1380,7 +1380,7 @@ _ZN5cmsysL7regnextEPc.exit:                       ; preds = %.preheader
   %.0.i.v = select i1 %14, i64 %16, i64 %15
   %.0.i = getelementptr inbounds i8, ptr %.01318, i64 %.0.i.v
   %17 = icmp eq ptr %.0.i, @_ZN5cmsysL8regdummyE
-  br i1 %17, label %_ZN5cmsysL7regnextEPc.exit.thread, label %.preheader, !llvm.loop !36
+  br i1 %17, label %_ZN5cmsysL7regnextEPc.exit.thread, label %.preheader, !llvm.loop !35
 
 _ZN5cmsysL7regnextEPc.exit.thread:                ; preds = %.preheader, %_ZN5cmsysL7regnextEPc.exit
   %.013.lcssa = phi ptr [ %.01318, %.preheader ], [ @_ZN5cmsysL8regdummyE, %_ZN5cmsysL7regnextEPc.exit ]
@@ -1440,7 +1440,7 @@ _ZN5cmsysL7regnextEPc.exit.i:                     ; preds = %.preheader.i
   %.0.i.v.i = select i1 %19, i64 %21, i64 %20
   %.0.i.i = getelementptr inbounds i8, ptr %.01318.i, i64 %.0.i.v.i
   %22 = icmp eq ptr %.0.i.i, @_ZN5cmsysL8regdummyE
-  br i1 %22, label %_ZN5cmsysL7regnextEPc.exit.thread.i, label %.preheader.i, !llvm.loop !36
+  br i1 %22, label %_ZN5cmsysL7regnextEPc.exit.thread.i, label %.preheader.i, !llvm.loop !35
 
 _ZN5cmsysL7regnextEPc.exit.thread.i:              ; preds = %_ZN5cmsysL7regnextEPc.exit.i, %.preheader.i
   %.013.lcssa.i = phi ptr [ %.01318.i, %.preheader.i ], [ @_ZN5cmsysL8regdummyE, %_ZN5cmsysL7regnextEPc.exit.i ]
@@ -1473,7 +1473,7 @@ define dso_local noundef ptr @_ZN5cmsys13RegExpCompile8regpieceEPi(ptr noundef n
   br i1 %.not, label %457, label %5
 
 5:                                                ; preds = %2
-  %6 = load ptr, ptr %0, align 8, !tbaa !28
+  %6 = load ptr, ptr %0, align 8, !tbaa !27
   %7 = load i8, ptr %6, align 1, !tbaa !14
   %8 = icmp eq i8 %7, 42
   %9 = icmp eq i8 %7, 43
@@ -1485,12 +1485,12 @@ define dso_local noundef ptr @_ZN5cmsys13RegExpCompile8regpieceEPi(ptr noundef n
   ]
 
 11:                                               ; preds = %5
-  %12 = load i32, ptr %3, align 4, !tbaa !34
-  store i32 %12, ptr %1, align 4, !tbaa !34
+  %12 = load i32, ptr %3, align 4, !tbaa !33
+  store i32 %12, ptr %1, align 4, !tbaa !33
   br label %457
 
 13:                                               ; preds = %5, %5, %5
-  %14 = load i32, ptr %3, align 4, !tbaa !34
+  %14 = load i32, ptr %3, align 4, !tbaa !33
   %15 = and i32 %14, 1
   %16 = icmp eq i32 %15, 0
   %17 = icmp ne i8 %7, 63
@@ -1503,14 +1503,14 @@ define dso_local noundef ptr @_ZN5cmsys13RegExpCompile8regpieceEPi(ptr noundef n
 
 19:                                               ; preds = %13
   %20 = select i1 %9, i32 1, i32 4
-  store i32 %20, ptr %1, align 4, !tbaa !34
+  store i32 %20, ptr %1, align 4, !tbaa !33
   br i1 %8, label %21, label %.critedge
 
 21:                                               ; preds = %19
   %22 = and i32 %14, 2
   %.not46 = icmp eq i32 %22, 0
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %24 = load ptr, ptr %23, align 8, !tbaa !31
+  %24 = load ptr, ptr %23, align 8, !tbaa !30
   %25 = icmp eq ptr %24, @_ZN5cmsysL8regdummyE
   br i1 %.not46, label %40, label %26
 
@@ -1519,14 +1519,14 @@ define dso_local noundef ptr @_ZN5cmsys13RegExpCompile8regpieceEPi(ptr noundef n
 
 27:                                               ; preds = %26
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %29 = load i64, ptr %28, align 8, !tbaa !32
+  %29 = load i64, ptr %28, align 8, !tbaa !31
   %30 = add nsw i64 %29, 3
-  store i64 %30, ptr %28, align 8, !tbaa !32
+  store i64 %30, ptr %28, align 8, !tbaa !31
   br label %_ZN5cmsys13RegExpCompile9reginsertEcPc.exit
 
 31:                                               ; preds = %26
   %32 = getelementptr inbounds nuw i8, ptr %24, i64 3
-  store ptr %32, ptr %23, align 8, !tbaa !31
+  store ptr %32, ptr %23, align 8, !tbaa !30
   %33 = icmp ugt ptr %24, %4
   br i1 %33, label %.lr.ph.i, label %._crit_edge.i
 
@@ -1538,7 +1538,7 @@ define dso_local noundef ptr @_ZN5cmsys13RegExpCompile8regpieceEPi(ptr noundef n
   %36 = getelementptr inbounds i8, ptr %.0912.i, i64 -1
   store i8 %35, ptr %36, align 1, !tbaa !14
   %37 = icmp ugt ptr %34, %4
-  br i1 %37, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !40
+  br i1 %37, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !39
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %31
   %38 = getelementptr inbounds nuw i8, ptr %4, i64 1
@@ -1553,13 +1553,13 @@ define dso_local noundef ptr @_ZN5cmsys13RegExpCompile8regpieceEPi(ptr noundef n
 
 _ZN5cmsys13RegExpCompile9reginsertEcPc.exit55.thread: ; preds = %40
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %42 = load i64, ptr %41, align 8, !tbaa !32
+  %42 = load i64, ptr %41, align 8, !tbaa !31
   %43 = add nsw i64 %42, 3
   br label %54
 
 44:                                               ; preds = %40
   %45 = getelementptr inbounds nuw i8, ptr %24, i64 3
-  store ptr %45, ptr %23, align 8, !tbaa !31
+  store ptr %45, ptr %23, align 8, !tbaa !30
   %46 = icmp ugt ptr %24, %4
   br i1 %46, label %.lr.ph.i52, label %_ZN5cmsys13RegExpCompile9reginsertEcPc.exit55
 
@@ -1571,7 +1571,7 @@ _ZN5cmsys13RegExpCompile9reginsertEcPc.exit55.thread: ; preds = %40
   %49 = getelementptr inbounds i8, ptr %.0912.i54, i64 -1
   store i8 %48, ptr %49, align 1, !tbaa !14
   %50 = icmp ugt ptr %47, %4
-  br i1 %50, label %.lr.ph.i52, label %_ZN5cmsys13RegExpCompile9reginsertEcPc.exit55, !llvm.loop !40
+  br i1 %50, label %.lr.ph.i52, label %_ZN5cmsys13RegExpCompile9reginsertEcPc.exit55, !llvm.loop !39
 
 _ZN5cmsys13RegExpCompile9reginsertEcPc.exit55:    ; preds = %.lr.ph.i52, %44
   %51 = getelementptr inbounds nuw i8, ptr %4, i64 1
@@ -1579,20 +1579,20 @@ _ZN5cmsys13RegExpCompile9reginsertEcPc.exit55:    ; preds = %.lr.ph.i52, %44
   %52 = getelementptr inbounds nuw i8, ptr %4, i64 2
   store i8 0, ptr %51, align 1, !tbaa !14
   store i8 0, ptr %52, align 1, !tbaa !14
-  %.pre137 = load ptr, ptr %23, align 8, !tbaa !31
+  %.pre137 = load ptr, ptr %23, align 8, !tbaa !30
   %53 = icmp eq ptr %.pre137, @_ZN5cmsysL8regdummyE
   br i1 %53, label %_ZN5cmsys13RegExpCompile9reginsertEcPc.exit55._crit_edge, label %58
 
 _ZN5cmsys13RegExpCompile9reginsertEcPc.exit55._crit_edge: ; preds = %_ZN5cmsys13RegExpCompile9reginsertEcPc.exit55
   %.phi.trans.insert188 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %.pre189 = load i64, ptr %.phi.trans.insert188, align 8, !tbaa !32
+  %.pre189 = load i64, ptr %.phi.trans.insert188, align 8, !tbaa !31
   br label %54
 
 54:                                               ; preds = %_ZN5cmsys13RegExpCompile9reginsertEcPc.exit55._crit_edge, %_ZN5cmsys13RegExpCompile9reginsertEcPc.exit55.thread
   %55 = phi i64 [ %.pre189, %_ZN5cmsys13RegExpCompile9reginsertEcPc.exit55._crit_edge ], [ %43, %_ZN5cmsys13RegExpCompile9reginsertEcPc.exit55.thread ]
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %57 = add nsw i64 %55, 3
-  store i64 %57, ptr %56, align 8, !tbaa !32
+  store i64 %57, ptr %56, align 8, !tbaa !31
   br label %_ZN5cmsys13RegExpCompile7regnodeEc.exit
 
 58:                                               ; preds = %_ZN5cmsys13RegExpCompile9reginsertEcPc.exit55
@@ -1602,7 +1602,7 @@ _ZN5cmsys13RegExpCompile9reginsertEcPc.exit55._crit_edge: ; preds = %_ZN5cmsys13
   store i8 0, ptr %59, align 1, !tbaa !14
   %61 = getelementptr inbounds nuw i8, ptr %.pre137, i64 3
   store i8 0, ptr %60, align 1, !tbaa !14
-  store ptr %61, ptr %23, align 8, !tbaa !31
+  store ptr %61, ptr %23, align 8, !tbaa !30
   br label %_ZN5cmsys13RegExpCompile7regnodeEc.exit
 
 _ZN5cmsys13RegExpCompile7regnodeEc.exit:          ; preds = %54, %58
@@ -1639,7 +1639,7 @@ _ZN5cmsysL7regnextEPc.exit.i.i:                   ; preds = %.preheader.i.i
   %.0.i.v.i.i = select i1 %78, i64 %80, i64 %79
   %.0.i.i.i = getelementptr inbounds i8, ptr %.01318.i.i, i64 %.0.i.v.i.i
   %81 = icmp eq ptr %.0.i.i.i, @_ZN5cmsysL8regdummyE
-  br i1 %81, label %_ZN5cmsys13RegExpCompile9regoptailEPcPKc.exit, label %.preheader.i.i, !llvm.loop !36
+  br i1 %81, label %_ZN5cmsys13RegExpCompile9regoptailEPcPKc.exit, label %.preheader.i.i, !llvm.loop !35
 
 _ZN5cmsys13RegExpCompile9regoptailEPcPKc.exit:    ; preds = %.preheader.i.i, %_ZN5cmsysL7regnextEPc.exit.i.i
   %.013.lcssa.i.i = phi ptr [ %.01318.i.i, %.preheader.i.i ], [ @_ZN5cmsysL8regdummyE, %_ZN5cmsysL7regnextEPc.exit.i.i ]
@@ -1687,7 +1687,7 @@ _ZN5cmsysL7regnextEPc.exit.i.i61:                 ; preds = %.preheader.i.i59
   %.0.i.v.i.i62 = select i1 %103, i64 %105, i64 %104
   %.0.i.i.i63 = getelementptr inbounds i8, ptr %.01318.i.i60, i64 %.0.i.v.i.i62
   %106 = icmp eq ptr %.0.i.i.i63, @_ZN5cmsysL8regdummyE
-  br i1 %106, label %_ZN5cmsysL7regnextEPc.exit.thread.i.i64, label %.preheader.i.i59, !llvm.loop !36
+  br i1 %106, label %_ZN5cmsysL7regnextEPc.exit.thread.i.i64, label %.preheader.i.i59, !llvm.loop !35
 
 _ZN5cmsysL7regnextEPc.exit.thread.i.i64:          ; preds = %_ZN5cmsysL7regnextEPc.exit.i.i61, %.preheader.i.i59
   %.013.lcssa.i.i65 = phi ptr [ %.01318.i.i60, %.preheader.i.i59 ], [ @_ZN5cmsysL8regdummyE, %_ZN5cmsysL7regnextEPc.exit.i.i61 ]
@@ -1708,15 +1708,15 @@ _ZN5cmsysL7regnextEPc.exit.thread.i.i64:          ; preds = %_ZN5cmsysL7regnextE
   br label %_ZN5cmsys13RegExpCompile9regoptailEPcPKc.exit68
 
 _ZN5cmsys13RegExpCompile9regoptailEPcPKc.exit68:  ; preds = %_ZN5cmsys13RegExpCompile7regnodeEc.exit, %_ZN5cmsys13RegExpCompile9regoptailEPcPKc.exit.thread131, %_ZN5cmsysL7regnextEPc.exit.thread.i.i64
-  %117 = load ptr, ptr %23, align 8, !tbaa !31
+  %117 = load ptr, ptr %23, align 8, !tbaa !30
   %118 = icmp eq ptr %117, @_ZN5cmsysL8regdummyE
   br i1 %118, label %119, label %123
 
 119:                                              ; preds = %_ZN5cmsys13RegExpCompile9regoptailEPcPKc.exit68
   %120 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %121 = load i64, ptr %120, align 8, !tbaa !32
+  %121 = load i64, ptr %120, align 8, !tbaa !31
   %122 = add nsw i64 %121, 3
-  store i64 %122, ptr %120, align 8, !tbaa !32
+  store i64 %122, ptr %120, align 8, !tbaa !31
   br label %_ZN5cmsys13RegExpCompile7regnodeEc.exit69
 
 123:                                              ; preds = %_ZN5cmsys13RegExpCompile9regoptailEPcPKc.exit68
@@ -1726,7 +1726,7 @@ _ZN5cmsys13RegExpCompile9regoptailEPcPKc.exit68:  ; preds = %_ZN5cmsys13RegExpCo
   store i8 0, ptr %124, align 1, !tbaa !14
   %126 = getelementptr inbounds nuw i8, ptr %117, i64 3
   store i8 0, ptr %125, align 1, !tbaa !14
-  store ptr %126, ptr %23, align 8, !tbaa !31
+  store ptr %126, ptr %23, align 8, !tbaa !30
   br label %_ZN5cmsys13RegExpCompile7regnodeEc.exit69
 
 _ZN5cmsys13RegExpCompile7regnodeEc.exit69:        ; preds = %119, %123
@@ -1754,7 +1754,7 @@ _ZN5cmsysL7regnextEPc.exit.i:                     ; preds = %.preheader.i
   %.0.i.v.i = select i1 %138, i64 %140, i64 %139
   %.0.i.i70 = getelementptr inbounds i8, ptr %.01318.i, i64 %.0.i.v.i
   %141 = icmp eq ptr %.0.i.i70, @_ZN5cmsysL8regdummyE
-  br i1 %141, label %_ZN5cmsysL7regnextEPc.exit.thread.i, label %.preheader.i, !llvm.loop !36
+  br i1 %141, label %_ZN5cmsysL7regnextEPc.exit.thread.i, label %.preheader.i, !llvm.loop !35
 
 _ZN5cmsysL7regnextEPc.exit.thread.i:              ; preds = %_ZN5cmsysL7regnextEPc.exit.i, %.preheader.i
   %.013.lcssa.i = phi ptr [ %.01318.i, %.preheader.i ], [ @_ZN5cmsysL8regdummyE, %_ZN5cmsysL7regnextEPc.exit.i ]
@@ -1772,7 +1772,7 @@ _ZN5cmsysL7regnextEPc.exit.thread.i:              ; preds = %_ZN5cmsysL7regnextE
   store i8 %149, ptr %150, align 1, !tbaa !14
   %151 = getelementptr inbounds nuw i8, ptr %.013.lcssa.i, i64 2
   store i8 %.0.i, ptr %151, align 1, !tbaa !14
-  %.pre139 = load ptr, ptr %23, align 8, !tbaa !31
+  %.pre139 = load ptr, ptr %23, align 8, !tbaa !30
   br label %_ZN5cmsys13RegExpCompile7regtailEPcPKc.exit
 
 _ZN5cmsys13RegExpCompile7regtailEPcPKc.exit:      ; preds = %_ZN5cmsys13RegExpCompile7regnodeEc.exit69, %_ZN5cmsysL7regnextEPc.exit.thread.i
@@ -1782,9 +1782,9 @@ _ZN5cmsys13RegExpCompile7regtailEPcPKc.exit:      ; preds = %_ZN5cmsys13RegExpCo
 
 154:                                              ; preds = %_ZN5cmsys13RegExpCompile7regtailEPcPKc.exit
   %155 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %156 = load i64, ptr %155, align 8, !tbaa !32
+  %156 = load i64, ptr %155, align 8, !tbaa !31
   %157 = add nsw i64 %156, 3
-  store i64 %157, ptr %155, align 8, !tbaa !32
+  store i64 %157, ptr %155, align 8, !tbaa !31
   br label %_ZN5cmsys13RegExpCompile7regnodeEc.exit71
 
 158:                                              ; preds = %_ZN5cmsys13RegExpCompile7regtailEPcPKc.exit
@@ -1794,7 +1794,7 @@ _ZN5cmsys13RegExpCompile7regtailEPcPKc.exit:      ; preds = %_ZN5cmsys13RegExpCo
   store i8 0, ptr %159, align 1, !tbaa !14
   %161 = getelementptr inbounds nuw i8, ptr %152, i64 3
   store i8 0, ptr %160, align 1, !tbaa !14
-  store ptr %161, ptr %23, align 8, !tbaa !31
+  store ptr %161, ptr %23, align 8, !tbaa !30
   br label %_ZN5cmsys13RegExpCompile7regnodeEc.exit71
 
 _ZN5cmsys13RegExpCompile7regnodeEc.exit71:        ; preds = %154, %158
@@ -1821,7 +1821,7 @@ _ZN5cmsysL7regnextEPc.exit.i74:                   ; preds = %.preheader.i72
   %.0.i.v.i75 = select i1 %172, i64 %174, i64 %173
   %.0.i.i76 = getelementptr inbounds i8, ptr %.01318.i73, i64 %.0.i.v.i75
   %175 = icmp eq ptr %.0.i.i76, @_ZN5cmsysL8regdummyE
-  br i1 %175, label %_ZN5cmsysL7regnextEPc.exit.thread.i77, label %.preheader.i72, !llvm.loop !36
+  br i1 %175, label %_ZN5cmsysL7regnextEPc.exit.thread.i77, label %.preheader.i72, !llvm.loop !35
 
 _ZN5cmsysL7regnextEPc.exit.thread.i77:            ; preds = %_ZN5cmsysL7regnextEPc.exit.i74, %.preheader.i72
   %.013.lcssa.i78 = phi ptr [ %.01318.i73, %.preheader.i72 ], [ @_ZN5cmsysL8regdummyE, %_ZN5cmsysL7regnextEPc.exit.i74 ]
@@ -1848,7 +1848,7 @@ _ZN5cmsysL7regnextEPc.exit.thread.i77:            ; preds = %_ZN5cmsysL7regnextE
   %187 = and i32 %14, 2
   %.not47 = icmp eq i32 %187, 0
   %188 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %189 = load ptr, ptr %188, align 8, !tbaa !31
+  %189 = load ptr, ptr %188, align 8, !tbaa !30
   %190 = icmp eq ptr %189, @_ZN5cmsysL8regdummyE
   br i1 %.not47, label %205, label %191
 
@@ -1857,14 +1857,14 @@ _ZN5cmsysL7regnextEPc.exit.thread.i77:            ; preds = %_ZN5cmsysL7regnextE
 
 192:                                              ; preds = %191
   %193 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %194 = load i64, ptr %193, align 8, !tbaa !32
+  %194 = load i64, ptr %193, align 8, !tbaa !31
   %195 = add nsw i64 %194, 3
-  store i64 %195, ptr %193, align 8, !tbaa !32
+  store i64 %195, ptr %193, align 8, !tbaa !31
   br label %_ZN5cmsys13RegExpCompile9reginsertEcPc.exit
 
 196:                                              ; preds = %191
   %197 = getelementptr inbounds nuw i8, ptr %189, i64 3
-  store ptr %197, ptr %188, align 8, !tbaa !31
+  store ptr %197, ptr %188, align 8, !tbaa !30
   %198 = icmp ugt ptr %189, %4
   br i1 %198, label %.lr.ph.i83, label %._crit_edge.i82
 
@@ -1876,7 +1876,7 @@ _ZN5cmsysL7regnextEPc.exit.thread.i77:            ; preds = %_ZN5cmsysL7regnextE
   %201 = getelementptr inbounds i8, ptr %.0912.i85, i64 -1
   store i8 %200, ptr %201, align 1, !tbaa !14
   %202 = icmp ugt ptr %199, %4
-  br i1 %202, label %.lr.ph.i83, label %._crit_edge.i82, !llvm.loop !40
+  br i1 %202, label %.lr.ph.i83, label %._crit_edge.i82, !llvm.loop !39
 
 ._crit_edge.i82:                                  ; preds = %.lr.ph.i83, %196
   %203 = getelementptr inbounds nuw i8, ptr %4, i64 1
@@ -1891,9 +1891,9 @@ _ZN5cmsysL7regnextEPc.exit.thread.i77:            ; preds = %_ZN5cmsysL7regnextE
 
 206:                                              ; preds = %205
   %207 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %208 = load i64, ptr %207, align 8, !tbaa !32
+  %208 = load i64, ptr %207, align 8, !tbaa !31
   %209 = add nsw i64 %208, 3
-  store i64 %209, ptr %207, align 8, !tbaa !32
+  store i64 %209, ptr %207, align 8, !tbaa !31
   br label %_ZN5cmsys13RegExpCompile7regnodeEc.exit87
 
 210:                                              ; preds = %205
@@ -1903,7 +1903,7 @@ _ZN5cmsysL7regnextEPc.exit.thread.i77:            ; preds = %_ZN5cmsysL7regnextE
   store i8 0, ptr %211, align 1, !tbaa !14
   %213 = getelementptr inbounds nuw i8, ptr %189, i64 3
   store i8 0, ptr %212, align 1, !tbaa !14
-  store ptr %213, ptr %188, align 8, !tbaa !31
+  store ptr %213, ptr %188, align 8, !tbaa !30
   br label %_ZN5cmsys13RegExpCompile7regnodeEc.exit87
 
 _ZN5cmsys13RegExpCompile7regnodeEc.exit87:        ; preds = %206, %210
@@ -1932,7 +1932,7 @@ _ZN5cmsysL7regnextEPc.exit.i142:                  ; preds = %.preheader.i140
   %.0.i.v.i143 = select i1 %226, i64 %228, i64 %227
   %.0.i.i144 = getelementptr inbounds i8, ptr %.01318.i141, i64 %.0.i.v.i143
   %229 = icmp eq ptr %.0.i.i144, @_ZN5cmsysL8regdummyE
-  br i1 %229, label %_ZN5cmsysL7regnextEPc.exit.thread.i145, label %.preheader.i140, !llvm.loop !36
+  br i1 %229, label %_ZN5cmsysL7regnextEPc.exit.thread.i145, label %.preheader.i140, !llvm.loop !35
 
 _ZN5cmsysL7regnextEPc.exit.thread.i145:           ; preds = %_ZN5cmsysL7regnextEPc.exit.i142, %.preheader.i140
   %.013.lcssa.i146 = phi ptr [ %.01318.i141, %.preheader.i140 ], [ @_ZN5cmsysL8regdummyE, %_ZN5cmsysL7regnextEPc.exit.i142 ]
@@ -1950,7 +1950,7 @@ _ZN5cmsysL7regnextEPc.exit.thread.i145:           ; preds = %_ZN5cmsysL7regnextE
   store i8 %237, ptr %238, align 1, !tbaa !14
   %239 = getelementptr inbounds nuw i8, ptr %.013.lcssa.i146, i64 2
   store i8 %.0.i148, ptr %239, align 1, !tbaa !14
-  %.pre185 = load ptr, ptr %188, align 8, !tbaa !31
+  %.pre185 = load ptr, ptr %188, align 8, !tbaa !30
   br label %_ZN5cmsys13RegExpCompile7regtailEPcPKc.exit149
 
 _ZN5cmsys13RegExpCompile7regtailEPcPKc.exit149:   ; preds = %_ZN5cmsys13RegExpCompile7regnodeEc.exit87, %_ZN5cmsysL7regnextEPc.exit.thread.i145
@@ -1960,9 +1960,9 @@ _ZN5cmsys13RegExpCompile7regtailEPcPKc.exit149:   ; preds = %_ZN5cmsys13RegExpCo
 
 _ZN5cmsys13RegExpCompile7regtailEPcPKc.exit159.thread: ; preds = %_ZN5cmsys13RegExpCompile7regtailEPcPKc.exit149
   %242 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %243 = load i64, ptr %242, align 8, !tbaa !32
+  %243 = load i64, ptr %242, align 8, !tbaa !31
   %244 = add nsw i64 %243, 3
-  store i64 %244, ptr %242, align 8, !tbaa !32
+  store i64 %244, ptr %242, align 8, !tbaa !31
   br label %273
 
 _ZN5cmsys13RegExpCompile7regnodeEc.exit88:        ; preds = %_ZN5cmsys13RegExpCompile7regtailEPcPKc.exit149
@@ -1972,7 +1972,7 @@ _ZN5cmsys13RegExpCompile7regnodeEc.exit88:        ; preds = %_ZN5cmsys13RegExpCo
   store i8 0, ptr %245, align 1, !tbaa !14
   %247 = getelementptr inbounds nuw i8, ptr %240, i64 3
   store i8 0, ptr %246, align 1, !tbaa !14
-  store ptr %247, ptr %188, align 8, !tbaa !31
+  store ptr %247, ptr %188, align 8, !tbaa !30
   br label %.preheader.i150
 
 .preheader.i150:                                  ; preds = %_ZN5cmsys13RegExpCompile7regnodeEc.exit88, %_ZN5cmsysL7regnextEPc.exit.i152
@@ -1996,7 +1996,7 @@ _ZN5cmsysL7regnextEPc.exit.i152:                  ; preds = %.preheader.i150
   %.0.i.v.i153 = select i1 %258, i64 %260, i64 %259
   %.0.i.i154 = getelementptr inbounds i8, ptr %.01318.i151, i64 %.0.i.v.i153
   %261 = icmp eq ptr %.0.i.i154, @_ZN5cmsysL8regdummyE
-  br i1 %261, label %_ZN5cmsys13RegExpCompile7regtailEPcPKc.exit159, label %.preheader.i150, !llvm.loop !36
+  br i1 %261, label %_ZN5cmsys13RegExpCompile7regtailEPcPKc.exit159, label %.preheader.i150, !llvm.loop !35
 
 _ZN5cmsys13RegExpCompile7regtailEPcPKc.exit159:   ; preds = %.preheader.i150, %_ZN5cmsysL7regnextEPc.exit.i152
   %.013.lcssa.i156 = phi ptr [ %.01318.i151, %.preheader.i150 ], [ @_ZN5cmsysL8regdummyE, %_ZN5cmsysL7regnextEPc.exit.i152 ]
@@ -2014,15 +2014,15 @@ _ZN5cmsys13RegExpCompile7regtailEPcPKc.exit159:   ; preds = %.preheader.i150, %_
   store i8 %269, ptr %270, align 1, !tbaa !14
   %271 = getelementptr inbounds nuw i8, ptr %.013.lcssa.i156, i64 2
   store i8 %.0.i158, ptr %271, align 1, !tbaa !14
-  %.pre186 = load ptr, ptr %188, align 8, !tbaa !31
+  %.pre186 = load ptr, ptr %188, align 8, !tbaa !30
   %272 = icmp eq ptr %.pre186, @_ZN5cmsysL8regdummyE
   br i1 %272, label %273, label %277
 
 273:                                              ; preds = %_ZN5cmsys13RegExpCompile7regtailEPcPKc.exit159.thread, %_ZN5cmsys13RegExpCompile7regtailEPcPKc.exit159
   %274 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %275 = load i64, ptr %274, align 8, !tbaa !32
+  %275 = load i64, ptr %274, align 8, !tbaa !31
   %276 = add nsw i64 %275, 3
-  store i64 %276, ptr %274, align 8, !tbaa !32
+  store i64 %276, ptr %274, align 8, !tbaa !31
   br label %_ZN5cmsys13RegExpCompile7regnodeEc.exit89
 
 277:                                              ; preds = %_ZN5cmsys13RegExpCompile7regtailEPcPKc.exit159
@@ -2032,7 +2032,7 @@ _ZN5cmsys13RegExpCompile7regtailEPcPKc.exit159:   ; preds = %.preheader.i150, %_
   store i8 0, ptr %278, align 1, !tbaa !14
   %280 = getelementptr inbounds nuw i8, ptr %.pre186, i64 3
   store i8 0, ptr %279, align 1, !tbaa !14
-  store ptr %280, ptr %188, align 8, !tbaa !31
+  store ptr %280, ptr %188, align 8, !tbaa !30
   br label %_ZN5cmsys13RegExpCompile7regnodeEc.exit89
 
 _ZN5cmsys13RegExpCompile7regnodeEc.exit89:        ; preds = %273, %277
@@ -2061,7 +2061,7 @@ _ZN5cmsysL7regnextEPc.exit.i162:                  ; preds = %.preheader.i160
   %.0.i.v.i163 = select i1 %293, i64 %295, i64 %294
   %.0.i.i164 = getelementptr inbounds i8, ptr %.01318.i161, i64 %.0.i.v.i163
   %296 = icmp eq ptr %.0.i.i164, @_ZN5cmsysL8regdummyE
-  br i1 %296, label %_ZN5cmsysL7regnextEPc.exit.thread.i165, label %.preheader.i160, !llvm.loop !36
+  br i1 %296, label %_ZN5cmsysL7regnextEPc.exit.thread.i165, label %.preheader.i160, !llvm.loop !35
 
 _ZN5cmsysL7regnextEPc.exit.thread.i165:           ; preds = %_ZN5cmsysL7regnextEPc.exit.i162, %.preheader.i160
   %.013.lcssa.i166 = phi ptr [ %.01318.i161, %.preheader.i160 ], [ @_ZN5cmsysL8regdummyE, %_ZN5cmsysL7regnextEPc.exit.i162 ]
@@ -2079,7 +2079,7 @@ _ZN5cmsysL7regnextEPc.exit.thread.i165:           ; preds = %_ZN5cmsysL7regnextE
   store i8 %304, ptr %305, align 1, !tbaa !14
   %306 = getelementptr inbounds nuw i8, ptr %.013.lcssa.i166, i64 2
   store i8 %.0.i168, ptr %306, align 1, !tbaa !14
-  %.pre187 = load ptr, ptr %188, align 8, !tbaa !31
+  %.pre187 = load ptr, ptr %188, align 8, !tbaa !30
   br label %_ZN5cmsys13RegExpCompile7regtailEPcPKc.exit169
 
 _ZN5cmsys13RegExpCompile7regtailEPcPKc.exit169:   ; preds = %_ZN5cmsys13RegExpCompile7regnodeEc.exit89, %_ZN5cmsysL7regnextEPc.exit.thread.i165
@@ -2089,9 +2089,9 @@ _ZN5cmsys13RegExpCompile7regtailEPcPKc.exit169:   ; preds = %_ZN5cmsys13RegExpCo
 
 309:                                              ; preds = %_ZN5cmsys13RegExpCompile7regtailEPcPKc.exit169
   %310 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %311 = load i64, ptr %310, align 8, !tbaa !32
+  %311 = load i64, ptr %310, align 8, !tbaa !31
   %312 = add nsw i64 %311, 3
-  store i64 %312, ptr %310, align 8, !tbaa !32
+  store i64 %312, ptr %310, align 8, !tbaa !31
   br label %_ZN5cmsys13RegExpCompile7regnodeEc.exit90
 
 313:                                              ; preds = %_ZN5cmsys13RegExpCompile7regtailEPcPKc.exit169
@@ -2101,7 +2101,7 @@ _ZN5cmsys13RegExpCompile7regtailEPcPKc.exit169:   ; preds = %_ZN5cmsys13RegExpCo
   store i8 0, ptr %314, align 1, !tbaa !14
   %316 = getelementptr inbounds nuw i8, ptr %307, i64 3
   store i8 0, ptr %315, align 1, !tbaa !14
-  store ptr %316, ptr %188, align 8, !tbaa !31
+  store ptr %316, ptr %188, align 8, !tbaa !30
   br label %_ZN5cmsys13RegExpCompile7regnodeEc.exit90
 
 _ZN5cmsys13RegExpCompile7regnodeEc.exit90:        ; preds = %309, %313
@@ -2128,7 +2128,7 @@ _ZN5cmsysL7regnextEPc.exit.i172:                  ; preds = %.preheader.i170
   %.0.i.v.i173 = select i1 %327, i64 %329, i64 %328
   %.0.i.i174 = getelementptr inbounds i8, ptr %.01318.i171, i64 %.0.i.v.i173
   %330 = icmp eq ptr %.0.i.i174, @_ZN5cmsysL8regdummyE
-  br i1 %330, label %_ZN5cmsysL7regnextEPc.exit.thread.i175, label %.preheader.i170, !llvm.loop !36
+  br i1 %330, label %_ZN5cmsysL7regnextEPc.exit.thread.i175, label %.preheader.i170, !llvm.loop !35
 
 _ZN5cmsysL7regnextEPc.exit.thread.i175:           ; preds = %_ZN5cmsysL7regnextEPc.exit.i172, %.preheader.i170
   %.013.lcssa.i176 = phi ptr [ %.01318.i171, %.preheader.i170 ], [ @_ZN5cmsysL8regdummyE, %_ZN5cmsysL7regnextEPc.exit.i172 ]
@@ -2153,19 +2153,19 @@ _ZN5cmsysL7regnextEPc.exit.thread.i175:           ; preds = %_ZN5cmsysL7regnextE
 
 341:                                              ; preds = %.critedge50
   %342 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %343 = load ptr, ptr %342, align 8, !tbaa !31
+  %343 = load ptr, ptr %342, align 8, !tbaa !30
   %344 = icmp eq ptr %343, @_ZN5cmsysL8regdummyE
   br i1 %344, label %_ZN5cmsys13RegExpCompile9reginsertEcPc.exit95.thread, label %348
 
 _ZN5cmsys13RegExpCompile9reginsertEcPc.exit95.thread: ; preds = %341
   %345 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %346 = load i64, ptr %345, align 8, !tbaa !32
+  %346 = load i64, ptr %345, align 8, !tbaa !31
   %347 = add nsw i64 %346, 3
   br label %358
 
 348:                                              ; preds = %341
   %349 = getelementptr inbounds nuw i8, ptr %343, i64 3
-  store ptr %349, ptr %342, align 8, !tbaa !31
+  store ptr %349, ptr %342, align 8, !tbaa !30
   %350 = icmp ugt ptr %343, %4
   br i1 %350, label %.lr.ph.i92, label %_ZN5cmsys13RegExpCompile9reginsertEcPc.exit95
 
@@ -2177,7 +2177,7 @@ _ZN5cmsys13RegExpCompile9reginsertEcPc.exit95.thread: ; preds = %341
   %353 = getelementptr inbounds i8, ptr %.0912.i94, i64 -1
   store i8 %352, ptr %353, align 1, !tbaa !14
   %354 = icmp ugt ptr %351, %4
-  br i1 %354, label %.lr.ph.i92, label %_ZN5cmsys13RegExpCompile9reginsertEcPc.exit95, !llvm.loop !40
+  br i1 %354, label %.lr.ph.i92, label %_ZN5cmsys13RegExpCompile9reginsertEcPc.exit95, !llvm.loop !39
 
 _ZN5cmsys13RegExpCompile9reginsertEcPc.exit95:    ; preds = %.lr.ph.i92, %348
   %355 = getelementptr inbounds nuw i8, ptr %4, i64 1
@@ -2185,20 +2185,20 @@ _ZN5cmsys13RegExpCompile9reginsertEcPc.exit95:    ; preds = %.lr.ph.i92, %348
   %356 = getelementptr inbounds nuw i8, ptr %4, i64 2
   store i8 0, ptr %355, align 1, !tbaa !14
   store i8 0, ptr %356, align 1, !tbaa !14
-  %.pre = load ptr, ptr %342, align 8, !tbaa !31
+  %.pre = load ptr, ptr %342, align 8, !tbaa !30
   %357 = icmp eq ptr %.pre, @_ZN5cmsysL8regdummyE
   br i1 %357, label %_ZN5cmsys13RegExpCompile9reginsertEcPc.exit95._crit_edge, label %362
 
 _ZN5cmsys13RegExpCompile9reginsertEcPc.exit95._crit_edge: ; preds = %_ZN5cmsys13RegExpCompile9reginsertEcPc.exit95
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %.pre184 = load i64, ptr %.phi.trans.insert, align 8, !tbaa !32
+  %.pre184 = load i64, ptr %.phi.trans.insert, align 8, !tbaa !31
   br label %358
 
 358:                                              ; preds = %_ZN5cmsys13RegExpCompile9reginsertEcPc.exit95._crit_edge, %_ZN5cmsys13RegExpCompile9reginsertEcPc.exit95.thread
   %359 = phi i64 [ %.pre184, %_ZN5cmsys13RegExpCompile9reginsertEcPc.exit95._crit_edge ], [ %347, %_ZN5cmsys13RegExpCompile9reginsertEcPc.exit95.thread ]
   %360 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %361 = add nsw i64 %359, 3
-  store i64 %361, ptr %360, align 8, !tbaa !32
+  store i64 %361, ptr %360, align 8, !tbaa !31
   br label %_ZN5cmsys13RegExpCompile7regnodeEc.exit96
 
 362:                                              ; preds = %_ZN5cmsys13RegExpCompile9reginsertEcPc.exit95
@@ -2208,7 +2208,7 @@ _ZN5cmsys13RegExpCompile9reginsertEcPc.exit95._crit_edge: ; preds = %_ZN5cmsys13
   store i8 0, ptr %363, align 1, !tbaa !14
   %365 = getelementptr inbounds nuw i8, ptr %.pre, i64 3
   store i8 0, ptr %364, align 1, !tbaa !14
-  store ptr %365, ptr %342, align 8, !tbaa !31
+  store ptr %365, ptr %342, align 8, !tbaa !30
   br label %_ZN5cmsys13RegExpCompile7regnodeEc.exit96
 
 _ZN5cmsys13RegExpCompile7regnodeEc.exit96:        ; preds = %358, %362
@@ -2238,7 +2238,7 @@ _ZN5cmsysL7regnextEPc.exit.i99:                   ; preds = %.preheader.i97
   %.0.i.v.i100 = select i1 %379, i64 %381, i64 %380
   %.0.i.i101 = getelementptr inbounds i8, ptr %.01318.i98, i64 %.0.i.v.i100
   %382 = icmp eq ptr %.0.i.i101, @_ZN5cmsysL8regdummyE
-  br i1 %382, label %_ZN5cmsysL7regnextEPc.exit.thread.i102, label %.preheader.i97, !llvm.loop !36
+  br i1 %382, label %_ZN5cmsysL7regnextEPc.exit.thread.i102, label %.preheader.i97, !llvm.loop !35
 
 _ZN5cmsysL7regnextEPc.exit.thread.i102:           ; preds = %_ZN5cmsysL7regnextEPc.exit.i99, %.preheader.i97
   %.013.lcssa.i103 = phi ptr [ %.01318.i98, %.preheader.i97 ], [ @_ZN5cmsysL8regdummyE, %_ZN5cmsysL7regnextEPc.exit.i99 ]
@@ -2256,7 +2256,7 @@ _ZN5cmsysL7regnextEPc.exit.thread.i102:           ; preds = %_ZN5cmsysL7regnextE
   store i8 %390, ptr %391, align 1, !tbaa !14
   %392 = getelementptr inbounds nuw i8, ptr %.013.lcssa.i103, i64 2
   store i8 %.0.i105, ptr %392, align 1, !tbaa !14
-  %.pre136 = load ptr, ptr %342, align 8, !tbaa !31
+  %.pre136 = load ptr, ptr %342, align 8, !tbaa !30
   br label %_ZN5cmsys13RegExpCompile7regtailEPcPKc.exit106
 
 _ZN5cmsys13RegExpCompile7regtailEPcPKc.exit106:   ; preds = %_ZN5cmsys13RegExpCompile7regnodeEc.exit96, %_ZN5cmsysL7regnextEPc.exit.thread.i102
@@ -2266,9 +2266,9 @@ _ZN5cmsys13RegExpCompile7regtailEPcPKc.exit106:   ; preds = %_ZN5cmsys13RegExpCo
 
 395:                                              ; preds = %_ZN5cmsys13RegExpCompile7regtailEPcPKc.exit106
   %396 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %397 = load i64, ptr %396, align 8, !tbaa !32
+  %397 = load i64, ptr %396, align 8, !tbaa !31
   %398 = add nsw i64 %397, 3
-  store i64 %398, ptr %396, align 8, !tbaa !32
+  store i64 %398, ptr %396, align 8, !tbaa !31
   br label %_ZN5cmsys13RegExpCompile7regnodeEc.exit107
 
 399:                                              ; preds = %_ZN5cmsys13RegExpCompile7regtailEPcPKc.exit106
@@ -2278,7 +2278,7 @@ _ZN5cmsys13RegExpCompile7regtailEPcPKc.exit106:   ; preds = %_ZN5cmsys13RegExpCo
   store i8 0, ptr %400, align 1, !tbaa !14
   %402 = getelementptr inbounds nuw i8, ptr %393, i64 3
   store i8 0, ptr %401, align 1, !tbaa !14
-  store ptr %402, ptr %342, align 8, !tbaa !31
+  store ptr %402, ptr %342, align 8, !tbaa !30
   br label %_ZN5cmsys13RegExpCompile7regnodeEc.exit107
 
 _ZN5cmsys13RegExpCompile7regnodeEc.exit107:       ; preds = %395, %399
@@ -2305,7 +2305,7 @@ _ZN5cmsysL7regnextEPc.exit.i110:                  ; preds = %.preheader.i108
   %.0.i.v.i111 = select i1 %413, i64 %415, i64 %414
   %.0.i.i112 = getelementptr inbounds i8, ptr %.01318.i109, i64 %.0.i.v.i111
   %416 = icmp eq ptr %.0.i.i112, @_ZN5cmsysL8regdummyE
-  br i1 %416, label %_ZN5cmsys13RegExpCompile7regtailEPcPKc.exit117, label %.preheader.i108, !llvm.loop !36
+  br i1 %416, label %_ZN5cmsys13RegExpCompile7regtailEPcPKc.exit117, label %.preheader.i108, !llvm.loop !35
 
 _ZN5cmsys13RegExpCompile7regtailEPcPKc.exit117:   ; preds = %.preheader.i108, %_ZN5cmsysL7regnextEPc.exit.i110
   %.013.lcssa.i114 = phi ptr [ %.01318.i109, %.preheader.i108 ], [ @_ZN5cmsysL8regdummyE, %_ZN5cmsysL7regnextEPc.exit.i110 ]
@@ -2351,7 +2351,7 @@ _ZN5cmsysL7regnextEPc.exit.i.i123:                ; preds = %.preheader.i.i121
   %.0.i.v.i.i124 = select i1 %440, i64 %442, i64 %441
   %.0.i.i.i125 = getelementptr inbounds i8, ptr %.01318.i.i122, i64 %.0.i.v.i.i124
   %443 = icmp eq ptr %.0.i.i.i125, @_ZN5cmsysL8regdummyE
-  br i1 %443, label %_ZN5cmsysL7regnextEPc.exit.thread.i.i126, label %.preheader.i.i121, !llvm.loop !36
+  br i1 %443, label %_ZN5cmsysL7regnextEPc.exit.thread.i.i126, label %.preheader.i.i121, !llvm.loop !35
 
 _ZN5cmsysL7regnextEPc.exit.thread.i.i126:         ; preds = %_ZN5cmsysL7regnextEPc.exit.i.i123, %.preheader.i.i121
   %.013.lcssa.i.i127 = phi ptr [ %.01318.i.i122, %.preheader.i.i121 ], [ @_ZN5cmsysL8regdummyE, %_ZN5cmsysL7regnextEPc.exit.i.i123 ]
@@ -2371,9 +2371,9 @@ _ZN5cmsysL7regnextEPc.exit.thread.i.i126:         ; preds = %_ZN5cmsysL7regnextE
   br label %_ZN5cmsys13RegExpCompile9reginsertEcPc.exit
 
 _ZN5cmsys13RegExpCompile9reginsertEcPc.exit:      ; preds = %_ZN5cmsysL7regnextEPc.exit.thread.i175, %_ZN5cmsys13RegExpCompile7regnodeEc.exit90, %_ZN5cmsys13RegExpCompile7regnodeEc.exit107, %_ZN5cmsysL7regnextEPc.exit.thread.i.i126, %_ZN5cmsys13RegExpCompile7regtailEPcPKc.exit117, %._crit_edge.i82, %192, %_ZN5cmsysL7regnextEPc.exit.thread.i77, %_ZN5cmsys13RegExpCompile7regnodeEc.exit71, %._crit_edge.i, %27, %.critedge50
-  %453 = load ptr, ptr %0, align 8, !tbaa !28
+  %453 = load ptr, ptr %0, align 8, !tbaa !27
   %454 = getelementptr inbounds nuw i8, ptr %453, i64 1
-  store ptr %454, ptr %0, align 8, !tbaa !28
+  store ptr %454, ptr %0, align 8, !tbaa !27
   %455 = load i8, ptr %454, align 1, !tbaa !14
   switch i8 %455, label %457 [
     i8 42, label %456
@@ -2395,10 +2395,10 @@ _ZN5cmsys13RegExpCompile9reginsertEcPc.exit:      ; preds = %_ZN5cmsysL7regnextE
 define dso_local noundef ptr @_ZN5cmsys13RegExpCompile7regatomEPi(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef captures(none) initializes((0, 4)) %1) local_unnamed_addr #7 align 2 {
   %3 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #16
-  store i32 0, ptr %1, align 4, !tbaa !34
-  %4 = load ptr, ptr %0, align 8, !tbaa !28
+  store i32 0, ptr %1, align 4, !tbaa !33
+  %4 = load ptr, ptr %0, align 8, !tbaa !27
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 1
-  store ptr %5, ptr %0, align 8, !tbaa !28
+  store ptr %5, ptr %0, align 8, !tbaa !27
   %6 = load i8, ptr %4, align 1, !tbaa !14
   switch i8 %6, label %182 [
     i8 94, label %7
@@ -2417,15 +2417,15 @@ define dso_local noundef ptr @_ZN5cmsys13RegExpCompile7regatomEPi(ptr noundef no
 
 7:                                                ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %9 = load ptr, ptr %8, align 8, !tbaa !31
+  %9 = load ptr, ptr %8, align 8, !tbaa !30
   %10 = icmp eq ptr %9, @_ZN5cmsysL8regdummyE
   br i1 %10, label %11, label %15
 
 11:                                               ; preds = %7
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %13 = load i64, ptr %12, align 8, !tbaa !32
+  %13 = load i64, ptr %12, align 8, !tbaa !31
   %14 = add nsw i64 %13, 3
-  store i64 %14, ptr %12, align 8, !tbaa !32
+  store i64 %14, ptr %12, align 8, !tbaa !31
   br label %.critedge58
 
 15:                                               ; preds = %7
@@ -2435,20 +2435,20 @@ define dso_local noundef ptr @_ZN5cmsys13RegExpCompile7regatomEPi(ptr noundef no
   store i8 0, ptr %16, align 1, !tbaa !14
   %18 = getelementptr inbounds nuw i8, ptr %9, i64 3
   store i8 0, ptr %17, align 1, !tbaa !14
-  store ptr %18, ptr %8, align 8, !tbaa !31
+  store ptr %18, ptr %8, align 8, !tbaa !30
   br label %.critedge58
 
 19:                                               ; preds = %2
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %21 = load ptr, ptr %20, align 8, !tbaa !31
+  %21 = load ptr, ptr %20, align 8, !tbaa !30
   %22 = icmp eq ptr %21, @_ZN5cmsysL8regdummyE
   br i1 %22, label %23, label %27
 
 23:                                               ; preds = %19
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %25 = load i64, ptr %24, align 8, !tbaa !32
+  %25 = load i64, ptr %24, align 8, !tbaa !31
   %26 = add nsw i64 %25, 3
-  store i64 %26, ptr %24, align 8, !tbaa !32
+  store i64 %26, ptr %24, align 8, !tbaa !31
   br label %.critedge58
 
 27:                                               ; preds = %19
@@ -2458,20 +2458,20 @@ define dso_local noundef ptr @_ZN5cmsys13RegExpCompile7regatomEPi(ptr noundef no
   store i8 0, ptr %28, align 1, !tbaa !14
   %30 = getelementptr inbounds nuw i8, ptr %21, i64 3
   store i8 0, ptr %29, align 1, !tbaa !14
-  store ptr %30, ptr %20, align 8, !tbaa !31
+  store ptr %30, ptr %20, align 8, !tbaa !30
   br label %.critedge58
 
 31:                                               ; preds = %2
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %33 = load ptr, ptr %32, align 8, !tbaa !31
+  %33 = load ptr, ptr %32, align 8, !tbaa !30
   %34 = icmp eq ptr %33, @_ZN5cmsysL8regdummyE
   br i1 %34, label %35, label %39
 
 35:                                               ; preds = %31
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %37 = load i64, ptr %36, align 8, !tbaa !32
+  %37 = load i64, ptr %36, align 8, !tbaa !31
   %38 = add nsw i64 %37, 3
-  store i64 %38, ptr %36, align 8, !tbaa !32
+  store i64 %38, ptr %36, align 8, !tbaa !31
   br label %_ZN5cmsys13RegExpCompile7regnodeEc.exit61
 
 39:                                               ; preds = %31
@@ -2481,21 +2481,21 @@ define dso_local noundef ptr @_ZN5cmsys13RegExpCompile7regatomEPi(ptr noundef no
   store i8 0, ptr %40, align 1, !tbaa !14
   %42 = getelementptr inbounds nuw i8, ptr %33, i64 3
   store i8 0, ptr %41, align 1, !tbaa !14
-  store ptr %42, ptr %32, align 8, !tbaa !31
-  %.pre106 = load i32, ptr %1, align 4, !tbaa !34
+  store ptr %42, ptr %32, align 8, !tbaa !30
+  %.pre106 = load i32, ptr %1, align 4, !tbaa !33
   %43 = or i32 %.pre106, 3
   br label %_ZN5cmsys13RegExpCompile7regnodeEc.exit61
 
 _ZN5cmsys13RegExpCompile7regnodeEc.exit61:        ; preds = %35, %39
   %44 = phi i32 [ 3, %35 ], [ %43, %39 ]
-  store i32 %44, ptr %1, align 4, !tbaa !34
+  store i32 %44, ptr %1, align 4, !tbaa !33
   br label %.critedge58
 
 45:                                               ; preds = %2
   %46 = load i8, ptr %5, align 1, !tbaa !14
   %47 = icmp eq i8 %46, 94
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %49 = load ptr, ptr %48, align 8, !tbaa !31
+  %49 = load ptr, ptr %48, align 8, !tbaa !30
   %50 = icmp eq ptr %49, @_ZN5cmsysL8regdummyE
   br i1 %47, label %51, label %63
 
@@ -2504,9 +2504,9 @@ _ZN5cmsys13RegExpCompile7regnodeEc.exit61:        ; preds = %35, %39
 
 52:                                               ; preds = %51
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %54 = load i64, ptr %53, align 8, !tbaa !32
+  %54 = load i64, ptr %53, align 8, !tbaa !31
   %55 = add nsw i64 %54, 3
-  store i64 %55, ptr %53, align 8, !tbaa !32
+  store i64 %55, ptr %53, align 8, !tbaa !31
   br label %_ZN5cmsys13RegExpCompile7regnodeEc.exit62
 
 56:                                               ; preds = %51
@@ -2516,15 +2516,15 @@ _ZN5cmsys13RegExpCompile7regnodeEc.exit61:        ; preds = %35, %39
   store i8 0, ptr %57, align 1, !tbaa !14
   %59 = getelementptr inbounds nuw i8, ptr %49, i64 3
   store i8 0, ptr %58, align 1, !tbaa !14
-  store ptr %59, ptr %48, align 8, !tbaa !31
-  %.pre102 = load ptr, ptr %0, align 8, !tbaa !28
+  store ptr %59, ptr %48, align 8, !tbaa !30
+  %.pre102 = load ptr, ptr %0, align 8, !tbaa !27
   br label %_ZN5cmsys13RegExpCompile7regnodeEc.exit62
 
 _ZN5cmsys13RegExpCompile7regnodeEc.exit62:        ; preds = %52, %56
   %60 = phi ptr [ @_ZN5cmsysL8regdummyE, %52 ], [ %59, %56 ]
   %61 = phi ptr [ %5, %52 ], [ %.pre102, %56 ]
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 1
-  store ptr %62, ptr %0, align 8, !tbaa !28
+  store ptr %62, ptr %0, align 8, !tbaa !27
   br label %_ZN5cmsys13RegExpCompile7regnodeEc.exit63
 
 63:                                               ; preds = %45
@@ -2532,9 +2532,9 @@ _ZN5cmsys13RegExpCompile7regnodeEc.exit62:        ; preds = %52, %56
 
 64:                                               ; preds = %63
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %66 = load i64, ptr %65, align 8, !tbaa !32
+  %66 = load i64, ptr %65, align 8, !tbaa !31
   %67 = add nsw i64 %66, 3
-  store i64 %67, ptr %65, align 8, !tbaa !32
+  store i64 %67, ptr %65, align 8, !tbaa !31
   br label %_ZN5cmsys13RegExpCompile7regnodeEc.exit63
 
 68:                                               ; preds = %63
@@ -2544,8 +2544,8 @@ _ZN5cmsys13RegExpCompile7regnodeEc.exit62:        ; preds = %52, %56
   store i8 0, ptr %69, align 1, !tbaa !14
   %71 = getelementptr inbounds nuw i8, ptr %49, i64 3
   store i8 0, ptr %70, align 1, !tbaa !14
-  store ptr %71, ptr %48, align 8, !tbaa !31
-  %.pre103 = load ptr, ptr %0, align 8, !tbaa !28
+  store ptr %71, ptr %48, align 8, !tbaa !30
+  %.pre103 = load ptr, ptr %0, align 8, !tbaa !27
   br label %_ZN5cmsys13RegExpCompile7regnodeEc.exit63
 
 _ZN5cmsys13RegExpCompile7regnodeEc.exit63:        ; preds = %68, %64, %_ZN5cmsys13RegExpCompile7regnodeEc.exit62
@@ -2560,7 +2560,7 @@ _ZN5cmsys13RegExpCompile7regnodeEc.exit63:        ; preds = %68, %64, %_ZN5cmsys
 
 75:                                               ; preds = %_ZN5cmsys13RegExpCompile7regnodeEc.exit63, %_ZN5cmsys13RegExpCompile7regnodeEc.exit63
   %76 = getelementptr inbounds nuw i8, ptr %73, i64 1
-  store ptr %76, ptr %0, align 8, !tbaa !28
+  store ptr %76, ptr %0, align 8, !tbaa !27
   %.not.i = icmp eq ptr %72, @_ZN5cmsysL8regdummyE
   br i1 %.not.i, label %81, label %77
 
@@ -2568,15 +2568,15 @@ _ZN5cmsys13RegExpCompile7regnodeEc.exit63:        ; preds = %68, %64, %_ZN5cmsys
   %78 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %79 = load i8, ptr %73, align 1, !tbaa !14
   %80 = getelementptr inbounds nuw i8, ptr %72, i64 1
-  store ptr %80, ptr %78, align 8, !tbaa !31
+  store ptr %80, ptr %78, align 8, !tbaa !30
   store i8 %79, ptr %72, align 1, !tbaa !14
   br label %_ZN5cmsys13RegExpCompile4regcEc.exit
 
 81:                                               ; preds = %75
   %82 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %83 = load i64, ptr %82, align 8, !tbaa !32
+  %83 = load i64, ptr %82, align 8, !tbaa !31
   %84 = add nsw i64 %83, 1
-  store i64 %84, ptr %82, align 8, !tbaa !32
+  store i64 %84, ptr %82, align 8, !tbaa !31
   br label %_ZN5cmsys13RegExpCompile4regcEc.exit
 
 _ZN5cmsys13RegExpCompile4regcEc.exit:             ; preds = %81, %77, %_ZN5cmsys13RegExpCompile7regnodeEc.exit63
@@ -2585,7 +2585,7 @@ _ZN5cmsys13RegExpCompile4regcEc.exit:             ; preds = %81, %77, %_ZN5cmsys
   br label %_ZN5cmsys13RegExpCompile4regcEc.exit65
 
 _ZN5cmsys13RegExpCompile4regcEc.exit65:           ; preds = %_ZN5cmsys13RegExpCompile4regcEc.exit65.backedge, %_ZN5cmsys13RegExpCompile4regcEc.exit
-  %87 = load ptr, ptr %0, align 8, !tbaa !28
+  %87 = load ptr, ptr %0, align 8, !tbaa !27
   %88 = load i8, ptr %87, align 1, !tbaa !14
   switch i8 %88, label %122 [
     i8 0, label %.critedge
@@ -2595,7 +2595,7 @@ _ZN5cmsys13RegExpCompile4regcEc.exit65:           ; preds = %_ZN5cmsys13RegExpCo
 
 89:                                               ; preds = %_ZN5cmsys13RegExpCompile4regcEc.exit65
   %90 = getelementptr inbounds nuw i8, ptr %87, i64 1
-  store ptr %90, ptr %0, align 8, !tbaa !28
+  store ptr %90, ptr %0, align 8, !tbaa !27
   %91 = load i8, ptr %90, align 1, !tbaa !14
   switch i8 %91, label %99 [
     i8 93, label %92
@@ -2603,20 +2603,20 @@ _ZN5cmsys13RegExpCompile4regcEc.exit65:           ; preds = %_ZN5cmsys13RegExpCo
   ]
 
 92:                                               ; preds = %89, %89
-  %93 = load ptr, ptr %85, align 8, !tbaa !31
+  %93 = load ptr, ptr %85, align 8, !tbaa !30
   %.not.i64 = icmp eq ptr %93, @_ZN5cmsysL8regdummyE
   br i1 %.not.i64, label %96, label %94
 
 94:                                               ; preds = %92
   %95 = getelementptr inbounds nuw i8, ptr %93, i64 1
-  store ptr %95, ptr %85, align 8, !tbaa !31
+  store ptr %95, ptr %85, align 8, !tbaa !30
   store i8 45, ptr %93, align 1, !tbaa !14
   br label %_ZN5cmsys13RegExpCompile4regcEc.exit65.backedge
 
 96:                                               ; preds = %92
-  %97 = load i64, ptr %86, align 8, !tbaa !32
+  %97 = load i64, ptr %86, align 8, !tbaa !31
   %98 = add nsw i64 %97, 1
-  store i64 %98, ptr %86, align 8, !tbaa !32
+  store i64 %98, ptr %86, align 8, !tbaa !31
   br label %_ZN5cmsys13RegExpCompile4regcEc.exit65.backedge
 
 99:                                               ; preds = %89
@@ -2632,18 +2632,18 @@ _ZN5cmsys13RegExpCompile4regcEc.exit65:           ; preds = %_ZN5cmsys13RegExpCo
   br i1 %.not53.not90, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader
-  %105 = load ptr, ptr %85, align 8, !tbaa !31
+  %105 = load ptr, ptr %85, align 8, !tbaa !30
   %106 = icmp eq ptr %105, @_ZN5cmsysL8regdummyE
   br i1 %106, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph
-  %.promoted = load i64, ptr %86, align 8, !tbaa !32
+  %.promoted = load i64, ptr %86, align 8, !tbaa !31
   %107 = add i64 %.promoted, 1
   %108 = xor i32 %102, -1
   %109 = add nsw i32 %108, %103
   %110 = zext i32 %109 to i64
   %111 = add i64 %107, %110
-  store i64 %111, ptr %86, align 8, !tbaa !32
+  store i64 %111, ptr %86, align 8, !tbaa !31
   br label %._crit_edge
 
 112:                                              ; preds = %99
@@ -2651,7 +2651,7 @@ _ZN5cmsys13RegExpCompile4regcEc.exit65:           ; preds = %_ZN5cmsys13RegExpCo
   br label %.critedge58
 
 .lr.ph.splitthread-pre-split:                     ; preds = %_ZN5cmsys13RegExpCompile4regcEc.exit67
-  %.pr = load ptr, ptr %85, align 8, !tbaa !31
+  %.pr = load ptr, ptr %85, align 8, !tbaa !30
   br label %.lr.ph.split
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.splitthread-pre-split
@@ -2664,69 +2664,69 @@ _ZN5cmsys13RegExpCompile4regcEc.exit65:           ; preds = %_ZN5cmsys13RegExpCo
 114:                                              ; preds = %.lr.ph.split
   %115 = trunc nuw i32 %.041 to i8
   %116 = getelementptr inbounds nuw i8, ptr %113, i64 1
-  store ptr %116, ptr %85, align 8, !tbaa !31
+  store ptr %116, ptr %85, align 8, !tbaa !30
   store i8 %115, ptr %113, align 1, !tbaa !14
   br label %_ZN5cmsys13RegExpCompile4regcEc.exit67
 
 117:                                              ; preds = %.lr.ph.split
-  %118 = load i64, ptr %86, align 8, !tbaa !32
+  %118 = load i64, ptr %86, align 8, !tbaa !31
   %119 = add nsw i64 %118, 1
-  store i64 %119, ptr %86, align 8, !tbaa !32
+  store i64 %119, ptr %86, align 8, !tbaa !31
   br label %_ZN5cmsys13RegExpCompile4regcEc.exit67
 
 _ZN5cmsys13RegExpCompile4regcEc.exit67:           ; preds = %114, %117
   %exitcond.not = icmp eq i32 %.041, %103
-  br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph.splitthread-pre-split, !llvm.loop !41
+  br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph.splitthread-pre-split, !llvm.loop !40
 
 ._crit_edge.loopexit:                             ; preds = %_ZN5cmsys13RegExpCompile4regcEc.exit67
-  %.pre104 = load ptr, ptr %0, align 8, !tbaa !28
+  %.pre104 = load ptr, ptr %0, align 8, !tbaa !27
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.lr.ph.split.us, %.preheader
   %120 = phi ptr [ %.pre104, %._crit_edge.loopexit ], [ %90, %.lr.ph.split.us ], [ %90, %.preheader ]
   %121 = getelementptr inbounds nuw i8, ptr %120, i64 1
-  store ptr %121, ptr %0, align 8, !tbaa !28
+  store ptr %121, ptr %0, align 8, !tbaa !27
   br label %_ZN5cmsys13RegExpCompile4regcEc.exit65.backedge
 
 122:                                              ; preds = %_ZN5cmsys13RegExpCompile4regcEc.exit65
   %123 = getelementptr inbounds nuw i8, ptr %87, i64 1
-  store ptr %123, ptr %0, align 8, !tbaa !28
-  %124 = load ptr, ptr %85, align 8, !tbaa !31
+  store ptr %123, ptr %0, align 8, !tbaa !27
+  %124 = load ptr, ptr %85, align 8, !tbaa !30
   %.not.i68 = icmp eq ptr %124, @_ZN5cmsysL8regdummyE
   br i1 %.not.i68, label %128, label %125
 
 125:                                              ; preds = %122
   %126 = load i8, ptr %87, align 1, !tbaa !14
   %127 = getelementptr inbounds nuw i8, ptr %124, i64 1
-  store ptr %127, ptr %85, align 8, !tbaa !31
+  store ptr %127, ptr %85, align 8, !tbaa !30
   store i8 %126, ptr %124, align 1, !tbaa !14
   br label %_ZN5cmsys13RegExpCompile4regcEc.exit65.backedge
 
 128:                                              ; preds = %122
-  %129 = load i64, ptr %86, align 8, !tbaa !32
+  %129 = load i64, ptr %86, align 8, !tbaa !31
   %130 = add nsw i64 %129, 1
-  store i64 %130, ptr %86, align 8, !tbaa !32
+  store i64 %130, ptr %86, align 8, !tbaa !31
   br label %_ZN5cmsys13RegExpCompile4regcEc.exit65.backedge
 
 _ZN5cmsys13RegExpCompile4regcEc.exit65.backedge:  ; preds = %128, %125, %96, %94, %._crit_edge
-  br label %_ZN5cmsys13RegExpCompile4regcEc.exit65, !llvm.loop !43
+  br label %_ZN5cmsys13RegExpCompile4regcEc.exit65, !llvm.loop !42
 
 .critedge:                                        ; preds = %_ZN5cmsys13RegExpCompile4regcEc.exit65, %_ZN5cmsys13RegExpCompile4regcEc.exit65
-  %131 = load ptr, ptr %85, align 8, !tbaa !31
+  %131 = load ptr, ptr %85, align 8, !tbaa !30
   %.not.i70 = icmp eq ptr %131, @_ZN5cmsysL8regdummyE
   br i1 %.not.i70, label %134, label %132
 
 132:                                              ; preds = %.critedge
   %133 = getelementptr inbounds nuw i8, ptr %131, i64 1
-  store ptr %133, ptr %85, align 8, !tbaa !31
+  store ptr %133, ptr %85, align 8, !tbaa !30
   store i8 0, ptr %131, align 1, !tbaa !14
-  %.pre105 = load ptr, ptr %0, align 8, !tbaa !28
+  %.pre105 = load ptr, ptr %0, align 8, !tbaa !27
   br label %_ZN5cmsys13RegExpCompile4regcEc.exit71
 
 134:                                              ; preds = %.critedge
-  %135 = load i64, ptr %86, align 8, !tbaa !32
+  %135 = load i64, ptr %86, align 8, !tbaa !31
   %136 = add nsw i64 %135, 1
-  store i64 %136, ptr %86, align 8, !tbaa !32
+  store i64 %136, ptr %86, align 8, !tbaa !31
   br label %_ZN5cmsys13RegExpCompile4regcEc.exit71
 
 _ZN5cmsys13RegExpCompile4regcEc.exit71:           ; preds = %132, %134
@@ -2741,10 +2741,10 @@ _ZN5cmsys13RegExpCompile4regcEc.exit71:           ; preds = %132, %134
 
 140:                                              ; preds = %_ZN5cmsys13RegExpCompile4regcEc.exit71
   %141 = getelementptr inbounds nuw i8, ptr %137, i64 1
-  store ptr %141, ptr %0, align 8, !tbaa !28
-  %142 = load i32, ptr %1, align 4, !tbaa !34
+  store ptr %141, ptr %0, align 8, !tbaa !27
+  %142 = load i32, ptr %1, align 4, !tbaa !33
   %143 = or i32 %142, 3
-  store i32 %143, ptr %1, align 4, !tbaa !34
+  store i32 %143, ptr %1, align 4, !tbaa !33
   br label %.critedge58
 
 144:                                              ; preds = %2
@@ -2753,11 +2753,11 @@ _ZN5cmsys13RegExpCompile4regcEc.exit71:           ; preds = %132, %134
   br i1 %.not, label %.critedge58, label %146
 
 146:                                              ; preds = %144
-  %147 = load i32, ptr %3, align 4, !tbaa !34
+  %147 = load i32, ptr %3, align 4, !tbaa !33
   %148 = and i32 %147, 5
-  %149 = load i32, ptr %1, align 4, !tbaa !34
+  %149 = load i32, ptr %1, align 4, !tbaa !33
   %150 = or i32 %149, %148
-  store i32 %150, ptr %1, align 4, !tbaa !34
+  store i32 %150, ptr %1, align 4, !tbaa !33
   br label %.critedge58
 
 151:                                              ; preds = %2, %2, %2
@@ -2779,17 +2779,17 @@ _ZN5cmsys13RegExpCompile4regcEc.exit71:           ; preds = %132, %134
 
 157:                                              ; preds = %153
   %158 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %159 = load ptr, ptr %158, align 8, !tbaa !31
+  %159 = load ptr, ptr %158, align 8, !tbaa !30
   %160 = icmp eq ptr %159, @_ZN5cmsysL8regdummyE
   br i1 %160, label %_ZN5cmsys13RegExpCompile7regnodeEc.exit72.thread, label %_ZN5cmsys13RegExpCompile7regnodeEc.exit72
 
 _ZN5cmsys13RegExpCompile7regnodeEc.exit72.thread: ; preds = %157
   %161 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %162 = load i64, ptr %161, align 8, !tbaa !32
+  %162 = load i64, ptr %161, align 8, !tbaa !31
   %163 = add nsw i64 %162, 3
-  store i64 %163, ptr %161, align 8, !tbaa !32
+  store i64 %163, ptr %161, align 8, !tbaa !31
   %164 = getelementptr inbounds nuw i8, ptr %4, i64 2
-  store ptr %164, ptr %0, align 8, !tbaa !28
+  store ptr %164, ptr %0, align 8, !tbaa !27
   br label %_ZN5cmsys13RegExpCompile4regcEc.exit74.thread
 
 _ZN5cmsys13RegExpCompile7regnodeEc.exit72:        ; preds = %157
@@ -2799,50 +2799,50 @@ _ZN5cmsys13RegExpCompile7regnodeEc.exit72:        ; preds = %157
   store i8 0, ptr %165, align 1, !tbaa !14
   %167 = getelementptr inbounds nuw i8, ptr %159, i64 3
   store i8 0, ptr %166, align 1, !tbaa !14
-  store ptr %167, ptr %158, align 8, !tbaa !31
-  %.pre = load ptr, ptr %0, align 8, !tbaa !28
+  store ptr %167, ptr %158, align 8, !tbaa !30
+  %.pre = load ptr, ptr %0, align 8, !tbaa !27
   %168 = getelementptr inbounds nuw i8, ptr %.pre, i64 1
-  store ptr %168, ptr %0, align 8, !tbaa !28
+  store ptr %168, ptr %0, align 8, !tbaa !27
   %.not.i73 = icmp eq ptr %167, @_ZN5cmsysL8regdummyE
   br i1 %.not.i73, label %_ZN5cmsys13RegExpCompile4regcEc.exit74.thread, label %_ZN5cmsys13RegExpCompile4regcEc.exit74
 
 _ZN5cmsys13RegExpCompile4regcEc.exit74.thread:    ; preds = %_ZN5cmsys13RegExpCompile7regnodeEc.exit72, %_ZN5cmsys13RegExpCompile7regnodeEc.exit72.thread
   %169 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %170 = load i64, ptr %169, align 8, !tbaa !32
+  %170 = load i64, ptr %169, align 8, !tbaa !31
   %171 = add nsw i64 %170, 1
-  store i64 %171, ptr %169, align 8, !tbaa !32
+  store i64 %171, ptr %169, align 8, !tbaa !31
   br label %176
 
 _ZN5cmsys13RegExpCompile4regcEc.exit74:           ; preds = %_ZN5cmsys13RegExpCompile7regnodeEc.exit72
   %172 = load i8, ptr %.pre, align 1, !tbaa !14
   %173 = getelementptr inbounds nuw i8, ptr %159, i64 4
-  store ptr %173, ptr %158, align 8, !tbaa !31
+  store ptr %173, ptr %158, align 8, !tbaa !30
   store i8 %172, ptr %167, align 1, !tbaa !14
-  %.pre101 = load ptr, ptr %158, align 8, !tbaa !31
+  %.pre101 = load ptr, ptr %158, align 8, !tbaa !30
   %.not.i75 = icmp eq ptr %.pre101, @_ZN5cmsysL8regdummyE
   br i1 %.not.i75, label %176, label %174
 
 174:                                              ; preds = %_ZN5cmsys13RegExpCompile4regcEc.exit74
   %175 = getelementptr inbounds nuw i8, ptr %.pre101, i64 1
-  store ptr %175, ptr %158, align 8, !tbaa !31
+  store ptr %175, ptr %158, align 8, !tbaa !30
   store i8 0, ptr %.pre101, align 1, !tbaa !14
   br label %_ZN5cmsys13RegExpCompile4regcEc.exit76
 
 176:                                              ; preds = %_ZN5cmsys13RegExpCompile4regcEc.exit74.thread, %_ZN5cmsys13RegExpCompile4regcEc.exit74
   %177 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %178 = load i64, ptr %177, align 8, !tbaa !32
+  %178 = load i64, ptr %177, align 8, !tbaa !31
   %179 = add nsw i64 %178, 1
-  store i64 %179, ptr %177, align 8, !tbaa !32
+  store i64 %179, ptr %177, align 8, !tbaa !31
   br label %_ZN5cmsys13RegExpCompile4regcEc.exit76
 
 _ZN5cmsys13RegExpCompile4regcEc.exit76:           ; preds = %174, %176
-  %180 = load i32, ptr %1, align 4, !tbaa !34
+  %180 = load i32, ptr %1, align 4, !tbaa !33
   %181 = or i32 %180, 3
-  store i32 %181, ptr %1, align 4, !tbaa !34
+  store i32 %181, ptr %1, align 4, !tbaa !33
   br label %.critedge58
 
 182:                                              ; preds = %2
-  store ptr %4, ptr %0, align 8, !tbaa !28
+  store ptr %4, ptr %0, align 8, !tbaa !27
   %183 = tail call i64 @strcspn(ptr noundef nonnull %4, ptr noundef nonnull @.str.13) #17
   %.fr = freeze i64 %183
   %184 = trunc i64 %.fr to i32
@@ -2876,17 +2876,17 @@ _ZN5cmsys13RegExpCompile4regcEc.exit76:           ; preds = %174, %176
 .thread:                                          ; preds = %192, %188, %187
   %.03484 = phi i32 [ 1, %187 ], [ %184, %188 ], [ %193, %192 ]
   %195 = phi i32 [ 3, %187 ], [ 1, %188 ], [ %spec.select, %192 ]
-  store i32 %195, ptr %1, align 4, !tbaa !34
+  store i32 %195, ptr %1, align 4, !tbaa !33
   %196 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %197 = load ptr, ptr %196, align 8, !tbaa !31
+  %197 = load ptr, ptr %196, align 8, !tbaa !30
   %198 = icmp eq ptr %197, @_ZN5cmsysL8regdummyE
   br i1 %198, label %.lr.ph93.thread, label %.lr.ph93
 
 .lr.ph93.thread:                                  ; preds = %.thread
   %199 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %200 = load i64, ptr %199, align 8, !tbaa !32
+  %200 = load i64, ptr %199, align 8, !tbaa !31
   %201 = add nsw i64 %200, 3
-  store i64 %201, ptr %199, align 8, !tbaa !32
+  store i64 %201, ptr %199, align 8, !tbaa !31
   %202 = getelementptr inbounds nuw i8, ptr %0, i64 24
   br label %._crit_edge94.thread
 
@@ -2897,52 +2897,52 @@ _ZN5cmsys13RegExpCompile4regcEc.exit76:           ; preds = %174, %176
   store i8 0, ptr %203, align 1, !tbaa !14
   %205 = getelementptr inbounds nuw i8, ptr %197, i64 3
   store i8 0, ptr %204, align 1, !tbaa !14
-  store ptr %205, ptr %196, align 8, !tbaa !31
+  store ptr %205, ptr %196, align 8, !tbaa !30
   %206 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %207 = icmp eq ptr %205, @_ZN5cmsysL8regdummyE
   br i1 %207, label %._crit_edge94.thread, label %.lr.ph93.split
 
 ._crit_edge94.thread:                             ; preds = %.lr.ph93, %.lr.ph93.thread
   %208 = phi ptr [ %202, %.lr.ph93.thread ], [ %206, %.lr.ph93 ]
-  %.promoted95 = load ptr, ptr %0, align 8, !tbaa !28
-  %.promoted97 = load i64, ptr %208, align 8, !tbaa !32
+  %.promoted95 = load ptr, ptr %0, align 8, !tbaa !27
+  %.promoted97 = load i64, ptr %208, align 8, !tbaa !31
   %209 = add nsw i32 %.03484, -1
   %210 = zext nneg i32 %209 to i64
   %211 = zext nneg i32 %.03484 to i64
   %scevgep = getelementptr i8, ptr %.promoted95, i64 %211
   %212 = add i64 %.promoted97, %210
   %213 = add i64 %212, 1
-  store ptr %scevgep, ptr %0, align 8, !tbaa !28
-  store i64 %213, ptr %208, align 8, !tbaa !32
+  store ptr %scevgep, ptr %0, align 8, !tbaa !27
+  store i64 %213, ptr %208, align 8, !tbaa !31
   br label %227
 
 .lr.ph93.split:                                   ; preds = %.lr.ph93, %_ZN5cmsys13RegExpCompile4regcEc.exit79
   %214 = phi ptr [ %.pr110, %_ZN5cmsys13RegExpCompile4regcEc.exit79 ], [ %205, %.lr.ph93 ]
   %.13592 = phi i32 [ %223, %_ZN5cmsys13RegExpCompile4regcEc.exit79 ], [ %.03484, %.lr.ph93 ]
-  %215 = load ptr, ptr %0, align 8, !tbaa !28
+  %215 = load ptr, ptr %0, align 8, !tbaa !27
   %216 = getelementptr inbounds nuw i8, ptr %215, i64 1
-  store ptr %216, ptr %0, align 8, !tbaa !28
+  store ptr %216, ptr %0, align 8, !tbaa !27
   %.not.i78 = icmp eq ptr %214, @_ZN5cmsysL8regdummyE
   br i1 %.not.i78, label %220, label %217
 
 217:                                              ; preds = %.lr.ph93.split
   %218 = load i8, ptr %215, align 1, !tbaa !14
   %219 = getelementptr inbounds nuw i8, ptr %214, i64 1
-  store ptr %219, ptr %196, align 8, !tbaa !31
+  store ptr %219, ptr %196, align 8, !tbaa !30
   store i8 %218, ptr %214, align 1, !tbaa !14
   br label %_ZN5cmsys13RegExpCompile4regcEc.exit79
 
 220:                                              ; preds = %.lr.ph93.split
-  %221 = load i64, ptr %206, align 8, !tbaa !32
+  %221 = load i64, ptr %206, align 8, !tbaa !31
   %222 = add nsw i64 %221, 1
-  store i64 %222, ptr %206, align 8, !tbaa !32
+  store i64 %222, ptr %206, align 8, !tbaa !31
   br label %_ZN5cmsys13RegExpCompile4regcEc.exit79
 
 _ZN5cmsys13RegExpCompile4regcEc.exit79:           ; preds = %217, %220
   %223 = add nsw i32 %.13592, -1
   %224 = icmp sgt i32 %.13592, 1
-  %.pr110 = load ptr, ptr %196, align 8, !tbaa !31
-  br i1 %224, label %.lr.ph93.split, label %._crit_edge94, !llvm.loop !44
+  %.pr110 = load ptr, ptr %196, align 8, !tbaa !30
+  br i1 %224, label %.lr.ph93.split, label %._crit_edge94, !llvm.loop !43
 
 ._crit_edge94:                                    ; preds = %_ZN5cmsys13RegExpCompile4regcEc.exit79
   %.not.i80 = icmp eq ptr %.pr110, @_ZN5cmsysL8regdummyE
@@ -2950,15 +2950,15 @@ _ZN5cmsys13RegExpCompile4regcEc.exit79:           ; preds = %217, %220
 
 225:                                              ; preds = %._crit_edge94
   %226 = getelementptr inbounds nuw i8, ptr %.pr110, i64 1
-  store ptr %226, ptr %196, align 8, !tbaa !31
+  store ptr %226, ptr %196, align 8, !tbaa !30
   store i8 0, ptr %.pr110, align 1, !tbaa !14
   br label %.critedge58
 
 227:                                              ; preds = %._crit_edge94.thread, %._crit_edge94
   %228 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %229 = load i64, ptr %228, align 8, !tbaa !32
+  %229 = load i64, ptr %228, align 8, !tbaa !31
   %230 = add nsw i64 %229, 1
-  store i64 %230, ptr %228, align 8, !tbaa !32
+  store i64 %230, ptr %228, align 8, !tbaa !31
   br label %.critedge58
 
 .critedge58:                                      ; preds = %186, %225, %227, %27, %23, %15, %11, %112, %139, %_ZN5cmsys13RegExpCompile7regnodeEc.exit61, %146, %_ZN5cmsys13RegExpCompile4regcEc.exit76, %140, %144, %156, %152, %151
@@ -2970,20 +2970,20 @@ _ZN5cmsys13RegExpCompile4regcEc.exit79:           ; preds = %217, %220
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define dso_local void @_ZN5cmsys13RegExpCompile9reginsertEcPc(ptr noundef nonnull align 8 captures(none) dereferenceable(32) %0, i8 noundef signext %1, ptr noundef writeonly captures(address) %2) local_unnamed_addr #9 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %5 = load ptr, ptr %4, align 8, !tbaa !31
+  %5 = load ptr, ptr %4, align 8, !tbaa !30
   %6 = icmp eq ptr %5, @_ZN5cmsysL8regdummyE
   br i1 %6, label %7, label %11
 
 7:                                                ; preds = %3
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %9 = load i64, ptr %8, align 8, !tbaa !32
+  %9 = load i64, ptr %8, align 8, !tbaa !31
   %10 = add nsw i64 %9, 3
-  store i64 %10, ptr %8, align 8, !tbaa !32
+  store i64 %10, ptr %8, align 8, !tbaa !31
   br label %20
 
 11:                                               ; preds = %3
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 3
-  store ptr %12, ptr %4, align 8, !tbaa !31
+  store ptr %12, ptr %4, align 8, !tbaa !30
   %13 = icmp ugt ptr %5, %2
   br i1 %13, label %.lr.ph, label %._crit_edge
 
@@ -2995,7 +2995,7 @@ define dso_local void @_ZN5cmsys13RegExpCompile9reginsertEcPc(ptr noundef nonnul
   %16 = getelementptr inbounds i8, ptr %.0912, i64 -1
   store i8 %15, ptr %16, align 1, !tbaa !14
   %17 = icmp ugt ptr %14, %2
-  br i1 %17, label %.lr.ph, label %._crit_edge, !llvm.loop !40
+  br i1 %17, label %.lr.ph, label %._crit_edge, !llvm.loop !39
 
 ._crit_edge:                                      ; preds = %.lr.ph, %11
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 1
@@ -3015,11 +3015,11 @@ declare i64 @strcspn(ptr noundef captures(none), ptr noundef captures(none)) loc
 ; Function Attrs: mustprogress nofree nounwind uwtable
 define dso_local noundef zeroext i1 @_ZNK5cmsys17RegularExpression4findEPKcRNS_22RegularExpressionMatchEmj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(560) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(520) initializes((0, 8), (256, 264), (512, 520)) %2, i64 noundef %3, i32 noundef %4) local_unnamed_addr #7 align 2 {
   %6 = alloca %"class.cmsys::RegExpFind", align 8
-  store ptr null, ptr %2, align 8, !tbaa !19
+  store ptr null, ptr %2, align 8, !tbaa !18
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 256
-  store ptr null, ptr %7, align 8, !tbaa !19
+  store ptr null, ptr %7, align 8, !tbaa !18
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 512
-  store ptr %1, ptr %8, align 8, !tbaa !33
+  store ptr %1, ptr %8, align 8, !tbaa !32
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 544
   %10 = load ptr, ptr %9, align 8, !tbaa !4
   %.not = icmp eq ptr %10, null
@@ -3036,7 +3036,7 @@ define dso_local noundef zeroext i1 @_ZNK5cmsys17RegularExpression4findEPKcRNS_2
 
 14:                                               ; preds = %11
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 528
-  %16 = load ptr, ptr %15, align 8, !tbaa !20
+  %16 = load ptr, ptr %15, align 8, !tbaa !19
   %.not35 = icmp eq ptr %16, null
   br i1 %.not35, label %.loopexit, label %17
 
@@ -3050,14 +3050,14 @@ define dso_local noundef zeroext i1 @_ZNK5cmsys17RegularExpression4findEPKcRNS_2
 
 .lr.ph:                                           ; preds = %17
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 536
-  %23 = load i64, ptr %22, align 8, !tbaa !23
+  %23 = load i64, ptr %22, align 8, !tbaa !22
   br label %27
 
 24:                                               ; preds = %27
   %25 = getelementptr inbounds nuw i8, ptr %28, i64 1
   %26 = tail call noundef ptr @strchr(ptr noundef nonnull dereferenceable(1) %25, i32 noundef %20) #17
   %.not36 = icmp eq ptr %26, null
-  br i1 %.not36, label %.critedge, label %27, !llvm.loop !45
+  br i1 %.not36, label %.critedge, label %27, !llvm.loop !44
 
 27:                                               ; preds = %.lr.ph, %24
   %28 = phi ptr [ %21, %.lr.ph ], [ %26, %24 ]
@@ -3072,23 +3072,23 @@ define dso_local noundef zeroext i1 @_ZNK5cmsys17RegularExpression4findEPKcRNS_2
   %.not37 = icmp eq i32 %32, 0
   %33 = select i1 %.not37, ptr %1, ptr %31
   %34 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store ptr %33, ptr %34, align 8, !tbaa !46
+  store ptr %33, ptr %34, align 8, !tbaa !45
   %35 = and i32 %4, 2
   %.not38 = icmp eq i32 %35, 0
   %36 = select i1 %.not38, ptr null, ptr %31
   %37 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  store ptr %36, ptr %37, align 8, !tbaa !49
+  store ptr %36, ptr %37, align 8, !tbaa !48
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 521
-  %39 = load i8, ptr %38, align 1, !tbaa !22
+  %39 = load i8, ptr %38, align 1, !tbaa !21
   %.not39 = icmp eq i8 %39, 0
   br i1 %.not39, label %51, label %40
 
 40:                                               ; preds = %.loopexit
-  store ptr %31, ptr %6, align 8, !tbaa !50
+  store ptr %31, ptr %6, align 8, !tbaa !49
   %41 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  store ptr %2, ptr %41, align 8, !tbaa !51
+  store ptr %2, ptr %41, align 8, !tbaa !50
   %42 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  store ptr %7, ptr %42, align 8, !tbaa !52
+  store ptr %7, ptr %42, align 8, !tbaa !51
   br label %43
 
 43:                                               ; preds = %43, %40
@@ -3096,12 +3096,12 @@ define dso_local noundef zeroext i1 @_ZNK5cmsys17RegularExpression4findEPKcRNS_2
   %.01418.i = phi ptr [ %2, %40 ], [ %44, %43 ]
   %.01517.i = phi i32 [ 32, %40 ], [ %46, %43 ]
   %44 = getelementptr inbounds nuw i8, ptr %.01418.i, i64 8
-  store ptr null, ptr %.01418.i, align 8, !tbaa !19
+  store ptr null, ptr %.01418.i, align 8, !tbaa !18
   %45 = getelementptr inbounds nuw i8, ptr %.019.i, i64 8
-  store ptr null, ptr %.019.i, align 8, !tbaa !19
+  store ptr null, ptr %.019.i, align 8, !tbaa !18
   %46 = add nsw i32 %.01517.i, -1
   %47 = icmp samesign ugt i32 %.01517.i, 1
-  br i1 %47, label %43, label %48, !llvm.loop !53
+  br i1 %47, label %43, label %48, !llvm.loop !52
 
 48:                                               ; preds = %43
   %49 = getelementptr inbounds nuw i8, ptr %10, i64 1
@@ -3111,7 +3111,7 @@ define dso_local noundef zeroext i1 @_ZNK5cmsys17RegularExpression4findEPKcRNS_2
 
 51:                                               ; preds = %.loopexit
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 520
-  %53 = load i8, ptr %52, align 8, !tbaa !21
+  %53 = load i8, ptr %52, align 8, !tbaa !20
   %.not40 = icmp eq i8 %53, 0
   br i1 %.not40, label %.preheader, label %.preheader61
 
@@ -3134,9 +3134,9 @@ define dso_local noundef zeroext i1 @_ZNK5cmsys17RegularExpression4findEPKcRNS_2
 60:                                               ; preds = %.lr.ph67, %71
   %61 = phi ptr [ %55, %.lr.ph67 ], [ %75, %71 ]
   %62 = load ptr, ptr %9, align 8, !tbaa !4
-  store ptr %61, ptr %6, align 8, !tbaa !50
-  store ptr %2, ptr %56, align 8, !tbaa !51
-  store ptr %7, ptr %57, align 8, !tbaa !52
+  store ptr %61, ptr %6, align 8, !tbaa !49
+  store ptr %2, ptr %56, align 8, !tbaa !50
+  store ptr %7, ptr %57, align 8, !tbaa !51
   br label %63
 
 63:                                               ; preds = %63, %60
@@ -3144,12 +3144,12 @@ define dso_local noundef zeroext i1 @_ZNK5cmsys17RegularExpression4findEPKcRNS_2
   %.01418.i46 = phi ptr [ %2, %60 ], [ %64, %63 ]
   %.01517.i47 = phi i32 [ 32, %60 ], [ %66, %63 ]
   %64 = getelementptr inbounds nuw i8, ptr %.01418.i46, i64 8
-  store ptr null, ptr %.01418.i46, align 8, !tbaa !19
+  store ptr null, ptr %.01418.i46, align 8, !tbaa !18
   %65 = getelementptr inbounds nuw i8, ptr %.019.i45, i64 8
-  store ptr null, ptr %.019.i45, align 8, !tbaa !19
+  store ptr null, ptr %.019.i45, align 8, !tbaa !18
   %66 = add nsw i32 %.01517.i47, -1
   %67 = icmp samesign ugt i32 %.01517.i47, 1
-  br i1 %67, label %63, label %68, !llvm.loop !53
+  br i1 %67, label %63, label %68, !llvm.loop !52
 
 68:                                               ; preds = %63
   %69 = getelementptr inbounds nuw i8, ptr %62, i64 1
@@ -3159,18 +3159,18 @@ define dso_local noundef zeroext i1 @_ZNK5cmsys17RegularExpression4findEPKcRNS_2
 
 71:                                               ; preds = %68
   %72 = getelementptr inbounds nuw i8, ptr %61, i64 1
-  %73 = load i8, ptr %52, align 8, !tbaa !21
+  %73 = load i8, ptr %52, align 8, !tbaa !20
   %74 = sext i8 %73 to i32
   %75 = call noundef ptr @strchr(ptr noundef nonnull dereferenceable(1) %72, i32 noundef %74) #17
   %.not43 = icmp eq ptr %75, null
-  br i1 %.not43, label %_ZN5cmsys10RegExpFind6regtryEPKcPS2_S3_S2_.exit, label %60, !llvm.loop !54
+  br i1 %.not43, label %_ZN5cmsys10RegExpFind6regtryEPKcPS2_S3_S2_.exit, label %60, !llvm.loop !53
 
 76:                                               ; preds = %.preheader, %86
   %.2 = phi ptr [ %87, %86 ], [ %31, %.preheader ]
   %77 = load ptr, ptr %9, align 8, !tbaa !4
-  store ptr %.2, ptr %6, align 8, !tbaa !50
-  store ptr %2, ptr %58, align 8, !tbaa !51
-  store ptr %7, ptr %59, align 8, !tbaa !52
+  store ptr %.2, ptr %6, align 8, !tbaa !49
+  store ptr %2, ptr %58, align 8, !tbaa !50
+  store ptr %7, ptr %59, align 8, !tbaa !51
   br label %78
 
 78:                                               ; preds = %78, %76
@@ -3178,12 +3178,12 @@ define dso_local noundef zeroext i1 @_ZNK5cmsys17RegularExpression4findEPKcRNS_2
   %.01418.i52 = phi ptr [ %2, %76 ], [ %79, %78 ]
   %.01517.i53 = phi i32 [ 32, %76 ], [ %81, %78 ]
   %79 = getelementptr inbounds nuw i8, ptr %.01418.i52, i64 8
-  store ptr null, ptr %.01418.i52, align 8, !tbaa !19
+  store ptr null, ptr %.01418.i52, align 8, !tbaa !18
   %80 = getelementptr inbounds nuw i8, ptr %.019.i51, i64 8
-  store ptr null, ptr %.019.i51, align 8, !tbaa !19
+  store ptr null, ptr %.019.i51, align 8, !tbaa !18
   %81 = add nsw i32 %.01517.i53, -1
   %82 = icmp samesign ugt i32 %.01517.i53, 1
-  br i1 %82, label %78, label %83, !llvm.loop !53
+  br i1 %82, label %78, label %83, !llvm.loop !52
 
 83:                                               ; preds = %78
   %84 = getelementptr inbounds nuw i8, ptr %77, i64 1
@@ -3195,13 +3195,13 @@ define dso_local noundef zeroext i1 @_ZNK5cmsys17RegularExpression4findEPKcRNS_2
   %87 = getelementptr inbounds nuw i8, ptr %.2, i64 1
   %88 = load i8, ptr %.2, align 1, !tbaa !14
   %.not42 = icmp eq i8 %88, 0
-  br i1 %.not42, label %_ZN5cmsys10RegExpFind6regtryEPKcPS2_S3_S2_.exit, label %76, !llvm.loop !55
+  br i1 %.not42, label %_ZN5cmsys10RegExpFind6regtryEPKcPS2_S3_S2_.exit, label %76, !llvm.loop !54
 
 _ZN5cmsys10RegExpFind6regtryEPKcPS2_S3_S2_.exit.sink.split: ; preds = %68, %83, %48
   %.sink = phi ptr [ %31, %48 ], [ %.2, %83 ], [ %61, %68 ]
-  store ptr %.sink, ptr %2, align 8, !tbaa !19
-  %89 = load ptr, ptr %6, align 8, !tbaa !50
-  store ptr %89, ptr %7, align 8, !tbaa !19
+  store ptr %.sink, ptr %2, align 8, !tbaa !18
+  %89 = load ptr, ptr %6, align 8, !tbaa !49
+  store ptr %89, ptr %7, align 8, !tbaa !18
   br label %_ZN5cmsys10RegExpFind6regtryEPKcPS2_S3_S2_.exit
 
 _ZN5cmsys10RegExpFind6regtryEPKcPS2_S3_S2_.exit:  ; preds = %71, %86, %_ZN5cmsys10RegExpFind6regtryEPKcPS2_S3_S2_.exit.sink.split, %.preheader61, %48
@@ -3222,11 +3222,11 @@ declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
 define dso_local noundef range(i32 0, 2) i32 @_ZN5cmsys10RegExpFind6regtryEPKcPS2_S3_S2_(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 8), (16, 32)) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #7 align 2 {
-  store ptr %1, ptr %0, align 8, !tbaa !50
+  store ptr %1, ptr %0, align 8, !tbaa !49
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %2, ptr %6, align 8, !tbaa !51
+  store ptr %2, ptr %6, align 8, !tbaa !50
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr %3, ptr %7, align 8, !tbaa !52
+  store ptr %3, ptr %7, align 8, !tbaa !51
   br label %8
 
 8:                                                ; preds = %5, %8
@@ -3234,12 +3234,12 @@ define dso_local noundef range(i32 0, 2) i32 @_ZN5cmsys10RegExpFind6regtryEPKcPS
   %.01418 = phi ptr [ %2, %5 ], [ %9, %8 ]
   %.01517 = phi i32 [ 32, %5 ], [ %11, %8 ]
   %9 = getelementptr inbounds nuw i8, ptr %.01418, i64 8
-  store ptr null, ptr %.01418, align 8, !tbaa !19
+  store ptr null, ptr %.01418, align 8, !tbaa !18
   %10 = getelementptr inbounds nuw i8, ptr %.019, i64 8
-  store ptr null, ptr %.019, align 8, !tbaa !19
+  store ptr null, ptr %.019, align 8, !tbaa !18
   %11 = add nsw i32 %.01517, -1
   %12 = icmp samesign ugt i32 %.01517, 1
-  br i1 %12, label %8, label %13, !llvm.loop !53
+  br i1 %12, label %8, label %13, !llvm.loop !52
 
 13:                                               ; preds = %8
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 1
@@ -3248,9 +3248,9 @@ define dso_local noundef range(i32 0, 2) i32 @_ZN5cmsys10RegExpFind6regtryEPKcPS
   br i1 %.not, label %18, label %16
 
 16:                                               ; preds = %13
-  store ptr %1, ptr %2, align 8, !tbaa !19
-  %17 = load ptr, ptr %0, align 8, !tbaa !50
-  store ptr %17, ptr %3, align 8, !tbaa !19
+  store ptr %1, ptr %2, align 8, !tbaa !18
+  %17 = load ptr, ptr %0, align 8, !tbaa !49
+  store ptr %17, ptr %3, align 8, !tbaa !18
   br label %18
 
 18:                                               ; preds = %13, %16
@@ -3405,7 +3405,7 @@ _ZN5cmsysL7regnextEPKc.exit:                      ; preds = %_ZN5cmsysL7regnextE
 
 34:                                               ; preds = %31
   %35 = getelementptr inbounds nuw i8, ptr %6, i64 1
-  store ptr %35, ptr %0, align 8, !tbaa !50
+  store ptr %35, ptr %0, align 8, !tbaa !49
   br label %139
 
 36:                                               ; preds = %_ZN5cmsysL7regnextEPKc.exit
@@ -3427,7 +3427,7 @@ _ZN5cmsysL7regnextEPKc.exit:                      ; preds = %_ZN5cmsysL7regnextE
 
 45:                                               ; preds = %40, %43
   %46 = getelementptr inbounds nuw i8, ptr %6, i64 %41
-  store ptr %46, ptr %0, align 8, !tbaa !50
+  store ptr %46, ptr %0, align 8, !tbaa !49
   br label %139
 
 47:                                               ; preds = %_ZN5cmsysL7regnextEPKc.exit
@@ -3444,7 +3444,7 @@ _ZN5cmsysL7regnextEPKc.exit:                      ; preds = %_ZN5cmsysL7regnextE
 
 54:                                               ; preds = %50
   %55 = getelementptr inbounds nuw i8, ptr %6, i64 1
-  store ptr %55, ptr %0, align 8, !tbaa !50
+  store ptr %55, ptr %0, align 8, !tbaa !49
   br label %139
 
 56:                                               ; preds = %_ZN5cmsysL7regnextEPKc.exit
@@ -3461,7 +3461,7 @@ _ZN5cmsysL7regnextEPKc.exit:                      ; preds = %_ZN5cmsysL7regnextE
 
 63:                                               ; preds = %59
   %64 = getelementptr inbounds nuw i8, ptr %6, i64 1
-  store ptr %64, ptr %0, align 8, !tbaa !50
+  store ptr %64, ptr %0, align 8, !tbaa !49
   br label %139
 
 65:                                               ; preds = %_ZN5cmsysL7regnextEPKc.exit, %_ZN5cmsysL7regnextEPKc.exit, %_ZN5cmsysL7regnextEPKc.exit, %_ZN5cmsysL7regnextEPKc.exit, %_ZN5cmsysL7regnextEPKc.exit, %_ZN5cmsysL7regnextEPKc.exit, %_ZN5cmsysL7regnextEPKc.exit, %_ZN5cmsysL7regnextEPKc.exit, %_ZN5cmsysL7regnextEPKc.exit, %_ZN5cmsysL7regnextEPKc.exit, %_ZN5cmsysL7regnextEPKc.exit, %_ZN5cmsysL7regnextEPKc.exit, %_ZN5cmsysL7regnextEPKc.exit, %_ZN5cmsysL7regnextEPKc.exit, %_ZN5cmsysL7regnextEPKc.exit, %_ZN5cmsysL7regnextEPKc.exit, %_ZN5cmsysL7regnextEPKc.exit, %_ZN5cmsysL7regnextEPKc.exit, %_ZN5cmsysL7regnextEPKc.exit, %_ZN5cmsysL7regnextEPKc.exit, %_ZN5cmsysL7regnextEPKc.exit, %_ZN5cmsysL7regnextEPKc.exit, %_ZN5cmsysL7regnextEPKc.exit, %_ZN5cmsysL7regnextEPKc.exit, %_ZN5cmsysL7regnextEPKc.exit, %_ZN5cmsysL7regnextEPKc.exit, %_ZN5cmsysL7regnextEPKc.exit, %_ZN5cmsysL7regnextEPKc.exit, %_ZN5cmsysL7regnextEPKc.exit, %_ZN5cmsysL7regnextEPKc.exit, %_ZN5cmsysL7regnextEPKc.exit, %_ZN5cmsysL7regnextEPKc.exit
@@ -3472,15 +3472,15 @@ _ZN5cmsysL7regnextEPKc.exit:                      ; preds = %_ZN5cmsysL7regnextE
 67:                                               ; preds = %65
   %68 = zext nneg i8 %27 to i64
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %70 = load ptr, ptr %69, align 8, !tbaa !51
+  %70 = load ptr, ptr %69, align 8, !tbaa !50
   %71 = getelementptr ptr, ptr %70, i64 %68
   %72 = getelementptr i8, ptr %71, i64 -160
-  %73 = load ptr, ptr %72, align 8, !tbaa !19
+  %73 = load ptr, ptr %72, align 8, !tbaa !18
   %.not68 = icmp eq ptr %73, null
   br i1 %.not68, label %74, label %.thread
 
 74:                                               ; preds = %67
-  store ptr %6, ptr %72, align 8, !tbaa !19
+  store ptr %6, ptr %72, align 8, !tbaa !18
   br label %.thread
 
 75:                                               ; preds = %_ZN5cmsysL7regnextEPKc.exit, %_ZN5cmsysL7regnextEPKc.exit, %_ZN5cmsysL7regnextEPKc.exit, %_ZN5cmsysL7regnextEPKc.exit, %_ZN5cmsysL7regnextEPKc.exit, %_ZN5cmsysL7regnextEPKc.exit, %_ZN5cmsysL7regnextEPKc.exit, %_ZN5cmsysL7regnextEPKc.exit, %_ZN5cmsysL7regnextEPKc.exit, %_ZN5cmsysL7regnextEPKc.exit, %_ZN5cmsysL7regnextEPKc.exit, %_ZN5cmsysL7regnextEPKc.exit, %_ZN5cmsysL7regnextEPKc.exit, %_ZN5cmsysL7regnextEPKc.exit, %_ZN5cmsysL7regnextEPKc.exit, %_ZN5cmsysL7regnextEPKc.exit, %_ZN5cmsysL7regnextEPKc.exit, %_ZN5cmsysL7regnextEPKc.exit, %_ZN5cmsysL7regnextEPKc.exit, %_ZN5cmsysL7regnextEPKc.exit, %_ZN5cmsysL7regnextEPKc.exit, %_ZN5cmsysL7regnextEPKc.exit, %_ZN5cmsysL7regnextEPKc.exit, %_ZN5cmsysL7regnextEPKc.exit, %_ZN5cmsysL7regnextEPKc.exit, %_ZN5cmsysL7regnextEPKc.exit, %_ZN5cmsysL7regnextEPKc.exit, %_ZN5cmsysL7regnextEPKc.exit, %_ZN5cmsysL7regnextEPKc.exit, %_ZN5cmsysL7regnextEPKc.exit, %_ZN5cmsysL7regnextEPKc.exit, %_ZN5cmsysL7regnextEPKc.exit
@@ -3491,15 +3491,15 @@ _ZN5cmsysL7regnextEPKc.exit:                      ; preds = %_ZN5cmsysL7regnextE
 77:                                               ; preds = %75
   %78 = zext nneg i8 %27 to i64
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %80 = load ptr, ptr %79, align 8, !tbaa !52
+  %80 = load ptr, ptr %79, align 8, !tbaa !51
   %81 = getelementptr ptr, ptr %80, i64 %78
   %82 = getelementptr i8, ptr %81, i64 -416
-  %83 = load ptr, ptr %82, align 8, !tbaa !19
+  %83 = load ptr, ptr %82, align 8, !tbaa !18
   %.not66 = icmp eq ptr %83, null
   br i1 %.not66, label %84, label %.thread
 
 84:                                               ; preds = %77
-  store ptr %6, ptr %82, align 8, !tbaa !19
+  store ptr %6, ptr %82, align 8, !tbaa !18
   br label %.thread
 
 85:                                               ; preds = %_ZN5cmsysL7regnextEPKc.exit
@@ -3519,7 +3519,7 @@ _ZN5cmsysL7regnextEPKc.exit:                      ; preds = %_ZN5cmsysL7regnextE
   br i1 %.not63, label %90, label %.thread
 
 90:                                               ; preds = %.preheader
-  store ptr %6, ptr %0, align 8, !tbaa !50
+  store ptr %6, ptr %0, align 8, !tbaa !49
   %91 = icmp eq ptr %.148, @_ZN5cmsysL8regdummyE
   br i1 %91, label %.thread, label %92
 
@@ -3544,7 +3544,7 @@ _ZN5cmsysL7regnextEPKc.exit77:                    ; preds = %92
   %.0.i76 = getelementptr inbounds i8, ptr %.148, i64 %.0.i76.v
   %106 = load i8, ptr %.0.i76, align 1, !tbaa !14
   %107 = icmp eq i8 %106, 6
-  br i1 %107, label %.preheader, label %.thread, !llvm.loop !56
+  br i1 %107, label %.preheader, label %.thread, !llvm.loop !55
 
 108:                                              ; preds = %_ZN5cmsysL7regnextEPKc.exit, %_ZN5cmsysL7regnextEPKc.exit
   %109 = load i8, ptr %.0.i, align 1, !tbaa !14
@@ -3573,7 +3573,7 @@ _ZN5cmsysL7regnextEPKc.exit77:                    ; preds = %92
   br i1 %120, label %.lr.ph111.split.us, label %.lr.ph111.split.preheader
 
 .lr.ph111.split.preheader:                        ; preds = %.lr.ph111
-  %.pre = load ptr, ptr %0, align 8, !tbaa !50
+  %.pre = load ptr, ptr %0, align 8, !tbaa !49
   br label %.lr.ph111.split
 
 .lr.ph111.split.us:                               ; preds = %.lr.ph111, %124
@@ -3585,9 +3585,9 @@ _ZN5cmsysL7regnextEPKc.exit77:                    ; preds = %92
 124:                                              ; preds = %.lr.ph111.split.us
   %indvars.iv.next143 = add nsw i64 %indvars.iv142, -1
   %125 = getelementptr inbounds i8, ptr %6, i64 %indvars.iv.next143
-  store ptr %125, ptr %0, align 8, !tbaa !50
+  store ptr %125, ptr %0, align 8, !tbaa !49
   %.not60.us.not = icmp sgt i64 %indvars.iv142, %122
-  br i1 %.not60.us.not, label %.lr.ph111.split.us, label %.thread, !llvm.loop !57
+  br i1 %.not60.us.not, label %.lr.ph111.split.us, label %.thread, !llvm.loop !56
 
 .lr.ph111.split:                                  ; preds = %.lr.ph111.split.preheader, %132
   %126 = phi ptr [ %.pre, %.lr.ph111.split.preheader ], [ %133, %132 ]
@@ -3605,13 +3605,13 @@ _ZN5cmsysL7regnextEPKc.exit77:                    ; preds = %92
 132:                                              ; preds = %130, %.lr.ph111.split
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %133 = getelementptr inbounds i8, ptr %6, i64 %indvars.iv.next
-  store ptr %133, ptr %0, align 8, !tbaa !50
+  store ptr %133, ptr %0, align 8, !tbaa !49
   %.not60.not = icmp sgt i64 %indvars.iv, %122
-  br i1 %.not60.not, label %.lr.ph111.split, label %.thread, !llvm.loop !59
+  br i1 %.not60.not, label %.lr.ph111.split, label %.thread, !llvm.loop !58
 
 134:                                              ; preds = %_ZN5cmsysL7regnextEPKc.exit
   %135 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %136 = load ptr, ptr %135, align 8, !tbaa !49
+  %136 = load ptr, ptr %135, align 8, !tbaa !48
   %137 = icmp ne ptr %6, %136
   %. = zext i1 %137 to i32
   br label %.thread
@@ -3624,7 +3624,7 @@ _ZN5cmsysL7regnextEPKc.exit77:                    ; preds = %92
   %140 = phi ptr [ %6, %28 ], [ %6, %29 ], [ %35, %34 ], [ %46, %45 ], [ %55, %54 ], [ %64, %63 ], [ %6, %_ZN5cmsysL7regnextEPKc.exit ], [ %6, %_ZN5cmsysL7regnextEPKc.exit ], [ %6, %.critedge.thread ]
   %.051 = phi ptr [ %.0.i, %28 ], [ %.0.i, %29 ], [ %.0.i, %34 ], [ %.0.i, %45 ], [ %.0.i, %54 ], [ %.0.i, %63 ], [ %.0.i, %_ZN5cmsysL7regnextEPKc.exit ], [ %.0.i, %_ZN5cmsysL7regnextEPKc.exit ], [ %87, %.critedge.thread ]
   %.not = icmp eq ptr %.051, null
-  br i1 %.not, label %._crit_edge, label %5, !llvm.loop !60
+  br i1 %.not, label %._crit_edge, label %5, !llvm.loop !59
 
 ._crit_edge:                                      ; preds = %139, %2
   %puts = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.17)
@@ -3637,7 +3637,7 @@ _ZN5cmsysL7regnextEPKc.exit77:                    ; preds = %92
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
 define dso_local noundef i32 @_ZN5cmsys10RegExpFind9regrepeatEPKc(ptr noundef nonnull align 8 captures(none) dereferenceable(40) %0, ptr noundef readonly %1) local_unnamed_addr #7 align 2 {
-  %3 = load ptr, ptr %0, align 8, !tbaa !50
+  %3 = load ptr, ptr %0, align 8, !tbaa !49
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 3
   %5 = load i8, ptr %1, align 1, !tbaa !14
   switch i8 %5, label %34 [
@@ -3678,7 +3678,7 @@ define dso_local noundef i32 @_ZN5cmsys10RegExpFind9regrepeatEPKc(ptr noundef no
   %17 = getelementptr inbounds nuw i8, ptr %.155, i64 1
   %18 = load i8, ptr %17, align 1, !tbaa !14
   %19 = icmp eq i8 %8, %18
-  br i1 %19, label %.lr.ph56, label %.critedge, !llvm.loop !61
+  br i1 %19, label %.lr.ph56, label %.critedge, !llvm.loop !60
 
 .lr.ph48:                                         ; preds = %.preheader34, %23
   %20 = phi i8 [ %26, %23 ], [ %7, %.preheader34 ]
@@ -3694,7 +3694,7 @@ define dso_local noundef i32 @_ZN5cmsys10RegExpFind9regrepeatEPKc(ptr noundef no
   %25 = getelementptr inbounds nuw i8, ptr %.247, i64 1
   %26 = load i8, ptr %25, align 1, !tbaa !14
   %.not32 = icmp eq i8 %26, 0
-  br i1 %.not32, label %.critedge, label %.lr.ph48, !llvm.loop !62
+  br i1 %.not32, label %.critedge, label %.lr.ph48, !llvm.loop !61
 
 .lr.ph:                                           ; preds = %.preheader36, %30
   %27 = phi i8 [ %33, %30 ], [ %6, %.preheader36 ]
@@ -3710,7 +3710,7 @@ define dso_local noundef i32 @_ZN5cmsys10RegExpFind9regrepeatEPKc(ptr noundef no
   %32 = getelementptr inbounds nuw i8, ptr %.340, i64 1
   %33 = load i8, ptr %32, align 1, !tbaa !14
   %.not = icmp eq i8 %33, 0
-  br i1 %.not, label %.critedge, label %.lr.ph, !llvm.loop !63
+  br i1 %.not, label %.critedge, label %.lr.ph, !llvm.loop !62
 
 34:                                               ; preds = %2
   %puts = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.19)
@@ -3719,7 +3719,7 @@ define dso_local noundef i32 @_ZN5cmsys10RegExpFind9regrepeatEPKc(ptr noundef no
 .critedge:                                        ; preds = %30, %.lr.ph, %23, %.lr.ph48, %.lr.ph56, %.preheader36, %.preheader34, %.preheader, %11
   %.025 = phi i32 [ %13, %11 ], [ 0, %.preheader ], [ 0, %.preheader34 ], [ 0, %.preheader36 ], [ %16, %.lr.ph56 ], [ %24, %23 ], [ %.22746, %.lr.ph48 ], [ %31, %30 ], [ %.32839, %.lr.ph ]
   %.024 = phi ptr [ %15, %11 ], [ %3, %.preheader ], [ %3, %.preheader34 ], [ %3, %.preheader36 ], [ %17, %.lr.ph56 ], [ %25, %23 ], [ %.247, %.lr.ph48 ], [ %32, %30 ], [ %.340, %.lr.ph ]
-  store ptr %.024, ptr %0, align 8, !tbaa !50
+  store ptr %.024, ptr %0, align 8, !tbaa !49
   br label %35
 
 35:                                               ; preds = %.critedge, %34
@@ -3775,52 +3775,51 @@ attributes #17 = { nounwind willreturn memory(read) }
 !12 = !{!"int", !7, i64 0}
 !13 = !{!5, !12, i64 552}
 !14 = !{!7, !7, i64 0}
-!15 = distinct !{!15, !16, !17}
+!15 = distinct !{!15, !16}
 !16 = !{!"llvm.loop.mustprogress"}
-!17 = !{!"llvm.loop.estimated_trip_count"}
-!18 = !{i64 0, i64 256, !14, i64 256, i64 256, !14, i64 512, i64 8, !19}
-!19 = !{!9, !9, i64 0}
-!20 = !{!5, !9, i64 528}
-!21 = !{!5, !7, i64 520}
-!22 = !{!5, !7, i64 521}
-!23 = !{!5, !11, i64 536}
-!24 = !{!5, !12, i64 556}
-!25 = distinct !{!25, !16, !17}
-!26 = distinct !{!26, !16, !17}
-!27 = distinct !{!27, !16, !17}
-!28 = !{!29, !9, i64 0}
-!29 = !{!"_ZTSN5cmsys13RegExpCompileE", !9, i64 0, !12, i64 8, !9, i64 16, !11, i64 24}
-!30 = !{!29, !12, i64 8}
-!31 = !{!29, !9, i64 16}
-!32 = !{!29, !11, i64 24}
-!33 = !{!6, !9, i64 512}
-!34 = !{!12, !12, i64 0}
-!35 = distinct !{!35, !16, !17}
-!36 = distinct !{!36, !16, !17}
-!37 = distinct !{!37, !16, !17}
-!38 = distinct !{!38, !16, !17}
-!39 = distinct !{!39, !16, !17}
-!40 = distinct !{!40, !16, !17}
-!41 = distinct !{!41, !16, !17, !42}
-!42 = !{!"llvm.loop.unswitch.partial.disable"}
-!43 = distinct !{!43, !16, !17}
-!44 = distinct !{!44, !16, !17, !42}
-!45 = distinct !{!45, !16, !17}
-!46 = !{!47, !9, i64 8}
-!47 = !{!"_ZTSN5cmsys10RegExpFindE", !9, i64 0, !9, i64 8, !48, i64 16, !48, i64 24, !9, i64 32}
-!48 = !{!"p2 omnipotent char", !10, i64 0}
-!49 = !{!47, !9, i64 32}
-!50 = !{!47, !9, i64 0}
-!51 = !{!47, !48, i64 16}
-!52 = !{!47, !48, i64 24}
-!53 = distinct !{!53, !16, !17}
-!54 = distinct !{!54, !16, !17}
-!55 = distinct !{!55, !16, !17}
-!56 = distinct !{!56, !16, !17}
-!57 = distinct !{!57, !16, !17, !58}
-!58 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!59 = distinct !{!59, !16, !17}
-!60 = distinct !{!60, !16, !17}
-!61 = distinct !{!61, !16, !17}
-!62 = distinct !{!62, !16, !17}
-!63 = distinct !{!63, !16, !17}
+!17 = !{i64 0, i64 256, !14, i64 256, i64 256, !14, i64 512, i64 8, !18}
+!18 = !{!9, !9, i64 0}
+!19 = !{!5, !9, i64 528}
+!20 = !{!5, !7, i64 520}
+!21 = !{!5, !7, i64 521}
+!22 = !{!5, !11, i64 536}
+!23 = !{!5, !12, i64 556}
+!24 = distinct !{!24, !16}
+!25 = distinct !{!25, !16}
+!26 = distinct !{!26, !16}
+!27 = !{!28, !9, i64 0}
+!28 = !{!"_ZTSN5cmsys13RegExpCompileE", !9, i64 0, !12, i64 8, !9, i64 16, !11, i64 24}
+!29 = !{!28, !12, i64 8}
+!30 = !{!28, !9, i64 16}
+!31 = !{!28, !11, i64 24}
+!32 = !{!6, !9, i64 512}
+!33 = !{!12, !12, i64 0}
+!34 = distinct !{!34, !16}
+!35 = distinct !{!35, !16}
+!36 = distinct !{!36, !16}
+!37 = distinct !{!37, !16}
+!38 = distinct !{!38, !16}
+!39 = distinct !{!39, !16}
+!40 = distinct !{!40, !16, !41}
+!41 = !{!"llvm.loop.unswitch.partial.disable"}
+!42 = distinct !{!42, !16}
+!43 = distinct !{!43, !16, !41}
+!44 = distinct !{!44, !16}
+!45 = !{!46, !9, i64 8}
+!46 = !{!"_ZTSN5cmsys10RegExpFindE", !9, i64 0, !9, i64 8, !47, i64 16, !47, i64 24, !9, i64 32}
+!47 = !{!"p2 omnipotent char", !10, i64 0}
+!48 = !{!46, !9, i64 32}
+!49 = !{!46, !9, i64 0}
+!50 = !{!46, !47, i64 16}
+!51 = !{!46, !47, i64 24}
+!52 = distinct !{!52, !16}
+!53 = distinct !{!53, !16}
+!54 = distinct !{!54, !16}
+!55 = distinct !{!55, !16}
+!56 = distinct !{!56, !16, !57}
+!57 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!58 = distinct !{!58, !16}
+!59 = distinct !{!59, !16}
+!60 = distinct !{!60, !16}
+!61 = distinct !{!61, !16}
+!62 = distinct !{!62, !16}

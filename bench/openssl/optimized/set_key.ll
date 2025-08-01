@@ -47,7 +47,7 @@ define range(i32 0, 2) i32 @DES_check_key_parity(ptr noundef readonly captures(n
   %13 = select i1 %12, i8 0, i8 %.01214
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond.not, label %14, label %2, !llvm.loop !9
+  br i1 %exitcond.not, label %14, label %2, !llvm.loop !8
 
 14:                                               ; preds = %2
   %15 = and i8 %13, 1
@@ -68,7 +68,7 @@ define range(i32 0, 2) i32 @DES_is_weak_key(ptr noundef %0) local_unnamed_addr #
   %6 = select i1 %5, i32 -1, i32 %.068
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
-  br i1 %exitcond.not, label %7, label %2, !llvm.loop !10
+  br i1 %exitcond.not, label %7, label %2, !llvm.loop !9
 
 7:                                                ; preds = %2
   %8 = and i32 %6, 1
@@ -97,7 +97,7 @@ define range(i32 -2, 1) i32 @DES_set_key(ptr noundef %0, ptr noundef writeonly c
   %14 = select i1 %13, i8 0, i8 %.01214.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %DES_check_key_parity.exit, label %3, !llvm.loop !9
+  br i1 %exitcond.not.i, label %DES_check_key_parity.exit, label %3, !llvm.loop !8
 
 DES_check_key_parity.exit:                        ; preds = %3, %DES_check_key_parity.exit
   %indvars.iv.i5 = phi i64 [ %indvars.iv.next.i6, %DES_check_key_parity.exit ], [ 0, %3 ]
@@ -108,7 +108,7 @@ DES_check_key_parity.exit:                        ; preds = %3, %DES_check_key_p
   %18 = select i1 %17, i32 -1, i32 %.068.i
   %indvars.iv.next.i6 = add nuw nsw i64 %indvars.iv.i5, 1
   %exitcond.not.i7 = icmp eq i64 %indvars.iv.next.i6, 16
-  br i1 %exitcond.not.i7, label %DES_is_weak_key.exit, label %DES_check_key_parity.exit, !llvm.loop !10
+  br i1 %exitcond.not.i7, label %DES_is_weak_key.exit, label %DES_check_key_parity.exit, !llvm.loop !9
 
 DES_is_weak_key.exit:                             ; preds = %DES_check_key_parity.exit
   %19 = and i8 %14, 1
@@ -217,7 +217,7 @@ define void @DES_set_key_unchecked(ptr noundef readonly captures(none) %0, ptr n
   %84 = and i32 %77, 63
   %85 = zext nneg i32 %84 to i64
   %86 = getelementptr inbounds nuw [64 x i32], ptr @des_skb, i64 0, i64 %85
-  %87 = load i32, ptr %86, align 4, !tbaa !11
+  %87 = load i32, ptr %86, align 4, !tbaa !10
   %88 = lshr i32 %77, 6
   %89 = and i32 %88, 3
   %90 = lshr i32 %77, 7
@@ -225,7 +225,7 @@ define void @DES_set_key_unchecked(ptr noundef readonly captures(none) %0, ptr n
   %92 = or disjoint i32 %89, %91
   %93 = zext nneg i32 %92 to i64
   %94 = getelementptr inbounds nuw [64 x i32], ptr getelementptr inbounds nuw (i8, ptr @des_skb, i64 256), i64 0, i64 %93
-  %95 = load i32, ptr %94, align 4, !tbaa !11
+  %95 = load i32, ptr %94, align 4, !tbaa !10
   %96 = or i32 %95, %87
   %97 = lshr i32 %77, 13
   %98 = and i32 %97, 15
@@ -234,7 +234,7 @@ define void @DES_set_key_unchecked(ptr noundef readonly captures(none) %0, ptr n
   %101 = or disjoint i32 %98, %100
   %102 = zext nneg i32 %101 to i64
   %103 = getelementptr inbounds nuw [64 x i32], ptr getelementptr inbounds nuw (i8, ptr @des_skb, i64 512), i64 0, i64 %102
-  %104 = load i32, ptr %103, align 4, !tbaa !11
+  %104 = load i32, ptr %103, align 4, !tbaa !10
   %105 = or i32 %96, %104
   %106 = lshr i32 %77, 20
   %107 = and i32 %106, 1
@@ -246,12 +246,12 @@ define void @DES_set_key_unchecked(ptr noundef readonly captures(none) %0, ptr n
   %113 = or disjoint i32 %110, %112
   %114 = zext nneg i32 %113 to i64
   %115 = getelementptr inbounds nuw [64 x i32], ptr getelementptr inbounds nuw (i8, ptr @des_skb, i64 768), i64 0, i64 %114
-  %116 = load i32, ptr %115, align 4, !tbaa !11
+  %116 = load i32, ptr %115, align 4, !tbaa !10
   %117 = or i32 %105, %116
   %118 = and i32 %80, 63
   %119 = zext nneg i32 %118 to i64
   %120 = getelementptr inbounds nuw [64 x i32], ptr getelementptr inbounds nuw (i8, ptr @des_skb, i64 1024), i64 0, i64 %119
-  %121 = load i32, ptr %120, align 4, !tbaa !11
+  %121 = load i32, ptr %120, align 4, !tbaa !10
   %122 = lshr i32 %80, 7
   %123 = and i32 %122, 3
   %124 = lshr i32 %80, 8
@@ -259,13 +259,13 @@ define void @DES_set_key_unchecked(ptr noundef readonly captures(none) %0, ptr n
   %126 = or disjoint i32 %123, %125
   %127 = zext nneg i32 %126 to i64
   %128 = getelementptr inbounds nuw [64 x i32], ptr getelementptr inbounds nuw (i8, ptr @des_skb, i64 1280), i64 0, i64 %127
-  %129 = load i32, ptr %128, align 4, !tbaa !11
+  %129 = load i32, ptr %128, align 4, !tbaa !10
   %130 = or i32 %129, %121
   %131 = lshr i32 %80, 15
   %132 = and i32 %131, 63
   %133 = zext nneg i32 %132 to i64
   %134 = getelementptr inbounds nuw [64 x i32], ptr getelementptr inbounds nuw (i8, ptr @des_skb, i64 1536), i64 0, i64 %133
-  %135 = load i32, ptr %134, align 4, !tbaa !11
+  %135 = load i32, ptr %134, align 4, !tbaa !10
   %136 = or i32 %130, %135
   %137 = lshr i32 %80, 21
   %138 = and i32 %137, 15
@@ -274,23 +274,23 @@ define void @DES_set_key_unchecked(ptr noundef readonly captures(none) %0, ptr n
   %141 = or disjoint i32 %138, %140
   %142 = zext nneg i32 %141 to i64
   %143 = getelementptr inbounds nuw [64 x i32], ptr getelementptr inbounds nuw (i8, ptr @des_skb, i64 1792), i64 0, i64 %142
-  %144 = load i32, ptr %143, align 4, !tbaa !11
+  %144 = load i32, ptr %143, align 4, !tbaa !10
   %145 = or i32 %136, %144
   %146 = shl i32 %145, 16
   %147 = and i32 %117, 65535
   %148 = or disjoint i32 %146, %147
-  %149 = tail call i32 asm "rorl $1,$0", "=r,I,0,~{cc},~{dirflag},~{fpsr},~{flags}"(i32 30, i32 %148) #6, !srcloc !13
+  %149 = tail call i32 asm "rorl $1,$0", "=r,I,0,~{cc},~{dirflag},~{fpsr},~{flags}"(i32 30, i32 %148) #6, !srcloc !12
   %150 = getelementptr inbounds nuw i8, ptr %.09599, i64 4
-  store i32 %149, ptr %.09599, align 4, !tbaa !11
+  store i32 %149, ptr %.09599, align 4, !tbaa !10
   %151 = lshr i32 %117, 16
   %152 = and i32 %145, -65536
   %153 = or disjoint i32 %152, %151
-  %154 = tail call i32 asm "rorl $1,$0", "=r,I,0,~{cc},~{dirflag},~{fpsr},~{flags}"(i32 26, i32 %153) #6, !srcloc !14
+  %154 = tail call i32 asm "rorl $1,$0", "=r,I,0,~{cc},~{dirflag},~{fpsr},~{flags}"(i32 26, i32 %153) #6, !srcloc !13
   %155 = getelementptr inbounds nuw i8, ptr %.09599, i64 8
-  store i32 %154, ptr %150, align 4, !tbaa !11
+  store i32 %154, ptr %150, align 4, !tbaa !10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
-  br i1 %exitcond.not, label %156, label %74, !llvm.loop !15
+  br i1 %exitcond.not, label %156, label %74, !llvm.loop !14
 
 156:                                              ; preds = %74
   ret void
@@ -316,7 +316,7 @@ define range(i32 -2, 1) i32 @DES_set_key_checked(ptr noundef %0, ptr noundef wri
   %14 = select i1 %13, i8 0, i8 %.01214.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %DES_check_key_parity.exit, label %3, !llvm.loop !9
+  br i1 %exitcond.not.i, label %DES_check_key_parity.exit, label %3, !llvm.loop !8
 
 DES_check_key_parity.exit:                        ; preds = %3
   %15 = and i8 %14, 1
@@ -332,7 +332,7 @@ DES_check_key_parity.exit:                        ; preds = %3
   %19 = select i1 %18, i32 -1, i32 %.068.i
   %indvars.iv.next.i6 = add nuw nsw i64 %indvars.iv.i5, 1
   %exitcond.not.i7 = icmp eq i64 %indvars.iv.next.i6, 16
-  br i1 %exitcond.not.i7, label %DES_is_weak_key.exit, label %.preheader, !llvm.loop !10
+  br i1 %exitcond.not.i7, label %DES_is_weak_key.exit, label %.preheader, !llvm.loop !9
 
 DES_is_weak_key.exit:                             ; preds = %.preheader
   %20 = and i32 %19, 1
@@ -368,7 +368,7 @@ define range(i32 -2, 1) i32 @DES_key_sched(ptr noundef %0, ptr noundef writeonly
   %14 = select i1 %13, i8 0, i8 %.01214.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 8
-  br i1 %exitcond.not.i.i, label %DES_check_key_parity.exit.i, label %3, !llvm.loop !9
+  br i1 %exitcond.not.i.i, label %DES_check_key_parity.exit.i, label %3, !llvm.loop !8
 
 DES_check_key_parity.exit.i:                      ; preds = %3, %DES_check_key_parity.exit.i
   %indvars.iv.i5.i = phi i64 [ %indvars.iv.next.i6.i, %DES_check_key_parity.exit.i ], [ 0, %3 ]
@@ -379,7 +379,7 @@ DES_check_key_parity.exit.i:                      ; preds = %3, %DES_check_key_p
   %18 = select i1 %17, i32 -1, i32 %.068.i.i
   %indvars.iv.next.i6.i = add nuw nsw i64 %indvars.iv.i5.i, 1
   %exitcond.not.i7.i = icmp eq i64 %indvars.iv.next.i6.i, 16
-  br i1 %exitcond.not.i7.i, label %DES_set_key.exit, label %DES_check_key_parity.exit.i, !llvm.loop !10
+  br i1 %exitcond.not.i7.i, label %DES_set_key.exit, label %DES_check_key_parity.exit.i, !llvm.loop !9
 
 DES_set_key.exit:                                 ; preds = %DES_check_key_parity.exit.i
   %19 = and i8 %14, 1
@@ -408,13 +408,12 @@ attributes #6 = { nounwind memory(none) }
 !3 = !{!4, !4, i64 0}
 !4 = !{!"omnipotent char", !5, i64 0}
 !5 = !{!"Simple C/C++ TBAA"}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7, !8}
-!11 = !{!12, !12, i64 0}
-!12 = !{!"int", !4, i64 0}
-!13 = !{i64 2148282575}
-!14 = !{i64 2148282932}
-!15 = distinct !{!15, !7, !8}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = !{!11, !11, i64 0}
+!11 = !{!"int", !4, i64 0}
+!12 = !{i64 2148282575}
+!13 = !{i64 2148282932}
+!14 = distinct !{!14, !7}

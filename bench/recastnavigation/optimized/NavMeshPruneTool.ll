@@ -302,7 +302,7 @@ define dso_local void @_ZN16NavMeshPruneTool10handleMenuEv(ptr noundef nonnull a
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %31 = sext i32 %30 to i64
   %32 = icmp slt i64 %indvars.iv.next.i, %31
-  br i1 %32, label %20, label %_ZN12NavmeshFlags13clearAllFlagsEv.exit, !llvm.loop !8
+  br i1 %32, label %20, label %_ZN12NavmeshFlags13clearAllFlagsEv.exit, !llvm.loop !7
 
 _ZN12NavmeshFlags13clearAllFlagsEv.exit:          ; preds = %29, %14, %12
   %33 = tail call noundef zeroext i1 @_Z11imguiButtonPKcb(ptr noundef nonnull @.str.1, i1 noundef zeroext true)
@@ -399,13 +399,13 @@ _ZN12NavmeshFlags8getFlagsEj.exit.i:              ; preds = %59, %55
   %85 = getelementptr inbounds nuw i8, ptr %84, i64 24
   %86 = load i32, ptr %85, align 4
   %87 = icmp slt i32 %83, %86
-  br i1 %87, label %.lr.ph.i6, label %.loopexit.i, !llvm.loop !9
+  br i1 %87, label %.lr.ph.i6, label %.loopexit.i, !llvm.loop !8
 
 .loopexit.i:                                      ; preds = %82, %44, %40
   %88 = add nuw nsw i32 %.021.i, 1
   %89 = call noundef i32 @_ZNK9dtNavMesh11getMaxTilesEv(ptr noundef nonnull align 8 dereferenceable(100) %8)
   %90 = icmp slt i32 %88, %89
-  br i1 %90, label %40, label %_ZL21disableUnvisitedPolysP9dtNavMeshP12NavmeshFlags.exit, !llvm.loop !10
+  br i1 %90, label %40, label %_ZL21disableUnvisitedPolysP9dtNavMeshP12NavmeshFlags.exit, !llvm.loop !9
 
 _ZL21disableUnvisitedPolysP9dtNavMeshP12NavmeshFlags.exit: ; preds = %.loopexit.i, %34
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %2)
@@ -649,7 +649,7 @@ _ZNKSt6vectorIjSaIjEE12_M_check_lenEmPKc.exit.i.i.i: ; preds = %85, %81
   %.sroa.20.1.lcssa.i = phi ptr [ %.sroa.20.098.i, %107 ], [ %.sroa.20.2.i, %_ZNSt6vectorIjSaIjEE9push_backERKj.exit55.i ]
   %.sroa.0.2.lcssa.i = phi ptr [ %.sroa.0.199.i, %107 ], [ %.sroa.0.3.i, %_ZNSt6vectorIjSaIjEE9push_backERKj.exit55.i ]
   %.not13.i = icmp eq ptr %.sroa.8.1.lcssa.i, %.sroa.0.2.lcssa.i
-  br i1 %.not13.i, label %190, label %104, !llvm.loop !11
+  br i1 %.not13.i, label %190, label %104, !llvm.loop !10
 
 104:                                              ; preds = %.loopexit.i, %_ZNKSt6vectorIjSaIjEE12_M_check_lenEmPKc.exit.i.i.i
   %.sroa.0.199.i = phi ptr [ %102, %_ZNKSt6vectorIjSaIjEE12_M_check_lenEmPKc.exit.i.i.i ], [ %.sroa.0.2.lcssa.i, %.loopexit.i ]
@@ -871,7 +871,7 @@ _ZNSt6vectorIjSaIjEE9push_backERKj.exit55.i:      ; preds = %_ZNSt6vectorIjSaIjE
   %189 = getelementptr inbounds nuw %struct.dtLink, ptr %188, i64 %110, i32 1
   %.0.i = load i32, ptr %189, align 4
   %.not14.i = icmp eq i32 %.0.i, -1
-  br i1 %.not14.i, label %.loopexit.i, label %.lr.ph.i, !llvm.loop !12
+  br i1 %.not14.i, label %.loopexit.i, label %.lr.ph.i, !llvm.loop !11
 
 190:                                              ; preds = %.loopexit.i
   call void @_ZdlPv(ptr noundef nonnull %.sroa.0.2.lcssa.i) #17
@@ -958,7 +958,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN12NavmeshFlags4initEPK9dtNa
   %36 = tail call noundef i32 @_ZNK9dtNavMesh11getMaxTilesEv(ptr noundef nonnull align 8 dereferenceable(100) %1)
   %37 = sext i32 %36 to i64
   %38 = icmp slt i64 %indvars.iv.next, %37
-  br i1 %38, label %.lr.ph, label %._crit_edge, !llvm.loop !13
+  br i1 %38, label %.lr.ph, label %._crit_edge, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %35, %10
   store ptr %1, ptr %0, align 8
@@ -1163,13 +1163,13 @@ _ZN12NavmeshFlags8getFlagsEj.exit:                ; preds = %91, %96
   %119 = getelementptr inbounds nuw i8, ptr %118, i64 24
   %120 = load i32, ptr %119, align 4
   %121 = icmp slt i32 %117, %120
-  br i1 %121, label %.lr.ph, label %.loopexit, !llvm.loop !14
+  br i1 %121, label %.lr.ph, label %.loopexit, !llvm.loop !13
 
 .loopexit:                                        ; preds = %116, %79, %.lr.ph45
   %122 = add nuw nsw i32 %.044, 1
   %123 = tail call noundef i32 @_ZNK9dtNavMesh11getMaxTilesEv(ptr noundef nonnull align 8 dereferenceable(100) %69)
   %124 = icmp slt i32 %122, %123
-  br i1 %124, label %.lr.ph45, label %.loopexit42, !llvm.loop !15
+  br i1 %124, label %.lr.ph45, label %.loopexit42, !llvm.loop !14
 
 .loopexit42:                                      ; preds = %.loopexit, %.preheader, %64
   ret void
@@ -1276,14 +1276,13 @@ attributes #20 = { noreturn }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6, !7}
+!5 = distinct !{!5, !6}
 !6 = !{!"llvm.loop.mustprogress"}
-!7 = !{!"llvm.loop.estimated_trip_count"}
-!8 = distinct !{!8, !6, !7}
-!9 = distinct !{!9, !6, !7}
-!10 = distinct !{!10, !6, !7}
-!11 = distinct !{!11, !6, !7}
-!12 = distinct !{!12, !6, !7}
-!13 = distinct !{!13, !6, !7}
-!14 = distinct !{!14, !6, !7}
-!15 = distinct !{!15, !6, !7}
+!7 = distinct !{!7, !6}
+!8 = distinct !{!8, !6}
+!9 = distinct !{!9, !6}
+!10 = distinct !{!10, !6}
+!11 = distinct !{!11, !6}
+!12 = distinct !{!12, !6}
+!13 = distinct !{!13, !6}
+!14 = distinct !{!14, !6}

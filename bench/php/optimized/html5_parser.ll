@@ -98,7 +98,7 @@ define internal fastcc range(i32 0, 5) i32 @lexbor_libxml2_bridge_convert(ptr no
   %17 = getelementptr inbounds nuw i8, ptr %.0181292, i64 48
   %18 = load ptr, ptr %17, align 8, !tbaa !29
   %.not = icmp eq ptr %18, null
-  br i1 %.not, label %.preheader, label %.lr.ph, !llvm.loop !30
+  br i1 %.not, label %.preheader, label %.lr.ph
 
 .lr.ph324:                                        ; preds = %.preheader, %.backedge
   %19 = phi ptr [ %243, %.backedge ], [ %12, %.preheader ]
@@ -109,7 +109,7 @@ define internal fastcc range(i32 0, 5) i32 @lexbor_libxml2_bridge_convert(ptr no
   %21 = getelementptr inbounds nuw i8, ptr %19, i64 16
   %22 = load ptr, ptr %21, align 8, !tbaa !27
   %23 = getelementptr inbounds nuw i8, ptr %20, i64 88
-  %24 = load i32, ptr %23, align 8, !tbaa !32
+  %24 = load i32, ptr %23, align 8, !tbaa !30
   switch i32 %24, label %.backedge [
     i32 1, label %25
     i32 3, label %185
@@ -126,13 +126,13 @@ define internal fastcc range(i32 0, 5) i32 @lexbor_libxml2_bridge_convert(ptr no
 29:                                               ; preds = %25
   %30 = call ptr @xmlAddChild(ptr noundef %22, ptr noundef nonnull %27) #11
   %31 = getelementptr inbounds nuw i8, ptr %20, i64 96
-  %32 = load i64, ptr %31, align 8, !tbaa !33
+  %32 = load i64, ptr %31, align 8, !tbaa !31
   %.04.i = call i64 @llvm.umin.i64(i64 %32, i64 65535)
   %.0.i = trunc nuw i64 %.04.i to i16
   %33 = getelementptr inbounds nuw i8, ptr %27, i64 112
-  store i16 %.0.i, ptr %33, align 8, !tbaa !34
+  store i16 %.0.i, ptr %33, align 8, !tbaa !32
   %34 = getelementptr inbounds nuw i8, ptr %20, i64 24
-  %35 = load i64, ptr %34, align 8, !tbaa !39
+  %35 = load i64, ptr %34, align 8, !tbaa !37
   %36 = getelementptr inbounds nuw i8, ptr %19, i64 24
   %37 = load ptr, ptr %36, align 8, !tbaa !28
   br i1 %4, label %38, label %64
@@ -141,7 +141,7 @@ define internal fastcc range(i32 0, 5) i32 @lexbor_libxml2_bridge_convert(ptr no
   %39 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %40 = load i64, ptr %39, align 8, !tbaa !26
   %.not222 = icmp eq i64 %35, %40
-  br i1 %.not222, label %64, label %41, !prof !42
+  br i1 %.not222, label %64, label %41, !prof !40
 
 41:                                               ; preds = %38
   switch i64 %35, label %43 [
@@ -160,33 +160,33 @@ get_libxml_namespace_href.exit:                   ; preds = %41, %42, %43
   %php_dom_ns_is_html_magic_token.sink.i = phi ptr [ @php_dom_ns_is_html_magic_token, %43 ], [ @php_dom_ns_is_mathml_magic_token, %42 ], [ @php_dom_ns_is_svg_magic_token, %41 ]
   %.str.6.sink.i = phi ptr [ @.str.6, %43 ], [ @.str.5, %42 ], [ @.str.4, %41 ]
   %.sink.i = phi i64 [ 28, %43 ], [ 34, %42 ], [ 26, %41 ]
-  %44 = load ptr, ptr %php_dom_ns_is_html_magic_token.sink.i, align 8, !tbaa !43, !noalias !45
+  %44 = load ptr, ptr %php_dom_ns_is_html_magic_token.sink.i, align 8, !tbaa !41, !noalias !43
   %45 = and i64 %.sink.i, 56
   %46 = add nuw nsw i64 %45, 32
   %47 = call noalias ptr @_emalloc(i64 noundef %46) #12
-  store i32 1, ptr %47, align 4, !tbaa !48
+  store i32 1, ptr %47, align 4, !tbaa !46
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 4
-  store i32 22, ptr %48, align 4, !tbaa !50
+  store i32 22, ptr %48, align 4, !tbaa !48
   %49 = getelementptr inbounds nuw i8, ptr %47, i64 8
-  store i64 0, ptr %49, align 8, !tbaa !51
+  store i64 0, ptr %49, align 8, !tbaa !49
   %50 = getelementptr inbounds nuw i8, ptr %47, i64 16
-  store i64 %.sink.i, ptr %50, align 8, !tbaa !53
+  store i64 %.sink.i, ptr %50, align 8, !tbaa !51
   %51 = getelementptr inbounds nuw i8, ptr %47, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %51, ptr noundef nonnull align 1 dereferenceable(1) %.str.6.sink.i, i64 %.sink.i, i1 false)
   %52 = getelementptr inbounds nuw [1 x i8], ptr %51, i64 0, i64 %.sink.i
-  store i8 0, ptr %52, align 1, !tbaa !50
+  store i8 0, ptr %52, align 1, !tbaa !48
   %53 = call ptr @php_dom_libxml_ns_mapper_get_ns(ptr noundef %8, ptr noundef null, ptr noundef nonnull %47) #11
-  %54 = load i32, ptr %48, align 4, !tbaa !50
+  %54 = load i32, ptr %48, align 4, !tbaa !48
   %55 = and i32 %54, 64
   %.not.i = icmp eq i32 %55, 0
   br i1 %.not.i, label %56, label %zend_string_release_ex.exit
 
 56:                                               ; preds = %get_libxml_namespace_href.exit
-  %57 = load i32, ptr %47, align 4, !tbaa !48
+  %57 = load i32, ptr %47, align 4, !tbaa !46
   %58 = icmp ne i32 %57, 0
   call void @llvm.assume(i1 %58)
   %59 = add i32 %57, -1
-  store i32 %59, ptr %47, align 4, !tbaa !48
+  store i32 %59, ptr %47, align 4, !tbaa !46
   %60 = icmp eq i32 %59, 0
   br i1 %60, label %61, label %zend_string_release_ex.exit
 
@@ -200,22 +200,22 @@ zend_string_release_ex.exit:                      ; preds = %get_libxml_namespac
 
 62:                                               ; preds = %zend_string_release_ex.exit
   %63 = getelementptr inbounds nuw i8, ptr %53, i64 32
-  store ptr %44, ptr %63, align 8, !tbaa !54
+  store ptr %44, ptr %63, align 8, !tbaa !52
   br label %64
 
 64:                                               ; preds = %41, %zend_string_release_ex.exit, %62, %38, %29
   %.0192 = phi ptr [ %37, %38 ], [ %37, %29 ], [ %9, %41 ], [ %53, %62 ], [ null, %zend_string_release_ex.exit ]
   %65 = getelementptr inbounds nuw i8, ptr %27, i64 72
-  store ptr %.0192, ptr %65, align 8, !tbaa !56
+  store ptr %.0192, ptr %65, align 8, !tbaa !54
   %66 = getelementptr inbounds nuw i8, ptr %20, i64 72
-  %67 = load ptr, ptr %66, align 8, !tbaa !57
+  %67 = load ptr, ptr %66, align 8, !tbaa !55
   %68 = getelementptr inbounds nuw i8, ptr %20, i64 8
-  %69 = load i64, ptr %68, align 8, !tbaa !58
+  %69 = load i64, ptr %68, align 8, !tbaa !56
   %70 = icmp eq i64 %69, 179
   br i1 %70, label %lxb_html_tree_node_is.exit, label %lxb_html_tree_node_is.exit.thread
 
 lxb_html_tree_node_is.exit:                       ; preds = %64
-  %71 = load i64, ptr %34, align 8, !tbaa !59
+  %71 = load i64, ptr %34, align 8, !tbaa !57
   %72 = icmp eq i64 %71, 2
   br i1 %72, label %73, label %lxb_html_tree_node_is.exit.thread
 
@@ -229,7 +229,7 @@ lxb_html_tree_node_is.exit:                       ; preds = %64
 
 77:                                               ; preds = %74
   %78 = getelementptr inbounds nuw i8, ptr %75, i64 40
-  store ptr %27, ptr %78, align 8, !tbaa !60
+  store ptr %27, ptr %78, align 8, !tbaa !58
   call void @dom_add_element_ns_hook(ptr noundef %5, ptr noundef nonnull %27) #11
   call void @php_dom_add_templated_content(ptr noundef %5, ptr noundef nonnull %27, ptr noundef nonnull %75) #11
   br label %79
@@ -237,13 +237,13 @@ lxb_html_tree_node_is.exit:                       ; preds = %64
 79:                                               ; preds = %77, %73
   %.1194 = phi ptr [ %75, %77 ], [ %27, %73 ]
   %80 = getelementptr inbounds nuw i8, ptr %20, i64 184
-  %81 = load ptr, ptr %80, align 8, !tbaa !61
+  %81 = load ptr, ptr %80, align 8, !tbaa !59
   %.not224 = icmp eq ptr %81, null
   br i1 %.not224, label %lxb_html_tree_node_is.exit.thread, label %82
 
 82:                                               ; preds = %79
   %83 = getelementptr inbounds nuw i8, ptr %81, i64 72
-  %84 = load ptr, ptr %83, align 8, !tbaa !67
+  %84 = load ptr, ptr %83, align 8, !tbaa !65
   br label %lxb_html_tree_node_is.exit.thread
 
 lxb_html_tree_node_is.exit.thread:                ; preds = %64, %79, %82, %lxb_html_tree_node_is.exit
@@ -265,11 +265,11 @@ lxb_html_tree_node_is.exit.thread:                ; preds = %64, %79, %82, %lxb_
   %89 = getelementptr inbounds nuw i8, ptr %.2197294, i64 48
   %90 = load ptr, ptr %89, align 8, !tbaa !29
   %.not225 = icmp eq ptr %90, null
-  br i1 %.not225, label %._crit_edge, label %.lr.ph295, !llvm.loop !70
+  br i1 %.not225, label %._crit_edge, label %.lr.ph295
 
 ._crit_edge:                                      ; preds = %.lr.ph295, %lxb_html_tree_node_is.exit.thread
   %91 = getelementptr inbounds nuw i8, ptr %20, i64 128
-  %.0202296 = load ptr, ptr %91, align 8, !tbaa !71
+  %.0202296 = load ptr, ptr %91, align 8, !tbaa !68
   %.not226297 = icmp eq ptr %.0202296, null
   br i1 %.not226297, label %.backedge, label %.lr.ph303
 
@@ -283,32 +283,32 @@ lxb_html_tree_node_is.exit.thread:                ; preds = %64, %79, %82, %lxb_
   %.3171299 = phi ptr [ %.0168321, %.lr.ph303 ], [ %.10178, %183 ]
   %.0198298 = phi ptr [ null, %.lr.ph303 ], [ %114, %183 ]
   %94 = getelementptr i8, ptr %.0202301, i64 8
-  %.0202.val = load i64, ptr %94, align 8, !tbaa !72
+  %.0202.val = load i64, ptr %94, align 8, !tbaa !69
   %95 = getelementptr i8, ptr %.0202301, i64 32
-  %.0202.val232 = load ptr, ptr %95, align 8, !tbaa !74
+  %.0202.val232 = load ptr, ptr %95, align 8, !tbaa !71
   %96 = getelementptr i8, ptr %.0202.val232, i64 208
-  %.0202.val232.val = load ptr, ptr %96, align 8, !tbaa !75
+  %.0202.val232.val = load ptr, ptr %96, align 8, !tbaa !72
   %97 = call ptr @lxb_dom_attr_data_by_id(ptr noundef %.0202.val232.val, i64 noundef %.0202.val) #11
   %98 = getelementptr inbounds nuw i8, ptr %97, i64 24
-  %99 = load i64, ptr %98, align 8, !tbaa !79
+  %99 = load i64, ptr %98, align 8, !tbaa !76
   %100 = icmp ult i64 %99, 17
   br i1 %100, label %lxb_dom_attr_local_name.exit, label %101
 
 101:                                              ; preds = %93
-  %102 = load ptr, ptr %97, align 8, !tbaa !50
+  %102 = load ptr, ptr %97, align 8, !tbaa !48
   br label %lxb_dom_attr_local_name.exit
 
 lxb_dom_attr_local_name.exit:                     ; preds = %93, %101
   %.0.i.i = phi ptr [ %102, %101 ], [ %97, %93 ]
   %103 = getelementptr i8, ptr %.0202301, i64 120
-  %.0202.val233 = load ptr, ptr %103, align 8, !tbaa !83
+  %.0202.val233 = load ptr, ptr %103, align 8, !tbaa !80
   %104 = icmp eq ptr %.0202.val233, null
   br i1 %104, label %lxb_dom_attr_value.exit, label %105
 
 105:                                              ; preds = %lxb_dom_attr_local_name.exit
   %106 = getelementptr inbounds nuw i8, ptr %.0202.val233, i64 8
-  %107 = load i64, ptr %106, align 8, !tbaa !84
-  %108 = load ptr, ptr %.0202.val233, align 8, !tbaa !86
+  %107 = load i64, ptr %106, align 8, !tbaa !81
+  %108 = load ptr, ptr %.0202.val233, align 8, !tbaa !83
   br label %lxb_dom_attr_value.exit
 
 lxb_dom_attr_value.exit:                          ; preds = %lxb_dom_attr_local_name.exit, %105
@@ -320,7 +320,7 @@ lxb_dom_attr_value.exit:                          ; preds = %lxb_dom_attr_local_
   br i1 %111, label %.backedge, label %112, !prof !13
 
 112:                                              ; preds = %lxb_dom_attr_value.exit
-  %113 = load ptr, ptr @xmlMalloc, align 8, !tbaa !87
+  %113 = load ptr, ptr @xmlMalloc, align 8, !tbaa !84
   %114 = call ptr %113(i64 noundef 96) #11
   %115 = icmp eq ptr %114, null
   br i1 %115, label %.backedge, label %116, !prof !13
@@ -328,21 +328,21 @@ lxb_dom_attr_value.exit:                          ; preds = %lxb_dom_attr_local_
 116:                                              ; preds = %112
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %114, i8 0, i64 96, i1 false)
   %117 = getelementptr inbounds nuw i8, ptr %114, i64 8
-  store i32 2, ptr %117, align 8, !tbaa !88
+  store i32 2, ptr %117, align 8, !tbaa !85
   %118 = getelementptr inbounds nuw i8, ptr %114, i64 40
-  store ptr %27, ptr %118, align 8, !tbaa !90
-  %119 = load ptr, ptr %11, align 8, !tbaa !91
+  store ptr %27, ptr %118, align 8, !tbaa !87
+  %119 = load ptr, ptr %11, align 8, !tbaa !88
   %120 = trunc nuw nsw i64 %99 to i32
   %121 = call ptr @xmlDictLookup(ptr noundef %119, ptr noundef %.0.i.i, i32 noundef %120) #11
   %122 = getelementptr inbounds nuw i8, ptr %114, i64 16
-  store ptr %121, ptr %122, align 8, !tbaa !95
+  store ptr %121, ptr %122, align 8, !tbaa !92
   %123 = getelementptr inbounds nuw i8, ptr %114, i64 64
-  store ptr %1, ptr %123, align 8, !tbaa !96
+  store ptr %1, ptr %123, align 8, !tbaa !93
   %124 = icmp samesign ult i64 %.sink.i237, 16
   br i1 %124, label %125, label %lexbor_libxml2_bridge_new_text_node_fast.exit
 
 125:                                              ; preds = %116
-  %126 = load ptr, ptr @xmlMalloc, align 8, !tbaa !87
+  %126 = load ptr, ptr @xmlMalloc, align 8, !tbaa !84
   %127 = call ptr %126(i64 noundef 120) #11
   %128 = icmp eq ptr %127, null
   br i1 %128, label %lexbor_libxml2_bridge_new_text_node_fast.exit.thread250, label %129, !prof !13
@@ -350,14 +350,14 @@ lxb_dom_attr_value.exit:                          ; preds = %lxb_dom_attr_local_
 129:                                              ; preds = %125
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %127, i8 0, i64 120, i1 false)
   %130 = getelementptr inbounds nuw i8, ptr %127, i64 16
-  store ptr @xmlStringText, ptr %130, align 8, !tbaa !97
+  store ptr @xmlStringText, ptr %130, align 8, !tbaa !94
   %131 = getelementptr inbounds nuw i8, ptr %127, i64 8
-  store i32 3, ptr %131, align 8, !tbaa !98
+  store i32 3, ptr %131, align 8, !tbaa !95
   %132 = getelementptr inbounds nuw i8, ptr %127, i64 64
-  store ptr %1, ptr %132, align 8, !tbaa !99
+  store ptr %1, ptr %132, align 8, !tbaa !96
   %133 = getelementptr inbounds nuw i8, ptr %127, i64 88
   %134 = getelementptr inbounds nuw i8, ptr %127, i64 80
-  store ptr %133, ptr %134, align 8, !tbaa !100
+  store ptr %133, ptr %134, align 8, !tbaa !97
   %.not.i228 = icmp eq ptr %.0.i238, null
   br i1 %.not.i228, label %lexbor_libxml2_bridge_new_text_node_fast.exit.thread, label %135
 
@@ -369,7 +369,7 @@ lexbor_libxml2_bridge_new_text_node_fast.exit:    ; preds = %116
   %136 = trunc nuw nsw i64 %.sink.i237 to i32
   %137 = call ptr @xmlNewDocTextLen(ptr noundef nonnull %1, ptr noundef %.0.i238, i32 noundef %136) #11
   %.not288 = icmp eq ptr %137, null
-  br i1 %.not288, label %lexbor_libxml2_bridge_new_text_node_fast.exit.thread250, label %lexbor_libxml2_bridge_new_text_node_fast.exit.thread, !prof !101
+  br i1 %.not288, label %lexbor_libxml2_bridge_new_text_node_fast.exit.thread250, label %lexbor_libxml2_bridge_new_text_node_fast.exit.thread, !prof !98
 
 lexbor_libxml2_bridge_new_text_node_fast.exit.thread250: ; preds = %125, %lexbor_libxml2_bridge_new_text_node_fast.exit
   call void @xmlFreeProp(ptr noundef nonnull %114) #11
@@ -378,13 +378,13 @@ lexbor_libxml2_bridge_new_text_node_fast.exit.thread250: ; preds = %125, %lexbor
 lexbor_libxml2_bridge_new_text_node_fast.exit.thread: ; preds = %129, %135, %lexbor_libxml2_bridge_new_text_node_fast.exit
   %.1.i249 = phi ptr [ %137, %lexbor_libxml2_bridge_new_text_node_fast.exit ], [ %127, %135 ], [ %127, %129 ]
   %138 = getelementptr inbounds nuw i8, ptr %114, i64 32
-  store ptr %.1.i249, ptr %138, align 8, !tbaa !102
+  store ptr %.1.i249, ptr %138, align 8, !tbaa !99
   %139 = getelementptr inbounds nuw i8, ptr %114, i64 24
-  store ptr %.1.i249, ptr %139, align 8, !tbaa !103
+  store ptr %.1.i249, ptr %139, align 8, !tbaa !100
   %140 = getelementptr inbounds nuw i8, ptr %.1.i249, i64 40
-  store ptr %114, ptr %140, align 8, !tbaa !60
+  store ptr %114, ptr %140, align 8, !tbaa !58
   %141 = getelementptr inbounds nuw i8, ptr %.0202301, i64 24
-  %142 = load i64, ptr %141, align 8, !tbaa !104
+  %142 = load i64, ptr %141, align 8, !tbaa !101
   switch i64 %142, label %163 [
     i64 7, label %143
     i64 5, label %155
@@ -411,10 +411,10 @@ lexbor_libxml2_bridge_new_text_node_fast.exit.thread: ; preds = %129, %135, %lex
   %.sink = phi ptr [ %150, %149 ], [ %148, %147 ], [ %.3171299, %145 ]
   %.9177 = phi ptr [ %.3171299, %149 ], [ %148, %147 ], [ %.3171299, %145 ]
   %152 = getelementptr inbounds nuw i8, ptr %114, i64 72
-  store ptr %.sink, ptr %152, align 8, !tbaa !105
-  %153 = load ptr, ptr @php_dom_ns_is_xmlns_magic_token, align 8, !tbaa !43
+  store ptr %.sink, ptr %152, align 8, !tbaa !102
+  %153 = load ptr, ptr @php_dom_ns_is_xmlns_magic_token, align 8, !tbaa !41
   %154 = getelementptr inbounds nuw i8, ptr %.sink, i64 32
-  store ptr %153, ptr %154, align 8, !tbaa !54
+  store ptr %153, ptr %154, align 8, !tbaa !52
   br label %163
 
 155:                                              ; preds = %lexbor_libxml2_bridge_new_text_node_fast.exit.thread
@@ -423,15 +423,15 @@ lexbor_libxml2_bridge_new_text_node_fast.exit.thread: ; preds = %129, %135, %lex
 
 157:                                              ; preds = %155
   %158 = call ptr @php_dom_libxml_ns_mapper_get_ns_raw_strings_nullsafe(ptr noundef %8, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3) #11
-  %159 = load ptr, ptr @php_dom_ns_is_xlink_magic_token, align 8, !tbaa !43
+  %159 = load ptr, ptr @php_dom_ns_is_xlink_magic_token, align 8, !tbaa !41
   %160 = getelementptr inbounds nuw i8, ptr %158, i64 32
-  store ptr %159, ptr %160, align 8, !tbaa !54
+  store ptr %159, ptr %160, align 8, !tbaa !52
   br label %161
 
 161:                                              ; preds = %157, %155
   %.9165 = phi ptr [ %158, %157 ], [ %.3159300, %155 ]
   %162 = getelementptr inbounds nuw i8, ptr %114, i64 72
-  store ptr %.9165, ptr %162, align 8, !tbaa !105
+  store ptr %.9165, ptr %162, align 8, !tbaa !102
   br label %163
 
 163:                                              ; preds = %lexbor_libxml2_bridge_new_text_node_fast.exit.thread, %161, %151
@@ -441,14 +441,14 @@ lexbor_libxml2_bridge_new_text_node_fast.exit.thread: ; preds = %129, %135, %lex
   br i1 %164, label %165, label %166
 
 165:                                              ; preds = %163
-  store ptr %114, ptr %92, align 8, !tbaa !106
+  store ptr %114, ptr %92, align 8, !tbaa !103
   br label %169
 
 166:                                              ; preds = %163
   %167 = getelementptr inbounds nuw i8, ptr %.0198298, i64 48
-  store ptr %114, ptr %167, align 8, !tbaa !107
+  store ptr %114, ptr %167, align 8, !tbaa !104
   %168 = getelementptr inbounds nuw i8, ptr %114, i64 56
-  store ptr %.0198298, ptr %168, align 8, !tbaa !108
+  store ptr %.0198298, ptr %168, align 8, !tbaa !105
   br label %169
 
 169:                                              ; preds = %166, %165
@@ -456,18 +456,18 @@ lexbor_libxml2_bridge_new_text_node_fast.exit.thread: ; preds = %129, %135, %lex
   br i1 %170, label %171, label %183
 
 171:                                              ; preds = %169
-  %172 = load i8, ptr %.0.i.i, align 1, !tbaa !50
+  %172 = load i8, ptr %.0.i.i, align 1, !tbaa !48
   %173 = icmp eq i8 %172, 105
   br i1 %173, label %174, label %183
 
 174:                                              ; preds = %171
   %175 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 1
-  %176 = load i8, ptr %175, align 1, !tbaa !50
+  %176 = load i8, ptr %175, align 1, !tbaa !48
   %177 = icmp eq i8 %176, 100
   br i1 %177, label %178, label %183
 
 178:                                              ; preds = %174
-  %179 = load i64, ptr %141, align 8, !tbaa !104
+  %179 = load i64, ptr %141, align 8, !tbaa !101
   %180 = icmp eq i64 %179, 2
   br i1 %180, label %181, label %183
 
@@ -477,25 +477,25 @@ lexbor_libxml2_bridge_new_text_node_fast.exit.thread: ; preds = %129, %135, %lex
 
 183:                                              ; preds = %169, %171, %174, %178, %181
   %184 = getelementptr inbounds nuw i8, ptr %.0202301, i64 136
-  %.0202 = load ptr, ptr %184, align 8, !tbaa !71
+  %.0202 = load ptr, ptr %184, align 8, !tbaa !68
   %.not226 = icmp eq ptr %.0202, null
-  br i1 %.not226, label %.backedge, label %93, !llvm.loop !109
+  br i1 %.not226, label %.backedge, label %93
 
 185:                                              ; preds = %.lr.ph324
   %186 = getelementptr inbounds nuw i8, ptr %20, i64 112
-  %187 = load i64, ptr %186, align 8, !tbaa !110
+  %187 = load i64, ptr %186, align 8, !tbaa !106
   %188 = icmp ugt i64 %187, 2147483646
   br i1 %188, label %.thread281, label %189, !prof !13
 
 189:                                              ; preds = %185
   %190 = getelementptr inbounds nuw i8, ptr %20, i64 104
-  %191 = load ptr, ptr %190, align 8, !tbaa !113
+  %191 = load ptr, ptr %190, align 8, !tbaa !109
   %192 = icmp samesign ult i64 %187, 16
   %or.cond.i = and i1 %3, %192
   br i1 %or.cond.i, label %193, label %lexbor_libxml2_bridge_new_text_node_fast.exit231
 
 193:                                              ; preds = %189
-  %194 = load ptr, ptr @xmlMalloc, align 8, !tbaa !87
+  %194 = load ptr, ptr @xmlMalloc, align 8, !tbaa !84
   %195 = call ptr %194(i64 noundef 120) #11
   %196 = icmp eq ptr %195, null
   br i1 %196, label %.thread281, label %197, !prof !13
@@ -503,14 +503,14 @@ lexbor_libxml2_bridge_new_text_node_fast.exit.thread: ; preds = %129, %135, %lex
 197:                                              ; preds = %193
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %195, i8 0, i64 120, i1 false)
   %198 = getelementptr inbounds nuw i8, ptr %195, i64 16
-  store ptr @xmlStringText, ptr %198, align 8, !tbaa !97
+  store ptr @xmlStringText, ptr %198, align 8, !tbaa !94
   %199 = getelementptr inbounds nuw i8, ptr %195, i64 8
-  store i32 3, ptr %199, align 8, !tbaa !98
+  store i32 3, ptr %199, align 8, !tbaa !95
   %200 = getelementptr inbounds nuw i8, ptr %195, i64 64
-  store ptr %1, ptr %200, align 8, !tbaa !99
+  store ptr %1, ptr %200, align 8, !tbaa !96
   %201 = getelementptr inbounds nuw i8, ptr %195, i64 88
   %202 = getelementptr inbounds nuw i8, ptr %195, i64 80
-  store ptr %201, ptr %202, align 8, !tbaa !100
+  store ptr %201, ptr %202, align 8, !tbaa !97
   %.not.i230 = icmp eq ptr %191, null
   br i1 %.not.i230, label %lexbor_libxml2_bridge_new_text_node_fast.exit231.thread, label %203
 
@@ -522,66 +522,66 @@ lexbor_libxml2_bridge_new_text_node_fast.exit231: ; preds = %189
   %204 = trunc nuw nsw i64 %187 to i32
   %205 = call ptr @xmlNewDocTextLen(ptr noundef %1, ptr noundef %191, i32 noundef %204) #11
   %206 = icmp eq ptr %205, null
-  br i1 %206, label %.thread281, label %lexbor_libxml2_bridge_new_text_node_fast.exit231.thread, !prof !114
+  br i1 %206, label %.thread281, label %lexbor_libxml2_bridge_new_text_node_fast.exit231.thread, !prof !110
 
 lexbor_libxml2_bridge_new_text_node_fast.exit231.thread: ; preds = %197, %203, %lexbor_libxml2_bridge_new_text_node_fast.exit231
   %.1.i229269 = phi ptr [ %205, %lexbor_libxml2_bridge_new_text_node_fast.exit231 ], [ %195, %203 ], [ %195, %197 ]
   %207 = call ptr @xmlAddChild(ptr noundef %22, ptr noundef nonnull %.1.i229269) #11
   %208 = getelementptr inbounds nuw i8, ptr %20, i64 96
-  %209 = load i64, ptr %208, align 8, !tbaa !33
+  %209 = load i64, ptr %208, align 8, !tbaa !31
   %210 = icmp ugt i64 %209, 65534
   br i1 %210, label %211, label %215
 
 211:                                              ; preds = %lexbor_libxml2_bridge_new_text_node_fast.exit231.thread
   %212 = getelementptr inbounds nuw i8, ptr %.1.i229269, i64 112
-  store i16 -1, ptr %212, align 8, !tbaa !34
+  store i16 -1, ptr %212, align 8, !tbaa !32
   %213 = inttoptr i64 %209 to ptr
   %214 = getelementptr inbounds nuw i8, ptr %.1.i229269, i64 104
-  store ptr %213, ptr %214, align 8, !tbaa !115
+  store ptr %213, ptr %214, align 8, !tbaa !111
   br label %.backedge
 
 215:                                              ; preds = %lexbor_libxml2_bridge_new_text_node_fast.exit231.thread
   %216 = trunc nuw i64 %209 to i16
   %217 = getelementptr inbounds nuw i8, ptr %.1.i229269, i64 112
-  store i16 %216, ptr %217, align 8, !tbaa !34
+  store i16 %216, ptr %217, align 8, !tbaa !32
   br label %.backedge
 
 218:                                              ; preds = %.lr.ph324
   %219 = getelementptr inbounds nuw i8, ptr %20, i64 32
-  %220 = load ptr, ptr %219, align 8, !tbaa !116
+  %220 = load ptr, ptr %219, align 8, !tbaa !112
   %221 = getelementptr inbounds nuw i8, ptr %220, i64 208
-  %222 = load ptr, ptr %221, align 8, !tbaa !75
+  %222 = load ptr, ptr %221, align 8, !tbaa !72
   %223 = getelementptr inbounds nuw i8, ptr %20, i64 104
-  %224 = load i64, ptr %223, align 8, !tbaa !118
+  %224 = load i64, ptr %223, align 8, !tbaa !114
   %225 = call ptr @lxb_dom_attr_data_by_id(ptr noundef %222, i64 noundef %224) #11
   %226 = icmp eq ptr %225, null
   br i1 %226, label %lxb_dom_document_type_name.exit, label %227
 
 227:                                              ; preds = %218
-  %228 = load i64, ptr %223, align 8, !tbaa !118
+  %228 = load i64, ptr %223, align 8, !tbaa !114
   %229 = icmp eq i64 %228, 0
   br i1 %229, label %lxb_dom_document_type_name.exit, label %230
 
 230:                                              ; preds = %227
   %231 = getelementptr inbounds nuw i8, ptr %225, i64 24
-  %232 = load i64, ptr %231, align 8, !tbaa !119
+  %232 = load i64, ptr %231, align 8, !tbaa !115
   %233 = icmp ult i64 %232, 17
   br i1 %233, label %lxb_dom_document_type_name.exit, label %234
 
 234:                                              ; preds = %230
-  %235 = load ptr, ptr %225, align 8, !tbaa !50
+  %235 = load ptr, ptr %225, align 8, !tbaa !48
   br label %lxb_dom_document_type_name.exit
 
 lxb_dom_document_type_name.exit:                  ; preds = %218, %227, %230, %234
   %.0.i239 = phi ptr [ @lxb_dom_document_type_name.lxb_empty, %218 ], [ @lxb_dom_document_type_name.lxb_empty, %227 ], [ %235, %234 ], [ %225, %230 ]
   %236 = getelementptr i8, ptr %20, i64 112
-  %.val = load ptr, ptr %236, align 8, !tbaa !120
+  %.val = load ptr, ptr %236, align 8, !tbaa !116
   %237 = getelementptr i8, ptr %20, i64 120
-  %.val234 = load i64, ptr %237, align 8, !tbaa !121
+  %.val234 = load i64, ptr %237, align 8, !tbaa !117
   %238 = getelementptr i8, ptr %20, i64 128
-  %.val235 = load ptr, ptr %238, align 8, !tbaa !122
+  %.val235 = load ptr, ptr %238, align 8, !tbaa !118
   %239 = getelementptr i8, ptr %20, i64 136
-  %.val236 = load i64, ptr %239, align 8, !tbaa !123
+  %.val236 = load i64, ptr %239, align 8, !tbaa !119
   %.not219 = icmp eq i64 %.val234, 0
   %240 = select i1 %.not219, ptr null, ptr %.val
   %.not220 = icmp eq i64 %.val236, 0
@@ -596,11 +596,11 @@ lxb_dom_document_type_name.exit:                  ; preds = %218, %227, %230, %2
   %.0.be = phi i32 [ %.0323, %248 ], [ %.0323, %211 ], [ %.0323, %215 ], [ 4, %lexbor_libxml2_bridge_new_text_node_fast.exit.thread250 ], [ %.0323, %lxb_dom_document_type_name.exit ], [ %.0323, %.lr.ph324 ], [ %.0323, %._crit_edge ], [ 3, %lxb_dom_attr_value.exit ], [ 4, %112 ], [ %.0323, %183 ]
   %243 = call ptr @lexbor_array_obj_pop(ptr noundef nonnull %7) #11
   %.not217 = icmp eq ptr %243, null
-  br i1 %.not217, label %.thread281, label %.lr.ph324, !llvm.loop !124
+  br i1 %.not217, label %.thread281, label %.lr.ph324
 
 244:                                              ; preds = %.lr.ph324
   %245 = getelementptr inbounds nuw i8, ptr %20, i64 104
-  %246 = load ptr, ptr %245, align 8, !tbaa !125
+  %246 = load ptr, ptr %245, align 8, !tbaa !120
   %247 = call ptr @xmlNewDocComment(ptr noundef %1, ptr noundef %246) #11
   %.not218 = icmp eq ptr %247, null
   br i1 %.not218, label %.thread281, label %248, !prof !13
@@ -608,11 +608,11 @@ lxb_dom_document_type_name.exit:                  ; preds = %218, %227, %230, %2
 248:                                              ; preds = %244
   %249 = call ptr @xmlAddChild(ptr noundef %22, ptr noundef nonnull %247) #11
   %250 = getelementptr inbounds nuw i8, ptr %20, i64 96
-  %251 = load i64, ptr %250, align 8, !tbaa !33
+  %251 = load i64, ptr %250, align 8, !tbaa !31
   %.04.i240 = call i64 @llvm.umin.i64(i64 %251, i64 65535)
   %.0.i241 = trunc nuw i64 %.04.i240 to i16
   %252 = getelementptr inbounds nuw i8, ptr %247, i64 112
-  store i16 %.0.i241, ptr %252, align 8, !tbaa !34
+  store i16 %.0.i241, ptr %252, align 8, !tbaa !32
   br label %.backedge
 
 .thread281:                                       ; preds = %.backedge, %25, %74, %185, %lexbor_libxml2_bridge_new_text_node_fast.exit231, %193, %244, %lxb_dom_document_type_name.exit, %.preheader
@@ -643,7 +643,7 @@ define hidden range(i32 0, 5) i32 @lexbor_libxml2_bridge_convert_fragment(ptr no
   br label %13
 
 12:                                               ; preds = %9
-  store ptr %7, ptr %2, align 8, !tbaa !127
+  store ptr %7, ptr %2, align 8, !tbaa !122
   br label %13
 
 13:                                               ; preds = %11, %12, %6
@@ -657,12 +657,12 @@ declare void @xmlFreeNode(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define hidden void @lexbor_libxml2_bridge_report_errors(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i64 noundef %3, ptr noundef captures(none) %4, ptr noundef captures(none) %5) local_unnamed_addr #2 {
-  %.val = load ptr, ptr %1, align 8, !tbaa !128
+  %.val = load ptr, ptr %1, align 8, !tbaa !123
   %7 = getelementptr inbounds nuw i8, ptr %.val, i64 88
-  %8 = load ptr, ptr %7, align 8, !tbaa !132
-  %9 = load i64, ptr %4, align 8, !tbaa !134
+  %8 = load ptr, ptr %7, align 8, !tbaa !127
+  %9 = load i64, ptr %4, align 8, !tbaa !129
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  %11 = load i64, ptr %10, align 8, !tbaa !135
+  %11 = load i64, ptr %10, align 8, !tbaa !130
   %.not.i44 = icmp ult i64 %9, %11
   br i1 %.not.i44, label %lexbor_array_obj_get.exit.lr.ph, label %lexbor_array_obj_get.exit.thread
 
@@ -676,8 +676,8 @@ lexbor_array_obj_get.exit.lr.ph:                  ; preds = %6
 lexbor_array_obj_get.exit:                        ; preds = %lexbor_array_obj_get.exit.lr.ph, %28
   %16 = phi i64 [ %11, %lexbor_array_obj_get.exit.lr.ph ], [ %29, %28 ]
   %.045 = phi i64 [ %9, %lexbor_array_obj_get.exit.lr.ph ], [ %30, %28 ]
-  %17 = load ptr, ptr %8, align 8, !tbaa !137
-  %18 = load i64, ptr %12, align 8, !tbaa !138
+  %17 = load ptr, ptr %8, align 8, !tbaa !132
+  %18 = load i64, ptr %12, align 8, !tbaa !133
   %19 = mul i64 %18, %.045
   %20 = getelementptr inbounds nuw i8, ptr %17, i64 %19
   %.not = icmp eq ptr %17, null
@@ -689,30 +689,30 @@ lexbor_array_obj_get.exit:                        ; preds = %lexbor_array_obj_ge
   br i1 %.not35, label %28, label %23
 
 23:                                               ; preds = %21
-  %24 = load ptr, ptr %13, align 8, !tbaa !139
-  %25 = load ptr, ptr %20, align 8, !tbaa !140
+  %24 = load ptr, ptr %13, align 8, !tbaa !134
+  %25 = load ptr, ptr %20, align 8, !tbaa !135
   %26 = ptrtoint ptr %25 to i64
   %27 = add i64 %15, %26
   tail call void %22(ptr noundef %24, ptr noundef nonnull %20, i64 noundef %27) #11
-  %.pre = load i64, ptr %10, align 8, !tbaa !135
+  %.pre = load i64, ptr %10, align 8, !tbaa !130
   br label %28
 
 28:                                               ; preds = %23, %21
   %29 = phi i64 [ %.pre, %23 ], [ %16, %21 ]
   %30 = add nuw i64 %.045, 1
   %.not.i = icmp ult i64 %30, %29
-  br i1 %.not.i, label %lexbor_array_obj_get.exit, label %lexbor_array_obj_get.exit.thread, !llvm.loop !142
+  br i1 %.not.i, label %lexbor_array_obj_get.exit, label %lexbor_array_obj_get.exit.thread
 
 lexbor_array_obj_get.exit.thread:                 ; preds = %lexbor_array_obj_get.exit, %28, %6
   %.0.lcssa = phi i64 [ %9, %6 ], [ %30, %28 ], [ %.045, %lexbor_array_obj_get.exit ]
-  store i64 %.0.lcssa, ptr %4, align 8, !tbaa !134
+  store i64 %.0.lcssa, ptr %4, align 8, !tbaa !129
   %31 = getelementptr i8, ptr %1, i64 8
-  %.val36 = load ptr, ptr %31, align 8, !tbaa !143
+  %.val36 = load ptr, ptr %31, align 8, !tbaa !137
   %32 = getelementptr inbounds nuw i8, ptr %.val36, i64 72
-  %33 = load ptr, ptr %32, align 8, !tbaa !144
-  %34 = load i64, ptr %5, align 8, !tbaa !134
+  %33 = load ptr, ptr %32, align 8, !tbaa !138
+  %34 = load i64, ptr %5, align 8, !tbaa !129
   %35 = getelementptr inbounds nuw i8, ptr %33, i64 16
-  %36 = load i64, ptr %35, align 8, !tbaa !135
+  %36 = load i64, ptr %35, align 8, !tbaa !130
   %.not.i3747 = icmp ult i64 %34, %36
   br i1 %.not.i3747, label %lexbor_array_obj_get.exit39.lr.ph, label %lexbor_array_obj_get.exit39.thread
 
@@ -725,8 +725,8 @@ lexbor_array_obj_get.exit39.lr.ph:                ; preds = %lexbor_array_obj_ge
 lexbor_array_obj_get.exit39:                      ; preds = %lexbor_array_obj_get.exit39.lr.ph, %57
   %40 = phi i64 [ %36, %lexbor_array_obj_get.exit39.lr.ph ], [ %58, %57 ]
   %.148 = phi i64 [ %34, %lexbor_array_obj_get.exit39.lr.ph ], [ %59, %57 ]
-  %41 = load ptr, ptr %33, align 8, !tbaa !137
-  %42 = load i64, ptr %37, align 8, !tbaa !138
+  %41 = load ptr, ptr %33, align 8, !tbaa !132
+  %42 = load i64, ptr %37, align 8, !tbaa !133
   %43 = mul i64 %42, %.148
   %44 = getelementptr inbounds nuw i8, ptr %41, i64 %43
   %.not33 = icmp eq ptr %41, null
@@ -738,50 +738,50 @@ lexbor_array_obj_get.exit39:                      ; preds = %lexbor_array_obj_ge
   br i1 %.not34, label %57, label %47
 
 47:                                               ; preds = %45
-  %48 = load ptr, ptr %39, align 8, !tbaa !139
+  %48 = load ptr, ptr %39, align 8, !tbaa !134
   %49 = getelementptr inbounds nuw i8, ptr %44, i64 8
-  %50 = load i64, ptr %49, align 8, !tbaa !149
+  %50 = load i64, ptr %49, align 8, !tbaa !143
   %51 = add i64 %50, 1
   %52 = getelementptr inbounds nuw i8, ptr %44, i64 16
-  %53 = load i64, ptr %52, align 8, !tbaa !151
+  %53 = load i64, ptr %52, align 8, !tbaa !145
   %54 = add i64 %53, 1
   %55 = getelementptr inbounds nuw i8, ptr %44, i64 24
-  %56 = load i64, ptr %55, align 8, !tbaa !152
+  %56 = load i64, ptr %55, align 8, !tbaa !146
   tail call void %46(ptr noundef %48, ptr noundef nonnull %44, i64 noundef %51, i64 noundef %54, i64 noundef %56) #11
-  %.pre51 = load i64, ptr %35, align 8, !tbaa !135
+  %.pre51 = load i64, ptr %35, align 8, !tbaa !130
   br label %57
 
 57:                                               ; preds = %47, %45
   %58 = phi i64 [ %.pre51, %47 ], [ %40, %45 ]
   %59 = add nuw i64 %.148, 1
   %.not.i37 = icmp ult i64 %59, %58
-  br i1 %.not.i37, label %lexbor_array_obj_get.exit39, label %lexbor_array_obj_get.exit39.thread, !llvm.loop !153
+  br i1 %.not.i37, label %lexbor_array_obj_get.exit39, label %lexbor_array_obj_get.exit39.thread
 
 lexbor_array_obj_get.exit39.thread:               ; preds = %lexbor_array_obj_get.exit39, %57, %lexbor_array_obj_get.exit.thread
   %.1.lcssa = phi i64 [ %34, %lexbor_array_obj_get.exit.thread ], [ %59, %57 ], [ %.148, %lexbor_array_obj_get.exit39 ]
-  store i64 %.1.lcssa, ptr %5, align 8, !tbaa !134
+  store i64 %.1.lcssa, ptr %5, align 8, !tbaa !129
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define hidden void @lexbor_libxml2_bridge_copy_observations(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 3), (4, 8)) %1) local_unnamed_addr #5 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 83
-  %4 = load i8, ptr %3, align 1, !tbaa !154, !range !155, !noundef !156
-  store i8 %4, ptr %1, align 4, !tbaa !157
+  %4 = load i8, ptr %3, align 1, !tbaa !147, !range !148, !noundef !149
+  store i8 %4, ptr %1, align 4, !tbaa !150
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 84
-  %6 = load i8, ptr %5, align 4, !tbaa !158, !range !155, !noundef !156
+  %6 = load i8, ptr %5, align 4, !tbaa !151, !range !148, !noundef !149
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 1
-  store i8 %6, ptr %7, align 1, !tbaa !159
+  store i8 %6, ptr %7, align 1, !tbaa !152
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 85
-  %9 = load i8, ptr %8, align 1, !tbaa !160, !range !155, !noundef !156
+  %9 = load i8, ptr %8, align 1, !tbaa !153, !range !148, !noundef !149
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 2
-  store i8 %9, ptr %10, align 2, !tbaa !161
+  store i8 %9, ptr %10, align 2, !tbaa !154
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %12 = load ptr, ptr %11, align 8, !tbaa !162
+  %12 = load ptr, ptr %11, align 8, !tbaa !155
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 104
-  %14 = load i32, ptr %13, align 8, !tbaa !163
+  %14 = load i32, ptr %13, align 8, !tbaa !156
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  store i32 %14, ptr %15, align 4, !tbaa !164
+  store i32 %14, ptr %15, align 4, !tbaa !157
   ret void
 }
 
@@ -891,138 +891,131 @@ attributes #13 = { nounwind willreturn memory(read) }
 !27 = !{!23, !24, i64 16}
 !28 = !{!23, !25, i64 24}
 !29 = !{!15, !19, i64 48}
-!30 = distinct !{!30, !31}
-!31 = !{!"llvm.loop.estimated_trip_count"}
-!32 = !{!15, !11, i64 88}
-!33 = !{!15, !17, i64 96}
-!34 = !{!35, !38, i64 112}
-!35 = !{!"_xmlNode", !6, i64 0, !11, i64 8, !36, i64 16, !24, i64 24, !24, i64 32, !24, i64 40, !24, i64 48, !24, i64 56, !21, i64 64, !25, i64 72, !36, i64 80, !37, i64 88, !25, i64 96, !6, i64 104, !38, i64 112, !38, i64 114}
-!36 = !{!"p1 omnipotent char", !6, i64 0}
-!37 = !{!"p1 _ZTS8_xmlAttr", !6, i64 0}
-!38 = !{!"short", !7, i64 0}
-!39 = !{!40, !17, i64 24}
-!40 = !{!"lxb_dom_element", !15, i64 0, !17, i64 104, !17, i64 112, !6, i64 120, !41, i64 128, !41, i64 136, !41, i64 144, !41, i64 152, !11, i64 160}
-!41 = !{!"p1 _ZTS12lxb_dom_attr", !6, i64 0}
-!42 = !{!"branch_weights", !"expected", i32 2000, i32 1}
-!43 = !{!44, !44, i64 0}
-!44 = !{!"p1 _ZTS22php_dom_ns_magic_token", !6, i64 0}
-!45 = !{!46}
-!46 = distinct !{!46, !47, !"get_libxml_namespace_href: argument 0"}
-!47 = distinct !{!47, !"get_libxml_namespace_href"}
-!48 = !{!49, !11, i64 0}
-!49 = !{!"_zend_refcounted_h", !11, i64 0, !7, i64 4}
-!50 = !{!7, !7, i64 0}
-!51 = !{!52, !17, i64 8}
-!52 = !{!"_zend_string", !49, i64 0, !17, i64 8, !17, i64 16, !7, i64 24}
-!53 = !{!52, !17, i64 16}
-!54 = !{!55, !6, i64 32}
-!55 = !{!"_xmlNs", !25, i64 0, !11, i64 8, !36, i64 16, !36, i64 24, !6, i64 32, !21, i64 40}
-!56 = !{!35, !25, i64 72}
-!57 = !{!40, !19, i64 72}
-!58 = !{!15, !17, i64 8}
-!59 = !{!15, !17, i64 24}
-!60 = !{!35, !24, i64 40}
-!61 = !{!62, !66, i64 184}
-!62 = !{!"lxb_html_template_element", !63, i64 0, !66, i64 184}
-!63 = !{!"lxb_html_element", !40, i64 0, !64, i64 168, !65, i64 176}
-!64 = !{!"p1 _ZTS15lexbor_avl_node", !6, i64 0}
-!65 = !{!"p1 _ZTS29lxb_css_rule_declaration_list", !6, i64 0}
-!66 = !{!"p1 _ZTS25lxb_dom_document_fragment", !6, i64 0}
-!67 = !{!68, !19, i64 72}
-!68 = !{!"lxb_dom_document_fragment", !15, i64 0, !69, i64 104}
-!69 = !{!"p1 _ZTS15lxb_dom_element", !6, i64 0}
-!70 = distinct !{!70, !31}
-!71 = !{!41, !41, i64 0}
-!72 = !{!73, !17, i64 8}
-!73 = !{!"lxb_dom_attr", !15, i64 0, !17, i64 104, !17, i64 112, !6, i64 120, !69, i64 128, !41, i64 136, !41, i64 144}
-!74 = !{!73, !18, i64 32}
-!75 = !{!76, !78, i64 208}
-!76 = !{!"lxb_dom_document", !15, i64 0, !11, i64 104, !11, i64 108, !77, i64 112, !69, i64 120, !6, i64 128, !6, i64 136, !6, i64 144, !6, i64 152, !6, i64 160, !6, i64 168, !6, i64 176, !6, i64 184, !6, i64 192, !78, i64 200, !78, i64 208, !78, i64 216, !78, i64 224, !6, i64 232, !6, i64 240, !10, i64 248, !10, i64 249, !10, i64 250}
-!77 = !{!"p1 _ZTS21lxb_dom_document_type", !6, i64 0}
-!78 = !{!"p1 _ZTS11lexbor_hash", !6, i64 0}
-!79 = !{!80, !17, i64 24}
-!80 = !{!"", !81, i64 0, !17, i64 40, !17, i64 48, !10, i64 56}
-!81 = !{!"lexbor_hash_entry", !7, i64 0, !17, i64 24, !82, i64 32}
-!82 = !{!"p1 _ZTS17lexbor_hash_entry", !6, i64 0}
-!83 = !{!73, !6, i64 120}
-!84 = !{!85, !17, i64 8}
-!85 = !{!"", !36, i64 0, !17, i64 8}
-!86 = !{!85, !36, i64 0}
-!87 = !{!6, !6, i64 0}
-!88 = !{!89, !11, i64 8}
-!89 = !{!"_xmlAttr", !6, i64 0, !11, i64 8, !36, i64 16, !24, i64 24, !24, i64 32, !24, i64 40, !37, i64 48, !37, i64 56, !21, i64 64, !25, i64 72, !11, i64 80, !6, i64 88}
-!90 = !{!89, !24, i64 40}
-!91 = !{!92, !94, i64 152}
-!92 = !{!"_xmlDoc", !6, i64 0, !11, i64 8, !36, i64 16, !24, i64 24, !24, i64 32, !24, i64 40, !24, i64 48, !24, i64 56, !21, i64 64, !11, i64 72, !11, i64 76, !93, i64 80, !93, i64 88, !25, i64 96, !36, i64 104, !36, i64 112, !6, i64 120, !6, i64 128, !36, i64 136, !11, i64 144, !94, i64 152, !6, i64 160, !11, i64 168, !11, i64 172}
-!93 = !{!"p1 _ZTS7_xmlDtd", !6, i64 0}
-!94 = !{!"p1 _ZTS8_xmlDict", !6, i64 0}
-!95 = !{!89, !36, i64 16}
-!96 = !{!89, !21, i64 64}
-!97 = !{!35, !36, i64 16}
-!98 = !{!35, !11, i64 8}
-!99 = !{!35, !21, i64 64}
-!100 = !{!35, !36, i64 80}
-!101 = !{!"branch_weights", !"expected", i32 1073204, i32 2146410444}
-!102 = !{!89, !24, i64 32}
-!103 = !{!89, !24, i64 24}
-!104 = !{!73, !17, i64 24}
-!105 = !{!89, !25, i64 72}
-!106 = !{!35, !37, i64 88}
-!107 = !{!89, !37, i64 48}
-!108 = !{!89, !37, i64 56}
-!109 = distinct !{!109, !31}
-!110 = !{!111, !17, i64 112}
-!111 = !{!"lxb_dom_text", !112, i64 0}
-!112 = !{!"lxb_dom_character_data", !15, i64 0, !85, i64 104}
-!113 = !{!111, !36, i64 104}
-!114 = !{!"branch_weights", !"expected", i32 1073205, i32 2146410443}
-!115 = !{!35, !6, i64 104}
-!116 = !{!117, !18, i64 32}
-!117 = !{!"lxb_dom_document_type", !15, i64 0, !17, i64 104, !85, i64 112, !85, i64 128}
-!118 = !{!117, !17, i64 104}
-!119 = !{!81, !17, i64 24}
-!120 = !{!117, !36, i64 112}
-!121 = !{!117, !17, i64 120}
-!122 = !{!117, !36, i64 128}
-!123 = !{!117, !17, i64 136}
-!124 = distinct !{!124, !31}
-!125 = !{!126, !36, i64 104}
-!126 = !{!"lxb_dom_comment", !112, i64 0}
-!127 = !{!24, !24, i64 0}
-!128 = !{!129, !130, i64 0}
-!129 = !{!"", !130, i64 0, !131, i64 8, !131, i64 16, !19, i64 24, !19, i64 32, !11, i64 40, !11, i64 44, !17, i64 48}
-!130 = !{!"p1 _ZTS18lxb_html_tokenizer", !6, i64 0}
-!131 = !{!"p1 _ZTS13lxb_html_tree", !6, i64 0}
-!132 = !{!133, !6, i64 88}
-!133 = !{!"lxb_html_tokenizer", !6, i64 0, !6, i64 8, !6, i64 16, !6, i64 24, !78, i64 32, !78, i64 40, !6, i64 48, !6, i64 56, !6, i64 64, !6, i64 72, !6, i64 80, !6, i64 88, !131, i64 96, !36, i64 104, !36, i64 112, !17, i64 120, !36, i64 128, !36, i64 136, !36, i64 144, !36, i64 152, !36, i64 160, !17, i64 168, !17, i64 176, !6, i64 184, !6, i64 192, !17, i64 200, !17, i64 208, !11, i64 216, !11, i64 220, !10, i64 224, !11, i64 228, !11, i64 232, !10, i64 236, !130, i64 240, !17, i64 248}
-!134 = !{!17, !17, i64 0}
-!135 = !{!136, !17, i64 16}
-!136 = !{!"", !36, i64 0, !17, i64 8, !17, i64 16, !17, i64 24}
-!137 = !{!136, !36, i64 0}
-!138 = !{!136, !17, i64 24}
-!139 = !{!5, !6, i64 24}
-!140 = !{!141, !36, i64 0}
-!141 = !{!"", !36, i64 0, !11, i64 8}
-!142 = distinct !{!142, !31}
-!143 = !{!129, !131, i64 8}
-!144 = !{!145, !6, i64 72}
-!145 = !{!"lxb_html_tree", !130, i64 0, !146, i64 8, !19, i64 16, !147, i64 24, !6, i64 32, !6, i64 40, !6, i64 48, !148, i64 56, !6, i64 72, !10, i64 80, !10, i64 81, !10, i64 82, !10, i64 83, !10, i64 84, !10, i64 85, !6, i64 88, !6, i64 96, !6, i64 104, !11, i64 112, !17, i64 120}
-!146 = !{!"p1 _ZTS17lxb_html_document", !6, i64 0}
-!147 = !{!"p1 _ZTS21lxb_html_form_element", !6, i64 0}
-!148 = !{!"", !6, i64 0, !10, i64 8}
-!149 = !{!150, !17, i64 8}
-!150 = !{!"", !11, i64 0, !17, i64 8, !17, i64 16, !17, i64 24}
-!151 = !{!150, !17, i64 16}
-!152 = !{!150, !17, i64 24}
-!153 = distinct !{!153, !31}
-!154 = !{!145, !10, i64 83}
-!155 = !{i8 0, i8 2}
-!156 = !{}
-!157 = !{!9, !10, i64 0}
-!158 = !{!145, !10, i64 84}
-!159 = !{!9, !10, i64 1}
-!160 = !{!145, !10, i64 85}
-!161 = !{!9, !10, i64 2}
-!162 = !{!145, !146, i64 8}
-!163 = !{!76, !11, i64 104}
-!164 = !{!9, !11, i64 4}
+!30 = !{!15, !11, i64 88}
+!31 = !{!15, !17, i64 96}
+!32 = !{!33, !36, i64 112}
+!33 = !{!"_xmlNode", !6, i64 0, !11, i64 8, !34, i64 16, !24, i64 24, !24, i64 32, !24, i64 40, !24, i64 48, !24, i64 56, !21, i64 64, !25, i64 72, !34, i64 80, !35, i64 88, !25, i64 96, !6, i64 104, !36, i64 112, !36, i64 114}
+!34 = !{!"p1 omnipotent char", !6, i64 0}
+!35 = !{!"p1 _ZTS8_xmlAttr", !6, i64 0}
+!36 = !{!"short", !7, i64 0}
+!37 = !{!38, !17, i64 24}
+!38 = !{!"lxb_dom_element", !15, i64 0, !17, i64 104, !17, i64 112, !6, i64 120, !39, i64 128, !39, i64 136, !39, i64 144, !39, i64 152, !11, i64 160}
+!39 = !{!"p1 _ZTS12lxb_dom_attr", !6, i64 0}
+!40 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!41 = !{!42, !42, i64 0}
+!42 = !{!"p1 _ZTS22php_dom_ns_magic_token", !6, i64 0}
+!43 = !{!44}
+!44 = distinct !{!44, !45, !"get_libxml_namespace_href: argument 0"}
+!45 = distinct !{!45, !"get_libxml_namespace_href"}
+!46 = !{!47, !11, i64 0}
+!47 = !{!"_zend_refcounted_h", !11, i64 0, !7, i64 4}
+!48 = !{!7, !7, i64 0}
+!49 = !{!50, !17, i64 8}
+!50 = !{!"_zend_string", !47, i64 0, !17, i64 8, !17, i64 16, !7, i64 24}
+!51 = !{!50, !17, i64 16}
+!52 = !{!53, !6, i64 32}
+!53 = !{!"_xmlNs", !25, i64 0, !11, i64 8, !34, i64 16, !34, i64 24, !6, i64 32, !21, i64 40}
+!54 = !{!33, !25, i64 72}
+!55 = !{!38, !19, i64 72}
+!56 = !{!15, !17, i64 8}
+!57 = !{!15, !17, i64 24}
+!58 = !{!33, !24, i64 40}
+!59 = !{!60, !64, i64 184}
+!60 = !{!"lxb_html_template_element", !61, i64 0, !64, i64 184}
+!61 = !{!"lxb_html_element", !38, i64 0, !62, i64 168, !63, i64 176}
+!62 = !{!"p1 _ZTS15lexbor_avl_node", !6, i64 0}
+!63 = !{!"p1 _ZTS29lxb_css_rule_declaration_list", !6, i64 0}
+!64 = !{!"p1 _ZTS25lxb_dom_document_fragment", !6, i64 0}
+!65 = !{!66, !19, i64 72}
+!66 = !{!"lxb_dom_document_fragment", !15, i64 0, !67, i64 104}
+!67 = !{!"p1 _ZTS15lxb_dom_element", !6, i64 0}
+!68 = !{!39, !39, i64 0}
+!69 = !{!70, !17, i64 8}
+!70 = !{!"lxb_dom_attr", !15, i64 0, !17, i64 104, !17, i64 112, !6, i64 120, !67, i64 128, !39, i64 136, !39, i64 144}
+!71 = !{!70, !18, i64 32}
+!72 = !{!73, !75, i64 208}
+!73 = !{!"lxb_dom_document", !15, i64 0, !11, i64 104, !11, i64 108, !74, i64 112, !67, i64 120, !6, i64 128, !6, i64 136, !6, i64 144, !6, i64 152, !6, i64 160, !6, i64 168, !6, i64 176, !6, i64 184, !6, i64 192, !75, i64 200, !75, i64 208, !75, i64 216, !75, i64 224, !6, i64 232, !6, i64 240, !10, i64 248, !10, i64 249, !10, i64 250}
+!74 = !{!"p1 _ZTS21lxb_dom_document_type", !6, i64 0}
+!75 = !{!"p1 _ZTS11lexbor_hash", !6, i64 0}
+!76 = !{!77, !17, i64 24}
+!77 = !{!"", !78, i64 0, !17, i64 40, !17, i64 48, !10, i64 56}
+!78 = !{!"lexbor_hash_entry", !7, i64 0, !17, i64 24, !79, i64 32}
+!79 = !{!"p1 _ZTS17lexbor_hash_entry", !6, i64 0}
+!80 = !{!70, !6, i64 120}
+!81 = !{!82, !17, i64 8}
+!82 = !{!"", !34, i64 0, !17, i64 8}
+!83 = !{!82, !34, i64 0}
+!84 = !{!6, !6, i64 0}
+!85 = !{!86, !11, i64 8}
+!86 = !{!"_xmlAttr", !6, i64 0, !11, i64 8, !34, i64 16, !24, i64 24, !24, i64 32, !24, i64 40, !35, i64 48, !35, i64 56, !21, i64 64, !25, i64 72, !11, i64 80, !6, i64 88}
+!87 = !{!86, !24, i64 40}
+!88 = !{!89, !91, i64 152}
+!89 = !{!"_xmlDoc", !6, i64 0, !11, i64 8, !34, i64 16, !24, i64 24, !24, i64 32, !24, i64 40, !24, i64 48, !24, i64 56, !21, i64 64, !11, i64 72, !11, i64 76, !90, i64 80, !90, i64 88, !25, i64 96, !34, i64 104, !34, i64 112, !6, i64 120, !6, i64 128, !34, i64 136, !11, i64 144, !91, i64 152, !6, i64 160, !11, i64 168, !11, i64 172}
+!90 = !{!"p1 _ZTS7_xmlDtd", !6, i64 0}
+!91 = !{!"p1 _ZTS8_xmlDict", !6, i64 0}
+!92 = !{!86, !34, i64 16}
+!93 = !{!86, !21, i64 64}
+!94 = !{!33, !34, i64 16}
+!95 = !{!33, !11, i64 8}
+!96 = !{!33, !21, i64 64}
+!97 = !{!33, !34, i64 80}
+!98 = !{!"branch_weights", !"expected", i32 1073204, i32 2146410444}
+!99 = !{!86, !24, i64 32}
+!100 = !{!86, !24, i64 24}
+!101 = !{!70, !17, i64 24}
+!102 = !{!86, !25, i64 72}
+!103 = !{!33, !35, i64 88}
+!104 = !{!86, !35, i64 48}
+!105 = !{!86, !35, i64 56}
+!106 = !{!107, !17, i64 112}
+!107 = !{!"lxb_dom_text", !108, i64 0}
+!108 = !{!"lxb_dom_character_data", !15, i64 0, !82, i64 104}
+!109 = !{!107, !34, i64 104}
+!110 = !{!"branch_weights", !"expected", i32 1073205, i32 2146410443}
+!111 = !{!33, !6, i64 104}
+!112 = !{!113, !18, i64 32}
+!113 = !{!"lxb_dom_document_type", !15, i64 0, !17, i64 104, !82, i64 112, !82, i64 128}
+!114 = !{!113, !17, i64 104}
+!115 = !{!78, !17, i64 24}
+!116 = !{!113, !34, i64 112}
+!117 = !{!113, !17, i64 120}
+!118 = !{!113, !34, i64 128}
+!119 = !{!113, !17, i64 136}
+!120 = !{!121, !34, i64 104}
+!121 = !{!"lxb_dom_comment", !108, i64 0}
+!122 = !{!24, !24, i64 0}
+!123 = !{!124, !125, i64 0}
+!124 = !{!"", !125, i64 0, !126, i64 8, !126, i64 16, !19, i64 24, !19, i64 32, !11, i64 40, !11, i64 44, !17, i64 48}
+!125 = !{!"p1 _ZTS18lxb_html_tokenizer", !6, i64 0}
+!126 = !{!"p1 _ZTS13lxb_html_tree", !6, i64 0}
+!127 = !{!128, !6, i64 88}
+!128 = !{!"lxb_html_tokenizer", !6, i64 0, !6, i64 8, !6, i64 16, !6, i64 24, !75, i64 32, !75, i64 40, !6, i64 48, !6, i64 56, !6, i64 64, !6, i64 72, !6, i64 80, !6, i64 88, !126, i64 96, !34, i64 104, !34, i64 112, !17, i64 120, !34, i64 128, !34, i64 136, !34, i64 144, !34, i64 152, !34, i64 160, !17, i64 168, !17, i64 176, !6, i64 184, !6, i64 192, !17, i64 200, !17, i64 208, !11, i64 216, !11, i64 220, !10, i64 224, !11, i64 228, !11, i64 232, !10, i64 236, !125, i64 240, !17, i64 248}
+!129 = !{!17, !17, i64 0}
+!130 = !{!131, !17, i64 16}
+!131 = !{!"", !34, i64 0, !17, i64 8, !17, i64 16, !17, i64 24}
+!132 = !{!131, !34, i64 0}
+!133 = !{!131, !17, i64 24}
+!134 = !{!5, !6, i64 24}
+!135 = !{!136, !34, i64 0}
+!136 = !{!"", !34, i64 0, !11, i64 8}
+!137 = !{!124, !126, i64 8}
+!138 = !{!139, !6, i64 72}
+!139 = !{!"lxb_html_tree", !125, i64 0, !140, i64 8, !19, i64 16, !141, i64 24, !6, i64 32, !6, i64 40, !6, i64 48, !142, i64 56, !6, i64 72, !10, i64 80, !10, i64 81, !10, i64 82, !10, i64 83, !10, i64 84, !10, i64 85, !6, i64 88, !6, i64 96, !6, i64 104, !11, i64 112, !17, i64 120}
+!140 = !{!"p1 _ZTS17lxb_html_document", !6, i64 0}
+!141 = !{!"p1 _ZTS21lxb_html_form_element", !6, i64 0}
+!142 = !{!"", !6, i64 0, !10, i64 8}
+!143 = !{!144, !17, i64 8}
+!144 = !{!"", !11, i64 0, !17, i64 8, !17, i64 16, !17, i64 24}
+!145 = !{!144, !17, i64 16}
+!146 = !{!144, !17, i64 24}
+!147 = !{!139, !10, i64 83}
+!148 = !{i8 0, i8 2}
+!149 = !{}
+!150 = !{!9, !10, i64 0}
+!151 = !{!139, !10, i64 84}
+!152 = !{!9, !10, i64 1}
+!153 = !{!139, !10, i64 85}
+!154 = !{!9, !10, i64 2}
+!155 = !{!139, !140, i64 8}
+!156 = !{!73, !11, i64 104}
+!157 = !{!9, !11, i64 4}

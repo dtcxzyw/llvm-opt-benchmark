@@ -382,7 +382,7 @@ define dso_local noundef ptr @_PyObject_MakeTpCall(ptr noundef %0, ptr noundef %
   %6 = getelementptr i8, ptr %1, i64 8
   %.val44 = load ptr, ptr %6, align 8, !tbaa !20
   %7 = getelementptr inbounds nuw i8, ptr %.val44, i64 128
-  %8 = load ptr, ptr %7, align 8, !tbaa !44
+  %8 = load ptr, ptr %7, align 8, !tbaa !43
   %9 = icmp eq ptr %8, null
   br i1 %9, label %10, label %11
 
@@ -440,9 +440,9 @@ define dso_local noundef ptr @_PyObject_MakeTpCall(ptr noundef %0, ptr noundef %
   %.031 = phi ptr [ %4, %22 ], [ %4, %16 ], [ null, %14 ], [ null, %20 ]
   %.029 = phi ptr [ %25, %22 ], [ %4, %16 ], [ null, %14 ], [ null, %20 ]
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 52
-  %35 = load i32, ptr %34, align 4, !tbaa !45
+  %35 = load i32, ptr %34, align 4, !tbaa !44
   %36 = add i32 %35, -1
-  store i32 %36, ptr %34, align 4, !tbaa !45
+  store i32 %36, ptr %34, align 4, !tbaa !44
   %.not.i47 = icmp sgt i32 %35, -1
   br i1 %.not.i47, label %_Py_EnterRecursiveCallTstate.exit.thread, label %_Py_EnterRecursiveCallTstate.exit
 
@@ -453,9 +453,9 @@ _Py_EnterRecursiveCallTstate.exit:                ; preds = %33
 
 _Py_EnterRecursiveCallTstate.exit.thread:         ; preds = %33, %_Py_EnterRecursiveCallTstate.exit
   %38 = tail call ptr %8(ptr noundef nonnull %1, ptr noundef nonnull %12, ptr noundef %.029) #10
-  %39 = load i32, ptr %34, align 4, !tbaa !45
+  %39 = load i32, ptr %34, align 4, !tbaa !44
   %40 = add i32 %39, 1
-  store i32 %40, ptr %34, align 4, !tbaa !45
+  store i32 %40, ptr %34, align 4, !tbaa !44
   br label %41
 
 41:                                               ; preds = %_Py_EnterRecursiveCallTstate.exit.thread, %_Py_EnterRecursiveCallTstate.exit
@@ -546,7 +546,7 @@ define hidden ptr @_PyStack_UnpackDict(ptr noundef %0, ptr noundef readonly capt
 ._crit_edge:                                      ; preds = %_Py_NewRef.exit, %26
   %29 = getelementptr ptr, ptr %27, i64 %2
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #10
-  store i64 0, ptr %6, align 8, !tbaa !46
+  store i64 0, ptr %6, align 8, !tbaa !45
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #10
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #10
   %30 = call i32 @PyDict_Next(ptr noundef %3, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %8) #10
@@ -575,7 +575,7 @@ _Py_NewRef.exit:                                  ; preds = %.lr.ph, %36
   store ptr %33, ptr %38, align 8, !tbaa !23
   %39 = add nuw nsw i64 %.03947, 1
   %exitcond.not = icmp eq i64 %39, %2
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !47
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !46
 
 40:                                               ; preds = %.lr.ph52, %_Py_NewRef.exit46
   %.050 = phi i64 [ 268435456, %.lr.ph52 ], [ %45, %_Py_NewRef.exit46 ]
@@ -614,7 +614,7 @@ _Py_NewRef.exit46:                                ; preds = %_Py_NewRef.exit45, 
   %57 = add i64 %.03749, 1
   %58 = call i32 @PyDict_Next(ptr noundef %3, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %8) #10
   %.not = icmp eq i32 %58, 0
-  br i1 %.not, label %._crit_edge53, label %40, !llvm.loop !48
+  br i1 %.not, label %._crit_edge53, label %40, !llvm.loop !47
 
 ._crit_edge53:                                    ; preds = %_Py_NewRef.exit46
   %59 = icmp eq i64 %45, 0
@@ -1121,7 +1121,7 @@ PyVectorcall_Function.exit:                       ; preds = %4
 
 PyVectorcall_Function.exit.thread:                ; preds = %4, %PyVectorcall_Function.exit
   %13 = getelementptr inbounds nuw i8, ptr %.val.i.i, i64 128
-  %14 = load ptr, ptr %13, align 8, !tbaa !44
+  %14 = load ptr, ptr %13, align 8, !tbaa !43
   %15 = icmp eq ptr %14, null
   br i1 %15, label %16, label %17
 
@@ -1131,9 +1131,9 @@ PyVectorcall_Function.exit.thread:                ; preds = %4, %PyVectorcall_Fu
 
 17:                                               ; preds = %PyVectorcall_Function.exit.thread
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 52
-  %19 = load i32, ptr %18, align 4, !tbaa !45
+  %19 = load i32, ptr %18, align 4, !tbaa !44
   %20 = add i32 %19, -1
-  store i32 %20, ptr %18, align 4, !tbaa !45
+  store i32 %20, ptr %18, align 4, !tbaa !44
   %.not.i = icmp sgt i32 %19, -1
   br i1 %.not.i, label %_Py_EnterRecursiveCallTstate.exit.thread, label %_Py_EnterRecursiveCallTstate.exit
 
@@ -1144,9 +1144,9 @@ _Py_EnterRecursiveCallTstate.exit:                ; preds = %17
 
 _Py_EnterRecursiveCallTstate.exit.thread:         ; preds = %17, %_Py_EnterRecursiveCallTstate.exit
   %22 = tail call ptr %14(ptr noundef nonnull %1, ptr noundef %2, ptr noundef %3) #10
-  %23 = load i32, ptr %18, align 4, !tbaa !45
+  %23 = load i32, ptr %18, align 4, !tbaa !44
   %24 = add i32 %23, 1
-  store i32 %24, ptr %18, align 4, !tbaa !45
+  store i32 %24, ptr %18, align 4, !tbaa !44
   %25 = tail call ptr @_Py_CheckFunctionResult(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %22, ptr noundef null)
   br label %26
 
@@ -1261,16 +1261,16 @@ define hidden ptr @_PyFunction_Vectorcall(ptr noundef %0, ptr noundef %1, i64 no
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %6 = load ptr, ptr %5, align 8, !tbaa !25
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %8 = load ptr, ptr %7, align 8, !tbaa !49
+  %8 = load ptr, ptr %7, align 8, !tbaa !48
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 48
-  %10 = load i32, ptr %9, align 8, !tbaa !51
+  %10 = load i32, ptr %9, align 8, !tbaa !50
   %11 = and i32 %10, 1
   %.not = icmp eq i32 %11, 0
   br i1 %.not, label %12, label %15
 
 12:                                               ; preds = %4
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %14 = load ptr, ptr %13, align 8, !tbaa !53
+  %14 = load ptr, ptr %13, align 8, !tbaa !52
   br label %15
 
 15:                                               ; preds = %4, %12
@@ -1559,7 +1559,7 @@ _PyErr_Occurred.exit.thread.i:                    ; preds = %_PyErr_Occurred.exi
   br i1 %20, label %null_error.exit, label %21
 
 21:                                               ; preds = %18
-  %22 = load i64, ptr %6, align 8, !tbaa !46
+  %22 = load i64, ptr %6, align 8, !tbaa !45
   %23 = icmp eq i64 %22, 1
   br i1 %23, label %24, label %44
 
@@ -1678,7 +1678,7 @@ _PyErr_Occurred.exit24.i:                         ; preds = %64
 
 _PyObject_VectorcallTstate.exit:                  ; preds = %_PyVectorcall_FunctionInline.exit.thread.i43, %_PyErr_Occurred.exit.i49, %61, %64, %_PyErr_Occurred.exit24.i, %72, %41, %_PyVectorcall_FunctionInline.exit.thread.i
   %.025 = phi ptr [ %40, %_PyVectorcall_FunctionInline.exit.thread.i ], [ %43, %41 ], [ %53, %_PyVectorcall_FunctionInline.exit.thread.i43 ], [ null, %61 ], [ null, %72 ], [ %55, %_PyErr_Occurred.exit24.i ], [ null, %_PyErr_Occurred.exit.i49 ], [ %55, %64 ]
-  %75 = load i64, ptr %6, align 8, !tbaa !46
+  %75 = load i64, ptr %6, align 8, !tbaa !45
   %76 = icmp sgt i64 %75, 0
   br i1 %76, label %.lr.ph, label %._crit_edge
 
@@ -1702,9 +1702,9 @@ _PyObject_VectorcallTstate.exit:                  ; preds = %_PyVectorcall_Funct
 
 Py_DECREF.exit:                                   ; preds = %.lr.ph, %80, %83
   %84 = add nuw nsw i64 %.02652, 1
-  %85 = load i64, ptr %6, align 8, !tbaa !46
+  %85 = load i64, ptr %6, align 8, !tbaa !45
   %86 = icmp slt i64 %84, %85
-  br i1 %86, label %.lr.ph, label %._crit_edge, !llvm.loop !54
+  br i1 %86, label %.lr.ph, label %._crit_edge, !llvm.loop !53
 
 ._crit_edge:                                      ; preds = %Py_DECREF.exit, %_PyObject_VectorcallTstate.exit
   %.not32 = icmp eq ptr %19, %5
@@ -2428,7 +2428,7 @@ _PyErr_Occurred.exit.thread.i:                    ; preds = %_PyErr_Occurred.exi
   %32 = load ptr, ptr %31, align 8, !tbaa !23
   %33 = icmp eq ptr %32, null
   %34 = add i64 %.030, 1
-  br i1 %33, label %35, label %18, !llvm.loop !55
+  br i1 %33, label %35, label %18
 
 35:                                               ; preds = %28
   call void @llvm.va_end.p0(ptr nonnull %6)
@@ -2490,7 +2490,7 @@ _PyErr_Occurred.exit.thread.i:                    ; preds = %_PyErr_Occurred.exi
   store ptr %62, ptr %63, align 8, !tbaa !23
   %64 = add nuw nsw i64 %.149, 1
   %65 = icmp slt i64 %64, %.030
-  br i1 %65, label %49, label %._crit_edge, !llvm.loop !56
+  br i1 %65, label %49, label %._crit_edge, !llvm.loop !54
 
 ._crit_edge:                                      ; preds = %60, %45
   %66 = getelementptr i8, ptr %2, i64 8
@@ -2786,19 +2786,17 @@ attributes #11 = { noreturn nounwind }
 !38 = !{!"p1 _ZTS15_dictkeysobject", !7, i64 0}
 !39 = !{!"p1 _ZTS11_dictvalues", !7, i64 0}
 !40 = !{!28, !11, i64 16}
-!41 = distinct !{!41, !42, !43}
+!41 = distinct !{!41, !42}
 !42 = !{!"llvm.loop.mustprogress"}
-!43 = !{!"llvm.loop.estimated_trip_count"}
-!44 = !{!27, !7, i64 128}
-!45 = !{!5, !13, i64 52}
-!46 = !{!11, !11, i64 0}
-!47 = distinct !{!47, !42, !43}
-!48 = distinct !{!48, !42, !43}
-!49 = !{!50, !15, i64 48}
-!50 = !{!"", !21, i64 0, !15, i64 16, !15, i64 24, !15, i64 32, !15, i64 40, !15, i64 48, !15, i64 56, !15, i64 64, !15, i64 72, !15, i64 80, !15, i64 88, !15, i64 96, !15, i64 104, !15, i64 112, !15, i64 120, !15, i64 128, !7, i64 136, !13, i64 144}
-!51 = !{!52, !13, i64 48}
-!52 = !{!"PyCodeObject", !28, i64 0, !15, i64 24, !15, i64 32, !15, i64 40, !13, i64 48, !13, i64 52, !13, i64 56, !13, i64 60, !13, i64 64, !13, i64 68, !13, i64 72, !13, i64 76, !13, i64 80, !13, i64 84, !13, i64 88, !13, i64 92, !15, i64 96, !15, i64 104, !15, i64 112, !15, i64 120, !15, i64 128, !15, i64 136, !15, i64 144, !7, i64 152, !7, i64 160, !11, i64 168, !7, i64 176, !11, i64 184, !13, i64 192, !7, i64 200, !8, i64 208}
-!53 = !{!50, !15, i64 16}
-!54 = distinct !{!54, !42, !43}
-!55 = distinct !{!55, !43}
-!56 = distinct !{!56, !42, !43}
+!43 = !{!27, !7, i64 128}
+!44 = !{!5, !13, i64 52}
+!45 = !{!11, !11, i64 0}
+!46 = distinct !{!46, !42}
+!47 = distinct !{!47, !42}
+!48 = !{!49, !15, i64 48}
+!49 = !{!"", !21, i64 0, !15, i64 16, !15, i64 24, !15, i64 32, !15, i64 40, !15, i64 48, !15, i64 56, !15, i64 64, !15, i64 72, !15, i64 80, !15, i64 88, !15, i64 96, !15, i64 104, !15, i64 112, !15, i64 120, !15, i64 128, !7, i64 136, !13, i64 144}
+!50 = !{!51, !13, i64 48}
+!51 = !{!"PyCodeObject", !28, i64 0, !15, i64 24, !15, i64 32, !15, i64 40, !13, i64 48, !13, i64 52, !13, i64 56, !13, i64 60, !13, i64 64, !13, i64 68, !13, i64 72, !13, i64 76, !13, i64 80, !13, i64 84, !13, i64 88, !13, i64 92, !15, i64 96, !15, i64 104, !15, i64 112, !15, i64 120, !15, i64 128, !15, i64 136, !15, i64 144, !7, i64 152, !7, i64 160, !11, i64 168, !7, i64 176, !11, i64 184, !13, i64 192, !7, i64 200, !8, i64 208}
+!52 = !{!49, !15, i64 16}
+!53 = distinct !{!53, !42}
+!54 = distinct !{!54, !42}

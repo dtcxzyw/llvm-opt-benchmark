@@ -82,15 +82,15 @@ construct_b.exit.thread:                          ; preds = %4
   %.020.i = phi i64 [ 1, %.lr.ph.i ], [ %41, %33 ]
   %.01719.i = phi double [ 0.000000e+00, %.lr.ph.i ], [ %40, %33 ]
   %34 = getelementptr inbounds nuw float, ptr %29, i64 %.020.i
-  %35 = load float, ptr %34, align 4, !tbaa !20
+  %35 = load float, ptr %34, align 4, !tbaa !19
   %36 = getelementptr inbounds nuw float, ptr %31, i64 %.020.i
-  %37 = load float, ptr %36, align 4, !tbaa !20
+  %37 = load float, ptr %36, align 4, !tbaa !19
   %38 = fmul float %35, %37
   %39 = fpext float %38 to double
   %40 = fadd double %.01719.i, %39
   %41 = add nuw i64 %.020.i, 1
   %exitcond.not.i = icmp eq i64 %41, %26
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %33, !llvm.loop !22
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %33, !llvm.loop !21
 
 construct_b.exit:                                 ; preds = %._crit_edge.i, %.lr.ph24.i
   tail call void @init_vec_orth1(i32 noundef %1, ptr noundef %2) #10
@@ -105,7 +105,7 @@ construct_b.exit:                                 ; preds = %._crit_edge.i, %.lr
   %44 = add i64 %43, %.05162
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !23
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !22
 
 ._crit_edge:                                      ; preds = %.lr.ph
   %.not.i56 = icmp eq i64 %44, 0
@@ -152,7 +152,7 @@ gv_calloc.exit60.thread94:                        ; preds = %._crit_edge
   %61 = add i64 %60, -1
   %62 = uitofp i64 %61 to float
   %63 = fneg float %62
-  store float %63, ptr %.04968, align 4, !tbaa !20
+  store float %63, ptr %.04968, align 4, !tbaa !19
   %64 = icmp ugt i64 %60, 1
   br i1 %64, label %.lr.ph65, label %._crit_edge66
 
@@ -160,15 +160,15 @@ gv_calloc.exit60.thread94:                        ; preds = %._crit_edge
   %65 = getelementptr inbounds nuw float, ptr %.04968, i64 %60
   %indvars.iv.next80 = add nuw nsw i64 %indvars.iv79, 1
   %exitcond83.not = icmp eq i64 %indvars.iv.next80, %wide.trip.count82
-  br i1 %exitcond83.not, label %._crit_edge70, label %.lr.ph69, !llvm.loop !24
+  br i1 %exitcond83.not, label %._crit_edge70, label %.lr.ph69, !llvm.loop !23
 
 .lr.ph65:                                         ; preds = %.lr.ph69, %.lr.ph65
   %.063 = phi i64 [ %67, %.lr.ph65 ], [ 1, %.lr.ph69 ]
   %66 = getelementptr inbounds nuw float, ptr %.04968, i64 %.063
-  store float 1.000000e+00, ptr %66, align 4, !tbaa !20
+  store float 1.000000e+00, ptr %66, align 4, !tbaa !19
   %67 = add nuw i64 %.063, 1
   %exitcond78.not = icmp eq i64 %67, %60
-  br i1 %exitcond78.not, label %._crit_edge66, label %.lr.ph65, !llvm.loop !25
+  br i1 %exitcond78.not, label %._crit_edge66, label %.lr.ph65, !llvm.loop !24
 
 ._crit_edge70:                                    ; preds = %._crit_edge66, %construct_b.exit.thread
   %68 = phi ptr [ %17, %construct_b.exit.thread ], [ %11, %._crit_edge66 ]
@@ -193,7 +193,7 @@ gv_calloc.exit60.thread94:                        ; preds = %._crit_edge
   %76 = getelementptr inbounds nuw float, ptr %.05072, i64 %75
   %indvars.iv.next85 = add nuw nsw i64 %indvars.iv84, 1
   %exitcond88.not = icmp eq i64 %indvars.iv.next85, %wide.trip.count87
-  br i1 %exitcond88.not, label %._crit_edge75, label %.lr.ph74, !llvm.loop !26
+  br i1 %exitcond88.not, label %._crit_edge75, label %.lr.ph74, !llvm.loop !25
 
 ._crit_edge75:                                    ; preds = %.lr.ph74, %._crit_edge70
   %.lobit = lshr i32 %71, 31
@@ -255,13 +255,12 @@ attributes #11 = { cold noreturn nounwind }
 !14 = !{!9, !10, i64 0}
 !15 = !{!16, !16, i64 0}
 !16 = !{!"double", !6, i64 0}
-!17 = distinct !{!17, !18, !19}
+!17 = distinct !{!17, !18}
 !18 = !{!"llvm.loop.mustprogress"}
-!19 = !{!"llvm.loop.estimated_trip_count"}
-!20 = !{!21, !21, i64 0}
-!21 = !{!"float", !6, i64 0}
-!22 = distinct !{!22, !18, !19}
-!23 = distinct !{!23, !18, !19}
-!24 = distinct !{!24, !18, !19}
-!25 = distinct !{!25, !18, !19}
-!26 = distinct !{!26, !18, !19}
+!19 = !{!20, !20, i64 0}
+!20 = !{!"float", !6, i64 0}
+!21 = distinct !{!21, !18}
+!22 = distinct !{!22, !18}
+!23 = distinct !{!23, !18}
+!24 = distinct !{!24, !18}
+!25 = distinct !{!25, !18}

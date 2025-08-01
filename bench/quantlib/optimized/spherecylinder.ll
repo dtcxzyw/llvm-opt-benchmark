@@ -942,14 +942,14 @@ entry:
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %optimizer) #23
   call void @_ZN8QuantLib23SphereCylinderOptimizerC1Eddddddd(ptr noundef nonnull align 8 dereferenceable(80) %optimizer, double noundef %r, double noundef %s, double noundef %alpha, double noundef %z1, double noundef %z2, double noundef %z3, double noundef %zweight)
   %call5.i.i.i.i2.i.i10 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #27
-  store ptr %call5.i.i.i.i2.i.i10, ptr %agg.result, align 8, !tbaa !39
+  store ptr %call5.i.i.i.i2.i.i10, ptr %agg.result, align 8, !tbaa !38
   %add.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i2.i.i10, i64 24
   %_M_end_of_storage.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
-  store ptr %add.ptr.i.i.i, ptr %_M_end_of_storage.i.i.i, align 8, !tbaa !41
+  store ptr %add.ptr.i.i.i, ptr %_M_end_of_storage.i.i.i, align 8, !tbaa !40
   %incdec.ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i2.i.i10, i64 8
   %_M_finish.i.i7.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %call5.i.i.i.i2.i.i10, i8 0, i64 24, i1 false)
-  store ptr %add.ptr.i.i.i, ptr %_M_finish.i.i7.i, align 8, !tbaa !42
+  store ptr %add.ptr.i.i.i, ptr %_M_finish.i.i7.i, align 8, !tbaa !41
   %nonEmpty_.i = getelementptr inbounds nuw i8, ptr %optimizer, i64 64
   %0 = load i8, ptr %nonEmpty_.i, align 8, !tbaa !22, !range !34, !noundef !35
   %loadedv.i = trunc nuw i8 %0 to i1
@@ -1299,10 +1299,9 @@ attributes #27 = { builtin allocsize(0) }
 !33 = !{!"_ZTSN5boost6detail12shared_countE", !18, i64 0}
 !34 = !{i8 0, i8 2}
 !35 = !{}
-!36 = distinct !{!36, !37, !38}
+!36 = distinct !{!36, !37}
 !37 = !{!"llvm.loop.mustprogress"}
-!38 = !{!"llvm.loop.estimated_trip_count"}
-!39 = !{!40, !18, i64 0}
-!40 = !{!"_ZTSNSt12_Vector_baseIdSaIdEE17_Vector_impl_dataE", !18, i64 0, !18, i64 8, !18, i64 16}
-!41 = !{!40, !18, i64 16}
-!42 = !{!40, !18, i64 8}
+!38 = !{!39, !18, i64 0}
+!39 = !{!"_ZTSNSt12_Vector_baseIdSaIdEE17_Vector_impl_dataE", !18, i64 0, !18, i64 8, !18, i64 16}
+!40 = !{!39, !18, i64 16}
+!41 = !{!39, !18, i64 8}

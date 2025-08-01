@@ -295,7 +295,7 @@ thread-pre-split:                                 ; preds = %73
   br i1 %90, label %93, label %94
 
 93:                                               ; preds = %.loopexit
-  store ptr %.049, ptr %7, align 8, !tbaa !28
+  store ptr %.049, ptr %7, align 8, !tbaa !27
   br label %103
 
 94:                                               ; preds = %.loopexit
@@ -394,7 +394,6 @@ attributes #3 = { nounwind }
 !22 = !{!"long", !7, i64 0}
 !23 = !{!20, !14, i64 0}
 !24 = !{!22, !22, i64 0}
-!25 = distinct !{!25, !26, !27}
+!25 = distinct !{!25, !26}
 !26 = !{!"llvm.loop.mustprogress"}
-!27 = !{!"llvm.loop.estimated_trip_count"}
-!28 = !{!21, !21, i64 0}
+!27 = !{!21, !21, i64 0}

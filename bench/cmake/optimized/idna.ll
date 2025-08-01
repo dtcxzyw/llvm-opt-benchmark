@@ -233,7 +233,7 @@ uv__utf8_decode1.exit:                            ; preds = %61, %11
     i32 65377, label %64
     i32 65294, label %64
     i32 12290, label %64
-  ], !llvm.loop !10
+  ]
 
 64:                                               ; preds = %uv__utf8_decode1.exit, %uv__utf8_decode1.exit, %uv__utf8_decode1.exit, %uv__utf8_decode1.exit
   %65 = call fastcc i32 @uv__idna_toascii_label(ptr noundef %.041.ph, ptr noundef nonnull %.041, ptr noundef %5, ptr noundef %3)
@@ -575,7 +575,7 @@ uv__utf8_decode1.exit158:                         ; preds = %87, %92, %94, %117,
   %.7 = phi ptr [ %88, %87 ], [ %88, %92 ], [ %.6, %126 ], [ %.6, %137 ], [ %.6, %122 ], [ %88, %117 ], [ %88, %94 ]
   %.0.i146 = phi i32 [ %90, %87 ], [ -1, %92 ], [ -1, %126 ], [ %..i.i157, %137 ], [ -1, %122 ], [ -1, %117 ], [ -1, %94 ]
   %140 = icmp ugt i32 %.0.i146, 127
-  br i1 %140, label %85, label %141, !llvm.loop !14
+  br i1 %140, label %85, label %141, !llvm.loop !13
 
 141:                                              ; preds = %uv__utf8_decode1.exit158
   %142 = load ptr, ptr %2, align 8, !tbaa !4
@@ -592,7 +592,7 @@ uv__utf8_decode1.exit158:                         ; preds = %87, %92, %94, %117,
 147:                                              ; preds = %144, %141
   %148 = add i32 %.0113.ph, 1
   %149 = icmp eq i32 %148, %.0120.lcssa260
-  br i1 %149, label %.loopexit, label %.outer204, !llvm.loop !14
+  br i1 %149, label %.loopexit, label %.outer204, !llvm.loop !13
 
 .loopexit:                                        ; preds = %147, %85
   br i1 %.not262, label %uv__utf8_decode1.exit.thread, label %150
@@ -726,7 +726,7 @@ uv__utf8_decode1.exit171:                         ; preds = %.lr.ph221, %160, %1
   %208 = tail call i32 @llvm.umin.i32(i32 %.0.i159, i32 %.0116220)
   %.1117 = select i1 %.not145.not, i32 %.0116220, i32 %208
   %209 = icmp ult ptr %.9, %1
-  br i1 %209, label %.lr.ph221, label %._crit_edge222, !llvm.loop !15
+  br i1 %209, label %.lr.ph221, label %._crit_edge222, !llvm.loop !14
 
 ._crit_edge222:                                   ; preds = %uv__utf8_decode1.exit171, %.preheader202
   %.0116.lcssa = phi i32 [ -1, %.preheader202 ], [ %.1117, %uv__utf8_decode1.exit171 ]
@@ -866,7 +866,7 @@ uv__utf8_decode1.exit184.thread:                  ; preds = %259, %255, %227, %2
   %.11200 = phi ptr [ %.11, %274 ], [ %.11, %uv__utf8_decode1.exit184 ], [ %221, %225 ], [ %221, %250 ], [ %221, %227 ], [ %.10, %255 ], [ %.10, %259 ]
   %.2108 = phi i32 [ %275, %274 ], [ %.1107, %uv__utf8_decode1.exit184 ], [ %.1107, %225 ], [ %.1107, %250 ], [ %.1107, %227 ], [ %.1107, %255 ], [ %.1107, %259 ]
   %.not143 = icmp eq i32 %.0.i172201, %.0116.lcssa
-  br i1 %.not143, label %.preheader, label %218, !llvm.loop !16
+  br i1 %.not143, label %.preheader, label %218, !llvm.loop !15
 
 .preheader:                                       ; preds = %uv__utf8_decode1.exit184.thread
   %277 = icmp ult i32 %.1111.ph, 36
@@ -905,7 +905,7 @@ uv__utf8_decode1.exit184.thread:                  ; preds = %259, %255, %227, %2
   %297 = tail call i32 @llvm.umin.i32(i32 %296, i32 26)
   %.0114 = select i1 %295, i32 %297, i32 1
   %298 = icmp samesign ult i32 %283, %.0114
-  br i1 %298, label %._crit_edge229, label %.lr.ph228, !llvm.loop !17
+  br i1 %298, label %._crit_edge229, label %.lr.ph228
 
 ._crit_edge229:                                   ; preds = %293, %.preheader
   %.0115.lcssa = phi i32 [ %.2108, %.preheader ], [ %283, %293 ]
@@ -939,7 +939,7 @@ uv__utf8_decode1.exit184.thread:                  ; preds = %259, %255, %227, %2
   %313 = udiv i32 %.4232, 35
   %314 = add i32 %.2112231, 36
   %315 = icmp ugt i32 %.4232, 15959
-  br i1 %315, label %.lr.ph234, label %._crit_edge235, !llvm.loop !18
+  br i1 %315, label %.lr.ph234, label %._crit_edge235, !llvm.loop !16
 
 ._crit_edge235:                                   ; preds = %.lr.ph234, %306
   %.2112.lcssa = phi i32 [ 0, %306 ], [ %314, %.lr.ph234 ]
@@ -951,13 +951,13 @@ uv__utf8_decode1.exit184.thread:                  ; preds = %259, %255, %227, %2
   %.zext = zext nneg i16 %317 to i32
   %318 = add i32 %.2112.lcssa, %.zext
   %319 = add i32 %.3.ph, -1
-  br label %.outer, !llvm.loop !16
+  br label %.outer, !llvm.loop !15
 
 320:                                              ; preds = %218
   %321 = add i32 %.1107, 1
   %322 = add nsw i32 %.0116.lcssa, 1
   %.not142 = icmp eq i32 %.3.ph, 0
-  br i1 %.not142, label %uv__utf8_decode1.exit.thread, label %.preheader202, !llvm.loop !19
+  br i1 %.not142, label %uv__utf8_decode1.exit.thread, label %.preheader202, !llvm.loop !17
 
 uv__utf8_decode1.exit.thread:                     ; preds = %57, %46, %42, %14, %37, %12, %320, %._crit_edge222, %274, %.loopexit
   %.0124 = phi i32 [ %.0120.lcssa260, %.loopexit ], [ -7, %274 ], [ 0, %320 ], [ -7, %._crit_edge222 ], [ -22, %12 ], [ -22, %37 ], [ -22, %14 ], [ -22, %42 ], [ -22, %46 ], [ -22, %57 ]
@@ -984,12 +984,10 @@ attributes #2 = { nocallback nofree nosync nounwind speculatable willreturn memo
 !8 = !{!"Simple C/C++ TBAA"}
 !9 = !{!7, !7, i64 0}
 !10 = distinct !{!10, !11}
-!11 = !{!"llvm.loop.estimated_trip_count"}
-!12 = distinct !{!12, !13, !11}
-!13 = !{!"llvm.loop.mustprogress"}
-!14 = distinct !{!14, !13, !11}
-!15 = distinct !{!15, !13, !11}
-!16 = distinct !{!16, !13, !11}
+!11 = !{!"llvm.loop.mustprogress"}
+!12 = distinct !{!12, !11}
+!13 = distinct !{!13, !11}
+!14 = distinct !{!14, !11}
+!15 = distinct !{!15, !11}
+!16 = distinct !{!16, !11}
 !17 = distinct !{!17, !11}
-!18 = distinct !{!18, !13, !11}
-!19 = distinct !{!19, !13, !11}

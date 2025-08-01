@@ -251,7 +251,7 @@ define internal i32 @v9fs_dir_readdir(ptr noundef readonly captures(none) %0, pt
   %76 = load i32, ptr %21, align 4
   %77 = load i32, ptr %24, align 4
   %78 = icmp slt i32 %76, %77
-  br i1 %78, label %.preheader, label %.loopexit8, !llvm.loop !13
+  br i1 %78, label %.preheader, label %.loopexit8, !llvm.loop !12
 
 .loopexit:                                        ; preds = %55, %.preheader, %.thread7, %17
   %79 = phi i32 [ -12, %17 ], [ %39, %.thread7 ], [ 0, %55 ], [ -5, %.preheader ]
@@ -303,7 +303,7 @@ define internal range(i32 -2147483648, 1) i32 @v9fs_dir_readdir_dotl(ptr noundef
 .loopexit7:                                       ; preds = %57, %36
   %25 = phi i32 [ %37, %36 ], [ %61, %57 ]
   %26 = phi i32 [ %38, %36 ], [ %60, %57 ]
-  br label %27, !llvm.loop !15
+  br label %27, !llvm.loop !14
 
 27:                                               ; preds = %.loopexit7, %.thread
   %28 = phi i32 [ %25, %.loopexit7 ], [ %.pre, %.thread ]
@@ -358,7 +358,7 @@ define internal range(i32 -2147483648, 1) i32 @v9fs_dir_readdir_dotl(ptr noundef
   store i32 %60, ptr %18, align 4
   %61 = load i32, ptr %19, align 4
   %62 = icmp slt i32 %60, %61
-  br i1 %62, label %.preheader, label %.loopexit7, !llvm.loop !16
+  br i1 %62, label %.preheader, label %.loopexit7, !llvm.loop !15
 
 .loopexit:                                        ; preds = %31, %48, %.preheader, %13
   %63 = phi i32 [ -12, %13 ], [ 0, %48 ], [ -5, %.preheader ], [ %33, %31 ]
@@ -435,10 +435,9 @@ attributes #7 = { nounwind allocsize(0) }
 !7 = !{!"branch_weights", i32 2000, i32 1}
 !8 = !{i64 2150351208}
 !9 = !{!"auto-init"}
-!10 = distinct !{!10, !11, !12}
+!10 = distinct !{!10, !11}
 !11 = !{!"llvm.loop.unroll.disable"}
-!12 = !{!"llvm.loop.estimated_trip_count"}
-!13 = distinct !{!13, !14, !11, !12}
-!14 = !{!"llvm.loop.mustprogress"}
-!15 = distinct !{!15, !11, !12}
-!16 = distinct !{!16, !14, !11, !12}
+!12 = distinct !{!12, !13, !11}
+!13 = !{!"llvm.loop.mustprogress"}
+!14 = distinct !{!14, !11}
+!15 = distinct !{!15, !13, !11}

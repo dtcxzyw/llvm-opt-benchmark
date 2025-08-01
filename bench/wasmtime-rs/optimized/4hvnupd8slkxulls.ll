@@ -2781,11 +2781,11 @@ define hidden { i32, i32 } @_ZN8bitflags6traits5Flags9from_name17h05493cb3595a37
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h06a772ea2239cecbE.exit.backedge": ; preds = %8, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h06a772ea2239cecbE.exit.preheader"
   %11 = icmp eq i64 %.sroa.0.0.add, 48
-  br i1 %11, label %.loopexit, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h06a772ea2239cecbE.exit.preheader", !llvm.loop !638
+  br i1 %11, label %.loopexit, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h06a772ea2239cecbE.exit.preheader"
 
 12:                                               ; preds = %8
   %13 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.ptr18, i64 16
-  %14 = load i32, ptr %13, align 4, !alias.scope !640, !noundef !4
+  %14 = load i32, ptr %13, align 4, !alias.scope !638, !noundef !4
   br label %.loopexit
 }
 
@@ -2812,17 +2812,17 @@ define hidden { i32, i32 } @_ZN8bitflags6traits5Flags9from_name17h24b68ad6a22217
 
 8:                                                ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h06a772ea2239cecbE.exit.preheader"
   %9 = load ptr, ptr %.sroa.0.0.ptr18, align 8, !nonnull !4, !align !5, !noundef !4
-  %bcmp.i = tail call i32 @bcmp(ptr nonnull readonly align 1 %9, ptr nonnull readonly align 1 %0, i64 %1), !alias.scope !643
+  %bcmp.i = tail call i32 @bcmp(ptr nonnull readonly align 1 %9, ptr nonnull readonly align 1 %0, i64 %1), !alias.scope !641
   %10 = icmp eq i32 %bcmp.i, 0
   br i1 %10, label %12, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h06a772ea2239cecbE.exit.backedge"
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h06a772ea2239cecbE.exit.backedge": ; preds = %8, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h06a772ea2239cecbE.exit.preheader"
   %11 = icmp eq i64 %.sroa.0.0.add, 48
-  br i1 %11, label %.loopexit, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h06a772ea2239cecbE.exit.preheader", !llvm.loop !647
+  br i1 %11, label %.loopexit, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h06a772ea2239cecbE.exit.preheader"
 
 12:                                               ; preds = %8
   %13 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.ptr18, i64 16
-  %14 = load i32, ptr %13, align 4, !alias.scope !648, !noundef !4
+  %14 = load i32, ptr %13, align 4, !alias.scope !645, !noundef !4
   br label %.loopexit
 }
 
@@ -2849,17 +2849,17 @@ define hidden { i32, i32 } @_ZN8bitflags6traits5Flags9from_name17h2a1717cbbe49b4
 
 8:                                                ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h06a772ea2239cecbE.exit.preheader"
   %9 = load ptr, ptr %.sroa.0.0.ptr18, align 8, !nonnull !4, !align !5, !noundef !4
-  %bcmp.i = tail call i32 @bcmp(ptr nonnull readonly align 1 %9, ptr nonnull readonly align 1 %0, i64 %1), !alias.scope !651
+  %bcmp.i = tail call i32 @bcmp(ptr nonnull readonly align 1 %9, ptr nonnull readonly align 1 %0, i64 %1), !alias.scope !648
   %10 = icmp eq i32 %bcmp.i, 0
   br i1 %10, label %12, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h06a772ea2239cecbE.exit.backedge"
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h06a772ea2239cecbE.exit.backedge": ; preds = %8, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h06a772ea2239cecbE.exit.preheader"
   %11 = icmp eq i64 %.sroa.0.0.add, 48
-  br i1 %11, label %.loopexit, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h06a772ea2239cecbE.exit.preheader", !llvm.loop !655
+  br i1 %11, label %.loopexit, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h06a772ea2239cecbE.exit.preheader"
 
 12:                                               ; preds = %8
   %13 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.ptr18, i64 16
-  %14 = load i32, ptr %13, align 4, !alias.scope !656, !noundef !4
+  %14 = load i32, ptr %13, align 4, !alias.scope !652, !noundef !4
   br label %.loopexit
 }
 
@@ -2886,17 +2886,17 @@ define hidden { i1, i8 } @_ZN8bitflags6traits5Flags9from_name17h2c6268b918006d43
 
 8:                                                ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h06a772ea2239cecbE.exit.preheader"
   %9 = load ptr, ptr %.sroa.0.0.ptr18, align 8, !nonnull !4, !align !5, !noundef !4
-  %bcmp.i = tail call i32 @bcmp(ptr nonnull readonly align 1 %9, ptr nonnull readonly align 1 %0, i64 %1), !alias.scope !659
+  %bcmp.i = tail call i32 @bcmp(ptr nonnull readonly align 1 %9, ptr nonnull readonly align 1 %0, i64 %1), !alias.scope !655
   %10 = icmp eq i32 %bcmp.i, 0
   br i1 %10, label %12, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h06a772ea2239cecbE.exit.backedge"
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h06a772ea2239cecbE.exit.backedge": ; preds = %8, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h06a772ea2239cecbE.exit.preheader"
   %11 = icmp eq i64 %.sroa.0.0.add, 48
-  br i1 %11, label %.loopexit, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h06a772ea2239cecbE.exit.preheader", !llvm.loop !663
+  br i1 %11, label %.loopexit, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h06a772ea2239cecbE.exit.preheader"
 
 12:                                               ; preds = %8
   %13 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.ptr18, i64 16
-  %14 = load i8, ptr %13, align 1, !alias.scope !664, !noundef !4
+  %14 = load i8, ptr %13, align 1, !alias.scope !659, !noundef !4
   br label %.loopexit
 }
 
@@ -2912,7 +2912,7 @@ define hidden { i16, i16 } @_ZN8bitflags6traits5Flags9from_name17h2d11a0e782da70
   ret { i16, i16 } %4
 
 5:                                                ; preds = %2
-  %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull readonly align 1 dereferenceable(19) @anon.9acd562e1d0a26e0ca74d3900d524aca.10.llvm.11423182251827145186, ptr noundef nonnull readonly align 1 dereferenceable(19) %0, i64 19), !alias.scope !667
+  %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull readonly align 1 dereferenceable(19) @anon.9acd562e1d0a26e0ca74d3900d524aca.10.llvm.11423182251827145186, ptr noundef nonnull readonly align 1 dereferenceable(19) %0, i64 19), !alias.scope !662
   %6 = icmp eq i32 %bcmp.i, 0
   %spec.select = zext i1 %6 to i16
   br label %.loopexit
@@ -2941,17 +2941,17 @@ define hidden { i64, i64 } @_ZN8bitflags6traits5Flags9from_name17h3481e39cf2a57c
 
 8:                                                ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h06a772ea2239cecbE.exit.preheader"
   %9 = load ptr, ptr %.sroa.0.0.ptr18, align 8, !nonnull !4, !align !5, !noundef !4
-  %bcmp.i = tail call i32 @bcmp(ptr nonnull readonly align 1 %9, ptr nonnull readonly align 1 %0, i64 %1), !alias.scope !671
+  %bcmp.i = tail call i32 @bcmp(ptr nonnull readonly align 1 %9, ptr nonnull readonly align 1 %0, i64 %1), !alias.scope !666
   %10 = icmp eq i32 %bcmp.i, 0
   br i1 %10, label %12, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h06a772ea2239cecbE.exit.backedge"
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h06a772ea2239cecbE.exit.backedge": ; preds = %8, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h06a772ea2239cecbE.exit.preheader"
   %11 = icmp eq i64 %.sroa.0.0.add, 696
-  br i1 %11, label %.loopexit, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h06a772ea2239cecbE.exit.preheader", !llvm.loop !675
+  br i1 %11, label %.loopexit, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h06a772ea2239cecbE.exit.preheader"
 
 12:                                               ; preds = %8
   %13 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.ptr18, i64 16
-  %14 = load i64, ptr %13, align 8, !alias.scope !676, !noundef !4
+  %14 = load i64, ptr %13, align 8, !alias.scope !670, !noundef !4
   br label %.loopexit
 }
 
@@ -2978,17 +2978,17 @@ define hidden { i16, i16 } @_ZN8bitflags6traits5Flags9from_name17h5e41211b7b5eea
 
 8:                                                ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h06a772ea2239cecbE.exit.preheader"
   %9 = load ptr, ptr %.sroa.0.0.ptr18, align 8, !nonnull !4, !align !5, !noundef !4
-  %bcmp.i = tail call i32 @bcmp(ptr nonnull readonly align 1 %9, ptr nonnull readonly align 1 %0, i64 %1), !alias.scope !679
+  %bcmp.i = tail call i32 @bcmp(ptr nonnull readonly align 1 %9, ptr nonnull readonly align 1 %0, i64 %1), !alias.scope !673
   %10 = icmp eq i32 %bcmp.i, 0
   br i1 %10, label %12, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h06a772ea2239cecbE.exit.backedge"
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h06a772ea2239cecbE.exit.backedge": ; preds = %8, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h06a772ea2239cecbE.exit.preheader"
   %11 = icmp eq i64 %.sroa.0.0.add, 48
-  br i1 %11, label %.loopexit, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h06a772ea2239cecbE.exit.preheader", !llvm.loop !683
+  br i1 %11, label %.loopexit, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h06a772ea2239cecbE.exit.preheader"
 
 12:                                               ; preds = %8
   %13 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.ptr18, i64 16
-  %14 = load i16, ptr %13, align 2, !alias.scope !684, !noundef !4
+  %14 = load i16, ptr %13, align 2, !alias.scope !677, !noundef !4
   br label %.loopexit
 }
 
@@ -3015,17 +3015,17 @@ define hidden { i16, i16 } @_ZN8bitflags6traits5Flags9from_name17h74f4863f2e1b0b
 
 8:                                                ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h06a772ea2239cecbE.exit.preheader"
   %9 = load ptr, ptr %.sroa.0.0.ptr18, align 8, !nonnull !4, !align !5, !noundef !4
-  %bcmp.i = tail call i32 @bcmp(ptr nonnull readonly align 1 %9, ptr nonnull readonly align 1 %0, i64 %1), !alias.scope !687
+  %bcmp.i = tail call i32 @bcmp(ptr nonnull readonly align 1 %9, ptr nonnull readonly align 1 %0, i64 %1), !alias.scope !680
   %10 = icmp eq i32 %bcmp.i, 0
   br i1 %10, label %12, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h06a772ea2239cecbE.exit.backedge"
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h06a772ea2239cecbE.exit.backedge": ; preds = %8, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h06a772ea2239cecbE.exit.preheader"
   %11 = icmp eq i64 %.sroa.0.0.add, 96
-  br i1 %11, label %.loopexit, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h06a772ea2239cecbE.exit.preheader", !llvm.loop !691
+  br i1 %11, label %.loopexit, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h06a772ea2239cecbE.exit.preheader"
 
 12:                                               ; preds = %8
   %13 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.ptr18, i64 16
-  %14 = load i16, ptr %13, align 2, !alias.scope !692, !noundef !4
+  %14 = load i16, ptr %13, align 2, !alias.scope !684, !noundef !4
   br label %.loopexit
 }
 
@@ -3052,17 +3052,17 @@ define hidden { i32, i32 } @_ZN8bitflags6traits5Flags9from_name17h85d73133b094c3
 
 8:                                                ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h06a772ea2239cecbE.exit.preheader"
   %9 = load ptr, ptr %.sroa.0.0.ptr18, align 8, !nonnull !4, !align !5, !noundef !4
-  %bcmp.i = tail call i32 @bcmp(ptr nonnull readonly align 1 %9, ptr nonnull readonly align 1 %0, i64 %1), !alias.scope !695
+  %bcmp.i = tail call i32 @bcmp(ptr nonnull readonly align 1 %9, ptr nonnull readonly align 1 %0, i64 %1), !alias.scope !687
   %10 = icmp eq i32 %bcmp.i, 0
   br i1 %10, label %12, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h06a772ea2239cecbE.exit.backedge"
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h06a772ea2239cecbE.exit.backedge": ; preds = %8, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h06a772ea2239cecbE.exit.preheader"
   %11 = icmp eq i64 %.sroa.0.0.add, 96
-  br i1 %11, label %.loopexit, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h06a772ea2239cecbE.exit.preheader", !llvm.loop !699
+  br i1 %11, label %.loopexit, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h06a772ea2239cecbE.exit.preheader"
 
 12:                                               ; preds = %8
   %13 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.ptr18, i64 16
-  %14 = load i32, ptr %13, align 4, !alias.scope !700, !noundef !4
+  %14 = load i32, ptr %13, align 4, !alias.scope !691, !noundef !4
   br label %.loopexit
 }
 
@@ -3089,17 +3089,17 @@ define hidden { i32, i32 } @_ZN8bitflags6traits5Flags9from_name17h8e289bf916d411
 
 8:                                                ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h06a772ea2239cecbE.exit.preheader"
   %9 = load ptr, ptr %.sroa.0.0.ptr18, align 8, !nonnull !4, !align !5, !noundef !4
-  %bcmp.i = tail call i32 @bcmp(ptr nonnull readonly align 1 %9, ptr nonnull readonly align 1 %0, i64 %1), !alias.scope !703
+  %bcmp.i = tail call i32 @bcmp(ptr nonnull readonly align 1 %9, ptr nonnull readonly align 1 %0, i64 %1), !alias.scope !694
   %10 = icmp eq i32 %bcmp.i, 0
   br i1 %10, label %12, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h06a772ea2239cecbE.exit.backedge"
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h06a772ea2239cecbE.exit.backedge": ; preds = %8, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h06a772ea2239cecbE.exit.preheader"
   %11 = icmp eq i64 %.sroa.0.0.add, 120
-  br i1 %11, label %.loopexit, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h06a772ea2239cecbE.exit.preheader", !llvm.loop !707
+  br i1 %11, label %.loopexit, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h06a772ea2239cecbE.exit.preheader"
 
 12:                                               ; preds = %8
   %13 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.ptr18, i64 16
-  %14 = load i32, ptr %13, align 4, !alias.scope !708, !noundef !4
+  %14 = load i32, ptr %13, align 4, !alias.scope !698, !noundef !4
   br label %.loopexit
 }
 
@@ -3126,17 +3126,17 @@ define hidden { i16, i16 } @_ZN8bitflags6traits5Flags9from_name17h95c45e77d58f87
 
 8:                                                ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h06a772ea2239cecbE.exit.preheader"
   %9 = load ptr, ptr %.sroa.0.0.ptr18, align 8, !nonnull !4, !align !5, !noundef !4
-  %bcmp.i = tail call i32 @bcmp(ptr nonnull readonly align 1 %9, ptr nonnull readonly align 1 %0, i64 %1), !alias.scope !711
+  %bcmp.i = tail call i32 @bcmp(ptr nonnull readonly align 1 %9, ptr nonnull readonly align 1 %0, i64 %1), !alias.scope !701
   %10 = icmp eq i32 %bcmp.i, 0
   br i1 %10, label %12, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h06a772ea2239cecbE.exit.backedge"
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h06a772ea2239cecbE.exit.backedge": ; preds = %8, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h06a772ea2239cecbE.exit.preheader"
   %11 = icmp eq i64 %.sroa.0.0.add, 120
-  br i1 %11, label %.loopexit, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h06a772ea2239cecbE.exit.preheader", !llvm.loop !715
+  br i1 %11, label %.loopexit, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h06a772ea2239cecbE.exit.preheader"
 
 12:                                               ; preds = %8
   %13 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.ptr18, i64 16
-  %14 = load i16, ptr %13, align 2, !alias.scope !716, !noundef !4
+  %14 = load i16, ptr %13, align 2, !alias.scope !705, !noundef !4
   br label %.loopexit
 }
 
@@ -3152,7 +3152,7 @@ define hidden { i32, i32 } @_ZN8bitflags6traits5Flags9from_name17hb1179f9baf1f2a
   ret { i32, i32 } %4
 
 5:                                                ; preds = %2
-  %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull readonly align 1 dereferenceable(19) @anon.9acd562e1d0a26e0ca74d3900d524aca.24.llvm.11423182251827145186, ptr noundef nonnull readonly align 1 dereferenceable(19) %0, i64 19), !alias.scope !719
+  %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull readonly align 1 dereferenceable(19) @anon.9acd562e1d0a26e0ca74d3900d524aca.24.llvm.11423182251827145186, ptr noundef nonnull readonly align 1 dereferenceable(19) %0, i64 19), !alias.scope !708
   %6 = icmp eq i32 %bcmp.i, 0
   %spec.select = zext i1 %6 to i32
   br label %.loopexit
@@ -3170,7 +3170,7 @@ define hidden { i32, i32 } @_ZN8bitflags6traits5Flags9from_name17hc2b68ba80ec5bf
   ret { i32, i32 } %4
 
 5:                                                ; preds = %2
-  %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull readonly align 1 dereferenceable(6) @anon.9acd562e1d0a26e0ca74d3900d524aca.73.llvm.11423182251827145186, ptr noundef nonnull readonly align 1 dereferenceable(6) %0, i64 6), !alias.scope !723
+  %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull readonly align 1 dereferenceable(6) @anon.9acd562e1d0a26e0ca74d3900d524aca.73.llvm.11423182251827145186, ptr noundef nonnull readonly align 1 dereferenceable(6) %0, i64 6), !alias.scope !712
   %6 = icmp eq i32 %bcmp.i, 0
   %spec.select = zext i1 %6 to i32
   br label %.loopexit
@@ -3194,7 +3194,7 @@ define hidden { i16, i16 } @_ZN8bitflags6traits5Flags9from_name17hcdd285ef5eb901
   ret { i16, i16 } %4
 
 5:                                                ; preds = %2
-  %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull readonly align 1 dereferenceable(26) @anon.9acd562e1d0a26e0ca74d3900d524aca.22.llvm.11423182251827145186, ptr noundef nonnull readonly align 1 dereferenceable(26) %0, i64 26), !alias.scope !727
+  %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull readonly align 1 dereferenceable(26) @anon.9acd562e1d0a26e0ca74d3900d524aca.22.llvm.11423182251827145186, ptr noundef nonnull readonly align 1 dereferenceable(26) %0, i64 26), !alias.scope !716
   %6 = icmp eq i32 %bcmp.i, 0
   %spec.select = zext i1 %6 to i16
   br label %.loopexit
@@ -3212,7 +3212,7 @@ define hidden { i16, i16 } @_ZN8bitflags6traits5Flags9from_name17hd92e76c2c8a730
   ret { i16, i16 } %4
 
 5:                                                ; preds = %2
-  %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull readonly align 1 dereferenceable(19) @anon.9acd562e1d0a26e0ca74d3900d524aca.24.llvm.11423182251827145186, ptr noundef nonnull readonly align 1 dereferenceable(19) %0, i64 19), !alias.scope !731
+  %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull readonly align 1 dereferenceable(19) @anon.9acd562e1d0a26e0ca74d3900d524aca.24.llvm.11423182251827145186, ptr noundef nonnull readonly align 1 dereferenceable(19) %0, i64 19), !alias.scope !720
   %6 = icmp eq i32 %bcmp.i, 0
   %spec.select = zext i1 %6 to i16
   br label %.loopexit
@@ -3241,17 +3241,17 @@ define hidden { i16, i16 } @_ZN8bitflags6traits5Flags9from_name17hee63c352ff7c3c
 
 8:                                                ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h06a772ea2239cecbE.exit.preheader"
   %9 = load ptr, ptr %.sroa.0.0.ptr18, align 8, !nonnull !4, !align !5, !noundef !4
-  %bcmp.i = tail call i32 @bcmp(ptr nonnull readonly align 1 %9, ptr nonnull readonly align 1 %0, i64 %1), !alias.scope !735
+  %bcmp.i = tail call i32 @bcmp(ptr nonnull readonly align 1 %9, ptr nonnull readonly align 1 %0, i64 %1), !alias.scope !724
   %10 = icmp eq i32 %bcmp.i, 0
   br i1 %10, label %12, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h06a772ea2239cecbE.exit.backedge"
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h06a772ea2239cecbE.exit.backedge": ; preds = %8, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h06a772ea2239cecbE.exit.preheader"
   %11 = icmp eq i64 %.sroa.0.0.add, 96
-  br i1 %11, label %.loopexit, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h06a772ea2239cecbE.exit.preheader", !llvm.loop !739
+  br i1 %11, label %.loopexit, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h06a772ea2239cecbE.exit.preheader"
 
 12:                                               ; preds = %8
   %13 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.ptr18, i64 16
-  %14 = load i16, ptr %13, align 2, !alias.scope !740, !noundef !4
+  %14 = load i16, ptr %13, align 2, !alias.scope !728, !noundef !4
   br label %.loopexit
 }
 
@@ -3267,7 +3267,7 @@ define hidden { i32, i32 } @_ZN8bitflags6traits5Flags9from_name17hef35db6b9d1405
   ret { i32, i32 } %4
 
 5:                                                ; preds = %2
-  %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull readonly align 1 dereferenceable(14) @anon.9acd562e1d0a26e0ca74d3900d524aca.26.llvm.11423182251827145186, ptr noundef nonnull readonly align 1 dereferenceable(14) %0, i64 14), !alias.scope !743
+  %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull readonly align 1 dereferenceable(14) @anon.9acd562e1d0a26e0ca74d3900d524aca.26.llvm.11423182251827145186, ptr noundef nonnull readonly align 1 dereferenceable(14) %0, i64 14), !alias.scope !731
   %6 = icmp eq i32 %bcmp.i, 0
   %spec.select = zext i1 %6 to i32
   br label %.loopexit
@@ -3285,7 +3285,7 @@ define hidden void @"_ZN93_$LT$bitflags..iter..IterNames$LT$B$GT$$u20$as$u20$cor
 
 .lr.ph:                                           ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 26
-  %8 = load i16, ptr %7, align 2, !alias.scope !747, !noundef !4
+  %8 = load i16, ptr %7, align 2, !alias.scope !735, !noundef !4
   %9 = icmp eq i16 %8, 0
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %11 = load i16, ptr %10, align 8
@@ -3310,7 +3310,7 @@ define hidden void @"_ZN93_$LT$bitflags..iter..IterNames$LT$B$GT$$u20$as$u20$cor
 
 .backedge:                                        ; preds = %.lr.ph.split, %20
   %exitcond.not = icmp eq i64 %14, %4
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !752
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split
 
 19:                                               ; preds = %.lr.ph
   store ptr null, ptr %0, align 8
@@ -3318,7 +3318,7 @@ define hidden void @"_ZN93_$LT$bitflags..iter..IterNames$LT$B$GT$$u20$as$u20$cor
 
 20:                                               ; preds = %.lr.ph.split
   %21 = getelementptr inbounds nuw i8, ptr %13, i64 16
-  %22 = load i16, ptr %21, align 8, !alias.scope !753, !noundef !4
+  %22 = load i16, ptr %21, align 8, !alias.scope !740, !noundef !4
   %23 = and i16 %11, %22
   %24 = icmp ne i16 %23, %22
   %25 = and i16 %22, %8
@@ -3330,7 +3330,7 @@ define hidden void @"_ZN93_$LT$bitflags..iter..IterNames$LT$B$GT$$u20$as$u20$cor
   store i64 %14, ptr %5, align 8
   %27 = xor i16 %22, -1
   %28 = and i16 %8, %27
-  store i16 %28, ptr %7, align 2, !alias.scope !756
+  store i16 %28, ptr %7, align 2, !alias.scope !743
   %29 = load ptr, ptr %13, align 8, !nonnull !4, !align !5, !noundef !4
   store ptr %29, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -3355,7 +3355,7 @@ define hidden void @"_ZN93_$LT$bitflags..iter..IterNames$LT$B$GT$$u20$as$u20$cor
 
 .lr.ph:                                           ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 26
-  %8 = load i16, ptr %7, align 2, !alias.scope !759, !noundef !4
+  %8 = load i16, ptr %7, align 2, !alias.scope !746, !noundef !4
   %9 = icmp eq i16 %8, 0
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %11 = load i16, ptr %10, align 8
@@ -3380,7 +3380,7 @@ define hidden void @"_ZN93_$LT$bitflags..iter..IterNames$LT$B$GT$$u20$as$u20$cor
 
 .backedge:                                        ; preds = %.lr.ph.split, %20
   %exitcond.not = icmp eq i64 %14, %4
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !764
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split
 
 19:                                               ; preds = %.lr.ph
   store ptr null, ptr %0, align 8
@@ -3388,7 +3388,7 @@ define hidden void @"_ZN93_$LT$bitflags..iter..IterNames$LT$B$GT$$u20$as$u20$cor
 
 20:                                               ; preds = %.lr.ph.split
   %21 = getelementptr inbounds nuw i8, ptr %13, i64 16
-  %22 = load i16, ptr %21, align 8, !alias.scope !765, !noundef !4
+  %22 = load i16, ptr %21, align 8, !alias.scope !751, !noundef !4
   %23 = and i16 %11, %22
   %24 = icmp ne i16 %23, %22
   %25 = and i16 %22, %8
@@ -3400,7 +3400,7 @@ define hidden void @"_ZN93_$LT$bitflags..iter..IterNames$LT$B$GT$$u20$as$u20$cor
   store i64 %14, ptr %5, align 8
   %27 = xor i16 %22, -1
   %28 = and i16 %8, %27
-  store i16 %28, ptr %7, align 2, !alias.scope !768
+  store i16 %28, ptr %7, align 2, !alias.scope !754
   %29 = load ptr, ptr %13, align 8, !nonnull !4, !align !5, !noundef !4
   store ptr %29, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -3425,7 +3425,7 @@ define hidden void @"_ZN93_$LT$bitflags..iter..IterNames$LT$B$GT$$u20$as$u20$cor
 
 .lr.ph:                                           ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 26
-  %8 = load i16, ptr %7, align 2, !alias.scope !771, !noundef !4
+  %8 = load i16, ptr %7, align 2, !alias.scope !757, !noundef !4
   %9 = icmp eq i16 %8, 0
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %11 = load i16, ptr %10, align 8
@@ -3450,7 +3450,7 @@ define hidden void @"_ZN93_$LT$bitflags..iter..IterNames$LT$B$GT$$u20$as$u20$cor
 
 .backedge:                                        ; preds = %.lr.ph.split, %20
   %exitcond.not = icmp eq i64 %14, %4
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !776
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split
 
 19:                                               ; preds = %.lr.ph
   store ptr null, ptr %0, align 8
@@ -3458,7 +3458,7 @@ define hidden void @"_ZN93_$LT$bitflags..iter..IterNames$LT$B$GT$$u20$as$u20$cor
 
 20:                                               ; preds = %.lr.ph.split
   %21 = getelementptr inbounds nuw i8, ptr %13, i64 16
-  %22 = load i16, ptr %21, align 8, !alias.scope !777, !noundef !4
+  %22 = load i16, ptr %21, align 8, !alias.scope !762, !noundef !4
   %23 = and i16 %11, %22
   %24 = icmp ne i16 %23, %22
   %25 = and i16 %22, %8
@@ -3470,7 +3470,7 @@ define hidden void @"_ZN93_$LT$bitflags..iter..IterNames$LT$B$GT$$u20$as$u20$cor
   store i64 %14, ptr %5, align 8
   %27 = xor i16 %22, -1
   %28 = and i16 %8, %27
-  store i16 %28, ptr %7, align 2, !alias.scope !780
+  store i16 %28, ptr %7, align 2, !alias.scope !765
   %29 = load ptr, ptr %13, align 8, !nonnull !4, !align !5, !noundef !4
   store ptr %29, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -3495,7 +3495,7 @@ define hidden void @"_ZN93_$LT$bitflags..iter..IterNames$LT$B$GT$$u20$as$u20$cor
 
 .lr.ph:                                           ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 28
-  %8 = load i32, ptr %7, align 4, !alias.scope !783, !noundef !4
+  %8 = load i32, ptr %7, align 4, !alias.scope !768, !noundef !4
   %9 = icmp eq i32 %8, 0
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %11 = load i32, ptr %10, align 8
@@ -3520,7 +3520,7 @@ define hidden void @"_ZN93_$LT$bitflags..iter..IterNames$LT$B$GT$$u20$as$u20$cor
 
 .backedge:                                        ; preds = %.lr.ph.split, %20
   %exitcond.not = icmp eq i64 %14, %4
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !788
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split
 
 19:                                               ; preds = %.lr.ph
   store ptr null, ptr %0, align 8
@@ -3528,7 +3528,7 @@ define hidden void @"_ZN93_$LT$bitflags..iter..IterNames$LT$B$GT$$u20$as$u20$cor
 
 20:                                               ; preds = %.lr.ph.split
   %21 = getelementptr inbounds nuw i8, ptr %13, i64 16
-  %22 = load i32, ptr %21, align 8, !alias.scope !789, !noundef !4
+  %22 = load i32, ptr %21, align 8, !alias.scope !773, !noundef !4
   %23 = and i32 %11, %22
   %24 = icmp ne i32 %23, %22
   %25 = and i32 %22, %8
@@ -3540,7 +3540,7 @@ define hidden void @"_ZN93_$LT$bitflags..iter..IterNames$LT$B$GT$$u20$as$u20$cor
   store i64 %14, ptr %5, align 8
   %27 = xor i32 %22, -1
   %28 = and i32 %8, %27
-  store i32 %28, ptr %7, align 4, !alias.scope !792
+  store i32 %28, ptr %7, align 4, !alias.scope !776
   %29 = load ptr, ptr %13, align 8, !nonnull !4, !align !5, !noundef !4
   store ptr %29, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -3565,7 +3565,7 @@ define hidden void @"_ZN93_$LT$bitflags..iter..IterNames$LT$B$GT$$u20$as$u20$cor
 
 .lr.ph:                                           ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 25
-  %8 = load i8, ptr %7, align 1, !alias.scope !795, !noundef !4
+  %8 = load i8, ptr %7, align 1, !alias.scope !779, !noundef !4
   %9 = icmp eq i8 %8, 0
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %11 = load i8, ptr %10, align 8
@@ -3590,7 +3590,7 @@ define hidden void @"_ZN93_$LT$bitflags..iter..IterNames$LT$B$GT$$u20$as$u20$cor
 
 .backedge:                                        ; preds = %.lr.ph.split, %20
   %exitcond.not = icmp eq i64 %14, %4
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !800
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split
 
 19:                                               ; preds = %.lr.ph
   store ptr null, ptr %0, align 8
@@ -3598,7 +3598,7 @@ define hidden void @"_ZN93_$LT$bitflags..iter..IterNames$LT$B$GT$$u20$as$u20$cor
 
 20:                                               ; preds = %.lr.ph.split
   %21 = getelementptr inbounds nuw i8, ptr %13, i64 16
-  %22 = load i8, ptr %21, align 8, !alias.scope !801, !noundef !4
+  %22 = load i8, ptr %21, align 8, !alias.scope !784, !noundef !4
   %23 = and i8 %11, %22
   %24 = icmp ne i8 %23, %22
   %25 = and i8 %22, %8
@@ -3610,7 +3610,7 @@ define hidden void @"_ZN93_$LT$bitflags..iter..IterNames$LT$B$GT$$u20$as$u20$cor
   store i64 %14, ptr %5, align 8
   %27 = xor i8 %22, -1
   %28 = and i8 %8, %27
-  store i8 %28, ptr %7, align 1, !alias.scope !804
+  store i8 %28, ptr %7, align 1, !alias.scope !787
   %29 = load ptr, ptr %13, align 8, !nonnull !4, !align !5, !noundef !4
   store ptr %29, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -3635,7 +3635,7 @@ define hidden void @"_ZN93_$LT$bitflags..iter..IterNames$LT$B$GT$$u20$as$u20$cor
 
 .lr.ph:                                           ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 25
-  %8 = load i8, ptr %7, align 1, !alias.scope !807, !noundef !4
+  %8 = load i8, ptr %7, align 1, !alias.scope !790, !noundef !4
   %9 = icmp eq i8 %8, 0
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %11 = load i8, ptr %10, align 8
@@ -3660,7 +3660,7 @@ define hidden void @"_ZN93_$LT$bitflags..iter..IterNames$LT$B$GT$$u20$as$u20$cor
 
 .backedge:                                        ; preds = %.lr.ph.split, %20
   %exitcond.not = icmp eq i64 %14, %4
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !812
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split
 
 19:                                               ; preds = %.lr.ph
   store ptr null, ptr %0, align 8
@@ -3668,7 +3668,7 @@ define hidden void @"_ZN93_$LT$bitflags..iter..IterNames$LT$B$GT$$u20$as$u20$cor
 
 20:                                               ; preds = %.lr.ph.split
   %21 = getelementptr inbounds nuw i8, ptr %13, i64 16
-  %22 = load i8, ptr %21, align 8, !alias.scope !813, !noundef !4
+  %22 = load i8, ptr %21, align 8, !alias.scope !795, !noundef !4
   %23 = and i8 %11, %22
   %24 = icmp ne i8 %23, %22
   %25 = and i8 %22, %8
@@ -3680,7 +3680,7 @@ define hidden void @"_ZN93_$LT$bitflags..iter..IterNames$LT$B$GT$$u20$as$u20$cor
   store i64 %14, ptr %5, align 8
   %27 = xor i8 %22, -1
   %28 = and i8 %8, %27
-  store i8 %28, ptr %7, align 1, !alias.scope !816
+  store i8 %28, ptr %7, align 1, !alias.scope !798
   %29 = load ptr, ptr %13, align 8, !nonnull !4, !align !5, !noundef !4
   store ptr %29, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -3705,7 +3705,7 @@ define hidden void @"_ZN93_$LT$bitflags..iter..IterNames$LT$B$GT$$u20$as$u20$cor
 
 .lr.ph:                                           ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 26
-  %8 = load i16, ptr %7, align 2, !alias.scope !819, !noundef !4
+  %8 = load i16, ptr %7, align 2, !alias.scope !801, !noundef !4
   %9 = icmp eq i16 %8, 0
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %11 = load i16, ptr %10, align 8
@@ -3730,7 +3730,7 @@ define hidden void @"_ZN93_$LT$bitflags..iter..IterNames$LT$B$GT$$u20$as$u20$cor
 
 .backedge:                                        ; preds = %.lr.ph.split, %20
   %exitcond.not = icmp eq i64 %14, %4
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !824
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split
 
 19:                                               ; preds = %.lr.ph
   store ptr null, ptr %0, align 8
@@ -3738,7 +3738,7 @@ define hidden void @"_ZN93_$LT$bitflags..iter..IterNames$LT$B$GT$$u20$as$u20$cor
 
 20:                                               ; preds = %.lr.ph.split
   %21 = getelementptr inbounds nuw i8, ptr %13, i64 16
-  %22 = load i16, ptr %21, align 8, !alias.scope !825, !noundef !4
+  %22 = load i16, ptr %21, align 8, !alias.scope !806, !noundef !4
   %23 = and i16 %11, %22
   %24 = icmp ne i16 %23, %22
   %25 = and i16 %22, %8
@@ -3750,7 +3750,7 @@ define hidden void @"_ZN93_$LT$bitflags..iter..IterNames$LT$B$GT$$u20$as$u20$cor
   store i64 %14, ptr %5, align 8
   %27 = xor i16 %22, -1
   %28 = and i16 %8, %27
-  store i16 %28, ptr %7, align 2, !alias.scope !828
+  store i16 %28, ptr %7, align 2, !alias.scope !809
   %29 = load ptr, ptr %13, align 8, !nonnull !4, !align !5, !noundef !4
   store ptr %29, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -3775,7 +3775,7 @@ define hidden void @"_ZN93_$LT$bitflags..iter..IterNames$LT$B$GT$$u20$as$u20$cor
 
 .lr.ph:                                           ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 26
-  %8 = load i16, ptr %7, align 2, !alias.scope !831, !noundef !4
+  %8 = load i16, ptr %7, align 2, !alias.scope !812, !noundef !4
   %9 = icmp eq i16 %8, 0
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %11 = load i16, ptr %10, align 8
@@ -3800,7 +3800,7 @@ define hidden void @"_ZN93_$LT$bitflags..iter..IterNames$LT$B$GT$$u20$as$u20$cor
 
 .backedge:                                        ; preds = %.lr.ph.split, %20
   %exitcond.not = icmp eq i64 %14, %4
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !836
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split
 
 19:                                               ; preds = %.lr.ph
   store ptr null, ptr %0, align 8
@@ -3808,7 +3808,7 @@ define hidden void @"_ZN93_$LT$bitflags..iter..IterNames$LT$B$GT$$u20$as$u20$cor
 
 20:                                               ; preds = %.lr.ph.split
   %21 = getelementptr inbounds nuw i8, ptr %13, i64 16
-  %22 = load i16, ptr %21, align 8, !alias.scope !837, !noundef !4
+  %22 = load i16, ptr %21, align 8, !alias.scope !817, !noundef !4
   %23 = and i16 %11, %22
   %24 = icmp ne i16 %23, %22
   %25 = and i16 %22, %8
@@ -3820,7 +3820,7 @@ define hidden void @"_ZN93_$LT$bitflags..iter..IterNames$LT$B$GT$$u20$as$u20$cor
   store i64 %14, ptr %5, align 8
   %27 = xor i16 %22, -1
   %28 = and i16 %8, %27
-  store i16 %28, ptr %7, align 2, !alias.scope !840
+  store i16 %28, ptr %7, align 2, !alias.scope !820
   %29 = load ptr, ptr %13, align 8, !nonnull !4, !align !5, !noundef !4
   store ptr %29, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -3845,7 +3845,7 @@ define hidden void @"_ZN93_$LT$bitflags..iter..IterNames$LT$B$GT$$u20$as$u20$cor
 
 .lr.ph:                                           ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 28
-  %8 = load i32, ptr %7, align 4, !alias.scope !843, !noundef !4
+  %8 = load i32, ptr %7, align 4, !alias.scope !823, !noundef !4
   %9 = icmp eq i32 %8, 0
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %11 = load i32, ptr %10, align 8
@@ -3870,7 +3870,7 @@ define hidden void @"_ZN93_$LT$bitflags..iter..IterNames$LT$B$GT$$u20$as$u20$cor
 
 .backedge:                                        ; preds = %.lr.ph.split, %20
   %exitcond.not = icmp eq i64 %14, %4
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !848
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split
 
 19:                                               ; preds = %.lr.ph
   store ptr null, ptr %0, align 8
@@ -3878,7 +3878,7 @@ define hidden void @"_ZN93_$LT$bitflags..iter..IterNames$LT$B$GT$$u20$as$u20$cor
 
 20:                                               ; preds = %.lr.ph.split
   %21 = getelementptr inbounds nuw i8, ptr %13, i64 16
-  %22 = load i32, ptr %21, align 8, !alias.scope !849, !noundef !4
+  %22 = load i32, ptr %21, align 8, !alias.scope !828, !noundef !4
   %23 = and i32 %11, %22
   %24 = icmp ne i32 %23, %22
   %25 = and i32 %22, %8
@@ -3890,7 +3890,7 @@ define hidden void @"_ZN93_$LT$bitflags..iter..IterNames$LT$B$GT$$u20$as$u20$cor
   store i64 %14, ptr %5, align 8
   %27 = xor i32 %22, -1
   %28 = and i32 %8, %27
-  store i32 %28, ptr %7, align 4, !alias.scope !852
+  store i32 %28, ptr %7, align 4, !alias.scope !831
   %29 = load ptr, ptr %13, align 8, !nonnull !4, !align !5, !noundef !4
   store ptr %29, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -3915,7 +3915,7 @@ define hidden void @"_ZN93_$LT$bitflags..iter..IterNames$LT$B$GT$$u20$as$u20$cor
 
 .lr.ph:                                           ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 28
-  %8 = load i32, ptr %7, align 4, !alias.scope !855, !noundef !4
+  %8 = load i32, ptr %7, align 4, !alias.scope !834, !noundef !4
   %9 = icmp eq i32 %8, 0
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %11 = load i32, ptr %10, align 8
@@ -3940,7 +3940,147 @@ define hidden void @"_ZN93_$LT$bitflags..iter..IterNames$LT$B$GT$$u20$as$u20$cor
 
 .backedge:                                        ; preds = %.lr.ph.split, %20
   %exitcond.not = icmp eq i64 %14, %4
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !860
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split
+
+19:                                               ; preds = %.lr.ph
+  store ptr null, ptr %0, align 8
+  br label %30
+
+20:                                               ; preds = %.lr.ph.split
+  %21 = getelementptr inbounds nuw i8, ptr %13, i64 16
+  %22 = load i32, ptr %21, align 8, !alias.scope !839, !noundef !4
+  %23 = and i32 %11, %22
+  %24 = icmp ne i32 %23, %22
+  %25 = and i32 %22, %8
+  %.not4 = icmp eq i32 %25, 0
+  %or.cond = or i1 %.not4, %24
+  br i1 %or.cond, label %.backedge, label %26
+
+26:                                               ; preds = %20
+  store i64 %14, ptr %5, align 8
+  %27 = xor i32 %22, -1
+  %28 = and i32 %8, %27
+  store i32 %28, ptr %7, align 4, !alias.scope !842
+  %29 = load ptr, ptr %13, align 8, !nonnull !4, !align !5, !noundef !4
+  store ptr %29, ptr %0, align 8
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %16, ptr %.sroa.4.0..sroa_idx, align 8
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i32 %22, ptr %.sroa.5.0..sroa_idx, align 8
+  br label %30
+
+30:                                               ; preds = %19, %26, %18
+  ret void
+}
+
+; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+define hidden void @"_ZN93_$LT$bitflags..iter..IterNames$LT$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h630444b0c94a2151E"(ptr noalias noundef writeonly sret({ ptr, [2 x i64] }) align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef align 8 captures(none) dereferenceable(32) %1) unnamed_addr #11 personality ptr @rust_eh_personality {
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %4 = load i64, ptr %3, align 8, !noundef !4
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %6 = load ptr, ptr %1, align 8, !nonnull !4, !align !97
+  %.promoted = load i64, ptr %5, align 8
+  %.not13 = icmp ult i64 %.promoted, %4
+  br i1 %.not13, label %.lr.ph, label %18
+
+.lr.ph:                                           ; preds = %2
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 28
+  %8 = load i32, ptr %7, align 4, !alias.scope !845, !noundef !4
+  %9 = icmp eq i32 %8, 0
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %11 = load i32, ptr %10, align 8
+  br i1 %9, label %19, label %.lr.ph.split
+
+.lr.ph.split:                                     ; preds = %.lr.ph, %.backedge
+  %12 = phi i64 [ %14, %.backedge ], [ %.promoted, %.lr.ph ]
+  %13 = getelementptr inbounds { { ptr, i64 }, i32, [1 x i32] }, ptr %6, i64 %12
+  %14 = add nuw i64 %12, 1
+  %15 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  %16 = load i64, ptr %15, align 8, !noundef !4
+  %17 = icmp eq i64 %16, 0
+  br i1 %17, label %.backedge, label %20
+
+._crit_edge:                                      ; preds = %.backedge
+  store i64 %4, ptr %5, align 8
+  br label %18
+
+18:                                               ; preds = %._crit_edge, %2
+  store ptr null, ptr %0, align 8
+  br label %30
+
+.backedge:                                        ; preds = %.lr.ph.split, %20
+  %exitcond.not = icmp eq i64 %14, %4
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split
+
+19:                                               ; preds = %.lr.ph
+  store ptr null, ptr %0, align 8
+  br label %30
+
+20:                                               ; preds = %.lr.ph.split
+  %21 = getelementptr inbounds nuw i8, ptr %13, i64 16
+  %22 = load i32, ptr %21, align 8, !alias.scope !850, !noundef !4
+  %23 = and i32 %11, %22
+  %24 = icmp ne i32 %23, %22
+  %25 = and i32 %22, %8
+  %.not4 = icmp eq i32 %25, 0
+  %or.cond = or i1 %.not4, %24
+  br i1 %or.cond, label %.backedge, label %26
+
+26:                                               ; preds = %20
+  store i64 %14, ptr %5, align 8
+  %27 = xor i32 %22, -1
+  %28 = and i32 %8, %27
+  store i32 %28, ptr %7, align 4, !alias.scope !853
+  %29 = load ptr, ptr %13, align 8, !nonnull !4, !align !5, !noundef !4
+  store ptr %29, ptr %0, align 8
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %16, ptr %.sroa.4.0..sroa_idx, align 8
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i32 %22, ptr %.sroa.5.0..sroa_idx, align 8
+  br label %30
+
+30:                                               ; preds = %19, %26, %18
+  ret void
+}
+
+; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+define hidden void @"_ZN93_$LT$bitflags..iter..IterNames$LT$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h66432cb6142f4aa2E"(ptr noalias noundef writeonly sret({ ptr, [2 x i64] }) align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef align 8 captures(none) dereferenceable(32) %1) unnamed_addr #11 personality ptr @rust_eh_personality {
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %4 = load i64, ptr %3, align 8, !noundef !4
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %6 = load ptr, ptr %1, align 8, !nonnull !4, !align !97
+  %.promoted = load i64, ptr %5, align 8
+  %.not13 = icmp ult i64 %.promoted, %4
+  br i1 %.not13, label %.lr.ph, label %18
+
+.lr.ph:                                           ; preds = %2
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 28
+  %8 = load i32, ptr %7, align 4, !alias.scope !856, !noundef !4
+  %9 = icmp eq i32 %8, 0
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %11 = load i32, ptr %10, align 8
+  br i1 %9, label %19, label %.lr.ph.split
+
+.lr.ph.split:                                     ; preds = %.lr.ph, %.backedge
+  %12 = phi i64 [ %14, %.backedge ], [ %.promoted, %.lr.ph ]
+  %13 = getelementptr inbounds { { ptr, i64 }, i32, [1 x i32] }, ptr %6, i64 %12
+  %14 = add nuw i64 %12, 1
+  %15 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  %16 = load i64, ptr %15, align 8, !noundef !4
+  %17 = icmp eq i64 %16, 0
+  br i1 %17, label %.backedge, label %20
+
+._crit_edge:                                      ; preds = %.backedge
+  store i64 %4, ptr %5, align 8
+  br label %18
+
+18:                                               ; preds = %._crit_edge, %2
+  store ptr null, ptr %0, align 8
+  br label %30
+
+.backedge:                                        ; preds = %.lr.ph.split, %20
+  %exitcond.not = icmp eq i64 %14, %4
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split
 
 19:                                               ; preds = %.lr.ph
   store ptr null, ptr %0, align 8
@@ -3974,146 +4114,6 @@ define hidden void @"_ZN93_$LT$bitflags..iter..IterNames$LT$B$GT$$u20$as$u20$cor
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @"_ZN93_$LT$bitflags..iter..IterNames$LT$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h630444b0c94a2151E"(ptr noalias noundef writeonly sret({ ptr, [2 x i64] }) align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef align 8 captures(none) dereferenceable(32) %1) unnamed_addr #11 personality ptr @rust_eh_personality {
-  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %4 = load i64, ptr %3, align 8, !noundef !4
-  %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %6 = load ptr, ptr %1, align 8, !nonnull !4, !align !97
-  %.promoted = load i64, ptr %5, align 8
-  %.not13 = icmp ult i64 %.promoted, %4
-  br i1 %.not13, label %.lr.ph, label %18
-
-.lr.ph:                                           ; preds = %2
-  %7 = getelementptr inbounds nuw i8, ptr %1, i64 28
-  %8 = load i32, ptr %7, align 4, !alias.scope !867, !noundef !4
-  %9 = icmp eq i32 %8, 0
-  %10 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %11 = load i32, ptr %10, align 8
-  br i1 %9, label %19, label %.lr.ph.split
-
-.lr.ph.split:                                     ; preds = %.lr.ph, %.backedge
-  %12 = phi i64 [ %14, %.backedge ], [ %.promoted, %.lr.ph ]
-  %13 = getelementptr inbounds { { ptr, i64 }, i32, [1 x i32] }, ptr %6, i64 %12
-  %14 = add nuw i64 %12, 1
-  %15 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  %16 = load i64, ptr %15, align 8, !noundef !4
-  %17 = icmp eq i64 %16, 0
-  br i1 %17, label %.backedge, label %20
-
-._crit_edge:                                      ; preds = %.backedge
-  store i64 %4, ptr %5, align 8
-  br label %18
-
-18:                                               ; preds = %._crit_edge, %2
-  store ptr null, ptr %0, align 8
-  br label %30
-
-.backedge:                                        ; preds = %.lr.ph.split, %20
-  %exitcond.not = icmp eq i64 %14, %4
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !872
-
-19:                                               ; preds = %.lr.ph
-  store ptr null, ptr %0, align 8
-  br label %30
-
-20:                                               ; preds = %.lr.ph.split
-  %21 = getelementptr inbounds nuw i8, ptr %13, i64 16
-  %22 = load i32, ptr %21, align 8, !alias.scope !873, !noundef !4
-  %23 = and i32 %11, %22
-  %24 = icmp ne i32 %23, %22
-  %25 = and i32 %22, %8
-  %.not4 = icmp eq i32 %25, 0
-  %or.cond = or i1 %.not4, %24
-  br i1 %or.cond, label %.backedge, label %26
-
-26:                                               ; preds = %20
-  store i64 %14, ptr %5, align 8
-  %27 = xor i32 %22, -1
-  %28 = and i32 %8, %27
-  store i32 %28, ptr %7, align 4, !alias.scope !876
-  %29 = load ptr, ptr %13, align 8, !nonnull !4, !align !5, !noundef !4
-  store ptr %29, ptr %0, align 8
-  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %16, ptr %.sroa.4.0..sroa_idx, align 8
-  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i32 %22, ptr %.sroa.5.0..sroa_idx, align 8
-  br label %30
-
-30:                                               ; preds = %19, %26, %18
-  ret void
-}
-
-; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @"_ZN93_$LT$bitflags..iter..IterNames$LT$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h66432cb6142f4aa2E"(ptr noalias noundef writeonly sret({ ptr, [2 x i64] }) align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef align 8 captures(none) dereferenceable(32) %1) unnamed_addr #11 personality ptr @rust_eh_personality {
-  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %4 = load i64, ptr %3, align 8, !noundef !4
-  %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %6 = load ptr, ptr %1, align 8, !nonnull !4, !align !97
-  %.promoted = load i64, ptr %5, align 8
-  %.not13 = icmp ult i64 %.promoted, %4
-  br i1 %.not13, label %.lr.ph, label %18
-
-.lr.ph:                                           ; preds = %2
-  %7 = getelementptr inbounds nuw i8, ptr %1, i64 28
-  %8 = load i32, ptr %7, align 4, !alias.scope !879, !noundef !4
-  %9 = icmp eq i32 %8, 0
-  %10 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %11 = load i32, ptr %10, align 8
-  br i1 %9, label %19, label %.lr.ph.split
-
-.lr.ph.split:                                     ; preds = %.lr.ph, %.backedge
-  %12 = phi i64 [ %14, %.backedge ], [ %.promoted, %.lr.ph ]
-  %13 = getelementptr inbounds { { ptr, i64 }, i32, [1 x i32] }, ptr %6, i64 %12
-  %14 = add nuw i64 %12, 1
-  %15 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  %16 = load i64, ptr %15, align 8, !noundef !4
-  %17 = icmp eq i64 %16, 0
-  br i1 %17, label %.backedge, label %20
-
-._crit_edge:                                      ; preds = %.backedge
-  store i64 %4, ptr %5, align 8
-  br label %18
-
-18:                                               ; preds = %._crit_edge, %2
-  store ptr null, ptr %0, align 8
-  br label %30
-
-.backedge:                                        ; preds = %.lr.ph.split, %20
-  %exitcond.not = icmp eq i64 %14, %4
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !884
-
-19:                                               ; preds = %.lr.ph
-  store ptr null, ptr %0, align 8
-  br label %30
-
-20:                                               ; preds = %.lr.ph.split
-  %21 = getelementptr inbounds nuw i8, ptr %13, i64 16
-  %22 = load i32, ptr %21, align 8, !alias.scope !885, !noundef !4
-  %23 = and i32 %11, %22
-  %24 = icmp ne i32 %23, %22
-  %25 = and i32 %22, %8
-  %.not4 = icmp eq i32 %25, 0
-  %or.cond = or i1 %.not4, %24
-  br i1 %or.cond, label %.backedge, label %26
-
-26:                                               ; preds = %20
-  store i64 %14, ptr %5, align 8
-  %27 = xor i32 %22, -1
-  %28 = and i32 %8, %27
-  store i32 %28, ptr %7, align 4, !alias.scope !888
-  %29 = load ptr, ptr %13, align 8, !nonnull !4, !align !5, !noundef !4
-  store ptr %29, ptr %0, align 8
-  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %16, ptr %.sroa.4.0..sroa_idx, align 8
-  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i32 %22, ptr %.sroa.5.0..sroa_idx, align 8
-  br label %30
-
-30:                                               ; preds = %19, %26, %18
-  ret void
-}
-
-; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define hidden void @"_ZN93_$LT$bitflags..iter..IterNames$LT$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6c7cb43bdca11021E"(ptr noalias noundef writeonly sret({ ptr, [2 x i64] }) align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef align 8 captures(none) dereferenceable(32) %1) unnamed_addr #11 personality ptr @rust_eh_personality {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load i64, ptr %3, align 8, !noundef !4
@@ -4125,7 +4125,7 @@ define hidden void @"_ZN93_$LT$bitflags..iter..IterNames$LT$B$GT$$u20$as$u20$cor
 
 .lr.ph:                                           ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 26
-  %8 = load i16, ptr %7, align 2, !alias.scope !891, !noundef !4
+  %8 = load i16, ptr %7, align 2, !alias.scope !867, !noundef !4
   %9 = icmp eq i16 %8, 0
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %11 = load i16, ptr %10, align 8
@@ -4150,7 +4150,7 @@ define hidden void @"_ZN93_$LT$bitflags..iter..IterNames$LT$B$GT$$u20$as$u20$cor
 
 .backedge:                                        ; preds = %.lr.ph.split, %20
   %exitcond.not = icmp eq i64 %14, %4
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !896
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split
 
 19:                                               ; preds = %.lr.ph
   store ptr null, ptr %0, align 8
@@ -4158,7 +4158,7 @@ define hidden void @"_ZN93_$LT$bitflags..iter..IterNames$LT$B$GT$$u20$as$u20$cor
 
 20:                                               ; preds = %.lr.ph.split
   %21 = getelementptr inbounds nuw i8, ptr %13, i64 16
-  %22 = load i16, ptr %21, align 8, !alias.scope !897, !noundef !4
+  %22 = load i16, ptr %21, align 8, !alias.scope !872, !noundef !4
   %23 = and i16 %11, %22
   %24 = icmp ne i16 %23, %22
   %25 = and i16 %22, %8
@@ -4170,7 +4170,7 @@ define hidden void @"_ZN93_$LT$bitflags..iter..IterNames$LT$B$GT$$u20$as$u20$cor
   store i64 %14, ptr %5, align 8
   %27 = xor i16 %22, -1
   %28 = and i16 %8, %27
-  store i16 %28, ptr %7, align 2, !alias.scope !900
+  store i16 %28, ptr %7, align 2, !alias.scope !875
   %29 = load ptr, ptr %13, align 8, !nonnull !4, !align !5, !noundef !4
   store ptr %29, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -4195,7 +4195,7 @@ define hidden void @"_ZN93_$LT$bitflags..iter..IterNames$LT$B$GT$$u20$as$u20$cor
 
 .lr.ph:                                           ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 28
-  %8 = load i32, ptr %7, align 4, !alias.scope !903, !noundef !4
+  %8 = load i32, ptr %7, align 4, !alias.scope !878, !noundef !4
   %9 = icmp eq i32 %8, 0
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %11 = load i32, ptr %10, align 8
@@ -4220,7 +4220,7 @@ define hidden void @"_ZN93_$LT$bitflags..iter..IterNames$LT$B$GT$$u20$as$u20$cor
 
 .backedge:                                        ; preds = %.lr.ph.split, %20
   %exitcond.not = icmp eq i64 %14, %4
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !908
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split
 
 19:                                               ; preds = %.lr.ph
   store ptr null, ptr %0, align 8
@@ -4228,7 +4228,7 @@ define hidden void @"_ZN93_$LT$bitflags..iter..IterNames$LT$B$GT$$u20$as$u20$cor
 
 20:                                               ; preds = %.lr.ph.split
   %21 = getelementptr inbounds nuw i8, ptr %13, i64 16
-  %22 = load i32, ptr %21, align 8, !alias.scope !909, !noundef !4
+  %22 = load i32, ptr %21, align 8, !alias.scope !883, !noundef !4
   %23 = and i32 %11, %22
   %24 = icmp ne i32 %23, %22
   %25 = and i32 %22, %8
@@ -4240,7 +4240,7 @@ define hidden void @"_ZN93_$LT$bitflags..iter..IterNames$LT$B$GT$$u20$as$u20$cor
   store i64 %14, ptr %5, align 8
   %27 = xor i32 %22, -1
   %28 = and i32 %8, %27
-  store i32 %28, ptr %7, align 4, !alias.scope !912
+  store i32 %28, ptr %7, align 4, !alias.scope !886
   %29 = load ptr, ptr %13, align 8, !nonnull !4, !align !5, !noundef !4
   store ptr %29, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -4265,7 +4265,7 @@ define hidden void @"_ZN93_$LT$bitflags..iter..IterNames$LT$B$GT$$u20$as$u20$cor
 
 .lr.ph:                                           ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 28
-  %8 = load i32, ptr %7, align 4, !alias.scope !915, !noundef !4
+  %8 = load i32, ptr %7, align 4, !alias.scope !889, !noundef !4
   %9 = icmp eq i32 %8, 0
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %11 = load i32, ptr %10, align 8
@@ -4290,7 +4290,7 @@ define hidden void @"_ZN93_$LT$bitflags..iter..IterNames$LT$B$GT$$u20$as$u20$cor
 
 .backedge:                                        ; preds = %.lr.ph.split, %20
   %exitcond.not = icmp eq i64 %14, %4
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !920
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split
 
 19:                                               ; preds = %.lr.ph
   store ptr null, ptr %0, align 8
@@ -4298,7 +4298,7 @@ define hidden void @"_ZN93_$LT$bitflags..iter..IterNames$LT$B$GT$$u20$as$u20$cor
 
 20:                                               ; preds = %.lr.ph.split
   %21 = getelementptr inbounds nuw i8, ptr %13, i64 16
-  %22 = load i32, ptr %21, align 8, !alias.scope !921, !noundef !4
+  %22 = load i32, ptr %21, align 8, !alias.scope !894, !noundef !4
   %23 = and i32 %11, %22
   %24 = icmp ne i32 %23, %22
   %25 = and i32 %22, %8
@@ -4310,7 +4310,7 @@ define hidden void @"_ZN93_$LT$bitflags..iter..IterNames$LT$B$GT$$u20$as$u20$cor
   store i64 %14, ptr %5, align 8
   %27 = xor i32 %22, -1
   %28 = and i32 %8, %27
-  store i32 %28, ptr %7, align 4, !alias.scope !924
+  store i32 %28, ptr %7, align 4, !alias.scope !897
   %29 = load ptr, ptr %13, align 8, !nonnull !4, !align !5, !noundef !4
   store ptr %29, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -4335,7 +4335,7 @@ define hidden void @"_ZN93_$LT$bitflags..iter..IterNames$LT$B$GT$$u20$as$u20$cor
 
 .lr.ph:                                           ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 26
-  %8 = load i16, ptr %7, align 2, !alias.scope !927, !noundef !4
+  %8 = load i16, ptr %7, align 2, !alias.scope !900, !noundef !4
   %9 = icmp eq i16 %8, 0
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %11 = load i16, ptr %10, align 8
@@ -4360,7 +4360,7 @@ define hidden void @"_ZN93_$LT$bitflags..iter..IterNames$LT$B$GT$$u20$as$u20$cor
 
 .backedge:                                        ; preds = %.lr.ph.split, %20
   %exitcond.not = icmp eq i64 %14, %4
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !932
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split
 
 19:                                               ; preds = %.lr.ph
   store ptr null, ptr %0, align 8
@@ -4368,7 +4368,7 @@ define hidden void @"_ZN93_$LT$bitflags..iter..IterNames$LT$B$GT$$u20$as$u20$cor
 
 20:                                               ; preds = %.lr.ph.split
   %21 = getelementptr inbounds nuw i8, ptr %13, i64 16
-  %22 = load i16, ptr %21, align 8, !alias.scope !933, !noundef !4
+  %22 = load i16, ptr %21, align 8, !alias.scope !905, !noundef !4
   %23 = and i16 %11, %22
   %24 = icmp ne i16 %23, %22
   %25 = and i16 %22, %8
@@ -4380,7 +4380,7 @@ define hidden void @"_ZN93_$LT$bitflags..iter..IterNames$LT$B$GT$$u20$as$u20$cor
   store i64 %14, ptr %5, align 8
   %27 = xor i16 %22, -1
   %28 = and i16 %8, %27
-  store i16 %28, ptr %7, align 2, !alias.scope !936
+  store i16 %28, ptr %7, align 2, !alias.scope !908
   %29 = load ptr, ptr %13, align 8, !nonnull !4, !align !5, !noundef !4
   store ptr %29, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -4405,7 +4405,7 @@ define hidden void @"_ZN93_$LT$bitflags..iter..IterNames$LT$B$GT$$u20$as$u20$cor
 
 .lr.ph:                                           ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 26
-  %8 = load i16, ptr %7, align 2, !alias.scope !939, !noundef !4
+  %8 = load i16, ptr %7, align 2, !alias.scope !911, !noundef !4
   %9 = icmp eq i16 %8, 0
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %11 = load i16, ptr %10, align 8
@@ -4430,7 +4430,7 @@ define hidden void @"_ZN93_$LT$bitflags..iter..IterNames$LT$B$GT$$u20$as$u20$cor
 
 .backedge:                                        ; preds = %.lr.ph.split, %20
   %exitcond.not = icmp eq i64 %14, %4
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !944
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split
 
 19:                                               ; preds = %.lr.ph
   store ptr null, ptr %0, align 8
@@ -4438,7 +4438,7 @@ define hidden void @"_ZN93_$LT$bitflags..iter..IterNames$LT$B$GT$$u20$as$u20$cor
 
 20:                                               ; preds = %.lr.ph.split
   %21 = getelementptr inbounds nuw i8, ptr %13, i64 16
-  %22 = load i16, ptr %21, align 8, !alias.scope !945, !noundef !4
+  %22 = load i16, ptr %21, align 8, !alias.scope !916, !noundef !4
   %23 = and i16 %11, %22
   %24 = icmp ne i16 %23, %22
   %25 = and i16 %22, %8
@@ -4450,7 +4450,7 @@ define hidden void @"_ZN93_$LT$bitflags..iter..IterNames$LT$B$GT$$u20$as$u20$cor
   store i64 %14, ptr %5, align 8
   %27 = xor i16 %22, -1
   %28 = and i16 %8, %27
-  store i16 %28, ptr %7, align 2, !alias.scope !948
+  store i16 %28, ptr %7, align 2, !alias.scope !919
   %29 = load ptr, ptr %13, align 8, !nonnull !4, !align !5, !noundef !4
   store ptr %29, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -4475,7 +4475,7 @@ define hidden void @"_ZN93_$LT$bitflags..iter..IterNames$LT$B$GT$$u20$as$u20$cor
 
 .lr.ph:                                           ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 26
-  %8 = load i16, ptr %7, align 2, !alias.scope !951, !noundef !4
+  %8 = load i16, ptr %7, align 2, !alias.scope !922, !noundef !4
   %9 = icmp eq i16 %8, 0
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %11 = load i16, ptr %10, align 8
@@ -4500,7 +4500,7 @@ define hidden void @"_ZN93_$LT$bitflags..iter..IterNames$LT$B$GT$$u20$as$u20$cor
 
 .backedge:                                        ; preds = %.lr.ph.split, %20
   %exitcond.not = icmp eq i64 %14, %4
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !956
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split
 
 19:                                               ; preds = %.lr.ph
   store ptr null, ptr %0, align 8
@@ -4508,7 +4508,7 @@ define hidden void @"_ZN93_$LT$bitflags..iter..IterNames$LT$B$GT$$u20$as$u20$cor
 
 20:                                               ; preds = %.lr.ph.split
   %21 = getelementptr inbounds nuw i8, ptr %13, i64 16
-  %22 = load i16, ptr %21, align 8, !alias.scope !957, !noundef !4
+  %22 = load i16, ptr %21, align 8, !alias.scope !927, !noundef !4
   %23 = and i16 %11, %22
   %24 = icmp ne i16 %23, %22
   %25 = and i16 %22, %8
@@ -4520,7 +4520,7 @@ define hidden void @"_ZN93_$LT$bitflags..iter..IterNames$LT$B$GT$$u20$as$u20$cor
   store i64 %14, ptr %5, align 8
   %27 = xor i16 %22, -1
   %28 = and i16 %8, %27
-  store i16 %28, ptr %7, align 2, !alias.scope !960
+  store i16 %28, ptr %7, align 2, !alias.scope !930
   %29 = load ptr, ptr %13, align 8, !nonnull !4, !align !5, !noundef !4
   store ptr %29, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -4545,7 +4545,7 @@ define hidden void @"_ZN93_$LT$bitflags..iter..IterNames$LT$B$GT$$u20$as$u20$cor
 
 .lr.ph:                                           ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 28
-  %8 = load i32, ptr %7, align 4, !alias.scope !963, !noundef !4
+  %8 = load i32, ptr %7, align 4, !alias.scope !933, !noundef !4
   %9 = icmp eq i32 %8, 0
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %11 = load i32, ptr %10, align 8
@@ -4570,7 +4570,7 @@ define hidden void @"_ZN93_$LT$bitflags..iter..IterNames$LT$B$GT$$u20$as$u20$cor
 
 .backedge:                                        ; preds = %.lr.ph.split, %20
   %exitcond.not = icmp eq i64 %14, %4
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !968
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split
 
 19:                                               ; preds = %.lr.ph
   store ptr null, ptr %0, align 8
@@ -4578,7 +4578,7 @@ define hidden void @"_ZN93_$LT$bitflags..iter..IterNames$LT$B$GT$$u20$as$u20$cor
 
 20:                                               ; preds = %.lr.ph.split
   %21 = getelementptr inbounds nuw i8, ptr %13, i64 16
-  %22 = load i32, ptr %21, align 8, !alias.scope !969, !noundef !4
+  %22 = load i32, ptr %21, align 8, !alias.scope !938, !noundef !4
   %23 = and i32 %11, %22
   %24 = icmp ne i32 %23, %22
   %25 = and i32 %22, %8
@@ -4590,7 +4590,7 @@ define hidden void @"_ZN93_$LT$bitflags..iter..IterNames$LT$B$GT$$u20$as$u20$cor
   store i64 %14, ptr %5, align 8
   %27 = xor i32 %22, -1
   %28 = and i32 %8, %27
-  store i32 %28, ptr %7, align 4, !alias.scope !972
+  store i32 %28, ptr %7, align 4, !alias.scope !941
   %29 = load ptr, ptr %13, align 8, !nonnull !4, !align !5, !noundef !4
   store ptr %29, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -4615,7 +4615,7 @@ define hidden void @"_ZN93_$LT$bitflags..iter..IterNames$LT$B$GT$$u20$as$u20$cor
 
 .lr.ph:                                           ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 26
-  %8 = load i16, ptr %7, align 2, !alias.scope !975, !noundef !4
+  %8 = load i16, ptr %7, align 2, !alias.scope !944, !noundef !4
   %9 = icmp eq i16 %8, 0
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %11 = load i16, ptr %10, align 8
@@ -4640,7 +4640,7 @@ define hidden void @"_ZN93_$LT$bitflags..iter..IterNames$LT$B$GT$$u20$as$u20$cor
 
 .backedge:                                        ; preds = %.lr.ph.split, %20
   %exitcond.not = icmp eq i64 %14, %4
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !980
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split
 
 19:                                               ; preds = %.lr.ph
   store ptr null, ptr %0, align 8
@@ -4648,7 +4648,7 @@ define hidden void @"_ZN93_$LT$bitflags..iter..IterNames$LT$B$GT$$u20$as$u20$cor
 
 20:                                               ; preds = %.lr.ph.split
   %21 = getelementptr inbounds nuw i8, ptr %13, i64 16
-  %22 = load i16, ptr %21, align 8, !alias.scope !981, !noundef !4
+  %22 = load i16, ptr %21, align 8, !alias.scope !949, !noundef !4
   %23 = and i16 %11, %22
   %24 = icmp ne i16 %23, %22
   %25 = and i16 %22, %8
@@ -4660,7 +4660,7 @@ define hidden void @"_ZN93_$LT$bitflags..iter..IterNames$LT$B$GT$$u20$as$u20$cor
   store i64 %14, ptr %5, align 8
   %27 = xor i16 %22, -1
   %28 = and i16 %8, %27
-  store i16 %28, ptr %7, align 2, !alias.scope !984
+  store i16 %28, ptr %7, align 2, !alias.scope !952
   %29 = load ptr, ptr %13, align 8, !nonnull !4, !align !5, !noundef !4
   store ptr %29, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -4685,7 +4685,7 @@ define hidden void @"_ZN93_$LT$bitflags..iter..IterNames$LT$B$GT$$u20$as$u20$cor
 
 .lr.ph:                                           ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 26
-  %8 = load i16, ptr %7, align 2, !alias.scope !987, !noundef !4
+  %8 = load i16, ptr %7, align 2, !alias.scope !955, !noundef !4
   %9 = icmp eq i16 %8, 0
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %11 = load i16, ptr %10, align 8
@@ -4710,7 +4710,7 @@ define hidden void @"_ZN93_$LT$bitflags..iter..IterNames$LT$B$GT$$u20$as$u20$cor
 
 .backedge:                                        ; preds = %.lr.ph.split, %20
   %exitcond.not = icmp eq i64 %14, %4
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !992
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split
 
 19:                                               ; preds = %.lr.ph
   store ptr null, ptr %0, align 8
@@ -4718,7 +4718,7 @@ define hidden void @"_ZN93_$LT$bitflags..iter..IterNames$LT$B$GT$$u20$as$u20$cor
 
 20:                                               ; preds = %.lr.ph.split
   %21 = getelementptr inbounds nuw i8, ptr %13, i64 16
-  %22 = load i16, ptr %21, align 8, !alias.scope !993, !noundef !4
+  %22 = load i16, ptr %21, align 8, !alias.scope !960, !noundef !4
   %23 = and i16 %11, %22
   %24 = icmp ne i16 %23, %22
   %25 = and i16 %22, %8
@@ -4730,7 +4730,7 @@ define hidden void @"_ZN93_$LT$bitflags..iter..IterNames$LT$B$GT$$u20$as$u20$cor
   store i64 %14, ptr %5, align 8
   %27 = xor i16 %22, -1
   %28 = and i16 %8, %27
-  store i16 %28, ptr %7, align 2, !alias.scope !996
+  store i16 %28, ptr %7, align 2, !alias.scope !963
   %29 = load ptr, ptr %13, align 8, !nonnull !4, !align !5, !noundef !4
   store ptr %29, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -4755,7 +4755,7 @@ define hidden void @"_ZN93_$LT$bitflags..iter..IterNames$LT$B$GT$$u20$as$u20$cor
 
 .lr.ph:                                           ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 26
-  %8 = load i16, ptr %7, align 2, !alias.scope !999, !noundef !4
+  %8 = load i16, ptr %7, align 2, !alias.scope !966, !noundef !4
   %9 = icmp eq i16 %8, 0
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %11 = load i16, ptr %10, align 8
@@ -4780,7 +4780,7 @@ define hidden void @"_ZN93_$LT$bitflags..iter..IterNames$LT$B$GT$$u20$as$u20$cor
 
 .backedge:                                        ; preds = %.lr.ph.split, %20
   %exitcond.not = icmp eq i64 %14, %4
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !1004
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split
 
 19:                                               ; preds = %.lr.ph
   store ptr null, ptr %0, align 8
@@ -4788,7 +4788,7 @@ define hidden void @"_ZN93_$LT$bitflags..iter..IterNames$LT$B$GT$$u20$as$u20$cor
 
 20:                                               ; preds = %.lr.ph.split
   %21 = getelementptr inbounds nuw i8, ptr %13, i64 16
-  %22 = load i16, ptr %21, align 8, !alias.scope !1005, !noundef !4
+  %22 = load i16, ptr %21, align 8, !alias.scope !971, !noundef !4
   %23 = and i16 %11, %22
   %24 = icmp ne i16 %23, %22
   %25 = and i16 %22, %8
@@ -4800,7 +4800,7 @@ define hidden void @"_ZN93_$LT$bitflags..iter..IterNames$LT$B$GT$$u20$as$u20$cor
   store i64 %14, ptr %5, align 8
   %27 = xor i16 %22, -1
   %28 = and i16 %8, %27
-  store i16 %28, ptr %7, align 2, !alias.scope !1008
+  store i16 %28, ptr %7, align 2, !alias.scope !974
   %29 = load ptr, ptr %13, align 8, !nonnull !4, !align !5, !noundef !4
   store ptr %29, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -4825,7 +4825,7 @@ define hidden void @"_ZN93_$LT$bitflags..iter..IterNames$LT$B$GT$$u20$as$u20$cor
 
 .lr.ph:                                           ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %8 = load i64, ptr %7, align 8, !alias.scope !1011, !noundef !4
+  %8 = load i64, ptr %7, align 8, !alias.scope !977, !noundef !4
   %9 = icmp eq i64 %8, 0
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %11 = load i64, ptr %10, align 8
@@ -4850,7 +4850,7 @@ define hidden void @"_ZN93_$LT$bitflags..iter..IterNames$LT$B$GT$$u20$as$u20$cor
 
 .backedge:                                        ; preds = %.lr.ph.split, %20
   %exitcond.not = icmp eq i64 %14, %4
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !1016
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split
 
 19:                                               ; preds = %.lr.ph
   store ptr null, ptr %0, align 8
@@ -4858,7 +4858,7 @@ define hidden void @"_ZN93_$LT$bitflags..iter..IterNames$LT$B$GT$$u20$as$u20$cor
 
 20:                                               ; preds = %.lr.ph.split
   %21 = getelementptr inbounds nuw i8, ptr %13, i64 16
-  %22 = load i64, ptr %21, align 8, !alias.scope !1017, !noundef !4
+  %22 = load i64, ptr %21, align 8, !alias.scope !982, !noundef !4
   %23 = and i64 %11, %22
   %24 = icmp ne i64 %23, %22
   %25 = and i64 %22, %8
@@ -4870,7 +4870,7 @@ define hidden void @"_ZN93_$LT$bitflags..iter..IterNames$LT$B$GT$$u20$as$u20$cor
   store i64 %14, ptr %5, align 8
   %27 = xor i64 %22, -1
   %28 = and i64 %8, %27
-  store i64 %28, ptr %7, align 8, !alias.scope !1020
+  store i64 %28, ptr %7, align 8, !alias.scope !985
   %29 = load ptr, ptr %13, align 8, !nonnull !4, !align !5, !noundef !4
   store ptr %29, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -4895,7 +4895,7 @@ define hidden void @"_ZN93_$LT$bitflags..iter..IterNames$LT$B$GT$$u20$as$u20$cor
 
 .lr.ph:                                           ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 28
-  %8 = load i32, ptr %7, align 4, !alias.scope !1023, !noundef !4
+  %8 = load i32, ptr %7, align 4, !alias.scope !988, !noundef !4
   %9 = icmp eq i32 %8, 0
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %11 = load i32, ptr %10, align 8
@@ -4920,7 +4920,7 @@ define hidden void @"_ZN93_$LT$bitflags..iter..IterNames$LT$B$GT$$u20$as$u20$cor
 
 .backedge:                                        ; preds = %.lr.ph.split, %20
   %exitcond.not = icmp eq i64 %14, %4
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !1028
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split
 
 19:                                               ; preds = %.lr.ph
   store ptr null, ptr %0, align 8
@@ -4928,7 +4928,7 @@ define hidden void @"_ZN93_$LT$bitflags..iter..IterNames$LT$B$GT$$u20$as$u20$cor
 
 20:                                               ; preds = %.lr.ph.split
   %21 = getelementptr inbounds nuw i8, ptr %13, i64 16
-  %22 = load i32, ptr %21, align 8, !alias.scope !1029, !noundef !4
+  %22 = load i32, ptr %21, align 8, !alias.scope !993, !noundef !4
   %23 = and i32 %11, %22
   %24 = icmp ne i32 %23, %22
   %25 = and i32 %22, %8
@@ -4940,7 +4940,7 @@ define hidden void @"_ZN93_$LT$bitflags..iter..IterNames$LT$B$GT$$u20$as$u20$cor
   store i64 %14, ptr %5, align 8
   %27 = xor i32 %22, -1
   %28 = and i32 %8, %27
-  store i32 %28, ptr %7, align 4, !alias.scope !1032
+  store i32 %28, ptr %7, align 4, !alias.scope !996
   %29 = load ptr, ptr %13, align 8, !nonnull !4, !align !5, !noundef !4
   store ptr %29, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -4965,7 +4965,7 @@ define hidden void @"_ZN93_$LT$bitflags..iter..IterNames$LT$B$GT$$u20$as$u20$cor
 
 .lr.ph:                                           ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 28
-  %8 = load i32, ptr %7, align 4, !alias.scope !1035, !noundef !4
+  %8 = load i32, ptr %7, align 4, !alias.scope !999, !noundef !4
   %9 = icmp eq i32 %8, 0
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %11 = load i32, ptr %10, align 8
@@ -4990,7 +4990,7 @@ define hidden void @"_ZN93_$LT$bitflags..iter..IterNames$LT$B$GT$$u20$as$u20$cor
 
 .backedge:                                        ; preds = %.lr.ph.split, %20
   %exitcond.not = icmp eq i64 %14, %4
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !1040
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split
 
 19:                                               ; preds = %.lr.ph
   store ptr null, ptr %0, align 8
@@ -4998,7 +4998,7 @@ define hidden void @"_ZN93_$LT$bitflags..iter..IterNames$LT$B$GT$$u20$as$u20$cor
 
 20:                                               ; preds = %.lr.ph.split
   %21 = getelementptr inbounds nuw i8, ptr %13, i64 16
-  %22 = load i32, ptr %21, align 8, !alias.scope !1041, !noundef !4
+  %22 = load i32, ptr %21, align 8, !alias.scope !1004, !noundef !4
   %23 = and i32 %11, %22
   %24 = icmp ne i32 %23, %22
   %25 = and i32 %22, %8
@@ -5010,7 +5010,7 @@ define hidden void @"_ZN93_$LT$bitflags..iter..IterNames$LT$B$GT$$u20$as$u20$cor
   store i64 %14, ptr %5, align 8
   %27 = xor i32 %22, -1
   %28 = and i32 %8, %27
-  store i32 %28, ptr %7, align 4, !alias.scope !1044
+  store i32 %28, ptr %7, align 4, !alias.scope !1007
   %29 = load ptr, ptr %13, align 8, !nonnull !4, !align !5, !noundef !4
   store ptr %29, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -5035,7 +5035,7 @@ define hidden void @"_ZN93_$LT$bitflags..iter..IterNames$LT$B$GT$$u20$as$u20$cor
 
 .lr.ph:                                           ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 26
-  %8 = load i16, ptr %7, align 2, !alias.scope !1047, !noundef !4
+  %8 = load i16, ptr %7, align 2, !alias.scope !1010, !noundef !4
   %9 = icmp eq i16 %8, 0
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %11 = load i16, ptr %10, align 8
@@ -5060,7 +5060,7 @@ define hidden void @"_ZN93_$LT$bitflags..iter..IterNames$LT$B$GT$$u20$as$u20$cor
 
 .backedge:                                        ; preds = %.lr.ph.split, %20
   %exitcond.not = icmp eq i64 %14, %4
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !1052
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split
 
 19:                                               ; preds = %.lr.ph
   store ptr null, ptr %0, align 8
@@ -5068,7 +5068,7 @@ define hidden void @"_ZN93_$LT$bitflags..iter..IterNames$LT$B$GT$$u20$as$u20$cor
 
 20:                                               ; preds = %.lr.ph.split
   %21 = getelementptr inbounds nuw i8, ptr %13, i64 16
-  %22 = load i16, ptr %21, align 8, !alias.scope !1053, !noundef !4
+  %22 = load i16, ptr %21, align 8, !alias.scope !1015, !noundef !4
   %23 = and i16 %11, %22
   %24 = icmp ne i16 %23, %22
   %25 = and i16 %22, %8
@@ -5080,7 +5080,7 @@ define hidden void @"_ZN93_$LT$bitflags..iter..IterNames$LT$B$GT$$u20$as$u20$cor
   store i64 %14, ptr %5, align 8
   %27 = xor i16 %22, -1
   %28 = and i16 %8, %27
-  store i16 %28, ptr %7, align 2, !alias.scope !1056
+  store i16 %28, ptr %7, align 2, !alias.scope !1018
   %29 = load ptr, ptr %13, align 8, !nonnull !4, !align !5, !noundef !4
   store ptr %29, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -5105,7 +5105,7 @@ define hidden void @"_ZN93_$LT$bitflags..iter..IterNames$LT$B$GT$$u20$as$u20$cor
 
 .lr.ph:                                           ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 26
-  %8 = load i16, ptr %7, align 2, !alias.scope !1059, !noundef !4
+  %8 = load i16, ptr %7, align 2, !alias.scope !1021, !noundef !4
   %9 = icmp eq i16 %8, 0
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %11 = load i16, ptr %10, align 8
@@ -5130,7 +5130,7 @@ define hidden void @"_ZN93_$LT$bitflags..iter..IterNames$LT$B$GT$$u20$as$u20$cor
 
 .backedge:                                        ; preds = %.lr.ph.split, %20
   %exitcond.not = icmp eq i64 %14, %4
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !1064
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split
 
 19:                                               ; preds = %.lr.ph
   store ptr null, ptr %0, align 8
@@ -5138,7 +5138,7 @@ define hidden void @"_ZN93_$LT$bitflags..iter..IterNames$LT$B$GT$$u20$as$u20$cor
 
 20:                                               ; preds = %.lr.ph.split
   %21 = getelementptr inbounds nuw i8, ptr %13, i64 16
-  %22 = load i16, ptr %21, align 8, !alias.scope !1065, !noundef !4
+  %22 = load i16, ptr %21, align 8, !alias.scope !1026, !noundef !4
   %23 = and i16 %11, %22
   %24 = icmp ne i16 %23, %22
   %25 = and i16 %22, %8
@@ -5150,7 +5150,7 @@ define hidden void @"_ZN93_$LT$bitflags..iter..IterNames$LT$B$GT$$u20$as$u20$cor
   store i64 %14, ptr %5, align 8
   %27 = xor i16 %22, -1
   %28 = and i16 %8, %27
-  store i16 %28, ptr %7, align 2, !alias.scope !1068
+  store i16 %28, ptr %7, align 2, !alias.scope !1029
   %29 = load ptr, ptr %13, align 8, !nonnull !4, !align !5, !noundef !4
   store ptr %29, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -5175,7 +5175,7 @@ define hidden void @"_ZN93_$LT$bitflags..iter..IterNames$LT$B$GT$$u20$as$u20$cor
 
 .lr.ph:                                           ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %8 = load i64, ptr %7, align 8, !alias.scope !1071, !noundef !4
+  %8 = load i64, ptr %7, align 8, !alias.scope !1032, !noundef !4
   %9 = icmp eq i64 %8, 0
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %11 = load i64, ptr %10, align 8
@@ -5200,7 +5200,7 @@ define hidden void @"_ZN93_$LT$bitflags..iter..IterNames$LT$B$GT$$u20$as$u20$cor
 
 .backedge:                                        ; preds = %.lr.ph.split, %20
   %exitcond.not = icmp eq i64 %14, %4
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !1076
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split
 
 19:                                               ; preds = %.lr.ph
   store ptr null, ptr %0, align 8
@@ -5208,7 +5208,7 @@ define hidden void @"_ZN93_$LT$bitflags..iter..IterNames$LT$B$GT$$u20$as$u20$cor
 
 20:                                               ; preds = %.lr.ph.split
   %21 = getelementptr inbounds nuw i8, ptr %13, i64 16
-  %22 = load i64, ptr %21, align 8, !alias.scope !1077, !noundef !4
+  %22 = load i64, ptr %21, align 8, !alias.scope !1037, !noundef !4
   %23 = and i64 %11, %22
   %24 = icmp ne i64 %23, %22
   %25 = and i64 %22, %8
@@ -5220,7 +5220,7 @@ define hidden void @"_ZN93_$LT$bitflags..iter..IterNames$LT$B$GT$$u20$as$u20$cor
   store i64 %14, ptr %5, align 8
   %27 = xor i64 %22, -1
   %28 = and i64 %8, %27
-  store i64 %28, ptr %7, align 8, !alias.scope !1080
+  store i64 %28, ptr %7, align 8, !alias.scope !1040
   %29 = load ptr, ptr %13, align 8, !nonnull !4, !align !5, !noundef !4
   store ptr %29, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -5248,7 +5248,7 @@ define hidden noundef nonnull ptr @_ZN11wasi_common9snapshots9preview_05types5Er
   %10 = extractvalue { i64, ptr } %7, 1
   %11 = icmp ne ptr %10, null
   tail call void @llvm.assume(i1 %11)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %10, ptr nonnull readonly align 1 %1, i64 %2, i1 false), !noalias !1083
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %10, ptr nonnull readonly align 1 %1, i64 %2, i1 false), !noalias !1043
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
   store i64 %9, ptr %5, align 8
@@ -5257,8 +5257,8 @@ define hidden noundef nonnull ptr @_ZN11wasi_common9snapshots9preview_05types5Er
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i64 %2, ptr %.sroa.5.0..sroa_idx, align 8
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  store ptr %0, ptr %12, align 8, !noalias !1088
-  store i64 3, ptr %4, align 8, !noalias !1088
+  store ptr %0, ptr %12, align 8, !noalias !1048
+  store i64 3, ptr %4, align 8, !noalias !1048
   %13 = call noundef nonnull ptr @"_ZN6anyhow5error31_$LT$impl$u20$anyhow..Error$GT$9construct17h59be39756985a9b6E.llvm.5331966815222788767"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %5, ptr noalias noundef readonly align 8 dereferenceable(40) @anon.d795119150f63e27fa6f1b4ce1c75725.81.llvm.5331966815222788767, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %4)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
@@ -6036,456 +6036,416 @@ attributes #20 = { cold noreturn nounwind }
 !635 = distinct !{!635, !636, !"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h06a772ea2239cecbE: argument 0"}
 !636 = distinct !{!636, !"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h06a772ea2239cecbE"}
 !637 = distinct !{!637, !636, !"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h06a772ea2239cecbE: argument 1"}
-!638 = distinct !{!638, !639}
-!639 = !{!"llvm.loop.estimated_trip_count"}
-!640 = !{!641}
-!641 = distinct !{!641, !642, !"_ZN77_$LT$wasi_common..file..FileAccessMode$u20$as$u20$bitflags..traits..Flags$GT$4bits17h67954f1b2246698aE: argument 0"}
-!642 = distinct !{!642, !"_ZN77_$LT$wasi_common..file..FileAccessMode$u20$as$u20$bitflags..traits..Flags$GT$4bits17h67954f1b2246698aE"}
-!643 = !{!644, !646}
-!644 = distinct !{!644, !645, !"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h06a772ea2239cecbE: argument 0"}
-!645 = distinct !{!645, !"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h06a772ea2239cecbE"}
-!646 = distinct !{!646, !645, !"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h06a772ea2239cecbE: argument 1"}
-!647 = distinct !{!647, !639}
-!648 = !{!649}
-!649 = distinct !{!649, !650, !"_ZN70_$LT$wasi_common..file..RiFlags$u20$as$u20$bitflags..traits..Flags$GT$4bits17h8e90828f1ff85a27E: argument 0"}
-!650 = distinct !{!650, !"_ZN70_$LT$wasi_common..file..RiFlags$u20$as$u20$bitflags..traits..Flags$GT$4bits17h8e90828f1ff85a27E"}
-!651 = !{!652, !654}
-!652 = distinct !{!652, !653, !"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h06a772ea2239cecbE: argument 0"}
-!653 = distinct !{!653, !"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h06a772ea2239cecbE"}
-!654 = distinct !{!654, !653, !"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h06a772ea2239cecbE: argument 1"}
-!655 = distinct !{!655, !639}
-!656 = !{!657}
-!657 = distinct !{!657, !658, !"_ZN70_$LT$wasi_common..file..SdFlags$u20$as$u20$bitflags..traits..Flags$GT$4bits17hcffdd668eaf4b83fE: argument 0"}
-!658 = distinct !{!658, !"_ZN70_$LT$wasi_common..file..SdFlags$u20$as$u20$bitflags..traits..Flags$GT$4bits17hcffdd668eaf4b83fE"}
-!659 = !{!660, !662}
-!660 = distinct !{!660, !661, !"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h06a772ea2239cecbE: argument 0"}
-!661 = distinct !{!661, !"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h06a772ea2239cecbE"}
-!662 = distinct !{!662, !661, !"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h06a772ea2239cecbE: argument 1"}
-!663 = distinct !{!663, !639}
-!664 = !{!665}
-!665 = distinct !{!665, !666, !"_ZN93_$LT$wasi_common..snapshots..preview_0..types..Sdflags$u20$as$u20$bitflags..traits..Flags$GT$4bits17h38432267a7f2ca11E: argument 0"}
-!666 = distinct !{!666, !"_ZN93_$LT$wasi_common..snapshots..preview_0..types..Sdflags$u20$as$u20$bitflags..traits..Flags$GT$4bits17h38432267a7f2ca11E"}
-!667 = !{!668, !670}
-!668 = distinct !{!668, !669, !"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h06a772ea2239cecbE: argument 0"}
-!669 = distinct !{!669, !"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h06a772ea2239cecbE"}
-!670 = distinct !{!670, !669, !"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h06a772ea2239cecbE: argument 1"}
-!671 = !{!672, !674}
-!672 = distinct !{!672, !673, !"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h06a772ea2239cecbE: argument 0"}
-!673 = distinct !{!673, !"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h06a772ea2239cecbE"}
-!674 = distinct !{!674, !673, !"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h06a772ea2239cecbE: argument 1"}
-!675 = distinct !{!675, !639}
-!676 = !{!677}
-!677 = distinct !{!677, !678, !"_ZN92_$LT$wasi_common..snapshots..preview_0..types..Rights$u20$as$u20$bitflags..traits..Flags$GT$4bits17hc8ea7e034b143556E: argument 0"}
-!678 = distinct !{!678, !"_ZN92_$LT$wasi_common..snapshots..preview_0..types..Rights$u20$as$u20$bitflags..traits..Flags$GT$4bits17hc8ea7e034b143556E"}
-!679 = !{!680, !682}
-!680 = distinct !{!680, !681, !"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h06a772ea2239cecbE: argument 0"}
-!681 = distinct !{!681, !"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h06a772ea2239cecbE"}
-!682 = distinct !{!682, !681, !"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h06a772ea2239cecbE: argument 1"}
-!683 = distinct !{!683, !639}
+!638 = !{!639}
+!639 = distinct !{!639, !640, !"_ZN77_$LT$wasi_common..file..FileAccessMode$u20$as$u20$bitflags..traits..Flags$GT$4bits17h67954f1b2246698aE: argument 0"}
+!640 = distinct !{!640, !"_ZN77_$LT$wasi_common..file..FileAccessMode$u20$as$u20$bitflags..traits..Flags$GT$4bits17h67954f1b2246698aE"}
+!641 = !{!642, !644}
+!642 = distinct !{!642, !643, !"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h06a772ea2239cecbE: argument 0"}
+!643 = distinct !{!643, !"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h06a772ea2239cecbE"}
+!644 = distinct !{!644, !643, !"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h06a772ea2239cecbE: argument 1"}
+!645 = !{!646}
+!646 = distinct !{!646, !647, !"_ZN70_$LT$wasi_common..file..RiFlags$u20$as$u20$bitflags..traits..Flags$GT$4bits17h8e90828f1ff85a27E: argument 0"}
+!647 = distinct !{!647, !"_ZN70_$LT$wasi_common..file..RiFlags$u20$as$u20$bitflags..traits..Flags$GT$4bits17h8e90828f1ff85a27E"}
+!648 = !{!649, !651}
+!649 = distinct !{!649, !650, !"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h06a772ea2239cecbE: argument 0"}
+!650 = distinct !{!650, !"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h06a772ea2239cecbE"}
+!651 = distinct !{!651, !650, !"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h06a772ea2239cecbE: argument 1"}
+!652 = !{!653}
+!653 = distinct !{!653, !654, !"_ZN70_$LT$wasi_common..file..SdFlags$u20$as$u20$bitflags..traits..Flags$GT$4bits17hcffdd668eaf4b83fE: argument 0"}
+!654 = distinct !{!654, !"_ZN70_$LT$wasi_common..file..SdFlags$u20$as$u20$bitflags..traits..Flags$GT$4bits17hcffdd668eaf4b83fE"}
+!655 = !{!656, !658}
+!656 = distinct !{!656, !657, !"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h06a772ea2239cecbE: argument 0"}
+!657 = distinct !{!657, !"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h06a772ea2239cecbE"}
+!658 = distinct !{!658, !657, !"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h06a772ea2239cecbE: argument 1"}
+!659 = !{!660}
+!660 = distinct !{!660, !661, !"_ZN93_$LT$wasi_common..snapshots..preview_0..types..Sdflags$u20$as$u20$bitflags..traits..Flags$GT$4bits17h38432267a7f2ca11E: argument 0"}
+!661 = distinct !{!661, !"_ZN93_$LT$wasi_common..snapshots..preview_0..types..Sdflags$u20$as$u20$bitflags..traits..Flags$GT$4bits17h38432267a7f2ca11E"}
+!662 = !{!663, !665}
+!663 = distinct !{!663, !664, !"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h06a772ea2239cecbE: argument 0"}
+!664 = distinct !{!664, !"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h06a772ea2239cecbE"}
+!665 = distinct !{!665, !664, !"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h06a772ea2239cecbE: argument 1"}
+!666 = !{!667, !669}
+!667 = distinct !{!667, !668, !"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h06a772ea2239cecbE: argument 0"}
+!668 = distinct !{!668, !"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h06a772ea2239cecbE"}
+!669 = distinct !{!669, !668, !"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h06a772ea2239cecbE: argument 1"}
+!670 = !{!671}
+!671 = distinct !{!671, !672, !"_ZN92_$LT$wasi_common..snapshots..preview_0..types..Rights$u20$as$u20$bitflags..traits..Flags$GT$4bits17hc8ea7e034b143556E: argument 0"}
+!672 = distinct !{!672, !"_ZN92_$LT$wasi_common..snapshots..preview_0..types..Rights$u20$as$u20$bitflags..traits..Flags$GT$4bits17hc8ea7e034b143556E"}
+!673 = !{!674, !676}
+!674 = distinct !{!674, !675, !"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h06a772ea2239cecbE: argument 0"}
+!675 = distinct !{!675, !"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h06a772ea2239cecbE"}
+!676 = distinct !{!676, !675, !"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h06a772ea2239cecbE: argument 1"}
+!677 = !{!678}
+!678 = distinct !{!678, !679, !"_ZN93_$LT$wasi_common..snapshots..preview_0..types..Riflags$u20$as$u20$bitflags..traits..Flags$GT$4bits17hb9865a3759a62c34E: argument 0"}
+!679 = distinct !{!679, !"_ZN93_$LT$wasi_common..snapshots..preview_0..types..Riflags$u20$as$u20$bitflags..traits..Flags$GT$4bits17hb9865a3759a62c34E"}
+!680 = !{!681, !683}
+!681 = distinct !{!681, !682, !"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h06a772ea2239cecbE: argument 0"}
+!682 = distinct !{!682, !"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h06a772ea2239cecbE"}
+!683 = distinct !{!683, !682, !"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h06a772ea2239cecbE: argument 1"}
 !684 = !{!685}
-!685 = distinct !{!685, !686, !"_ZN93_$LT$wasi_common..snapshots..preview_0..types..Riflags$u20$as$u20$bitflags..traits..Flags$GT$4bits17hb9865a3759a62c34E: argument 0"}
-!686 = distinct !{!686, !"_ZN93_$LT$wasi_common..snapshots..preview_0..types..Riflags$u20$as$u20$bitflags..traits..Flags$GT$4bits17hb9865a3759a62c34E"}
+!685 = distinct !{!685, !686, !"_ZN92_$LT$wasi_common..snapshots..preview_0..types..Oflags$u20$as$u20$bitflags..traits..Flags$GT$4bits17h17a3eabcef6055cdE: argument 0"}
+!686 = distinct !{!686, !"_ZN92_$LT$wasi_common..snapshots..preview_0..types..Oflags$u20$as$u20$bitflags..traits..Flags$GT$4bits17h17a3eabcef6055cdE"}
 !687 = !{!688, !690}
 !688 = distinct !{!688, !689, !"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h06a772ea2239cecbE: argument 0"}
 !689 = distinct !{!689, !"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h06a772ea2239cecbE"}
 !690 = distinct !{!690, !689, !"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h06a772ea2239cecbE: argument 1"}
-!691 = distinct !{!691, !639}
-!692 = !{!693}
-!693 = distinct !{!693, !694, !"_ZN92_$LT$wasi_common..snapshots..preview_0..types..Oflags$u20$as$u20$bitflags..traits..Flags$GT$4bits17h17a3eabcef6055cdE: argument 0"}
-!694 = distinct !{!694, !"_ZN92_$LT$wasi_common..snapshots..preview_0..types..Oflags$u20$as$u20$bitflags..traits..Flags$GT$4bits17h17a3eabcef6055cdE"}
-!695 = !{!696, !698}
-!696 = distinct !{!696, !697, !"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h06a772ea2239cecbE: argument 0"}
-!697 = distinct !{!697, !"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h06a772ea2239cecbE"}
-!698 = distinct !{!698, !697, !"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h06a772ea2239cecbE: argument 1"}
-!699 = distinct !{!699, !639}
-!700 = !{!701}
-!701 = distinct !{!701, !702, !"_ZN69_$LT$wasi_common..file..OFlags$u20$as$u20$bitflags..traits..Flags$GT$4bits17hf94816483b887501E: argument 0"}
-!702 = distinct !{!702, !"_ZN69_$LT$wasi_common..file..OFlags$u20$as$u20$bitflags..traits..Flags$GT$4bits17hf94816483b887501E"}
-!703 = !{!704, !706}
-!704 = distinct !{!704, !705, !"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h06a772ea2239cecbE: argument 0"}
-!705 = distinct !{!705, !"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h06a772ea2239cecbE"}
-!706 = distinct !{!706, !705, !"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h06a772ea2239cecbE: argument 1"}
-!707 = distinct !{!707, !639}
-!708 = !{!709}
-!709 = distinct !{!709, !710, !"_ZN70_$LT$wasi_common..file..FdFlags$u20$as$u20$bitflags..traits..Flags$GT$4bits17h2e04ff9b85a6627dE: argument 0"}
-!710 = distinct !{!710, !"_ZN70_$LT$wasi_common..file..FdFlags$u20$as$u20$bitflags..traits..Flags$GT$4bits17h2e04ff9b85a6627dE"}
-!711 = !{!712, !714}
-!712 = distinct !{!712, !713, !"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h06a772ea2239cecbE: argument 0"}
-!713 = distinct !{!713, !"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h06a772ea2239cecbE"}
-!714 = distinct !{!714, !713, !"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h06a772ea2239cecbE: argument 1"}
-!715 = distinct !{!715, !639}
-!716 = !{!717}
-!717 = distinct !{!717, !718, !"_ZN93_$LT$wasi_common..snapshots..preview_0..types..Fdflags$u20$as$u20$bitflags..traits..Flags$GT$4bits17hec3fb4d7666a11d8E: argument 0"}
-!718 = distinct !{!718, !"_ZN93_$LT$wasi_common..snapshots..preview_0..types..Fdflags$u20$as$u20$bitflags..traits..Flags$GT$4bits17hec3fb4d7666a11d8E"}
-!719 = !{!720, !722}
-!720 = distinct !{!720, !721, !"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h06a772ea2239cecbE: argument 0"}
-!721 = distinct !{!721, !"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h06a772ea2239cecbE"}
-!722 = distinct !{!722, !721, !"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h06a772ea2239cecbE: argument 1"}
-!723 = !{!724, !726}
-!724 = distinct !{!724, !725, !"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h06a772ea2239cecbE: argument 0"}
-!725 = distinct !{!725, !"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h06a772ea2239cecbE"}
-!726 = distinct !{!726, !725, !"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h06a772ea2239cecbE: argument 1"}
-!727 = !{!728, !730}
-!728 = distinct !{!728, !729, !"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h06a772ea2239cecbE: argument 0"}
-!729 = distinct !{!729, !"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h06a772ea2239cecbE"}
-!730 = distinct !{!730, !729, !"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h06a772ea2239cecbE: argument 1"}
+!691 = !{!692}
+!692 = distinct !{!692, !693, !"_ZN69_$LT$wasi_common..file..OFlags$u20$as$u20$bitflags..traits..Flags$GT$4bits17hf94816483b887501E: argument 0"}
+!693 = distinct !{!693, !"_ZN69_$LT$wasi_common..file..OFlags$u20$as$u20$bitflags..traits..Flags$GT$4bits17hf94816483b887501E"}
+!694 = !{!695, !697}
+!695 = distinct !{!695, !696, !"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h06a772ea2239cecbE: argument 0"}
+!696 = distinct !{!696, !"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h06a772ea2239cecbE"}
+!697 = distinct !{!697, !696, !"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h06a772ea2239cecbE: argument 1"}
+!698 = !{!699}
+!699 = distinct !{!699, !700, !"_ZN70_$LT$wasi_common..file..FdFlags$u20$as$u20$bitflags..traits..Flags$GT$4bits17h2e04ff9b85a6627dE: argument 0"}
+!700 = distinct !{!700, !"_ZN70_$LT$wasi_common..file..FdFlags$u20$as$u20$bitflags..traits..Flags$GT$4bits17h2e04ff9b85a6627dE"}
+!701 = !{!702, !704}
+!702 = distinct !{!702, !703, !"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h06a772ea2239cecbE: argument 0"}
+!703 = distinct !{!703, !"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h06a772ea2239cecbE"}
+!704 = distinct !{!704, !703, !"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h06a772ea2239cecbE: argument 1"}
+!705 = !{!706}
+!706 = distinct !{!706, !707, !"_ZN93_$LT$wasi_common..snapshots..preview_0..types..Fdflags$u20$as$u20$bitflags..traits..Flags$GT$4bits17hec3fb4d7666a11d8E: argument 0"}
+!707 = distinct !{!707, !"_ZN93_$LT$wasi_common..snapshots..preview_0..types..Fdflags$u20$as$u20$bitflags..traits..Flags$GT$4bits17hec3fb4d7666a11d8E"}
+!708 = !{!709, !711}
+!709 = distinct !{!709, !710, !"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h06a772ea2239cecbE: argument 0"}
+!710 = distinct !{!710, !"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h06a772ea2239cecbE"}
+!711 = distinct !{!711, !710, !"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h06a772ea2239cecbE: argument 1"}
+!712 = !{!713, !715}
+!713 = distinct !{!713, !714, !"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h06a772ea2239cecbE: argument 0"}
+!714 = distinct !{!714, !"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h06a772ea2239cecbE"}
+!715 = distinct !{!715, !714, !"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h06a772ea2239cecbE: argument 1"}
+!716 = !{!717, !719}
+!717 = distinct !{!717, !718, !"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h06a772ea2239cecbE: argument 0"}
+!718 = distinct !{!718, !"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h06a772ea2239cecbE"}
+!719 = distinct !{!719, !718, !"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h06a772ea2239cecbE: argument 1"}
+!720 = !{!721, !723}
+!721 = distinct !{!721, !722, !"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h06a772ea2239cecbE: argument 0"}
+!722 = distinct !{!722, !"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h06a772ea2239cecbE"}
+!723 = distinct !{!723, !722, !"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h06a772ea2239cecbE: argument 1"}
+!724 = !{!725, !727}
+!725 = distinct !{!725, !726, !"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h06a772ea2239cecbE: argument 0"}
+!726 = distinct !{!726, !"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h06a772ea2239cecbE"}
+!727 = distinct !{!727, !726, !"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h06a772ea2239cecbE: argument 1"}
+!728 = !{!729}
+!729 = distinct !{!729, !730, !"_ZN94_$LT$wasi_common..snapshots..preview_0..types..Fstflags$u20$as$u20$bitflags..traits..Flags$GT$4bits17h243c5cc882ab3ddeE: argument 0"}
+!730 = distinct !{!730, !"_ZN94_$LT$wasi_common..snapshots..preview_0..types..Fstflags$u20$as$u20$bitflags..traits..Flags$GT$4bits17h243c5cc882ab3ddeE"}
 !731 = !{!732, !734}
 !732 = distinct !{!732, !733, !"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h06a772ea2239cecbE: argument 0"}
 !733 = distinct !{!733, !"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h06a772ea2239cecbE"}
 !734 = distinct !{!734, !733, !"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h06a772ea2239cecbE: argument 1"}
 !735 = !{!736, !738}
-!736 = distinct !{!736, !737, !"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h06a772ea2239cecbE: argument 0"}
-!737 = distinct !{!737, !"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h06a772ea2239cecbE"}
-!738 = distinct !{!738, !737, !"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h06a772ea2239cecbE: argument 1"}
-!739 = distinct !{!739, !639}
+!736 = distinct !{!736, !737, !"_ZN92_$LT$wasi_common..snapshots..preview_1..types..Oflags$u20$as$u20$bitflags..traits..Flags$GT$4bits17hc794421aec201b21E: argument 0"}
+!737 = distinct !{!737, !"_ZN92_$LT$wasi_common..snapshots..preview_1..types..Oflags$u20$as$u20$bitflags..traits..Flags$GT$4bits17hc794421aec201b21E"}
+!738 = distinct !{!738, !739, !"_ZN8bitflags6traits5Flags8is_empty17h7a7407bc4c7ec01aE: argument 0"}
+!739 = distinct !{!739, !"_ZN8bitflags6traits5Flags8is_empty17h7a7407bc4c7ec01aE"}
 !740 = !{!741}
-!741 = distinct !{!741, !742, !"_ZN94_$LT$wasi_common..snapshots..preview_0..types..Fstflags$u20$as$u20$bitflags..traits..Flags$GT$4bits17h243c5cc882ab3ddeE: argument 0"}
-!742 = distinct !{!742, !"_ZN94_$LT$wasi_common..snapshots..preview_0..types..Fstflags$u20$as$u20$bitflags..traits..Flags$GT$4bits17h243c5cc882ab3ddeE"}
-!743 = !{!744, !746}
-!744 = distinct !{!744, !745, !"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h06a772ea2239cecbE: argument 0"}
-!745 = distinct !{!745, !"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h06a772ea2239cecbE"}
-!746 = distinct !{!746, !745, !"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h06a772ea2239cecbE: argument 1"}
-!747 = !{!748, !750}
-!748 = distinct !{!748, !749, !"_ZN92_$LT$wasi_common..snapshots..preview_1..types..Oflags$u20$as$u20$bitflags..traits..Flags$GT$4bits17hc794421aec201b21E: argument 0"}
-!749 = distinct !{!749, !"_ZN92_$LT$wasi_common..snapshots..preview_1..types..Oflags$u20$as$u20$bitflags..traits..Flags$GT$4bits17hc794421aec201b21E"}
-!750 = distinct !{!750, !751, !"_ZN8bitflags6traits5Flags8is_empty17h7a7407bc4c7ec01aE: argument 0"}
-!751 = distinct !{!751, !"_ZN8bitflags6traits5Flags8is_empty17h7a7407bc4c7ec01aE"}
-!752 = distinct !{!752, !639}
-!753 = !{!754}
-!754 = distinct !{!754, !755, !"_ZN92_$LT$wasi_common..snapshots..preview_1..types..Oflags$u20$as$u20$bitflags..traits..Flags$GT$4bits17hc794421aec201b21E: argument 0"}
-!755 = distinct !{!755, !"_ZN92_$LT$wasi_common..snapshots..preview_1..types..Oflags$u20$as$u20$bitflags..traits..Flags$GT$4bits17hc794421aec201b21E"}
-!756 = !{!757}
-!757 = distinct !{!757, !758, !"_ZN8bitflags6traits5Flags6remove17h03ac85cf626014c0E: argument 0"}
-!758 = distinct !{!758, !"_ZN8bitflags6traits5Flags6remove17h03ac85cf626014c0E"}
-!759 = !{!760, !762}
-!760 = distinct !{!760, !761, !"_ZN93_$LT$wasi_common..snapshots..preview_1..types..Riflags$u20$as$u20$bitflags..traits..Flags$GT$4bits17h74f84e3551f33ee1E: argument 0"}
-!761 = distinct !{!761, !"_ZN93_$LT$wasi_common..snapshots..preview_1..types..Riflags$u20$as$u20$bitflags..traits..Flags$GT$4bits17h74f84e3551f33ee1E"}
-!762 = distinct !{!762, !763, !"_ZN8bitflags6traits5Flags8is_empty17h9290f8a94a9b10aeE: argument 0"}
-!763 = distinct !{!763, !"_ZN8bitflags6traits5Flags8is_empty17h9290f8a94a9b10aeE"}
-!764 = distinct !{!764, !639}
+!741 = distinct !{!741, !742, !"_ZN92_$LT$wasi_common..snapshots..preview_1..types..Oflags$u20$as$u20$bitflags..traits..Flags$GT$4bits17hc794421aec201b21E: argument 0"}
+!742 = distinct !{!742, !"_ZN92_$LT$wasi_common..snapshots..preview_1..types..Oflags$u20$as$u20$bitflags..traits..Flags$GT$4bits17hc794421aec201b21E"}
+!743 = !{!744}
+!744 = distinct !{!744, !745, !"_ZN8bitflags6traits5Flags6remove17h03ac85cf626014c0E: argument 0"}
+!745 = distinct !{!745, !"_ZN8bitflags6traits5Flags6remove17h03ac85cf626014c0E"}
+!746 = !{!747, !749}
+!747 = distinct !{!747, !748, !"_ZN93_$LT$wasi_common..snapshots..preview_1..types..Riflags$u20$as$u20$bitflags..traits..Flags$GT$4bits17h74f84e3551f33ee1E: argument 0"}
+!748 = distinct !{!748, !"_ZN93_$LT$wasi_common..snapshots..preview_1..types..Riflags$u20$as$u20$bitflags..traits..Flags$GT$4bits17h74f84e3551f33ee1E"}
+!749 = distinct !{!749, !750, !"_ZN8bitflags6traits5Flags8is_empty17h9290f8a94a9b10aeE: argument 0"}
+!750 = distinct !{!750, !"_ZN8bitflags6traits5Flags8is_empty17h9290f8a94a9b10aeE"}
+!751 = !{!752}
+!752 = distinct !{!752, !753, !"_ZN93_$LT$wasi_common..snapshots..preview_1..types..Riflags$u20$as$u20$bitflags..traits..Flags$GT$4bits17h74f84e3551f33ee1E: argument 0"}
+!753 = distinct !{!753, !"_ZN93_$LT$wasi_common..snapshots..preview_1..types..Riflags$u20$as$u20$bitflags..traits..Flags$GT$4bits17h74f84e3551f33ee1E"}
+!754 = !{!755}
+!755 = distinct !{!755, !756, !"_ZN8bitflags6traits5Flags6remove17h5c3d2a88cb46ca8eE: argument 0"}
+!756 = distinct !{!756, !"_ZN8bitflags6traits5Flags6remove17h5c3d2a88cb46ca8eE"}
+!757 = !{!758, !760}
+!758 = distinct !{!758, !759, !"_ZN99_$LT$wasi_common..snapshots..preview_0..types..Subclockflags$u20$as$u20$bitflags..traits..Flags$GT$4bits17hf7313ac2acc9ab1dE: argument 0"}
+!759 = distinct !{!759, !"_ZN99_$LT$wasi_common..snapshots..preview_0..types..Subclockflags$u20$as$u20$bitflags..traits..Flags$GT$4bits17hf7313ac2acc9ab1dE"}
+!760 = distinct !{!760, !761, !"_ZN8bitflags6traits5Flags8is_empty17hba8886d3f3492cf7E.llvm.11423182251827145186: argument 0"}
+!761 = distinct !{!761, !"_ZN8bitflags6traits5Flags8is_empty17hba8886d3f3492cf7E.llvm.11423182251827145186"}
+!762 = !{!763}
+!763 = distinct !{!763, !764, !"_ZN99_$LT$wasi_common..snapshots..preview_0..types..Subclockflags$u20$as$u20$bitflags..traits..Flags$GT$4bits17hf7313ac2acc9ab1dE: argument 0"}
+!764 = distinct !{!764, !"_ZN99_$LT$wasi_common..snapshots..preview_0..types..Subclockflags$u20$as$u20$bitflags..traits..Flags$GT$4bits17hf7313ac2acc9ab1dE"}
 !765 = !{!766}
-!766 = distinct !{!766, !767, !"_ZN93_$LT$wasi_common..snapshots..preview_1..types..Riflags$u20$as$u20$bitflags..traits..Flags$GT$4bits17h74f84e3551f33ee1E: argument 0"}
-!767 = distinct !{!767, !"_ZN93_$LT$wasi_common..snapshots..preview_1..types..Riflags$u20$as$u20$bitflags..traits..Flags$GT$4bits17h74f84e3551f33ee1E"}
-!768 = !{!769}
-!769 = distinct !{!769, !770, !"_ZN8bitflags6traits5Flags6remove17h5c3d2a88cb46ca8eE: argument 0"}
-!770 = distinct !{!770, !"_ZN8bitflags6traits5Flags6remove17h5c3d2a88cb46ca8eE"}
-!771 = !{!772, !774}
-!772 = distinct !{!772, !773, !"_ZN99_$LT$wasi_common..snapshots..preview_0..types..Subclockflags$u20$as$u20$bitflags..traits..Flags$GT$4bits17hf7313ac2acc9ab1dE: argument 0"}
-!773 = distinct !{!773, !"_ZN99_$LT$wasi_common..snapshots..preview_0..types..Subclockflags$u20$as$u20$bitflags..traits..Flags$GT$4bits17hf7313ac2acc9ab1dE"}
-!774 = distinct !{!774, !775, !"_ZN8bitflags6traits5Flags8is_empty17hba8886d3f3492cf7E.llvm.11423182251827145186: argument 0"}
-!775 = distinct !{!775, !"_ZN8bitflags6traits5Flags8is_empty17hba8886d3f3492cf7E.llvm.11423182251827145186"}
-!776 = distinct !{!776, !639}
-!777 = !{!778}
-!778 = distinct !{!778, !779, !"_ZN99_$LT$wasi_common..snapshots..preview_0..types..Subclockflags$u20$as$u20$bitflags..traits..Flags$GT$4bits17hf7313ac2acc9ab1dE: argument 0"}
-!779 = distinct !{!779, !"_ZN99_$LT$wasi_common..snapshots..preview_0..types..Subclockflags$u20$as$u20$bitflags..traits..Flags$GT$4bits17hf7313ac2acc9ab1dE"}
-!780 = !{!781}
-!781 = distinct !{!781, !782, !"_ZN8bitflags6traits5Flags6remove17h2c698d82a14793dbE.llvm.11423182251827145186: argument 0"}
-!782 = distinct !{!782, !"_ZN8bitflags6traits5Flags6remove17h2c698d82a14793dbE.llvm.11423182251827145186"}
-!783 = !{!784, !786}
-!784 = distinct !{!784, !785, !"_ZN69_$LT$wasi_common..file..OFlags$u20$as$u20$bitflags..traits..Flags$GT$4bits17hf94816483b887501E: argument 0"}
-!785 = distinct !{!785, !"_ZN69_$LT$wasi_common..file..OFlags$u20$as$u20$bitflags..traits..Flags$GT$4bits17hf94816483b887501E"}
-!786 = distinct !{!786, !787, !"_ZN8bitflags6traits5Flags8is_empty17hbf39532c00fd542dE.llvm.11423182251827145186: argument 0"}
-!787 = distinct !{!787, !"_ZN8bitflags6traits5Flags8is_empty17hbf39532c00fd542dE.llvm.11423182251827145186"}
-!788 = distinct !{!788, !639}
-!789 = !{!790}
-!790 = distinct !{!790, !791, !"_ZN69_$LT$wasi_common..file..OFlags$u20$as$u20$bitflags..traits..Flags$GT$4bits17hf94816483b887501E: argument 0"}
-!791 = distinct !{!791, !"_ZN69_$LT$wasi_common..file..OFlags$u20$as$u20$bitflags..traits..Flags$GT$4bits17hf94816483b887501E"}
-!792 = !{!793}
-!793 = distinct !{!793, !794, !"_ZN8bitflags6traits5Flags6remove17h0eb9efc97acd7563E.llvm.11423182251827145186: argument 0"}
-!794 = distinct !{!794, !"_ZN8bitflags6traits5Flags6remove17h0eb9efc97acd7563E.llvm.11423182251827145186"}
-!795 = !{!796, !798}
-!796 = distinct !{!796, !797, !"_ZN93_$LT$wasi_common..snapshots..preview_0..types..Sdflags$u20$as$u20$bitflags..traits..Flags$GT$4bits17h38432267a7f2ca11E: argument 0"}
-!797 = distinct !{!797, !"_ZN93_$LT$wasi_common..snapshots..preview_0..types..Sdflags$u20$as$u20$bitflags..traits..Flags$GT$4bits17h38432267a7f2ca11E"}
-!798 = distinct !{!798, !799, !"_ZN8bitflags6traits5Flags8is_empty17h7a0e12b2dd6aa9ccE.llvm.11423182251827145186: argument 0"}
-!799 = distinct !{!799, !"_ZN8bitflags6traits5Flags8is_empty17h7a0e12b2dd6aa9ccE.llvm.11423182251827145186"}
-!800 = distinct !{!800, !639}
-!801 = !{!802}
-!802 = distinct !{!802, !803, !"_ZN93_$LT$wasi_common..snapshots..preview_0..types..Sdflags$u20$as$u20$bitflags..traits..Flags$GT$4bits17h38432267a7f2ca11E: argument 0"}
-!803 = distinct !{!803, !"_ZN93_$LT$wasi_common..snapshots..preview_0..types..Sdflags$u20$as$u20$bitflags..traits..Flags$GT$4bits17h38432267a7f2ca11E"}
-!804 = !{!805}
-!805 = distinct !{!805, !806, !"_ZN8bitflags6traits5Flags6remove17hbb65ad2b0df83329E.llvm.11423182251827145186: argument 0"}
-!806 = distinct !{!806, !"_ZN8bitflags6traits5Flags6remove17hbb65ad2b0df83329E.llvm.11423182251827145186"}
-!807 = !{!808, !810}
-!808 = distinct !{!808, !809, !"_ZN93_$LT$wasi_common..snapshots..preview_1..types..Sdflags$u20$as$u20$bitflags..traits..Flags$GT$4bits17h37c41c9022971be6E: argument 0"}
-!809 = distinct !{!809, !"_ZN93_$LT$wasi_common..snapshots..preview_1..types..Sdflags$u20$as$u20$bitflags..traits..Flags$GT$4bits17h37c41c9022971be6E"}
-!810 = distinct !{!810, !811, !"_ZN8bitflags6traits5Flags8is_empty17hd8319fd8fccc90a6E: argument 0"}
-!811 = distinct !{!811, !"_ZN8bitflags6traits5Flags8is_empty17hd8319fd8fccc90a6E"}
-!812 = distinct !{!812, !639}
-!813 = !{!814}
-!814 = distinct !{!814, !815, !"_ZN93_$LT$wasi_common..snapshots..preview_1..types..Sdflags$u20$as$u20$bitflags..traits..Flags$GT$4bits17h37c41c9022971be6E: argument 0"}
-!815 = distinct !{!815, !"_ZN93_$LT$wasi_common..snapshots..preview_1..types..Sdflags$u20$as$u20$bitflags..traits..Flags$GT$4bits17h37c41c9022971be6E"}
-!816 = !{!817}
-!817 = distinct !{!817, !818, !"_ZN8bitflags6traits5Flags6remove17hb842aedc1bfbca4fE: argument 0"}
-!818 = distinct !{!818, !"_ZN8bitflags6traits5Flags6remove17hb842aedc1bfbca4fE"}
-!819 = !{!820, !822}
-!820 = distinct !{!820, !821, !"_ZN92_$LT$wasi_common..snapshots..preview_0..types..Oflags$u20$as$u20$bitflags..traits..Flags$GT$4bits17h17a3eabcef6055cdE: argument 0"}
-!821 = distinct !{!821, !"_ZN92_$LT$wasi_common..snapshots..preview_0..types..Oflags$u20$as$u20$bitflags..traits..Flags$GT$4bits17h17a3eabcef6055cdE"}
-!822 = distinct !{!822, !823, !"_ZN8bitflags6traits5Flags8is_empty17hcec5f47c84f37fa1E.llvm.11423182251827145186: argument 0"}
-!823 = distinct !{!823, !"_ZN8bitflags6traits5Flags8is_empty17hcec5f47c84f37fa1E.llvm.11423182251827145186"}
-!824 = distinct !{!824, !639}
-!825 = !{!826}
-!826 = distinct !{!826, !827, !"_ZN92_$LT$wasi_common..snapshots..preview_0..types..Oflags$u20$as$u20$bitflags..traits..Flags$GT$4bits17h17a3eabcef6055cdE: argument 0"}
-!827 = distinct !{!827, !"_ZN92_$LT$wasi_common..snapshots..preview_0..types..Oflags$u20$as$u20$bitflags..traits..Flags$GT$4bits17h17a3eabcef6055cdE"}
+!766 = distinct !{!766, !767, !"_ZN8bitflags6traits5Flags6remove17h2c698d82a14793dbE.llvm.11423182251827145186: argument 0"}
+!767 = distinct !{!767, !"_ZN8bitflags6traits5Flags6remove17h2c698d82a14793dbE.llvm.11423182251827145186"}
+!768 = !{!769, !771}
+!769 = distinct !{!769, !770, !"_ZN69_$LT$wasi_common..file..OFlags$u20$as$u20$bitflags..traits..Flags$GT$4bits17hf94816483b887501E: argument 0"}
+!770 = distinct !{!770, !"_ZN69_$LT$wasi_common..file..OFlags$u20$as$u20$bitflags..traits..Flags$GT$4bits17hf94816483b887501E"}
+!771 = distinct !{!771, !772, !"_ZN8bitflags6traits5Flags8is_empty17hbf39532c00fd542dE.llvm.11423182251827145186: argument 0"}
+!772 = distinct !{!772, !"_ZN8bitflags6traits5Flags8is_empty17hbf39532c00fd542dE.llvm.11423182251827145186"}
+!773 = !{!774}
+!774 = distinct !{!774, !775, !"_ZN69_$LT$wasi_common..file..OFlags$u20$as$u20$bitflags..traits..Flags$GT$4bits17hf94816483b887501E: argument 0"}
+!775 = distinct !{!775, !"_ZN69_$LT$wasi_common..file..OFlags$u20$as$u20$bitflags..traits..Flags$GT$4bits17hf94816483b887501E"}
+!776 = !{!777}
+!777 = distinct !{!777, !778, !"_ZN8bitflags6traits5Flags6remove17h0eb9efc97acd7563E.llvm.11423182251827145186: argument 0"}
+!778 = distinct !{!778, !"_ZN8bitflags6traits5Flags6remove17h0eb9efc97acd7563E.llvm.11423182251827145186"}
+!779 = !{!780, !782}
+!780 = distinct !{!780, !781, !"_ZN93_$LT$wasi_common..snapshots..preview_0..types..Sdflags$u20$as$u20$bitflags..traits..Flags$GT$4bits17h38432267a7f2ca11E: argument 0"}
+!781 = distinct !{!781, !"_ZN93_$LT$wasi_common..snapshots..preview_0..types..Sdflags$u20$as$u20$bitflags..traits..Flags$GT$4bits17h38432267a7f2ca11E"}
+!782 = distinct !{!782, !783, !"_ZN8bitflags6traits5Flags8is_empty17h7a0e12b2dd6aa9ccE.llvm.11423182251827145186: argument 0"}
+!783 = distinct !{!783, !"_ZN8bitflags6traits5Flags8is_empty17h7a0e12b2dd6aa9ccE.llvm.11423182251827145186"}
+!784 = !{!785}
+!785 = distinct !{!785, !786, !"_ZN93_$LT$wasi_common..snapshots..preview_0..types..Sdflags$u20$as$u20$bitflags..traits..Flags$GT$4bits17h38432267a7f2ca11E: argument 0"}
+!786 = distinct !{!786, !"_ZN93_$LT$wasi_common..snapshots..preview_0..types..Sdflags$u20$as$u20$bitflags..traits..Flags$GT$4bits17h38432267a7f2ca11E"}
+!787 = !{!788}
+!788 = distinct !{!788, !789, !"_ZN8bitflags6traits5Flags6remove17hbb65ad2b0df83329E.llvm.11423182251827145186: argument 0"}
+!789 = distinct !{!789, !"_ZN8bitflags6traits5Flags6remove17hbb65ad2b0df83329E.llvm.11423182251827145186"}
+!790 = !{!791, !793}
+!791 = distinct !{!791, !792, !"_ZN93_$LT$wasi_common..snapshots..preview_1..types..Sdflags$u20$as$u20$bitflags..traits..Flags$GT$4bits17h37c41c9022971be6E: argument 0"}
+!792 = distinct !{!792, !"_ZN93_$LT$wasi_common..snapshots..preview_1..types..Sdflags$u20$as$u20$bitflags..traits..Flags$GT$4bits17h37c41c9022971be6E"}
+!793 = distinct !{!793, !794, !"_ZN8bitflags6traits5Flags8is_empty17hd8319fd8fccc90a6E: argument 0"}
+!794 = distinct !{!794, !"_ZN8bitflags6traits5Flags8is_empty17hd8319fd8fccc90a6E"}
+!795 = !{!796}
+!796 = distinct !{!796, !797, !"_ZN93_$LT$wasi_common..snapshots..preview_1..types..Sdflags$u20$as$u20$bitflags..traits..Flags$GT$4bits17h37c41c9022971be6E: argument 0"}
+!797 = distinct !{!797, !"_ZN93_$LT$wasi_common..snapshots..preview_1..types..Sdflags$u20$as$u20$bitflags..traits..Flags$GT$4bits17h37c41c9022971be6E"}
+!798 = !{!799}
+!799 = distinct !{!799, !800, !"_ZN8bitflags6traits5Flags6remove17hb842aedc1bfbca4fE: argument 0"}
+!800 = distinct !{!800, !"_ZN8bitflags6traits5Flags6remove17hb842aedc1bfbca4fE"}
+!801 = !{!802, !804}
+!802 = distinct !{!802, !803, !"_ZN92_$LT$wasi_common..snapshots..preview_0..types..Oflags$u20$as$u20$bitflags..traits..Flags$GT$4bits17h17a3eabcef6055cdE: argument 0"}
+!803 = distinct !{!803, !"_ZN92_$LT$wasi_common..snapshots..preview_0..types..Oflags$u20$as$u20$bitflags..traits..Flags$GT$4bits17h17a3eabcef6055cdE"}
+!804 = distinct !{!804, !805, !"_ZN8bitflags6traits5Flags8is_empty17hcec5f47c84f37fa1E.llvm.11423182251827145186: argument 0"}
+!805 = distinct !{!805, !"_ZN8bitflags6traits5Flags8is_empty17hcec5f47c84f37fa1E.llvm.11423182251827145186"}
+!806 = !{!807}
+!807 = distinct !{!807, !808, !"_ZN92_$LT$wasi_common..snapshots..preview_0..types..Oflags$u20$as$u20$bitflags..traits..Flags$GT$4bits17h17a3eabcef6055cdE: argument 0"}
+!808 = distinct !{!808, !"_ZN92_$LT$wasi_common..snapshots..preview_0..types..Oflags$u20$as$u20$bitflags..traits..Flags$GT$4bits17h17a3eabcef6055cdE"}
+!809 = !{!810}
+!810 = distinct !{!810, !811, !"_ZN8bitflags6traits5Flags6remove17h68d259a17017d6d9E.llvm.11423182251827145186: argument 0"}
+!811 = distinct !{!811, !"_ZN8bitflags6traits5Flags6remove17h68d259a17017d6d9E.llvm.11423182251827145186"}
+!812 = !{!813, !815}
+!813 = distinct !{!813, !814, !"_ZN93_$LT$wasi_common..snapshots..preview_0..types..Riflags$u20$as$u20$bitflags..traits..Flags$GT$4bits17hb9865a3759a62c34E: argument 0"}
+!814 = distinct !{!814, !"_ZN93_$LT$wasi_common..snapshots..preview_0..types..Riflags$u20$as$u20$bitflags..traits..Flags$GT$4bits17hb9865a3759a62c34E"}
+!815 = distinct !{!815, !816, !"_ZN8bitflags6traits5Flags8is_empty17hcbab7f1b3298ea81E.llvm.11423182251827145186: argument 0"}
+!816 = distinct !{!816, !"_ZN8bitflags6traits5Flags8is_empty17hcbab7f1b3298ea81E.llvm.11423182251827145186"}
+!817 = !{!818}
+!818 = distinct !{!818, !819, !"_ZN93_$LT$wasi_common..snapshots..preview_0..types..Riflags$u20$as$u20$bitflags..traits..Flags$GT$4bits17hb9865a3759a62c34E: argument 0"}
+!819 = distinct !{!819, !"_ZN93_$LT$wasi_common..snapshots..preview_0..types..Riflags$u20$as$u20$bitflags..traits..Flags$GT$4bits17hb9865a3759a62c34E"}
+!820 = !{!821}
+!821 = distinct !{!821, !822, !"_ZN8bitflags6traits5Flags6remove17hd1e7da16971ed860E.llvm.11423182251827145186: argument 0"}
+!822 = distinct !{!822, !"_ZN8bitflags6traits5Flags6remove17hd1e7da16971ed860E.llvm.11423182251827145186"}
+!823 = !{!824, !826}
+!824 = distinct !{!824, !825, !"_ZN90_$LT$wasi_common..sched..subscription..RwEventFlags$u20$as$u20$bitflags..traits..Flags$GT$4bits17hbc45a1e027de270bE: argument 0"}
+!825 = distinct !{!825, !"_ZN90_$LT$wasi_common..sched..subscription..RwEventFlags$u20$as$u20$bitflags..traits..Flags$GT$4bits17hbc45a1e027de270bE"}
+!826 = distinct !{!826, !827, !"_ZN8bitflags6traits5Flags8is_empty17h1eb39b898ccc5472E.llvm.11423182251827145186: argument 0"}
+!827 = distinct !{!827, !"_ZN8bitflags6traits5Flags8is_empty17h1eb39b898ccc5472E.llvm.11423182251827145186"}
 !828 = !{!829}
-!829 = distinct !{!829, !830, !"_ZN8bitflags6traits5Flags6remove17h68d259a17017d6d9E.llvm.11423182251827145186: argument 0"}
-!830 = distinct !{!830, !"_ZN8bitflags6traits5Flags6remove17h68d259a17017d6d9E.llvm.11423182251827145186"}
-!831 = !{!832, !834}
-!832 = distinct !{!832, !833, !"_ZN93_$LT$wasi_common..snapshots..preview_0..types..Riflags$u20$as$u20$bitflags..traits..Flags$GT$4bits17hb9865a3759a62c34E: argument 0"}
-!833 = distinct !{!833, !"_ZN93_$LT$wasi_common..snapshots..preview_0..types..Riflags$u20$as$u20$bitflags..traits..Flags$GT$4bits17hb9865a3759a62c34E"}
-!834 = distinct !{!834, !835, !"_ZN8bitflags6traits5Flags8is_empty17hcbab7f1b3298ea81E.llvm.11423182251827145186: argument 0"}
-!835 = distinct !{!835, !"_ZN8bitflags6traits5Flags8is_empty17hcbab7f1b3298ea81E.llvm.11423182251827145186"}
-!836 = distinct !{!836, !639}
-!837 = !{!838}
-!838 = distinct !{!838, !839, !"_ZN93_$LT$wasi_common..snapshots..preview_0..types..Riflags$u20$as$u20$bitflags..traits..Flags$GT$4bits17hb9865a3759a62c34E: argument 0"}
-!839 = distinct !{!839, !"_ZN93_$LT$wasi_common..snapshots..preview_0..types..Riflags$u20$as$u20$bitflags..traits..Flags$GT$4bits17hb9865a3759a62c34E"}
-!840 = !{!841}
-!841 = distinct !{!841, !842, !"_ZN8bitflags6traits5Flags6remove17hd1e7da16971ed860E.llvm.11423182251827145186: argument 0"}
-!842 = distinct !{!842, !"_ZN8bitflags6traits5Flags6remove17hd1e7da16971ed860E.llvm.11423182251827145186"}
-!843 = !{!844, !846}
-!844 = distinct !{!844, !845, !"_ZN90_$LT$wasi_common..sched..subscription..RwEventFlags$u20$as$u20$bitflags..traits..Flags$GT$4bits17hbc45a1e027de270bE: argument 0"}
-!845 = distinct !{!845, !"_ZN90_$LT$wasi_common..sched..subscription..RwEventFlags$u20$as$u20$bitflags..traits..Flags$GT$4bits17hbc45a1e027de270bE"}
-!846 = distinct !{!846, !847, !"_ZN8bitflags6traits5Flags8is_empty17h1eb39b898ccc5472E.llvm.11423182251827145186: argument 0"}
-!847 = distinct !{!847, !"_ZN8bitflags6traits5Flags8is_empty17h1eb39b898ccc5472E.llvm.11423182251827145186"}
-!848 = distinct !{!848, !639}
-!849 = !{!850}
-!850 = distinct !{!850, !851, !"_ZN90_$LT$wasi_common..sched..subscription..RwEventFlags$u20$as$u20$bitflags..traits..Flags$GT$4bits17hbc45a1e027de270bE: argument 0"}
-!851 = distinct !{!851, !"_ZN90_$LT$wasi_common..sched..subscription..RwEventFlags$u20$as$u20$bitflags..traits..Flags$GT$4bits17hbc45a1e027de270bE"}
-!852 = !{!853}
-!853 = distinct !{!853, !854, !"_ZN8bitflags6traits5Flags6remove17h2f279cfdeb6c8d4fE.llvm.11423182251827145186: argument 0"}
-!854 = distinct !{!854, !"_ZN8bitflags6traits5Flags6remove17h2f279cfdeb6c8d4fE.llvm.11423182251827145186"}
-!855 = !{!856, !858}
-!856 = distinct !{!856, !857, !"_ZN97_$LT$wasi_common..snapshots..preview_1..types..Lookupflags$u20$as$u20$bitflags..traits..Flags$GT$4bits17h9d6201a258bc7f54E: argument 0"}
-!857 = distinct !{!857, !"_ZN97_$LT$wasi_common..snapshots..preview_1..types..Lookupflags$u20$as$u20$bitflags..traits..Flags$GT$4bits17h9d6201a258bc7f54E"}
-!858 = distinct !{!858, !859, !"_ZN8bitflags6traits5Flags8is_empty17hc3b89e995b041d61E: argument 0"}
-!859 = distinct !{!859, !"_ZN8bitflags6traits5Flags8is_empty17hc3b89e995b041d61E"}
-!860 = distinct !{!860, !639}
+!829 = distinct !{!829, !830, !"_ZN90_$LT$wasi_common..sched..subscription..RwEventFlags$u20$as$u20$bitflags..traits..Flags$GT$4bits17hbc45a1e027de270bE: argument 0"}
+!830 = distinct !{!830, !"_ZN90_$LT$wasi_common..sched..subscription..RwEventFlags$u20$as$u20$bitflags..traits..Flags$GT$4bits17hbc45a1e027de270bE"}
+!831 = !{!832}
+!832 = distinct !{!832, !833, !"_ZN8bitflags6traits5Flags6remove17h2f279cfdeb6c8d4fE.llvm.11423182251827145186: argument 0"}
+!833 = distinct !{!833, !"_ZN8bitflags6traits5Flags6remove17h2f279cfdeb6c8d4fE.llvm.11423182251827145186"}
+!834 = !{!835, !837}
+!835 = distinct !{!835, !836, !"_ZN97_$LT$wasi_common..snapshots..preview_1..types..Lookupflags$u20$as$u20$bitflags..traits..Flags$GT$4bits17h9d6201a258bc7f54E: argument 0"}
+!836 = distinct !{!836, !"_ZN97_$LT$wasi_common..snapshots..preview_1..types..Lookupflags$u20$as$u20$bitflags..traits..Flags$GT$4bits17h9d6201a258bc7f54E"}
+!837 = distinct !{!837, !838, !"_ZN8bitflags6traits5Flags8is_empty17hc3b89e995b041d61E: argument 0"}
+!838 = distinct !{!838, !"_ZN8bitflags6traits5Flags8is_empty17hc3b89e995b041d61E"}
+!839 = !{!840}
+!840 = distinct !{!840, !841, !"_ZN97_$LT$wasi_common..snapshots..preview_1..types..Lookupflags$u20$as$u20$bitflags..traits..Flags$GT$4bits17h9d6201a258bc7f54E: argument 0"}
+!841 = distinct !{!841, !"_ZN97_$LT$wasi_common..snapshots..preview_1..types..Lookupflags$u20$as$u20$bitflags..traits..Flags$GT$4bits17h9d6201a258bc7f54E"}
+!842 = !{!843}
+!843 = distinct !{!843, !844, !"_ZN8bitflags6traits5Flags6remove17h3c0f71201f08c210E: argument 0"}
+!844 = distinct !{!844, !"_ZN8bitflags6traits5Flags6remove17h3c0f71201f08c210E"}
+!845 = !{!846, !848}
+!846 = distinct !{!846, !847, !"_ZN97_$LT$wasi_common..snapshots..preview_0..types..Lookupflags$u20$as$u20$bitflags..traits..Flags$GT$4bits17h986c89bdd2a8689dE: argument 0"}
+!847 = distinct !{!847, !"_ZN97_$LT$wasi_common..snapshots..preview_0..types..Lookupflags$u20$as$u20$bitflags..traits..Flags$GT$4bits17h986c89bdd2a8689dE"}
+!848 = distinct !{!848, !849, !"_ZN8bitflags6traits5Flags8is_empty17h16e0093f402e92a0E.llvm.11423182251827145186: argument 0"}
+!849 = distinct !{!849, !"_ZN8bitflags6traits5Flags8is_empty17h16e0093f402e92a0E.llvm.11423182251827145186"}
+!850 = !{!851}
+!851 = distinct !{!851, !852, !"_ZN97_$LT$wasi_common..snapshots..preview_0..types..Lookupflags$u20$as$u20$bitflags..traits..Flags$GT$4bits17h986c89bdd2a8689dE: argument 0"}
+!852 = distinct !{!852, !"_ZN97_$LT$wasi_common..snapshots..preview_0..types..Lookupflags$u20$as$u20$bitflags..traits..Flags$GT$4bits17h986c89bdd2a8689dE"}
+!853 = !{!854}
+!854 = distinct !{!854, !855, !"_ZN8bitflags6traits5Flags6remove17h233d858daf96c0caE.llvm.11423182251827145186: argument 0"}
+!855 = distinct !{!855, !"_ZN8bitflags6traits5Flags6remove17h233d858daf96c0caE.llvm.11423182251827145186"}
+!856 = !{!857, !859}
+!857 = distinct !{!857, !858, !"_ZN70_$LT$wasi_common..file..RoFlags$u20$as$u20$bitflags..traits..Flags$GT$4bits17hf2e531489d74cbc4E: argument 0"}
+!858 = distinct !{!858, !"_ZN70_$LT$wasi_common..file..RoFlags$u20$as$u20$bitflags..traits..Flags$GT$4bits17hf2e531489d74cbc4E"}
+!859 = distinct !{!859, !860, !"_ZN8bitflags6traits5Flags8is_empty17h06820afab9c2ecb4E.llvm.11423182251827145186: argument 0"}
+!860 = distinct !{!860, !"_ZN8bitflags6traits5Flags8is_empty17h06820afab9c2ecb4E.llvm.11423182251827145186"}
 !861 = !{!862}
-!862 = distinct !{!862, !863, !"_ZN97_$LT$wasi_common..snapshots..preview_1..types..Lookupflags$u20$as$u20$bitflags..traits..Flags$GT$4bits17h9d6201a258bc7f54E: argument 0"}
-!863 = distinct !{!863, !"_ZN97_$LT$wasi_common..snapshots..preview_1..types..Lookupflags$u20$as$u20$bitflags..traits..Flags$GT$4bits17h9d6201a258bc7f54E"}
+!862 = distinct !{!862, !863, !"_ZN70_$LT$wasi_common..file..RoFlags$u20$as$u20$bitflags..traits..Flags$GT$4bits17hf2e531489d74cbc4E: argument 0"}
+!863 = distinct !{!863, !"_ZN70_$LT$wasi_common..file..RoFlags$u20$as$u20$bitflags..traits..Flags$GT$4bits17hf2e531489d74cbc4E"}
 !864 = !{!865}
-!865 = distinct !{!865, !866, !"_ZN8bitflags6traits5Flags6remove17h3c0f71201f08c210E: argument 0"}
-!866 = distinct !{!866, !"_ZN8bitflags6traits5Flags6remove17h3c0f71201f08c210E"}
+!865 = distinct !{!865, !866, !"_ZN8bitflags6traits5Flags6remove17h343af16b71afdda8E.llvm.11423182251827145186: argument 0"}
+!866 = distinct !{!866, !"_ZN8bitflags6traits5Flags6remove17h343af16b71afdda8E.llvm.11423182251827145186"}
 !867 = !{!868, !870}
-!868 = distinct !{!868, !869, !"_ZN97_$LT$wasi_common..snapshots..preview_0..types..Lookupflags$u20$as$u20$bitflags..traits..Flags$GT$4bits17h986c89bdd2a8689dE: argument 0"}
-!869 = distinct !{!869, !"_ZN97_$LT$wasi_common..snapshots..preview_0..types..Lookupflags$u20$as$u20$bitflags..traits..Flags$GT$4bits17h986c89bdd2a8689dE"}
-!870 = distinct !{!870, !871, !"_ZN8bitflags6traits5Flags8is_empty17h16e0093f402e92a0E.llvm.11423182251827145186: argument 0"}
-!871 = distinct !{!871, !"_ZN8bitflags6traits5Flags8is_empty17h16e0093f402e92a0E.llvm.11423182251827145186"}
-!872 = distinct !{!872, !639}
-!873 = !{!874}
-!874 = distinct !{!874, !875, !"_ZN97_$LT$wasi_common..snapshots..preview_0..types..Lookupflags$u20$as$u20$bitflags..traits..Flags$GT$4bits17h986c89bdd2a8689dE: argument 0"}
-!875 = distinct !{!875, !"_ZN97_$LT$wasi_common..snapshots..preview_0..types..Lookupflags$u20$as$u20$bitflags..traits..Flags$GT$4bits17h986c89bdd2a8689dE"}
-!876 = !{!877}
-!877 = distinct !{!877, !878, !"_ZN8bitflags6traits5Flags6remove17h233d858daf96c0caE.llvm.11423182251827145186: argument 0"}
-!878 = distinct !{!878, !"_ZN8bitflags6traits5Flags6remove17h233d858daf96c0caE.llvm.11423182251827145186"}
-!879 = !{!880, !882}
-!880 = distinct !{!880, !881, !"_ZN70_$LT$wasi_common..file..RoFlags$u20$as$u20$bitflags..traits..Flags$GT$4bits17hf2e531489d74cbc4E: argument 0"}
-!881 = distinct !{!881, !"_ZN70_$LT$wasi_common..file..RoFlags$u20$as$u20$bitflags..traits..Flags$GT$4bits17hf2e531489d74cbc4E"}
-!882 = distinct !{!882, !883, !"_ZN8bitflags6traits5Flags8is_empty17h06820afab9c2ecb4E.llvm.11423182251827145186: argument 0"}
-!883 = distinct !{!883, !"_ZN8bitflags6traits5Flags8is_empty17h06820afab9c2ecb4E.llvm.11423182251827145186"}
-!884 = distinct !{!884, !639}
-!885 = !{!886}
-!886 = distinct !{!886, !887, !"_ZN70_$LT$wasi_common..file..RoFlags$u20$as$u20$bitflags..traits..Flags$GT$4bits17hf2e531489d74cbc4E: argument 0"}
-!887 = distinct !{!887, !"_ZN70_$LT$wasi_common..file..RoFlags$u20$as$u20$bitflags..traits..Flags$GT$4bits17hf2e531489d74cbc4E"}
-!888 = !{!889}
-!889 = distinct !{!889, !890, !"_ZN8bitflags6traits5Flags6remove17h343af16b71afdda8E.llvm.11423182251827145186: argument 0"}
-!890 = distinct !{!890, !"_ZN8bitflags6traits5Flags6remove17h343af16b71afdda8E.llvm.11423182251827145186"}
-!891 = !{!892, !894}
-!892 = distinct !{!892, !893, !"_ZN94_$LT$wasi_common..snapshots..preview_1..types..Fstflags$u20$as$u20$bitflags..traits..Flags$GT$4bits17hd51c66d77bf340a5E: argument 0"}
-!893 = distinct !{!893, !"_ZN94_$LT$wasi_common..snapshots..preview_1..types..Fstflags$u20$as$u20$bitflags..traits..Flags$GT$4bits17hd51c66d77bf340a5E"}
-!894 = distinct !{!894, !895, !"_ZN8bitflags6traits5Flags8is_empty17he6795c0302c37d73E: argument 0"}
-!895 = distinct !{!895, !"_ZN8bitflags6traits5Flags8is_empty17he6795c0302c37d73E"}
-!896 = distinct !{!896, !639}
+!868 = distinct !{!868, !869, !"_ZN94_$LT$wasi_common..snapshots..preview_1..types..Fstflags$u20$as$u20$bitflags..traits..Flags$GT$4bits17hd51c66d77bf340a5E: argument 0"}
+!869 = distinct !{!869, !"_ZN94_$LT$wasi_common..snapshots..preview_1..types..Fstflags$u20$as$u20$bitflags..traits..Flags$GT$4bits17hd51c66d77bf340a5E"}
+!870 = distinct !{!870, !871, !"_ZN8bitflags6traits5Flags8is_empty17he6795c0302c37d73E: argument 0"}
+!871 = distinct !{!871, !"_ZN8bitflags6traits5Flags8is_empty17he6795c0302c37d73E"}
+!872 = !{!873}
+!873 = distinct !{!873, !874, !"_ZN94_$LT$wasi_common..snapshots..preview_1..types..Fstflags$u20$as$u20$bitflags..traits..Flags$GT$4bits17hd51c66d77bf340a5E: argument 0"}
+!874 = distinct !{!874, !"_ZN94_$LT$wasi_common..snapshots..preview_1..types..Fstflags$u20$as$u20$bitflags..traits..Flags$GT$4bits17hd51c66d77bf340a5E"}
+!875 = !{!876}
+!876 = distinct !{!876, !877, !"_ZN8bitflags6traits5Flags6remove17h365d19fdcb7bdcf9E: argument 0"}
+!877 = distinct !{!877, !"_ZN8bitflags6traits5Flags6remove17h365d19fdcb7bdcf9E"}
+!878 = !{!879, !881}
+!879 = distinct !{!879, !880, !"_ZN70_$LT$wasi_common..file..SdFlags$u20$as$u20$bitflags..traits..Flags$GT$4bits17hcffdd668eaf4b83fE: argument 0"}
+!880 = distinct !{!880, !"_ZN70_$LT$wasi_common..file..SdFlags$u20$as$u20$bitflags..traits..Flags$GT$4bits17hcffdd668eaf4b83fE"}
+!881 = distinct !{!881, !882, !"_ZN8bitflags6traits5Flags8is_empty17h2c47ca577666fca2E.llvm.11423182251827145186: argument 0"}
+!882 = distinct !{!882, !"_ZN8bitflags6traits5Flags8is_empty17h2c47ca577666fca2E.llvm.11423182251827145186"}
+!883 = !{!884}
+!884 = distinct !{!884, !885, !"_ZN70_$LT$wasi_common..file..SdFlags$u20$as$u20$bitflags..traits..Flags$GT$4bits17hcffdd668eaf4b83fE: argument 0"}
+!885 = distinct !{!885, !"_ZN70_$LT$wasi_common..file..SdFlags$u20$as$u20$bitflags..traits..Flags$GT$4bits17hcffdd668eaf4b83fE"}
+!886 = !{!887}
+!887 = distinct !{!887, !888, !"_ZN8bitflags6traits5Flags6remove17ha35aeec5cec3f7c8E.llvm.11423182251827145186: argument 0"}
+!888 = distinct !{!888, !"_ZN8bitflags6traits5Flags6remove17ha35aeec5cec3f7c8E.llvm.11423182251827145186"}
+!889 = !{!890, !892}
+!890 = distinct !{!890, !891, !"_ZN70_$LT$wasi_common..file..SiFlags$u20$as$u20$bitflags..traits..Flags$GT$4bits17hc4bc4d5bde36f370E: argument 0"}
+!891 = distinct !{!891, !"_ZN70_$LT$wasi_common..file..SiFlags$u20$as$u20$bitflags..traits..Flags$GT$4bits17hc4bc4d5bde36f370E"}
+!892 = distinct !{!892, !893, !"_ZN8bitflags6traits5Flags8is_empty17ha0463fe859c3e3c3E.llvm.11423182251827145186: argument 0"}
+!893 = distinct !{!893, !"_ZN8bitflags6traits5Flags8is_empty17ha0463fe859c3e3c3E.llvm.11423182251827145186"}
+!894 = !{!895}
+!895 = distinct !{!895, !896, !"_ZN70_$LT$wasi_common..file..SiFlags$u20$as$u20$bitflags..traits..Flags$GT$4bits17hc4bc4d5bde36f370E: argument 0"}
+!896 = distinct !{!896, !"_ZN70_$LT$wasi_common..file..SiFlags$u20$as$u20$bitflags..traits..Flags$GT$4bits17hc4bc4d5bde36f370E"}
 !897 = !{!898}
-!898 = distinct !{!898, !899, !"_ZN94_$LT$wasi_common..snapshots..preview_1..types..Fstflags$u20$as$u20$bitflags..traits..Flags$GT$4bits17hd51c66d77bf340a5E: argument 0"}
-!899 = distinct !{!899, !"_ZN94_$LT$wasi_common..snapshots..preview_1..types..Fstflags$u20$as$u20$bitflags..traits..Flags$GT$4bits17hd51c66d77bf340a5E"}
-!900 = !{!901}
-!901 = distinct !{!901, !902, !"_ZN8bitflags6traits5Flags6remove17h365d19fdcb7bdcf9E: argument 0"}
-!902 = distinct !{!902, !"_ZN8bitflags6traits5Flags6remove17h365d19fdcb7bdcf9E"}
-!903 = !{!904, !906}
-!904 = distinct !{!904, !905, !"_ZN70_$LT$wasi_common..file..SdFlags$u20$as$u20$bitflags..traits..Flags$GT$4bits17hcffdd668eaf4b83fE: argument 0"}
-!905 = distinct !{!905, !"_ZN70_$LT$wasi_common..file..SdFlags$u20$as$u20$bitflags..traits..Flags$GT$4bits17hcffdd668eaf4b83fE"}
-!906 = distinct !{!906, !907, !"_ZN8bitflags6traits5Flags8is_empty17h2c47ca577666fca2E.llvm.11423182251827145186: argument 0"}
-!907 = distinct !{!907, !"_ZN8bitflags6traits5Flags8is_empty17h2c47ca577666fca2E.llvm.11423182251827145186"}
-!908 = distinct !{!908, !639}
-!909 = !{!910}
-!910 = distinct !{!910, !911, !"_ZN70_$LT$wasi_common..file..SdFlags$u20$as$u20$bitflags..traits..Flags$GT$4bits17hcffdd668eaf4b83fE: argument 0"}
-!911 = distinct !{!911, !"_ZN70_$LT$wasi_common..file..SdFlags$u20$as$u20$bitflags..traits..Flags$GT$4bits17hcffdd668eaf4b83fE"}
-!912 = !{!913}
-!913 = distinct !{!913, !914, !"_ZN8bitflags6traits5Flags6remove17ha35aeec5cec3f7c8E.llvm.11423182251827145186: argument 0"}
-!914 = distinct !{!914, !"_ZN8bitflags6traits5Flags6remove17ha35aeec5cec3f7c8E.llvm.11423182251827145186"}
-!915 = !{!916, !918}
-!916 = distinct !{!916, !917, !"_ZN70_$LT$wasi_common..file..SiFlags$u20$as$u20$bitflags..traits..Flags$GT$4bits17hc4bc4d5bde36f370E: argument 0"}
-!917 = distinct !{!917, !"_ZN70_$LT$wasi_common..file..SiFlags$u20$as$u20$bitflags..traits..Flags$GT$4bits17hc4bc4d5bde36f370E"}
-!918 = distinct !{!918, !919, !"_ZN8bitflags6traits5Flags8is_empty17ha0463fe859c3e3c3E.llvm.11423182251827145186: argument 0"}
-!919 = distinct !{!919, !"_ZN8bitflags6traits5Flags8is_empty17ha0463fe859c3e3c3E.llvm.11423182251827145186"}
-!920 = distinct !{!920, !639}
-!921 = !{!922}
-!922 = distinct !{!922, !923, !"_ZN70_$LT$wasi_common..file..SiFlags$u20$as$u20$bitflags..traits..Flags$GT$4bits17hc4bc4d5bde36f370E: argument 0"}
-!923 = distinct !{!923, !"_ZN70_$LT$wasi_common..file..SiFlags$u20$as$u20$bitflags..traits..Flags$GT$4bits17hc4bc4d5bde36f370E"}
-!924 = !{!925}
-!925 = distinct !{!925, !926, !"_ZN8bitflags6traits5Flags6remove17h1bc99bce92bbddadE.llvm.11423182251827145186: argument 0"}
-!926 = distinct !{!926, !"_ZN8bitflags6traits5Flags6remove17h1bc99bce92bbddadE.llvm.11423182251827145186"}
-!927 = !{!928, !930}
-!928 = distinct !{!928, !929, !"_ZN98_$LT$wasi_common..snapshots..preview_0..types..Eventrwflags$u20$as$u20$bitflags..traits..Flags$GT$4bits17h6efe351b13bd2a20E: argument 0"}
-!929 = distinct !{!929, !"_ZN98_$LT$wasi_common..snapshots..preview_0..types..Eventrwflags$u20$as$u20$bitflags..traits..Flags$GT$4bits17h6efe351b13bd2a20E"}
-!930 = distinct !{!930, !931, !"_ZN8bitflags6traits5Flags8is_empty17hb0c43c19eccaa7a0E.llvm.11423182251827145186: argument 0"}
-!931 = distinct !{!931, !"_ZN8bitflags6traits5Flags8is_empty17hb0c43c19eccaa7a0E.llvm.11423182251827145186"}
-!932 = distinct !{!932, !639}
-!933 = !{!934}
-!934 = distinct !{!934, !935, !"_ZN98_$LT$wasi_common..snapshots..preview_0..types..Eventrwflags$u20$as$u20$bitflags..traits..Flags$GT$4bits17h6efe351b13bd2a20E: argument 0"}
-!935 = distinct !{!935, !"_ZN98_$LT$wasi_common..snapshots..preview_0..types..Eventrwflags$u20$as$u20$bitflags..traits..Flags$GT$4bits17h6efe351b13bd2a20E"}
-!936 = !{!937}
-!937 = distinct !{!937, !938, !"_ZN8bitflags6traits5Flags6remove17h257c198f037af92fE.llvm.11423182251827145186: argument 0"}
-!938 = distinct !{!938, !"_ZN8bitflags6traits5Flags6remove17h257c198f037af92fE.llvm.11423182251827145186"}
-!939 = !{!940, !942}
-!940 = distinct !{!940, !941, !"_ZN94_$LT$wasi_common..snapshots..preview_0..types..Fstflags$u20$as$u20$bitflags..traits..Flags$GT$4bits17h243c5cc882ab3ddeE: argument 0"}
-!941 = distinct !{!941, !"_ZN94_$LT$wasi_common..snapshots..preview_0..types..Fstflags$u20$as$u20$bitflags..traits..Flags$GT$4bits17h243c5cc882ab3ddeE"}
-!942 = distinct !{!942, !943, !"_ZN8bitflags6traits5Flags8is_empty17hbd590161ac46d2a4E.llvm.11423182251827145186: argument 0"}
-!943 = distinct !{!943, !"_ZN8bitflags6traits5Flags8is_empty17hbd590161ac46d2a4E.llvm.11423182251827145186"}
-!944 = distinct !{!944, !639}
-!945 = !{!946}
-!946 = distinct !{!946, !947, !"_ZN94_$LT$wasi_common..snapshots..preview_0..types..Fstflags$u20$as$u20$bitflags..traits..Flags$GT$4bits17h243c5cc882ab3ddeE: argument 0"}
-!947 = distinct !{!947, !"_ZN94_$LT$wasi_common..snapshots..preview_0..types..Fstflags$u20$as$u20$bitflags..traits..Flags$GT$4bits17h243c5cc882ab3ddeE"}
-!948 = !{!949}
-!949 = distinct !{!949, !950, !"_ZN8bitflags6traits5Flags6remove17hf37d26384f6db29aE.llvm.11423182251827145186: argument 0"}
-!950 = distinct !{!950, !"_ZN8bitflags6traits5Flags6remove17hf37d26384f6db29aE.llvm.11423182251827145186"}
-!951 = !{!952, !954}
-!952 = distinct !{!952, !953, !"_ZN93_$LT$wasi_common..snapshots..preview_0..types..Roflags$u20$as$u20$bitflags..traits..Flags$GT$4bits17ha491da3f71d05079E: argument 0"}
-!953 = distinct !{!953, !"_ZN93_$LT$wasi_common..snapshots..preview_0..types..Roflags$u20$as$u20$bitflags..traits..Flags$GT$4bits17ha491da3f71d05079E"}
-!954 = distinct !{!954, !955, !"_ZN8bitflags6traits5Flags8is_empty17h2bb47c8544a9dfaeE.llvm.11423182251827145186: argument 0"}
-!955 = distinct !{!955, !"_ZN8bitflags6traits5Flags8is_empty17h2bb47c8544a9dfaeE.llvm.11423182251827145186"}
-!956 = distinct !{!956, !639}
-!957 = !{!958}
-!958 = distinct !{!958, !959, !"_ZN93_$LT$wasi_common..snapshots..preview_0..types..Roflags$u20$as$u20$bitflags..traits..Flags$GT$4bits17ha491da3f71d05079E: argument 0"}
-!959 = distinct !{!959, !"_ZN93_$LT$wasi_common..snapshots..preview_0..types..Roflags$u20$as$u20$bitflags..traits..Flags$GT$4bits17ha491da3f71d05079E"}
+!898 = distinct !{!898, !899, !"_ZN8bitflags6traits5Flags6remove17h1bc99bce92bbddadE.llvm.11423182251827145186: argument 0"}
+!899 = distinct !{!899, !"_ZN8bitflags6traits5Flags6remove17h1bc99bce92bbddadE.llvm.11423182251827145186"}
+!900 = !{!901, !903}
+!901 = distinct !{!901, !902, !"_ZN98_$LT$wasi_common..snapshots..preview_0..types..Eventrwflags$u20$as$u20$bitflags..traits..Flags$GT$4bits17h6efe351b13bd2a20E: argument 0"}
+!902 = distinct !{!902, !"_ZN98_$LT$wasi_common..snapshots..preview_0..types..Eventrwflags$u20$as$u20$bitflags..traits..Flags$GT$4bits17h6efe351b13bd2a20E"}
+!903 = distinct !{!903, !904, !"_ZN8bitflags6traits5Flags8is_empty17hb0c43c19eccaa7a0E.llvm.11423182251827145186: argument 0"}
+!904 = distinct !{!904, !"_ZN8bitflags6traits5Flags8is_empty17hb0c43c19eccaa7a0E.llvm.11423182251827145186"}
+!905 = !{!906}
+!906 = distinct !{!906, !907, !"_ZN98_$LT$wasi_common..snapshots..preview_0..types..Eventrwflags$u20$as$u20$bitflags..traits..Flags$GT$4bits17h6efe351b13bd2a20E: argument 0"}
+!907 = distinct !{!907, !"_ZN98_$LT$wasi_common..snapshots..preview_0..types..Eventrwflags$u20$as$u20$bitflags..traits..Flags$GT$4bits17h6efe351b13bd2a20E"}
+!908 = !{!909}
+!909 = distinct !{!909, !910, !"_ZN8bitflags6traits5Flags6remove17h257c198f037af92fE.llvm.11423182251827145186: argument 0"}
+!910 = distinct !{!910, !"_ZN8bitflags6traits5Flags6remove17h257c198f037af92fE.llvm.11423182251827145186"}
+!911 = !{!912, !914}
+!912 = distinct !{!912, !913, !"_ZN94_$LT$wasi_common..snapshots..preview_0..types..Fstflags$u20$as$u20$bitflags..traits..Flags$GT$4bits17h243c5cc882ab3ddeE: argument 0"}
+!913 = distinct !{!913, !"_ZN94_$LT$wasi_common..snapshots..preview_0..types..Fstflags$u20$as$u20$bitflags..traits..Flags$GT$4bits17h243c5cc882ab3ddeE"}
+!914 = distinct !{!914, !915, !"_ZN8bitflags6traits5Flags8is_empty17hbd590161ac46d2a4E.llvm.11423182251827145186: argument 0"}
+!915 = distinct !{!915, !"_ZN8bitflags6traits5Flags8is_empty17hbd590161ac46d2a4E.llvm.11423182251827145186"}
+!916 = !{!917}
+!917 = distinct !{!917, !918, !"_ZN94_$LT$wasi_common..snapshots..preview_0..types..Fstflags$u20$as$u20$bitflags..traits..Flags$GT$4bits17h243c5cc882ab3ddeE: argument 0"}
+!918 = distinct !{!918, !"_ZN94_$LT$wasi_common..snapshots..preview_0..types..Fstflags$u20$as$u20$bitflags..traits..Flags$GT$4bits17h243c5cc882ab3ddeE"}
+!919 = !{!920}
+!920 = distinct !{!920, !921, !"_ZN8bitflags6traits5Flags6remove17hf37d26384f6db29aE.llvm.11423182251827145186: argument 0"}
+!921 = distinct !{!921, !"_ZN8bitflags6traits5Flags6remove17hf37d26384f6db29aE.llvm.11423182251827145186"}
+!922 = !{!923, !925}
+!923 = distinct !{!923, !924, !"_ZN93_$LT$wasi_common..snapshots..preview_0..types..Roflags$u20$as$u20$bitflags..traits..Flags$GT$4bits17ha491da3f71d05079E: argument 0"}
+!924 = distinct !{!924, !"_ZN93_$LT$wasi_common..snapshots..preview_0..types..Roflags$u20$as$u20$bitflags..traits..Flags$GT$4bits17ha491da3f71d05079E"}
+!925 = distinct !{!925, !926, !"_ZN8bitflags6traits5Flags8is_empty17h2bb47c8544a9dfaeE.llvm.11423182251827145186: argument 0"}
+!926 = distinct !{!926, !"_ZN8bitflags6traits5Flags8is_empty17h2bb47c8544a9dfaeE.llvm.11423182251827145186"}
+!927 = !{!928}
+!928 = distinct !{!928, !929, !"_ZN93_$LT$wasi_common..snapshots..preview_0..types..Roflags$u20$as$u20$bitflags..traits..Flags$GT$4bits17ha491da3f71d05079E: argument 0"}
+!929 = distinct !{!929, !"_ZN93_$LT$wasi_common..snapshots..preview_0..types..Roflags$u20$as$u20$bitflags..traits..Flags$GT$4bits17ha491da3f71d05079E"}
+!930 = !{!931}
+!931 = distinct !{!931, !932, !"_ZN8bitflags6traits5Flags6remove17hb26bc3e20ce9de56E.llvm.11423182251827145186: argument 0"}
+!932 = distinct !{!932, !"_ZN8bitflags6traits5Flags6remove17hb26bc3e20ce9de56E.llvm.11423182251827145186"}
+!933 = !{!934, !936}
+!934 = distinct !{!934, !935, !"_ZN70_$LT$wasi_common..file..RiFlags$u20$as$u20$bitflags..traits..Flags$GT$4bits17h8e90828f1ff85a27E: argument 0"}
+!935 = distinct !{!935, !"_ZN70_$LT$wasi_common..file..RiFlags$u20$as$u20$bitflags..traits..Flags$GT$4bits17h8e90828f1ff85a27E"}
+!936 = distinct !{!936, !937, !"_ZN8bitflags6traits5Flags8is_empty17he30b5e5a07faa64bE.llvm.11423182251827145186: argument 0"}
+!937 = distinct !{!937, !"_ZN8bitflags6traits5Flags8is_empty17he30b5e5a07faa64bE.llvm.11423182251827145186"}
+!938 = !{!939}
+!939 = distinct !{!939, !940, !"_ZN70_$LT$wasi_common..file..RiFlags$u20$as$u20$bitflags..traits..Flags$GT$4bits17h8e90828f1ff85a27E: argument 0"}
+!940 = distinct !{!940, !"_ZN70_$LT$wasi_common..file..RiFlags$u20$as$u20$bitflags..traits..Flags$GT$4bits17h8e90828f1ff85a27E"}
+!941 = !{!942}
+!942 = distinct !{!942, !943, !"_ZN8bitflags6traits5Flags6remove17h7a15824b1cc916e5E.llvm.11423182251827145186: argument 0"}
+!943 = distinct !{!943, !"_ZN8bitflags6traits5Flags6remove17h7a15824b1cc916e5E.llvm.11423182251827145186"}
+!944 = !{!945, !947}
+!945 = distinct !{!945, !946, !"_ZN99_$LT$wasi_common..snapshots..preview_1..types..Subclockflags$u20$as$u20$bitflags..traits..Flags$GT$4bits17h43bc355197bab0d9E: argument 0"}
+!946 = distinct !{!946, !"_ZN99_$LT$wasi_common..snapshots..preview_1..types..Subclockflags$u20$as$u20$bitflags..traits..Flags$GT$4bits17h43bc355197bab0d9E"}
+!947 = distinct !{!947, !948, !"_ZN8bitflags6traits5Flags8is_empty17h1f51fe609699aa9bE: argument 0"}
+!948 = distinct !{!948, !"_ZN8bitflags6traits5Flags8is_empty17h1f51fe609699aa9bE"}
+!949 = !{!950}
+!950 = distinct !{!950, !951, !"_ZN99_$LT$wasi_common..snapshots..preview_1..types..Subclockflags$u20$as$u20$bitflags..traits..Flags$GT$4bits17h43bc355197bab0d9E: argument 0"}
+!951 = distinct !{!951, !"_ZN99_$LT$wasi_common..snapshots..preview_1..types..Subclockflags$u20$as$u20$bitflags..traits..Flags$GT$4bits17h43bc355197bab0d9E"}
+!952 = !{!953}
+!953 = distinct !{!953, !954, !"_ZN8bitflags6traits5Flags6remove17h533169a9aed3572eE: argument 0"}
+!954 = distinct !{!954, !"_ZN8bitflags6traits5Flags6remove17h533169a9aed3572eE"}
+!955 = !{!956, !958}
+!956 = distinct !{!956, !957, !"_ZN98_$LT$wasi_common..snapshots..preview_1..types..Eventrwflags$u20$as$u20$bitflags..traits..Flags$GT$4bits17hb9ee9bbb8cdf06bfE: argument 0"}
+!957 = distinct !{!957, !"_ZN98_$LT$wasi_common..snapshots..preview_1..types..Eventrwflags$u20$as$u20$bitflags..traits..Flags$GT$4bits17hb9ee9bbb8cdf06bfE"}
+!958 = distinct !{!958, !959, !"_ZN8bitflags6traits5Flags8is_empty17h198def501080f08cE: argument 0"}
+!959 = distinct !{!959, !"_ZN8bitflags6traits5Flags8is_empty17h198def501080f08cE"}
 !960 = !{!961}
-!961 = distinct !{!961, !962, !"_ZN8bitflags6traits5Flags6remove17hb26bc3e20ce9de56E.llvm.11423182251827145186: argument 0"}
-!962 = distinct !{!962, !"_ZN8bitflags6traits5Flags6remove17hb26bc3e20ce9de56E.llvm.11423182251827145186"}
-!963 = !{!964, !966}
-!964 = distinct !{!964, !965, !"_ZN70_$LT$wasi_common..file..RiFlags$u20$as$u20$bitflags..traits..Flags$GT$4bits17h8e90828f1ff85a27E: argument 0"}
-!965 = distinct !{!965, !"_ZN70_$LT$wasi_common..file..RiFlags$u20$as$u20$bitflags..traits..Flags$GT$4bits17h8e90828f1ff85a27E"}
-!966 = distinct !{!966, !967, !"_ZN8bitflags6traits5Flags8is_empty17he30b5e5a07faa64bE.llvm.11423182251827145186: argument 0"}
-!967 = distinct !{!967, !"_ZN8bitflags6traits5Flags8is_empty17he30b5e5a07faa64bE.llvm.11423182251827145186"}
-!968 = distinct !{!968, !639}
-!969 = !{!970}
-!970 = distinct !{!970, !971, !"_ZN70_$LT$wasi_common..file..RiFlags$u20$as$u20$bitflags..traits..Flags$GT$4bits17h8e90828f1ff85a27E: argument 0"}
-!971 = distinct !{!971, !"_ZN70_$LT$wasi_common..file..RiFlags$u20$as$u20$bitflags..traits..Flags$GT$4bits17h8e90828f1ff85a27E"}
-!972 = !{!973}
-!973 = distinct !{!973, !974, !"_ZN8bitflags6traits5Flags6remove17h7a15824b1cc916e5E.llvm.11423182251827145186: argument 0"}
-!974 = distinct !{!974, !"_ZN8bitflags6traits5Flags6remove17h7a15824b1cc916e5E.llvm.11423182251827145186"}
-!975 = !{!976, !978}
-!976 = distinct !{!976, !977, !"_ZN99_$LT$wasi_common..snapshots..preview_1..types..Subclockflags$u20$as$u20$bitflags..traits..Flags$GT$4bits17h43bc355197bab0d9E: argument 0"}
-!977 = distinct !{!977, !"_ZN99_$LT$wasi_common..snapshots..preview_1..types..Subclockflags$u20$as$u20$bitflags..traits..Flags$GT$4bits17h43bc355197bab0d9E"}
-!978 = distinct !{!978, !979, !"_ZN8bitflags6traits5Flags8is_empty17h1f51fe609699aa9bE: argument 0"}
-!979 = distinct !{!979, !"_ZN8bitflags6traits5Flags8is_empty17h1f51fe609699aa9bE"}
-!980 = distinct !{!980, !639}
-!981 = !{!982}
-!982 = distinct !{!982, !983, !"_ZN99_$LT$wasi_common..snapshots..preview_1..types..Subclockflags$u20$as$u20$bitflags..traits..Flags$GT$4bits17h43bc355197bab0d9E: argument 0"}
-!983 = distinct !{!983, !"_ZN99_$LT$wasi_common..snapshots..preview_1..types..Subclockflags$u20$as$u20$bitflags..traits..Flags$GT$4bits17h43bc355197bab0d9E"}
-!984 = !{!985}
-!985 = distinct !{!985, !986, !"_ZN8bitflags6traits5Flags6remove17h533169a9aed3572eE: argument 0"}
-!986 = distinct !{!986, !"_ZN8bitflags6traits5Flags6remove17h533169a9aed3572eE"}
-!987 = !{!988, !990}
-!988 = distinct !{!988, !989, !"_ZN98_$LT$wasi_common..snapshots..preview_1..types..Eventrwflags$u20$as$u20$bitflags..traits..Flags$GT$4bits17hb9ee9bbb8cdf06bfE: argument 0"}
-!989 = distinct !{!989, !"_ZN98_$LT$wasi_common..snapshots..preview_1..types..Eventrwflags$u20$as$u20$bitflags..traits..Flags$GT$4bits17hb9ee9bbb8cdf06bfE"}
-!990 = distinct !{!990, !991, !"_ZN8bitflags6traits5Flags8is_empty17h198def501080f08cE: argument 0"}
-!991 = distinct !{!991, !"_ZN8bitflags6traits5Flags8is_empty17h198def501080f08cE"}
-!992 = distinct !{!992, !639}
+!961 = distinct !{!961, !962, !"_ZN98_$LT$wasi_common..snapshots..preview_1..types..Eventrwflags$u20$as$u20$bitflags..traits..Flags$GT$4bits17hb9ee9bbb8cdf06bfE: argument 0"}
+!962 = distinct !{!962, !"_ZN98_$LT$wasi_common..snapshots..preview_1..types..Eventrwflags$u20$as$u20$bitflags..traits..Flags$GT$4bits17hb9ee9bbb8cdf06bfE"}
+!963 = !{!964}
+!964 = distinct !{!964, !965, !"_ZN8bitflags6traits5Flags6remove17h4541cbdf1a376d34E: argument 0"}
+!965 = distinct !{!965, !"_ZN8bitflags6traits5Flags6remove17h4541cbdf1a376d34E"}
+!966 = !{!967, !969}
+!967 = distinct !{!967, !968, !"_ZN93_$LT$wasi_common..snapshots..preview_0..types..Fdflags$u20$as$u20$bitflags..traits..Flags$GT$4bits17hec3fb4d7666a11d8E: argument 0"}
+!968 = distinct !{!968, !"_ZN93_$LT$wasi_common..snapshots..preview_0..types..Fdflags$u20$as$u20$bitflags..traits..Flags$GT$4bits17hec3fb4d7666a11d8E"}
+!969 = distinct !{!969, !970, !"_ZN8bitflags6traits5Flags8is_empty17h1507877c8abab37dE.llvm.11423182251827145186: argument 0"}
+!970 = distinct !{!970, !"_ZN8bitflags6traits5Flags8is_empty17h1507877c8abab37dE.llvm.11423182251827145186"}
+!971 = !{!972}
+!972 = distinct !{!972, !973, !"_ZN93_$LT$wasi_common..snapshots..preview_0..types..Fdflags$u20$as$u20$bitflags..traits..Flags$GT$4bits17hec3fb4d7666a11d8E: argument 0"}
+!973 = distinct !{!973, !"_ZN93_$LT$wasi_common..snapshots..preview_0..types..Fdflags$u20$as$u20$bitflags..traits..Flags$GT$4bits17hec3fb4d7666a11d8E"}
+!974 = !{!975}
+!975 = distinct !{!975, !976, !"_ZN8bitflags6traits5Flags6remove17h09df746c2179b323E.llvm.11423182251827145186: argument 0"}
+!976 = distinct !{!976, !"_ZN8bitflags6traits5Flags6remove17h09df746c2179b323E.llvm.11423182251827145186"}
+!977 = !{!978, !980}
+!978 = distinct !{!978, !979, !"_ZN92_$LT$wasi_common..snapshots..preview_1..types..Rights$u20$as$u20$bitflags..traits..Flags$GT$4bits17he6e3f463beb8a75eE: argument 0"}
+!979 = distinct !{!979, !"_ZN92_$LT$wasi_common..snapshots..preview_1..types..Rights$u20$as$u20$bitflags..traits..Flags$GT$4bits17he6e3f463beb8a75eE"}
+!980 = distinct !{!980, !981, !"_ZN8bitflags6traits5Flags8is_empty17h0357c382af107c92E: argument 0"}
+!981 = distinct !{!981, !"_ZN8bitflags6traits5Flags8is_empty17h0357c382af107c92E"}
+!982 = !{!983}
+!983 = distinct !{!983, !984, !"_ZN92_$LT$wasi_common..snapshots..preview_1..types..Rights$u20$as$u20$bitflags..traits..Flags$GT$4bits17he6e3f463beb8a75eE: argument 0"}
+!984 = distinct !{!984, !"_ZN92_$LT$wasi_common..snapshots..preview_1..types..Rights$u20$as$u20$bitflags..traits..Flags$GT$4bits17he6e3f463beb8a75eE"}
+!985 = !{!986}
+!986 = distinct !{!986, !987, !"_ZN8bitflags6traits5Flags6remove17hae83a6cccd5f1708E: argument 0"}
+!987 = distinct !{!987, !"_ZN8bitflags6traits5Flags6remove17hae83a6cccd5f1708E"}
+!988 = !{!989, !991}
+!989 = distinct !{!989, !990, !"_ZN70_$LT$wasi_common..file..FdFlags$u20$as$u20$bitflags..traits..Flags$GT$4bits17h2e04ff9b85a6627dE: argument 0"}
+!990 = distinct !{!990, !"_ZN70_$LT$wasi_common..file..FdFlags$u20$as$u20$bitflags..traits..Flags$GT$4bits17h2e04ff9b85a6627dE"}
+!991 = distinct !{!991, !992, !"_ZN8bitflags6traits5Flags8is_empty17h9ee4a2808a28e7edE.llvm.11423182251827145186: argument 0"}
+!992 = distinct !{!992, !"_ZN8bitflags6traits5Flags8is_empty17h9ee4a2808a28e7edE.llvm.11423182251827145186"}
 !993 = !{!994}
-!994 = distinct !{!994, !995, !"_ZN98_$LT$wasi_common..snapshots..preview_1..types..Eventrwflags$u20$as$u20$bitflags..traits..Flags$GT$4bits17hb9ee9bbb8cdf06bfE: argument 0"}
-!995 = distinct !{!995, !"_ZN98_$LT$wasi_common..snapshots..preview_1..types..Eventrwflags$u20$as$u20$bitflags..traits..Flags$GT$4bits17hb9ee9bbb8cdf06bfE"}
+!994 = distinct !{!994, !995, !"_ZN70_$LT$wasi_common..file..FdFlags$u20$as$u20$bitflags..traits..Flags$GT$4bits17h2e04ff9b85a6627dE: argument 0"}
+!995 = distinct !{!995, !"_ZN70_$LT$wasi_common..file..FdFlags$u20$as$u20$bitflags..traits..Flags$GT$4bits17h2e04ff9b85a6627dE"}
 !996 = !{!997}
-!997 = distinct !{!997, !998, !"_ZN8bitflags6traits5Flags6remove17h4541cbdf1a376d34E: argument 0"}
-!998 = distinct !{!998, !"_ZN8bitflags6traits5Flags6remove17h4541cbdf1a376d34E"}
+!997 = distinct !{!997, !998, !"_ZN8bitflags6traits5Flags6remove17hf10e651db4b0f115E.llvm.11423182251827145186: argument 0"}
+!998 = distinct !{!998, !"_ZN8bitflags6traits5Flags6remove17hf10e651db4b0f115E.llvm.11423182251827145186"}
 !999 = !{!1000, !1002}
-!1000 = distinct !{!1000, !1001, !"_ZN93_$LT$wasi_common..snapshots..preview_0..types..Fdflags$u20$as$u20$bitflags..traits..Flags$GT$4bits17hec3fb4d7666a11d8E: argument 0"}
-!1001 = distinct !{!1001, !"_ZN93_$LT$wasi_common..snapshots..preview_0..types..Fdflags$u20$as$u20$bitflags..traits..Flags$GT$4bits17hec3fb4d7666a11d8E"}
-!1002 = distinct !{!1002, !1003, !"_ZN8bitflags6traits5Flags8is_empty17h1507877c8abab37dE.llvm.11423182251827145186: argument 0"}
-!1003 = distinct !{!1003, !"_ZN8bitflags6traits5Flags8is_empty17h1507877c8abab37dE.llvm.11423182251827145186"}
-!1004 = distinct !{!1004, !639}
-!1005 = !{!1006}
-!1006 = distinct !{!1006, !1007, !"_ZN93_$LT$wasi_common..snapshots..preview_0..types..Fdflags$u20$as$u20$bitflags..traits..Flags$GT$4bits17hec3fb4d7666a11d8E: argument 0"}
-!1007 = distinct !{!1007, !"_ZN93_$LT$wasi_common..snapshots..preview_0..types..Fdflags$u20$as$u20$bitflags..traits..Flags$GT$4bits17hec3fb4d7666a11d8E"}
-!1008 = !{!1009}
-!1009 = distinct !{!1009, !1010, !"_ZN8bitflags6traits5Flags6remove17h09df746c2179b323E.llvm.11423182251827145186: argument 0"}
-!1010 = distinct !{!1010, !"_ZN8bitflags6traits5Flags6remove17h09df746c2179b323E.llvm.11423182251827145186"}
-!1011 = !{!1012, !1014}
-!1012 = distinct !{!1012, !1013, !"_ZN92_$LT$wasi_common..snapshots..preview_1..types..Rights$u20$as$u20$bitflags..traits..Flags$GT$4bits17he6e3f463beb8a75eE: argument 0"}
-!1013 = distinct !{!1013, !"_ZN92_$LT$wasi_common..snapshots..preview_1..types..Rights$u20$as$u20$bitflags..traits..Flags$GT$4bits17he6e3f463beb8a75eE"}
-!1014 = distinct !{!1014, !1015, !"_ZN8bitflags6traits5Flags8is_empty17h0357c382af107c92E: argument 0"}
-!1015 = distinct !{!1015, !"_ZN8bitflags6traits5Flags8is_empty17h0357c382af107c92E"}
-!1016 = distinct !{!1016, !639}
-!1017 = !{!1018}
-!1018 = distinct !{!1018, !1019, !"_ZN92_$LT$wasi_common..snapshots..preview_1..types..Rights$u20$as$u20$bitflags..traits..Flags$GT$4bits17he6e3f463beb8a75eE: argument 0"}
-!1019 = distinct !{!1019, !"_ZN92_$LT$wasi_common..snapshots..preview_1..types..Rights$u20$as$u20$bitflags..traits..Flags$GT$4bits17he6e3f463beb8a75eE"}
-!1020 = !{!1021}
-!1021 = distinct !{!1021, !1022, !"_ZN8bitflags6traits5Flags6remove17hae83a6cccd5f1708E: argument 0"}
-!1022 = distinct !{!1022, !"_ZN8bitflags6traits5Flags6remove17hae83a6cccd5f1708E"}
-!1023 = !{!1024, !1026}
-!1024 = distinct !{!1024, !1025, !"_ZN70_$LT$wasi_common..file..FdFlags$u20$as$u20$bitflags..traits..Flags$GT$4bits17h2e04ff9b85a6627dE: argument 0"}
-!1025 = distinct !{!1025, !"_ZN70_$LT$wasi_common..file..FdFlags$u20$as$u20$bitflags..traits..Flags$GT$4bits17h2e04ff9b85a6627dE"}
-!1026 = distinct !{!1026, !1027, !"_ZN8bitflags6traits5Flags8is_empty17h9ee4a2808a28e7edE.llvm.11423182251827145186: argument 0"}
-!1027 = distinct !{!1027, !"_ZN8bitflags6traits5Flags8is_empty17h9ee4a2808a28e7edE.llvm.11423182251827145186"}
-!1028 = distinct !{!1028, !639}
+!1000 = distinct !{!1000, !1001, !"_ZN77_$LT$wasi_common..file..FileAccessMode$u20$as$u20$bitflags..traits..Flags$GT$4bits17h67954f1b2246698aE: argument 0"}
+!1001 = distinct !{!1001, !"_ZN77_$LT$wasi_common..file..FileAccessMode$u20$as$u20$bitflags..traits..Flags$GT$4bits17h67954f1b2246698aE"}
+!1002 = distinct !{!1002, !1003, !"_ZN8bitflags6traits5Flags8is_empty17ha79345be504b2a07E.llvm.11423182251827145186: argument 0"}
+!1003 = distinct !{!1003, !"_ZN8bitflags6traits5Flags8is_empty17ha79345be504b2a07E.llvm.11423182251827145186"}
+!1004 = !{!1005}
+!1005 = distinct !{!1005, !1006, !"_ZN77_$LT$wasi_common..file..FileAccessMode$u20$as$u20$bitflags..traits..Flags$GT$4bits17h67954f1b2246698aE: argument 0"}
+!1006 = distinct !{!1006, !"_ZN77_$LT$wasi_common..file..FileAccessMode$u20$as$u20$bitflags..traits..Flags$GT$4bits17h67954f1b2246698aE"}
+!1007 = !{!1008}
+!1008 = distinct !{!1008, !1009, !"_ZN8bitflags6traits5Flags6remove17hb68d6d74f406d2e1E.llvm.11423182251827145186: argument 0"}
+!1009 = distinct !{!1009, !"_ZN8bitflags6traits5Flags6remove17hb68d6d74f406d2e1E.llvm.11423182251827145186"}
+!1010 = !{!1011, !1013}
+!1011 = distinct !{!1011, !1012, !"_ZN93_$LT$wasi_common..snapshots..preview_1..types..Fdflags$u20$as$u20$bitflags..traits..Flags$GT$4bits17hd9033c7bad2cda9cE: argument 0"}
+!1012 = distinct !{!1012, !"_ZN93_$LT$wasi_common..snapshots..preview_1..types..Fdflags$u20$as$u20$bitflags..traits..Flags$GT$4bits17hd9033c7bad2cda9cE"}
+!1013 = distinct !{!1013, !1014, !"_ZN8bitflags6traits5Flags8is_empty17h038a8e1e446d8a93E: argument 0"}
+!1014 = distinct !{!1014, !"_ZN8bitflags6traits5Flags8is_empty17h038a8e1e446d8a93E"}
+!1015 = !{!1016}
+!1016 = distinct !{!1016, !1017, !"_ZN93_$LT$wasi_common..snapshots..preview_1..types..Fdflags$u20$as$u20$bitflags..traits..Flags$GT$4bits17hd9033c7bad2cda9cE: argument 0"}
+!1017 = distinct !{!1017, !"_ZN93_$LT$wasi_common..snapshots..preview_1..types..Fdflags$u20$as$u20$bitflags..traits..Flags$GT$4bits17hd9033c7bad2cda9cE"}
+!1018 = !{!1019}
+!1019 = distinct !{!1019, !1020, !"_ZN8bitflags6traits5Flags6remove17h246c8b9d5e453253E: argument 0"}
+!1020 = distinct !{!1020, !"_ZN8bitflags6traits5Flags6remove17h246c8b9d5e453253E"}
+!1021 = !{!1022, !1024}
+!1022 = distinct !{!1022, !1023, !"_ZN93_$LT$wasi_common..snapshots..preview_1..types..Roflags$u20$as$u20$bitflags..traits..Flags$GT$4bits17h763d6fe914c72216E: argument 0"}
+!1023 = distinct !{!1023, !"_ZN93_$LT$wasi_common..snapshots..preview_1..types..Roflags$u20$as$u20$bitflags..traits..Flags$GT$4bits17h763d6fe914c72216E"}
+!1024 = distinct !{!1024, !1025, !"_ZN8bitflags6traits5Flags8is_empty17ha9e829b8874a63a8E: argument 0"}
+!1025 = distinct !{!1025, !"_ZN8bitflags6traits5Flags8is_empty17ha9e829b8874a63a8E"}
+!1026 = !{!1027}
+!1027 = distinct !{!1027, !1028, !"_ZN93_$LT$wasi_common..snapshots..preview_1..types..Roflags$u20$as$u20$bitflags..traits..Flags$GT$4bits17h763d6fe914c72216E: argument 0"}
+!1028 = distinct !{!1028, !"_ZN93_$LT$wasi_common..snapshots..preview_1..types..Roflags$u20$as$u20$bitflags..traits..Flags$GT$4bits17h763d6fe914c72216E"}
 !1029 = !{!1030}
-!1030 = distinct !{!1030, !1031, !"_ZN70_$LT$wasi_common..file..FdFlags$u20$as$u20$bitflags..traits..Flags$GT$4bits17h2e04ff9b85a6627dE: argument 0"}
-!1031 = distinct !{!1031, !"_ZN70_$LT$wasi_common..file..FdFlags$u20$as$u20$bitflags..traits..Flags$GT$4bits17h2e04ff9b85a6627dE"}
-!1032 = !{!1033}
-!1033 = distinct !{!1033, !1034, !"_ZN8bitflags6traits5Flags6remove17hf10e651db4b0f115E.llvm.11423182251827145186: argument 0"}
-!1034 = distinct !{!1034, !"_ZN8bitflags6traits5Flags6remove17hf10e651db4b0f115E.llvm.11423182251827145186"}
-!1035 = !{!1036, !1038}
-!1036 = distinct !{!1036, !1037, !"_ZN77_$LT$wasi_common..file..FileAccessMode$u20$as$u20$bitflags..traits..Flags$GT$4bits17h67954f1b2246698aE: argument 0"}
-!1037 = distinct !{!1037, !"_ZN77_$LT$wasi_common..file..FileAccessMode$u20$as$u20$bitflags..traits..Flags$GT$4bits17h67954f1b2246698aE"}
-!1038 = distinct !{!1038, !1039, !"_ZN8bitflags6traits5Flags8is_empty17ha79345be504b2a07E.llvm.11423182251827145186: argument 0"}
-!1039 = distinct !{!1039, !"_ZN8bitflags6traits5Flags8is_empty17ha79345be504b2a07E.llvm.11423182251827145186"}
-!1040 = distinct !{!1040, !639}
-!1041 = !{!1042}
-!1042 = distinct !{!1042, !1043, !"_ZN77_$LT$wasi_common..file..FileAccessMode$u20$as$u20$bitflags..traits..Flags$GT$4bits17h67954f1b2246698aE: argument 0"}
-!1043 = distinct !{!1043, !"_ZN77_$LT$wasi_common..file..FileAccessMode$u20$as$u20$bitflags..traits..Flags$GT$4bits17h67954f1b2246698aE"}
-!1044 = !{!1045}
-!1045 = distinct !{!1045, !1046, !"_ZN8bitflags6traits5Flags6remove17hb68d6d74f406d2e1E.llvm.11423182251827145186: argument 0"}
-!1046 = distinct !{!1046, !"_ZN8bitflags6traits5Flags6remove17hb68d6d74f406d2e1E.llvm.11423182251827145186"}
-!1047 = !{!1048, !1050}
-!1048 = distinct !{!1048, !1049, !"_ZN93_$LT$wasi_common..snapshots..preview_1..types..Fdflags$u20$as$u20$bitflags..traits..Flags$GT$4bits17hd9033c7bad2cda9cE: argument 0"}
-!1049 = distinct !{!1049, !"_ZN93_$LT$wasi_common..snapshots..preview_1..types..Fdflags$u20$as$u20$bitflags..traits..Flags$GT$4bits17hd9033c7bad2cda9cE"}
-!1050 = distinct !{!1050, !1051, !"_ZN8bitflags6traits5Flags8is_empty17h038a8e1e446d8a93E: argument 0"}
-!1051 = distinct !{!1051, !"_ZN8bitflags6traits5Flags8is_empty17h038a8e1e446d8a93E"}
-!1052 = distinct !{!1052, !639}
-!1053 = !{!1054}
-!1054 = distinct !{!1054, !1055, !"_ZN93_$LT$wasi_common..snapshots..preview_1..types..Fdflags$u20$as$u20$bitflags..traits..Flags$GT$4bits17hd9033c7bad2cda9cE: argument 0"}
-!1055 = distinct !{!1055, !"_ZN93_$LT$wasi_common..snapshots..preview_1..types..Fdflags$u20$as$u20$bitflags..traits..Flags$GT$4bits17hd9033c7bad2cda9cE"}
-!1056 = !{!1057}
-!1057 = distinct !{!1057, !1058, !"_ZN8bitflags6traits5Flags6remove17h246c8b9d5e453253E: argument 0"}
-!1058 = distinct !{!1058, !"_ZN8bitflags6traits5Flags6remove17h246c8b9d5e453253E"}
-!1059 = !{!1060, !1062}
-!1060 = distinct !{!1060, !1061, !"_ZN93_$LT$wasi_common..snapshots..preview_1..types..Roflags$u20$as$u20$bitflags..traits..Flags$GT$4bits17h763d6fe914c72216E: argument 0"}
-!1061 = distinct !{!1061, !"_ZN93_$LT$wasi_common..snapshots..preview_1..types..Roflags$u20$as$u20$bitflags..traits..Flags$GT$4bits17h763d6fe914c72216E"}
-!1062 = distinct !{!1062, !1063, !"_ZN8bitflags6traits5Flags8is_empty17ha9e829b8874a63a8E: argument 0"}
-!1063 = distinct !{!1063, !"_ZN8bitflags6traits5Flags8is_empty17ha9e829b8874a63a8E"}
-!1064 = distinct !{!1064, !639}
-!1065 = !{!1066}
-!1066 = distinct !{!1066, !1067, !"_ZN93_$LT$wasi_common..snapshots..preview_1..types..Roflags$u20$as$u20$bitflags..traits..Flags$GT$4bits17h763d6fe914c72216E: argument 0"}
-!1067 = distinct !{!1067, !"_ZN93_$LT$wasi_common..snapshots..preview_1..types..Roflags$u20$as$u20$bitflags..traits..Flags$GT$4bits17h763d6fe914c72216E"}
-!1068 = !{!1069}
-!1069 = distinct !{!1069, !1070, !"_ZN8bitflags6traits5Flags6remove17hedf4dddb319e0e99E: argument 0"}
-!1070 = distinct !{!1070, !"_ZN8bitflags6traits5Flags6remove17hedf4dddb319e0e99E"}
-!1071 = !{!1072, !1074}
-!1072 = distinct !{!1072, !1073, !"_ZN92_$LT$wasi_common..snapshots..preview_0..types..Rights$u20$as$u20$bitflags..traits..Flags$GT$4bits17hc8ea7e034b143556E: argument 0"}
-!1073 = distinct !{!1073, !"_ZN92_$LT$wasi_common..snapshots..preview_0..types..Rights$u20$as$u20$bitflags..traits..Flags$GT$4bits17hc8ea7e034b143556E"}
-!1074 = distinct !{!1074, !1075, !"_ZN8bitflags6traits5Flags8is_empty17h78af91495b3efd7dE.llvm.11423182251827145186: argument 0"}
-!1075 = distinct !{!1075, !"_ZN8bitflags6traits5Flags8is_empty17h78af91495b3efd7dE.llvm.11423182251827145186"}
-!1076 = distinct !{!1076, !639}
-!1077 = !{!1078}
-!1078 = distinct !{!1078, !1079, !"_ZN92_$LT$wasi_common..snapshots..preview_0..types..Rights$u20$as$u20$bitflags..traits..Flags$GT$4bits17hc8ea7e034b143556E: argument 0"}
-!1079 = distinct !{!1079, !"_ZN92_$LT$wasi_common..snapshots..preview_0..types..Rights$u20$as$u20$bitflags..traits..Flags$GT$4bits17hc8ea7e034b143556E"}
-!1080 = !{!1081}
-!1081 = distinct !{!1081, !1082, !"_ZN8bitflags6traits5Flags6remove17h8616bc72b1a8cec6E.llvm.11423182251827145186: argument 0"}
-!1082 = distinct !{!1082, !"_ZN8bitflags6traits5Flags6remove17h8616bc72b1a8cec6E.llvm.11423182251827145186"}
-!1083 = !{!1084, !1086}
-!1084 = distinct !{!1084, !1085, !"_ZN76_$LT$alloc..string..String$u20$as$u20$core..convert..From$LT$$RF$str$GT$$GT$4from17h2819a56d10705f4fE.llvm.11423182251827145186: argument 0"}
-!1085 = distinct !{!1085, !"_ZN76_$LT$alloc..string..String$u20$as$u20$core..convert..From$LT$$RF$str$GT$$GT$4from17h2819a56d10705f4fE.llvm.11423182251827145186"}
-!1086 = distinct !{!1086, !1087, !"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17hac5dd56a0d18fb7dE.llvm.11423182251827145186: argument 0"}
-!1087 = distinct !{!1087, !"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17hac5dd56a0d18fb7dE.llvm.11423182251827145186"}
-!1088 = !{!1089}
-!1089 = distinct !{!1089, !1090, !"_ZN6anyhow5error31_$LT$impl$u20$anyhow..Error$GT$7context17hc41d23b66e174ee0E: argument 0"}
-!1090 = distinct !{!1090, !"_ZN6anyhow5error31_$LT$impl$u20$anyhow..Error$GT$7context17hc41d23b66e174ee0E"}
+!1030 = distinct !{!1030, !1031, !"_ZN8bitflags6traits5Flags6remove17hedf4dddb319e0e99E: argument 0"}
+!1031 = distinct !{!1031, !"_ZN8bitflags6traits5Flags6remove17hedf4dddb319e0e99E"}
+!1032 = !{!1033, !1035}
+!1033 = distinct !{!1033, !1034, !"_ZN92_$LT$wasi_common..snapshots..preview_0..types..Rights$u20$as$u20$bitflags..traits..Flags$GT$4bits17hc8ea7e034b143556E: argument 0"}
+!1034 = distinct !{!1034, !"_ZN92_$LT$wasi_common..snapshots..preview_0..types..Rights$u20$as$u20$bitflags..traits..Flags$GT$4bits17hc8ea7e034b143556E"}
+!1035 = distinct !{!1035, !1036, !"_ZN8bitflags6traits5Flags8is_empty17h78af91495b3efd7dE.llvm.11423182251827145186: argument 0"}
+!1036 = distinct !{!1036, !"_ZN8bitflags6traits5Flags8is_empty17h78af91495b3efd7dE.llvm.11423182251827145186"}
+!1037 = !{!1038}
+!1038 = distinct !{!1038, !1039, !"_ZN92_$LT$wasi_common..snapshots..preview_0..types..Rights$u20$as$u20$bitflags..traits..Flags$GT$4bits17hc8ea7e034b143556E: argument 0"}
+!1039 = distinct !{!1039, !"_ZN92_$LT$wasi_common..snapshots..preview_0..types..Rights$u20$as$u20$bitflags..traits..Flags$GT$4bits17hc8ea7e034b143556E"}
+!1040 = !{!1041}
+!1041 = distinct !{!1041, !1042, !"_ZN8bitflags6traits5Flags6remove17h8616bc72b1a8cec6E.llvm.11423182251827145186: argument 0"}
+!1042 = distinct !{!1042, !"_ZN8bitflags6traits5Flags6remove17h8616bc72b1a8cec6E.llvm.11423182251827145186"}
+!1043 = !{!1044, !1046}
+!1044 = distinct !{!1044, !1045, !"_ZN76_$LT$alloc..string..String$u20$as$u20$core..convert..From$LT$$RF$str$GT$$GT$4from17h2819a56d10705f4fE.llvm.11423182251827145186: argument 0"}
+!1045 = distinct !{!1045, !"_ZN76_$LT$alloc..string..String$u20$as$u20$core..convert..From$LT$$RF$str$GT$$GT$4from17h2819a56d10705f4fE.llvm.11423182251827145186"}
+!1046 = distinct !{!1046, !1047, !"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17hac5dd56a0d18fb7dE.llvm.11423182251827145186: argument 0"}
+!1047 = distinct !{!1047, !"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17hac5dd56a0d18fb7dE.llvm.11423182251827145186"}
+!1048 = !{!1049}
+!1049 = distinct !{!1049, !1050, !"_ZN6anyhow5error31_$LT$impl$u20$anyhow..Error$GT$7context17hc41d23b66e174ee0E: argument 0"}
+!1050 = distinct !{!1050, !"_ZN6anyhow5error31_$LT$impl$u20$anyhow..Error$GT$7context17hc41d23b66e174ee0E"}

@@ -148,7 +148,7 @@ define hidden void @_ZN4LIEF2PE22destroy_import_entriesEP11Pe_Import_t(ptr nound
   %8 = getelementptr inbounds nuw ptr, ptr %3, i64 %7
   %9 = load ptr, ptr %8, align 8, !tbaa !19
   %.not = icmp eq ptr %9, null
-  br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !50
+  br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !49
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
@@ -210,7 +210,6 @@ attributes #5 = { nounwind }
 !44 = !{!33, !25, i64 88}
 !45 = !{!22, !25, i64 56}
 !46 = !{!12, !4, i64 0}
-!47 = distinct !{!47, !48, !49}
+!47 = distinct !{!47, !48}
 !48 = !{!"llvm.loop.mustprogress"}
-!49 = !{!"llvm.loop.estimated_trip_count"}
-!50 = distinct !{!50, !48, !49}
+!49 = distinct !{!49, !48}

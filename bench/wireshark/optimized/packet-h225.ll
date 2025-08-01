@@ -3626,7 +3626,7 @@ define internal void @h225_stat_init(ptr noundef %0) #0 {
   call void @stat_tap_init_table_row(ptr noundef %9, i32 noundef %indvars264, i32 noundef 2, ptr noundef nonnull %2)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond = icmp eq i64 %indvars.iv.next, 33
-  br i1 %exitcond, label %.preheader236, label %13, !llvm.loop !9
+  br i1 %exitcond, label %.preheader236, label %13, !llvm.loop !8
 
 .preheader236:                                    ; preds = %13, %.preheader236
   %indvars.iv267 = phi i64 [ %indvars.iv.next268, %.preheader236 ], [ 0, %13 ]
@@ -3642,7 +3642,7 @@ define internal void @h225_stat_init(ptr noundef %0) #0 {
   %20 = add nuw nsw i32 %.1154, 1
   %indvars.iv.next268 = add nuw nsw i64 %indvars.iv267, 1
   %exitcond270 = icmp eq i64 %indvars.iv.next268, 13
-  br i1 %exitcond270, label %.preheader235, label %.preheader236, !llvm.loop !10
+  br i1 %exitcond270, label %.preheader235, label %.preheader236, !llvm.loop !9
 
 .preheader235:                                    ; preds = %.preheader236, %.preheader235
   %indvars.iv271 = phi i64 [ %indvars.iv.next272, %.preheader235 ], [ 0, %.preheader236 ]
@@ -3658,7 +3658,7 @@ define internal void @h225_stat_init(ptr noundef %0) #0 {
   %24 = add nuw nsw i32 %.2155, 1
   %indvars.iv.next272 = add nuw nsw i64 %indvars.iv271, 1
   %exitcond274 = icmp eq i64 %indvars.iv.next272, 8
-  br i1 %exitcond274, label %.preheader234, label %.preheader235, !llvm.loop !11
+  br i1 %exitcond274, label %.preheader234, label %.preheader235, !llvm.loop !10
 
 .preheader234:                                    ; preds = %.preheader235, %.preheader234
   %indvars.iv275 = phi i64 [ %indvars.iv.next276, %.preheader234 ], [ 0, %.preheader235 ]
@@ -3674,7 +3674,7 @@ define internal void @h225_stat_init(ptr noundef %0) #0 {
   %28 = add nuw nsw i32 %.3156, 1
   %indvars.iv.next276 = add nuw nsw i64 %indvars.iv275, 1
   %exitcond278 = icmp eq i64 %indvars.iv.next276, 19
-  br i1 %exitcond278, label %.preheader233, label %.preheader234, !llvm.loop !12
+  br i1 %exitcond278, label %.preheader233, label %.preheader234, !llvm.loop !11
 
 .preheader233:                                    ; preds = %.preheader234, %.preheader233
   %indvars.iv279 = phi i64 [ %indvars.iv.next280, %.preheader233 ], [ 0, %.preheader234 ]
@@ -3690,7 +3690,7 @@ define internal void @h225_stat_init(ptr noundef %0) #0 {
   %32 = add nuw nsw i32 %.4157, 1
   %indvars.iv.next280 = add nuw nsw i64 %indvars.iv279, 1
   %exitcond282 = icmp eq i64 %indvars.iv.next280, 7
-  br i1 %exitcond282, label %.preheader232, label %.preheader233, !llvm.loop !13
+  br i1 %exitcond282, label %.preheader232, label %.preheader233, !llvm.loop !12
 
 .preheader232:                                    ; preds = %.preheader233, %.preheader232
   %indvars.iv283 = phi i64 [ %indvars.iv.next284, %.preheader232 ], [ 0, %.preheader233 ]
@@ -3706,7 +3706,7 @@ define internal void @h225_stat_init(ptr noundef %0) #0 {
   %36 = add nuw nsw i32 %.5158, 1
   %indvars.iv.next284 = add nuw nsw i64 %indvars.iv283, 1
   %exitcond286 = icmp eq i64 %indvars.iv.next284, 6
-  br i1 %exitcond286, label %.preheader231, label %.preheader232, !llvm.loop !14
+  br i1 %exitcond286, label %.preheader231, label %.preheader232, !llvm.loop !13
 
 .preheader231:                                    ; preds = %.preheader232, %.preheader231
   %indvars.iv287 = phi i64 [ %indvars.iv.next288, %.preheader231 ], [ 0, %.preheader232 ]
@@ -3722,7 +3722,7 @@ define internal void @h225_stat_init(ptr noundef %0) #0 {
   %40 = add nuw nsw i32 %.6159, 1
   %indvars.iv.next288 = add nuw nsw i64 %indvars.iv287, 1
   %exitcond290 = icmp eq i64 %indvars.iv.next288, 23
-  br i1 %exitcond290, label %.preheader230, label %.preheader231, !llvm.loop !15
+  br i1 %exitcond290, label %.preheader230, label %.preheader231, !llvm.loop !14
 
 .preheader230:                                    ; preds = %.preheader231, %.preheader230
   %indvars.iv291 = phi i64 [ %indvars.iv.next292, %.preheader230 ], [ 0, %.preheader231 ]
@@ -3738,7 +3738,7 @@ define internal void @h225_stat_init(ptr noundef %0) #0 {
   %44 = add nuw nsw i32 %.7160, 1
   %indvars.iv.next292 = add nuw nsw i64 %indvars.iv291, 1
   %exitcond294 = icmp eq i64 %indvars.iv.next292, 8
-  br i1 %exitcond294, label %.preheader229, label %.preheader230, !llvm.loop !16
+  br i1 %exitcond294, label %.preheader229, label %.preheader230, !llvm.loop !15
 
 .preheader229:                                    ; preds = %.preheader230, %.preheader229
   %indvars.iv295 = phi i64 [ %indvars.iv.next296, %.preheader229 ], [ 0, %.preheader230 ]
@@ -3754,7 +3754,7 @@ define internal void @h225_stat_init(ptr noundef %0) #0 {
   %48 = add nuw nsw i32 %.8161, 1
   %indvars.iv.next296 = add nuw nsw i64 %indvars.iv295, 1
   %exitcond298 = icmp eq i64 %indvars.iv.next296, 3
-  br i1 %exitcond298, label %.preheader228, label %.preheader229, !llvm.loop !17
+  br i1 %exitcond298, label %.preheader228, label %.preheader229, !llvm.loop !16
 
 .preheader228:                                    ; preds = %.preheader229, %.preheader228
   %indvars.iv299 = phi i64 [ %indvars.iv.next300, %.preheader228 ], [ 0, %.preheader229 ]
@@ -3770,7 +3770,7 @@ define internal void @h225_stat_init(ptr noundef %0) #0 {
   %52 = add nuw nsw i32 %.9162, 1
   %indvars.iv.next300 = add nuw nsw i64 %indvars.iv299, 1
   %exitcond302 = icmp eq i64 %indvars.iv.next300, 4
-  br i1 %exitcond302, label %.preheader227, label %.preheader228, !llvm.loop !18
+  br i1 %exitcond302, label %.preheader227, label %.preheader228, !llvm.loop !17
 
 .preheader227:                                    ; preds = %.preheader228, %.preheader227
   %indvars.iv303 = phi i64 [ %indvars.iv.next304, %.preheader227 ], [ 0, %.preheader228 ]
@@ -3786,7 +3786,7 @@ define internal void @h225_stat_init(ptr noundef %0) #0 {
   %56 = add nuw nsw i32 %.10163, 1
   %indvars.iv.next304 = add nuw nsw i64 %indvars.iv303, 1
   %exitcond306 = icmp eq i64 %indvars.iv.next304, 16
-  br i1 %exitcond306, label %.preheader226, label %.preheader227, !llvm.loop !19
+  br i1 %exitcond306, label %.preheader226, label %.preheader227, !llvm.loop !18
 
 .preheader226:                                    ; preds = %.preheader227, %.preheader226
   %indvars.iv307 = phi i64 [ %indvars.iv.next308, %.preheader226 ], [ 0, %.preheader227 ]
@@ -3802,7 +3802,7 @@ define internal void @h225_stat_init(ptr noundef %0) #0 {
   %60 = add nuw nsw i32 %.11164, 1
   %indvars.iv.next308 = add nuw nsw i64 %indvars.iv307, 1
   %exitcond310 = icmp eq i64 %indvars.iv.next308, 4
-  br i1 %exitcond310, label %.preheader225, label %.preheader226, !llvm.loop !20
+  br i1 %exitcond310, label %.preheader225, label %.preheader226, !llvm.loop !19
 
 .preheader225:                                    ; preds = %.preheader226, %.preheader225
   %indvars.iv311 = phi i64 [ %indvars.iv.next312, %.preheader225 ], [ 0, %.preheader226 ]
@@ -3818,7 +3818,7 @@ define internal void @h225_stat_init(ptr noundef %0) #0 {
   %64 = add nuw nsw i32 %.12165, 1
   %indvars.iv.next312 = add nuw nsw i64 %indvars.iv311, 1
   %exitcond314 = icmp eq i64 %indvars.iv.next312, 25
-  br i1 %exitcond314, label %.preheader, label %.preheader225, !llvm.loop !21
+  br i1 %exitcond314, label %.preheader, label %.preheader225, !llvm.loop !20
 
 .preheader:                                       ; preds = %.preheader225, %.preheader
   %indvars.iv315 = phi i64 [ %indvars.iv.next316, %.preheader ], [ 0, %.preheader225 ]
@@ -3834,7 +3834,7 @@ define internal void @h225_stat_init(ptr noundef %0) #0 {
   %68 = add nuw nsw i32 %.13166, 1
   %indvars.iv.next316 = add nuw nsw i64 %indvars.iv315, 1
   %exitcond318 = icmp eq i64 %indvars.iv.next316, 11
-  br i1 %exitcond318, label %69, label %.preheader, !llvm.loop !22
+  br i1 %exitcond318, label %69, label %.preheader, !llvm.loop !21
 
 69:                                               ; preds = %.preheader
   store ptr @.str.1743, ptr %12, align 8
@@ -4041,7 +4041,7 @@ define internal void @h225_stat_reset(ptr noundef %0) #0 {
   %6 = add nuw i32 %.08, 1
   %7 = load i32, ptr %2, align 4
   %8 = icmp ult i32 %6, %7
-  br i1 %8, label %.lr.ph, label %._crit_edge, !llvm.loop !23
+  br i1 %8, label %.lr.ph, label %._crit_edge, !llvm.loop !22
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
   ret void
@@ -4290,7 +4290,7 @@ dissect_RasMessage_PDU.exit:                      ; preds = %4, %40, %44
   %71 = getelementptr inbounds nuw i8, ptr %.0.i, i64 56
   %72 = load ptr, ptr %71, align 8
   %73 = icmp eq ptr %72, null
-  br i1 %73, label %74, label %66, !llvm.loop !24
+  br i1 %73, label %74, label %66
 
 74:                                               ; preds = %70
   %75 = getelementptr inbounds nuw i8, ptr %.0.i, i64 24
@@ -4440,7 +4440,7 @@ proto_item_set_hidden.exit.thread.i:              ; preds = %66, %proto_item_set
   %154 = getelementptr inbounds nuw i8, ptr %.2.i, i64 56
   %155 = load ptr, ptr %154, align 8
   %156 = icmp eq ptr %155, null
-  br i1 %156, label %157, label %149, !llvm.loop !25
+  br i1 %156, label %157, label %149
 
 157:                                              ; preds = %153, %149
   %158 = getelementptr inbounds nuw i8, ptr %.2.i, i64 24
@@ -4658,7 +4658,7 @@ define internal range(i32 0, 2) i32 @h225rassrt_packet(ptr noundef readonly capt
 
 15:                                               ; preds = %12
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 36
-  %17 = load i8, ptr %16, align 4, !range !26, !noundef !27
+  %17 = load i8, ptr %16, align 4, !range !23, !noundef !24
   %18 = trunc nuw i8 %17 to i1
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %20 = load ptr, ptr %19, align 8
@@ -4681,7 +4681,7 @@ define internal range(i32 0, 2) i32 @h225rassrt_packet(ptr noundef readonly capt
 
 30:                                               ; preds = %12, %12
   %31 = getelementptr inbounds nuw i8, ptr %3, i64 36
-  %32 = load i8, ptr %31, align 4, !range !26, !noundef !27
+  %32 = load i8, ptr %31, align 4, !range !23, !noundef !24
   %33 = trunc nuw i8 %32 to i1
   br i1 %33, label %34, label %41
 
@@ -4697,7 +4697,7 @@ define internal range(i32 0, 2) i32 @h225rassrt_packet(ptr noundef readonly capt
 
 41:                                               ; preds = %30
   %42 = getelementptr inbounds nuw i8, ptr %3, i64 37
-  %43 = load i8, ptr %42, align 1, !range !26, !noundef !27
+  %43 = load i8, ptr %42, align 1, !range !23, !noundef !24
   %44 = trunc nuw i8 %43 to i1
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %46 = load ptr, ptr %45, align 8
@@ -5010,7 +5010,7 @@ define internal i32 @dissect_h225_DialedDigits(ptr noundef %0, i32 noundef %1, p
 
 14:                                               ; preds = %5
   %15 = getelementptr inbounds nuw i8, ptr %13, i64 195
-  %16 = load i8, ptr %15, align 1, !range !26, !noundef !27
+  %16 = load i8, ptr %15, align 1, !range !23, !noundef !24
   %17 = trunc nuw i8 %16 to i1
   br i1 %17, label %18, label %29
 
@@ -5126,7 +5126,7 @@ define internal i32 @dissect_h225_TBCD_STRING(ptr noundef %0, i32 noundef %1, pt
   %9 = call zeroext i1 @get_size_constraint_from_stack(ptr noundef %2, ptr noundef nonnull @.str.1639, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %8)
   %10 = load i32, ptr %6, align 4
   %11 = load i32, ptr %7, align 4
-  %12 = load i8, ptr %8, align 1, !range !26, !noundef !27
+  %12 = load i8, ptr %8, align 1, !range !23, !noundef !24
   %13 = trunc nuw i8 %12 to i1
   %14 = call i32 @dissect_per_restricted_character_string(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %10, i32 noundef %11, i1 noundef zeroext %13, ptr noundef nonnull @.str.1640, i32 noundef 15, ptr noundef null)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8) #11
@@ -7670,7 +7670,7 @@ define internal i32 @dissect_h225_ParallelH245Control_item(ptr noundef %0, i32 n
   %7 = call i32 @dissect_per_octet_string(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef -1, i32 noundef -1, i1 noundef zeroext false, ptr noundef nonnull %6)
   %8 = load ptr, ptr @h245_list, align 8
   %9 = load ptr, ptr %6, align 8
-  %10 = load i8, ptr @h225_h245_in_tree, align 1, !range !26, !noundef !27
+  %10 = load i8, ptr @h225_h245_in_tree, align 1, !range !23, !noundef !24
   %11 = trunc nuw i8 %10 to i1
   %12 = select i1 %11, ptr %3, ptr null
   %13 = load ptr, ptr @h245dg_handle, align 8
@@ -7771,7 +7771,7 @@ define internal i32 @dissect_h225_H245Control_item(ptr noundef %0, i32 noundef %
   %7 = call i32 @dissect_per_octet_string(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef -1, i32 noundef -1, i1 noundef zeroext false, ptr noundef nonnull %6)
   %8 = load ptr, ptr @h245_list, align 8
   %9 = load ptr, ptr %6, align 8
-  %10 = load i8, ptr @h225_h245_in_tree, align 1, !range !26, !noundef !27
+  %10 = load i8, ptr @h225_h245_in_tree, align 1, !range !23, !noundef !24
   %11 = trunc nuw i8 %10 to i1
   %12 = select i1 %11, ptr %3, ptr null
   %13 = load ptr, ptr @h245dg_handle, align 8
@@ -7795,7 +7795,7 @@ define internal i32 @dissect_h225_T_messageContent_item(ptr noundef %0, i32 noun
   %7 = call i32 @dissect_per_octet_string(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef -1, i32 noundef -1, i1 noundef zeroext false, ptr noundef nonnull %6)
   %8 = load ptr, ptr @tp_list, align 8
   %9 = load ptr, ptr %6, align 8
-  %10 = load i8, ptr @h225_tp_in_tree, align 1, !range !26, !noundef !27
+  %10 = load i8, ptr @h225_tp_in_tree, align 1, !range !23, !noundef !24
   %11 = trunc nuw i8 %10 to i1
   %12 = select i1 %11, ptr %3, ptr null
   %13 = load ptr, ptr @tp_handle, align 8
@@ -8002,25 +8002,22 @@ attributes #12 = { allocsize(1) }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7, !8}
-!11 = distinct !{!11, !7, !8}
-!12 = distinct !{!12, !7, !8}
-!13 = distinct !{!13, !7, !8}
-!14 = distinct !{!14, !7, !8}
-!15 = distinct !{!15, !7, !8}
-!16 = distinct !{!16, !7, !8}
-!17 = distinct !{!17, !7, !8}
-!18 = distinct !{!18, !7, !8}
-!19 = distinct !{!19, !7, !8}
-!20 = distinct !{!20, !7, !8}
-!21 = distinct !{!21, !7, !8}
-!22 = distinct !{!22, !7, !8}
-!23 = distinct !{!23, !7, !8}
-!24 = distinct !{!24, !8}
-!25 = distinct !{!25, !8}
-!26 = !{i8 0, i8 2}
-!27 = !{}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7}
+!12 = distinct !{!12, !7}
+!13 = distinct !{!13, !7}
+!14 = distinct !{!14, !7}
+!15 = distinct !{!15, !7}
+!16 = distinct !{!16, !7}
+!17 = distinct !{!17, !7}
+!18 = distinct !{!18, !7}
+!19 = distinct !{!19, !7}
+!20 = distinct !{!20, !7}
+!21 = distinct !{!21, !7}
+!22 = distinct !{!22, !7}
+!23 = !{i8 0, i8 2}
+!24 = !{}

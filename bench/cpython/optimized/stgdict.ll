@@ -1615,13 +1615,13 @@ PyObject_TypeCheck.exit.thread:                   ; preds = %PyObject_TypeCheck.
   %.0177.lcssa = phi i1 [ false, %159 ], [ %209, %._crit_edge.loopexit ]
   %210 = trunc i64 %63 to i16
   %211 = getelementptr inbounds nuw i8, ptr %21, i64 40
-  store i16 %210, ptr %211, align 8, !tbaa !59
+  store i16 %210, ptr %211, align 8, !tbaa !58
   %212 = getelementptr inbounds nuw i8, ptr %21, i64 32
-  store i64 %77, ptr %212, align 8, !tbaa !60
+  store i64 %77, ptr %212, align 8, !tbaa !59
   %213 = getelementptr inbounds nuw i8, ptr %21, i64 8
-  store i64 %77, ptr %213, align 8, !tbaa !61
+  store i64 %77, ptr %213, align 8, !tbaa !60
   %214 = getelementptr inbounds nuw i8, ptr %21, i64 16
-  store i64 %63, ptr %214, align 8, !tbaa !62
+  store i64 %63, ptr %214, align 8, !tbaa !61
   %215 = add i64 %.0176, %.val292
   %216 = getelementptr inbounds nuw i8, ptr %21, i64 24
   store i64 %215, ptr %216, align 8, !tbaa !26
@@ -1684,7 +1684,7 @@ PyObject_TypeCheck.exit302.thread:                ; preds = %220, %PyObject_Type
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #8
   %239 = add nuw nsw i64 %.0179475, 1
   %exitcond508.not = icmp eq i64 %239, %.val292
-  br i1 %exitcond508.not, label %._crit_edge477, label %220, !llvm.loop !63
+  br i1 %exitcond508.not, label %._crit_edge477, label %220, !llvm.loop !62
 
 240:                                              ; preds = %PyObject_TypeCheck.exit302.thread
   %241 = load ptr, ptr @PyExc_TypeError, align 8, !tbaa !36
@@ -1789,18 +1789,18 @@ PyObject_TypeCheck.exit304.thread:                ; preds = %269, %PyObject_Type
   %290 = getelementptr ptr, ptr %249, i64 %.0189486
   store ptr %289, ptr %290, align 8, !tbaa !54
   %291 = getelementptr inbounds nuw i8, ptr %287, i64 32
-  %292 = load i64, ptr %291, align 8, !tbaa !60
+  %292 = load i64, ptr %291, align 8, !tbaa !59
   %293 = mul i64 %292, %284
-  store i64 %293, ptr %289, align 8, !tbaa !64
+  store i64 %293, ptr %289, align 8, !tbaa !63
   %294 = getelementptr inbounds nuw i8, ptr %287, i64 40
-  %295 = load i16, ptr %294, align 8, !tbaa !59
+  %295 = load i16, ptr %294, align 8, !tbaa !58
   %296 = getelementptr inbounds nuw i8, ptr %289, i64 8
-  store i16 %295, ptr %296, align 8, !tbaa !65
+  store i16 %295, ptr %296, align 8, !tbaa !64
   %297 = getelementptr inbounds nuw i8, ptr %289, i64 10
-  store i16 13, ptr %297, align 2, !tbaa !66
+  store i16 13, ptr %297, align 2, !tbaa !65
   %298 = getelementptr ptr, ptr %255, i64 %.0184487
   %299 = getelementptr inbounds nuw i8, ptr %289, i64 16
-  store ptr %298, ptr %299, align 8, !tbaa !67
+  store ptr %298, ptr %299, align 8, !tbaa !66
   %300 = add i64 %.0180488, 1
   %301 = icmp sgt i64 %284, 0
   br i1 %301, label %.lr.ph483.preheader, label %._crit_edge484
@@ -1815,7 +1815,7 @@ PyObject_TypeCheck.exit304.thread:                ; preds = %269, %PyObject_Type
   %304 = getelementptr ptr, ptr %255, i64 %.4188480
   store ptr %291, ptr %304, align 8, !tbaa !54
   %exitcond509.not = icmp eq i64 %303, %302
-  br i1 %exitcond509.not, label %._crit_edge484, label %.lr.ph483, !llvm.loop !68
+  br i1 %exitcond509.not, label %._crit_edge484, label %.lr.ph483, !llvm.loop !67
 
 ._crit_edge484:                                   ; preds = %.lr.ph483, %288
   %.4188.lcssa = phi i64 [ %.0184487, %288 ], [ %302, %.lr.ph483 ]
@@ -1832,7 +1832,7 @@ PyObject_TypeCheck.exit304.thread:                ; preds = %269, %PyObject_Type
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #8
   %307 = add nuw nsw i64 %.0175489, 1
   %exitcond510.not = icmp eq i64 %307, %.val292
-  br i1 %exitcond510.not, label %._crit_edge492, label %269, !llvm.loop !69
+  br i1 %exitcond510.not, label %._crit_edge492, label %269, !llvm.loop !68
 
 308:                                              ; preds = %PyObject_TypeCheck.exit304.thread
   call void @PyMem_Free(ptr noundef nonnull %249) #8
@@ -2027,7 +2027,7 @@ Py_DECREF.exit53:                                 ; preds = %8, %12, %15
   %.033 = phi i64 [ 0, %17 ], [ %81, %Py_DECREF.exit41 ]
   %.val61 = load ptr, ptr %23, align 8, !tbaa !27
   %27 = getelementptr i8, ptr %.val61, i64 168
-  %.val65 = load i64, ptr %27, align 8, !tbaa !70
+  %.val65 = load i64, ptr %27, align 8, !tbaa !69
   %28 = and i64 %.val65, 33554432
   %.not = icmp eq i64 %28, 0
   %.val63 = load i64, ptr %24, align 8, !tbaa !45
@@ -2041,7 +2041,7 @@ Py_DECREF.exit53:                                 ; preds = %8, %12, %15
   br i1 %29, label %.thread68, label %82
 
 .thread68:                                        ; preds = %.thread
-  %31 = load ptr, ptr %25, align 8, !tbaa !71
+  %31 = load ptr, ptr %25, align 8, !tbaa !70
   %32 = getelementptr ptr, ptr %31, i64 %.033
   br label %35
 
@@ -2103,11 +2103,11 @@ Py_DECREF.exit49:                                 ; preds = %46, %50, %53
 
 58:                                               ; preds = %44
   %59 = getelementptr inbounds nuw i8, ptr %37, i64 64
-  store i32 1, ptr %59, align 8, !tbaa !74
+  store i32 1, ptr %59, align 8, !tbaa !73
   %60 = getelementptr inbounds nuw i8, ptr %37, i64 32
   %61 = load i64, ptr %60, align 8, !tbaa !48
   %62 = getelementptr inbounds nuw i8, ptr %37, i64 16
-  %63 = load i64, ptr %62, align 8, !tbaa !75
+  %63 = load i64, ptr %62, align 8, !tbaa !74
   %64 = call fastcc i32 @MakeFields(ptr noundef %0, ptr noundef %37, i64 noundef %61, i64 noundef %63)
   %65 = icmp eq i32 %64, -1
   %66 = load i32, ptr %37, align 8, !tbaa !19
@@ -2153,7 +2153,7 @@ Py_DECREF.exit45:                                 ; preds = %67, %68, %71
 
 Py_DECREF.exit41:                                 ; preds = %76, %77, %80
   %81 = add nuw nsw i64 %.033, 1
-  br label %26, !llvm.loop !76
+  br label %26, !llvm.loop !75
 
 82:                                               ; preds = %.thread, %30
   %83 = load i32, ptr %9, align 8, !tbaa !19
@@ -2225,7 +2225,7 @@ Py_DECREF.exit99:                                 ; preds = %12, %15, %18
   %21 = getelementptr i8, ptr %1, i64 8
   %.val114 = load ptr, ptr %21, align 8, !tbaa !27
   %22 = getelementptr i8, ptr %.val114, i64 888
-  %.val120 = load ptr, ptr %22, align 8, !tbaa !77
+  %.val120 = load ptr, ptr %22, align 8, !tbaa !76
   %23 = getelementptr i8, ptr %.val120, i64 32
   %.val120.val = load ptr, ptr %23, align 8, !tbaa !30
   %24 = getelementptr inbounds nuw i8, ptr %.val120.val, i64 16
@@ -2240,7 +2240,7 @@ Py_DECREF.exit99:                                 ; preds = %12, %15, %18
   %.063 = phi i64 [ 0, %20 ], [ %157, %156 ]
   %.val113 = load ptr, ptr %26, align 8, !tbaa !27
   %31 = getelementptr i8, ptr %.val113, i64 168
-  %.val118 = load i64, ptr %31, align 8, !tbaa !70
+  %.val118 = load i64, ptr %31, align 8, !tbaa !69
   %32 = and i64 %.val118, 33554432
   %.not = icmp eq i64 %32, 0
   %.val115 = load i64, ptr %27, align 8, !tbaa !45
@@ -2254,7 +2254,7 @@ Py_DECREF.exit99:                                 ; preds = %12, %15, %18
   br i1 %33, label %.thread121, label %158
 
 .thread121:                                       ; preds = %.thread
-  %35 = load ptr, ptr %28, align 8, !tbaa !71
+  %35 = load ptr, ptr %28, align 8, !tbaa !70
   %36 = getelementptr ptr, ptr %35, i64 %.063
   br label %39
 
@@ -2337,7 +2337,7 @@ Py_DECREF.exit93:                                 ; preds = %59, %62, %65
 
 70:                                               ; preds = %57
   %71 = getelementptr inbounds nuw i8, ptr %50, i64 64
-  %72 = load i32, ptr %71, align 8, !tbaa !74
+  %72 = load i32, ptr %71, align 8, !tbaa !73
   %.not73 = icmp eq i32 %72, 0
   br i1 %.not73, label %92, label %73
 
@@ -2346,7 +2346,7 @@ Py_DECREF.exit93:                                 ; preds = %59, %62, %65
   %75 = load i64, ptr %74, align 8, !tbaa !48
   %76 = add i64 %75, %2
   %77 = getelementptr inbounds nuw i8, ptr %50, i64 16
-  %78 = load i64, ptr %77, align 8, !tbaa !75
+  %78 = load i64, ptr %77, align 8, !tbaa !74
   %79 = add i64 %78, %3
   %80 = call fastcc i32 @MakeFields(ptr noundef %0, ptr noundef %50, i64 noundef %76, i64 noundef %79)
   %81 = load i32, ptr %50, align 8, !tbaa !19
@@ -2379,7 +2379,7 @@ Py_DECREF.exit89:                                 ; preds = %73, %82, %85
   br i1 %91, label %Py_DECREF.exit97.thread.sink.split, label %Py_DECREF.exit97.thread
 
 92:                                               ; preds = %70
-  %93 = load ptr, ptr %29, align 8, !tbaa !86
+  %93 = load ptr, ptr %29, align 8, !tbaa !85
   %94 = call ptr %93(ptr noundef %25, i64 noundef 0) #8
   %95 = icmp eq ptr %94, null
   br i1 %95, label %96, label %106
@@ -2412,14 +2412,14 @@ Py_DECREF.exit85:                                 ; preds = %96, %98, %101
 
 106:                                              ; preds = %92
   %107 = getelementptr inbounds nuw i8, ptr %50, i64 24
-  %108 = load i64, ptr %107, align 8, !tbaa !87
+  %108 = load i64, ptr %107, align 8, !tbaa !86
   %109 = getelementptr inbounds nuw i8, ptr %94, i64 24
-  store i64 %108, ptr %109, align 8, !tbaa !87
+  store i64 %108, ptr %109, align 8, !tbaa !86
   %110 = getelementptr inbounds nuw i8, ptr %50, i64 16
-  %111 = load i64, ptr %110, align 8, !tbaa !75
+  %111 = load i64, ptr %110, align 8, !tbaa !74
   %112 = add i64 %111, %3
   %113 = getelementptr inbounds nuw i8, ptr %94, i64 16
-  store i64 %112, ptr %113, align 8, !tbaa !75
+  store i64 %112, ptr %113, align 8, !tbaa !74
   %114 = getelementptr inbounds nuw i8, ptr %50, i64 32
   %115 = load i64, ptr %114, align 8, !tbaa !48
   %116 = add i64 %115, %2
@@ -2444,13 +2444,13 @@ _Py_XNewRef.exit:                                 ; preds = %106, %120, %123
   %125 = getelementptr inbounds nuw i8, ptr %94, i64 40
   store ptr %119, ptr %125, align 8, !tbaa !51
   %126 = getelementptr inbounds nuw i8, ptr %50, i64 48
-  %127 = load ptr, ptr %126, align 8, !tbaa !88
+  %127 = load ptr, ptr %126, align 8, !tbaa !87
   %128 = getelementptr inbounds nuw i8, ptr %94, i64 48
-  store ptr %127, ptr %128, align 8, !tbaa !88
+  store ptr %127, ptr %128, align 8, !tbaa !87
   %129 = getelementptr inbounds nuw i8, ptr %50, i64 56
-  %130 = load ptr, ptr %129, align 8, !tbaa !89
+  %130 = load ptr, ptr %129, align 8, !tbaa !88
   %131 = getelementptr inbounds nuw i8, ptr %94, i64 56
-  store ptr %130, ptr %131, align 8, !tbaa !89
+  store ptr %130, ptr %131, align 8, !tbaa !88
   %132 = load i32, ptr %50, align 8, !tbaa !19
   %.not.i80 = icmp sgt i32 %132, -1
   br i1 %.not.i80, label %133, label %Py_DECREF.exit81
@@ -2528,7 +2528,7 @@ Py_DECREF.exit97.thread:                          ; preds = %Py_DECREF.exit97.th
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #8
   %157 = add nuw nsw i64 %.063, 1
-  br label %30, !llvm.loop !90
+  br label %30, !llvm.loop !89
 
 158:                                              ; preds = %.thread, %34
   %159 = load i32, ptr %13, align 8, !tbaa !19
@@ -2623,38 +2623,37 @@ attributes #9 = { nounwind willreturn memory(read) }
 !53 = !{!12, !12, i64 0}
 !54 = !{!55, !55, i64 0}
 !55 = !{!"p1 _ZTS9_ffi_type", !12, i64 0}
-!56 = distinct !{!56, !57, !58}
+!56 = distinct !{!56, !57}
 !57 = !{!"llvm.loop.mustprogress"}
-!58 = !{!"llvm.loop.estimated_trip_count"}
-!59 = !{!4, !10, i64 40}
-!60 = !{!4, !8, i64 32}
-!61 = !{!4, !8, i64 8}
-!62 = !{!4, !8, i64 16}
-!63 = distinct !{!63, !57, !58}
-!64 = !{!9, !8, i64 0}
-!65 = !{!9, !10, i64 8}
-!66 = !{!9, !10, i64 10}
-!67 = !{!9, !11, i64 16}
-!68 = distinct !{!68, !57, !58}
-!69 = distinct !{!69, !57, !58}
-!70 = !{!38, !8, i64 168}
-!71 = !{!72, !73, i64 24}
-!72 = !{!"", !39, i64 0, !73, i64 24, !8, i64 32}
-!73 = !{!"p2 _ZTS7_object", !12, i64 0}
-!74 = !{!49, !5, i64 64}
-!75 = !{!49, !8, i64 16}
-!76 = distinct !{!76, !57, !58}
-!77 = !{!78, !13, i64 888}
-!78 = !{!"_heaptypeobject", !38, i64 0, !79, i64 416, !80, i64 448, !81, i64 736, !82, i64 760, !83, i64 840, !13, i64 856, !13, i64 864, !13, i64 872, !84, i64 880, !13, i64 888, !14, i64 896, !12, i64 904, !85, i64 912}
-!79 = !{!"", !12, i64 0, !12, i64 8, !12, i64 16, !12, i64 24}
-!80 = !{!"", !12, i64 0, !12, i64 8, !12, i64 16, !12, i64 24, !12, i64 32, !12, i64 40, !12, i64 48, !12, i64 56, !12, i64 64, !12, i64 72, !12, i64 80, !12, i64 88, !12, i64 96, !12, i64 104, !12, i64 112, !12, i64 120, !12, i64 128, !12, i64 136, !12, i64 144, !12, i64 152, !12, i64 160, !12, i64 168, !12, i64 176, !12, i64 184, !12, i64 192, !12, i64 200, !12, i64 208, !12, i64 216, !12, i64 224, !12, i64 232, !12, i64 240, !12, i64 248, !12, i64 256, !12, i64 264, !12, i64 272, !12, i64 280}
-!81 = !{!"", !12, i64 0, !12, i64 8, !12, i64 16}
-!82 = !{!"", !12, i64 0, !12, i64 8, !12, i64 16, !12, i64 24, !12, i64 32, !12, i64 40, !12, i64 48, !12, i64 56, !12, i64 64, !12, i64 72}
-!83 = !{!"", !12, i64 0, !12, i64 8}
-!84 = !{!"p1 _ZTS15_dictkeysobject", !12, i64 0}
-!85 = !{!"_specialization_cache", !13, i64 0, !5, i64 8, !13, i64 16}
-!86 = !{!38, !12, i64 304}
-!87 = !{!49, !8, i64 24}
-!88 = !{!49, !12, i64 48}
-!89 = !{!49, !12, i64 56}
-!90 = distinct !{!90, !57, !58}
+!58 = !{!4, !10, i64 40}
+!59 = !{!4, !8, i64 32}
+!60 = !{!4, !8, i64 8}
+!61 = !{!4, !8, i64 16}
+!62 = distinct !{!62, !57}
+!63 = !{!9, !8, i64 0}
+!64 = !{!9, !10, i64 8}
+!65 = !{!9, !10, i64 10}
+!66 = !{!9, !11, i64 16}
+!67 = distinct !{!67, !57}
+!68 = distinct !{!68, !57}
+!69 = !{!38, !8, i64 168}
+!70 = !{!71, !72, i64 24}
+!71 = !{!"", !39, i64 0, !72, i64 24, !8, i64 32}
+!72 = !{!"p2 _ZTS7_object", !12, i64 0}
+!73 = !{!49, !5, i64 64}
+!74 = !{!49, !8, i64 16}
+!75 = distinct !{!75, !57}
+!76 = !{!77, !13, i64 888}
+!77 = !{!"_heaptypeobject", !38, i64 0, !78, i64 416, !79, i64 448, !80, i64 736, !81, i64 760, !82, i64 840, !13, i64 856, !13, i64 864, !13, i64 872, !83, i64 880, !13, i64 888, !14, i64 896, !12, i64 904, !84, i64 912}
+!78 = !{!"", !12, i64 0, !12, i64 8, !12, i64 16, !12, i64 24}
+!79 = !{!"", !12, i64 0, !12, i64 8, !12, i64 16, !12, i64 24, !12, i64 32, !12, i64 40, !12, i64 48, !12, i64 56, !12, i64 64, !12, i64 72, !12, i64 80, !12, i64 88, !12, i64 96, !12, i64 104, !12, i64 112, !12, i64 120, !12, i64 128, !12, i64 136, !12, i64 144, !12, i64 152, !12, i64 160, !12, i64 168, !12, i64 176, !12, i64 184, !12, i64 192, !12, i64 200, !12, i64 208, !12, i64 216, !12, i64 224, !12, i64 232, !12, i64 240, !12, i64 248, !12, i64 256, !12, i64 264, !12, i64 272, !12, i64 280}
+!80 = !{!"", !12, i64 0, !12, i64 8, !12, i64 16}
+!81 = !{!"", !12, i64 0, !12, i64 8, !12, i64 16, !12, i64 24, !12, i64 32, !12, i64 40, !12, i64 48, !12, i64 56, !12, i64 64, !12, i64 72}
+!82 = !{!"", !12, i64 0, !12, i64 8}
+!83 = !{!"p1 _ZTS15_dictkeysobject", !12, i64 0}
+!84 = !{!"_specialization_cache", !13, i64 0, !5, i64 8, !13, i64 16}
+!85 = !{!38, !12, i64 304}
+!86 = !{!49, !8, i64 24}
+!87 = !{!49, !12, i64 48}
+!88 = !{!49, !12, i64 56}
+!89 = distinct !{!89, !57}

@@ -83,7 +83,7 @@ define hidden void @ruby_init_setproctitle(i32 noundef %0, ptr noundef %1) local
   %.145 = phi ptr [ %27, %24 ], [ %.04454, %19 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.preheader, label %.lr.ph, !llvm.loop !17
+  br i1 %exitcond.not, label %.preheader, label %.lr.ph, !llvm.loop !16
 
 .lr.ph59:                                         ; preds = %.preheader, %35
   %29 = phi ptr [ %39, %35 ], [ %17, %.preheader ]
@@ -105,7 +105,7 @@ define hidden void @ruby_init_setproctitle(i32 noundef %0, ptr noundef %1) local
   %38 = getelementptr ptr, ptr %3, i64 %37
   %39 = load ptr, ptr %38, align 8, !tbaa !12
   %.not51 = icmp eq ptr %39, null
-  br i1 %.not51, label %._crit_edge, label %.lr.ph59, !llvm.loop !18
+  br i1 %.not51, label %._crit_edge, label %.lr.ph59, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %35, %.preheader
   %.046.lcssa = phi ptr [ %.044.lcssa, %.preheader ], [ %.147, %35 ]
@@ -116,10 +116,10 @@ define hidden void @ruby_init_setproctitle(i32 noundef %0, ptr noundef %1) local
   %42 = ptrtoint ptr %.044.lcssa to i64
   %43 = ptrtoint ptr %41 to i64
   %44 = sub i64 %42, %43
-  store i64 %44, ptr @argv_len, align 8, !tbaa !19
+  store i64 %44, ptr @argv_len, align 8, !tbaa !18
   %45 = ptrtoint ptr %.046.lcssa to i64
   %46 = sub i64 %45, %43
-  store i64 %46, ptr @argv_env_len, align 8, !tbaa !19
+  store i64 %46, ptr @argv_env_len, align 8, !tbaa !18
   br i1 %.not5156, label %._crit_edge.._crit_edge65_crit_edge, label %.lr.ph64
 
 ._crit_edge.._crit_edge65_crit_edge:              ; preds = %._crit_edge
@@ -142,7 +142,7 @@ define hidden void @ruby_init_setproctitle(i32 noundef %0, ptr noundef %1) local
   %56 = getelementptr ptr, ptr %3, i64 %55
   %57 = load ptr, ptr %56, align 8, !tbaa !12
   %.not52 = icmp eq ptr %57, null
-  br i1 %.not52, label %._crit_edge65, label %.lr.ph64, !llvm.loop !21
+  br i1 %.not52, label %._crit_edge65, label %.lr.ph64, !llvm.loop !20
 
 ._crit_edge65:                                    ; preds = %.lr.ph64, %._crit_edge.._crit_edge65_crit_edge
   %58 = phi ptr [ %.pre69, %._crit_edge.._crit_edge65_crit_edge ], [ %52, %.lr.ph64 ]
@@ -203,7 +203,7 @@ define hidden void @ruby_free_proctitle() local_unnamed_addr #0 {
   %10 = getelementptr ptr, ptr %8, i64 %9
   %11 = load ptr, ptr %10, align 8, !tbaa !12
   %.not4 = icmp eq ptr %11, null
-  br i1 %.not4, label %._crit_edge, label %.lr.ph, !llvm.loop !22
+  br i1 %.not4, label %._crit_edge, label %.lr.ph, !llvm.loop !21
 
 12:                                               ; preds = %0, %._crit_edge
   ret void
@@ -217,7 +217,7 @@ define dso_local void @setproctitle(ptr noundef %0, ...) local_unnamed_addr #0 {
   %3 = alloca [1024 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2) #10
   call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %3) #10
-  %4 = load i64, ptr @argv_env_len, align 8, !tbaa !19
+  %4 = load i64, ptr @argv_env_len, align 8, !tbaa !18
   %5 = icmp eq i64 %4, 0
   br i1 %5, label %19, label %6
 
@@ -226,9 +226,9 @@ define dso_local void @setproctitle(ptr noundef %0, ...) local_unnamed_addr #0 {
   %7 = call i32 @ruby_vsnprintf(ptr noundef nonnull %3, i64 noundef 1024, ptr noundef %0, ptr noundef nonnull %2) #10
   call void @llvm.va_end.p0(ptr nonnull %2)
   %8 = load ptr, ptr @argv_start, align 8, !tbaa !12
-  %9 = load i64, ptr @argv_env_len, align 8, !tbaa !19
+  %9 = load i64, ptr @argv_env_len, align 8, !tbaa !18
   %10 = call i64 @strlcpy(ptr noundef %8, ptr noundef nonnull dereferenceable(1) %3, i64 noundef %9) #10
-  %11 = load i64, ptr @argv_len, align 8, !tbaa !19
+  %11 = load i64, ptr @argv_len, align 8, !tbaa !18
   %12 = icmp ugt i64 %10, %11
   %13 = load i64, ptr @argv_env_len, align 8
   %14 = select i1 %12, i64 %13, i64 %11
@@ -239,7 +239,7 @@ define dso_local void @setproctitle(ptr noundef %0, ...) local_unnamed_addr #0 {
   %16 = load ptr, ptr @argv_start, align 8, !tbaa !12
   %scevgep = getelementptr i8, ptr %16, i64 %10
   %17 = sub nuw i64 %14, %10
-  call void @llvm.memset.p0.i64(ptr align 1 %scevgep, i8 0, i64 %17, i1 false), !tbaa !23
+  call void @llvm.memset.p0.i64(ptr align 1 %scevgep, i8 0, i64 %17, i1 false), !tbaa !22
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph, %6
@@ -295,13 +295,12 @@ attributes #10 = { nounwind }
 !11 = !{!"Simple C/C++ TBAA"}
 !12 = !{!13, !13, i64 0}
 !13 = !{!"p1 omnipotent char", !9, i64 0}
-!14 = distinct !{!14, !15, !16}
+!14 = distinct !{!14, !15}
 !15 = !{!"llvm.loop.mustprogress"}
-!16 = !{!"llvm.loop.estimated_trip_count"}
-!17 = distinct !{!17, !15, !16}
-!18 = distinct !{!18, !15, !16}
-!19 = !{!20, !20, i64 0}
-!20 = !{!"long", !10, i64 0}
-!21 = distinct !{!21, !15, !16}
-!22 = distinct !{!22, !15, !16}
-!23 = !{!10, !10, i64 0}
+!16 = distinct !{!16, !15}
+!17 = distinct !{!17, !15}
+!18 = !{!19, !19, i64 0}
+!19 = !{!"long", !10, i64 0}
+!20 = distinct !{!20, !15}
+!21 = distinct !{!21, !15}
+!22 = !{!10, !10, i64 0}

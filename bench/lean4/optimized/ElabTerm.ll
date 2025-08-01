@@ -118567,7 +118567,7 @@ lean_dec.exit39:                                  ; preds = %58, %57, %55, %lean
 
 lean_dec.exit40.backedge:                         ; preds = %61, %65, %67, %68, %24, %30, %32, %33, %lean_alloc_ctor.exit, %34
   %.034.be = phi ptr [ %.0, %34 ], [ %70, %lean_alloc_ctor.exit ], [ %.034, %33 ], [ %.034, %32 ], [ %.034, %30 ], [ %.034, %24 ], [ %.034, %68 ], [ %.034, %67 ], [ %.034, %65 ], [ %.034, %61 ]
-  br label %lean_dec.exit40, !llvm.loop !21
+  br label %lean_dec.exit40
 
 62:                                               ; preds = %61
   %63 = load i32, ptr %18, align 4, !tbaa !4
@@ -139262,5 +139262,3 @@ attributes #7 = { "function-inline-cost-multiplier"="2" }
 !18 = !{!"branch_weights", !"expected", i32 1, i32 2000}
 !19 = !{!"branch_weights", i32 4000000, i32 4001}
 !20 = !{!"branch_weights", i32 4001, i32 4000000}
-!21 = distinct !{!21, !22}
-!22 = !{!"llvm.loop.estimated_trip_count"}

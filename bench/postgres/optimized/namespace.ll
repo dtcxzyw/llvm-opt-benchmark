@@ -322,7 +322,7 @@ RelnameGetRelid.exit:                             ; preds = %.lr.ph33.i, %56, %R
 95:                                               ; preds = %76, %77, %74
   %96 = load i64, ptr @SharedInvalidMessageCounter, align 8
   %97 = icmp eq i64 %30, %96
-  br i1 %97, label %98, label %29, !llvm.loop !4
+  br i1 %97, label %98, label %29
 
 98:                                               ; preds = %95, %69, %67
   %.094.lcssa = phi i32 [ %.094, %95 ], [ %.095, %69 ], [ %.094, %67 ]
@@ -545,7 +545,7 @@ define dso_local i32 @RangeVarGetCreationNamespace(ptr noundef readonly captures
 
 34:                                               ; preds = %30
   tail call fastcc void @recomputeNamespacePath()
-  %35 = load i8, ptr @activeTempCreationPending, align 1, !range !6, !noundef !7
+  %35 = load i8, ptr @activeTempCreationPending, align 1, !range !4, !noundef !5
   %36 = trunc nuw i8 %35 to i1
   br i1 %36, label %get_namespace_oid.exit.sink.split, label %37
 
@@ -857,7 +857,7 @@ preprocessNamespacePath.exit.i:                   ; preds = %66, %.lr.ph.i.i, %2
 
 77:                                               ; preds = %71
   %78 = getelementptr inbounds nuw i8, ptr %7, i64 37
-  %79 = load i8, ptr %78, align 1, !range !6, !noundef !7
+  %79 = load i8, ptr %78, align 1, !range !4, !noundef !5
   %80 = trunc nuw i8 %79 to i1
   br i1 %80, label %81, label %cachedNamespacePath.exit
 
@@ -965,9 +965,9 @@ cachedNamespacePath.exit:                         ; preds = %77, %finalNamespace
   br i1 %126, label %127, label %.critedge
 
 127:                                              ; preds = %cachedNamespacePath.exit
-  %128 = load i8, ptr @baseTempCreationPending, align 1, !range !6, !noundef !7
+  %128 = load i8, ptr @baseTempCreationPending, align 1, !range !4, !noundef !5
   %129 = getelementptr inbounds nuw i8, ptr %7, i64 36
-  %130 = load i8, ptr %129, align 4, !range !6, !noundef !7
+  %130 = load i8, ptr %129, align 4, !range !4, !noundef !5
   %131 = icmp eq i8 %128, %130
   br i1 %131, label %132, label %.critedge
 
@@ -993,7 +993,7 @@ cachedNamespacePath.exit:                         ; preds = %77, %finalNamespace
   %140 = load i32, ptr %124, align 8
   store i32 %140, ptr @baseCreationNamespace, align 4
   %141 = getelementptr inbounds nuw i8, ptr %7, i64 36
-  %142 = load i8, ptr %141, align 4, !range !6, !noundef !7
+  %142 = load i8, ptr %141, align 4, !range !4, !noundef !5
   store i8 %142, ptr @baseTempCreationPending, align 1
   store i1 false, ptr @baseSearchPathValid, align 1
   store i32 %2, ptr @namespaceUser, align 4
@@ -1012,7 +1012,7 @@ cachedNamespacePath.exit:                         ; preds = %77, %finalNamespace
   store ptr %146, ptr @activeSearchPath, align 8
   %147 = load i32, ptr @baseCreationNamespace, align 4
   store i32 %147, ptr @activeCreationNamespace, align 4
-  %148 = load i8, ptr @baseTempCreationPending, align 1, !range !6, !noundef !7
+  %148 = load i8, ptr @baseTempCreationPending, align 1, !range !4, !noundef !5
   store i8 %148, ptr @activeTempCreationPending, align 1
   br label %149
 
@@ -1147,7 +1147,7 @@ define dso_local noundef i32 @RangeVarGetAndCheckCreationNamespace(ptr noundef c
 59:                                               ; preds = %57, %58, %48
   %60 = load i64, ptr @SharedInvalidMessageCounter, align 8
   %61 = icmp eq i64 %23, %60
-  br i1 %61, label %select.unfold, label %22, !llvm.loop !8
+  br i1 %61, label %select.unfold, label %22
 
 select.unfold:                                    ; preds = %59, %28, %37
   %.053.lcssa = phi i32 [ %.053, %59 ], [ %.053, %28 ], [ %.057, %37 ]
@@ -1758,7 +1758,7 @@ define dso_local ptr @FuncnameGetCandidates(ptr noundef readonly captures(addres
 62:                                               ; preds = %.loopexit303
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %15) #18
   %63 = call i64 @SysCacheGetAttr(i32 noundef 46, ptr noundef nonnull %36, i16 noundef signext 21, ptr noundef nonnull %15) #18
-  %64 = load i8, ptr %15, align 1, !range !6, !noundef !7
+  %64 = load i8, ptr %15, align 1, !range !4, !noundef !5
   %65 = trunc nuw i8 %64 to i1
   br i1 %65, label %86, label %66
 
@@ -1847,7 +1847,7 @@ define dso_local ptr @FuncnameGetCandidates(ptr noundef readonly captures(addres
   call void @llvm.lifetime.start.p0(i64 100, ptr nonnull %11) #18
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %12) #18
   %108 = call i64 @SysCacheGetAttr(i32 noundef 47, ptr noundef nonnull %36, i16 noundef signext 23, ptr noundef nonnull %12) #18
-  %109 = load i8, ptr %12, align 1, !range !6, !noundef !7
+  %109 = load i8, ptr %12, align 1, !range !4, !noundef !5
   %110 = trunc nuw i8 %109 to i1
   br i1 %110, label %MatchNamedCall.exit.thread, label %111
 
@@ -1899,7 +1899,7 @@ define dso_local ptr @FuncnameGetCandidates(ptr noundef readonly captures(addres
   %128 = load i32, ptr %29, align 4
   %129 = sext i32 %128 to i64
   %.not80.not.us.i = icmp slt i64 %indvars.iv.next152.i, %129
-  br i1 %.not80.not.us.i, label %.lr.ph101.us.i, label %.critedge.thread.i, !llvm.loop !9
+  br i1 %.not80.not.us.i, label %.lr.ph101.us.i, label %.critedge.thread.i, !llvm.loop !6
 
 130:                                              ; preds = %136, %.lr.ph101.us.i
   %indvars.iv144.i = phi i64 [ %indvars.iv.next145.i, %136 ], [ 0, %.lr.ph101.us.i ]
@@ -1916,13 +1916,13 @@ define dso_local ptr @FuncnameGetCandidates(ptr noundef readonly captures(addres
 136:                                              ; preds = %133, %130
   %indvars.iv.next145.i = add nuw nsw i64 %indvars.iv144.i, 1
   %exitcond150.not.i = icmp eq i64 %indvars.iv.next145.i, %wide.trip.count149.i
-  br i1 %exitcond150.not.i, label %MatchNamedCall.exit.thread, label %130, !llvm.loop !12
+  br i1 %exitcond150.not.i, label %MatchNamedCall.exit.thread, label %130, !llvm.loop !9
 
 .split.us.us.i:                                   ; preds = %133
   %sext.i = shl i64 %indvars.iv144.i, 32
   %137 = ashr exact i64 %sext.i, 32
   %138 = getelementptr inbounds [100 x i8], ptr %11, i64 0, i64 %137
-  %139 = load i8, ptr %138, align 1, !range !6, !noundef !7
+  %139 = load i8, ptr %138, align 1, !range !4, !noundef !5
   %140 = trunc nuw i8 %139 to i1
   br i1 %140, label %MatchNamedCall.exit.thread, label %124
 
@@ -1933,7 +1933,7 @@ define dso_local ptr @FuncnameGetCandidates(ptr noundef readonly captures(addres
   store i32 %142, ptr %141, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %117
-  br i1 %exitcond.not.i, label %.preheader.i, label %.lr.ph.i, !llvm.loop !13
+  br i1 %exitcond.not.i, label %.preheader.i, label %.lr.ph.i, !llvm.loop !10
 
 .lr.ph101.i:                                      ; preds = %.lr.ph106.split.i, %170
   %indvars.iv141.i = phi i64 [ %indvars.iv.next142.i, %170 ], [ 0, %.lr.ph106.split.i ]
@@ -1961,7 +1961,7 @@ define dso_local ptr @FuncnameGetCandidates(ptr noundef readonly captures(addres
 154:                                              ; preds = %151, %.lr.ph101.split.us.i
   %indvars.iv.next135.i = add nuw nsw i64 %indvars.iv134.i, 1
   %exitcond140.not.i = icmp eq i64 %indvars.iv.next135.i, %wide.trip.count149.i
-  br i1 %exitcond140.not.i, label %MatchNamedCall.exit.thread, label %.lr.ph101.split.us.i, !llvm.loop !12
+  br i1 %exitcond140.not.i, label %MatchNamedCall.exit.thread, label %.lr.ph101.split.us.i, !llvm.loop !9
 
 .lr.ph101.split.i:                                ; preds = %.lr.ph101.i, %169
   %indvars.iv129.i = phi i64 [ %indvars.iv.next130.i, %169 ], [ 0, %.lr.ph101.i ]
@@ -1993,7 +1993,7 @@ define dso_local ptr @FuncnameGetCandidates(ptr noundef readonly captures(addres
   %.us-phi.i = phi i32 [ %indvars138.le.i, %.split.us.loopexit.i ], [ %.06699.i, %160 ]
   %163 = sext i32 %.us-phi.i to i64
   %164 = getelementptr inbounds [100 x i8], ptr %11, i64 0, i64 %163
-  %165 = load i8, ptr %164, align 1, !range !6, !noundef !7
+  %165 = load i8, ptr %164, align 1, !range !4, !noundef !5
   %166 = trunc nuw i8 %165 to i1
   br i1 %166, label %MatchNamedCall.exit.thread, label %170
 
@@ -2005,7 +2005,7 @@ define dso_local ptr @FuncnameGetCandidates(ptr noundef readonly captures(addres
   %.167.i = phi i32 [ %168, %167 ], [ %.06699.i, %.lr.ph101.split.i ]
   %indvars.iv.next130.i = add nuw nsw i64 %indvars.iv129.i, 1
   %exitcond133.not.i = icmp eq i64 %indvars.iv.next130.i, %wide.trip.count149.i
-  br i1 %exitcond133.not.i, label %MatchNamedCall.exit.thread, label %.lr.ph101.split.i, !llvm.loop !14
+  br i1 %exitcond133.not.i, label %MatchNamedCall.exit.thread, label %.lr.ph101.split.i, !llvm.loop !11
 
 170:                                              ; preds = %.split.us.i
   store i8 1, ptr %164, align 1
@@ -2017,7 +2017,7 @@ define dso_local ptr @FuncnameGetCandidates(ptr noundef readonly captures(addres
   %174 = load i32, ptr %29, align 4
   %175 = sext i32 %174 to i64
   %.not80.not.i = icmp slt i64 %indvars.iv.next142.i, %175
-  br i1 %.not80.not.i, label %.lr.ph101.i, label %.critedge.thread.i, !llvm.loop !15
+  br i1 %.not80.not.i, label %.lr.ph101.i, label %.critedge.thread.i, !llvm.loop !12
 
 .critedge.thread.i:                               ; preds = %170, %124, %.preheader.i
   %.162.lcssa.i = phi i32 [ %.061.lcssa.i, %.preheader.i ], [ %127, %124 ], [ %173, %170 ]
@@ -2038,7 +2038,7 @@ define dso_local ptr @FuncnameGetCandidates(ptr noundef readonly captures(addres
   %indvars.iv154.i = phi i64 [ %180, %.lr.ph112.preheader.i ], [ %indvars.iv.next155.i, %192 ]
   %.465111.i = phi i32 [ %.162.lcssa.i, %.lr.ph112.preheader.i ], [ %.5.i, %192 ]
   %182 = getelementptr inbounds [100 x i8], ptr %11, i64 0, i64 %indvars.iv154.i
-  %183 = load i8, ptr %182, align 1, !range !6, !noundef !7
+  %183 = load i8, ptr %182, align 1, !range !4, !noundef !5
   %184 = trunc nuw i8 %183 to i1
   br i1 %184, label %192, label %185
 
@@ -2059,7 +2059,7 @@ define dso_local ptr @FuncnameGetCandidates(ptr noundef readonly captures(addres
   %indvars.iv.next155.i = add nsw i64 %indvars.iv154.i, 1
   %lftr.wideiv.i = trunc i64 %indvars.iv.next155.i to i32
   %exitcond157.not.i = icmp eq i32 %.0216, %lftr.wideiv.i
-  br i1 %exitcond157.not.i, label %MatchNamedCall.exit, label %.lr.ph112.i, !llvm.loop !16
+  br i1 %exitcond157.not.i, label %MatchNamedCall.exit, label %.lr.ph112.i, !llvm.loop !13
 
 MatchNamedCall.exit.thread:                       ; preds = %.split.us.i, %.split.us.us.i, %185, %169, %154, %136, %.thread263, %.lr.ph106.i
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %12) #18
@@ -2164,7 +2164,7 @@ MatchNamedCall.exit:                              ; preds = %192, %.critedge.thr
   store i32 %233, ptr %234, align 4
   %indvars.iv.next355 = add nuw nsw i64 %indvars.iv354, 1
   %exitcond358.not = icmp eq i64 %indvars.iv.next355, %wide.trip.count357
-  br i1 %exitcond358.not, label %.loopexit298, label %228, !llvm.loop !17
+  br i1 %exitcond358.not, label %.loopexit298, label %228, !llvm.loop !14
 
 235:                                              ; preds = %214
   %236 = getelementptr inbounds nuw i8, ptr %219, i64 40
@@ -2194,7 +2194,7 @@ MatchNamedCall.exit:                              ; preds = %192, %.critedge.thr
   %indvars.iv.next360 = add nsw i64 %indvars.iv359, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next360 to i32
   %exitcond362.not = icmp eq i32 %215, %lftr.wideiv
-  br i1 %exitcond362.not, label %.loopexit296, label %245, !llvm.loop !18
+  br i1 %exitcond362.not, label %.loopexit296, label %245, !llvm.loop !15
 
 247:                                              ; preds = %.loopexit298
   %248 = getelementptr inbounds nuw i8, ptr %219, i64 24
@@ -2215,7 +2215,7 @@ MatchNamedCall.exit:                              ; preds = %192, %.critedge.thr
   br i1 %or.cond19.not, label %254, label %.thread286
 
 254:                                              ; preds = %253
-  %255 = load i8, ptr %32, align 1, !range !6, !noundef !7
+  %255 = load i8, ptr %32, align 1, !range !4, !noundef !5
   %256 = trunc nuw i8 %255 to i1
   %.not20 = xor i1 %256, true
   %or.cond22 = or i1 %.2196, %.not20
@@ -2261,7 +2261,7 @@ MatchNamedCall.exit:                              ; preds = %192, %.critedge.thr
 280:                                              ; preds = %270, %277
   %281 = load ptr, ptr %.1324, align 8
   %.not = icmp eq ptr %281, null
-  br i1 %.not, label %.thread286, label %270, !llvm.loop !19
+  br i1 %.not, label %.thread286, label %270, !llvm.loop !16
 
 .loopexit295:                                     ; preds = %277, %261
   %.0189 = phi ptr [ %.0192331, %261 ], [ %.1324, %277 ]
@@ -2312,7 +2312,7 @@ MatchNamedCall.exit:                              ; preds = %192, %.critedge.thr
 297:                                              ; preds = %.preheader
   %298 = load ptr, ptr %.0, align 8
   %299 = icmp eq ptr %.0189, %298
-  br i1 %299, label %300, label %.preheader, !llvm.loop !20
+  br i1 %299, label %300, label %.preheader, !llvm.loop !17
 
 300:                                              ; preds = %297
   %301 = load ptr, ptr %.0189, align 8
@@ -2342,7 +2342,7 @@ MatchNamedCall.exit:                              ; preds = %192, %.critedge.thr
   %303 = load i32, ptr %24, align 8
   %304 = sext i32 %303 to i64
   %305 = icmp slt i64 %indvars.iv.next364, %304
-  br i1 %305, label %33, label %._crit_edge, !llvm.loop !21
+  br i1 %305, label %33, label %._crit_edge, !llvm.loop !18
 
 ._crit_edge:                                      ; preds = %.thread260, %20
   %.0192.lcssa = phi ptr [ null, %20 ], [ %.1193, %.thread260 ]
@@ -2534,7 +2534,7 @@ define internal fastcc zeroext i1 @FunctionIsVisibleExt(i32 noundef %0, ptr noun
 39:                                               ; preds = %32
   %40 = load ptr, ptr %.02232, align 8
   %.not29 = icmp eq ptr %40, null
-  br i1 %.not29, label %.loopexit, label %32, !llvm.loop !22
+  br i1 %.not29, label %.loopexit, label %32, !llvm.loop !19
 
 .loopexit:                                        ; preds = %39, %21, %35, %18
   %.023 = phi i1 [ false, %18 ], [ %38, %35 ], [ false, %21 ], [ false, %39 ]
@@ -2637,7 +2637,7 @@ define dso_local i32 @OpernameGetOprid(ptr noundef readonly captures(address_is_
 48:                                               ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !23
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !20
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %48
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %48 ]
@@ -2763,7 +2763,7 @@ define dso_local ptr @OpernameGetCandidates(ptr noundef readonly captures(addres
   br i1 %.not155, label %.split.us139, label %89
 
 42:                                               ; preds = %.split.us139
-  %43 = load i8, ptr %28, align 1, !range !6, !noundef !7
+  %43 = load i8, ptr %28, align 1, !range !4, !noundef !5
   %44 = trunc nuw i8 %43 to i1
   %45 = getelementptr inbounds nuw i8, ptr %35, i64 80
   %46 = load i32, ptr %45, align 4
@@ -2786,7 +2786,7 @@ define dso_local ptr @OpernameGetCandidates(ptr noundef readonly captures(addres
 56:                                               ; preds = %51, %47
   %57 = load ptr, ptr %.1129.us, align 8
   %.not99.us = icmp eq ptr %57, null
-  br i1 %.not99.us, label %.thread117.us, label %47, !llvm.loop !24
+  br i1 %.not99.us, label %.thread117.us, label %47, !llvm.loop !21
 
 58:                                               ; preds = %42
   %59 = getelementptr inbounds nuw i8, ptr %.074132.us, i64 40
@@ -2854,7 +2854,7 @@ define dso_local ptr @OpernameGetCandidates(ptr noundef readonly captures(addres
   %90 = load i32, ptr %15, align 8
   %91 = sext i32 %90 to i64
   %92 = icmp slt i64 %indvars.iv.next171, %91
-  br i1 %92, label %.lr.ph136.split.us, label %._crit_edge, !llvm.loop !25
+  br i1 %92, label %.lr.ph136.split.us, label %._crit_edge, !llvm.loop !22
 
 .preheader.us:                                    ; preds = %42
   %93 = getelementptr inbounds nuw i8, ptr %35, i64 84
@@ -2937,7 +2937,7 @@ define dso_local ptr @OpernameGetCandidates(ptr noundef readonly captures(addres
   %indvars.iv.next163 = add nuw nsw i64 %indvars.iv162, 1
   %125 = sext i32 %124 to i64
   %126 = icmp slt i64 %indvars.iv.next163, %125
-  br i1 %126, label %.lr.ph136.split.split.us, label %._crit_edge, !llvm.loop !26
+  br i1 %126, label %.lr.ph136.split.split.us, label %._crit_edge, !llvm.loop !23
 
 .lr.ph136.split.split:                            ; preds = %.lr.ph136.split, %.thread105
   %127 = phi i32 [ %155, %.thread105 ], [ %.pre, %.lr.ph136.split ]
@@ -2997,7 +2997,7 @@ define dso_local ptr @OpernameGetCandidates(ptr noundef readonly captures(addres
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %156 = sext i32 %155 to i64
   %157 = icmp slt i64 %indvars.iv.next, %156
-  br i1 %157, label %.lr.ph136.split.split, label %._crit_edge, !llvm.loop !27
+  br i1 %157, label %.lr.ph136.split.split, label %._crit_edge, !llvm.loop !24
 
 ._crit_edge:                                      ; preds = %.thread105, %.thread105.us151, %.thread105.us, %11, %18
   %.074.lcssa = phi ptr [ null, %18 ], [ null, %11 ], [ %.175.us, %.thread105.us ], [ %.175.us153, %.thread105.us151 ], [ %.175, %.thread105 ]
@@ -4929,7 +4929,7 @@ define dso_local i32 @QualifiedNameGetCreationNamespace(ptr noundef readonly cap
 
 15:                                               ; preds = %2
   tail call fastcc void @recomputeNamespacePath()
-  %16 = load i8, ptr @activeTempCreationPending, align 1, !range !6, !noundef !7
+  %16 = load i8, ptr @activeTempCreationPending, align 1, !range !4, !noundef !5
   %17 = trunc nuw i8 %16 to i1
   br i1 %17, label %get_namespace_oid.exit.sink.split, label %18
 
@@ -5294,7 +5294,7 @@ define dso_local ptr @GetSearchPathMatcher(ptr noundef %0) local_unnamed_addr #0
 17:                                               ; preds = %16, %15
   %18 = tail call ptr @list_delete_first(ptr noundef nonnull %.015) #18
   %.not = icmp eq ptr %18, null
-  br i1 %.not, label %.critedge, label %8, !llvm.loop !28
+  br i1 %.not, label %.critedge, label %8, !llvm.loop !25
 
 .critedge:                                        ; preds = %8, %17, %1
   %.0.lcssa = phi ptr [ null, %1 ], [ null, %17 ], [ %.015, %8 ]
@@ -5319,11 +5319,11 @@ define dso_local ptr @CopySearchPathMatcher(ptr noundef readonly captures(none) 
   %4 = tail call ptr @list_copy(ptr noundef %3) #18
   store ptr %4, ptr %2, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %6 = load i8, ptr %5, align 8, !range !6, !noundef !7
+  %6 = load i8, ptr %5, align 8, !range !4, !noundef !5
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i8 %6, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 9
-  %9 = load i8, ptr %8, align 1, !range !6, !noundef !7
+  %9 = load i8, ptr %8, align 1, !range !4, !noundef !5
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 9
   store i8 %9, ptr %10, align 1
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -5351,13 +5351,13 @@ list_head.exit:                                   ; preds = %6
   %8 = getelementptr i8, ptr %7, i64 16
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 9
-  %11 = load i8, ptr %10, align 1, !range !6, !noundef !7
+  %11 = load i8, ptr %10, align 1, !range !4, !noundef !5
   %12 = trunc nuw i8 %11 to i1
   br i1 %12, label %16, label %25
 
 list_head.exit.thread:                            ; preds = %6
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 9
-  %14 = load i8, ptr %13, align 1, !range !6, !noundef !7
+  %14 = load i8, ptr %13, align 1, !range !4, !noundef !5
   %15 = trunc nuw i8 %14 to i1
   br i1 %15, label %.thread, label %.thread45
 
@@ -5382,13 +5382,13 @@ list_head.exit.thread:                            ; preds = %6
 25:                                               ; preds = %21, %list_head.exit
   %.023 = phi ptr [ %..i, %21 ], [ %9, %list_head.exit ]
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %27 = load i8, ptr %26, align 8, !range !6, !noundef !7
+  %27 = load i8, ptr %26, align 8, !range !4, !noundef !5
   %28 = trunc nuw i8 %27 to i1
   br i1 %28, label %32, label %44
 
 .thread45:                                        ; preds = %list_head.exit.thread
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %30 = load i8, ptr %29, align 8, !range !6, !noundef !7
+  %30 = load i8, ptr %29, align 8, !range !4, !noundef !5
   %31 = trunc nuw i8 %30 to i1
   br i1 %31, label %.thread, label %.thread51
 
@@ -5973,7 +5973,7 @@ spcachekey_equal.exit.thread.i.i.i:               ; preds = %spcachekey_equal.ex
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 38
   %40 = load i8, ptr %39, align 2
   %41 = icmp eq i8 %40, 0
-  br i1 %41, label %spcache_lookup.exit.thread, label %.lr.ph.i.i.i, !llvm.loop !29
+  br i1 %41, label %spcache_lookup.exit.thread, label %.lr.ph.i.i.i
 
 nsphash_lookup.exit.i:                            ; preds = %spcachekey_equal.exit.i.i.i
   store ptr %29, ptr @LastSearchPathCacheEntry, align 8
@@ -6137,7 +6137,7 @@ spcachekey_equal.exit.thread.i.i:                 ; preds = %spcachekey_equal.ex
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 38
   %34 = load i8, ptr %33, align 2
   %35 = icmp eq i8 %34, 0
-  br i1 %35, label %.loopexit, label %.lr.ph.i.i, !llvm.loop !29
+  br i1 %35, label %.loopexit, label %.lr.ph.i.i
 
 .loopexit:                                        ; preds = %spcachekey_equal.exit.thread.i.i, %12
   %36 = load ptr, ptr @SearchPathCacheContext, align 8
@@ -6151,7 +6151,7 @@ spcachekey_equal.exit.thread.i.i:                 ; preds = %spcachekey_equal.ex
   %.pre.i = load i32, ptr %40, align 8
   %.pre83.i = load i32, ptr %41, align 8
   %44 = icmp ult i32 %.pre.i, %.pre83.i
-  br i1 %44, label %119, label %.loopexit._crit_edge, !prof !30
+  br i1 %44, label %119, label %.loopexit._crit_edge, !prof !26
 
 .loopexit._crit_edge:                             ; preds = %.loopexit
   %.pre = load i64, ptr %38, align 8
@@ -6165,7 +6165,7 @@ spcachekey_equal.exit.thread.i.i:                 ; preds = %spcachekey_equal.ex
 46:                                               ; preds = %.loopexit._crit_edge, %.loopexit.loopexit.i.i
   %47 = phi i64 [ %.pre, %.loopexit._crit_edge ], [ %45, %.loopexit.loopexit.i.i ]
   %48 = icmp eq i64 %47, 4294967296
-  br i1 %48, label %49, label %52, !prof !31
+  br i1 %48, label %49, label %52, !prof !27
 
 49:                                               ; preds = %46
   %50 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #20
@@ -6186,7 +6186,7 @@ spcachekey_equal.exit.thread.i.i:                 ; preds = %spcachekey_equal.ex
   %.0.i.i.i22 = select i1 %57, i64 %55, i64 %60
   %61 = mul i64 %.0.i.i.i22, 40
   %62 = icmp ugt i64 %61, 9223372036854775806
-  br i1 %62, label %63, label %nsphash_compute_size.exit.i, !prof !31
+  br i1 %62, label %63, label %nsphash_compute_size.exit.i, !prof !27
 
 63:                                               ; preds = %52
   %64 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #20
@@ -6208,7 +6208,7 @@ nsphash_compute_size.exit.i:                      ; preds = %52
   %.0.i.i.i.i = select i1 %69, i64 %.0.i.i.i22, i64 %72
   %73 = mul i64 %.0.i.i.i.i, 40
   %74 = icmp ugt i64 %73, 9223372036854775806
-  br i1 %74, label %75, label %nsphash_update_parameters.exit.i, !prof !31
+  br i1 %74, label %75, label %nsphash_update_parameters.exit.i, !prof !27
 
 75:                                               ; preds = %nsphash_compute_size.exit.i
   %76 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #20
@@ -6253,7 +6253,7 @@ nsphash_update_parameters.exit.i:                 ; preds = %nsphash_compute_siz
   %94 = add i32 %.066.i, 1
   %95 = zext i32 %94 to i64
   %96 = icmp ugt i64 %47, %95
-  br i1 %96, label %.lr.ph.i24, label %.lr.ph73.i.preheader, !llvm.loop !32
+  br i1 %96, label %.lr.ph.i24, label %.lr.ph73.i.preheader, !llvm.loop !28
 
 .lr.ph73.i.preheader:                             ; preds = %93, %88, %.lr.ph.i24
   %.05171.i.ph = phi i32 [ %.066.i, %.lr.ph.i24 ], [ %.066.i, %88 ], [ 0, %93 ]
@@ -6286,7 +6286,7 @@ nsphash_update_parameters.exit.i:                 ; preds = %nsphash_compute_siz
   %109 = load i8, ptr %108, align 2
   %110 = icmp eq i8 %109, 0
   %111 = add i32 %.048.i, 1
-  br i1 %110, label %112, label %105, !llvm.loop !33
+  br i1 %110, label %112, label %105
 
 112:                                              ; preds = %105
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %107, ptr noundef nonnull align 8 dereferenceable(40) %98, i64 40, i1 false)
@@ -6300,7 +6300,7 @@ nsphash_update_parameters.exit.i:                 ; preds = %nsphash_compute_siz
   %116 = add i32 %.172.i, 1
   %117 = zext i32 %116 to i64
   %118 = icmp ugt i64 %47, %117
-  br i1 %118, label %.lr.ph73.i, label %nsphash_grow.exit, !llvm.loop !34
+  br i1 %118, label %.lr.ph73.i, label %nsphash_grow.exit, !llvm.loop !29
 
 nsphash_grow.exit:                                ; preds = %113, %nsphash_update_parameters.exit.i
   tail call void @pfree(ptr noundef %54) #18
@@ -6378,7 +6378,7 @@ nsphash_distance.exit.i.i:                        ; preds = %138, %spcachekey_eq
   %.073.i36.i = phi i32 [ %151, %.preheader110.i.i ], [ 0, %.preheader110.i.preheader.i ]
   %151 = add i32 %.073.i36.i, 1
   %152 = icmp sgt i32 %151, 150
-  br i1 %152, label %153, label %.preheader110.i.i, !prof !31
+  br i1 %152, label %153, label %.preheader110.i.i, !prof !27
 
 153:                                              ; preds = %.lr.ph37.i
   %154 = load i32, ptr %40, align 8
@@ -6416,7 +6416,7 @@ nsphash_distance.exit.i.i:                        ; preds = %138, %spcachekey_eq
   %169 = getelementptr inbounds nuw %struct.SearchPathCacheEntry, ptr %120, i64 %168
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.279139.i.i, ptr noundef nonnull align 8 dereferenceable(40) %169, i64 40, i1 false)
   %.not90.i.i = icmp eq i32 %167, %.083.i30.i
-  br i1 %.not90.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i20, !llvm.loop !35
+  br i1 %.not90.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i20, !llvm.loop !30
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i20, %.preheader.i.i
   %170 = load i32, ptr %40, align 8
@@ -6431,7 +6431,7 @@ nsphash_distance.exit.i.i:                        ; preds = %138, %spcachekey_eq
   %173 = add i32 %.083.i30.i, 1
   %174 = add i32 %.085.i29.i, 1
   %175 = icmp ugt i32 %174, 25
-  br i1 %175, label %176, label %183, !prof !31
+  br i1 %175, label %176, label %183, !prof !27
 
 176:                                              ; preds = %172
   %177 = load i32, ptr %40, align 8
@@ -6495,7 +6495,7 @@ define dso_local void @InitializeSearchPath() local_unnamed_addr #0 {
   store ptr %8, ptr @activeSearchPath, align 8
   %9 = load i32, ptr @baseCreationNamespace, align 4
   store i32 %9, ptr @activeCreationNamespace, align 4
-  %10 = load i8, ptr @baseTempCreationPending, align 1, !range !6, !noundef !7
+  %10 = load i8, ptr @baseTempCreationPending, align 1, !range !4, !noundef !5
   store i8 %10, ptr @activeTempCreationPending, align 1
   %11 = load i64, ptr @activePathGeneration, align 8
   %12 = add i64 %11, 1
@@ -6529,7 +6529,7 @@ define internal void @InvalidationCallback(i64 %0, i32 %1, i32 %2) #9 {
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @fetch_search_path(i1 noundef zeroext %0) local_unnamed_addr #0 {
   tail call fastcc void @recomputeNamespacePath()
-  %2 = load i8, ptr @activeTempCreationPending, align 1, !range !6, !noundef !7
+  %2 = load i8, ptr @activeTempCreationPending, align 1, !range !4, !noundef !5
   %3 = trunc nuw i8 %2 to i1
   br i1 %3, label %4, label %5
 
@@ -6557,7 +6557,7 @@ define dso_local ptr @fetch_search_path(i1 noundef zeroext %0) local_unnamed_add
 12:                                               ; preds = %.preheader
   %13 = tail call ptr @list_delete_first(ptr noundef nonnull %.1) #18
   %.old1.not = icmp eq ptr %13, null
-  br i1 %.old1.not, label %.critedge, label %.preheader, !llvm.loop !36
+  br i1 %.old1.not, label %.critedge, label %.preheader
 
 .critedge:                                        ; preds = %.preheader, %12, %5
   %.0 = phi ptr [ %7, %5 ], [ %.1, %.preheader ], [ null, %12 ]
@@ -6629,7 +6629,7 @@ define dso_local range(i64 0, 2) i64 @pg_table_is_visible(ptr noundef captures(n
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2) #18
   store i8 0, ptr %2, align 1
   %6 = call fastcc zeroext i1 @RelationIsVisibleExt(i32 noundef %5, ptr noundef nonnull %2)
-  %7 = load i8, ptr %2, align 1, !range !6, !noundef !7
+  %7 = load i8, ptr %2, align 1, !range !4, !noundef !5
   %8 = trunc nuw i8 %7 to i1
   br i1 %8, label %9, label %11
 
@@ -6657,7 +6657,7 @@ define dso_local range(i64 0, 2) i64 @pg_type_is_visible(ptr noundef captures(no
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2) #18
   store i8 0, ptr %2, align 1
   %6 = call fastcc zeroext i1 @TypeIsVisibleExt(i32 noundef %5, ptr noundef nonnull %2)
-  %7 = load i8, ptr %2, align 1, !range !6, !noundef !7
+  %7 = load i8, ptr %2, align 1, !range !4, !noundef !5
   %8 = trunc nuw i8 %7 to i1
   br i1 %8, label %9, label %11
 
@@ -6685,7 +6685,7 @@ define dso_local range(i64 0, 2) i64 @pg_function_is_visible(ptr noundef capture
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2) #18
   store i8 0, ptr %2, align 1
   %6 = call fastcc zeroext i1 @FunctionIsVisibleExt(i32 noundef %5, ptr noundef nonnull %2)
-  %7 = load i8, ptr %2, align 1, !range !6, !noundef !7
+  %7 = load i8, ptr %2, align 1, !range !4, !noundef !5
   %8 = trunc nuw i8 %7 to i1
   br i1 %8, label %9, label %11
 
@@ -6713,7 +6713,7 @@ define dso_local range(i64 0, 2) i64 @pg_operator_is_visible(ptr noundef capture
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2) #18
   store i8 0, ptr %2, align 1
   %6 = call fastcc zeroext i1 @OperatorIsVisibleExt(i32 noundef %5, ptr noundef nonnull %2)
-  %7 = load i8, ptr %2, align 1, !range !6, !noundef !7
+  %7 = load i8, ptr %2, align 1, !range !4, !noundef !5
   %8 = trunc nuw i8 %7 to i1
   br i1 %8, label %9, label %11
 
@@ -6741,7 +6741,7 @@ define dso_local range(i64 0, 2) i64 @pg_opclass_is_visible(ptr noundef captures
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2) #18
   store i8 0, ptr %2, align 1
   %6 = call fastcc zeroext i1 @OpclassIsVisibleExt(i32 noundef %5, ptr noundef nonnull %2)
-  %7 = load i8, ptr %2, align 1, !range !6, !noundef !7
+  %7 = load i8, ptr %2, align 1, !range !4, !noundef !5
   %8 = trunc nuw i8 %7 to i1
   br i1 %8, label %9, label %11
 
@@ -6769,7 +6769,7 @@ define dso_local range(i64 0, 2) i64 @pg_opfamily_is_visible(ptr noundef capture
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2) #18
   store i8 0, ptr %2, align 1
   %6 = call fastcc zeroext i1 @OpfamilyIsVisibleExt(i32 noundef %5, ptr noundef nonnull %2)
-  %7 = load i8, ptr %2, align 1, !range !6, !noundef !7
+  %7 = load i8, ptr %2, align 1, !range !4, !noundef !5
   %8 = trunc nuw i8 %7 to i1
   br i1 %8, label %9, label %11
 
@@ -6847,7 +6847,7 @@ define dso_local range(i64 0, 2) i64 @pg_conversion_is_visible(ptr noundef captu
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2) #18
   store i8 0, ptr %2, align 1
   %6 = call fastcc zeroext i1 @ConversionIsVisibleExt(i32 noundef %5, ptr noundef nonnull %2)
-  %7 = load i8, ptr %2, align 1, !range !6, !noundef !7
+  %7 = load i8, ptr %2, align 1, !range !4, !noundef !5
   %8 = trunc nuw i8 %7 to i1
   br i1 %8, label %9, label %11
 
@@ -6875,7 +6875,7 @@ define dso_local range(i64 0, 2) i64 @pg_statistics_obj_is_visible(ptr noundef c
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2) #18
   store i8 0, ptr %2, align 1
   %6 = call fastcc zeroext i1 @StatisticsObjIsVisibleExt(i32 noundef %5, ptr noundef nonnull %2)
-  %7 = load i8, ptr %2, align 1, !range !6, !noundef !7
+  %7 = load i8, ptr %2, align 1, !range !4, !noundef !5
   %8 = trunc nuw i8 %7 to i1
   br i1 %8, label %9, label %11
 
@@ -6903,7 +6903,7 @@ define dso_local range(i64 0, 2) i64 @pg_ts_parser_is_visible(ptr noundef captur
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2) #18
   store i8 0, ptr %2, align 1
   %6 = call fastcc zeroext i1 @TSParserIsVisibleExt(i32 noundef %5, ptr noundef nonnull %2)
-  %7 = load i8, ptr %2, align 1, !range !6, !noundef !7
+  %7 = load i8, ptr %2, align 1, !range !4, !noundef !5
   %8 = trunc nuw i8 %7 to i1
   br i1 %8, label %9, label %11
 
@@ -6931,7 +6931,7 @@ define dso_local range(i64 0, 2) i64 @pg_ts_dict_is_visible(ptr noundef captures
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2) #18
   store i8 0, ptr %2, align 1
   %6 = call fastcc zeroext i1 @TSDictionaryIsVisibleExt(i32 noundef %5, ptr noundef nonnull %2)
-  %7 = load i8, ptr %2, align 1, !range !6, !noundef !7
+  %7 = load i8, ptr %2, align 1, !range !4, !noundef !5
   %8 = trunc nuw i8 %7 to i1
   br i1 %8, label %9, label %11
 
@@ -6959,7 +6959,7 @@ define dso_local range(i64 0, 2) i64 @pg_ts_template_is_visible(ptr noundef capt
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2) #18
   store i8 0, ptr %2, align 1
   %6 = call fastcc zeroext i1 @TSTemplateIsVisibleExt(i32 noundef %5, ptr noundef nonnull %2)
-  %7 = load i8, ptr %2, align 1, !range !6, !noundef !7
+  %7 = load i8, ptr %2, align 1, !range !4, !noundef !5
   %8 = trunc nuw i8 %7 to i1
   br i1 %8, label %9, label %11
 
@@ -6987,7 +6987,7 @@ define dso_local range(i64 0, 2) i64 @pg_ts_config_is_visible(ptr noundef captur
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2) #18
   store i8 0, ptr %2, align 1
   %6 = call fastcc zeroext i1 @TSConfigIsVisibleExt(i32 noundef %5, ptr noundef nonnull %2)
-  %7 = load i8, ptr %2, align 1, !range !6, !noundef !7
+  %7 = load i8, ptr %2, align 1, !range !4, !noundef !5
   %8 = trunc nuw i8 %7 to i1
   br i1 %8, label %9, label %11
 
@@ -7155,7 +7155,7 @@ define internal fastcc i32 @spcachekey_hash(ptr %0, i32 %1) unnamed_addr #14 {
   %33 = xor i64 %32, -9187201950435737472
   %34 = and i64 %33, %31
   %.not.i.i = icmp eq i64 %34, 0
-  br i1 %.not.i.i, label %.lr.ph.i.i, label %._crit_edge.i.i, !llvm.loop !37
+  br i1 %.not.i.i, label %.lr.ph.i.i, label %._crit_edge.i.i
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i, %14
   %.0.copyload.i.i.i.in = phi i64 [ %15, %14 ], [ %30, %.lr.ph.i.i ]
@@ -7269,7 +7269,7 @@ fasthash_accum_cstring_aligned.exit.i:            ; preds = %.sink.split.i.i.i, 
 90:                                               ; preds = %87
   %91 = add nuw nsw i64 %.014.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %91, 8
-  br i1 %exitcond.not.i.i, label %.critedge.thread.i.i, label %87, !llvm.loop !38
+  br i1 %exitcond.not.i.i, label %.critedge.thread.i.i, label %87, !llvm.loop !31
 
 .critedge.i.i:                                    ; preds = %87
   switch i64 %.014.i.i, label %.sink.split.i.i6.i [
@@ -7363,7 +7363,7 @@ fasthash_accum.exit.i.i:                          ; preds = %.sink.split.i.i6.i,
   %.0.lcssa20.i.i = phi i64 [ %.0.lcssa23.i.i, %.sink.split.i.i6.i ], [ %.014.i.i, %.critedge.i.i ]
   %141 = getelementptr inbounds nuw i8, ptr %.01216.i.i, i64 %.0.lcssa20.i.i
   %.not.i8.i = icmp eq i8 %140, 0
-  br i1 %.not.i8.i, label %fasthash_accum_cstring.exit, label %.preheader.i.i, !llvm.loop !39
+  br i1 %.not.i8.i, label %fasthash_accum_cstring.exit, label %.preheader.i.i, !llvm.loop !32
 
 fasthash_accum_cstring.exit:                      ; preds = %fasthash_accum.exit.i.i, %fasthash_accum_cstring_aligned.exit.i, %84
   %.sroa.21.4 = phi i64 [ %.sroa.21.3, %fasthash_accum_cstring_aligned.exit.i ], [ %10, %84 ], [ %.sroa.21.1, %fasthash_accum.exit.i.i ]
@@ -7433,39 +7433,32 @@ attributes #21 = { nounwind willreturn memory(none) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.estimated_trip_count"}
-!6 = !{i8 0, i8 2}
-!7 = !{}
-!8 = distinct !{!8, !5}
-!9 = distinct !{!9, !10, !5, !11}
-!10 = !{!"llvm.loop.mustprogress"}
-!11 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!12 = distinct !{!12, !10, !5, !11}
-!13 = distinct !{!13, !10, !5}
-!14 = distinct !{!14, !10, !5}
-!15 = distinct !{!15, !10, !5}
-!16 = distinct !{!16, !10, !5}
-!17 = distinct !{!17, !10, !5}
-!18 = distinct !{!18, !10, !5}
-!19 = distinct !{!19, !10, !5}
-!20 = distinct !{!20, !10, !5}
-!21 = distinct !{!21, !10, !5}
-!22 = distinct !{!22, !10, !5}
-!23 = distinct !{!23, !10, !5}
-!24 = distinct !{!24, !10, !5}
-!25 = distinct !{!25, !10, !5, !11}
-!26 = distinct !{!26, !10, !5, !11}
-!27 = distinct !{!27, !10, !5}
-!28 = distinct !{!28, !10, !5}
-!29 = distinct !{!29, !5}
-!30 = !{!"branch_weights", !"expected", i32 2000, i32 1}
-!31 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!32 = distinct !{!32, !10, !5}
-!33 = distinct !{!33, !5}
-!34 = distinct !{!34, !10, !5}
-!35 = distinct !{!35, !10, !5}
-!36 = distinct !{!36, !5}
-!37 = distinct !{!37, !5}
-!38 = distinct !{!38, !10, !5}
-!39 = distinct !{!39, !10, !5}
+!4 = !{i8 0, i8 2}
+!5 = !{}
+!6 = distinct !{!6, !7, !8}
+!7 = !{!"llvm.loop.mustprogress"}
+!8 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7}
+!12 = distinct !{!12, !7}
+!13 = distinct !{!13, !7}
+!14 = distinct !{!14, !7}
+!15 = distinct !{!15, !7}
+!16 = distinct !{!16, !7}
+!17 = distinct !{!17, !7}
+!18 = distinct !{!18, !7}
+!19 = distinct !{!19, !7}
+!20 = distinct !{!20, !7}
+!21 = distinct !{!21, !7}
+!22 = distinct !{!22, !7, !8}
+!23 = distinct !{!23, !7, !8}
+!24 = distinct !{!24, !7}
+!25 = distinct !{!25, !7}
+!26 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!27 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!28 = distinct !{!28, !7}
+!29 = distinct !{!29, !7}
+!30 = distinct !{!30, !7}
+!31 = distinct !{!31, !7}
+!32 = distinct !{!32, !7}

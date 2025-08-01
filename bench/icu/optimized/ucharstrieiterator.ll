@@ -834,7 +834,7 @@ _ZN6icu_7710UCharsTrie11jumpByDeltaEPKDs.exit:    ; preds = %_ZN6icu_779UVector3
   %88 = sext i32 %.0.i36 to i64
   %89 = getelementptr inbounds i16, ptr %.09.i, i64 %88
   %90 = icmp samesign ugt i32 %.02761, 11
-  br i1 %90, label %10, label %._crit_edge, !llvm.loop !44
+  br i1 %90, label %10, label %._crit_edge, !llvm.loop !43
 
 ._crit_edge:                                      ; preds = %_ZN6icu_7710UCharsTrie11jumpByDeltaEPKDs.exit, %4
   %.027.lcssa = phi i32 [ %2, %4 ], [ %43, %_ZN6icu_7710UCharsTrie11jumpByDeltaEPKDs.exit ]
@@ -1047,7 +1047,6 @@ attributes #6 = { nounwind }
 !38 = !{!11, !11, i64 0}
 !39 = !{!40, !40, i64 0}
 !40 = !{!"char16_t", !7, i64 0}
-!41 = distinct !{!41, !42, !43}
+!41 = distinct !{!41, !42}
 !42 = !{!"llvm.loop.mustprogress"}
-!43 = !{!"llvm.loop.estimated_trip_count"}
-!44 = distinct !{!44, !42, !43}
+!43 = distinct !{!43, !42}

@@ -37,7 +37,7 @@ define void @_ZN6Assimp14CommentRemover18RemoveLineCommentsEPKcPcc(ptr noundef r
   switch i8 %15, label %10 [
     i8 34, label %.critedge
     i8 39, label %.critedge
-  ], !llvm.loop !3
+  ]
 
 .critedge:                                        ; preds = %13, %13, %10, %.lr.ph53
   %.1 = phi i64 [ %.052, %.lr.ph53 ], [ %11, %13 ], [ %11, %13 ], [ %umax, %10 ]
@@ -68,13 +68,13 @@ _ZN6Assimp9IsLineEndIcEEbT_.exit:                 ; preds = %.lr.ph
   %24 = add i64 %.343, 1
   store i8 %2, ptr %22, align 1
   %exitcond.not = icmp eq i64 %24, %5
-  br i1 %exitcond.not, label %.critedge2, label %.lr.ph, !llvm.loop !5
+  br i1 %exitcond.not, label %.critedge2, label %.lr.ph, !llvm.loop !3
 
 .critedge2:                                       ; preds = %_ZN6Assimp9IsLineEndIcEEbT_.exit, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %18
   %.4 = phi i64 [ %.1, %18 ], [ %5, %_ZN6Assimp9IsLineEndIcEEbT_.exit ], [ %.343, %.lr.ph ], [ %.343, %.lr.ph ], [ %.343, %.lr.ph ], [ %.343, %.lr.ph ]
   %25 = add i64 %.4, 1
   %26 = icmp ult i64 %25, %5
-  br i1 %26, label %.lr.ph53, label %.critedge._crit_edge, !llvm.loop !7
+  br i1 %26, label %.lr.ph53, label %.critedge._crit_edge, !llvm.loop !5
 
 .critedge._crit_edge:                             ; preds = %.critedge2, %.critedge, %3
   ret void
@@ -118,7 +118,7 @@ define void @_ZN6Assimp14CommentRemover23RemoveMultiLineCommentsEPKcS2_Pcc(ptr n
   switch i8 %12, label %8 [
     i8 34, label %.critedge.us
     i8 39, label %.critedge.us
-  ], !llvm.loop !8
+  ]
 
 .critedge.us:                                     ; preds = %8, %11, %11, %.split.us
   %.1.us = phi ptr [ %.022.us, %.split.us ], [ %10, %11 ], [ %10, %11 ], [ %10, %8 ]
@@ -141,7 +141,7 @@ define void @_ZN6Assimp14CommentRemover23RemoveMultiLineCommentsEPKcS2_Pcc(ptr n
   store i8 %3, ptr %.336.us, align 1
   %19 = load i8, ptr %18, align 1
   %.not30.us = icmp eq i8 %19, 0
-  br i1 %.not30.us, label %.backedge.us, label %.lr.ph.us, !llvm.loop !9
+  br i1 %.not30.us, label %.backedge.us, label %.lr.ph.us, !llvm.loop !6
 
 .preheader.us:                                    ; preds = %.lr.ph.us, %.preheader.us
   %.038.us = phi i32 [ %21, %.preheader.us ], [ 0, %.lr.ph.us ]
@@ -151,7 +151,7 @@ define void @_ZN6Assimp14CommentRemover23RemoveMultiLineCommentsEPKcS2_Pcc(ptr n
   %21 = add i32 %.038.us, 1
   %22 = zext i32 %21 to i64
   %23 = icmp ugt i64 %.fr43, %22
-  br i1 %23, label %.preheader.us, label %.backedge.us, !llvm.loop !10
+  br i1 %23, label %.preheader.us, label %.backedge.us, !llvm.loop !7
 
 .preheader32.us:                                  ; preds = %.critedge.us
   %24 = load i8, ptr %.1.us, align 1
@@ -160,7 +160,7 @@ define void @_ZN6Assimp14CommentRemover23RemoveMultiLineCommentsEPKcS2_Pcc(ptr n
 
 .backedge.us:                                     ; preds = %17, %.preheader.us, %.preheader32.us, %14
   %.022.be.us = phi ptr [ %15, %14 ], [ %.1.us, %.preheader32.us ], [ %20, %.preheader.us ], [ %18, %17 ]
-  br label %.split.us, !llvm.loop !11
+  br label %.split.us, !llvm.loop !8
 
 .split42.us:                                      ; preds = %.split.us, %4
   ret void
@@ -183,12 +183,9 @@ attributes #3 = { nounwind willreturn memory(read) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = distinct !{!3, !4}
-!4 = !{!"llvm.loop.estimated_trip_count"}
-!5 = distinct !{!5, !6, !4}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6, !4}
-!8 = distinct !{!8, !4}
-!9 = distinct !{!9, !6, !4}
-!10 = distinct !{!10, !6, !4}
-!11 = distinct !{!11, !6, !4, !12}
-!12 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!4 = !{!"llvm.loop.mustprogress"}
+!5 = distinct !{!5, !4}
+!6 = distinct !{!6, !4}
+!7 = distinct !{!7, !4}
+!8 = distinct !{!8, !4, !9}
+!9 = !{!"llvm.loop.unswitch.nontrivial.disable"}

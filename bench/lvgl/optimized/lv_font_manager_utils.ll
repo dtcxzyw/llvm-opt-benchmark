@@ -9,42 +9,42 @@ define zeroext i1 @lv_freetype_info_is_equal(ptr noundef readonly captures(addre
   br i1 %.not, label %.preheader, label %3
 
 .preheader:                                       ; preds = %2, %.preheader
-  br label %.preheader, !llvm.loop !3
+  br label %.preheader
 
 3:                                                ; preds = %2
   %.not11 = icmp eq ptr %1, null
   br i1 %.not11, label %.preheader12, label %4
 
 .preheader12:                                     ; preds = %3, %.preheader12
-  br label %.preheader12, !llvm.loop !5
+  br label %.preheader12
 
 4:                                                ; preds = %3
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %6 = load i32, ptr %5, align 8, !tbaa !6
+  %6 = load i32, ptr %5, align 8, !tbaa !3
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %8 = load i32, ptr %7, align 8, !tbaa !6
+  %8 = load i32, ptr %7, align 8, !tbaa !3
   %9 = icmp eq i32 %6, %8
   br i1 %9, label %10, label %27
 
 10:                                               ; preds = %4
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %12 = load i32, ptr %11, align 4, !tbaa !13
+  %12 = load i32, ptr %11, align 4, !tbaa !10
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %14 = load i32, ptr %13, align 4, !tbaa !13
+  %14 = load i32, ptr %13, align 4, !tbaa !10
   %15 = icmp eq i32 %12, %14
   br i1 %15, label %16, label %27
 
 16:                                               ; preds = %10
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %18 = load i32, ptr %17, align 8, !tbaa !14
+  %18 = load i32, ptr %17, align 8, !tbaa !11
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %20 = load i32, ptr %19, align 8, !tbaa !14
+  %20 = load i32, ptr %19, align 8, !tbaa !11
   %21 = icmp eq i32 %18, %20
   br i1 %21, label %22, label %27
 
 22:                                               ; preds = %16
-  %23 = load ptr, ptr %0, align 8, !tbaa !15
-  %24 = load ptr, ptr %1, align 8, !tbaa !15
+  %23 = load ptr, ptr %0, align 8, !tbaa !12
+  %24 = load ptr, ptr %1, align 8, !tbaa !12
   %25 = tail call i32 @lv_strcmp(ptr noundef %23, ptr noundef %24) #2
   %26 = icmp eq i32 %25, 0
   br label %27
@@ -65,16 +65,13 @@ attributes #2 = { nounwind }
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = distinct !{!3, !4}
-!4 = !{!"llvm.loop.estimated_trip_count"}
-!5 = distinct !{!5, !4}
-!6 = !{!7, !12, i64 16}
-!7 = !{!"", !8, i64 0, !12, i64 8, !12, i64 12, !12, i64 16}
-!8 = !{!"p1 omnipotent char", !9, i64 0}
-!9 = !{!"any pointer", !10, i64 0}
-!10 = !{!"omnipotent char", !11, i64 0}
-!11 = !{!"Simple C/C++ TBAA"}
-!12 = !{!"int", !10, i64 0}
-!13 = !{!7, !12, i64 12}
-!14 = !{!7, !12, i64 8}
-!15 = !{!7, !8, i64 0}
+!3 = !{!4, !9, i64 16}
+!4 = !{!"", !5, i64 0, !9, i64 8, !9, i64 12, !9, i64 16}
+!5 = !{!"p1 omnipotent char", !6, i64 0}
+!6 = !{!"any pointer", !7, i64 0}
+!7 = !{!"omnipotent char", !8, i64 0}
+!8 = !{!"Simple C/C++ TBAA"}
+!9 = !{!"int", !7, i64 0}
+!10 = !{!4, !9, i64 12}
+!11 = !{!4, !9, i64 8}
+!12 = !{!4, !5, i64 0}

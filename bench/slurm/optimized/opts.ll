@@ -478,7 +478,7 @@ define dso_local void @parse_command_line(i32 noundef %0, ptr noundef %1) local_
   br i1 %111, label %112, label %116
 
 112:                                              ; preds = %109
-  %113 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params, i64 24), align 8, !range !12, !noundef !13
+  %113 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params, i64 24), align 8, !range !11, !noundef !12
   %114 = trunc nuw i8 %113 to i1
   %115 = select i1 %114, ptr @.str.52, ptr @.str.53
   call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.51, ptr noundef nonnull %115) #12
@@ -490,7 +490,7 @@ define dso_local void @parse_command_line(i32 noundef %0, ptr noundef %1) local_
   br i1 %118, label %119, label %123
 
 119:                                              ; preds = %116
-  %120 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params, i64 25), align 1, !range !12, !noundef !13
+  %120 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params, i64 25), align 1, !range !11, !noundef !12
   %121 = trunc nuw i8 %120 to i1
   %122 = select i1 %121, ptr @.str.52, ptr @.str.53
   call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.54, ptr noundef nonnull %122) #12
@@ -502,7 +502,7 @@ define dso_local void @parse_command_line(i32 noundef %0, ptr noundef %1) local_
   br i1 %125, label %126, label %130
 
 126:                                              ; preds = %123
-  %127 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params, i64 26), align 2, !range !12, !noundef !13
+  %127 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params, i64 26), align 2, !range !11, !noundef !12
   %128 = trunc nuw i8 %127 to i1
   %129 = select i1 %128, ptr @.str.52, ptr @.str.53
   call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.55, ptr noundef nonnull %129) #12
@@ -514,7 +514,7 @@ define dso_local void @parse_command_line(i32 noundef %0, ptr noundef %1) local_
   br i1 %132, label %133, label %137
 
 133:                                              ; preds = %130
-  %134 = load i8, ptr @params, align 8, !range !12, !noundef !13
+  %134 = load i8, ptr @params, align 8, !range !11, !noundef !12
   %135 = trunc nuw i8 %134 to i1
   %136 = select i1 %135, ptr @.str.52, ptr @.str.53
   call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.56, ptr noundef nonnull %136) #12
@@ -537,7 +537,7 @@ define dso_local void @parse_command_line(i32 noundef %0, ptr noundef %1) local_
   br i1 %145, label %146, label %150
 
 146:                                              ; preds = %143
-  %147 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params, i64 18), align 2, !range !12, !noundef !13
+  %147 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params, i64 18), align 2, !range !11, !noundef !12
   %148 = trunc nuw i8 %147 to i1
   %149 = select i1 %148, ptr @.str.52, ptr @.str.53
   call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.58, ptr noundef nonnull %149) #12
@@ -559,7 +559,7 @@ define dso_local void @parse_command_line(i32 noundef %0, ptr noundef %1) local_
   br i1 %157, label %158, label %162
 
 158:                                              ; preds = %155
-  %159 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params, i64 19), align 1, !range !12, !noundef !13
+  %159 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params, i64 19), align 1, !range !11, !noundef !12
   %160 = trunc nuw i8 %159 to i1
   %161 = select i1 %160, ptr @.str.52, ptr @.str.53
   call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.60, ptr noundef nonnull %161) #12
@@ -571,7 +571,7 @@ define dso_local void @parse_command_line(i32 noundef %0, ptr noundef %1) local_
   br i1 %164, label %165, label %169
 
 165:                                              ; preds = %162
-  %166 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params, i64 38), align 2, !range !12, !noundef !13
+  %166 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params, i64 38), align 2, !range !11, !noundef !12
   %167 = trunc nuw i8 %166 to i1
   %168 = select i1 %167, ptr @.str.52, ptr @.str.53
   call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.61, ptr noundef nonnull %168) #12
@@ -583,7 +583,7 @@ define dso_local void @parse_command_line(i32 noundef %0, ptr noundef %1) local_
   br i1 %171, label %172, label %176
 
 172:                                              ; preds = %169
-  %173 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params, i64 39), align 1, !range !12, !noundef !13
+  %173 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params, i64 39), align 1, !range !11, !noundef !12
   %174 = trunc nuw i8 %173 to i1
   %175 = select i1 %174, ptr @.str.52, ptr @.str.53
   call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.62, ptr noundef nonnull %175) #12
@@ -595,7 +595,7 @@ define dso_local void @parse_command_line(i32 noundef %0, ptr noundef %1) local_
   br i1 %178, label %179, label %183
 
 179:                                              ; preds = %176
-  %180 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params, i64 40), align 8, !range !12, !noundef !13
+  %180 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params, i64 40), align 8, !range !11, !noundef !12
   %181 = trunc nuw i8 %180 to i1
   %182 = select i1 %181, ptr @.str.52, ptr @.str.53
   call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.63, ptr noundef nonnull %182) #12
@@ -607,7 +607,7 @@ define dso_local void @parse_command_line(i32 noundef %0, ptr noundef %1) local_
   br i1 %185, label %186, label %190
 
 186:                                              ; preds = %183
-  %187 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params, i64 41), align 1, !range !12, !noundef !13
+  %187 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params, i64 41), align 1, !range !11, !noundef !12
   %188 = trunc nuw i8 %187 to i1
   %189 = select i1 %188, ptr @.str.52, ptr @.str.53
   call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.64, ptr noundef nonnull %189) #12
@@ -619,7 +619,7 @@ define dso_local void @parse_command_line(i32 noundef %0, ptr noundef %1) local_
   br i1 %192, label %193, label %197
 
 193:                                              ; preds = %190
-  %194 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params, i64 57), align 1, !range !12, !noundef !13
+  %194 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params, i64 57), align 1, !range !11, !noundef !12
   %195 = trunc nuw i8 %194 to i1
   %196 = select i1 %195, ptr @.str.52, ptr @.str.53
   call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.65, ptr noundef nonnull %196) #12
@@ -631,7 +631,7 @@ define dso_local void @parse_command_line(i32 noundef %0, ptr noundef %1) local_
   br i1 %199, label %200, label %204
 
 200:                                              ; preds = %197
-  %201 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params, i64 56), align 8, !range !12, !noundef !13
+  %201 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params, i64 56), align 8, !range !11, !noundef !12
   %202 = trunc nuw i8 %201 to i1
   %203 = select i1 %202, ptr @.str.52, ptr @.str.53
   call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.66, ptr noundef nonnull %203) #12
@@ -643,7 +643,7 @@ define dso_local void @parse_command_line(i32 noundef %0, ptr noundef %1) local_
   br i1 %206, label %207, label %211
 
 207:                                              ; preds = %204
-  %208 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params, i64 59), align 1, !range !12, !noundef !13
+  %208 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params, i64 59), align 1, !range !11, !noundef !12
   %209 = trunc nuw i8 %208 to i1
   %210 = select i1 %209, ptr @.str.52, ptr @.str.53
   call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.67, ptr noundef nonnull %210) #12
@@ -685,7 +685,7 @@ define dso_local void @parse_command_line(i32 noundef %0, ptr noundef %1) local_
   br i1 %228, label %229, label %233
 
 229:                                              ; preds = %226
-  %230 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params, i64 72), align 8, !range !12, !noundef !13
+  %230 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params, i64 72), align 8, !range !11, !noundef !12
   %231 = trunc nuw i8 %230 to i1
   %232 = select i1 %231, ptr @.str.52, ptr @.str.53
   call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.71, ptr noundef nonnull %232) #12
@@ -697,7 +697,7 @@ define dso_local void @parse_command_line(i32 noundef %0, ptr noundef %1) local_
   br i1 %235, label %236, label %240
 
 236:                                              ; preds = %233
-  %237 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params, i64 73), align 1, !range !12, !noundef !13
+  %237 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params, i64 73), align 1, !range !11, !noundef !12
   %238 = trunc nuw i8 %237 to i1
   %239 = select i1 %238, ptr @.str.52, ptr @.str.53
   call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.72, ptr noundef nonnull %239) #12
@@ -709,7 +709,7 @@ define dso_local void @parse_command_line(i32 noundef %0, ptr noundef %1) local_
   br i1 %242, label %243, label %247
 
 243:                                              ; preds = %240
-  %244 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params, i64 58), align 2, !range !12, !noundef !13
+  %244 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params, i64 58), align 2, !range !11, !noundef !12
   %245 = trunc nuw i8 %244 to i1
   %246 = select i1 %245, ptr @.str.52, ptr @.str.53
   call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.73, ptr noundef nonnull %246) #12
@@ -721,7 +721,7 @@ define dso_local void @parse_command_line(i32 noundef %0, ptr noundef %1) local_
   br i1 %249, label %250, label %254
 
 250:                                              ; preds = %247
-  %251 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params, i64 74), align 2, !range !12, !noundef !13
+  %251 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params, i64 74), align 2, !range !11, !noundef !12
   %252 = trunc nuw i8 %251 to i1
   %253 = select i1 %252, ptr @.str.52, ptr @.str.53
   call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.74, ptr noundef nonnull %253) #12
@@ -775,7 +775,7 @@ define dso_local void @parse_command_line(i32 noundef %0, ptr noundef %1) local_
   br i1 %276, label %277, label %281
 
 277:                                              ; preds = %274
-  %278 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params, i64 27), align 1, !range !12, !noundef !13
+  %278 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params, i64 27), align 1, !range !11, !noundef !12
   %279 = trunc nuw i8 %278 to i1
   %280 = select i1 %279, ptr @.str.52, ptr @.str.53
   call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.79, ptr noundef nonnull %280) #12
@@ -787,7 +787,7 @@ define dso_local void @parse_command_line(i32 noundef %0, ptr noundef %1) local_
   br i1 %283, label %284, label %288
 
 284:                                              ; preds = %281
-  %285 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params, i64 28), align 4, !range !12, !noundef !13
+  %285 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params, i64 28), align 4, !range !11, !noundef !12
   %286 = trunc nuw i8 %285 to i1
   %287 = select i1 %286, ptr @.str.52, ptr @.str.53
   call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.80, ptr noundef nonnull %287) #12
@@ -799,7 +799,7 @@ define dso_local void @parse_command_line(i32 noundef %0, ptr noundef %1) local_
   br i1 %290, label %291, label %295
 
 291:                                              ; preds = %288
-  %292 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params, i64 29), align 1, !range !12, !noundef !13
+  %292 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params, i64 29), align 1, !range !11, !noundef !12
   %293 = trunc nuw i8 %292 to i1
   %294 = select i1 %293, ptr @.str.52, ptr @.str.53
   call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.81, ptr noundef nonnull %294) #12
@@ -811,7 +811,7 @@ define dso_local void @parse_command_line(i32 noundef %0, ptr noundef %1) local_
   br i1 %297, label %298, label %302
 
 298:                                              ; preds = %295
-  %299 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params, i64 30), align 2, !range !12, !noundef !13
+  %299 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params, i64 30), align 2, !range !11, !noundef !12
   %300 = trunc nuw i8 %299 to i1
   %301 = select i1 %300, ptr @.str.52, ptr @.str.53
   call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.82, ptr noundef nonnull %301) #12
@@ -823,7 +823,7 @@ define dso_local void @parse_command_line(i32 noundef %0, ptr noundef %1) local_
   br i1 %304, label %305, label %309
 
 305:                                              ; preds = %302
-  %306 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params, i64 31), align 1, !range !12, !noundef !13
+  %306 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params, i64 31), align 1, !range !11, !noundef !12
   %307 = trunc nuw i8 %306 to i1
   %308 = select i1 %307, ptr @.str.52, ptr @.str.53
   call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.83, ptr noundef nonnull %308) #12
@@ -835,7 +835,7 @@ define dso_local void @parse_command_line(i32 noundef %0, ptr noundef %1) local_
   br i1 %311, label %312, label %316
 
 312:                                              ; preds = %309
-  %313 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params, i64 32), align 8, !range !12, !noundef !13
+  %313 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params, i64 32), align 8, !range !11, !noundef !12
   %314 = trunc nuw i8 %313 to i1
   %315 = select i1 %314, ptr @.str.52, ptr @.str.53
   call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.84, ptr noundef nonnull %315) #12
@@ -847,7 +847,7 @@ define dso_local void @parse_command_line(i32 noundef %0, ptr noundef %1) local_
   br i1 %318, label %319, label %323
 
 319:                                              ; preds = %316
-  %320 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params, i64 33), align 1, !range !12, !noundef !13
+  %320 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params, i64 33), align 1, !range !11, !noundef !12
   %321 = trunc nuw i8 %320 to i1
   %322 = select i1 %321, ptr @.str.52, ptr @.str.53
   call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.85, ptr noundef nonnull %322) #12
@@ -859,7 +859,7 @@ define dso_local void @parse_command_line(i32 noundef %0, ptr noundef %1) local_
   br i1 %325, label %326, label %330
 
 326:                                              ; preds = %323
-  %327 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params, i64 34), align 2, !range !12, !noundef !13
+  %327 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params, i64 34), align 2, !range !11, !noundef !12
   %328 = trunc nuw i8 %327 to i1
   %329 = select i1 %328, ptr @.str.52, ptr @.str.53
   call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.86, ptr noundef nonnull %329) #12
@@ -871,7 +871,7 @@ define dso_local void @parse_command_line(i32 noundef %0, ptr noundef %1) local_
   br i1 %332, label %333, label %337
 
 333:                                              ; preds = %330
-  %334 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params, i64 35), align 1, !range !12, !noundef !13
+  %334 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params, i64 35), align 1, !range !11, !noundef !12
   %335 = trunc nuw i8 %334 to i1
   %336 = select i1 %335, ptr @.str.52, ptr @.str.53
   call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.87, ptr noundef nonnull %336) #12
@@ -883,7 +883,7 @@ define dso_local void @parse_command_line(i32 noundef %0, ptr noundef %1) local_
   br i1 %339, label %340, label %344
 
 340:                                              ; preds = %337
-  %341 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params, i64 36), align 4, !range !12, !noundef !13
+  %341 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params, i64 36), align 4, !range !11, !noundef !12
   %342 = trunc nuw i8 %341 to i1
   %343 = select i1 %342, ptr @.str.52, ptr @.str.53
   call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.88, ptr noundef nonnull %343) #12
@@ -895,7 +895,7 @@ define dso_local void @parse_command_line(i32 noundef %0, ptr noundef %1) local_
   br i1 %346, label %347, label %351
 
 347:                                              ; preds = %344
-  %348 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params, i64 37), align 1, !range !12, !noundef !13
+  %348 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params, i64 37), align 1, !range !11, !noundef !12
   %349 = trunc nuw i8 %348 to i1
   %350 = select i1 %349, ptr @.str.52, ptr @.str.53
   call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.89, ptr noundef nonnull %350) #12
@@ -911,11 +911,11 @@ define dso_local void @parse_command_line(i32 noundef %0, ptr noundef %1) local_
   br label %_print_options.exit
 
 _print_options.exit:                              ; preds = %354, %351, %103
-  %355 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params, i64 24), align 8, !range !12, !noundef !13
+  %355 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params, i64 24), align 8, !range !11, !noundef !12
   %356 = trunc nuw i8 %355 to i1
-  %357 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params, i64 25), align 1, !range !12, !noundef !13
+  %357 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params, i64 25), align 1, !range !11, !noundef !12
   %narrow.i = add nuw nsw i8 %357, %355
-  %358 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params, i64 26), align 2, !range !12, !noundef !13
+  %358 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params, i64 26), align 2, !range !11, !noundef !12
   %narrow17.i = add nuw nsw i8 %narrow.i, %358
   %.not.i = icmp eq i8 %narrow17.i, 1
   br i1 %.not.i, label %361, label %359
@@ -947,63 +947,63 @@ _print_options.exit:                              ; preds = %354, %351, %103
   br i1 %356, label %372, label %434
 
 372:                                              ; preds = %371
-  %373 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params, i64 39), align 1, !range !12, !noundef !13
-  %374 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params, i64 40), align 8, !range !12, !noundef !13
+  %373 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params, i64 39), align 1, !range !11, !noundef !12
+  %374 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params, i64 40), align 8, !range !11, !noundef !12
   %narrow18.i = add nuw nsw i8 %374, %373
-  %375 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params, i64 57), align 1, !range !12, !noundef !13
+  %375 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params, i64 57), align 1, !range !11, !noundef !12
   %narrow19.i = add nuw nsw i8 %narrow18.i, %375
-  %376 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params, i64 56), align 8, !range !12, !noundef !13
+  %376 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params, i64 56), align 8, !range !11, !noundef !12
   %narrow20.i = add nuw nsw i8 %narrow19.i, %376
-  %377 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params, i64 59), align 1, !range !12, !noundef !13
+  %377 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params, i64 59), align 1, !range !11, !noundef !12
   %narrow21.i = add nuw nsw i8 %narrow20.i, %377
-  %378 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params, i64 73), align 1, !range !12, !noundef !13
+  %378 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params, i64 73), align 1, !range !11, !noundef !12
   %narrow22.i = add nuw nsw i8 %narrow21.i, %378
-  %379 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params, i64 19), align 1, !range !12, !noundef !13
+  %379 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params, i64 19), align 1, !range !11, !noundef !12
   %narrow23.i = add nuw nsw i8 %narrow22.i, %379
   %380 = zext nneg i8 %narrow23.i to i32
-  %381 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params, i64 74), align 2, !range !12, !noundef !13
+  %381 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params, i64 74), align 2, !range !11, !noundef !12
   %382 = zext nneg i8 %381 to i32
   %383 = add nuw nsw i32 %380, %382
-  %384 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params, i64 41), align 1, !range !12, !noundef !13
+  %384 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params, i64 41), align 1, !range !11, !noundef !12
   %385 = zext nneg i8 %384 to i32
   %386 = add nuw nsw i32 %383, %385
-  %387 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params, i64 58), align 2, !range !12, !noundef !13
+  %387 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params, i64 58), align 2, !range !11, !noundef !12
   %388 = zext nneg i8 %387 to i32
   %389 = add nuw nsw i32 %386, %388
-  %390 = load i8, ptr @params, align 8, !range !12, !noundef !13
+  %390 = load i8, ptr @params, align 8, !range !11, !noundef !12
   %391 = zext nneg i8 %390 to i32
   %392 = add nuw nsw i32 %389, %391
-  %393 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params, i64 27), align 1, !range !12, !noundef !13
+  %393 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params, i64 27), align 1, !range !11, !noundef !12
   %394 = zext nneg i8 %393 to i32
   %395 = add nuw nsw i32 %392, %394
-  %396 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params, i64 28), align 4, !range !12, !noundef !13
+  %396 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params, i64 28), align 4, !range !11, !noundef !12
   %397 = zext nneg i8 %396 to i32
   %398 = add nuw nsw i32 %395, %397
-  %399 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params, i64 29), align 1, !range !12, !noundef !13
+  %399 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params, i64 29), align 1, !range !11, !noundef !12
   %400 = zext nneg i8 %399 to i32
   %401 = add nuw nsw i32 %398, %400
-  %402 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params, i64 30), align 2, !range !12, !noundef !13
+  %402 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params, i64 30), align 2, !range !11, !noundef !12
   %403 = zext nneg i8 %402 to i32
   %404 = add nuw nsw i32 %401, %403
-  %405 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params, i64 31), align 1, !range !12, !noundef !13
+  %405 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params, i64 31), align 1, !range !11, !noundef !12
   %406 = zext nneg i8 %405 to i32
   %407 = add nuw nsw i32 %404, %406
-  %408 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params, i64 32), align 8, !range !12, !noundef !13
+  %408 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params, i64 32), align 8, !range !11, !noundef !12
   %409 = zext nneg i8 %408 to i32
   %410 = add nuw nsw i32 %407, %409
-  %411 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params, i64 33), align 1, !range !12, !noundef !13
+  %411 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params, i64 33), align 1, !range !11, !noundef !12
   %412 = zext nneg i8 %411 to i32
   %413 = add nuw nsw i32 %410, %412
-  %414 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params, i64 34), align 2, !range !12, !noundef !13
+  %414 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params, i64 34), align 2, !range !11, !noundef !12
   %415 = zext nneg i8 %414 to i32
   %416 = add nuw nsw i32 %413, %415
-  %417 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params, i64 35), align 1, !range !12, !noundef !13
+  %417 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params, i64 35), align 1, !range !11, !noundef !12
   %418 = zext nneg i8 %417 to i32
   %419 = add nuw nsw i32 %416, %418
-  %420 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params, i64 36), align 4, !range !12, !noundef !13
+  %420 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params, i64 36), align 4, !range !11, !noundef !12
   %421 = zext nneg i8 %420 to i32
   %422 = add nuw nsw i32 %419, %421
-  %423 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params, i64 37), align 1, !range !12, !noundef !13
+  %423 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params, i64 37), align 1, !range !11, !noundef !12
   %424 = zext nneg i8 %423 to i32
   %425 = or i32 %422, %424
   %426 = icmp eq i32 %425, 0
@@ -1025,8 +1025,8 @@ _print_options.exit:                              ; preds = %354, %351, %103
   unreachable
 
 434:                                              ; preds = %371
-  %.pre.i = load i8, ptr getelementptr inbounds nuw (i8, ptr @params, i64 19), align 1, !range !12
-  %.pre37.i = load i8, ptr getelementptr inbounds nuw (i8, ptr @params, i64 74), align 2, !range !12
+  %.pre.i = load i8, ptr getelementptr inbounds nuw (i8, ptr @params, i64 19), align 1, !range !11
+  %.pre37.i = load i8, ptr getelementptr inbounds nuw (i8, ptr @params, i64 74), align 2, !range !11
   %435 = or i8 %.pre37.i, %.pre.i
   %436 = icmp ne i8 %435, 0
   %or.cond9.i = select i1 %436, i1 %368, i1 false
@@ -1078,7 +1078,7 @@ _print_options.exit:                              ; preds = %354, %351, %103
   %454 = getelementptr inbounds nuw i8, ptr %449, i64 %indvars.iv.next.i
   %455 = load i8, ptr %454, align 1
   %.not28.i = icmp eq i8 %455, 0
-  br i1 %.not28.i, label %.loopexit.i, label %456, !llvm.loop !14
+  br i1 %.not28.i, label %.loopexit.i, label %456, !llvm.loop !13
 
 456:                                              ; preds = %453, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %453 ]
@@ -1239,10 +1239,9 @@ attributes #16 = { nounwind willreturn memory(none) }
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i32 7, !"frame-pointer", i32 2}
 !7 = !{i32 7, !"debug-info-assignment-tracking", i1 true}
-!8 = distinct !{!8, !9, !10, !11}
+!8 = distinct !{!8, !9, !10}
 !9 = !{!"llvm.loop.mustprogress"}
 !10 = !{!"llvm.loop.unroll.disable"}
-!11 = !{!"llvm.loop.estimated_trip_count"}
-!12 = !{i8 0, i8 2}
-!13 = !{}
-!14 = distinct !{!14, !9, !10, !11}
+!11 = !{i8 0, i8 2}
+!12 = !{}
+!13 = distinct !{!13, !9, !10}

@@ -87,14 +87,14 @@ define void @dlapmt_(ptr noundef readonly captures(none) %0, ptr noundef readonl
 40:                                               ; preds = %.lr.ph, %40
   %indvars.iv143 = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next144, %40 ]
   %gep = getelementptr double, ptr %invariant.gep, i64 %indvars.iv143
-  %41 = load double, ptr %gep, align 8, !tbaa !10
+  %41 = load double, ptr %gep, align 8, !tbaa !9
   %gep167 = getelementptr double, ptr %invariant.gep166, i64 %indvars.iv143
-  %42 = load double, ptr %gep167, align 8, !tbaa !10
-  store double %42, ptr %gep, align 8, !tbaa !10
-  store double %41, ptr %gep167, align 8, !tbaa !10
+  %42 = load double, ptr %gep167, align 8, !tbaa !9
+  store double %42, ptr %gep, align 8, !tbaa !9
+  store double %41, ptr %gep167, align 8, !tbaa !9
   %indvars.iv.next144 = add nuw nsw i64 %indvars.iv143, 1
   %exitcond147.not = icmp eq i64 %indvars.iv.next144, %wide.trip.count146
-  br i1 %exitcond147.not, label %._crit_edge, label %40, !llvm.loop !12
+  br i1 %exitcond147.not, label %._crit_edge, label %40, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %40, %.lr.ph120
   %43 = sub nsw i32 0, %32
@@ -103,12 +103,12 @@ define void @dlapmt_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   %45 = getelementptr inbounds nuw i32, ptr %10, i64 %44
   %46 = load i32, ptr %45, align 4, !tbaa !3
   %47 = icmp sgt i32 %46, 0
-  br i1 %47, label %.loopexit112, label %.lr.ph120, !llvm.loop !13
+  br i1 %47, label %.loopexit112, label %.lr.ph120
 
 .loopexit112:                                     ; preds = %._crit_edge, %25, %.lr.ph125
   %indvars.iv.next149 = add nuw nsw i64 %indvars.iv148, 1
   %exitcond152.not = icmp eq i64 %indvars.iv.next149, %wide.trip.count151
-  br i1 %exitcond152.not, label %.loopexit111, label %.lr.ph125, !llvm.loop !14
+  br i1 %exitcond152.not, label %.loopexit111, label %.lr.ph125, !llvm.loop !12
 
 48:                                               ; preds = %17
   br i1 %.not107134, label %.loopexit111, label %.lr.ph138.preheader
@@ -155,14 +155,14 @@ define void @dlapmt_(ptr noundef readonly captures(none) %0, ptr noundef readonl
 64:                                               ; preds = %.lr.ph129, %64
   %indvars.iv155 = phi i64 [ 1, %.lr.ph129 ], [ %indvars.iv.next156, %64 ]
   %gep169 = getelementptr double, ptr %invariant.gep168, i64 %indvars.iv155
-  %65 = load double, ptr %gep169, align 8, !tbaa !10
+  %65 = load double, ptr %gep169, align 8, !tbaa !9
   %gep171 = getelementptr double, ptr %invariant.gep170, i64 %indvars.iv155
-  %66 = load double, ptr %gep171, align 8, !tbaa !10
-  store double %66, ptr %gep169, align 8, !tbaa !10
-  store double %65, ptr %gep171, align 8, !tbaa !10
+  %66 = load double, ptr %gep171, align 8, !tbaa !9
+  store double %66, ptr %gep169, align 8, !tbaa !9
+  store double %65, ptr %gep171, align 8, !tbaa !9
   %indvars.iv.next156 = add nuw nsw i64 %indvars.iv155, 1
   %exitcond159.not = icmp eq i64 %indvars.iv.next156, %wide.trip.count158
-  br i1 %exitcond159.not, label %._crit_edge130, label %64, !llvm.loop !15
+  br i1 %exitcond159.not, label %._crit_edge130, label %64, !llvm.loop !13
 
 ._crit_edge130:                                   ; preds = %64, %59
   %67 = sext i32 %.1100131 to i64
@@ -172,12 +172,12 @@ define void @dlapmt_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   store i32 %70, ptr %68, align 4, !tbaa !3
   %71 = zext i32 %70 to i64
   %72 = icmp eq i64 %indvars.iv160, %71
-  br i1 %72, label %.loopexit, label %59, !llvm.loop !16
+  br i1 %72, label %.loopexit, label %59
 
 .loopexit:                                        ; preds = %._crit_edge130, %54, %.lr.ph138
   %indvars.iv.next161 = add nuw nsw i64 %indvars.iv160, 1
   %exitcond164.not = icmp eq i64 %indvars.iv.next161, %wide.trip.count163
-  br i1 %exitcond164.not, label %.loopexit111, label %.lr.ph138, !llvm.loop !17
+  br i1 %exitcond164.not, label %.loopexit111, label %.lr.ph138, !llvm.loop !14
 
 .loopexit111:                                     ; preds = %.loopexit112, %.loopexit, %20, %48, %6
   ret void
@@ -194,14 +194,11 @@ attributes #0 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwt
 !4 = !{!"int", !5, i64 0}
 !5 = !{!"omnipotent char", !6, i64 0}
 !6 = !{!"Simple C/C++ TBAA"}
-!7 = distinct !{!7, !8, !9}
+!7 = distinct !{!7, !8}
 !8 = !{!"llvm.loop.mustprogress"}
-!9 = !{!"llvm.loop.estimated_trip_count"}
-!10 = !{!11, !11, i64 0}
-!11 = !{!"double", !5, i64 0}
-!12 = distinct !{!12, !8, !9}
-!13 = distinct !{!13, !9}
-!14 = distinct !{!14, !8, !9}
-!15 = distinct !{!15, !8, !9}
-!16 = distinct !{!16, !9}
-!17 = distinct !{!17, !8, !9}
+!9 = !{!10, !10, i64 0}
+!10 = !{!"double", !5, i64 0}
+!11 = distinct !{!11, !8}
+!12 = distinct !{!12, !8}
+!13 = distinct !{!13, !8}
+!14 = distinct !{!14, !8}

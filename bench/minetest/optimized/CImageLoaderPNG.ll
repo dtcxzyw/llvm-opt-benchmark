@@ -534,7 +534,7 @@ for.body:                                         ; preds = %for.body, %for.body
   %add.ptr.7 = getelementptr inbounds nuw i8, ptr %add.ptr.6, i64 %idx.ext
   %indvars.iv.next.7 = add nuw nsw i64 %indvars.iv, 8
   %niter.ncmp.7 = icmp eq i64 %indvars.iv.next.7, %unroll_iter
-  br i1 %niter.ncmp.7, label %for.cond.cleanup.loopexit.unr-lcssa, label %for.body, !llvm.loop !29
+  br i1 %niter.ncmp.7, label %for.cond.cleanup.loopexit.unr-lcssa, label %for.body, !llvm.loop !28
 
 if.then109:                                       ; preds = %for.cond.cleanup
   call void @png_destroy_read_struct(ptr noundef nonnull %png_ptr, ptr noundef nonnull %info_ptr, ptr noundef null) #15
@@ -668,7 +668,7 @@ entry:
   %ReferenceCounter.i.i = getelementptr inbounds nuw i8, ptr %call, i64 24
   %1 = getelementptr inbounds nuw i8, ptr %call, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %1, i8 0, i64 16, i1 false)
-  store i32 1, ptr %ReferenceCounter.i.i, align 8, !tbaa !31
+  store i32 1, ptr %ReferenceCounter.i.i, align 8, !tbaa !30
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3irr5video15CImageLoaderPngE, i64 24), ptr %call, align 8, !tbaa !3
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3irr5video15CImageLoaderPngE, i64 88), ptr %0, align 8, !tbaa !3
   ret ptr %call
@@ -793,7 +793,7 @@ for.inc.i:                                        ; preds = %for.body.i
   %arrayidx.i = getelementptr inbounds nuw i8, ptr %1, i64 %idxprom.i
   %7 = load i8, ptr %arrayidx.i, align 1, !tbaa !13
   %tobool.not.i = icmp eq i8 %7, 0
-  br i1 %tobool.not.i, label %land.rhs21.loopexit.i, label %land.rhs.i, !llvm.loop !33
+  br i1 %tobool.not.i, label %land.rhs21.loopexit.i, label %land.rhs.i, !llvm.loop !32
 
 land.rhs21.loopexit.i:                            ; preds = %for.inc.i
   %8 = zext i32 %inc.i to i64
@@ -840,7 +840,7 @@ for.inc.i42:                                      ; preds = %for.body.i32
   %arrayidx.i46 = getelementptr inbounds nuw i8, ptr %1, i64 %idxprom.i45
   %14 = load i8, ptr %arrayidx.i46, align 1, !tbaa !13
   %tobool.not.i47 = icmp eq i8 %14, 0
-  br i1 %tobool.not.i47, label %land.rhs21.loopexit.i48, label %land.rhs.i27, !llvm.loop !34
+  br i1 %tobool.not.i47, label %land.rhs21.loopexit.i48, label %land.rhs.i27, !llvm.loop !32
 
 land.rhs21.loopexit.i48:                          ; preds = %for.inc.i42
   %15 = zext i32 %inc.i43 to i64
@@ -887,7 +887,7 @@ for.inc.i79:                                      ; preds = %for.body.i69
   %arrayidx.i83 = getelementptr inbounds nuw i8, ptr %1, i64 %idxprom.i82
   %21 = load i8, ptr %arrayidx.i83, align 1, !tbaa !13
   %tobool.not.i84 = icmp eq i8 %21, 0
-  br i1 %tobool.not.i84, label %land.rhs21.loopexit.i85, label %land.rhs.i64, !llvm.loop !35
+  br i1 %tobool.not.i84, label %land.rhs21.loopexit.i85, label %land.rhs.i64, !llvm.loop !32
 
 land.rhs21.loopexit.i85:                          ; preds = %for.inc.i79
   %22 = zext i32 %inc.i80 to i64
@@ -972,13 +972,10 @@ attributes #19 = { builtin nounwind allocsize(0) }
 !23 = !{!"_ZTSN3irr5video13ECOLOR_FORMATE", !9, i64 0}
 !24 = !{!"bool", !9, i64 0}
 !25 = !{!22, !17, i64 44}
-!26 = distinct !{!26, !27, !28}
+!26 = distinct !{!26, !27}
 !27 = !{!"llvm.loop.unroll.disable"}
-!28 = !{!"llvm.loop.estimated_trip_count"}
-!29 = distinct !{!29, !30, !28}
-!30 = !{!"llvm.loop.mustprogress"}
-!31 = !{!32, !17, i64 16}
-!32 = !{!"_ZTSN3irr17IReferenceCountedE", !8, i64 8, !17, i64 16}
-!33 = distinct !{!33, !30, !28}
-!34 = distinct !{!34, !30, !28}
-!35 = distinct !{!35, !30, !28}
+!28 = distinct !{!28, !29}
+!29 = !{!"llvm.loop.mustprogress"}
+!30 = !{!31, !17, i64 16}
+!31 = !{!"_ZTSN3irr17IReferenceCountedE", !8, i64 8, !17, i64 16}
+!32 = distinct !{!32, !29}

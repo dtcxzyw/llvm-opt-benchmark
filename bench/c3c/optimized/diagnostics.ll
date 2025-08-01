@@ -156,7 +156,7 @@ define internal fastcc void @print_error(i64 %0, ptr noundef %1, i32 noundef ran
 
 48:                                               ; preds = %45
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  br label %45, !llvm.loop !10
+  br label %45, !llvm.loop !9
 
 .critedge:                                        ; preds = %45, %45
   %49 = trunc nuw nsw i64 %indvars.iv to i32
@@ -174,7 +174,7 @@ define internal fastcc void @print_error(i64 %0, ptr noundef %1, i32 noundef ran
 53:                                               ; preds = %52, %51
   %54 = add nuw nsw i64 %.2115, 1
   %.not95.not = icmp samesign ult i64 %.2115, %.sroa.5.0.extract.shift
-  br i1 %.not95.not, label %41, label %._crit_edge, !llvm.loop !11
+  br i1 %.not95.not, label %41, label %._crit_edge, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %53, %.preheader110
   %.189.lcssa = phi ptr [ %.088.lcssa, %.preheader110 ], [ %44, %53 ]
@@ -187,7 +187,7 @@ define internal fastcc void @print_error(i64 %0, ptr noundef %1, i32 noundef ran
   call void (ptr, ...) @eprintf(ptr noundef nonnull @.str.11) #8
   %55 = add nuw i32 %.086120, 1
   %exitcond.not = icmp eq i32 %.086120, %24
-  br i1 %exitcond.not, label %._crit_edge123, label %.lr.ph122, !llvm.loop !12
+  br i1 %exitcond.not, label %._crit_edge123, label %.lr.ph122, !llvm.loop !11
 
 ._crit_edge123:                                   ; preds = %.lr.ph122, %._crit_edge
   %.not96 = icmp ult i32 %6, 16777216
@@ -214,7 +214,7 @@ define internal fastcc void @print_error(i64 %0, ptr noundef %1, i32 noundef ran
   call void (ptr, ...) @eprintf(ptr noundef nonnull %.str.12..str.11) #8
   %indvars.iv.next134 = add nuw nsw i64 %indvars.iv133, 1
   %exitcond136.not = icmp eq i64 %indvars.iv.next134, %wide.trip.count
-  br i1 %exitcond136.not, label %._crit_edge127, label %.lr.ph126, !llvm.loop !13
+  br i1 %exitcond136.not, label %._crit_edge127, label %.lr.ph126, !llvm.loop !12
 
 ._crit_edge127:                                   ; preds = %.lr.ph126, %._crit_edge123
   br i1 %.not97, label %.critedge106, label %.preheader.preheader
@@ -229,7 +229,7 @@ define internal fastcc void @print_error(i64 %0, ptr noundef %1, i32 noundef ran
   call void (ptr, ...) @eprintf(ptr noundef nonnull @.str.13) #8
   %63 = add nuw nsw i32 %.0128, 1
   %exitcond137.not = icmp eq i32 %63, %umax
-  br i1 %exitcond137.not, label %64, label %.preheader, !llvm.loop !14
+  br i1 %exitcond137.not, label %64, label %.preheader, !llvm.loop !13
 
 64:                                               ; preds = %.preheader
   call void (ptr, ...) @eprintf(ptr noundef nonnull @.str.1) #8
@@ -389,7 +389,7 @@ define dso_local void @span_to_scratch(i64 %0) local_unnamed_addr #0 {
 18:                                               ; preds = %.lr.ph, %16
   %.123 = phi i32 [ %.02229, %.lr.ph ], [ %17, %16 ]
   %19 = icmp ult i32 %.123, %.sroa.4.0.extract.trunc
-  br i1 %19, label %.lr.ph, label %._crit_edge, !llvm.loop !15
+  br i1 %19, label %.lr.ph, label %._crit_edge, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %18, %.preheader
   %.0.lcssa = phi ptr [ %12, %.preheader ], [ %14, %18 ]
@@ -428,7 +428,7 @@ define dso_local void @span_to_scratch(i64 %0) local_unnamed_addr #0 {
   %.0.i25 = phi i1 [ true, %27 ], [ %.0.i25.ph, %.sink.split ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %23, !llvm.loop !16
+  br i1 %exitcond.not, label %.loopexit, label %23, !llvm.loop !15
 
 .loopexit:                                        ; preds = %.lr.ph, %28, %1
   ret void
@@ -479,7 +479,7 @@ define dso_local ptr @span_to_string(i64 %0) local_unnamed_addr #0 {
 18:                                               ; preds = %.lr.ph, %16
   %.1 = phi i32 [ %.01618, %.lr.ph ], [ %17, %16 ]
   %19 = icmp ult i32 %.1, %.sroa.4.0.extract.trunc
-  br i1 %19, label %.lr.ph, label %._crit_edge, !llvm.loop !17
+  br i1 %19, label %.lr.ph, label %._crit_edge, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %18, %.preheader
   %.015.lcssa = phi ptr [ %12, %.preheader ], [ %14, %18 ]
@@ -535,14 +535,13 @@ attributes #9 = { noreturn nounwind }
 !4 = !{i32 7, !"PIE Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i32 7, !"frame-pointer", i32 2}
-!7 = distinct !{!7, !8, !9}
+!7 = distinct !{!7, !8}
 !8 = !{!"llvm.loop.mustprogress"}
-!9 = !{!"llvm.loop.estimated_trip_count"}
-!10 = distinct !{!10, !8, !9}
-!11 = distinct !{!11, !8, !9}
-!12 = distinct !{!12, !8, !9}
-!13 = distinct !{!13, !8, !9}
-!14 = distinct !{!14, !8, !9}
-!15 = distinct !{!15, !8, !9}
-!16 = distinct !{!16, !8, !9}
-!17 = distinct !{!17, !8, !9}
+!9 = distinct !{!9, !8}
+!10 = distinct !{!10, !8}
+!11 = distinct !{!11, !8}
+!12 = distinct !{!12, !8}
+!13 = distinct !{!13, !8}
+!14 = distinct !{!14, !8}
+!15 = distinct !{!15, !8}
+!16 = distinct !{!16, !8}

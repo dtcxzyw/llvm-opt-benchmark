@@ -1172,7 +1172,7 @@ _ZN21PXR_INTERNAL_NS_pegtl8internal6markerINS0_8iteratorELNS_11rewind_modeE1EED2
           to label %.noexc unwind label %.loopexit.split-lp.loopexit
 
 .noexc:                                           ; preds = %11
-  br i1 %12, label %11, label %13, !llvm.loop !7
+  br i1 %12, label %11, label %13, !llvm.loop !6
 
 13:                                               ; preds = %.noexc
   %14 = invoke noundef zeroext i1 @_ZN21PXR_INTERNAL_NS_pegtl5matchIN32pxrInternal_v0_24__pxrReserved__14Sdf_PathParser16VariantSelectionELNS_10apply_modeE1ELNS_11rewind_modeE1ETtTpTyENS2_6ActionETtTpTyENS_6normalENS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS2_9PPContextEEEEDaRT4_DpOT5_(ptr noundef nonnull align 8 dereferenceable(120) %0, ptr noundef nonnull align 8 dereferenceable(96) %1)
@@ -1186,7 +1186,7 @@ _ZN21PXR_INTERNAL_NS_pegtl8internal6markerINS0_8iteratorELNS_11rewind_modeE1EED2
           to label %.noexc7 unwind label %.loopexit
 
 .noexc7:                                          ; preds = %.preheader.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
-  br i1 %15, label %.preheader.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZN21PXR_INTERNAL_NS_pegtl6normalIN32pxrInternal_v0_24__pxrReserved__14Sdf_PathParser8PrimEltsEE5matchILNS_10apply_modeE1ELNS_11rewind_modeE0ETtTpTyENS2_6ActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS2_9PPContextEEEEbRT3_DpOT4_.exit, !llvm.loop !8
+  br i1 %15, label %.preheader.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZN21PXR_INTERNAL_NS_pegtl6normalIN32pxrInternal_v0_24__pxrReserved__14Sdf_PathParser8PrimEltsEE5matchILNS_10apply_modeE1ELNS_11rewind_modeE0ETtTpTyENS2_6ActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS2_9PPContextEEEEbRT3_DpOT4_.exit, !llvm.loop !7
 
 _ZN21PXR_INTERNAL_NS_pegtl6normalIN32pxrInternal_v0_24__pxrReserved__14Sdf_PathParser8PrimEltsEE5matchILNS_10apply_modeE1ELNS_11rewind_modeE0ETtTpTyENS2_6ActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS2_9PPContextEEEEbRT3_DpOT4_.exit.thread: ; preds = %_ZN21PXR_INTERNAL_NS_pegtl8internal20match_control_unwindIN32pxrInternal_v0_24__pxrReserved__14Sdf_PathParser8PrimNameELNS_10apply_modeE1ELNS_11rewind_modeE0ETtTpTyENS3_6ActionETtTpTyENS_6normalENS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS3_9PPContextEEEEDaRT4_DpOT5_.exit.i.i.i.i.i.i.i.i.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.0.i.i.i.i.i.i.i.i.i.i.i.i)
@@ -1345,7 +1345,7 @@ _ZN21PXR_INTERNAL_NS_pegtl8internal9peek_utf84peekINS_12string_inputILNS_13track
   store i64 %storemerge.i.i.i.i.i.i.i.i.i.i.i.i.i, ptr %23, align 8
   %37 = add nuw i64 %.013.i.i.i.i.i.i.i.i.i.i.i.i.i, 1
   %exitcond.not.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %37, %.sroa.2.0.extract.shift10.i.i.i.i.i.i.i.i.i.i.i
-  br i1 %exitcond.not.i.i.i.i.i.i.i.i.i.i.i.i.i, label %38, label %25, !llvm.loop !9
+  br i1 %exitcond.not.i.i.i.i.i.i.i.i.i.i.i.i.i, label %38, label %25, !llvm.loop !8
 
 38:                                               ; preds = %35
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -1420,7 +1420,7 @@ _ZN21PXR_INTERNAL_NS_pegtl8internal9peek_utf84peekINS_12string_inputILNS_13track
   store i64 %storemerge.i.i.i.i.i.i.i.i.i.i.i.i, ptr %46, align 8
   %69 = add nuw i64 %.013.i.i.i.i.i.i.i.i.i.i.i.i, 1
   %exitcond.not.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %69, %.sroa.2.0.extract.shift10.i.i.i.i.i.i.i.i.i.i
-  br i1 %exitcond.not.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZN21PXR_INTERNAL_NS_pegtl6normalIN32pxrInternal_v0_24__pxrReserved__14Sdf_PathParser11XidContinueEE5matchILNS_10apply_modeE1ELNS_11rewind_modeE1ETtTpTyENS2_6ActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS2_9PPContextEEEEbRT3_DpOT4_.exit.i.i.i.i.i, label %57, !llvm.loop !9
+  br i1 %exitcond.not.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZN21PXR_INTERNAL_NS_pegtl6normalIN32pxrInternal_v0_24__pxrReserved__14Sdf_PathParser11XidContinueEE5matchILNS_10apply_modeE1ELNS_11rewind_modeE1ETtTpTyENS2_6ActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS2_9PPContextEEEEbRT3_DpOT4_.exit.i.i.i.i.i, label %57, !llvm.loop !8
 
 _ZN21PXR_INTERNAL_NS_pegtl6normalIN32pxrInternal_v0_24__pxrReserved__14Sdf_PathParser11XidContinueEE5matchILNS_10apply_modeE1ELNS_11rewind_modeE1ETtTpTyENS2_6ActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS2_9PPContextEEEEbRT3_DpOT4_.exit.i.i.i.i.i: ; preds = %67
   %70 = load i64, ptr %48, align 8
@@ -1430,7 +1430,7 @@ _ZN21PXR_INTERNAL_NS_pegtl6normalIN32pxrInternal_v0_24__pxrReserved__14Sdf_PathP
   store ptr %72, ptr %3, align 8
   %73 = load ptr, ptr %5, align 8
   %74 = icmp eq ptr %72, %73
-  br i1 %74, label %_ZN21PXR_INTERNAL_NS_pegtl6normalINS_4starIN32pxrInternal_v0_24__pxrReserved__14Sdf_PathParser11XidContinueEJEEEE5matchILNS_10apply_modeE1ELNS_11rewind_modeE0ETtTpTyENS3_6ActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS3_9PPContextEEEEbRT3_DpOT4_.exit, label %49, !llvm.loop !10
+  br i1 %74, label %_ZN21PXR_INTERNAL_NS_pegtl6normalINS_4starIN32pxrInternal_v0_24__pxrReserved__14Sdf_PathParser11XidContinueEJEEEE5matchILNS_10apply_modeE1ELNS_11rewind_modeE0ETtTpTyENS3_6ActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS3_9PPContextEEEEbRT3_DpOT4_.exit, label %49, !llvm.loop !9
 
 _ZN21PXR_INTERNAL_NS_pegtl6normalINS_4starIN32pxrInternal_v0_24__pxrReserved__14Sdf_PathParser11XidContinueEJEEEE5matchILNS_10apply_modeE1ELNS_11rewind_modeE0ETtTpTyENS3_6ActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS3_9PPContextEEEEbRT3_DpOT4_.exit: ; preds = %_ZN21PXR_INTERNAL_NS_pegtl6normalIN32pxrInternal_v0_24__pxrReserved__14Sdf_PathParser11XidContinueEE5matchILNS_10apply_modeE1ELNS_11rewind_modeE1ETtTpTyENS2_6ActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS2_9PPContextEEEEbRT3_DpOT4_.exit.i.i.i.i.i, %_ZN21PXR_INTERNAL_NS_pegtl8internal9peek_utf84peekINS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_10input_pairIDiEERT_.exit.thread.i.i.i.i.i.i.i.i.i.i, %_ZN21PXR_INTERNAL_NS_pegtl8internal9peek_utf84peekINS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_10input_pairIDiEERT_.exit.i.i.i.i.i.i.i.i.i.i, %2, %_ZN21PXR_INTERNAL_NS_pegtl8internal9peek_utf84peekINS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_10input_pairIDiEERT_.exit.thread.i.i.i.i.i.i.i.i.i.i.i, %_ZN21PXR_INTERNAL_NS_pegtl8internal9peek_utf84peekINS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_10input_pairIDiEERT_.exit.i.i.i.i.i.i.i.i.i.i.i, %_ZN21PXR_INTERNAL_NS_pegtl6normalIN32pxrInternal_v0_24__pxrReserved__14Sdf_PathParser19Utf8IdentifierStartEE5matchILNS_10apply_modeE1ELNS_11rewind_modeE0ETtTpTyENS2_6ActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS2_9PPContextEEEEbRT3_DpOT4_.exit
   %75 = phi i1 [ true, %_ZN21PXR_INTERNAL_NS_pegtl6normalIN32pxrInternal_v0_24__pxrReserved__14Sdf_PathParser19Utf8IdentifierStartEE5matchILNS_10apply_modeE1ELNS_11rewind_modeE0ETtTpTyENS2_6ActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS2_9PPContextEEEEbRT3_DpOT4_.exit ], [ false, %_ZN21PXR_INTERNAL_NS_pegtl8internal9peek_utf84peekINS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_10input_pairIDiEERT_.exit.i.i.i.i.i.i.i.i.i.i.i ], [ false, %_ZN21PXR_INTERNAL_NS_pegtl8internal9peek_utf84peekINS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_10input_pairIDiEERT_.exit.thread.i.i.i.i.i.i.i.i.i.i.i ], [ false, %2 ], [ true, %_ZN21PXR_INTERNAL_NS_pegtl8internal9peek_utf84peekINS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_10input_pairIDiEERT_.exit.i.i.i.i.i.i.i.i.i.i ], [ true, %_ZN21PXR_INTERNAL_NS_pegtl8internal9peek_utf84peekINS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_10input_pairIDiEERT_.exit.thread.i.i.i.i.i.i.i.i.i.i ], [ true, %_ZN21PXR_INTERNAL_NS_pegtl6normalIN32pxrInternal_v0_24__pxrReserved__14Sdf_PathParser11XidContinueEE5matchILNS_10apply_modeE1ELNS_11rewind_modeE1ETtTpTyENS2_6ActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS2_9PPContextEEEEbRT3_DpOT4_.exit.i.i.i.i.i ]
@@ -1839,7 +1839,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenaSEOS0_.exit: ; preds = %_ZSt4copyI
 
 27:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3)
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #21, !noalias !11
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #21, !noalias !10
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcmRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef %8, i64 noundef %15, ptr noundef nonnull align 1 dereferenceable(1) %3)
           to label %30 unwind label %28
 
@@ -2009,7 +2009,7 @@ _ZN21PXR_INTERNAL_NS_pegtl6normalIN32pxrInternal_v0_24__pxrReserved__14Sdf_PathP
           to label %.noexc8 unwind label %.loopexit
 
 .noexc8:                                          ; preds = %.preheader.i.i.i.i.i.i.i.i.i.i.i
-  br i1 %39, label %.preheader.i.i.i.i.i.i.i.i.i.i.i, label %.loopexit20, !llvm.loop !14
+  br i1 %39, label %.preheader.i.i.i.i.i.i.i.i.i.i.i, label %.loopexit20, !llvm.loop !13
 
 .loopexit20:                                      ; preds = %.noexc8, %_ZN21PXR_INTERNAL_NS_pegtl6normalIN32pxrInternal_v0_24__pxrReserved__14Sdf_PathParser5SlashEE5matchILNS_10apply_modeE1ELNS_11rewind_modeE1ETtTpTyENS2_6ActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS2_9PPContextEEEEbRT3_DpOT4_.exit.i.i.i.i.i.i
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %.sroa.0.i.i)
@@ -2103,7 +2103,7 @@ _ZN21PXR_INTERNAL_NS_pegtl6normalINS_5ascii5blankEE5matchILNS_10apply_modeE0ELNS
   %15 = add i64 %9, 1
   store i64 %15, ptr %8, align 8
   %16 = icmp eq ptr %13, %5
-  br i1 %16, label %_ZN21PXR_INTERNAL_NS_pegtl6normalINS_8internal4starINS_5ascii5blankEJEEEE5matchILNS_10apply_modeE0ELNS_11rewind_modeE0ETtTpTyEN32pxrInternal_v0_24__pxrReserved__14Sdf_PathParser6ActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS3_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNSB_9PPContextEEEEbRT3_DpOT4_.exit.i.i.i.i.i.i.i.i.i.i, label %_ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_10input_pairIcEERT_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, !llvm.loop !15
+  br i1 %16, label %_ZN21PXR_INTERNAL_NS_pegtl6normalINS_8internal4starINS_5ascii5blankEJEEEE5matchILNS_10apply_modeE0ELNS_11rewind_modeE0ETtTpTyEN32pxrInternal_v0_24__pxrReserved__14Sdf_PathParser6ActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS3_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNSB_9PPContextEEEEbRT3_DpOT4_.exit.i.i.i.i.i.i.i.i.i.i, label %_ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_10input_pairIcEERT_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, !llvm.loop !14
 
 _ZN21PXR_INTERNAL_NS_pegtl6normalINS_8internal4starINS_5ascii5blankEJEEEE5matchILNS_10apply_modeE0ELNS_11rewind_modeE0ETtTpTyEN32pxrInternal_v0_24__pxrReserved__14Sdf_PathParser6ActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS3_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNSB_9PPContextEEEEbRT3_DpOT4_.exit.i.i.i.i.i.i.i.i.i.i: ; preds = %_ZN21PXR_INTERNAL_NS_pegtl6normalINS_5ascii5blankEE5matchILNS_10apply_modeE0ELNS_11rewind_modeE1ETtTpTyEN32pxrInternal_v0_24__pxrReserved__14Sdf_PathParser6ActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS1_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS8_9PPContextEEEEbRT3_DpOT4_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %_ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_10input_pairIcEERT_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %2
   %17 = phi ptr [ %.promoted.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %2 ], [ %13, %_ZN21PXR_INTERNAL_NS_pegtl6normalINS_5ascii5blankEE5matchILNS_10apply_modeE0ELNS_11rewind_modeE1ETtTpTyEN32pxrInternal_v0_24__pxrReserved__14Sdf_PathParser6ActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS1_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS8_9PPContextEEEEbRT3_DpOT4_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i ], [ %11, %_ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_10input_pairIcEERT_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i ]
@@ -2147,7 +2147,7 @@ _ZN21PXR_INTERNAL_NS_pegtl6normalINS_5ascii5blankEE5matchILNS_10apply_modeE0ELNS
   %36 = add i64 %30, 1
   store i64 %36, ptr %26, align 8
   %37 = icmp eq ptr %34, %5
-  br i1 %37, label %_ZN21PXR_INTERNAL_NS_pegtl6normalIN32pxrInternal_v0_24__pxrReserved__14Sdf_PathParser16VariantSelectionEE5matchILNS_10apply_modeE0ELNS_11rewind_modeE0ETtTpTyENS2_6ActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS2_9PPContextEEEEbRT3_DpOT4_.exit, label %_ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_10input_pairIcEERT_.exit.i.i.i.i.i.i.i.i.i11.i.i.i.i.i.i.i.i.i.i, !llvm.loop !15
+  br i1 %37, label %_ZN21PXR_INTERNAL_NS_pegtl6normalIN32pxrInternal_v0_24__pxrReserved__14Sdf_PathParser16VariantSelectionEE5matchILNS_10apply_modeE0ELNS_11rewind_modeE0ETtTpTyENS2_6ActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS2_9PPContextEEEEbRT3_DpOT4_.exit, label %_ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_10input_pairIcEERT_.exit.i.i.i.i.i.i.i.i.i11.i.i.i.i.i.i.i.i.i.i, !llvm.loop !14
 
 _ZN21PXR_INTERNAL_NS_pegtl6normalIN32pxrInternal_v0_24__pxrReserved__14Sdf_PathParser16VariantSelectionEE5matchILNS_10apply_modeE0ELNS_11rewind_modeE0ETtTpTyENS2_6ActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS2_9PPContextEEEEbRT3_DpOT4_.exit: ; preds = %_ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_10input_pairIcEERT_.exit.i.i.i.i.i.i.i.i.i11.i.i.i.i.i.i.i.i.i.i, %_ZN21PXR_INTERNAL_NS_pegtl6normalINS_5ascii5blankEE5matchILNS_10apply_modeE0ELNS_11rewind_modeE1ETtTpTyEN32pxrInternal_v0_24__pxrReserved__14Sdf_PathParser6ActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS1_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS8_9PPContextEEEEbRT3_DpOT4_.exit.i.i.i.i12.i.i.i.i.i.i.i.i.i.i, %21
   %38 = tail call noundef zeroext i1 @_ZN21PXR_INTERNAL_NS_pegtl8internal3seqIJNS0_4mustIJN32pxrInternal_v0_24__pxrReserved__14Sdf_PathParser14VariantSetNameEEEENS2_IJNS_3padINS_5ascii3oneIJLc61EEEENS8_5blankESB_EEEEENS2_IJNS_3optIJNS4_11VariantNameEEEEEEENS2_IJNS4_11VarSelCloseEEEEEE5matchILNS_10apply_modeE0ELNS_11rewind_modeE0ETtTpTyENS4_6ActionETtTpTyENS_6normalENS_12string_inputILNS_13tracking_modeE0ENS8_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS4_9PPContextEEEEbRT3_DpOT4_(ptr noundef nonnull align 8 dereferenceable(120) %0, ptr noundef nonnull align 8 dereferenceable(96) %1)
@@ -2184,7 +2184,7 @@ _ZN21PXR_INTERNAL_NS_pegtl6normalINS_5ascii5blankEE5matchILNS_10apply_modeE0ELNS
   %48 = add i64 %42, 1
   store i64 %48, ptr %26, align 8
   %49 = icmp eq ptr %46, %40
-  br i1 %49, label %_ZN21PXR_INTERNAL_NS_pegtl6normalINS_8internal4starINS_5ascii5blankEJEEEE5matchILNS_10apply_modeE0ELNS_11rewind_modeE0ETtTpTyEN32pxrInternal_v0_24__pxrReserved__14Sdf_PathParser6ActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS3_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNSB_9PPContextEEEEbRT3_DpOT4_.exit.i.i.i.i.i.i.i.i.i.i11, label %_ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_10input_pairIcEERT_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i9, !llvm.loop !15
+  br i1 %49, label %_ZN21PXR_INTERNAL_NS_pegtl6normalINS_8internal4starINS_5ascii5blankEJEEEE5matchILNS_10apply_modeE0ELNS_11rewind_modeE0ETtTpTyEN32pxrInternal_v0_24__pxrReserved__14Sdf_PathParser6ActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS3_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNSB_9PPContextEEEEbRT3_DpOT4_.exit.i.i.i.i.i.i.i.i.i.i11, label %_ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_10input_pairIcEERT_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i9, !llvm.loop !14
 
 _ZN21PXR_INTERNAL_NS_pegtl6normalINS_8internal4starINS_5ascii5blankEJEEEE5matchILNS_10apply_modeE0ELNS_11rewind_modeE0ETtTpTyEN32pxrInternal_v0_24__pxrReserved__14Sdf_PathParser6ActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS3_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNSB_9PPContextEEEEbRT3_DpOT4_.exit.i.i.i.i.i.i.i.i.i.i11: ; preds = %_ZN21PXR_INTERNAL_NS_pegtl6normalINS_5ascii5blankEE5matchILNS_10apply_modeE0ELNS_11rewind_modeE1ETtTpTyEN32pxrInternal_v0_24__pxrReserved__14Sdf_PathParser6ActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS1_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS8_9PPContextEEEEbRT3_DpOT4_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i10, %_ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_10input_pairIcEERT_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i9, %39
   %50 = phi ptr [ %.promoted.i.i.i.i.i.i.i.i.i.i.i.i.i.i5, %39 ], [ %44, %_ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_10input_pairIcEERT_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i9 ], [ %46, %_ZN21PXR_INTERNAL_NS_pegtl6normalINS_5ascii5blankEE5matchILNS_10apply_modeE0ELNS_11rewind_modeE1ETtTpTyEN32pxrInternal_v0_24__pxrReserved__14Sdf_PathParser6ActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS1_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS8_9PPContextEEEEbRT3_DpOT4_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i10 ]
@@ -2226,7 +2226,7 @@ _ZN21PXR_INTERNAL_NS_pegtl6normalINS_5ascii5blankEE5matchILNS_10apply_modeE0ELNS
   %67 = add i64 %61, 1
   store i64 %67, ptr %26, align 8
   %68 = icmp eq ptr %65, %40
-  br i1 %68, label %_ZN21PXR_INTERNAL_NS_pegtl6normalIN32pxrInternal_v0_24__pxrReserved__14Sdf_PathParser16VariantSelectionEE5matchILNS_10apply_modeE0ELNS_11rewind_modeE1ETtTpTyENS2_6ActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS2_9PPContextEEEEbRT3_DpOT4_.exit, label %_ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_10input_pairIcEERT_.exit.i.i.i.i.i.i.i.i.i12.i.i.i.i.i.i.i.i.i.i, !llvm.loop !15
+  br i1 %68, label %_ZN21PXR_INTERNAL_NS_pegtl6normalIN32pxrInternal_v0_24__pxrReserved__14Sdf_PathParser16VariantSelectionEE5matchILNS_10apply_modeE0ELNS_11rewind_modeE1ETtTpTyENS2_6ActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS2_9PPContextEEEEbRT3_DpOT4_.exit, label %_ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_10input_pairIcEERT_.exit.i.i.i.i.i.i.i.i.i12.i.i.i.i.i.i.i.i.i.i, !llvm.loop !14
 
 _ZN21PXR_INTERNAL_NS_pegtl6normalIN32pxrInternal_v0_24__pxrReserved__14Sdf_PathParser16VariantSelectionEE5matchILNS_10apply_modeE0ELNS_11rewind_modeE1ETtTpTyENS2_6ActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS2_9PPContextEEEEbRT3_DpOT4_.exit.thread: ; preds = %_ZN21PXR_INTERNAL_NS_pegtl6normalINS_8internal4starINS_5ascii5blankEJEEEE5matchILNS_10apply_modeE0ELNS_11rewind_modeE0ETtTpTyEN32pxrInternal_v0_24__pxrReserved__14Sdf_PathParser6ActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS3_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNSB_9PPContextEEEEbRT3_DpOT4_.exit.i.i.i.i.i.i.i.i.i.i11, %_ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_10input_pairIcEERT_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.i.i.i.i.i.i.i.i.i.i, i64 32, i1 false)
@@ -2236,7 +2236,7 @@ _ZN21PXR_INTERNAL_NS_pegtl6normalIN32pxrInternal_v0_24__pxrReserved__14Sdf_PathP
 _ZN21PXR_INTERNAL_NS_pegtl6normalIN32pxrInternal_v0_24__pxrReserved__14Sdf_PathParser16VariantSelectionEE5matchILNS_10apply_modeE0ELNS_11rewind_modeE1ETtTpTyENS2_6ActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS2_9PPContextEEEEbRT3_DpOT4_.exit: ; preds = %_ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_10input_pairIcEERT_.exit.i.i.i.i.i.i.i.i.i12.i.i.i.i.i.i.i.i.i.i, %_ZN21PXR_INTERNAL_NS_pegtl6normalINS_5ascii5blankEE5matchILNS_10apply_modeE0ELNS_11rewind_modeE1ETtTpTyEN32pxrInternal_v0_24__pxrReserved__14Sdf_PathParser6ActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS1_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS8_9PPContextEEEEbRT3_DpOT4_.exit.i.i.i.i13.i.i.i.i.i.i.i.i.i.i, %54
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.0.i.i.i.i.i.i.i.i.i.i)
   %69 = tail call noundef zeroext i1 @_ZN21PXR_INTERNAL_NS_pegtl8internal3seqIJNS0_4mustIJN32pxrInternal_v0_24__pxrReserved__14Sdf_PathParser14VariantSetNameEEEENS2_IJNS_3padINS_5ascii3oneIJLc61EEEENS8_5blankESB_EEEEENS2_IJNS_3optIJNS4_11VariantNameEEEEEEENS2_IJNS4_11VarSelCloseEEEEEE5matchILNS_10apply_modeE0ELNS_11rewind_modeE1ETtTpTyENS4_6ActionETtTpTyENS_6normalENS_12string_inputILNS_13tracking_modeE0ENS8_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS4_9PPContextEEEEbRT3_DpOT4_(ptr noundef nonnull align 8 dereferenceable(120) %0, ptr noundef nonnull align 8 dereferenceable(96) %1)
-  br label %39, !llvm.loop !16
+  br label %39, !llvm.loop !15
 
 _ZN21PXR_INTERNAL_NS_pegtl6normalIN32pxrInternal_v0_24__pxrReserved__14Sdf_PathParser16VariantSelectionEE5matchILNS_10apply_modeE0ELNS_11rewind_modeE0ETtTpTyENS2_6ActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS2_9PPContextEEEEbRT3_DpOT4_.exit.thread: ; preds = %_ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_10input_pairIcEERT_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %_ZN21PXR_INTERNAL_NS_pegtl6normalINS_8internal4starINS_5ascii5blankEJEEEE5matchILNS_10apply_modeE0ELNS_11rewind_modeE0ETtTpTyEN32pxrInternal_v0_24__pxrReserved__14Sdf_PathParser6ActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS3_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNSB_9PPContextEEEEbRT3_DpOT4_.exit.i.i.i.i.i.i.i.i.i.i, %_ZN21PXR_INTERNAL_NS_pegtl6normalIN32pxrInternal_v0_24__pxrReserved__14Sdf_PathParser16VariantSelectionEE5matchILNS_10apply_modeE0ELNS_11rewind_modeE1ETtTpTyENS2_6ActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS2_9PPContextEEEEbRT3_DpOT4_.exit.thread
   %70 = phi i1 [ true, %_ZN21PXR_INTERNAL_NS_pegtl6normalIN32pxrInternal_v0_24__pxrReserved__14Sdf_PathParser16VariantSelectionEE5matchILNS_10apply_modeE0ELNS_11rewind_modeE1ETtTpTyENS2_6ActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS2_9PPContextEEEEbRT3_DpOT4_.exit.thread ], [ false, %_ZN21PXR_INTERNAL_NS_pegtl6normalINS_8internal4starINS_5ascii5blankEJEEEE5matchILNS_10apply_modeE0ELNS_11rewind_modeE0ETtTpTyEN32pxrInternal_v0_24__pxrReserved__14Sdf_PathParser6ActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS3_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNSB_9PPContextEEEEbRT3_DpOT4_.exit.i.i.i.i.i.i.i.i.i.i ], [ false, %_ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_10input_pairIcEERT_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i ]
@@ -2286,7 +2286,7 @@ _ZN21PXR_INTERNAL_NS_pegtl6normalINS_5ascii5blankEE5matchILNS_10apply_modeE0ELNS
   %17 = add i64 %11, 1
   store i64 %17, ptr %10, align 8
   %18 = icmp eq ptr %15, %7
-  br i1 %18, label %_ZN21PXR_INTERNAL_NS_pegtl6normalINS_8internal4starINS_5ascii5blankEJEEEE5matchILNS_10apply_modeE0ELNS_11rewind_modeE2ETtTpTyEN32pxrInternal_v0_24__pxrReserved__14Sdf_PathParser6ActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS3_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNSB_9PPContextEEEEbRT3_DpOT4_.exit.i.i.i.i.i.i.i.i.i, label %_ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_10input_pairIcEERT_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, !llvm.loop !17
+  br i1 %18, label %_ZN21PXR_INTERNAL_NS_pegtl6normalINS_8internal4starINS_5ascii5blankEJEEEE5matchILNS_10apply_modeE0ELNS_11rewind_modeE2ETtTpTyEN32pxrInternal_v0_24__pxrReserved__14Sdf_PathParser6ActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS3_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNSB_9PPContextEEEEbRT3_DpOT4_.exit.i.i.i.i.i.i.i.i.i, label %_ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_10input_pairIcEERT_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, !llvm.loop !16
 
 _ZN21PXR_INTERNAL_NS_pegtl6normalINS_8internal4starINS_5ascii5blankEJEEEE5matchILNS_10apply_modeE0ELNS_11rewind_modeE2ETtTpTyEN32pxrInternal_v0_24__pxrReserved__14Sdf_PathParser6ActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS3_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNSB_9PPContextEEEEbRT3_DpOT4_.exit.i.i.i.i.i.i.i.i.i: ; preds = %_ZN21PXR_INTERNAL_NS_pegtl6normalINS_5ascii5blankEE5matchILNS_10apply_modeE0ELNS_11rewind_modeE1ETtTpTyEN32pxrInternal_v0_24__pxrReserved__14Sdf_PathParser6ActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS1_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS8_9PPContextEEEEbRT3_DpOT4_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i, %_ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_10input_pairIcEERT_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %_ZN21PXR_INTERNAL_NS_pegtl6normalINS_8internal4mustIJN32pxrInternal_v0_24__pxrReserved__14Sdf_PathParser14VariantSetNameEEEEE5matchILNS_10apply_modeE0ELNS_11rewind_modeE0ETtTpTyENS4_6ActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS4_9PPContextEEEEbRT3_DpOT4_.exit
   %19 = phi ptr [ %.promoted.i.i.i.i.i.i.i.i.i.i.i.i.i, %_ZN21PXR_INTERNAL_NS_pegtl6normalINS_8internal4mustIJN32pxrInternal_v0_24__pxrReserved__14Sdf_PathParser14VariantSetNameEEEEE5matchILNS_10apply_modeE0ELNS_11rewind_modeE0ETtTpTyENS4_6ActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS4_9PPContextEEEEbRT3_DpOT4_.exit ], [ %13, %_ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_10input_pairIcEERT_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i ], [ %15, %_ZN21PXR_INTERNAL_NS_pegtl6normalINS_5ascii5blankEE5matchILNS_10apply_modeE0ELNS_11rewind_modeE1ETtTpTyEN32pxrInternal_v0_24__pxrReserved__14Sdf_PathParser6ActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS1_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS8_9PPContextEEEEbRT3_DpOT4_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i ]
@@ -2330,7 +2330,7 @@ _ZN21PXR_INTERNAL_NS_pegtl6normalINS_5ascii5blankEE5matchILNS_10apply_modeE0ELNS
   %38 = add i64 %32, 1
   store i64 %38, ptr %28, align 8
   %39 = icmp eq ptr %36, %7
-  br i1 %39, label %_ZN21PXR_INTERNAL_NS_pegtl6normalINS_8internal4mustIJNS_3padINS_5ascii3oneIJLc61EEEENS4_5blankES7_EEEEEE5matchILNS_10apply_modeE0ELNS_11rewind_modeE0ETtTpTyEN32pxrInternal_v0_24__pxrReserved__14Sdf_PathParser6ActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS4_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNSF_9PPContextEEEEbRT3_DpOT4_.exit, label %_ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_10input_pairIcEERT_.exit.i.i.i.i.i.i.i.i.i11.i.i.i.i.i.i.i.i.i, !llvm.loop !17
+  br i1 %39, label %_ZN21PXR_INTERNAL_NS_pegtl6normalINS_8internal4mustIJNS_3padINS_5ascii3oneIJLc61EEEENS4_5blankES7_EEEEEE5matchILNS_10apply_modeE0ELNS_11rewind_modeE0ETtTpTyEN32pxrInternal_v0_24__pxrReserved__14Sdf_PathParser6ActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS4_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNSF_9PPContextEEEEbRT3_DpOT4_.exit, label %_ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_10input_pairIcEERT_.exit.i.i.i.i.i.i.i.i.i11.i.i.i.i.i.i.i.i.i, !llvm.loop !16
 
 _ZN21PXR_INTERNAL_NS_pegtl6normalINS_3padINS_5ascii3oneIJLc61EEEENS2_5blankES5_EEE5matchILNS_10apply_modeE0ELNS_11rewind_modeE2ETtTpTyEN32pxrInternal_v0_24__pxrReserved__14Sdf_PathParser6ActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS2_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNSC_9PPContextEEEEbRT3_DpOT4_.exit.i.i.i.i: ; preds = %_ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_10input_pairIcEERT_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %_ZN21PXR_INTERNAL_NS_pegtl6normalINS_8internal4starINS_5ascii5blankEJEEEE5matchILNS_10apply_modeE0ELNS_11rewind_modeE2ETtTpTyEN32pxrInternal_v0_24__pxrReserved__14Sdf_PathParser6ActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS3_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNSB_9PPContextEEEEbRT3_DpOT4_.exit.i.i.i.i.i.i.i.i.i
   tail call void @_ZN21PXR_INTERNAL_NS_pegtl6normalINS_3padINS_5ascii3oneIJLc61EEEENS2_5blankES5_EEE5raiseINS_12string_inputILNS_13tracking_modeE0ENS2_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRN32pxrInternal_v0_24__pxrReserved__14Sdf_PathParser9PPContextEEEEvRKT_DpOT0_(ptr noundef nonnull align 8 dereferenceable(120) %0, ptr noundef nonnull align 8 dereferenceable(96) %1) #22
@@ -2367,7 +2367,7 @@ _ZN21PXR_INTERNAL_NS_pegtl6normalINS_3optIJNS_5ascii3oneIJLc46EEEEEEEE5matchILNS
           to label %.noexc.i.i.i.i.i.i.i.i.i.i.i.i.i.i unwind label %_ZN21PXR_INTERNAL_NS_pegtl8internal6markerINS0_8iteratorELNS_11rewind_modeE1EED2Ev.exit7.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 .noexc.i.i.i.i.i.i.i.i.i.i.i.i.i.i:               ; preds = %_ZN21PXR_INTERNAL_NS_pegtl6normalINS_3optIJNS_5ascii3oneIJLc46EEEEEEEE5matchILNS_10apply_modeE0ELNS_11rewind_modeE0ETtTpTyEN32pxrInternal_v0_24__pxrReserved__14Sdf_PathParser6ActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS2_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNSB_9PPContextEEEEbRT3_DpOT4_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i
-  br i1 %50, label %_ZN21PXR_INTERNAL_NS_pegtl6normalINS_3optIJNS_5ascii3oneIJLc46EEEEEEEE5matchILNS_10apply_modeE0ELNS_11rewind_modeE0ETtTpTyEN32pxrInternal_v0_24__pxrReserved__14Sdf_PathParser6ActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS2_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNSB_9PPContextEEEEbRT3_DpOT4_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %52, !llvm.loop !18
+  br i1 %50, label %_ZN21PXR_INTERNAL_NS_pegtl6normalINS_3optIJNS_5ascii3oneIJLc46EEEEEEEE5matchILNS_10apply_modeE0ELNS_11rewind_modeE0ETtTpTyEN32pxrInternal_v0_24__pxrReserved__14Sdf_PathParser6ActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS2_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNSB_9PPContextEEEEbRT3_DpOT4_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %52, !llvm.loop !17
 
 _ZN21PXR_INTERNAL_NS_pegtl8internal6markerINS0_8iteratorELNS_11rewind_modeE1EED2Ev.exit7.i.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %_ZN21PXR_INTERNAL_NS_pegtl6normalINS_3optIJNS_5ascii3oneIJLc46EEEEEEEE5matchILNS_10apply_modeE0ELNS_11rewind_modeE0ETtTpTyEN32pxrInternal_v0_24__pxrReserved__14Sdf_PathParser6ActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS2_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNSB_9PPContextEEEEbRT3_DpOT4_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i
   %51 = landingpad { ptr, i32 }
@@ -2405,7 +2405,7 @@ _ZN21PXR_INTERNAL_NS_pegtl6normalINS_5ascii5blankEE5matchILNS_10apply_modeE0ELNS
   %61 = add i64 %55, 1
   store i64 %61, ptr %28, align 8
   %62 = icmp eq ptr %59, %53
-  br i1 %62, label %_ZN21PXR_INTERNAL_NS_pegtl6normalINS_8internal4starINS_5ascii5blankEJEEEE5matchILNS_10apply_modeE0ELNS_11rewind_modeE2ETtTpTyEN32pxrInternal_v0_24__pxrReserved__14Sdf_PathParser6ActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS3_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNSB_9PPContextEEEEbRT3_DpOT4_.exit.i.i.i.i.i.i.i.i.i15, label %_ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_10input_pairIcEERT_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i13, !llvm.loop !17
+  br i1 %62, label %_ZN21PXR_INTERNAL_NS_pegtl6normalINS_8internal4starINS_5ascii5blankEJEEEE5matchILNS_10apply_modeE0ELNS_11rewind_modeE2ETtTpTyEN32pxrInternal_v0_24__pxrReserved__14Sdf_PathParser6ActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS3_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNSB_9PPContextEEEEbRT3_DpOT4_.exit.i.i.i.i.i.i.i.i.i15, label %_ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_10input_pairIcEERT_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i13, !llvm.loop !16
 
 _ZN21PXR_INTERNAL_NS_pegtl6normalINS_8internal4starINS_5ascii5blankEJEEEE5matchILNS_10apply_modeE0ELNS_11rewind_modeE2ETtTpTyEN32pxrInternal_v0_24__pxrReserved__14Sdf_PathParser6ActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS3_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNSB_9PPContextEEEEbRT3_DpOT4_.exit.i.i.i.i.i.i.i.i.i15: ; preds = %_ZN21PXR_INTERNAL_NS_pegtl6normalINS_5ascii5blankEE5matchILNS_10apply_modeE0ELNS_11rewind_modeE1ETtTpTyEN32pxrInternal_v0_24__pxrReserved__14Sdf_PathParser6ActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS1_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS8_9PPContextEEEEbRT3_DpOT4_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i14, %_ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_10input_pairIcEERT_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i13, %52
   %63 = phi ptr [ %.promoted.i.i.i.i.i.i.i.i.i.i.i.i.i9, %52 ], [ %57, %_ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_10input_pairIcEERT_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i13 ], [ %59, %_ZN21PXR_INTERNAL_NS_pegtl6normalINS_5ascii5blankEE5matchILNS_10apply_modeE0ELNS_11rewind_modeE1ETtTpTyEN32pxrInternal_v0_24__pxrReserved__14Sdf_PathParser6ActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS1_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS8_9PPContextEEEEbRT3_DpOT4_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i14 ]
@@ -2447,7 +2447,7 @@ _ZN21PXR_INTERNAL_NS_pegtl6normalINS_5ascii5blankEE5matchILNS_10apply_modeE0ELNS
   %80 = add i64 %74, 1
   store i64 %80, ptr %28, align 8
   %81 = icmp eq ptr %78, %53
-  br i1 %81, label %_ZN21PXR_INTERNAL_NS_pegtl6normalINS_8internal4mustIJN32pxrInternal_v0_24__pxrReserved__14Sdf_PathParser11VarSelCloseEEEEE5matchILNS_10apply_modeE0ELNS_11rewind_modeE0ETtTpTyENS4_6ActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS4_9PPContextEEEEbRT3_DpOT4_.exit, label %_ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_10input_pairIcEERT_.exit.i.i.i.i.i.i.i.i.i11.i.i.i.i.i.i.i.i.i17, !llvm.loop !17
+  br i1 %81, label %_ZN21PXR_INTERNAL_NS_pegtl6normalINS_8internal4mustIJN32pxrInternal_v0_24__pxrReserved__14Sdf_PathParser11VarSelCloseEEEEE5matchILNS_10apply_modeE0ELNS_11rewind_modeE0ETtTpTyENS4_6ActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS4_9PPContextEEEEbRT3_DpOT4_.exit, label %_ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_10input_pairIcEERT_.exit.i.i.i.i.i.i.i.i.i11.i.i.i.i.i.i.i.i.i17, !llvm.loop !16
 
 _ZN21PXR_INTERNAL_NS_pegtl6normalIN32pxrInternal_v0_24__pxrReserved__14Sdf_PathParser11VarSelCloseEE5matchILNS_10apply_modeE0ELNS_11rewind_modeE2ETtTpTyENS2_6ActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS2_9PPContextEEEEbRT3_DpOT4_.exit.i.i.i.i: ; preds = %_ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_10input_pairIcEERT_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i16, %_ZN21PXR_INTERNAL_NS_pegtl6normalINS_8internal4starINS_5ascii5blankEJEEEE5matchILNS_10apply_modeE0ELNS_11rewind_modeE2ETtTpTyEN32pxrInternal_v0_24__pxrReserved__14Sdf_PathParser6ActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS3_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNSB_9PPContextEEEEbRT3_DpOT4_.exit.i.i.i.i.i.i.i.i.i15
   tail call void @_ZN21PXR_INTERNAL_NS_pegtl6normalIN32pxrInternal_v0_24__pxrReserved__14Sdf_PathParser11VarSelCloseEE5raiseINS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS2_9PPContextEEEEvRKT_DpOT0_(ptr noundef nonnull align 8 dereferenceable(120) %0, ptr noundef nonnull align 8 dereferenceable(96) %1) #22
@@ -2606,7 +2606,7 @@ _ZN21PXR_INTERNAL_NS_pegtl8internal9peek_utf84peekINS_12string_inputILNS_13track
   store i64 %storemerge.i.i.i.i.i.i.i.i.i.i.i.i.i, ptr %23, align 8
   %37 = add nuw i64 %.013.i.i.i.i.i.i.i.i.i.i.i.i.i, 1
   %exitcond.not.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %37, %.sroa.2.0.extract.shift10.i.i.i.i.i.i.i.i.i.i.i
-  br i1 %exitcond.not.i.i.i.i.i.i.i.i.i.i.i.i.i, label %38, label %25, !llvm.loop !9
+  br i1 %exitcond.not.i.i.i.i.i.i.i.i.i.i.i.i.i, label %38, label %25, !llvm.loop !8
 
 38:                                               ; preds = %35
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -2622,7 +2622,7 @@ _ZN21PXR_INTERNAL_NS_pegtl6normalIN32pxrInternal_v0_24__pxrReserved__14Sdf_PathP
 
 _ZN21PXR_INTERNAL_NS_pegtl6normalIN32pxrInternal_v0_24__pxrReserved__14Sdf_PathParser19Utf8IdentifierStartEE5matchILNS_10apply_modeE0ELNS_11rewind_modeE2ETtTpTyENS2_6ActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS2_9PPContextEEEEbRT3_DpOT4_.exit: ; preds = %_ZN21PXR_INTERNAL_NS_pegtl6normalIN32pxrInternal_v0_24__pxrReserved__14Sdf_PathParser19Utf8IdentifierStartEE5matchILNS_10apply_modeE0ELNS_11rewind_modeE2ETtTpTyENS2_6ActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS2_9PPContextEEEEbRT3_DpOT4_.exit.preheader, %_ZN21PXR_INTERNAL_NS_pegtl6normalIN32pxrInternal_v0_24__pxrReserved__14Sdf_PathParser19Utf8IdentifierStartEE5matchILNS_10apply_modeE0ELNS_11rewind_modeE2ETtTpTyENS2_6ActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS2_9PPContextEEEEbRT3_DpOT4_.exit
   %43 = tail call noundef zeroext i1 @_ZN21PXR_INTERNAL_NS_pegtl8internal3sorIJN32pxrInternal_v0_24__pxrReserved__14Sdf_PathParser11XidContinueENS_5ascii3oneIJLc45EEEEEE5matchILNS_10apply_modeE0ELNS_11rewind_modeE1ETtTpTyENS3_6ActionETtTpTyENS_6normalEJLm0ELm1EENS_12string_inputILNS_13tracking_modeE0ENS5_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS3_9PPContextEEEEbSt16integer_sequenceImJXspT3_EEERT4_DpOT5_(ptr noundef nonnull align 8 dereferenceable(120) %0, ptr noundef nonnull align 8 dereferenceable(96) %1)
-  br i1 %43, label %_ZN21PXR_INTERNAL_NS_pegtl6normalIN32pxrInternal_v0_24__pxrReserved__14Sdf_PathParser19Utf8IdentifierStartEE5matchILNS_10apply_modeE0ELNS_11rewind_modeE2ETtTpTyENS2_6ActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS2_9PPContextEEEEbRT3_DpOT4_.exit, label %_ZN21PXR_INTERNAL_NS_pegtl6normalINS_4starINS_3sorIJN32pxrInternal_v0_24__pxrReserved__14Sdf_PathParser11XidContinueENS_5ascii3oneIJLc45EEEEEEEJEEEE5matchILNS_10apply_modeE0ELNS_11rewind_modeE2ETtTpTyENS4_6ActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS6_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS4_9PPContextEEEEbRT3_DpOT4_.exit, !llvm.loop !19
+  br i1 %43, label %_ZN21PXR_INTERNAL_NS_pegtl6normalIN32pxrInternal_v0_24__pxrReserved__14Sdf_PathParser19Utf8IdentifierStartEE5matchILNS_10apply_modeE0ELNS_11rewind_modeE2ETtTpTyENS2_6ActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS2_9PPContextEEEEbRT3_DpOT4_.exit, label %_ZN21PXR_INTERNAL_NS_pegtl6normalINS_4starINS_3sorIJN32pxrInternal_v0_24__pxrReserved__14Sdf_PathParser11XidContinueENS_5ascii3oneIJLc45EEEEEEEJEEEE5matchILNS_10apply_modeE0ELNS_11rewind_modeE2ETtTpTyENS4_6ActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS6_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS4_9PPContextEEEEbRT3_DpOT4_.exit, !llvm.loop !18
 
 _ZN21PXR_INTERNAL_NS_pegtl6normalINS_4starINS_3sorIJN32pxrInternal_v0_24__pxrReserved__14Sdf_PathParser11XidContinueENS_5ascii3oneIJLc45EEEEEEEJEEEE5matchILNS_10apply_modeE0ELNS_11rewind_modeE2ETtTpTyENS4_6ActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS6_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS4_9PPContextEEEEbRT3_DpOT4_.exit: ; preds = %_ZN21PXR_INTERNAL_NS_pegtl6normalIN32pxrInternal_v0_24__pxrReserved__14Sdf_PathParser19Utf8IdentifierStartEE5matchILNS_10apply_modeE0ELNS_11rewind_modeE2ETtTpTyENS2_6ActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS2_9PPContextEEEEbRT3_DpOT4_.exit, %2, %_ZN21PXR_INTERNAL_NS_pegtl8internal9peek_utf84peekINS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_10input_pairIDiEERT_.exit.thread.i.i.i.i.i.i.i.i.i.i.i, %_ZN21PXR_INTERNAL_NS_pegtl8internal9peek_utf84peekINS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_10input_pairIDiEERT_.exit.i.i.i.i.i.i.i.i.i.i.i
   %44 = phi i1 [ false, %_ZN21PXR_INTERNAL_NS_pegtl8internal9peek_utf84peekINS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_10input_pairIDiEERT_.exit.i.i.i.i.i.i.i.i.i.i.i ], [ false, %_ZN21PXR_INTERNAL_NS_pegtl8internal9peek_utf84peekINS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_10input_pairIDiEERT_.exit.thread.i.i.i.i.i.i.i.i.i.i.i ], [ false, %2 ], [ true, %_ZN21PXR_INTERNAL_NS_pegtl6normalIN32pxrInternal_v0_24__pxrReserved__14Sdf_PathParser19Utf8IdentifierStartEE5matchILNS_10apply_modeE0ELNS_11rewind_modeE2ETtTpTyENS2_6ActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS2_9PPContextEEEEbRT3_DpOT4_.exit ]
@@ -2694,7 +2694,7 @@ _ZN21PXR_INTERNAL_NS_pegtl8internal9peek_utf84peekINS_12string_inputILNS_13track
   store i64 %storemerge.i.i.i.i.i.i.i, ptr %15, align 8
   %29 = add nuw i64 %.013.i.i.i.i.i.i.i, 1
   %exitcond.not.i.i.i.i.i.i.i = icmp eq i64 %29, %.sroa.2.0.extract.shift10.i.i.i.i.i
-  br i1 %exitcond.not.i.i.i.i.i.i.i, label %_ZN21PXR_INTERNAL_NS_pegtl6normalIN32pxrInternal_v0_24__pxrReserved__14Sdf_PathParser11XidContinueEE5matchILNS_10apply_modeE0ELNS_11rewind_modeE1ETtTpTyENS2_6ActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS2_9PPContextEEEEbRT3_DpOT4_.exit, label %17, !llvm.loop !9
+  br i1 %exitcond.not.i.i.i.i.i.i.i, label %_ZN21PXR_INTERNAL_NS_pegtl6normalIN32pxrInternal_v0_24__pxrReserved__14Sdf_PathParser11XidContinueEE5matchILNS_10apply_modeE0ELNS_11rewind_modeE1ETtTpTyENS2_6ActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS2_9PPContextEEEEbRT3_DpOT4_.exit, label %17, !llvm.loop !8
 
 _ZN21PXR_INTERNAL_NS_pegtl6normalIN32pxrInternal_v0_24__pxrReserved__14Sdf_PathParser11XidContinueEE5matchILNS_10apply_modeE0ELNS_11rewind_modeE1ETtTpTyENS2_6ActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS2_9PPContextEEEEbRT3_DpOT4_.exit: ; preds = %27
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -2740,20 +2740,20 @@ declare ptr @__cxa_allocate_exception(i64) local_unnamed_addr
 define linkonce_odr void @_ZN21PXR_INTERNAL_NS_pegtl11parse_errorC2INS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEERKSC_RKT_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(120) %2) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"struct.PXR_INTERNAL_NS_pegtl::position", align 8
   %5 = alloca %"struct.PXR_INTERNAL_NS_pegtl::position", align 8
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !20)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !23)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !19)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !22)
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 48
-  %8 = load i64, ptr %7, align 8, !noalias !26
-  store i64 %8, ptr %5, align 8, !alias.scope !26
+  %8 = load i64, ptr %7, align 8, !noalias !25
+  store i64 %8, ptr %5, align 8, !alias.scope !25
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 56
-  %11 = load i64, ptr %10, align 8, !noalias !26
-  store i64 %11, ptr %9, align 8, !alias.scope !26
+  %11 = load i64, ptr %10, align 8, !noalias !25
+  store i64 %11, ptr %9, align 8, !alias.scope !25
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 64
-  %14 = load i64, ptr %13, align 8, !noalias !26
-  store i64 %14, ptr %12, align 8, !alias.scope !26
+  %14 = load i64, ptr %13, align 8, !noalias !25
+  store i64 %14, ptr %12, align 8, !alias.scope !25
   %15 = getelementptr inbounds nuw i8, ptr %5, i64 24
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef nonnull align 8 dereferenceable(32) %6)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %4)
@@ -2891,31 +2891,31 @@ define linkonce_odr void @_ZN21PXR_INTERNAL_NS_pegtl11parse_errorC2EPKcNS_8posit
   tail call void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN21PXR_INTERNAL_NS_pegtl11parse_errorE, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !27)
-  store ptr null, ptr %4, align 8, !alias.scope !27
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !26)
+  store ptr null, ptr %4, align 8, !alias.scope !26
   %5 = invoke noalias noundef nonnull dereferenceable(80) ptr @_Znwm(i64 noundef 80) #20
           to label %.noexc unwind label %13
 
 .noexc:                                           ; preds = %3
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store i32 1, ptr %6, align 8, !noalias !27
+  store i32 1, ptr %6, align 8, !noalias !26
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 12
-  store i32 1, ptr %7, align 4, !noalias !27
-  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN21PXR_INTERNAL_NS_pegtl8internal11parse_errorESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %5, align 8, !noalias !27
+  store i32 1, ptr %7, align 4, !noalias !26
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN21PXR_INTERNAL_NS_pegtl8internal11parse_errorESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %5, align 8, !noalias !26
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
   invoke void @_ZN21PXR_INTERNAL_NS_pegtl8internal11parse_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(64) %8, ptr noundef %1)
-          to label %10 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN21PXR_INTERNAL_NS_pegtl8internal11parse_errorESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit10.i.i.i.i, !noalias !27
+          to label %10 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN21PXR_INTERNAL_NS_pegtl8internal11parse_errorESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit10.i.i.i.i, !noalias !26
 
 _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN21PXR_INTERNAL_NS_pegtl8internal11parse_errorESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit10.i.i.i.i: ; preds = %.noexc
   %9 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %5, i64 noundef 80) #24, !noalias !27
+  tail call void @_ZdlPvm(ptr noundef nonnull %5, i64 noundef 80) #24, !noalias !26
   br label %.body
 
 10:                                               ; preds = %.noexc
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr %5, ptr %11, align 8, !alias.scope !27
-  store ptr %8, ptr %4, align 8, !alias.scope !27
+  store ptr %5, ptr %11, align 8, !alias.scope !26
+  store ptr %8, ptr %4, align 8, !alias.scope !26
   invoke void @_ZN21PXR_INTERNAL_NS_pegtl8internal11parse_error12add_positionEONS_8positionE(ptr noundef nonnull align 8 dereferenceable(64) %8, ptr noundef nonnull align 8 dereferenceable(56) %2)
           to label %12 unwind label %15
 
@@ -3225,7 +3225,7 @@ define linkonce_odr void @_ZNSt23_Sp_counted_ptr_inplaceIN21PXR_INTERNAL_NS_pegt
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #21
   %7 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i.i.i, i64 56
   %.not.i.i.i.i.i.i.i = icmp eq ptr %7, %5
-  br i1 %.not.i.i.i.i.i.i.i, label %_ZSt8_DestroyIPN21PXR_INTERNAL_NS_pegtl8positionES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i, !llvm.loop !30
+  br i1 %.not.i.i.i.i.i.i.i, label %_ZSt8_DestroyIPN21PXR_INTERNAL_NS_pegtl8positionES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i, !llvm.loop !29
 
 _ZSt8_DestroyIPN21PXR_INTERNAL_NS_pegtl8positionES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i
   %.pr.i.i.i.i = load ptr, ptr %2, align 8
@@ -3554,18 +3554,18 @@ _ZNKSt6vectorIN21PXR_INTERNAL_NS_pegtl8positionESaIS1_EE12_M_check_lenEmPKc.exit
 .lr.ph.i.i.i:                                     ; preds = %_ZNKSt6vectorIN21PXR_INTERNAL_NS_pegtl8positionESaIS1_EE12_M_check_lenEmPKc.exit, %.lr.ph.i.i.i
   %.012.i.i.i = phi ptr [ %41, %.lr.ph.i.i.i ], [ %20, %_ZNKSt6vectorIN21PXR_INTERNAL_NS_pegtl8positionESaIS1_EE12_M_check_lenEmPKc.exit ]
   %.0911.i.i.i = phi ptr [ %40, %.lr.ph.i.i.i ], [ %6, %_ZNKSt6vectorIN21PXR_INTERNAL_NS_pegtl8positionESaIS1_EE12_M_check_lenEmPKc.exit ]
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !31)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !34)
-  %31 = load i64, ptr %.0911.i.i.i, align 8, !alias.scope !34, !noalias !31
-  store i64 %31, ptr %.012.i.i.i, align 8, !alias.scope !31, !noalias !34
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !30)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !33)
+  %31 = load i64, ptr %.0911.i.i.i, align 8, !alias.scope !33, !noalias !30
+  store i64 %31, ptr %.012.i.i.i, align 8, !alias.scope !30, !noalias !33
   %32 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 8
   %33 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 8
-  %34 = load i64, ptr %33, align 8, !alias.scope !34, !noalias !31
-  store i64 %34, ptr %32, align 8, !alias.scope !31, !noalias !34
+  %34 = load i64, ptr %33, align 8, !alias.scope !33, !noalias !30
+  store i64 %34, ptr %32, align 8, !alias.scope !30, !noalias !33
   %35 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 16
   %36 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 16
-  %37 = load i64, ptr %36, align 8, !alias.scope !34, !noalias !31
-  store i64 %37, ptr %35, align 8, !alias.scope !31, !noalias !34
+  %37 = load i64, ptr %36, align 8, !alias.scope !33, !noalias !30
+  store i64 %37, ptr %35, align 8, !alias.scope !30, !noalias !33
   %38 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 24
   %39 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 24
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %38, ptr noundef nonnull align 8 dereferenceable(32) %39) #21
@@ -3573,7 +3573,7 @@ _ZNKSt6vectorIN21PXR_INTERNAL_NS_pegtl8positionESaIS1_EE12_M_check_lenEmPKc.exit
   %40 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 56
   %41 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 56
   %.not.i.i.i = icmp eq ptr %40, %1
-  br i1 %.not.i.i.i, label %_ZNSt6vectorIN21PXR_INTERNAL_NS_pegtl8positionESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit, label %.lr.ph.i.i.i, !llvm.loop !36
+  br i1 %.not.i.i.i, label %_ZNSt6vectorIN21PXR_INTERNAL_NS_pegtl8positionESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit, label %.lr.ph.i.i.i, !llvm.loop !35
 
 _ZNSt6vectorIN21PXR_INTERNAL_NS_pegtl8positionESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit: ; preds = %.lr.ph.i.i.i, %_ZNKSt6vectorIN21PXR_INTERNAL_NS_pegtl8positionESaIS1_EE12_M_check_lenEmPKc.exit
   %.0.lcssa.i.i.i = phi ptr [ %20, %_ZNKSt6vectorIN21PXR_INTERNAL_NS_pegtl8positionESaIS1_EE12_M_check_lenEmPKc.exit ], [ %41, %.lr.ph.i.i.i ]
@@ -3584,18 +3584,18 @@ _ZNSt6vectorIN21PXR_INTERNAL_NS_pegtl8positionESaIS1_EE11_S_relocateEPS1_S4_S4_R
 .lr.ph.i.i.i17:                                   ; preds = %_ZNSt6vectorIN21PXR_INTERNAL_NS_pegtl8positionESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit, %.lr.ph.i.i.i17
   %.012.i.i.i18 = phi ptr [ %53, %.lr.ph.i.i.i17 ], [ %42, %_ZNSt6vectorIN21PXR_INTERNAL_NS_pegtl8positionESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit ]
   %.0911.i.i.i19 = phi ptr [ %52, %.lr.ph.i.i.i17 ], [ %1, %_ZNSt6vectorIN21PXR_INTERNAL_NS_pegtl8positionESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit ]
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !37)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !40)
-  %43 = load i64, ptr %.0911.i.i.i19, align 8, !alias.scope !40, !noalias !37
-  store i64 %43, ptr %.012.i.i.i18, align 8, !alias.scope !37, !noalias !40
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !36)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !39)
+  %43 = load i64, ptr %.0911.i.i.i19, align 8, !alias.scope !39, !noalias !36
+  store i64 %43, ptr %.012.i.i.i18, align 8, !alias.scope !36, !noalias !39
   %44 = getelementptr inbounds nuw i8, ptr %.012.i.i.i18, i64 8
   %45 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i19, i64 8
-  %46 = load i64, ptr %45, align 8, !alias.scope !40, !noalias !37
-  store i64 %46, ptr %44, align 8, !alias.scope !37, !noalias !40
+  %46 = load i64, ptr %45, align 8, !alias.scope !39, !noalias !36
+  store i64 %46, ptr %44, align 8, !alias.scope !36, !noalias !39
   %47 = getelementptr inbounds nuw i8, ptr %.012.i.i.i18, i64 16
   %48 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i19, i64 16
-  %49 = load i64, ptr %48, align 8, !alias.scope !40, !noalias !37
-  store i64 %49, ptr %47, align 8, !alias.scope !37, !noalias !40
+  %49 = load i64, ptr %48, align 8, !alias.scope !39, !noalias !36
+  store i64 %49, ptr %47, align 8, !alias.scope !36, !noalias !39
   %50 = getelementptr inbounds nuw i8, ptr %.012.i.i.i18, i64 24
   %51 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i19, i64 24
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %50, ptr noundef nonnull align 8 dereferenceable(32) %51) #21
@@ -3603,7 +3603,7 @@ _ZNSt6vectorIN21PXR_INTERNAL_NS_pegtl8positionESaIS1_EE11_S_relocateEPS1_S4_S4_R
   %52 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i19, i64 56
   %53 = getelementptr inbounds nuw i8, ptr %.012.i.i.i18, i64 56
   %.not.i.i.i20 = icmp eq ptr %52, %5
-  br i1 %.not.i.i.i20, label %_ZNSt6vectorIN21PXR_INTERNAL_NS_pegtl8positionESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22, label %.lr.ph.i.i.i17, !llvm.loop !36
+  br i1 %.not.i.i.i20, label %_ZNSt6vectorIN21PXR_INTERNAL_NS_pegtl8positionESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22, label %.lr.ph.i.i.i17, !llvm.loop !35
 
 _ZNSt6vectorIN21PXR_INTERNAL_NS_pegtl8positionESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22: ; preds = %.lr.ph.i.i.i17, %_ZNSt6vectorIN21PXR_INTERNAL_NS_pegtl8positionESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit
   %.0.lcssa.i.i.i21 = phi ptr [ %42, %_ZNSt6vectorIN21PXR_INTERNAL_NS_pegtl8positionESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit ], [ %53, %.lr.ph.i.i.i17 ]
@@ -3762,7 +3762,7 @@ _ZN21PXR_INTERNAL_NS_pegtl8internal9peek_utf84peekINS_12string_inputILNS_13track
   store i64 %storemerge.i.i.i.i.i.i.i, ptr %15, align 8
   %29 = add nuw i64 %.013.i.i.i.i.i.i.i, 1
   %exitcond.not.i.i.i.i.i.i.i = icmp eq i64 %29, %.sroa.2.0.extract.shift10.i.i.i.i.i
-  br i1 %exitcond.not.i.i.i.i.i.i.i, label %_ZN21PXR_INTERNAL_NS_pegtl6normalIN32pxrInternal_v0_24__pxrReserved__14Sdf_PathParser11XidContinueEE5matchILNS_10apply_modeE0ELNS_11rewind_modeE1ETtTpTyENS2_6ActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS2_9PPContextEEEEbRT3_DpOT4_.exit, label %17, !llvm.loop !9
+  br i1 %exitcond.not.i.i.i.i.i.i.i, label %_ZN21PXR_INTERNAL_NS_pegtl6normalIN32pxrInternal_v0_24__pxrReserved__14Sdf_PathParser11XidContinueEE5matchILNS_10apply_modeE0ELNS_11rewind_modeE1ETtTpTyENS2_6ActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS2_9PPContextEEEEbRT3_DpOT4_.exit, label %17, !llvm.loop !8
 
 _ZN21PXR_INTERNAL_NS_pegtl6normalIN32pxrInternal_v0_24__pxrReserved__14Sdf_PathParser11XidContinueEE5matchILNS_10apply_modeE0ELNS_11rewind_modeE1ETtTpTyENS2_6ActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS2_9PPContextEEEEbRT3_DpOT4_.exit: ; preds = %27
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -3926,7 +3926,7 @@ _ZN21PXR_INTERNAL_NS_pegtl6normalINS_5ascii5blankEE5matchILNS_10apply_modeE0ELNS
   %17 = add i64 %11, 1
   store i64 %17, ptr %10, align 8
   %18 = icmp eq ptr %15, %7
-  br i1 %18, label %_ZN21PXR_INTERNAL_NS_pegtl6normalINS_8internal4starINS_5ascii5blankEJEEEE5matchILNS_10apply_modeE0ELNS_11rewind_modeE2ETtTpTyEN32pxrInternal_v0_24__pxrReserved__14Sdf_PathParser6ActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS3_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNSB_9PPContextEEEEbRT3_DpOT4_.exit.i.i.i.i.i.i.i.i.i, label %_ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_10input_pairIcEERT_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, !llvm.loop !17
+  br i1 %18, label %_ZN21PXR_INTERNAL_NS_pegtl6normalINS_8internal4starINS_5ascii5blankEJEEEE5matchILNS_10apply_modeE0ELNS_11rewind_modeE2ETtTpTyEN32pxrInternal_v0_24__pxrReserved__14Sdf_PathParser6ActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS3_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNSB_9PPContextEEEEbRT3_DpOT4_.exit.i.i.i.i.i.i.i.i.i, label %_ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_10input_pairIcEERT_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, !llvm.loop !16
 
 _ZN21PXR_INTERNAL_NS_pegtl6normalINS_8internal4starINS_5ascii5blankEJEEEE5matchILNS_10apply_modeE0ELNS_11rewind_modeE2ETtTpTyEN32pxrInternal_v0_24__pxrReserved__14Sdf_PathParser6ActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS3_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNSB_9PPContextEEEEbRT3_DpOT4_.exit.i.i.i.i.i.i.i.i.i: ; preds = %_ZN21PXR_INTERNAL_NS_pegtl6normalINS_5ascii5blankEE5matchILNS_10apply_modeE0ELNS_11rewind_modeE1ETtTpTyEN32pxrInternal_v0_24__pxrReserved__14Sdf_PathParser6ActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS1_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS8_9PPContextEEEEbRT3_DpOT4_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i, %_ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_10input_pairIcEERT_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %_ZN21PXR_INTERNAL_NS_pegtl6normalINS_8internal4mustIJN32pxrInternal_v0_24__pxrReserved__14Sdf_PathParser14VariantSetNameEEEEE5matchILNS_10apply_modeE0ELNS_11rewind_modeE0ETtTpTyENS4_6ActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS4_9PPContextEEEEbRT3_DpOT4_.exit
   %19 = phi ptr [ %.promoted.i.i.i.i.i.i.i.i.i.i.i.i.i, %_ZN21PXR_INTERNAL_NS_pegtl6normalINS_8internal4mustIJN32pxrInternal_v0_24__pxrReserved__14Sdf_PathParser14VariantSetNameEEEEE5matchILNS_10apply_modeE0ELNS_11rewind_modeE0ETtTpTyENS4_6ActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS4_9PPContextEEEEbRT3_DpOT4_.exit ], [ %13, %_ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_10input_pairIcEERT_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i ], [ %15, %_ZN21PXR_INTERNAL_NS_pegtl6normalINS_5ascii5blankEE5matchILNS_10apply_modeE0ELNS_11rewind_modeE1ETtTpTyEN32pxrInternal_v0_24__pxrReserved__14Sdf_PathParser6ActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS1_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS8_9PPContextEEEEbRT3_DpOT4_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i ]
@@ -3970,7 +3970,7 @@ _ZN21PXR_INTERNAL_NS_pegtl6normalINS_5ascii5blankEE5matchILNS_10apply_modeE0ELNS
   %38 = add i64 %32, 1
   store i64 %38, ptr %28, align 8
   %39 = icmp eq ptr %36, %7
-  br i1 %39, label %_ZN21PXR_INTERNAL_NS_pegtl6normalINS_8internal4mustIJNS_3padINS_5ascii3oneIJLc61EEEENS4_5blankES7_EEEEEE5matchILNS_10apply_modeE0ELNS_11rewind_modeE0ETtTpTyEN32pxrInternal_v0_24__pxrReserved__14Sdf_PathParser6ActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS4_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNSF_9PPContextEEEEbRT3_DpOT4_.exit, label %_ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_10input_pairIcEERT_.exit.i.i.i.i.i.i.i.i.i11.i.i.i.i.i.i.i.i.i, !llvm.loop !17
+  br i1 %39, label %_ZN21PXR_INTERNAL_NS_pegtl6normalINS_8internal4mustIJNS_3padINS_5ascii3oneIJLc61EEEENS4_5blankES7_EEEEEE5matchILNS_10apply_modeE0ELNS_11rewind_modeE0ETtTpTyEN32pxrInternal_v0_24__pxrReserved__14Sdf_PathParser6ActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS4_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNSF_9PPContextEEEEbRT3_DpOT4_.exit, label %_ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_10input_pairIcEERT_.exit.i.i.i.i.i.i.i.i.i11.i.i.i.i.i.i.i.i.i, !llvm.loop !16
 
 _ZN21PXR_INTERNAL_NS_pegtl6normalINS_3padINS_5ascii3oneIJLc61EEEENS2_5blankES5_EEE5matchILNS_10apply_modeE0ELNS_11rewind_modeE2ETtTpTyEN32pxrInternal_v0_24__pxrReserved__14Sdf_PathParser6ActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS2_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNSC_9PPContextEEEEbRT3_DpOT4_.exit.i.i.i.i: ; preds = %_ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_10input_pairIcEERT_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %_ZN21PXR_INTERNAL_NS_pegtl6normalINS_8internal4starINS_5ascii5blankEJEEEE5matchILNS_10apply_modeE0ELNS_11rewind_modeE2ETtTpTyEN32pxrInternal_v0_24__pxrReserved__14Sdf_PathParser6ActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS3_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNSB_9PPContextEEEEbRT3_DpOT4_.exit.i.i.i.i.i.i.i.i.i
   invoke void @_ZN21PXR_INTERNAL_NS_pegtl6normalINS_3padINS_5ascii3oneIJLc61EEEENS2_5blankES5_EEE5raiseINS_12string_inputILNS_13tracking_modeE0ENS2_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRN32pxrInternal_v0_24__pxrReserved__14Sdf_PathParser9PPContextEEEEvRKT_DpOT0_(ptr noundef nonnull align 8 dereferenceable(120) %0, ptr noundef nonnull align 8 dereferenceable(96) %1) #22
@@ -4010,7 +4010,7 @@ _ZN21PXR_INTERNAL_NS_pegtl6normalINS_3optIJNS_5ascii3oneIJLc46EEEEEEEE5matchILNS
           to label %.noexc.i.i.i.i.i.i.i.i.i.i.i.i.i.i unwind label %_ZN21PXR_INTERNAL_NS_pegtl8internal6markerINS0_8iteratorELNS_11rewind_modeE1EED2Ev.exit7.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 .noexc.i.i.i.i.i.i.i.i.i.i.i.i.i.i:               ; preds = %_ZN21PXR_INTERNAL_NS_pegtl6normalINS_3optIJNS_5ascii3oneIJLc46EEEEEEEE5matchILNS_10apply_modeE0ELNS_11rewind_modeE0ETtTpTyEN32pxrInternal_v0_24__pxrReserved__14Sdf_PathParser6ActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS2_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNSB_9PPContextEEEEbRT3_DpOT4_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i
-  br i1 %50, label %_ZN21PXR_INTERNAL_NS_pegtl6normalINS_3optIJNS_5ascii3oneIJLc46EEEEEEEE5matchILNS_10apply_modeE0ELNS_11rewind_modeE0ETtTpTyEN32pxrInternal_v0_24__pxrReserved__14Sdf_PathParser6ActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS2_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNSB_9PPContextEEEEbRT3_DpOT4_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %52, !llvm.loop !18
+  br i1 %50, label %_ZN21PXR_INTERNAL_NS_pegtl6normalINS_3optIJNS_5ascii3oneIJLc46EEEEEEEE5matchILNS_10apply_modeE0ELNS_11rewind_modeE0ETtTpTyEN32pxrInternal_v0_24__pxrReserved__14Sdf_PathParser6ActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS2_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNSB_9PPContextEEEEbRT3_DpOT4_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %52, !llvm.loop !17
 
 _ZN21PXR_INTERNAL_NS_pegtl8internal6markerINS0_8iteratorELNS_11rewind_modeE1EED2Ev.exit7.i.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %_ZN21PXR_INTERNAL_NS_pegtl6normalINS_3optIJNS_5ascii3oneIJLc46EEEEEEEE5matchILNS_10apply_modeE0ELNS_11rewind_modeE0ETtTpTyEN32pxrInternal_v0_24__pxrReserved__14Sdf_PathParser6ActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS2_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNSB_9PPContextEEEEbRT3_DpOT4_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i
   %51 = landingpad { ptr, i32 }
@@ -4048,7 +4048,7 @@ _ZN21PXR_INTERNAL_NS_pegtl6normalINS_5ascii5blankEE5matchILNS_10apply_modeE0ELNS
   %61 = add i64 %55, 1
   store i64 %61, ptr %28, align 8
   %62 = icmp eq ptr %59, %53
-  br i1 %62, label %_ZN21PXR_INTERNAL_NS_pegtl6normalINS_8internal4starINS_5ascii5blankEJEEEE5matchILNS_10apply_modeE0ELNS_11rewind_modeE2ETtTpTyEN32pxrInternal_v0_24__pxrReserved__14Sdf_PathParser6ActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS3_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNSB_9PPContextEEEEbRT3_DpOT4_.exit.i.i.i.i.i.i.i.i.i18, label %_ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_10input_pairIcEERT_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i16, !llvm.loop !17
+  br i1 %62, label %_ZN21PXR_INTERNAL_NS_pegtl6normalINS_8internal4starINS_5ascii5blankEJEEEE5matchILNS_10apply_modeE0ELNS_11rewind_modeE2ETtTpTyEN32pxrInternal_v0_24__pxrReserved__14Sdf_PathParser6ActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS3_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNSB_9PPContextEEEEbRT3_DpOT4_.exit.i.i.i.i.i.i.i.i.i18, label %_ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_10input_pairIcEERT_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i16, !llvm.loop !16
 
 _ZN21PXR_INTERNAL_NS_pegtl6normalINS_8internal4starINS_5ascii5blankEJEEEE5matchILNS_10apply_modeE0ELNS_11rewind_modeE2ETtTpTyEN32pxrInternal_v0_24__pxrReserved__14Sdf_PathParser6ActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS3_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNSB_9PPContextEEEEbRT3_DpOT4_.exit.i.i.i.i.i.i.i.i.i18: ; preds = %_ZN21PXR_INTERNAL_NS_pegtl6normalINS_5ascii5blankEE5matchILNS_10apply_modeE0ELNS_11rewind_modeE1ETtTpTyEN32pxrInternal_v0_24__pxrReserved__14Sdf_PathParser6ActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS1_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS8_9PPContextEEEEbRT3_DpOT4_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i17, %_ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_10input_pairIcEERT_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i16, %52
   %63 = phi ptr [ %.promoted.i.i.i.i.i.i.i.i.i.i.i.i.i12, %52 ], [ %57, %_ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_10input_pairIcEERT_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i16 ], [ %59, %_ZN21PXR_INTERNAL_NS_pegtl6normalINS_5ascii5blankEE5matchILNS_10apply_modeE0ELNS_11rewind_modeE1ETtTpTyEN32pxrInternal_v0_24__pxrReserved__14Sdf_PathParser6ActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS1_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS8_9PPContextEEEEbRT3_DpOT4_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i17 ]
@@ -4090,7 +4090,7 @@ _ZN21PXR_INTERNAL_NS_pegtl6normalINS_5ascii5blankEE5matchILNS_10apply_modeE0ELNS
   %80 = add i64 %74, 1
   store i64 %80, ptr %28, align 8
   %81 = icmp eq ptr %78, %53
-  br i1 %81, label %_ZN21PXR_INTERNAL_NS_pegtl8internal6markerINS0_8iteratorELNS_11rewind_modeE1EED2Ev.exit, label %_ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_10input_pairIcEERT_.exit.i.i.i.i.i.i.i.i.i11.i.i.i.i.i.i.i.i.i20, !llvm.loop !17
+  br i1 %81, label %_ZN21PXR_INTERNAL_NS_pegtl8internal6markerINS0_8iteratorELNS_11rewind_modeE1EED2Ev.exit, label %_ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_10input_pairIcEERT_.exit.i.i.i.i.i.i.i.i.i11.i.i.i.i.i.i.i.i.i20, !llvm.loop !16
 
 _ZN21PXR_INTERNAL_NS_pegtl6normalIN32pxrInternal_v0_24__pxrReserved__14Sdf_PathParser11VarSelCloseEE5matchILNS_10apply_modeE0ELNS_11rewind_modeE2ETtTpTyENS2_6ActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS2_9PPContextEEEEbRT3_DpOT4_.exit.i.i.i.i: ; preds = %_ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_10input_pairIcEERT_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i19, %_ZN21PXR_INTERNAL_NS_pegtl6normalINS_8internal4starINS_5ascii5blankEJEEEE5matchILNS_10apply_modeE0ELNS_11rewind_modeE2ETtTpTyEN32pxrInternal_v0_24__pxrReserved__14Sdf_PathParser6ActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS3_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNSB_9PPContextEEEEbRT3_DpOT4_.exit.i.i.i.i.i.i.i.i.i18
   invoke void @_ZN21PXR_INTERNAL_NS_pegtl6normalIN32pxrInternal_v0_24__pxrReserved__14Sdf_PathParser11VarSelCloseEE5raiseINS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS2_9PPContextEEEEvRKT_DpOT0_(ptr noundef nonnull align 8 dereferenceable(120) %0, ptr noundef nonnull align 8 dereferenceable(96) %1) #22
@@ -4191,7 +4191,7 @@ _ZN21PXR_INTERNAL_NS_pegtl8internal9peek_utf84peekINS_12string_inputILNS_13track
   store i64 %storemerge.i.i.i.i.i.i.i.i.i.i.i.i.i, ptr %23, align 8
   %37 = add nuw i64 %.013.i.i.i.i.i.i.i.i.i.i.i.i.i, 1
   %exitcond.not.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %37, %.sroa.2.0.extract.shift10.i.i.i.i.i.i.i.i.i.i.i
-  br i1 %exitcond.not.i.i.i.i.i.i.i.i.i.i.i.i.i, label %38, label %25, !llvm.loop !9
+  br i1 %exitcond.not.i.i.i.i.i.i.i.i.i.i.i.i.i, label %38, label %25, !llvm.loop !8
 
 38:                                               ; preds = %35
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -4266,7 +4266,7 @@ _ZN21PXR_INTERNAL_NS_pegtl8internal9peek_utf84peekINS_12string_inputILNS_13track
   store i64 %storemerge.i.i.i.i.i.i.i.i.i.i.i.i, ptr %46, align 8
   %69 = add nuw i64 %.013.i.i.i.i.i.i.i.i.i.i.i.i, 1
   %exitcond.not.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %69, %.sroa.2.0.extract.shift10.i.i.i.i.i.i.i.i.i.i
-  br i1 %exitcond.not.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZN21PXR_INTERNAL_NS_pegtl6normalIN32pxrInternal_v0_24__pxrReserved__14Sdf_PathParser11XidContinueEE5matchILNS_10apply_modeE0ELNS_11rewind_modeE1ETtTpTyENS2_6ActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS2_9PPContextEEEEbRT3_DpOT4_.exit.i.i.i.i.i, label %57, !llvm.loop !9
+  br i1 %exitcond.not.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZN21PXR_INTERNAL_NS_pegtl6normalIN32pxrInternal_v0_24__pxrReserved__14Sdf_PathParser11XidContinueEE5matchILNS_10apply_modeE0ELNS_11rewind_modeE1ETtTpTyENS2_6ActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS2_9PPContextEEEEbRT3_DpOT4_.exit.i.i.i.i.i, label %57, !llvm.loop !8
 
 _ZN21PXR_INTERNAL_NS_pegtl6normalIN32pxrInternal_v0_24__pxrReserved__14Sdf_PathParser11XidContinueEE5matchILNS_10apply_modeE0ELNS_11rewind_modeE1ETtTpTyENS2_6ActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS2_9PPContextEEEEbRT3_DpOT4_.exit.i.i.i.i.i: ; preds = %67
   %70 = load i64, ptr %48, align 8
@@ -4276,7 +4276,7 @@ _ZN21PXR_INTERNAL_NS_pegtl6normalIN32pxrInternal_v0_24__pxrReserved__14Sdf_PathP
   store ptr %72, ptr %3, align 8
   %73 = load ptr, ptr %5, align 8
   %74 = icmp eq ptr %72, %73
-  br i1 %74, label %_ZN21PXR_INTERNAL_NS_pegtl6normalINS_4starIN32pxrInternal_v0_24__pxrReserved__14Sdf_PathParser11XidContinueEJEEEE5matchILNS_10apply_modeE0ELNS_11rewind_modeE0ETtTpTyENS3_6ActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS3_9PPContextEEEEbRT3_DpOT4_.exit, label %49, !llvm.loop !42
+  br i1 %74, label %_ZN21PXR_INTERNAL_NS_pegtl6normalINS_4starIN32pxrInternal_v0_24__pxrReserved__14Sdf_PathParser11XidContinueEJEEEE5matchILNS_10apply_modeE0ELNS_11rewind_modeE0ETtTpTyENS3_6ActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS3_9PPContextEEEEbRT3_DpOT4_.exit, label %49, !llvm.loop !41
 
 _ZN21PXR_INTERNAL_NS_pegtl6normalINS_4starIN32pxrInternal_v0_24__pxrReserved__14Sdf_PathParser11XidContinueEJEEEE5matchILNS_10apply_modeE0ELNS_11rewind_modeE0ETtTpTyENS3_6ActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS3_9PPContextEEEEbRT3_DpOT4_.exit: ; preds = %_ZN21PXR_INTERNAL_NS_pegtl6normalIN32pxrInternal_v0_24__pxrReserved__14Sdf_PathParser11XidContinueEE5matchILNS_10apply_modeE0ELNS_11rewind_modeE1ETtTpTyENS2_6ActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS2_9PPContextEEEEbRT3_DpOT4_.exit.i.i.i.i.i, %_ZN21PXR_INTERNAL_NS_pegtl8internal9peek_utf84peekINS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_10input_pairIDiEERT_.exit.thread.i.i.i.i.i.i.i.i.i.i, %_ZN21PXR_INTERNAL_NS_pegtl8internal9peek_utf84peekINS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_10input_pairIDiEERT_.exit.i.i.i.i.i.i.i.i.i.i, %2, %_ZN21PXR_INTERNAL_NS_pegtl8internal9peek_utf84peekINS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_10input_pairIDiEERT_.exit.thread.i.i.i.i.i.i.i.i.i.i.i, %_ZN21PXR_INTERNAL_NS_pegtl8internal9peek_utf84peekINS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_10input_pairIDiEERT_.exit.i.i.i.i.i.i.i.i.i.i.i, %_ZN21PXR_INTERNAL_NS_pegtl6normalIN32pxrInternal_v0_24__pxrReserved__14Sdf_PathParser19Utf8IdentifierStartEE5matchILNS_10apply_modeE0ELNS_11rewind_modeE0ETtTpTyENS2_6ActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS2_9PPContextEEEEbRT3_DpOT4_.exit
   %75 = phi i1 [ true, %_ZN21PXR_INTERNAL_NS_pegtl6normalIN32pxrInternal_v0_24__pxrReserved__14Sdf_PathParser19Utf8IdentifierStartEE5matchILNS_10apply_modeE0ELNS_11rewind_modeE0ETtTpTyENS2_6ActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS2_9PPContextEEEEbRT3_DpOT4_.exit ], [ false, %_ZN21PXR_INTERNAL_NS_pegtl8internal9peek_utf84peekINS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_10input_pairIDiEERT_.exit.i.i.i.i.i.i.i.i.i.i.i ], [ false, %_ZN21PXR_INTERNAL_NS_pegtl8internal9peek_utf84peekINS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_10input_pairIDiEERT_.exit.thread.i.i.i.i.i.i.i.i.i.i.i ], [ false, %2 ], [ true, %_ZN21PXR_INTERNAL_NS_pegtl8internal9peek_utf84peekINS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_10input_pairIDiEERT_.exit.i.i.i.i.i.i.i.i.i.i ], [ true, %_ZN21PXR_INTERNAL_NS_pegtl8internal9peek_utf84peekINS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_10input_pairIDiEERT_.exit.thread.i.i.i.i.i.i.i.i.i.i ], [ true, %_ZN21PXR_INTERNAL_NS_pegtl6normalIN32pxrInternal_v0_24__pxrReserved__14Sdf_PathParser11XidContinueEE5matchILNS_10apply_modeE0ELNS_11rewind_modeE1ETtTpTyENS2_6ActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS2_9PPContextEEEEbRT3_DpOT4_.exit.i.i.i.i.i ]
@@ -4321,7 +4321,7 @@ _ZN21PXR_INTERNAL_NS_pegtl6normalINS_5ascii5blankEE5matchILNS_10apply_modeE1ELNS
   %17 = add i64 %11, 1
   store i64 %17, ptr %10, align 8
   %18 = icmp eq ptr %15, %7
-  br i1 %18, label %_ZN21PXR_INTERNAL_NS_pegtl6normalINS_8internal4starINS_5ascii5blankEJEEEE5matchILNS_10apply_modeE1ELNS_11rewind_modeE0ETtTpTyEN32pxrInternal_v0_24__pxrReserved__14Sdf_PathParser6ActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS3_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNSB_9PPContextEEEEbRT3_DpOT4_.exit.i.i.i.i.i.i.i.i, label %_ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_10input_pairIcEERT_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, !llvm.loop !43
+  br i1 %18, label %_ZN21PXR_INTERNAL_NS_pegtl6normalINS_8internal4starINS_5ascii5blankEJEEEE5matchILNS_10apply_modeE1ELNS_11rewind_modeE0ETtTpTyEN32pxrInternal_v0_24__pxrReserved__14Sdf_PathParser6ActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS3_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNSB_9PPContextEEEEbRT3_DpOT4_.exit.i.i.i.i.i.i.i.i, label %_ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_10input_pairIcEERT_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, !llvm.loop !42
 
 _ZN21PXR_INTERNAL_NS_pegtl6normalINS_8internal4starINS_5ascii5blankEJEEEE5matchILNS_10apply_modeE1ELNS_11rewind_modeE0ETtTpTyEN32pxrInternal_v0_24__pxrReserved__14Sdf_PathParser6ActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS3_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNSB_9PPContextEEEEbRT3_DpOT4_.exit.i.i.i.i.i.i.i.i: ; preds = %_ZN21PXR_INTERNAL_NS_pegtl6normalINS_5ascii5blankEE5matchILNS_10apply_modeE1ELNS_11rewind_modeE1ETtTpTyEN32pxrInternal_v0_24__pxrReserved__14Sdf_PathParser6ActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS1_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS8_9PPContextEEEEbRT3_DpOT4_.exit.i.i.i.i.i.i.i.i.i.i.i.i, %_ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_10input_pairIcEERT_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %2
   %19 = phi ptr [ %.promoted.i.i.i.i.i.i.i.i.i.i.i.i, %2 ], [ %15, %_ZN21PXR_INTERNAL_NS_pegtl6normalINS_5ascii5blankEE5matchILNS_10apply_modeE1ELNS_11rewind_modeE1ETtTpTyEN32pxrInternal_v0_24__pxrReserved__14Sdf_PathParser6ActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS1_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS8_9PPContextEEEEbRT3_DpOT4_.exit.i.i.i.i.i.i.i.i.i.i.i.i ], [ %13, %_ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_10input_pairIcEERT_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i ]
@@ -4365,7 +4365,7 @@ _ZN21PXR_INTERNAL_NS_pegtl6normalINS_5ascii5blankEE5matchILNS_10apply_modeE1ELNS
   %38 = add i64 %32, 1
   store i64 %38, ptr %28, align 8
   %39 = icmp eq ptr %36, %7
-  br i1 %39, label %.loopexit.i.i.i, label %_ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_10input_pairIcEERT_.exit.i.i.i.i.i.i.i.i.i11.i.i.i.i.i.i.i.i, !llvm.loop !43
+  br i1 %39, label %.loopexit.i.i.i, label %_ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_10input_pairIcEERT_.exit.i.i.i.i.i.i.i.i.i11.i.i.i.i.i.i.i.i, !llvm.loop !42
 
 .loopexit.i.i.i:                                  ; preds = %_ZN21PXR_INTERNAL_NS_pegtl6normalINS_5ascii5blankEE5matchILNS_10apply_modeE1ELNS_11rewind_modeE1ETtTpTyEN32pxrInternal_v0_24__pxrReserved__14Sdf_PathParser6ActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS1_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS8_9PPContextEEEEbRT3_DpOT4_.exit.i.i.i.i12.i.i.i.i.i.i.i.i, %_ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_10input_pairIcEERT_.exit.i.i.i.i.i.i.i.i.i11.i.i.i.i.i.i.i.i, %23
   %40 = invoke noundef zeroext i1 @_ZN21PXR_INTERNAL_NS_pegtl8internal3seqIJNS0_4mustIJN32pxrInternal_v0_24__pxrReserved__14Sdf_PathParser14VariantSetNameEEEENS2_IJNS_3padINS_5ascii3oneIJLc61EEEENS8_5blankESB_EEEEENS2_IJNS_3optIJNS4_11VariantNameEEEEEEENS2_IJNS4_11VarSelCloseEEEEEE5matchILNS_10apply_modeE1ELNS_11rewind_modeE0ETtTpTyENS4_6ActionETtTpTyENS_6normalENS_12string_inputILNS_13tracking_modeE0ENS8_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS4_9PPContextEEEEbRT3_DpOT4_(ptr noundef nonnull align 8 dereferenceable(120) %0, ptr noundef nonnull align 8 dereferenceable(96) %1)
@@ -4440,7 +4440,7 @@ _ZN21PXR_INTERNAL_NS_pegtl6normalINS_5ascii5blankEE5matchILNS_10apply_modeE1ELNS
   %17 = add i64 %11, 1
   store i64 %17, ptr %10, align 8
   %18 = icmp eq ptr %15, %7
-  br i1 %18, label %_ZN21PXR_INTERNAL_NS_pegtl6normalINS_8internal4starINS_5ascii5blankEJEEEE5matchILNS_10apply_modeE1ELNS_11rewind_modeE2ETtTpTyEN32pxrInternal_v0_24__pxrReserved__14Sdf_PathParser6ActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS3_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNSB_9PPContextEEEEbRT3_DpOT4_.exit.i.i.i.i.i.i.i.i.i, label %_ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_10input_pairIcEERT_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, !llvm.loop !44
+  br i1 %18, label %_ZN21PXR_INTERNAL_NS_pegtl6normalINS_8internal4starINS_5ascii5blankEJEEEE5matchILNS_10apply_modeE1ELNS_11rewind_modeE2ETtTpTyEN32pxrInternal_v0_24__pxrReserved__14Sdf_PathParser6ActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS3_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNSB_9PPContextEEEEbRT3_DpOT4_.exit.i.i.i.i.i.i.i.i.i, label %_ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_10input_pairIcEERT_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, !llvm.loop !43
 
 _ZN21PXR_INTERNAL_NS_pegtl6normalINS_8internal4starINS_5ascii5blankEJEEEE5matchILNS_10apply_modeE1ELNS_11rewind_modeE2ETtTpTyEN32pxrInternal_v0_24__pxrReserved__14Sdf_PathParser6ActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS3_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNSB_9PPContextEEEEbRT3_DpOT4_.exit.i.i.i.i.i.i.i.i.i: ; preds = %_ZN21PXR_INTERNAL_NS_pegtl6normalINS_5ascii5blankEE5matchILNS_10apply_modeE1ELNS_11rewind_modeE1ETtTpTyEN32pxrInternal_v0_24__pxrReserved__14Sdf_PathParser6ActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS1_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS8_9PPContextEEEEbRT3_DpOT4_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i, %_ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_10input_pairIcEERT_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %_ZN21PXR_INTERNAL_NS_pegtl6normalINS_8internal4mustIJN32pxrInternal_v0_24__pxrReserved__14Sdf_PathParser14VariantSetNameEEEEE5matchILNS_10apply_modeE1ELNS_11rewind_modeE0ETtTpTyENS4_6ActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS4_9PPContextEEEEbRT3_DpOT4_.exit
   %19 = phi ptr [ %.promoted.i.i.i.i.i.i.i.i.i.i.i.i.i, %_ZN21PXR_INTERNAL_NS_pegtl6normalINS_8internal4mustIJN32pxrInternal_v0_24__pxrReserved__14Sdf_PathParser14VariantSetNameEEEEE5matchILNS_10apply_modeE1ELNS_11rewind_modeE0ETtTpTyENS4_6ActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS4_9PPContextEEEEbRT3_DpOT4_.exit ], [ %13, %_ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_10input_pairIcEERT_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i ], [ %15, %_ZN21PXR_INTERNAL_NS_pegtl6normalINS_5ascii5blankEE5matchILNS_10apply_modeE1ELNS_11rewind_modeE1ETtTpTyEN32pxrInternal_v0_24__pxrReserved__14Sdf_PathParser6ActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS1_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS8_9PPContextEEEEbRT3_DpOT4_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i ]
@@ -4484,7 +4484,7 @@ _ZN21PXR_INTERNAL_NS_pegtl6normalINS_5ascii5blankEE5matchILNS_10apply_modeE1ELNS
   %38 = add i64 %32, 1
   store i64 %38, ptr %28, align 8
   %39 = icmp eq ptr %36, %7
-  br i1 %39, label %.loopexit, label %_ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_10input_pairIcEERT_.exit.i.i.i.i.i.i.i.i.i11.i.i.i.i.i.i.i.i.i, !llvm.loop !44
+  br i1 %39, label %.loopexit, label %_ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_10input_pairIcEERT_.exit.i.i.i.i.i.i.i.i.i11.i.i.i.i.i.i.i.i.i, !llvm.loop !43
 
 _ZN21PXR_INTERNAL_NS_pegtl6normalINS_3padINS_5ascii3oneIJLc61EEEENS2_5blankES5_EEE5matchILNS_10apply_modeE1ELNS_11rewind_modeE2ETtTpTyEN32pxrInternal_v0_24__pxrReserved__14Sdf_PathParser6ActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS2_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNSC_9PPContextEEEEbRT3_DpOT4_.exit.i.i.i.i: ; preds = %_ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_10input_pairIcEERT_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %_ZN21PXR_INTERNAL_NS_pegtl6normalINS_8internal4starINS_5ascii5blankEJEEEE5matchILNS_10apply_modeE1ELNS_11rewind_modeE2ETtTpTyEN32pxrInternal_v0_24__pxrReserved__14Sdf_PathParser6ActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS3_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNSB_9PPContextEEEEbRT3_DpOT4_.exit.i.i.i.i.i.i.i.i.i
   tail call void @_ZN21PXR_INTERNAL_NS_pegtl6normalINS_3padINS_5ascii3oneIJLc61EEEENS2_5blankES5_EEE5raiseINS_12string_inputILNS_13tracking_modeE0ENS2_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRN32pxrInternal_v0_24__pxrReserved__14Sdf_PathParser9PPContextEEEEvRKT_DpOT0_(ptr noundef nonnull align 8 dereferenceable(120) %0, ptr noundef nonnull align 8 dereferenceable(96) %1) #22
@@ -4520,7 +4520,7 @@ _ZN21PXR_INTERNAL_NS_pegtl6normalINS_5ascii5blankEE5matchILNS_10apply_modeE1ELNS
   %49 = add i64 %43, 1
   store i64 %49, ptr %28, align 8
   %50 = icmp eq ptr %47, %41
-  br i1 %50, label %_ZN21PXR_INTERNAL_NS_pegtl6normalINS_8internal4starINS_5ascii5blankEJEEEE5matchILNS_10apply_modeE1ELNS_11rewind_modeE2ETtTpTyEN32pxrInternal_v0_24__pxrReserved__14Sdf_PathParser6ActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS3_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNSB_9PPContextEEEEbRT3_DpOT4_.exit.i.i.i.i.i.i.i.i.i15, label %_ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_10input_pairIcEERT_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i13, !llvm.loop !44
+  br i1 %50, label %_ZN21PXR_INTERNAL_NS_pegtl6normalINS_8internal4starINS_5ascii5blankEJEEEE5matchILNS_10apply_modeE1ELNS_11rewind_modeE2ETtTpTyEN32pxrInternal_v0_24__pxrReserved__14Sdf_PathParser6ActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS3_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNSB_9PPContextEEEEbRT3_DpOT4_.exit.i.i.i.i.i.i.i.i.i15, label %_ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_10input_pairIcEERT_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i13, !llvm.loop !43
 
 _ZN21PXR_INTERNAL_NS_pegtl6normalINS_8internal4starINS_5ascii5blankEJEEEE5matchILNS_10apply_modeE1ELNS_11rewind_modeE2ETtTpTyEN32pxrInternal_v0_24__pxrReserved__14Sdf_PathParser6ActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS3_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNSB_9PPContextEEEEbRT3_DpOT4_.exit.i.i.i.i.i.i.i.i.i15: ; preds = %_ZN21PXR_INTERNAL_NS_pegtl6normalINS_5ascii5blankEE5matchILNS_10apply_modeE1ELNS_11rewind_modeE1ETtTpTyEN32pxrInternal_v0_24__pxrReserved__14Sdf_PathParser6ActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS1_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS8_9PPContextEEEEbRT3_DpOT4_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i14, %_ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_10input_pairIcEERT_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i13, %.loopexit
   %51 = phi ptr [ %.promoted.i.i.i.i.i.i.i.i.i.i.i.i.i9, %.loopexit ], [ %45, %_ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_10input_pairIcEERT_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i13 ], [ %47, %_ZN21PXR_INTERNAL_NS_pegtl6normalINS_5ascii5blankEE5matchILNS_10apply_modeE1ELNS_11rewind_modeE1ETtTpTyEN32pxrInternal_v0_24__pxrReserved__14Sdf_PathParser6ActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS1_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS8_9PPContextEEEEbRT3_DpOT4_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i14 ]
@@ -4562,7 +4562,7 @@ _ZN21PXR_INTERNAL_NS_pegtl6normalINS_5ascii5blankEE5matchILNS_10apply_modeE1ELNS
   %68 = add i64 %62, 1
   store i64 %68, ptr %28, align 8
   %69 = icmp eq ptr %66, %41
-  br i1 %69, label %_ZN21PXR_INTERNAL_NS_pegtl6normalINS_8internal4mustIJN32pxrInternal_v0_24__pxrReserved__14Sdf_PathParser11VarSelCloseEEEEE5matchILNS_10apply_modeE1ELNS_11rewind_modeE0ETtTpTyENS4_6ActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS4_9PPContextEEEEbRT3_DpOT4_.exit, label %_ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_10input_pairIcEERT_.exit.i.i.i.i.i.i.i.i.i11.i.i.i.i.i.i.i.i.i17, !llvm.loop !44
+  br i1 %69, label %_ZN21PXR_INTERNAL_NS_pegtl6normalINS_8internal4mustIJN32pxrInternal_v0_24__pxrReserved__14Sdf_PathParser11VarSelCloseEEEEE5matchILNS_10apply_modeE1ELNS_11rewind_modeE0ETtTpTyENS4_6ActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS4_9PPContextEEEEbRT3_DpOT4_.exit, label %_ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_10input_pairIcEERT_.exit.i.i.i.i.i.i.i.i.i11.i.i.i.i.i.i.i.i.i17, !llvm.loop !43
 
 _ZN21PXR_INTERNAL_NS_pegtl6normalIN32pxrInternal_v0_24__pxrReserved__14Sdf_PathParser11VarSelCloseEE5matchILNS_10apply_modeE1ELNS_11rewind_modeE2ETtTpTyENS2_6ActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS2_9PPContextEEEEbRT3_DpOT4_.exit.i.i.i.i: ; preds = %_ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_10input_pairIcEERT_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i16, %_ZN21PXR_INTERNAL_NS_pegtl6normalINS_8internal4starINS_5ascii5blankEJEEEE5matchILNS_10apply_modeE1ELNS_11rewind_modeE2ETtTpTyEN32pxrInternal_v0_24__pxrReserved__14Sdf_PathParser6ActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS3_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNSB_9PPContextEEEEbRT3_DpOT4_.exit.i.i.i.i.i.i.i.i.i15
   tail call void @_ZN21PXR_INTERNAL_NS_pegtl6normalIN32pxrInternal_v0_24__pxrReserved__14Sdf_PathParser11VarSelCloseEE5raiseINS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS2_9PPContextEEEEvRKT_DpOT0_(ptr noundef nonnull align 8 dereferenceable(120) %0, ptr noundef nonnull align 8 dereferenceable(96) %1) #22
@@ -4590,11 +4590,11 @@ _ZN21PXR_INTERNAL_NS_pegtl8internal20match_control_unwindIN32pxrInternal_v0_24__
 7:                                                ; preds = %_ZN21PXR_INTERNAL_NS_pegtl8internal20match_control_unwindIN32pxrInternal_v0_24__pxrReserved__14Sdf_PathParser14VariantSetNameELNS_10apply_modeE1ELNS_11rewind_modeE0ETtTpTyENS3_6ActionETtTpTyENS_6normalENS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS3_9PPContextEEEEDaRT4_DpOT5_.exit
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3)
-  %8 = load ptr, ptr %5, align 8, !noalias !45
+  %8 = load ptr, ptr %5, align 8, !noalias !44
   %9 = ptrtoint ptr %8 to i64
   %10 = ptrtoint ptr %.sroa.0.0.copyload to i64
   %11 = sub i64 %9, %10
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #21, !noalias !45
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #21, !noalias !44
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcmRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef %.sroa.0.0.copyload, i64 noundef %11, ptr noundef nonnull align 1 dereferenceable(1) %3)
           to label %_ZN21PXR_INTERNAL_NS_pegtl8internal6markerINS0_8iteratorELNS_11rewind_modeE1EEclEb.exit.thread unwind label %12
 
@@ -4711,7 +4711,7 @@ _ZN21PXR_INTERNAL_NS_pegtl8internal9peek_utf84peekINS_12string_inputILNS_13track
   store i64 %storemerge.i.i.i.i.i.i.i.i.i.i.i.i.i, ptr %23, align 8
   %37 = add nuw i64 %.013.i.i.i.i.i.i.i.i.i.i.i.i.i, 1
   %exitcond.not.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %37, %.sroa.2.0.extract.shift10.i.i.i.i.i.i.i.i.i.i.i
-  br i1 %exitcond.not.i.i.i.i.i.i.i.i.i.i.i.i.i, label %38, label %25, !llvm.loop !9
+  br i1 %exitcond.not.i.i.i.i.i.i.i.i.i.i.i.i.i, label %38, label %25, !llvm.loop !8
 
 38:                                               ; preds = %35
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -4727,7 +4727,7 @@ _ZN21PXR_INTERNAL_NS_pegtl6normalIN32pxrInternal_v0_24__pxrReserved__14Sdf_PathP
 
 _ZN21PXR_INTERNAL_NS_pegtl6normalIN32pxrInternal_v0_24__pxrReserved__14Sdf_PathParser19Utf8IdentifierStartEE5matchILNS_10apply_modeE1ELNS_11rewind_modeE0ETtTpTyENS2_6ActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS2_9PPContextEEEEbRT3_DpOT4_.exit: ; preds = %_ZN21PXR_INTERNAL_NS_pegtl6normalIN32pxrInternal_v0_24__pxrReserved__14Sdf_PathParser19Utf8IdentifierStartEE5matchILNS_10apply_modeE1ELNS_11rewind_modeE0ETtTpTyENS2_6ActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS2_9PPContextEEEEbRT3_DpOT4_.exit.preheader, %_ZN21PXR_INTERNAL_NS_pegtl6normalIN32pxrInternal_v0_24__pxrReserved__14Sdf_PathParser19Utf8IdentifierStartEE5matchILNS_10apply_modeE1ELNS_11rewind_modeE0ETtTpTyENS2_6ActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS2_9PPContextEEEEbRT3_DpOT4_.exit
   %43 = tail call noundef zeroext i1 @_ZN21PXR_INTERNAL_NS_pegtl8internal3sorIJN32pxrInternal_v0_24__pxrReserved__14Sdf_PathParser11XidContinueENS_5ascii3oneIJLc45EEEEEE5matchILNS_10apply_modeE1ELNS_11rewind_modeE1ETtTpTyENS3_6ActionETtTpTyENS_6normalEJLm0ELm1EENS_12string_inputILNS_13tracking_modeE0ENS5_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS3_9PPContextEEEEbSt16integer_sequenceImJXspT3_EEERT4_DpOT5_(ptr noundef nonnull align 8 dereferenceable(120) %0, ptr noundef nonnull align 8 dereferenceable(96) %1)
-  br i1 %43, label %_ZN21PXR_INTERNAL_NS_pegtl6normalIN32pxrInternal_v0_24__pxrReserved__14Sdf_PathParser19Utf8IdentifierStartEE5matchILNS_10apply_modeE1ELNS_11rewind_modeE0ETtTpTyENS2_6ActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS2_9PPContextEEEEbRT3_DpOT4_.exit, label %_ZN21PXR_INTERNAL_NS_pegtl6normalINS_4starINS_3sorIJN32pxrInternal_v0_24__pxrReserved__14Sdf_PathParser11XidContinueENS_5ascii3oneIJLc45EEEEEEEJEEEE5matchILNS_10apply_modeE1ELNS_11rewind_modeE0ETtTpTyENS4_6ActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS6_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS4_9PPContextEEEEbRT3_DpOT4_.exit, !llvm.loop !48
+  br i1 %43, label %_ZN21PXR_INTERNAL_NS_pegtl6normalIN32pxrInternal_v0_24__pxrReserved__14Sdf_PathParser19Utf8IdentifierStartEE5matchILNS_10apply_modeE1ELNS_11rewind_modeE0ETtTpTyENS2_6ActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS2_9PPContextEEEEbRT3_DpOT4_.exit, label %_ZN21PXR_INTERNAL_NS_pegtl6normalINS_4starINS_3sorIJN32pxrInternal_v0_24__pxrReserved__14Sdf_PathParser11XidContinueENS_5ascii3oneIJLc45EEEEEEEJEEEE5matchILNS_10apply_modeE1ELNS_11rewind_modeE0ETtTpTyENS4_6ActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS6_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS4_9PPContextEEEEbRT3_DpOT4_.exit, !llvm.loop !47
 
 _ZN21PXR_INTERNAL_NS_pegtl6normalINS_4starINS_3sorIJN32pxrInternal_v0_24__pxrReserved__14Sdf_PathParser11XidContinueENS_5ascii3oneIJLc45EEEEEEEJEEEE5matchILNS_10apply_modeE1ELNS_11rewind_modeE0ETtTpTyENS4_6ActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS6_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS4_9PPContextEEEEbRT3_DpOT4_.exit: ; preds = %_ZN21PXR_INTERNAL_NS_pegtl6normalIN32pxrInternal_v0_24__pxrReserved__14Sdf_PathParser19Utf8IdentifierStartEE5matchILNS_10apply_modeE1ELNS_11rewind_modeE0ETtTpTyENS2_6ActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS2_9PPContextEEEEbRT3_DpOT4_.exit, %2, %_ZN21PXR_INTERNAL_NS_pegtl8internal9peek_utf84peekINS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_10input_pairIDiEERT_.exit.thread.i.i.i.i.i.i.i.i.i.i.i, %_ZN21PXR_INTERNAL_NS_pegtl8internal9peek_utf84peekINS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_10input_pairIDiEERT_.exit.i.i.i.i.i.i.i.i.i.i.i
   %44 = phi i1 [ false, %_ZN21PXR_INTERNAL_NS_pegtl8internal9peek_utf84peekINS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_10input_pairIDiEERT_.exit.i.i.i.i.i.i.i.i.i.i.i ], [ false, %_ZN21PXR_INTERNAL_NS_pegtl8internal9peek_utf84peekINS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_10input_pairIDiEERT_.exit.thread.i.i.i.i.i.i.i.i.i.i.i ], [ false, %2 ], [ true, %_ZN21PXR_INTERNAL_NS_pegtl6normalIN32pxrInternal_v0_24__pxrReserved__14Sdf_PathParser19Utf8IdentifierStartEE5matchILNS_10apply_modeE1ELNS_11rewind_modeE0ETtTpTyENS2_6ActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS2_9PPContextEEEEbRT3_DpOT4_.exit ]
@@ -4799,7 +4799,7 @@ _ZN21PXR_INTERNAL_NS_pegtl8internal9peek_utf84peekINS_12string_inputILNS_13track
   store i64 %storemerge.i.i.i.i.i.i.i, ptr %15, align 8
   %29 = add nuw i64 %.013.i.i.i.i.i.i.i, 1
   %exitcond.not.i.i.i.i.i.i.i = icmp eq i64 %29, %.sroa.2.0.extract.shift10.i.i.i.i.i
-  br i1 %exitcond.not.i.i.i.i.i.i.i, label %_ZN21PXR_INTERNAL_NS_pegtl6normalIN32pxrInternal_v0_24__pxrReserved__14Sdf_PathParser11XidContinueEE5matchILNS_10apply_modeE1ELNS_11rewind_modeE1ETtTpTyENS2_6ActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS2_9PPContextEEEEbRT3_DpOT4_.exit, label %17, !llvm.loop !9
+  br i1 %exitcond.not.i.i.i.i.i.i.i, label %_ZN21PXR_INTERNAL_NS_pegtl6normalIN32pxrInternal_v0_24__pxrReserved__14Sdf_PathParser11XidContinueEE5matchILNS_10apply_modeE1ELNS_11rewind_modeE1ETtTpTyENS2_6ActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS2_9PPContextEEEEbRT3_DpOT4_.exit, label %17, !llvm.loop !8
 
 _ZN21PXR_INTERNAL_NS_pegtl6normalIN32pxrInternal_v0_24__pxrReserved__14Sdf_PathParser11XidContinueEE5matchILNS_10apply_modeE1ELNS_11rewind_modeE1ETtTpTyENS2_6ActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS2_9PPContextEEEEbRT3_DpOT4_.exit: ; preds = %27
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -4878,16 +4878,16 @@ _ZN21PXR_INTERNAL_NS_pegtl6normalINS_3optIJNS_5ascii3oneIJLc46EEEEEEEE5matchILNS
           to label %.noexc unwind label %25
 
 .noexc:                                           ; preds = %_ZN21PXR_INTERNAL_NS_pegtl6normalINS_3optIJNS_5ascii3oneIJLc46EEEEEEEE5matchILNS_10apply_modeE1ELNS_11rewind_modeE0ETtTpTyEN32pxrInternal_v0_24__pxrReserved__14Sdf_PathParser6ActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS2_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNSB_9PPContextEEEEbRT3_DpOT4_.exit.i.i.i
-  br i1 %18, label %_ZN21PXR_INTERNAL_NS_pegtl6normalINS_3optIJNS_5ascii3oneIJLc46EEEEEEEE5matchILNS_10apply_modeE1ELNS_11rewind_modeE0ETtTpTyEN32pxrInternal_v0_24__pxrReserved__14Sdf_PathParser6ActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS2_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNSB_9PPContextEEEEbRT3_DpOT4_.exit.i.i.i, label %_ZN21PXR_INTERNAL_NS_pegtl8internal20match_control_unwindIN32pxrInternal_v0_24__pxrReserved__14Sdf_PathParser11VariantNameELNS_10apply_modeE1ELNS_11rewind_modeE0ETtTpTyENS3_6ActionETtTpTyENS_6normalENS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS3_9PPContextEEEEDaRT4_DpOT5_.exit, !llvm.loop !49
+  br i1 %18, label %_ZN21PXR_INTERNAL_NS_pegtl6normalINS_3optIJNS_5ascii3oneIJLc46EEEEEEEE5matchILNS_10apply_modeE1ELNS_11rewind_modeE0ETtTpTyEN32pxrInternal_v0_24__pxrReserved__14Sdf_PathParser6ActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS2_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNSB_9PPContextEEEEbRT3_DpOT4_.exit.i.i.i, label %_ZN21PXR_INTERNAL_NS_pegtl8internal20match_control_unwindIN32pxrInternal_v0_24__pxrReserved__14Sdf_PathParser11VariantNameELNS_10apply_modeE1ELNS_11rewind_modeE0ETtTpTyENS3_6ActionETtTpTyENS_6normalENS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS3_9PPContextEEEEDaRT4_DpOT5_.exit, !llvm.loop !48
 
 _ZN21PXR_INTERNAL_NS_pegtl8internal20match_control_unwindIN32pxrInternal_v0_24__pxrReserved__14Sdf_PathParser11VariantNameELNS_10apply_modeE1ELNS_11rewind_modeE0ETtTpTyENS3_6ActionETtTpTyENS_6normalENS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS3_9PPContextEEEEDaRT4_DpOT5_.exit: ; preds = %.noexc
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3)
-  %19 = load ptr, ptr %5, align 8, !noalias !50
+  %19 = load ptr, ptr %5, align 8, !noalias !49
   %20 = ptrtoint ptr %19 to i64
   %21 = ptrtoint ptr %.sroa.0.0.copyload to i64
   %22 = sub i64 %20, %21
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #21, !noalias !50
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #21, !noalias !49
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcmRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef %.sroa.0.0.copyload, i64 noundef %22, ptr noundef nonnull align 1 dereferenceable(1) %3)
           to label %_ZN21PXR_INTERNAL_NS_pegtl8internal6markerINS0_8iteratorELNS_11rewind_modeE1EED2Ev.exit17 unwind label %23
 
@@ -4983,7 +4983,7 @@ _ZN21PXR_INTERNAL_NS_pegtl8internal9peek_utf84peekINS_12string_inputILNS_13track
   store i64 %storemerge.i.i.i.i.i.i.i, ptr %15, align 8
   %29 = add nuw i64 %.013.i.i.i.i.i.i.i, 1
   %exitcond.not.i.i.i.i.i.i.i = icmp eq i64 %29, %.sroa.2.0.extract.shift10.i.i.i.i.i
-  br i1 %exitcond.not.i.i.i.i.i.i.i, label %_ZN21PXR_INTERNAL_NS_pegtl6normalIN32pxrInternal_v0_24__pxrReserved__14Sdf_PathParser11XidContinueEE5matchILNS_10apply_modeE1ELNS_11rewind_modeE1ETtTpTyENS2_6ActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS2_9PPContextEEEEbRT3_DpOT4_.exit, label %17, !llvm.loop !9
+  br i1 %exitcond.not.i.i.i.i.i.i.i, label %_ZN21PXR_INTERNAL_NS_pegtl6normalIN32pxrInternal_v0_24__pxrReserved__14Sdf_PathParser11XidContinueEE5matchILNS_10apply_modeE1ELNS_11rewind_modeE1ETtTpTyENS2_6ActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS2_9PPContextEEEEbRT3_DpOT4_.exit, label %17, !llvm.loop !8
 
 _ZN21PXR_INTERNAL_NS_pegtl6normalIN32pxrInternal_v0_24__pxrReserved__14Sdf_PathParser11XidContinueEE5matchILNS_10apply_modeE1ELNS_11rewind_modeE1ETtTpTyENS2_6ActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS2_9PPContextEEEEbRT3_DpOT4_.exit: ; preds = %27
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -5154,7 +5154,7 @@ _ZN21PXR_INTERNAL_NS_pegtl6normalINS_5ascii5blankEE5matchILNS_10apply_modeE1ELNS
   %17 = add i64 %11, 1
   store i64 %17, ptr %10, align 8
   %18 = icmp eq ptr %15, %7
-  br i1 %18, label %_ZN21PXR_INTERNAL_NS_pegtl6normalINS_8internal4starINS_5ascii5blankEJEEEE5matchILNS_10apply_modeE1ELNS_11rewind_modeE0ETtTpTyEN32pxrInternal_v0_24__pxrReserved__14Sdf_PathParser6ActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS3_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNSB_9PPContextEEEEbRT3_DpOT4_.exit.i.i.i.i.i.i.i.i, label %_ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_10input_pairIcEERT_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, !llvm.loop !43
+  br i1 %18, label %_ZN21PXR_INTERNAL_NS_pegtl6normalINS_8internal4starINS_5ascii5blankEJEEEE5matchILNS_10apply_modeE1ELNS_11rewind_modeE0ETtTpTyEN32pxrInternal_v0_24__pxrReserved__14Sdf_PathParser6ActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS3_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNSB_9PPContextEEEEbRT3_DpOT4_.exit.i.i.i.i.i.i.i.i, label %_ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_10input_pairIcEERT_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, !llvm.loop !42
 
 _ZN21PXR_INTERNAL_NS_pegtl6normalINS_8internal4starINS_5ascii5blankEJEEEE5matchILNS_10apply_modeE1ELNS_11rewind_modeE0ETtTpTyEN32pxrInternal_v0_24__pxrReserved__14Sdf_PathParser6ActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS3_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNSB_9PPContextEEEEbRT3_DpOT4_.exit.i.i.i.i.i.i.i.i: ; preds = %_ZN21PXR_INTERNAL_NS_pegtl6normalINS_5ascii5blankEE5matchILNS_10apply_modeE1ELNS_11rewind_modeE1ETtTpTyEN32pxrInternal_v0_24__pxrReserved__14Sdf_PathParser6ActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS1_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS8_9PPContextEEEEbRT3_DpOT4_.exit.i.i.i.i.i.i.i.i.i.i.i.i, %_ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_10input_pairIcEERT_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %2
   %19 = phi ptr [ %.promoted.i.i.i.i.i.i.i.i.i.i.i.i, %2 ], [ %15, %_ZN21PXR_INTERNAL_NS_pegtl6normalINS_5ascii5blankEE5matchILNS_10apply_modeE1ELNS_11rewind_modeE1ETtTpTyEN32pxrInternal_v0_24__pxrReserved__14Sdf_PathParser6ActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS1_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS8_9PPContextEEEEbRT3_DpOT4_.exit.i.i.i.i.i.i.i.i.i.i.i.i ], [ %13, %_ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_10input_pairIcEERT_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i ]
@@ -5198,7 +5198,7 @@ _ZN21PXR_INTERNAL_NS_pegtl6normalINS_5ascii5blankEE5matchILNS_10apply_modeE1ELNS
   %38 = add i64 %32, 1
   store i64 %38, ptr %28, align 8
   %39 = icmp eq ptr %36, %7
-  br i1 %39, label %.loopexit.i.i.i, label %_ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_10input_pairIcEERT_.exit.i.i.i.i.i.i.i.i.i11.i.i.i.i.i.i.i.i, !llvm.loop !43
+  br i1 %39, label %.loopexit.i.i.i, label %_ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_10input_pairIcEERT_.exit.i.i.i.i.i.i.i.i.i11.i.i.i.i.i.i.i.i, !llvm.loop !42
 
 .loopexit.i.i.i:                                  ; preds = %_ZN21PXR_INTERNAL_NS_pegtl6normalINS_5ascii5blankEE5matchILNS_10apply_modeE1ELNS_11rewind_modeE1ETtTpTyEN32pxrInternal_v0_24__pxrReserved__14Sdf_PathParser6ActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS1_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS8_9PPContextEEEEbRT3_DpOT4_.exit.i.i.i.i12.i.i.i.i.i.i.i.i, %_ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_10input_pairIcEERT_.exit.i.i.i.i.i.i.i.i.i11.i.i.i.i.i.i.i.i, %23
   %40 = invoke noundef zeroext i1 @_ZN21PXR_INTERNAL_NS_pegtl8internal3seqIJNS0_4mustIJN32pxrInternal_v0_24__pxrReserved__14Sdf_PathParser14VariantSetNameEEEENS2_IJNS_3padINS_5ascii3oneIJLc61EEEENS8_5blankESB_EEEEENS2_IJNS_3optIJNS4_11VariantNameEEEEEEENS2_IJNS4_11VarSelCloseEEEEEE5matchILNS_10apply_modeE1ELNS_11rewind_modeE0ETtTpTyENS4_6ActionETtTpTyENS_6normalENS_12string_inputILNS_13tracking_modeE0ENS8_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS4_9PPContextEEEEbRT3_DpOT4_(ptr noundef nonnull align 8 dereferenceable(120) %0, ptr noundef nonnull align 8 dereferenceable(96) %1)
@@ -5293,7 +5293,7 @@ _ZN21PXR_INTERNAL_NS_pegtl6normalINS_8internal3seqIJNS_5ascii3oneIJLc58EEEEN32px
   %25 = load ptr, ptr %5, align 8
   %26 = load ptr, ptr %8, align 8
   %27 = icmp eq ptr %25, %26
-  br i1 %27, label %_ZN21PXR_INTERNAL_NS_pegtl8internal20match_control_unwindIN32pxrInternal_v0_24__pxrReserved__14Sdf_PathParser12PropertyNameELNS_10apply_modeE1ELNS_11rewind_modeE0ETtTpTyENS3_6ActionETtTpTyENS_6normalENS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS3_9PPContextEEEEDaRT4_DpOT5_.exit, label %_ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_10input_pairIcEERT_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, !llvm.loop !53
+  br i1 %27, label %_ZN21PXR_INTERNAL_NS_pegtl8internal20match_control_unwindIN32pxrInternal_v0_24__pxrReserved__14Sdf_PathParser12PropertyNameELNS_10apply_modeE1ELNS_11rewind_modeE0ETtTpTyENS3_6ActionETtTpTyENS_6normalENS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS3_9PPContextEEEEDaRT4_DpOT5_.exit, label %_ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_10input_pairIcEERT_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, !llvm.loop !52
 
 _ZN21PXR_INTERNAL_NS_pegtl8internal20match_control_unwindIN32pxrInternal_v0_24__pxrReserved__14Sdf_PathParser12PropertyNameELNS_10apply_modeE1ELNS_11rewind_modeE0ETtTpTyENS3_6ActionETtTpTyENS_6normalENS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS3_9PPContextEEEEDaRT4_DpOT5_.exit: ; preds = %_ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_10input_pairIcEERT_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %_ZN21PXR_INTERNAL_NS_pegtl6normalIN32pxrInternal_v0_24__pxrReserved__14Sdf_PathParser14Utf8IdentifierEE5matchILNS_10apply_modeE1ELNS_11rewind_modeE0ETtTpTyENS2_6ActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS2_9PPContextEEEEbRT3_DpOT4_.exit.i.i.i.i.i.i.i.i.i.i.i, %_ZN21PXR_INTERNAL_NS_pegtl6normalINS_8internal3seqIJNS_5ascii3oneIJLc58EEEEN32pxrInternal_v0_24__pxrReserved__14Sdf_PathParser14Utf8IdentifierEEEEE5matchILNS_10apply_modeE1ELNS_11rewind_modeE1ETtTpTyENS7_6ActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS3_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS7_9PPContextEEEEbRT3_DpOT4_.exit.i.i.i.i.i.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.i.i.i.i.i.i.i.i.i.i.i, i64 32, i1 false)
@@ -6466,20 +6466,20 @@ _ZNKSt6vectorIN32pxrInternal_v0_24__pxrReserved__7SdfPathESaIS1_EE12_M_check_len
 .lr.ph.i.i.i:                                     ; preds = %_ZNKSt6vectorIN32pxrInternal_v0_24__pxrReserved__7SdfPathESaIS1_EE12_M_check_lenEmPKc.exit, %.lr.ph.i.i.i
   %.012.i.i.i = phi ptr [ %26, %.lr.ph.i.i.i ], [ %19, %_ZNKSt6vectorIN32pxrInternal_v0_24__pxrReserved__7SdfPathESaIS1_EE12_M_check_lenEmPKc.exit ]
   %.0911.i.i.i = phi ptr [ %25, %.lr.ph.i.i.i ], [ %5, %_ZNKSt6vectorIN32pxrInternal_v0_24__pxrReserved__7SdfPathESaIS1_EE12_M_check_lenEmPKc.exit ]
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !54)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !57)
-  %21 = load i32, ptr %.0911.i.i.i, align 4, !alias.scope !57, !noalias !54
-  store i32 %21, ptr %.012.i.i.i, align 4, !alias.scope !54, !noalias !57
-  store i32 0, ptr %.0911.i.i.i, align 4, !alias.scope !57, !noalias !54
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !53)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !56)
+  %21 = load i32, ptr %.0911.i.i.i, align 4, !alias.scope !56, !noalias !53
+  store i32 %21, ptr %.012.i.i.i, align 4, !alias.scope !53, !noalias !56
+  store i32 0, ptr %.0911.i.i.i, align 4, !alias.scope !56, !noalias !53
   %22 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 4
   %23 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 4
-  %24 = load i32, ptr %23, align 4, !alias.scope !57, !noalias !54
-  store i32 %24, ptr %22, align 4, !alias.scope !54, !noalias !57
-  store i32 0, ptr %23, align 4, !alias.scope !57, !noalias !54
+  %24 = load i32, ptr %23, align 4, !alias.scope !56, !noalias !53
+  store i32 %24, ptr %22, align 4, !alias.scope !53, !noalias !56
+  store i32 0, ptr %23, align 4, !alias.scope !56, !noalias !53
   %25 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 8
   %26 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 8
   %.not.i.i.i = icmp eq ptr %25, %1
-  br i1 %.not.i.i.i, label %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7SdfPathESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit, label %.lr.ph.i.i.i, !llvm.loop !59
+  br i1 %.not.i.i.i, label %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7SdfPathESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit, label %.lr.ph.i.i.i, !llvm.loop !58
 
 _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7SdfPathESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit: ; preds = %.lr.ph.i.i.i, %_ZNKSt6vectorIN32pxrInternal_v0_24__pxrReserved__7SdfPathESaIS1_EE12_M_check_lenEmPKc.exit
   %.0.lcssa.i.i.i = phi ptr [ %19, %_ZNKSt6vectorIN32pxrInternal_v0_24__pxrReserved__7SdfPathESaIS1_EE12_M_check_lenEmPKc.exit ], [ %26, %.lr.ph.i.i.i ]
@@ -6490,20 +6490,20 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7SdfPathESaIS1_EE11_S_relocateEP
 .lr.ph.i.i.i16:                                   ; preds = %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7SdfPathESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit, %.lr.ph.i.i.i16
   %.012.i.i.i17 = phi ptr [ %33, %.lr.ph.i.i.i16 ], [ %27, %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7SdfPathESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit ]
   %.0911.i.i.i18 = phi ptr [ %32, %.lr.ph.i.i.i16 ], [ %1, %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7SdfPathESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit ]
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !60)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !63)
-  %28 = load i32, ptr %.0911.i.i.i18, align 4, !alias.scope !63, !noalias !60
-  store i32 %28, ptr %.012.i.i.i17, align 4, !alias.scope !60, !noalias !63
-  store i32 0, ptr %.0911.i.i.i18, align 4, !alias.scope !63, !noalias !60
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !59)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !62)
+  %28 = load i32, ptr %.0911.i.i.i18, align 4, !alias.scope !62, !noalias !59
+  store i32 %28, ptr %.012.i.i.i17, align 4, !alias.scope !59, !noalias !62
+  store i32 0, ptr %.0911.i.i.i18, align 4, !alias.scope !62, !noalias !59
   %29 = getelementptr inbounds nuw i8, ptr %.012.i.i.i17, i64 4
   %30 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i18, i64 4
-  %31 = load i32, ptr %30, align 4, !alias.scope !63, !noalias !60
-  store i32 %31, ptr %29, align 4, !alias.scope !60, !noalias !63
-  store i32 0, ptr %30, align 4, !alias.scope !63, !noalias !60
+  %31 = load i32, ptr %30, align 4, !alias.scope !62, !noalias !59
+  store i32 %31, ptr %29, align 4, !alias.scope !59, !noalias !62
+  store i32 0, ptr %30, align 4, !alias.scope !62, !noalias !59
   %32 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i18, i64 8
   %33 = getelementptr inbounds nuw i8, ptr %.012.i.i.i17, i64 8
   %.not.i.i.i19 = icmp eq ptr %32, %4
-  br i1 %.not.i.i.i19, label %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7SdfPathESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit21, label %.lr.ph.i.i.i16, !llvm.loop !59
+  br i1 %.not.i.i.i19, label %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7SdfPathESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit21, label %.lr.ph.i.i.i16, !llvm.loop !58
 
 _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7SdfPathESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit21: ; preds = %.lr.ph.i.i.i16, %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7SdfPathESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit
   %.0.lcssa.i.i.i20 = phi ptr [ %27, %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7SdfPathESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit ], [ %33, %.lr.ph.i.i.i16 ]
@@ -7162,7 +7162,7 @@ _ZN21PXR_INTERNAL_NS_pegtl6normalINS_8internal3seqIJNS_5ascii3oneIJLc58EEEEN32px
   %25 = load ptr, ptr %5, align 8
   %26 = load ptr, ptr %8, align 8
   %27 = icmp eq ptr %25, %26
-  br i1 %27, label %_ZN21PXR_INTERNAL_NS_pegtl8internal20match_control_unwindIN32pxrInternal_v0_24__pxrReserved__14Sdf_PathParser23RelationalAttributeNameELNS_10apply_modeE1ELNS_11rewind_modeE0ETtTpTyENS3_6ActionETtTpTyENS_6normalENS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS3_9PPContextEEEEDaRT4_DpOT5_.exit, label %_ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_10input_pairIcEERT_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, !llvm.loop !53
+  br i1 %27, label %_ZN21PXR_INTERNAL_NS_pegtl8internal20match_control_unwindIN32pxrInternal_v0_24__pxrReserved__14Sdf_PathParser23RelationalAttributeNameELNS_10apply_modeE1ELNS_11rewind_modeE0ETtTpTyENS3_6ActionETtTpTyENS_6normalENS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS3_9PPContextEEEEDaRT4_DpOT5_.exit, label %_ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_10input_pairIcEERT_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, !llvm.loop !52
 
 _ZN21PXR_INTERNAL_NS_pegtl8internal20match_control_unwindIN32pxrInternal_v0_24__pxrReserved__14Sdf_PathParser23RelationalAttributeNameELNS_10apply_modeE1ELNS_11rewind_modeE0ETtTpTyENS3_6ActionETtTpTyENS_6normalENS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS3_9PPContextEEEEDaRT4_DpOT5_.exit: ; preds = %_ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_10input_pairIcEERT_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %_ZN21PXR_INTERNAL_NS_pegtl6normalIN32pxrInternal_v0_24__pxrReserved__14Sdf_PathParser14Utf8IdentifierEE5matchILNS_10apply_modeE1ELNS_11rewind_modeE0ETtTpTyENS2_6ActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS2_9PPContextEEEEbRT3_DpOT4_.exit.i.i.i.i.i.i.i.i.i.i.i, %_ZN21PXR_INTERNAL_NS_pegtl6normalINS_8internal3seqIJNS_5ascii3oneIJLc58EEEEN32pxrInternal_v0_24__pxrReserved__14Sdf_PathParser14Utf8IdentifierEEEEE5matchILNS_10apply_modeE1ELNS_11rewind_modeE1ETtTpTyENS7_6ActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS3_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS7_9PPContextEEEEbRT3_DpOT4_.exit.i.i.i.i.i.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.i.i.i.i.i.i.i.i.i.i.i, i64 32, i1 false)
@@ -9005,7 +9005,7 @@ _ZN21PXR_INTERNAL_NS_pegtl6normalINS_8internal6rangesINS1_9peek_charEJLc97ELc122
   %43 = add i64 %32, 1
   store i64 %43, ptr %17, align 8
   %44 = icmp eq ptr %41, %8
-  br i1 %44, label %.loopexit.i.i, label %_ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_10input_pairIcEERT_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i, !llvm.loop !65
+  br i1 %44, label %.loopexit.i.i, label %_ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_10input_pairIcEERT_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i, !llvm.loop !64
 
 .loopexit.i.i:                                    ; preds = %_ZN21PXR_INTERNAL_NS_pegtl6normalINS_8internal6rangesINS1_9peek_charEJLc97ELc122ELc65ELc90ELc48ELc57ELc95EEEEE5matchILNS_10apply_modeE1ELNS_11rewind_modeE1ETtTpTyEN32pxrInternal_v0_24__pxrReserved__14Sdf_PathParser6ActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNSA_9PPContextEEEEbRT3_DpOT4_.exit.i.i.i.i.i.i.i.i.i, %_ZN21PXR_INTERNAL_NS_pegtl8internal6rangesINS0_9peek_charEJLc97ELc122ELc65ELc90ELc48ELc57ELc95EEE4testEc.exit.i.i.i.i.i.i.i.i.i.i.i.i.i, %27
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3)
@@ -9798,7 +9798,7 @@ _ZN21PXR_INTERNAL_NS_pegtl6normalINS_8internal3seqIJN32pxrInternal_v0_24__pxrRes
   %37 = load ptr, ptr %6, align 8
   %38 = load ptr, ptr %7, align 8
   %39 = icmp eq ptr %37, %38
-  br i1 %39, label %.loopexit, label %_ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_10input_pairIcEERT_.exit.i.i.i.i.i.i.i.i.i, !llvm.loop !66
+  br i1 %39, label %.loopexit, label %_ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_10input_pairIcEERT_.exit.i.i.i.i.i.i.i.i.i, !llvm.loop !65
 
 .loopexit:                                        ; preds = %_ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_10input_pairIcEERT_.exit.i.i.i.i.i.i.i.i.i, %_ZN21PXR_INTERNAL_NS_pegtl6normalINS_8internal3seqIJN32pxrInternal_v0_24__pxrReserved__14Sdf_PathParser5SlashENS4_6DotDotEEEEE5matchILNS_10apply_modeE1ELNS_11rewind_modeE1ETtTpTyENS4_6ActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS4_9PPContextEEEEbRT3_DpOT4_.exit, %2, %36
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.i.i.i.i, i64 32, i1 false)
@@ -9942,7 +9942,7 @@ _ZN21PXR_INTERNAL_NS_pegtl8internal6markerINS0_8iteratorELNS_11rewind_modeE1EED2
           to label %.noexc unwind label %.loopexit.split-lp.loopexit
 
 .noexc:                                           ; preds = %11
-  br i1 %12, label %11, label %_ZN21PXR_INTERNAL_NS_pegtl6normalIN32pxrInternal_v0_24__pxrReserved__14Sdf_PathParser13LookaheadListINS2_8PrimNameENS_3sorIJNS2_5SlashENS2_17VariantSelectionsEEEEEEE5matchILNS_10apply_modeE1ELNS_11rewind_modeE0ETtTpTyENS2_6ActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS2_9PPContextEEEEbRT3_DpOT4_.exit, !llvm.loop !7
+  br i1 %12, label %11, label %_ZN21PXR_INTERNAL_NS_pegtl6normalIN32pxrInternal_v0_24__pxrReserved__14Sdf_PathParser13LookaheadListINS2_8PrimNameENS_3sorIJNS2_5SlashENS2_17VariantSelectionsEEEEEEE5matchILNS_10apply_modeE1ELNS_11rewind_modeE0ETtTpTyENS2_6ActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS2_9PPContextEEEEbRT3_DpOT4_.exit, !llvm.loop !6
 
 _ZN21PXR_INTERNAL_NS_pegtl6normalIN32pxrInternal_v0_24__pxrReserved__14Sdf_PathParser13LookaheadListINS2_8PrimNameENS_3sorIJNS2_5SlashENS2_17VariantSelectionsEEEEEEE5matchILNS_10apply_modeE1ELNS_11rewind_modeE0ETtTpTyENS2_6ActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS2_9PPContextEEEEbRT3_DpOT4_.exit.thread: ; preds = %_ZN21PXR_INTERNAL_NS_pegtl8internal20match_control_unwindIN32pxrInternal_v0_24__pxrReserved__14Sdf_PathParser8PrimNameELNS_10apply_modeE1ELNS_11rewind_modeE0ETtTpTyENS3_6ActionETtTpTyENS_6normalENS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS3_9PPContextEEEEDaRT4_DpOT5_.exit.i.i.i.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.0.i.i.i.i.i.i.i)
@@ -9961,7 +9961,7 @@ _ZN21PXR_INTERNAL_NS_pegtl6normalIN32pxrInternal_v0_24__pxrReserved__14Sdf_PathP
           to label %.noexc7 unwind label %.loopexit
 
 .noexc7:                                          ; preds = %.preheader.i.i.i.i.i.i.i.i.i.i
-  br i1 %14, label %.preheader.i.i.i.i.i.i.i.i.i.i, label %_ZN21PXR_INTERNAL_NS_pegtl8internal6markerINS0_8iteratorELNS_11rewind_modeE1EED2Ev.exit, !llvm.loop !8
+  br i1 %14, label %.preheader.i.i.i.i.i.i.i.i.i.i, label %_ZN21PXR_INTERNAL_NS_pegtl8internal6markerINS0_8iteratorELNS_11rewind_modeE1EED2Ev.exit, !llvm.loop !7
 
 _ZN21PXR_INTERNAL_NS_pegtl8internal6markerINS0_8iteratorELNS_11rewind_modeE1EED2Ev.exit: ; preds = %.noexc7, %.noexc6, %_ZN21PXR_INTERNAL_NS_pegtl6normalIN32pxrInternal_v0_24__pxrReserved__14Sdf_PathParser13LookaheadListINS2_8PrimNameENS_3sorIJNS2_5SlashENS2_17VariantSelectionsEEEEEEE5matchILNS_10apply_modeE1ELNS_11rewind_modeE0ETtTpTyENS2_6ActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS2_9PPContextEEEEbRT3_DpOT4_.exit.thread
   ret i1 %6
@@ -10393,66 +10393,65 @@ attributes #24 = { builtin nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5, !6}
+!4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{!"llvm.loop.estimated_trip_count"}
-!7 = distinct !{!7, !5, !6}
-!8 = distinct !{!8, !5, !6}
-!9 = distinct !{!9, !5, !6}
-!10 = distinct !{!10, !5, !6}
-!11 = !{!12}
-!12 = distinct !{!12, !13, !"_ZNK21PXR_INTERNAL_NS_pegtl8internal12action_inputINS_12memory_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEE6stringEv: argument 0"}
-!13 = distinct !{!13, !"_ZNK21PXR_INTERNAL_NS_pegtl8internal12action_inputINS_12memory_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEE6stringEv"}
-!14 = distinct !{!14, !5, !6}
-!15 = distinct !{!15, !5, !6}
-!16 = distinct !{!16, !5, !6}
-!17 = distinct !{!17, !5, !6}
-!18 = distinct !{!18, !5, !6}
-!19 = distinct !{!19, !5, !6}
-!20 = !{!21}
-!21 = distinct !{!21, !22, !"_ZNK21PXR_INTERNAL_NS_pegtl12memory_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE8positionEv: argument 0"}
-!22 = distinct !{!22, !"_ZNK21PXR_INTERNAL_NS_pegtl12memory_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE8positionEv"}
-!23 = !{!24}
-!24 = distinct !{!24, !25, !"_ZNK21PXR_INTERNAL_NS_pegtl8internal17memory_input_baseILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE8positionERKNS0_8iteratorE: argument 0"}
-!25 = distinct !{!25, !"_ZNK21PXR_INTERNAL_NS_pegtl8internal17memory_input_baseILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE8positionERKNS0_8iteratorE"}
-!26 = !{!24, !21}
-!27 = !{!28}
-!28 = distinct !{!28, !29, !"_ZSt11make_sharedIN21PXR_INTERNAL_NS_pegtl8internal11parse_errorEJRPKcEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES8_E4typeEEDpOT0_: argument 0"}
-!29 = distinct !{!29, !"_ZSt11make_sharedIN21PXR_INTERNAL_NS_pegtl8internal11parse_errorEJRPKcEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES8_E4typeEEDpOT0_"}
-!30 = distinct !{!30, !5, !6}
-!31 = !{!32}
-!32 = distinct !{!32, !33, !"_ZSt19__relocate_object_aIN21PXR_INTERNAL_NS_pegtl8positionES1_SaIS1_EEvPT_PT0_RT1_: argument 0"}
-!33 = distinct !{!33, !"_ZSt19__relocate_object_aIN21PXR_INTERNAL_NS_pegtl8positionES1_SaIS1_EEvPT_PT0_RT1_"}
-!34 = !{!35}
-!35 = distinct !{!35, !33, !"_ZSt19__relocate_object_aIN21PXR_INTERNAL_NS_pegtl8positionES1_SaIS1_EEvPT_PT0_RT1_: argument 1"}
-!36 = distinct !{!36, !5, !6}
-!37 = !{!38}
-!38 = distinct !{!38, !39, !"_ZSt19__relocate_object_aIN21PXR_INTERNAL_NS_pegtl8positionES1_SaIS1_EEvPT_PT0_RT1_: argument 0"}
-!39 = distinct !{!39, !"_ZSt19__relocate_object_aIN21PXR_INTERNAL_NS_pegtl8positionES1_SaIS1_EEvPT_PT0_RT1_"}
-!40 = !{!41}
-!41 = distinct !{!41, !39, !"_ZSt19__relocate_object_aIN21PXR_INTERNAL_NS_pegtl8positionES1_SaIS1_EEvPT_PT0_RT1_: argument 1"}
-!42 = distinct !{!42, !5, !6}
-!43 = distinct !{!43, !5, !6}
-!44 = distinct !{!44, !5, !6}
-!45 = !{!46}
-!46 = distinct !{!46, !47, !"_ZNK21PXR_INTERNAL_NS_pegtl8internal12action_inputINS_12memory_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEE6stringEv: argument 0"}
-!47 = distinct !{!47, !"_ZNK21PXR_INTERNAL_NS_pegtl8internal12action_inputINS_12memory_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEE6stringEv"}
-!48 = distinct !{!48, !5, !6}
-!49 = distinct !{!49, !5, !6}
-!50 = !{!51}
-!51 = distinct !{!51, !52, !"_ZNK21PXR_INTERNAL_NS_pegtl8internal12action_inputINS_12memory_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEE6stringEv: argument 0"}
-!52 = distinct !{!52, !"_ZNK21PXR_INTERNAL_NS_pegtl8internal12action_inputINS_12memory_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEE6stringEv"}
-!53 = distinct !{!53, !5, !6}
-!54 = !{!55}
-!55 = distinct !{!55, !56, !"_ZSt19__relocate_object_aIN32pxrInternal_v0_24__pxrReserved__7SdfPathES1_SaIS1_EEvPT_PT0_RT1_: argument 0"}
-!56 = distinct !{!56, !"_ZSt19__relocate_object_aIN32pxrInternal_v0_24__pxrReserved__7SdfPathES1_SaIS1_EEvPT_PT0_RT1_"}
-!57 = !{!58}
-!58 = distinct !{!58, !56, !"_ZSt19__relocate_object_aIN32pxrInternal_v0_24__pxrReserved__7SdfPathES1_SaIS1_EEvPT_PT0_RT1_: argument 1"}
-!59 = distinct !{!59, !5, !6}
-!60 = !{!61}
-!61 = distinct !{!61, !62, !"_ZSt19__relocate_object_aIN32pxrInternal_v0_24__pxrReserved__7SdfPathES1_SaIS1_EEvPT_PT0_RT1_: argument 0"}
-!62 = distinct !{!62, !"_ZSt19__relocate_object_aIN32pxrInternal_v0_24__pxrReserved__7SdfPathES1_SaIS1_EEvPT_PT0_RT1_"}
-!63 = !{!64}
-!64 = distinct !{!64, !62, !"_ZSt19__relocate_object_aIN32pxrInternal_v0_24__pxrReserved__7SdfPathES1_SaIS1_EEvPT_PT0_RT1_: argument 1"}
-!65 = distinct !{!65, !5, !6}
-!66 = distinct !{!66, !5, !6}
+!6 = distinct !{!6, !5}
+!7 = distinct !{!7, !5}
+!8 = distinct !{!8, !5}
+!9 = distinct !{!9, !5}
+!10 = !{!11}
+!11 = distinct !{!11, !12, !"_ZNK21PXR_INTERNAL_NS_pegtl8internal12action_inputINS_12memory_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEE6stringEv: argument 0"}
+!12 = distinct !{!12, !"_ZNK21PXR_INTERNAL_NS_pegtl8internal12action_inputINS_12memory_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEE6stringEv"}
+!13 = distinct !{!13, !5}
+!14 = distinct !{!14, !5}
+!15 = distinct !{!15, !5}
+!16 = distinct !{!16, !5}
+!17 = distinct !{!17, !5}
+!18 = distinct !{!18, !5}
+!19 = !{!20}
+!20 = distinct !{!20, !21, !"_ZNK21PXR_INTERNAL_NS_pegtl12memory_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE8positionEv: argument 0"}
+!21 = distinct !{!21, !"_ZNK21PXR_INTERNAL_NS_pegtl12memory_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE8positionEv"}
+!22 = !{!23}
+!23 = distinct !{!23, !24, !"_ZNK21PXR_INTERNAL_NS_pegtl8internal17memory_input_baseILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE8positionERKNS0_8iteratorE: argument 0"}
+!24 = distinct !{!24, !"_ZNK21PXR_INTERNAL_NS_pegtl8internal17memory_input_baseILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE8positionERKNS0_8iteratorE"}
+!25 = !{!23, !20}
+!26 = !{!27}
+!27 = distinct !{!27, !28, !"_ZSt11make_sharedIN21PXR_INTERNAL_NS_pegtl8internal11parse_errorEJRPKcEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES8_E4typeEEDpOT0_: argument 0"}
+!28 = distinct !{!28, !"_ZSt11make_sharedIN21PXR_INTERNAL_NS_pegtl8internal11parse_errorEJRPKcEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES8_E4typeEEDpOT0_"}
+!29 = distinct !{!29, !5}
+!30 = !{!31}
+!31 = distinct !{!31, !32, !"_ZSt19__relocate_object_aIN21PXR_INTERNAL_NS_pegtl8positionES1_SaIS1_EEvPT_PT0_RT1_: argument 0"}
+!32 = distinct !{!32, !"_ZSt19__relocate_object_aIN21PXR_INTERNAL_NS_pegtl8positionES1_SaIS1_EEvPT_PT0_RT1_"}
+!33 = !{!34}
+!34 = distinct !{!34, !32, !"_ZSt19__relocate_object_aIN21PXR_INTERNAL_NS_pegtl8positionES1_SaIS1_EEvPT_PT0_RT1_: argument 1"}
+!35 = distinct !{!35, !5}
+!36 = !{!37}
+!37 = distinct !{!37, !38, !"_ZSt19__relocate_object_aIN21PXR_INTERNAL_NS_pegtl8positionES1_SaIS1_EEvPT_PT0_RT1_: argument 0"}
+!38 = distinct !{!38, !"_ZSt19__relocate_object_aIN21PXR_INTERNAL_NS_pegtl8positionES1_SaIS1_EEvPT_PT0_RT1_"}
+!39 = !{!40}
+!40 = distinct !{!40, !38, !"_ZSt19__relocate_object_aIN21PXR_INTERNAL_NS_pegtl8positionES1_SaIS1_EEvPT_PT0_RT1_: argument 1"}
+!41 = distinct !{!41, !5}
+!42 = distinct !{!42, !5}
+!43 = distinct !{!43, !5}
+!44 = !{!45}
+!45 = distinct !{!45, !46, !"_ZNK21PXR_INTERNAL_NS_pegtl8internal12action_inputINS_12memory_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEE6stringEv: argument 0"}
+!46 = distinct !{!46, !"_ZNK21PXR_INTERNAL_NS_pegtl8internal12action_inputINS_12memory_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEE6stringEv"}
+!47 = distinct !{!47, !5}
+!48 = distinct !{!48, !5}
+!49 = !{!50}
+!50 = distinct !{!50, !51, !"_ZNK21PXR_INTERNAL_NS_pegtl8internal12action_inputINS_12memory_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEE6stringEv: argument 0"}
+!51 = distinct !{!51, !"_ZNK21PXR_INTERNAL_NS_pegtl8internal12action_inputINS_12memory_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEE6stringEv"}
+!52 = distinct !{!52, !5}
+!53 = !{!54}
+!54 = distinct !{!54, !55, !"_ZSt19__relocate_object_aIN32pxrInternal_v0_24__pxrReserved__7SdfPathES1_SaIS1_EEvPT_PT0_RT1_: argument 0"}
+!55 = distinct !{!55, !"_ZSt19__relocate_object_aIN32pxrInternal_v0_24__pxrReserved__7SdfPathES1_SaIS1_EEvPT_PT0_RT1_"}
+!56 = !{!57}
+!57 = distinct !{!57, !55, !"_ZSt19__relocate_object_aIN32pxrInternal_v0_24__pxrReserved__7SdfPathES1_SaIS1_EEvPT_PT0_RT1_: argument 1"}
+!58 = distinct !{!58, !5}
+!59 = !{!60}
+!60 = distinct !{!60, !61, !"_ZSt19__relocate_object_aIN32pxrInternal_v0_24__pxrReserved__7SdfPathES1_SaIS1_EEvPT_PT0_RT1_: argument 0"}
+!61 = distinct !{!61, !"_ZSt19__relocate_object_aIN32pxrInternal_v0_24__pxrReserved__7SdfPathES1_SaIS1_EEvPT_PT0_RT1_"}
+!62 = !{!63}
+!63 = distinct !{!63, !61, !"_ZSt19__relocate_object_aIN32pxrInternal_v0_24__pxrReserved__7SdfPathES1_SaIS1_EEvPT_PT0_RT1_: argument 1"}
+!64 = distinct !{!64, !5}
+!65 = distinct !{!65, !5}

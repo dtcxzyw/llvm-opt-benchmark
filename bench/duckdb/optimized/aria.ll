@@ -406,7 +406,7 @@ _ZL11aria_rot128PjPKjS1_h.exit82:                 ; preds = %280
 
 _ZL11aria_rot128PjPKjS1_h.exit88:                 ; preds = %302
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %320, label %229, !llvm.loop !13
+  br i1 %exitcond.not, label %320, label %229, !llvm.loop !12
 
 320:                                              ; preds = %_ZL11aria_rot128PjPKjS1_h.exit88
   %321 = getelementptr inbounds nuw i8, ptr %0, i64 260
@@ -692,13 +692,13 @@ define hidden range(i32 -92, 1) i32 @mbedtls_aria_setkey_dec(ptr noundef capture
   store i32 %14, ptr %15, align 4, !tbaa !3
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %17, label %12, !llvm.loop !14
+  br i1 %exitcond.not, label %17, label %12, !llvm.loop !13
 
 17:                                               ; preds = %12
   %indvars.iv.next48 = add nuw nsw i64 %indvars.iv47, 1
   %indvars.iv.next50 = add nsw i64 %indvars.iv49, -1
   %18 = icmp slt i64 %indvars.iv.next48, %indvars.iv.next50
-  br i1 %18, label %.preheader40, label %.preheader, !llvm.loop !15
+  br i1 %18, label %.preheader40, label %.preheader, !llvm.loop !14
 
 19:                                               ; preds = %.lr.ph, %19
   %indvars.iv54 = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next55, %19 ]
@@ -753,7 +753,7 @@ define hidden range(i32 -92, 1) i32 @mbedtls_aria_setkey_dec(ptr noundef capture
   store i32 %64, ptr %22, align 4, !tbaa !3
   %indvars.iv.next55 = add nuw nsw i64 %indvars.iv54, 1
   %exitcond57.not = icmp eq i64 %indvars.iv.next55, %wide.trip.count
-  br i1 %exitcond57.not, label %.loopexit, label %19, !llvm.loop !16
+  br i1 %exitcond57.not, label %.loopexit, label %19, !llvm.loop !15
 
 .loopexit:                                        ; preds = %19, %5, %.preheader, %3
   %.0 = phi i32 [ %4, %3 ], [ 0, %.preheader ], [ 0, %5 ], [ 0, %19 ]
@@ -1111,7 +1111,7 @@ define hidden noundef i32 @mbedtls_aria_crypt_ecb(ptr noundef readonly captures(
   %339 = tail call i32 @llvm.bswap.i32(i32 %324)
   %340 = xor i32 %339, %335
   %341 = xor i32 %340, %307
-  br label %14, !llvm.loop !17
+  br label %14, !llvm.loop !16
 
 342:                                              ; preds = %14
   %343 = and i64 %indvars.iv.next, 4294967294
@@ -1184,11 +1184,10 @@ attributes #8 = { nounwind }
 !7 = !{!8, !5, i64 0}
 !8 = !{!"_ZTS20mbedtls_aria_context", !5, i64 0, !5, i64 4}
 !9 = !{!5, !5, i64 0}
-!10 = distinct !{!10, !11, !12}
+!10 = distinct !{!10, !11}
 !11 = !{!"llvm.loop.mustprogress"}
-!12 = !{!"llvm.loop.estimated_trip_count"}
-!13 = distinct !{!13, !11, !12}
-!14 = distinct !{!14, !11, !12}
-!15 = distinct !{!15, !11, !12}
-!16 = distinct !{!16, !11, !12}
-!17 = distinct !{!17, !11, !12}
+!12 = distinct !{!12, !11}
+!13 = distinct !{!13, !11}
+!14 = distinct !{!14, !11}
+!15 = distinct !{!15, !11}
+!16 = distinct !{!16, !11}

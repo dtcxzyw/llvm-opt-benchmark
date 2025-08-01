@@ -2776,12 +2776,12 @@ define linkonce_odr dso_local void @_ZN7testing15AssertionResult13AppendMessageE
   br i1 %.not.i, label %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit, label %9
 
 _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit: ; preds = %2
-  %6 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #26, !noalias !103
+  %6 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #26, !noalias !102
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  store ptr %7, ptr %6, align 8, !tbaa !72, !noalias !103
+  store ptr %7, ptr %6, align 8, !tbaa !72, !noalias !102
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store i64 0, ptr %8, align 8, !tbaa !42, !noalias !103
-  store i8 0, ptr %7, align 1, !tbaa !43, !noalias !103
+  store i64 0, ptr %8, align 8, !tbaa !42, !noalias !102
+  store i8 0, ptr %7, align 1, !tbaa !43, !noalias !102
   store ptr %6, ptr %4, align 8, !tbaa !35
   br label %9
 
@@ -2935,7 +2935,7 @@ _ZN7testing8internal12CodeLocationC2ENSt7__cxx1112basic_stringIcSt11char_traitsI
   store i64 0, ptr %12, align 8, !tbaa !42
   store i8 0, ptr %9, align 8, !tbaa !43
   %24 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  store i32 34, ptr %24, align 8, !tbaa !106
+  store i32 34, ptr %24, align 8, !tbaa !105
   %25 = invoke noundef ptr @_ZN7testing8internal13GetTestTypeIdEv()
           to label %26 unwind label %55
 
@@ -3070,7 +3070,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit23.i: ; preds = %_
   resume { ptr, i32 } %.pn.pn.i
 
 __cxx_global_var_init.1.exit:                     ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i13.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i12.i
-  store ptr %33, ptr @_ZN12_GLOBAL__N_125ErrnoSaverTest_Works_Test10test_info_E, align 8, !tbaa !108
+  store ptr %33, ptr @_ZN12_GLOBAL__N_125ErrnoSaverTest_Works_Test10test_info_E, align 8, !tbaa !107
   %75 = call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZN12_GLOBAL__N_125ErrnoSaverTest_Works_Test10test_info_E)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3)
@@ -3219,13 +3219,12 @@ attributes #28 = { noreturn }
 !97 = !{!98, !39, i64 8}
 !98 = !{!"_ZTSSt9type_info", !39, i64 8}
 !99 = !{!9, !9, i64 0}
-!100 = distinct !{!100, !101, !102}
+!100 = distinct !{!100, !101}
 !101 = !{!"llvm.loop.mustprogress"}
-!102 = !{!"llvm.loop.estimated_trip_count"}
-!103 = !{!104}
-!104 = distinct !{!104, !105, !"_ZSt11make_uniqueINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: argument 0"}
-!105 = distinct !{!105, !"_ZSt11make_uniqueINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
-!106 = !{!107, !16, i64 32}
-!107 = !{!"_ZTSN7testing8internal12CodeLocationE", !37, i64 0, !16, i64 32}
-!108 = !{!109, !109, i64 0}
-!109 = !{!"p1 _ZTSN7testing8TestInfoE", !14, i64 0}
+!102 = !{!103}
+!103 = distinct !{!103, !104, !"_ZSt11make_uniqueINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: argument 0"}
+!104 = distinct !{!104, !"_ZSt11make_uniqueINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
+!105 = !{!106, !16, i64 32}
+!106 = !{!"_ZTSN7testing8internal12CodeLocationE", !37, i64 0, !16, i64 32}
+!107 = !{!108, !108, i64 0}
+!108 = !{!"p1 _ZTSN7testing8TestInfoE", !14, i64 0}

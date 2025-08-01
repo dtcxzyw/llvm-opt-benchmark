@@ -190,7 +190,7 @@ define internal noundef i32 @tr2_cfg_cb(ptr noundef %0, ptr noundef %1, ptr noun
   %8 = getelementptr inbounds nuw i8, ptr %.01418, i64 8
   %9 = load ptr, ptr %8, align 8, !tbaa !18
   %.not = icmp eq ptr %9, null
-  br i1 %.not, label %.loopexit, label %.critedge, !llvm.loop !28
+  br i1 %.not, label %.loopexit, label %.critedge, !llvm.loop !27
 
 .critedge:                                        ; preds = %4, %7
   %10 = phi ptr [ %9, %7 ], [ %6, %4 ]
@@ -205,7 +205,7 @@ define internal noundef i32 @tr2_cfg_cb(ptr noundef %0, ptr noundef %1, ptr noun
   %15 = load ptr, ptr %3, align 8, !tbaa !11
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %17 = load i32, ptr %16, align 8, !tbaa !14
-  %18 = load ptr, ptr %2, align 8, !tbaa !29
+  %18 = load ptr, ptr %2, align 8, !tbaa !28
   tail call void @trace2_def_param_fl(ptr noundef %15, i32 noundef %17, ptr noundef %0, ptr noundef %1, ptr noundef %18) #8
   br label %.loopexit
 
@@ -297,7 +297,7 @@ strbuf_setlen.exit.i:                             ; preds = %31, %30, %19, %.lr.
   %34 = getelementptr inbounds nuw i8, ptr %.01524.i, i64 8
   %35 = load ptr, ptr %34, align 8, !tbaa !18
   %.not20.i = icmp eq ptr %35, null
-  br i1 %.not20.i, label %._crit_edge.loopexit.i, label %.lr.ph.i, !llvm.loop !32
+  br i1 %.not20.i, label %._crit_edge.loopexit.i, label %.lr.ph.i, !llvm.loop !31
 
 ._crit_edge.loopexit.i:                           ; preds = %strbuf_setlen.exit.i
   %.pre25.i = load ptr, ptr @tr2_cfg_env_vars, align 8, !tbaa !4
@@ -347,7 +347,7 @@ tr2_load_env_vars.exit:                           ; preds = %4, %10, %._crit_edg
   %54 = getelementptr inbounds nuw i8, ptr %.014, i64 8
   %55 = load ptr, ptr %54, align 8, !tbaa !18
   %.not = icmp eq ptr %55, null
-  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !33
+  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !32
 
 .loopexit:                                        ; preds = %53, %43, %tr2_load_env_vars.exit
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #8
@@ -383,7 +383,7 @@ define dso_local void @tr2_cfg_set_fl(ptr noundef %0, i32 noundef %1, ptr nounde
   %12 = getelementptr inbounds nuw i8, ptr %.01418.i, i64 8
   %13 = load ptr, ptr %12, align 8, !tbaa !18
   %.not.i = icmp eq ptr %13, null
-  br i1 %.not.i, label %tr2_cfg_cb.exit, label %.critedge.i, !llvm.loop !28
+  br i1 %.not.i, label %tr2_cfg_cb.exit, label %.critedge.i, !llvm.loop !27
 
 .critedge.i:                                      ; preds = %8, %11
   %14 = phi ptr [ %13, %11 ], [ %10, %8 ]
@@ -461,12 +461,11 @@ attributes #10 = { noreturn nounwind }
 !22 = !{!"long", !7, i64 0}
 !23 = !{!21, !13, i64 16}
 !24 = !{!21, !22, i64 0}
-!25 = distinct !{!25, !26, !27}
+!25 = distinct !{!25, !26}
 !26 = !{!"llvm.loop.mustprogress"}
-!27 = !{!"llvm.loop.estimated_trip_count"}
-!28 = distinct !{!28, !26, !27}
-!29 = !{!30, !31, i64 0}
-!30 = !{!"config_context", !31, i64 0}
-!31 = !{!"p1 _ZTS14key_value_info", !6, i64 0}
-!32 = distinct !{!32, !26, !27}
-!33 = distinct !{!33, !26, !27}
+!27 = distinct !{!27, !26}
+!28 = !{!29, !30, i64 0}
+!29 = !{!"config_context", !30, i64 0}
+!30 = !{!"p1 _ZTS14key_value_info", !6, i64 0}
+!31 = distinct !{!31, !26}
+!32 = distinct !{!32, !26}

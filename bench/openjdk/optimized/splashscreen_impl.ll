@@ -420,7 +420,7 @@ SplashIsStillLooping.exit.thread16:               ; preds = %10
   %29 = add i32 %28, %19
   %30 = tail call i32 (...) @SplashTime() #21
   %31 = icmp eq i32 %29, %30
-  br i1 %31, label %thread-pre-split, label %SplashIsStillLooping.exit.thread, !llvm.loop !9
+  br i1 %31, label %thread-pre-split, label %SplashIsStillLooping.exit.thread, !llvm.loop !8
 
 SplashIsStillLooping.exit.thread:                 ; preds = %thread-pre-split, %24, %10, %1
   ret void
@@ -675,7 +675,7 @@ getRGBA.exit.thread:                              ; preds = %94, %getRGBA.exit
   %139 = getelementptr inbounds i8, ptr %.170112, i64 %138
   %140 = add i32 %.175111, 1
   %exitcond.not = icmp eq i32 %140, %18
-  br i1 %exitcond.not, label %.critedge.thread, label %35, !llvm.loop !10
+  br i1 %exitcond.not, label %.critedge.thread, label %35, !llvm.loop !9
 
 .lr.ph117:                                        ; preds = %.critedge.preheader, %.critedge
   %.2116 = phi ptr [ %243, %.critedge ], [ %.170112, %.critedge.preheader ]
@@ -866,7 +866,7 @@ getRGBA.exit100:                                  ; preds = %202, %206
   %243 = getelementptr inbounds i8, ptr %.2116, i64 %242
   %244 = add i32 %.276115, 1
   %exitcond142.not = icmp eq i32 %244, %18
-  br i1 %exitcond142.not, label %.critedge2, label %.lr.ph117, !llvm.loop !11
+  br i1 %exitcond142.not, label %.critedge2, label %.lr.ph117, !llvm.loop !10
 
 .critedge2:                                       ; preds = %getRGBA.exit100, %.critedge, %199, %.critedge.preheader
   %.276.lcssa = phi i32 [ %.175111, %.critedge.preheader ], [ %.276115, %199 ], [ %18, %.critedge ], [ %.276115, %getRGBA.exit100 ]
@@ -884,7 +884,7 @@ getRGBA.exit100:                                  ; preds = %202, %206
   %251 = getelementptr inbounds nuw i8, ptr %.172, i64 8
   %252 = load i32, ptr %7, align 4
   %253 = icmp slt i32 %.276.lcssa, %252
-  br i1 %253, label %17, label %.critedge.thread, !llvm.loop !12
+  br i1 %253, label %17, label %.critedge.thread, !llvm.loop !11
 
 .critedge.thread:                                 ; preds = %.critedge2, %17, %getRGBA.exit.thread
   %.273 = phi ptr [ %.172, %getRGBA.exit.thread ], [ %.172, %17 ], [ %251, %.critedge2 ]
@@ -933,7 +933,7 @@ getRGBA.exit100:                                  ; preds = %202, %206
 277:                                              ; preds = %271
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond144.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond144.not, label %.critedge4, label %.lr.ph125, !llvm.loop !13
+  br i1 %exitcond144.not, label %.critedge4, label %.lr.ph125, !llvm.loop !12
 
 .critedge4:                                       ; preds = %271, %.lr.ph125, %277
   %.377.lcssa.ph = phi i64 [ %indvars.iv, %271 ], [ %indvars.iv, %.lr.ph125 ], [ %257, %277 ]
@@ -960,7 +960,7 @@ getRGBA.exit100:                                  ; preds = %202, %206
   store i16 %282, ptr %280, align 2
   %indvars.iv.next146 = add nuw nsw i64 %indvars.iv145, 1
   %exitcond149.not = icmp eq i64 %indvars.iv.next146, %wide.trip.count148
-  br i1 %exitcond149.not, label %.loopexit, label %.lr.ph132, !llvm.loop !14
+  br i1 %exitcond149.not, label %.loopexit, label %.lr.ph132, !llvm.loop !13
 
 .loopexit:                                        ; preds = %.lr.ph132, %.critedge4.thread, %.critedge4, %.critedge.thread, %259
   %.3 = phi ptr [ %.273.mux, %.critedge4 ], [ %.273, %259 ], [ %.273, %.critedge.thread ], [ %spec.select, %.critedge4.thread ], [ %.071134, %.lr.ph132 ]
@@ -968,7 +968,7 @@ getRGBA.exit100:                                  ; preds = %202, %206
   %283 = add nuw nsw i32 %.078133, 1
   %284 = load i32, ptr %0, align 8
   %285 = icmp slt i32 %283, %284
-  br i1 %285, label %10, label %._crit_edge, !llvm.loop !15
+  br i1 %285, label %10, label %._crit_edge, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %.loopexit, %2
   %.071.lcssa = phi ptr [ %1, %2 ], [ %.3, %.loopexit ]
@@ -1053,7 +1053,7 @@ SplashGetInstance.exit:                           ; preds = %1
 10:                                               ; preds = %.preheader
   %11 = add nuw nsw i64 %.02835, 1
   %exitcond.not = icmp eq i64 %11, 3
-  br i1 %exitcond.not, label %.thread, label %.preheader, !llvm.loop !16
+  br i1 %exitcond.not, label %.thread, label %.preheader, !llvm.loop !15
 
 .preheader:                                       ; preds = %6, %10
   %.02835 = phi i64 [ %11, %10 ], [ 0, %6 ]
@@ -1556,14 +1556,13 @@ attributes #23 = { nounwind willreturn memory(read) }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7, !8}
-!11 = distinct !{!11, !7, !8}
-!12 = distinct !{!12, !7, !8}
-!13 = distinct !{!13, !7, !8}
-!14 = distinct !{!14, !7, !8}
-!15 = distinct !{!15, !7, !8}
-!16 = distinct !{!16, !7, !8}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7}
+!12 = distinct !{!12, !7}
+!13 = distinct !{!13, !7}
+!14 = distinct !{!14, !7}
+!15 = distinct !{!15, !7}

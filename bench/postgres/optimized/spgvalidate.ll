@@ -394,7 +394,7 @@ define dso_local zeroext i1 @spgvalidate(i32 noundef %0) local_unnamed_addr #0 {
   %196 = load i32, ptr %36, align 8
   %197 = sext i32 %196 to i64
   %198 = icmp slt i64 %indvars.iv.next213, %197
-  br i1 %198, label %142, label %.preheader179, !llvm.loop !7
+  br i1 %198, label %142, label %.preheader179, !llvm.loop !6
 
 .lr.ph231:                                        ; preds = %.lr.ph201, %.loopexit
   %.0121199230 = phi ptr [ %.1122, %.loopexit ], [ null, %.lr.ph201 ]
@@ -485,7 +485,7 @@ define dso_local zeroext i1 @spgvalidate(i32 noundef %0) local_unnamed_addr #0 {
   %.14 = phi i1 [ %.13197, %228 ], [ false, %236 ], [ false, %234 ]
   %indvars.iv.next215 = add nuw nsw i64 %indvars.iv214, 1
   %exitcond216.not = icmp eq i64 %indvars.iv.next215, 8
-  br i1 %exitcond216.not, label %.loopexit, label %228, !llvm.loop !8
+  br i1 %exitcond216.not, label %.loopexit, label %228, !llvm.loop !7
 
 .loopexit:                                        ; preds = %242, %223
   %.12 = phi i1 [ %.11, %223 ], [ %.14, %242 ]
@@ -677,8 +677,7 @@ attributes #7 = { cold nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = distinct !{!4, !5, !6}
+!4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{!"llvm.loop.estimated_trip_count"}
-!7 = distinct !{!7, !5, !6}
-!8 = distinct !{!8, !5, !6}
+!6 = distinct !{!6, !5}
+!7 = distinct !{!7, !5}

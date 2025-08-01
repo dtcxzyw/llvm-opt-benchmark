@@ -391,7 +391,7 @@ define hidden noundef zeroext i1 @_ZNK23G1PageBasedVirtualSpace19is_area_uncommi
   %24 = getelementptr inbounds nuw i64, ptr %9, i64 %21
   %25 = load i64, ptr %24, align 8
   %.not36.i.i = icmp eq i64 %25, 0
-  br i1 %.not36.i.i, label %20, label %26, !llvm.loop !9
+  br i1 %.not36.i.i, label %20, label %26, !llvm.loop !8
 
 26:                                               ; preds = %23
   %27 = shl i64 %21, 6
@@ -612,7 +612,7 @@ define hidden noundef zeroext i1 @_ZN23G1PageBasedVirtualSpace6commitEmm(ptr nou
   %24 = getelementptr inbounds nuw i64, ptr %9, i64 %21
   %25 = load i64, ptr %24, align 8
   %.not36.i.i.i = icmp eq i64 %25, 0
-  br i1 %.not36.i.i.i, label %20, label %26, !llvm.loop !9
+  br i1 %.not36.i.i.i, label %20, label %26, !llvm.loop !8
 
 26:                                               ; preds = %23
   %27 = shl i64 %21, 6
@@ -673,7 +673,7 @@ _ZNK23G1PageBasedVirtualSpace19is_area_uncommittedEmm.exit.thread18: ; preds = %
   %56 = getelementptr inbounds nuw i64, ptr %42, i64 %53
   %57 = load i64, ptr %56, align 8
   %.not36.i.i = icmp eq i64 %57, 0
-  br i1 %.not36.i.i, label %52, label %58, !llvm.loop !9
+  br i1 %.not36.i.i, label %52, label %58, !llvm.loop !8
 
 58:                                               ; preds = %55
   %59 = shl i64 %53, 6
@@ -992,7 +992,6 @@ attributes #10 = { nounwind }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
+!8 = distinct !{!8, !7}

@@ -129,8 +129,8 @@ for.body.i:                                       ; preds = %for.body.i, %entry
 
 _ZN8QuantLib25MersenneTwisterUniformRng18seedInitializationEm.exit: ; preds = %for.body.i
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %seeds, i64 8
-  %4 = load ptr, ptr %_M_finish.i, align 8, !tbaa !13
-  %5 = load ptr, ptr %seeds, align 8, !tbaa !16
+  %4 = load ptr, ptr %_M_finish.i, align 8, !tbaa !12
+  %5 = load ptr, ptr %seeds, align 8, !tbaa !15
   %sub.ptr.lhs.cast.i = ptrtoint ptr %4 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %5 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
@@ -174,7 +174,7 @@ if.end:                                           ; preds = %if.then, %for.body
   %spec.select = select i1 %cmp23.not, i64 %inc16, i64 0
   %dec = add i64 %k.037, -1
   %cmp3.not = icmp eq i64 %dec, 0
-  br i1 %cmp3.not, label %for.body28, label %for.body, !llvm.loop !17
+  br i1 %cmp3.not, label %for.body28, label %for.body, !llvm.loop !16
 
 for.body28:                                       ; preds = %if.end, %for.inc55
   %k.139 = phi i64 [ %dec56, %for.inc55 ], [ 623, %if.end ]
@@ -204,7 +204,7 @@ for.inc55:                                        ; preds = %for.body28, %if.the
   %i.3 = phi i64 [ 1, %if.then49 ], [ %inc47, %for.body28 ]
   %dec56 = add nsw i64 %k.139, -1
   %cmp27.not = icmp eq i64 %dec56, 0
-  br i1 %cmp27.not, label %for.end57, label %for.body28, !llvm.loop !18
+  br i1 %cmp27.not, label %for.end57, label %for.body28, !llvm.loop !17
 
 for.end57:                                        ; preds = %for.inc55
   store i64 2147483648, ptr %this, align 8, !tbaa !4
@@ -243,7 +243,7 @@ for.body:                                         ; preds = %entry, %for.body
   %xor10 = xor i64 %xor, %shr
   store i64 %xor10, ptr %arrayidx, align 8, !tbaa !4
   %exitcond.not = icmp eq i64 %add, 227
-  br i1 %exitcond.not, label %for.body15.preheader, label %for.body, !llvm.loop !19
+  br i1 %exitcond.not, label %for.body15.preheader, label %for.body, !llvm.loop !18
 
 for.body15:                                       ; preds = %for.body15.preheader, %for.body15
   %4 = phi i64 [ %5, %for.body15 ], [ %.pre21, %for.body15.preheader ]
@@ -266,7 +266,7 @@ for.body15:                                       ; preds = %for.body15.preheade
   %xor31 = xor i64 %xor28, %shr27
   store i64 %xor31, ptr %arrayidx17, align 8, !tbaa !4
   %exitcond20.not = icmp eq i64 %add20, 623
-  br i1 %exitcond20.not, label %for.end36, label %for.body15, !llvm.loop !20
+  br i1 %exitcond20.not, label %for.end36, label %for.body15, !llvm.loop !19
 
 for.end36:                                        ; preds = %for.body15
   %arrayidx38 = getelementptr inbounds nuw i8, ptr %this, i64 4984
@@ -325,14 +325,13 @@ attributes #6 = { nounwind }
 !7 = !{!"Simple C++ TBAA"}
 !8 = !{!9, !5, i64 4992}
 !9 = !{!"_ZTSN8QuantLib25MersenneTwisterUniformRngE", !6, i64 0, !5, i64 4992}
-!10 = distinct !{!10, !11, !12}
+!10 = distinct !{!10, !11}
 !11 = !{!"llvm.loop.mustprogress"}
-!12 = !{!"llvm.loop.estimated_trip_count"}
-!13 = !{!14, !15, i64 8}
-!14 = !{!"_ZTSNSt12_Vector_baseImSaImEE17_Vector_impl_dataE", !15, i64 0, !15, i64 8, !15, i64 16}
-!15 = !{!"any pointer", !6, i64 0}
-!16 = !{!14, !15, i64 0}
-!17 = distinct !{!17, !11, !12}
-!18 = distinct !{!18, !11, !12}
-!19 = distinct !{!19, !11, !12}
-!20 = distinct !{!20, !11, !12}
+!12 = !{!13, !14, i64 8}
+!13 = !{!"_ZTSNSt12_Vector_baseImSaImEE17_Vector_impl_dataE", !14, i64 0, !14, i64 8, !14, i64 16}
+!14 = !{!"any pointer", !6, i64 0}
+!15 = !{!13, !14, i64 0}
+!16 = distinct !{!16, !11}
+!17 = distinct !{!17, !11}
+!18 = distinct !{!18, !11}
+!19 = distinct !{!19, !11}

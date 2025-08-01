@@ -91,7 +91,7 @@ define dso_local void @zend_gdb_unregister_all() local_unnamed_addr #1 {
   tail call void @free(ptr noundef nonnull %2) #11
   %7 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @__jit_debug_descriptor, i64 16), align 8, !tbaa !15
   %.not = icmp eq ptr %7, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !21
+  br i1 %.not, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %6, %0
   ret void
@@ -116,7 +116,7 @@ define dso_local zeroext i1 @zend_gdb_present() local_unnamed_addr #1 {
 
 8:                                                ; preds = %5
   %9 = getelementptr inbounds nuw [1024 x i8], ptr %1, i64 0, i64 %6
-  store i8 0, ptr %9, align 1, !tbaa !23
+  store i8 0, ptr %9, align 1, !tbaa !21
   %10 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(1) @.str.1) #13
   %.not = icmp eq ptr %10, null
   br i1 %.not, label %26, label %11
@@ -127,7 +127,7 @@ define dso_local zeroext i1 @zend_gdb_present() local_unnamed_addr #1 {
 
 13:                                               ; preds = %.critedge, %11
   %.013 = phi ptr [ %12, %11 ], [ %15, %.critedge ]
-  %14 = load i8, ptr %.013, align 1, !tbaa !23
+  %14 = load i8, ptr %.013, align 1, !tbaa !21
   switch i8 %14, label %16 [
     i8 32, label %.critedge
     i8 9, label %.critedge
@@ -135,7 +135,7 @@ define dso_local zeroext i1 @zend_gdb_present() local_unnamed_addr #1 {
 
 .critedge:                                        ; preds = %13, %13
   %15 = getelementptr inbounds nuw i8, ptr %.013, i64 1
-  br label %13, !llvm.loop !24
+  br label %13
 
 16:                                               ; preds = %13
   %17 = call i64 @strtol(ptr noundef nonnull captures(none) %.013, ptr noundef null, i32 noundef 10) #11
@@ -229,7 +229,4 @@ attributes #13 = { nounwind willreturn memory(read) }
 !18 = !{!6, !7, i64 0}
 !19 = !{!16, !7, i64 8}
 !20 = !{!16, !17, i64 4}
-!21 = distinct !{!21, !22}
-!22 = !{!"llvm.loop.estimated_trip_count"}
-!23 = !{!9, !9, i64 0}
-!24 = distinct !{!24, !22}
+!21 = !{!9, !9, i64 0}

@@ -627,7 +627,7 @@ SDL_UnlockSurface_REAL.exit:                      ; preds = %41
   %49 = and i32 %48, -5
   store i32 %49, ptr %0, align 8
   %50 = icmp sgt i32 %.pre.pre, 0
-  br i1 %50, label %SDL_SurfaceValid.exit.ithread-pre-split, label %._crit_edge30, !llvm.loop !6
+  br i1 %50, label %SDL_SurfaceValid.exit.ithread-pre-split, label %._crit_edge30, !llvm.loop !5
 
 ._crit_edge30:                                    ; preds = %SDL_UnlockSurface_REAL.exit, %SDL_UnlockSurface_REAL.exit.thread33, %SDL_RemoveSurfaceAlternateImages_REAL.exit
   %51 = load i32, ptr %6, align 8
@@ -1531,7 +1531,7 @@ SDL_SurfaceValid.exit.i94:                        ; preds = %SDL_SurfaceHasAlter
   %69 = getelementptr inbounds nuw ptr, ptr %16, i64 %indvars.iv.next
   %70 = load ptr, ptr %69, align 8
   %.not87 = icmp eq ptr %70, null
-  br i1 %.not87, label %._crit_edge, label %.lr.ph, !llvm.loop !8
+  br i1 %.not87, label %._crit_edge, label %.lr.ph, !llvm.loop !7
 
 71:                                               ; preds = %._crit_edge
   %72 = getelementptr inbounds nuw i8, ptr %.072.lcssa, i64 12
@@ -1589,7 +1589,7 @@ SDL_SurfaceValid.exit.i94:                        ; preds = %SDL_SurfaceHasAlter
   br i1 %.not91, label %.loopexit, label %.critedge.backedge
 
 .critedge.backedge:                               ; preds = %96, %93
-  br label %.critedge, !llvm.loop !9
+  br label %.critedge, !llvm.loop !8
 
 .loopexit:                                        ; preds = %96, %.thread, %._crit_edge108, %75, %SDL_SurfaceHasAlternateImages_REAL.exit.thread, %SDL_SurfaceValid.exit.thread
   %.0 = phi ptr [ %0, %SDL_SurfaceHasAlternateImages_REAL.exit.thread ], [ null, %SDL_SurfaceValid.exit.thread ], [ %0, %._crit_edge108 ], [ %.072.lcssa, %75 ], [ %.072.lcssa, %.thread ], [ %87, %96 ]
@@ -3501,7 +3501,7 @@ SDL_BlitSurfaceUnchecked_REAL.exit78.us:          ; preds = %70
   store i32 %79, ptr %64, align 4
   %80 = add nuw nsw i32 %.05192.us, 1
   %exitcond104.not = icmp eq i32 %80, %57
-  br i1 %exitcond104.not, label %.critedge72, label %.lr.ph.us, !llvm.loop !10
+  br i1 %exitcond104.not, label %.critedge72, label %.lr.ph.us, !llvm.loop !9
 
 81:                                               ; preds = %.lr.ph.us, %85
   %.05090.us = phi i32 [ 0, %.lr.ph.us ], [ %89, %85 ]
@@ -3520,7 +3520,7 @@ SDL_BlitSurfaceUnchecked_REAL.exit.us:            ; preds = %81
   store i32 %88, ptr %8, align 4
   %89 = add nuw nsw i32 %.05090.us, 1
   %exitcond103.not = icmp eq i32 %89, %60
-  br i1 %exitcond103.not, label %..critedge_crit_edge.us, label %81, !llvm.loop !12
+  br i1 %exitcond103.not, label %..critedge_crit_edge.us, label %81, !llvm.loop !11
 
 ..critedge_crit_edge.us:                          ; preds = %85
   br i1 %.not66, label %76, label %70
@@ -3558,7 +3558,7 @@ SDL_BlitSurfaceUnchecked_REAL.exit78:             ; preds = %.critedge
   store i32 %100, ptr %64, align 4
   %101 = add nuw nsw i32 %.05192, 1
   %exitcond.not = icmp eq i32 %101, %57
-  br i1 %exitcond.not, label %.critedge72, label %.critedge, !llvm.loop !13
+  br i1 %exitcond.not, label %.critedge72, label %.critedge, !llvm.loop !12
 
 .critedge72:                                      ; preds = %96, %76, %.lr.ph93.split.split.us, %54
   %.not68 = icmp eq i32 %62, 0
@@ -3594,7 +3594,7 @@ SDL_BlitSurfaceUnchecked_REAL.exit80:             ; preds = %106
   store i32 %113, ptr %8, align 4
   %114 = add nuw nsw i32 %.098, 1
   %exitcond105.not = icmp eq i32 %114, %60
-  br i1 %exitcond105.not, label %.critedge74, label %106, !llvm.loop !14
+  br i1 %exitcond105.not, label %.critedge74, label %106, !llvm.loop !13
 
 .critedge74:                                      ; preds = %110, %102
   %.not70 = icmp eq i32 %61, 0
@@ -3817,7 +3817,7 @@ SDL_SurfaceValid.exit94.thread:                   ; preds = %15, %SDL_SurfaceVal
   store i32 %95, ptr %82, align 4
   %96 = add nuw nsw i32 %.071100.us, 1
   %exitcond113.not = icmp eq i32 %96, %70
-  br i1 %exitcond113.not, label %.critedge90, label %.lr.ph.us, !llvm.loop !15
+  br i1 %exitcond113.not, label %.critedge90, label %.lr.ph.us, !llvm.loop !14
 
 97:                                               ; preds = %.lr.ph.us, %99
   %.07098.us = phi i32 [ 0, %.lr.ph.us ], [ %103, %99 ]
@@ -3831,7 +3831,7 @@ SDL_SurfaceValid.exit94.thread:                   ; preds = %15, %SDL_SurfaceVal
   store i32 %102, ptr %10, align 4
   %103 = add nuw nsw i32 %.07098.us, 1
   %exitcond112.not = icmp eq i32 %103, %72
-  br i1 %exitcond112.not, label %..critedge_crit_edge.us, label %97, !llvm.loop !16
+  br i1 %exitcond112.not, label %..critedge_crit_edge.us, label %97, !llvm.loop !15
 
 ..critedge_crit_edge.us:                          ; preds = %99
   br i1 %85, label %88, label %92
@@ -3858,7 +3858,7 @@ SDL_SurfaceValid.exit94.thread:                   ; preds = %15, %SDL_SurfaceVal
   store i32 %110, ptr %82, align 4
   %111 = add nuw nsw i32 %.071100.us103, 1
   %exitcond.not = icmp eq i32 %111, %70
-  br i1 %exitcond.not, label %.critedge90, label %.critedge.us102, !llvm.loop !17
+  br i1 %exitcond.not, label %.critedge90, label %.critedge.us102, !llvm.loop !16
 
 .lr.ph101.split.split:                            ; preds = %.lr.ph101.split
   %112 = add i32 %81, %74
@@ -3890,7 +3890,7 @@ SDL_SurfaceValid.exit94.thread:                   ; preds = %15, %SDL_SurfaceVal
   store i32 %121, ptr %10, align 4
   %122 = add nuw nsw i32 %.0107, 1
   %exitcond114.not = icmp eq i32 %122, %72
-  br i1 %exitcond114.not, label %.critedge92, label %.lr.ph, !llvm.loop !18
+  br i1 %exitcond114.not, label %.critedge92, label %.lr.ph, !llvm.loop !17
 
 .critedge92:                                      ; preds = %118, %114
   %123 = icmp sgt i32 %.recomposed, 0
@@ -4452,14 +4452,14 @@ define internal fastcc zeroext i1 @SDL_FlipSurfaceHorizontal(ptr noundef readonl
   %40 = getelementptr inbounds nuw i8, ptr %.04765, i64 %29
   %41 = getelementptr inbounds i8, ptr %.04666, i64 %30
   %.not58 = icmp eq i32 %39, 0
-  br i1 %.not58, label %._crit_edge, label %.lr.ph, !llvm.loop !19
+  br i1 %.not58, label %._crit_edge, label %.lr.ph, !llvm.loop !18
 
 ._crit_edge:                                      ; preds = %.lr.ph, %31
   %42 = load i32, ptr %19, align 8
   %43 = sext i32 %42 to i64
   %44 = getelementptr inbounds i8, ptr %.04569, i64 %43
   %.not57 = icmp eq i32 %32, 0
-  br i1 %.not57, label %._crit_edge72, label %31, !llvm.loop !20
+  br i1 %.not57, label %._crit_edge72, label %31, !llvm.loop !19
 
 ._crit_edge72:                                    ; preds = %._crit_edge
   br i1 %22, label %46, label %._crit_edge72.thread
@@ -4537,7 +4537,7 @@ define internal fastcc noundef zeroext i1 @SDL_FlipSurfaceVertical(ptr noundef r
   %31 = sub nsw i64 0, %29
   %32 = getelementptr inbounds i8, ptr %.02837, i64 %31
   %.not33 = icmp eq i32 %24, 0
-  br i1 %.not33, label %._crit_edge, label %.lr.ph, !llvm.loop !21
+  br i1 %.not33, label %._crit_edge, label %.lr.ph, !llvm.loop !20
 
 ._crit_edge:                                      ; preds = %.lr.ph, %19
   br i1 %15, label %34, label %33
@@ -4617,7 +4617,7 @@ SDL_SurfaceValid.exit.thread:                     ; preds = %5, %SDL_SurfaceVali
 33:                                               ; preds = %30
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.thread, label %24, !llvm.loop !22
+  br i1 %exitcond.not, label %._crit_edge.thread, label %24, !llvm.loop !21
 
 ._crit_edge.loopexit:                             ; preds = %24, %27, %30
   %34 = trunc nuw nsw i64 %indvars.iv to i32
@@ -4894,10 +4894,10 @@ SDL_SetSurfaceColorspace_REAL.exit:               ; preds = %SDL_SurfaceValid.ex
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %8) #10
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %9) #10
   call void @SDL_DetectPalette(ptr noundef nonnull %148, ptr noundef nonnull %8, ptr noundef nonnull %9) #10
-  %160 = load i8, ptr %8, align 1, !range !23, !noundef !24
+  %160 = load i8, ptr %8, align 1, !range !22, !noundef !23
   %161 = trunc nuw i8 %160 to i1
   %.not = xor i1 %161, true
-  %162 = load i8, ptr %9, align 1, !range !23
+  %162 = load i8, ptr %9, align 1, !range !22
   %163 = trunc nuw i8 %162 to i1
   %or.cond5 = select i1 %.not, i1 true, i1 %163
   br i1 %or.cond5, label %.loopexit428, label %164
@@ -4925,7 +4925,7 @@ SDL_SetSurfaceColorspace_REAL.exit:               ; preds = %SDL_SurfaceValid.ex
   store i8 -1, ptr %175, align 1
   %indvars.iv.next448 = add nuw nsw i64 %indvars.iv447, 1
   %exitcond451.not = icmp eq i64 %indvars.iv.next448, %169
-  br i1 %exitcond451.not, label %.loopexit428, label %171, !llvm.loop !25
+  br i1 %exitcond451.not, label %.loopexit428, label %171, !llvm.loop !24
 
 .loopexit428:                                     ; preds = %171, %164, %159
   %.1278 = phi ptr [ null, %159 ], [ null, %164 ], [ %170, %171 ]
@@ -5007,7 +5007,7 @@ SDL_BlitSurfaceUnchecked_REAL.exit:               ; preds = %191, %193
   store i8 %208, ptr %212, align 1
   %indvars.iv.next453 = add nuw nsw i64 %indvars.iv452, 1
   %exitcond456.not = icmp eq i64 %indvars.iv.next453, %wide.trip.count455
-  br i1 %exitcond456.not, label %.loopexit, label %.lr.ph443, !llvm.loop !26
+  br i1 %exitcond456.not, label %.loopexit, label %.lr.ph443, !llvm.loop !25
 
 .loopexit:                                        ; preds = %.lr.ph443, %205
   %213 = getelementptr inbounds nuw i8, ptr %55, i64 264
@@ -5376,7 +5376,7 @@ SDL_AddSurfaceAlternateImage_REAL.exit:           ; preds = %SDL_SurfaceValid.ex
   %357 = load i32, ptr %324, align 8
   %358 = sext i32 %357 to i64
   %359 = icmp slt i64 %indvars.iv.next458, %358
-  br i1 %359, label %SDL_SurfaceValid.exit.i390, label %.thread425, !llvm.loop !27
+  br i1 %359, label %SDL_SurfaceValid.exit.i390, label %.thread425, !llvm.loop !26
 
 .thread416:                                       ; preds = %340, %SDL_SurfaceValid.exit15.thread.i, %SDL_AddSurfaceAlternateImage_REAL.exit, %.critedge355, %101, %.loopexit, %.thread395, %.thread
   %.not347 = icmp eq ptr %.1283, null
@@ -5547,7 +5547,7 @@ define hidden zeroext i1 @SDL_ConvertPixelsAndColorspace_REAL(i32 noundef %0, i3
   %68 = getelementptr inbounds i8, ptr %.0118154, i64 %64
   %69 = getelementptr inbounds i8, ptr %.0119153, i64 %65
   %.not143 = icmp eq i32 %67, 0
-  br i1 %.not143, label %.loopexit, label %66, !llvm.loop !28
+  br i1 %.not143, label %.loopexit, label %66, !llvm.loop !27
 
 70:                                               ; preds = %51
   %71 = call fastcc zeroext i1 @SDL_InitializeSurface(ptr noundef %13, i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %.0117, i32 noundef %4, ptr noundef nonnull %5, i32 noundef %6, i1 noundef zeroext true)
@@ -5745,11 +5745,11 @@ SDL_LockSurface_REAL.exit:                        ; preds = %22, %25, %29
 67:                                               ; preds = %66, %.lr.ph158
   %68 = getelementptr inbounds nuw i8, ptr %.0106156, i64 2
   %.not133 = icmp eq i32 %61, 0
-  br i1 %.not133, label %._crit_edge159, label %.lr.ph158, !llvm.loop !29
+  br i1 %.not133, label %._crit_edge159, label %.lr.ph158, !llvm.loop !28
 
 ._crit_edge159:                                   ; preds = %67, %.lr.ph163.split
   %.not132 = icmp eq i32 %60, 0
-  br i1 %.not132, label %.loopexit, label %.lr.ph163.splitthread-pre-split, !llvm.loop !30
+  br i1 %.not132, label %.loopexit, label %.lr.ph163.splitthread-pre-split, !llvm.loop !29
 
 69:                                               ; preds = %SDL_LockSurface_REAL.exit
   %70 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -5809,11 +5809,11 @@ SDL_LockSurface_REAL.exit:                        ; preds = %22, %25, %29
 97:                                               ; preds = %96, %.lr.ph
   %98 = getelementptr inbounds nuw i8, ptr %.098150, i64 4
   %.not131 = icmp eq i32 %92, 0
-  br i1 %.not131, label %._crit_edge, label %.lr.ph, !llvm.loop !31
+  br i1 %.not131, label %._crit_edge, label %.lr.ph, !llvm.loop !30
 
 ._crit_edge:                                      ; preds = %97, %.lr.ph154.split
   %.not130 = icmp eq i32 %91, 0
-  br i1 %.not130, label %.loopexit, label %.lr.ph154.splitthread-pre-split, !llvm.loop !32
+  br i1 %.not130, label %.loopexit, label %.lr.ph154.splitthread-pre-split, !llvm.loop !31
 
 .loopexit:                                        ; preds = %._crit_edge, %._crit_edge159, %.lr.ph154, %.lr.ph163, %69, %36, %SDL_LockSurface_REAL.exit
   %99 = load ptr, ptr %2, align 8
@@ -6000,7 +6000,7 @@ define hidden ptr @SDL_DuplicatePixels(i32 noundef %0, i32 noundef %1, i32 nound
   %27 = getelementptr inbounds i8, ptr %.02838, i64 %26
   %28 = getelementptr inbounds i8, ptr %.02937, i64 %22
   %.not34 = icmp eq i32 %24, 0
-  br i1 %.not34, label %SDL_SurfaceValid.exit.i, label %23, !llvm.loop !33
+  br i1 %.not34, label %SDL_SurfaceValid.exit.i, label %23, !llvm.loop !32
 
 SDL_SurfaceValid.exit.i:                          ; preds = %23, %15
   %29 = getelementptr inbounds nuw i8, ptr %7, i64 40
@@ -6228,14 +6228,14 @@ define internal fastcc zeroext i1 @SDL_PremultiplyAlphaPixelsAndColorspace(i32 n
   store i32 %82, ptr %.040.i, align 4
   %84 = add nsw i32 %.03138.i, -1
   %.not32.i = icmp eq i32 %84, 0
-  br i1 %.not32.i, label %._crit_edge.i, label %62, !llvm.loop !34
+  br i1 %.not32.i, label %._crit_edge.i, label %62, !llvm.loop !33
 
 ._crit_edge.i:                                    ; preds = %62
   %85 = add nsw i32 %.in.i, -1
   %86 = getelementptr inbounds i8, ptr %.02943.i, i64 %60
   %87 = getelementptr inbounds i8, ptr %.03042.i, i64 %61
   %.not.i = icmp eq i32 %85, 0
-  br i1 %.not.i, label %SDL_PremultiplyAlpha_AXYZ8888.exit, label %.preheader.i, !llvm.loop !35
+  br i1 %.not.i, label %SDL_PremultiplyAlpha_AXYZ8888.exit, label %.preheader.i, !llvm.loop !34
 
 88:                                               ; preds = %58, %58
   %.not41.i166 = icmp eq i32 %1, 0
@@ -6287,14 +6287,14 @@ define internal fastcc zeroext i1 @SDL_PremultiplyAlphaPixelsAndColorspace(i32 n
   store i32 %111, ptr %.040.i173, align 4
   %113 = add nsw i32 %.03138.i175, -1
   %.not32.i182 = icmp eq i32 %113, 0
-  br i1 %.not32.i182, label %._crit_edge.i183, label %91, !llvm.loop !36
+  br i1 %.not32.i182, label %._crit_edge.i183, label %91, !llvm.loop !35
 
 ._crit_edge.i183:                                 ; preds = %91
   %114 = add nsw i32 %.in.i170, -1
   %115 = getelementptr inbounds i8, ptr %.02943.i171, i64 %89
   %116 = getelementptr inbounds i8, ptr %.03042.i172, i64 %90
   %.not.i184 = icmp eq i32 %114, 0
-  br i1 %.not.i184, label %SDL_PremultiplyAlpha_AXYZ8888.exit, label %.preheader.i169, !llvm.loop !37
+  br i1 %.not.i184, label %SDL_PremultiplyAlpha_AXYZ8888.exit, label %.preheader.i169, !llvm.loop !36
 
 117:                                              ; preds = %58, %58
   %.not37.i = icmp eq i32 %1, 0
@@ -6337,14 +6337,14 @@ define internal fastcc zeroext i1 @SDL_PremultiplyAlphaPixelsAndColorspace(i32 n
   store float %131, ptr %134, align 4
   %136 = add nsw i32 %.03134.i, -1
   %.not32.i188 = icmp eq i32 %136, 0
-  br i1 %.not32.i188, label %._crit_edge.i189, label %120, !llvm.loop !38
+  br i1 %.not32.i188, label %._crit_edge.i189, label %120, !llvm.loop !37
 
 ._crit_edge.i189:                                 ; preds = %120
   %137 = add nsw i32 %.in.i187, -1
   %138 = getelementptr inbounds i8, ptr %.02939.i, i64 %118
   %139 = getelementptr inbounds i8, ptr %.03038.i, i64 %119
   %.not.i190 = icmp eq i32 %137, 0
-  br i1 %.not.i190, label %SDL_PremultiplyAlpha_AXYZ8888.exit, label %.preheader.i186, !llvm.loop !39
+  br i1 %.not.i190, label %SDL_PremultiplyAlpha_AXYZ8888.exit, label %.preheader.i186, !llvm.loop !38
 
 140:                                              ; preds = %58
   %141 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.31) #10
@@ -7696,40 +7696,39 @@ attributes #11 = { nounwind allocsize(1) }
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = distinct !{!3, !4, !5}
+!3 = distinct !{!3, !4}
 !4 = !{!"llvm.loop.mustprogress"}
-!5 = !{!"llvm.loop.estimated_trip_count"}
-!6 = distinct !{!6, !4, !5, !7}
-!7 = !{!"llvm.loop.unswitch.partial.disable"}
-!8 = distinct !{!8, !4, !5}
-!9 = distinct !{!9, !5}
-!10 = distinct !{!10, !4, !5, !11}
-!11 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!12 = distinct !{!12, !4, !5}
-!13 = distinct !{!13, !4, !5}
-!14 = distinct !{!14, !4, !5}
-!15 = distinct !{!15, !4, !5, !11}
-!16 = distinct !{!16, !4, !5}
-!17 = distinct !{!17, !4, !5, !11}
-!18 = distinct !{!18, !4, !5}
-!19 = distinct !{!19, !4, !5}
-!20 = distinct !{!20, !4, !5}
-!21 = distinct !{!21, !4, !5}
-!22 = distinct !{!22, !4, !5}
-!23 = !{i8 0, i8 2}
-!24 = !{}
-!25 = distinct !{!25, !4, !5}
-!26 = distinct !{!26, !4, !5}
-!27 = distinct !{!27, !4, !5}
-!28 = distinct !{!28, !4, !5}
-!29 = distinct !{!29, !4, !5}
-!30 = distinct !{!30, !4, !5, !7}
-!31 = distinct !{!31, !4, !5}
-!32 = distinct !{!32, !4, !5, !7}
-!33 = distinct !{!33, !4, !5}
-!34 = distinct !{!34, !4, !5}
-!35 = distinct !{!35, !4, !5}
-!36 = distinct !{!36, !4, !5}
-!37 = distinct !{!37, !4, !5}
-!38 = distinct !{!38, !4, !5}
-!39 = distinct !{!39, !4, !5}
+!5 = distinct !{!5, !4, !6}
+!6 = !{!"llvm.loop.unswitch.partial.disable"}
+!7 = distinct !{!7, !4}
+!8 = distinct !{!8, !4}
+!9 = distinct !{!9, !4, !10}
+!10 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!11 = distinct !{!11, !4}
+!12 = distinct !{!12, !4}
+!13 = distinct !{!13, !4}
+!14 = distinct !{!14, !4, !10}
+!15 = distinct !{!15, !4}
+!16 = distinct !{!16, !4, !10}
+!17 = distinct !{!17, !4}
+!18 = distinct !{!18, !4}
+!19 = distinct !{!19, !4}
+!20 = distinct !{!20, !4}
+!21 = distinct !{!21, !4}
+!22 = !{i8 0, i8 2}
+!23 = !{}
+!24 = distinct !{!24, !4}
+!25 = distinct !{!25, !4}
+!26 = distinct !{!26, !4}
+!27 = distinct !{!27, !4}
+!28 = distinct !{!28, !4}
+!29 = distinct !{!29, !4, !6}
+!30 = distinct !{!30, !4}
+!31 = distinct !{!31, !4, !6}
+!32 = distinct !{!32, !4}
+!33 = distinct !{!33, !4}
+!34 = distinct !{!34, !4}
+!35 = distinct !{!35, !4}
+!36 = distinct !{!36, !4}
+!37 = distinct !{!37, !4}
+!38 = distinct !{!38, !4}

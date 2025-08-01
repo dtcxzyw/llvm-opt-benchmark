@@ -153,7 +153,7 @@ u16550_putc.exit12:                               ; preds = %13, %u16550_putc.ex
   br i1 %.not.i, label %up_irq_restore.exit, label %18
 
 18:                                               ; preds = %u16550_putc.exit12
-  call void asm sideeffect "sti", "~{memory},~{dirflag},~{fpsr},~{flags}"() #3, !srcloc !11
+  call void asm sideeffect "sti", "~{memory},~{dirflag},~{fpsr},~{flags}"() #3, !srcloc !10
   br label %up_irq_restore.exit
 
 up_irq_restore.exit:                              ; preds = %u16550_putc.exit12, %18
@@ -239,7 +239,7 @@ define internal range(i32 -25, 1) i32 @u16550_ioctl(ptr noundef readonly capture
   br i1 %.not.i, label %up_irq_restore.exit, label %16
 
 16:                                               ; preds = %12
-  call void asm sideeffect "sti", "~{memory},~{dirflag},~{fpsr},~{flags}"() #3, !srcloc !11
+  call void asm sideeffect "sti", "~{memory},~{dirflag},~{fpsr},~{flags}"() #3, !srcloc !10
   br label %up_irq_restore.exit
 
 17:                                               ; preds = %3
@@ -258,7 +258,7 @@ define internal range(i32 -25, 1) i32 @u16550_ioctl(ptr noundef readonly capture
   br i1 %.not.i11, label %up_irq_restore.exit, label %22
 
 22:                                               ; preds = %17
-  call void asm sideeffect "sti", "~{memory},~{dirflag},~{fpsr},~{flags}"() #3, !srcloc !11
+  call void asm sideeffect "sti", "~{memory},~{dirflag},~{fpsr},~{flags}"() #3, !srcloc !10
   br label %up_irq_restore.exit
 
 up_irq_restore.exit:                              ; preds = %22, %17, %16, %12, %3
@@ -351,7 +351,7 @@ define internal void @u16550_txint(ptr noundef %0, i1 noundef zeroext %1) #0 {
   br i1 %.not.i, label %up_irq_restore.exit, label %15
 
 15:                                               ; preds = %13
-  call void asm sideeffect "sti", "~{memory},~{dirflag},~{fpsr},~{flags}"() #3, !srcloc !11
+  call void asm sideeffect "sti", "~{memory},~{dirflag},~{fpsr},~{flags}"() #3, !srcloc !10
   br label %up_irq_restore.exit
 
 up_irq_restore.exit:                              ; preds = %13, %15
@@ -431,7 +431,7 @@ define internal noundef i32 @u16550_interrupt(i32 %0, ptr readnone captures(none
 19:                                               ; preds = %13, %14, %15, %17, %10
   %20 = add nuw nsw i32 %.012, 1
   %exitcond.not = icmp eq i32 %20, 256
-  br i1 %exitcond.not, label %21, label %6, !llvm.loop !12
+  br i1 %exitcond.not, label %21, label %6, !llvm.loop !11
 
 21:                                               ; preds = %6, %19
   ret i32 0
@@ -468,8 +468,7 @@ attributes #3 = { nounwind }
 !5 = !{i32 7, !"frame-pointer", i32 2}
 !6 = !{i64 291452, i64 291470}
 !7 = !{i64 292071}
-!8 = distinct !{!8, !9, !10}
+!8 = distinct !{!8, !9}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = !{!"llvm.loop.estimated_trip_count"}
-!11 = !{i64 292192}
-!12 = distinct !{!12, !9, !10}
+!10 = !{i64 292192}
+!11 = distinct !{!11, !9}

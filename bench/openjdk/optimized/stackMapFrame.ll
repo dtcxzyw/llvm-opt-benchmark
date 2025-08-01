@@ -116,7 +116,7 @@ define hidden void @_ZN13StackMapFrameC2EttP13ClassVerifier(ptr noundef nonnull 
   store ptr inttoptr (i64 4294901761 to ptr), ptr %21, align 8
   %indvars.iv.next23 = add nuw nsw i64 %indvars.iv22, 1
   %exitcond26.not = icmp eq i64 %indvars.iv.next23, %wide.trip.count25
-  br i1 %exitcond26.not, label %._crit_edge, label %.lr.ph19, !llvm.loop !9
+  br i1 %exitcond26.not, label %._crit_edge, label %.lr.ph19, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %.lr.ph19, %.preheader
   ret void
@@ -208,7 +208,7 @@ define hidden void @_ZN13StackMapFrame17initialize_objectE16VerificationTypeS0_(
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %22 = zext i16 %21 to i64
   %23 = icmp samesign ult i64 %indvars.iv.next, %22
-  br i1 %23, label %13, label %.preheader, !llvm.loop !10
+  br i1 %23, label %13, label %.preheader, !llvm.loop !9
 
 24:                                               ; preds = %.lr.ph14, %31
   %25 = phi i32 [ %9, %.lr.ph14 ], [ %32, %31 ]
@@ -229,7 +229,7 @@ define hidden void @_ZN13StackMapFrame17initialize_objectE16VerificationTypeS0_(
   %indvars.iv.next17 = add nuw nsw i64 %indvars.iv16, 1
   %33 = sext i32 %32 to i64
   %34 = icmp slt i64 %indvars.iv.next17, %33
-  br i1 %34, label %24, label %._crit_edge, !llvm.loop !11
+  br i1 %34, label %24, label %._crit_edge, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %31, %.preheader
   %35 = icmp eq ptr %1, inttoptr (i64 16776962 to ptr)
@@ -374,7 +374,7 @@ _ZN13ClassVerifier30change_sig_to_verificationTypeEP15SignatureStreamP16Verifica
   call void @_ZN15SignatureStream4nextEv(ptr noundef nonnull align 8 dereferenceable(48) %4) #12
   %69 = load i32, ptr %45, align 4
   %70 = icmp eq i32 %69, 3
-  br i1 %70, label %._crit_edge, label %51, !llvm.loop !12
+  br i1 %70, label %._crit_edge, label %51, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %_ZN13ClassVerifier30change_sig_to_verificationTypeEP15SignatureStreamP16VerificationType.exit, %44
   %.1.lcssa = phi i32 [ %.012, %44 ], [ %68, %_ZN13ClassVerifier30change_sig_to_verificationTypeEP15SignatureStreamP16VerificationType.exit ]
@@ -556,7 +556,7 @@ define hidden void @_ZN13StackMapFrame11copy_localsEPKS_(ptr noundef nonnull rea
   store i64 %15, ptr %14, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %10, !llvm.loop !13
+  br i1 %exitcond.not, label %._crit_edge, label %10, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %10, %2
   ret void
@@ -588,7 +588,7 @@ define hidden void @_ZN13StackMapFrame10copy_stackEPKS_(ptr noundef nonnull read
   store i64 %15, ptr %14, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %10, !llvm.loop !14
+  br i1 %exitcond.not, label %._crit_edge, label %10, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %10, %2
   ret void
@@ -668,7 +668,7 @@ define hidden noundef i32 @_ZNK13StackMapFrame16is_assignable_toEP16Verification
 _ZNK16VerificationType18is_assignable_fromERKS_P13ClassVerifierbP10JavaThread.exit.thread: ; preds = %25, %8, %30, %22, %19, %17, %35
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %_ZNK16VerificationType18is_assignable_fromERKS_P13ClassVerifierbP10JavaThread.exit.thread10, label %8, !llvm.loop !15
+  br i1 %exitcond.not, label %_ZNK16VerificationType18is_assignable_fromERKS_P13ClassVerifierbP10JavaThread.exit.thread10, label %8, !llvm.loop !14
 
 _ZNK16VerificationType18is_assignable_fromERKS_P13ClassVerifierbP10JavaThread.exit.thread10.loopexit.split.loop.exit: ; preds = %25
   %37 = trunc nuw nsw i64 %indvars.iv to i32
@@ -724,16 +724,16 @@ define hidden noundef zeroext i1 @_ZNK13StackMapFrame16is_assignable_toEPKS_P12E
 
 19:                                               ; preds = %4
   %20 = load i32, ptr %0, align 8
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !16)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !15)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7)
-  call void @_ZN10TypeOrigin5frameEP13StackMapFrame(ptr dead_on_unwind nonnull writable sret(%class.TypeOrigin) align 8 %7, ptr noundef nonnull %0) #12, !noalias !16
+  call void @_ZN10TypeOrigin5frameEP13StackMapFrame(ptr dead_on_unwind nonnull writable sret(%class.TypeOrigin) align 8 %7, ptr noundef nonnull %0) #12, !noalias !15
   %21 = getelementptr inbounds nuw i8, ptr %8, i64 32
   call void @_ZN10TypeOrigin5frameEP13StackMapFrame(ptr dead_on_unwind nonnull writable sret(%class.TypeOrigin) align 8 %21, ptr noundef nonnull %1) #12
   %22 = getelementptr inbounds nuw i8, ptr %8, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %22, ptr noundef nonnull align 8 dereferenceable(24) %7, i64 24, i1 false)
-  store i32 %20, ptr %8, align 8, !alias.scope !16
+  store i32 %20, ptr %8, align 8, !alias.scope !15
   %23 = getelementptr inbounds nuw i8, ptr %8, i64 4
-  store i32 5, ptr %23, align 4, !alias.scope !16
+  store i32 5, ptr %23, align 4, !alias.scope !15
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull align 8 dereferenceable(56) %8, i64 56, i1 false)
   br label %67
@@ -748,16 +748,16 @@ define hidden noundef zeroext i1 @_ZNK13StackMapFrame16is_assignable_toEPKS_P12E
 
 29:                                               ; preds = %24
   %30 = load i32, ptr %0, align 8
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !19)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !18)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6)
-  call void @_ZN10TypeOrigin5frameEP13StackMapFrame(ptr dead_on_unwind nonnull writable sret(%class.TypeOrigin) align 8 %6, ptr noundef nonnull %0) #12, !noalias !19
+  call void @_ZN10TypeOrigin5frameEP13StackMapFrame(ptr dead_on_unwind nonnull writable sret(%class.TypeOrigin) align 8 %6, ptr noundef nonnull %0) #12, !noalias !18
   %31 = getelementptr inbounds nuw i8, ptr %9, i64 32
   call void @_ZN10TypeOrigin5frameEP13StackMapFrame(ptr dead_on_unwind nonnull writable sret(%class.TypeOrigin) align 8 %31, ptr noundef nonnull %1) #12
   %32 = getelementptr inbounds nuw i8, ptr %9, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %32, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false)
-  store i32 %30, ptr %9, align 8, !alias.scope !19
+  store i32 %30, ptr %9, align 8, !alias.scope !18
   %33 = getelementptr inbounds nuw i8, ptr %9, i64 4
-  store i32 6, ptr %33, align 4, !alias.scope !19
+  store i32 6, ptr %33, align 4, !alias.scope !18
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull align 8 dereferenceable(56) %9, i64 56, i1 false)
   br label %67
@@ -822,16 +822,16 @@ define hidden noundef zeroext i1 @_ZNK13StackMapFrame16is_assignable_toEPKS_P12E
 
 62:                                               ; preds = %55
   %63 = load i32, ptr %1, align 8
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !22)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !21)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
-  call void @_ZN10TypeOrigin5frameEP13StackMapFrame(ptr dead_on_unwind nonnull writable sret(%class.TypeOrigin) align 8 %5, ptr noundef nonnull %0) #12, !noalias !22
+  call void @_ZN10TypeOrigin5frameEP13StackMapFrame(ptr dead_on_unwind nonnull writable sret(%class.TypeOrigin) align 8 %5, ptr noundef nonnull %0) #12, !noalias !21
   %64 = getelementptr inbounds nuw i8, ptr %14, i64 32
   call void @_ZN10TypeOrigin5frameEP13StackMapFrame(ptr dead_on_unwind nonnull writable sret(%class.TypeOrigin) align 8 %64, ptr noundef nonnull %1) #12
   %65 = getelementptr inbounds nuw i8, ptr %14, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %65, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false)
-  store i32 %63, ptr %14, align 8, !alias.scope !22
+  store i32 %63, ptr %14, align 8, !alias.scope !21
   %66 = getelementptr inbounds nuw i8, ptr %14, i64 4
-  store i32 2, ptr %66, align 4, !alias.scope !22
+  store i32 2, ptr %66, align 4, !alias.scope !21
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull align 8 dereferenceable(56) %14, i64 56, i1 false)
   br label %67
@@ -870,17 +870,17 @@ define hidden ptr @_ZN13StackMapFrame12pop_stack_exE16VerificationTypeP10JavaThr
   %17 = load i32, ptr %0, align 8
   %18 = getelementptr inbounds nuw i8, ptr %5, i64 8
   call void @_ZN10TypeOrigin5frameEP13StackMapFrame(ptr dead_on_unwind nonnull writable sret(%class.TypeOrigin) align 8 %18, ptr noundef nonnull %0) #12
-  store i32 %17, ptr %5, align 8, !alias.scope !25
+  store i32 %17, ptr %5, align 8, !alias.scope !24
   %19 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  store i32 8, ptr %19, align 4, !alias.scope !25
+  store i32 8, ptr %19, align 4, !alias.scope !24
   %20 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  store i32 9, ptr %20, align 8, !alias.scope !25
+  store i32 9, ptr %20, align 8, !alias.scope !24
   %21 = getelementptr inbounds nuw i8, ptr %5, i64 36
-  store i32 0, ptr %21, align 4, !alias.scope !25
+  store i32 0, ptr %21, align 4, !alias.scope !24
   %22 = getelementptr inbounds nuw i8, ptr %5, i64 40
-  store ptr null, ptr %22, align 8, !alias.scope !25
+  store ptr null, ptr %22, align 8, !alias.scope !24
   %23 = getelementptr inbounds nuw i8, ptr %5, i64 48
-  store ptr inttoptr (i64 4294901761 to ptr), ptr %23, align 8, !alias.scope !25
+  store ptr inttoptr (i64 4294901761 to ptr), ptr %23, align 8, !alias.scope !24
   call void (ptr, ptr, ptr, ...) @_ZN13ClassVerifier12verify_errorE12ErrorContextPKcz(ptr noundef nonnull align 8 dereferenceable(8192) %16, ptr noundef nonnull byval(%class.ErrorContext) align 8 %5, ptr noundef nonnull @.str.4) #12
   br label %70
 
@@ -969,7 +969,7 @@ _ZNK16VerificationType18is_assignable_fromERKS_P13ClassVerifierbP10JavaThread.ex
 
 ..thread_crit_edge:                               ; preds = %62
   %.pre = load ptr, ptr %31, align 8
-  %.pre8 = load i32, ptr %10, align 8, !noalias !28
+  %.pre8 = load i32, ptr %10, align 8, !noalias !27
   br label %.thread
 
 .thread:                                          ; preds = %..thread_crit_edge, %_ZNK16VerificationType18is_assignable_fromERKS_P13ClassVerifierbP10JavaThread.exit.thread
@@ -983,9 +983,9 @@ _ZNK16VerificationType18is_assignable_fromERKS_P13ClassVerifierbP10JavaThread.ex
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %66, ptr noundef nonnull align 8 dereferenceable(24) %9, i64 24, i1 false)
   %67 = getelementptr inbounds nuw i8, ptr %7, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %67, ptr noundef nonnull align 8 dereferenceable(24) %8, i64 24, i1 false)
-  store i32 %65, ptr %7, align 8, !alias.scope !31
+  store i32 %65, ptr %7, align 8, !alias.scope !30
   %68 = getelementptr inbounds nuw i8, ptr %7, i64 4
-  store i32 1, ptr %68, align 4, !alias.scope !31
+  store i32 1, ptr %68, align 4, !alias.scope !30
   call void (ptr, ptr, ptr, ...) @_ZN13ClassVerifier12verify_errorE12ErrorContextPKcz(ptr noundef nonnull align 8 dereferenceable(8192) %64, ptr noundef nonnull byval(%class.ErrorContext) align 8 %7, ptr noundef nonnull @.str.5) #12
   br label %70
 
@@ -1031,17 +1031,17 @@ define hidden ptr @_ZN13StackMapFrame9get_localEi16VerificationTypeP10JavaThread
   %17 = load i32, ptr %0, align 8
   %18 = getelementptr inbounds nuw i8, ptr %6, i64 8
   call void @_ZN10TypeOrigin9bad_indexEi(ptr dead_on_unwind nonnull writable sret(%class.TypeOrigin) align 8 %18, i32 noundef %1) #12
-  store i32 %17, ptr %6, align 8, !alias.scope !34
+  store i32 %17, ptr %6, align 8, !alias.scope !33
   %19 = getelementptr inbounds nuw i8, ptr %6, i64 4
-  store i32 4, ptr %19, align 4, !alias.scope !34
+  store i32 4, ptr %19, align 4, !alias.scope !33
   %20 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  store i32 9, ptr %20, align 8, !alias.scope !34
+  store i32 9, ptr %20, align 8, !alias.scope !33
   %21 = getelementptr inbounds nuw i8, ptr %6, i64 36
-  store i32 0, ptr %21, align 4, !alias.scope !34
+  store i32 0, ptr %21, align 4, !alias.scope !33
   %22 = getelementptr inbounds nuw i8, ptr %6, i64 40
-  store ptr null, ptr %22, align 8, !alias.scope !34
+  store ptr null, ptr %22, align 8, !alias.scope !33
   %23 = getelementptr inbounds nuw i8, ptr %6, i64 48
-  store ptr inttoptr (i64 4294901761 to ptr), ptr %23, align 8, !alias.scope !34
+  store ptr inttoptr (i64 4294901761 to ptr), ptr %23, align 8, !alias.scope !33
   call void (ptr, ptr, ptr, ...) @_ZN13ClassVerifier12verify_errorE12ErrorContextPKcz(ptr noundef nonnull align 8 dereferenceable(8192) %16, ptr noundef nonnull byval(%class.ErrorContext) align 8 %6, ptr noundef nonnull @.str.6) #12
   br label %75
 
@@ -1139,9 +1139,9 @@ _ZNK16VerificationType18is_assignable_fromERKS_P13ClassVerifierbP10JavaThread.ex
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %64, ptr noundef nonnull align 8 dereferenceable(24) %9, i64 24, i1 false)
   %65 = getelementptr inbounds nuw i8, ptr %7, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %65, ptr noundef nonnull align 8 dereferenceable(24) %8, i64 24, i1 false)
-  store i32 %63, ptr %7, align 8, !alias.scope !37
+  store i32 %63, ptr %7, align 8, !alias.scope !36
   %66 = getelementptr inbounds nuw i8, ptr %7, i64 4
-  store i32 1, ptr %66, align 4, !alias.scope !37
+  store i32 1, ptr %66, align 4, !alias.scope !36
   call void (ptr, ptr, ptr, ...) @_ZN13ClassVerifier12verify_errorE12ErrorContextPKcz(ptr noundef nonnull align 8 dereferenceable(8192) %62, ptr noundef nonnull byval(%class.ErrorContext) align 8 %7, ptr noundef nonnull @.str.7) #12
   br label %75
 
@@ -1194,17 +1194,17 @@ define hidden void @_ZN13StackMapFrame11get_local_2Ei16VerificationTypeS0_P10Jav
   %23 = load i32, ptr %0, align 8
   %24 = getelementptr inbounds nuw i8, ptr %8, i64 8
   call void @_ZN10TypeOrigin9bad_indexEi(ptr dead_on_unwind nonnull writable sret(%class.TypeOrigin) align 8 %24, i32 noundef %1) #12
-  store i32 %23, ptr %8, align 8, !alias.scope !40
+  store i32 %23, ptr %8, align 8, !alias.scope !39
   %25 = getelementptr inbounds nuw i8, ptr %8, i64 4
-  store i32 4, ptr %25, align 4, !alias.scope !40
+  store i32 4, ptr %25, align 4, !alias.scope !39
   %26 = getelementptr inbounds nuw i8, ptr %8, i64 32
-  store i32 9, ptr %26, align 8, !alias.scope !40
+  store i32 9, ptr %26, align 8, !alias.scope !39
   %27 = getelementptr inbounds nuw i8, ptr %8, i64 36
-  store i32 0, ptr %27, align 4, !alias.scope !40
+  store i32 0, ptr %27, align 4, !alias.scope !39
   %28 = getelementptr inbounds nuw i8, ptr %8, i64 40
-  store ptr null, ptr %28, align 8, !alias.scope !40
+  store ptr null, ptr %28, align 8, !alias.scope !39
   %29 = getelementptr inbounds nuw i8, ptr %8, i64 48
-  store ptr inttoptr (i64 4294901761 to ptr), ptr %29, align 8, !alias.scope !40
+  store ptr inttoptr (i64 4294901761 to ptr), ptr %29, align 8, !alias.scope !39
   call void (ptr, ptr, ptr, ...) @_ZN13ClassVerifier12verify_errorE12ErrorContextPKcz(ptr noundef nonnull align 8 dereferenceable(8192) %22, ptr noundef nonnull byval(%class.ErrorContext) align 8 %8, ptr noundef nonnull @.str.8) #12
   br label %_ZNK16VerificationType18is_assignable_fromERKS_P13ClassVerifierbP10JavaThread.exit17.thread
 
@@ -1299,9 +1299,9 @@ _ZNK16VerificationType18is_assignable_fromERKS_P13ClassVerifierbP10JavaThread.ex
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %70, ptr noundef nonnull align 8 dereferenceable(24) %11, i64 24, i1 false)
   %71 = getelementptr inbounds nuw i8, ptr %9, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %71, ptr noundef nonnull align 8 dereferenceable(24) %10, i64 24, i1 false)
-  store i32 %69, ptr %9, align 8, !alias.scope !43
+  store i32 %69, ptr %9, align 8, !alias.scope !42
   %72 = getelementptr inbounds nuw i8, ptr %9, i64 4
-  store i32 1, ptr %72, align 4, !alias.scope !43
+  store i32 1, ptr %72, align 4, !alias.scope !42
   call void (ptr, ptr, ptr, ...) @_ZN13ClassVerifier12verify_errorE12ErrorContextPKcz(ptr noundef nonnull align 8 dereferenceable(8192) %68, ptr noundef nonnull byval(%class.ErrorContext) align 8 %9, ptr noundef nonnull @.str.7) #12
   br label %_ZNK16VerificationType18is_assignable_fromERKS_P13ClassVerifierbP10JavaThread.exit17.thread
 
@@ -1385,9 +1385,9 @@ _ZNK16VerificationType18is_assignable_fromERKS_P13ClassVerifierbP10JavaThread.ex
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %109, ptr noundef nonnull align 8 dereferenceable(24) %14, i64 24, i1 false)
   %110 = getelementptr inbounds nuw i8, ptr %12, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %110, ptr noundef nonnull align 8 dereferenceable(24) %13, i64 24, i1 false)
-  store i32 %108, ptr %12, align 8, !alias.scope !46
+  store i32 %108, ptr %12, align 8, !alias.scope !45
   %111 = getelementptr inbounds nuw i8, ptr %12, i64 4
-  store i32 1, ptr %111, align 4, !alias.scope !46
+  store i32 1, ptr %111, align 4, !alias.scope !45
   call void (ptr, ptr, ptr, ...) @_ZN13ClassVerifier12verify_errorE12ErrorContextPKcz(ptr noundef nonnull align 8 dereferenceable(8192) %107, ptr noundef nonnull byval(%class.ErrorContext) align 8 %12, ptr noundef nonnull @.str.7) #12
   br label %_ZNK16VerificationType18is_assignable_fromERKS_P13ClassVerifierbP10JavaThread.exit17.thread
 
@@ -1410,17 +1410,17 @@ define hidden void @_ZN13StackMapFrame9set_localEi16VerificationTypeP10JavaThrea
   %12 = load i32, ptr %0, align 8
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 8
   call void @_ZN10TypeOrigin9bad_indexEi(ptr dead_on_unwind nonnull writable sret(%class.TypeOrigin) align 8 %13, i32 noundef %1) #12
-  store i32 %12, ptr %5, align 8, !alias.scope !49
+  store i32 %12, ptr %5, align 8, !alias.scope !48
   %14 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  store i32 4, ptr %14, align 4, !alias.scope !49
+  store i32 4, ptr %14, align 4, !alias.scope !48
   %15 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  store i32 9, ptr %15, align 8, !alias.scope !49
+  store i32 9, ptr %15, align 8, !alias.scope !48
   %16 = getelementptr inbounds nuw i8, ptr %5, i64 36
-  store i32 0, ptr %16, align 4, !alias.scope !49
+  store i32 0, ptr %16, align 4, !alias.scope !48
   %17 = getelementptr inbounds nuw i8, ptr %5, i64 40
-  store ptr null, ptr %17, align 8, !alias.scope !49
+  store ptr null, ptr %17, align 8, !alias.scope !48
   %18 = getelementptr inbounds nuw i8, ptr %5, i64 48
-  store ptr inttoptr (i64 4294901761 to ptr), ptr %18, align 8, !alias.scope !49
+  store ptr inttoptr (i64 4294901761 to ptr), ptr %18, align 8, !alias.scope !48
   call void (ptr, ptr, ptr, ...) @_ZN13ClassVerifier12verify_errorE12ErrorContextPKcz(ptr noundef nonnull align 8 dereferenceable(8192) %11, ptr noundef nonnull byval(%class.ErrorContext) align 8 %5, ptr noundef nonnull @.str.6) #12
   br label %40
 
@@ -1492,17 +1492,17 @@ define hidden void @_ZN13StackMapFrame11set_local_2Ei16VerificationTypeS0_P10Jav
   %14 = load i32, ptr %0, align 8
   %15 = getelementptr inbounds nuw i8, ptr %6, i64 8
   call void @_ZN10TypeOrigin9bad_indexEi(ptr dead_on_unwind nonnull writable sret(%class.TypeOrigin) align 8 %15, i32 noundef %1) #12
-  store i32 %14, ptr %6, align 8, !alias.scope !52
+  store i32 %14, ptr %6, align 8, !alias.scope !51
   %16 = getelementptr inbounds nuw i8, ptr %6, i64 4
-  store i32 4, ptr %16, align 4, !alias.scope !52
+  store i32 4, ptr %16, align 4, !alias.scope !51
   %17 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  store i32 9, ptr %17, align 8, !alias.scope !52
+  store i32 9, ptr %17, align 8, !alias.scope !51
   %18 = getelementptr inbounds nuw i8, ptr %6, i64 36
-  store i32 0, ptr %18, align 4, !alias.scope !52
+  store i32 0, ptr %18, align 4, !alias.scope !51
   %19 = getelementptr inbounds nuw i8, ptr %6, i64 40
-  store ptr null, ptr %19, align 8, !alias.scope !52
+  store ptr null, ptr %19, align 8, !alias.scope !51
   %20 = getelementptr inbounds nuw i8, ptr %6, i64 48
-  store ptr inttoptr (i64 4294901761 to ptr), ptr %20, align 8, !alias.scope !52
+  store ptr inttoptr (i64 4294901761 to ptr), ptr %20, align 8, !alias.scope !51
   call void (ptr, ptr, ptr, ...) @_ZN13ClassVerifier12verify_errorE12ErrorContextPKcz(ptr noundef nonnull align 8 dereferenceable(8192) %13, ptr noundef nonnull byval(%class.ErrorContext) align 8 %6, ptr noundef nonnull @.str.6) #12
   br label %48
 
@@ -1613,7 +1613,7 @@ define hidden void @_ZNK13StackMapFrame8print_onEP12outputStream(ptr noundef non
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %24 = sext i32 %23 to i64
   %25 = icmp slt i64 %indvars.iv.next, %24
-  br i1 %25, label %15, label %._crit_edge, !llvm.loop !55
+  br i1 %25, label %15, label %._crit_edge, !llvm.loop !54
 
 ._crit_edge:                                      ; preds = %22, %2
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.16) #12
@@ -1650,7 +1650,7 @@ define hidden void @_ZNK13StackMapFrame8print_onEP12outputStream(ptr noundef non
   %indvars.iv.next30 = add nuw nsw i64 %indvars.iv29, 1
   %40 = sext i32 %39 to i64
   %41 = icmp slt i64 %indvars.iv.next30, %40
-  br i1 %41, label %31, label %._crit_edge27, !llvm.loop !56
+  br i1 %41, label %31, label %._crit_edge27, !llvm.loop !55
 
 ._crit_edge27:                                    ; preds = %38, %._crit_edge
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.16) #12
@@ -1823,7 +1823,7 @@ _ZN13GrowableArrayIP6SymbolE8allocateEv.exit:     ; preds = %7, %11, %15
   %30 = load i32, ptr %0, align 8
   %31 = sext i32 %30 to i64
   %32 = icmp slt i64 %indvars.iv.next, %31
-  br i1 %32, label %25, label %.preheader16.loopexit, !llvm.loop !57
+  br i1 %32, label %25, label %.preheader16.loopexit, !llvm.loop !56
 
 .preheader:                                       ; preds = %.lr.ph19, %.preheader16
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1839,7 +1839,7 @@ _ZN13GrowableArrayIP6SymbolE8allocateEv.exit:     ; preds = %7, %11, %15
   %36 = load i32, ptr %3, align 4
   %37 = trunc nuw i64 %indvars.iv.next22 to i32
   %38 = icmp sgt i32 %36, %37
-  br i1 %38, label %.lr.ph19, label %.preheader, !llvm.loop !58
+  br i1 %38, label %.lr.ph19, label %.preheader, !llvm.loop !57
 
 39:                                               ; preds = %.preheader
   %40 = load i64, ptr %4, align 8
@@ -1914,56 +1914,55 @@ attributes #13 = { noreturn nounwind }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7, !8}
-!11 = distinct !{!11, !7, !8}
-!12 = distinct !{!12, !7, !8}
-!13 = distinct !{!13, !7, !8}
-!14 = distinct !{!14, !7, !8}
-!15 = distinct !{!15, !7, !8}
-!16 = !{!17}
-!17 = distinct !{!17, !18, !"_ZN12ErrorContext20locals_size_mismatchEiP13StackMapFrameS1_: argument 0"}
-!18 = distinct !{!18, !"_ZN12ErrorContext20locals_size_mismatchEiP13StackMapFrameS1_"}
-!19 = !{!20}
-!20 = distinct !{!20, !21, !"_ZN12ErrorContext19stack_size_mismatchEiP13StackMapFrameS1_: argument 0"}
-!21 = distinct !{!21, !"_ZN12ErrorContext19stack_size_mismatchEiP13StackMapFrameS1_"}
-!22 = !{!23}
-!23 = distinct !{!23, !24, !"_ZN12ErrorContext9bad_flagsEiP13StackMapFrameS1_: argument 0"}
-!24 = distinct !{!24, !"_ZN12ErrorContext9bad_flagsEiP13StackMapFrameS1_"}
-!25 = !{!26}
-!26 = distinct !{!26, !27, !"_ZN12ErrorContext15stack_underflowEiP13StackMapFrame: argument 0"}
-!27 = distinct !{!27, !"_ZN12ErrorContext15stack_underflowEiP13StackMapFrame"}
-!28 = !{!29}
-!29 = distinct !{!29, !30, !"_ZN13StackMapFrame13stack_top_ctxEv: argument 0"}
-!30 = distinct !{!30, !"_ZN13StackMapFrame13stack_top_ctxEv"}
-!31 = !{!32}
-!32 = distinct !{!32, !33, !"_ZN12ErrorContext8bad_typeEi10TypeOriginS0_: argument 0"}
-!33 = distinct !{!33, !"_ZN12ErrorContext8bad_typeEi10TypeOriginS0_"}
-!34 = !{!35}
-!35 = distinct !{!35, !36, !"_ZN12ErrorContext15bad_local_indexEii: argument 0"}
-!36 = distinct !{!36, !"_ZN12ErrorContext15bad_local_indexEii"}
-!37 = !{!38}
-!38 = distinct !{!38, !39, !"_ZN12ErrorContext8bad_typeEi10TypeOriginS0_: argument 0"}
-!39 = distinct !{!39, !"_ZN12ErrorContext8bad_typeEi10TypeOriginS0_"}
-!40 = !{!41}
-!41 = distinct !{!41, !42, !"_ZN12ErrorContext15bad_local_indexEii: argument 0"}
-!42 = distinct !{!42, !"_ZN12ErrorContext15bad_local_indexEii"}
-!43 = !{!44}
-!44 = distinct !{!44, !45, !"_ZN12ErrorContext8bad_typeEi10TypeOriginS0_: argument 0"}
-!45 = distinct !{!45, !"_ZN12ErrorContext8bad_typeEi10TypeOriginS0_"}
-!46 = !{!47}
-!47 = distinct !{!47, !48, !"_ZN12ErrorContext8bad_typeEi10TypeOriginS0_: argument 0"}
-!48 = distinct !{!48, !"_ZN12ErrorContext8bad_typeEi10TypeOriginS0_"}
-!49 = !{!50}
-!50 = distinct !{!50, !51, !"_ZN12ErrorContext15bad_local_indexEii: argument 0"}
-!51 = distinct !{!51, !"_ZN12ErrorContext15bad_local_indexEii"}
-!52 = !{!53}
-!53 = distinct !{!53, !54, !"_ZN12ErrorContext15bad_local_indexEii: argument 0"}
-!54 = distinct !{!54, !"_ZN12ErrorContext15bad_local_indexEii"}
-!55 = distinct !{!55, !7, !8}
-!56 = distinct !{!56, !7, !8}
-!57 = distinct !{!57, !7, !8}
-!58 = distinct !{!58, !7, !8}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7}
+!12 = distinct !{!12, !7}
+!13 = distinct !{!13, !7}
+!14 = distinct !{!14, !7}
+!15 = !{!16}
+!16 = distinct !{!16, !17, !"_ZN12ErrorContext20locals_size_mismatchEiP13StackMapFrameS1_: argument 0"}
+!17 = distinct !{!17, !"_ZN12ErrorContext20locals_size_mismatchEiP13StackMapFrameS1_"}
+!18 = !{!19}
+!19 = distinct !{!19, !20, !"_ZN12ErrorContext19stack_size_mismatchEiP13StackMapFrameS1_: argument 0"}
+!20 = distinct !{!20, !"_ZN12ErrorContext19stack_size_mismatchEiP13StackMapFrameS1_"}
+!21 = !{!22}
+!22 = distinct !{!22, !23, !"_ZN12ErrorContext9bad_flagsEiP13StackMapFrameS1_: argument 0"}
+!23 = distinct !{!23, !"_ZN12ErrorContext9bad_flagsEiP13StackMapFrameS1_"}
+!24 = !{!25}
+!25 = distinct !{!25, !26, !"_ZN12ErrorContext15stack_underflowEiP13StackMapFrame: argument 0"}
+!26 = distinct !{!26, !"_ZN12ErrorContext15stack_underflowEiP13StackMapFrame"}
+!27 = !{!28}
+!28 = distinct !{!28, !29, !"_ZN13StackMapFrame13stack_top_ctxEv: argument 0"}
+!29 = distinct !{!29, !"_ZN13StackMapFrame13stack_top_ctxEv"}
+!30 = !{!31}
+!31 = distinct !{!31, !32, !"_ZN12ErrorContext8bad_typeEi10TypeOriginS0_: argument 0"}
+!32 = distinct !{!32, !"_ZN12ErrorContext8bad_typeEi10TypeOriginS0_"}
+!33 = !{!34}
+!34 = distinct !{!34, !35, !"_ZN12ErrorContext15bad_local_indexEii: argument 0"}
+!35 = distinct !{!35, !"_ZN12ErrorContext15bad_local_indexEii"}
+!36 = !{!37}
+!37 = distinct !{!37, !38, !"_ZN12ErrorContext8bad_typeEi10TypeOriginS0_: argument 0"}
+!38 = distinct !{!38, !"_ZN12ErrorContext8bad_typeEi10TypeOriginS0_"}
+!39 = !{!40}
+!40 = distinct !{!40, !41, !"_ZN12ErrorContext15bad_local_indexEii: argument 0"}
+!41 = distinct !{!41, !"_ZN12ErrorContext15bad_local_indexEii"}
+!42 = !{!43}
+!43 = distinct !{!43, !44, !"_ZN12ErrorContext8bad_typeEi10TypeOriginS0_: argument 0"}
+!44 = distinct !{!44, !"_ZN12ErrorContext8bad_typeEi10TypeOriginS0_"}
+!45 = !{!46}
+!46 = distinct !{!46, !47, !"_ZN12ErrorContext8bad_typeEi10TypeOriginS0_: argument 0"}
+!47 = distinct !{!47, !"_ZN12ErrorContext8bad_typeEi10TypeOriginS0_"}
+!48 = !{!49}
+!49 = distinct !{!49, !50, !"_ZN12ErrorContext15bad_local_indexEii: argument 0"}
+!50 = distinct !{!50, !"_ZN12ErrorContext15bad_local_indexEii"}
+!51 = !{!52}
+!52 = distinct !{!52, !53, !"_ZN12ErrorContext15bad_local_indexEii: argument 0"}
+!53 = distinct !{!53, !"_ZN12ErrorContext15bad_local_indexEii"}
+!54 = distinct !{!54, !7}
+!55 = distinct !{!55, !7}
+!56 = distinct !{!56, !7}
+!57 = distinct !{!57, !7}

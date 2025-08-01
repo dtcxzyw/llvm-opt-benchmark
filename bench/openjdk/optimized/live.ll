@@ -146,7 +146,7 @@ _ZN5Arena7AmallocEmN17AllocFailStrategy13AllocFailEnumE.exit101: ; preds = %52, 
   %65 = load i32, ptr %64, align 8
   %66 = zext i32 %65 to i64
   %67 = icmp samesign ult i64 %indvars.iv.next208, %66
-  br i1 %67, label %.lr.ph159, label %.loopexit155, !llvm.loop !9
+  br i1 %67, label %.lr.ph159, label %.loopexit155, !llvm.loop !8
 
 .loopexit155:                                     ; preds = %.lr.ph159, %._crit_edge, %_ZN5Arena7AmallocEmN17AllocFailStrategy13AllocFailEnumE.exit101
   %68 = phi i32 [ 0, %_ZN5Arena7AmallocEmN17AllocFailStrategy13AllocFailEnumE.exit101 ], [ %.pre, %._crit_edge ], [ %65, %.lr.ph159 ]
@@ -185,7 +185,7 @@ _ZN5Arena7AmallocEmN17AllocFailStrategy13AllocFailEnumE.exit101: ; preds = %52, 
   %93 = load i32, ptr %92, align 8
   %94 = zext i32 %93 to i64
   %95 = icmp samesign ult i64 %indvars.iv.next211, %94
-  br i1 %95, label %.lr.ph162, label %._crit_edge163.loopexit, !llvm.loop !10
+  br i1 %95, label %.lr.ph162, label %._crit_edge163.loopexit, !llvm.loop !9
 
 ._crit_edge163.loopexit:                          ; preds = %.lr.ph162
   %96 = zext i32 %93 to i64
@@ -243,7 +243,7 @@ _ZN5Arena7AmallocEmN17AllocFailStrategy13AllocFailEnumE.exit.i.i: ; preds = %119
   store ptr null, ptr %124, align 8
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 8
-  br i1 %exitcond.not.i.i, label %_ZN10Block_ListC2Ev.exit, label %122, !llvm.loop !11
+  br i1 %exitcond.not.i.i, label %_ZN10Block_ListC2Ev.exit, label %122, !llvm.loop !10
 
 _ZN10Block_ListC2Ev.exit:                         ; preds = %122
   %125 = getelementptr inbounds nuw i8, ptr %4, i64 24
@@ -271,7 +271,7 @@ _ZN10Block_ListC2Ev.exit:                         ; preds = %122
 
 .loopexit153:                                     ; preds = %_ZN9PhaseLive7freesetEP5Block.exit127, %_ZN9VectorSet3setEj.exit
   %.not.wide = icmp eq i64 %143, 0
-  br i1 %.not.wide, label %.preheader, label %141, !llvm.loop !12
+  br i1 %.not.wide, label %.preheader, label %141, !llvm.loop !11
 
 .preheader:                                       ; preds = %.loopexit153
   %.pre245 = load ptr, ptr %9, align 8
@@ -351,7 +351,7 @@ _ZN9PhaseLive6getsetEP5Block.exit:                ; preds = %141, %_ZN9PhaseLive
 
 .loopexit:                                        ; preds = %_ZN8IndexSet6insertEj.exit108, %_ZN8IndexSet6removeEj.exit
   %181 = icmp ugt i32 %indvars, 1
-  br i1 %181, label %182, label %_ZNK5Block8get_nodeEj.exit109.lr.ph, !llvm.loop !13
+  br i1 %181, label %182, label %_ZNK5Block8get_nodeEj.exit109.lr.ph, !llvm.loop !12
 
 182:                                              ; preds = %.lr.ph168, %.loopexit
   %indvars.iv216 = phi i64 [ %180, %.lr.ph168 ], [ %indvars.iv.next217, %.loopexit ]
@@ -520,7 +520,7 @@ _ZN8IndexSet6removeEj.exit:                       ; preds = %_ZN8IndexSet6insert
 _ZN8IndexSet6insertEj.exit108:                    ; preds = %283, %272, %255, %243
   %indvars.iv.next214 = add nuw nsw i64 %indvars.iv213, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next214, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %243, !llvm.loop !14
+  br i1 %exitcond.not, label %.loopexit, label %243, !llvm.loop !13
 
 _ZNK5Block8get_nodeEj.exit._crit_edge.loopexit:   ; preds = %_ZNK5Block8get_nodeEj.exit
   %286 = trunc nuw i64 %indvars.iv216 to i32
@@ -639,7 +639,7 @@ _ZN8IndexSet6insertEj.exit113:                    ; preds = %_ZNK5Block8get_node
 
 _ZN8IndexSet6removeEj.exit114:                    ; preds = %_ZN8IndexSet6insertEj.exit113, %347
   %.not96.wide = icmp eq i64 %302, 0
-  br i1 %.not96.wide, label %.preheader154.loopexit, label %_ZNK5Block8get_nodeEj.exit109, !llvm.loop !15
+  br i1 %.not96.wide, label %.preheader154.loopexit, label %_ZNK5Block8get_nodeEj.exit109, !llvm.loop !14
 
 .lr.ph181:                                        ; preds = %.preheader154, %._crit_edge178
   %indvars.iv228 = phi i64 [ %indvars.iv.next229, %._crit_edge178 ], [ 1, %.preheader154 ]
@@ -699,7 +699,7 @@ _ZNK5Block8get_nodeEj.exit117:                    ; preds = %.lr.ph177, %366
 
 388:                                              ; preds = %_ZNK5Block8get_nodeEj.exit117, %375
   %.not98.wide = icmp eq i64 %363, 0
-  br i1 %.not98.wide, label %._crit_edge178, label %.lr.ph177, !llvm.loop !16
+  br i1 %.not98.wide, label %._crit_edge178, label %.lr.ph177, !llvm.loop !15
 
 ._crit_edge178:                                   ; preds = %388, %.lr.ph181
   %indvars.iv.next229 = add nuw nsw i64 %indvars.iv228, 1
@@ -712,7 +712,7 @@ _ZNK5Block8get_nodeEj.exit117:                    ; preds = %.lr.ph177, %366
   %393 = load i32, ptr %392, align 8
   %394 = zext i32 %393 to i64
   %395 = icmp samesign ult i64 %indvars.iv.next229, %394
-  br i1 %395, label %.lr.ph181, label %._crit_edge182, !llvm.loop !17
+  br i1 %395, label %.lr.ph181, label %._crit_edge182, !llvm.loop !16
 
 ._crit_edge182:                                   ; preds = %._crit_edge178, %.preheader154
   %396 = load ptr, ptr %99, align 8
@@ -851,7 +851,7 @@ _ZN9PhaseLive6getsetEP5Block.exit124:             ; preds = %.lr.ph188, %_ZN9Pha
   %478 = load i32, ptr %477, align 8
   %479 = zext i32 %478 to i64
   %480 = icmp samesign ult i64 %indvars.iv.next233, %479
-  br i1 %480, label %.lr.ph185, label %._crit_edge186, !llvm.loop !18
+  br i1 %480, label %.lr.ph185, label %._crit_edge186, !llvm.loop !17
 
 ._crit_edge186:                                   ; preds = %.lr.ph185, %_ZN9PhaseLive6getsetEP5Block.exit124
   %481 = load ptr, ptr %99, align 8
@@ -970,7 +970,7 @@ _ZN16IndexSetIterator4nextEv.exit.i:              ; preds = %520, %506
 
 _ZN8IndexSet6insertEj.exit.i:                     ; preds = %542, %531
   %.pre.i147 = load i64, ptr %3, align 8
-  br label %504, !llvm.loop !19
+  br label %504, !llvm.loop !18
 
 _ZN9PhaseLive10add_liveinEP5BlockP8IndexSet.exit: ; preds = %516, %_ZN16IndexSetIterator4nextEv.exit.i, %489
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3)
@@ -989,7 +989,7 @@ _ZN9PhaseLive7freesetEP5Block.exit127:            ; preds = %._crit_edge186, %_Z
   store ptr null, ptr %551, align 8
   %552 = load i32, ptr %125, align 8
   %.not97 = icmp eq i32 %552, 0
-  br i1 %.not97, label %.loopexit153, label %.lr.ph188, !llvm.loop !20
+  br i1 %.not97, label %.loopexit153, label %.lr.ph188, !llvm.loop !19
 
 .lr.ph193:                                        ; preds = %.preheader, %587
   %indvars.iv240 = phi i64 [ %indvars.iv.next241, %587 ], [ 0, %.preheader ]
@@ -1025,7 +1025,7 @@ _ZN9PhaseLive7freesetEP5Block.exit127:            ; preds = %._crit_edge186, %_Z
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %567 = zext i32 %566 to i64
   %568 = icmp samesign ult i64 %indvars.iv.next.i, %567
-  br i1 %568, label %558, label %_ZN8IndexSet5clearEv.exit, !llvm.loop !21
+  br i1 %568, label %558, label %_ZN8IndexSet5clearEv.exit, !llvm.loop !20
 
 _ZN8IndexSet5clearEv.exit:                        ; preds = %565, %.lr.ph193
   store i32 0, ptr %555, align 4
@@ -1066,7 +1066,7 @@ _ZN8IndexSet5clearEv.exit:                        ; preds = %565, %.lr.ph193
   %indvars.iv.next.i134 = add nuw nsw i64 %indvars.iv.i131, 1
   %585 = zext i32 %584 to i64
   %586 = icmp samesign ult i64 %indvars.iv.next.i134, %585
-  br i1 %586, label %576, label %_ZN8IndexSet5clearEv.exit135, !llvm.loop !21
+  br i1 %586, label %576, label %_ZN8IndexSet5clearEv.exit135, !llvm.loop !20
 
 _ZN8IndexSet5clearEv.exit135:                     ; preds = %583, %572
   store i32 0, ptr %573, align 4
@@ -1079,7 +1079,7 @@ _ZN8IndexSet5clearEv.exit135:                     ; preds = %583, %572
   %590 = load i32, ptr %589, align 8
   %591 = zext i32 %590 to i64
   %592 = icmp samesign ult i64 %indvars.iv.next241, %591
-  br i1 %592, label %.lr.ph193, label %._crit_edge194, !llvm.loop !22
+  br i1 %592, label %.lr.ph193, label %._crit_edge194, !llvm.loop !21
 
 ._crit_edge194:                                   ; preds = %587, %_ZN10Block_ListC2Ev.exit, %.preheader
   %593 = load ptr, ptr %105, align 8
@@ -1120,12 +1120,12 @@ _ZN8IndexSet5clearEv.exit135:                     ; preds = %583, %572
   %indvars.iv.next.i141 = add nuw nsw i64 %indvars.iv.i138, 1
   %608 = zext i32 %607 to i64
   %609 = icmp samesign ult i64 %indvars.iv.next.i141, %608
-  br i1 %609, label %599, label %_ZN8IndexSet5clearEv.exit142, !llvm.loop !21
+  br i1 %609, label %599, label %_ZN8IndexSet5clearEv.exit142, !llvm.loop !20
 
 _ZN8IndexSet5clearEv.exit142:                     ; preds = %606, %.lr.ph198
   store i32 0, ptr %596, align 4
   %.not93 = icmp eq ptr %595, null
-  br i1 %.not93, label %._crit_edge199, label %.lr.ph198, !llvm.loop !23
+  br i1 %.not93, label %._crit_edge199, label %.lr.ph198, !llvm.loop !22
 
 ._crit_edge199:                                   ; preds = %_ZN8IndexSet5clearEv.exit142, %._crit_edge194
   %610 = load ptr, ptr %74, align 8
@@ -1396,7 +1396,7 @@ _ZN16IndexSetIterator4nextEv.exit:                ; preds = %54, %68
 
 _ZN8IndexSet6insertEj.exit:                       ; preds = %111, %106, %79, %90
   %.pre = load i64, ptr %6, align 8
-  br label %52, !llvm.loop !24
+  br label %52, !llvm.loop !23
 
 _ZN16IndexSetIterator4nextEv.exit.thread:         ; preds = %64, %_ZN16IndexSetIterator4nextEv.exit, %34
   %114 = load i32, ptr %35, align 8
@@ -1834,7 +1834,7 @@ _ZN16IndexSetIterator4nextEv.exit:                ; preds = %33, %47
 
 _ZN8IndexSet6insertEj.exit:                       ; preds = %58, %69
   %.pre = load i64, ptr %4, align 8
-  br label %31, !llvm.loop !19
+  br label %31, !llvm.loop !18
 
 _ZN16IndexSetIterator4nextEv.exit.thread:         ; preds = %43, %_ZN16IndexSetIterator4nextEv.exit, %3
   ret void
@@ -1887,22 +1887,21 @@ attributes #6 = { nounwind }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7, !8}
-!11 = distinct !{!11, !7, !8}
-!12 = distinct !{!12, !7, !8}
-!13 = distinct !{!13, !7, !8}
-!14 = distinct !{!14, !7, !8}
-!15 = distinct !{!15, !7, !8}
-!16 = distinct !{!16, !7, !8}
-!17 = distinct !{!17, !7, !8}
-!18 = distinct !{!18, !7, !8}
-!19 = distinct !{!19, !7, !8}
-!20 = distinct !{!20, !7, !8}
-!21 = distinct !{!21, !7, !8}
-!22 = distinct !{!22, !7, !8}
-!23 = distinct !{!23, !7, !8}
-!24 = distinct !{!24, !7, !8}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7}
+!12 = distinct !{!12, !7}
+!13 = distinct !{!13, !7}
+!14 = distinct !{!14, !7}
+!15 = distinct !{!15, !7}
+!16 = distinct !{!16, !7}
+!17 = distinct !{!17, !7}
+!18 = distinct !{!18, !7}
+!19 = distinct !{!19, !7}
+!20 = distinct !{!20, !7}
+!21 = distinct !{!21, !7}
+!22 = distinct !{!22, !7}
+!23 = distinct !{!23, !7}

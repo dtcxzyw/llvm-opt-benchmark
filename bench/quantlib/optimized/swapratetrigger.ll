@@ -662,7 +662,7 @@ while.end:                                        ; preds = %land.rhs, %while.bo
   store i64 %j.1.lcssa, ptr %add.ptr.i133, align 8, !tbaa !17
   %inc95 = add nuw i64 %i.0202, 1
   %exitcond203.not = icmp eq i64 %inc95, %sub.ptr.div.i126
-  br i1 %exitcond203.not, label %for.cond.cleanup, label %while.cond.preheader, !llvm.loop !30
+  br i1 %exitcond203.not, label %for.cond.cleanup, label %while.cond.preheader, !llvm.loop !29
 
 ehcleanup96:                                      ; preds = %ehcleanup82, %ehcleanup37, %lpad6
   %.pn20.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn20.pn.pn.pn.pn, %ehcleanup82 ], [ %17, %lpad6 ], [ %.pn.pn.pn.pn.pn, %ehcleanup37 ]
@@ -747,7 +747,7 @@ define linkonce_odr void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC
 entry:
   %__dnew.i = alloca i64, align 8
   %0 = getelementptr inbounds nuw i8, ptr %this, i64 16
-  store ptr %0, ptr %this, align 8, !tbaa !31
+  store ptr %0, ptr %this, align 8, !tbaa !30
   %cmp = icmp eq ptr %__s, null
   br i1 %cmp, label %if.then, label %if.end
 
@@ -806,7 +806,7 @@ define linkonce_odr void @_ZN8QuantLib5ErrorD2Ev(ptr noundef nonnull align 8 der
 entry:
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib5ErrorE, i64 16), ptr %this, align 8, !tbaa !3
   %pn.i = getelementptr inbounds nuw i8, ptr %this, i64 16
-  %0 = load ptr, ptr %pn.i, align 8, !tbaa !32
+  %0 = load ptr, ptr %pn.i, align 8, !tbaa !31
   %cmp.not.i.i = icmp eq ptr %0, null
   br i1 %cmp.not.i.i, label %_ZN5boost10shared_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit, label %if.then.i.i
 
@@ -950,7 +950,7 @@ _ZNSt6vectorIdSaIdEEC2ERKS1_.exit:                ; preds = %invoke.cont.i.threa
 define void @_ZN8QuantLib15SwapRateTrigger5resetEv(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(112) initializes((80, 88)) %this) unnamed_addr #6 align 2 {
 entry:
   %currentIndex_ = getelementptr inbounds nuw i8, ptr %this, i64 80
-  store i64 0, ptr %currentIndex_, align 8, !tbaa !34
+  store i64 0, ptr %currentIndex_, align 8, !tbaa !33
   ret void
 }
 
@@ -959,7 +959,7 @@ define noundef zeroext i1 @_ZNK8QuantLib15SwapRateTrigger8exerciseERKNS_10CurveS
 entry:
   %rateIndex_ = getelementptr inbounds nuw i8, ptr %this, i64 88
   %currentIndex_ = getelementptr inbounds nuw i8, ptr %this, i64 80
-  %0 = load i64, ptr %currentIndex_, align 8, !tbaa !34
+  %0 = load i64, ptr %currentIndex_, align 8, !tbaa !33
   %1 = load ptr, ptr %rateIndex_, align 8, !tbaa !14
   %2 = getelementptr i64, ptr %1, i64 %0
   %add.ptr.i = getelementptr i8, ptr %2, i64 -8
@@ -969,7 +969,7 @@ entry:
   %4 = load ptr, ptr %vfn, align 8
   %call2 = tail call noundef double %4(ptr noundef nonnull align 8 dereferenceable(64) %currentState, i64 noundef %3)
   %swapTriggers_ = getelementptr inbounds nuw i8, ptr %this, i64 32
-  %5 = load i64, ptr %currentIndex_, align 8, !tbaa !34
+  %5 = load i64, ptr %currentIndex_, align 8, !tbaa !33
   %6 = load ptr, ptr %swapTriggers_, align 8, !tbaa !10
   %7 = getelementptr double, ptr %6, i64 %5
   %add.ptr.i1 = getelementptr i8, ptr %7, i64 -8
@@ -982,9 +982,9 @@ entry:
 define void @_ZN8QuantLib15SwapRateTrigger8nextStepERKNS_10CurveStateE(ptr noundef nonnull align 8 captures(none) dereferenceable(112) %this, ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #7 align 2 {
 entry:
   %currentIndex_ = getelementptr inbounds nuw i8, ptr %this, i64 80
-  %1 = load i64, ptr %currentIndex_, align 8, !tbaa !34
+  %1 = load i64, ptr %currentIndex_, align 8, !tbaa !33
   %inc = add i64 %1, 1
-  store i64 %inc, ptr %currentIndex_, align 8, !tbaa !34
+  store i64 %inc, ptr %currentIndex_, align 8, !tbaa !33
   ret void
 }
 
@@ -1162,8 +1162,8 @@ invoke.cont8:                                     ; preds = %if.then.i.i.i.i.i.i
   store ptr %add.ptr.i.i.i.i.i.i.i.i.i52, ptr %_M_finish.i.i.i44, align 8, !tbaa !6
   %currentIndex_ = getelementptr inbounds nuw i8, ptr %this, i64 80
   %currentIndex_9 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %13 = load i64, ptr %currentIndex_9, align 8, !tbaa !34
-  store i64 %13, ptr %currentIndex_, align 8, !tbaa !34
+  %13 = load i64, ptr %currentIndex_9, align 8, !tbaa !33
+  store i64 %13, ptr %currentIndex_, align 8, !tbaa !33
   %rateIndex_ = getelementptr inbounds nuw i8, ptr %this, i64 88
   %rateIndex_10 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %_M_finish.i.i58 = getelementptr inbounds nuw i8, ptr %0, i64 96
@@ -1508,19 +1508,18 @@ attributes #23 = { noreturn nounwind }
 !24 = !{!9, !9, i64 0}
 !25 = !{!26, !26, i64 0}
 !26 = !{!"double", !9, i64 0}
-!27 = distinct !{!27, !28, !29}
+!27 = distinct !{!27, !28}
 !28 = !{!"llvm.loop.mustprogress"}
-!29 = !{!"llvm.loop.estimated_trip_count"}
-!30 = distinct !{!30, !28, !29}
-!31 = !{!22, !8, i64 0}
-!32 = !{!33, !8, i64 0}
-!33 = !{!"_ZTSN5boost6detail12shared_countE", !8, i64 0}
-!34 = !{!35, !18, i64 80}
-!35 = !{!"_ZTSN8QuantLib15SwapRateTriggerE", !36, i64 0, !37, i64 8, !37, i64 32, !37, i64 56, !18, i64 80, !40, i64 88}
-!36 = !{!"_ZTSN8QuantLib16ExerciseStrategyINS_10CurveStateEEE"}
-!37 = !{!"_ZTSSt6vectorIdSaIdEE", !38, i64 0}
-!38 = !{!"_ZTSSt12_Vector_baseIdSaIdEE", !39, i64 0}
-!39 = !{!"_ZTSNSt12_Vector_baseIdSaIdEE12_Vector_implE", !7, i64 0}
-!40 = !{!"_ZTSSt6vectorImSaImEE", !41, i64 0}
-!41 = !{!"_ZTSSt12_Vector_baseImSaImEE", !42, i64 0}
-!42 = !{!"_ZTSNSt12_Vector_baseImSaImEE12_Vector_implE", !15, i64 0}
+!29 = distinct !{!29, !28}
+!30 = !{!22, !8, i64 0}
+!31 = !{!32, !8, i64 0}
+!32 = !{!"_ZTSN5boost6detail12shared_countE", !8, i64 0}
+!33 = !{!34, !18, i64 80}
+!34 = !{!"_ZTSN8QuantLib15SwapRateTriggerE", !35, i64 0, !36, i64 8, !36, i64 32, !36, i64 56, !18, i64 80, !39, i64 88}
+!35 = !{!"_ZTSN8QuantLib16ExerciseStrategyINS_10CurveStateEEE"}
+!36 = !{!"_ZTSSt6vectorIdSaIdEE", !37, i64 0}
+!37 = !{!"_ZTSSt12_Vector_baseIdSaIdEE", !38, i64 0}
+!38 = !{!"_ZTSNSt12_Vector_baseIdSaIdEE12_Vector_implE", !7, i64 0}
+!39 = !{!"_ZTSSt6vectorImSaImEE", !40, i64 0}
+!40 = !{!"_ZTSSt12_Vector_baseImSaImEE", !41, i64 0}
+!41 = !{!"_ZTSNSt12_Vector_baseImSaImEE12_Vector_implE", !15, i64 0}

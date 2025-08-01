@@ -436,6 +436,5 @@ attributes #15 = { builtin nounwind }
 !29 = !{!"vtable pointer", !7, i64 0}
 !30 = !{!26, !26, i64 0}
 !31 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!32 = distinct !{!32, !33, !34}
+!32 = distinct !{!32, !33}
 !33 = !{!"llvm.loop.mustprogress"}
-!34 = !{!"llvm.loop.estimated_trip_count"}

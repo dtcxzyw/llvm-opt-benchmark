@@ -79,7 +79,7 @@ define hidden ptr @get_args_as_string(i32 noundef %0, ptr noundef readonly captu
   %28 = tail call i64 @g_strlcat(ptr noundef %16, ptr noundef %27, i64 noundef %15)
   %29 = add i32 %23, 1
   %30 = icmp eq i32 %29, %0
-  br i1 %30, label %.loopexit, label %.lr.ph29, !llvm.loop !9
+  br i1 %30, label %.loopexit, label %.lr.ph29
 
 .loopexit:                                        ; preds = %.lr.ph29, %14, %._crit_edge.thread
   %.0 = phi ptr [ %13, %._crit_edge.thread ], [ %16, %14 ], [ %16, %.lr.ph29 ]
@@ -319,7 +319,7 @@ sanitize_filter_ip.exit106:                       ; preds = %57, %59, %61
 
 66:                                               ; preds = %.preheader
   %67 = getelementptr i8, ptr %.073, i64 1
-  br label %.preheader, !llvm.loop !10
+  br label %.preheader, !llvm.loop !8
 
 68:                                               ; preds = %.preheader, %.preheader
   %.not90 = icmp eq ptr %.073, %64
@@ -364,7 +364,7 @@ sanitize_filter_ip.exit106:                       ; preds = %57, %59, %61
 82:                                               ; preds = %79, %81
   %.175 = phi ptr [ %.2, %81 ], [ %.074, %79 ]
   %83 = getelementptr i8, ptr %.2, i64 1
-  br label %79, !llvm.loop !11
+  br label %79, !llvm.loop !9
 
 84:                                               ; preds = %79
   %85 = icmp eq ptr %.074, null
@@ -396,7 +396,7 @@ sanitize_filter_ip.exit106:                       ; preds = %57, %59, %61
   %100 = tail call noalias ptr @g_malloc(i64 noundef %99) #11
   %101 = icmp ne i64 %99, -1
   tail call void @llvm.assume(i1 %101)
-  %102 = tail call ptr @__memcpy_chk(ptr noundef %100, ptr noundef %.1, i64 noundef range(i64 1, 0) %98, i64 noundef %99) #12, !alias.scope !12
+  %102 = tail call ptr @__memcpy_chk(ptr noundef %100, ptr noundef %.1, i64 noundef range(i64 1, 0) %98, i64 noundef %99) #12, !alias.scope !10
   %103 = getelementptr i8, ptr %100, i64 %98
   store i8 0, ptr %103, align 1
   br i1 %.072, label %104, label %119
@@ -612,13 +612,11 @@ attributes #13 = { noreturn }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !8}
-!10 = distinct !{!10, !7, !8}
-!11 = distinct !{!11, !7, !8}
-!12 = !{!13, !15}
-!13 = distinct !{!13, !14, !"memcpy.inline: argument 0"}
-!14 = distinct !{!14, !"memcpy.inline"}
-!15 = distinct !{!15, !14, !"memcpy.inline: argument 1"}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = !{!11, !13}
+!11 = distinct !{!11, !12, !"memcpy.inline: argument 0"}
+!12 = distinct !{!12, !"memcpy.inline"}
+!13 = distinct !{!13, !12, !"memcpy.inline: argument 1"}

@@ -499,9 +499,9 @@ define internal fastcc i32 @reconnect_path(ptr noundef %0, ptr noundef nonnull %
   br i1 %86, label %87, label %88, !prof !8
 
 87:                                               ; preds = %.preheader
-  tail call void asm sideeffect "305: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 305b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 305) #7, !srcloc !15
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 97, i32 2307, i64 12) #7, !srcloc !16
-  tail call void asm sideeffect "306: nop\0A\09.pushsection .discard.instr_end\0A\09.long 306b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 306) #7, !srcloc !17
+  tail call void asm sideeffect "305: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 305b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 305) #7, !srcloc !14
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 97, i32 2307, i64 12) #7, !srcloc !15
+  tail call void asm sideeffect "306: nop\0A\09.pushsection .discard.instr_end\0A\09.long 306b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 306) #7, !srcloc !16
   br label %88
 
 88:                                               ; preds = %87, %.preheader
@@ -515,7 +515,7 @@ define internal fastcc i32 @reconnect_path(ptr noundef %0, ptr noundef nonnull %
   %92 = load i32, ptr %83, align 8
   %93 = and i32 %92, 32
   %94 = icmp eq i32 %93, 0
-  br i1 %94, label %.loopexit, label %.preheader, !llvm.loop !18
+  br i1 %94, label %.loopexit, label %.preheader, !llvm.loop !17
 
 .loopexit:                                        ; preds = %88, %.loopexit15
   %95 = phi ptr [ %1, %.loopexit15 ], [ %83, %88 ]
@@ -584,7 +584,7 @@ define internal fastcc ptr @find_acceptable_alias(ptr noundef %0, ptr noundef no
   %31 = getelementptr i8, ptr %29, i64 -176
   %32 = icmp eq ptr %31, null
   %33 = or i1 %30, %32
-  br i1 %33, label %34, label %.preheader, !llvm.loop !19
+  br i1 %33, label %34, label %.preheader, !llvm.loop !18
 
 34:                                               ; preds = %27
   tail call void @_raw_spin_unlock(ptr noundef nonnull %9) #7
@@ -620,7 +620,7 @@ define internal fastcc i32 @exportfs_get_name(ptr noundef %0, ptr noundef %1, pt
   br label %71
 
 19:                                               ; preds = %4
-  %20 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #8, !srcloc !20
+  %20 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #8, !srcloc !19
   %21 = inttoptr i64 %20 to ptr
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 1784
   %23 = load ptr, ptr %22, align 8
@@ -699,7 +699,7 @@ define internal fastcc i32 @exportfs_get_name(ptr noundef %0, ptr noundef %1, pt
 66:                                               ; preds = %64
   %67 = load i32, ptr %31, align 4
   %.not = icmp eq i32 %60, %67
-  br i1 %.not, label %.thread, label %59, !llvm.loop !21
+  br i1 %.not, label %.thread, label %59
 
 .thread:                                          ; preds = %64, %59, %66, %52
   %68 = phi i32 [ -22, %52 ], [ 0, %59 ], [ %61, %64 ], [ -2, %66 ]
@@ -822,14 +822,12 @@ attributes #8 = { nounwind memory(none) }
 !8 = !{!"branch_weights", i32 1, i32 2000}
 !9 = !{i64 2153795289, i64 2153795098, i64 2153795150, i64 2153795196, i64 2153795224}
 !10 = !{i64 2153795363, i64 2153795392, i64 2153795438, i64 2153795496, i64 2153795550, i64 2153795604, i64 2153795659, i64 2153795690}
-!11 = distinct !{!11, !12, !13, !14}
+!11 = distinct !{!11, !12, !13}
 !12 = !{!"llvm.loop.mustprogress"}
 !13 = !{!"llvm.loop.unroll.disable"}
-!14 = !{!"llvm.loop.estimated_trip_count"}
-!15 = !{i64 2153790181, i64 2153789990, i64 2153790042, i64 2153790088, i64 2153790116}
-!16 = !{i64 2153790255, i64 2153790284, i64 2153790330, i64 2153790388, i64 2153790442, i64 2153790496, i64 2153790551, i64 2153790582, i64 2153790890, i64 2153790896, i64 2153790943, i64 2153790966, i64 2153790992}
-!17 = !{i64 2153791443, i64 2153791254, i64 2153791304, i64 2153791350, i64 2153791378}
-!18 = distinct !{!18, !12, !13, !14}
-!19 = distinct !{!19, !12, !13, !14}
-!20 = !{i64 2148149072}
-!21 = distinct !{!21, !14}
+!14 = !{i64 2153790181, i64 2153789990, i64 2153790042, i64 2153790088, i64 2153790116}
+!15 = !{i64 2153790255, i64 2153790284, i64 2153790330, i64 2153790388, i64 2153790442, i64 2153790496, i64 2153790551, i64 2153790582, i64 2153790890, i64 2153790896, i64 2153790943, i64 2153790966, i64 2153790992}
+!16 = !{i64 2153791443, i64 2153791254, i64 2153791304, i64 2153791350, i64 2153791378}
+!17 = distinct !{!17, !12, !13}
+!18 = distinct !{!18, !12, !13}
+!19 = !{i64 2148149072}

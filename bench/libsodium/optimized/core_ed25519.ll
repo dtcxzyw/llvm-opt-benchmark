@@ -232,7 +232,7 @@ define dso_local range(i32 -1, 1) i32 @crypto_core_ed25519_from_string_ro(ptr no
   call void @_sodium_ge25519_from_hash(ptr noundef %24, ptr noundef nonnull %9) #6
   %25 = add nuw nsw i64 %.01823.i, 1
   %exitcond24.not.i = icmp eq i64 %25, 2
-  br i1 %exitcond24.not.i, label %26, label %.preheader.i, !llvm.loop !7
+  br i1 %exitcond24.not.i, label %26, label %.preheader.i, !llvm.loop !6
 
 _string_to_points.exit:                           ; preds = %5
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %10) #6
@@ -315,7 +315,7 @@ define dso_local void @crypto_core_ed25519_scalar_random(ptr noundef nonnull %0)
   br i1 %.not, label %9, label %.critedge.backedge
 
 .critedge.backedge:                               ; preds = %7, %.critedge
-  br label %.critedge, !llvm.loop !8
+  br label %.critedge, !llvm.loop !7
 
 9:                                                ; preds = %7
   ret void
@@ -523,8 +523,7 @@ attributes #6 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = distinct !{!4, !5, !6}
+!4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{!"llvm.loop.estimated_trip_count"}
-!7 = distinct !{!7, !5, !6}
-!8 = distinct !{!8, !6}
+!6 = distinct !{!6, !5}
+!7 = distinct !{!7, !5}

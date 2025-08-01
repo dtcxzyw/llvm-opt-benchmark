@@ -676,7 +676,7 @@ define internal noundef zeroext i1 @dissect_rgoose_heur(ptr noundef %0, ptr noun
   %104 = load i32, ptr @ett_goose_GOOSEpdu, align 4
   %105 = call i32 @dissect_ber_choice(ptr noundef nonnull %12, ptr noundef %77, ptr noundef %0, i32 noundef %103, ptr noundef nonnull @GOOSEpdu_choice, i32 noundef -1, i32 noundef %104, ptr noundef null)
   %106 = icmp eq i32 %105, %103
-  br i1 %106, label %107, label %81, !llvm.loop !9
+  br i1 %106, label %107, label %81, !llvm.loop !8
 
 107:                                              ; preds = %97
   %108 = call ptr @proto_tree_add_expert(ptr noundef %77, ptr noundef %1, ptr noundef nonnull @ei_goose_zero_pdu, ptr noundef %0, i32 noundef %103, i32 noundef -1)
@@ -1008,9 +1008,9 @@ define internal i32 @dissect_goose_T_simulation(i1 noundef zeroext %0, ptr nound
   br i1 %.not20, label %26, label %15
 
 15:                                               ; preds = %12
-  %16 = load i8, ptr %11, align 1, !range !10, !noundef !11
+  %16 = load i8, ptr %11, align 1, !range !9, !noundef !10
   %17 = trunc nuw i8 %16 to i1
-  %18 = load i8, ptr %7, align 1, !range !10
+  %18 = load i8, ptr %7, align 1, !range !9
   %19 = icmp eq i8 %18, 0
   %or.cond = select i1 %17, i1 %19, i1 false
   br i1 %or.cond, label %20, label %26
@@ -1193,9 +1193,8 @@ attributes #5 = { allocsize(1) }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = !{i8 0, i8 2}
-!11 = !{}
+!8 = distinct !{!8, !7}
+!9 = !{i8 0, i8 2}
+!10 = !{}

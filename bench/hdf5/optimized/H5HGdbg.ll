@@ -128,7 +128,7 @@ define range(i32 -1, 1) i32 @H5HG_debug(ptr noundef %0, i64 noundef %1, ptr noun
   %54 = getelementptr inbounds nuw i8, ptr %16, i64 296
   %55 = load ptr, ptr %54, align 8, !tbaa !30
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 8
-  %57 = load i64, ptr %56, align 8, !tbaa !36
+  %57 = load i64, ptr %56, align 8, !tbaa !35
   %58 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.6, i32 noundef %3, ptr noundef nonnull @.str.3, i32 noundef %4, ptr noundef nonnull @.str.12, i64 noundef %57) #6
   %59 = load i64, ptr %30, align 8, !tbaa !28
   %60 = icmp ugt i64 %59, 1
@@ -160,18 +160,18 @@ define range(i32 -1, 1) i32 @H5HG_debug(ptr noundef %0, i64 noundef %1, ptr noun
   %75 = load ptr, ptr %54, align 8, !tbaa !30
   %76 = getelementptr inbounds nuw %struct.H5HG_obj_t, ptr %75, i64 %69, i32 2
   %77 = load ptr, ptr %76, align 8, !tbaa !31
-  %78 = load ptr, ptr %64, align 8, !tbaa !37
+  %78 = load ptr, ptr %64, align 8, !tbaa !36
   %79 = ptrtoint ptr %77 to i64
   %80 = ptrtoint ptr %78 to i64
   %81 = sub i64 %79, %80
   %82 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.6, i32 noundef %61, ptr noundef nonnull @.str.3, i32 noundef %63, ptr noundef nonnull @.str.15, i64 noundef %81) #6
   %83 = load ptr, ptr %54, align 8, !tbaa !30
   %84 = getelementptr inbounds nuw %struct.H5HG_obj_t, ptr %83, i64 %69
-  %85 = load i32, ptr %84, align 8, !tbaa !38
+  %85 = load i32, ptr %84, align 8, !tbaa !37
   %86 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.4, i32 noundef %61, ptr noundef nonnull @.str.3, i32 noundef %63, ptr noundef nonnull @.str.16, i32 noundef %85) #6
   %87 = load ptr, ptr %54, align 8, !tbaa !30
   %88 = getelementptr inbounds nuw %struct.H5HG_obj_t, ptr %87, i64 %69, i32 1
-  %89 = load i64, ptr %88, align 8, !tbaa !36
+  %89 = load i64, ptr %88, align 8, !tbaa !35
   %90 = add i64 %89, 7
   %91 = and i64 %90, -8
   %92 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.17, i32 noundef %61, ptr noundef nonnull @.str.3, i32 noundef %63, ptr noundef nonnull @.str.18, i64 noundef %89, i64 noundef %91) #6
@@ -185,7 +185,7 @@ define range(i32 -1, 1) i32 @H5HG_debug(ptr noundef %0, i64 noundef %1, ptr noun
   %100 = getelementptr inbounds nuw i8, ptr %95, i64 %99
   %101 = load ptr, ptr %54, align 8, !tbaa !30
   %102 = getelementptr inbounds nuw %struct.H5HG_obj_t, ptr %101, i64 %69, i32 1
-  %103 = load i64, ptr %102, align 8, !tbaa !36
+  %103 = load i64, ptr %102, align 8, !tbaa !35
   %.not148 = icmp eq i64 %103, 0
   br i1 %.not148, label %._crit_edge143, label %.lr.ph142
 
@@ -208,13 +208,13 @@ define range(i32 -1, 1) i32 @H5HG_debug(ptr noundef %0, i64 noundef %1, ptr noun
   %110 = or disjoint i64 %indvars.iv, %105
   %111 = load ptr, ptr %54, align 8, !tbaa !30
   %112 = getelementptr inbounds nuw %struct.H5HG_obj_t, ptr %111, i64 %69, i32 1
-  %113 = load i64, ptr %112, align 8, !tbaa !36
+  %113 = load i64, ptr %112, align 8, !tbaa !35
   %114 = icmp ugt i64 %113, %110
   br i1 %114, label %115, label %120
 
 115:                                              ; preds = %109
   %116 = getelementptr inbounds nuw i8, ptr %100, i64 %110
-  %117 = load i8, ptr %116, align 1, !tbaa !39
+  %117 = load i8, ptr %116, align 1, !tbaa !38
   %118 = zext i8 %117 to i32
   %119 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.21, i32 noundef %118) #6
   br label %122
@@ -226,14 +226,14 @@ define range(i32 -1, 1) i32 @H5HG_debug(ptr noundef %0, i64 noundef %1, ptr noun
 122:                                              ; preds = %115, %120
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
-  br i1 %exitcond.not, label %.preheader, label %106, !llvm.loop !40
+  br i1 %exitcond.not, label %.preheader, label %106, !llvm.loop !39
 
 .preheader:                                       ; preds = %122, %131
   %indvars.iv150 = phi i64 [ %indvars.iv.next151, %131 ], [ 0, %122 ]
   %123 = or disjoint i64 %indvars.iv150, %105
   %124 = load ptr, ptr %54, align 8, !tbaa !30
   %125 = getelementptr inbounds nuw %struct.H5HG_obj_t, ptr %124, i64 %69, i32 1
-  %126 = load i64, ptr %125, align 8, !tbaa !36
+  %126 = load i64, ptr %125, align 8, !tbaa !35
   %127 = icmp ugt i64 %126, %123
   br i1 %127, label %128, label %.critedge
 
@@ -247,7 +247,7 @@ define range(i32 -1, 1) i32 @H5HG_debug(ptr noundef %0, i64 noundef %1, ptr noun
 
 131:                                              ; preds = %130, %128
   %132 = getelementptr inbounds nuw i8, ptr %100, i64 %123
-  %133 = load i8, ptr %132, align 1, !tbaa !39
+  %133 = load i8, ptr %132, align 1, !tbaa !38
   %134 = add i8 %133, -33
   %or.cond = icmp ult i8 %134, 94
   %narrow = select i1 %or.cond, i8 %133, i8 46
@@ -255,7 +255,7 @@ define range(i32 -1, 1) i32 @H5HG_debug(ptr noundef %0, i64 noundef %1, ptr noun
   %136 = call i32 @fputc(i32 noundef %135, ptr noundef %2)
   %indvars.iv.next151 = add nuw nsw i64 %indvars.iv150, 1
   %exitcond153.not = icmp eq i64 %indvars.iv.next151, 16
-  br i1 %exitcond153.not, label %.critedge, label %.preheader, !llvm.loop !41
+  br i1 %exitcond153.not, label %.critedge, label %.preheader, !llvm.loop !40
 
 .critedge:                                        ; preds = %131, %.preheader
   %fputc = call i32 @fputc(i32 10, ptr %2)
@@ -263,9 +263,9 @@ define range(i32 -1, 1) i32 @H5HG_debug(ptr noundef %0, i64 noundef %1, ptr noun
   %138 = zext i32 %137 to i64
   %139 = load ptr, ptr %54, align 8, !tbaa !30
   %140 = getelementptr inbounds nuw %struct.H5HG_obj_t, ptr %139, i64 %69, i32 1
-  %141 = load i64, ptr %140, align 8, !tbaa !36
+  %141 = load i64, ptr %140, align 8, !tbaa !35
   %142 = icmp ugt i64 %141, %138
-  br i1 %142, label %.lr.ph142, label %._crit_edge143, !llvm.loop !42
+  br i1 %142, label %.lr.ph142, label %._crit_edge143, !llvm.loop !41
 
 ._crit_edge143:                                   ; preds = %.critedge, %72
   %143 = phi ptr [ %101, %72 ], [ %139, %.critedge ]
@@ -279,7 +279,7 @@ define range(i32 -1, 1) i32 @H5HG_debug(ptr noundef %0, i64 noundef %1, ptr noun
   %147 = add i32 %.1119144, 1
   %148 = zext i32 %147 to i64
   %149 = icmp ugt i64 %145, %148
-  br i1 %149, label %66, label %._crit_edge147, !llvm.loop !43
+  br i1 %149, label %66, label %._crit_edge147, !llvm.loop !42
 
 ._crit_edge147:                                   ; preds = %144, %53
   %150 = call i32 @H5AC_unprotect(ptr noundef %0, ptr noundef nonnull @H5AC_GHEAP, i64 noundef %1, ptr noundef nonnull %16, i32 noundef 0) #6
@@ -372,14 +372,13 @@ attributes #6 = { nounwind }
 !30 = !{!14, !26, i64 296}
 !31 = !{!32, !24, i64 16}
 !32 = !{!"H5HG_obj_t", !19, i64 0, !12, i64 8, !24, i64 16}
-!33 = distinct !{!33, !34, !35}
+!33 = distinct !{!33, !34}
 !34 = !{!"llvm.loop.mustprogress"}
-!35 = !{!"llvm.loop.estimated_trip_count"}
-!36 = !{!32, !12, i64 8}
-!37 = !{!14, !24, i64 264}
-!38 = !{!32, !19, i64 0}
-!39 = !{!5, !5, i64 0}
-!40 = distinct !{!40, !34, !35}
-!41 = distinct !{!41, !34, !35}
-!42 = distinct !{!42, !34, !35}
-!43 = distinct !{!43, !34, !35}
+!35 = !{!32, !12, i64 8}
+!36 = !{!14, !24, i64 264}
+!37 = !{!32, !19, i64 0}
+!38 = !{!5, !5, i64 0}
+!39 = distinct !{!39, !34}
+!40 = distinct !{!40, !34}
+!41 = distinct !{!41, !34}
+!42 = distinct !{!42, !34}

@@ -244,8 +244,8 @@ cond.true:                                        ; preds = %if.end24
   br label %cond.end
 
 cond.false:                                       ; preds = %if.end24
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i.i), !noalias !7
-  %6 = load ptr, ptr %Argv0, align 8, !noalias !10
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i.i), !noalias !6
+  %6 = load ptr, ptr %Argv0, align 8, !noalias !9
   %tobool.not.i.i = icmp eq ptr %6, null
   br i1 %tobool.not.i.i, label %if.then.i.i, label %if.end.i.i
 
@@ -254,13 +254,13 @@ if.then.i.i:                                      ; preds = %cond.false
   br label %_ZNK4llvh9StringRefcvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEv.exit
 
 if.end.i.i:                                       ; preds = %cond.false
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i) #15, !noalias !10
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i) #15, !noalias !9
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcmRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %MainExecutableName, ptr noundef nonnull %6, i64 noundef %5, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i) #15
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i) #15
   br label %_ZNK4llvh9StringRefcvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEv.exit
 
 _ZNK4llvh9StringRefcvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEv.exit: ; preds = %if.then.i.i, %if.end.i.i
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i.i), !noalias !7
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i.i), !noalias !6
   br label %cond.end
 
 cond.end:                                         ; preds = %_ZNK4llvh9StringRefcvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEv.exit, %cond.true
@@ -302,7 +302,7 @@ for.body.i.i:                                     ; preds = %_ZNSt6vectorIPKcSaI
   call void @free(ptr noundef %9) #15
   %incdec.ptr.i.i = getelementptr inbounds nuw i8, ptr %I.addr.05.i.i, i64 8
   %cmp.not.i.i = icmp eq ptr %incdec.ptr.i.i, %add.ptr.i.i
-  br i1 %cmp.not.i.i, label %_ZN4llvh20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096EE15DeallocateSlabsEPPvS4_.exit.i, label %for.body.i.i, !llvm.loop !13
+  br i1 %cmp.not.i.i, label %_ZN4llvh20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096EE15DeallocateSlabsEPPvS4_.exit.i, label %for.body.i.i, !llvm.loop !12
 
 _ZN4llvh20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096EE15DeallocateSlabsEPPvS4_.exit.i: ; preds = %for.body.i.i, %_ZNSt6vectorIPKcSaIS1_EE17_S_check_init_lenEmRKS2_.exit.i
   %10 = load ptr, ptr %CustomSizedSlabs.i, align 8
@@ -319,7 +319,7 @@ for.body.i1.i:                                    ; preds = %_ZN4llvh20BumpPtrAl
   call void @free(ptr noundef %12) #15
   %incdec.ptr.i2.i = getelementptr inbounds nuw i8, ptr %__begin2.06.i.i, i64 16
   %cmp.not.i3.i = icmp eq ptr %incdec.ptr.i2.i, %add.ptr.i.i.i120
-  br i1 %cmp.not.i3.i, label %_ZN4llvh20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096EE26DeallocateCustomSizedSlabsEv.exit.loopexit.i, label %for.body.i1.i, !llvm.loop !14
+  br i1 %cmp.not.i3.i, label %_ZN4llvh20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096EE26DeallocateCustomSizedSlabsEv.exit.loopexit.i, label %for.body.i1.i
 
 _ZN4llvh20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096EE26DeallocateCustomSizedSlabsEv.exit.loopexit.i: ; preds = %for.body.i1.i
   %.pre.i = load ptr, ptr %CustomSizedSlabs.i, align 8
@@ -419,7 +419,7 @@ for.inc.i.i:                                      ; preds = %if.end7.i.i, %if.en
   %Next.i.i = getelementptr inbounds nuw i8, ptr %currentFile.03.i.i, i64 8
   %4 = load atomic i64, ptr %Next.i.i seq_cst, align 8
   %tobool.not.i.i = icmp eq i64 %4, 0
-  br i1 %tobool.not.i.i, label %_ZL19RemoveFilesToRemovev.exit, label %for.body.i.i, !llvm.loop !15
+  br i1 %tobool.not.i.i, label %_ZL19RemoveFilesToRemovev.exit, label %for.body.i.i, !llvm.loop !13
 
 _ZL19RemoveFilesToRemovev.exit:                   ; preds = %for.inc.i.i, %entry
   %5 = atomicrmw xchg ptr @_ZN12_GLOBAL__N_113FilesToRemoveE, i64 %0 seq_cst, align 8
@@ -548,7 +548,7 @@ for.body:                                         ; preds = %_ZL17CreateSigAltSt
   call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %NewHandler.i)
   %__begin1.0.add = add nuw nsw i64 %__begin1.0.idx22, 4
   %cmp2.not = icmp eq i64 %__begin1.0.add, 24
-  br i1 %cmp2.not, label %for.cond6.preheader, label %for.body, !llvm.loop !16
+  br i1 %cmp2.not, label %for.cond6.preheader, label %for.body
 
 for.body8:                                        ; preds = %for.cond6.preheader, %for.body8
   %__begin14.0.idx23 = phi i64 [ 0, %for.cond6.preheader ], [ %__begin14.0.add, %for.body8 ]
@@ -568,7 +568,7 @@ for.body8:                                        ; preds = %for.cond6.preheader
   call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %NewHandler.i9)
   %__begin14.0.add = add nuw nsw i64 %__begin14.0.idx23, 4
   %cmp7.not = icmp eq i64 %__begin14.0.add, 40
-  br i1 %cmp7.not, label %cleanup, label %for.body8, !llvm.loop !17
+  br i1 %cmp7.not, label %cleanup, label %for.body8
 
 cleanup:                                          ; preds = %for.body8, %_ZN4llvh3sys15SmartScopedLockILb1EEC2ERNS0_10SmartMutexILb1EEE.exit
   %call.i.i17 = call noundef zeroext i1 @_ZN4llvh21llvm_is_multithreadedEv() #15
@@ -613,7 +613,7 @@ if.then.i2:                                       ; preds = %_ZN4llvh13ManagedSt
   br label %_ZNK4llvh9StringRef3strB5cxx11Ev.exit
 
 if.end.i:                                         ; preds = %_ZN4llvh13ManagedStaticIN12_GLOBAL__N_120FilesToRemoveCleanupENS_14object_creatorIS2_EENS_14object_deleterIS2_EEEdeEv.exit
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i) #15, !noalias !18
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i) #15, !noalias !14
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcmRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull %Filename.coerce0, i64 noundef %Filename.coerce1, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i) #15
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i) #15
   br label %_ZNK4llvh9StringRef3strB5cxx11Ev.exit
@@ -638,7 +638,7 @@ while.body.i:                                     ; preds = %_ZNK4llvh9StringRef
   %Next.i = getelementptr inbounds nuw i8, ptr %7, i64 8
   %8 = cmpxchg ptr %Next.i, i64 0, i64 %2 seq_cst seq_cst, align 8
   %9 = extractvalue { i64, i1 } %8, 1
-  br i1 %9, label %_ZN12_GLOBAL__N_116FileToRemoveList6insertERSt6atomicIPS0_ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, label %while.body.i, !llvm.loop !21
+  br i1 %9, label %_ZN12_GLOBAL__N_116FileToRemoveList6insertERSt6atomicIPS0_ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, label %while.body.i, !llvm.loop !17
 
 _ZN12_GLOBAL__N_116FileToRemoveList6insertERSt6atomicIPS0_ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %while.body.i, %_ZNK4llvh9StringRef3strB5cxx11Ev.exit
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #15
@@ -660,7 +660,7 @@ if.then.i:                                        ; preds = %entry
   br label %_ZNK4llvh9StringRef3strB5cxx11Ev.exit
 
 if.end.i:                                         ; preds = %entry
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i) #15, !noalias !22
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i) #15, !noalias !18
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcmRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull %Filename.coerce0, i64 noundef %Filename.coerce1, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i) #15
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i) #15
   br label %_ZNK4llvh9StringRef3strB5cxx11Ev.exit
@@ -724,7 +724,7 @@ for.inc.i:                                        ; preds = %if.then10.i, %if.en
   %Next.i = getelementptr inbounds nuw i8, ptr %Current.03.i, i64 8
   %6 = load atomic i64, ptr %Next.i seq_cst, align 8
   %tobool.not.i2 = icmp eq i64 %6, 0
-  br i1 %tobool.not.i2, label %for.end.i, label %for.body.i, !llvm.loop !25
+  br i1 %tobool.not.i2, label %for.end.i, label %for.body.i, !llvm.loop !21
 
 for.end.i:                                        ; preds = %for.inc.i, %_ZN4llvh3sys15SmartScopedLockILb1EEC2ERNS0_10SmartMutexILb1EEE.exit.i
   %call.i.i9.i = call noundef zeroext i1 @_ZN4llvh21llvm_is_multithreadedEv() #15
@@ -754,7 +754,7 @@ entry:
 for.cond.i:                                       ; preds = %for.body.i
   %inc.i = add nuw nsw i64 %I.07.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i, 8
-  br i1 %exitcond.not.i, label %for.end.i, label %for.body.i, !llvm.loop !26
+  br i1 %exitcond.not.i, label %for.end.i, label %for.body.i, !llvm.loop !22
 
 for.body.i:                                       ; preds = %for.cond.i, %entry
   %I.07.i = phi i64 [ 0, %entry ], [ %inc.i, %for.cond.i ]
@@ -799,7 +799,7 @@ entry:
 for.cond.i.i:                                     ; preds = %for.body.i.i
   %inc.i.i = add nuw nsw i64 %I.07.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %inc.i.i, 8
-  br i1 %exitcond.not.i.i, label %for.end.i.i, label %for.body.i.i, !llvm.loop !26
+  br i1 %exitcond.not.i.i, label %for.end.i.i, label %for.body.i.i, !llvm.loop !22
 
 for.body.i.i:                                     ; preds = %for.cond.i.i, %entry
   %I.07.i.i = phi i64 [ 0, %entry ], [ %inc.i.i, %for.cond.i.i ]
@@ -918,7 +918,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %3 = atomicrmw sub ptr @_ZL20NumRegisteredSignals, i32 1 seq_cst, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %cmp.not.i = icmp eq i64 %indvars.iv.next.i, %1
-  br i1 %cmp.not.i, label %_ZL18UnregisterHandlersv.exit, label %for.body.i, !llvm.loop !27
+  br i1 %cmp.not.i, label %_ZL18UnregisterHandlersv.exit, label %for.body.i, !llvm.loop !23
 
 _ZL18UnregisterHandlersv.exit:                    ; preds = %for.body.i, %entry
   %call = call i32 @sigfillset(ptr noundef nonnull %SigMask) #15
@@ -960,7 +960,7 @@ for.inc.i.i:                                      ; preds = %if.end7.i.i, %if.en
   %Next.i.i = getelementptr inbounds nuw i8, ptr %currentFile.03.i.i, i64 8
   %8 = load atomic i64, ptr %Next.i.i seq_cst, align 8
   %tobool.not.i.i = icmp eq i64 %8, 0
-  br i1 %tobool.not.i.i, label %_ZL19RemoveFilesToRemovev.exit, label %for.body.i.i, !llvm.loop !15
+  br i1 %tobool.not.i.i, label %_ZL19RemoveFilesToRemovev.exit, label %for.body.i.i, !llvm.loop !13
 
 _ZL19RemoveFilesToRemovev.exit:                   ; preds = %for.inc.i.i, %_ZL18UnregisterHandlersv.exit
   %9 = atomicrmw xchg ptr @_ZN12_GLOBAL__N_113FilesToRemoveE, i64 %4 seq_cst, align 8
@@ -1153,27 +1153,23 @@ attributes #20 = { builtin nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5, !6}
+!4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{!"llvm.loop.estimated_trip_count"}
-!7 = !{!8}
-!8 = distinct !{!8, !9, !"_ZNK4llvh9StringRefcvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEv: %agg.result"}
-!9 = distinct !{!9, !"_ZNK4llvh9StringRefcvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEv"}
-!10 = !{!11, !8}
-!11 = distinct !{!11, !12, !"_ZNK4llvh9StringRef3strB5cxx11Ev: %agg.result"}
-!12 = distinct !{!12, !"_ZNK4llvh9StringRef3strB5cxx11Ev"}
-!13 = distinct !{!13, !5, !6}
-!14 = distinct !{!14, !6}
-!15 = distinct !{!15, !5, !6}
-!16 = distinct !{!16, !6}
-!17 = distinct !{!17, !6}
+!6 = !{!7}
+!7 = distinct !{!7, !8, !"_ZNK4llvh9StringRefcvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEv: %agg.result"}
+!8 = distinct !{!8, !"_ZNK4llvh9StringRefcvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEv"}
+!9 = !{!10, !7}
+!10 = distinct !{!10, !11, !"_ZNK4llvh9StringRef3strB5cxx11Ev: %agg.result"}
+!11 = distinct !{!11, !"_ZNK4llvh9StringRef3strB5cxx11Ev"}
+!12 = distinct !{!12, !5}
+!13 = distinct !{!13, !5}
+!14 = !{!15}
+!15 = distinct !{!15, !16, !"_ZNK4llvh9StringRef3strB5cxx11Ev: %agg.result"}
+!16 = distinct !{!16, !"_ZNK4llvh9StringRef3strB5cxx11Ev"}
+!17 = distinct !{!17, !5}
 !18 = !{!19}
 !19 = distinct !{!19, !20, !"_ZNK4llvh9StringRef3strB5cxx11Ev: %agg.result"}
 !20 = distinct !{!20, !"_ZNK4llvh9StringRef3strB5cxx11Ev"}
-!21 = distinct !{!21, !5, !6}
-!22 = !{!23}
-!23 = distinct !{!23, !24, !"_ZNK4llvh9StringRef3strB5cxx11Ev: %agg.result"}
-!24 = distinct !{!24, !"_ZNK4llvh9StringRef3strB5cxx11Ev"}
-!25 = distinct !{!25, !5, !6}
-!26 = distinct !{!26, !5, !6}
-!27 = distinct !{!27, !5, !6}
+!21 = distinct !{!21, !5}
+!22 = distinct !{!22, !5}
+!23 = distinct !{!23, !5}

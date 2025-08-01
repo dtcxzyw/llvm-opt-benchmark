@@ -190,7 +190,7 @@ define internal fastcc i32 @Extra_TruthCanonN_rec(i32 noundef %0, ptr noundef %1
   %106 = getelementptr inbounds nuw i8, ptr %81, i64 %indvars.iv277
   store i8 %105, ptr %106, align 1, !tbaa !10
   %exitcond283.not = icmp eq i64 %indvars.iv.next278, %wide.trip.count282
-  br i1 %exitcond283.not, label %.loopexit, label %102, !llvm.loop !16
+  br i1 %exitcond283.not, label %.loopexit, label %102, !llvm.loop !15
 
 107:                                              ; preds = %93
   %108 = icmp eq i32 %.0177, -1
@@ -218,7 +218,7 @@ define internal fastcc i32 @Extra_TruthCanonN_rec(i32 noundef %0, ptr noundef %1
   %120 = getelementptr inbounds nuw i8, ptr %81, i64 %indvars.iv270
   store i8 %119, ptr %120, align 1, !tbaa !10
   %exitcond276.not = icmp eq i64 %indvars.iv.next271, %wide.trip.count275
-  br i1 %exitcond276.not, label %.loopexit, label %116, !llvm.loop !17
+  br i1 %exitcond276.not, label %.loopexit, label %116, !llvm.loop !16
 
 121:                                              ; preds = %107
   %122 = icmp eq i32 %.0170, -1
@@ -244,7 +244,7 @@ define internal fastcc i32 @Extra_TruthCanonN_rec(i32 noundef %0, ptr noundef %1
   %132 = getelementptr inbounds nuw i8, ptr %81, i64 %indvars.iv263
   store i8 %131, ptr %132, align 1, !tbaa !10
   %exitcond269.not = icmp eq i64 %indvars.iv.next264, %wide.trip.count268
-  br i1 %exitcond269.not, label %.loopexit, label %129, !llvm.loop !18
+  br i1 %exitcond269.not, label %.loopexit, label %129, !llvm.loop !17
 
 133:                                              ; preds = %121
   %134 = call fastcc i32 @Extra_TruthCanonN_rec(i32 noundef %24, ptr noundef nonnull %1, ptr noundef nonnull %6, ptr noundef nonnull %8, i32 noundef 0)
@@ -298,7 +298,7 @@ define internal fastcc i32 @Extra_TruthCanonN_rec(i32 noundef %0, ptr noundef %1
   %.6168 = phi i32 [ 1, %149 ], [ %155, %153 ], [ %.5167207, %151 ]
   %indvars.iv.next259 = add nuw nsw i64 %indvars.iv258, 1
   %exitcond262.not = icmp eq i64 %indvars.iv.next259, %wide.trip.count261
-  br i1 %exitcond262.not, label %.loopexit.sink.split, label %143, !llvm.loop !19
+  br i1 %exitcond262.not, label %.loopexit.sink.split, label %143, !llvm.loop !18
 
 159:                                              ; preds = %133
   %160 = icmp ugt i32 %137, %139
@@ -358,7 +358,7 @@ define internal fastcc i32 @Extra_TruthCanonN_rec(i32 noundef %0, ptr noundef %1
   %.8 = phi i32 [ 1, %172 ], [ %180, %177 ], [ %.7169200, %175 ]
   %indvars.iv.next254 = add nuw nsw i64 %indvars.iv253, 1
   %exitcond257.not = icmp eq i64 %indvars.iv.next254, %wide.trip.count256
-  br i1 %exitcond257.not, label %.loopexit.sink.split, label %166, !llvm.loop !20
+  br i1 %exitcond257.not, label %.loopexit.sink.split, label %166, !llvm.loop !19
 
 .preheader191:                                    ; preds = %188, %.preheader192
   %.9.lcssa = phi i32 [ 0, %.preheader192 ], [ %135, %188 ]
@@ -380,7 +380,7 @@ define internal fastcc i32 @Extra_TruthCanonN_rec(i32 noundef %0, ptr noundef %1
   %191 = getelementptr inbounds nuw i8, ptr %81, i64 %indvars.iv
   store i8 %190, ptr %191, align 1, !tbaa !10
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.preheader191, label %188, !llvm.loop !21
+  br i1 %exitcond.not, label %.preheader191, label %188, !llvm.loop !20
 
 192:                                              ; preds = %.lr.ph197, %192
   %indvars.iv246 = phi i64 [ %187, %.lr.ph197 ], [ %indvars.iv.next247, %192 ]
@@ -393,7 +393,7 @@ define internal fastcc i32 @Extra_TruthCanonN_rec(i32 noundef %0, ptr noundef %1
   store i8 %195, ptr %196, align 1, !tbaa !10
   %indvars.iv.next245 = add nuw nsw i64 %indvars.iv244, 1
   %exitcond252.not = icmp eq i64 %indvars.iv.next245, %wide.trip.count251
-  br i1 %exitcond252.not, label %._crit_edge.loopexit, label %192, !llvm.loop !22
+  br i1 %exitcond252.not, label %._crit_edge.loopexit, label %192, !llvm.loop !21
 
 ._crit_edge.loopexit:                             ; preds = %192
   %197 = trunc nuw i64 %indvars.iv.next247 to i32
@@ -487,14 +487,14 @@ define void @Map_Var3Print() local_unnamed_addr #0 {
   br label %8
 
 8:                                                ; preds = %7, %4
-  %9 = load ptr, ptr @stdout, align 8, !tbaa !23
+  %9 = load ptr, ptr @stdout, align 8, !tbaa !22
   %10 = load ptr, ptr %1, align 8, !tbaa !3
   %11 = getelementptr inbounds nuw i32, ptr %10, i64 %indvars.iv
   call void @Extra_PrintHex(ptr noundef %9, ptr noundef %11, i32 noundef 5) #6
   %12 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 256
-  br i1 %exitcond.not, label %13, label %4, !llvm.loop !25
+  br i1 %exitcond.not, label %13, label %4, !llvm.loop !24
 
 13:                                               ; preds = %8
   %putchar = call i32 @putchar(i32 10)
@@ -518,7 +518,7 @@ define void @Map_Var3Print() local_unnamed_addr #0 {
   %indvars.iv21 = phi i64 [ %indvars.iv.next22, %.lr.ph ], [ 0, %14 ]
   %.not = icmp eq i64 %indvars.iv21, 0
   %25 = select i1 %.not, ptr @.str.4, ptr @.str.1
-  %26 = load ptr, ptr %2, align 8, !tbaa !26
+  %26 = load ptr, ptr %2, align 8, !tbaa !25
   %27 = getelementptr inbounds nuw ptr, ptr %26, i64 %indvars.iv24
   %28 = load ptr, ptr %27, align 8, !tbaa !11
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 %indvars.iv21
@@ -531,13 +531,13 @@ define void @Map_Var3Print() local_unnamed_addr #0 {
   %35 = load i8, ptr %34, align 1, !tbaa !10
   %36 = sext i8 %35 to i64
   %37 = icmp slt i64 %indvars.iv.next22, %36
-  br i1 %37, label %.lr.ph, label %._crit_edge, !llvm.loop !28
+  br i1 %37, label %.lr.ph, label %._crit_edge, !llvm.loop !27
 
 ._crit_edge:                                      ; preds = %.lr.ph, %14
   %puts = call i32 @puts(ptr nonnull dereferenceable(1) @str)
   %indvars.iv.next25 = add nuw nsw i64 %indvars.iv24, 1
   %exitcond27.not = icmp eq i64 %indvars.iv.next25, 256
-  br i1 %exitcond27.not, label %38, label %14, !llvm.loop !29
+  br i1 %exitcond27.not, label %38, label %14, !llvm.loop !28
 
 38:                                               ; preds = %._crit_edge
   %putchar15 = call i32 @putchar(i32 10)
@@ -592,7 +592,7 @@ define void @Map_Var4Test() local_unnamed_addr #0 {
   %8 = call fastcc i32 @Extra_TruthCanonN_rec(i32 noundef 4, ptr noundef nonnull %6, ptr noundef nonnull %4, ptr noundef nonnull %5, i32 noundef 0)
   %9 = add nuw nsw i32 %.03, 1
   %exitcond.not = icmp eq i32 %9, 65536
-  br i1 %exitcond.not, label %10, label %7, !llvm.loop !30
+  br i1 %exitcond.not, label %10, label %7, !llvm.loop !29
 
 10:                                               ; preds = %7
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #6
@@ -640,21 +640,20 @@ attributes #6 = { nounwind }
 !10 = !{!6, !6, i64 0}
 !11 = !{!12, !12, i64 0}
 !12 = !{!"p1 omnipotent char", !5, i64 0}
-!13 = distinct !{!13, !14, !15}
+!13 = distinct !{!13, !14}
 !14 = !{!"llvm.loop.mustprogress"}
-!15 = !{!"llvm.loop.estimated_trip_count"}
-!16 = distinct !{!16, !14, !15}
-!17 = distinct !{!17, !14, !15}
-!18 = distinct !{!18, !14, !15}
-!19 = distinct !{!19, !14, !15}
-!20 = distinct !{!20, !14, !15}
-!21 = distinct !{!21, !14, !15}
-!22 = distinct !{!22, !14, !15}
-!23 = !{!24, !24, i64 0}
-!24 = !{!"p1 _ZTS8_IO_FILE", !5, i64 0}
-!25 = distinct !{!25, !14, !15}
-!26 = !{!27, !27, i64 0}
-!27 = !{!"p2 omnipotent char", !5, i64 0}
-!28 = distinct !{!28, !14, !15}
-!29 = distinct !{!29, !14, !15}
-!30 = distinct !{!30, !14, !15}
+!15 = distinct !{!15, !14}
+!16 = distinct !{!16, !14}
+!17 = distinct !{!17, !14}
+!18 = distinct !{!18, !14}
+!19 = distinct !{!19, !14}
+!20 = distinct !{!20, !14}
+!21 = distinct !{!21, !14}
+!22 = !{!23, !23, i64 0}
+!23 = !{!"p1 _ZTS8_IO_FILE", !5, i64 0}
+!24 = distinct !{!24, !14}
+!25 = !{!26, !26, i64 0}
+!26 = !{!"p2 omnipotent char", !5, i64 0}
+!27 = distinct !{!27, !14}
+!28 = distinct !{!28, !14}
+!29 = distinct !{!29, !14}

@@ -65,7 +65,7 @@ define internal void @dsd_ctables_tableinit() #2 {
 23:                                               ; preds = %15
   %indvars.iv.next30 = add nuw nsw i64 %indvars.iv29, 1
   %exitcond32.not = icmp eq i64 %indvars.iv.next30, 8
-  br i1 %exitcond32.not, label %.preheader, label %7, !llvm.loop !12
+  br i1 %exitcond32.not, label %.preheader, label %7, !llvm.loop !11
 
 24:                                               ; preds = %.preheader, %24
   %indvars.iv33 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next34, %24 ]
@@ -78,12 +78,12 @@ define internal void @dsd_ctables_tableinit() #2 {
   store double %26, ptr %gep25, align 8, !tbaa !7
   %indvars.iv.next34 = add nuw nsw i64 %indvars.iv33, 1
   %exitcond36.not = icmp eq i64 %indvars.iv.next34, 6
-  br i1 %exitcond36.not, label %28, label %24, !llvm.loop !13
+  br i1 %exitcond36.not, label %28, label %24, !llvm.loop !12
 
 28:                                               ; preds = %24
   %indvars.iv.next38 = add nuw nsw i64 %indvars.iv37, 1
   %exitcond40.not = icmp eq i64 %indvars.iv.next38, 256
-  br i1 %exitcond40.not, label %29, label %2, !llvm.loop !14
+  br i1 %exitcond40.not, label %29, label %2, !llvm.loop !13
 
 29:                                               ; preds = %28
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %1) #8
@@ -97,7 +97,7 @@ define void @ff_dsd2pcm_translate(ptr noundef captures(none) %0, i64 noundef %1,
   %.not = icmp eq i32 %2, 0
   %9 = select i1 %.not, ptr @ctables_msbf, ptr @ctables_lsbf
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %11 = load i32, ptr %10, align 4, !tbaa !15
+  %11 = load i32, ptr %10, align 4, !tbaa !14
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %8, ptr noundef nonnull align 4 dereferenceable(16) %0, i64 16, i1 false)
   %.not3639 = icmp eq i64 %1, 0
   br i1 %.not3639, label %._crit_edge, label %.lr.ph
@@ -148,22 +148,22 @@ define void @ff_dsd2pcm_translate(ptr noundef captures(none) %0, i64 noundef %1,
   %44 = fadd nsz double %.03338, %43
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 6
-  br i1 %exitcond.not, label %45, label %24, !llvm.loop !18
+  br i1 %exitcond.not, label %45, label %24, !llvm.loop !17
 
 45:                                               ; preds = %24
   %46 = add i64 %.in, -1
   %47 = getelementptr inbounds i8, ptr %.03142, i64 %4
   %48 = fptrunc nsz double %44 to float
-  store float %48, ptr %.03241, align 4, !tbaa !19
+  store float %48, ptr %.03241, align 4, !tbaa !18
   %49 = getelementptr inbounds float, ptr %.03241, i64 %6
   %50 = add i32 %.03440, 1
   %51 = and i32 %50, 15
   %.not36 = icmp eq i64 %46, 0
-  br i1 %.not36, label %._crit_edge, label %.lr.ph, !llvm.loop !21
+  br i1 %.not36, label %._crit_edge, label %.lr.ph, !llvm.loop !20
 
 ._crit_edge:                                      ; preds = %45, %7
   %.034.lcssa = phi i32 [ %11, %7 ], [ %51, %45 ]
-  store i32 %.034.lcssa, ptr %10, align 4, !tbaa !15
+  store i32 %.034.lcssa, ptr %10, align 4, !tbaa !14
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %0, ptr noundef nonnull align 16 dereferenceable(16) %8, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #8
   ret void
@@ -205,16 +205,15 @@ attributes #8 = { nounwind }
 !6 = !{!"Simple C/C++ TBAA"}
 !7 = !{!8, !8, i64 0}
 !8 = !{!"double", !5, i64 0}
-!9 = distinct !{!9, !10, !11}
+!9 = distinct !{!9, !10}
 !10 = !{!"llvm.loop.mustprogress"}
-!11 = !{!"llvm.loop.estimated_trip_count"}
-!12 = distinct !{!12, !10, !11}
-!13 = distinct !{!13, !10, !11}
-!14 = distinct !{!14, !10, !11}
-!15 = !{!16, !17, i64 16}
-!16 = !{!"DSDContext", !5, i64 0, !17, i64 16}
-!17 = !{!"int", !5, i64 0}
-!18 = distinct !{!18, !10, !11}
-!19 = !{!20, !20, i64 0}
-!20 = !{!"float", !5, i64 0}
-!21 = distinct !{!21, !10, !11}
+!11 = distinct !{!11, !10}
+!12 = distinct !{!12, !10}
+!13 = distinct !{!13, !10}
+!14 = !{!15, !16, i64 16}
+!15 = !{!"DSDContext", !5, i64 0, !16, i64 16}
+!16 = !{!"int", !5, i64 0}
+!17 = distinct !{!17, !10}
+!18 = !{!19, !19, i64 0}
+!19 = !{!"float", !5, i64 0}
+!20 = distinct !{!20, !10}

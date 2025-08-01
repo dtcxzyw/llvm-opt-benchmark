@@ -186,7 +186,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8dedup_by17h644ba272a906eccb
 
 15:                                               ; preds = %9
   %.not = icmp eq i64 %14, %3
-  br i1 %.not, label %.thread, label %9, !llvm.loop !25
+  br i1 %.not, label %.thread, label %9
 
 16:                                               ; preds = %9
   %17 = icmp ult i64 %14, %3
@@ -222,7 +222,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8dedup_by17h644ba272a906eccb
   %28 = phi i64 [ %26, %24 ], [ %18, %.lr.ph ]
   %storemerge = add nuw nsw i64 %storemerge1517, 1
   %exitcond.not = icmp eq i64 %storemerge, %3
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !27
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
@@ -308,6 +308,3 @@ attributes #11 = { cold noreturn nounwind }
 !22 = distinct !{!22, !"_ZN132_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$$RF$T$C$core..slice..iter..Iter$LT$T$GT$$GT$$GT$11spec_extend17h946087579d9d08eaE"}
 !23 = !{!"branch_weights", !"expected", i32 1, i32 2000}
 !24 = !{!19, !21}
-!25 = distinct !{!25, !26}
-!26 = !{!"llvm.loop.estimated_trip_count"}
-!27 = distinct !{!27, !26}

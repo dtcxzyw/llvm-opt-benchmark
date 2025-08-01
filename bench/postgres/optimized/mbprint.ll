@@ -31,7 +31,7 @@ define dso_local i32 @pg_wcswidth(ptr noundef %0, i64 noundef %1, i32 noundef %2
   %10 = getelementptr inbounds i8, ptr %.01530, i64 %5
   %11 = sub nuw i64 %.01629, %5
   %.not = icmp eq i64 %11, 0
-  br i1 %.not, label %.thread, label %.lr.ph, !llvm.loop !4
+  br i1 %.not, label %.thread, label %.lr.ph
 
 .thread:                                          ; preds = %7, %.lr.ph, %3
   %.018.lcssa = phi i32 [ 0, %3 ], [ %.01828, %.lr.ph ], [ %spec.select, %7 ]
@@ -132,7 +132,7 @@ define dso_local void @pg_wcssize(ptr noundef %0, i64 noundef %1, i32 noundef %2
   %46 = icmp ne i8 %45, 0
   %47 = icmp ne i64 %43, 0
   %48 = select i1 %46, i1 %47, i1 false
-  br i1 %48, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !6
+  br i1 %48, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !4
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph, %.loopexit
   %.056.lcssa.ph = phi i32 [ %.258, %.loopexit ], [ %.05676, %.lr.ph ]
@@ -376,7 +376,7 @@ utf8_to_unicode.exit:                             ; preds = %57, %79, %.sink.spl
   store i8 %109, ptr %.381, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !8
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader75
   %.3.lcssa = phi ptr [ %.05990, %.preheader75 ], [ %110, %.lr.ph ]
@@ -394,7 +394,7 @@ utf8_to_unicode.exit:                             ; preds = %57, %79, %.sink.spl
   %115 = icmp ne i8 %114, 0
   %116 = icmp ne i64 %112, 0
   %117 = select i1 %115, i1 %116, i1 false
-  br i1 %117, label %.lr.ph92, label %._crit_edge93, !llvm.loop !9
+  br i1 %117, label %.lr.ph92, label %._crit_edge93, !llvm.loop !7
 
 ._crit_edge93:                                    ; preds = %.loopexit, %.lr.ph92, %5
   %.066.lcssa = phi ptr [ %3, %5 ], [ %.06684, %.lr.ph92 ], [ %.167, %.loopexit ]
@@ -561,7 +561,7 @@ utf_charcheck.exit.i:                             ; preds = %69, %39, %17, %.lr.
   store i8 %77, ptr %.11927.i, align 1
   %79 = add nuw nsw i32 %.029.i, 1
   %exitcond.not.i = icmp eq i32 %79, %.0.i.i
-  br i1 %exitcond.not.i, label %.loopexit.i, label %.preheader.i, !llvm.loop !10
+  br i1 %exitcond.not.i, label %.loopexit.i, label %.preheader.i, !llvm.loop !8
 
 80:                                               ; preds = %utf_charcheck.exit.i
   %81 = zext nneg i32 %.0.i.i to i64
@@ -577,7 +577,7 @@ select.unfold.i:                                  ; preds = %69, %63, %57, %44, 
   %.2.i = phi ptr [ %82, %80 ], [ %83, %select.unfold.i ], [ %76, %.preheader.i ]
   %84 = load i8, ptr %.2.i, align 1
   %.not.i = icmp eq i8 %84, 0
-  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !11
+  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !9
 
 ._crit_edge.i:                                    ; preds = %.loopexit.i
   %85 = icmp eq ptr %.220.i, %.2.i
@@ -618,10 +618,8 @@ attributes #7 = { cold noreturn nounwind }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.estimated_trip_count"}
-!6 = distinct !{!6, !7, !5}
-!7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7, !5}
-!9 = distinct !{!9, !7, !5}
-!10 = distinct !{!10, !7, !5}
-!11 = distinct !{!11, !7, !5}
+!5 = !{!"llvm.loop.mustprogress"}
+!6 = distinct !{!6, !5}
+!7 = distinct !{!7, !5}
+!8 = distinct !{!8, !5}
+!9 = distinct !{!9, !5}

@@ -273,7 +273,7 @@ define internal void @restore_terminal_on_suspend(i32 noundef %0) #0 {
   %45 = call i32 @sigprocmask(i32 noundef 0, ptr noundef nonnull %3, ptr noundef null) #13
   %46 = load volatile i32, ptr @ttou_received, align 4, !tbaa !4
   %.not = icmp eq i32 %46, 0
-  br i1 %.not, label %47, label %41, !llvm.loop !16
+  br i1 %.not, label %47, label %41
 
 47:                                               ; preds = %41
   %48 = icmp slt i32 %44, 0
@@ -404,15 +404,15 @@ define dso_local i32 @read_key_without_echo(ptr noundef %0) local_unnamed_addr #
   br label %.thread
 
 .thread:                                          ; preds = %1, %11, %10
-  %12 = load ptr, ptr @stdin, align 8, !tbaa !18
+  %12 = load ptr, ptr @stdin, align 8, !tbaa !16
   %13 = tail call i32 @strbuf_getline(ptr noundef %0, ptr noundef %12) #13
   br label %101
 
 14:                                               ; preds = %7
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 0, ptr %15, align 8, !tbaa !20
+  store i64 0, ptr %15, align 8, !tbaa !18
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %17 = load ptr, ptr %16, align 8, !tbaa !23
+  %17 = load ptr, ptr %16, align 8, !tbaa !21
   %.not9.i = icmp eq ptr %17, @strbuf_slopbuf
   br i1 %.not9.i, label %strbuf_setlen.exit, label %18
 
@@ -421,7 +421,7 @@ define dso_local i32 @read_key_without_echo(ptr noundef %0) local_unnamed_addr #
   br label %strbuf_setlen.exit
 
 strbuf_setlen.exit:                               ; preds = %14, %18
-  %19 = load ptr, ptr @stdin, align 8, !tbaa !18
+  %19 = load ptr, ptr @stdin, align 8, !tbaa !16
   %20 = tail call i32 @getc(ptr noundef %19)
   %21 = icmp eq i32 %20, -1
   br i1 %21, label %22, label %23
@@ -431,19 +431,19 @@ strbuf_setlen.exit:                               ; preds = %14, %18
   br label %101
 
 23:                                               ; preds = %strbuf_setlen.exit
-  %24 = load i64, ptr %0, align 8, !tbaa !24
+  %24 = load i64, ptr %0, align 8, !tbaa !22
   %.not.i.i = icmp eq i64 %24, 0
   br i1 %.not.i.i, label %strbuf_avail.exit.thread.i, label %strbuf_avail.exit.i
 
 strbuf_avail.exit.i:                              ; preds = %23
-  %25 = load i64, ptr %15, align 8, !tbaa !20
+  %25 = load i64, ptr %15, align 8, !tbaa !18
   %.neg.i = add i64 %25, 1
   %.not.i = icmp eq i64 %24, %.neg.i
   br i1 %.not.i, label %strbuf_avail.exit.thread.i, label %strbuf_addch.exit
 
 strbuf_avail.exit.thread.i:                       ; preds = %strbuf_avail.exit.i, %23
   tail call void @strbuf_grow(ptr noundef nonnull %0, i64 noundef 1) #13
-  %.pre.i = load i64, ptr %15, align 8, !tbaa !20
+  %.pre.i = load i64, ptr %15, align 8, !tbaa !18
   %.pre7.i = add i64 %.pre.i, 1
   br label %strbuf_addch.exit
 
@@ -451,19 +451,19 @@ strbuf_addch.exit:                                ; preds = %strbuf_avail.exit.i
   %.pre-phi.i = phi i64 [ %.pre7.i, %strbuf_avail.exit.thread.i ], [ %.neg.i, %strbuf_avail.exit.i ]
   %26 = phi i64 [ %.pre.i, %strbuf_avail.exit.thread.i ], [ %25, %strbuf_avail.exit.i ]
   %27 = trunc i32 %20 to i8
-  %28 = load ptr, ptr %16, align 8, !tbaa !23
-  store i64 %.pre-phi.i, ptr %15, align 8, !tbaa !20
+  %28 = load ptr, ptr %16, align 8, !tbaa !21
+  store i64 %.pre-phi.i, ptr %15, align 8, !tbaa !18
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 %26
   store i8 %27, ptr %29, align 1, !tbaa !11
-  %30 = load ptr, ptr %16, align 8, !tbaa !23
-  %31 = load i64, ptr %15, align 8, !tbaa !20
+  %30 = load ptr, ptr %16, align 8, !tbaa !21
+  %31 = load i64, ptr %15, align 8, !tbaa !18
   %32 = getelementptr inbounds nuw i8, ptr %30, i64 %31
   store i8 0, ptr %32, align 1, !tbaa !11
   %33 = icmp eq i32 %20, 27
   br i1 %33, label %34, label %.loopexit
 
 34:                                               ; preds = %strbuf_addch.exit
-  %35 = load i64, ptr %15, align 8, !tbaa !20
+  %35 = load i64, ptr %15, align 8, !tbaa !18
   %36 = add i64 %35, -1
   tail call void @strbuf_splice(ptr noundef nonnull %0, i64 noundef %36, i64 noundef 1, ptr noundef nonnull @.str.6, i64 noundef 2) #13
   %37 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -474,7 +474,7 @@ strbuf_addch.exit:                                ; preds = %strbuf_avail.exit.i
   br label %42
 
 42:                                               ; preds = %strbuf_addch.exit26, %34
-  %43 = load ptr, ptr %16, align 8, !tbaa !23
+  %43 = load ptr, ptr %16, align 8, !tbaa !21
   %.b.i = load i1, ptr @is_known_escape_sequence.initialized, align 4
   br i1 %.b.i, label %is_known_escape_sequence.exit, label %44
 
@@ -487,17 +487,17 @@ strbuf_addch.exit:                                ; preds = %strbuf_avail.exit.i
   call void (ptr, ...) @strvec_pushl(ptr noundef nonnull %5, ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.14, ptr noundef null) #13
   %45 = call i32 @pipe_command(ptr noundef nonnull %5, ptr noundef null, i64 noundef 0, ptr noundef nonnull %6, i64 noundef 0, ptr noundef null, i64 noundef 0) #13
   %.not.i15 = icmp eq i32 %45, 0
-  %.pre32 = load ptr, ptr %38, align 8, !tbaa !23
+  %.pre32 = load ptr, ptr %38, align 8, !tbaa !21
   br i1 %.not.i15, label %strbuf_setlen.exit.i, label %46
 
 46:                                               ; preds = %44
-  store i64 0, ptr %37, align 8, !tbaa !20
+  store i64 0, ptr %37, align 8, !tbaa !18
   %.not9.i.i = icmp eq ptr %.pre32, @strbuf_slopbuf
   br i1 %.not9.i.i, label %strbuf_setlen.exit.i, label %47
 
 47:                                               ; preds = %46
   store i8 0, ptr %.pre32, align 1, !tbaa !11
-  %.pre = load ptr, ptr %38, align 8, !tbaa !23
+  %.pre = load ptr, ptr %38, align 8, !tbaa !21
   br label %strbuf_setlen.exit.i
 
 strbuf_setlen.exit.i:                             ; preds = %47, %46, %44
@@ -510,7 +510,7 @@ strbuf_setlen.exit.i:                             ; preds = %47, %46, %44
   %51 = getelementptr inbounds nuw i8, ptr %56, i64 1
   %52 = load i8, ptr %51, align 1, !tbaa !11
   %.not24.i = icmp eq i8 %52, 0
-  br i1 %.not24.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !25
+  br i1 %.not24.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !23
 
 .lr.ph.i:                                         ; preds = %strbuf_setlen.exit.i, %50
   %.031.i = phi ptr [ %51, %50 ], [ %48, %strbuf_setlen.exit.i ]
@@ -557,8 +557,8 @@ st_add.exit28.i:                                  ; preds = %st_add.exit.i
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %72, ptr nonnull align 1 %55, i64 %65, i1 false)
   %73 = call i32 @strhash(ptr noundef nonnull %72) #13
   %74 = getelementptr inbounds nuw i8, ptr %71, i64 8
-  store i32 %73, ptr %74, align 8, !tbaa !27
-  store ptr null, ptr %71, align 8, !tbaa !30
+  store i32 %73, ptr %74, align 8, !tbaa !25
+  store ptr null, ptr %71, align 8, !tbaa !28
   call void @hashmap_add(ptr noundef nonnull @is_known_escape_sequence.sequences, ptr noundef nonnull %71) #13
   br label %75
 
@@ -576,8 +576,8 @@ st_add.exit28.i:                                  ; preds = %st_add.exit.i
 is_known_escape_sequence.exit:                    ; preds = %42, %._crit_edge.i
   %77 = call i32 @strhash(ptr noundef %43) #13
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #13
-  store i32 %77, ptr %39, align 8, !tbaa !27
-  store ptr null, ptr %4, align 8, !tbaa !30
+  store i32 %77, ptr %39, align 8, !tbaa !25
+  store ptr null, ptr %4, align 8, !tbaa !28
   %78 = call ptr @hashmap_get(ptr noundef nonnull @is_known_escape_sequence.sequences, ptr noundef nonnull %4, ptr noundef %43) #13
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #13
   %.not29 = icmp eq ptr %78, null
@@ -589,10 +589,10 @@ is_known_escape_sequence.exit:                    ; preds = %42, %._crit_edge.i
   br label %80
 
 80:                                               ; preds = %84, %79
-  store i64 0, ptr %2, align 8, !tbaa !31
-  store i64 500000, ptr %40, align 8, !tbaa !33
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %41, i8 0, i64 120, i1 false), !tbaa !34
-  store i64 1, ptr %3, align 8, !tbaa !34
+  store i64 0, ptr %2, align 8, !tbaa !29
+  store i64 500000, ptr %40, align 8, !tbaa !31
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %41, i8 0, i64 120, i1 false), !tbaa !32
+  store i64 1, ptr %3, align 8, !tbaa !32
   %81 = call i32 @select(i32 noundef 1, ptr noundef nonnull %3, ptr noundef null, ptr noundef null, ptr noundef nonnull %2) #13
   %.not.i16 = icmp eq i32 %81, 0
   br i1 %.not.i16, label %getchar_with_timeout.exit.thread, label %82
@@ -605,7 +605,7 @@ is_known_escape_sequence.exit:                    ; preds = %42, %._crit_edge.i
   %85 = tail call ptr @__errno_location() #14
   %86 = load i32, ptr %85, align 4, !tbaa !4
   %87 = icmp eq i32 %86, 4
-  br i1 %87, label %80, label %getchar_with_timeout.exit.thread, !llvm.loop !35
+  br i1 %87, label %80, label %getchar_with_timeout.exit.thread
 
 getchar_with_timeout.exit.thread:                 ; preds = %80, %84
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %3) #13
@@ -613,7 +613,7 @@ getchar_with_timeout.exit.thread:                 ; preds = %80, %84
   br label %.loopexit
 
 getchar_with_timeout.exit:                        ; preds = %82
-  %88 = load ptr, ptr @stdin, align 8, !tbaa !18
+  %88 = load ptr, ptr @stdin, align 8, !tbaa !16
   %89 = call i32 @getc(ptr noundef %88)
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %3) #13
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #13
@@ -621,19 +621,19 @@ getchar_with_timeout.exit:                        ; preds = %82
   br i1 %90, label %.loopexit, label %91
 
 91:                                               ; preds = %getchar_with_timeout.exit
-  %92 = load i64, ptr %0, align 8, !tbaa !24
+  %92 = load i64, ptr %0, align 8, !tbaa !22
   %.not.i.i17 = icmp eq i64 %92, 0
   br i1 %.not.i.i17, label %strbuf_avail.exit.thread.i22, label %strbuf_avail.exit.i18
 
 strbuf_avail.exit.i18:                            ; preds = %91
-  %93 = load i64, ptr %15, align 8, !tbaa !20
+  %93 = load i64, ptr %15, align 8, !tbaa !18
   %.neg.i19 = add i64 %93, 1
   %.not.i20 = icmp eq i64 %92, %.neg.i19
   br i1 %.not.i20, label %strbuf_avail.exit.thread.i22, label %strbuf_addch.exit26
 
 strbuf_avail.exit.thread.i22:                     ; preds = %strbuf_avail.exit.i18, %91
   call void @strbuf_grow(ptr noundef nonnull %0, i64 noundef 1) #13
-  %.pre.i24 = load i64, ptr %15, align 8, !tbaa !20
+  %.pre.i24 = load i64, ptr %15, align 8, !tbaa !18
   %.pre7.i25 = add i64 %.pre.i24, 1
   br label %strbuf_addch.exit26
 
@@ -641,15 +641,15 @@ strbuf_addch.exit26:                              ; preds = %strbuf_avail.exit.i
   %.pre-phi.i21 = phi i64 [ %.pre7.i25, %strbuf_avail.exit.thread.i22 ], [ %.neg.i19, %strbuf_avail.exit.i18 ]
   %94 = phi i64 [ %.pre.i24, %strbuf_avail.exit.thread.i22 ], [ %93, %strbuf_avail.exit.i18 ]
   %95 = trunc i32 %89 to i8
-  %96 = load ptr, ptr %16, align 8, !tbaa !23
-  store i64 %.pre-phi.i21, ptr %15, align 8, !tbaa !20
+  %96 = load ptr, ptr %16, align 8, !tbaa !21
+  store i64 %.pre-phi.i21, ptr %15, align 8, !tbaa !18
   %97 = getelementptr inbounds nuw i8, ptr %96, i64 %94
   store i8 %95, ptr %97, align 1, !tbaa !11
-  %98 = load ptr, ptr %16, align 8, !tbaa !23
-  %99 = load i64, ptr %15, align 8, !tbaa !20
+  %98 = load ptr, ptr %16, align 8, !tbaa !21
+  %99 = load i64, ptr %15, align 8, !tbaa !18
   %100 = getelementptr inbounds nuw i8, ptr %98, i64 %99
   store i8 0, ptr %100, align 1, !tbaa !11
-  br label %42, !llvm.loop !36
+  br label %42, !llvm.loop !33
 
 .loopexit:                                        ; preds = %is_known_escape_sequence.exit, %getchar_with_timeout.exit, %getchar_with_timeout.exit.thread, %strbuf_addch.exit
   call void @restore_term()
@@ -734,12 +734,12 @@ define internal fastcc range(i32 -1, 1) i32 @disable_bits(i32 noundef range(i32 
   br i1 %5, label %28, label %6
 
 6:                                                ; preds = %2
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(60) %3, ptr noundef nonnull align 4 dereferenceable(60) @old_term, i64 60, i1 false), !tbaa.struct !37
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(60) %3, ptr noundef nonnull align 4 dereferenceable(60) @old_term, i64 60, i1 false), !tbaa.struct !34
   %7 = xor i32 %1, -1
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 12
-  %9 = load i32, ptr %8, align 4, !tbaa !38
+  %9 = load i32, ptr %8, align 4, !tbaa !35
   %10 = and i32 %9, %7
-  store i32 %10, ptr %8, align 4, !tbaa !38
+  store i32 %10, ptr %8, align 4, !tbaa !35
   %11 = and i32 %1, 2
   %.not = icmp eq i32 %11, 0
   br i1 %.not, label %15, label %12
@@ -876,27 +876,24 @@ attributes #16 = { noreturn nounwind }
 !13 = !{!"sigaction", !6, i64 0, !14, i64 8, !5, i64 136, !10, i64 144}
 !14 = !{!"", !6, i64 0}
 !15 = !{i64 0, i64 128, !11}
-!16 = distinct !{!16, !17}
-!17 = !{!"llvm.loop.estimated_trip_count"}
-!18 = !{!19, !19, i64 0}
-!19 = !{!"p1 _ZTS8_IO_FILE", !10, i64 0}
-!20 = !{!21, !22, i64 8}
-!21 = !{!"strbuf", !22, i64 0, !22, i64 8, !9, i64 16}
-!22 = !{!"long", !6, i64 0}
-!23 = !{!21, !9, i64 16}
-!24 = !{!21, !22, i64 0}
-!25 = distinct !{!25, !26, !17}
-!26 = !{!"llvm.loop.mustprogress"}
-!27 = !{!28, !5, i64 8}
-!28 = !{!"hashmap_entry", !29, i64 0, !5, i64 8}
-!29 = !{!"p1 _ZTS13hashmap_entry", !10, i64 0}
-!30 = !{!28, !29, i64 0}
-!31 = !{!32, !22, i64 0}
-!32 = !{!"timeval", !22, i64 0, !22, i64 8}
-!33 = !{!32, !22, i64 8}
-!34 = !{!22, !22, i64 0}
-!35 = distinct !{!35, !17}
-!36 = distinct !{!36, !26, !17}
-!37 = !{i64 0, i64 4, !4, i64 4, i64 4, !4, i64 8, i64 4, !4, i64 12, i64 4, !4, i64 16, i64 1, !11, i64 17, i64 32, !11, i64 52, i64 4, !4, i64 56, i64 4, !4}
-!38 = !{!39, !5, i64 12}
-!39 = !{!"termios", !5, i64 0, !5, i64 4, !5, i64 8, !5, i64 12, !6, i64 16, !6, i64 17, !5, i64 52, !5, i64 56}
+!16 = !{!17, !17, i64 0}
+!17 = !{!"p1 _ZTS8_IO_FILE", !10, i64 0}
+!18 = !{!19, !20, i64 8}
+!19 = !{!"strbuf", !20, i64 0, !20, i64 8, !9, i64 16}
+!20 = !{!"long", !6, i64 0}
+!21 = !{!19, !9, i64 16}
+!22 = !{!19, !20, i64 0}
+!23 = distinct !{!23, !24}
+!24 = !{!"llvm.loop.mustprogress"}
+!25 = !{!26, !5, i64 8}
+!26 = !{!"hashmap_entry", !27, i64 0, !5, i64 8}
+!27 = !{!"p1 _ZTS13hashmap_entry", !10, i64 0}
+!28 = !{!26, !27, i64 0}
+!29 = !{!30, !20, i64 0}
+!30 = !{!"timeval", !20, i64 0, !20, i64 8}
+!31 = !{!30, !20, i64 8}
+!32 = !{!20, !20, i64 0}
+!33 = distinct !{!33, !24}
+!34 = !{i64 0, i64 4, !4, i64 4, i64 4, !4, i64 8, i64 4, !4, i64 12, i64 4, !4, i64 16, i64 1, !11, i64 17, i64 32, !11, i64 52, i64 4, !4, i64 56, i64 4, !4}
+!35 = !{!36, !5, i64 12}
+!36 = !{!"termios", !5, i64 0, !5, i64 4, !5, i64 8, !5, i64 12, !6, i64 16, !6, i64 17, !5, i64 52, !5, i64 56}

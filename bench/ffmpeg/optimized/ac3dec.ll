@@ -147,7 +147,7 @@ define internal fastcc range(i32 0, 52) i32 @ac3_eac3_probe(ptr noundef readonly
   br i1 %56, label %.thread82, label %57
 
 57:                                               ; preds = %55
-  %58 = load i16, ptr %5, align 2, !tbaa !16
+  %58 = load i16, ptr %5, align 2, !tbaa !15
   %59 = zext i16 %58 to i64
   %60 = getelementptr inbounds nuw i8, ptr %.168, i64 %59
   %61 = icmp ugt ptr %60, %11
@@ -193,11 +193,11 @@ define internal fastcc range(i32 0, 52) i32 @ac3_eac3_probe(ptr noundef readonly
   store i8 %78, ptr %79, align 1, !tbaa !12
   %indvars.iv.next123 = add nuw nsw i64 %indvars.iv122, 2
   %80 = icmp samesign ult i64 %indvars.iv.next123, %71
-  br i1 %80, label %.lr.ph, label %._crit_edge, !llvm.loop !18
+  br i1 %80, label %.lr.ph, label %._crit_edge, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
   %81 = call ptr @av_crc_get_table(i32 noundef 1) #7
-  %82 = load i16, ptr %5, align 2, !tbaa !16
+  %82 = load i16, ptr %5, align 2, !tbaa !15
   %83 = zext i16 %82 to i64
   %84 = add nsw i64 %83, -2
   %85 = call i32 @av_crc(ptr noundef %81, i32 noundef 0, ptr noundef nonnull %14, i64 noundef %84) #9
@@ -207,7 +207,7 @@ define internal fastcc range(i32 0, 52) i32 @ac3_eac3_probe(ptr noundef readonly
 86:                                               ; preds = %65, %62
   %87 = call ptr @av_crc_get_table(i32 noundef 1) #7
   %88 = getelementptr inbounds nuw i8, ptr %.168, i64 2
-  %89 = load i16, ptr %5, align 2, !tbaa !16
+  %89 = load i16, ptr %5, align 2, !tbaa !15
   %90 = zext i16 %89 to i64
   %91 = add nsw i64 %90, -2
   %92 = call i32 @av_crc(ptr noundef %87, i32 noundef 0, ptr noundef nonnull %88, i64 noundef %91) #9
@@ -231,7 +231,7 @@ define internal fastcc range(i32 0, 52) i32 @ac3_eac3_probe(ptr noundef readonly
   call void @llvm.lifetime.end.p0(i64 4096, ptr nonnull %3) #7
   %97 = add nuw nsw i32 %.07199, 1
   %98 = icmp ult ptr %96, %11
-  br i1 %98, label %31, label %.loopexit, !llvm.loop !19
+  br i1 %98, label %31, label %.loopexit, !llvm.loop !18
 
 .loopexit:                                        ; preds = %93, %28, %.thread82
   %.07193 = phi i32 [ %.07199, %.thread82 ], [ 0, %28 ], [ %97, %93 ]
@@ -249,7 +249,7 @@ define internal fastcc range(i32 0, 52) i32 @ac3_eac3_probe(ptr noundef readonly
   %.165 = phi i32 [ %.064110, %24 ], [ %.290, %.loopexit ], [ %.064110, %20 ], [ %.064110, %18 ]
   %103 = getelementptr inbounds nuw i8, ptr %.070107, i64 1
   %104 = icmp ult ptr %103, %11
-  br i1 %104, label %15, label %._crit_edge113, !llvm.loop !20
+  br i1 %104, label %15, label %._crit_edge113, !llvm.loop !19
 
 ._crit_edge113:                                   ; preds = %.thread
   %105 = icmp sgt i32 %.173, 6
@@ -331,11 +331,10 @@ attributes #9 = { nounwind willreturn memory(read) }
 !10 = !{!"int", !8, i64 0}
 !11 = !{!5, !10, i64 16}
 !12 = !{!8, !8, i64 0}
-!13 = distinct !{!13, !14, !15}
+!13 = distinct !{!13, !14}
 !14 = !{!"llvm.loop.mustprogress"}
-!15 = !{!"llvm.loop.estimated_trip_count"}
-!16 = !{!17, !17, i64 0}
-!17 = !{!"short", !8, i64 0}
-!18 = distinct !{!18, !14, !15}
-!19 = distinct !{!19, !14, !15}
-!20 = distinct !{!20, !14, !15}
+!15 = !{!16, !16, i64 0}
+!16 = !{!"short", !8, i64 0}
+!17 = distinct !{!17, !14}
+!18 = distinct !{!18, !14}
+!19 = distinct !{!19, !14}

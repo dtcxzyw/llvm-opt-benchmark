@@ -255,15 +255,15 @@ define i32 @ossl_namemap_name2num(ptr noundef readonly captures(address_is_null)
   %.0812 = phi ptr [ %6, %5 ], [ %0, %2 ]
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %8, i8 0, i64 64, i1 false)
-  store i64 64, ptr %3, align 8, !tbaa !20
+  store i64 64, ptr %3, align 8, !tbaa !19
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store ptr %9, ptr %10, align 8, !tbaa !25
+  store ptr %9, ptr %10, align 8, !tbaa !24
   %11 = icmp eq ptr %1, null
   br i1 %11, label %ossl_ht_strcase.exit, label %.preheader.i
 
 .preheader.i:                                     ; preds = %.thread
-  %12 = load i8, ptr %1, align 1, !tbaa !26
+  %12 = load i8, ptr %1, align 1, !tbaa !25
   %.not.i = icmp eq i8 %12, 0
   br i1 %.not.i, label %ossl_ht_strcase.exit, label %.lr.ph.i
 
@@ -272,14 +272,14 @@ define i32 @ossl_namemap_name2num(ptr noundef readonly captures(address_is_null)
   %13 = phi i8 [ %17, %.lr.ph.i ], [ %12, %.preheader.i ]
   %14 = and i8 %13, -33
   %15 = getelementptr inbounds nuw i8, ptr %9, i64 %indvars.iv.i
-  store i8 %14, ptr %15, align 1, !tbaa !26
+  store i8 %14, ptr %15, align 1, !tbaa !25
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv.next.i
-  %17 = load i8, ptr %16, align 1, !tbaa !26
+  %17 = load i8, ptr %16, align 1, !tbaa !25
   %18 = icmp ne i8 %17, 0
   %19 = icmp samesign ult i64 %indvars.iv.i, 62
   %20 = select i1 %18, i1 %19, i1 false
-  br i1 %20, label %.lr.ph.i, label %ossl_ht_strcase.exit, !llvm.loop !27
+  br i1 %20, label %.lr.ph.i, label %ossl_ht_strcase.exit, !llvm.loop !26
 
 ossl_ht_strcase.exit:                             ; preds = %.lr.ph.i, %.thread, %.preheader.i
   %21 = getelementptr inbounds nuw i8, ptr %.0812, i64 8
@@ -289,7 +289,7 @@ ossl_ht_strcase.exit:                             ; preds = %.lr.ph.i, %.thread,
   br i1 %.not, label %28, label %24
 
 24:                                               ; preds = %ossl_ht_strcase.exit
-  %25 = load ptr, ptr %23, align 8, !tbaa !28
+  %25 = load ptr, ptr %23, align 8, !tbaa !27
   %26 = ptrtoint ptr %25 to i64
   %27 = trunc i64 %26 to i32
   br label %28
@@ -328,20 +328,20 @@ ossl_namemap_empty.exit:                          ; preds = %1
   %.01316 = phi i32 [ %32, %get_legacy_pkey_meth_names.exit ], [ 0, %10 ]
   %14 = call ptr @EVP_PKEY_asn1_get0(i32 noundef %.01316) #6
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #6
-  store i32 0, ptr %2, align 4, !tbaa !31
+  store i32 0, ptr %2, align 4, !tbaa !30
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #6
-  store i32 0, ptr %3, align 4, !tbaa !31
+  store i32 0, ptr %3, align 4, !tbaa !30
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #6
-  store i32 0, ptr %4, align 4, !tbaa !31
+  store i32 0, ptr %4, align 4, !tbaa !30
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #6
-  store ptr null, ptr %5, align 8, !tbaa !32
+  store ptr null, ptr %5, align 8, !tbaa !31
   %15 = call i32 @EVP_PKEY_asn1_get0_info(ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef null, ptr noundef nonnull %5, ptr noundef %14) #6
-  %16 = load i32, ptr %2, align 4, !tbaa !31
+  %16 = load i32, ptr %2, align 4, !tbaa !30
   %.not.i = icmp eq i32 %16, 0
   br i1 %.not.i, label %get_legacy_pkey_meth_names.exit, label %17
 
 17:                                               ; preds = %.lr.ph
-  %18 = load i32, ptr %4, align 4, !tbaa !31
+  %18 = load i32, ptr %4, align 4, !tbaa !30
   %19 = and i32 %18, 1
   %20 = icmp eq i32 %19, 0
   br i1 %20, label %21, label %26
@@ -352,12 +352,12 @@ ossl_namemap_empty.exit:                          ; preds = %1
 
 22:                                               ; preds = %21
   call fastcc void @get_legacy_evp_names(i32 noundef 0, i32 noundef 920, ptr noundef nonnull @.str.3, ptr noundef nonnull %6)
-  %.pre = load i32, ptr %2, align 4, !tbaa !31
+  %.pre = load i32, ptr %2, align 4, !tbaa !30
   br label %23
 
 23:                                               ; preds = %22, %21
   %24 = phi i32 [ %.pre, %22 ], [ %16, %21 ]
-  %25 = load ptr, ptr %5, align 8, !tbaa !32
+  %25 = load ptr, ptr %5, align 8, !tbaa !31
   call fastcc void @get_legacy_evp_names(i32 noundef 0, i32 noundef %24, ptr noundef %25, ptr noundef nonnull %6)
   br label %get_legacy_pkey_meth_names.exit
 
@@ -366,13 +366,13 @@ ossl_namemap_empty.exit:                          ; preds = %1
   br i1 %cond.i, label %27, label %29
 
 27:                                               ; preds = %26
-  %28 = load ptr, ptr %5, align 8, !tbaa !32
+  %28 = load ptr, ptr %5, align 8, !tbaa !31
   call fastcc void @get_legacy_evp_names(i32 noundef 0, i32 noundef 1172, ptr noundef %28, ptr noundef nonnull %6)
   br label %get_legacy_pkey_meth_names.exit
 
 29:                                               ; preds = %26
-  %30 = load i32, ptr %3, align 4, !tbaa !31
-  %31 = load ptr, ptr %5, align 8, !tbaa !32
+  %30 = load i32, ptr %3, align 4, !tbaa !30
+  %31 = load ptr, ptr %5, align 8, !tbaa !31
   call fastcc void @get_legacy_evp_names(i32 noundef %30, i32 noundef %16, ptr noundef %31, ptr noundef nonnull %6)
   br label %get_legacy_pkey_meth_names.exit
 
@@ -383,7 +383,7 @@ get_legacy_pkey_meth_names.exit:                  ; preds = %.lr.ph, %23, %27, %
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #6
   %32 = add nuw nsw i32 %.01316, 1
   %exitcond.not = icmp eq i32 %32, %12
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !33
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !32
 
 .loopexit:                                        ; preds = %get_legacy_pkey_meth_names.exit, %10, %ossl_namemap_empty.exit, %1
   ret ptr %6
@@ -419,10 +419,10 @@ define i32 @ossl_namemap_name2num_n(ptr noundef readonly captures(address_is_nul
   %.0812.i = phi ptr [ %12, %11 ], [ %0, %9 ]
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %14, i8 0, i64 64, i1 false)
-  store i64 64, ptr %4, align 8, !tbaa !20
+  store i64 64, ptr %4, align 8, !tbaa !19
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store ptr %14, ptr %15, align 8, !tbaa !25
-  %16 = load i8, ptr %7, align 1, !tbaa !26
+  store ptr %14, ptr %15, align 8, !tbaa !24
+  %16 = load i8, ptr %7, align 1, !tbaa !25
   %.not.i.i = icmp eq i8 %16, 0
   br i1 %.not.i.i, label %ossl_ht_strcase.exit.i, label %.lr.ph.i.i
 
@@ -431,14 +431,14 @@ define i32 @ossl_namemap_name2num_n(ptr noundef readonly captures(address_is_nul
   %17 = phi i8 [ %21, %.lr.ph.i.i ], [ %16, %.preheader.i.i ]
   %18 = and i8 %17, -33
   %19 = getelementptr inbounds nuw i8, ptr %14, i64 %indvars.iv.i.i
-  store i8 %18, ptr %19, align 1, !tbaa !26
+  store i8 %18, ptr %19, align 1, !tbaa !25
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %20 = getelementptr inbounds nuw i8, ptr %7, i64 %indvars.iv.next.i.i
-  %21 = load i8, ptr %20, align 1, !tbaa !26
+  %21 = load i8, ptr %20, align 1, !tbaa !25
   %22 = icmp ne i8 %21, 0
   %23 = icmp samesign ult i64 %indvars.iv.i.i, 62
   %24 = select i1 %22, i1 %23, i1 false
-  br i1 %24, label %.lr.ph.i.i, label %ossl_ht_strcase.exit.i, !llvm.loop !27
+  br i1 %24, label %.lr.ph.i.i, label %ossl_ht_strcase.exit.i, !llvm.loop !26
 
 ossl_ht_strcase.exit.i:                           ; preds = %.lr.ph.i.i, %.preheader.i.i
   %25 = getelementptr inbounds nuw i8, ptr %.0812.i, i64 8
@@ -448,7 +448,7 @@ ossl_ht_strcase.exit.i:                           ; preds = %.lr.ph.i.i, %.prehe
   br i1 %.not.i, label %ossl_namemap_name2num.exit, label %28
 
 28:                                               ; preds = %ossl_ht_strcase.exit.i
-  %29 = load ptr, ptr %27, align 8, !tbaa !28
+  %29 = load ptr, ptr %27, align 8, !tbaa !27
   %30 = ptrtoint ptr %29 to i64
   %31 = trunc i64 %30 to i32
   br label %ossl_namemap_name2num.exit
@@ -521,7 +521,7 @@ define i32 @ossl_namemap_add_name(ptr noundef captures(address) %0, i32 noundef 
   br i1 %8, label %21, label %9
 
 9:                                                ; preds = %7
-  %10 = load i8, ptr %2, align 1, !tbaa !26
+  %10 = load i8, ptr %2, align 1, !tbaa !25
   %11 = icmp eq i8 %10, 0
   %12 = icmp eq ptr %.011, null
   %or.cond = select i1 %11, i1 true, i1 %12
@@ -558,11 +558,11 @@ define internal fastcc i32 @namemap_add_name(ptr noundef nonnull captures(none) 
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %4) #6
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %7, i8 0, i64 64, i1 false)
-  store i64 64, ptr %4, align 8, !tbaa !20
+  store i64 64, ptr %4, align 8, !tbaa !19
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store ptr %8, ptr %9, align 8, !tbaa !25
-  %10 = load i8, ptr %2, align 1, !tbaa !26
+  store ptr %8, ptr %9, align 8, !tbaa !24
+  %10 = load i8, ptr %2, align 1, !tbaa !25
   %.not.i.i = icmp eq i8 %10, 0
   br i1 %.not.i.i, label %ossl_ht_strcase.exit.i, label %.lr.ph.i.i
 
@@ -571,14 +571,14 @@ define internal fastcc i32 @namemap_add_name(ptr noundef nonnull captures(none) 
   %11 = phi i8 [ %15, %.lr.ph.i.i ], [ %10, %3 ]
   %12 = and i8 %11, -33
   %13 = getelementptr inbounds nuw i8, ptr %8, i64 %indvars.iv.i.i
-  store i8 %12, ptr %13, align 1, !tbaa !26
+  store i8 %12, ptr %13, align 1, !tbaa !25
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv.next.i.i
-  %15 = load i8, ptr %14, align 1, !tbaa !26
+  %15 = load i8, ptr %14, align 1, !tbaa !25
   %16 = icmp ne i8 %15, 0
   %17 = icmp samesign ult i64 %indvars.iv.i.i, 62
   %18 = select i1 %16, i1 %17, i1 false
-  br i1 %18, label %.lr.ph.i.i, label %ossl_ht_strcase.exit.i, !llvm.loop !27
+  br i1 %18, label %.lr.ph.i.i, label %ossl_ht_strcase.exit.i, !llvm.loop !26
 
 ossl_ht_strcase.exit.i:                           ; preds = %.lr.ph.i.i, %3
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -592,7 +592,7 @@ ossl_namemap_name2num.exit.thread:                ; preds = %ossl_ht_strcase.exi
   br label %25
 
 ossl_namemap_name2num.exit:                       ; preds = %ossl_ht_strcase.exit.i
-  %22 = load ptr, ptr %21, align 8, !tbaa !28
+  %22 = load ptr, ptr %21, align 8, !tbaa !27
   %23 = ptrtoint ptr %22 to i64
   %24 = trunc i64 %23 to i32
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %4) #6
@@ -609,7 +609,7 @@ ossl_namemap_name2num.exit:                       ; preds = %ossl_ht_strcase.exi
   %30 = add nsw i32 %1, -1
   %31 = call ptr @OPENSSL_sk_value(ptr noundef %29, i32 noundef range(i32 0, 2147483647) %30) #6
   %.not.i19 = icmp eq ptr %31, null
-  br i1 %.not.i19, label %numname_insert.exit.thread, label %35, !prof !34
+  br i1 %.not.i19, label %numname_insert.exit.thread, label %35, !prof !33
 
 32:                                               ; preds = %25
   %33 = call ptr @OPENSSL_sk_new_null() #6
@@ -664,11 +664,11 @@ numname_insert.exit.thread24:                     ; preds = %40, %numname_insert
   store atomic i32 %.017.i26, ptr %52 monotonic, align 8
   %53 = getelementptr inbounds nuw i8, ptr %6, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %53, i8 0, i64 64, i1 false)
-  store i64 64, ptr %6, align 8, !tbaa !20
+  store i64 64, ptr %6, align 8, !tbaa !19
   %54 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %55 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store ptr %54, ptr %55, align 8, !tbaa !25
-  %56 = load i8, ptr %2, align 1, !tbaa !26
+  store ptr %54, ptr %55, align 8, !tbaa !24
+  %56 = load i8, ptr %2, align 1, !tbaa !25
   %.not.i20 = icmp eq i8 %56, 0
   br i1 %.not.i20, label %ossl_ht_strcase.exit, label %.lr.ph.i
 
@@ -677,23 +677,23 @@ numname_insert.exit.thread24:                     ; preds = %40, %numname_insert
   %57 = phi i8 [ %61, %.lr.ph.i ], [ %56, %numname_insert.exit.thread24 ]
   %58 = and i8 %57, -33
   %59 = getelementptr inbounds nuw i8, ptr %54, i64 %indvars.iv.i
-  store i8 %58, ptr %59, align 1, !tbaa !26
+  store i8 %58, ptr %59, align 1, !tbaa !25
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %60 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv.next.i
-  %61 = load i8, ptr %60, align 1, !tbaa !26
+  %61 = load i8, ptr %60, align 1, !tbaa !25
   %62 = icmp ne i8 %61, 0
   %63 = icmp samesign ult i64 %indvars.iv.i, 62
   %64 = select i1 %62, i1 %63, i1 false
-  br i1 %64, label %.lr.ph.i, label %ossl_ht_strcase.exit, !llvm.loop !27
+  br i1 %64, label %.lr.ph.i, label %ossl_ht_strcase.exit, !llvm.loop !26
 
 ossl_ht_strcase.exit:                             ; preds = %.lr.ph.i, %numname_insert.exit.thread24
   %65 = sext i32 %.017.i26 to i64
   %66 = inttoptr i64 %65 to ptr
-  store ptr %66, ptr %5, align 8, !tbaa !28
+  store ptr %66, ptr %5, align 8, !tbaa !27
   %67 = load ptr, ptr %19, align 8, !tbaa !15
   %68 = call i32 @ossl_ht_insert(ptr noundef %67, ptr noundef nonnull %6, ptr noundef nonnull %5, ptr noundef null) #6
   %.not18 = icmp eq i32 %68, 0
-  br i1 %.not18, label %numname_insert.exit.thread, label %69, !prof !34
+  br i1 %.not18, label %numname_insert.exit.thread, label %69, !prof !33
 
 69:                                               ; preds = %ossl_ht_strcase.exit
   %70 = icmp slt i32 %68, 1
@@ -716,7 +716,7 @@ numname_insert.exit.thread:                       ; preds = %32, %27, %48, %69, 
 define i32 @ossl_namemap_add_names(ptr noundef captures(address_is_null) %0, i32 noundef %1, ptr noundef %2, i8 noundef signext %3) local_unnamed_addr #0 {
   %5 = alloca %struct.namenum_key_st, align 8
   %.not = icmp eq ptr %0, null
-  br i1 %.not, label %6, label %7, !prof !34
+  br i1 %.not, label %6, label %7, !prof !33
 
 6:                                                ; preds = %4
   tail call void @ERR_new() #6
@@ -737,7 +737,7 @@ define i32 @ossl_namemap_add_names(ptr noundef captures(address_is_null) %0, i32
   br i1 %.not58, label %19, label %.preheader68
 
 .preheader68:                                     ; preds = %10
-  %14 = load i8, ptr %8, align 1, !tbaa !26
+  %14 = load i8, ptr %8, align 1, !tbaa !25
   %.not5974 = icmp eq i8 %14, 0
   br i1 %.not5974, label %.thread, label %.lr.ph
 
@@ -770,8 +770,8 @@ define i32 @ossl_namemap_add_names(ptr noundef captures(address_is_null) %0, i32
 
 26:                                               ; preds = %21
   %27 = getelementptr inbounds nuw i8, ptr %22, i64 1
-  store i8 0, ptr %22, align 1, !tbaa !26
-  %.pre = load i8, ptr %.05075, align 1, !tbaa !26
+  store i8 0, ptr %22, align 1, !tbaa !25
+  %.pre = load i8, ptr %.05075, align 1, !tbaa !25
   %28 = icmp eq i8 %.pre, 0
   br i1 %28, label %29, label %.preheader.i.i
 
@@ -785,9 +785,9 @@ define i32 @ossl_namemap_add_names(ptr noundef captures(address_is_null) %0, i32
   %.05293 = phi ptr [ %25, %.thread91 ], [ %27, %26 ]
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %5) #6
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %16, i8 0, i64 64, i1 false)
-  store i64 64, ptr %5, align 8, !tbaa !20
-  store ptr %16, ptr %17, align 8, !tbaa !25
-  %30 = load i8, ptr %.05075, align 1, !tbaa !26
+  store i64 64, ptr %5, align 8, !tbaa !19
+  store ptr %16, ptr %17, align 8, !tbaa !24
+  %30 = load i8, ptr %.05075, align 1, !tbaa !25
   %.not.i.i = icmp eq i8 %30, 0
   br i1 %.not.i.i, label %ossl_ht_strcase.exit.i, label %.lr.ph.i.i
 
@@ -796,14 +796,14 @@ define i32 @ossl_namemap_add_names(ptr noundef captures(address_is_null) %0, i32
   %31 = phi i8 [ %35, %.lr.ph.i.i ], [ %30, %.preheader.i.i ]
   %32 = and i8 %31, -33
   %33 = getelementptr inbounds nuw i8, ptr %16, i64 %indvars.iv.i.i
-  store i8 %32, ptr %33, align 1, !tbaa !26
+  store i8 %32, ptr %33, align 1, !tbaa !25
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %34 = getelementptr inbounds nuw i8, ptr %.05075, i64 %indvars.iv.next.i.i
-  %35 = load i8, ptr %34, align 1, !tbaa !26
+  %35 = load i8, ptr %34, align 1, !tbaa !25
   %36 = icmp ne i8 %35, 0
   %37 = icmp samesign ult i64 %indvars.iv.i.i, 62
   %38 = select i1 %36, i1 %37, i1 false
-  br i1 %38, label %.lr.ph.i.i, label %ossl_ht_strcase.exit.i, !llvm.loop !27
+  br i1 %38, label %.lr.ph.i.i, label %ossl_ht_strcase.exit.i, !llvm.loop !26
 
 ossl_ht_strcase.exit.i:                           ; preds = %.lr.ph.i.i, %.preheader.i.i
   %39 = load ptr, ptr %18, align 8, !tbaa !15
@@ -812,7 +812,7 @@ ossl_ht_strcase.exit.i:                           ; preds = %.lr.ph.i.i, %.prehe
   br i1 %.not.i, label %ossl_namemap_name2num.exit, label %41
 
 41:                                               ; preds = %ossl_ht_strcase.exit.i
-  %42 = load ptr, ptr %40, align 8, !tbaa !28
+  %42 = load ptr, ptr %40, align 8, !tbaa !27
   %43 = ptrtoint ptr %42 to i64
   %44 = trunc i64 %43 to i32
   br label %ossl_namemap_name2num.exit
@@ -837,7 +837,7 @@ ossl_namemap_name2num.exit:                       ; preds = %ossl_ht_strcase.exi
 
 48:                                               ; preds = %46, %ossl_namemap_name2num.exit
   %.1 = phi i32 [ %.04776, %46 ], [ %.0.i, %ossl_namemap_name2num.exit ]
-  %49 = load i8, ptr %.05293, align 1, !tbaa !26
+  %49 = load i8, ptr %.05293, align 1, !tbaa !25
   %.not59 = icmp eq i8 %49, 0
   br i1 %.not59, label %.preheader, label %21
 
@@ -901,8 +901,8 @@ declare void @OBJ_NAME_do_all(i32 noundef, ptr noundef, ptr noundef) local_unnam
 ; Function Attrs: nounwind uwtable
 define internal void @get_legacy_cipher_names(ptr noundef readonly captures(none) %0, ptr noundef captures(address) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !tbaa !35
-  %5 = load i32, ptr %0, align 8, !tbaa !37
+  %4 = load ptr, ptr %3, align 8, !tbaa !34
+  %5 = load i32, ptr %0, align 8, !tbaa !36
   %6 = tail call ptr @OBJ_NAME_get(ptr noundef %4, i32 noundef %5) #6
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %9, label %7
@@ -919,8 +919,8 @@ define internal void @get_legacy_cipher_names(ptr noundef readonly captures(none
 ; Function Attrs: nounwind uwtable
 define internal void @get_legacy_md_names(ptr noundef readonly captures(none) %0, ptr noundef captures(address) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !tbaa !35
-  %5 = load i32, ptr %0, align 8, !tbaa !37
+  %4 = load ptr, ptr %3, align 8, !tbaa !34
+  %5 = load i32, ptr %0, align 8, !tbaa !36
   %6 = tail call ptr @OBJ_NAME_get(ptr noundef %4, i32 noundef %5) #6
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %9, label %7
@@ -991,7 +991,7 @@ define internal fastcc void @get_legacy_evp_names(i32 noundef %0, i32 noundef %1
   br i1 %12, label %ossl_namemap_add_name.exit, label %13
 
 13:                                               ; preds = %11
-  %14 = load i8, ptr %7, align 1, !tbaa !26
+  %14 = load i8, ptr %7, align 1, !tbaa !25
   %15 = icmp eq i8 %14, 0
   %16 = icmp eq ptr %.011.i, null
   %or.cond.i = select i1 %15, i1 true, i1 %16
@@ -1025,7 +1025,7 @@ ossl_namemap_add_name.exit:                       ; preds = %11, %13, %17, %21
   br i1 %29, label %ossl_namemap_add_name.exit32, label %30
 
 30:                                               ; preds = %28
-  %31 = load i8, ptr %25, align 1, !tbaa !26
+  %31 = load i8, ptr %25, align 1, !tbaa !25
   %32 = icmp eq i8 %31, 0
   %33 = icmp eq ptr %.011.i28, null
   %or.cond.i29 = select i1 %32, i1 true, i1 %33
@@ -1064,7 +1064,7 @@ ossl_namemap_add_name.exit32:                     ; preds = %38, %34, %30, %28, 
   br i1 %48, label %ossl_namemap_add_name.exit37, label %49
 
 49:                                               ; preds = %47
-  %50 = load i8, ptr %43, align 1, !tbaa !26
+  %50 = load i8, ptr %43, align 1, !tbaa !25
   %51 = icmp eq i8 %50, 0
   %52 = icmp eq ptr %.011.i33, null
   %or.cond.i34 = select i1 %51, i1 true, i1 %52
@@ -1098,7 +1098,7 @@ ossl_namemap_add_name.exit37:                     ; preds = %47, %49, %53, %57
   br i1 %65, label %ossl_namemap_add_name.exit42, label %66
 
 66:                                               ; preds = %64
-  %67 = load i8, ptr %61, align 1, !tbaa !26
+  %67 = load i8, ptr %61, align 1, !tbaa !25
   %68 = icmp eq i8 %67, 0
   %69 = icmp eq ptr %.011.i38, null
   %or.cond.i39 = select i1 %68, i1 true, i1 %69
@@ -1138,7 +1138,7 @@ ossl_namemap_add_name.exit42:                     ; preds = %64, %66, %70, %74
 
 85:                                               ; preds = %83, %82
   %.011.i43 = phi ptr [ %84, %83 ], [ %3, %82 ]
-  %86 = load i8, ptr %5, align 16, !tbaa !26
+  %86 = load i8, ptr %5, align 16, !tbaa !25
   %87 = icmp eq i8 %86, 0
   %88 = icmp eq ptr %.011.i43, null
   %or.cond.i44 = select i1 %87, i1 true, i1 %88
@@ -1177,7 +1177,7 @@ ossl_namemap_add_name.exit47:                     ; preds = %93, %89, %85, %79
 
 102:                                              ; preds = %98, %100
   %.011.i48 = phi ptr [ %101, %100 ], [ %3, %98 ]
-  %103 = load i8, ptr %2, align 1, !tbaa !26
+  %103 = load i8, ptr %2, align 1, !tbaa !25
   %104 = icmp eq i8 %103, 0
   %105 = icmp eq ptr %.011.i48, null
   %or.cond.i49 = select i1 %104, i1 true, i1 %105
@@ -1242,24 +1242,23 @@ attributes #7 = { nounwind willreturn memory(read) }
 !14 = !{!"p1 _ZTS14stack_st_NAMES", !6, i64 0}
 !15 = !{!12, !13, i64 8}
 !16 = !{!12, !14, i64 24}
-!17 = distinct !{!17, !18, !19}
+!17 = distinct !{!17, !18}
 !18 = !{!"llvm.loop.mustprogress"}
-!19 = !{!"llvm.loop.estimated_trip_count"}
-!20 = !{!21, !9, i64 0}
-!21 = !{!"namenum_key_st", !22, i64 0, !24, i64 16}
-!22 = !{!"ht_key_header_st", !9, i64 0, !23, i64 8}
-!23 = !{!"p1 omnipotent char", !6, i64 0}
-!24 = !{!"", !7, i64 0}
-!25 = !{!21, !23, i64 8}
-!26 = !{!7, !7, i64 0}
-!27 = distinct !{!27, !18, !19}
-!28 = !{!29, !6, i64 0}
-!29 = !{!"ht_value_st", !6, i64 0, !30, i64 8, !22, i64 16}
-!30 = !{!"p1 long", !6, i64 0}
-!31 = !{!10, !10, i64 0}
-!32 = !{!23, !23, i64 0}
-!33 = distinct !{!33, !18, !19}
-!34 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!35 = !{!36, !23, i64 8}
-!36 = !{!"obj_name_st", !10, i64 0, !10, i64 4, !23, i64 8, !23, i64 16}
-!37 = !{!36, !10, i64 0}
+!19 = !{!20, !9, i64 0}
+!20 = !{!"namenum_key_st", !21, i64 0, !23, i64 16}
+!21 = !{!"ht_key_header_st", !9, i64 0, !22, i64 8}
+!22 = !{!"p1 omnipotent char", !6, i64 0}
+!23 = !{!"", !7, i64 0}
+!24 = !{!20, !22, i64 8}
+!25 = !{!7, !7, i64 0}
+!26 = distinct !{!26, !18}
+!27 = !{!28, !6, i64 0}
+!28 = !{!"ht_value_st", !6, i64 0, !29, i64 8, !21, i64 16}
+!29 = !{!"p1 long", !6, i64 0}
+!30 = !{!10, !10, i64 0}
+!31 = !{!22, !22, i64 0}
+!32 = distinct !{!32, !18}
+!33 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!34 = !{!35, !22, i64 8}
+!35 = !{!"obj_name_st", !10, i64 0, !10, i64 4, !22, i64 8, !22, i64 16}
+!36 = !{!35, !10, i64 0}

@@ -77,7 +77,7 @@ define hidden range(i32 0, -2147483648) i32 @_Z3gcdRK9s_integerS1_(ptr noundef n
   %.sroa.08.2 = phi i32 [ %.sroa.08.1, %2 ], [ %6, %5 ]
   %6 = urem i32 %.sroa.03.2, %.sroa.08.2
   %7 = icmp eq i32 %6, 0
-  br i1 %7, label %.critedge, label %5, !llvm.loop !12
+  br i1 %7, label %.critedge, label %5, !llvm.loop !11
 
 .critedge:                                        ; preds = %5
   ret i32 %.sroa.08.2
@@ -98,7 +98,7 @@ define hidden i32 @_Z3lcmRK9s_integerS1_(ptr noundef nonnull readonly align 4 ca
   %.sroa.08.2.i = phi i32 [ %.sroa.08.1.i, %2 ], [ %6, %5 ]
   %6 = urem i32 %.sroa.03.2.i, %.sroa.08.2.i
   %7 = icmp eq i32 %6, 0
-  br i1 %7, label %_Z3gcdRK9s_integerS1_.exit, label %5, !llvm.loop !12
+  br i1 %7, label %_Z3gcdRK9s_integerS1_.exit, label %5, !llvm.loop !11
 
 _Z3gcdRK9s_integerS1_.exit:                       ; preds = %5
   %8 = sdiv i32 %3, %.sroa.08.2.i
@@ -147,7 +147,6 @@ attributes #8 = { nounwind }
 !6 = !{!"omnipotent char", !7, i64 0}
 !7 = !{!"Simple C++ TBAA"}
 !8 = !{!5, !5, i64 0}
-!9 = distinct !{!9, !10, !11}
+!9 = distinct !{!9, !10}
 !10 = !{!"llvm.loop.mustprogress"}
-!11 = !{!"llvm.loop.estimated_trip_count"}
-!12 = distinct !{!12, !10, !11}
+!11 = distinct !{!11, !10}

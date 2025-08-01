@@ -270,7 +270,7 @@ invoke.cont6:                                     ; preds = %invoke.cont6.prehea
   store i8 %conv.i, ptr %add.ptr.i, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %for.end, label %invoke.cont6, !llvm.loop !8
+  br i1 %exitcond.not, label %for.end, label %invoke.cont6, !llvm.loop !7
 
 _ZNSt6vectorIhSaIhEED2Ev.exit:                    ; preds = %for.end
   %1 = landingpad { ptr, i32 }
@@ -460,7 +460,6 @@ attributes #18 = { nounwind }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6, !7}
+!5 = distinct !{!5, !6}
 !6 = !{!"llvm.loop.mustprogress"}
-!7 = !{!"llvm.loop.estimated_trip_count"}
-!8 = distinct !{!8, !6, !7}
+!7 = distinct !{!7, !6}

@@ -1335,7 +1335,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit295: ; preds = %_Z
   %443 = icmp sgt i32 %441, -1
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %38) #14
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %38) #14
-  br i1 %443, label %485, label %283, !llvm.loop !41
+  br i1 %443, label %485, label %283
 
 444:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit295
   %445 = landingpad { ptr, i32 }
@@ -1845,5 +1845,3 @@ attributes #16 = { cold }
 !38 = !{!23, !23, i64 0}
 !39 = !{!40, !40, i64 0}
 !40 = !{!"double", !8, i64 0}
-!41 = distinct !{!41, !42}
-!42 = !{!"llvm.loop.estimated_trip_count"}

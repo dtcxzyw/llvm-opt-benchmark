@@ -273,6 +273,5 @@ attributes #3 = { nounwind }
 !18 = !{!"pubkey", !11, i64 0, !12, i64 8, !13, i64 16}
 !19 = !{!18, !11, i64 0}
 !20 = !{!18, !13, i64 16}
-!21 = distinct !{!21, !22, !23}
+!21 = distinct !{!21, !22}
 !22 = !{!"llvm.loop.mustprogress"}
-!23 = !{!"llvm.loop.estimated_trip_count"}

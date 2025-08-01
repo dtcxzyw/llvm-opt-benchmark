@@ -135,7 +135,7 @@ define internal fastcc noundef nonnull ptr @_ZN4absl13base_internal12_GLOBAL__N_
   store i8 0, ptr %4, align 1, !tbaa !20
   %.add.i = add nuw nsw i64 %.idx.i, 32
   %6 = icmp eq i64 %.add.i, 4320
-  br i1 %6, label %_ZNSt5arrayINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELm135EEC2Ev.exit.preheader, label %3, !llvm.loop !21
+  br i1 %6, label %_ZNSt5arrayINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELm135EEC2Ev.exit.preheader, label %3
 
 _ZNSt5arrayINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELm135EEC2Ev.exit.preheader: ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -251,7 +251,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %1) #13
   %49 = add nuw nsw i64 %.06, 1
   %exitcond.not = icmp eq i64 %49, 135
-  br i1 %exitcond.not, label %9, label %10, !llvm.loop !23
+  br i1 %exitcond.not, label %9, label %10, !llvm.loop !21
 }
 
 declare i32 @__gxx_personality_v0(...)
@@ -391,6 +391,4 @@ attributes #15 = { builtin nounwind }
 !19 = !{!17, !17, i64 0}
 !20 = !{!6, !6, i64 0}
 !21 = distinct !{!21, !22}
-!22 = !{!"llvm.loop.estimated_trip_count"}
-!23 = distinct !{!23, !24, !22}
-!24 = !{!"llvm.loop.mustprogress"}
+!22 = !{!"llvm.loop.mustprogress"}

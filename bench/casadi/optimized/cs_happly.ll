@@ -71,7 +71,7 @@ define range(i32 0, 2) i32 @cs_happly(ptr noundef readonly captures(address_is_n
   store double %42, ptr %39, align 8, !tbaa !15
   %indvars.iv.next45 = add nsw i64 %indvars.iv44, 1
   %exitcond48.not = icmp eq i64 %indvars.iv.next45, %wide.trip.count47
-  br i1 %exitcond48.not, label %.loopexit, label %.lr.ph42, !llvm.loop !20
+  br i1 %exitcond48.not, label %.loopexit, label %.lr.ph42, !llvm.loop !19
 
 .loopexit:                                        ; preds = %.lr.ph42, %10, %4, %5
   %.033 = phi i32 [ 0, %5 ], [ 0, %4 ], [ 1, %10 ], [ 1, %.lr.ph42 ]
@@ -103,7 +103,6 @@ attributes #1 = { mustprogress nocallback nofree nosync nounwind speculatable wi
 !14 = !{!5, !5, i64 0}
 !15 = !{!16, !16, i64 0}
 !16 = !{!"double", !6, i64 0}
-!17 = distinct !{!17, !18, !19}
+!17 = distinct !{!17, !18}
 !18 = !{!"llvm.loop.mustprogress"}
-!19 = !{!"llvm.loop.estimated_trip_count"}
-!20 = distinct !{!20, !18, !19}
+!19 = distinct !{!19, !18}

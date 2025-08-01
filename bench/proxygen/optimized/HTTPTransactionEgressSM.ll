@@ -404,7 +404,7 @@ for.body:                                         ; preds = %invoke.cont19, %for
   store i8 %t.sroa.3.0.copyload, ptr %add.ptr.i7, align 1
   %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %__begin0.sroa.0.011, i64 3
   %cmp.i6.not = icmp eq ptr %incdec.ptr.i, %6
-  br i1 %cmp.i6.not, label %for.end, label %for.body, !llvm.loop !5
+  br i1 %cmp.i6.not, label %for.end, label %for.body
 
 for.end:                                          ; preds = %for.body, %invoke.cont19
   ret void
@@ -970,5 +970,3 @@ attributes #16 = { noreturn nounwind }
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
 !4 = !{!"branch_weights", i32 1, i32 1048575}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.estimated_trip_count"}

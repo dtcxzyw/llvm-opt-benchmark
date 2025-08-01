@@ -203,7 +203,7 @@ define internal i32 @file_do(ptr noundef %0, ptr noundef writeonly captures(none
   %77 = load i8, ptr %6, align 1, !range !88
   %78 = trunc nuw i8 %77 to i1
   %.not75.i = select i1 %.not74.i, i1 true, i1 %78
-  br i1 %.not75.i, label %.loopexit.i, label %.lr.ph.i, !llvm.loop !89
+  br i1 %.not75.i, label %.loopexit.i, label %.lr.ph.i
 
 .loopexit.i:                                      ; preds = %72, %.thread.i
   %.2.i = phi i32 [ %.3.ph.i, %.thread.i ], [ %76, %72 ]
@@ -233,31 +233,31 @@ file_upload.exit:                                 ; preds = %18, %21, %31, %42, 
 
 84:                                               ; preds = %2
   %85 = getelementptr inbounds nuw i8, ptr %17, i64 16
-  %86 = load i32, ptr %85, align 8, !tbaa !91
+  %86 = load i32, ptr %85, align 8, !tbaa !89
   %87 = call i32 @fstat(i32 noundef %86, ptr noundef nonnull %8) #8
   %.not145.not = icmp ne i32 %87, -1
   br i1 %.not145.not, label %88, label %.critedge
 
 88:                                               ; preds = %84
   %89 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  %90 = load i32, ptr %89, align 8, !tbaa !92
+  %90 = load i32, ptr %89, align 8, !tbaa !90
   %91 = and i32 %90, 61440
   %92 = icmp eq i32 %91, 16384
   %93 = getelementptr inbounds nuw i8, ptr %8, i64 48
   %94 = load i64, ptr %93, align 8
   %.1112 = select i1 %92, i64 -1, i64 %94
   %95 = getelementptr inbounds nuw i8, ptr %8, i64 88
-  %96 = load i64, ptr %95, align 8, !tbaa !93
+  %96 = load i64, ptr %95, align 8, !tbaa !91
   %97 = getelementptr inbounds nuw i8, ptr %0, i64 5064
-  store i64 %96, ptr %97, align 8, !tbaa !94
+  store i64 %96, ptr %97, align 8, !tbaa !92
   %98 = getelementptr inbounds nuw i8, ptr %0, i64 4464
-  %99 = load ptr, ptr %98, align 8, !tbaa !95
+  %99 = load ptr, ptr %98, align 8, !tbaa !93
   %.not146 = icmp eq ptr %99, null
   br i1 %.not146, label %100, label %105
 
 100:                                              ; preds = %88
   %101 = getelementptr inbounds nuw i8, ptr %0, i64 2654
-  %102 = load i8, ptr %101, align 2, !tbaa !96
+  %102 = load i8, ptr %101, align 2, !tbaa !94
   %.not147 = icmp eq i8 %102, 0
   br i1 %.not147, label %105, label %103
 
@@ -290,7 +290,7 @@ file_upload.exit:                                 ; preds = %18, %21, %31, %42, 
 
 115:                                              ; preds = %113
   %116 = getelementptr inbounds nuw i8, ptr %11, i64 24
-  %117 = load i32, ptr %116, align 8, !tbaa !97
+  %117 = load i32, ptr %116, align 8, !tbaa !95
   %.not151 = icmp eq i32 %117, 0
   %118 = add nsw i32 %117, -1
   %narrow = select i1 %.not151, i32 6, i32 %118
@@ -298,20 +298,20 @@ file_upload.exit:                                 ; preds = %18, %21, %31, %42, 
   %120 = getelementptr inbounds [7 x ptr], ptr @Curl_wkday, i64 0, i64 %119
   %121 = load ptr, ptr %120, align 8, !tbaa !86
   %122 = getelementptr inbounds nuw i8, ptr %11, i64 12
-  %123 = load i32, ptr %122, align 4, !tbaa !99
+  %123 = load i32, ptr %122, align 4, !tbaa !97
   %124 = getelementptr inbounds nuw i8, ptr %11, i64 16
-  %125 = load i32, ptr %124, align 8, !tbaa !100
+  %125 = load i32, ptr %124, align 8, !tbaa !98
   %126 = sext i32 %125 to i64
   %127 = getelementptr inbounds [12 x ptr], ptr @Curl_month, i64 0, i64 %126
   %128 = load ptr, ptr %127, align 8, !tbaa !86
   %129 = getelementptr inbounds nuw i8, ptr %11, i64 20
-  %130 = load i32, ptr %129, align 4, !tbaa !101
+  %130 = load i32, ptr %129, align 4, !tbaa !99
   %131 = add nsw i32 %130, 1900
   %132 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  %133 = load i32, ptr %132, align 8, !tbaa !102
+  %133 = load i32, ptr %132, align 8, !tbaa !100
   %134 = getelementptr inbounds nuw i8, ptr %11, i64 4
-  %135 = load i32, ptr %134, align 4, !tbaa !103
-  %136 = load i32, ptr %11, align 8, !tbaa !104
+  %135 = load i32, ptr %134, align 4, !tbaa !101
+  %136 = load i32, ptr %11, align 8, !tbaa !102
   %137 = call i32 (ptr, i64, ptr, ...) @curl_msnprintf(ptr noundef nonnull %12, i64 noundef 80, ptr noundef nonnull @.str.3, ptr noundef %121, i32 noundef %123, ptr noundef %128, i32 noundef %131, i32 noundef %133, i32 noundef %135, i32 noundef %136) #8
   %138 = sext i32 %137 to i64
   %139 = call i32 @Curl_client_write(ptr noundef nonnull %0, i32 noundef 4, ptr noundef nonnull %12, i64 noundef %138) #8
@@ -385,7 +385,7 @@ file_upload.exit:                                 ; preds = %18, %21, %31, %42, 
 164:                                              ; preds = %161, %157
   %.2113 = phi i64 [ %162, %161 ], [ %.0111176, %157 ]
   %165 = getelementptr inbounds nuw i8, ptr %0, i64 248
-  %166 = load i64, ptr %165, align 8, !tbaa !105
+  %166 = load i64, ptr %165, align 8, !tbaa !103
   %167 = icmp sgt i64 %166, 0
   %spec.select = select i1 %167, i64 %166, i64 %.2113
   %168 = icmp sgt i64 %spec.select, 0
@@ -404,7 +404,7 @@ file_upload.exit:                                 ; preds = %18, %21, %31, %42, 
 
 172:                                              ; preds = %170
   %173 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  %174 = load i32, ptr %173, align 8, !tbaa !92
+  %174 = load i32, ptr %173, align 8, !tbaa !90
   %175 = and i32 %174, 61440
   %176 = icmp eq i32 %175, 16384
   br i1 %176, label %243, label %177
@@ -421,7 +421,7 @@ file_upload.exit:                                 ; preds = %18, %21, %31, %42, 
 
 181:                                              ; preds = %179
   %182 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  %183 = load i32, ptr %182, align 8, !tbaa !92
+  %183 = load i32, ptr %182, align 8, !tbaa !90
   %184 = and i32 %183, 61440
   %185 = icmp eq i32 %184, 16384
   br i1 %185, label %226, label %.preheader206
@@ -473,7 +473,7 @@ file_upload.exit:                                 ; preds = %18, %21, %31, %42, 
   %208 = call i32 @Curl_speedcheck(ptr noundef %0, i64 %206, i32 %207) #8
   %.fr.us = freeze i32 %208
   %.not162.us = icmp eq i32 %.fr.us, 0
-  br i1 %.not162.us, label %.preheader206.split.us.preheader, label %.thread193, !llvm.loop !106
+  br i1 %.not162.us, label %.preheader206.split.us.preheader, label %.thread193, !llvm.loop !104
 
 .preheader206.split.preheader:                    ; preds = %.preheader206, %221
   %209 = load i64, ptr %10, align 8, !tbaa !87
@@ -538,7 +538,7 @@ file_upload.exit:                                 ; preds = %18, %21, %31, %42, 
 238:                                              ; preds = %236, %.lr.ph
   %239 = call ptr @readdir(ptr noundef nonnull %228) #8
   %.not164 = icmp eq ptr %239, null
-  br i1 %.not164, label %.thread202, label %.lr.ph, !llvm.loop !108
+  br i1 %.not164, label %.thread202, label %.lr.ph, !llvm.loop !106
 
 .thread202:                                       ; preds = %236, %233, %238, %.preheader
   %.8 = phi i32 [ 0, %.preheader ], [ 0, %238 ], [ %235, %233 ], [ %237, %236 ]
@@ -576,11 +576,11 @@ define internal noundef i32 @file_done(ptr noundef readonly captures(none) %0, i
 6:                                                ; preds = %3
   %7 = load ptr, ptr @Curl_cfree, align 8, !tbaa !3
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %9 = load ptr, ptr %8, align 8, !tbaa !110
+  %9 = load ptr, ptr %8, align 8, !tbaa !108
   tail call void %7(ptr noundef %9) #8
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false)
-  %11 = load i32, ptr %10, align 8, !tbaa !91
+  %11 = load i32, ptr %10, align 8, !tbaa !89
   %.not9 = icmp eq i32 %11, -1
   br i1 %.not9, label %14, label %12
 
@@ -589,7 +589,7 @@ define internal noundef i32 @file_done(ptr noundef readonly captures(none) %0, i
   br label %14
 
 14:                                               ; preds = %12, %6
-  store i32 -1, ptr %10, align 8, !tbaa !91
+  store i32 -1, ptr %10, align 8, !tbaa !89
   br label %15
 
 15:                                               ; preds = %14, %3
@@ -614,7 +614,7 @@ define internal i32 @file_connect(ptr noundef %0, ptr noundef writeonly captures
 
 9:                                                ; preds = %2
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 4616
-  %11 = load ptr, ptr %10, align 8, !tbaa !111
+  %11 = load ptr, ptr %10, align 8, !tbaa !109
   %12 = call i32 @Curl_urldecode(ptr noundef %11, i64 noundef 0, ptr noundef nonnull %3, ptr noundef nonnull %4, i32 noundef 4) #8
   %.not20 = icmp eq i32 %12, 0
   br i1 %.not20, label %13, label %file_done.exit
@@ -637,12 +637,12 @@ define internal i32 @file_connect(ptr noundef %0, ptr noundef writeonly captures
   store ptr %21, ptr %6, align 8, !tbaa !10
   %22 = load ptr, ptr @Curl_cfree, align 8, !tbaa !3
   %23 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %24 = load ptr, ptr %23, align 8, !tbaa !110
+  %24 = load ptr, ptr %23, align 8, !tbaa !108
   call void %22(ptr noundef %24) #8
   %25 = load ptr, ptr %3, align 8, !tbaa !86
-  store ptr %25, ptr %23, align 8, !tbaa !110
+  store ptr %25, ptr %23, align 8, !tbaa !108
   %26 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  store i32 %20, ptr %26, align 8, !tbaa !91
+  store i32 %20, ptr %26, align 8, !tbaa !89
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 5036
   %28 = load i32, ptr %27, align 4
   %29 = and i32 %28, 524288
@@ -652,7 +652,7 @@ define internal i32 @file_connect(ptr noundef %0, ptr noundef writeonly captures
   br i1 %or.cond, label %32, label %44
 
 32:                                               ; preds = %19
-  %33 = load ptr, ptr %10, align 8, !tbaa !111
+  %33 = load ptr, ptr %10, align 8, !tbaa !109
   call void (ptr, ptr, ...) @Curl_failf(ptr noundef nonnull %0, ptr noundef nonnull @.str.1, ptr noundef %33) #8
   %34 = load ptr, ptr %5, align 8, !tbaa !7
   %.not.i = icmp eq ptr %34, null
@@ -661,11 +661,11 @@ define internal i32 @file_connect(ptr noundef %0, ptr noundef writeonly captures
 35:                                               ; preds = %32
   %36 = load ptr, ptr @Curl_cfree, align 8, !tbaa !3
   %37 = getelementptr inbounds nuw i8, ptr %34, i64 8
-  %38 = load ptr, ptr %37, align 8, !tbaa !110
+  %38 = load ptr, ptr %37, align 8, !tbaa !108
   call void %36(ptr noundef %38) #8
   %39 = getelementptr inbounds nuw i8, ptr %34, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %34, i8 0, i64 16, i1 false)
-  %40 = load i32, ptr %39, align 8, !tbaa !91
+  %40 = load i32, ptr %39, align 8, !tbaa !89
   %.not9.i = icmp eq i32 %40, -1
   br i1 %.not9.i, label %43, label %41
 
@@ -674,7 +674,7 @@ define internal i32 @file_connect(ptr noundef %0, ptr noundef writeonly captures
   br label %43
 
 43:                                               ; preds = %41, %35
-  store i32 -1, ptr %39, align 8, !tbaa !91
+  store i32 -1, ptr %39, align 8, !tbaa !89
   br label %file_done.exit
 
 44:                                               ; preds = %19
@@ -698,11 +698,11 @@ define internal noundef i32 @file_disconnect(ptr noundef readonly captures(none)
 6:                                                ; preds = %3
   %7 = load ptr, ptr @Curl_cfree, align 8, !tbaa !3
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %9 = load ptr, ptr %8, align 8, !tbaa !110
+  %9 = load ptr, ptr %8, align 8, !tbaa !108
   tail call void %7(ptr noundef %9) #8
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false)
-  %11 = load i32, ptr %10, align 8, !tbaa !91
+  %11 = load i32, ptr %10, align 8, !tbaa !89
   %.not9.i = icmp eq i32 %11, -1
   br i1 %.not9.i, label %14, label %12
 
@@ -711,7 +711,7 @@ define internal noundef i32 @file_disconnect(ptr noundef readonly captures(none)
   br label %14
 
 14:                                               ; preds = %12, %6
-  store i32 -1, ptr %10, align 8, !tbaa !91
+  store i32 -1, ptr %10, align 8, !tbaa !89
   br label %file_done.exit
 
 file_done.exit:                                   ; preds = %3, %14
@@ -901,26 +901,24 @@ attributes #9 = { nounwind willreturn memory(read) }
 !86 = !{!12, !12, i64 0}
 !87 = !{!16, !16, i64 0}
 !88 = !{i8 0, i8 2}
-!89 = distinct !{!89, !90}
-!90 = !{!"llvm.loop.estimated_trip_count"}
-!91 = !{!11, !13, i64 16}
-!92 = !{!84, !13, i64 24}
-!93 = !{!84, !16, i64 88}
-!94 = !{!15, !16, i64 5064}
-!95 = !{!15, !12, i64 4464}
-!96 = !{!15, !5, i64 2654}
-!97 = !{!98, !13, i64 24}
-!98 = !{!"tm", !13, i64 0, !13, i64 4, !13, i64 8, !13, i64 12, !13, i64 16, !13, i64 20, !13, i64 24, !13, i64 28, !13, i64 32, !16, i64 40, !12, i64 48}
-!99 = !{!98, !13, i64 12}
-!100 = !{!98, !13, i64 16}
-!101 = !{!98, !13, i64 20}
-!102 = !{!98, !13, i64 8}
-!103 = !{!98, !13, i64 4}
-!104 = !{!98, !13, i64 0}
-!105 = !{!15, !16, i64 248}
+!89 = !{!11, !13, i64 16}
+!90 = !{!84, !13, i64 24}
+!91 = !{!84, !16, i64 88}
+!92 = !{!15, !16, i64 5064}
+!93 = !{!15, !12, i64 4464}
+!94 = !{!15, !5, i64 2654}
+!95 = !{!96, !13, i64 24}
+!96 = !{!"tm", !13, i64 0, !13, i64 4, !13, i64 8, !13, i64 12, !13, i64 16, !13, i64 20, !13, i64 24, !13, i64 28, !13, i64 32, !16, i64 40, !12, i64 48}
+!97 = !{!96, !13, i64 12}
+!98 = !{!96, !13, i64 16}
+!99 = !{!96, !13, i64 20}
+!100 = !{!96, !13, i64 8}
+!101 = !{!96, !13, i64 4}
+!102 = !{!96, !13, i64 0}
+!103 = !{!15, !16, i64 248}
+!104 = distinct !{!104, !105}
+!105 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !106 = distinct !{!106, !107}
-!107 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!108 = distinct !{!108, !109, !90}
-!109 = !{!"llvm.loop.mustprogress"}
-!110 = !{!11, !12, i64 8}
-!111 = !{!15, !12, i64 4616}
+!107 = !{!"llvm.loop.mustprogress"}
+!108 = !{!11, !12, i64 8}
+!109 = !{!15, !12, i64 4616}

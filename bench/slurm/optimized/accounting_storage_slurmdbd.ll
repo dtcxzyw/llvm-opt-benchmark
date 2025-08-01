@@ -5194,7 +5194,7 @@ define dso_local i32 @jobacct_storage_p_job_heavy(ptr noundef %0, ptr noundef %1
   %31 = load i32, ptr %5, align 4
   %32 = zext i32 %31 to i64
   %33 = icmp samesign ult i64 %indvars.iv.next, %32
-  br i1 %33, label %.lr.ph, label %._crit_edge, !llvm.loop !12
+  br i1 %33, label %.lr.ph, label %._crit_edge, !llvm.loop !11
 
 34:                                               ; preds = %._crit_edge, %25
   %35 = getelementptr inbounds nuw i8, ptr %1, i64 216
@@ -6094,8 +6094,7 @@ attributes #12 = { nounwind willreturn memory(none) }
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i32 7, !"frame-pointer", i32 2}
 !7 = !{i32 7, !"debug-info-assignment-tracking", i1 true}
-!8 = distinct !{!8, !9, !10, !11}
+!8 = distinct !{!8, !9, !10}
 !9 = !{!"llvm.loop.mustprogress"}
 !10 = !{!"llvm.loop.unroll.disable"}
-!11 = !{!"llvm.loop.estimated_trip_count"}
-!12 = distinct !{!12, !9, !10, !11}
+!11 = distinct !{!11, !9, !10}

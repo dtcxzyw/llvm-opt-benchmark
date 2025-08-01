@@ -62,22 +62,22 @@ define void @_ZN6LibRaw12cubic_splineEPKiS1_i(ptr noundef nonnull align 8 derefe
 .lr.ph194:                                        ; preds = %.lr.ph194.preheader, %.lr.ph194
   %indvars.iv225 = phi i64 [ 0, %.lr.ph194.preheader ], [ %indvars.iv.next226, %.lr.ph194 ]
   %34 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv225
-  %35 = load i32, ptr %34, align 4, !tbaa !14
+  %35 = load i32, ptr %34, align 4, !tbaa !13
   %36 = sitofp i32 %35 to double
   %37 = fmul reassoc nsz arcp contract afn double %36, 0x3EF0001000100010
   %38 = fptrunc reassoc nsz arcp contract afn double %37 to float
   %39 = getelementptr inbounds nuw float, ptr %31, i64 %indvars.iv225
-  store float %38, ptr %39, align 4, !tbaa !16
+  store float %38, ptr %39, align 4, !tbaa !15
   %40 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv225
-  %41 = load i32, ptr %40, align 4, !tbaa !14
+  %41 = load i32, ptr %40, align 4, !tbaa !13
   %42 = sitofp i32 %41 to double
   %43 = fmul reassoc nsz arcp contract afn double %42, 0x3EF0001000100010
   %44 = fptrunc reassoc nsz arcp contract afn double %43 to float
   %45 = getelementptr inbounds nuw float, ptr %33, i64 %indvars.iv225
-  store float %44, ptr %45, align 4, !tbaa !16
+  store float %44, ptr %45, align 4, !tbaa !15
   %indvars.iv.next226 = add nuw nsw i64 %indvars.iv225, 1
   %exitcond229.not = icmp eq i64 %indvars.iv.next226, %wide.trip.count228
-  br i1 %exitcond229.not, label %._crit_edge195, label %.lr.ph194, !llvm.loop !18
+  br i1 %exitcond229.not, label %._crit_edge195, label %.lr.ph194, !llvm.loop !17
 
 ._crit_edge195:                                   ; preds = %.lr.ph194
   %46 = add nsw i32 %3, -1
@@ -100,26 +100,26 @@ define void @_ZN6LibRaw12cubic_splineEPKiS1_i(ptr noundef nonnull align 8 derefe
 .lr.ph198:                                        ; preds = %.lr.ph198.preheader, %.lr.ph198
   %indvars.iv230 = phi i64 [ %47, %.lr.ph198.preheader ], [ %indvars.iv.next231, %.lr.ph198 ]
   %50 = getelementptr inbounds nuw float, ptr %31, i64 %indvars.iv230
-  %51 = load float, ptr %50, align 4, !tbaa !16
+  %51 = load float, ptr %50, align 4, !tbaa !15
   %indvars.iv.next231 = add nsw i64 %indvars.iv230, -1
   %52 = getelementptr inbounds nuw float, ptr %31, i64 %indvars.iv.next231
-  %53 = load float, ptr %52, align 4, !tbaa !16
+  %53 = load float, ptr %52, align 4, !tbaa !15
   %54 = fsub reassoc nsz arcp contract afn float %51, %53
   %55 = tail call reassoc nsz arcp contract afn float @llvm.fabs.f32(float %54)
   %56 = fcmp reassoc nsz arcp contract afn olt float %55, 0x3CD203AFA0000000
   %.0175 = select nsz i1 %56, float 1.000000e+00, float %54
   %57 = getelementptr inbounds nuw float, ptr %33, i64 %indvars.iv230
-  %58 = load float, ptr %57, align 4, !tbaa !16
+  %58 = load float, ptr %57, align 4, !tbaa !15
   %59 = getelementptr inbounds nuw float, ptr %33, i64 %indvars.iv.next231
-  %60 = load float, ptr %59, align 4, !tbaa !16
+  %60 = load float, ptr %59, align 4, !tbaa !15
   %61 = fsub reassoc nsz arcp contract afn float %58, %60
   %62 = fdiv reassoc nsz arcp contract afn float %61, %.0175
   %63 = getelementptr inbounds nuw float, ptr %27, i64 %indvars.iv230
-  store float %62, ptr %63, align 4, !tbaa !16
+  store float %62, ptr %63, align 4, !tbaa !15
   %64 = getelementptr inbounds nuw float, ptr %30, i64 %indvars.iv.next231
-  store float %.0175, ptr %64, align 4, !tbaa !16
+  store float %.0175, ptr %64, align 4, !tbaa !15
   %65 = icmp samesign ugt i64 %indvars.iv230, 1
-  br i1 %65, label %.lr.ph198, label %.preheader190, !llvm.loop !19
+  br i1 %65, label %.lr.ph198, label %.preheader190, !llvm.loop !18
 
 .preheader189:                                    ; preds = %102
   %66 = add nsw i32 %3, -2
@@ -140,68 +140,68 @@ define void @_ZN6LibRaw12cubic_splineEPKiS1_i(ptr noundef nonnull align 8 derefe
   %69 = getelementptr inbounds nuw ptr, ptr %11, i64 %indvars.iv.next244
   %70 = load ptr, ptr %69, align 8, !tbaa !6
   %71 = getelementptr inbounds nuw float, ptr %70, i64 %indvars.iv243
-  %72 = load float, ptr %71, align 4, !tbaa !16
+  %72 = load float, ptr %71, align 4, !tbaa !15
   %73 = getelementptr inbounds nuw float, ptr %68, i64 %indvars.iv243
-  %74 = load float, ptr %73, align 4, !tbaa !16
+  %74 = load float, ptr %73, align 4, !tbaa !15
   %75 = fdiv reassoc nsz arcp contract afn float 1.000000e+00, %74
   br label %76
 
 76:                                               ; preds = %.lr.ph204.us, %76
   %indvars.iv238 = phi i64 [ 1, %.lr.ph204.us ], [ %indvars.iv.next239, %76 ]
   %77 = getelementptr inbounds nuw float, ptr %68, i64 %indvars.iv238
-  %78 = load float, ptr %77, align 4, !tbaa !16
+  %78 = load float, ptr %77, align 4, !tbaa !15
   %79 = fmul reassoc nsz arcp contract afn float %72, %78
   %80 = fmul reassoc nsz arcp contract afn float %79, %75
   %81 = getelementptr inbounds nuw float, ptr %70, i64 %indvars.iv238
-  %82 = load float, ptr %81, align 4, !tbaa !16
+  %82 = load float, ptr %81, align 4, !tbaa !15
   %83 = fsub reassoc nsz arcp contract afn float %82, %80
-  store float %83, ptr %81, align 4, !tbaa !16
+  store float %83, ptr %81, align 4, !tbaa !15
   %indvars.iv.next239 = add nuw nsw i64 %indvars.iv238, 1
   %exitcond242.not = icmp eq i64 %indvars.iv.next239, %wide.trip.count241
-  br i1 %exitcond242.not, label %..loopexit_crit_edge.us, label %76, !llvm.loop !20
+  br i1 %exitcond242.not, label %..loopexit_crit_edge.us, label %76, !llvm.loop !19
 
 ..loopexit_crit_edge.us:                          ; preds = %76
   %exitcond247.not = icmp eq i64 %indvars.iv.next244, %wide.trip.count246
-  br i1 %exitcond247.not, label %.preheader187.lr.ph, label %.lr.ph204.us, !llvm.loop !21
+  br i1 %exitcond247.not, label %.preheader187.lr.ph, label %.lr.ph204.us, !llvm.loop !20
 
 84:                                               ; preds = %.lr.ph200, %102
   %indvars.iv233 = phi i64 [ 1, %.lr.ph200 ], [ %indvars.iv.next234, %102 ]
   %85 = add nsw i64 %indvars.iv233, -1
   %86 = getelementptr inbounds float, ptr %30, i64 %85
-  %87 = load float, ptr %86, align 4, !tbaa !16
+  %87 = load float, ptr %86, align 4, !tbaa !15
   %88 = getelementptr inbounds nuw float, ptr %30, i64 %indvars.iv233
-  %89 = load float, ptr %88, align 4, !tbaa !16
+  %89 = load float, ptr %88, align 4, !tbaa !15
   %90 = fadd reassoc nsz arcp contract afn float %89, %87
   %91 = fmul reassoc nsz arcp contract afn float %90, 2.000000e+00
   %92 = getelementptr inbounds nuw ptr, ptr %11, i64 %indvars.iv233
   %93 = load ptr, ptr %92, align 8, !tbaa !6
   %94 = getelementptr inbounds nuw float, ptr %93, i64 %indvars.iv233
-  store float %91, ptr %94, align 4, !tbaa !16
+  store float %91, ptr %94, align 4, !tbaa !15
   %95 = icmp samesign ugt i64 %indvars.iv233, 1
   br i1 %95, label %96, label %102
 
 96:                                               ; preds = %84
-  %97 = load float, ptr %86, align 4, !tbaa !16
+  %97 = load float, ptr %86, align 4, !tbaa !15
   %98 = getelementptr inbounds float, ptr %93, i64 %85
-  store float %97, ptr %98, align 4, !tbaa !16
+  store float %97, ptr %98, align 4, !tbaa !15
   %99 = getelementptr inbounds ptr, ptr %11, i64 %85
   %100 = load ptr, ptr %99, align 8, !tbaa !6
   %101 = getelementptr inbounds nuw float, ptr %100, i64 %indvars.iv233
-  store float %97, ptr %101, align 4, !tbaa !16
+  store float %97, ptr %101, align 4, !tbaa !15
   br label %102
 
 102:                                              ; preds = %96, %84
   %indvars.iv.next234 = add nuw nsw i64 %indvars.iv233, 1
   %103 = getelementptr inbounds nuw float, ptr %27, i64 %indvars.iv.next234
-  %104 = load float, ptr %103, align 4, !tbaa !16
+  %104 = load float, ptr %103, align 4, !tbaa !15
   %105 = getelementptr inbounds nuw float, ptr %27, i64 %indvars.iv233
-  %106 = load float, ptr %105, align 4, !tbaa !16
+  %106 = load float, ptr %105, align 4, !tbaa !15
   %107 = fsub reassoc nsz arcp contract afn float %104, %106
   %108 = fmul reassoc nsz arcp contract afn float %107, 6.000000e+00
   %109 = getelementptr inbounds nuw float, ptr %93, i64 %49
-  store float %108, ptr %109, align 4, !tbaa !16
+  store float %108, ptr %109, align 4, !tbaa !15
   %exitcond237.not = icmp eq i64 %indvars.iv.next234, %wide.trip.count236
-  br i1 %exitcond237.not, label %.preheader189, label %84, !llvm.loop !23
+  br i1 %exitcond237.not, label %.preheader189, label %84, !llvm.loop !22
 
 .preheader187.lr.ph:                              ; preds = %..loopexit_crit_edge.us, %.preheader189
   %110 = sext i32 %46 to i64
@@ -231,29 +231,29 @@ define void @_ZN6LibRaw12cubic_splineEPKiS1_i(ptr noundef nonnull align 8 derefe
   %indvars.iv250 = phi i64 [ %indvars.iv.next251, %.lr.ph211 ], [ %indvars.iv248, %.preheader187 ]
   %.0174209 = phi float [ %125, %.lr.ph211 ], [ 0.000000e+00, %.preheader187 ]
   %120 = getelementptr inbounds nuw float, ptr %.pre264, i64 %indvars.iv250
-  %121 = load float, ptr %120, align 4, !tbaa !16
+  %121 = load float, ptr %120, align 4, !tbaa !15
   %122 = getelementptr inbounds nuw float, ptr %29, i64 %indvars.iv250
-  %123 = load float, ptr %122, align 4, !tbaa !16
+  %123 = load float, ptr %122, align 4, !tbaa !15
   %124 = fmul reassoc nsz arcp contract afn float %123, %121
   %125 = fadd reassoc nsz arcp contract afn float %124, %.0174209
   %indvars.iv.next251 = add nuw nsw i64 %indvars.iv250, 1
   %126 = trunc nuw i64 %indvars.iv250 to i32
   %.not185.not = icmp sgt i32 %66, %126
-  br i1 %.not185.not, label %.lr.ph211, label %._crit_edge212, !llvm.loop !24
+  br i1 %.not185.not, label %.lr.ph211, label %._crit_edge212, !llvm.loop !23
 
 ._crit_edge212:                                   ; preds = %.lr.ph211, %.preheader187
   %.0174.lcssa = phi float [ 0.000000e+00, %.preheader187 ], [ %125, %.lr.ph211 ]
   %127 = getelementptr inbounds float, ptr %.pre264, i64 %110
-  %128 = load float, ptr %127, align 4, !tbaa !16
+  %128 = load float, ptr %127, align 4, !tbaa !15
   %129 = fsub reassoc nsz arcp contract afn float %128, %.0174.lcssa
   %130 = getelementptr inbounds nuw float, ptr %.pre264, i64 %indvars.iv248
-  %131 = load float, ptr %130, align 4, !tbaa !16
+  %131 = load float, ptr %130, align 4, !tbaa !15
   %132 = fdiv reassoc nsz arcp contract afn float %129, %131
   %133 = getelementptr inbounds nuw float, ptr %29, i64 %indvars.iv248
-  store float %132, ptr %133, align 4, !tbaa !16
+  store float %132, ptr %133, align 4, !tbaa !15
   %indvars.iv.next249 = add nsw i64 %indvars.iv248, -1
   %134 = icmp sgt i64 %indvars.iv248, 1
-  br i1 %134, label %.preheader187, label %.preheader, !llvm.loop !25
+  br i1 %134, label %.preheader187, label %.preheader, !llvm.loop !24
 
 135:                                              ; preds = %.preheader, %190
   %indvars.iv259 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next260, %190 ]
@@ -267,32 +267,32 @@ define void @_ZN6LibRaw12cubic_splineEPKiS1_i(ptr noundef nonnull align 8 derefe
   %indvars.iv254 = phi i64 [ %.pre265, %.lr.ph218._crit_edge ], [ 0, %135 ]
   %.0169216 = phi float [ %.1170, %.lr.ph218._crit_edge ], [ 0.000000e+00, %135 ]
   %140 = getelementptr inbounds nuw float, ptr %114, i64 %indvars.iv254
-  %141 = load float, ptr %140, align 4, !tbaa !16
+  %141 = load float, ptr %140, align 4, !tbaa !15
   %142 = fcmp reassoc nsz arcp contract afn ugt float %141, %139
   %.pre265 = add nuw nsw i64 %indvars.iv254, 1
   br i1 %142, label %.lr.ph218._crit_edge, label %143
 
 143:                                              ; preds = %.lr.ph218
   %144 = getelementptr inbounds nuw float, ptr %114, i64 %.pre265
-  %145 = load float, ptr %144, align 4, !tbaa !16
+  %145 = load float, ptr %144, align 4, !tbaa !15
   %146 = fcmp reassoc nsz arcp contract afn ult float %145, %139
   br i1 %146, label %.lr.ph218._crit_edge, label %147
 
 147:                                              ; preds = %143
   %148 = fsub reassoc nsz arcp contract afn float %139, %141
   %149 = getelementptr inbounds nuw float, ptr %113, i64 %indvars.iv254
-  %150 = load float, ptr %149, align 4, !tbaa !16
+  %150 = load float, ptr %149, align 4, !tbaa !15
   %151 = getelementptr inbounds nuw float, ptr %113, i64 %.pre265
-  %152 = load float, ptr %151, align 4, !tbaa !16
+  %152 = load float, ptr %151, align 4, !tbaa !15
   %153 = fsub reassoc nsz arcp contract afn float %152, %150
   %154 = getelementptr inbounds nuw float, ptr %115, i64 %indvars.iv254
-  %155 = load float, ptr %154, align 4, !tbaa !16
+  %155 = load float, ptr %154, align 4, !tbaa !15
   %156 = fdiv reassoc nsz arcp contract afn float %153, %155
   %157 = getelementptr inbounds nuw float, ptr %116, i64 %indvars.iv254
-  %158 = load float, ptr %157, align 4, !tbaa !16
+  %158 = load float, ptr %157, align 4, !tbaa !15
   %159 = fmul reassoc nsz arcp contract afn float %158, 2.000000e+00
   %160 = getelementptr inbounds nuw float, ptr %116, i64 %.pre265
-  %161 = load float, ptr %160, align 4, !tbaa !16
+  %161 = load float, ptr %160, align 4, !tbaa !15
   %reass.add = fadd reassoc nsz arcp contract afn float %161, %159
   %reass.mul = fmul reassoc nsz arcp contract afn float %155, 0x3FC5555560000000
   %162 = fmul reassoc nsz arcp contract afn float %reass.mul, %reass.add
@@ -320,7 +320,7 @@ define void @_ZN6LibRaw12cubic_splineEPKiS1_i(ptr noundef nonnull align 8 derefe
 .lr.ph218._crit_edge:                             ; preds = %.lr.ph218, %143, %147
   %.1170 = phi nsz float [ %.0169216, %143 ], [ %181, %147 ], [ %.0169216, %.lr.ph218 ]
   %exitcond258.not = icmp eq i64 %.pre265, %wide.trip.count257
-  br i1 %exitcond258.not, label %._crit_edge219, label %.lr.ph218, !llvm.loop !26
+  br i1 %exitcond258.not, label %._crit_edge219, label %.lr.ph218, !llvm.loop !25
 
 ._crit_edge219:                                   ; preds = %.lr.ph218._crit_edge
   %182 = fcmp reassoc nsz arcp contract afn olt float %.1170, 0.000000e+00
@@ -341,10 +341,10 @@ define void @_ZN6LibRaw12cubic_splineEPKiS1_i(ptr noundef nonnull align 8 derefe
 190:                                              ; preds = %.thread, %183, %._crit_edge219
   %191 = phi i16 [ 0, %._crit_edge219 ], [ %189, %.thread ], [ -1, %183 ]
   %192 = getelementptr inbounds nuw [65536 x i16], ptr %119, i64 0, i64 %indvars.iv259
-  store i16 %191, ptr %192, align 2, !tbaa !27
+  store i16 %191, ptr %192, align 2, !tbaa !26
   %indvars.iv.next260 = add nuw nsw i64 %indvars.iv259, 1
   %exitcond262.not = icmp eq i64 %indvars.iv.next260, 65536
-  br i1 %exitcond262.not, label %193, label %135, !llvm.loop !29
+  br i1 %exitcond262.not, label %193, label %135, !llvm.loop !28
 
 193:                                              ; preds = %190
   tail call void @_ZN6LibRaw4freeEPv(ptr noundef nonnull align 8 dereferenceable(767680) %0, ptr noundef nonnull %11)
@@ -404,7 +404,7 @@ define void @_ZN6LibRaw11gamma_curveEddii(ptr noundef nonnull writeonly align 8 
   %..sroa.7.0.us = select nsz i1 %24, double %17, double %.sroa.7.094.us
   %25 = add nuw nsw i32 %.092.us, 1
   %exitcond101.not = icmp eq i32 %25, 48
-  br i1 %exitcond101.not, label %34, label %.cont15.us, !llvm.loop !30
+  br i1 %exitcond101.not, label %34, label %.cont15.us, !llvm.loop !29
 
 .cont:                                            ; preds = %.preheader91, %.cont
   %.sroa.7.094 = phi double [ %..sroa.7.088, %.cont ], [ %.86, %.preheader91 ]
@@ -421,7 +421,7 @@ define void @_ZN6LibRaw11gamma_curveEddii(ptr noundef nonnull writeonly align 8 
   %..sroa.7.088 = select nsz i1 %32, double %27, double %.sroa.7.094
   %33 = add nuw nsw i32 %.092, 1
   %exitcond.not = icmp eq i32 %33, 48
-  br i1 %exitcond.not, label %.split.us, label %.cont, !llvm.loop !31
+  br i1 %exitcond.not, label %.split.us, label %.cont, !llvm.loop !30
 
 .split.us:                                        ; preds = %.cont
   %.pre = fdiv reassoc nsz arcp contract afn double %27, %2
@@ -491,7 +491,7 @@ define void @_ZN6LibRaw11gamma_curveEddii(ptr noundef nonnull writeonly align 8 
 .preheader.split.us:                              ; preds = %.preheader.split.us.preheader, %93
   %indvars.iv108 = phi i64 [ %indvars.iv.next109, %93 ], [ 0, %.preheader.split.us.preheader ]
   %71 = getelementptr inbounds nuw [65536 x i16], ptr %63, i64 0, i64 %indvars.iv108
-  store i16 -1, ptr %71, align 2, !tbaa !27
+  store i16 -1, ptr %71, align 2, !tbaa !26
   %72 = trunc nuw nsw i64 %indvars.iv108 to i32
   %73 = uitofp nneg i32 %72 to double
   %74 = fmul reassoc nsz arcp contract afn double %65, %73
@@ -525,13 +525,13 @@ define void @_ZN6LibRaw11gamma_curveEddii(ptr noundef nonnull writeonly align 8 
   %90 = phi reassoc nsz arcp contract afn double [ %88, %87 ], [ %86, %83 ], [ %82, %79 ]
   %91 = fmul reassoc nsz arcp contract afn double %90, 6.553600e+04
   %92 = fptoui double %91 to i16
-  store i16 %92, ptr %71, align 2, !tbaa !27
+  store i16 %92, ptr %71, align 2, !tbaa !26
   br label %93
 
 93:                                               ; preds = %89, %.preheader.split.us
   %indvars.iv.next109 = add nuw nsw i64 %indvars.iv108, 1
   %exitcond111.not = icmp eq i64 %indvars.iv.next109, 65536
-  br i1 %exitcond111.not, label %.loopexit, label %.preheader.split.us, !llvm.loop !32
+  br i1 %exitcond111.not, label %.loopexit, label %.preheader.split.us, !llvm.loop !31
 
 .preheader.split:                                 ; preds = %.preheader
   br i1 %39, label %.preheader.split.split.us, label %.preheader.split.split
@@ -539,7 +539,7 @@ define void @_ZN6LibRaw11gamma_curveEddii(ptr noundef nonnull writeonly align 8 
 .preheader.split.split.us:                        ; preds = %.preheader.split, %111
   %indvars.iv104 = phi i64 [ %indvars.iv.next105, %111 ], [ 0, %.preheader.split ]
   %94 = getelementptr inbounds nuw [65536 x i16], ptr %63, i64 0, i64 %indvars.iv104
-  store i16 -1, ptr %94, align 2, !tbaa !27
+  store i16 -1, ptr %94, align 2, !tbaa !26
   %95 = trunc nuw nsw i64 %indvars.iv104 to i32
   %96 = uitofp nneg i32 %95 to double
   %97 = fmul reassoc nsz arcp contract afn double %65, %96
@@ -564,13 +564,13 @@ define void @_ZN6LibRaw11gamma_curveEddii(ptr noundef nonnull writeonly align 8 
   %108 = phi reassoc nsz arcp contract afn double [ %106, %105 ], [ %104, %101 ]
   %109 = fmul reassoc nsz arcp contract afn double %108, 6.553600e+04
   %110 = fptoui double %109 to i16
-  store i16 %110, ptr %94, align 2, !tbaa !27
+  store i16 %110, ptr %94, align 2, !tbaa !26
   br label %111
 
 111:                                              ; preds = %107, %.preheader.split.split.us
   %indvars.iv.next105 = add nuw nsw i64 %indvars.iv104, 1
   %exitcond107.not = icmp eq i64 %indvars.iv.next105, 65536
-  br i1 %exitcond107.not, label %.loopexit, label %.preheader.split.split.us, !llvm.loop !33
+  br i1 %exitcond107.not, label %.loopexit, label %.preheader.split.split.us, !llvm.loop !32
 
 112:                                              ; preds = %62
   %.sroa.63.0.in = fdiv reassoc nsz arcp contract afn double 1.000000e+00, %.pn
@@ -592,7 +592,7 @@ define void @_ZN6LibRaw11gamma_curveEddii(ptr noundef nonnull writeonly align 8 
 .preheader.split.split:                           ; preds = %.preheader.split, %131
   %indvars.iv = phi i64 [ %indvars.iv.next, %131 ], [ 0, %.preheader.split ]
   %114 = getelementptr inbounds nuw [65536 x i16], ptr %63, i64 0, i64 %indvars.iv
-  store i16 -1, ptr %114, align 2, !tbaa !27
+  store i16 -1, ptr %114, align 2, !tbaa !26
   %115 = trunc nuw nsw i64 %indvars.iv to i32
   %116 = uitofp nneg i32 %115 to double
   %117 = fmul reassoc nsz arcp contract afn double %65, %116
@@ -617,13 +617,13 @@ define void @_ZN6LibRaw11gamma_curveEddii(ptr noundef nonnull writeonly align 8 
   %128 = phi reassoc nsz arcp contract afn double [ %122, %121 ], [ %126, %123 ]
   %129 = fmul reassoc nsz arcp contract afn double %128, 6.553600e+04
   %130 = fptoui double %129 to i16
-  store i16 %130, ptr %114, align 2, !tbaa !27
+  store i16 %130, ptr %114, align 2, !tbaa !26
   br label %131
 
 131:                                              ; preds = %.preheader.split.split, %127
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond103.not = icmp eq i64 %indvars.iv.next, 65536
-  br i1 %exitcond103.not, label %.loopexit, label %.preheader.split.split, !llvm.loop !34
+  br i1 %exitcond103.not, label %.loopexit, label %.preheader.split.split, !llvm.loop !33
 
 .loopexit:                                        ; preds = %131, %111, %93, %112
   ret void
@@ -669,10 +669,10 @@ define void @_ZN6LibRaw12linear_tableEj(ptr noundef nonnull align 8 dereferencea
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ %umin, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %11 = getelementptr inbounds nuw [65536 x i16], ptr %8, i64 0, i64 %indvars.iv
-  store i16 %load_initial, ptr %11, align 2, !tbaa !27
+  store i16 %load_initial, ptr %11, align 2, !tbaa !26
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 65536
-  br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !35
+  br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !34
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
   %12 = tail call i32 @llvm.umax.i32(i32 %1, i32 4096)
@@ -684,10 +684,10 @@ define void @_ZN6LibRaw12linear_tableEj(ptr noundef nonnull align 8 dereferencea
   %.01014 = phi i64 [ 65535, %.thread ], [ 65535, %7 ], [ %14, %._crit_edge.loopexit ]
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 5504
   %16 = getelementptr inbounds nuw [65536 x i16], ptr %15, i64 0, i64 %.01014
-  %17 = load i16, ptr %16, align 2, !tbaa !27
+  %17 = load i16, ptr %16, align 2, !tbaa !26
   %18 = zext i16 %17 to i32
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 153000
-  store i32 %18, ptr %19, align 8, !tbaa !36
+  store i32 %18, ptr %19, align 8, !tbaa !35
   br label %20
 
 20:                                               ; preds = %5, %._crit_edge
@@ -721,86 +721,85 @@ attributes #4 = { nocallback nofree nosync nounwind speculatable willreturn memo
 !8 = !{!"any pointer", !9, i64 0}
 !9 = !{!"omnipotent char", !10, i64 0}
 !10 = !{!"Simple C++ TBAA"}
-!11 = distinct !{!11, !12, !13}
+!11 = distinct !{!11, !12}
 !12 = !{!"llvm.loop.mustprogress"}
-!13 = !{!"llvm.loop.estimated_trip_count"}
-!14 = !{!15, !15, i64 0}
-!15 = !{!"int", !9, i64 0}
-!16 = !{!17, !17, i64 0}
-!17 = !{!"float", !9, i64 0}
-!18 = distinct !{!18, !12, !13}
-!19 = distinct !{!19, !12, !13}
-!20 = distinct !{!20, !12, !13}
-!21 = distinct !{!21, !12, !13, !22}
-!22 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!23 = distinct !{!23, !12, !13}
-!24 = distinct !{!24, !12, !13}
-!25 = distinct !{!25, !12, !13}
-!26 = distinct !{!26, !12, !13}
-!27 = !{!28, !28, i64 0}
-!28 = !{!"short", !9, i64 0}
-!29 = distinct !{!29, !12, !13}
-!30 = distinct !{!30, !12, !13, !22}
-!31 = distinct !{!31, !12, !13}
-!32 = distinct !{!32, !12, !13, !22}
-!33 = distinct !{!33, !12, !13, !22}
-!34 = distinct !{!34, !12, !13}
-!35 = distinct !{!35, !12, !13}
-!36 = !{!37, !15, i64 153000}
-!37 = !{!"_ZTS6LibRaw", !38, i64 8, !80, i64 381408, !81, i64 381416, !9, i64 384168, !91, i64 433320, !91, i64 433328, !9, i64 433336, !92, i64 767416, !93, i64 767432, !9, i64 767568, !9, i64 767584, !9, i64 767600, !8, i64 767616, !8, i64 767624, !8, i64 767632, !73, i64 767640, !8, i64 767648, !8, i64 767656, !8, i64 767664, !8, i64 767672}
-!38 = !{!"_ZTS13libraw_data_t", !39, i64 0, !40, i64 8, !42, i64 192, !44, i64 632, !49, i64 1928, !65, i64 4992, !66, i64 5136, !67, i64 5440, !15, i64 5488, !15, i64 5492, !69, i64 5496, !72, i64 192544, !75, i64 193344, !77, i64 193368, !78, i64 193632, !8, i64 381392}
-!39 = !{!"p1 short", !8, i64 0}
-!40 = !{!"_ZTS20libraw_image_sizes_t", !28, i64 0, !28, i64 2, !28, i64 4, !28, i64 6, !28, i64 8, !28, i64 10, !28, i64 12, !28, i64 14, !15, i64 16, !41, i64 24, !15, i64 32, !9, i64 36, !28, i64 164, !9, i64 166}
-!41 = !{!"double", !9, i64 0}
-!42 = !{!"_ZTS16libraw_iparams_t", !9, i64 0, !9, i64 4, !9, i64 68, !9, i64 132, !9, i64 196, !9, i64 260, !15, i64 324, !15, i64 328, !15, i64 332, !15, i64 336, !15, i64 340, !15, i64 344, !9, i64 348, !9, i64 384, !9, i64 420, !15, i64 428, !43, i64 432}
-!43 = !{!"p1 omnipotent char", !8, i64 0}
-!44 = !{!"_ZTS17libraw_lensinfo_t", !17, i64 0, !17, i64 4, !17, i64 8, !17, i64 12, !17, i64 16, !9, i64 20, !9, i64 148, !9, i64 276, !9, i64 404, !28, i64 532, !45, i64 536, !46, i64 544, !47, i64 560}
-!45 = !{!"_ZTS18libraw_nikonlens_t", !17, i64 0, !9, i64 4, !9, i64 5, !9, i64 6, !9, i64 7}
-!46 = !{!"_ZTS16libraw_dnglens_t", !17, i64 0, !17, i64 4, !17, i64 8, !17, i64 12}
-!47 = !{!"_ZTS24libraw_makernotes_lens_t", !48, i64 0, !9, i64 8, !28, i64 136, !28, i64 138, !48, i64 144, !28, i64 152, !28, i64 154, !9, i64 156, !28, i64 220, !9, i64 222, !9, i64 238, !17, i64 256, !17, i64 260, !17, i64 264, !17, i64 268, !17, i64 272, !17, i64 276, !17, i64 280, !17, i64 284, !17, i64 288, !17, i64 292, !17, i64 296, !17, i64 300, !17, i64 304, !17, i64 308, !17, i64 312, !48, i64 320, !9, i64 328, !48, i64 456, !9, i64 464, !48, i64 592, !9, i64 600, !28, i64 728, !17, i64 732}
-!48 = !{!"long long", !9, i64 0}
-!49 = !{!"_ZTS19libraw_makernotes_t", !50, i64 0, !52, i64 168, !54, i64 432, !55, i64 816, !56, i64 1168, !57, i64 1576, !58, i64 1760, !59, i64 2004, !60, i64 2072, !61, i64 2104, !62, i64 2552, !63, i64 2624, !64, i64 2760}
-!50 = !{!"_ZTS25libraw_canon_makernotes_t", !15, i64 0, !15, i64 4, !15, i64 8, !15, i64 12, !9, i64 16, !15, i64 32, !9, i64 36, !28, i64 52, !28, i64 54, !9, i64 56, !28, i64 58, !28, i64 60, !28, i64 62, !28, i64 64, !28, i64 66, !28, i64 68, !28, i64 70, !28, i64 72, !28, i64 74, !28, i64 76, !28, i64 78, !28, i64 80, !28, i64 82, !15, i64 84, !17, i64 88, !28, i64 92, !28, i64 94, !28, i64 96, !15, i64 100, !28, i64 104, !15, i64 108, !15, i64 112, !28, i64 116, !15, i64 120, !51, i64 124, !51, i64 132, !51, i64 140, !51, i64 148, !51, i64 156, !9, i64 164}
-!51 = !{!"_ZTS13libraw_area_t", !28, i64 0, !28, i64 2, !28, i64 4, !28, i64 6}
-!52 = !{!"_ZTS25libraw_nikon_makernotes_t", !41, i64 0, !28, i64 8, !28, i64 10, !9, i64 12, !9, i64 19, !9, i64 20, !9, i64 21, !9, i64 34, !9, i64 54, !9, i64 58, !9, i64 62, !9, i64 66, !9, i64 67, !9, i64 68, !9, i64 69, !9, i64 70, !9, i64 71, !9, i64 73, !9, i64 74, !9, i64 75, !9, i64 76, !9, i64 77, !9, i64 78, !9, i64 82, !9, i64 86, !28, i64 88, !15, i64 92, !15, i64 96, !15, i64 100, !15, i64 104, !9, i64 112, !9, i64 144, !9, i64 145, !9, i64 146, !15, i64 148, !15, i64 152, !15, i64 156, !9, i64 160, !9, i64 162, !28, i64 170, !53, i64 172, !28, i64 180, !28, i64 182, !28, i64 184, !15, i64 188, !9, i64 192, !9, i64 212, !15, i64 232, !28, i64 236, !41, i64 240, !41, i64 248, !41, i64 256}
-!53 = !{!"_ZTS30libraw_sensor_highspeed_crop_t", !28, i64 0, !28, i64 2, !28, i64 4, !28, i64 6}
-!54 = !{!"_ZTS30libraw_hasselblad_makernotes_t", !15, i64 0, !41, i64 8, !9, i64 16, !9, i64 24, !9, i64 88, !15, i64 152, !15, i64 156, !15, i64 160, !15, i64 164, !9, i64 168, !9, i64 200, !15, i64 264, !9, i64 268, !9, i64 276, !9, i64 288}
-!55 = !{!"_ZTS18libraw_fuji_info_t", !17, i64 0, !28, i64 4, !28, i64 6, !28, i64 8, !28, i64 10, !28, i64 12, !28, i64 14, !28, i64 16, !28, i64 18, !9, i64 20, !9, i64 53, !17, i64 88, !28, i64 92, !28, i64 94, !9, i64 96, !28, i64 100, !15, i64 104, !15, i64 108, !28, i64 112, !9, i64 114, !28, i64 120, !28, i64 122, !28, i64 124, !28, i64 126, !28, i64 128, !15, i64 132, !28, i64 136, !9, i64 138, !9, i64 151, !9, i64 156, !15, i64 164, !28, i64 168, !15, i64 172, !28, i64 176, !9, i64 178, !9, i64 196, !15, i64 324, !15, i64 328, !15, i64 332, !9, i64 336, !15, i64 344}
-!56 = !{!"_ZTS27libraw_olympus_makernotes_t", !9, i64 0, !28, i64 6, !9, i64 8, !9, i64 16, !28, i64 26, !9, i64 28, !28, i64 32, !28, i64 34, !9, i64 36, !9, i64 296, !28, i64 336, !9, i64 338, !9, i64 340, !9, i64 348, !28, i64 360, !28, i64 362, !28, i64 364, !28, i64 366, !41, i64 368, !9, i64 376, !9, i64 384, !9, i64 392, !15, i64 396, !28, i64 400, !28, i64 402}
-!57 = !{!"_ZTS18libraw_sony_info_t", !28, i64 0, !9, i64 2, !9, i64 3, !15, i64 4, !9, i64 8, !15, i64 12, !9, i64 16, !9, i64 17, !28, i64 18, !9, i64 20, !9, i64 24, !9, i64 25, !28, i64 26, !9, i64 28, !9, i64 38, !9, i64 39, !9, i64 40, !28, i64 48, !9, i64 50, !9, i64 51, !9, i64 52, !28, i64 54, !15, i64 56, !28, i64 60, !9, i64 62, !28, i64 66, !28, i64 68, !28, i64 70, !28, i64 72, !28, i64 74, !28, i64 76, !28, i64 78, !15, i64 80, !17, i64 84, !28, i64 88, !15, i64 92, !15, i64 96, !28, i64 100, !9, i64 102, !15, i64 124, !28, i64 128, !15, i64 132, !9, i64 136, !9, i64 137, !28, i64 138, !28, i64 140, !28, i64 142, !28, i64 144, !28, i64 146, !28, i64 148, !28, i64 150, !28, i64 152, !28, i64 154, !15, i64 156, !28, i64 160, !9, i64 162, !17, i64 180}
-!58 = !{!"_ZTS25libraw_kodak_makernotes_t", !28, i64 0, !28, i64 2, !28, i64 4, !28, i64 6, !28, i64 8, !28, i64 10, !9, i64 12, !9, i64 48, !9, i64 84, !9, i64 120, !9, i64 156, !9, i64 192, !28, i64 228, !28, i64 230, !28, i64 232, !28, i64 234, !17, i64 236, !17, i64 240}
-!59 = !{!"_ZTS29libraw_panasonic_makernotes_t", !28, i64 0, !28, i64 2, !9, i64 4, !15, i64 36, !17, i64 40, !9, i64 44, !28, i64 56, !28, i64 58, !15, i64 60, !15, i64 64}
-!60 = !{!"_ZTS26libraw_pentax_makernotes_t", !9, i64 0, !9, i64 4, !9, i64 8, !28, i64 12, !15, i64 16, !15, i64 20, !28, i64 24, !28, i64 26, !9, i64 28, !9, i64 29, !28, i64 30}
-!61 = !{!"_ZTS22libraw_p1_makernotes_t", !9, i64 0, !9, i64 64, !9, i64 128, !9, i64 384}
-!62 = !{!"_ZTS25libraw_ricoh_makernotes_t", !28, i64 0, !9, i64 4, !9, i64 12, !28, i64 20, !15, i64 24, !15, i64 28, !15, i64 32, !15, i64 36, !28, i64 40, !28, i64 42, !28, i64 44, !28, i64 46, !28, i64 48, !28, i64 50, !41, i64 56, !41, i64 64}
-!63 = !{!"_ZTS27libraw_samsung_makernotes_t", !9, i64 0, !9, i64 16, !9, i64 32, !9, i64 40, !41, i64 88, !15, i64 96, !9, i64 100}
-!64 = !{!"_ZTS24libraw_metadata_common_t", !17, i64 0, !17, i64 4, !17, i64 8, !17, i64 12, !17, i64 16, !17, i64 20, !17, i64 24, !17, i64 28, !17, i64 32, !17, i64 36, !17, i64 40, !17, i64 44, !17, i64 48, !17, i64 52, !17, i64 56, !17, i64 60, !28, i64 64, !9, i64 66, !17, i64 196, !9, i64 200, !15, i64 296}
-!65 = !{!"_ZTS21libraw_shootinginfo_t", !28, i64 0, !28, i64 2, !28, i64 4, !28, i64 6, !28, i64 8, !28, i64 10, !28, i64 12, !9, i64 14, !9, i64 78}
-!66 = !{!"_ZTS22libraw_output_params_t", !9, i64 0, !9, i64 16, !9, i64 32, !9, i64 64, !9, i64 112, !17, i64 128, !17, i64 132, !15, i64 136, !15, i64 140, !15, i64 144, !15, i64 148, !15, i64 152, !15, i64 156, !15, i64 160, !43, i64 168, !43, i64 176, !43, i64 184, !43, i64 192, !15, i64 200, !15, i64 204, !15, i64 208, !15, i64 212, !15, i64 216, !15, i64 220, !9, i64 224, !15, i64 240, !15, i64 244, !17, i64 248, !17, i64 252, !15, i64 256, !15, i64 260, !15, i64 264, !15, i64 268, !15, i64 272, !15, i64 276, !15, i64 280, !15, i64 284, !17, i64 288, !17, i64 292, !15, i64 296, !15, i64 300}
-!67 = !{!"_ZTS26libraw_raw_unpack_params_t", !15, i64 0, !15, i64 4, !15, i64 8, !15, i64 12, !15, i64 16, !15, i64 20, !15, i64 24, !17, i64 28, !9, i64 32, !68, i64 40}
-!68 = !{!"p2 omnipotent char", !8, i64 0}
-!69 = !{!"_ZTS18libraw_colordata_t", !9, i64 0, !9, i64 131072, !15, i64 147488, !15, i64 147492, !15, i64 147496, !9, i64 147504, !17, i64 147536, !17, i64 147540, !9, i64 147544, !9, i64 147672, !9, i64 147688, !9, i64 147704, !9, i64 147752, !9, i64 147800, !9, i64 147848, !70, i64 147896, !17, i64 147932, !17, i64 147936, !9, i64 147940, !9, i64 148004, !9, i64 148068, !9, i64 148132, !9, i64 148196, !9, i64 148213, !8, i64 148280, !15, i64 148288, !9, i64 148292, !9, i64 148324, !71, i64 148660, !9, i64 181588, !9, i64 185684, !15, i64 186964, !9, i64 186968, !15, i64 187040, !15, i64 187044}
-!70 = !{!"_ZTS5ph1_t", !15, i64 0, !15, i64 4, !15, i64 8, !15, i64 12, !15, i64 16, !15, i64 20, !15, i64 24, !15, i64 28, !17, i64 32}
-!71 = !{!"_ZTS19libraw_dng_levels_t", !15, i64 0, !9, i64 4, !15, i64 16420, !9, i64 16424, !17, i64 32840, !9, i64 32844, !9, i64 32860, !9, i64 32868, !15, i64 32884, !9, i64 32888, !9, i64 32904, !17, i64 32920, !17, i64 32924}
-!72 = !{!"_ZTS17libraw_imgother_t", !17, i64 0, !17, i64 4, !17, i64 8, !17, i64 12, !73, i64 16, !15, i64 24, !9, i64 28, !74, i64 156, !9, i64 204, !9, i64 716, !9, i64 780}
-!73 = !{!"long", !9, i64 0}
-!74 = !{!"_ZTS17libraw_gps_info_t", !9, i64 0, !9, i64 12, !9, i64 24, !17, i64 36, !9, i64 40, !9, i64 41, !9, i64 42, !9, i64 43, !9, i64 44}
-!75 = !{!"_ZTS18libraw_thumbnail_t", !76, i64 0, !28, i64 4, !28, i64 6, !15, i64 8, !15, i64 12, !43, i64 16}
-!76 = !{!"_ZTS24LibRaw_thumbnail_formats", !9, i64 0}
-!77 = !{!"_ZTS23libraw_thumbnail_list_t", !15, i64 0, !9, i64 8}
-!78 = !{!"_ZTS16libraw_rawdata_t", !8, i64 0, !39, i64 8, !39, i64 16, !39, i64 24, !7, i64 32, !7, i64 40, !7, i64 48, !39, i64 56, !39, i64 64, !42, i64 72, !40, i64 512, !79, i64 696, !69, i64 712}
-!79 = !{!"_ZTS31libraw_internal_output_params_t", !15, i64 0, !15, i64 4, !15, i64 8, !28, i64 12, !28, i64 14}
-!80 = !{!"p1 _ZTS10LibRaw_TLS", !8, i64 0}
-!81 = !{!"_ZTS22libraw_internal_data_t", !82, i64 0, !79, i64 64, !85, i64 80, !87, i64 96, !88, i64 136}
-!82 = !{!"_ZTS15internal_data_t", !83, i64 0, !84, i64 8, !15, i64 16, !43, i64 24, !48, i64 32, !48, i64 40, !9, i64 48}
-!83 = !{!"p1 _ZTS26LibRaw_abstract_datastream", !8, i64 0}
-!84 = !{!"p1 _ZTS8_IO_FILE", !8, i64 0}
-!85 = !{!"_ZTS13output_data_t", !86, i64 0, !86, i64 8}
-!86 = !{!"p1 int", !8, i64 0}
-!87 = !{!"_ZTS15identify_data_t", !15, i64 0, !48, i64 8, !48, i64 16, !15, i64 24, !15, i64 28, !15, i64 32}
-!88 = !{!"_ZTS15unpacker_data_t", !28, i64 0, !9, i64 2, !9, i64 10, !15, i64 16, !48, i64 24, !48, i64 32, !48, i64 40, !48, i64 48, !48, i64 56, !48, i64 64, !15, i64 72, !15, i64 76, !15, i64 80, !15, i64 84, !15, i64 88, !89, i64 92, !15, i64 96, !15, i64 100, !15, i64 104, !15, i64 108, !15, i64 112, !15, i64 116, !15, i64 120, !15, i64 124, !15, i64 128, !15, i64 132, !15, i64 136, !48, i64 144, !15, i64 152, !15, i64 156, !15, i64 160, !15, i64 164, !15, i64 168, !15, i64 172, !15, i64 176, !15, i64 180, !15, i64 184, !90, i64 192, !9, i64 440, !15, i64 2488, !15, i64 2492, !28, i64 2496, !28, i64 2498, !15, i64 2500, !15, i64 2504, !15, i64 2508, !15, i64 2512, !15, i64 2516, !15, i64 2520, !15, i64 2524, !9, i64 2528, !28, i64 2608}
-!89 = !{!"_ZTS33LibRaw_internal_thumbnail_formats", !9, i64 0}
-!90 = !{!"_ZTS12pana8_tags_t", !9, i64 0, !9, i64 24, !28, i64 36, !9, i64 38, !9, i64 46, !9, i64 80, !9, i64 114, !28, i64 148, !28, i64 150, !9, i64 152, !9, i64 192, !9, i64 204, !9, i64 224, !9, i64 234}
-!91 = !{!"p1 _ZTS6decode", !8, i64 0}
-!92 = !{!"_ZTS13libraw_memmgr", !8, i64 0, !15, i64 8}
-!93 = !{!"_ZTS18libraw_callbacks_t", !8, i64 0, !8, i64 8, !8, i64 16, !8, i64 24, !8, i64 32, !8, i64 40, !8, i64 48, !8, i64 56, !8, i64 64, !8, i64 72, !8, i64 80, !8, i64 88, !8, i64 96, !8, i64 104, !8, i64 112, !8, i64 120, !8, i64 128}
+!13 = !{!14, !14, i64 0}
+!14 = !{!"int", !9, i64 0}
+!15 = !{!16, !16, i64 0}
+!16 = !{!"float", !9, i64 0}
+!17 = distinct !{!17, !12}
+!18 = distinct !{!18, !12}
+!19 = distinct !{!19, !12}
+!20 = distinct !{!20, !12, !21}
+!21 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!22 = distinct !{!22, !12}
+!23 = distinct !{!23, !12}
+!24 = distinct !{!24, !12}
+!25 = distinct !{!25, !12}
+!26 = !{!27, !27, i64 0}
+!27 = !{!"short", !9, i64 0}
+!28 = distinct !{!28, !12}
+!29 = distinct !{!29, !12, !21}
+!30 = distinct !{!30, !12}
+!31 = distinct !{!31, !12, !21}
+!32 = distinct !{!32, !12, !21}
+!33 = distinct !{!33, !12}
+!34 = distinct !{!34, !12}
+!35 = !{!36, !14, i64 153000}
+!36 = !{!"_ZTS6LibRaw", !37, i64 8, !79, i64 381408, !80, i64 381416, !9, i64 384168, !90, i64 433320, !90, i64 433328, !9, i64 433336, !91, i64 767416, !92, i64 767432, !9, i64 767568, !9, i64 767584, !9, i64 767600, !8, i64 767616, !8, i64 767624, !8, i64 767632, !72, i64 767640, !8, i64 767648, !8, i64 767656, !8, i64 767664, !8, i64 767672}
+!37 = !{!"_ZTS13libraw_data_t", !38, i64 0, !39, i64 8, !41, i64 192, !43, i64 632, !48, i64 1928, !64, i64 4992, !65, i64 5136, !66, i64 5440, !14, i64 5488, !14, i64 5492, !68, i64 5496, !71, i64 192544, !74, i64 193344, !76, i64 193368, !77, i64 193632, !8, i64 381392}
+!38 = !{!"p1 short", !8, i64 0}
+!39 = !{!"_ZTS20libraw_image_sizes_t", !27, i64 0, !27, i64 2, !27, i64 4, !27, i64 6, !27, i64 8, !27, i64 10, !27, i64 12, !27, i64 14, !14, i64 16, !40, i64 24, !14, i64 32, !9, i64 36, !27, i64 164, !9, i64 166}
+!40 = !{!"double", !9, i64 0}
+!41 = !{!"_ZTS16libraw_iparams_t", !9, i64 0, !9, i64 4, !9, i64 68, !9, i64 132, !9, i64 196, !9, i64 260, !14, i64 324, !14, i64 328, !14, i64 332, !14, i64 336, !14, i64 340, !14, i64 344, !9, i64 348, !9, i64 384, !9, i64 420, !14, i64 428, !42, i64 432}
+!42 = !{!"p1 omnipotent char", !8, i64 0}
+!43 = !{!"_ZTS17libraw_lensinfo_t", !16, i64 0, !16, i64 4, !16, i64 8, !16, i64 12, !16, i64 16, !9, i64 20, !9, i64 148, !9, i64 276, !9, i64 404, !27, i64 532, !44, i64 536, !45, i64 544, !46, i64 560}
+!44 = !{!"_ZTS18libraw_nikonlens_t", !16, i64 0, !9, i64 4, !9, i64 5, !9, i64 6, !9, i64 7}
+!45 = !{!"_ZTS16libraw_dnglens_t", !16, i64 0, !16, i64 4, !16, i64 8, !16, i64 12}
+!46 = !{!"_ZTS24libraw_makernotes_lens_t", !47, i64 0, !9, i64 8, !27, i64 136, !27, i64 138, !47, i64 144, !27, i64 152, !27, i64 154, !9, i64 156, !27, i64 220, !9, i64 222, !9, i64 238, !16, i64 256, !16, i64 260, !16, i64 264, !16, i64 268, !16, i64 272, !16, i64 276, !16, i64 280, !16, i64 284, !16, i64 288, !16, i64 292, !16, i64 296, !16, i64 300, !16, i64 304, !16, i64 308, !16, i64 312, !47, i64 320, !9, i64 328, !47, i64 456, !9, i64 464, !47, i64 592, !9, i64 600, !27, i64 728, !16, i64 732}
+!47 = !{!"long long", !9, i64 0}
+!48 = !{!"_ZTS19libraw_makernotes_t", !49, i64 0, !51, i64 168, !53, i64 432, !54, i64 816, !55, i64 1168, !56, i64 1576, !57, i64 1760, !58, i64 2004, !59, i64 2072, !60, i64 2104, !61, i64 2552, !62, i64 2624, !63, i64 2760}
+!49 = !{!"_ZTS25libraw_canon_makernotes_t", !14, i64 0, !14, i64 4, !14, i64 8, !14, i64 12, !9, i64 16, !14, i64 32, !9, i64 36, !27, i64 52, !27, i64 54, !9, i64 56, !27, i64 58, !27, i64 60, !27, i64 62, !27, i64 64, !27, i64 66, !27, i64 68, !27, i64 70, !27, i64 72, !27, i64 74, !27, i64 76, !27, i64 78, !27, i64 80, !27, i64 82, !14, i64 84, !16, i64 88, !27, i64 92, !27, i64 94, !27, i64 96, !14, i64 100, !27, i64 104, !14, i64 108, !14, i64 112, !27, i64 116, !14, i64 120, !50, i64 124, !50, i64 132, !50, i64 140, !50, i64 148, !50, i64 156, !9, i64 164}
+!50 = !{!"_ZTS13libraw_area_t", !27, i64 0, !27, i64 2, !27, i64 4, !27, i64 6}
+!51 = !{!"_ZTS25libraw_nikon_makernotes_t", !40, i64 0, !27, i64 8, !27, i64 10, !9, i64 12, !9, i64 19, !9, i64 20, !9, i64 21, !9, i64 34, !9, i64 54, !9, i64 58, !9, i64 62, !9, i64 66, !9, i64 67, !9, i64 68, !9, i64 69, !9, i64 70, !9, i64 71, !9, i64 73, !9, i64 74, !9, i64 75, !9, i64 76, !9, i64 77, !9, i64 78, !9, i64 82, !9, i64 86, !27, i64 88, !14, i64 92, !14, i64 96, !14, i64 100, !14, i64 104, !9, i64 112, !9, i64 144, !9, i64 145, !9, i64 146, !14, i64 148, !14, i64 152, !14, i64 156, !9, i64 160, !9, i64 162, !27, i64 170, !52, i64 172, !27, i64 180, !27, i64 182, !27, i64 184, !14, i64 188, !9, i64 192, !9, i64 212, !14, i64 232, !27, i64 236, !40, i64 240, !40, i64 248, !40, i64 256}
+!52 = !{!"_ZTS30libraw_sensor_highspeed_crop_t", !27, i64 0, !27, i64 2, !27, i64 4, !27, i64 6}
+!53 = !{!"_ZTS30libraw_hasselblad_makernotes_t", !14, i64 0, !40, i64 8, !9, i64 16, !9, i64 24, !9, i64 88, !14, i64 152, !14, i64 156, !14, i64 160, !14, i64 164, !9, i64 168, !9, i64 200, !14, i64 264, !9, i64 268, !9, i64 276, !9, i64 288}
+!54 = !{!"_ZTS18libraw_fuji_info_t", !16, i64 0, !27, i64 4, !27, i64 6, !27, i64 8, !27, i64 10, !27, i64 12, !27, i64 14, !27, i64 16, !27, i64 18, !9, i64 20, !9, i64 53, !16, i64 88, !27, i64 92, !27, i64 94, !9, i64 96, !27, i64 100, !14, i64 104, !14, i64 108, !27, i64 112, !9, i64 114, !27, i64 120, !27, i64 122, !27, i64 124, !27, i64 126, !27, i64 128, !14, i64 132, !27, i64 136, !9, i64 138, !9, i64 151, !9, i64 156, !14, i64 164, !27, i64 168, !14, i64 172, !27, i64 176, !9, i64 178, !9, i64 196, !14, i64 324, !14, i64 328, !14, i64 332, !9, i64 336, !14, i64 344}
+!55 = !{!"_ZTS27libraw_olympus_makernotes_t", !9, i64 0, !27, i64 6, !9, i64 8, !9, i64 16, !27, i64 26, !9, i64 28, !27, i64 32, !27, i64 34, !9, i64 36, !9, i64 296, !27, i64 336, !9, i64 338, !9, i64 340, !9, i64 348, !27, i64 360, !27, i64 362, !27, i64 364, !27, i64 366, !40, i64 368, !9, i64 376, !9, i64 384, !9, i64 392, !14, i64 396, !27, i64 400, !27, i64 402}
+!56 = !{!"_ZTS18libraw_sony_info_t", !27, i64 0, !9, i64 2, !9, i64 3, !14, i64 4, !9, i64 8, !14, i64 12, !9, i64 16, !9, i64 17, !27, i64 18, !9, i64 20, !9, i64 24, !9, i64 25, !27, i64 26, !9, i64 28, !9, i64 38, !9, i64 39, !9, i64 40, !27, i64 48, !9, i64 50, !9, i64 51, !9, i64 52, !27, i64 54, !14, i64 56, !27, i64 60, !9, i64 62, !27, i64 66, !27, i64 68, !27, i64 70, !27, i64 72, !27, i64 74, !27, i64 76, !27, i64 78, !14, i64 80, !16, i64 84, !27, i64 88, !14, i64 92, !14, i64 96, !27, i64 100, !9, i64 102, !14, i64 124, !27, i64 128, !14, i64 132, !9, i64 136, !9, i64 137, !27, i64 138, !27, i64 140, !27, i64 142, !27, i64 144, !27, i64 146, !27, i64 148, !27, i64 150, !27, i64 152, !27, i64 154, !14, i64 156, !27, i64 160, !9, i64 162, !16, i64 180}
+!57 = !{!"_ZTS25libraw_kodak_makernotes_t", !27, i64 0, !27, i64 2, !27, i64 4, !27, i64 6, !27, i64 8, !27, i64 10, !9, i64 12, !9, i64 48, !9, i64 84, !9, i64 120, !9, i64 156, !9, i64 192, !27, i64 228, !27, i64 230, !27, i64 232, !27, i64 234, !16, i64 236, !16, i64 240}
+!58 = !{!"_ZTS29libraw_panasonic_makernotes_t", !27, i64 0, !27, i64 2, !9, i64 4, !14, i64 36, !16, i64 40, !9, i64 44, !27, i64 56, !27, i64 58, !14, i64 60, !14, i64 64}
+!59 = !{!"_ZTS26libraw_pentax_makernotes_t", !9, i64 0, !9, i64 4, !9, i64 8, !27, i64 12, !14, i64 16, !14, i64 20, !27, i64 24, !27, i64 26, !9, i64 28, !9, i64 29, !27, i64 30}
+!60 = !{!"_ZTS22libraw_p1_makernotes_t", !9, i64 0, !9, i64 64, !9, i64 128, !9, i64 384}
+!61 = !{!"_ZTS25libraw_ricoh_makernotes_t", !27, i64 0, !9, i64 4, !9, i64 12, !27, i64 20, !14, i64 24, !14, i64 28, !14, i64 32, !14, i64 36, !27, i64 40, !27, i64 42, !27, i64 44, !27, i64 46, !27, i64 48, !27, i64 50, !40, i64 56, !40, i64 64}
+!62 = !{!"_ZTS27libraw_samsung_makernotes_t", !9, i64 0, !9, i64 16, !9, i64 32, !9, i64 40, !40, i64 88, !14, i64 96, !9, i64 100}
+!63 = !{!"_ZTS24libraw_metadata_common_t", !16, i64 0, !16, i64 4, !16, i64 8, !16, i64 12, !16, i64 16, !16, i64 20, !16, i64 24, !16, i64 28, !16, i64 32, !16, i64 36, !16, i64 40, !16, i64 44, !16, i64 48, !16, i64 52, !16, i64 56, !16, i64 60, !27, i64 64, !9, i64 66, !16, i64 196, !9, i64 200, !14, i64 296}
+!64 = !{!"_ZTS21libraw_shootinginfo_t", !27, i64 0, !27, i64 2, !27, i64 4, !27, i64 6, !27, i64 8, !27, i64 10, !27, i64 12, !9, i64 14, !9, i64 78}
+!65 = !{!"_ZTS22libraw_output_params_t", !9, i64 0, !9, i64 16, !9, i64 32, !9, i64 64, !9, i64 112, !16, i64 128, !16, i64 132, !14, i64 136, !14, i64 140, !14, i64 144, !14, i64 148, !14, i64 152, !14, i64 156, !14, i64 160, !42, i64 168, !42, i64 176, !42, i64 184, !42, i64 192, !14, i64 200, !14, i64 204, !14, i64 208, !14, i64 212, !14, i64 216, !14, i64 220, !9, i64 224, !14, i64 240, !14, i64 244, !16, i64 248, !16, i64 252, !14, i64 256, !14, i64 260, !14, i64 264, !14, i64 268, !14, i64 272, !14, i64 276, !14, i64 280, !14, i64 284, !16, i64 288, !16, i64 292, !14, i64 296, !14, i64 300}
+!66 = !{!"_ZTS26libraw_raw_unpack_params_t", !14, i64 0, !14, i64 4, !14, i64 8, !14, i64 12, !14, i64 16, !14, i64 20, !14, i64 24, !16, i64 28, !9, i64 32, !67, i64 40}
+!67 = !{!"p2 omnipotent char", !8, i64 0}
+!68 = !{!"_ZTS18libraw_colordata_t", !9, i64 0, !9, i64 131072, !14, i64 147488, !14, i64 147492, !14, i64 147496, !9, i64 147504, !16, i64 147536, !16, i64 147540, !9, i64 147544, !9, i64 147672, !9, i64 147688, !9, i64 147704, !9, i64 147752, !9, i64 147800, !9, i64 147848, !69, i64 147896, !16, i64 147932, !16, i64 147936, !9, i64 147940, !9, i64 148004, !9, i64 148068, !9, i64 148132, !9, i64 148196, !9, i64 148213, !8, i64 148280, !14, i64 148288, !9, i64 148292, !9, i64 148324, !70, i64 148660, !9, i64 181588, !9, i64 185684, !14, i64 186964, !9, i64 186968, !14, i64 187040, !14, i64 187044}
+!69 = !{!"_ZTS5ph1_t", !14, i64 0, !14, i64 4, !14, i64 8, !14, i64 12, !14, i64 16, !14, i64 20, !14, i64 24, !14, i64 28, !16, i64 32}
+!70 = !{!"_ZTS19libraw_dng_levels_t", !14, i64 0, !9, i64 4, !14, i64 16420, !9, i64 16424, !16, i64 32840, !9, i64 32844, !9, i64 32860, !9, i64 32868, !14, i64 32884, !9, i64 32888, !9, i64 32904, !16, i64 32920, !16, i64 32924}
+!71 = !{!"_ZTS17libraw_imgother_t", !16, i64 0, !16, i64 4, !16, i64 8, !16, i64 12, !72, i64 16, !14, i64 24, !9, i64 28, !73, i64 156, !9, i64 204, !9, i64 716, !9, i64 780}
+!72 = !{!"long", !9, i64 0}
+!73 = !{!"_ZTS17libraw_gps_info_t", !9, i64 0, !9, i64 12, !9, i64 24, !16, i64 36, !9, i64 40, !9, i64 41, !9, i64 42, !9, i64 43, !9, i64 44}
+!74 = !{!"_ZTS18libraw_thumbnail_t", !75, i64 0, !27, i64 4, !27, i64 6, !14, i64 8, !14, i64 12, !42, i64 16}
+!75 = !{!"_ZTS24LibRaw_thumbnail_formats", !9, i64 0}
+!76 = !{!"_ZTS23libraw_thumbnail_list_t", !14, i64 0, !9, i64 8}
+!77 = !{!"_ZTS16libraw_rawdata_t", !8, i64 0, !38, i64 8, !38, i64 16, !38, i64 24, !7, i64 32, !7, i64 40, !7, i64 48, !38, i64 56, !38, i64 64, !41, i64 72, !39, i64 512, !78, i64 696, !68, i64 712}
+!78 = !{!"_ZTS31libraw_internal_output_params_t", !14, i64 0, !14, i64 4, !14, i64 8, !27, i64 12, !27, i64 14}
+!79 = !{!"p1 _ZTS10LibRaw_TLS", !8, i64 0}
+!80 = !{!"_ZTS22libraw_internal_data_t", !81, i64 0, !78, i64 64, !84, i64 80, !86, i64 96, !87, i64 136}
+!81 = !{!"_ZTS15internal_data_t", !82, i64 0, !83, i64 8, !14, i64 16, !42, i64 24, !47, i64 32, !47, i64 40, !9, i64 48}
+!82 = !{!"p1 _ZTS26LibRaw_abstract_datastream", !8, i64 0}
+!83 = !{!"p1 _ZTS8_IO_FILE", !8, i64 0}
+!84 = !{!"_ZTS13output_data_t", !85, i64 0, !85, i64 8}
+!85 = !{!"p1 int", !8, i64 0}
+!86 = !{!"_ZTS15identify_data_t", !14, i64 0, !47, i64 8, !47, i64 16, !14, i64 24, !14, i64 28, !14, i64 32}
+!87 = !{!"_ZTS15unpacker_data_t", !27, i64 0, !9, i64 2, !9, i64 10, !14, i64 16, !47, i64 24, !47, i64 32, !47, i64 40, !47, i64 48, !47, i64 56, !47, i64 64, !14, i64 72, !14, i64 76, !14, i64 80, !14, i64 84, !14, i64 88, !88, i64 92, !14, i64 96, !14, i64 100, !14, i64 104, !14, i64 108, !14, i64 112, !14, i64 116, !14, i64 120, !14, i64 124, !14, i64 128, !14, i64 132, !14, i64 136, !47, i64 144, !14, i64 152, !14, i64 156, !14, i64 160, !14, i64 164, !14, i64 168, !14, i64 172, !14, i64 176, !14, i64 180, !14, i64 184, !89, i64 192, !9, i64 440, !14, i64 2488, !14, i64 2492, !27, i64 2496, !27, i64 2498, !14, i64 2500, !14, i64 2504, !14, i64 2508, !14, i64 2512, !14, i64 2516, !14, i64 2520, !14, i64 2524, !9, i64 2528, !27, i64 2608}
+!88 = !{!"_ZTS33LibRaw_internal_thumbnail_formats", !9, i64 0}
+!89 = !{!"_ZTS12pana8_tags_t", !9, i64 0, !9, i64 24, !27, i64 36, !9, i64 38, !9, i64 46, !9, i64 80, !9, i64 114, !27, i64 148, !27, i64 150, !9, i64 152, !9, i64 192, !9, i64 204, !9, i64 224, !9, i64 234}
+!90 = !{!"p1 _ZTS6decode", !8, i64 0}
+!91 = !{!"_ZTS13libraw_memmgr", !8, i64 0, !14, i64 8}
+!92 = !{!"_ZTS18libraw_callbacks_t", !8, i64 0, !8, i64 8, !8, i64 16, !8, i64 24, !8, i64 32, !8, i64 40, !8, i64 48, !8, i64 56, !8, i64 64, !8, i64 72, !8, i64 80, !8, i64 88, !8, i64 96, !8, i64 104, !8, i64 112, !8, i64 120, !8, i64 128}

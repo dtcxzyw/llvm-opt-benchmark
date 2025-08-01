@@ -158,7 +158,7 @@ IsWalSummaryFilename.exit.thread:                 ; preds = %.lr.ph.split, %65, 
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %4) #12
   %71 = call ptr @ReadDir(ptr noundef %5, ptr noundef nonnull @.str) #12
   %.not = icmp eq ptr %71, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !9
+  br i1 %.not, label %._crit_edge, label %.lr.ph.split
 
 ._crit_edge:                                      ; preds = %IsWalSummaryFilename.exit.thread, %IsWalSummaryFilename.exit.thread.us, %3
   %.0.lcssa = phi ptr [ null, %3 ], [ %.1.us, %IsWalSummaryFilename.exit.thread.us ], [ %.1, %IsWalSummaryFilename.exit.thread ]
@@ -672,7 +672,7 @@ define dso_local void @ReportWalSummaryError(ptr noundef readnone captures(none)
   %8 = call i32 @appendStringInfoVA(ptr noundef nonnull %3, ptr noundef %1, ptr noundef nonnull %4) #12
   call void @llvm.va_end.p0(ptr nonnull %4)
   %9 = icmp eq i32 %8, 0
-  br i1 %9, label %._crit_edge, label %.lr.ph, !llvm.loop !10
+  br i1 %9, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   %10 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
@@ -739,8 +739,5 @@ attributes #15 = { cold nounwind }
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !7, !8}
-!7 = !{!"llvm.loop.estimated_trip_count"}
-!8 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
+!6 = distinct !{!6, !7}
+!7 = !{!"llvm.loop.unswitch.nontrivial.disable"}

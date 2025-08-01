@@ -131,7 +131,7 @@ define dso_local i32 @fdt_check_full(ptr noundef %0, i64 noundef %1) local_unnam
   %66 = call i32 @fdt_next_tag(ptr noundef nonnull %0, i32 noundef %65, ptr noundef nonnull %4) #3
   %67 = load i32, ptr %4, align 4
   %68 = icmp slt i32 %67, 0
-  br i1 %68, label %.loopexit, label %.lr.ph, !llvm.loop !5
+  br i1 %68, label %.loopexit, label %.lr.ph
 
 .loopexit:                                        ; preds = %49, %64, %.lr.ph, %44, %55, %42, %.preheader, %43, %33, %13, %11, %8, %2, %62
   %.0 = phi i32 [ %63, %62 ], [ -8, %2 ], [ -8, %8 ], [ %12, %11 ], [ -8, %13 ], [ %34, %33 ], [ %., %43 ], [ %37, %.preheader ], [ -11, %49 ], [ %67, %64 ], [ -11, %.lr.ph ], [ -11, %44 ], [ -11, %55 ], [ -13, %42 ]
@@ -171,5 +171,3 @@ attributes #3 = { nounwind }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{!"auto-init"}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.estimated_trip_count"}

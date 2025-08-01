@@ -1557,6 +1557,5 @@ attributes #15 = { noreturn }
 !57 = !{!"_ZTSNSt12_Vector_baseIN2cv5Rect_IiEESaIS2_EE17_Vector_impl_dataE", !58, i64 0, !58, i64 8, !58, i64 16}
 !58 = !{!"p1 _ZTSN2cv5Rect_IiEE", !7, i64 0}
 !59 = !{!57, !58, i64 0}
-!60 = distinct !{!60, !61, !62}
+!60 = distinct !{!60, !61}
 !61 = !{!"llvm.loop.mustprogress"}
-!62 = !{!"llvm.loop.estimated_trip_count"}

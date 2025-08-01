@@ -357,7 +357,7 @@ define hidden range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef %1) local_un
   %121 = add i64 %120, -1
   store i64 %121, ptr %5, align 8
   %.not89 = icmp eq i64 %120, 0
-  br i1 %.not89, label %._crit_edge, label %.lr.ph, !llvm.loop !10
+  br i1 %.not89, label %._crit_edge, label %.lr.ph, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %118, %104
   %.073.lcssa = phi ptr [ %103, %104 ], [ %117, %118 ]
@@ -460,7 +460,7 @@ define internal fastcc void @help(ptr noundef %0) unnamed_addr #0 {
   %17 = getelementptr ptr, ptr %15, i64 %16
   %18 = load ptr, ptr %17, align 8
   %.not = icmp eq ptr %18, null
-  br i1 %.not, label %.critedge, label %.lr.ph, !llvm.loop !11
+  br i1 %.not, label %.critedge, label %.lr.ph, !llvm.loop !10
 
 .critedge:                                        ; preds = %.lr.ph, %12, %1
   %19 = call i32 (i32, ptr, ...) @__printf_chk(i32 noundef 2, ptr noundef nonnull @.str.38)
@@ -546,7 +546,7 @@ define internal fastcc range(i32 0, 2) i32 @list_config(ptr noundef %0) unnamed_
   %21 = getelementptr ptr, ptr %20, i64 %28
   %22 = load ptr, ptr %21, align 8
   %.not13 = icmp eq ptr %22, null
-  br i1 %.not13, label %.critedge, label %.lr.ph20, !llvm.loop !12
+  br i1 %.not13, label %.critedge, label %.lr.ph20, !llvm.loop !11
 
 .lr.ph20:                                         ; preds = %.lr.ph.preheader, %.lr.ph
   %23 = phi ptr [ %22, %.lr.ph ], [ %19, %.lr.ph.preheader ]
@@ -559,10 +559,10 @@ define internal fastcc range(i32 0, 2) i32 @list_config(ptr noundef %0) unnamed_
   %29 = getelementptr ptr, ptr %27, i64 %28
   %30 = load ptr, ptr %29, align 8
   %.not12 = icmp eq ptr %30, null
-  br i1 %.not12, label %..critedge.loopexit_crit_edge, label %.lr.ph, !llvm.loop !12
+  br i1 %.not12, label %..critedge.loopexit_crit_edge, label %.lr.ph, !llvm.loop !11
 
 ..critedge.loopexit_crit_edge:                    ; preds = %.lr.ph20
-  br label %.critedge, !llvm.loop !12
+  br label %.critedge, !llvm.loop !11
 
 .critedge:                                        ; preds = %.lr.ph, %.lr.ph.preheader, %..critedge.loopexit_crit_edge, %9
   %.lcssa = phi ptr [ %16, %9 ], [ %27, %..critedge.loopexit_crit_edge ], [ %16, %.lr.ph.preheader ], [ %27, %.lr.ph ]
@@ -647,9 +647,8 @@ attributes #5 = { allocsize(0) }
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"PIE Level", i32 2}
 !6 = !{i32 7, !"uwtable", i32 2}
-!7 = distinct !{!7, !8, !9}
+!7 = distinct !{!7, !8}
 !8 = !{!"llvm.loop.mustprogress"}
-!9 = !{!"llvm.loop.estimated_trip_count"}
-!10 = distinct !{!10, !8, !9}
-!11 = distinct !{!11, !8, !9}
-!12 = distinct !{!12, !8, !9}
+!9 = distinct !{!9, !8}
+!10 = distinct !{!10, !8}
+!11 = distinct !{!11, !8}

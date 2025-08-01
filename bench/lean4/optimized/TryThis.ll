@@ -74658,7 +74658,7 @@ lean_alloc_ctor.exit261:                          ; preds = %244
 .backedge:                                        ; preds = %lean_alloc_ctor.exit261, %lean_alloc_ctor.exit263, %lean_alloc_ctor.exit265, %lean_alloc_ctor.exit267, %62, %56, %49, %43, %lean_alloc_ctor.exit243, %lean_alloc_ctor.exit242, %lean_alloc_ctor.exit241, %lean_alloc_ctor.exit
   %.0205.be = phi ptr [ %.0, %lean_alloc_ctor.exit ], [ %.0, %lean_alloc_ctor.exit241 ], [ %.0, %lean_alloc_ctor.exit242 ], [ %.0, %lean_alloc_ctor.exit243 ], [ %.0, %43 ], [ %.0, %49 ], [ %.0, %56 ], [ %.0, %62 ], [ %247, %lean_alloc_ctor.exit261 ], [ %269, %lean_alloc_ctor.exit263 ], [ %292, %lean_alloc_ctor.exit265 ], [ %314, %lean_alloc_ctor.exit267 ]
   %.0.be = phi ptr [ %22, %lean_alloc_ctor.exit ], [ %22, %lean_alloc_ctor.exit241 ], [ %22, %lean_alloc_ctor.exit242 ], [ %22, %lean_alloc_ctor.exit243 ], [ %22, %43 ], [ %22, %49 ], [ %22, %56 ], [ %22, %62 ], [ %145, %lean_alloc_ctor.exit261 ], [ %145, %lean_alloc_ctor.exit263 ], [ %145, %lean_alloc_ctor.exit265 ], [ %145, %lean_alloc_ctor.exit267 ]
-  br label %3, !llvm.loop !19
+  br label %3
 
 253:                                              ; preds = %230
   %254 = tail call ptr @l_Lean_MessageData_ofConst(ptr noundef %170) #5
@@ -88071,5 +88071,3 @@ attributes #6 = { noreturn nounwind }
 !16 = !{!17, !17, i64 0}
 !17 = !{!"short", !6, i64 0}
 !18 = !{!6, !6, i64 0}
-!19 = distinct !{!19, !20}
-!20 = !{!"llvm.loop.estimated_trip_count"}

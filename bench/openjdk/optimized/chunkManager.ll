@@ -196,7 +196,7 @@ define hidden void @_ZN9metaspace12ChunkManagerC2EPKcPNS_16VirtualSpaceListE(ptr
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %.ptr.i, i8 0, i64 20, i1 false)
   %.add.i = add nuw nsw i64 %.idx.i, 24
   %7 = icmp eq i64 %.add.i, 360
-  br i1 %7, label %_ZN9metaspace19FreeChunkListVectorC2Ev.exit, label %6, !llvm.loop !6
+  br i1 %7, label %_ZN9metaspace19FreeChunkListVectorC2Ev.exit, label %6
 
 _ZN9metaspace19FreeChunkListVectorC2Ev.exit:      ; preds = %6
   ret void
@@ -746,12 +746,12 @@ _ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit: ; preds = %1, %4
   %21 = getelementptr inbounds nuw i8, ptr %.01523, i64 48
   %.015 = load ptr, ptr %21, align 8
   %.not16 = icmp eq ptr %.015, null
-  br i1 %.not16, label %._crit_edge, label %.lr.ph, !llvm.loop !8
+  br i1 %.not16, label %._crit_edge, label %.lr.ph, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %.lr.ph, %18
   %22 = add i8 %.025, 1
   %.not = icmp sgt i8 %22, %16
-  br i1 %.not, label %._crit_edge28, label %18, !llvm.loop !10
+  br i1 %.not, label %._crit_edge28, label %18, !llvm.loop !8
 
 ._crit_edge28:                                    ; preds = %._crit_edge, %10
   %23 = load ptr, ptr %0, align 8
@@ -939,37 +939,37 @@ define hidden void @_ZNK9metaspace12ChunkManager17add_to_statisticsEPNS_17ChunkM
 
 _ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit: ; preds = %2, %4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %invariant.gep = getelementptr inbounds nuw i8, ptr %0, i64 32
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 64
   br label %7
 
 7:                                                ; preds = %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit, %7
   %indvars.iv = phi i64 [ 0, %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit ], [ %indvars.iv.next, %7 ]
   %.idx = mul nuw nsw i64 %indvars.iv, 24
-  %gep = getelementptr inbounds nuw i8, ptr %invariant.gep, i64 %.idx
-  %8 = load i32, ptr %gep, align 8
-  %9 = getelementptr inbounds nuw [15 x i32], ptr %1, i64 0, i64 %indvars.iv
-  %10 = load i32, ptr %9, align 4
-  %11 = add nsw i32 %10, %8
-  store i32 %11, ptr %9, align 4
-  %12 = trunc nuw nsw i64 %indvars.iv to i8
-  %13 = tail call noundef i64 @_ZNK9metaspace19FreeChunkListVector33calc_committed_word_size_at_levelEa(ptr noundef nonnull align 8 dereferenceable(360) %5, i8 noundef signext %12) #10
-  %14 = getelementptr inbounds nuw [15 x i64], ptr %6, i64 0, i64 %indvars.iv
-  %15 = load i64, ptr %14, align 8
-  %16 = add i64 %15, %13
-  store i64 %16, ptr %14, align 8
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 %.idx
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  %10 = load i32, ptr %9, align 8
+  %11 = getelementptr inbounds nuw [15 x i32], ptr %1, i64 0, i64 %indvars.iv
+  %12 = load i32, ptr %11, align 4
+  %13 = add nsw i32 %12, %10
+  store i32 %13, ptr %11, align 4
+  %14 = trunc nuw nsw i64 %indvars.iv to i8
+  %15 = tail call noundef i64 @_ZNK9metaspace19FreeChunkListVector33calc_committed_word_size_at_levelEa(ptr noundef nonnull align 8 dereferenceable(360) %5, i8 noundef signext %14) #10
+  %16 = getelementptr inbounds nuw [15 x i64], ptr %6, i64 0, i64 %indvars.iv
+  %17 = load i64, ptr %16, align 8
+  %18 = add i64 %17, %15
+  store i64 %18, ptr %16, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 15
-  br i1 %exitcond.not, label %17, label %7, !llvm.loop !11
+  br i1 %exitcond.not, label %19, label %7, !llvm.loop !9
 
-17:                                               ; preds = %7
-  br i1 %.not.i.i, label %_ZN11MutexLockerD2Ev.exit, label %18
+19:                                               ; preds = %7
+  br i1 %.not.i.i, label %_ZN11MutexLockerD2Ev.exit, label %20
 
-18:                                               ; preds = %17
+20:                                               ; preds = %19
   tail call void @_ZN5Mutex6unlockEv(ptr noundef nonnull align 8 dereferenceable(104) %3) #10
   br label %_ZN11MutexLockerD2Ev.exit
 
-_ZN11MutexLockerD2Ev.exit:                        ; preds = %17, %18
+_ZN11MutexLockerD2Ev.exit:                        ; preds = %19, %20
   ret void
 }
 
@@ -1136,8 +1136,6 @@ attributes #11 = { noreturn nounwind }
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
 !6 = distinct !{!6, !7}
-!7 = !{!"llvm.loop.estimated_trip_count"}
-!8 = distinct !{!8, !9, !7}
-!9 = !{!"llvm.loop.mustprogress"}
-!10 = distinct !{!10, !9, !7}
-!11 = distinct !{!11, !9, !7}
+!7 = !{!"llvm.loop.mustprogress"}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}

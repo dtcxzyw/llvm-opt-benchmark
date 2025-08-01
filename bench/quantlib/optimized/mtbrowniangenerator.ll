@@ -530,7 +530,7 @@ entry:
   %generator_ = getelementptr inbounds nuw i8, ptr %this, i64 32
   %sequence_.i = getelementptr inbounds nuw i8, ptr %this, i64 5040
   %weight.i = getelementptr inbounds nuw i8, ptr %this, i64 5064
-  store double 1.000000e+00, ptr %weight.i, align 8, !tbaa !49
+  store double 1.000000e+00, ptr %weight.i, align 8, !tbaa !48
   %0 = load i64, ptr %generator_, align 8, !tbaa !29
   %cmp3.not.i = icmp eq i64 %0, 0
   br i1 %cmp3.not.i, label %_ZNK8QuantLib23RandomSequenceGeneratorINS_25MersenneTwisterUniformRngEE12nextSequenceEv.exit, label %for.body.lr.ph.i
@@ -538,7 +538,7 @@ entry:
 for.body.lr.ph.i:                                 ; preds = %entry
   %rng_.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %mti.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 5032
-  %.pre.i = load i64, ptr %mti.i.i.i.i, align 8, !tbaa !50
+  %.pre.i = load i64, ptr %mti.i.i.i.i, align 8, !tbaa !49
   br label %for.body.i
 
 for.body.i:                                       ; preds = %_ZNK8QuantLib25MersenneTwisterUniformRng4nextEv.exit.i, %for.body.lr.ph.i
@@ -550,7 +550,7 @@ for.body.i:                                       ; preds = %_ZNK8QuantLib25Mers
 
 if.then.i.i.i.i:                                  ; preds = %for.body.i
   tail call void @_ZNK8QuantLib25MersenneTwisterUniformRng5twistEv(ptr noundef nonnull align 8 dereferenceable(5000) %rng_.i)
-  %.pre.i.i.i.i = load i64, ptr %mti.i.i.i.i, align 8, !tbaa !50
+  %.pre.i.i.i.i = load i64, ptr %mti.i.i.i.i, align 8, !tbaa !49
   %.pre5.i = load i64, ptr %generator_, align 8, !tbaa !29
   br label %_ZNK8QuantLib25MersenneTwisterUniformRng4nextEv.exit.i
 
@@ -558,7 +558,7 @@ _ZNK8QuantLib25MersenneTwisterUniformRng4nextEv.exit.i: ; preds = %if.then.i.i.i
   %3 = phi i64 [ %.pre5.i, %if.then.i.i.i.i ], [ %1, %for.body.i ]
   %4 = phi i64 [ %.pre.i.i.i.i, %if.then.i.i.i.i ], [ %2, %for.body.i ]
   %inc.i.i.i.i = add i64 %4, 1
-  store i64 %inc.i.i.i.i, ptr %mti.i.i.i.i, align 8, !tbaa !50
+  store i64 %inc.i.i.i.i, ptr %mti.i.i.i.i, align 8, !tbaa !49
   %arrayidx.i.i.i.i = getelementptr inbounds nuw [624 x i64], ptr %rng_.i, i64 0, i64 %4
   %5 = load i64, ptr %arrayidx.i.i.i.i, align 8, !tbaa !32
   %shr.i.i.i.i = lshr i64 %5, 11
@@ -579,7 +579,7 @@ _ZNK8QuantLib25MersenneTwisterUniformRng4nextEv.exit.i: ; preds = %if.then.i.i.i
   store double %div.i.i.i, ptr %add.ptr.i.i, align 8, !tbaa !33
   %inc.i = add nuw i64 %i.04.i, 1
   %cmp.i = icmp ult i64 %inc.i, %3
-  br i1 %cmp.i, label %for.body.i, label %_ZNK8QuantLib23RandomSequenceGeneratorINS_25MersenneTwisterUniformRngEE12nextSequenceEv.exit.loopexit, !llvm.loop !51
+  br i1 %cmp.i, label %for.body.i, label %_ZNK8QuantLib23RandomSequenceGeneratorINS_25MersenneTwisterUniformRngEE12nextSequenceEv.exit.loopexit, !llvm.loop !50
 
 _ZNK8QuantLib23RandomSequenceGeneratorINS_25MersenneTwisterUniformRngEE12nextSequenceEv.exit.loopexit: ; preds = %_ZNK8QuantLib25MersenneTwisterUniformRng4nextEv.exit.i
   %.pre = load double, ptr %weight.i, align 8, !tbaa !37
@@ -613,7 +613,7 @@ define void @_ZN8QuantLib26MTBrownianGeneratorFactoryC2Em(ptr noundef nonnull wr
 entry:
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib26MTBrownianGeneratorFactoryE, i64 16), ptr %this, align 8, !tbaa !3
   %seed_ = getelementptr inbounds nuw i8, ptr %this, i64 8
-  store i64 %seed, ptr %seed_, align 8, !tbaa !52
+  store i64 %seed, ptr %seed_, align 8, !tbaa !51
   ret void
 }
 
@@ -622,14 +622,14 @@ define void @_ZNK8QuantLib26MTBrownianGeneratorFactory6createEmm(ptr dead_on_unw
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(5112) ptr @_Znwm(i64 noundef 5112) #21
   %seed_ = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %0 = load i64, ptr %seed_, align 8, !tbaa !52
+  %0 = load i64, ptr %seed_, align 8, !tbaa !51
   invoke void @_ZN8QuantLib19MTBrownianGeneratorC1Emmm(ptr noundef nonnull align 8 dereferenceable(5112) %call, i64 noundef %factors, i64 noundef %steps, i64 noundef %0)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr %call, ptr %agg.result, align 8, !tbaa !55
+  store ptr %call, ptr %agg.result, align 8, !tbaa !54
   %pn.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
-  store ptr null, ptr %pn.i, align 8, !tbaa !58
+  store ptr null, ptr %pn.i, align 8, !tbaa !57
   %call.i.i.i = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #21
           to label %_ZN5boost10shared_ptrIN8QuantLib17BrownianGeneratorEEC2INS1_19MTBrownianGeneratorEEEPT_.exit unwind label %lpad.i.i.i
 
@@ -671,13 +671,13 @@ lpad.body.i:                                      ; preds = %lpad5.i.i.i
 
 _ZN5boost10shared_ptrIN8QuantLib17BrownianGeneratorEEC2INS1_19MTBrownianGeneratorEEEPT_.exit: ; preds = %invoke.cont
   %use_count_.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 8
-  store i32 1, ptr %use_count_.i.i.i.i.i, align 8, !tbaa !59
+  store i32 1, ptr %use_count_.i.i.i.i.i, align 8, !tbaa !58
   %weak_count_.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 12
-  store i32 1, ptr %weak_count_.i.i.i.i.i, align 4, !tbaa !62
+  store i32 1, ptr %weak_count_.i.i.i.i.i, align 4, !tbaa !61
   store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN5boost6detail17sp_counted_impl_pIN8QuantLib19MTBrownianGeneratorEEE, i64 16), ptr %call.i.i.i, align 8, !tbaa !3
   %px_.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 16
-  store ptr %call, ptr %px_.i.i.i.i, align 8, !tbaa !63
-  store ptr %call.i.i.i, ptr %pn.i, align 8, !tbaa !58
+  store ptr %call, ptr %px_.i.i.i.i, align 8, !tbaa !62
+  store ptr %call.i.i.i, ptr %pn.i, align 8, !tbaa !57
   ret void
 
 lpad:                                             ; preds = %entry
@@ -791,7 +791,7 @@ define linkonce_odr void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC
 entry:
   %__dnew.i = alloca i64, align 8
   %0 = getelementptr inbounds nuw i8, ptr %this, i64 16
-  store ptr %0, ptr %this, align 8, !tbaa !65
+  store ptr %0, ptr %this, align 8, !tbaa !64
   %cmp = icmp eq ptr %__s, null
   br i1 %cmp, label %if.then, label %if.end
 
@@ -850,7 +850,7 @@ define linkonce_odr void @_ZN8QuantLib5ErrorD2Ev(ptr noundef nonnull align 8 der
 entry:
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib5ErrorE, i64 16), ptr %this, align 8, !tbaa !3
   %pn.i = getelementptr inbounds nuw i8, ptr %this, i64 16
-  %0 = load ptr, ptr %pn.i, align 8, !tbaa !58
+  %0 = load ptr, ptr %pn.i, align 8, !tbaa !57
   %cmp.not.i.i = icmp eq ptr %0, null
   br i1 %cmp.not.i.i, label %_ZN5boost10shared_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit, label %if.then.i.i
 
@@ -928,7 +928,7 @@ declare void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8)
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5boost6detail12shared_countD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %0 = load ptr, ptr %this, align 8, !tbaa !58
+  %0 = load ptr, ptr %this, align 8, !tbaa !57
   %cmp.not = icmp eq ptr %0, null
   br i1 %cmp.not, label %if.end, label %if.then
 
@@ -1000,7 +1000,7 @@ entry:
 define linkonce_odr void @_ZN5boost6detail17sp_counted_impl_pIN8QuantLib19MTBrownianGeneratorEE7disposeEv(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #9 comdat align 2 {
 entry:
   %px_ = getelementptr inbounds nuw i8, ptr %this, i64 16
-  %0 = load ptr, ptr %px_, align 8, !tbaa !63
+  %0 = load ptr, ptr %px_, align 8, !tbaa !62
   %isnull.i = icmp eq ptr %0, null
   br i1 %isnull.i, label %_ZN5boost14checked_deleteIN8QuantLib19MTBrownianGeneratorEEEvPT_.exit, label %delete.notnull.i
 
@@ -1122,23 +1122,22 @@ attributes #23 = { noreturn nounwind }
 !43 = !{!41, !9, i64 8}
 !44 = !{!23, !18, i64 8}
 !45 = !{!18, !18, i64 0}
-!46 = distinct !{!46, !47, !48}
+!46 = distinct !{!46, !47}
 !47 = !{!"llvm.loop.mustprogress"}
-!48 = !{!"llvm.loop.estimated_trip_count"}
-!49 = !{!11, !19, i64 5032}
-!50 = !{!12, !9, i64 4992}
-!51 = distinct !{!51, !47, !48}
-!52 = !{!53, !9, i64 8}
-!53 = !{!"_ZTSN8QuantLib26MTBrownianGeneratorFactoryE", !54, i64 0, !9, i64 8}
-!54 = !{!"_ZTSN8QuantLib24BrownianGeneratorFactoryE"}
-!55 = !{!56, !18, i64 0}
-!56 = !{!"_ZTSN5boost10shared_ptrIN8QuantLib17BrownianGeneratorEEE", !18, i64 0, !57, i64 8}
-!57 = !{!"_ZTSN5boost6detail12shared_countE", !18, i64 0}
-!58 = !{!57, !18, i64 0}
-!59 = !{!60, !61, i64 8}
-!60 = !{!"_ZTSN5boost6detail15sp_counted_baseE", !61, i64 8, !61, i64 12}
-!61 = !{!"int", !10, i64 0}
-!62 = !{!60, !61, i64 12}
-!63 = !{!64, !18, i64 16}
-!64 = !{!"_ZTSN5boost6detail17sp_counted_impl_pIN8QuantLib19MTBrownianGeneratorEEE", !60, i64 0, !18, i64 16}
-!65 = !{!42, !18, i64 0}
+!48 = !{!11, !19, i64 5032}
+!49 = !{!12, !9, i64 4992}
+!50 = distinct !{!50, !47}
+!51 = !{!52, !9, i64 8}
+!52 = !{!"_ZTSN8QuantLib26MTBrownianGeneratorFactoryE", !53, i64 0, !9, i64 8}
+!53 = !{!"_ZTSN8QuantLib24BrownianGeneratorFactoryE"}
+!54 = !{!55, !18, i64 0}
+!55 = !{!"_ZTSN5boost10shared_ptrIN8QuantLib17BrownianGeneratorEEE", !18, i64 0, !56, i64 8}
+!56 = !{!"_ZTSN5boost6detail12shared_countE", !18, i64 0}
+!57 = !{!56, !18, i64 0}
+!58 = !{!59, !60, i64 8}
+!59 = !{!"_ZTSN5boost6detail15sp_counted_baseE", !60, i64 8, !60, i64 12}
+!60 = !{!"int", !10, i64 0}
+!61 = !{!59, !60, i64 12}
+!62 = !{!63, !18, i64 16}
+!63 = !{!"_ZTSN5boost6detail17sp_counted_impl_pIN8QuantLib19MTBrownianGeneratorEEE", !59, i64 0, !18, i64 16}
+!64 = !{!42, !18, i64 0}

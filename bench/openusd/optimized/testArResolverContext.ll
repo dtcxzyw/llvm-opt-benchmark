@@ -801,7 +801,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__17ArResolverContext8_Untyped9IsHoldingERKS
 218:                                              ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__17ArResolverContext8_Untyped9IsHoldingERKSt9type_info.exit.i.i
   %219 = getelementptr inbounds nuw i8, ptr %.sroa.06.012.i.i, i64 16
   %.not.i.i = icmp eq ptr %219, %203
-  br i1 %.not.i.i, label %220, label %.lr.ph.i.i, !llvm.loop !8
+  br i1 %.not.i.i, label %220, label %.lr.ph.i.i
 
 220:                                              ; preds = %218
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %63)
@@ -870,7 +870,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__17ArResolverContext8_Untyped9IsHoldingERKS
 249:                                              ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__17ArResolverContext8_Untyped9IsHoldingERKSt9type_info.exit.i42.i
   %250 = getelementptr inbounds nuw i8, ptr %.sroa.06.012.i41.i, i64 16
   %.not.i44.i = icmp eq ptr %250, %235
-  br i1 %.not.i44.i, label %.loopexit211.i, label %.lr.ph.i40.i, !llvm.loop !9
+  br i1 %.not.i44.i, label %.loopexit211.i, label %.lr.ph.i40.i
 
 251:                                              ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__17ArResolverContext8_Untyped9IsHoldingERKSt9type_info.exit.i42.i, %.noexc47.i
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %61)
@@ -2078,7 +2078,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__17ArResolverContext8_Untyped9IsHoldingERKS
 639:                                              ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__17ArResolverContext8_Untyped9IsHoldingERKSt9type_info.exit.i.i47
   %640 = getelementptr inbounds nuw i8, ptr %.sroa.06.012.i.i46, i64 16
   %.not.i.i49 = icmp eq ptr %640, %625
-  br i1 %.not.i.i49, label %.loopexit616.i, label %.lr.ph.i.i45, !llvm.loop !8
+  br i1 %.not.i.i49, label %.loopexit616.i, label %.lr.ph.i.i45
 
 .loopexit616.i:                                   ; preds = %639, %_ZN32pxrInternal_v0_24__pxrReserved__17ArResolverContextD2Ev.exit.i44
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %28)
@@ -2126,7 +2126,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__17ArResolverContext8_Untyped9IsHoldingERKS
 662:                                              ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__17ArResolverContext8_Untyped9IsHoldingERKSt9type_info.exit.i47.i
   %663 = getelementptr inbounds nuw i8, ptr %.sroa.06.012.i46.i, i64 16
   %.not.i49.i = icmp eq ptr %663, %648
-  br i1 %.not.i49.i, label %.loopexit612.i, label %.lr.ph.i45.i, !llvm.loop !9
+  br i1 %.not.i49.i, label %.loopexit612.i, label %.lr.ph.i45.i
 
 .loopexit612.i:                                   ; preds = %662, %646
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %26)
@@ -2245,7 +2245,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__17ArResolverContextC2IJ17TestContextObjectI
 _ZN32pxrInternal_v0_24__pxrReserved__15Tf_HashStateAPIINS_12Tf_HashStateEE6AppendIJRKSt10shared_ptrINS_17ArResolverContext8_UntypedEEEEEvDpOT_.exit.i.i.i.i.i.i.i: ; preds = %696, %.noexc66.i
   %.sink.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = phi i64 [ %701, %696 ], [ %695, %.noexc66.i ]
   %.not.i.i.i.i.i.i.i = icmp eq i64 %689, 0
-  br i1 %.not.i.i.i.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__11Tf_HashImplINS_12Tf_HashStateERKSt6vectorISt10shared_ptrINS_17ArResolverContext8_UntypedEESaIS6_EEEEDTcmcl12TfHashAppendfp_clsr3stdE7forwardIT0_Efp0_EEcvv_EERT_OSB_i.exit.loopexit.i.i.i, label %688, !llvm.loop !10
+  br i1 %.not.i.i.i.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__11Tf_HashImplINS_12Tf_HashStateERKSt6vectorISt10shared_ptrINS_17ArResolverContext8_UntypedEESaIS6_EEEEDTcmcl12TfHashAppendfp_clsr3stdE7forwardIT0_Efp0_EEcvv_EERT_OSB_i.exit.loopexit.i.i.i, label %688, !llvm.loop !7
 
 _ZN32pxrInternal_v0_24__pxrReserved__11Tf_HashImplINS_12Tf_HashStateERKSt6vectorISt10shared_ptrINS_17ArResolverContext8_UntypedEESaIS6_EEEEDTcmcl12TfHashAppendfp_clsr3stdE7forwardIT0_Efp0_EEcvv_EERT_OSB_i.exit.loopexit.i.i.i: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__15Tf_HashStateAPIINS_12Tf_HashStateEE6AppendIJRKSt10shared_ptrINS_17ArResolverContext8_UntypedEEEEEvDpOT_.exit.i.i.i.i.i.i.i
   %702 = mul i64 %.sink.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, -7046029254386353067
@@ -2295,7 +2295,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__10hash_valueERKNS_17ArResolverContextE.exit
 _ZN32pxrInternal_v0_24__pxrReserved__15Tf_HashStateAPIINS_12Tf_HashStateEE6AppendIJRKSt10shared_ptrINS_17ArResolverContext8_UntypedEEEEEvDpOT_.exit.i.i.i.i.i.i73.i: ; preds = %719, %.noexc78.i
   %.sink.i.i.i.i.i.i.i.i.i.i.i.i.i.i74.i = phi i64 [ %724, %719 ], [ %718, %.noexc78.i ]
   %.not.i.i.i.i.i.i75.i = icmp eq i64 %712, 0
-  br i1 %.not.i.i.i.i.i.i75.i, label %_ZN32pxrInternal_v0_24__pxrReserved__11Tf_HashImplINS_12Tf_HashStateERKSt6vectorISt10shared_ptrINS_17ArResolverContext8_UntypedEESaIS6_EEEEDTcmcl12TfHashAppendfp_clsr3stdE7forwardIT0_Efp0_EEcvv_EERT_OSB_i.exit.loopexit.i.i76.i, label %711, !llvm.loop !10
+  br i1 %.not.i.i.i.i.i.i75.i, label %_ZN32pxrInternal_v0_24__pxrReserved__11Tf_HashImplINS_12Tf_HashStateERKSt6vectorISt10shared_ptrINS_17ArResolverContext8_UntypedEESaIS6_EEEEDTcmcl12TfHashAppendfp_clsr3stdE7forwardIT0_Efp0_EEcvv_EERT_OSB_i.exit.loopexit.i.i76.i, label %711, !llvm.loop !7
 
 _ZN32pxrInternal_v0_24__pxrReserved__11Tf_HashImplINS_12Tf_HashStateERKSt6vectorISt10shared_ptrINS_17ArResolverContext8_UntypedEESaIS6_EEEEDTcmcl12TfHashAppendfp_clsr3stdE7forwardIT0_Efp0_EEcvv_EERT_OSB_i.exit.loopexit.i.i76.i: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__15Tf_HashStateAPIINS_12Tf_HashStateEE6AppendIJRKSt10shared_ptrINS_17ArResolverContext8_UntypedEEEEEvDpOT_.exit.i.i.i.i.i.i73.i
   %725 = mul i64 %.sink.i.i.i.i.i.i.i.i.i.i.i.i.i.i74.i, -7046029254386353067
@@ -2634,7 +2634,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__17ArResolverContextD2Ev.exit118.i: ; preds 
 _ZN32pxrInternal_v0_24__pxrReserved__15Tf_HashStateAPIINS_12Tf_HashStateEE6AppendIJRKSt10shared_ptrINS_17ArResolverContext8_UntypedEEEEEvDpOT_.exit.i.i.i.i.i.i131.i: ; preds = %849, %.noexc136.i
   %.sink.i.i.i.i.i.i.i.i.i.i.i.i.i.i132.i = phi i64 [ %854, %849 ], [ %848, %.noexc136.i ]
   %.not.i.i.i.i.i.i133.i = icmp eq i64 %842, 0
-  br i1 %.not.i.i.i.i.i.i133.i, label %_ZN32pxrInternal_v0_24__pxrReserved__11Tf_HashImplINS_12Tf_HashStateERKSt6vectorISt10shared_ptrINS_17ArResolverContext8_UntypedEESaIS6_EEEEDTcmcl12TfHashAppendfp_clsr3stdE7forwardIT0_Efp0_EEcvv_EERT_OSB_i.exit.loopexit.i.i134.i, label %841, !llvm.loop !10
+  br i1 %.not.i.i.i.i.i.i133.i, label %_ZN32pxrInternal_v0_24__pxrReserved__11Tf_HashImplINS_12Tf_HashStateERKSt6vectorISt10shared_ptrINS_17ArResolverContext8_UntypedEESaIS6_EEEEDTcmcl12TfHashAppendfp_clsr3stdE7forwardIT0_Efp0_EEcvv_EERT_OSB_i.exit.loopexit.i.i134.i, label %841, !llvm.loop !7
 
 _ZN32pxrInternal_v0_24__pxrReserved__11Tf_HashImplINS_12Tf_HashStateERKSt6vectorISt10shared_ptrINS_17ArResolverContext8_UntypedEESaIS6_EEEEDTcmcl12TfHashAppendfp_clsr3stdE7forwardIT0_Efp0_EEcvv_EERT_OSB_i.exit.loopexit.i.i134.i: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__15Tf_HashStateAPIINS_12Tf_HashStateEE6AppendIJRKSt10shared_ptrINS_17ArResolverContext8_UntypedEEEEEvDpOT_.exit.i.i.i.i.i.i131.i
   %855 = mul i64 %.sink.i.i.i.i.i.i.i.i.i.i.i.i.i.i132.i, -7046029254386353067
@@ -2684,7 +2684,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__10hash_valueERKNS_17ArResolverContextE.exit
 _ZN32pxrInternal_v0_24__pxrReserved__15Tf_HashStateAPIINS_12Tf_HashStateEE6AppendIJRKSt10shared_ptrINS_17ArResolverContext8_UntypedEEEEEvDpOT_.exit.i.i.i.i.i.i144.i: ; preds = %872, %.noexc149.i
   %.sink.i.i.i.i.i.i.i.i.i.i.i.i.i.i145.i = phi i64 [ %877, %872 ], [ %871, %.noexc149.i ]
   %.not.i.i.i.i.i.i146.i = icmp eq i64 %865, 0
-  br i1 %.not.i.i.i.i.i.i146.i, label %_ZN32pxrInternal_v0_24__pxrReserved__11Tf_HashImplINS_12Tf_HashStateERKSt6vectorISt10shared_ptrINS_17ArResolverContext8_UntypedEESaIS6_EEEEDTcmcl12TfHashAppendfp_clsr3stdE7forwardIT0_Efp0_EEcvv_EERT_OSB_i.exit.loopexit.i.i147.i, label %864, !llvm.loop !10
+  br i1 %.not.i.i.i.i.i.i146.i, label %_ZN32pxrInternal_v0_24__pxrReserved__11Tf_HashImplINS_12Tf_HashStateERKSt6vectorISt10shared_ptrINS_17ArResolverContext8_UntypedEESaIS6_EEEEDTcmcl12TfHashAppendfp_clsr3stdE7forwardIT0_Efp0_EEcvv_EERT_OSB_i.exit.loopexit.i.i147.i, label %864, !llvm.loop !7
 
 _ZN32pxrInternal_v0_24__pxrReserved__11Tf_HashImplINS_12Tf_HashStateERKSt6vectorISt10shared_ptrINS_17ArResolverContext8_UntypedEESaIS6_EEEEDTcmcl12TfHashAppendfp_clsr3stdE7forwardIT0_Efp0_EEcvv_EERT_OSB_i.exit.loopexit.i.i147.i: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__15Tf_HashStateAPIINS_12Tf_HashStateEE6AppendIJRKSt10shared_ptrINS_17ArResolverContext8_UntypedEEEEEvDpOT_.exit.i.i.i.i.i.i144.i
   %878 = mul i64 %.sink.i.i.i.i.i.i.i.i.i.i.i.i.i.i145.i, -7046029254386353067
@@ -3139,7 +3139,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__17ArResolverContextD2Ev.exit208.i: ; preds 
 _ZN32pxrInternal_v0_24__pxrReserved__15Tf_HashStateAPIINS_12Tf_HashStateEE6AppendIJRKSt10shared_ptrINS_17ArResolverContext8_UntypedEEEEEvDpOT_.exit.i.i.i.i.i.i221.i: ; preds = %1051, %.noexc226.i
   %.sink.i.i.i.i.i.i.i.i.i.i.i.i.i.i222.i = phi i64 [ %1056, %1051 ], [ %1050, %.noexc226.i ]
   %.not.i.i.i.i.i.i223.i = icmp eq i64 %1044, 0
-  br i1 %.not.i.i.i.i.i.i223.i, label %_ZN32pxrInternal_v0_24__pxrReserved__11Tf_HashImplINS_12Tf_HashStateERKSt6vectorISt10shared_ptrINS_17ArResolverContext8_UntypedEESaIS6_EEEEDTcmcl12TfHashAppendfp_clsr3stdE7forwardIT0_Efp0_EEcvv_EERT_OSB_i.exit.loopexit.i.i224.i, label %1043, !llvm.loop !10
+  br i1 %.not.i.i.i.i.i.i223.i, label %_ZN32pxrInternal_v0_24__pxrReserved__11Tf_HashImplINS_12Tf_HashStateERKSt6vectorISt10shared_ptrINS_17ArResolverContext8_UntypedEESaIS6_EEEEDTcmcl12TfHashAppendfp_clsr3stdE7forwardIT0_Efp0_EEcvv_EERT_OSB_i.exit.loopexit.i.i224.i, label %1043, !llvm.loop !7
 
 _ZN32pxrInternal_v0_24__pxrReserved__11Tf_HashImplINS_12Tf_HashStateERKSt6vectorISt10shared_ptrINS_17ArResolverContext8_UntypedEESaIS6_EEEEDTcmcl12TfHashAppendfp_clsr3stdE7forwardIT0_Efp0_EEcvv_EERT_OSB_i.exit.loopexit.i.i224.i: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__15Tf_HashStateAPIINS_12Tf_HashStateEE6AppendIJRKSt10shared_ptrINS_17ArResolverContext8_UntypedEEEEEvDpOT_.exit.i.i.i.i.i.i221.i
   %1057 = mul i64 %.sink.i.i.i.i.i.i.i.i.i.i.i.i.i.i222.i, -7046029254386353067
@@ -3189,7 +3189,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__10hash_valueERKNS_17ArResolverContextE.exit
 _ZN32pxrInternal_v0_24__pxrReserved__15Tf_HashStateAPIINS_12Tf_HashStateEE6AppendIJRKSt10shared_ptrINS_17ArResolverContext8_UntypedEEEEEvDpOT_.exit.i.i.i.i.i.i234.i: ; preds = %1074, %.noexc239.i
   %.sink.i.i.i.i.i.i.i.i.i.i.i.i.i.i235.i = phi i64 [ %1079, %1074 ], [ %1073, %.noexc239.i ]
   %.not.i.i.i.i.i.i236.i = icmp eq i64 %1067, 0
-  br i1 %.not.i.i.i.i.i.i236.i, label %_ZN32pxrInternal_v0_24__pxrReserved__11Tf_HashImplINS_12Tf_HashStateERKSt6vectorISt10shared_ptrINS_17ArResolverContext8_UntypedEESaIS6_EEEEDTcmcl12TfHashAppendfp_clsr3stdE7forwardIT0_Efp0_EEcvv_EERT_OSB_i.exit.loopexit.i.i237.i, label %1066, !llvm.loop !10
+  br i1 %.not.i.i.i.i.i.i236.i, label %_ZN32pxrInternal_v0_24__pxrReserved__11Tf_HashImplINS_12Tf_HashStateERKSt6vectorISt10shared_ptrINS_17ArResolverContext8_UntypedEESaIS6_EEEEDTcmcl12TfHashAppendfp_clsr3stdE7forwardIT0_Efp0_EEcvv_EERT_OSB_i.exit.loopexit.i.i237.i, label %1066, !llvm.loop !7
 
 _ZN32pxrInternal_v0_24__pxrReserved__11Tf_HashImplINS_12Tf_HashStateERKSt6vectorISt10shared_ptrINS_17ArResolverContext8_UntypedEESaIS6_EEEEDTcmcl12TfHashAppendfp_clsr3stdE7forwardIT0_Efp0_EEcvv_EERT_OSB_i.exit.loopexit.i.i237.i: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__15Tf_HashStateAPIINS_12Tf_HashStateEE6AppendIJRKSt10shared_ptrINS_17ArResolverContext8_UntypedEEEEEvDpOT_.exit.i.i.i.i.i.i234.i
   %1080 = mul i64 %.sink.i.i.i.i.i.i.i.i.i.i.i.i.i.i235.i, -7046029254386353067
@@ -5768,9 +5768,6 @@ attributes #20 = { builtin allocsize(0) }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6, !7}
+!5 = distinct !{!5, !6}
 !6 = !{!"llvm.loop.mustprogress"}
-!7 = !{!"llvm.loop.estimated_trip_count"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !6, !7}
+!7 = distinct !{!7, !6}

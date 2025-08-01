@@ -66,7 +66,7 @@ define noundef ptr @ossl_ffc_name_to_dh_named_group(ptr noundef %0) local_unname
 4:                                                ; preds = %1, %2
   %.06 = phi i64 [ 0, %1 ], [ %3, %2 ]
   %5 = getelementptr inbounds nuw [14 x %struct.dh_named_group_st], ptr @dh_named_groups, i64 0, i64 %.06
-  %6 = load ptr, ptr %5, align 16, !tbaa !6
+  %6 = load ptr, ptr %5, align 16, !tbaa !5
   %7 = tail call i32 @OPENSSL_strcasecmp(ptr noundef %6, ptr noundef %0) #4
   %8 = icmp eq i32 %7, 0
   br i1 %8, label %9, label %2
@@ -85,13 +85,13 @@ define ptr @ossl_ffc_uid_to_dh_named_group(i32 noundef %0) local_unnamed_addr #2
 2:                                                ; preds = %4
   %3 = add nuw nsw i64 %.06, 1
   %exitcond.not = icmp eq i64 %3, 14
-  br i1 %exitcond.not, label %9, label %4, !llvm.loop !14
+  br i1 %exitcond.not, label %9, label %4, !llvm.loop !13
 
 4:                                                ; preds = %1, %2
   %.06 = phi i64 [ 0, %1 ], [ %3, %2 ]
   %5 = getelementptr inbounds nuw [14 x %struct.dh_named_group_st], ptr @dh_named_groups, i64 0, i64 %.06
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %7 = load i32, ptr %6, align 8, !tbaa !15
+  %7 = load i32, ptr %6, align 8, !tbaa !14
   %8 = icmp eq i32 %7, %0
   br i1 %8, label %9, label %2
 
@@ -109,14 +109,14 @@ define ptr @ossl_ffc_numbers_to_dh_named_group(ptr noundef %0, ptr noundef %1, p
   %.012.us = phi i64 [ %16, %15 ], [ 0, %3 ]
   %5 = getelementptr inbounds nuw [14 x %struct.dh_named_group_st], ptr @dh_named_groups, i64 0, i64 %.012.us
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  %7 = load ptr, ptr %6, align 8, !tbaa !16
+  %7 = load ptr, ptr %6, align 8, !tbaa !15
   %8 = tail call i32 @BN_cmp(ptr noundef %0, ptr noundef %7) #4
   %9 = icmp eq i32 %8, 0
   br i1 %9, label %10, label %15
 
 10:                                               ; preds = %.split.us
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 40
-  %12 = load ptr, ptr %11, align 8, !tbaa !17
+  %12 = load ptr, ptr %11, align 8, !tbaa !16
   %13 = tail call i32 @BN_cmp(ptr noundef %2, ptr noundef %12) #4
   %14 = icmp eq i32 %13, 0
   br i1 %14, label %.split14.us, label %15
@@ -124,27 +124,27 @@ define ptr @ossl_ffc_numbers_to_dh_named_group(ptr noundef %0, ptr noundef %1, p
 15:                                               ; preds = %10, %.split.us
   %16 = add nuw nsw i64 %.012.us, 1
   %exitcond18.not = icmp eq i64 %16, 14
-  br i1 %exitcond18.not, label %.split14.us, label %.split.us, !llvm.loop !18
+  br i1 %exitcond18.not, label %.split14.us, label %.split.us, !llvm.loop !17
 
 .split:                                           ; preds = %3, %32
   %.012 = phi i64 [ %33, %32 ], [ 0, %3 ]
   %17 = getelementptr inbounds nuw [14 x %struct.dh_named_group_st], ptr @dh_named_groups, i64 0, i64 %.012
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 24
-  %19 = load ptr, ptr %18, align 8, !tbaa !16
+  %19 = load ptr, ptr %18, align 8, !tbaa !15
   %20 = tail call i32 @BN_cmp(ptr noundef %0, ptr noundef %19) #4
   %21 = icmp eq i32 %20, 0
   br i1 %21, label %22, label %32
 
 22:                                               ; preds = %.split
   %23 = getelementptr inbounds nuw i8, ptr %17, i64 40
-  %24 = load ptr, ptr %23, align 8, !tbaa !17
+  %24 = load ptr, ptr %23, align 8, !tbaa !16
   %25 = tail call i32 @BN_cmp(ptr noundef %2, ptr noundef %24) #4
   %26 = icmp eq i32 %25, 0
   br i1 %26, label %27, label %32
 
 27:                                               ; preds = %22
   %28 = getelementptr inbounds nuw i8, ptr %17, i64 32
-  %29 = load ptr, ptr %28, align 16, !tbaa !20
+  %29 = load ptr, ptr %28, align 16, !tbaa !19
   %30 = tail call i32 @BN_cmp(ptr noundef nonnull %1, ptr noundef %29) #4
   %31 = icmp eq i32 %30, 0
   br i1 %31, label %.split14.us, label %32
@@ -152,7 +152,7 @@ define ptr @ossl_ffc_numbers_to_dh_named_group(ptr noundef %0, ptr noundef %1, p
 32:                                               ; preds = %.split, %22, %27
   %33 = add nuw nsw i64 %.012, 1
   %exitcond.not = icmp eq i64 %33, 14
-  br i1 %exitcond.not, label %.split14.us, label %.split, !llvm.loop !21
+  br i1 %exitcond.not, label %.split14.us, label %.split, !llvm.loop !20
 
 .split14.us:                                      ; preds = %27, %32, %10, %15
   %.us-phi = phi ptr [ %5, %10 ], [ null, %15 ], [ %17, %27 ], [ null, %32 ]
@@ -168,7 +168,7 @@ define i32 @ossl_ffc_named_group_get_uid(ptr noundef readonly captures(address_i
 
 3:                                                ; preds = %1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = load i32, ptr %4, align 8, !tbaa !15
+  %5 = load i32, ptr %4, align 8, !tbaa !14
   br label %6
 
 6:                                                ; preds = %1, %3
@@ -182,7 +182,7 @@ define ptr @ossl_ffc_named_group_get_name(ptr noundef readonly captures(address_
   br i1 %2, label %5, label %3
 
 3:                                                ; preds = %1
-  %4 = load ptr, ptr %0, align 8, !tbaa !6
+  %4 = load ptr, ptr %0, align 8, !tbaa !5
   br label %5
 
 5:                                                ; preds = %1, %3
@@ -197,7 +197,7 @@ define i32 @ossl_ffc_named_group_get_keylength(ptr noundef readonly captures(add
 
 3:                                                ; preds = %1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %5 = load i32, ptr %4, align 8, !tbaa !22
+  %5 = load i32, ptr %4, align 8, !tbaa !21
   br label %6
 
 6:                                                ; preds = %1, %3
@@ -212,7 +212,7 @@ define ptr @ossl_ffc_named_group_get_q(ptr noundef readonly captures(address_is_
 
 3:                                                ; preds = %1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %5 = load ptr, ptr %4, align 8, !tbaa !20
+  %5 = load ptr, ptr %4, align 8, !tbaa !19
   br label %6
 
 6:                                                ; preds = %1, %3
@@ -229,18 +229,18 @@ define range(i32 0, 2) i32 @ossl_ffc_named_group_set(ptr noundef %0, ptr noundef
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %7 = load ptr, ptr %6, align 8, !tbaa !16
+  %7 = load ptr, ptr %6, align 8, !tbaa !15
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %9 = load ptr, ptr %8, align 8, !tbaa !20
+  %9 = load ptr, ptr %8, align 8, !tbaa !19
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %11 = load ptr, ptr %10, align 8, !tbaa !17
+  %11 = load ptr, ptr %10, align 8, !tbaa !16
   tail call void @ossl_ffc_params_set0_pqg(ptr noundef nonnull %0, ptr noundef %7, ptr noundef %9, ptr noundef %11) #4
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %13 = load i32, ptr %12, align 8, !tbaa !22
+  %13 = load i32, ptr %12, align 8, !tbaa !21
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  store i32 %13, ptr %14, align 8, !tbaa !23
+  store i32 %13, ptr %14, align 8, !tbaa !22
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 52
-  store i32 0, ptr %15, align 4, !tbaa !26
+  store i32 0, ptr %15, align 4, !tbaa !25
   br label %16
 
 16:                                               ; preds = %2, %5
@@ -261,27 +261,26 @@ attributes #4 = { nounwind }
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = distinct !{!3, !4, !5}
+!3 = distinct !{!3, !4}
 !4 = !{!"llvm.loop.mustprogress"}
-!5 = !{!"llvm.loop.estimated_trip_count"}
-!6 = !{!7, !8, i64 0}
-!7 = !{!"dh_named_group_st", !8, i64 0, !12, i64 8, !12, i64 12, !12, i64 16, !13, i64 24, !13, i64 32, !13, i64 40}
-!8 = !{!"p1 omnipotent char", !9, i64 0}
-!9 = !{!"any pointer", !10, i64 0}
-!10 = !{!"omnipotent char", !11, i64 0}
-!11 = !{!"Simple C/C++ TBAA"}
-!12 = !{!"int", !10, i64 0}
-!13 = !{!"p1 _ZTS9bignum_st", !9, i64 0}
-!14 = distinct !{!14, !4, !5}
-!15 = !{!7, !12, i64 8}
-!16 = !{!7, !13, i64 24}
-!17 = !{!7, !13, i64 40}
-!18 = distinct !{!18, !4, !5, !19}
-!19 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!20 = !{!7, !13, i64 32}
-!21 = distinct !{!21, !4, !5}
-!22 = !{!7, !12, i64 16}
-!23 = !{!24, !12, i64 88}
-!24 = !{!"ffc_params_st", !13, i64 0, !13, i64 8, !13, i64 16, !13, i64 24, !8, i64 32, !25, i64 40, !12, i64 48, !12, i64 52, !12, i64 56, !12, i64 60, !12, i64 64, !8, i64 72, !8, i64 80, !12, i64 88}
-!25 = !{!"long", !10, i64 0}
-!26 = !{!24, !12, i64 52}
+!5 = !{!6, !7, i64 0}
+!6 = !{!"dh_named_group_st", !7, i64 0, !11, i64 8, !11, i64 12, !11, i64 16, !12, i64 24, !12, i64 32, !12, i64 40}
+!7 = !{!"p1 omnipotent char", !8, i64 0}
+!8 = !{!"any pointer", !9, i64 0}
+!9 = !{!"omnipotent char", !10, i64 0}
+!10 = !{!"Simple C/C++ TBAA"}
+!11 = !{!"int", !9, i64 0}
+!12 = !{!"p1 _ZTS9bignum_st", !8, i64 0}
+!13 = distinct !{!13, !4}
+!14 = !{!6, !11, i64 8}
+!15 = !{!6, !12, i64 24}
+!16 = !{!6, !12, i64 40}
+!17 = distinct !{!17, !4, !18}
+!18 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!19 = !{!6, !12, i64 32}
+!20 = distinct !{!20, !4}
+!21 = !{!6, !11, i64 16}
+!22 = !{!23, !11, i64 88}
+!23 = !{!"ffc_params_st", !12, i64 0, !12, i64 8, !12, i64 16, !12, i64 24, !7, i64 32, !24, i64 40, !11, i64 48, !11, i64 52, !11, i64 56, !11, i64 60, !11, i64 64, !7, i64 72, !7, i64 80, !11, i64 88}
+!24 = !{!"long", !9, i64 0}
+!25 = !{!23, !11, i64 52}

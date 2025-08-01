@@ -70,7 +70,7 @@ define range(i32 0, 2) i32 @j2d_mlib_ImageConvKernelConvert(ptr noundef captures
   %30 = select i1 %29, double %.0220283, double %27
   %indvars.iv.next331 = add nuw nsw i64 %indvars.iv330, 1
   %exitcond334.not = icmp eq i64 %indvars.iv.next331, %wide.trip.count333
-  br i1 %exitcond334.not, label %._crit_edge286, label %.lr.ph285, !llvm.loop !9
+  br i1 %exitcond334.not, label %._crit_edge286, label %.lr.ph285, !llvm.loop !8
 
 ._crit_edge286:                                   ; preds = %.lr.ph285
   %31 = tail call i32 @mlib_ilogb(double noundef %30) #4
@@ -115,7 +115,7 @@ define range(i32 0, 2) i32 @j2d_mlib_ImageConvKernelConvert(ptr noundef captures
   store i32 %49, ptr %50, align 4
   %indvars.iv.next336 = add nuw nsw i64 %indvars.iv335, 1
   %exitcond339.not = icmp eq i64 %indvars.iv.next336, %wide.trip.count338
-  br i1 %exitcond339.not, label %.loopexit, label %.lr.ph291, !llvm.loop !10
+  br i1 %exitcond339.not, label %.loopexit, label %.lr.ph291, !llvm.loop !9
 
 51:                                               ; preds = %38
   %52 = select i1 %13, i32 8, i32 16
@@ -147,7 +147,7 @@ define range(i32 0, 2) i32 @j2d_mlib_ImageConvKernelConvert(ptr noundef captures
   store i32 %.sink, ptr %62, align 4
   %indvars.iv.next341 = add nuw nsw i64 %indvars.iv340, 1
   %exitcond344.not = icmp eq i64 %indvars.iv.next341, %wide.trip.count343
-  br i1 %exitcond344.not, label %.lr.ph299.preheader, label %.lr.ph294, !llvm.loop !11
+  br i1 %exitcond344.not, label %.lr.ph299.preheader, label %.lr.ph294, !llvm.loop !10
 
 .lr.ph299:                                        ; preds = %.lr.ph299.preheader, %.lr.ph299
   %indvars.iv345 = phi i64 [ 0, %.lr.ph299.preheader ], [ %indvars.iv.next346, %.lr.ph299 ]
@@ -161,7 +161,7 @@ define range(i32 0, 2) i32 @j2d_mlib_ImageConvKernelConvert(ptr noundef captures
   %.1217 = sub nsw i32 %.0216297, %66
   %indvars.iv.next346 = add nuw nsw i64 %indvars.iv345, 1
   %exitcond349.not = icmp eq i64 %indvars.iv.next346, %wide.trip.count348
-  br i1 %exitcond349.not, label %._crit_edge300, label %.lr.ph299, !llvm.loop !12
+  br i1 %exitcond349.not, label %._crit_edge300, label %.lr.ph299, !llvm.loop !11
 
 ._crit_edge300:                                   ; preds = %.lr.ph299
   switch i32 %5, label %.lr.ph306 [
@@ -197,7 +197,7 @@ define range(i32 0, 2) i32 @j2d_mlib_ImageConvKernelConvert(ptr noundef captures
   %spec.select253 = select i1 %.not250, i32 %.2214303, i32 1
   %indvars.iv.next351 = add nuw nsw i64 %indvars.iv350, 1
   %exitcond354.not = icmp eq i64 %indvars.iv.next351, %wide.trip.count353
-  br i1 %exitcond354.not, label %select.unfold.loopexit, label %74, !llvm.loop !13
+  br i1 %exitcond354.not, label %select.unfold.loopexit, label %74, !llvm.loop !12
 
 select.unfold.loopexit:                           ; preds = %74
   %.not = icmp eq i32 %spec.select253, 0
@@ -222,7 +222,7 @@ select.unfold.loopexit:                           ; preds = %74
   store i32 %82, ptr %83, align 4
   %indvars.iv.next361 = add nuw nsw i64 %indvars.iv360, 1
   %exitcond364.not = icmp eq i64 %indvars.iv.next361, %wide.trip.count363
-  br i1 %exitcond364.not, label %.loopexit, label %.lr.ph311, !llvm.loop !14
+  br i1 %exitcond364.not, label %.loopexit, label %.lr.ph311, !llvm.loop !13
 
 .lr.ph309:                                        ; preds = %.lr.ph309.preheader, %.lr.ph309
   %indvars.iv355 = phi i64 [ 0, %.lr.ph309.preheader ], [ %indvars.iv.next356, %.lr.ph309 ]
@@ -232,7 +232,7 @@ select.unfold.loopexit:                           ; preds = %74
   store i32 %86, ptr %84, align 4
   %indvars.iv.next356 = add nuw nsw i64 %indvars.iv355, 1
   %exitcond359.not = icmp eq i64 %indvars.iv.next356, %wide.trip.count358
-  br i1 %exitcond359.not, label %.loopexit, label %.lr.ph309, !llvm.loop !15
+  br i1 %exitcond359.not, label %.loopexit, label %.lr.ph309, !llvm.loop !14
 
 .lr.ph.preheader:                                 ; preds = %12, %12
   %87 = mul nuw nsw i32 %4, %3
@@ -249,7 +249,7 @@ select.unfold.loopexit:                           ; preds = %74
   %92 = select i1 %91, double %.1221261, double %90
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !16
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %.lr.ph
   %93 = tail call i32 @mlib_ilogb(double noundef %92) #4
@@ -269,7 +269,7 @@ select.unfold.loopexit:                           ; preds = %74
   %98 = fmul double %.0222264, 0x41D0000000000000
   %99 = add nsw i32 %.1209265, -30
   %100 = icmp samesign ugt i32 %.1209265, 60
-  br i1 %100, label %.lr.ph267, label %.lr.ph273.preheader, !llvm.loop !17
+  br i1 %100, label %.lr.ph267, label %.lr.ph273.preheader, !llvm.loop !16
 
 .lr.ph273.preheader:                              ; preds = %.lr.ph267, %95
   %.0222.lcssa = phi double [ 1.000000e+00, %95 ], [ %98, %.lr.ph267 ]
@@ -297,7 +297,7 @@ select.unfold.loopexit:                           ; preds = %74
   store i32 %.sink365, ptr %111, align 4
   %indvars.iv.next321 = add nuw nsw i64 %indvars.iv320, 1
   %exitcond324.not = icmp eq i64 %indvars.iv.next321, %wide.trip.count323
-  br i1 %exitcond324.not, label %.loopexit, label %.lr.ph273, !llvm.loop !18
+  br i1 %exitcond324.not, label %.loopexit, label %.lr.ph273, !llvm.loop !17
 
 .loopexit:                                        ; preds = %.lr.ph273, %.lr.ph291, %.lr.ph311, %.lr.ph309, %12, %._crit_edge, %36, %6
   %.0206 = phi i32 [ 1, %6 ], [ 1, %36 ], [ 1, %._crit_edge ], [ 1, %12 ], [ 0, %.lr.ph309 ], [ 0, %.lr.ph311 ], [ 0, %.lr.ph291 ], [ 0, %.lr.ph273 ]
@@ -340,16 +340,15 @@ attributes #4 = { nounwind }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7, !8}
-!11 = distinct !{!11, !7, !8}
-!12 = distinct !{!12, !7, !8}
-!13 = distinct !{!13, !7, !8}
-!14 = distinct !{!14, !7, !8}
-!15 = distinct !{!15, !7, !8}
-!16 = distinct !{!16, !7, !8}
-!17 = distinct !{!17, !7, !8}
-!18 = distinct !{!18, !7, !8}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7}
+!12 = distinct !{!12, !7}
+!13 = distinct !{!13, !7}
+!14 = distinct !{!14, !7}
+!15 = distinct !{!15, !7}
+!16 = distinct !{!16, !7}
+!17 = distinct !{!17, !7}

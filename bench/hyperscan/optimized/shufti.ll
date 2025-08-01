@@ -42,7 +42,7 @@ define hidden ptr @shuftiExec(<2 x i64> noundef %0, <2 x i64> noundef %1, ptr no
 23:                                               ; preds = %.lr.ph
   %24 = getelementptr inbounds nuw i8, ptr %.09.i75, i64 1
   %exitcond.not = icmp eq ptr %24, %3
-  br i1 %exitcond.not, label %shuftiFwdSlow.exit, label %.lr.ph, !llvm.loop !5
+  br i1 %exitcond.not, label %shuftiFwdSlow.exit, label %.lr.ph
 
 25:                                               ; preds = %4
   %26 = icmp samesign ult i64 %9, 33
@@ -65,7 +65,7 @@ define hidden ptr @shuftiExec(<2 x i64> noundef %0, <2 x i64> noundef %1, ptr no
   %41 = icmp eq <16 x i8> %40, zeroinitializer
   %42 = bitcast <16 x i1> %41 to i16
   %.not.i56 = icmp eq i16 %42, -1
-  br i1 %.not.i56, label %firstMatch.exit.thread, label %firstMatch.exit, !prof !7
+  br i1 %.not.i56, label %firstMatch.exit.thread, label %firstMatch.exit, !prof !5
 
 firstMatch.exit:                                  ; preds = %27
   %43 = xor i16 %42, -1
@@ -90,7 +90,7 @@ firstMatch.exit.thread:                           ; preds = %27
   %59 = icmp eq <16 x i8> %58, zeroinitializer
   %60 = bitcast <16 x i1> %59 to i16
   %.not.i58 = icmp eq i16 %60, -1
-  br i1 %.not.i58, label %firstMatch.exit60, label %61, !prof !7
+  br i1 %.not.i58, label %firstMatch.exit60, label %61, !prof !5
 
 61:                                               ; preds = %firstMatch.exit.thread
   %62 = xor i16 %60, -1
@@ -122,7 +122,7 @@ firstMatch.exit60:                                ; preds = %firstMatch.exit.thr
   %80 = icmp eq <32 x i8> %79, zeroinitializer
   %81 = bitcast <32 x i1> %80 to i32
   %.not.i67 = icmp eq i32 %81, -1
-  br i1 %.not.i67, label %firstMatch.exit69.thread, label %firstMatch.exit69, !prof !7
+  br i1 %.not.i67, label %firstMatch.exit69.thread, label %firstMatch.exit69, !prof !5
 
 firstMatch.exit69:                                ; preds = %66
   %82 = xor i32 %81, -1
@@ -156,7 +156,7 @@ firstMatch.exit69.thread:                         ; preds = %66
   %102 = icmp eq <32 x i8> %101, zeroinitializer
   %103 = bitcast <32 x i1> %102 to i32
   %.not.i64 = icmp eq i32 %103, -1
-  br i1 %.not.i64, label %firstMatch.exit66, label %104, !prof !7
+  br i1 %.not.i64, label %firstMatch.exit66, label %104, !prof !5
 
 104:                                              ; preds = %92
   %105 = xor i32 %103, -1
@@ -169,7 +169,7 @@ firstMatch.exit66:                                ; preds = %92, %104
   %.0.i65 = phi ptr [ %108, %104 ], [ null, %92 ]
   %.not54 = icmp eq ptr %.0.i65, null
   %109 = getelementptr inbounds nuw i8, ptr %.045, i64 32
-  br i1 %.not54, label %90, label %shuftiFwdSlow.exit, !llvm.loop !8
+  br i1 %.not54, label %90, label %shuftiFwdSlow.exit
 
 110:                                              ; preds = %90
   %111 = load <4 x i64>, ptr %89, align 1
@@ -184,7 +184,7 @@ firstMatch.exit66:                                ; preds = %92, %104
   %120 = icmp eq <32 x i8> %119, zeroinitializer
   %121 = bitcast <32 x i1> %120 to i32
   %.not.i61 = icmp eq i32 %121, -1
-  br i1 %.not.i61, label %firstMatch.exit63, label %122, !prof !7
+  br i1 %.not.i61, label %firstMatch.exit63, label %122, !prof !5
 
 122:                                              ; preds = %110
   %123 = xor i32 %121, -1
@@ -235,7 +235,7 @@ define hidden nonnull ptr @rshuftiExec(<2 x i64> noundef %0, <2 x i64> noundef %
   %21 = load i8, ptr %20, align 1
   %22 = and i8 %21, %17
   %.not11.i = icmp eq i8 %22, 0
-  br i1 %.not11.i, label %.preheader, label %shuftiRevSlow.exit, !llvm.loop !9
+  br i1 %.not11.i, label %.preheader, label %shuftiRevSlow.exit
 
 23:                                               ; preds = %4
   %24 = icmp samesign ult i64 %9, 33
@@ -259,7 +259,7 @@ define hidden nonnull ptr @rshuftiExec(<2 x i64> noundef %0, <2 x i64> noundef %
   %40 = icmp eq <16 x i8> %39, zeroinitializer
   %41 = bitcast <16 x i1> %40 to i16
   %.not.i52 = icmp eq i16 %41, -1
-  br i1 %.not.i52, label %48, label %lastMatch.exit, !prof !7
+  br i1 %.not.i52, label %48, label %lastMatch.exit, !prof !5
 
 lastMatch.exit:                                   ; preds = %25
   %42 = xor i16 %41, -1
@@ -285,7 +285,7 @@ lastMatch.exit:                                   ; preds = %25
   %60 = icmp eq <16 x i8> %59, zeroinitializer
   %61 = bitcast <16 x i1> %60 to i16
   %.not.i54 = icmp eq i16 %61, -1
-  br i1 %.not.i54, label %lastMatch.exit56, label %62, !prof !7
+  br i1 %.not.i54, label %lastMatch.exit56, label %62, !prof !5
 
 62:                                               ; preds = %48
   %63 = xor i16 %61, -1
@@ -321,7 +321,7 @@ lastMatch.exit56:                                 ; preds = %48, %62
   %85 = icmp eq <32 x i8> %84, zeroinitializer
   %86 = bitcast <32 x i1> %85 to i32
   %.not.i63 = icmp eq i32 %86, -1
-  br i1 %.not.i63, label %92, label %lastMatch.exit65, !prof !7
+  br i1 %.not.i63, label %92, label %lastMatch.exit65, !prof !5
 
 lastMatch.exit65:                                 ; preds = %70
   %87 = xor i32 %86, -1
@@ -356,7 +356,7 @@ lastMatch.exit62:                                 ; preds = %97, %92
   %108 = icmp eq <32 x i8> %107, zeroinitializer
   %109 = bitcast <32 x i1> %108 to i32
   %.not.i60 = icmp eq i32 %109, -1
-  br i1 %.not.i60, label %lastMatch.exit62, label %lastMatch.exit62.thread, !prof !7, !llvm.loop !10
+  br i1 %.not.i60, label %lastMatch.exit62, label %lastMatch.exit62.thread, !prof !5
 
 lastMatch.exit62.thread:                          ; preds = %97
   %110 = xor i32 %109, -1
@@ -379,7 +379,7 @@ lastMatch.exit62.thread:                          ; preds = %97
   %125 = icmp eq <32 x i8> %124, zeroinitializer
   %126 = bitcast <32 x i1> %125 to i32
   %.not.i57 = icmp eq i32 %126, -1
-  br i1 %.not.i57, label %lastMatch.exit59, label %127, !prof !7
+  br i1 %.not.i57, label %lastMatch.exit59, label %127, !prof !5
 
 127:                                              ; preds = %115
   %128 = xor i32 %126, -1
@@ -431,7 +431,7 @@ define hidden ptr @shuftiDoubleExec(<2 x i64> noundef %0, <2 x i64> noundef %1, 
   %30 = icmp eq <16 x i8> %29, splat (i8 -1)
   %31 = bitcast <16 x i1> %30 to i16
   %.not.i.i71 = icmp eq i16 %31, -1
-  br i1 %.not.i.i71, label %fwdBlockShort2.exit73.thread, label %fwdBlockShort2.exit73, !prof !7
+  br i1 %.not.i.i71, label %fwdBlockShort2.exit73.thread, label %fwdBlockShort2.exit73, !prof !5
 
 fwdBlockShort2.exit73:                            ; preds = %11
   %32 = xor i16 %31, -1
@@ -459,7 +459,7 @@ fwdBlockShort2.exit73.thread:                     ; preds = %11
   %51 = icmp eq <16 x i8> %50, splat (i8 -1)
   %52 = bitcast <16 x i1> %51 to i16
   %.not.i.i = icmp eq i16 %52, -1
-  br i1 %.not.i.i, label %fwdBlockShort2.exit, label %53, !prof !7
+  br i1 %.not.i.i, label %fwdBlockShort2.exit, label %53, !prof !5
 
 53:                                               ; preds = %fwdBlockShort2.exit73.thread
   %54 = xor i16 %52, -1
@@ -500,7 +500,7 @@ fwdBlockShort2.exit:                              ; preds = %fwdBlockShort2.exit
   %81 = icmp eq <32 x i8> %80, splat (i8 -1)
   %82 = bitcast <32 x i1> %81 to i32
   %.not.i68 = icmp eq i32 %82, -1
-  br i1 %.not.i68, label %firstMatch.exit70.thread, label %firstMatch.exit70, !prof !7
+  br i1 %.not.i68, label %firstMatch.exit70.thread, label %firstMatch.exit70, !prof !5
 
 firstMatch.exit70:                                ; preds = %58
   %83 = xor i32 %82, -1
@@ -539,7 +539,7 @@ firstMatch.exit70.thread:                         ; preds = %58
   %108 = icmp eq <32 x i8> %107, splat (i8 -1)
   %109 = bitcast <32 x i1> %108 to i32
   %.not.i65 = icmp eq i32 %109, -1
-  br i1 %.not.i65, label %firstMatch.exit67, label %110, !prof !7
+  br i1 %.not.i65, label %firstMatch.exit67, label %110, !prof !5
 
 110:                                              ; preds = %93
   %111 = xor i32 %109, -1
@@ -552,7 +552,7 @@ firstMatch.exit67:                                ; preds = %93, %110
   %.0.i66 = phi ptr [ %114, %110 ], [ null, %93 ]
   %.not62 = icmp eq ptr %.0.i66, null
   %115 = getelementptr inbounds nuw i8, ptr %.054, i64 32
-  br i1 %.not62, label %91, label %shuftiDoubleShort.exit, !llvm.loop !11
+  br i1 %.not62, label %91, label %shuftiDoubleShort.exit
 
 116:                                              ; preds = %91
   %117 = load <4 x i64>, ptr %90, align 1
@@ -572,7 +572,7 @@ firstMatch.exit67:                                ; preds = %93, %110
   %131 = icmp eq <32 x i8> %130, splat (i8 -1)
   %132 = bitcast <32 x i1> %131 to i32
   %.not.i63 = icmp eq i32 %132, -1
-  br i1 %.not.i63, label %firstMatch.exit, label %133, !prof !7
+  br i1 %.not.i63, label %firstMatch.exit, label %133, !prof !5
 
 133:                                              ; preds = %116
   %134 = xor i32 %132, -1
@@ -617,10 +617,4 @@ attributes #4 = { nocallback nofree nosync nounwind speculatable willreturn memo
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.estimated_trip_count"}
-!7 = !{!"branch_weights", !"expected", i32 2000, i32 1}
-!8 = distinct !{!8, !6}
-!9 = distinct !{!9, !6}
-!10 = distinct !{!10, !6}
-!11 = distinct !{!11, !6}
+!5 = !{!"branch_weights", !"expected", i32 2000, i32 1}

@@ -47,7 +47,7 @@ define void @_ZN3gmx14currentLambdasElRK8t_lambdai(ptr dead_on_unwind noalias wr
 
 23:                                               ; preds = %8
   %24 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %25 = load i32, ptr %24, align 8, !tbaa !31
+  %25 = load i32, ptr %24, align 8, !tbaa !30
   %26 = icmp sgt i32 %25, -1
   br i1 %26, label %27, label %40
 
@@ -55,7 +55,7 @@ define void @_ZN3gmx14currentLambdasElRK8t_lambdai(ptr dead_on_unwind noalias wr
   %28 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %29 = getelementptr inbounds nuw i8, ptr %2, i64 36
   %30 = load i32, ptr %29, align 4, !tbaa !18
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !32)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !31)
   %31 = icmp slt i32 %25, %30
   br i1 %31, label %.preheader.i19, label %_ZN3gmx12_GLOBAL__N_114lambdasAtStateEiNS_8ArrayRefIKSt6vectorIdSaIdEEEEi.exit
 
@@ -66,12 +66,12 @@ define void @_ZN3gmx14currentLambdasElRK8t_lambdai(ptr dead_on_unwind noalias wr
 33:                                               ; preds = %33, %.preheader.i19
   %indvars.iv.i20 = phi i64 [ 0, %.preheader.i19 ], [ %indvars.iv.next.i21, %33 ]
   %34 = getelementptr inbounds nuw %"class.std::vector", ptr %28, i64 %indvars.iv.i20
-  %35 = load ptr, ptr %34, align 8, !tbaa !22, !noalias !32
+  %35 = load ptr, ptr %34, align 8, !tbaa !22, !noalias !31
   %36 = getelementptr inbounds nuw double, ptr %35, i64 %32
-  %37 = load double, ptr %36, align 8, !tbaa !26, !noalias !32
+  %37 = load double, ptr %36, align 8, !tbaa !26, !noalias !31
   %38 = fptrunc double %37 to float
   %39 = getelementptr inbounds nuw [7 x float], ptr %0, i64 0, i64 %indvars.iv.i20
-  store float %38, ptr %39, align 4, !tbaa !27, !alias.scope !32
+  store float %38, ptr %39, align 4, !tbaa !27, !alias.scope !31
   %indvars.iv.next.i21 = add nuw nsw i64 %indvars.iv.i20, 1
   %exitcond.not.i22 = icmp eq i64 %indvars.iv.next.i21, 7
   br i1 %exitcond.not.i22, label %_ZN3gmx12_GLOBAL__N_114lambdasAtStateEiNS_8ArrayRefIKSt6vectorIdSaIdEEEEi.exit, label %33, !llvm.loop !28
@@ -88,13 +88,13 @@ define void @_ZN3gmx14currentLambdasElRK8t_lambdai(ptr dead_on_unwind noalias wr
   store float %43, ptr %.07.i.i.i.ptr, align 4, !tbaa !27
   %.07.i.i.i.add = add nuw nsw i64 %.07.i.i.i.idx, 4
   %.not.i.i.i = icmp eq i64 %.07.i.i.i.add, 28
-  br i1 %.not.i.i.i, label %_ZN3gmx12_GLOBAL__N_114lambdasAtStateEiNS_8ArrayRefIKSt6vectorIdSaIdEEEEi.exit, label %44, !llvm.loop !35
+  br i1 %.not.i.i.i, label %_ZN3gmx12_GLOBAL__N_114lambdasAtStateEiNS_8ArrayRefIKSt6vectorIdSaIdEEEEi.exit, label %44, !llvm.loop !34
 
 45:                                               ; preds = %4
   %46 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %47 = load i32, ptr %46, align 8, !tbaa !31
+  %47 = load i32, ptr %46, align 8, !tbaa !30
   %48 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %49 = load double, ptr %48, align 8, !tbaa !36
+  %49 = load double, ptr %48, align 8, !tbaa !35
   %50 = getelementptr inbounds nuw i8, ptr %2, i64 36
   %51 = load i32, ptr %50, align 4, !tbaa !18
   %52 = icmp sgt i32 %47, -1
@@ -126,7 +126,7 @@ _ZN3gmx12_GLOBAL__N_119currentGlobalLambdaEldidi.exit: ; preds = %53, %55, %60, 
   %66 = fpext float %65 to double
   %67 = fadd double %.0.i, %66
   %68 = getelementptr inbounds nuw i8, ptr %2, i64 40
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !37)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !36)
   %69 = fcmp olt double %67, 0.000000e+00
   %70 = select i1 %69, double 0.000000e+00, double %67
   %71 = icmp slt i32 %51, 1
@@ -139,10 +139,10 @@ _ZN3gmx12_GLOBAL__N_119currentGlobalLambdaEldidi.exit: ; preds = %53, %55, %60, 
 74:                                               ; preds = %74, %72
   %.07.i.i.i.idx.i = phi i64 [ 0, %72 ], [ %.07.i.i.i.add.i, %74 ]
   %.07.i.i.i.ptr.i = getelementptr inbounds nuw i8, ptr %0, i64 %.07.i.i.i.idx.i
-  store float %73, ptr %.07.i.i.i.ptr.i, align 4, !tbaa !27, !alias.scope !37
+  store float %73, ptr %.07.i.i.i.ptr.i, align 4, !tbaa !27, !alias.scope !36
   %.07.i.i.i.add.i = add nuw nsw i64 %.07.i.i.i.idx.i, 4
   %.not.i.i.i.i = icmp eq i64 %.07.i.i.i.add.i, 28
-  br i1 %.not.i.i.i.i, label %_ZN3gmx12_GLOBAL__N_114lambdasAtStateEiNS_8ArrayRefIKSt6vectorIdSaIdEEEEi.exit, label %74, !llvm.loop !35
+  br i1 %.not.i.i.i.i, label %_ZN3gmx12_GLOBAL__N_114lambdasAtStateEiNS_8ArrayRefIKSt6vectorIdSaIdEEEEi.exit, label %74, !llvm.loop !34
 
 75:                                               ; preds = %_ZN3gmx12_GLOBAL__N_119currentGlobalLambdaEldidi.exit
   %76 = fcmp ogt double %70, 1.000000e+00
@@ -165,19 +165,19 @@ _ZN3gmx12_GLOBAL__N_119currentGlobalLambdaEldidi.exit: ; preds = %53, %55, %60, 
 91:                                               ; preds = %91, %75
   %indvars.iv.i24 = phi i64 [ 0, %75 ], [ %indvars.iv.next.i25, %91 ]
   %92 = getelementptr inbounds nuw %"class.std::vector", ptr %68, i64 %indvars.iv.i24
-  %93 = load ptr, ptr %92, align 8, !tbaa !22, !noalias !37
+  %93 = load ptr, ptr %92, align 8, !tbaa !22, !noalias !36
   %94 = getelementptr inbounds nuw double, ptr %93, i64 %89
-  %95 = load double, ptr %94, align 8, !tbaa !26, !noalias !37
+  %95 = load double, ptr %94, align 8, !tbaa !26, !noalias !36
   %96 = getelementptr inbounds nuw double, ptr %93, i64 %90
-  %97 = load double, ptr %96, align 8, !tbaa !26, !noalias !37
+  %97 = load double, ptr %96, align 8, !tbaa !26, !noalias !36
   %98 = fsub double %97, %95
   %99 = tail call double @llvm.fmuladd.f64(double %88, double %98, double %95)
   %100 = fptrunc double %99 to float
   %101 = getelementptr inbounds nuw [7 x float], ptr %0, i64 0, i64 %indvars.iv.i24
-  store float %100, ptr %101, align 4, !tbaa !27, !alias.scope !37
+  store float %100, ptr %101, align 4, !tbaa !27, !alias.scope !36
   %indvars.iv.next.i25 = add nuw nsw i64 %indvars.iv.i24, 1
   %exitcond.not.i26 = icmp eq i64 %indvars.iv.next.i25, 7
-  br i1 %exitcond.not.i26, label %_ZN3gmx12_GLOBAL__N_114lambdasAtStateEiNS_8ArrayRefIKSt6vectorIdSaIdEEEEi.exit, label %91, !llvm.loop !40
+  br i1 %exitcond.not.i26, label %_ZN3gmx12_GLOBAL__N_114lambdasAtStateEiNS_8ArrayRefIKSt6vectorIdSaIdEEEEi.exit, label %91, !llvm.loop !39
 
 _ZN3gmx12_GLOBAL__N_114lambdasAtStateEiNS_8ArrayRefIKSt6vectorIdSaIdEEEEi.exit: ; preds = %91, %74, %44, %33, %16, %27, %10
   ret void
@@ -226,16 +226,15 @@ attributes #2 = { nocallback nofree nosync nounwind willreturn memory(inaccessib
 !25 = !{!"any pointer", !7, i64 0}
 !26 = !{!9, !9, i64 0}
 !27 = !{!12, !12, i64 0}
-!28 = distinct !{!28, !29, !30}
+!28 = distinct !{!28, !29}
 !29 = !{!"llvm.loop.mustprogress"}
-!30 = !{!"llvm.loop.estimated_trip_count"}
-!31 = !{!5, !6, i64 16}
-!32 = !{!33}
-!33 = distinct !{!33, !34, !"_ZN3gmx12_GLOBAL__N_114lambdasAtStateEiNS_8ArrayRefIKSt6vectorIdSaIdEEEEi: argument 0"}
-!34 = distinct !{!34, !"_ZN3gmx12_GLOBAL__N_114lambdasAtStateEiNS_8ArrayRefIKSt6vectorIdSaIdEEEEi"}
-!35 = distinct !{!35, !29, !30}
-!36 = !{!5, !9, i64 8}
-!37 = !{!38}
-!38 = distinct !{!38, !39, !"_ZN3gmx12_GLOBAL__N_119interpolatedLambdasEdNS_8ArrayRefIKSt6vectorIdSaIdEEEEi: argument 0"}
-!39 = distinct !{!39, !"_ZN3gmx12_GLOBAL__N_119interpolatedLambdasEdNS_8ArrayRefIKSt6vectorIdSaIdEEEEi"}
-!40 = distinct !{!40, !29, !30}
+!30 = !{!5, !6, i64 16}
+!31 = !{!32}
+!32 = distinct !{!32, !33, !"_ZN3gmx12_GLOBAL__N_114lambdasAtStateEiNS_8ArrayRefIKSt6vectorIdSaIdEEEEi: argument 0"}
+!33 = distinct !{!33, !"_ZN3gmx12_GLOBAL__N_114lambdasAtStateEiNS_8ArrayRefIKSt6vectorIdSaIdEEEEi"}
+!34 = distinct !{!34, !29}
+!35 = !{!5, !9, i64 8}
+!36 = !{!37}
+!37 = distinct !{!37, !38, !"_ZN3gmx12_GLOBAL__N_119interpolatedLambdasEdNS_8ArrayRefIKSt6vectorIdSaIdEEEEi: argument 0"}
+!38 = distinct !{!38, !"_ZN3gmx12_GLOBAL__N_119interpolatedLambdasEdNS_8ArrayRefIKSt6vectorIdSaIdEEEEi"}
+!39 = distinct !{!39, !29}

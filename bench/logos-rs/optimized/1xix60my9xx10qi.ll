@@ -176,7 +176,7 @@ define void @_ZN4core4iter6traits8iterator8Iterator4fold17h5cc48e5b9247bd7fE(ptr
 8:                                                ; preds = %6
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(464) %3, ptr noundef nonnull align 8 dereferenceable(464) %4, i64 464, i1 false)
   invoke void @"_ZN4core4iter6traits8iterator8Iterator8for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17hc19272ffa51e3f05E"(ptr align 8 %1, ptr nonnull align 8 %3)
-          to label %6 unwind label %.loopexit, !llvm.loop !3
+          to label %6 unwind label %.loopexit
 
 9:                                                ; preds = %6
   invoke void @"_ZN4core3ptr76drop_in_place$LT$core..option..Option$LT$syn..generics..GenericParam$GT$$GT$17hbf3b4daa5ab2c1e4E"(ptr nonnull align 8 %4)
@@ -243,7 +243,7 @@ define void @_ZN4core4iter6traits8iterator8Iterator4fold17h6adcc592b393a52aE(ptr
 9:                                                ; preds = %7
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 32, i1 false)
   invoke void @"_ZN4core4iter6traits8iterator8Iterator8for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h1d39e9a6ebe14ed1E"(ptr nonnull align 8 %5, ptr nonnull align 8 %3)
-          to label %7 unwind label %.loopexit, !llvm.loop !5
+          to label %7 unwind label %.loopexit
 
 10:                                               ; preds = %7
   invoke void @"_ZN4core3ptr71drop_in_place$LT$core..option..Option$LT$proc_macro2..TokenTree$GT$$GT$17h37965971b9837607E"(ptr nonnull align 8 %4)
@@ -298,7 +298,7 @@ define void @_ZN4core4iter6traits8iterator8Iterator8for_each17h02aed089bd7560c6E
 9:                                                ; preds = %7
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(464) %3, ptr noundef nonnull align 8 dereferenceable(464) %4, i64 464, i1 false)
   invoke void @"_ZN4core4iter6traits8iterator8Iterator8for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17hc19272ffa51e3f05E"(ptr nonnull align 8 %5, ptr nonnull align 8 %3)
-          to label %7 unwind label %.loopexit.i, !llvm.loop !3
+          to label %7 unwind label %.loopexit.i
 
 10:                                               ; preds = %7
   invoke void @"_ZN4core3ptr76drop_in_place$LT$core..option..Option$LT$syn..generics..GenericParam$GT$$GT$17hbf3b4daa5ab2c1e4E"(ptr nonnull align 8 %4)
@@ -370,7 +370,7 @@ define void @_ZN4core4iter6traits8iterator8Iterator8for_each17hd701e22cf7aaa501E
 9:                                                ; preds = %7
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 32, i1 false)
   invoke void @"_ZN4core4iter6traits8iterator8Iterator8for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h1d39e9a6ebe14ed1E"(ptr nonnull align 8 %5, ptr nonnull align 8 %3)
-          to label %7 unwind label %.loopexit.i, !llvm.loop !5
+          to label %7 unwind label %.loopexit.i
 
 10:                                               ; preds = %7
   invoke void @"_ZN4core3ptr71drop_in_place$LT$core..option..Option$LT$proc_macro2..TokenTree$GT$$GT$17h37965971b9837607E"(ptr nonnull align 8 %4)
@@ -903,6 +903,3 @@ attributes #12 = { cold noreturn nounwind }
 !0 = !{i32 8, !"PIC Level", i32 2}
 !1 = !{i32 2, !"RtLibUseGOT", i32 1}
 !2 = !{!"rustc version 1.79.0 (129f3b996 2024-06-10)"}
-!3 = distinct !{!3, !4}
-!4 = !{!"llvm.loop.estimated_trip_count"}
-!5 = distinct !{!5, !4}

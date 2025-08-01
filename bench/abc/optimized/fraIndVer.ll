@@ -103,7 +103,7 @@ Abc_Clock.exit:                                   ; preds = %4, %9
   store i32 %38, ptr %36, align 4, !tbaa !9
   %indvars.iv.next176 = add nsw i64 %indvars.iv175, 1
   %exitcond179.not = icmp eq i64 %indvars.iv.next176, %wide.trip.count
-  br i1 %exitcond179.not, label %._crit_edge148, label %.lr.ph147, !llvm.loop !19
+  br i1 %exitcond179.not, label %._crit_edge148, label %.lr.ph147, !llvm.loop !18
 
 ._crit_edge148:                                   ; preds = %.lr.ph147, %._crit_edge
   %39 = phi i32 [ %32, %._crit_edge ], [ %35, %.lr.ph147 ]
@@ -114,7 +114,7 @@ Abc_Clock.exit:                                   ; preds = %4, %9
   %.val131 = load i32, ptr %19, align 4, !tbaa !15
   %42 = sext i32 %.val131 to i64
   %43 = icmp slt i64 %indvars.iv.next181, %42
-  br i1 %43, label %22, label %.critedge, !llvm.loop !20
+  br i1 %43, label %22, label %.critedge, !llvm.loop !19
 
 .critedge:                                        ; preds = %._crit_edge148, %14
   %.0110.lcssa = phi i32 [ 0, %14 ], [ %spec.select, %._crit_edge148 ]
@@ -134,7 +134,7 @@ Abc_Clock.exit:                                   ; preds = %4, %9
   %.val132 = load i32, ptr %19, align 4, !tbaa !15
   %48 = sext i32 %.val132 to i64
   %49 = icmp slt i64 %indvars.iv.next184, %48
-  br i1 %49, label %50, label %.critedge2, !llvm.loop !21
+  br i1 %49, label %50, label %.critedge2, !llvm.loop !20
 
 50:                                               ; preds = %.lr.ph158, %47
   %indvars.iv183 = phi i64 [ 0, %.lr.ph158 ], [ %indvars.iv.next184, %47 ]
@@ -159,9 +159,9 @@ Abc_Clock.exit:                                   ; preds = %4, %9
 .critedge2:                                       ; preds = %47, %.critedge
   %.val133167200 = phi i32 [ %.val132155, %.critedge ], [ %.val132, %47 ]
   %60 = getelementptr inbounds nuw i8, ptr %44, i64 12
-  %61 = load i32, ptr %60, align 4, !tbaa !22
+  %61 = load i32, ptr %60, align 4, !tbaa !21
   %62 = getelementptr inbounds nuw i8, ptr %44, i64 8
-  %63 = load i32, ptr %62, align 8, !tbaa !35
+  %63 = load i32, ptr %62, align 8, !tbaa !34
   %.not123 = icmp eq i32 %61, %63
   br i1 %.not123, label %66, label %64
 
@@ -195,7 +195,7 @@ Abc_Clock.exit:                                   ; preds = %4, %9
 
 .lr.ph161:                                        ; preds = %70, %.lr.ph161
   %indvars.iv186 = phi i64 [ %indvars.iv.next187, %.lr.ph161 ], [ %74, %70 ]
-  %75 = load i32, ptr %69, align 8, !tbaa !36
+  %75 = load i32, ptr %69, align 8, !tbaa !35
   %76 = shl nsw i32 %75, 1
   %77 = getelementptr inbounds i32, ptr %.val130, i64 %indvars.iv186
   %78 = load i32, ptr %77, align 4, !tbaa !9
@@ -204,7 +204,7 @@ Abc_Clock.exit:                                   ; preds = %4, %9
   store i32 %80, ptr %77, align 4, !tbaa !9
   %indvars.iv.next187 = add nsw i64 %indvars.iv186, 1
   %exitcond190.not = icmp eq i64 %indvars.iv.next187, %wide.trip.count189
-  br i1 %exitcond190.not, label %.lr.ph165.preheader, label %.lr.ph161, !llvm.loop !40
+  br i1 %exitcond190.not, label %.lr.ph165.preheader, label %.lr.ph161, !llvm.loop !39
 
 ._crit_edge162:                                   ; preds = %70
   %81 = getelementptr inbounds i32, ptr %.val130, i64 %74
@@ -224,13 +224,13 @@ Abc_Clock.exit:                                   ; preds = %4, %9
   %88 = load i32, ptr %87, align 4, !tbaa !9
   %89 = xor i32 %88, 1
   store i32 %89, ptr %87, align 4, !tbaa !9
-  %90 = load i32, ptr %69, align 8, !tbaa !36
+  %90 = load i32, ptr %69, align 8, !tbaa !35
   %91 = shl nsw i32 %90, 1
   %92 = sub nsw i32 %89, %91
   store i32 %92, ptr %87, align 4, !tbaa !9
   %indvars.iv.next192 = add nsw i64 %indvars.iv191, 1
   %exitcond195.not = icmp eq i64 %indvars.iv.next192, %wide.trip.count189
-  br i1 %exitcond195.not, label %._crit_edge166, label %.lr.ph165, !llvm.loop !41
+  br i1 %exitcond195.not, label %._crit_edge166, label %.lr.ph165, !llvm.loop !40
 
 ._crit_edge166:                                   ; preds = %.lr.ph165, %._crit_edge162
   %93 = phi i32 [ %83, %._crit_edge162 ], [ %86, %.lr.ph165 ]
@@ -241,7 +241,7 @@ Abc_Clock.exit:                                   ; preds = %4, %9
   %.val133 = load i32, ptr %19, align 4, !tbaa !15
   %96 = sext i32 %.val133 to i64
   %97 = icmp slt i64 %indvars.iv.next197, %96
-  br i1 %97, label %70, label %.critedge4, !llvm.loop !42
+  br i1 %97, label %70, label %.critedge4, !llvm.loop !41
 
 .critedge4:                                       ; preds = %._crit_edge166, %66
   %.0109.lcssa = phi i32 [ 0, %66 ], [ %spec.select127, %._crit_edge166 ]
@@ -338,7 +338,7 @@ define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #4 {
 
 8:                                                ; preds = %5
   %9 = call ptr @vnsprintf(ptr noundef %1, ptr noundef nonnull %3) #10
-  %10 = load ptr, ptr @stdout, align 8, !tbaa !43
+  %10 = load ptr, ptr @stdout, align 8, !tbaa !42
   %11 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %9) #11
   %12 = trunc i64 %11 to i32
   %13 = call i32 @Gia_ManToBridgeText(ptr noundef %10, i32 noundef %12, ptr noundef nonnull %9) #10
@@ -346,7 +346,7 @@ define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #4 {
   br label %17
 
 14:                                               ; preds = %5
-  %15 = load ptr, ptr @stdout, align 8, !tbaa !43, !noalias !44
+  %15 = load ptr, ptr @stdout, align 8, !tbaa !42, !noalias !43
   %16 = call i32 @vfprintf(ptr noundef %15, ptr noundef %1, ptr noundef nonnull %3) #10
   br label %17
 
@@ -420,34 +420,33 @@ attributes #11 = { nounwind willreturn memory(read) }
 !13 = !{!"p1 int", !14, i64 0}
 !14 = !{!"any pointer", !6, i64 0}
 !15 = !{!12, !10, i64 4}
-!16 = distinct !{!16, !17, !18}
+!16 = distinct !{!16, !17}
 !17 = !{!"llvm.loop.mustprogress"}
-!18 = !{!"llvm.loop.estimated_trip_count"}
-!19 = distinct !{!19, !17, !18}
-!20 = distinct !{!20, !17, !18}
-!21 = distinct !{!21, !17, !18}
-!22 = !{!23, !10, i64 12}
-!23 = !{!"sat_solver_t", !10, i64 0, !10, i64 4, !10, i64 8, !10, i64 12, !24, i64 16, !10, i64 72, !10, i64 76, !26, i64 80, !27, i64 88, !10, i64 96, !10, i64 100, !10, i64 104, !10, i64 108, !10, i64 112, !5, i64 120, !5, i64 128, !5, i64 136, !28, i64 144, !28, i64 152, !10, i64 160, !10, i64 164, !29, i64 168, !30, i64 184, !10, i64 192, !13, i64 200, !30, i64 208, !30, i64 216, !30, i64 224, !30, i64 232, !13, i64 240, !13, i64 248, !13, i64 256, !29, i64 264, !29, i64 280, !29, i64 296, !29, i64 312, !13, i64 328, !29, i64 336, !10, i64 352, !10, i64 356, !10, i64 360, !31, i64 368, !31, i64 376, !10, i64 384, !10, i64 388, !10, i64 392, !32, i64 400, !10, i64 472, !10, i64 476, !10, i64 480, !10, i64 484, !10, i64 488, !5, i64 496, !5, i64 504, !5, i64 512, !29, i64 520, !33, i64 536, !10, i64 544, !10, i64 548, !10, i64 552, !29, i64 560, !29, i64 576, !10, i64 592, !10, i64 596, !10, i64 600, !13, i64 608, !14, i64 616, !10, i64 624, !34, i64 632, !10, i64 640, !10, i64 644, !29, i64 648, !29, i64 664, !29, i64 680, !14, i64 696, !14, i64 704, !10, i64 712, !14, i64 720}
-!24 = !{!"Sat_Mem_t_", !6, i64 0, !6, i64 8, !6, i64 16, !6, i64 24, !10, i64 32, !10, i64 36, !10, i64 40, !10, i64 44, !25, i64 48}
-!25 = !{!"p2 int", !14, i64 0}
-!26 = !{!"p1 _ZTS8clause_t", !14, i64 0}
-!27 = !{!"p1 _ZTS6veci_t", !14, i64 0}
-!28 = !{!"p1 long", !14, i64 0}
-!29 = !{!"veci_t", !10, i64 0, !10, i64 4, !13, i64 8}
-!30 = !{!"p1 omnipotent char", !14, i64 0}
-!31 = !{!"double", !6, i64 0}
-!32 = !{!"stats_t", !10, i64 0, !10, i64 4, !10, i64 8, !5, i64 16, !5, i64 24, !5, i64 32, !5, i64 40, !5, i64 48, !5, i64 56, !5, i64 64}
-!33 = !{!"p1 double", !14, i64 0}
-!34 = !{!"p1 _ZTS8_IO_FILE", !14, i64 0}
-!35 = !{!23, !10, i64 8}
-!36 = !{!37, !10, i64 8}
-!37 = !{!"Cnf_Dat_t_", !38, i64 0, !10, i64 8, !10, i64 12, !10, i64 16, !25, i64 24, !13, i64 32, !13, i64 40, !13, i64 48, !30, i64 56, !39, i64 64}
-!38 = !{!"p1 _ZTS10Aig_Man_t_", !14, i64 0}
-!39 = !{!"p1 _ZTS10Vec_Int_t_", !14, i64 0}
-!40 = distinct !{!40, !17, !18}
-!41 = distinct !{!41, !17, !18}
-!42 = distinct !{!42, !17, !18}
-!43 = !{!34, !34, i64 0}
-!44 = !{!45}
-!45 = distinct !{!45, !46, !"vprintf: argument 0"}
-!46 = distinct !{!46, !"vprintf"}
+!18 = distinct !{!18, !17}
+!19 = distinct !{!19, !17}
+!20 = distinct !{!20, !17}
+!21 = !{!22, !10, i64 12}
+!22 = !{!"sat_solver_t", !10, i64 0, !10, i64 4, !10, i64 8, !10, i64 12, !23, i64 16, !10, i64 72, !10, i64 76, !25, i64 80, !26, i64 88, !10, i64 96, !10, i64 100, !10, i64 104, !10, i64 108, !10, i64 112, !5, i64 120, !5, i64 128, !5, i64 136, !27, i64 144, !27, i64 152, !10, i64 160, !10, i64 164, !28, i64 168, !29, i64 184, !10, i64 192, !13, i64 200, !29, i64 208, !29, i64 216, !29, i64 224, !29, i64 232, !13, i64 240, !13, i64 248, !13, i64 256, !28, i64 264, !28, i64 280, !28, i64 296, !28, i64 312, !13, i64 328, !28, i64 336, !10, i64 352, !10, i64 356, !10, i64 360, !30, i64 368, !30, i64 376, !10, i64 384, !10, i64 388, !10, i64 392, !31, i64 400, !10, i64 472, !10, i64 476, !10, i64 480, !10, i64 484, !10, i64 488, !5, i64 496, !5, i64 504, !5, i64 512, !28, i64 520, !32, i64 536, !10, i64 544, !10, i64 548, !10, i64 552, !28, i64 560, !28, i64 576, !10, i64 592, !10, i64 596, !10, i64 600, !13, i64 608, !14, i64 616, !10, i64 624, !33, i64 632, !10, i64 640, !10, i64 644, !28, i64 648, !28, i64 664, !28, i64 680, !14, i64 696, !14, i64 704, !10, i64 712, !14, i64 720}
+!23 = !{!"Sat_Mem_t_", !6, i64 0, !6, i64 8, !6, i64 16, !6, i64 24, !10, i64 32, !10, i64 36, !10, i64 40, !10, i64 44, !24, i64 48}
+!24 = !{!"p2 int", !14, i64 0}
+!25 = !{!"p1 _ZTS8clause_t", !14, i64 0}
+!26 = !{!"p1 _ZTS6veci_t", !14, i64 0}
+!27 = !{!"p1 long", !14, i64 0}
+!28 = !{!"veci_t", !10, i64 0, !10, i64 4, !13, i64 8}
+!29 = !{!"p1 omnipotent char", !14, i64 0}
+!30 = !{!"double", !6, i64 0}
+!31 = !{!"stats_t", !10, i64 0, !10, i64 4, !10, i64 8, !5, i64 16, !5, i64 24, !5, i64 32, !5, i64 40, !5, i64 48, !5, i64 56, !5, i64 64}
+!32 = !{!"p1 double", !14, i64 0}
+!33 = !{!"p1 _ZTS8_IO_FILE", !14, i64 0}
+!34 = !{!22, !10, i64 8}
+!35 = !{!36, !10, i64 8}
+!36 = !{!"Cnf_Dat_t_", !37, i64 0, !10, i64 8, !10, i64 12, !10, i64 16, !24, i64 24, !13, i64 32, !13, i64 40, !13, i64 48, !29, i64 56, !38, i64 64}
+!37 = !{!"p1 _ZTS10Aig_Man_t_", !14, i64 0}
+!38 = !{!"p1 _ZTS10Vec_Int_t_", !14, i64 0}
+!39 = distinct !{!39, !17}
+!40 = distinct !{!40, !17}
+!41 = distinct !{!41, !17}
+!42 = !{!33, !33, i64 0}
+!43 = !{!44}
+!44 = distinct !{!44, !45, !"vprintf: argument 0"}
+!45 = distinct !{!45, !"vprintf"}

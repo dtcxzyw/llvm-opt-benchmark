@@ -394,7 +394,7 @@ while.body.i:                                     ; preds = %while.body.i, %whil
   store i8 %2, ptr %arrayidx7.i, align 1
   %sub8.i = add i32 %__pos.015.i, -2
   %cmp.i4 = icmp ugt i32 %__val.addr.016.i, 9999
-  br i1 %cmp.i4, label %while.body.i, label %while.end.i, !llvm.loop !23
+  br i1 %cmp.i4, label %while.body.i, label %while.end.i, !llvm.loop !22
 
 while.end.i:                                      ; preds = %while.body.i, %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit
   %__val.addr.0.lcssa.i = phi i32 [ %__val, %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit ], [ %div.i, %while.body.i ]
@@ -668,7 +668,6 @@ attributes #9 = { noreturn nounwind }
 !17 = !{!18}
 !18 = distinct !{!18, !19, !"_ZN4nodeL17GetOpenSSLVersionB5cxx11Ev: %agg.result"}
 !19 = distinct !{!19, !"_ZN4nodeL17GetOpenSSLVersionB5cxx11Ev"}
-!20 = distinct !{!20, !21, !22}
+!20 = distinct !{!20, !21}
 !21 = !{!"llvm.loop.mustprogress"}
-!22 = !{!"llvm.loop.estimated_trip_count"}
-!23 = distinct !{!23, !21, !22}
+!22 = distinct !{!22, !21}

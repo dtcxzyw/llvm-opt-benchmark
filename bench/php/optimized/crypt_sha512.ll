@@ -184,7 +184,7 @@ sub_2:                                            ; preds = %sub_1
   call fastcc void @sha512_process_bytes(ptr noundef nonnull %4, i64 noundef 64, ptr noundef %6)
   %80 = add i64 %.0479538, -64
   %81 = icmp ugt i64 %80, 64
-  br i1 %81, label %.lr.ph, label %._crit_edge.thread, !llvm.loop !13
+  br i1 %81, label %.lr.ph, label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %.lr.ph
   call fastcc void @sha512_process_bytes(ptr noundef nonnull %4, i64 noundef %80, ptr noundef %6)
@@ -215,7 +215,7 @@ sub_2:                                            ; preds = %sub_1
 85:                                               ; preds = %83, %84
   %86 = lshr i64 %.1480540, 1
   %.not527 = icmp ult i64 %.1480540, 2
-  br i1 %.not527, label %._crit_edge543, label %.lr.ph542, !llvm.loop !15
+  br i1 %.not527, label %._crit_edge543, label %.lr.ph542
 
 ._crit_edge543:                                   ; preds = %85
   %87 = call fastcc ptr @sha512_finish_ctx(ptr noundef %6, ptr noundef %4)
@@ -235,7 +235,7 @@ sub_2:                                            ; preds = %sub_1
   call fastcc void @sha512_process_bytes(ptr noundef nonnull %.0459, i64 noundef %36, ptr noundef %7)
   %88 = add nuw i64 %.2481544, 1
   %exitcond.not = icmp eq i64 %88, %36
-  br i1 %exitcond.not, label %._crit_edge547, label %.lr.ph546, !llvm.loop !16
+  br i1 %exitcond.not, label %._crit_edge547, label %.lr.ph546
 
 ._crit_edge547.critedge:                          ; preds = %._crit_edge
   %89 = call fastcc ptr @sha512_finish_ctx(ptr noundef %6, ptr noundef %4)
@@ -253,7 +253,7 @@ sub_2:                                            ; preds = %sub_1
 ._crit_edge547:                                   ; preds = %.lr.ph546, %._crit_edge547.critedge
   %90 = call fastcc ptr @sha512_finish_ctx(ptr noundef %7, ptr noundef %5)
   %91 = icmp ugt i64 %36, 32768
-  br i1 %91, label %92, label %94, !prof !17
+  br i1 %91, label %92, label %94, !prof !13
 
 92:                                               ; preds = %._crit_edge547
   %93 = call noalias ptr @_emalloc(i64 noundef %36) #15
@@ -275,7 +275,7 @@ sub_2:                                            ; preds = %sub_1
   %98 = getelementptr inbounds nuw i8, ptr %.0486548, i64 64
   %99 = add i64 %.3482549, -64
   %100 = icmp ugt i64 %99, 63
-  br i1 %100, label %.lr.ph551, label %._crit_edge552, !llvm.loop !18
+  br i1 %100, label %.lr.ph551, label %._crit_edge552
 
 ._crit_edge552:                                   ; preds = %.lr.ph551, %94
   %101 = phi ptr [ %95, %94 ], [ %97, %.lr.ph551 ]
@@ -301,7 +301,7 @@ sub_2:                                            ; preds = %sub_1
   %105 = zext i8 %104 to i64
   %106 = add nuw nsw i64 %105, 16
   %107 = icmp samesign ult i64 %103, %106
-  br i1 %107, label %102, label %108, !llvm.loop !19
+  br i1 %107, label %102, label %108
 
 108:                                              ; preds = %102
   %109 = call fastcc ptr @sha512_finish_ctx(ptr noundef %7, ptr noundef %5)
@@ -366,7 +366,7 @@ sub_2:                                            ; preds = %sub_1
   %124 = call fastcc ptr @sha512_finish_ctx(ptr noundef %6, ptr noundef %4)
   %125 = add nuw i64 %.6485556, 1
   %exitcond808.not = icmp eq i64 %125, %.0476
-  br i1 %exitcond808.not, label %._crit_edge559, label %.lr.ph558, !llvm.loop !20
+  br i1 %exitcond808.not, label %._crit_edge559, label %.lr.ph558
 
 ._crit_edge559:                                   ; preds = %123, %108
   %126 = call i32 @llvm.smax.i32(i32 %3, i32 0)
@@ -435,7 +435,7 @@ sub_2:                                            ; preds = %sub_1
   %167 = icmp samesign ugt i32 %.0456563, 1
   %168 = icmp samesign ugt i32 %.2470561, 1
   %169 = select i1 %167, i1 %168, i1 false
-  br i1 %169, label %.lr.ph565, label %._crit_edge566, !llvm.loop !21
+  br i1 %169, label %.lr.ph565, label %._crit_edge566
 
 ._crit_edge566:                                   ; preds = %.lr.ph565
   %.not906 = icmp eq i32 %165, 0
@@ -474,7 +474,7 @@ sub_2:                                            ; preds = %sub_1
   %191 = icmp samesign ugt i32 %.0454572, 1
   %192 = icmp samesign ugt i32 %.3471570, 1
   %193 = select i1 %191, i1 %192, i1 false
-  br i1 %193, label %.lr.ph574, label %._crit_edge575, !llvm.loop !22
+  br i1 %193, label %.lr.ph574, label %._crit_edge575
 
 ._crit_edge575:                                   ; preds = %.lr.ph574
   %.not907 = icmp eq i32 %189, 0
@@ -513,7 +513,7 @@ sub_2:                                            ; preds = %sub_1
   %215 = icmp samesign ugt i32 %.0452581, 1
   %216 = icmp samesign ugt i32 %.4472579, 1
   %217 = select i1 %215, i1 %216, i1 false
-  br i1 %217, label %.lr.ph583, label %._crit_edge584, !llvm.loop !23
+  br i1 %217, label %.lr.ph583, label %._crit_edge584
 
 ._crit_edge584:                                   ; preds = %.lr.ph583
   %.not908 = icmp eq i32 %213, 0
@@ -552,7 +552,7 @@ sub_2:                                            ; preds = %sub_1
   %239 = icmp samesign ugt i32 %.0450590, 1
   %240 = icmp samesign ugt i32 %.5588, 1
   %241 = select i1 %239, i1 %240, i1 false
-  br i1 %241, label %.lr.ph592, label %._crit_edge593, !llvm.loop !24
+  br i1 %241, label %.lr.ph592, label %._crit_edge593
 
 ._crit_edge593:                                   ; preds = %.lr.ph592
   %.not909 = icmp eq i32 %237, 0
@@ -591,7 +591,7 @@ sub_2:                                            ; preds = %sub_1
   %263 = icmp samesign ugt i32 %.0448599, 1
   %264 = icmp samesign ugt i32 %.6597, 1
   %265 = select i1 %263, i1 %264, i1 false
-  br i1 %265, label %.lr.ph601, label %._crit_edge602, !llvm.loop !25
+  br i1 %265, label %.lr.ph601, label %._crit_edge602
 
 ._crit_edge602:                                   ; preds = %.lr.ph601
   %.not910 = icmp eq i32 %261, 0
@@ -630,7 +630,7 @@ sub_2:                                            ; preds = %sub_1
   %287 = icmp samesign ugt i32 %.0446608, 1
   %288 = icmp samesign ugt i32 %.7606, 1
   %289 = select i1 %287, i1 %288, i1 false
-  br i1 %289, label %.lr.ph610, label %._crit_edge611, !llvm.loop !26
+  br i1 %289, label %.lr.ph610, label %._crit_edge611
 
 ._crit_edge611:                                   ; preds = %.lr.ph610
   %.not911 = icmp eq i32 %285, 0
@@ -669,7 +669,7 @@ sub_2:                                            ; preds = %sub_1
   %311 = icmp samesign ugt i32 %.0444617, 1
   %312 = icmp samesign ugt i32 %.8615, 1
   %313 = select i1 %311, i1 %312, i1 false
-  br i1 %313, label %.lr.ph619, label %._crit_edge620, !llvm.loop !27
+  br i1 %313, label %.lr.ph619, label %._crit_edge620
 
 ._crit_edge620:                                   ; preds = %.lr.ph619
   %.not912 = icmp eq i32 %309, 0
@@ -708,7 +708,7 @@ sub_2:                                            ; preds = %sub_1
   %335 = icmp samesign ugt i32 %.0442626, 1
   %336 = icmp samesign ugt i32 %.9624, 1
   %337 = select i1 %335, i1 %336, i1 false
-  br i1 %337, label %.lr.ph628, label %._crit_edge629, !llvm.loop !28
+  br i1 %337, label %.lr.ph628, label %._crit_edge629
 
 ._crit_edge629:                                   ; preds = %.lr.ph628
   %.not913 = icmp eq i32 %333, 0
@@ -747,7 +747,7 @@ sub_2:                                            ; preds = %sub_1
   %359 = icmp samesign ugt i32 %.0440635, 1
   %360 = icmp samesign ugt i32 %.10633, 1
   %361 = select i1 %359, i1 %360, i1 false
-  br i1 %361, label %.lr.ph637, label %._crit_edge638, !llvm.loop !29
+  br i1 %361, label %.lr.ph637, label %._crit_edge638
 
 ._crit_edge638:                                   ; preds = %.lr.ph637
   %.not914 = icmp eq i32 %357, 0
@@ -786,7 +786,7 @@ sub_2:                                            ; preds = %sub_1
   %383 = icmp samesign ugt i32 %.0438644, 1
   %384 = icmp samesign ugt i32 %.11642, 1
   %385 = select i1 %383, i1 %384, i1 false
-  br i1 %385, label %.lr.ph646, label %._crit_edge647, !llvm.loop !30
+  br i1 %385, label %.lr.ph646, label %._crit_edge647
 
 ._crit_edge647:                                   ; preds = %.lr.ph646
   %.not915 = icmp eq i32 %381, 0
@@ -825,7 +825,7 @@ sub_2:                                            ; preds = %sub_1
   %407 = icmp samesign ugt i32 %.0436653, 1
   %408 = icmp samesign ugt i32 %.12651, 1
   %409 = select i1 %407, i1 %408, i1 false
-  br i1 %409, label %.lr.ph655, label %._crit_edge656, !llvm.loop !31
+  br i1 %409, label %.lr.ph655, label %._crit_edge656
 
 ._crit_edge656:                                   ; preds = %.lr.ph655
   %.not916 = icmp eq i32 %405, 0
@@ -864,7 +864,7 @@ sub_2:                                            ; preds = %sub_1
   %431 = icmp samesign ugt i32 %.0434662, 1
   %432 = icmp samesign ugt i32 %.13660, 1
   %433 = select i1 %431, i1 %432, i1 false
-  br i1 %433, label %.lr.ph664, label %._crit_edge665, !llvm.loop !32
+  br i1 %433, label %.lr.ph664, label %._crit_edge665
 
 ._crit_edge665:                                   ; preds = %.lr.ph664
   %.not917 = icmp eq i32 %429, 0
@@ -903,7 +903,7 @@ sub_2:                                            ; preds = %sub_1
   %455 = icmp samesign ugt i32 %.0432671, 1
   %456 = icmp samesign ugt i32 %.14669, 1
   %457 = select i1 %455, i1 %456, i1 false
-  br i1 %457, label %.lr.ph673, label %._crit_edge674, !llvm.loop !33
+  br i1 %457, label %.lr.ph673, label %._crit_edge674
 
 ._crit_edge674:                                   ; preds = %.lr.ph673
   %.not918 = icmp eq i32 %453, 0
@@ -942,7 +942,7 @@ sub_2:                                            ; preds = %sub_1
   %479 = icmp samesign ugt i32 %.0430680, 1
   %480 = icmp samesign ugt i32 %.15678, 1
   %481 = select i1 %479, i1 %480, i1 false
-  br i1 %481, label %.lr.ph682, label %._crit_edge683, !llvm.loop !34
+  br i1 %481, label %.lr.ph682, label %._crit_edge683
 
 ._crit_edge683:                                   ; preds = %.lr.ph682
   %.not919 = icmp eq i32 %477, 0
@@ -981,7 +981,7 @@ sub_2:                                            ; preds = %sub_1
   %503 = icmp samesign ugt i32 %.0428689, 1
   %504 = icmp samesign ugt i32 %.16687, 1
   %505 = select i1 %503, i1 %504, i1 false
-  br i1 %505, label %.lr.ph691, label %._crit_edge692, !llvm.loop !35
+  br i1 %505, label %.lr.ph691, label %._crit_edge692
 
 ._crit_edge692:                                   ; preds = %.lr.ph691
   %.not920 = icmp eq i32 %501, 0
@@ -1020,7 +1020,7 @@ sub_2:                                            ; preds = %sub_1
   %527 = icmp samesign ugt i32 %.0426698, 1
   %528 = icmp samesign ugt i32 %.17696, 1
   %529 = select i1 %527, i1 %528, i1 false
-  br i1 %529, label %.lr.ph700, label %._crit_edge701, !llvm.loop !36
+  br i1 %529, label %.lr.ph700, label %._crit_edge701
 
 ._crit_edge701:                                   ; preds = %.lr.ph700
   %.not921 = icmp eq i32 %525, 0
@@ -1059,7 +1059,7 @@ sub_2:                                            ; preds = %sub_1
   %551 = icmp samesign ugt i32 %.0424707, 1
   %552 = icmp samesign ugt i32 %.18705, 1
   %553 = select i1 %551, i1 %552, i1 false
-  br i1 %553, label %.lr.ph709, label %._crit_edge710, !llvm.loop !37
+  br i1 %553, label %.lr.ph709, label %._crit_edge710
 
 ._crit_edge710:                                   ; preds = %.lr.ph709
   %.not922 = icmp eq i32 %549, 0
@@ -1098,7 +1098,7 @@ sub_2:                                            ; preds = %sub_1
   %575 = icmp samesign ugt i32 %.0422716, 1
   %576 = icmp samesign ugt i32 %.19714, 1
   %577 = select i1 %575, i1 %576, i1 false
-  br i1 %577, label %.lr.ph718, label %._crit_edge719, !llvm.loop !38
+  br i1 %577, label %.lr.ph718, label %._crit_edge719
 
 ._crit_edge719:                                   ; preds = %.lr.ph718
   %.not923 = icmp eq i32 %573, 0
@@ -1137,7 +1137,7 @@ sub_2:                                            ; preds = %sub_1
   %599 = icmp samesign ugt i32 %.0420725, 1
   %600 = icmp samesign ugt i32 %.20723, 1
   %601 = select i1 %599, i1 %600, i1 false
-  br i1 %601, label %.lr.ph727, label %._crit_edge728, !llvm.loop !39
+  br i1 %601, label %.lr.ph727, label %._crit_edge728
 
 ._crit_edge728:                                   ; preds = %.lr.ph727
   %.not924 = icmp eq i32 %597, 0
@@ -1176,7 +1176,7 @@ sub_2:                                            ; preds = %sub_1
   %623 = icmp samesign ugt i32 %.0418734, 1
   %624 = icmp samesign ugt i32 %.21732, 1
   %625 = select i1 %623, i1 %624, i1 false
-  br i1 %625, label %.lr.ph736, label %._crit_edge737, !llvm.loop !40
+  br i1 %625, label %.lr.ph736, label %._crit_edge737
 
 ._crit_edge737:                                   ; preds = %.lr.ph736
   %.not925 = icmp eq i32 %621, 0
@@ -1215,7 +1215,7 @@ sub_2:                                            ; preds = %sub_1
   %647 = icmp samesign ugt i32 %.0416743, 1
   %648 = icmp samesign ugt i32 %.22741, 1
   %649 = select i1 %647, i1 %648, i1 false
-  br i1 %649, label %.lr.ph745, label %._crit_edge746, !llvm.loop !41
+  br i1 %649, label %.lr.ph745, label %._crit_edge746
 
 ._crit_edge746:                                   ; preds = %.lr.ph745
   %.not926 = icmp eq i32 %645, 0
@@ -1244,7 +1244,7 @@ sub_2:                                            ; preds = %sub_1
   %661 = icmp samesign ugt i32 %.0752, 1
   %662 = icmp samesign ugt i32 %.23750, 1
   %663 = select i1 %661, i1 %662, i1 false
-  br i1 %663, label %.lr.ph754, label %._crit_edge755, !llvm.loop !42
+  br i1 %663, label %.lr.ph754, label %._crit_edge755
 
 ._crit_edge755:                                   ; preds = %.lr.ph754
   %664 = icmp samesign ult i32 %.23750, 2
@@ -1252,7 +1252,7 @@ sub_2:                                            ; preds = %sub_1
 
 ._crit_edge755.thread:                            ; preds = %137, %144, %._crit_edge566, %._crit_edge575, %._crit_edge584, %._crit_edge593, %._crit_edge602, %._crit_edge611, %._crit_edge620, %._crit_edge629, %._crit_edge638, %._crit_edge647, %._crit_edge656, %._crit_edge665, %._crit_edge674, %._crit_edge683, %._crit_edge692, %._crit_edge701, %._crit_edge710, %._crit_edge719, %._crit_edge728, %._crit_edge737, %._crit_edge746, %._crit_edge755
   %665 = tail call ptr @__errno_location() #16
-  store i32 34, ptr %665, align 4, !tbaa !43
+  store i32 34, ptr %665, align 4, !tbaa !14
   br label %667
 
 666:                                              ; preds = %._crit_edge755
@@ -1294,7 +1294,7 @@ sub_2:                                            ; preds = %sub_1
 672:                                              ; preds = %671, %670
   %.not530 = icmp eq ptr %.0465, null
   %brmerge = or i1 %.not530, %.0464
-  br i1 %brmerge, label %674, label %673, !prof !45
+  br i1 %brmerge, label %674, label %673, !prof !16
 
 673:                                              ; preds = %672
   call void @_efree(ptr noundef nonnull %.0465) #13
@@ -1303,14 +1303,14 @@ sub_2:                                            ; preds = %sub_1
 674:                                              ; preds = %672, %673
   %.not531 = icmp eq ptr %.0463, null
   %brmerge537 = or i1 %.not526, %.not531
-  br i1 %brmerge537, label %676, label %675, !prof !45
+  br i1 %brmerge537, label %676, label %675, !prof !16
 
 675:                                              ; preds = %674
   call void @_efree(ptr noundef nonnull %.0463) #13
   br label %676
 
 676:                                              ; preds = %674, %675
-  br i1 %91, label %677, label %678, !prof !17
+  br i1 %91, label %677, label %678, !prof !13
 
 677:                                              ; preds = %676
   call void @_efree(ptr noundef %101) #13
@@ -1356,7 +1356,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr no
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal fastcc void @sha512_process_bytes(ptr noundef %0, i64 noundef %1, ptr noundef nonnull captures(none) %2) unnamed_addr #6 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 80
-  %5 = load i64, ptr %4, align 8, !tbaa !46
+  %5 = load i64, ptr %4, align 8, !tbaa !17
   %.not = icmp eq i64 %5, 0
   br i1 %.not, label %21, label %6
 
@@ -1367,16 +1367,16 @@ define internal fastcc void @sha512_process_bytes(ptr noundef %0, i64 noundef %1
   %10 = getelementptr inbounds nuw [256 x i8], ptr %9, i64 0, i64 %5
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %10, ptr align 1 %0, i64 %8, i1 false)
   %11 = add i64 %8, %5
-  store i64 %11, ptr %4, align 8, !tbaa !46
+  store i64 %11, ptr %4, align 8, !tbaa !17
   %12 = icmp ugt i64 %11, 128
   br i1 %12, label %13, label %18
 
 13:                                               ; preds = %6
   %14 = and i64 %11, -128
   tail call fastcc void @sha512_process_block(ptr noundef nonnull %9, i64 noundef %14, ptr noundef %2)
-  %15 = load i64, ptr %4, align 8, !tbaa !46
+  %15 = load i64, ptr %4, align 8, !tbaa !17
   %16 = and i64 %15, 127
-  store i64 %16, ptr %4, align 8, !tbaa !46
+  store i64 %16, ptr %4, align 8, !tbaa !17
   %17 = getelementptr inbounds nuw [256 x i8], ptr %9, i64 0, i64 %14
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %9, ptr nonnull align 1 %17, i64 %16, i1 false)
   br label %18
@@ -1414,7 +1414,7 @@ define internal fastcc void @sha512_process_bytes(ptr noundef %0, i64 noundef %1
   %28 = getelementptr inbounds nuw i8, ptr %.272, i64 128
   %29 = add i64 %.25971, -128
   %30 = icmp ugt i64 %29, 128
-  br i1 %30, label %27, label %.thread, !llvm.loop !48
+  br i1 %30, label %27, label %.thread
 
 31:                                               ; preds = %23
   %32 = and i64 %.057, -128
@@ -1432,7 +1432,7 @@ define internal fastcc void @sha512_process_bytes(ptr noundef %0, i64 noundef %1
 .thread:                                          ; preds = %27, %.preheader, %35
   %.170 = phi ptr [ %.1, %35 ], [ %.056, %.preheader ], [ %28, %27 ]
   %.15869 = phi i64 [ %.158, %35 ], [ 128, %.preheader ], [ %29, %27 ]
-  %36 = load i64, ptr %4, align 8, !tbaa !46
+  %36 = load i64, ptr %4, align 8, !tbaa !17
   %37 = getelementptr inbounds nuw i8, ptr %2, i64 88
   %38 = getelementptr inbounds nuw [256 x i8], ptr %37, i64 0, i64 %36
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %38, ptr align 1 %.170, i64 %.15869, i1 false)
@@ -1449,7 +1449,7 @@ define internal fastcc void @sha512_process_bytes(ptr noundef %0, i64 noundef %1
 
 44:                                               ; preds = %41, %.thread
   %.0 = phi i64 [ %42, %41 ], [ %39, %.thread ]
-  store i64 %.0, ptr %4, align 8, !tbaa !46
+  store i64 %.0, ptr %4, align 8, !tbaa !17
   br label %45
 
 45:                                               ; preds = %44, %35
@@ -1459,7 +1459,7 @@ define internal fastcc void @sha512_process_bytes(ptr noundef %0, i64 noundef %1
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal fastcc noundef nonnull ptr @sha512_finish_ctx(ptr noundef nonnull captures(none) %0, ptr noundef nonnull returned writeonly captures(ret: address, provenance) %1) unnamed_addr #6 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %4 = load i64, ptr %3, align 8, !tbaa !46
+  %4 = load i64, ptr %3, align 8, !tbaa !17
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %6 = load i64, ptr %5, align 8, !tbaa !11
   %7 = add i64 %6, %4
@@ -1544,7 +1544,7 @@ define internal fastcc noundef nonnull ptr @sha512_finish_ctx(ptr noundef nonnul
   store i64 %68, ptr %69, align 8, !tbaa !11
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond.not, label %70, label %65, !llvm.loop !49
+  br i1 %exitcond.not, label %70, label %65
 
 70:                                               ; preds = %65
   ret ptr %1
@@ -1567,7 +1567,7 @@ define hidden noundef ptr @php_sha512_crypt(ptr noundef %0, ptr noundef %1) loca
   %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #14
   %4 = trunc i64 %3 to i32
   %5 = add i32 %4, 109
-  %6 = load i32, ptr @php_sha512_crypt.buflen, align 4, !tbaa !43
+  %6 = load i32, ptr @php_sha512_crypt.buflen, align 4, !tbaa !14
   %7 = icmp slt i32 %6, %5
   %.pre = load ptr, ptr @php_sha512_crypt.buffer, align 8, !tbaa !4
   br i1 %7, label %8, label %12
@@ -1580,7 +1580,7 @@ define hidden noundef ptr @php_sha512_crypt(ptr noundef %0, ptr noundef %1) loca
 
 11:                                               ; preds = %8
   store ptr %10, ptr @php_sha512_crypt.buffer, align 8, !tbaa !4
-  store i32 %5, ptr @php_sha512_crypt.buflen, align 4, !tbaa !43
+  store i32 %5, ptr @php_sha512_crypt.buflen, align 4, !tbaa !14
   br label %12
 
 12:                                               ; preds = %11, %2
@@ -1662,7 +1662,7 @@ define internal fastcc void @sha512_process_block(ptr noundef readonly captures(
   %34 = getelementptr inbounds nuw i8, ptr %.1141, i64 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
-  br i1 %exitcond.not, label %.preheader139, label %30, !llvm.loop !50
+  br i1 %exitcond.not, label %.preheader139, label %30
 
 35:                                               ; preds = %.preheader139, %35
   %36 = phi i64 [ %.pre, %.preheader139 ], [ %51, %35 ]
@@ -1693,7 +1693,7 @@ define internal fastcc void @sha512_process_block(ptr noundef readonly captures(
   store i64 %58, ptr %59, align 8, !tbaa !11
   %indvars.iv.next182 = add nuw nsw i64 %indvars.iv181, 1
   %exitcond184.not = icmp eq i64 %indvars.iv.next182, 80
-  br i1 %exitcond184.not, label %.preheader, label %35, !llvm.loop !51
+  br i1 %exitcond184.not, label %.preheader, label %35
 
 .preheader:                                       ; preds = %35, %.preheader
   %indvars.iv185 = phi i64 [ %indvars.iv.next186, %.preheader ], [ 0, %35 ]
@@ -1736,7 +1736,7 @@ define internal fastcc void @sha512_process_block(ptr noundef readonly captures(
   %88 = add i64 %86, %76
   %indvars.iv.next186 = add nuw nsw i64 %indvars.iv185, 1
   %exitcond188.not = icmp eq i64 %indvars.iv.next186, 80
-  br i1 %exitcond188.not, label %89, label %.preheader, !llvm.loop !52
+  br i1 %exitcond188.not, label %89, label %.preheader
 
 89:                                               ; preds = %.preheader
   %90 = add i64 %88, %.0123160
@@ -1750,7 +1750,7 @@ define internal fastcc void @sha512_process_block(ptr noundef readonly captures(
   %98 = add i64 %.0120161, -16
   call void @llvm.lifetime.end.p0(i64 640, ptr nonnull %4) #13
   %.not = icmp eq i64 %98, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !53
+  br i1 %.not, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %89, %29
   %.0137.lcssa = phi i64 [ %20, %29 ], [ %97, %89 ]
@@ -1821,44 +1821,9 @@ attributes #17 = { nounwind allocsize(1) }
 !10 = !{!"branch_weights", !"expected", i32 2000, i32 1}
 !11 = !{!12, !12, i64 0}
 !12 = !{!"long", !7, i64 0}
-!13 = distinct !{!13, !14}
-!14 = !{!"llvm.loop.estimated_trip_count"}
-!15 = distinct !{!15, !14}
-!16 = distinct !{!16, !14}
-!17 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!18 = distinct !{!18, !14}
-!19 = distinct !{!19, !14}
-!20 = distinct !{!20, !14}
-!21 = distinct !{!21, !14}
-!22 = distinct !{!22, !14}
-!23 = distinct !{!23, !14}
-!24 = distinct !{!24, !14}
-!25 = distinct !{!25, !14}
-!26 = distinct !{!26, !14}
-!27 = distinct !{!27, !14}
-!28 = distinct !{!28, !14}
-!29 = distinct !{!29, !14}
-!30 = distinct !{!30, !14}
-!31 = distinct !{!31, !14}
-!32 = distinct !{!32, !14}
-!33 = distinct !{!33, !14}
-!34 = distinct !{!34, !14}
-!35 = distinct !{!35, !14}
-!36 = distinct !{!36, !14}
-!37 = distinct !{!37, !14}
-!38 = distinct !{!38, !14}
-!39 = distinct !{!39, !14}
-!40 = distinct !{!40, !14}
-!41 = distinct !{!41, !14}
-!42 = distinct !{!42, !14}
-!43 = !{!44, !44, i64 0}
-!44 = !{!"int", !7, i64 0}
-!45 = !{!"branch_weights", i32 4001, i32 1}
-!46 = !{!47, !12, i64 80}
-!47 = !{!"sha512_ctx", !7, i64 0, !7, i64 64, !12, i64 80, !7, i64 88}
-!48 = distinct !{!48, !14}
-!49 = distinct !{!49, !14}
-!50 = distinct !{!50, !14}
-!51 = distinct !{!51, !14}
-!52 = distinct !{!52, !14}
-!53 = distinct !{!53, !14}
+!13 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!14 = !{!15, !15, i64 0}
+!15 = !{!"int", !7, i64 0}
+!16 = !{!"branch_weights", i32 4001, i32 1}
+!17 = !{!18, !12, i64 80}
+!18 = !{!"sha512_ctx", !7, i64 0, !7, i64 64, !12, i64 80, !7, i64 88}

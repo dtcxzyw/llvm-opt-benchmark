@@ -101,7 +101,7 @@ define dso_local range(i32 0, 2) i32 @get_cpuset(ptr noundef initializes((0, 128
   %39 = icmp ne i8 %38, 0
   %40 = icmp ne i32 %spec.select114, 0
   %41 = select i1 %39, i1 %40, i1 false
-  br i1 %41, label %.lr.ph127, label %._crit_edge128.loopexit, !llvm.loop !12
+  br i1 %41, label %.lr.ph127, label %._crit_edge128.loopexit, !llvm.loop !11
 
 ._crit_edge128.loopexit:                          ; preds = %.lr.ph127
   %42 = icmp eq i8 %38, 0
@@ -135,7 +135,7 @@ define dso_local range(i32 0, 2) i32 @get_cpuset(ptr noundef initializes((0, 128
   %47 = getelementptr inbounds nuw i8, ptr %.288, i64 1
   %48 = getelementptr inbounds nuw i8, ptr %.282, i64 1
   store i8 %43, ptr %.282, align 1
-  br label %.loopexit, !llvm.loop !13
+  br label %.loopexit, !llvm.loop !12
 
 .critedge:                                        ; preds = %.loopexit, %.loopexit, %44
   store i8 0, ptr %.282, align 1
@@ -265,7 +265,7 @@ define dso_local range(i32 0, 2) i32 @get_cpuset(ptr noundef initializes((0, 128
   %102 = add i32 %.071133, 4
   %.073 = getelementptr inbounds i8, ptr %.073134, i64 -1
   %.not107 = icmp ult ptr %.073, %.383.idx.sroa.sel.idx.sroa.sel
-  br i1 %.not107, label %.critedge116, label %.lr.ph136, !llvm.loop !14
+  br i1 %.not107, label %.critedge116, label %.lr.ph136, !llvm.loop !13
 
 103:                                              ; preds = %75
   %104 = and i32 %15, 1024
@@ -375,7 +375,7 @@ define internal fastcc void @_bind_ldom(i32 noundef %0, ptr noundef captures(non
 37:                                               ; preds = %30, %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !15
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %37, %12
   ret void
@@ -486,11 +486,10 @@ attributes #8 = { nounwind willreturn memory(read) }
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i32 7, !"frame-pointer", i32 2}
 !7 = !{i32 7, !"debug-info-assignment-tracking", i1 true}
-!8 = distinct !{!8, !9, !10, !11}
+!8 = distinct !{!8, !9, !10}
 !9 = !{!"llvm.loop.mustprogress"}
 !10 = !{!"llvm.loop.unroll.disable"}
-!11 = !{!"llvm.loop.estimated_trip_count"}
-!12 = distinct !{!12, !9, !10, !11}
-!13 = distinct !{!13, !9, !10, !11}
-!14 = distinct !{!14, !9, !10, !11}
-!15 = distinct !{!15, !9, !10, !11}
+!11 = distinct !{!11, !9, !10}
+!12 = distinct !{!12, !9, !10}
+!13 = distinct !{!13, !9, !10}
+!14 = distinct !{!14, !9, !10}

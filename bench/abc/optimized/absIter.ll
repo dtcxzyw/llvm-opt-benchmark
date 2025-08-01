@@ -403,7 +403,7 @@ Vec_IntDup.exit106:                               ; preds = %Vec_IntFreeP.exit, 
 
 .critedge:                                        ; preds = %177
   %181 = icmp eq i32 %.1, 0
-  br i1 %181, label %.split129.us, label %.split, !llvm.loop !44
+  br i1 %181, label %.split129.us, label %.split, !llvm.loop !43
 
 .split129.us:                                     ; preds = %.split, %.critedge, %39
   %.us-phi = phi i32 [ 0, %39 ], [ %.060, %.split ], [ %.262, %.critedge ]
@@ -442,7 +442,7 @@ Vec_IntFree.exit:                                 ; preds = %.split129.us, %182
   %197 = add nuw nsw i32 %.08.i, %196
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %Vec_IntCountPositive.exit.loopexit, label %192, !llvm.loop !46
+  br i1 %exitcond.not.i, label %Vec_IntCountPositive.exit.loopexit, label %192, !llvm.loop !45
 
 Vec_IntCountPositive.exit.loopexit:               ; preds = %192
   %198 = uitofp nneg i32 %197 to double
@@ -508,7 +508,7 @@ define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #7 {
 
 8:                                                ; preds = %5
   %9 = call ptr @vnsprintf(ptr noundef %1, ptr noundef nonnull %3) #11
-  %10 = load ptr, ptr @stdout, align 8, !tbaa !47
+  %10 = load ptr, ptr @stdout, align 8, !tbaa !46
   %11 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %9) #13
   %12 = trunc i64 %11 to i32
   %13 = call i32 @Gia_ManToBridgeText(ptr noundef %10, i32 noundef %12, ptr noundef nonnull %9) #11
@@ -516,7 +516,7 @@ define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #7 {
   br label %17
 
 14:                                               ; preds = %5
-  %15 = load ptr, ptr @stdout, align 8, !tbaa !47, !noalias !49
+  %15 = load ptr, ptr @stdout, align 8, !tbaa !46, !noalias !48
   %16 = call i32 @vfprintf(ptr noundef %15, ptr noundef %1, ptr noundef nonnull %3) #11
   br label %17
 
@@ -608,14 +608,13 @@ attributes #13 = { nounwind willreturn memory(read) }
 !38 = !{!4, !12, i64 64}
 !39 = !{!12, !12, i64 0}
 !40 = !{!13, !9, i64 0}
-!41 = distinct !{!41, !42, !43}
+!41 = distinct !{!41, !42}
 !42 = !{!"llvm.loop.mustprogress"}
-!43 = !{!"llvm.loop.estimated_trip_count"}
-!44 = distinct !{!44, !43, !45}
-!45 = !{!"llvm.loop.unswitch.partial.disable"}
-!46 = distinct !{!46, !42, !43}
-!47 = !{!48, !48, i64 0}
-!48 = !{!"p1 _ZTS8_IO_FILE", !6, i64 0}
-!49 = !{!50}
-!50 = distinct !{!50, !51, !"vprintf: argument 0"}
-!51 = distinct !{!51, !"vprintf"}
+!43 = distinct !{!43, !44}
+!44 = !{!"llvm.loop.unswitch.partial.disable"}
+!45 = distinct !{!45, !42}
+!46 = !{!47, !47, i64 0}
+!47 = !{!"p1 _ZTS8_IO_FILE", !6, i64 0}
+!48 = !{!49}
+!49 = distinct !{!49, !50, !"vprintf: argument 0"}
+!50 = distinct !{!50, !"vprintf"}

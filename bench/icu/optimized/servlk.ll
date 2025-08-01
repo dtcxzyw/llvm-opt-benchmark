@@ -1169,6 +1169,5 @@ attributes #16 = { noreturn nounwind }
 !23 = !{!"_ZTSN6icu_7711ReplaceableE", !21, i64 0}
 !24 = !{!25, !25, i64 0}
 !25 = !{!"char16_t", !7, i64 0}
-!26 = distinct !{!26, !27, !28}
+!26 = distinct !{!26, !27}
 !27 = !{!"llvm.loop.mustprogress"}
-!28 = !{!"llvm.loop.estimated_trip_count"}

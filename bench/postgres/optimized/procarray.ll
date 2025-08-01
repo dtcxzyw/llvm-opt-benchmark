@@ -346,7 +346,7 @@ define dso_local void @ProcArrayAdd(ptr noundef %0) local_unnamed_addr #0 {
   %89 = load i32, ptr %9, align 4
   %90 = sext i32 %89 to i64
   %91 = icmp slt i64 %indvars.iv.next56, %90
-  br i1 %91, label %83, label %._crit_edge53, !llvm.loop !9
+  br i1 %91, label %83, label %._crit_edge53, !llvm.loop !8
 
 ._crit_edge53:                                    ; preds = %83, %._crit_edge
   %92 = load ptr, ptr @MainLWLockArray, align 8
@@ -510,7 +510,7 @@ MaintainLatestCompletedXid.exit:                  ; preds = %12, %17
   %87 = load i32, ptr %3, align 4
   %88 = sext i32 %87 to i64
   %89 = icmp slt i64 %indvars.iv.next, %88
-  br i1 %89, label %81, label %._crit_edge, !llvm.loop !10
+  br i1 %89, label %81, label %._crit_edge, !llvm.loop !9
 }
 
 ; Function Attrs: nounwind uwtable
@@ -633,11 +633,11 @@ ProcArrayEndTransactionInternal.exit:             ; preds = %48, %53
 74:                                               ; preds = %74, %61
   %.031.i = phi i32 [ %72, %61 ], [ %76, %74 ]
   store volatile i32 %.031.i, ptr %73, align 4
-  %75 = tail call { i32, i8 } asm sideeffect "\09lock\09\09\09\09\0A\09cmpxchgl\09$4,$5\09\0A   setz\09\09$2\09\09\0A", "={ax},=*m,=q,{ax},r,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %71, i32 %.031.i, i32 %68, ptr nonnull elementtype(i32) %71) #15, !srcloc !11
+  %75 = tail call { i32, i8 } asm sideeffect "\09lock\09\09\09\09\0A\09cmpxchgl\09$4,$5\09\0A   setz\09\09$2\09\09\0A", "={ax},=*m,=q,{ax},r,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %71, i32 %.031.i, i32 %68, ptr nonnull elementtype(i32) %71) #15, !srcloc !10
   %76 = extractvalue { i32, i8 } %75, 0
   %77 = extractvalue { i32, i8 } %75, 1
   %.not32.i = icmp eq i8 %77, 0
-  br i1 %.not32.i, label %74, label %78, !llvm.loop !12
+  br i1 %.not32.i, label %74, label %78
 
 78:                                               ; preds = %74
   %.not.i13 = icmp eq i32 %76, -1
@@ -656,7 +656,7 @@ ProcArrayEndTransactionInternal.exit:             ; preds = %48, %53
   %84 = load i8, ptr %69, align 4, !range !4, !noundef !5
   %85 = trunc nuw i8 %84 to i1
   %86 = add i32 %.023.i, 1
-  br i1 %85, label %82, label %87, !llvm.loop !13
+  br i1 %85, label %82, label %87
 
 87:                                               ; preds = %82
   %88 = load ptr, ptr @my_wait_event_info, align 8
@@ -670,7 +670,7 @@ ProcArrayEndTransactionInternal.exit:             ; preds = %48, %53
   %91 = load ptr, ptr %81, align 8
   tail call void @PGSemaphoreUnlock(ptr noundef %91) #15
   %92 = icmp samesign ugt i32 %.135.i, 1
-  br i1 %92, label %.lr.ph.i, label %ProcArrayGroupClearXid.exit, !llvm.loop !14
+  br i1 %92, label %.lr.ph.i, label %ProcArrayGroupClearXid.exit, !llvm.loop !11
 
 93:                                               ; preds = %78
   %94 = load ptr, ptr @MainLWLockArray, align 8
@@ -776,7 +776,7 @@ ProcArrayEndTransactionInternal.exit.i:           ; preds = %148, %143
   %156 = getelementptr inbounds nuw i8, ptr %100, i64 704
   %157 = load volatile i32, ptr %156, align 4
   %.not26.i = icmp eq i32 %157, -1
-  br i1 %.not26.i, label %._crit_edge.i, label %.lr.ph38.i, !llvm.loop !15
+  br i1 %.not26.i, label %._crit_edge.i, label %.lr.ph38.i, !llvm.loop !12
 
 ._crit_edge.i:                                    ; preds = %ProcArrayEndTransactionInternal.exit.i
   %158 = load ptr, ptr @MainLWLockArray, align 8
@@ -792,7 +792,7 @@ ProcArrayEndTransactionInternal.exit.i:           ; preds = %148, %143
   %163 = getelementptr inbounds nuw i8, ptr %162, i64 704
   %164 = load volatile i32, ptr %163, align 4
   store volatile i32 -1, ptr %163, align 4
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !16
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !13
   %165 = getelementptr inbounds nuw i8, ptr %162, i64 700
   store i8 0, ptr %165, align 4
   %166 = load ptr, ptr @MyProc, align 8
@@ -807,7 +807,7 @@ ProcArrayEndTransactionInternal.exit.i:           ; preds = %148, %143
 
 170:                                              ; preds = %167, %.lr.ph42.i
   %.not27.i = icmp eq i32 %164, -1
-  br i1 %.not27.i, label %ProcArrayGroupClearXid.exit, label %.lr.ph42.i, !llvm.loop !17
+  br i1 %.not27.i, label %ProcArrayGroupClearXid.exit, label %.lr.ph42.i, !llvm.loop !14
 
 171:                                              ; preds = %2
   %172 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -921,7 +921,7 @@ define dso_local void @ProcArrayInitRecovery(i32 noundef %0) local_unnamed_addr 
   %3 = phi i32 [ %4, %2 ], [ %0, %1 ]
   %4 = add i32 %3, -1
   %5 = icmp ult i32 %4, 3
-  br i1 %5, label %2, label %6, !llvm.loop !18
+  br i1 %5, label %2, label %6, !llvm.loop !15
 
 6:                                                ; preds = %2
   store i32 %4, ptr @latestObservedXid, align 4
@@ -960,7 +960,7 @@ ExpireOldKnownAssignedTransactionIds.exit:        ; preds = %1, %11
   %.0 = phi i32 [ %17, %ExpireOldKnownAssignedTransactionIds.exit ], [ %19, %18 ]
   %19 = add i32 %.0, -1
   %20 = icmp ult i32 %19, 3
-  br i1 %20, label %18, label %21, !llvm.loop !19
+  br i1 %20, label %18, label %21, !llvm.loop !16
 
 21:                                               ; preds = %18
   tail call void @AdvanceNextFullTransactionIdPastXid(i32 noundef %19) #15
@@ -1074,7 +1074,7 @@ ExpireOldKnownAssignedTransactionIds.exit:        ; preds = %1, %11
   %84 = add i32 %83, %82
   %85 = sext i32 %84 to i64
   %86 = icmp slt i64 %indvars.iv.next, %85
-  br i1 %86, label %70, label %._crit_edge, !llvm.loop !20
+  br i1 %86, label %70, label %._crit_edge, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %81
   %87 = icmp sgt i32 %.148, 0
@@ -1137,7 +1137,7 @@ ExpireOldKnownAssignedTransactionIds.exit:        ; preds = %1, %11
 111:                                              ; preds = %104, %106, %109
   %indvars.iv.next66 = add nuw nsw i64 %indvars.iv65, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next66, %97
-  br i1 %exitcond.not, label %._crit_edge59, label %.lr.ph58, !llvm.loop !21
+  br i1 %exitcond.not, label %._crit_edge59, label %.lr.ph58, !llvm.loop !18
 
 ._crit_edge59:                                    ; preds = %111
   tail call fastcc void @KnownAssignedXidsDisplay(i32 noundef 12)
@@ -1166,13 +1166,13 @@ ExpireOldKnownAssignedTransactionIds.exit:        ; preds = %1, %11
   store i32 %spec.store.select1, ptr @latestObservedXid, align 4
   %119 = load i32, ptr %16, align 4
   %120 = tail call zeroext i1 @TransactionIdPrecedes(i32 noundef %spec.store.select1, i32 noundef %119) #15
-  br i1 %120, label %.lr.ph61, label %.preheader, !llvm.loop !22
+  br i1 %120, label %.lr.ph61, label %.preheader, !llvm.loop !19
 
 121:                                              ; preds = %.preheader, %121
   %122 = phi i32 [ %latestObservedXid.promoted, %.preheader ], [ %123, %121 ]
   %123 = add i32 %122, -1
   %124 = icmp ult i32 %123, 3
-  br i1 %124, label %121, label %125, !llvm.loop !23
+  br i1 %124, label %121, label %125, !llvm.loop !20
 
 125:                                              ; preds = %121
   store i32 %123, ptr @latestObservedXid, align 4
@@ -1335,7 +1335,7 @@ define internal fastcc void @KnownAssignedXidsAdd(i32 noundef %0, i32 noundef %1
   %9 = add i32 %.04049, 1
   %spec.store.select = tail call i32 @llvm.umax.i32(i32 %9, i32 3)
   %10 = tail call zeroext i1 @TransactionIdPrecedes(i32 noundef %spec.store.select, i32 noundef %1) #15
-  br i1 %10, label %.lr.ph, label %.loopexit, !llvm.loop !24
+  br i1 %10, label %.lr.ph, label %.loopexit, !llvm.loop !21
 
 .loopexit:                                        ; preds = %.lr.ph, %.preheader, %6
   %.039 = phi i32 [ %7, %6 ], [ 1, %.preheader ], [ %8, %.lr.ph ]
@@ -1418,7 +1418,7 @@ define internal fastcc void @KnownAssignedXidsAdd(i32 noundef %0, i32 noundef %1
   %.1.i = phi i32 [ %56, %50 ], [ %.037.i, %46 ]
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %46, !llvm.loop !25
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %46, !llvm.loop !22
 
 ._crit_edge.i:                                    ; preds = %57, %41
   %.0.lcssa.i = phi i32 [ 0, %41 ], [ %.1.i, %57 ]
@@ -1472,7 +1472,7 @@ KnownAssignedXidsCompress.exit:                   ; preds = %._crit_edge.i, %58
   %78 = add i32 %.14351, 1
   %79 = add nuw nsw i32 %.053, 1
   %exitcond.not = icmp eq i32 %79, %.039
-  br i1 %exitcond.not, label %._crit_edge, label %73, !llvm.loop !26
+  br i1 %exitcond.not, label %._crit_edge, label %73, !llvm.loop !23
 
 ._crit_edge:                                      ; preds = %73, %69
   %.143.lcssa = phi i32 [ %.042, %69 ], [ %78, %73 ]
@@ -1483,7 +1483,7 @@ KnownAssignedXidsCompress.exit:                   ; preds = %._crit_edge.i, %58
   br i1 %2, label %84, label %83
 
 83:                                               ; preds = %._crit_edge
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !27
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !24
   br label %84
 
 84:                                               ; preds = %83, %._crit_edge
@@ -1534,7 +1534,7 @@ define internal fastcc void @KnownAssignedXidsDisplay(i32 noundef range(i32 12, 
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
   %exitcond.not = icmp eq i32 %7, %lftr.wideiv
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !28
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !25
 
 ._crit_edge:                                      ; preds = %20, %1
   %.0.lcssa = phi i32 [ 0, %1 ], [ %.1, %20 ]
@@ -1580,7 +1580,7 @@ define dso_local void @ProcArrayApplyXidAssignment(i32 noundef %0, i32 noundef %
   tail call void @SubTransSetParent(i32 noundef %7, i32 noundef %0) #15
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !29
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !26
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   %8 = load i32, ptr @standbyState, align 4
@@ -1604,7 +1604,7 @@ define dso_local void @ProcArrayApplyXidAssignment(i32 noundef %0, i32 noundef %
   tail call fastcc void @KnownAssignedXidsRemove(i32 noundef %15)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !30
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !27
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %10
   %16 = load ptr, ptr @procArray, align 8
@@ -1663,7 +1663,7 @@ define dso_local void @ProcArrayApplyXidAssignment(i32 noundef %0, i32 noundef %
   %.1.i.i = phi i32 [ %46, %40 ], [ %.037.i.i, %36 ]
   %indvars.iv.next.i.i = add nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %36, !llvm.loop !25
+  br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %36, !llvm.loop !22
 
 ._crit_edge.i.i:                                  ; preds = %47, %31
   %.0.lcssa.i.i = phi i32 [ 0, %31 ], [ %.1.i.i, %47 ]
@@ -1726,7 +1726,7 @@ define dso_local void @RecordKnownAssignedTransactionIds(i32 noundef %0) local_u
   %spec.store.select = tail call i32 @llvm.umax.i32(i32 %12, i32 3)
   tail call void @ExtendSUBTRANS(i32 noundef %spec.store.select) #15
   %13 = tail call zeroext i1 @TransactionIdPrecedes(i32 noundef %spec.store.select, i32 noundef %0) #15
-  br i1 %13, label %.lr.ph, label %._crit_edge, !llvm.loop !31
+  br i1 %13, label %.lr.ph, label %._crit_edge, !llvm.loop !28
 
 ._crit_edge:                                      ; preds = %.lr.ph, %9
   %14 = load i32, ptr @standbyState, align 4
@@ -1872,7 +1872,7 @@ define dso_local noundef zeroext i1 @TransactionIdIsInProgress(i32 noundef %0) l
 69:                                               ; preds = %67
   %70 = getelementptr inbounds nuw %struct.XidCacheStatus, ptr %38, i64 %indvars.iv89
   %71 = load i8, ptr %70, align 1
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !32
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !29
   %72 = getelementptr inbounds nuw [0 x i32], ptr %55, i64 0, i64 %indvars.iv89
   %73 = load i32, ptr %72, align 4
   %74 = load ptr, ptr @allProcs, align 8
@@ -1891,7 +1891,7 @@ define dso_local noundef zeroext i1 @TransactionIdIsInProgress(i32 noundef %0) l
   %80 = getelementptr inbounds nuw [64 x i32], ptr %76, i64 0, i64 %indvars.iv.next
   %81 = load volatile i32, ptr %80, align 4
   %.not65 = icmp eq i32 %81, %0
-  br i1 %.not65, label %92, label %.critedge, !llvm.loop !33
+  br i1 %.not65, label %92, label %.critedge, !llvm.loop !30
 
 82:                                               ; preds = %.critedge
   %83 = getelementptr inbounds nuw i8, ptr %70, i64 1
@@ -1911,7 +1911,7 @@ define dso_local noundef zeroext i1 @TransactionIdIsInProgress(i32 noundef %0) l
   %.254.ph = phi i32 [ %.05284, %82 ], [ %88, %86 ], [ %.05284, %67 ], [ %.05284, %59 ], [ %.05284, %57 ]
   %indvars.iv.next90 = add nuw nsw i64 %indvars.iv89, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next90, %wide.trip.count
-  br i1 %exitcond.not, label %.thread73, label %57, !llvm.loop !34
+  br i1 %exitcond.not, label %.thread73, label %57, !llvm.loop !31
 
 92:                                               ; preds = %79
   %93 = load ptr, ptr @MainLWLockArray, align 8
@@ -1930,7 +1930,7 @@ define dso_local noundef zeroext i1 @TransactionIdIsInProgress(i32 noundef %0) l
   %99 = load i32, ptr %98, align 4
   %100 = getelementptr inbounds nuw i8, ptr %97, i64 20
   %101 = load i32, ptr %100, align 4
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !35
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !32
   %102 = add i32 %101, -1
   %.not60.i.i = icmp sgt i32 %99, %102
   br i1 %.not60.i.i, label %KnownAssignedXidExists.exit.thread, label %.lr.ph.i.i
@@ -1954,7 +1954,7 @@ define dso_local noundef zeroext i1 @TransactionIdIsInProgress(i32 noundef %0) l
   %.244.i.i = select i1 %111, i32 %112, i32 %.04261.i.i
   %.2.i.i = select i1 %111, i32 %.03762.i.i, i32 %113
   %.not.i.i = icmp sgt i32 %.2.i.i, %.244.i.i
-  br i1 %.not.i.i, label %KnownAssignedXidExists.exit.thread, label %.lr.ph.i.i, !llvm.loop !36
+  br i1 %.not.i.i, label %KnownAssignedXidExists.exit.thread, label %.lr.ph.i.i
 
 114:                                              ; preds = %.lr.ph.i.i
   %115 = icmp slt i32 %103, -1
@@ -2063,7 +2063,7 @@ define internal fastcc zeroext i1 @pg_lfind32(i32 noundef %0, ptr noundef readon
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   %or.cond.i = select i1 %13, i1 true, i1 %exitcond.not.i
-  br i1 %or.cond.i, label %pg_lfind32_one_by_one_helper.exit, label %10, !llvm.loop !37
+  br i1 %or.cond.i, label %pg_lfind32_one_by_one_helper.exit, label %10, !llvm.loop !33
 
 .preheader:                                       ; preds = %.preheader.preheader, %29
   %indvars.iv = phi i64 [ 0, %.preheader.preheader ], [ %indvars.iv.next, %29 ]
@@ -2092,7 +2092,7 @@ define internal fastcc zeroext i1 @pg_lfind32(i32 noundef %0, ptr noundef readon
 29:                                               ; preds = %.preheader
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 16
   %30 = icmp samesign ult i64 %indvars.iv.next, %8
-  br i1 %30, label %.preheader, label %31, !llvm.loop !38
+  br i1 %30, label %.preheader, label %31, !llvm.loop !34
 
 31:                                               ; preds = %29
   %32 = add i32 %2, -16
@@ -2169,7 +2169,7 @@ define dso_local noundef zeroext i1 @TransactionIdIsActive(i32 noundef %0) local
 .thread:                                          ; preds = %21, %16
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %16, !llvm.loop !39
+  br i1 %exitcond.not, label %._crit_edge, label %16, !llvm.loop !35
 
 ._crit_edge:                                      ; preds = %.thread, %21, %8
   %.1 = phi i1 [ false, %8 ], [ false, %.thread ], [ true, %21 ]
@@ -2430,7 +2430,7 @@ TransactionIdOlder.exit100:                       ; preds = %67, %69
   %72 = load i32, ptr %2, align 4
   %73 = sext i32 %72 to i64
   %74 = icmp slt i64 %indvars.iv.next, %73
-  br i1 %74, label %33, label %._crit_edge, !llvm.loop !40
+  br i1 %74, label %33, label %._crit_edge, !llvm.loop !36
 
 75:                                               ; preds = %._crit_edge
   %76 = load ptr, ptr @procArray, align 8
@@ -2438,7 +2438,7 @@ TransactionIdOlder.exit100:                       ; preds = %67, %69
   %78 = load i32, ptr %77, align 4
   %79 = getelementptr inbounds nuw i8, ptr %76, i64 20
   %80 = load i32, ptr %79, align 4
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !41
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !37
   %81 = icmp slt i32 %78, %80
   br i1 %81, label %.lr.ph.i, label %KnownAssignedXidsGetOldestXmin.exit
 
@@ -2451,7 +2451,7 @@ TransactionIdOlder.exit100:                       ; preds = %67, %69
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, 1
   %lftr.wideiv.i = trunc i64 %indvars.iv.next.i to i32
   %exitcond.not.i = icmp eq i32 %80, %lftr.wideiv.i
-  br i1 %exitcond.not.i, label %KnownAssignedXidsGetOldestXmin.exit, label %85, !llvm.loop !42
+  br i1 %exitcond.not.i, label %KnownAssignedXidsGetOldestXmin.exit, label %85, !llvm.loop !38
 
 85:                                               ; preds = %84, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %83, %.lr.ph.i ], [ %indvars.iv.next.i, %84 ]
@@ -2878,7 +2878,7 @@ define dso_local noundef ptr @GetSnapshotData(ptr noundef returned captures(ret:
   %.pre167 = load i64, ptr %.phi.trans.insert, align 8
   %.not.i = icmp eq i64 %.pre167, %40
   %or.cond169 = select i1 %41, i1 %.not.i, i1 false
-  br i1 %or.cond169, label %42, label %._crit_edge166, !prof !43
+  br i1 %or.cond169, label %42, label %._crit_edge166, !prof !39
 
 42:                                               ; preds = %35
   %43 = load ptr, ptr @MyProc, align 8
@@ -2963,7 +2963,7 @@ define dso_local noundef ptr @GetSnapshotData(ptr noundef returned captures(ret:
   %87 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv
   %88 = load volatile i32, ptr %87, align 4
   %89 = icmp eq i32 %88, 0
-  br i1 %89, label %125, label %90, !prof !44
+  br i1 %89, label %125, label %90, !prof !40
 
 90:                                               ; preds = %86
   %91 = icmp ne i64 %indvars.iv, %85
@@ -3008,7 +3008,7 @@ define dso_local noundef ptr @GetSnapshotData(ptr noundef returned captures(ret:
   %115 = load i32, ptr %114, align 4
   %116 = load ptr, ptr @allProcs, align 8
   %117 = sext i32 %115 to i64
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !45
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !41
   %118 = load ptr, ptr %84, align 8
   %119 = sext i32 %.0102161 to i64
   %120 = getelementptr inbounds i32, ptr %118, i64 %119
@@ -3026,7 +3026,7 @@ define dso_local noundef ptr @GetSnapshotData(ptr noundef returned captures(ret:
   %.1 = phi i32 [ %.0101162, %86 ], [ %.0101162, %90 ], [ %.0101162, %94 ], [ %101, %98 ], [ %101, %105 ], [ %101, %112 ], [ %101, %110 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %86, !llvm.loop !46
+  br i1 %exitcond.not, label %._crit_edge, label %86, !llvm.loop !42
 
 126:                                              ; preds = %._crit_edge166
   %127 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -3257,7 +3257,7 @@ define internal fastcc i32 @KnownAssignedXidsGetAndSetXmin(ptr noundef writeonly
   %6 = load i32, ptr %5, align 4
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 20
   %8 = load i32, ptr %7, align 4
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !47
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !43
   %9 = icmp slt i32 %6, %8
   br i1 %9, label %.lr.ph, label %._crit_edge
 
@@ -3307,7 +3307,7 @@ define internal fastcc i32 @KnownAssignedXidsGetAndSetXmin(ptr noundef writeonly
   %indvars.iv.next31 = add nsw i64 %indvars.iv30, 1
   %lftr.wideiv33 = trunc i64 %indvars.iv.next31 to i32
   %exitcond34.not = icmp eq i32 %8, %lftr.wideiv33
-  br i1 %exitcond34.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !48
+  br i1 %exitcond34.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !44
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %48
   %30 = phi ptr [ %49, %48 ], [ %.pre37, %.lr.ph ]
@@ -3352,7 +3352,7 @@ define internal fastcc i32 @KnownAssignedXidsGetAndSetXmin(ptr noundef writeonly
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
   %exitcond.not = icmp eq i32 %8, %lftr.wideiv
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !50
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !46
 
 ._crit_edge:                                      ; preds = %48, %43, %28, %3
   %.018.lcssa = phi i32 [ 0, %3 ], [ %.3.us, %28 ], [ %.01825, %43 ], [ %.3, %48 ]
@@ -3450,7 +3450,7 @@ define dso_local noundef zeroext i1 @ProcArrayInstallImportedXmin(i32 noundef %0
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %50 = sext i32 %47 to i64
   %51 = icmp slt i64 %indvars.iv.next, %50
-  br i1 %51, label %12, label %.loopexit, !llvm.loop !51
+  br i1 %51, label %12, label %.loopexit, !llvm.loop !47
 
 .loopexit:                                        ; preds = %46, %4, %43
   %52 = phi i1 [ true, %43 ], [ false, %4 ], [ false, %46 ]
@@ -3621,7 +3621,7 @@ define dso_local noundef nonnull ptr @GetRunningTransactionData() local_unnamed_
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %65 = sext i32 %64 to i64
   %66 = icmp slt i64 %indvars.iv.next, %65
-  br i1 %66, label %37, label %._crit_edge, !llvm.loop !52
+  br i1 %66, label %37, label %._crit_edge, !llvm.loop !48
 
 ._crit_edge:                                      ; preds = %63
   br i1 %.169, label %.loopexit, label %67
@@ -3653,7 +3653,7 @@ define dso_local noundef nonnull ptr @GetRunningTransactionData() local_unnamed_
   %80 = getelementptr inbounds nuw [0 x i32], ptr %72, i64 0, i64 %indvars.iv91
   %81 = load i32, ptr %80, align 4
   %82 = sext i32 %81 to i64
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !53
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !49
   %83 = sext i32 %.36485 to i64
   %84 = getelementptr inbounds i32, ptr %21, i64 %83
   %85 = getelementptr inbounds %struct.PGPROC, ptr %79, i64 %82, i32 31
@@ -3672,7 +3672,7 @@ define dso_local noundef nonnull ptr @GetRunningTransactionData() local_unnamed_
   %indvars.iv.next92 = add nuw nsw i64 %indvars.iv91, 1
   %92 = sext i32 %91 to i64
   %93 = icmp slt i64 %indvars.iv.next92, %92
-  br i1 %93, label %73, label %.loopexit, !llvm.loop !54
+  br i1 %93, label %73, label %.loopexit, !llvm.loop !50
 
 .loopexit:                                        ; preds = %90, %20, %67, %._crit_edge
   %.0.lcssa103 = phi i32 [ %.1, %._crit_edge ], [ %.1, %67 ], [ %33, %20 ], [ %.1, %90 ]
@@ -3740,7 +3740,7 @@ define dso_local i32 @GetOldestActiveTransactionId() local_unnamed_addr #0 {
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %27 = sext i32 %26 to i64
   %28 = icmp slt i64 %indvars.iv.next, %27
-  br i1 %28, label %.lr.ph, label %._crit_edge, !llvm.loop !55
+  br i1 %28, label %.lr.ph, label %._crit_edge, !llvm.loop !51
 
 ._crit_edge:                                      ; preds = %25, %0
   %.0.lcssa = phi i32 [ %11, %0 ], [ %.1, %25 ]
@@ -3831,7 +3831,7 @@ define dso_local i32 @GetOldestSafeDecodingTransactionId(i1 noundef zeroext %0) 
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %46 = sext i32 %45 to i64
   %47 = icmp slt i64 %indvars.iv.next, %46
-  br i1 %47, label %.lr.ph, label %.loopexit, !llvm.loop !56
+  br i1 %47, label %.lr.ph, label %.loopexit, !llvm.loop !52
 
 .loopexit:                                        ; preds = %44, %32, %31
   %.2 = phi i32 [ %.1, %31 ], [ %.1, %32 ], [ %.4, %44 ]
@@ -3899,7 +3899,7 @@ define dso_local ptr @GetVirtualXIDsDelayingChkpt(ptr noundef writeonly captures
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %36 = sext i32 %35 to i64
   %37 = icmp slt i64 %indvars.iv.next, %36
-  br i1 %37, label %16, label %._crit_edge, !llvm.loop !57
+  br i1 %37, label %16, label %._crit_edge, !llvm.loop !53
 
 ._crit_edge:                                      ; preds = %34, %2
   %.0.lcssa = phi i32 [ 0, %2 ], [ %.1, %34 ]
@@ -3952,7 +3952,7 @@ define dso_local noundef zeroext i1 @HaveVirtualXIDsDelayingChkpt(ptr noundef re
 .thread.us:                                       ; preds = %33, %.lr.ph44.split.us
   %indvars.iv.next49 = add nuw nsw i64 %indvars.iv48, 1
   %exitcond52.not = icmp eq i64 %indvars.iv.next49, %wide.trip.count51
-  br i1 %exitcond52.not, label %.thread37, label %.lr.ph44.split.us, !llvm.loop !58
+  br i1 %exitcond52.not, label %.thread37, label %.lr.ph44.split.us, !llvm.loop !54
 
 .preheader.us:                                    ; preds = %.lr.ph44.split.us, %33
   %indvars.iv = phi i64 [ %indvars.iv.next, %33 ], [ 0, %.lr.ph44.split.us ]
@@ -3970,7 +3970,7 @@ define dso_local noundef zeroext i1 @HaveVirtualXIDsDelayingChkpt(ptr noundef re
 33:                                               ; preds = %29, %.preheader.us
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.thread.us, label %.preheader.us, !llvm.loop !59
+  br i1 %exitcond.not, label %.thread.us, label %.preheader.us, !llvm.loop !55
 
 .thread37:                                        ; preds = %.thread.us, %29, %.lr.ph44, %3
   %.125 = phi i1 [ false, %3 ], [ false, %.lr.ph44 ], [ true, %29 ], [ false, %.thread.us ]
@@ -4084,7 +4084,7 @@ define dso_local ptr @BackendPidGetProc(i32 noundef %0) local_unnamed_addr #0 {
 11:                                               ; preds = %12
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %BackendPidGetProcWithLock.exit, label %12, !llvm.loop !60
+  br i1 %exitcond.not.i, label %BackendPidGetProcWithLock.exit, label %12, !llvm.loop !56
 
 12:                                               ; preds = %11, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %11 ]
@@ -4129,7 +4129,7 @@ define dso_local ptr @BackendPidGetProcWithLock(i32 noundef %0) local_unnamed_ad
 8:                                                ; preds = %9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %9, !llvm.loop !60
+  br i1 %exitcond.not, label %.loopexit, label %9, !llvm.loop !56
 
 9:                                                ; preds = %.lr.ph, %8
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %8 ]
@@ -4171,7 +4171,7 @@ define dso_local i32 @BackendXidGetPid(i32 noundef %0) local_unnamed_addr #0 {
 13:                                               ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !61
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !57
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %13
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %13 ]
@@ -4225,7 +4225,7 @@ define dso_local zeroext i1 @IsBackendPid(i32 noundef %0) local_unnamed_addr #0 
 11:                                               ; preds = %12
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %BackendPidGetProcWithLock.exit.i.loopexit, label %12, !llvm.loop !60
+  br i1 %exitcond.not.i.i, label %BackendPidGetProcWithLock.exit.i.loopexit, label %12, !llvm.loop !56
 
 12:                                               ; preds = %11, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %11 ]
@@ -4339,7 +4339,7 @@ define dso_local ptr @GetCurrentVirtualXIDs(i32 noundef %0, i1 noundef zeroext %
   %52 = load i32, ptr %6, align 4
   %53 = sext i32 %52 to i64
   %54 = icmp slt i64 %indvars.iv.next66, %53
-  br i1 %54, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !62
+  br i1 %54, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !58
 
 .lr.ph.split:                                     ; preds = %.lr.ph
   br i1 %.not, label %.lr.ph.split.split.us, label %.lr.ph.split.split
@@ -4411,7 +4411,7 @@ define dso_local ptr @GetCurrentVirtualXIDs(i32 noundef %0, i1 noundef zeroext %
   %indvars.iv.next63 = add nuw nsw i64 %indvars.iv62, 1
   %92 = sext i32 %90 to i64
   %93 = icmp slt i64 %indvars.iv.next63, %92
-  br i1 %93, label %55, label %._crit_edge, !llvm.loop !63
+  br i1 %93, label %55, label %._crit_edge, !llvm.loop !59
 
 .lr.ph.split.split:                               ; preds = %.lr.ph.split
   br i1 %1, label %.lr.ph.split.split.split, label %.lr.ph.split.split.split.us
@@ -4477,7 +4477,7 @@ define dso_local ptr @GetCurrentVirtualXIDs(i32 noundef %0, i1 noundef zeroext %
   %129 = load i32, ptr %6, align 4
   %130 = sext i32 %129 to i64
   %131 = icmp slt i64 %indvars.iv.next, %130
-  br i1 %131, label %.lr.ph.split.split.split.us, label %._crit_edge, !llvm.loop !64
+  br i1 %131, label %.lr.ph.split.split.split.us, label %._crit_edge, !llvm.loop !60
 
 .lr.ph.split.split.split:                         ; preds = %.lr.ph.split.split, %167
   %132 = phi ptr [ %168, %167 ], [ %.pre75, %.lr.ph.split.split ]
@@ -4544,7 +4544,7 @@ define dso_local ptr @GetCurrentVirtualXIDs(i32 noundef %0, i1 noundef zeroext %
   %169 = load i32, ptr %6, align 4
   %170 = sext i32 %169 to i64
   %171 = icmp slt i64 %indvars.iv.next60, %170
-  br i1 %171, label %.lr.ph.split.split.split, label %._crit_edge, !llvm.loop !65
+  br i1 %171, label %.lr.ph.split.split.split, label %._crit_edge, !llvm.loop !61
 
 ._crit_edge:                                      ; preds = %127, %167, %89, %50, %5
   %.0.lcssa = phi i32 [ 0, %5 ], [ %.1.us, %50 ], [ %.1.us43, %89 ], [ %.1, %167 ], [ %.1.us52, %127 ]
@@ -4648,7 +4648,7 @@ define dso_local ptr @GetConflictingVirtualXIDs(i32 noundef %0, i32 noundef %1) 
   %indvars.iv.next44 = add nuw nsw i64 %indvars.iv43, 1
   %54 = sext i32 %53 to i64
   %55 = icmp slt i64 %indvars.iv.next44, %54
-  br i1 %55, label %27, label %._crit_edge, !llvm.loop !66
+  br i1 %55, label %27, label %._crit_edge, !llvm.loop !62
 
 .lr.ph.split:                                     ; preds = %.lr.ph
   br i1 %.not, label %.lr.ph.split.split.us, label %.lr.ph.split.split
@@ -4702,7 +4702,7 @@ define dso_local ptr @GetConflictingVirtualXIDs(i32 noundef %0, i32 noundef %1) 
   %81 = load i32, ptr %3, align 4
   %82 = sext i32 %81 to i64
   %83 = icmp slt i64 %indvars.iv.next41, %82
-  br i1 %83, label %.lr.ph.split.split.us, label %._crit_edge, !llvm.loop !67
+  br i1 %83, label %.lr.ph.split.split.us, label %._crit_edge, !llvm.loop !63
 
 .lr.ph.split.split:                               ; preds = %.lr.ph.split, %111
   %84 = phi ptr [ %112, %111 ], [ %25, %.lr.ph.split ]
@@ -4759,7 +4759,7 @@ define dso_local ptr @GetConflictingVirtualXIDs(i32 noundef %0, i32 noundef %1) 
   %113 = load i32, ptr %3, align 4
   %114 = sext i32 %113 to i64
   %115 = icmp slt i64 %indvars.iv.next, %114
-  br i1 %115, label %.lr.ph.split.split, label %._crit_edge, !llvm.loop !68
+  br i1 %115, label %.lr.ph.split.split, label %._crit_edge, !llvm.loop !64
 
 ._crit_edge:                                      ; preds = %111, %79, %52, %18
   %.0.lcssa = phi i32 [ 0, %18 ], [ %.1.us, %52 ], [ %.1.us34, %79 ], [ %.1, %111 ]
@@ -4828,7 +4828,7 @@ define dso_local i32 @CancelVirtualTransaction(i64 %0, i32 noundef %1) local_unn
 29:                                               ; preds = %19, %11
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %SignalVirtualTransaction.exit, label %11, !llvm.loop !69
+  br i1 %exitcond.not.i, label %SignalVirtualTransaction.exit, label %11, !llvm.loop !65
 
 SignalVirtualTransaction.exit:                    ; preds = %29, %2, %23, %27
   %.1.i = phi i32 [ %26, %27 ], [ 0, %23 ], [ 0, %2 ], [ 0, %29 ]
@@ -4890,7 +4890,7 @@ define dso_local i32 @SignalVirtualTransaction(i64 %0, i32 noundef %1, i1 nounde
 31:                                               ; preds = %21, %13
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %13, !llvm.loop !69
+  br i1 %exitcond.not, label %.loopexit, label %13, !llvm.loop !65
 
 .loopexit:                                        ; preds = %31, %3, %29, %25
   %.1 = phi i32 [ %28, %29 ], [ 0, %25 ], [ 0, %3 ], [ 0, %31 ]
@@ -4959,7 +4959,7 @@ define dso_local zeroext i1 @MinimumActiveBackends(i32 noundef %0) local_unnamed
   %.231 = phi i32 [ %28, %27 ], [ %.01833, %9 ], [ %.01833, %16 ], [ %.01833, %20 ], [ %.01833, %24 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %9, !llvm.loop !70
+  br i1 %exitcond.not, label %._crit_edge, label %9, !llvm.loop !66
 
 ._crit_edge:                                      ; preds = %.thread, %27, %.preheader
   %.1 = phi i32 [ 0, %.preheader ], [ %28, %27 ], [ %.231, %.thread ]
@@ -4985,35 +4985,27 @@ define dso_local i32 @CountDBBackends(i32 noundef %0) local_unnamed_addr #0 {
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 36
   %9 = load ptr, ptr @allProcs, align 8
   %.not = icmp eq i32 %0, 0
-  br i1 %.not, label %.lr.ph.split.us, label %.lr.ph.split.preheader
-
-.lr.ph.split.preheader:                           ; preds = %.lr.ph
-  %wide.trip.count = zext nneg i32 %6 to i64
-  br label %.lr.ph.split
-
-.lr.ph.split.us:                                  ; preds = %.lr.ph
-  %invariant.gep = getelementptr i8, ptr %9, i64 60
   %wide.trip.count21 = zext nneg i32 %6 to i64
-  br label %10
+  br i1 %.not, label %.lr.ph.split.us, label %.lr.ph.split
 
-10:                                               ; preds = %10, %.lr.ph.split.us
-  %indvars.iv18 = phi i64 [ %indvars.iv.next19, %10 ], [ 0, %.lr.ph.split.us ]
-  %.014.us = phi i32 [ %spec.select, %10 ], [ 0, %.lr.ph.split.us ]
-  %11 = getelementptr inbounds nuw [0 x i32], ptr %8, i64 0, i64 %indvars.iv18
-  %12 = load i32, ptr %11, align 4
-  %13 = sext i32 %12 to i64
-  %gep = getelementptr %struct.PGPROC, ptr %invariant.gep, i64 %13
-  %14 = load i32, ptr %gep, align 4
+.lr.ph.split.us:                                  ; preds = %.lr.ph, %.lr.ph.split.us
+  %indvars.iv18 = phi i64 [ %indvars.iv.next19, %.lr.ph.split.us ], [ 0, %.lr.ph ]
+  %.014.us = phi i32 [ %spec.select, %.lr.ph.split.us ], [ 0, %.lr.ph ]
+  %10 = getelementptr inbounds nuw [0 x i32], ptr %8, i64 0, i64 %indvars.iv18
+  %11 = load i32, ptr %10, align 4
+  %12 = sext i32 %11 to i64
+  %13 = getelementptr inbounds %struct.PGPROC, ptr %9, i64 %12, i32 7
+  %14 = load i32, ptr %13, align 4
   %15 = icmp ne i32 %14, 0
   %16 = zext i1 %15 to i32
   %spec.select = add i32 %.014.us, %16
   %indvars.iv.next19 = add nuw nsw i64 %indvars.iv18, 1
   %exitcond22.not = icmp eq i64 %indvars.iv.next19, %wide.trip.count21
-  br i1 %exitcond22.not, label %._crit_edge, label %10, !llvm.loop !71
+  br i1 %exitcond22.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !67
 
-.lr.ph.split:                                     ; preds = %.lr.ph.split.preheader, %29
-  %indvars.iv = phi i64 [ 0, %.lr.ph.split.preheader ], [ %indvars.iv.next, %29 ]
-  %.014 = phi i32 [ 0, %.lr.ph.split.preheader ], [ %.1, %29 ]
+.lr.ph.split:                                     ; preds = %.lr.ph, %29
+  %indvars.iv = phi i64 [ %indvars.iv.next, %29 ], [ 0, %.lr.ph ]
+  %.014 = phi i32 [ %.1, %29 ], [ 0, %.lr.ph ]
   %17 = getelementptr inbounds nuw [0 x i32], ptr %8, i64 0, i64 %indvars.iv
   %18 = load i32, ptr %17, align 4
   %19 = sext i32 %18 to i64
@@ -5034,11 +5026,11 @@ define dso_local i32 @CountDBBackends(i32 noundef %0) local_unnamed_addr #0 {
 29:                                               ; preds = %24, %.lr.ph.split
   %.1 = phi i32 [ %.014, %.lr.ph.split ], [ %spec.select15, %24 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !72
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count21
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !68
 
-._crit_edge:                                      ; preds = %29, %10, %1
-  %.0.lcssa = phi i32 [ 0, %1 ], [ %spec.select, %10 ], [ %.1, %29 ]
+._crit_edge:                                      ; preds = %29, %.lr.ph.split.us, %1
+  %.0.lcssa = phi i32 [ 0, %1 ], [ %spec.select, %.lr.ph.split.us ], [ %.1, %29 ]
   %30 = load ptr, ptr @MainLWLockArray, align 8
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 512
   tail call void @LWLockRelease(ptr noundef nonnull %31) #15
@@ -5085,7 +5077,7 @@ define dso_local i32 @CountDBConnections(i32 noundef %0) local_unnamed_addr #0 {
   %.1.us = phi i32 [ %.015.us, %.lr.ph.split.us ], [ %spec.select, %17 ]
   %indvars.iv.next20 = add nuw nsw i64 %indvars.iv19, 1
   %exitcond23.not = icmp eq i64 %indvars.iv.next20, %wide.trip.count22
-  br i1 %exitcond23.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !73
+  br i1 %exitcond23.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !69
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %38
   %indvars.iv = phi i64 [ %indvars.iv.next, %38 ], [ 0, %.lr.ph ]
@@ -5117,7 +5109,7 @@ define dso_local i32 @CountDBConnections(i32 noundef %0) local_unnamed_addr #0 {
   %.1 = phi i32 [ %.015, %.lr.ph.split ], [ %.015, %29 ], [ %spec.select16, %33 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count22
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !74
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !70
 
 ._crit_edge:                                      ; preds = %38, %21, %1
   %.0.lcssa = phi i32 [ 0, %1 ], [ %.1.us, %21 ], [ %.1, %38 ]
@@ -5171,7 +5163,7 @@ define dso_local void @CancelDBBackends(i32 noundef %0, i32 noundef %1, i1 nound
   %27 = load i32, ptr %5, align 4
   %28 = sext i32 %27 to i64
   %29 = icmp slt i64 %indvars.iv.next22, %28
-  br i1 %29, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !75
+  br i1 %29, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !71
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %46
   %30 = phi ptr [ %47, %46 ], [ %.pre26, %.lr.ph ]
@@ -5206,7 +5198,7 @@ define dso_local void @CancelDBBackends(i32 noundef %0, i32 noundef %1, i1 nound
   %48 = load i32, ptr %5, align 4
   %49 = sext i32 %48 to i64
   %50 = icmp slt i64 %indvars.iv.next, %49
-  br i1 %50, label %.lr.ph.split, label %._crit_edge, !llvm.loop !76
+  br i1 %50, label %.lr.ph.split, label %._crit_edge, !llvm.loop !72
 
 ._crit_edge:                                      ; preds = %46, %25, %3
   %51 = load ptr, ptr @MainLWLockArray, align 8
@@ -5261,7 +5253,7 @@ define dso_local i32 @CountUserBackends(i32 noundef %0) local_unnamed_addr #0 {
   %.1 = phi i32 [ %spec.select, %22 ], [ %.013, %10 ], [ %.013, %18 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %10, !llvm.loop !77
+  br i1 %exitcond.not, label %._crit_edge, label %10, !llvm.loop !73
 
 ._crit_edge:                                      ; preds = %27, %1
   %.0.lcssa = phi i32 [ 0, %1 ], [ %.1, %27 ]
@@ -5283,7 +5275,7 @@ define dso_local noundef zeroext i1 @CountOtherDBBackends(i32 noundef %0, ptr no
   %.02948 = phi i32 [ 0, %3 ], [ %59, %._crit_edge47 ]
   %8 = load volatile i32, ptr @InterruptPending, align 4
   %.not = icmp eq i32 %8, 0
-  br i1 %.not, label %10, label %9, !prof !44
+  br i1 %.not, label %10, label %9, !prof !40
 
 9:                                                ; preds = %7
   tail call void @ProcessInterrupts() #15
@@ -5361,7 +5353,7 @@ define dso_local noundef zeroext i1 @CountOtherDBBackends(i32 noundef %0, ptr no
   %50 = load i32, ptr %5, align 4
   %51 = sext i32 %50 to i64
   %52 = icmp slt i64 %indvars.iv.next, %51
-  br i1 %52, label %17, label %._crit_edge, !llvm.loop !78
+  br i1 %52, label %17, label %._crit_edge, !llvm.loop !74
 
 ._crit_edge:                                      ; preds = %49
   %53 = load ptr, ptr @MainLWLockArray, align 8
@@ -5384,13 +5376,13 @@ define dso_local noundef zeroext i1 @CountOtherDBBackends(i32 noundef %0, ptr no
   %58 = tail call i32 @kill(i32 noundef %57, i32 noundef 15) #15
   %indvars.iv.next50 = add nuw nsw i64 %indvars.iv49, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next50, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge47, label %.lr.ph46, !llvm.loop !79
+  br i1 %exitcond.not, label %._crit_edge47, label %.lr.ph46, !llvm.loop !75
 
 ._crit_edge47:                                    ; preds = %.lr.ph46, %.preheader
   tail call void @pg_usleep(i64 noundef 100000) #15
   %59 = add nuw nsw i32 %.02948, 1
   %exitcond53 = icmp eq i32 %59, 50
-  br i1 %exitcond53, label %.critedge, label %7, !llvm.loop !80
+  br i1 %exitcond53, label %.critedge, label %7, !llvm.loop !76
 
 .critedge.critedge:                               ; preds = %10
   %60 = load ptr, ptr @MainLWLockArray, align 8
@@ -5479,7 +5471,7 @@ define dso_local void @TerminateOtherDBBackends(i32 noundef %0) local_unnamed_ad
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %34 = sext i32 %31 to i64
   %35 = icmp slt i64 %indvars.iv.next, %34
-  br i1 %35, label %12, label %._crit_edge, !llvm.loop !81
+  br i1 %35, label %12, label %._crit_edge, !llvm.loop !77
 
 ._crit_edge:                                      ; preds = %30
   %36 = load ptr, ptr @MainLWLockArray, align 8
@@ -5547,7 +5539,7 @@ define dso_local void @TerminateOtherDBBackends(i32 noundef %0) local_unnamed_ad
 65:                                               ; preds = %66
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %BackendPidGetProc.exit.thread70, label %66, !llvm.loop !60
+  br i1 %exitcond.not.i.i, label %BackendPidGetProc.exit.thread70, label %66, !llvm.loop !56
 
 66:                                               ; preds = %65, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %65 ]
@@ -5613,7 +5605,7 @@ BackendPidGetProc.exit.thread:                    ; preds = %52, %BackendPidGetP
   %101 = load i32, ptr %47, align 4
   %102 = sext i32 %101 to i64
   %.not48 = icmp slt i64 %indvars.iv.next95, %102
-  br i1 %.not48, label %52, label %.critedge.preheader, !llvm.loop !82
+  br i1 %.not48, label %52, label %.critedge.preheader, !llvm.loop !78
 
 103:                                              ; preds = %.lr.ph91, %BackendPidGetProc.exit67.thread
   %indvars.iv97 = phi i64 [ 0, %.lr.ph91 ], [ %indvars.iv.next98, %BackendPidGetProc.exit67.thread ]
@@ -5641,7 +5633,7 @@ BackendPidGetProc.exit.thread:                    ; preds = %52, %BackendPidGetP
 116:                                              ; preds = %117
   %indvars.iv.next.i.i65 = add nuw nsw i64 %indvars.iv.i.i64, 1
   %exitcond.not.i.i66 = icmp eq i64 %indvars.iv.next.i.i65, %wide.trip.count.i.i63
-  br i1 %exitcond.not.i.i66, label %BackendPidGetProc.exit67.thread75, label %117, !llvm.loop !60
+  br i1 %exitcond.not.i.i66, label %BackendPidGetProc.exit67.thread75, label %117, !llvm.loop !56
 
 117:                                              ; preds = %116, %.lr.ph.i.i62
   %indvars.iv.i.i64 = phi i64 [ 0, %.lr.ph.i.i62 ], [ %indvars.iv.next.i.i65, %116 ]
@@ -5672,7 +5664,7 @@ BackendPidGetProc.exit67.thread:                  ; preds = %103, %BackendPidGet
   %131 = load i32, ptr %47, align 4
   %132 = sext i32 %131 to i64
   %.not50 = icmp slt i64 %indvars.iv.next98, %132
-  br i1 %.not50, label %103, label %.critedge56, !llvm.loop !83
+  br i1 %.not50, label %103, label %.critedge56, !llvm.loop !79
 
 .critedge56:                                      ; preds = %BackendPidGetProc.exit67.thread, %.preheader, %.thread, %.critedge.preheader, %46
   ret void
@@ -5808,7 +5800,7 @@ define dso_local void @XidCacheRemoveRunningXids(i32 noundef %0, i32 noundef %1,
   %28 = getelementptr inbounds nuw [64 x i32], ptr %23, i64 0, i64 %27
   %29 = load i32, ptr %28, align 4
   %30 = icmp eq i32 %29, %19
-  br i1 %30, label %31, label %25, !llvm.loop !84
+  br i1 %30, label %31, label %25, !llvm.loop !80
 
 31:                                               ; preds = %26
   %32 = getelementptr inbounds nuw [64 x i32], ptr %23, i64 0, i64 %27
@@ -5816,7 +5808,7 @@ define dso_local void @XidCacheRemoveRunningXids(i32 noundef %0, i32 noundef %1,
   %34 = getelementptr inbounds [64 x i32], ptr %23, i64 0, i64 %33
   %35 = load i32, ptr %34, align 4
   store i32 %35, ptr %32, align 4
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !85
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !81
   %36 = load i8, ptr %15, align 1
   %37 = add i8 %36, -1
   store i8 %37, ptr %15, align 1
@@ -5845,7 +5837,7 @@ define dso_local void @XidCacheRemoveRunningXids(i32 noundef %0, i32 noundef %1,
 50:                                               ; preds = %31, %46, %48, %42
   %indvars.iv.next37 = add nsw i64 %indvars.iv36, -1
   %51 = icmp sgt i64 %indvars.iv36, 0
-  br i1 %51, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !86
+  br i1 %51, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !82
 
 ._crit_edge.loopexit:                             ; preds = %50
   %.pre = load ptr, ptr @MyProc, align 8
@@ -5869,7 +5861,7 @@ define dso_local void @XidCacheRemoveRunningXids(i32 noundef %0, i32 noundef %1,
   %60 = getelementptr inbounds nuw [64 x i32], ptr %55, i64 0, i64 %59
   %61 = load i32, ptr %60, align 4
   %62 = icmp eq i32 %61, %0
-  br i1 %62, label %63, label %57, !llvm.loop !87
+  br i1 %62, label %63, label %57, !llvm.loop !83
 
 63:                                               ; preds = %58
   %64 = getelementptr inbounds nuw [64 x i32], ptr %55, i64 0, i64 %59
@@ -5877,7 +5869,7 @@ define dso_local void @XidCacheRemoveRunningXids(i32 noundef %0, i32 noundef %1,
   %66 = getelementptr inbounds [64 x i32], ptr %55, i64 0, i64 %65
   %67 = load i32, ptr %66, align 4
   store i32 %67, ptr %64, align 4
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !88
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !84
   %68 = load i8, ptr %15, align 1
   %69 = add i8 %68, -1
   store i8 %69, ptr %15, align 1
@@ -6326,7 +6318,7 @@ define dso_local void @ExpireTreeKnownAssignedTransactionIds(i32 noundef %0, i32
   tail call fastcc void @KnownAssignedXidsRemove(i32 noundef %12)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !30
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !27
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %9
   %13 = load ptr, ptr @procArray, align 8
@@ -6385,7 +6377,7 @@ define dso_local void @ExpireTreeKnownAssignedTransactionIds(i32 noundef %0, i32
   %.1.i.i = phi i32 [ %43, %37 ], [ %.037.i.i, %33 ]
   %indvars.iv.next.i.i = add nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %33, !llvm.loop !25
+  br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %33, !llvm.loop !22
 
 ._crit_edge.i.i:                                  ; preds = %44, %28
   %.0.lcssa.i.i = phi i32 [ 0, %28 ], [ %.1.i.i, %44 ]
@@ -6540,7 +6532,7 @@ define internal fastcc void @KnownAssignedXidsRemovePreceding(i32 noundef %0) un
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
   %exitcond.not = icmp eq i32 %18, %lftr.wideiv
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !89
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !85
 
 ._crit_edge:                                      ; preds = %.thread, %25
   %.0.lcssa = phi i32 [ %.4, %.thread ], [ %.042, %25 ]
@@ -6563,7 +6555,7 @@ define internal fastcc void @KnownAssignedXidsRemovePreceding(i32 noundef %0) un
   %indvars.iv.next52 = add nsw i64 %indvars.iv51, 1
   %lftr.wideiv54 = trunc i64 %indvars.iv.next52 to i32
   %exitcond55.not = icmp eq i32 %18, %lftr.wideiv54
-  br i1 %exitcond55.not, label %._crit_edge48, label %41, !llvm.loop !90
+  br i1 %exitcond55.not, label %._crit_edge48, label %41, !llvm.loop !86
 
 ._crit_edge48:                                    ; preds = %45, %14
   store i32 0, ptr %17, align 4
@@ -6621,7 +6613,7 @@ define internal fastcc void @KnownAssignedXidsRemovePreceding(i32 noundef %0) un
   %.1.i = phi i32 [ %71, %65 ], [ %.037.i, %61 ]
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %61, !llvm.loop !25
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %61, !llvm.loop !22
 
 ._crit_edge.i:                                    ; preds = %72, %56
   %.0.lcssa.i = phi i32 [ 0, %56 ], [ %.1.i, %72 ]
@@ -6696,7 +6688,7 @@ define dso_local void @KnownAssignedTransactionIdsIdleMaintenance() local_unname
   %.1.i = phi i32 [ %33, %27 ], [ %.037.i, %23 ]
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %23, !llvm.loop !25
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %23, !llvm.loop !22
 
 ._crit_edge.i:                                    ; preds = %34, %15
   %.0.lcssa.i = phi i32 [ 0, %15 ], [ %.1.i, %34 ]
@@ -6762,7 +6754,7 @@ define internal fastcc void @KnownAssignedXidsRemove(i32 noundef %0) unnamed_add
   %.244.i = select i1 %20, i32 %21, i32 %.04261.i
   %.2.i = select i1 %20, i32 %.03762.i, i32 %22
   %.not.i = icmp sgt i32 %.2.i, %.244.i
-  br i1 %.not.i, label %KnownAssignedXidsSearch.exit, label %.lr.ph.i, !llvm.loop !36
+  br i1 %.not.i, label %KnownAssignedXidsSearch.exit, label %.lr.ph.i
 
 23:                                               ; preds = %.lr.ph.i
   %24 = icmp slt i32 %12, -1
@@ -6796,7 +6788,7 @@ define internal fastcc void @KnownAssignedXidsRemove(i32 noundef %0) unnamed_add
   %39 = getelementptr inbounds i8, ptr %26, i64 %38
   %40 = load i8, ptr %39, align 1, !range !4, !noundef !5
   %41 = trunc nuw i8 %40 to i1
-  br i1 %41, label %.thread56.sink.split.i, label %.preheader.i, !llvm.loop !91
+  br i1 %41, label %.thread56.sink.split.i, label %.preheader.i, !llvm.loop !87
 
 .critedge.i:                                      ; preds = %.preheader.i
   store i32 0, ptr %9, align 4
@@ -6856,89 +6848,85 @@ attributes #17 = { nounwind allocsize(0) }
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i8 0, i8 2}
 !5 = !{}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7, !8}
-!11 = !{i64 2133001, i64 2133018, i64 2133041}
-!12 = distinct !{!12, !8}
-!13 = distinct !{!13, !8}
-!14 = distinct !{!14, !7, !8}
-!15 = distinct !{!15, !7, !8}
-!16 = !{i64 2151881140}
-!17 = distinct !{!17, !7, !8}
-!18 = distinct !{!18, !7, !8}
-!19 = distinct !{!19, !7, !8}
-!20 = distinct !{!20, !7, !8}
-!21 = distinct !{!21, !7, !8}
-!22 = distinct !{!22, !7, !8}
-!23 = distinct !{!23, !7, !8}
-!24 = distinct !{!24, !7, !8}
-!25 = distinct !{!25, !7, !8}
-!26 = distinct !{!26, !7, !8}
-!27 = !{i64 2151917431}
-!28 = distinct !{!28, !7, !8}
-!29 = distinct !{!29, !7, !8}
-!30 = distinct !{!30, !7, !8}
-!31 = distinct !{!31, !7, !8}
-!32 = !{i64 2151890321}
-!33 = distinct !{!33, !7, !8}
-!34 = distinct !{!34, !7, !8}
-!35 = !{i64 2151917531}
-!36 = distinct !{!36, !8}
-!37 = distinct !{!37, !7, !8}
-!38 = distinct !{!38, !7, !8}
-!39 = distinct !{!39, !7, !8}
-!40 = distinct !{!40, !7, !8}
-!41 = !{i64 2151920218}
-!42 = distinct !{!42, !7, !8}
-!43 = !{!"branch_weights", i32 2000, i32 2002}
-!44 = !{!"branch_weights", !"expected", i32 2000, i32 1}
-!45 = !{i64 2151896479}
-!46 = distinct !{!46, !7, !8}
-!47 = !{i64 2151920073}
-!48 = distinct !{!48, !7, !8, !49}
-!49 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!50 = distinct !{!50, !7, !8}
-!51 = distinct !{!51, !7, !8}
-!52 = distinct !{!52, !7, !8}
-!53 = !{i64 2151898947}
-!54 = distinct !{!54, !7, !8}
-!55 = distinct !{!55, !7, !8}
-!56 = distinct !{!56, !7, !8}
-!57 = distinct !{!57, !7, !8}
-!58 = distinct !{!58, !7, !8, !49}
-!59 = distinct !{!59, !7, !8}
-!60 = distinct !{!60, !7, !8}
-!61 = distinct !{!61, !7, !8}
-!62 = distinct !{!62, !7, !8, !49}
-!63 = distinct !{!63, !7, !8, !49}
-!64 = distinct !{!64, !7, !8, !49}
-!65 = distinct !{!65, !7, !8}
-!66 = distinct !{!66, !7, !8, !49}
-!67 = distinct !{!67, !7, !8, !49}
-!68 = distinct !{!68, !7, !8}
-!69 = distinct !{!69, !7, !8}
-!70 = distinct !{!70, !7, !8}
-!71 = distinct !{!71, !7, !8, !49}
-!72 = distinct !{!72, !7, !8}
-!73 = distinct !{!73, !7, !8, !49}
-!74 = distinct !{!74, !7, !8}
-!75 = distinct !{!75, !7, !8, !49}
-!76 = distinct !{!76, !7, !8}
-!77 = distinct !{!77, !7, !8}
-!78 = distinct !{!78, !7, !8}
-!79 = distinct !{!79, !7, !8}
-!80 = distinct !{!80, !7, !8}
-!81 = distinct !{!81, !7, !8}
-!82 = distinct !{!82, !7, !8}
-!83 = distinct !{!83, !7, !8}
-!84 = distinct !{!84, !7, !8}
-!85 = !{i64 2151911545}
-!86 = distinct !{!86, !7, !8}
-!87 = distinct !{!87, !7, !8}
-!88 = !{i64 2151912439}
-!89 = distinct !{!89, !7, !8}
-!90 = distinct !{!90, !7, !8}
-!91 = distinct !{!91, !7, !8}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = !{i64 2133001, i64 2133018, i64 2133041}
+!11 = distinct !{!11, !7}
+!12 = distinct !{!12, !7}
+!13 = !{i64 2151881140}
+!14 = distinct !{!14, !7}
+!15 = distinct !{!15, !7}
+!16 = distinct !{!16, !7}
+!17 = distinct !{!17, !7}
+!18 = distinct !{!18, !7}
+!19 = distinct !{!19, !7}
+!20 = distinct !{!20, !7}
+!21 = distinct !{!21, !7}
+!22 = distinct !{!22, !7}
+!23 = distinct !{!23, !7}
+!24 = !{i64 2151917431}
+!25 = distinct !{!25, !7}
+!26 = distinct !{!26, !7}
+!27 = distinct !{!27, !7}
+!28 = distinct !{!28, !7}
+!29 = !{i64 2151890321}
+!30 = distinct !{!30, !7}
+!31 = distinct !{!31, !7}
+!32 = !{i64 2151917531}
+!33 = distinct !{!33, !7}
+!34 = distinct !{!34, !7}
+!35 = distinct !{!35, !7}
+!36 = distinct !{!36, !7}
+!37 = !{i64 2151920218}
+!38 = distinct !{!38, !7}
+!39 = !{!"branch_weights", i32 2000, i32 2002}
+!40 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!41 = !{i64 2151896479}
+!42 = distinct !{!42, !7}
+!43 = !{i64 2151920073}
+!44 = distinct !{!44, !7, !45}
+!45 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!46 = distinct !{!46, !7}
+!47 = distinct !{!47, !7}
+!48 = distinct !{!48, !7}
+!49 = !{i64 2151898947}
+!50 = distinct !{!50, !7}
+!51 = distinct !{!51, !7}
+!52 = distinct !{!52, !7}
+!53 = distinct !{!53, !7}
+!54 = distinct !{!54, !7, !45}
+!55 = distinct !{!55, !7}
+!56 = distinct !{!56, !7}
+!57 = distinct !{!57, !7}
+!58 = distinct !{!58, !7, !45}
+!59 = distinct !{!59, !7, !45}
+!60 = distinct !{!60, !7, !45}
+!61 = distinct !{!61, !7}
+!62 = distinct !{!62, !7, !45}
+!63 = distinct !{!63, !7, !45}
+!64 = distinct !{!64, !7}
+!65 = distinct !{!65, !7}
+!66 = distinct !{!66, !7}
+!67 = distinct !{!67, !7, !45}
+!68 = distinct !{!68, !7}
+!69 = distinct !{!69, !7, !45}
+!70 = distinct !{!70, !7}
+!71 = distinct !{!71, !7, !45}
+!72 = distinct !{!72, !7}
+!73 = distinct !{!73, !7}
+!74 = distinct !{!74, !7}
+!75 = distinct !{!75, !7}
+!76 = distinct !{!76, !7}
+!77 = distinct !{!77, !7}
+!78 = distinct !{!78, !7}
+!79 = distinct !{!79, !7}
+!80 = distinct !{!80, !7}
+!81 = !{i64 2151911545}
+!82 = distinct !{!82, !7}
+!83 = distinct !{!83, !7}
+!84 = !{i64 2151912439}
+!85 = distinct !{!85, !7}
+!86 = distinct !{!86, !7}
+!87 = distinct !{!87, !7}

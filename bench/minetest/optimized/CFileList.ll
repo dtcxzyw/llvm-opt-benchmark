@@ -555,7 +555,7 @@ pred.store.if136:                                 ; preds = %pred.store.continue
 pred.store.continue137:                           ; preds = %pred.store.if136, %pred.store.continue135
   %index.next138 = add nuw i64 %index112, 8
   %54 = icmp eq i64 %index.next138, %n.vec109
-  br i1 %54, label %vec.epilog.middle.block, label %vec.epilog.vector.body, !llvm.loop !32
+  br i1 %54, label %vec.epilog.middle.block, label %vec.epilog.vector.body, !llvm.loop !31
 
 vec.epilog.middle.block:                          ; preds = %pred.store.continue137
   %ind.end = getelementptr i8, ptr %8, i64 %n.vec109
@@ -579,7 +579,7 @@ if.then.i.i:                                      ; preds = %for.body.i.i
 for.inc.i.i:                                      ; preds = %if.then.i.i, %for.body.i.i
   %incdec.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %__first.sroa.0.010.i.i, i64 1
   %cmp.i.not.i.i = icmp eq ptr %incdec.ptr.i.i.i, %add.ptr.i.i
-  br i1 %cmp.i.not.i.i, label %_ZN3irr4core6stringIcE7replaceEcc.exit, label %for.body.i.i, !llvm.loop !33
+  br i1 %cmp.i.not.i.i, label %_ZN3irr4core6stringIcE7replaceEcc.exit, label %for.body.i.i, !llvm.loop !32
 
 _ZN3irr4core6stringIcE7replaceEcc.exit:           ; preds = %for.inc.i.i, %vec.epilog.middle.block, %middle.block, %_ZN3irr4core6stringIcEC2ERKS2_.exit, %_ZN3irr4core6stringIcEC2ERKS2_.exit.thread
   ret void
@@ -592,9 +592,9 @@ entry:
   %frombool1 = zext i1 %ignorePaths to i8
   %0 = getelementptr inbounds nuw i8, ptr %this, i64 80
   %DebugName.i = getelementptr inbounds nuw i8, ptr %this, i64 88
-  store ptr null, ptr %DebugName.i, align 8, !tbaa !34
+  store ptr null, ptr %DebugName.i, align 8, !tbaa !33
   %ReferenceCounter.i = getelementptr inbounds nuw i8, ptr %this, i64 96
-  store i32 1, ptr %ReferenceCounter.i, align 8, !tbaa !37
+  store i32 1, ptr %ReferenceCounter.i, align 8, !tbaa !36
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3irr2io9CFileListE, i64 24), ptr %this, align 8, !tbaa !11
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3irr2io9CFileListE, i64 152), ptr %0, align 8, !tbaa !11
   %IgnorePaths = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -937,7 +937,7 @@ pred.store.if105:                                 ; preds = %pred.store.continue
 pred.store.continue106:                           ; preds = %pred.store.if105, %pred.store.continue104
   %index.next = add nuw i64 %index, 32
   %38 = icmp eq i64 %index.next, %n.vec
-  br i1 %38, label %middle.block, label %vector.body, !llvm.loop !38
+  br i1 %38, label %middle.block, label %vector.body, !llvm.loop !37
 
 middle.block:                                     ; preds = %pred.store.continue106
   %cmp.n = icmp eq i64 %.pr, %n.vec
@@ -1032,7 +1032,7 @@ pred.store.if135:                                 ; preds = %pred.store.continue
 pred.store.continue136:                           ; preds = %pred.store.if135, %pred.store.continue134
   %index.next137 = add nuw i64 %index111, 8
   %48 = icmp eq i64 %index.next137, %n.vec108
-  br i1 %48, label %vec.epilog.middle.block, label %vec.epilog.vector.body, !llvm.loop !39
+  br i1 %48, label %vec.epilog.middle.block, label %vec.epilog.vector.body, !llvm.loop !38
 
 vec.epilog.middle.block:                          ; preds = %pred.store.continue136
   %ind.end = getelementptr i8, ptr %2, i64 %n.vec108
@@ -1056,7 +1056,7 @@ if.then.i.i:                                      ; preds = %for.body.i.i
 for.inc.i.i:                                      ; preds = %if.then.i.i, %for.body.i.i
   %incdec.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %__first.sroa.0.010.i.i, i64 1
   %cmp.i.not.i.i = icmp eq ptr %incdec.ptr.i.i.i, %add.ptr.i.i
-  br i1 %cmp.i.not.i.i, label %_ZN3irr4core6stringIcE7replaceEcc.exit, label %for.body.i.i, !llvm.loop !40
+  br i1 %cmp.i.not.i.i, label %_ZN3irr4core6stringIcE7replaceEcc.exit, label %for.body.i.i, !llvm.loop !39
 
 _ZN3irr4core6stringIcE7replaceEcc.exit:           ; preds = %for.inc.i.i, %vec.epilog.middle.block, %middle.block, %_ZN3irr4core6stringIcEC2ERKS2_.exit, %_ZN3irr4core6stringIcEC2ERKS2_.exit.thread
   ret void
@@ -1074,9 +1074,9 @@ entry:
   %add.ptr = getelementptr inbounds i8, ptr %this, i64 %vbase.offset
   store ptr %2, ptr %add.ptr, align 8, !tbaa !11
   %Files = getelementptr inbounds nuw i8, ptr %this, i64 48
-  %3 = load ptr, ptr %Files, align 8, !tbaa !41
+  %3 = load ptr, ptr %Files, align 8, !tbaa !40
   %_M_finish.i3.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 56
-  %4 = load ptr, ptr %_M_finish.i3.i.i.i, align 8, !tbaa !42
+  %4 = load ptr, ptr %_M_finish.i3.i.i.i, align 8, !tbaa !41
   %cmp.not3.i.i.i.i.i = icmp eq ptr %3, %4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %Files, i8 0, i64 24, i1 false)
   br i1 %cmp.not3.i.i.i.i.i, label %_ZSt8_DestroyIPN3irr2io14SFileListEntryES2_EvT_S4_RSaIT0_E.exit.i.i, label %for.body.i.i.i.i.i
@@ -1120,7 +1120,7 @@ if.then.i.i.i3.i.i.i.i.i.i.i:                     ; preds = %_ZN3irr4core6string
 _ZSt8_DestroyIN3irr2io14SFileListEntryEEvPT_.exit.i.i.i.i.i: ; preds = %if.then.i.i.i3.i.i.i.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i4.i.i.i.i.i.i.i
   %incdec.ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.04.i.i.i.i.i, i64 80
   %cmp.not.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i, %4
-  br i1 %cmp.not.i.i.i.i.i, label %_ZSt8_DestroyIPN3irr2io14SFileListEntryES2_EvT_S4_RSaIT0_E.exit.i.i, label %for.body.i.i.i.i.i, !llvm.loop !43
+  br i1 %cmp.not.i.i.i.i.i, label %_ZSt8_DestroyIPN3irr2io14SFileListEntryES2_EvT_S4_RSaIT0_E.exit.i.i, label %for.body.i.i.i.i.i, !llvm.loop !42
 
 _ZSt8_DestroyIPN3irr2io14SFileListEntryES2_EvT_S4_RSaIT0_E.exit.i.i: ; preds = %_ZSt8_DestroyIN3irr2io14SFileListEntryEEvPT_.exit.i.i.i.i.i, %entry
   %tobool.not.i.i.i.i = icmp eq ptr %3, null
@@ -1133,8 +1133,8 @@ if.then.i.i.i.i:                                  ; preds = %_ZSt8_DestroyIPN3ir
 _ZN3irr4core5arrayINS_2io14SFileListEntryEE5clearEv.exit: ; preds = %if.then.i.i.i.i, %_ZSt8_DestroyIPN3irr2io14SFileListEntryES2_EvT_S4_RSaIT0_E.exit.i.i
   %is_sorted.i = getelementptr inbounds nuw i8, ptr %this, i64 72
   store i8 1, ptr %is_sorted.i, align 8, !tbaa !26
-  %11 = load ptr, ptr %Files, align 8, !tbaa !41
-  %12 = load ptr, ptr %_M_finish.i3.i.i.i, align 8, !tbaa !42
+  %11 = load ptr, ptr %Files, align 8, !tbaa !40
+  %12 = load ptr, ptr %_M_finish.i3.i.i.i, align 8, !tbaa !41
   %cmp.not3.i.i.i.i.i4 = icmp eq ptr %11, %12
   br i1 %cmp.not3.i.i.i.i.i4, label %_ZSt8_DestroyIPN3irr2io14SFileListEntryES2_EvT_S4_RSaIT0_E.exit.i.i16, label %for.body.i.i.i.i.i5
 
@@ -1177,10 +1177,10 @@ if.then.i.i.i3.i.i.i.i.i.i.i12:                   ; preds = %_ZN3irr4core6string
 _ZSt8_DestroyIN3irr2io14SFileListEntryEEvPT_.exit.i.i.i.i.i13: ; preds = %if.then.i.i.i3.i.i.i.i.i.i.i12, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i4.i.i.i.i.i.i.i19
   %incdec.ptr.i.i.i.i.i14 = getelementptr inbounds nuw i8, ptr %__first.addr.04.i.i.i.i.i6, i64 80
   %cmp.not.i.i.i.i.i15 = icmp eq ptr %incdec.ptr.i.i.i.i.i14, %12
-  br i1 %cmp.not.i.i.i.i.i15, label %_ZSt8_DestroyIPN3irr2io14SFileListEntryES2_EvT_S4_RSaIT0_E.exitthread-pre-split.i.i, label %for.body.i.i.i.i.i5, !llvm.loop !44
+  br i1 %cmp.not.i.i.i.i.i15, label %_ZSt8_DestroyIPN3irr2io14SFileListEntryES2_EvT_S4_RSaIT0_E.exitthread-pre-split.i.i, label %for.body.i.i.i.i.i5, !llvm.loop !42
 
 _ZSt8_DestroyIPN3irr2io14SFileListEntryES2_EvT_S4_RSaIT0_E.exitthread-pre-split.i.i: ; preds = %_ZSt8_DestroyIN3irr2io14SFileListEntryEEvPT_.exit.i.i.i.i.i13
-  %.pr.i.i = load ptr, ptr %Files, align 8, !tbaa !41
+  %.pr.i.i = load ptr, ptr %Files, align 8, !tbaa !40
   br label %_ZSt8_DestroyIPN3irr2io14SFileListEntryES2_EvT_S4_RSaIT0_E.exit.i.i16
 
 _ZSt8_DestroyIPN3irr2io14SFileListEntryES2_EvT_S4_RSaIT0_E.exit.i.i16: ; preds = %_ZSt8_DestroyIPN3irr2io14SFileListEntryES2_EvT_S4_RSaIT0_E.exitthread-pre-split.i.i, %_ZN3irr4core5arrayINS_2io14SFileListEntryEE5clearEv.exit
@@ -1260,8 +1260,8 @@ define noundef i32 @_ZNK3irr2io9CFileList12getFileCountEv(ptr noundef nonnull re
 entry:
   %Files = getelementptr inbounds nuw i8, ptr %this, i64 48
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %this, i64 56
-  %0 = load ptr, ptr %_M_finish.i.i, align 8, !tbaa !42
-  %1 = load ptr, ptr %Files, align 8, !tbaa !41
+  %0 = load ptr, ptr %_M_finish.i.i, align 8, !tbaa !41
+  %1 = load ptr, ptr %Files, align 8, !tbaa !40
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
@@ -1274,15 +1274,15 @@ entry:
 define void @_ZN3irr2io9CFileList4sortEv(ptr noundef nonnull align 8 captures(none) dereferenceable(80) %this) unnamed_addr #0 align 2 {
 entry:
   %is_sorted.i = getelementptr inbounds nuw i8, ptr %this, i64 72
-  %0 = load i8, ptr %is_sorted.i, align 8, !tbaa !26, !range !45, !noundef !46
+  %0 = load i8, ptr %is_sorted.i, align 8, !tbaa !26, !range !43, !noundef !44
   %tobool.not.i = icmp eq i8 %0, 0
   br i1 %tobool.not.i, label %if.then.i, label %_ZN3irr4core5arrayINS_2io14SFileListEntryEE4sortEv.exit
 
 if.then.i:                                        ; preds = %entry
   %Files = getelementptr inbounds nuw i8, ptr %this, i64 48
-  %1 = load ptr, ptr %Files, align 8, !tbaa !47
+  %1 = load ptr, ptr %Files, align 8, !tbaa !45
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %this, i64 56
-  %2 = load ptr, ptr %_M_finish.i.i, align 8, !tbaa !47
+  %2 = load ptr, ptr %_M_finish.i.i, align 8, !tbaa !45
   %cmp.i.not.i.i.i = icmp eq ptr %1, %2
   br i1 %cmp.i.not.i.i.i, label %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN3irr2io14SFileListEntryESt6vectorIS4_SaIS4_EEEEEvT_SA_.exit.i, label %if.then.i.i.i
 
@@ -1291,7 +1291,7 @@ if.then.i.i.i:                                    ; preds = %if.then.i
   %sub.ptr.rhs.cast.i.i.i.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i
   %sub.ptr.div.i.i.i.i = sdiv exact i64 %sub.ptr.sub.i.i.i.i, 80
-  %3 = tail call i64 @llvm.ctlz.i64(i64 %sub.ptr.div.i.i.i.i, i1 true), !range !48
+  %3 = tail call i64 @llvm.ctlz.i64(i64 %sub.ptr.div.i.i.i.i, i1 true), !range !46
   %sub.i.i.i.i = shl nuw nsw i64 %3, 1
   %mul.i.i.i = xor i64 %sub.i.i.i.i, 126
   tail call void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPN3irr2io14SFileListEntryESt6vectorIS4_SaIS4_EEEElNS0_5__ops15_Iter_less_iterEEvT_SC_T0_T1_(ptr %1, ptr %2, i64 noundef %mul.i.i.i)
@@ -1309,7 +1309,7 @@ for.body.i.i.i.i.i:                               ; preds = %if.then.i.i.i.i, %f
   tail call void @_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN3irr2io14SFileListEntryESt6vectorIS4_SaIS4_EEEENS0_5__ops14_Val_less_iterEEvT_T0_(ptr nonnull %__i.sroa.0.08.i.i.i.i.i)
   %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__i.sroa.0.08.i.i.i.i.i, i64 80
   %cmp.i.not.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i, %2
-  br i1 %cmp.i.not.i.i.i.i.i, label %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN3irr2io14SFileListEntryESt6vectorIS4_SaIS4_EEEEEvT_SA_.exit.i, label %for.body.i.i.i.i.i, !llvm.loop !49
+  br i1 %cmp.i.not.i.i.i.i.i, label %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN3irr2io14SFileListEntryESt6vectorIS4_SaIS4_EEEEEvT_SA_.exit.i, label %for.body.i.i.i.i.i, !llvm.loop !47
 
 if.else.i.i.i.i:                                  ; preds = %if.then.i.i.i
   tail call void @_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPN3irr2io14SFileListEntryESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_less_iterEEvT_SC_T0_(ptr %1, ptr %2)
@@ -1328,8 +1328,8 @@ define noundef nonnull align 8 dereferenceable(32) ptr @_ZNK3irr2io9CFileList11g
 entry:
   %Files = getelementptr inbounds nuw i8, ptr %this, i64 48
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %this, i64 56
-  %0 = load ptr, ptr %_M_finish.i.i, align 8, !tbaa !42
-  %1 = load ptr, ptr %Files, align 8, !tbaa !41
+  %0 = load ptr, ptr %_M_finish.i.i, align 8, !tbaa !41
+  %1 = load ptr, ptr %Files, align 8, !tbaa !40
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
@@ -1347,8 +1347,8 @@ define noundef nonnull align 8 dereferenceable(32) ptr @_ZNK3irr2io9CFileList15g
 entry:
   %Files = getelementptr inbounds nuw i8, ptr %this, i64 48
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %this, i64 56
-  %0 = load ptr, ptr %_M_finish.i.i, align 8, !tbaa !42
-  %1 = load ptr, ptr %Files, align 8, !tbaa !41
+  %0 = load ptr, ptr %_M_finish.i.i, align 8, !tbaa !41
+  %1 = load ptr, ptr %Files, align 8, !tbaa !40
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
@@ -1384,8 +1384,8 @@ entry:
 cond.false:                                       ; preds = %entry
   %Files = getelementptr inbounds nuw i8, ptr %this, i64 48
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %this, i64 56
-  %2 = load ptr, ptr %_M_finish.i.i, align 8, !tbaa !42
-  %3 = load ptr, ptr %Files, align 8, !tbaa !41
+  %2 = load ptr, ptr %_M_finish.i.i, align 8, !tbaa !41
+  %3 = load ptr, ptr %Files, align 8, !tbaa !40
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %2 to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %3 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
@@ -1396,11 +1396,11 @@ cond.false:                                       ; preds = %entry
 cond.end:                                         ; preds = %cond.false, %entry
   %cond = phi i32 [ %conv.i, %cond.false ], [ %id, %entry ]
   %ID = getelementptr inbounds nuw i8, ptr %entry2, i64 68
-  store i32 %cond, ptr %ID, align 4, !tbaa !50
+  store i32 %cond, ptr %ID, align 4, !tbaa !48
   %Offset = getelementptr inbounds nuw i8, ptr %entry2, i64 72
-  store i32 %offset, ptr %Offset, align 8, !tbaa !52
+  store i32 %offset, ptr %Offset, align 8, !tbaa !50
   %Size = getelementptr inbounds nuw i8, ptr %entry2, i64 64
-  store i32 %size, ptr %Size, align 8, !tbaa !53
+  store i32 %size, ptr %Size, align 8, !tbaa !51
   %cmp.i = icmp eq ptr %entry2, %fullPath
   br i1 %cmp.i, label %_ZN3irr4core6stringIcE7replaceEcc.exit.thread, label %_ZN3irr4core6stringIcEaSERKS2_.exit
 
@@ -1724,7 +1724,7 @@ pred.store.if177:                                 ; preds = %pred.store.continue
 pred.store.continue178:                           ; preds = %pred.store.if177, %pred.store.continue176
   %index.next = add nuw i64 %index, 32
   %39 = icmp eq i64 %index.next, %n.vec
-  br i1 %39, label %middle.block, label %vector.body, !llvm.loop !54
+  br i1 %39, label %middle.block, label %vector.body, !llvm.loop !52
 
 middle.block:                                     ; preds = %pred.store.continue178
   %cmp.n = icmp eq i64 %.pre76, %n.vec
@@ -1819,7 +1819,7 @@ pred.store.if207:                                 ; preds = %pred.store.continue
 pred.store.continue208:                           ; preds = %pred.store.if207, %pred.store.continue206
   %index.next209 = add nuw i64 %index183, 8
   %49 = icmp eq i64 %index.next209, %n.vec180
-  br i1 %49, label %vec.epilog.middle.block, label %vec.epilog.vector.body, !llvm.loop !55
+  br i1 %49, label %vec.epilog.middle.block, label %vec.epilog.vector.body, !llvm.loop !53
 
 vec.epilog.middle.block:                          ; preds = %pred.store.continue208
   %ind.end = getelementptr i8, ptr %.pre, i64 %n.vec180
@@ -1828,7 +1828,7 @@ vec.epilog.middle.block:                          ; preds = %pred.store.continue
 
 _ZN3irr4core6stringIcE7replaceEcc.exit.thread:    ; preds = %_ZN3irr4core6stringIcEaSERKS2_.exit, %cond.end
   %IsDirectory66 = getelementptr inbounds nuw i8, ptr %entry2, i64 76
-  store i8 %frombool, ptr %IsDirectory66, align 4, !tbaa !56
+  store i8 %frombool, ptr %IsDirectory66, align 4, !tbaa !54
   br label %if.end
 
 for.body.i.i:                                     ; preds = %for.body.i.i.preheader, %for.inc.i.i
@@ -1844,12 +1844,12 @@ if.then.i.i:                                      ; preds = %for.body.i.i
 for.inc.i.i:                                      ; preds = %if.then.i.i, %for.body.i.i
   %incdec.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %__first.sroa.0.010.i.i, i64 1
   %cmp.i.not.i.i = icmp eq ptr %incdec.ptr.i.i.i, %add.ptr.i.i
-  br i1 %cmp.i.not.i.i, label %_ZN3irr4core6stringIcE7replaceEcc.exit, label %for.body.i.i, !llvm.loop !57
+  br i1 %cmp.i.not.i.i, label %_ZN3irr4core6stringIcE7replaceEcc.exit, label %for.body.i.i, !llvm.loop !55
 
 _ZN3irr4core6stringIcE7replaceEcc.exit:           ; preds = %for.inc.i.i, %vec.epilog.middle.block, %middle.block
   %.pr = load i64, ptr %_M_string_length.i.i.i.i.i, align 8, !tbaa !10
   %IsDirectory = getelementptr inbounds nuw i8, ptr %entry2, i64 76
-  store i8 %frombool, ptr %IsDirectory, align 4, !tbaa !56
+  store i8 %frombool, ptr %IsDirectory, align 4, !tbaa !54
   %cmp.i.i38 = icmp eq i64 %.pr, 0
   br i1 %cmp.i.i38, label %if.end, label %_ZNK3irr4core6stringIcE8lastCharEv.exit
 
@@ -1862,7 +1862,7 @@ _ZNK3irr4core6stringIcE8lastCharEv.exit:          ; preds = %_ZN3irr4core6string
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %_ZNK3irr4core6stringIcE8lastCharEv.exit
-  store i8 1, ptr %IsDirectory, align 4, !tbaa !56
+  store i8 1, ptr %IsDirectory, align 4, !tbaa !54
   %sub = add i64 %.pr, 4294967295
   %conv.i40 = and i64 %sub, 4294967295
   %arrayidx.i.i = getelementptr inbounds nuw i8, ptr %51, i64 %conv.i40
@@ -1882,7 +1882,7 @@ if.then.i:                                        ; preds = %if.then
 
 if.end:                                           ; preds = %if.then.i, %if.then, %_ZNK3irr4core6stringIcE8lastCharEv.exit, %_ZN3irr4core6stringIcE7replaceEcc.exit, %_ZN3irr4core6stringIcE7replaceEcc.exit.thread
   %IgnoreCase = getelementptr inbounds nuw i8, ptr %this, i64 9
-  %56 = load i8, ptr %IgnoreCase, align 1, !tbaa !23, !range !45, !noundef !46
+  %56 = load i8, ptr %IgnoreCase, align 1, !tbaa !23, !range !43, !noundef !44
   %tobool17.not = icmp eq i8 %56, 0
   br i1 %tobool17.not, label %if.end21, label %if.then18
 
@@ -1917,7 +1917,7 @@ vector.body220:                                   ; preds = %vector.body220, %ve
   store <16 x i8> %63, ptr %next.gep222, align 1, !tbaa !25
   %index.next224 = add nuw i64 %index221, 16
   %64 = icmp eq i64 %index.next224, %n.vec218
-  br i1 %64, label %middle.block210, label %vector.body220, !llvm.loop !58
+  br i1 %64, label %middle.block210, label %vector.body220, !llvm.loop !56
 
 middle.block210:                                  ; preds = %vector.body220
   %cmp.n219 = icmp eq i64 %58, %n.vec218
@@ -1946,7 +1946,7 @@ vec.epilog.vector.body238:                        ; preds = %vec.epilog.vector.b
   store <8 x i8> %69, ptr %next.gep240, align 1, !tbaa !25
   %index.next242 = add nuw i64 %index239, 8
   %70 = icmp eq i64 %index.next242, %n.vec233
-  br i1 %70, label %vec.epilog.middle.block225, label %vec.epilog.vector.body238, !llvm.loop !59
+  br i1 %70, label %vec.epilog.middle.block225, label %vec.epilog.vector.body238, !llvm.loop !57
 
 vec.epilog.middle.block225:                       ; preds = %vec.epilog.vector.body238
   %ind.end234 = getelementptr i8, ptr %57, i64 %n.vec233
@@ -1968,7 +1968,7 @@ for.body.i.i46:                                   ; preds = %for.body.i.i46.preh
   store i8 %cond.i.i.i.i, ptr %__result.sroa.0.015.i.i, align 1, !tbaa !25
   %incdec.ptr.i9.i.i = getelementptr i8, ptr %__result.sroa.0.015.i.i, i64 1
   %cmp.i.not.i.i47 = icmp eq ptr %incdec.ptr.i9.i.i, %add.ptr.i.i45
-  br i1 %cmp.i.not.i.i47, label %if.end21, label %for.body.i.i46, !llvm.loop !60
+  br i1 %cmp.i.not.i.i47, label %if.end21, label %for.body.i.i46, !llvm.loop !58
 
 if.end21:                                         ; preds = %for.body.i.i46, %vec.epilog.middle.block225, %middle.block210, %if.then18, %if.end
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %FullName.i, ptr noundef nonnull align 8 dereferenceable(32) %entry2) #21
@@ -1992,7 +1992,7 @@ land.rhs.i:                                       ; preds = %while.cond.i
 
 while.body.i:                                     ; preds = %land.rhs.i
   %incdec.ptr.i = getelementptr inbounds i8, ptr %p.0.i, i64 -1
-  br label %while.cond.i, !llvm.loop !61
+  br label %while.cond.i, !llvm.loop !59
 
 while.end.i:                                      ; preds = %while.cond.i, %while.cond.i
   %cmp5.not.i = icmp eq ptr %p.0.i, %73
@@ -2042,7 +2042,7 @@ for.body.i.i51:                                   ; preds = %for.body.i.i51, %fo
   store i8 %83, ptr %arrayidx.i.i.i53.3, align 1, !tbaa !25
   %indvars.iv.next.i.i.3 = add nuw i64 %indvars.iv.i.i, 4
   %niter.ncmp.3 = icmp eq i64 %indvars.iv.next.i.i.3, %unroll_iter
-  br i1 %niter.ncmp.3, label %_ZN3irr4core22deletePathFromFilenameERNS0_6stringIcEE.exit.loopexit.unr-lcssa, label %for.body.i.i51, !llvm.loop !62
+  br i1 %niter.ncmp.3, label %_ZN3irr4core22deletePathFromFilenameERNS0_6stringIcEE.exit.loopexit.unr-lcssa, label %for.body.i.i51, !llvm.loop !60
 
 _ZN3irr4core22deletePathFromFilenameERNS0_6stringIcEE.exit.loopexit.unr-lcssa: ; preds = %for.body.i.i51, %for.body.i.i51.preheader
   %indvars.iv.i.i.unr = phi i64 [ 0, %for.body.i.i51.preheader ], [ %unroll_iter, %for.body.i.i51 ]
@@ -2060,11 +2060,11 @@ for.body.i.i51.epil:                              ; preds = %_ZN3irr4core22delet
   %indvars.iv.next.i.i.epil = add nuw nsw i64 %indvars.iv.i.i.epil, 1
   %epil.iter.next = add nuw nsw i64 %epil.iter, 1
   %epil.iter.cmp.not = icmp eq i64 %epil.iter.next, %xtraiter
-  br i1 %epil.iter.cmp.not, label %_ZN3irr4core22deletePathFromFilenameERNS0_6stringIcEE.exit, label %for.body.i.i51.epil, !llvm.loop !63
+  br i1 %epil.iter.cmp.not, label %_ZN3irr4core22deletePathFromFilenameERNS0_6stringIcEE.exit, label %for.body.i.i51.epil, !llvm.loop !61
 
 _ZN3irr4core22deletePathFromFilenameERNS0_6stringIcEE.exit: ; preds = %land.rhs.i, %for.body.i.i51.epil, %_ZN3irr4core22deletePathFromFilenameERNS0_6stringIcEE.exit.loopexit.unr-lcssa, %if.then.i50, %while.end.i
   %IgnorePaths = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %87 = load i8, ptr %IgnorePaths, align 8, !tbaa !13, !range !45, !noundef !46
+  %87 = load i8, ptr %IgnorePaths, align 8, !tbaa !13, !range !43, !noundef !44
   %tobool26.not = icmp eq i8 %87, 0
   br i1 %tobool26.not, label %if.end31, label %if.then27
 
@@ -2075,9 +2075,9 @@ if.then27:                                        ; preds = %_ZN3irr4core22delet
 if.end31:                                         ; preds = %if.then27, %_ZN3irr4core22deletePathFromFilenameERNS0_6stringIcEE.exit
   %Files32 = getelementptr inbounds nuw i8, ptr %this, i64 48
   %_M_finish.i.i56 = getelementptr inbounds nuw i8, ptr %this, i64 56
-  %88 = load ptr, ptr %_M_finish.i.i56, align 8, !tbaa !47
+  %88 = load ptr, ptr %_M_finish.i.i56, align 8, !tbaa !45
   %_M_end_of_storage.i.i = getelementptr inbounds nuw i8, ptr %this, i64 64
-  %89 = load ptr, ptr %_M_end_of_storage.i.i, align 8, !tbaa !65
+  %89 = load ptr, ptr %_M_end_of_storage.i.i, align 8, !tbaa !63
   %cmp.not.i.i = icmp eq ptr %88, %89
   br i1 %cmp.not.i.i, label %if.else.i.i, label %if.then.i.i57
 
@@ -2110,21 +2110,21 @@ if.end.i.i9.i.i.i.i.i:                            ; preds = %if.then.i.i57
 _ZNSt16allocator_traitsISaIN3irr2io14SFileListEntryEEE9constructIS2_JRKS2_EEEvRS3_PT_DpOT0_.exit.i.i: ; preds = %if.end.i.i9.i.i.i.i.i, %_ZN3irr4core6stringIcEC2ERKS2_.exit.thread.i.i.i.i.i
   %Size.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %88, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(13) %Size.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(13) %Size, i64 13, i1 false)
-  %92 = load ptr, ptr %_M_finish.i.i56, align 8, !tbaa !42
+  %92 = load ptr, ptr %_M_finish.i.i56, align 8, !tbaa !41
   %incdec.ptr.i.i = getelementptr inbounds nuw i8, ptr %92, i64 80
-  store ptr %incdec.ptr.i.i, ptr %_M_finish.i.i56, align 8, !tbaa !42
+  store ptr %incdec.ptr.i.i, ptr %_M_finish.i.i56, align 8, !tbaa !41
   br label %_ZN3irr4core5arrayINS_2io14SFileListEntryEE9push_backERKS3_.exit
 
 if.else.i.i:                                      ; preds = %if.end31
   call void @_ZNSt6vectorIN3irr2io14SFileListEntryESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %Files32, ptr %88, ptr noundef nonnull align 8 dereferenceable(77) %entry2)
-  %.pre77 = load ptr, ptr %_M_finish.i.i56, align 8, !tbaa !42
+  %.pre77 = load ptr, ptr %_M_finish.i.i56, align 8, !tbaa !41
   br label %_ZN3irr4core5arrayINS_2io14SFileListEntryEE9push_backERKS3_.exit
 
 _ZN3irr4core5arrayINS_2io14SFileListEntryEE9push_backERKS3_.exit: ; preds = %if.else.i.i, %_ZNSt16allocator_traitsISaIN3irr2io14SFileListEntryEEE9constructIS2_JRKS2_EEEvRS3_PT_DpOT0_.exit.i.i
   %93 = phi ptr [ %incdec.ptr.i.i, %_ZNSt16allocator_traitsISaIN3irr2io14SFileListEntryEEE9constructIS2_JRKS2_EEEvRS3_PT_DpOT0_.exit.i.i ], [ %.pre77, %if.else.i.i ]
   %is_sorted.i = getelementptr inbounds nuw i8, ptr %this, i64 72
   store i8 0, ptr %is_sorted.i, align 8, !tbaa !26
-  %94 = load ptr, ptr %Files32, align 8, !tbaa !41
+  %94 = load ptr, ptr %Files32, align 8, !tbaa !40
   %95 = load ptr, ptr %FullName.i, align 8, !tbaa !3
   %cmp.i.i.i.i.i = icmp eq ptr %95, %1
   br i1 %cmp.i.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i, label %if.then.i.i.i.i
@@ -2176,8 +2176,8 @@ define noundef i32 @_ZNK3irr2io9CFileList5getIDEj(ptr noundef nonnull readonly a
 entry:
   %Files = getelementptr inbounds nuw i8, ptr %this, i64 48
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %this, i64 56
-  %0 = load ptr, ptr %_M_finish.i.i, align 8, !tbaa !42
-  %1 = load ptr, ptr %Files, align 8, !tbaa !41
+  %0 = load ptr, ptr %_M_finish.i.i, align 8, !tbaa !41
+  %1 = load ptr, ptr %Files, align 8, !tbaa !40
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
@@ -2189,7 +2189,7 @@ entry:
 cond.true:                                        ; preds = %entry
   %conv.i5 = zext i32 %index to i64
   %ID = getelementptr inbounds nuw %"struct.irr::io::SFileListEntry", ptr %1, i64 %conv.i5, i32 3
-  %2 = load i32, ptr %ID, align 4, !tbaa !50
+  %2 = load i32, ptr %ID, align 4, !tbaa !48
   br label %cond.end
 
 cond.end:                                         ; preds = %cond.true, %entry
@@ -2202,8 +2202,8 @@ define noundef zeroext i1 @_ZNK3irr2io9CFileList11isDirectoryEj(ptr noundef nonn
 entry:
   %Files = getelementptr inbounds nuw i8, ptr %this, i64 48
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %this, i64 56
-  %0 = load ptr, ptr %_M_finish.i.i, align 8, !tbaa !42
-  %1 = load ptr, ptr %Files, align 8, !tbaa !41
+  %0 = load ptr, ptr %_M_finish.i.i, align 8, !tbaa !41
+  %1 = load ptr, ptr %Files, align 8, !tbaa !40
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
@@ -2215,7 +2215,7 @@ entry:
 if.then:                                          ; preds = %entry
   %conv.i6 = zext i32 %index to i64
   %IsDirectory = getelementptr inbounds nuw %"struct.irr::io::SFileListEntry", ptr %1, i64 %conv.i6, i32 5
-  %2 = load i8, ptr %IsDirectory, align 4, !tbaa !56, !range !45, !noundef !46
+  %2 = load i8, ptr %IsDirectory, align 4, !tbaa !54, !range !43, !noundef !44
   %3 = icmp ne i8 %2, 0
   br label %if.end
 
@@ -2229,8 +2229,8 @@ define noundef i32 @_ZNK3irr2io9CFileList11getFileSizeEj(ptr noundef nonnull rea
 entry:
   %Files = getelementptr inbounds nuw i8, ptr %this, i64 48
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %this, i64 56
-  %0 = load ptr, ptr %_M_finish.i.i, align 8, !tbaa !42
-  %1 = load ptr, ptr %Files, align 8, !tbaa !41
+  %0 = load ptr, ptr %_M_finish.i.i, align 8, !tbaa !41
+  %1 = load ptr, ptr %Files, align 8, !tbaa !40
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
@@ -2242,7 +2242,7 @@ entry:
 cond.true:                                        ; preds = %entry
   %conv.i5 = zext i32 %index to i64
   %Size = getelementptr inbounds nuw %"struct.irr::io::SFileListEntry", ptr %1, i64 %conv.i5, i32 2
-  %2 = load i32, ptr %Size, align 8, !tbaa !53
+  %2 = load i32, ptr %Size, align 8, !tbaa !51
   br label %cond.end
 
 cond.end:                                         ; preds = %cond.true, %entry
@@ -2255,8 +2255,8 @@ define noundef i32 @_ZNK3irr2io9CFileList13getFileOffsetEj(ptr noundef nonnull r
 entry:
   %Files = getelementptr inbounds nuw i8, ptr %this, i64 48
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %this, i64 56
-  %0 = load ptr, ptr %_M_finish.i.i, align 8, !tbaa !42
-  %1 = load ptr, ptr %Files, align 8, !tbaa !41
+  %0 = load ptr, ptr %_M_finish.i.i, align 8, !tbaa !41
+  %1 = load ptr, ptr %Files, align 8, !tbaa !40
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
@@ -2268,7 +2268,7 @@ entry:
 cond.true:                                        ; preds = %entry
   %conv.i5 = zext i32 %index to i64
   %Offset = getelementptr inbounds nuw %"struct.irr::io::SFileListEntry", ptr %1, i64 %conv.i5, i32 4
-  %2 = load i32, ptr %Offset, align 8, !tbaa !52
+  %2 = load i32, ptr %Offset, align 8, !tbaa !50
   br label %cond.end
 
 cond.end:                                         ; preds = %cond.true, %entry
@@ -2298,7 +2298,7 @@ entry:
 
 _ZN3irr4core6stringIcEaSERKS2_.exit.thread:       ; preds = %entry
   %IsDirectory55 = getelementptr inbounds nuw i8, ptr %entry2, i64 76
-  store i8 %frombool, ptr %IsDirectory55, align 4, !tbaa !56
+  store i8 %frombool, ptr %IsDirectory55, align 4, !tbaa !54
   br label %if.end
 
 _ZN3irr4core6stringIcEaSERKS2_.exit:              ; preds = %entry
@@ -2306,7 +2306,7 @@ _ZN3irr4core6stringIcEaSERKS2_.exit:              ; preds = %entry
   %.pre = load ptr, ptr %FullName.i, align 8, !tbaa !3
   %.pre54 = load i64, ptr %_M_string_length.i.i.i.i2.i, align 8, !tbaa !10
   %IsDirectory = getelementptr inbounds nuw i8, ptr %entry2, i64 76
-  store i8 %frombool, ptr %IsDirectory, align 4, !tbaa !56
+  store i8 %frombool, ptr %IsDirectory, align 4, !tbaa !54
   %add.ptr.i.i = getelementptr inbounds i8, ptr %.pre, i64 %.pre54
   %cmp.i.not9.i.i = icmp eq i64 %.pre54, 0
   br i1 %cmp.i.not9.i.i, label %if.end, label %iter.check
@@ -2619,7 +2619,7 @@ pred.store.if155:                                 ; preds = %pred.store.continue
 pred.store.continue156:                           ; preds = %pred.store.if155, %pred.store.continue154
   %index.next = add nuw i64 %index, 32
   %37 = icmp eq i64 %index.next, %n.vec
-  br i1 %37, label %middle.block, label %vector.body, !llvm.loop !66
+  br i1 %37, label %middle.block, label %vector.body, !llvm.loop !64
 
 middle.block:                                     ; preds = %pred.store.continue156
   %cmp.n = icmp eq i64 %.pre54, %n.vec
@@ -2714,7 +2714,7 @@ pred.store.if185:                                 ; preds = %pred.store.continue
 pred.store.continue186:                           ; preds = %pred.store.if185, %pred.store.continue184
   %index.next187 = add nuw i64 %index161, 8
   %47 = icmp eq i64 %index.next187, %n.vec158
-  br i1 %47, label %vec.epilog.middle.block, label %vec.epilog.vector.body, !llvm.loop !67
+  br i1 %47, label %vec.epilog.middle.block, label %vec.epilog.vector.body, !llvm.loop !65
 
 vec.epilog.middle.block:                          ; preds = %pred.store.continue186
   %ind.end = getelementptr i8, ptr %.pre, i64 %n.vec158
@@ -2738,7 +2738,7 @@ if.then.i.i:                                      ; preds = %for.body.i.i
 for.inc.i.i:                                      ; preds = %if.then.i.i, %for.body.i.i
   %incdec.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %__first.sroa.0.010.i.i, i64 1
   %cmp.i.not.i.i = icmp eq ptr %incdec.ptr.i.i.i, %add.ptr.i.i
-  br i1 %cmp.i.not.i.i, label %_ZN3irr4core6stringIcE7replaceEcc.exit, label %for.body.i.i, !llvm.loop !68
+  br i1 %cmp.i.not.i.i, label %_ZN3irr4core6stringIcE7replaceEcc.exit, label %for.body.i.i, !llvm.loop !66
 
 _ZN3irr4core6stringIcE7replaceEcc.exit:           ; preds = %for.inc.i.i, %vec.epilog.middle.block, %middle.block
   %.pr = load i64, ptr %_M_string_length.i.i.i.i2.i, align 8, !tbaa !10
@@ -2754,7 +2754,7 @@ _ZNK3irr4core6stringIcE8lastCharEv.exit:          ; preds = %_ZN3irr4core6string
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %_ZNK3irr4core6stringIcE8lastCharEv.exit
-  store i8 1, ptr %IsDirectory, align 4, !tbaa !56
+  store i8 1, ptr %IsDirectory, align 4, !tbaa !54
   %sub = add i64 %.pr, 4294967295
   %conv.i28 = and i64 %sub, 4294967295
   %arrayidx.i.i = getelementptr inbounds nuw i8, ptr %49, i64 %conv.i28
@@ -2774,7 +2774,7 @@ if.then.i:                                        ; preds = %if.then
 
 if.end:                                           ; preds = %if.then.i, %if.then, %_ZNK3irr4core6stringIcE8lastCharEv.exit, %_ZN3irr4core6stringIcE7replaceEcc.exit, %_ZN3irr4core6stringIcEaSERKS2_.exit, %_ZN3irr4core6stringIcEaSERKS2_.exit.thread
   %IgnoreCase = getelementptr inbounds nuw i8, ptr %this, i64 9
-  %54 = load i8, ptr %IgnoreCase, align 1, !tbaa !23, !range !45, !noundef !46
+  %54 = load i8, ptr %IgnoreCase, align 1, !tbaa !23, !range !43, !noundef !44
   %tobool15.not = icmp eq i8 %54, 0
   br i1 %tobool15.not, label %if.end19, label %if.then16
 
@@ -2809,7 +2809,7 @@ vector.body198:                                   ; preds = %vector.body198, %ve
   store <16 x i8> %61, ptr %next.gep200, align 1, !tbaa !25
   %index.next202 = add nuw i64 %index199, 16
   %62 = icmp eq i64 %index.next202, %n.vec196
-  br i1 %62, label %middle.block188, label %vector.body198, !llvm.loop !69
+  br i1 %62, label %middle.block188, label %vector.body198, !llvm.loop !67
 
 middle.block188:                                  ; preds = %vector.body198
   %cmp.n197 = icmp eq i64 %56, %n.vec196
@@ -2838,7 +2838,7 @@ vec.epilog.vector.body216:                        ; preds = %vec.epilog.vector.b
   store <8 x i8> %67, ptr %next.gep218, align 1, !tbaa !25
   %index.next220 = add nuw i64 %index217, 8
   %68 = icmp eq i64 %index.next220, %n.vec211
-  br i1 %68, label %vec.epilog.middle.block203, label %vec.epilog.vector.body216, !llvm.loop !70
+  br i1 %68, label %vec.epilog.middle.block203, label %vec.epilog.vector.body216, !llvm.loop !68
 
 vec.epilog.middle.block203:                       ; preds = %vec.epilog.vector.body216
   %ind.end212 = getelementptr i8, ptr %55, i64 %n.vec211
@@ -2860,11 +2860,11 @@ for.body.i.i34:                                   ; preds = %for.body.i.i34.preh
   store i8 %cond.i.i.i.i, ptr %__result.sroa.0.015.i.i, align 1, !tbaa !25
   %incdec.ptr.i9.i.i = getelementptr i8, ptr %__result.sroa.0.015.i.i, i64 1
   %cmp.i.not.i.i35 = icmp eq ptr %incdec.ptr.i9.i.i, %add.ptr.i.i33
-  br i1 %cmp.i.not.i.i35, label %if.end19, label %for.body.i.i34, !llvm.loop !71
+  br i1 %cmp.i.not.i.i35, label %if.end19, label %for.body.i.i34, !llvm.loop !69
 
 if.end19:                                         ; preds = %for.body.i.i34, %vec.epilog.middle.block203, %middle.block188, %if.then16, %if.end
   %IgnorePaths = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %71 = load i8, ptr %IgnorePaths, align 8, !tbaa !13, !range !45, !noundef !46
+  %71 = load i8, ptr %IgnorePaths, align 8, !tbaa !13, !range !43, !noundef !44
   %tobool20.not = icmp eq i8 %71, 0
   br i1 %tobool20.not, label %if.end24, label %if.then21
 
@@ -2889,7 +2889,7 @@ land.rhs.i:                                       ; preds = %while.cond.i
 
 while.body.i:                                     ; preds = %land.rhs.i
   %incdec.ptr.i = getelementptr inbounds i8, ptr %p.0.i, i64 -1
-  br label %while.cond.i, !llvm.loop !72
+  br label %while.cond.i, !llvm.loop !59
 
 while.end.i:                                      ; preds = %while.cond.i, %while.cond.i
   %cmp5.not.i = icmp eq ptr %p.0.i, %72
@@ -2939,7 +2939,7 @@ for.body.i.i38:                                   ; preds = %for.body.i.i38, %fo
   store i8 %82, ptr %arrayidx.i.i.i40.3, align 1, !tbaa !25
   %indvars.iv.next.i.i.3 = add nuw i64 %indvars.iv.i.i, 4
   %niter.ncmp.3 = icmp eq i64 %indvars.iv.next.i.i.3, %unroll_iter
-  br i1 %niter.ncmp.3, label %if.end24.loopexit.unr-lcssa, label %for.body.i.i38, !llvm.loop !73
+  br i1 %niter.ncmp.3, label %if.end24.loopexit.unr-lcssa, label %for.body.i.i38, !llvm.loop !60
 
 if.end24.loopexit.unr-lcssa:                      ; preds = %for.body.i.i38, %for.body.i.i38.preheader
   %indvars.iv.i.i.unr = phi i64 [ 0, %for.body.i.i38.preheader ], [ %unroll_iter, %for.body.i.i38 ]
@@ -2957,19 +2957,19 @@ for.body.i.i38.epil:                              ; preds = %if.end24.loopexit.u
   %indvars.iv.next.i.i.epil = add nuw nsw i64 %indvars.iv.i.i.epil, 1
   %epil.iter.next = add nuw nsw i64 %epil.iter, 1
   %epil.iter.cmp.not = icmp eq i64 %epil.iter.next, %xtraiter
-  br i1 %epil.iter.cmp.not, label %if.end24, label %for.body.i.i38.epil, !llvm.loop !74
+  br i1 %epil.iter.cmp.not, label %if.end24, label %for.body.i.i38.epil, !llvm.loop !70
 
 if.end24:                                         ; preds = %land.rhs.i, %for.body.i.i38.epil, %if.end24.loopexit.unr-lcssa, %if.then.i37, %while.end.i, %if.end19
   %Files = getelementptr inbounds nuw i8, ptr %this, i64 48
   %is_sorted.i = getelementptr inbounds nuw i8, ptr %this, i64 72
-  %86 = load i8, ptr %is_sorted.i, align 8, !tbaa !26, !range !45, !noundef !46
+  %86 = load i8, ptr %is_sorted.i, align 8, !tbaa !26, !range !43, !noundef !44
   %tobool.not.i = icmp eq i8 %86, 0
   br i1 %tobool.not.i, label %if.else.i, label %if.then.i42
 
 if.then.i42:                                      ; preds = %if.end24
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %this, i64 56
-  %87 = load ptr, ptr %_M_finish.i.i, align 8, !tbaa !42
-  %88 = load ptr, ptr %Files, align 8, !tbaa !41
+  %87 = load ptr, ptr %_M_finish.i.i, align 8, !tbaa !41
+  %88 = load ptr, ptr %Files, align 8, !tbaa !40
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %87 to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %88 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
@@ -2980,16 +2980,16 @@ if.then.i42:                                      ; preds = %if.end24
   br label %_ZNK3irr4core5arrayINS_2io14SFileListEntryEE13binary_searchERKS3_.exit
 
 if.else.i:                                        ; preds = %if.end24
-  %89 = load ptr, ptr %Files, align 8, !tbaa !47
+  %89 = load ptr, ptr %Files, align 8, !tbaa !45
   %_M_finish.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 56
-  %90 = load ptr, ptr %_M_finish.i.i.i, align 8, !tbaa !47
+  %90 = load ptr, ptr %_M_finish.i.i.i, align 8, !tbaa !45
   %call.i.i.i.i = call ptr @_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPKN3irr2io14SFileListEntryESt6vectorIS4_SaIS4_EEEENS0_5__ops16_Iter_equals_valIS5_EEET_SE_SE_T0_St26random_access_iterator_tag(ptr %89, ptr %90, ptr nonnull %entry2)
-  %91 = load ptr, ptr %_M_finish.i.i.i, align 8, !tbaa !47
+  %91 = load ptr, ptr %_M_finish.i.i.i, align 8, !tbaa !45
   %cmp.i.i.i = icmp eq ptr %call.i.i.i.i, %91
   br i1 %cmp.i.i.i, label %_ZNK3irr4core5arrayINS_2io14SFileListEntryEE13binary_searchERKS3_.exit, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.else.i
-  %92 = load ptr, ptr %Files, align 8, !tbaa !47
+  %92 = load ptr, ptr %Files, align 8, !tbaa !45
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %call.i.i.i.i to i64
   %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %92 to i64
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
@@ -3122,7 +3122,7 @@ while.body.i.i:                                   ; preds = %while.body.i.i, %if
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %incdec.ptr.i.i.i to i64
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i
   %cmp.i.i = icmp sgt i64 %sub.ptr.sub.i.i.i, 80
-  br i1 %cmp.i.i, label %while.body.i.i, label %_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPN3irr2io14SFileListEntryESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_less_iterEEvT_SC_SC_T0_.exit, !llvm.loop !75
+  br i1 %cmp.i.i, label %while.body.i.i, label %_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPN3irr2io14SFileListEntryESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_less_iterEEvT_SC_SC_T0_.exit, !llvm.loop !71
 
 _ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPN3irr2io14SFileListEntryESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_less_iterEEvT_SC_SC_T0_.exit: ; preds = %while.body.i.i
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %__comp.i)
@@ -3139,7 +3139,7 @@ if.end:                                           ; preds = %while.body
   %sub.ptr.lhs.cast.i = ptrtoint ptr %call25.i to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %cmp = icmp sgt i64 %sub.ptr.sub.i, 1280
-  br i1 %cmp, label %while.body, label %while.end, !llvm.loop !76
+  br i1 %cmp, label %while.body, label %while.end, !llvm.loop !72
 
 while.end:                                        ; preds = %if.end, %_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPN3irr2io14SFileListEntryESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_less_iterEEvT_SC_SC_T0_.exit, %entry
   ret void
@@ -3275,7 +3275,7 @@ if.then.i.i.i3.i37:                               ; preds = %_ZN3irr4core6string
 
 _ZN3irr2io14SFileListEntryD2Ev.exit44:            ; preds = %if.then.i.i.i3.i37, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i4.i38
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %__value) #21
-  br i1 %cmp9.not, label %return, label %while.cond, !llvm.loop !77
+  br i1 %cmp9.not, label %return, label %while.cond, !llvm.loop !73
 
 return:                                           ; preds = %_ZN3irr2io14SFileListEntryD2Ev.exit44, %entry
   ret void
@@ -3438,9 +3438,9 @@ while.body:                                       ; preds = %entry, %_ZN3irr2io1
   %sub3 = or disjoint i64 %add, 1
   %add.ptr.i56 = getelementptr inbounds %"struct.irr::io::SFileListEntry", ptr %__first.coerce, i64 %sub3
   %IsDirectory.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 76
-  %0 = load i8, ptr %IsDirectory.i.i, align 4, !tbaa !56, !range !45, !noundef !46
+  %0 = load i8, ptr %IsDirectory.i.i, align 4, !tbaa !54, !range !43, !noundef !44
   %IsDirectory2.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i56, i64 76
-  %1 = load i8, ptr %IsDirectory2.i.i, align 4, !tbaa !56, !range !45, !noundef !46
+  %1 = load i8, ptr %IsDirectory2.i.i, align 4, !tbaa !54, !range !43, !noundef !44
   %cmp.not.i.i = icmp eq i8 %0, %1
   br i1 %cmp.not.i.i, label %if.end.i.i, label %if.then.i.i
 
@@ -3466,7 +3466,7 @@ for.cond.i.i.i:                                   ; preds = %for.body.i.i.i
   %arrayidx.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 %idxprom.i.i.i
   %5 = load i8, ptr %arrayidx.i.i.i, align 1, !tbaa !25
   %tobool.not.i.i.i = icmp eq i8 %5, 0
-  br i1 %tobool.not.i.i.i, label %for.end.i.i.i, label %land.rhs.i.i.i, !llvm.loop !78
+  br i1 %tobool.not.i.i.i, label %for.end.i.i.i, label %land.rhs.i.i.i, !llvm.loop !74
 
 land.rhs.i.i.i:                                   ; preds = %for.cond.i.i.i, %land.rhs.lr.ph.i.i.i
   %6 = phi i8 [ %3, %land.rhs.lr.ph.i.i.i ], [ %5, %for.cond.i.i.i ]
@@ -3525,7 +3525,7 @@ _ZN3irr2io14SFileListEntryaSEOS1_.exit:           ; preds = %if.end.i9.i, %_ZNK9
   %Size5.i = getelementptr inbounds nuw i8, ptr %add.ptr.i57, i64 64
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(13) %Size.i, ptr noundef nonnull align 8 dereferenceable(13) %Size5.i, i64 13, i1 false)
   %cmp = icmp slt i64 %spec.select, %div
-  br i1 %cmp, label %while.body, label %while.end, !llvm.loop !79
+  br i1 %cmp, label %while.body, label %while.end, !llvm.loop !75
 
 while.end:                                        ; preds = %_ZN3irr2io14SFileListEntryaSEOS1_.exit, %entry
   %__holeIndex.addr.0.lcssa = phi i64 [ %__holeIndex, %entry ], [ %spec.select, %_ZN3irr2io14SFileListEntryaSEOS1_.exit ]
@@ -3652,8 +3652,8 @@ land.rhs:                                         ; preds = %_ZN3irr2io14SFileLi
   %__parent.044 = sdiv i64 %__parent.044.in, 2
   %add.ptr.i = getelementptr inbounds %"struct.irr::io::SFileListEntry", ptr %__first.coerce, i64 %__parent.044
   %IsDirectory.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 76
-  %0 = load i8, ptr %IsDirectory.i.i, align 4, !tbaa !56, !range !45, !noundef !46
-  %1 = load i8, ptr %IsDirectory2.i.i, align 4, !tbaa !56, !range !45, !noundef !46
+  %0 = load i8, ptr %IsDirectory.i.i, align 4, !tbaa !54, !range !43, !noundef !44
+  %1 = load i8, ptr %IsDirectory2.i.i, align 4, !tbaa !54, !range !43, !noundef !44
   %cmp.not.i.i = icmp eq i8 %0, %1
   br i1 %cmp.not.i.i, label %if.end.i.i, label %if.then.i.i
 
@@ -3678,7 +3678,7 @@ for.cond.i.i.i:                                   ; preds = %for.body.i.i.i
   %arrayidx.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 %idxprom.i.i.i
   %5 = load i8, ptr %arrayidx.i.i.i, align 1, !tbaa !25
   %tobool.not.i.i.i = icmp eq i8 %5, 0
-  br i1 %tobool.not.i.i.i, label %for.end.i.i.i, label %land.rhs.i.i.i, !llvm.loop !80
+  br i1 %tobool.not.i.i.i, label %for.end.i.i.i, label %land.rhs.i.i.i, !llvm.loop !74
 
 land.rhs.i.i.i:                                   ; preds = %for.cond.i.i.i, %land.rhs.lr.ph.i.i.i
   %6 = phi i8 [ %3, %land.rhs.lr.ph.i.i.i ], [ %5, %for.cond.i.i.i ]
@@ -3733,7 +3733,7 @@ _ZN3irr2io14SFileListEntryaSEOS1_.exit:           ; preds = %if.end.i9.i, %while
   %Size5.i = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 64
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(13) %Size.i, ptr noundef nonnull align 8 dereferenceable(13) %Size5.i, i64 13, i1 false)
   %cmp = icmp sgt i64 %__parent.044, %__topIndex
-  br i1 %cmp, label %land.rhs, label %while.end, !llvm.loop !81
+  br i1 %cmp, label %land.rhs, label %while.end, !llvm.loop !76
 
 while.end:                                        ; preds = %_ZN3irr2io14SFileListEntryaSEOS1_.exit, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclINS_17__normal_iteratorIPN3irr2io14SFileListEntryESt6vectorIS6_SaIS6_EEEES6_EEbT_RT0_.exit, %for.end.i.i.i, %if.then.i.i, %entry
   %__holeIndex.addr.0.lcssa = phi i64 [ %__holeIndex, %entry ], [ %__holeIndex.addr.041, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclINS_17__normal_iteratorIPN3irr2io14SFileListEntryESt6vectorIS6_SaIS6_EEEES6_EEbT_RT0_.exit ], [ %__parent.044, %_ZN3irr2io14SFileListEntryaSEOS1_.exit ], [ %__holeIndex.addr.041, %if.then.i.i ], [ %__holeIndex.addr.041, %for.end.i.i.i ]
@@ -3759,9 +3759,9 @@ _ZN3irr2io14SFileListEntryaSEOS1_.exit34:         ; preds = %if.end.i9.i29, %whi
 define linkonce_odr void @_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN3irr2io14SFileListEntryESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_less_iterEEvT_SC_SC_SC_T0_(ptr %__result.coerce, ptr %__a.coerce, ptr %__b.coerce, ptr %__c.coerce) local_unnamed_addr #0 comdat {
 entry:
   %IsDirectory.i.i = getelementptr inbounds nuw i8, ptr %__a.coerce, i64 76
-  %0 = load i8, ptr %IsDirectory.i.i, align 4, !tbaa !56, !range !45, !noundef !46
+  %0 = load i8, ptr %IsDirectory.i.i, align 4, !tbaa !54, !range !43, !noundef !44
   %IsDirectory2.i.i = getelementptr inbounds nuw i8, ptr %__b.coerce, i64 76
-  %1 = load i8, ptr %IsDirectory2.i.i, align 4, !tbaa !56, !range !45, !noundef !46
+  %1 = load i8, ptr %IsDirectory2.i.i, align 4, !tbaa !54, !range !43, !noundef !44
   %cmp.not.i.i = icmp eq i8 %0, %1
   br i1 %cmp.not.i.i, label %if.end.i.i, label %if.then.i.i
 
@@ -3787,7 +3787,7 @@ for.cond.i.i.i:                                   ; preds = %for.body.i.i.i
   %arrayidx.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 %idxprom.i.i.i
   %5 = load i8, ptr %arrayidx.i.i.i, align 1, !tbaa !25
   %tobool.not.i.i.i = icmp eq i8 %5, 0
-  br i1 %tobool.not.i.i.i, label %for.end.i.i.i, label %land.rhs.i.i.i, !llvm.loop !82
+  br i1 %tobool.not.i.i.i, label %for.end.i.i.i, label %land.rhs.i.i.i, !llvm.loop !74
 
 land.rhs.i.i.i:                                   ; preds = %for.cond.i.i.i, %land.rhs.lr.ph.i.i.i
   %6 = phi i8 [ %3, %land.rhs.lr.ph.i.i.i ], [ %5, %for.cond.i.i.i ]
@@ -3828,7 +3828,7 @@ _ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN3irr2io14SFileL
 
 if.then:                                          ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN3irr2io14SFileListEntryESt6vectorIS6_SaIS6_EEEESB_EEbT_T0_.exit, %for.end.i.i.i, %if.then.i.i
   %IsDirectory2.i.i64 = getelementptr inbounds nuw i8, ptr %__c.coerce, i64 76
-  %12 = load i8, ptr %IsDirectory2.i.i64, align 4, !tbaa !56, !range !45, !noundef !46
+  %12 = load i8, ptr %IsDirectory2.i.i64, align 4, !tbaa !54, !range !43, !noundef !44
   %cmp.not.i.i65 = icmp eq i8 %1, %12
   br i1 %cmp.not.i.i65, label %if.end.i.i69, label %if.then.i.i66
 
@@ -3854,7 +3854,7 @@ for.cond.i.i.i91:                                 ; preds = %for.body.i.i.i79
   %arrayidx.i.i.i94 = getelementptr inbounds nuw i8, ptr %13, i64 %idxprom.i.i.i93
   %16 = load i8, ptr %arrayidx.i.i.i94, align 1, !tbaa !25
   %tobool.not.i.i.i95 = icmp eq i8 %16, 0
-  br i1 %tobool.not.i.i.i95, label %for.end.i.i.i96, label %land.rhs.i.i.i74, !llvm.loop !83
+  br i1 %tobool.not.i.i.i95, label %for.end.i.i.i96, label %land.rhs.i.i.i74, !llvm.loop !74
 
 land.rhs.i.i.i74:                                 ; preds = %for.cond.i.i.i91, %land.rhs.lr.ph.i.i.i72
   %17 = phi i8 [ %14, %land.rhs.lr.ph.i.i.i72 ], [ %16, %for.cond.i.i.i91 ]
@@ -3919,7 +3919,7 @@ for.cond.i.i.i131:                                ; preds = %for.body.i.i.i119
   %arrayidx.i.i.i134 = getelementptr inbounds nuw i8, ptr %23, i64 %idxprom.i.i.i133
   %26 = load i8, ptr %arrayidx.i.i.i134, align 1, !tbaa !25
   %tobool.not.i.i.i135 = icmp eq i8 %26, 0
-  br i1 %tobool.not.i.i.i135, label %for.end.i.i.i136, label %land.rhs.i.i.i114, !llvm.loop !84
+  br i1 %tobool.not.i.i.i135, label %for.end.i.i.i136, label %land.rhs.i.i.i114, !llvm.loop !74
 
 land.rhs.i.i.i114:                                ; preds = %for.cond.i.i.i131, %land.rhs.lr.ph.i.i.i112
   %27 = phi i8 [ %24, %land.rhs.lr.ph.i.i.i112 ], [ %26, %for.cond.i.i.i131 ]
@@ -3963,13 +3963,13 @@ if.else27:                                        ; preds = %_ZNK9__gnu_cxx5__op
 
 if.else33:                                        ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN3irr2io14SFileListEntryESt6vectorIS6_SaIS6_EEEESB_EEbT_T0_.exit, %for.end.i.i.i
   %IsDirectory2.i.i144 = getelementptr inbounds nuw i8, ptr %__c.coerce, i64 76
-  %33 = load i8, ptr %IsDirectory2.i.i144, align 4, !tbaa !56, !range !45, !noundef !46
+  %33 = load i8, ptr %IsDirectory2.i.i144, align 4, !tbaa !54, !range !43, !noundef !44
   %cmp.not.i.i145 = icmp eq i8 %0, %33
   br i1 %cmp.not.i.i145, label %if.end.i.i149, label %if.then.i.i146
 
 if.else33.thread:                                 ; preds = %if.then.i.i
   %IsDirectory2.i.i144223 = getelementptr inbounds nuw i8, ptr %__c.coerce, i64 76
-  %34 = load i8, ptr %IsDirectory2.i.i144223, align 4, !tbaa !56, !range !45, !noundef !46
+  %34 = load i8, ptr %IsDirectory2.i.i144223, align 4, !tbaa !54, !range !43, !noundef !44
   %cmp.not.i.i145224 = icmp eq i8 %34, 0
   br i1 %cmp.not.i.i145224, label %if.else33.thread.if.end.i.i149_crit_edge, label %if.else44
 
@@ -4000,7 +4000,7 @@ for.cond.i.i.i171:                                ; preds = %for.body.i.i.i159
   %arrayidx.i.i.i174 = getelementptr inbounds nuw i8, ptr %36, i64 %idxprom.i.i.i173
   %38 = load i8, ptr %arrayidx.i.i.i174, align 1, !tbaa !25
   %tobool.not.i.i.i175 = icmp eq i8 %38, 0
-  br i1 %tobool.not.i.i.i175, label %for.end.i.i.i176, label %land.rhs.i.i.i154, !llvm.loop !85
+  br i1 %tobool.not.i.i.i175, label %for.end.i.i.i176, label %land.rhs.i.i.i154, !llvm.loop !74
 
 land.rhs.i.i.i154:                                ; preds = %for.cond.i.i.i171, %land.rhs.lr.ph.i.i.i152
   %39 = phi i8 [ %35, %land.rhs.lr.ph.i.i.i152 ], [ %38, %for.cond.i.i.i171 ]
@@ -4066,7 +4066,7 @@ for.cond.i.i.i211:                                ; preds = %for.body.i.i.i199
   %arrayidx.i.i.i214 = getelementptr inbounds nuw i8, ptr %46, i64 %idxprom.i.i.i213
   %49 = load i8, ptr %arrayidx.i.i.i214, align 1, !tbaa !25
   %tobool.not.i.i.i215 = icmp eq i8 %49, 0
-  br i1 %tobool.not.i.i.i215, label %for.end.i.i.i216, label %land.rhs.i.i.i194, !llvm.loop !86
+  br i1 %tobool.not.i.i.i215, label %for.end.i.i.i216, label %land.rhs.i.i.i194, !llvm.loop !74
 
 land.rhs.i.i.i194:                                ; preds = %for.cond.i.i.i211, %land.rhs.lr.ph.i.i.i192
   %50 = phi i8 [ %47, %land.rhs.lr.ph.i.i.i192 ], [ %49, %for.cond.i.i.i211 ]
@@ -4125,13 +4125,13 @@ entry:
 while.body:                                       ; preds = %if.end, %entry
   %__first.sroa.0.0 = phi ptr [ %__first.coerce, %entry ], [ %incdec.ptr.i68, %if.end ]
   %__last.sroa.0.0 = phi ptr [ %__last.coerce, %entry ], [ %__last.sroa.0.1, %if.end ]
-  %0 = load i8, ptr %IsDirectory2.i.i, align 4, !tbaa !56, !range !45, !noundef !46
+  %0 = load i8, ptr %IsDirectory2.i.i, align 4, !tbaa !54, !range !43, !noundef !44
   br label %while.cond3
 
 while.cond3:                                      ; preds = %while.body7, %while.body
   %__first.sroa.0.1 = phi ptr [ %__first.sroa.0.0, %while.body ], [ %incdec.ptr.i, %while.body7 ]
   %IsDirectory.i.i = getelementptr inbounds nuw i8, ptr %__first.sroa.0.1, i64 76
-  %1 = load i8, ptr %IsDirectory.i.i, align 4, !tbaa !56, !range !45, !noundef !46
+  %1 = load i8, ptr %IsDirectory.i.i, align 4, !tbaa !54, !range !43, !noundef !44
   %cmp.not.i.i = icmp eq i8 %1, %0
   br i1 %cmp.not.i.i, label %if.end.i.i, label %if.then.i.i
 
@@ -4156,7 +4156,7 @@ for.cond.i.i.i:                                   ; preds = %for.body.i.i.i
   %arrayidx.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 %idxprom.i.i.i
   %5 = load i8, ptr %arrayidx.i.i.i, align 1, !tbaa !25
   %tobool.not.i.i.i = icmp eq i8 %5, 0
-  br i1 %tobool.not.i.i.i, label %for.end.i.i.i, label %land.rhs.i.i.i, !llvm.loop !87
+  br i1 %tobool.not.i.i.i, label %for.end.i.i.i, label %land.rhs.i.i.i, !llvm.loop !74
 
 land.rhs.i.i.i:                                   ; preds = %for.cond.i.i.i, %land.rhs.lr.ph.i.i.i
   %6 = phi i8 [ %3, %land.rhs.lr.ph.i.i.i ], [ %5, %for.cond.i.i.i ]
@@ -4196,7 +4196,7 @@ _ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN3irr2io14SFileL
 
 while.body7:                                      ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN3irr2io14SFileListEntryESt6vectorIS6_SaIS6_EEEESB_EEbT_T0_.exit, %for.end.i.i.i, %if.then.i.i
   %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %__first.sroa.0.1, i64 80
-  br label %while.cond3, !llvm.loop !88
+  br label %while.cond3, !llvm.loop !77
 
 while.end:                                        ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN3irr2io14SFileListEntryESt6vectorIS6_SaIS6_EEEESB_EEbT_T0_.exit, %for.end.i.i.i, %if.then.i.i
   %tobool.i.i31.not = icmp eq i8 %0, 0
@@ -4206,7 +4206,7 @@ while.cond10:                                     ; preds = %while.cond10.backed
   %__last.sroa.0.0.pn = phi ptr [ %__last.sroa.0.0, %while.end ], [ %__last.sroa.0.1, %while.cond10.backedge ]
   %__last.sroa.0.1 = getelementptr inbounds i8, ptr %__last.sroa.0.0.pn, i64 -80
   %IsDirectory2.i.i28 = getelementptr inbounds i8, ptr %__last.sroa.0.0.pn, i64 -4
-  %12 = load i8, ptr %IsDirectory2.i.i28, align 4, !tbaa !56, !range !45, !noundef !46
+  %12 = load i8, ptr %IsDirectory2.i.i28, align 4, !tbaa !54, !range !43, !noundef !44
   %cmp.not.i.i29 = icmp eq i8 %0, %12
   br i1 %cmp.not.i.i29, label %if.end.i.i33, label %if.then.i.i30
 
@@ -4230,7 +4230,7 @@ for.cond.i.i.i55:                                 ; preds = %for.body.i.i.i43
   %arrayidx.i.i.i58 = getelementptr inbounds nuw i8, ptr %13, i64 %idxprom.i.i.i57
   %16 = load i8, ptr %arrayidx.i.i.i58, align 1, !tbaa !25
   %tobool.not.i.i.i59 = icmp eq i8 %16, 0
-  br i1 %tobool.not.i.i.i59, label %for.end.i.i.i60, label %land.rhs.i.i.i38, !llvm.loop !89
+  br i1 %tobool.not.i.i.i59, label %for.end.i.i.i60, label %land.rhs.i.i.i38, !llvm.loop !74
 
 land.rhs.i.i.i38:                                 ; preds = %for.cond.i.i.i55, %land.rhs.lr.ph.i.i.i36
   %17 = phi i8 [ %14, %land.rhs.lr.ph.i.i.i36 ], [ %16, %for.cond.i.i.i55 ]
@@ -4269,7 +4269,7 @@ _ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN3irr2io14SFileL
   br i1 %cmp.le.i.i.i54, label %while.cond10.backedge, label %while.end18
 
 while.cond10.backedge:                            ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN3irr2io14SFileListEntryESt6vectorIS6_SaIS6_EEEESB_EEbT_T0_.exit66, %for.end.i.i.i60, %if.then.i.i30
-  br label %while.cond10, !llvm.loop !90
+  br label %while.cond10, !llvm.loop !78
 
 while.end18:                                      ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN3irr2io14SFileListEntryESt6vectorIS6_SaIS6_EEEESB_EEbT_T0_.exit66, %for.end.i.i.i60, %if.then.i.i30
   %cmp.i = icmp ult ptr %__first.sroa.0.1, %__last.sroa.0.1
@@ -4281,7 +4281,7 @@ if.then:                                          ; preds = %while.end18
 if.end:                                           ; preds = %while.end18
   tail call void @_ZSt4swapIN3irr2io14SFileListEntryEENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleIS6_ESt18is_move_assignableIS6_EEE5valueEvE4typeERS6_SF_(ptr noundef nonnull align 8 dereferenceable(77) %__first.sroa.0.1, ptr noundef nonnull align 8 dereferenceable(77) %__last.sroa.0.1)
   %incdec.ptr.i68 = getelementptr inbounds nuw i8, ptr %__first.sroa.0.1, i64 80
-  br label %while.body, !llvm.loop !91
+  br label %while.body, !llvm.loop !79
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
@@ -4418,8 +4418,8 @@ for.body:                                         ; preds = %for.inc, %for.body.
   %__i.sroa.0.047 = phi ptr [ %__i.sroa.0.044, %for.body.lr.ph ], [ %__i.sroa.0.0, %for.inc ]
   %__first.coerce.pn46 = phi ptr [ %__first.coerce, %for.body.lr.ph ], [ %__i.sroa.0.047, %for.inc ]
   %IsDirectory.i.i = getelementptr inbounds nuw i8, ptr %__first.coerce.pn46, i64 156
-  %2 = load i8, ptr %IsDirectory.i.i, align 4, !tbaa !56, !range !45, !noundef !46
-  %3 = load i8, ptr %IsDirectory2.i.i, align 4, !tbaa !56, !range !45, !noundef !46
+  %2 = load i8, ptr %IsDirectory.i.i, align 4, !tbaa !54, !range !43, !noundef !44
+  %3 = load i8, ptr %IsDirectory2.i.i, align 4, !tbaa !54, !range !43, !noundef !44
   %cmp.not.i.i = icmp eq i8 %2, %3
   br i1 %cmp.not.i.i, label %if.end.i.i, label %if.then.i.i
 
@@ -4444,7 +4444,7 @@ for.cond.i.i.i:                                   ; preds = %for.body.i.i.i
   %arrayidx.i.i.i = getelementptr inbounds nuw i8, ptr %4, i64 %idxprom.i.i.i
   %7 = load i8, ptr %arrayidx.i.i.i, align 1, !tbaa !25
   %tobool.not.i.i.i = icmp eq i8 %7, 0
-  br i1 %tobool.not.i.i.i, label %for.end.i.i.i, label %land.rhs.i.i.i, !llvm.loop !92
+  br i1 %tobool.not.i.i.i, label %for.end.i.i.i, label %land.rhs.i.i.i, !llvm.loop !74
 
 land.rhs.i.i.i:                                   ; preds = %for.cond.i.i.i, %land.rhs.lr.ph.i.i.i
   %8 = phi i8 [ %5, %land.rhs.lr.ph.i.i.i ], [ %7, %for.cond.i.i.i ]
@@ -4533,7 +4533,7 @@ _ZN3irr2io14SFileListEntryaSEOS1_.exit.i.i.i.i.i: ; preds = %_ZN3irr2io14SFileLi
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(13) %Size.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(13) %Size5.i.i.i.i.i.i, i64 13, i1 false)
   %dec.i.i.i.i.i = add nsw i64 %__n.08.i.i.i.i.i, -1
   %cmp.i.i.i.i.i = icmp ugt i64 %__n.08.i.i.i.i.i, 1
-  br i1 %cmp.i.i.i.i.i, label %_ZN3irr2io14SFileListEntryaSEOS1_.exit.i.i.i.i.i, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN3irr2io14SFileListEntryESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit, !llvm.loop !93
+  br i1 %cmp.i.i.i.i.i, label %_ZN3irr2io14SFileListEntryaSEOS1_.exit.i.i.i.i.i, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN3irr2io14SFileListEntryESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit, !llvm.loop !80
 
 _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN3irr2io14SFileListEntryESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit: ; preds = %_ZN3irr2io14SFileListEntryaSEOS1_.exit.i.i.i.i.i, %_ZN3irr2io14SFileListEntryC2EOS1_.exit
   br i1 %cmp.i.i, label %_ZN3irr2io14SFileListEntryaSEOS1_.exit, label %if.end.i9.i
@@ -4585,7 +4585,7 @@ if.else:                                          ; preds = %_ZNK9__gnu_cxx5__op
 for.inc:                                          ; preds = %if.else, %_ZN3irr2io14SFileListEntryD2Ev.exit
   %__i.sroa.0.0 = getelementptr inbounds nuw i8, ptr %__i.sroa.0.047, i64 80
   %cmp.i29.not = icmp eq ptr %__i.sroa.0.0, %__last.coerce
-  br i1 %cmp.i29.not, label %for.end, label %for.body, !llvm.loop !94
+  br i1 %cmp.i29.not, label %for.end, label %for.body, !llvm.loop !81
 
 for.end:                                          ; preds = %for.inc, %for.cond.preheader, %entry
   ret void
@@ -4637,9 +4637,9 @@ _ZN3irr2io14SFileListEntryC2EOS1_.exit:           ; preds = %if.end.i.i9.i, %_ZN
 while.cond:                                       ; preds = %if.end.i9.i, %_ZN3irr2io14SFileListEntryC2EOS1_.exit
   %__last.sroa.0.0 = phi ptr [ %__last.coerce, %_ZN3irr2io14SFileListEntryC2EOS1_.exit ], [ %__next.sroa.0.0, %if.end.i9.i ]
   %__next.sroa.0.0 = getelementptr inbounds i8, ptr %__last.sroa.0.0, i64 -80
-  %3 = load i8, ptr %IsDirectory.i.i, align 4, !tbaa !56, !range !45, !noundef !46
+  %3 = load i8, ptr %IsDirectory.i.i, align 4, !tbaa !54, !range !43, !noundef !44
   %IsDirectory2.i.i = getelementptr inbounds i8, ptr %__last.sroa.0.0, i64 -4
-  %4 = load i8, ptr %IsDirectory2.i.i, align 4, !tbaa !56, !range !45, !noundef !46
+  %4 = load i8, ptr %IsDirectory2.i.i, align 4, !tbaa !54, !range !43, !noundef !44
   %cmp.not.i.i = icmp eq i8 %3, %4
   br i1 %cmp.not.i.i, label %if.end.i.i, label %if.then.i.i
 
@@ -4664,7 +4664,7 @@ for.cond.i.i.i:                                   ; preds = %for.body.i.i.i
   %arrayidx.i.i.i = getelementptr inbounds nuw i8, ptr %5, i64 %idxprom.i.i.i
   %8 = load i8, ptr %arrayidx.i.i.i, align 1, !tbaa !25
   %tobool.not.i.i.i = icmp eq i8 %8, 0
-  br i1 %tobool.not.i.i.i, label %for.end.i.i.i, label %land.rhs.i.i.i, !llvm.loop !95
+  br i1 %tobool.not.i.i.i, label %for.end.i.i.i, label %land.rhs.i.i.i, !llvm.loop !74
 
 land.rhs.i.i.i:                                   ; preds = %for.cond.i.i.i, %land.rhs.lr.ph.i.i.i
   %9 = phi i8 [ %6, %land.rhs.lr.ph.i.i.i ], [ %8, %for.cond.i.i.i ]
@@ -4710,7 +4710,7 @@ if.end.i9.i:                                      ; preds = %_ZNK9__gnu_cxx5__op
   %Size.i13 = getelementptr inbounds nuw i8, ptr %__last.sroa.0.0, i64 64
   %Size5.i = getelementptr inbounds i8, ptr %__last.sroa.0.0, i64 -16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(13) %Size.i13, ptr noundef nonnull align 8 dereferenceable(13) %Size5.i, i64 13, i1 false)
-  br label %while.cond, !llvm.loop !96
+  br label %while.cond, !llvm.loop !82
 
 while.end:                                        ; preds = %_ZNK9__gnu_cxx5__ops14_Val_less_iterclIN3irr2io14SFileListEntryENS_17__normal_iteratorIPS5_St6vectorIS5_SaIS5_EEEEEEbRT_T0_.exit, %for.end.i.i.i, %if.then.i.i
   %cmp.i.i15 = icmp eq ptr %__last.sroa.0.0, %__val
@@ -4764,8 +4764,8 @@ _ZN3irr2io14SFileListEntryD2Ev.exit:              ; preds = %if.then.i.i.i3.i, %
 define linkonce_odr void @_ZNSt6vectorIN3irr2io14SFileListEntryESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr %__position.coerce, ptr noundef nonnull align 8 dereferenceable(77) %__args) local_unnamed_addr #0 comdat align 2 {
 entry:
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %0 = load ptr, ptr %_M_finish.i.i, align 8, !tbaa !42
-  %1 = load ptr, ptr %this, align 8, !tbaa !47
+  %0 = load ptr, ptr %_M_finish.i.i, align 8, !tbaa !41
+  %1 = load ptr, ptr %this, align 8, !tbaa !45
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
@@ -4865,7 +4865,7 @@ _ZSt10_ConstructIN3irr2io14SFileListEntryEJRKS2_EEvPT_DpOT0_.exit.i.i.i.i.i: ; p
   %incdec.ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.07.i.i.i.i.i, i64 80
   %incdec.ptr1.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__cur.08.i.i.i.i.i, i64 80
   %cmp.not.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i, %__position.coerce
-  br i1 %cmp.not.i.i.i.i.i, label %_ZSt34__uninitialized_move_if_noexcept_aIPN3irr2io14SFileListEntryES3_SaIS2_EET0_T_S6_S5_RT1_.exit, label %for.body.i.i.i.i.i, !llvm.loop !97
+  br i1 %cmp.not.i.i.i.i.i, label %_ZSt34__uninitialized_move_if_noexcept_aIPN3irr2io14SFileListEntryES3_SaIS2_EET0_T_S6_S5_RT1_.exit, label %for.body.i.i.i.i.i, !llvm.loop !83
 
 _ZSt34__uninitialized_move_if_noexcept_aIPN3irr2io14SFileListEntryES3_SaIS2_EET0_T_S6_S5_RT1_.exit: ; preds = %_ZSt10_ConstructIN3irr2io14SFileListEntryEJRKS2_EEvPT_DpOT0_.exit.i.i.i.i.i, %_ZNSt16allocator_traitsISaIN3irr2io14SFileListEntryEEE9constructIS2_JRKS2_EEEvRS3_PT_DpOT0_.exit
   %__cur.0.lcssa.i.i.i.i.i = phi ptr [ %call5.i.i.i, %_ZNSt16allocator_traitsISaIN3irr2io14SFileListEntryEEE9constructIS2_JRKS2_EEEvRS3_PT_DpOT0_.exit ], [ %incdec.ptr1.i.i.i.i.i, %_ZSt10_ConstructIN3irr2io14SFileListEntryEJRKS2_EEvPT_DpOT0_.exit.i.i.i.i.i ]
@@ -4912,7 +4912,7 @@ _ZSt10_ConstructIN3irr2io14SFileListEntryEJRKS2_EEvPT_DpOT0_.exit.i.i.i.i.i45: ;
   %incdec.ptr.i.i.i.i.i48 = getelementptr inbounds nuw i8, ptr %__first.addr.07.i.i.i.i.i38, i64 80
   %incdec.ptr1.i.i.i.i.i49 = getelementptr inbounds nuw i8, ptr %__cur.08.i.i.i.i.i37, i64 80
   %cmp.not.i.i.i.i.i50 = icmp eq ptr %incdec.ptr.i.i.i.i.i48, %0
-  br i1 %cmp.not.i.i.i.i.i50, label %_ZSt34__uninitialized_move_if_noexcept_aIPN3irr2io14SFileListEntryES3_SaIS2_EET0_T_S6_S5_RT1_.exit55, label %for.body.i.i.i.i.i36, !llvm.loop !98
+  br i1 %cmp.not.i.i.i.i.i50, label %_ZSt34__uninitialized_move_if_noexcept_aIPN3irr2io14SFileListEntryES3_SaIS2_EET0_T_S6_S5_RT1_.exit55, label %for.body.i.i.i.i.i36, !llvm.loop !83
 
 _ZSt34__uninitialized_move_if_noexcept_aIPN3irr2io14SFileListEntryES3_SaIS2_EET0_T_S6_S5_RT1_.exit55: ; preds = %_ZSt10_ConstructIN3irr2io14SFileListEntryEJRKS2_EEvPT_DpOT0_.exit.i.i.i.i.i45, %_ZSt34__uninitialized_move_if_noexcept_aIPN3irr2io14SFileListEntryES3_SaIS2_EET0_T_S6_S5_RT1_.exit
   %__cur.0.lcssa.i.i.i.i.i51 = phi ptr [ %incdec.ptr, %_ZSt34__uninitialized_move_if_noexcept_aIPN3irr2io14SFileListEntryES3_SaIS2_EET0_T_S6_S5_RT1_.exit ], [ %incdec.ptr1.i.i.i.i.i49, %_ZSt10_ConstructIN3irr2io14SFileListEntryEJRKS2_EEvPT_DpOT0_.exit.i.i.i.i.i45 ]
@@ -4958,7 +4958,7 @@ if.then.i.i.i3.i.i.i.i.i:                         ; preds = %_ZN3irr4core6string
 _ZSt8_DestroyIN3irr2io14SFileListEntryEEvPT_.exit.i.i.i: ; preds = %if.then.i.i.i3.i.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i4.i.i.i.i.i
   %incdec.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.04.i.i.i, i64 80
   %cmp.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %0
-  br i1 %cmp.not.i.i.i, label %_ZSt8_DestroyIPN3irr2io14SFileListEntryES2_EvT_S4_RSaIT0_E.exit, label %for.body.i.i.i, !llvm.loop !99
+  br i1 %cmp.not.i.i.i, label %_ZSt8_DestroyIPN3irr2io14SFileListEntryES2_EvT_S4_RSaIT0_E.exit, label %for.body.i.i.i, !llvm.loop !42
 
 _ZSt8_DestroyIPN3irr2io14SFileListEntryES2_EvT_S4_RSaIT0_E.exit: ; preds = %_ZSt8_DestroyIN3irr2io14SFileListEntryEEvPT_.exit.i.i.i, %_ZSt34__uninitialized_move_if_noexcept_aIPN3irr2io14SFileListEntryES3_SaIS2_EET0_T_S6_S5_RT1_.exit55
   %tobool.not.i = icmp eq ptr %1, null
@@ -4970,10 +4970,10 @@ if.then.i57:                                      ; preds = %_ZSt8_DestroyIPN3ir
 
 _ZNSt12_Vector_baseIN3irr2io14SFileListEntryESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds = %if.then.i57, %_ZSt8_DestroyIPN3irr2io14SFileListEntryES2_EvT_S4_RSaIT0_E.exit
   %_M_end_of_storage = getelementptr inbounds nuw i8, ptr %this, i64 16
-  store ptr %call5.i.i.i, ptr %this, align 8, !tbaa !41
-  store ptr %__cur.0.lcssa.i.i.i.i.i51, ptr %_M_finish.i.i, align 8, !tbaa !42
+  store ptr %call5.i.i.i, ptr %this, align 8, !tbaa !40
+  store ptr %__cur.0.lcssa.i.i.i.i.i51, ptr %_M_finish.i.i, align 8, !tbaa !41
   %add.ptr20 = getelementptr inbounds nuw %"struct.irr::io::SFileListEntry", ptr %call5.i.i.i, i64 %cond.i
-  store ptr %add.ptr20, ptr %_M_end_of_storage, align 8, !tbaa !65
+  store ptr %add.ptr20, ptr %_M_end_of_storage, align 8, !tbaa !63
   ret void
 }
 
@@ -4990,7 +4990,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %0 = load ptr, ptr %this, align 8, !tbaa !47
+  %0 = load ptr, ptr %this, align 8, !tbaa !45
   %conv = sext i32 %left to i64
   %add.ptr.i.i.i.i.idx = mul nsw i64 %conv, 80
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 %add.ptr.i.i.i.i.idx
@@ -4998,7 +4998,7 @@ if.end:                                           ; preds = %entry
   %add.ptr.i.i.i.i42.idx12 = sub nsw i64 %conv9, %conv
   %cmp17.i.i = icmp sgt i64 %add.ptr.i.i.i.i42.idx12, 0
   %IsDirectory2.i.i.i.i = getelementptr inbounds nuw i8, ptr %element, i64 76
-  %1 = load i8, ptr %IsDirectory2.i.i.i.i, align 4, !tbaa !56, !range !45
+  %1 = load i8, ptr %IsDirectory2.i.i.i.i, align 4, !tbaa !54, !range !43
   br i1 %cmp17.i.i, label %while.body.lr.ph.i.i, label %_ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPKN3irr2io14SFileListEntryESt6vectorIS4_SaIS4_EEEES4_ET_SB_SB_RKT0_.exit
 
 while.body.lr.ph.i.i:                             ; preds = %if.end
@@ -5015,7 +5015,7 @@ while.body.i.i:                                   ; preds = %if.end.i.i, %while.
   %shr.i.i = lshr i64 %__len.019.i.i, 1
   %add.ptr.i.i.i.i.i = getelementptr inbounds nuw %"struct.irr::io::SFileListEntry", ptr %__first.sroa.0.018.i.i, i64 %shr.i.i
   %IsDirectory.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i.i.i, i64 76
-  %4 = load i8, ptr %IsDirectory.i.i.i.i, align 4, !tbaa !56, !range !45, !noundef !46
+  %4 = load i8, ptr %IsDirectory.i.i.i.i, align 4, !tbaa !54, !range !43, !noundef !44
   %cmp.not.i.i.i.i = icmp eq i8 %4, %1
   br i1 %cmp.not.i.i.i.i, label %if.end.i.i.i.i, label %if.then.i.i15.i.i
 
@@ -5036,7 +5036,7 @@ for.cond.i.i.i.i.i:                               ; preds = %for.body.i.i.i.i.i
   %arrayidx.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %5, i64 %idxprom.i.i.i.i.i
   %7 = load i8, ptr %arrayidx.i.i.i.i.i, align 1, !tbaa !25
   %tobool.not.i.i.i.i.i = icmp eq i8 %7, 0
-  br i1 %tobool.not.i.i.i.i.i, label %for.end.i.i.i.i.i, label %land.rhs.i.i.i.i.i, !llvm.loop !100
+  br i1 %tobool.not.i.i.i.i.i, label %for.end.i.i.i.i.i, label %land.rhs.i.i.i.i.i, !llvm.loop !74
 
 land.rhs.i.i.i.i.i:                               ; preds = %if.end.i.i.i.i, %for.cond.i.i.i.i.i
   %8 = phi i8 [ %7, %for.cond.i.i.i.i.i ], [ %6, %if.end.i.i.i.i ]
@@ -5082,12 +5082,12 @@ if.end.i.i:                                       ; preds = %if.then.i.i, %_ZNK9
   %__first.sroa.0.1.i.i = phi ptr [ %incdec.ptr.i.i.i, %if.then.i.i ], [ %__first.sroa.0.018.i.i, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclINS_17__normal_iteratorIPKN3irr2io14SFileListEntryESt6vectorIS6_SaIS6_EEEES7_EEbT_RT0_.exit.i.i ], [ %__first.sroa.0.018.i.i, %if.then.i.i15.i.i ], [ %__first.sroa.0.018.i.i, %for.end.i.i.i.i.i ]
   %__len.1.i.i = phi i64 [ %sub9.i.i, %if.then.i.i ], [ %shr.i.i, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclINS_17__normal_iteratorIPKN3irr2io14SFileListEntryESt6vectorIS6_SaIS6_EEEES7_EEbT_RT0_.exit.i.i ], [ %shr.i.i, %if.then.i.i15.i.i ], [ %shr.i.i, %for.end.i.i.i.i.i ]
   %cmp.i.i = icmp sgt i64 %__len.1.i.i, 0
-  br i1 %cmp.i.i, label %while.body.i.i, label %_ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPKN3irr2io14SFileListEntryESt6vectorIS4_SaIS4_EEEES4_ET_SB_SB_RKT0_.exit, !llvm.loop !101
+  br i1 %cmp.i.i, label %while.body.i.i, label %_ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPKN3irr2io14SFileListEntryESt6vectorIS4_SaIS4_EEEES4_ET_SB_SB_RKT0_.exit, !llvm.loop !84
 
 _ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPKN3irr2io14SFileListEntryESt6vectorIS4_SaIS4_EEEES4_ET_SB_SB_RKT0_.exit: ; preds = %if.end.i.i, %if.end
   %__first.sroa.0.0.lcssa.i.i = phi ptr [ %add.ptr.i.i.i.i, %if.end ], [ %__first.sroa.0.1.i.i, %if.end.i.i ]
   %IsDirectory.i = getelementptr inbounds nuw i8, ptr %__first.sroa.0.0.lcssa.i.i, i64 76
-  %14 = load i8, ptr %IsDirectory.i, align 4, !tbaa !56, !range !45, !noundef !46
+  %14 = load i8, ptr %IsDirectory.i, align 4, !tbaa !54, !range !43, !noundef !44
   %cmp.not.i = icmp eq i8 %14, %1
   br i1 %cmp.not.i, label %if.end.i, label %return
 
@@ -5109,7 +5109,7 @@ for.cond.i.i:                                     ; preds = %for.body.i.i
   %arrayidx.i.i = getelementptr inbounds nuw i8, ptr %15, i64 %idxprom.i.i
   %18 = load i8, ptr %arrayidx.i.i, align 1, !tbaa !25
   %tobool.not.i.i = icmp eq i8 %18, 0
-  br i1 %tobool.not.i.i, label %for.end.i.i, label %land.rhs.i.i, !llvm.loop !102
+  br i1 %tobool.not.i.i, label %for.end.i.i, label %land.rhs.i.i, !llvm.loop !74
 
 land.rhs.i.i:                                     ; preds = %for.cond.i.i, %land.rhs.lr.ph.i.i
   %19 = phi i8 [ %16, %land.rhs.lr.ph.i.i ], [ %18, %for.cond.i.i ]
@@ -5165,7 +5165,7 @@ for.cond.i.i78:                                   ; preds = %for.body.i.i66
   %arrayidx.i.i81 = getelementptr inbounds nuw i8, ptr %25, i64 %idxprom.i.i80
   %27 = load i8, ptr %arrayidx.i.i81, align 1, !tbaa !25
   %tobool.not.i.i82 = icmp eq i8 %27, 0
-  br i1 %tobool.not.i.i82, label %for.end.i.i83, label %land.rhs.i.i61, !llvm.loop !103
+  br i1 %tobool.not.i.i82, label %for.end.i.i83, label %land.rhs.i.i61, !llvm.loop !74
 
 land.rhs.i.i61:                                   ; preds = %if.end.i56, %for.cond.i.i78
   %28 = phi i8 [ %27, %for.cond.i.i78 ], [ %26, %if.end.i56 ]
@@ -5230,7 +5230,7 @@ entry:
 
 for.body.lr.ph:                                   ; preds = %entry
   %IsDirectory2.i.i = getelementptr inbounds nuw i8, ptr %__pred.coerce, i64 76
-  %0 = load i8, ptr %IsDirectory2.i.i, align 4, !tbaa !56, !range !45, !noundef !46
+  %0 = load i8, ptr %IsDirectory2.i.i, align 4, !tbaa !54, !range !43, !noundef !44
   %FullName5.i.i = getelementptr inbounds nuw i8, ptr %__pred.coerce, i64 32
   %_M_string_length.i.i27.i.i.i = getelementptr inbounds nuw i8, ptr %__pred.coerce, i64 40
   %1 = mul nuw nsw i64 %shr, 320
@@ -5241,7 +5241,7 @@ for.body:                                         ; preds = %if.end22, %for.body
   %__trip_count.0315 = phi i64 [ %shr, %for.body.lr.ph ], [ %dec, %if.end22 ]
   %__first.sroa.0.0314 = phi ptr [ %__first.coerce, %for.body.lr.ph ], [ %incdec.ptr.i165, %if.end22 ]
   %IsDirectory.i.i = getelementptr inbounds nuw i8, ptr %__first.sroa.0.0314, i64 76
-  %2 = load i8, ptr %IsDirectory.i.i, align 4, !tbaa !56, !range !45, !noundef !46
+  %2 = load i8, ptr %IsDirectory.i.i, align 4, !tbaa !54, !range !43, !noundef !44
   %cmp.not.i.i = icmp eq i8 %2, %0
   br i1 %cmp.not.i.i, label %if.end.i.i, label %if.end
 
@@ -5262,7 +5262,7 @@ for.cond.i.i.i:                                   ; preds = %for.body.i.i.i
   %arrayidx.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 %idxprom.i.i.i
   %6 = load i8, ptr %arrayidx.i.i.i, align 1, !tbaa !25
   %tobool.not.i.i.i = icmp eq i8 %6, 0
-  br i1 %tobool.not.i.i.i, label %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN3irr2io14SFileListEntryEEclINS_17__normal_iteratorIPS5_St6vectorIS4_SaIS4_EEEEEEbT_.exit, label %land.rhs.i.i.i, !llvm.loop !104
+  br i1 %tobool.not.i.i.i, label %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN3irr2io14SFileListEntryEEclINS_17__normal_iteratorIPS5_St6vectorIS4_SaIS4_EEEEEEbT_.exit, label %land.rhs.i.i.i, !llvm.loop !85
 
 land.rhs.i.i.i:                                   ; preds = %for.cond.i.i.i, %land.rhs.lr.ph.i.i.i
   %7 = phi i8 [ %4, %land.rhs.lr.ph.i.i.i ], [ %6, %for.cond.i.i.i ]
@@ -5298,7 +5298,7 @@ _ZN9__gnu_cxx5__ops16_Iter_equals_valIKN3irr2io14SFileListEntryEEclINS_17__norma
 
 if.end:                                           ; preds = %for.body.i.i.i, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN3irr2io14SFileListEntryEEclINS_17__normal_iteratorIPS5_St6vectorIS4_SaIS4_EEEEEEbT_.exit, %for.body
   %IsDirectory.i.i55 = getelementptr inbounds nuw i8, ptr %__first.sroa.0.0314, i64 156
-  %13 = load i8, ptr %IsDirectory.i.i55, align 4, !tbaa !56, !range !45, !noundef !46
+  %13 = load i8, ptr %IsDirectory.i.i55, align 4, !tbaa !54, !range !43, !noundef !44
   %cmp.not.i.i57 = icmp eq i8 %13, %0
   br i1 %cmp.not.i.i57, label %if.end.i.i59, label %if.end10
 
@@ -5319,7 +5319,7 @@ for.cond.i.i.i79:                                 ; preds = %for.body.i.i.i69
   %arrayidx.i.i.i82 = getelementptr inbounds nuw i8, ptr %14, i64 %idxprom.i.i.i81
   %17 = load i8, ptr %arrayidx.i.i.i82, align 1, !tbaa !25
   %tobool.not.i.i.i83 = icmp eq i8 %17, 0
-  br i1 %tobool.not.i.i.i83, label %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN3irr2io14SFileListEntryEEclINS_17__normal_iteratorIPS5_St6vectorIS4_SaIS4_EEEEEEbT_.exit90, label %land.rhs.i.i.i64, !llvm.loop !105
+  br i1 %tobool.not.i.i.i83, label %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN3irr2io14SFileListEntryEEclINS_17__normal_iteratorIPS5_St6vectorIS4_SaIS4_EEEEEEbT_.exit90, label %land.rhs.i.i.i64, !llvm.loop !85
 
 land.rhs.i.i.i64:                                 ; preds = %for.cond.i.i.i79, %land.rhs.lr.ph.i.i.i62
   %18 = phi i8 [ %15, %land.rhs.lr.ph.i.i.i62 ], [ %17, %for.cond.i.i.i79 ]
@@ -5355,7 +5355,7 @@ _ZN9__gnu_cxx5__ops16_Iter_equals_valIKN3irr2io14SFileListEntryEEclINS_17__norma
 
 if.end10:                                         ; preds = %for.body.i.i.i69, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN3irr2io14SFileListEntryEEclINS_17__normal_iteratorIPS5_St6vectorIS4_SaIS4_EEEEEEbT_.exit90, %if.end
   %IsDirectory.i.i92 = getelementptr inbounds nuw i8, ptr %__first.sroa.0.0314, i64 236
-  %24 = load i8, ptr %IsDirectory.i.i92, align 4, !tbaa !56, !range !45, !noundef !46
+  %24 = load i8, ptr %IsDirectory.i.i92, align 4, !tbaa !54, !range !43, !noundef !44
   %cmp.not.i.i94 = icmp eq i8 %24, %0
   br i1 %cmp.not.i.i94, label %if.end.i.i96, label %if.end16
 
@@ -5376,7 +5376,7 @@ for.cond.i.i.i116:                                ; preds = %for.body.i.i.i106
   %arrayidx.i.i.i119 = getelementptr inbounds nuw i8, ptr %25, i64 %idxprom.i.i.i118
   %28 = load i8, ptr %arrayidx.i.i.i119, align 1, !tbaa !25
   %tobool.not.i.i.i120 = icmp eq i8 %28, 0
-  br i1 %tobool.not.i.i.i120, label %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN3irr2io14SFileListEntryEEclINS_17__normal_iteratorIPS5_St6vectorIS4_SaIS4_EEEEEEbT_.exit127, label %land.rhs.i.i.i101, !llvm.loop !106
+  br i1 %tobool.not.i.i.i120, label %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN3irr2io14SFileListEntryEEclINS_17__normal_iteratorIPS5_St6vectorIS4_SaIS4_EEEEEEbT_.exit127, label %land.rhs.i.i.i101, !llvm.loop !85
 
 land.rhs.i.i.i101:                                ; preds = %for.cond.i.i.i116, %land.rhs.lr.ph.i.i.i99
   %29 = phi i8 [ %26, %land.rhs.lr.ph.i.i.i99 ], [ %28, %for.cond.i.i.i116 ]
@@ -5412,7 +5412,7 @@ _ZN9__gnu_cxx5__ops16_Iter_equals_valIKN3irr2io14SFileListEntryEEclINS_17__norma
 
 if.end16:                                         ; preds = %for.body.i.i.i106, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN3irr2io14SFileListEntryEEclINS_17__normal_iteratorIPS5_St6vectorIS4_SaIS4_EEEEEEbT_.exit127, %if.end10
   %IsDirectory.i.i129 = getelementptr inbounds nuw i8, ptr %__first.sroa.0.0314, i64 316
-  %35 = load i8, ptr %IsDirectory.i.i129, align 4, !tbaa !56, !range !45, !noundef !46
+  %35 = load i8, ptr %IsDirectory.i.i129, align 4, !tbaa !54, !range !43, !noundef !44
   %cmp.not.i.i131 = icmp eq i8 %35, %0
   br i1 %cmp.not.i.i131, label %if.end.i.i133, label %if.end22
 
@@ -5433,7 +5433,7 @@ for.cond.i.i.i153:                                ; preds = %for.body.i.i.i143
   %arrayidx.i.i.i156 = getelementptr inbounds nuw i8, ptr %36, i64 %idxprom.i.i.i155
   %39 = load i8, ptr %arrayidx.i.i.i156, align 1, !tbaa !25
   %tobool.not.i.i.i157 = icmp eq i8 %39, 0
-  br i1 %tobool.not.i.i.i157, label %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN3irr2io14SFileListEntryEEclINS_17__normal_iteratorIPS5_St6vectorIS4_SaIS4_EEEEEEbT_.exit164, label %land.rhs.i.i.i138, !llvm.loop !107
+  br i1 %tobool.not.i.i.i157, label %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN3irr2io14SFileListEntryEEclINS_17__normal_iteratorIPS5_St6vectorIS4_SaIS4_EEEEEEbT_.exit164, label %land.rhs.i.i.i138, !llvm.loop !85
 
 land.rhs.i.i.i138:                                ; preds = %for.cond.i.i.i153, %land.rhs.lr.ph.i.i.i136
   %40 = phi i8 [ %37, %land.rhs.lr.ph.i.i.i136 ], [ %39, %for.cond.i.i.i153 ]
@@ -5471,7 +5471,7 @@ if.end22:                                         ; preds = %for.body.i.i.i143, 
   %incdec.ptr.i165 = getelementptr inbounds nuw i8, ptr %__first.sroa.0.0314, i64 320
   %dec = add nsw i64 %__trip_count.0315, -1
   %cmp = icmp sgt i64 %__trip_count.0315, 1
-  br i1 %cmp, label %for.body, label %for.end.loopexit, !llvm.loop !108
+  br i1 %cmp, label %for.body, label %for.end.loopexit, !llvm.loop !86
 
 for.end.loopexit:                                 ; preds = %if.end22
   %.pre321 = ptrtoint ptr %scevgep to i64
@@ -5490,19 +5490,19 @@ for.end:                                          ; preds = %for.end.loopexit, %
 
 for.end.sw.bb38_crit_edge:                        ; preds = %for.end
   %IsDirectory2.i.i245.phi.trans.insert = getelementptr inbounds nuw i8, ptr %__pred.coerce, i64 76
-  %.pre320 = load i8, ptr %IsDirectory2.i.i245.phi.trans.insert, align 4, !tbaa !56, !range !45
+  %.pre320 = load i8, ptr %IsDirectory2.i.i245.phi.trans.insert, align 4, !tbaa !54, !range !43
   br label %sw.bb38
 
 for.end.sw.bb31_crit_edge:                        ; preds = %for.end
   %IsDirectory2.i.i208.phi.trans.insert = getelementptr inbounds nuw i8, ptr %__pred.coerce, i64 76
-  %.pre = load i8, ptr %IsDirectory2.i.i208.phi.trans.insert, align 4, !tbaa !56, !range !45
+  %.pre = load i8, ptr %IsDirectory2.i.i208.phi.trans.insert, align 4, !tbaa !54, !range !43
   br label %sw.bb31
 
 sw.bb:                                            ; preds = %for.end
   %IsDirectory.i.i170 = getelementptr inbounds nuw i8, ptr %__first.sroa.0.0.lcssa, i64 76
-  %46 = load i8, ptr %IsDirectory.i.i170, align 4, !tbaa !56, !range !45, !noundef !46
+  %46 = load i8, ptr %IsDirectory.i.i170, align 4, !tbaa !54, !range !43, !noundef !44
   %IsDirectory2.i.i171 = getelementptr inbounds nuw i8, ptr %__pred.coerce, i64 76
-  %47 = load i8, ptr %IsDirectory2.i.i171, align 4, !tbaa !56, !range !45, !noundef !46
+  %47 = load i8, ptr %IsDirectory2.i.i171, align 4, !tbaa !54, !range !43, !noundef !44
   %cmp.not.i.i172 = icmp eq i8 %46, %47
   br i1 %cmp.not.i.i172, label %if.end.i.i174, label %if.end29
 
@@ -5524,7 +5524,7 @@ for.cond.i.i.i194:                                ; preds = %for.body.i.i.i184
   %arrayidx.i.i.i197 = getelementptr inbounds nuw i8, ptr %48, i64 %idxprom.i.i.i196
   %51 = load i8, ptr %arrayidx.i.i.i197, align 1, !tbaa !25
   %tobool.not.i.i.i198 = icmp eq i8 %51, 0
-  br i1 %tobool.not.i.i.i198, label %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN3irr2io14SFileListEntryEEclINS_17__normal_iteratorIPS5_St6vectorIS4_SaIS4_EEEEEEbT_.exit205, label %land.rhs.i.i.i179, !llvm.loop !109
+  br i1 %tobool.not.i.i.i198, label %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN3irr2io14SFileListEntryEEclINS_17__normal_iteratorIPS5_St6vectorIS4_SaIS4_EEEEEEbT_.exit205, label %land.rhs.i.i.i179, !llvm.loop !85
 
 land.rhs.i.i.i179:                                ; preds = %for.cond.i.i.i194, %land.rhs.lr.ph.i.i.i177
   %52 = phi i8 [ %49, %land.rhs.lr.ph.i.i.i177 ], [ %51, %for.cond.i.i.i194 ]
@@ -5567,7 +5567,7 @@ sw.bb31:                                          ; preds = %if.end29, %for.end.
   %58 = phi i8 [ %.pre, %for.end.sw.bb31_crit_edge ], [ %47, %if.end29 ]
   %__first.sroa.0.1 = phi ptr [ %__first.sroa.0.0.lcssa, %for.end.sw.bb31_crit_edge ], [ %incdec.ptr.i206, %if.end29 ]
   %IsDirectory.i.i207 = getelementptr inbounds nuw i8, ptr %__first.sroa.0.1, i64 76
-  %59 = load i8, ptr %IsDirectory.i.i207, align 4, !tbaa !56, !range !45, !noundef !46
+  %59 = load i8, ptr %IsDirectory.i.i207, align 4, !tbaa !54, !range !43, !noundef !44
   %cmp.not.i.i209 = icmp eq i8 %59, %58
   br i1 %cmp.not.i.i209, label %if.end.i.i211, label %if.end36
 
@@ -5589,7 +5589,7 @@ for.cond.i.i.i231:                                ; preds = %for.body.i.i.i221
   %arrayidx.i.i.i234 = getelementptr inbounds nuw i8, ptr %60, i64 %idxprom.i.i.i233
   %63 = load i8, ptr %arrayidx.i.i.i234, align 1, !tbaa !25
   %tobool.not.i.i.i235 = icmp eq i8 %63, 0
-  br i1 %tobool.not.i.i.i235, label %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN3irr2io14SFileListEntryEEclINS_17__normal_iteratorIPS5_St6vectorIS4_SaIS4_EEEEEEbT_.exit242, label %land.rhs.i.i.i216, !llvm.loop !110
+  br i1 %tobool.not.i.i.i235, label %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN3irr2io14SFileListEntryEEclINS_17__normal_iteratorIPS5_St6vectorIS4_SaIS4_EEEEEEbT_.exit242, label %land.rhs.i.i.i216, !llvm.loop !85
 
 land.rhs.i.i.i216:                                ; preds = %for.cond.i.i.i231, %land.rhs.lr.ph.i.i.i214
   %64 = phi i8 [ %61, %land.rhs.lr.ph.i.i.i214 ], [ %63, %for.cond.i.i.i231 ]
@@ -5632,7 +5632,7 @@ sw.bb38:                                          ; preds = %if.end36, %for.end.
   %70 = phi i8 [ %.pre320, %for.end.sw.bb38_crit_edge ], [ %58, %if.end36 ]
   %__first.sroa.0.2 = phi ptr [ %__first.sroa.0.0.lcssa, %for.end.sw.bb38_crit_edge ], [ %incdec.ptr.i243, %if.end36 ]
   %IsDirectory.i.i244 = getelementptr inbounds nuw i8, ptr %__first.sroa.0.2, i64 76
-  %71 = load i8, ptr %IsDirectory.i.i244, align 4, !tbaa !56, !range !45, !noundef !46
+  %71 = load i8, ptr %IsDirectory.i.i244, align 4, !tbaa !54, !range !43, !noundef !44
   %cmp.not.i.i246 = icmp eq i8 %71, %70
   br i1 %cmp.not.i.i246, label %if.end.i.i248, label %if.end43
 
@@ -5654,7 +5654,7 @@ for.cond.i.i.i268:                                ; preds = %for.body.i.i.i258
   %arrayidx.i.i.i271 = getelementptr inbounds nuw i8, ptr %72, i64 %idxprom.i.i.i270
   %75 = load i8, ptr %arrayidx.i.i.i271, align 1, !tbaa !25
   %tobool.not.i.i.i272 = icmp eq i8 %75, 0
-  br i1 %tobool.not.i.i.i272, label %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN3irr2io14SFileListEntryEEclINS_17__normal_iteratorIPS5_St6vectorIS4_SaIS4_EEEEEEbT_.exit279, label %land.rhs.i.i.i253, !llvm.loop !111
+  br i1 %tobool.not.i.i.i272, label %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN3irr2io14SFileListEntryEEclINS_17__normal_iteratorIPS5_St6vectorIS4_SaIS4_EEEEEEbT_.exit279, label %land.rhs.i.i.i253, !llvm.loop !85
 
 land.rhs.i.i.i253:                                ; preds = %for.cond.i.i.i268, %land.rhs.lr.ph.i.i.i251
   %76 = phi i8 [ %73, %land.rhs.lr.ph.i.i.i251 ], [ %75, %for.cond.i.i.i268 ]
@@ -5783,88 +5783,63 @@ attributes #24 = { builtin nounwind allocsize(0) }
 !24 = !{!5, !6, i64 0}
 !25 = !{!7, !7, i64 0}
 !26 = !{!18, !16, i64 24}
-!27 = distinct !{!27, !28, !29, !30, !31}
+!27 = distinct !{!27, !28, !29, !30}
 !28 = !{!"llvm.loop.mustprogress"}
 !29 = !{!"llvm.loop.isvectorized", i32 1}
 !30 = !{!"llvm.loop.unroll.runtime.disable"}
-!31 = !{!"llvm.loop.estimated_trip_count"}
-!32 = distinct !{!32, !28, !29, !30, !31}
-!33 = distinct !{!33, !28, !30, !29, !31}
-!34 = !{!35, !6, i64 8}
-!35 = !{!"_ZTSN3irr17IReferenceCountedE", !6, i64 8, !36, i64 16}
-!36 = !{!"int", !7, i64 0}
-!37 = !{!35, !36, i64 16}
-!38 = distinct !{!38, !28, !29, !30, !31}
-!39 = distinct !{!39, !28, !29, !30, !31}
-!40 = distinct !{!40, !28, !30, !29, !31}
-!41 = !{!22, !6, i64 0}
-!42 = !{!22, !6, i64 8}
-!43 = distinct !{!43, !28, !31}
-!44 = distinct !{!44, !28, !31}
-!45 = !{i8 0, i8 2}
-!46 = !{}
-!47 = !{!6, !6, i64 0}
-!48 = !{i64 0, i64 65}
-!49 = distinct !{!49, !28, !31}
-!50 = !{!51, !36, i64 68}
-!51 = !{!"_ZTSN3irr2io14SFileListEntryE", !17, i64 0, !17, i64 32, !36, i64 64, !36, i64 68, !36, i64 72, !16, i64 76}
-!52 = !{!51, !36, i64 72}
-!53 = !{!51, !36, i64 64}
-!54 = distinct !{!54, !28, !29, !30, !31}
-!55 = distinct !{!55, !28, !29, !30, !31}
-!56 = !{!51, !16, i64 76}
-!57 = distinct !{!57, !28, !30, !29, !31}
-!58 = distinct !{!58, !28, !29, !30, !31}
-!59 = distinct !{!59, !28, !29, !30, !31}
-!60 = distinct !{!60, !28, !30, !29, !31}
-!61 = distinct !{!61, !28, !31}
-!62 = distinct !{!62, !28, !31}
-!63 = distinct !{!63, !64, !31}
-!64 = !{!"llvm.loop.unroll.disable"}
-!65 = !{!22, !6, i64 16}
-!66 = distinct !{!66, !28, !29, !30, !31}
-!67 = distinct !{!67, !28, !29, !30, !31}
-!68 = distinct !{!68, !28, !30, !29, !31}
-!69 = distinct !{!69, !28, !29, !30, !31}
-!70 = distinct !{!70, !28, !29, !30, !31}
-!71 = distinct !{!71, !28, !30, !29, !31}
-!72 = distinct !{!72, !28, !31}
-!73 = distinct !{!73, !28, !31}
-!74 = distinct !{!74, !64, !31}
-!75 = distinct !{!75, !28, !31}
-!76 = distinct !{!76, !28, !31}
-!77 = distinct !{!77, !28, !31}
-!78 = distinct !{!78, !28, !31}
-!79 = distinct !{!79, !28, !31}
-!80 = distinct !{!80, !28, !31}
-!81 = distinct !{!81, !28, !31}
-!82 = distinct !{!82, !28, !31}
-!83 = distinct !{!83, !28, !31}
-!84 = distinct !{!84, !28, !31}
-!85 = distinct !{!85, !28, !31}
-!86 = distinct !{!86, !28, !31}
-!87 = distinct !{!87, !28, !31}
-!88 = distinct !{!88, !28, !31}
-!89 = distinct !{!89, !28, !31}
-!90 = distinct !{!90, !28, !31}
-!91 = distinct !{!91, !28, !31}
-!92 = distinct !{!92, !28, !31}
-!93 = distinct !{!93, !28, !31}
-!94 = distinct !{!94, !28, !31}
-!95 = distinct !{!95, !28, !31}
-!96 = distinct !{!96, !28, !31}
-!97 = distinct !{!97, !28, !31}
-!98 = distinct !{!98, !28, !31}
-!99 = distinct !{!99, !28, !31}
-!100 = distinct !{!100, !28, !31}
-!101 = distinct !{!101, !28, !31}
-!102 = distinct !{!102, !28, !31}
-!103 = distinct !{!103, !28, !31}
-!104 = distinct !{!104, !28, !31}
-!105 = distinct !{!105, !28, !31}
-!106 = distinct !{!106, !28, !31}
-!107 = distinct !{!107, !28, !31}
-!108 = distinct !{!108, !28, !31}
-!109 = distinct !{!109, !28, !31}
-!110 = distinct !{!110, !28, !31}
-!111 = distinct !{!111, !28, !31}
+!31 = distinct !{!31, !28, !29, !30}
+!32 = distinct !{!32, !28, !30, !29}
+!33 = !{!34, !6, i64 8}
+!34 = !{!"_ZTSN3irr17IReferenceCountedE", !6, i64 8, !35, i64 16}
+!35 = !{!"int", !7, i64 0}
+!36 = !{!34, !35, i64 16}
+!37 = distinct !{!37, !28, !29, !30}
+!38 = distinct !{!38, !28, !29, !30}
+!39 = distinct !{!39, !28, !30, !29}
+!40 = !{!22, !6, i64 0}
+!41 = !{!22, !6, i64 8}
+!42 = distinct !{!42, !28}
+!43 = !{i8 0, i8 2}
+!44 = !{}
+!45 = !{!6, !6, i64 0}
+!46 = !{i64 0, i64 65}
+!47 = distinct !{!47, !28}
+!48 = !{!49, !35, i64 68}
+!49 = !{!"_ZTSN3irr2io14SFileListEntryE", !17, i64 0, !17, i64 32, !35, i64 64, !35, i64 68, !35, i64 72, !16, i64 76}
+!50 = !{!49, !35, i64 72}
+!51 = !{!49, !35, i64 64}
+!52 = distinct !{!52, !28, !29, !30}
+!53 = distinct !{!53, !28, !29, !30}
+!54 = !{!49, !16, i64 76}
+!55 = distinct !{!55, !28, !30, !29}
+!56 = distinct !{!56, !28, !29, !30}
+!57 = distinct !{!57, !28, !29, !30}
+!58 = distinct !{!58, !28, !30, !29}
+!59 = distinct !{!59, !28}
+!60 = distinct !{!60, !28}
+!61 = distinct !{!61, !62}
+!62 = !{!"llvm.loop.unroll.disable"}
+!63 = !{!22, !6, i64 16}
+!64 = distinct !{!64, !28, !29, !30}
+!65 = distinct !{!65, !28, !29, !30}
+!66 = distinct !{!66, !28, !30, !29}
+!67 = distinct !{!67, !28, !29, !30}
+!68 = distinct !{!68, !28, !29, !30}
+!69 = distinct !{!69, !28, !30, !29}
+!70 = distinct !{!70, !62}
+!71 = distinct !{!71, !28}
+!72 = distinct !{!72, !28}
+!73 = distinct !{!73, !28}
+!74 = distinct !{!74, !28}
+!75 = distinct !{!75, !28}
+!76 = distinct !{!76, !28}
+!77 = distinct !{!77, !28}
+!78 = distinct !{!78, !28}
+!79 = distinct !{!79, !28}
+!80 = distinct !{!80, !28}
+!81 = distinct !{!81, !28}
+!82 = distinct !{!82, !28}
+!83 = distinct !{!83, !28}
+!84 = distinct !{!84, !28}
+!85 = distinct !{!85, !28}
+!86 = distinct !{!86, !28}

@@ -430,7 +430,7 @@ core_handle_prstatus.exit.thread.i:               ; preds = %.preheader.i, %104,
   %114 = zext i32 %113 to i64
   %115 = getelementptr inbounds nuw i8, ptr %33, i64 %114
   %116 = icmp ult ptr %115, %26
-  br i1 %116, label %.lr.ph.i, label %core_handle_note.exit, !llvm.loop !9
+  br i1 %116, label %.lr.ph.i, label %core_handle_note.exit, !llvm.loop !8
 
 117:                                              ; preds = %22
   tail call void (ptr, ...) @print_debug(ptr noundef nonnull @.str.9) #15
@@ -466,7 +466,7 @@ core_handle_note.exit:                            ; preds = %core_handle_prstatu
   %135 = load i16, ptr %8, align 8
   %136 = zext i16 %135 to i32
   %137 = icmp samesign ult i32 %134, %136
-  br i1 %137, label %.lr.ph, label %.sink.split, !llvm.loop !10
+  br i1 %137, label %.lr.ph, label %.sink.split, !llvm.loop !9
 
 .sink.split:                                      ; preds = %121, %132, %39, %18, %117, %.thread.i, %.preheader
   %.020.ph = phi i32 [ 1, %.preheader ], [ 0, %.thread.i ], [ 0, %117 ], [ 0, %18 ], [ 0, %39 ], [ 1, %132 ], [ 0, %121 ]
@@ -604,7 +604,7 @@ define internal fastcc i64 @read_exec_segments(ptr noundef nonnull %0, ptr nound
   %75 = load i16, ptr %10, align 8
   %76 = zext i16 %75 to i32
   %77 = icmp samesign ult i32 %74, %76
-  br i1 %77, label %14, label %.sink.split, !llvm.loop !11
+  br i1 %77, label %14, label %.sink.split, !llvm.loop !10
 
 .loopexit.sink.split:                             ; preds = %45, %37
   %.str.42.sink = phi ptr [ @.str.40, %37 ], [ @.str.42, %45 ]
@@ -653,7 +653,7 @@ define internal fastcc range(i32 0, 2) i32 @sort_map_array(ptr noundef nonnull r
   %.024.in = getelementptr inbounds nuw i8, ptr %.02433, i64 40
   %.024 = load ptr, ptr %.024.in, align 8
   %.not = icmp eq ptr %.024, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !12
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 56
@@ -705,7 +705,7 @@ define internal fastcc range(i32 0, 2) i32 @sort_map_array(ptr noundef nonnull r
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 32
   %38 = load i64, ptr %37, align 8
   %39 = icmp ugt i64 %38, %indvars.iv.next40
-  br i1 %39, label %.lr.ph36, label %.loopexit, !llvm.loop !13
+  br i1 %39, label %.lr.ph36, label %.loopexit, !llvm.loop !12
 
 .loopexit:                                        ; preds = %.lr.ph36, %23, %14, %9
   %.022 = phi i32 [ 0, %9 ], [ 1, %14 ], [ 1, %23 ], [ 1, %.lr.ph36 ]
@@ -745,7 +745,7 @@ define internal fastcc range(i32 0, 2) i32 @read_shared_lib_info(ptr noundef non
   %20 = add i64 %.03056, 16
   %.pr = load i64, ptr %9, align 8
   %.not = icmp eq i64 %.pr, 21
-  br i1 %.not, label %21, label %15, !llvm.loop !14
+  br i1 %.not, label %21, label %15, !llvm.loop !13
 
 21:                                               ; preds = %19
   %22 = getelementptr inbounds nuw i8, ptr %9, i64 8
@@ -925,7 +925,7 @@ thread-pre-split:                                 ; preds = %.thread
   %99 = getelementptr inbounds nuw i8, ptr %98, i64 24
   %100 = call i32 @ps_pdread(ptr noundef nonnull %0, ptr noundef nonnull %99, ptr noundef nonnull %5, i64 noundef 8) #15
   %.not47 = icmp eq i32 %100, 0
-  br i1 %.not47, label %thread-pre-split, label %101, !llvm.loop !15
+  br i1 %.not47, label %thread-pre-split, label %101, !llvm.loop !14
 
 101:                                              ; preds = %.thread
   call void (ptr, ...) @print_debug(ptr noundef nonnull @.str.59) #15
@@ -1000,7 +1000,7 @@ define internal range(i32 0, 2) i32 @core_read_data(ptr noundef %0, i64 noundef 
   %.149 = phi ptr [ %35, %30 ], [ %26, %23 ]
   %.1 = phi i64 [ %34, %30 ], [ %25, %23 ]
   %.not = icmp eq i64 %.151, 0
-  br i1 %.not, label %.critedge, label %7, !llvm.loop !16
+  br i1 %.not, label %.critedge, label %7, !llvm.loop !15
 
 37:                                               ; preds = %7, %10
   tail call void (ptr, ...) @print_debug(ptr noundef nonnull @.str.6, i64 noundef %3, i64 noundef %.04761, i64 noundef %.05059) #15
@@ -1038,7 +1038,7 @@ define internal range(i32 0, 2) i32 @core_get_lwp_regs(ptr noundef readonly capt
   %10 = getelementptr inbounds nuw i8, ptr %.011, i64 224
   %.0 = load ptr, ptr %10, align 8
   %.not = icmp eq ptr %.0, null
-  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !17
+  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !16
 
 .loopexit:                                        ; preds = %9, %3, %7
   %.07 = phi i32 [ 1, %7 ], [ 0, %3 ], [ 0, %9 ]
@@ -1120,7 +1120,7 @@ define internal fastcc noundef i64 @calc_prelinked_load_address(ptr noundef nonn
 11:                                               ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !18
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !17
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %11
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %11 ]
@@ -1287,7 +1287,7 @@ define internal fastcc range(i32 0, 2) i32 @read_lib_segments(ptr noundef nonnul
   %72 = load i16, ptr %8, align 8
   %73 = zext i16 %72 to i32
   %74 = icmp samesign ult i32 %71, %73
-  br i1 %74, label %12, label %.sink.split, !llvm.loop !19
+  br i1 %74, label %12, label %.sink.split, !llvm.loop !18
 
 .sink.split:                                      ; preds = %28, %70, %54, %.preheader
   %.0.ph = phi i32 [ 1, %.preheader ], [ 0, %54 ], [ 1, %70 ], [ 0, %28 ]
@@ -1340,17 +1340,16 @@ attributes #16 = { nounwind allocsize(0) }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7, !8}
-!11 = distinct !{!11, !7, !8}
-!12 = distinct !{!12, !7, !8}
-!13 = distinct !{!13, !7, !8}
-!14 = distinct !{!14, !7, !8}
-!15 = distinct !{!15, !7, !8}
-!16 = distinct !{!16, !7, !8}
-!17 = distinct !{!17, !7, !8}
-!18 = distinct !{!18, !7, !8}
-!19 = distinct !{!19, !7, !8}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7}
+!12 = distinct !{!12, !7}
+!13 = distinct !{!13, !7}
+!14 = distinct !{!14, !7}
+!15 = distinct !{!15, !7}
+!16 = distinct !{!16, !7}
+!17 = distinct !{!17, !7}
+!18 = distinct !{!18, !7}

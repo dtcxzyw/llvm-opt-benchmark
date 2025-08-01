@@ -517,7 +517,7 @@ define internal fastcc void @pci_wait_cfg(ptr noundef readonly captures(none) %0
   %15 = load i40, ptr %3, align 1
   %16 = and i40 %15, 256
   %17 = icmp eq i40 %16, 0
-  br i1 %17, label %.loopexit, label %.preheader, !llvm.loop !13
+  br i1 %17, label %.loopexit, label %.preheader
 
 .loopexit:                                        ; preds = %.preheader, %9
   call void @finish_wait(ptr noundef nonnull @pci_cfg_wait, ptr noundef nonnull %2) #7
@@ -529,7 +529,7 @@ define internal fastcc void @pci_wait_cfg(ptr noundef readonly captures(none) %0
   %19 = load i40, ptr %3, align 1
   %20 = and i40 %19, 256
   %21 = icmp eq i40 %20, 0
-  br i1 %21, label %22, label %4, !llvm.loop !15
+  br i1 %21, label %22, label %4, !llvm.loop !13
 
 22:                                               ; preds = %18
   ret void
@@ -926,12 +926,12 @@ define dso_local void @pci_cfg_access_unlock(ptr noundef captures(none) %0) #0 a
   %4 = load i40, ptr %3, align 1
   %5 = and i40 %4, 256
   %6 = icmp eq i40 %5, 0
-  br i1 %6, label %7, label %8, !prof !18
+  br i1 %6, label %7, label %8, !prof !16
 
 7:                                                ; preds = %1
-  tail call void asm sideeffect "371: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 371b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 371) #7, !srcloc !19
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.1, i32 326, i32 2305, i64 12) #7, !srcloc !20
-  tail call void asm sideeffect "372: nop\0A\09.pushsection .discard.instr_end\0A\09.long 372b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 372) #7, !srcloc !21
+  tail call void asm sideeffect "371: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 371b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 371) #7, !srcloc !17
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.1, i32 326, i32 2305, i64 12) #7, !srcloc !18
+  tail call void asm sideeffect "372: nop\0A\09.pushsection .discard.instr_end\0A\09.long 372b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 372) #7, !srcloc !19
   %.pre = load i40, ptr %3, align 1
   br label %8
 
@@ -1846,12 +1846,10 @@ attributes #8 = { cold nounwind }
 !10 = !{i64 2154272867}
 !11 = !{!"branch_weights", i32 2000, i32 1}
 !12 = !{!"auto-init"}
-!13 = distinct !{!13, !14}
-!14 = !{!"llvm.loop.estimated_trip_count"}
-!15 = distinct !{!15, !16, !17, !14}
-!16 = !{!"llvm.loop.mustprogress"}
-!17 = !{!"llvm.loop.unroll.disable"}
-!18 = !{!"branch_weights", i32 1, i32 2000}
-!19 = !{i64 2155263893, i64 2155263702, i64 2155263754, i64 2155263800, i64 2155263828}
-!20 = !{i64 2155263967, i64 2155263996, i64 2155264042, i64 2155264100, i64 2155264154, i64 2155264208, i64 2155264263, i64 2155264294, i64 2155264602, i64 2155264608, i64 2155264655, i64 2155264678, i64 2155264704}
-!21 = !{i64 2155265157, i64 2155264968, i64 2155265018, i64 2155265064, i64 2155265092}
+!13 = distinct !{!13, !14, !15}
+!14 = !{!"llvm.loop.mustprogress"}
+!15 = !{!"llvm.loop.unroll.disable"}
+!16 = !{!"branch_weights", i32 1, i32 2000}
+!17 = !{i64 2155263893, i64 2155263702, i64 2155263754, i64 2155263800, i64 2155263828}
+!18 = !{i64 2155263967, i64 2155263996, i64 2155264042, i64 2155264100, i64 2155264154, i64 2155264208, i64 2155264263, i64 2155264294, i64 2155264602, i64 2155264608, i64 2155264655, i64 2155264678, i64 2155264704}
+!19 = !{i64 2155265157, i64 2155264968, i64 2155265018, i64 2155265064, i64 2155265092}

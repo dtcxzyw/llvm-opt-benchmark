@@ -402,7 +402,7 @@ define hidden void @_ZNK13WorkerThreads10threads_doEP13ThreadClosure(ptr noundef
   %12 = load i32, ptr %3, align 4
   %13 = zext i32 %12 to i64
   %14 = icmp samesign ult i64 %indvars.iv.next, %13
-  br i1 %14, label %6, label %._crit_edge, !llvm.loop !10
+  br i1 %14, label %6, label %._crit_edge, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %6, %2
   ret void
@@ -612,7 +612,7 @@ define hidden void @_ZN12WorkerThread3runEv(ptr noundef nonnull align 8 derefere
 _ZN20WorkerTaskDispatcher15worker_run_taskEv.exit: ; preds = %6, %20
   call void @_ZN8GCIdMarkD1Ev(ptr noundef nonnull align 4 dereferenceable(4) %2) #10
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2)
-  br label %6, !llvm.loop !11
+  br label %6, !llvm.loop !10
 }
 
 declare noundef i32 @_ZN2os12set_priorityEP6Thread14ThreadPriority(ptr noundef, i32 noundef) local_unnamed_addr #1
@@ -821,8 +821,7 @@ attributes #10 = { nounwind }
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
 !6 = !{i64 2145409567}
-!7 = distinct !{!7, !8, !9}
+!7 = distinct !{!7, !8}
 !8 = !{!"llvm.loop.mustprogress"}
-!9 = !{!"llvm.loop.estimated_trip_count"}
-!10 = distinct !{!10, !8, !9}
-!11 = distinct !{!11, !8, !9}
+!9 = distinct !{!9, !8}
+!10 = distinct !{!10, !8}

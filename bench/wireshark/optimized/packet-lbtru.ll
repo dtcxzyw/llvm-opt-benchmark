@@ -957,7 +957,7 @@ proto_item_set_generated.exit524:                 ; preds = %proto_item_set_gene
   %183 = add nuw nsw i32 %.025.i.i, 4
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %165
-  br i1 %exitcond.not.i.i, label %dissect_lbtru_nak.exit, label %.lr.ph.i.i, !llvm.loop !11
+  br i1 %exitcond.not.i.i, label %dissect_lbtru_nak.exit, label %.lr.ph.i.i, !llvm.loop !10
 
 dissect_lbtru_nak.exit:                           ; preds = %181, %162
   %.0.lcssa.i.i = phi i32 [ 0, %162 ], [ %183, %181 ]
@@ -1040,7 +1040,7 @@ dissect_lbtru_nak.exit:                           ; preds = %181, %162
   %234 = add nuw nsw i32 %.026.i.i, 4
   %indvars.iv.next.i.i529 = add nuw nsw i64 %indvars.iv.i.i528, 1
   %exitcond.not.i.i530 = icmp eq i64 %indvars.iv.next.i.i529, %215
-  br i1 %exitcond.not.i.i530, label %dissect_lbtru_ncf.exit, label %.lr.ph.i.i527, !llvm.loop !12
+  br i1 %exitcond.not.i.i530, label %dissect_lbtru_ncf.exit, label %.lr.ph.i.i527, !llvm.loop !11
 
 dissect_lbtru_ncf.exit:                           ; preds = %232, %._crit_edge.i
   %.0.lcssa.i.i531 = phi i32 [ 0, %._crit_edge.i ], [ %234, %232 ]
@@ -1225,7 +1225,7 @@ proto_item_set_generated.exit534:                 ; preds = %272, %275, %278
   %345 = add i32 %.1440757, %288
   %346 = add i32 %.1465753, %288
   %.not495 = icmp eq i8 %285, 0
-  br i1 %.not495, label %._crit_edge, label %.lr.ph, !llvm.loop !13
+  br i1 %.not495, label %._crit_edge, label %.lr.ph, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %344, %284
   %.1465.lcssa = phi i32 [ %269, %284 ], [ %346, %344 ]
@@ -3218,9 +3218,8 @@ attributes #10 = { nounwind willreturn memory(read) }
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i8 0, i8 2}
 !7 = !{}
-!8 = distinct !{!8, !9, !10}
+!8 = distinct !{!8, !9}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = !{!"llvm.loop.estimated_trip_count"}
-!11 = distinct !{!11, !9, !10}
-!12 = distinct !{!12, !9, !10}
-!13 = distinct !{!13, !9, !10}
+!10 = distinct !{!10, !9}
+!11 = distinct !{!11, !9}
+!12 = distinct !{!12, !9}

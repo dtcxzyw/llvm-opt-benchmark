@@ -103,11 +103,11 @@ define internal noundef i32 @seed_cfb128_cipher(ptr noundef %0, ptr noundef %1, 
   %.02428 = phi ptr [ %1, %.lr.ph ], [ %15, %7 ]
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #5
   %8 = call i32 @EVP_CIPHER_CTX_get_num(ptr noundef %0) #5
-  store i32 %8, ptr %5, align 4, !tbaa !6
+  store i32 %8, ptr %5, align 4, !tbaa !5
   %9 = call ptr @EVP_CIPHER_CTX_get_cipher_data(ptr noundef %0) #5
   %10 = call i32 @EVP_CIPHER_CTX_is_encrypting(ptr noundef %0) #5
   call void @SEED_cfb128_encrypt(ptr noundef %.02329, ptr noundef %.02428, i64 noundef %.131, ptr noundef %9, ptr noundef nonnull %6, ptr noundef nonnull %5, i32 noundef %10) #5
-  %11 = load i32, ptr %5, align 4, !tbaa !6
+  %11 = load i32, ptr %5, align 4, !tbaa !5
   %12 = call i32 @EVP_CIPHER_CTX_set_num(ptr noundef %0, i32 noundef %11) #5
   %13 = sub nuw i64 %.02230, %.131
   %14 = getelementptr inbounds nuw i8, ptr %.02329, i64 %.131
@@ -115,7 +115,7 @@ define internal noundef i32 @seed_cfb128_cipher(ptr noundef %0, ptr noundef %1, 
   %spec.select27 = call i64 @llvm.umin.i64(i64 %13, i64 %.131)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #5
   %.not32 = icmp eq i64 %13, 0
-  br i1 %.not32, label %._crit_edge, label %7, !llvm.loop !10
+  br i1 %.not32, label %._crit_edge, label %7, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %7, %4
   ret i32 1
@@ -150,17 +150,17 @@ define internal noundef i32 @seed_ofb_cipher(ptr noundef %0, ptr noundef %1, ptr
   %.01819 = phi ptr [ %1, %.lr.ph ], [ %16, %9 ]
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #5
   %10 = call i32 @EVP_CIPHER_CTX_get_num(ptr noundef %0) #5
-  store i32 %10, ptr %5, align 4, !tbaa !6
+  store i32 %10, ptr %5, align 4, !tbaa !5
   %11 = call ptr @EVP_CIPHER_CTX_get_cipher_data(ptr noundef %0) #5
   call void @SEED_ofb128_encrypt(ptr noundef %.01720, ptr noundef %.01819, i64 noundef 1073741824, ptr noundef %11, ptr noundef nonnull %8, ptr noundef nonnull %5) #5
-  %12 = load i32, ptr %5, align 4, !tbaa !6
+  %12 = load i32, ptr %5, align 4, !tbaa !5
   %13 = call i32 @EVP_CIPHER_CTX_set_num(ptr noundef %0, i32 noundef %12) #5
   %14 = add i64 %.021, -1073741824
   %15 = getelementptr inbounds nuw i8, ptr %.01720, i64 1073741824
   %16 = getelementptr inbounds nuw i8, ptr %.01819, i64 1073741824
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #5
   %17 = icmp ugt i64 %14, 1073741823
-  br i1 %17, label %9, label %._crit_edge, !llvm.loop !11
+  br i1 %17, label %9, label %._crit_edge, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %9, %4
   %.018.lcssa = phi ptr [ %1, %4 ], [ %16, %9 ]
@@ -172,11 +172,11 @@ define internal noundef i32 @seed_ofb_cipher(ptr noundef %0, ptr noundef %1, ptr
 18:                                               ; preds = %._crit_edge
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #5
   %19 = call i32 @EVP_CIPHER_CTX_get_num(ptr noundef %0) #5
-  store i32 %19, ptr %6, align 4, !tbaa !6
+  store i32 %19, ptr %6, align 4, !tbaa !5
   %20 = call ptr @EVP_CIPHER_CTX_get_cipher_data(ptr noundef %0) #5
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 40
   call void @SEED_ofb128_encrypt(ptr noundef %.017.lcssa, ptr noundef %.018.lcssa, i64 noundef %.0.lcssa, ptr noundef %20, ptr noundef nonnull %21, ptr noundef nonnull %6) #5
-  %22 = load i32, ptr %6, align 4, !tbaa !6
+  %22 = load i32, ptr %6, align 4, !tbaa !5
   %23 = call i32 @EVP_CIPHER_CTX_set_num(ptr noundef %0, i32 noundef %22) #5
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #5
   br label %24
@@ -191,7 +191,7 @@ declare void @SEED_ofb128_encrypt(ptr noundef, ptr noundef, i64 noundef, ptr nou
 define internal noundef i32 @seed_ecb_cipher(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3) #1 {
   %5 = tail call ptr @EVP_CIPHER_CTX_get0_cipher(ptr noundef %0) #5
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  %7 = load i32, ptr %6, align 4, !tbaa !12
+  %7 = load i32, ptr %6, align 4, !tbaa !11
   %8 = sext i32 %7 to i64
   %9 = icmp ult i64 %3, %8
   br i1 %9, label %.loopexit, label %10
@@ -209,7 +209,7 @@ define internal noundef i32 @seed_ecb_cipher(ptr noundef %0, ptr noundef %1, ptr
   tail call void @SEED_ecb_encrypt(ptr noundef %13, ptr noundef %14, ptr noundef %15, i32 noundef %16) #5
   %17 = add i64 %.01517, %8
   %.not = icmp ugt i64 %17, %11
-  br i1 %.not, label %.loopexit, label %12, !llvm.loop !19
+  br i1 %.not, label %.loopexit, label %12, !llvm.loop !18
 
 .loopexit:                                        ; preds = %12, %4
   ret i32 1
@@ -234,20 +234,19 @@ attributes #5 = { nounwind }
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = distinct !{!3, !4, !5}
+!3 = distinct !{!3, !4}
 !4 = !{!"llvm.loop.mustprogress"}
-!5 = !{!"llvm.loop.estimated_trip_count"}
-!6 = !{!7, !7, i64 0}
-!7 = !{!"int", !8, i64 0}
-!8 = !{!"omnipotent char", !9, i64 0}
-!9 = !{!"Simple C/C++ TBAA"}
-!10 = distinct !{!10, !4, !5}
-!11 = distinct !{!11, !4, !5}
-!12 = !{!13, !7, i64 4}
-!13 = !{!"evp_cipher_st", !7, i64 0, !7, i64 4, !7, i64 8, !7, i64 12, !14, i64 16, !7, i64 24, !15, i64 32, !15, i64 40, !15, i64 48, !7, i64 56, !15, i64 64, !15, i64 72, !15, i64 80, !15, i64 88, !7, i64 96, !16, i64 104, !16, i64 112, !17, i64 120, !18, i64 128, !15, i64 136, !15, i64 144, !15, i64 152, !15, i64 160, !15, i64 168, !15, i64 176, !15, i64 184, !15, i64 192, !15, i64 200, !15, i64 208, !15, i64 216, !15, i64 224, !15, i64 232, !15, i64 240, !15, i64 248, !15, i64 256, !15, i64 264, !15, i64 272, !15, i64 280, !15, i64 288}
-!14 = !{!"long", !8, i64 0}
-!15 = !{!"any pointer", !8, i64 0}
-!16 = !{!"p1 omnipotent char", !15, i64 0}
-!17 = !{!"p1 _ZTS16ossl_provider_st", !15, i64 0}
-!18 = !{!"", !8, i64 0}
-!19 = distinct !{!19, !4, !5}
+!5 = !{!6, !6, i64 0}
+!6 = !{!"int", !7, i64 0}
+!7 = !{!"omnipotent char", !8, i64 0}
+!8 = !{!"Simple C/C++ TBAA"}
+!9 = distinct !{!9, !4}
+!10 = distinct !{!10, !4}
+!11 = !{!12, !6, i64 4}
+!12 = !{!"evp_cipher_st", !6, i64 0, !6, i64 4, !6, i64 8, !6, i64 12, !13, i64 16, !6, i64 24, !14, i64 32, !14, i64 40, !14, i64 48, !6, i64 56, !14, i64 64, !14, i64 72, !14, i64 80, !14, i64 88, !6, i64 96, !15, i64 104, !15, i64 112, !16, i64 120, !17, i64 128, !14, i64 136, !14, i64 144, !14, i64 152, !14, i64 160, !14, i64 168, !14, i64 176, !14, i64 184, !14, i64 192, !14, i64 200, !14, i64 208, !14, i64 216, !14, i64 224, !14, i64 232, !14, i64 240, !14, i64 248, !14, i64 256, !14, i64 264, !14, i64 272, !14, i64 280, !14, i64 288}
+!13 = !{!"long", !7, i64 0}
+!14 = !{!"any pointer", !7, i64 0}
+!15 = !{!"p1 omnipotent char", !14, i64 0}
+!16 = !{!"p1 _ZTS16ossl_provider_st", !14, i64 0}
+!17 = !{!"", !7, i64 0}
+!18 = distinct !{!18, !4}

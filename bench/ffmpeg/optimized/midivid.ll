@@ -223,7 +223,7 @@ bytestream2_get_byte.exit61.i:                    ; preds = %71, %70
   store i8 %90, ptr %91, align 1, !tbaa !41
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %80
-  br i1 %exitcond.not.i, label %.thread.i, label %.preheader.i, !llvm.loop !48
+  br i1 %exitcond.not.i, label %.thread.i, label %.preheader.i, !llvm.loop !47
 
 92:                                               ; preds = %bytestream2_get_le16.exit.i
   %.not54.i = icmp ult ptr %.14411.i, %31
@@ -259,7 +259,7 @@ bytestream2_get_byte.exit63.i:                    ; preds = %101, %100
   %105 = lshr i32 %.04810.i, 1
   %106 = add nuw nsw i32 %.0499.i, 1
   %exitcond14.i = icmp eq i32 %106, 16
-  br i1 %exitcond14.i, label %.loopexit.i, label %bytestream2_get_le16.exit.i, !llvm.loop !49
+  br i1 %exitcond14.i, label %.loopexit.i, label %bytestream2_get_le16.exit.i, !llvm.loop !48
 
 lzss_uncompress.exit:                             ; preds = %.loopexit.i, %28
   %.043.lcssa.i = phi ptr [ %27, %28 ], [ %.447.i, %.loopexit.i ]
@@ -437,7 +437,7 @@ bytestream2_get_le32.exit.i:                      ; preds = %148, %147
   %198 = ashr i32 %192, 2
   %199 = sext i32 %198 to i64
   %200 = icmp slt i64 %indvars.iv.next263.i, %199
-  br i1 %200, label %.preheader.i60, label %.loopexit229.loopexit.i, !llvm.loop !50
+  br i1 %200, label %.preheader.i60, label %.loopexit229.loopexit.i, !llvm.loop !49
 
 201:                                              ; preds = %201, %.lr.ph.i62
   %indvars.iv.i63 = phi i64 [ 0, %.lr.ph.i62 ], [ %indvars.iv.next.i64, %201 ]
@@ -469,7 +469,7 @@ bytestream2_get_le32.exit.i:                      ; preds = %148, %147
   %218 = ashr i32 %217, 2
   %219 = sext i32 %218 to i64
   %220 = icmp slt i64 %indvars.iv.next.i64, %219
-  br i1 %220, label %201, label %._crit_edge.loopexit.i, !llvm.loop !51
+  br i1 %220, label %201, label %._crit_edge.loopexit.i, !llvm.loop !50
 
 .loopexit229.loopexit.i:                          ; preds = %._crit_edge.i61
   %.pre268.i = load ptr, ptr %6, align 8, !tbaa !44
@@ -558,7 +558,7 @@ bytestream2_get_le32.exit.i:                      ; preds = %148, %147
   %.1166.lcssa.i = phi i32 [ %.0165253.i, %.lr.ph257.split.i ], [ %.3168.i, %390 ]
   %.1161.lcssa.i = phi ptr [ %.0160254.i, %.lr.ph257.split.i ], [ %.4164.i, %390 ]
   %269 = icmp slt i32 %.0171255.in.i, 4
-  br i1 %269, label %decode_mvdv.exit, label %.lr.ph257.split.i, !llvm.loop !52
+  br i1 %269, label %decode_mvdv.exit, label %.lr.ph257.split.i, !llvm.loop !51
 
 .lr.ph257.split.i:                                ; preds = %.loopexit.i54, %.lr.ph257.split.preheader.i
   %270 = phi i32 [ %267, %.loopexit.i54 ], [ %221, %.lr.ph257.split.preheader.i ]
@@ -570,17 +570,17 @@ bytestream2_get_le32.exit.i:                      ; preds = %148, %147
   %.sroa.0.1251.i = phi ptr [ %.sroa.0.2.lcssa.i, %.loopexit.i54 ], [ %.sroa.0.0.i, %.lr.ph257.split.preheader.i ]
   %.0171255.i = add nsw i32 %.0171255.in.i, -2
   %272 = load ptr, ptr %8, align 8, !tbaa !40
-  %273 = load i32, ptr %256, align 8, !tbaa !54
+  %273 = load i32, ptr %256, align 8, !tbaa !53
   %274 = mul nsw i32 %273, %.0171255.i
   %275 = sext i32 %274 to i64
   %276 = getelementptr inbounds i8, ptr %272, i64 %275
   %277 = load ptr, ptr %257, align 8, !tbaa !40
-  %278 = load i32, ptr %258, align 4, !tbaa !54
+  %278 = load i32, ptr %258, align 4, !tbaa !53
   %279 = mul nsw i32 %278, %.0171255.i
   %280 = sext i32 %279 to i64
   %281 = getelementptr inbounds i8, ptr %277, i64 %280
   %282 = load ptr, ptr %259, align 8, !tbaa !40
-  %283 = load i32, ptr %260, align 8, !tbaa !54
+  %283 = load i32, ptr %260, align 8, !tbaa !53
   %284 = mul nsw i32 %283, %.0171255.i
   %285 = sext i32 %284 to i64
   %286 = getelementptr inbounds i8, ptr %282, i64 %285
@@ -688,7 +688,7 @@ bytestream2_get_byte.exit.i56:                    ; preds = %bytestream2_get_byt
   %332 = zext nneg i32 %331 to i64
   %333 = getelementptr inbounds nuw i8, ptr %230, i64 %332
   %334 = load i8, ptr %333, align 1, !tbaa !41
-  %335 = load i32, ptr %256, align 8, !tbaa !54
+  %335 = load i32, ptr %256, align 8, !tbaa !53
   %336 = trunc nuw nsw i64 %indvars.iv265.i to i32
   %337 = add nsw i32 %335, %336
   %338 = sext i32 %337 to i64
@@ -697,7 +697,7 @@ bytestream2_get_byte.exit.i56:                    ; preds = %bytestream2_get_byt
   %340 = getelementptr i8, ptr %333, i64 3
   %341 = load i8, ptr %340, align 1, !tbaa !41
   %342 = or disjoint i64 %indvars.iv265.i, 1
-  %343 = load i32, ptr %256, align 8, !tbaa !54
+  %343 = load i32, ptr %256, align 8, !tbaa !53
   %344 = trunc nuw nsw i64 %342 to i32
   %345 = add nsw i32 %343, %344
   %346 = sext i32 %345 to i64
@@ -713,14 +713,14 @@ bytestream2_get_byte.exit.i56:                    ; preds = %bytestream2_get_byt
   store i8 %352, ptr %353, align 1, !tbaa !41
   %354 = getelementptr i8, ptr %333, i64 1
   %355 = load i8, ptr %354, align 1, !tbaa !41
-  %356 = load i32, ptr %258, align 4, !tbaa !54
+  %356 = load i32, ptr %258, align 4, !tbaa !53
   %357 = add nsw i32 %356, %336
   %358 = sext i32 %357 to i64
   %359 = getelementptr inbounds i8, ptr %281, i64 %358
   store i8 %355, ptr %359, align 1, !tbaa !41
   %360 = getelementptr i8, ptr %333, i64 4
   %361 = load i8, ptr %360, align 1, !tbaa !41
-  %362 = load i32, ptr %258, align 4, !tbaa !54
+  %362 = load i32, ptr %258, align 4, !tbaa !53
   %363 = add nsw i32 %362, %344
   %364 = sext i32 %363 to i64
   %365 = getelementptr inbounds i8, ptr %281, i64 %364
@@ -735,14 +735,14 @@ bytestream2_get_byte.exit.i56:                    ; preds = %bytestream2_get_byt
   store i8 %370, ptr %371, align 1, !tbaa !41
   %372 = getelementptr i8, ptr %333, i64 2
   %373 = load i8, ptr %372, align 1, !tbaa !41
-  %374 = load i32, ptr %260, align 8, !tbaa !54
+  %374 = load i32, ptr %260, align 8, !tbaa !53
   %375 = add nsw i32 %374, %336
   %376 = sext i32 %375 to i64
   %377 = getelementptr inbounds i8, ptr %286, i64 %376
   store i8 %373, ptr %377, align 1, !tbaa !41
   %378 = getelementptr i8, ptr %333, i64 5
   %379 = load i8, ptr %378, align 1, !tbaa !41
-  %380 = load i32, ptr %260, align 8, !tbaa !54
+  %380 = load i32, ptr %260, align 8, !tbaa !53
   %381 = add nsw i32 %380, %344
   %382 = sext i32 %381 to i64
   %383 = getelementptr inbounds i8, ptr %286, i64 %382
@@ -767,7 +767,7 @@ bytestream2_get_byte.exit.i56:                    ; preds = %bytestream2_get_byt
   %indvars.iv.next266.i = add nuw nsw i64 %indvars.iv265.i, 2
   %392 = trunc nuw i64 %indvars.iv.next266.i to i32
   %393 = icmp sgt i32 %391, %392
-  br i1 %393, label %.lr.ph245.i, label %.loopexit.i54, !llvm.loop !55
+  br i1 %393, label %.lr.ph245.i, label %.loopexit.i54, !llvm.loop !54
 
 decode_mvdv.exit:                                 ; preds = %.loopexit.i54, %254, %.lr.ph257.i
   %394 = load ptr, ptr %7, align 8, !tbaa !30
@@ -778,14 +778,14 @@ decode_mvdv.exit:                                 ; preds = %.loopexit.i54, %254
 397:                                              ; preds = %decode_mvdv.exit
   %398 = select i1 %224, i32 1, i32 2
   %399 = getelementptr inbounds nuw i8, ptr %8, i64 120
-  store i32 %398, ptr %399, align 8, !tbaa !56
+  store i32 %398, ptr %399, align 8, !tbaa !55
   %400 = getelementptr inbounds nuw i8, ptr %8, i64 276
-  %401 = load i32, ptr %400, align 4, !tbaa !61
+  %401 = load i32, ptr %400, align 4, !tbaa !60
   %402 = and i32 %401, -3
   %masksel = select i1 %224, i32 2, i32 0
   %.sink = or disjoint i32 %402, %masksel
-  store i32 %.sink, ptr %400, align 4, !tbaa !61
-  store i32 1, ptr %2, align 4, !tbaa !54
+  store i32 %.sink, ptr %400, align 4, !tbaa !60
+  store i32 1, ptr %2, align 4, !tbaa !53
   %403 = load i32, ptr %9, align 8, !tbaa !35
   br label %lzss_uncompress.exit.thread
 
@@ -899,20 +899,19 @@ attributes #4 = { nounwind }
 !42 = !{!31, !14, i64 24}
 !43 = !{!31, !10, i64 32}
 !44 = !{!32, !14, i64 0}
-!45 = distinct !{!45, !46, !47}
+!45 = distinct !{!45, !46}
 !46 = !{!"llvm.loop.mustprogress"}
-!47 = !{!"llvm.loop.estimated_trip_count"}
-!48 = distinct !{!48, !46, !47}
-!49 = distinct !{!49, !46, !47}
-!50 = distinct !{!50, !46, !47}
-!51 = distinct !{!51, !46, !47}
-!52 = distinct !{!52, !46, !47, !53}
-!53 = !{!"llvm.loop.unswitch.partial.disable"}
-!54 = !{!10, !10, i64 0}
-!55 = distinct !{!55, !46, !47}
-!56 = !{!57, !10, i64 120}
-!57 = !{!"AVFrame", !8, i64 0, !8, i64 64, !58, i64 96, !10, i64 104, !10, i64 108, !10, i64 112, !10, i64 116, !10, i64 120, !15, i64 124, !13, i64 136, !13, i64 144, !15, i64 152, !10, i64 160, !7, i64 168, !10, i64 176, !10, i64 180, !8, i64 184, !59, i64 248, !10, i64 256, !25, i64 264, !10, i64 272, !10, i64 276, !10, i64 280, !10, i64 284, !10, i64 288, !10, i64 292, !10, i64 296, !13, i64 304, !60, i64 312, !10, i64 320, !21, i64 328, !21, i64 336, !13, i64 344, !13, i64 352, !13, i64 360, !13, i64 368, !7, i64 376, !18, i64 384, !13, i64 408}
-!58 = !{!"p2 omnipotent char", !26, i64 0}
-!59 = !{!"p2 _ZTS11AVBufferRef", !26, i64 0}
-!60 = !{!"p1 _ZTS12AVDictionary", !7, i64 0}
-!61 = !{!57, !10, i64 276}
+!47 = distinct !{!47, !46}
+!48 = distinct !{!48, !46}
+!49 = distinct !{!49, !46}
+!50 = distinct !{!50, !46}
+!51 = distinct !{!51, !46, !52}
+!52 = !{!"llvm.loop.unswitch.partial.disable"}
+!53 = !{!10, !10, i64 0}
+!54 = distinct !{!54, !46}
+!55 = !{!56, !10, i64 120}
+!56 = !{!"AVFrame", !8, i64 0, !8, i64 64, !57, i64 96, !10, i64 104, !10, i64 108, !10, i64 112, !10, i64 116, !10, i64 120, !15, i64 124, !13, i64 136, !13, i64 144, !15, i64 152, !10, i64 160, !7, i64 168, !10, i64 176, !10, i64 180, !8, i64 184, !58, i64 248, !10, i64 256, !25, i64 264, !10, i64 272, !10, i64 276, !10, i64 280, !10, i64 284, !10, i64 288, !10, i64 292, !10, i64 296, !13, i64 304, !59, i64 312, !10, i64 320, !21, i64 328, !21, i64 336, !13, i64 344, !13, i64 352, !13, i64 360, !13, i64 368, !7, i64 376, !18, i64 384, !13, i64 408}
+!57 = !{!"p2 omnipotent char", !26, i64 0}
+!58 = !{!"p2 _ZTS11AVBufferRef", !26, i64 0}
+!59 = !{!"p1 _ZTS12AVDictionary", !7, i64 0}
+!60 = !{!56, !10, i64 276}

@@ -182,25 +182,25 @@ traverse_string.exit.thread:                      ; preds = %33, %30
   br i1 %.not73, label %105, label %67
 
 67:                                               ; preds = %66
-  %68 = load ptr, ptr %0, align 8, !tbaa !15
+  %68 = load ptr, ptr %0, align 8, !tbaa !14
   %.not74.not = icmp eq ptr %68, null
   br i1 %.not74.not, label %75, label %69
 
 69:                                               ; preds = %67
   %70 = getelementptr inbounds nuw i8, ptr %68, i64 8
-  %71 = load ptr, ptr %70, align 8, !tbaa !18
+  %71 = load ptr, ptr %70, align 8, !tbaa !17
   %.not76 = icmp eq ptr %71, null
   br i1 %.not76, label %73, label %72
 
 72:                                               ; preds = %69
-  store i32 0, ptr %68, align 8, !tbaa !21
+  store i32 0, ptr %68, align 8, !tbaa !20
   call void @free(ptr noundef nonnull %71) #8
-  store ptr null, ptr %70, align 8, !tbaa !18
+  store ptr null, ptr %70, align 8, !tbaa !17
   br label %73
 
 73:                                               ; preds = %72, %69
   %74 = getelementptr inbounds nuw i8, ptr %68, i64 4
-  store i32 %.057, ptr %74, align 4, !tbaa !22
+  store i32 %.057, ptr %74, align 4, !tbaa !21
   br label %79
 
 75:                                               ; preds = %67
@@ -213,7 +213,7 @@ traverse_string.exit.thread:                      ; preds = %33, %30
   br label %105
 
 78:                                               ; preds = %75
-  store ptr %76, ptr %0, align 8, !tbaa !15
+  store ptr %76, ptr %0, align 8, !tbaa !14
   br label %79
 
 79:                                               ; preds = %78, %73
@@ -264,7 +264,7 @@ traverse_string.exit.thread:                      ; preds = %33, %30
   %94 = add nsw i32 %93, 1
   %95 = sext i32 %94 to i64
   %96 = call noalias ptr @malloc(i64 noundef %95) #10
-  store ptr %96, ptr %11, align 8, !tbaa !23
+  store ptr %96, ptr %11, align 8, !tbaa !22
   %.not77 = icmp eq ptr %96, null
   br i1 %.not77, label %97, label %100
 
@@ -280,12 +280,12 @@ traverse_string.exit.thread:                      ; preds = %33, %30
   br label %105
 
 100:                                              ; preds = %92
-  store i32 %93, ptr %.053, align 8, !tbaa !21
+  store i32 %93, ptr %.053, align 8, !tbaa !20
   %101 = getelementptr inbounds nuw i8, ptr %.053, i64 8
-  store ptr %96, ptr %101, align 8, !tbaa !18
+  store ptr %96, ptr %101, align 8, !tbaa !17
   %102 = sext i32 %93 to i64
   %103 = getelementptr inbounds i8, ptr %96, i64 %102
-  store i8 0, ptr %103, align 1, !tbaa !24
+  store i8 0, ptr %103, align 1, !tbaa !23
   %104 = call fastcc i32 @traverse_string(ptr noundef %1, i32 noundef %.058, i32 noundef %3, ptr noundef %.0, ptr noundef %11)
   br label %105
 
@@ -328,7 +328,7 @@ define internal fastcc range(i32 -2147483648, 2) i32 @traverse_string(ptr nounde
   br i1 %.not33, label %14, label %9
 
 9:                                                ; preds = %.lr.ph.split.us
-  %10 = load i8, ptr %.02636.us, align 1, !tbaa !24
+  %10 = load i8, ptr %.02636.us, align 1, !tbaa !23
   %11 = zext i8 %10 to i64
   %12 = tail call i32 %3(i64 noundef %11, ptr noundef nonnull %4) #8
   %13 = icmp slt i32 %12, 1
@@ -336,7 +336,7 @@ define internal fastcc range(i32 -2147483648, 2) i32 @traverse_string(ptr nounde
 
 14:                                               ; preds = %9, %.lr.ph.split.us
   %.not.us = icmp eq i32 %8, 0
-  br i1 %.not.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !25
+  br i1 %.not.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !24
 
 .lr.ph.split.us42:                                ; preds = %.lr.ph, %27
   %.02636.us43 = phi ptr [ %15, %27 ], [ %0, %.lr.ph ]
@@ -346,11 +346,11 @@ define internal fastcc range(i32 -2147483648, 2) i32 @traverse_string(ptr nounde
   br i1 %.not33, label %27, label %17
 
 17:                                               ; preds = %.lr.ph.split.us42
-  %18 = load i8, ptr %.02636.us43, align 1, !tbaa !24
+  %18 = load i8, ptr %.02636.us43, align 1, !tbaa !23
   %19 = zext i8 %18 to i64
   %20 = shl nuw nsw i64 %19, 8
   %21 = getelementptr inbounds nuw i8, ptr %.02636.us43, i64 1
-  %22 = load i8, ptr %21, align 1, !tbaa !24
+  %22 = load i8, ptr %21, align 1, !tbaa !23
   %23 = zext i8 %22 to i64
   %24 = or disjoint i64 %20, %23
   %25 = tail call i32 %3(i64 noundef %24, ptr noundef nonnull %4) #8
@@ -359,7 +359,7 @@ define internal fastcc range(i32 -2147483648, 2) i32 @traverse_string(ptr nounde
 
 27:                                               ; preds = %17, %.lr.ph.split.us42
   %.not.us47 = icmp eq i32 %16, 0
-  br i1 %.not.us47, label %._crit_edge, label %.lr.ph.split.us42, !llvm.loop !27
+  br i1 %.not.us47, label %._crit_edge, label %.lr.ph.split.us42, !llvm.loop !26
 
 .lr.ph.split.us52:                                ; preds = %.lr.ph, %50
   %.02636.us53 = phi ptr [ %28, %50 ], [ %0, %.lr.ph ]
@@ -370,20 +370,20 @@ define internal fastcc range(i32 -2147483648, 2) i32 @traverse_string(ptr nounde
 
 30:                                               ; preds = %.lr.ph.split.us52
   %31 = getelementptr inbounds nuw i8, ptr %.02636.us53, i64 2
-  %32 = load i8, ptr %31, align 1, !tbaa !24
+  %32 = load i8, ptr %31, align 1, !tbaa !23
   %33 = zext i8 %32 to i64
   %34 = shl nuw nsw i64 %33, 8
   %35 = getelementptr inbounds nuw i8, ptr %.02636.us53, i64 1
-  %36 = load i8, ptr %35, align 1, !tbaa !24
+  %36 = load i8, ptr %35, align 1, !tbaa !23
   %37 = zext i8 %36 to i64
   %38 = shl nuw nsw i64 %37, 16
-  %39 = load i8, ptr %.02636.us53, align 1, !tbaa !24
+  %39 = load i8, ptr %.02636.us53, align 1, !tbaa !23
   %40 = zext i8 %39 to i64
   %41 = shl nuw nsw i64 %40, 24
   %42 = or disjoint i64 %38, %41
   %43 = or disjoint i64 %34, %42
   %44 = getelementptr inbounds nuw i8, ptr %.02636.us53, i64 3
-  %45 = load i8, ptr %44, align 1, !tbaa !24
+  %45 = load i8, ptr %44, align 1, !tbaa !23
   %46 = zext i8 %45 to i64
   %47 = or disjoint i64 %43, %46
   %48 = tail call i32 %3(i64 noundef %47, ptr noundef nonnull %4) #8
@@ -392,7 +392,7 @@ define internal fastcc range(i32 -2147483648, 2) i32 @traverse_string(ptr nounde
 
 50:                                               ; preds = %30, %.lr.ph.split.us52
   %.not.us57 = icmp eq i32 %29, 0
-  br i1 %.not.us57, label %._crit_edge, label %.lr.ph.split.us52, !llvm.loop !28
+  br i1 %.not.us57, label %._crit_edge, label %.lr.ph.split.us52, !llvm.loop !27
 
 .lr.ph.split:                                     ; preds = %.lr.ph
   br i1 %.not33, label %.lr.ph.split.split.us, label %.lr.ph.split.split
@@ -409,7 +409,7 @@ define internal fastcc range(i32 -2147483648, 2) i32 @traverse_string(ptr nounde
   %55 = zext nneg i32 %51 to i64
   %56 = getelementptr inbounds nuw i8, ptr %.02636.us62, i64 %55
   %.not.us64 = icmp eq i32 %54, 0
-  br i1 %.not.us64, label %._crit_edge, label %.lr.ph.split.split.us, !llvm.loop !29
+  br i1 %.not.us64, label %._crit_edge, label %.lr.ph.split.split.us, !llvm.loop !28
 
 .lr.ph.split.split:                               ; preds = %.lr.ph.split, %63
   %.02636 = phi ptr [ %65, %63 ], [ %0, %.lr.ph.split ]
@@ -510,50 +510,50 @@ declare i32 @ASN1_STRING_set(ptr noundef, ptr noundef, i32 noundef) local_unname
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal noundef i32 @cpy_asc(i64 noundef %0, ptr noundef captures(none) %1) #6 {
-  %3 = load ptr, ptr %1, align 8, !tbaa !23
+  %3 = load ptr, ptr %1, align 8, !tbaa !22
   %4 = trunc i64 %0 to i8
-  store i8 %4, ptr %3, align 1, !tbaa !24
-  %5 = load ptr, ptr %1, align 8, !tbaa !23
+  store i8 %4, ptr %3, align 1, !tbaa !23
+  %5 = load ptr, ptr %1, align 8, !tbaa !22
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 1
-  store ptr %6, ptr %1, align 8, !tbaa !23
+  store ptr %6, ptr %1, align 8, !tbaa !22
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal noundef i32 @cpy_bmp(i64 noundef %0, ptr noundef captures(none) %1) #6 {
-  %3 = load ptr, ptr %1, align 8, !tbaa !23
+  %3 = load ptr, ptr %1, align 8, !tbaa !22
   %4 = lshr i64 %0, 8
   %5 = trunc i64 %4 to i8
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 1
-  store i8 %5, ptr %3, align 1, !tbaa !24
+  store i8 %5, ptr %3, align 1, !tbaa !23
   %7 = trunc i64 %0 to i8
-  store i8 %7, ptr %6, align 1, !tbaa !24
-  %8 = load ptr, ptr %1, align 8, !tbaa !23
+  store i8 %7, ptr %6, align 1, !tbaa !23
+  %8 = load ptr, ptr %1, align 8, !tbaa !22
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 2
-  store ptr %9, ptr %1, align 8, !tbaa !23
+  store ptr %9, ptr %1, align 8, !tbaa !22
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal noundef i32 @cpy_univ(i64 noundef %0, ptr noundef captures(none) %1) #6 {
-  %3 = load ptr, ptr %1, align 8, !tbaa !23
+  %3 = load ptr, ptr %1, align 8, !tbaa !22
   %4 = lshr i64 %0, 24
   %5 = trunc i64 %4 to i8
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 1
-  store i8 %5, ptr %3, align 1, !tbaa !24
+  store i8 %5, ptr %3, align 1, !tbaa !23
   %7 = lshr i64 %0, 16
   %8 = trunc i64 %7 to i8
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 2
-  store i8 %8, ptr %6, align 1, !tbaa !24
+  store i8 %8, ptr %6, align 1, !tbaa !23
   %10 = lshr i64 %0, 8
   %11 = trunc i64 %10 to i8
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 3
-  store i8 %11, ptr %9, align 1, !tbaa !24
+  store i8 %11, ptr %9, align 1, !tbaa !23
   %13 = trunc i64 %0 to i8
-  store i8 %13, ptr %12, align 1, !tbaa !24
-  %14 = load ptr, ptr %1, align 8, !tbaa !23
+  store i8 %13, ptr %12, align 1, !tbaa !23
+  %14 = load ptr, ptr %1, align 8, !tbaa !22
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 4
-  store ptr %15, ptr %1, align 8, !tbaa !23
+  store ptr %15, ptr %1, align 8, !tbaa !22
   ret i32 1
 }
 
@@ -568,12 +568,12 @@ define internal noundef i32 @out_utf8(i64 noundef %0, ptr noundef captures(none)
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @cpy_utf8(i64 noundef %0, ptr noundef captures(none) %1) #0 {
-  %3 = load ptr, ptr %1, align 8, !tbaa !23
+  %3 = load ptr, ptr %1, align 8, !tbaa !22
   %4 = tail call i32 @UTF8_putc(ptr noundef %3, i32 noundef 255, i64 noundef %0) #8
-  %5 = load ptr, ptr %1, align 8, !tbaa !23
+  %5 = load ptr, ptr %1, align 8, !tbaa !22
   %6 = sext i32 %4 to i64
   %7 = getelementptr inbounds i8, ptr %5, i64 %6
-  store ptr %7, ptr %1, align 8, !tbaa !23
+  store ptr %7, ptr %1, align 8, !tbaa !22
   ret i32 1
 }
 
@@ -615,21 +615,20 @@ attributes #10 = { nounwind allocsize(0) }
 !9 = !{!"Simple C/C++ TBAA"}
 !10 = !{!11, !11, i64 0}
 !11 = !{!"int", !8, i64 0}
-!12 = distinct !{!12, !13, !14}
+!12 = distinct !{!12, !13}
 !13 = !{!"llvm.loop.mustprogress"}
-!14 = !{!"llvm.loop.estimated_trip_count"}
-!15 = !{!16, !16, i64 0}
-!16 = !{!"p1 _ZTS14asn1_string_st", !17, i64 0}
-!17 = !{!"any pointer", !8, i64 0}
-!18 = !{!19, !20, i64 8}
-!19 = !{!"asn1_string_st", !11, i64 0, !11, i64 4, !20, i64 8, !7, i64 16}
-!20 = !{!"p1 omnipotent char", !17, i64 0}
-!21 = !{!19, !11, i64 0}
-!22 = !{!19, !11, i64 4}
-!23 = !{!20, !20, i64 0}
-!24 = !{!8, !8, i64 0}
-!25 = distinct !{!25, !13, !14, !26}
-!26 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!27 = distinct !{!27, !13, !14, !26}
-!28 = distinct !{!28, !13, !14, !26}
-!29 = distinct !{!29, !13, !14, !26}
+!14 = !{!15, !15, i64 0}
+!15 = !{!"p1 _ZTS14asn1_string_st", !16, i64 0}
+!16 = !{!"any pointer", !8, i64 0}
+!17 = !{!18, !19, i64 8}
+!18 = !{!"asn1_string_st", !11, i64 0, !11, i64 4, !19, i64 8, !7, i64 16}
+!19 = !{!"p1 omnipotent char", !16, i64 0}
+!20 = !{!18, !11, i64 0}
+!21 = !{!18, !11, i64 4}
+!22 = !{!19, !19, i64 0}
+!23 = !{!8, !8, i64 0}
+!24 = distinct !{!24, !13, !25}
+!25 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!26 = distinct !{!26, !13, !25}
+!27 = distinct !{!27, !13, !25}
+!28 = distinct !{!28, !13, !25}

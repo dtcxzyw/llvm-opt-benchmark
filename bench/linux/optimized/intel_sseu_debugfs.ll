@@ -223,7 +223,7 @@ i915_print_sseu_info.exit:                        ; preds = %13, %30
   %131 = load i8, ptr %26, align 2
   store i8 %131, ptr %63, align 2
   %132 = and i32 %126, 7
-  %133 = tail call i32 asm "bsrl $1,$0", "=r,rm,0,~{dirflag},~{fpsr},~{flags}"(i32 %132, i32 -1) #9, !srcloc !12
+  %133 = tail call i32 asm "bsrl $1,$0", "=r,rm,0,~{dirflag},~{fpsr},~{flags}"(i32 %132, i32 -1) #9, !srcloc !11
   %134 = icmp ult i32 %133, 2147483647
   br i1 %134, label %.lr.ph, label %._crit_edge
 
@@ -234,11 +234,11 @@ i915_print_sseu_info.exit:                        ; preds = %13, %30
   %138 = getelementptr [3 x i8], ptr %61, i64 0, i64 %135
   store i8 %137, ptr %138, align 1
   %139 = add nuw nsw i64 %135, 1
-  %140 = tail call i32 asm "bsrl $1,$0", "=r,rm,0,~{dirflag},~{fpsr},~{flags}"(i32 %132, i32 -1) #9, !srcloc !12
+  %140 = tail call i32 asm "bsrl $1,$0", "=r,rm,0,~{dirflag},~{fpsr},~{flags}"(i32 %132, i32 -1) #9, !srcloc !11
   %141 = add i32 %140, 1
   %142 = sext i32 %141 to i64
   %143 = icmp slt i64 %139, %142
-  br i1 %143, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !13
+  br i1 %143, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !12
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
   %.pre = load i8, ptr %63, align 2
@@ -253,7 +253,7 @@ i915_print_sseu_info.exit:                        ; preds = %13, %30
   store i16 %148, ptr %62, align 8
   %149 = load i8, ptr %48, align 8
   %150 = zext i8 %149 to i32
-  %151 = tail call i32 asm "bsrl $1,$0", "=r,rm,0,~{dirflag},~{fpsr},~{flags}"(i32 %150, i32 -1) #9, !srcloc !12
+  %151 = tail call i32 asm "bsrl $1,$0", "=r,rm,0,~{dirflag},~{fpsr},~{flags}"(i32 %150, i32 -1) #9, !srcloc !11
   %152 = icmp ult i32 %151, 2147483647
   br i1 %152, label %.lr.ph24, label %.loopexit18
 
@@ -268,11 +268,11 @@ i915_print_sseu_info.exit:                        ; preds = %13, %30
   %160 = sub i16 %154, %159
   store i16 %160, ptr %62, align 8
   %161 = add nuw nsw i64 %153, 1
-  %162 = tail call i32 asm "bsrl $1,$0", "=r,rm,0,~{dirflag},~{fpsr},~{flags}"(i32 %150, i32 -1) #9, !srcloc !12
+  %162 = tail call i32 asm "bsrl $1,$0", "=r,rm,0,~{dirflag},~{fpsr},~{flags}"(i32 %150, i32 -1) #9, !srcloc !11
   %163 = add i32 %162, 1
   %164 = sext i32 %163 to i64
   %165 = icmp slt i64 %161, %164
-  br i1 %165, label %.lr.ph24, label %.loopexit18, !llvm.loop !14
+  br i1 %165, label %.lr.ph24, label %.loopexit18, !llvm.loop !13
 
 166:                                              ; preds = %119
   %167 = load i8, ptr %10, align 8
@@ -282,11 +282,11 @@ i915_print_sseu_info.exit:                        ; preds = %13, %30
 169:                                              ; preds = %166
   %170 = load ptr, ptr %64, align 8
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %6) #6
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %6, i8 0, i64 12, i1 false), !annotation !15
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %6, i8 0, i64 12, i1 false), !annotation !14
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #6
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %7, i8 0, i64 24, i1 false), !annotation !15
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %7, i8 0, i64 24, i1 false), !annotation !14
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #6
-  store i64 93458488361045, ptr %8, align 8, !annotation !15
+  store i64 93458488361045, ptr %8, align 8, !annotation !14
   %171 = load i8, ptr %51, align 8
   %172 = icmp eq i8 %171, 0
   br i1 %172, label %.loopexit15, label %173
@@ -321,7 +321,7 @@ i915_print_sseu_info.exit:                        ; preds = %13, %30
   %195 = load i8, ptr %51, align 8
   %196 = zext i8 %195 to i64
   %197 = icmp samesign ult i64 %194, %196
-  br i1 %197, label %175, label %198, !llvm.loop !16
+  br i1 %197, label %175, label %198, !llvm.loop !15
 
 198:                                              ; preds = %175
   %199 = icmp eq i8 %195, 0
@@ -438,13 +438,13 @@ i915_print_sseu_info.exit:                        ; preds = %13, %30
 278:                                              ; preds = %258, %246
   %279 = add nuw nsw i64 %237, 1
   %280 = icmp eq i64 %279, %235
-  br i1 %280, label %.loopexit, label %236, !llvm.loop !17
+  br i1 %280, label %.loopexit, label %236, !llvm.loop !16
 
 .loopexit:                                        ; preds = %278, %227, %201
   %281 = phi i8 [ %211, %227 ], [ %202, %201 ], [ %211, %278 ]
   %282 = add nuw nsw i64 %203, 1
   %283 = icmp eq i64 %282, %196
-  br i1 %283, label %.loopexit15, label %201, !llvm.loop !18
+  br i1 %283, label %.loopexit15, label %201, !llvm.loop !17
 
 .loopexit15:                                      ; preds = %.loopexit, %169, %198
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #6
@@ -459,11 +459,11 @@ i915_print_sseu_info.exit:                        ; preds = %13, %30
 286:                                              ; preds = %284
   %287 = load ptr, ptr %64, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #6
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %3, i8 0, i64 32, i1 false), !annotation !15
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %3, i8 0, i64 32, i1 false), !annotation !14
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4) #6
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %4, i8 0, i64 64, i1 false), !annotation !15
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %4, i8 0, i64 64, i1 false), !annotation !14
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #6
-  store i64 93458488361045, ptr %5, align 8, !annotation !15
+  store i64 93458488361045, ptr %5, align 8, !annotation !14
   %288 = load i8, ptr %51, align 8
   %289 = icmp eq i8 %288, 0
   br i1 %289, label %.loopexit17, label %290
@@ -509,7 +509,7 @@ i915_print_sseu_info.exit:                        ; preds = %13, %30
   %320 = load i8, ptr %51, align 8
   %321 = zext i8 %320 to i64
   %322 = icmp samesign ult i64 %319, %321
-  br i1 %322, label %292, label %323, !llvm.loop !19
+  br i1 %322, label %292, label %323, !llvm.loop !18
 
 323:                                              ; preds = %292
   %324 = icmp eq i8 %320, 0
@@ -577,7 +577,7 @@ i915_print_sseu_info.exit:                        ; preds = %13, %30
   store i8 %368, ptr %63, align 2
   %369 = add nuw nsw i32 %351, 1
   %370 = icmp eq i32 %369, %348
-  br i1 %370, label %.loopexit16, label %.split.us, !llvm.loop !20
+  br i1 %370, label %.loopexit16, label %.split.us, !llvm.loop !19
 
 .split:                                           ; preds = %342, %396
   %371 = phi i8 [ %397, %396 ], [ %.promoted26, %342 ]
@@ -616,13 +616,13 @@ i915_print_sseu_info.exit:                        ; preds = %13, %30
   %398 = phi i16 [ %392, %378 ], [ %372, %.split ]
   %399 = add nuw nsw i32 %373, 1
   %400 = icmp eq i32 %399, %348
-  br i1 %400, label %.loopexit16, label %.split, !llvm.loop !22
+  br i1 %400, label %.loopexit16, label %.split, !llvm.loop !21
 
 .loopexit16:                                      ; preds = %396, %.split.us, %333, %326
   %401 = phi i8 [ %336, %333 ], [ %327, %326 ], [ %336, %.split.us ], [ %336, %396 ]
   %402 = add nuw nsw i64 %328, 1
   %403 = icmp eq i64 %402, %321
-  br i1 %403, label %.loopexit17, label %326, !llvm.loop !23
+  br i1 %403, label %.loopexit17, label %326, !llvm.loop !22
 
 .loopexit17:                                      ; preds = %.loopexit16, %286, %323
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #6
@@ -730,7 +730,7 @@ declare dso_local i32 @single_open(ptr noundef, ptr noundef, ptr noundef) local_
 define internal noundef range(i32 -19, 1) i32 @sseu_status_show(ptr noundef %0, ptr readnone captures(none) %1) #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %4 = load ptr, ptr %3, align 8
-  %5 = tail call i32 @intel_sseu_status(ptr noundef %0, ptr noundef %4), !range !24
+  %5 = tail call i32 @intel_sseu_status(ptr noundef %0, ptr noundef %4), !range !23
   ret i32 %5
 }
 
@@ -748,13 +748,13 @@ define internal noundef i32 @sseu_topology_show(ptr noundef %0, ptr readnone cap
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %5 = load ptr, ptr %4, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #6
-  store ptr @__drm_printfn_seq_file, ptr %3, align 8, !alias.scope !25
+  store ptr @__drm_printfn_seq_file, ptr %3, align 8, !alias.scope !24
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store ptr @__drm_puts_seq_file, ptr %6, align 8, !alias.scope !25
+  store ptr @__drm_puts_seq_file, ptr %6, align 8, !alias.scope !24
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store ptr %0, ptr %7, align 8, !alias.scope !25
+  store ptr %0, ptr %7, align 8, !alias.scope !24
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  store ptr null, ptr %8, align 8, !alias.scope !25
+  store ptr null, ptr %8, align 8, !alias.scope !24
   %9 = load ptr, ptr %5, align 8
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 4968
   call void @intel_sseu_print_topology(ptr noundef %9, ptr noundef nonnull %10, ptr noundef nonnull %3) #6
@@ -795,23 +795,22 @@ attributes #9 = { nounwind memory(read) }
 !5 = !{i8 0, i8 2}
 !6 = !{}
 !7 = !{i64 2147826621, i64 2147826649, i64 2147826655, i64 2147826671, i64 2147826687, i64 2147826714, i64 2147827047, i64 2147826347, i64 2147827053, i64 2147827101, i64 2147827165, i64 2147827229, i64 2147827286, i64 2147826428, i64 2147826453, i64 2147827493, i64 2147827623, i64 2147827554, i64 2147827637, i64 2147826545}
-!8 = distinct !{!8, !9, !10, !11}
+!8 = distinct !{!8, !9, !10}
 !9 = !{!"llvm.loop.mustprogress"}
 !10 = !{!"llvm.loop.unroll.disable"}
-!11 = !{!"llvm.loop.estimated_trip_count"}
-!12 = !{i64 279484}
-!13 = distinct !{!13, !9, !10, !11}
-!14 = distinct !{!14, !9, !10, !11}
-!15 = !{!"auto-init"}
-!16 = distinct !{!16, !9, !10, !11}
-!17 = distinct !{!17, !9, !10, !11}
-!18 = distinct !{!18, !9, !10, !11}
-!19 = distinct !{!19, !9, !10, !11}
-!20 = distinct !{!20, !9, !10, !11, !21}
-!21 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!22 = distinct !{!22, !9, !10, !11}
-!23 = distinct !{!23, !9, !10, !11}
-!24 = !{i32 -19, i32 1}
-!25 = !{!26}
-!26 = distinct !{!26, !27, !"drm_seq_file_printer: argument 0"}
-!27 = distinct !{!27, !"drm_seq_file_printer"}
+!11 = !{i64 279484}
+!12 = distinct !{!12, !9, !10}
+!13 = distinct !{!13, !9, !10}
+!14 = !{!"auto-init"}
+!15 = distinct !{!15, !9, !10}
+!16 = distinct !{!16, !9, !10}
+!17 = distinct !{!17, !9, !10}
+!18 = distinct !{!18, !9, !10}
+!19 = distinct !{!19, !9, !10, !20}
+!20 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!21 = distinct !{!21, !9, !10}
+!22 = distinct !{!22, !9, !10}
+!23 = !{i32 -19, i32 1}
+!24 = !{!25}
+!25 = distinct !{!25, !26, !"drm_seq_file_printer: argument 0"}
+!26 = distinct !{!26, !"drm_seq_file_printer"}

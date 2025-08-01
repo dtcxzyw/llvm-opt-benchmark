@@ -203,7 +203,7 @@ define dso_local i64 @kernel_read_file(ptr noundef %0, i64 noundef %1, ptr nound
     i32 4, label %77
     i32 5, label %.loopexit
     i32 1, label %.critedge
-  ], !llvm.loop !14
+  ], !llvm.loop !13
 
 77:                                               ; preds = %61, %57
   %78 = phi i32 [ %73, %61 ], [ %58, %57 ]
@@ -242,7 +242,7 @@ define dso_local i64 @kernel_read_file(ptr noundef %0, i64 noundef %1, ptr nound
 96:                                               ; preds = %92
   %97 = load ptr, ptr %15, align 8
   %98 = getelementptr inbounds nuw i8, ptr %97, i64 336
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; incl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %98, ptr nonnull elementtype(i32) %98) #7, !srcloc !15
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; incl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %98, ptr nonnull elementtype(i32) %98) #7, !srcloc !14
   br label %99
 
 99:                                               ; preds = %96, %92
@@ -443,9 +443,8 @@ attributes #8 = { nounwind allocsize(0) }
 !7 = !{i64 2149050105, i64 2149050144, i64 2149050165, i64 2149050202, i64 2149050225, i64 2149050234, i64 2149050532}
 !8 = !{!"branch_weights", i32 1, i32 2000}
 !9 = !{!"branch_weights", i32 255873, i32 127}
-!10 = distinct !{!10, !11, !12, !13}
+!10 = distinct !{!10, !11, !12}
 !11 = !{!"llvm.loop.mustprogress"}
 !12 = !{!"llvm.loop.unroll.disable"}
-!13 = !{!"llvm.loop.estimated_trip_count"}
-!14 = distinct !{!14, !11, !12, !13}
-!15 = !{i64 2149031725, i64 2149031764, i64 2149031785, i64 2149031822, i64 2149031845, i64 2149031715}
+!13 = distinct !{!13, !11, !12}
+!14 = !{i64 2149031725, i64 2149031764, i64 2149031785, i64 2149031822, i64 2149031845, i64 2149031715}

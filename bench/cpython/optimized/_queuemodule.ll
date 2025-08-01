@@ -286,7 +286,7 @@ Py_DECREF.exit.i.i:                               ; preds = %19, %16, %.lr.ph.i.
 simplequeue_clear.exit:                           ; preds = %Py_DECREF.exit.i.i, %1
   tail call void @PyMem_Free(ptr noundef %5) #7
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %25 = load ptr, ptr %24, align 8, !tbaa !29
+  %25 = load ptr, ptr %24, align 8, !tbaa !28
   %.not = icmp eq ptr %25, null
   br i1 %.not, label %27, label %26
 
@@ -297,7 +297,7 @@ simplequeue_clear.exit:                           ; preds = %Py_DECREF.exit.i.i,
 27:                                               ; preds = %26, %simplequeue_clear.exit
   %.val8 = load ptr, ptr %2, align 8, !tbaa !18
   %28 = getelementptr inbounds nuw i8, ptr %.val8, i64 320
-  %29 = load ptr, ptr %28, align 8, !tbaa !32
+  %29 = load ptr, ptr %28, align 8, !tbaa !31
   tail call void %29(ptr noundef nonnull %0) #7
   %30 = load i32, ptr %.val, align 8, !tbaa !16
   %.not.i = icmp sgt i32 %30, -1
@@ -350,7 +350,7 @@ define internal i32 @simplequeue_traverse(ptr noundef readonly captures(none) %0
 19:                                               ; preds = %9, %17
   %20 = add nuw nsw i64 %.02437, 1
   %exitcond.not = icmp eq i64 %20, %5
-  br i1 %exitcond.not, label %._crit_edge, label %9, !llvm.loop !41
+  br i1 %exitcond.not, label %._crit_edge, label %9, !llvm.loop !40
 
 ._crit_edge:                                      ; preds = %19, %3
   %21 = getelementptr i8, ptr %0, i64 8
@@ -428,9 +428,9 @@ define internal ptr @simplequeue_new(ptr noundef %0, ptr noundef %1, ptr noundef
 
 8:                                                ; preds = %3
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 296
-  %10 = load ptr, ptr %9, align 8, !tbaa !42
+  %10 = load ptr, ptr %9, align 8, !tbaa !41
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 296
-  %12 = load ptr, ptr %11, align 8, !tbaa !42
+  %12 = load ptr, ptr %11, align 8, !tbaa !41
   %13 = icmp ne ptr %10, %12
   %14 = icmp eq ptr %1, null
   %or.cond = or i1 %14, %13
@@ -451,8 +451,8 @@ define internal ptr @simplequeue_new(ptr noundef %0, ptr noundef %1, ptr noundef
   br i1 %.not25, label %simplequeue_new_impl.exit, label %.thread24..thread23_crit_edge
 
 .thread24..thread23_crit_edge:                    ; preds = %.thread24
-  %.pre = load ptr, ptr %9, align 8, !tbaa !42
-  %.pre27 = load ptr, ptr %11, align 8, !tbaa !42
+  %.pre = load ptr, ptr %9, align 8, !tbaa !41
+  %.pre27 = load ptr, ptr %11, align 8, !tbaa !41
   br label %.thread23
 
 .thread23:                                        ; preds = %.thread24..thread23_crit_edge, %8
@@ -474,14 +474,14 @@ define internal ptr @simplequeue_new(ptr noundef %0, ptr noundef %1, ptr noundef
 
 25:                                               ; preds = %23, %.thread, %.thread23
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 304
-  %27 = load ptr, ptr %26, align 8, !tbaa !43
+  %27 = load ptr, ptr %26, align 8, !tbaa !42
   %28 = tail call ptr %27(ptr noundef %0, i64 noundef 0) #7
   %.not.i = icmp eq ptr %28, null
   br i1 %.not.i, label %simplequeue_new_impl.exit, label %29
 
 29:                                               ; preds = %25
   %30 = getelementptr inbounds nuw i8, ptr %28, i64 64
-  store ptr null, ptr %30, align 8, !tbaa !29
+  store ptr null, ptr %30, align 8, !tbaa !28
   %31 = getelementptr inbounds nuw i8, ptr %28, i64 24
   %32 = getelementptr inbounds nuw i8, ptr %28, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %31, i8 0, i64 16, i1 false)
@@ -542,7 +542,7 @@ define internal ptr @_queue_SimpleQueue_get(ptr noundef %0, ptr noundef %1, ptr 
 
 .thread:                                          ; preds = %5
   %7 = getelementptr i8, ptr %4, i64 16
-  %.val = load i64, ptr %7, align 8, !tbaa !44
+  %.val = load i64, ptr %7, align 8, !tbaa !43
   %8 = add i64 %.val, %3
   br label %12
 
@@ -607,7 +607,7 @@ define internal ptr @_queue_SimpleQueue_get_nowait(ptr noundef %0, ptr noundef %
 
 7:                                                ; preds = %6
   %8 = getelementptr i8, ptr %4, i64 16
-  %.val = load i64, ptr %8, align 8, !tbaa !44
+  %.val = load i64, ptr %8, align 8, !tbaa !43
   %.not7 = icmp eq i64 %.val, 0
   br i1 %.not7, label %11, label %9
 
@@ -634,7 +634,7 @@ define internal noundef ptr @_queue_SimpleQueue_put(ptr noundef %0, ptr noundef 
 
 .thread:                                          ; preds = %4
   %6 = getelementptr i8, ptr %3, i64 16
-  %.val = load i64, ptr %6, align 8, !tbaa !44
+  %.val = load i64, ptr %6, align 8, !tbaa !43
   %7 = add i64 %.val, %2
   br label %12
 
@@ -755,7 +755,7 @@ define internal fastcc ptr @_queue_SimpleQueue_get_impl(ptr noundef %0, ptr noun
   br i1 %12, label %.critedge, label %13
 
 13:                                               ; preds = %10
-  %14 = load i64, ptr %5, align 8, !tbaa !45
+  %14 = load i64, ptr %5, align 8, !tbaa !44
   %15 = icmp slt i64 %14, 0
   br i1 %15, label %16, label %18
 
@@ -786,8 +786,8 @@ define internal fastcc ptr @_queue_SimpleQueue_get_impl(ptr noundef %0, ptr noun
 
 .lr.ph.split.split.us:                            ; preds = %.lr.ph.split, %28
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6) #7
-  store i8 1, ptr %6, align 1, !tbaa !46
-  store i8 1, ptr %23, align 8, !tbaa !47
+  store i8 1, ptr %6, align 1, !tbaa !45
+  store i8 1, ptr %23, align 8, !tbaa !46
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #7
   store ptr null, ptr %7, align 8, !tbaa !17
   %24 = call i32 @_PyParkingLot_Park(ptr noundef nonnull %23, ptr noundef nonnull %6, i64 noundef 1, i64 noundef -1, ptr noundef nonnull %7, i32 noundef 1) #7
@@ -808,7 +808,7 @@ define internal fastcc ptr @_queue_SimpleQueue_get_impl(ptr noundef %0, ptr noun
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #7
   %.val.us = load i64, ptr %21, align 8, !tbaa !23
   %29 = icmp eq i64 %.val.us, 0
-  br i1 %29, label %.lr.ph.split.split.us, label %._crit_edge, !llvm.loop !48
+  br i1 %29, label %.lr.ph.split.split.us, label %._crit_edge, !llvm.loop !47
 
 ._crit_edge:                                      ; preds = %97, %28, %20
   %.val.lcssa = phi i64 [ %.val54, %20 ], [ %.val.us, %28 ], [ %.val, %97 ]
@@ -871,7 +871,7 @@ define internal fastcc ptr @_queue_SimpleQueue_get_impl(ptr noundef %0, ptr noun
   store i64 %37, ptr %31, align 8, !tbaa !24
   store i64 0, ptr %43, align 8, !tbaa !25
   %64 = load i64, ptr %21, align 8, !tbaa !23
-  store i64 %64, ptr %30, align 8, !tbaa !50
+  store i64 %64, ptr %30, align 8, !tbaa !49
   br label %RingBuf_Get.exit
 
 RingBuf_Get.exit:                                 ; preds = %._crit_edge, %35, %39, %61
@@ -916,8 +916,8 @@ RingBuf_Get.exit:                                 ; preds = %._crit_edge, %35, %
 
 87:                                               ; preds = %.lr.ph.split.split
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6) #7
-  store i8 1, ptr %6, align 1, !tbaa !46
-  store i8 1, ptr %23, align 8, !tbaa !47
+  store i8 1, ptr %6, align 1, !tbaa !45
+  store i8 1, ptr %23, align 8, !tbaa !46
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #7
   store ptr null, ptr %7, align 8, !tbaa !17
   %88 = call i32 @_PyParkingLot_Park(ptr noundef nonnull %23, ptr noundef nonnull %6, i64 noundef 1, i64 noundef %76, ptr noundef nonnull %7, i32 noundef 1) #7
@@ -960,7 +960,7 @@ RingBuf_Get.exit:                                 ; preds = %._crit_edge, %35, %
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #7
   %.val = load i64, ptr %21, align 8, !tbaa !23
   %98 = icmp eq i64 %.val, 0
-  br i1 %98, label %.lr.ph.split.split, label %._crit_edge, !llvm.loop !51
+  br i1 %98, label %.lr.ph.split.split, label %._crit_edge
 
 .critedge:                                        ; preds = %10, %16
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #7
@@ -998,7 +998,7 @@ define internal fastcc noundef ptr @_queue_SimpleQueue_put_impl(ptr noundef %0, 
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #7
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 0, ptr %3, align 8
-  store ptr %0, ptr %4, align 8, !tbaa !52
+  store ptr %0, ptr %4, align 8, !tbaa !50
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %6 = load i32, ptr %1, align 8, !tbaa !16
   %7 = icmp slt i32 %6, 0
@@ -1010,15 +1010,15 @@ define internal fastcc noundef ptr @_queue_SimpleQueue_put_impl(ptr noundef %0, 
   br label %_Py_NewRef.exit
 
 _Py_NewRef.exit:                                  ; preds = %2, %8
-  store ptr %1, ptr %5, align 8, !tbaa !54
+  store ptr %1, ptr %5, align 8, !tbaa !52
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %11 = load i8, ptr %10, align 8, !tbaa !47, !range !55, !noundef !56
+  %11 = load i8, ptr %10, align 8, !tbaa !46, !range !53, !noundef !54
   %12 = trunc nuw i8 %11 to i1
   br i1 %12, label %13, label %.thread
 
 13:                                               ; preds = %_Py_NewRef.exit
   call void @_PyParkingLot_Unpark(ptr noundef nonnull %10, ptr noundef nonnull @maybe_handoff_item, ptr noundef nonnull %3) #7
-  %.pre = load i8, ptr %3, align 8, !tbaa !57, !range !55
+  %.pre = load i8, ptr %3, align 8, !tbaa !55, !range !53
   %14 = trunc nuw i8 %.pre to i1
   br i1 %14, label %63, label %.thread
 
@@ -1083,7 +1083,7 @@ _Py_NewRef.exit:                                  ; preds = %2, %8
   store i64 %23, ptr %18, align 8, !tbaa !24
   store i64 0, ptr %31, align 8, !tbaa !25
   %52 = load i64, ptr %16, align 8, !tbaa !23
-  store i64 %52, ptr %15, align 8, !tbaa !50
+  store i64 %52, ptr %15, align 8, !tbaa !49
   br label %RingBuf_Put.exit
 
 RingBuf_Put.exit.thread:                          ; preds = %25
@@ -1095,12 +1095,12 @@ RingBuf_Put.exit:                                 ; preds = %.thread, %21, %49
   %55 = phi i64 [ %23, %49 ], [ %17, %21 ], [ %19, %.thread ]
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %57 = load ptr, ptr %56, align 8, !tbaa !19
-  %58 = load i64, ptr %15, align 8, !tbaa !50
+  %58 = load i64, ptr %15, align 8, !tbaa !49
   %59 = getelementptr ptr, ptr %57, i64 %58
   store ptr %1, ptr %59, align 8, !tbaa !17
   %60 = add i64 %58, 1
   %61 = srem i64 %60, %55
-  store i64 %61, ptr %15, align 8, !tbaa !50
+  store i64 %61, ptr %15, align 8, !tbaa !49
   %62 = add i64 %54, 1
   store i64 %62, ptr %16, align 8, !tbaa !23
   br label %63
@@ -1123,19 +1123,19 @@ define internal void @maybe_handoff_item(ptr noundef captures(none) initializes(
 
 5:                                                ; preds = %3
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %7 = load ptr, ptr %6, align 8, !tbaa !54
+  %7 = load ptr, ptr %6, align 8, !tbaa !52
   store ptr %7, ptr %1, align 8, !tbaa !17
   br label %8
 
 8:                                                ; preds = %3, %5
   %storemerge = phi i8 [ 1, %5 ], [ 0, %3 ]
-  store i8 %storemerge, ptr %0, align 8, !tbaa !57
+  store i8 %storemerge, ptr %0, align 8, !tbaa !55
   %9 = icmp ne i32 %2, 0
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %11 = load ptr, ptr %10, align 8, !tbaa !52
+  %11 = load ptr, ptr %10, align 8, !tbaa !50
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %13 = zext i1 %9 to i8
-  store i8 %13, ptr %12, align 8, !tbaa !47
+  store i8 %13, ptr %12, align 8, !tbaa !46
   ret void
 }
 
@@ -1192,35 +1192,33 @@ attributes #7 = { nounwind }
 !23 = !{!20, !21, i64 32}
 !24 = !{!20, !21, i64 24}
 !25 = !{!20, !21, i64 8}
-!26 = distinct !{!26, !27, !28}
+!26 = distinct !{!26, !27}
 !27 = !{!"llvm.loop.mustprogress"}
-!28 = !{!"llvm.loop.estimated_trip_count"}
-!29 = !{!30, !10, i64 64}
-!30 = !{!"", !5, i64 0, !31, i64 16, !20, i64 24, !10, i64 64}
-!31 = !{!"_Bool", !6, i64 0}
-!32 = !{!33, !9, i64 320}
-!33 = !{!"_typeobject", !34, i64 0, !35, i64 24, !21, i64 32, !21, i64 40, !9, i64 48, !21, i64 56, !9, i64 64, !9, i64 72, !9, i64 80, !9, i64 88, !9, i64 96, !9, i64 104, !9, i64 112, !9, i64 120, !9, i64 128, !9, i64 136, !9, i64 144, !9, i64 152, !9, i64 160, !21, i64 168, !35, i64 176, !9, i64 184, !9, i64 192, !9, i64 200, !21, i64 208, !9, i64 216, !9, i64 224, !36, i64 232, !37, i64 240, !38, i64 248, !8, i64 256, !10, i64 264, !9, i64 272, !9, i64 280, !21, i64 288, !9, i64 296, !9, i64 304, !9, i64 312, !9, i64 320, !9, i64 328, !10, i64 336, !10, i64 344, !10, i64 352, !9, i64 360, !10, i64 368, !9, i64 376, !39, i64 384, !9, i64 392, !9, i64 400, !6, i64 408, !40, i64 410}
-!34 = !{!"", !5, i64 0, !21, i64 16}
-!35 = !{!"p1 omnipotent char", !9, i64 0}
-!36 = !{!"p1 _ZTS11PyMethodDef", !9, i64 0}
-!37 = !{!"p1 _ZTS11PyMemberDef", !9, i64 0}
-!38 = !{!"p1 _ZTS11PyGetSetDef", !9, i64 0}
-!39 = !{!"int", !6, i64 0}
-!40 = !{!"short", !6, i64 0}
-!41 = distinct !{!41, !27, !28}
-!42 = !{!33, !9, i64 296}
-!43 = !{!33, !9, i64 304}
-!44 = !{!34, !21, i64 16}
-!45 = !{!21, !21, i64 0}
-!46 = !{!31, !31, i64 0}
-!47 = !{!30, !31, i64 16}
-!48 = distinct !{!48, !28, !49}
-!49 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!50 = !{!20, !21, i64 0}
-!51 = distinct !{!51, !28}
-!52 = !{!53, !9, i64 8}
-!53 = !{!"", !31, i64 0, !9, i64 8, !10, i64 16}
-!54 = !{!53, !10, i64 16}
-!55 = !{i8 0, i8 2}
-!56 = !{}
-!57 = !{!53, !31, i64 0}
+!28 = !{!29, !10, i64 64}
+!29 = !{!"", !5, i64 0, !30, i64 16, !20, i64 24, !10, i64 64}
+!30 = !{!"_Bool", !6, i64 0}
+!31 = !{!32, !9, i64 320}
+!32 = !{!"_typeobject", !33, i64 0, !34, i64 24, !21, i64 32, !21, i64 40, !9, i64 48, !21, i64 56, !9, i64 64, !9, i64 72, !9, i64 80, !9, i64 88, !9, i64 96, !9, i64 104, !9, i64 112, !9, i64 120, !9, i64 128, !9, i64 136, !9, i64 144, !9, i64 152, !9, i64 160, !21, i64 168, !34, i64 176, !9, i64 184, !9, i64 192, !9, i64 200, !21, i64 208, !9, i64 216, !9, i64 224, !35, i64 232, !36, i64 240, !37, i64 248, !8, i64 256, !10, i64 264, !9, i64 272, !9, i64 280, !21, i64 288, !9, i64 296, !9, i64 304, !9, i64 312, !9, i64 320, !9, i64 328, !10, i64 336, !10, i64 344, !10, i64 352, !9, i64 360, !10, i64 368, !9, i64 376, !38, i64 384, !9, i64 392, !9, i64 400, !6, i64 408, !39, i64 410}
+!33 = !{!"", !5, i64 0, !21, i64 16}
+!34 = !{!"p1 omnipotent char", !9, i64 0}
+!35 = !{!"p1 _ZTS11PyMethodDef", !9, i64 0}
+!36 = !{!"p1 _ZTS11PyMemberDef", !9, i64 0}
+!37 = !{!"p1 _ZTS11PyGetSetDef", !9, i64 0}
+!38 = !{!"int", !6, i64 0}
+!39 = !{!"short", !6, i64 0}
+!40 = distinct !{!40, !27}
+!41 = !{!32, !9, i64 296}
+!42 = !{!32, !9, i64 304}
+!43 = !{!33, !21, i64 16}
+!44 = !{!21, !21, i64 0}
+!45 = !{!30, !30, i64 0}
+!46 = !{!29, !30, i64 16}
+!47 = distinct !{!47, !48}
+!48 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!49 = !{!20, !21, i64 0}
+!50 = !{!51, !9, i64 8}
+!51 = !{!"", !30, i64 0, !9, i64 8, !10, i64 16}
+!52 = !{!51, !10, i64 16}
+!53 = !{i8 0, i8 2}
+!54 = !{}
+!55 = !{!51, !30, i64 0}

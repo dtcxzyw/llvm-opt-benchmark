@@ -493,12 +493,12 @@ escape_quotes.exit:                               ; preds = %94
 
 117:                                              ; preds = %110
   call void @check_objfilter()
-  %118 = load i8, ptr %5, align 8, !range !7, !noundef !8
+  %118 = load i8, ptr %5, align 8, !range !6, !noundef !7
   %119 = trunc nuw i8 %118 to i1
   br i1 %119, label %120, label %.thread
 
 120:                                              ; preds = %117
-  %121 = load i8, ptr %26, align 1, !range !7, !noundef !8
+  %121 = load i8, ptr %26, align 1, !range !6, !noundef !7
   %122 = trunc nuw i8 %121 to i1
   br i1 %122, label %123, label %124
 
@@ -508,7 +508,7 @@ escape_quotes.exit:                               ; preds = %94
   unreachable
 
 124:                                              ; preds = %120
-  %125 = load i8, ptr %25, align 4, !range !7, !noundef !8
+  %125 = load i8, ptr %25, align 4, !range !6, !noundef !7
   %126 = trunc nuw i8 %125 to i1
   br i1 %126, label %127, label %128
 
@@ -518,7 +518,7 @@ escape_quotes.exit:                               ; preds = %94
   unreachable
 
 128:                                              ; preds = %124
-  %129 = load i8, ptr %22, align 1, !range !7, !noundef !8
+  %129 = load i8, ptr %22, align 1, !range !6, !noundef !7
   %130 = trunc nuw i8 %129 to i1
   br i1 %130, label %131, label %132
 
@@ -528,7 +528,7 @@ escape_quotes.exit:                               ; preds = %94
   unreachable
 
 132:                                              ; preds = %128
-  %133 = load i8, ptr %10, align 4, !range !7, !noundef !8
+  %133 = load i8, ptr %10, align 4, !range !6, !noundef !7
   %134 = trunc nuw i8 %133 to i1
   br i1 %134, label %135, label %136
 
@@ -538,7 +538,7 @@ escape_quotes.exit:                               ; preds = %94
   unreachable
 
 136:                                              ; preds = %132
-  %137 = load i8, ptr %11, align 1, !range !7, !noundef !8
+  %137 = load i8, ptr %11, align 1, !range !6, !noundef !7
   %138 = trunc nuw i8 %137 to i1
   br i1 %138, label %139, label %140
 
@@ -548,7 +548,7 @@ escape_quotes.exit:                               ; preds = %94
   unreachable
 
 140:                                              ; preds = %136
-  %141 = load i8, ptr %12, align 2, !range !7, !noundef !8
+  %141 = load i8, ptr %12, align 2, !range !6, !noundef !7
   %142 = trunc nuw i8 %141 to i1
   br i1 %142, label %144, label %143
 
@@ -558,7 +558,7 @@ escape_quotes.exit:                               ; preds = %94
   unreachable
 
 144:                                              ; preds = %140
-  %145 = load i8, ptr %13, align 1, !range !7, !noundef !8
+  %145 = load i8, ptr %13, align 1, !range !6, !noundef !7
   %146 = trunc nuw i8 %145 to i1
   br i1 %146, label %148, label %147
 
@@ -568,7 +568,7 @@ escape_quotes.exit:                               ; preds = %94
   unreachable
 
 148:                                              ; preds = %144
-  %149 = load i8, ptr %14, align 8, !range !7, !noundef !8
+  %149 = load i8, ptr %14, align 8, !range !6, !noundef !7
   %150 = trunc nuw i8 %149 to i1
   br i1 %150, label %152, label %151
 
@@ -585,7 +585,7 @@ escape_quotes.exit:                               ; preds = %94
 .thread:                                          ; preds = %117
   %155 = load i32, ptr %8, align 8
   %156 = icmp sgt i32 %155, -1
-  %157 = load i8, ptr %26, align 1, !range !7
+  %157 = load i8, ptr %26, align 1, !range !6
   %158 = trunc nuw i8 %157 to i1
   %or.cond82 = select i1 %156, i1 %158, i1 false
   br i1 %or.cond82, label %160, label %161
@@ -601,8 +601,8 @@ escape_quotes.exit:                               ; preds = %94
   unreachable
 
 161:                                              ; preds = %.thread
-  %.pre = load i8, ptr %10, align 4, !range !7
-  %.pre204 = load i8, ptr %11, align 1, !range !7
+  %.pre = load i8, ptr %10, align 4, !range !6
+  %.pre204 = load i8, ptr %11, align 1, !range !6
   %162 = trunc nuw i8 %.pre to i1
   %163 = trunc nuw i8 %.pre204 to i1
   %164 = select i1 %162, i1 %163, i1 false
@@ -619,7 +619,7 @@ escape_quotes.exit:                               ; preds = %94
   %169 = icmp ne ptr %168, null
   %or.cond7 = select i1 %169, i1 %167, i1 false
   %or.cond7.not = xor i1 %or.cond7, true
-  %170 = load i8, ptr %23, align 2, !range !7
+  %170 = load i8, ptr %23, align 2, !range !6
   %171 = trunc nuw i8 %170 to i1
   %or.cond10 = select i1 %or.cond7.not, i1 true, i1 %171
   br i1 %or.cond10, label %.thread207, label %172
@@ -701,7 +701,7 @@ escape_quotes.exit:                               ; preds = %94
   call fastcc void @vacuum_one_database(ptr noundef %4, ptr noundef %5, i32 noundef %.0143, ptr noundef %6, i32 noundef %202, ptr noundef %17, i1 noundef zeroext %199, i1 noundef zeroext %200)
   %203 = add nuw nsw i32 %.0143, 1
   %exitcond.not = icmp eq i32 %203, 3
-  br i1 %exitcond.not, label %.loopexit, label %201, !llvm.loop !9
+  br i1 %exitcond.not, label %.loopexit, label %201, !llvm.loop !8
 
 204:                                              ; preds = %197
   %205 = load i32, ptr %7, align 4
@@ -871,12 +871,12 @@ define internal fastcc void @vacuum_all_databases(ptr noundef nonnull %0, ptr no
   %18 = add nuw nsw i32 %.041, 1
   %19 = tail call i32 @PQntuples(ptr noundef %10) #10
   %20 = icmp slt i32 %18, %19
-  br i1 %20, label %.lr.ph42, label %._crit_edge, !llvm.loop !10
+  br i1 %20, label %.lr.ph42, label %._crit_edge, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %.lr.ph42, %.preheader
   %21 = add nuw nsw i32 %.03643, 1
   %exitcond.not = icmp eq i32 %21, 3
-  br i1 %exitcond.not, label %.loopexit, label %.preheader, !llvm.loop !11
+  br i1 %exitcond.not, label %.loopexit, label %.preheader, !llvm.loop !10
 
 22:                                               ; preds = %.lr.ph, %22
   %.140 = phi i32 [ 0, %.lr.ph ], [ %24, %22 ]
@@ -886,7 +886,7 @@ define internal fastcc void @vacuum_all_databases(ptr noundef nonnull %0, ptr no
   %24 = add nuw nsw i32 %.140, 1
   %25 = tail call i32 @PQntuples(ptr noundef %10) #10
   %26 = icmp slt i32 %24, %25
-  br i1 %26, label %22, label %.loopexit, !llvm.loop !12
+  br i1 %26, label %22, label %.loopexit, !llvm.loop !11
 
 .loopexit:                                        ; preds = %22, %._crit_edge, %.preheader38
   tail call void @PQclear(ptr noundef %10) #10
@@ -913,7 +913,7 @@ define internal fastcc void @vacuum_one_database(ptr noundef nonnull %0, ptr nou
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %12, i8 0, i64 16, i1 false)
   %15 = tail call ptr @connectDatabase(ptr noundef nonnull %0, ptr noundef %5, i1 noundef zeroext %6, i1 noundef zeroext false, i1 noundef zeroext true) #10
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 5
-  %17 = load i8, ptr %16, align 1, !range !7, !noundef !8
+  %17 = load i8, ptr %16, align 1, !range !6, !noundef !7
   %18 = trunc nuw i8 %17 to i1
   br i1 %18, label %19, label %23
 
@@ -930,7 +930,7 @@ define internal fastcc void @vacuum_one_database(ptr noundef nonnull %0, ptr nou
 
 23:                                               ; preds = %19, %8
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 20
-  %25 = load i8, ptr %24, align 4, !range !7, !noundef !8
+  %25 = load i8, ptr %24, align 4, !range !6, !noundef !7
   %26 = trunc nuw i8 %25 to i1
   br i1 %26, label %27, label %31
 
@@ -947,7 +947,7 @@ define internal fastcc void @vacuum_one_database(ptr noundef nonnull %0, ptr nou
 
 31:                                               ; preds = %27, %23
   %32 = getelementptr inbounds nuw i8, ptr %1, i64 21
-  %33 = load i8, ptr %32, align 1, !range !7, !noundef !8
+  %33 = load i8, ptr %32, align 1, !range !6, !noundef !7
   %34 = trunc nuw i8 %33 to i1
   br i1 %34, label %35, label %39
 
@@ -964,7 +964,7 @@ define internal fastcc void @vacuum_one_database(ptr noundef nonnull %0, ptr nou
 
 39:                                               ; preds = %35, %31
   %40 = getelementptr inbounds nuw i8, ptr %1, i64 22
-  %41 = load i8, ptr %40, align 2, !range !7, !noundef !8
+  %41 = load i8, ptr %40, align 2, !range !6, !noundef !7
   %42 = trunc nuw i8 %41 to i1
   br i1 %42, label %47, label %43
 
@@ -981,7 +981,7 @@ define internal fastcc void @vacuum_one_database(ptr noundef nonnull %0, ptr nou
 
 47:                                               ; preds = %43, %39
   %48 = getelementptr inbounds nuw i8, ptr %1, i64 23
-  %49 = load i8, ptr %48, align 1, !range !7, !noundef !8
+  %49 = load i8, ptr %48, align 1, !range !6, !noundef !7
   %50 = trunc nuw i8 %49 to i1
   br i1 %50, label %55, label %51
 
@@ -998,7 +998,7 @@ define internal fastcc void @vacuum_one_database(ptr noundef nonnull %0, ptr nou
 
 55:                                               ; preds = %51, %47
   %56 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %57 = load i8, ptr %56, align 8, !range !7, !noundef !8
+  %57 = load i8, ptr %56, align 8, !range !6, !noundef !7
   %58 = trunc nuw i8 %57 to i1
   br i1 %58, label %63, label %59
 
@@ -1015,7 +1015,7 @@ define internal fastcc void @vacuum_one_database(ptr noundef nonnull %0, ptr nou
 
 63:                                               ; preds = %59, %55
   %64 = getelementptr inbounds nuw i8, ptr %1, i64 6
-  %65 = load i8, ptr %64, align 2, !range !7, !noundef !8
+  %65 = load i8, ptr %64, align 2, !range !6, !noundef !7
   %66 = trunc nuw i8 %65 to i1
   br i1 %66, label %67, label %71
 
@@ -1194,7 +1194,7 @@ define internal fastcc void @vacuum_one_database(ptr noundef nonnull %0, ptr nou
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #10
   %.0131 = load ptr, ptr %.0131186, align 8
   %.not154 = icmp eq ptr %.0131, null
-  br i1 %.not154, label %._crit_edge, label %.lr.ph, !llvm.loop !13
+  br i1 %.not154, label %._crit_edge, label %.lr.ph, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %135
   call void @appendPQExpBufferStr(ptr noundef nonnull %11, ptr noundef nonnull @.str.72) #10
@@ -1302,7 +1302,7 @@ define internal fastcc void @vacuum_one_database(ptr noundef nonnull %0, ptr nou
   call void @resetPQExpBuffer(ptr noundef nonnull %10) #10
   %172 = add nuw nsw i32 %.0132187.us, 1
   %exitcond.not = icmp eq i32 %172, %158
-  br i1 %exitcond.not, label %._crit_edge190, label %.lr.ph189.split.us, !llvm.loop !14
+  br i1 %exitcond.not, label %._crit_edge190, label %.lr.ph189.split.us, !llvm.loop !13
 
 .lr.ph189.split:                                  ; preds = %.lr.ph189, %.lr.ph189.split
   %.0132187 = phi i32 [ %178, %.lr.ph189.split ], [ 0, %.lr.ph189 ]
@@ -1316,7 +1316,7 @@ define internal fastcc void @vacuum_one_database(ptr noundef nonnull %0, ptr nou
   call void @resetPQExpBuffer(ptr noundef nonnull %10) #10
   %178 = add nuw nsw i32 %.0132187, 1
   %exitcond192.not = icmp eq i32 %178, %158
-  br i1 %exitcond192.not, label %._crit_edge190, label %.lr.ph189.split, !llvm.loop !16
+  br i1 %exitcond192.not, label %._crit_edge190, label %.lr.ph189.split, !llvm.loop !15
 
 ._crit_edge190:                                   ; preds = %170, %.lr.ph189.split, %161
   call void @termPQExpBuffer(ptr noundef nonnull %10) #10
@@ -1361,7 +1361,7 @@ define internal fastcc void @vacuum_one_database(ptr noundef nonnull %0, ptr nou
   %197 = load ptr, ptr %195, align 8
   %198 = call i32 @PQserverVersion(ptr noundef %197) #10
   call void @resetPQExpBuffer(ptr noundef nonnull %9) #10
-  %199 = load i8, ptr %1, align 8, !range !7, !noundef !8
+  %199 = load i8, ptr %1, align 8, !range !6, !noundef !7
   %200 = trunc nuw i8 %199 to i1
   br i1 %200, label %201, label %220
 
@@ -1371,7 +1371,7 @@ define internal fastcc void @vacuum_one_database(ptr noundef nonnull %0, ptr nou
   br i1 %202, label %203, label %216
 
 203:                                              ; preds = %201
-  %204 = load i8, ptr %64, align 2, !range !7, !noundef !8
+  %204 = load i8, ptr %64, align 2, !range !6, !noundef !7
   %205 = trunc nuw i8 %204 to i1
   br i1 %205, label %206, label %207
 
@@ -1381,7 +1381,7 @@ define internal fastcc void @vacuum_one_database(ptr noundef nonnull %0, ptr nou
 
 207:                                              ; preds = %206, %203
   %.0.i = phi ptr [ @.str.90, %206 ], [ @.str.89, %203 ]
-  %208 = load i8, ptr %189, align 1, !range !7, !noundef !8
+  %208 = load i8, ptr %189, align 1, !range !6, !noundef !7
   %209 = trunc nuw i8 %208 to i1
   br i1 %209, label %210, label %211
 
@@ -1409,7 +1409,7 @@ define internal fastcc void @vacuum_one_database(ptr noundef nonnull %0, ptr nou
   br label %prepare_vacuum_command.exit
 
 216:                                              ; preds = %201
-  %217 = load i8, ptr %189, align 1, !range !7, !noundef !8
+  %217 = load i8, ptr %189, align 1, !range !6, !noundef !7
   %218 = trunc nuw i8 %217 to i1
   br i1 %218, label %219, label %prepare_vacuum_command.exit
 
@@ -1423,7 +1423,7 @@ define internal fastcc void @vacuum_one_database(ptr noundef nonnull %0, ptr nou
   br i1 %221, label %222, label %279
 
 222:                                              ; preds = %220
-  %223 = load i8, ptr %16, align 1, !range !7, !noundef !8
+  %223 = load i8, ptr %16, align 1, !range !6, !noundef !7
   %224 = trunc nuw i8 %223 to i1
   br i1 %224, label %225, label %226
 
@@ -1433,7 +1433,7 @@ define internal fastcc void @vacuum_one_database(ptr noundef nonnull %0, ptr nou
 
 226:                                              ; preds = %225, %222
   %.3.i = phi ptr [ @.str.90, %225 ], [ @.str.89, %222 ]
-  %227 = load i8, ptr %24, align 4, !range !7, !noundef !8
+  %227 = load i8, ptr %24, align 4, !range !6, !noundef !7
   %228 = trunc nuw i8 %227 to i1
   br i1 %228, label %229, label %230
 
@@ -1443,7 +1443,7 @@ define internal fastcc void @vacuum_one_database(ptr noundef nonnull %0, ptr nou
 
 230:                                              ; preds = %229, %226
   %.4.i = phi ptr [ @.str.90, %229 ], [ %.3.i, %226 ]
-  %231 = load i8, ptr %32, align 1, !range !7, !noundef !8
+  %231 = load i8, ptr %32, align 1, !range !6, !noundef !7
   %232 = trunc nuw i8 %231 to i1
   br i1 %232, label %233, label %234
 
@@ -1453,7 +1453,7 @@ define internal fastcc void @vacuum_one_database(ptr noundef nonnull %0, ptr nou
 
 234:                                              ; preds = %233, %230
   %.5.i = phi ptr [ @.str.90, %233 ], [ %.4.i, %230 ]
-  %235 = load i8, ptr %40, align 2, !range !7, !noundef !8
+  %235 = load i8, ptr %40, align 2, !range !6, !noundef !7
   %236 = trunc nuw i8 %235 to i1
   br i1 %236, label %238, label %237
 
@@ -1463,7 +1463,7 @@ define internal fastcc void @vacuum_one_database(ptr noundef nonnull %0, ptr nou
 
 238:                                              ; preds = %237, %234
   %.6.i = phi ptr [ %.5.i, %234 ], [ @.str.90, %237 ]
-  %239 = load i8, ptr %48, align 1, !range !7, !noundef !8
+  %239 = load i8, ptr %48, align 1, !range !6, !noundef !7
   %240 = trunc nuw i8 %239 to i1
   br i1 %240, label %242, label %241
 
@@ -1473,7 +1473,7 @@ define internal fastcc void @vacuum_one_database(ptr noundef nonnull %0, ptr nou
 
 242:                                              ; preds = %241, %238
   %.7.i = phi ptr [ %.6.i, %238 ], [ @.str.90, %241 ]
-  %243 = load i8, ptr %56, align 8, !range !7, !noundef !8
+  %243 = load i8, ptr %56, align 8, !range !6, !noundef !7
   %244 = trunc nuw i8 %243 to i1
   br i1 %244, label %246, label %245
 
@@ -1483,7 +1483,7 @@ define internal fastcc void @vacuum_one_database(ptr noundef nonnull %0, ptr nou
 
 246:                                              ; preds = %245, %242
   %.8.i = phi ptr [ %.7.i, %242 ], [ @.str.90, %245 ]
-  %247 = load i8, ptr %103, align 1, !range !7, !noundef !8
+  %247 = load i8, ptr %103, align 1, !range !6, !noundef !7
   %248 = trunc nuw i8 %247 to i1
   br i1 %248, label %249, label %250
 
@@ -1493,7 +1493,7 @@ define internal fastcc void @vacuum_one_database(ptr noundef nonnull %0, ptr nou
 
 250:                                              ; preds = %249, %246
   %.9.i = phi ptr [ @.str.90, %249 ], [ %.8.i, %246 ]
-  %251 = load i8, ptr %64, align 2, !range !7, !noundef !8
+  %251 = load i8, ptr %64, align 2, !range !6, !noundef !7
   %252 = trunc nuw i8 %251 to i1
   br i1 %252, label %253, label %254
 
@@ -1503,7 +1503,7 @@ define internal fastcc void @vacuum_one_database(ptr noundef nonnull %0, ptr nou
 
 254:                                              ; preds = %253, %250
   %.10.i = phi ptr [ @.str.90, %253 ], [ %.9.i, %250 ]
-  %255 = load i8, ptr %187, align 1, !range !7, !noundef !8
+  %255 = load i8, ptr %187, align 1, !range !6, !noundef !7
   %256 = trunc nuw i8 %255 to i1
   br i1 %256, label %257, label %258
 
@@ -1513,7 +1513,7 @@ define internal fastcc void @vacuum_one_database(ptr noundef nonnull %0, ptr nou
 
 258:                                              ; preds = %257, %254
   %.11.i = phi ptr [ @.str.90, %257 ], [ %.10.i, %254 ]
-  %259 = load i8, ptr %188, align 4, !range !7, !noundef !8
+  %259 = load i8, ptr %188, align 4, !range !6, !noundef !7
   %260 = trunc nuw i8 %259 to i1
   br i1 %260, label %261, label %262
 
@@ -1523,7 +1523,7 @@ define internal fastcc void @vacuum_one_database(ptr noundef nonnull %0, ptr nou
 
 262:                                              ; preds = %261, %258
   %.12.i = phi ptr [ @.str.90, %261 ], [ %.11.i, %258 ]
-  %263 = load i8, ptr %189, align 1, !range !7, !noundef !8
+  %263 = load i8, ptr %189, align 1, !range !6, !noundef !7
   %264 = trunc nuw i8 %263 to i1
   br i1 %264, label %265, label %266
 
@@ -1533,7 +1533,7 @@ define internal fastcc void @vacuum_one_database(ptr noundef nonnull %0, ptr nou
 
 266:                                              ; preds = %265, %262
   %.13.i = phi ptr [ @.str.90, %265 ], [ %.12.i, %262 ]
-  %267 = load i8, ptr %190, align 2, !range !7, !noundef !8
+  %267 = load i8, ptr %190, align 2, !range !6, !noundef !7
   %268 = trunc nuw i8 %267 to i1
   br i1 %268, label %269, label %270
 
@@ -1571,7 +1571,7 @@ define internal fastcc void @vacuum_one_database(ptr noundef nonnull %0, ptr nou
   br label %prepare_vacuum_command.exit
 
 279:                                              ; preds = %220
-  %280 = load i8, ptr %187, align 1, !range !7, !noundef !8
+  %280 = load i8, ptr %187, align 1, !range !6, !noundef !7
   %281 = trunc nuw i8 %280 to i1
   br i1 %281, label %282, label %283
 
@@ -1580,7 +1580,7 @@ define internal fastcc void @vacuum_one_database(ptr noundef nonnull %0, ptr nou
   br label %283
 
 283:                                              ; preds = %282, %279
-  %284 = load i8, ptr %188, align 4, !range !7, !noundef !8
+  %284 = load i8, ptr %188, align 4, !range !6, !noundef !7
   %285 = trunc nuw i8 %284 to i1
   br i1 %285, label %286, label %287
 
@@ -1589,7 +1589,7 @@ define internal fastcc void @vacuum_one_database(ptr noundef nonnull %0, ptr nou
   br label %287
 
 287:                                              ; preds = %286, %283
-  %288 = load i8, ptr %189, align 1, !range !7, !noundef !8
+  %288 = load i8, ptr %189, align 1, !range !6, !noundef !7
   %289 = trunc nuw i8 %288 to i1
   br i1 %289, label %290, label %291
 
@@ -1598,7 +1598,7 @@ define internal fastcc void @vacuum_one_database(ptr noundef nonnull %0, ptr nou
   br label %291
 
 291:                                              ; preds = %290, %287
-  %292 = load i8, ptr %190, align 2, !range !7, !noundef !8
+  %292 = load i8, ptr %190, align 2, !range !6, !noundef !7
   %293 = trunc nuw i8 %292 to i1
   br i1 %293, label %294, label %prepare_vacuum_command.exit
 
@@ -1634,14 +1634,14 @@ prepare_vacuum_command.exit:                      ; preds = %214, %215, %216, %2
 307:                                              ; preds = %301, %304
   %308 = load ptr, ptr %.1, align 8
   %.not161 = icmp eq ptr %308, null
-  br i1 %.not161, label %309, label %191, !llvm.loop !17
+  br i1 %.not161, label %309, label %191, !llvm.loop !16
 
 309:                                              ; preds = %307
   %310 = call zeroext i1 @ParallelSlotsWaitCompletion(ptr noundef %185) #10
   br i1 %310, label %311, label %.critedge182
 
 311:                                              ; preds = %309
-  %312 = load i8, ptr %103, align 1, !range !7, !noundef !8
+  %312 = load i8, ptr %103, align 1, !range !6, !noundef !7
   %313 = trunc nuw i8 %312 to i1
   %or.cond = and i1 %179, %313
   br i1 %or.cond, label %314, label %.critedge
@@ -1801,17 +1801,16 @@ attributes #12 = { noreturn nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = distinct !{!4, !5, !6}
+!4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{!"llvm.loop.estimated_trip_count"}
-!7 = !{i8 0, i8 2}
-!8 = !{}
-!9 = distinct !{!9, !5, !6}
-!10 = distinct !{!10, !5, !6}
-!11 = distinct !{!11, !5, !6}
-!12 = distinct !{!12, !5, !6}
-!13 = distinct !{!13, !5, !6}
-!14 = distinct !{!14, !5, !6, !15}
-!15 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!16 = distinct !{!16, !5, !6}
-!17 = distinct !{!17, !5, !6}
+!6 = !{i8 0, i8 2}
+!7 = !{}
+!8 = distinct !{!8, !5}
+!9 = distinct !{!9, !5}
+!10 = distinct !{!10, !5}
+!11 = distinct !{!11, !5}
+!12 = distinct !{!12, !5}
+!13 = distinct !{!13, !5, !14}
+!14 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!15 = distinct !{!15, !5}
+!16 = distinct !{!16, !5}

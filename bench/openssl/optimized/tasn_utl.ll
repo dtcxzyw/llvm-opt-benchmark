@@ -437,7 +437,7 @@ define ptr @ossl_asn1_do_adb(ptr noundef readonly captures(none) %0, ptr noundef
 
 ._crit_edge:                                      ; preds = %48, %36
   %50 = getelementptr inbounds nuw i8, ptr %11, i64 40
-  %51 = load ptr, ptr %50, align 8, !tbaa !47
+  %51 = load ptr, ptr %50, align 8, !tbaa !46
   %.not30 = icmp eq ptr %51, null
   br i1 %.not30, label %52, label %54
 
@@ -520,7 +520,6 @@ attributes #8 = { nounwind }
 !41 = !{!35, !36, i64 24}
 !42 = !{!43, !10, i64 0}
 !43 = !{!"ASN1_ADB_TABLE_st", !10, i64 0, !31, i64 8}
-!44 = distinct !{!44, !45, !46}
+!44 = distinct !{!44, !45}
 !45 = !{!"llvm.loop.mustprogress"}
-!46 = !{!"llvm.loop.estimated_trip_count"}
-!47 = !{!35, !11, i64 40}
+!46 = !{!35, !11, i64 40}

@@ -47,7 +47,7 @@ define void @_ZN5faiss15RandomGeneratorC2El(ptr noundef nonnull writeonly align 
 
 _ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEC2Em.exit: ; preds = %4
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 4992
-  store i64 624, ptr %13, align 8, !tbaa !11
+  store i64 624, ptr %13, align 8, !tbaa !10
   ret void
 }
 
@@ -68,7 +68,7 @@ define noundef range(i32 0, -2147483648) i32 @_ZN5faiss15RandomGenerator8rand_in
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef i64 @_ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEclEv(ptr noundef nonnull align 8 dereferenceable(5000) %0) local_unnamed_addr #2 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4992
-  %3 = load i64, ptr %2, align 8, !tbaa !11
+  %3 = load i64, ptr %2, align 8, !tbaa !10
   %4 = icmp ugt i64 %3, 623
   br i1 %4, label %5, label %52
 
@@ -97,7 +97,7 @@ define linkonce_odr noundef i64 @_ZNSt23mersenne_twister_engineImLm32ELm624ELm39
   %22 = xor i64 %19, %21
   store i64 %22, ptr %8, align 8, !tbaa !4
   %exitcond.not.i = icmp eq i64 %10, 227
-  br i1 %exitcond.not.i, label %.preheader.preheader.i, label %6, !llvm.loop !13
+  br i1 %exitcond.not.i, label %.preheader.preheader.i, label %6, !llvm.loop !12
 
 .preheader.preheader.i:                           ; preds = %6
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %0, i64 1816
@@ -125,7 +125,7 @@ define linkonce_odr noundef i64 @_ZNSt23mersenne_twister_engineImLm32ELm624ELm39
   %38 = xor i64 %35, %37
   store i64 %38, ptr %24, align 8, !tbaa !4
   %exitcond23.not.i = icmp eq i64 %26, 623
-  br i1 %exitcond23.not.i, label %_ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EE11_M_gen_randEv.exit, label %.preheader.i, !llvm.loop !14
+  br i1 %exitcond23.not.i, label %_ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EE11_M_gen_randEv.exit, label %.preheader.i, !llvm.loop !13
 
 _ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EE11_M_gen_randEv.exit: ; preds = %.preheader.i
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 4984
@@ -148,7 +148,7 @@ _ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm429496
 52:                                               ; preds = %_ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EE11_M_gen_randEv.exit, %1
   %53 = phi i64 [ 0, %_ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EE11_M_gen_randEv.exit ], [ %3, %1 ]
   %54 = add nuw nsw i64 %53, 1
-  store i64 %54, ptr %2, align 8, !tbaa !11
+  store i64 %54, ptr %2, align 8, !tbaa !10
   %55 = getelementptr inbounds nuw [624 x i64], ptr %0, i64 0, i64 %53
   %56 = load i64, ptr %55, align 8, !tbaa !4
   %57 = lshr i64 %56, 11
@@ -203,15 +203,15 @@ define noundef double @_ZN5faiss15RandomGenerator11rand_doubleEv(ptr noundef non
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_ZN5faiss25SplitMix64RandomGeneratorC2El(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) initializes((0, 8)) %0, i64 noundef %1) unnamed_addr #3 align 2 {
-  store i64 %1, ptr %0, align 8, !tbaa !15
+  store i64 %1, ptr %0, align 8, !tbaa !14
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define noundef range(i32 0, -2147483648) i32 @_ZN5faiss25SplitMix64RandomGenerator8rand_intEv(ptr noundef nonnull align 8 captures(none) dereferenceable(8) %0) local_unnamed_addr #4 align 2 {
-  %2 = load i64, ptr %0, align 8, !tbaa !15
+  %2 = load i64, ptr %0, align 8, !tbaa !14
   %3 = add i64 %2, -7046029254386353131
-  store i64 %3, ptr %0, align 8, !tbaa !15
+  store i64 %3, ptr %0, align 8, !tbaa !14
   %4 = lshr i64 %3, 30
   %5 = xor i64 %4, %3
   %6 = mul i64 %5, -4658895280553007687
@@ -227,9 +227,9 @@ define noundef range(i32 0, -2147483648) i32 @_ZN5faiss25SplitMix64RandomGenerat
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define noundef i64 @_ZN5faiss25SplitMix64RandomGenerator4nextEv(ptr noundef nonnull align 8 captures(none) dereferenceable(8) %0) local_unnamed_addr #4 align 2 {
-  %2 = load i64, ptr %0, align 8, !tbaa !15
+  %2 = load i64, ptr %0, align 8, !tbaa !14
   %3 = add i64 %2, -7046029254386353131
-  store i64 %3, ptr %0, align 8, !tbaa !15
+  store i64 %3, ptr %0, align 8, !tbaa !14
   %4 = lshr i64 %3, 30
   %5 = xor i64 %4, %3
   %6 = mul i64 %5, -4658895280553007687
@@ -243,9 +243,9 @@ define noundef i64 @_ZN5faiss25SplitMix64RandomGenerator4nextEv(ptr noundef nonn
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define noundef range(i64 0, -9223372036854775808) i64 @_ZN5faiss25SplitMix64RandomGenerator10rand_int64Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(8) %0) local_unnamed_addr #4 align 2 {
-  %2 = load i64, ptr %0, align 8, !tbaa !15
+  %2 = load i64, ptr %0, align 8, !tbaa !14
   %3 = add i64 %2, -7046029254386353131
-  store i64 %3, ptr %0, align 8, !tbaa !15
+  store i64 %3, ptr %0, align 8, !tbaa !14
   %4 = lshr i64 %3, 30
   %5 = xor i64 %4, %3
   %6 = mul i64 %5, -4658895280553007687
@@ -260,9 +260,9 @@ define noundef range(i64 0, -9223372036854775808) i64 @_ZN5faiss25SplitMix64Rand
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define noundef i32 @_ZN5faiss25SplitMix64RandomGenerator8rand_intEi(ptr noundef nonnull align 8 captures(none) dereferenceable(8) %0, i32 noundef %1) local_unnamed_addr #4 align 2 {
-  %3 = load i64, ptr %0, align 8, !tbaa !15
+  %3 = load i64, ptr %0, align 8, !tbaa !14
   %4 = add i64 %3, -7046029254386353131
-  store i64 %4, ptr %0, align 8, !tbaa !15
+  store i64 %4, ptr %0, align 8, !tbaa !14
   %5 = lshr i64 %4, 30
   %6 = xor i64 %5, %4
   %7 = mul i64 %6, -4658895280553007687
@@ -279,9 +279,9 @@ define noundef i32 @_ZN5faiss25SplitMix64RandomGenerator8rand_intEi(ptr noundef 
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define noundef float @_ZN5faiss25SplitMix64RandomGenerator10rand_floatEv(ptr noundef nonnull align 8 captures(none) dereferenceable(8) %0) local_unnamed_addr #4 align 2 {
-  %2 = load i64, ptr %0, align 8, !tbaa !15
+  %2 = load i64, ptr %0, align 8, !tbaa !14
   %3 = add i64 %2, -7046029254386353131
-  store i64 %3, ptr %0, align 8, !tbaa !15
+  store i64 %3, ptr %0, align 8, !tbaa !14
   %4 = lshr i64 %3, 30
   %5 = xor i64 %4, %3
   %6 = mul i64 %5, -4658895280553007687
@@ -297,9 +297,9 @@ define noundef float @_ZN5faiss25SplitMix64RandomGenerator10rand_floatEv(ptr nou
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define noundef double @_ZN5faiss25SplitMix64RandomGenerator11rand_doubleEv(ptr noundef nonnull align 8 captures(none) dereferenceable(8) %0) local_unnamed_addr #4 align 2 {
-  %2 = load i64, ptr %0, align 8, !tbaa !15
+  %2 = load i64, ptr %0, align 8, !tbaa !14
   %3 = add i64 %2, -7046029254386353131
-  store i64 %3, ptr %0, align 8, !tbaa !15
+  store i64 %3, ptr %0, align 8, !tbaa !14
   %4 = lshr i64 %3, 30
   %5 = xor i64 %4, %3
   %6 = mul i64 %5, -4658895280553007687
@@ -321,7 +321,7 @@ define void @_ZN5faiss10float_randEPfml(ptr noundef %0, i64 noundef %1, i64 noun
   %7 = alloca %"struct.faiss::RandomGenerator", align 8
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
-  store ptr %0, ptr %4, align 8, !tbaa !17
+  store ptr %0, ptr %4, align 8, !tbaa !16
   store i64 %1, ptr %5, align 8, !tbaa !4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #6
   %10 = icmp ult i64 %1, 1024
@@ -333,12 +333,12 @@ define void @_ZN5faiss10float_randEPfml(ptr noundef %0, i64 noundef %1, i64 noun
   %12 = call noundef i64 @_ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEclEv(ptr noundef nonnull align 8 dereferenceable(5000) %7)
   %13 = trunc i64 %12 to i32
   %14 = and i32 %13, 2147483647
-  store i32 %14, ptr %8, align 4, !tbaa !20
+  store i32 %14, ptr %8, align 4, !tbaa !19
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #6
   %15 = call noundef i64 @_ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEclEv(ptr noundef nonnull align 8 dereferenceable(5000) %7)
   %16 = trunc i64 %15 to i32
   %17 = and i32 %16, 2147483647
-  store i32 %17, ptr %9, align 4, !tbaa !20
+  store i32 %17, ptr %9, align 4, !tbaa !19
   call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @2, i32 5, ptr nonnull @_ZN5faiss10float_randEPfml.omp_outlined, ptr nonnull %6, ptr nonnull %8, ptr nonnull %9, ptr nonnull %5, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #6
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #6
@@ -367,8 +367,8 @@ define internal void @_ZN5faiss10float_randEPfml.omp_outlined(ptr noalias nounde
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #6
   store i64 1, ptr %10, align 8, !tbaa !4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11) #6
-  store i32 0, ptr %11, align 4, !tbaa !20
-  %16 = load i32, ptr %0, align 4, !tbaa !20
+  store i32 0, ptr %11, align 4, !tbaa !19
+  %16 = load i32, ptr %0, align 4, !tbaa !19
   call void @__kmpc_for_static_init_8u(ptr nonnull @1, i32 %16, i32 34, ptr nonnull %11, ptr nonnull %8, ptr nonnull %9, ptr nonnull %10, i64 1, i64 1)
   %17 = load i64, ptr %9, align 8, !tbaa !4
   %18 = call i64 @llvm.umin.i64(i64 %17, i64 %15)
@@ -387,9 +387,9 @@ define internal void @_ZN5faiss10float_randEPfml.omp_outlined(ptr noalias nounde
 23:                                               ; preds = %.lr.ph26, %._crit_edge
   %.02224 = phi i64 [ %19, %.lr.ph26 ], [ %35, %._crit_edge ]
   call void @llvm.lifetime.start.p0(i64 5000, ptr nonnull %12) #6
-  %24 = load i32, ptr %3, align 4, !tbaa !20
+  %24 = load i32, ptr %3, align 4, !tbaa !19
   %25 = sext i32 %24 to i64
-  %26 = load i32, ptr %4, align 4, !tbaa !20
+  %26 = load i32, ptr %4, align 4, !tbaa !19
   %27 = sext i32 %26 to i64
   %28 = mul nsw i64 %.02224, %27
   %29 = add nsw i64 %28, %25
@@ -408,8 +408,8 @@ define internal void @_ZN5faiss10float_randEPfml.omp_outlined(ptr noalias nounde
   br i1 %38, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %30
-  %39 = load ptr, ptr %6, align 8, !tbaa !17
-  %.pre = load i64, ptr %20, align 8, !tbaa !11
+  %39 = load ptr, ptr %6, align 8, !tbaa !16
+  %.pre = load i64, ptr %20, align 8, !tbaa !10
   br label %43
 
 ._crit_edge:                                      ; preds = %91, %30
@@ -417,7 +417,7 @@ define internal void @_ZN5faiss10float_randEPfml.omp_outlined(ptr noalias nounde
   %40 = load i64, ptr %9, align 8, !tbaa !4
   %41 = add i64 %40, 1
   %42 = icmp ult i64 %35, %41
-  br i1 %42, label %23, label %._crit_edge27, !llvm.loop !22
+  br i1 %42, label %23, label %._crit_edge27
 
 43:                                               ; preds = %.lr.ph, %91
   %44 = phi i64 [ %.pre, %.lr.ph ], [ %93, %91 ]
@@ -450,7 +450,7 @@ define internal void @_ZN5faiss10float_randEPfml.omp_outlined(ptr noalias nounde
   %63 = xor i64 %60, %62
   store i64 %63, ptr %49, align 8, !tbaa !4
   %exitcond.not.i.i = icmp eq i64 %51, 227
-  br i1 %exitcond.not.i.i, label %.preheader.preheader.i.i, label %47, !llvm.loop !13
+  br i1 %exitcond.not.i.i, label %.preheader.preheader.i.i, label %47, !llvm.loop !12
 
 .preheader.preheader.i.i:                         ; preds = %47
   %.pre24.i.i = load i64, ptr %.phi.trans.insert.i.i, align 8, !tbaa !4
@@ -477,7 +477,7 @@ define internal void @_ZN5faiss10float_randEPfml.omp_outlined(ptr noalias nounde
   %79 = xor i64 %76, %78
   store i64 %79, ptr %65, align 8, !tbaa !4
   %exitcond23.not.i.i = icmp eq i64 %67, 623
-  br i1 %exitcond23.not.i.i, label %_ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EE11_M_gen_randEv.exit.i, label %.preheader.i.i, !llvm.loop !14
+  br i1 %exitcond23.not.i.i, label %_ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EE11_M_gen_randEv.exit.i, label %.preheader.i.i, !llvm.loop !13
 
 _ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EE11_M_gen_randEv.exit.i: ; preds = %.preheader.i.i
   %80 = load i64, ptr %21, align 8, !tbaa !4
@@ -498,7 +498,7 @@ _ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm429496
 91:                                               ; preds = %43, %_ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EE11_M_gen_randEv.exit.i
   %92 = phi i64 [ 0, %_ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EE11_M_gen_randEv.exit.i ], [ %44, %43 ]
   %93 = add nuw nsw i64 %92, 1
-  store i64 %93, ptr %20, align 8, !tbaa !11
+  store i64 %93, ptr %20, align 8, !tbaa !10
   %94 = getelementptr inbounds nuw [624 x i64], ptr %12, i64 0, i64 %92
   %95 = load i64, ptr %94, align 8, !tbaa !4
   %96 = lshr i64 %95, 11
@@ -515,10 +515,10 @@ _ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm429496
   %107 = uitofp i64 %106 to float
   %108 = fmul float %107, 0x3DF0000000000000
   %109 = getelementptr inbounds nuw float, ptr %39, i64 %.023
-  store float %108, ptr %109, align 4, !tbaa !23
+  store float %108, ptr %109, align 4, !tbaa !21
   %110 = add nuw i64 %.023, 1
   %111 = icmp ult i64 %110, %37
-  br i1 %111, label %43, label %._crit_edge, !llvm.loop !25
+  br i1 %111, label %43, label %._crit_edge, !llvm.loop !23
 
 ._crit_edge27:                                    ; preds = %._crit_edge, %14
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %16)
@@ -560,7 +560,7 @@ declare void @_ZSt9terminatev() local_unnamed_addr #8
 declare void @__kmpc_for_static_fini(ptr, i32) local_unnamed_addr #6
 
 ; Function Attrs: nounwind
-declare !callback !26 void @__kmpc_fork_call(ptr, i32, ptr, ...) local_unnamed_addr #6
+declare !callback !24 void @__kmpc_fork_call(ptr, i32, ptr, ...) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN5faiss11float_randnEPfml(ptr noundef %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #2 {
@@ -570,7 +570,7 @@ define void @_ZN5faiss11float_randnEPfml(ptr noundef %0, i64 noundef %1, i64 nou
   %7 = alloca %"struct.faiss::RandomGenerator", align 8
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
-  store ptr %0, ptr %4, align 8, !tbaa !17
+  store ptr %0, ptr %4, align 8, !tbaa !16
   store i64 %1, ptr %5, align 8, !tbaa !4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #6
   %10 = icmp ult i64 %1, 1024
@@ -582,12 +582,12 @@ define void @_ZN5faiss11float_randnEPfml(ptr noundef %0, i64 noundef %1, i64 nou
   %12 = call noundef i64 @_ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEclEv(ptr noundef nonnull align 8 dereferenceable(5000) %7)
   %13 = trunc i64 %12 to i32
   %14 = and i32 %13, 2147483647
-  store i32 %14, ptr %8, align 4, !tbaa !20
+  store i32 %14, ptr %8, align 4, !tbaa !19
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #6
   %15 = call noundef i64 @_ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEclEv(ptr noundef nonnull align 8 dereferenceable(5000) %7)
   %16 = trunc i64 %15 to i32
   %17 = and i32 %16, 2147483647
-  store i32 %17, ptr %9, align 4, !tbaa !20
+  store i32 %17, ptr %9, align 4, !tbaa !19
   call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @2, i32 5, ptr nonnull @_ZN5faiss11float_randnEPfml.omp_outlined, ptr nonnull %6, ptr nonnull %8, ptr nonnull %9, ptr nonnull %5, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #6
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #6
@@ -616,8 +616,8 @@ define internal void @_ZN5faiss11float_randnEPfml.omp_outlined(ptr noalias nound
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #6
   store i64 1, ptr %10, align 8, !tbaa !4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11) #6
-  store i32 0, ptr %11, align 4, !tbaa !20
-  %16 = load i32, ptr %0, align 4, !tbaa !20
+  store i32 0, ptr %11, align 4, !tbaa !19
+  %16 = load i32, ptr %0, align 4, !tbaa !19
   call void @__kmpc_for_static_init_8u(ptr nonnull @1, i32 %16, i32 34, ptr nonnull %11, ptr nonnull %8, ptr nonnull %9, ptr nonnull %10, i64 1, i64 1)
   %17 = load i64, ptr %9, align 8, !tbaa !4
   %18 = call i64 @llvm.umin.i64(i64 %17, i64 %15)
@@ -636,9 +636,9 @@ define internal void @_ZN5faiss11float_randnEPfml.omp_outlined(ptr noalias nound
 23:                                               ; preds = %.lr.ph65, %._crit_edge
   %.03663 = phi i64 [ %19, %.lr.ph65 ], [ %35, %._crit_edge ]
   call void @llvm.lifetime.start.p0(i64 5000, ptr nonnull %12) #6
-  %24 = load i32, ptr %3, align 4, !tbaa !20
+  %24 = load i32, ptr %3, align 4, !tbaa !19
   %25 = sext i32 %24 to i64
-  %26 = load i32, ptr %4, align 4, !tbaa !20
+  %26 = load i32, ptr %4, align 4, !tbaa !19
   %27 = sext i32 %26 to i64
   %28 = mul nsw i64 %.03663, %27
   %29 = add nsw i64 %28, %25
@@ -665,7 +665,7 @@ define internal void @_ZN5faiss11float_randnEPfml.omp_outlined(ptr noalias nound
   %40 = load i64, ptr %9, align 8, !tbaa !4
   %41 = add i64 %40, 1
   %42 = icmp ult i64 %35, %41
-  br i1 %42, label %23, label %._crit_edge66, !llvm.loop !28
+  br i1 %42, label %23, label %._crit_edge66
 
 43:                                               ; preds = %.lr.ph, %.loopexit
   %.062 = phi i64 [ %34, %.lr.ph ], [ %187, %.loopexit ]
@@ -676,7 +676,7 @@ define internal void @_ZN5faiss11float_randnEPfml.omp_outlined(ptr noalias nound
   br i1 %44, label %.preheader.preheader, label %.loopexit
 
 .preheader.preheader:                             ; preds = %43
-  %.pre = load i64, ptr %20, align 8, !tbaa !11
+  %.pre = load i64, ptr %20, align 8, !tbaa !10
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.preheader, %157
@@ -709,7 +709,7 @@ define internal void @_ZN5faiss11float_randnEPfml.omp_outlined(ptr noalias nound
   %64 = xor i64 %61, %63
   store i64 %64, ptr %50, align 8, !tbaa !4
   %exitcond.not.i.i = icmp eq i64 %52, 227
-  br i1 %exitcond.not.i.i, label %.preheader.preheader.i.i, label %48, !llvm.loop !13
+  br i1 %exitcond.not.i.i, label %.preheader.preheader.i.i, label %48, !llvm.loop !12
 
 .preheader.preheader.i.i:                         ; preds = %48
   %.pre24.i.i = load i64, ptr %.phi.trans.insert.i.i, align 8, !tbaa !4
@@ -736,7 +736,7 @@ define internal void @_ZN5faiss11float_randnEPfml.omp_outlined(ptr noalias nound
   %80 = xor i64 %77, %79
   store i64 %80, ptr %66, align 8, !tbaa !4
   %exitcond23.not.i.i = icmp eq i64 %68, 623
-  br i1 %exitcond23.not.i.i, label %_ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EE11_M_gen_randEv.exit.i, label %.preheader.i.i, !llvm.loop !14
+  br i1 %exitcond23.not.i.i, label %_ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EE11_M_gen_randEv.exit.i, label %.preheader.i.i, !llvm.loop !13
 
 _ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EE11_M_gen_randEv.exit.i: ; preds = %.preheader.i.i
   %81 = load i64, ptr %21, align 8, !tbaa !4
@@ -757,7 +757,7 @@ _ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm429496
 92:                                               ; preds = %.preheader, %_ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EE11_M_gen_randEv.exit.i
   %93 = phi i64 [ 0, %_ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EE11_M_gen_randEv.exit.i ], [ %45, %.preheader ]
   %94 = add nuw nsw i64 %93, 1
-  store i64 %94, ptr %20, align 8, !tbaa !11
+  store i64 %94, ptr %20, align 8, !tbaa !10
   %95 = getelementptr inbounds nuw [624 x i64], ptr %12, i64 0, i64 %93
   %96 = load i64, ptr %95, align 8, !tbaa !4
   %97 = lshr i64 %96, 11
@@ -802,7 +802,7 @@ _ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm429496
   %129 = xor i64 %126, %128
   store i64 %129, ptr %115, align 8, !tbaa !4
   %exitcond.not.i.i46 = icmp eq i64 %117, 227
-  br i1 %exitcond.not.i.i46, label %.preheader.preheader.i.i47, label %113, !llvm.loop !13
+  br i1 %exitcond.not.i.i46, label %.preheader.preheader.i.i47, label %113, !llvm.loop !12
 
 .preheader.preheader.i.i47:                       ; preds = %113
   %.pre24.i.i49 = load i64, ptr %.phi.trans.insert.i.i, align 8, !tbaa !4
@@ -829,7 +829,7 @@ _ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm429496
   %145 = xor i64 %142, %144
   store i64 %145, ptr %131, align 8, !tbaa !4
   %exitcond23.not.i.i53 = icmp eq i64 %133, 623
-  br i1 %exitcond23.not.i.i53, label %_ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EE11_M_gen_randEv.exit.i54, label %.preheader.i.i50, !llvm.loop !14
+  br i1 %exitcond23.not.i.i53, label %_ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EE11_M_gen_randEv.exit.i54, label %.preheader.i.i50, !llvm.loop !13
 
 _ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EE11_M_gen_randEv.exit.i54: ; preds = %.preheader.i.i50
   %146 = load i64, ptr %21, align 8, !tbaa !4
@@ -850,7 +850,7 @@ _ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm429496
 157:                                              ; preds = %92, %_ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EE11_M_gen_randEv.exit.i54
   %158 = phi i64 [ 0, %_ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EE11_M_gen_randEv.exit.i54 ], [ %94, %92 ]
   %159 = add nuw nsw i64 %158, 1
-  store i64 %159, ptr %20, align 8, !tbaa !11
+  store i64 %159, ptr %20, align 8, !tbaa !10
   %160 = getelementptr inbounds nuw [624 x i64], ptr %12, i64 0, i64 %158
   %161 = load i64, ptr %160, align 8, !tbaa !4
   %162 = lshr i64 %161, 11
@@ -870,24 +870,24 @@ _ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm429496
   %176 = fmul double %175, %175
   %177 = call double @llvm.fmuladd.f64(double %110, double %110, double %176)
   %178 = fcmp ult double %177, 1.000000e+00
-  br i1 %178, label %.loopexit, label %.preheader, !llvm.loop !29
+  br i1 %178, label %.loopexit, label %.preheader, !llvm.loop !26
 
 .loopexit:                                        ; preds = %157, %43
   %.03860.sink75 = phi double [ %.03860, %43 ], [ %177, %157 ]
   %.03959.sink = phi double [ %.03959, %43 ], [ %110, %157 ]
   %.140 = phi double [ %.03959, %43 ], [ %175, %157 ]
-  %179 = call double @log(double noundef %.03860.sink75) #6, !tbaa !20
+  %179 = call double @log(double noundef %.03860.sink75) #6, !tbaa !19
   %180 = fmul double %179, -2.000000e+00
   %181 = fdiv double %180, %.03860.sink75
-  %182 = call double @sqrt(double noundef %181) #6, !tbaa !20
+  %182 = call double @sqrt(double noundef %181) #6, !tbaa !19
   %183 = fmul double %.03959.sink, %182
   %184 = fptrunc double %183 to float
   %185 = getelementptr inbounds nuw float, ptr %39, i64 %.062
-  store float %184, ptr %185, align 4, !tbaa !23
+  store float %184, ptr %185, align 4, !tbaa !21
   %186 = xor i32 %.03761, 1
   %187 = add nuw i64 %.062, 1
   %188 = icmp ult i64 %187, %37
-  br i1 %188, label %43, label %._crit_edge, !llvm.loop !30
+  br i1 %188, label %43, label %._crit_edge, !llvm.loop !27
 
 ._crit_edge66:                                    ; preds = %._crit_edge, %14
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %16)
@@ -925,7 +925,7 @@ define void @_ZN5faiss10int64_randEPlml(ptr noundef %0, i64 noundef %1, i64 noun
   %7 = alloca %"struct.faiss::RandomGenerator", align 8
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
-  store ptr %0, ptr %4, align 8, !tbaa !31
+  store ptr %0, ptr %4, align 8, !tbaa !28
   store i64 %1, ptr %5, align 8, !tbaa !4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #6
   %10 = icmp ult i64 %1, 1024
@@ -937,12 +937,12 @@ define void @_ZN5faiss10int64_randEPlml(ptr noundef %0, i64 noundef %1, i64 noun
   %12 = call noundef i64 @_ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEclEv(ptr noundef nonnull align 8 dereferenceable(5000) %7)
   %13 = trunc i64 %12 to i32
   %14 = and i32 %13, 2147483647
-  store i32 %14, ptr %8, align 4, !tbaa !20
+  store i32 %14, ptr %8, align 4, !tbaa !19
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #6
   %15 = call noundef i64 @_ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEclEv(ptr noundef nonnull align 8 dereferenceable(5000) %7)
   %16 = trunc i64 %15 to i32
   %17 = and i32 %16, 2147483647
-  store i32 %17, ptr %9, align 4, !tbaa !20
+  store i32 %17, ptr %9, align 4, !tbaa !19
   call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @2, i32 5, ptr nonnull @_ZN5faiss10int64_randEPlml.omp_outlined, ptr nonnull %6, ptr nonnull %8, ptr nonnull %9, ptr nonnull %5, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #6
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #6
@@ -971,8 +971,8 @@ define internal void @_ZN5faiss10int64_randEPlml.omp_outlined(ptr noalias nounde
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #6
   store i64 1, ptr %10, align 8, !tbaa !4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11) #6
-  store i32 0, ptr %11, align 4, !tbaa !20
-  %16 = load i32, ptr %0, align 4, !tbaa !20
+  store i32 0, ptr %11, align 4, !tbaa !19
+  %16 = load i32, ptr %0, align 4, !tbaa !19
   call void @__kmpc_for_static_init_8u(ptr nonnull @1, i32 %16, i32 34, ptr nonnull %11, ptr nonnull %8, ptr nonnull %9, ptr nonnull %10, i64 1, i64 1)
   %17 = load i64, ptr %9, align 8, !tbaa !4
   %18 = call i64 @llvm.umin.i64(i64 %17, i64 %15)
@@ -991,9 +991,9 @@ define internal void @_ZN5faiss10int64_randEPlml.omp_outlined(ptr noalias nounde
 23:                                               ; preds = %.lr.ph27, %._crit_edge
   %.02225 = phi i64 [ %19, %.lr.ph27 ], [ %35, %._crit_edge ]
   call void @llvm.lifetime.start.p0(i64 5000, ptr nonnull %12) #6
-  %24 = load i32, ptr %3, align 4, !tbaa !20
+  %24 = load i32, ptr %3, align 4, !tbaa !19
   %25 = sext i32 %24 to i64
-  %26 = load i32, ptr %4, align 4, !tbaa !20
+  %26 = load i32, ptr %4, align 4, !tbaa !19
   %27 = sext i32 %26 to i64
   %28 = mul nsw i64 %.02225, %27
   %29 = add nsw i64 %28, %25
@@ -1016,11 +1016,11 @@ define internal void @_ZN5faiss10int64_randEPlml.omp_outlined(ptr noalias nounde
   %39 = load i64, ptr %9, align 8, !tbaa !4
   %40 = add i64 %39, 1
   %41 = icmp ult i64 %35, %40
-  br i1 %41, label %23, label %._crit_edge28, !llvm.loop !33
+  br i1 %41, label %23, label %._crit_edge28
 
 .lr.ph:                                           ; preds = %30, %94
   %.024 = phi i64 [ %112, %94 ], [ %34, %30 ]
-  %42 = load i64, ptr %20, align 8, !tbaa !11
+  %42 = load i64, ptr %20, align 8, !tbaa !10
   %43 = icmp ugt i64 %42, 623
   br i1 %43, label %44, label %.noexc
 
@@ -1049,7 +1049,7 @@ define internal void @_ZN5faiss10int64_randEPlml.omp_outlined(ptr noalias nounde
   %61 = xor i64 %58, %60
   store i64 %61, ptr %47, align 8, !tbaa !4
   %exitcond.not.i.i = icmp eq i64 %49, 227
-  br i1 %exitcond.not.i.i, label %.preheader.preheader.i.i, label %45, !llvm.loop !13
+  br i1 %exitcond.not.i.i, label %.preheader.preheader.i.i, label %45, !llvm.loop !12
 
 .preheader.preheader.i.i:                         ; preds = %45
   %.pre24.i.i = load i64, ptr %.phi.trans.insert.i.i, align 8, !tbaa !4
@@ -1076,7 +1076,7 @@ define internal void @_ZN5faiss10int64_randEPlml.omp_outlined(ptr noalias nounde
   %77 = xor i64 %74, %76
   store i64 %77, ptr %63, align 8, !tbaa !4
   %exitcond23.not.i.i = icmp eq i64 %65, 623
-  br i1 %exitcond23.not.i.i, label %_ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EE11_M_gen_randEv.exit.i, label %.preheader.i.i, !llvm.loop !14
+  br i1 %exitcond23.not.i.i, label %_ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EE11_M_gen_randEv.exit.i, label %.preheader.i.i, !llvm.loop !13
 
 _ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EE11_M_gen_randEv.exit.i: ; preds = %.preheader.i.i
   %78 = load i64, ptr %21, align 8, !tbaa !4
@@ -1097,7 +1097,7 @@ _ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm429496
 .noexc:                                           ; preds = %_ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EE11_M_gen_randEv.exit.i, %.lr.ph
   %89 = phi i64 [ 0, %_ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EE11_M_gen_randEv.exit.i ], [ %42, %.lr.ph ]
   %90 = add nuw nsw i64 %89, 1
-  store i64 %90, ptr %20, align 8, !tbaa !11
+  store i64 %90, ptr %20, align 8, !tbaa !10
   %91 = getelementptr inbounds nuw [624 x i64], ptr %12, i64 0, i64 %89
   %92 = load i64, ptr %91, align 8, !tbaa !4
   %93 = invoke noundef i64 @_ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEclEv(ptr noundef nonnull align 8 dereferenceable(5000) %12)
@@ -1119,12 +1119,12 @@ _ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm429496
   %107 = shl i64 %93, 31
   %108 = and i64 %107, 4611686016279904256
   %109 = or disjoint i64 %106, %108
-  %110 = load ptr, ptr %6, align 8, !tbaa !31
+  %110 = load ptr, ptr %6, align 8, !tbaa !28
   %111 = getelementptr inbounds nuw i64, ptr %110, i64 %.024
   store i64 %109, ptr %111, align 8, !tbaa !4
   %112 = add nuw i64 %.024, 1
   %113 = icmp ult i64 %112, %37
-  br i1 %113, label %.lr.ph, label %._crit_edge, !llvm.loop !34
+  br i1 %113, label %.lr.ph, label %._crit_edge, !llvm.loop !30
 
 ._crit_edge28:                                    ; preds = %._crit_edge, %14
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %16)
@@ -1163,7 +1163,7 @@ define void @_ZN5faiss14int64_rand_maxEPlmml(ptr noundef %0, i64 noundef %1, i64
   %9 = alloca %"struct.faiss::RandomGenerator", align 8
   %10 = alloca i32, align 4
   %11 = alloca i32, align 4
-  store ptr %0, ptr %5, align 8, !tbaa !31
+  store ptr %0, ptr %5, align 8, !tbaa !28
   store i64 %1, ptr %6, align 8, !tbaa !4
   store i64 %2, ptr %7, align 8, !tbaa !4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #6
@@ -1176,12 +1176,12 @@ define void @_ZN5faiss14int64_rand_maxEPlmml(ptr noundef %0, i64 noundef %1, i64
   %14 = call noundef i64 @_ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEclEv(ptr noundef nonnull align 8 dereferenceable(5000) %9)
   %15 = trunc i64 %14 to i32
   %16 = and i32 %15, 2147483647
-  store i32 %16, ptr %10, align 4, !tbaa !20
+  store i32 %16, ptr %10, align 4, !tbaa !19
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11) #6
   %17 = call noundef i64 @_ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEclEv(ptr noundef nonnull align 8 dereferenceable(5000) %9)
   %18 = trunc i64 %17 to i32
   %19 = and i32 %18, 2147483647
-  store i32 %19, ptr %11, align 4, !tbaa !20
+  store i32 %19, ptr %11, align 4, !tbaa !19
   call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @2, i32 6, ptr nonnull @_ZN5faiss14int64_rand_maxEPlmml.omp_outlined, ptr nonnull %8, ptr nonnull %10, ptr nonnull %11, ptr nonnull %6, ptr nonnull %5, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #6
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #6
@@ -1210,8 +1210,8 @@ define internal void @_ZN5faiss14int64_rand_maxEPlmml.omp_outlined(ptr noalias n
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #6
   store i64 1, ptr %11, align 8, !tbaa !4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12) #6
-  store i32 0, ptr %12, align 4, !tbaa !20
-  %17 = load i32, ptr %0, align 4, !tbaa !20
+  store i32 0, ptr %12, align 4, !tbaa !19
+  %17 = load i32, ptr %0, align 4, !tbaa !19
   call void @__kmpc_for_static_init_8u(ptr nonnull @1, i32 %17, i32 34, ptr nonnull %12, ptr nonnull %9, ptr nonnull %10, ptr nonnull %11, i64 1, i64 1)
   %18 = load i64, ptr %10, align 8, !tbaa !4
   %19 = call i64 @llvm.umin.i64(i64 %18, i64 %16)
@@ -1230,9 +1230,9 @@ define internal void @_ZN5faiss14int64_rand_maxEPlmml.omp_outlined(ptr noalias n
 24:                                               ; preds = %.lr.ph28, %._crit_edge
   %.02326 = phi i64 [ %20, %.lr.ph28 ], [ %36, %._crit_edge ]
   call void @llvm.lifetime.start.p0(i64 5000, ptr nonnull %13) #6
-  %25 = load i32, ptr %3, align 4, !tbaa !20
+  %25 = load i32, ptr %3, align 4, !tbaa !19
   %26 = sext i32 %25 to i64
-  %27 = load i32, ptr %4, align 4, !tbaa !20
+  %27 = load i32, ptr %4, align 4, !tbaa !19
   %28 = sext i32 %27 to i64
   %29 = mul nsw i64 %.02326, %28
   %30 = add nsw i64 %29, %26
@@ -1255,11 +1255,11 @@ define internal void @_ZN5faiss14int64_rand_maxEPlmml.omp_outlined(ptr noalias n
   %40 = load i64, ptr %10, align 8, !tbaa !4
   %41 = add i64 %40, 1
   %42 = icmp ult i64 %36, %41
-  br i1 %42, label %24, label %._crit_edge29, !llvm.loop !35
+  br i1 %42, label %24, label %._crit_edge29
 
 .lr.ph:                                           ; preds = %31, %95
   %.025 = phi i64 [ %115, %95 ], [ %35, %31 ]
-  %43 = load i64, ptr %21, align 8, !tbaa !11
+  %43 = load i64, ptr %21, align 8, !tbaa !10
   %44 = icmp ugt i64 %43, 623
   br i1 %44, label %45, label %.noexc
 
@@ -1288,7 +1288,7 @@ define internal void @_ZN5faiss14int64_rand_maxEPlmml.omp_outlined(ptr noalias n
   %62 = xor i64 %59, %61
   store i64 %62, ptr %48, align 8, !tbaa !4
   %exitcond.not.i.i = icmp eq i64 %50, 227
-  br i1 %exitcond.not.i.i, label %.preheader.preheader.i.i, label %46, !llvm.loop !13
+  br i1 %exitcond.not.i.i, label %.preheader.preheader.i.i, label %46, !llvm.loop !12
 
 .preheader.preheader.i.i:                         ; preds = %46
   %.pre24.i.i = load i64, ptr %.phi.trans.insert.i.i, align 8, !tbaa !4
@@ -1315,7 +1315,7 @@ define internal void @_ZN5faiss14int64_rand_maxEPlmml.omp_outlined(ptr noalias n
   %78 = xor i64 %75, %77
   store i64 %78, ptr %64, align 8, !tbaa !4
   %exitcond23.not.i.i = icmp eq i64 %66, 623
-  br i1 %exitcond23.not.i.i, label %_ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EE11_M_gen_randEv.exit.i, label %.preheader.i.i, !llvm.loop !14
+  br i1 %exitcond23.not.i.i, label %_ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EE11_M_gen_randEv.exit.i, label %.preheader.i.i, !llvm.loop !13
 
 _ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EE11_M_gen_randEv.exit.i: ; preds = %.preheader.i.i
   %79 = load i64, ptr %22, align 8, !tbaa !4
@@ -1336,7 +1336,7 @@ _ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm429496
 .noexc:                                           ; preds = %_ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EE11_M_gen_randEv.exit.i, %.lr.ph
   %90 = phi i64 [ 0, %_ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EE11_M_gen_randEv.exit.i ], [ %43, %.lr.ph ]
   %91 = add nuw nsw i64 %90, 1
-  store i64 %91, ptr %21, align 8, !tbaa !11
+  store i64 %91, ptr %21, align 8, !tbaa !10
   %92 = getelementptr inbounds nuw [624 x i64], ptr %13, i64 0, i64 %90
   %93 = load i64, ptr %92, align 8, !tbaa !4
   %94 = invoke noundef i64 @_ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEclEv(ptr noundef nonnull align 8 dereferenceable(5000) %13)
@@ -1360,12 +1360,12 @@ _ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm429496
   %110 = or disjoint i64 %107, %109
   %111 = load i64, ptr %7, align 8, !tbaa !4
   %112 = urem i64 %110, %111
-  %113 = load ptr, ptr %6, align 8, !tbaa !31
+  %113 = load ptr, ptr %6, align 8, !tbaa !28
   %114 = getelementptr inbounds nuw i64, ptr %113, i64 %.025
   store i64 %112, ptr %114, align 8, !tbaa !4
   %115 = add nuw i64 %.025, 1
   %116 = icmp ult i64 %115, %38
-  br i1 %116, label %.lr.ph, label %._crit_edge, !llvm.loop !36
+  br i1 %116, label %.lr.ph, label %._crit_edge, !llvm.loop !31
 
 ._crit_edge29:                                    ; preds = %._crit_edge, %15
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %17)
@@ -1416,10 +1416,10 @@ define void @_ZN5faiss9rand_permEPiml(ptr noundef captures(none) %0, i64 noundef
   %.020 = phi i64 [ %7, %.lr.ph ], [ 0, %3 ]
   %5 = trunc i64 %.020 to i32
   %6 = getelementptr inbounds nuw i32, ptr %0, i64 %.020
-  store i32 %5, ptr %6, align 4, !tbaa !20
+  store i32 %5, ptr %6, align 4, !tbaa !19
   %7 = add nuw i64 %.020, 1
   %exitcond.not = icmp eq i64 %7, %1
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !37
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !32
 
 ._crit_edge24:                                    ; preds = %.lr.ph23, %._crit_edge.thread, %._crit_edge
   call void @llvm.lifetime.end.p0(i64 5000, ptr nonnull %4) #6
@@ -1438,13 +1438,13 @@ define void @_ZN5faiss9rand_permEPiml(ptr noundef captures(none) %0, i64 noundef
   %sext19 = shl i64 %13, 32
   %15 = ashr exact i64 %sext19, 30
   %16 = getelementptr inbounds i8, ptr %0, i64 %15
-  %17 = load i32, ptr %14, align 4, !tbaa !20
-  %18 = load i32, ptr %16, align 4, !tbaa !20
-  store i32 %18, ptr %14, align 4, !tbaa !20
-  store i32 %17, ptr %16, align 4, !tbaa !20
+  %17 = load i32, ptr %14, align 4, !tbaa !19
+  %18 = load i32, ptr %16, align 4, !tbaa !19
+  store i32 %18, ptr %14, align 4, !tbaa !19
+  store i32 %17, ptr %16, align 4, !tbaa !19
   %19 = add nuw i64 %8, 1
   %exitcond25.not = icmp eq i64 %19, %1
-  br i1 %exitcond25.not, label %._crit_edge24, label %.lr.ph23, !llvm.loop !38
+  br i1 %exitcond25.not, label %._crit_edge24, label %.lr.ph23, !llvm.loop !33
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -1472,10 +1472,10 @@ define void @_ZN5faiss20rand_perm_splitmix64EPiml(ptr noundef captures(none) %0,
   %.020 = phi i64 [ %7, %.lr.ph ], [ 0, %3 ]
   %5 = trunc i64 %.020 to i32
   %6 = getelementptr inbounds nuw i32, ptr %0, i64 %.020
-  store i32 %5, ptr %6, align 4, !tbaa !20
+  store i32 %5, ptr %6, align 4, !tbaa !19
   %7 = add nuw i64 %.020, 1
   %exitcond.not = icmp eq i64 %7, %1
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !39
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !34
 
 ._crit_edge24:                                    ; preds = %.lr.ph23, %._crit_edge.thread, %._crit_edge
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #6
@@ -1503,13 +1503,13 @@ define void @_ZN5faiss20rand_perm_splitmix64EPiml(ptr noundef captures(none) %0,
   %sext19 = shl i64 %22, 32
   %24 = ashr exact i64 %sext19, 30
   %25 = getelementptr inbounds i8, ptr %0, i64 %24
-  %26 = load i32, ptr %23, align 4, !tbaa !20
-  %27 = load i32, ptr %25, align 4, !tbaa !20
-  store i32 %27, ptr %23, align 4, !tbaa !20
-  store i32 %26, ptr %25, align 4, !tbaa !20
+  %26 = load i32, ptr %23, align 4, !tbaa !19
+  %27 = load i32, ptr %25, align 4, !tbaa !19
+  store i32 %27, ptr %23, align 4, !tbaa !19
+  store i32 %26, ptr %25, align 4, !tbaa !19
   %28 = add nuw i64 %8, 1
   %exitcond25.not = icmp eq i64 %28, %1
-  br i1 %exitcond25.not, label %._crit_edge24, label %.lr.ph23, !llvm.loop !40
+  br i1 %exitcond25.not, label %._crit_edge24, label %.lr.ph23, !llvm.loop !35
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -1520,7 +1520,7 @@ define void @_ZN5faiss9byte_randEPhml(ptr noundef %0, i64 noundef %1, i64 nounde
   %7 = alloca %"struct.faiss::RandomGenerator", align 8
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
-  store ptr %0, ptr %4, align 8, !tbaa !41
+  store ptr %0, ptr %4, align 8, !tbaa !36
   store i64 %1, ptr %5, align 8, !tbaa !4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #6
   %10 = icmp ult i64 %1, 1024
@@ -1532,12 +1532,12 @@ define void @_ZN5faiss9byte_randEPhml(ptr noundef %0, i64 noundef %1, i64 nounde
   %12 = call noundef i64 @_ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEclEv(ptr noundef nonnull align 8 dereferenceable(5000) %7)
   %13 = trunc i64 %12 to i32
   %14 = and i32 %13, 2147483647
-  store i32 %14, ptr %8, align 4, !tbaa !20
+  store i32 %14, ptr %8, align 4, !tbaa !19
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #6
   %15 = call noundef i64 @_ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEclEv(ptr noundef nonnull align 8 dereferenceable(5000) %7)
   %16 = trunc i64 %15 to i32
   %17 = and i32 %16, 2147483647
-  store i32 %17, ptr %9, align 4, !tbaa !20
+  store i32 %17, ptr %9, align 4, !tbaa !19
   call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @2, i32 5, ptr nonnull @_ZN5faiss9byte_randEPhml.omp_outlined, ptr nonnull %6, ptr nonnull %8, ptr nonnull %9, ptr nonnull %5, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #6
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #6
@@ -1566,8 +1566,8 @@ define internal void @_ZN5faiss9byte_randEPhml.omp_outlined(ptr noalias noundef 
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #6
   store i64 1, ptr %10, align 8, !tbaa !4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11) #6
-  store i32 0, ptr %11, align 4, !tbaa !20
-  %16 = load i32, ptr %0, align 4, !tbaa !20
+  store i32 0, ptr %11, align 4, !tbaa !19
+  %16 = load i32, ptr %0, align 4, !tbaa !19
   call void @__kmpc_for_static_init_8u(ptr nonnull @1, i32 %16, i32 34, ptr nonnull %11, ptr nonnull %8, ptr nonnull %9, ptr nonnull %10, i64 1, i64 1)
   %17 = load i64, ptr %9, align 8, !tbaa !4
   %18 = call i64 @llvm.umin.i64(i64 %17, i64 %15)
@@ -1586,9 +1586,9 @@ define internal void @_ZN5faiss9byte_randEPhml.omp_outlined(ptr noalias noundef 
 23:                                               ; preds = %.lr.ph27, %._crit_edge
   %.02225 = phi i64 [ %19, %.lr.ph27 ], [ %35, %._crit_edge ]
   call void @llvm.lifetime.start.p0(i64 5000, ptr nonnull %12) #6
-  %24 = load i32, ptr %3, align 4, !tbaa !20
+  %24 = load i32, ptr %3, align 4, !tbaa !19
   %25 = sext i32 %24 to i64
-  %26 = load i32, ptr %4, align 4, !tbaa !20
+  %26 = load i32, ptr %4, align 4, !tbaa !19
   %27 = sext i32 %26 to i64
   %28 = mul nsw i64 %.02225, %27
   %29 = add nsw i64 %28, %25
@@ -1608,7 +1608,7 @@ define internal void @_ZN5faiss9byte_randEPhml.omp_outlined(ptr noalias noundef 
 
 .lr.ph:                                           ; preds = %30, %91
   %.024 = phi i64 [ %105, %91 ], [ %34, %30 ]
-  %39 = load i64, ptr %20, align 8, !tbaa !11
+  %39 = load i64, ptr %20, align 8, !tbaa !10
   %40 = icmp ugt i64 %39, 623
   br i1 %40, label %41, label %.noexc
 
@@ -1637,7 +1637,7 @@ define internal void @_ZN5faiss9byte_randEPhml.omp_outlined(ptr noalias noundef 
   %58 = xor i64 %55, %57
   store i64 %58, ptr %44, align 8, !tbaa !4
   %exitcond.not.i.i = icmp eq i64 %46, 227
-  br i1 %exitcond.not.i.i, label %.preheader.preheader.i.i, label %42, !llvm.loop !13
+  br i1 %exitcond.not.i.i, label %.preheader.preheader.i.i, label %42, !llvm.loop !12
 
 .preheader.preheader.i.i:                         ; preds = %42
   %.pre24.i.i = load i64, ptr %.phi.trans.insert.i.i, align 8, !tbaa !4
@@ -1664,7 +1664,7 @@ define internal void @_ZN5faiss9byte_randEPhml.omp_outlined(ptr noalias noundef 
   %74 = xor i64 %71, %73
   store i64 %74, ptr %60, align 8, !tbaa !4
   %exitcond23.not.i.i = icmp eq i64 %62, 623
-  br i1 %exitcond23.not.i.i, label %_ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EE11_M_gen_randEv.exit.i, label %.preheader.i.i, !llvm.loop !14
+  br i1 %exitcond23.not.i.i, label %_ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EE11_M_gen_randEv.exit.i, label %.preheader.i.i, !llvm.loop !13
 
 _ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EE11_M_gen_randEv.exit.i: ; preds = %.preheader.i.i
   %75 = load i64, ptr %21, align 8, !tbaa !4
@@ -1685,7 +1685,7 @@ _ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm429496
 .noexc:                                           ; preds = %_ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EE11_M_gen_randEv.exit.i, %.lr.ph
   %86 = phi i64 [ 0, %_ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EE11_M_gen_randEv.exit.i ], [ %39, %.lr.ph ]
   %87 = add nuw nsw i64 %86, 1
-  store i64 %87, ptr %20, align 8, !tbaa !11
+  store i64 %87, ptr %20, align 8, !tbaa !10
   %88 = getelementptr inbounds nuw [624 x i64], ptr %12, i64 0, i64 %86
   %89 = load i64, ptr %88, align 8, !tbaa !4
   %90 = invoke noundef i64 @_ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEclEv(ptr noundef nonnull align 8 dereferenceable(5000) %12)
@@ -1703,19 +1703,19 @@ _ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm429496
   %100 = lshr i64 %99, 18
   %101 = xor i64 %100, %96
   %102 = trunc i64 %101 to i8
-  %103 = load ptr, ptr %6, align 8, !tbaa !41
+  %103 = load ptr, ptr %6, align 8, !tbaa !36
   %104 = getelementptr inbounds nuw i8, ptr %103, i64 %.024
-  store i8 %102, ptr %104, align 1, !tbaa !43
+  store i8 %102, ptr %104, align 1, !tbaa !38
   %105 = add nuw i64 %.024, 1
   %106 = icmp ult i64 %105, %37
-  br i1 %106, label %.lr.ph, label %._crit_edge, !llvm.loop !44
+  br i1 %106, label %.lr.ph, label %._crit_edge, !llvm.loop !39
 
 ._crit_edge:                                      ; preds = %91, %30
   call void @llvm.lifetime.end.p0(i64 5000, ptr nonnull %12) #6
   %107 = load i64, ptr %9, align 8, !tbaa !4
   %108 = add i64 %107, 1
   %109 = icmp ult i64 %35, %108
-  br i1 %109, label %23, label %._crit_edge28, !llvm.loop !45
+  br i1 %109, label %23, label %._crit_edge28
 
 ._crit_edge28:                                    ; preds = %._crit_edge, %14
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %16)
@@ -1778,7 +1778,7 @@ define void @_ZN5faiss19rand_smooth_vectorsEmmPfl(i64 noundef %0, i64 noundef %1
   %33 = tail call i32 @__kmpc_global_thread_num(ptr nonnull @2)
   store i64 %0, ptr %23, align 8, !tbaa !4
   store i64 %1, ptr %24, align 8, !tbaa !4
-  store ptr %2, ptr %25, align 8, !tbaa !17
+  store ptr %2, ptr %25, align 8, !tbaa !16
   %34 = mul i64 %0, 10
   %35 = icmp ugt i64 %34, 2305843009213693951
   br i1 %35, label %.noexc, label %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i
@@ -1795,10 +1795,10 @@ _ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %4
   %36 = mul i64 %0, 40
   %37 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %36) #20
   %38 = getelementptr inbounds nuw float, ptr %37, i64 %34
-  store float 0.000000e+00, ptr %37, align 4, !tbaa !23
+  store float 0.000000e+00, ptr %37, align 4, !tbaa !21
   %39 = getelementptr i8, ptr %37, i64 4
   %40 = add nsw i64 %36, -4
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %39, i8 0, i64 %40, i1 false), !tbaa !23
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %39, i8 0, i64 %40, i1 false), !tbaa !21
   %41 = getelementptr i8, ptr %37, i64 %36
   %42 = ptrtoint ptr %41 to i64
   %43 = ptrtoint ptr %38 to i64
@@ -1813,7 +1813,7 @@ _ZNSt6vectorIfSaIfEEC2EmRKS0_.exit:               ; preds = %.noexc17, %_ZNSt6ve
   %46 = ashr exact i64 %45, 2
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %17)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %18)
-  store ptr %.sroa.065.0, ptr %17, align 8, !tbaa !17
+  store ptr %.sroa.065.0, ptr %17, align 8, !tbaa !16
   store i64 %46, ptr %18, align 8, !tbaa !4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %19) #6
   %47 = icmp ult i64 %46, 1024
@@ -1831,7 +1831,7 @@ _ZNSt6vectorIfSaIfEEC2EmRKS0_.exit:               ; preds = %.noexc17, %_ZNSt6ve
 .noexc19:                                         ; preds = %.noexc18
   %50 = trunc i64 %49 to i32
   %51 = and i32 %50, 2147483647
-  store i32 %51, ptr %21, align 4, !tbaa !20
+  store i32 %51, ptr %21, align 4, !tbaa !19
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %22) #6
   %52 = invoke noundef i64 @_ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEclEv(ptr noundef nonnull align 8 dereferenceable(5000) %20)
           to label %53 unwind label %114
@@ -1839,7 +1839,7 @@ _ZNSt6vectorIfSaIfEEC2EmRKS0_.exit:               ; preds = %.noexc17, %_ZNSt6ve
 53:                                               ; preds = %.noexc19
   %54 = trunc i64 %52 to i32
   %55 = and i32 %54, 2147483647
-  store i32 %55, ptr %22, align 4, !tbaa !20
+  store i32 %55, ptr %22, align 4, !tbaa !19
   call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @2, i32 5, ptr nonnull @_ZN5faiss11float_randnEPfml.omp_outlined, ptr nonnull %19, ptr nonnull %21, ptr nonnull %22, ptr nonnull %18, ptr nonnull %17)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %22) #6
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %21) #6
@@ -1869,10 +1869,10 @@ _ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i21: ; preds = %53
 
 .noexc27:                                         ; preds = %59
   %62 = getelementptr inbounds nuw float, ptr %61, i64 %56
-  store float 0.000000e+00, ptr %61, align 4, !tbaa !23
+  store float 0.000000e+00, ptr %61, align 4, !tbaa !21
   %63 = getelementptr i8, ptr %61, i64 4
   %64 = add nsw i64 %60, -4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %63, i8 0, i64 %64, i1 false), !tbaa !23
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %63, i8 0, i64 %64, i1 false), !tbaa !21
   %65 = getelementptr i8, ptr %61, i64 %60
   %66 = ptrtoint ptr %65 to i64
   %67 = ptrtoint ptr %62 to i64
@@ -1888,7 +1888,7 @@ _ZNSt6vectorIfSaIfEEC2EmRKS0_.exit28:             ; preds = %.noexc27, %_ZNSt6ve
   %71 = add nsw i64 %3, 1
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12)
-  store ptr %.sroa.055.0, ptr %11, align 8, !tbaa !17
+  store ptr %.sroa.055.0, ptr %11, align 8, !tbaa !16
   store i64 %70, ptr %12, align 8, !tbaa !4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13) #6
   %72 = icmp ult i64 %70, 1024
@@ -1906,7 +1906,7 @@ _ZNSt6vectorIfSaIfEEC2EmRKS0_.exit28:             ; preds = %.noexc27, %_ZNSt6ve
 .noexc30:                                         ; preds = %.noexc29
   %75 = trunc i64 %74 to i32
   %76 = and i32 %75, 2147483647
-  store i32 %76, ptr %15, align 4, !tbaa !20
+  store i32 %76, ptr %15, align 4, !tbaa !19
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %16) #6
   %77 = invoke noundef i64 @_ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEclEv(ptr noundef nonnull align 8 dereferenceable(5000) %14)
           to label %78 unwind label %118
@@ -1914,7 +1914,7 @@ _ZNSt6vectorIfSaIfEEC2EmRKS0_.exit28:             ; preds = %.noexc27, %_ZNSt6ve
 78:                                               ; preds = %.noexc30
   %79 = trunc i64 %77 to i32
   %80 = and i32 %79, 2147483647
-  store i32 %80, ptr %16, align 4, !tbaa !20
+  store i32 %80, ptr %16, align 4, !tbaa !19
   call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @2, i32 5, ptr nonnull @_ZN5faiss10float_randEPfml.omp_outlined, ptr nonnull %13, ptr nonnull %15, ptr nonnull %16, ptr nonnull %12, ptr nonnull %11)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16) #6
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15) #6
@@ -1924,16 +1924,16 @@ _ZNSt6vectorIfSaIfEEC2EmRKS0_.exit28:             ; preds = %.noexc27, %_ZNSt6ve
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %26) #6
   %81 = trunc i64 %1 to i32
-  store i32 %81, ptr %26, align 4, !tbaa !20
+  store i32 %81, ptr %26, align 4, !tbaa !19
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %27) #6
-  store i32 10, ptr %27, align 4, !tbaa !20
+  store i32 10, ptr %27, align 4, !tbaa !19
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %28) #6
   %82 = trunc i64 %0 to i32
-  store i32 %82, ptr %28, align 4, !tbaa !20
+  store i32 %82, ptr %28, align 4, !tbaa !19
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %29) #6
-  store float 1.000000e+00, ptr %29, align 4, !tbaa !23
+  store float 1.000000e+00, ptr %29, align 4, !tbaa !21
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %30) #6
-  store float 0.000000e+00, ptr %30, align 4, !tbaa !23
+  store float 0.000000e+00, ptr %30, align 4, !tbaa !21
   %83 = invoke i32 @sgemm_(ptr noundef nonnull @.str, ptr noundef nonnull @.str, ptr noundef nonnull %26, ptr noundef nonnull %28, ptr noundef nonnull %27, ptr noundef nonnull %29, ptr noundef %.sroa.055.0, ptr noundef nonnull %26, ptr noundef %.sroa.065.0, ptr noundef nonnull %27, ptr noundef nonnull %30, ptr noundef %2, ptr noundef nonnull %26)
           to label %84 unwind label %120
 
@@ -1968,11 +1968,11 @@ _ZNSt12_Vector_baseIfSaIfEEC2EmRKS0_.exit.thread.i36: ; preds = %_ZNSt6vectorIfS
           to label %.noexc38 unwind label %122
 
 .noexc38:                                         ; preds = %87
-  store ptr %89, ptr %31, align 8, !tbaa !46
+  store ptr %89, ptr %31, align 8, !tbaa !40
   %90 = getelementptr inbounds nuw float, ptr %89, i64 %1
   %91 = getelementptr inbounds nuw i8, ptr %31, i64 16
-  store ptr %90, ptr %91, align 8, !tbaa !48
-  store float 0.000000e+00, ptr %89, align 4, !tbaa !23
+  store ptr %90, ptr %91, align 8, !tbaa !42
+  store float 0.000000e+00, ptr %89, align 4, !tbaa !21
   %92 = getelementptr i8, ptr %89, i64 4
   %93 = add nsw i64 %1, -1
   %94 = icmp eq i64 %93, 0
@@ -1980,7 +1980,7 @@ _ZNSt12_Vector_baseIfSaIfEEC2EmRKS0_.exit.thread.i36: ; preds = %_ZNSt6vectorIfS
 
 _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc38
   %95 = add nsw i64 %88, -4
-  call void @llvm.memset.p0.i64(ptr align 4 %92, i8 0, i64 %95, i1 false), !tbaa !23
+  call void @llvm.memset.p0.i64(ptr align 4 %92, i8 0, i64 %95, i1 false), !tbaa !21
   %.idx.i.i.i.i.i.i.i34 = shl nuw nsw i64 %93, 2
   %96 = getelementptr inbounds nuw i8, ptr %92, i64 %.idx.i.i.i.i.i.i.i34
   br label %97
@@ -1990,11 +1990,11 @@ _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc38
   %99 = phi ptr [ %89, %.noexc38 ], [ %89, %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ null, %_ZNSt12_Vector_baseIfSaIfEEC2EmRKS0_.exit.thread.i36 ]
   %.0.i.i.i.i.i35 = phi ptr [ %92, %.noexc38 ], [ %96, %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ null, %_ZNSt12_Vector_baseIfSaIfEEC2EmRKS0_.exit.thread.i36 ]
   %100 = getelementptr inbounds nuw i8, ptr %31, i64 8
-  store ptr %.0.i.i.i.i.i35, ptr %100, align 8, !tbaa !49
+  store ptr %.0.i.i.i.i.i35, ptr %100, align 8, !tbaa !43
   %101 = add nsw i64 %3, 2
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
-  store ptr %99, ptr %5, align 8, !tbaa !17
+  store ptr %99, ptr %5, align 8, !tbaa !16
   store i64 %1, ptr %6, align 8, !tbaa !4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #6
   %102 = icmp samesign ult i64 %1, 1024
@@ -2012,7 +2012,7 @@ _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc38
 .noexc41:                                         ; preds = %.noexc40
   %105 = trunc i64 %104 to i32
   %106 = and i32 %105, 2147483647
-  store i32 %106, ptr %9, align 4, !tbaa !20
+  store i32 %106, ptr %9, align 4, !tbaa !19
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #6
   %107 = invoke noundef i64 @_ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEclEv(ptr noundef nonnull align 8 dereferenceable(5000) %8)
           to label %108 unwind label %124
@@ -2020,7 +2020,7 @@ _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc38
 108:                                              ; preds = %.noexc41
   %109 = trunc i64 %107 to i32
   %110 = and i32 %109, 2147483647
-  store i32 %110, ptr %10, align 4, !tbaa !20
+  store i32 %110, ptr %10, align 4, !tbaa !19
   call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @2, i32 5, ptr nonnull @_ZN5faiss10float_randEPfml.omp_outlined, ptr nonnull %7, ptr nonnull %9, ptr nonnull %10, ptr nonnull %6, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #6
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #6
@@ -2034,7 +2034,7 @@ _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc38
 
 113:                                              ; preds = %108
   call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @2, i32 4, ptr nonnull @_ZN5faiss19rand_smooth_vectorsEmmPfl.omp_outlined, ptr nonnull %23, ptr nonnull %24, ptr nonnull %25, ptr nonnull %31)
-  %.pre = load ptr, ptr %31, align 8, !tbaa !46
+  %.pre = load ptr, ptr %31, align 8, !tbaa !40
   br label %131
 
 114:                                              ; preds = %.noexc19, %.noexc18, %_ZNSt6vectorIfSaIfEEC2EmRKS0_.exit
@@ -2082,7 +2082,7 @@ _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc38
 
 130:                                              ; preds = %108
   call void @__kmpc_serialized_parallel(ptr nonnull @2, i32 %33)
-  store i32 %33, ptr %32, align 4, !tbaa !20
+  store i32 %33, ptr %32, align 4, !tbaa !19
   call void @_ZN5faiss19rand_smooth_vectorsEmmPfl.omp_outlined(ptr nonnull %32, ptr nonnull poison, ptr %23, ptr %24, ptr %25, ptr %31) #6
   call void @__kmpc_end_serialized_parallel(ptr nonnull @2, i32 %33)
   br label %131
@@ -2094,7 +2094,7 @@ _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc38
 
 133:                                              ; preds = %131
   %134 = getelementptr inbounds nuw i8, ptr %31, i64 16
-  %135 = load ptr, ptr %134, align 8, !tbaa !48
+  %135 = load ptr, ptr %134, align 8, !tbaa !42
   %136 = ptrtoint ptr %135 to i64
   %137 = ptrtoint ptr %132 to i64
   %138 = sub i64 %136, %137
@@ -2173,8 +2173,8 @@ define internal void @_ZN5faiss19rand_smooth_vectorsEmmPfl.omp_outlined(ptr noal
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #6
   store i64 1, ptr %9, align 8, !tbaa !4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #6
-  store i32 0, ptr %10, align 4, !tbaa !20
-  %14 = load i32, ptr %0, align 4, !tbaa !20
+  store i32 0, ptr %10, align 4, !tbaa !19
+  %14 = load i32, ptr %0, align 4, !tbaa !19
   call void @__kmpc_for_static_init_8u(ptr nonnull @1, i32 %14, i32 34, ptr nonnull %10, ptr nonnull %7, ptr nonnull %8, ptr nonnull %9, i64 1, i64 1)
   %15 = load i64, ptr %8, align 8, !tbaa !4
   %16 = call i64 @llvm.umin.i64(i64 %15, i64 %13)
@@ -2199,25 +2199,25 @@ define internal void @_ZN5faiss19rand_smooth_vectorsEmmPfl.omp_outlined(ptr noal
 23:                                               ; preds = %.preheader.us, %23
   %.022.us = phi i64 [ 0, %.preheader.us ], [ %35, %23 ]
   %24 = getelementptr float, ptr %22, i64 %.022.us
-  %25 = load float, ptr %24, align 4, !tbaa !23
+  %25 = load float, ptr %24, align 4, !tbaa !21
   %26 = fpext float %25 to double
   %27 = getelementptr inbounds nuw float, ptr %20, i64 %.022.us
-  %28 = load float, ptr %27, align 4, !tbaa !23
+  %28 = load float, ptr %27, align 4, !tbaa !21
   %29 = fmul float %28, 4.000000e+00
   %30 = fpext float %29 to double
   %31 = fadd double %30, 1.000000e-01
   %32 = fmul double %31, %26
   %33 = fptrunc double %32 to float
-  %34 = call float @sinf(float noundef %33) #6, !tbaa !20
-  store float %34, ptr %24, align 4, !tbaa !23
+  %34 = call float @sinf(float noundef %33) #6, !tbaa !19
+  store float %34, ptr %24, align 4, !tbaa !21
   %35 = add nuw i64 %.022.us, 1
   %exitcond.not = icmp eq i64 %35, %18
-  br i1 %exitcond.not, label %._crit_edge.us, label %23, !llvm.loop !50
+  br i1 %exitcond.not, label %._crit_edge.us, label %23, !llvm.loop !44
 
 ._crit_edge.us:                                   ; preds = %23
   %36 = add nuw i64 %.02023.us, 1
   %exitcond27.not = icmp eq i64 %.02023.us, %16
-  br i1 %exitcond27.not, label %._crit_edge24, label %.preheader.us, !llvm.loop !51
+  br i1 %exitcond27.not, label %._crit_edge24, label %.preheader.us, !llvm.loop !45
 
 ._crit_edge24:                                    ; preds = %._crit_edge.us, %.preheader.lr.ph, %12
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %14)
@@ -2291,48 +2291,42 @@ attributes #21 = { builtin nounwind }
 !5 = !{!"long", !6, i64 0}
 !6 = !{!"omnipotent char", !7, i64 0}
 !7 = !{!"Simple C++ TBAA"}
-!8 = distinct !{!8, !9, !10}
+!8 = distinct !{!8, !9}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = !{!"llvm.loop.estimated_trip_count"}
-!11 = !{!12, !5, i64 4992}
-!12 = !{!"_ZTSSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EE", !6, i64 0, !5, i64 4992}
-!13 = distinct !{!13, !9, !10}
-!14 = distinct !{!14, !9, !10}
-!15 = !{!16, !5, i64 0}
-!16 = !{!"_ZTSN5faiss25SplitMix64RandomGeneratorE", !5, i64 0}
-!17 = !{!18, !18, i64 0}
-!18 = !{!"p1 float", !19, i64 0}
-!19 = !{!"any pointer", !6, i64 0}
-!20 = !{!21, !21, i64 0}
-!21 = !{!"int", !6, i64 0}
-!22 = distinct !{!22, !10}
-!23 = !{!24, !24, i64 0}
-!24 = !{!"float", !6, i64 0}
-!25 = distinct !{!25, !9, !10}
-!26 = !{!27}
-!27 = !{i64 2, i64 -1, i64 -1, i1 true}
-!28 = distinct !{!28, !10}
-!29 = distinct !{!29, !9, !10}
-!30 = distinct !{!30, !9, !10}
-!31 = !{!32, !32, i64 0}
-!32 = !{!"p1 long", !19, i64 0}
-!33 = distinct !{!33, !10}
-!34 = distinct !{!34, !9, !10}
-!35 = distinct !{!35, !10}
-!36 = distinct !{!36, !9, !10}
-!37 = distinct !{!37, !9, !10}
-!38 = distinct !{!38, !9, !10}
-!39 = distinct !{!39, !9, !10}
-!40 = distinct !{!40, !9, !10}
-!41 = !{!42, !42, i64 0}
-!42 = !{!"p1 omnipotent char", !19, i64 0}
-!43 = !{!6, !6, i64 0}
-!44 = distinct !{!44, !9, !10}
-!45 = distinct !{!45, !10}
-!46 = !{!47, !18, i64 0}
-!47 = !{!"_ZTSNSt12_Vector_baseIfSaIfEE17_Vector_impl_dataE", !18, i64 0, !18, i64 8, !18, i64 16}
-!48 = !{!47, !18, i64 16}
-!49 = !{!47, !18, i64 8}
-!50 = distinct !{!50, !9, !10}
-!51 = distinct !{!51, !10, !52}
-!52 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!10 = !{!11, !5, i64 4992}
+!11 = !{!"_ZTSSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EE", !6, i64 0, !5, i64 4992}
+!12 = distinct !{!12, !9}
+!13 = distinct !{!13, !9}
+!14 = !{!15, !5, i64 0}
+!15 = !{!"_ZTSN5faiss25SplitMix64RandomGeneratorE", !5, i64 0}
+!16 = !{!17, !17, i64 0}
+!17 = !{!"p1 float", !18, i64 0}
+!18 = !{!"any pointer", !6, i64 0}
+!19 = !{!20, !20, i64 0}
+!20 = !{!"int", !6, i64 0}
+!21 = !{!22, !22, i64 0}
+!22 = !{!"float", !6, i64 0}
+!23 = distinct !{!23, !9}
+!24 = !{!25}
+!25 = !{i64 2, i64 -1, i64 -1, i1 true}
+!26 = distinct !{!26, !9}
+!27 = distinct !{!27, !9}
+!28 = !{!29, !29, i64 0}
+!29 = !{!"p1 long", !18, i64 0}
+!30 = distinct !{!30, !9}
+!31 = distinct !{!31, !9}
+!32 = distinct !{!32, !9}
+!33 = distinct !{!33, !9}
+!34 = distinct !{!34, !9}
+!35 = distinct !{!35, !9}
+!36 = !{!37, !37, i64 0}
+!37 = !{!"p1 omnipotent char", !18, i64 0}
+!38 = !{!6, !6, i64 0}
+!39 = distinct !{!39, !9}
+!40 = !{!41, !17, i64 0}
+!41 = !{!"_ZTSNSt12_Vector_baseIfSaIfEE17_Vector_impl_dataE", !17, i64 0, !17, i64 8, !17, i64 16}
+!42 = !{!41, !17, i64 16}
+!43 = !{!41, !17, i64 8}
+!44 = distinct !{!44, !9}
+!45 = distinct !{!45, !46}
+!46 = !{!"llvm.loop.unswitch.nontrivial.disable"}

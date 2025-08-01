@@ -187,7 +187,7 @@ _ZN25AnsiColorSequenceIterator12NextSequenceEv.exit: ; preds = %73
   %82 = ptrtoint ptr %81 to i64
   %83 = sub i64 %82, %28
   %.not144 = icmp eq i64 %83, 0
-  br i1 %.not144, label %._crit_edge, label %.lr.ph, !llvm.loop !17
+  br i1 %.not144, label %._crit_edge, label %.lr.ph, !llvm.loop !16
 
 84:                                               ; preds = %._crit_edge
   %85 = tail call i64 @llvm.umin.i64(i64 %1, i64 3)
@@ -197,7 +197,7 @@ _ZN25AnsiColorSequenceIterator12NextSequenceEv.exit: ; preds = %73
   %88 = add i64 %.neg, %.0.lcssa
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #10
   %89 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store ptr %89, ptr %3, align 8, !tbaa !18
+  store ptr %89, ptr %3, align 8, !tbaa !17
   %90 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 0, ptr %90, align 8, !tbaa !4
   store i8 0, ptr %89, align 8, !tbaa !13
@@ -575,7 +575,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   %251 = icmp ult i64 %250, 16
   call void @llvm.assume(i1 %251)
   %.not22.i = icmp eq ptr %3, %0
-  br i1 %.not22.i, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_.exit, label %252, !prof !19
+  br i1 %.not22.i, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_.exit, label %252, !prof !18
 
 252:                                              ; preds = %248
   switch i64 %250, label %255 [
@@ -754,9 +754,8 @@ attributes #13 = { builtin nounwind }
 !11 = !{!"long", !9, i64 0}
 !12 = !{!5, !7, i64 0}
 !13 = !{!9, !9, i64 0}
-!14 = distinct !{!14, !15, !16}
+!14 = distinct !{!14, !15}
 !15 = !{!"llvm.loop.mustprogress"}
-!16 = !{!"llvm.loop.estimated_trip_count"}
-!17 = distinct !{!17, !15, !16}
-!18 = !{!6, !7, i64 0}
-!19 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!16 = distinct !{!16, !15}
+!17 = !{!6, !7, i64 0}
+!18 = !{!"branch_weights", !"expected", i32 1, i32 2000}

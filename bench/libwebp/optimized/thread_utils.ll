@@ -236,15 +236,15 @@ ChangeState.exit:                                 ; preds = %1, %._crit_edge.i, 
 ; Function Attrs: nounwind uwtable
 define internal void @Execute(ptr noundef captures(none) %0) #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %3 = load ptr, ptr %2, align 8, !tbaa !23
+  %3 = load ptr, ptr %2, align 8, !tbaa !22
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %14, label %4
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %6 = load ptr, ptr %5, align 8, !tbaa !24
+  %6 = load ptr, ptr %5, align 8, !tbaa !23
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %8 = load ptr, ptr %7, align 8, !tbaa !25
+  %8 = load ptr, ptr %7, align 8, !tbaa !24
   %9 = tail call i32 %3(ptr noundef %6, ptr noundef %8) #8
   %.not5 = icmp eq i32 %9, 0
   %10 = zext i1 %.not5 to i32
@@ -296,7 +296,7 @@ define internal void @End(ptr noundef captures(none) %0) #4 {
 
 ChangeState.exit:                                 ; preds = %._crit_edge.i, %13
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 88
-  %16 = load i64, ptr %15, align 8, !tbaa !26
+  %16 = load i64, ptr %15, align 8, !tbaa !25
   %17 = tail call i32 @pthread_join(i64 noundef %16, ptr noundef null) #8
   %18 = tail call i32 @pthread_mutex_destroy(ptr noundef nonnull %2) #8
   %19 = getelementptr inbounds nuw i8, ptr %2, i64 40
@@ -355,7 +355,7 @@ define internal noalias noundef ptr @ThreadLoop(ptr noundef %0) #4 {
 
 11:                                               ; preds = %9
   %12 = tail call i32 @pthread_cond_wait(ptr noundef nonnull %4, ptr noundef %2) #8
-  br label %9, !llvm.loop !29
+  br label %9, !llvm.loop !28
 
 13:                                               ; preds = %9
   %14 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @g_worker_interface, i64 32), align 8, !tbaa !11
@@ -416,13 +416,12 @@ attributes #8 = { nounwind }
 !17 = !{!"int", !6, i64 0}
 !18 = !{!16, !17, i64 8}
 !19 = !{!16, !5, i64 0}
-!20 = distinct !{!20, !21, !22}
+!20 = distinct !{!20, !21}
 !21 = !{!"llvm.loop.mustprogress"}
-!22 = !{!"llvm.loop.estimated_trip_count"}
-!23 = !{!16, !5, i64 16}
-!24 = !{!16, !5, i64 24}
-!25 = !{!16, !5, i64 32}
-!26 = !{!27, !28, i64 88}
-!27 = !{!"", !6, i64 0, !6, i64 40, !28, i64 88}
-!28 = !{!"long", !6, i64 0}
-!29 = distinct !{!29, !21, !22}
+!22 = !{!16, !5, i64 16}
+!23 = !{!16, !5, i64 24}
+!24 = !{!16, !5, i64 32}
+!25 = !{!26, !27, i64 88}
+!26 = !{!"", !6, i64 0, !6, i64 40, !27, i64 88}
+!27 = !{!"long", !6, i64 0}
+!28 = distinct !{!28, !21}

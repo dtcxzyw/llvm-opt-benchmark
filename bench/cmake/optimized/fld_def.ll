@@ -361,7 +361,7 @@ _nc_Copy_Type.exit:                               ; preds = %16
 .critedge:                                        ; preds = %_nc_Copy_Type.exit, %44
   %70 = phi ptr [ null, %_nc_Copy_Type.exit ], [ %38, %44 ]
   %71 = getelementptr inbounds nuw i8, ptr %15, i64 80
-  %72 = load ptr, ptr %71, align 8, !tbaa !51
+  %72 = load ptr, ptr %71, align 8, !tbaa !50
   %.not18.i = icmp eq ptr %72, null
   br i1 %.not18.i, label %73, label %free_field.exit
 
@@ -386,7 +386,7 @@ _nc_Copy_Type.exit:                               ; preds = %16
   %80 = getelementptr inbounds nuw i8, ptr %.0.i, i64 72
   %81 = load ptr, ptr %80, align 8, !tbaa !45
   %.not19.i = icmp eq ptr %81, %15
-  br i1 %.not19.i, label %82, label %.preheader.i, !llvm.loop !52
+  br i1 %.not19.i, label %82, label %.preheader.i, !llvm.loop !51
 
 82:                                               ; preds = %.preheader.i
   %83 = getelementptr inbounds nuw i8, ptr %.0.i, i64 72
@@ -441,7 +441,7 @@ define dso_local range(i32 -4, 1) i32 @free_field(ptr noundef captures(address) 
 
 2:                                                ; preds = %1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %4 = load ptr, ptr %3, align 8, !tbaa !51
+  %4 = load ptr, ptr %3, align 8, !tbaa !50
   %.not18 = icmp eq ptr %4, null
   br i1 %.not18, label %5, label %26
 
@@ -466,7 +466,7 @@ define dso_local range(i32 -4, 1) i32 @free_field(ptr noundef captures(address) 
   %13 = getelementptr inbounds nuw i8, ptr %.0, i64 72
   %14 = load ptr, ptr %13, align 8, !tbaa !45
   %.not19 = icmp eq ptr %14, %0
-  br i1 %.not19, label %15, label %.preheader, !llvm.loop !52
+  br i1 %.not19, label %15, label %.preheader, !llvm.loop !51
 
 15:                                               ; preds = %.preheader
   %16 = getelementptr inbounds nuw i8, ptr %.0, i64 72
@@ -564,8 +564,7 @@ attributes #9 = { nounwind willreturn memory(none) }
 !45 = !{!24, !25, i64 72}
 !46 = !{!24, !27, i64 104}
 !47 = !{!7, !7, i64 0}
-!48 = distinct !{!48, !49, !50}
+!48 = distinct !{!48, !49}
 !49 = !{!"llvm.loop.mustprogress"}
-!50 = !{!"llvm.loop.estimated_trip_count"}
-!51 = !{!24, !26, i64 80}
-!52 = distinct !{!52, !49, !50}
+!50 = !{!24, !26, i64 80}
+!51 = distinct !{!51, !49}

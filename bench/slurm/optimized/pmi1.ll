@@ -217,7 +217,7 @@ define dso_local i32 @handle_pmi1_cmd(i32 noundef %0, i32 noundef %1) local_unna
   %47 = tail call ptr @__errno_location() #9
   %48 = load i32, ptr %47, align 4
   %49 = icmp eq i32 %48, 4
-  br i1 %49, label %40, label %.loopexit.sink.split.i, !llvm.loop !12
+  br i1 %49, label %40, label %.loopexit.sink.split.i, !llvm.loop !11
 
 .critedge52.i:                                    ; preds = %40
   %50 = icmp eq i32 %44, 0
@@ -250,7 +250,7 @@ define dso_local i32 @handle_pmi1_cmd(i32 noundef %0, i32 noundef %1) local_unna
   %.145.i = phi i32 [ %.04456.i, %56 ], [ %59, %58 ]
   %.140.i = phi i32 [ %.03958.i, %56 ], [ %64, %58 ]
   %.not.i = icmp eq i32 %.140.i, 0
-  br i1 %.not.i, label %._crit_edge.loopexit.i, label %.lr.ph.i, !llvm.loop !13
+  br i1 %.not.i, label %._crit_edge.loopexit.i, label %.lr.ph.i, !llvm.loop !12
 
 ._crit_edge.loopexit.i:                           ; preds = %65
   %.pre.i = load ptr, ptr %3, align 8
@@ -271,7 +271,7 @@ define dso_local i32 @handle_pmi1_cmd(i32 noundef %0, i32 noundef %1) local_unna
   %71 = getelementptr inbounds nuw i8, ptr %73, i64 7
   %72 = load i8, ptr %71, align 1
   %.not50.i = icmp eq i8 %72, 0
-  br i1 %.not50.i, label %_handle_pmi1_mcmd_buf.exit, label %.lr.ph62.i, !llvm.loop !14
+  br i1 %.not50.i, label %_handle_pmi1_mcmd_buf.exit, label %.lr.ph62.i, !llvm.loop !13
 
 .lr.ph62.i:                                       ; preds = %._crit_edge.i, %70
   %.03860.i = phi ptr [ %71, %70 ], [ %68, %._crit_edge.i ]
@@ -376,7 +376,7 @@ define internal fastcc i32 @_handle_pmi1_cmd_buf(i32 noundef %0, i32 noundef %1,
   %indvars.iv28 = phi i64 [ %indvars.iv.next, %16 ], [ 0, %.preheader ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv28, 1
   %exitcond = icmp eq i64 %indvars.iv.next, 16
-  br i1 %exitcond, label %21, label %16, !llvm.loop !15
+  br i1 %exitcond, label %21, label %16, !llvm.loop !14
 
 16:                                               ; preds = %.lr.ph
   %17 = getelementptr inbounds nuw [17 x %struct.anon], ptr @pmi1_cmd_handlers, i64 0, i64 %indvars.iv.next
@@ -384,7 +384,7 @@ define internal fastcc i32 @_handle_pmi1_cmd_buf(i32 noundef %0, i32 noundef %1,
   %19 = load ptr, ptr %11, align 8
   %20 = tail call i32 @slurm_xstrcmp(ptr noundef %19, ptr noundef nonnull %18) #8
   %.not20 = icmp eq i32 %20, 0
-  br i1 %.not20, label %._crit_edge, label %.lr.ph, !llvm.loop !15
+  br i1 %.not20, label %._crit_edge, label %.lr.ph, !llvm.loop !14
 
 21:                                               ; preds = %.lr.ph
   %22 = load ptr, ptr %11, align 8
@@ -1020,7 +1020,7 @@ define internal i32 @_handle_mcmd(i32 noundef %0, i32 noundef %1, ptr noundef %2
   %63 = load i32, ptr %62, align 4
   %64 = zext i32 %63 to i64
   %65 = icmp samesign ult i64 %indvars.iv.next, %64
-  br i1 %65, label %.lr.ph, label %.loopexit, !llvm.loop !16
+  br i1 %65, label %.lr.ph, label %.loopexit, !llvm.loop !15
 
 .loopexit:                                        ; preds = %.lr.ph, %..loopexit_crit_edge, %20
   %66 = phi ptr [ %.pre, %..loopexit_crit_edge ], [ %44, %20 ], [ %61, %.lr.ph ]
@@ -1181,12 +1181,11 @@ attributes #10 = { nounwind willreturn memory(read) }
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i32 7, !"frame-pointer", i32 2}
 !7 = !{i32 7, !"debug-info-assignment-tracking", i1 true}
-!8 = distinct !{!8, !9, !10, !11}
+!8 = distinct !{!8, !9, !10}
 !9 = !{!"llvm.loop.mustprogress"}
 !10 = !{!"llvm.loop.unroll.disable"}
-!11 = !{!"llvm.loop.estimated_trip_count"}
-!12 = distinct !{!12, !9, !10, !11}
-!13 = distinct !{!13, !9, !10, !11}
-!14 = distinct !{!14, !9, !10, !11}
-!15 = distinct !{!15, !9, !10, !11}
-!16 = distinct !{!16, !9, !10, !11}
+!11 = distinct !{!11, !9, !10}
+!12 = distinct !{!12, !9, !10}
+!13 = distinct !{!13, !9, !10}
+!14 = distinct !{!14, !9, !10}
+!15 = distinct !{!15, !9, !10}

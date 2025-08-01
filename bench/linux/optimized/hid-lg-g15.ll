@@ -306,12 +306,12 @@ define internal i32 @lg_g15_probe(ptr noundef %0, ptr noundef readonly captures(
   br label %lg_g15_get_initial_led_brightness.exit.thread
 
 125:                                              ; preds = %89, %89
-  %126 = tail call fastcc i32 @lg_g510_get_initial_led_brightness(ptr noundef nonnull %25, i32 noundef 0), !range !9
+  %126 = tail call fastcc i32 @lg_g510_get_initial_led_brightness(ptr noundef nonnull %25, i32 noundef 0), !range !8
   %127 = icmp eq i32 %126, 0
   br i1 %127, label %128, label %lg_g15_get_initial_led_brightness.exit.thread14
 
 128:                                              ; preds = %125
-  %129 = tail call fastcc i32 @lg_g510_get_initial_led_brightness(ptr noundef nonnull %25, i32 noundef 1), !range !9
+  %129 = tail call fastcc i32 @lg_g510_get_initial_led_brightness(ptr noundef nonnull %25, i32 noundef 1), !range !8
   %130 = icmp eq i32 %129, 0
   br i1 %130, label %131, label %lg_g15_get_initial_led_brightness.exit.thread14
 
@@ -384,7 +384,7 @@ lg_g15_get_initial_led_brightness.exit.thread.thread: ; preds = %89, %lg_g15_get
   tail call void @input_set_capability(ptr noundef nonnull %29, i32 noundef 1, i32 noundef %169) #10
   %170 = add nuw nsw i32 %168, 1
   %171 = icmp eq i32 %170, %166
-  br i1 %171, label %.loopexit15.preheader, label %167, !llvm.loop !10
+  br i1 %171, label %.loopexit15.preheader, label %167, !llvm.loop !9
 
 .loopexit15.preheader:                            ; preds = %167, %164
   br label %.loopexit15
@@ -395,7 +395,7 @@ lg_g15_get_initial_led_brightness.exit.thread.thread: ; preds = %89, %lg_g15_get
   tail call void @input_set_capability(ptr noundef nonnull %29, i32 noundef 1, i32 noundef %173) #10
   %174 = add nuw nsw i32 %172, 1
   %175 = icmp eq i32 %174, 3
-  br i1 %175, label %176, label %.loopexit15, !llvm.loop !11
+  br i1 %175, label %176, label %.loopexit15, !llvm.loop !10
 
 176:                                              ; preds = %.loopexit15
   tail call void @input_set_capability(ptr noundef nonnull %29, i32 noundef 1, i32 noundef 688) #10
@@ -420,7 +420,7 @@ lg_g15_get_initial_led_brightness.exit.thread.thread: ; preds = %89, %lg_g15_get
 184:                                              ; preds = %lg_g15_register_led.exit
   %185 = add nuw nsw i64 %188, 1
   %186 = icmp eq i64 %185, 6
-  br i1 %186, label %.loopexit, label %187, !llvm.loop !12
+  br i1 %186, label %.loopexit, label %187, !llvm.loop !11
 
 187:                                              ; preds = %.preheader, %184
   %188 = phi i64 [ %185, %184 ], [ 0, %.preheader ]
@@ -558,7 +558,7 @@ define internal noundef i32 @lg_g15_raw_event(ptr noundef readonly captures(none
   %30 = or i32 %27, 656
   tail call void @input_event(ptr noundef %26, i32 noundef 1, i32 noundef %30, i32 noundef %29) #10
   %31 = icmp eq i64 %22, 6
-  br i1 %31, label %18, label %20, !llvm.loop !13
+  br i1 %31, label %18, label %20, !llvm.loop !12
 
 32:                                               ; preds = %32, %18
   %33 = phi i64 [ 0, %18 ], [ %42, %32 ]
@@ -573,7 +573,7 @@ define internal noundef i32 @lg_g15_raw_event(ptr noundef readonly captures(none
   tail call void @input_event(ptr noundef %37, i32 noundef 1, i32 noundef %41, i32 noundef %40) #10
   %42 = add nuw nsw i64 %33, 1
   %43 = icmp eq i64 %42, 6
-  br i1 %43, label %.preheader, label %32, !llvm.loop !14
+  br i1 %43, label %.preheader, label %32, !llvm.loop !13
 
 .preheader:                                       ; preds = %32, %.preheader
   %44 = phi i64 [ %45, %.preheader ], [ 0, %32 ]
@@ -590,7 +590,7 @@ define internal noundef i32 @lg_g15_raw_event(ptr noundef readonly captures(none
   %55 = add i32 %49, 668
   tail call void @input_event(ptr noundef %52, i32 noundef 1, i32 noundef %55, i32 noundef %54) #10
   %56 = icmp eq i64 %45, 5
-  br i1 %56, label %57, label %.preheader, !llvm.loop !15
+  br i1 %56, label %57, label %.preheader, !llvm.loop !14
 
 57:                                               ; preds = %.preheader
   %58 = load ptr, ptr %17, align 8
@@ -616,7 +616,7 @@ define internal noundef i32 @lg_g15_raw_event(ptr noundef readonly captures(none
   tail call void @input_event(ptr noundef %70, i32 noundef 1, i32 noundef %74, i32 noundef %73) #10
   %75 = add nuw nsw i64 %66, 1
   %76 = icmp eq i64 %75, 3
-  br i1 %76, label %77, label %65, !llvm.loop !16
+  br i1 %76, label %77, label %65, !llvm.loop !15
 
 77:                                               ; preds = %65
   %78 = load ptr, ptr %17, align 8
@@ -645,7 +645,7 @@ define internal noundef i32 @lg_g15_raw_event(ptr noundef readonly captures(none
   tail call void @input_event(ptr noundef %92, i32 noundef 1, i32 noundef %96, i32 noundef %94) #10
   %97 = add nuw nsw i64 %89, 1
   %98 = icmp eq i64 %97, 4
-  br i1 %98, label %99, label %88, !llvm.loop !17
+  br i1 %98, label %99, label %88, !llvm.loop !16
 
 99:                                               ; preds = %88
   %100 = getelementptr i8, ptr %2, i64 1
@@ -687,7 +687,7 @@ define internal noundef i32 @lg_g15_raw_event(ptr noundef readonly captures(none
   tail call void @input_event(ptr noundef %121, i32 noundef 1, i32 noundef %122, i32 noundef %124) #10
   %125 = add nuw nsw i32 %118, 1
   %126 = icmp eq i32 %125, 6
-  br i1 %126, label %127, label %117, !llvm.loop !18
+  br i1 %126, label %127, label %117, !llvm.loop !17
 
 127:                                              ; preds = %117
   %128 = load ptr, ptr %116, align 8
@@ -734,7 +734,7 @@ define internal noundef i32 @lg_g15_raw_event(ptr noundef readonly captures(none
   tail call void @input_event(ptr noundef %158, i32 noundef 1, i32 noundef %159, i32 noundef %161) #10
   %162 = add nuw nsw i32 %153, 1
   %163 = icmp eq i32 %162, 4
-  br i1 %163, label %164, label %152, !llvm.loop !19
+  br i1 %163, label %164, label %152, !llvm.loop !18
 
 164:                                              ; preds = %152
   %165 = load i8, ptr %138, align 1
@@ -783,7 +783,7 @@ define internal noundef i32 @lg_g15_raw_event(ptr noundef readonly captures(none
   tail call void @input_event(ptr noundef %191, i32 noundef 1, i32 noundef %195, i32 noundef %193) #10
   %196 = add nuw nsw i64 %188, 1
   %197 = icmp eq i64 %196, 4
-  br i1 %197, label %198, label %187, !llvm.loop !20
+  br i1 %197, label %198, label %187, !llvm.loop !16
 
 198:                                              ; preds = %187
   %199 = load ptr, ptr %180, align 8
@@ -817,7 +817,7 @@ define internal noundef i32 @lg_g15_raw_event(ptr noundef readonly captures(none
   tail call void @input_event(ptr noundef %216, i32 noundef 1, i32 noundef %217, i32 noundef %219) #10
   %220 = add nuw nsw i32 %209, 1
   %221 = icmp eq i32 %220, 18
-  br i1 %221, label %222, label %208, !llvm.loop !21
+  br i1 %221, label %222, label %208, !llvm.loop !19
 
 222:                                              ; preds = %208
   %223 = getelementptr i8, ptr %2, i64 3
@@ -825,7 +825,7 @@ define internal noundef i32 @lg_g15_raw_event(ptr noundef readonly captures(none
   %225 = and i8 %224, 4
   %226 = lshr exact i8 %225, 2
   %227 = getelementptr inbounds nuw i8, ptr %6, i64 2656
-  %228 = load i8, ptr %227, align 8, !range !22, !noundef !23
+  %228 = load i8, ptr %227, align 8, !range !20, !noundef !21
   %229 = icmp eq i8 %226, %228
   br i1 %229, label %.preheader2, label %230
 
@@ -855,7 +855,7 @@ define internal noundef i32 @lg_g15_raw_event(ptr noundef readonly captures(none
   tail call void @input_event(ptr noundef %242, i32 noundef 1, i32 noundef %243, i32 noundef %245) #10
   %246 = add nuw nsw i32 %237, 1
   %247 = icmp eq i32 %246, 3
-  br i1 %247, label %248, label %236, !llvm.loop !24
+  br i1 %247, label %248, label %236, !llvm.loop !22
 
 248:                                              ; preds = %236
   %249 = load ptr, ptr %207, align 8
@@ -877,7 +877,7 @@ define internal noundef i32 @lg_g15_raw_event(ptr noundef readonly captures(none
   tail call void @input_event(ptr noundef %258, i32 noundef 1, i32 noundef %259, i32 noundef %261) #10
   %262 = add nuw nsw i32 %255, 1
   %263 = icmp eq i32 %262, 5
-  br i1 %263, label %264, label %254, !llvm.loop !25
+  br i1 %263, label %264, label %254, !llvm.loop !23
 
 264:                                              ; preds = %254
   %265 = load ptr, ptr %207, align 8
@@ -1112,7 +1112,7 @@ define internal fastcc void @lg_g15_init_input_dev(ptr noundef %0, ptr noundef i
   tail call void @input_set_capability(ptr noundef %1, i32 noundef 1, i32 noundef %29) #10
   %30 = add nuw nsw i32 %28, 1
   %31 = icmp eq i32 %30, 5
-  br i1 %31, label %32, label %27, !llvm.loop !26
+  br i1 %31, label %32, label %27, !llvm.loop !24
 
 32:                                               ; preds = %27
   ret void
@@ -1480,7 +1480,7 @@ define internal range(i32 5, 4) i32 @lg_g15_led_set(ptr noundef captures(none) %
   %46 = or i8 %45, %32
   %47 = add nuw nsw i64 %31, 1
   %48 = icmp eq i64 %47, 6
-  br i1 %48, label %49, label %30, !llvm.loop !27
+  br i1 %48, label %49, label %30, !llvm.loop !25
 
 49:                                               ; preds = %37
   %50 = getelementptr i8, ptr %8, i64 1
@@ -1656,7 +1656,7 @@ define internal range(i32 3, 2) i32 @lg_g510_mkey_led_set(ptr noundef captures(n
   %35 = or i8 %34, %21
   %36 = add nuw nsw i64 %20, 1
   %37 = icmp eq i64 %36, 6
-  br i1 %37, label %38, label %19, !llvm.loop !28
+  br i1 %37, label %38, label %19, !llvm.loop !26
 
 38:                                               ; preds = %26
   store i8 4, ptr %8, align 8
@@ -1808,7 +1808,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @color_store(ptr noundef 
   br i1 %25, label %26, label %82
 
 26:                                               ; preds = %23
-  store i64 0, ptr %5, align 8, !annotation !29
+  store i64 0, ptr %5, align 8, !annotation !27
   %27 = getelementptr i8, ptr %2, i64 1
   %28 = call i32 @kstrtoull(ptr noundef %27, i32 noundef 16, ptr noundef nonnull %5) #10
   %29 = icmp eq i32 %28, 0
@@ -1939,28 +1939,26 @@ attributes #12 = { cold nounwind }
 !2 = !{i32 4, !"function_return_thunk_extern", i32 1}
 !3 = !{i32 4, !"indirect_branch_cs_prefix", i32 1}
 !4 = !{i32 4, !"SkipRaxSetup", i32 1}
-!5 = distinct !{!5, !6, !7, !8}
+!5 = distinct !{!5, !6, !7}
 !6 = !{!"llvm.loop.mustprogress"}
 !7 = !{!"llvm.loop.unroll.disable"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = !{i32 5, i32 4}
-!10 = distinct !{!10, !6, !7, !8}
-!11 = distinct !{!11, !6, !7, !8}
-!12 = distinct !{!12, !6, !7, !8}
-!13 = distinct !{!13, !6, !7, !8}
-!14 = distinct !{!14, !6, !7, !8}
-!15 = distinct !{!15, !6, !7, !8}
-!16 = distinct !{!16, !6, !7, !8}
-!17 = distinct !{!17, !6, !7, !8}
-!18 = distinct !{!18, !6, !7, !8}
-!19 = distinct !{!19, !6, !7, !8}
-!20 = distinct !{!20, !6, !7, !8}
-!21 = distinct !{!21, !6, !7, !8}
-!22 = !{i8 0, i8 2}
-!23 = !{}
-!24 = distinct !{!24, !6, !7, !8}
-!25 = distinct !{!25, !6, !7, !8}
-!26 = distinct !{!26, !6, !7, !8}
-!27 = distinct !{!27, !6, !7, !8}
-!28 = distinct !{!28, !6, !7, !8}
-!29 = !{!"auto-init"}
+!8 = !{i32 5, i32 4}
+!9 = distinct !{!9, !6, !7}
+!10 = distinct !{!10, !6, !7}
+!11 = distinct !{!11, !6, !7}
+!12 = distinct !{!12, !6, !7}
+!13 = distinct !{!13, !6, !7}
+!14 = distinct !{!14, !6, !7}
+!15 = distinct !{!15, !6, !7}
+!16 = distinct !{!16, !6, !7}
+!17 = distinct !{!17, !6, !7}
+!18 = distinct !{!18, !6, !7}
+!19 = distinct !{!19, !6, !7}
+!20 = !{i8 0, i8 2}
+!21 = !{}
+!22 = distinct !{!22, !6, !7}
+!23 = distinct !{!23, !6, !7}
+!24 = distinct !{!24, !6, !7}
+!25 = distinct !{!25, !6, !7}
+!26 = distinct !{!26, !6, !7}
+!27 = !{!"auto-init"}

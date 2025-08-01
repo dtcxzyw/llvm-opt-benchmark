@@ -144,15 +144,15 @@ _ZN4lean10array_ugetEP11lean_objectm.exit:        ; preds = %5, %12, %14, %15
   %18 = trunc i16 %rev.i to i8
   %19 = shl nuw nsw i64 %indvars.iv, 1
   %20 = getelementptr inbounds nuw [16 x i8], ptr %1, i64 0, i64 %19
-  store i8 %18, ptr %20, align 1, !tbaa !16
+  store i8 %18, ptr %20, align 1, !tbaa !15
   %21 = lshr i16 %rev.i, 8
   %22 = trunc nuw i16 %21 to i8
   %23 = or disjoint i64 %19, 1
   %24 = getelementptr inbounds nuw [16 x i8], ptr %1, i64 0, i64 %23
-  store i8 %22, ptr %24, align 1, !tbaa !16
+  store i8 %22, ptr %24, align 1, !tbaa !15
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond.not, label %4, label %5, !llvm.loop !17
+  br i1 %exitcond.not, label %4, label %5, !llvm.loop !16
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -256,19 +256,19 @@ _ZN4lean10array_ugetEP11lean_objectm.exit.i11:    ; preds = %42, %41, %39, %32
   %45 = trunc i16 %rev.i.i to i8
   %46 = shl nuw nsw i64 %indvars.iv.i9, 1
   %47 = getelementptr inbounds nuw [16 x i8], ptr %2, i64 0, i64 %46
-  store i8 %45, ptr %47, align 1, !tbaa !16
+  store i8 %45, ptr %47, align 1, !tbaa !15
   %48 = lshr i16 %rev.i.i, 8
   %49 = trunc nuw i16 %48 to i8
   %50 = or disjoint i64 %46, 1
   %51 = getelementptr inbounds nuw [16 x i8], ptr %2, i64 0, i64 %50
-  store i8 %49, ptr %51, align 1, !tbaa !16
+  store i8 %49, ptr %51, align 1, !tbaa !15
   %indvars.iv.next.i12 = add nuw nsw i64 %indvars.iv.i9, 1
   %exitcond.not.i13 = icmp eq i64 %indvars.iv.next.i12, 8
-  br i1 %exitcond.not.i13, label %_ZN4lean26lean_ipv6_addr_to_in6_addrEP11lean_objectP8in6_addr.exit, label %32, !llvm.loop !17
+  br i1 %exitcond.not.i13, label %_ZN4lean26lean_ipv6_addr_to_in6_addrEP11lean_objectP8in6_addr.exit, label %32, !llvm.loop !16
 
 _ZN4lean26lean_ipv6_addr_to_in6_addrEP11lean_objectP8in6_addr.exit: ; preds = %_ZN4lean10array_ugetEP11lean_objectm.exit.i11, %_ZN4lean25lean_ipv4_addr_to_in_addrEP11lean_objectP7in_addr.exit
   %storemerge = phi i32 [ 2, %_ZN4lean25lean_ipv4_addr_to_in_addrEP11lean_objectP7in_addr.exit ], [ 10, %_ZN4lean10array_ugetEP11lean_objectm.exit.i11 ]
-  store i32 %storemerge, ptr %1, align 4, !tbaa !18
+  store i32 %storemerge, ptr %1, align 4, !tbaa !17
   ret void
 }
 
@@ -279,7 +279,7 @@ define hidden void @_ZN4lean17lean_ip_addr_ntopEP11lean_objectPcm(ptr noundef re
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #11
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #11
   call void @_ZN4lean31lean_ip_addr_to_in_addr_storageEP11lean_objectPiPNS_15in_addr_storageE(ptr noundef %0, ptr noundef nonnull %4, ptr noundef nonnull %5)
-  %6 = load i32, ptr %4, align 4, !tbaa !18
+  %6 = load i32, ptr %4, align 4, !tbaa !17
   %7 = call i32 @uv_inet_ntop(i32 noundef %6, ptr noundef nonnull %5, ptr noundef %1, i64 noundef %2)
   %.not = icmp eq i32 %7, 0
   br i1 %.not, label %13, label %8, !prof !12
@@ -289,11 +289,11 @@ define hidden void @_ZN4lean17lean_ip_addr_ntopEP11lean_objectPcm(ptr noundef re
   %9 = call ptr @__cxa_allocate_exception(i64 40) #11
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 24
-  store ptr %11, ptr %10, align 8, !tbaa !19
+  store ptr %11, ptr %10, align 8, !tbaa !18
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  store i64 0, ptr %12, align 8, !tbaa !22
-  store i8 0, ptr %11, align 1, !tbaa !16
-  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4lean19unreachable_reachedE, i64 16), ptr %9, align 8, !tbaa !25
+  store i64 0, ptr %12, align 8, !tbaa !21
+  store i8 0, ptr %11, align 1, !tbaa !15
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4lean19unreachable_reachedE, i64 16), ptr %9, align 8, !tbaa !24
   call void @__cxa_throw(ptr nonnull %9, ptr nonnull @_ZTIN4lean19unreachable_reachedE, ptr nonnull @_ZN4lean9throwableD2Ev) #12
   unreachable
 
@@ -325,7 +325,7 @@ define hidden void @_ZN4lean39lean_socket_address_to_sockaddr_storageEP11lean_ob
   %4 = getelementptr i8, ptr %.val16, i64 8
   %.val = load ptr, ptr %4, align 8, !tbaa !8
   %5 = getelementptr i8, ptr %.val16, i64 16
-  %.val18 = load i16, ptr %5, align 2, !tbaa !27
+  %.val18 = load i16, ptr %5, align 2, !tbaa !26
   %6 = getelementptr i8, ptr %0, i64 4
   %.val17 = load i32, ptr %6, align 4
   %7 = icmp ult i32 %.val17, 16777216
@@ -423,22 +423,22 @@ _ZN4lean10array_ugetEP11lean_objectm.exit.i21:    ; preds = %44, %43, %41, %34
   %47 = trunc i16 %rev.i.i to i8
   %48 = shl nuw nsw i64 %indvars.iv.i19, 1
   %49 = getelementptr inbounds nuw [16 x i8], ptr %33, i64 0, i64 %48
-  store i8 %47, ptr %49, align 1, !tbaa !16
+  store i8 %47, ptr %49, align 1, !tbaa !15
   %50 = lshr i16 %rev.i.i, 8
   %51 = trunc nuw i16 %50 to i8
   %52 = or disjoint i64 %48, 1
   %53 = getelementptr inbounds nuw [16 x i8], ptr %33, i64 0, i64 %52
-  store i8 %51, ptr %53, align 1, !tbaa !16
+  store i8 %51, ptr %53, align 1, !tbaa !15
   %indvars.iv.next.i22 = add nuw nsw i64 %indvars.iv.i19, 1
   %exitcond.not.i23 = icmp eq i64 %indvars.iv.next.i22, 8
-  br i1 %exitcond.not.i23, label %_ZN4lean26lean_ipv6_addr_to_in6_addrEP11lean_objectP8in6_addr.exit, label %34, !llvm.loop !17
+  br i1 %exitcond.not.i23, label %_ZN4lean26lean_ipv6_addr_to_in6_addrEP11lean_objectP8in6_addr.exit, label %34, !llvm.loop !16
 
 _ZN4lean26lean_ipv6_addr_to_in6_addrEP11lean_objectP8in6_addr.exit: ; preds = %_ZN4lean10array_ugetEP11lean_objectm.exit.i21, %_ZN4lean25lean_ipv4_addr_to_in_addrEP11lean_objectP7in_addr.exit
   %.sink = phi i16 [ 2, %_ZN4lean25lean_ipv4_addr_to_in_addrEP11lean_objectP7in_addr.exit ], [ 10, %_ZN4lean10array_ugetEP11lean_objectm.exit.i21 ]
-  store i16 %.sink, ptr %1, align 4, !tbaa !27
+  store i16 %.sink, ptr %1, align 4, !tbaa !26
   %rev.i26 = tail call noundef i16 @llvm.bswap.i16(i16 %.val18)
   %54 = getelementptr inbounds nuw i8, ptr %1, i64 2
-  store i16 %rev.i26, ptr %54, align 2, !tbaa !27
+  store i16 %rev.i26, ptr %54, align 2, !tbaa !26
   ret void
 }
 
@@ -455,9 +455,9 @@ define hidden noundef ptr @_ZN4lean25lean_in_addr_to_ipv4_addrEPK7in_addr(ptr no
   %6 = or disjoint i32 %5, -167772160
   store i32 %6, ptr %3, align 4
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store i64 0, ptr %7, align 8, !tbaa !29
+  store i64 0, ptr %7, align 8, !tbaa !28
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store i64 4, ptr %8, align 8, !tbaa !29
+  store i64 4, ptr %8, align 8, !tbaa !28
   %9 = load i32, ptr %0, align 4, !tbaa !3
   %10 = tail call noundef i32 @llvm.bswap.i32(i32 %9)
   br label %12
@@ -478,7 +478,7 @@ define hidden noundef ptr @_ZN4lean25lean_in_addr_to_ipv4_addrEPK7in_addr(ptr no
   %21 = tail call noundef ptr @lean_array_push(ptr noundef nonnull %2, ptr noundef nonnull %20)
   %22 = add nuw nsw i32 %.07, 1
   %exitcond.not = icmp eq i32 %22, 4
-  br i1 %exitcond.not, label %11, label %12, !llvm.loop !30
+  br i1 %exitcond.not, label %11, label %12, !llvm.loop !29
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -491,9 +491,9 @@ define hidden noundef ptr @_ZN4lean26lean_in6_addr_to_ipv6_addrEPK8in6_addr(ptr 
   %6 = or disjoint i32 %5, -167772160
   store i32 %6, ptr %3, align 4
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store i64 0, ptr %7, align 8, !tbaa !29
+  store i64 0, ptr %7, align 8, !tbaa !28
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store i64 8, ptr %8, align 8, !tbaa !29
+  store i64 8, ptr %8, align 8, !tbaa !28
   br label %10
 
 9:                                                ; preds = %10
@@ -502,10 +502,10 @@ define hidden noundef ptr @_ZN4lean26lean_in6_addr_to_ipv6_addrEPK8in6_addr(ptr 
 10:                                               ; preds = %1, %10
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %10 ]
   %11 = getelementptr inbounds nuw [16 x i8], ptr %0, i64 0, i64 %indvars.iv
-  %12 = load i8, ptr %11, align 1, !tbaa !16
+  %12 = load i8, ptr %11, align 1, !tbaa !15
   %13 = or disjoint i64 %indvars.iv, 1
   %14 = getelementptr inbounds nuw [16 x i8], ptr %0, i64 0, i64 %13
-  %15 = load i8, ptr %14, align 1, !tbaa !16
+  %15 = load i8, ptr %14, align 1, !tbaa !15
   %16 = zext i8 %15 to i16
   %17 = shl nuw i16 %16, 8
   %18 = zext i8 %12 to i16
@@ -518,7 +518,7 @@ define hidden noundef ptr @_ZN4lean26lean_in6_addr_to_ipv6_addrEPK8in6_addr(ptr 
   %24 = tail call noundef ptr @lean_array_push(ptr noundef nonnull %2, ptr noundef nonnull %23)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
   %25 = icmp samesign ult i64 %indvars.iv, 14
-  br i1 %25, label %10, label %9, !llvm.loop !31
+  br i1 %25, label %10, label %9, !llvm.loop !30
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -531,9 +531,9 @@ define hidden noundef ptr @_ZN4lean26lean_phys_addr_to_mac_addrEPc(ptr noundef r
   %6 = or disjoint i32 %5, -167772160
   store i32 %6, ptr %3, align 4
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store i64 0, ptr %7, align 8, !tbaa !29
+  store i64 0, ptr %7, align 8, !tbaa !28
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store i64 6, ptr %8, align 8, !tbaa !29
+  store i64 6, ptr %8, align 8, !tbaa !28
   br label %10
 
 9:                                                ; preds = %10
@@ -542,7 +542,7 @@ define hidden noundef ptr @_ZN4lean26lean_phys_addr_to_mac_addrEPc(ptr noundef r
 10:                                               ; preds = %1, %10
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %10 ]
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv
-  %12 = load i8, ptr %11, align 1, !tbaa !16
+  %12 = load i8, ptr %11, align 1, !tbaa !15
   %13 = zext i8 %12 to i64
   %14 = shl nuw nsw i64 %13, 1
   %15 = or disjoint i64 %14, 1
@@ -550,7 +550,7 @@ define hidden noundef ptr @_ZN4lean26lean_phys_addr_to_mac_addrEPc(ptr noundef r
   %17 = tail call noundef ptr @lean_array_push(ptr noundef nonnull %2, ptr noundef nonnull %16)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 6
-  br i1 %exitcond.not, label %9, label %10, !llvm.loop !32
+  br i1 %exitcond.not, label %9, label %10, !llvm.loop !31
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -567,12 +567,12 @@ define hidden noalias noundef nonnull ptr @_ZN4lean21lean_mk_socketaddressEP11le
 _ZL15lean_alloc_ctorjjj.exit:                     ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store i64 0, ptr %7, align 8, !tbaa !29
+  store i64 0, ptr %7, align 8, !tbaa !28
   store i32 1, ptr %3, align 4, !tbaa !10
   store i32 65560, ptr %6, align 4
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %0, ptr %8, align 8, !tbaa !8
-  store i16 %1, ptr %7, align 2, !tbaa !27
+  store i16 %1, ptr %7, align 2, !tbaa !26
   ret ptr %3
 }
 
@@ -592,9 +592,9 @@ define hidden noalias noundef nonnull ptr @_ZN4lean31lean_in_addr_storage_to_ip_
   %8 = or disjoint i32 %7, -167772160
   store i32 %8, ptr %5, align 4
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store i64 0, ptr %9, align 8, !tbaa !29
+  store i64 0, ptr %9, align 8, !tbaa !28
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store i64 4, ptr %10, align 8, !tbaa !29
+  store i64 4, ptr %10, align 8, !tbaa !28
   %11 = load i32, ptr %1, align 4, !tbaa !3
   %12 = tail call noundef i32 @llvm.bswap.i32(i32 %11)
   br label %13
@@ -612,7 +612,7 @@ define hidden noalias noundef nonnull ptr @_ZN4lean31lean_in_addr_storage_to_ip_
   %22 = tail call noundef ptr @lean_array_push(ptr noundef nonnull %4, ptr noundef nonnull %21)
   %23 = add nuw nsw i32 %.07.i, 1
   %exitcond.not.i = icmp eq i32 %23, 4
-  br i1 %exitcond.not.i, label %_ZN4lean25lean_in_addr_to_ipv4_addrEPK7in_addr.exit, label %13, !llvm.loop !30
+  br i1 %exitcond.not.i, label %_ZN4lean25lean_in_addr_to_ipv4_addrEPK7in_addr.exit, label %13, !llvm.loop !29
 
 24:                                               ; preds = %2
   %25 = tail call ptr @lean_alloc_object(i64 noundef 88)
@@ -623,18 +623,18 @@ define hidden noalias noundef nonnull ptr @_ZN4lean31lean_in_addr_storage_to_ip_
   %29 = or disjoint i32 %28, -167772160
   store i32 %29, ptr %26, align 4
   %30 = getelementptr inbounds nuw i8, ptr %25, i64 8
-  store i64 0, ptr %30, align 8, !tbaa !29
+  store i64 0, ptr %30, align 8, !tbaa !28
   %31 = getelementptr inbounds nuw i8, ptr %25, i64 16
-  store i64 8, ptr %31, align 8, !tbaa !29
+  store i64 8, ptr %31, align 8, !tbaa !28
   br label %32
 
 32:                                               ; preds = %32, %24
   %indvars.iv.i = phi i64 [ 0, %24 ], [ %indvars.iv.next.i, %32 ]
   %33 = getelementptr inbounds nuw [16 x i8], ptr %1, i64 0, i64 %indvars.iv.i
-  %34 = load i8, ptr %33, align 1, !tbaa !16
+  %34 = load i8, ptr %33, align 1, !tbaa !15
   %35 = or disjoint i64 %indvars.iv.i, 1
   %36 = getelementptr inbounds nuw [16 x i8], ptr %1, i64 0, i64 %35
-  %37 = load i8, ptr %36, align 1, !tbaa !16
+  %37 = load i8, ptr %36, align 1, !tbaa !15
   %38 = zext i8 %37 to i16
   %39 = shl nuw i16 %38, 8
   %40 = zext i8 %34 to i16
@@ -647,17 +647,17 @@ define hidden noalias noundef nonnull ptr @_ZN4lean31lean_in_addr_storage_to_ip_
   %46 = tail call noundef ptr @lean_array_push(ptr noundef nonnull %25, ptr noundef nonnull %45)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
   %47 = icmp samesign ult i64 %indvars.iv.i, 14
-  br i1 %47, label %32, label %_ZN4lean25lean_in_addr_to_ipv4_addrEPK7in_addr.exit, !llvm.loop !31
+  br i1 %47, label %32, label %_ZN4lean25lean_in_addr_to_ipv4_addrEPK7in_addr.exit, !llvm.loop !30
 
 48:                                               ; preds = %2
   %49 = tail call ptr @__cxa_allocate_exception(i64 40) #11
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 8
   %51 = getelementptr inbounds nuw i8, ptr %49, i64 24
-  store ptr %51, ptr %50, align 8, !tbaa !19
+  store ptr %51, ptr %50, align 8, !tbaa !18
   %52 = getelementptr inbounds nuw i8, ptr %49, i64 16
-  store i64 0, ptr %52, align 8, !tbaa !22
-  store i8 0, ptr %51, align 1, !tbaa !16
-  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4lean19unreachable_reachedE, i64 16), ptr %49, align 8, !tbaa !25
+  store i64 0, ptr %52, align 8, !tbaa !21
+  store i8 0, ptr %51, align 1, !tbaa !15
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4lean19unreachable_reachedE, i64 16), ptr %49, align 8, !tbaa !24
   tail call void @__cxa_throw(ptr nonnull %49, ptr nonnull @_ZTIN4lean19unreachable_reachedE, ptr nonnull @_ZN4lean9throwableD2Ev) #12
   unreachable
 
@@ -685,7 +685,7 @@ _ZL15lean_alloc_ctorjjj.exit:                     ; preds = %_ZN4lean25lean_in_a
 
 ; Function Attrs: mustprogress uwtable
 define hidden noalias noundef nonnull ptr @_ZN4lean30lean_sockaddr_to_socketaddressEPK8sockaddr(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
-  %2 = load i16, ptr %0, align 2, !tbaa !33
+  %2 = load i16, ptr %0, align 2, !tbaa !32
   switch i16 %2, label %70 [
     i16 2, label %.split21
     i16 10, label %.split
@@ -701,9 +701,9 @@ define hidden noalias noundef nonnull ptr @_ZN4lean30lean_sockaddr_to_socketaddr
   %8 = or disjoint i32 %7, -167772160
   store i32 %8, ptr %5, align 4
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store i64 0, ptr %9, align 8, !tbaa !29
+  store i64 0, ptr %9, align 8, !tbaa !28
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store i64 4, ptr %10, align 8, !tbaa !29
+  store i64 4, ptr %10, align 8, !tbaa !28
   %11 = load i32, ptr %3, align 4, !tbaa !3
   %12 = tail call noundef i32 @llvm.bswap.i32(i32 %11)
   br label %13
@@ -721,11 +721,11 @@ define hidden noalias noundef nonnull ptr @_ZN4lean30lean_sockaddr_to_socketaddr
   %22 = tail call noundef ptr @lean_array_push(ptr noundef nonnull %4, ptr noundef nonnull %21)
   %23 = add nuw nsw i32 %.07.i, 1
   %exitcond.not.i = icmp eq i32 %23, 4
-  br i1 %exitcond.not.i, label %_ZN4lean25lean_in_addr_to_ipv4_addrEPK7in_addr.exit, label %13, !llvm.loop !30
+  br i1 %exitcond.not.i, label %_ZN4lean25lean_in_addr_to_ipv4_addrEPK7in_addr.exit, label %13, !llvm.loop !29
 
 _ZN4lean25lean_in_addr_to_ipv4_addrEPK7in_addr.exit: ; preds = %13
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  %25 = load i16, ptr %24, align 2, !tbaa !35
+  %25 = load i16, ptr %24, align 2, !tbaa !34
   tail call void @lean_inc_heartbeat()
   %26 = tail call noalias ptr @mi_malloc_small(i64 noundef 24) #11
   %27 = icmp eq ptr %26, null
@@ -739,12 +739,12 @@ _ZN4lean21lean_mk_socketaddressEP11lean_objectt.exit: ; preds = %_ZN4lean25lean_
   %rev.i = tail call noundef i16 @llvm.bswap.i16(i16 %25)
   %29 = getelementptr inbounds nuw i8, ptr %26, i64 4
   %30 = getelementptr inbounds nuw i8, ptr %26, i64 16
-  store i64 0, ptr %30, align 8, !tbaa !29
+  store i64 0, ptr %30, align 8, !tbaa !28
   store i32 1, ptr %26, align 4, !tbaa !10
   store i32 65560, ptr %29, align 4
   %31 = getelementptr inbounds nuw i8, ptr %26, i64 8
   store ptr %4, ptr %31, align 8, !tbaa !8
-  store i16 %rev.i, ptr %30, align 2, !tbaa !27
+  store i16 %rev.i, ptr %30, align 2, !tbaa !26
   tail call void @lean_inc_heartbeat()
   %32 = tail call noalias ptr @mi_malloc_small(i64 noundef 16) #11
   %33 = icmp eq ptr %32, null
@@ -764,18 +764,18 @@ _ZN4lean21lean_mk_socketaddressEP11lean_objectt.exit: ; preds = %_ZN4lean25lean_
   %40 = or disjoint i32 %39, -167772160
   store i32 %40, ptr %37, align 4
   %41 = getelementptr inbounds nuw i8, ptr %36, i64 8
-  store i64 0, ptr %41, align 8, !tbaa !29
+  store i64 0, ptr %41, align 8, !tbaa !28
   %42 = getelementptr inbounds nuw i8, ptr %36, i64 16
-  store i64 8, ptr %42, align 8, !tbaa !29
+  store i64 8, ptr %42, align 8, !tbaa !28
   br label %43
 
 43:                                               ; preds = %43, %.split
   %indvars.iv.i = phi i64 [ 0, %.split ], [ %indvars.iv.next.i, %43 ]
   %44 = getelementptr inbounds nuw [16 x i8], ptr %35, i64 0, i64 %indvars.iv.i
-  %45 = load i8, ptr %44, align 1, !tbaa !16
+  %45 = load i8, ptr %44, align 1, !tbaa !15
   %46 = or disjoint i64 %indvars.iv.i, 1
   %47 = getelementptr inbounds nuw [16 x i8], ptr %35, i64 0, i64 %46
-  %48 = load i8, ptr %47, align 1, !tbaa !16
+  %48 = load i8, ptr %47, align 1, !tbaa !15
   %49 = zext i8 %48 to i16
   %50 = shl nuw i16 %49, 8
   %51 = zext i8 %45 to i16
@@ -788,11 +788,11 @@ _ZN4lean21lean_mk_socketaddressEP11lean_objectt.exit: ; preds = %_ZN4lean25lean_
   %57 = tail call noundef ptr @lean_array_push(ptr noundef nonnull %36, ptr noundef nonnull %56)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
   %58 = icmp samesign ult i64 %indvars.iv.i, 14
-  br i1 %58, label %43, label %_ZN4lean26lean_in6_addr_to_ipv6_addrEPK8in6_addr.exit, !llvm.loop !31
+  br i1 %58, label %43, label %_ZN4lean26lean_in6_addr_to_ipv6_addrEPK8in6_addr.exit, !llvm.loop !30
 
 _ZN4lean26lean_in6_addr_to_ipv6_addrEPK8in6_addr.exit: ; preds = %43
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  %60 = load i16, ptr %59, align 2, !tbaa !37
+  %60 = load i16, ptr %59, align 2, !tbaa !36
   tail call void @lean_inc_heartbeat()
   %61 = tail call noalias ptr @mi_malloc_small(i64 noundef 24) #11
   %62 = icmp eq ptr %61, null
@@ -806,12 +806,12 @@ _ZN4lean21lean_mk_socketaddressEP11lean_objectt.exit24: ; preds = %_ZN4lean26lea
   %rev.i23 = tail call noundef i16 @llvm.bswap.i16(i16 %60)
   %64 = getelementptr inbounds nuw i8, ptr %61, i64 4
   %65 = getelementptr inbounds nuw i8, ptr %61, i64 16
-  store i64 0, ptr %65, align 8, !tbaa !29
+  store i64 0, ptr %65, align 8, !tbaa !28
   store i32 1, ptr %61, align 4, !tbaa !10
   store i32 65560, ptr %64, align 4
   %66 = getelementptr inbounds nuw i8, ptr %61, i64 8
   store ptr %36, ptr %66, align 8, !tbaa !8
-  store i16 %rev.i23, ptr %65, align 2, !tbaa !27
+  store i16 %rev.i23, ptr %65, align 2, !tbaa !26
   tail call void @lean_inc_heartbeat()
   %67 = tail call noalias ptr @mi_malloc_small(i64 noundef 16) #11
   %68 = icmp eq ptr %67, null
@@ -825,11 +825,11 @@ _ZN4lean21lean_mk_socketaddressEP11lean_objectt.exit24: ; preds = %_ZN4lean26lea
   %71 = tail call ptr @__cxa_allocate_exception(i64 40) #11
   %72 = getelementptr inbounds nuw i8, ptr %71, i64 8
   %73 = getelementptr inbounds nuw i8, ptr %71, i64 24
-  store ptr %73, ptr %72, align 8, !tbaa !19
+  store ptr %73, ptr %72, align 8, !tbaa !18
   %74 = getelementptr inbounds nuw i8, ptr %71, i64 16
-  store i64 0, ptr %74, align 8, !tbaa !22
-  store i8 0, ptr %73, align 1, !tbaa !16
-  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4lean19unreachable_reachedE, i64 16), ptr %71, align 8, !tbaa !25
+  store i64 0, ptr %74, align 8, !tbaa !21
+  store i8 0, ptr %73, align 1, !tbaa !15
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4lean19unreachable_reachedE, i64 16), ptr %71, align 8, !tbaa !24
   tail call void @__cxa_throw(ptr nonnull %71, ptr nonnull @_ZTIN4lean19unreachable_reachedE, ptr nonnull @_ZN4lean9throwableD2Ev) #12
   unreachable
 
@@ -863,9 +863,9 @@ define ptr @lean_uv_pton_v4(ptr noundef %0) local_unnamed_addr #0 {
   %11 = or disjoint i32 %10, -167772160
   store i32 %11, ptr %8, align 4
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store i64 0, ptr %12, align 8, !tbaa !29
+  store i64 0, ptr %12, align 8, !tbaa !28
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  store i64 4, ptr %13, align 8, !tbaa !29
+  store i64 4, ptr %13, align 8, !tbaa !28
   %14 = load i32, ptr %2, align 4, !tbaa !3
   %15 = call noundef i32 @llvm.bswap.i32(i32 %14)
   br label %16
@@ -883,7 +883,7 @@ define ptr @lean_uv_pton_v4(ptr noundef %0) local_unnamed_addr #0 {
   %25 = call noundef ptr @lean_array_push(ptr noundef nonnull %7, ptr noundef nonnull %24)
   %26 = add nuw nsw i32 %.07.i, 1
   %exitcond.not.i = icmp eq i32 %26, 4
-  br i1 %exitcond.not.i, label %_ZN4lean25lean_in_addr_to_ipv4_addrEPK7in_addr.exit, label %16, !llvm.loop !30
+  br i1 %exitcond.not.i, label %_ZN4lean25lean_in_addr_to_ipv4_addrEPK7in_addr.exit, label %16, !llvm.loop !29
 
 _ZN4lean25lean_in_addr_to_ipv4_addrEPK7in_addr.exit: ; preds = %16
   call void @lean_inc_heartbeat()
@@ -973,11 +973,11 @@ _ZN4lean25lean_ipv4_addr_to_in_addrEP11lean_objectP7in_addr.exit: ; preds = %_ZN
   %27 = call ptr @__cxa_allocate_exception(i64 40) #11
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %29 = getelementptr inbounds nuw i8, ptr %27, i64 24
-  store ptr %29, ptr %28, align 8, !tbaa !19
+  store ptr %29, ptr %28, align 8, !tbaa !18
   %30 = getelementptr inbounds nuw i8, ptr %27, i64 16
-  store i64 0, ptr %30, align 8, !tbaa !22
-  store i8 0, ptr %29, align 1, !tbaa !16
-  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4lean19unreachable_reachedE, i64 16), ptr %27, align 8, !tbaa !25
+  store i64 0, ptr %30, align 8, !tbaa !21
+  store i8 0, ptr %29, align 1, !tbaa !15
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4lean19unreachable_reachedE, i64 16), ptr %27, align 8, !tbaa !24
   call void @__cxa_throw(ptr nonnull %27, ptr nonnull @_ZTIN4lean19unreachable_reachedE, ptr nonnull @_ZN4lean9throwableD2Ev) #12
   unreachable
 
@@ -1008,18 +1008,18 @@ define ptr @lean_uv_pton_v6(ptr noundef %0) local_unnamed_addr #0 {
   %11 = or disjoint i32 %10, -167772160
   store i32 %11, ptr %8, align 4
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store i64 0, ptr %12, align 8, !tbaa !29
+  store i64 0, ptr %12, align 8, !tbaa !28
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  store i64 8, ptr %13, align 8, !tbaa !29
+  store i64 8, ptr %13, align 8, !tbaa !28
   br label %14
 
 14:                                               ; preds = %14, %6
   %indvars.iv.i = phi i64 [ 0, %6 ], [ %indvars.iv.next.i, %14 ]
   %15 = getelementptr inbounds nuw [16 x i8], ptr %2, i64 0, i64 %indvars.iv.i
-  %16 = load i8, ptr %15, align 2, !tbaa !16
+  %16 = load i8, ptr %15, align 2, !tbaa !15
   %17 = or disjoint i64 %indvars.iv.i, 1
   %18 = getelementptr inbounds nuw [16 x i8], ptr %2, i64 0, i64 %17
-  %19 = load i8, ptr %18, align 1, !tbaa !16
+  %19 = load i8, ptr %18, align 1, !tbaa !15
   %20 = zext i8 %19 to i16
   %21 = shl nuw i16 %20, 8
   %22 = zext i8 %16 to i16
@@ -1032,7 +1032,7 @@ define ptr @lean_uv_pton_v6(ptr noundef %0) local_unnamed_addr #0 {
   %28 = call noundef ptr @lean_array_push(ptr noundef nonnull %7, ptr noundef nonnull %27)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
   %29 = icmp samesign ult i64 %indvars.iv.i, 14
-  br i1 %29, label %14, label %_ZN4lean26lean_in6_addr_to_ipv6_addrEPK8in6_addr.exit, !llvm.loop !31
+  br i1 %29, label %14, label %_ZN4lean26lean_in6_addr_to_ipv6_addrEPK8in6_addr.exit, !llvm.loop !30
 
 _ZN4lean26lean_in6_addr_to_ipv6_addrEPK8in6_addr.exit: ; preds = %14
   call void @lean_inc_heartbeat()
@@ -1100,15 +1100,15 @@ _ZN4lean10array_ugetEP11lean_objectm.exit.i:      ; preds = %15, %14, %12, %5
   %18 = trunc i16 %rev.i.i to i8
   %19 = shl nuw nsw i64 %indvars.iv.i, 1
   %20 = getelementptr inbounds nuw [16 x i8], ptr %2, i64 0, i64 %19
-  store i8 %18, ptr %20, align 2, !tbaa !16
+  store i8 %18, ptr %20, align 2, !tbaa !15
   %21 = lshr i16 %rev.i.i, 8
   %22 = trunc nuw i16 %21 to i8
   %23 = or disjoint i64 %19, 1
   %24 = getelementptr inbounds nuw [16 x i8], ptr %2, i64 0, i64 %23
-  store i8 %22, ptr %24, align 1, !tbaa !16
+  store i8 %22, ptr %24, align 1, !tbaa !15
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %_ZN4lean26lean_ipv6_addr_to_in6_addrEP11lean_objectP8in6_addr.exit, label %5, !llvm.loop !17
+  br i1 %exitcond.not.i, label %_ZN4lean26lean_ipv6_addr_to_in6_addrEP11lean_objectP8in6_addr.exit, label %5, !llvm.loop !16
 
 _ZN4lean26lean_ipv6_addr_to_in6_addrEP11lean_objectP8in6_addr.exit: ; preds = %_ZN4lean10array_ugetEP11lean_objectm.exit.i
   call void @llvm.lifetime.start.p0(i64 46, ptr nonnull %3) #11
@@ -1121,11 +1121,11 @@ _ZN4lean26lean_ipv6_addr_to_in6_addrEP11lean_objectP8in6_addr.exit: ; preds = %_
   %27 = call ptr @__cxa_allocate_exception(i64 40) #11
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %29 = getelementptr inbounds nuw i8, ptr %27, i64 24
-  store ptr %29, ptr %28, align 8, !tbaa !19
+  store ptr %29, ptr %28, align 8, !tbaa !18
   %30 = getelementptr inbounds nuw i8, ptr %27, i64 16
-  store i64 0, ptr %30, align 8, !tbaa !22
-  store i8 0, ptr %29, align 1, !tbaa !16
-  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4lean19unreachable_reachedE, i64 16), ptr %27, align 8, !tbaa !25
+  store i64 0, ptr %30, align 8, !tbaa !21
+  store i8 0, ptr %29, align 1, !tbaa !15
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4lean19unreachable_reachedE, i64 16), ptr %27, align 8, !tbaa !24
   call void @__cxa_throw(ptr nonnull %27, ptr nonnull @_ZTIN4lean19unreachable_reachedE, ptr nonnull @_ZN4lean9throwableD2Ev) #12
   unreachable
 
@@ -1160,7 +1160,7 @@ define noalias noundef nonnull ptr @lean_uv_interface_addresses(ptr noundef read
   unreachable
 
 12:                                               ; preds = %1
-  %13 = load i32, ptr %3, align 4, !tbaa !18
+  %13 = load i32, ptr %3, align 4, !tbaa !17
   %14 = sext i32 %13 to i64
   %15 = shl nsw i64 %14, 3
   %16 = add nsw i64 %15, 24
@@ -1172,10 +1172,10 @@ define noalias noundef nonnull ptr @lean_uv_interface_addresses(ptr noundef read
   %21 = or disjoint i32 %20, -167772160
   store i32 %21, ptr %18, align 4
   %22 = getelementptr inbounds nuw i8, ptr %17, i64 8
-  store i64 0, ptr %22, align 8, !tbaa !29
+  store i64 0, ptr %22, align 8, !tbaa !28
   %23 = getelementptr inbounds nuw i8, ptr %17, i64 16
-  store i64 %14, ptr %23, align 8, !tbaa !29
-  %24 = load i32, ptr %3, align 4, !tbaa !18
+  store i64 %14, ptr %23, align 8, !tbaa !28
+  %24 = load i32, ptr %3, align 4, !tbaa !17
   %25 = icmp sgt i32 %24, 0
   br i1 %25, label %.lr.ph, label %._crit_edge
 
@@ -1192,7 +1192,7 @@ define noalias noundef nonnull ptr @lean_uv_interface_addresses(ptr noundef read
 ._crit_edge:                                      ; preds = %75, %12
   %.020.lcssa = phi ptr [ %17, %12 ], [ %.1, %75 ]
   %.lcssa = phi i32 [ %24, %12 ], [ %76, %75 ]
-  %33 = load ptr, ptr %2, align 8, !tbaa !40
+  %33 = load ptr, ptr %2, align 8, !tbaa !39
   call void @uv_free_interface_addresses(ptr noundef %33, i32 noundef %.lcssa)
   call void @lean_inc_heartbeat()
   %34 = call noalias ptr @mi_malloc_small(i64 noundef 24) #11
@@ -1208,10 +1208,10 @@ define noalias noundef nonnull ptr @lean_uv_interface_addresses(ptr noundef read
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %75 ]
   %.02025 = phi ptr [ %17, %.lr.ph ], [ %.1, %75 ]
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %4) #11
-  %39 = load ptr, ptr %2, align 8, !tbaa !40
+  %39 = load ptr, ptr %2, align 8, !tbaa !39
   %40 = getelementptr inbounds nuw %struct.uv_interface_address_s, ptr %39, i64 %indvars.iv
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %4, ptr noundef nonnull align 8 dereferenceable(80) %40, i64 80, i1 false), !tbaa.struct !42
-  %41 = load i16, ptr %26, align 4, !tbaa !16
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %4, ptr noundef nonnull align 8 dereferenceable(80) %40, i64 80, i1 false), !tbaa.struct !41
+  %41 = load i16, ptr %26, align 4, !tbaa !15
   switch i16 %41, label %75 [
     i16 2, label %43
     i16 10, label %42
@@ -1235,10 +1235,10 @@ define noalias noundef nonnull ptr @lean_uv_interface_addresses(ptr noundef read
 _ZL15lean_alloc_ctorjjj.exit:                     ; preds = %43
   %47 = getelementptr inbounds nuw i8, ptr %44, i64 4
   %48 = getelementptr inbounds nuw i8, ptr %44, i64 40
-  store i64 0, ptr %48, align 8, !tbaa !29
+  store i64 0, ptr %48, align 8, !tbaa !28
   store i32 1, ptr %44, align 4, !tbaa !10
   store i32 262192, ptr %47, align 4
-  %49 = load ptr, ptr %4, align 8, !tbaa !44
+  %49 = load ptr, ptr %4, align 8, !tbaa !43
   %50 = call ptr @lean_mk_string(ptr noundef %49)
   %51 = getelementptr inbounds nuw i8, ptr %44, i64 8
   store ptr %50, ptr %51, align 8, !tbaa !8
@@ -1250,15 +1250,15 @@ _ZL15lean_alloc_ctorjjj.exit:                     ; preds = %43
   %56 = or disjoint i32 %55, -167772160
   store i32 %56, ptr %53, align 4
   %57 = getelementptr inbounds nuw i8, ptr %52, i64 8
-  store i64 0, ptr %57, align 8, !tbaa !29
+  store i64 0, ptr %57, align 8, !tbaa !28
   %58 = getelementptr inbounds nuw i8, ptr %52, i64 16
-  store i64 6, ptr %58, align 8, !tbaa !29
+  store i64 6, ptr %58, align 8, !tbaa !28
   br label %59
 
 59:                                               ; preds = %59, %_ZL15lean_alloc_ctorjjj.exit
   %indvars.iv.i = phi i64 [ 0, %_ZL15lean_alloc_ctorjjj.exit ], [ %indvars.iv.next.i, %59 ]
   %60 = getelementptr inbounds nuw i8, ptr %31, i64 %indvars.iv.i
-  %61 = load i8, ptr %60, align 1, !tbaa !16
+  %61 = load i8, ptr %60, align 1, !tbaa !15
   %62 = zext i8 %61 to i64
   %63 = shl nuw nsw i64 %62, 1
   %64 = or disjoint i64 %63, 1
@@ -1266,14 +1266,14 @@ _ZL15lean_alloc_ctorjjj.exit:                     ; preds = %43
   %66 = call noundef ptr @lean_array_push(ptr noundef nonnull %52, ptr noundef nonnull %65)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 6
-  br i1 %exitcond.not.i, label %_ZN4lean26lean_phys_addr_to_mac_addrEPc.exit, label %59, !llvm.loop !32
+  br i1 %exitcond.not.i, label %_ZN4lean26lean_phys_addr_to_mac_addrEPc.exit, label %59, !llvm.loop !31
 
 _ZN4lean26lean_phys_addr_to_mac_addrEPc.exit:     ; preds = %59
   %67 = getelementptr inbounds nuw i8, ptr %44, i64 16
   store ptr %52, ptr %67, align 8, !tbaa !8
-  %68 = load i32, ptr %32, align 8, !tbaa !46
+  %68 = load i32, ptr %32, align 8, !tbaa !45
   %69 = trunc i32 %68 to i8
-  store i8 %69, ptr %48, align 1, !tbaa !16
+  store i8 %69, ptr %48, align 1, !tbaa !15
   %70 = call noundef ptr @_ZN4lean31lean_in_addr_storage_to_ip_addrEsPNS_15in_addr_storageE(i16 noundef signext %41, ptr noundef nonnull %.018)
   %71 = getelementptr inbounds nuw i8, ptr %44, i64 24
   store ptr %70, ptr %71, align 8, !tbaa !8
@@ -1281,7 +1281,7 @@ _ZN4lean26lean_phys_addr_to_mac_addrEPc.exit:     ; preds = %59
   %73 = getelementptr inbounds nuw i8, ptr %44, i64 32
   store ptr %72, ptr %73, align 8, !tbaa !8
   %74 = call ptr @lean_array_push(ptr noundef %.02025, ptr noundef nonnull %44)
-  %.pre = load i32, ptr %3, align 4, !tbaa !18
+  %.pre = load i32, ptr %3, align 4, !tbaa !17
   br label %75
 
 75:                                               ; preds = %37, %_ZN4lean26lean_phys_addr_to_mac_addrEPc.exit
@@ -1291,7 +1291,7 @@ _ZN4lean26lean_phys_addr_to_mac_addrEPc.exit:     ; preds = %59
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %77 = sext i32 %76 to i64
   %78 = icmp slt i64 %indvars.iv.next, %77
-  br i1 %78, label %37, label %._crit_edge, !llvm.loop !47
+  br i1 %78, label %37, label %._crit_edge, !llvm.loop !46
 
 _ZL23lean_io_result_mk_errorP11lean_object.exit:  ; preds = %._crit_edge, %6
   %.sink35 = phi ptr [ %9, %6 ], [ %34, %._crit_edge ]
@@ -1383,38 +1383,37 @@ attributes #13 = { builtin nounwind }
 !10 = !{!11, !5, i64 0}
 !11 = !{!"_ZTS11lean_object", !5, i64 0, !5, i64 4, !5, i64 6, !5, i64 7}
 !12 = !{!"branch_weights", !"expected", i32 2000, i32 1}
-!13 = distinct !{!13, !14, !15}
+!13 = distinct !{!13, !14}
 !14 = !{!"llvm.loop.mustprogress"}
-!15 = !{!"llvm.loop.estimated_trip_count"}
-!16 = !{!6, !6, i64 0}
-!17 = distinct !{!17, !14, !15}
-!18 = !{!5, !5, i64 0}
-!19 = !{!20, !21, i64 0}
-!20 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderE", !21, i64 0}
-!21 = !{!"p1 omnipotent char", !9, i64 0}
-!22 = !{!23, !24, i64 8}
-!23 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE", !20, i64 0, !24, i64 8, !6, i64 16}
-!24 = !{!"long", !6, i64 0}
-!25 = !{!26, !26, i64 0}
-!26 = !{!"vtable pointer", !7, i64 0}
-!27 = !{!28, !28, i64 0}
-!28 = !{!"short", !6, i64 0}
-!29 = !{!24, !24, i64 0}
-!30 = distinct !{!30, !14, !15}
-!31 = distinct !{!31, !14, !15}
-!32 = distinct !{!32, !14, !15}
-!33 = !{!34, !28, i64 0}
-!34 = !{!"_ZTS8sockaddr", !28, i64 0, !6, i64 2}
-!35 = !{!36, !28, i64 2}
-!36 = !{!"_ZTS11sockaddr_in", !28, i64 0, !28, i64 2, !4, i64 4, !6, i64 8}
-!37 = !{!38, !28, i64 2}
-!38 = !{!"_ZTS12sockaddr_in6", !28, i64 0, !28, i64 2, !5, i64 4, !39, i64 8, !5, i64 24}
-!39 = !{!"_ZTS8in6_addr", !6, i64 0}
-!40 = !{!41, !41, i64 0}
-!41 = !{!"p1 _ZTS22uv_interface_address_s", !9, i64 0}
-!42 = !{i64 0, i64 8, !43, i64 8, i64 6, !16, i64 16, i64 4, !18, i64 20, i64 28, !16, i64 48, i64 28, !16}
-!43 = !{!21, !21, i64 0}
-!44 = !{!45, !21, i64 0}
-!45 = !{!"_ZTS22uv_interface_address_s", !21, i64 0, !6, i64 8, !5, i64 16, !6, i64 20, !6, i64 48}
-!46 = !{!45, !5, i64 16}
-!47 = distinct !{!47, !14, !15}
+!15 = !{!6, !6, i64 0}
+!16 = distinct !{!16, !14}
+!17 = !{!5, !5, i64 0}
+!18 = !{!19, !20, i64 0}
+!19 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderE", !20, i64 0}
+!20 = !{!"p1 omnipotent char", !9, i64 0}
+!21 = !{!22, !23, i64 8}
+!22 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE", !19, i64 0, !23, i64 8, !6, i64 16}
+!23 = !{!"long", !6, i64 0}
+!24 = !{!25, !25, i64 0}
+!25 = !{!"vtable pointer", !7, i64 0}
+!26 = !{!27, !27, i64 0}
+!27 = !{!"short", !6, i64 0}
+!28 = !{!23, !23, i64 0}
+!29 = distinct !{!29, !14}
+!30 = distinct !{!30, !14}
+!31 = distinct !{!31, !14}
+!32 = !{!33, !27, i64 0}
+!33 = !{!"_ZTS8sockaddr", !27, i64 0, !6, i64 2}
+!34 = !{!35, !27, i64 2}
+!35 = !{!"_ZTS11sockaddr_in", !27, i64 0, !27, i64 2, !4, i64 4, !6, i64 8}
+!36 = !{!37, !27, i64 2}
+!37 = !{!"_ZTS12sockaddr_in6", !27, i64 0, !27, i64 2, !5, i64 4, !38, i64 8, !5, i64 24}
+!38 = !{!"_ZTS8in6_addr", !6, i64 0}
+!39 = !{!40, !40, i64 0}
+!40 = !{!"p1 _ZTS22uv_interface_address_s", !9, i64 0}
+!41 = !{i64 0, i64 8, !42, i64 8, i64 6, !15, i64 16, i64 4, !17, i64 20, i64 28, !15, i64 48, i64 28, !15}
+!42 = !{!20, !20, i64 0}
+!43 = !{!44, !20, i64 0}
+!44 = !{!"_ZTS22uv_interface_address_s", !20, i64 0, !6, i64 8, !5, i64 16, !6, i64 20, !6, i64 48}
+!45 = !{!44, !5, i64 16}
+!46 = distinct !{!46, !14}

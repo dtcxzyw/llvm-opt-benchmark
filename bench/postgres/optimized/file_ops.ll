@@ -638,7 +638,7 @@ sub_0:                                            ; preds = %sub_0.lr.ph, %67
   %24 = getelementptr inbounds nuw i8, ptr %21, i64 20
   %25 = load i8, ptr %24, align 1
   %26 = icmp eq i8 %25, 0
-  br i1 %26, label %67, label %sub_135, !llvm.loop !9
+  br i1 %26, label %67, label %sub_135, !llvm.loop !8
 
 sub_135:                                          ; preds = %.tail
   %27 = getelementptr inbounds nuw i8, ptr %21, i64 20
@@ -650,7 +650,7 @@ sub_135:                                          ; preds = %.tail
   %29 = getelementptr inbounds nuw i8, ptr %21, i64 21
   %30 = load i8, ptr %29, align 1
   %31 = icmp eq i8 %30, 0
-  br i1 %31, label %67, label %.tail33.thread, !llvm.loop !9
+  br i1 %31, label %67, label %.tail33.thread, !llvm.loop !8
 
 .tail33.thread:                                   ; preds = %sub_0, %sub_135, %.tail33
   %32 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %6, i64 noundef 2048, ptr noundef nonnull @.str, ptr noundef nonnull %4, ptr noundef nonnull %22) #11
@@ -752,7 +752,7 @@ sub_135:                                          ; preds = %.tail
   store i32 0, ptr %16, align 4
   %68 = call ptr @readdir(ptr noundef nonnull %14) #11
   %.not29 = icmp eq ptr %68, null
-  br i1 %.not29, label %._crit_edge, label %sub_0, !llvm.loop !10
+  br i1 %.not29, label %._crit_edge, label %sub_0
 
 ._crit_edge:                                      ; preds = %67, %.preheader
   %69 = load i32, ptr %16, align 4
@@ -828,8 +828,6 @@ attributes #13 = { nounwind willreturn memory(none) }
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i8 0, i8 2}
 !5 = !{}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !8}
+!8 = distinct !{!8, !7}

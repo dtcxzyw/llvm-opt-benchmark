@@ -91,18 +91,18 @@ define range(i32 0, 2) i32 @LAPACKE_ztr_nancheck(i32 noundef %0, i8 noundef sign
 35:                                               ; preds = %39
   %indvars.iv.next112 = add nuw nsw i64 %indvars.iv111, 1
   %exitcond117.not = icmp eq i64 %indvars.iv.next112, %wide.trip.count116
-  br i1 %exitcond117.not, label %.loopexit, label %36, !llvm.loop !6
+  br i1 %exitcond117.not, label %.loopexit, label %36, !llvm.loop !5
 
 36:                                               ; preds = %.lr.ph98, %35
   %indvars.iv111 = phi i64 [ 0, %.lr.ph98 ], [ %indvars.iv.next112, %35 ]
   %gep127 = getelementptr { double, double }, ptr %invariant.gep126, i64 %indvars.iv111
-  %37 = load double, ptr %gep127, align 8, !tbaa !7
+  %37 = load double, ptr %gep127, align 8, !tbaa !6
   %38 = fcmp uno double %37, 0.000000e+00
   br i1 %38, label %.loopexit87, label %39
 
 39:                                               ; preds = %36
   %40 = getelementptr inbounds nuw i8, ptr %gep127, i64 8
-  %41 = load double, ptr %40, align 8, !tbaa !7
+  %41 = load double, ptr %40, align 8, !tbaa !6
   %42 = fcmp uno double %41, 0.000000e+00
   br i1 %42, label %.loopexit87, label %35
 
@@ -120,18 +120,18 @@ define range(i32 0, 2) i32 @LAPACKE_ztr_nancheck(i32 noundef %0, i8 noundef sign
 46:                                               ; preds = %50
   %indvars.iv.next104 = add nuw nsw i64 %indvars.iv103, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next104, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %47, !llvm.loop !11
+  br i1 %exitcond.not, label %._crit_edge, label %47, !llvm.loop !10
 
 47:                                               ; preds = %.lr.ph, %46
   %indvars.iv103 = phi i64 [ %indvars.iv, %.lr.ph ], [ %indvars.iv.next104, %46 ]
   %gep = getelementptr { double, double }, ptr %invariant.gep, i64 %indvars.iv103
-  %48 = load double, ptr %gep, align 8, !tbaa !7
+  %48 = load double, ptr %gep, align 8, !tbaa !6
   %49 = fcmp uno double %48, 0.000000e+00
   br i1 %49, label %.loopexit87, label %50
 
 50:                                               ; preds = %47
   %51 = getelementptr inbounds nuw i8, ptr %gep, i64 8
-  %52 = load double, ptr %51, align 8, !tbaa !7
+  %52 = load double, ptr %51, align 8, !tbaa !6
   %53 = fcmp uno double %52, 0.000000e+00
   br i1 %53, label %.loopexit87, label %46
 
@@ -139,7 +139,7 @@ define range(i32 0, 2) i32 @LAPACKE_ztr_nancheck(i32 noundef %0, i8 noundef sign
   %indvars.iv.next107 = add nuw nsw i64 %indvars.iv106, 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond110.not = icmp eq i64 %indvars.iv.next107, %wide.trip.count109
-  br i1 %exitcond110.not, label %.loopexit87, label %43, !llvm.loop !12
+  br i1 %exitcond110.not, label %.loopexit87, label %43, !llvm.loop !11
 
 .loopexit87:                                      ; preds = %._crit_edge, %47, %50, %.loopexit, %36, %39, %.preheader91, %.preheader88, %15, %18, %8, %6
   %.0 = phi i32 [ 0, %6 ], [ 0, %8 ], [ 0, %18 ], [ 0, %15 ], [ 0, %.preheader88 ], [ 0, %.preheader91 ], [ 1, %39 ], [ 1, %36 ], [ 0, %.loopexit ], [ 1, %50 ], [ 1, %47 ], [ 0, %._crit_edge ]
@@ -162,13 +162,12 @@ attributes #3 = { nounwind willreturn memory(none) }
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = distinct !{!3, !4, !5}
+!3 = distinct !{!3, !4}
 !4 = !{!"llvm.loop.mustprogress"}
-!5 = !{!"llvm.loop.estimated_trip_count"}
-!6 = distinct !{!6, !4, !5}
-!7 = !{!8, !8, i64 0}
-!8 = !{!"double", !9, i64 0}
-!9 = !{!"omnipotent char", !10, i64 0}
-!10 = !{!"Simple C/C++ TBAA"}
-!11 = distinct !{!11, !4, !5}
-!12 = distinct !{!12, !4, !5}
+!5 = distinct !{!5, !4}
+!6 = !{!7, !7, i64 0}
+!7 = !{!"double", !8, i64 0}
+!8 = !{!"omnipotent char", !9, i64 0}
+!9 = !{!"Simple C/C++ TBAA"}
+!10 = distinct !{!10, !4}
+!11 = distinct !{!11, !4}

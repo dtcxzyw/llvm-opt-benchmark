@@ -226,7 +226,7 @@ define dso_local void @_ZN32btSphereSphereCollisionAlgorithm16processCollisionEP
 
 ._crit_edge.i:                                    ; preds = %53, %11
   %.lcssa.i = phi i32 [ %50, %11 ], [ %55, %53 ]
-  %58 = load ptr, ptr @gContactEndedCallback, align 8, !tbaa !40
+  %58 = load ptr, ptr @gContactEndedCallback, align 8, !tbaa !39
   %.not.i = icmp eq ptr %58, null
   %.not5.i = icmp eq i32 %.lcssa.i, 0
   %or.cond.i = or i1 %.not5.i, %.not.i
@@ -234,7 +234,7 @@ define dso_local void @_ZN32btSphereSphereCollisionAlgorithm16processCollisionEP
 
 59:                                               ; preds = %._crit_edge.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #12
-  store ptr %10, ptr %6, align 8, !tbaa !41
+  store ptr %10, ptr %6, align 8, !tbaa !40
   call void %58(ptr noundef nonnull align 8 dereferenceable(8) %6)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #12
   br label %_ZN20btPersistentManifold13clearManifoldEv.exit
@@ -243,7 +243,7 @@ _ZN20btPersistentManifold13clearManifoldEv.exit:  ; preds = %._crit_edge.i, %59
   store i32 0, ptr %49, align 8, !tbaa !34
   %60 = fadd float %43, %48
   %61 = getelementptr inbounds nuw i8, ptr %4, i64 48
-  %62 = load float, ptr %61, align 8, !tbaa !42
+  %62 = load float, ptr %61, align 8, !tbaa !41
   %63 = fadd float %60, %62
   %64 = fcmp ogt float %sqrt.i, %63
   br i1 %64, label %97, label %65
@@ -270,7 +270,7 @@ _ZN20btPersistentManifold13clearManifoldEv.exit:  ; preds = %._crit_edge.i, %59
   %.sroa.0.4.vec.insert.i.i = insertelement <2 x float> %.sroa.0.0.vec.insert.i.i, float %74, i64 1
   %.sroa.3.12.vec.insert.i.i = insertelement <2 x float> <float poison, float 0.000000e+00>, float %75, i64 0
   store <2 x float> %.sroa.0.4.vec.insert.i.i, ptr %7, align 8
-  store <2 x float> %.sroa.3.12.vec.insert.i.i, ptr %68, align 8, !tbaa !43
+  store <2 x float> %.sroa.3.12.vec.insert.i.i, ptr %68, align 8, !tbaa !42
   br label %76
 
 76:                                               ; preds = %71, %65
@@ -333,9 +333,9 @@ define linkonce_odr dso_local void @_ZN32btSphereSphereCollisionAlgorithm22getAl
 
 8:                                                ; preds = %2
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %10 = load i32, ptr %9, align 4, !tbaa !44
+  %10 = load i32, ptr %9, align 4, !tbaa !43
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %12 = load i32, ptr %11, align 8, !tbaa !48
+  %12 = load i32, ptr %11, align 8, !tbaa !47
   %13 = icmp eq i32 %10, %12
   br i1 %13, label %14, label %_ZN20btAlignedObjectArrayIP20btPersistentManifoldE9push_backERKS1_.exit
 
@@ -354,7 +354,7 @@ define linkonce_odr dso_local void @_ZN32btSphereSphereCollisionAlgorithm22getAl
   %20 = sext i32 %16 to i64
   %21 = shl nsw i64 %20, 3
   %22 = tail call noundef ptr @_Z22btAlignedAllocInternalmi(i64 noundef %21, i32 noundef 16)
-  %.pre.i = load i32, ptr %9, align 4, !tbaa !44
+  %.pre.i = load i32, ptr %9, align 4, !tbaa !43
   br label %_ZN20btAlignedObjectArrayIP20btPersistentManifoldE8allocateEi.exit.i.i
 
 _ZN20btAlignedObjectArrayIP20btPersistentManifoldE8allocateEi.exit.i.i: ; preds = %19, %18
@@ -362,7 +362,7 @@ _ZN20btAlignedObjectArrayIP20btPersistentManifoldE8allocateEi.exit.i.i: ; preds 
   %.0.i.i.i = phi ptr [ %22, %19 ], [ null, %18 ]
   %24 = icmp sgt i32 %23, 0
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %26 = load ptr, ptr %25, align 8, !tbaa !49
+  %26 = load ptr, ptr %25, align 8, !tbaa !48
   br i1 %24, label %.lr.ph.i.i.i, label %_ZNK20btAlignedObjectArrayIP20btPersistentManifoldE4copyEiiPS1_.exit.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %_ZN20btAlignedObjectArrayIP20btPersistentManifoldE8allocateEi.exit.i.i
@@ -373,11 +373,11 @@ _ZN20btAlignedObjectArrayIP20btPersistentManifoldE8allocateEi.exit.i.i: ; preds 
   %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i, %27 ]
   %28 = getelementptr inbounds nuw ptr, ptr %.0.i.i.i, i64 %indvars.iv.i.i.i
   %29 = getelementptr inbounds nuw ptr, ptr %26, i64 %indvars.iv.i.i.i
-  %30 = load ptr, ptr %29, align 8, !tbaa !41
-  store ptr %30, ptr %28, align 8, !tbaa !41
+  %30 = load ptr, ptr %29, align 8, !tbaa !40
+  store ptr %30, ptr %28, align 8, !tbaa !40
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, %wide.trip.count.i.i.i
-  br i1 %exitcond.not.i.i.i, label %_ZNK20btAlignedObjectArrayIP20btPersistentManifoldE4copyEiiPS1_.exit.thread.i.i, label %27, !llvm.loop !50
+  br i1 %exitcond.not.i.i.i, label %_ZNK20btAlignedObjectArrayIP20btPersistentManifoldE4copyEiiPS1_.exit.thread.i.i, label %27, !llvm.loop !49
 
 _ZNK20btAlignedObjectArrayIP20btPersistentManifoldE4copyEiiPS1_.exit.i.i: ; preds = %_ZN20btAlignedObjectArrayIP20btPersistentManifoldE8allocateEi.exit.i.i
   %.not.i5.i.i = icmp ne ptr %26, null
@@ -389,34 +389,34 @@ _ZNK20btAlignedObjectArrayIP20btPersistentManifoldE4copyEiiPS1_.exit.i.i: ; pred
 
 _ZNK20btAlignedObjectArrayIP20btPersistentManifoldE4copyEiiPS1_.exit.thread.i.i: ; preds = %27
   %.old.i = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %.old5.i = load i8, ptr %.old.i, align 8, !tbaa !51, !range !25, !noundef !26
+  %.old5.i = load i8, ptr %.old.i, align 8, !tbaa !50, !range !25, !noundef !26
   %.old6.i = trunc nuw i8 %.old5.i to i1
   br i1 %.old6.i, label %34, label %_ZN20btAlignedObjectArrayIP20btPersistentManifoldE10deallocateEv.exit.i.i
 
 34:                                               ; preds = %_ZNK20btAlignedObjectArrayIP20btPersistentManifoldE4copyEiiPS1_.exit.thread.i.i, %_ZNK20btAlignedObjectArrayIP20btPersistentManifoldE4copyEiiPS1_.exit.i.i
   tail call void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %26)
-  %.pre2.pre.pre.i = load i32, ptr %9, align 4, !tbaa !44
+  %.pre2.pre.pre.i = load i32, ptr %9, align 4, !tbaa !43
   br label %_ZN20btAlignedObjectArrayIP20btPersistentManifoldE10deallocateEv.exit.i.i
 
 _ZN20btAlignedObjectArrayIP20btPersistentManifoldE10deallocateEv.exit.i.i: ; preds = %34, %_ZNK20btAlignedObjectArrayIP20btPersistentManifoldE4copyEiiPS1_.exit.thread.i.i, %_ZNK20btAlignedObjectArrayIP20btPersistentManifoldE4copyEiiPS1_.exit.i.i
   %.pre2.i = phi i32 [ %23, %_ZNK20btAlignedObjectArrayIP20btPersistentManifoldE4copyEiiPS1_.exit.i.i ], [ %.pre2.pre.pre.i, %34 ], [ %23, %_ZNK20btAlignedObjectArrayIP20btPersistentManifoldE4copyEiiPS1_.exit.thread.i.i ]
   %35 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  store i8 1, ptr %35, align 8, !tbaa !51
-  store ptr %.0.i.i.i, ptr %25, align 8, !tbaa !49
-  store i32 %16, ptr %11, align 8, !tbaa !48
-  %.pre = load ptr, ptr %3, align 8, !tbaa !41
+  store i8 1, ptr %35, align 8, !tbaa !50
+  store ptr %.0.i.i.i, ptr %25, align 8, !tbaa !48
+  store i32 %16, ptr %11, align 8, !tbaa !47
+  %.pre = load ptr, ptr %3, align 8, !tbaa !40
   br label %_ZN20btAlignedObjectArrayIP20btPersistentManifoldE9push_backERKS1_.exit
 
 _ZN20btAlignedObjectArrayIP20btPersistentManifoldE9push_backERKS1_.exit: ; preds = %8, %14, %_ZN20btAlignedObjectArrayIP20btPersistentManifoldE10deallocateEv.exit.i.i
   %36 = phi ptr [ %.pre, %_ZN20btAlignedObjectArrayIP20btPersistentManifoldE10deallocateEv.exit.i.i ], [ %4, %14 ], [ %4, %8 ]
   %37 = phi i32 [ %.pre2.i, %_ZN20btAlignedObjectArrayIP20btPersistentManifoldE10deallocateEv.exit.i.i ], [ %10, %14 ], [ %10, %8 ]
   %38 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %39 = load ptr, ptr %38, align 8, !tbaa !49
+  %39 = load ptr, ptr %38, align 8, !tbaa !48
   %40 = sext i32 %37 to i64
   %41 = getelementptr inbounds ptr, ptr %39, i64 %40
-  store ptr %36, ptr %41, align 8, !tbaa !41
+  store ptr %36, ptr %41, align 8, !tbaa !40
   %42 = add nsw i32 %37, 1
-  store i32 %42, ptr %9, align 4, !tbaa !44
+  store i32 %42, ptr %9, align 4, !tbaa !43
   br label %43
 
 43:                                               ; preds = %_ZN20btAlignedObjectArrayIP20btPersistentManifoldE9push_backERKS1_.exit, %2
@@ -490,18 +490,17 @@ attributes #14 = { builtin nounwind }
 !34 = !{!35, !24, i64 856}
 !35 = !{!"_ZTS20btPersistentManifold", !36, i64 0, !13, i64 8, !22, i64 840, !22, i64 848, !24, i64 856, !30, i64 860, !30, i64 864, !24, i64 868, !24, i64 872, !24, i64 876}
 !36 = !{!"_ZTS13btTypedObject", !24, i64 0}
-!37 = distinct !{!37, !38, !39}
+!37 = distinct !{!37, !38}
 !38 = !{!"llvm.loop.mustprogress"}
-!39 = !{!"llvm.loop.estimated_trip_count"}
-!40 = !{!12, !12, i64 0}
-!41 = !{!15, !15, i64 0}
-!42 = !{!28, !30, i64 48}
-!43 = !{!13, !13, i64 0}
-!44 = !{!45, !24, i64 4}
-!45 = !{!"_ZTS20btAlignedObjectArrayIP20btPersistentManifoldE", !46, i64 0, !24, i64 4, !24, i64 8, !47, i64 16, !14, i64 24}
-!46 = !{!"_ZTS18btAlignedAllocatorIP20btPersistentManifoldLj16EE"}
-!47 = !{!"p2 _ZTS20btPersistentManifold", !12, i64 0}
-!48 = !{!45, !24, i64 8}
-!49 = !{!45, !47, i64 16}
-!50 = distinct !{!50, !38, !39}
-!51 = !{!45, !14, i64 24}
+!39 = !{!12, !12, i64 0}
+!40 = !{!15, !15, i64 0}
+!41 = !{!28, !30, i64 48}
+!42 = !{!13, !13, i64 0}
+!43 = !{!44, !24, i64 4}
+!44 = !{!"_ZTS20btAlignedObjectArrayIP20btPersistentManifoldE", !45, i64 0, !24, i64 4, !24, i64 8, !46, i64 16, !14, i64 24}
+!45 = !{!"_ZTS18btAlignedAllocatorIP20btPersistentManifoldLj16EE"}
+!46 = !{!"p2 _ZTS20btPersistentManifold", !12, i64 0}
+!47 = !{!44, !24, i64 8}
+!48 = !{!44, !46, i64 16}
+!49 = distinct !{!49, !38}
+!50 = !{!44, !14, i64 24}

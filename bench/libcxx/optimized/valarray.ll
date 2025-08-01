@@ -247,7 +247,7 @@ _ZNSt3__19allocatorImE8allocateB8ne210000Em.exit.i: ; preds = %29
   %38 = mul i64 %37, %.02735
   %39 = add nuw i64 %.02636, 1
   %exitcond.not = icmp eq i64 %39, %18
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !16
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !15
 
 _ZNSt3__18valarrayImE6resizeEmm.exit:             ; preds = %.noexc32, %_ZNSt3__18valarrayImE7__clearB8ne210000Em.exit.i
   %40 = phi ptr [ %33, %.noexc32 ], [ null, %_ZNSt3__18valarrayImE7__clearB8ne210000Em.exit.i ]
@@ -273,7 +273,7 @@ _ZNSt3__18valarrayImE6resizeEmm.exit:             ; preds = %.noexc32, %_ZNSt3__
   br label %.split
 
 .split.loopexit:                                  ; preds = %.lr.ph47, %._crit_edge40
-  br label %.split, !llvm.loop !17
+  br label %.split, !llvm.loop !16
 
 .split:                                           ; preds = %.split.loopexit, %42
   %.1 = phi i64 [ 0, %42 ], [ %59, %.split.loopexit ]
@@ -311,7 +311,7 @@ _ZNSt3__18valarrayImE6resizeEmm.exit:             ; preds = %.noexc32, %_ZNSt3__
   store i64 %72, ptr %65, align 8, !tbaa !10
   %.024 = add i64 %.02445, 1
   %.not31 = icmp eq i64 %.024, %49
-  br i1 %.not31, label %.split.loopexit, label %.lr.ph47, !llvm.loop !18
+  br i1 %.not31, label %.split.loopexit, label %.lr.ph47, !llvm.loop !17
 
 .lr.ph39:                                         ; preds = %.split, %.split29
   %.02538 = phi i64 [ %74, %.split29 ], [ %50, %.split ]
@@ -329,7 +329,7 @@ _ZNSt3__18valarrayImE6resizeEmm.exit:             ; preds = %.noexc32, %_ZNSt3__
   %phi.call30 = getelementptr inbounds nuw i64, ptr %52, i64 %74
   %79 = load i64, ptr %phi.call30, align 8, !tbaa !10
   %80 = icmp ult i64 %78, %79
-  br i1 %80, label %._crit_edge40, label %.lr.ph39, !llvm.loop !19
+  br i1 %80, label %._crit_edge40, label %.lr.ph39, !llvm.loop !18
 
 .thread:                                          ; preds = %.lr.ph39, %_ZNSt3__18valarrayImE6resizeEmm.exit
   call void @_ZNSt3__18valarrayImED1Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #13
@@ -396,10 +396,9 @@ attributes #13 = { nounwind }
 !10 = !{!11, !11, i64 0}
 !11 = !{!"long", !8, i64 0}
 !12 = !{!5, !6, i64 8}
-!13 = distinct !{!13, !14, !15}
+!13 = distinct !{!13, !14}
 !14 = !{!"llvm.loop.mustprogress"}
-!15 = !{!"llvm.loop.estimated_trip_count"}
-!16 = distinct !{!16, !14, !15}
-!17 = distinct !{!17, !14, !15}
-!18 = distinct !{!18, !14, !15}
-!19 = distinct !{!19, !14, !15}
+!15 = distinct !{!15, !14}
+!16 = distinct !{!16, !14}
+!17 = distinct !{!17, !14}
+!18 = distinct !{!18, !14}

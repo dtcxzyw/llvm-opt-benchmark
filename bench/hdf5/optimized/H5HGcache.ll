@@ -516,7 +516,7 @@ define internal ptr @H5HG__cache_heap_deserialize(ptr noundef readonly captures(
   %.1205 = getelementptr inbounds nuw i8, ptr %.0204285, i64 %.pn
   %274 = getelementptr inbounds nuw i8, ptr %273, i64 %272
   %275 = icmp ult ptr %.1205, %274
-  br i1 %275, label %92, label %._crit_edge.loopexit, !llvm.loop !39
+  br i1 %275, label %92, label %._crit_edge.loopexit, !llvm.loop !38
 
 ._crit_edge.loopexit:                             ; preds = %270
   %276 = add nuw nsw i64 %.1213, 1
@@ -800,7 +800,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5HG__hdr_deserialize(ptr noundef n
   store i64 %92, ptr %84, align 8, !tbaa !12
   %93 = add nuw nsw i64 %.074, 1
   %exitcond.not = icmp eq i64 %93, 8
-  br i1 %exitcond.not, label %.loopexit, label %86, !llvm.loop !40
+  br i1 %exitcond.not, label %.loopexit, label %86, !llvm.loop !39
 
 94:                                               ; preds = %62
   %95 = load i8, ptr %47, align 1, !tbaa !33
@@ -914,8 +914,7 @@ attributes #10 = { nounwind }
 !33 = !{!5, !5, i64 0}
 !34 = !{!13, !11, i64 280}
 !35 = !{!31, !18, i64 0}
-!36 = distinct !{!36, !37, !38}
+!36 = distinct !{!36, !37}
 !37 = !{!"llvm.loop.mustprogress"}
-!38 = !{!"llvm.loop.estimated_trip_count"}
-!39 = distinct !{!39, !37, !38}
-!40 = distinct !{!40, !37, !38}
+!38 = distinct !{!38, !37}
+!39 = distinct !{!39, !37}

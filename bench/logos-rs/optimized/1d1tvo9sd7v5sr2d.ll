@@ -534,7 +534,7 @@ define hidden void @_ZN13logos_codegen6parser10subpattern11Subpatterns3fix17h802
 
 .backedge.backedge:                               ; preds = %95, %115, %119
   %.sroa.07.0.be = phi i64 [ %.sroa.07.1, %95 ], [ %116, %115 ], [ %116, %119 ]
-  br label %.backedge, !llvm.loop !3
+  br label %.backedge
 
 96:                                               ; preds = %87
   %97 = landingpad { ptr, i32 }
@@ -724,5 +724,3 @@ attributes #5 = { cold noreturn nounwind }
 !0 = !{i32 8, !"PIC Level", i32 2}
 !1 = !{i32 2, !"RtLibUseGOT", i32 1}
 !2 = !{!"rustc version 1.79.0 (129f3b996 2024-06-10)"}
-!3 = distinct !{!3, !4}
-!4 = !{!"llvm.loop.estimated_trip_count"}

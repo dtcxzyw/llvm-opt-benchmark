@@ -99,15 +99,15 @@ declare void @ff_vlc_init_table_sparse(ptr noundef, i32 noundef, i32 noundef, i3
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define void @ff_mpeg1_clean_buffers(ptr noundef captures(none) initializes((1284, 1296), (3056, 3088)) %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4216
-  %3 = load i32, ptr %2, align 8, !tbaa !10
+  %3 = load i32, ptr %2, align 8, !tbaa !9
   %4 = add nsw i32 %3, 7
   %5 = shl nuw i32 1, %4
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 1284
-  store i32 %5, ptr %6, align 4, !tbaa !40
+  store i32 %5, ptr %6, align 4, !tbaa !39
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 1288
-  store i32 %5, ptr %7, align 4, !tbaa !40
+  store i32 %5, ptr %7, align 4, !tbaa !39
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 1292
-  store i32 %5, ptr %8, align 4, !tbaa !40
+  store i32 %5, ptr %8, align 4, !tbaa !39
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 3056
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %9, i8 0, i64 32, i1 false)
   ret void
@@ -144,8 +144,8 @@ define range(i32 -2147483648, 64) i32 @ff_mpeg1_decode_block_intra(ptr noundef c
   %9 = add nsw i32 %8, -3
   %10 = icmp eq i32 %9, 0
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %12 = load i32, ptr %11, align 8, !tbaa !41
-  %13 = load ptr, ptr %0, align 8, !tbaa !42
+  %12 = load i32, ptr %11, align 8, !tbaa !40
+  %13 = load ptr, ptr %0, align 8, !tbaa !41
   %14 = lshr i32 %12, 3
   %15 = zext nneg i32 %14 to i64
   %16 = getelementptr inbounds nuw i8, ptr %13, i64 %15
@@ -236,7 +236,7 @@ get_vlc2.exit10.i:                                ; preds = %59, %51
 79:                                               ; preds = %get_vlc2.exit10.i, %get_vlc2.exit.i
   %.sink.i = phi i32 [ %78, %get_vlc2.exit10.i ], [ %50, %get_vlc2.exit.i ]
   %.06.i = phi i32 [ %.051.i7.i, %get_vlc2.exit10.i ], [ %.051.i.i, %get_vlc2.exit.i ]
-  store i32 %.sink.i, ptr %11, align 8, !tbaa !41
+  store i32 %.sink.i, ptr %11, align 8, !tbaa !40
   %80 = icmp eq i32 %.06.i, 0
   br i1 %80, label %decode_dc.exit, label %81
 
@@ -251,7 +251,7 @@ get_vlc2.exit10.i:                                ; preds = %59, %51
   %isnotneg.i.i = icmp sgt i32 %88, -1
   %89 = sext i1 %isnotneg.i.i to i32
   %90 = add i32 %.06.i, %.sink.i
-  store i32 %90, ptr %11, align 8, !tbaa !41
+  store i32 %90, ptr %11, align 8, !tbaa !40
   %91 = xor i32 %88, %89
   %92 = sub nsw i32 32, %.06.i
   %93 = lshr i32 %91, %92
@@ -263,14 +263,14 @@ decode_dc.exit:                                   ; preds = %79, %81
   %.0.i = phi i32 [ %95, %81 ], [ 0, %79 ]
   %96 = zext nneg i32 %9 to i64
   %97 = getelementptr inbounds nuw i32, ptr %3, i64 %96
-  %98 = load i32, ptr %97, align 4, !tbaa !40
+  %98 = load i32, ptr %97, align 4, !tbaa !39
   %99 = add nsw i32 %98, %.0.i
-  store i32 %99, ptr %97, align 4, !tbaa !40
-  %100 = load i16, ptr %1, align 2, !tbaa !43
+  store i32 %99, ptr %97, align 4, !tbaa !39
+  %100 = load i16, ptr %1, align 2, !tbaa !42
   %101 = trunc i32 %99 to i16
   %102 = mul i16 %100, %101
-  store i16 %102, ptr %4, align 2, !tbaa !43
-  %103 = load i32, ptr %11, align 8, !tbaa !41
+  store i16 %102, ptr %4, align 2, !tbaa !42
+  %103 = load i32, ptr %11, align 8, !tbaa !40
   %104 = lshr i32 %103, 3
   %105 = zext nneg i32 %104 to i64
   %106 = getelementptr inbounds nuw i8, ptr %13, i64 %105
@@ -281,10 +281,10 @@ decode_dc.exit:                                   ; preds = %79, %81
   %111 = icmp slt i32 %110, -1073741824
   br i1 %111, label %.thread127, label %.preheader
 
-.preheader:                                       ; preds = %decode_dc.exit, %221
-  %.1110 = phi i32 [ %.4113, %221 ], [ %103, %decode_dc.exit ]
-  %.0105 = phi i32 [ %228, %221 ], [ %110, %decode_dc.exit ]
-  %.1 = phi i32 [ %.3, %221 ], [ 0, %decode_dc.exit ]
+.preheader:                                       ; preds = %decode_dc.exit, %223
+  %.1110 = phi i32 [ %.4113, %223 ], [ %103, %decode_dc.exit ]
+  %.0105 = phi i32 [ %230, %223 ], [ %110, %decode_dc.exit ]
+  %.1 = phi i32 [ %.3, %223 ], [ 0, %decode_dc.exit ]
   %112 = lshr i32 %.0105, 23
   %113 = zext nneg i32 %112 to i64
   %114 = getelementptr inbounds nuw [680 x %struct.VLCElem], ptr @ff_mpeg1_rl_vlc, i64 0, i64 %113
@@ -320,140 +320,141 @@ decode_dc.exit:                                   ; preds = %79, %81
   %135 = shl i32 %.1106, %.0100
   %136 = add i32 %.0100, %.2111
   %.not = icmp eq i32 %.0102, 0
-  br i1 %.not, label %161, label %137
+  br i1 %.not, label %163, label %137
 
 137:                                              ; preds = %134
   %138 = zext i32 %.098 to i64
-  %gep = getelementptr inbounds nuw [680 x %struct.VLCElem], ptr getelementptr inbounds nuw (i8, ptr @ff_mpeg1_rl_vlc, i64 3), i64 0, i64 %138
-  %139 = load i8, ptr %gep, align 1, !tbaa !4
-  %140 = zext i8 %139 to i32
-  %141 = add nsw i32 %.1, %140
-  %142 = icmp sgt i32 %141, 63
-  br i1 %142, label %.thread127, label %143
+  %139 = getelementptr inbounds nuw [680 x %struct.VLCElem], ptr @ff_mpeg1_rl_vlc, i64 0, i64 %138
+  %140 = getelementptr inbounds nuw i8, ptr %139, i64 3
+  %141 = load i8, ptr %140, align 1, !tbaa !4
+  %142 = zext i8 %141 to i32
+  %143 = add nsw i32 %.1, %142
+  %144 = icmp sgt i32 %143, 63
+  br i1 %144, label %.thread127, label %145
 
-143:                                              ; preds = %137
-  %144 = sext i32 %141 to i64
-  %145 = getelementptr inbounds i8, ptr %2, i64 %144
-  %146 = load i8, ptr %145, align 1, !tbaa !4
-  %147 = mul nsw i32 %.0102, %6
-  %148 = zext i8 %146 to i64
-  %149 = getelementptr inbounds nuw i16, ptr %1, i64 %148
-  %150 = load i16, ptr %149, align 2, !tbaa !43
-  %151 = zext i16 %150 to i32
-  %152 = mul nsw i32 %147, %151
-  %153 = ashr i32 %152, 4
-  %154 = add nsw i32 %153, -1
-  %155 = or i32 %154, 1
-  %156 = ashr i32 %135, 31
-  %157 = xor i32 %155, %156
-  %158 = sub nsw i32 %157, %156
-  %159 = shl i32 %135, 1
-  %160 = add i32 %136, 1
-  br label %217
+145:                                              ; preds = %137
+  %146 = sext i32 %143 to i64
+  %147 = getelementptr inbounds i8, ptr %2, i64 %146
+  %148 = load i8, ptr %147, align 1, !tbaa !4
+  %149 = mul nsw i32 %.0102, %6
+  %150 = zext i8 %148 to i64
+  %151 = getelementptr inbounds nuw i16, ptr %1, i64 %150
+  %152 = load i16, ptr %151, align 2, !tbaa !42
+  %153 = zext i16 %152 to i32
+  %154 = mul nsw i32 %149, %153
+  %155 = ashr i32 %154, 4
+  %156 = add nsw i32 %155, -1
+  %157 = or i32 %156, 1
+  %158 = ashr i32 %135, 31
+  %159 = xor i32 %157, %158
+  %160 = sub nsw i32 %159, %158
+  %161 = shl i32 %135, 1
+  %162 = add i32 %136, 1
+  br label %219
 
-161:                                              ; preds = %134
-  %162 = lshr i32 %135, 26
-  %163 = add i32 %136, 6
-  %164 = lshr i32 %163, 3
-  %165 = zext nneg i32 %164 to i64
-  %166 = getelementptr inbounds nuw i8, ptr %13, i64 %165
-  %167 = load i32, ptr %166, align 1, !tbaa !4
-  %168 = tail call i32 @llvm.bswap.i32(i32 %167)
-  %169 = and i32 %163, 7
-  %170 = shl i32 %168, %169
-  %171 = ashr i32 %170, 24
-  %172 = shl i32 %170, 8
-  %173 = icmp eq i32 %171, -128
-  br i1 %173, label %174, label %179
+163:                                              ; preds = %134
+  %164 = lshr i32 %135, 26
+  %165 = add i32 %136, 6
+  %166 = lshr i32 %165, 3
+  %167 = zext nneg i32 %166 to i64
+  %168 = getelementptr inbounds nuw i8, ptr %13, i64 %167
+  %169 = load i32, ptr %168, align 1, !tbaa !4
+  %170 = tail call i32 @llvm.bswap.i32(i32 %169)
+  %171 = and i32 %165, 7
+  %172 = shl i32 %170, %171
+  %173 = ashr i32 %172, 24
+  %174 = shl i32 %172, 8
+  %175 = icmp eq i32 %173, -128
+  br i1 %175, label %176, label %181
 
-174:                                              ; preds = %161
-  %175 = lshr i32 %172, 24
-  %176 = or disjoint i32 %175, -256
-  %177 = shl i32 %170, 16
-  %178 = add i32 %136, 22
-  br label %186
+176:                                              ; preds = %163
+  %177 = lshr i32 %174, 24
+  %178 = or disjoint i32 %177, -256
+  %179 = shl i32 %172, 16
+  %180 = add i32 %136, 22
+  br label %188
 
-179:                                              ; preds = %161
-  %180 = add i32 %136, 14
-  %181 = icmp ult i32 %170, 16777216
-  br i1 %181, label %182, label %186
+181:                                              ; preds = %163
+  %182 = add i32 %136, 14
+  %183 = icmp ult i32 %172, 16777216
+  br i1 %183, label %184, label %188
 
-182:                                              ; preds = %179
-  %183 = lshr i32 %172, 24
-  %184 = shl i32 %170, 16
-  %185 = add i32 %136, 22
-  br label %186
+184:                                              ; preds = %181
+  %185 = lshr i32 %174, 24
+  %186 = shl i32 %172, 16
+  %187 = add i32 %136, 22
+  br label %188
 
-186:                                              ; preds = %179, %182, %174
-  %.5 = phi i32 [ %178, %174 ], [ %185, %182 ], [ %180, %179 ]
-  %.4 = phi i32 [ %177, %174 ], [ %184, %182 ], [ %172, %179 ]
-  %.2104 = phi i32 [ %176, %174 ], [ %183, %182 ], [ %171, %179 ]
-  %187 = add i32 %.1, 1
-  %188 = add i32 %187, %162
-  %189 = icmp sgt i32 %188, 63
-  br i1 %189, label %.thread127, label %190
+188:                                              ; preds = %181, %184, %176
+  %.5 = phi i32 [ %180, %176 ], [ %187, %184 ], [ %182, %181 ]
+  %.4 = phi i32 [ %179, %176 ], [ %186, %184 ], [ %174, %181 ]
+  %.2104 = phi i32 [ %178, %176 ], [ %185, %184 ], [ %173, %181 ]
+  %189 = add i32 %.1, 1
+  %190 = add i32 %189, %164
+  %191 = icmp sgt i32 %190, 63
+  br i1 %191, label %.thread127, label %192
 
-190:                                              ; preds = %186
-  %191 = sext i32 %188 to i64
-  %192 = getelementptr inbounds i8, ptr %2, i64 %191
-  %193 = load i8, ptr %192, align 1, !tbaa !4
-  %194 = icmp slt i32 %.2104, 0
-  br i1 %194, label %195, label %207
+192:                                              ; preds = %188
+  %193 = sext i32 %190 to i64
+  %194 = getelementptr inbounds i8, ptr %2, i64 %193
+  %195 = load i8, ptr %194, align 1, !tbaa !4
+  %196 = icmp slt i32 %.2104, 0
+  br i1 %196, label %197, label %209
 
-195:                                              ; preds = %190
-  %196 = zext i8 %193 to i64
-  %197 = getelementptr inbounds nuw i16, ptr %1, i64 %196
-  %198 = load i16, ptr %197, align 2, !tbaa !43
-  %199 = zext i16 %198 to i32
-  %200 = mul i32 %6, %.2104
-  %201 = mul i32 %200, %199
-  %202 = sub i32 0, %201
-  %203 = ashr i32 %202, 4
-  %204 = add nsw i32 %203, -1
-  %205 = or i32 %204, 1
-  %206 = sub nsw i32 0, %205
-  br label %217
+197:                                              ; preds = %192
+  %198 = zext i8 %195 to i64
+  %199 = getelementptr inbounds nuw i16, ptr %1, i64 %198
+  %200 = load i16, ptr %199, align 2, !tbaa !42
+  %201 = zext i16 %200 to i32
+  %202 = mul i32 %6, %.2104
+  %203 = mul i32 %202, %201
+  %204 = sub i32 0, %203
+  %205 = ashr i32 %204, 4
+  %206 = add nsw i32 %205, -1
+  %207 = or i32 %206, 1
+  %208 = sub nsw i32 0, %207
+  br label %219
 
-207:                                              ; preds = %190
-  %208 = mul nsw i32 %.2104, %6
-  %209 = zext i8 %193 to i64
-  %210 = getelementptr inbounds nuw i16, ptr %1, i64 %209
-  %211 = load i16, ptr %210, align 2, !tbaa !43
-  %212 = zext i16 %211 to i32
-  %213 = mul nsw i32 %208, %212
-  %214 = ashr i32 %213, 4
-  %215 = add nsw i32 %214, -1
-  %216 = or i32 %215, 1
-  br label %217
+209:                                              ; preds = %192
+  %210 = mul nsw i32 %.2104, %6
+  %211 = zext i8 %195 to i64
+  %212 = getelementptr inbounds nuw i16, ptr %1, i64 %211
+  %213 = load i16, ptr %212, align 2, !tbaa !42
+  %214 = zext i16 %213 to i32
+  %215 = mul nsw i32 %210, %214
+  %216 = ashr i32 %215, 4
+  %217 = add nsw i32 %216, -1
+  %218 = or i32 %217, 1
+  br label %219
 
-217:                                              ; preds = %195, %207, %143
-  %.pre-phi = phi i64 [ %196, %195 ], [ %209, %207 ], [ %148, %143 ]
-  %.4113 = phi i32 [ %.5, %195 ], [ %.5, %207 ], [ %160, %143 ]
-  %.3108 = phi i32 [ %.4, %195 ], [ %.4, %207 ], [ %159, %143 ]
-  %.1103 = phi i32 [ %206, %195 ], [ %216, %207 ], [ %158, %143 ]
-  %.3 = phi i32 [ %188, %195 ], [ %188, %207 ], [ %141, %143 ]
-  %218 = trunc i32 %.1103 to i16
-  %219 = getelementptr inbounds nuw i16, ptr %4, i64 %.pre-phi
-  store i16 %218, ptr %219, align 2, !tbaa !43
-  %220 = icmp slt i32 %.3108, -1073741824
-  br i1 %220, label %.thread127, label %221
+219:                                              ; preds = %197, %209, %145
+  %.pre-phi = phi i64 [ %198, %197 ], [ %211, %209 ], [ %150, %145 ]
+  %.4113 = phi i32 [ %.5, %197 ], [ %.5, %209 ], [ %162, %145 ]
+  %.3108 = phi i32 [ %.4, %197 ], [ %.4, %209 ], [ %161, %145 ]
+  %.1103 = phi i32 [ %208, %197 ], [ %218, %209 ], [ %160, %145 ]
+  %.3 = phi i32 [ %190, %197 ], [ %190, %209 ], [ %143, %145 ]
+  %220 = trunc i32 %.1103 to i16
+  %221 = getelementptr inbounds nuw i16, ptr %4, i64 %.pre-phi
+  store i16 %220, ptr %221, align 2, !tbaa !42
+  %222 = icmp slt i32 %.3108, -1073741824
+  br i1 %222, label %.thread127, label %223
 
-221:                                              ; preds = %217
-  %222 = lshr i32 %.4113, 3
-  %223 = zext nneg i32 %222 to i64
-  %224 = getelementptr inbounds nuw i8, ptr %13, i64 %223
-  %225 = load i32, ptr %224, align 1, !tbaa !4
-  %226 = tail call i32 @llvm.bswap.i32(i32 %225)
-  %227 = and i32 %.4113, 7
-  %228 = shl i32 %226, %227
-  br label %.preheader, !llvm.loop !44
+223:                                              ; preds = %219
+  %224 = lshr i32 %.4113, 3
+  %225 = zext nneg i32 %224 to i64
+  %226 = getelementptr inbounds nuw i8, ptr %13, i64 %225
+  %227 = load i32, ptr %226, align 1, !tbaa !4
+  %228 = tail call i32 @llvm.bswap.i32(i32 %227)
+  %229 = and i32 %.4113, 7
+  %230 = shl i32 %228, %229
+  br label %.preheader
 
-.thread127:                                       ; preds = %137, %186, %217, %decode_dc.exit
-  %.4113.lcssa.sink = phi i32 [ %103, %decode_dc.exit ], [ %.4113, %217 ], [ %136, %137 ], [ %.5, %186 ]
-  %229 = phi i32 [ 0, %decode_dc.exit ], [ %.3, %217 ], [ -1094995529, %137 ], [ -1094995529, %186 ]
-  %230 = add i32 %.4113.lcssa.sink, 2
-  store i32 %230, ptr %11, align 8, !tbaa !41
-  ret i32 %229
+.thread127:                                       ; preds = %137, %188, %219, %decode_dc.exit
+  %.4113.lcssa.sink = phi i32 [ %103, %decode_dc.exit ], [ %.4113, %219 ], [ %136, %137 ], [ %.5, %188 ]
+  %231 = phi i32 [ 0, %decode_dc.exit ], [ %.3, %219 ], [ -1094995529, %137 ], [ -1094995529, %188 ]
+  %232 = add i32 %.4113.lcssa.sink, 2
+  store i32 %232, ptr %11, align 8, !tbaa !40
+  ret i32 %231
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
@@ -480,41 +481,39 @@ attributes #7 = { cold }
 !4 = !{!5, !5, i64 0}
 !5 = !{!"omnipotent char", !6, i64 0}
 !6 = !{!"Simple C/C++ TBAA"}
-!7 = distinct !{!7, !8, !9}
+!7 = distinct !{!7, !8}
 !8 = !{!"llvm.loop.mustprogress"}
-!9 = !{!"llvm.loop.estimated_trip_count"}
-!10 = !{!11, !14, i64 4216}
-!11 = !{!"MpegEncContext", !12, i64 0, !14, i64 8, !14, i64 12, !14, i64 16, !5, i64 20, !14, i64 68, !15, i64 72, !15, i64 208, !5, i64 344, !5, i64 408, !17, i64 472, !13, i64 480, !14, i64 488, !14, i64 492, !14, i64 496, !14, i64 500, !14, i64 504, !14, i64 508, !14, i64 512, !14, i64 516, !14, i64 520, !14, i64 524, !14, i64 528, !14, i64 532, !14, i64 536, !14, i64 540, !14, i64 544, !14, i64 548, !14, i64 552, !14, i64 556, !14, i64 560, !14, i64 564, !18, i64 568, !18, i64 576, !19, i64 584, !20, i64 592, !14, i64 648, !14, i64 652, !5, i64 656, !14, i64 912, !21, i64 920, !21, i64 1040, !21, i64 1160, !14, i64 1280, !5, i64 1284, !24, i64 1296, !5, i64 1304, !16, i64 1328, !16, i64 1336, !16, i64 1344, !16, i64 1352, !16, i64 1360, !24, i64 1368, !5, i64 1376, !14, i64 1400, !16, i64 1408, !16, i64 1416, !16, i64 1424, !16, i64 1432, !25, i64 1440, !14, i64 1472, !14, i64 1476, !14, i64 1480, !14, i64 1484, !14, i64 1488, !14, i64 1492, !26, i64 1496, !27, i64 1528, !28, i64 1592, !29, i64 2008, !30, i64 2128, !31, i64 2896, !32, i64 2912, !24, i64 2928, !5, i64 2936, !14, i64 2968, !14, i64 2972, !5, i64 2976, !5, i64 3040, !5, i64 3056, !5, i64 3088, !14, i64 3344, !14, i64 3348, !14, i64 3352, !14, i64 3356, !14, i64 3360, !5, i64 3364, !5, i64 3388, !5, i64 3416, !23, i64 3440, !5, i64 3448, !5, i64 3576, !5, i64 3704, !5, i64 3832, !14, i64 3960, !14, i64 3964, !33, i64 3968, !14, i64 4000, !14, i64 4004, !14, i64 4008, !14, i64 4012, !14, i64 4016, !14, i64 4020, !14, i64 4024, !14, i64 4028, !14, i64 4032, !14, i64 4036, !14, i64 4040, !14, i64 4044, !14, i64 4048, !14, i64 4052, !14, i64 4056, !18, i64 4064, !18, i64 4072, !34, i64 4080, !34, i64 4082, !34, i64 4084, !34, i64 4086, !14, i64 4088, !14, i64 4092, !14, i64 4096, !14, i64 4100, !14, i64 4104, !14, i64 4108, !14, i64 4112, !14, i64 4116, !14, i64 4120, !5, i64 4124, !14, i64 4136, !14, i64 4140, !14, i64 4144, !14, i64 4148, !14, i64 4152, !14, i64 4156, !33, i64 4160, !14, i64 4192, !5, i64 4196, !14, i64 4212, !14, i64 4216, !14, i64 4220, !14, i64 4224, !14, i64 4228, !14, i64 4232, !14, i64 4236, !14, i64 4240, !14, i64 4244, !14, i64 4248, !14, i64 4252, !14, i64 4256, !14, i64 4260, !14, i64 4264, !5, i64 4268, !14, i64 4276, !14, i64 4280, !24, i64 4288, !24, i64 4296, !13, i64 4304, !13, i64 4312, !13, i64 4320, !14, i64 4328, !14, i64 4332, !35, i64 4336}
-!12 = !{!"p1 _ZTS7AVClass", !13, i64 0}
-!13 = !{!"any pointer", !5, i64 0}
-!14 = !{!"int", !5, i64 0}
-!15 = !{!"ScanTable", !16, i64 0, !5, i64 8, !5, i64 72}
-!16 = !{!"p1 omnipotent char", !13, i64 0}
-!17 = !{!"p1 _ZTS14AVCodecContext", !13, i64 0}
-!18 = !{!"long", !5, i64 0}
-!19 = !{!"p1 _ZTS15AVRefStructPool", !13, i64 0}
-!20 = !{!"BufferPoolContext", !19, i64 0, !19, i64 8, !19, i64 16, !19, i64 24, !19, i64 32, !14, i64 40, !14, i64 44, !14, i64 48}
-!21 = !{!"MPVWorkPicture", !5, i64 0, !5, i64 24, !22, i64 48, !16, i64 56, !5, i64 64, !23, i64 80, !16, i64 88, !5, i64 96, !14, i64 112}
-!22 = !{!"p1 _ZTS10MPVPicture", !13, i64 0}
-!23 = !{!"p1 int", !13, i64 0}
-!24 = !{!"p1 short", !13, i64 0}
-!25 = !{!"ScratchpadContext", !16, i64 0, !16, i64 8, !5, i64 16, !14, i64 24}
-!26 = !{!"BlockDSPContext", !13, i64 0, !13, i64 8, !5, i64 16}
-!27 = !{!"H264ChromaContext", !5, i64 0, !5, i64 32}
-!28 = !{!"HpelDSPContext", !5, i64 0, !5, i64 128, !5, i64 256, !5, i64 384}
-!29 = !{!"IDCTDSPContext", !13, i64 0, !13, i64 8, !13, i64 16, !13, i64 24, !13, i64 32, !13, i64 40, !5, i64 48, !14, i64 112, !14, i64 116}
-!30 = !{!"QpelDSPContext", !5, i64 0, !5, i64 256, !5, i64 512}
-!31 = !{!"VideoDSPContext", !13, i64 0, !13, i64 8}
-!32 = !{!"H263DSPContext", !13, i64 0, !13, i64 8}
-!33 = !{!"GetBitContext", !16, i64 0, !16, i64 8, !14, i64 16, !14, i64 20, !14, i64 24}
-!34 = !{!"short", !5, i64 0}
-!35 = !{!"ERContext", !17, i64 0, !13, i64 8, !14, i64 16, !23, i64 24, !14, i64 32, !14, i64 36, !14, i64 40, !18, i64 48, !18, i64 56, !5, i64 64, !14, i64 68, !16, i64 72, !16, i64 80, !5, i64 88, !16, i64 112, !16, i64 120, !5, i64 128, !36, i64 192, !36, i64 264, !36, i64 336, !5, i64 408, !5, i64 424, !34, i64 440, !34, i64 442, !14, i64 444, !14, i64 448, !13, i64 456, !13, i64 464}
-!36 = !{!"ERPicture", !37, i64 0, !38, i64 8, !39, i64 16, !5, i64 24, !5, i64 40, !23, i64 56, !14, i64 64}
-!37 = !{!"p1 _ZTS7AVFrame", !13, i64 0}
-!38 = !{!"p1 _ZTS11ThreadFrame", !13, i64 0}
-!39 = !{!"p1 _ZTS14ThreadProgress", !13, i64 0}
-!40 = !{!14, !14, i64 0}
-!41 = !{!33, !14, i64 16}
-!42 = !{!33, !16, i64 0}
-!43 = !{!34, !34, i64 0}
-!44 = distinct !{!44, !9}
+!9 = !{!10, !13, i64 4216}
+!10 = !{!"MpegEncContext", !11, i64 0, !13, i64 8, !13, i64 12, !13, i64 16, !5, i64 20, !13, i64 68, !14, i64 72, !14, i64 208, !5, i64 344, !5, i64 408, !16, i64 472, !12, i64 480, !13, i64 488, !13, i64 492, !13, i64 496, !13, i64 500, !13, i64 504, !13, i64 508, !13, i64 512, !13, i64 516, !13, i64 520, !13, i64 524, !13, i64 528, !13, i64 532, !13, i64 536, !13, i64 540, !13, i64 544, !13, i64 548, !13, i64 552, !13, i64 556, !13, i64 560, !13, i64 564, !17, i64 568, !17, i64 576, !18, i64 584, !19, i64 592, !13, i64 648, !13, i64 652, !5, i64 656, !13, i64 912, !20, i64 920, !20, i64 1040, !20, i64 1160, !13, i64 1280, !5, i64 1284, !23, i64 1296, !5, i64 1304, !15, i64 1328, !15, i64 1336, !15, i64 1344, !15, i64 1352, !15, i64 1360, !23, i64 1368, !5, i64 1376, !13, i64 1400, !15, i64 1408, !15, i64 1416, !15, i64 1424, !15, i64 1432, !24, i64 1440, !13, i64 1472, !13, i64 1476, !13, i64 1480, !13, i64 1484, !13, i64 1488, !13, i64 1492, !25, i64 1496, !26, i64 1528, !27, i64 1592, !28, i64 2008, !29, i64 2128, !30, i64 2896, !31, i64 2912, !23, i64 2928, !5, i64 2936, !13, i64 2968, !13, i64 2972, !5, i64 2976, !5, i64 3040, !5, i64 3056, !5, i64 3088, !13, i64 3344, !13, i64 3348, !13, i64 3352, !13, i64 3356, !13, i64 3360, !5, i64 3364, !5, i64 3388, !5, i64 3416, !22, i64 3440, !5, i64 3448, !5, i64 3576, !5, i64 3704, !5, i64 3832, !13, i64 3960, !13, i64 3964, !32, i64 3968, !13, i64 4000, !13, i64 4004, !13, i64 4008, !13, i64 4012, !13, i64 4016, !13, i64 4020, !13, i64 4024, !13, i64 4028, !13, i64 4032, !13, i64 4036, !13, i64 4040, !13, i64 4044, !13, i64 4048, !13, i64 4052, !13, i64 4056, !17, i64 4064, !17, i64 4072, !33, i64 4080, !33, i64 4082, !33, i64 4084, !33, i64 4086, !13, i64 4088, !13, i64 4092, !13, i64 4096, !13, i64 4100, !13, i64 4104, !13, i64 4108, !13, i64 4112, !13, i64 4116, !13, i64 4120, !5, i64 4124, !13, i64 4136, !13, i64 4140, !13, i64 4144, !13, i64 4148, !13, i64 4152, !13, i64 4156, !32, i64 4160, !13, i64 4192, !5, i64 4196, !13, i64 4212, !13, i64 4216, !13, i64 4220, !13, i64 4224, !13, i64 4228, !13, i64 4232, !13, i64 4236, !13, i64 4240, !13, i64 4244, !13, i64 4248, !13, i64 4252, !13, i64 4256, !13, i64 4260, !13, i64 4264, !5, i64 4268, !13, i64 4276, !13, i64 4280, !23, i64 4288, !23, i64 4296, !12, i64 4304, !12, i64 4312, !12, i64 4320, !13, i64 4328, !13, i64 4332, !34, i64 4336}
+!11 = !{!"p1 _ZTS7AVClass", !12, i64 0}
+!12 = !{!"any pointer", !5, i64 0}
+!13 = !{!"int", !5, i64 0}
+!14 = !{!"ScanTable", !15, i64 0, !5, i64 8, !5, i64 72}
+!15 = !{!"p1 omnipotent char", !12, i64 0}
+!16 = !{!"p1 _ZTS14AVCodecContext", !12, i64 0}
+!17 = !{!"long", !5, i64 0}
+!18 = !{!"p1 _ZTS15AVRefStructPool", !12, i64 0}
+!19 = !{!"BufferPoolContext", !18, i64 0, !18, i64 8, !18, i64 16, !18, i64 24, !18, i64 32, !13, i64 40, !13, i64 44, !13, i64 48}
+!20 = !{!"MPVWorkPicture", !5, i64 0, !5, i64 24, !21, i64 48, !15, i64 56, !5, i64 64, !22, i64 80, !15, i64 88, !5, i64 96, !13, i64 112}
+!21 = !{!"p1 _ZTS10MPVPicture", !12, i64 0}
+!22 = !{!"p1 int", !12, i64 0}
+!23 = !{!"p1 short", !12, i64 0}
+!24 = !{!"ScratchpadContext", !15, i64 0, !15, i64 8, !5, i64 16, !13, i64 24}
+!25 = !{!"BlockDSPContext", !12, i64 0, !12, i64 8, !5, i64 16}
+!26 = !{!"H264ChromaContext", !5, i64 0, !5, i64 32}
+!27 = !{!"HpelDSPContext", !5, i64 0, !5, i64 128, !5, i64 256, !5, i64 384}
+!28 = !{!"IDCTDSPContext", !12, i64 0, !12, i64 8, !12, i64 16, !12, i64 24, !12, i64 32, !12, i64 40, !5, i64 48, !13, i64 112, !13, i64 116}
+!29 = !{!"QpelDSPContext", !5, i64 0, !5, i64 256, !5, i64 512}
+!30 = !{!"VideoDSPContext", !12, i64 0, !12, i64 8}
+!31 = !{!"H263DSPContext", !12, i64 0, !12, i64 8}
+!32 = !{!"GetBitContext", !15, i64 0, !15, i64 8, !13, i64 16, !13, i64 20, !13, i64 24}
+!33 = !{!"short", !5, i64 0}
+!34 = !{!"ERContext", !16, i64 0, !12, i64 8, !13, i64 16, !22, i64 24, !13, i64 32, !13, i64 36, !13, i64 40, !17, i64 48, !17, i64 56, !5, i64 64, !13, i64 68, !15, i64 72, !15, i64 80, !5, i64 88, !15, i64 112, !15, i64 120, !5, i64 128, !35, i64 192, !35, i64 264, !35, i64 336, !5, i64 408, !5, i64 424, !33, i64 440, !33, i64 442, !13, i64 444, !13, i64 448, !12, i64 456, !12, i64 464}
+!35 = !{!"ERPicture", !36, i64 0, !37, i64 8, !38, i64 16, !5, i64 24, !5, i64 40, !22, i64 56, !13, i64 64}
+!36 = !{!"p1 _ZTS7AVFrame", !12, i64 0}
+!37 = !{!"p1 _ZTS11ThreadFrame", !12, i64 0}
+!38 = !{!"p1 _ZTS14ThreadProgress", !12, i64 0}
+!39 = !{!13, !13, i64 0}
+!40 = !{!32, !13, i64 16}
+!41 = !{!32, !15, i64 0}
+!42 = !{!33, !33, i64 0}

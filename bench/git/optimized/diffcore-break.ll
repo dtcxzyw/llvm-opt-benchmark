@@ -258,7 +258,7 @@ should_break.exit.thread:                         ; preds = %48, %57, %55, %59, 
 ._crit_edge:                                      ; preds = %129, %2
   %133 = load ptr, ptr @diff_queued_diff, align 8, !tbaa !11
   call void @free(ptr noundef %133) #10
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) @diff_queued_diff, ptr noundef nonnull align 8 dereferenceable(16) %6, i64 16, i1 false), !tbaa.struct !37
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) @diff_queued_diff, ptr noundef nonnull align 8 dereferenceable(16) %6, i64 16, i1 false), !tbaa.struct !36
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #10
   ret void
 }
@@ -425,9 +425,9 @@ define dso_local void @diffcore_merge_broken() local_unnamed_addr #0 {
   store i16 %67, ptr %68, align 8, !tbaa !33
   %69 = load ptr, ptr %spec.select.i, align 8, !tbaa !14
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 76
-  %71 = load i32, ptr %70, align 4, !tbaa !40
+  %71 = load i32, ptr %70, align 4, !tbaa !39
   %72 = add nsw i32 %71, 1
-  store i32 %72, ptr %70, align 4, !tbaa !40
+  store i32 %72, ptr %70, align 4, !tbaa !39
   %73 = load ptr, ptr %49, align 8, !tbaa !24
   call void @free_filespec(ptr noundef %73) #10
   %74 = load ptr, ptr %spec.select24.i, align 8, !tbaa !14
@@ -442,7 +442,7 @@ define dso_local void @diffcore_merge_broken() local_unnamed_addr #0 {
 77:                                               ; preds = %24, %30, %39
   %indvars.iv.next53 = add nuw nsw i64 %indvars.iv52, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next53, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %24, !llvm.loop !41
+  br i1 %exitcond.not, label %._crit_edge, label %24, !llvm.loop !40
 
 ._crit_edge:                                      ; preds = %77, %.preheader
   call void @diff_q(ptr noundef nonnull %1, ptr noundef nonnull %7) #10
@@ -458,12 +458,12 @@ define dso_local void @diffcore_merge_broken() local_unnamed_addr #0 {
   %81 = sext i32 %80 to i64
   %82 = icmp slt i64 %indvars.iv.next56, %81
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  br i1 %82, label %.lr.ph46, label %._crit_edge47, !llvm.loop !42
+  br i1 %82, label %.lr.ph46, label %._crit_edge47, !llvm.loop !41
 
 ._crit_edge47:                                    ; preds = %79, %0
   %83 = load ptr, ptr @diff_queued_diff, align 8, !tbaa !11
   call void @free(ptr noundef %83) #10
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) @diff_queued_diff, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false), !tbaa.struct !37
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) @diff_queued_diff, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false), !tbaa.struct !36
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %1) #10
   ret void
 }
@@ -543,12 +543,11 @@ attributes #12 = { noreturn nounwind }
 !31 = !{!19, !22, i64 64}
 !32 = !{!22, !22, i64 0}
 !33 = !{!15, !17, i64 16}
-!34 = distinct !{!34, !35, !36}
+!34 = distinct !{!34, !35}
 !35 = !{!"llvm.loop.mustprogress"}
-!36 = !{!"llvm.loop.estimated_trip_count"}
-!37 = !{i64 0, i64 8, !38, i64 8, i64 4, !39, i64 12, i64 4, !39}
-!38 = !{!6, !6, i64 0}
-!39 = !{!10, !10, i64 0}
-!40 = !{!19, !10, i64 76}
-!41 = distinct !{!41, !35, !36}
-!42 = distinct !{!42, !35, !36}
+!36 = !{i64 0, i64 8, !37, i64 8, i64 4, !38, i64 12, i64 4, !38}
+!37 = !{!6, !6, i64 0}
+!38 = !{!10, !10, i64 0}
+!39 = !{!19, !10, i64 76}
+!40 = distinct !{!40, !35}
+!41 = distinct !{!41, !35}

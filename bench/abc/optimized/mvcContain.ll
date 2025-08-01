@@ -78,25 +78,25 @@ define range(i32 0, 2) i32 @Mvc_CoverContain(ptr noundef %0) local_unnamed_addr 
 
 .thread50.i:                                      ; preds = %26, %35, %16
   store ptr %.04056.i, ptr %.057.i, align 8, !tbaa !3
-  %41 = load ptr, ptr %8, align 8, !tbaa !14
+  %41 = load ptr, ptr %8, align 8, !tbaa !13
   %42 = icmp eq ptr %41, %.04155.i
   br i1 %42, label %43, label %44
 
 43:                                               ; preds = %.thread50.i
-  store ptr %.057.i, ptr %8, align 8, !tbaa !14
+  store ptr %.057.i, ptr %8, align 8, !tbaa !13
   br label %44
 
 44:                                               ; preds = %43, %.thread50.i
-  %45 = load i32, ptr %9, align 8, !tbaa !16
+  %45 = load i32, ptr %9, align 8, !tbaa !15
   %46 = add nsw i32 %45, -1
-  store i32 %46, ptr %9, align 8, !tbaa !16
+  store i32 %46, ptr %9, align 8, !tbaa !15
   tail call void @Mvc_CubeFree(ptr noundef nonnull %0, ptr noundef nonnull %.04155.i) #2
   br label %.thread.i
 
 .thread.i:                                        ; preds = %29, %44, %35, %21, %16
   %.1.i = phi ptr [ %.057.i, %44 ], [ %.04155.i, %35 ], [ %.04155.i, %21 ], [ %.04155.i, %16 ], [ %.04155.i, %29 ]
   %.not47.i = icmp eq ptr %.04056.i, null
-  br i1 %.not47.i, label %Mvc_CoverRemoveDuplicates.exit, label %10, !llvm.loop !17
+  br i1 %.not47.i, label %Mvc_CoverRemoveDuplicates.exit, label %10, !llvm.loop !16
 
 Mvc_CoverRemoveDuplicates.exit:                   ; preds = %.thread.i, %4
   %47 = tail call ptr @Mvc_CoverReadCubeHead(ptr noundef %0) #2
@@ -108,7 +108,7 @@ Mvc_CoverRemoveDuplicates.exit:                   ; preds = %.thread.i, %4
 51:                                               ; preds = %._crit_edge90.i, %Mvc_CoverRemoveDuplicates.exit
   %.0.i = phi ptr [ %47, %Mvc_CoverRemoveDuplicates.exit ], [ %100, %._crit_edge90.i ]
   %52 = getelementptr inbounds nuw i8, ptr %.0.i, i64 12
-  %53 = load i32, ptr %52, align 4, !tbaa !18
+  %53 = load i32, ptr %52, align 4, !tbaa !17
   br label %54
 
 54:                                               ; preds = %55, %51
@@ -119,9 +119,9 @@ Mvc_CoverRemoveDuplicates.exit:                   ; preds = %.thread.i, %4
 
 55:                                               ; preds = %54
   %56 = getelementptr inbounds nuw i8, ptr %.060.i, i64 12
-  %57 = load i32, ptr %56, align 4, !tbaa !18
+  %57 = load i32, ptr %56, align 4, !tbaa !17
   %58 = icmp eq i32 %53, %57
-  br i1 %58, label %54, label %.preheader79.i, !llvm.loop !19
+  br i1 %58, label %54, label %.preheader79.i, !llvm.loop !18
 
 .preheader79.i:                                   ; preds = %55
   %.not6687.i = icmp eq ptr %.0.i, null
@@ -166,7 +166,7 @@ Mvc_CoverRemoveDuplicates.exit:                   ; preds = %.thread.i, %4
 74:                                               ; preds = %.preheader.i12
   %75 = add nsw i32 %.05482.i, -1
   %76 = icmp sgt i32 %.05482.i, 0
-  br i1 %76, label %.preheader.i12, label %.thread76.i, !llvm.loop !20
+  br i1 %76, label %.preheader.i12, label %.thread76.i, !llvm.loop !19
 
 .preheader.i12:                                   ; preds = %62, %74
   %.05482.i = phi i32 [ %75, %74 ], [ %65, %62 ]
@@ -195,7 +195,7 @@ Mvc_CoverRemoveDuplicates.exit:                   ; preds = %.thread.i, %4
   br i1 %87, label %88, label %89
 
 88:                                               ; preds = %.thread76.i
-  store ptr %.05985.i, ptr %48, align 8, !tbaa !21
+  store ptr %.05985.i, ptr %48, align 8, !tbaa !20
   br label %90
 
 89:                                               ; preds = %.thread76.i
@@ -203,25 +203,25 @@ Mvc_CoverRemoveDuplicates.exit:                   ; preds = %.thread.i, %4
   br label %90
 
 90:                                               ; preds = %89, %88
-  %91 = load ptr, ptr %49, align 8, !tbaa !14
+  %91 = load ptr, ptr %49, align 8, !tbaa !13
   %92 = icmp eq ptr %91, %.16184.i
   br i1 %92, label %93, label %94
 
 93:                                               ; preds = %90
-  store ptr %.05786.i, ptr %49, align 8, !tbaa !14
+  store ptr %.05786.i, ptr %49, align 8, !tbaa !13
   br label %94
 
 94:                                               ; preds = %93, %90
-  %95 = load i32, ptr %50, align 8, !tbaa !16
+  %95 = load i32, ptr %50, align 8, !tbaa !15
   %96 = add nsw i32 %95, -1
-  store i32 %96, ptr %50, align 8, !tbaa !16
+  store i32 %96, ptr %50, align 8, !tbaa !15
   tail call void @Mvc_CubeFree(ptr noundef nonnull %0, ptr noundef nonnull %.16184.i) #2
   br label %.thread.i11
 
 .thread.i11:                                      ; preds = %.preheader.i12, %94, %84, %67
   %.158.i = phi ptr [ %.05786.i, %94 ], [ %.16184.i, %84 ], [ %.16184.i, %67 ], [ %.16184.i, %.preheader.i12 ]
   %.not73.i = icmp eq ptr %.05985.i, null
-  br i1 %.not73.i, label %._crit_edge.i, label %62, !llvm.loop !22
+  br i1 %.not73.i, label %._crit_edge.i, label %62, !llvm.loop !21
 
 ._crit_edge.i:                                    ; preds = %.thread.i11, %.lr.ph89.i
   %97 = icmp eq ptr %.06288.i, %.056.i
@@ -230,7 +230,7 @@ Mvc_CoverRemoveDuplicates.exit:                   ; preds = %.thread.i, %4
 98:                                               ; preds = %._crit_edge.i
   %99 = load ptr, ptr %.06288.i, align 8, !tbaa !3
   %.not66.i = icmp eq ptr %99, null
-  br i1 %.not66.i, label %._crit_edge90.loopexit.i, label %.lr.ph89.i, !llvm.loop !23
+  br i1 %.not66.i, label %._crit_edge90.loopexit.i, label %.lr.ph89.i, !llvm.loop !22
 
 ._crit_edge90.loopexit.i:                         ; preds = %._crit_edge.i, %98
   %.pre.i.pre = load ptr, ptr %.056.i, align 8, !tbaa !3
@@ -239,7 +239,7 @@ Mvc_CoverRemoveDuplicates.exit:                   ; preds = %.thread.i, %4
 ._crit_edge90.i:                                  ; preds = %._crit_edge90.loopexit.i, %.preheader79.i
   %100 = phi ptr [ %.pre.i.pre, %._crit_edge90.loopexit.i ], [ %.060.i, %.preheader79.i ]
   %.not69.i = icmp eq ptr %100, null
-  br i1 %.not69.i, label %Mvc_CoverRemoveContained.exit, label %51, !llvm.loop !25
+  br i1 %.not69.i, label %Mvc_CoverRemoveContained.exit, label %51, !llvm.loop !24
 
 Mvc_CoverRemoveContained.exit:                    ; preds = %._crit_edge90.i, %54
   %101 = tail call i32 @Mvc_CoverReadCubeNum(ptr noundef %0) #2
@@ -281,18 +281,17 @@ attributes #2 = { nounwind }
 !8 = !{!"Simple C/C++ TBAA"}
 !9 = !{!"int", !7, i64 0}
 !10 = !{!9, !9, i64 0}
-!11 = distinct !{!11, !12, !13}
+!11 = distinct !{!11, !12}
 !12 = !{!"llvm.loop.mustprogress"}
-!13 = !{!"llvm.loop.estimated_trip_count"}
-!14 = !{!15, !5, i64 8}
-!15 = !{!"MvcListStruct", !5, i64 0, !5, i64 8, !9, i64 16}
-!16 = !{!15, !9, i64 16}
-!17 = distinct !{!17, !12, !13}
-!18 = !{!4, !9, i64 12}
-!19 = distinct !{!19, !12, !13}
-!20 = distinct !{!20, !12, !13}
-!21 = !{!15, !5, i64 0}
-!22 = distinct !{!22, !12, !13}
-!23 = distinct !{!23, !12, !13, !24}
-!24 = !{!"llvm.loop.unswitch.partial.disable"}
-!25 = distinct !{!25, !12, !13}
+!13 = !{!14, !5, i64 8}
+!14 = !{!"MvcListStruct", !5, i64 0, !5, i64 8, !9, i64 16}
+!15 = !{!14, !9, i64 16}
+!16 = distinct !{!16, !12}
+!17 = !{!4, !9, i64 12}
+!18 = distinct !{!18, !12}
+!19 = distinct !{!19, !12}
+!20 = !{!14, !5, i64 0}
+!21 = distinct !{!21, !12}
+!22 = distinct !{!22, !12, !23}
+!23 = !{!"llvm.loop.unswitch.partial.disable"}
+!24 = distinct !{!24, !12}

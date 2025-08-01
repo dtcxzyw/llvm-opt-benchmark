@@ -1890,7 +1890,7 @@ dissect_mip6_hoti.exit.thread:                    ; preds = %dissect_mip6_hoti.e
   %.160.i.i = phi i32 [ %294, %297 ], [ %339, %338 ]
   %.1.i.i = phi i32 [ %300, %297 ], [ %341, %338 ]
   %343 = icmp sgt i32 %.160.i.i, 0
-  br i1 %343, label %292, label %dissect_mip6_options.exit, !llvm.loop !9
+  br i1 %343, label %292, label %dissect_mip6_options.exit, !llvm.loop !8
 
 dissect_mip6_options.exit:                        ; preds = %342, %dissect_mip6_hoti.exit.thread, %312, %320
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #5
@@ -3298,7 +3298,7 @@ define internal i32 @dissect_pmip6_opt_cr(ptr noundef %0, ptr noundef %1, ptr no
   %.0.be = phi i32 [ %22, %.lr.ph ], [ %43, %42 ]
   %44 = add i32 %.0.be, -2
   %45 = icmp slt i32 %44, %8
-  br i1 %45, label %.lr.ph, label %._crit_edge, !llvm.loop !10
+  br i1 %45, label %.lr.ph, label %._crit_edge, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %.backedge, %4
   %46 = call i32 @tvb_captured_length(ptr noundef %0)
@@ -3615,7 +3615,7 @@ define internal i32 @dissect_pmip6_opt_acc_net_id(ptr noundef %0, ptr noundef %1
 83:                                               ; preds = %80, %72, %65, %53
   %.1 = phi i32 [ %82, %80 ], [ %64, %53 ], [ %71, %65 ], [ %79, %72 ]
   %84 = icmp slt i32 %.1, %10
-  br i1 %84, label %16, label %._crit_edge, !llvm.loop !11
+  br i1 %84, label %16, label %._crit_edge, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %83, %4
   %85 = call i32 @tvb_captured_length(ptr noundef %0)
@@ -3892,9 +3892,8 @@ attributes #5 = { nounwind }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7, !8}
-!11 = distinct !{!11, !7, !8}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}

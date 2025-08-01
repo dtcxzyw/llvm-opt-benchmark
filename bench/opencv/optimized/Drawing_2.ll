@@ -766,10 +766,10 @@ _ZN2cv3RNG7uniformEii.exit21:                     ; preds = %_ZN2cv3RNG7uniformE
   %86 = lshr i32 %80, 16
   %87 = and i32 %86, 255
   %88 = uitofp nneg i32 %87 to double
-  store double %82, ptr %6, align 8, !tbaa !43, !alias.scope !50
-  store double %85, ptr %17, align 8, !tbaa !43, !alias.scope !50
-  store double %88, ptr %18, align 8, !tbaa !43, !alias.scope !50
-  store double 0.000000e+00, ptr %19, align 8, !tbaa !43, !alias.scope !50
+  store double %82, ptr %6, align 8, !tbaa !43, !alias.scope !49
+  store double %85, ptr %17, align 8, !tbaa !43, !alias.scope !49
+  store double %88, ptr %18, align 8, !tbaa !43, !alias.scope !49
+  store double 0.000000e+00, ptr %19, align 8, !tbaa !43, !alias.scope !49
   call void @_ZN2cv9rectangleERKNS_17_InputOutputArrayENS_6Point_IiEES4_RKNS_7Scalar_IdEEiii(ptr noundef nonnull align 8 dereferenceable(24) %5, i64 %.sroa.028.0.insert.insert, i64 %.sroa.027.0.insert.insert, ptr noundef nonnull align 8 dereferenceable(32) %6, i32 noundef %21, i32 noundef 8, i32 noundef 0)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #15
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #15
@@ -849,7 +849,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %109 = add nuw nsw i32 %.01542, 1
   %exitcond.not = icmp eq i32 %109, 100
   %or.cond = select i1 %108, i1 true, i1 %exitcond.not
-  br i1 %or.cond, label %116, label %28, !llvm.loop !53
+  br i1 %or.cond, label %116, label %28, !llvm.loop !52
 
 110:                                              ; preds = %98
   %111 = landingpad { ptr, i32 }
@@ -988,10 +988,10 @@ _ZN2cv3RNG7uniformEii.exit:                       ; preds = %20, %24
   %81 = lshr i32 %75, 16
   %82 = and i32 %81, 255
   %83 = uitofp nneg i32 %82 to double
-  store double %77, ptr %6, align 8, !tbaa !43, !alias.scope !54
-  store double %80, ptr %11, align 8, !tbaa !43, !alias.scope !54
-  store double %83, ptr %12, align 8, !tbaa !43, !alias.scope !54
-  store double 0.000000e+00, ptr %13, align 8, !tbaa !43, !alias.scope !54
+  store double %77, ptr %6, align 8, !tbaa !43, !alias.scope !53
+  store double %80, ptr %11, align 8, !tbaa !43, !alias.scope !53
+  store double %83, ptr %12, align 8, !tbaa !43, !alias.scope !53
+  store double 0.000000e+00, ptr %13, align 8, !tbaa !43, !alias.scope !53
   %84 = and i64 %74, 4294967295
   %85 = mul nuw i64 %84, 4164903690
   %86 = lshr i64 %74, 32
@@ -1078,7 +1078,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %111 = add nuw nsw i32 %.01946, 1
   %exitcond.not = icmp eq i32 %111, 100
   %or.cond = select i1 %110, i1 true, i1 %exitcond.not
-  br i1 %or.cond, label %118, label %20, !llvm.loop !57
+  br i1 %or.cond, label %118, label %20, !llvm.loop !56
 
 112:                                              ; preds = %100
   %113 = landingpad { ptr, i32 }
@@ -1165,7 +1165,7 @@ define hidden noundef range(i32 -1, 1) i32 @_Z24Drawing_Random_PolylinesN2cv3Mat
 _ZN2cv3RNG7uniformEii.exit:                       ; preds = %35, %39
   %.sroa.037.1 = phi i64 [ %.sroa.037.056, %35 ], [ %43, %39 ]
   %48 = phi i32 [ %36, %35 ], [ %47, %39 ]
-  store i32 %48, ptr %5, align 16, !tbaa !58
+  store i32 %48, ptr %5, align 16, !tbaa !57
   %49 = load i32, ptr @y_1, align 4, !tbaa !42
   %50 = load i32, ptr @y_2, align 4, !tbaa !42
   %51 = icmp eq i32 %49, %50
@@ -1185,7 +1185,7 @@ _ZN2cv3RNG7uniformEii.exit:                       ; preds = %35, %39
 _ZN2cv3RNG7uniformEii.exit22:                     ; preds = %_ZN2cv3RNG7uniformEii.exit, %52
   %.sroa.037.2 = phi i64 [ %.sroa.037.1, %_ZN2cv3RNG7uniformEii.exit ], [ %56, %52 ]
   %61 = phi i32 [ %49, %_ZN2cv3RNG7uniformEii.exit ], [ %60, %52 ]
-  store i32 %61, ptr %12, align 4, !tbaa !60
+  store i32 %61, ptr %12, align 4, !tbaa !59
   br i1 %38, label %_ZN2cv3RNG7uniformEii.exit23, label %62
 
 62:                                               ; preds = %_ZN2cv3RNG7uniformEii.exit22
@@ -1202,7 +1202,7 @@ _ZN2cv3RNG7uniformEii.exit22:                     ; preds = %_ZN2cv3RNG7uniformE
 _ZN2cv3RNG7uniformEii.exit23:                     ; preds = %_ZN2cv3RNG7uniformEii.exit22, %62
   %.sroa.037.3 = phi i64 [ %.sroa.037.2, %_ZN2cv3RNG7uniformEii.exit22 ], [ %66, %62 ]
   %71 = phi i32 [ %36, %_ZN2cv3RNG7uniformEii.exit22 ], [ %70, %62 ]
-  store i32 %71, ptr %13, align 8, !tbaa !58
+  store i32 %71, ptr %13, align 8, !tbaa !57
   br i1 %51, label %_ZN2cv3RNG7uniformEii.exit24, label %72
 
 72:                                               ; preds = %_ZN2cv3RNG7uniformEii.exit23
@@ -1219,7 +1219,7 @@ _ZN2cv3RNG7uniformEii.exit23:                     ; preds = %_ZN2cv3RNG7uniformE
 _ZN2cv3RNG7uniformEii.exit24:                     ; preds = %_ZN2cv3RNG7uniformEii.exit23, %72
   %.sroa.037.4 = phi i64 [ %.sroa.037.3, %_ZN2cv3RNG7uniformEii.exit23 ], [ %76, %72 ]
   %81 = phi i32 [ %49, %_ZN2cv3RNG7uniformEii.exit23 ], [ %80, %72 ]
-  store i32 %81, ptr %14, align 4, !tbaa !60
+  store i32 %81, ptr %14, align 4, !tbaa !59
   br i1 %38, label %_ZN2cv3RNG7uniformEii.exit25, label %82
 
 82:                                               ; preds = %_ZN2cv3RNG7uniformEii.exit24
@@ -1236,7 +1236,7 @@ _ZN2cv3RNG7uniformEii.exit24:                     ; preds = %_ZN2cv3RNG7uniformE
 _ZN2cv3RNG7uniformEii.exit25:                     ; preds = %_ZN2cv3RNG7uniformEii.exit24, %82
   %.sroa.037.5 = phi i64 [ %.sroa.037.4, %_ZN2cv3RNG7uniformEii.exit24 ], [ %86, %82 ]
   %91 = phi i32 [ %36, %_ZN2cv3RNG7uniformEii.exit24 ], [ %90, %82 ]
-  store i32 %91, ptr %15, align 16, !tbaa !58
+  store i32 %91, ptr %15, align 16, !tbaa !57
   br i1 %51, label %_ZN2cv3RNG7uniformEii.exit26, label %92
 
 92:                                               ; preds = %_ZN2cv3RNG7uniformEii.exit25
@@ -1253,7 +1253,7 @@ _ZN2cv3RNG7uniformEii.exit25:                     ; preds = %_ZN2cv3RNG7uniformE
 _ZN2cv3RNG7uniformEii.exit26:                     ; preds = %_ZN2cv3RNG7uniformEii.exit25, %92
   %.sroa.037.6 = phi i64 [ %.sroa.037.5, %_ZN2cv3RNG7uniformEii.exit25 ], [ %96, %92 ]
   %101 = phi i32 [ %49, %_ZN2cv3RNG7uniformEii.exit25 ], [ %100, %92 ]
-  store i32 %101, ptr %16, align 4, !tbaa !60
+  store i32 %101, ptr %16, align 4, !tbaa !59
   br i1 %38, label %_ZN2cv3RNG7uniformEii.exit27, label %102
 
 102:                                              ; preds = %_ZN2cv3RNG7uniformEii.exit26
@@ -1270,7 +1270,7 @@ _ZN2cv3RNG7uniformEii.exit26:                     ; preds = %_ZN2cv3RNG7uniformE
 _ZN2cv3RNG7uniformEii.exit27:                     ; preds = %_ZN2cv3RNG7uniformEii.exit26, %102
   %.sroa.037.7 = phi i64 [ %.sroa.037.6, %_ZN2cv3RNG7uniformEii.exit26 ], [ %106, %102 ]
   %111 = phi i32 [ %36, %_ZN2cv3RNG7uniformEii.exit26 ], [ %110, %102 ]
-  store i32 %111, ptr %17, align 8, !tbaa !58
+  store i32 %111, ptr %17, align 8, !tbaa !57
   br i1 %51, label %_ZN2cv3RNG7uniformEii.exit28, label %112
 
 112:                                              ; preds = %_ZN2cv3RNG7uniformEii.exit27
@@ -1287,7 +1287,7 @@ _ZN2cv3RNG7uniformEii.exit27:                     ; preds = %_ZN2cv3RNG7uniformE
 _ZN2cv3RNG7uniformEii.exit28:                     ; preds = %_ZN2cv3RNG7uniformEii.exit27, %112
   %.sroa.037.8 = phi i64 [ %.sroa.037.7, %_ZN2cv3RNG7uniformEii.exit27 ], [ %116, %112 ]
   %121 = phi i32 [ %49, %_ZN2cv3RNG7uniformEii.exit27 ], [ %120, %112 ]
-  store i32 %121, ptr %18, align 4, !tbaa !60
+  store i32 %121, ptr %18, align 4, !tbaa !59
   br i1 %38, label %_ZN2cv3RNG7uniformEii.exit29, label %122
 
 122:                                              ; preds = %_ZN2cv3RNG7uniformEii.exit28
@@ -1304,7 +1304,7 @@ _ZN2cv3RNG7uniformEii.exit28:                     ; preds = %_ZN2cv3RNG7uniformE
 _ZN2cv3RNG7uniformEii.exit29:                     ; preds = %_ZN2cv3RNG7uniformEii.exit28, %122
   %.sroa.037.9 = phi i64 [ %.sroa.037.8, %_ZN2cv3RNG7uniformEii.exit28 ], [ %126, %122 ]
   %131 = phi i32 [ %36, %_ZN2cv3RNG7uniformEii.exit28 ], [ %130, %122 ]
-  store i32 %131, ptr %19, align 16, !tbaa !58
+  store i32 %131, ptr %19, align 16, !tbaa !57
   br i1 %51, label %_ZN2cv3RNG7uniformEii.exit30, label %132
 
 132:                                              ; preds = %_ZN2cv3RNG7uniformEii.exit29
@@ -1321,7 +1321,7 @@ _ZN2cv3RNG7uniformEii.exit29:                     ; preds = %_ZN2cv3RNG7uniformE
 _ZN2cv3RNG7uniformEii.exit30:                     ; preds = %_ZN2cv3RNG7uniformEii.exit29, %132
   %.sroa.037.10 = phi i64 [ %.sroa.037.9, %_ZN2cv3RNG7uniformEii.exit29 ], [ %136, %132 ]
   %141 = phi i32 [ %49, %_ZN2cv3RNG7uniformEii.exit29 ], [ %140, %132 ]
-  store i32 %141, ptr %20, align 4, !tbaa !60
+  store i32 %141, ptr %20, align 4, !tbaa !59
   br i1 %38, label %_ZN2cv3RNG7uniformEii.exit31, label %142
 
 142:                                              ; preds = %_ZN2cv3RNG7uniformEii.exit30
@@ -1338,7 +1338,7 @@ _ZN2cv3RNG7uniformEii.exit30:                     ; preds = %_ZN2cv3RNG7uniformE
 _ZN2cv3RNG7uniformEii.exit31:                     ; preds = %_ZN2cv3RNG7uniformEii.exit30, %142
   %.sroa.037.11 = phi i64 [ %.sroa.037.10, %_ZN2cv3RNG7uniformEii.exit30 ], [ %146, %142 ]
   %151 = phi i32 [ %36, %_ZN2cv3RNG7uniformEii.exit30 ], [ %150, %142 ]
-  store i32 %151, ptr %21, align 8, !tbaa !58
+  store i32 %151, ptr %21, align 8, !tbaa !57
   br i1 %51, label %161, label %152
 
 152:                                              ; preds = %_ZN2cv3RNG7uniformEii.exit31
@@ -1355,10 +1355,10 @@ _ZN2cv3RNG7uniformEii.exit31:                     ; preds = %_ZN2cv3RNG7uniformE
 161:                                              ; preds = %_ZN2cv3RNG7uniformEii.exit31, %152
   %.sroa.037.12 = phi i64 [ %.sroa.037.11, %_ZN2cv3RNG7uniformEii.exit31 ], [ %156, %152 ]
   %162 = phi i32 [ %49, %_ZN2cv3RNG7uniformEii.exit31 ], [ %160, %152 ]
-  store i32 %162, ptr %22, align 4, !tbaa !60
+  store i32 %162, ptr %22, align 4, !tbaa !59
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #15
-  store ptr %5, ptr %6, align 16, !tbaa !61
-  store ptr %17, ptr %23, align 8, !tbaa !61
+  store ptr %5, ptr %6, align 16, !tbaa !60
+  store ptr %17, ptr %23, align 8, !tbaa !60
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #15
   store i64 12884901891, ptr %7, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8) #15
@@ -1379,10 +1379,10 @@ _ZN2cv3RNG7uniformEii.exit31:                     ; preds = %_ZN2cv3RNG7uniformE
   %173 = lshr i32 %167, 16
   %174 = and i32 %173, 255
   %175 = uitofp nneg i32 %174 to double
-  store double %169, ptr %9, align 8, !tbaa !43, !alias.scope !63
-  store double %172, ptr %26, align 8, !tbaa !43, !alias.scope !63
-  store double %175, ptr %27, align 8, !tbaa !43, !alias.scope !63
-  store double 0.000000e+00, ptr %28, align 8, !tbaa !43, !alias.scope !63
+  store double %169, ptr %9, align 8, !tbaa !43, !alias.scope !62
+  store double %172, ptr %26, align 8, !tbaa !43, !alias.scope !62
+  store double %175, ptr %27, align 8, !tbaa !43, !alias.scope !62
+  store double 0.000000e+00, ptr %28, align 8, !tbaa !43, !alias.scope !62
   %176 = and i64 %166, 4294967295
   %177 = mul nuw i64 %176, 4164903690
   %178 = lshr i64 %166, 32
@@ -1472,7 +1472,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %203 = add nuw nsw i32 %.01457, 1
   %exitcond.not = icmp eq i32 %203, 100
   %or.cond = select i1 %202, i1 true, i1 %exitcond.not
-  br i1 %or.cond, label %210, label %35, !llvm.loop !66
+  br i1 %or.cond, label %210, label %35, !llvm.loop !65
 
 204:                                              ; preds = %192
   %205 = landingpad { ptr, i32 }
@@ -1562,7 +1562,7 @@ define hidden noundef range(i32 -1, 1) i32 @_Z30Drawing_Random_Filled_PolygonsN2
 _ZN2cv3RNG7uniformEii.exit:                       ; preds = %35, %39
   %.sroa.038.1 = phi i64 [ %.sroa.038.056, %35 ], [ %43, %39 ]
   %48 = phi i32 [ %36, %35 ], [ %47, %39 ]
-  store i32 %48, ptr %5, align 16, !tbaa !58
+  store i32 %48, ptr %5, align 16, !tbaa !57
   %49 = load i32, ptr @y_1, align 4, !tbaa !42
   %50 = load i32, ptr @y_2, align 4, !tbaa !42
   %51 = icmp eq i32 %49, %50
@@ -1582,7 +1582,7 @@ _ZN2cv3RNG7uniformEii.exit:                       ; preds = %35, %39
 _ZN2cv3RNG7uniformEii.exit22:                     ; preds = %_ZN2cv3RNG7uniformEii.exit, %52
   %.sroa.038.2 = phi i64 [ %.sroa.038.1, %_ZN2cv3RNG7uniformEii.exit ], [ %56, %52 ]
   %61 = phi i32 [ %49, %_ZN2cv3RNG7uniformEii.exit ], [ %60, %52 ]
-  store i32 %61, ptr %12, align 4, !tbaa !60
+  store i32 %61, ptr %12, align 4, !tbaa !59
   br i1 %38, label %_ZN2cv3RNG7uniformEii.exit23, label %62
 
 62:                                               ; preds = %_ZN2cv3RNG7uniformEii.exit22
@@ -1599,7 +1599,7 @@ _ZN2cv3RNG7uniformEii.exit22:                     ; preds = %_ZN2cv3RNG7uniformE
 _ZN2cv3RNG7uniformEii.exit23:                     ; preds = %_ZN2cv3RNG7uniformEii.exit22, %62
   %.sroa.038.3 = phi i64 [ %.sroa.038.2, %_ZN2cv3RNG7uniformEii.exit22 ], [ %66, %62 ]
   %71 = phi i32 [ %36, %_ZN2cv3RNG7uniformEii.exit22 ], [ %70, %62 ]
-  store i32 %71, ptr %13, align 8, !tbaa !58
+  store i32 %71, ptr %13, align 8, !tbaa !57
   br i1 %51, label %_ZN2cv3RNG7uniformEii.exit24, label %72
 
 72:                                               ; preds = %_ZN2cv3RNG7uniformEii.exit23
@@ -1616,7 +1616,7 @@ _ZN2cv3RNG7uniformEii.exit23:                     ; preds = %_ZN2cv3RNG7uniformE
 _ZN2cv3RNG7uniformEii.exit24:                     ; preds = %_ZN2cv3RNG7uniformEii.exit23, %72
   %.sroa.038.4 = phi i64 [ %.sroa.038.3, %_ZN2cv3RNG7uniformEii.exit23 ], [ %76, %72 ]
   %81 = phi i32 [ %49, %_ZN2cv3RNG7uniformEii.exit23 ], [ %80, %72 ]
-  store i32 %81, ptr %14, align 4, !tbaa !60
+  store i32 %81, ptr %14, align 4, !tbaa !59
   br i1 %38, label %_ZN2cv3RNG7uniformEii.exit25, label %82
 
 82:                                               ; preds = %_ZN2cv3RNG7uniformEii.exit24
@@ -1633,7 +1633,7 @@ _ZN2cv3RNG7uniformEii.exit24:                     ; preds = %_ZN2cv3RNG7uniformE
 _ZN2cv3RNG7uniformEii.exit25:                     ; preds = %_ZN2cv3RNG7uniformEii.exit24, %82
   %.sroa.038.5 = phi i64 [ %.sroa.038.4, %_ZN2cv3RNG7uniformEii.exit24 ], [ %86, %82 ]
   %91 = phi i32 [ %36, %_ZN2cv3RNG7uniformEii.exit24 ], [ %90, %82 ]
-  store i32 %91, ptr %15, align 16, !tbaa !58
+  store i32 %91, ptr %15, align 16, !tbaa !57
   br i1 %51, label %_ZN2cv3RNG7uniformEii.exit26, label %92
 
 92:                                               ; preds = %_ZN2cv3RNG7uniformEii.exit25
@@ -1650,7 +1650,7 @@ _ZN2cv3RNG7uniformEii.exit25:                     ; preds = %_ZN2cv3RNG7uniformE
 _ZN2cv3RNG7uniformEii.exit26:                     ; preds = %_ZN2cv3RNG7uniformEii.exit25, %92
   %.sroa.038.6 = phi i64 [ %.sroa.038.5, %_ZN2cv3RNG7uniformEii.exit25 ], [ %96, %92 ]
   %101 = phi i32 [ %49, %_ZN2cv3RNG7uniformEii.exit25 ], [ %100, %92 ]
-  store i32 %101, ptr %16, align 4, !tbaa !60
+  store i32 %101, ptr %16, align 4, !tbaa !59
   br i1 %38, label %_ZN2cv3RNG7uniformEii.exit27, label %102
 
 102:                                              ; preds = %_ZN2cv3RNG7uniformEii.exit26
@@ -1667,7 +1667,7 @@ _ZN2cv3RNG7uniformEii.exit26:                     ; preds = %_ZN2cv3RNG7uniformE
 _ZN2cv3RNG7uniformEii.exit27:                     ; preds = %_ZN2cv3RNG7uniformEii.exit26, %102
   %.sroa.038.7 = phi i64 [ %.sroa.038.6, %_ZN2cv3RNG7uniformEii.exit26 ], [ %106, %102 ]
   %111 = phi i32 [ %36, %_ZN2cv3RNG7uniformEii.exit26 ], [ %110, %102 ]
-  store i32 %111, ptr %17, align 8, !tbaa !58
+  store i32 %111, ptr %17, align 8, !tbaa !57
   br i1 %51, label %_ZN2cv3RNG7uniformEii.exit28, label %112
 
 112:                                              ; preds = %_ZN2cv3RNG7uniformEii.exit27
@@ -1684,7 +1684,7 @@ _ZN2cv3RNG7uniformEii.exit27:                     ; preds = %_ZN2cv3RNG7uniformE
 _ZN2cv3RNG7uniformEii.exit28:                     ; preds = %_ZN2cv3RNG7uniformEii.exit27, %112
   %.sroa.038.8 = phi i64 [ %.sroa.038.7, %_ZN2cv3RNG7uniformEii.exit27 ], [ %116, %112 ]
   %121 = phi i32 [ %49, %_ZN2cv3RNG7uniformEii.exit27 ], [ %120, %112 ]
-  store i32 %121, ptr %18, align 4, !tbaa !60
+  store i32 %121, ptr %18, align 4, !tbaa !59
   br i1 %38, label %_ZN2cv3RNG7uniformEii.exit29, label %122
 
 122:                                              ; preds = %_ZN2cv3RNG7uniformEii.exit28
@@ -1701,7 +1701,7 @@ _ZN2cv3RNG7uniformEii.exit28:                     ; preds = %_ZN2cv3RNG7uniformE
 _ZN2cv3RNG7uniformEii.exit29:                     ; preds = %_ZN2cv3RNG7uniformEii.exit28, %122
   %.sroa.038.9 = phi i64 [ %.sroa.038.8, %_ZN2cv3RNG7uniformEii.exit28 ], [ %126, %122 ]
   %131 = phi i32 [ %36, %_ZN2cv3RNG7uniformEii.exit28 ], [ %130, %122 ]
-  store i32 %131, ptr %19, align 16, !tbaa !58
+  store i32 %131, ptr %19, align 16, !tbaa !57
   br i1 %51, label %_ZN2cv3RNG7uniformEii.exit30, label %132
 
 132:                                              ; preds = %_ZN2cv3RNG7uniformEii.exit29
@@ -1718,7 +1718,7 @@ _ZN2cv3RNG7uniformEii.exit29:                     ; preds = %_ZN2cv3RNG7uniformE
 _ZN2cv3RNG7uniformEii.exit30:                     ; preds = %_ZN2cv3RNG7uniformEii.exit29, %132
   %.sroa.038.10 = phi i64 [ %.sroa.038.9, %_ZN2cv3RNG7uniformEii.exit29 ], [ %136, %132 ]
   %141 = phi i32 [ %49, %_ZN2cv3RNG7uniformEii.exit29 ], [ %140, %132 ]
-  store i32 %141, ptr %20, align 4, !tbaa !60
+  store i32 %141, ptr %20, align 4, !tbaa !59
   br i1 %38, label %_ZN2cv3RNG7uniformEii.exit31, label %142
 
 142:                                              ; preds = %_ZN2cv3RNG7uniformEii.exit30
@@ -1735,7 +1735,7 @@ _ZN2cv3RNG7uniformEii.exit30:                     ; preds = %_ZN2cv3RNG7uniformE
 _ZN2cv3RNG7uniformEii.exit31:                     ; preds = %_ZN2cv3RNG7uniformEii.exit30, %142
   %.sroa.038.11 = phi i64 [ %.sroa.038.10, %_ZN2cv3RNG7uniformEii.exit30 ], [ %146, %142 ]
   %151 = phi i32 [ %36, %_ZN2cv3RNG7uniformEii.exit30 ], [ %150, %142 ]
-  store i32 %151, ptr %21, align 8, !tbaa !58
+  store i32 %151, ptr %21, align 8, !tbaa !57
   br i1 %51, label %161, label %152
 
 152:                                              ; preds = %_ZN2cv3RNG7uniformEii.exit31
@@ -1752,10 +1752,10 @@ _ZN2cv3RNG7uniformEii.exit31:                     ; preds = %_ZN2cv3RNG7uniformE
 161:                                              ; preds = %152, %_ZN2cv3RNG7uniformEii.exit31
   %.sroa.038.12 = phi i64 [ %.sroa.038.11, %_ZN2cv3RNG7uniformEii.exit31 ], [ %156, %152 ]
   %162 = phi i32 [ %49, %_ZN2cv3RNG7uniformEii.exit31 ], [ %160, %152 ]
-  store i32 %162, ptr %22, align 4, !tbaa !60
+  store i32 %162, ptr %22, align 4, !tbaa !59
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #15
-  store ptr %5, ptr %6, align 16, !tbaa !61
-  store ptr %17, ptr %23, align 8, !tbaa !61
+  store ptr %5, ptr %6, align 16, !tbaa !60
+  store ptr %17, ptr %23, align 8, !tbaa !60
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #15
   store i64 12884901891, ptr %7, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8) #15
@@ -1776,10 +1776,10 @@ _ZN2cv3RNG7uniformEii.exit31:                     ; preds = %_ZN2cv3RNG7uniformE
   %173 = lshr i32 %167, 16
   %174 = and i32 %173, 255
   %175 = uitofp nneg i32 %174 to double
-  store double %169, ptr %9, align 8, !tbaa !43, !alias.scope !67
-  store double %172, ptr %26, align 8, !tbaa !43, !alias.scope !67
-  store double %175, ptr %27, align 8, !tbaa !43, !alias.scope !67
-  store double 0.000000e+00, ptr %28, align 8, !tbaa !43, !alias.scope !67
+  store double %169, ptr %9, align 8, !tbaa !43, !alias.scope !66
+  store double %172, ptr %26, align 8, !tbaa !43, !alias.scope !66
+  store double %175, ptr %27, align 8, !tbaa !43, !alias.scope !66
+  store double 0.000000e+00, ptr %28, align 8, !tbaa !43, !alias.scope !66
   call void @_ZN2cv8fillPolyERKNS_17_InputOutputArrayEPPKNS_6Point_IiEEPKiiRKNS_7Scalar_IdEEiiS4_(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull %6, ptr noundef nonnull %7, i32 noundef 2, ptr noundef nonnull align 8 dereferenceable(32) %9, i32 noundef 8, i32 noundef 0, i64 0)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9) #15
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8) #15
@@ -1862,7 +1862,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %196 = add nuw nsw i32 %.01457, 1
   %exitcond.not = icmp eq i32 %196, 100
   %or.cond = select i1 %195, i1 true, i1 %exitcond.not
-  br i1 %or.cond, label %203, label %35, !llvm.loop !70
+  br i1 %or.cond, label %203, label %35, !llvm.loop !69
 
 197:                                              ; preds = %185
   %198 = landingpad { ptr, i32 }
@@ -1983,10 +1983,10 @@ _ZN2cv3RNG7uniformEii.exit:                       ; preds = %20, %24
   %64 = lshr i32 %58, 16
   %65 = and i32 %64, 255
   %66 = uitofp nneg i32 %65 to double
-  store double %60, ptr %6, align 8, !tbaa !43, !alias.scope !71
-  store double %63, ptr %11, align 8, !tbaa !43, !alias.scope !71
-  store double %66, ptr %12, align 8, !tbaa !43, !alias.scope !71
-  store double 0.000000e+00, ptr %13, align 8, !tbaa !43, !alias.scope !71
+  store double %60, ptr %6, align 8, !tbaa !43, !alias.scope !70
+  store double %63, ptr %11, align 8, !tbaa !43, !alias.scope !70
+  store double %66, ptr %12, align 8, !tbaa !43, !alias.scope !70
+  store double 0.000000e+00, ptr %13, align 8, !tbaa !43, !alias.scope !70
   %67 = and i64 %57, 4294967295
   %68 = mul nuw i64 %67, 4164903690
   %69 = lshr i64 %57, 32
@@ -2073,7 +2073,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %94 = add nuw nsw i32 %.01942, 1
   %exitcond.not = icmp eq i32 %94, 100
   %or.cond = select i1 %93, i1 true, i1 %exitcond.not
-  br i1 %or.cond, label %101, label %20, !llvm.loop !74
+  br i1 %or.cond, label %101, label %20, !llvm.loop !73
 
 95:                                               ; preds = %83
   %96 = landingpad { ptr, i32 }
@@ -2219,10 +2219,10 @@ _ZN2cv3RNG7uniformEii.exit25:                     ; preds = %_ZN2cv3RNG7uniformE
   %79 = lshr i32 %73, 16
   %80 = and i32 %79, 255
   %81 = uitofp nneg i32 %80 to double
-  store double %75, ptr %8, align 8, !tbaa !43, !alias.scope !75
-  store double %78, ptr %15, align 8, !tbaa !43, !alias.scope !75
-  store double %81, ptr %16, align 8, !tbaa !43, !alias.scope !75
-  store double 0.000000e+00, ptr %17, align 8, !tbaa !43, !alias.scope !75
+  store double %75, ptr %8, align 8, !tbaa !43, !alias.scope !74
+  store double %78, ptr %15, align 8, !tbaa !43, !alias.scope !74
+  store double %81, ptr %16, align 8, !tbaa !43, !alias.scope !74
+  store double 0.000000e+00, ptr %17, align 8, !tbaa !43, !alias.scope !74
   %82 = and i64 %72, 4294967295
   %83 = mul nuw i64 %82, 4164903690
   %84 = lshr i64 %72, 32
@@ -2333,7 +2333,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit33: ; preds = %_ZN
   %115 = add nuw nsw i32 %.01967, 1
   %exitcond.not = icmp eq i32 %115, 100
   %or.cond = select i1 %114, i1 true, i1 %exitcond.not
-  br i1 %or.cond, label %131, label %24, !llvm.loop !78
+  br i1 %or.cond, label %131, label %24, !llvm.loop !77
 
 116:                                              ; preds = %_ZN2cv3RNG7uniformEii.exit25
   %117 = landingpad { ptr, i32 }
@@ -2507,10 +2507,10 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit38: ; preds = %_ZN
   call void @llvm.lifetime.start.p0(i64 352, ptr nonnull %6) #15
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #15
   %53 = uitofp nneg i32 %.01387 to double
-  store double %53, ptr %7, align 8, !tbaa !43, !alias.scope !79
-  store double %53, ptr %26, align 8, !tbaa !43, !alias.scope !79
-  store double %53, ptr %27, align 8, !tbaa !43, !alias.scope !79
-  store double %53, ptr %28, align 8, !tbaa !43, !alias.scope !79
+  store double %53, ptr %7, align 8, !tbaa !43, !alias.scope !78
+  store double %53, ptr %26, align 8, !tbaa !43, !alias.scope !78
+  store double %53, ptr %27, align 8, !tbaa !43, !alias.scope !78
+  store double %53, ptr %28, align 8, !tbaa !43, !alias.scope !78
   invoke void @_ZN2cvmiERKNS_3MatERKNS_7Scalar_IdEE(ptr dead_on_unwind nonnull writable sret(%"class.cv::MatExpr") align 8 %6, ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull align 8 dereferenceable(32) %7)
           to label %54 unwind label %88
 
@@ -2647,7 +2647,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit54: ; preds = %_ZN
   %86 = add nuw nsw i32 %.01387, 2
   %87 = icmp samesign ugt i32 %.01387, 252
   %or.cond.not = select i1 %85, i1 true, i1 %87
-  br i1 %or.cond.not, label %107, label %52, !llvm.loop !82
+  br i1 %or.cond.not, label %107, label %52, !llvm.loop !81
 
 88:                                               ; preds = %52
   %89 = landingpad { ptr, i32 }
@@ -2859,39 +2859,38 @@ attributes #17 = { noreturn }
 !44 = !{!45}
 !45 = distinct !{!45, !46, !"_ZL11randomColorRN2cv3RNGE: argument 0"}
 !46 = distinct !{!46, !"_ZL11randomColorRN2cv3RNGE"}
-!47 = distinct !{!47, !48, !49}
+!47 = distinct !{!47, !48}
 !48 = !{!"llvm.loop.mustprogress"}
-!49 = !{!"llvm.loop.estimated_trip_count"}
-!50 = !{!51}
-!51 = distinct !{!51, !52, !"_ZL11randomColorRN2cv3RNGE: argument 0"}
-!52 = distinct !{!52, !"_ZL11randomColorRN2cv3RNGE"}
-!53 = distinct !{!53, !48, !49}
-!54 = !{!55}
-!55 = distinct !{!55, !56, !"_ZL11randomColorRN2cv3RNGE: argument 0"}
-!56 = distinct !{!56, !"_ZL11randomColorRN2cv3RNGE"}
-!57 = distinct !{!57, !48, !49}
-!58 = !{!59, !10, i64 0}
-!59 = !{!"_ZTSN2cv6Point_IiEE", !10, i64 0, !10, i64 4}
-!60 = !{!59, !10, i64 4}
-!61 = !{!62, !62, i64 0}
-!62 = !{!"p1 _ZTSN2cv6Point_IiEE", !7, i64 0}
-!63 = !{!64}
-!64 = distinct !{!64, !65, !"_ZL11randomColorRN2cv3RNGE: argument 0"}
-!65 = distinct !{!65, !"_ZL11randomColorRN2cv3RNGE"}
-!66 = distinct !{!66, !48, !49}
-!67 = !{!68}
-!68 = distinct !{!68, !69, !"_ZL11randomColorRN2cv3RNGE: argument 0"}
-!69 = distinct !{!69, !"_ZL11randomColorRN2cv3RNGE"}
-!70 = distinct !{!70, !48, !49}
-!71 = !{!72}
-!72 = distinct !{!72, !73, !"_ZL11randomColorRN2cv3RNGE: argument 0"}
-!73 = distinct !{!73, !"_ZL11randomColorRN2cv3RNGE"}
-!74 = distinct !{!74, !48, !49}
-!75 = !{!76}
-!76 = distinct !{!76, !77, !"_ZL11randomColorRN2cv3RNGE: argument 0"}
-!77 = distinct !{!77, !"_ZL11randomColorRN2cv3RNGE"}
-!78 = distinct !{!78, !48, !49}
-!79 = !{!80}
-!80 = distinct !{!80, !81, !"_ZN2cv7Scalar_IdE3allEd: argument 0"}
-!81 = distinct !{!81, !"_ZN2cv7Scalar_IdE3allEd"}
-!82 = distinct !{!82, !48, !49}
+!49 = !{!50}
+!50 = distinct !{!50, !51, !"_ZL11randomColorRN2cv3RNGE: argument 0"}
+!51 = distinct !{!51, !"_ZL11randomColorRN2cv3RNGE"}
+!52 = distinct !{!52, !48}
+!53 = !{!54}
+!54 = distinct !{!54, !55, !"_ZL11randomColorRN2cv3RNGE: argument 0"}
+!55 = distinct !{!55, !"_ZL11randomColorRN2cv3RNGE"}
+!56 = distinct !{!56, !48}
+!57 = !{!58, !10, i64 0}
+!58 = !{!"_ZTSN2cv6Point_IiEE", !10, i64 0, !10, i64 4}
+!59 = !{!58, !10, i64 4}
+!60 = !{!61, !61, i64 0}
+!61 = !{!"p1 _ZTSN2cv6Point_IiEE", !7, i64 0}
+!62 = !{!63}
+!63 = distinct !{!63, !64, !"_ZL11randomColorRN2cv3RNGE: argument 0"}
+!64 = distinct !{!64, !"_ZL11randomColorRN2cv3RNGE"}
+!65 = distinct !{!65, !48}
+!66 = !{!67}
+!67 = distinct !{!67, !68, !"_ZL11randomColorRN2cv3RNGE: argument 0"}
+!68 = distinct !{!68, !"_ZL11randomColorRN2cv3RNGE"}
+!69 = distinct !{!69, !48}
+!70 = !{!71}
+!71 = distinct !{!71, !72, !"_ZL11randomColorRN2cv3RNGE: argument 0"}
+!72 = distinct !{!72, !"_ZL11randomColorRN2cv3RNGE"}
+!73 = distinct !{!73, !48}
+!74 = !{!75}
+!75 = distinct !{!75, !76, !"_ZL11randomColorRN2cv3RNGE: argument 0"}
+!76 = distinct !{!76, !"_ZL11randomColorRN2cv3RNGE"}
+!77 = distinct !{!77, !48}
+!78 = !{!79}
+!79 = distinct !{!79, !80, !"_ZN2cv7Scalar_IdE3allEd: argument 0"}
+!80 = distinct !{!80, !"_ZN2cv7Scalar_IdE3allEd"}
+!81 = distinct !{!81, !48}

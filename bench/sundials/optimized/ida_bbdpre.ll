@@ -676,7 +676,7 @@ define internal i32 @IDABBDPrecSetup(double noundef %0, ptr noundef %1, ptr noun
   store double %117, ptr %115, align 8, !tbaa !67
   %118 = add nsw i64 %.0182218.i, %61
   %119 = icmp slt i64 %118, %68
-  br i1 %119, label %71, label %._crit_edge.i, !llvm.loop !69
+  br i1 %119, label %71, label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %111, %67
   %120 = load ptr, ptr %46, align 8, !tbaa !26
@@ -785,18 +785,18 @@ define internal i32 @IDABBDPrecSetup(double noundef %0, ptr noundef %1, ptr noun
   store double %184, ptr %186, align 8, !tbaa !67
   %187 = add nuw nsw i64 %.0181220.i, 1
   %.not212.not.i = icmp slt i64 %.0181220.i, %178
-  br i1 %.not212.not.i, label %.lr.ph222.i, label %._crit_edge223.i, !llvm.loop !71
+  br i1 %.not212.not.i, label %.lr.ph222.i, label %._crit_edge223.i
 
 ._crit_edge223.i:                                 ; preds = %.lr.ph222.i, %168
   %188 = add nsw i64 %.1183224.i, %61
   %189 = icmp slt i64 %188, %176
-  br i1 %189, label %.lr.ph225.i, label %._crit_edge226.i, !llvm.loop !72
+  br i1 %189, label %.lr.ph225.i, label %._crit_edge226.i
 
 ._crit_edge226.i:                                 ; preds = %._crit_edge223.i, %.preheader.i
   %190 = phi i64 [ %125, %.preheader.i ], [ %176, %._crit_edge223.i ]
   %191 = add nuw i64 %.0180228.i, 1
   %exitcond.not.i = icmp eq i64 %.0180228.i, %..i
-  br i1 %exitcond.not.i, label %.loopexit, label %67, !llvm.loop !73
+  br i1 %exitcond.not.i, label %.loopexit, label %67
 
 IBBDDQJac.exit:                                   ; preds = %._crit_edge.i, %39, %45
   %.0.i = phi i32 [ %44, %39 ], [ %52, %45 ], [ %122, %._crit_edge.i ]
@@ -1107,8 +1107,3 @@ attributes #10 = { nounwind allocsize(0) }
 !66 = !{!4, !6, i64 24}
 !67 = !{!9, !9, i64 0}
 !68 = !{!4, !9, i64 656}
-!69 = distinct !{!69, !70}
-!70 = !{!"llvm.loop.estimated_trip_count"}
-!71 = distinct !{!71, !70}
-!72 = distinct !{!72, !70}
-!73 = distinct !{!73, !70}

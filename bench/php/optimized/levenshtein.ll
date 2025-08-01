@@ -118,7 +118,7 @@ define hidden void @zif_levenshtein(ptr noundef readonly captures(none) %0, ptr 
   store i64 %49, ptr %50, align 8, !tbaa !4
   %51 = add i64 %.06378.i, 1
   %.not.i = icmp ugt i64 %51, %43
-  br i1 %.not.i, label %.preheader.i, label %48, !llvm.loop !47
+  br i1 %.not.i, label %.preheader.i, label %48
 
 52:                                               ; preds = %._crit_edge.i, %.lr.ph83.i
   %53 = phi i64 [ %.pre.i, %.lr.ph83.i ], [ %54, %._crit_edge.i ]
@@ -157,14 +157,14 @@ define hidden void @zif_levenshtein(ptr noundef readonly captures(none) %0, ptr 
   store i64 %.168.i, ptr %71, align 8, !tbaa !4
   %72 = load i64, ptr %36, align 8, !tbaa !45
   %73 = icmp ult i64 %66, %72
-  br i1 %73, label %57, label %._crit_edge.i, !llvm.loop !49
+  br i1 %73, label %57, label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %57, %52
   %74 = phi i64 [ 0, %52 ], [ %72, %57 ]
   %75 = add nuw i64 %.06482.i, 1
   %76 = load i64, ptr %44, align 8, !tbaa !45
   %77 = icmp ult i64 %75, %76
-  br i1 %77, label %52, label %._crit_edge84.i, !llvm.loop !50
+  br i1 %77, label %52, label %._crit_edge84.i
 
 ._crit_edge84.i:                                  ; preds = %._crit_edge.i, %.preheader.i
   %78 = phi i64 [ %43, %.preheader.i ], [ %74, %._crit_edge.i ]
@@ -266,7 +266,3 @@ attributes #5 = { nounwind }
 !44 = !{!39, !39, i64 0}
 !45 = !{!46, !5, i64 16}
 !46 = !{!"_zend_string", !15, i64 0, !5, i64 8, !5, i64 16, !6, i64 24}
-!47 = distinct !{!47, !48}
-!48 = !{!"llvm.loop.estimated_trip_count"}
-!49 = distinct !{!49, !48}
-!50 = distinct !{!50, !48}

@@ -289,7 +289,7 @@ define i32 @Saig_ManRetimeSteps(ptr noundef %0, i32 noundef %1, i32 noundef %2, 
 38:                                               ; preds = %.preheader70.us
   %39 = add nuw nsw i32 %.04984.us, 1
   %exitcond.not = icmp eq i32 %39, %1
-  br i1 %exitcond.not, label %.loopexit, label %.preheader70.us, !llvm.loop !40
+  br i1 %exitcond.not, label %.loopexit, label %.preheader70.us, !llvm.loop !39
 
 .preheader70:                                     ; preds = %.preheader70.lr.ph, %123
   %40 = phi ptr [ %120, %123 ], [ %33, %.preheader70.lr.ph ]
@@ -451,7 +451,7 @@ Saig_ManRetimeNodeFwd.exit.thread:                ; preds = %Saig_ManRetimeNodeF
   %.val58 = load i32, ptr %116, align 4, !tbaa !35
   %117 = sext i32 %.val58 to i64
   %118 = icmp slt i64 %indvars.iv.next, %117
-  br i1 %118, label %43, label %.critedge.loopexit, !llvm.loop !41
+  br i1 %118, label %43, label %.critedge.loopexit, !llvm.loop !40
 
 .critedge.loopexit:                               ; preds = %Saig_ManRetimeNodeFwd.exit.thread
   %119 = trunc nuw nsw i64 %indvars.iv.next to i32
@@ -468,7 +468,7 @@ Saig_ManRetimeNodeFwd.exit.thread:                ; preds = %Saig_ManRetimeNodeF
 123:                                              ; preds = %.critedge
   %124 = add nuw nsw i32 %.04984, 1
   %exitcond114.not = icmp eq i32 %124, %1
-  br i1 %exitcond114.not, label %.loopexit, label %.preheader70, !llvm.loop !42
+  br i1 %exitcond114.not, label %.loopexit, label %.preheader70, !llvm.loop !41
 
 .preheaderthread-pre-split:                       ; preds = %183
   %.val6188.pr = load i32, ptr %7, align 8, !tbaa !32
@@ -483,7 +483,7 @@ Saig_ManRetimeNodeFwd.exit.thread:                ; preds = %Saig_ManRetimeNodeF
 .lr.ph90:                                         ; preds = %.preheader, %Saig_ManRetimeNodeBwd.exit.thread
   %.val61119 = phi i32 [ %.val61, %Saig_ManRetimeNodeBwd.exit.thread ], [ %.val6188, %.preheader ]
   %.189 = phi i32 [ %178, %Saig_ManRetimeNodeBwd.exit.thread ], [ 0, %.preheader ]
-  %126 = load ptr, ptr %8, align 8, !tbaa !44
+  %126 = load ptr, ptr %8, align 8, !tbaa !43
   %.val = load i32, ptr %9, align 4, !tbaa !12
   %127 = add nsw i32 %.val, %.189
   %128 = getelementptr i8, ptr %126, i64 8
@@ -571,7 +571,7 @@ Saig_ManRetimeNodeBwd.exit.thread:                ; preds = %Saig_ManRetimeNodeB
   %.val61 = phi i32 [ %.val61.pre, %Saig_ManRetimeNodeBwd.exit.Saig_ManRetimeNodeBwd.exit.thread_crit_edge ], [ %.val61119, %.lr.ph90 ]
   %178 = add nuw nsw i32 %.189, 1
   %179 = icmp slt i32 %178, %.val61
-  br i1 %179, label %.lr.ph90, label %.critedge2, !llvm.loop !45
+  br i1 %179, label %.lr.ph90, label %.critedge2, !llvm.loop !44
 
 .critedge2:                                       ; preds = %Saig_ManRetimeNodeBwd.exit.thread, %.preheader, %177
   %.173 = phi i32 [ %.189, %177 ], [ 0, %.preheader ], [ %178, %Saig_ManRetimeNodeBwd.exit.thread ]
@@ -584,7 +584,7 @@ Saig_ManRetimeNodeBwd.exit.thread:                ; preds = %Saig_ManRetimeNodeB
 183:                                              ; preds = %.critedge2
   %184 = add nuw nsw i32 %.292, 1
   %exitcond116.not = icmp eq i32 %184, %1
-  br i1 %exitcond116.not, label %.loopexit, label %.preheaderthread-pre-split, !llvm.loop !46
+  br i1 %exitcond116.not, label %.loopexit, label %.preheaderthread-pre-split, !llvm.loop !45
 
 .loopexit:                                        ; preds = %.preheader70.us, %38, %.critedge, %123, %.preheader.us, %20, %.critedge2, %183, %22, %.preheader69
   %.150 = phi i32 [ 0, %.preheader69 ], [ 0, %22 ], [ %.292, %.critedge2 ], [ %1, %183 ], [ 0, %.preheader.us ], [ %1, %20 ], [ %.04984, %.critedge ], [ %1, %123 ], [ 0, %.preheader70.us ], [ %1, %38 ]
@@ -657,14 +657,13 @@ attributes #3 = { nounwind }
 !33 = !{!13, !9, i64 440}
 !34 = !{!13, !15, i64 32}
 !35 = !{!29, !9, i64 4}
-!36 = distinct !{!36, !37, !38, !39}
+!36 = distinct !{!36, !37, !38}
 !37 = !{!"llvm.loop.mustprogress"}
-!38 = !{!"llvm.loop.estimated_trip_count"}
-!39 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!40 = distinct !{!40, !37, !38, !39}
-!41 = distinct !{!41, !37, !38}
-!42 = distinct !{!42, !37, !38, !43}
-!43 = !{!"llvm.loop.unswitch.partial.disable"}
-!44 = !{!13, !15, i64 16}
-!45 = distinct !{!45, !37, !38}
-!46 = distinct !{!46, !37, !38, !43}
+!38 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!39 = distinct !{!39, !37, !38}
+!40 = distinct !{!40, !37}
+!41 = distinct !{!41, !37, !42}
+!42 = !{!"llvm.loop.unswitch.partial.disable"}
+!43 = !{!13, !15, i64 16}
+!44 = distinct !{!44, !37}
+!45 = distinct !{!45, !37, !42}

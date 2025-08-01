@@ -653,7 +653,7 @@ define dso_local void @MD5Final(ptr noundef writeonly captures(none) initializes
   %8 = zext nneg i32 %7 to i64
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 %8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 1
-  store i8 -128, ptr %9, align 1, !tbaa !11
+  store i8 -128, ptr %9, align 1, !tbaa !10
   %11 = xor i32 %7, 63
   %12 = icmp samesign ult i32 %11, 8
   br i1 %12, label %13, label %15
@@ -709,7 +709,6 @@ attributes #5 = { nocallback nofree nosync nounwind speculatable willreturn memo
 !5 = !{!"int", !6, i64 0}
 !6 = !{!"omnipotent char", !7, i64 0}
 !7 = !{!"Simple C/C++ TBAA"}
-!8 = distinct !{!8, !9, !10}
+!8 = distinct !{!8, !9}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = !{!"llvm.loop.estimated_trip_count"}
-!11 = !{!6, !6, i64 0}
+!10 = !{!6, !6, i64 0}

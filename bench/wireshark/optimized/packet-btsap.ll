@@ -653,7 +653,7 @@ dissect_parameter.exit:                           ; preds = %202, %204
   %spec.select = add i32 %.1190267, %212
   %indvars.iv.next364 = add nuw nsw i64 %indvars.iv363, 1
   %exitcond367.not = icmp eq i64 %indvars.iv.next364, %wide.trip.count366
-  br i1 %exitcond367.not, label %.loopexit, label %.lr.ph270, !llvm.loop !9
+  br i1 %exitcond367.not, label %.loopexit, label %.lr.ph270, !llvm.loop !8
 
 .lr.ph265:                                        ; preds = %.lr.ph265.preheader, %.lr.ph265
   %indvars.iv358 = phi i64 [ 0, %.lr.ph265.preheader ], [ %indvars.iv.next359, %.lr.ph265 ]
@@ -665,7 +665,7 @@ dissect_parameter.exit:                           ; preds = %202, %204
   %spec.select213 = add i32 %.3192263, %216
   %indvars.iv.next359 = add nuw nsw i64 %indvars.iv358, 1
   %exitcond362.not = icmp eq i64 %indvars.iv.next359, %wide.trip.count361
-  br i1 %exitcond362.not, label %.loopexit, label %.lr.ph265, !llvm.loop !10
+  br i1 %exitcond362.not, label %.loopexit, label %.lr.ph265, !llvm.loop !9
 
 .lr.ph278:                                        ; preds = %.lr.ph278.preheader, %229
   %indvars.iv373 = phi i64 [ 0, %.lr.ph278.preheader ], [ %indvars.iv.next374, %229 ]
@@ -695,7 +695,7 @@ dissect_parameter.exit:                           ; preds = %202, %204
   %spec.select215 = select i1 %226, i32 2, i32 %.3181273
   %indvars.iv.next369 = add nuw nsw i64 %indvars.iv368, 1
   %exitcond372.not = icmp eq i64 %indvars.iv.next369, %wide.trip.count376
-  br i1 %exitcond372.not, label %.loopexit255, label %.preheader254, !llvm.loop !11
+  br i1 %exitcond372.not, label %.loopexit255, label %.preheader254, !llvm.loop !10
 
 .loopexit255:                                     ; preds = %.preheader254, %220
   %.6195 = phi i32 [ %.5194275, %220 ], [ %spec.select214, %.preheader254 ]
@@ -708,7 +708,7 @@ dissect_parameter.exit:                           ; preds = %202, %204
   %.5183 = phi i32 [ %.2180, %.loopexit255 ], [ %.1179276, %.lr.ph278 ]
   %indvars.iv.next374 = add nuw nsw i64 %indvars.iv373, 1
   %exitcond377.not = icmp eq i64 %indvars.iv.next374, %wide.trip.count376
-  br i1 %exitcond377.not, label %.loopexit, label %.lr.ph278, !llvm.loop !12
+  br i1 %exitcond377.not, label %.loopexit, label %.lr.ph278, !llvm.loop !11
 
 .lr.ph283:                                        ; preds = %.lr.ph283.preheader, %.lr.ph283
   %indvars.iv378 = phi i64 [ 0, %.lr.ph283.preheader ], [ %indvars.iv.next379, %.lr.ph283 ]
@@ -720,7 +720,7 @@ dissect_parameter.exit:                           ; preds = %202, %204
   %spec.select216 = add i32 %.10199281, %233
   %indvars.iv.next379 = add nuw nsw i64 %indvars.iv378, 1
   %exitcond382.not = icmp eq i64 %indvars.iv.next379, %wide.trip.count381
-  br i1 %exitcond382.not, label %.loopexit, label %.lr.ph283, !llvm.loop !13
+  br i1 %exitcond382.not, label %.loopexit, label %.lr.ph283, !llvm.loop !12
 
 .lr.ph287:                                        ; preds = %.lr.ph287.preheader, %238
   %indvars.iv383 = phi i64 [ 0, %.lr.ph287.preheader ], [ %indvars.iv.next384, %238 ]
@@ -740,7 +740,7 @@ dissect_parameter.exit:                           ; preds = %202, %204
   %.13202 = phi i32 [ %237, %236 ], [ %.12201285, %.lr.ph287 ]
   %indvars.iv.next384 = add nuw nsw i64 %indvars.iv383, 1
   %exitcond387.not = icmp eq i64 %indvars.iv.next384, %wide.trip.count386
-  br i1 %exitcond387.not, label %.loopexit, label %.lr.ph287, !llvm.loop !14
+  br i1 %exitcond387.not, label %.loopexit, label %.lr.ph287, !llvm.loop !13
 
 .lr.ph295:                                        ; preds = %.lr.ph295.preheader, %252
   %indvars.iv393 = phi i64 [ 0, %.lr.ph295.preheader ], [ %indvars.iv.next394, %252 ]
@@ -770,7 +770,7 @@ dissect_parameter.exit:                           ; preds = %202, %204
   %spec.select218 = select i1 %249, i32 2, i32 %.8186290
   %indvars.iv.next389 = add nuw nsw i64 %indvars.iv388, 1
   %exitcond392.not = icmp eq i64 %indvars.iv.next389, %wide.trip.count396
-  br i1 %exitcond392.not, label %.loopexit247, label %.preheader246, !llvm.loop !15
+  br i1 %exitcond392.not, label %.loopexit247, label %.preheader246, !llvm.loop !14
 
 .loopexit247:                                     ; preds = %.preheader246, %242
   %.15204 = phi i32 [ %.14203292, %242 ], [ %spec.select217, %.preheader246 ]
@@ -783,7 +783,7 @@ dissect_parameter.exit:                           ; preds = %202, %204
   %.10188 = phi i32 [ %.7185, %.loopexit247 ], [ %.6184293, %.lr.ph295 ]
   %indvars.iv.next394 = add nuw nsw i64 %indvars.iv393, 1
   %exitcond397.not = icmp eq i64 %indvars.iv.next394, %wide.trip.count396
-  br i1 %exitcond397.not, label %.loopexit, label %.lr.ph295, !llvm.loop !16
+  br i1 %exitcond397.not, label %.loopexit, label %.lr.ph295, !llvm.loop !15
 
 253:                                              ; preds = %.lr.ph307, %266
   %indvars.iv403 = phi i64 [ 0, %.lr.ph307 ], [ %indvars.iv.next404, %266 ]
@@ -813,7 +813,7 @@ dissect_parameter.exit:                           ; preds = %202, %204
   %spec.select220 = select i1 %263, i32 2, i32 %.13299
   %indvars.iv.next399 = add nuw nsw i64 %indvars.iv398, 1
   %exitcond402.not = icmp eq i64 %indvars.iv.next399, %wide.trip.count406
-  br i1 %exitcond402.not, label %.loopexit243, label %.lr.ph301, !llvm.loop !17
+  br i1 %exitcond402.not, label %.loopexit243, label %.lr.ph301, !llvm.loop !16
 
 .loopexit243:                                     ; preds = %.lr.ph301, %257
   %.20209 = phi i32 [ %.19208304, %257 ], [ %spec.select219, %.lr.ph301 ]
@@ -826,7 +826,7 @@ dissect_parameter.exit:                           ; preds = %202, %204
   %.15 = phi i32 [ %.12, %.loopexit243 ], [ %.11305, %253 ]
   %indvars.iv.next404 = add nuw nsw i64 %indvars.iv403, 1
   %exitcond407.not = icmp eq i64 %indvars.iv.next404, %wide.trip.count406
-  br i1 %exitcond407.not, label %.loopexit, label %253, !llvm.loop !18
+  br i1 %exitcond407.not, label %.loopexit, label %253, !llvm.loop !17
 
 267:                                              ; preds = %.lr.ph319, %280
   %indvars.iv413 = phi i64 [ 0, %.lr.ph319 ], [ %indvars.iv.next414, %280 ]
@@ -856,7 +856,7 @@ dissect_parameter.exit:                           ; preds = %202, %204
   %spec.select222 = select i1 %277, i32 2, i32 %.18311
   %indvars.iv.next409 = add nuw nsw i64 %indvars.iv408, 1
   %exitcond412.not = icmp eq i64 %indvars.iv.next409, %wide.trip.count416
-  br i1 %exitcond412.not, label %.loopexit239, label %.lr.ph313, !llvm.loop !19
+  br i1 %exitcond412.not, label %.loopexit239, label %.lr.ph313, !llvm.loop !18
 
 .loopexit239:                                     ; preds = %.lr.ph313, %271
   %.25 = phi i32 [ %.24316, %271 ], [ %spec.select221, %.lr.ph313 ]
@@ -869,7 +869,7 @@ dissect_parameter.exit:                           ; preds = %202, %204
   %.20 = phi i32 [ %.17, %.loopexit239 ], [ %.16317, %267 ]
   %indvars.iv.next414 = add nuw nsw i64 %indvars.iv413, 1
   %exitcond417.not = icmp eq i64 %indvars.iv.next414, %wide.trip.count416
-  br i1 %exitcond417.not, label %.loopexit, label %267, !llvm.loop !20
+  br i1 %exitcond417.not, label %.loopexit, label %267, !llvm.loop !19
 
 .lr.ph324:                                        ; preds = %.lr.ph324.preheader, %.lr.ph324
   %indvars.iv418 = phi i64 [ 0, %.lr.ph324.preheader ], [ %indvars.iv.next419, %.lr.ph324 ]
@@ -881,7 +881,7 @@ dissect_parameter.exit:                           ; preds = %202, %204
   %spec.select223 = add i32 %.29322, %284
   %indvars.iv.next419 = add nuw nsw i64 %indvars.iv418, 1
   %exitcond422.not = icmp eq i64 %indvars.iv.next419, %wide.trip.count421
-  br i1 %exitcond422.not, label %.loopexit, label %.lr.ph324, !llvm.loop !21
+  br i1 %exitcond422.not, label %.loopexit, label %.lr.ph324, !llvm.loop !20
 
 .lr.ph328:                                        ; preds = %.lr.ph328.preheader, %.lr.ph328
   %indvars.iv423 = phi i64 [ 0, %.lr.ph328.preheader ], [ %indvars.iv.next424, %.lr.ph328 ]
@@ -893,7 +893,7 @@ dissect_parameter.exit:                           ; preds = %202, %204
   %spec.select224 = add i32 %.31326, %288
   %indvars.iv.next424 = add nuw nsw i64 %indvars.iv423, 1
   %exitcond427.not = icmp eq i64 %indvars.iv.next424, %wide.trip.count426
-  br i1 %exitcond427.not, label %.loopexit, label %.lr.ph328, !llvm.loop !22
+  br i1 %exitcond427.not, label %.loopexit, label %.lr.ph328, !llvm.loop !21
 
 .loopexit:                                        ; preds = %.lr.ph265, %.lr.ph270, %229, %.lr.ph283, %238, %252, %266, %280, %.lr.ph324, %.lr.ph328
   %.0189 = phi i32 [ %spec.select224, %.lr.ph328 ], [ %spec.select223, %.lr.ph324 ], [ %.28, %280 ], [ %.23, %266 ], [ %.18207, %252 ], [ %.13202, %238 ], [ %spec.select216, %.lr.ph283 ], [ %.9198, %229 ], [ %spec.select, %.lr.ph270 ], [ %spec.select213, %.lr.ph265 ]
@@ -1061,20 +1061,19 @@ attributes #3 = { allocsize(1) }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7, !8}
-!11 = distinct !{!11, !7, !8}
-!12 = distinct !{!12, !7, !8}
-!13 = distinct !{!13, !7, !8}
-!14 = distinct !{!14, !7, !8}
-!15 = distinct !{!15, !7, !8}
-!16 = distinct !{!16, !7, !8}
-!17 = distinct !{!17, !7, !8}
-!18 = distinct !{!18, !7, !8}
-!19 = distinct !{!19, !7, !8}
-!20 = distinct !{!20, !7, !8}
-!21 = distinct !{!21, !7, !8}
-!22 = distinct !{!22, !7, !8}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7}
+!12 = distinct !{!12, !7}
+!13 = distinct !{!13, !7}
+!14 = distinct !{!14, !7}
+!15 = distinct !{!15, !7}
+!16 = distinct !{!16, !7}
+!17 = distinct !{!17, !7}
+!18 = distinct !{!18, !7}
+!19 = distinct !{!19, !7}
+!20 = distinct !{!20, !7}
+!21 = distinct !{!21, !7}

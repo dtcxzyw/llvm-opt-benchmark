@@ -319,7 +319,7 @@ proto_item_set_generated.exit.split:              ; preds = %proto_item_set_gene
   %113 = add nuw nsw i32 %.4163, 4
   %114 = add nuw nsw i8 %.0164, 1
   %exitcond = icmp eq i8 %.0164, %86
-  br i1 %exitcond, label %.split.us, label %proto_item_set_generated.exit.split, !llvm.loop !9
+  br i1 %exitcond, label %.split.us, label %proto_item_set_generated.exit.split, !llvm.loop !8
 
 .split.us:                                        ; preds = %proto_item_set_generated.exit.split, %proto_item_set_generated.exit
   %.us-phi = phi i32 [ %107, %proto_item_set_generated.exit ], [ %113, %proto_item_set_generated.exit.split ]
@@ -386,7 +386,6 @@ attributes #3 = { nounwind }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
+!8 = distinct !{!8, !7}

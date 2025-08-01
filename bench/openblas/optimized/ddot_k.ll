@@ -89,31 +89,31 @@ define internal fastcc double @dot_compute(i64 noundef %0, ptr noundef readonly 
   %.06774.i = phi <8 x double> [ zeroinitializer, %.lr.ph.preheader.i ], [ %26, %.lr.ph.i ]
   %.06873.i = phi <8 x double> [ zeroinitializer, %.lr.ph.preheader.i ], [ %20, %.lr.ph.i ]
   %16 = getelementptr inbounds nuw double, ptr %1, i64 %indvars.iv.i
-  %17 = load <8 x double>, ptr %16, align 1, !tbaa !12
+  %17 = load <8 x double>, ptr %16, align 1, !tbaa !11
   %18 = getelementptr inbounds nuw double, ptr %3, i64 %indvars.iv.i
-  %19 = load <8 x double>, ptr %18, align 1, !tbaa !12
+  %19 = load <8 x double>, ptr %18, align 1, !tbaa !11
   %20 = tail call <8 x double> @llvm.fmuladd.v8f64(<8 x double> %17, <8 x double> %19, <8 x double> %.06873.i)
   %21 = or disjoint i64 %indvars.iv.i, 8
   %22 = getelementptr inbounds nuw double, ptr %1, i64 %21
-  %23 = load <8 x double>, ptr %22, align 1, !tbaa !12
+  %23 = load <8 x double>, ptr %22, align 1, !tbaa !11
   %24 = getelementptr inbounds nuw double, ptr %3, i64 %21
-  %25 = load <8 x double>, ptr %24, align 1, !tbaa !12
+  %25 = load <8 x double>, ptr %24, align 1, !tbaa !11
   %26 = tail call <8 x double> @llvm.fmuladd.v8f64(<8 x double> %23, <8 x double> %25, <8 x double> %.06774.i)
   %27 = or disjoint i64 %indvars.iv.i, 16
   %28 = getelementptr inbounds nuw double, ptr %1, i64 %27
-  %29 = load <8 x double>, ptr %28, align 1, !tbaa !12
+  %29 = load <8 x double>, ptr %28, align 1, !tbaa !11
   %30 = getelementptr inbounds nuw double, ptr %3, i64 %27
-  %31 = load <8 x double>, ptr %30, align 1, !tbaa !12
+  %31 = load <8 x double>, ptr %30, align 1, !tbaa !11
   %32 = tail call <8 x double> @llvm.fmuladd.v8f64(<8 x double> %29, <8 x double> %31, <8 x double> %.06675.i)
   %33 = or disjoint i64 %indvars.iv.i, 24
   %34 = getelementptr inbounds nuw double, ptr %1, i64 %33
-  %35 = load <8 x double>, ptr %34, align 1, !tbaa !12
+  %35 = load <8 x double>, ptr %34, align 1, !tbaa !11
   %36 = getelementptr inbounds nuw double, ptr %3, i64 %33
-  %37 = load <8 x double>, ptr %36, align 1, !tbaa !12
+  %37 = load <8 x double>, ptr %36, align 1, !tbaa !11
   %38 = tail call <8 x double> @llvm.fmuladd.v8f64(<8 x double> %35, <8 x double> %37, <8 x double> %.06576.i)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 32
   %39 = icmp samesign ult i64 %indvars.iv.next.i, %15
-  br i1 %39, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !13
+  br i1 %39, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !12
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i
   %40 = and i64 %indvars.iv.next.i, 4294967264
@@ -147,31 +147,31 @@ define internal fastcc double @dot_compute(i64 noundef %0, ptr noundef readonly 
   %.07083.i = phi <4 x double> [ %70, %.lr.ph88.i ], [ %.07083.i.ph, %.lr.ph88.i.preheader ]
   %.07182.i = phi <4 x double> [ %64, %.lr.ph88.i ], [ %.07182.i.ph, %.lr.ph88.i.preheader ]
   %54 = getelementptr inbounds nuw double, ptr %1, i64 %indvars.iv103.i
-  %55 = load <4 x double>, ptr %54, align 1, !tbaa !12
+  %55 = load <4 x double>, ptr %54, align 1, !tbaa !11
   %56 = getelementptr inbounds nuw double, ptr %3, i64 %indvars.iv103.i
-  %57 = load <4 x double>, ptr %56, align 1, !tbaa !12
+  %57 = load <4 x double>, ptr %56, align 1, !tbaa !11
   %58 = tail call <4 x double> @llvm.fmuladd.v4f64(<4 x double> %55, <4 x double> %57, <4 x double> %.06485.i)
   %59 = or disjoint i64 %indvars.iv103.i, 4
   %60 = getelementptr inbounds nuw double, ptr %1, i64 %59
-  %61 = load <4 x double>, ptr %60, align 1, !tbaa !12
+  %61 = load <4 x double>, ptr %60, align 1, !tbaa !11
   %62 = getelementptr inbounds nuw double, ptr %3, i64 %59
-  %63 = load <4 x double>, ptr %62, align 1, !tbaa !12
+  %63 = load <4 x double>, ptr %62, align 1, !tbaa !11
   %64 = tail call <4 x double> @llvm.fmuladd.v4f64(<4 x double> %61, <4 x double> %63, <4 x double> %.07182.i)
   %65 = or disjoint i64 %indvars.iv103.i, 8
   %66 = getelementptr inbounds nuw double, ptr %1, i64 %65
-  %67 = load <4 x double>, ptr %66, align 1, !tbaa !12
+  %67 = load <4 x double>, ptr %66, align 1, !tbaa !11
   %68 = getelementptr inbounds nuw double, ptr %3, i64 %65
-  %69 = load <4 x double>, ptr %68, align 1, !tbaa !12
+  %69 = load <4 x double>, ptr %68, align 1, !tbaa !11
   %70 = tail call <4 x double> @llvm.fmuladd.v4f64(<4 x double> %67, <4 x double> %69, <4 x double> %.07083.i)
   %71 = or disjoint i64 %indvars.iv103.i, 12
   %72 = getelementptr inbounds nuw double, ptr %1, i64 %71
-  %73 = load <4 x double>, ptr %72, align 1, !tbaa !12
+  %73 = load <4 x double>, ptr %72, align 1, !tbaa !11
   %74 = getelementptr inbounds nuw double, ptr %3, i64 %71
-  %75 = load <4 x double>, ptr %74, align 1, !tbaa !12
+  %75 = load <4 x double>, ptr %74, align 1, !tbaa !11
   %76 = tail call <4 x double> @llvm.fmuladd.v4f64(<4 x double> %73, <4 x double> %75, <4 x double> %.06984.i)
   %indvars.iv.next104.i = add nuw nsw i64 %indvars.iv103.i, 16
   %77 = icmp samesign ugt i64 %11, %indvars.iv.next104.i
-  br i1 %77, label %.lr.ph88.i, label %ddot_kernel_8.exit, !llvm.loop !14
+  br i1 %77, label %.lr.ph88.i, label %ddot_kernel_8.exit, !llvm.loop !13
 
 ddot_kernel_8.exit:                               ; preds = %.lr.ph88.i, %._crit_edge.i
   %.071.lcssa.i = phi <4 x double> [ %46, %._crit_edge.i ], [ %64, %.lr.ph88.i ]
@@ -203,7 +203,7 @@ ddot_kernel_8.exit:                               ; preds = %.lr.ph88.i, %._crit
   %91 = tail call double @llvm.fmuladd.f64(double %88, double %90, double %.182105)
   %92 = add nuw nsw i64 %.067106, 1
   %93 = icmp slt i64 %92, %0
-  br i1 %93, label %.lr.ph108, label %.loopexit, !llvm.loop !15
+  br i1 %93, label %.lr.ph108, label %.loopexit, !llvm.loop !14
 
 94:                                               ; preds = %7
   %95 = and i64 %0, 9223372036854775804
@@ -268,7 +268,7 @@ ddot_kernel_8.exit:                               ; preds = %.lr.ph88.i, %._crit
   %128 = fadd double %.07291, %127
   %129 = add nuw nsw i64 %.194, 4
   %130 = icmp samesign ult i64 %129, %95
-  br i1 %130, label %102, label %.preheader.loopexit, !llvm.loop !16
+  br i1 %130, label %102, label %.preheader.loopexit, !llvm.loop !15
 
 .lr.ph103:                                        ; preds = %.preheader, %.lr.ph103
   %.2102 = phi i64 [ %138, %.lr.ph103 ], [ %.1.lcssa, %.preheader ]
@@ -284,7 +284,7 @@ ddot_kernel_8.exit:                               ; preds = %.lr.ph88.i, %._crit
   %137 = add nsw i64 %.171100, %4
   %138 = add nuw nsw i64 %.2102, 1
   %exitcond.not = icmp eq i64 %138, %0
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph103, !llvm.loop !17
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph103, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %.lr.ph103, %.preheader
   %.174.lcssa = phi double [ %.073.lcssa, %.preheader ], [ %135, %.lr.ph103 ]
@@ -340,12 +340,11 @@ attributes #7 = { nounwind }
 !6 = !{!"Simple C/C++ TBAA"}
 !7 = !{!8, !8, i64 0}
 !8 = !{!"double", !5, i64 0}
-!9 = distinct !{!9, !10, !11}
+!9 = distinct !{!9, !10}
 !10 = !{!"llvm.loop.mustprogress"}
-!11 = !{!"llvm.loop.estimated_trip_count"}
-!12 = !{!5, !5, i64 0}
-!13 = distinct !{!13, !10, !11}
-!14 = distinct !{!14, !10, !11}
-!15 = distinct !{!15, !10, !11}
-!16 = distinct !{!16, !10, !11}
-!17 = distinct !{!17, !10, !11}
+!11 = !{!5, !5, i64 0}
+!12 = distinct !{!12, !10}
+!13 = distinct !{!13, !10}
+!14 = distinct !{!14, !10}
+!15 = distinct !{!15, !10}
+!16 = distinct !{!16, !10}

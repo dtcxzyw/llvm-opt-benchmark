@@ -42,7 +42,7 @@ define noundef ptr @memmove(ptr noundef returned writeonly captures(address, ret
   %14 = getelementptr inbounds i8, ptr %.11531, i64 -1
   store i8 %13, ptr %14, align 1
   %.not22 = icmp eq i64 %11, 0
-  br i1 %.not22, label %.loopexit, label %.lr.ph33, !llvm.loop !9
+  br i1 %.not22, label %.loopexit, label %.lr.ph33, !llvm.loop !8
 
 .loopexit:                                        ; preds = %.lr.ph, %.lr.ph33, %.preheader, %8
   ret ptr %0
@@ -58,7 +58,6 @@ attributes #0 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwt
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
+!8 = distinct !{!8, !7}

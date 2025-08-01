@@ -336,13 +336,13 @@ define linkonce_odr hidden void @_ZmiRK8rationalS1_(ptr dead_on_unwind noalias w
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i8 0, ptr %5, align 4
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store ptr null, ptr %6, align 8, !tbaa !27
+  store ptr null, ptr %6, align 8, !tbaa !26
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i32 1, ptr %7, align 8, !tbaa !19
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 20
   store i8 0, ptr %8, align 4
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  store ptr null, ptr %9, align 8, !tbaa !27
+  store ptr null, ptr %9, align 8, !tbaa !26
   %10 = load ptr, ptr @_ZN8rational13g_mpq_managerE, align 8, !tbaa !22
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %12 = load i8, ptr %11, align 4
@@ -429,7 +429,7 @@ _ZN8rationalmIERKS_.exit:                         ; preds = %.noexc3, %47
   %50 = and i8 %49, -4
   store i8 %50, ptr %48, align 4
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr null, ptr %51, align 8, !tbaa !27
+  store ptr null, ptr %51, align 8, !tbaa !26
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 1, ptr %52, align 8, !tbaa !19
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 20
@@ -437,7 +437,7 @@ _ZN8rationalmIERKS_.exit:                         ; preds = %.noexc3, %47
   %55 = and i8 %54, -4
   store i8 %55, ptr %53, align 4
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr null, ptr %56, align 8, !tbaa !27
+  store ptr null, ptr %56, align 8, !tbaa !26
   %57 = load ptr, ptr @_ZN8rational13g_mpq_managerE, align 8, !tbaa !22
   %58 = load i8, ptr %5, align 4
   %59 = and i8 %58, 1
@@ -526,85 +526,85 @@ _ZN11mpq_managerILb1EE3delEPS0_R3mpq.exit:        ; preds = %.noexc
 define hidden void @_ZN2lp11lp_settings11updt_paramsERK10params_ref(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(380) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %struct.smt_params_helper, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #15
-  store ptr %1, ptr %3, align 8, !tbaa !28
+  store ptr %1, ptr %3, align 8, !tbaa !27
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   call void @_ZN7gparams10get_moduleEPKc(ptr dead_on_unwind nonnull writable sret(%class.params_ref) align 8 %4, ptr noundef nonnull @.str.21)
-  %5 = load ptr, ptr %3, align 8, !tbaa !30
+  %5 = load ptr, ptr %3, align 8, !tbaa !29
   %6 = invoke noundef zeroext i1 @_ZNK10params_ref8get_boolEPKcRKS_b(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull @.str.22, ptr noundef nonnull align 8 dereferenceable(8) %4, i1 noundef zeroext true)
           to label %_ZNK17smt_params_helper16arith_enable_hnfEv.exit unwind label %41
 
 _ZNK17smt_params_helper16arith_enable_hnfEv.exit: ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 364
   %8 = zext i1 %6 to i8
-  store i8 %8, ptr %7, align 4, !tbaa !34
-  %9 = load ptr, ptr %3, align 8, !tbaa !30
+  store i8 %8, ptr %7, align 4, !tbaa !33
+  %9 = load ptr, ptr %3, align 8, !tbaa !29
   %10 = invoke noundef zeroext i1 @_ZNK10params_ref8get_boolEPKcRKS_b(ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull @.str.23, ptr noundef nonnull align 8 dereferenceable(8) %4, i1 noundef zeroext true)
           to label %_ZNK17smt_params_helper19arith_propagate_eqsEv.exit unwind label %41
 
 _ZNK17smt_params_helper19arith_propagate_eqsEv.exit: ; preds = %_ZNK17smt_params_helper16arith_enable_hnfEv.exit
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 366
   %12 = zext i1 %10 to i8
-  store i8 %12, ptr %11, align 2, !tbaa !56
-  %13 = load ptr, ptr %3, align 8, !tbaa !30
+  store i8 %12, ptr %11, align 2, !tbaa !55
+  %13 = load ptr, ptr %3, align 8, !tbaa !29
   %14 = invoke noundef zeroext i1 @_ZNK10params_ref8get_boolEPKcRKS_b(ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull @.str.24, ptr noundef nonnull align 8 dereferenceable(8) %4, i1 noundef zeroext false)
           to label %_ZNK17smt_params_helper17arith_print_statsEv.exit unwind label %41
 
 _ZNK17smt_params_helper17arith_print_statsEv.exit: ; preds = %_ZNK17smt_params_helper19arith_propagate_eqsEv.exit
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 308
   %16 = zext i1 %14 to i8
-  store i8 %16, ptr %15, align 4, !tbaa !57
-  %17 = load ptr, ptr %3, align 8, !tbaa !30
+  store i8 %16, ptr %15, align 4, !tbaa !56
+  %17 = load ptr, ptr %3, align 8, !tbaa !29
   %18 = invoke noundef zeroext i1 @_ZNK10params_ref8get_boolEPKcRKS_b(ptr noundef nonnull align 8 dereferenceable(8) %17, ptr noundef nonnull @.str.25, ptr noundef nonnull align 8 dereferenceable(8) %4, i1 noundef zeroext false)
           to label %_ZNK17smt_params_helper25arith_print_ext_var_namesEv.exit unwind label %41
 
 _ZNK17smt_params_helper25arith_print_ext_var_namesEv.exit: ; preds = %_ZNK17smt_params_helper17arith_print_statsEv.exit
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 365
   %20 = zext i1 %18 to i8
-  store i8 %20, ptr %19, align 1, !tbaa !58
-  %21 = load ptr, ptr %3, align 8, !tbaa !30
+  store i8 %20, ptr %19, align 1, !tbaa !57
+  %21 = load ptr, ptr %3, align 8, !tbaa !29
   %22 = invoke noundef i32 @_ZNK10params_ref8get_uintEPKcRKS_j(ptr noundef nonnull align 8 dereferenceable(8) %21, ptr noundef nonnull @.str.26, ptr noundef nonnull align 8 dereferenceable(8) %4, i32 noundef 0)
           to label %_ZNK17smt_params_helper14arith_rep_freqEv.exit unwind label %41
 
 _ZNK17smt_params_helper14arith_rep_freqEv.exit:   ; preds = %_ZNK17smt_params_helper25arith_print_ext_var_namesEv.exit
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 304
-  store i32 %22, ptr %23, align 8, !tbaa !59
-  %24 = load ptr, ptr %3, align 8, !tbaa !30
+  store i32 %22, ptr %23, align 8, !tbaa !58
+  %24 = load ptr, ptr %3, align 8, !tbaa !29
   %25 = invoke noundef i32 @_ZNK10params_ref8get_uintEPKcRKS_j(ptr noundef nonnull align 8 dereferenceable(8) %24, ptr noundef nonnull @.str.27, ptr noundef nonnull align 8 dereferenceable(8) %4, i32 noundef 0)
           to label %_ZNK17smt_params_helper22arith_simplex_strategyEv.exit unwind label %41
 
 _ZNK17smt_params_helper22arith_simplex_strategyEv.exit: ; preds = %_ZNK17smt_params_helper14arith_rep_freqEv.exit
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 300
-  store i32 %25, ptr %26, align 4, !tbaa !60
-  %27 = load ptr, ptr %3, align 8, !tbaa !30
+  store i32 %25, ptr %26, align 4, !tbaa !59
+  %27 = load ptr, ptr %3, align 8, !tbaa !29
   %28 = invoke noundef i32 @_ZNK10params_ref8get_uintEPKcRKS_j(ptr noundef nonnull align 8 dereferenceable(8) %27, ptr noundef nonnull @.str.28, ptr noundef nonnull align 8 dereferenceable(8) %4, i32 noundef 10)
           to label %_ZNK17smt_params_helper14arith_nl_delayEv.exit unwind label %41
 
 _ZNK17smt_params_helper14arith_nl_delayEv.exit:   ; preds = %_ZNK17smt_params_helper22arith_simplex_strategyEv.exit
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 360
-  store i32 %28, ptr %29, align 8, !tbaa !61
-  %30 = load ptr, ptr %3, align 8, !tbaa !30
+  store i32 %28, ptr %29, align 8, !tbaa !60
+  %30 = load ptr, ptr %3, align 8, !tbaa !29
   %31 = invoke noundef zeroext i1 @_ZNK10params_ref8get_boolEPKcRKS_b(ptr noundef nonnull align 8 dereferenceable(8) %30, ptr noundef nonnull @.str.29, ptr noundef nonnull align 8 dereferenceable(8) %4, i1 noundef zeroext false)
           to label %_ZNK17smt_params_helper16arith_lp_dio_eqsEv.exit unwind label %41
 
 _ZNK17smt_params_helper16arith_lp_dio_eqsEv.exit: ; preds = %_ZNK17smt_params_helper14arith_nl_delayEv.exit
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 367
   %33 = zext i1 %31 to i8
-  store i8 %33, ptr %32, align 1, !tbaa !62
-  %34 = load ptr, ptr %3, align 8, !tbaa !30
+  store i8 %33, ptr %32, align 1, !tbaa !61
+  %34 = load ptr, ptr %3, align 8, !tbaa !29
   %35 = invoke noundef zeroext i1 @_ZNK10params_ref8get_boolEPKcRKS_b(ptr noundef nonnull align 8 dereferenceable(8) %34, ptr noundef nonnull @.str.30, ptr noundef nonnull align 8 dereferenceable(8) %4, i1 noundef zeroext false)
           to label %_ZNK17smt_params_helper31arith_lp_dio_cuts_enable_gomoryEv.exit unwind label %41
 
 _ZNK17smt_params_helper31arith_lp_dio_cuts_enable_gomoryEv.exit: ; preds = %_ZNK17smt_params_helper16arith_lp_dio_eqsEv.exit
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 368
   %37 = zext i1 %35 to i8
-  store i8 %37, ptr %36, align 8, !tbaa !63
-  %38 = load ptr, ptr %3, align 8, !tbaa !30
+  store i8 %37, ptr %36, align 8, !tbaa !62
+  %38 = load ptr, ptr %3, align 8, !tbaa !29
   %39 = invoke noundef i32 @_ZNK10params_ref8get_uintEPKcRKS_j(ptr noundef nonnull align 8 dereferenceable(8) %38, ptr noundef nonnull @.str.31, ptr noundef nonnull align 8 dereferenceable(8) %4, i32 noundef 100)
           to label %_ZNK17smt_params_helper29arith_lp_dio_branching_periodEv.exit unwind label %41
 
 _ZNK17smt_params_helper29arith_lp_dio_branching_periodEv.exit: ; preds = %_ZNK17smt_params_helper31arith_lp_dio_cuts_enable_gomoryEv.exit
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 372
-  store i32 %39, ptr %40, align 4, !tbaa !64
+  store i32 %39, ptr %40, align 4, !tbaa !63
   call void @_ZN10params_refD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #15
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #15
   ret void
@@ -710,44 +710,43 @@ attributes #16 = { noreturn nounwind }
 !21 = !{!"p1 _ZTS8mpz_cell", !6, i64 0}
 !22 = !{!23, !23, i64 0}
 !23 = !{!"p1 _ZTS11mpq_managerILb1EE", !6, i64 0}
-!24 = distinct !{!24, !25, !26}
+!24 = distinct !{!24, !25}
 !25 = !{!"llvm.loop.mustprogress"}
-!26 = !{!"llvm.loop.estimated_trip_count"}
-!27 = !{!20, !21, i64 8}
-!28 = !{!29, !29, i64 0}
-!29 = !{!"p1 _ZTS10params_ref", !6, i64 0}
-!30 = !{!31, !29, i64 0}
-!31 = !{!"_ZTS17smt_params_helper", !29, i64 0, !32, i64 8}
-!32 = !{!"_ZTS10params_ref", !33, i64 0}
-!33 = !{!"p1 _ZTS6params", !6, i64 0}
-!34 = !{!35, !42, i64 364}
-!35 = !{!"_ZTSN2lp11lp_settingsE", !36, i64 0, !43, i64 40, !44, i64 48, !44, i64 56, !45, i64 64, !53, i64 256, !18, i64 260, !18, i64 264, !18, i64 268, !42, i64 272, !18, i64 276, !42, i64 280, !18, i64 284, !54, i64 288, !42, i64 296, !42, i64 297, !55, i64 300, !18, i64 304, !42, i64 308, !18, i64 312, !42, i64 316, !18, i64 320, !42, i64 324, !18, i64 328, !18, i64 332, !18, i64 336, !18, i64 340, !18, i64 344, !42, i64 348, !18, i64 352, !18, i64 356, !18, i64 360, !42, i64 364, !42, i64 365, !42, i64 366, !42, i64 367, !42, i64 368, !42, i64 369, !18, i64 372, !18, i64 376}
-!36 = !{!"_ZTSN2lp11lp_settings25default_lp_resource_limitE", !37, i64 0, !38, i64 8, !39, i64 16}
-!37 = !{!"_ZTSN2lp17lp_resource_limitE"}
-!38 = !{!"p1 _ZTSN2lp11lp_settingsE", !6, i64 0}
-!39 = !{!"_ZTS9stopwatch", !40, i64 0, !41, i64 8, !42, i64 16}
-!40 = !{!"_ZTSNSt6chrono10time_pointINS_3_V212steady_clockENS_8durationIlSt5ratioILl1ELl1000000000EEEEEE", !41, i64 0}
-!41 = !{!"_ZTSNSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEE", !11, i64 0}
-!42 = !{!"bool", !7, i64 0}
-!43 = !{!"p1 _ZTSN2lp17lp_resource_limitE", !6, i64 0}
-!44 = !{!"p1 _ZTSSo", !6, i64 0}
-!45 = !{!"_ZTSN2lp10statisticsE", !18, i64 0, !18, i64 4, !18, i64 8, !18, i64 12, !18, i64 16, !18, i64 20, !18, i64 24, !18, i64 28, !18, i64 32, !18, i64 36, !18, i64 40, !18, i64 44, !18, i64 48, !18, i64 52, !18, i64 56, !18, i64 60, !18, i64 64, !18, i64 68, !18, i64 72, !18, i64 76, !18, i64 80, !18, i64 84, !18, i64 88, !18, i64 92, !18, i64 96, !18, i64 100, !18, i64 104, !18, i64 108, !18, i64 112, !18, i64 116, !18, i64 120, !18, i64 124, !18, i64 128, !18, i64 132, !18, i64 136, !18, i64 140, !18, i64 144, !18, i64 148, !18, i64 152, !18, i64 156, !18, i64 160, !18, i64 164, !18, i64 168, !46, i64 176}
-!46 = !{!"_ZTS10statistics", !47, i64 0, !50, i64 8}
-!47 = !{!"_ZTS7svectorISt4pairIPKcjEjE", !48, i64 0}
-!48 = !{!"_ZTS6vectorISt4pairIPKcjELb0EjE", !49, i64 0}
-!49 = !{!"p1 _ZTSSt4pairIPKcjE", !6, i64 0}
-!50 = !{!"_ZTS7svectorISt4pairIPKcdEjE", !51, i64 0}
-!51 = !{!"_ZTS6vectorISt4pairIPKcdELb0EjE", !52, i64 0}
-!52 = !{!"p1 _ZTSSt4pairIPKcdE", !6, i64 0}
-!53 = !{!"_ZTS10random_gen", !18, i64 0}
-!54 = !{!"double", !7, i64 0}
-!55 = !{!"_ZTSN2lp21simplex_strategy_enumE", !7, i64 0}
-!56 = !{!35, !42, i64 366}
-!57 = !{!35, !42, i64 308}
-!58 = !{!35, !42, i64 365}
-!59 = !{!35, !18, i64 304}
-!60 = !{!35, !55, i64 300}
-!61 = !{!35, !18, i64 360}
-!62 = !{!35, !42, i64 367}
-!63 = !{!35, !42, i64 368}
-!64 = !{!35, !18, i64 372}
+!26 = !{!20, !21, i64 8}
+!27 = !{!28, !28, i64 0}
+!28 = !{!"p1 _ZTS10params_ref", !6, i64 0}
+!29 = !{!30, !28, i64 0}
+!30 = !{!"_ZTS17smt_params_helper", !28, i64 0, !31, i64 8}
+!31 = !{!"_ZTS10params_ref", !32, i64 0}
+!32 = !{!"p1 _ZTS6params", !6, i64 0}
+!33 = !{!34, !41, i64 364}
+!34 = !{!"_ZTSN2lp11lp_settingsE", !35, i64 0, !42, i64 40, !43, i64 48, !43, i64 56, !44, i64 64, !52, i64 256, !18, i64 260, !18, i64 264, !18, i64 268, !41, i64 272, !18, i64 276, !41, i64 280, !18, i64 284, !53, i64 288, !41, i64 296, !41, i64 297, !54, i64 300, !18, i64 304, !41, i64 308, !18, i64 312, !41, i64 316, !18, i64 320, !41, i64 324, !18, i64 328, !18, i64 332, !18, i64 336, !18, i64 340, !18, i64 344, !41, i64 348, !18, i64 352, !18, i64 356, !18, i64 360, !41, i64 364, !41, i64 365, !41, i64 366, !41, i64 367, !41, i64 368, !41, i64 369, !18, i64 372, !18, i64 376}
+!35 = !{!"_ZTSN2lp11lp_settings25default_lp_resource_limitE", !36, i64 0, !37, i64 8, !38, i64 16}
+!36 = !{!"_ZTSN2lp17lp_resource_limitE"}
+!37 = !{!"p1 _ZTSN2lp11lp_settingsE", !6, i64 0}
+!38 = !{!"_ZTS9stopwatch", !39, i64 0, !40, i64 8, !41, i64 16}
+!39 = !{!"_ZTSNSt6chrono10time_pointINS_3_V212steady_clockENS_8durationIlSt5ratioILl1ELl1000000000EEEEEE", !40, i64 0}
+!40 = !{!"_ZTSNSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEE", !11, i64 0}
+!41 = !{!"bool", !7, i64 0}
+!42 = !{!"p1 _ZTSN2lp17lp_resource_limitE", !6, i64 0}
+!43 = !{!"p1 _ZTSSo", !6, i64 0}
+!44 = !{!"_ZTSN2lp10statisticsE", !18, i64 0, !18, i64 4, !18, i64 8, !18, i64 12, !18, i64 16, !18, i64 20, !18, i64 24, !18, i64 28, !18, i64 32, !18, i64 36, !18, i64 40, !18, i64 44, !18, i64 48, !18, i64 52, !18, i64 56, !18, i64 60, !18, i64 64, !18, i64 68, !18, i64 72, !18, i64 76, !18, i64 80, !18, i64 84, !18, i64 88, !18, i64 92, !18, i64 96, !18, i64 100, !18, i64 104, !18, i64 108, !18, i64 112, !18, i64 116, !18, i64 120, !18, i64 124, !18, i64 128, !18, i64 132, !18, i64 136, !18, i64 140, !18, i64 144, !18, i64 148, !18, i64 152, !18, i64 156, !18, i64 160, !18, i64 164, !18, i64 168, !45, i64 176}
+!45 = !{!"_ZTS10statistics", !46, i64 0, !49, i64 8}
+!46 = !{!"_ZTS7svectorISt4pairIPKcjEjE", !47, i64 0}
+!47 = !{!"_ZTS6vectorISt4pairIPKcjELb0EjE", !48, i64 0}
+!48 = !{!"p1 _ZTSSt4pairIPKcjE", !6, i64 0}
+!49 = !{!"_ZTS7svectorISt4pairIPKcdEjE", !50, i64 0}
+!50 = !{!"_ZTS6vectorISt4pairIPKcdELb0EjE", !51, i64 0}
+!51 = !{!"p1 _ZTSSt4pairIPKcdE", !6, i64 0}
+!52 = !{!"_ZTS10random_gen", !18, i64 0}
+!53 = !{!"double", !7, i64 0}
+!54 = !{!"_ZTSN2lp21simplex_strategy_enumE", !7, i64 0}
+!55 = !{!34, !41, i64 366}
+!56 = !{!34, !41, i64 308}
+!57 = !{!34, !41, i64 365}
+!58 = !{!34, !18, i64 304}
+!59 = !{!34, !54, i64 300}
+!60 = !{!34, !18, i64 360}
+!61 = !{!34, !41, i64 367}
+!62 = !{!34, !41, i64 368}
+!63 = !{!34, !18, i64 372}

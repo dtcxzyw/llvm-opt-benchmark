@@ -551,7 +551,7 @@ define internal fastcc void @_ZL25fillThreadsAndLoadObjectsP7JNIEnv_P8_jobjectP1
   call void %87(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %66)
   %88 = add nuw nsw i32 %.156, 1
   %exitcond64.not = icmp eq i32 %88, %41
-  br i1 %exitcond64.not, label %.loopexit, label %.lr.ph58, !llvm.loop !9
+  br i1 %exitcond64.not, label %.loopexit, label %.lr.ph58, !llvm.loop !8
 
 .loopexit:                                        ; preds = %26, %16, %.lr.ph, %78, %.lr.ph58, %52, %61, %71, %._crit_edge
   ret void
@@ -1326,7 +1326,6 @@ attributes #17 = { noreturn nounwind }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
+!8 = distinct !{!8, !7}

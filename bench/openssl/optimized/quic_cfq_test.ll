@@ -51,11 +51,11 @@ define internal range(i32 0, 2) i32 @test_cfq() #0 {
 .preheader81:                                     ; preds = %0, %3
   %.05483 = phi i64 [ %4, %3 ], [ 0, %0 ]
   %5 = getelementptr inbounds nuw [10 x i32], ptr @ref_priority, i64 0, i64 %.05483
-  %6 = load i32, ptr %5, align 4, !tbaa !7
+  %6 = load i32, ptr %5, align 4, !tbaa !6
   %7 = getelementptr inbounds nuw [10 x i32], ptr @ref_pn_space, i64 0, i64 %.05483
-  %8 = load i32, ptr %7, align 4, !tbaa !7
+  %8 = load i32, ptr %7, align 4, !tbaa !6
   %9 = getelementptr inbounds nuw [10 x i64], ptr @ref_frame_type, i64 0, i64 %.05483
-  %10 = load i64, ptr %9, align 8, !tbaa !11
+  %10 = load i64, ptr %9, align 8, !tbaa !10
   %11 = getelementptr inbounds nuw i8, ptr @ref_buf, i64 %.05483
   %12 = tail call ptr @ossl_quic_cfq_add_frame(ptr noundef %1, i32 noundef %6, i32 noundef %8, i64 noundef %10, i32 noundef 0, ptr noundef nonnull %11, i64 noundef 1, ptr noundef nonnull @free_cb, ptr noundef null) #3
   %13 = tail call i32 @test_ptr(ptr noundef nonnull @.str.1, i32 noundef 121, ptr noundef nonnull @.str.3, ptr noundef %12) #3
@@ -108,17 +108,17 @@ define internal range(i32 0, 2) i32 @test_cfq() #0 {
   %32 = tail call ptr @ossl_quic_cfq_item_get_priority_next(ptr noundef nonnull %.05885, i32 noundef %.086) #3
   tail call void @ossl_quic_cfq_mark_tx(ptr noundef %1, ptr noundef nonnull %.05885) #3
   %.not67 = icmp eq ptr %32, null
-  br i1 %.not67, label %._crit_edge, label %.lr.ph, !llvm.loop !13
+  br i1 %.not67, label %._crit_edge, label %.lr.ph, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader80
   %33 = add nuw nsw i32 %.086, 1
   %exitcond95.not = icmp eq i32 %33, 3
-  br i1 %exitcond95.not, label %.preheader78, label %.preheader80, !llvm.loop !14
+  br i1 %exitcond95.not, label %.preheader78, label %.preheader80, !llvm.loop !13
 
 34:                                               ; preds = %.preheader78
   %35 = add nuw nsw i32 %.187, 1
   %exitcond96.not = icmp eq i32 %35, 3
-  br i1 %exitcond96.not, label %.preheader76, label %.preheader78, !llvm.loop !15
+  br i1 %exitcond96.not, label %.preheader76, label %.preheader78, !llvm.loop !14
 
 .preheader78:                                     ; preds = %._crit_edge, %34
   %.187 = phi i32 [ %35, %34 ], [ 0, %._crit_edge ]
@@ -135,7 +135,7 @@ define internal range(i32 0, 2) i32 @test_cfq() #0 {
 39:                                               ; preds = %.preheader76, %43
   %.15588 = phi i64 [ 0, %.preheader76 ], [ %44, %43 ]
   %40 = getelementptr inbounds nuw [10 x ptr], ptr %38, i64 0, i64 %.15588
-  %41 = load ptr, ptr %40, align 8, !tbaa !16
+  %41 = load ptr, ptr %40, align 8, !tbaa !15
   %.not65 = icmp eq ptr %41, null
   br i1 %.not65, label %43, label %42
 
@@ -146,12 +146,12 @@ define internal range(i32 0, 2) i32 @test_cfq() #0 {
 43:                                               ; preds = %39, %42
   %44 = add nuw nsw i64 %.15588, 1
   %exitcond97.not = icmp eq i64 %44, 10
-  br i1 %exitcond97.not, label %45, label %39, !llvm.loop !19
+  br i1 %exitcond97.not, label %45, label %39, !llvm.loop !18
 
 45:                                               ; preds = %43
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond99.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond99.not, label %46, label %.preheader76, !llvm.loop !20
+  br i1 %exitcond99.not, label %46, label %.preheader76, !llvm.loop !19
 
 46:                                               ; preds = %45
   %47 = tail call fastcc i32 @check(ptr noundef %1)
@@ -166,7 +166,7 @@ define internal range(i32 0, 2) i32 @test_cfq() #0 {
 49:                                               ; preds = %.preheader74, %53
   %.25690 = phi i64 [ 0, %.preheader74 ], [ %54, %53 ]
   %50 = getelementptr inbounds nuw [10 x ptr], ptr %48, i64 0, i64 %.25690
-  %51 = load ptr, ptr %50, align 8, !tbaa !16
+  %51 = load ptr, ptr %50, align 8, !tbaa !15
   %.not64 = icmp eq ptr %51, null
   br i1 %.not64, label %53, label %52
 
@@ -177,17 +177,17 @@ define internal range(i32 0, 2) i32 @test_cfq() #0 {
 53:                                               ; preds = %49, %52
   %54 = add nuw nsw i64 %.25690, 1
   %exitcond100.not = icmp eq i64 %54, 10
-  br i1 %exitcond100.not, label %55, label %49, !llvm.loop !21
+  br i1 %exitcond100.not, label %55, label %49, !llvm.loop !20
 
 55:                                               ; preds = %53
   %indvars.iv.next102 = add nuw nsw i64 %indvars.iv101, 1
   %exitcond104.not = icmp eq i64 %indvars.iv.next102, 3
-  br i1 %exitcond104.not, label %.preheader, label %.preheader74, !llvm.loop !22
+  br i1 %exitcond104.not, label %.preheader, label %.preheader74, !llvm.loop !21
 
 56:                                               ; preds = %.preheader
   %57 = add nuw nsw i32 %.492, 1
   %exitcond105.not = icmp eq i32 %57, 3
-  br i1 %exitcond105.not, label %.loopexit, label %.preheader, !llvm.loop !23
+  br i1 %exitcond105.not, label %.loopexit, label %.preheader, !llvm.loop !22
 
 .preheader:                                       ; preds = %55, %56
   %.492 = phi i32 [ %57, %56 ], [ 0, %55 ]
@@ -240,14 +240,14 @@ define internal fastcc range(i32 0, 2) i32 @check(ptr noundef %0) unnamed_addr #
 2:                                                ; preds = %._crit_edge
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %.loopexit, label %3, !llvm.loop !24
+  br i1 %exitcond.not, label %.loopexit, label %3, !llvm.loop !23
 
 3:                                                ; preds = %1, %2
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %2 ]
   %4 = trunc nuw nsw i64 %indvars.iv to i32
   %5 = tail call ptr @ossl_quic_cfq_get_priority_head(ptr noundef %0, i32 noundef %4) #3
   %6 = getelementptr inbounds nuw [3 x [11 x i32]], ptr @expect, i64 0, i64 %indvars.iv
-  %7 = load i32, ptr %6, align 4, !tbaa !7
+  %7 = load i32, ptr %6, align 4, !tbaa !6
   %8 = icmp eq i32 %7, -1
   br i1 %8, label %._crit_edge, label %.lr.ph
 
@@ -266,7 +266,7 @@ define internal fastcc range(i32 0, 2) i32 @check(ptr noundef %0) unnamed_addr #
   %.02030 = phi i64 [ 0, %.lr.ph ], [ %27, %26 ]
   %.02129 = phi ptr [ %5, %.lr.ph ], [ %28, %26 ]
   %13 = getelementptr inbounds nuw [10 x ptr], ptr %9, i64 0, i64 %.02030
-  store ptr %.02129, ptr %13, align 8, !tbaa !16
+  store ptr %.02129, ptr %13, align 8, !tbaa !15
   %14 = tail call i32 @test_ptr(ptr noundef nonnull @.str.1, i32 noundef 86, ptr noundef nonnull @.str.15, ptr noundef %.02129) #3
   %.not = icmp eq i32 %14, 0
   br i1 %.not, label %.loopexit, label %15
@@ -295,9 +295,9 @@ define internal fastcc range(i32 0, 2) i32 @check(ptr noundef %0) unnamed_addr #
   %27 = add i64 %.02030, 1
   %28 = tail call ptr @ossl_quic_cfq_item_get_priority_next(ptr noundef %.02129, i32 noundef %4) #3
   %29 = getelementptr inbounds nuw [11 x i32], ptr %6, i64 0, i64 %27
-  %30 = load i32, ptr %29, align 4, !tbaa !7
+  %30 = load i32, ptr %29, align 4, !tbaa !6
   %31 = icmp eq i32 %30, -1
-  br i1 %31, label %._crit_edge, label %11, !llvm.loop !25
+  br i1 %31, label %._crit_edge, label %11
 
 .loopexit:                                        ; preds = %2, %._crit_edge, %11, %15, %20, %23
   %.022 = phi i32 [ 0, %23 ], [ 0, %20 ], [ 0, %15 ], [ 0, %11 ], [ 1, %2 ], [ 0, %._crit_edge ]
@@ -329,25 +329,23 @@ attributes #3 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = distinct !{!4, !5, !6}
+!4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{!"llvm.loop.estimated_trip_count"}
-!7 = !{!8, !8, i64 0}
-!8 = !{!"int", !9, i64 0}
-!9 = !{!"omnipotent char", !10, i64 0}
-!10 = !{!"Simple C/C++ TBAA"}
-!11 = !{!12, !12, i64 0}
-!12 = !{!"long", !9, i64 0}
-!13 = distinct !{!13, !5, !6}
-!14 = distinct !{!14, !5, !6}
-!15 = distinct !{!15, !5, !6}
-!16 = !{!17, !17, i64 0}
-!17 = !{!"p1 _ZTS16quic_cfq_item_st", !18, i64 0}
-!18 = !{!"any pointer", !9, i64 0}
-!19 = distinct !{!19, !5, !6}
-!20 = distinct !{!20, !5, !6}
-!21 = distinct !{!21, !5, !6}
-!22 = distinct !{!22, !5, !6}
-!23 = distinct !{!23, !5, !6}
-!24 = distinct !{!24, !5, !6}
-!25 = distinct !{!25, !6}
+!6 = !{!7, !7, i64 0}
+!7 = !{!"int", !8, i64 0}
+!8 = !{!"omnipotent char", !9, i64 0}
+!9 = !{!"Simple C/C++ TBAA"}
+!10 = !{!11, !11, i64 0}
+!11 = !{!"long", !8, i64 0}
+!12 = distinct !{!12, !5}
+!13 = distinct !{!13, !5}
+!14 = distinct !{!14, !5}
+!15 = !{!16, !16, i64 0}
+!16 = !{!"p1 _ZTS16quic_cfq_item_st", !17, i64 0}
+!17 = !{!"any pointer", !8, i64 0}
+!18 = distinct !{!18, !5}
+!19 = distinct !{!19, !5}
+!20 = distinct !{!20, !5}
+!21 = distinct !{!21, !5}
+!22 = distinct !{!22, !5}
+!23 = distinct !{!23, !5}

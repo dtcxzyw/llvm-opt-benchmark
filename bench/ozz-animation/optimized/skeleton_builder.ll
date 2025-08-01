@@ -165,7 +165,7 @@ _ZN3ozz9animation7offline15IterateJointsDFIRNS1_12_GLOBAL__N_111JointListerEEET_
 
 .lr.ph92:                                         ; preds = %54
   %50 = getelementptr inbounds nuw i8, ptr %15, i64 24
-  %51 = load ptr, ptr %50, align 8, !tbaa !33
+  %51 = load ptr, ptr %50, align 8, !tbaa !32
   %wide.trip.count109 = zext nneg i32 %16 to i64
   br label %80
 
@@ -179,11 +179,11 @@ _ZN3ozz9animation7offline15IterateJointsDFIRNS1_12_GLOBAL__N_111JointListerEEET_
   %.06888 = phi ptr [ %38, %.lr.ph90 ], [ %65, %54 ]
   %55 = getelementptr inbounds nuw %"struct.ozz::animation::offline::(anonymous namespace)::JointLister::Joint", ptr %.val82.pre.pre.pre, i64 %indvars.iv99
   %56 = load ptr, ptr %55, align 8, !tbaa !21
-  %57 = load ptr, ptr %39, align 8, !tbaa !36
+  %57 = load ptr, ptr %39, align 8, !tbaa !35
   %58 = getelementptr inbounds nuw ptr, ptr %57, i64 %indvars.iv99
-  store ptr %.06888, ptr %58, align 8, !tbaa !40
+  store ptr %.06888, ptr %58, align 8, !tbaa !39
   %59 = getelementptr inbounds nuw i8, ptr %56, i64 24
-  %60 = load ptr, ptr %59, align 8, !tbaa !41
+  %60 = load ptr, ptr %59, align 8, !tbaa !40
   %61 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %.06888, ptr noundef nonnull dereferenceable(1) %60) #17
   %62 = getelementptr inbounds nuw i8, ptr %56, i64 32
   %63 = load i64, ptr %62, align 8, !tbaa !25
@@ -191,11 +191,11 @@ _ZN3ozz9animation7offline15IterateJointsDFIRNS1_12_GLOBAL__N_111JointListerEEET_
   %65 = getelementptr i8, ptr %64, i64 1
   %indvars.iv.next100 = add nuw nsw i64 %indvars.iv99, 1
   %exitcond104.not = icmp eq i64 %indvars.iv.next100, %wide.trip.count103
-  br i1 %exitcond104.not, label %.lr.ph92, label %54, !llvm.loop !42
+  br i1 %exitcond104.not, label %.lr.ph92, label %54, !llvm.loop !41
 
 .preheader:                                       ; preds = %80, %.preheader85
   %66 = getelementptr inbounds nuw i8, ptr %15, i64 32
-  %67 = load i64, ptr %66, align 8, !tbaa !43
+  %67 = load i64, ptr %66, align 8, !tbaa !42
   %68 = trunc i64 %67 to i32
   %69 = icmp sgt i32 %68, 0
   br i1 %69, label %.lr.ph95, label %._crit_edge
@@ -216,12 +216,12 @@ _ZN3ozz9animation7offline15IterateJointsDFIRNS1_12_GLOBAL__N_111JointListerEEET_
 80:                                               ; preds = %.lr.ph92, %80
   %indvars.iv105 = phi i64 [ 0, %.lr.ph92 ], [ %indvars.iv.next106, %80 ]
   %81 = getelementptr inbounds nuw %"struct.ozz::animation::offline::(anonymous namespace)::JointLister::Joint", ptr %.val82.pre.pre.pre, i64 %indvars.iv105, i32 1
-  %82 = load i16, ptr %81, align 8, !tbaa !44
+  %82 = load i16, ptr %81, align 8, !tbaa !43
   %83 = getelementptr inbounds nuw i16, ptr %51, i64 %indvars.iv105
-  store i16 %82, ptr %83, align 2, !tbaa !45
+  store i16 %82, ptr %83, align 2, !tbaa !44
   %indvars.iv.next106 = add nuw nsw i64 %indvars.iv105, 1
   %exitcond110.not = icmp eq i64 %indvars.iv.next106, %wide.trip.count109
-  br i1 %exitcond110.not, label %.preheader, label %80, !llvm.loop !46
+  br i1 %exitcond110.not, label %.preheader, label %80, !llvm.loop !45
 
 ._crit_edge:                                      ; preds = %140, %.preheader
   %.not.i.i.i.i = icmp eq ptr %.val82.pre.pre.pre, null
@@ -267,17 +267,17 @@ _ZN3ozz9animation7offline12_GLOBAL__N_111JointListerD2Ev.exit: ; preds = %._crit
   %99 = getelementptr inbounds nuw %"struct.ozz::animation::offline::(anonymous namespace)::JointLister::Joint", ptr %.val82.pre.pre.pre, i64 %96
   %100 = load ptr, ptr %99, align 8, !tbaa !21
   %101 = getelementptr inbounds nuw i8, ptr %100, i64 56
-  %102 = load float, ptr %101, align 1, !tbaa !47
+  %102 = load float, ptr %101, align 1, !tbaa !46
   %103 = insertelement <4 x float> poison, float %102, i64 0
   %104 = getelementptr inbounds nuw i8, ptr %100, i64 60
-  %105 = load float, ptr %104, align 1, !tbaa !47
+  %105 = load float, ptr %104, align 1, !tbaa !46
   %106 = insertelement <4 x float> %103, float %105, i64 1
   %107 = getelementptr inbounds nuw i8, ptr %100, i64 64
-  %108 = load float, ptr %107, align 1, !tbaa !47
+  %108 = load float, ptr %107, align 1, !tbaa !46
   %109 = insertelement <4 x float> <float poison, float 0.000000e+00, float poison, float poison>, float %108, i64 0
   %110 = shufflevector <4 x float> %106, <4 x float> %109, <4 x i32> <i32 0, i32 1, i32 4, i32 5>
   %111 = getelementptr inbounds nuw i8, ptr %100, i64 68
-  %112 = load <4 x float>, ptr %111, align 1, !tbaa !47
+  %112 = load <4 x float>, ptr %111, align 1, !tbaa !46
   %113 = fmul <4 x float> %112, %112
   %114 = shufflevector <4 x float> %113, <4 x float> poison, <4 x i32> <i32 2, i32 3, i32 poison, i32 poison>
   %115 = fadd <4 x float> %113, %114
@@ -294,13 +294,13 @@ _ZN3ozz9animation7offline12_GLOBAL__N_111JointListerD2Ev.exit: ; preds = %._crit
   %124 = fmul <4 x float> %112, %121
   %125 = select <4 x i1> %123, <4 x float> <float 0.000000e+00, float 0.000000e+00, float 0.000000e+00, float 1.000000e+00>, <4 x float> %124
   %126 = getelementptr inbounds nuw i8, ptr %100, i64 84
-  %127 = load float, ptr %126, align 1, !tbaa !47
+  %127 = load float, ptr %126, align 1, !tbaa !46
   %128 = insertelement <4 x float> poison, float %127, i64 0
   %129 = getelementptr inbounds nuw i8, ptr %100, i64 88
-  %130 = load float, ptr %129, align 1, !tbaa !47
+  %130 = load float, ptr %129, align 1, !tbaa !46
   %131 = insertelement <4 x float> %128, float %130, i64 1
   %132 = getelementptr inbounds nuw i8, ptr %100, i64 92
-  %133 = load float, ptr %132, align 1, !tbaa !47
+  %133 = load float, ptr %132, align 1, !tbaa !46
   %134 = insertelement <4 x float> <float poison, float 0.000000e+00, float poison, float poison>, float %133, i64 0
   %135 = shufflevector <4 x float> %131, <4 x float> %134, <4 x i32> <i32 0, i32 1, i32 4, i32 5>
   br label %136
@@ -310,84 +310,84 @@ _ZN3ozz9animation7offline12_GLOBAL__N_111JointListerD2Ev.exit: ; preds = %._crit
   %.sink118 = phi <4 x float> [ %125, %98 ], [ <float 0.000000e+00, float 0.000000e+00, float 0.000000e+00, float 1.000000e+00>, %95 ]
   %.sink = phi <4 x float> [ %135, %98 ], [ splat (float 1.000000e+00), %95 ]
   %137 = getelementptr inbounds nuw [4 x <4 x float>], ptr %5, i64 0, i64 %indvars.iv111
-  store <4 x float> %.sink119, ptr %137, align 16, !tbaa !47
+  store <4 x float> %.sink119, ptr %137, align 16, !tbaa !46
   %138 = getelementptr inbounds nuw [4 x <4 x float>], ptr %7, i64 0, i64 %indvars.iv111
-  store <4 x float> %.sink118, ptr %138, align 16, !tbaa !47
+  store <4 x float> %.sink118, ptr %138, align 16, !tbaa !46
   %139 = getelementptr inbounds nuw [4 x <4 x float>], ptr %6, i64 0, i64 %indvars.iv111
-  store <4 x float> %.sink, ptr %139, align 16, !tbaa !47
+  store <4 x float> %.sink, ptr %139, align 16, !tbaa !46
   %indvars.iv.next112 = add nuw nsw i64 %indvars.iv111, 1
   %exitcond114.not = icmp eq i64 %indvars.iv.next112, 4
-  br i1 %exitcond114.not, label %140, label %95, !llvm.loop !48
+  br i1 %exitcond114.not, label %140, label %95, !llvm.loop !47
 
 140:                                              ; preds = %136
-  %141 = load ptr, ptr %70, align 8, !tbaa !49
+  %141 = load ptr, ptr %70, align 8, !tbaa !48
   %142 = getelementptr inbounds nuw %"struct.ozz::math::SoaTransform", ptr %141, i64 %indvars.iv115
-  %143 = load <4 x float>, ptr %5, align 16, !tbaa !47
-  %144 = load <4 x float>, ptr %71, align 16, !tbaa !47
+  %143 = load <4 x float>, ptr %5, align 16, !tbaa !46
+  %144 = load <4 x float>, ptr %71, align 16, !tbaa !46
   %145 = shufflevector <4 x float> %143, <4 x float> %144, <4 x i32> <i32 0, i32 4, i32 1, i32 5>
-  %146 = load <4 x float>, ptr %72, align 16, !tbaa !47
-  %147 = load <4 x float>, ptr %73, align 16, !tbaa !47
+  %146 = load <4 x float>, ptr %72, align 16, !tbaa !46
+  %147 = load <4 x float>, ptr %73, align 16, !tbaa !46
   %148 = shufflevector <4 x float> %146, <4 x float> %147, <4 x i32> <i32 0, i32 4, i32 1, i32 5>
   %149 = shufflevector <4 x float> %143, <4 x float> %144, <4 x i32> <i32 2, i32 6, i32 poison, i32 poison>
   %150 = shufflevector <4 x float> %146, <4 x float> %147, <4 x i32> <i32 2, i32 6, i32 poison, i32 poison>
   %151 = shufflevector <4 x float> %145, <4 x float> %148, <4 x i32> <i32 0, i32 4, i32 1, i32 5>
-  store <4 x float> %151, ptr %142, align 16, !tbaa !47
+  store <4 x float> %151, ptr %142, align 16, !tbaa !46
   %152 = shufflevector <4 x float> %145, <4 x float> %148, <4 x i32> <i32 2, i32 6, i32 3, i32 7>
   %153 = getelementptr inbounds nuw i8, ptr %142, i64 16
-  store <4 x float> %152, ptr %153, align 16, !tbaa !47
+  store <4 x float> %152, ptr %153, align 16, !tbaa !46
   %154 = shufflevector <4 x float> %149, <4 x float> %150, <4 x i32> <i32 0, i32 4, i32 1, i32 5>
   %155 = getelementptr inbounds nuw i8, ptr %142, i64 32
-  store <4 x float> %154, ptr %155, align 16, !tbaa !47
-  %156 = load ptr, ptr %70, align 8, !tbaa !49
+  store <4 x float> %154, ptr %155, align 16, !tbaa !46
+  %156 = load ptr, ptr %70, align 8, !tbaa !48
   %157 = getelementptr inbounds nuw %"struct.ozz::math::SoaTransform", ptr %156, i64 %indvars.iv115, i32 1
-  %158 = load <4 x float>, ptr %7, align 16, !tbaa !47
-  %159 = load <4 x float>, ptr %74, align 16, !tbaa !47
+  %158 = load <4 x float>, ptr %7, align 16, !tbaa !46
+  %159 = load <4 x float>, ptr %74, align 16, !tbaa !46
   %160 = shufflevector <4 x float> %158, <4 x float> %159, <4 x i32> <i32 0, i32 4, i32 1, i32 5>
-  %161 = load <4 x float>, ptr %75, align 16, !tbaa !47
-  %162 = load <4 x float>, ptr %76, align 16, !tbaa !47
+  %161 = load <4 x float>, ptr %75, align 16, !tbaa !46
+  %162 = load <4 x float>, ptr %76, align 16, !tbaa !46
   %163 = shufflevector <4 x float> %161, <4 x float> %162, <4 x i32> <i32 0, i32 4, i32 1, i32 5>
   %164 = shufflevector <4 x float> %158, <4 x float> %159, <4 x i32> <i32 2, i32 6, i32 3, i32 7>
   %165 = shufflevector <4 x float> %161, <4 x float> %162, <4 x i32> <i32 2, i32 6, i32 3, i32 7>
   %166 = shufflevector <4 x float> %160, <4 x float> %163, <4 x i32> <i32 0, i32 4, i32 1, i32 5>
-  store <4 x float> %166, ptr %157, align 16, !tbaa !47
+  store <4 x float> %166, ptr %157, align 16, !tbaa !46
   %167 = shufflevector <4 x float> %160, <4 x float> %163, <4 x i32> <i32 2, i32 6, i32 3, i32 7>
   %168 = getelementptr inbounds nuw i8, ptr %157, i64 16
-  store <4 x float> %167, ptr %168, align 16, !tbaa !47
+  store <4 x float> %167, ptr %168, align 16, !tbaa !46
   %169 = shufflevector <4 x float> %164, <4 x float> %165, <4 x i32> <i32 0, i32 4, i32 1, i32 5>
   %170 = getelementptr inbounds nuw i8, ptr %157, i64 32
-  store <4 x float> %169, ptr %170, align 16, !tbaa !47
+  store <4 x float> %169, ptr %170, align 16, !tbaa !46
   %171 = shufflevector <4 x float> %164, <4 x float> %165, <4 x i32> <i32 2, i32 6, i32 3, i32 7>
   %172 = getelementptr inbounds nuw i8, ptr %157, i64 48
-  store <4 x float> %171, ptr %172, align 16, !tbaa !47
-  %173 = load ptr, ptr %70, align 8, !tbaa !49
+  store <4 x float> %171, ptr %172, align 16, !tbaa !46
+  %173 = load ptr, ptr %70, align 8, !tbaa !48
   %174 = getelementptr inbounds nuw %"struct.ozz::math::SoaTransform", ptr %173, i64 %indvars.iv115, i32 2
-  %175 = load <4 x float>, ptr %6, align 16, !tbaa !47
-  %176 = load <4 x float>, ptr %77, align 16, !tbaa !47
+  %175 = load <4 x float>, ptr %6, align 16, !tbaa !46
+  %176 = load <4 x float>, ptr %77, align 16, !tbaa !46
   %177 = shufflevector <4 x float> %175, <4 x float> %176, <4 x i32> <i32 0, i32 4, i32 1, i32 5>
-  %178 = load <4 x float>, ptr %78, align 16, !tbaa !47
-  %179 = load <4 x float>, ptr %79, align 16, !tbaa !47
+  %178 = load <4 x float>, ptr %78, align 16, !tbaa !46
+  %179 = load <4 x float>, ptr %79, align 16, !tbaa !46
   %180 = shufflevector <4 x float> %178, <4 x float> %179, <4 x i32> <i32 0, i32 4, i32 1, i32 5>
   %181 = shufflevector <4 x float> %175, <4 x float> %176, <4 x i32> <i32 2, i32 6, i32 poison, i32 poison>
   %182 = shufflevector <4 x float> %178, <4 x float> %179, <4 x i32> <i32 2, i32 6, i32 poison, i32 poison>
   %183 = shufflevector <4 x float> %177, <4 x float> %180, <4 x i32> <i32 0, i32 4, i32 1, i32 5>
-  store <4 x float> %183, ptr %174, align 16, !tbaa !47
+  store <4 x float> %183, ptr %174, align 16, !tbaa !46
   %184 = shufflevector <4 x float> %177, <4 x float> %180, <4 x i32> <i32 2, i32 6, i32 3, i32 7>
   %185 = getelementptr inbounds nuw i8, ptr %174, i64 16
-  store <4 x float> %184, ptr %185, align 16, !tbaa !47
+  store <4 x float> %184, ptr %185, align 16, !tbaa !46
   %186 = shufflevector <4 x float> %181, <4 x float> %182, <4 x i32> <i32 0, i32 4, i32 1, i32 5>
   %187 = getelementptr inbounds nuw i8, ptr %174, i64 32
-  store <4 x float> %186, ptr %187, align 16, !tbaa !47
+  store <4 x float> %186, ptr %187, align 16, !tbaa !46
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %7) #17
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6) #17
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5) #17
   %indvars.iv.next116 = add nuw nsw i64 %indvars.iv115, 1
-  %188 = load i64, ptr %66, align 8, !tbaa !43
+  %188 = load i64, ptr %66, align 8, !tbaa !42
   %189 = trunc i64 %188 to i32
   %190 = add nsw i32 %189, 3
   %191 = sdiv i32 %190, 4
   %192 = sext i32 %191 to i64
   %193 = icmp slt i64 %indvars.iv.next116, %192
-  br i1 %193, label %93, label %._crit_edge, !llvm.loop !52
+  br i1 %193, label %93, label %._crit_edge, !llvm.loop !51
 
 194:                                              ; preds = %52, %42
   %.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %43, %42 ], [ %53, %52 ]
@@ -543,8 +543,8 @@ declare void @_ZN3ozz9animation8SkeletonD1Ev(ptr noundef nonnull align 8 derefer
 ; Function Attrs: inlinehint mustprogress uwtable
 define internal fastcc void @_ZN3ozz9animation7offline12_GLOBAL__N_123_IterHierarchyRecurseDFINS2_11JointListerEEEvRKSt6vectorINS1_11RawSkeleton5JointENS_12StdAllocatorIS7_EEEPKS7_RT_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0, ptr noundef readnone captures(address) %1, ptr noundef nonnull align 8 captures(none) dereferenceable(24) %2) unnamed_addr #13 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = load ptr, ptr %4, align 8, !tbaa !53
-  %6 = load ptr, ptr %0, align 8, !tbaa !55
+  %5 = load ptr, ptr %4, align 8, !tbaa !52
+  %6 = load ptr, ptr %0, align 8, !tbaa !54
   %.not = icmp eq ptr %5, %6
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
@@ -588,7 +588,7 @@ define internal fastcc void @_ZN3ozz9animation7offline12_GLOBAL__N_123_IterHiera
   %21 = getelementptr inbounds nuw %"struct.ozz::animation::offline::(anonymous namespace)::JointLister::Joint", ptr %.val.i, i64 %20
   %22 = load ptr, ptr %21, align 8, !tbaa !21
   %23 = icmp eq ptr %22, %1
-  br i1 %23, label %.loopexit.i, label %17, !llvm.loop !56
+  br i1 %23, label %.loopexit.i, label %17, !llvm.loop !55
 
 .loopexit.i:                                      ; preds = %19, %17, %..loopexit_crit_edge.i
   %24 = phi ptr [ %.pre.i, %..loopexit_crit_edge.i ], [ %.val10.i, %17 ], [ %.val10.i, %19 ]
@@ -598,9 +598,9 @@ define internal fastcc void @_ZN3ozz9animation7offline12_GLOBAL__N_123_IterHiera
   br i1 %.not.i.i, label %28, label %26
 
 26:                                               ; preds = %.loopexit.i
-  store ptr %11, ptr %24, align 8, !tbaa !57
+  store ptr %11, ptr %24, align 8, !tbaa !56
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %24, i64 8
-  store i16 %.08.i, ptr %.sroa.5.0..sroa_idx.i, align 8, !tbaa !45
+  store i16 %.08.i, ptr %.sroa.5.0..sroa_idx.i, align 8, !tbaa !44
   %27 = getelementptr inbounds nuw i8, ptr %24, i64 16
   store ptr %27, ptr %7, align 8, !tbaa !19
   br label %_ZN3ozz9animation7offline12_GLOBAL__N_111JointListerclERKNS1_11RawSkeleton5JointEPS6_.exit
@@ -647,19 +647,19 @@ _ZNKSt6vectorIN3ozz9animation7offline12_GLOBAL__N_111JointLister5JointENS0_12Std
 
 50:                                               ; preds = %41
   %51 = getelementptr inbounds nuw i8, ptr %46, i64 %31
-  store ptr %11, ptr %51, align 8, !tbaa !57
+  store ptr %11, ptr %51, align 8, !tbaa !56
   %.sroa.5.0..sroa_idx13.i = getelementptr inbounds nuw i8, ptr %51, i64 8
-  store i16 %.08.i, ptr %.sroa.5.0..sroa_idx13.i, align 8, !tbaa !45
+  store i16 %.08.i, ptr %.sroa.5.0..sroa_idx13.i, align 8, !tbaa !44
   br i1 %35, label %_ZSt34__uninitialized_move_if_noexcept_aIPN3ozz9animation7offline12_GLOBAL__N_111JointLister5JointES6_NS0_12StdAllocatorIS5_EEET0_T_SA_S9_RT1_.exit38.i.i.i, label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %50, %.lr.ph.i.i.i.i.i
   %.04.i.i.i.i.i = phi ptr [ %53, %.lr.ph.i.i.i.i.i ], [ %46, %50 ]
   %.sroa.01.03.i.i.i.i.i = phi ptr [ %52, %.lr.ph.i.i.i.i.i ], [ %.val.i.i.i, %50 ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.04.i.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %.sroa.01.03.i.i.i.i.i, i64 16, i1 false), !tbaa.struct !58
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.04.i.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %.sroa.01.03.i.i.i.i.i, i64 16, i1 false), !tbaa.struct !57
   %52 = getelementptr inbounds nuw i8, ptr %.sroa.01.03.i.i.i.i.i, i64 16
   %53 = getelementptr inbounds nuw i8, ptr %.04.i.i.i.i.i, i64 16
   %.not.i.i.i.i.i = icmp eq ptr %52, %24
-  br i1 %.not.i.i.i.i.i, label %_ZSt34__uninitialized_move_if_noexcept_aIPN3ozz9animation7offline12_GLOBAL__N_111JointLister5JointES6_NS0_12StdAllocatorIS5_EEET0_T_SA_S9_RT1_.exit38.i.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !59
+  br i1 %.not.i.i.i.i.i, label %_ZSt34__uninitialized_move_if_noexcept_aIPN3ozz9animation7offline12_GLOBAL__N_111JointLister5JointES6_NS0_12StdAllocatorIS5_EEET0_T_SA_S9_RT1_.exit38.i.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !58
 
 _ZSt34__uninitialized_move_if_noexcept_aIPN3ozz9animation7offline12_GLOBAL__N_111JointLister5JointES6_NS0_12StdAllocatorIS5_EEET0_T_SA_S9_RT1_.exit38.i.i.i: ; preds = %.lr.ph.i.i.i.i.i, %50
   %.0.lcssa.i.i.i.i.i = phi ptr [ %46, %50 ], [ %53, %.lr.ph.i.i.i.i.i ]
@@ -695,14 +695,14 @@ _ZNSt6vectorIN3ozz9animation7offline12_GLOBAL__N_111JointLister5JointENS0_12StdA
 _ZN3ozz9animation7offline12_GLOBAL__N_111JointListerclERKNS1_11RawSkeleton5JointEPS6_.exit: ; preds = %26, %_ZNSt6vectorIN3ozz9animation7offline12_GLOBAL__N_111JointLister5JointENS0_12StdAllocatorIS5_EEE17_M_realloc_insertIJRKS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S8_EEDpOT_.exit.i.i
   tail call fastcc void @_ZN3ozz9animation7offline12_GLOBAL__N_123_IterHierarchyRecurseDFINS2_11JointListerEEEvRKSt6vectorINS1_11RawSkeleton5JointENS_12StdAllocatorIS7_EEEPKS7_RT_(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull %11, ptr noundef nonnull align 8 dereferenceable(24) %2)
   %65 = add nuw i64 %.010, 1
-  %66 = load ptr, ptr %4, align 8, !tbaa !53
-  %67 = load ptr, ptr %0, align 8, !tbaa !55
+  %66 = load ptr, ptr %4, align 8, !tbaa !52
+  %67 = load ptr, ptr %0, align 8, !tbaa !54
   %68 = ptrtoint ptr %66 to i64
   %69 = ptrtoint ptr %67 to i64
   %70 = sub i64 %68, %69
   %71 = sdiv exact i64 %70, 96
   %72 = icmp ult i64 %65, %71
-  br i1 %72, label %9, label %._crit_edge, !llvm.loop !60
+  br i1 %72, label %9, label %._crit_edge, !llvm.loop !59
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
@@ -767,34 +767,33 @@ attributes #19 = { noreturn nounwind }
 !27 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcEN3ozz12StdAllocatorIcEEE12_Alloc_hiderE", !28, i64 0}
 !28 = !{!"p1 omnipotent char", !7, i64 0}
 !29 = !{!"long", !8, i64 0}
-!30 = distinct !{!30, !31, !32}
+!30 = distinct !{!30, !31}
 !31 = !{!"llvm.loop.mustprogress"}
-!32 = !{!"llvm.loop.estimated_trip_count"}
-!33 = !{!34, !35, i64 0}
-!34 = !{!"_ZTSN3ozz4spanIsEE", !35, i64 0, !29, i64 8}
-!35 = !{!"p1 short", !7, i64 0}
-!36 = !{!37, !38, i64 0}
-!37 = !{!"_ZTSN3ozz4spanIPcEE", !38, i64 0, !29, i64 8}
-!38 = !{!"p2 omnipotent char", !39, i64 0}
-!39 = !{!"any p2 pointer", !7, i64 0}
-!40 = !{!28, !28, i64 0}
-!41 = !{!26, !28, i64 0}
-!42 = distinct !{!42, !31, !32}
-!43 = !{!34, !29, i64 8}
-!44 = !{!22, !24, i64 8}
-!45 = !{!24, !24, i64 0}
-!46 = distinct !{!46, !31, !32}
-!47 = !{!8, !8, i64 0}
-!48 = distinct !{!48, !31, !32}
-!49 = !{!50, !51, i64 0}
-!50 = !{!"_ZTSN3ozz4spanINS_4math12SoaTransformEEE", !51, i64 0, !29, i64 8}
-!51 = !{!"p1 _ZTSN3ozz4math12SoaTransformE", !7, i64 0}
-!52 = distinct !{!52, !31, !32}
-!53 = !{!54, !23, i64 8}
-!54 = !{!"_ZTSNSt12_Vector_baseIN3ozz9animation7offline11RawSkeleton5JointENS0_12StdAllocatorIS4_EEE17_Vector_impl_dataE", !23, i64 0, !23, i64 8, !23, i64 16}
-!55 = !{!54, !23, i64 0}
-!56 = distinct !{!56, !31, !32}
-!57 = !{!23, !23, i64 0}
-!58 = !{i64 0, i64 8, !57, i64 8, i64 2, !45}
-!59 = distinct !{!59, !31, !32}
-!60 = distinct !{!60, !31, !32}
+!32 = !{!33, !34, i64 0}
+!33 = !{!"_ZTSN3ozz4spanIsEE", !34, i64 0, !29, i64 8}
+!34 = !{!"p1 short", !7, i64 0}
+!35 = !{!36, !37, i64 0}
+!36 = !{!"_ZTSN3ozz4spanIPcEE", !37, i64 0, !29, i64 8}
+!37 = !{!"p2 omnipotent char", !38, i64 0}
+!38 = !{!"any p2 pointer", !7, i64 0}
+!39 = !{!28, !28, i64 0}
+!40 = !{!26, !28, i64 0}
+!41 = distinct !{!41, !31}
+!42 = !{!33, !29, i64 8}
+!43 = !{!22, !24, i64 8}
+!44 = !{!24, !24, i64 0}
+!45 = distinct !{!45, !31}
+!46 = !{!8, !8, i64 0}
+!47 = distinct !{!47, !31}
+!48 = !{!49, !50, i64 0}
+!49 = !{!"_ZTSN3ozz4spanINS_4math12SoaTransformEEE", !50, i64 0, !29, i64 8}
+!50 = !{!"p1 _ZTSN3ozz4math12SoaTransformE", !7, i64 0}
+!51 = distinct !{!51, !31}
+!52 = !{!53, !23, i64 8}
+!53 = !{!"_ZTSNSt12_Vector_baseIN3ozz9animation7offline11RawSkeleton5JointENS0_12StdAllocatorIS4_EEE17_Vector_impl_dataE", !23, i64 0, !23, i64 8, !23, i64 16}
+!54 = !{!53, !23, i64 0}
+!55 = distinct !{!55, !31}
+!56 = !{!23, !23, i64 0}
+!57 = !{i64 0, i64 8, !56, i64 8, i64 2, !44}
+!58 = distinct !{!58, !31}
+!59 = distinct !{!59, !31}

@@ -211,7 +211,7 @@ _ZNK5arrow9ArraySpan6IsNullEl.exit:               ; preds = %35, %52, %55, %58, 
   %70 = add nuw nsw i64 %.01718, 1
   %71 = load i64, ptr %10, align 8, !tbaa !19
   %72 = icmp slt i64 %70, %71
-  br i1 %72, label %16, label %._crit_edge, !llvm.loop !50
+  br i1 %72, label %16, label %._crit_edge, !llvm.loop !49
 }
 
 declare noundef zeroext i1 @_ZNK5arrow9ArraySpan17IsNullSparseUnionEl(ptr noundef nonnull align 8 dereferenceable(128), i64 noundef) local_unnamed_addr #1
@@ -272,7 +272,6 @@ attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "t
 !44 = !{!"_ZTSNSt12_Vector_baseISt10shared_ptrIN5arrow5FieldEESaIS3_EE17_Vector_impl_dataE", !45, i64 0, !45, i64 8, !45, i64 16}
 !45 = !{!"p1 _ZTSSt10shared_ptrIN5arrow5FieldEE", !6, i64 0}
 !46 = !{!4, !9, i64 16}
-!47 = distinct !{!47, !48, !49}
+!47 = distinct !{!47, !48}
 !48 = !{!"llvm.loop.mustprogress"}
-!49 = !{!"llvm.loop.estimated_trip_count"}
-!50 = distinct !{!50, !48, !49}
+!49 = distinct !{!49, !48}

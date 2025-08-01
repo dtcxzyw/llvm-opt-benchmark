@@ -470,7 +470,7 @@ _ZN13MonitorLocker4waitEl.exit:                   ; preds = %11, %9, %_ZN13Monit
   %.sink = phi i64 [ %27, %_ZN13MonitorLocker4waitEl.exit12 ], [ 0, %9 ], [ 0, %11 ]
   %28 = tail call noundef zeroext i1 @_ZN7Monitor28wait_without_safepoint_checkEm(ptr noundef nonnull align 8 dereferenceable(104) %2, i64 noundef %.sink) #15
   %29 = tail call noundef zeroext i1 @_ZNK18ConcurrentGCThread16should_terminateEv(ptr noundef nonnull align 8 dereferenceable(918) %0) #15
-  br i1 %29, label %_ZN13MonitorLockerD2Ev.exit, label %6, !llvm.loop !9
+  br i1 %29, label %_ZN13MonitorLockerD2Ev.exit, label %6, !llvm.loop !8
 
 _ZN13MonitorLockerD2Ev.exit:                      ; preds = %_ZN13MonitorLocker4waitEl.exit, %1, %16
   %.0 = phi ptr [ %7, %16 ], [ null, %1 ], [ null, %_ZN13MonitorLocker4waitEl.exit ]
@@ -622,7 +622,7 @@ define hidden void @_ZN15G1ServiceThread11run_serviceEv(ptr noundef nonnull alig
   tail call void @_ZN15G1ServiceThread8run_taskEP13G1ServiceTask(ptr noundef nonnull align 8 dereferenceable(1064) %0, ptr noundef nonnull %4)
   %5 = tail call noundef ptr @_ZN15G1ServiceThread13wait_for_taskEv(ptr noundef nonnull align 8 dereferenceable(1064) %0)
   %6 = icmp eq ptr %5, null
-  br i1 %6, label %._crit_edge, label %.lr.ph, !llvm.loop !10
+  br i1 %6, label %._crit_edge, label %.lr.ph, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
   %7 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_158ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
@@ -916,8 +916,7 @@ attributes #15 = { nounwind }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7, !8}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}

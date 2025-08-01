@@ -270,15 +270,15 @@ define hidden void @_ZNK7datalog16accounted_object14output_profileERSo(ptr nound
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN7datalog13cost_recorderC2Ev(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(32) initializes((0, 16)) %0) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 _ZN9stopwatch5startEv.exit:
-  store ptr null, ptr %0, align 8, !tbaa !20
+  store ptr null, ptr %0, align 8, !tbaa !19
   %1 = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 24)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %1, i8 0, i64 17, i1 false)
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %1, ptr %2, align 8, !tbaa !25
+  store ptr %1, ptr %2, align 8, !tbaa !24
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = tail call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #14
-  store i64 %4, ptr %1, align 8, !tbaa !26
-  store i8 1, ptr %3, align 8, !tbaa !27
+  store i64 %4, ptr %1, align 8, !tbaa !25
+  store i8 1, ptr %3, align 8, !tbaa !26
   ret void
 }
 
@@ -286,37 +286,37 @@ declare noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef) local_unnamed_ad
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN7datalog13cost_recorderD2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(32) %0) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !20
+  %2 = load ptr, ptr %0, align 8, !tbaa !19
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %37, label %3
 
 3:                                                ; preds = %1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = load ptr, ptr %4, align 8, !tbaa !25
+  %5 = load ptr, ptr %4, align 8, !tbaa !24
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %7 = load i8, ptr %6, align 8, !tbaa !27, !range !31, !noundef !32
+  %7 = load i8, ptr %6, align 8, !tbaa !26, !range !30, !noundef !31
   %8 = trunc nuw i8 %7 to i1
   br i1 %8, label %_ZN9stopwatch4stopEv.exit.i.i.i.i, label %_ZNK9stopwatch19get_current_secondsEv.exit.i.i
 
 _ZN9stopwatch4stopEv.exit.i.i.i.i:                ; preds = %3
   %9 = tail call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #14
-  %.sroa.0.0.copyload.i2.i.i.i.i.i.i = load i64, ptr %5, align 8, !tbaa !26
+  %.sroa.0.0.copyload.i2.i.i.i.i.i.i = load i64, ptr %5, align 8, !tbaa !25
   %10 = sub i64 %9, %.sroa.0.0.copyload.i2.i.i.i.i.i.i
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %12 = load i64, ptr %11, align 8, !tbaa !33
+  %12 = load i64, ptr %11, align 8, !tbaa !32
   %13 = add nsw i64 %10, %12
-  store i64 %13, ptr %11, align 8, !tbaa !33
-  store i8 0, ptr %6, align 8, !tbaa !27
+  store i64 %13, ptr %11, align 8, !tbaa !32
+  store i8 0, ptr %6, align 8, !tbaa !26
   %14 = tail call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #14
-  store i64 %14, ptr %5, align 8, !tbaa !26
-  store i8 1, ptr %6, align 8, !tbaa !27
-  %.pre = load ptr, ptr %0, align 8, !tbaa !20
+  store i64 %14, ptr %5, align 8, !tbaa !25
+  store i8 1, ptr %6, align 8, !tbaa !26
+  %.pre = load ptr, ptr %0, align 8, !tbaa !19
   br label %_ZNK9stopwatch19get_current_secondsEv.exit.i.i
 
 _ZNK9stopwatch19get_current_secondsEv.exit.i.i:   ; preds = %_ZN9stopwatch4stopEv.exit.i.i.i.i, %3
   %15 = phi ptr [ %.pre, %_ZN9stopwatch4stopEv.exit.i.i.i.i ], [ %2, %3 ]
   %16 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %17 = load i64, ptr %16, align 8, !tbaa !33
+  %17 = load i64, ptr %16, align 8, !tbaa !32
   %18 = sdiv i64 %17, 1000000
   %19 = sitofp i64 %18 to double
   %20 = fdiv double %19, 1.000000e+03
@@ -327,7 +327,7 @@ _ZNK9stopwatch19get_current_secondsEv.exit.i.i:   ; preds = %_ZN9stopwatch4stopE
 
 23:                                               ; preds = %_ZNK9stopwatch19get_current_secondsEv.exit.i.i
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %25 = load i64, ptr %24, align 8, !tbaa !34
+  %25 = load i64, ptr %24, align 8, !tbaa !33
   %26 = sub i64 %22, %25
   %27 = trunc i64 %26 to i32
   %28 = getelementptr inbounds nuw i8, ptr %15, i64 16
@@ -339,20 +339,20 @@ _ZNK9stopwatch19get_current_secondsEv.exit.i.i:   ; preds = %_ZN9stopwatch4stopE
   %33 = add i32 %32, %27
   store i32 %33, ptr %28, align 4, !tbaa !3
   %34 = getelementptr inbounds nuw i8, ptr %15, i64 32
-  store i8 0, ptr %34, align 8, !tbaa !35
+  store i8 0, ptr %34, align 8, !tbaa !34
   br label %_ZN7datalog13cost_recorder6finishEv.exit
 
 _ZN7datalog13cost_recorder6finishEv.exit:         ; preds = %_ZNK9stopwatch19get_current_secondsEv.exit.i.i, %23
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i8 0, ptr %35, align 8, !tbaa !36
-  store ptr null, ptr %0, align 8, !tbaa !20
+  store i8 0, ptr %35, align 8, !tbaa !35
+  store ptr null, ptr %0, align 8, !tbaa !19
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i64 %22, ptr %36, align 8, !tbaa !34
+  store i64 %22, ptr %36, align 8, !tbaa !33
   br label %37
 
 37:                                               ; preds = %_ZN7datalog13cost_recorder6finishEv.exit, %1
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %39 = load ptr, ptr %38, align 8, !tbaa !25
+  %39 = load ptr, ptr %38, align 8, !tbaa !24
   %40 = icmp eq ptr %39, null
   br i1 %40, label %_Z7deallocI9stopwatchEvPT_.exit, label %41
 
@@ -374,41 +374,41 @@ _Z7deallocI9stopwatchEvPT_.exit:                  ; preds = %37, %41
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN7datalog13cost_recorder5startEPNS_16accounted_objectE(ptr noundef nonnull align 8 captures(none) dereferenceable(32) initializes((16, 17)) %0, ptr noundef %1) local_unnamed_addr #7 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !tbaa !25
+  %4 = load ptr, ptr %3, align 8, !tbaa !24
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %6 = load i8, ptr %5, align 8, !tbaa !27, !range !31, !noundef !32
+  %6 = load i8, ptr %5, align 8, !tbaa !26, !range !30, !noundef !31
   %7 = trunc nuw i8 %6 to i1
   br i1 %7, label %_ZN9stopwatch4stopEv.exit.i.i, label %_ZNK9stopwatch19get_current_secondsEv.exit
 
 _ZN9stopwatch4stopEv.exit.i.i:                    ; preds = %2
   %8 = tail call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #14
-  %.sroa.0.0.copyload.i2.i.i.i.i = load i64, ptr %4, align 8, !tbaa !26
+  %.sroa.0.0.copyload.i2.i.i.i.i = load i64, ptr %4, align 8, !tbaa !25
   %9 = sub i64 %8, %.sroa.0.0.copyload.i2.i.i.i.i
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %11 = load i64, ptr %10, align 8, !tbaa !33
+  %11 = load i64, ptr %10, align 8, !tbaa !32
   %12 = add nsw i64 %9, %11
-  store i64 %12, ptr %10, align 8, !tbaa !33
-  store i8 0, ptr %5, align 8, !tbaa !27
+  store i64 %12, ptr %10, align 8, !tbaa !32
+  store i8 0, ptr %5, align 8, !tbaa !26
   %13 = tail call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #14
-  store i64 %13, ptr %4, align 8, !tbaa !26
-  store i8 1, ptr %5, align 8, !tbaa !27
+  store i64 %13, ptr %4, align 8, !tbaa !25
+  store i8 1, ptr %5, align 8, !tbaa !26
   br label %_ZNK9stopwatch19get_current_secondsEv.exit
 
 _ZNK9stopwatch19get_current_secondsEv.exit:       ; preds = %2, %_ZN9stopwatch4stopEv.exit.i.i
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %15 = load i64, ptr %14, align 8, !tbaa !33
+  %15 = load i64, ptr %14, align 8, !tbaa !32
   %16 = sdiv i64 %15, 1000000
   %17 = sitofp i64 %16 to double
   %18 = fdiv double %17, 1.000000e+03
   %19 = fmul double %18, 1.000000e+03
   %20 = fptoui double %19 to i64
-  %21 = load ptr, ptr %0, align 8, !tbaa !20
+  %21 = load ptr, ptr %0, align 8, !tbaa !19
   %.not = icmp eq ptr %21, null
   br i1 %.not, label %34, label %22
 
 22:                                               ; preds = %_ZNK9stopwatch19get_current_secondsEv.exit
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %24 = load i64, ptr %23, align 8, !tbaa !34
+  %24 = load i64, ptr %23, align 8, !tbaa !33
   %25 = sub i64 %20, %24
   %26 = trunc i64 %25 to i32
   %27 = getelementptr inbounds nuw i8, ptr %21, i64 16
@@ -420,22 +420,22 @@ _ZNK9stopwatch19get_current_secondsEv.exit:       ; preds = %2, %_ZN9stopwatch4s
   %32 = add i32 %31, %26
   store i32 %32, ptr %27, align 4, !tbaa !3
   %33 = getelementptr inbounds nuw i8, ptr %21, i64 32
-  store i8 0, ptr %33, align 8, !tbaa !35
+  store i8 0, ptr %33, align 8, !tbaa !34
   br label %34
 
 34:                                               ; preds = %22, %_ZNK9stopwatch19get_current_secondsEv.exit
   %35 = icmp ne ptr %1, null
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %37 = zext i1 %35 to i8
-  store i8 %37, ptr %36, align 8, !tbaa !36
-  store ptr %1, ptr %0, align 8, !tbaa !20
+  store i8 %37, ptr %36, align 8, !tbaa !35
+  store ptr %1, ptr %0, align 8, !tbaa !19
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i64 %20, ptr %38, align 8, !tbaa !34
+  store i64 %20, ptr %38, align 8, !tbaa !33
   br i1 %35, label %39, label %41
 
 39:                                               ; preds = %34
   %40 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  store i8 1, ptr %40, align 8, !tbaa !35
+  store i8 1, ptr %40, align 8, !tbaa !34
   br label %41
 
 41:                                               ; preds = %39, %34
@@ -497,23 +497,22 @@ attributes #14 = { nounwind }
 !14 = !{!"p1 _ZTSN7datalog4ruleE", !13, i64 0}
 !15 = !{!"bool", !6, i64 0}
 !16 = !{!11, !12, i64 0}
-!17 = distinct !{!17, !18, !19}
+!17 = distinct !{!17, !18}
 !18 = !{!"llvm.loop.mustprogress"}
-!19 = !{!"llvm.loop.estimated_trip_count"}
-!20 = !{!21, !22, i64 0}
-!21 = !{!"_ZTSN7datalog13cost_recorderE", !22, i64 0, !23, i64 8, !15, i64 16, !24, i64 24}
-!22 = !{!"p1 _ZTSN7datalog16accounted_objectE", !13, i64 0}
-!23 = !{!"p1 _ZTS9stopwatch", !13, i64 0}
-!24 = !{!"long", !6, i64 0}
-!25 = !{!21, !23, i64 8}
-!26 = !{!24, !24, i64 0}
-!27 = !{!28, !15, i64 16}
-!28 = !{!"_ZTS9stopwatch", !29, i64 0, !30, i64 8, !15, i64 16}
-!29 = !{!"_ZTSNSt6chrono10time_pointINS_3_V212steady_clockENS_8durationIlSt5ratioILl1ELl1000000000EEEEEE", !30, i64 0}
-!30 = !{!"_ZTSNSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEE", !24, i64 0}
-!31 = !{i8 0, i8 2}
-!32 = !{}
-!33 = !{!30, !24, i64 0}
-!34 = !{!21, !24, i64 24}
-!35 = !{!11, !15, i64 32}
-!36 = !{!21, !15, i64 16}
+!19 = !{!20, !21, i64 0}
+!20 = !{!"_ZTSN7datalog13cost_recorderE", !21, i64 0, !22, i64 8, !15, i64 16, !23, i64 24}
+!21 = !{!"p1 _ZTSN7datalog16accounted_objectE", !13, i64 0}
+!22 = !{!"p1 _ZTS9stopwatch", !13, i64 0}
+!23 = !{!"long", !6, i64 0}
+!24 = !{!20, !22, i64 8}
+!25 = !{!23, !23, i64 0}
+!26 = !{!27, !15, i64 16}
+!27 = !{!"_ZTS9stopwatch", !28, i64 0, !29, i64 8, !15, i64 16}
+!28 = !{!"_ZTSNSt6chrono10time_pointINS_3_V212steady_clockENS_8durationIlSt5ratioILl1ELl1000000000EEEEEE", !29, i64 0}
+!29 = !{!"_ZTSNSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEE", !23, i64 0}
+!30 = !{i8 0, i8 2}
+!31 = !{}
+!32 = !{!29, !23, i64 0}
+!33 = !{!20, !23, i64 24}
+!34 = !{!11, !15, i64 32}
+!35 = !{!20, !15, i64 16}

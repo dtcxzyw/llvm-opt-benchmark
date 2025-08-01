@@ -982,7 +982,7 @@ list_length.exit84.thread:                        ; preds = %131, %list_length.e
   %252 = call ptr @bms_add_member(ptr noundef %249, i32 noundef %251) #11
   store ptr %252, ptr %210, align 8
   %indvars.iv.next206 = add nuw nsw i64 %indvars.iv205, 1
-  br label %.split, !llvm.loop !9
+  br label %.split, !llvm.loop !8
 
 253:                                              ; preds = %.critedge.i
   %254 = getelementptr inbounds nuw i8, ptr %1, i64 40
@@ -1442,7 +1442,7 @@ list_length.exit175.i:                            ; preds = %475, %474
   tail call void @list_free(ptr noundef %506) #11
   %indvars.iv.next240.i = add nuw nsw i64 %indvars.iv239.i, 1
   %exitcond243.not.i = icmp eq i64 %indvars.iv.next240.i, %wide.trip.count.i
-  br i1 %exitcond243.not.i, label %._crit_edge.i, label %.split.us.us.i, !llvm.loop !10
+  br i1 %exitcond243.not.i, label %._crit_edge.i, label %.split.us.us.i, !llvm.loop !9
 
 .lr.ph205.i:                                      ; preds = %.critedge173.i, %.lr.ph205.preheader.i
   %indvars.iv228.i = phi i64 [ 0, %.lr.ph205.preheader.i ], [ %indvars.iv.next229.i, %.critedge173.i ]
@@ -1490,7 +1490,7 @@ list_length.exit175.i:                            ; preds = %475, %474
   %528 = tail call ptr @lappend_oid(ptr noundef %.0142202.i, i32 noundef %525) #11
   %indvars.iv.next229.i = add nuw nsw i64 %indvars.iv228.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next229.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %.preheader.i, label %.lr.ph205.i, !llvm.loop !12
+  br i1 %exitcond.not.i, label %.preheader.i, label %.lr.ph205.i, !llvm.loop !11
 
 .split.i:                                         ; preds = %.preheader.i, %.thread.split.i
   %indvars.iv234.i = phi i64 [ %indvars.iv.next235.i, %.thread.split.i ], [ 0, %.preheader.i ]
@@ -1536,7 +1536,7 @@ list_length.exit175.i:                            ; preds = %475, %474
   tail call void @list_free(ptr noundef %549) #11
   %indvars.iv.next235.i = add nuw nsw i64 %indvars.iv234.i, 1
   %exitcond238.not.i = icmp eq i64 %indvars.iv.next235.i, %wide.trip.count.i
-  br i1 %exitcond238.not.i, label %._crit_edge.i, label %.split.i, !llvm.loop !13
+  br i1 %exitcond238.not.i, label %._crit_edge.i, label %.split.i, !llvm.loop !12
 
 550:                                              ; preds = %544
   %551 = getelementptr inbounds nuw %union.ListCell, ptr %545, i64 %indvars.iv231.i
@@ -1545,7 +1545,7 @@ list_length.exit175.i:                            ; preds = %475, %474
   %554 = tail call ptr @lappend(ptr noundef %553, ptr noundef %552) #11
   store ptr %554, ptr %551, align 8
   %indvars.iv.next232.i = add nuw nsw i64 %indvars.iv231.i, 1
-  br label %.split.split.i, !llvm.loop !14
+  br label %.split.split.i, !llvm.loop !13
 
 ._crit_edge.i:                                    ; preds = %.thread.split.i, %.split.us.us.i, %.lr.ph189.i, %.critedge.i42, %454
   %.0140.lcssa260.i = phi ptr [ null, %.critedge.i42 ], [ null, %454 ], [ null, %.lr.ph189.i ], [ %526, %.split.us.us.i ], [ %526, %.thread.split.i ]
@@ -1754,7 +1754,7 @@ transformReturnStmt.exit:                         ; preds = %612, %625
   %680 = icmp sgt i32 %.in.i, 2
   %681 = icmp ne ptr %679, null
   %682 = select i1 %680, i1 %681, i1 false
-  br i1 %682, label %.lr.ph.i58, label %.loopexit.i, !llvm.loop !15
+  br i1 %682, label %.lr.ph.i58, label %.loopexit.i, !llvm.loop !14
 
 .loopexit.i:                                      ; preds = %675, %666, %648
   %.0.i45 = phi ptr [ %652, %648 ], [ null, %666 ], [ %679, %675 ]
@@ -2249,7 +2249,7 @@ transformDeclareCursorStmt.exit:                  ; preds = %876, %906
   %955 = getelementptr inbounds nuw i8, ptr %.016.i89129, i64 144
   %956 = load ptr, ptr %955, align 8
   %.not.i90 = icmp eq ptr %956, null
-  br i1 %.not.i90, label %.critedge.i92, label %.preheader105, !llvm.loop !16
+  br i1 %.not.i90, label %.critedge.i92, label %.preheader105, !llvm.loop !15
 
 .critedge.i92:                                    ; preds = %.preheader105, %954
   %.016.i89.lcssa = phi ptr [ %.016.i89129, %.preheader105 ], [ null, %954 ]
@@ -2301,7 +2301,7 @@ transformOptionalSelectInto.exit94:               ; preds = %.critedge.i64.threa
   %975 = getelementptr inbounds nuw i8, ptr %.016.i119, i64 144
   %976 = load ptr, ptr %975, align 8
   %.not.i86 = icmp eq ptr %976, null
-  br i1 %.not.i86, label %.critedge.i87, label %.preheader106, !llvm.loop !16
+  br i1 %.not.i86, label %.critedge.i87, label %.preheader106, !llvm.loop !15
 
 .critedge.i87:                                    ; preds = %.preheader106, %974
   %.016.i.lcssa = phi ptr [ %.016.i119, %.preheader106 ], [ null, %974 ]
@@ -2959,7 +2959,7 @@ define internal fastcc noundef ptr @transformSetOperationStmt(ptr noundef %0, pt
   %7 = getelementptr inbounds nuw i8, ptr %.0, i64 136
   %8 = load i32, ptr %7, align 8
   %.not200 = icmp eq i32 %8, 0
-  br i1 %.not200, label %.critedge, label %5, !llvm.loop !17
+  br i1 %.not200, label %.critedge, label %5, !llvm.loop !16
 
 .critedge:                                        ; preds = %5, %6
   %9 = getelementptr inbounds nuw i8, ptr %.0, i64 16
@@ -3042,7 +3042,7 @@ define internal fastcc noundef ptr @transformSetOperationStmt(ptr noundef %0, pt
 52:                                               ; preds = %51
   %53 = load i32, ptr %.0184, align 4
   %54 = icmp eq i32 %53, 142
-  br i1 %54, label %51, label %.critedge2, !llvm.loop !18
+  br i1 %54, label %51, label %.critedge2, !llvm.loop !17
 
 .critedge2:                                       ; preds = %51, %52
   %55 = getelementptr inbounds nuw i8, ptr %.0184, i64 4
@@ -3263,7 +3263,7 @@ list_length.exit221:                              ; preds = %list_length.exit219
   %188 = getelementptr inbounds nuw i8, ptr %180, i64 28
   store i16 %187, ptr %188, align 4
   %189 = add i32 %.sroa.18.0, 1
-  br label %92, !llvm.loop !19
+  br label %92, !llvm.loop !18
 
 190:                                              ; preds = %list_length.exit221
   %191 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
@@ -3587,7 +3587,7 @@ list_length.exit97:                               ; preds = %41, %59
   %111 = tail call ptr @transformAssignedExpr(ptr noundef %0, ptr noundef %102, i32 noundef 15, ptr noundef %106, i32 noundef %104, ptr noundef %108, i32 noundef %110) #11
   %112 = tail call ptr @lappend(ptr noundef %.0.us117, ptr noundef %111) #11
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  br label %.split.split.us, !llvm.loop !20
+  br label %.split.split.us, !llvm.loop !19
 
 .split.split:                                     ; preds = %.split, %.thread108
   %indvars.iv127 = phi i64 [ %indvars.iv.next128, %.thread108 ], [ 0, %.split ]
@@ -3658,7 +3658,7 @@ list_length.exit97:                               ; preds = %41, %59
 .thread103:                                       ; preds = %161, %156
   %.4107 = phi ptr [ %163, %161 ], [ %160, %156 ]
   %.old2.not = icmp eq ptr %.4107, null
-  br i1 %.old2.not, label %.thread108, label %.preheader, !llvm.loop !21
+  br i1 %.old2.not, label %.thread108, label %.preheader
 
 .preheader:                                       ; preds = %139, %.thread103
   %.167 = phi ptr [ %.4107, %.thread103 ], [ %150, %139 ]
@@ -3676,7 +3676,7 @@ list_length.exit97:                               ; preds = %41, %59
 153:                                              ; preds = %151
   %154 = getelementptr inbounds nuw i8, ptr %.064, i64 8
   %155 = load ptr, ptr %154, align 8
-  br label %151, !llvm.loop !22
+  br label %151, !llvm.loop !20
 
 156:                                              ; preds = %151
   %157 = getelementptr inbounds nuw i8, ptr %.064, i64 16
@@ -3696,7 +3696,7 @@ list_length.exit97:                               ; preds = %41, %59
   %.066 = phi ptr [ null, %139 ], [ %.167, %151 ], [ %.167, %161 ], [ null, %.thread103 ]
   %164 = tail call ptr @lappend(ptr noundef %.0, ptr noundef %.066) #11
   %indvars.iv.next128 = add nuw nsw i64 %indvars.iv127, 1
-  br label %.split.split, !llvm.loop !23
+  br label %.split.split, !llvm.loop !21
 }
 
 ; Function Attrs: cold
@@ -3856,7 +3856,7 @@ define dso_local ptr @BuildOnConflictExcludedTargetlist(ptr noundef readonly cap
   %40 = load i16, ptr %39, align 4
   %41 = sext i16 %40 to i64
   %42 = icmp slt i64 %indvars.iv.next, %41
-  br i1 %42, label %9, label %._crit_edge, !llvm.loop !24
+  br i1 %42, label %9, label %._crit_edge, !llvm.loop !22
 
 ._crit_edge:                                      ; preds = %34, %2
   %.022.lcssa = phi ptr [ null, %2 ], [ %37, %34 ]
@@ -4383,7 +4383,7 @@ list_length.exit:                                 ; preds = %3, %12
   store i32 %2, ptr %39, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !25
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !23
 }
 
 declare void @markTargetListOrigins(ptr noundef, ptr noundef) local_unnamed_addr #2
@@ -5163,7 +5163,7 @@ applyLockingClause.exit135:                       ; preds = %199, %210
   %291 = add nuw nsw i32 %.sroa.633.0190, 1
   %292 = load i32, ptr %17, align 4
   %.not = icmp slt i32 %291, %292
-  br i1 %.not, label %106, label %.critedge, !llvm.loop !26
+  br i1 %.not, label %106, label %.critedge, !llvm.loop !24
 
 .critedge:                                        ; preds = %290, %102, %.lr.ph194, %.preheader, %25
   ret void
@@ -5655,7 +5655,7 @@ makeSortGroupClauseForSetOp.exit:                 ; preds = %224, %227, %228
 249:                                              ; preds = %240, %239
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #11
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  br label %.split, !llvm.loop !27
+  br label %.split, !llvm.loop !25
 
 250:                                              ; preds = %.thread, %list_length.exit
   %.0 = phi ptr [ %103, %list_length.exit ], [ %51, %.thread ]
@@ -5763,7 +5763,7 @@ define internal fastcc void @determineRecursiveColTypes(ptr noundef %0, ptr noun
   %55 = tail call ptr @makeTargetEntry(ptr noundef %53, i16 noundef signext %.030, ptr noundef %51, i1 noundef zeroext false) #11
   %56 = tail call ptr @lappend(ptr noundef %.029, ptr noundef %55) #11
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  br label %.critedge.split.split, !llvm.loop !28
+  br label %.critedge.split.split, !llvm.loop !26
 }
 
 declare ptr @list_make2_impl(i32 noundef, ptr, ptr) local_unnamed_addr #2
@@ -5853,26 +5853,24 @@ attributes #13 = { nounwind willreturn memory(read) }
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{}
 !5 = !{i8 0, i8 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7, !8, !11}
-!11 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!12 = distinct !{!12, !7, !8}
-!13 = distinct !{!13, !7, !8}
-!14 = distinct !{!14, !7, !8}
-!15 = distinct !{!15, !7, !8}
-!16 = distinct !{!16, !7, !8}
-!17 = distinct !{!17, !7, !8}
-!18 = distinct !{!18, !7, !8}
-!19 = distinct !{!19, !7, !8}
-!20 = distinct !{!20, !7, !8, !11}
-!21 = distinct !{!21, !8}
-!22 = distinct !{!22, !7, !8}
-!23 = distinct !{!23, !7, !8}
-!24 = distinct !{!24, !7, !8}
-!25 = distinct !{!25, !7, !8}
-!26 = distinct !{!26, !7, !8}
-!27 = distinct !{!27, !7, !8}
-!28 = distinct !{!28, !7, !8}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7, !10}
+!10 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!11 = distinct !{!11, !7}
+!12 = distinct !{!12, !7}
+!13 = distinct !{!13, !7}
+!14 = distinct !{!14, !7}
+!15 = distinct !{!15, !7}
+!16 = distinct !{!16, !7}
+!17 = distinct !{!17, !7}
+!18 = distinct !{!18, !7}
+!19 = distinct !{!19, !7, !10}
+!20 = distinct !{!20, !7}
+!21 = distinct !{!21, !7}
+!22 = distinct !{!22, !7}
+!23 = distinct !{!23, !7}
+!24 = distinct !{!24, !7}
+!25 = distinct !{!25, !7}
+!26 = distinct !{!26, !7}

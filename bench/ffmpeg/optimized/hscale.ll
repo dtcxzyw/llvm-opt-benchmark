@@ -234,13 +234,13 @@ define range(i32 -12, 1) i32 @ff_init_desc_hscale(ptr noundef writeonly captures
   br i1 %.not, label %39, label %9
 
 9:                                                ; preds = %7
-  store ptr %3, ptr %8, align 8, !tbaa !54
+  store ptr %3, ptr %8, align 8, !tbaa !53
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store ptr %4, ptr %10, align 8, !tbaa !56
+  store ptr %4, ptr %10, align 8, !tbaa !55
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  store i32 %5, ptr %11, align 8, !tbaa !57
+  store i32 %5, ptr %11, align 8, !tbaa !56
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 20
-  store i32 %6, ptr %12, align 4, !tbaa !58
+  store i32 %6, ptr %12, align 4, !tbaa !57
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %8, ptr %13, align 8, !tbaa !10
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 20
@@ -315,7 +315,7 @@ define internal noundef i32 @lum_h_scale(ptr noundef %0, ptr noundef readonly ca
   %10 = load ptr, ptr %9, align 8, !tbaa !22
   %11 = load i32, ptr %10, align 8, !tbaa !24
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 20
-  %13 = load i32, ptr %12, align 4, !tbaa !58
+  %13 = load i32, ptr %12, align 4, !tbaa !57
   %14 = icmp sgt i32 %3, 0
   br i1 %14, label %.lr.ph, label %._crit_edge
 
@@ -345,7 +345,7 @@ define internal noundef i32 @lum_h_scale(ptr noundef %0, ptr noundef readonly ca
   %34 = getelementptr inbounds nuw i8, ptr %27, i64 28
   %35 = load i32, ptr %34, align 4, !tbaa !25
   %36 = sub nsw i32 %30, %35
-  %37 = load ptr, ptr %15, align 8, !tbaa !59
+  %37 = load ptr, ptr %15, align 8, !tbaa !58
   %.not = icmp eq ptr %37, null
   br i1 %.not, label %45, label %38
 
@@ -360,21 +360,21 @@ define internal noundef i32 @lum_h_scale(ptr noundef %0, ptr noundef readonly ca
   br label %56
 
 45:                                               ; preds = %23
-  %46 = load ptr, ptr %16, align 8, !tbaa !60
+  %46 = load ptr, ptr %16, align 8, !tbaa !59
   %47 = sext i32 %36 to i64
   %48 = getelementptr inbounds ptr, ptr %29, i64 %47
   %49 = load ptr, ptr %48, align 8, !tbaa !32
   %50 = sext i32 %33 to i64
   %51 = getelementptr inbounds ptr, ptr %26, i64 %50
   %52 = load ptr, ptr %51, align 8, !tbaa !32
-  %53 = load ptr, ptr %6, align 8, !tbaa !54
-  %54 = load ptr, ptr %17, align 8, !tbaa !56
-  %55 = load i32, ptr %18, align 8, !tbaa !57
+  %53 = load ptr, ptr %6, align 8, !tbaa !53
+  %54 = load ptr, ptr %17, align 8, !tbaa !55
+  %55 = load i32, ptr %18, align 8, !tbaa !56
   tail call void %46(ptr noundef nonnull %0, ptr noundef %49, i32 noundef %11, ptr noundef %52, ptr noundef %53, ptr noundef %54, i32 noundef %55) #6
   br label %56
 
 56:                                               ; preds = %45, %38
-  %57 = load ptr, ptr %19, align 8, !tbaa !61
+  %57 = load ptr, ptr %19, align 8, !tbaa !60
   %.not77 = icmp eq ptr %57, null
   br i1 %.not77, label %64, label %58
 
@@ -382,8 +382,8 @@ define internal noundef i32 @lum_h_scale(ptr noundef %0, ptr noundef readonly ca
   %59 = sext i32 %36 to i64
   %60 = getelementptr inbounds ptr, ptr %29, i64 %59
   %61 = load ptr, ptr %60, align 8, !tbaa !32
-  %62 = load i32, ptr %20, align 8, !tbaa !62
-  %63 = load i64, ptr %21, align 16, !tbaa !63
+  %62 = load i32, ptr %20, align 8, !tbaa !61
+  %63 = load i64, ptr %21, align 16, !tbaa !62
   tail call void %57(ptr noundef %61, i32 noundef %11, i32 noundef %62, i64 noundef %63) #6
   br label %64
 
@@ -413,7 +413,7 @@ define internal noundef i32 @lum_h_scale(ptr noundef %0, ptr noundef readonly ca
   %83 = load i32, ptr %82, align 8, !tbaa !29
   %84 = add nsw i32 %83, 1
   store i32 %84, ptr %82, align 8, !tbaa !29
-  %85 = load ptr, ptr %15, align 8, !tbaa !59
+  %85 = load ptr, ptr %15, align 8, !tbaa !58
   %.not79 = icmp eq ptr %85, null
   br i1 %.not79, label %93, label %86
 
@@ -428,23 +428,23 @@ define internal noundef i32 @lum_h_scale(ptr noundef %0, ptr noundef readonly ca
   br label %104
 
 93:                                               ; preds = %70
-  %94 = load ptr, ptr %16, align 8, !tbaa !60
+  %94 = load ptr, ptr %16, align 8, !tbaa !59
   %95 = sext i32 %81 to i64
   %96 = getelementptr inbounds ptr, ptr %75, i64 %95
   %97 = load ptr, ptr %96, align 8, !tbaa !32
   %98 = sext i32 %78 to i64
   %99 = getelementptr inbounds ptr, ptr %73, i64 %98
   %100 = load ptr, ptr %99, align 8, !tbaa !32
-  %101 = load ptr, ptr %6, align 8, !tbaa !54
-  %102 = load ptr, ptr %17, align 8, !tbaa !56
-  %103 = load i32, ptr %18, align 8, !tbaa !57
+  %101 = load ptr, ptr %6, align 8, !tbaa !53
+  %102 = load ptr, ptr %17, align 8, !tbaa !55
+  %103 = load i32, ptr %18, align 8, !tbaa !56
   tail call void %94(ptr noundef nonnull %0, ptr noundef %97, i32 noundef %11, ptr noundef %100, ptr noundef %101, ptr noundef %102, i32 noundef %103) #6
   br label %104
 
 104:                                              ; preds = %86, %93, %64
   %105 = add nuw nsw i32 %.080, 1
   %exitcond.not = icmp eq i32 %105, %3
-  br i1 %exitcond.not, label %._crit_edge, label %23, !llvm.loop !64
+  br i1 %exitcond.not, label %._crit_edge, label %23, !llvm.loop !63
 
 ._crit_edge:                                      ; preds = %104, %4
   ret i32 %3
@@ -478,7 +478,7 @@ define internal noundef i32 @chr_convert(ptr noundef %0, ptr noundef readonly ca
   %6 = load ptr, ptr %1, align 8, !tbaa !21
   %7 = load i32, ptr %6, align 8, !tbaa !24
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 4
-  %9 = load i32, ptr %8, align 4, !tbaa !65
+  %9 = load i32, ptr %8, align 4, !tbaa !64
   %10 = sub nsw i32 0, %7
   %11 = ashr i32 %10, %9
   %12 = sub nsw i32 0, %11
@@ -556,7 +556,7 @@ define internal noundef i32 @chr_convert(ptr noundef %0, ptr noundef readonly ca
   %68 = load ptr, ptr %67, align 8, !tbaa !31
   %69 = getelementptr inbounds nuw ptr, ptr %68, i64 %indvars.iv
   %70 = load ptr, ptr %69, align 8, !tbaa !32
-  %71 = load ptr, ptr %36, align 8, !tbaa !66
+  %71 = load ptr, ptr %36, align 8, !tbaa !65
   %.not = icmp eq ptr %71, null
   br i1 %.not, label %74, label %72
 
@@ -566,7 +566,7 @@ define internal noundef i32 @chr_convert(ptr noundef %0, ptr noundef readonly ca
   br label %78
 
 74:                                               ; preds = %42
-  %75 = load ptr, ptr %38, align 16, !tbaa !67
+  %75 = load ptr, ptr %38, align 16, !tbaa !66
   %.not58 = icmp eq ptr %75, null
   br i1 %.not58, label %78, label %76
 
@@ -579,7 +579,7 @@ define internal noundef i32 @chr_convert(ptr noundef %0, ptr noundef readonly ca
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #6
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %42, !llvm.loop !68
+  br i1 %exitcond.not, label %._crit_edge, label %42, !llvm.loop !67
 
 ._crit_edge:                                      ; preds = %78, %4
   ret i32 %3
@@ -592,13 +592,13 @@ define range(i32 -12, 1) i32 @ff_init_desc_chscale(ptr noundef writeonly capture
   br i1 %.not, label %39, label %9
 
 9:                                                ; preds = %7
-  store ptr %3, ptr %8, align 8, !tbaa !54
+  store ptr %3, ptr %8, align 8, !tbaa !53
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store ptr %4, ptr %10, align 8, !tbaa !56
+  store ptr %4, ptr %10, align 8, !tbaa !55
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  store i32 %5, ptr %11, align 8, !tbaa !57
+  store i32 %5, ptr %11, align 8, !tbaa !56
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 20
-  store i32 %6, ptr %12, align 4, !tbaa !58
+  store i32 %6, ptr %12, align 4, !tbaa !57
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %8, ptr %13, align 8, !tbaa !10
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 20
@@ -670,7 +670,7 @@ define internal noundef i32 @chr_h_scale(ptr noundef %0, ptr noundef readonly ca
   %7 = load ptr, ptr %1, align 8, !tbaa !21
   %8 = load i32, ptr %7, align 8, !tbaa !24
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 4
-  %10 = load i32, ptr %9, align 4, !tbaa !65
+  %10 = load i32, ptr %9, align 4, !tbaa !64
   %11 = sub nsw i32 0, %8
   %12 = ashr i32 %11, %10
   %13 = sub nsw i32 0, %12
@@ -678,12 +678,12 @@ define internal noundef i32 @chr_h_scale(ptr noundef %0, ptr noundef readonly ca
   %15 = load ptr, ptr %14, align 8, !tbaa !22
   %16 = load i32, ptr %15, align 8, !tbaa !24
   %17 = getelementptr inbounds nuw i8, ptr %15, i64 4
-  %18 = load i32, ptr %17, align 4, !tbaa !65
+  %18 = load i32, ptr %17, align 4, !tbaa !64
   %19 = sub nsw i32 0, %16
   %20 = ashr i32 %19, %18
   %21 = sub nsw i32 0, %20
   %22 = getelementptr inbounds nuw i8, ptr %6, i64 20
-  %23 = load i32, ptr %22, align 4, !tbaa !58
+  %23 = load i32, ptr %22, align 4, !tbaa !57
   %24 = icmp sgt i32 %3, 0
   br i1 %24, label %.lr.ph, label %._crit_edge
 
@@ -734,7 +734,7 @@ define internal noundef i32 @chr_h_scale(ptr noundef %0, ptr noundef readonly ca
 
 56:                                               ; preds = %.lr.ph, %83
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %83 ]
-  %57 = load ptr, ptr %45, align 16, !tbaa !69
+  %57 = load ptr, ptr %45, align 16, !tbaa !68
   %.not = icmp eq ptr %57, null
   br i1 %.not, label %63, label %58
 
@@ -751,28 +751,28 @@ define internal noundef i32 @chr_h_scale(ptr noundef %0, ptr noundef readonly ca
   br label %76
 
 63:                                               ; preds = %56
-  %64 = load ptr, ptr %46, align 16, !tbaa !70
+  %64 = load ptr, ptr %46, align 16, !tbaa !69
   %gep98 = getelementptr ptr, ptr %invariant.gep97, i64 %indvars.iv
   %65 = load ptr, ptr %gep98, align 8, !tbaa !32
   %gep100 = getelementptr ptr, ptr %invariant.gep99, i64 %indvars.iv
   %66 = load ptr, ptr %gep100, align 8, !tbaa !32
-  %67 = load ptr, ptr %6, align 8, !tbaa !54
-  %68 = load ptr, ptr %47, align 8, !tbaa !56
-  %69 = load i32, ptr %48, align 8, !tbaa !57
+  %67 = load ptr, ptr %6, align 8, !tbaa !53
+  %68 = load ptr, ptr %47, align 8, !tbaa !55
+  %69 = load i32, ptr %48, align 8, !tbaa !56
   tail call void %64(ptr noundef nonnull %0, ptr noundef %65, i32 noundef %21, ptr noundef %66, ptr noundef %67, ptr noundef %68, i32 noundef %69) #6
-  %70 = load ptr, ptr %46, align 16, !tbaa !70
+  %70 = load ptr, ptr %46, align 16, !tbaa !69
   %gep102 = getelementptr ptr, ptr %invariant.gep101, i64 %indvars.iv
   %71 = load ptr, ptr %gep102, align 8, !tbaa !32
   %gep104 = getelementptr ptr, ptr %invariant.gep103, i64 %indvars.iv
   %72 = load ptr, ptr %gep104, align 8, !tbaa !32
-  %73 = load ptr, ptr %6, align 8, !tbaa !54
-  %74 = load ptr, ptr %47, align 8, !tbaa !56
-  %75 = load i32, ptr %48, align 8, !tbaa !57
+  %73 = load ptr, ptr %6, align 8, !tbaa !53
+  %74 = load ptr, ptr %47, align 8, !tbaa !55
+  %75 = load i32, ptr %48, align 8, !tbaa !56
   tail call void %70(ptr noundef nonnull %0, ptr noundef %71, i32 noundef %21, ptr noundef %72, ptr noundef %73, ptr noundef %74, i32 noundef %75) #6
   br label %76
 
 76:                                               ; preds = %63, %58
-  %77 = load ptr, ptr %49, align 16, !tbaa !71
+  %77 = load ptr, ptr %49, align 16, !tbaa !70
   %.not87 = icmp eq ptr %77, null
   br i1 %.not87, label %83, label %78
 
@@ -781,8 +781,8 @@ define internal noundef i32 @chr_h_scale(ptr noundef %0, ptr noundef readonly ca
   %79 = load ptr, ptr %gep106, align 8, !tbaa !32
   %gep108 = getelementptr ptr, ptr %invariant.gep107, i64 %indvars.iv
   %80 = load ptr, ptr %gep108, align 8, !tbaa !32
-  %81 = load i32, ptr %50, align 4, !tbaa !72
-  %82 = load i64, ptr %51, align 8, !tbaa !73
+  %81 = load i32, ptr %50, align 4, !tbaa !71
+  %82 = load i64, ptr %51, align 8, !tbaa !72
   tail call void %77(ptr noundef %79, ptr noundef %80, i32 noundef %21, i32 noundef %81, i64 noundef %82) #6
   br label %83
 
@@ -798,7 +798,7 @@ define internal noundef i32 @chr_h_scale(ptr noundef %0, ptr noundef readonly ca
   store i32 %90, ptr %88, align 8, !tbaa !29
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %56, !llvm.loop !74
+  br i1 %exitcond.not, label %._crit_edge, label %56, !llvm.loop !73
 
 ._crit_edge:                                      ; preds = %83, %4
   ret i32 %3
@@ -824,14 +824,14 @@ define internal noundef i32 @no_chr_scale(ptr readnone captures(none) %0, ptr no
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8, !tbaa !22
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 56
-  %9 = load i32, ptr %8, align 8, !tbaa !75
+  %9 = load i32, ptr %8, align 8, !tbaa !74
   %10 = sub nsw i32 %5, %9
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 60
   store i32 %10, ptr %11, align 4, !tbaa !25
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 64
   store i32 %9, ptr %12, align 8, !tbaa !29
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 88
-  %14 = load i32, ptr %13, align 8, !tbaa !75
+  %14 = load i32, ptr %13, align 8, !tbaa !74
   %15 = sub nsw i32 %5, %14
   %16 = getelementptr inbounds nuw i8, ptr %7, i64 92
   store i32 %15, ptr %16, align 4, !tbaa !25
@@ -909,28 +909,27 @@ attributes #7 = { noreturn nounwind }
 !48 = !{!34, !7, i64 53056}
 !49 = !{!34, !7, i64 53040}
 !50 = !{!34, !7, i64 53064}
-!51 = distinct !{!51, !52, !53}
+!51 = distinct !{!51, !52}
 !52 = !{!"llvm.loop.mustprogress"}
-!53 = !{!"llvm.loop.estimated_trip_count"}
-!54 = !{!55, !44, i64 0}
-!55 = !{!"FilterContext", !44, i64 0, !6, i64 8, !13, i64 16, !13, i64 20}
-!56 = !{!55, !6, i64 8}
-!57 = !{!55, !13, i64 16}
-!58 = !{!55, !13, i64 20}
-!59 = !{!34, !7, i64 53080}
-!60 = !{!34, !7, i64 53096}
-!61 = !{!34, !7, i64 53112}
-!62 = !{!34, !13, i64 53128}
-!63 = !{!34, !19, i64 53136}
-!64 = distinct !{!64, !52, !53}
-!65 = !{!15, !13, i64 4}
-!66 = !{!34, !7, i64 53048}
-!67 = !{!34, !7, i64 53072}
-!68 = distinct !{!68, !52, !53}
-!69 = !{!34, !7, i64 53088}
-!70 = !{!34, !7, i64 53104}
-!71 = !{!34, !7, i64 53120}
-!72 = !{!34, !13, i64 53132}
-!73 = !{!34, !19, i64 53144}
-!74 = distinct !{!74, !52, !53}
-!75 = !{!26, !13, i64 0}
+!53 = !{!54, !44, i64 0}
+!54 = !{!"FilterContext", !44, i64 0, !6, i64 8, !13, i64 16, !13, i64 20}
+!55 = !{!54, !6, i64 8}
+!56 = !{!54, !13, i64 16}
+!57 = !{!54, !13, i64 20}
+!58 = !{!34, !7, i64 53080}
+!59 = !{!34, !7, i64 53096}
+!60 = !{!34, !7, i64 53112}
+!61 = !{!34, !13, i64 53128}
+!62 = !{!34, !19, i64 53136}
+!63 = distinct !{!63, !52}
+!64 = !{!15, !13, i64 4}
+!65 = !{!34, !7, i64 53048}
+!66 = !{!34, !7, i64 53072}
+!67 = distinct !{!67, !52}
+!68 = !{!34, !7, i64 53088}
+!69 = !{!34, !7, i64 53104}
+!70 = !{!34, !7, i64 53120}
+!71 = !{!34, !13, i64 53132}
+!72 = !{!34, !19, i64 53144}
+!73 = distinct !{!73, !52}
+!74 = !{!26, !13, i64 0}

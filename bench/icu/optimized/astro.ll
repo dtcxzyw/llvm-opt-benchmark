@@ -426,7 +426,7 @@ declare void @_ZN6icu_777UMemorydlEPv(ptr noundef) local_unnamed_addr #10
 define noundef double @_ZN6icu_7718CalendarAstronomer10getSunTimeEda(ptr noundef nonnull align 8 dereferenceable(57) %0, double noundef %1, i8 noundef signext %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.icu_77::SunTimeAngleFunc", align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #16
-  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN6icu_7716SunTimeAngleFuncE, i64 16), ptr %4, align 8, !tbaa !22
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN6icu_7716SunTimeAngleFuncE, i64 16), ptr %4, align 8, !tbaa !21
   %5 = invoke noundef double @_ZN6icu_7718CalendarAstronomer11timeOfAngleERNS0_9AngleFuncEddda(ptr noundef nonnull align 8 dereferenceable(57) %0, ptr noundef nonnull align 8 dereferenceable(8) %4, double noundef %1, double noundef 0x4076D3E003AB862B, double noundef 6.000000e+04, i8 noundef signext %2)
           to label %6 unwind label %7
 
@@ -457,7 +457,7 @@ define noundef double @_ZN6icu_7718CalendarAstronomer11timeOfAngleERNS0_9AngleFu
   br label %tailrecurse
 
 tailrecurse:                                      ; preds = %51, %6
-  %15 = load ptr, ptr %1, align 8, !tbaa !22
+  %15 = load ptr, ptr %1, align 8, !tbaa !21
   %16 = load ptr, ptr %15, align 8
   %17 = tail call noundef double %16(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(57) %0)
   %18 = fsub double %2, %17
@@ -482,7 +482,7 @@ tailrecurse:                                      ; preds = %51, %6
 29:                                               ; preds = %57, %tailrecurse
   %.038 = phi double [ %24, %tailrecurse ], [ %47, %57 ]
   %.035 = phi double [ %17, %tailrecurse ], [ %32, %57 ]
-  %30 = load ptr, ptr %1, align 8, !tbaa !22
+  %30 = load ptr, ptr %1, align 8, !tbaa !21
   %31 = load ptr, ptr %30, align 8
   %32 = tail call noundef double %31(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(57) %0)
   %33 = fsub double %32, %.035
@@ -532,7 +532,7 @@ tailrecurse:                                      ; preds = %51, %6
   store i8 0, ptr %13, align 8, !tbaa !13
   %62 = tail call double @uprv_fabs_77(double noundef %47)
   %63 = fcmp ogt double %62, %4
-  br i1 %63, label %29, label %64, !llvm.loop !24
+  br i1 %63, label %29, label %64, !llvm.loop !23
 
 64:                                               ; preds = %57
   %65 = load double, ptr %0, align 8, !tbaa !3
@@ -709,8 +709,8 @@ define void @_ZN6icu_7717MoonTimeAngleFuncD0Ev(ptr noundef nonnull align 8 deref
 define noundef double @_ZN6icu_7718CalendarAstronomer11getMoonTimeERKNS0_7MoonAgeEa(ptr noundef nonnull align 8 dereferenceable(57) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %1, i8 noundef signext %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.icu_77::MoonTimeAngleFunc", align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #16
-  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN6icu_7717MoonTimeAngleFuncE, i64 16), ptr %4, align 8, !tbaa !22
-  %5 = load double, ptr %1, align 8, !tbaa !25
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN6icu_7717MoonTimeAngleFuncE, i64 16), ptr %4, align 8, !tbaa !21
+  %5 = load double, ptr %1, align 8, !tbaa !24
   %6 = invoke noundef double @_ZN6icu_7718CalendarAstronomer11timeOfAngleERNS0_9AngleFuncEddda(ptr noundef nonnull align 8 dereferenceable(57) %0, ptr noundef nonnull align 8 dereferenceable(8) %4, double noundef %5, double noundef 0x403D87D4ABCB41D5, double noundef 6.000000e+04, i8 noundef signext %2)
           to label %7 unwind label %8
 
@@ -735,17 +735,17 @@ declare double @uprv_getNaN_77() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_ZNK6icu_7718CalendarAstronomer8Ecliptic8toStringEv(ptr dead_on_unwind noalias writable writeonly sret(%"class.icu_77::UnicodeString") align 8 captures(none) initializes((0, 10)) %0, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(16) %1) local_unnamed_addr #11 align 2 {
-  store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN6icu_7713UnicodeStringE, i64 16), ptr %0, align 8, !tbaa !22
+  store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN6icu_7713UnicodeStringE, i64 16), ptr %0, align 8, !tbaa !21
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i16 2, ptr %3, align 8, !tbaa !27
+  store i16 2, ptr %3, align 8, !tbaa !26
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_ZNK6icu_7718CalendarAstronomer10Equatorial8toStringEv(ptr dead_on_unwind noalias writable writeonly sret(%"class.icu_77::UnicodeString") align 8 captures(none) initializes((0, 10)) %0, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(16) %1) local_unnamed_addr #11 align 2 {
-  store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN6icu_7713UnicodeStringE, i64 16), ptr %0, align 8, !tbaa !22
+  store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN6icu_7713UnicodeStringE, i64 16), ptr %0, align 8, !tbaa !21
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i16 2, ptr %3, align 8, !tbaa !27
+  store i16 2, ptr %3, align 8, !tbaa !26
   ret void
 }
 
@@ -756,7 +756,7 @@ define void @_ZN6icu_7713CalendarCache11createCacheEPPS0_R10UErrorCode(ptr nound
   br i1 %3, label %4, label %5
 
 4:                                                ; preds = %2
-  store i32 7, ptr %1, align 4, !tbaa !28
+  store i32 7, ptr %1, align 4, !tbaa !27
   br label %20
 
 5:                                                ; preds = %2
@@ -769,26 +769,26 @@ define void @_ZN6icu_7713CalendarCache11createCacheEPPS0_R10UErrorCode(ptr nound
           to label %9 unwind label %18
 
 9:                                                ; preds = %8
-  store ptr %6, ptr %0, align 8, !tbaa !30
-  %10 = load i32, ptr %1, align 4, !tbaa !28
+  store ptr %6, ptr %0, align 8, !tbaa !29
+  %10 = load i32, ptr %1, align 4, !tbaa !27
   %11 = icmp slt i32 %10, 1
   br i1 %11, label %20, label %14
 
 .thread:                                          ; preds = %5
-  store ptr null, ptr %0, align 8, !tbaa !30
-  %12 = load i32, ptr %1, align 4, !tbaa !28
+  store ptr null, ptr %0, align 8, !tbaa !29
+  %12 = load i32, ptr %1, align 4, !tbaa !27
   %13 = icmp slt i32 %12, 1
   br i1 %13, label %20, label %.thread13
 
 14:                                               ; preds = %9
-  %15 = load ptr, ptr %6, align 8, !tbaa !22
+  %15 = load ptr, ptr %6, align 8, !tbaa !21
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %17 = load ptr, ptr %16, align 8
   tail call void %17(ptr noundef nonnull align 8 dereferenceable(16) %6) #16
   br label %.thread13
 
 .thread13:                                        ; preds = %.thread, %14
-  store ptr null, ptr %0, align 8, !tbaa !30
+  store ptr null, ptr %0, align 8, !tbaa !29
   br label %20
 
 18:                                               ; preds = %8
@@ -813,13 +813,13 @@ declare noundef ptr @_ZN6icu_777UMemorynwEm(i64 noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress uwtable
 define noundef i32 @_ZN6icu_7713CalendarCache3getEPPS0_iR10UErrorCode(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef nonnull align 4 dereferenceable(4) %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
-  %4 = load i32, ptr %2, align 4, !tbaa !28
+  %4 = load i32, ptr %2, align 4, !tbaa !27
   %5 = icmp slt i32 %4, 1
   br i1 %5, label %6, label %26
 
 6:                                                ; preds = %3
   tail call void @umtx_lock_77(ptr noundef nonnull @_ZL6ccLock)
-  %7 = load ptr, ptr %0, align 8, !tbaa !30
+  %7 = load ptr, ptr %0, align 8, !tbaa !29
   %8 = icmp eq ptr %7, null
   br i1 %8, label %9, label %_ZN6icu_7713CalendarCache11createCacheEPPS0_R10UErrorCode.exit.thread
 
@@ -834,14 +834,14 @@ define noundef i32 @_ZN6icu_7713CalendarCache3getEPPS0_iR10UErrorCode(ptr nounde
           to label %13 unwind label %17
 
 13:                                               ; preds = %12
-  store ptr %10, ptr %0, align 8, !tbaa !30
-  %14 = load i32, ptr %2, align 4, !tbaa !28
+  store ptr %10, ptr %0, align 8, !tbaa !29
+  %14 = load i32, ptr %2, align 4, !tbaa !27
   %15 = icmp slt i32 %14, 1
   br i1 %15, label %_ZN6icu_7713CalendarCache11createCacheEPPS0_R10UErrorCode.exit.thread, label %_ZN6icu_7713CalendarCache11createCacheEPPS0_R10UErrorCode.exit
 
 .thread.i:                                        ; preds = %9
-  store ptr null, ptr %0, align 8, !tbaa !30
-  %16 = load i32, ptr %2, align 4, !tbaa !28
+  store ptr null, ptr %0, align 8, !tbaa !29
+  %16 = load i32, ptr %2, align 4, !tbaa !27
   br label %_ZN6icu_7713CalendarCache11createCacheEPPS0_R10UErrorCode.exit.thread10
 
 17:                                               ; preds = %12
@@ -851,12 +851,12 @@ define noundef i32 @_ZN6icu_7713CalendarCache3getEPPS0_iR10UErrorCode(ptr nounde
   resume { ptr, i32 } %18
 
 _ZN6icu_7713CalendarCache11createCacheEPPS0_R10UErrorCode.exit: ; preds = %13
-  %19 = load ptr, ptr %10, align 8, !tbaa !22
+  %19 = load ptr, ptr %10, align 8, !tbaa !21
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %21 = load ptr, ptr %20, align 8
   tail call void %21(ptr noundef nonnull align 8 dereferenceable(16) %10) #16
-  %.pre.pre = load i32, ptr %2, align 4, !tbaa !28
-  store ptr null, ptr %0, align 8, !tbaa !30
+  %.pre.pre = load i32, ptr %2, align 4, !tbaa !27
+  store ptr null, ptr %0, align 8, !tbaa !29
   br label %_ZN6icu_7713CalendarCache11createCacheEPPS0_R10UErrorCode.exit.thread10
 
 _ZN6icu_7713CalendarCache11createCacheEPPS0_R10UErrorCode.exit.thread10: ; preds = %.thread.i, %_ZN6icu_7713CalendarCache11createCacheEPPS0_R10UErrorCode.exit
@@ -868,7 +868,7 @@ _ZN6icu_7713CalendarCache11createCacheEPPS0_R10UErrorCode.exit.thread10: ; preds
 _ZN6icu_7713CalendarCache11createCacheEPPS0_R10UErrorCode.exit.thread: ; preds = %13, %6
   %22 = phi ptr [ %7, %6 ], [ %10, %13 ]
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
-  %24 = load ptr, ptr %23, align 8, !tbaa !33
+  %24 = load ptr, ptr %23, align 8, !tbaa !32
   %25 = tail call i32 @uhash_igeti_77(ptr noundef %24, i32 noundef %1)
   br label %.sink.split
 
@@ -890,13 +890,13 @@ declare i32 @uhash_igeti_77(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN6icu_7713CalendarCache3putEPPS0_iiR10UErrorCode(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef %2, ptr noundef nonnull align 4 dereferenceable(4) %3) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
-  %5 = load i32, ptr %3, align 4, !tbaa !28
+  %5 = load i32, ptr %3, align 4, !tbaa !27
   %6 = icmp slt i32 %5, 1
   br i1 %6, label %7, label %27
 
 7:                                                ; preds = %4
   tail call void @umtx_lock_77(ptr noundef nonnull @_ZL6ccLock)
-  %8 = load ptr, ptr %0, align 8, !tbaa !30
+  %8 = load ptr, ptr %0, align 8, !tbaa !29
   %9 = icmp eq ptr %8, null
   br i1 %9, label %10, label %_ZN6icu_7713CalendarCache11createCacheEPPS0_R10UErrorCode.exit.thread
 
@@ -911,14 +911,14 @@ define void @_ZN6icu_7713CalendarCache3putEPPS0_iiR10UErrorCode(ptr noundef capt
           to label %14 unwind label %18
 
 14:                                               ; preds = %13
-  store ptr %11, ptr %0, align 8, !tbaa !30
-  %15 = load i32, ptr %3, align 4, !tbaa !28
+  store ptr %11, ptr %0, align 8, !tbaa !29
+  %15 = load i32, ptr %3, align 4, !tbaa !27
   %16 = icmp slt i32 %15, 1
   br i1 %16, label %_ZN6icu_7713CalendarCache11createCacheEPPS0_R10UErrorCode.exit.thread, label %_ZN6icu_7713CalendarCache11createCacheEPPS0_R10UErrorCode.exit
 
 .thread.i:                                        ; preds = %10
-  store ptr null, ptr %0, align 8, !tbaa !30
-  %17 = load i32, ptr %3, align 4, !tbaa !28
+  store ptr null, ptr %0, align 8, !tbaa !29
+  %17 = load i32, ptr %3, align 4, !tbaa !27
   br label %_ZN6icu_7713CalendarCache11createCacheEPPS0_R10UErrorCode.exit.thread10
 
 18:                                               ; preds = %13
@@ -928,12 +928,12 @@ define void @_ZN6icu_7713CalendarCache3putEPPS0_iiR10UErrorCode(ptr noundef capt
   resume { ptr, i32 } %19
 
 _ZN6icu_7713CalendarCache11createCacheEPPS0_R10UErrorCode.exit: ; preds = %14
-  %20 = load ptr, ptr %11, align 8, !tbaa !22
+  %20 = load ptr, ptr %11, align 8, !tbaa !21
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %22 = load ptr, ptr %21, align 8
   tail call void %22(ptr noundef nonnull align 8 dereferenceable(16) %11) #16
-  %.pre.pre = load i32, ptr %3, align 4, !tbaa !28
-  store ptr null, ptr %0, align 8, !tbaa !30
+  %.pre.pre = load i32, ptr %3, align 4, !tbaa !27
+  store ptr null, ptr %0, align 8, !tbaa !29
   br label %_ZN6icu_7713CalendarCache11createCacheEPPS0_R10UErrorCode.exit.thread10
 
 _ZN6icu_7713CalendarCache11createCacheEPPS0_R10UErrorCode.exit.thread10: ; preds = %.thread.i, %_ZN6icu_7713CalendarCache11createCacheEPPS0_R10UErrorCode.exit
@@ -945,7 +945,7 @@ _ZN6icu_7713CalendarCache11createCacheEPPS0_R10UErrorCode.exit.thread10: ; preds
 _ZN6icu_7713CalendarCache11createCacheEPPS0_R10UErrorCode.exit.thread: ; preds = %14, %7
   %23 = phi ptr [ %8, %7 ], [ %11, %14 ]
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 8
-  %25 = load ptr, ptr %24, align 8, !tbaa !33
+  %25 = load ptr, ptr %24, align 8, !tbaa !32
   %26 = tail call i32 @uhash_iputi_77(ptr noundef %25, i32 noundef %1, i32 noundef %2, ptr noundef nonnull %3)
   br label %.sink.split
 
@@ -961,10 +961,10 @@ declare i32 @uhash_iputi_77(ptr noundef, i32 noundef, i32 noundef, ptr noundef) 
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN6icu_7713CalendarCacheC2EiR10UErrorCode(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) initializes((0, 16)) %0, i32 noundef %1, ptr noundef nonnull align 4 dereferenceable(4) %2) unnamed_addr #0 align 2 {
-  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN6icu_7713CalendarCacheE, i64 16), ptr %0, align 8, !tbaa !22
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN6icu_7713CalendarCacheE, i64 16), ptr %0, align 8, !tbaa !21
   %4 = tail call ptr @uhash_openSize_77(ptr noundef nonnull @uhash_hashLong_77, ptr noundef nonnull @uhash_compareLong_77, ptr noundef null, i32 noundef %1, ptr noundef nonnull %2)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %4, ptr %5, align 8, !tbaa !33
+  store ptr %4, ptr %5, align 8, !tbaa !32
   ret void
 }
 
@@ -976,9 +976,9 @@ declare signext i8 @uhash_compareLong_77(ptr, ptr) #1
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN6icu_7713CalendarCacheD2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(16) initializes((0, 8)) %0) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN6icu_7713CalendarCacheE, i64 16), ptr %0, align 8, !tbaa !22
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN6icu_7713CalendarCacheE, i64 16), ptr %0, align 8, !tbaa !21
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load ptr, ptr %2, align 8, !tbaa !33
+  %3 = load ptr, ptr %2, align 8, !tbaa !32
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %5, label %4
 
@@ -1093,20 +1093,19 @@ attributes #17 = { noreturn nounwind }
 !16 = !{!8, !5, i64 0}
 !17 = !{!8, !5, i64 8}
 !18 = !{!5, !5, i64 0}
-!19 = distinct !{!19, !20, !21}
+!19 = distinct !{!19, !20}
 !20 = !{!"llvm.loop.mustprogress"}
-!21 = !{!"llvm.loop.estimated_trip_count"}
-!22 = !{!23, !23, i64 0}
-!23 = !{!"vtable pointer", !7, i64 0}
-!24 = distinct !{!24, !20, !21}
-!25 = !{!26, !5, i64 0}
-!26 = !{!"_ZTSN6icu_7718CalendarAstronomer7MoonAgeE", !5, i64 0}
-!27 = !{!6, !6, i64 0}
-!28 = !{!29, !29, i64 0}
-!29 = !{!"_ZTS10UErrorCode", !6, i64 0}
-!30 = !{!31, !31, i64 0}
-!31 = !{!"p1 _ZTSN6icu_7713CalendarCacheE", !32, i64 0}
-!32 = !{!"any pointer", !6, i64 0}
-!33 = !{!34, !35, i64 8}
-!34 = !{!"_ZTSN6icu_7713CalendarCacheE", !35, i64 8}
-!35 = !{!"p1 _ZTS10UHashtable", !32, i64 0}
+!21 = !{!22, !22, i64 0}
+!22 = !{!"vtable pointer", !7, i64 0}
+!23 = distinct !{!23, !20}
+!24 = !{!25, !5, i64 0}
+!25 = !{!"_ZTSN6icu_7718CalendarAstronomer7MoonAgeE", !5, i64 0}
+!26 = !{!6, !6, i64 0}
+!27 = !{!28, !28, i64 0}
+!28 = !{!"_ZTS10UErrorCode", !6, i64 0}
+!29 = !{!30, !30, i64 0}
+!30 = !{!"p1 _ZTSN6icu_7713CalendarCacheE", !31, i64 0}
+!31 = !{!"any pointer", !6, i64 0}
+!32 = !{!33, !34, i64 8}
+!33 = !{!"_ZTSN6icu_7713CalendarCacheE", !34, i64 8}
+!34 = !{!"p1 _ZTS10UHashtable", !31, i64 0}

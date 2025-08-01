@@ -71,7 +71,7 @@ define hidden void @SharpYuvInitGammaTables() local_unnamed_addr #0 {
   store i32 %30, ptr %31, align 4, !tbaa !3
   %indvars.iv.next25 = add nuw nsw i64 %indvars.iv24, 1
   %exitcond27.not = icmp eq i64 %indvars.iv.next25, 513
-  br i1 %exitcond27.not, label %32, label %18, !llvm.loop !10
+  br i1 %exitcond27.not, label %32, label %18, !llvm.loop !9
 
 32:                                               ; preds = %28
   %33 = load i32, ptr getelementptr inbounds nuw (i8, ptr @kLinearToGammaTabS, i64 2048), align 16, !tbaa !3
@@ -641,7 +641,6 @@ attributes #5 = { nounwind }
 !4 = !{!"int", !5, i64 0}
 !5 = !{!"omnipotent char", !6, i64 0}
 !6 = !{!"Simple C/C++ TBAA"}
-!7 = distinct !{!7, !8, !9}
+!7 = distinct !{!7, !8}
 !8 = !{!"llvm.loop.mustprogress"}
-!9 = !{!"llvm.loop.estimated_trip_count"}
-!10 = distinct !{!10, !8, !9}
+!9 = distinct !{!9, !8}

@@ -1019,7 +1019,7 @@ define dso_local i32 @dump_job_state(i32 noundef %0, ptr noundef %1, ptr noundef
   %.not9.i = icmp eq i32 %22, 0
   %23 = icmp samesign ult i64 %indvars.iv.next.i, %12
   %24 = select i1 %.not9.i, i1 %23, i1 false
-  br i1 %24, label %.lr.ph.i, label %_dump_job_state_locked.exit, !llvm.loop !12
+  br i1 %24, label %.lr.ph.i, label %_dump_job_state_locked.exit, !llvm.loop !11
 
 .critedge:                                        ; preds = %4
   call fastcc void @_dump_job_state_cached(ptr noundef %7, i32 noundef %0, ptr noundef %1)
@@ -1093,7 +1093,7 @@ _dump_job_state_locked.exit:                      ; preds = %.lr.ph.i, %13, %.pr
   %.not9.i22 = icmp eq i32 %49, 0
   %50 = icmp samesign ult i64 %indvars.iv.next.i21, %39
   %51 = select i1 %.not9.i22, i1 %50, i1 false
-  br i1 %51, label %.lr.ph.i19, label %_dump_job_state_locked.exit23, !llvm.loop !12
+  br i1 %51, label %.lr.ph.i19, label %_dump_job_state_locked.exit23, !llvm.loop !11
 
 _dump_job_state_locked.exit23:                    ; preds = %.lr.ph.i19, %40, %.preheader.i16, %35, %_dump_job_state_locked.exit
   %52 = getelementptr inbounds nuw i8, ptr %7, i64 16
@@ -1162,7 +1162,7 @@ define internal fastcc void @_dump_job_state_cached(ptr noundef nonnull %0, i32 
   %.not16 = icmp eq i32 %15, 0
   %16 = icmp samesign ult i64 %indvars.iv.next, %10
   %17 = select i1 %.not16, i1 %16, i1 false
-  br i1 %17, label %.lr.ph, label %.loopexit, !llvm.loop !13
+  br i1 %17, label %.lr.ph, label %.loopexit, !llvm.loop !12
 
 .loopexit:                                        ; preds = %.lr.ph, %.preheader, %11
   %18 = tail call i32 @pthread_rwlock_unlock(ptr noundef nonnull @cache_lock) #9
@@ -1616,7 +1616,7 @@ define internal noundef i32 @_foreach_cache_job(ptr noundef readonly captures(no
   %6 = add i32 %5, 1
   store i32 %6, ptr %4, align 8
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %8 = load i8, ptr %7, align 8, !range !14, !noundef !15
+  %8 = load i8, ptr %7, align 8, !range !13, !noundef !14
   %9 = trunc nuw i8 %8 to i1
   br i1 %9, label %_add_cache_job.exit, label %_append_job_state.exit.i
 
@@ -1892,7 +1892,7 @@ define internal fastcc void @_find_job_state_cached_by_job_id(ptr noundef nonnul
   %64 = add i32 %63, 1
   store i32 %64, ptr %62, align 8
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %66 = load i8, ptr %65, align 8, !range !14, !noundef !15
+  %66 = load i8, ptr %65, align 8, !range !13, !noundef !14
   %67 = trunc nuw i8 %66 to i1
   br i1 %67, label %_add_cache_job.exit, label %_append_job_state.exit.i
 
@@ -2131,7 +2131,7 @@ _add_cache_job.exit:                              ; preds = %61, %_append_job_st
   %197 = load i32, ptr %62, align 8
   %198 = add i32 %197, 1
   store i32 %198, ptr %62, align 8
-  %199 = load i8, ptr %65, align 8, !range !14, !noundef !15
+  %199 = load i8, ptr %65, align 8, !range !13, !noundef !14
   %200 = trunc nuw i8 %199 to i1
   br i1 %200, label %_add_cache_job.exit107, label %_append_job_state.exit.i104
 
@@ -2182,7 +2182,7 @@ _add_cache_job.exit107:                           ; preds = %196, %_append_job_s
   %227 = load i32, ptr %226, align 4
   %228 = load i32, ptr %124, align 4
   %.not99 = icmp eq i32 %227, %228
-  br i1 %.not99, label %.loopexit, label %154, !llvm.loop !16
+  br i1 %.not99, label %.loopexit, label %154, !llvm.loop !15
 
 229:                                              ; preds = %154
   call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.25) #11
@@ -2314,7 +2314,7 @@ _add_cache_job.exit107:                           ; preds = %196, %_append_job_s
   %299 = load i32, ptr %62, align 8
   %300 = add i32 %299, 1
   store i32 %300, ptr %62, align 8
-  %301 = load i8, ptr %65, align 8, !range !14, !noundef !15
+  %301 = load i8, ptr %65, align 8, !range !13, !noundef !14
   %302 = trunc nuw i8 %301 to i1
   br i1 %302, label %_add_cache_job.exit111, label %_append_job_state.exit.i108
 
@@ -2361,7 +2361,7 @@ _add_cache_job.exit111:                           ; preds = %.critedge, %_append
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14) #9
   %325 = add nuw nsw i32 %.081115, 1
   %exitcond.not = icmp eq i32 %325, 67108863
-  br i1 %exitcond.not, label %.loopexit, label %252, !llvm.loop !17
+  br i1 %exitcond.not, label %.loopexit, label %252, !llvm.loop !16
 
 326:                                              ; preds = %252, %257
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14) #9
@@ -2437,7 +2437,7 @@ define internal range(i32 1, 4) i32 @_foreach_job(ptr noundef readonly captures(
   %6 = add i32 %5, 1
   store i32 %6, ptr %4, align 8
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %8 = load i8, ptr %7, align 8, !range !14, !noundef !15
+  %8 = load i8, ptr %7, align 8, !range !13, !noundef !14
   %9 = trunc nuw i8 %8 to i1
   br i1 %9, label %_append_job_state.exit.thread, label %10
 
@@ -2536,13 +2536,12 @@ attributes #11 = { noreturn nounwind }
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i32 7, !"frame-pointer", i32 2}
 !7 = !{i32 7, !"debug-info-assignment-tracking", i1 true}
-!8 = distinct !{!8, !9, !10, !11}
+!8 = distinct !{!8, !9, !10}
 !9 = !{!"llvm.loop.mustprogress"}
 !10 = !{!"llvm.loop.unroll.disable"}
-!11 = !{!"llvm.loop.estimated_trip_count"}
-!12 = distinct !{!12, !9, !10, !11}
-!13 = distinct !{!13, !9, !10, !11}
-!14 = !{i8 0, i8 2}
-!15 = !{}
-!16 = distinct !{!16, !9, !10, !11}
-!17 = distinct !{!17, !9, !10, !11}
+!11 = distinct !{!11, !9, !10}
+!12 = distinct !{!12, !9, !10}
+!13 = !{i8 0, i8 2}
+!14 = !{}
+!15 = distinct !{!15, !9, !10}
+!16 = distinct !{!16, !9, !10}

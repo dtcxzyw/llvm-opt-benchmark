@@ -586,7 +586,7 @@ default.unreachable:                              ; preds = %16
 .backedge:                                        ; preds = %31, %34, %57
   %32 = call align 8 ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h785778b424ed1a1fE"(ptr nonnull align 8 %9)
   %33 = icmp eq ptr %32, null
-  br i1 %33, label %._crit_edge, label %16, !llvm.loop !6
+  br i1 %33, label %._crit_edge, label %16
 
 34:                                               ; preds = %28, %25, %22
   %.sroa.014.0 = phi ptr [ %23, %22 ], [ %26, %25 ], [ %29, %28 ]
@@ -637,7 +637,7 @@ default.unreachable:                              ; preds = %16
   %47 = load ptr, ptr %6, align 8
   %48 = load ptr, ptr %14, align 8
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 24
-  %50 = load ptr, ptr %49, align 8, !invariant.load !8, !nonnull !8
+  %50 = load ptr, ptr %49, align 8, !invariant.load !6, !nonnull !6
   %51 = invoke align 8 ptr %50(ptr align 1 %47)
           to label %54 unwind label %52
 
@@ -662,7 +662,7 @@ default.unreachable:                              ; preds = %16
 58:                                               ; preds = %54
   %.val = load i64, ptr %51, align 8
   %59 = icmp eq i64 %.val, -9223372036854775807
-  br i1 %59, label %60, label %46, !llvm.loop !9
+  br i1 %59, label %60, label %46
 
 60:                                               ; preds = %58
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -750,7 +750,7 @@ default.unreachable:                              ; preds = %16
 .backedge:                                        ; preds = %31, %34, %57
   %32 = call align 8 ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h785778b424ed1a1fE"(ptr nonnull align 8 %9)
   %33 = icmp eq ptr %32, null
-  br i1 %33, label %._crit_edge, label %16, !llvm.loop !10
+  br i1 %33, label %._crit_edge, label %16
 
 34:                                               ; preds = %28, %25, %22
   %.sroa.014.0 = phi ptr [ %23, %22 ], [ %26, %25 ], [ %29, %28 ]
@@ -801,7 +801,7 @@ default.unreachable:                              ; preds = %16
   %47 = load ptr, ptr %6, align 8
   %48 = load ptr, ptr %14, align 8
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 24
-  %50 = load ptr, ptr %49, align 8, !invariant.load !8, !nonnull !8
+  %50 = load ptr, ptr %49, align 8, !invariant.load !6, !nonnull !6
   %51 = invoke align 8 ptr %50(ptr align 1 %47)
           to label %54 unwind label %52
 
@@ -826,7 +826,7 @@ default.unreachable:                              ; preds = %16
 58:                                               ; preds = %54
   %.val = load i32, ptr %51, align 8
   %59 = icmp eq i32 %.val, 10
-  br i1 %59, label %60, label %46, !llvm.loop !11
+  br i1 %59, label %60, label %46
 
 60:                                               ; preds = %58
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -914,7 +914,7 @@ default.unreachable:                              ; preds = %16
 .backedge:                                        ; preds = %31, %34, %57
   %32 = call align 8 ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h785778b424ed1a1fE"(ptr nonnull align 8 %9)
   %33 = icmp eq ptr %32, null
-  br i1 %33, label %._crit_edge, label %16, !llvm.loop !12
+  br i1 %33, label %._crit_edge, label %16
 
 34:                                               ; preds = %28, %25, %22
   %.sroa.014.0 = phi ptr [ %23, %22 ], [ %26, %25 ], [ %29, %28 ]
@@ -965,7 +965,7 @@ default.unreachable:                              ; preds = %16
   %47 = load ptr, ptr %6, align 8
   %48 = load ptr, ptr %14, align 8
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 24
-  %50 = load ptr, ptr %49, align 8, !invariant.load !8, !nonnull !8
+  %50 = load ptr, ptr %49, align 8, !invariant.load !6, !nonnull !6
   %51 = invoke align 8 ptr %50(ptr align 1 %47)
           to label %54 unwind label %52
 
@@ -990,7 +990,7 @@ default.unreachable:                              ; preds = %16
 58:                                               ; preds = %54
   %.val = load i32, ptr %51, align 8
   %59 = icmp eq i32 %.val, 10
-  br i1 %59, label %60, label %46, !llvm.loop !13
+  br i1 %59, label %60, label %46
 
 60:                                               ; preds = %58
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1159,11 +1159,4 @@ attributes #9 = { cold noreturn nounwind }
 !3 = !{!4}
 !4 = distinct !{!4, !5, !"_ZN19pyo3_macros_backend6module22pymodule_function_impl28_$u7b$$u7b$closure$u7d$$u7d$17ha2589f5869f56637E: argument 0"}
 !5 = distinct !{!5, !"_ZN19pyo3_macros_backend6module22pymodule_function_impl28_$u7b$$u7b$closure$u7d$$u7d$17ha2589f5869f56637E"}
-!6 = distinct !{!6, !7}
-!7 = !{!"llvm.loop.estimated_trip_count"}
-!8 = !{}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
-!13 = distinct !{!13, !7}
+!6 = !{}

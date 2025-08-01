@@ -81,12 +81,12 @@ define dso_local noundef i64 @_ZNSt3__112__rs_defaultclEv(ptr noundef nonnull re
   br i1 %exitcond.not.i.i.i, label %16, label %7, !llvm.loop !12
 
 16:                                               ; preds = %7
-  store i64 0, ptr getelementptr inbounds nuw (i8, ptr @_ZZNSt3__112__rs_defaultclEvE6__rs_g, i64 4992), align 8, !tbaa !15
+  store i64 0, ptr getelementptr inbounds nuw (i8, ptr @_ZZNSt3__112__rs_defaultclEvE6__rs_g, i64 4992), align 8, !tbaa !14
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZNSt3__112__rs_defaultclEvE6__rs_g) #5
   br label %17
 
 17:                                               ; preds = %16, %4, %1
-  %18 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZNSt3__112__rs_defaultclEvE6__rs_g, i64 4992), align 8, !tbaa !15
+  %18 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZNSt3__112__rs_defaultclEvE6__rs_g, i64 4992), align 8, !tbaa !14
   %19 = add i64 %18, 1
   %20 = urem i64 %19, 624
   %21 = getelementptr inbounds nuw [624 x i64], ptr @_ZZNSt3__112__rs_defaultclEvE6__rs_g, i64 0, i64 %18
@@ -106,13 +106,13 @@ define dso_local noundef i64 @_ZNSt3__112__rs_defaultclEv(ptr noundef nonnull re
   %35 = xor i64 %34, %31
   %36 = xor i64 %35, %32
   store i64 %36, ptr %21, align 8, !tbaa !10
-  %37 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZNSt3__112__rs_defaultclEvE6__rs_g, i64 4992), align 8, !tbaa !15
+  %37 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZNSt3__112__rs_defaultclEvE6__rs_g, i64 4992), align 8, !tbaa !14
   %38 = getelementptr inbounds nuw [624 x i64], ptr @_ZZNSt3__112__rs_defaultclEvE6__rs_g, i64 0, i64 %37
   %39 = load i64, ptr %38, align 8, !tbaa !10
   %40 = lshr i64 %39, 11
   %41 = and i64 %40, 4294967295
   %42 = xor i64 %41, %39
-  store i64 %20, ptr getelementptr inbounds nuw (i8, ptr @_ZZNSt3__112__rs_defaultclEvE6__rs_g, i64 4992), align 8, !tbaa !15
+  store i64 %20, ptr getelementptr inbounds nuw (i8, ptr @_ZZNSt3__112__rs_defaultclEvE6__rs_g, i64 4992), align 8, !tbaa !14
   %43 = shl i64 %42, 7
   %44 = and i64 %43, 2636928640
   %45 = xor i64 %44, %42
@@ -166,8 +166,7 @@ attributes #5 = { nounwind }
 !9 = !{!"branch_weights", i32 1, i32 1048575}
 !10 = !{!11, !11, i64 0}
 !11 = !{!"long", !7, i64 0}
-!12 = distinct !{!12, !13, !14}
+!12 = distinct !{!12, !13}
 !13 = !{!"llvm.loop.mustprogress"}
-!14 = !{!"llvm.loop.estimated_trip_count"}
-!15 = !{!16, !11, i64 4992}
-!16 = !{!"_ZTSNSt3__123mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEE", !7, i64 0, !11, i64 4992}
+!14 = !{!15, !11, i64 4992}
+!15 = !{!"_ZTSNSt3__123mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEE", !7, i64 0, !11, i64 4992}

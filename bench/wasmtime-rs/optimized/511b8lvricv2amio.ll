@@ -845,7 +845,7 @@ default.unreachable576:                           ; preds = %._crit_edge
 .backedge425:                                     ; preds = %351, %395, %447, %488, %518, %521, %527
   %353 = call align 8 ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5ee5228e768db773E"(ptr nonnull align 8 %104)
   %.not531 = icmp eq ptr %353, null
-  br i1 %.not531, label %.critedge, label %259, !llvm.loop !8
+  br i1 %.not531, label %.critedge, label %259
 
 354:                                              ; preds = %350, %346, %345, %341, %337, %333, %315, %319, %323, %327
   call void @"_ZN4core3ptr91drop_in_place$LT$cranelift_isle..StableSet$LT$cranelift_isle..trie_again..BindingId$GT$$GT$17h58363ccd0ae96c9aE"(ptr nonnull align 8 %74)
@@ -895,7 +895,7 @@ default.unreachable576:                           ; preds = %._crit_edge
   %364 = load ptr, ptr %363, align 8, !nonnull !3, !noundef !3
   %365 = load i64, ptr %281, align 8, !noundef !3
   %.not325 = icmp eq i64 %365, 0
-  br i1 %.not325, label %376, label %366, !prof !10
+  br i1 %.not325, label %376, label %366, !prof !8
 
 366:                                              ; preds = %361
   %.sroa.0360.0.copyload = load i8, ptr %364, align 16
@@ -1081,7 +1081,7 @@ default.unreachable576:                           ; preds = %._crit_edge
           to label %420 unwind label %399
 
 420:                                              ; preds = %418
-  br i1 %419, label %.critedge331, label %385, !llvm.loop !11
+  br i1 %419, label %.critedge331, label %385
 
 .critedge333:                                     ; preds = %417, %413, %409, %405, %402
   invoke void @"_ZN4core3ptr91drop_in_place$LT$cranelift_isle..StableSet$LT$cranelift_isle..trie_again..BindingId$GT$$GT$17h58363ccd0ae96c9aE"(ptr nonnull align 8 %59)
@@ -1186,7 +1186,7 @@ default.unreachable576:                           ; preds = %._crit_edge
   %451 = getelementptr inbounds nuw i8, ptr %287, i64 32
   %452 = load ptr, ptr %451, align 8, !nonnull !3, !noundef !3
   %453 = getelementptr inbounds [0 x { i8, [47 x i8] }], ptr %452, i64 0, i64 %290
-  %454 = load i8, ptr %453, align 16, !range !12, !noundef !3
+  %454 = load i8, ptr %453, align 16, !range !9, !noundef !3
   %455 = icmp eq i8 %454, 5
   br i1 %455, label %457, label %462
 
@@ -1438,7 +1438,7 @@ default.unreachable576:                           ; preds = %._crit_edge
   %531 = getelementptr inbounds nuw i8, ptr %273, i64 32
   %532 = load ptr, ptr %531, align 8, !nonnull !3, !noundef !3
   %533 = getelementptr inbounds [0 x { i8, [47 x i8] }], ptr %532, i64 0, i64 %274
-  %534 = load i8, ptr %533, align 16, !range !12, !noundef !3
+  %534 = load i8, ptr %533, align 16, !range !9, !noundef !3
   switch i8 %534, label %.thread404 [
     i8 3, label %536
     i8 4, label %544
@@ -1478,7 +1478,7 @@ default.unreachable576:                           ; preds = %._crit_edge
   %555 = getelementptr inbounds [0 x { { i64, [19 x i64] }, { i64, i64, i64, i64 }, { { i64, ptr, {} }, i64 }, i64, i64, i64 }], ptr %554, i64 0, i64 %540
   %556 = load ptr, ptr %0, align 8, !nonnull !3, !align !4, !noundef !3
   call void @_ZN14cranelift_isle4sema4Term13extractor_sig17h4e321f171638b969E(ptr nonnull sret({ i64, [12 x i64] }) align 8 %100, ptr nonnull align 16 %555, ptr nonnull align 8 %556)
-  %557 = load i64, ptr %100, align 8, !range !13, !noundef !3
+  %557 = load i64, ptr %100, align 8, !range !10, !noundef !3
   %558 = icmp eq i64 %557, -9223372036854775808
   br i1 %558, label %560, label %561
 
@@ -1492,7 +1492,7 @@ default.unreachable576:                           ; preds = %._crit_edge
 
 561:                                              ; preds = %552
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %101, ptr noundef nonnull align 8 dereferenceable(104) %100, i64 104, i1 false)
-  %562 = load i8, ptr %128, align 8, !range !14, !noundef !3
+  %562 = load i8, ptr %128, align 8, !range !11, !noundef !3
   %563 = icmp eq i8 %562, 2
   br i1 %563, label %564, label %566
 
@@ -1553,7 +1553,7 @@ default.unreachable576:                           ; preds = %._crit_edge
   %579 = getelementptr inbounds [0 x { { i64, [19 x i64] }, { i64, i64, i64, i64 }, { { i64, ptr, {} }, i64 }, i64, i64, i64 }], ptr %578, i64 0, i64 %548
   %580 = load ptr, ptr %0, align 8, !nonnull !3, !align !4, !noundef !3
   call void @_ZN14cranelift_isle4sema4Term15constructor_sig17h9d5b9ef455e5a236E(ptr nonnull sret({ i64, [12 x i64] }) align 8 %93, ptr nonnull align 16 %579, ptr nonnull align 8 %580)
-  %581 = load i64, ptr %93, align 8, !range !13, !noundef !3
+  %581 = load i64, ptr %93, align 8, !range !10, !noundef !3
   %582 = icmp eq i64 %581, -9223372036854775808
   br i1 %582, label %584, label %585
 
@@ -1567,7 +1567,7 @@ default.unreachable576:                           ; preds = %._crit_edge
 
 585:                                              ; preds = %576
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %94, ptr noundef nonnull align 8 dereferenceable(104) %93, i64 104, i1 false)
-  %586 = load i8, ptr %122, align 8, !range !14, !noundef !3
+  %586 = load i8, ptr %122, align 8, !range !11, !noundef !3
   %587 = icmp eq i8 %586, 2
   br i1 %587, label %588, label %590
 
@@ -1676,7 +1676,7 @@ default.unreachable576:                           ; preds = %._crit_edge
   %lpad.thr_comm.split-lp413 = landingpad { ptr, i32 }
           cleanup
   %618 = trunc nuw i8 %.3256.ph to i1
-  %619 = load i64, ptr %102, align 8, !range !13, !noundef !3
+  %619 = load i64, ptr %102, align 8, !range !10, !noundef !3
   %620 = icmp ne i64 %619, -9223372036854775808
   %or.cond5 = select i1 %620, i1 %618, i1 false
   br i1 %or.cond5, label %647, label %.thread406
@@ -1692,7 +1692,7 @@ default.unreachable576:                           ; preds = %._crit_edge
 
 624:                                              ; preds = %636, %632, %631
   %.6259 = phi i8 [ 1, %631 ], [ %.5258, %632 ], [ %.5258, %636 ]
-  %625 = load i64, ptr %102, align 8, !range !13, !noundef !3
+  %625 = load i64, ptr %102, align 8, !range !10, !noundef !3
   %626 = icmp ne i64 %625, -9223372036854775808
   %627 = trunc nuw i8 %.6259 to i1
   %or.cond3 = select i1 %626, i1 %627, i1 false
@@ -1735,7 +1735,7 @@ default.unreachable576:                           ; preds = %._crit_edge
           to label %639 unwind label %617
 
 639:                                              ; preds = %637
-  %640 = load i64, ptr %102, align 8, !range !13, !noundef !3
+  %640 = load i64, ptr %102, align 8, !range !10, !noundef !3
   %641 = icmp ne i64 %640, -9223372036854775808
   %642 = trunc nuw i8 %.5258 to i1
   %or.cond = select i1 %641, i1 %642, i1 false
@@ -1744,7 +1744,7 @@ default.unreachable576:                           ; preds = %._crit_edge
 .backedge:                                        ; preds = %639, %645
   %643 = call align 2 ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbef9659f8d3ed28aE"(ptr nonnull align 8 %103)
   %644 = icmp eq ptr %643, null
-  br i1 %644, label %._crit_edge, label %.lr.ph, !llvm.loop !15
+  br i1 %644, label %._crit_edge, label %.lr.ph
 
 645:                                              ; preds = %639
   call void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hda2b5af0a5ba881fE"(ptr nonnull align 8 %102)
@@ -1838,7 +1838,7 @@ define internal fastcc zeroext i1 @_ZN14cranelift_isle7codegen7Codegen9emit_expr
   store ptr %1, ptr %57, align 8
   %58 = getelementptr inbounds nuw i8, ptr %32, i64 16
   store ptr %36, ptr %58, align 8
-  %59 = load i8, ptr %56, align 16, !range !12, !noundef !3
+  %59 = load i8, ptr %56, align 16, !range !9, !noundef !3
   switch i8 %59, label %default.unreachable116 [
     i8 0, label %61
     i8 1, label %67
@@ -1904,7 +1904,7 @@ default.unreachable116:                           ; preds = %53
   %91 = getelementptr inbounds nuw i8, ptr %56, i64 8
   %92 = load i64, ptr %91, align 8, !noundef !3
   %93 = getelementptr inbounds nuw i8, ptr %56, i64 16
-  %94 = load ptr, ptr %93, align 16, !nonnull !3, !align !16, !noundef !3
+  %94 = load ptr, ptr %93, align 16, !nonnull !3, !align !12, !noundef !3
   %95 = getelementptr inbounds nuw i8, ptr %56, i64 24
   %96 = load i64, ptr %95, align 8, !noundef !3
   %97 = call fastcc zeroext i1 @"_ZN14cranelift_isle7codegen7Codegen9emit_expr28_$u7b$$u7b$closure$u7d$$u7d$17h03a58d92bb7f69d5E"(ptr align 8 %32, i64 %92, ptr align 2 %94, i64 %96, ptr nonnull @_ZN14cranelift_isle4sema4Term15constructor_sig17h9d5b9ef455e5a236E)
@@ -1987,7 +1987,7 @@ default.unreachable116:                           ; preds = %53
   %142 = getelementptr inbounds nuw i8, ptr %103, i64 80
   %143 = load ptr, ptr %142, align 8, !nonnull !3, !noundef !3
   %144 = getelementptr inbounds [0 x { i64, [9 x i64] }], ptr %143, i64 0, i64 %106
-  %145 = load i64, ptr %144, align 8, !range !13, !noundef !3
+  %145 = load i64, ptr %144, align 8, !range !10, !noundef !3
   %.not = icmp eq i64 %145, -9223372036854775808
   br i1 %.not, label %154, label %147
 
@@ -2062,7 +2062,7 @@ default.unreachable116:                           ; preds = %53
 
 184:                                              ; preds = %177
   %185 = getelementptr inbounds nuw i8, ptr %56, i64 24
-  %186 = load ptr, ptr %185, align 8, !nonnull !3, !align !16, !noundef !3
+  %186 = load ptr, ptr %185, align 8, !nonnull !3, !align !12, !noundef !3
   %187 = getelementptr inbounds nuw i8, ptr %56, i64 32
   %188 = load i64, ptr %187, align 8, !noundef !3
   %189 = icmp eq i64 %188, 0
@@ -2148,7 +2148,7 @@ default.unreachable116:                           ; preds = %53
   store ptr @anon.56deb51d4300d1bb4711f96d6950176e.3, ptr %209, align 8
   store i64 0, ptr %210, align 8
   %235 = call zeroext i1 @_ZN4core3fmt5Write9write_fmt17h277fb150720e15c7E(ptr nonnull align 8 %234, ptr nonnull align 8 %13)
-  br i1 %235, label %.loopexit, label %211, !llvm.loop !17
+  br i1 %235, label %.loopexit, label %211
 
 236:                                              ; preds = %231
   %237 = load ptr, ptr %160, align 8, !nonnull !3, !align !4, !noundef !3
@@ -2236,8 +2236,8 @@ define internal fastcc zeroext i1 @"_ZN14cranelift_isle7codegen7Codegen9emit_exp
   %35 = getelementptr inbounds [0 x { { i64, [19 x i64] }, { i64, i64, i64, i64 }, { { i64, ptr, {} }, i64 }, i64, i64, i64 }], ptr %34, i64 0, i64 %28
   %36 = load ptr, ptr %0, align 8, !nonnull !3, !align !4, !noundef !3
   %37 = load ptr, ptr %36, align 8, !nonnull !3, !align !4, !noundef !3
-  call void %4(ptr nonnull sret({ i64, [12 x i64] }) align 8 %23, ptr nonnull align 16 %35, ptr nonnull align 8 %37), !callees !18
-  %38 = load i64, ptr %23, align 8, !range !13, !noundef !3
+  call void %4(ptr nonnull sret({ i64, [12 x i64] }) align 8 %23, ptr nonnull align 16 %35, ptr nonnull align 8 %37), !callees !13
+  %38 = load i64, ptr %23, align 8, !range !10, !noundef !3
   %39 = icmp eq i64 %38, -9223372036854775808
   br i1 %39, label %41, label %42
 
@@ -2299,7 +2299,7 @@ define internal fastcc zeroext i1 @"_ZN14cranelift_isle7codegen7Codegen9emit_exp
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %64 = load ptr, ptr %63, align 8, !nonnull !3, !align !4, !noundef !3
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %66 = load ptr, ptr %65, align 8, !nonnull !3, !align !16, !noundef !3
+  %66 = load ptr, ptr %65, align 8, !nonnull !3, !align !12, !noundef !3
   %67 = load i16, ptr %66, align 2, !noundef !3
   %68 = getelementptr inbounds nuw i8, ptr %64, i64 40
   %69 = invoke zeroext i1 @"_ZN14cranelift_isle18StableSet$LT$T$GT$6insert17h1e2312ee2d4dce33E"(ptr nonnull align 8 %68, i16 %67)
@@ -2364,7 +2364,7 @@ define internal fastcc zeroext i1 @"_ZN14cranelift_isle7codegen7Codegen9emit_exp
 
 104:                                              ; preds = %101
   %105 = getelementptr inbounds nuw i8, ptr %24, i64 96
-  %106 = load i8, ptr %105, align 8, !range !14, !noundef !3
+  %106 = load i8, ptr %105, align 8, !range !11, !noundef !3
   %107 = icmp eq i8 %106, 2
   br i1 %107, label %115, label %123
 
@@ -2384,7 +2384,7 @@ define internal fastcc zeroext i1 @"_ZN14cranelift_isle7codegen7Codegen9emit_exp
   %117 = getelementptr inbounds nuw i8, ptr %116, i64 24
   %118 = load ptr, ptr %117, align 8, !nonnull !3, !align !4, !noundef !3
   %119 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %120 = load ptr, ptr %119, align 8, !nonnull !3, !align !16, !noundef !3
+  %120 = load ptr, ptr %119, align 8, !nonnull !3, !align !12, !noundef !3
   %121 = load i16, ptr %120, align 2, !noundef !3
   %122 = invoke i64 @_ZN14cranelift_isle10trie_again9BindingId5index17h7cbb3f2975c0bf3bE(i16 %121)
           to label %132 unwind label %.loopexit.split-lp
@@ -2509,7 +2509,7 @@ define internal fastcc zeroext i1 @"_ZN14cranelift_isle7codegen7Codegen9emit_exp
           to label %170 unwind label %.loopexit
 
 170:                                              ; preds = %168
-  br i1 %169, label %.loopexit57, label %99, !llvm.loop !19
+  br i1 %169, label %.loopexit57, label %99
 
 171:                                              ; preds = %59
   %172 = landingpad { ptr, i32 }
@@ -2620,14 +2620,14 @@ define internal fastcc zeroext i1 @_ZN14cranelift_isle7codegen7Codegen15emit_con
 
 46:                                               ; preds = %.lr.ph, %.backedge
   %47 = phi ptr [ %42, %.lr.ph ], [ %49, %.backedge ]
-  %48 = load i16, ptr %47, align 2, !range !20, !noundef !3
+  %48 = load i16, ptr %47, align 2, !range !14, !noundef !3
   %.not = icmp eq i16 %48, 0
   br i1 %.not, label %.backedge, label %226
 
 .backedge:                                        ; preds = %46, %226
   %49 = call align 2 ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcd3808083ddcae3aE"(ptr nonnull align 8 %34)
   %50 = icmp eq ptr %49, null
-  br i1 %50, label %._crit_edge, label %46, !llvm.loop !21
+  br i1 %50, label %._crit_edge, label %46
 
 default.unreachable126:                           ; preds = %._crit_edge
   unreachable
@@ -2683,7 +2683,7 @@ default.unreachable126:                           ; preds = %._crit_edge
   %86 = getelementptr inbounds nuw i8, ptr %56, i64 80
   %87 = load ptr, ptr %86, align 8, !nonnull !3, !noundef !3
   %88 = getelementptr inbounds [0 x { i64, [9 x i64] }], ptr %87, i64 0, i64 %57
-  %89 = load i64, ptr %88, align 8, !range !13, !noundef !3
+  %89 = load i64, ptr %88, align 8, !range !10, !noundef !3
   %.not118 = icmp eq i64 %89, -9223372036854775808
   br i1 %.not118, label %96, label %91
 
@@ -2809,13 +2809,13 @@ default.unreachable126:                           ; preds = %._crit_edge
   br i1 %.095.ph, label %163, label %161
 
 156:                                              ; preds = %150
-  %157 = load i16, ptr %152, align 2, !range !20, !noundef !3
+  %157 = load i16, ptr %152, align 2, !range !14, !noundef !3
   %158 = getelementptr inbounds nuw i8, ptr %152, i64 2
   %159 = load i16, ptr %158, align 2
   %160 = icmp ne ptr %153, null
   call void @llvm.assume(i1 %160)
   %.not119 = icmp eq i16 %157, 0
-  br i1 %.not119, label %.outer, label %167, !llvm.loop !22
+  br i1 %.not119, label %.outer, label %167
 
 161:                                              ; preds = %163, %155
   %162 = call fastcc zeroext i1 @"_ZN14cranelift_isle7codegen20BodyContext$LT$W$GT$25end_block_without_newline17h2de627923735e670E"(ptr align 8 %1)
@@ -2873,7 +2873,7 @@ default.unreachable126:                           ; preds = %._crit_edge
   store ptr @"_ZN4core3fmt3num3imp54_$LT$impl$u20$core..fmt..Display$u20$for$u20$usize$GT$3fmt17h0516a742b2dd93cdE", ptr %149, align 8
   call void @_ZN4core3fmt9Arguments6new_v117h9a2aa4c1d3010b7eE(ptr nonnull sret({ { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %18, ptr nonnull align 8 @anon.56deb51d4300d1bb4711f96d6950176e.125, i64 2, ptr nonnull align 8 %17, i64 1)
   %184 = call zeroext i1 @_ZN4core3fmt5Write9write_fmt17h277fb150720e15c7E(ptr nonnull align 8 %182, ptr nonnull align 8 %18)
-  br i1 %184, label %.loopexit, label %150, !llvm.loop !22
+  br i1 %184, label %.loopexit, label %150
 
 185:                                              ; preds = %176
   %186 = call zeroext i1 @"_ZN14cranelift_isle18StableSet$LT$T$GT$6insert17h1e2312ee2d4dce33E"(ptr nonnull align 8 %144, i16 %159)
@@ -2904,10 +2904,10 @@ default.unreachable126:                           ; preds = %._crit_edge
 
 196:                                              ; preds = %77
   %.not116 = icmp eq i64 %39, 0
-  br i1 %.not116, label %199, label %197, !prof !10
+  br i1 %.not116, label %199, label %197, !prof !8
 
 197:                                              ; preds = %196
-  %198 = load i16, ptr %37, align 2, !range !20, !noundef !3
+  %198 = load i16, ptr %37, align 2, !range !14, !noundef !3
   %.not117 = icmp eq i16 %198, 0
   br i1 %.not117, label %205, label %200
 
@@ -3345,18 +3345,10 @@ attributes #10 = { noreturn }
 !5 = !{i16 0, i16 4}
 !6 = !{!"branch_weights", !"expected", i32 2000, i32 1}
 !7 = !{i8 0, i8 4}
-!8 = distinct !{!8, !9}
-!9 = !{!"llvm.loop.estimated_trip_count"}
-!10 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!11 = distinct !{!11, !9}
-!12 = !{i8 0, i8 10}
-!13 = !{i64 0, i64 -9223372036854775807}
-!14 = !{i8 0, i8 3}
-!15 = distinct !{!15, !9}
-!16 = !{i64 2}
-!17 = distinct !{!17, !9}
-!18 = !{ptr @_ZN14cranelift_isle4sema4Term13extractor_sig17h4e321f171638b969E, ptr @_ZN14cranelift_isle4sema4Term15constructor_sig17h9d5b9ef455e5a236E}
-!19 = distinct !{!19, !9}
-!20 = !{i16 0, i16 2}
-!21 = distinct !{!21, !9}
-!22 = distinct !{!22, !9}
+!8 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!9 = !{i8 0, i8 10}
+!10 = !{i64 0, i64 -9223372036854775807}
+!11 = !{i8 0, i8 3}
+!12 = !{i64 2}
+!13 = !{ptr @_ZN14cranelift_isle4sema4Term13extractor_sig17h4e321f171638b969E, ptr @_ZN14cranelift_isle4sema4Term15constructor_sig17h9d5b9ef455e5a236E}
+!14 = !{i16 0, i16 2}

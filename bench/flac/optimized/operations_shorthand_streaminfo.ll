@@ -123,7 +123,7 @@ define dso_local range(i32 0, 2) i32 @do_shorthand_operation__streaminfo(ptr nou
   %56 = getelementptr inbounds nuw i8, ptr %10, i64 56
   %57 = getelementptr inbounds nuw i8, ptr %3, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %56, ptr noundef nonnull align 1 dereferenceable(16) %57, i64 noundef 16, i1 noundef false) #3
-  store i32 1, ptr %4, align 4, !tbaa !13
+  store i32 1, ptr %4, align 4, !tbaa !12
   br label %90
 
 58:                                               ; preds = %13
@@ -131,7 +131,7 @@ define dso_local range(i32 0, 2) i32 @do_shorthand_operation__streaminfo(ptr nou
   %60 = load i32, ptr %59, align 8, !tbaa !9
   %61 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store i32 %60, ptr %61, align 8, !tbaa !9
-  store i32 1, ptr %4, align 4, !tbaa !13
+  store i32 1, ptr %4, align 4, !tbaa !12
   br label %90
 
 62:                                               ; preds = %13
@@ -139,7 +139,7 @@ define dso_local range(i32 0, 2) i32 @do_shorthand_operation__streaminfo(ptr nou
   %64 = load i32, ptr %63, align 8, !tbaa !9
   %65 = getelementptr inbounds nuw i8, ptr %10, i64 20
   store i32 %64, ptr %65, align 4, !tbaa !9
-  store i32 1, ptr %4, align 4, !tbaa !13
+  store i32 1, ptr %4, align 4, !tbaa !12
   br label %90
 
 66:                                               ; preds = %13
@@ -147,7 +147,7 @@ define dso_local range(i32 0, 2) i32 @do_shorthand_operation__streaminfo(ptr nou
   %68 = load i32, ptr %67, align 8, !tbaa !9
   %69 = getelementptr inbounds nuw i8, ptr %10, i64 24
   store i32 %68, ptr %69, align 8, !tbaa !9
-  store i32 1, ptr %4, align 4, !tbaa !13
+  store i32 1, ptr %4, align 4, !tbaa !12
   br label %90
 
 70:                                               ; preds = %13
@@ -155,7 +155,7 @@ define dso_local range(i32 0, 2) i32 @do_shorthand_operation__streaminfo(ptr nou
   %72 = load i32, ptr %71, align 8, !tbaa !9
   %73 = getelementptr inbounds nuw i8, ptr %10, i64 28
   store i32 %72, ptr %73, align 4, !tbaa !9
-  store i32 1, ptr %4, align 4, !tbaa !13
+  store i32 1, ptr %4, align 4, !tbaa !12
   br label %90
 
 74:                                               ; preds = %13
@@ -163,7 +163,7 @@ define dso_local range(i32 0, 2) i32 @do_shorthand_operation__streaminfo(ptr nou
   %76 = load i32, ptr %75, align 8, !tbaa !9
   %77 = getelementptr inbounds nuw i8, ptr %10, i64 32
   store i32 %76, ptr %77, align 8, !tbaa !9
-  store i32 1, ptr %4, align 4, !tbaa !13
+  store i32 1, ptr %4, align 4, !tbaa !12
   br label %90
 
 78:                                               ; preds = %13
@@ -171,7 +171,7 @@ define dso_local range(i32 0, 2) i32 @do_shorthand_operation__streaminfo(ptr nou
   %80 = load i32, ptr %79, align 8, !tbaa !9
   %81 = getelementptr inbounds nuw i8, ptr %10, i64 36
   store i32 %80, ptr %81, align 4, !tbaa !9
-  store i32 1, ptr %4, align 4, !tbaa !13
+  store i32 1, ptr %4, align 4, !tbaa !12
   br label %90
 
 82:                                               ; preds = %13
@@ -179,7 +179,7 @@ define dso_local range(i32 0, 2) i32 @do_shorthand_operation__streaminfo(ptr nou
   %84 = load i32, ptr %83, align 8, !tbaa !9
   %85 = getelementptr inbounds nuw i8, ptr %10, i64 40
   store i32 %84, ptr %85, align 8, !tbaa !9
-  store i32 1, ptr %4, align 4, !tbaa !13
+  store i32 1, ptr %4, align 4, !tbaa !12
   br label %90
 
 86:                                               ; preds = %13
@@ -187,7 +187,7 @@ define dso_local range(i32 0, 2) i32 @do_shorthand_operation__streaminfo(ptr nou
   %88 = load i64, ptr %87, align 8, !tbaa !9
   %89 = getelementptr inbounds nuw i8, ptr %10, i64 48
   store i64 %88, ptr %89, align 8, !tbaa !9
-  store i32 1, ptr %4, align 4, !tbaa !13
+  store i32 1, ptr %4, align 4, !tbaa !12
   br label %90
 
 90:                                               ; preds = %13, %86, %82, %78, %74, %70, %66, %62, %58, %55, %51, %47, %43, %39, %35, %31, %27, %23, %21
@@ -228,7 +228,6 @@ attributes #3 = { nounwind }
 !7 = !{!"omnipotent char", !8, i64 0}
 !8 = !{!"Simple C/C++ TBAA"}
 !9 = !{!7, !7, i64 0}
-!10 = distinct !{!10, !11, !12}
+!10 = distinct !{!10, !11}
 !11 = !{!"llvm.loop.mustprogress"}
-!12 = !{!"llvm.loop.estimated_trip_count"}
-!13 = !{!6, !6, i64 0}
+!12 = !{!6, !6, i64 0}

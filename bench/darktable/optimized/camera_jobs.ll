@@ -150,7 +150,7 @@ define internal range(i32 0, 2) i32 @dt_camera_capture_job_run(ptr noundef %0) #
   %38 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 152), align 8, !tbaa !18
   %39 = call ptr @dt_camctl_camera_property_get_next_choice(ptr noundef %38, ptr noundef null, ptr noundef nonnull @.str.16) #10
   %.not103 = icmp eq ptr %39, null
-  br i1 %.not103, label %.loopexit121, label %.preheader120, !llvm.loop !59
+  br i1 %.not103, label %.loopexit121, label %.preheader120
 
 40:                                               ; preds = %18
   %.not102 = icmp eq i32 %23, 0
@@ -233,13 +233,13 @@ define internal range(i32 0, 2) i32 @dt_camera_capture_job_run(ptr noundef %0) #
 
 61:                                               ; preds = %.lr.ph127
   %62 = getelementptr inbounds nuw i8, ptr %.3125, i64 8
-  %63 = load ptr, ptr %62, align 8, !tbaa !61
+  %63 = load ptr, ptr %62, align 8, !tbaa !59
   %.not115 = icmp eq ptr %63, null
   br i1 %.not115, label %67, label %64
 
 64:                                               ; preds = %61
   %65 = getelementptr inbounds nuw i8, ptr %63, i64 8
-  %66 = load ptr, ptr %65, align 8, !tbaa !61
+  %66 = load ptr, ptr %65, align 8, !tbaa !59
   %.not116 = icmp eq ptr %66, null
   %spec.select = select i1 %.not116, ptr %.3125, ptr %63
   br label %67
@@ -248,7 +248,7 @@ define internal range(i32 0, 2) i32 @dt_camera_capture_job_run(ptr noundef %0) #
   %.4 = phi ptr [ %.3125, %61 ], [ null, %.lr.ph127 ], [ %spec.select, %64 ]
   %68 = add nuw i32 %.078126, 1
   %exitcond142.not = icmp eq i32 %68, %60
-  br i1 %exitcond142.not, label %.loopexit, label %.lr.ph127, !llvm.loop !62
+  br i1 %exitcond142.not, label %.loopexit, label %.lr.ph127
 
 69:                                               ; preds = %57
   %70 = load i32, ptr %45, align 8, !tbaa !14
@@ -274,7 +274,7 @@ define internal range(i32 0, 2) i32 @dt_camera_capture_job_run(ptr noundef %0) #
 
 76:                                               ; preds = %.lr.ph
   %77 = getelementptr inbounds nuw i8, ptr %.5123, i64 16
-  %78 = load ptr, ptr %77, align 8, !tbaa !63
+  %78 = load ptr, ptr %77, align 8, !tbaa !60
   %.not113 = icmp eq ptr %78, null
   %spec.select117 = select i1 %.not113, ptr %.5123, ptr %78
   br label %79
@@ -283,7 +283,7 @@ define internal range(i32 0, 2) i32 @dt_camera_capture_job_run(ptr noundef %0) #
   %.6 = phi ptr [ null, %.lr.ph ], [ %spec.select117, %76 ]
   %80 = add nuw i32 %.0124, 1
   %exitcond.not = icmp eq i32 %80, %75
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !64
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph
 
 .loopexit:                                        ; preds = %79, %67, %74, %.preheader, %55
   %.2 = phi ptr [ %.1130, %55 ], [ %.1130, %.preheader ], [ %.1130, %74 ], [ %.4, %67 ], [ %.6, %79 ]
@@ -308,7 +308,7 @@ define internal range(i32 0, 2) i32 @dt_camera_capture_job_run(ptr noundef %0) #
   %91 = load i32, ptr %4, align 8, !tbaa !16
   %92 = shl i32 %91, 1
   %.not107.not = icmp ult i32 %.079131, %92
-  br i1 %.not107.not, label %55, label %54, !llvm.loop !65
+  br i1 %.not107.not, label %55, label %54
 
 93:                                               ; preds = %54
   %94 = load i32, ptr %45, align 8, !tbaa !14
@@ -333,7 +333,7 @@ define internal range(i32 0, 2) i32 @dt_camera_capture_job_run(ptr noundef %0) #
   %103 = add nuw i32 %.080134, 1
   %104 = load i32, ptr %43, align 4, !tbaa !15
   %105 = icmp ult i32 %103, %104
-  br i1 %105, label %49, label %._crit_edge, !llvm.loop !66
+  br i1 %105, label %49, label %._crit_edge
 
 106:                                              ; preds = %._crit_edge
   call void @g_list_free_full(ptr noundef nonnull %.188, ptr noundef nonnull @g_free) #10
@@ -371,7 +371,7 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 define void @_camera_import_image_downloaded(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef captures(none) %4) #0 {
   %6 = alloca i64, align 8
   %7 = alloca [20 x i8], align 16
-  %8 = load ptr, ptr %4, align 8, !tbaa !67
+  %8 = load ptr, ptr %4, align 8, !tbaa !61
   %9 = tail call i32 @dt_import_session_film_id(ptr noundef %8) #10
   %10 = tail call i32 @dt_image_import(i32 noundef %9, ptr noundef %3, i32 noundef 0, i32 noundef 1) #10
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #10
@@ -381,13 +381,13 @@ define void @_camera_import_image_downloaded(ptr readnone captures(none) %0, ptr
   br i1 %or.cond, label %13, label %.thread
 
 .thread:                                          ; preds = %5
-  store i64 0, ptr %6, align 8, !tbaa !71
+  store i64 0, ptr %6, align 8, !tbaa !65
   br label %21
 
 13:                                               ; preds = %5
   %14 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 152), align 8, !tbaa !18
   %15 = tail call i64 @dt_camctl_get_image_file_timestamp(ptr noundef %14, ptr noundef nonnull %1, ptr noundef nonnull %2) #10
-  store i64 %15, ptr %6, align 8, !tbaa !71
+  store i64 %15, ptr %6, align 8, !tbaa !65
   %16 = icmp ne i64 %15, 0
   %17 = icmp sgt i32 %10, 0
   %or.cond3 = select i1 %16, i1 %17, i1 false
@@ -406,44 +406,44 @@ define void @_camera_import_image_downloaded(ptr readnone captures(none) %0, ptr
   call void (...) @dt_control_queue_redraw_center() #10
   %22 = call noalias ptr @g_path_get_basename(ptr noundef %3) #10
   %23 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %24 = load ptr, ptr %23, align 8, !tbaa !72
+  %24 = load ptr, ptr %23, align 8, !tbaa !66
   %25 = call i32 @g_list_length(ptr noundef %24) #10
   %26 = getelementptr inbounds nuw i8, ptr %4, i64 40
-  %27 = load i32, ptr %26, align 8, !tbaa !73
+  %27 = load i32, ptr %26, align 8, !tbaa !67
   %28 = add i32 %27, 1
   %29 = zext i32 %28 to i64
   %30 = call ptr @dcngettext(ptr noundef null, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.4, i64 noundef %29, i32 noundef 5) #10
-  %31 = load i32, ptr %26, align 8, !tbaa !73
+  %31 = load i32, ptr %26, align 8, !tbaa !67
   %32 = add i32 %31, 1
   call void (ptr, ...) @dt_control_log(ptr noundef %30, i32 noundef %32, i32 noundef %25, ptr noundef %22) #10
   call void @g_free(ptr noundef %22) #10
   %33 = sitofp i32 %25 to double
   %34 = fdiv reassoc nsz arcp contract afn double 1.000000e+00, %33
   %35 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  %36 = load double, ptr %35, align 8, !tbaa !74
+  %36 = load double, ptr %35, align 8, !tbaa !68
   %37 = fadd reassoc nsz arcp contract afn double %36, %34
-  store double %37, ptr %35, align 8, !tbaa !74
+  store double %37, ptr %35, align 8, !tbaa !68
   %38 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  %39 = load ptr, ptr %38, align 8, !tbaa !75
+  %39 = load ptr, ptr %38, align 8, !tbaa !69
   call void @dt_control_job_set_progress(ptr noundef %39, double noundef %37) #10
   %40 = and i32 %10, 3
   %41 = icmp eq i32 %40, 3
   br i1 %41, label %42, label %44
 
 42:                                               ; preds = %21
-  %43 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 160), align 8, !tbaa !76
+  %43 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 160), align 8, !tbaa !70
   call void @dt_collection_update_query(ptr noundef %43, i32 noundef 3, i32 noundef 43, ptr noundef null) #10
   br label %44
 
 44:                                               ; preds = %42, %21
-  %45 = load i32, ptr %26, align 8, !tbaa !73
+  %45 = load i32, ptr %26, align 8, !tbaa !67
   %46 = add i32 %45, 1
   %47 = icmp eq i32 %46, %25
   br i1 %47, label %48, label %73
 
 48:                                               ; preds = %44
   call void (...) @dt_control_queue_redraw_center() #10
-  %49 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3128), align 8, !tbaa !77
+  %49 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3128), align 8, !tbaa !71
   %50 = and i32 %49, 1
   %51 = icmp ne i32 %50, 0
   %52 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3168), align 8
@@ -452,7 +452,7 @@ define void @_camera_import_image_downloaded(ptr readnone captures(none) %0, ptr
   br i1 %or.cond5, label %54, label %58
 
 54:                                               ; preds = %48
-  %55 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !78
+  %55 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !72
   %56 = and i32 %55, 1048576
   %.not = icmp eq i32 %56, 0
   br i1 %.not, label %58, label %57
@@ -462,9 +462,9 @@ define void @_camera_import_image_downloaded(ptr readnone captures(none) %0, ptr
   br label %58
 
 58:                                               ; preds = %54, %57, %48
-  %59 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 96), align 8, !tbaa !79
+  %59 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 96), align 8, !tbaa !73
   call void (ptr, i32, ...) @dt_control_signal_raise(ptr noundef %59, i32 noundef 9) #10
-  %60 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3128), align 8, !tbaa !77
+  %60 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3128), align 8, !tbaa !71
   %61 = and i32 %60, 1
   %62 = icmp ne i32 %61, 0
   %63 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3196), align 4
@@ -473,7 +473,7 @@ define void @_camera_import_image_downloaded(ptr readnone captures(none) %0, ptr
   br i1 %or.cond7, label %65, label %69
 
 65:                                               ; preds = %58
-  %66 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !78
+  %66 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !72
   %67 = and i32 %66, 1048576
   %.not36 = icmp eq i32 %67, 0
   br i1 %.not36, label %69, label %68
@@ -483,17 +483,17 @@ define void @_camera_import_image_downloaded(ptr readnone captures(none) %0, ptr
   br label %69
 
 69:                                               ; preds = %65, %68, %58
-  %70 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 96), align 8, !tbaa !79
-  %71 = load ptr, ptr %4, align 8, !tbaa !67
+  %70 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 96), align 8, !tbaa !73
+  %71 = load ptr, ptr %4, align 8, !tbaa !61
   %72 = call i32 @dt_import_session_film_id(ptr noundef %71) #10
   call void (ptr, i32, ...) @dt_control_signal_raise(ptr noundef %70, i32 noundef 16, i32 noundef %72) #10
-  %.pre = load i32, ptr %26, align 8, !tbaa !73
+  %.pre = load i32, ptr %26, align 8, !tbaa !67
   %.pre38 = add i32 %.pre, 1
   br label %73
 
 73:                                               ; preds = %69, %44
   %.pre-phi = phi i32 [ %.pre38, %69 ], [ %46, %44 ]
-  store i32 %.pre-phi, ptr %26, align 8, !tbaa !73
+  store i32 %.pre-phi, ptr %26, align 8, !tbaa !67
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #10
   ret void
 }
@@ -548,9 +548,9 @@ define ptr @dt_camera_import_job_create(ptr noundef %0, ptr noundef %1, ptr noun
 
 8:                                                ; preds = %5
   %9 = tail call ptr (...) @dt_import_session_new() #10
-  store ptr %9, ptr %6, align 8, !tbaa !67
+  store ptr %9, ptr %6, align 8, !tbaa !61
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 32976
-  store i32 1, ptr %10, align 8, !tbaa !80
+  store i32 1, ptr %10, align 8, !tbaa !74
   %11 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.10, i32 noundef 5) #10
   tail call void @dt_control_job_add_progress(ptr noundef nonnull %4, ptr noundef %11, i32 noundef 0) #10
   tail call void @dt_control_job_set_params(ptr noundef nonnull %4, ptr noundef nonnull %6, ptr noundef nonnull @dt_camera_import_cleanup) #10
@@ -563,24 +563,24 @@ define ptr @dt_camera_import_job_create(ptr noundef %0, ptr noundef %1, ptr noun
   br i1 %.not28, label %16, label %14
 
 14:                                               ; preds = %12
-  %15 = load ptr, ptr %6, align 8, !tbaa !67
+  %15 = load ptr, ptr %6, align 8, !tbaa !61
   tail call void @dt_import_session_set_time(ptr noundef %15, ptr noundef nonnull %2) #10
   br label %16
 
 16:                                               ; preds = %14, %12, %8
   %17 = tail call ptr @dt_conf_get_string_const(ptr noundef nonnull @.str.11) #10
-  %18 = load ptr, ptr %6, align 8, !tbaa !67
+  %18 = load ptr, ptr %6, align 8, !tbaa !61
   tail call void @dt_import_session_set_name(ptr noundef %18, ptr noundef %17) #10
   %19 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  store double 0.000000e+00, ptr %19, align 8, !tbaa !74
+  store double 0.000000e+00, ptr %19, align 8, !tbaa !68
   %20 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store ptr %0, ptr %20, align 8, !tbaa !72
+  store ptr %0, ptr %20, align 8, !tbaa !66
   %21 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  store ptr %1, ptr %21, align 8, !tbaa !87
+  store ptr %1, ptr %21, align 8, !tbaa !81
   %22 = getelementptr inbounds nuw i8, ptr %6, i64 40
-  store i32 0, ptr %22, align 8, !tbaa !73
+  store i32 0, ptr %22, align 8, !tbaa !67
   %23 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  store ptr %4, ptr %23, align 8, !tbaa !75
+  store ptr %4, ptr %23, align 8, !tbaa !69
   br label %24
 
 24:                                               ; preds = %7, %16, %3
@@ -596,7 +596,7 @@ define internal noundef i32 @dt_camera_import_job_run(ptr noundef %0) #0 {
   %5 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.18, i32 noundef 5) #10
   tail call void (ptr, ...) @dt_control_log(ptr noundef %5) #10
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %7 = load ptr, ptr %6, align 8, !tbaa !72
+  %7 = load ptr, ptr %6, align 8, !tbaa !66
   %8 = tail call i32 @g_list_length(ptr noundef %7) #10
   call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %2) #10
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(512) %2, i8 0, i64 512, i1 false)
@@ -604,26 +604,26 @@ define internal noundef i32 @dt_camera_import_job_run(ptr noundef %0) #0 {
   %10 = tail call ptr @dcngettext(ptr noundef null, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.20, i64 noundef %9, i32 noundef 5) #10
   %11 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %2, i64 noundef 512, ptr noundef %10, i32 noundef %8) #10
   call void @dt_control_job_set_progress_message(ptr noundef %0, ptr noundef nonnull %2) #10
-  %12 = load ptr, ptr %4, align 8, !tbaa !67
+  %12 = load ptr, ptr %4, align 8, !tbaa !61
   %13 = call i32 @dt_import_session_film_id(ptr noundef %12) #10
   %14 = call i32 @dt_film_open(i32 noundef %13) #10
   call void @dt_ctl_switch_mode_to(ptr noundef nonnull @.str.21) #10
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %3) #10
   %15 = getelementptr inbounds nuw i8, ptr %3, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %15, i8 0, i64 80, i1 false)
-  store ptr %4, ptr %3, align 8, !tbaa !88
+  store ptr %4, ptr %3, align 8, !tbaa !82
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  store ptr @_camera_import_image_downloaded, ptr %16, align 8, !tbaa !90
+  store ptr @_camera_import_image_downloaded, ptr %16, align 8, !tbaa !84
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store ptr @_camera_request_image_path, ptr %17, align 8, !tbaa !91
+  store ptr @_camera_request_image_path, ptr %17, align 8, !tbaa !85
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  store ptr @_camera_request_image_filename, ptr %18, align 8, !tbaa !92
+  store ptr @_camera_request_image_filename, ptr %18, align 8, !tbaa !86
   %19 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 152), align 8, !tbaa !18
   call void @dt_camctl_register_listener(ptr noundef %19, ptr noundef nonnull %3) #10
   %20 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 152), align 8, !tbaa !18
   %21 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %22 = load ptr, ptr %21, align 8, !tbaa !87
-  %23 = load ptr, ptr %6, align 8, !tbaa !72
+  %22 = load ptr, ptr %21, align 8, !tbaa !81
+  %23 = load ptr, ptr %6, align 8, !tbaa !66
   call void @dt_camctl_import(ptr noundef %20, ptr noundef %22, ptr noundef %23) #10
   %24 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 152), align 8, !tbaa !18
   call void @dt_camctl_unregister_listener(ptr noundef %24, ptr noundef nonnull %3) #10
@@ -636,14 +636,14 @@ define internal noundef i32 @dt_camera_import_job_run(ptr noundef %0) #0 {
 ; Function Attrs: nounwind uwtable
 define internal void @dt_camera_import_cleanup(ptr noundef captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load ptr, ptr %2, align 8, !tbaa !72
+  %3 = load ptr, ptr %2, align 8, !tbaa !66
   tail call void @g_list_free(ptr noundef %3) #10
-  %4 = load ptr, ptr %0, align 8, !tbaa !67
+  %4 = load ptr, ptr %0, align 8, !tbaa !61
   tail call void @dt_import_session_destroy(ptr noundef %4) #10
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %6 = load ptr, ptr %5, align 8, !tbaa !87
+  %6 = load ptr, ptr %5, align 8, !tbaa !81
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 32976
-  store i32 0, ptr %7, align 8, !tbaa !80
+  store i32 0, ptr %7, align 8, !tbaa !74
   tail call void @free(ptr noundef %0) #10
   ret void
 }
@@ -701,9 +701,9 @@ declare void @dt_ctl_switch_mode_to(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define internal ptr @_camera_request_image_path(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef readonly captures(none) %2) #0 {
-  %4 = load ptr, ptr %2, align 8, !tbaa !93
+  %4 = load ptr, ptr %2, align 8, !tbaa !87
   tail call void @dt_import_session_set_exif_basic_info(ptr noundef %4, ptr noundef %1) #10
-  %5 = load ptr, ptr %2, align 8, !tbaa !93
+  %5 = load ptr, ptr %2, align 8, !tbaa !87
   %6 = tail call ptr @dt_import_session_path(ptr noundef %5, i32 noundef 0) #10
   ret ptr %6
 }
@@ -711,11 +711,11 @@ define internal ptr @_camera_request_image_path(ptr readnone captures(none) %0, 
 ; Function Attrs: nounwind uwtable
 define internal noalias ptr @_camera_request_image_filename(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3) #0 {
   %5 = tail call i32 @dt_conf_get_bool(ptr noundef nonnull @.str.22) #10
-  %6 = load ptr, ptr %3, align 8, !tbaa !93
+  %6 = load ptr, ptr %3, align 8, !tbaa !87
   tail call void @dt_import_session_set_filename(ptr noundef %6, ptr noundef %1) #10
-  %7 = load ptr, ptr %3, align 8, !tbaa !93
+  %7 = load ptr, ptr %3, align 8, !tbaa !87
   tail call void @dt_import_session_set_exif_basic_info(ptr noundef %7, ptr noundef %2) #10
-  %8 = load ptr, ptr %3, align 8, !tbaa !93
+  %8 = load ptr, ptr %3, align 8, !tbaa !87
   %9 = tail call ptr @dt_import_session_filename(ptr noundef %8, i32 noundef %5) #10
   %10 = icmp eq ptr %9, null
   br i1 %10, label %13, label %11
@@ -827,38 +827,32 @@ attributes #12 = { nounwind willreturn memory(read) }
 !56 = !{!11, !11, i64 0}
 !57 = !{!58, !10, i64 0}
 !58 = !{!"_GList", !10, i64 0, !21, i64 8, !21, i64 16}
-!59 = distinct !{!59, !60}
-!60 = !{!"llvm.loop.estimated_trip_count"}
-!61 = !{!58, !21, i64 8}
-!62 = distinct !{!62, !60}
-!63 = !{!58, !21, i64 16}
-!64 = distinct !{!64, !60}
-!65 = distinct !{!65, !60}
-!66 = distinct !{!66, !60}
-!67 = !{!68, !9, i64 0}
-!68 = !{!"dt_camera_import_t", !8, i64 0, !21, i64 8, !69, i64 16, !70, i64 24, !48, i64 32, !13, i64 40}
-!69 = !{!"p1 _ZTS11dt_camera_t", !10, i64 0}
-!70 = !{!"p1 _ZTS9_dt_job_t", !10, i64 0}
-!71 = !{!52, !52, i64 0}
-!72 = !{!68, !21, i64 8}
-!73 = !{!68, !13, i64 40}
-!74 = !{!68, !48, i64 32}
-!75 = !{!68, !70, i64 24}
-!76 = !{!19, !36, i64 160}
-!77 = !{!19, !13, i64 3128}
-!78 = !{!19, !13, i64 8}
-!79 = !{!19, !28, i64 96}
-!80 = !{!81, !13, i64 32976}
-!81 = !{!"dt_camera_t", !46, i64 0, !46, i64 8, !82, i64 16, !83, i64 32784, !10, i64 32792, !45, i64 32800, !13, i64 32840, !13, i64 32844, !13, i64 32848, !13, i64 32852, !13, i64 32856, !13, i64 32860, !13, i64 32864, !13, i64 32868, !13, i64 32872, !21, i64 32880, !45, i64 32888, !21, i64 32928, !84, i64 32936, !85, i64 32952, !86, i64 32960, !13, i64 32968, !13, i64 32972, !13, i64 32976, !13, i64 32980, !46, i64 32984, !13, i64 32992, !13, i64 32996, !13, i64 33000, !13, i64 33004, !13, i64 33008, !13, i64 33012, !13, i64 33016, !13, i64 33020, !52, i64 33024, !45, i64 33032, !45, i64 33072}
-!82 = !{!"", !11, i64 0}
-!83 = !{!"p1 _ZTS13_CameraWidget", !10, i64 0}
-!84 = !{!"", !83, i64 0, !13, i64 8}
-!85 = !{!"p1 _ZTS7_Camera", !10, i64 0}
-!86 = !{!"p1 _ZTS10_GPContext", !10, i64 0}
-!87 = !{!68, !69, i64 16}
-!88 = !{!89, !10, i64 0}
-!89 = !{!"dt_camctl_listener_t", !10, i64 0, !10, i64 8, !10, i64 16, !10, i64 24, !10, i64 32, !10, i64 40, !10, i64 48, !10, i64 56, !10, i64 64, !10, i64 72, !10, i64 80}
-!90 = !{!89, !10, i64 32}
-!91 = !{!89, !10, i64 16}
-!92 = !{!89, !10, i64 24}
-!93 = !{!8, !9, i64 0}
+!59 = !{!58, !21, i64 8}
+!60 = !{!58, !21, i64 16}
+!61 = !{!62, !9, i64 0}
+!62 = !{!"dt_camera_import_t", !8, i64 0, !21, i64 8, !63, i64 16, !64, i64 24, !48, i64 32, !13, i64 40}
+!63 = !{!"p1 _ZTS11dt_camera_t", !10, i64 0}
+!64 = !{!"p1 _ZTS9_dt_job_t", !10, i64 0}
+!65 = !{!52, !52, i64 0}
+!66 = !{!62, !21, i64 8}
+!67 = !{!62, !13, i64 40}
+!68 = !{!62, !48, i64 32}
+!69 = !{!62, !64, i64 24}
+!70 = !{!19, !36, i64 160}
+!71 = !{!19, !13, i64 3128}
+!72 = !{!19, !13, i64 8}
+!73 = !{!19, !28, i64 96}
+!74 = !{!75, !13, i64 32976}
+!75 = !{!"dt_camera_t", !46, i64 0, !46, i64 8, !76, i64 16, !77, i64 32784, !10, i64 32792, !45, i64 32800, !13, i64 32840, !13, i64 32844, !13, i64 32848, !13, i64 32852, !13, i64 32856, !13, i64 32860, !13, i64 32864, !13, i64 32868, !13, i64 32872, !21, i64 32880, !45, i64 32888, !21, i64 32928, !78, i64 32936, !79, i64 32952, !80, i64 32960, !13, i64 32968, !13, i64 32972, !13, i64 32976, !13, i64 32980, !46, i64 32984, !13, i64 32992, !13, i64 32996, !13, i64 33000, !13, i64 33004, !13, i64 33008, !13, i64 33012, !13, i64 33016, !13, i64 33020, !52, i64 33024, !45, i64 33032, !45, i64 33072}
+!76 = !{!"", !11, i64 0}
+!77 = !{!"p1 _ZTS13_CameraWidget", !10, i64 0}
+!78 = !{!"", !77, i64 0, !13, i64 8}
+!79 = !{!"p1 _ZTS7_Camera", !10, i64 0}
+!80 = !{!"p1 _ZTS10_GPContext", !10, i64 0}
+!81 = !{!62, !63, i64 16}
+!82 = !{!83, !10, i64 0}
+!83 = !{!"dt_camctl_listener_t", !10, i64 0, !10, i64 8, !10, i64 16, !10, i64 24, !10, i64 32, !10, i64 40, !10, i64 48, !10, i64 56, !10, i64 64, !10, i64 72, !10, i64 80}
+!84 = !{!83, !10, i64 32}
+!85 = !{!83, !10, i64 16}
+!86 = !{!83, !10, i64 24}
+!87 = !{!8, !9, i64 0}

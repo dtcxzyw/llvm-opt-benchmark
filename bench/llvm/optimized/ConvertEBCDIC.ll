@@ -192,7 +192,7 @@ _ZN4llvm23SmallVectorTemplateBaseIcLb1EE9push_backEc.exit16: ; preds = %29, %33
   %38 = add i64 %37, 1
   store i64 %38, ptr %8, align 8, !tbaa !10
   %.not = icmp eq i64 %11, 0
-  br i1 %.not, label %._crit_edge, label %10, !llvm.loop !16
+  br i1 %.not, label %._crit_edge, label %10, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %_ZN4llvm23SmallVectorTemplateBaseIcLb1EE9push_backEc.exit16, %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit
   ret void
@@ -227,7 +227,6 @@ attributes #4 = { nounwind willreturn memory(none) }
 !10 = !{!4, !8, i64 8}
 !11 = !{!"branch_weights", !"expected", i32 1, i32 2000}
 !12 = !{!4, !5, i64 0}
-!13 = distinct !{!13, !14, !15}
+!13 = distinct !{!13, !14}
 !14 = !{!"llvm.loop.mustprogress"}
-!15 = !{!"llvm.loop.estimated_trip_count"}
-!16 = distinct !{!16, !14, !15}
+!15 = distinct !{!15, !14}

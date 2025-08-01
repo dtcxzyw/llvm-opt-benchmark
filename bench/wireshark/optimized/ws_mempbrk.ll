@@ -55,7 +55,7 @@ define hidden noundef ptr @ws_mempbrk_portable_exec(ptr noundef readonly capture
 13:                                               ; preds = %.lr.ph
   %14 = getelementptr i8, ptr %.01115, i64 1
   %exitcond.not = icmp eq ptr %14, %5
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !9
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !8
 
 .loopexit:                                        ; preds = %13, %4, %11, %12
   %.0 = phi ptr [ %.01115, %12 ], [ %.01115, %11 ], [ null, %4 ], [ null, %13 ]
@@ -69,7 +69,7 @@ define ptr @ws_mempbrk_exec(ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr 
 
 6:                                                ; preds = %4
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 256
-  %8 = load i8, ptr %7, align 16, !range !10, !noundef !11
+  %8 = load i8, ptr %7, align 16, !range !9, !noundef !10
   %9 = trunc nuw i8 %8 to i1
   br i1 %9, label %10, label %12
 
@@ -102,7 +102,7 @@ define ptr @ws_mempbrk_exec(ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr 
 21:                                               ; preds = %.lr.ph.i
   %22 = getelementptr i8, ptr %.01115.i, i64 1
   %exitcond.not.i = icmp eq ptr %22, %13
-  br i1 %exitcond.not.i, label %ws_mempbrk_portable_exec.exit, label %.lr.ph.i, !llvm.loop !9
+  br i1 %exitcond.not.i, label %ws_mempbrk_portable_exec.exit, label %.lr.ph.i, !llvm.loop !8
 
 ws_mempbrk_portable_exec.exit:                    ; preds = %21, %20, %19, %12, %10
   %.0 = phi ptr [ %11, %10 ], [ %.01115.i, %20 ], [ %.01115.i, %19 ], [ null, %12 ], [ null, %21 ]
@@ -129,7 +129,7 @@ define noundef ptr @ws_memrpbrk_exec(ptr noundef readonly captures(address, ret:
   %12 = getelementptr [256 x i8], ptr %2, i64 0, i64 %11
   %13 = load i8, ptr %12, align 1
   %.not = icmp eq i8 %13, 0
-  br i1 %.not, label %6, label %14, !llvm.loop !12
+  br i1 %.not, label %6, label %14, !llvm.loop !11
 
 14:                                               ; preds = %8
   %.not12 = icmp eq ptr %3, null
@@ -161,10 +161,9 @@ attributes #4 = { nounwind }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = !{i8 0, i8 2}
-!11 = !{}
-!12 = distinct !{!12, !7, !8}
+!8 = distinct !{!8, !7}
+!9 = !{i8 0, i8 2}
+!10 = !{}
+!11 = distinct !{!11, !7}

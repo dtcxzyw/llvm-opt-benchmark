@@ -195,14 +195,14 @@ define internal noundef i32 @lj_cf_math_randomseed(ptr noundef %0) #0 {
   store i64 %spec.select.i, ptr %26, align 8, !tbaa !4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
-  br i1 %exitcond.not.i, label %.preheader.i, label %17, !llvm.loop !21
+  br i1 %exitcond.not.i, label %.preheader.i, label %17, !llvm.loop !20
 
 .preheader.i:                                     ; preds = %17, %.preheader.i
   %.121.i = phi i32 [ %28, %.preheader.i ], [ 0, %17 ]
   %27 = tail call i64 @lj_prng_u64(ptr noundef nonnull %12) #5
   %28 = add nuw nsw i32 %.121.i, 1
   %exitcond23.not.i = icmp eq i32 %28, 10
-  br i1 %exitcond23.not.i, label %random_seed.exit, label %.preheader.i, !llvm.loop !22
+  br i1 %exitcond23.not.i, label %random_seed.exit, label %.preheader.i, !llvm.loop !21
 
 29:                                               ; preds = %1
   %30 = tail call i32 @lj_prng_seed_secure(ptr noundef nonnull %12) #5
@@ -264,8 +264,7 @@ attributes #6 = { noreturn nounwind }
 !15 = !{!9, !12, i64 40}
 !16 = !{!14, !14, i64 0}
 !17 = !{!6, !6, i64 0}
-!18 = distinct !{!18, !19, !20}
+!18 = distinct !{!18, !19}
 !19 = !{!"llvm.loop.mustprogress"}
-!20 = !{!"llvm.loop.estimated_trip_count"}
-!21 = distinct !{!21, !19, !20}
-!22 = distinct !{!22, !19, !20}
+!20 = distinct !{!20, !19}
+!21 = distinct !{!21, !19}

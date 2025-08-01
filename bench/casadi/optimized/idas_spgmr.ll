@@ -603,17 +603,17 @@ define range(i32 -101, 1) i32 @IDASpgmrB(ptr noundef %0, i32 noundef %1, i32 nou
 26:                                               ; preds = %._crit_edge
   %27 = getelementptr inbounds nuw i8, ptr %.028.lcssa, i64 16
   %28 = getelementptr inbounds nuw i8, ptr %23, i64 16
-  store ptr null, ptr %28, align 8, !tbaa !86
+  store ptr null, ptr %28, align 8, !tbaa !85
   %29 = getelementptr inbounds nuw i8, ptr %23, i64 32
-  store ptr null, ptr %29, align 8, !tbaa !88
+  store ptr null, ptr %29, align 8, !tbaa !87
   %30 = getelementptr inbounds nuw i8, ptr %23, i64 48
-  store ptr null, ptr %30, align 8, !tbaa !89
-  store ptr null, ptr %23, align 8, !tbaa !90
+  store ptr null, ptr %30, align 8, !tbaa !88
+  store ptr null, ptr %23, align 8, !tbaa !89
   %31 = getelementptr inbounds nuw i8, ptr %.028.lcssa, i64 72
-  store ptr %23, ptr %31, align 8, !tbaa !91
+  store ptr %23, ptr %31, align 8, !tbaa !90
   %32 = getelementptr inbounds nuw i8, ptr %.028.lcssa, i64 80
-  store ptr @IDASpgmrFreeB, ptr %32, align 8, !tbaa !92
-  %33 = load ptr, ptr %27, align 8, !tbaa !93
+  store ptr @IDASpgmrFreeB, ptr %32, align 8, !tbaa !91
+  %33 = load ptr, ptr %27, align 8, !tbaa !92
   %34 = tail call i32 @IDASpgmr(ptr noundef %33, i32 noundef %2)
   %.not33 = icmp eq i32 %34, 0
   br i1 %.not33, label %36, label %35
@@ -630,7 +630,7 @@ define range(i32 -101, 1) i32 @IDASpgmrB(ptr noundef %0, i32 noundef %1, i32 nou
 ; Function Attrs: mustprogress nounwind willreturn uwtable
 define internal void @IDASpgmrFreeB(ptr noundef readonly captures(none) %0) #6 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %3 = load ptr, ptr %2, align 8, !tbaa !91
+  %3 = load ptr, ptr %2, align 8, !tbaa !90
   tail call void @free(ptr noundef %3) #8
   ret void
 }
@@ -746,14 +746,13 @@ attributes #9 = { nounwind allocsize(0) }
 !80 = !{!81, !9, i64 0}
 !81 = !{!"IDABMemRec", !9, i64 0, !5, i64 8, !82, i64 16, !9, i64 24, !9, i64 28, !8, i64 32, !8, i64 40, !8, i64 48, !8, i64 56, !8, i64 64, !8, i64 72, !8, i64 80, !8, i64 88, !8, i64 96, !5, i64 104, !10, i64 112, !10, i64 120, !76, i64 128}
 !82 = !{!"p1 _ZTS9IDAMemRec", !8, i64 0}
-!83 = distinct !{!83, !84, !85}
+!83 = distinct !{!83, !84}
 !84 = !{!"llvm.loop.mustprogress"}
-!85 = !{!"llvm.loop.estimated_trip_count"}
-!86 = !{!87, !8, i64 16}
-!87 = !{!"IDASpilsMemRecB", !8, i64 0, !8, i64 8, !8, i64 16, !8, i64 24, !8, i64 32, !8, i64 40, !8, i64 48}
-!88 = !{!87, !8, i64 32}
-!89 = !{!87, !8, i64 48}
-!90 = !{!87, !8, i64 0}
-!91 = !{!81, !8, i64 72}
-!92 = !{!81, !8, i64 80}
-!93 = !{!81, !82, i64 16}
+!85 = !{!86, !8, i64 16}
+!86 = !{!"IDASpilsMemRecB", !8, i64 0, !8, i64 8, !8, i64 16, !8, i64 24, !8, i64 32, !8, i64 40, !8, i64 48}
+!87 = !{!86, !8, i64 32}
+!88 = !{!86, !8, i64 48}
+!89 = !{!86, !8, i64 0}
+!90 = !{!81, !8, i64 72}
+!91 = !{!81, !8, i64 80}
+!92 = !{!81, !82, i64 16}

@@ -113,9 +113,9 @@ define internal range(i32 -1094995529, 1) i32 @hcom_init(ptr noundef %0) #0 {
 
 56:                                               ; preds = %.critedge
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 348
-  store i32 0, ptr %57, align 4, !tbaa !46
+  store i32 0, ptr %57, align 4, !tbaa !45
   %58 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store i32 0, ptr %58, align 8, !tbaa !47
+  store i32 0, ptr %58, align 8, !tbaa !46
   br label %.loopexit
 
 .loopexit:                                        ; preds = %50, %.critedge, %22, %11, %7, %56, %6
@@ -128,22 +128,22 @@ define internal i32 @hcom_decode(ptr noundef %0, ptr noundef %1, ptr noundef wri
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %6 = load ptr, ptr %5, align 8, !tbaa !4
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  %8 = load i32, ptr %7, align 8, !tbaa !48
+  %8 = load i32, ptr %7, align 8, !tbaa !47
   %9 = icmp sgt i32 %8, 32767
   br i1 %9, label %56, label %10
 
 10:                                               ; preds = %4
   %11 = shl nsw i32 %8, 3
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 112
-  store i32 %11, ptr %12, align 8, !tbaa !50
+  store i32 %11, ptr %12, align 8, !tbaa !49
   %13 = tail call i32 @ff_get_buffer(ptr noundef nonnull %0, ptr noundef %1, i32 noundef 0) #4
   %14 = icmp slt i32 %13, 0
   br i1 %14, label %56, label %15
 
 15:                                               ; preds = %10
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %17 = load ptr, ptr %16, align 8, !tbaa !55
-  %18 = load i32, ptr %7, align 8, !tbaa !48
+  %17 = load ptr, ptr %16, align 8, !tbaa !54
+  %18 = load i32, ptr %7, align 8, !tbaa !47
   %or.cond.i = icmp ugt i32 %18, 268435455
   %19 = shl nuw nsw i32 %18, 3
   %20 = select i1 %or.cond.i, i32 -8, i32 %19
@@ -177,14 +177,14 @@ define internal i32 @hcom_decode(ptr noundef %0, ptr noundef %1, ptr noundef wri
   %34 = and i32 %33, %31
   %.not = icmp eq i32 %34, 0
   %35 = load ptr, ptr %22, align 8, !tbaa !38
-  %36 = load i32, ptr %23, align 8, !tbaa !47
+  %36 = load i32, ptr %23, align 8, !tbaa !46
   %37 = sext i32 %36 to i64
   %38 = getelementptr inbounds %struct.HEntry, ptr %35, i64 %37, i32 1
   %39 = getelementptr inbounds %struct.HEntry, ptr %35, i64 %37
   %storemerge.in.in = select i1 %.not, ptr %39, ptr %38
-  %storemerge.in = load i16, ptr %storemerge.in.in, align 2, !tbaa !56
+  %storemerge.in = load i16, ptr %storemerge.in.in, align 2, !tbaa !55
   %storemerge = sext i16 %storemerge.in to i32
-  store i32 %storemerge, ptr %23, align 8, !tbaa !47
+  store i32 %storemerge, ptr %23, align 8, !tbaa !46
   %40 = sext i16 %storemerge.in to i64
   %41 = getelementptr inbounds %struct.HEntry, ptr %35, i64 %40
   %42 = load i16, ptr %41, align 2, !tbaa !39
@@ -207,24 +207,24 @@ define internal i32 @hcom_decode(ptr noundef %0, ptr noundef %1, ptr noundef wri
   %.tr = trunc i16 %46 to i8
   %.narrow = add i8 %49, %.tr
   store i8 %.narrow, ptr %25, align 1, !tbaa !37
-  %50 = load ptr, ptr %1, align 8, !tbaa !57
+  %50 = load ptr, ptr %1, align 8, !tbaa !56
   %51 = add nsw i32 %.03342, 1
   %52 = sext i32 %.03342 to i64
   %53 = getelementptr inbounds i8, ptr %50, i64 %52
   store i8 %.narrow, ptr %53, align 1, !tbaa !30
-  store i32 0, ptr %23, align 8, !tbaa !47
+  store i32 0, ptr %23, align 8, !tbaa !46
   br label %54
 
 54:                                               ; preds = %48, %26
   %.1 = phi i32 [ %51, %48 ], [ %.03342, %26 ]
   %exitcond.not45 = icmp eq i32 %20, %spec.select.i
-  br i1 %exitcond.not45, label %._crit_edge, label %26, !llvm.loop !58
+  br i1 %exitcond.not45, label %._crit_edge, label %26, !llvm.loop !57
 
 ._crit_edge:                                      ; preds = %54, %.preheader
   %.033.lcssa = phi i32 [ 0, %.preheader ], [ %.1, %54 ]
-  store i32 %.033.lcssa, ptr %12, align 8, !tbaa !50
-  store i32 1, ptr %2, align 4, !tbaa !59
-  %55 = load i32, ptr %7, align 8, !tbaa !48
+  store i32 %.033.lcssa, ptr %12, align 8, !tbaa !49
+  store i32 1, ptr %2, align 4, !tbaa !58
+  %55 = load i32, ptr %7, align 8, !tbaa !47
   br label %56
 
 56:                                               ; preds = %15, %10, %4, %._crit_edge
@@ -306,20 +306,19 @@ attributes #4 = { nounwind }
 !40 = !{!"HEntry", !41, i64 0, !41, i64 2}
 !41 = !{!"short", !8, i64 0}
 !42 = !{!40, !41, i64 2}
-!43 = distinct !{!43, !44, !45}
+!43 = distinct !{!43, !44}
 !44 = !{!"llvm.loop.mustprogress"}
-!45 = !{!"llvm.loop.estimated_trip_count"}
-!46 = !{!5, !10, i64 348}
-!47 = !{!32, !10, i64 16}
-!48 = !{!49, !10, i64 32}
-!49 = !{!"AVPacket", !21, i64 0, !13, i64 8, !13, i64 16, !14, i64 24, !10, i64 32, !10, i64 36, !10, i64 40, !23, i64 48, !10, i64 56, !13, i64 64, !13, i64 72, !7, i64 80, !21, i64 88, !15, i64 96}
-!50 = !{!51, !10, i64 112}
-!51 = !{!"AVFrame", !8, i64 0, !8, i64 64, !52, i64 96, !10, i64 104, !10, i64 108, !10, i64 112, !10, i64 116, !10, i64 120, !15, i64 124, !13, i64 136, !13, i64 144, !15, i64 152, !10, i64 160, !7, i64 168, !10, i64 176, !10, i64 180, !8, i64 184, !53, i64 248, !10, i64 256, !25, i64 264, !10, i64 272, !10, i64 276, !10, i64 280, !10, i64 284, !10, i64 288, !10, i64 292, !10, i64 296, !13, i64 304, !54, i64 312, !10, i64 320, !21, i64 328, !21, i64 336, !13, i64 344, !13, i64 352, !13, i64 360, !13, i64 368, !7, i64 376, !18, i64 384, !13, i64 408}
-!52 = !{!"p2 omnipotent char", !26, i64 0}
-!53 = !{!"p2 _ZTS11AVBufferRef", !26, i64 0}
-!54 = !{!"p1 _ZTS12AVDictionary", !7, i64 0}
-!55 = !{!49, !14, i64 24}
-!56 = !{!41, !41, i64 0}
-!57 = !{!14, !14, i64 0}
-!58 = distinct !{!58, !44, !45}
-!59 = !{!10, !10, i64 0}
+!45 = !{!5, !10, i64 348}
+!46 = !{!32, !10, i64 16}
+!47 = !{!48, !10, i64 32}
+!48 = !{!"AVPacket", !21, i64 0, !13, i64 8, !13, i64 16, !14, i64 24, !10, i64 32, !10, i64 36, !10, i64 40, !23, i64 48, !10, i64 56, !13, i64 64, !13, i64 72, !7, i64 80, !21, i64 88, !15, i64 96}
+!49 = !{!50, !10, i64 112}
+!50 = !{!"AVFrame", !8, i64 0, !8, i64 64, !51, i64 96, !10, i64 104, !10, i64 108, !10, i64 112, !10, i64 116, !10, i64 120, !15, i64 124, !13, i64 136, !13, i64 144, !15, i64 152, !10, i64 160, !7, i64 168, !10, i64 176, !10, i64 180, !8, i64 184, !52, i64 248, !10, i64 256, !25, i64 264, !10, i64 272, !10, i64 276, !10, i64 280, !10, i64 284, !10, i64 288, !10, i64 292, !10, i64 296, !13, i64 304, !53, i64 312, !10, i64 320, !21, i64 328, !21, i64 336, !13, i64 344, !13, i64 352, !13, i64 360, !13, i64 368, !7, i64 376, !18, i64 384, !13, i64 408}
+!51 = !{!"p2 omnipotent char", !26, i64 0}
+!52 = !{!"p2 _ZTS11AVBufferRef", !26, i64 0}
+!53 = !{!"p1 _ZTS12AVDictionary", !7, i64 0}
+!54 = !{!48, !14, i64 24}
+!55 = !{!41, !41, i64 0}
+!56 = !{!14, !14, i64 0}
+!57 = distinct !{!57, !44}
+!58 = !{!10, !10, i64 0}

@@ -30624,7 +30624,7 @@ lean_inc.exit17:                                  ; preds = %31, %30, %28, %lean
 
 lean_dec.exit20:                                  ; preds = %38, %37, %35, %lean_inc.exit17
   %39 = tail call ptr @lean_array_push(ptr noundef %.016.ph, ptr noundef %13) #6
-  br label %.outer, !llvm.loop !19
+  br label %.outer
 
 40:                                               ; preds = %lean_obj_tag.exit
   %41 = getelementptr inbounds nuw i8, ptr %.0, i64 16
@@ -30674,7 +30674,7 @@ lean_inc.exit:                                    ; preds = %50, %49, %47, %40
   br label %lean_dec.exit19.backedge
 
 lean_dec.exit19.backedge:                         ; preds = %57, %56, %54, %lean_inc.exit
-  br label %lean_dec.exit19, !llvm.loop !19
+  br label %lean_dec.exit19
 
 58:                                               ; preds = %lean_obj_tag.exit
   br i1 %.not.i25, label %59, label %lean_dec.exit
@@ -45436,7 +45436,7 @@ lean_dec.exit:                                    ; preds = %lean_dec.exit.backe
   %32 = and i64 %31, 1
   %33 = icmp ne i64 %32, 0
   %or.cond = select i1 %30, i1 %33, i1 false
-  br i1 %or.cond, label %lean_nat_lt.exit.thread, label %lean_nat_lt.exit, !prof !21
+  br i1 %or.cond, label %lean_nat_lt.exit.thread, label %lean_nat_lt.exit, !prof !19
 
 lean_nat_lt.exit:                                 ; preds = %lean_dec.exit
   %34 = tail call zeroext i1 @lean_nat_big_lt(ptr noundef %.0297, ptr noundef %27) #6
@@ -68352,7 +68352,7 @@ lean_array_set.exit.thread:                       ; preds = %lean_ensure_exclusi
 lean_dec.exit514.backedge:                        ; preds = %77, %79, %89, %88, %86
   %.0369.be = phi ptr [ %81, %79 ], [ %83, %86 ], [ %83, %88 ], [ %83, %89 ], [ inttoptr (i64 1 to ptr), %77 ]
   %.0368.be = phi ptr [ %.1.i670923, %79 ], [ %82, %86 ], [ %82, %88 ], [ %82, %89 ], [ %.1.i670923, %77 ]
-  br label %lean_dec.exit514, !llvm.loop !22
+  br label %lean_dec.exit514
 
 79:                                               ; preds = %77
   %80 = add i64 %54, -2
@@ -73018,7 +73018,7 @@ lean_inc.exit284:                                 ; preds = %132, %131, %129, %l
 lean_inc.exit283:                                 ; preds = %144, %143, %141, %lean_inc.exit284
   %145 = and i64 %44, %53
   %brmerge.not.not = icmp eq i64 %145, 0
-  br i1 %brmerge.not.not, label %lean_nat_eq.exit, label %146, !prof !23
+  br i1 %brmerge.not.not, label %lean_nat_eq.exit, label %146, !prof !20
 
 146:                                              ; preds = %lean_inc.exit283
   %147 = icmp eq ptr %42, %52
@@ -108700,8 +108700,5 @@ attributes #7 = { noreturn nounwind }
 !16 = !{!17, !17, i64 0}
 !17 = !{!"short", !7, i64 0}
 !18 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!19 = distinct !{!19, !20}
-!20 = !{!"llvm.loop.estimated_trip_count"}
-!21 = !{!"branch_weights", i32 4000000, i32 4001}
-!22 = distinct !{!22, !20}
-!23 = !{!"branch_weights", i32 4001, i32 4000000}
+!19 = !{!"branch_weights", i32 4000000, i32 4001}
+!20 = !{!"branch_weights", i32 4001, i32 4000000}

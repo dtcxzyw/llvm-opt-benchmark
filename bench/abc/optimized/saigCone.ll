@@ -275,7 +275,7 @@ Saig_ManSupport.exit:
 37:                                               ; preds = %33
   %indvars.iv.next.i46 = add nuw nsw i64 %indvars.iv.i45, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i46, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %Vec_PtrFind.exit.thread, label %33, !llvm.loop !36
+  br i1 %exitcond.not.i, label %Vec_PtrFind.exit.thread, label %33, !llvm.loop !35
 
 Vec_PtrFind.exit.thread:                          ; preds = %37, %27
   %38 = load i32, ptr %16, align 8, !tbaa !30
@@ -362,7 +362,7 @@ Vec_PtrFind.exit:                                 ; preds = %33
 72:                                               ; preds = %68
   %indvars.iv.next.i58 = add nuw nsw i64 %indvars.iv.i57, 1
   %exitcond.not.i59 = icmp eq i64 %indvars.iv.next.i58, %wide.trip.count.i56
-  br i1 %exitcond.not.i59, label %Vec_PtrFind.exit61.thread, label %68, !llvm.loop !36
+  br i1 %exitcond.not.i59, label %Vec_PtrFind.exit61.thread, label %68, !llvm.loop !35
 
 Vec_PtrFind.exit61:                               ; preds = %68
   %73 = add nsw i32 %.03381, 1
@@ -381,7 +381,7 @@ Vec_PtrFind.exit61.thread:                        ; preds = %72, %Vec_PtrFind.ex
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %77 = sext i32 %.039.val43 to i64
   %78 = icmp slt i64 %indvars.iv.next, %77
-  br i1 %78, label %27, label %.critedge, !llvm.loop !37
+  br i1 %78, label %27, label %.critedge, !llvm.loop !36
 
 .critedge:                                        ; preds = %75
   %79 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1, i32 noundef %.038115, i32 noundef %76, i32 noundef %.039.val43, i32 noundef %.136, i32 noundef %.134, i32 noundef %.1)
@@ -439,7 +439,7 @@ Saig_ManSupport.exit69:                           ; preds = %91, %Vec_PtrFree.ex
   %101 = getelementptr i8, ptr %85, i64 4
   %.039.val4378 = load i32, ptr %101, align 4, !tbaa !29
   %102 = icmp sgt i32 %.039.val4378, 0
-  br i1 %102, label %.lr.ph, label %.critedge.thread, !llvm.loop !38
+  br i1 %102, label %.lr.ph, label %.critedge.thread
 
 .loopexit:                                        ; preds = %.critedge, %.critedge.thread
   %.040109 = phi ptr [ %.040.lcssa, %.critedge.thread ], [ %.040113, %.critedge ]
@@ -514,7 +514,7 @@ define void @Saig_ManPrintCones(ptr noundef %0) local_unnamed_addr #0 {
   %.val = load i32, ptr %2, align 8, !tbaa !25
   %10 = sext i32 %.val to i64
   %11 = icmp slt i64 %indvars.iv.next, %10
-  br i1 %11, label %5, label %.critedge, !llvm.loop !39
+  br i1 %11, label %5, label %.critedge, !llvm.loop !37
 
 .critedge:                                        ; preds = %5, %1
   ret void
@@ -583,10 +583,8 @@ attributes #9 = { nounwind }
 !30 = !{!27, !12, i64 0}
 !31 = !{!11, !10, i64 8}
 !32 = !{!11, !10, i64 16}
-!33 = distinct !{!33, !34, !35}
+!33 = distinct !{!33, !34}
 !34 = !{!"llvm.loop.mustprogress"}
-!35 = !{!"llvm.loop.estimated_trip_count"}
-!36 = distinct !{!36, !34, !35}
-!37 = distinct !{!37, !34, !35}
-!38 = distinct !{!38, !35}
-!39 = distinct !{!39, !34, !35}
+!35 = distinct !{!35, !34}
+!36 = distinct !{!36, !34}
+!37 = distinct !{!37, !34}

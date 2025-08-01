@@ -588,7 +588,7 @@ define noundef zeroext i1 @_ZN10open_spiel4file6MkdirsERKNSt7__cxx1112basic_stri
 
 .backedge:                                        ; preds = %15, %12
   %.not = icmp eq i64 %8, -1
-  br i1 %.not, label %18, label %6, !llvm.loop !7
+  br i1 %.not, label %18, label %6
 
 18:                                               ; preds = %12, %.backedge, %15
   %.not.lcssa = phi i1 [ false, %12 ], [ true, %.backedge ], [ false, %15 ]
@@ -940,5 +940,3 @@ attributes #20 = { noreturn nounwind }
 !4 = !{!5}
 !5 = distinct !{!5, !6, !"_ZN10open_spiel4file4File12ReadContentsB5cxx11Ev: argument 0"}
 !6 = distinct !{!6, !"_ZN10open_spiel4file4File12ReadContentsB5cxx11Ev"}
-!7 = distinct !{!7, !8}
-!8 = !{!"llvm.loop.estimated_trip_count"}

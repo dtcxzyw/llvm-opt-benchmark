@@ -533,7 +533,7 @@ assign_fph_pch.exit.i:                            ; preds = %44, %switch.lookup
   store i32 %220, ptr %221, align 4
   %indvars.iv.next79.i.i = add nuw nsw i64 %indvars.iv78.i.i, 1
   %exitcond85.i.i = icmp eq i64 %indvars.iv.next79.i.i, 16
-  br i1 %exitcond85.i.i, label %.split67.us.i.i, label %.split.us.i.i, !llvm.loop !9
+  br i1 %exitcond85.i.i, label %.split67.us.i.i, label %.split.us.i.i, !llvm.loop !8
 
 .split.i.i:                                       ; preds = %222, %.split.preheader.i.i
   %indvars.iv74.i53.i = phi i32 [ 6, %.split.preheader.i.i ], [ %indvars.iv.next75.i55.i, %222 ]
@@ -567,7 +567,7 @@ assign_fph_pch.exit.i:                            ; preds = %44, %switch.lookup
   %242 = tail call ptr @proto_tree_add_uint(ptr noundef %234, i32 noundef %241, ptr noundef %0, i32 noundef %225, i32 noundef 2, i32 noundef %229)
   %indvars.iv.next.i56.i = add nuw nsw i64 %indvars.iv.i54.i, 1
   %exitcond77.i.i = icmp eq i64 %indvars.iv.next.i56.i, 16
-  br i1 %exitcond77.i.i, label %.split67.us.i.i, label %.split.i.i, !llvm.loop !11
+  br i1 %exitcond77.i.i, label %.split67.us.i.i, label %.split.i.i, !llvm.loop !10
 
 .split67.us.i.i:                                  ; preds = %222, %213
   %.us-phi68.in.i.i = phi i32 [ %indvars.iv.next81.i.i, %213 ], [ %indvars.iv.next75.i55.i, %222 ]
@@ -857,7 +857,7 @@ define internal fastcc void @assign_rb_info(ptr noundef %0, ptr noundef %1, i16 
   %90 = add i16 %.099119, 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond125.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond125.not, label %.loopexit, label %30, !llvm.loop !12
+  br i1 %exitcond125.not, label %.loopexit, label %30, !llvm.loop !11
 
 .loopexit:                                        ; preds = %89, %23, %43
   ret void
@@ -894,10 +894,9 @@ attributes #6 = { allocsize(1) }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8, !10}
-!10 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!11 = distinct !{!11, !7, !8}
-!12 = distinct !{!12, !7, !8}
+!8 = distinct !{!8, !7, !9}
+!9 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7}

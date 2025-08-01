@@ -742,6 +742,5 @@ attributes #15 = { noreturn nounwind }
 !42 = !{!"p1 _ZTSSt18_Rb_tree_node_base", !6, i64 0}
 !43 = !{!40, !42, i64 24}
 !44 = !{!40, !42, i64 16}
-!45 = distinct !{!45, !46, !47}
+!45 = distinct !{!45, !46}
 !46 = !{!"llvm.loop.mustprogress"}
-!47 = !{!"llvm.loop.estimated_trip_count"}

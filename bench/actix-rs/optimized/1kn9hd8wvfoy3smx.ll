@@ -439,7 +439,7 @@ define void @_ZN12actix_router8resource11ResourceDef9construct17h4b8687ea9f67f5c
   br i1 %96, label %.backedge.backedge, label %97
 
 .backedge.backedge:                               ; preds = %94, %97
-  br label %.backedge, !llvm.loop !17
+  br label %.backedge
 
 97:                                               ; preds = %94
   invoke void @"_ZN4core3ptr56drop_in_place$LT$actix_router..resource..PatternType$GT$17hb44f31963d9d9ec3E"(ptr nonnull align 8 %12)
@@ -771,7 +771,7 @@ define void @_ZN12actix_router8resource11ResourceDef9construct17h758f8b4bbe8a00a
   br i1 %98, label %.backedge.backedge, label %99
 
 .backedge.backedge:                               ; preds = %96, %99
-  br label %.backedge, !llvm.loop !19
+  br label %.backedge
 
 99:                                               ; preds = %96
   invoke void @"_ZN4core3ptr56drop_in_place$LT$actix_router..resource..PatternType$GT$17hb44f31963d9d9ec3E"(ptr nonnull align 8 %12)
@@ -1106,7 +1106,7 @@ define void @_ZN12actix_router8resource11ResourceDef9construct17h97be0ed74b84f23
   br i1 %98, label %.backedge.backedge, label %99
 
 .backedge.backedge:                               ; preds = %96, %99
-  br label %.backedge, !llvm.loop !20
+  br label %.backedge
 
 99:                                               ; preds = %96
   invoke void @"_ZN4core3ptr56drop_in_place$LT$actix_router..resource..PatternType$GT$17hb44f31963d9d9ec3E"(ptr nonnull align 8 %12)
@@ -1434,7 +1434,7 @@ define void @_ZN12actix_router8resource11ResourceDef9construct17hbf01b9ee8547d56
   br i1 %98, label %.backedge.backedge, label %99
 
 .backedge.backedge:                               ; preds = %96, %99
-  br label %.backedge, !llvm.loop !21
+  br label %.backedge
 
 99:                                               ; preds = %96
   invoke void @"_ZN4core3ptr56drop_in_place$LT$actix_router..resource..PatternType$GT$17hb44f31963d9d9ec3E"(ptr nonnull align 8 %13)
@@ -1525,7 +1525,7 @@ define hidden void @"_ZN12actix_router8resource11ResourceDef5parse28_$u7b$$u7b$c
   %8 = load ptr, ptr @_ZN12actix_router8resource11ResourceDef5parse10__CALLSITE17h0a82d0b112dcb714E, align 8, !nonnull !3, !align !11, !noundef !3
   tail call void @_ZN12tracing_core5event5Event8dispatch17h353e27ce600df890E(ptr nonnull align 8 %8, ptr align 8 %1)
   store i64 2, ptr %7, align 8
-  %9 = call i8 @"_ZN76_$LT$log..Level$u20$as$u20$core..cmp..PartialOrd$LT$log..LevelFilter$GT$$GT$11partial_cmp17h20fe3f03bad0919fE"(ptr nonnull align 8 %7, ptr nonnull align 8 @anon.cd780be17f47d01eb0baa4c39ee3792c.4), !range !22
+  %9 = call i8 @"_ZN76_$LT$log..Level$u20$as$u20$core..cmp..PartialOrd$LT$log..LevelFilter$GT$$GT$11partial_cmp17h20fe3f03bad0919fE"(ptr nonnull align 8 %7, ptr nonnull align 8 @anon.cd780be17f47d01eb0baa4c39ee3792c.4), !range !17
   switch i8 %9, label %12 [
     i8 0, label %.critedge
     i8 -1, label %.critedge
@@ -1543,7 +1543,7 @@ define hidden void @"_ZN12actix_router8resource11ResourceDef5parse28_$u7b$$u7b$c
   store i64 2, ptr %6, align 8
   %14 = call i64 @_ZN4core4sync6atomic11atomic_load17h3f924b1c8dcdc7f4E(ptr nonnull @_ZN3log20MAX_LOG_LEVEL_FILTER17h80d64c2d11ed85cbE, i8 0)
   store i64 %14, ptr %5, align 8
-  %15 = call i8 @"_ZN76_$LT$log..Level$u20$as$u20$core..cmp..PartialOrd$LT$log..LevelFilter$GT$$GT$11partial_cmp17h20fe3f03bad0919fE"(ptr nonnull align 8 %6, ptr nonnull align 8 %5), !range !22
+  %15 = call i8 @"_ZN76_$LT$log..Level$u20$as$u20$core..cmp..PartialOrd$LT$log..LevelFilter$GT$$GT$11partial_cmp17h20fe3f03bad0919fE"(ptr nonnull align 8 %6, ptr nonnull align 8 %5), !range !17
   switch i8 %15, label %12 [
     i8 0, label %.critedge10
     i8 -1, label %.critedge10
@@ -1551,7 +1551,7 @@ define hidden void @"_ZN12actix_router8resource11ResourceDef5parse28_$u7b$$u7b$c
 
 .critedge10:                                      ; preds = %13, %13
   %16 = load ptr, ptr @_ZN12actix_router8resource11ResourceDef5parse10__CALLSITE17h0a82d0b112dcb714E, align 8, !nonnull !3, !align !11, !noundef !3
-  %17 = load i64, ptr %6, align 8, !range !23, !noundef !3
+  %17 = load i64, ptr %6, align 8, !range !18, !noundef !3
   %18 = getelementptr inbounds nuw i8, ptr %16, i64 32
   %19 = load ptr, ptr %18, align 8, !nonnull !3, !align !7, !noundef !3
   %20 = getelementptr inbounds nuw i8, ptr %16, i64 40
@@ -1585,7 +1585,7 @@ define hidden void @"_ZN12actix_router8resource11ResourceDef5parse28_$u7b$$u7b$c
   %8 = load ptr, ptr @_ZN12actix_router8resource11ResourceDef5parse10__CALLSITE17hd8341e3515fb854cE, align 8, !nonnull !3, !align !11, !noundef !3
   tail call void @_ZN12tracing_core5event5Event8dispatch17h353e27ce600df890E(ptr nonnull align 8 %8, ptr align 8 %1)
   store i64 2, ptr %7, align 8
-  %9 = call i8 @"_ZN76_$LT$log..Level$u20$as$u20$core..cmp..PartialOrd$LT$log..LevelFilter$GT$$GT$11partial_cmp17h20fe3f03bad0919fE"(ptr nonnull align 8 %7, ptr nonnull align 8 @anon.cd780be17f47d01eb0baa4c39ee3792c.4), !range !22
+  %9 = call i8 @"_ZN76_$LT$log..Level$u20$as$u20$core..cmp..PartialOrd$LT$log..LevelFilter$GT$$GT$11partial_cmp17h20fe3f03bad0919fE"(ptr nonnull align 8 %7, ptr nonnull align 8 @anon.cd780be17f47d01eb0baa4c39ee3792c.4), !range !17
   switch i8 %9, label %12 [
     i8 0, label %.critedge
     i8 -1, label %.critedge
@@ -1603,7 +1603,7 @@ define hidden void @"_ZN12actix_router8resource11ResourceDef5parse28_$u7b$$u7b$c
   store i64 2, ptr %6, align 8
   %14 = call i64 @_ZN4core4sync6atomic11atomic_load17h3f924b1c8dcdc7f4E(ptr nonnull @_ZN3log20MAX_LOG_LEVEL_FILTER17h80d64c2d11ed85cbE, i8 0)
   store i64 %14, ptr %5, align 8
-  %15 = call i8 @"_ZN76_$LT$log..Level$u20$as$u20$core..cmp..PartialOrd$LT$log..LevelFilter$GT$$GT$11partial_cmp17h20fe3f03bad0919fE"(ptr nonnull align 8 %6, ptr nonnull align 8 %5), !range !22
+  %15 = call i8 @"_ZN76_$LT$log..Level$u20$as$u20$core..cmp..PartialOrd$LT$log..LevelFilter$GT$$GT$11partial_cmp17h20fe3f03bad0919fE"(ptr nonnull align 8 %6, ptr nonnull align 8 %5), !range !17
   switch i8 %15, label %12 [
     i8 0, label %.critedge10
     i8 -1, label %.critedge10
@@ -1611,7 +1611,7 @@ define hidden void @"_ZN12actix_router8resource11ResourceDef5parse28_$u7b$$u7b$c
 
 .critedge10:                                      ; preds = %13, %13
   %16 = load ptr, ptr @_ZN12actix_router8resource11ResourceDef5parse10__CALLSITE17hd8341e3515fb854cE, align 8, !nonnull !3, !align !11, !noundef !3
-  %17 = load i64, ptr %6, align 8, !range !23, !noundef !3
+  %17 = load i64, ptr %6, align 8, !range !18, !noundef !3
   %18 = getelementptr inbounds nuw i8, ptr %16, i64 32
   %19 = load ptr, ptr %18, align 8, !nonnull !3, !align !7, !noundef !3
   %20 = getelementptr inbounds nuw i8, ptr %16, i64 40
@@ -1794,10 +1794,5 @@ attributes #14 = { noreturn }
 !14 = distinct !{!14, !"_ZN12actix_router8resource11ResourceDef4join28_$u7b$$u7b$closure$u7d$$u7d$17hae63201d70cc5a14E"}
 !15 = !{i64 0, i64 2}
 !16 = !{i64 0, i64 3}
-!17 = distinct !{!17, !18}
-!18 = !{!"llvm.loop.estimated_trip_count"}
-!19 = distinct !{!19, !18}
-!20 = distinct !{!20, !18}
-!21 = distinct !{!21, !18}
-!22 = !{i8 -1, i8 3}
-!23 = !{i64 1, i64 6}
+!17 = !{i8 -1, i8 3}
+!18 = !{i64 1, i64 6}

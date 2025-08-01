@@ -1868,7 +1868,7 @@ define internal void @latitude_or_longitude_resolution(ptr noundef %0, i8 nounde
   %12 = fmul double %.11621, 5.000000e-01
   %13 = add nsw i32 %.122, 1
   %exitcond.not = icmp eq i32 %13, 0
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph23, !llvm.loop !9
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph23, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %.lr.ph23, %.preheader
   %.116.lcssa = phi double [ %.015.lcssa, %.preheader ], [ %12, %.lr.ph23 ]
@@ -1955,7 +1955,7 @@ define internal void @altitude_resolution(ptr noundef %0, i8 noundef zeroext %1)
   %9 = fmul double %.01518, 2.000000e+00
   %10 = add nsw i32 %.01419, -1
   %11 = icmp sgt i32 %.01419, 1
-  br i1 %11, label %.lr.ph, label %.preheader.loopexit, !llvm.loop !10
+  br i1 %11, label %.lr.ph, label %.preheader.loopexit, !llvm.loop !9
 
 .lr.ph23:                                         ; preds = %.preheader, %.lr.ph23
   %.122 = phi i32 [ %13, %.lr.ph23 ], [ %.014.lcssa, %.preheader ]
@@ -1963,7 +1963,7 @@ define internal void @altitude_resolution(ptr noundef %0, i8 noundef zeroext %1)
   %12 = fmul double %.11621, 5.000000e-01
   %13 = add nsw i32 %.122, 1
   %exitcond.not = icmp eq i32 %13, 0
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph23, !llvm.loop !11
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph23, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %.lr.ph23, %.preheader
   %.116.lcssa = phi double [ %.015.lcssa, %.preheader ], [ %12, %.lr.ph23 ]
@@ -2757,7 +2757,7 @@ dissect_lldp_system_name.exit:                    ; preds = %113, %118, %.sink.s
   br label %dissect_lldp_end_of_lldpdu.exit
 
 405:                                              ; preds = %48
-  %406 = load i8, ptr @assume_unrecognized_tlv, align 1, !range !12, !noundef !13
+  %406 = load i8, ptr @assume_unrecognized_tlv, align 1, !range !11, !noundef !12
   %407 = trunc nuw i8 %406 to i1
   br i1 %407, label %408, label %dissect_lldp_end_of_lldpdu.exit
 
@@ -2798,7 +2798,7 @@ dissect_lldp_end_of_lldpdu.exit:                  ; preds = %403, %380, %237, %2
 428:                                              ; preds = %426
   %429 = add i32 %.0115, %.0116
   %430 = icmp ult i16 %49, 512
-  br i1 %430, label %431, label %46, !llvm.loop !14
+  br i1 %430, label %431, label %46, !llvm.loop !13
 
 431:                                              ; preds = %428, %426, %46
   %.1 = phi i32 [ %.0116, %426 ], [ %429, %428 ], [ %.0116, %46 ]
@@ -3638,7 +3638,7 @@ switch.lookup:                                    ; preds = %.lr.ph8
 136:                                              ; preds = %137
   %indvars.iv.next = add nuw nsw i32 %indvars.iv, 1
   %exitcond.not = icmp eq i32 %indvars.iv.next, 8
-  br i1 %exitcond.not, label %.loopexit, label %137, !llvm.loop !15
+  br i1 %exitcond.not, label %.loopexit, label %137, !llvm.loop !14
 
 137:                                              ; preds = %.lr.ph, %136
   %indvars.iv = phi i32 [ 0, %.lr.ph ], [ %indvars.iv.next, %136 ]
@@ -3655,7 +3655,7 @@ switch.lookup:                                    ; preds = %.lr.ph8
 .loopexit:                                        ; preds = %136, %140
   %143 = add i32 %.25, 6
   %.not = icmp eq i8 %120, 0
-  br i1 %.not, label %.loopexit1, label %.lr.ph, !llvm.loop !16
+  br i1 %.not, label %.loopexit1, label %.lr.ph, !llvm.loop !15
 
 144:                                              ; preds = %39
   %145 = load i32, ptr @hf_dcbx_feature_flag_llink_type, align 4
@@ -3667,7 +3667,7 @@ switch.lookup:                                    ; preds = %.lr.ph8
   %.1201 = phi i32 [ %38, %32 ], [ %49, %39 ], [ %95, %50 ], [ %116, %96 ], [ %147, %144 ], [ %49, %117 ], [ %143, %.loopexit ]
   %148 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.1201)
   %.not12 = icmp eq i32 %148, 0
-  br i1 %.not12, label %._crit_edge, label %.lr.ph8, !llvm.loop !17
+  br i1 %.not12, label %._crit_edge, label %.lr.ph8, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %.loopexit1, %2
   ret void
@@ -3954,7 +3954,7 @@ define internal fastcc void @dissect_ieee_802_1_tlv(ptr noundef %0, ptr noundef 
   %235 = tail call ptr @proto_tree_add_item(ptr noundef %229, i32 noundef %234, ptr noundef %0, i32 noundef %224, i32 noundef 2, i32 noundef 0)
   %236 = add nuw nsw i32 %.12, 3
   %.not = icmp eq i16 %223, 0
-  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !18
+  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !17
 
 .loopexit:                                        ; preds = %.lr.ph, %217, %30, %34, %20, %26, %194, %143, %84, %51, %38, %9, %6, %2
   ret void
@@ -4444,7 +4444,7 @@ define internal fastcc void @dissect_media_tlv(ptr noundef %0, ptr noundef %1, p
   %.1274 = phi i32 [ %143, %140 ], [ %135, %139 ]
   %.1 = phi i32 [ %144, %140 ], [ %136, %139 ]
   %.not305 = icmp eq i32 %.1, 0
-  br i1 %.not305, label %.loopexit, label %.lr.ph, !llvm.loop !19
+  br i1 %.not305, label %.loopexit, label %.lr.ph, !llvm.loop !18
 
 146:                                              ; preds = %66
   %.not304 = icmp eq i16 %70, 0
@@ -4576,7 +4576,7 @@ define internal fastcc void @dissect_profinet_tlv(ptr noundef %0, ptr noundef re
 
 12:                                               ; preds = %4
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %14 = load i8, ptr %13, align 8, !range !12, !noundef !13
+  %14 = load i8, ptr %13, align 8, !range !11, !noundef !12
   %.not.not.i = icmp eq i8 %14, 0
   br i1 %.not.not.i, label %15, label %set_name_of_station_for_profinet_specialized_column_info.exit
 
@@ -4647,7 +4647,7 @@ define internal fastcc void @dissect_profinet_tlv(ptr noundef %0, ptr noundef re
 
 set_name_of_station_for_profinet_specialized_column_info.exit: ; preds = %12, %19, %32, %.sink.split.i.i, %39, %.sink.split.i22.i
   %43 = getelementptr inbounds nuw i8, ptr %3, i64 25
-  %44 = load i8, ptr %43, align 1, !range !12, !noundef !13
+  %44 = load i8, ptr %43, align 1, !range !11, !noundef !12
   %.not.not.i153 = icmp eq i8 %44, 0
   br i1 %.not.not.i153, label %45, label %set_port_id_for_profinet_specialized_column_info.exit
 
@@ -4972,7 +4972,7 @@ define internal fastcc void @dissect_cisco_tlv(ptr noundef %0, ptr noundef reado
   %76 = add i32 %.1240, 41
   %77 = add i32 %.1229239, -41
   %.not = icmp eq i32 %77, 0
-  br i1 %.not, label %.thread, label %65, !llvm.loop !20
+  br i1 %.not, label %.thread, label %65, !llvm.loop !19
 
 78:                                               ; preds = %7
   %79 = load i32, ptr @hf_cisco_aci_nodeip, align 4
@@ -5817,7 +5817,7 @@ define internal fastcc void @dissect_extreme_avaya_tlv(ptr noundef %0, ptr nound
   %32 = add i32 %.12, 5
   %33 = add nuw i32 %.0481, 1
   %exitcond.not = icmp eq i32 %33, %umax
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !21
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !20
 
 .loopexit:                                        ; preds = %.lr.ph, %20, %7, %3
   ret void
@@ -5855,7 +5855,7 @@ define internal fastcc void @dissect_extreme_avaya2_tlv(ptr noundef %0, ptr noun
   %19 = add i32 %18, -1
   store i32 %19, ptr %3, align 4
   %.not = icmp eq i32 %18, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !22
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !21
 
 ._crit_edge:                                      ; preds = %.lr.ph, %8
   %.1.lcssa = phi i32 [ 3, %8 ], [ %17, %.lr.ph ]
@@ -6007,20 +6007,19 @@ attributes #11 = { allocsize(1) }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7, !8}
-!11 = distinct !{!11, !7, !8}
-!12 = !{i8 0, i8 2}
-!13 = !{}
-!14 = distinct !{!14, !7, !8}
-!15 = distinct !{!15, !7, !8}
-!16 = distinct !{!16, !7, !8}
-!17 = distinct !{!17, !7, !8}
-!18 = distinct !{!18, !7, !8}
-!19 = distinct !{!19, !7, !8}
-!20 = distinct !{!20, !7, !8}
-!21 = distinct !{!21, !7, !8}
-!22 = distinct !{!22, !7, !8}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}
+!11 = !{i8 0, i8 2}
+!12 = !{}
+!13 = distinct !{!13, !7}
+!14 = distinct !{!14, !7}
+!15 = distinct !{!15, !7}
+!16 = distinct !{!16, !7}
+!17 = distinct !{!17, !7}
+!18 = distinct !{!18, !7}
+!19 = distinct !{!19, !7}
+!20 = distinct !{!20, !7}
+!21 = distinct !{!21, !7}

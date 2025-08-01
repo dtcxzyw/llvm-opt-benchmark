@@ -259,7 +259,7 @@ define internal i64 @fd_ctrl(ptr noundef captures(address_is_null) %0, i32 nound
 6:                                                ; preds = %5, %4
   %.023 = phi i64 [ 0, %5 ], [ %2, %4 ]
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %8 = load i32, ptr %7, align 8, !tbaa !21
+  %8 = load i32, ptr %7, align 8, !tbaa !20
   %.not27 = icmp eq i32 %8, 0
   br i1 %.not27, label %52, label %9
 
@@ -271,7 +271,7 @@ define internal i64 @fd_ctrl(ptr noundef captures(address_is_null) %0, i32 nound
 
 13:                                               ; preds = %4, %4
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %15 = load i32, ptr %14, align 8, !tbaa !21
+  %15 = load i32, ptr %14, align 8, !tbaa !20
   %.not26 = icmp eq i32 %15, 0
   br i1 %.not26, label %52, label %16
 
@@ -287,13 +287,13 @@ define internal i64 @fd_ctrl(ptr noundef captures(address_is_null) %0, i32 nound
 
 22:                                               ; preds = %20
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %24 = load i32, ptr %23, align 4, !tbaa !22
+  %24 = load i32, ptr %23, align 4, !tbaa !21
   %.not.i = icmp eq i32 %24, 0
   br i1 %.not.i, label %fd_free.exit, label %25
 
 25:                                               ; preds = %22
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %27 = load i32, ptr %26, align 8, !tbaa !21
+  %27 = load i32, ptr %26, align 8, !tbaa !20
   %.not6.i = icmp eq i32 %27, 0
   br i1 %.not6.i, label %32, label %28
 
@@ -304,7 +304,7 @@ define internal i64 @fd_ctrl(ptr noundef captures(address_is_null) %0, i32 nound
   br label %32
 
 32:                                               ; preds = %28, %25
-  store i32 0, ptr %26, align 8, !tbaa !21
+  store i32 0, ptr %26, align 8, !tbaa !20
   br label %fd_free.exit
 
 fd_free.exit:                                     ; preds = %20, %22, %32
@@ -313,14 +313,14 @@ fd_free.exit:                                     ; preds = %20, %22, %32
   store i32 %33, ptr %34, align 8, !tbaa !10
   %35 = trunc i64 %2 to i32
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  store i32 %35, ptr %36, align 4, !tbaa !22
+  store i32 %35, ptr %36, align 4, !tbaa !21
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i32 1, ptr %37, align 8, !tbaa !21
+  store i32 1, ptr %37, align 8, !tbaa !20
   br label %52
 
 38:                                               ; preds = %4
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %40 = load i32, ptr %39, align 8, !tbaa !21
+  %40 = load i32, ptr %39, align 8, !tbaa !20
   %.not = icmp eq i32 %40, 0
   br i1 %.not, label %52, label %41
 
@@ -340,14 +340,14 @@ fd_free.exit:                                     ; preds = %20, %22, %32
 
 44:                                               ; preds = %4
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %46 = load i32, ptr %45, align 4, !tbaa !22
+  %46 = load i32, ptr %45, align 4, !tbaa !21
   %47 = sext i32 %46 to i64
   br label %52
 
 48:                                               ; preds = %4
   %49 = trunc i64 %2 to i32
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  store i32 %49, ptr %50, align 4, !tbaa !22
+  store i32 %49, ptr %50, align 4, !tbaa !21
   br label %52
 
 51:                                               ; preds = %4
@@ -372,13 +372,13 @@ define internal range(i32 0, 2) i32 @fd_free(ptr noundef captures(address_is_nul
 
 3:                                                ; preds = %1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %5 = load i32, ptr %4, align 4, !tbaa !22
+  %5 = load i32, ptr %4, align 4, !tbaa !21
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %14, label %6
 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %8 = load i32, ptr %7, align 8, !tbaa !21
+  %8 = load i32, ptr %7, align 8, !tbaa !20
   %.not6 = icmp eq i32 %8, 0
   br i1 %.not6, label %13, label %9
 
@@ -389,7 +389,7 @@ define internal range(i32 0, 2) i32 @fd_free(ptr noundef captures(address_is_nul
   br label %13
 
 13:                                               ; preds = %9, %6
-  store i32 0, ptr %7, align 8, !tbaa !21
+  store i32 0, ptr %7, align 8, !tbaa !20
   br label %14
 
 14:                                               ; preds = %3, %13, %1
@@ -450,8 +450,7 @@ attributes #11 = { nounwind willreturn memory(read) }
 !15 = !{!"p1 _ZTS6bio_st", !13, i64 0}
 !16 = !{!"long", !8, i64 0}
 !17 = !{!8, !8, i64 0}
-!18 = distinct !{!18, !19, !20}
+!18 = distinct !{!18, !19}
 !19 = !{!"llvm.loop.mustprogress"}
-!20 = !{!"llvm.loop.estimated_trip_count"}
-!21 = !{!11, !7, i64 24}
-!22 = !{!11, !7, i64 28}
+!20 = !{!11, !7, i64 24}
+!21 = !{!11, !7, i64 28}

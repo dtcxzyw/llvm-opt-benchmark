@@ -421,7 +421,7 @@ define internal noundef i32 @filter_slice_nn8(ptr noundef readonly captures(none
   %101 = getelementptr inbounds i8, ptr %.08289.us, i64 %50
   %102 = add nsw i32 %.08190.us, 1
   %exitcond95.not = icmp eq i32 %102, %45
-  br i1 %exitcond95.not, label %._crit_edge91.loopexit, label %.preheader.us, !llvm.loop !71
+  br i1 %exitcond95.not, label %._crit_edge91.loopexit, label %.preheader.us, !llvm.loop !70
 
 ._crit_edge91.loopexit:                           ; preds = %._crit_edge.us
   %.pre = load i32, ptr %14, align 4, !tbaa !51
@@ -432,7 +432,7 @@ define internal noundef i32 @filter_slice_nn8(ptr noundef readonly captures(none
   %indvars.iv.next97 = add nuw nsw i64 %indvars.iv96, 1
   %104 = sext i32 %103 to i64
   %105 = icmp slt i64 %indvars.iv.next97, %104
-  br i1 %105, label %24, label %._crit_edge, !llvm.loop !73
+  br i1 %105, label %24, label %._crit_edge, !llvm.loop !72
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
@@ -567,26 +567,26 @@ define internal noundef i32 @filter_slice_nn16(ptr noundef readonly captures(non
   %96 = add nsw i32 %95, %83
   %97 = sext i32 %96 to i64
   %98 = getelementptr inbounds i16, ptr %49, i64 %97
-  %99 = load i16, ptr %98, align 2, !tbaa !74
+  %99 = load i16, ptr %98, align 2, !tbaa !73
   %100 = getelementptr inbounds nuw i16, ptr %.08289.us, i64 %indvars.iv
-  store i16 %99, ptr %100, align 2, !tbaa !74
+  store i16 %99, ptr %100, align 2, !tbaa !73
   br label %101
 
 101:                                              ; preds = %94, %90, %78
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us, label %78, !llvm.loop !76
+  br i1 %exitcond.not, label %._crit_edge.us, label %78, !llvm.loop !75
 
 ._crit_edge.us:                                   ; preds = %101
   %102 = getelementptr inbounds i16, ptr %.08289.us, i64 %69
   %103 = add nsw i32 %.08190.us, 1
   %exitcond95.not = icmp eq i32 %103, %44
-  br i1 %exitcond95.not, label %._crit_edge91, label %.preheader.us, !llvm.loop !77
+  br i1 %exitcond95.not, label %._crit_edge91, label %.preheader.us, !llvm.loop !76
 
 ._crit_edge91:                                    ; preds = %._crit_edge.us, %.preheader.lr.ph, %32
   %indvars.iv.next97 = add nuw nsw i64 %indvars.iv96, 1
   %exitcond100.not = icmp eq i64 %indvars.iv.next97, %wide.trip.count99
-  br i1 %exitcond100.not, label %._crit_edge, label %24, !llvm.loop !78
+  br i1 %exitcond100.not, label %._crit_edge, label %24, !llvm.loop !77
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
@@ -774,13 +774,13 @@ define internal noundef i32 @filter_slice_bl8(ptr noundef readonly captures(none
 143:                                              ; preds = %92, %88, %78
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us, label %78, !llvm.loop !79
+  br i1 %exitcond.not, label %._crit_edge.us, label %78, !llvm.loop !78
 
 ._crit_edge.us:                                   ; preds = %143
   %144 = getelementptr inbounds i8, ptr %.0121129.us, i64 %61
   %145 = add nsw i32 %.0122128.us, 1
   %exitcond135.not = icmp eq i32 %145, %56
-  br i1 %exitcond135.not, label %._crit_edge130.loopexit, label %.preheader.us, !llvm.loop !80
+  br i1 %exitcond135.not, label %._crit_edge130.loopexit, label %.preheader.us, !llvm.loop !79
 
 ._crit_edge130.loopexit:                          ; preds = %._crit_edge.us
   %.pre = load i32, ptr %14, align 4, !tbaa !51
@@ -791,7 +791,7 @@ define internal noundef i32 @filter_slice_bl8(ptr noundef readonly captures(none
   %indvars.iv.next137 = add nuw nsw i64 %indvars.iv136, 1
   %147 = sext i32 %146 to i64
   %148 = icmp slt i64 %indvars.iv.next137, %147
-  br i1 %148, label %27, label %._crit_edge, !llvm.loop !81
+  br i1 %148, label %27, label %._crit_edge, !llvm.loop !80
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
@@ -941,14 +941,14 @@ define internal noundef i32 @filter_slice_bl16(ptr noundef readonly captures(non
   %110 = add nsw i32 %109, %95
   %111 = sext i32 %110 to i64
   %112 = getelementptr inbounds i16, ptr %60, i64 %111
-  %113 = load i16, ptr %112, align 2, !tbaa !74
+  %113 = load i16, ptr %112, align 2, !tbaa !73
   %114 = uitofp i16 %113 to float
   %115 = fmul nsz float %108, %114
   %116 = fmul nsz float %99, %107
   %117 = add nsw i32 %109, %103
   %118 = sext i32 %117 to i64
   %119 = getelementptr inbounds i16, ptr %60, i64 %118
-  %120 = load i16, ptr %119, align 2, !tbaa !74
+  %120 = load i16, ptr %119, align 2, !tbaa !73
   %121 = uitofp i16 %120 to float
   %122 = tail call nsz float @llvm.fmuladd.f32(float %116, float %121, float %115)
   %123 = fmul nsz float %106, %101
@@ -956,14 +956,14 @@ define internal noundef i32 @filter_slice_bl16(ptr noundef readonly captures(non
   %125 = add nsw i32 %124, %95
   %126 = sext i32 %125 to i64
   %127 = getelementptr inbounds i16, ptr %60, i64 %126
-  %128 = load i16, ptr %127, align 2, !tbaa !74
+  %128 = load i16, ptr %127, align 2, !tbaa !73
   %129 = uitofp i16 %128 to float
   %130 = tail call nsz float @llvm.fmuladd.f32(float %123, float %129, float %122)
   %131 = fmul nsz float %99, %101
   %132 = add nsw i32 %124, %103
   %133 = sext i32 %132 to i64
   %134 = getelementptr inbounds i16, ptr %60, i64 %133
-  %135 = load i16, ptr %134, align 2, !tbaa !74
+  %135 = load i16, ptr %134, align 2, !tbaa !73
   %136 = uitofp i16 %135 to float
   %137 = tail call nsz float @llvm.fmuladd.f32(float %131, float %136, float %130)
   %138 = tail call i64 @llvm.lrint.i64.f32(float %137)
@@ -975,24 +975,24 @@ define internal noundef i32 @filter_slice_bl16(ptr noundef readonly captures(non
   %.0.i.us = select i1 %.not.i.us, i32 %139, i32 %141
   %142 = trunc i32 %.0.i.us to i16
   %143 = getelementptr inbounds nuw i16, ptr %.0121129.us, i64 %indvars.iv
-  store i16 %142, ptr %143, align 2, !tbaa !74
+  store i16 %142, ptr %143, align 2, !tbaa !73
   br label %144
 
 144:                                              ; preds = %93, %89, %79
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us, label %79, !llvm.loop !82
+  br i1 %exitcond.not, label %._crit_edge.us, label %79, !llvm.loop !81
 
 ._crit_edge.us:                                   ; preds = %144
   %145 = getelementptr inbounds i16, ptr %.0121129.us, i64 %70
   %146 = add nsw i32 %.0122128.us, 1
   %exitcond135.not = icmp eq i32 %146, %55
-  br i1 %exitcond135.not, label %._crit_edge130, label %.preheader.us, !llvm.loop !83
+  br i1 %exitcond135.not, label %._crit_edge130, label %.preheader.us, !llvm.loop !82
 
 ._crit_edge130:                                   ; preds = %._crit_edge.us, %.preheader.lr.ph, %35
   %indvars.iv.next137 = add nuw nsw i64 %indvars.iv136, 1
   %exitcond140.not = icmp eq i64 %indvars.iv.next137, %wide.trip.count139
-  br i1 %exitcond140.not, label %._crit_edge, label %27, !llvm.loop !84
+  br i1 %exitcond140.not, label %._crit_edge, label %27, !llvm.loop !83
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
@@ -1099,20 +1099,19 @@ attributes #11 = { cold }
 !65 = !{!21, !22, i64 12}
 !66 = !{!11, !11, i64 0}
 !67 = !{!8, !8, i64 0}
-!68 = distinct !{!68, !69, !70}
+!68 = distinct !{!68, !69}
 !69 = !{!"llvm.loop.mustprogress"}
-!70 = !{!"llvm.loop.estimated_trip_count"}
-!71 = distinct !{!71, !69, !70, !72}
-!72 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!73 = distinct !{!73, !69, !70}
-!74 = !{!75, !75, i64 0}
-!75 = !{!"short", !8, i64 0}
-!76 = distinct !{!76, !69, !70}
-!77 = distinct !{!77, !69, !70, !72}
-!78 = distinct !{!78, !69, !70}
-!79 = distinct !{!79, !69, !70}
-!80 = distinct !{!80, !69, !70, !72}
-!81 = distinct !{!81, !69, !70}
-!82 = distinct !{!82, !69, !70}
-!83 = distinct !{!83, !69, !70, !72}
-!84 = distinct !{!84, !69, !70}
+!70 = distinct !{!70, !69, !71}
+!71 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!72 = distinct !{!72, !69}
+!73 = !{!74, !74, i64 0}
+!74 = !{!"short", !8, i64 0}
+!75 = distinct !{!75, !69}
+!76 = distinct !{!76, !69, !71}
+!77 = distinct !{!77, !69}
+!78 = distinct !{!78, !69}
+!79 = distinct !{!79, !69, !71}
+!80 = distinct !{!80, !69}
+!81 = distinct !{!81, !69}
+!82 = distinct !{!82, !69, !71}
+!83 = distinct !{!83, !69}

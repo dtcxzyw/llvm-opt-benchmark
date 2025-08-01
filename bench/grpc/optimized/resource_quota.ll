@@ -1273,7 +1273,7 @@ _ZNSt10unique_ptrIN9grpc_core8ActivityENS0_16OrphanableDeleteEED2Ev.exit: ; pred
 
 _ZN9grpc_core16BasicMemoryQuota15AllocatorBucket5ShardD2Ev.exit.i.i: ; preds = %23, %19
   %35 = icmp eq i64 %.add7, 720
-  br i1 %35, label %_ZN9grpc_core16BasicMemoryQuota15AllocatorBucketD2Ev.exit, label %19, !llvm.loop !75
+  br i1 %35, label %_ZN9grpc_core16BasicMemoryQuota15AllocatorBucketD2Ev.exit, label %19
 
 _ZN9grpc_core16BasicMemoryQuota15AllocatorBucketD2Ev.exit: ; preds = %_ZN9grpc_core16BasicMemoryQuota15AllocatorBucket5ShardD2Ev.exit.i.i, %_ZN9grpc_core16BasicMemoryQuota15AllocatorBucket5ShardD2Ev.exit.i.i4
   %.idx10 = phi i64 [ %.add11, %_ZN9grpc_core16BasicMemoryQuota15AllocatorBucket5ShardD2Ev.exit.i.i4 ], [ 720, %_ZN9grpc_core16BasicMemoryQuota15AllocatorBucket5ShardD2Ev.exit.i.i ]
@@ -1304,7 +1304,7 @@ _ZN9grpc_core16BasicMemoryQuota15AllocatorBucketD2Ev.exit: ; preds = %_ZN9grpc_c
 
 _ZN9grpc_core16BasicMemoryQuota15AllocatorBucket5ShardD2Ev.exit.i.i4: ; preds = %39, %_ZN9grpc_core16BasicMemoryQuota15AllocatorBucketD2Ev.exit
   %51 = icmp eq i64 %.add11, 80
-  br i1 %51, label %_ZN9grpc_core16BasicMemoryQuota15AllocatorBucketD2Ev.exit5, label %_ZN9grpc_core16BasicMemoryQuota15AllocatorBucketD2Ev.exit, !llvm.loop !75
+  br i1 %51, label %_ZN9grpc_core16BasicMemoryQuota15AllocatorBucketD2Ev.exit5, label %_ZN9grpc_core16BasicMemoryQuota15AllocatorBucketD2Ev.exit
 
 _ZN9grpc_core16BasicMemoryQuota15AllocatorBucketD2Ev.exit5: ; preds = %_ZN9grpc_core16BasicMemoryQuota15AllocatorBucket5ShardD2Ev.exit.i.i4, %_ZN9grpc_core16BasicMemoryQuota15AllocatorBucketD2Ev.exit5
   %.idx = phi i64 [ %.add, %_ZN9grpc_core16BasicMemoryQuota15AllocatorBucketD2Ev.exit5 ], [ 80, %_ZN9grpc_core16BasicMemoryQuota15AllocatorBucket5ShardD2Ev.exit.i.i4 ]
@@ -1312,7 +1312,7 @@ _ZN9grpc_core16BasicMemoryQuota15AllocatorBucketD2Ev.exit5: ; preds = %_ZN9grpc_
   %.ptr1 = getelementptr inbounds i8, ptr %0, i64 %.add
   tail call void @_ZN9grpc_core14ReclaimerQueueD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %.ptr1) #20
   %52 = icmp eq i64 %.add, 32
-  br i1 %52, label %53, label %_ZN9grpc_core16BasicMemoryQuota15AllocatorBucketD2Ev.exit5, !llvm.loop !77
+  br i1 %52, label %53, label %_ZN9grpc_core16BasicMemoryQuota15AllocatorBucketD2Ev.exit5
 
 53:                                               ; preds = %_ZN9grpc_core16BasicMemoryQuota15AllocatorBucketD2Ev.exit5
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1523,6 +1523,3 @@ attributes #24 = { noreturn nounwind }
 !72 = !{!73, !5, i64 0}
 !73 = !{!"_ZTSN4absl12lts_2024072218container_internal12CommonFieldsE", !5, i64 0, !5, i64 8, !6, i64 16}
 !74 = !{!73, !5, i64 8}
-!75 = distinct !{!75, !76}
-!76 = !{!"llvm.loop.estimated_trip_count"}
-!77 = distinct !{!77, !76}

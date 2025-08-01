@@ -264,7 +264,7 @@ define hidden void @JLI_List_ensureCapacity(ptr noundef captures(none) %0, i64 n
   %6 = phi i64 [ %7, %.lr.ph ], [ %4, %2 ]
   %7 = shl i64 %6, 1
   %8 = icmp ult i64 %7, %1
-  br i1 %8, label %.lr.ph, label %9, !llvm.loop !9
+  br i1 %8, label %.lr.ph, label %9, !llvm.loop !8
 
 9:                                                ; preds = %.lr.ph
   store i64 %7, ptr %3, align 8
@@ -305,7 +305,7 @@ define void @JLI_List_add(ptr noundef captures(none) %0, ptr noundef %1) local_u
   %9 = phi i64 [ %10, %.lr.ph.i ], [ %7, %2 ]
   %10 = shl i64 %9, 1
   %11 = icmp ult i64 %10, %5
-  br i1 %11, label %.lr.ph.i, label %12, !llvm.loop !9
+  br i1 %11, label %.lr.ph.i, label %12, !llvm.loop !8
 
 12:                                               ; preds = %.lr.ph.i
   store i64 %10, ptr %6, align 8
@@ -368,7 +368,7 @@ JLI_MemAlloc.exit.JLI_List_ensureCapacity.exit_crit_edge: ; preds = %JLI_MemAllo
   %15 = phi i64 [ %16, %.lr.ph.i ], [ %13, %JLI_MemAlloc.exit ]
   %16 = shl i64 %15, 1
   %17 = icmp ult i64 %16, %11
-  br i1 %17, label %.lr.ph.i, label %18, !llvm.loop !9
+  br i1 %17, label %.lr.ph.i, label %18, !llvm.loop !8
 
 18:                                               ; preds = %.lr.ph.i
   store i64 %16, ptr %12, align 8
@@ -422,7 +422,7 @@ define hidden noalias nonnull ptr @JLI_List_combine(ptr noundef readonly capture
   %9 = add i64 %8, %.02122
   %10 = add nuw i64 %.023, 1
   %exitcond.not = icmp eq i64 %10, %3
-  br i1 %exitcond.not, label %._crit_edge.thread, label %5, !llvm.loop !10
+  br i1 %exitcond.not, label %._crit_edge.thread, label %5, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %1
   %11 = tail call noalias dereferenceable_or_null(1) ptr @malloc(i64 noundef 1) #17
@@ -453,7 +453,7 @@ JLI_MemAlloc.exit:                                ; preds = %.lr.ph27, %JLI_MemA
   %20 = getelementptr inbounds i8, ptr %.02025, i64 %19
   %21 = add nuw i64 %.126, 1
   %exitcond31.not = icmp eq i64 %21, %3
-  br i1 %exitcond31.not, label %JLI_MemAlloc.exit._crit_edge, label %JLI_MemAlloc.exit, !llvm.loop !11
+  br i1 %exitcond31.not, label %JLI_MemAlloc.exit._crit_edge, label %JLI_MemAlloc.exit, !llvm.loop !10
 
 JLI_MemAlloc.exit._crit_edge:                     ; preds = %JLI_MemAlloc.exit, %._crit_edge
   %22 = phi ptr [ %11, %._crit_edge ], [ %13, %JLI_MemAlloc.exit ]
@@ -483,7 +483,7 @@ define hidden noalias nonnull ptr @JLI_List_join(ptr noundef readonly captures(n
   %11 = add i64 %10, %9
   %12 = add nuw i64 %.027, 1
   %exitcond.not = icmp eq i64 %12, %4
-  br i1 %exitcond.not, label %._crit_edge.thread, label %6, !llvm.loop !12
+  br i1 %exitcond.not, label %._crit_edge.thread, label %6, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %2
   %13 = tail call noalias dereferenceable_or_null(1) ptr @malloc(i64 noundef 1) #17
@@ -526,7 +526,7 @@ JLI_MemAlloc.exit:                                ; preds = %22, %.lr.ph30
   %26 = add nuw i64 %.129, 1
   %27 = load i64, ptr %3, align 8
   %28 = icmp ult i64 %26, %27
-  br i1 %28, label %.lr.ph30, label %JLI_MemAlloc.exit._crit_edge, !llvm.loop !13
+  br i1 %28, label %.lr.ph30, label %JLI_MemAlloc.exit._crit_edge, !llvm.loop !12
 
 JLI_MemAlloc.exit._crit_edge:                     ; preds = %JLI_MemAlloc.exit, %._crit_edge
   %29 = phi ptr [ %13, %._crit_edge ], [ %15, %JLI_MemAlloc.exit ]
@@ -551,7 +551,7 @@ define hidden noalias nonnull ptr @JLI_List_split(ptr noundef %0, i8 noundef sig
   %9 = add nuw nsw i32 %.02530, %8
   %10 = getelementptr inbounds nuw i8, ptr %.031, i64 1
   %11 = icmp ult ptr %10, %4
-  br i1 %11, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !14
+  br i1 %11, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !13
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
   %12 = zext nneg i32 %9 to i64
@@ -585,47 +585,46 @@ JLI_List_new.exit:                                ; preds = %JLI_MemAlloc.exit.i
   store ptr %18, ptr %13, align 8
   %21 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store i64 0, ptr %21, align 8
-  br label %22
+  br label %.loopexit.outer
 
-.loopexit:                                        ; preds = %35, %22
-  %.2.lcssa = phi ptr [ %.1, %22 ], [ %.3, %35 ]
-  br label %22, !llvm.loop !15
+.loopexit.outer:                                  ; preds = %34, %JLI_List_new.exit
+  %.1.ph = phi ptr [ %0, %JLI_List_new.exit ], [ %.3, %34 ]
+  %.not33 = icmp ugt ptr %.1.ph, %4
+  br label %.loopexit
 
-22:                                               ; preds = %.loopexit, %JLI_List_new.exit
-  %.1 = phi ptr [ %0, %JLI_List_new.exit ], [ %.2.lcssa, %.loopexit ]
-  %.not33 = icmp ugt ptr %.1, %4
+.loopexit:                                        ; preds = %.loopexit.outer, %.loopexit
   br i1 %.not33, label %.loopexit, label %.lr.ph37
 
-.lr.ph37:                                         ; preds = %22, %35
-  %.235 = phi ptr [ %.3, %35 ], [ %.1, %22 ]
-  %.02634 = phi ptr [ %36, %35 ], [ %.1, %22 ]
-  %23 = load i8, ptr %.02634, align 1
-  %24 = icmp eq i8 %23, %1
-  %25 = icmp eq i8 %23, 0
-  %or.cond = or i1 %24, %25
-  br i1 %or.cond, label %26, label %35
+.lr.ph37:                                         ; preds = %.loopexit, %34
+  %.235 = phi ptr [ %.3, %34 ], [ %.1.ph, %.loopexit ]
+  %.02634 = phi ptr [ %35, %34 ], [ %.1.ph, %.loopexit ]
+  %22 = load i8, ptr %.02634, align 1
+  %23 = icmp eq i8 %22, %1
+  %24 = icmp eq i8 %22, 0
+  %or.cond = or i1 %23, %24
+  br i1 %or.cond, label %25, label %34
 
-26:                                               ; preds = %.lr.ph37
-  %27 = ptrtoint ptr %.02634 to i64
-  %28 = ptrtoint ptr %.235 to i64
-  %29 = sub i64 %27, %28
-  tail call void @JLI_List_addSubstring(ptr noundef nonnull %13, ptr noundef %.235, i64 noundef %29)
-  %30 = load i8, ptr %.02634, align 1
-  %31 = icmp eq i8 %30, 0
-  br i1 %31, label %32, label %33
+25:                                               ; preds = %.lr.ph37
+  %26 = ptrtoint ptr %.02634 to i64
+  %27 = ptrtoint ptr %.235 to i64
+  %28 = sub i64 %26, %27
+  tail call void @JLI_List_addSubstring(ptr noundef nonnull %13, ptr noundef %.235, i64 noundef %28)
+  %29 = load i8, ptr %.02634, align 1
+  %30 = icmp eq i8 %29, 0
+  br i1 %30, label %31, label %32
 
-32:                                               ; preds = %26
+31:                                               ; preds = %25
   ret ptr %13
 
-33:                                               ; preds = %26
-  %34 = getelementptr inbounds nuw i8, ptr %.02634, i64 1
-  br label %35
+32:                                               ; preds = %25
+  %33 = getelementptr inbounds nuw i8, ptr %.02634, i64 1
+  br label %34
 
-35:                                               ; preds = %.lr.ph37, %33
-  %.3 = phi ptr [ %34, %33 ], [ %.235, %.lr.ph37 ]
-  %36 = getelementptr inbounds nuw i8, ptr %.02634, i64 1
-  %.not = icmp ugt ptr %36, %4
-  br i1 %.not, label %.loopexit, label %.lr.ph37, !llvm.loop !16
+34:                                               ; preds = %.lr.ph37, %32
+  %.3 = phi ptr [ %33, %32 ], [ %.235, %.lr.ph37 ]
+  %35 = getelementptr inbounds nuw i8, ptr %.02634, i64 1
+  %.not = icmp ugt ptr %35, %4
+  br i1 %.not, label %.loopexit.outer, label %.lr.ph37, !llvm.loop !14
 }
 
 attributes #0 = { nofree nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -660,14 +659,12 @@ attributes #22 = { nounwind willreturn memory(read) }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7, !8}
-!11 = distinct !{!11, !7, !8}
-!12 = distinct !{!12, !7, !8}
-!13 = distinct !{!13, !7, !8}
-!14 = distinct !{!14, !7, !8}
-!15 = distinct !{!15, !8}
-!16 = distinct !{!16, !7, !8}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7}
+!12 = distinct !{!12, !7}
+!13 = distinct !{!13, !7}
+!14 = distinct !{!14, !7}

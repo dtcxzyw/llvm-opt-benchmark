@@ -274,7 +274,7 @@ cairo_loadimage.exit.thread56:                    ; preds = %7, %cairo_loadimage
   %51 = tail call i32 @gvputs(ptr noundef %0, ptr noundef nonnull @.str.9) #4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond73.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond73.not, label %._crit_edge68, label %.lr.ph.us, !llvm.loop !46
+  br i1 %exitcond73.not, label %._crit_edge68, label %.lr.ph.us, !llvm.loop !45
 
 .lr.ph67.split:                                   ; preds = %.lr.ph67, %.lr.ph67.split
   %.05065 = phi i32 [ %54, %.lr.ph67.split ], [ 0, %.lr.ph67 ]
@@ -282,7 +282,7 @@ cairo_loadimage.exit.thread56:                    ; preds = %7, %cairo_loadimage
   %53 = tail call i32 @gvputs(ptr noundef %0, ptr noundef nonnull @.str.9) #4
   %54 = add nuw nsw i32 %.05065, 1
   %exitcond.not = icmp eq i32 %54, %26
-  br i1 %exitcond.not, label %._crit_edge68, label %.lr.ph67.split, !llvm.loop !48
+  br i1 %exitcond.not, label %._crit_edge68, label %.lr.ph67.split, !llvm.loop !47
 
 ._crit_edge68:                                    ; preds = %.lr.ph67.split, %._crit_edge.us, %24
   %55 = tail call i32 @gvputs(ptr noundef %0, ptr noundef nonnull @.str.10) #4
@@ -292,7 +292,7 @@ cairo_loadimage.exit.thread56:                    ; preds = %7, %cairo_loadimage
   %59 = load double, ptr %58, align 8, !tbaa !39
   %60 = fsub double %59, %57
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 560
-  %62 = load double, ptr %61, align 8, !tbaa !49
+  %62 = load double, ptr %61, align 8, !tbaa !48
   %63 = fdiv double %62, 9.600000e+01
   %64 = fsub double 1.000000e+00, %63
   %65 = fmul double %60, %64
@@ -304,7 +304,7 @@ cairo_loadimage.exit.thread56:                    ; preds = %7, %cairo_loadimage
   %71 = load double, ptr %70, align 8, !tbaa !38
   %72 = fsub double %71, %69
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 568
-  %74 = load double, ptr %73, align 8, !tbaa !50
+  %74 = load double, ptr %73, align 8, !tbaa !49
   %75 = fdiv double %74, 9.600000e+01
   %76 = fsub double 1.000000e+00, %75
   %77 = fmul double %72, %76
@@ -391,11 +391,10 @@ attributes #4 = { nounwind }
 !40 = !{!31, !24, i64 72}
 !41 = !{!27, !24, i64 8}
 !42 = !{!31, !24, i64 80}
-!43 = distinct !{!43, !44, !45}
+!43 = distinct !{!43, !44}
 !44 = !{!"llvm.loop.mustprogress"}
-!45 = !{!"llvm.loop.estimated_trip_count"}
-!46 = distinct !{!46, !44, !45, !47}
-!47 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!48 = distinct !{!48, !44, !45}
-!49 = !{!4, !24, i64 560}
-!50 = !{!4, !24, i64 568}
+!45 = distinct !{!45, !44, !46}
+!46 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!47 = distinct !{!47, !44}
+!48 = !{!4, !24, i64 560}
+!49 = !{!4, !24, i64 568}

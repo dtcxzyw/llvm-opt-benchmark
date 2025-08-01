@@ -599,7 +599,7 @@ asn1_primitive_print.exit.thread149:              ; preds = %44, %117, %.thread9
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 0, 2) i32 @asn1_template_print_ctx(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3, ptr noundef %4) local_unnamed_addr #0 {
   %6 = alloca ptr, align 8
-  %7 = load i64, ptr %3, align 8, !tbaa !51
+  %7 = load i64, ptr %3, align 8, !tbaa !50
   %8 = trunc i64 %7 to i32
   %9 = load i64, ptr %4, align 8, !tbaa !6
   %10 = and i64 %9, 128
@@ -608,7 +608,7 @@ define hidden range(i32 0, 2) i32 @asn1_template_print_ctx(ptr noundef %0, ptr n
 
 11:                                               ; preds = %5
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  %13 = load ptr, ptr %12, align 8, !tbaa !54
+  %13 = load ptr, ptr %12, align 8, !tbaa !53
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 48
   %15 = load ptr, ptr %14, align 8, !tbaa !18
   br label %16
@@ -621,7 +621,7 @@ define hidden range(i32 0, 2) i32 @asn1_template_print_ctx(ptr noundef %0, ptr n
 
 18:                                               ; preds = %16
   %19 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %20 = load ptr, ptr %19, align 8, !tbaa !55
+  %20 = load ptr, ptr %19, align 8, !tbaa !54
   %21 = and i32 %8, 6
   %.not46 = icmp eq i32 %21, 0
   br i1 %.not46, label %58, label %23
@@ -682,7 +682,7 @@ define hidden range(i32 0, 2) i32 @asn1_template_print_ctx(ptr noundef %0, ptr n
 42:                                               ; preds = %39, %38
   %43 = call ptr @sk_value(ptr noundef %34, i64 noundef %.04462) #8
   store ptr %43, ptr %6, align 8, !tbaa !15
-  %44 = load ptr, ptr %37, align 8, !tbaa !54
+  %44 = load ptr, ptr %37, align 8, !tbaa !53
   %45 = call fastcc i32 @asn1_item_print_ctx(ptr noundef %0, ptr noundef nonnull %6, i32 noundef %36, ptr noundef %44, ptr noundef null, ptr noundef null, i32 noundef 1, ptr noundef nonnull %4)
   %.not53 = icmp eq i32 %45, 0
   br i1 %.not53, label %.loopexit, label %46
@@ -691,7 +691,7 @@ define hidden range(i32 0, 2) i32 @asn1_template_print_ctx(ptr noundef %0, ptr n
   %47 = add nuw i64 %.04462, 1
   %48 = call i64 @sk_num(ptr noundef %34) #8
   %49 = icmp ult i64 %47, %48
-  br i1 %49, label %38, label %._crit_edge, !llvm.loop !56
+  br i1 %49, label %38, label %._crit_edge, !llvm.loop !55
 
 ._crit_edge.thread:                               ; preds = %33
   %50 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.7, i32 noundef %36, ptr noundef nonnull @.str.4) #8
@@ -720,7 +720,7 @@ define hidden range(i32 0, 2) i32 @asn1_template_print_ctx(ptr noundef %0, ptr n
 58:                                               ; preds = %.thread, %18
   %.04257 = phi ptr [ null, %.thread ], [ %20, %18 ]
   %59 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  %60 = load ptr, ptr %59, align 8, !tbaa !54
+  %60 = load ptr, ptr %59, align 8, !tbaa !53
   %61 = tail call fastcc i32 @asn1_item_print_ctx(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %60, ptr noundef %.04257, ptr noundef %.043, i32 noundef 0, ptr noundef nonnull %4)
   br label %62
 
@@ -751,7 +751,7 @@ define internal fastcc range(i32 0, 2) i32 @asn1_print_fsname(ptr noundef %0, i3
 8:                                                ; preds = %.lr.ph
   %9 = add nsw i32 %.02130, -20
   %10 = icmp sgt i32 %.02130, 40
-  br i1 %10, label %.lr.ph, label %._crit_edge, !llvm.loop !57
+  br i1 %10, label %.lr.ph, label %._crit_edge, !llvm.loop !56
 
 ._crit_edge:                                      ; preds = %8, %5
   %.021.lcssa = phi i32 [ %1, %5 ], [ %9, %8 ]
@@ -870,7 +870,7 @@ define internal fastcc range(i32 0, 2) i32 @asn1_print_obstring_ctx(ptr noundef 
 
 7:                                                ; preds = %3
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %9 = load i64, ptr %8, align 8, !tbaa !58
+  %9 = load i64, ptr %8, align 8, !tbaa !57
   %10 = and i64 %9, 7
   %11 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.22, i64 noundef %10) #8
   %12 = icmp slt i32 %11, 1
@@ -984,14 +984,13 @@ attributes #8 = { nounwind }
 !45 = !{!46, !17, i64 48}
 !46 = !{!"ASN1_EXTERN_FUNCS_st", !17, i64 0, !17, i64 8, !17, i64 16, !17, i64 24, !17, i64 32, !17, i64 40, !17, i64 48}
 !47 = !{!19, !8, i64 24}
-!48 = distinct !{!48, !49, !50}
+!48 = distinct !{!48, !49}
 !49 = !{!"llvm.loop.mustprogress"}
-!50 = !{!"llvm.loop.estimated_trip_count"}
-!51 = !{!52, !8, i64 0}
-!52 = !{!"ASN1_TEMPLATE_st", !8, i64 0, !8, i64 8, !8, i64 16, !21, i64 24, !53, i64 32}
-!53 = !{!"p1 _ZTS12ASN1_ITEM_st", !17, i64 0}
-!54 = !{!52, !53, i64 32}
-!55 = !{!52, !21, i64 24}
-!56 = distinct !{!56, !49, !50}
-!57 = distinct !{!57, !49, !50}
-!58 = !{!37, !8, i64 16}
+!50 = !{!51, !8, i64 0}
+!51 = !{!"ASN1_TEMPLATE_st", !8, i64 0, !8, i64 8, !8, i64 16, !21, i64 24, !52, i64 32}
+!52 = !{!"p1 _ZTS12ASN1_ITEM_st", !17, i64 0}
+!53 = !{!51, !52, i64 32}
+!54 = !{!51, !21, i64 24}
+!55 = distinct !{!55, !49}
+!56 = distinct !{!56, !49}
+!57 = !{!37, !8, i64 16}

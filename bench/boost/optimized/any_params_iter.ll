@@ -225,7 +225,7 @@ define noundef zeroext i1 @_ZN5boost4urls6detail10query_iter7measureERm(ptr noun
   %36 = add i64 %.sink.i, %.331.i
   %37 = getelementptr inbounds nuw i8, ptr %.12030.i, i64 1
   %.not.i = icmp eq ptr %37, %12
-  br i1 %.not.i, label %_ZN5boost4urls12encoded_sizeINS0_7grammar9lut_charsEEEmNS_4core17basic_string_viewIcEERKT_NS0_13encoding_optsE.exit, label %.lr.ph32.i, !llvm.loop !29
+  br i1 %.not.i, label %_ZN5boost4urls12encoded_sizeINS0_7grammar9lut_charsEEEmNS_4core17basic_string_viewIcEERKT_NS0_13encoding_optsE.exit, label %.lr.ph32.i, !llvm.loop !28
 
 _ZN5boost4urls12encoded_sizeINS0_7grammar9lut_charsEEEmNS_4core17basic_string_viewIcEERKT_NS0_13encoding_optsE.exit: ; preds = %.lr.ph.i, %.lr.ph32.i, %14, %15
   %.2.i = phi i64 [ 0, %14 ], [ 0, %15 ], [ %36, %.lr.ph32.i ], [ %.1.i, %.lr.ph.i ]
@@ -406,7 +406,7 @@ define void @_ZN5boost4urls6detail10query_iter4copyERPcPKc(ptr noundef nonnull a
   %.135.i = phi ptr [ %26, %27 ], [ %39, %28 ]
   %.1.i = getelementptr inbounds nuw i8, ptr %.044.i, i64 1
   %.not.i = icmp eq ptr %.1.i, %11
-  br i1 %.not.i, label %.loopexit, label %.lr.ph.i, !llvm.loop !30
+  br i1 %.not.i, label %.loopexit, label %.lr.ph.i, !llvm.loop !29
 
 .lr.ph48.i:                                       ; preds = %.preheader.i, %68
   %.247.i = phi ptr [ %.3.i, %68 ], [ %8, %.preheader.i ]
@@ -458,7 +458,7 @@ define void @_ZN5boost4urls6detail10query_iter4copyERPcPKc(ptr noundef nonnull a
   %.4.i = phi ptr [ %51, %50 ], [ %54, %55 ], [ %67, %56 ]
   %.3.i = getelementptr inbounds nuw i8, ptr %.247.i, i64 1
   %.not17.i = icmp eq ptr %.3.i, %11
-  br i1 %.not17.i, label %.loopexit, label %.lr.ph48.i, !llvm.loop !31
+  br i1 %.not17.i, label %.loopexit, label %.lr.ph48.i, !llvm.loop !30
 
 .loopexit:                                        ; preds = %40, %68, %.preheader.i, %.preheader40.i
   %.236.i = phi ptr [ %5, %.preheader.i ], [ %5, %.preheader40.i ], [ %.4.i, %68 ], [ %.135.i, %40 ]
@@ -537,17 +537,17 @@ define void @_ZN5boost4urls6detail10param_iterC2ERKNS0_10param_viewE(ptr noundef
   store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN5boost4urls6detail10param_iterE, i64 16), ptr %0, align 8, !tbaa !13
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 41
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %9 = load i8, ptr %8, align 8, !tbaa !32, !range !19, !noundef !20
-  store i8 %9, ptr %7, align 1, !tbaa !34
+  %9 = load i8, ptr %8, align 8, !tbaa !31, !range !19, !noundef !20
+  store i8 %9, ptr %7, align 1, !tbaa !33
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 42
-  store i8 0, ptr %10, align 2, !tbaa !36
+  store i8 0, ptr %10, align 2, !tbaa !35
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_ZN5boost4urls6detail10param_iter6rewindEv(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(43) initializes((42, 43)) %0) unnamed_addr #8 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 42
-  store i8 0, ptr %2, align 2, !tbaa !36
+  store i8 0, ptr %2, align 2, !tbaa !35
   ret void
 }
 
@@ -555,7 +555,7 @@ define void @_ZN5boost4urls6detail10param_iter6rewindEv(ptr noundef nonnull writ
 define noundef zeroext i1 @_ZN5boost4urls6detail10param_iter7measureERm(ptr noundef nonnull align 8 captures(none) dereferenceable(43) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %1) unnamed_addr #5 align 2 {
   %3 = alloca %"struct.boost::urls::encoding_opts", align 4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 42
-  %5 = load i8, ptr %4, align 2, !tbaa !36, !range !19, !noundef !20
+  %5 = load i8, ptr %4, align 2, !tbaa !35, !range !19, !noundef !20
   %6 = trunc nuw i8 %5 to i1
   br i1 %6, label %70, label %7
 
@@ -617,7 +617,7 @@ define noundef zeroext i1 @_ZN5boost4urls6detail10param_iter7measureERm(ptr noun
   %33 = add i64 %.sink.i, %.331.i
   %34 = getelementptr inbounds nuw i8, ptr %.12030.i, i64 1
   %.not.i = icmp eq ptr %34, %9
-  br i1 %.not.i, label %_ZN5boost4urls12encoded_sizeINS0_7grammar9lut_charsEEEmNS_4core17basic_string_viewIcEERKT_NS0_13encoding_optsE.exit, label %.lr.ph32.i, !llvm.loop !29
+  br i1 %.not.i, label %_ZN5boost4urls12encoded_sizeINS0_7grammar9lut_charsEEEmNS_4core17basic_string_viewIcEERKT_NS0_13encoding_optsE.exit, label %.lr.ph32.i, !llvm.loop !28
 
 _ZN5boost4urls12encoded_sizeINS0_7grammar9lut_charsEEEmNS_4core17basic_string_viewIcEERKT_NS0_13encoding_optsE.exit: ; preds = %.lr.ph.i, %.lr.ph32.i, %11, %12
   %.2.i = phi i64 [ 0, %11 ], [ 0, %12 ], [ %33, %.lr.ph32.i ], [ %.1.i, %.lr.ph.i ]
@@ -625,7 +625,7 @@ _ZN5boost4urls12encoded_sizeINS0_7grammar9lut_charsEEEmNS_4core17basic_string_vi
   %36 = add i64 %35, %.2.i
   store i64 %36, ptr %1, align 8, !tbaa !7
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 41
-  %38 = load i8, ptr %37, align 1, !tbaa !34, !range !19, !noundef !20
+  %38 = load i8, ptr %37, align 1, !tbaa !33, !range !19, !noundef !20
   %39 = trunc nuw i8 %38 to i1
   br i1 %39, label %40, label %69
 
@@ -684,7 +684,7 @@ _ZN5boost4urls12encoded_sizeINS0_7grammar9lut_charsEEEmNS_4core17basic_string_vi
   %66 = add i64 %.sink.i25, %.331.i21
   %67 = getelementptr inbounds nuw i8, ptr %.12030.i22, i64 1
   %.not.i26 = icmp eq ptr %67, %43
-  br i1 %.not.i26, label %_ZN5boost4urls12encoded_sizeINS0_7grammar9lut_charsEEEmNS_4core17basic_string_viewIcEERKT_NS0_13encoding_optsE.exit27, label %.lr.ph32.i20, !llvm.loop !29
+  br i1 %.not.i26, label %_ZN5boost4urls12encoded_sizeINS0_7grammar9lut_charsEEEmNS_4core17basic_string_viewIcEERKT_NS0_13encoding_optsE.exit27, label %.lr.ph32.i20, !llvm.loop !28
 
 _ZN5boost4urls12encoded_sizeINS0_7grammar9lut_charsEEEmNS_4core17basic_string_viewIcEERKT_NS0_13encoding_optsE.exit27: ; preds = %.lr.ph.i11, %.lr.ph32.i20, %44, %45
   %.2.i18 = phi i64 [ 0, %44 ], [ 0, %45 ], [ %66, %.lr.ph32.i20 ], [ %.1.i16, %.lr.ph.i11 ]
@@ -693,7 +693,7 @@ _ZN5boost4urls12encoded_sizeINS0_7grammar9lut_charsEEEmNS_4core17basic_string_vi
   br label %69
 
 69:                                               ; preds = %_ZN5boost4urls12encoded_sizeINS0_7grammar9lut_charsEEEmNS_4core17basic_string_viewIcEERKT_NS0_13encoding_optsE.exit27, %_ZN5boost4urls12encoded_sizeINS0_7grammar9lut_charsEEEmNS_4core17basic_string_viewIcEERKT_NS0_13encoding_optsE.exit
-  store i8 1, ptr %4, align 2, !tbaa !36
+  store i8 1, ptr %4, align 2, !tbaa !35
   call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %3) #17
   br label %70
 
@@ -722,7 +722,7 @@ define void @_ZN5boost4urls6detail10param_iter4copyERPcPKc(ptr noundef nonnull r
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 %10
   store ptr %12, ptr %1, align 8, !tbaa !3
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 41
-  %14 = load i8, ptr %13, align 1, !tbaa !34, !range !19, !noundef !20
+  %14 = load i8, ptr %13, align 1, !tbaa !33, !range !19, !noundef !20
   %15 = trunc nuw i8 %14 to i1
   br i1 %15, label %16, label %25
 
@@ -794,7 +794,7 @@ define linkonce_odr hidden noundef i64 @_ZN5boost4urls6encodeINS0_7grammar9lut_c
   %.059.be = phi ptr [ %27, %26 ], [ %46, %34 ]
   %.031.be = getelementptr inbounds nuw i8, ptr %.03173, i64 1
   %.not = icmp eq ptr %.031.be, %12
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !37
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !36
 
 28:                                               ; preds = %.lr.ph
   %29 = icmp ugt ptr %.05972, %13
@@ -867,7 +867,7 @@ define linkonce_odr hidden noundef i64 @_ZN5boost4urls6encodeINS0_7grammar9lut_c
   %.160.be = phi ptr [ %65, %64 ], [ %71, %70 ], [ %90, %78 ]
   %.1.be = getelementptr inbounds nuw i8, ptr %.176, i64 1
   %.not40 = icmp eq ptr %.1.be, %12
-  br i1 %.not40, label %.loopexit, label %.lr.ph77, !llvm.loop !38
+  br i1 %.not40, label %.loopexit, label %.lr.ph77, !llvm.loop !37
 
 66:                                               ; preds = %.lr.ph77
   %67 = icmp eq i8 %53, 32
@@ -981,7 +981,7 @@ define void @_ZN5boost4urls6detail16params_iter_base12measure_implERmRKNS0_10par
   %28 = add i64 %.sink.i, %.331.i
   %29 = getelementptr inbounds nuw i8, ptr %.12030.i, i64 1
   %.not.i = icmp eq ptr %29, %4
-  br i1 %.not.i, label %_ZN5boost4urls12encoded_sizeINS0_7grammar9lut_charsEEEmNS_4core17basic_string_viewIcEERKT_NS0_13encoding_optsE.exit, label %.lr.ph32.i, !llvm.loop !29
+  br i1 %.not.i, label %_ZN5boost4urls12encoded_sizeINS0_7grammar9lut_charsEEEmNS_4core17basic_string_viewIcEERKT_NS0_13encoding_optsE.exit, label %.lr.ph32.i, !llvm.loop !28
 
 _ZN5boost4urls12encoded_sizeINS0_7grammar9lut_charsEEEmNS_4core17basic_string_viewIcEERKT_NS0_13encoding_optsE.exit: ; preds = %.lr.ph.i, %.lr.ph32.i, %6, %7
   %.2.i = phi i64 [ 0, %6 ], [ 0, %7 ], [ %28, %.lr.ph32.i ], [ %.1.i, %.lr.ph.i ]
@@ -989,7 +989,7 @@ _ZN5boost4urls12encoded_sizeINS0_7grammar9lut_charsEEEmNS_4core17basic_string_vi
   %31 = add i64 %30, %.2.i
   store i64 %31, ptr %0, align 8, !tbaa !7
   %32 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %33 = load i8, ptr %32, align 8, !tbaa !32, !range !19, !noundef !20
+  %33 = load i8, ptr %32, align 8, !tbaa !31, !range !19, !noundef !20
   %34 = trunc nuw i8 %33 to i1
   br i1 %34, label %35, label %64
 
@@ -1048,7 +1048,7 @@ _ZN5boost4urls12encoded_sizeINS0_7grammar9lut_charsEEEmNS_4core17basic_string_vi
   %61 = add i64 %.sink.i26, %.331.i22
   %62 = getelementptr inbounds nuw i8, ptr %.12030.i23, i64 1
   %.not.i27 = icmp eq ptr %62, %38
-  br i1 %.not.i27, label %_ZN5boost4urls12encoded_sizeINS0_7grammar9lut_charsEEEmNS_4core17basic_string_viewIcEERKT_NS0_13encoding_optsE.exit28, label %.lr.ph32.i21, !llvm.loop !29
+  br i1 %.not.i27, label %_ZN5boost4urls12encoded_sizeINS0_7grammar9lut_charsEEEmNS_4core17basic_string_viewIcEERKT_NS0_13encoding_optsE.exit28, label %.lr.ph32.i21, !llvm.loop !28
 
 _ZN5boost4urls12encoded_sizeINS0_7grammar9lut_charsEEEmNS_4core17basic_string_viewIcEERKT_NS0_13encoding_optsE.exit28: ; preds = %.lr.ph.i12, %.lr.ph32.i21, %39, %40
   %.2.i19 = phi i64 [ 0, %39 ], [ 0, %40 ], [ %61, %.lr.ph32.i21 ], [ %.1.i17, %.lr.ph.i12 ]
@@ -1080,7 +1080,7 @@ define void @_ZN5boost4urls6detail16params_iter_base9copy_implERPcPKcRKNS0_10par
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 %9
   store ptr %11, ptr %0, align 8, !tbaa !3
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %13 = load i8, ptr %12, align 8, !tbaa !32, !range !19, !noundef !20
+  %13 = load i8, ptr %12, align 8, !tbaa !31, !range !19, !noundef !20
   %14 = trunc nuw i8 %13 to i1
   br i1 %14, label %15, label %24
 
@@ -1129,24 +1129,24 @@ define void @_ZN5boost4urls6detail18param_encoded_iterC2ERKNS0_14param_pct_viewE
   store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN5boost4urls6detail18param_encoded_iterE, i64 16), ptr %0, align 8, !tbaa !13
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 41
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %9 = load i8, ptr %8, align 8, !tbaa !39, !range !19, !noundef !20
-  store i8 %9, ptr %7, align 1, !tbaa !43
+  %9 = load i8, ptr %8, align 8, !tbaa !38, !range !19, !noundef !20
+  store i8 %9, ptr %7, align 1, !tbaa !42
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 42
-  store i8 0, ptr %10, align 2, !tbaa !45
+  store i8 0, ptr %10, align 2, !tbaa !44
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_ZN5boost4urls6detail18param_encoded_iter6rewindEv(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(43) initializes((42, 43)) %0) unnamed_addr #8 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 42
-  store i8 0, ptr %2, align 2, !tbaa !45
+  store i8 0, ptr %2, align 2, !tbaa !44
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define noundef zeroext i1 @_ZN5boost4urls6detail18param_encoded_iter7measureERm(ptr noundef nonnull align 8 captures(none) dereferenceable(43) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %1) unnamed_addr #9 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 42
-  %4 = load i8, ptr %3, align 2, !tbaa !45, !range !19, !noundef !20
+  %4 = load i8, ptr %3, align 2, !tbaa !44, !range !19, !noundef !20
   %5 = trunc nuw i8 %4 to i1
   br i1 %5, label %44, label %6
 
@@ -1185,7 +1185,7 @@ define noundef zeroext i1 @_ZN5boost4urls6detail18param_encoded_iter7measureERm(
   %20 = getelementptr inbounds nuw i8, ptr %.01016.i, i64 %.sink.i
   %.2.i = add i64 %.1.v.pn.i, %.017.i
   %.not.i = icmp eq ptr %20, %8
-  br i1 %.not.i, label %_ZN5boost4urls6detail22re_encoded_size_unsafeINS0_7grammar9lut_charsEEEmNS_4core17basic_string_viewIcEERKT_.exit, label %.lr.ph.i, !llvm.loop !46
+  br i1 %.not.i, label %_ZN5boost4urls6detail22re_encoded_size_unsafeINS0_7grammar9lut_charsEEEmNS_4core17basic_string_viewIcEERKT_.exit, label %.lr.ph.i, !llvm.loop !45
 
 _ZN5boost4urls6detail22re_encoded_size_unsafeINS0_7grammar9lut_charsEEEmNS_4core17basic_string_viewIcEERKT_.exit: ; preds = %19, %6
   %.0.lcssa.i = phi i64 [ 0, %6 ], [ %.2.i, %19 ]
@@ -1193,7 +1193,7 @@ _ZN5boost4urls6detail22re_encoded_size_unsafeINS0_7grammar9lut_charsEEEmNS_4core
   %22 = add i64 %21, %.0.lcssa.i
   store i64 %22, ptr %1, align 8, !tbaa !7
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 41
-  %24 = load i8, ptr %23, align 1, !tbaa !43, !range !19, !noundef !20
+  %24 = load i8, ptr %23, align 1, !tbaa !42, !range !19, !noundef !20
   %25 = trunc nuw i8 %24 to i1
   br i1 %25, label %26, label %43
 
@@ -1232,7 +1232,7 @@ _ZN5boost4urls6detail22re_encoded_size_unsafeINS0_7grammar9lut_charsEEEmNS_4core
   %40 = getelementptr inbounds nuw i8, ptr %.01016.i9, i64 %.sink.i13
   %.2.i15 = add i64 %.1.v.pn.i14, %.017.i8
   %.not.i16 = icmp eq ptr %40, %28
-  br i1 %.not.i16, label %_ZN5boost4urls6detail22re_encoded_size_unsafeINS0_7grammar9lut_charsEEEmNS_4core17basic_string_viewIcEERKT_.exit18, label %.lr.ph.i7, !llvm.loop !46
+  br i1 %.not.i16, label %_ZN5boost4urls6detail22re_encoded_size_unsafeINS0_7grammar9lut_charsEEEmNS_4core17basic_string_viewIcEERKT_.exit18, label %.lr.ph.i7, !llvm.loop !45
 
 _ZN5boost4urls6detail22re_encoded_size_unsafeINS0_7grammar9lut_charsEEEmNS_4core17basic_string_viewIcEERKT_.exit18: ; preds = %39, %26
   %.0.lcssa.i17 = phi i64 [ 0, %26 ], [ %.2.i15, %39 ]
@@ -1242,7 +1242,7 @@ _ZN5boost4urls6detail22re_encoded_size_unsafeINS0_7grammar9lut_charsEEEmNS_4core
   br label %43
 
 43:                                               ; preds = %_ZN5boost4urls6detail22re_encoded_size_unsafeINS0_7grammar9lut_charsEEEmNS_4core17basic_string_viewIcEERKT_.exit18, %_ZN5boost4urls6detail22re_encoded_size_unsafeINS0_7grammar9lut_charsEEEmNS_4core17basic_string_viewIcEERKT_.exit
-  store i8 1, ptr %3, align 2, !tbaa !45
+  store i8 1, ptr %3, align 2, !tbaa !44
   br label %44
 
 44:                                               ; preds = %2, %43
@@ -1325,13 +1325,13 @@ define void @_ZN5boost4urls6detail18param_encoded_iter4copyERPcPKc(ptr noundef n
   %.231.i = phi ptr [ %41, %33 ], [ %.130.i, %31 ]
   %.1.i = phi ptr [ %39, %33 ], [ %32, %31 ]
   %.not.i = icmp eq ptr %.1.i, %6
-  br i1 %.not.i, label %_ZN5boost4urls6detail16re_encode_unsafeINS0_7grammar9lut_charsEEEmRPcPKcNS_4core17basic_string_viewIcEERKT_.exit, label %.lr.ph.i, !llvm.loop !47
+  br i1 %.not.i, label %_ZN5boost4urls6detail16re_encode_unsafeINS0_7grammar9lut_charsEEEmRPcPKcNS_4core17basic_string_viewIcEERKT_.exit, label %.lr.ph.i, !llvm.loop !46
 
 _ZN5boost4urls6detail16re_encode_unsafeINS0_7grammar9lut_charsEEEmRPcPKcNS_4core17basic_string_viewIcEERKT_.exit: ; preds = %42, %3
   %.029.lcssa.i = phi ptr [ %5, %3 ], [ %.231.i, %42 ]
   store ptr %.029.lcssa.i, ptr %1, align 8, !tbaa !3
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 41
-  %44 = load i8, ptr %43, align 1, !tbaa !43, !range !19, !noundef !20
+  %44 = load i8, ptr %43, align 1, !tbaa !42, !range !19, !noundef !20
   %45 = trunc nuw i8 %44 to i1
   br i1 %45, label %46, label %87
 
@@ -1412,7 +1412,7 @@ _ZN5boost4urls6detail16re_encode_unsafeINS0_7grammar9lut_charsEEEmRPcPKcNS_4core
   %.231.i17 = phi ptr [ %85, %77 ], [ %.130.i15, %75 ]
   %.1.i19 = phi ptr [ %83, %77 ], [ %76, %75 ]
   %.not.i20 = icmp eq ptr %.1.i19, %50
-  br i1 %.not.i20, label %_ZN5boost4urls6detail16re_encode_unsafeINS0_7grammar9lut_charsEEEmRPcPKcNS_4core17basic_string_viewIcEERKT_.exit23, label %.lr.ph.i9, !llvm.loop !47
+  br i1 %.not.i20, label %_ZN5boost4urls6detail16re_encode_unsafeINS0_7grammar9lut_charsEEEmRPcPKcNS_4core17basic_string_viewIcEERKT_.exit23, label %.lr.ph.i9, !llvm.loop !46
 
 _ZN5boost4urls6detail16re_encode_unsafeINS0_7grammar9lut_charsEEEmRPcPKcNS_4core17basic_string_viewIcEERKT_.exit23: ; preds = %86, %46
   %.029.lcssa.i21 = phi ptr [ %49, %46 ], [ %.231.i17, %86 ]
@@ -1458,7 +1458,7 @@ define void @_ZN5boost4urls6detail24params_encoded_iter_base12measure_implERmRKN
   %15 = getelementptr inbounds nuw i8, ptr %.01016.i, i64 %.sink.i
   %.2.i = add i64 %.1.v.pn.i, %.017.i
   %.not.i = icmp eq ptr %15, %3
-  br i1 %.not.i, label %_ZN5boost4urls6detail22re_encoded_size_unsafeINS0_7grammar9lut_charsEEEmNS_4core17basic_string_viewIcEERKT_.exit, label %.lr.ph.i, !llvm.loop !46
+  br i1 %.not.i, label %_ZN5boost4urls6detail22re_encoded_size_unsafeINS0_7grammar9lut_charsEEEmNS_4core17basic_string_viewIcEERKT_.exit, label %.lr.ph.i, !llvm.loop !45
 
 _ZN5boost4urls6detail22re_encoded_size_unsafeINS0_7grammar9lut_charsEEEmNS_4core17basic_string_viewIcEERKT_.exit: ; preds = %14, %2
   %.0.lcssa.i = phi i64 [ 0, %2 ], [ %.2.i, %14 ]
@@ -1466,7 +1466,7 @@ _ZN5boost4urls6detail22re_encoded_size_unsafeINS0_7grammar9lut_charsEEEmNS_4core
   %17 = add i64 %16, %.0.lcssa.i
   store i64 %17, ptr %0, align 8, !tbaa !7
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %19 = load i8, ptr %18, align 8, !tbaa !32, !range !19, !noundef !20
+  %19 = load i8, ptr %18, align 8, !tbaa !31, !range !19, !noundef !20
   %20 = trunc nuw i8 %19 to i1
   br i1 %20, label %21, label %38
 
@@ -1505,7 +1505,7 @@ _ZN5boost4urls6detail22re_encoded_size_unsafeINS0_7grammar9lut_charsEEEmNS_4core
   %35 = getelementptr inbounds nuw i8, ptr %.01016.i10, i64 %.sink.i14
   %.2.i16 = add i64 %.1.v.pn.i15, %.017.i9
   %.not.i17 = icmp eq ptr %35, %23
-  br i1 %.not.i17, label %_ZN5boost4urls6detail22re_encoded_size_unsafeINS0_7grammar9lut_charsEEEmNS_4core17basic_string_viewIcEERKT_.exit19, label %.lr.ph.i8, !llvm.loop !46
+  br i1 %.not.i17, label %_ZN5boost4urls6detail22re_encoded_size_unsafeINS0_7grammar9lut_charsEEEmNS_4core17basic_string_viewIcEERKT_.exit19, label %.lr.ph.i8, !llvm.loop !45
 
 _ZN5boost4urls6detail22re_encoded_size_unsafeINS0_7grammar9lut_charsEEEmNS_4core17basic_string_viewIcEERKT_.exit19: ; preds = %34, %21
   %.0.lcssa.i18 = phi i64 [ 0, %21 ], [ %.2.i16, %34 ]
@@ -1592,13 +1592,13 @@ define void @_ZN5boost4urls6detail24params_encoded_iter_base9copy_implERPcPKcRKN
   %.231.i = phi ptr [ %40, %32 ], [ %.130.i, %30 ]
   %.1.i = phi ptr [ %38, %32 ], [ %31, %30 ]
   %.not.i = icmp eq ptr %.1.i, %5
-  br i1 %.not.i, label %_ZN5boost4urls6detail16re_encode_unsafeINS0_7grammar9lut_charsEEEmRPcPKcNS_4core17basic_string_viewIcEERKT_.exit, label %.lr.ph.i, !llvm.loop !47
+  br i1 %.not.i, label %_ZN5boost4urls6detail16re_encode_unsafeINS0_7grammar9lut_charsEEEmRPcPKcNS_4core17basic_string_viewIcEERKT_.exit, label %.lr.ph.i, !llvm.loop !46
 
 _ZN5boost4urls6detail16re_encode_unsafeINS0_7grammar9lut_charsEEEmRPcPKcNS_4core17basic_string_viewIcEERKT_.exit: ; preds = %41, %3
   %.029.lcssa.i = phi ptr [ %4, %3 ], [ %.231.i, %41 ]
   store ptr %.029.lcssa.i, ptr %0, align 8, !tbaa !3
   %42 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %43 = load i8, ptr %42, align 8, !tbaa !32, !range !19, !noundef !20
+  %43 = load i8, ptr %42, align 8, !tbaa !31, !range !19, !noundef !20
   %44 = trunc nuw i8 %43 to i1
   br i1 %44, label %45, label %86
 
@@ -1679,7 +1679,7 @@ _ZN5boost4urls6detail16re_encode_unsafeINS0_7grammar9lut_charsEEEmRPcPKcNS_4core
   %.231.i19 = phi ptr [ %84, %76 ], [ %.130.i17, %74 ]
   %.1.i21 = phi ptr [ %82, %76 ], [ %75, %74 ]
   %.not.i22 = icmp eq ptr %.1.i21, %49
-  br i1 %.not.i22, label %_ZN5boost4urls6detail16re_encode_unsafeINS0_7grammar9lut_charsEEEmRPcPKcNS_4core17basic_string_viewIcEERKT_.exit25, label %.lr.ph.i11, !llvm.loop !47
+  br i1 %.not.i22, label %_ZN5boost4urls6detail16re_encode_unsafeINS0_7grammar9lut_charsEEEmRPcPKcNS_4core17basic_string_viewIcEERKT_.exit25, label %.lr.ph.i11, !llvm.loop !46
 
 _ZN5boost4urls6detail16re_encode_unsafeINS0_7grammar9lut_charsEEEmRPcPKcNS_4core17basic_string_viewIcEERKT_.exit25: ; preds = %85, %45
   %.029.lcssa.i23 = phi ptr [ %48, %45 ], [ %.231.i19, %85 ]
@@ -1693,7 +1693,7 @@ _ZN5boost4urls6detail16re_encode_unsafeINS0_7grammar9lut_charsEEEmRPcPKcNS_4core
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define hidden void @_ZN5boost4urls6detail16param_value_iter6rewindEv(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(58) initializes((57, 58)) %0) unnamed_addr #8 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 57
-  store i8 0, ptr %2, align 1, !tbaa !48
+  store i8 0, ptr %2, align 1, !tbaa !47
   ret void
 }
 
@@ -1701,18 +1701,18 @@ define hidden void @_ZN5boost4urls6detail16param_value_iter6rewindEv(ptr noundef
 define hidden noundef zeroext i1 @_ZN5boost4urls6detail16param_value_iter7measureERm(ptr noundef nonnull align 8 captures(none) dereferenceable(58) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %1) unnamed_addr #5 align 2 {
   %3 = alloca %"struct.boost::urls::encoding_opts", align 4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 57
-  %5 = load i8, ptr %4, align 1, !tbaa !48, !range !19, !noundef !20
+  %5 = load i8, ptr %4, align 1, !tbaa !47, !range !19, !noundef !20
   %6 = trunc nuw i8 %5 to i1
   br i1 %6, label %47, label %7
 
 7:                                                ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %9 = load i64, ptr %8, align 8, !tbaa !50
+  %9 = load i64, ptr %8, align 8, !tbaa !49
   %10 = load i64, ptr %1, align 8, !tbaa !7
   %11 = add i64 %10, %9
   store i64 %11, ptr %1, align 8, !tbaa !7
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %13 = load i8, ptr %12, align 8, !tbaa !51, !range !19, !noundef !20
+  %13 = load i8, ptr %12, align 8, !tbaa !50, !range !19, !noundef !20
   %14 = trunc nuw i8 %13 to i1
   br i1 %14, label %15, label %46
 
@@ -1774,7 +1774,7 @@ define hidden noundef zeroext i1 @_ZN5boost4urls6detail16param_value_iter7measur
   %41 = add i64 %.sink.i, %.331.i
   %42 = getelementptr inbounds nuw i8, ptr %.12030.i, i64 1
   %.not.i = icmp eq ptr %42, %17
-  br i1 %.not.i, label %_ZN5boost4urls12encoded_sizeINS0_7grammar9lut_charsEEEmNS_4core17basic_string_viewIcEERKT_NS0_13encoding_optsE.exit, label %.lr.ph32.i, !llvm.loop !29
+  br i1 %.not.i, label %_ZN5boost4urls12encoded_sizeINS0_7grammar9lut_charsEEEmNS_4core17basic_string_viewIcEERKT_NS0_13encoding_optsE.exit, label %.lr.ph32.i, !llvm.loop !28
 
 _ZN5boost4urls12encoded_sizeINS0_7grammar9lut_charsEEEmNS_4core17basic_string_viewIcEERKT_NS0_13encoding_optsE.exit: ; preds = %.lr.ph.i, %.lr.ph32.i, %19, %20
   %.2.i = phi i64 [ 0, %19 ], [ 0, %20 ], [ %41, %.lr.ph32.i ], [ %.1.i, %.lr.ph.i ]
@@ -1786,7 +1786,7 @@ _ZN5boost4urls12encoded_sizeINS0_7grammar9lut_charsEEEmNS_4core17basic_string_vi
   br label %46
 
 46:                                               ; preds = %_ZN5boost4urls12encoded_sizeINS0_7grammar9lut_charsEEEmNS_4core17basic_string_viewIcEERKT_NS0_13encoding_optsE.exit, %7
-  store i8 1, ptr %4, align 1, !tbaa !48
+  store i8 1, ptr %4, align 1, !tbaa !47
   br label %47
 
 47:                                               ; preds = %2, %46
@@ -1798,12 +1798,12 @@ _ZN5boost4urls12encoded_sizeINS0_7grammar9lut_charsEEEmNS_4core17basic_string_vi
 define hidden void @_ZN5boost4urls6detail16param_value_iter4copyERPcPKc(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(58) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %1, ptr noundef %2) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"struct.boost::urls::encoding_opts", align 4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %6 = load i64, ptr %5, align 8, !tbaa !50
+  %6 = load i64, ptr %5, align 8, !tbaa !49
   %7 = load ptr, ptr %1, align 8, !tbaa !3
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 %6
   store ptr %8, ptr %1, align 8, !tbaa !3
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %10 = load i8, ptr %9, align 8, !tbaa !51, !range !19, !noundef !20
+  %10 = load i8, ptr %9, align 8, !tbaa !50, !range !19, !noundef !20
   %11 = trunc nuw i8 %10 to i1
   br i1 %11, label %12, label %22
 
@@ -1837,25 +1837,25 @@ define hidden void @_ZN5boost4urls6detail16param_value_iter4copyERPcPKc(ptr noun
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define hidden void @_ZN5boost4urls6detail24param_encoded_value_iter6rewindEv(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(58) initializes((57, 58)) %0) unnamed_addr #8 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 57
-  store i8 0, ptr %2, align 1, !tbaa !52
+  store i8 0, ptr %2, align 1, !tbaa !51
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define hidden noundef zeroext i1 @_ZN5boost4urls6detail24param_encoded_value_iter7measureERm(ptr noundef nonnull align 8 captures(none) dereferenceable(58) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %1) unnamed_addr #9 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 57
-  %4 = load i8, ptr %3, align 1, !tbaa !52, !range !19, !noundef !20
+  %4 = load i8, ptr %3, align 1, !tbaa !51, !range !19, !noundef !20
   %5 = trunc nuw i8 %4 to i1
   br i1 %5, label %32, label %6
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %8 = load i64, ptr %7, align 8, !tbaa !54
+  %8 = load i64, ptr %7, align 8, !tbaa !53
   %9 = load i64, ptr %1, align 8, !tbaa !7
   %10 = add i64 %9, %8
   store i64 %10, ptr %1, align 8, !tbaa !7
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %12 = load i8, ptr %11, align 8, !tbaa !55, !range !19, !noundef !20
+  %12 = load i8, ptr %11, align 8, !tbaa !54, !range !19, !noundef !20
   %13 = trunc nuw i8 %12 to i1
   br i1 %13, label %14, label %31
 
@@ -1894,7 +1894,7 @@ define hidden noundef zeroext i1 @_ZN5boost4urls6detail24param_encoded_value_ite
   %28 = getelementptr inbounds nuw i8, ptr %.01016.i, i64 %.sink.i
   %.2.i = add i64 %.1.v.pn.i, %.017.i
   %.not.i = icmp eq ptr %28, %16
-  br i1 %.not.i, label %_ZN5boost4urls6detail22re_encoded_size_unsafeINS0_7grammar9lut_charsEEEmNS_4core17basic_string_viewIcEERKT_.exit, label %.lr.ph.i, !llvm.loop !46
+  br i1 %.not.i, label %_ZN5boost4urls6detail22re_encoded_size_unsafeINS0_7grammar9lut_charsEEEmNS_4core17basic_string_viewIcEERKT_.exit, label %.lr.ph.i, !llvm.loop !45
 
 _ZN5boost4urls6detail22re_encoded_size_unsafeINS0_7grammar9lut_charsEEEmNS_4core17basic_string_viewIcEERKT_.exit: ; preds = %27, %14
   %.0.lcssa.i = phi i64 [ 0, %14 ], [ %.2.i, %27 ]
@@ -1904,7 +1904,7 @@ _ZN5boost4urls6detail22re_encoded_size_unsafeINS0_7grammar9lut_charsEEEmNS_4core
   br label %31
 
 31:                                               ; preds = %_ZN5boost4urls6detail22re_encoded_size_unsafeINS0_7grammar9lut_charsEEEmNS_4core17basic_string_viewIcEERKT_.exit, %6
-  store i8 1, ptr %3, align 1, !tbaa !52
+  store i8 1, ptr %3, align 1, !tbaa !51
   br label %32
 
 32:                                               ; preds = %2, %31
@@ -1915,12 +1915,12 @@ _ZN5boost4urls6detail22re_encoded_size_unsafeINS0_7grammar9lut_charsEEEmNS_4core
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define hidden void @_ZN5boost4urls6detail24param_encoded_value_iter4copyERPcPKc(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(58) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %1, ptr readnone captures(none) %2) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %5 = load i64, ptr %4, align 8, !tbaa !54
+  %5 = load i64, ptr %4, align 8, !tbaa !53
   %6 = load ptr, ptr %1, align 8, !tbaa !3
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 %5
   store ptr %7, ptr %1, align 8, !tbaa !3
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %9 = load i8, ptr %8, align 8, !tbaa !55, !range !19, !noundef !20
+  %9 = load i8, ptr %8, align 8, !tbaa !54, !range !19, !noundef !20
   %10 = trunc nuw i8 %9 to i1
   br i1 %10, label %11, label %52
 
@@ -2001,7 +2001,7 @@ define hidden void @_ZN5boost4urls6detail24param_encoded_value_iter4copyERPcPKc(
   %.231.i = phi ptr [ %50, %42 ], [ %.130.i, %40 ]
   %.1.i = phi ptr [ %48, %42 ], [ %41, %40 ]
   %.not.i = icmp eq ptr %.1.i, %15
-  br i1 %.not.i, label %_ZN5boost4urls6detail16re_encode_unsafeINS0_7grammar9lut_charsEEEmRPcPKcNS_4core17basic_string_viewIcEERKT_.exit, label %.lr.ph.i, !llvm.loop !47
+  br i1 %.not.i, label %_ZN5boost4urls6detail16re_encode_unsafeINS0_7grammar9lut_charsEEEmRPcPKcNS_4core17basic_string_viewIcEERKT_.exit, label %.lr.ph.i, !llvm.loop !46
 
 _ZN5boost4urls6detail16re_encode_unsafeINS0_7grammar9lut_charsEEEmRPcPKcNS_4core17basic_string_viewIcEERKT_.exit: ; preds = %51, %11
   %.029.lcssa.i = phi ptr [ %14, %11 ], [ %.231.i, %51 ]
@@ -2104,33 +2104,32 @@ attributes #18 = { builtin nounwind }
 !23 = !{!24, !12, i64 0}
 !24 = !{!"_ZTSN5boost4urls13encoding_optsE", !12, i64 0, !12, i64 1, !12, i64 2}
 !25 = !{!5, !5, i64 0}
-!26 = distinct !{!26, !27, !28}
+!26 = distinct !{!26, !27}
 !27 = !{!"llvm.loop.mustprogress"}
-!28 = !{!"llvm.loop.estimated_trip_count"}
-!29 = distinct !{!29, !27, !28}
-!30 = distinct !{!30, !27, !28}
-!31 = distinct !{!31, !27, !28}
-!32 = !{!33, !12, i64 32}
-!33 = !{!"_ZTSN5boost4urls10param_viewE", !11, i64 0, !11, i64 16, !12, i64 32}
-!34 = !{!35, !12, i64 41}
-!35 = !{!"_ZTSN5boost4urls6detail10param_iterE", !10, i64 0, !12, i64 41, !12, i64 42}
-!36 = !{!35, !12, i64 42}
-!37 = distinct !{!37, !27, !28}
-!38 = distinct !{!38, !27, !28}
-!39 = !{!40, !12, i64 48}
-!40 = !{!"_ZTSN5boost4urls14param_pct_viewE", !41, i64 0, !41, i64 24, !12, i64 48}
-!41 = !{!"_ZTSN5boost4urls15pct_string_viewE", !42, i64 0, !8, i64 16}
-!42 = !{!"_ZTSN5boost4urls7grammar16string_view_baseE", !11, i64 0}
-!43 = !{!44, !12, i64 41}
-!44 = !{!"_ZTSN5boost4urls6detail18param_encoded_iterE", !10, i64 0, !12, i64 41, !12, i64 42}
-!45 = !{!44, !12, i64 42}
-!46 = distinct !{!46, !27, !28}
-!47 = distinct !{!47, !27, !28}
-!48 = !{!49, !12, i64 57}
-!49 = !{!"_ZTSN5boost4urls6detail16param_value_iterE", !10, i64 0, !8, i64 48, !12, i64 56, !12, i64 57}
-!50 = !{!49, !8, i64 48}
-!51 = !{!49, !12, i64 56}
-!52 = !{!53, !12, i64 57}
-!53 = !{!"_ZTSN5boost4urls6detail24param_encoded_value_iterE", !10, i64 0, !8, i64 48, !12, i64 56, !12, i64 57}
-!54 = !{!53, !8, i64 48}
-!55 = !{!53, !12, i64 56}
+!28 = distinct !{!28, !27}
+!29 = distinct !{!29, !27}
+!30 = distinct !{!30, !27}
+!31 = !{!32, !12, i64 32}
+!32 = !{!"_ZTSN5boost4urls10param_viewE", !11, i64 0, !11, i64 16, !12, i64 32}
+!33 = !{!34, !12, i64 41}
+!34 = !{!"_ZTSN5boost4urls6detail10param_iterE", !10, i64 0, !12, i64 41, !12, i64 42}
+!35 = !{!34, !12, i64 42}
+!36 = distinct !{!36, !27}
+!37 = distinct !{!37, !27}
+!38 = !{!39, !12, i64 48}
+!39 = !{!"_ZTSN5boost4urls14param_pct_viewE", !40, i64 0, !40, i64 24, !12, i64 48}
+!40 = !{!"_ZTSN5boost4urls15pct_string_viewE", !41, i64 0, !8, i64 16}
+!41 = !{!"_ZTSN5boost4urls7grammar16string_view_baseE", !11, i64 0}
+!42 = !{!43, !12, i64 41}
+!43 = !{!"_ZTSN5boost4urls6detail18param_encoded_iterE", !10, i64 0, !12, i64 41, !12, i64 42}
+!44 = !{!43, !12, i64 42}
+!45 = distinct !{!45, !27}
+!46 = distinct !{!46, !27}
+!47 = !{!48, !12, i64 57}
+!48 = !{!"_ZTSN5boost4urls6detail16param_value_iterE", !10, i64 0, !8, i64 48, !12, i64 56, !12, i64 57}
+!49 = !{!48, !8, i64 48}
+!50 = !{!48, !12, i64 56}
+!51 = !{!52, !12, i64 57}
+!52 = !{!"_ZTSN5boost4urls6detail24param_encoded_value_iterE", !10, i64 0, !8, i64 48, !12, i64 56, !12, i64 57}
+!53 = !{!52, !8, i64 48}
+!54 = !{!52, !12, i64 56}

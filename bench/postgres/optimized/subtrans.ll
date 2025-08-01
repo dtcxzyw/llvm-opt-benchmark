@@ -349,7 +349,7 @@ define dso_local void @StartupSUBTRANS(i32 noundef %0) local_unnamed_addr #0 {
   %23 = add nuw nsw i64 %.0, 1
   %.not18 = icmp slt i64 %.0, 2097151
   %spec.select = select i1 %.not18, i64 %23, i64 0
-  br label %8, !llvm.loop !7
+  br label %8
 
 24:                                               ; preds = %19
   tail call void @LWLockRelease(ptr noundef %14) #6
@@ -400,7 +400,7 @@ define dso_local void @TruncateSUBTRANS(i32 noundef %0) local_unnamed_addr #0 {
   %.0 = phi i32 [ %0, %1 ], [ %3, %2 ]
   %3 = add i32 %.0, -1
   %4 = icmp ult i32 %3, 3
-  br i1 %4, label %2, label %5, !llvm.loop !8
+  br i1 %4, label %2, label %5, !llvm.loop !6
 
 5:                                                ; preds = %2
   %6 = lshr i32 %3, 11
@@ -439,8 +439,6 @@ attributes #7 = { cold nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = distinct !{!4, !5, !6}
+!4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{!"llvm.loop.estimated_trip_count"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !5, !6}
+!6 = distinct !{!6, !5}

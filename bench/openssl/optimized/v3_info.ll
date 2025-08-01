@@ -161,8 +161,8 @@ define internal ptr @v2i_AUTHORITY_INFO_ACCESS(ptr noundef %0, ptr noundef %1, p
   %25 = getelementptr inbounds nuw i8, ptr %21, i64 1
   store ptr %25, ptr %9, align 8, !tbaa !11
   %26 = getelementptr inbounds nuw i8, ptr %13, i64 16
-  %27 = load ptr, ptr %26, align 8, !tbaa !17
-  store ptr %27, ptr %10, align 8, !tbaa !17
+  %27 = load ptr, ptr %26, align 8, !tbaa !16
+  store ptr %27, ptr %10, align 8, !tbaa !16
   %28 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %29 = load ptr, ptr %28, align 8, !tbaa !3
   %30 = call ptr @v2i_GENERAL_NAME_ex(ptr noundef %29, ptr noundef %0, ptr noundef %1, ptr noundef nonnull %4, i32 noundef 0) #5
@@ -195,7 +195,7 @@ define internal ptr @v2i_AUTHORITY_INFO_ACCESS(ptr noundef %0, ptr noundef %1, p
   call void @CRYPTO_free(ptr noundef nonnull %36, ptr noundef nonnull @.str.5, i32 noundef 143) #5
   %42 = add nuw nsw i32 %.02734, 1
   %exitcond.not = icmp eq i32 %42, %5
-  br i1 %exitcond.not, label %.loopexit, label %12, !llvm.loop !18
+  br i1 %exitcond.not, label %.loopexit, label %12, !llvm.loop !17
 
 .loopexit33:                                      ; preds = %31, %24, %40, %23, %16
   call void @OPENSSL_sk_pop_free(ptr noundef nonnull %6, ptr noundef nonnull @ACCESS_DESCRIPTION_free) #5
@@ -353,8 +353,7 @@ attributes #6 = { nounwind willreturn memory(read) }
 !11 = !{!12, !13, i64 8}
 !12 = !{!"", !13, i64 0, !13, i64 8, !13, i64 16}
 !13 = !{!"p1 omnipotent char", !6, i64 0}
-!14 = distinct !{!14, !15, !16}
+!14 = distinct !{!14, !15}
 !15 = !{!"llvm.loop.mustprogress"}
-!16 = !{!"llvm.loop.estimated_trip_count"}
-!17 = !{!12, !13, i64 16}
-!18 = distinct !{!18, !15, !16}
+!16 = !{!12, !13, i64 16}
+!17 = distinct !{!17, !15}

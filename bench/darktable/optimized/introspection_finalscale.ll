@@ -361,7 +361,7 @@ define range(i32 0, 2) i32 @introspection_init(ptr noundef %0, i32 noundef %1) l
   store ptr %0, ptr %7, align 8, !tbaa !133
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %6, label %.preheader, !llvm.loop !134
+  br i1 %exitcond.not, label %6, label %.preheader
 
 8:                                                ; preds = %2, %6
   %.06 = phi i32 [ 0, %6 ], [ 1, %2 ]
@@ -543,5 +543,3 @@ attributes #16 = { nounwind willreturn memory(read) }
 !131 = !{!"dt_introspection_t", !8, i64 0, !8, i64 4, !45, i64 8, !27, i64 16, !132, i64 24, !27, i64 32, !27, i64 40, !32, i64 48}
 !132 = !{!"p1 _ZTS24dt_introspection_field_t", !21, i64 0}
 !133 = !{!9, !9, i64 0}
-!134 = distinct !{!134, !135}
-!135 = !{!"llvm.loop.estimated_trip_count"}

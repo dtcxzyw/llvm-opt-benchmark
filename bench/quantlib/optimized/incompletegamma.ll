@@ -567,10 +567,10 @@ for.body:                                         ; preds = %for.body.preheader,
 
 if.then5:                                         ; preds = %for.body
   %fneg = fneg double %x
-  %call6 = call double @log(double noundef %x) #16, !tbaa !21
+  %call6 = call double @log(double noundef %x) #16, !tbaa !20
   %2 = call double @llvm.fmuladd.f64(double %a, double %call6, double %fneg)
   %sub = fsub double %2, %call
-  %call8 = call double @exp(double noundef %sub) #16, !tbaa !21
+  %call8 = call double @exp(double noundef %sub) #16, !tbaa !20
   %mul9 = fmul double %add, %call8
   br label %return
 
@@ -763,7 +763,7 @@ for.body.preheader:                               ; preds = %entry
 for.cond:                                         ; preds = %for.body
   %inc = add nuw i32 %i.063, 1
   %exitcond.not = icmp eq i32 %i.063, %maxIteration
-  br i1 %exitcond.not, label %do.body, label %for.body, !llvm.loop !23
+  br i1 %exitcond.not, label %do.body, label %for.body, !llvm.loop !22
 
 for.body:                                         ; preds = %for.body.preheader, %for.cond
   %i.063 = phi i32 [ %inc, %for.cond ], [ 1, %for.body.preheader ]
@@ -796,10 +796,10 @@ for.body:                                         ; preds = %for.body.preheader,
 
 if.then23:                                        ; preds = %for.body
   %fneg = fneg double %x
-  %call24 = call double @log(double noundef %x) #16, !tbaa !21
+  %call24 = call double @log(double noundef %x) #16, !tbaa !20
   %5 = call double @llvm.fmuladd.f64(double %a, double %call24, double %fneg)
   %sub26 = fsub double %5, %call
-  %call27 = call double @exp(double noundef %sub26) #16, !tbaa !21
+  %call27 = call double @exp(double noundef %sub26) #16, !tbaa !20
   %mul28 = fmul double %mul20, %call27
   ret double %mul28
 
@@ -1052,9 +1052,8 @@ attributes #19 = { noreturn nounwind }
 !15 = !{!"vtable pointer", !8, i64 0}
 !16 = !{!17, !6, i64 0}
 !17 = !{!"_ZTSN5boost6detail12shared_countE", !6, i64 0}
-!18 = distinct !{!18, !19, !20}
+!18 = distinct !{!18, !19}
 !19 = !{!"llvm.loop.mustprogress"}
-!20 = !{!"llvm.loop.estimated_trip_count"}
-!21 = !{!22, !22, i64 0}
-!22 = !{!"int", !7, i64 0}
-!23 = distinct !{!23, !19, !20}
+!20 = !{!21, !21, i64 0}
+!21 = !{!"int", !7, i64 0}
+!22 = distinct !{!22, !19}

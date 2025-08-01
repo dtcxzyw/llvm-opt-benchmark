@@ -110,9 +110,9 @@ define internal i32 @decode_frame(ptr noundef %0, ptr noundef %1, ptr noundef wr
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %6 = load ptr, ptr %5, align 8, !tbaa !4
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %8 = load ptr, ptr %7, align 8, !tbaa !43
+  %8 = load ptr, ptr %7, align 8, !tbaa !42
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  %10 = load i32, ptr %9, align 8, !tbaa !45
+  %10 = load i32, ptr %9, align 8, !tbaa !44
   %11 = load i32, ptr %6, align 4, !tbaa !28
   %12 = icmp slt i32 %10, %11
   br i1 %12, label %119, label %13
@@ -150,14 +150,14 @@ dv_get_audio_sample_count.exit:                   ; preds = %20, %22, %24
   %27 = zext nneg i8 %26 to i32
   %.0.i = add nuw nsw i32 %.pn.i, %27
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 112
-  store i32 %.0.i, ptr %28, align 8, !tbaa !46
+  store i32 %.0.i, ptr %28, align 8, !tbaa !45
   %29 = tail call i32 @ff_get_buffer(ptr noundef nonnull %0, ptr noundef %1, i32 noundef 0) #4
   %30 = icmp slt i32 %29, 0
   br i1 %30, label %119, label %31
 
 31:                                               ; preds = %dv_get_audio_sample_count.exit
-  %32 = load ptr, ptr %1, align 8, !tbaa !51
-  %33 = load i32, ptr %28, align 8, !tbaa !46
+  %32 = load ptr, ptr %1, align 8, !tbaa !50
+  %33 = load i32, ptr %28, align 8, !tbaa !45
   %34 = icmp sgt i32 %33, 0
   br i1 %34, label %.lr.ph, label %._crit_edge
 
@@ -197,7 +197,7 @@ dv_get_audio_sample_count.exit:                   ; preds = %20, %22, %24
   %.1.us = getelementptr inbounds nuw i8, ptr %.03240.us, i64 4
   %indvars.iv.next45 = add nuw nsw i64 %indvars.iv44, 1
   %exitcond48.not = icmp eq i64 %indvars.iv.next45, %wide.trip.count47
-  br i1 %exitcond48.not, label %._crit_edge, label %40, !llvm.loop !52
+  br i1 %exitcond48.not, label %._crit_edge, label %40, !llvm.loop !51
 
 .lr.ph.split:                                     ; preds = %.lr.ph.split.preheader, %dv_audio_12to16.exit39
   %indvars.iv = phi i64 [ 0, %.lr.ph.split.preheader ], [ %indvars.iv.next, %dv_audio_12to16.exit39 ]
@@ -296,7 +296,7 @@ dv_audio_12to16.exit39:                           ; preds = %dv_audio_12to16.exi
   %.1 = getelementptr inbounds nuw i8, ptr %.03240, i64 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !54
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !53
 
 ._crit_edge:                                      ; preds = %dv_audio_12to16.exit39, %40, %31
   store i32 1, ptr %2, align 4, !tbaa !35
@@ -363,18 +363,17 @@ attributes #4 = { nounwind }
 !37 = !{!7, !7, i64 0}
 !38 = !{!39, !39, i64 0}
 !39 = !{!"short", !8, i64 0}
-!40 = distinct !{!40, !41, !42}
+!40 = distinct !{!40, !41}
 !41 = !{!"llvm.loop.mustprogress"}
-!42 = !{!"llvm.loop.estimated_trip_count"}
-!43 = !{!44, !14, i64 24}
-!44 = !{!"AVPacket", !21, i64 0, !13, i64 8, !13, i64 16, !14, i64 24, !10, i64 32, !10, i64 36, !10, i64 40, !23, i64 48, !10, i64 56, !13, i64 64, !13, i64 72, !7, i64 80, !21, i64 88, !15, i64 96}
-!45 = !{!44, !10, i64 32}
-!46 = !{!47, !10, i64 112}
-!47 = !{!"AVFrame", !8, i64 0, !8, i64 64, !48, i64 96, !10, i64 104, !10, i64 108, !10, i64 112, !10, i64 116, !10, i64 120, !15, i64 124, !13, i64 136, !13, i64 144, !15, i64 152, !10, i64 160, !7, i64 168, !10, i64 176, !10, i64 180, !8, i64 184, !49, i64 248, !10, i64 256, !25, i64 264, !10, i64 272, !10, i64 276, !10, i64 280, !10, i64 284, !10, i64 288, !10, i64 292, !10, i64 296, !13, i64 304, !50, i64 312, !10, i64 320, !21, i64 328, !21, i64 336, !13, i64 344, !13, i64 352, !13, i64 360, !13, i64 368, !7, i64 376, !18, i64 384, !13, i64 408}
-!48 = !{!"p2 omnipotent char", !26, i64 0}
-!49 = !{!"p2 _ZTS11AVBufferRef", !26, i64 0}
-!50 = !{!"p1 _ZTS12AVDictionary", !7, i64 0}
-!51 = !{!14, !14, i64 0}
-!52 = distinct !{!52, !41, !42, !53}
-!53 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!54 = distinct !{!54, !41, !42}
+!42 = !{!43, !14, i64 24}
+!43 = !{!"AVPacket", !21, i64 0, !13, i64 8, !13, i64 16, !14, i64 24, !10, i64 32, !10, i64 36, !10, i64 40, !23, i64 48, !10, i64 56, !13, i64 64, !13, i64 72, !7, i64 80, !21, i64 88, !15, i64 96}
+!44 = !{!43, !10, i64 32}
+!45 = !{!46, !10, i64 112}
+!46 = !{!"AVFrame", !8, i64 0, !8, i64 64, !47, i64 96, !10, i64 104, !10, i64 108, !10, i64 112, !10, i64 116, !10, i64 120, !15, i64 124, !13, i64 136, !13, i64 144, !15, i64 152, !10, i64 160, !7, i64 168, !10, i64 176, !10, i64 180, !8, i64 184, !48, i64 248, !10, i64 256, !25, i64 264, !10, i64 272, !10, i64 276, !10, i64 280, !10, i64 284, !10, i64 288, !10, i64 292, !10, i64 296, !13, i64 304, !49, i64 312, !10, i64 320, !21, i64 328, !21, i64 336, !13, i64 344, !13, i64 352, !13, i64 360, !13, i64 368, !7, i64 376, !18, i64 384, !13, i64 408}
+!47 = !{!"p2 omnipotent char", !26, i64 0}
+!48 = !{!"p2 _ZTS11AVBufferRef", !26, i64 0}
+!49 = !{!"p1 _ZTS12AVDictionary", !7, i64 0}
+!50 = !{!14, !14, i64 0}
+!51 = distinct !{!51, !41, !52}
+!52 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!53 = distinct !{!53, !41}

@@ -368,7 +368,7 @@ dissect_hcrt_header.exit.i:                       ; preds = %70, %81
   %115 = tail call ptr @proto_tree_add_item(ptr noundef %95, i32 noundef %112, ptr noundef %0, i32 noundef %114, i32 noundef 8, i32 noundef -2147483648)
   %116 = add nuw nsw i32 %.149.i.i, 1
   %exitcond.not.i.i = icmp eq i32 %.149.i.i, %41
-  br i1 %exitcond.not.i.i, label %dissect_hcrt_message.exit, label %.lr.ph.i.i, !llvm.loop !9
+  br i1 %exitcond.not.i.i, label %dissect_hcrt_message.exit, label %.lr.ph.i.i, !llvm.loop !8
 
 117:                                              ; preds = %dissect_hcrt_header.exit.i
   %118 = icmp eq i32 %44, 0
@@ -400,7 +400,7 @@ dissect_hcrt_message.exit:                        ; preds = %.lr.ph.i.i, %.lr.ph
 130:                                              ; preds = %dissect_hcrt_message.exit
   %131 = add i32 %.0.i, %91
   %132 = add i32 %.0, 1
-  br label %36, !llvm.loop !10
+  br label %36, !llvm.loop !9
 
 133:                                              ; preds = %dissect_hcrt_message.exit
   %134 = tail call i32 @tvb_captured_length(ptr noundef %0)
@@ -469,8 +469,7 @@ attributes #1 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protect
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7, !8}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}

@@ -727,7 +727,7 @@ ossl_time_from_timeval.exit.i:                    ; preds = %254
   %283 = zext i1 %282 to i32
   %284 = call i32 @test_true(ptr noundef nonnull @.str.14, i32 noundef 377, ptr noundef nonnull @.str.57, i32 noundef %283) #7
   %.not238.i = icmp eq i32 %284, 0
-  br i1 %.not238.i, label %285, label %272, !llvm.loop !31
+  br i1 %.not238.i, label %285, label %272
 
 285:                                              ; preds = %279
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #7
@@ -739,7 +739,7 @@ ossl_time_from_timeval.exit.i:                    ; preds = %254
   %..i.i = call i64 @llvm.usub.sat.i64(i64 %287, i64 %128)
   %288 = mul nuw nsw i64 %.1150.i, 1000000
   %.not274.i = icmp ult i64 %..i.i, %288
-  br i1 %.not274.i, label %133, label %._crit_edge.i, !llvm.loop !33
+  br i1 %.not274.i, label %133, label %._crit_edge.i
 
 289:                                              ; preds = %261, %232
   br label %.loopexit.i
@@ -981,6 +981,3 @@ attributes #7 = { nounwind }
 !28 = !{!"bio_msg_st", !6, i64 0, !13, i64 8, !29, i64 16, !29, i64 24, !13, i64 32}
 !29 = !{!"p1 _ZTS11bio_addr_st", !6, i64 0}
 !30 = !{!28, !13, i64 8}
-!31 = distinct !{!31, !32}
-!32 = !{!"llvm.loop.estimated_trip_count"}
-!33 = distinct !{!33, !32}

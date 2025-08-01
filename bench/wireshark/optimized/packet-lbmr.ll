@@ -1750,13 +1750,13 @@ define hidden void @proto_register_lbmr() local_unnamed_addr #0 {
   tail call void @prefs_register_uint_preference(ptr noundef %8, ptr noundef nonnull @.str.685, ptr noundef nonnull @.str.686, ptr noundef nonnull @.str.687, i32 noundef 10, ptr noundef nonnull @global_lbmr_mc_incoming_udp_port)
   %9 = call zeroext i1 @ws_inet_pton4(ptr noundef nonnull @.str.688, ptr noundef nonnull %1)
   %10 = load i32, ptr %1, align 4
-  %11 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %10) #10, !srcloc !9
+  %11 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %10) #10, !srcloc !8
   store i32 %11, ptr @lbmr_mc_incoming_address_host, align 4
   call void @prefs_register_string_preference(ptr noundef %8, ptr noundef nonnull @.str.689, ptr noundef nonnull @.str.690, ptr noundef nonnull @.str.691, ptr noundef nonnull @global_lbmr_mc_incoming_address)
   call void @prefs_register_uint_preference(ptr noundef %8, ptr noundef nonnull @.str.692, ptr noundef nonnull @.str.693, ptr noundef nonnull @.str.694, i32 noundef 10, ptr noundef nonnull @global_lbmr_mc_outgoing_udp_port)
   %12 = call zeroext i1 @ws_inet_pton4(ptr noundef nonnull @.str.688, ptr noundef nonnull %1)
   %13 = load i32, ptr %1, align 4
-  %14 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %13) #10, !srcloc !10
+  %14 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %13) #10, !srcloc !9
   store i32 %14, ptr @lbmr_mc_outgoing_address_host, align 4
   call void @prefs_register_string_preference(ptr noundef %8, ptr noundef nonnull @.str.695, ptr noundef nonnull @.str.696, ptr noundef nonnull @.str.697, ptr noundef nonnull @global_lbmr_mc_outgoing_address)
   call void @prefs_register_uint_preference(ptr noundef %8, ptr noundef nonnull @.str.698, ptr noundef nonnull @.str.699, ptr noundef nonnull @.str.700, i32 noundef 10, ptr noundef nonnull @global_lbmr_uc_port_low)
@@ -1764,7 +1764,7 @@ define hidden void @proto_register_lbmr() local_unnamed_addr #0 {
   call void @prefs_register_uint_preference(ptr noundef %8, ptr noundef nonnull @.str.704, ptr noundef nonnull @.str.705, ptr noundef nonnull @.str.706, i32 noundef 10, ptr noundef nonnull @global_lbmr_uc_dest_port)
   %15 = call zeroext i1 @ws_inet_pton4(ptr noundef nonnull @.str.707, ptr noundef nonnull %1)
   %16 = load i32, ptr %1, align 4
-  %17 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %16) #10, !srcloc !11
+  %17 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %16) #10, !srcloc !10
   store i32 %17, ptr @lbmr_uc_address_host, align 4
   call void @prefs_register_string_preference(ptr noundef %8, ptr noundef nonnull @.str.708, ptr noundef nonnull @.str.709, ptr noundef nonnull @.str.710, ptr noundef nonnull @global_lbmr_uc_address)
   call void @prefs_register_bool_preference(ptr noundef %8, ptr noundef nonnull @.str.711, ptr noundef nonnull @.str.712, ptr noundef nonnull @.str.713, ptr noundef nonnull @global_lbmr_use_tag)
@@ -1850,7 +1850,7 @@ define internal i32 @dissect_lbmr(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %25 = load ptr, ptr %24, align 8
   tail call void @col_set_str(ptr noundef %25, i32 noundef 35, ptr noundef nonnull @.str.682)
-  %26 = load i8, ptr @lbmr_use_tag, align 1, !range !12, !noundef !13
+  %26 = load i8, ptr @lbmr_use_tag, align 1, !range !11, !noundef !12
   %27 = trunc nuw i8 %26 to i1
   br i1 %27, label %.preheader.i, label %lbmr_tag_find.exit.thread
 
@@ -1867,7 +1867,7 @@ define internal i32 @dissect_lbmr(ptr noundef %0, ptr noundef %1, ptr noundef %2
 30:                                               ; preds = %31
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %lbmr_tag_find.exit.thread, label %31, !llvm.loop !14
+  br i1 %exitcond.not.i, label %lbmr_tag_find.exit.thread, label %31, !llvm.loop !13
 
 31:                                               ; preds = %30, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %30 ]
@@ -2077,7 +2077,7 @@ proto_item_set_generated.exit:                    ; preds = %81, %78, %72, %.thr
   %158 = add i32 %.0107121.i, 10
   %159 = add i16 %.0104122.i, -10
   %.not111.i = icmp eq i16 %159, 0
-  br i1 %.not111.i, label %dissect_lbmr_pser.exit, label %.lr.ph.i318, !llvm.loop !15
+  br i1 %.not111.i, label %dissect_lbmr_pser.exit, label %.lr.ph.i318, !llvm.loop !14
 
 160:                                              ; preds = %.lr.ph.i318
   %161 = zext i8 %143 to i32
@@ -2088,7 +2088,7 @@ proto_item_set_generated.exit:                    ; preds = %81, %78, %72, %.thr
   %166 = sub i16 %.0104122.i, %165
   %167 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef null, ptr noundef nonnull @ei_lbmr_analysis_invalid_value, ptr noundef nonnull @.str.823, i32 noundef %161)
   %.not114.i = icmp eq i8 %144, 0
-  br i1 %.not114.i, label %dissect_lbmr_pser.exit, label %.outer.i, !llvm.loop !15
+  br i1 %.not114.i, label %dissect_lbmr_pser.exit, label %.outer.i, !llvm.loop !14
 
 168:                                              ; preds = %proto_item_set_generated.exit
   %169 = tail call i32 @lbmr_dissect_umq_qmgmt(ptr noundef %.0302, i32 noundef 0, ptr noundef %1, ptr noundef %85)
@@ -2197,7 +2197,7 @@ dissect_lbmr_tnwg_interest_rec.exit.i.i:          ; preds = %225, %.lr.ph.i.i
   %241 = add i32 %.04.i.i, %218
   %242 = add i16 %.0272.i.i, -1
   %.not.i.i = icmp eq i16 %242, 0
-  br i1 %.not.i.i, label %dissect_lbmr_tnwg_interest.exit.loopexit.i, label %.lr.ph.i.i, !llvm.loop !16
+  br i1 %.not.i.i, label %dissect_lbmr_tnwg_interest.exit.loopexit.i, label %.lr.ph.i.i, !llvm.loop !15
 
 dissect_lbmr_tnwg_interest.exit.loopexit.i:       ; preds = %dissect_lbmr_tnwg_interest_rec.exit.i.i
   %243 = add i32 %241, 8
@@ -2278,7 +2278,7 @@ dissect_lbmr_tnwg_interest.exit.loopexit.i:       ; preds = %dissect_lbmr_tnwg_i
   %300 = add nuw nsw i32 %.0262.i, 4
   %301 = add nuw i16 %.03.i, 1
   %exitcond.not.i322 = icmp eq i16 %301, %287
-  br i1 %exitcond.not.i322, label %._crit_edge.loopexit.i, label %.lr.ph.i321, !llvm.loop !17
+  br i1 %exitcond.not.i322, label %._crit_edge.loopexit.i, label %.lr.ph.i321, !llvm.loop !16
 
 ._crit_edge.loopexit.i:                           ; preds = %.lr.ph.i321
   %302 = add i16 %287, -1
@@ -2452,7 +2452,7 @@ dissect_lbmr_tnwg_interest.exit.loopexit.i:       ; preds = %dissect_lbmr_tnwg_i
   %434 = sub nsw i32 %.04849.i.i, %.046.i.i
   %435 = add i32 %.046.i.i, %.04750.i.i
   %436 = icmp sgt i32 %434, 0
-  br i1 %436, label %.lr.ph.i.i327, label %dissect_lbmr_rctxinfo_rec.exit.i, !llvm.loop !18
+  br i1 %436, label %.lr.ph.i.i327, label %dissect_lbmr_rctxinfo_rec.exit.i, !llvm.loop !17
 
 dissect_lbmr_rctxinfo_rec.exit.i:                 ; preds = %432, %.lr.ph.i324
   %.0.lcssa.i.i = phi i32 [ 4, %.lr.ph.i324 ], [ %433, %432 ]
@@ -2461,7 +2461,7 @@ dissect_lbmr_rctxinfo_rec.exit.i:                 ; preds = %432, %.lr.ph.i324
   %438 = add i32 %.0.lcssa.i.i, %.027.i
   %439 = add i16 %.02325.i, -1
   %.not.i325 = icmp eq i16 %439, 0
-  br i1 %.not.i325, label %dissect_lbmr_pser.exit, label %.lr.ph.i324, !llvm.loop !19
+  br i1 %.not.i325, label %dissect_lbmr_pser.exit, label %.lr.ph.i324, !llvm.loop !18
 
 440:                                              ; preds = %proto_item_set_generated.exit
   %441 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %97, ptr noundef nonnull @ei_lbmr_analysis_invalid_value, ptr noundef nonnull @.str.807, i32 noundef %63)
@@ -2694,7 +2694,7 @@ proto_item_set_generated.exit330:                 ; preds = %508, %505, %500, %.
   %552 = add i32 %540, %.04.i
   %553 = add i32 %540, %.0173.i
   %.not.i332 = icmp eq i8 %537, 0
-  br i1 %.not.i332, label %dissect_lbmr_qqrs.exit, label %536, !llvm.loop !20
+  br i1 %.not.i332, label %dissect_lbmr_qqrs.exit, label %536, !llvm.loop !19
 
 dissect_lbmr_qqrs.exit:                           ; preds = %536
   call void @proto_item_set_len(ptr noundef %531, i32 noundef %552)
@@ -2807,7 +2807,7 @@ dissect_lbmr_qqrs.exit:                           ; preds = %536
   %630 = add i32 %.2117.i.i, 4
   %631 = add i32 %.2110116.i.i, 4
   %.not113.i.i = icmp eq i16 %616, 0
-  br i1 %.not113.i.i, label %632, label %615, !llvm.loop !21
+  br i1 %.not113.i.i, label %632, label %615, !llvm.loop !20
 
 632:                                              ; preds = %615
   %633 = add nsw i16 %576, -1
@@ -2875,7 +2875,7 @@ dissect_lbmr_qqrs.exit:                           ; preds = %536
   %676 = add i32 %.3121.i.i, 12
   %677 = add i32 %.4120.i.i, 12
   %.not115.i.i = icmp eq i16 %644, 0
-  br i1 %.not115.i.i, label %678, label %643, !llvm.loop !22
+  br i1 %.not115.i.i, label %678, label %643, !llvm.loop !21
 
 678:                                              ; preds = %643
   %679 = add i16 %578, -1
@@ -2893,7 +2893,7 @@ dissect_lbmr_qir_entry.exit.i:                    ; preds = %678, %637
   %683 = add i32 %.3111.i.i, %.024.i
   %684 = add i32 %.3111.i.i, %.01723.i
   %.not.i337 = icmp eq i16 %563, 0
-  br i1 %.not.i337, label %dissect_lbmr_qirs.exit, label %562, !llvm.loop !23
+  br i1 %.not.i337, label %dissect_lbmr_qirs.exit, label %562, !llvm.loop !22
 
 dissect_lbmr_qirs.exit:                           ; preds = %dissect_lbmr_qir_entry.exit.i
   call void @proto_item_set_len(ptr noundef %557, i32 noundef %683)
@@ -2973,7 +2973,7 @@ dissect_lbmr_tqr.exit.us.i:                       ; preds = %dissect_lbmr_tqr.ex
   %727 = add i32 %708, %.04.us.i
   %728 = add i32 %708, %.0233.us.i
   %.not.us.i = icmp eq i8 %702, 0
-  br i1 %.not.us.i, label %dissect_lbmr_tqrs.exit, label %dissect_lbmr_tqr.exit.us.i, !llvm.loop !24
+  br i1 %.not.us.i, label %dissect_lbmr_tqrs.exit, label %dissect_lbmr_tqr.exit.us.i, !llvm.loop !23
 
 dissect_lbmr_tqr.exit.i:                          ; preds = %dissect_lbmr_tqr.exit.i, %dissect_lbmr_tqr.exit.preheader.i
   %.04.i341 = phi i32 [ %748, %dissect_lbmr_tqr.exit.i ], [ 0, %dissect_lbmr_tqr.exit.preheader.i ]
@@ -3008,7 +3008,7 @@ dissect_lbmr_tqr.exit.i:                          ; preds = %dissect_lbmr_tqr.ex
   %748 = add i32 %732, %.04.i341
   %749 = add i32 %732, %.0233.i
   %.not.i342 = icmp eq i8 %729, 0
-  br i1 %.not.i342, label %dissect_lbmr_tqrs.exit, label %dissect_lbmr_tqr.exit.i, !llvm.loop !26
+  br i1 %.not.i342, label %dissect_lbmr_tqrs.exit, label %dissect_lbmr_tqr.exit.i, !llvm.loop !25
 
 dissect_lbmr_tqrs.exit:                           ; preds = %dissect_lbmr_tqr.exit.i, %dissect_lbmr_tqr.exit.us.i
   %.02210.i = phi ptr [ %697, %dissect_lbmr_tqr.exit.us.i ], [ %692, %dissect_lbmr_tqr.exit.i ]
@@ -3654,7 +3654,7 @@ dissect_lbmr_tir_entry.exit.i:                    ; preds = %1102, %1099, %1096,
   %1107 = add i32 %1106, %.0183.i
   %1108 = add i32 %1106, %.04.i347
   %.not.i349 = icmp eq i16 %794, 0
-  br i1 %.not.i349, label %dissect_lbmr_tirs.exit, label %793, !llvm.loop !27
+  br i1 %.not.i349, label %dissect_lbmr_tirs.exit, label %793, !llvm.loop !26
 
 dissect_lbmr_tirs.exit:                           ; preds = %dissect_lbmr_tir_entry.exit.i
   call void @proto_item_set_len(ptr noundef %753, i32 noundef %1108)
@@ -3724,7 +3724,7 @@ dissect_lbmr_tirs.exit:                           ; preds = %dissect_lbmr_tir_en
   %1152 = add i32 %.0282.i, %1136
   %1153 = add nuw nsw i32 %.0291.i, 1
   %exitcond.not.i357 = icmp eq i32 %1153, %1125
-  br i1 %exitcond.not.i357, label %dissect_lbmr_tmb.exit.loopexit, label %.lr.ph.i353, !llvm.loop !28
+  br i1 %exitcond.not.i357, label %dissect_lbmr_tmb.exit.loopexit, label %.lr.ph.i353, !llvm.loop !27
 
 dissect_lbmr_tmb.exit.loopexit:                   ; preds = %.lr.ph.i353
   %1154 = add i32 %1151, 4
@@ -3880,7 +3880,7 @@ dissect_lbmr_tmb.exit:                            ; preds = %1111, %dissect_lbmr
   %1267 = add i32 %.0.i362, %.03940.i
   %1268 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %1267)
   %1269 = icmp sgt i32 %1268, 0
-  br i1 %1269, label %.lr.ph.i361, label %dissect_lbmr_options.exit, !llvm.loop !29
+  br i1 %1269, label %.lr.ph.i361, label %dissect_lbmr_options.exit, !llvm.loop !28
 
 dissect_lbmr_options.exit:                        ; preds = %1265, %1159
   %.038.lcssa.i = phi i32 [ 0, %1159 ], [ %1266, %1265 ]
@@ -3917,12 +3917,12 @@ define hidden void @proto_reg_handoff_lbmr() #0 {
   %8 = load ptr, ptr @global_lbmr_mc_incoming_address, align 8
   %9 = call zeroext i1 @ws_inet_pton4(ptr noundef %8, ptr noundef nonnull %1)
   %10 = load i32, ptr %1, align 4
-  %11 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %10) #10, !srcloc !30
+  %11 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %10) #10, !srcloc !29
   store i32 %11, ptr @lbmr_mc_incoming_address_host, align 4
   %12 = load ptr, ptr @global_lbmr_mc_outgoing_address, align 8
   %13 = call zeroext i1 @ws_inet_pton4(ptr noundef %12, ptr noundef nonnull %1)
   %14 = load i32, ptr %1, align 4
-  %15 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %14) #10, !srcloc !31
+  %15 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %14) #10, !srcloc !30
   store i32 %15, ptr @lbmr_mc_outgoing_address_host, align 4
   %16 = load i32, ptr @global_lbmr_uc_port_low, align 4
   %17 = load i32, ptr @global_lbmr_uc_port_high, align 4
@@ -3940,9 +3940,9 @@ define hidden void @proto_reg_handoff_lbmr() #0 {
   %21 = load ptr, ptr @global_lbmr_uc_address, align 8
   %22 = call zeroext i1 @ws_inet_pton4(ptr noundef %21, ptr noundef nonnull %1)
   %23 = load i32, ptr %1, align 4
-  %24 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %23) #10, !srcloc !32
+  %24 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %23) #10, !srcloc !31
   store i32 %24, ptr @lbmr_uc_address_host, align 4
-  %25 = load i8, ptr @global_lbmr_use_tag, align 1, !range !12, !noundef !13
+  %25 = load i8, ptr @global_lbmr_use_tag, align 1, !range !11, !noundef !12
   store i8 %25, ptr @lbmr_use_tag, align 1
   store i1 true, ptr @proto_reg_handoff_lbmr.already_registered, align 1
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #9
@@ -4387,7 +4387,7 @@ define internal noundef zeroext i1 @test_lbmr_packet(ptr noundef %0, ptr noundef
   br i1 %.not11, label %14, label %.thread
 
 14:                                               ; preds = %11
-  %15 = load i8, ptr @lbmr_use_tag, align 1, !range !12, !noundef !13
+  %15 = load i8, ptr @lbmr_use_tag, align 1, !range !11, !noundef !12
   %16 = trunc nuw i8 %15 to i1
   br i1 %16, label %.preheader.i, label %23
 
@@ -4404,7 +4404,7 @@ define internal noundef zeroext i1 @test_lbmr_packet(ptr noundef %0, ptr noundef
 19:                                               ; preds = %20
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %.thread, label %20, !llvm.loop !14
+  br i1 %exitcond.not.i, label %.thread, label %20, !llvm.loop !13
 
 20:                                               ; preds = %19, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %19 ]
@@ -4536,13 +4536,13 @@ define internal fastcc void @lbmr_tap_queue_packet(ptr noundef %0, ptr noundef r
   %16 = getelementptr inbounds nuw i8, ptr %11, i64 3
   %17 = load ptr, ptr %.0100, align 8
   %18 = and i64 %13, 255
-  %19 = tail call ptr @__memcpy_chk(ptr noundef nonnull %16, ptr noundef %17, i64 noundef range(i64 0, 256) %18, i64 noundef 257) #9, !alias.scope !33
+  %19 = tail call ptr @__memcpy_chk(ptr noundef nonnull %16, ptr noundef %17, i64 noundef range(i64 0, 256) %18, i64 noundef 257) #9, !alias.scope !32
   %20 = load i32, ptr @lbmr_topic_query_tap_handle, align 4
   tail call void @tap_queue_packet(i32 noundef %20, ptr noundef %0, ptr noundef %11)
   %21 = getelementptr inbounds nuw i8, ptr %.0100, i64 8
   %.0 = load ptr, ptr %21, align 8
   %.not84 = icmp eq ptr %.0, null
-  br i1 %.not84, label %.loopexit88, label %.lr.ph101, !llvm.loop !37
+  br i1 %.not84, label %.loopexit88, label %.lr.ph101, !llvm.loop !36
 
 .loopexit88:                                      ; preds = %.lr.ph101, %8, %4
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -4579,17 +4579,17 @@ define internal fastcc void @lbmr_tap_queue_packet(ptr noundef %0, ptr noundef r
   %41 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %42 = load ptr, ptr %.080104, align 8
   %43 = and i64 %30, 255
-  %44 = tail call ptr @__memcpy_chk(ptr noundef nonnull %41, ptr noundef %42, i64 noundef range(i64 0, 256) %43, i64 noundef 512) #9, !alias.scope !38
+  %44 = tail call ptr @__memcpy_chk(ptr noundef nonnull %41, ptr noundef %42, i64 noundef range(i64 0, 256) %43, i64 noundef 512) #9, !alias.scope !37
   %45 = getelementptr inbounds nuw i8, ptr %28, i64 264
   %46 = load ptr, ptr %33, align 8
   %47 = and i64 %35, 255
-  %48 = tail call ptr @__memcpy_chk(ptr noundef nonnull %45, ptr noundef %46, i64 noundef range(i64 0, 256) %47, i64 noundef 256) #9, !alias.scope !42
+  %48 = tail call ptr @__memcpy_chk(ptr noundef nonnull %45, ptr noundef %46, i64 noundef range(i64 0, 256) %47, i64 noundef 256) #9, !alias.scope !41
   %49 = load i32, ptr @lbmr_topic_advertisement_tap_handle, align 4
   tail call void @tap_queue_packet(i32 noundef %49, ptr noundef %0, ptr noundef %28)
   %50 = getelementptr inbounds nuw i8, ptr %.080104, i64 24
   %.080 = load ptr, ptr %50, align 8
   %.not85 = icmp eq ptr %.080, null
-  br i1 %.not85, label %.loopexit87, label %.lr.ph105, !llvm.loop !46
+  br i1 %.not85, label %.loopexit87, label %.lr.ph105, !llvm.loop !45
 
 .loopexit87:                                      ; preds = %.lr.ph105, %25, %.loopexit88
   %51 = getelementptr inbounds nuw i8, ptr %1, i64 40
@@ -4620,13 +4620,13 @@ define internal fastcc void @lbmr_tap_queue_packet(ptr noundef %0, ptr noundef r
   %65 = getelementptr inbounds nuw i8, ptr %57, i64 4
   %66 = load ptr, ptr %60, align 8
   %67 = and i64 %62, 255
-  %68 = tail call ptr @__memcpy_chk(ptr noundef nonnull %65, ptr noundef %66, i64 noundef range(i64 0, 256) %67, i64 noundef 256) #9, !alias.scope !47
+  %68 = tail call ptr @__memcpy_chk(ptr noundef nonnull %65, ptr noundef %66, i64 noundef range(i64 0, 256) %67, i64 noundef 256) #9, !alias.scope !46
   %69 = load i32, ptr @lbmr_pattern_query_tap_handle, align 4
   tail call void @tap_queue_packet(i32 noundef %69, ptr noundef %0, ptr noundef %57)
   %70 = getelementptr inbounds nuw i8, ptr %.082108, i64 16
   %.082 = load ptr, ptr %70, align 8
   %.not86 = icmp eq ptr %.082, null
-  br i1 %.not86, label %.loopexit, label %.lr.ph109, !llvm.loop !51
+  br i1 %.not86, label %.loopexit, label %.lr.ph109, !llvm.loop !50
 
 71:                                               ; preds = %2
   %72 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -4653,13 +4653,13 @@ define internal fastcc void @lbmr_tap_queue_packet(ptr noundef %0, ptr noundef r
   %83 = getelementptr inbounds nuw i8, ptr %78, i64 3
   %84 = load ptr, ptr %.08193, align 8
   %85 = and i64 %80, 255
-  %86 = tail call ptr @__memcpy_chk(ptr noundef nonnull %83, ptr noundef %84, i64 noundef range(i64 0, 256) %85, i64 noundef 257) #9, !alias.scope !52
+  %86 = tail call ptr @__memcpy_chk(ptr noundef nonnull %83, ptr noundef %84, i64 noundef range(i64 0, 256) %85, i64 noundef 257) #9, !alias.scope !51
   %87 = load i32, ptr @lbmr_queue_advertisement_tap_handle, align 4
   tail call void @tap_queue_packet(i32 noundef %87, ptr noundef %0, ptr noundef %78)
   %88 = getelementptr inbounds nuw i8, ptr %.08193, i64 8
   %.081 = load ptr, ptr %88, align 8
   %.not = icmp eq ptr %.081, null
-  br i1 %.not, label %.loopexit90, label %.lr.ph, !llvm.loop !56
+  br i1 %.not, label %.loopexit90, label %.lr.ph, !llvm.loop !55
 
 .loopexit90:                                      ; preds = %.lr.ph, %75, %71
   %89 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -4696,17 +4696,17 @@ define internal fastcc void @lbmr_tap_queue_packet(ptr noundef %0, ptr noundef r
   %108 = getelementptr inbounds nuw i8, ptr %95, i64 6
   %109 = load ptr, ptr %.07996, align 8
   %110 = and i64 %100, 255
-  %111 = tail call ptr @__memcpy_chk(ptr noundef nonnull %108, ptr noundef %109, i64 noundef range(i64 0, 256) %110, i64 noundef 512) #9, !alias.scope !57
+  %111 = tail call ptr @__memcpy_chk(ptr noundef nonnull %108, ptr noundef %109, i64 noundef range(i64 0, 256) %110, i64 noundef 512) #9, !alias.scope !56
   %112 = getelementptr inbounds nuw i8, ptr %95, i64 262
   %113 = load ptr, ptr %103, align 8
   %114 = and i64 %105, 255
-  %115 = tail call ptr @__memcpy_chk(ptr noundef nonnull %112, ptr noundef %113, i64 noundef range(i64 0, 256) %114, i64 noundef 256) #9, !alias.scope !61
+  %115 = tail call ptr @__memcpy_chk(ptr noundef nonnull %112, ptr noundef %113, i64 noundef range(i64 0, 256) %114, i64 noundef 256) #9, !alias.scope !60
   %116 = load i32, ptr @lbmr_queue_query_tap_handle, align 4
   tail call void @tap_queue_packet(i32 noundef %116, ptr noundef %0, ptr noundef %95)
   %117 = getelementptr inbounds nuw i8, ptr %.07996, i64 24
   %.079 = load ptr, ptr %117, align 8
   %.not83 = icmp eq ptr %.079, null
-  br i1 %.not83, label %.loopexit, label %.lr.ph97, !llvm.loop !65
+  br i1 %.not83, label %.loopexit, label %.lr.ph97, !llvm.loop !64
 
 .loopexit:                                        ; preds = %.lr.ph97, %.lr.ph109, %92, %54, %2, %.loopexit90, %.loopexit87
   ret void
@@ -5005,7 +5005,7 @@ define internal fastcc i32 @dissect_lbmr_tnwg_opts(ptr noundef %0, i32 noundef r
   %104 = add i32 %.1, %.04
   %105 = add i32 %.1, %.0382
   %106 = icmp sgt i32 %103, 3
-  br i1 %106, label %5, label %107, !llvm.loop !66
+  br i1 %106, label %5, label %107, !llvm.loop !65
 
 107:                                              ; preds = %102
   ret i32 %104
@@ -5474,7 +5474,7 @@ define internal fastcc i32 @dissect_lbmr_tir_options(ptr noundef %0, i32 noundef
   %382 = add i32 %.0417430, %29
   %383 = sub nsw i32 %.0419429, %29
   %384 = icmp sgt i32 %383, 0
-  br i1 %384, label %.lr.ph, label %.loopexit, !llvm.loop !67
+  br i1 %384, label %.lr.ph, label %.loopexit, !llvm.loop !66
 
 .loopexit:                                        ; preds = %380, %4, %.thread
   %.2 = phi i32 [ %.0415431, %.thread ], [ %7, %4 ], [ %7, %380 ]
@@ -5619,13 +5619,13 @@ define internal noundef zeroext i1 @lbmr_tag_mc_incoming_address_chk_cb(ptr read
 
 9:                                                ; preds = %6
   %10 = load i32, ptr %7, align 4
-  %11 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %10) #10, !srcloc !68
+  %11 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %10) #10, !srcloc !67
   %12 = and i32 %11, -268435456
   %13 = icmp eq i32 %12, -536870912
   br i1 %13, label %17, label %14
 
 14:                                               ; preds = %9
-  %15 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %10) #10, !srcloc !69
+  %15 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %10) #10, !srcloc !68
   %.not = icmp eq i32 %15, 0
   br i1 %.not, label %17, label %.sink.split
 
@@ -5653,7 +5653,7 @@ define internal void @lbmr_tag_mc_incoming_address_set_cb(ptr noundef captures(n
   store ptr %8, ptr %9, align 8
   %11 = call zeroext i1 @ws_inet_pton4(ptr noundef %8, ptr noundef nonnull %6)
   %12 = load i32, ptr %6, align 4
-  %13 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %12) #10, !srcloc !70
+  %13 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %12) #10, !srcloc !69
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 %13, ptr %14, align 8
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #9
@@ -5717,13 +5717,13 @@ define internal noundef zeroext i1 @lbmr_tag_mc_outgoing_address_chk_cb(ptr read
 
 9:                                                ; preds = %6
   %10 = load i32, ptr %7, align 4
-  %11 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %10) #10, !srcloc !71
+  %11 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %10) #10, !srcloc !70
   %12 = and i32 %11, -268435456
   %13 = icmp eq i32 %12, -536870912
   br i1 %13, label %17, label %14
 
 14:                                               ; preds = %9
-  %15 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %10) #10, !srcloc !72
+  %15 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %10) #10, !srcloc !71
   %.not = icmp eq i32 %15, 0
   br i1 %.not, label %17, label %.sink.split
 
@@ -5751,7 +5751,7 @@ define internal void @lbmr_tag_mc_outgoing_address_set_cb(ptr noundef captures(n
   store ptr %8, ptr %9, align 8
   %11 = call zeroext i1 @ws_inet_pton4(ptr noundef %8, ptr noundef nonnull %6)
   %12 = load i32, ptr %6, align 4
-  %13 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %12) #10, !srcloc !73
+  %13 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %12) #10, !srcloc !72
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i32 %13, ptr %14, align 8
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #9
@@ -5879,7 +5879,7 @@ define internal void @lbmr_tag_uc_address_set_cb(ptr noundef captures(none) init
   store ptr %8, ptr %9, align 8
   %11 = call zeroext i1 @ws_inet_pton4(ptr noundef %8, ptr noundef nonnull %6)
   %12 = load i32, ptr %6, align 4
-  %13 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %12) #10, !srcloc !74
+  %13 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %12) #10, !srcloc !73
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i32 %13, ptr %14, align 8
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #9
@@ -5959,72 +5959,71 @@ attributes #13 = { nounwind willreturn memory(read) }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = !{i64 2151604990}
-!10 = !{i64 2151605785}
-!11 = !{i64 2151610776}
-!12 = !{i8 0, i8 2}
-!13 = !{}
-!14 = distinct !{!14, !7, !8}
-!15 = distinct !{!15, !7, !8}
-!16 = distinct !{!16, !7, !8}
-!17 = distinct !{!17, !7, !8}
-!18 = distinct !{!18, !7, !8}
-!19 = distinct !{!19, !7, !8}
-!20 = distinct !{!20, !7, !8}
-!21 = distinct !{!21, !7, !8}
-!22 = distinct !{!22, !7, !8}
-!23 = distinct !{!23, !7, !8}
-!24 = distinct !{!24, !7, !8, !25}
-!25 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!26 = distinct !{!26, !7, !8}
-!27 = distinct !{!27, !7, !8}
-!28 = distinct !{!28, !7, !8}
-!29 = distinct !{!29, !7, !8}
-!30 = !{i64 2151612076}
-!31 = !{i64 2151612761}
-!32 = !{i64 2151613446}
-!33 = !{!34, !36}
-!34 = distinct !{!34, !35, !"memcpy.inline: argument 0"}
-!35 = distinct !{!35, !"memcpy.inline"}
-!36 = distinct !{!36, !35, !"memcpy.inline: argument 1"}
-!37 = distinct !{!37, !7, !8}
-!38 = !{!39, !41}
-!39 = distinct !{!39, !40, !"memcpy.inline: argument 0"}
-!40 = distinct !{!40, !"memcpy.inline"}
-!41 = distinct !{!41, !40, !"memcpy.inline: argument 1"}
-!42 = !{!43, !45}
-!43 = distinct !{!43, !44, !"memcpy.inline: argument 0"}
-!44 = distinct !{!44, !"memcpy.inline"}
-!45 = distinct !{!45, !44, !"memcpy.inline: argument 1"}
-!46 = distinct !{!46, !7, !8}
-!47 = !{!48, !50}
-!48 = distinct !{!48, !49, !"memcpy.inline: argument 0"}
-!49 = distinct !{!49, !"memcpy.inline"}
-!50 = distinct !{!50, !49, !"memcpy.inline: argument 1"}
-!51 = distinct !{!51, !7, !8}
-!52 = !{!53, !55}
-!53 = distinct !{!53, !54, !"memcpy.inline: argument 0"}
-!54 = distinct !{!54, !"memcpy.inline"}
-!55 = distinct !{!55, !54, !"memcpy.inline: argument 1"}
-!56 = distinct !{!56, !7, !8}
-!57 = !{!58, !60}
-!58 = distinct !{!58, !59, !"memcpy.inline: argument 0"}
-!59 = distinct !{!59, !"memcpy.inline"}
-!60 = distinct !{!60, !59, !"memcpy.inline: argument 1"}
-!61 = !{!62, !64}
-!62 = distinct !{!62, !63, !"memcpy.inline: argument 0"}
-!63 = distinct !{!63, !"memcpy.inline"}
-!64 = distinct !{!64, !63, !"memcpy.inline: argument 1"}
-!65 = distinct !{!65, !7, !8}
-!66 = distinct !{!66, !7, !8}
-!67 = distinct !{!67, !7, !8}
-!68 = !{i64 2151434617}
-!69 = !{i64 2151435030}
-!70 = !{i64 2151435829}
-!71 = !{i64 2151439843}
-!72 = !{i64 2151440256}
-!73 = !{i64 2151441055}
-!74 = !{i64 2151446479}
+!8 = !{i64 2151604990}
+!9 = !{i64 2151605785}
+!10 = !{i64 2151610776}
+!11 = !{i8 0, i8 2}
+!12 = !{}
+!13 = distinct !{!13, !7}
+!14 = distinct !{!14, !7}
+!15 = distinct !{!15, !7}
+!16 = distinct !{!16, !7}
+!17 = distinct !{!17, !7}
+!18 = distinct !{!18, !7}
+!19 = distinct !{!19, !7}
+!20 = distinct !{!20, !7}
+!21 = distinct !{!21, !7}
+!22 = distinct !{!22, !7}
+!23 = distinct !{!23, !7, !24}
+!24 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!25 = distinct !{!25, !7}
+!26 = distinct !{!26, !7}
+!27 = distinct !{!27, !7}
+!28 = distinct !{!28, !7}
+!29 = !{i64 2151612076}
+!30 = !{i64 2151612761}
+!31 = !{i64 2151613446}
+!32 = !{!33, !35}
+!33 = distinct !{!33, !34, !"memcpy.inline: argument 0"}
+!34 = distinct !{!34, !"memcpy.inline"}
+!35 = distinct !{!35, !34, !"memcpy.inline: argument 1"}
+!36 = distinct !{!36, !7}
+!37 = !{!38, !40}
+!38 = distinct !{!38, !39, !"memcpy.inline: argument 0"}
+!39 = distinct !{!39, !"memcpy.inline"}
+!40 = distinct !{!40, !39, !"memcpy.inline: argument 1"}
+!41 = !{!42, !44}
+!42 = distinct !{!42, !43, !"memcpy.inline: argument 0"}
+!43 = distinct !{!43, !"memcpy.inline"}
+!44 = distinct !{!44, !43, !"memcpy.inline: argument 1"}
+!45 = distinct !{!45, !7}
+!46 = !{!47, !49}
+!47 = distinct !{!47, !48, !"memcpy.inline: argument 0"}
+!48 = distinct !{!48, !"memcpy.inline"}
+!49 = distinct !{!49, !48, !"memcpy.inline: argument 1"}
+!50 = distinct !{!50, !7}
+!51 = !{!52, !54}
+!52 = distinct !{!52, !53, !"memcpy.inline: argument 0"}
+!53 = distinct !{!53, !"memcpy.inline"}
+!54 = distinct !{!54, !53, !"memcpy.inline: argument 1"}
+!55 = distinct !{!55, !7}
+!56 = !{!57, !59}
+!57 = distinct !{!57, !58, !"memcpy.inline: argument 0"}
+!58 = distinct !{!58, !"memcpy.inline"}
+!59 = distinct !{!59, !58, !"memcpy.inline: argument 1"}
+!60 = !{!61, !63}
+!61 = distinct !{!61, !62, !"memcpy.inline: argument 0"}
+!62 = distinct !{!62, !"memcpy.inline"}
+!63 = distinct !{!63, !62, !"memcpy.inline: argument 1"}
+!64 = distinct !{!64, !7}
+!65 = distinct !{!65, !7}
+!66 = distinct !{!66, !7}
+!67 = !{i64 2151434617}
+!68 = !{i64 2151435030}
+!69 = !{i64 2151435829}
+!70 = !{i64 2151439843}
+!71 = !{i64 2151440256}
+!72 = !{i64 2151441055}
+!73 = !{i64 2151446479}

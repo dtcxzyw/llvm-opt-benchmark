@@ -159,7 +159,7 @@ define dso_local range(i32 0, 2) i32 @genpkey_main(i32 noundef %0, ptr noundef %
   br label %.preheader237, !llvm.loop !15
 
 .loopexit:                                        ; preds = %.preheader237, %52, %40, %._crit_edge, %86, %74, %106
-  %12 = load ptr, ptr @bio_err, align 8, !tbaa !18
+  %12 = load ptr, ptr @bio_err, align 8, !tbaa !17
   %13 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %12, ptr noundef nonnull @.str.48, ptr noundef %8) #5
   br label %show_gen_pkeyopt.exit.thread
 
@@ -185,9 +185,9 @@ define dso_local range(i32 0, 2) i32 @genpkey_main(i32 noundef %0, ptr noundef %
   br i1 %25, label %.loopexit.i, label %26
 
 26:                                               ; preds = %23
-  %27 = load ptr, ptr @bio_err, align 8, !tbaa !18
+  %27 = load ptr, ptr @bio_err, align 8, !tbaa !17
   %28 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %27, ptr noundef nonnull @.str.60) #5
-  %29 = load ptr, ptr %24, align 8, !tbaa !20
+  %29 = load ptr, ptr %24, align 8, !tbaa !19
   %.not34.i = icmp eq ptr %29, null
   br i1 %.not34.i, label %.loopexit.i, label %.lr.ph.i
 
@@ -195,7 +195,7 @@ define dso_local range(i32 0, 2) i32 @genpkey_main(i32 noundef %0, ptr noundef %
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %param_datatype_2name.exit.i ], [ 0, %26 ]
   %30 = phi ptr [ %39, %param_datatype_2name.exit.i ], [ %29, %26 ]
   %31 = getelementptr inbounds nuw %struct.ossl_param_st, ptr %24, i64 %indvars.iv.i, i32 1
-  %32 = load i32, ptr %31, align 8, !tbaa !23
+  %32 = load i32, ptr %31, align 8, !tbaa !22
   %switch.tableidx = add i32 %32, -1
   %33 = icmp ult i32 %switch.tableidx, 5
   br i1 %33, label %switch.lookup, label %param_datatype_2name.exit.i
@@ -207,16 +207,16 @@ switch.lookup:                                    ; preds = %.lr.ph.i
   %35 = zext nneg i32 %switch.tableidx to i64
   %switch.gep370 = getelementptr inbounds nuw [5 x ptr], ptr @switch.table.genpkey_main.1, i64 0, i64 %35
   %switch.load371 = load ptr, ptr %switch.gep370, align 8
-  %36 = load ptr, ptr @bio_err, align 8, !tbaa !18
+  %36 = load ptr, ptr @bio_err, align 8, !tbaa !17
   %37 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %36, ptr noundef nonnull @.str.61, ptr noundef nonnull %switch.load371, ptr noundef nonnull %30, ptr noundef nonnull %switch.load) #5
   br label %param_datatype_2name.exit.i
 
 param_datatype_2name.exit.i:                      ; preds = %.lr.ph.i, %switch.lookup
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %38 = getelementptr inbounds nuw %struct.ossl_param_st, ptr %24, i64 %indvars.iv.next.i
-  %39 = load ptr, ptr %38, align 8, !tbaa !20
+  %39 = load ptr, ptr %38, align 8, !tbaa !19
   %.not.i = icmp eq ptr %39, null
-  br i1 %.not.i, label %.loopexit.i, label %.lr.ph.i, !llvm.loop !24
+  br i1 %.not.i, label %.loopexit.i, label %.lr.ph.i, !llvm.loop !23
 
 .loopexit.i:                                      ; preds = %param_datatype_2name.exit.i, %26, %23, %20
   call void @EVP_PKEY_CTX_free(ptr noundef nonnull %18) #5
@@ -341,7 +341,7 @@ param_datatype_2name.exit.i:                      ; preds = %.lr.ph.i, %switch.l
   %92 = add nuw nsw i32 %.090270, 1
   %93 = call i32 @OPENSSL_sk_num(ptr noundef nonnull %9) #5
   %94 = icmp slt i32 %92, %93
-  br i1 %94, label %.lr.ph, label %._crit_edge, !llvm.loop !25
+  br i1 %94, label %.lr.ph, label %._crit_edge, !llvm.loop !24
 
 .lr.ph:                                           ; preds = %.preheader, %91
   %.090270 = phi i32 [ %92, %91 ], [ 0, %.preheader ]
@@ -351,9 +351,9 @@ param_datatype_2name.exit.i:                      ; preds = %.lr.ph.i, %switch.l
   br i1 %97, label %98, label %91
 
 98:                                               ; preds = %.lr.ph
-  %99 = load ptr, ptr @bio_err, align 8, !tbaa !18
+  %99 = load ptr, ptr @bio_err, align 8, !tbaa !17
   %100 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %99, ptr noundef nonnull @.str.49, ptr noundef %8, ptr noundef %95) #5
-  %101 = load ptr, ptr @bio_err, align 8, !tbaa !18
+  %101 = load ptr, ptr @bio_err, align 8, !tbaa !17
   call void @ERR_print_errors(ptr noundef %101) #5
   br label %show_gen_pkeyopt.exit.thread
 
@@ -369,7 +369,7 @@ param_datatype_2name.exit.i:                      ; preds = %.lr.ph.i, %switch.l
   br i1 %or.cond, label %106, label %109
 
 106:                                              ; preds = %103
-  %107 = load ptr, ptr @bio_err, align 8, !tbaa !18
+  %107 = load ptr, ptr @bio_err, align 8, !tbaa !17
   %108 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %107, ptr noundef nonnull @.str.50) #5
   br label %.loopexit
 
@@ -380,7 +380,7 @@ param_datatype_2name.exit.i:                      ; preds = %.lr.ph.i, %switch.l
   br i1 %.not139, label %111, label %114
 
 111:                                              ; preds = %109
-  %112 = load ptr, ptr @bio_err, align 8, !tbaa !18
+  %112 = load ptr, ptr @bio_err, align 8, !tbaa !17
   %113 = call i32 @BIO_puts(ptr noundef %112, ptr noundef nonnull @.str.51) #5
   br label %show_gen_pkeyopt.exit.thread
 
@@ -416,7 +416,7 @@ param_datatype_2name.exit.i:                      ; preds = %.lr.ph.i, %switch.l
   br label %128
 
 128:                                              ; preds = %127, %126
-  %129 = load ptr, ptr @bio_err, align 8, !tbaa !18
+  %129 = load ptr, ptr @bio_err, align 8, !tbaa !17
   call void @EVP_PKEY_CTX_set_app_data(ptr noundef %.pre, ptr noundef %129) #5
   br i1 %.not138, label %130, label %.thread
 
@@ -466,7 +466,7 @@ param_datatype_2name.exit.i:                      ; preds = %.lr.ph.i, %switch.l
   br label %155
 
 152:                                              ; preds = %136
-  %153 = load ptr, ptr @bio_err, align 8, !tbaa !18
+  %153 = load ptr, ptr @bio_err, align 8, !tbaa !17
   %154 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %153, ptr noundef nonnull @.str.52) #5
   br label %show_gen_pkeyopt.exit.thread
 
@@ -477,7 +477,7 @@ param_datatype_2name.exit.i:                      ; preds = %.lr.ph.i, %switch.l
   br i1 %157, label %161, label %158
 
 158:                                              ; preds = %155
-  %159 = load ptr, ptr @bio_err, align 8, !tbaa !18
+  %159 = load ptr, ptr @bio_err, align 8, !tbaa !17
   %160 = call i32 @BIO_puts(ptr noundef %159, ptr noundef nonnull @.str.53) #5
   br label %161
 
@@ -502,7 +502,7 @@ param_datatype_2name.exit.i:                      ; preds = %.lr.ph.i, %switch.l
   br i1 %168, label %169, label %show_gen_pkeyopt.exit
 
 169:                                              ; preds = %167
-  %170 = load ptr, ptr @bio_err, align 8, !tbaa !18
+  %170 = load ptr, ptr @bio_err, align 8, !tbaa !17
   %171 = call i32 @BIO_puts(ptr noundef %170, ptr noundef nonnull @.str.54) #5
   br label %show_gen_pkeyopt.exit.thread
 
@@ -526,7 +526,7 @@ show_gen_pkeyopt.exit:                            ; preds = %161, %167
   %.0110168 = phi ptr [ %.0110.ph, %show_gen_pkeyopt.exit.thread ], [ %.1111, %show_gen_pkeyopt.exit ]
   %.0112166 = phi ptr [ %.0112.ph, %show_gen_pkeyopt.exit.thread ], [ %.1113, %show_gen_pkeyopt.exit ]
   %.0120164 = phi ptr [ %.0120.ph, %show_gen_pkeyopt.exit.thread ], [ %156, %show_gen_pkeyopt.exit ]
-  %173 = load ptr, ptr @bio_err, align 8, !tbaa !18
+  %173 = load ptr, ptr @bio_err, align 8, !tbaa !17
   call void @ERR_print_errors(ptr noundef %173) #5
   br label %194
 
@@ -541,7 +541,7 @@ show_gen_pkeyopt.exit:                            ; preds = %161, %167
   br i1 %.not148, label %178, label %185
 
 178:                                              ; preds = %175
-  %179 = load ptr, ptr @bio_err, align 8, !tbaa !18
+  %179 = load ptr, ptr @bio_err, align 8, !tbaa !17
   %180 = tail call ptr @__errno_location() #6
   %181 = load i32, ptr %180, align 4, !tbaa !13
   %182 = call ptr @strerror(i32 noundef %181) #5
@@ -559,7 +559,7 @@ show_gen_pkeyopt.exit:                            ; preds = %161, %167
   br i1 %.not150, label %188, label %194
 
 188:                                              ; preds = %185
-  %189 = load ptr, ptr @bio_err, align 8, !tbaa !18
+  %189 = load ptr, ptr @bio_err, align 8, !tbaa !17
   %190 = tail call ptr @__errno_location() #6
   %191 = load i32, ptr %190, align 4, !tbaa !13
   %192 = call ptr @strerror(i32 noundef %191) #5
@@ -637,7 +637,7 @@ define internal fastcc range(i32 0, 2) i32 @init_keygen_file(ptr noundef nonnull
   br i1 %.not, label %10, label %7
 
 7:                                                ; preds = %5
-  %8 = load ptr, ptr @bio_err, align 8, !tbaa !18
+  %8 = load ptr, ptr @bio_err, align 8, !tbaa !17
   %9 = tail call i32 @BIO_puts(ptr noundef %8, ptr noundef nonnull @.str.67) #5
   br label %38
 
@@ -647,7 +647,7 @@ define internal fastcc range(i32 0, 2) i32 @init_keygen_file(ptr noundef nonnull
   br i1 %12, label %13, label %16
 
 13:                                               ; preds = %10
-  %14 = load ptr, ptr @bio_err, align 8, !tbaa !18
+  %14 = load ptr, ptr @bio_err, align 8, !tbaa !17
   %15 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %14, ptr noundef nonnull @.str.69, ptr noundef nonnull %1) #5
   br label %38
 
@@ -658,7 +658,7 @@ define internal fastcc range(i32 0, 2) i32 @init_keygen_file(ptr noundef nonnull
   br i1 %19, label %20, label %23
 
 20:                                               ; preds = %16
-  %21 = load ptr, ptr @bio_err, align 8, !tbaa !18
+  %21 = load ptr, ptr @bio_err, align 8, !tbaa !17
   %22 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %21, ptr noundef nonnull @.str.70, ptr noundef nonnull %1) #5
   br label %38
 
@@ -690,9 +690,9 @@ define internal fastcc range(i32 0, 2) i32 @init_keygen_file(ptr noundef nonnull
   br label %38
 
 34:                                               ; preds = %30, %28
-  %35 = load ptr, ptr @bio_err, align 8, !tbaa !18
+  %35 = load ptr, ptr @bio_err, align 8, !tbaa !17
   %36 = tail call i32 @BIO_puts(ptr noundef %35, ptr noundef nonnull @.str.71) #5
-  %37 = load ptr, ptr @bio_err, align 8, !tbaa !18
+  %37 = load ptr, ptr @bio_err, align 8, !tbaa !17
   tail call void @ERR_print_errors(ptr noundef %37) #5
   tail call void @EVP_PKEY_CTX_free(ptr noundef %.0) #5
   tail call void @EVP_PKEY_free(ptr noundef nonnull %17) #5
@@ -710,7 +710,7 @@ define dso_local range(i32 0, 2) i32 @init_gen_str(ptr noundef captures(none) %0
   br i1 %.not, label %11, label %8
 
 8:                                                ; preds = %6
-  %9 = load ptr, ptr @bio_err, align 8, !tbaa !18
+  %9 = load ptr, ptr @bio_err, align 8, !tbaa !17
   %10 = tail call i32 @BIO_puts(ptr noundef %9, ptr noundef nonnull @.str.58) #5
   br label %31
 
@@ -751,9 +751,9 @@ define dso_local range(i32 0, 2) i32 @init_gen_str(ptr noundef captures(none) %0
   br label %31
 
 27:                                               ; preds = %23, %20, %17
-  %28 = load ptr, ptr @bio_err, align 8, !tbaa !18
+  %28 = load ptr, ptr @bio_err, align 8, !tbaa !17
   %29 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %28, ptr noundef nonnull @.str.59, ptr noundef %1) #5
-  %30 = load ptr, ptr @bio_err, align 8, !tbaa !18
+  %30 = load ptr, ptr @bio_err, align 8, !tbaa !17
   tail call void @ERR_print_errors(ptr noundef %30) #5
   tail call void @EVP_PKEY_CTX_free(ptr noundef %.018) #5
   br label %31
@@ -881,14 +881,13 @@ attributes #6 = { nounwind willreturn memory(none) }
 !12 = !{!"p1 _ZTS13evp_cipher_st", !6, i64 0}
 !13 = !{!14, !14, i64 0}
 !14 = !{!"int", !7, i64 0}
-!15 = distinct !{!15, !16, !17}
+!15 = distinct !{!15, !16}
 !16 = !{!"llvm.loop.mustprogress"}
-!17 = !{!"llvm.loop.estimated_trip_count"}
-!18 = !{!19, !19, i64 0}
-!19 = !{!"p1 _ZTS6bio_st", !6, i64 0}
-!20 = !{!21, !10, i64 0}
-!21 = !{!"ossl_param_st", !10, i64 0, !14, i64 8, !6, i64 16, !22, i64 24, !22, i64 32}
-!22 = !{!"long", !7, i64 0}
-!23 = !{!21, !14, i64 8}
-!24 = distinct !{!24, !16, !17}
-!25 = distinct !{!25, !16, !17}
+!17 = !{!18, !18, i64 0}
+!18 = !{!"p1 _ZTS6bio_st", !6, i64 0}
+!19 = !{!20, !10, i64 0}
+!20 = !{!"ossl_param_st", !10, i64 0, !14, i64 8, !6, i64 16, !21, i64 24, !21, i64 32}
+!21 = !{!"long", !7, i64 0}
+!22 = !{!20, !14, i64 8}
+!23 = distinct !{!23, !16}
+!24 = distinct !{!24, !16}

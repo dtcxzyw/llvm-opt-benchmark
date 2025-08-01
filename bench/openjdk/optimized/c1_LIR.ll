@@ -3253,7 +3253,7 @@ _ZNK14LIR_OpJavaCall23is_method_handle_invokeEv.exit.thread: ; preds = %856, %_Z
 _ZN16LIR_OpVisitState8do_inputER7LIR_Opr.exit436: ; preds = %.sink.split.i.i431, %911, %903
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %903, !llvm.loop !9
+  br i1 %exitcond.not, label %._crit_edge, label %903, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %_ZN16LIR_OpVisitState8do_inputER7LIR_Opr.exit436, %897
   %917 = getelementptr inbounds nuw i8, ptr %.tr542, i64 24
@@ -4494,7 +4494,7 @@ define hidden noundef ptr @_ZN16LIR_OpVisitState12all_xhandlerEv(ptr noundef non
 6:                                                ; preds = %7
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %7, !llvm.loop !10
+  br i1 %exitcond.not, label %._crit_edge, label %7, !llvm.loop !9
 
 7:                                                ; preds = %.lr.ph, %6
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %6 ]
@@ -4926,7 +4926,7 @@ define hidden void @_ZN8LIR_List6appendEP19LIR_InsertionBuffer(ptr noundef nonnu
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, 1
   %lftr.wideiv.i = trunc i64 %indvars.iv.next.i to i32
   %exitcond.not.i = icmp eq i32 %8, %lftr.wideiv.i
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %22, !llvm.loop !11
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %22, !llvm.loop !10
 
 ._crit_edge.i:                                    ; preds = %22, %18
   store i32 %8, ptr %0, align 8
@@ -4956,7 +4956,7 @@ define hidden void @_ZN8LIR_List6appendEP19LIR_InsertionBuffer(ptr noundef nonnu
   %.2.lcssa = phi i32 [ %.124.lcssa, %._crit_edge ], [ %37, %.loopexit.loopexit ]
   %.1.lcssa = phi i32 [ %.02242, %._crit_edge ], [ %38, %.loopexit.loopexit ]
   %39 = icmp samesign ugt i64 %indvars.iv60, 1
-  br i1 %39, label %40, label %.loopexit28, !llvm.loop !12
+  br i1 %39, label %40, label %.loopexit28, !llvm.loop !11
 
 40:                                               ; preds = %.lr.ph44, %.loopexit
   %indvars.iv60 = phi i64 [ %36, %.lr.ph44 ], [ %indvars.iv.next61, %.loopexit ]
@@ -4990,7 +4990,7 @@ define hidden void @_ZN8LIR_List6appendEP19LIR_InsertionBuffer(ptr noundef nonnu
   %53 = getelementptr inbounds ptr, ptr %50, i64 %indvars.iv
   store ptr %52, ptr %53, align 8
   %54 = icmp sgt i64 %indvars.iv.next49, %49
-  br i1 %54, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !13
+  br i1 %54, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !12
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
   %55 = trunc nsw i64 %indvars.iv.next49 to i32
@@ -5027,7 +5027,7 @@ define hidden void @_ZN8LIR_List6appendEP19LIR_InsertionBuffer(ptr noundef nonnu
   store ptr %66, ptr %68, align 8
   %69 = add nsw i32 %.034, -1
   %70 = icmp samesign ugt i32 %.034, 1
-  br i1 %70, label %.lr.ph36, label %.loopexit.loopexit, !llvm.loop !14
+  br i1 %70, label %.lr.ph36, label %.loopexit.loopexit, !llvm.loop !13
 
 .loopexit28:                                      ; preds = %.loopexit, %._crit_edge.i, %2
   store ptr null, ptr %1, align 8
@@ -10206,7 +10206,7 @@ _ZN13GrowableArrayIP6LIR_OpE8allocateEv.exit:     ; preds = %7, %11, %15
   %30 = load i32, ptr %0, align 8
   %31 = sext i32 %30 to i64
   %32 = icmp slt i64 %indvars.iv.next, %31
-  br i1 %32, label %25, label %.preheader16.loopexit, !llvm.loop !15
+  br i1 %32, label %25, label %.preheader16.loopexit, !llvm.loop !14
 
 .preheader:                                       ; preds = %.lr.ph19, %.preheader16
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -10222,7 +10222,7 @@ _ZN13GrowableArrayIP6LIR_OpE8allocateEv.exit:     ; preds = %7, %11, %15
   %36 = load i32, ptr %3, align 4
   %37 = trunc nuw i64 %indvars.iv.next22 to i32
   %38 = icmp sgt i32 %36, %37
-  br i1 %38, label %.lr.ph19, label %.preheader, !llvm.loop !16
+  br i1 %38, label %.lr.ph19, label %.preheader, !llvm.loop !15
 
 39:                                               ; preds = %.preheader
   %40 = load i64, ptr %4, align 8
@@ -10331,7 +10331,7 @@ _ZN13GrowableArrayIiE8allocateEv.exit:            ; preds = %7, %11, %15
   %30 = load i32, ptr %0, align 8
   %31 = sext i32 %30 to i64
   %32 = icmp slt i64 %indvars.iv.next, %31
-  br i1 %32, label %25, label %.preheader16.loopexit, !llvm.loop !17
+  br i1 %32, label %25, label %.preheader16.loopexit, !llvm.loop !16
 
 .preheader:                                       ; preds = %.lr.ph19, %.preheader16
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -10347,7 +10347,7 @@ _ZN13GrowableArrayIiE8allocateEv.exit:            ; preds = %7, %11, %15
   %36 = load i32, ptr %3, align 4
   %37 = trunc nuw i64 %indvars.iv.next22 to i32
   %38 = icmp sgt i32 %36, %37
-  br i1 %38, label %.lr.ph19, label %.preheader, !llvm.loop !18
+  br i1 %38, label %.lr.ph19, label %.preheader, !llvm.loop !17
 
 39:                                               ; preds = %.preheader
   %40 = load i64, ptr %4, align 8
@@ -10395,16 +10395,15 @@ attributes #12 = { noreturn nounwind }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7, !8}
-!11 = distinct !{!11, !7, !8}
-!12 = distinct !{!12, !7, !8}
-!13 = distinct !{!13, !7, !8}
-!14 = distinct !{!14, !7, !8}
-!15 = distinct !{!15, !7, !8}
-!16 = distinct !{!16, !7, !8}
-!17 = distinct !{!17, !7, !8}
-!18 = distinct !{!18, !7, !8}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7}
+!12 = distinct !{!12, !7}
+!13 = distinct !{!13, !7}
+!14 = distinct !{!14, !7}
+!15 = distinct !{!15, !7}
+!16 = distinct !{!16, !7}
+!17 = distinct !{!17, !7}

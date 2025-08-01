@@ -178,7 +178,7 @@ define hidden void @_ZN8CodeHeap19mark_segmap_as_usedEmmb(ptr noundef nonnull al
 36:                                               ; preds = %32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(254) %.037, ptr noundef nonnull align 1 dereferenceable(254) getelementptr inbounds nuw (i8, ptr @_ZN8CodeHeap15segmap_templateE, i64 1), i64 254, i1 false)
   %37 = icmp ult ptr %33, %10
-  br i1 %37, label %32, label %.loopexit, !llvm.loop !9
+  br i1 %37, label %32, label %.loopexit, !llvm.loop !8
 
 .loopexit:                                        ; preds = %36, %.thread, %27, %21, %12, %26, %4
   ret void
@@ -240,7 +240,7 @@ define hidden noundef i32 @_ZN8CodeHeap13defrag_segmapEb(ptr noundef nonnull rea
   %34 = getelementptr inbounds i8, ptr %23, i64 %32
   %35 = load i8, ptr %34, align 1
   %.not.i28 = icmp eq i8 %35, 0
-  br i1 %.not.i28, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !10
+  br i1 %.not.i28, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !9
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %21
   %.018.lcssa.i = phi i32 [ 0, %21 ], [ %33, %.lr.ph.i ]
@@ -300,7 +300,7 @@ _ZN8CodeHeap11segmap_hopsEmm.exit:                ; preds = %9, %._crit_edge.i
 60:                                               ; preds = %56
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(254) %.0.i2934, ptr noundef nonnull align 1 dereferenceable(254) getelementptr inbounds nuw (i8, ptr @_ZN8CodeHeap15segmap_templateE, i64 1), i64 254, i1 false)
   %61 = icmp ult ptr %57, %48
-  br i1 %61, label %56, label %_ZN8CodeHeap19mark_segmap_as_usedEmmb.exit, !llvm.loop !9
+  br i1 %61, label %56, label %_ZN8CodeHeap19mark_segmap_as_usedEmmb.exit, !llvm.loop !8
 
 _ZN8CodeHeap19mark_segmap_as_usedEmmb.exit:       ; preds = %60, %.thread, %51, %_ZN8CodeHeap11segmap_hopsEmm.exit, %50
   %62 = load ptr, ptr %5, align 8
@@ -318,7 +318,7 @@ _ZN8CodeHeap19mark_segmap_as_usedEmmb.exit:       ; preds = %60, %.thread, %51, 
   %74 = getelementptr inbounds i8, ptr %62, i64 %73
   %.not46 = icmp eq ptr %62, null
   %.not = or i1 %72, %.not46
-  br i1 %.not, label %select.unfold._crit_edge.loopexit, label %9, !llvm.loop !11
+  br i1 %.not, label %select.unfold._crit_edge.loopexit, label %9, !llvm.loop !10
 
 select.unfold._crit_edge.loopexit:                ; preds = %_ZN8CodeHeap19mark_segmap_as_usedEmmb.exit
   %75 = add nsw i32 %.1, %.122
@@ -695,7 +695,7 @@ define hidden noundef ptr @_ZN8CodeHeap8allocateEm(ptr noundef nonnull align 8 c
 65:                                               ; preds = %61
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(254) %.037.i, ptr noundef nonnull align 1 dereferenceable(254) getelementptr inbounds nuw (i8, ptr @_ZN8CodeHeap15segmap_templateE, i64 1), i64 254, i1 false)
   %66 = icmp ult ptr %62, %53
-  br i1 %66, label %61, label %_ZN8CodeHeap19mark_segmap_as_usedEmmb.exit, !llvm.loop !9
+  br i1 %66, label %61, label %_ZN8CodeHeap19mark_segmap_as_usedEmmb.exit, !llvm.loop !8
 
 _ZN8CodeHeap19mark_segmap_as_usedEmmb.exit:       ; preds = %65, %47, %55, %56, %.thread.i
   %67 = load i64, ptr %42, align 8
@@ -792,7 +792,7 @@ define hidden noundef ptr @_ZN8CodeHeap15search_freelistEm(ptr noundef nonnull a
   %15 = getelementptr inbounds nuw i8, ptr %.03365, i64 8
   %16 = load ptr, ptr %15, align 8
   %.not = icmp eq ptr %16, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !12
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %12
   %17 = icmp eq ptr %.242, null
@@ -894,7 +894,7 @@ define hidden noundef ptr @_ZN8CodeHeap15search_freelistEm(ptr noundef nonnull a
 74:                                               ; preds = %70
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(254) %.037.i.i, ptr noundef nonnull align 1 dereferenceable(254) getelementptr inbounds nuw (i8, ptr @_ZN8CodeHeap15segmap_templateE, i64 1), i64 254, i1 false)
   %75 = icmp ult ptr %71, %62
-  br i1 %75, label %70, label %_ZN8CodeHeap11split_blockEP9HeapBlockm.exit, !llvm.loop !9
+  br i1 %75, label %70, label %_ZN8CodeHeap11split_blockEP9HeapBlockm.exit, !llvm.loop !8
 
 _ZN8CodeHeap11split_blockEP9HeapBlockm.exit:      ; preds = %74, %32, %64, %65, %.thread.i.i
   %76 = trunc i64 %18 to i32
@@ -1006,7 +1006,7 @@ define hidden noundef ptr @_ZN8CodeHeap11split_blockEP9HeapBlockm(ptr noundef no
 47:                                               ; preds = %43
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(254) %.037.i, ptr noundef nonnull align 1 dereferenceable(254) getelementptr inbounds nuw (i8, ptr @_ZN8CodeHeap15segmap_templateE, i64 1), i64 254, i1 false)
   %48 = icmp ult ptr %44, %35
-  br i1 %48, label %43, label %_ZN8CodeHeap19mark_segmap_as_usedEmmb.exit, !llvm.loop !9
+  br i1 %48, label %43, label %_ZN8CodeHeap19mark_segmap_as_usedEmmb.exit, !llvm.loop !8
 
 _ZN8CodeHeap19mark_segmap_as_usedEmmb.exit:       ; preds = %47, %5, %37, %38, %.thread.i
   %49 = trunc i64 %2 to i32
@@ -1102,7 +1102,7 @@ define hidden void @_ZN8CodeHeap15deallocate_tailEPvm(ptr noundef nonnull align 
 54:                                               ; preds = %50
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(254) %.037.i.i, ptr noundef nonnull align 1 dereferenceable(254) getelementptr inbounds nuw (i8, ptr @_ZN8CodeHeap15segmap_templateE, i64 1), i64 254, i1 false)
   %55 = icmp ult ptr %51, %42
-  br i1 %55, label %50, label %_ZN8CodeHeap11split_blockEP9HeapBlockm.exit, !llvm.loop !9
+  br i1 %55, label %50, label %_ZN8CodeHeap11split_blockEP9HeapBlockm.exit, !llvm.loop !8
 
 _ZN8CodeHeap11split_blockEP9HeapBlockm.exit:      ; preds = %54, %17, %44, %45, %.thread.i.i
   %56 = trunc i64 %14 to i32
@@ -1196,7 +1196,7 @@ define hidden void @_ZN8CodeHeap15add_to_freelistEP9HeapBlock(ptr noundef nonnul
   %.not.i = icmp eq i8 %54, 0
   %55 = zext i8 %54 to i64
   %56 = sub i64 %.0.i, %55
-  br i1 %.not.i, label %_ZNK8CodeHeap14find_block_forEPv.exit, label %.preheader.i, !llvm.loop !13
+  br i1 %.not.i, label %_ZNK8CodeHeap14find_block_forEPv.exit, label %.preheader.i, !llvm.loop !12
 
 _ZNK8CodeHeap14find_block_forEPv.exit.thread:     ; preds = %35, %41
   store ptr null, ptr %33, align 8
@@ -1242,7 +1242,7 @@ _ZNK8CodeHeap14find_block_forEPv.exit:            ; preds = %.preheader.i
   %73 = icmp ne ptr %72, null
   %74 = icmp ult ptr %72, %1
   %75 = and i1 %73, %74
-  br i1 %75, label %.lr.ph, label %._crit_edge, !llvm.loop !14
+  br i1 %75, label %.lr.ph, label %._crit_edge, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.._crit_edge_crit_edge
   %76 = phi ptr [ %.pre, %.._crit_edge_crit_edge ], [ %72, %.lr.ph ]
@@ -1321,7 +1321,7 @@ define hidden noundef ptr @_ZNK8CodeHeap14find_block_forEPv(ptr noundef nonnull 
   %.not = icmp eq i8 %23, 0
   %24 = zext i8 %23 to i64
   %25 = sub i64 %.0, %24
-  br i1 %.not, label %26, label %.preheader, !llvm.loop !13
+  br i1 %.not, label %26, label %.preheader, !llvm.loop !12
 
 26:                                               ; preds = %.preheader
   %27 = shl i64 %.0, %17
@@ -1366,7 +1366,7 @@ define hidden noundef ptr @_ZNK8CodeHeap10find_startEPv(ptr noundef nonnull read
   %.not.i = icmp eq i8 %23, 0
   %24 = zext i8 %23 to i64
   %25 = sub i64 %.0.i, %24
-  br i1 %.not.i, label %_ZNK8CodeHeap14find_block_forEPv.exit, label %.preheader.i, !llvm.loop !13
+  br i1 %.not.i, label %_ZNK8CodeHeap14find_block_forEPv.exit, label %.preheader.i, !llvm.loop !12
 
 _ZNK8CodeHeap14find_block_forEPv.exit:            ; preds = %.preheader.i
   %26 = icmp eq ptr %4, null
@@ -1420,7 +1420,7 @@ define hidden noundef ptr @_ZNK8CodeHeap9find_blobEPv(ptr noundef nonnull readon
   %.not.i.i = icmp eq i8 %23, 0
   %24 = zext i8 %23 to i64
   %25 = sub i64 %.0.i.i, %24
-  br i1 %.not.i.i, label %_ZNK8CodeHeap14find_block_forEPv.exit.i, label %.preheader.i.i, !llvm.loop !13
+  br i1 %.not.i.i, label %_ZNK8CodeHeap14find_block_forEPv.exit.i, label %.preheader.i.i, !llvm.loop !12
 
 _ZNK8CodeHeap14find_block_forEPv.exit.i:          ; preds = %.preheader.i.i
   %26 = icmp eq ptr %4, null
@@ -1571,7 +1571,7 @@ define hidden noundef ptr @_ZNK8CodeHeap11block_startEPv(ptr noundef nonnull rea
   %.not.i.i = icmp eq i8 %23, 0
   %24 = zext i8 %23 to i64
   %25 = sub i64 %.0.i.i, %24
-  br i1 %.not.i.i, label %_ZNK8CodeHeap14find_block_forEPv.exit.i, label %.preheader.i.i, !llvm.loop !13
+  br i1 %.not.i.i, label %_ZNK8CodeHeap14find_block_forEPv.exit.i, label %.preheader.i.i, !llvm.loop !12
 
 _ZNK8CodeHeap14find_block_forEPv.exit.i:          ; preds = %.preheader.i.i
   %26 = icmp eq ptr %4, null
@@ -1753,7 +1753,7 @@ define hidden noundef zeroext i1 @_ZN8CodeHeap11merge_rightEP9FreeBlock(ptr noun
 63:                                               ; preds = %59
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(254) %.037.i, ptr noundef nonnull align 1 dereferenceable(254) getelementptr inbounds nuw (i8, ptr @_ZN8CodeHeap15segmap_templateE, i64 1), i64 254, i1 false)
   %64 = icmp ult ptr %60, %40
-  br i1 %64, label %59, label %_ZN8CodeHeap19mark_segmap_as_usedEmmb.exit, !llvm.loop !9
+  br i1 %64, label %59, label %_ZN8CodeHeap19mark_segmap_as_usedEmmb.exit, !llvm.loop !8
 
 _ZN8CodeHeap19mark_segmap_as_usedEmmb.exit:       ; preds = %63, %12, %41, %50, %54, %55, %.thread.i
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 288
@@ -1795,7 +1795,7 @@ define hidden noundef i32 @_ZN8CodeHeap11segmap_hopsEmm(ptr noundef nonnull read
   %20 = getelementptr inbounds i8, ptr %8, i64 %18
   %21 = load i8, ptr %20, align 1
   %.not = icmp eq i8 %21, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !10
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5
   %.018.lcssa = phi i32 [ 0, %5 ], [ %19, %.lr.ph ]
@@ -1946,12 +1946,11 @@ attributes #17 = { noreturn nounwind }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7, !8}
-!11 = distinct !{!11, !7, !8}
-!12 = distinct !{!12, !7, !8}
-!13 = distinct !{!13, !7, !8}
-!14 = distinct !{!14, !7, !8}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7}
+!12 = distinct !{!12, !7}
+!13 = distinct !{!13, !7}

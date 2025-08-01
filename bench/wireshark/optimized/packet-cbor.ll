@@ -418,7 +418,7 @@ define hidden noundef zeroext i1 @cbor_heuristic(ptr noundef %0, ptr noundef %1,
   %74 = load i32, ptr %5, align 4
   %75 = call i32 @tvb_reported_length(ptr noundef %0)
   %76 = icmp ult i32 %74, %75
-  br i1 %76, label %17, label %.loopexit, !llvm.loop !8
+  br i1 %76, label %17, label %.loopexit
 
 .loopexit:                                        ; preds = %72, %4, %.thread
   %.0..0..0..0.20 = load volatile i32, ptr %6, align 4
@@ -556,7 +556,7 @@ define internal i32 @dissect_cborseq(ptr noundef %0, ptr noundef %1, ptr noundef
 
 14:                                               ; preds = %10
   %15 = call fastcc zeroext i1 @dissect_cbor_main_type(ptr noundef %0, ptr noundef %1, ptr noundef %9, ptr noundef nonnull %5)
-  br i1 %15, label %10, label %16, !llvm.loop !10
+  br i1 %15, label %10, label %16, !llvm.loop !8
 
 16:                                               ; preds = %14, %10
   %17 = load i32, ptr %5, align 4
@@ -899,7 +899,7 @@ dissect_cbor_unsigned_integer.exit:               ; preds = %50, %57
 162:                                              ; preds = %164
   %163 = add nuw nsw i64 %.060.i80.us, 1
   %exitcond139.not = icmp eq i64 %163, 2147483647
-  br i1 %exitcond139.not, label %._crit_edge83, label %.lr.ph82.split.us, !llvm.loop !12
+  br i1 %exitcond139.not, label %._crit_edge83, label %.lr.ph82.split.us, !llvm.loop !10
 
 164:                                              ; preds = %.lr.ph82.split.us
   %165 = tail call fastcc zeroext i1 @dissect_cbor_main_type(ptr noundef %0, ptr noundef %1, ptr noundef %131, ptr noundef %3)
@@ -909,7 +909,7 @@ dissect_cbor_unsigned_integer.exit:               ; preds = %50, %57
   %167 = add nuw i64 %.060.i80, 1
   %168 = load i64, ptr %9, align 8
   %169 = icmp ult i64 %167, %168
-  br i1 %169, label %.lr.ph82.split, label %184, !llvm.loop !14
+  br i1 %169, label %.lr.ph82.split, label %184, !llvm.loop !12
 
 .lr.ph82.split:                                   ; preds = %159, %166
   %.060.i80 = phi i64 [ %167, %166 ], [ 0, %159 ]
@@ -1048,7 +1048,7 @@ dissect_cbor_array.exit:                          ; preds = %164, %.lr.ph82.spli
 225:                                              ; preds = %229
   %226 = add nuw nsw i64 %.064.i79.us, 1
   %exitcond.not = icmp eq i64 %226, 2147483647
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !15
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !13
 
 227:                                              ; preds = %.lr.ph.split.us
   %228 = tail call fastcc zeroext i1 @dissect_cbor_main_type(ptr noundef %0, ptr noundef %1, ptr noundef %194, ptr noundef %3)
@@ -1062,7 +1062,7 @@ dissect_cbor_array.exit:                          ; preds = %164, %.lr.ph82.spli
   %232 = add nuw i64 %.064.i79, 1
   %233 = load i64, ptr %8, align 8
   %234 = icmp ult i64 %232, %233
-  br i1 %234, label %.lr.ph.split, label %251, !llvm.loop !16
+  br i1 %234, label %.lr.ph.split, label %251, !llvm.loop !14
 
 .lr.ph.split:                                     ; preds = %222, %231
   %.064.i79 = phi i64 [ %232, %231 ], [ 0, %222 ]
@@ -1493,7 +1493,7 @@ define internal fastcc noundef zeroext i1 @dissect_cbor_byte_string(ptr noundef 
   %71 = tail call fastcc zeroext i1 @dissect_cbor_byte_string(ptr noundef %0, ptr noundef %1, ptr noundef %36, ptr noundef %3, i8 noundef zeroext %70)
   %72 = load i32, ptr @proto_cbor, align 4
   tail call void @p_set_proto_depth(ptr noundef %1, i32 noundef %72, i32 noundef %63)
-  br i1 %71, label %37, label %.loopexit, !llvm.loop !17
+  br i1 %71, label %37, label %.loopexit
 
 73:                                               ; preds = %25
   %74 = icmp samesign ugt i8 %4, 23
@@ -1686,7 +1686,7 @@ define internal fastcc noundef zeroext i1 @dissect_cbor_text_string(ptr noundef 
   %72 = tail call fastcc zeroext i1 @dissect_cbor_text_string(ptr noundef %0, ptr noundef %1, ptr noundef %37, ptr noundef %3, i8 noundef zeroext %71)
   %73 = load i32, ptr @proto_cbor, align 4
   tail call void @p_set_proto_depth(ptr noundef %1, i32 noundef %73, i32 noundef %64)
-  br i1 %72, label %38, label %.loopexit, !llvm.loop !18
+  br i1 %72, label %38, label %.loopexit
 
 74:                                               ; preds = %26
   %75 = icmp samesign ugt i8 %4, 23
@@ -1835,13 +1835,9 @@ attributes #9 = { noreturn }
 !6 = !{i8 0, i8 2}
 !7 = !{}
 !8 = distinct !{!8, !9}
-!9 = !{!"llvm.loop.estimated_trip_count"}
-!10 = distinct !{!10, !11, !9}
-!11 = !{!"llvm.loop.mustprogress"}
-!12 = distinct !{!12, !11, !9, !13}
-!13 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!14 = distinct !{!14, !11, !9}
-!15 = distinct !{!15, !11, !9, !13}
-!16 = distinct !{!16, !11, !9}
-!17 = distinct !{!17, !9}
-!18 = distinct !{!18, !9}
+!9 = !{!"llvm.loop.mustprogress"}
+!10 = distinct !{!10, !9, !11}
+!11 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!12 = distinct !{!12, !9}
+!13 = distinct !{!13, !9, !11}
+!14 = distinct !{!14, !9}

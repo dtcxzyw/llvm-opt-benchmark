@@ -138,13 +138,13 @@ define dso_local void @_ZN6asmjit9_abi_1_104Zone5resetENS0_11ResetPolicyE(ptr no
   %45 = load ptr, ptr %44, align 8, !tbaa !17
   tail call void @free(ptr noundef nonnull %43) #13
   %46 = icmp eq ptr %45, null
-  br i1 %46, label %.loopexit, label %.preheader, !llvm.loop !22
+  br i1 %46, label %.loopexit, label %.preheader, !llvm.loop !21
 
 .preheader5:                                      ; preds = %6, %.preheader5
   %47 = phi ptr [ %48, %.preheader5 ], [ %4, %6 ]
   %48 = load ptr, ptr %47, align 8, !tbaa !18
   %49 = icmp eq ptr %48, null
-  br i1 %49, label %50, label %.preheader5, !llvm.loop !23
+  br i1 %49, label %50, label %.preheader5, !llvm.loop !22
 
 50:                                               ; preds = %.preheader5
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -224,14 +224,14 @@ define dso_local noundef ptr @_ZN6asmjit9_abi_1_104Zone6_allocEmm(ptr noundef no
   %37 = tail call noundef i64 @llvm.umax.i64(i64 %36, i64 %1)
   %38 = sub i64 -25, %35
   %39 = icmp ugt i64 %37, %38
-  br i1 %39, label %66, label %40, !prof !24
+  br i1 %39, label %66, label %40, !prof !23
 
 40:                                               ; preds = %34
   %41 = add i64 %37, %35
   %42 = add i64 %41, 24
   %43 = tail call noalias ptr @malloc(i64 noundef %42) #14
   %44 = icmp eq ptr %43, null
-  br i1 %44, label %66, label %45, !prof !24
+  br i1 %44, label %66, label %45, !prof !23
 
 45:                                               ; preds = %40
   %46 = getelementptr inbounds nuw i8, ptr %43, i64 8
@@ -342,14 +342,14 @@ define dso_local noundef ptr @_ZN6asmjit9_abi_1_104Zone11allocZeroedEmm(ptr noun
   %51 = tail call noundef i64 @llvm.umax.i64(i64 %50, i64 %1)
   %52 = sub i64 -25, %49
   %53 = icmp ugt i64 %51, %52
-  br i1 %53, label %_ZN6asmjit9_abi_1_104Zone6_allocEmm.exit.thread, label %54, !prof !24
+  br i1 %53, label %_ZN6asmjit9_abi_1_104Zone6_allocEmm.exit.thread, label %54, !prof !23
 
 54:                                               ; preds = %48
   %55 = add i64 %51, %49
   %56 = add i64 %55, 24
   %57 = tail call noalias ptr @malloc(i64 noundef %56) #14
   %58 = icmp eq ptr %57, null
-  br i1 %58, label %_ZN6asmjit9_abi_1_104Zone6_allocEmm.exit.thread, label %59, !prof !24
+  br i1 %58, label %_ZN6asmjit9_abi_1_104Zone6_allocEmm.exit.thread, label %59, !prof !23
 
 59:                                               ; preds = %54
   %60 = getelementptr inbounds nuw i8, ptr %57, i64 8
@@ -396,7 +396,7 @@ define dso_local noundef ptr @_ZN6asmjit9_abi_1_104Zone11allocZeroedEmm(ptr noun
 _ZN6asmjit9_abi_1_104Zone6_allocEmm.exit:         ; preds = %65, %44, %79
   %81 = phi ptr [ %10, %79 ], [ %46, %44 ], [ %72, %65 ]
   %82 = icmp eq ptr %81, null
-  br i1 %82, label %_ZN6asmjit9_abi_1_104Zone6_allocEmm.exit.thread, label %83, !prof !25
+  br i1 %82, label %_ZN6asmjit9_abi_1_104Zone6_allocEmm.exit.thread, label %83, !prof !24
 
 83:                                               ; preds = %_ZN6asmjit9_abi_1_104Zone6_allocEmm.exit
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %81, i8 0, i64 %1, i1 false)
@@ -415,7 +415,7 @@ define dso_local noundef ptr @_ZN6asmjit9_abi_1_104Zone3dupEPKvmb(ptr noundef no
   %5 = icmp eq ptr %1, null
   %6 = icmp eq i64 %2, 0
   %7 = or i1 %5, %6
-  br i1 %7, label %83, label %8, !prof !24
+  br i1 %7, label %83, label %8, !prof !23
 
 8:                                                ; preds = %4
   %9 = zext i1 %3 to i64
@@ -472,13 +472,13 @@ define dso_local noundef ptr @_ZN6asmjit9_abi_1_104Zone3dupEPKvmb(ptr noundef no
   %49 = and i64 %26, 1152921504606846975
   %50 = tail call noundef i64 @llvm.umax.i64(i64 %49, i64 %10)
   %51 = icmp ugt i64 %10, -25
-  br i1 %51, label %83, label %52, !prof !24
+  br i1 %51, label %83, label %52, !prof !23
 
 52:                                               ; preds = %48
   %53 = add nuw i64 %50, 24
   %54 = tail call noalias ptr @malloc(i64 noundef %53) #14
   %55 = icmp eq ptr %54, null
-  br i1 %55, label %83, label %56, !prof !24
+  br i1 %55, label %83, label %56, !prof !23
 
 56:                                               ; preds = %52
   %57 = getelementptr inbounds nuw i8, ptr %54, i64 8
@@ -524,7 +524,7 @@ define dso_local noundef ptr @_ZN6asmjit9_abi_1_104Zone3dupEPKvmb(ptr noundef no
 77:                                               ; preds = %75, %62, %44
   %78 = phi ptr [ %11, %75 ], [ %46, %44 ], [ %69, %62 ]
   %79 = icmp eq ptr %78, null
-  br i1 %79, label %83, label %80, !prof !25
+  br i1 %79, label %83, label %80, !prof !24
 
 80:                                               ; preds = %77
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %78, ptr nonnull align 1 %1, i64 %2, i1 false)
@@ -532,7 +532,7 @@ define dso_local noundef ptr @_ZN6asmjit9_abi_1_104Zone3dupEPKvmb(ptr noundef no
 
 81:                                               ; preds = %80
   %82 = getelementptr inbounds i8, ptr %78, i64 %2
-  store i8 0, ptr %82, align 1, !tbaa !26
+  store i8 0, ptr %82, align 1, !tbaa !25
   br label %83
 
 83:                                               ; preds = %81, %80, %77, %52, %48, %4
@@ -548,7 +548,7 @@ define dso_local noundef ptr @_ZN6asmjit9_abi_1_104Zone7sformatEPKcz(ptr noundef
   %3 = alloca [512 x i8], align 16
   %4 = alloca [1 x %struct.__va_list_tag], align 16
   %5 = icmp eq ptr %1, null
-  br i1 %5, label %12, label %6, !prof !24
+  br i1 %5, label %12, label %6, !prof !23
 
 6:                                                ; preds = %2
   call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %3) #13
@@ -559,7 +559,7 @@ define dso_local noundef ptr @_ZN6asmjit9_abi_1_104Zone7sformatEPKcz(ptr noundef
   call void @llvm.va_end.p0(ptr nonnull %4)
   %9 = add nuw nsw i64 %8, 1
   %10 = getelementptr inbounds nuw [512 x i8], ptr %3, i64 0, i64 %8
-  store i8 0, ptr %10, align 1, !tbaa !26
+  store i8 0, ptr %10, align 1, !tbaa !25
   %11 = call noundef ptr @_ZN6asmjit9_abi_1_104Zone3dupEPKvmb(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %3, i64 noundef %9, i1 noundef zeroext false) #13
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #13
   call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %3) #13
@@ -576,22 +576,22 @@ declare noundef i32 @vsnprintf(ptr noundef captures(none), i64 noundef, ptr noun
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN6asmjit9_abi_1_1013ZoneAllocator5resetEPNS0_4ZoneE(ptr noundef nonnull align 8 captures(none) dereferenceable(96) %0, ptr noundef %1) local_unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %4 = load ptr, ptr %3, align 8, !tbaa !27
+  %4 = load ptr, ptr %3, align 8, !tbaa !26
   %5 = icmp eq ptr %4, null
   br i1 %5, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %2, %.preheader
   %6 = phi ptr [ %8, %.preheader ], [ %4, %2 ]
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %8 = load ptr, ptr %7, align 8, !tbaa !29
+  %8 = load ptr, ptr %7, align 8, !tbaa !28
   tail call void @free(ptr noundef nonnull %6) #13
   %9 = icmp eq ptr %8, null
-  br i1 %9, label %.loopexit, label %.preheader, !llvm.loop !31
+  br i1 %9, label %.loopexit, label %.preheader, !llvm.loop !30
 
 .loopexit:                                        ; preds = %.preheader, %2
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %10, i8 0, i64 88, i1 false)
-  store ptr %1, ptr %0, align 8, !tbaa !32
+  store ptr %1, ptr %0, align 8, !tbaa !31
   ret void
 }
 
@@ -621,28 +621,28 @@ define dso_local noundef ptr @_ZN6asmjit9_abi_1_1013ZoneAllocator6_allocEmRm(ptr
   %17 = phi i64 [ %13, %10 ], [ %9, %7 ]
   %18 = add nuw nsw i64 %15, %1
   %19 = and i64 %18, %16
-  store i64 %19, ptr %2, align 8, !tbaa !33
+  store i64 %19, ptr %2, align 8, !tbaa !32
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %21 = and i64 %17, 4294967295
   %22 = getelementptr inbounds nuw [10 x ptr], ptr %20, i64 0, i64 %21
-  %23 = load ptr, ptr %22, align 8, !tbaa !34
+  %23 = load ptr, ptr %22, align 8, !tbaa !33
   %24 = icmp eq ptr %23, null
   br i1 %24, label %27, label %25
 
 25:                                               ; preds = %14
-  %26 = load ptr, ptr %23, align 8, !tbaa !35
-  store ptr %26, ptr %22, align 8, !tbaa !34
+  %26 = load ptr, ptr %23, align 8, !tbaa !34
+  store ptr %26, ptr %22, align 8, !tbaa !33
   br label %84
 
 27:                                               ; preds = %14
-  %28 = load ptr, ptr %0, align 8, !tbaa !32
+  %28 = load ptr, ptr %0, align 8, !tbaa !31
   %29 = load ptr, ptr %28, align 8, !tbaa !3
   %30 = ptrtoint ptr %29 to i64
   %31 = add i64 %30, 31
   %32 = and i64 %31, -32
   %33 = inttoptr i64 %32 to ptr
   %34 = getelementptr inbounds nuw i8, ptr %28, i64 8
-  %35 = load ptr, ptr %34, align 8, !tbaa !34
+  %35 = load ptr, ptr %34, align 8, !tbaa !33
   %36 = icmp ult ptr %35, %33
   %37 = select i1 %36, ptr %35, ptr %33
   store ptr %37, ptr %28, align 8, !tbaa !3
@@ -650,7 +650,7 @@ define dso_local noundef ptr @_ZN6asmjit9_abi_1_1013ZoneAllocator6_allocEmRm(ptr
   %39 = ptrtoint ptr %37 to i64
   %40 = sub i64 %38, %39
   %41 = icmp ult i64 %40, %19
-  br i1 %41, label %44, label %42, !prof !24
+  br i1 %41, label %44, label %42, !prof !23
 
 42:                                               ; preds = %27
   %43 = getelementptr inbounds nuw i8, ptr %37, i64 %19
@@ -669,13 +669,13 @@ define dso_local noundef ptr @_ZN6asmjit9_abi_1_1013ZoneAllocator6_allocEmRm(ptr
   %50 = lshr i64 %49, 5
   %51 = and i64 %50, 4294967295
   %52 = getelementptr inbounds nuw [10 x ptr], ptr %20, i64 0, i64 %51
-  %53 = load ptr, ptr %52, align 8, !tbaa !34
-  store ptr %53, ptr %47, align 8, !tbaa !35
-  store ptr %47, ptr %52, align 8, !tbaa !34
+  %53 = load ptr, ptr %52, align 8, !tbaa !33
+  store ptr %53, ptr %47, align 8, !tbaa !34
+  store ptr %47, ptr %52, align 8, !tbaa !33
   %54 = getelementptr inbounds nuw i8, ptr %47, i64 %48
   %55 = sub i64 %46, %48
   %56 = icmp ugt i64 %55, 31
-  br i1 %56, label %.preheader, label %57, !llvm.loop !37
+  br i1 %56, label %.preheader, label %57, !llvm.loop !36
 
 57:                                               ; preds = %.preheader
   store ptr %54, ptr %28, align 8, !tbaa !3
@@ -684,50 +684,50 @@ define dso_local noundef ptr @_ZN6asmjit9_abi_1_1013ZoneAllocator6_allocEmRm(ptr
 58:                                               ; preds = %57, %44
   %59 = tail call noundef ptr @_ZN6asmjit9_abi_1_104Zone6_allocEmm(ptr noundef nonnull align 8 dereferenceable(32) %28, i64 noundef %19, i64 noundef 32) #13
   %60 = icmp eq ptr %59, null
-  br i1 %60, label %61, label %84, !prof !24
+  br i1 %60, label %61, label %84, !prof !23
 
 61:                                               ; preds = %58
-  store i64 0, ptr %2, align 8, !tbaa !33
+  store i64 0, ptr %2, align 8, !tbaa !32
   br label %84
 
 62:                                               ; preds = %3
   %63 = icmp ugt i64 %1, -58
-  br i1 %63, label %84, label %64, !prof !24
+  br i1 %63, label %84, label %64, !prof !23
 
 64:                                               ; preds = %62
   %65 = add nuw i64 %1, 56
   %66 = tail call noalias ptr @malloc(i64 noundef %65) #14
   %67 = icmp eq ptr %66, null
-  br i1 %67, label %81, label %68, !prof !24
+  br i1 %67, label %81, label %68, !prof !23
 
 68:                                               ; preds = %64
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %70 = load ptr, ptr %69, align 8, !tbaa !27
+  %70 = load ptr, ptr %69, align 8, !tbaa !26
   %71 = icmp eq ptr %70, null
   br i1 %71, label %73, label %72
 
 72:                                               ; preds = %68
-  store ptr %66, ptr %70, align 8, !tbaa !38
+  store ptr %66, ptr %70, align 8, !tbaa !37
   br label %73
 
 73:                                               ; preds = %72, %68
-  store ptr null, ptr %66, align 8, !tbaa !38
+  store ptr null, ptr %66, align 8, !tbaa !37
   %74 = getelementptr inbounds nuw i8, ptr %66, i64 8
-  store ptr %70, ptr %74, align 8, !tbaa !29
-  store ptr %66, ptr %69, align 8, !tbaa !27
+  store ptr %70, ptr %74, align 8, !tbaa !28
+  store ptr %66, ptr %69, align 8, !tbaa !26
   %75 = getelementptr inbounds nuw i8, ptr %66, i64 24
   %76 = ptrtoint ptr %75 to i64
   %77 = add i64 %76, 31
   %78 = and i64 %77, -32
   %79 = inttoptr i64 %78 to ptr
   %80 = getelementptr inbounds i8, ptr %79, i64 -8
-  store ptr %66, ptr %80, align 8, !tbaa !34
+  store ptr %66, ptr %80, align 8, !tbaa !33
   br label %81
 
 81:                                               ; preds = %73, %64
   %82 = phi i64 [ %1, %73 ], [ 0, %64 ]
   %83 = phi ptr [ %79, %73 ], [ null, %64 ]
-  store i64 %82, ptr %2, align 8, !tbaa !33
+  store i64 %82, ptr %2, align 8, !tbaa !32
   br label %84
 
 84:                                               ; preds = %81, %62, %61, %58, %42, %25
@@ -739,10 +739,10 @@ define dso_local noundef ptr @_ZN6asmjit9_abi_1_1013ZoneAllocator6_allocEmRm(ptr
 define dso_local noundef ptr @_ZN6asmjit9_abi_1_1013ZoneAllocator12_allocZeroedEmRm(ptr noundef nonnull align 8 captures(none) dereferenceable(96) %0, i64 noundef %1, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %2) local_unnamed_addr #8 align 2 {
   %4 = tail call noundef ptr @_ZN6asmjit9_abi_1_1013ZoneAllocator6_allocEmRm(ptr noundef nonnull align 8 dereferenceable(96) %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %2) #13
   %5 = icmp eq ptr %4, null
-  br i1 %5, label %8, label %6, !prof !24
+  br i1 %5, label %8, label %6, !prof !23
 
 6:                                                ; preds = %3
-  %7 = load i64, ptr %2, align 8, !tbaa !33
+  %7 = load i64, ptr %2, align 8, !tbaa !32
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %4, i8 0, i64 %7, i1 false)
   br label %8
 
@@ -753,20 +753,20 @@ define dso_local noundef ptr @_ZN6asmjit9_abi_1_1013ZoneAllocator12_allocZeroedE
 ; Function Attrs: mustprogress nounwind willreturn uwtable
 define dso_local void @_ZN6asmjit9_abi_1_1013ZoneAllocator15_releaseDynamicEPvm(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(96) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) local_unnamed_addr #10 align 2 {
   %4 = getelementptr inbounds i8, ptr %1, i64 -8
-  %5 = load ptr, ptr %4, align 8, !tbaa !34
-  %6 = load ptr, ptr %5, align 8, !tbaa !38
+  %5 = load ptr, ptr %4, align 8, !tbaa !33
+  %6 = load ptr, ptr %5, align 8, !tbaa !37
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %8 = load ptr, ptr %7, align 8, !tbaa !29
+  %8 = load ptr, ptr %7, align 8, !tbaa !28
   %9 = icmp eq ptr %6, null
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %12 = select i1 %9, ptr %10, ptr %11
-  store ptr %8, ptr %12, align 8, !tbaa !34
+  store ptr %8, ptr %12, align 8, !tbaa !33
   %13 = icmp eq ptr %8, null
   br i1 %13, label %15, label %14
 
 14:                                               ; preds = %3
-  store ptr %6, ptr %8, align 8, !tbaa !38
+  store ptr %6, ptr %8, align 8, !tbaa !37
   br label %15
 
 15:                                               ; preds = %14, %3
@@ -829,23 +829,22 @@ attributes #14 = { nounwind allocsize(0) }
 !16 = !{!"_ZTSN6asmjit9_abi_1_104Zone5BlockE", !5, i64 0, !5, i64 8, !13, i64 16}
 !17 = !{!16, !5, i64 8}
 !18 = !{!16, !5, i64 0}
-!19 = distinct !{!19, !20, !21}
+!19 = distinct !{!19, !20}
 !20 = !{!"llvm.loop.mustprogress"}
-!21 = !{!"llvm.loop.estimated_trip_count"}
-!22 = distinct !{!22, !20, !21}
-!23 = distinct !{!23, !20, !21}
-!24 = !{!"branch_weights", i32 1, i32 2000}
-!25 = !{!"branch_weights", i32 335676, i32 2147147972}
-!26 = !{!6, !6, i64 0}
-!27 = !{!28, !5, i64 88}
-!28 = !{!"_ZTSN6asmjit9_abi_1_1013ZoneAllocatorE", !5, i64 0, !6, i64 8, !5, i64 88}
-!29 = !{!30, !5, i64 8}
-!30 = !{!"_ZTSN6asmjit9_abi_1_1013ZoneAllocator12DynamicBlockE", !5, i64 0, !5, i64 8}
-!31 = distinct !{!31, !20, !21}
-!32 = !{!28, !5, i64 0}
-!33 = !{!13, !13, i64 0}
-!34 = !{!5, !5, i64 0}
-!35 = !{!36, !5, i64 0}
-!36 = !{!"_ZTSN6asmjit9_abi_1_1013ZoneAllocator4SlotE", !5, i64 0}
-!37 = distinct !{!37, !20, !21}
-!38 = !{!30, !5, i64 0}
+!21 = distinct !{!21, !20}
+!22 = distinct !{!22, !20}
+!23 = !{!"branch_weights", i32 1, i32 2000}
+!24 = !{!"branch_weights", i32 335676, i32 2147147972}
+!25 = !{!6, !6, i64 0}
+!26 = !{!27, !5, i64 88}
+!27 = !{!"_ZTSN6asmjit9_abi_1_1013ZoneAllocatorE", !5, i64 0, !6, i64 8, !5, i64 88}
+!28 = !{!29, !5, i64 8}
+!29 = !{!"_ZTSN6asmjit9_abi_1_1013ZoneAllocator12DynamicBlockE", !5, i64 0, !5, i64 8}
+!30 = distinct !{!30, !20}
+!31 = !{!27, !5, i64 0}
+!32 = !{!13, !13, i64 0}
+!33 = !{!5, !5, i64 0}
+!34 = !{!35, !5, i64 0}
+!35 = !{!"_ZTSN6asmjit9_abi_1_1013ZoneAllocator4SlotE", !5, i64 0}
+!36 = distinct !{!36, !20}
+!37 = !{!29, !5, i64 0}

@@ -51,7 +51,7 @@ define internal range(i32 0, -2147483648) i32 @slg_write(ptr readnone captures(n
 
 19:                                               ; preds = %13
   %20 = getelementptr inbounds nuw i8, ptr %14, i64 16
-  %21 = load i32, ptr %20, align 4, !tbaa !12
+  %21 = load i32, ptr %20, align 4, !tbaa !11
   %22 = getelementptr inbounds i8, ptr %8, i64 %17
   tail call void (i32, ptr, ...) @syslog(i32 noundef %21, ptr noundef nonnull @.str.3, ptr noundef nonnull %22) #5
   tail call void @CRYPTO_free(ptr noundef nonnull %8, ptr noundef nonnull @.str.2, i32 noundef 215) #5
@@ -96,7 +96,7 @@ define internal range(i32 0, -2147483648) i32 @slg_puts(ptr readnone captures(no
 
 20:                                               ; preds = %14
   %21 = getelementptr inbounds nuw i8, ptr %15, i64 16
-  %22 = load i32, ptr %21, align 4, !tbaa !12
+  %22 = load i32, ptr %21, align 4, !tbaa !11
   %23 = getelementptr inbounds i8, ptr %9, i64 %18
   tail call void (i32, ptr, ...) @syslog(i32 noundef %22, ptr noundef nonnull @.str.3, ptr noundef nonnull %23) #5
   tail call void @CRYPTO_free(ptr noundef nonnull %9, ptr noundef nonnull @.str.2, i32 noundef 215) #5
@@ -125,11 +125,11 @@ define internal noundef i64 @slg_ctrl(ptr readnone captures(none) %0, i32 nounde
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @slg_new(ptr noundef writeonly captures(none) initializes((40, 44), (56, 60), (64, 72)) %0) #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store i32 1, ptr %2, align 8, !tbaa !13
+  store i32 1, ptr %2, align 8, !tbaa !12
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store i32 0, ptr %3, align 8, !tbaa !24
+  store i32 0, ptr %3, align 8, !tbaa !23
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  store ptr null, ptr %4, align 8, !tbaa !25
+  store ptr null, ptr %4, align 8, !tbaa !24
   tail call void @openlog(ptr noundef nonnull @.str.4, i32 noundef 3, i32 noundef 24) #5
   ret i32 1
 }
@@ -186,20 +186,19 @@ attributes #6 = { nounwind willreturn memory(read) }
 !6 = !{!7, !8, i64 0}
 !7 = !{!"", !8, i64 0, !4, i64 4, !8, i64 16}
 !8 = !{!"int", !4, i64 0}
-!9 = distinct !{!9, !10, !11}
+!9 = distinct !{!9, !10}
 !10 = !{!"llvm.loop.mustprogress"}
-!11 = !{!"llvm.loop.estimated_trip_count"}
-!12 = !{!7, !8, i64 16}
-!13 = !{!14, !8, i64 40}
-!14 = !{!"bio_st", !15, i64 0, !17, i64 8, !16, i64 16, !16, i64 24, !18, i64 32, !8, i64 40, !8, i64 44, !8, i64 48, !8, i64 52, !8, i64 56, !16, i64 64, !19, i64 72, !19, i64 80, !20, i64 88, !21, i64 96, !21, i64 104, !22, i64 112}
-!15 = !{!"p1 _ZTS15ossl_lib_ctx_st", !16, i64 0}
-!16 = !{!"any pointer", !4, i64 0}
-!17 = !{!"p1 _ZTS13bio_method_st", !16, i64 0}
-!18 = !{!"p1 omnipotent char", !16, i64 0}
-!19 = !{!"p1 _ZTS6bio_st", !16, i64 0}
-!20 = !{!"", !4, i64 0}
-!21 = !{!"long", !4, i64 0}
-!22 = !{!"crypto_ex_data_st", !15, i64 0, !23, i64 8}
-!23 = !{!"p1 _ZTS13stack_st_void", !16, i64 0}
-!24 = !{!14, !8, i64 56}
-!25 = !{!14, !16, i64 64}
+!11 = !{!7, !8, i64 16}
+!12 = !{!13, !8, i64 40}
+!13 = !{!"bio_st", !14, i64 0, !16, i64 8, !15, i64 16, !15, i64 24, !17, i64 32, !8, i64 40, !8, i64 44, !8, i64 48, !8, i64 52, !8, i64 56, !15, i64 64, !18, i64 72, !18, i64 80, !19, i64 88, !20, i64 96, !20, i64 104, !21, i64 112}
+!14 = !{!"p1 _ZTS15ossl_lib_ctx_st", !15, i64 0}
+!15 = !{!"any pointer", !4, i64 0}
+!16 = !{!"p1 _ZTS13bio_method_st", !15, i64 0}
+!17 = !{!"p1 omnipotent char", !15, i64 0}
+!18 = !{!"p1 _ZTS6bio_st", !15, i64 0}
+!19 = !{!"", !4, i64 0}
+!20 = !{!"long", !4, i64 0}
+!21 = !{!"crypto_ex_data_st", !14, i64 0, !22, i64 8}
+!22 = !{!"p1 _ZTS13stack_st_void", !15, i64 0}
+!23 = !{!13, !8, i64 56}
+!24 = !{!13, !15, i64 64}

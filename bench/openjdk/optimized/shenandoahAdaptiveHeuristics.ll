@@ -462,7 +462,7 @@ _ZN9QuickSort10find_pivotIN20ShenandoahHeuristics10RegionDataEPFiS2_S2_EEEmPT_mT
   %29 = tail call noundef i32 %2(ptr %.sroa.05.0.copyload.i18, i64 %.sroa.26.0.copyload.i19, ptr %.sroa.07.0.copyload.i17, i64 %.sroa.3.0.copyload.i) #11
   %30 = icmp slt i32 %29, 0
   %31 = add i64 %.1.i, 1
-  br i1 %30, label %27, label %.preheader.i, !llvm.loop !9
+  br i1 %30, label %27, label %.preheader.i, !llvm.loop !8
 
 .preheader.i:                                     ; preds = %27, %.preheader.i
   %.127.in.i = phi i64 [ %.127.i, %.preheader.i ], [ %.026.in.i, %27 ]
@@ -473,7 +473,7 @@ _ZN9QuickSort10find_pivotIN20ShenandoahHeuristics10RegionDataEPFiS2_S2_EEEmPT_mT
   %.sroa.22.0.copyload.i21 = load i64, ptr %.sroa.22.0..sroa_idx.i, align 8
   %33 = tail call noundef i32 %2(ptr %.sroa.01.0.copyload.i20, i64 %.sroa.22.0.copyload.i21, ptr %.sroa.07.0.copyload.i17, i64 %.sroa.3.0.copyload.i) #11
   %34 = icmp sgt i32 %33, 0
-  br i1 %34, label %.preheader.i, label %35, !llvm.loop !10
+  br i1 %34, label %.preheader.i, label %35, !llvm.loop !9
 
 35:                                               ; preds = %.preheader.i
   %36 = icmp ult i64 %.1.i, %.127.i
@@ -485,7 +485,7 @@ _ZN9QuickSort10find_pivotIN20ShenandoahHeuristics10RegionDataEPFiS2_S2_EEEmPT_mT
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %28, ptr noundef nonnull align 8 dereferenceable(16) %32, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %32, ptr noundef nonnull align 8 dereferenceable(16) %4, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
-  br label %26, !llvm.loop !11
+  br label %26, !llvm.loop !10
 
 _ZN9QuickSort9partitionIN20ShenandoahHeuristics10RegionDataEPFiS2_S2_EEEmPT_mmT0_.exit: ; preds = %35
   tail call void @_ZN9QuickSort4sortIN20ShenandoahHeuristics10RegionDataEPFiS2_S2_EEEvPT_mT0_(ptr noundef nonnull %.tr26, i64 noundef %.127.in.i, ptr noundef %2)
@@ -1777,9 +1777,8 @@ attributes #12 = { noreturn nounwind }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7, !8}
-!11 = distinct !{!11, !7, !8}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}

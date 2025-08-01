@@ -69,19 +69,19 @@ declare void @WebPSafeFree(ptr noundef) local_unnamed_addr #2
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 0, 2) i32 @VP8RecordCoeffTokens(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2) local_unnamed_addr #1 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %5 = load ptr, ptr %4, align 8, !tbaa !22
+  %5 = load ptr, ptr %4, align 8, !tbaa !21
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %7 = load i32, ptr %6, align 8, !tbaa !27
+  %7 = load i32, ptr %6, align 8, !tbaa !26
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %9 = load i32, ptr %8, align 4, !tbaa !28
-  %10 = load i32, ptr %1, align 8, !tbaa !29
+  %9 = load i32, ptr %8, align 4, !tbaa !27
+  %10 = load i32, ptr %1, align 8, !tbaa !28
   %11 = shl nsw i32 %7, 3
   %12 = add nsw i32 %10, %11
   %13 = mul nsw i32 %12, 3
   %14 = add nsw i32 %13, %0
   %15 = mul nsw i32 %14, 11
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %17 = load ptr, ptr %16, align 8, !tbaa !30
+  %17 = load ptr, ptr %16, align 8, !tbaa !29
   %18 = sext i32 %10 to i64
   %19 = getelementptr inbounds [3 x [11 x i32]], ptr %17, i64 %18
   %20 = sext i32 %0 to i64
@@ -121,7 +121,7 @@ TBufferNewPage.exit.i:                            ; preds = %29
   store ptr null, ptr %35, align 8, !tbaa !17
   %37 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %38 = load ptr, ptr %37, align 8, !tbaa !13
-  store ptr %35, ptr %38, align 8, !tbaa !31
+  store ptr %35, ptr %38, align 8, !tbaa !30
   store ptr %35, ptr %37, align 8, !tbaa !13
   %39 = load i32, ptr %30, align 4, !tbaa !15
   %40 = getelementptr inbounds nuw i8, ptr %35, i64 8
@@ -139,11 +139,11 @@ TBufferNewPage.exit.i:                            ; preds = %29
   %48 = trunc i32 %47 to i16
   %49 = sext i32 %45 to i64
   %50 = getelementptr inbounds i16, ptr %43, i64 %49
-  store i16 %48, ptr %50, align 2, !tbaa !32
+  store i16 %48, ptr %50, align 2, !tbaa !31
   br label %AddToken.exit
 
 AddToken.exit:                                    ; preds = %TBufferNewPage.exit.thread.i, %42
-  %51 = load i32, ptr %21, align 4, !tbaa !34
+  %51 = load i32, ptr %21, align 4, !tbaa !33
   %52 = icmp ugt i32 %51, -131073
   %53 = add nsw i32 %51, 1
   %54 = lshr i32 %53, 1
@@ -151,7 +151,7 @@ AddToken.exit:                                    ; preds = %TBufferNewPage.exit
   %.0.i9.i = select i1 %52, i32 %55, i32 %51
   %56 = select i1 %22, i32 65537, i32 65536
   %57 = add nuw i32 %56, %.0.i9.i
-  store i32 %57, ptr %21, align 4, !tbaa !34
+  store i32 %57, ptr %21, align 4, !tbaa !33
   br i1 %22, label %.preheader, label %.thread
 
 .preheader:                                       ; preds = %AddToken.exit
@@ -172,7 +172,7 @@ AddToken.exit:                                    ; preds = %TBufferNewPage.exit
   %.0124306 = phi ptr [ %21, %.lr.ph ], [ %.1125, %714 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %65 = getelementptr inbounds i16, ptr %5, i64 %indvars.iv
-  %66 = load i16, ptr %65, align 2, !tbaa !32
+  %66 = load i16, ptr %65, align 2, !tbaa !31
   %.lobit = and i16 %66, -32768
   %67 = tail call i16 @llvm.abs.i16(i16 %66, i1 false)
   %68 = zext i16 %67 to i32
@@ -208,7 +208,7 @@ TBufferNewPage.exit.thread.i140:                  ; preds = %75, %73
 TBufferNewPage.exit.i142:                         ; preds = %75
   store ptr null, ptr %80, align 8, !tbaa !17
   %82 = load ptr, ptr %61, align 8, !tbaa !13
-  store ptr %80, ptr %82, align 8, !tbaa !31
+  store ptr %80, ptr %82, align 8, !tbaa !30
   store ptr %80, ptr %61, align 8, !tbaa !13
   %83 = load i32, ptr %60, align 4, !tbaa !15
   %84 = getelementptr inbounds nuw i8, ptr %80, i64 8
@@ -225,11 +225,11 @@ TBufferNewPage.exit.i142:                         ; preds = %75
   %91 = trunc i32 %90 to i16
   %92 = sext i32 %88 to i64
   %93 = getelementptr inbounds i16, ptr %86, i64 %92
-  store i16 %91, ptr %93, align 2, !tbaa !32
+  store i16 %91, ptr %93, align 2, !tbaa !31
   br label %AddToken.exit146
 
 AddToken.exit146:                                 ; preds = %TBufferNewPage.exit.thread.i140, %85
-  %94 = load i32, ptr %70, align 4, !tbaa !34
+  %94 = load i32, ptr %70, align 4, !tbaa !33
   %95 = icmp ugt i32 %94, -131073
   %96 = add nsw i32 %94, 1
   %97 = lshr i32 %96, 1
@@ -237,19 +237,19 @@ AddToken.exit146:                                 ; preds = %TBufferNewPage.exit
   %.0.i9.i141 = select i1 %95, i32 %98, i32 %94
   %99 = select i1 %.not309, i32 65536, i32 65537
   %100 = add nuw i32 %99, %.0.i9.i141
-  store i32 %100, ptr %70, align 4, !tbaa !34
+  store i32 %100, ptr %70, align 4, !tbaa !33
   br i1 %.not309, label %101, label %110
 
 101:                                              ; preds = %AddToken.exit146
   %102 = getelementptr inbounds [17 x i8], ptr @VP8EncBands, i64 0, i64 %indvars.iv.next
-  %103 = load i8, ptr %102, align 1, !tbaa !35
+  %103 = load i8, ptr %102, align 1, !tbaa !34
   %104 = zext i8 %103 to i32
   %105 = add nsw i32 %11, %104
   %106 = mul nsw i32 %105, 33
-  %107 = load ptr, ptr %16, align 8, !tbaa !30
+  %107 = load ptr, ptr %16, align 8, !tbaa !29
   %108 = zext i8 %103 to i64
   %109 = getelementptr inbounds nuw [3 x [11 x i32]], ptr %107, i64 %108
-  br label %714, !llvm.loop !36
+  br label %714, !llvm.loop !35
 
 110:                                              ; preds = %AddToken.exit146
   %111 = icmp ugt i16 %67, 1
@@ -284,7 +284,7 @@ TBufferNewPage.exit.thread.i148:                  ; preds = %118, %116
 TBufferNewPage.exit.i150:                         ; preds = %118
   store ptr null, ptr %123, align 8, !tbaa !17
   %125 = load ptr, ptr %61, align 8, !tbaa !13
-  store ptr %123, ptr %125, align 8, !tbaa !31
+  store ptr %123, ptr %125, align 8, !tbaa !30
   store ptr %123, ptr %61, align 8, !tbaa !13
   %126 = load i32, ptr %60, align 4, !tbaa !15
   %127 = getelementptr inbounds nuw i8, ptr %123, i64 8
@@ -301,11 +301,11 @@ TBufferNewPage.exit.i150:                         ; preds = %118
   %134 = trunc i32 %133 to i16
   %135 = sext i32 %131 to i64
   %136 = getelementptr inbounds i16, ptr %129, i64 %135
-  store i16 %134, ptr %136, align 2, !tbaa !32
+  store i16 %134, ptr %136, align 2, !tbaa !31
   br label %AddToken.exit154
 
 AddToken.exit154:                                 ; preds = %TBufferNewPage.exit.thread.i148, %128
-  %137 = load i32, ptr %113, align 4, !tbaa !34
+  %137 = load i32, ptr %113, align 4, !tbaa !33
   %138 = icmp ugt i32 %137, -131073
   %139 = add nsw i32 %137, 1
   %140 = lshr i32 %139, 1
@@ -313,7 +313,7 @@ AddToken.exit154:                                 ; preds = %TBufferNewPage.exit
   %.0.i9.i149 = select i1 %138, i32 %141, i32 %137
   %142 = select i1 %111, i32 65537, i32 65536
   %143 = add nuw i32 %142, %.0.i9.i149
-  store i32 %143, ptr %113, align 4, !tbaa !34
+  store i32 %143, ptr %113, align 4, !tbaa !33
   br i1 %111, label %144, label %AddConstantToken.exit
 
 144:                                              ; preds = %AddToken.exit154
@@ -349,7 +349,7 @@ TBufferNewPage.exit.thread.i156:                  ; preds = %152, %150
 TBufferNewPage.exit.i158:                         ; preds = %152
   store ptr null, ptr %157, align 8, !tbaa !17
   %159 = load ptr, ptr %61, align 8, !tbaa !13
-  store ptr %157, ptr %159, align 8, !tbaa !31
+  store ptr %157, ptr %159, align 8, !tbaa !30
   store ptr %157, ptr %61, align 8, !tbaa !13
   %160 = load i32, ptr %60, align 4, !tbaa !15
   %161 = getelementptr inbounds nuw i8, ptr %157, i64 8
@@ -366,11 +366,11 @@ TBufferNewPage.exit.i158:                         ; preds = %152
   %168 = trunc i32 %167 to i16
   %169 = sext i32 %165 to i64
   %170 = getelementptr inbounds i16, ptr %163, i64 %169
-  store i16 %168, ptr %170, align 2, !tbaa !32
+  store i16 %168, ptr %170, align 2, !tbaa !31
   br label %AddToken.exit162
 
 AddToken.exit162:                                 ; preds = %TBufferNewPage.exit.thread.i156, %162
-  %171 = load i32, ptr %147, align 4, !tbaa !34
+  %171 = load i32, ptr %147, align 4, !tbaa !33
   %172 = icmp ugt i32 %171, -131073
   %173 = add nsw i32 %171, 1
   %174 = lshr i32 %173, 1
@@ -378,7 +378,7 @@ AddToken.exit162:                                 ; preds = %TBufferNewPage.exit
   %.0.i9.i157 = select i1 %172, i32 %175, i32 %171
   %176 = select i1 %145, i32 65537, i32 65536
   %177 = add nuw i32 %176, %.0.i9.i157
-  store i32 %177, ptr %147, align 4, !tbaa !34
+  store i32 %177, ptr %147, align 4, !tbaa !33
   %178 = load i32, ptr %23, align 8, !tbaa !14
   %179 = icmp sgt i32 %178, 0
   br i1 %145, label %245, label %180
@@ -414,7 +414,7 @@ TBufferNewPage.exit.thread.i164:                  ; preds = %185, %183
 TBufferNewPage.exit.i166:                         ; preds = %185
   store ptr null, ptr %190, align 8, !tbaa !17
   %192 = load ptr, ptr %61, align 8, !tbaa !13
-  store ptr %190, ptr %192, align 8, !tbaa !31
+  store ptr %190, ptr %192, align 8, !tbaa !30
   store ptr %190, ptr %61, align 8, !tbaa !13
   %193 = load i32, ptr %60, align 4, !tbaa !15
   %194 = getelementptr inbounds nuw i8, ptr %190, i64 8
@@ -431,11 +431,11 @@ TBufferNewPage.exit.i166:                         ; preds = %185
   %201 = trunc i32 %200 to i16
   %202 = sext i32 %198 to i64
   %203 = getelementptr inbounds i16, ptr %196, i64 %202
-  store i16 %201, ptr %203, align 2, !tbaa !32
+  store i16 %201, ptr %203, align 2, !tbaa !31
   br label %AddToken.exit170
 
 AddToken.exit170:                                 ; preds = %TBufferNewPage.exit.thread.i164, %195
-  %204 = load i32, ptr %182, align 4, !tbaa !34
+  %204 = load i32, ptr %182, align 4, !tbaa !33
   %205 = icmp ugt i32 %204, -131073
   %206 = add nsw i32 %204, 1
   %207 = lshr i32 %206, 1
@@ -443,7 +443,7 @@ AddToken.exit170:                                 ; preds = %TBufferNewPage.exit
   %.0.i9.i165 = select i1 %205, i32 %208, i32 %204
   %209 = select i1 %.not310, i32 65536, i32 65537
   %210 = add nuw i32 %209, %.0.i9.i165
-  store i32 %210, ptr %182, align 4, !tbaa !34
+  store i32 %210, ptr %182, align 4, !tbaa !33
   br i1 %.not310, label %AddConstantToken.exit, label %211
 
 211:                                              ; preds = %AddToken.exit170
@@ -479,7 +479,7 @@ TBufferNewPage.exit.thread.i172:                  ; preds = %219, %217
 TBufferNewPage.exit.i174:                         ; preds = %219
   store ptr null, ptr %224, align 8, !tbaa !17
   %226 = load ptr, ptr %61, align 8, !tbaa !13
-  store ptr %224, ptr %226, align 8, !tbaa !31
+  store ptr %224, ptr %226, align 8, !tbaa !30
   store ptr %224, ptr %61, align 8, !tbaa !13
   %227 = load i32, ptr %60, align 4, !tbaa !15
   %228 = getelementptr inbounds nuw i8, ptr %224, i64 8
@@ -496,11 +496,11 @@ TBufferNewPage.exit.i174:                         ; preds = %219
   %235 = trunc i32 %234 to i16
   %236 = sext i32 %232 to i64
   %237 = getelementptr inbounds i16, ptr %230, i64 %236
-  store i16 %235, ptr %237, align 2, !tbaa !32
+  store i16 %235, ptr %237, align 2, !tbaa !31
   br label %AddToken.exit178
 
 AddToken.exit178:                                 ; preds = %TBufferNewPage.exit.thread.i172, %229
-  %238 = load i32, ptr %214, align 4, !tbaa !34
+  %238 = load i32, ptr %214, align 4, !tbaa !33
   %239 = icmp ugt i32 %238, -131073
   %240 = add nsw i32 %238, 1
   %241 = lshr i32 %240, 1
@@ -508,7 +508,7 @@ AddToken.exit178:                                 ; preds = %TBufferNewPage.exit
   %.0.i9.i173 = select i1 %239, i32 %242, i32 %238
   %243 = select i1 %212, i32 65537, i32 65536
   %244 = add nuw i32 %243, %.0.i9.i173
-  store i32 %244, ptr %214, align 4, !tbaa !34
+  store i32 %244, ptr %214, align 4, !tbaa !33
   br label %AddConstantToken.exit
 
 245:                                              ; preds = %AddToken.exit162
@@ -542,7 +542,7 @@ TBufferNewPage.exit.thread.i180:                  ; preds = %251, %249
 TBufferNewPage.exit.i182:                         ; preds = %251
   store ptr null, ptr %256, align 8, !tbaa !17
   %258 = load ptr, ptr %61, align 8, !tbaa !13
-  store ptr %256, ptr %258, align 8, !tbaa !31
+  store ptr %256, ptr %258, align 8, !tbaa !30
   store ptr %256, ptr %61, align 8, !tbaa !13
   %259 = load i32, ptr %60, align 4, !tbaa !15
   %260 = getelementptr inbounds nuw i8, ptr %256, i64 8
@@ -559,11 +559,11 @@ TBufferNewPage.exit.i182:                         ; preds = %251
   %267 = trunc i32 %266 to i16
   %268 = sext i32 %264 to i64
   %269 = getelementptr inbounds i16, ptr %262, i64 %268
-  store i16 %267, ptr %269, align 2, !tbaa !32
+  store i16 %267, ptr %269, align 2, !tbaa !31
   br label %AddToken.exit186
 
 AddToken.exit186:                                 ; preds = %TBufferNewPage.exit.thread.i180, %261
-  %270 = load i32, ptr %248, align 4, !tbaa !34
+  %270 = load i32, ptr %248, align 4, !tbaa !33
   %271 = icmp ugt i32 %270, -131073
   %272 = add nsw i32 %270, 1
   %273 = lshr i32 %272, 1
@@ -571,7 +571,7 @@ AddToken.exit186:                                 ; preds = %TBufferNewPage.exit
   %.0.i9.i181 = select i1 %271, i32 %274, i32 %270
   %275 = select i1 %246, i32 65537, i32 65536
   %276 = add nuw i32 %275, %.0.i9.i181
-  store i32 %276, ptr %248, align 4, !tbaa !34
+  store i32 %276, ptr %248, align 4, !tbaa !33
   br i1 %246, label %377, label %277
 
 277:                                              ; preds = %AddToken.exit186
@@ -607,7 +607,7 @@ TBufferNewPage.exit.thread.i188:                  ; preds = %285, %283
 TBufferNewPage.exit.i190:                         ; preds = %285
   store ptr null, ptr %290, align 8, !tbaa !17
   %292 = load ptr, ptr %61, align 8, !tbaa !13
-  store ptr %290, ptr %292, align 8, !tbaa !31
+  store ptr %290, ptr %292, align 8, !tbaa !30
   store ptr %290, ptr %61, align 8, !tbaa !13
   %293 = load i32, ptr %60, align 4, !tbaa !15
   %294 = getelementptr inbounds nuw i8, ptr %290, i64 8
@@ -624,11 +624,11 @@ TBufferNewPage.exit.i190:                         ; preds = %285
   %301 = trunc i32 %300 to i16
   %302 = sext i32 %298 to i64
   %303 = getelementptr inbounds i16, ptr %296, i64 %302
-  store i16 %301, ptr %303, align 2, !tbaa !32
+  store i16 %301, ptr %303, align 2, !tbaa !31
   br label %AddToken.exit194
 
 AddToken.exit194:                                 ; preds = %TBufferNewPage.exit.thread.i188, %295
-  %304 = load i32, ptr %280, align 4, !tbaa !34
+  %304 = load i32, ptr %280, align 4, !tbaa !33
   %305 = icmp ugt i32 %304, -131073
   %306 = add nsw i32 %304, 1
   %307 = lshr i32 %306, 1
@@ -636,7 +636,7 @@ AddToken.exit194:                                 ; preds = %TBufferNewPage.exit
   %.0.i9.i189 = select i1 %305, i32 %308, i32 %304
   %309 = select i1 %278, i32 65537, i32 65536
   %310 = add nuw i32 %309, %.0.i9.i189
-  store i32 %310, ptr %280, align 4, !tbaa !34
+  store i32 %310, ptr %280, align 4, !tbaa !33
   %311 = load i32, ptr %23, align 8, !tbaa !14
   %312 = icmp sgt i32 %311, 0
   br i1 %278, label %334, label %313
@@ -670,7 +670,7 @@ TBufferNewPage.exit.thread.i196:                  ; preds = %317, %315
 TBufferNewPage.exit.i197:                         ; preds = %317
   store ptr null, ptr %322, align 8, !tbaa !17
   %324 = load ptr, ptr %61, align 8, !tbaa !13
-  store ptr %322, ptr %324, align 8, !tbaa !31
+  store ptr %322, ptr %324, align 8, !tbaa !30
   store ptr %322, ptr %61, align 8, !tbaa !13
   %325 = load i32, ptr %60, align 4, !tbaa !15
   %326 = getelementptr inbounds nuw i8, ptr %322, i64 8
@@ -685,7 +685,7 @@ TBufferNewPage.exit.i197:                         ; preds = %317
   %331 = select i1 %314, i16 -16225, i16 16543
   %332 = sext i32 %330 to i64
   %333 = getelementptr inbounds i16, ptr %328, i64 %332
-  store i16 %331, ptr %333, align 2, !tbaa !32
+  store i16 %331, ptr %333, align 2, !tbaa !31
   br label %AddConstantToken.exit
 
 334:                                              ; preds = %AddToken.exit194
@@ -722,7 +722,7 @@ TBufferNewPage.exit.thread.i202:                  ; preds = %.TBufferNewPage.exi
 TBufferNewPage.exit.i203:                         ; preds = %338
   store ptr null, ptr %343, align 8, !tbaa !17
   %345 = load ptr, ptr %61, align 8, !tbaa !13
-  store ptr %343, ptr %345, align 8, !tbaa !31
+  store ptr %343, ptr %345, align 8, !tbaa !30
   store ptr %343, ptr %61, align 8, !tbaa !13
   %346 = load i32, ptr %60, align 4, !tbaa !15
   %347 = getelementptr inbounds nuw i8, ptr %343, i64 8
@@ -737,7 +737,7 @@ TBufferNewPage.exit.i203:                         ; preds = %338
   %352 = select i1 %335, i16 -16219, i16 16549
   %353 = sext i32 %351 to i64
   %354 = getelementptr inbounds i16, ptr %349, i64 %353
-  store i16 %352, ptr %354, align 2, !tbaa !32
+  store i16 %352, ptr %354, align 2, !tbaa !31
   br label %AddConstantToken.exit207
 
 AddConstantToken.exit207:                         ; preds = %TBufferNewPage.exit.thread.i202, %348
@@ -770,7 +770,7 @@ TBufferNewPage.exit.thread.i209:                  ; preds = %359, %357
 TBufferNewPage.exit.i210:                         ; preds = %359
   store ptr null, ptr %364, align 8, !tbaa !17
   %366 = load ptr, ptr %61, align 8, !tbaa !13
-  store ptr %364, ptr %366, align 8, !tbaa !31
+  store ptr %364, ptr %366, align 8, !tbaa !30
   store ptr %364, ptr %61, align 8, !tbaa !13
   %367 = load i32, ptr %60, align 4, !tbaa !15
   %368 = getelementptr inbounds nuw i8, ptr %364, i64 8
@@ -786,7 +786,7 @@ TBufferNewPage.exit.i210:                         ; preds = %359
   %374 = xor i16 %373, -16239
   %375 = sext i32 %372 to i64
   %376 = getelementptr inbounds i16, ptr %370, i64 %375
-  store i16 %374, ptr %376, align 2, !tbaa !32
+  store i16 %374, ptr %376, align 2, !tbaa !31
   br label %AddConstantToken.exit
 
 377:                                              ; preds = %AddToken.exit186
@@ -825,7 +825,7 @@ TBufferNewPage.exit.thread.i216:                  ; preds = %386, %384
 TBufferNewPage.exit.i218:                         ; preds = %386
   store ptr null, ptr %391, align 8, !tbaa !17
   %393 = load ptr, ptr %61, align 8, !tbaa !13
-  store ptr %391, ptr %393, align 8, !tbaa !31
+  store ptr %391, ptr %393, align 8, !tbaa !30
   store ptr %391, ptr %61, align 8, !tbaa !13
   %394 = load i32, ptr %60, align 4, !tbaa !15
   %395 = getelementptr inbounds nuw i8, ptr %391, i64 8
@@ -841,18 +841,18 @@ TBufferNewPage.exit.i218:                         ; preds = %386
   %401 = add i16 %400, 8
   %402 = sext i32 %399 to i64
   %403 = getelementptr inbounds i16, ptr %397, i64 %402
-  store i16 %401, ptr %403, align 2, !tbaa !32
+  store i16 %401, ptr %403, align 2, !tbaa !31
   br label %AddToken.exit222
 
 AddToken.exit222:                                 ; preds = %TBufferNewPage.exit.thread.i216, %396
-  %404 = load i32, ptr %381, align 4, !tbaa !34
+  %404 = load i32, ptr %381, align 4, !tbaa !33
   %405 = icmp ugt i32 %404, -131073
   %406 = add nsw i32 %404, 1
   %407 = lshr i32 %406, 1
   %408 = and i32 %407, 2147450879
   %.0.i9.i217 = select i1 %405, i32 %408, i32 %404
   %409 = add nuw i32 %.0.i9.i217, 65536
-  store i32 %409, ptr %381, align 4, !tbaa !34
+  store i32 %409, ptr %381, align 4, !tbaa !33
   %410 = getelementptr inbounds nuw i8, ptr %.0124306, i64 36
   %411 = load i32, ptr %23, align 8, !tbaa !14
   %412 = icmp sgt i32 %411, 0
@@ -883,7 +883,7 @@ TBufferNewPage.exit.thread.i224:                  ; preds = %415, %413
 TBufferNewPage.exit.i226:                         ; preds = %415
   store ptr null, ptr %420, align 8, !tbaa !17
   %422 = load ptr, ptr %61, align 8, !tbaa !13
-  store ptr %420, ptr %422, align 8, !tbaa !31
+  store ptr %420, ptr %422, align 8, !tbaa !30
   store ptr %420, ptr %61, align 8, !tbaa !13
   %423 = load i32, ptr %60, align 4, !tbaa !15
   %424 = getelementptr inbounds nuw i8, ptr %420, i64 8
@@ -899,18 +899,18 @@ TBufferNewPage.exit.i226:                         ; preds = %415
   %430 = add i16 %429, 9
   %431 = sext i32 %428 to i64
   %432 = getelementptr inbounds i16, ptr %426, i64 %431
-  store i16 %430, ptr %432, align 2, !tbaa !32
+  store i16 %430, ptr %432, align 2, !tbaa !31
   br label %AddToken.exit230
 
 AddToken.exit230:                                 ; preds = %TBufferNewPage.exit.thread.i224, %425
-  %433 = load i32, ptr %410, align 4, !tbaa !34
+  %433 = load i32, ptr %410, align 4, !tbaa !33
   %434 = icmp ugt i32 %433, -131073
   %435 = add nsw i32 %433, 1
   %436 = lshr i32 %435, 1
   %437 = and i32 %436, 2147450879
   %.0.i9.i225 = select i1 %434, i32 %437, i32 %433
   %438 = add nuw i32 %.0.i9.i225, 65536
-  store i32 %438, ptr %410, align 4, !tbaa !34
+  store i32 %438, ptr %410, align 4, !tbaa !33
   br label %621
 
 439:                                              ; preds = %377
@@ -948,7 +948,7 @@ TBufferNewPage.exit.thread.i232:                  ; preds = %447, %445
 TBufferNewPage.exit.i234:                         ; preds = %447
   store ptr null, ptr %452, align 8, !tbaa !17
   %454 = load ptr, ptr %61, align 8, !tbaa !13
-  store ptr %452, ptr %454, align 8, !tbaa !31
+  store ptr %452, ptr %454, align 8, !tbaa !30
   store ptr %452, ptr %61, align 8, !tbaa !13
   %455 = load i32, ptr %60, align 4, !tbaa !15
   %456 = getelementptr inbounds nuw i8, ptr %452, i64 8
@@ -964,18 +964,18 @@ TBufferNewPage.exit.i234:                         ; preds = %447
   %462 = add i16 %461, 8
   %463 = sext i32 %460 to i64
   %464 = getelementptr inbounds i16, ptr %458, i64 %463
-  store i16 %462, ptr %464, align 2, !tbaa !32
+  store i16 %462, ptr %464, align 2, !tbaa !31
   br label %AddToken.exit238
 
 AddToken.exit238:                                 ; preds = %TBufferNewPage.exit.thread.i232, %457
-  %465 = load i32, ptr %442, align 4, !tbaa !34
+  %465 = load i32, ptr %442, align 4, !tbaa !33
   %466 = icmp ugt i32 %465, -131073
   %467 = add nsw i32 %465, 1
   %468 = lshr i32 %467, 1
   %469 = and i32 %468, 2147450879
   %.0.i9.i233 = select i1 %466, i32 %469, i32 %465
   %470 = add nuw i32 %.0.i9.i233, 65536
-  store i32 %470, ptr %442, align 4, !tbaa !34
+  store i32 %470, ptr %442, align 4, !tbaa !33
   %471 = getelementptr inbounds nuw i8, ptr %.0124306, i64 36
   %472 = load i32, ptr %23, align 8, !tbaa !14
   %473 = icmp sgt i32 %472, 0
@@ -1006,7 +1006,7 @@ TBufferNewPage.exit.thread.i240:                  ; preds = %476, %474
 TBufferNewPage.exit.i242:                         ; preds = %476
   store ptr null, ptr %481, align 8, !tbaa !17
   %483 = load ptr, ptr %61, align 8, !tbaa !13
-  store ptr %481, ptr %483, align 8, !tbaa !31
+  store ptr %481, ptr %483, align 8, !tbaa !30
   store ptr %481, ptr %61, align 8, !tbaa !13
   %484 = load i32, ptr %60, align 4, !tbaa !15
   %485 = getelementptr inbounds nuw i8, ptr %481, i64 8
@@ -1023,18 +1023,18 @@ TBufferNewPage.exit.i242:                         ; preds = %476
   %492 = or i16 %491, -32768
   %493 = sext i32 %489 to i64
   %494 = getelementptr inbounds i16, ptr %487, i64 %493
-  store i16 %492, ptr %494, align 2, !tbaa !32
+  store i16 %492, ptr %494, align 2, !tbaa !31
   br label %AddToken.exit246
 
 AddToken.exit246:                                 ; preds = %TBufferNewPage.exit.thread.i240, %486
-  %495 = load i32, ptr %471, align 4, !tbaa !34
+  %495 = load i32, ptr %471, align 4, !tbaa !33
   %496 = icmp ugt i32 %495, -131073
   %497 = add nsw i32 %495, 1
   %498 = lshr i32 %497, 1
   %499 = and i32 %498, 2147450879
   %.0.i9.i241 = select i1 %496, i32 %499, i32 %495
   %500 = add nuw i32 %.0.i9.i241, 65537
-  store i32 %500, ptr %471, align 4, !tbaa !34
+  store i32 %500, ptr %471, align 4, !tbaa !33
   br label %621
 
 501:                                              ; preds = %439
@@ -1072,7 +1072,7 @@ TBufferNewPage.exit.thread.i248:                  ; preds = %509, %507
 TBufferNewPage.exit.i250:                         ; preds = %509
   store ptr null, ptr %514, align 8, !tbaa !17
   %516 = load ptr, ptr %61, align 8, !tbaa !13
-  store ptr %514, ptr %516, align 8, !tbaa !31
+  store ptr %514, ptr %516, align 8, !tbaa !30
   store ptr %514, ptr %61, align 8, !tbaa !13
   %517 = load i32, ptr %60, align 4, !tbaa !15
   %518 = getelementptr inbounds nuw i8, ptr %514, i64 8
@@ -1089,18 +1089,18 @@ TBufferNewPage.exit.i250:                         ; preds = %509
   %525 = or i16 %524, -32768
   %526 = sext i32 %522 to i64
   %527 = getelementptr inbounds i16, ptr %520, i64 %526
-  store i16 %525, ptr %527, align 2, !tbaa !32
+  store i16 %525, ptr %527, align 2, !tbaa !31
   br label %AddToken.exit254
 
 AddToken.exit254:                                 ; preds = %TBufferNewPage.exit.thread.i248, %519
-  %528 = load i32, ptr %503, align 4, !tbaa !34
+  %528 = load i32, ptr %503, align 4, !tbaa !33
   %529 = icmp ugt i32 %528, -131073
   %530 = add nsw i32 %528, 1
   %531 = lshr i32 %530, 1
   %532 = and i32 %531, 2147450879
   %.0.i9.i249 = select i1 %529, i32 %532, i32 %528
   %533 = add nuw i32 %.0.i9.i249, 65537
-  store i32 %533, ptr %503, align 4, !tbaa !34
+  store i32 %533, ptr %503, align 4, !tbaa !33
   %534 = getelementptr inbounds nuw i8, ptr %.0124306, i64 36
   %535 = load i32, ptr %23, align 8, !tbaa !14
   %536 = icmp sgt i32 %535, 0
@@ -1131,7 +1131,7 @@ TBufferNewPage.exit.thread.i256:                  ; preds = %539, %537
 TBufferNewPage.exit.i258:                         ; preds = %539
   store ptr null, ptr %544, align 8, !tbaa !17
   %546 = load ptr, ptr %61, align 8, !tbaa !13
-  store ptr %544, ptr %546, align 8, !tbaa !31
+  store ptr %544, ptr %546, align 8, !tbaa !30
   store ptr %544, ptr %61, align 8, !tbaa !13
   %547 = load i32, ptr %60, align 4, !tbaa !15
   %548 = getelementptr inbounds nuw i8, ptr %544, i64 8
@@ -1147,18 +1147,18 @@ TBufferNewPage.exit.i258:                         ; preds = %539
   %554 = add i16 %553, 10
   %555 = sext i32 %552 to i64
   %556 = getelementptr inbounds i16, ptr %550, i64 %555
-  store i16 %554, ptr %556, align 2, !tbaa !32
+  store i16 %554, ptr %556, align 2, !tbaa !31
   br label %AddToken.exit262
 
 AddToken.exit262:                                 ; preds = %TBufferNewPage.exit.thread.i256, %549
-  %557 = load i32, ptr %534, align 4, !tbaa !34
+  %557 = load i32, ptr %534, align 4, !tbaa !33
   %558 = icmp ugt i32 %557, -131073
   %559 = add nsw i32 %557, 1
   %560 = lshr i32 %559, 1
   %561 = and i32 %560, 2147450879
   %.0.i9.i257 = select i1 %558, i32 %561, i32 %557
   %562 = add nuw i32 %.0.i9.i257, 65536
-  store i32 %562, ptr %534, align 4, !tbaa !34
+  store i32 %562, ptr %534, align 4, !tbaa !33
   br label %621
 
 563:                                              ; preds = %501
@@ -1189,7 +1189,7 @@ TBufferNewPage.exit.thread.i264:                  ; preds = %566, %564
 TBufferNewPage.exit.i266:                         ; preds = %566
   store ptr null, ptr %571, align 8, !tbaa !17
   %573 = load ptr, ptr %61, align 8, !tbaa !13
-  store ptr %571, ptr %573, align 8, !tbaa !31
+  store ptr %571, ptr %573, align 8, !tbaa !30
   store ptr %571, ptr %61, align 8, !tbaa !13
   %574 = load i32, ptr %60, align 4, !tbaa !15
   %575 = getelementptr inbounds nuw i8, ptr %571, i64 8
@@ -1206,18 +1206,18 @@ TBufferNewPage.exit.i266:                         ; preds = %566
   %582 = or i16 %581, -32768
   %583 = sext i32 %579 to i64
   %584 = getelementptr inbounds i16, ptr %577, i64 %583
-  store i16 %582, ptr %584, align 2, !tbaa !32
+  store i16 %582, ptr %584, align 2, !tbaa !31
   br label %AddToken.exit270
 
 AddToken.exit270:                                 ; preds = %TBufferNewPage.exit.thread.i264, %576
-  %585 = load i32, ptr %503, align 4, !tbaa !34
+  %585 = load i32, ptr %503, align 4, !tbaa !33
   %586 = icmp ugt i32 %585, -131073
   %587 = add nsw i32 %585, 1
   %588 = lshr i32 %587, 1
   %589 = and i32 %588, 2147450879
   %.0.i9.i265 = select i1 %586, i32 %589, i32 %585
   %590 = add nuw i32 %.0.i9.i265, 65537
-  store i32 %590, ptr %503, align 4, !tbaa !34
+  store i32 %590, ptr %503, align 4, !tbaa !33
   %591 = getelementptr inbounds nuw i8, ptr %.0124306, i64 36
   %592 = load i32, ptr %23, align 8, !tbaa !14
   %593 = icmp sgt i32 %592, 0
@@ -1248,7 +1248,7 @@ TBufferNewPage.exit.thread.i272:                  ; preds = %596, %594
 TBufferNewPage.exit.i274:                         ; preds = %596
   store ptr null, ptr %601, align 8, !tbaa !17
   %603 = load ptr, ptr %61, align 8, !tbaa !13
-  store ptr %601, ptr %603, align 8, !tbaa !31
+  store ptr %601, ptr %603, align 8, !tbaa !30
   store ptr %601, ptr %61, align 8, !tbaa !13
   %604 = load i32, ptr %60, align 4, !tbaa !15
   %605 = getelementptr inbounds nuw i8, ptr %601, i64 8
@@ -1265,18 +1265,18 @@ TBufferNewPage.exit.i274:                         ; preds = %596
   %612 = or i16 %611, -32768
   %613 = sext i32 %609 to i64
   %614 = getelementptr inbounds i16, ptr %607, i64 %613
-  store i16 %612, ptr %614, align 2, !tbaa !32
+  store i16 %612, ptr %614, align 2, !tbaa !31
   br label %AddToken.exit278
 
 AddToken.exit278:                                 ; preds = %TBufferNewPage.exit.thread.i272, %606
-  %615 = load i32, ptr %591, align 4, !tbaa !34
+  %615 = load i32, ptr %591, align 4, !tbaa !33
   %616 = icmp ugt i32 %615, -131073
   %617 = add nsw i32 %615, 1
   %618 = lshr i32 %617, 1
   %619 = and i32 %618, 2147450879
   %.0.i9.i273 = select i1 %616, i32 %619, i32 %615
   %620 = add nuw i32 %.0.i9.i273, 65537
-  store i32 %620, ptr %591, align 4, !tbaa !34
+  store i32 %620, ptr %591, align 4, !tbaa !33
   br label %621
 
 621:                                              ; preds = %AddToken.exit246, %AddToken.exit278, %AddToken.exit262, %AddToken.exit230
@@ -1292,7 +1292,7 @@ AddToken.exit278:                                 ; preds = %TBufferNewPage.exit
   %624 = and i32 %.1116304, %622
   %.not = icmp eq i32 %624, 0
   %625 = getelementptr inbounds nuw i8, ptr %.1305, i64 1
-  %626 = load i8, ptr %.1305, align 1, !tbaa !35
+  %626 = load i8, ptr %.1305, align 1, !tbaa !34
   %627 = zext i8 %626 to i16
   %628 = load i32, ptr %23, align 8, !tbaa !14
   %629 = icmp sgt i32 %628, 0
@@ -1323,7 +1323,7 @@ TBufferNewPage.exit.thread.i280:                  ; preds = %632, %630
 TBufferNewPage.exit.i281:                         ; preds = %632
   store ptr null, ptr %637, align 8, !tbaa !17
   %639 = load ptr, ptr %61, align 8, !tbaa !13
-  store ptr %637, ptr %639, align 8, !tbaa !31
+  store ptr %637, ptr %639, align 8, !tbaa !30
   store ptr %637, ptr %61, align 8, !tbaa !13
   %640 = load i32, ptr %60, align 4, !tbaa !15
   %641 = getelementptr inbounds nuw i8, ptr %637, i64 8
@@ -1339,24 +1339,24 @@ TBufferNewPage.exit.i281:                         ; preds = %632
   %647 = or disjoint i16 %646, %627
   %648 = sext i32 %645 to i64
   %649 = getelementptr inbounds i16, ptr %643, i64 %648
-  store i16 %647, ptr %649, align 2, !tbaa !32
+  store i16 %647, ptr %649, align 2, !tbaa !31
   br label %AddConstantToken.exit285
 
 AddConstantToken.exit285:                         ; preds = %TBufferNewPage.exit.thread.i280, %642
   %650 = lshr i32 %.1116304, 1
   %.not137 = icmp samesign ult i32 %.1116304, 2
-  br i1 %.not137, label %AddConstantToken.exit, label %623, !llvm.loop !37
+  br i1 %.not137, label %AddConstantToken.exit, label %623, !llvm.loop !36
 
 AddConstantToken.exit:                            ; preds = %AddConstantToken.exit285, %AddToken.exit178, %AddToken.exit170, %TBufferNewPage.exit.thread.i196, %327, %TBufferNewPage.exit.thread.i209, %369, %AddToken.exit154
   %.sink318 = phi i32 [ 11, %AddToken.exit154 ], [ 22, %369 ], [ 22, %TBufferNewPage.exit.thread.i209 ], [ 22, %327 ], [ 22, %TBufferNewPage.exit.thread.i196 ], [ 22, %AddToken.exit170 ], [ 22, %AddToken.exit178 ], [ 22, %AddConstantToken.exit285 ]
   %.sink315 = phi i64 [ 1, %AddToken.exit154 ], [ 2, %369 ], [ 2, %TBufferNewPage.exit.thread.i209 ], [ 2, %327 ], [ 2, %TBufferNewPage.exit.thread.i196 ], [ 2, %AddToken.exit170 ], [ 2, %AddToken.exit178 ], [ 2, %AddConstantToken.exit285 ]
   %651 = getelementptr inbounds [17 x i8], ptr @VP8EncBands, i64 0, i64 %indvars.iv.next
-  %652 = load i8, ptr %651, align 1, !tbaa !35
+  %652 = load i8, ptr %651, align 1, !tbaa !34
   %653 = zext i8 %652 to i32
   %654 = add nsw i32 %11, %653
   %655 = mul i32 %654, 33
   %656 = add i32 %655, %.sink318
-  %657 = load ptr, ptr %16, align 8, !tbaa !30
+  %657 = load ptr, ptr %16, align 8, !tbaa !29
   %658 = zext i8 %652 to i64
   %.split = getelementptr inbounds nuw [3 x [11 x i32]], ptr %657, i64 %658
   %659 = getelementptr inbounds nuw [3 x [11 x i32]], ptr %.split, i64 0, i64 %.sink315
@@ -1389,7 +1389,7 @@ TBufferNewPage.exit.thread.i287:                  ; preds = %664, %662
 TBufferNewPage.exit.i288:                         ; preds = %664
   store ptr null, ptr %669, align 8, !tbaa !17
   %671 = load ptr, ptr %61, align 8, !tbaa !13
-  store ptr %669, ptr %671, align 8, !tbaa !31
+  store ptr %669, ptr %671, align 8, !tbaa !30
   store ptr %669, ptr %61, align 8, !tbaa !13
   %672 = load i32, ptr %60, align 4, !tbaa !15
   %673 = getelementptr inbounds nuw i8, ptr %669, i64 8
@@ -1404,7 +1404,7 @@ TBufferNewPage.exit.i288:                         ; preds = %664
   %678 = or disjoint i16 %.lobit, 16512
   %679 = sext i32 %677 to i64
   %680 = getelementptr inbounds i16, ptr %675, i64 %679
-  store i16 %678, ptr %680, align 2, !tbaa !32
+  store i16 %678, ptr %680, align 2, !tbaa !31
   br label %AddConstantToken.exit292
 
 AddConstantToken.exit292:                         ; preds = %TBufferNewPage.exit.thread.i287, %674
@@ -1442,7 +1442,7 @@ TBufferNewPage.exit.thread.i294:                  ; preds = %688, %686
 TBufferNewPage.exit.i296:                         ; preds = %688
   store ptr null, ptr %693, align 8, !tbaa !17
   %695 = load ptr, ptr %61, align 8, !tbaa !13
-  store ptr %693, ptr %695, align 8, !tbaa !31
+  store ptr %693, ptr %695, align 8, !tbaa !30
   store ptr %693, ptr %61, align 8, !tbaa !13
   %696 = load i32, ptr %60, align 4, !tbaa !15
   %697 = getelementptr inbounds nuw i8, ptr %693, i64 8
@@ -1459,11 +1459,11 @@ TBufferNewPage.exit.i296:                         ; preds = %688
   %704 = trunc i32 %703 to i16
   %705 = sext i32 %701 to i64
   %706 = getelementptr inbounds i16, ptr %699, i64 %705
-  store i16 %704, ptr %706, align 2, !tbaa !32
+  store i16 %704, ptr %706, align 2, !tbaa !31
   br label %AddToken.exit300
 
 AddToken.exit300:                                 ; preds = %TBufferNewPage.exit.thread.i294, %698
-  %707 = load i32, ptr %659, align 4, !tbaa !34
+  %707 = load i32, ptr %659, align 4, !tbaa !33
   %708 = icmp ugt i32 %707, -131073
   %709 = add nsw i32 %707, 1
   %710 = lshr i32 %709, 1
@@ -1471,7 +1471,7 @@ AddToken.exit300:                                 ; preds = %TBufferNewPage.exit
   %.0.i9.i295 = select i1 %708, i32 %711, i32 %707
   %712 = select i1 %683, i32 65537, i32 65536
   %713 = add nuw i32 %712, %.0.i9.i295
-  store i32 %713, ptr %659, align 4, !tbaa !34
+  store i32 %713, ptr %659, align 4, !tbaa !33
   br i1 %683, label %714, label %.thread
 
 714:                                              ; preds = %AddToken.exit300, %101
@@ -1520,13 +1520,13 @@ define hidden noundef i32 @VP8EmitTokens(ptr noundef captures(none) %0, ptr noun
   br label %.lr.ph.us
 
 ._crit_edge.us:                                   ; preds = %32, %12
-  br i1 %9, label %._crit_edge32, label %.lr.ph31.split.us, !llvm.loop !38
+  br i1 %9, label %._crit_edge32, label %.lr.ph31.split.us, !llvm.loop !37
 
 .lr.ph.us:                                        ; preds = %.lr.ph.us.preheader, %32
   %indvars.iv36 = phi i64 [ %17, %.lr.ph.us.preheader ], [ %indvars.iv.next37, %32 ]
   %indvars.iv.next37 = add nsw i64 %indvars.iv36, -1
   %19 = getelementptr inbounds i16, ptr %15, i64 %indvars.iv.next37
-  %20 = load i16, ptr %19, align 2, !tbaa !32
+  %20 = load i16, ptr %19, align 2, !tbaa !31
   %21 = zext i16 %20 to i32
   %22 = lshr i32 %21, 15
   %23 = and i32 %21, 16384
@@ -1541,7 +1541,7 @@ define hidden noundef i32 @VP8EmitTokens(ptr noundef captures(none) %0, ptr noun
   %27 = and i32 %21, 16383
   %28 = zext nneg i32 %27 to i64
   %29 = getelementptr inbounds nuw i8, ptr %2, i64 %28
-  %30 = load i8, ptr %29, align 1, !tbaa !35
+  %30 = load i8, ptr %29, align 1, !tbaa !34
   %31 = zext i8 %30 to i32
   br label %32
 
@@ -1549,7 +1549,7 @@ define hidden noundef i32 @VP8EmitTokens(ptr noundef captures(none) %0, ptr noun
   %.sink = phi i32 [ %31, %26 ], [ %25, %24 ]
   %33 = tail call i32 @VP8PutBit(ptr noundef %1, i32 noundef %22, i32 noundef %.sink) #5
   %34 = icmp sgt i64 %indvars.iv.next37, %18
-  br i1 %34, label %.lr.ph.us, label %._crit_edge.us, !llvm.loop !40
+  br i1 %34, label %.lr.ph.us, label %._crit_edge.us, !llvm.loop !39
 
 .lr.ph31.split:                                   ; preds = %.lr.ph31, %._crit_edge
   %.029 = phi ptr [ %35, %._crit_edge ], [ %5, %.lr.ph31 ]
@@ -1577,7 +1577,7 @@ define hidden noundef i32 @VP8EmitTokens(ptr noundef captures(none) %0, ptr noun
   %indvars.iv = phi i64 [ %44, %.lr.ph.preheader ], [ %indvars.iv.next, %59 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %46 = getelementptr inbounds i16, ptr %42, i64 %indvars.iv.next
-  %47 = load i16, ptr %46, align 2, !tbaa !32
+  %47 = load i16, ptr %46, align 2, !tbaa !31
   %48 = zext i16 %47 to i32
   %49 = lshr i32 %48, 15
   %50 = and i32 %48, 16384
@@ -1592,7 +1592,7 @@ define hidden noundef i32 @VP8EmitTokens(ptr noundef captures(none) %0, ptr noun
   %54 = and i32 %48, 16383
   %55 = zext nneg i32 %54 to i64
   %56 = getelementptr inbounds nuw i8, ptr %2, i64 %55
-  %57 = load i8, ptr %56, align 1, !tbaa !35
+  %57 = load i8, ptr %56, align 1, !tbaa !34
   %58 = zext i8 %57 to i32
   br label %59
 
@@ -1600,11 +1600,11 @@ define hidden noundef i32 @VP8EmitTokens(ptr noundef captures(none) %0, ptr noun
   %.sink40 = phi i32 [ %58, %53 ], [ %52, %51 ]
   %60 = tail call i32 @VP8PutBit(ptr noundef %1, i32 noundef %49, i32 noundef %.sink40) #5
   %61 = icmp sgt i64 %indvars.iv.next, %45
-  br i1 %61, label %.lr.ph, label %._crit_edge, !llvm.loop !40
+  br i1 %61, label %.lr.ph, label %._crit_edge, !llvm.loop !39
 
 ._crit_edge:                                      ; preds = %59, %39
   tail call void @WebPSafeFree(ptr noundef nonnull %.029) #5
-  br i1 %36, label %._crit_edge32, label %.lr.ph31.split, !llvm.loop !41
+  br i1 %36, label %._crit_edge32, label %.lr.ph31.split, !llvm.loop !40
 
 ._crit_edge32:                                    ; preds = %._crit_edge, %._crit_edge.us, %4
   %.not25 = icmp eq i32 %3, 0
@@ -1635,7 +1635,7 @@ define hidden i64 @VP8EstimateTokenSize(ptr noundef readonly captures(none) %0, 
 
 .loopexit:                                        ; preds = %31, %13
   %.1.lcssa = phi i64 [ %.033, %13 ], [ %.2, %31 ]
-  br i1 %10, label %._crit_edge, label %8, !llvm.loop !42
+  br i1 %10, label %._crit_edge, label %8, !llvm.loop !41
 
 8:                                                ; preds = %.lr.ph34, %.loopexit
   %.033 = phi i64 [ 0, %.lr.ph34 ], [ %.1.lcssa, %.loopexit ]
@@ -1663,7 +1663,7 @@ define hidden i64 @VP8EstimateTokenSize(ptr noundef readonly captures(none) %0, 
   %.130 = phi i64 [ %.033, %.lr.ph.preheader ], [ %.2, %31 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %18 = getelementptr inbounds i16, ptr %15, i64 %indvars.iv.next
-  %19 = load i16, ptr %18, align 2, !tbaa !32
+  %19 = load i16, ptr %18, align 2, !tbaa !31
   %20 = zext i16 %19 to i32
   %21 = and i32 %20, 16384
   %.not23 = icmp eq i32 %21, 0
@@ -1681,7 +1681,7 @@ define hidden i64 @VP8EstimateTokenSize(ptr noundef readonly captures(none) %0, 
   %26 = and i32 %20, 16383
   %27 = zext nneg i32 %26 to i64
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 %27
-  %29 = load i8, ptr %28, align 1, !tbaa !35
+  %29 = load i8, ptr %28, align 1, !tbaa !34
   %.lobit = ashr i16 %19, 15
   %30 = trunc nsw i16 %.lobit to i8
   %.pn.in.i25 = xor i8 %29, %30
@@ -1691,11 +1691,11 @@ define hidden i64 @VP8EstimateTokenSize(ptr noundef readonly captures(none) %0, 
 31:                                               ; preds = %25, %22
   %.pn.i.pn = phi i64 [ %.pn.i, %22 ], [ %.pn.i26, %25 ]
   %.pn.in.in.in = getelementptr inbounds nuw [256 x i16], ptr @VP8EntropyCost, i64 0, i64 %.pn.i.pn
-  %.pn.in.in = load i16, ptr %.pn.in.in.in, align 2, !tbaa !32
+  %.pn.in.in = load i16, ptr %.pn.in.in.in, align 2, !tbaa !31
   %.pn = zext i16 %.pn.in.in to i64
   %.2 = add i64 %.130, %.pn
   %32 = icmp sgt i64 %indvars.iv.next, %17
-  br i1 %32, label %.lr.ph, label %.loopexit, !llvm.loop !43
+  br i1 %32, label %.lr.ph, label %.loopexit, !llvm.loop !42
 
 ._crit_edge:                                      ; preds = %.loopexit, %2
   %.0.lcssa = phi i64 [ 0, %2 ], [ %.1.lcssa, %.loopexit ]
@@ -1738,28 +1738,27 @@ attributes #5 = { nounwind }
 !16 = !{!4, !11, i64 32}
 !17 = !{!18, !5, i64 0}
 !18 = !{!"VP8Tokens", !5, i64 0}
-!19 = distinct !{!19, !20, !21}
+!19 = distinct !{!19, !20}
 !20 = !{!"llvm.loop.mustprogress"}
-!21 = !{!"llvm.loop.estimated_trip_count"}
-!22 = !{!23, !10, i64 8}
-!23 = !{!"VP8Residual", !11, i64 0, !11, i64 4, !10, i64 8, !11, i64 16, !24, i64 24, !25, i64 32, !26, i64 40}
-!24 = !{!"p1 omnipotent char", !6, i64 0}
-!25 = !{!"p1 int", !6, i64 0}
-!26 = !{!"p2 short", !6, i64 0}
-!27 = !{!23, !11, i64 16}
-!28 = !{!23, !11, i64 4}
-!29 = !{!23, !11, i64 0}
-!30 = !{!23, !25, i64 32}
-!31 = !{!5, !5, i64 0}
-!32 = !{!33, !33, i64 0}
-!33 = !{!"short", !7, i64 0}
-!34 = !{!11, !11, i64 0}
-!35 = !{!7, !7, i64 0}
+!21 = !{!22, !10, i64 8}
+!22 = !{!"VP8Residual", !11, i64 0, !11, i64 4, !10, i64 8, !11, i64 16, !23, i64 24, !24, i64 32, !25, i64 40}
+!23 = !{!"p1 omnipotent char", !6, i64 0}
+!24 = !{!"p1 int", !6, i64 0}
+!25 = !{!"p2 short", !6, i64 0}
+!26 = !{!22, !11, i64 16}
+!27 = !{!22, !11, i64 4}
+!28 = !{!22, !11, i64 0}
+!29 = !{!22, !24, i64 32}
+!30 = !{!5, !5, i64 0}
+!31 = !{!32, !32, i64 0}
+!32 = !{!"short", !7, i64 0}
+!33 = !{!11, !11, i64 0}
+!34 = !{!7, !7, i64 0}
+!35 = distinct !{!35, !20}
 !36 = distinct !{!36, !20}
-!37 = distinct !{!37, !20, !21}
-!38 = distinct !{!38, !20, !21, !39}
-!39 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!40 = distinct !{!40, !20, !21}
-!41 = distinct !{!41, !20, !21}
-!42 = distinct !{!42, !20, !21}
-!43 = distinct !{!43, !20, !21}
+!37 = distinct !{!37, !20, !38}
+!38 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!39 = distinct !{!39, !20}
+!40 = distinct !{!40, !20}
+!41 = distinct !{!41, !20}
+!42 = distinct !{!42, !20}

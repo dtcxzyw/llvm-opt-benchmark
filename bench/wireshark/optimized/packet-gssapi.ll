@@ -353,7 +353,7 @@ define hidden ptr @wrap_dissect_gssapi_payload(ptr noundef %0, ptr noundef %1, p
   br i1 %or.cond, label %10, label %14
 
 10:                                               ; preds = %6
-  %11 = load i8, ptr %5, align 8, !range !9, !noundef !10
+  %11 = load i8, ptr %5, align 8, !range !8, !noundef !9
   %12 = trunc nuw i8 %11 to i1
   %spec.select = select i1 %12, ptr %2, ptr null
   %spec.select15 = select i1 %12, ptr %0, ptr null
@@ -537,13 +537,13 @@ define internal fastcc i32 @dissect_gssapi_work(ptr noundef %0, ptr noundef %1, 
   %56 = load i16, ptr %55, align 1
   %57 = and i16 %56, 8
   %.not278 = icmp eq i16 %57, 0
-  %.pre314 = load i8, ptr @gssapi_reassembly, align 1, !range !9
+  %.pre314 = load i8, ptr @gssapi_reassembly, align 1, !range !8
   br i1 %.not278, label %58, label %91
 
 58:                                               ; preds = %52
   %.0..0..0..0.161 = load volatile ptr, ptr %9, align 8
   %59 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.161, i64 16
-  %60 = load i8, ptr %59, align 8, !range !9, !noundef !10
+  %60 = load i8, ptr %59, align 8, !range !8, !noundef !9
   %61 = trunc nuw i8 %60 to i1
   %62 = trunc nuw i8 %.pre314 to i1
   %or.cond = select i1 %61, i1 %62, i1 false
@@ -598,7 +598,7 @@ define internal fastcc i32 @dissect_gssapi_work(ptr noundef %0, ptr noundef %1, 
   %.pre = load ptr, ptr %53, align 8
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 57
   %.pre312 = load i16, ptr %.phi.trans.insert, align 1
-  %.pre313 = load i8, ptr @gssapi_reassembly, align 1, !range !9
+  %.pre313 = load i8, ptr @gssapi_reassembly, align 1, !range !8
   %.pre315 = and i16 %.pre312, 8
   %90 = icmp ne i16 %.pre315, 0
   br label %91
@@ -682,7 +682,7 @@ define internal fastcc i32 @dissect_gssapi_work(ptr noundef %0, ptr noundef %1, 
   store volatile i32 %128, ptr %10, align 4
   %129 = load i8, ptr %11, align 1
   %130 = icmp eq i8 %129, 1
-  %131 = load i8, ptr %12, align 1, !range !9
+  %131 = load i8, ptr %12, align 1, !range !8
   %132 = trunc nuw i8 %131 to i1
   %or.cond5 = select i1 %130, i1 %132, i1 false
   %133 = load i32, ptr %14, align 4
@@ -840,7 +840,7 @@ define internal fastcc i32 @dissect_gssapi_work(ptr noundef %0, ptr noundef %1, 
   %.0..0..0..0.48 = load volatile ptr, ptr %17, align 8
   %204 = load i8, ptr %11, align 1
   %205 = sext i8 %204 to i32
-  %206 = load i8, ptr %12, align 1, !range !9, !noundef !10
+  %206 = load i8, ptr %12, align 1, !range !8, !noundef !9
   %207 = zext nneg i8 %206 to i32
   %208 = load i32, ptr %14, align 4
   %209 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %.0..0..0..0.185, ptr noundef %1, ptr noundef nonnull @ei_gssapi_unknown_header, ptr noundef %.0..0..0..0.48, i32 noundef 0, i32 noundef 0, ptr noundef nonnull @.str.59, i32 noundef %205, i32 noundef %207, i32 noundef %208)
@@ -960,7 +960,7 @@ gssapi_lookup_oid_str.exit:                       ; preds = %239
   %.0..0..0..0.61 = load volatile ptr, ptr %17, align 8
   %257 = call i32 @tvb_captured_length_remaining(ptr noundef %.0..0..0..0.61, i32 noundef %.0..0..0..0.98)
   %258 = icmp ugt i32 %256, %257
-  %259 = load i8, ptr @gssapi_reassembly, align 1, !range !9
+  %259 = load i8, ptr @gssapi_reassembly, align 1, !range !8
   %260 = trunc nuw i8 %259 to i1
   %or.cond11 = select i1 %258, i1 %260, i1 false
   br i1 %or.cond11, label %261, label %.thread307
@@ -1371,8 +1371,7 @@ attributes #17 = { noreturn }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = !{i8 0, i8 2}
-!10 = !{}
+!8 = !{i8 0, i8 2}
+!9 = !{}

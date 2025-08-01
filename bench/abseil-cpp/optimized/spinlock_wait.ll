@@ -52,14 +52,14 @@ _ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit: ; 
 9:                                                ; preds = %_ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit, %12
   %indvars.iv = phi i64 [ 0, %_ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit ], [ %indvars.iv.next, %12 ]
   %10 = getelementptr inbounds nuw %"struct.absl::base_internal::SpinLockWaitTransition", ptr %2, i64 %indvars.iv
-  %11 = load i32, ptr %10, align 4, !tbaa !11
+  %11 = load i32, ptr %10, align 4, !tbaa !10
   %.not24 = icmp eq i32 %8, %11
   br i1 %.not24, label %.critedge, label %12
 
 12:                                               ; preds = %9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.not = icmp eq i64 %indvars.iv.next, %5
-  br i1 %.not, label %._crit_edge, label %9, !llvm.loop !14
+  br i1 %.not, label %._crit_edge, label %9, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %12
   %13 = add nuw nsw i32 %.020.ph33.ph, 1
@@ -74,7 +74,7 @@ _ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit.out
   %14 = and i64 %indvars.iv, 4294967295
   %15 = getelementptr inbounds nuw %"struct.absl::base_internal::SpinLockWaitTransition", ptr %2, i64 %14
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 4
-  %17 = load i32, ptr %16, align 4, !tbaa !15
+  %17 = load i32, ptr %16, align 4, !tbaa !14
   %18 = icmp eq i32 %17, %8
   br i1 %18, label %_ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit.thread, label %19
 
@@ -85,7 +85,7 @@ _ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit.out
 
 _ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit.thread: ; preds = %19, %.critedge
   %22 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  %23 = load i8, ptr %22, align 4, !tbaa !16, !range !17, !noundef !18
+  %23 = load i8, ptr %22, align 4, !tbaa !15, !range !16, !noundef !17
   %24 = trunc nuw i8 %23 to i1
   br i1 %24, label %25, label %_ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit.outer32, !llvm.loop !8
 
@@ -135,14 +135,13 @@ attributes #6 = { nounwind }
 !5 = !{!"int", !6, i64 0}
 !6 = !{!"omnipotent char", !7, i64 0}
 !7 = !{!"Simple C++ TBAA"}
-!8 = distinct !{!8, !9, !10}
+!8 = distinct !{!8, !9}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = !{!"llvm.loop.estimated_trip_count"}
-!11 = !{!12, !5, i64 0}
-!12 = !{!"_ZTSN4absl13base_internal22SpinLockWaitTransitionE", !5, i64 0, !5, i64 4, !13, i64 8}
-!13 = !{!"bool", !6, i64 0}
-!14 = distinct !{!14, !9, !10}
-!15 = !{!12, !5, i64 4}
-!16 = !{!12, !13, i64 8}
-!17 = !{i8 0, i8 2}
-!18 = !{}
+!10 = !{!11, !5, i64 0}
+!11 = !{!"_ZTSN4absl13base_internal22SpinLockWaitTransitionE", !5, i64 0, !5, i64 4, !12, i64 8}
+!12 = !{!"bool", !6, i64 0}
+!13 = distinct !{!13, !9}
+!14 = !{!11, !5, i64 4}
+!15 = !{!11, !12, i64 8}
+!16 = !{i8 0, i8 2}
+!17 = !{}

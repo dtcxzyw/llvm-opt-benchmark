@@ -139,10 +139,10 @@ define internal i32 @dfpwm_dec_frame(ptr noundef %0, ptr noundef %1, ptr noundef
   store i32 %42, ptr %32, align 4, !tbaa !31
   %70 = add nuw nsw i32 %.04959.i, 1
   %exitcond.not.i = icmp eq i32 %70, 8
-  br i1 %exitcond.not.i, label %36, label %39, !llvm.loop !48
+  br i1 %exitcond.not.i, label %36, label %39, !llvm.loop !47
 
 au_decompress.exit:                               ; preds = %36, %24
-  store i32 1, ptr %2, align 4, !tbaa !49
+  store i32 1, ptr %2, align 4, !tbaa !48
   %71 = load i32, ptr %7, align 8, !tbaa !34
   br label %72
 
@@ -211,8 +211,7 @@ attributes #4 = { nounwind }
 !42 = !{!35, !14, i64 24}
 !43 = !{!14, !14, i64 0}
 !44 = !{!8, !8, i64 0}
-!45 = distinct !{!45, !46, !47}
+!45 = distinct !{!45, !46}
 !46 = !{!"llvm.loop.mustprogress"}
-!47 = !{!"llvm.loop.estimated_trip_count"}
-!48 = distinct !{!48, !46, !47}
-!49 = !{!10, !10, i64 0}
+!47 = distinct !{!47, !46}
+!48 = !{!10, !10, i64 0}

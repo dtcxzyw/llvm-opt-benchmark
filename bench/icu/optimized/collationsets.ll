@@ -243,15 +243,15 @@ define void @_ZN6icu_7711TailoredSet7compareEijj(ptr noundef nonnull align 8 der
 10:                                               ; preds = %4
   %11 = load ptr, ptr %0, align 8, !tbaa !16
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 24
-  %13 = load ptr, ptr %12, align 8, !tbaa !42
+  %13 = load ptr, ptr %12, align 8, !tbaa !41
   %14 = lshr i32 %2, 13
   %15 = zext nneg i32 %14 to i64
   %16 = getelementptr inbounds nuw i16, ptr %13, i64 %15
-  %17 = load i16, ptr %16, align 2, !tbaa !43
+  %17 = load i16, ptr %16, align 2, !tbaa !42
   %18 = zext i16 %17 to i32
   %19 = shl nuw i32 %18, 16
   %20 = getelementptr inbounds nuw i8, ptr %16, i64 2
-  %21 = load i16, ptr %20, align 2, !tbaa !43
+  %21 = load i16, ptr %20, align 2, !tbaa !42
   %22 = zext i16 %21 to i32
   %23 = or disjoint i32 %19, %22
   %24 = tail call noundef i32 @_ZNK6icu_7713CollationData12getFinalCE32Ej(ptr noundef nonnull align 8 dereferenceable(140) %11, i32 noundef %23)
@@ -263,15 +263,15 @@ define void @_ZN6icu_7711TailoredSet7compareEijj(ptr noundef nonnull align 8 der
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %28 = load ptr, ptr %27, align 8, !tbaa !27
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 24
-  %30 = load ptr, ptr %29, align 8, !tbaa !42
+  %30 = load ptr, ptr %29, align 8, !tbaa !41
   %31 = lshr i32 %3, 13
   %32 = zext nneg i32 %31 to i64
   %33 = getelementptr inbounds nuw i16, ptr %30, i64 %32
-  %34 = load i16, ptr %33, align 2, !tbaa !43
+  %34 = load i16, ptr %33, align 2, !tbaa !42
   %35 = zext i16 %34 to i32
   %36 = shl nuw i32 %35, 16
   %37 = getelementptr inbounds nuw i8, ptr %33, i64 2
-  %38 = load i16, ptr %37, align 2, !tbaa !43
+  %38 = load i16, ptr %37, align 2, !tbaa !42
   %39 = zext i16 %38 to i32
   %40 = or disjoint i32 %36, %39
   %41 = tail call noundef i32 @_ZNK6icu_7713CollationData12getFinalCE32Ej(ptr noundef nonnull align 8 dereferenceable(140) %28, i32 noundef %40)
@@ -285,14 +285,14 @@ define void @_ZN6icu_7711TailoredSet7compareEijj(ptr noundef nonnull align 8 der
   %46 = getelementptr inbounds nuw i8, ptr %16, i64 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %7) #9
-  store ptr %46, ptr %8, align 8, !tbaa !45
+  store ptr %46, ptr %8, align 8, !tbaa !44
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 96
   invoke void @_ZN6icu_7710UCharsTrie8IteratorC1ENS_14ConstChar16PtrEiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(120) %7, ptr noundef nonnull %8, i32 noundef 0, ptr noundef nonnull align 4 dereferenceable(4) %47)
           to label %48 unwind label %57
 
 48:                                               ; preds = %44
-  %49 = load ptr, ptr %8, align 8, !tbaa !45
-  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %49) #9, !srcloc !47
+  %49 = load ptr, ptr %8, align 8, !tbaa !44
+  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %49) #9, !srcloc !46
   %50 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %51 = getelementptr inbounds nuw i8, ptr %7, i64 108
   br label %52
@@ -306,15 +306,15 @@ define void @_ZN6icu_7711TailoredSet7compareEijj(ptr noundef nonnull align 8 der
   br i1 %.not.i, label %_ZN6icu_7711TailoredSet11addPrefixesEPKNS_13CollationDataEiPKDs.exit, label %55
 
 55:                                               ; preds = %54
-  %56 = load i32, ptr %51, align 4, !tbaa !48
+  %56 = load i32, ptr %51, align 4, !tbaa !47
   invoke void @_ZN6icu_7711TailoredSet9addPrefixEPKNS_13CollationDataERKNS_13UnicodeStringEij(ptr noundef nonnull align 8 dereferenceable(100) %0, ptr noundef %45, ptr noundef nonnull align 8 dereferenceable(64) %50, i32 noundef %1, i32 noundef %56)
-          to label %52 unwind label %60, !llvm.loop !51
+          to label %52 unwind label %60, !llvm.loop !50
 
 57:                                               ; preds = %44
   %58 = landingpad { ptr, i32 }
           cleanup
-  %59 = load ptr, ptr %8, align 8, !tbaa !45
-  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %59) #9, !srcloc !47
+  %59 = load ptr, ptr %8, align 8, !tbaa !44
+  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %59) #9, !srcloc !46
   br label %62
 
 60:                                               ; preds = %55, %52
@@ -347,15 +347,15 @@ _ZN6icu_7711TailoredSet11addPrefixesEPKNS_13CollationDataEiPKDs.exit: ; preds = 
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %67 = load ptr, ptr %66, align 8, !tbaa !27
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 24
-  %69 = load ptr, ptr %68, align 8, !tbaa !42
+  %69 = load ptr, ptr %68, align 8, !tbaa !41
   %70 = lshr i32 %3, 13
   %71 = zext nneg i32 %70 to i64
   %72 = getelementptr inbounds nuw i16, ptr %69, i64 %71
-  %73 = load i16, ptr %72, align 2, !tbaa !43
+  %73 = load i16, ptr %72, align 2, !tbaa !42
   %74 = zext i16 %73 to i32
   %75 = shl nuw i32 %74, 16
   %76 = getelementptr inbounds nuw i8, ptr %72, i64 2
-  %77 = load i16, ptr %76, align 2, !tbaa !43
+  %77 = load i16, ptr %76, align 2, !tbaa !42
   %78 = zext i16 %77 to i32
   %79 = or disjoint i32 %75, %78
   %80 = tail call noundef i32 @_ZNK6icu_7713CollationData12getFinalCE32Ej(ptr noundef nonnull align 8 dereferenceable(140) %67, i32 noundef %79)
@@ -363,14 +363,14 @@ _ZN6icu_7711TailoredSet11addPrefixesEPKNS_13CollationDataEiPKDs.exit: ; preds = 
   %82 = getelementptr inbounds nuw i8, ptr %72, i64 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %5) #9
-  store ptr %82, ptr %6, align 8, !tbaa !45
+  store ptr %82, ptr %6, align 8, !tbaa !44
   %83 = getelementptr inbounds nuw i8, ptr %0, i64 96
   invoke void @_ZN6icu_7710UCharsTrie8IteratorC1ENS_14ConstChar16PtrEiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(120) %5, ptr noundef nonnull %6, i32 noundef 0, ptr noundef nonnull align 4 dereferenceable(4) %83)
           to label %84 unwind label %93
 
 84:                                               ; preds = %65
-  %85 = load ptr, ptr %6, align 8, !tbaa !45
-  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %85) #9, !srcloc !47
+  %85 = load ptr, ptr %6, align 8, !tbaa !44
+  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %85) #9, !srcloc !46
   %86 = getelementptr inbounds nuw i8, ptr %5, i64 40
   %87 = getelementptr inbounds nuw i8, ptr %5, i64 108
   br label %88
@@ -384,15 +384,15 @@ _ZN6icu_7711TailoredSet11addPrefixesEPKNS_13CollationDataEiPKDs.exit: ; preds = 
   br i1 %.not.i129, label %_ZN6icu_7711TailoredSet11addPrefixesEPKNS_13CollationDataEiPKDs.exit130, label %91
 
 91:                                               ; preds = %90
-  %92 = load i32, ptr %87, align 4, !tbaa !48
+  %92 = load i32, ptr %87, align 4, !tbaa !47
   invoke void @_ZN6icu_7711TailoredSet9addPrefixEPKNS_13CollationDataERKNS_13UnicodeStringEij(ptr noundef nonnull align 8 dereferenceable(100) %0, ptr noundef %81, ptr noundef nonnull align 8 dereferenceable(64) %86, i32 noundef %1, i32 noundef %92)
-          to label %88 unwind label %96, !llvm.loop !51
+          to label %88 unwind label %96, !llvm.loop !50
 
 93:                                               ; preds = %65
   %94 = landingpad { ptr, i32 }
           cleanup
-  %95 = load ptr, ptr %6, align 8, !tbaa !45
-  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %95) #9, !srcloc !47
+  %95 = load ptr, ptr %6, align 8, !tbaa !44
+  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %95) #9, !srcloc !46
   br label %98
 
 96:                                               ; preds = %91, %88
@@ -422,7 +422,7 @@ _ZN6icu_7711TailoredSet11addPrefixesEPKNS_13CollationDataEiPKDs.exit130: ; preds
 101:                                              ; preds = %99
   %102 = load ptr, ptr %0, align 8, !tbaa !16
   %103 = getelementptr inbounds nuw i8, ptr %102, i64 24
-  %104 = load ptr, ptr %103, align 8, !tbaa !42
+  %104 = load ptr, ptr %103, align 8, !tbaa !41
   %105 = lshr i32 %.0, 13
   %106 = zext nneg i32 %105 to i64
   %107 = getelementptr inbounds nuw i16, ptr %104, i64 %106
@@ -431,11 +431,11 @@ _ZN6icu_7711TailoredSet11addPrefixesEPKNS_13CollationDataEiPKDs.exit130: ; preds
   br i1 %.not110, label %109, label %118
 
 109:                                              ; preds = %101
-  %110 = load i16, ptr %107, align 2, !tbaa !43
+  %110 = load i16, ptr %107, align 2, !tbaa !42
   %111 = zext i16 %110 to i32
   %112 = shl nuw i32 %111, 16
   %113 = getelementptr inbounds nuw i8, ptr %107, i64 2
-  %114 = load i16, ptr %113, align 2, !tbaa !43
+  %114 = load i16, ptr %113, align 2, !tbaa !42
   %115 = zext i16 %114 to i32
   %116 = or disjoint i32 %112, %115
   %117 = call noundef i32 @_ZNK6icu_7713CollationData12getFinalCE32Ej(ptr noundef nonnull align 8 dereferenceable(140) %102, i32 noundef %116)
@@ -451,7 +451,7 @@ _ZN6icu_7711TailoredSet11addPrefixesEPKNS_13CollationDataEiPKDs.exit130: ; preds
   %121 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %122 = load ptr, ptr %121, align 8, !tbaa !27
   %123 = getelementptr inbounds nuw i8, ptr %122, i64 24
-  %124 = load ptr, ptr %123, align 8, !tbaa !42
+  %124 = load ptr, ptr %123, align 8, !tbaa !41
   %125 = lshr i32 %.196, 13
   %126 = zext nneg i32 %125 to i64
   %127 = getelementptr inbounds nuw i16, ptr %124, i64 %126
@@ -460,11 +460,11 @@ _ZN6icu_7711TailoredSet11addPrefixesEPKNS_13CollationDataEiPKDs.exit130: ; preds
   br i1 %.not112, label %129, label %138
 
 129:                                              ; preds = %120
-  %130 = load i16, ptr %127, align 2, !tbaa !43
+  %130 = load i16, ptr %127, align 2, !tbaa !42
   %131 = zext i16 %130 to i32
   %132 = shl nuw i32 %131, 16
   %133 = getelementptr inbounds nuw i8, ptr %127, i64 2
-  %134 = load i16, ptr %133, align 2, !tbaa !43
+  %134 = load i16, ptr %133, align 2, !tbaa !42
   %135 = zext i16 %134 to i32
   %136 = or disjoint i32 %132, %135
   %137 = call noundef i32 @_ZNK6icu_7713CollationData12getFinalCE32Ej(ptr noundef nonnull align 8 dereferenceable(140) %122, i32 noundef %136)
@@ -491,15 +491,15 @@ _ZN6icu_7711TailoredSet11addPrefixesEPKNS_13CollationDataEiPKDs.exit130: ; preds
   %146 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %147 = load ptr, ptr %146, align 8, !tbaa !27
   %148 = getelementptr inbounds nuw i8, ptr %147, i64 24
-  %149 = load ptr, ptr %148, align 8, !tbaa !42
+  %149 = load ptr, ptr %148, align 8, !tbaa !41
   %150 = lshr i32 %.196, 13
   %151 = zext nneg i32 %150 to i64
   %152 = getelementptr inbounds nuw i16, ptr %149, i64 %151
-  %153 = load i16, ptr %152, align 2, !tbaa !43
+  %153 = load i16, ptr %152, align 2, !tbaa !42
   %154 = zext i16 %153 to i32
   %155 = shl nuw i32 %154, 16
   %156 = getelementptr inbounds nuw i8, ptr %152, i64 2
-  %157 = load i16, ptr %156, align 2, !tbaa !43
+  %157 = load i16, ptr %156, align 2, !tbaa !42
   %158 = zext i16 %157 to i32
   %159 = or disjoint i32 %155, %158
   %160 = call noundef i32 @_ZNK6icu_7713CollationData12getFinalCE32Ej(ptr noundef nonnull align 8 dereferenceable(140) %147, i32 noundef %159)
@@ -532,11 +532,11 @@ _ZN6icu_7711TailoredSet11addPrefixesEPKNS_13CollationDataEiPKDs.exit130: ; preds
   %172 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %173 = load ptr, ptr %172, align 8, !tbaa !27
   %174 = getelementptr inbounds nuw i8, ptr %173, i64 16
-  %175 = load ptr, ptr %174, align 8, !tbaa !52
+  %175 = load ptr, ptr %174, align 8, !tbaa !51
   %176 = lshr i32 %.4, 13
   %177 = zext nneg i32 %176 to i64
   %178 = getelementptr inbounds nuw i64, ptr %175, i64 %177
-  %179 = load i64, ptr %178, align 8, !tbaa !53
+  %179 = load i64, ptr %178, align 8, !tbaa !52
   %180 = call noundef i32 @_ZN6icu_779Collation32getThreeBytePrimaryForOffsetDataEil(i32 noundef %1, i64 noundef %179)
   %181 = and i32 %.2, -256
   %.not116 = icmp eq i32 %181, %180
@@ -557,7 +557,7 @@ _ZN6icu_7711TailoredSet11addPrefixesEPKNS_13CollationDataEiPKDs.exit130: ; preds
 183:                                              ; preds = %182
   %184 = load ptr, ptr %0, align 8, !tbaa !16
   %185 = getelementptr inbounds nuw i8, ptr %184, i64 8
-  %186 = load ptr, ptr %185, align 8, !tbaa !55
+  %186 = load ptr, ptr %185, align 8, !tbaa !54
   %187 = lshr i32 %.2, 13
   %188 = zext nneg i32 %187 to i64
   %189 = getelementptr inbounds nuw i32, ptr %186, i64 %188
@@ -566,7 +566,7 @@ _ZN6icu_7711TailoredSet11addPrefixesEPKNS_13CollationDataEiPKDs.exit130: ; preds
   %192 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %193 = load ptr, ptr %192, align 8, !tbaa !27
   %194 = getelementptr inbounds nuw i8, ptr %193, i64 8
-  %195 = load ptr, ptr %194, align 8, !tbaa !55
+  %195 = load ptr, ptr %194, align 8, !tbaa !54
   %196 = lshr i32 %.4, 13
   %197 = zext nneg i32 %196 to i64
   %198 = getelementptr inbounds nuw i32, ptr %195, i64 %197
@@ -586,7 +586,7 @@ _ZN6icu_7711TailoredSet11addPrefixesEPKNS_13CollationDataEiPKDs.exit130: ; preds
 201:                                              ; preds = %.lr.ph143
   %indvars.iv.next149 = add nuw nsw i64 %indvars.iv148, 1
   %exitcond152.not = icmp eq i64 %indvars.iv.next149, %wide.trip.count151
-  br i1 %exitcond152.not, label %.loopexit, label %.lr.ph143, !llvm.loop !56
+  br i1 %exitcond152.not, label %.loopexit, label %.lr.ph143, !llvm.loop !55
 
 .lr.ph143:                                        ; preds = %.lr.ph143.preheader, %201
   %indvars.iv148 = phi i64 [ 0, %.lr.ph143.preheader ], [ %indvars.iv.next149, %201 ]
@@ -600,7 +600,7 @@ _ZN6icu_7711TailoredSet11addPrefixesEPKNS_13CollationDataEiPKDs.exit130: ; preds
 206:                                              ; preds = %182
   %207 = load ptr, ptr %0, align 8, !tbaa !16
   %208 = getelementptr inbounds nuw i8, ptr %207, i64 16
-  %209 = load ptr, ptr %208, align 8, !tbaa !52
+  %209 = load ptr, ptr %208, align 8, !tbaa !51
   %210 = lshr i32 %.2, 13
   %211 = zext nneg i32 %210 to i64
   %212 = getelementptr inbounds nuw i64, ptr %209, i64 %211
@@ -609,7 +609,7 @@ _ZN6icu_7711TailoredSet11addPrefixesEPKNS_13CollationDataEiPKDs.exit130: ; preds
   %215 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %216 = load ptr, ptr %215, align 8, !tbaa !27
   %217 = getelementptr inbounds nuw i8, ptr %216, i64 16
-  %218 = load ptr, ptr %217, align 8, !tbaa !52
+  %218 = load ptr, ptr %217, align 8, !tbaa !51
   %219 = lshr i32 %.4, 13
   %220 = zext nneg i32 %219 to i64
   %221 = getelementptr inbounds nuw i64, ptr %218, i64 %220
@@ -629,14 +629,14 @@ _ZN6icu_7711TailoredSet11addPrefixesEPKNS_13CollationDataEiPKDs.exit130: ; preds
 224:                                              ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !57
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !56
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %224
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %224 ]
   %225 = getelementptr inbounds nuw i64, ptr %212, i64 %indvars.iv
-  %226 = load i64, ptr %225, align 8, !tbaa !53
+  %226 = load i64, ptr %225, align 8, !tbaa !52
   %227 = getelementptr inbounds nuw i64, ptr %221, i64 %indvars.iv
-  %228 = load i64, ptr %227, align 8, !tbaa !53
+  %228 = load i64, ptr %227, align 8, !tbaa !52
   %.not123 = icmp eq i64 %226, %228
   br i1 %.not123, label %224, label %.loopexit.sink.split
 
@@ -695,22 +695,22 @@ define void @_ZN6icu_7711TailoredSet15comparePrefixesEiPKDsS2_(ptr noundef nonnu
   %8 = alloca %"class.icu_77::ConstChar16Ptr", align 8
   %9 = alloca %"class.icu_77::UnicodeString", align 8
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %5) #9
-  store ptr %2, ptr %6, align 8, !tbaa !45
+  store ptr %2, ptr %6, align 8, !tbaa !44
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 96
   invoke void @_ZN6icu_7710UCharsTrie8IteratorC1ENS_14ConstChar16PtrEiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(120) %5, ptr noundef nonnull %6, i32 noundef 0, ptr noundef nonnull align 4 dereferenceable(4) %10)
           to label %11 unwind label %28
 
 11:                                               ; preds = %4
-  %12 = load ptr, ptr %6, align 8, !tbaa !45
-  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %12) #9, !srcloc !47
+  %12 = load ptr, ptr %6, align 8, !tbaa !44
+  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %12) #9, !srcloc !46
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %7) #9
-  store ptr %3, ptr %8, align 8, !tbaa !45
+  store ptr %3, ptr %8, align 8, !tbaa !44
   invoke void @_ZN6icu_7710UCharsTrie8IteratorC1ENS_14ConstChar16PtrEiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(120) %7, ptr noundef nonnull %8, i32 noundef 0, ptr noundef nonnull align 4 dereferenceable(4) %10)
           to label %13 unwind label %31
 
 13:                                               ; preds = %11
-  %14 = load ptr, ptr %8, align 8, !tbaa !45
-  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %14) #9, !srcloc !47
+  %14 = load ptr, ptr %8, align 8, !tbaa !44
+  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %14) #9, !srcloc !46
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %9) #9
   invoke void @_ZN6icu_7713UnicodeStringC1EDs(ptr noundef nonnull align 8 dereferenceable(64) %9, i16 noundef zeroext -1)
           to label %.preheader unwind label %34
@@ -744,15 +744,15 @@ define void @_ZN6icu_7711TailoredSet15comparePrefixesEiPKDsS2_(ptr noundef nonnu
 28:                                               ; preds = %4
   %29 = landingpad { ptr, i32 }
           cleanup
-  %30 = load ptr, ptr %6, align 8, !tbaa !45
-  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %30) #9, !srcloc !47
+  %30 = load ptr, ptr %6, align 8, !tbaa !44
+  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %30) #9, !srcloc !46
   br label %101
 
 31:                                               ; preds = %11
   %32 = landingpad { ptr, i32 }
           cleanup
-  %33 = load ptr, ptr %8, align 8, !tbaa !45
-  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %33) #9, !srcloc !47
+  %33 = load ptr, ptr %8, align 8, !tbaa !44
+  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %33) #9, !srcloc !46
   br label %100
 
 34:                                               ; preds = %13
@@ -788,9 +788,9 @@ define void @_ZN6icu_7711TailoredSet15comparePrefixesEiPKDsS2_(ptr noundef nonnu
 .thread:                                          ; preds = %42, %43
   %.12042 = phi ptr [ %.120, %43 ], [ %16, %42 ]
   %46 = getelementptr inbounds nuw i8, ptr %.123, i64 8
-  %47 = load i16, ptr %46, align 8, !tbaa !58
+  %47 = load i16, ptr %46, align 8, !tbaa !57
   %48 = getelementptr inbounds nuw i8, ptr %.12042, i64 8
-  %49 = load i16, ptr %48, align 8, !tbaa !58
+  %49 = load i16, ptr %48, align 8, !tbaa !57
   %50 = and i16 %49, 1
   %.not.i.i = icmp eq i16 %50, 0
   br i1 %.not.i.i, label %.sink.split.i.i.i, label %_ZNK6icu_7713UnicodeString7compareERKS0_.exit.thread
@@ -831,7 +831,7 @@ _ZNK6icu_7713UnicodeString7compareERKS0_.exit:    ; preds = %.sink.split.i.i.i
 
 73:                                               ; preds = %_ZNK6icu_7713UnicodeString7compareERKS0_.exit
   %74 = load ptr, ptr %0, align 8, !tbaa !16
-  %75 = load i32, ptr %22, align 4, !tbaa !48
+  %75 = load i32, ptr %22, align 4, !tbaa !47
   invoke void @_ZN6icu_7711TailoredSet9addPrefixEPKNS_13CollationDataERKNS_13UnicodeStringEij(ptr noundef nonnull align 8 dereferenceable(100) %0, ptr noundef %74, ptr noundef nonnull align 8 dereferenceable(64) %.123, i32 noundef %1, i32 noundef %75)
           to label %.backedge unwind label %76
 
@@ -847,7 +847,7 @@ _ZNK6icu_7713UnicodeString7compareERKS0_.exit:    ; preds = %.sink.split.i.i.i
 
 79:                                               ; preds = %78
   %80 = load ptr, ptr %17, align 8, !tbaa !27
-  %81 = load i32, ptr %18, align 4, !tbaa !48
+  %81 = load i32, ptr %18, align 4, !tbaa !47
   invoke void @_ZN6icu_7711TailoredSet9addPrefixEPKNS_13CollationDataERKNS_13UnicodeStringEij(ptr noundef nonnull align 8 dereferenceable(100) %0, ptr noundef %80, ptr noundef nonnull align 8 dereferenceable(64) %.12042, i32 noundef %1, i32 noundef %81)
           to label %.backedge unwind label %76
 
@@ -856,7 +856,7 @@ _ZNK6icu_7713UnicodeString7compareERKS0_.exit:    ; preds = %.sink.split.i.i.i
           to label %.noexc37 unwind label %76
 
 .noexc37:                                         ; preds = %82
-  %84 = load i16, ptr %20, align 8, !tbaa !58
+  %84 = load i16, ptr %20, align 8, !tbaa !57
   %85 = icmp slt i16 %84, 0
   %86 = ashr i16 %84, 5
   %87 = sext i16 %86 to i32
@@ -866,24 +866,24 @@ _ZNK6icu_7713UnicodeString7compareERKS0_.exit:    ; preds = %.sink.split.i.i.i
           to label %_ZN6icu_7711TailoredSet9setPrefixERKNS_13UnicodeStringE.exit unwind label %76
 
 _ZN6icu_7711TailoredSet9setPrefixERKNS_13UnicodeStringE.exit: ; preds = %.noexc37
-  %91 = load i32, ptr %22, align 4, !tbaa !48
-  %92 = load i32, ptr %18, align 4, !tbaa !48
+  %91 = load i32, ptr %22, align 4, !tbaa !47
+  %92 = load i32, ptr %18, align 4, !tbaa !47
   invoke void @_ZN6icu_7711TailoredSet7compareEijj(ptr noundef nonnull align 8 dereferenceable(100) %0, i32 noundef %1, i32 noundef %91, i32 noundef %92)
           to label %93 unwind label %76
 
 93:                                               ; preds = %_ZN6icu_7711TailoredSet9setPrefixERKNS_13UnicodeStringE.exit
-  %94 = load i16, ptr %20, align 8, !tbaa !58
+  %94 = load i16, ptr %20, align 8, !tbaa !57
   %95 = and i16 %94, 1
   %.not.i.i39 = icmp eq i16 %95, 0
   %96 = and i16 %94, 30
   %storemerge.i.i = select i1 %.not.i.i39, i16 %96, i16 2
-  store i16 %storemerge.i.i, ptr %20, align 8, !tbaa !58
+  store i16 %storemerge.i.i, ptr %20, align 8, !tbaa !57
   br label %.backedge
 
 .backedge:                                        ; preds = %93, %79, %73
   %.022.be = phi ptr [ null, %73 ], [ %.123, %79 ], [ null, %93 ]
   %.019.be = phi ptr [ %.12042, %73 ], [ null, %79 ], [ null, %93 ]
-  br label %23, !llvm.loop !59
+  br label %23, !llvm.loop !58
 
 97:                                               ; preds = %43
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %9) #9
@@ -922,14 +922,14 @@ define void @_ZN6icu_7711TailoredSet11addPrefixesEPKNS_13CollationDataEiPKDs(ptr
   %5 = alloca %"class.icu_77::UCharsTrie::Iterator", align 8
   %6 = alloca %"class.icu_77::ConstChar16Ptr", align 8
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %5) #9
-  store ptr %3, ptr %6, align 8, !tbaa !45
+  store ptr %3, ptr %6, align 8, !tbaa !44
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 96
   invoke void @_ZN6icu_7710UCharsTrie8IteratorC1ENS_14ConstChar16PtrEiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(120) %5, ptr noundef nonnull %6, i32 noundef 0, ptr noundef nonnull align 4 dereferenceable(4) %7)
           to label %8 unwind label %17
 
 8:                                                ; preds = %4
-  %9 = load ptr, ptr %6, align 8, !tbaa !45
-  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %9) #9, !srcloc !47
+  %9 = load ptr, ptr %6, align 8, !tbaa !44
+  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %9) #9, !srcloc !46
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 40
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 108
   br label %12
@@ -943,15 +943,15 @@ define void @_ZN6icu_7711TailoredSet11addPrefixesEPKNS_13CollationDataEiPKDs(ptr
   br i1 %.not, label %22, label %15
 
 15:                                               ; preds = %14
-  %16 = load i32, ptr %11, align 4, !tbaa !48
+  %16 = load i32, ptr %11, align 4, !tbaa !47
   invoke void @_ZN6icu_7711TailoredSet9addPrefixEPKNS_13CollationDataERKNS_13UnicodeStringEij(ptr noundef nonnull align 8 dereferenceable(100) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(64) %10, i32 noundef %2, i32 noundef %16)
-          to label %12 unwind label %20, !llvm.loop !51
+          to label %12 unwind label %20, !llvm.loop !50
 
 17:                                               ; preds = %4
   %18 = landingpad { ptr, i32 }
           cleanup
-  %19 = load ptr, ptr %6, align 8, !tbaa !45
-  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %19) #9, !srcloc !47
+  %19 = load ptr, ptr %6, align 8, !tbaa !44
+  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %19) #9, !srcloc !46
   br label %23
 
 20:                                               ; preds = %15, %12
@@ -982,29 +982,29 @@ define void @_ZN6icu_7711TailoredSet19compareContractionsEiPKDsS2_(ptr noundef n
   %11 = alloca %"class.icu_77::ConstChar16Ptr", align 8
   %12 = alloca %"class.icu_77::UnicodeString", align 8
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %8) #9
-  store ptr %2, ptr %9, align 8, !tbaa !45
+  store ptr %2, ptr %9, align 8, !tbaa !44
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 96
   invoke void @_ZN6icu_7710UCharsTrie8IteratorC1ENS_14ConstChar16PtrEiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(120) %8, ptr noundef nonnull %9, i32 noundef 0, ptr noundef nonnull align 4 dereferenceable(4) %13)
           to label %14 unwind label %32
 
 14:                                               ; preds = %4
-  %15 = load ptr, ptr %9, align 8, !tbaa !45
-  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %15) #9, !srcloc !47
+  %15 = load ptr, ptr %9, align 8, !tbaa !44
+  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %15) #9, !srcloc !46
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %10) #9
-  store ptr %3, ptr %11, align 8, !tbaa !45
+  store ptr %3, ptr %11, align 8, !tbaa !44
   invoke void @_ZN6icu_7710UCharsTrie8IteratorC1ENS_14ConstChar16PtrEiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(120) %10, ptr noundef nonnull %11, i32 noundef 0, ptr noundef nonnull align 4 dereferenceable(4) %13)
           to label %16 unwind label %35
 
 16:                                               ; preds = %14
-  %17 = load ptr, ptr %11, align 8, !tbaa !45
-  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %17) #9, !srcloc !47
+  %17 = load ptr, ptr %11, align 8, !tbaa !44
+  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %17) #9, !srcloc !46
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %12) #9
   invoke void @_ZN6icu_7713UnicodeStringC1EDs(ptr noundef nonnull align 8 dereferenceable(64) %12, i16 noundef zeroext -1)
           to label %18 unwind label %38
 
 18:                                               ; preds = %16
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %7)
-  store i16 -1, ptr %7, align 2, !tbaa !43
+  store i16 -1, ptr %7, align 2, !tbaa !42
   %19 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeString8doAppendEPKDsii(ptr noundef nonnull align 8 dereferenceable(64) %12, ptr noundef nonnull %7, i32 noundef 0, i32 noundef 1)
           to label %_ZN6icu_7713UnicodeString6appendEDs.exit unwind label %.loopexit.split-lp
 
@@ -1037,15 +1037,15 @@ _ZN6icu_7713UnicodeString6appendEDs.exit:         ; preds = %18
 32:                                               ; preds = %4
   %33 = landingpad { ptr, i32 }
           cleanup
-  %34 = load ptr, ptr %9, align 8, !tbaa !45
-  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %34) #9, !srcloc !47
+  %34 = load ptr, ptr %9, align 8, !tbaa !44
+  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %34) #9, !srcloc !46
   br label %114
 
 35:                                               ; preds = %14
   %36 = landingpad { ptr, i32 }
           cleanup
-  %37 = load ptr, ptr %11, align 8, !tbaa !45
-  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %37) #9, !srcloc !47
+  %37 = load ptr, ptr %11, align 8, !tbaa !44
+  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %37) #9, !srcloc !46
   br label %113
 
 38:                                               ; preds = %16
@@ -1086,9 +1086,9 @@ _ZN6icu_7713UnicodeString6appendEDs.exit:         ; preds = %18
 .thread:                                          ; preds = %44, %45
   %.12045 = phi ptr [ %.120, %45 ], [ %21, %44 ]
   %48 = getelementptr inbounds nuw i8, ptr %.123, i64 8
-  %49 = load i16, ptr %48, align 8, !tbaa !58
+  %49 = load i16, ptr %48, align 8, !tbaa !57
   %50 = getelementptr inbounds nuw i8, ptr %.12045, i64 8
-  %51 = load i16, ptr %50, align 8, !tbaa !58
+  %51 = load i16, ptr %50, align 8, !tbaa !57
   %52 = and i16 %51, 1
   %.not.i.i = icmp eq i16 %52, 0
   br i1 %.not.i.i, label %.sink.split.i.i.i, label %_ZNK6icu_7713UnicodeString7compareERKS0_.exit.thread
@@ -1138,7 +1138,7 @@ _ZNK6icu_7713UnicodeString7compareERKS0_.exit:    ; preds = %.sink.split.i.i.i
           to label %78 unwind label %87
 
 78:                                               ; preds = %.noexc37
-  %79 = load i16, ptr %48, align 8, !tbaa !58
+  %79 = load i16, ptr %48, align 8, !tbaa !57
   %80 = icmp slt i16 %79, 0
   %81 = ashr i16 %79, 5
   %82 = sext i16 %81 to i32
@@ -1184,7 +1184,7 @@ _ZN6icu_7711TailoredSet9addSuffixEiRKNS_13UnicodeStringE.exit: ; preds = %_ZN6ic
           to label %95 unwind label %105
 
 95:                                               ; preds = %.noexc39
-  %96 = load i16, ptr %50, align 8, !tbaa !58
+  %96 = load i16, ptr %50, align 8, !tbaa !57
   %97 = icmp slt i16 %96, 0
   %98 = ashr i16 %96, 5
   %99 = sext i16 %98 to i32
@@ -1213,17 +1213,17 @@ _ZN6icu_7711TailoredSet9addSuffixEiRKNS_13UnicodeStringE.exit42: ; preds = %_ZN6
 .backedge:                                        ; preds = %_ZN6icu_7711TailoredSet9addSuffixEiRKNS_13UnicodeStringE.exit42, %_ZN6icu_7711TailoredSet9addSuffixEiRKNS_13UnicodeStringE.exit, %110
   %.022.be = phi ptr [ null, %110 ], [ null, %_ZN6icu_7711TailoredSet9addSuffixEiRKNS_13UnicodeStringE.exit ], [ %.123, %_ZN6icu_7711TailoredSet9addSuffixEiRKNS_13UnicodeStringE.exit42 ]
   %.019.be = phi ptr [ null, %110 ], [ %.12045, %_ZN6icu_7711TailoredSet9addSuffixEiRKNS_13UnicodeStringE.exit ], [ null, %_ZN6icu_7711TailoredSet9addSuffixEiRKNS_13UnicodeStringE.exit42 ]
-  br label %27, !llvm.loop !60
+  br label %27, !llvm.loop !59
 
 107:                                              ; preds = %91
-  store ptr %.123, ptr %24, align 8, !tbaa !61
-  %108 = load i32, ptr %25, align 4, !tbaa !48
-  %109 = load i32, ptr %26, align 4, !tbaa !48
+  store ptr %.123, ptr %24, align 8, !tbaa !60
+  %108 = load i32, ptr %25, align 4, !tbaa !47
+  %109 = load i32, ptr %26, align 4, !tbaa !47
   invoke void @_ZN6icu_7711TailoredSet7compareEijj(ptr noundef nonnull align 8 dereferenceable(100) %0, i32 noundef %1, i32 noundef %108, i32 noundef %109)
           to label %110 unwind label %89
 
 110:                                              ; preds = %107
-  store ptr null, ptr %24, align 8, !tbaa !61
+  store ptr null, ptr %24, align 8, !tbaa !60
   br label %.backedge
 
 111:                                              ; preds = %45
@@ -1264,14 +1264,14 @@ define void @_ZN6icu_7711TailoredSet15addContractionsEiPKDs(ptr noundef nonnull 
   %5 = alloca %"class.icu_77::UCharsTrie::Iterator", align 8
   %6 = alloca %"class.icu_77::ConstChar16Ptr", align 8
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %5) #9
-  store ptr %2, ptr %6, align 8, !tbaa !45
+  store ptr %2, ptr %6, align 8, !tbaa !44
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 96
   invoke void @_ZN6icu_7710UCharsTrie8IteratorC1ENS_14ConstChar16PtrEiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(120) %5, ptr noundef nonnull %6, i32 noundef 0, ptr noundef nonnull align 4 dereferenceable(4) %7)
           to label %8 unwind label %32
 
 8:                                                ; preds = %3
-  %9 = load ptr, ptr %6, align 8, !tbaa !45
-  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %9) #9, !srcloc !47
+  %9 = load ptr, ptr %6, align 8, !tbaa !44
+  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %9) #9, !srcloc !46
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 40
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -1298,7 +1298,7 @@ define void @_ZN6icu_7711TailoredSet15addContractionsEiPKDs(ptr noundef nonnull 
           to label %21 unwind label %30
 
 21:                                               ; preds = %.noexc
-  %22 = load i16, ptr %13, align 8, !tbaa !58
+  %22 = load i16, ptr %13, align 8, !tbaa !57
   %23 = icmp slt i16 %22, 0
   %24 = ashr i16 %22, 5
   %25 = sext i16 %24 to i32
@@ -1326,8 +1326,8 @@ _ZN6icu_7711TailoredSet9addSuffixEiRKNS_13UnicodeStringE.exit: ; preds = %_ZN6ic
 32:                                               ; preds = %3
   %33 = landingpad { ptr, i32 }
           cleanup
-  %34 = load ptr, ptr %6, align 8, !tbaa !45
-  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %34) #9, !srcloc !47
+  %34 = load ptr, ptr %6, align 8, !tbaa !44
+  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %34) #9, !srcloc !46
   br label %38
 
 35:                                               ; preds = %18, %15
@@ -1355,7 +1355,7 @@ _ZN6icu_7711TailoredSet9addSuffixEiRKNS_13UnicodeStringE.exit: ; preds = %_ZN6ic
 define void @_ZN6icu_7711TailoredSet3addEi(ptr noundef nonnull align 8 dereferenceable(100) %0, i32 noundef %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.icu_77::UnicodeString", align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %5 = load i16, ptr %4, align 8, !tbaa !58
+  %5 = load i16, ptr %4, align 8, !tbaa !57
   %6 = icmp ult i16 %5, 32
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %8 = load ptr, ptr %7, align 8
@@ -1377,13 +1377,13 @@ define void @_ZN6icu_7711TailoredSet3addEi(ptr noundef nonnull align 8 dereferen
           to label %17 unwind label %29
 
 17:                                               ; preds = %14
-  %18 = load ptr, ptr %7, align 8, !tbaa !61
+  %18 = load ptr, ptr %7, align 8, !tbaa !60
   %.not4 = icmp eq ptr %18, null
   br i1 %.not4, label %_ZN6icu_7713UnicodeString6appendERKS0_.exit, label %19
 
 19:                                               ; preds = %17
   %20 = getelementptr inbounds nuw i8, ptr %18, i64 8
-  %21 = load i16, ptr %20, align 8, !tbaa !58
+  %21 = load i16, ptr %20, align 8, !tbaa !57
   %22 = icmp slt i16 %21, 0
   %23 = ashr i16 %21, 5
   %24 = sext i16 %23 to i32
@@ -1433,7 +1433,7 @@ define void @_ZN6icu_7711TailoredSet9addPrefixEPKNS_13CollationDataERKNS_13Unico
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %8 = tail call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeStringaSERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %7, ptr noundef nonnull align 8 dereferenceable(64) %2)
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %10 = load i16, ptr %9, align 8, !tbaa !58
+  %10 = load i16, ptr %9, align 8, !tbaa !57
   %11 = icmp slt i16 %10, 0
   %12 = ashr i16 %10, 5
   %13 = sext i16 %12 to i32
@@ -1448,7 +1448,7 @@ define void @_ZN6icu_7711TailoredSet9addPrefixEPKNS_13CollationDataERKNS_13Unico
 
 20:                                               ; preds = %5
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %22 = load ptr, ptr %21, align 8, !tbaa !42
+  %22 = load ptr, ptr %21, align 8, !tbaa !41
   %23 = lshr i32 %18, 13
   %24 = zext nneg i32 %23 to i64
   %25 = getelementptr inbounds nuw i16, ptr %22, i64 %24
@@ -1471,12 +1471,12 @@ define void @_ZN6icu_7711TailoredSet9addPrefixEPKNS_13CollationDataERKNS_13Unico
 33:                                               ; preds = %31
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %6) #9
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6) #9
-  %34 = load i16, ptr %9, align 8, !tbaa !58
+  %34 = load i16, ptr %9, align 8, !tbaa !57
   %35 = and i16 %34, 1
   %.not.i.i = icmp eq i16 %35, 0
   %36 = and i16 %34, 30
   %storemerge.i.i = select i1 %.not.i.i, i16 %36, i16 2
-  store i16 %storemerge.i.i, ptr %9, align 8, !tbaa !58
+  store i16 %storemerge.i.i, ptr %9, align 8, !tbaa !57
   ret void
 
 37:                                               ; preds = %31, %27
@@ -1506,7 +1506,7 @@ define void @_ZN6icu_7711TailoredSet9addSuffixEiRKNS_13UnicodeStringE(ptr nounde
 
 9:                                                ; preds = %3
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %11 = load i16, ptr %10, align 8, !tbaa !58
+  %11 = load i16, ptr %10, align 8, !tbaa !57
   %12 = icmp slt i16 %11, 0
   %13 = ashr i16 %11, 5
   %14 = sext i16 %13 to i32
@@ -1561,7 +1561,7 @@ define void @_ZN6icu_7725ContractionsAndExpansions7forDataEPKNS_13CollationDataE
 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 760
-  store i32 %4, ptr %7, align 8, !tbaa !62
+  store i32 %4, ptr %7, align 8, !tbaa !61
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %9 = load ptr, ptr %8, align 8, !tbaa !17
   %.not9 = icmp eq ptr %9, null
@@ -1569,11 +1569,11 @@ define void @_ZN6icu_7725ContractionsAndExpansions7forDataEPKNS_13CollationDataE
 
 10:                                               ; preds = %6
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 33
-  store i8 -1, ptr %11, align 1, !tbaa !72
+  store i8 -1, ptr %11, align 1, !tbaa !71
   br label %12
 
 12:                                               ; preds = %10, %6
-  store ptr %1, ptr %0, align 8, !tbaa !73
+  store ptr %1, ptr %0, align 8, !tbaa !72
   %13 = load ptr, ptr %1, align 8, !tbaa !28
   tail call void @utrie2_enum_77(ptr noundef %13, ptr noundef null, ptr noundef nonnull @_ZN6icu_77L12enumCnERangeEPKviij, ptr noundef nonnull %0)
   %14 = load ptr, ptr %8, align 8, !tbaa !17
@@ -1587,12 +1587,12 @@ define void @_ZN6icu_7725ContractionsAndExpansions7forDataEPKNS_13CollationDataE
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %20 = tail call noundef ptr @_ZN6icu_7710UnicodeSet6freezeEv(ptr noundef nonnull align 8 dereferenceable(200) %19)
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 33
-  store i8 1, ptr %21, align 1, !tbaa !72
+  store i8 1, ptr %21, align 1, !tbaa !71
   %22 = load ptr, ptr %8, align 8, !tbaa !17
-  store ptr %22, ptr %0, align 8, !tbaa !73
+  store ptr %22, ptr %0, align 8, !tbaa !72
   %23 = load ptr, ptr %22, align 8, !tbaa !28
   tail call void @utrie2_enum_77(ptr noundef %23, ptr noundef null, ptr noundef nonnull @_ZN6icu_77L12enumCnERangeEPKviij, ptr noundef nonnull %0)
-  %24 = load i32, ptr %7, align 8, !tbaa !62
+  %24 = load i32, ptr %7, align 8, !tbaa !61
   br label %.sink.split
 
 .sink.split:                                      ; preds = %12, %18
@@ -1607,7 +1607,7 @@ define void @_ZN6icu_7725ContractionsAndExpansions7forDataEPKNS_13CollationDataE
 ; Function Attrs: mustprogress uwtable
 define internal noundef signext range(i8 0, 2) i8 @_ZN6icu_77L12enumCnERangeEPKviij(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) #0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 33
-  %6 = load i8, ptr %5, align 1, !tbaa !72
+  %6 = load i8, ptr %5, align 1, !tbaa !71
   %7 = icmp eq i8 %6, 0
   br i1 %7, label %31, label %8
 
@@ -1654,7 +1654,7 @@ define internal noundef signext range(i8 0, 2) i8 @_ZN6icu_77L12enumCnERangeEPKv
   tail call void @_ZN6icu_7725ContractionsAndExpansions10handleCE32Eiij(ptr noundef nonnull align 8 dereferenceable(764) %0, i32 noundef %28, i32 noundef %29, i32 noundef %3)
   %30 = add nuw nsw i32 %.039, 1
   %exitcond.not = icmp eq i32 %30, %26
-  br i1 %exitcond.not, label %.sink.split, label %.lr.ph, !llvm.loop !74
+  br i1 %exitcond.not, label %.sink.split, label %.lr.ph, !llvm.loop !73
 
 31:                                               ; preds = %12, %20, %18, %4
   tail call void @_ZN6icu_7725ContractionsAndExpansions10handleCE32Eiij(ptr noundef nonnull align 8 dereferenceable(764) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3)
@@ -1662,7 +1662,7 @@ define internal noundef signext range(i8 0, 2) i8 @_ZN6icu_77L12enumCnERangeEPKv
 
 .sink.split:                                      ; preds = %.lr.ph, %22, %31
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 760
-  %33 = load i32, ptr %32, align 8, !tbaa !62
+  %33 = load i32, ptr %32, align 8, !tbaa !61
   %34 = icmp slt i32 %33, 1
   %35 = zext i1 %34 to i8
   br label %36
@@ -1682,7 +1682,7 @@ define void @_ZN6icu_7725ContractionsAndExpansions12forCodePointEPKNS_13Collatio
 
 7:                                                ; preds = %4
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 760
-  store i32 %5, ptr %8, align 8, !tbaa !62
+  store i32 %5, ptr %8, align 8, !tbaa !61
   %9 = load ptr, ptr %1, align 8, !tbaa !28
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %11 = load ptr, ptr %10, align 8, !tbaa !29
@@ -1857,9 +1857,9 @@ _ZNK6icu_7713CollationData7getCE32Ei.exit16:      ; preds = %.thread, %.thread18
 140:                                              ; preds = %_ZNK6icu_7713CollationData7getCE32Ei.exit.thread17, %_ZNK6icu_7713CollationData7getCE32Ei.exit.thread, %_ZNK6icu_7713CollationData7getCE32Ei.exit16, %_ZNK6icu_7713CollationData7getCE32Ei.exit
   %.013 = phi ptr [ %135, %_ZNK6icu_7713CollationData7getCE32Ei.exit16 ], [ %1, %_ZNK6icu_7713CollationData7getCE32Ei.exit ], [ %1, %_ZNK6icu_7713CollationData7getCE32Ei.exit.thread ], [ %1, %_ZNK6icu_7713CollationData7getCE32Ei.exit.thread17 ]
   %.0 = phi i32 [ %139, %_ZNK6icu_7713CollationData7getCE32Ei.exit16 ], [ %44, %_ZNK6icu_7713CollationData7getCE32Ei.exit ], [ %73, %_ZNK6icu_7713CollationData7getCE32Ei.exit.thread ], [ %60, %_ZNK6icu_7713CollationData7getCE32Ei.exit.thread17 ]
-  store ptr %.013, ptr %0, align 8, !tbaa !73
+  store ptr %.013, ptr %0, align 8, !tbaa !72
   tail call void @_ZN6icu_7725ContractionsAndExpansions10handleCE32Eiij(ptr noundef nonnull align 8 dereferenceable(764) %0, i32 noundef %2, i32 noundef %2, i32 noundef %.0)
-  %141 = load i32, ptr %8, align 8, !tbaa !62
+  %141 = load i32, ptr %8, align 8, !tbaa !61
   store i32 %141, ptr %3, align 4, !tbaa !3
   br label %142
 
@@ -1883,7 +1883,7 @@ define void @_ZN6icu_7725ContractionsAndExpansions10handleCE32Eiij(ptr noundef n
 ._crit_edge:                                      ; preds = %236, %4
   %.0.lcssa = phi i32 [ %3, %4 ], [ %.1, %236 ]
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %11 = load ptr, ptr %10, align 8, !tbaa !75
+  %11 = load ptr, ptr %10, align 8, !tbaa !74
   %.not70 = icmp eq ptr %11, null
   br i1 %.not70, label %_ZN6icu_7725ContractionsAndExpansions13addExpansionsEii.exit, label %12
 
@@ -1899,7 +1899,7 @@ define void @_ZN6icu_7725ContractionsAndExpansions10handleCE32Eiij(ptr noundef n
   %21 = and i32 %20, 65280
   %22 = zext nneg i32 %21 to i64
   %23 = or disjoint i64 %19, %22
-  %24 = load ptr, ptr %11, align 8, !tbaa !76
+  %24 = load ptr, ptr %11, align 8, !tbaa !75
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 16
   %26 = load ptr, ptr %25, align 8
   tail call void %26(ptr noundef nonnull align 8 dereferenceable(8) %11, i64 noundef %23)
@@ -1929,17 +1929,17 @@ define void @_ZN6icu_7725ContractionsAndExpansions10handleCE32Eiij(ptr noundef n
 
 29:                                               ; preds = %27, %27, %27
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 760
-  %31 = load i32, ptr %30, align 8, !tbaa !62
+  %31 = load i32, ptr %30, align 8, !tbaa !61
   %32 = icmp sgt i32 %31, 0
   br i1 %32, label %_ZN6icu_7725ContractionsAndExpansions13addExpansionsEii.exit, label %33
 
 33:                                               ; preds = %29
-  store i32 5, ptr %30, align 8, !tbaa !62
+  store i32 5, ptr %30, align 8, !tbaa !61
   br label %_ZN6icu_7725ContractionsAndExpansions13addExpansionsEii.exit
 
 34:                                               ; preds = %27
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %36 = load ptr, ptr %35, align 8, !tbaa !75
+  %36 = load ptr, ptr %35, align 8, !tbaa !74
   %.not68 = icmp eq ptr %36, null
   br i1 %.not68, label %_ZN6icu_7725ContractionsAndExpansions13addExpansionsEii.exit, label %37
 
@@ -1948,7 +1948,7 @@ define void @_ZN6icu_7725ContractionsAndExpansions10handleCE32Eiij(ptr noundef n
   %39 = zext i32 %38 to i64
   %40 = shl nuw i64 %39, 32
   %41 = or disjoint i64 %40, 83887360
-  %42 = load ptr, ptr %36, align 8, !tbaa !76
+  %42 = load ptr, ptr %36, align 8, !tbaa !75
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 16
   %44 = load ptr, ptr %43, align 8
   tail call void %44(ptr noundef nonnull align 8 dereferenceable(8) %36, i64 noundef %41)
@@ -1956,14 +1956,14 @@ define void @_ZN6icu_7725ContractionsAndExpansions10handleCE32Eiij(ptr noundef n
 
 45:                                               ; preds = %27
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %47 = load ptr, ptr %46, align 8, !tbaa !75
+  %47 = load ptr, ptr %46, align 8, !tbaa !74
   %.not67 = icmp eq ptr %47, null
   br i1 %.not67, label %_ZN6icu_7725ContractionsAndExpansions13addExpansionsEii.exit, label %48
 
 48:                                               ; preds = %45
   %49 = and i32 %.093, -256
   %50 = zext i32 %49 to i64
-  %51 = load ptr, ptr %47, align 8, !tbaa !76
+  %51 = load ptr, ptr %47, align 8, !tbaa !75
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 16
   %53 = load ptr, ptr %52, align 8
   tail call void %53(ptr noundef nonnull align 8 dereferenceable(8) %47, i64 noundef %50)
@@ -1971,7 +1971,7 @@ define void @_ZN6icu_7725ContractionsAndExpansions10handleCE32Eiij(ptr noundef n
 
 54:                                               ; preds = %27
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %56 = load ptr, ptr %55, align 8, !tbaa !75
+  %56 = load ptr, ptr %55, align 8, !tbaa !74
   %.not65 = icmp eq ptr %56, null
   br i1 %.not65, label %75, label %57
 
@@ -1985,14 +1985,14 @@ define void @_ZN6icu_7725ContractionsAndExpansions10handleCE32Eiij(ptr noundef n
   %64 = or disjoint i64 %60, %63
   %65 = or disjoint i64 %64, 83886080
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 512
-  store i64 %65, ptr %66, align 8, !tbaa !53
+  store i64 %65, ptr %66, align 8, !tbaa !52
   %67 = shl i32 %.093, 16
   %68 = and i32 %67, -16777216
   %69 = or disjoint i32 %68, 1280
   %70 = zext i32 %69 to i64
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 520
-  store i64 %70, ptr %71, align 8, !tbaa !53
-  %72 = load ptr, ptr %56, align 8, !tbaa !76
+  store i64 %70, ptr %71, align 8, !tbaa !52
+  %72 = load ptr, ptr %56, align 8, !tbaa !75
   %73 = getelementptr inbounds nuw i8, ptr %72, i64 24
   %74 = load ptr, ptr %73, align 8
   tail call void %74(ptr noundef nonnull align 8 dereferenceable(8) %56, ptr noundef nonnull %66, i32 noundef 2)
@@ -2000,7 +2000,7 @@ define void @_ZN6icu_7725ContractionsAndExpansions10handleCE32Eiij(ptr noundef n
 
 75:                                               ; preds = %57, %54
   %76 = getelementptr inbounds nuw i8, ptr %0, i64 448
-  %77 = load i16, ptr %76, align 8, !tbaa !58
+  %77 = load i16, ptr %76, align 8, !tbaa !57
   %78 = icmp ugt i16 %77, 31
   br i1 %78, label %_ZN6icu_7725ContractionsAndExpansions13addExpansionsEii.exit, label %79
 
@@ -2009,7 +2009,7 @@ define void @_ZN6icu_7725ContractionsAndExpansions10handleCE32Eiij(ptr noundef n
   %81 = load ptr, ptr %80, align 8
   %82 = icmp eq ptr %81, null
   %83 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %84 = load ptr, ptr %83, align 8, !tbaa !78
+  %84 = load ptr, ptr %83, align 8, !tbaa !77
   br i1 %82, label %85, label %88
 
 85:                                               ; preds = %79
@@ -2026,7 +2026,7 @@ define void @_ZN6icu_7725ContractionsAndExpansions10handleCE32Eiij(ptr noundef n
 
 89:                                               ; preds = %27
   %90 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %91 = load ptr, ptr %90, align 8, !tbaa !75
+  %91 = load ptr, ptr %90, align 8, !tbaa !74
   %.not63 = icmp eq ptr %91, null
   br i1 %.not63, label %129, label %92
 
@@ -2037,7 +2037,7 @@ define void @_ZN6icu_7725ContractionsAndExpansions10handleCE32Eiij(ptr noundef n
   br i1 %.not103, label %._crit_edge102, label %.lr.ph101
 
 .lr.ph101:                                        ; preds = %92
-  %95 = load ptr, ptr %9, align 8, !tbaa !55
+  %95 = load ptr, ptr %9, align 8, !tbaa !54
   %96 = lshr i32 %.093, 13
   %97 = zext nneg i32 %96 to i64
   %98 = getelementptr inbounds nuw i32, ptr %95, i64 %97
@@ -2047,7 +2047,7 @@ define void @_ZN6icu_7725ContractionsAndExpansions10handleCE32Eiij(ptr noundef n
 
 ._crit_edge102:                                   ; preds = %_ZN6icu_779Collation10ceFromCE32Ej.exit, %92
   %100 = getelementptr inbounds nuw i8, ptr %0, i64 512
-  %101 = load ptr, ptr %91, align 8, !tbaa !76
+  %101 = load ptr, ptr %91, align 8, !tbaa !75
   %102 = getelementptr inbounds nuw i8, ptr %101, i64 24
   %103 = load ptr, ptr %102, align 8
   tail call void %103(ptr noundef nonnull align 8 dereferenceable(8) %91, ptr noundef nonnull %100, i32 noundef %94)
@@ -2090,14 +2090,14 @@ define void @_ZN6icu_7725ContractionsAndExpansions10handleCE32Eiij(ptr noundef n
 _ZN6icu_779Collation10ceFromCE32Ej.exit:          ; preds = %109, %120, %125
   %.0.i = phi i64 [ %119, %109 ], [ %127, %125 ], [ %124, %120 ]
   %128 = getelementptr inbounds nuw [31 x i64], ptr %99, i64 0, i64 %indvars.iv
-  store i64 %.0.i, ptr %128, align 8, !tbaa !53
+  store i64 %.0.i, ptr %128, align 8, !tbaa !52
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond116.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond116.not, label %._crit_edge102, label %104, !llvm.loop !79
+  br i1 %exitcond116.not, label %._crit_edge102, label %104, !llvm.loop !78
 
 129:                                              ; preds = %._crit_edge102, %89
   %130 = getelementptr inbounds nuw i8, ptr %0, i64 448
-  %131 = load i16, ptr %130, align 8, !tbaa !58
+  %131 = load i16, ptr %130, align 8, !tbaa !57
   %132 = icmp ugt i16 %131, 31
   br i1 %132, label %_ZN6icu_7725ContractionsAndExpansions13addExpansionsEii.exit, label %133
 
@@ -2106,7 +2106,7 @@ _ZN6icu_779Collation10ceFromCE32Ej.exit:          ; preds = %109, %120, %125
   %135 = load ptr, ptr %134, align 8
   %136 = icmp eq ptr %135, null
   %137 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %138 = load ptr, ptr %137, align 8, !tbaa !78
+  %138 = load ptr, ptr %137, align 8, !tbaa !77
   br i1 %136, label %139, label %142
 
 139:                                              ; preds = %133
@@ -2123,7 +2123,7 @@ _ZN6icu_779Collation10ceFromCE32Ej.exit:          ; preds = %109, %120, %125
 
 143:                                              ; preds = %27
   %144 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %145 = load ptr, ptr %144, align 8, !tbaa !75
+  %145 = load ptr, ptr %144, align 8, !tbaa !74
   %.not61 = icmp eq ptr %145, null
   br i1 %.not61, label %157, label %146
 
@@ -2131,11 +2131,11 @@ _ZN6icu_779Collation10ceFromCE32Ej.exit:          ; preds = %109, %120, %125
   %147 = lshr i32 %.093, 8
   %148 = and i32 %147, 31
   %149 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  %150 = load ptr, ptr %149, align 8, !tbaa !52
+  %150 = load ptr, ptr %149, align 8, !tbaa !51
   %151 = lshr i32 %.093, 13
   %152 = zext nneg i32 %151 to i64
   %153 = getelementptr inbounds nuw i64, ptr %150, i64 %152
-  %154 = load ptr, ptr %145, align 8, !tbaa !76
+  %154 = load ptr, ptr %145, align 8, !tbaa !75
   %155 = getelementptr inbounds nuw i8, ptr %154, i64 24
   %156 = load ptr, ptr %155, align 8
   tail call void %156(ptr noundef nonnull align 8 dereferenceable(8) %145, ptr noundef %153, i32 noundef %148)
@@ -2143,7 +2143,7 @@ _ZN6icu_779Collation10ceFromCE32Ej.exit:          ; preds = %109, %120, %125
 
 157:                                              ; preds = %146, %143
   %158 = getelementptr inbounds nuw i8, ptr %0, i64 448
-  %159 = load i16, ptr %158, align 8, !tbaa !58
+  %159 = load i16, ptr %158, align 8, !tbaa !57
   %160 = icmp ugt i16 %159, 31
   br i1 %160, label %_ZN6icu_7725ContractionsAndExpansions13addExpansionsEii.exit, label %161
 
@@ -2152,7 +2152,7 @@ _ZN6icu_779Collation10ceFromCE32Ej.exit:          ; preds = %109, %120, %125
   %163 = load ptr, ptr %162, align 8
   %164 = icmp eq ptr %163, null
   %165 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %166 = load ptr, ptr %165, align 8, !tbaa !78
+  %166 = load ptr, ptr %165, align 8, !tbaa !77
   br i1 %164, label %167, label %170
 
 167:                                              ; preds = %161
@@ -2176,19 +2176,19 @@ _ZN6icu_779Collation10ceFromCE32Ej.exit:          ; preds = %109, %120, %125
   br label %_ZN6icu_7725ContractionsAndExpansions13addExpansionsEii.exit
 
 173:                                              ; preds = %27
-  %174 = load ptr, ptr %9, align 8, !tbaa !55
+  %174 = load ptr, ptr %9, align 8, !tbaa !54
   %175 = lshr i32 %.093, 13
   %176 = zext nneg i32 %175 to i64
   %177 = getelementptr inbounds nuw i32, ptr %174, i64 %176
   br label %236
 
 178:                                              ; preds = %27
-  %179 = load ptr, ptr %9, align 8, !tbaa !55
+  %179 = load ptr, ptr %9, align 8, !tbaa !54
   br label %236
 
 180:                                              ; preds = %27
   %181 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %182 = load ptr, ptr %181, align 8, !tbaa !75
+  %182 = load ptr, ptr %181, align 8, !tbaa !74
   %.not56 = icmp eq ptr %182, null
   br i1 %.not56, label %222, label %183
 
@@ -2196,27 +2196,27 @@ _ZN6icu_779Collation10ceFromCE32Ej.exit:          ; preds = %109, %120, %125
   call void @llvm.lifetime.start.p0(i64 416, ptr nonnull %5) #9
   %184 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %185 = load ptr, ptr %8, align 8, !tbaa !28
-  store ptr %185, ptr %184, align 8, !tbaa !80
+  store ptr %185, ptr %184, align 8, !tbaa !79
   %186 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store ptr %8, ptr %186, align 8, !tbaa !85
+  store ptr %8, ptr %186, align 8, !tbaa !84
   %187 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  store i32 0, ptr %187, align 8, !tbaa !86
+  store i32 0, ptr %187, align 8, !tbaa !85
   %188 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %189 = getelementptr inbounds nuw i8, ptr %5, i64 48
-  store ptr %189, ptr %188, align 8, !tbaa !87
+  store ptr %189, ptr %188, align 8, !tbaa !86
   %190 = getelementptr inbounds nuw i8, ptr %5, i64 40
-  store i32 40, ptr %190, align 8, !tbaa !88
+  store i32 40, ptr %190, align 8, !tbaa !87
   %191 = getelementptr inbounds nuw i8, ptr %5, i64 44
-  store i8 0, ptr %191, align 4, !tbaa !89
+  store i8 0, ptr %191, align 4, !tbaa !88
   %192 = getelementptr inbounds nuw i8, ptr %5, i64 368
-  store i32 0, ptr %192, align 8, !tbaa !90
+  store i32 0, ptr %192, align 8, !tbaa !89
   %193 = getelementptr inbounds nuw i8, ptr %5, i64 376
-  store ptr null, ptr %193, align 8, !tbaa !91
+  store ptr null, ptr %193, align 8, !tbaa !90
   %194 = getelementptr inbounds nuw i8, ptr %5, i64 384
-  store i32 -1, ptr %194, align 8, !tbaa !92
+  store i32 -1, ptr %194, align 8, !tbaa !91
   %195 = getelementptr inbounds nuw i8, ptr %5, i64 388
-  store i8 0, ptr %195, align 4, !tbaa !93
-  store ptr getelementptr inbounds nuw inrange(-16, 128) (i8, ptr @_ZTVN6icu_7722UTF16CollationIteratorE, i64 16), ptr %5, align 8, !tbaa !76
+  store i8 0, ptr %195, align 4, !tbaa !92
+  store ptr getelementptr inbounds nuw inrange(-16, 128) (i8, ptr @_ZTVN6icu_7722UTF16CollationIteratorE, i64 16), ptr %5, align 8, !tbaa !75
   %196 = getelementptr inbounds nuw i8, ptr %5, i64 392
   %197 = getelementptr inbounds nuw i8, ptr %5, i64 400
   %198 = getelementptr inbounds nuw i8, ptr %5, i64 408
@@ -2239,19 +2239,19 @@ _ZN6icu_779Collation10ceFromCE32Ej.exit:          ; preds = %109, %120, %125
 201:                                              ; preds = %.lr.ph97, %219
   %.04995 = phi i32 [ %1, %.lr.ph97 ], [ %220, %219 ]
   %202 = trunc i32 %.04995 to i16
-  store i16 %202, ptr %6, align 2, !tbaa !43
+  store i16 %202, ptr %6, align 2, !tbaa !42
   invoke void @_ZN6icu_7717CollationIterator5resetEv(ptr noundef nonnull align 8 dereferenceable(416) %5)
           to label %203 unwind label %208
 
 203:                                              ; preds = %201
-  store ptr %6, ptr %197, align 8, !tbaa !94
-  store ptr %6, ptr %196, align 8, !tbaa !96
-  store ptr %199, ptr %198, align 8, !tbaa !97
+  store ptr %6, ptr %197, align 8, !tbaa !93
+  store ptr %6, ptr %196, align 8, !tbaa !95
+  store ptr %199, ptr %198, align 8, !tbaa !96
   %204 = invoke noundef i32 @_ZN6icu_7717CollationIterator8fetchCEsER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(389) %5, ptr noundef nonnull align 4 dereferenceable(4) %200)
           to label %205 unwind label %210
 
 205:                                              ; preds = %203
-  %206 = load i32, ptr %200, align 8, !tbaa !62
+  %206 = load i32, ptr %200, align 8, !tbaa !61
   %207 = icmp slt i32 %206, 1
   br i1 %207, label %212, label %.critedge
 
@@ -2266,10 +2266,10 @@ _ZN6icu_779Collation10ceFromCE32Ej.exit:          ; preds = %109, %120, %125
   br label %221
 
 212:                                              ; preds = %205
-  %213 = load ptr, ptr %181, align 8, !tbaa !75
-  %214 = load ptr, ptr %188, align 8, !tbaa !87
+  %213 = load ptr, ptr %181, align 8, !tbaa !74
+  %214 = load ptr, ptr %188, align 8, !tbaa !86
   %215 = add nsw i32 %204, -1
-  %216 = load ptr, ptr %213, align 8, !tbaa !76
+  %216 = load ptr, ptr %213, align 8, !tbaa !75
   %217 = getelementptr inbounds nuw i8, ptr %216, i64 24
   %218 = load ptr, ptr %217, align 8
   invoke void %218(ptr noundef nonnull align 8 dereferenceable(8) %213, ptr noundef %214, i32 noundef %215)
@@ -2278,7 +2278,7 @@ _ZN6icu_779Collation10ceFromCE32Ej.exit:          ; preds = %109, %120, %125
 219:                                              ; preds = %212
   %220 = add i32 %.04995, 1
   %exitcond.not = icmp eq i32 %.04995, %2
-  br i1 %exitcond.not, label %.critedge.thread, label %201, !llvm.loop !98
+  br i1 %exitcond.not, label %.critedge.thread, label %201, !llvm.loop !97
 
 .critedge:                                        ; preds = %205
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %6) #9
@@ -2295,7 +2295,7 @@ _ZN6icu_779Collation10ceFromCE32Ej.exit:          ; preds = %109, %120, %125
 
 222:                                              ; preds = %.critedge.thread, %180
   %223 = getelementptr inbounds nuw i8, ptr %0, i64 448
-  %224 = load i16, ptr %223, align 8, !tbaa !58
+  %224 = load i16, ptr %223, align 8, !tbaa !57
   %225 = icmp ugt i16 %224, 31
   br i1 %225, label %_ZN6icu_7725ContractionsAndExpansions13addExpansionsEii.exit, label %226
 
@@ -2304,7 +2304,7 @@ _ZN6icu_779Collation10ceFromCE32Ej.exit:          ; preds = %109, %120, %125
   %228 = load ptr, ptr %227, align 8
   %229 = icmp eq ptr %228, null
   %230 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %231 = load ptr, ptr %230, align 8, !tbaa !78
+  %231 = load ptr, ptr %230, align 8, !tbaa !77
   br i1 %229, label %232, label %235
 
 232:                                              ; preds = %226
@@ -2327,7 +2327,7 @@ default.unreachable117:                           ; preds = %27
   %.1 = load i32, ptr %.1.in, align 4, !tbaa !37
   %237 = and i32 %.1, 192
   %.not = icmp eq i32 %237, 192
-  br i1 %.not, label %27, label %._crit_edge, !llvm.loop !99
+  br i1 %.not, label %27, label %._crit_edge, !llvm.loop !98
 
 _ZN6icu_7725ContractionsAndExpansions13addExpansionsEii.exit: ; preds = %27, %27, %27, %235, %233, %232, %.critedge, %170, %168, %167, %142, %140, %139, %88, %86, %85, %222, %157, %129, %75, %45, %48, %34, %37, %29, %33, %._crit_edge, %12, %172, %171
   ret void
@@ -2336,14 +2336,14 @@ _ZN6icu_7725ContractionsAndExpansions13addExpansionsEii.exit: ; preds = %27, %27
 ; Function Attrs: mustprogress uwtable
 define void @_ZN6icu_7725ContractionsAndExpansions13addExpansionsEii(ptr noundef nonnull align 8 dereferenceable(764) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 448
-  %5 = load i16, ptr %4, align 8, !tbaa !58
+  %5 = load i16, ptr %4, align 8, !tbaa !57
   %6 = icmp ult i16 %5, 32
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 504
   %8 = load ptr, ptr %7, align 8
   %9 = icmp eq ptr %8, null
   %or.cond = select i1 %6, i1 %9, i1 false
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %11 = load ptr, ptr %10, align 8, !tbaa !78
+  %11 = load ptr, ptr %10, align 8, !tbaa !77
   br i1 %or.cond, label %12, label %15
 
 12:                                               ; preds = %3
@@ -2366,36 +2366,36 @@ define void @_ZN6icu_7725ContractionsAndExpansions13addExpansionsEii(ptr noundef
 define void @_ZN6icu_7725ContractionsAndExpansions14handlePrefixesEiij(ptr noundef nonnull align 8 dereferenceable(764) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.icu_77::UCharsTrie::Iterator", align 8
   %6 = alloca %"class.icu_77::ConstChar16Ptr", align 8
-  %7 = load ptr, ptr %0, align 8, !tbaa !73
+  %7 = load ptr, ptr %0, align 8, !tbaa !72
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  %9 = load ptr, ptr %8, align 8, !tbaa !42
+  %9 = load ptr, ptr %8, align 8, !tbaa !41
   %10 = lshr i32 %3, 13
   %11 = zext nneg i32 %10 to i64
   %12 = getelementptr inbounds nuw i16, ptr %9, i64 %11
-  %13 = load i16, ptr %12, align 2, !tbaa !43
+  %13 = load i16, ptr %12, align 2, !tbaa !42
   %14 = zext i16 %13 to i32
   %15 = shl nuw i32 %14, 16
   %16 = getelementptr inbounds nuw i8, ptr %12, i64 2
-  %17 = load i16, ptr %16, align 2, !tbaa !43
+  %17 = load i16, ptr %16, align 2, !tbaa !42
   %18 = zext i16 %17 to i32
   %19 = or disjoint i32 %15, %18
   tail call void @_ZN6icu_7725ContractionsAndExpansions10handleCE32Eiij(ptr noundef nonnull align 8 dereferenceable(764) %0, i32 noundef %1, i32 noundef %2, i32 noundef %19)
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %21 = load i8, ptr %20, align 8, !tbaa !100
+  %21 = load i8, ptr %20, align 8, !tbaa !99
   %.not = icmp eq i8 %21, 0
   br i1 %.not, label %60, label %22
 
 22:                                               ; preds = %4
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %5) #9
   %23 = getelementptr inbounds nuw i8, ptr %12, i64 4
-  store ptr %23, ptr %6, align 8, !tbaa !45
+  store ptr %23, ptr %6, align 8, !tbaa !44
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 760
   invoke void @_ZN6icu_7710UCharsTrie8IteratorC1ENS_14ConstChar16PtrEiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(120) %5, ptr noundef nonnull %6, i32 noundef 0, ptr noundef nonnull align 4 dereferenceable(4) %24)
           to label %25 unwind label %51
 
 25:                                               ; preds = %22
-  %26 = load ptr, ptr %6, align 8, !tbaa !45
-  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %26) #9, !srcloc !47
+  %26 = load ptr, ptr %6, align 8, !tbaa !44
+  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %26) #9, !srcloc !46
   %27 = getelementptr inbounds nuw i8, ptr %5, i64 40
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 440
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 448
@@ -2418,7 +2418,7 @@ define void @_ZN6icu_7725ContractionsAndExpansions14handlePrefixesEiij(ptr nound
           to label %.noexc unwind label %54
 
 .noexc:                                           ; preds = %37
-  %39 = load i16, ptr %29, align 8, !tbaa !58
+  %39 = load i16, ptr %29, align 8, !tbaa !57
   %40 = icmp slt i16 %39, 0
   %41 = ashr i16 %39, 5
   %42 = sext i16 %41 to i32
@@ -2428,25 +2428,25 @@ define void @_ZN6icu_7725ContractionsAndExpansions14handlePrefixesEiij(ptr nound
           to label %_ZN6icu_7725ContractionsAndExpansions9setPrefixERKNS_13UnicodeStringE.exit unwind label %54
 
 _ZN6icu_7725ContractionsAndExpansions9setPrefixERKNS_13UnicodeStringE.exit: ; preds = %.noexc
-  %46 = load ptr, ptr %31, align 8, !tbaa !101
+  %46 = load ptr, ptr %31, align 8, !tbaa !100
   invoke void @_ZN6icu_7725ContractionsAndExpansions10addStringsEiiPNS_10UnicodeSetE(ptr noundef nonnull align 8 dereferenceable(764) %0, i32 noundef %1, i32 noundef %2, ptr noundef %46)
           to label %47 unwind label %54
 
 47:                                               ; preds = %_ZN6icu_7725ContractionsAndExpansions9setPrefixERKNS_13UnicodeStringE.exit
-  %48 = load ptr, ptr %32, align 8, !tbaa !78
+  %48 = load ptr, ptr %32, align 8, !tbaa !77
   invoke void @_ZN6icu_7725ContractionsAndExpansions10addStringsEiiPNS_10UnicodeSetE(ptr noundef nonnull align 8 dereferenceable(764) %0, i32 noundef %1, i32 noundef %2, ptr noundef %48)
           to label %49 unwind label %54
 
 49:                                               ; preds = %47
-  %50 = load i32, ptr %33, align 4, !tbaa !48
+  %50 = load i32, ptr %33, align 4, !tbaa !47
   invoke void @_ZN6icu_7725ContractionsAndExpansions10handleCE32Eiij(ptr noundef nonnull align 8 dereferenceable(764) %0, i32 noundef %1, i32 noundef %2, i32 noundef %50)
-          to label %34 unwind label %54, !llvm.loop !102
+          to label %34 unwind label %54, !llvm.loop !101
 
 51:                                               ; preds = %22
   %52 = landingpad { ptr, i32 }
           cleanup
-  %53 = load ptr, ptr %6, align 8, !tbaa !45
-  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %53) #9, !srcloc !47
+  %53 = load ptr, ptr %6, align 8, !tbaa !44
+  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %53) #9, !srcloc !46
   br label %61
 
 54:                                               ; preds = %.noexc, %37, %49, %47, %_ZN6icu_7725ContractionsAndExpansions9setPrefixERKNS_13UnicodeStringE.exit, %34
@@ -2456,12 +2456,12 @@ _ZN6icu_7725ContractionsAndExpansions9setPrefixERKNS_13UnicodeStringE.exit: ; pr
   br label %61
 
 56:                                               ; preds = %36
-  %57 = load i16, ptr %29, align 8, !tbaa !58
+  %57 = load i16, ptr %29, align 8, !tbaa !57
   %58 = and i16 %57, 1
   %.not.i.i = icmp eq i16 %58, 0
   %59 = and i16 %57, 30
   %storemerge.i.i = select i1 %.not.i.i, i16 %59, i16 2
-  store i16 %storemerge.i.i, ptr %29, align 8, !tbaa !58
+  store i16 %storemerge.i.i, ptr %29, align 8, !tbaa !57
   call void @_ZN6icu_7710UCharsTrie8IteratorD1Ev(ptr noundef nonnull align 8 dereferenceable(120) %5) #9
   call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %5) #9
   br label %60
@@ -2479,9 +2479,9 @@ _ZN6icu_7725ContractionsAndExpansions9setPrefixERKNS_13UnicodeStringE.exit: ; pr
 define void @_ZN6icu_7725ContractionsAndExpansions18handleContractionsEiij(ptr noundef nonnull align 8 dereferenceable(764) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.icu_77::UCharsTrie::Iterator", align 8
   %6 = alloca %"class.icu_77::ConstChar16Ptr", align 8
-  %7 = load ptr, ptr %0, align 8, !tbaa !73
+  %7 = load ptr, ptr %0, align 8, !tbaa !72
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  %9 = load ptr, ptr %8, align 8, !tbaa !42
+  %9 = load ptr, ptr %8, align 8, !tbaa !41
   %10 = lshr i32 %3, 13
   %11 = zext nneg i32 %10 to i64
   %12 = getelementptr inbounds nuw i16, ptr %9, i64 %11
@@ -2490,11 +2490,11 @@ define void @_ZN6icu_7725ContractionsAndExpansions18handleContractionsEiij(ptr n
   br i1 %.not, label %14, label %22
 
 14:                                               ; preds = %4
-  %15 = load i16, ptr %12, align 2, !tbaa !43
+  %15 = load i16, ptr %12, align 2, !tbaa !42
   %16 = zext i16 %15 to i32
   %17 = shl nuw i32 %16, 16
   %18 = getelementptr inbounds nuw i8, ptr %12, i64 2
-  %19 = load i16, ptr %18, align 2, !tbaa !43
+  %19 = load i16, ptr %18, align 2, !tbaa !42
   %20 = zext i16 %19 to i32
   %21 = or disjoint i32 %17, %20
   tail call void @_ZN6icu_7725ContractionsAndExpansions10handleCE32Eiij(ptr noundef nonnull align 8 dereferenceable(764) %0, i32 noundef %1, i32 noundef %2, i32 noundef %21)
@@ -2503,14 +2503,14 @@ define void @_ZN6icu_7725ContractionsAndExpansions18handleContractionsEiij(ptr n
 22:                                               ; preds = %4, %14
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %5) #9
   %23 = getelementptr inbounds nuw i8, ptr %12, i64 4
-  store ptr %23, ptr %6, align 8, !tbaa !45
+  store ptr %23, ptr %6, align 8, !tbaa !44
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 760
   invoke void @_ZN6icu_7710UCharsTrie8IteratorC1ENS_14ConstChar16PtrEiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(120) %5, ptr noundef nonnull %6, i32 noundef 0, ptr noundef nonnull align 4 dereferenceable(4) %24)
           to label %25 unwind label %43
 
 25:                                               ; preds = %22
-  %26 = load ptr, ptr %6, align 8, !tbaa !45
-  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %26) #9, !srcloc !47
+  %26 = load ptr, ptr %6, align 8, !tbaa !44
+  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %26) #9, !srcloc !46
   %27 = getelementptr inbounds nuw i8, ptr %5, i64 40
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 504
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -2528,26 +2528,26 @@ define void @_ZN6icu_7725ContractionsAndExpansions18handleContractionsEiij(ptr n
   br i1 %.not16, label %50, label %36
 
 36:                                               ; preds = %35
-  store ptr %27, ptr %28, align 8, !tbaa !103
-  %37 = load ptr, ptr %29, align 8, !tbaa !101
+  store ptr %27, ptr %28, align 8, !tbaa !102
+  %37 = load ptr, ptr %29, align 8, !tbaa !100
   invoke void @_ZN6icu_7725ContractionsAndExpansions10addStringsEiiPNS_10UnicodeSetE(ptr noundef nonnull align 8 dereferenceable(764) %0, i32 noundef %1, i32 noundef %2, ptr noundef %37)
           to label %38 unwind label %46
 
 38:                                               ; preds = %36
-  %39 = load i16, ptr %30, align 8, !tbaa !58
+  %39 = load i16, ptr %30, align 8, !tbaa !57
   %40 = icmp ugt i16 %39, 31
   br i1 %40, label %41, label %48
 
 41:                                               ; preds = %38
-  %42 = load ptr, ptr %31, align 8, !tbaa !78
+  %42 = load ptr, ptr %31, align 8, !tbaa !77
   invoke void @_ZN6icu_7725ContractionsAndExpansions10addStringsEiiPNS_10UnicodeSetE(ptr noundef nonnull align 8 dereferenceable(764) %0, i32 noundef %1, i32 noundef %2, ptr noundef %42)
           to label %48 unwind label %46
 
 43:                                               ; preds = %22
   %44 = landingpad { ptr, i32 }
           cleanup
-  %45 = load ptr, ptr %6, align 8, !tbaa !45
-  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %45) #9, !srcloc !47
+  %45 = load ptr, ptr %6, align 8, !tbaa !44
+  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %45) #9, !srcloc !46
   br label %51
 
 46:                                               ; preds = %48, %41, %36, %33
@@ -2557,12 +2557,12 @@ define void @_ZN6icu_7725ContractionsAndExpansions18handleContractionsEiij(ptr n
   br label %51
 
 48:                                               ; preds = %41, %38
-  %49 = load i32, ptr %32, align 4, !tbaa !48
+  %49 = load i32, ptr %32, align 4, !tbaa !47
   invoke void @_ZN6icu_7725ContractionsAndExpansions10handleCE32Eiij(ptr noundef nonnull align 8 dereferenceable(764) %0, i32 noundef %1, i32 noundef %2, i32 noundef %49)
-          to label %33 unwind label %46, !llvm.loop !104
+          to label %33 unwind label %46, !llvm.loop !103
 
 50:                                               ; preds = %35
-  store ptr null, ptr %28, align 8, !tbaa !103
+  store ptr null, ptr %28, align 8, !tbaa !102
   call void @_ZN6icu_7710UCharsTrie8IteratorD1Ev(ptr noundef nonnull align 8 dereferenceable(120) %5) #9
   call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %5) #9
   ret void
@@ -2605,13 +2605,13 @@ define void @_ZN6icu_7725ContractionsAndExpansions10addStringsEiiPNS_10UnicodeSe
           to label %16 unwind label %28
 
 16:                                               ; preds = %14
-  %17 = load ptr, ptr %9, align 8, !tbaa !103
+  %17 = load ptr, ptr %9, align 8, !tbaa !102
   %.not = icmp eq ptr %17, null
   br i1 %.not, label %_ZN6icu_7713UnicodeString6appendERKS0_.exit, label %18
 
 18:                                               ; preds = %16
   %19 = getelementptr inbounds nuw i8, ptr %17, i64 8
-  %20 = load i16, ptr %19, align 8, !tbaa !58
+  %20 = load i16, ptr %19, align 8, !tbaa !57
   %21 = icmp slt i16 %20, 0
   %22 = ashr i16 %20, 5
   %23 = sext i16 %22 to i32
@@ -2633,13 +2633,13 @@ _ZN6icu_7713UnicodeString6appendERKS0_.exit:      ; preds = %18, %16
           to label %31 unwind label %28
 
 31:                                               ; preds = %_ZN6icu_7713UnicodeString6appendERKS0_.exit
-  %32 = load i16, ptr %10, align 8, !tbaa !58
+  %32 = load i16, ptr %10, align 8, !tbaa !57
   %33 = icmp slt i16 %32, 0
   %34 = ashr i16 %32, 5
   %35 = sext i16 %34 to i32
   %36 = load i32, ptr %11, align 4
   %37 = select i1 %33, i32 %36, i32 %35
-  %38 = load i16, ptr %12, align 8, !tbaa !58
+  %38 = load i16, ptr %12, align 8, !tbaa !57
   %39 = and i16 %38, 1
   %40 = icmp ne i16 %39, 0
   %41 = icmp eq i32 %37, 0
@@ -2668,19 +2668,19 @@ _ZN6icu_7713UnicodeString6appendERKS0_.exit:      ; preds = %18, %16
   %.tr.i.i.i = trunc i32 %37 to i16
   %54 = shl i16 %.tr.i.i.i, 5
   %55 = or disjoint i16 %54, %53
-  store i16 %55, ptr %12, align 8, !tbaa !58
+  store i16 %55, ptr %12, align 8, !tbaa !57
   br label %_ZN6icu_7713UnicodeString8truncateEi.exit
 
 56:                                               ; preds = %50
   %57 = or i16 %38, -32
-  store i16 %57, ptr %12, align 8, !tbaa !58
-  store i32 %37, ptr %13, align 4, !tbaa !58
+  store i16 %57, ptr %12, align 8, !tbaa !57
+  store i32 %37, ptr %13, align 4, !tbaa !57
   br label %_ZN6icu_7713UnicodeString8truncateEi.exit
 
 _ZN6icu_7713UnicodeString8truncateEi.exit:        ; preds = %56, %52, %43, %42
   %58 = add i32 %.0, 1
   %exitcond.not = icmp eq i32 %.0, %smax
-  br i1 %exitcond.not, label %59, label %14, !llvm.loop !105
+  br i1 %exitcond.not, label %59, label %14, !llvm.loop !104
 
 59:                                               ; preds = %_ZN6icu_7713UnicodeString8truncateEi.exit
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %5) #9
@@ -2780,70 +2780,69 @@ attributes #10 = { noreturn nounwind }
 !36 = !{!30, !24, i64 48}
 !37 = !{!24, !24, i64 0}
 !38 = !{!8, !11, i64 16}
-!39 = distinct !{!39, !40, !41}
+!39 = distinct !{!39, !40}
 !40 = !{!"llvm.loop.mustprogress"}
-!41 = !{!"llvm.loop.estimated_trip_count"}
-!42 = !{!18, !22, i64 24}
-!43 = !{!44, !44, i64 0}
-!44 = !{!"char16_t", !5, i64 0}
-!45 = !{!46, !22, i64 0}
-!46 = !{!"_ZTSN6icu_7714ConstChar16PtrE", !22, i64 0}
-!47 = !{i64 2148866054}
-!48 = !{!49, !24, i64 108}
-!49 = !{!"_ZTSN6icu_7710UCharsTrie8IteratorE", !22, i64 0, !22, i64 8, !22, i64 16, !24, i64 24, !24, i64 28, !5, i64 32, !12, i64 40, !24, i64 104, !24, i64 108, !50, i64 112}
-!50 = !{!"p1 _ZTSN6icu_779UVector32E", !10, i64 0}
-!51 = distinct !{!51, !40, !41}
-!52 = !{!18, !21, i64 16}
-!53 = !{!54, !54, i64 0}
-!54 = !{!"long", !5, i64 0}
-!55 = !{!18, !20, i64 8}
-!56 = distinct !{!56, !40, !41}
-!57 = distinct !{!57, !40, !41}
-!58 = !{!5, !5, i64 0}
-!59 = distinct !{!59, !40, !41}
-!60 = distinct !{!60, !40, !41}
-!61 = !{!8, !15, i64 88}
-!62 = !{!63, !4, i64 760}
-!63 = !{!"_ZTSN6icu_7725ContractionsAndExpansionsE", !9, i64 0, !11, i64 8, !11, i64 16, !64, i64 24, !5, i64 32, !5, i64 33, !65, i64 40, !65, i64 240, !12, i64 440, !15, i64 504, !5, i64 512, !4, i64 760}
-!64 = !{!"p1 _ZTSN6icu_7725ContractionsAndExpansions6CESinkE", !10, i64 0}
-!65 = !{!"_ZTSN6icu_7710UnicodeSetE", !66, i64 0, !20, i64 16, !24, i64 24, !24, i64 28, !5, i64 32, !69, i64 40, !20, i64 48, !24, i64 56, !22, i64 64, !24, i64 72, !70, i64 80, !71, i64 88, !5, i64 96}
-!66 = !{!"_ZTSN6icu_7713UnicodeFilterE", !67, i64 0, !68, i64 8}
-!67 = !{!"_ZTSN6icu_7714UnicodeFunctorE", !14, i64 0}
-!68 = !{!"_ZTSN6icu_7714UnicodeMatcherE"}
-!69 = !{!"p1 _ZTSN6icu_776BMPSetE", !10, i64 0}
-!70 = !{!"p1 _ZTSN6icu_777UVectorE", !10, i64 0}
-!71 = !{!"p1 _ZTSN6icu_7720UnicodeSetStringSpanE", !10, i64 0}
-!72 = !{!63, !5, i64 33}
-!73 = !{!63, !9, i64 0}
-!74 = distinct !{!74, !40, !41}
-!75 = !{!63, !64, i64 24}
-!76 = !{!77, !77, i64 0}
-!77 = !{!"vtable pointer", !6, i64 0}
-!78 = !{!63, !11, i64 16}
-!79 = distinct !{!79, !40, !41}
-!80 = !{!81, !19, i64 8}
-!81 = !{!"_ZTSN6icu_7717CollationIteratorE", !14, i64 0, !19, i64 8, !9, i64 16, !82, i64 24, !24, i64 368, !84, i64 376, !24, i64 384, !5, i64 388}
-!82 = !{!"_ZTSN6icu_7717CollationIterator8CEBufferE", !24, i64 0, !83, i64 8}
-!83 = !{!"_ZTSN6icu_7715MaybeStackArrayIlLi40EEE", !21, i64 0, !24, i64 8, !5, i64 12, !5, i64 16}
-!84 = !{!"p1 _ZTSN6icu_7712SkippedStateE", !10, i64 0}
-!85 = !{!81, !9, i64 16}
-!86 = !{!82, !24, i64 0}
-!87 = !{!83, !21, i64 0}
-!88 = !{!83, !24, i64 8}
-!89 = !{!83, !5, i64 12}
-!90 = !{!81, !24, i64 368}
-!91 = !{!81, !84, i64 376}
-!92 = !{!81, !24, i64 384}
-!93 = !{!81, !5, i64 388}
-!94 = !{!95, !22, i64 400}
-!95 = !{!"_ZTSN6icu_7722UTF16CollationIteratorE", !81, i64 0, !22, i64 392, !22, i64 400, !22, i64 408}
-!96 = !{!95, !22, i64 392}
-!97 = !{!95, !22, i64 408}
-!98 = distinct !{!98, !40, !41}
-!99 = distinct !{!99, !40, !41}
-!100 = !{!63, !5, i64 32}
-!101 = !{!63, !11, i64 8}
-!102 = distinct !{!102, !40, !41}
-!103 = !{!63, !15, i64 504}
-!104 = distinct !{!104, !40, !41}
-!105 = distinct !{!105, !40, !41}
+!41 = !{!18, !22, i64 24}
+!42 = !{!43, !43, i64 0}
+!43 = !{!"char16_t", !5, i64 0}
+!44 = !{!45, !22, i64 0}
+!45 = !{!"_ZTSN6icu_7714ConstChar16PtrE", !22, i64 0}
+!46 = !{i64 2148866054}
+!47 = !{!48, !24, i64 108}
+!48 = !{!"_ZTSN6icu_7710UCharsTrie8IteratorE", !22, i64 0, !22, i64 8, !22, i64 16, !24, i64 24, !24, i64 28, !5, i64 32, !12, i64 40, !24, i64 104, !24, i64 108, !49, i64 112}
+!49 = !{!"p1 _ZTSN6icu_779UVector32E", !10, i64 0}
+!50 = distinct !{!50, !40}
+!51 = !{!18, !21, i64 16}
+!52 = !{!53, !53, i64 0}
+!53 = !{!"long", !5, i64 0}
+!54 = !{!18, !20, i64 8}
+!55 = distinct !{!55, !40}
+!56 = distinct !{!56, !40}
+!57 = !{!5, !5, i64 0}
+!58 = distinct !{!58, !40}
+!59 = distinct !{!59, !40}
+!60 = !{!8, !15, i64 88}
+!61 = !{!62, !4, i64 760}
+!62 = !{!"_ZTSN6icu_7725ContractionsAndExpansionsE", !9, i64 0, !11, i64 8, !11, i64 16, !63, i64 24, !5, i64 32, !5, i64 33, !64, i64 40, !64, i64 240, !12, i64 440, !15, i64 504, !5, i64 512, !4, i64 760}
+!63 = !{!"p1 _ZTSN6icu_7725ContractionsAndExpansions6CESinkE", !10, i64 0}
+!64 = !{!"_ZTSN6icu_7710UnicodeSetE", !65, i64 0, !20, i64 16, !24, i64 24, !24, i64 28, !5, i64 32, !68, i64 40, !20, i64 48, !24, i64 56, !22, i64 64, !24, i64 72, !69, i64 80, !70, i64 88, !5, i64 96}
+!65 = !{!"_ZTSN6icu_7713UnicodeFilterE", !66, i64 0, !67, i64 8}
+!66 = !{!"_ZTSN6icu_7714UnicodeFunctorE", !14, i64 0}
+!67 = !{!"_ZTSN6icu_7714UnicodeMatcherE"}
+!68 = !{!"p1 _ZTSN6icu_776BMPSetE", !10, i64 0}
+!69 = !{!"p1 _ZTSN6icu_777UVectorE", !10, i64 0}
+!70 = !{!"p1 _ZTSN6icu_7720UnicodeSetStringSpanE", !10, i64 0}
+!71 = !{!62, !5, i64 33}
+!72 = !{!62, !9, i64 0}
+!73 = distinct !{!73, !40}
+!74 = !{!62, !63, i64 24}
+!75 = !{!76, !76, i64 0}
+!76 = !{!"vtable pointer", !6, i64 0}
+!77 = !{!62, !11, i64 16}
+!78 = distinct !{!78, !40}
+!79 = !{!80, !19, i64 8}
+!80 = !{!"_ZTSN6icu_7717CollationIteratorE", !14, i64 0, !19, i64 8, !9, i64 16, !81, i64 24, !24, i64 368, !83, i64 376, !24, i64 384, !5, i64 388}
+!81 = !{!"_ZTSN6icu_7717CollationIterator8CEBufferE", !24, i64 0, !82, i64 8}
+!82 = !{!"_ZTSN6icu_7715MaybeStackArrayIlLi40EEE", !21, i64 0, !24, i64 8, !5, i64 12, !5, i64 16}
+!83 = !{!"p1 _ZTSN6icu_7712SkippedStateE", !10, i64 0}
+!84 = !{!80, !9, i64 16}
+!85 = !{!81, !24, i64 0}
+!86 = !{!82, !21, i64 0}
+!87 = !{!82, !24, i64 8}
+!88 = !{!82, !5, i64 12}
+!89 = !{!80, !24, i64 368}
+!90 = !{!80, !83, i64 376}
+!91 = !{!80, !24, i64 384}
+!92 = !{!80, !5, i64 388}
+!93 = !{!94, !22, i64 400}
+!94 = !{!"_ZTSN6icu_7722UTF16CollationIteratorE", !80, i64 0, !22, i64 392, !22, i64 400, !22, i64 408}
+!95 = !{!94, !22, i64 392}
+!96 = !{!94, !22, i64 408}
+!97 = distinct !{!97, !40}
+!98 = distinct !{!98, !40}
+!99 = !{!62, !5, i64 32}
+!100 = !{!62, !11, i64 8}
+!101 = distinct !{!101, !40}
+!102 = !{!62, !15, i64 504}
+!103 = distinct !{!103, !40}
+!104 = distinct !{!104, !40}

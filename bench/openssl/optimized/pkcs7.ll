@@ -105,7 +105,7 @@ define dso_local range(i32 0, 2) i32 @pkcs7_main(i32 noundef %0, ptr noundef %1)
   br label %8, !llvm.loop !11
 
 .loopexit109:                                     ; preds = %8, %16, %13, %33
-  %10 = load ptr, ptr @bio_err, align 8, !tbaa !14
+  %10 = load ptr, ptr @bio_err, align 8, !tbaa !13
   %11 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %10, ptr noundef nonnull @.str.34, ptr noundef %7) #3
   br label %.thread104
 
@@ -177,9 +177,9 @@ define dso_local range(i32 0, 2) i32 @pkcs7_main(i32 noundef %0, ptr noundef %1)
   br i1 %42, label %43, label %47
 
 43:                                               ; preds = %39
-  %44 = load ptr, ptr @bio_err, align 8, !tbaa !14
+  %44 = load ptr, ptr @bio_err, align 8, !tbaa !13
   %45 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %44, ptr noundef nonnull @.str.35) #3
-  %46 = load ptr, ptr @bio_err, align 8, !tbaa !14
+  %46 = load ptr, ptr @bio_err, align 8, !tbaa !13
   call void @ERR_print_errors(ptr noundef %46) #3
   br label %.thread104
 
@@ -202,9 +202,9 @@ define dso_local range(i32 0, 2) i32 @pkcs7_main(i32 noundef %0, ptr noundef %1)
   br i1 %55, label %56, label %60
 
 56:                                               ; preds = %54
-  %57 = load ptr, ptr @bio_err, align 8, !tbaa !14
+  %57 = load ptr, ptr @bio_err, align 8, !tbaa !13
   %58 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %57, ptr noundef nonnull @.str.36) #3
-  %59 = load ptr, ptr @bio_err, align 8, !tbaa !14
+  %59 = load ptr, ptr @bio_err, align 8, !tbaa !13
   call void @ERR_print_errors(ptr noundef %59) #3
   br label %.thread104
 
@@ -230,7 +230,7 @@ define dso_local range(i32 0, 2) i32 @pkcs7_main(i32 noundef %0, ptr noundef %1)
 69:                                               ; preds = %68
   %70 = load ptr, ptr %3, align 8, !tbaa !4
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 24
-  %72 = load ptr, ptr %71, align 8, !tbaa !16
+  %72 = load ptr, ptr %71, align 8, !tbaa !15
   %73 = call i32 @OBJ_obj2nid(ptr noundef %72) #3
   switch i32 %73, label %.thread104 [
     i32 22, label %74
@@ -240,23 +240,23 @@ define dso_local range(i32 0, 2) i32 @pkcs7_main(i32 noundef %0, ptr noundef %1)
 74:                                               ; preds = %69
   %75 = load ptr, ptr %3, align 8, !tbaa !4
   %76 = getelementptr inbounds nuw i8, ptr %75, i64 32
-  %77 = load ptr, ptr %76, align 8, !tbaa !23
+  %77 = load ptr, ptr %76, align 8, !tbaa !22
   %.not90 = icmp eq ptr %77, null
   br i1 %.not90, label %.thread104, label %82
 
 78:                                               ; preds = %69
   %79 = load ptr, ptr %3, align 8, !tbaa !4
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 32
-  %81 = load ptr, ptr %80, align 8, !tbaa !23
+  %81 = load ptr, ptr %80, align 8, !tbaa !22
   %.not89 = icmp eq ptr %81, null
   br i1 %.not89, label %.thread104, label %82
 
 82:                                               ; preds = %78, %74
   %.pn = phi ptr [ %77, %74 ], [ %81, %78 ]
   %.055.in = getelementptr inbounds nuw i8, ptr %.pn, i64 24
-  %.055 = load ptr, ptr %.055.in, align 8, !tbaa !24
+  %.055 = load ptr, ptr %.055.in, align 8, !tbaa !23
   %.056.in = getelementptr inbounds nuw i8, ptr %.pn, i64 16
-  %.056 = load ptr, ptr %.056.in, align 8, !tbaa !26
+  %.056 = load ptr, ptr %.056.in, align 8, !tbaa !25
   %.not91 = icmp eq ptr %.056, null
   br i1 %.not91, label %.loopexit, label %.preheader108
 
@@ -292,7 +292,7 @@ define dso_local range(i32 0, 2) i32 @pkcs7_main(i32 noundef %0, ptr noundef %1)
   %92 = add nuw nsw i32 %.070137.us, 1
   %93 = call i32 @OPENSSL_sk_num(ptr noundef nonnull %.056) #3
   %94 = icmp slt i32 %92, %93
-  br i1 %94, label %.lr.ph.split.us, label %.loopexit, !llvm.loop !28
+  br i1 %94, label %.lr.ph.split.us, label %.loopexit, !llvm.loop !27
 
 .lr.ph.split:                                     ; preds = %.lr.ph
   br i1 %.not96, label %.lr.ph.split.split.us, label %.lr.ph.split.split
@@ -306,7 +306,7 @@ define dso_local range(i32 0, 2) i32 @pkcs7_main(i32 noundef %0, ptr noundef %1)
   %99 = add nuw nsw i32 %.070137.us138, 1
   %100 = call i32 @OPENSSL_sk_num(ptr noundef nonnull %.056) #3
   %101 = icmp slt i32 %99, %100
-  br i1 %101, label %.lr.ph.split.split.us, label %.loopexit, !llvm.loop !30
+  br i1 %101, label %.lr.ph.split.split.us, label %.loopexit, !llvm.loop !29
 
 .lr.ph.split.split:                               ; preds = %.lr.ph.split, %.lr.ph.split.split
   %.070137 = phi i32 [ %105, %.lr.ph.split.split ], [ 0, %.lr.ph.split ]
@@ -316,7 +316,7 @@ define dso_local range(i32 0, 2) i32 @pkcs7_main(i32 noundef %0, ptr noundef %1)
   %105 = add nuw nsw i32 %.070137, 1
   %106 = call i32 @OPENSSL_sk_num(ptr noundef nonnull %.056) #3
   %107 = icmp slt i32 %105, %106
-  br i1 %107, label %.lr.ph.split.split, label %.loopexit, !llvm.loop !31
+  br i1 %107, label %.lr.ph.split.split, label %.loopexit, !llvm.loop !30
 
 .loopexit:                                        ; preds = %.lr.ph.split.split, %.lr.ph.split.split.us, %90, %.preheader108, %82
   %.not92 = icmp eq ptr %.055, null
@@ -341,7 +341,7 @@ define dso_local range(i32 0, 2) i32 @pkcs7_main(i32 noundef %0, ptr noundef %1)
   %115 = add nuw nsw i32 %.171139.us, 1
   %116 = call i32 @OPENSSL_sk_num(ptr noundef nonnull %.055) #3
   %117 = icmp slt i32 %115, %116
-  br i1 %117, label %.lr.ph140.split.us, label %.thread104, !llvm.loop !32
+  br i1 %117, label %.lr.ph140.split.us, label %.thread104, !llvm.loop !31
 
 .lr.ph140.split:                                  ; preds = %.lr.ph140, %.lr.ph140.split
   %.171139 = phi i32 [ %122, %.lr.ph140.split ], [ 0, %.lr.ph140 ]
@@ -352,7 +352,7 @@ define dso_local range(i32 0, 2) i32 @pkcs7_main(i32 noundef %0, ptr noundef %1)
   %122 = add nuw nsw i32 %.171139, 1
   %123 = call i32 @OPENSSL_sk_num(ptr noundef nonnull %.055) #3
   %124 = icmp slt i32 %122, %123
-  br i1 %124, label %.lr.ph140.split, label %.thread104, !llvm.loop !33
+  br i1 %124, label %.lr.ph140.split, label %.thread104, !llvm.loop !32
 
 125:                                              ; preds = %68
   %.not87 = icmp eq i32 %.064, 0
@@ -378,9 +378,9 @@ define dso_local range(i32 0, 2) i32 @pkcs7_main(i32 noundef %0, ptr noundef %1)
   br i1 %.not88, label %135, label %.thread104
 
 135:                                              ; preds = %134
-  %136 = load ptr, ptr @bio_err, align 8, !tbaa !14
+  %136 = load ptr, ptr @bio_err, align 8, !tbaa !13
   %137 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %136, ptr noundef nonnull @.str.38) #3
-  %138 = load ptr, ptr @bio_err, align 8, !tbaa !14
+  %138 = load ptr, ptr @bio_err, align 8, !tbaa !13
   call void @ERR_print_errors(ptr noundef %138) #3
   br label %.thread104
 
@@ -489,26 +489,25 @@ attributes #3 = { nounwind }
 !8 = !{!"Simple C/C++ TBAA"}
 !9 = !{!10, !10, i64 0}
 !10 = !{!"int", !7, i64 0}
-!11 = distinct !{!11, !12, !13}
+!11 = distinct !{!11, !12}
 !12 = !{!"llvm.loop.mustprogress"}
-!13 = !{!"llvm.loop.estimated_trip_count"}
-!14 = !{!15, !15, i64 0}
-!15 = !{!"p1 _ZTS6bio_st", !6, i64 0}
-!16 = !{!17, !20, i64 24}
-!17 = !{!"pkcs7_st", !18, i64 0, !19, i64 8, !10, i64 16, !10, i64 20, !20, i64 24, !7, i64 32, !21, i64 40}
-!18 = !{!"p1 omnipotent char", !6, i64 0}
-!19 = !{!"long", !7, i64 0}
-!20 = !{!"p1 _ZTS14asn1_object_st", !6, i64 0}
-!21 = !{!"PKCS7_CTX_st", !22, i64 0, !18, i64 8}
-!22 = !{!"p1 _ZTS15ossl_lib_ctx_st", !6, i64 0}
-!23 = !{!7, !7, i64 0}
-!24 = !{!25, !25, i64 0}
-!25 = !{!"p1 _ZTS17stack_st_X509_CRL", !6, i64 0}
-!26 = !{!27, !27, i64 0}
-!27 = !{!"p1 _ZTS13stack_st_X509", !6, i64 0}
-!28 = distinct !{!28, !12, !13, !29}
-!29 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!30 = distinct !{!30, !12, !13, !29}
-!31 = distinct !{!31, !12, !13}
-!32 = distinct !{!32, !12, !13, !29}
-!33 = distinct !{!33, !12, !13}
+!13 = !{!14, !14, i64 0}
+!14 = !{!"p1 _ZTS6bio_st", !6, i64 0}
+!15 = !{!16, !19, i64 24}
+!16 = !{!"pkcs7_st", !17, i64 0, !18, i64 8, !10, i64 16, !10, i64 20, !19, i64 24, !7, i64 32, !20, i64 40}
+!17 = !{!"p1 omnipotent char", !6, i64 0}
+!18 = !{!"long", !7, i64 0}
+!19 = !{!"p1 _ZTS14asn1_object_st", !6, i64 0}
+!20 = !{!"PKCS7_CTX_st", !21, i64 0, !17, i64 8}
+!21 = !{!"p1 _ZTS15ossl_lib_ctx_st", !6, i64 0}
+!22 = !{!7, !7, i64 0}
+!23 = !{!24, !24, i64 0}
+!24 = !{!"p1 _ZTS17stack_st_X509_CRL", !6, i64 0}
+!25 = !{!26, !26, i64 0}
+!26 = !{!"p1 _ZTS13stack_st_X509", !6, i64 0}
+!27 = distinct !{!27, !12, !28}
+!28 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!29 = distinct !{!29, !12, !28}
+!30 = distinct !{!30, !12}
+!31 = distinct !{!31, !12, !28}
+!32 = distinct !{!32, !12}

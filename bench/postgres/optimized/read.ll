@@ -81,7 +81,7 @@ define dso_local noundef ptr @pg_strtok(ptr noundef writeonly captures(none) %0)
   %.sink = phi i64 [ 1, %12 ], [ 2, %9 ]
   %14 = getelementptr inbounds nuw i8, ptr %.2, i64 %.sink
   %.pr = load i8, ptr %14, align 1
-  br label %.preheader, !llvm.loop !7
+  br label %.preheader, !llvm.loop !6
 
 .critedge2:                                       ; preds = %.preheader, %.preheader, %.preheader, %.preheader, %.preheader, %.preheader, %.preheader, %.preheader, %6
   %.1 = phi ptr [ %7, %6 ], [ %.2, %.preheader ], [ %.2, %.preheader ], [ %.2, %.preheader ], [ %.2, %.preheader ], [ %.2, %.preheader ], [ %.2, %.preheader ], [ %.2, %.preheader ], [ %.2, %.preheader ]
@@ -149,7 +149,7 @@ define dso_local ptr @debackslash(ptr noundef readonly captures(none) %0, i32 no
   %.114 = add nsw i32 %.01315, -1
   %14 = add nsw i32 %.114, %10
   %15 = icmp sgt i32 %14, 0
-  br i1 %15, label %.lr.ph, label %._crit_edge, !llvm.loop !8
+  br i1 %15, label %.lr.ph, label %._crit_edge, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   %.0.lcssa = phi ptr [ %5, %2 ], [ %13, %.lr.ph ]
@@ -380,7 +380,7 @@ thread-pre-split:                                 ; preds = %10
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #10
   %103 = call ptr @pg_strtok(ptr noundef nonnull %4)
   %104 = icmp eq ptr %103, null
-  br i1 %104, label %._crit_edge179, label %.lr.ph178, !llvm.loop !9
+  br i1 %104, label %._crit_edge179, label %.lr.ph178
 
 .preheader140:                                    ; preds = %82
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #10
@@ -429,7 +429,7 @@ thread-pre-split:                                 ; preds = %10
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #10
   %124 = call ptr @pg_strtok(ptr noundef nonnull %4)
   %125 = icmp eq ptr %124, null
-  br i1 %125, label %._crit_edge176, label %.lr.ph175, !llvm.loop !10
+  br i1 %125, label %._crit_edge176, label %.lr.ph175
 
 .preheader141:                                    ; preds = %82
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #10
@@ -478,7 +478,7 @@ thread-pre-split:                                 ; preds = %10
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #10
   %145 = call ptr @pg_strtok(ptr noundef nonnull %4)
   %146 = icmp eq ptr %145, null
-  br i1 %146, label %._crit_edge173, label %.lr.ph172, !llvm.loop !11
+  br i1 %146, label %._crit_edge173, label %.lr.ph172
 
 .preheader142:                                    ; preds = %82
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #10
@@ -531,7 +531,7 @@ thread-pre-split:                                 ; preds = %10
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #10
   %168 = call ptr @pg_strtok(ptr noundef nonnull %4)
   %169 = icmp eq ptr %168, null
-  br i1 %169, label %._crit_edge, label %.lr.ph, !llvm.loop !12
+  br i1 %169, label %._crit_edge, label %.lr.ph
 
 170:                                              ; preds = %.preheader276, %173
   %.6 = phi ptr [ %176, %173 ], [ null, %.preheader276 ]
@@ -546,7 +546,7 @@ thread-pre-split:                                 ; preds = %10
   %176 = tail call ptr @lappend(ptr noundef %.6, ptr noundef %175) #10
   %177 = call ptr @pg_strtok(ptr noundef nonnull %4)
   %178 = icmp eq ptr %177, null
-  br i1 %178, label %179, label %170, !llvm.loop !13
+  br i1 %178, label %179, label %170
 
 179:                                              ; preds = %173
   %180 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
@@ -627,7 +627,7 @@ select.unfold118:                                 ; preds = %44, %38
   %.114.i = add nsw i32 %.01315.i, -1
   %215 = add nsw i32 %.114.i, %212
   %216 = icmp sgt i32 %215, 0
-  br i1 %216, label %.lr.ph.i, label %debackslash.exit, !llvm.loop !8
+  br i1 %216, label %.lr.ph.i, label %debackslash.exit, !llvm.loop !7
 
 debackslash.exit:                                 ; preds = %.lr.ph.i, %203
   %.0.lcssa.i = phi ptr [ %206, %203 ], [ %214, %.lr.ph.i ]
@@ -660,7 +660,7 @@ debackslash.exit:                                 ; preds = %.lr.ph.i, %203
   %.114.i103 = add nsw i32 %.01315.i99, -1
   %230 = add nsw i32 %.114.i103, %226
   %231 = icmp sgt i32 %230, 0
-  br i1 %231, label %.lr.ph.i96, label %debackslash.exit104, !llvm.loop !8
+  br i1 %231, label %.lr.ph.i96, label %debackslash.exit104, !llvm.loop !7
 
 debackslash.exit104:                              ; preds = %.lr.ph.i96, %218
   %.0.lcssa.i95 = phi ptr [ %221, %218 ], [ %229, %.lr.ph.i96 ]
@@ -746,13 +746,7 @@ attributes #13 = { cold nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = distinct !{!4, !5, !6}
+!4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{!"llvm.loop.estimated_trip_count"}
-!7 = distinct !{!7, !5, !6}
-!8 = distinct !{!8, !5, !6}
-!9 = distinct !{!9, !6}
-!10 = distinct !{!10, !6}
-!11 = distinct !{!11, !6}
-!12 = distinct !{!12, !6}
-!13 = distinct !{!13, !6}
+!6 = distinct !{!6, !5}
+!7 = distinct !{!7, !5}

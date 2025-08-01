@@ -226,7 +226,7 @@ define internal fastcc void @dissect_tfp_common(ptr noundef %0, ptr noundef read
   store i8 %33, ptr %34, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.i, label %.preheader.i, label %.lr.ph26.i, !llvm.loop !9
+  br i1 %exitcond.i, label %.preheader.i, label %.lr.ph26.i, !llvm.loop !8
 
 base58_encode.exit:                               ; preds = %.preheader.i, %.lr.ph29.preheader.i
   call void @llvm.lifetime.end.p0(i64 13, ptr nonnull %4) #5
@@ -358,7 +358,6 @@ attributes #5 = { nounwind }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
+!8 = distinct !{!8, !7}

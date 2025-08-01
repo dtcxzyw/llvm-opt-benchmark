@@ -169,7 +169,7 @@ define noundef i32 @dgemv_n(i64 noundef %0, i64 noundef %1, i64 noundef %2, doub
   store <4 x double> %104, ptr %102, align 1, !tbaa !7
   %indvars.iv.next6.i = add nuw nsw i64 %indvars.iv5.i, 4
   %105 = icmp samesign ugt i64 %.mux, %indvars.iv.next6.i
-  br i1 %105, label %.lr.ph3.i, label %dgemv_kernel_4x4.exit, !llvm.loop !11
+  br i1 %105, label %.lr.ph3.i, label %dgemv_kernel_4x4.exit, !llvm.loop !10
 
 dgemv_kernel_4x4.exit:                            ; preds = %.lr.ph3.i, %.preheader.i
   %106 = getelementptr double, ptr %.0322428, i64 %14
@@ -179,7 +179,7 @@ dgemv_kernel_4x4.exit:                            ; preds = %.lr.ph3.i, %.prehea
   %110 = getelementptr inbounds nuw i8, ptr %.0334427, i64 32
   %111 = add nuw nsw i64 %.0318429, 1
   %exitcond558.not = icmp eq i64 %111, %18
-  br i1 %exitcond558.not, label %._crit_edge, label %52, !llvm.loop !12
+  br i1 %exitcond558.not, label %._crit_edge, label %52, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %dgemv_kernel_4x4.exit, %.preheader407
   %.sroa.12.0.lcssa = phi ptr [ %36, %.preheader407 ], [ %107, %dgemv_kernel_4x4.exit ]
@@ -215,7 +215,7 @@ dgemv_kernel_4x4.exit:                            ; preds = %.lr.ph3.i, %.prehea
   store <4 x double> %129, ptr %127, align 1, !tbaa !7
   %indvars.iv.next.i361 = add nuw nsw i64 %indvars.iv.i360, 4
   %130 = icmp samesign ugt i64 %.mux, %indvars.iv.next.i361
-  br i1 %130, label %120, label %dgemv_kernel_4x2.exit, !llvm.loop !13
+  br i1 %130, label %120, label %dgemv_kernel_4x2.exit, !llvm.loop !12
 
 dgemv_kernel_4x2.exit:                            ; preds = %120
   %131 = getelementptr inbounds i8, ptr %.0322.lcssa, i64 %.idx
@@ -320,7 +320,7 @@ dgemv_kernel_4x2.exit:                            ; preds = %120
   store <4 x double> %188, ptr %186, align 1, !tbaa !7
   %indvars.iv.next6.i366 = add nuw nsw i64 %indvars.iv5.i365, 4
   %189 = icmp samesign ugt i64 %.mux, %indvars.iv.next6.i366
-  br i1 %189, label %.lr.ph3.i364, label %dgemv_kernel_4x4.exit371, !llvm.loop !11
+  br i1 %189, label %.lr.ph3.i364, label %dgemv_kernel_4x4.exit371, !llvm.loop !10
 
 dgemv_kernel_4x4.exit371:                         ; preds = %.lr.ph3.i364, %.preheader.i362
   %190 = getelementptr double, ptr %.2324416, i64 %14
@@ -329,7 +329,7 @@ dgemv_kernel_4x4.exit371:                         ; preds = %.lr.ph3.i364, %.pre
   %193 = getelementptr inbounds double, ptr %.sroa.31.1411, i64 %14
   %194 = add nuw nsw i64 %.1319417, 1
   %exitcond.not = icmp eq i64 %194, %18
-  br i1 %exitcond.not, label %.preheader408, label %135, !llvm.loop !14
+  br i1 %exitcond.not, label %.preheader408, label %135, !llvm.loop !13
 
 .lr.ph422:                                        ; preds = %.preheader408, %.lr.ph422
   %.2320421 = phi i64 [ %198, %.lr.ph422 ], [ 0, %.preheader408 ]
@@ -342,7 +342,7 @@ dgemv_kernel_4x4.exit371:                         ; preds = %.lr.ph3.i364, %.pre
   %197 = getelementptr inbounds double, ptr %.3325420, i64 %5
   %198 = add nuw nsw i64 %.2320421, 1
   %exitcond557.not = icmp eq i64 %198, %19
-  br i1 %exitcond557.not, label %.loopexit409, label %.lr.ph422, !llvm.loop !15
+  br i1 %exitcond557.not, label %.loopexit409, label %.lr.ph422, !llvm.loop !14
 
 .loopexit409:                                     ; preds = %.lr.ph422, %.preheader408, %133, %134
   %199 = getelementptr inbounds nuw double, ptr %.0317437, i64 %.mux
@@ -357,7 +357,7 @@ dgemv_kernel_4x4.exit371:                         ; preds = %.lr.ph3.i364, %.pre
   %.pn = phi i64 [ %201, %200 ], [ %.mux, %.loopexit409 ]
   %.1346 = getelementptr inbounds double, ptr %.0345435, i64 %.pn
   %scevgep556 = getelementptr i8, ptr %indvars.iv, i64 16384
-  br i1 %34, label %32, label %203, !llvm.loop !16
+  br i1 %34, label %32, label %203, !llvm.loop !15
 
 203:                                              ; preds = %32, %202
   %.0345.lcssa = phi ptr [ %.1346, %202 ], [ %.0345435, %32 ]
@@ -458,7 +458,7 @@ dgemv_kernel_4x4.exit371:                         ; preds = %.lr.ph3.i364, %.pre
   %261 = getelementptr inbounds nuw i8, ptr %.4338492, i64 32
   %262 = add nuw nsw i64 %.3321494, 4
   %263 = icmp samesign ult i64 %262, %207
-  br i1 %263, label %.lr.ph498, label %.preheader.loopexit, !llvm.loop !17
+  br i1 %263, label %.lr.ph498, label %.preheader.loopexit, !llvm.loop !16
 
 .lr.ph511:                                        ; preds = %.preheader, %.lr.ph511
   %.1300510 = phi double [ %272, %.lr.ph511 ], [ %.0299.lcssa, %.preheader ]
@@ -480,7 +480,7 @@ dgemv_kernel_4x4.exit371:                         ; preds = %.lr.ph3.i364, %.pre
   %274 = getelementptr inbounds nuw i8, ptr %.5339505, i64 8
   %275 = add nuw nsw i64 %.4507, 1
   %exitcond564.not = icmp eq i64 %275, %1
-  br i1 %exitcond564.not, label %.loopexit, label %.lr.ph511, !llvm.loop !18
+  br i1 %exitcond564.not, label %.loopexit, label %.lr.ph511, !llvm.loop !17
 
 .lr.ph488:                                        ; preds = %.preheader395, %.lr.ph488
   %.3302487 = phi double [ %284, %.lr.ph488 ], [ 0.000000e+00, %.preheader395 ]
@@ -502,7 +502,7 @@ dgemv_kernel_4x4.exit371:                         ; preds = %.lr.ph3.i364, %.pre
   %286 = getelementptr inbounds double, ptr %.6340482, i64 %7
   %287 = add nuw nsw i64 %.5484, 1
   %exitcond563.not = icmp eq i64 %287, %1
-  br i1 %exitcond563.not, label %.loopexit, label %.lr.ph488, !llvm.loop !19
+  br i1 %exitcond563.not, label %.loopexit, label %.lr.ph488, !llvm.loop !18
 
 .loopexit:                                        ; preds = %.lr.ph488, %.lr.ph511, %.preheader395, %.preheader
   %.2309 = phi double [ %.0307.lcssa, %.preheader ], [ 0.000000e+00, %.preheader395 ], [ %266, %.lr.ph511 ], [ %278, %.lr.ph488 ]
@@ -595,7 +595,7 @@ dgemv_kernel_4x4.exit371:                         ; preds = %.lr.ph3.i364, %.pre
   %340 = getelementptr inbounds nuw i8, ptr %.7341463, i64 32
   %341 = add nuw nsw i64 %.6465, 4
   %342 = icmp samesign ult i64 %341, %300
-  br i1 %342, label %.lr.ph468, label %.preheader397.loopexit, !llvm.loop !20
+  br i1 %342, label %.lr.ph468, label %.preheader397.loopexit, !llvm.loop !19
 
 .lr.ph479:                                        ; preds = %.preheader397, %.lr.ph479
   %.1292478 = phi double [ %348, %.lr.ph479 ], [ %.0291.lcssa, %.preheader397 ]
@@ -613,7 +613,7 @@ dgemv_kernel_4x4.exit371:                         ; preds = %.lr.ph3.i364, %.pre
   %350 = getelementptr inbounds nuw i8, ptr %.8342474, i64 8
   %351 = add nuw nsw i64 %.7476, 1
   %exitcond562.not = icmp eq i64 %351, %1
-  br i1 %exitcond562.not, label %.loopexit398, label %.lr.ph479, !llvm.loop !21
+  br i1 %exitcond562.not, label %.loopexit398, label %.lr.ph479, !llvm.loop !20
 
 .lr.ph460:                                        ; preds = %.preheader400, %.lr.ph460
   %.3294459 = phi double [ %357, %.lr.ph460 ], [ 0.000000e+00, %.preheader400 ]
@@ -631,7 +631,7 @@ dgemv_kernel_4x4.exit371:                         ; preds = %.lr.ph3.i364, %.pre
   %359 = getelementptr inbounds double, ptr %.9343455, i64 %7
   %360 = add nuw nsw i64 %.8457, 1
   %exitcond561.not = icmp eq i64 %360, %1
-  br i1 %exitcond561.not, label %.loopexit398, label %.lr.ph460, !llvm.loop !22
+  br i1 %exitcond561.not, label %.loopexit398, label %.lr.ph460, !llvm.loop !21
 
 .loopexit398:                                     ; preds = %.lr.ph460, %.lr.ph479, %.preheader400, %.preheader397
   %.2297 = phi double [ %.0295.lcssa, %.preheader397 ], [ 0.000000e+00, %.preheader400 ], [ %345, %.lr.ph479 ], [ %354, %.lr.ph460 ]
@@ -704,7 +704,7 @@ default.unreachable:                              ; preds = %203
   %398 = fadd double %.0447, %397
   %399 = add nuw nsw i64 %.9446, 4
   %400 = icmp samesign ult i64 %399, %370
-  br i1 %400, label %.lr.ph448, label %.preheader402.loopexit, !llvm.loop !23
+  br i1 %400, label %.lr.ph448, label %.preheader402.loopexit, !llvm.loop !22
 
 .lr.ph453:                                        ; preds = %.preheader402, %.lr.ph453
   %.1452 = phi double [ %405, %.lr.ph453 ], [ %.0.lcssa, %.preheader402 ]
@@ -716,7 +716,7 @@ default.unreachable:                              ; preds = %203
   %405 = call double @llvm.fmuladd.f64(double %402, double %404, double %.1452)
   %406 = add nuw nsw i64 %.10451, 1
   %exitcond560.not = icmp eq i64 %406, %1
-  br i1 %exitcond560.not, label %.loopexit403, label %.lr.ph453, !llvm.loop !24
+  br i1 %exitcond560.not, label %.loopexit403, label %.lr.ph453, !llvm.loop !23
 
 .lr.ph444:                                        ; preds = %.preheader405, %.lr.ph444
   %.3443 = phi double [ %409, %.lr.ph444 ], [ 0.000000e+00, %.preheader405 ]
@@ -730,7 +730,7 @@ default.unreachable:                              ; preds = %203
   %411 = getelementptr inbounds double, ptr %.10344440, i64 %7
   %412 = add nuw nsw i64 %.11442, 1
   %exitcond559.not = icmp eq i64 %412, %1
-  br i1 %exitcond559.not, label %.loopexit403, label %.lr.ph444, !llvm.loop !25
+  br i1 %exitcond559.not, label %.loopexit403, label %.lr.ph444, !llvm.loop !24
 
 .loopexit403:                                     ; preds = %.lr.ph444, %.lr.ph453, %.preheader405, %.preheader402
   %.2 = phi double [ %.0.lcssa, %.preheader402 ], [ 0.000000e+00, %.preheader405 ], [ %405, %.lr.ph453 ], [ %409, %.lr.ph444 ]
@@ -753,7 +753,7 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 
 ; Function Attrs: noinline nounwind uwtable
 define internal fastcc void @dgemv_kernel_4x1(i64 noundef range(i64 -3, 2049) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %4) unnamed_addr #3 {
-  %6 = tail call { i64, i64 } asm sideeffect "movsd          ($2), %xmm12            \0A\09mulsd          ($5), %xmm12            \0A\09shufpd $$0,  %xmm12, %xmm12            \0A\091:                             \0A\09movups       ($4,$0,8), %xmm8          \0A\09movups     16($4,$0,8), %xmm9          \0A\09movups       ($3,$0,8), %xmm4          \0A\09movups     16($3,$0,8), %xmm5          \0A\09mulpd          %xmm12, %xmm8          \0A\09mulpd          %xmm12, %xmm9          \0A\09addpd          %xmm8 , %xmm4          \0A\09addpd          %xmm9 , %xmm5          \0A\09movups  %xmm4 ,    ($3,$0,8)           \0A\09movups  %xmm5 ,  16($3,$0,8)           \0A\09addq           $$4 , $0                  \0A\09subq           $$4 , $1                  \0A\09jnz            1b               \0A\09", "=r,=r,r,r,r,r,0,1,~{cc},~{xmm4},~{xmm5},~{xmm6},~{xmm7},~{xmm8},~{xmm9},~{xmm10},~{xmm11},~{xmm12},~{xmm13},~{xmm14},~{xmm15},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %2, ptr %3, ptr %1, ptr nonnull %4, i64 0, i64 %0) #6, !srcloc !26
+  %6 = tail call { i64, i64 } asm sideeffect "movsd          ($2), %xmm12            \0A\09mulsd          ($5), %xmm12            \0A\09shufpd $$0,  %xmm12, %xmm12            \0A\091:                             \0A\09movups       ($4,$0,8), %xmm8          \0A\09movups     16($4,$0,8), %xmm9          \0A\09movups       ($3,$0,8), %xmm4          \0A\09movups     16($3,$0,8), %xmm5          \0A\09mulpd          %xmm12, %xmm8          \0A\09mulpd          %xmm12, %xmm9          \0A\09addpd          %xmm8 , %xmm4          \0A\09addpd          %xmm9 , %xmm5          \0A\09movups  %xmm4 ,    ($3,$0,8)           \0A\09movups  %xmm5 ,  16($3,$0,8)           \0A\09addq           $$4 , $0                  \0A\09subq           $$4 , $1                  \0A\09jnz            1b               \0A\09", "=r,=r,r,r,r,r,0,1,~{cc},~{xmm4},~{xmm5},~{xmm6},~{xmm7},~{xmm8},~{xmm9},~{xmm10},~{xmm11},~{xmm12},~{xmm13},~{xmm14},~{xmm15},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %2, ptr %3, ptr %1, ptr nonnull %4, i64 0, i64 %0) #6, !srcloc !25
   ret void
 }
 
@@ -774,7 +774,7 @@ define internal fastcc void @add_y(i64 noundef range(i64 -3, 2049) %0, ptr nound
   %10 = getelementptr inbounds double, ptr %.0911, i64 %3
   %11 = add nuw nsw i64 %.013, 1
   %exitcond.not = icmp eq i64 %11, %0
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !27
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !26
 
 ._crit_edge:                                      ; preds = %.lr.ph, %4
   ret void
@@ -810,23 +810,22 @@ attributes #6 = { nounwind }
 !5 = !{!"omnipotent char", !6, i64 0}
 !6 = !{!"Simple C/C++ TBAA"}
 !7 = !{!5, !5, i64 0}
-!8 = distinct !{!8, !9, !10}
+!8 = distinct !{!8, !9}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = !{!"llvm.loop.estimated_trip_count"}
-!11 = distinct !{!11, !9, !10}
-!12 = distinct !{!12, !9, !10}
-!13 = distinct !{!13, !9, !10}
-!14 = distinct !{!14, !9, !10}
-!15 = distinct !{!15, !9, !10}
-!16 = distinct !{!16, !9, !10}
-!17 = distinct !{!17, !9, !10}
-!18 = distinct !{!18, !9, !10}
-!19 = distinct !{!19, !9, !10}
-!20 = distinct !{!20, !9, !10}
-!21 = distinct !{!21, !9, !10}
-!22 = distinct !{!22, !9, !10}
-!23 = distinct !{!23, !9, !10}
-!24 = distinct !{!24, !9, !10}
-!25 = distinct !{!25, !9, !10}
-!26 = !{i64 23882, i64 23925, i64 23988, i64 24054, i64 24159, i64 24214, i64 24279, i64 24344, i64 24409, i64 24467, i64 24515, i64 24570, i64 24625, i64 24674, i64 24734, i64 24802, i64 24857, i64 24905}
-!27 = distinct !{!27, !9, !10}
+!10 = distinct !{!10, !9}
+!11 = distinct !{!11, !9}
+!12 = distinct !{!12, !9}
+!13 = distinct !{!13, !9}
+!14 = distinct !{!14, !9}
+!15 = distinct !{!15, !9}
+!16 = distinct !{!16, !9}
+!17 = distinct !{!17, !9}
+!18 = distinct !{!18, !9}
+!19 = distinct !{!19, !9}
+!20 = distinct !{!20, !9}
+!21 = distinct !{!21, !9}
+!22 = distinct !{!22, !9}
+!23 = distinct !{!23, !9}
+!24 = distinct !{!24, !9}
+!25 = !{i64 23882, i64 23925, i64 23988, i64 24054, i64 24159, i64 24214, i64 24279, i64 24344, i64 24409, i64 24467, i64 24515, i64 24570, i64 24625, i64 24674, i64 24734, i64 24802, i64 24857, i64 24905}
+!26 = distinct !{!26, !9}

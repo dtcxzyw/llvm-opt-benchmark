@@ -202,7 +202,7 @@ define dso_local void @gistrescan(ptr noundef %0, ptr noundef readonly captures(
   tail call void @TupleDescInitEntry(ptr noundef %57, i16 noundef signext %58, ptr noundef null, i32 noundef %68, i32 noundef -1, i32 noundef 0) #6
   %indvars.iv.next150 = add nuw nsw i64 %indvars.iv149, 1
   %exitcond153.not = icmp eq i64 %indvars.iv.next150, %wide.trip.count152
-  br i1 %exitcond153.not, label %._crit_edge, label %.lr.ph130, !llvm.loop !9
+  br i1 %exitcond153.not, label %._crit_edge, label %.lr.ph130, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %.lr.ph130, %.preheader
   %69 = load ptr, ptr %7, align 8
@@ -261,7 +261,7 @@ define dso_local void @gistrescan(ptr noundef %0, ptr noundef readonly captures(
   %99 = load i32, ptr %83, align 8
   %100 = sext i32 %99 to i64
   %101 = icmp slt i64 %indvars.iv.next155, %100
-  br i1 %101, label %94, label %.loopexit125, !llvm.loop !10
+  br i1 %101, label %94, label %.loopexit125, !llvm.loop !9
 
 .loopexit125:                                     ; preds = %94, %87, %86
   %102 = phi i32 [ %84, %86 ], [ %91, %87 ], [ %99, %94 ]
@@ -315,7 +315,7 @@ define dso_local void @gistrescan(ptr noundef %0, ptr noundef readonly captures(
   %130 = load i32, ptr %83, align 8
   %131 = sext i32 %130 to i64
   %132 = icmp slt i64 %indvars.iv.next158, %131
-  br i1 %132, label %.lr.ph136, label %._crit_edge137, !llvm.loop !11
+  br i1 %132, label %.lr.ph136, label %._crit_edge137, !llvm.loop !10
 
 ._crit_edge137:                                   ; preds = %129, %.loopexit125
   br i1 %10, label %134, label %133
@@ -360,7 +360,7 @@ define dso_local void @gistrescan(ptr noundef %0, ptr noundef readonly captures(
   %152 = load i32, ptr %136, align 4
   %153 = sext i32 %152 to i64
   %154 = icmp slt i64 %indvars.iv.next161, %153
-  br i1 %154, label %147, label %.loopexit, !llvm.loop !12
+  br i1 %154, label %147, label %.loopexit, !llvm.loop !11
 
 .loopexit:                                        ; preds = %147, %140, %139
   %155 = phi i32 [ %137, %139 ], [ %144, %140 ], [ %152, %147 ]
@@ -436,7 +436,7 @@ define dso_local void @gistrescan(ptr noundef %0, ptr noundef readonly captures(
   %203 = load i32, ptr %136, align 4
   %204 = sext i32 %203 to i64
   %205 = icmp slt i64 %indvars.iv.next164, %204
-  br i1 %205, label %.lr.ph144, label %._crit_edge145, !llvm.loop !13
+  br i1 %205, label %.lr.ph144, label %._crit_edge145, !llvm.loop !12
 
 ._crit_edge145:                                   ; preds = %202, %.loopexit
   br i1 %10, label %207, label %206
@@ -513,7 +513,7 @@ define internal i32 @pairingheap_GISTSearchItem_cmp(ptr noundef readonly capture
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %31 = sext i32 %30 to i64
   %32 = icmp slt i64 %indvars.iv.next, %31
-  br i1 %32, label %10, label %._crit_edge, !llvm.loop !14
+  br i1 %32, label %10, label %._crit_edge, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %29, %3
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -591,12 +591,11 @@ attributes #7 = { cold nounwind }
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i8 0, i8 2}
 !5 = !{}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7, !8}
-!11 = distinct !{!11, !7, !8}
-!12 = distinct !{!12, !7, !8}
-!13 = distinct !{!13, !7, !8}
-!14 = distinct !{!14, !7, !8}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7}
+!12 = distinct !{!12, !7}
+!13 = distinct !{!13, !7}

@@ -1429,7 +1429,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream23WriteStringMaybeAliasedEjRKNSt7__cx
 _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit49: ; preds = %89, %91
   %.0.i48 = phi ptr [ %92, %91 ], [ %.2, %89 ]
   %93 = getelementptr inbounds nuw i8, ptr %0, i64 60
-  %94 = load i8, ptr %93, align 4, !tbaa !54, !range !63, !noundef !64
+  %94 = load i8, ptr %93, align 4, !tbaa !54, !range !62, !noundef !63
   store i8 32, ptr %.0.i48, align 1, !tbaa !36
   %95 = getelementptr inbounds nuw i8, ptr %.0.i48, i64 1
   store i8 %94, ptr %95, align 1, !tbaa !36
@@ -2197,7 +2197,7 @@ _ZN4i18n12phonenumbers11PhoneNumber45_internal_set_preferred_domestic_carrier_co
 
 103:                                              ; preds = %101
   %104 = getelementptr inbounds nuw i8, ptr %1, i64 60
-  %105 = load i8, ptr %104, align 4, !tbaa !54, !range !63, !noundef !64
+  %105 = load i8, ptr %104, align 4, !tbaa !54, !range !62, !noundef !63
   %106 = getelementptr inbounds nuw i8, ptr %0, i64 60
   store i8 %105, ptr %106, align 4, !tbaa !54
   br label %107
@@ -2357,7 +2357,7 @@ define dso_local void @_ZN4i18n12phonenumbers11PhoneNumber12InternalSwapEPS1_(pt
   br i1 %.not18, label %_ZN6google8protobuf8internal16InternalMetadata4SwapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvPS2_.exit, label %.thread
 
 11:                                               ; preds = %2
-  br i1 %.not18, label %15, label %.thread, !prof !65
+  br i1 %.not18, label %15, label %.thread, !prof !64
 
 .thread:                                          ; preds = %10, %11
   %12 = and i64 %8, -2
@@ -2402,22 +2402,22 @@ _ZN6google8protobuf8internal16InternalMetadata4SwapINSt7__cxx1112basic_stringIcS
   store i32 %26, ptr %25, align 4, !tbaa !33
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %30 = load ptr, ptr %28, align 8, !tbaa !66
-  %31 = load ptr, ptr %29, align 8, !tbaa !66
-  store ptr %31, ptr %28, align 8, !tbaa !66
-  store ptr %30, ptr %29, align 8, !tbaa !66
+  %30 = load ptr, ptr %28, align 8, !tbaa !65
+  %31 = load ptr, ptr %29, align 8, !tbaa !65
+  store ptr %31, ptr %28, align 8, !tbaa !65
+  store ptr %30, ptr %29, align 8, !tbaa !65
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %34 = load ptr, ptr %32, align 8, !tbaa !66
-  %35 = load ptr, ptr %33, align 8, !tbaa !66
-  store ptr %35, ptr %32, align 8, !tbaa !66
-  store ptr %34, ptr %33, align 8, !tbaa !66
+  %34 = load ptr, ptr %32, align 8, !tbaa !65
+  %35 = load ptr, ptr %33, align 8, !tbaa !65
+  store ptr %35, ptr %32, align 8, !tbaa !65
+  store ptr %34, ptr %33, align 8, !tbaa !65
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %38 = load ptr, ptr %36, align 8, !tbaa !66
-  %39 = load ptr, ptr %37, align 8, !tbaa !66
-  store ptr %39, ptr %36, align 8, !tbaa !66
-  store ptr %38, ptr %37, align 8, !tbaa !66
+  %38 = load ptr, ptr %36, align 8, !tbaa !65
+  %39 = load ptr, ptr %37, align 8, !tbaa !65
+  store ptr %39, ptr %36, align 8, !tbaa !65
+  store ptr %38, ptr %37, align 8, !tbaa !65
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %41 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %.0.copyload.i.i = load i128, ptr %40, align 8
@@ -2443,12 +2443,12 @@ define dso_local void @_ZNK4i18n12phonenumbers11PhoneNumber11GetTypeNameB5cxx11E
 .noexc.i:
   %2 = alloca i64, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %3, ptr %0, align 8, !tbaa !67
+  store ptr %3, ptr %0, align 8, !tbaa !66
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #23
-  store i64 29, ptr %2, align 8, !tbaa !68
+  store i64 29, ptr %2, align 8, !tbaa !67
   %4 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(8) %2, i64 noundef 0)
   store ptr %4, ptr %0, align 8, !tbaa !28
-  %5 = load i64, ptr %2, align 8, !tbaa !68
+  %5 = load i64, ptr %2, align 8, !tbaa !67
   store i64 %5, ptr %3, align 8, !tbaa !36
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(29) %4, ptr noundef nonnull align 1 dereferenceable(29) @.str.3, i64 29, i1 false)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -2490,7 +2490,7 @@ define dso_local noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN4i1
 
 12:                                               ; preds = %1
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %14 = load ptr, ptr %13, align 8, !tbaa !69
+  %14 = load ptr, ptr %13, align 8, !tbaa !68
   %.not.i = icmp eq ptr %14, null
   br i1 %.not.i, label %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit, label %15, !prof !14
 
@@ -2574,12 +2574,12 @@ define linkonce_odr dso_local void @_ZN6google8protobuf8internal14ArenaStringPtr
 7:                                                ; preds = %3
   %8 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #27
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  store ptr %9, ptr %8, align 8, !tbaa !67
+  store ptr %9, ptr %8, align 8, !tbaa !66
   %10 = load ptr, ptr %2, align 8, !tbaa !28
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %12 = load i64, ptr %11, align 8, !tbaa !32
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #23
-  store i64 %12, ptr %5, align 8, !tbaa !68
+  store i64 %12, ptr %5, align 8, !tbaa !67
   %13 = icmp ugt i64 %12, 15
   br i1 %13, label %.noexc.i, label %._crit_edge.i.i
 
@@ -2589,7 +2589,7 @@ define linkonce_odr dso_local void @_ZN6google8protobuf8internal14ArenaStringPtr
 
 .noexc:                                           ; preds = %.noexc.i
   store ptr %14, ptr %8, align 8, !tbaa !28
-  %15 = load i64, ptr %5, align 8, !tbaa !68
+  %15 = load i64, ptr %5, align 8, !tbaa !67
   store i64 %15, ptr %9, align 8, !tbaa !36
   br label %._crit_edge.i.i
 
@@ -2610,7 +2610,7 @@ define linkonce_odr dso_local void @_ZN6google8protobuf8internal14ArenaStringPtr
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit: ; preds = %._crit_edge.i.i, %17, %19
-  %20 = load i64, ptr %5, align 8, !tbaa !68
+  %20 = load i64, ptr %5, align 8, !tbaa !67
   %21 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i64 %20, ptr %21, align 8, !tbaa !32
   %22 = load ptr, ptr %8, align 8, !tbaa !28
@@ -2627,7 +2627,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit: ; preds = %.
 
 26:                                               ; preds = %3
   %27 = getelementptr inbounds nuw i8, ptr %1, i64 112
-  %28 = load ptr, ptr %27, align 8, !tbaa !69
+  %28 = load ptr, ptr %27, align 8, !tbaa !68
   %.not.i = icmp eq ptr %28, null
   br i1 %.not.i, label %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit, label %29, !prof !14
 
@@ -2638,19 +2638,19 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit: ; preds = %.
 _ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit: ; preds = %26, %29
   %30 = tail call noundef ptr @_ZN6google8protobuf8internal9ArenaImpl28AllocateAlignedAndAddCleanupEmPFvPvE(ptr noundef nonnull align 8 dereferenceable(120) %1, i64 noundef 32, ptr noundef nonnull @_ZN6google8protobuf8internal21arena_destruct_objectINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvPv)
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 16
-  store ptr %31, ptr %30, align 8, !tbaa !67
+  store ptr %31, ptr %30, align 8, !tbaa !66
   %32 = load ptr, ptr %2, align 8, !tbaa !28
   %33 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %34 = load i64, ptr %33, align 8, !tbaa !32
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #23
-  store i64 %34, ptr %4, align 8, !tbaa !68
+  store i64 %34, ptr %4, align 8, !tbaa !67
   %35 = icmp ugt i64 %34, 15
   br i1 %35, label %.noexc.i5, label %._crit_edge.i.i4
 
 .noexc.i5:                                        ; preds = %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit
   %36 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %30, ptr noundef nonnull align 8 dereferenceable(8) %4, i64 noundef 0)
   store ptr %36, ptr %30, align 8, !tbaa !28
-  %37 = load i64, ptr %4, align 8, !tbaa !68
+  %37 = load i64, ptr %4, align 8, !tbaa !67
   store i64 %37, ptr %31, align 8, !tbaa !36
   br label %._crit_edge.i.i4
 
@@ -2671,7 +2671,7 @@ _ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit: ; preds = %26, %29
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit6
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit6: ; preds = %._crit_edge.i.i4, %39, %41
-  %42 = load i64, ptr %4, align 8, !tbaa !68
+  %42 = load i64, ptr %4, align 8, !tbaa !67
   %43 = getelementptr inbounds nuw i8, ptr %30, i64 8
   store i64 %42, ptr %43, align 8, !tbaa !32
   %44 = load ptr, ptr %30, align 8, !tbaa !28
@@ -2768,7 +2768,7 @@ _ZNK6google8protobuf8internal16InternalMetadata5arenaEv.exit: ; preds = %1, %5
 
 12:                                               ; preds = %_ZNK6google8protobuf8internal16InternalMetadata5arenaEv.exit
   %13 = getelementptr inbounds nuw i8, ptr %.0.i, i64 112
-  %14 = load ptr, ptr %13, align 8, !tbaa !69
+  %14 = load ptr, ptr %13, align 8, !tbaa !68
   %.not.i = icmp eq ptr %14, null
   br i1 %.not.i, label %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit, label %15, !prof !14
 
@@ -2785,7 +2785,7 @@ _ZN6google8protobuf5Arena14CreateInternalINS0_8internal16InternalMetadata9Contai
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sink11, i8 0, i64 40, i1 false)
   %17 = getelementptr inbounds nuw i8, ptr %.sink11, i64 8
   %18 = getelementptr inbounds nuw i8, ptr %.sink11, i64 24
-  store ptr %18, ptr %17, align 8, !tbaa !67
+  store ptr %18, ptr %17, align 8, !tbaa !66
   store i8 0, ptr %18, align 1, !tbaa !36
   %19 = ptrtoint ptr %.sink11 to i64
   %20 = or i64 %19, 1
@@ -2833,21 +2833,21 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4swapERS4_(pt
 define internal void @_GLOBAL__sub_I_phonenumber.pb.cc() #21 section ".text.startup" {
   tail call void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZStL8__ioinit)
   %1 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #23
-  store ptr @_ZN4i18n12phonenumbersL35PhoneNumber_CountryCodeSource_namesE, ptr @_ZN4i18n12phonenumbersL37PhoneNumber_CountryCodeSource_entriesE, align 16, !tbaa !79
-  store i64 20, ptr getelementptr inbounds nuw (i8, ptr @_ZN4i18n12phonenumbersL37PhoneNumber_CountryCodeSource_entriesE, i64 8), align 8, !tbaa !81
-  store i32 20, ptr getelementptr inbounds nuw (i8, ptr @_ZN4i18n12phonenumbersL37PhoneNumber_CountryCodeSource_entriesE, i64 16), align 16, !tbaa !82
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZN4i18n12phonenumbersL35PhoneNumber_CountryCodeSource_namesE, i64 20), ptr getelementptr inbounds nuw (i8, ptr @_ZN4i18n12phonenumbersL37PhoneNumber_CountryCodeSource_entriesE, i64 24), align 8, !tbaa !79
-  store i64 29, ptr getelementptr inbounds nuw (i8, ptr @_ZN4i18n12phonenumbersL37PhoneNumber_CountryCodeSource_entriesE, i64 32), align 16, !tbaa !81
-  store i32 10, ptr getelementptr inbounds nuw (i8, ptr @_ZN4i18n12phonenumbersL37PhoneNumber_CountryCodeSource_entriesE, i64 40), align 8, !tbaa !82
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZN4i18n12phonenumbersL35PhoneNumber_CountryCodeSource_namesE, i64 49), ptr getelementptr inbounds nuw (i8, ptr @_ZN4i18n12phonenumbersL37PhoneNumber_CountryCodeSource_entriesE, i64 48), align 16, !tbaa !79
-  store i64 20, ptr getelementptr inbounds nuw (i8, ptr @_ZN4i18n12phonenumbersL37PhoneNumber_CountryCodeSource_entriesE, i64 56), align 8, !tbaa !81
-  store i32 5, ptr getelementptr inbounds nuw (i8, ptr @_ZN4i18n12phonenumbersL37PhoneNumber_CountryCodeSource_entriesE, i64 64), align 16, !tbaa !82
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZN4i18n12phonenumbersL35PhoneNumber_CountryCodeSource_namesE, i64 69), ptr getelementptr inbounds nuw (i8, ptr @_ZN4i18n12phonenumbersL37PhoneNumber_CountryCodeSource_entriesE, i64 72), align 8, !tbaa !79
-  store i64 26, ptr getelementptr inbounds nuw (i8, ptr @_ZN4i18n12phonenumbersL37PhoneNumber_CountryCodeSource_entriesE, i64 80), align 16, !tbaa !81
-  store i32 1, ptr getelementptr inbounds nuw (i8, ptr @_ZN4i18n12phonenumbersL37PhoneNumber_CountryCodeSource_entriesE, i64 88), align 8, !tbaa !82
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZN4i18n12phonenumbersL35PhoneNumber_CountryCodeSource_namesE, i64 95), ptr getelementptr inbounds nuw (i8, ptr @_ZN4i18n12phonenumbersL37PhoneNumber_CountryCodeSource_entriesE, i64 96), align 16, !tbaa !79
-  store i64 11, ptr getelementptr inbounds nuw (i8, ptr @_ZN4i18n12phonenumbersL37PhoneNumber_CountryCodeSource_entriesE, i64 104), align 8, !tbaa !81
-  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN4i18n12phonenumbersL37PhoneNumber_CountryCodeSource_entriesE, i64 112), align 16, !tbaa !82
+  store ptr @_ZN4i18n12phonenumbersL35PhoneNumber_CountryCodeSource_namesE, ptr @_ZN4i18n12phonenumbersL37PhoneNumber_CountryCodeSource_entriesE, align 16, !tbaa !78
+  store i64 20, ptr getelementptr inbounds nuw (i8, ptr @_ZN4i18n12phonenumbersL37PhoneNumber_CountryCodeSource_entriesE, i64 8), align 8, !tbaa !80
+  store i32 20, ptr getelementptr inbounds nuw (i8, ptr @_ZN4i18n12phonenumbersL37PhoneNumber_CountryCodeSource_entriesE, i64 16), align 16, !tbaa !81
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZN4i18n12phonenumbersL35PhoneNumber_CountryCodeSource_namesE, i64 20), ptr getelementptr inbounds nuw (i8, ptr @_ZN4i18n12phonenumbersL37PhoneNumber_CountryCodeSource_entriesE, i64 24), align 8, !tbaa !78
+  store i64 29, ptr getelementptr inbounds nuw (i8, ptr @_ZN4i18n12phonenumbersL37PhoneNumber_CountryCodeSource_entriesE, i64 32), align 16, !tbaa !80
+  store i32 10, ptr getelementptr inbounds nuw (i8, ptr @_ZN4i18n12phonenumbersL37PhoneNumber_CountryCodeSource_entriesE, i64 40), align 8, !tbaa !81
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZN4i18n12phonenumbersL35PhoneNumber_CountryCodeSource_namesE, i64 49), ptr getelementptr inbounds nuw (i8, ptr @_ZN4i18n12phonenumbersL37PhoneNumber_CountryCodeSource_entriesE, i64 48), align 16, !tbaa !78
+  store i64 20, ptr getelementptr inbounds nuw (i8, ptr @_ZN4i18n12phonenumbersL37PhoneNumber_CountryCodeSource_entriesE, i64 56), align 8, !tbaa !80
+  store i32 5, ptr getelementptr inbounds nuw (i8, ptr @_ZN4i18n12phonenumbersL37PhoneNumber_CountryCodeSource_entriesE, i64 64), align 16, !tbaa !81
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZN4i18n12phonenumbersL35PhoneNumber_CountryCodeSource_namesE, i64 69), ptr getelementptr inbounds nuw (i8, ptr @_ZN4i18n12phonenumbersL37PhoneNumber_CountryCodeSource_entriesE, i64 72), align 8, !tbaa !78
+  store i64 26, ptr getelementptr inbounds nuw (i8, ptr @_ZN4i18n12phonenumbersL37PhoneNumber_CountryCodeSource_entriesE, i64 80), align 16, !tbaa !80
+  store i32 1, ptr getelementptr inbounds nuw (i8, ptr @_ZN4i18n12phonenumbersL37PhoneNumber_CountryCodeSource_entriesE, i64 88), align 8, !tbaa !81
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZN4i18n12phonenumbersL35PhoneNumber_CountryCodeSource_namesE, i64 95), ptr getelementptr inbounds nuw (i8, ptr @_ZN4i18n12phonenumbersL37PhoneNumber_CountryCodeSource_entriesE, i64 96), align 16, !tbaa !78
+  store i64 11, ptr getelementptr inbounds nuw (i8, ptr @_ZN4i18n12phonenumbersL37PhoneNumber_CountryCodeSource_entriesE, i64 104), align 8, !tbaa !80
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN4i18n12phonenumbersL37PhoneNumber_CountryCodeSource_entriesE, i64 112), align 16, !tbaa !81
   %2 = tail call ptr @llvm.invariant.start.p0(i64 120, ptr nonnull @_ZN4i18n12phonenumbersL37PhoneNumber_CountryCodeSource_entriesE)
   ret void
 }
@@ -2946,27 +2946,26 @@ attributes #27 = { builtin allocsize(0) }
 !57 = !{!58, !31, i64 0}
 !58 = !{!"_ZTSN6google8protobuf2io19EpsCopyOutputStreamE", !31, i64 0, !31, i64 8, !7, i64 16, !59, i64 48, !25, i64 56, !25, i64 57, !25, i64 58}
 !59 = !{!"p1 _ZTSN6google8protobuf2io20ZeroCopyOutputStreamE", !6, i64 0}
-!60 = distinct !{!60, !61, !62}
+!60 = distinct !{!60, !61}
 !61 = !{!"llvm.loop.mustprogress"}
-!62 = !{!"llvm.loop.estimated_trip_count", i32 1}
-!63 = !{i8 0, i8 2}
-!64 = !{}
-!65 = !{!"branch_weights", !"expected", i32 1609807, i32 2145873841}
-!66 = !{!17, !17, i64 0}
-!67 = !{!30, !31, i64 0}
-!68 = !{!24, !24, i64 0}
-!69 = !{!70, !6, i64 112}
-!70 = !{!"_ZTSN6google8protobuf5ArenaE", !71, i64 0, !6, i64 88, !6, i64 96, !6, i64 104, !6, i64 112}
-!71 = !{!"_ZTSN6google8protobuf8internal9ArenaImplE", !72, i64 0, !72, i64 8, !75, i64 16, !77, i64 24, !24, i64 32, !78, i64 40}
-!72 = !{!"_ZTSSt6atomicIPN6google8protobuf8internal9ArenaImpl11SerialArenaEE", !73, i64 0}
-!73 = !{!"_ZTSSt13__atomic_baseIPN6google8protobuf8internal9ArenaImpl11SerialArenaEE", !74, i64 0}
-!74 = !{!"p1 _ZTSN6google8protobuf8internal9ArenaImpl11SerialArenaE", !6, i64 0}
-!75 = !{!"_ZTSSt6atomicImE", !76, i64 0}
-!76 = !{!"_ZTSSt13__atomic_baseImE", !24, i64 0}
-!77 = !{!"p1 _ZTSN6google8protobuf8internal9ArenaImpl5BlockE", !6, i64 0}
-!78 = !{!"_ZTSN6google8protobuf8internal9ArenaImpl7OptionsE", !24, i64 0, !24, i64 8, !31, i64 16, !24, i64 24, !6, i64 32, !6, i64 40}
-!79 = !{!80, !31, i64 0}
-!80 = !{!"_ZTSN6google8protobuf11StringPieceE", !31, i64 0, !24, i64 8}
-!81 = !{!80, !24, i64 8}
-!82 = !{!83, !13, i64 16}
-!83 = !{!"_ZTSN6google8protobuf8internal9EnumEntryE", !80, i64 0, !13, i64 16}
+!62 = !{i8 0, i8 2}
+!63 = !{}
+!64 = !{!"branch_weights", !"expected", i32 1609807, i32 2145873841}
+!65 = !{!17, !17, i64 0}
+!66 = !{!30, !31, i64 0}
+!67 = !{!24, !24, i64 0}
+!68 = !{!69, !6, i64 112}
+!69 = !{!"_ZTSN6google8protobuf5ArenaE", !70, i64 0, !6, i64 88, !6, i64 96, !6, i64 104, !6, i64 112}
+!70 = !{!"_ZTSN6google8protobuf8internal9ArenaImplE", !71, i64 0, !71, i64 8, !74, i64 16, !76, i64 24, !24, i64 32, !77, i64 40}
+!71 = !{!"_ZTSSt6atomicIPN6google8protobuf8internal9ArenaImpl11SerialArenaEE", !72, i64 0}
+!72 = !{!"_ZTSSt13__atomic_baseIPN6google8protobuf8internal9ArenaImpl11SerialArenaEE", !73, i64 0}
+!73 = !{!"p1 _ZTSN6google8protobuf8internal9ArenaImpl11SerialArenaE", !6, i64 0}
+!74 = !{!"_ZTSSt6atomicImE", !75, i64 0}
+!75 = !{!"_ZTSSt13__atomic_baseImE", !24, i64 0}
+!76 = !{!"p1 _ZTSN6google8protobuf8internal9ArenaImpl5BlockE", !6, i64 0}
+!77 = !{!"_ZTSN6google8protobuf8internal9ArenaImpl7OptionsE", !24, i64 0, !24, i64 8, !31, i64 16, !24, i64 24, !6, i64 32, !6, i64 40}
+!78 = !{!79, !31, i64 0}
+!79 = !{!"_ZTSN6google8protobuf11StringPieceE", !31, i64 0, !24, i64 8}
+!80 = !{!79, !24, i64 8}
+!81 = !{!82, !13, i64 16}
+!82 = !{!"_ZTSN6google8protobuf8internal9EnumEntryE", !79, i64 0, !13, i64 16}

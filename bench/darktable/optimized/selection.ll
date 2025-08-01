@@ -937,7 +937,7 @@ define void @dt_selection_select_range(ptr noundef captures(none) %0, i32 nounde
   %41 = icmp ne i32 %.256, -1
   %or.cond = select i1 %40, i1 %41, i1 false
   %42 = add nuw nsw i32 %.0, 1
-  br i1 %or.cond, label %43, label %30, !llvm.loop !81
+  br i1 %or.cond, label %43, label %30
 
 43:                                               ; preds = %34, %30
   %.155 = phi i32 [ %.256, %34 ], [ %.054, %30 ]
@@ -1363,9 +1363,9 @@ define void @dt_selection_select_list(ptr noundef writeonly captures(none) %0, p
   store i32 %8, ptr %4, align 8, !tbaa !50
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #8
   %9 = call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.19, i32 noundef %8) #8
-  store ptr %9, ptr %3, align 8, !tbaa !83
+  store ptr %9, ptr %3, align 8, !tbaa !81
   %.1.in22 = getelementptr inbounds nuw i8, ptr %.026, i64 8
-  %.123 = load ptr, ptr %.1.in22, align 8, !tbaa !84
+  %.123 = load ptr, ptr %.1.in22, align 8, !tbaa !82
   %.not27 = icmp eq ptr %.123, null
   br i1 %.not27, label %._crit_edge, label %.lr.ph
 
@@ -1379,11 +1379,11 @@ define void @dt_selection_select_list(ptr noundef writeonly captures(none) %0, p
   store i32 %12, ptr %4, align 8, !tbaa !50
   call void (ptr, ptr, ...) @dt_util_str_cat(ptr noundef nonnull %3, ptr noundef nonnull @.str.20, i32 noundef %12) #8
   %.1.in = getelementptr inbounds nuw i8, ptr %.125, i64 8
-  %.1 = load ptr, ptr %.1.in, align 8, !tbaa !84
+  %.1 = load ptr, ptr %.1.in, align 8, !tbaa !82
   %14 = icmp ne ptr %.1, null
   %15 = icmp samesign ult i32 %.01724, 399
   %16 = select i1 %14, i1 %15, i1 false
-  br i1 %16, label %.lr.ph, label %._crit_edge, !llvm.loop !85
+  br i1 %16, label %.lr.ph, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5
   %.1.lcssa = phi ptr [ null, %5 ], [ %.1, %.lr.ph ]
@@ -1393,21 +1393,21 @@ define void @dt_selection_select_list(ptr noundef writeonly captures(none) %0, p
   br i1 %.not20, label %21, label %19
 
 19:                                               ; preds = %._crit_edge
-  %20 = load ptr, ptr %3, align 8, !tbaa !83
+  %20 = load ptr, ptr %3, align 8, !tbaa !81
   call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.3, i32 noundef 487, ptr noundef nonnull @__FUNCTION__.dt_selection_select_list, ptr noundef %20) #8
   br label %21
 
 21:                                               ; preds = %19, %._crit_edge
   %22 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 136), align 8, !tbaa !56
   %23 = call ptr @dt_database_get(ptr noundef %22) #8
-  %24 = load ptr, ptr %3, align 8, !tbaa !83
+  %24 = load ptr, ptr %3, align 8, !tbaa !81
   %25 = call i32 @sqlite3_exec(ptr noundef %23, ptr noundef %24, ptr noundef null, ptr noundef null, ptr noundef null) #8
   %.not21 = icmp eq i32 %25, 0
   br i1 %.not21, label %33, label %26
 
 26:                                               ; preds = %21
   %27 = load ptr, ptr @stderr, align 8, !tbaa !57
-  %28 = load ptr, ptr %3, align 8, !tbaa !83
+  %28 = load ptr, ptr %3, align 8, !tbaa !81
   %29 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 136), align 8, !tbaa !56
   %30 = call ptr @dt_database_get(ptr noundef %29) #8
   %31 = call ptr @sqlite3_errmsg(ptr noundef %30) #8
@@ -1415,11 +1415,11 @@ define void @dt_selection_select_list(ptr noundef writeonly captures(none) %0, p
   br label %33
 
 33:                                               ; preds = %26, %21
-  %34 = load ptr, ptr %3, align 8, !tbaa !83
+  %34 = load ptr, ptr %3, align 8, !tbaa !81
   call void @g_free(ptr noundef %34) #8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #8
   %.not19 = icmp eq ptr %.1.lcssa, null
-  br i1 %.not19, label %35, label %5, !llvm.loop !86
+  br i1 %.not19, label %35, label %5
 
 35:                                               ; preds = %33
   call void @dt_act_on_reset_cache(i32 noundef 1) #8
@@ -1559,7 +1559,7 @@ dt_selection_get_list_query.exit:                 ; preds = %5, %9, %13
   %38 = call ptr @g_list_prepend(ptr noundef %.019, ptr noundef %37) #8
   %39 = load ptr, ptr %4, align 8, !tbaa !79
   %.not16 = icmp eq ptr %39, null
-  br i1 %.not16, label %.critedge, label %.lr.ph, !llvm.loop !87
+  br i1 %.not16, label %.critedge, label %.lr.ph
 
 .critedge:                                        ; preds = %.lr.ph, %33, %28
   %.0.lcssa = phi ptr [ null, %28 ], [ %38, %33 ], [ %.019, %.lr.ph ]
@@ -1699,10 +1699,5 @@ attributes #9 = { cold nounwind }
 !78 = !{!73, !12, i64 1360}
 !79 = !{!80, !80, i64 0}
 !80 = !{!"p1 _ZTS12sqlite3_stmt", !9, i64 0}
-!81 = distinct !{!81, !82}
-!82 = !{!"llvm.loop.estimated_trip_count"}
-!83 = !{!40, !40, i64 0}
-!84 = !{!52, !16, i64 8}
-!85 = distinct !{!85, !82}
-!86 = distinct !{!86, !82}
-!87 = distinct !{!87, !82}
+!81 = !{!40, !40, i64 0}
+!82 = !{!52, !16, i64 8}

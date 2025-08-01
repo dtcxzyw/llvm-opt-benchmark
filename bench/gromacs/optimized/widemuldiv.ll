@@ -59,7 +59,7 @@ define void @Ptngc_largeint_mul(i32 noundef %0, ptr noundef readonly captures(no
   br label %largeint_add_gen.exit31
 
 11:                                               ; preds = %.lr.ph
-  %12 = tail call { i32, i32 } asm sideeffect "mull %edx\0A\09", "={ax},={dx},{ax},{dx},~{cc},~{dirflag},~{fpsr},~{flags}"(i32 %0, i32 range(i32 1, 0) %10) #3, !srcloc !10
+  %12 = tail call { i32, i32 } asm sideeffect "mull %edx\0A\09", "={ax},={dx},{ax},{dx},~{cc},~{dirflag},~{fpsr},~{flags}"(i32 %0, i32 range(i32 1, 0) %10) #3, !srcloc !9
   %13 = extractvalue { i32, i32 } %12, 0
   %14 = extractvalue { i32, i32 } %12, 1
   %15 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv
@@ -115,7 +115,7 @@ largeint_add_gen.exit:                            ; preds = %.lr.ph.i, %11
 largeint_add_gen.exit31:                          ; preds = %.lr.ph.i28, %.lr.ph.largeint_add_gen.exit31_crit_edge, %largeint_add_gen.exit
   %indvars.iv.next.pre-phi = phi i64 [ %.pre, %.lr.ph.largeint_add_gen.exit31_crit_edge ], [ %20, %largeint_add_gen.exit ], [ %20, %.lr.ph.i28 ]
   %exitcond.not = icmp eq i64 %indvars.iv.next.pre-phi, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !11
+  br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !10
 
 ._crit_edge.loopexit:                             ; preds = %largeint_add_gen.exit31
   %43 = zext nneg i32 %7 to i64
@@ -129,7 +129,7 @@ largeint_add_gen.exit31:                          ; preds = %.lr.ph.i28, %.lr.ph
   br i1 %.not, label %largeint_add_gen.exit37, label %46
 
 46:                                               ; preds = %._crit_edge
-  %47 = tail call { i32, i32 } asm sideeffect "mull %edx\0A\09", "={ax},={dx},{ax},{dx},~{cc},~{dirflag},~{fpsr},~{flags}"(i32 %0, i32 range(i32 1, 0) %45) #3, !srcloc !10
+  %47 = tail call { i32, i32 } asm sideeffect "mull %edx\0A\09", "={ax},={dx},{ax},{dx},~{cc},~{dirflag},~{fpsr},~{flags}"(i32 %0, i32 range(i32 1, 0) %45) #3, !srcloc !9
   %48 = extractvalue { i32, i32 } %47, 0
   %49 = getelementptr inbounds nuw i32, ptr %2, i64 %.0.lcssa
   %50 = load i32, ptr %49, align 4, !tbaa !3
@@ -159,13 +159,13 @@ define i32 @Ptngc_largeint_div(i32 noundef %0, ptr noundef readonly captures(non
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %6 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv.next
   %7 = load i32, ptr %6, align 4, !tbaa !3
-  %8 = tail call { i32, i32 } asm sideeffect "divl %ecx\0A\09", "={ax},={dx},{ax},{dx},{cx},~{cc},~{dirflag},~{fpsr},~{flags}"(i32 %7, i32 %.01113, i32 %0) #3, !srcloc !12
+  %8 = tail call { i32, i32 } asm sideeffect "divl %ecx\0A\09", "={ax},={dx},{ax},{dx},{cx},~{cc},~{dirflag},~{fpsr},~{flags}"(i32 %7, i32 %.01113, i32 %0) #3, !srcloc !11
   %9 = extractvalue { i32, i32 } %8, 0
   %10 = extractvalue { i32, i32 } %8, 1
   %11 = getelementptr inbounds i32, ptr %2, i64 %indvars.iv.next
   store i32 %9, ptr %11, align 4, !tbaa !3
   %.not = icmp eq i64 %indvars.iv.next, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !13
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %.lr.ph, %4
   %.011.lcssa = phi i32 [ 0, %4 ], [ %10, %.lr.ph ]
@@ -186,10 +186,9 @@ attributes #3 = { nounwind }
 !4 = !{!"int", !5, i64 0}
 !5 = !{!"omnipotent char", !6, i64 0}
 !6 = !{!"Simple C/C++ TBAA"}
-!7 = distinct !{!7, !8, !9}
+!7 = distinct !{!7, !8}
 !8 = !{!"llvm.loop.mustprogress"}
-!9 = !{!"llvm.loop.estimated_trip_count"}
-!10 = !{i64 1977, i64 1990}
-!11 = distinct !{!11, !8, !9}
-!12 = !{i64 3934, i64 3947}
-!13 = distinct !{!13, !8, !9}
+!9 = !{i64 1977, i64 1990}
+!10 = distinct !{!10, !8}
+!11 = !{i64 3934, i64 3947}
+!12 = distinct !{!12, !8}

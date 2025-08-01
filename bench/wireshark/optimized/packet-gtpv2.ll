@@ -4134,7 +4134,7 @@ define hidden void @dissect_gtpv2_mbms_service_area(ptr noundef %0, ptr readnone
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %3, ptr noundef nonnull @.str.19, i32 noundef %19)
   %23 = add nuw nsw i32 %.019, 2
   %24 = icmp samesign ult i32 %23, %14
-  br i1 %24, label %.lr.ph, label %._crit_edge, !llvm.loop !9
+  br i1 %24, label %.lr.ph, label %._crit_edge, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %22, %8
   ret void
@@ -4477,7 +4477,7 @@ define hidden void @dissect_gtpv2_ie_common(ptr noundef %0, ptr noundef %1, ptr 
 73:                                               ; preds = %.preheader108, %58, %62, %66
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 266
-  br i1 %exitcond.not, label %.loopexit, label %.preheader108, !llvm.loop !10
+  br i1 %exitcond.not, label %.loopexit, label %.preheader108, !llvm.loop !9
 
 .loopexit:                                        ; preds = %73, %48, %70
   %74 = add i32 %.093119, 4
@@ -4503,7 +4503,7 @@ define hidden void @dissect_gtpv2_ie_common(ptr noundef %0, ptr noundef %1, ptr 
   %.not = icmp eq i32 %82, 0
   %83 = icmp eq i32 %82, %37
   %or.cond107 = or i1 %.not, %83
-  br i1 %or.cond107, label %84, label %.preheader, !llvm.loop !11
+  br i1 %or.cond107, label %84, label %.preheader, !llvm.loop !10
 
 84:                                               ; preds = %.preheader
   %85 = call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %.1137)
@@ -4519,7 +4519,7 @@ define hidden void @dissect_gtpv2_ie_common(ptr noundef %0, ptr noundef %1, ptr 
   %spec.select = add nuw nsw i32 %23, %90
   %91 = add i32 %spec.select, %.1138
   %92 = icmp slt i32 %91, %9
-  br i1 %92, label %13, label %.loopexit109, !llvm.loop !12
+  br i1 %92, label %13, label %.loopexit109, !llvm.loop !11
 
 .loopexit109:                                     ; preds = %89, %7, %25, %16
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #12
@@ -4633,7 +4633,7 @@ define hidden void @proto_register_gtpv2() local_unnamed_addr #1 {
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %indvars.iv.next11 = add nuw nsw i64 %indvars.iv10, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 256
-  br i1 %exitcond.not, label %4, label %1, !llvm.loop !13
+  br i1 %exitcond.not, label %4, label %1, !llvm.loop !12
 
 4:                                                ; preds = %1
   %5 = tail call i32 @proto_register_protocol(ptr noundef nonnull @.str.1421, ptr noundef nonnull @.str.1422, ptr noundef nonnull @.str.1423)
@@ -4730,7 +4730,7 @@ define internal i32 @dissect_gtpv2(ptr noundef %0, ptr noundef %1, ptr noundef %
   %25 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %22, ptr noundef %0, i32 noundef 0, i32 noundef %24, i32 noundef 0)
   %26 = load i32, ptr @ett_gtpv2, align 4
   %27 = tail call ptr @proto_item_add_subtree(ptr noundef %25, i32 noundef %26)
-  %28 = load i8, ptr @g_gtp_session, align 1, !range !14, !noundef !15
+  %28 = load i8, ptr @g_gtp_session, align 1, !range !13, !noundef !14
   %29 = trunc nuw i8 %28 to i1
   br i1 %29, label %30, label %39
 
@@ -4927,7 +4927,7 @@ define internal i32 @dissect_gtpv2(ptr noundef %0, ptr noundef %1, ptr noundef %
   br i1 %.not.i, label %123, label %121
 
 121:                                              ; preds = %116
-  %122 = load i8, ptr %6, align 8, !range !14, !noundef !15
+  %122 = load i8, ptr %6, align 8, !range !13, !noundef !14
   store i8 %122, ptr %120, align 8
   br label %155
 
@@ -5031,7 +5031,7 @@ define internal i32 @dissect_gtpv2(ptr noundef %0, ptr noundef %1, ptr noundef %
 
 155:                                              ; preds = %148, %145, %121
   %.0.ph.i = phi ptr [ %144, %148 ], [ %144, %145 ], [ %120, %121 ]
-  %156 = load i8, ptr %.0.ph.i, align 8, !range !14, !noundef !15
+  %156 = load i8, ptr %.0.ph.i, align 8, !range !13, !noundef !14
   %157 = trunc nuw i8 %156 to i1
   br i1 %157, label %158, label %170
 
@@ -5100,7 +5100,7 @@ proto_item_set_generated.exit83.i:                ; preds = %178, %175, %170
   br label %proto_item_set_generated.exit86.i
 
 proto_item_set_generated.exit86.i:                ; preds = %188, %185, %proto_item_set_generated.exit83.i
-  %192 = load i8, ptr @g_gtp_session, align 1, !range !14, !noundef !15
+  %192 = load i8, ptr @g_gtp_session, align 1, !range !13, !noundef !14
   %193 = trunc nuw i8 %192 to i1
   br i1 %193, label %194, label %223
 
@@ -5335,7 +5335,7 @@ declare void @register_srt_table(i32 noundef, ptr noundef, i32 noundef, ptr noun
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 0, 2) i32 @gtpv2_stat_packet(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr readnone captures(none) %2, ptr noundef %3, i32 %4) #1 {
-  %6 = load i8, ptr %3, align 8, !range !14, !noundef !15
+  %6 = load i8, ptr %3, align 8, !range !13, !noundef !14
   %7 = trunc nuw i8 %6 to i1
   br i1 %7, label %41, label %8
 
@@ -5513,7 +5513,7 @@ define internal i32 @dissect_diameter_3gpp_presence_reporting_area_elements_list
   %46 = add i32 %45, -1
   store i32 %46, ptr %9, align 4
   %.not = icmp eq i32 %46, 0
-  br i1 %.not, label %thread-pre-split, label %33, !llvm.loop !16
+  br i1 %.not, label %thread-pre-split, label %33, !llvm.loop !15
 
 thread-pre-split:                                 ; preds = %33, %4
   %.0.lcssa = phi i32 [ 6, %4 ], [ %39, %33 ]
@@ -5547,7 +5547,7 @@ thread-pre-split:                                 ; preds = %33, %4
   %62 = add i32 %61, -1
   store i32 %62, ptr %11, align 4
   %.not85 = icmp eq i32 %62, 0
-  br i1 %.not85, label %thread-pre-split156, label %48, !llvm.loop !17
+  br i1 %.not85, label %thread-pre-split156, label %48, !llvm.loop !16
 
 thread-pre-split156:                              ; preds = %48, %thread-pre-split
   %.1148.lcssa = phi i32 [ %.0.lcssa, %thread-pre-split ], [ %55, %48 ]
@@ -5580,7 +5580,7 @@ thread-pre-split156:                              ; preds = %48, %thread-pre-spl
   %79 = add i32 %78, -1
   store i32 %79, ptr %12, align 4
   %.not86 = icmp eq i32 %79, 0
-  br i1 %.not86, label %thread-pre-split158, label %64, !llvm.loop !18
+  br i1 %.not86, label %thread-pre-split158, label %64, !llvm.loop !17
 
 thread-pre-split158:                              ; preds = %64, %thread-pre-split156
   %.2149.lcssa = phi i32 [ %.1148.lcssa, %thread-pre-split156 ], [ %73, %64 ]
@@ -5619,7 +5619,7 @@ thread-pre-split158:                              ; preds = %64, %thread-pre-spl
   %102 = add i32 %101, -1
   store i32 %102, ptr %13, align 4
   %.not87 = icmp eq i32 %102, 0
-  br i1 %.not87, label %thread-pre-split160, label %81, !llvm.loop !19
+  br i1 %.not87, label %thread-pre-split160, label %81, !llvm.loop !18
 
 thread-pre-split160:                              ; preds = %81, %thread-pre-split158
   %.3150.lcssa = phi i32 [ %.2149.lcssa, %thread-pre-split158 ], [ %96, %81 ]
@@ -5657,7 +5657,7 @@ thread-pre-split160:                              ; preds = %81, %thread-pre-spl
   %124 = add i32 %123, -1
   store i32 %124, ptr %10, align 4
   %.not88 = icmp eq i32 %124, 0
-  br i1 %.not88, label %thread-pre-split162, label %104, !llvm.loop !20
+  br i1 %.not88, label %thread-pre-split162, label %104, !llvm.loop !19
 
 thread-pre-split162:                              ; preds = %104, %thread-pre-split160
   %.4151.lcssa = phi i32 [ %.3150.lcssa, %thread-pre-split160 ], [ %116, %104 ]
@@ -5695,7 +5695,7 @@ thread-pre-split162:                              ; preds = %104, %thread-pre-sp
   %146 = add i32 %145, -1
   store i32 %146, ptr %14, align 4
   %.not89 = icmp eq i32 %146, 0
-  br i1 %.not89, label %thread-pre-split164, label %126, !llvm.loop !21
+  br i1 %.not89, label %thread-pre-split164, label %126, !llvm.loop !20
 
 thread-pre-split164:                              ; preds = %126, %thread-pre-split162
   %.5152.lcssa = phi i32 [ %.4151.lcssa, %thread-pre-split162 ], [ %138, %126 ]
@@ -5733,7 +5733,7 @@ thread-pre-split164:                              ; preds = %126, %thread-pre-sp
   %168 = add i32 %167, -1
   store i32 %168, ptr %15, align 4
   %.not90 = icmp eq i32 %168, 0
-  br i1 %.not90, label %._crit_edge, label %148, !llvm.loop !22
+  br i1 %.not90, label %._crit_edge, label %148, !llvm.loop !21
 
 ._crit_edge:                                      ; preds = %148, %thread-pre-split164
   %.6153.lcssa = phi i32 [ %.5152.lcssa, %thread-pre-split164 ], [ %160, %148 ]
@@ -5779,7 +5779,7 @@ thread-pre-split164:                              ; preds = %126, %thread-pre-sp
   %193 = add i32 %192, -1
   store i32 %193, ptr %16, align 4
   %.not92 = icmp eq i32 %193, 0
-  br i1 %.not92, label %.loopexit, label %174, !llvm.loop !23
+  br i1 %.not92, label %.loopexit, label %174, !llvm.loop !22
 
 .loopexit:                                        ; preds = %174, %169, %._crit_edge
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16) #12
@@ -5814,7 +5814,7 @@ define internal void @dissect_gtpv2_imsi(ptr noundef %0, ptr noundef %1, ptr nou
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @dissect_gtpv2_cause(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr noundef %3, i16 noundef zeroext %4, i8 zeroext %5, i8 zeroext %6, ptr noundef writeonly captures(none) %7) #1 {
   %9 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 0)
-  %10 = load i8, ptr @g_gtp_session, align 1, !range !14, !noundef !15
+  %10 = load i8, ptr @g_gtp_session, align 1, !range !13, !noundef !14
   %11 = trunc nuw i8 %10 to i1
   br i1 %11, label %12, label %14
 
@@ -6408,7 +6408,7 @@ define internal void @dissect_gtpv2_f_teid(ptr noundef %0, ptr noundef readonly 
 
 49:                                               ; preds = %38, %36
   %.072 = phi ptr [ %40, %38 ], [ null, %36 ]
-  %50 = load i8, ptr @g_gtp_session, align 1, !range !14, !noundef !15
+  %50 = load i8, ptr @g_gtp_session, align 1, !range !13, !noundef !14
   %51 = trunc nuw i8 %50 to i1
   %52 = icmp ne ptr %7, null
   %or.cond = and i1 %52, %51
@@ -6595,7 +6595,7 @@ define internal void @dissect_gtpv2_s103pdf(ptr noundef %0, ptr noundef %1, ptr 
   %35 = add nuw nsw i32 %.144, 1
   %lftr.wideiv = trunc i32 %35 to i8
   %exitcond.not = icmp eq i8 %29, %lftr.wideiv
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !24
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !23
 
 .loopexit:                                        ; preds = %.lr.ph, %17, %13
   ret void
@@ -6816,7 +6816,7 @@ define internal void @dissect_gtpv2_tra_info(ptr noundef %0, ptr noundef %1, ptr
   %116 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %115, ptr noundef %0, i32 noundef %114, i32 noundef 4, i32 noundef 0)
   %117 = add nuw nsw i32 %113, 4
   %.not = icmp samesign ugt i32 %117, %112
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !25
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !24
 
 ._crit_edge:                                      ; preds = %.lr.ph, %8
   ret void
@@ -6906,7 +6906,7 @@ define internal void @dissect_gtpv2_mm_context_gsm_t(ptr noundef %0, ptr noundef
   %49 = add nuw nsw i32 %.01920.i, 28
   %50 = add nuw nsw i32 %.021.i, 1
   %exitcond.not.i = icmp eq i32 %50, %37
-  br i1 %exitcond.not.i, label %dissect_gtpv2_authentication_triplets.exit, label %38, !llvm.loop !26
+  br i1 %exitcond.not.i, label %dissect_gtpv2_authentication_triplets.exit, label %38, !llvm.loop !25
 
 dissect_gtpv2_authentication_triplets.exit:       ; preds = %38, %8
   %51 = and i8 %11, 8
@@ -9298,7 +9298,7 @@ define internal void @dissect_gtpv2_pres_rep_area_information(ptr noundef %0, pt
 32:                                               ; preds = %28, %.lr.ph
   %.1 = phi i32 [ %31, %28 ], [ %25, %.lr.ph ]
   %33 = icmp slt i32 %.1, %20
-  br i1 %33, label %.lr.ph, label %.loopexit, !llvm.loop !27
+  br i1 %33, label %.lr.ph, label %.loopexit, !llvm.loop !26
 
 .loopexit:                                        ; preds = %32, %17, %8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #12
@@ -9572,7 +9572,7 @@ define internal void @dissect_gtpv2_mon_event_inf(ptr noundef %0, ptr noundef %1
   %30 = load i32, ptr @hf_gtpv2_mon_event_inf_remaining_number_of_reports, align 4
   %31 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %30, ptr noundef %0, i32 noundef %29, i32 noundef 2, i32 noundef 0)
   %32 = add i32 %28, 8
-  %33 = load i8, ptr %9, align 1, !range !14, !noundef !15
+  %33 = load i8, ptr %9, align 1, !range !13, !noundef !14
   %34 = trunc nuw i8 %33 to i1
   br i1 %34, label %35, label %39
 
@@ -10068,7 +10068,7 @@ define internal void @dissect_gtpv2_ie_mon_event_ext_inf(ptr noundef %0, ptr nou
   %24 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %22, ptr noundef %0, i32 noundef 6, i32 noundef %23, i32 noundef 2)
   %25 = load i32, ptr %11, align 4
   %26 = add i32 %25, 6
-  %27 = load i8, ptr %9, align 1, !range !14, !noundef !15
+  %27 = load i8, ptr %9, align 1, !range !13, !noundef !14
   %28 = trunc nuw i8 %27 to i1
   br i1 %28, label %29, label %33
 
@@ -10080,7 +10080,7 @@ define internal void @dissect_gtpv2_ie_mon_event_ext_inf(ptr noundef %0, ptr nou
 
 33:                                               ; preds = %29, %8
   %.0 = phi i32 [ %32, %29 ], [ %26, %8 ]
-  %34 = load i8, ptr %10, align 1, !range !14, !noundef !15
+  %34 = load i8, ptr %10, align 1, !range !13, !noundef !14
   %35 = trunc nuw i8 %34 to i1
   br i1 %35, label %36, label %40
 
@@ -10495,7 +10495,7 @@ define internal fastcc i32 @dissect_gtpv2_authentication_quintuplets(ptr noundef
   %34 = add i32 %33, %29
   %35 = add nuw nsw i32 %.037, 1
   %exitcond.not = icmp eq i32 %35, %6
-  br i1 %exitcond.not, label %36, label %7, !llvm.loop !28
+  br i1 %exitcond.not, label %36, label %7, !llvm.loop !27
 
 36:                                               ; preds = %7
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #12
@@ -10563,7 +10563,7 @@ define internal fastcc noundef i32 @dissect_gtpv2_authentication_quadruplets(ptr
   %31 = call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %30, ptr noundef %0, i32 noundef %29, i32 noundef 32, i32 noundef 0)
   %32 = add i32 %29, 32
   %exitcond.not = icmp eq i32 %9, %6
-  br i1 %exitcond.not, label %33, label %7, !llvm.loop !29
+  br i1 %exitcond.not, label %33, label %7, !llvm.loop !28
 
 33:                                               ; preds = %7
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #12
@@ -10910,27 +10910,26 @@ attributes #14 = { allocsize(2) }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7, !8}
-!11 = distinct !{!11, !7, !8}
-!12 = distinct !{!12, !7, !8}
-!13 = distinct !{!13, !7, !8}
-!14 = !{i8 0, i8 2}
-!15 = !{}
-!16 = distinct !{!16, !7, !8}
-!17 = distinct !{!17, !7, !8}
-!18 = distinct !{!18, !7, !8}
-!19 = distinct !{!19, !7, !8}
-!20 = distinct !{!20, !7, !8}
-!21 = distinct !{!21, !7, !8}
-!22 = distinct !{!22, !7, !8}
-!23 = distinct !{!23, !7, !8}
-!24 = distinct !{!24, !7, !8}
-!25 = distinct !{!25, !7, !8}
-!26 = distinct !{!26, !7, !8}
-!27 = distinct !{!27, !7, !8}
-!28 = distinct !{!28, !7, !8}
-!29 = distinct !{!29, !7, !8}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7}
+!12 = distinct !{!12, !7}
+!13 = !{i8 0, i8 2}
+!14 = !{}
+!15 = distinct !{!15, !7}
+!16 = distinct !{!16, !7}
+!17 = distinct !{!17, !7}
+!18 = distinct !{!18, !7}
+!19 = distinct !{!19, !7}
+!20 = distinct !{!20, !7}
+!21 = distinct !{!21, !7}
+!22 = distinct !{!22, !7}
+!23 = distinct !{!23, !7}
+!24 = distinct !{!24, !7}
+!25 = distinct !{!25, !7}
+!26 = distinct !{!26, !7}
+!27 = distinct !{!27, !7}
+!28 = distinct !{!28, !7}

@@ -250,7 +250,7 @@ overlay_fixup_phandle.exit.i:                     ; preds = %39
 103:                                              ; preds = %overlay_fixup_phandle.exit.i, %overlay_fixup_phandle.exit.thread29.i
   %104 = call i32 @fdt_next_property_offset(ptr noundef %1, i32 noundef %.02236.i) #8
   %105 = icmp sgt i32 %104, -1
-  br i1 %105, label %36, label %overlay_fixup_phandles.exit, !llvm.loop !14
+  br i1 %105, label %36, label %overlay_fixup_phandles.exit, !llvm.loop !13
 
 overlay_fixup_phandles.exit:                      ; preds = %103, %32, %overlay_update_local_references.exit.thread
   %106 = call fastcc i32 @overlay_merge(ptr noundef %0, ptr noundef %1)
@@ -264,13 +264,13 @@ overlay_fixup_phandles.exit:                      ; preds = %103, %32, %overlay_
 
 overlay_update_local_references.exit.thread43:    ; preds = %overlay_fixup_phandle.exit.i, %overlay_fixup_phandle.exit.thread.i, %30, %28, %23, %107, %overlay_fixup_phandles.exit, %overlay_update_local_references.exit, %16, %14
   %.028 = phi i32 [ %15, %14 ], [ %18, %16 ], [ %25, %overlay_update_local_references.exit ], [ %106, %overlay_fixup_phandles.exit ], [ %108, %107 ], [ %21, %23 ], [ %.0.i.ph.i, %overlay_fixup_phandle.exit.thread.i ], [ %31, %30 ], [ %26, %28 ], [ %38, %overlay_fixup_phandle.exit.i ]
-  store i32 -1, ptr %1, align 4, !tbaa !15
+  store i32 -1, ptr %1, align 4, !tbaa !14
   br label %.sink.split
 
 .sink.split:                                      ; preds = %107, %overlay_update_local_references.exit.thread43
   %.sink = phi ptr [ %0, %overlay_update_local_references.exit.thread43 ], [ %1, %107 ]
   %.1.ph = phi i32 [ %.028, %overlay_update_local_references.exit.thread43 ], [ 0, %107 ]
-  store i32 -1, ptr %.sink, align 4, !tbaa !15
+  store i32 -1, ptr %.sink, align 4, !tbaa !14
   br label %109
 
 109:                                              ; preds = %.sink.split, %11, %2
@@ -318,7 +318,7 @@ define internal fastcc i32 @overlay_merge(ptr noundef %0, ptr noundef %1) unname
 select.unfold:                                    ; preds = %12, %.lr.ph
   %14 = tail call i32 @fdt_next_subnode(ptr noundef %1, i32 noundef %.02229) #8
   %15 = icmp sgt i32 %14, -1
-  br i1 %15, label %.lr.ph, label %.thread, !llvm.loop !17
+  br i1 %15, label %.lr.ph, label %.thread, !llvm.loop !16
 
 .thread:                                          ; preds = %select.unfold, %7, %9, %12, %2
   %.2 = phi i32 [ 0, %2 ], [ %13, %12 ], [ %10, %9 ], [ %5, %7 ], [ 0, %select.unfold ]
@@ -476,7 +476,7 @@ define internal fastcc i32 @overlay_symbol_update(ptr noundef %0, ptr noundef %1
   %78 = add i32 %77, %76
   %79 = call ptr @fdt_get_name(ptr noundef %0, i32 noundef %73, ptr noundef nonnull %3) #8
   %.not.i = icmp eq ptr %79, null
-  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !18
+  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i
 
 80:                                               ; preds = %.lr.ph.i
   %spec.select.i = call i32 @llvm.umax.i32(i32 %.01623.i, i32 1)
@@ -520,7 +520,7 @@ get_path_len.exit:                                ; preds = %._crit_edge.i, %80
 
 98:                                               ; preds = %95, %94
   %.092 = phi i32 [ %61, %94 ], [ %96, %95 ]
-  %99 = load ptr, ptr %7, align 8, !tbaa !19
+  %99 = load ptr, ptr %7, align 8, !tbaa !17
   br i1 %87, label %100, label %108
 
 100:                                              ; preds = %98
@@ -561,7 +561,7 @@ get_path_len.exit:                                ; preds = %._crit_edge.i, %80
 .thread:                                          ; preds = %43, %50, %52, %31, %110
   %117 = call i32 @fdt_next_property_offset(ptr noundef %1, i32 noundef %.091125) #8
   %118 = icmp sgt i32 %117, -1
-  br i1 %118, label %.lr.ph, label %.loopexit, !llvm.loop !20
+  br i1 %118, label %.lr.ph, label %.loopexit, !llvm.loop !18
 
 .loopexit:                                        ; preds = %24, %22, %29, %54, %57, %60, %get_path_len.exit, %85, %95, %103, %.thread, %.lr.ph, %17, %get_path_len.exit.thread, %15, %2
   %.0 = phi i32 [ 0, %2 ], [ %.090, %15 ], [ %.1.i.ph, %get_path_len.exit.thread ], [ 0, %17 ], [ %21, %.lr.ph ], [ -15, %24 ], [ -15, %22 ], [ -15, %29 ], [ -16, %54 ], [ -16, %57 ], [ %61, %60 ], [ %.1.i, %get_path_len.exit ], [ %92, %85 ], [ %96, %95 ], [ %104, %103 ], [ 0, %.thread ]
@@ -671,7 +671,7 @@ overlay_phandle_add_offset.exit35:                ; preds = %19, %28
 35:                                               ; preds = %.lr.ph
   %36 = call i32 @fdt_next_subnode(ptr noundef %0, i32 noundef %.040) #8
   %37 = icmp sgt i32 %36, -1
-  br i1 %37, label %.lr.ph, label %.loopexit, !llvm.loop !21
+  br i1 %37, label %.lr.ph, label %.loopexit, !llvm.loop !19
 
 .loopexit:                                        ; preds = %.lr.ph, %35, %31, %overlay_phandle_add_offset.exit35.thread, %overlay_phandle_add_offset.exit.thread, %overlay_phandle_add_offset.exit35, %overlay_phandle_add_offset.exit
   %.025 = phi i32 [ %.0.i, %overlay_phandle_add_offset.exit ], [ %.0.i31, %overlay_phandle_add_offset.exit35 ], [ %.0.i.ph, %overlay_phandle_add_offset.exit.thread ], [ %.0.i31.ph, %overlay_phandle_add_offset.exit35.thread ], [ 0, %31 ], [ %34, %.lr.ph ], [ 0, %35 ]
@@ -767,7 +767,7 @@ define internal fastcc i32 @overlay_update_local_node_references(ptr noundef %0,
   %34 = sext i32 %33 to i64
   %35 = lshr i64 %34, 2
   %36 = icmp samesign ugt i64 %35, %indvars.iv.next
-  br i1 %36, label %.lr.ph, label %._crit_edge, !llvm.loop !22
+  br i1 %36, label %.lr.ph, label %._crit_edge, !llvm.loop !20
 
 .thread71:                                        ; preds = %13, %.lr.ph82, %19, %.thread
   %.1.ph = phi i32 [ %.3.ph, %.thread ], [ %., %19 ], [ %12, %.lr.ph82 ], [ -16, %13 ]
@@ -782,7 +782,7 @@ define internal fastcc i32 @overlay_update_local_node_references(ptr noundef %0,
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #8
   %37 = call i32 @fdt_next_property_offset(ptr noundef %0, i32 noundef %.04880) #8
   %38 = icmp sgt i32 %37, -1
-  br i1 %38, label %.lr.ph82, label %._crit_edge83, !llvm.loop !23
+  br i1 %38, label %.lr.ph82, label %._crit_edge83, !llvm.loop !21
 
 ._crit_edge83:                                    ; preds = %._crit_edge, %4
   %39 = call i32 @fdt_first_subnode(ptr noundef %0, i32 noundef %2) #8
@@ -808,7 +808,7 @@ define internal fastcc i32 @overlay_update_local_node_references(ptr noundef %0,
 48:                                               ; preds = %46
   %49 = call i32 @fdt_next_subnode(ptr noundef %0, i32 noundef %.04984) #8
   %50 = icmp sgt i32 %49, -1
-  br i1 %50, label %.lr.ph86, label %.thread75, !llvm.loop !24
+  br i1 %50, label %.lr.ph86, label %.thread75, !llvm.loop !22
 
 .thread75:                                        ; preds = %46, %48, %.lr.ph86, %44, %._crit_edge83, %.thread71
   %.4 = phi i32 [ %.1.ph, %.thread71 ], [ 0, %._crit_edge83 ], [ %47, %46 ], [ 0, %48 ], [ -16, %.lr.ph86 ], [ %42, %44 ]
@@ -955,7 +955,7 @@ define internal fastcc i32 @overlay_apply_node(ptr noundef %0, i32 noundef range
 17:                                               ; preds = %14
   %18 = call i32 @fdt_next_property_offset(ptr noundef %2, i32 noundef %.03957) #8
   %19 = icmp sgt i32 %18, -1
-  br i1 %19, label %.lr.ph, label %._crit_edge, !llvm.loop !25
+  br i1 %19, label %.lr.ph, label %._crit_edge, !llvm.loop !23
 
 ._crit_edge:                                      ; preds = %17, %4
   %20 = call i32 @fdt_first_subnode(ptr noundef %2, i32 noundef %3) #8
@@ -987,7 +987,7 @@ define internal fastcc i32 @overlay_apply_node(ptr noundef %0, i32 noundef range
 32:                                               ; preds = %30
   %33 = call i32 @fdt_next_subnode(ptr noundef %2, i32 noundef %.04258) #8
   %34 = icmp sgt i32 %33, -1
-  br i1 %34, label %.lr.ph60, label %.thread53, !llvm.loop !26
+  br i1 %34, label %.lr.ph60, label %.thread53, !llvm.loop !24
 
 .thread53:                                        ; preds = %14, %30, %32, %25, %28, %._crit_edge, %.thread
   %.2 = phi i32 [ %.1.ph, %.thread ], [ 0, %._crit_edge ], [ %31, %30 ], [ 0, %32 ], [ -13, %25 ], [ %.038, %28 ], [ %16, %14 ]
@@ -1044,19 +1044,17 @@ attributes #9 = { nounwind willreturn memory(read) }
 !8 = !{!9, !9, i64 0}
 !9 = !{!"p1 omnipotent char", !10, i64 0}
 !10 = !{!"any pointer", !5, i64 0}
-!11 = distinct !{!11, !12, !13}
+!11 = distinct !{!11, !12}
 !12 = !{!"llvm.loop.mustprogress"}
-!13 = !{!"llvm.loop.estimated_trip_count"}
-!14 = distinct !{!14, !12, !13}
-!15 = !{!16, !4, i64 0}
-!16 = !{!"fdt_header", !4, i64 0, !4, i64 4, !4, i64 8, !4, i64 12, !4, i64 16, !4, i64 20, !4, i64 24, !4, i64 28, !4, i64 32, !4, i64 36}
-!17 = distinct !{!17, !12, !13}
-!18 = distinct !{!18, !13}
-!19 = !{!10, !10, i64 0}
-!20 = distinct !{!20, !12, !13}
-!21 = distinct !{!21, !12, !13}
-!22 = distinct !{!22, !12, !13}
-!23 = distinct !{!23, !12, !13}
-!24 = distinct !{!24, !12, !13}
-!25 = distinct !{!25, !12, !13}
-!26 = distinct !{!26, !12, !13}
+!13 = distinct !{!13, !12}
+!14 = !{!15, !4, i64 0}
+!15 = !{!"fdt_header", !4, i64 0, !4, i64 4, !4, i64 8, !4, i64 12, !4, i64 16, !4, i64 20, !4, i64 24, !4, i64 28, !4, i64 32, !4, i64 36}
+!16 = distinct !{!16, !12}
+!17 = !{!10, !10, i64 0}
+!18 = distinct !{!18, !12}
+!19 = distinct !{!19, !12}
+!20 = distinct !{!20, !12}
+!21 = distinct !{!21, !12}
+!22 = distinct !{!22, !12}
+!23 = distinct !{!23, !12}
+!24 = distinct !{!24, !12}

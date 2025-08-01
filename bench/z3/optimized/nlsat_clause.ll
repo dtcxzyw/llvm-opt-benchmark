@@ -80,12 +80,12 @@ define hidden noundef zeroext i1 @_ZNK5nlsat6clause8containsEN3sat7literalE(ptr 
 .lr.ph:                                           ; preds = %.lr.ph, %.lr.ph.preheader
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %6 = getelementptr inbounds nuw [0 x %"class.sat::literal"], ptr %3, i64 0, i64 %indvars.iv
-  %7 = load i32, ptr %6, align 4, !tbaa !16
+  %7 = load i32, ptr %6, align 4, !tbaa !15
   %8 = icmp eq i32 %7, %1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   %or.cond = select i1 %8, i1 true, i1 %exitcond.not
-  br i1 %or.cond, label %._crit_edge, label %.lr.ph, !llvm.loop !18
+  br i1 %or.cond, label %._crit_edge, label %.lr.ph, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   %.not.lcssa = phi i1 [ false, %2 ], [ %8, %.lr.ph ]
@@ -107,13 +107,13 @@ define hidden noundef zeroext i1 @_ZNK5nlsat6clause8containsEj(ptr noundef nonnu
 .lr.ph:                                           ; preds = %.lr.ph, %.lr.ph.preheader
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %6 = getelementptr inbounds nuw [0 x %"class.sat::literal"], ptr %3, i64 0, i64 %indvars.iv
-  %7 = load i32, ptr %6, align 4, !tbaa !16
+  %7 = load i32, ptr %6, align 4, !tbaa !15
   %8 = lshr i32 %7, 1
   %9 = icmp eq i32 %8, %1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   %or.cond = select i1 %9, i1 true, i1 %exitcond.not
-  br i1 %or.cond, label %._crit_edge, label %.lr.ph, !llvm.loop !19
+  br i1 %or.cond, label %._crit_edge, label %.lr.ph, !llvm.loop !18
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   %.not.lcssa = phi i1 [ false, %2 ], [ %9, %.lr.ph ]
@@ -124,9 +124,9 @@ define hidden noundef zeroext i1 @_ZNK5nlsat6clause8containsEj(ptr noundef nonnu
 define internal void @_GLOBAL__sub_I_nlsat_clause.cpp() #6 section ".text.startup" {
   tail call void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZStL8__ioinit)
   %1 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #7
-  store i32 0, ptr @_ZN5nlsatL12true_literalE, align 4, !tbaa !16
+  store i32 0, ptr @_ZN5nlsatL12true_literalE, align 4, !tbaa !15
   %2 = tail call ptr @llvm.invariant.start.p0(i64 4, ptr nonnull @_ZN5nlsatL12true_literalE)
-  store i32 1, ptr @_ZN5nlsatL13false_literalE, align 4, !tbaa !16
+  store i32 1, ptr @_ZN5nlsatL13false_literalE, align 4, !tbaa !15
   %3 = tail call ptr @llvm.invariant.start.p0(i64 4, ptr nonnull @_ZN5nlsatL13false_literalE)
   ret void
 }
@@ -156,10 +156,9 @@ attributes #7 = { nounwind }
 !10 = !{!4, !5, i64 16}
 !11 = !{!4, !8, i64 24}
 !12 = !{!5, !5, i64 0}
-!13 = distinct !{!13, !14, !15}
+!13 = distinct !{!13, !14}
 !14 = !{!"llvm.loop.mustprogress"}
-!15 = !{!"llvm.loop.estimated_trip_count"}
-!16 = !{!17, !5, i64 0}
-!17 = !{!"_ZTSN3sat7literalE", !5, i64 0}
-!18 = distinct !{!18, !14, !15}
-!19 = distinct !{!19, !14, !15}
+!15 = !{!16, !5, i64 0}
+!16 = !{!"_ZTSN3sat7literalE", !5, i64 0}
+!17 = distinct !{!17, !14}
+!18 = distinct !{!18, !14}

@@ -251,7 +251,7 @@ _process_au.exit.us.i.us:                         ; preds = %_find_assoc_in_repo
 .backedge.us29.i.us:                              ; preds = %.backedge.us29.sink.split.i.us, %.thread.us.i.us
   %104 = call ptr @list_next(ptr noundef %35) #6
   %.not.us30.i.us = icmp eq ptr %104, null
-  br i1 %.not.us30.i.us, label %_process_assoc_type.exit.us, label %.lr.ph.split.split.us.i.us, !llvm.loop !12
+  br i1 %.not.us30.i.us, label %_process_assoc_type.exit.us, label %.lr.ph.split.split.us.i.us, !llvm.loop !11
 
 .lr.ph.split.us.i.us:                             ; preds = %.lr.ph.i.us, %.backedge.us.i.us
   %105 = phi ptr [ %151, %.backedge.us.i.us ], [ %48, %.lr.ph.i.us ]
@@ -307,7 +307,7 @@ _process_au.exit.us.i.us:                         ; preds = %_find_assoc_in_repo
 131:                                              ; preds = %127, %121
   %132 = call ptr @list_next(ptr noundef %118) #6
   %.not.i.us.i.us = icmp eq ptr %132, null
-  br i1 %.not.i.us.i.us, label %._crit_edge.i.us.i.us, label %121, !llvm.loop !14
+  br i1 %.not.i.us.i.us, label %._crit_edge.i.us.i.us, label %121, !llvm.loop !13
 
 133:                                              ; preds = %127
   call void @list_iterator_destroy(ptr noundef %118) #6
@@ -355,7 +355,7 @@ _process_ua.exit.us.i.us:                         ; preds = %139, %133
 .backedge.us.i.us:                                ; preds = %.backedge.us.sink.split.i.us, %112
   %151 = call ptr @list_next(ptr noundef %35) #6
   %.not.us.i.us = icmp eq ptr %151, null
-  br i1 %.not.us.i.us, label %_process_assoc_type.exit.us, label %.lr.ph.split.us.i.us, !llvm.loop !15
+  br i1 %.not.us.i.us, label %_process_assoc_type.exit.us, label %.lr.ph.split.us.i.us, !llvm.loop !14
 
 _process_assoc_type.exit.us:                      ; preds = %.backedge.us29.i.us, %.backedge.us.i.us, %42
   call void @list_iterator_reset(ptr noundef %35) #6
@@ -364,7 +364,7 @@ _process_assoc_type.exit.us:                      ; preds = %.backedge.us29.i.us
 .backedge.us:                                     ; preds = %.lr.ph.split.us, %40, %_process_assoc_type.exit.us
   %152 = call ptr @list_next(ptr noundef %34) #6
   %.not104.us = icmp eq ptr %152, null
-  br i1 %.not104.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !16
+  br i1 %.not104.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !15
 
 .lr.ph.split:                                     ; preds = %.lr.ph
   %153 = icmp eq i32 %3, 2
@@ -469,7 +469,7 @@ _process_uw.exit.us.i.us:                         ; preds = %181, %177
 .backedge.us.i123.us:                             ; preds = %.backedge.us.sink.split.i127.us, %173
   %195 = call ptr @list_next(ptr noundef %35) #6
   %.not.us.i124.us = icmp eq ptr %195, null
-  br i1 %.not.us.i124.us, label %_process_assoc_type.exit.us165, label %.lr.ph.split.us.i118.us, !llvm.loop !17
+  br i1 %.not.us.i124.us, label %_process_assoc_type.exit.us165, label %.lr.ph.split.us.i118.us, !llvm.loop !16
 
 _process_assoc_type.exit.us165:                   ; preds = %.backedge.us.i123.us, %158
   call void @list_iterator_reset(ptr noundef %35) #6
@@ -478,7 +478,7 @@ _process_assoc_type.exit.us165:                   ; preds = %.backedge.us.i123.u
 .backedge.us166:                                  ; preds = %.lr.ph.split.split.us, %156, %_process_assoc_type.exit.us165
   %196 = call ptr @list_next(ptr noundef %34) #6
   %.not104.us167 = icmp eq ptr %196, null
-  br i1 %.not104.us167, label %._crit_edge, label %.lr.ph.split.split.us, !llvm.loop !18
+  br i1 %.not104.us167, label %._crit_edge, label %.lr.ph.split.split.us, !llvm.loop !17
 
 .lr.ph.split.split:                               ; preds = %.lr.ph.split.split.preheader, %.backedge
   %197 = phi ptr [ %201, %.backedge ], [ %36, %.lr.ph.split.split.preheader ]
@@ -494,7 +494,7 @@ _process_assoc_type.exit.us165:                   ; preds = %.backedge.us.i123.u
 .backedge:                                        ; preds = %.lr.ph.split.split, %199, %_process_assoc_type.exit
   %201 = call ptr @list_next(ptr noundef %34) #6
   %.not104 = icmp eq ptr %201, null
-  br i1 %.not104, label %._crit_edge, label %.lr.ph.split.split, !llvm.loop !19
+  br i1 %.not104, label %._crit_edge, label %.lr.ph.split.split, !llvm.loop !18
 
 202:                                              ; preds = %199
   %203 = call ptr @slurmdb_cluster_rec_2_report(ptr noundef nonnull %197) #6
@@ -537,7 +537,7 @@ _process_assoc_type.exit.us165:                   ; preds = %.backedge.us.i123.u
 .backedge.i115:                                   ; preds = %.backedge.sink.split.i117, %.thread.i114
   %218 = call ptr @list_next(ptr noundef %35) #6
   %.not.i116 = icmp eq ptr %218, null
-  br i1 %.not.i116, label %_process_assoc_type.exit, label %.lr.ph.split.i, !llvm.loop !20
+  br i1 %.not.i116, label %_process_assoc_type.exit, label %.lr.ph.split.i, !llvm.loop !19
 
 219:                                              ; preds = %.thread.i114
   %220 = load ptr, ptr %209, align 8
@@ -567,7 +567,7 @@ _process_assoc_type.exit.us165:                   ; preds = %.backedge.us.i123.u
 232:                                              ; preds = %228, %224
   %233 = call ptr @list_next(ptr noundef %221) #6
   %.not.i20.i = icmp eq ptr %233, null
-  br i1 %.not.i20.i, label %._crit_edge.i.i, label %224, !llvm.loop !21
+  br i1 %.not.i20.i, label %._crit_edge.i.i, label %224, !llvm.loop !20
 
 234:                                              ; preds = %228
   call void @list_iterator_destroy(ptr noundef %221) #6
@@ -777,17 +777,16 @@ attributes #7 = { cold nounwind }
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i32 7, !"frame-pointer", i32 2}
 !7 = !{i32 7, !"debug-info-assignment-tracking", i1 true}
-!8 = distinct !{!8, !9, !10, !11}
+!8 = distinct !{!8, !9, !10}
 !9 = !{!"llvm.loop.mustprogress"}
 !10 = !{!"llvm.loop.unroll.disable"}
-!11 = !{!"llvm.loop.estimated_trip_count"}
-!12 = distinct !{!12, !9, !10, !11, !13}
-!13 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!14 = distinct !{!14, !9, !10, !11}
-!15 = distinct !{!15, !9, !10, !11, !13}
-!16 = distinct !{!16, !9, !10, !11, !13}
-!17 = distinct !{!17, !9, !10, !11, !13}
-!18 = distinct !{!18, !9, !10, !11, !13}
-!19 = distinct !{!19, !9, !10, !11}
-!20 = distinct !{!20, !9, !10, !11}
-!21 = distinct !{!21, !9, !10, !11}
+!11 = distinct !{!11, !9, !10, !12}
+!12 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!13 = distinct !{!13, !9, !10}
+!14 = distinct !{!14, !9, !10, !12}
+!15 = distinct !{!15, !9, !10, !12}
+!16 = distinct !{!16, !9, !10, !12}
+!17 = distinct !{!17, !9, !10, !12}
+!18 = distinct !{!18, !9, !10}
+!19 = distinct !{!19, !9, !10}
+!20 = distinct !{!20, !9, !10}

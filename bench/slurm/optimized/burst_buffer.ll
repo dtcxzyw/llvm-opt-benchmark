@@ -293,7 +293,7 @@ define dso_local i32 @bb_g_fini() local_unnamed_addr #0 {
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %16 = sext i32 %14 to i64
   %17 = icmp slt i64 %indvars.iv.next, %16
-  br i1 %17, label %.lr.ph, label %._crit_edge, !llvm.loop !12
+  br i1 %17, label %.lr.ph, label %._crit_edge, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %13, %.preheader
   %.011.lcssa = phi i32 [ 0, %.preheader ], [ %.1, %13 ]
@@ -360,7 +360,7 @@ define dso_local range(i32 0, -2147483648) i32 @bb_g_load_state(i1 noundef zeroe
   %18 = icmp slt i64 %indvars.iv.next, %17
   %19 = icmp slt i32 %15, 1
   %20 = select i1 %18, i1 %19, i1 false
-  br i1 %20, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !13
+  br i1 %20, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !12
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
   %21 = tail call i32 @llvm.smax.i32(i32 %15, i32 0)
@@ -453,7 +453,7 @@ define dso_local ptr @bb_g_get_status(i32 noundef %0, ptr noundef %1, i32 nounde
   %25 = load i32, ptr @g_context_cnt, align 4
   %26 = sext i32 %25 to i64
   %27 = icmp slt i64 %indvars.iv.next, %26
-  br i1 %27, label %.lr.ph, label %._crit_edge, !llvm.loop !14
+  br i1 %27, label %.lr.ph, label %._crit_edge, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %24, %.preheader
   %28 = call i32 @pthread_mutex_unlock(ptr noundef nonnull @g_context_lock) #11
@@ -533,7 +533,7 @@ define dso_local range(i32 0, -2147483648) i32 @bb_g_state_pack(i32 noundef %0, 
   %24 = load i32, ptr @g_context_cnt, align 4
   %25 = sext i32 %24 to i64
   %26 = icmp slt i64 %indvars.iv.next, %25
-  br i1 %26, label %.lr.ph, label %._crit_edge, !llvm.loop !15
+  br i1 %26, label %.lr.ph, label %._crit_edge, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %.lr.ph
   %27 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @g_context_lock) #11
@@ -615,7 +615,7 @@ define dso_local range(i32 0, -2147483648) i32 @bb_g_reconfig() local_unnamed_ad
   %17 = icmp slt i64 %indvars.iv.next, %16
   %18 = icmp slt i32 %14, 1
   %19 = select i1 %17, i1 %18, i1 false
-  br i1 %19, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !16
+  br i1 %19, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !15
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
   %20 = tail call i32 @llvm.smax.i32(i32 %14, i32 0)
@@ -702,7 +702,7 @@ define dso_local i64 @bb_g_get_system_size(ptr noundef %0) local_unnamed_addr #0
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %25 = sext i32 %23 to i64
   %26 = icmp slt i64 %indvars.iv.next, %25
-  br i1 %26, label %.lr.ph, label %.loopexit, !llvm.loop !17
+  br i1 %26, label %.lr.ph, label %.loopexit, !llvm.loop !16
 
 .loopexit:                                        ; preds = %22, %.preheader, %17
   %.0 = phi i64 [ %21, %17 ], [ 0, %.preheader ], [ 0, %22 ]
@@ -761,7 +761,7 @@ define dso_local range(i32 0, -2147483648) i32 @bb_g_job_validate(ptr noundef %0
   %19 = load i32, ptr @g_context_cnt, align 4
   %20 = sext i32 %19 to i64
   %21 = icmp slt i64 %indvars.iv.next, %20
-  br i1 %21, label %.lr.ph, label %._crit_edge, !llvm.loop !18
+  br i1 %21, label %.lr.ph, label %._crit_edge, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
   %.014.lcssa = phi i32 [ 0, %.preheader ], [ %18, %.lr.ph ]
@@ -824,7 +824,7 @@ define dso_local range(i32 0, -2147483648) i32 @bb_g_job_validate2(ptr noundef %
   %18 = load i32, ptr @g_context_cnt, align 4
   %19 = sext i32 %18 to i64
   %20 = icmp slt i64 %indvars.iv.next, %19
-  br i1 %20, label %.lr.ph, label %._crit_edge, !llvm.loop !19
+  br i1 %20, label %.lr.ph, label %._crit_edge, !llvm.loop !18
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
   %.013.lcssa = phi i32 [ 0, %.preheader ], [ %17, %.lr.ph ]
@@ -952,7 +952,7 @@ define dso_local void @bb_g_job_set_tres_cnt(ptr noundef %0, ptr noundef %1, i1 
   %17 = load i32, ptr @g_context_cnt, align 4
   %18 = sext i32 %17 to i64
   %19 = icmp slt i64 %indvars.iv.next, %18
-  br i1 %19, label %.lr.ph, label %._crit_edge, !llvm.loop !20
+  br i1 %19, label %.lr.ph, label %._crit_edge, !llvm.loop !19
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
   %20 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @g_context_lock) #11
@@ -1015,7 +1015,7 @@ define dso_local i64 @bb_g_job_get_est_start(ptr noundef %0) local_unnamed_addr 
   %18 = load i32, ptr @g_context_cnt, align 4
   %19 = sext i32 %18 to i64
   %20 = icmp slt i64 %indvars.iv.next, %19
-  br i1 %20, label %.lr.ph, label %._crit_edge, !llvm.loop !21
+  br i1 %20, label %.lr.ph, label %._crit_edge, !llvm.loop !20
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
   %.012.lcssa = phi i64 [ %6, %.preheader ], [ %17, %.lr.ph ]
@@ -1088,7 +1088,7 @@ define dso_local range(i32 1, -2147483648) i32 @bb_g_job_try_stage_in() local_un
 .backedge:                                        ; preds = %18, %22, %31, %12, %26
   %25 = tail call ptr @list_next(ptr noundef %9) #11
   %.not = icmp eq ptr %25, null
-  br i1 %.not, label %._crit_edge, label %12, !llvm.loop !22
+  br i1 %.not, label %._crit_edge, label %12, !llvm.loop !21
 
 26:                                               ; preds = %22
   %27 = getelementptr inbounds nuw i8, ptr %13, i64 912
@@ -1132,7 +1132,7 @@ define dso_local range(i32 1, -2147483648) i32 @bb_g_job_try_stage_in() local_un
   %42 = load i32, ptr @g_context_cnt, align 4
   %43 = sext i32 %42 to i64
   %44 = icmp slt i64 %indvars.iv.next, %43
-  br i1 %44, label %.lr.ph39, label %._crit_edge40, !llvm.loop !23
+  br i1 %44, label %.lr.ph39, label %._crit_edge40, !llvm.loop !22
 
 ._crit_edge40:                                    ; preds = %.lr.ph39, %.preheader
   %.025.lcssa = phi i32 [ 1, %.preheader ], [ %41, %.lr.ph39 ]
@@ -1229,7 +1229,7 @@ define dso_local range(i32 -2147483648, 2) i32 @bb_g_job_test_stage_in(ptr nound
   %18 = load i32, ptr @g_context_cnt, align 4
   %19 = sext i32 %18 to i64
   %20 = icmp slt i64 %indvars.iv.next, %19
-  br i1 %20, label %.lr.ph, label %._crit_edge, !llvm.loop !24
+  br i1 %20, label %.lr.ph, label %._crit_edge, !llvm.loop !23
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
   %.013.lcssa = phi i32 [ 1, %.preheader ], [ %17, %.lr.ph ]
@@ -1293,7 +1293,7 @@ define dso_local i32 @bb_g_job_begin(ptr noundef %0) local_unnamed_addr #0 {
   %16 = load i32, ptr @g_context_cnt, align 4
   %17 = sext i32 %16 to i64
   %18 = icmp slt i64 %indvars.iv.next, %17
-  br i1 %18, label %.lr.ph, label %._crit_edge, !llvm.loop !25
+  br i1 %18, label %.lr.ph, label %._crit_edge, !llvm.loop !24
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
   %.010.lcssa = phi i32 [ 0, %.preheader ], [ %spec.select, %.lr.ph ]
@@ -1357,7 +1357,7 @@ define dso_local i32 @bb_g_job_revoke_alloc(ptr noundef %0) local_unnamed_addr #
   %16 = load i32, ptr @g_context_cnt, align 4
   %17 = sext i32 %16 to i64
   %18 = icmp slt i64 %indvars.iv.next, %17
-  br i1 %18, label %.lr.ph, label %._crit_edge, !llvm.loop !26
+  br i1 %18, label %.lr.ph, label %._crit_edge, !llvm.loop !25
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
   %.010.lcssa = phi i32 [ 0, %.preheader ], [ %spec.select, %.lr.ph ]
@@ -1420,7 +1420,7 @@ define dso_local range(i32 0, -2147483648) i32 @bb_g_job_start_stage_out(ptr nou
   %17 = load i32, ptr @g_context_cnt, align 4
   %18 = sext i32 %17 to i64
   %19 = icmp slt i64 %indvars.iv.next, %18
-  br i1 %19, label %.lr.ph, label %._crit_edge, !llvm.loop !27
+  br i1 %19, label %.lr.ph, label %._crit_edge, !llvm.loop !26
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
   %.012.lcssa = phi i32 [ 0, %.preheader ], [ %16, %.lr.ph ]
@@ -1494,7 +1494,7 @@ define dso_local range(i32 -2147483648, 2) i32 @bb_g_job_test_post_run(ptr nound
   %24 = load i32, ptr @g_context_cnt, align 4
   %25 = sext i32 %24 to i64
   %26 = icmp slt i64 %indvars.iv.next, %25
-  br i1 %26, label %.lr.ph, label %._crit_edge, !llvm.loop !28
+  br i1 %26, label %.lr.ph, label %._crit_edge, !llvm.loop !27
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
   %.017.lcssa = phi i32 [ 1, %.preheader ], [ %23, %.lr.ph ]
@@ -1572,7 +1572,7 @@ define dso_local range(i32 -2147483648, 2) i32 @bb_g_job_test_stage_out(ptr noun
   %24 = load i32, ptr @g_context_cnt, align 4
   %25 = sext i32 %24 to i64
   %26 = icmp slt i64 %indvars.iv.next, %25
-  br i1 %26, label %.lr.ph, label %._crit_edge, !llvm.loop !29
+  br i1 %26, label %.lr.ph, label %._crit_edge, !llvm.loop !28
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
   %.021.lcssa = phi i32 [ 1, %.preheader ], [ %23, %.lr.ph ]
@@ -1656,7 +1656,7 @@ define dso_local range(i32 0, -2147483648) i32 @bb_g_job_cancel(ptr noundef %0) 
   %17 = load i32, ptr @g_context_cnt, align 4
   %18 = sext i32 %17 to i64
   %19 = icmp slt i64 %indvars.iv.next, %18
-  br i1 %19, label %.lr.ph, label %._crit_edge, !llvm.loop !30
+  br i1 %19, label %.lr.ph, label %._crit_edge, !llvm.loop !29
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
   %.012.lcssa = phi i32 [ 0, %.preheader ], [ %16, %.lr.ph ]
@@ -1702,7 +1702,7 @@ define dso_local i32 @bb_g_run_script(ptr noundef %0, i32 noundef %1, i32 nounde
   %13 = load i32, ptr @g_context_cnt, align 4
   %14 = sext i32 %13 to i64
   %15 = icmp slt i64 %indvars.iv.next, %14
-  br i1 %15, label %.lr.ph, label %._crit_edge, !llvm.loop !31
+  br i1 %15, label %.lr.ph, label %._crit_edge, !llvm.loop !30
 
 .lr.ph:                                           ; preds = %.preheader, %12
   %indvars.iv = phi i64 [ %indvars.iv.next, %12 ], [ 0, %.preheader ]
@@ -1788,7 +1788,7 @@ define dso_local ptr @bb_g_xlate_bb_2_tres_str(ptr noundef %0) local_unnamed_add
   %23 = load i32, ptr @g_context_cnt, align 4
   %24 = sext i32 %23 to i64
   %25 = icmp slt i64 %indvars.iv.next, %24
-  br i1 %25, label %.lr.ph, label %._crit_edge, !llvm.loop !32
+  br i1 %25, label %.lr.ph, label %._crit_edge, !llvm.loop !31
 
 ._crit_edge:                                      ; preds = %22, %.preheader
   %26 = call i32 @pthread_mutex_unlock(ptr noundef nonnull @g_context_lock) #11
@@ -1851,28 +1851,27 @@ attributes #13 = { noreturn nounwind }
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i32 7, !"frame-pointer", i32 2}
 !7 = !{i32 7, !"debug-info-assignment-tracking", i1 true}
-!8 = distinct !{!8, !9, !10, !11}
+!8 = distinct !{!8, !9, !10}
 !9 = !{!"llvm.loop.mustprogress"}
 !10 = !{!"llvm.loop.unroll.disable"}
-!11 = !{!"llvm.loop.estimated_trip_count"}
-!12 = distinct !{!12, !9, !10, !11}
-!13 = distinct !{!13, !9, !10, !11}
-!14 = distinct !{!14, !9, !10, !11}
-!15 = distinct !{!15, !9, !10, !11}
-!16 = distinct !{!16, !9, !10, !11}
-!17 = distinct !{!17, !9, !10, !11}
-!18 = distinct !{!18, !9, !10, !11}
-!19 = distinct !{!19, !9, !10, !11}
-!20 = distinct !{!20, !9, !10, !11}
-!21 = distinct !{!21, !9, !10, !11}
-!22 = distinct !{!22, !9, !10, !11}
-!23 = distinct !{!23, !9, !10, !11}
-!24 = distinct !{!24, !9, !10, !11}
-!25 = distinct !{!25, !9, !10, !11}
-!26 = distinct !{!26, !9, !10, !11}
-!27 = distinct !{!27, !9, !10, !11}
-!28 = distinct !{!28, !9, !10, !11}
-!29 = distinct !{!29, !9, !10, !11}
-!30 = distinct !{!30, !9, !10, !11}
-!31 = distinct !{!31, !9, !10, !11}
-!32 = distinct !{!32, !9, !10, !11}
+!11 = distinct !{!11, !9, !10}
+!12 = distinct !{!12, !9, !10}
+!13 = distinct !{!13, !9, !10}
+!14 = distinct !{!14, !9, !10}
+!15 = distinct !{!15, !9, !10}
+!16 = distinct !{!16, !9, !10}
+!17 = distinct !{!17, !9, !10}
+!18 = distinct !{!18, !9, !10}
+!19 = distinct !{!19, !9, !10}
+!20 = distinct !{!20, !9, !10}
+!21 = distinct !{!21, !9, !10}
+!22 = distinct !{!22, !9, !10}
+!23 = distinct !{!23, !9, !10}
+!24 = distinct !{!24, !9, !10}
+!25 = distinct !{!25, !9, !10}
+!26 = distinct !{!26, !9, !10}
+!27 = distinct !{!27, !9, !10}
+!28 = distinct !{!28, !9, !10}
+!29 = distinct !{!29, !9, !10}
+!30 = distinct !{!30, !9, !10}
+!31 = distinct !{!31, !9, !10}

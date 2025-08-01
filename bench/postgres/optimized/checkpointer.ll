@@ -342,7 +342,7 @@ HandleCheckpointerInterrupts.exit:                ; preds = %UpdateSharedMemoryC
   %115 = load i32, ptr %114, align 8
   %116 = add i32 %115, 1
   store i32 %116, ptr %114, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %117 = load ptr, ptr @CheckpointerShmem, align 8
   %118 = getelementptr inbounds nuw i8, ptr %117, i64 4
   store i8 0, ptr %118, align 4
@@ -451,7 +451,7 @@ HandleCheckpointerInterrupts.exit:                ; preds = %UpdateSharedMemoryC
   %161 = load i32, ptr %160, align 8
   %162 = getelementptr inbounds nuw i8, ptr %159, i64 12
   store i32 %161, ptr %162, align 4
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !10
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
   %163 = load ptr, ptr @CheckpointerShmem, align 8
   %164 = getelementptr inbounds nuw i8, ptr %163, i64 4
   store i8 0, ptr %164, align 4
@@ -532,7 +532,7 @@ HandleCheckpointerInterrupts.exit82:              ; preds = %UpdateSharedMemoryC
 191:                                              ; preds = %HandleCheckpointerInterrupts.exit82
   %192 = load volatile i32, ptr @ShutdownRequestPending, align 4
   %.not66 = icmp eq i32 %192, 0
-  br i1 %.not66, label %193, label %.thread97, !llvm.loop !11
+  br i1 %.not66, label %193, label %.thread97
 
 193:                                              ; preds = %191, %91
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #13
@@ -712,7 +712,7 @@ HandleCheckpointerInterrupts.exit88:              ; preds = %UpdateSharedMemoryC
 273:                                              ; preds = %HandleCheckpointerInterrupts.exit88
   %274 = load ptr, ptr @MyLatch, align 8
   %275 = call i32 @WaitLatch(ptr noundef %274, i32 noundef 33, i64 noundef 0, i32 noundef 83886085) #13
-  br label %260, !llvm.loop !12
+  br label %260
 
 276:                                              ; preds = %HandleCheckpointerInterrupts.exit88
   call void @proc_exit(i32 noundef 0) #15
@@ -1141,7 +1141,7 @@ define dso_local void @CheckpointerShmemInit() local_unnamed_addr #3 {
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %1) #13
   %6 = call ptr @ShmemInitStruct(ptr noundef nonnull @.str.6, i64 noundef %5, ptr noundef nonnull %1) #13
   store ptr %6, ptr @CheckpointerShmem, align 8
-  %7 = load i8, ptr %1, align 1, !range !13, !noundef !14
+  %7 = load i8, ptr %1, align 1, !range !10, !noundef !11
   %8 = trunc nuw i8 %7 to i1
   br i1 %8, label %31, label %9
 
@@ -1178,7 +1178,7 @@ define dso_local void @CheckpointerShmemInit() local_unnamed_addr #3 {
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.sink.split, %17
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !15
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !12
   %24 = load ptr, ptr @CheckpointerShmem, align 8
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 4
   store i8 0, ptr %25, align 4
@@ -1206,7 +1206,7 @@ declare void @ConditionVariableInit(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @RequestCheckpoint(i32 noundef %0) local_unnamed_addr #3 {
-  %2 = load i8, ptr @IsPostmasterEnvironment, align 1, !range !13, !noundef !14
+  %2 = load i8, ptr @IsPostmasterEnvironment, align 1, !range !10, !noundef !11
   %3 = trunc nuw i8 %2 to i1
   br i1 %3, label %7, label %4
 
@@ -1240,7 +1240,7 @@ define dso_local void @RequestCheckpoint(i32 noundef %0) local_unnamed_addr #3 {
   %23 = or i32 %0, %22
   %24 = or i32 %23, 64
   store i32 %24, ptr %21, align 4
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !16
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !13
   %25 = load ptr, ptr @CheckpointerShmem, align 8
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 4
   store i8 0, ptr %26, align 4
@@ -1282,7 +1282,7 @@ define dso_local void @RequestCheckpoint(i32 noundef %0) local_unnamed_addr #3 {
 39:                                               ; preds = %.lr.ph.split
   %40 = load volatile i32, ptr @InterruptPending, align 4
   %.not26 = icmp eq i32 %40, 0
-  br i1 %.not26, label %42, label %41, !prof !17
+  br i1 %.not26, label %42, label %41, !prof !14
 
 41:                                               ; preds = %39
   tail call void @ProcessInterrupts() #13
@@ -1295,7 +1295,7 @@ define dso_local void @RequestCheckpoint(i32 noundef %0) local_unnamed_addr #3 {
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 116
   %46 = load volatile i32, ptr %45, align 4
   %47 = icmp eq i32 %46, -1
-  br i1 %47, label %.lr.ph.split, label %._crit_edge, !llvm.loop !18
+  br i1 %47, label %.lr.ph.split, label %._crit_edge
 
 48:                                               ; preds = %.split, %34, %._crit_edge
   %.not28 = icmp eq i32 %31, 0
@@ -1324,7 +1324,7 @@ define dso_local void @RequestCheckpoint(i32 noundef %0) local_unnamed_addr #3 {
   %61 = load ptr, ptr @CheckpointerShmem, align 8
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 8
   %63 = load i32, ptr %62, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !19
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !15
   %64 = load ptr, ptr @CheckpointerShmem, align 8
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 4
   store i8 0, ptr %65, align 4
@@ -1334,7 +1334,7 @@ define dso_local void @RequestCheckpoint(i32 noundef %0) local_unnamed_addr #3 {
 66:                                               ; preds = %60
   %67 = getelementptr inbounds nuw i8, ptr %64, i64 24
   tail call void @ConditionVariableSleep(ptr noundef nonnull %67, i32 noundef 134217740) #13
-  br label %52, !llvm.loop !20
+  br label %52
 
 68:                                               ; preds = %60
   %69 = tail call zeroext i1 @ConditionVariableCancelSleep() #13
@@ -1362,7 +1362,7 @@ define dso_local void @RequestCheckpoint(i32 noundef %0) local_unnamed_addr #3 {
   %83 = load i32, ptr %82, align 4
   %84 = getelementptr inbounds nuw i8, ptr %81, i64 16
   %85 = load i32, ptr %84, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !21
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !16
   %86 = load ptr, ptr @CheckpointerShmem, align 8
   %87 = getelementptr inbounds nuw i8, ptr %86, i64 4
   store i8 0, ptr %87, align 4
@@ -1373,7 +1373,7 @@ define dso_local void @RequestCheckpoint(i32 noundef %0) local_unnamed_addr #3 {
 90:                                               ; preds = %80
   %91 = getelementptr inbounds nuw i8, ptr %86, i64 36
   tail call void @ConditionVariableSleep(ptr noundef nonnull %91, i32 noundef 134217739) #13
-  br label %72, !llvm.loop !22
+  br label %72
 
 92:                                               ; preds = %80
   %93 = tail call zeroext i1 @ConditionVariableCancelSleep() #13
@@ -1408,7 +1408,7 @@ declare i32 @errmsg(ptr noundef, ...) local_unnamed_addr #2
 define dso_local noundef zeroext i1 @ForwardSyncRequest(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #3 {
   %3 = alloca %struct.HASHCTL, align 8
   %4 = alloca i8, align 1
-  %5 = load i8, ptr @IsUnderPostmaster, align 1, !range !13, !noundef !14
+  %5 = load i8, ptr @IsUnderPostmaster, align 1, !range !10, !noundef !11
   %6 = trunc nuw i8 %5 to i1
   br i1 %6, label %7, label %117
 
@@ -1480,7 +1480,7 @@ define dso_local noundef zeroext i1 @ForwardSyncRequest(ptr noundef readonly cap
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 56
   %45 = getelementptr inbounds nuw [0 x %struct.CheckpointerRequest], ptr %44, i64 0, i64 %indvars.iv.i
   %46 = call ptr @hash_search(ptr noundef %38, ptr noundef nonnull %45, i32 noundef 1, ptr noundef nonnull %4) #13
-  %47 = load i8, ptr %4, align 1, !range !13, !noundef !14
+  %47 = load i8, ptr %4, align 1, !range !10, !noundef !11
   %48 = trunc nuw i8 %47 to i1
   br i1 %48, label %49, label %55
 
@@ -1505,7 +1505,7 @@ define dso_local noundef zeroext i1 @ForwardSyncRequest(ptr noundef readonly cap
   %60 = load i32, ptr %59, align 8
   %61 = sext i32 %60 to i64
   %62 = icmp slt i64 %indvars.iv.next.i, %61
-  br i1 %62, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !23
+  br i1 %62, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !17
 
 ._crit_edge.i:                                    ; preds = %55
   %63 = icmp eq i32 %.126.i, 0
@@ -1528,7 +1528,7 @@ define dso_local noundef zeroext i1 @ForwardSyncRequest(ptr noundef readonly cap
   %indvars.iv36.i = phi i64 [ 0, %.lr.ph32.i ], [ %indvars.iv.next37.i, %79 ]
   %.02330.i = phi i32 [ 0, %.lr.ph32.i ], [ %.124.i, %79 ]
   %71 = getelementptr inbounds nuw i8, ptr %29, i64 %indvars.iv36.i
-  %72 = load i8, ptr %71, align 1, !range !13, !noundef !14
+  %72 = load i8, ptr %71, align 1, !range !10, !noundef !11
   %73 = trunc nuw i8 %72 to i1
   br i1 %73, label %79, label %74
 
@@ -1547,7 +1547,7 @@ define dso_local noundef zeroext i1 @ForwardSyncRequest(ptr noundef readonly cap
   %indvars.iv.next37.i = add nuw nsw i64 %indvars.iv36.i, 1
   %81 = sext i32 %80 to i64
   %82 = icmp slt i64 %indvars.iv.next37.i, %81
-  br i1 %82, label %69, label %._crit_edge33.i, !llvm.loop !24
+  br i1 %82, label %69, label %._crit_edge33.i, !llvm.loop !18
 
 ._crit_edge33.i:                                  ; preds = %79, %.preheader.i
   %.023.lcssa.i = phi i32 [ 0, %.preheader.i ], [ %.124.i, %79 ]
@@ -1659,7 +1659,7 @@ define dso_local zeroext i1 @FirstCallSinceLastCheckpoint() local_unnamed_addr #
   %9 = load ptr, ptr @CheckpointerShmem, align 8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 12
   %11 = load i32, ptr %10, align 4
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !25
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !19
   %12 = load ptr, ptr @CheckpointerShmem, align 8
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 4
   store i8 0, ptr %13, align 4
@@ -1730,23 +1730,17 @@ attributes #16 = { cold nounwind }
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i64 2622283, i64 2622299}
 !5 = !{i64 2150889661}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = !{i64 2150890209}
-!10 = !{i64 2150891757}
-!11 = distinct !{!11, !8}
-!12 = distinct !{!12, !8}
-!13 = !{i8 0, i8 2}
-!14 = !{}
-!15 = !{i64 2150894184}
-!16 = !{i64 2150894567}
-!17 = !{!"branch_weights", !"expected", i32 2000, i32 1}
-!18 = distinct !{!18, !8}
-!19 = !{i64 2150896189}
-!20 = distinct !{!20, !8}
-!21 = !{i64 2150896558}
-!22 = distinct !{!22, !8}
-!23 = distinct !{!23, !7, !8}
-!24 = distinct !{!24, !7, !8}
-!25 = !{i64 2150900627}
+!8 = !{i64 2150890209}
+!9 = !{i64 2150891757}
+!10 = !{i8 0, i8 2}
+!11 = !{}
+!12 = !{i64 2150894184}
+!13 = !{i64 2150894567}
+!14 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!15 = !{i64 2150896189}
+!16 = !{i64 2150896558}
+!17 = distinct !{!17, !7}
+!18 = distinct !{!18, !7}
+!19 = !{i64 2150900627}

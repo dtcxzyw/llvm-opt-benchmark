@@ -422,7 +422,7 @@ pqTraceOutput_NotificationResponse.exit:          ; preds = %72, %74
 142:                                              ; preds = %141, %.lr.ph49.i
   %143 = add nuw nsw i32 %.03847.i, 1
   %exitcond58.not.i = icmp eq i32 %143, %117
-  br i1 %exitcond58.not.i, label %._crit_edge50.i, label %.lr.ph49.i, !llvm.loop !6
+  br i1 %exitcond58.not.i, label %._crit_edge50.i, label %.lr.ph49.i, !llvm.loop !5
 
 .lr.ph53.i:                                       ; preds = %._crit_edge50.i, %.lr.ph53.i
   %.051.i = phi i32 [ %151, %.lr.ph53.i ], [ 0, %._crit_edge50.i ]
@@ -437,7 +437,7 @@ pqTraceOutput_NotificationResponse.exit:          ; preds = %72, %74
   %150 = call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %92, ptr noundef nonnull @.str.71, i32 noundef %149) #10
   %151 = add nuw nsw i32 %.051.i, 1
   %exitcond60.not.i = icmp eq i32 %151, %132
-  br i1 %exitcond60.not.i, label %pqTraceOutput_Bind.exit, label %.lr.ph53.i, !llvm.loop !7
+  br i1 %exitcond60.not.i, label %pqTraceOutput_Bind.exit, label %.lr.ph53.i, !llvm.loop !6
 
 152:                                              ; preds = %51
   %153 = getelementptr inbounds nuw i8, ptr %0, i64 352
@@ -604,7 +604,7 @@ pqTraceOutputInt32.exit.i:                        ; preds = %211, %209
   %234 = call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %203, ptr noundef nonnull @.str.71, i32 noundef %233) #10
   %235 = add nuw nsw i32 %.03037.i, 1
   %exitcond.not.i127 = icmp eq i32 %235, %219
-  br i1 %exitcond.not.i127, label %._crit_edge.i128, label %.lr.ph.i126, !llvm.loop !8
+  br i1 %exitcond.not.i127, label %._crit_edge.i128, label %.lr.ph.i126, !llvm.loop !7
 
 .lr.ph40.i:                                       ; preds = %._crit_edge.i128, %244
   %.038.i = phi i32 [ %245, %244 ], [ 0, %._crit_edge.i128 ]
@@ -626,7 +626,7 @@ pqTraceOutputInt32.exit.i:                        ; preds = %211, %209
 244:                                              ; preds = %243, %.lr.ph40.i
   %245 = add nuw nsw i32 %.038.i, 1
   %exitcond44.not.i = icmp eq i32 %245, %226
-  br i1 %exitcond44.not.i, label %pqTraceOutput_FunctionCall.exit, label %.lr.ph40.i, !llvm.loop !9
+  br i1 %exitcond44.not.i, label %pqTraceOutput_FunctionCall.exit, label %.lr.ph40.i, !llvm.loop !8
 
 pqTraceOutput_FunctionCall.exit:                  ; preds = %244, %._crit_edge.i128
   %246 = load i32, ptr %7, align 4
@@ -684,7 +684,7 @@ pqTraceOutput_FunctionCall.exit:                  ; preds = %244, %._crit_edge.i
   %283 = call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %255, ptr noundef nonnull @.str.71, i32 noundef %282) #10
   %284 = add nuw nsw i32 %.013.i, 1
   %exitcond.not.i132 = icmp eq i32 %284, %275
-  br i1 %exitcond.not.i132, label %pqTraceOutput_Bind.exit, label %.lr.ph.i131, !llvm.loop !10
+  br i1 %exitcond.not.i132, label %pqTraceOutput_Bind.exit, label %.lr.ph.i131, !llvm.loop !9
 
 285:                                              ; preds = %51
   %286 = getelementptr inbounds nuw i8, ptr %0, i64 352
@@ -789,7 +789,7 @@ pqTraceOutputInt32.exit.us.i:                     ; preds = %.lr.ph.i137, %pqTra
   %348 = call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %326, ptr noundef nonnull @.str.72) #10
   %349 = add nuw nsw i32 %.017.us.i, 1
   %exitcond20.not.i = icmp eq i32 %349, %344
-  br i1 %exitcond20.not.i, label %pqTraceOutput_Bind.exit, label %pqTraceOutputInt32.exit.us.i, !llvm.loop !11
+  br i1 %exitcond20.not.i, label %pqTraceOutput_Bind.exit, label %pqTraceOutputInt32.exit.us.i, !llvm.loop !10
 
 pqTraceOutputInt32.exit.i138:                     ; preds = %.lr.ph.i137, %pqTraceOutputInt32.exit.i138
   %.017.i = phi i32 [ %356, %pqTraceOutputInt32.exit.i138 ], [ 0, %.lr.ph.i137 ]
@@ -803,7 +803,7 @@ pqTraceOutputInt32.exit.i138:                     ; preds = %.lr.ph.i137, %pqTra
   %355 = call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %326, ptr noundef nonnull @.str.71, i32 noundef %354) #10
   %356 = add nuw nsw i32 %.017.i, 1
   %exitcond.not.i139 = icmp eq i32 %356, %344
-  br i1 %exitcond.not.i139, label %pqTraceOutput_Bind.exit, label %pqTraceOutputInt32.exit.i138, !llvm.loop !13
+  br i1 %exitcond.not.i139, label %pqTraceOutput_Bind.exit, label %pqTraceOutputInt32.exit.i138, !llvm.loop !12
 
 357:                                              ; preds = %51
   %358 = getelementptr inbounds nuw i8, ptr %0, i64 352
@@ -889,7 +889,7 @@ pqTraceOutputInt32.exit.i138:                     ; preds = %.lr.ph.i137, %pqTra
   %403 = getelementptr inbounds i8, ptr %1, i64 %402
   %404 = load i8, ptr %403, align 1
   %.not.i142 = icmp eq i8 %404, 0
-  br i1 %.not.i142, label %._crit_edge.i143, label %.lr.ph.i141, !llvm.loop !14
+  br i1 %.not.i142, label %._crit_edge.i143, label %.lr.ph.i141, !llvm.loop !13
 
 ._crit_edge.i143:                                 ; preds = %.lr.ph.i141, %391
   %.lcssa.i = phi ptr [ %395, %391 ], [ %403, %.lr.ph.i141 ]
@@ -966,7 +966,7 @@ pqTraceOutputInt32.exit.us.i150:                  ; preds = %.lr.ph.i146, %pqTra
   %444 = call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %433, ptr noundef nonnull @.str.72) #10
   %445 = add nuw nsw i32 %.011.us.i, 1
   %exitcond14.not.i = icmp eq i32 %445, %440
-  br i1 %exitcond14.not.i, label %pqTraceOutput_Bind.exit, label %pqTraceOutputInt32.exit.us.i150, !llvm.loop !15
+  br i1 %exitcond14.not.i, label %pqTraceOutput_Bind.exit, label %pqTraceOutputInt32.exit.us.i150, !llvm.loop !14
 
 pqTraceOutputInt32.exit.i147:                     ; preds = %.lr.ph.i146, %pqTraceOutputInt32.exit.i147
   %.011.i = phi i32 [ %452, %pqTraceOutputInt32.exit.i147 ], [ 0, %.lr.ph.i146 ]
@@ -980,7 +980,7 @@ pqTraceOutputInt32.exit.i147:                     ; preds = %.lr.ph.i146, %pqTra
   %451 = call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %433, ptr noundef nonnull @.str.71, i32 noundef %450) #10
   %452 = add nuw nsw i32 %.011.i, 1
   %exitcond.not.i148 = icmp eq i32 %452, %440
-  br i1 %exitcond.not.i148, label %pqTraceOutput_Bind.exit, label %pqTraceOutputInt32.exit.i147, !llvm.loop !16
+  br i1 %exitcond.not.i148, label %pqTraceOutput_Bind.exit, label %pqTraceOutputInt32.exit.i147, !llvm.loop !15
 
 453:                                              ; preds = %51
   %454 = getelementptr inbounds nuw i8, ptr %0, i64 352
@@ -1079,7 +1079,7 @@ pqTraceOutputInt32.exit32.i:                      ; preds = %492, %490
   %514 = call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %455, ptr noundef nonnull @.str.71, i32 noundef %513) #10
   %515 = add nuw nsw i32 %.036.i, 1
   %exitcond.not.i158 = icmp eq i32 %515, %462
-  br i1 %exitcond.not.i158, label %pqTraceOutput_Bind.exit, label %.lr.ph.i153, !llvm.loop !17
+  br i1 %exitcond.not.i158, label %pqTraceOutput_Bind.exit, label %.lr.ph.i153, !llvm.loop !16
 
 516:                                              ; preds = %51
   %517 = getelementptr inbounds nuw i8, ptr %0, i64 352
@@ -1158,7 +1158,7 @@ pqTraceOutputInt32.exit32.i:                      ; preds = %492, %490
   %568 = call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %545, ptr noundef nonnull @.str.71, i32 noundef %567) #10
   %569 = load i32, ptr %7, align 4
   %570 = icmp sgt i32 %40, %569
-  br i1 %570, label %.lr.ph.i166, label %pqTraceOutput_Bind.exit, !llvm.loop !18
+  br i1 %570, label %.lr.ph.i166, label %pqTraceOutput_Bind.exit, !llvm.loop !17
 
 571:                                              ; preds = %51
   %572 = getelementptr inbounds nuw i8, ptr %0, i64 352
@@ -1335,7 +1335,7 @@ define internal fastcc void @pqTraceOutput_DataRow(ptr noundef %0, ptr noundef r
 20:                                               ; preds = %.lr.ph, %19
   %21 = add nuw nsw i32 %.016, 1
   %exitcond.not = icmp eq i32 %21, %10
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !19
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !18
 
 ._crit_edge:                                      ; preds = %20, %3
   ret void
@@ -1472,7 +1472,7 @@ define internal fastcc void @pqTraceOutput_CopyOutResponse(ptr noundef %0, ptr n
   %31 = tail call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %0, ptr noundef nonnull @.str.71, i32 noundef %30) #10
   %32 = add nuw nsw i32 %.013, 1
   %exitcond.not = icmp eq i32 %32, %23
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !20
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !19
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1665,7 +1665,7 @@ define void @pqTraceOutputNoTypeByteMessage(ptr noundef readonly captures(none) 
   %111 = getelementptr inbounds i8, ptr %1, i64 %110
   %112 = load i8, ptr %111, align 1
   %.not = icmp eq i8 %112, 0
-  br i1 %.not, label %pqTraceOutputInt32.exit52, label %.lr.ph, !llvm.loop !21
+  br i1 %.not, label %pqTraceOutputInt32.exit52, label %.lr.ph, !llvm.loop !20
 
 pqTraceOutputInt32.exit52:                        ; preds = %.lr.ph, %87, %57, %53, %67, %77
   %113 = load ptr, ptr %29, align 8
@@ -1788,7 +1788,7 @@ define internal fastcc void @pqTraceOutputNchar(ptr noundef %0, i32 noundef %1, 
   %indvars.iv.next.pre-phi = phi i64 [ %.pre, %._crit_edge35 ], [ %31, %21 ]
   %.1 = phi i32 [ %.03032, %._crit_edge35 ], [ %32, %21 ]
   %exitcond.not = icmp eq i64 %indvars.iv.next.pre-phi, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %13, !llvm.loop !22
+  br i1 %exitcond.not, label %._crit_edge, label %13, !llvm.loop !21
 
 ._crit_edge:                                      ; preds = %33, %9
   %.030.lcssa = phi i32 [ 0, %9 ], [ %.1, %33 ]
@@ -1898,7 +1898,7 @@ switch.edge.us:                                   ; preds = %.lr.ph.split.us, %.
   %56 = getelementptr inbounds i8, ptr %2, i64 %55
   %57 = load i8, ptr %56, align 1
   %58 = icmp eq i8 %57, 0
-  br i1 %58, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !23
+  br i1 %58, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !22
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.split
   %59 = phi i32 [ %77, %.lr.ph.split ], [ %20, %.lr.ph ]
@@ -1928,7 +1928,7 @@ switch.edge.us:                                   ; preds = %.lr.ph.split.us, %.
   %79 = getelementptr inbounds i8, ptr %2, i64 %78
   %80 = load i8, ptr %79, align 1
   %81 = icmp eq i8 %80, 0
-  br i1 %81, label %._crit_edge, label %.lr.ph.split, !llvm.loop !24
+  br i1 %81, label %._crit_edge, label %.lr.ph.split
 
 ._crit_edge:                                      ; preds = %.lr.ph.split, %42, %5
   ret void
@@ -1956,25 +1956,23 @@ attributes #12 = { nounwind willreturn memory(none) }
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = distinct !{!3, !4, !5}
+!3 = distinct !{!3, !4}
 !4 = !{!"llvm.loop.mustprogress"}
-!5 = !{!"llvm.loop.estimated_trip_count"}
-!6 = distinct !{!6, !4, !5}
-!7 = distinct !{!7, !4, !5}
-!8 = distinct !{!8, !4, !5}
-!9 = distinct !{!9, !4, !5}
-!10 = distinct !{!10, !4, !5}
-!11 = distinct !{!11, !4, !5, !12}
-!12 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!13 = distinct !{!13, !4, !5}
-!14 = distinct !{!14, !4, !5}
-!15 = distinct !{!15, !4, !5, !12}
-!16 = distinct !{!16, !4, !5}
-!17 = distinct !{!17, !4, !5}
-!18 = distinct !{!18, !4, !5}
-!19 = distinct !{!19, !4, !5}
-!20 = distinct !{!20, !4, !5}
-!21 = distinct !{!21, !4, !5}
-!22 = distinct !{!22, !4, !5}
-!23 = distinct !{!23, !5, !12}
-!24 = distinct !{!24, !5}
+!5 = distinct !{!5, !4}
+!6 = distinct !{!6, !4}
+!7 = distinct !{!7, !4}
+!8 = distinct !{!8, !4}
+!9 = distinct !{!9, !4}
+!10 = distinct !{!10, !4, !11}
+!11 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!12 = distinct !{!12, !4}
+!13 = distinct !{!13, !4}
+!14 = distinct !{!14, !4, !11}
+!15 = distinct !{!15, !4}
+!16 = distinct !{!16, !4}
+!17 = distinct !{!17, !4}
+!18 = distinct !{!18, !4}
+!19 = distinct !{!19, !4}
+!20 = distinct !{!20, !4}
+!21 = distinct !{!21, !4}
+!22 = distinct !{!22, !11}

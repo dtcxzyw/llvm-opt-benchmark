@@ -87,11 +87,11 @@ define dso_local noundef range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef r
   store i64 0, ptr %16, align 8, !tbaa !15
   store i8 0, ptr %15, align 8, !tbaa !14
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %6) #12
-  store i32 0, ptr %17, align 8, !tbaa !19
-  store ptr null, ptr %18, align 8, !tbaa !24
-  store ptr %17, ptr %19, align 8, !tbaa !25
-  store ptr %17, ptr %20, align 8, !tbaa !26
-  store i64 0, ptr %21, align 8, !tbaa !27
+  store i32 0, ptr %17, align 8, !tbaa !18
+  store ptr null, ptr %18, align 8, !tbaa !23
+  store ptr %17, ptr %19, align 8, !tbaa !24
+  store ptr %17, ptr %20, align 8, !tbaa !25
+  store i64 0, ptr %21, align 8, !tbaa !26
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #12
   store ptr %22, ptr %7, align 8, !tbaa !4
   store i64 0, ptr %23, align 8, !tbaa !15
@@ -188,7 +188,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit52: ; preds = %_ZN
 
 60:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %38
   %.4 = phi i32 [ 1, %38 ], [ %.2111, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ]
-  %61 = load ptr, ptr %18, align 8, !tbaa !24
+  %61 = load ptr, ptr %18, align 8, !tbaa !23
   invoke void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St9_IdentityIS5_ESt4lessIS5_ESaIS5_EE8_M_eraseEPSt13_Rb_tree_nodeIS5_E(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr noundef %61)
           to label %_ZN8CLParserD2Ev.exit unwind label %62
 
@@ -266,7 +266,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit58: ; preds = %_ZN
 91:                                               ; preds = %79
   %92 = shl nuw nsw i32 %.034112, 1
   %93 = icmp ult i32 %.034112, 524288
-  br i1 %93, label %24, label %.thread73, !llvm.loop !28
+  br i1 %93, label %24, label %.thread73, !llvm.loop !27
 
 94:                                               ; preds = %89, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit52, %28
   %.pn37 = phi { ptr, i32 } [ %90, %89 ], [ %41, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit52 ], [ %29, %28 ]
@@ -331,7 +331,7 @@ declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unna
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN8CLParserD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %3 = load ptr, ptr %2, align 8, !tbaa !24
+  %3 = load ptr, ptr %2, align 8, !tbaa !23
   invoke void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St9_IdentityIS5_ESt4lessIS5_ESaIS5_EE8_M_eraseEPSt13_Rb_tree_nodeIS5_E(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %3)
           to label %_ZNSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS5_ESaIS5_EED2Ev.exit unwind label %4
 
@@ -366,10 +366,10 @@ define linkonce_odr dso_local void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt
 .lr.ph:                                           ; preds = %2, %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St9_IdentityIS5_ESt4lessIS5_ESaIS5_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS5_E.exit
   %.07 = phi ptr [ %6, %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St9_IdentityIS5_ESt4lessIS5_ESaIS5_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS5_E.exit ], [ %1, %2 ]
   %3 = getelementptr inbounds nuw i8, ptr %.07, i64 24
-  %4 = load ptr, ptr %3, align 8, !tbaa !29
+  %4 = load ptr, ptr %3, align 8, !tbaa !28
   tail call void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St9_IdentityIS5_ESt4lessIS5_ESaIS5_EE8_M_eraseEPSt13_Rb_tree_nodeIS5_E(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %4)
   %5 = getelementptr inbounds nuw i8, ptr %.07, i64 16
-  %6 = load ptr, ptr %5, align 8, !tbaa !30
+  %6 = load ptr, ptr %5, align 8, !tbaa !29
   %7 = getelementptr inbounds nuw i8, ptr %.07, i64 32
   %8 = load ptr, ptr %7, align 8, !tbaa !12
   %9 = getelementptr inbounds nuw i8, ptr %.07, i64 48
@@ -392,7 +392,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
 _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St9_IdentityIS5_ESt4lessIS5_ESaIS5_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS5_E.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i
   tail call void @_ZdlPvm(ptr noundef nonnull %.07, i64 noundef 64) #13
   %.not = icmp eq ptr %6, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !31
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !30
 
 ._crit_edge:                                      ; preds = %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St9_IdentityIS5_ESt4lessIS5_ESaIS5_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS5_E.exit, %2
   ret void
@@ -446,19 +446,18 @@ attributes #14 = { noreturn nounwind }
 !13 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE", !5, i64 0, !11, i64 8, !8, i64 16}
 !14 = !{!8, !8, i64 0}
 !15 = !{!13, !11, i64 8}
-!16 = distinct !{!16, !17, !18}
+!16 = distinct !{!16, !17}
 !17 = !{!"llvm.loop.mustprogress"}
-!18 = !{!"llvm.loop.estimated_trip_count"}
-!19 = !{!20, !22, i64 0}
-!20 = !{!"_ZTSSt15_Rb_tree_header", !21, i64 0, !11, i64 32}
-!21 = !{!"_ZTSSt18_Rb_tree_node_base", !22, i64 0, !23, i64 8, !23, i64 16, !23, i64 24}
-!22 = !{!"_ZTSSt14_Rb_tree_color", !8, i64 0}
-!23 = !{!"p1 _ZTSSt18_Rb_tree_node_base", !7, i64 0}
-!24 = !{!20, !23, i64 8}
-!25 = !{!20, !23, i64 16}
-!26 = !{!20, !23, i64 24}
-!27 = !{!20, !11, i64 32}
-!28 = distinct !{!28, !17, !18}
-!29 = !{!21, !23, i64 24}
-!30 = !{!21, !23, i64 16}
-!31 = distinct !{!31, !17, !18}
+!18 = !{!19, !21, i64 0}
+!19 = !{!"_ZTSSt15_Rb_tree_header", !20, i64 0, !11, i64 32}
+!20 = !{!"_ZTSSt18_Rb_tree_node_base", !21, i64 0, !22, i64 8, !22, i64 16, !22, i64 24}
+!21 = !{!"_ZTSSt14_Rb_tree_color", !8, i64 0}
+!22 = !{!"p1 _ZTSSt18_Rb_tree_node_base", !7, i64 0}
+!23 = !{!19, !22, i64 8}
+!24 = !{!19, !22, i64 16}
+!25 = !{!19, !22, i64 24}
+!26 = !{!19, !11, i64 32}
+!27 = distinct !{!27, !17}
+!28 = !{!20, !22, i64 24}
+!29 = !{!20, !22, i64 16}
+!30 = distinct !{!30, !17}

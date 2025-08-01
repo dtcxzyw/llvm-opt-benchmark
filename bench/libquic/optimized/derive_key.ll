@@ -112,9 +112,9 @@ define hidden i32 @EVP_BytesToKey(ptr noundef readonly captures(none) %0, ptr no
 
 48:                                               ; preds = %47
   %49 = getelementptr inbounds nuw [64 x i8], ptr %10, i64 0, i64 %indvars.iv
-  %50 = load i8, ptr %49, align 1, !tbaa !17
+  %50 = load i8, ptr %49, align 1, !tbaa !16
   %51 = getelementptr inbounds nuw i8, ptr %.257, i64 1
-  store i8 %50, ptr %.257, align 1, !tbaa !17
+  store i8 %50, ptr %.257, align 1, !tbaa !16
   br label %52
 
 52:                                               ; preds = %48, %47
@@ -122,7 +122,7 @@ define hidden i32 @EVP_BytesToKey(ptr noundef readonly captures(none) %0, ptr no
   %53 = add i32 %.247, -1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.old2 = icmp eq i32 %53, 0
-  br i1 %.old2, label %.loopexit79, label %.preheader78, !llvm.loop !18
+  br i1 %.old2, label %.loopexit79, label %.preheader78
 
 .loopexit79.loopexit.split.loop.exit88:           ; preds = %.preheader78
   %54 = trunc nuw i64 %indvars.iv to i32
@@ -155,9 +155,9 @@ define hidden i32 @EVP_BytesToKey(ptr noundef readonly captures(none) %0, ptr no
 61:                                               ; preds = %60
   %62 = zext i32 %.3 to i64
   %63 = getelementptr inbounds nuw [64 x i8], ptr %10, i64 0, i64 %62
-  %64 = load i8, ptr %63, align 1, !tbaa !17
+  %64 = load i8, ptr %63, align 1, !tbaa !16
   %65 = getelementptr inbounds nuw i8, ptr %.253, i64 1
-  store i8 %64, ptr %.253, align 1, !tbaa !17
+  store i8 %64, ptr %.253, align 1, !tbaa !16
   br label %66
 
 66:                                               ; preds = %61, %60
@@ -165,7 +165,7 @@ define hidden i32 @EVP_BytesToKey(ptr noundef readonly captures(none) %0, ptr no
   %67 = add i32 %.250, -1
   %68 = add i32 %.3, 1
   %.old5 = icmp eq i32 %67, 0
-  br i1 %.old5, label %.loopexit, label %.preheader, !llvm.loop !19
+  br i1 %.old5, label %.loopexit, label %.preheader
 
 .loopexit:                                        ; preds = %.preheader, %66, %55, %.loopexit79
   %.152 = phi ptr [ %.051, %55 ], [ %.051, %.loopexit79 ], [ %.354, %66 ], [ %.253, %.preheader ]
@@ -173,7 +173,7 @@ define hidden i32 @EVP_BytesToKey(ptr noundef readonly captures(none) %0, ptr no
   %69 = icmp eq i32 %.146, 0
   %70 = icmp eq i32 %.149, 0
   %or.cond = select i1 %69, i1 %70, i1 false
-  br i1 %or.cond, label %71, label %19, !llvm.loop !20
+  br i1 %or.cond, label %71, label %19
 
 71:                                               ; preds = %.loopexit
   %72 = load i32, ptr %12, align 8, !tbaa !10
@@ -232,10 +232,6 @@ attributes #3 = { nounwind }
 !11 = !{!"evp_cipher_st", !7, i64 0, !7, i64 4, !7, i64 8, !7, i64 12, !7, i64 16, !7, i64 20, !12, i64 24, !12, i64 32, !12, i64 40, !12, i64 48, !12, i64 56}
 !12 = !{!"any pointer", !8, i64 0}
 !13 = !{!11, !7, i64 12}
-!14 = distinct !{!14, !15, !16}
+!14 = distinct !{!14, !15}
 !15 = !{!"llvm.loop.mustprogress"}
-!16 = !{!"llvm.loop.estimated_trip_count"}
-!17 = !{!8, !8, i64 0}
-!18 = distinct !{!18, !16}
-!19 = distinct !{!19, !16}
-!20 = distinct !{!20, !16}
+!16 = !{!8, !8, i64 0}

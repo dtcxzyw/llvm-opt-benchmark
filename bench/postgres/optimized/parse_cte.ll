@@ -243,7 +243,7 @@ list_length.exit:                                 ; preds = %61, %63
   %100 = load i32, ptr %67, align 8
   %101 = sext i32 %100 to i64
   %102 = icmp slt i64 %indvars.iv.next.i, %101
-  br i1 %102, label %92, label %._crit_edge.i, !llvm.loop !9
+  br i1 %102, label %92, label %._crit_edge.i, !llvm.loop !8
 
 ._crit_edge.i:                                    ; preds = %92
   %103 = load ptr, ptr %4, align 8
@@ -258,7 +258,7 @@ list_length.exit:                                 ; preds = %61, %63
 .loopexit.i.i:                                    ; preds = %131, %128
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond51.not.i.i = icmp eq i64 %indvars.iv.next48.i.i, %106
-  br i1 %exitcond51.not.i.i, label %makeDependencyGraph.exit, label %.preheader.i.i, !llvm.loop !10
+  br i1 %exitcond51.not.i.i, label %makeDependencyGraph.exit, label %.preheader.i.i, !llvm.loop !9
 
 .preheader.i.i:                                   ; preds = %.loopexit.i.i, %.preheader.preheader.i.i
   %indvars.iv47.i.i = phi i64 [ 0, %.preheader.preheader.i.i ], [ %indvars.iv.next48.i.i, %.loopexit.i.i ]
@@ -275,7 +275,7 @@ list_length.exit:                                 ; preds = %61, %63
 111:                                              ; preds = %107
   %indvars.iv.next24.i = add nuw nsw i64 %indvars.iv23.i, 1
   %112 = icmp eq i64 %indvars.iv.next24.i, %106
-  br i1 %112, label %113, label %107, !llvm.loop !11
+  br i1 %112, label %113, label %107, !llvm.loop !10
 
 113:                                              ; preds = %111
   %114 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
@@ -325,7 +325,7 @@ list_length.exit:                                 ; preds = %61, %63
   store ptr %135, ptr %132, align 8
   %indvars.iv.next44.i.i = add nuw nsw i64 %indvars.iv43.i.i, 1
   %exitcond46.not.i.i = icmp eq i64 %indvars.iv.next44.i.i, %106
-  br i1 %exitcond46.not.i.i, label %.loopexit.i.i, label %131, !llvm.loop !12
+  br i1 %exitcond46.not.i.i, label %.loopexit.i.i, label %131, !llvm.loop !11
 
 makeDependencyGraph.exit:                         ; preds = %.loopexit.i.i
   %.pr.pre = load i32, ptr %67, align 8
@@ -516,7 +516,7 @@ makeDependencyGraph.exit:                         ; preds = %.loopexit.i.i
   %indvars.iv.next.i97 = add nuw nsw i64 %indvars.iv.i96, 1
   %245 = sext i32 %244 to i64
   %246 = icmp slt i64 %indvars.iv.next.i97, %245
-  br i1 %246, label %139, label %checkWellFormedRecursion.exit, !llvm.loop !13
+  br i1 %246, label %139, label %checkWellFormedRecursion.exit, !llvm.loop !12
 
 checkWellFormedRecursion.exit:                    ; preds = %243
   %247 = icmp sgt i32 %244, 0
@@ -543,7 +543,7 @@ checkWellFormedRecursion.exit:                    ; preds = %243
   %256 = load i32, ptr %67, align 8
   %257 = sext i32 %256 to i64
   %258 = icmp slt i64 %indvars.iv.next185, %257
-  br i1 %258, label %250, label %.preheader, !llvm.loop !14
+  br i1 %258, label %250, label %.preheader, !llvm.loop !13
 
 .lr.ph152:                                        ; preds = %.preheader, %.lr.ph152
   %indvars.iv187 = phi i64 [ %indvars.iv.next188, %.lr.ph152 ], [ 0, %.preheader ]
@@ -555,7 +555,7 @@ checkWellFormedRecursion.exit:                    ; preds = %243
   %262 = load i32, ptr %67, align 8
   %263 = sext i32 %262 to i64
   %264 = icmp slt i64 %indvars.iv.next188, %263
-  br i1 %264, label %.lr.ph152, label %._crit_edge, !llvm.loop !15
+  br i1 %264, label %.lr.ph152, label %._crit_edge, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %.lr.ph152, %._crit_edge.i, %makeDependencyGraph.exit, %.critedge89, %checkWellFormedRecursion.exit, %.preheader
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #10
@@ -1582,7 +1582,7 @@ define internal zeroext i1 @makeDependencyGraphWalker(ptr noundef %0, ptr nounde
 63:                                               ; preds = %41
   %indvars.iv.next193 = add nuw nsw i64 %indvars.iv192, 1
   %exitcond196.not = icmp eq i64 %indvars.iv.next193, %wide.trip.count195
-  br i1 %exitcond196.not, label %.critedge.thread, label %41, !llvm.loop !16
+  br i1 %exitcond196.not, label %.critedge.thread, label %41, !llvm.loop !15
 
 64:                                               ; preds = %4
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 128
@@ -2199,14 +2199,13 @@ attributes #10 = { nounwind }
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i8 0, i8 2}
 !5 = !{}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7, !8}
-!11 = distinct !{!11, !7, !8}
-!12 = distinct !{!12, !7, !8}
-!13 = distinct !{!13, !7, !8}
-!14 = distinct !{!14, !7, !8}
-!15 = distinct !{!15, !7, !8}
-!16 = distinct !{!16, !7, !8}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7}
+!12 = distinct !{!12, !7}
+!13 = distinct !{!13, !7}
+!14 = distinct !{!14, !7}
+!15 = distinct !{!15, !7}

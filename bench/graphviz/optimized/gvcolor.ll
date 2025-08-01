@@ -281,7 +281,7 @@ gv_calloc.exit.i:                                 ; preds = %70, %.thread.i.i
   store double %107, ptr %105, align 8, !tbaa !28
   %108 = add nuw i64 %.1116160.i, 1
   %exitcond.not.i = icmp eq i64 %108, %64
-  br i1 %exitcond.not.i, label %.loopexit155.thread.i, label %.lr.ph161.i, !llvm.loop !35
+  br i1 %exitcond.not.i, label %.loopexit155.thread.i, label %.lr.ph161.i, !llvm.loop !34
 
 .loopexit155.thread.i:                            ; preds = %.lr.ph161.i
   call void @qsort(ptr noundef nonnull %77, i64 noundef %64, i64 noundef 8, ptr noundef nonnull @cmpf) #18
@@ -316,7 +316,7 @@ gv_calloc.exit.i:                                 ; preds = %70, %.thread.i.i
   %.1123.i = add nuw nsw i32 %.0122162.i, %118
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond188.not.i = icmp eq i64 %indvars.iv.next.i, 3
-  br i1 %exitcond188.not.i, label %119, label %114, !llvm.loop !36
+  br i1 %exitcond188.not.i, label %119, label %114, !llvm.loop !35
 
 119:                                              ; preds = %114
   %.not150.i = icmp eq i32 %.1123.i, 0
@@ -337,7 +337,7 @@ gv_calloc.exit.i:                                 ; preds = %70, %.thread.i.i
   %.idx.i = select i1 %123, i64 0, i64 -64
   %124 = getelementptr inbounds i8, ptr %.0128168.i, i64 %.idx.i
   %125 = getelementptr inbounds nuw i8, ptr %124, i64 56
-  %126 = load ptr, ptr %125, align 8, !tbaa !37
+  %126 = load ptr, ptr %125, align 8, !tbaa !36
   %127 = icmp eq ptr %126, %110
   br i1 %127, label %128, label %133
 
@@ -346,7 +346,7 @@ gv_calloc.exit.i:                                 ; preds = %70, %.thread.i.i
   %.idx147.i = select i1 %129, i64 0, i64 64
   %130 = getelementptr inbounds nuw i8, ptr %.0128168.i, i64 %.idx147.i
   %131 = getelementptr inbounds nuw i8, ptr %130, i64 56
-  %132 = load ptr, ptr %131, align 8, !tbaa !37
+  %132 = load ptr, ptr %131, align 8, !tbaa !36
   br label %133
 
 133:                                              ; preds = %128, %.lr.ph171.i
@@ -379,7 +379,7 @@ gv_calloc.exit.i:                                 ; preds = %70, %.thread.i.i
   store double %151, ptr %149, align 8, !tbaa !14
   %indvars.iv.next193.i = add nuw nsw i64 %indvars.iv192.i, 1
   %exitcond195.not.i = icmp eq i64 %indvars.iv.next193.i, 3
-  br i1 %exitcond195.not.i, label %152, label %145, !llvm.loop !39
+  br i1 %exitcond195.not.i, label %152, label %145, !llvm.loop !38
 
 152:                                              ; preds = %145
   %153 = fcmp ogt double %148, 0.000000e+00
@@ -391,7 +391,7 @@ gv_calloc.exit.i:                                 ; preds = %70, %.thread.i.i
   %.4126.i = phi i32 [ %.3125.i, %152 ], [ %.2124169.i, %133 ]
   %156 = call ptr @agnxtedge(ptr noundef nonnull %28, ptr noundef nonnull %.0128168.i, ptr noundef nonnull %110) #18
   %.not145.i = icmp eq ptr %156, null
-  br i1 %.not145.i, label %._crit_edge172.i, label %.lr.ph171.i, !llvm.loop !40
+  br i1 %.not145.i, label %._crit_edge172.i, label %.lr.ph171.i, !llvm.loop !39
 
 ._crit_edge172.i:                                 ; preds = %155
   %.not146.i = icmp eq i32 %.4126.i, 0
@@ -412,12 +412,12 @@ gv_calloc.exit.i:                                 ; preds = %70, %.thread.i.i
   store double %163, ptr %164, align 8, !tbaa !14
   %indvars.iv.next197.i = add nuw nsw i64 %indvars.iv196.i, 1
   %exitcond199.not.i = icmp eq i64 %indvars.iv.next197.i, 3
-  br i1 %exitcond199.not.i, label %.loopexit.i, label %160, !llvm.loop !41
+  br i1 %exitcond199.not.i, label %.loopexit.i, label %160, !llvm.loop !40
 
 .loopexit.i:                                      ; preds = %160, %._crit_edge172.i, %.preheader153.preheader.i, %119
   %165 = add nuw i64 %.2117175.i, 1
   %exitcond200.not.i = icmp eq i64 %165, %64
-  br i1 %exitcond200.not.i, label %.preheader.i, label %.lr.ph177.i, !llvm.loop !42
+  br i1 %exitcond200.not.i, label %.preheader.i, label %.lr.ph177.i, !llvm.loop !41
 
 .lr.ph181.i:                                      ; preds = %.preheader.i, %198
   %.3180.i = phi i64 [ %201, %198 ], [ 0, %.preheader.i ]
@@ -437,7 +437,7 @@ gv_calloc.exit.i:                                 ; preds = %70, %.thread.i.i
   %174 = fadd double %.0179.i, %173
   %indvars.iv.next202.i = add nuw nsw i64 %indvars.iv201.i, 1
   %exitcond204.not.i = icmp eq i64 %indvars.iv.next202.i, 3
-  br i1 %exitcond204.not.i, label %175, label %171, !llvm.loop !43
+  br i1 %exitcond204.not.i, label %175, label %171, !llvm.loop !42
 
 175:                                              ; preds = %171
   %176 = fcmp ogt double %174, 0.000000e+00
@@ -486,7 +486,7 @@ gv_calloc.exit.i:                                 ; preds = %70, %.thread.i.i
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %8) #18
   %201 = add nuw i64 %.3180.i, 1
   %exitcond205.not.i = icmp eq i64 %201, %64
-  br i1 %exitcond205.not.i, label %color.exit, label %.lr.ph181.i, !llvm.loop !44
+  br i1 %exitcond205.not.i, label %color.exit, label %.lr.ph181.i, !llvm.loop !43
 
 color.exit:                                       ; preds = %198, %.loopexit155.i, %.preheader.i
   call void @free(ptr noundef %77) #18
@@ -502,7 +502,7 @@ color.exit:                                       ; preds = %198, %.loopexit155.
   %206 = call i32 @agclose(ptr noundef nonnull %28) #18
   %207 = call ptr @nextGraph(ptr noundef nonnull %9) #18
   %.not = icmp eq ptr %207, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !45
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !44
 
 ._crit_edge:                                      ; preds = %color.exit, %init.exit
   call fastcc void @graphviz_exit(i32 noundef 0) #19
@@ -838,17 +838,16 @@ attributes #24 = { nounwind allocsize(1) }
 !29 = !{!"", !30, i64 0, !15, i64 16, !6, i64 24}
 !30 = !{!"Agrec_s", !31, i64 0, !23, i64 8}
 !31 = !{!"p1 omnipotent char", !10, i64 0}
-!32 = distinct !{!32, !33, !34}
+!32 = distinct !{!32, !33}
 !33 = !{!"llvm.loop.mustprogress"}
-!34 = !{!"llvm.loop.estimated_trip_count"}
-!35 = distinct !{!35, !33, !34}
-!36 = distinct !{!36, !33, !34}
-!37 = !{!38, !17, i64 56}
-!38 = !{!"Agedge_s", !20, i64 0, !26, i64 24, !26, i64 40, !17, i64 56}
-!39 = distinct !{!39, !33, !34}
-!40 = distinct !{!40, !33, !34}
-!41 = distinct !{!41, !33, !34}
-!42 = distinct !{!42, !33, !34}
-!43 = distinct !{!43, !33, !34}
-!44 = distinct !{!44, !33, !34}
-!45 = distinct !{!45, !33, !34}
+!34 = distinct !{!34, !33}
+!35 = distinct !{!35, !33}
+!36 = !{!37, !17, i64 56}
+!37 = !{!"Agedge_s", !20, i64 0, !26, i64 24, !26, i64 40, !17, i64 56}
+!38 = distinct !{!38, !33}
+!39 = distinct !{!39, !33}
+!40 = distinct !{!40, !33}
+!41 = distinct !{!41, !33}
+!42 = distinct !{!42, !33}
+!43 = distinct !{!43, !33}
+!44 = distinct !{!44, !33}

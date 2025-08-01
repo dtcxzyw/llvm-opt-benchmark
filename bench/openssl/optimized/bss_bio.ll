@@ -322,7 +322,7 @@ define internal i32 @bio_read(ptr noundef %0, ptr noundef writeonly captures(add
 7:                                                ; preds = %3
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %9 = load ptr, ptr %8, align 8, !tbaa !20
-  %10 = load ptr, ptr %9, align 8, !tbaa !31
+  %10 = load ptr, ptr %9, align 8, !tbaa !30
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 64
   %12 = load ptr, ptr %11, align 8, !tbaa !20
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 48
@@ -393,7 +393,7 @@ define internal i32 @bio_read(ptr noundef %0, ptr noundef writeonly captures(add
   store i64 %spec.store.select.sink, ptr %27, align 8
   %46 = sub i64 %.049, %.0
   %.not59 = icmp eq i64 %46, 0
-  br i1 %.not59, label %47, label %30, !llvm.loop !32
+  br i1 %.not59, label %47, label %30, !llvm.loop !31
 
 47:                                               ; preds = %45
   %48 = trunc i64 %spec.select to i32
@@ -440,7 +440,7 @@ define internal i64 @bio_ctrl(ptr noundef %0, i32 noundef %1, i64 noundef %2, pt
   ]
 
 7:                                                ; preds = %4
-  %8 = load ptr, ptr %6, align 8, !tbaa !31
+  %8 = load ptr, ptr %6, align 8, !tbaa !30
   %.not61 = icmp eq ptr %8, null
   br i1 %.not61, label %10, label %9
 
@@ -482,12 +482,12 @@ define internal i64 @bio_ctrl(ptr noundef %0, i32 noundef %1, i64 noundef %2, pt
 22:                                               ; preds = %4
   %23 = getelementptr inbounds nuw i8, ptr %3, i64 64
   %24 = load ptr, ptr %23, align 8, !tbaa !20
-  %25 = load ptr, ptr %6, align 8, !tbaa !31
+  %25 = load ptr, ptr %6, align 8, !tbaa !30
   %.not.i = icmp eq ptr %25, null
   br i1 %.not.i, label %26, label %28
 
 26:                                               ; preds = %22
-  %27 = load ptr, ptr %24, align 8, !tbaa !31
+  %27 = load ptr, ptr %24, align 8, !tbaa !30
   %.not26.i = icmp eq ptr %27, null
   br i1 %.not26.i, label %29, label %28
 
@@ -536,12 +536,12 @@ define internal i64 @bio_ctrl(ptr noundef %0, i32 noundef %1, i64 noundef %2, pt
   br label %bio_make_pair.exit
 
 bio_make_pair.exit:                               ; preds = %40, %49
-  store ptr %3, ptr %6, align 8, !tbaa !31
+  store ptr %3, ptr %6, align 8, !tbaa !30
   %51 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i32 0, ptr %51, align 8, !tbaa !23
   %52 = getelementptr inbounds nuw i8, ptr %6, i64 48
   store i64 0, ptr %52, align 8, !tbaa !21
-  store ptr %0, ptr %24, align 8, !tbaa !31
+  store ptr %0, ptr %24, align 8, !tbaa !30
   %53 = getelementptr inbounds nuw i8, ptr %24, i64 8
   store i32 0, ptr %53, align 8, !tbaa !23
   %54 = getelementptr inbounds nuw i8, ptr %24, i64 48
@@ -557,19 +557,19 @@ bio_make_pair.exit:                               ; preds = %40, %49
   br i1 %.not.i63, label %bio_destroy_pair.exit, label %58
 
 58:                                               ; preds = %57
-  %59 = load ptr, ptr %6, align 8, !tbaa !31
+  %59 = load ptr, ptr %6, align 8, !tbaa !30
   %.not14.i = icmp eq ptr %59, null
   br i1 %.not14.i, label %bio_destroy_pair.exit, label %60
 
 60:                                               ; preds = %58
   %61 = getelementptr inbounds nuw i8, ptr %59, i64 64
   %62 = load ptr, ptr %61, align 8, !tbaa !20
-  store ptr null, ptr %62, align 8, !tbaa !31
+  store ptr null, ptr %62, align 8, !tbaa !30
   %63 = getelementptr inbounds nuw i8, ptr %59, i64 40
   store i32 0, ptr %63, align 8, !tbaa !8
   %64 = getelementptr inbounds nuw i8, ptr %62, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %64, i8 0, i64 16, i1 false)
-  store ptr null, ptr %6, align 8, !tbaa !31
+  store ptr null, ptr %6, align 8, !tbaa !30
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i32 0, ptr %65, align 8, !tbaa !8
   %66 = getelementptr inbounds nuw i8, ptr %6, i64 16
@@ -577,7 +577,7 @@ bio_make_pair.exit:                               ; preds = %40, %49
   br label %bio_destroy_pair.exit
 
 67:                                               ; preds = %4
-  %68 = load ptr, ptr %6, align 8, !tbaa !31
+  %68 = load ptr, ptr %6, align 8, !tbaa !30
   %69 = icmp eq ptr %68, null
   br i1 %69, label %bio_destroy_pair.exit, label %70
 
@@ -623,7 +623,7 @@ bio_make_pair.exit:                               ; preds = %40, %49
 
 91:                                               ; preds = %88
   %92 = load ptr, ptr %5, align 8, !tbaa !20
-  %93 = load ptr, ptr %92, align 8, !tbaa !31
+  %93 = load ptr, ptr %92, align 8, !tbaa !30
   %94 = getelementptr inbounds nuw i8, ptr %93, i64 64
   %95 = load ptr, ptr %94, align 8, !tbaa !20
   %96 = getelementptr inbounds nuw i8, ptr %95, i64 16
@@ -680,18 +680,18 @@ bio_make_pair.exit:                               ; preds = %40, %49
 
 121:                                              ; preds = %4
   %122 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  %123 = load i32, ptr %122, align 4, !tbaa !33
+  %123 = load i32, ptr %122, align 4, !tbaa !32
   %124 = sext i32 %123 to i64
   br label %bio_destroy_pair.exit
 
 125:                                              ; preds = %4
   %126 = trunc i64 %2 to i32
   %127 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  store i32 %126, ptr %127, align 4, !tbaa !33
+  store i32 %126, ptr %127, align 4, !tbaa !32
   br label %bio_destroy_pair.exit
 
 128:                                              ; preds = %4
-  %129 = load ptr, ptr %6, align 8, !tbaa !31
+  %129 = load ptr, ptr %6, align 8, !tbaa !30
   %.not57 = icmp eq ptr %129, null
   br i1 %.not57, label %bio_destroy_pair.exit, label %130
 
@@ -723,7 +723,7 @@ bio_make_pair.exit:                               ; preds = %40, %49
   br label %bio_destroy_pair.exit
 
 147:                                              ; preds = %4
-  %148 = load ptr, ptr %6, align 8, !tbaa !31
+  %148 = load ptr, ptr %6, align 8, !tbaa !30
   %.not = icmp eq ptr %148, null
   br i1 %.not, label %bio_destroy_pair.exit, label %149
 
@@ -778,19 +778,19 @@ define internal range(i32 0, 2) i32 @bio_free(ptr noundef captures(address_is_nu
 3:                                                ; preds = %1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %5 = load ptr, ptr %4, align 8, !tbaa !20
-  %6 = load ptr, ptr %5, align 8, !tbaa !31
+  %6 = load ptr, ptr %5, align 8, !tbaa !30
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %13, label %bio_destroy_pair.exit
 
 bio_destroy_pair.exit:                            ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 64
   %8 = load ptr, ptr %7, align 8, !tbaa !20
-  store ptr null, ptr %8, align 8, !tbaa !31
+  store ptr null, ptr %8, align 8, !tbaa !30
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 40
   store i32 0, ptr %9, align 8, !tbaa !8
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %10, i8 0, i64 16, i1 false)
-  store ptr null, ptr %5, align 8, !tbaa !31
+  store ptr null, ptr %5, align 8, !tbaa !30
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i32 0, ptr %11, align 8, !tbaa !8
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -833,7 +833,7 @@ define internal fastcc i64 @bio_nread0(ptr noundef %0, ptr noundef writeonly cap
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %8 = load ptr, ptr %7, align 8, !tbaa !20
-  %9 = load ptr, ptr %8, align 8, !tbaa !31
+  %9 = load ptr, ptr %8, align 8, !tbaa !30
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 64
   %11 = load ptr, ptr %10, align 8, !tbaa !20
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 48
@@ -852,7 +852,7 @@ define internal fastcc i64 @bio_nread0(ptr noundef %0, ptr noundef writeonly cap
 
 18:                                               ; preds = %16
   %19 = load ptr, ptr %7, align 8, !tbaa !20
-  %20 = load ptr, ptr %19, align 8, !tbaa !31
+  %20 = load ptr, ptr %19, align 8, !tbaa !30
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 64
   %22 = load ptr, ptr %21, align 8, !tbaa !20
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 48
@@ -917,7 +917,7 @@ define internal fastcc i64 @bio_nread0(ptr noundef %0, ptr noundef writeonly cap
   store i64 %spec.store.select.sink.i, ptr %35, align 8
   %54 = sub i64 %.049.i, %.0.i
   %.not59.i = icmp eq i64 %54, 0
-  br i1 %.not59.i, label %bio_read.exit, label %38, !llvm.loop !32
+  br i1 %.not59.i, label %bio_read.exit, label %38, !llvm.loop !31
 
 bio_read.exit:                                    ; preds = %53, %16, %27, %30
   %.047.i = phi i64 [ -1, %30 ], [ 0, %16 ], [ 0, %27 ], [ 1, %53 ]
@@ -940,7 +940,7 @@ bio_read.exit:                                    ; preds = %53, %16, %27, %30
   %64 = getelementptr inbounds nuw i8, ptr %11, i64 40
   %65 = load ptr, ptr %64, align 8, !tbaa !27
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 %59
-  store ptr %66, ptr %1, align 8, !tbaa !34
+  store ptr %66, ptr %1, align 8, !tbaa !33
   br label %67
 
 67:                                               ; preds = %55, %63, %2, %bio_read.exit
@@ -1003,7 +1003,7 @@ define internal fastcc i64 @bio_nwrite0(ptr noundef %0, ptr noundef writeonly ca
   %29 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %30 = load ptr, ptr %29, align 8, !tbaa !27
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 %spec.select
-  store ptr %31, ptr %1, align 8, !tbaa !34
+  store ptr %31, ptr %1, align 8, !tbaa !33
   br label %32
 
 32:                                               ; preds = %19, %28, %2, %18, %11
@@ -1065,10 +1065,9 @@ attributes #9 = { nounwind willreturn memory(read) }
 !25 = !{!22, !15, i64 32}
 !26 = !{!22, !15, i64 24}
 !27 = !{!22, !12, i64 40}
-!28 = distinct !{!28, !29, !30}
+!28 = distinct !{!28, !29}
 !29 = !{!"llvm.loop.mustprogress"}
-!30 = !{!"llvm.loop.estimated_trip_count"}
-!31 = !{!22, !4, i64 0}
-!32 = distinct !{!32, !29, !30}
-!33 = !{!9, !13, i64 44}
-!34 = !{!12, !12, i64 0}
+!30 = !{!22, !4, i64 0}
+!31 = distinct !{!31, !29}
+!32 = !{!9, !13, i64 44}
+!33 = !{!12, !12, i64 0}

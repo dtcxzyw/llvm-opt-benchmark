@@ -412,7 +412,7 @@ define internal fastcc void @__convert_from_fxsr(ptr noundef writeonly captures(
   br i1 %87, label %88, label %90
 
 88:                                               ; preds = %65
-  %89 = tail call i32 asm "mov %ds,$0", "=r,~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !23
+  %89 = tail call i32 asm "mov %ds,$0", "=r,~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !22
   br label %94
 
 90:                                               ; preds = %65
@@ -435,7 +435,7 @@ define internal fastcc void @__convert_from_fxsr(ptr noundef writeonly captures(
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 2 dereferenceable(10) %99, ptr noundef align 2 dereferenceable(10) %100, i64 10, i1 false)
   %101 = add nuw nsw i64 %98, 1
   %102 = icmp eq i64 %101, 8
-  br i1 %102, label %103, label %97, !llvm.loop !24
+  br i1 %102, label %103, label %97, !llvm.loop !23
 
 103:                                              ; preds = %97
   ret void
@@ -496,7 +496,7 @@ define dso_local void @convert_to_fxsr(ptr noundef writeonly captures(none) init
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 2 dereferenceable(10) %43, ptr noundef align 2 dereferenceable(10) %44, i64 10, i1 false)
   %45 = add nuw nsw i64 %42, 1
   %46 = icmp eq i64 %45, 8
-  br i1 %46, label %47, label %41, !llvm.loop !25
+  br i1 %46, label %47, label %41, !llvm.loop !24
 
 47:                                               ; preds = %41
   ret void
@@ -655,7 +655,7 @@ define dso_local noundef range(i32 -22, 1) i32 @fpregs_set(ptr noundef captures(
   call void @llvm.memcpy.p0.p0.i64(ptr noundef align 2 dereferenceable(10) %70, ptr noundef align 2 dereferenceable(10) %71, i64 10, i1 false)
   %72 = add nuw nsw i64 %69, 1
   %73 = icmp eq i64 %72, 8
-  br i1 %73, label %74, label %68, !llvm.loop !26
+  br i1 %73, label %74, label %68, !llvm.loop !24
 
 74:                                               ; preds = %68
   callbr void asm sideeffect "# ALT: oldinstr2\0A661:\0A\09jmp 6f\0A662:\0A# ALT: padding2\0A.skip -((((6651f-6641f) ^ (((6651f-6641f) ^ (6652f-6642f)) & -(-((6651f-6641f) < (6652f-6642f))))) - (662b-661b)) > 0) * (((6651f-6641f) ^ (((6651f-6641f) ^ (6652f-6642f)) & -(-((6651f-6641f) < (6652f-6642f))))) - (662b-661b)), 0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 3*32+21)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A .long 661b - .\0A .long 6642f - .\0A .4byte ${0:P}\0A .byte 663b-661b\0A .byte 6652f-6642f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09jmp ${4:l}\0A6651:\0A# ALT: replacement 2\0A6642:\0A\09\0A6652:\0A.popsection\0A.pushsection .altinstr_aux,\22ax\22\0A6:\0A testb $1,${2:P} (% rip)\0A jnz ${3:l}\0A jmp ${4:l}\0A.popsection\0A", "i,i,i,!i,!i,~{dirflag},~{fpsr},~{flags}"(i16 154, i32 4, ptr nonnull getelementptr inbounds nuw (i8, ptr @boot_cpu_data, i64 59)) #12
@@ -727,11 +727,9 @@ attributes #13 = { nounwind allocsize(0) }
 !16 = !{i64 2149397351, i64 2149397165, i64 2149397217, i64 2149397263, i64 2149397291}
 !17 = !{i64 2149397422, i64 2149397451, i64 2149397497, i64 2149397555, i64 2149397609, i64 2149397663, i64 2149397718, i64 2149397749, i64 2149398057, i64 2149398063, i64 2149398110, i64 2149398133, i64 2149398159}
 !18 = !{i64 2149398614, i64 2149398430, i64 2149398480, i64 2149398526, i64 2149398554}
-!19 = distinct !{!19, !20, !21, !22}
+!19 = distinct !{!19, !20, !21}
 !20 = !{!"llvm.loop.mustprogress"}
 !21 = !{!"llvm.loop.unroll.disable"}
-!22 = !{!"llvm.loop.estimated_trip_count"}
-!23 = !{i64 2155007106}
-!24 = distinct !{!24, !20, !21, !22}
-!25 = distinct !{!25, !20, !21, !22}
-!26 = distinct !{!26, !20, !21, !22}
+!22 = !{i64 2155007106}
+!23 = distinct !{!23, !20, !21}
+!24 = distinct !{!24, !20, !21}

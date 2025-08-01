@@ -109,7 +109,7 @@ CompileShader.exit:                               ; preds = %23
   store ptr null, ptr %36, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 3
-  br i1 %exitcond.not.i, label %.preheader.i, label %.loopexit48, !llvm.loop !6
+  br i1 %exitcond.not.i, label %.preheader.i, label %.loopexit48, !llvm.loop !5
 
 38:                                               ; preds = %.preheader.i, %38
   %indvars.iv20.i62 = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next21.i, %38 ]
@@ -180,7 +180,7 @@ CompileShader.exit33:                             ; preds = %46
   store ptr null, ptr %64, align 8
   %indvars.iv.next.i35 = add nuw nsw i64 %indvars.iv.i34, 1
   %exitcond.not.i36 = icmp eq i64 %indvars.iv.next.i35, 3
-  br i1 %exitcond.not.i36, label %.preheader.i37, label %.loopexit, !llvm.loop !6
+  br i1 %exitcond.not.i36, label %.preheader.i37, label %.loopexit, !llvm.loop !5
 
 .preheader.i37:                                   ; preds = %.loopexit, %.preheader.i37
   %indvars.iv20.i3861 = phi i64 [ %indvars.iv.next21.i39, %.preheader.i37 ], [ 0, %.loopexit ]
@@ -221,7 +221,7 @@ define hidden void @GPU_ReleaseShaders(ptr noundef captures(none) %0, ptr nounde
   store ptr null, ptr %5, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %.preheader, label %4, !llvm.loop !6
+  br i1 %exitcond.not, label %.preheader, label %4, !llvm.loop !5
 
 7:                                                ; preds = %8
   ret void
@@ -322,7 +322,6 @@ attributes #5 = { nounwind }
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = distinct !{!3, !4, !5}
+!3 = distinct !{!3, !4}
 !4 = !{!"llvm.loop.mustprogress"}
-!5 = !{!"llvm.loop.estimated_trip_count"}
-!6 = distinct !{!6, !4, !5}
+!5 = distinct !{!5, !4}

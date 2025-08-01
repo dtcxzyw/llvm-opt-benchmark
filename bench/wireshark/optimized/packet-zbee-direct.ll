@@ -288,7 +288,7 @@ define internal void @zb_direct_init() #3 {
   store i32 0, ptr %7, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4096
-  br i1 %exitcond.not, label %.critedge, label %6, !llvm.loop !9
+  br i1 %exitcond.not, label %.critedge, label %6, !llvm.loop !8
 }
 
 ; Function Attrs: null_pointer_is_valid
@@ -311,7 +311,7 @@ define internal void @zb_direct_cleanup() #0 {
   %5 = tail call ptr @g_slist_delete_link(ptr noundef nonnull %1, ptr noundef nonnull %1)
   store ptr %5, ptr @zbee_pc_keyring, align 8
   %.not = icmp eq ptr %5, null
-  br i1 %.not, label %.critedge, label %.lr.ph, !llvm.loop !10
+  br i1 %.not, label %.critedge, label %.lr.ph, !llvm.loop !9
 
 .critedge:                                        ; preds = %.lr.ph, %4, %0
   ret void
@@ -648,7 +648,7 @@ define internal void @uat_key_record_post_update() #0 {
   %8 = getelementptr inbounds nuw i8, ptr %.024, i64 8
   %.0 = load ptr, ptr %8, align 8
   %.not = icmp eq ptr %.0, null
-  br i1 %.not, label %.preheader, label %.lr.ph, !llvm.loop !11
+  br i1 %.not, label %.preheader, label %.lr.ph, !llvm.loop !10
 
 .preheader:                                       ; preds = %7, %.lr.ph29, %0
   %9 = load ptr, ptr @uat_key_records, align 8
@@ -676,7 +676,7 @@ define internal void @uat_key_record_post_update() #0 {
   store ptr %23, ptr @zbee_pc_keyring, align 8
   tail call void @g_slist_free_full(ptr noundef nonnull %.128, ptr noundef nonnull @zbd_free_key_record)
   %.not18 = icmp eq ptr %21, null
-  br i1 %.not18, label %.preheader, label %.lr.ph29, !llvm.loop !12
+  br i1 %.not18, label %.preheader, label %.lr.ph29, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %56, %.preheader
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #13
@@ -719,7 +719,7 @@ define internal void @uat_key_record_post_update() #0 {
   store i8 %45, ptr %46, align 1
   %47 = add nuw nsw i64 %.09.i, 1
   %exitcond.not.i = icmp eq i64 %47, 8
-  br i1 %exitcond.not.i, label %memcpy_reverse.exit, label %42, !llvm.loop !13
+  br i1 %exitcond.not.i, label %memcpy_reverse.exit, label %42, !llvm.loop !12
 
 memcpy_reverse.exit:                              ; preds = %42, %memcpy_reverse.exit
   %.09.i19 = phi i64 [ %52, %memcpy_reverse.exit ], [ 0, %42 ]
@@ -730,7 +730,7 @@ memcpy_reverse.exit:                              ; preds = %42, %memcpy_reverse
   store i8 %50, ptr %51, align 1
   %52 = add nuw nsw i64 %.09.i19, 1
   %exitcond.not.i20 = icmp eq i64 %52, 8
-  br i1 %exitcond.not.i20, label %memcpy_reverse.exit21, label %memcpy_reverse.exit, !llvm.loop !13
+  br i1 %exitcond.not.i20, label %memcpy_reverse.exit21, label %memcpy_reverse.exit, !llvm.loop !12
 
 memcpy_reverse.exit21:                            ; preds = %memcpy_reverse.exit
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %19, ptr noundef nonnull align 16 dereferenceable(16) %4, i64 noundef 16, i1 noundef false) #13
@@ -750,7 +750,7 @@ memcpy_reverse.exit21:                            ; preds = %memcpy_reverse.exit
   %60 = zext i32 %57 to i64
   %61 = icmp samesign ult i64 %indvars.iv.next, %60
   %62 = select i1 %59, i1 %61, i1 false
-  br i1 %62, label %24, label %._crit_edge, !llvm.loop !14
+  br i1 %62, label %24, label %._crit_edge, !llvm.loop !13
 }
 
 ; Function Attrs: null_pointer_is_valid
@@ -788,7 +788,7 @@ define hidden void @proto_reg_handoff_zb_direct() local_unnamed_addr #0 {
   %14 = getelementptr [14 x %struct.zb_direct_service_t], ptr @proto_reg_handoff_zb_direct.services, i64 0, i64 %13
   %15 = load ptr, ptr %14, align 8
   %exitcond = icmp eq i64 %13, 13
-  br i1 %exitcond, label %1, label %3, !llvm.loop !15
+  br i1 %exitcond, label %1, label %3, !llvm.loop !14
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
@@ -1167,10 +1167,10 @@ proto_item_set_generated.exit:                    ; preds = %4, %14, %17
   %30 = call ptr @proto_tree_add_item_ret_boolean(ptr noundef %10, i32 noundef %29, ptr noundef %12, i32 noundef %28, i32 noundef 1, i32 noundef -2147483648, ptr noundef nonnull %8)
   %31 = add i32 %9, 2
   %32 = load ptr, ptr %21, align 8
-  %33 = load i8, ptr %7, align 1, !range !16, !noundef !17
+  %33 = load i8, ptr %7, align 1, !range !15, !noundef !16
   %34 = trunc nuw i8 %33 to i1
   %35 = select i1 %34, ptr @.str.134, ptr @.str.135
-  %36 = load i8, ptr %8, align 1, !range !16, !noundef !17
+  %36 = load i8, ptr %8, align 1, !range !15, !noundef !16
   %37 = trunc nuw i8 %36 to i1
   %38 = select i1 %37, ptr @.str.134, ptr @.str.135
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %32, i32 noundef 25, ptr noundef nonnull @.str.133, ptr noundef nonnull %35, ptr noundef nonnull %38)
@@ -1372,7 +1372,7 @@ proto_item_set_generated.exit:                    ; preds = %4, %14, %17
   %31 = add i32 %9, 2
   %32 = load ptr, ptr %21, align 8
   %33 = load i32, ptr %7, align 4
-  %34 = load i8, ptr %8, align 1, !range !16, !noundef !17
+  %34 = load i8, ptr %8, align 1, !range !15, !noundef !16
   %35 = trunc nuw i8 %34 to i1
   %36 = select i1 %35, ptr @.str.134, ptr @.str.135
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %32, i32 noundef 25, ptr noundef nonnull @.str.142, i32 noundef %33, ptr noundef nonnull %36)
@@ -1490,7 +1490,7 @@ define internal fastcc noundef zeroext i1 @zbd_parse_uat_hexline(ptr noundef rea
   %19 = getelementptr i8, ptr %.13946.us, i64 1
   %indvars.iv.next53 = add nuw nsw i64 %indvars.iv52, 1
   %exitcond55.not = icmp eq i64 %indvars.iv.next53, %4
-  br i1 %exitcond55.not, label %.loopexit, label %.split.us, !llvm.loop !18
+  br i1 %exitcond55.not, label %.loopexit, label %.split.us, !llvm.loop !17
 
 .split:                                           ; preds = %.split.preheader, %37
   %indvars.iv = phi i64 [ 0, %.split.preheader ], [ %indvars.iv.next, %37 ]
@@ -1541,7 +1541,7 @@ define internal fastcc noundef zeroext i1 @zbd_parse_uat_hexline(ptr noundef rea
   %.2 = load i8, ptr %38, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %4
-  br i1 %exitcond.not, label %.loopexit, label %.split, !llvm.loop !20
+  br i1 %exitcond.not, label %.loopexit, label %.split, !llvm.loop !19
 
 .loopexit:                                        ; preds = %23, %28, %37, %17, %.split.us, %3
   %.037 = phi i1 [ false, %3 ], [ %.not44.us.not.not, %.split.us ], [ %.not44.us.not.not, %17 ], [ true, %37 ], [ false, %28 ], [ false, %23 ]
@@ -1646,7 +1646,7 @@ define internal fastcc i32 @dissect_zb_direct_common(ptr noundef captures(none) 
 46:                                               ; preds = %41, %35
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 2
   %.not.i.i = icmp samesign ult i64 %indvars.iv.next.i.i, %30
-  br i1 %.not.i.i, label %35, label %zb_direct_decrypt.exit, !llvm.loop !21
+  br i1 %.not.i.i, label %35, label %zb_direct_decrypt.exit, !llvm.loop !20
 
 47:                                               ; preds = %41, %39
   %48 = load ptr, ptr %0, align 8
@@ -1673,7 +1673,7 @@ define internal fastcc i32 @dissect_zb_direct_common(ptr noundef captures(none) 
   %67 = zext i16 %66 to i64
   %68 = shl nuw i64 %67, 48
   call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %15) #13
-  %69 = load i8, ptr @ignore_late_keys, align 1, !range !16, !noundef !17
+  %69 = load i8, ptr @ignore_late_keys, align 1, !range !15, !noundef !16
   %70 = trunc nuw i8 %69 to i1
   %71 = icmp ne ptr %54, null
   %or.cond3.i = select i1 %70, i1 %71, i1 false
@@ -1694,7 +1694,7 @@ define internal fastcc i32 @dissect_zb_direct_common(ptr noundef captures(none) 
   %78 = getelementptr inbounds nuw i8, ptr %.157.i, i64 8
   %79 = load ptr, ptr %78, align 8
   %.old2.not.i = icmp eq ptr %79, null
-  br i1 %.old2.not.i, label %._crit_edge.i, label %73, !llvm.loop !22
+  br i1 %.old2.not.i, label %._crit_edge.i, label %73
 
 .critedge.i:                                      ; preds = %47
   %80 = icmp eq ptr %54, null
@@ -1726,7 +1726,7 @@ decrypt_data.exit.thread.i.thread.i.us:           ; preds = %.lr.ph.i, %decrypt_
   %98 = getelementptr inbounds nuw i8, ptr %.222.i.us, i64 8
   %99 = load ptr, ptr %98, align 8
   %100 = icmp eq ptr %99, null
-  br i1 %100, label %._crit_edge.i, label %decrypt_data.exit.thread.i.thread.i.us, !llvm.loop !23
+  br i1 %100, label %._crit_edge.i, label %decrypt_data.exit.thread.i.thread.i.us, !llvm.loop !21
 
 .preheader41.i.preheader:                         ; preds = %.lr.ph.i, %141
   %.222.i = phi ptr [ %143, %141 ], [ %.05648.i, %.lr.ph.i ]
@@ -1753,7 +1753,7 @@ decrypt_data.exit.thread.i.thread.i.us:           ; preds = %.lr.ph.i, %decrypt_
   store i8 %108, ptr %109, align 1
   %110 = add nuw nsw i64 %.09.i.i.i.i.i, 1
   %exitcond.not.i.i.i.i.i = icmp eq i64 %110, 16
-  br i1 %exitcond.not.i.i.i.i.i, label %memcpy_reverse.exit.i.i.i.i, label %.preheader41.i, !llvm.loop !13
+  br i1 %exitcond.not.i.i.i.i.i, label %memcpy_reverse.exit.i.i.i.i, label %.preheader41.i, !llvm.loop !12
 
 memcpy_reverse.exit.i.i.i.i:                      ; preds = %.preheader41.i
   store i8 0, ptr %83, align 16
@@ -1768,7 +1768,7 @@ memcpy_reverse.exit.i.i.i.i:                      ; preds = %.preheader41.i
   store i8 %114, ptr %115, align 1
   %116 = add nuw nsw i64 %.09.i6.i.i.i.i, 1
   %exitcond.not.i7.i.i.i.i = icmp eq i64 %116, 16
-  br i1 %exitcond.not.i7.i.i.i.i, label %create_auth_string.exit.i.i.i, label %111, !llvm.loop !13
+  br i1 %exitcond.not.i7.i.i.i.i, label %create_auth_string.exit.i.i.i, label %111, !llvm.loop !12
 
 create_auth_string.exit.i.i.i:                    ; preds = %111
   %117 = getelementptr inbounds nuw i8, ptr %103, i64 20
@@ -1779,7 +1779,7 @@ create_auth_string.exit.i.i.i:                    ; preds = %111
 
 try_decrypt.exit.thread.i:                        ; preds = %create_auth_string.exit.i.i.i
   %120 = zext nneg i32 %95 to i64
-  %121 = call ptr @__memcpy_chk(ptr noundef %53, ptr noundef nonnull %13, i64 noundef range(i64 0, 65536) %120, i64 noundef 512) #13, !alias.scope !24
+  %121 = call ptr @__memcpy_chk(ptr noundef %53, ptr noundef nonnull %13, i64 noundef range(i64 0, 65536) %120, i64 noundef 512) #13, !alias.scope !22
   call void @llvm.lifetime.end.p0(i64 13, ptr nonnull %14) #13
   call void @llvm.lifetime.end.p0(i64 264, ptr nonnull %13) #13
   call void @llvm.lifetime.end.p0(i64 34, ptr nonnull %12) #13
@@ -1809,7 +1809,7 @@ try_decrypt.exit.thread.i:                        ; preds = %create_auth_string.
   store i8 %129, ptr %130, align 1
   %131 = add nuw nsw i64 %.09.i.i.i20.i.i, 1
   %exitcond.not.i.i.i21.i.i = icmp eq i64 %131, 16
-  br i1 %exitcond.not.i.i.i21.i.i, label %memcpy_reverse.exit.i.i22.i.i, label %126, !llvm.loop !13
+  br i1 %exitcond.not.i.i.i21.i.i, label %memcpy_reverse.exit.i.i22.i.i, label %126, !llvm.loop !12
 
 memcpy_reverse.exit.i.i22.i.i:                    ; preds = %126
   store i8 0, ptr %88, align 16
@@ -1824,7 +1824,7 @@ memcpy_reverse.exit.i.i22.i.i:                    ; preds = %126
   store i8 %135, ptr %136, align 1
   %137 = add nuw nsw i64 %.09.i6.i.i23.i.i, 1
   %exitcond.not.i7.i.i24.i.i = icmp eq i64 %137, 16
-  br i1 %exitcond.not.i7.i.i24.i.i, label %create_auth_string.exit.i25.i.i, label %132, !llvm.loop !13
+  br i1 %exitcond.not.i7.i.i24.i.i, label %create_auth_string.exit.i25.i.i, label %132, !llvm.loop !12
 
 create_auth_string.exit.i25.i.i:                  ; preds = %132
   store i8 0, ptr %90, align 1
@@ -1833,7 +1833,7 @@ create_auth_string.exit.i25.i.i:                  ; preds = %132
 
 try_decrypt.exit.i:                               ; preds = %create_auth_string.exit.i25.i.i
   %139 = zext nneg i32 %95 to i64
-  %140 = call ptr @__memcpy_chk(ptr noundef %53, ptr noundef nonnull %10, i64 noundef range(i64 0, 65536) %139, i64 noundef 512) #13, !alias.scope !28
+  %140 = call ptr @__memcpy_chk(ptr noundef %53, ptr noundef nonnull %10, i64 noundef range(i64 0, 65536) %139, i64 noundef 512) #13, !alias.scope !26
   call void @llvm.lifetime.end.p0(i64 13, ptr nonnull %11) #13
   call void @llvm.lifetime.end.p0(i64 264, ptr nonnull %10) #13
   call void @llvm.lifetime.end.p0(i64 34, ptr nonnull %9) #13
@@ -1846,7 +1846,7 @@ try_decrypt.exit.i:                               ; preds = %create_auth_string.
   %142 = getelementptr inbounds nuw i8, ptr %.222.i, i64 8
   %143 = load ptr, ptr %142, align 8
   %144 = icmp eq ptr %143, null
-  br i1 %144, label %._crit_edge.i, label %.preheader41.i.preheader, !llvm.loop !32
+  br i1 %144, label %._crit_edge.i, label %.preheader41.i.preheader, !llvm.loop !30
 
 ._crit_edge.i:                                    ; preds = %77, %141, %decrypt_data.exit.thread.i.thread.i.us, %.critedge.i
   %145 = load ptr, ptr @zbee_table_nwk_keyring, align 8
@@ -1892,7 +1892,7 @@ try_decrypt.exit.i:                               ; preds = %create_auth_string.
 
 .lr.ph28.i:                                       ; preds = %.lr.ph28.i.preheader, %195
   %.426.i = phi ptr [ %.5.i, %195 ], [ %157, %.lr.ph28.i.preheader ]
-  %164 = load i8, ptr @ignore_late_keys, align 1, !range !16, !noundef !17
+  %164 = load i8, ptr @ignore_late_keys, align 1, !range !15, !noundef !16
   %165 = trunc nuw i8 %164 to i1
   br i1 %165, label %166, label %171
 
@@ -1926,7 +1926,7 @@ try_decrypt.exit.i:                               ; preds = %create_auth_string.
   store i8 %179, ptr %180, align 1
   %181 = add nuw nsw i64 %.09.i.i.i.i, 1
   %exitcond.not.i.i.i.i = icmp eq i64 %181, 16
-  br i1 %exitcond.not.i.i.i.i, label %memcpy_reverse.exit.i.i.i, label %.preheader40.i, !llvm.loop !13
+  br i1 %exitcond.not.i.i.i.i, label %memcpy_reverse.exit.i.i.i, label %.preheader40.i, !llvm.loop !12
 
 memcpy_reverse.exit.i.i.i:                        ; preds = %.preheader40.i
   store i8 0, ptr %152, align 16
@@ -1941,7 +1941,7 @@ memcpy_reverse.exit.i.i.i:                        ; preds = %.preheader40.i
   store i8 %185, ptr %186, align 1
   %187 = add nuw nsw i64 %.09.i6.i.i.i, 1
   %exitcond.not.i7.i.i.i = icmp eq i64 %187, 16
-  br i1 %exitcond.not.i7.i.i.i, label %create_auth_string.exit.i.i, label %182, !llvm.loop !13
+  br i1 %exitcond.not.i7.i.i.i, label %create_auth_string.exit.i.i, label %182, !llvm.loop !12
 
 create_auth_string.exit.i.i:                      ; preds = %182
   %188 = getelementptr i8, ptr %173, i64 4
@@ -1951,7 +1951,7 @@ create_auth_string.exit.i.i:                      ; preds = %182
 
 .thread57.i:                                      ; preds = %create_auth_string.exit.i.i
   %190 = zext nneg i32 %163 to i64
-  %191 = call ptr @__memcpy_chk(ptr noundef %53, ptr noundef nonnull %7, i64 noundef range(i64 0, 65536) %190, i64 noundef 512) #13, !alias.scope !33
+  %191 = call ptr @__memcpy_chk(ptr noundef %53, ptr noundef nonnull %7, i64 noundef range(i64 0, 65536) %190, i64 noundef 512) #13, !alias.scope !31
   call void @llvm.lifetime.end.p0(i64 13, ptr nonnull %8) #13
   call void @llvm.lifetime.end.p0(i64 264, ptr nonnull %7) #13
   call void @llvm.lifetime.end.p0(i64 34, ptr nonnull %6) #13
@@ -1968,7 +1968,7 @@ create_auth_string.exit.i.i:                      ; preds = %182
 195:                                              ; preds = %192, %166
   %.5.i = phi ptr [ %194, %192 ], [ %.426.i, %166 ]
   %196 = icmp eq ptr %.5.i, null
-  br i1 %196, label %.loopexit.thread.i, label %.lr.ph28.i, !llvm.loop !37
+  br i1 %196, label %.loopexit.thread.i, label %.lr.ph28.i, !llvm.loop !35
 
 .loopexit.i:                                      ; preds = %.thread57.i, %try_decrypt.exit.i, %try_decrypt.exit.thread.i
   %.892.in.i = phi i32 [ %95, %try_decrypt.exit.thread.i ], [ %95, %try_decrypt.exit.i ], [ %163, %.thread57.i ]
@@ -2224,35 +2224,33 @@ attributes #15 = { nounwind willreturn memory(none) }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7, !8}
-!11 = distinct !{!11, !7, !8}
-!12 = distinct !{!12, !7, !8}
-!13 = distinct !{!13, !7, !8}
-!14 = distinct !{!14, !7, !8}
-!15 = distinct !{!15, !7, !8}
-!16 = !{i8 0, i8 2}
-!17 = !{}
-!18 = distinct !{!18, !7, !8, !19}
-!19 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!20 = distinct !{!20, !7, !8}
-!21 = distinct !{!21, !7, !8}
-!22 = distinct !{!22, !8}
-!23 = distinct !{!23, !7, !8, !19}
-!24 = !{!25, !27}
-!25 = distinct !{!25, !26, !"memcpy.inline: argument 0"}
-!26 = distinct !{!26, !"memcpy.inline"}
-!27 = distinct !{!27, !26, !"memcpy.inline: argument 1"}
-!28 = !{!29, !31}
-!29 = distinct !{!29, !30, !"memcpy.inline: argument 0"}
-!30 = distinct !{!30, !"memcpy.inline"}
-!31 = distinct !{!31, !30, !"memcpy.inline: argument 1"}
-!32 = distinct !{!32, !7, !8}
-!33 = !{!34, !36}
-!34 = distinct !{!34, !35, !"memcpy.inline: argument 0"}
-!35 = distinct !{!35, !"memcpy.inline"}
-!36 = distinct !{!36, !35, !"memcpy.inline: argument 1"}
-!37 = distinct !{!37, !7, !8}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7}
+!12 = distinct !{!12, !7}
+!13 = distinct !{!13, !7}
+!14 = distinct !{!14, !7}
+!15 = !{i8 0, i8 2}
+!16 = !{}
+!17 = distinct !{!17, !7, !18}
+!18 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!19 = distinct !{!19, !7}
+!20 = distinct !{!20, !7}
+!21 = distinct !{!21, !7, !18}
+!22 = !{!23, !25}
+!23 = distinct !{!23, !24, !"memcpy.inline: argument 0"}
+!24 = distinct !{!24, !"memcpy.inline"}
+!25 = distinct !{!25, !24, !"memcpy.inline: argument 1"}
+!26 = !{!27, !29}
+!27 = distinct !{!27, !28, !"memcpy.inline: argument 0"}
+!28 = distinct !{!28, !"memcpy.inline"}
+!29 = distinct !{!29, !28, !"memcpy.inline: argument 1"}
+!30 = distinct !{!30, !7}
+!31 = !{!32, !34}
+!32 = distinct !{!32, !33, !"memcpy.inline: argument 0"}
+!33 = distinct !{!33, !"memcpy.inline"}
+!34 = distinct !{!34, !33, !"memcpy.inline: argument 1"}
+!35 = distinct !{!35, !7}

@@ -113,7 +113,7 @@ get_eol_offset.exit:                              ; preds = %32, %29
   %41 = getelementptr inbounds nuw i8, ptr %.017.i, i64 1
   %.01316.i.add = add nuw nsw i64 %.01316.i.idx, 1
   %exitcond.not.i60 = icmp eq ptr %41, %34
-  br i1 %exitcond.not.i60, label %.critedge.i, label %.lr.ph.i59, !llvm.loop !7
+  br i1 %exitcond.not.i60, label %.critedge.i, label %.lr.ph.i59, !llvm.loop !6
 
 .critedge.i:                                      ; preds = %40, %get_eol_offset.exit
   %.013.lcssa.i.ph = phi ptr [ @.str, %get_eol_offset.exit ], [ %scevgep.i, %40 ]
@@ -200,7 +200,7 @@ line_starts_with.exit:                            ; preds = %36, %.critedge.i
   %67 = getelementptr inbounds nuw i8, ptr %.017.i69, i64 1
   %.01316.i70.add = add nuw nsw i64 %.01316.i70.idx, 1
   %exitcond.not.i72 = icmp eq ptr %67, %34
-  br i1 %exitcond.not.i72, label %.critedge.i61, label %.lr.ph.i68, !llvm.loop !7
+  br i1 %exitcond.not.i72, label %.critedge.i61, label %.lr.ph.i68, !llvm.loop !6
 
 .critedge.i61:                                    ; preds = %66, %line_starts_with.exit
   %.013.lcssa.i62.ph = phi ptr [ @.str.4, %line_starts_with.exit ], [ %scevgep.i66, %66 ]
@@ -278,7 +278,7 @@ line_starts_with.exit73:                          ; preds = %62, %.critedge.i61
   %87 = getelementptr inbounds nuw i8, ptr %.017.i83, i64 1
   %.01316.i84.add = add nuw nsw i64 %.01316.i84.idx, 1
   %exitcond.not.i86 = icmp eq ptr %87, %34
-  br i1 %exitcond.not.i86, label %.critedge.i75, label %.lr.ph.i82, !llvm.loop !7
+  br i1 %exitcond.not.i86, label %.critedge.i75, label %.lr.ph.i82, !llvm.loop !6
 
 .critedge.i75:                                    ; preds = %86, %line_starts_with.exit73
   %.013.lcssa.i76.ph = phi ptr [ @.str.8, %line_starts_with.exit73 ], [ %scevgep.i80, %86 ]
@@ -365,7 +365,7 @@ line_starts_with.exit87:                          ; preds = %82, %.critedge.i75
   %113 = getelementptr inbounds nuw i8, ptr %.017.i97, i64 1
   %.01316.i98.add = add nuw nsw i64 %.01316.i98.idx, 1
   %exitcond.not.i100 = icmp eq ptr %113, %34
-  br i1 %exitcond.not.i100, label %.critedge.i89, label %.lr.ph.i96, !llvm.loop !7
+  br i1 %exitcond.not.i100, label %.critedge.i89, label %.lr.ph.i96, !llvm.loop !6
 
 .critedge.i89:                                    ; preds = %112, %line_starts_with.exit87
   %.013.lcssa.i90.ph = phi ptr [ @.str.10, %line_starts_with.exit87 ], [ %scevgep.i94, %112 ]
@@ -421,7 +421,7 @@ line_starts_with.exit101:                         ; preds = %108, %.critedge.i89
   store i32 %.08.i, ptr %15, align 8
   %128 = load i32, ptr %16, align 8
   %129 = icmp slt i32 %.08.i, %128
-  br i1 %129, label %.lr.ph.i, label %._crit_edge, !llvm.loop !8
+  br i1 %129, label %.lr.ph.i, label %._crit_edge, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %line_starts_with.exit101
   %130 = and i32 %.1, 1
@@ -559,7 +559,7 @@ get_eol_offset.exit:                              ; preds = %32, %29
   %41 = getelementptr inbounds nuw i8, ptr %.017.i, i64 1
   %.01316.i.add = add nuw nsw i64 %.01316.i.idx, 1
   %exitcond.not.i39 = icmp eq ptr %41, %34
-  br i1 %exitcond.not.i39, label %line_starts_with.exit, label %.lr.ph.i38, !llvm.loop !7
+  br i1 %exitcond.not.i39, label %line_starts_with.exit, label %.lr.ph.i38, !llvm.loop !6
 
 line_starts_with.exit:                            ; preds = %40, %get_eol_offset.exit
   %.013.lcssa.i.ph = phi ptr [ @.str.8, %get_eol_offset.exit ], [ %scevgep.i, %40 ]
@@ -592,7 +592,7 @@ line_starts_with.exit.thread52:                   ; preds = %36, %line_starts_wi
   %48 = getelementptr inbounds nuw i8, ptr %.017.i46, i64 1
   %.01316.i47.add = add nuw nsw i64 %.01316.i47.idx, 1
   %exitcond.not.i49 = icmp eq ptr %48, %34
-  br i1 %exitcond.not.i49, label %line_starts_with.exit50, label %.lr.ph.i45, !llvm.loop !7
+  br i1 %exitcond.not.i49, label %line_starts_with.exit50, label %.lr.ph.i45, !llvm.loop !6
 
 line_starts_with.exit50:                          ; preds = %47, %line_starts_with.exit.thread52
   %.013.lcssa.i40.ph = phi ptr [ @.str.10, %line_starts_with.exit.thread52 ], [ %scevgep.i43, %47 ]
@@ -644,7 +644,7 @@ line_starts_with.exit.thread:                     ; preds = %.lr.ph.i38, %.lr.ph
   %61 = phi i32 [ %.pre, %.line_starts_with.exit.thread_crit_edge ], [ %20, %line_starts_with.exit50 ], [ %20, %line_starts_with.exit ], [ %20, %.lr.ph.i45 ], [ %20, %.lr.ph.i38 ]
   store i32 %.08.i, ptr %14, align 8
   %62 = icmp slt i32 %.08.i, %61
-  br i1 %62, label %.lr.ph.i, label %._crit_edge, !llvm.loop !9
+  br i1 %62, label %.lr.ph.i, label %._crit_edge, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %line_starts_with.exit.thread, %.preheader
   %63 = call i32 @close(i32 noundef %12) #6
@@ -727,9 +727,8 @@ attributes #7 = { cold noreturn nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = distinct !{!4, !5, !6}
+!4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{!"llvm.loop.estimated_trip_count"}
-!7 = distinct !{!7, !5, !6}
-!8 = distinct !{!8, !5, !6}
-!9 = distinct !{!9, !5, !6}
+!6 = distinct !{!6, !5}
+!7 = distinct !{!7, !5}
+!8 = distinct !{!8, !5}

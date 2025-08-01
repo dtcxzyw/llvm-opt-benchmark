@@ -185,7 +185,7 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
   %85 = mul nsw i32 %84, %12
   %86 = sext i32 %85 to i64
   %87 = getelementptr inbounds i8, ptr %.0158, i64 %86
-  %88 = load ptr, ptr %39, align 8, !tbaa !54
+  %88 = load ptr, ptr %39, align 8, !tbaa !53
   %89 = sext i32 %84 to i64
   %90 = load i32, ptr %34, align 4, !tbaa !46
   %91 = load i32, ptr %35, align 8, !tbaa !47
@@ -197,7 +197,7 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
 
 .lr.ph156:                                        ; preds = %83, %.lr.ph156
   %.1155 = phi i32 [ %121, %.lr.ph156 ], [ %12, %83 ]
-  %95 = load ptr, ptr %39, align 8, !tbaa !54
+  %95 = load ptr, ptr %39, align 8, !tbaa !53
   %96 = load i32, ptr %31, align 4, !tbaa !43
   %97 = mul nsw i32 %96, %.1155
   %98 = sext i32 %97 to i64
@@ -227,12 +227,12 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
   tail call void %109(ptr noundef %113, i64 noundef %115, i32 noundef %12, i32 noundef %116, i32 noundef %117, i32 noundef %118, i32 noundef %119, i32 noundef %120) #4
   %121 = add nsw i32 %.1155, %12
   %122 = icmp slt i32 %121, %42
-  br i1 %122, label %.lr.ph156, label %._crit_edge, !llvm.loop !55
+  br i1 %122, label %.lr.ph156, label %._crit_edge, !llvm.loop !54
 
 ._crit_edge:                                      ; preds = %.lr.ph156, %83
   %123 = add nsw i32 %.0144157, %12
   %124 = icmp slt i32 %123, %64
-  br i1 %124, label %83, label %._crit_edge160, !llvm.loop !56
+  br i1 %124, label %83, label %._crit_edge160, !llvm.loop !55
 
 ._crit_edge160:                                   ; preds = %._crit_edge, %.preheader
   %.0144.lcssa = phi i32 [ %12, %.preheader ], [ %123, %._crit_edge ]
@@ -265,14 +265,14 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
   tail call void %132(ptr noundef %136, i64 noundef %138, i32 noundef %130, i32 noundef %139, i32 noundef %140, i32 noundef %141, i32 noundef %142, i32 noundef %143) #4
   %144 = add nsw i32 %.2162, %12
   %145 = icmp slt i32 %144, %42
-  br i1 %145, label %131, label %.loopexit, !llvm.loop !57
+  br i1 %145, label %131, label %.loopexit, !llvm.loop !56
 
 .loopexit:                                        ; preds = %131, %._crit_edge160, %56
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %146 = load i32, ptr %24, align 8, !tbaa !40
   %147 = sext i32 %146 to i64
   %148 = icmp slt i64 %indvars.iv.next, %147
-  br i1 %148, label %40, label %._crit_edge168, !llvm.loop !58
+  br i1 %148, label %40, label %._crit_edge168, !llvm.loop !57
 
 ._crit_edge168:                                   ; preds = %.loopexit, %23
   %.not150 = icmp eq ptr %1, %.0142
@@ -305,30 +305,30 @@ declare i32 @ff_filter_frame(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -558323010, 1) i32 @config_output(ptr noundef readonly captures(none) %0) #0 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !59
+  %2 = load ptr, ptr %0, align 8, !tbaa !58
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 72
   %4 = load ptr, ptr %3, align 8, !tbaa !33
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %6 = load ptr, ptr %5, align 8, !tbaa !60
+  %6 = load ptr, ptr %5, align 8, !tbaa !59
   %7 = load ptr, ptr %6, align 8, !tbaa !20
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 36
-  %9 = load i32, ptr %8, align 4, !tbaa !61
+  %9 = load i32, ptr %8, align 4, !tbaa !60
   %10 = tail call ptr @av_pix_fmt_desc_get(i32 noundef %9) #4
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store ptr %10, ptr %11, align 8, !tbaa !62
+  store ptr %10, ptr %11, align 8, !tbaa !61
   %.not = icmp eq ptr %10, null
   br i1 %.not, label %87, label %12
 
 12:                                               ; preds = %1
-  %13 = load i32, ptr %8, align 4, !tbaa !61
+  %13 = load i32, ptr %8, align 4, !tbaa !60
   %14 = tail call i32 @av_pix_fmt_count_planes(i32 noundef %13) #4
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store i32 %14, ptr %15, align 8, !tbaa !40
-  %16 = load ptr, ptr %11, align 8, !tbaa !62
+  %16 = load ptr, ptr %11, align 8, !tbaa !61
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 40
-  %18 = load i32, ptr %17, align 8, !tbaa !63
+  %18 = load i32, ptr %17, align 8, !tbaa !62
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 64
-  store i32 %18, ptr %19, align 8, !tbaa !65
+  store i32 %18, ptr %19, align 8, !tbaa !64
   %20 = add nsw i32 %18, 7
   %21 = sdiv i32 %20, 8
   %22 = getelementptr inbounds nuw i8, ptr %4, i64 68
@@ -338,33 +338,33 @@ define internal range(i32 -558323010, 1) i32 @config_output(ptr noundef readonly
   %24 = getelementptr inbounds nuw i8, ptr %4, i64 60
   store i32 %23, ptr %24, align 4, !tbaa !50
   %25 = getelementptr inbounds nuw i8, ptr %4, i64 28
-  %26 = load float, ptr %25, align 4, !tbaa !66
+  %26 = load float, ptr %25, align 4, !tbaa !65
   %27 = uitofp nneg i32 %23 to float
   %28 = fmul nsz float %26, %27
   %29 = fptosi float %28 to i32
   %30 = getelementptr inbounds nuw i8, ptr %4, i64 44
   store i32 %29, ptr %30, align 4, !tbaa !46
   %31 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  %32 = load float, ptr %31, align 8, !tbaa !67
+  %32 = load float, ptr %31, align 8, !tbaa !66
   %33 = fmul nsz float %32, %27
   %34 = fptosi float %33 to i32
   %35 = getelementptr inbounds nuw i8, ptr %4, i64 48
   store i32 %34, ptr %35, align 8, !tbaa !47
   %36 = getelementptr inbounds nuw i8, ptr %4, i64 36
-  %37 = load float, ptr %36, align 4, !tbaa !68
+  %37 = load float, ptr %36, align 4, !tbaa !67
   %38 = fmul nsz float %37, %27
   %39 = fptosi float %38 to i32
   %40 = getelementptr inbounds nuw i8, ptr %4, i64 52
   store i32 %39, ptr %40, align 4, !tbaa !48
   %41 = getelementptr inbounds nuw i8, ptr %4, i64 40
-  %42 = load float, ptr %41, align 8, !tbaa !69
+  %42 = load float, ptr %41, align 8, !tbaa !68
   %43 = fmul nsz float %42, %27
   %44 = fptosi float %43 to i32
   %45 = getelementptr inbounds nuw i8, ptr %4, i64 56
   store i32 %44, ptr %45, align 8, !tbaa !49
   %46 = icmp slt i32 %18, 9
   %47 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %48 = load i32, ptr %47, align 8, !tbaa !70
+  %48 = load i32, ptr %47, align 8, !tbaa !69
   %49 = icmp eq i32 %48, 0
   br i1 %46, label %50, label %51
 
@@ -386,7 +386,7 @@ define internal range(i32 -558323010, 1) i32 @config_output(ptr noundef readonly
   %deblockh16_weak.sink = phi ptr [ @deblockh8_weak, %50 ], [ @deblockh16_weak, %51 ], [ @deblockh8_strong, %52 ], [ @deblockh16_strong, %54 ]
   %deblockv16_weak.sink = phi ptr [ @deblockv8_weak, %50 ], [ @deblockv16_weak, %51 ], [ @deblockv8_strong, %52 ], [ @deblockv16_strong, %54 ]
   %56 = getelementptr inbounds nuw i8, ptr %4, i64 112
-  store ptr %deblockh16_weak.sink, ptr %56, align 8, !tbaa !54
+  store ptr %deblockh16_weak.sink, ptr %56, align 8, !tbaa !53
   %57 = getelementptr inbounds nuw i8, ptr %4, i64 120
   store ptr %deblockv16_weak.sink, ptr %57, align 8, !tbaa !45
   br label %58
@@ -396,7 +396,7 @@ define internal range(i32 -558323010, 1) i32 @config_output(ptr noundef readonly
   %60 = load i32, ptr %59, align 8, !tbaa !38
   %61 = sub nsw i32 0, %60
   %62 = getelementptr inbounds nuw i8, ptr %16, i64 9
-  %63 = load i8, ptr %62, align 1, !tbaa !71
+  %63 = load i8, ptr %62, align 1, !tbaa !70
   %64 = zext nneg i8 %63 to i32
   %65 = ashr i32 %61, %64
   %66 = sub nsw i32 0, %65
@@ -414,7 +414,7 @@ define internal range(i32 -558323010, 1) i32 @config_output(ptr noundef readonly
   %74 = load i32, ptr %73, align 4, !tbaa !39
   %75 = sub nsw i32 0, %74
   %76 = getelementptr inbounds nuw i8, ptr %16, i64 10
-  %77 = load i8, ptr %76, align 2, !tbaa !74
+  %77 = load i8, ptr %76, align 2, !tbaa !73
   %78 = zext nneg i8 %77 to i32
   %79 = ashr i32 %75, %78
   %80 = sub nsw i32 0, %79
@@ -453,11 +453,11 @@ define internal void @deblockh8_weak(ptr noundef captures(none) %0, i64 noundef 
 12:                                               ; preds = %.lr.ph, %54
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %54 ]
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv
-  %14 = load i8, ptr %13, align 1, !tbaa !75
+  %14 = load i8, ptr %13, align 1, !tbaa !74
   %15 = zext i8 %14 to i32
   %16 = sub nsw i64 %indvars.iv, %1
   %17 = getelementptr inbounds i8, ptr %0, i64 %16
-  %18 = load i8, ptr %17, align 1, !tbaa !75
+  %18 = load i8, ptr %17, align 1, !tbaa !74
   %19 = zext i8 %18 to i32
   %20 = sub nsw i32 %15, %19
   %21 = tail call i32 @llvm.abs.i32(i32 %20, i1 true)
@@ -467,7 +467,7 @@ define internal void @deblockh8_weak(ptr noundef captures(none) %0, i64 noundef 
 22:                                               ; preds = %12
   %23 = sub nsw i64 %indvars.iv, %10
   %24 = getelementptr inbounds i8, ptr %0, i64 %23
-  %25 = load i8, ptr %24, align 1, !tbaa !75
+  %25 = load i8, ptr %24, align 1, !tbaa !74
   %26 = zext i8 %25 to i32
   %27 = sub nsw i32 %19, %26
   %28 = tail call i32 @llvm.abs.i32(i32 %27, i1 true)
@@ -476,7 +476,7 @@ define internal void @deblockh8_weak(ptr noundef captures(none) %0, i64 noundef 
 
 29:                                               ; preds = %22
   %30 = getelementptr i8, ptr %11, i64 %indvars.iv
-  %31 = load i8, ptr %30, align 1, !tbaa !75
+  %31 = load i8, ptr %30, align 1, !tbaa !74
   %32 = zext i8 %31 to i32
   %33 = sub nsw i32 %15, %32
   %34 = tail call i32 @llvm.abs.i32(i32 %33, i1 true)
@@ -497,28 +497,28 @@ define internal void @deblockh8_weak(ptr noundef captures(none) %0, i64 noundef 
   %..i = tail call i32 @llvm.smin.i32(i32 %37, i32 %7)
   %43 = trunc i32 %..i to i8
   %44 = select i1 %42, i8 0, i8 %43
-  store i8 %44, ptr %24, align 1, !tbaa !75
+  store i8 %44, ptr %24, align 1, !tbaa !74
   %45 = icmp slt i32 %39, 0
   %..i96 = tail call i32 @llvm.smin.i32(i32 %39, i32 %7)
   %46 = trunc i32 %..i96 to i8
   %47 = select i1 %45, i8 0, i8 %46
-  store i8 %47, ptr %17, align 1, !tbaa !75
+  store i8 %47, ptr %17, align 1, !tbaa !74
   %48 = icmp slt i32 %40, 0
   %..i98 = tail call i32 @llvm.smin.i32(i32 %40, i32 %7)
   %49 = trunc i32 %..i98 to i8
   %50 = select i1 %48, i8 0, i8 %49
-  store i8 %50, ptr %13, align 1, !tbaa !75
+  store i8 %50, ptr %13, align 1, !tbaa !74
   %51 = icmp slt i32 %41, 0
   %..i100 = tail call i32 @llvm.smin.i32(i32 %41, i32 %7)
   %52 = trunc i32 %..i100 to i8
   %53 = select i1 %51, i8 0, i8 %52
-  store i8 %53, ptr %30, align 1, !tbaa !75
+  store i8 %53, ptr %30, align 1, !tbaa !74
   br label %54
 
 54:                                               ; preds = %12, %22, %29, %35
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %12, !llvm.loop !76
+  br i1 %exitcond.not, label %._crit_edge, label %12, !llvm.loop !75
 
 ._crit_edge:                                      ; preds = %54, %8
   ret void
@@ -532,10 +532,10 @@ define internal void @deblockv8_weak(ptr noundef captures(none) %0, i64 noundef 
 .lr.ph:                                           ; preds = %8, %49
   %.066 = phi ptr [ %.1, %49 ], [ %0, %8 ]
   %.05065 = phi i32 [ %50, %49 ], [ 0, %8 ]
-  %10 = load i8, ptr %.066, align 1, !tbaa !75
+  %10 = load i8, ptr %.066, align 1, !tbaa !74
   %11 = zext i8 %10 to i32
   %12 = getelementptr inbounds i8, ptr %.066, i64 -1
-  %13 = load i8, ptr %12, align 1, !tbaa !75
+  %13 = load i8, ptr %12, align 1, !tbaa !74
   %14 = zext i8 %13 to i32
   %15 = sub nsw i32 %11, %14
   %16 = tail call i32 @llvm.abs.i32(i32 %15, i1 true)
@@ -544,7 +544,7 @@ define internal void @deblockv8_weak(ptr noundef captures(none) %0, i64 noundef 
 
 17:                                               ; preds = %.lr.ph
   %18 = getelementptr inbounds i8, ptr %.066, i64 -2
-  %19 = load i8, ptr %18, align 1, !tbaa !75
+  %19 = load i8, ptr %18, align 1, !tbaa !74
   %20 = zext i8 %19 to i32
   %21 = sub nsw i32 %14, %20
   %22 = tail call i32 @llvm.abs.i32(i32 %21, i1 true)
@@ -553,7 +553,7 @@ define internal void @deblockv8_weak(ptr noundef captures(none) %0, i64 noundef 
 
 23:                                               ; preds = %17
   %24 = getelementptr inbounds nuw i8, ptr %.066, i64 1
-  %25 = load i8, ptr %24, align 1, !tbaa !75
+  %25 = load i8, ptr %24, align 1, !tbaa !74
   %26 = zext i8 %25 to i32
   %27 = sub nsw i32 %11, %26
   %28 = tail call i32 @llvm.abs.i32(i32 %27, i1 true)
@@ -574,22 +574,22 @@ define internal void @deblockv8_weak(ptr noundef captures(none) %0, i64 noundef 
   %..i = tail call i32 @llvm.smin.i32(i32 %31, i32 %7)
   %37 = trunc i32 %..i to i8
   %38 = select i1 %36, i8 0, i8 %37
-  store i8 %38, ptr %18, align 1, !tbaa !75
+  store i8 %38, ptr %18, align 1, !tbaa !74
   %39 = icmp slt i32 %33, 0
   %..i57 = tail call i32 @llvm.smin.i32(i32 %33, i32 %7)
   %40 = trunc i32 %..i57 to i8
   %41 = select i1 %39, i8 0, i8 %40
-  store i8 %41, ptr %12, align 1, !tbaa !75
+  store i8 %41, ptr %12, align 1, !tbaa !74
   %42 = icmp slt i32 %34, 0
   %..i59 = tail call i32 @llvm.smin.i32(i32 %34, i32 %7)
   %43 = trunc i32 %..i59 to i8
   %44 = select i1 %42, i8 0, i8 %43
-  store i8 %44, ptr %.066, align 1, !tbaa !75
+  store i8 %44, ptr %.066, align 1, !tbaa !74
   %45 = icmp slt i32 %35, 0
   %..i61 = tail call i32 @llvm.smin.i32(i32 %35, i32 %7)
   %46 = trunc i32 %..i61 to i8
   %47 = select i1 %45, i8 0, i8 %46
-  store i8 %47, ptr %24, align 1, !tbaa !75
+  store i8 %47, ptr %24, align 1, !tbaa !74
   %48 = getelementptr inbounds i8, ptr %.066, i64 %1
   br label %49
 
@@ -597,7 +597,7 @@ define internal void @deblockv8_weak(ptr noundef captures(none) %0, i64 noundef 
   %.1 = phi ptr [ %48, %29 ], [ %.066, %23 ], [ %.066, %17 ], [ %.066, %.lr.ph ]
   %50 = add nuw nsw i32 %.05065, 1
   %exitcond.not = icmp eq i32 %50, %2
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !77
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !76
 
 ._crit_edge:                                      ; preds = %49, %8
   ret void
@@ -618,11 +618,11 @@ define internal void @deblockh16_weak(ptr noundef captures(none) %0, i64 noundef
 13:                                               ; preds = %.lr.ph, %55
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %55 ]
   %14 = getelementptr inbounds nuw i16, ptr %0, i64 %indvars.iv
-  %15 = load i16, ptr %14, align 2, !tbaa !78
+  %15 = load i16, ptr %14, align 2, !tbaa !77
   %16 = zext i16 %15 to i32
   %17 = sub nsw i64 %indvars.iv, %9
   %18 = getelementptr inbounds i16, ptr %0, i64 %17
-  %19 = load i16, ptr %18, align 2, !tbaa !78
+  %19 = load i16, ptr %18, align 2, !tbaa !77
   %20 = zext i16 %19 to i32
   %21 = sub nsw i32 %16, %20
   %22 = tail call i32 @llvm.abs.i32(i32 %21, i1 true)
@@ -632,7 +632,7 @@ define internal void @deblockh16_weak(ptr noundef captures(none) %0, i64 noundef
 23:                                               ; preds = %13
   %24 = sub nsw i64 %indvars.iv, %11
   %25 = getelementptr inbounds i16, ptr %0, i64 %24
-  %26 = load i16, ptr %25, align 2, !tbaa !78
+  %26 = load i16, ptr %25, align 2, !tbaa !77
   %27 = zext i16 %26 to i32
   %28 = sub nsw i32 %20, %27
   %29 = tail call i32 @llvm.abs.i32(i32 %28, i1 true)
@@ -641,7 +641,7 @@ define internal void @deblockh16_weak(ptr noundef captures(none) %0, i64 noundef
 
 30:                                               ; preds = %23
   %31 = getelementptr i16, ptr %12, i64 %indvars.iv
-  %32 = load i16, ptr %31, align 2, !tbaa !78
+  %32 = load i16, ptr %31, align 2, !tbaa !77
   %33 = zext i16 %32 to i32
   %34 = sub nsw i32 %16, %33
   %35 = tail call i32 @llvm.abs.i32(i32 %34, i1 true)
@@ -659,28 +659,28 @@ define internal void @deblockh16_weak(ptr noundef captures(none) %0, i64 noundef
   %..i = tail call i32 @llvm.smin.i32(i32 %38, i32 %7)
   %44 = trunc i32 %..i to i16
   %45 = select i1 %43, i16 0, i16 %44
-  store i16 %45, ptr %25, align 2, !tbaa !78
+  store i16 %45, ptr %25, align 2, !tbaa !77
   %46 = icmp slt i32 %40, 0
   %..i96 = tail call i32 @llvm.smin.i32(i32 %40, i32 %7)
   %47 = trunc i32 %..i96 to i16
   %48 = select i1 %46, i16 0, i16 %47
-  store i16 %48, ptr %18, align 2, !tbaa !78
+  store i16 %48, ptr %18, align 2, !tbaa !77
   %49 = icmp slt i32 %41, 0
   %..i98 = tail call i32 @llvm.smin.i32(i32 %41, i32 %7)
   %50 = trunc i32 %..i98 to i16
   %51 = select i1 %49, i16 0, i16 %50
-  store i16 %51, ptr %14, align 2, !tbaa !78
+  store i16 %51, ptr %14, align 2, !tbaa !77
   %52 = icmp slt i32 %42, 0
   %..i100 = tail call i32 @llvm.smin.i32(i32 %42, i32 %7)
   %53 = trunc i32 %..i100 to i16
   %54 = select i1 %52, i16 0, i16 %53
-  store i16 %54, ptr %31, align 2, !tbaa !78
+  store i16 %54, ptr %31, align 2, !tbaa !77
   br label %55
 
 55:                                               ; preds = %13, %23, %30, %36
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %13, !llvm.loop !80
+  br i1 %exitcond.not, label %._crit_edge, label %13, !llvm.loop !79
 
 ._crit_edge:                                      ; preds = %55, %8
   ret void
@@ -695,10 +695,10 @@ define internal void @deblockv16_weak(ptr noundef captures(none) %0, i64 noundef
 .lr.ph:                                           ; preds = %8, %50
   %.064 = phi ptr [ %.1, %50 ], [ %0, %8 ]
   %.05063 = phi i32 [ %51, %50 ], [ 0, %8 ]
-  %11 = load i16, ptr %.064, align 2, !tbaa !78
+  %11 = load i16, ptr %.064, align 2, !tbaa !77
   %12 = zext i16 %11 to i32
   %13 = getelementptr inbounds i8, ptr %.064, i64 -2
-  %14 = load i16, ptr %13, align 2, !tbaa !78
+  %14 = load i16, ptr %13, align 2, !tbaa !77
   %15 = zext i16 %14 to i32
   %16 = sub nsw i32 %12, %15
   %17 = tail call i32 @llvm.abs.i32(i32 %16, i1 true)
@@ -707,7 +707,7 @@ define internal void @deblockv16_weak(ptr noundef captures(none) %0, i64 noundef
 
 18:                                               ; preds = %.lr.ph
   %19 = getelementptr inbounds i8, ptr %.064, i64 -4
-  %20 = load i16, ptr %19, align 2, !tbaa !78
+  %20 = load i16, ptr %19, align 2, !tbaa !77
   %21 = zext i16 %20 to i32
   %22 = sub nsw i32 %15, %21
   %23 = tail call i32 @llvm.abs.i32(i32 %22, i1 true)
@@ -716,7 +716,7 @@ define internal void @deblockv16_weak(ptr noundef captures(none) %0, i64 noundef
 
 24:                                               ; preds = %18
   %25 = getelementptr inbounds nuw i8, ptr %.064, i64 2
-  %26 = load i16, ptr %25, align 2, !tbaa !78
+  %26 = load i16, ptr %25, align 2, !tbaa !77
   %27 = zext i16 %26 to i32
   %28 = sub nsw i32 %12, %27
   %29 = tail call i32 @llvm.abs.i32(i32 %28, i1 true)
@@ -734,22 +734,22 @@ define internal void @deblockv16_weak(ptr noundef captures(none) %0, i64 noundef
   %..i = tail call i32 @llvm.smin.i32(i32 %32, i32 %7)
   %38 = trunc i32 %..i to i16
   %39 = select i1 %37, i16 0, i16 %38
-  store i16 %39, ptr %19, align 2, !tbaa !78
+  store i16 %39, ptr %19, align 2, !tbaa !77
   %40 = icmp slt i32 %34, 0
   %..i57 = tail call i32 @llvm.smin.i32(i32 %34, i32 %7)
   %41 = trunc i32 %..i57 to i16
   %42 = select i1 %40, i16 0, i16 %41
-  store i16 %42, ptr %13, align 2, !tbaa !78
+  store i16 %42, ptr %13, align 2, !tbaa !77
   %43 = icmp slt i32 %35, 0
   %..i59 = tail call i32 @llvm.smin.i32(i32 %35, i32 %7)
   %44 = trunc i32 %..i59 to i16
   %45 = select i1 %43, i16 0, i16 %44
-  store i16 %45, ptr %.064, align 2, !tbaa !78
+  store i16 %45, ptr %.064, align 2, !tbaa !77
   %46 = icmp slt i32 %36, 0
   %..i61 = tail call i32 @llvm.smin.i32(i32 %36, i32 %7)
   %47 = trunc i32 %..i61 to i16
   %48 = select i1 %46, i16 0, i16 %47
-  store i16 %48, ptr %25, align 2, !tbaa !78
+  store i16 %48, ptr %25, align 2, !tbaa !77
   %49 = getelementptr inbounds i16, ptr %.064, i64 %9
   br label %50
 
@@ -757,7 +757,7 @@ define internal void @deblockv16_weak(ptr noundef captures(none) %0, i64 noundef
   %.1 = phi ptr [ %49, %30 ], [ %.064, %24 ], [ %.064, %18 ], [ %.064, %.lr.ph ]
   %51 = add nuw nsw i32 %.05063, 1
   %exitcond.not = icmp eq i32 %51, %2
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !81
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !80
 
 ._crit_edge:                                      ; preds = %50, %8
   ret void
@@ -780,11 +780,11 @@ define internal void @deblockh8_strong(ptr noundef captures(none) %0, i64 nounde
 14:                                               ; preds = %.lr.ph, %74
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %74 ]
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv
-  %16 = load i8, ptr %15, align 1, !tbaa !75
+  %16 = load i8, ptr %15, align 1, !tbaa !74
   %17 = zext i8 %16 to i32
   %18 = sub nsw i64 %indvars.iv, %1
   %19 = getelementptr inbounds i8, ptr %0, i64 %18
-  %20 = load i8, ptr %19, align 1, !tbaa !75
+  %20 = load i8, ptr %19, align 1, !tbaa !74
   %21 = zext i8 %20 to i32
   %22 = sub nsw i32 %17, %21
   %23 = tail call i32 @llvm.abs.i32(i32 %22, i1 true)
@@ -794,7 +794,7 @@ define internal void @deblockh8_strong(ptr noundef captures(none) %0, i64 nounde
 24:                                               ; preds = %14
   %25 = sub nsw i64 %indvars.iv, %10
   %26 = getelementptr inbounds i8, ptr %0, i64 %25
-  %27 = load i8, ptr %26, align 1, !tbaa !75
+  %27 = load i8, ptr %26, align 1, !tbaa !74
   %28 = zext i8 %27 to i32
   %29 = sub nsw i32 %21, %28
   %30 = tail call i32 @llvm.abs.i32(i32 %29, i1 true)
@@ -803,10 +803,10 @@ define internal void @deblockh8_strong(ptr noundef captures(none) %0, i64 nounde
 
 31:                                               ; preds = %24
   %32 = getelementptr i8, ptr %11, i64 %indvars.iv
-  %33 = load i8, ptr %32, align 1, !tbaa !75
+  %33 = load i8, ptr %32, align 1, !tbaa !74
   %34 = zext i8 %33 to i32
   %35 = getelementptr i8, ptr %12, i64 %indvars.iv
-  %36 = load i8, ptr %35, align 1, !tbaa !75
+  %36 = load i8, ptr %35, align 1, !tbaa !74
   %37 = zext i8 %36 to i32
   %38 = sub nsw i32 %34, %37
   %39 = tail call i32 @llvm.abs.i32(i32 %38, i1 true)
@@ -821,7 +821,7 @@ define internal void @deblockh8_strong(ptr noundef captures(none) %0, i64 nounde
 
 43:                                               ; preds = %40
   %44 = getelementptr i8, ptr %13, i64 %indvars.iv
-  %45 = load i8, ptr %44, align 1, !tbaa !75
+  %45 = load i8, ptr %44, align 1, !tbaa !74
   %46 = zext i8 %45 to i32
   %.lhs.trunc = trunc nsw i32 %22 to i16
   %47 = sdiv i16 %.lhs.trunc, 8
@@ -840,38 +840,38 @@ define internal void @deblockh8_strong(ptr noundef captures(none) %0, i64 nounde
   %..i = tail call i32 @llvm.smin.i32(i32 %48, i32 %7)
   %57 = trunc i32 %..i to i8
   %58 = select i1 %56, i8 0, i8 %57
-  store i8 %58, ptr %44, align 1, !tbaa !75
+  store i8 %58, ptr %44, align 1, !tbaa !74
   %59 = icmp slt i32 %50, 0
   %..i138 = tail call i32 @llvm.smin.i32(i32 %50, i32 %7)
   %60 = trunc i32 %..i138 to i8
   %61 = select i1 %59, i8 0, i8 %60
-  store i8 %61, ptr %26, align 1, !tbaa !75
+  store i8 %61, ptr %26, align 1, !tbaa !74
   %62 = icmp slt i32 %52, 0
   %..i140 = tail call i32 @llvm.smin.i32(i32 %52, i32 %7)
   %63 = trunc i32 %..i140 to i8
   %64 = select i1 %62, i8 0, i8 %63
-  store i8 %64, ptr %19, align 1, !tbaa !75
+  store i8 %64, ptr %19, align 1, !tbaa !74
   %65 = icmp slt i32 %53, 0
   %..i142 = tail call i32 @llvm.smin.i32(i32 %53, i32 %7)
   %66 = trunc i32 %..i142 to i8
   %67 = select i1 %65, i8 0, i8 %66
-  store i8 %67, ptr %15, align 1, !tbaa !75
+  store i8 %67, ptr %15, align 1, !tbaa !74
   %68 = icmp slt i32 %54, 0
   %..i144 = tail call i32 @llvm.smin.i32(i32 %54, i32 %7)
   %69 = trunc i32 %..i144 to i8
   %70 = select i1 %68, i8 0, i8 %69
-  store i8 %70, ptr %32, align 1, !tbaa !75
+  store i8 %70, ptr %32, align 1, !tbaa !74
   %71 = icmp slt i32 %55, 0
   %..i146 = tail call i32 @llvm.smin.i32(i32 %55, i32 %7)
   %72 = trunc i32 %..i146 to i8
   %73 = select i1 %71, i8 0, i8 %72
-  store i8 %73, ptr %35, align 1, !tbaa !75
+  store i8 %73, ptr %35, align 1, !tbaa !74
   br label %74
 
 74:                                               ; preds = %14, %24, %31, %40, %43
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %14, !llvm.loop !82
+  br i1 %exitcond.not, label %._crit_edge, label %14, !llvm.loop !81
 
 ._crit_edge:                                      ; preds = %74, %8
   ret void
@@ -885,10 +885,10 @@ define internal void @deblockv8_strong(ptr noundef captures(none) %0, i64 nounde
 .lr.ph:                                           ; preds = %8, %67
   %.094 = phi ptr [ %.1, %67 ], [ %0, %8 ]
   %.06993 = phi i32 [ %68, %67 ], [ 0, %8 ]
-  %10 = load i8, ptr %.094, align 1, !tbaa !75
+  %10 = load i8, ptr %.094, align 1, !tbaa !74
   %11 = zext i8 %10 to i32
   %12 = getelementptr inbounds i8, ptr %.094, i64 -1
-  %13 = load i8, ptr %12, align 1, !tbaa !75
+  %13 = load i8, ptr %12, align 1, !tbaa !74
   %14 = zext i8 %13 to i32
   %15 = sub nsw i32 %11, %14
   %16 = tail call i32 @llvm.abs.i32(i32 %15, i1 true)
@@ -897,7 +897,7 @@ define internal void @deblockv8_strong(ptr noundef captures(none) %0, i64 nounde
 
 17:                                               ; preds = %.lr.ph
   %18 = getelementptr inbounds i8, ptr %.094, i64 -2
-  %19 = load i8, ptr %18, align 1, !tbaa !75
+  %19 = load i8, ptr %18, align 1, !tbaa !74
   %20 = zext i8 %19 to i32
   %21 = sub nsw i32 %14, %20
   %22 = tail call i32 @llvm.abs.i32(i32 %21, i1 true)
@@ -906,10 +906,10 @@ define internal void @deblockv8_strong(ptr noundef captures(none) %0, i64 nounde
 
 23:                                               ; preds = %17
   %24 = getelementptr inbounds nuw i8, ptr %.094, i64 1
-  %25 = load i8, ptr %24, align 1, !tbaa !75
+  %25 = load i8, ptr %24, align 1, !tbaa !74
   %26 = zext i8 %25 to i32
   %27 = getelementptr inbounds nuw i8, ptr %.094, i64 2
-  %28 = load i8, ptr %27, align 1, !tbaa !75
+  %28 = load i8, ptr %27, align 1, !tbaa !74
   %29 = zext i8 %28 to i32
   %30 = sub nsw i32 %26, %29
   %31 = tail call i32 @llvm.abs.i32(i32 %30, i1 true)
@@ -924,7 +924,7 @@ define internal void @deblockv8_strong(ptr noundef captures(none) %0, i64 nounde
 
 35:                                               ; preds = %32
   %36 = getelementptr inbounds i8, ptr %.094, i64 -3
-  %37 = load i8, ptr %36, align 1, !tbaa !75
+  %37 = load i8, ptr %36, align 1, !tbaa !74
   %38 = zext i8 %37 to i32
   %.lhs.trunc = trunc nsw i32 %15 to i16
   %39 = sdiv i16 %.lhs.trunc, 8
@@ -943,32 +943,32 @@ define internal void @deblockv8_strong(ptr noundef captures(none) %0, i64 nounde
   %..i = tail call i32 @llvm.smin.i32(i32 %40, i32 %7)
   %49 = trunc i32 %..i to i8
   %50 = select i1 %48, i8 0, i8 %49
-  store i8 %50, ptr %36, align 1, !tbaa !75
+  store i8 %50, ptr %36, align 1, !tbaa !74
   %51 = icmp slt i32 %42, 0
   %..i79 = tail call i32 @llvm.smin.i32(i32 %42, i32 %7)
   %52 = trunc i32 %..i79 to i8
   %53 = select i1 %51, i8 0, i8 %52
-  store i8 %53, ptr %18, align 1, !tbaa !75
+  store i8 %53, ptr %18, align 1, !tbaa !74
   %54 = icmp slt i32 %44, 0
   %..i81 = tail call i32 @llvm.smin.i32(i32 %44, i32 %7)
   %55 = trunc i32 %..i81 to i8
   %56 = select i1 %54, i8 0, i8 %55
-  store i8 %56, ptr %12, align 1, !tbaa !75
+  store i8 %56, ptr %12, align 1, !tbaa !74
   %57 = icmp slt i32 %45, 0
   %..i83 = tail call i32 @llvm.smin.i32(i32 %45, i32 %7)
   %58 = trunc i32 %..i83 to i8
   %59 = select i1 %57, i8 0, i8 %58
-  store i8 %59, ptr %.094, align 1, !tbaa !75
+  store i8 %59, ptr %.094, align 1, !tbaa !74
   %60 = icmp slt i32 %46, 0
   %..i85 = tail call i32 @llvm.smin.i32(i32 %46, i32 %7)
   %61 = trunc i32 %..i85 to i8
   %62 = select i1 %60, i8 0, i8 %61
-  store i8 %62, ptr %24, align 1, !tbaa !75
+  store i8 %62, ptr %24, align 1, !tbaa !74
   %63 = icmp slt i32 %47, 0
   %..i87 = tail call i32 @llvm.smin.i32(i32 %47, i32 %7)
   %64 = trunc i32 %..i87 to i8
   %65 = select i1 %63, i8 0, i8 %64
-  store i8 %65, ptr %27, align 1, !tbaa !75
+  store i8 %65, ptr %27, align 1, !tbaa !74
   %66 = getelementptr inbounds i8, ptr %.094, i64 %1
   br label %67
 
@@ -976,7 +976,7 @@ define internal void @deblockv8_strong(ptr noundef captures(none) %0, i64 nounde
   %.1 = phi ptr [ %66, %35 ], [ %.094, %32 ], [ %.094, %23 ], [ %.094, %17 ], [ %.094, %.lr.ph ]
   %68 = add nuw nsw i32 %.06993, 1
   %exitcond.not = icmp eq i32 %68, %2
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !83
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !82
 
 ._crit_edge:                                      ; preds = %67, %8
   ret void
@@ -1000,11 +1000,11 @@ define internal void @deblockh16_strong(ptr noundef captures(none) %0, i64 nound
 15:                                               ; preds = %.lr.ph, %75
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %75 ]
   %16 = getelementptr inbounds nuw i16, ptr %0, i64 %indvars.iv
-  %17 = load i16, ptr %16, align 2, !tbaa !78
+  %17 = load i16, ptr %16, align 2, !tbaa !77
   %18 = zext i16 %17 to i32
   %19 = sub nsw i64 %indvars.iv, %9
   %20 = getelementptr inbounds i16, ptr %0, i64 %19
-  %21 = load i16, ptr %20, align 2, !tbaa !78
+  %21 = load i16, ptr %20, align 2, !tbaa !77
   %22 = zext i16 %21 to i32
   %23 = sub nsw i32 %18, %22
   %24 = tail call i32 @llvm.abs.i32(i32 %23, i1 true)
@@ -1014,7 +1014,7 @@ define internal void @deblockh16_strong(ptr noundef captures(none) %0, i64 nound
 25:                                               ; preds = %15
   %26 = sub nsw i64 %indvars.iv, %11
   %27 = getelementptr inbounds i16, ptr %0, i64 %26
-  %28 = load i16, ptr %27, align 2, !tbaa !78
+  %28 = load i16, ptr %27, align 2, !tbaa !77
   %29 = zext i16 %28 to i32
   %30 = sub nsw i32 %22, %29
   %31 = tail call i32 @llvm.abs.i32(i32 %30, i1 true)
@@ -1023,10 +1023,10 @@ define internal void @deblockh16_strong(ptr noundef captures(none) %0, i64 nound
 
 32:                                               ; preds = %25
   %33 = getelementptr i16, ptr %12, i64 %indvars.iv
-  %34 = load i16, ptr %33, align 2, !tbaa !78
+  %34 = load i16, ptr %33, align 2, !tbaa !77
   %35 = zext i16 %34 to i32
   %36 = getelementptr i16, ptr %13, i64 %indvars.iv
-  %37 = load i16, ptr %36, align 2, !tbaa !78
+  %37 = load i16, ptr %36, align 2, !tbaa !77
   %38 = zext i16 %37 to i32
   %39 = sub nsw i32 %35, %38
   %40 = tail call i32 @llvm.abs.i32(i32 %39, i1 true)
@@ -1041,7 +1041,7 @@ define internal void @deblockh16_strong(ptr noundef captures(none) %0, i64 nound
 
 44:                                               ; preds = %41
   %45 = getelementptr i16, ptr %14, i64 %indvars.iv
-  %46 = load i16, ptr %45, align 2, !tbaa !78
+  %46 = load i16, ptr %45, align 2, !tbaa !77
   %47 = zext i16 %46 to i32
   %48 = sdiv i32 %23, 8
   %49 = add nsw i32 %48, %47
@@ -1056,38 +1056,38 @@ define internal void @deblockh16_strong(ptr noundef captures(none) %0, i64 nound
   %..i = tail call i32 @llvm.smin.i32(i32 %49, i32 %7)
   %58 = trunc i32 %..i to i16
   %59 = select i1 %57, i16 0, i16 %58
-  store i16 %59, ptr %45, align 2, !tbaa !78
+  store i16 %59, ptr %45, align 2, !tbaa !77
   %60 = icmp slt i32 %51, 0
   %..i138 = tail call i32 @llvm.smin.i32(i32 %51, i32 %7)
   %61 = trunc i32 %..i138 to i16
   %62 = select i1 %60, i16 0, i16 %61
-  store i16 %62, ptr %27, align 2, !tbaa !78
+  store i16 %62, ptr %27, align 2, !tbaa !77
   %63 = icmp slt i32 %53, 0
   %..i140 = tail call i32 @llvm.smin.i32(i32 %53, i32 %7)
   %64 = trunc i32 %..i140 to i16
   %65 = select i1 %63, i16 0, i16 %64
-  store i16 %65, ptr %20, align 2, !tbaa !78
+  store i16 %65, ptr %20, align 2, !tbaa !77
   %66 = icmp slt i32 %54, 0
   %..i142 = tail call i32 @llvm.smin.i32(i32 %54, i32 %7)
   %67 = trunc i32 %..i142 to i16
   %68 = select i1 %66, i16 0, i16 %67
-  store i16 %68, ptr %16, align 2, !tbaa !78
+  store i16 %68, ptr %16, align 2, !tbaa !77
   %69 = icmp slt i32 %55, 0
   %..i144 = tail call i32 @llvm.smin.i32(i32 %55, i32 %7)
   %70 = trunc i32 %..i144 to i16
   %71 = select i1 %69, i16 0, i16 %70
-  store i16 %71, ptr %33, align 2, !tbaa !78
+  store i16 %71, ptr %33, align 2, !tbaa !77
   %72 = icmp slt i32 %56, 0
   %..i146 = tail call i32 @llvm.smin.i32(i32 %56, i32 %7)
   %73 = trunc i32 %..i146 to i16
   %74 = select i1 %72, i16 0, i16 %73
-  store i16 %74, ptr %36, align 2, !tbaa !78
+  store i16 %74, ptr %36, align 2, !tbaa !77
   br label %75
 
 75:                                               ; preds = %15, %25, %32, %41, %44
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %15, !llvm.loop !84
+  br i1 %exitcond.not, label %._crit_edge, label %15, !llvm.loop !83
 
 ._crit_edge:                                      ; preds = %75, %8
   ret void
@@ -1102,10 +1102,10 @@ define internal void @deblockv16_strong(ptr noundef captures(none) %0, i64 nound
 .lr.ph:                                           ; preds = %8, %68
   %.090 = phi ptr [ %.1, %68 ], [ %0, %8 ]
   %.06989 = phi i32 [ %69, %68 ], [ 0, %8 ]
-  %11 = load i16, ptr %.090, align 2, !tbaa !78
+  %11 = load i16, ptr %.090, align 2, !tbaa !77
   %12 = zext i16 %11 to i32
   %13 = getelementptr inbounds i8, ptr %.090, i64 -2
-  %14 = load i16, ptr %13, align 2, !tbaa !78
+  %14 = load i16, ptr %13, align 2, !tbaa !77
   %15 = zext i16 %14 to i32
   %16 = sub nsw i32 %12, %15
   %17 = tail call i32 @llvm.abs.i32(i32 %16, i1 true)
@@ -1114,7 +1114,7 @@ define internal void @deblockv16_strong(ptr noundef captures(none) %0, i64 nound
 
 18:                                               ; preds = %.lr.ph
   %19 = getelementptr inbounds i8, ptr %.090, i64 -4
-  %20 = load i16, ptr %19, align 2, !tbaa !78
+  %20 = load i16, ptr %19, align 2, !tbaa !77
   %21 = zext i16 %20 to i32
   %22 = sub nsw i32 %15, %21
   %23 = tail call i32 @llvm.abs.i32(i32 %22, i1 true)
@@ -1123,10 +1123,10 @@ define internal void @deblockv16_strong(ptr noundef captures(none) %0, i64 nound
 
 24:                                               ; preds = %18
   %25 = getelementptr inbounds nuw i8, ptr %.090, i64 2
-  %26 = load i16, ptr %25, align 2, !tbaa !78
+  %26 = load i16, ptr %25, align 2, !tbaa !77
   %27 = zext i16 %26 to i32
   %28 = getelementptr inbounds nuw i8, ptr %.090, i64 4
-  %29 = load i16, ptr %28, align 2, !tbaa !78
+  %29 = load i16, ptr %28, align 2, !tbaa !77
   %30 = zext i16 %29 to i32
   %31 = sub nsw i32 %27, %30
   %32 = tail call i32 @llvm.abs.i32(i32 %31, i1 true)
@@ -1141,7 +1141,7 @@ define internal void @deblockv16_strong(ptr noundef captures(none) %0, i64 nound
 
 36:                                               ; preds = %33
   %37 = getelementptr inbounds i8, ptr %.090, i64 -6
-  %38 = load i16, ptr %37, align 2, !tbaa !78
+  %38 = load i16, ptr %37, align 2, !tbaa !77
   %39 = zext i16 %38 to i32
   %40 = sdiv i32 %16, 8
   %41 = add nsw i32 %40, %39
@@ -1156,32 +1156,32 @@ define internal void @deblockv16_strong(ptr noundef captures(none) %0, i64 nound
   %..i = tail call i32 @llvm.smin.i32(i32 %41, i32 %7)
   %50 = trunc i32 %..i to i16
   %51 = select i1 %49, i16 0, i16 %50
-  store i16 %51, ptr %37, align 2, !tbaa !78
+  store i16 %51, ptr %37, align 2, !tbaa !77
   %52 = icmp slt i32 %43, 0
   %..i79 = tail call i32 @llvm.smin.i32(i32 %43, i32 %7)
   %53 = trunc i32 %..i79 to i16
   %54 = select i1 %52, i16 0, i16 %53
-  store i16 %54, ptr %19, align 2, !tbaa !78
+  store i16 %54, ptr %19, align 2, !tbaa !77
   %55 = icmp slt i32 %45, 0
   %..i81 = tail call i32 @llvm.smin.i32(i32 %45, i32 %7)
   %56 = trunc i32 %..i81 to i16
   %57 = select i1 %55, i16 0, i16 %56
-  store i16 %57, ptr %13, align 2, !tbaa !78
+  store i16 %57, ptr %13, align 2, !tbaa !77
   %58 = icmp slt i32 %46, 0
   %..i83 = tail call i32 @llvm.smin.i32(i32 %46, i32 %7)
   %59 = trunc i32 %..i83 to i16
   %60 = select i1 %58, i16 0, i16 %59
-  store i16 %60, ptr %.090, align 2, !tbaa !78
+  store i16 %60, ptr %.090, align 2, !tbaa !77
   %61 = icmp slt i32 %47, 0
   %..i85 = tail call i32 @llvm.smin.i32(i32 %47, i32 %7)
   %62 = trunc i32 %..i85 to i16
   %63 = select i1 %61, i16 0, i16 %62
-  store i16 %63, ptr %25, align 2, !tbaa !78
+  store i16 %63, ptr %25, align 2, !tbaa !77
   %64 = icmp slt i32 %48, 0
   %..i87 = tail call i32 @llvm.smin.i32(i32 %48, i32 %7)
   %65 = trunc i32 %..i87 to i16
   %66 = select i1 %64, i16 0, i16 %65
-  store i16 %66, ptr %28, align 2, !tbaa !78
+  store i16 %66, ptr %28, align 2, !tbaa !77
   %67 = getelementptr inbounds i16, ptr %.090, i64 %9
   br label %68
 
@@ -1189,7 +1189,7 @@ define internal void @deblockv16_strong(ptr noundef captures(none) %0, i64 nound
   %.1 = phi ptr [ %67, %36 ], [ %.090, %33 ], [ %.090, %24 ], [ %.090, %18 ], [ %.090, %.lr.ph ]
   %69 = add nuw nsw i32 %.06989, 1
   %exitcond.not = icmp eq i32 %69, %2
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !85
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !84
 
 ._crit_edge:                                      ; preds = %68, %8
   ret void
@@ -1264,38 +1264,37 @@ attributes #4 = { nounwind }
 !48 = !{!35, !15, i64 52}
 !49 = !{!35, !15, i64 56}
 !50 = !{!35, !15, i64 60}
-!51 = distinct !{!51, !52, !53}
+!51 = distinct !{!51, !52}
 !52 = !{!"llvm.loop.mustprogress"}
-!53 = !{!"llvm.loop.estimated_trip_count"}
-!54 = !{!35, !7, i64 112}
-!55 = distinct !{!55, !52, !53}
-!56 = distinct !{!56, !52, !53}
-!57 = distinct !{!57, !52, !53}
-!58 = distinct !{!58, !52, !53}
-!59 = !{!25, !26, i64 0}
-!60 = !{!5, !13, i64 32}
-!61 = !{!25, !15, i64 36}
-!62 = !{!35, !36, i64 8}
-!63 = !{!64, !15, i64 16}
-!64 = !{!"AVComponentDescriptor", !15, i64 0, !15, i64 4, !15, i64 8, !15, i64 12, !15, i64 16}
-!65 = !{!35, !15, i64 64}
-!66 = !{!35, !37, i64 28}
-!67 = !{!35, !37, i64 32}
-!68 = !{!35, !37, i64 36}
-!69 = !{!35, !37, i64 40}
-!70 = !{!35, !15, i64 16}
-!71 = !{!72, !8, i64 9}
-!72 = !{!"AVPixFmtDescriptor", !11, i64 0, !8, i64 8, !8, i64 9, !8, i64 10, !73, i64 16, !8, i64 24, !11, i64 104}
-!73 = !{!"long", !8, i64 0}
-!74 = !{!72, !8, i64 10}
-!75 = !{!8, !8, i64 0}
-!76 = distinct !{!76, !52, !53}
-!77 = distinct !{!77, !52, !53}
-!78 = !{!79, !79, i64 0}
-!79 = !{!"short", !8, i64 0}
-!80 = distinct !{!80, !52, !53}
-!81 = distinct !{!81, !52, !53}
-!82 = distinct !{!82, !52, !53}
-!83 = distinct !{!83, !52, !53}
-!84 = distinct !{!84, !52, !53}
-!85 = distinct !{!85, !52, !53}
+!53 = !{!35, !7, i64 112}
+!54 = distinct !{!54, !52}
+!55 = distinct !{!55, !52}
+!56 = distinct !{!56, !52}
+!57 = distinct !{!57, !52}
+!58 = !{!25, !26, i64 0}
+!59 = !{!5, !13, i64 32}
+!60 = !{!25, !15, i64 36}
+!61 = !{!35, !36, i64 8}
+!62 = !{!63, !15, i64 16}
+!63 = !{!"AVComponentDescriptor", !15, i64 0, !15, i64 4, !15, i64 8, !15, i64 12, !15, i64 16}
+!64 = !{!35, !15, i64 64}
+!65 = !{!35, !37, i64 28}
+!66 = !{!35, !37, i64 32}
+!67 = !{!35, !37, i64 36}
+!68 = !{!35, !37, i64 40}
+!69 = !{!35, !15, i64 16}
+!70 = !{!71, !8, i64 9}
+!71 = !{!"AVPixFmtDescriptor", !11, i64 0, !8, i64 8, !8, i64 9, !8, i64 10, !72, i64 16, !8, i64 24, !11, i64 104}
+!72 = !{!"long", !8, i64 0}
+!73 = !{!71, !8, i64 10}
+!74 = !{!8, !8, i64 0}
+!75 = distinct !{!75, !52}
+!76 = distinct !{!76, !52}
+!77 = !{!78, !78, i64 0}
+!78 = !{!"short", !8, i64 0}
+!79 = distinct !{!79, !52}
+!80 = distinct !{!80, !52}
+!81 = distinct !{!81, !52}
+!82 = distinct !{!82, !52}
+!83 = distinct !{!83, !52}
+!84 = distinct !{!84, !52}

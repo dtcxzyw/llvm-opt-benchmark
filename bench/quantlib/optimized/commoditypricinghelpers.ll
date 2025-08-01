@@ -913,36 +913,36 @@ for.body116:                                      ; preds = %for.body116.lr.ph, 
   %100 = load i64, ptr %periodStartDate112, align 8, !tbaa !37
   %sub.i90 = sub nsw i64 %99, %100
   %conv = sitofp i64 %sub.i90 to double
-  call void @llvm.experimental.noalias.scope.decl(metadata !47)
-  %101 = load ptr, ptr %quantity, align 8, !tbaa !3, !noalias !47
-  store ptr %101, ptr %periodQuantity125, align 8, !tbaa !3, !alias.scope !47
-  %102 = load ptr, ptr %pn3.i.i.i.i91, align 8, !tbaa !9, !noalias !47
-  store ptr %102, ptr %pn.i.i.i.i, align 8, !tbaa !9, !alias.scope !47
+  call void @llvm.experimental.noalias.scope.decl(metadata !46)
+  %101 = load ptr, ptr %quantity, align 8, !tbaa !3, !noalias !46
+  store ptr %101, ptr %periodQuantity125, align 8, !tbaa !3, !alias.scope !46
+  %102 = load ptr, ptr %pn3.i.i.i.i91, align 8, !tbaa !9, !noalias !46
+  store ptr %102, ptr %pn.i.i.i.i, align 8, !tbaa !9, !alias.scope !46
   %cmp.not.i.i.i.i.i92 = icmp eq ptr %102, null
   br i1 %cmp.not.i.i.i.i.i92, label %_ZN8QuantLib13CommodityTypeC2ERKS0_.exit.i.i, label %if.then.i.i.i.i.i93
 
 if.then.i.i.i.i.i93:                              ; preds = %for.body116
   %use_count_.i.i.i.i.i.i94 = getelementptr inbounds nuw i8, ptr %102, i64 8
-  %103 = atomicrmw add ptr %use_count_.i.i.i.i.i.i94, i32 1 monotonic, align 4, !noalias !47
+  %103 = atomicrmw add ptr %use_count_.i.i.i.i.i.i94, i32 1 monotonic, align 4, !noalias !46
   br label %_ZN8QuantLib13CommodityTypeC2ERKS0_.exit.i.i
 
 _ZN8QuantLib13CommodityTypeC2ERKS0_.exit.i.i:     ; preds = %if.then.i.i.i.i.i93, %for.body116
-  %104 = load ptr, ptr %unitOfMeasure_3.i.i, align 8, !tbaa !13, !noalias !47
-  store ptr %104, ptr %unitOfMeasure_.i.i, align 8, !tbaa !13, !alias.scope !47
-  %105 = load ptr, ptr %pn3.i.i4.i.i, align 8, !tbaa !9, !noalias !47
-  store ptr %105, ptr %pn.i.i3.i.i, align 8, !tbaa !9, !alias.scope !47
+  %104 = load ptr, ptr %unitOfMeasure_3.i.i, align 8, !tbaa !13, !noalias !46
+  store ptr %104, ptr %unitOfMeasure_.i.i, align 8, !tbaa !13, !alias.scope !46
+  %105 = load ptr, ptr %pn3.i.i4.i.i, align 8, !tbaa !9, !noalias !46
+  store ptr %105, ptr %pn.i.i3.i.i, align 8, !tbaa !9, !alias.scope !46
   %cmp.not.i.i.i5.i.i = icmp eq ptr %105, null
   br i1 %cmp.not.i.i.i5.i.i, label %_ZN8QuantLibmlERKNS_8QuantityEd.exit, label %if.then.i.i.i6.i.i
 
 if.then.i.i.i6.i.i:                               ; preds = %_ZN8QuantLib13CommodityTypeC2ERKS0_.exit.i.i
   %use_count_.i.i.i.i7.i.i = getelementptr inbounds nuw i8, ptr %105, i64 8
-  %106 = atomicrmw add ptr %use_count_.i.i.i.i7.i.i, i32 1 monotonic, align 4, !noalias !47
+  %106 = atomicrmw add ptr %use_count_.i.i.i.i7.i.i, i32 1 monotonic, align 4, !noalias !46
   br label %_ZN8QuantLibmlERKNS_8QuantityEd.exit
 
 _ZN8QuantLibmlERKNS_8QuantityEd.exit:             ; preds = %_ZN8QuantLib13CommodityTypeC2ERKS0_.exit.i.i, %if.then.i.i.i6.i.i
-  %107 = load double, ptr %amount_4.i.i, align 8, !tbaa !15, !noalias !47
+  %107 = load double, ptr %amount_4.i.i, align 8, !tbaa !15, !noalias !46
   %mul.i.i = fmul double %107, %conv
-  store double %mul.i.i, ptr %amount_.i.i, align 8, !tbaa !15, !alias.scope !47
+  store double %mul.i.i, ptr %amount_.i.i, align 8, !tbaa !15, !alias.scope !46
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %paymentDate127) #18
   %108 = load ptr, ptr %paymentTerm, align 8, !tbaa !27
   %cmp.not.i.i96 = icmp eq ptr %108, null
@@ -1144,7 +1144,7 @@ _ZN8QuantLib8QuantityD2Ev.exit175:                ; preds = %_ZN8QuantLib13UnitO
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %periodEndDate117) #18
   %138 = load i64, ptr %periodStartDate112, align 8, !tbaa !37
   %cmp.i86 = icmp slt i64 %138, %endDate.coerce
-  br i1 %cmp.i86, label %for.body116, label %for.cond.cleanup115, !llvm.loop !50
+  br i1 %cmp.i86, label %for.body116, label %for.cond.cleanup115, !llvm.loop !49
 
 lpad128:                                          ; preds = %.noexc111, %_ZNK5boost10shared_ptrIN8QuantLib11PaymentTerm4DataEEptEv.exit4.i98, %cond.false.i2.i107, %_ZNK5boost10shared_ptrIN8QuantLib11PaymentTerm4DataEEptEv.exit.i104
   %139 = landingpad { ptr, i32 }
@@ -1202,7 +1202,7 @@ define linkonce_odr void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC
 entry:
   %__dnew.i = alloca i64, align 8
   %0 = getelementptr inbounds nuw i8, ptr %this, i64 16
-  store ptr %0, ptr %this, align 8, !tbaa !51
+  store ptr %0, ptr %this, align 8, !tbaa !50
   %cmp = icmp eq ptr %__s, null
   br i1 %cmp, label %if.then, label %if.end
 
@@ -1355,14 +1355,14 @@ unreachable.i.i:                                  ; preds = %lpad.i.i
 cond.true.i.i:                                    ; preds = %entry
   %pn.i = getelementptr inbounds nuw i8, ptr %pt, i64 8
   %use_count_.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 8
-  store i32 1, ptr %use_count_.i.i.i.i, align 8, !tbaa !52
+  store i32 1, ptr %use_count_.i.i.i.i, align 8, !tbaa !51
   %weak_count_.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 12
-  store i32 1, ptr %weak_count_.i.i.i.i, align 4, !tbaa !54
+  store i32 1, ptr %weak_count_.i.i.i.i, align 4, !tbaa !53
   store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN5boost6detail18sp_counted_impl_pdIPN8QuantLib13PricingPeriodENS0_13sp_ms_deleterIS3_EEEE, i64 16), ptr %call.i.i, align 8, !tbaa !11
   %ptr.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 16
-  store ptr null, ptr %ptr.i.i.i, align 8, !tbaa !55
+  store ptr null, ptr %ptr.i.i.i, align 8, !tbaa !54
   %del.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 24
-  store i8 0, ptr %del.i.i.i, align 8, !tbaa !59
+  store i8 0, ptr %del.i.i.i, align 8, !tbaa !58
   store ptr %call.i.i, ptr %pn.i, align 8, !tbaa !9
   %storage_.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 32
   %5 = load ptr, ptr %args5, align 8, !tbaa !3
@@ -1420,7 +1420,7 @@ if.then.i.i15:                                    ; preds = %_ZN8QuantLib8Quanti
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %unitOfMeasure_.i, i8 0, i64 16, i1 false)
   %amount_.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 88
   store double %11, ptr %amount_.i.i, align 8, !tbaa !15
-  store i8 1, ptr %del.i.i.i, align 8, !tbaa !59
+  store i8 1, ptr %del.i.i.i, align 8, !tbaa !58
   store ptr %storage_.i, ptr %agg.result, align 8, !tbaa !42
   %pn.i12 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store ptr %call.i.i, ptr %pn.i12, align 8, !tbaa !9
@@ -1633,7 +1633,7 @@ define linkonce_odr void @_ZN5boost6detail18sp_counted_impl_pdIPN8QuantLib13Pric
 entry:
   store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN5boost6detail18sp_counted_impl_pdIPN8QuantLib13PricingPeriodENS0_13sp_ms_deleterIS3_EEEE, i64 16), ptr %this, align 8, !tbaa !11
   %del = getelementptr inbounds nuw i8, ptr %this, i64 24
-  %0 = load i8, ptr %del, align 8, !tbaa !59, !range !60, !noundef !61
+  %0 = load i8, ptr %del, align 8, !tbaa !58, !range !59, !noundef !60
   %loadedv.i.i = trunc nuw i8 %0 to i1
   br i1 %loadedv.i.i, label %if.then.i.i, label %_ZN5boost6detail13sp_ms_deleterIN8QuantLib13PricingPeriodEED2Ev.exit
 
@@ -1716,7 +1716,7 @@ terminate.lpad.i.i.i9.i.i.i.i:                    ; preds = %if.then.i.i.i.i.i13
   unreachable
 
 _ZN8QuantLib13PricingPeriodD2Ev.exit.i.i:         ; preds = %if.then.i.i.i.i.i13.i.i.i.i, %.noexc.i.i.i10.i.i.i.i, %if.then.i.i.i3.i.i.i.i, %_ZN8QuantLib13UnitOfMeasureD2Ev.exit.i.i.i.i
-  store i8 0, ptr %del, align 8, !tbaa !59
+  store i8 0, ptr %del, align 8, !tbaa !58
   br label %_ZN5boost6detail13sp_ms_deleterIN8QuantLib13PricingPeriodEED2Ev.exit
 
 _ZN5boost6detail13sp_ms_deleterIN8QuantLib13PricingPeriodEED2Ev.exit: ; preds = %entry, %_ZN8QuantLib13PricingPeriodD2Ev.exit.i.i
@@ -1728,7 +1728,7 @@ define linkonce_odr void @_ZN5boost6detail18sp_counted_impl_pdIPN8QuantLib13Pric
 entry:
   store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN5boost6detail18sp_counted_impl_pdIPN8QuantLib13PricingPeriodENS0_13sp_ms_deleterIS3_EEEE, i64 16), ptr %this, align 8, !tbaa !11
   %del.i = getelementptr inbounds nuw i8, ptr %this, i64 24
-  %0 = load i8, ptr %del.i, align 8, !tbaa !59, !range !60, !noundef !61
+  %0 = load i8, ptr %del.i, align 8, !tbaa !58, !range !59, !noundef !60
   %loadedv.i.i.i = trunc nuw i8 %0 to i1
   br i1 %loadedv.i.i.i, label %if.then.i.i.i, label %_ZN5boost6detail18sp_counted_impl_pdIPN8QuantLib13PricingPeriodENS0_13sp_ms_deleterIS3_EEED2Ev.exit
 
@@ -1819,7 +1819,7 @@ _ZN5boost6detail18sp_counted_impl_pdIPN8QuantLib13PricingPeriodENS0_13sp_ms_dele
 define linkonce_odr void @_ZN5boost6detail18sp_counted_impl_pdIPN8QuantLib13PricingPeriodENS0_13sp_ms_deleterIS3_EEE7disposeEv(ptr noundef nonnull align 8 dereferenceable(96) %this) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %del = getelementptr inbounds nuw i8, ptr %this, i64 24
-  %0 = load i8, ptr %del, align 8, !tbaa !59, !range !60, !noundef !61
+  %0 = load i8, ptr %del, align 8, !tbaa !58, !range !59, !noundef !60
   %loadedv.i.i = trunc nuw i8 %0 to i1
   br i1 %loadedv.i.i, label %if.then.i.i, label %_ZN5boost6detail13sp_ms_deleterIN8QuantLib13PricingPeriodEEclEPS3_.exit
 
@@ -1902,7 +1902,7 @@ terminate.lpad.i.i.i9.i.i.i.i:                    ; preds = %if.then.i.i.i.i.i13
   unreachable
 
 _ZN8QuantLib13PricingPeriodD2Ev.exit.i.i:         ; preds = %if.then.i.i.i.i.i13.i.i.i.i, %.noexc.i.i.i10.i.i.i.i, %if.then.i.i.i3.i.i.i.i, %_ZN8QuantLib13UnitOfMeasureD2Ev.exit.i.i.i.i
-  store i8 0, ptr %del, align 8, !tbaa !59
+  store i8 0, ptr %del, align 8, !tbaa !58
   br label %_ZN5boost6detail13sp_ms_deleterIN8QuantLib13PricingPeriodEEclEPS3_.exit
 
 _ZN5boost6detail13sp_ms_deleterIN8QuantLib13PricingPeriodEEclEPS3_.exit: ; preds = %entry, %_ZN8QuantLib13PricingPeriodD2Ev.exit.i.i
@@ -1923,7 +1923,7 @@ entry:
 define linkonce_odr noundef ptr @_ZN5boost6detail18sp_counted_impl_pdIPN8QuantLib13PricingPeriodENS0_13sp_ms_deleterIS3_EEE11get_deleterERKSt9type_info(ptr noundef nonnull align 8 dereferenceable(96) %this, ptr noundef nonnull align 8 dereferenceable(16) %ti) unnamed_addr #7 comdat align 2 {
 entry:
   %__name.i = getelementptr inbounds nuw i8, ptr %ti, i64 8
-  %0 = load ptr, ptr %__name.i, align 8, !tbaa !62
+  %0 = load ptr, ptr %__name.i, align 8, !tbaa !61
   %cmp.i = icmp eq ptr %0, @_ZTSN5boost6detail13sp_ms_deleterIN8QuantLib13PricingPeriodEEE
   br i1 %cmp.i, label %_ZNKSt9type_infoeqERKS_.exit.thread, label %if.end.i
 
@@ -2150,7 +2150,7 @@ define linkonce_odr void @_ZNSt6vectorIN5boost10shared_ptrIN8QuantLib13PricingPe
 entry:
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %_M_finish.i.i, align 8, !tbaa !39
-  %1 = load ptr, ptr %this, align 8, !tbaa !64
+  %1 = load ptr, ptr %this, align 8, !tbaa !63
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
@@ -2188,19 +2188,19 @@ _ZNKSt6vectorIN5boost10shared_ptrIN8QuantLib13PricingPeriodEEESaIS4_EE12_M_check
 for.body.i.i.i:                                   ; preds = %_ZNKSt6vectorIN5boost10shared_ptrIN8QuantLib13PricingPeriodEEESaIS4_EE12_M_check_lenEmPKc.exit, %for.body.i.i.i
   %__cur.07.i.i.i = phi ptr [ %incdec.ptr1.i.i.i, %for.body.i.i.i ], [ %call5.i.i.i, %_ZNKSt6vectorIN5boost10shared_ptrIN8QuantLib13PricingPeriodEEESaIS4_EE12_M_check_lenEmPKc.exit ]
   %__first.addr.06.i.i.i = phi ptr [ %incdec.ptr.i.i.i, %for.body.i.i.i ], [ %1, %_ZNKSt6vectorIN5boost10shared_ptrIN8QuantLib13PricingPeriodEEESaIS4_EE12_M_check_lenEmPKc.exit ]
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !65)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !68)
-  %5 = load ptr, ptr %__first.addr.06.i.i.i, align 8, !tbaa !42, !alias.scope !68, !noalias !65
-  store ptr %5, ptr %__cur.07.i.i.i, align 8, !tbaa !42, !alias.scope !65, !noalias !68
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !64)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !67)
+  %5 = load ptr, ptr %__first.addr.06.i.i.i, align 8, !tbaa !42, !alias.scope !67, !noalias !64
+  store ptr %5, ptr %__cur.07.i.i.i, align 8, !tbaa !42, !alias.scope !64, !noalias !67
   %pn.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__cur.07.i.i.i, i64 8
   %pn3.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.06.i.i.i, i64 8
-  %6 = load ptr, ptr %pn3.i.i.i.i.i.i.i, align 8, !tbaa !9, !alias.scope !68, !noalias !65
-  store ptr %6, ptr %pn.i.i.i.i.i.i.i, align 8, !tbaa !9, !alias.scope !65, !noalias !68
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__first.addr.06.i.i.i, i8 0, i64 16, i1 false), !alias.scope !68, !noalias !65
+  %6 = load ptr, ptr %pn3.i.i.i.i.i.i.i, align 8, !tbaa !9, !alias.scope !67, !noalias !64
+  store ptr %6, ptr %pn.i.i.i.i.i.i.i, align 8, !tbaa !9, !alias.scope !64, !noalias !67
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__first.addr.06.i.i.i, i8 0, i64 16, i1 false), !alias.scope !67, !noalias !64
   %incdec.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.06.i.i.i, i64 16
   %incdec.ptr1.i.i.i = getelementptr inbounds nuw i8, ptr %__cur.07.i.i.i, i64 16
   %cmp.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %__position.coerce
-  br i1 %cmp.not.i.i.i, label %_ZNSt6vectorIN5boost10shared_ptrIN8QuantLib13PricingPeriodEEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit, label %for.body.i.i.i, !llvm.loop !70
+  br i1 %cmp.not.i.i.i, label %_ZNSt6vectorIN5boost10shared_ptrIN8QuantLib13PricingPeriodEEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit, label %for.body.i.i.i, !llvm.loop !69
 
 _ZNSt6vectorIN5boost10shared_ptrIN8QuantLib13PricingPeriodEEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit: ; preds = %for.body.i.i.i, %_ZNKSt6vectorIN5boost10shared_ptrIN8QuantLib13PricingPeriodEEESaIS4_EE12_M_check_lenEmPKc.exit
   %__cur.0.lcssa.i.i.i = phi ptr [ %call5.i.i.i, %_ZNKSt6vectorIN5boost10shared_ptrIN8QuantLib13PricingPeriodEEESaIS4_EE12_M_check_lenEmPKc.exit ], [ %incdec.ptr1.i.i.i, %for.body.i.i.i ]
@@ -2211,19 +2211,19 @@ _ZNSt6vectorIN5boost10shared_ptrIN8QuantLib13PricingPeriodEEESaIS4_EE11_S_reloca
 for.body.i.i.i12:                                 ; preds = %_ZNSt6vectorIN5boost10shared_ptrIN8QuantLib13PricingPeriodEEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit, %for.body.i.i.i12
   %__cur.07.i.i.i13 = phi ptr [ %incdec.ptr1.i.i.i18, %for.body.i.i.i12 ], [ %incdec.ptr, %_ZNSt6vectorIN5boost10shared_ptrIN8QuantLib13PricingPeriodEEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit ]
   %__first.addr.06.i.i.i14 = phi ptr [ %incdec.ptr.i.i.i17, %for.body.i.i.i12 ], [ %__position.coerce, %_ZNSt6vectorIN5boost10shared_ptrIN8QuantLib13PricingPeriodEEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit ]
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !71)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !74)
-  %7 = load ptr, ptr %__first.addr.06.i.i.i14, align 8, !tbaa !42, !alias.scope !74, !noalias !71
-  store ptr %7, ptr %__cur.07.i.i.i13, align 8, !tbaa !42, !alias.scope !71, !noalias !74
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !70)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !73)
+  %7 = load ptr, ptr %__first.addr.06.i.i.i14, align 8, !tbaa !42, !alias.scope !73, !noalias !70
+  store ptr %7, ptr %__cur.07.i.i.i13, align 8, !tbaa !42, !alias.scope !70, !noalias !73
   %pn.i.i.i.i.i.i.i15 = getelementptr inbounds nuw i8, ptr %__cur.07.i.i.i13, i64 8
   %pn3.i.i.i.i.i.i.i16 = getelementptr inbounds nuw i8, ptr %__first.addr.06.i.i.i14, i64 8
-  %8 = load ptr, ptr %pn3.i.i.i.i.i.i.i16, align 8, !tbaa !9, !alias.scope !74, !noalias !71
-  store ptr %8, ptr %pn.i.i.i.i.i.i.i15, align 8, !tbaa !9, !alias.scope !71, !noalias !74
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__first.addr.06.i.i.i14, i8 0, i64 16, i1 false), !alias.scope !74, !noalias !71
+  %8 = load ptr, ptr %pn3.i.i.i.i.i.i.i16, align 8, !tbaa !9, !alias.scope !73, !noalias !70
+  store ptr %8, ptr %pn.i.i.i.i.i.i.i15, align 8, !tbaa !9, !alias.scope !70, !noalias !73
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__first.addr.06.i.i.i14, i8 0, i64 16, i1 false), !alias.scope !73, !noalias !70
   %incdec.ptr.i.i.i17 = getelementptr inbounds nuw i8, ptr %__first.addr.06.i.i.i14, i64 16
   %incdec.ptr1.i.i.i18 = getelementptr inbounds nuw i8, ptr %__cur.07.i.i.i13, i64 16
   %cmp.not.i.i.i19 = icmp eq ptr %incdec.ptr.i.i.i17, %0
-  br i1 %cmp.not.i.i.i19, label %_ZNSt6vectorIN5boost10shared_ptrIN8QuantLib13PricingPeriodEEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit21, label %for.body.i.i.i12, !llvm.loop !70
+  br i1 %cmp.not.i.i.i19, label %_ZNSt6vectorIN5boost10shared_ptrIN8QuantLib13PricingPeriodEEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit21, label %for.body.i.i.i12, !llvm.loop !69
 
 _ZNSt6vectorIN5boost10shared_ptrIN8QuantLib13PricingPeriodEEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit21: ; preds = %for.body.i.i.i12, %_ZNSt6vectorIN5boost10shared_ptrIN8QuantLib13PricingPeriodEEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit
   %__cur.0.lcssa.i.i.i20 = phi ptr [ %incdec.ptr, %_ZNSt6vectorIN5boost10shared_ptrIN8QuantLib13PricingPeriodEEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit ], [ %incdec.ptr1.i.i.i18, %for.body.i.i.i12 ]
@@ -2239,7 +2239,7 @@ if.then.i22:                                      ; preds = %_ZNSt6vectorIN5boos
   br label %_ZNSt12_Vector_baseIN5boost10shared_ptrIN8QuantLib13PricingPeriodEEESaIS4_EE13_M_deallocateEPS4_m.exit
 
 _ZNSt12_Vector_baseIN5boost10shared_ptrIN8QuantLib13PricingPeriodEEESaIS4_EE13_M_deallocateEPS4_m.exit: ; preds = %_ZNSt6vectorIN5boost10shared_ptrIN8QuantLib13PricingPeriodEEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit21, %if.then.i22
-  store ptr %call5.i.i.i, ptr %this, align 8, !tbaa !64
+  store ptr %call5.i.i.i, ptr %this, align 8, !tbaa !63
   store ptr %__cur.0.lcssa.i.i.i20, ptr %_M_finish.i.i, align 8, !tbaa !39
   %add.ptr19 = getelementptr inbounds nuw %"class.boost::shared_ptr.16", ptr %call5.i.i.i, i64 %cond.i
   store ptr %add.ptr19, ptr %_M_end_of_storage, align 8, !tbaa !41
@@ -2334,35 +2334,34 @@ attributes #22 = { builtin allocsize(0) }
 !41 = !{!40, !5, i64 16}
 !42 = !{!43, !5, i64 0}
 !43 = !{!"_ZTSN5boost10shared_ptrIN8QuantLib13PricingPeriodEEE", !5, i64 0, !8, i64 8}
-!44 = distinct !{!44, !45, !46}
+!44 = distinct !{!44, !45}
 !45 = !{!"llvm.loop.mustprogress"}
-!46 = !{!"llvm.loop.estimated_trip_count"}
-!47 = !{!48}
-!48 = distinct !{!48, !49, !"_ZN8QuantLibmlERKNS_8QuantityEd: %agg.result"}
-!49 = distinct !{!49, !"_ZN8QuantLibmlERKNS_8QuantityEd"}
-!50 = distinct !{!50, !45, !46}
-!51 = !{!24, !5, i64 0}
-!52 = !{!53, !34, i64 8}
-!53 = !{!"_ZTSN5boost6detail15sp_counted_baseE", !34, i64 8, !34, i64 12}
-!54 = !{!53, !34, i64 12}
-!55 = !{!56, !5, i64 16}
-!56 = !{!"_ZTSN5boost6detail18sp_counted_impl_pdIPN8QuantLib13PricingPeriodENS0_13sp_ms_deleterIS3_EEEE", !53, i64 0, !5, i64 16, !57, i64 24}
-!57 = !{!"_ZTSN5boost6detail13sp_ms_deleterIN8QuantLib13PricingPeriodEEE", !58, i64 0, !6, i64 8}
-!58 = !{!"bool", !6, i64 0}
-!59 = !{!57, !58, i64 0}
-!60 = !{i8 0, i8 2}
-!61 = !{}
-!62 = !{!63, !5, i64 8}
-!63 = !{!"_ZTSSt9type_info", !5, i64 8}
-!64 = !{!40, !5, i64 0}
-!65 = !{!66}
-!66 = distinct !{!66, !67, !"_ZSt19__relocate_object_aIN5boost10shared_ptrIN8QuantLib13PricingPeriodEEES4_SaIS4_EEvPT_PT0_RT1_: %__dest"}
-!67 = distinct !{!67, !"_ZSt19__relocate_object_aIN5boost10shared_ptrIN8QuantLib13PricingPeriodEEES4_SaIS4_EEvPT_PT0_RT1_"}
-!68 = !{!69}
-!69 = distinct !{!69, !67, !"_ZSt19__relocate_object_aIN5boost10shared_ptrIN8QuantLib13PricingPeriodEEES4_SaIS4_EEvPT_PT0_RT1_: %__orig"}
-!70 = distinct !{!70, !45, !46}
-!71 = !{!72}
-!72 = distinct !{!72, !73, !"_ZSt19__relocate_object_aIN5boost10shared_ptrIN8QuantLib13PricingPeriodEEES4_SaIS4_EEvPT_PT0_RT1_: %__dest"}
-!73 = distinct !{!73, !"_ZSt19__relocate_object_aIN5boost10shared_ptrIN8QuantLib13PricingPeriodEEES4_SaIS4_EEvPT_PT0_RT1_"}
-!74 = !{!75}
-!75 = distinct !{!75, !73, !"_ZSt19__relocate_object_aIN5boost10shared_ptrIN8QuantLib13PricingPeriodEEES4_SaIS4_EEvPT_PT0_RT1_: %__orig"}
+!46 = !{!47}
+!47 = distinct !{!47, !48, !"_ZN8QuantLibmlERKNS_8QuantityEd: %agg.result"}
+!48 = distinct !{!48, !"_ZN8QuantLibmlERKNS_8QuantityEd"}
+!49 = distinct !{!49, !45}
+!50 = !{!24, !5, i64 0}
+!51 = !{!52, !34, i64 8}
+!52 = !{!"_ZTSN5boost6detail15sp_counted_baseE", !34, i64 8, !34, i64 12}
+!53 = !{!52, !34, i64 12}
+!54 = !{!55, !5, i64 16}
+!55 = !{!"_ZTSN5boost6detail18sp_counted_impl_pdIPN8QuantLib13PricingPeriodENS0_13sp_ms_deleterIS3_EEEE", !52, i64 0, !5, i64 16, !56, i64 24}
+!56 = !{!"_ZTSN5boost6detail13sp_ms_deleterIN8QuantLib13PricingPeriodEEE", !57, i64 0, !6, i64 8}
+!57 = !{!"bool", !6, i64 0}
+!58 = !{!56, !57, i64 0}
+!59 = !{i8 0, i8 2}
+!60 = !{}
+!61 = !{!62, !5, i64 8}
+!62 = !{!"_ZTSSt9type_info", !5, i64 8}
+!63 = !{!40, !5, i64 0}
+!64 = !{!65}
+!65 = distinct !{!65, !66, !"_ZSt19__relocate_object_aIN5boost10shared_ptrIN8QuantLib13PricingPeriodEEES4_SaIS4_EEvPT_PT0_RT1_: %__dest"}
+!66 = distinct !{!66, !"_ZSt19__relocate_object_aIN5boost10shared_ptrIN8QuantLib13PricingPeriodEEES4_SaIS4_EEvPT_PT0_RT1_"}
+!67 = !{!68}
+!68 = distinct !{!68, !66, !"_ZSt19__relocate_object_aIN5boost10shared_ptrIN8QuantLib13PricingPeriodEEES4_SaIS4_EEvPT_PT0_RT1_: %__orig"}
+!69 = distinct !{!69, !45}
+!70 = !{!71}
+!71 = distinct !{!71, !72, !"_ZSt19__relocate_object_aIN5boost10shared_ptrIN8QuantLib13PricingPeriodEEES4_SaIS4_EEvPT_PT0_RT1_: %__dest"}
+!72 = distinct !{!72, !"_ZSt19__relocate_object_aIN5boost10shared_ptrIN8QuantLib13PricingPeriodEEES4_SaIS4_EEvPT_PT0_RT1_"}
+!73 = !{!74}
+!74 = distinct !{!74, !72, !"_ZSt19__relocate_object_aIN5boost10shared_ptrIN8QuantLib13PricingPeriodEEES4_SaIS4_EEvPT_PT0_RT1_: %__orig"}

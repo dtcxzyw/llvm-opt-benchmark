@@ -1543,7 +1543,7 @@ define internal fastcc range(i32 0, 2) i32 @depack_do_implicit_stream_create(ptr
   %33 = add i64 %32, 1
   store i64 %33, ptr %16, align 8, !tbaa !17
   %.not59 = icmp ugt i64 %33, %14
-  br i1 %.not59, label %.loopexit, label %26, !llvm.loop !108
+  br i1 %.not59, label %.loopexit, label %26, !llvm.loop !107
 
 34:                                               ; preds = %8
   %.v = select i1 %.not53, i64 1424, i64 1432
@@ -1809,7 +1809,6 @@ attributes #3 = { nounwind }
 !102 = !{!20, !32, i64 232}
 !103 = !{!20, !25, i64 1088}
 !104 = !{!20, !6, i64 1080}
-!105 = distinct !{!105, !106, !107}
+!105 = distinct !{!105, !106}
 !106 = !{!"llvm.loop.mustprogress"}
-!107 = !{!"llvm.loop.estimated_trip_count"}
-!108 = distinct !{!108, !106, !107}
+!107 = distinct !{!107, !106}

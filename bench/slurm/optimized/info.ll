@@ -249,7 +249,7 @@ define dso_local ptr @node_attr_get(ptr noundef %0) local_unnamed_addr #0 {
   %9 = load i32, ptr @na_cnt, align 4
   %10 = sext i32 %9 to i64
   %11 = icmp slt i64 %indvars.iv.next, %10
-  br i1 %11, label %.lr.ph, label %.loopexit, !llvm.loop !12
+  br i1 %11, label %.lr.ph, label %.loopexit, !llvm.loop !11
 
 .lr.ph:                                           ; preds = %5, %8
   %indvars.iv = phi i64 [ %indvars.iv.next, %8 ], [ 0, %5 ]
@@ -357,7 +357,7 @@ define dso_local ptr @job_attr_get(ptr noundef %0) local_unnamed_addr #0 {
   %.032.i.i = load ptr, ptr %.032.in.i.i, align 8
   %.not.i.i = icmp eq ptr %.032.i.i, null
   %34 = add nuw nsw i32 %.031.i.i, 1
-  br i1 %.not.i.i, label %35, label %.preheader.i.i, !llvm.loop !13
+  br i1 %.not.i.i, label %35, label %.preheader.i.i, !llvm.loop !12
 
 35:                                               ; preds = %.preheader.i.i
   %36 = shl i32 %.031.i.i, 6
@@ -434,7 +434,7 @@ define dso_local ptr @job_attr_get(ptr noundef %0) local_unnamed_addr #0 {
   %.2.i.i = phi i32 [ %.147.i.i, %.lr.ph.i.i ], [ %.147.i.i, %45 ], [ %.147.i.i, %53 ], [ %62, %56 ], [ %.147.i.i, %65 ], [ %74, %68 ], [ %.147.i.i, %49 ]
   %.133.i.i = load ptr, ptr %.13348.i.i, align 8
   %.not39.i.i = icmp eq ptr %.133.i.i, null
-  br i1 %.not39.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !14
+  br i1 %.not39.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !13
 
 ._crit_edge.i.i:                                  ; preds = %75, %35
   %.1.lcssa.i.i = phi i32 [ %41, %35 ], [ %.2.i.i, %75 ]
@@ -516,10 +516,9 @@ attributes #5 = { nounwind }
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i32 7, !"frame-pointer", i32 2}
 !7 = !{i32 7, !"debug-info-assignment-tracking", i1 true}
-!8 = distinct !{!8, !9, !10, !11}
+!8 = distinct !{!8, !9, !10}
 !9 = !{!"llvm.loop.mustprogress"}
 !10 = !{!"llvm.loop.unroll.disable"}
-!11 = !{!"llvm.loop.estimated_trip_count"}
-!12 = distinct !{!12, !9, !10, !11}
-!13 = distinct !{!13, !9, !10, !11}
-!14 = distinct !{!14, !9, !10, !11}
+!11 = distinct !{!11, !9, !10}
+!12 = distinct !{!12, !9, !10}
+!13 = distinct !{!13, !9, !10}

@@ -128,7 +128,7 @@ define i32 @ASN1_sign(ptr noundef readonly captures(none) %0, ptr noundef captur
   br label %.loopexit
 
 56:                                               ; preds = %47
-  store ptr %49, ptr %8, align 8, !tbaa !26
+  store ptr %49, ptr %8, align 8, !tbaa !25
   %57 = call i32 %0(ptr noundef %4, ptr noundef nonnull %8) #4
   %58 = call i32 @EVP_DigestInit_ex(ptr noundef nonnull %10, ptr noundef %6, ptr noundef null) #4
   %.not = icmp eq i32 %58, 0
@@ -267,14 +267,14 @@ define i32 @ASN1_item_sign_ctx(ptr noundef %0, ptr noundef %1, ptr noundef %2, p
   %15 = alloca %struct.ossl_param_st, align 8
   %16 = alloca ptr, align 8
   %17 = alloca ptr, align 8
-  store ptr %1, ptr %7, align 8, !tbaa !27
-  store ptr %2, ptr %8, align 8, !tbaa !27
+  store ptr %1, ptr %7, align 8, !tbaa !26
+  store ptr %2, ptr %8, align 8, !tbaa !26
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #4
-  store ptr null, ptr %9, align 8, !tbaa !26
+  store ptr null, ptr %9, align 8, !tbaa !25
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #4
-  store i64 0, ptr %10, align 8, !tbaa !29
+  store i64 0, ptr %10, align 8, !tbaa !28
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #4
-  store i64 0, ptr %11, align 8, !tbaa !29
+  store i64 0, ptr %11, align 8, !tbaa !28
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12) #4
   %18 = tail call ptr @EVP_MD_CTX_get0_md(ptr noundef %5) #4
   %19 = tail call ptr @EVP_MD_CTX_get_pkey_ctx(ptr noundef %5) #4
@@ -290,7 +290,7 @@ define i32 @ASN1_item_sign_ctx(ptr noundef %0, ptr noundef %1, ptr noundef %2, p
 
 23:                                               ; preds = %6
   %24 = getelementptr inbounds nuw i8, ptr %20, i64 8
-  %25 = load ptr, ptr %24, align 8, !tbaa !30
+  %25 = load ptr, ptr %24, align 8, !tbaa !29
   %26 = icmp eq ptr %25, null
   br i1 %26, label %27, label %51
 
@@ -302,7 +302,7 @@ define i32 @ASN1_item_sign_ctx(ptr noundef %0, ptr noundef %1, ptr noundef %2, p
   br i1 %29, label %33, label %30
 
 30:                                               ; preds = %27
-  %31 = load i32, ptr %28, align 8, !tbaa !41
+  %31 = load i32, ptr %28, align 8, !tbaa !40
   %32 = and i32 %31, 49648
   %.not66 = icmp eq i32 %32, 0
   br i1 %.not66, label %33, label %34
@@ -318,7 +318,7 @@ define i32 @ASN1_item_sign_ctx(ptr noundef %0, ptr noundef %1, ptr noundef %2, p
   %35 = getelementptr inbounds nuw i8, ptr %13, i64 40
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %15) #4
   call void @OSSL_PARAM_construct_end(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %15) #4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %35, ptr noundef nonnull align 8 dereferenceable(40) %15, i64 40, i1 false), !tbaa.struct !48
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %35, ptr noundef nonnull align 8 dereferenceable(40) %15, i64 40, i1 false), !tbaa.struct !47
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %15) #4
   %36 = call i32 @EVP_PKEY_CTX_get_params(ptr noundef nonnull %28, ptr noundef nonnull %13) #4
   %37 = icmp slt i32 %36, 1
@@ -326,7 +326,7 @@ define i32 @ASN1_item_sign_ctx(ptr noundef %0, ptr noundef %1, ptr noundef %2, p
 
 38:                                               ; preds = %34
   %39 = getelementptr inbounds nuw i8, ptr %13, i64 32
-  %40 = load i64, ptr %39, align 16, !tbaa !50
+  %40 = load i64, ptr %39, align 16, !tbaa !49
   %41 = icmp eq i64 %40, 0
   br i1 %41, label %42, label %43
 
@@ -342,7 +342,7 @@ define i32 @ASN1_item_sign_ctx(ptr noundef %0, ptr noundef %1, ptr noundef %2, p
 
 44:                                               ; preds = %43
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %16) #4
-  store ptr %14, ptr %16, align 8, !tbaa !26
+  store ptr %14, ptr %16, align 8, !tbaa !25
   %45 = call ptr @d2i_X509_ALGOR(ptr noundef nonnull %7, ptr noundef nonnull %16, i64 noundef %40) #4
   %.not68 = icmp eq ptr %45, null
   br i1 %.not68, label %.thread, label %46
@@ -364,7 +364,7 @@ define i32 @ASN1_item_sign_ctx(ptr noundef %0, ptr noundef %1, ptr noundef %2, p
 
 48:                                               ; preds = %47
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %17) #4
-  store ptr %14, ptr %17, align 8, !tbaa !26
+  store ptr %14, ptr %17, align 8, !tbaa !25
   %49 = call ptr @d2i_X509_ALGOR(ptr noundef nonnull %8, ptr noundef nonnull %17, i64 noundef %40) #4
   %.not70 = icmp eq ptr %49, null
   br i1 %.not70, label %.thread80, label %50
@@ -392,7 +392,7 @@ define i32 @ASN1_item_sign_ctx(ptr noundef %0, ptr noundef %1, ptr noundef %2, p
 
 51:                                               ; preds = %23
   %52 = getelementptr inbounds nuw i8, ptr %25, i64 208
-  %53 = load ptr, ptr %52, align 8, !tbaa !52
+  %53 = load ptr, ptr %52, align 8, !tbaa !51
   %.not = icmp eq ptr %53, null
   br i1 %.not, label %.thread87, label %54
 
@@ -402,9 +402,9 @@ define i32 @ASN1_item_sign_ctx(ptr noundef %0, ptr noundef %1, ptr noundef %2, p
   br i1 %56, label %.thread84, label %59
 
 .thread84:                                        ; preds = %54
-  %57 = load i32, ptr %3, align 8, !tbaa !54
+  %57 = load i32, ptr %3, align 8, !tbaa !53
   %58 = sext i32 %57 to i64
-  store i64 %58, ptr %10, align 8, !tbaa !29
+  store i64 %58, ptr %10, align 8, !tbaa !28
   br label %.thread86
 
 59:                                               ; preds = %54
@@ -437,8 +437,8 @@ define i32 @ASN1_item_sign_ctx(ptr noundef %0, ptr noundef %1, ptr noundef %2, p
   br i1 %68, label %72, label %69
 
 69:                                               ; preds = %66
-  %70 = load ptr, ptr %24, align 8, !tbaa !30
-  %71 = load i32, ptr %70, align 8, !tbaa !56
+  %70 = load ptr, ptr %24, align 8, !tbaa !29
+  %71 = load i32, ptr %70, align 8, !tbaa !55
   br label %72
 
 72:                                               ; preds = %66, %69
@@ -455,9 +455,9 @@ define i32 @ASN1_item_sign_ctx(ptr noundef %0, ptr noundef %1, ptr noundef %2, p
   br label %.thread86
 
 77:                                               ; preds = %72
-  %78 = load ptr, ptr %24, align 8, !tbaa !30
+  %78 = load ptr, ptr %24, align 8, !tbaa !29
   %79 = getelementptr inbounds nuw i8, ptr %78, i64 8
-  %80 = load i64, ptr %79, align 8, !tbaa !57
+  %80 = load i64, ptr %79, align 8, !tbaa !56
   %81 = and i64 %80, 4
   %.not72 = icmp eq i64 %81, 0
   %82 = select i1 %.not72, i32 -1, i32 5
@@ -488,7 +488,7 @@ define i32 @ASN1_item_sign_ctx(ptr noundef %0, ptr noundef %1, ptr noundef %2, p
   br i1 %94, label %95, label %96
 
 95:                                               ; preds = %92
-  store i64 0, ptr %10, align 8, !tbaa !29
+  store i64 0, ptr %10, align 8, !tbaa !28
   call void @ERR_new() #4
   call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 259, ptr noundef nonnull @__func__.ASN1_item_sign_ctx) #4
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 13, i32 noundef 786691, ptr noundef null) #4
@@ -496,30 +496,30 @@ define i32 @ASN1_item_sign_ctx(ptr noundef %0, ptr noundef %1, ptr noundef %2, p
 
 96:                                               ; preds = %92
   %97 = zext nneg i32 %93 to i64
-  %98 = load ptr, ptr %9, align 8, !tbaa !26
+  %98 = load ptr, ptr %9, align 8, !tbaa !25
   %99 = call i32 @EVP_DigestSign(ptr noundef %5, ptr noundef null, ptr noundef nonnull %11, ptr noundef %98, i64 noundef %97) #4
   %.not77 = icmp eq i32 %99, 0
   br i1 %.not77, label %100, label %101
 
 100:                                              ; preds = %96
-  store i64 0, ptr %10, align 8, !tbaa !29
+  store i64 0, ptr %10, align 8, !tbaa !28
   call void @ERR_new() #4
   call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 265, ptr noundef nonnull @__func__.ASN1_item_sign_ctx) #4
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 13, i32 noundef 524294, ptr noundef null) #4
   br label %.thread86
 
 101:                                              ; preds = %96
-  %102 = load i64, ptr %11, align 8, !tbaa !29
-  store i64 %102, ptr %10, align 8, !tbaa !29
+  %102 = load i64, ptr %11, align 8, !tbaa !28
+  store i64 %102, ptr %10, align 8, !tbaa !28
   %103 = call noalias ptr @CRYPTO_malloc(i64 noundef %102, ptr noundef nonnull @.str, i32 noundef 269) #4
-  %104 = load ptr, ptr %9, align 8, !tbaa !26
+  %104 = load ptr, ptr %9, align 8, !tbaa !25
   %105 = icmp eq ptr %104, null
   %106 = icmp eq ptr %103, null
   %or.cond = select i1 %105, i1 true, i1 %106
   br i1 %or.cond, label %107, label %108
 
 107:                                              ; preds = %101
-  store i64 0, ptr %10, align 8, !tbaa !29
+  store i64 0, ptr %10, align 8, !tbaa !28
   br label %.thread86
 
 108:                                              ; preds = %101
@@ -528,14 +528,14 @@ define i32 @ASN1_item_sign_ctx(ptr noundef %0, ptr noundef %1, ptr noundef %2, p
   br i1 %.not78, label %110, label %111
 
 110:                                              ; preds = %108
-  store i64 0, ptr %10, align 8, !tbaa !29
+  store i64 0, ptr %10, align 8, !tbaa !28
   call void @ERR_new() #4
   call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 277, ptr noundef nonnull @__func__.ASN1_item_sign_ctx) #4
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 13, i32 noundef 524294, ptr noundef null) #4
   br label %.thread86
 
 111:                                              ; preds = %108
-  %112 = load i64, ptr %10, align 8, !tbaa !29
+  %112 = load i64, ptr %10, align 8, !tbaa !28
   %113 = trunc i64 %112 to i32
   call void @ASN1_STRING_set0(ptr noundef %3, ptr noundef nonnull %103, i32 noundef %113) #4
   call void @ossl_asn1_string_set_bits_left(ptr noundef %3, i32 noundef 0) #4
@@ -544,11 +544,11 @@ define i32 @ASN1_item_sign_ctx(ptr noundef %0, ptr noundef %1, ptr noundef %2, p
 .thread86:                                        ; preds = %61, %.thread84, %22, %65, %76, %95, %100, %107, %110, %111, %83, %88, %.thread82
   %.053 = phi i64 [ 0, %22 ], [ 0, %65 ], [ 0, %95 ], [ %97, %107 ], [ %97, %111 ], [ %97, %110 ], [ %97, %100 ], [ 0, %88 ], [ 0, %83 ], [ 0, %76 ], [ 0, %.thread82 ], [ 0, %.thread84 ], [ 0, %61 ]
   %.050 = phi ptr [ null, %22 ], [ null, %65 ], [ null, %95 ], [ %103, %107 ], [ null, %111 ], [ %103, %110 ], [ null, %100 ], [ null, %88 ], [ null, %83 ], [ null, %76 ], [ null, %.thread82 ], [ null, %.thread84 ], [ null, %61 ]
-  %114 = load ptr, ptr %9, align 8, !tbaa !26
+  %114 = load ptr, ptr %9, align 8, !tbaa !25
   call void @CRYPTO_clear_free(ptr noundef %114, i64 noundef %.053, ptr noundef nonnull @.str, i32 noundef 288) #4
-  %115 = load i64, ptr %11, align 8, !tbaa !29
+  %115 = load i64, ptr %11, align 8, !tbaa !28
   call void @CRYPTO_clear_free(ptr noundef %.050, i64 noundef %115, ptr noundef nonnull @.str, i32 noundef 289) #4
-  %116 = load i64, ptr %10, align 8, !tbaa !29
+  %116 = load i64, ptr %10, align 8, !tbaa !28
   %117 = trunc i64 %116 to i32
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #4
@@ -619,38 +619,37 @@ attributes #4 = { nounwind }
 !20 = !{!15, !16, i64 0}
 !21 = !{!22, !4, i64 20}
 !22 = !{!"asn1_object_st", !11, i64 0, !11, i64 8, !4, i64 16, !4, i64 20, !11, i64 24, !4, i64 32}
-!23 = distinct !{!23, !24, !25}
+!23 = distinct !{!23, !24}
 !24 = !{!"llvm.loop.mustprogress"}
-!25 = !{!"llvm.loop.estimated_trip_count"}
-!26 = !{!11, !11, i64 0}
-!27 = !{!28, !28, i64 0}
-!28 = !{!"p1 _ZTS13X509_algor_st", !10, i64 0}
-!29 = !{!9, !9, i64 0}
-!30 = !{!31, !32, i64 8}
-!31 = !{!"evp_pkey_st", !4, i64 0, !4, i64 4, !32, i64 8, !33, i64 16, !33, i64 24, !5, i64 32, !5, i64 40, !13, i64 48, !10, i64 56, !34, i64 64, !4, i64 72, !4, i64 76, !35, i64 80, !38, i64 96, !10, i64 104, !9, i64 112, !39, i64 120, !9, i64 128, !40, i64 136}
-!32 = !{!"p1 _ZTS23evp_pkey_asn1_method_st", !10, i64 0}
-!33 = !{!"p1 _ZTS9engine_st", !10, i64 0}
-!34 = !{!"p1 _ZTS23stack_st_X509_ATTRIBUTE", !10, i64 0}
-!35 = !{!"crypto_ex_data_st", !36, i64 0, !37, i64 8}
-!36 = !{!"p1 _ZTS15ossl_lib_ctx_st", !10, i64 0}
-!37 = !{!"p1 _ZTS13stack_st_void", !10, i64 0}
-!38 = !{!"p1 _ZTS14evp_keymgmt_st", !10, i64 0}
-!39 = !{!"p1 _ZTS22stack_st_OP_CACHE_ELEM", !10, i64 0}
-!40 = !{!"", !4, i64 0, !4, i64 4, !4, i64 8}
-!41 = !{!42, !4, i64 0}
-!42 = !{!"evp_pkey_ctx_st", !4, i64 0, !36, i64 8, !11, i64 16, !11, i64 24, !38, i64 32, !5, i64 40, !43, i64 56, !10, i64 88, !10, i64 96, !44, i64 104, !4, i64 112, !4, i64 116, !45, i64 120, !33, i64 128, !46, i64 136, !46, i64 144, !10, i64 152, !4, i64 160, !47, i64 168}
-!43 = !{!"", !11, i64 0, !10, i64 8, !9, i64 16, !4, i64 24}
-!44 = !{!"p1 int", !10, i64 0}
-!45 = !{!"p1 _ZTS18evp_pkey_method_st", !10, i64 0}
-!46 = !{!"p1 _ZTS11evp_pkey_st", !10, i64 0}
-!47 = !{!"p1 _ZTS9bignum_st", !10, i64 0}
-!48 = !{i64 0, i64 8, !26, i64 8, i64 4, !3, i64 16, i64 8, !49, i64 24, i64 8, !29, i64 32, i64 8, !29}
-!49 = !{!10, !10, i64 0}
-!50 = !{!51, !9, i64 32}
-!51 = !{!"ossl_param_st", !11, i64 0, !4, i64 8, !10, i64 16, !9, i64 24, !9, i64 32}
-!52 = !{!53, !10, i64 208}
-!53 = !{!"evp_pkey_asn1_method_st", !4, i64 0, !4, i64 4, !9, i64 8, !11, i64 16, !11, i64 24, !10, i64 32, !10, i64 40, !10, i64 48, !10, i64 56, !10, i64 64, !10, i64 72, !10, i64 80, !10, i64 88, !10, i64 96, !10, i64 104, !10, i64 112, !10, i64 120, !10, i64 128, !10, i64 136, !10, i64 144, !10, i64 152, !10, i64 160, !10, i64 168, !10, i64 176, !10, i64 184, !10, i64 192, !10, i64 200, !10, i64 208, !10, i64 216, !10, i64 224, !10, i64 232, !10, i64 240, !10, i64 248, !10, i64 256, !10, i64 264, !10, i64 272, !10, i64 280, !10, i64 288, !10, i64 296, !10, i64 304, !10, i64 312}
-!54 = !{!55, !4, i64 0}
-!55 = !{!"asn1_string_st", !4, i64 0, !4, i64 4, !11, i64 8, !9, i64 16}
-!56 = !{!53, !4, i64 0}
-!57 = !{!53, !9, i64 8}
+!25 = !{!11, !11, i64 0}
+!26 = !{!27, !27, i64 0}
+!27 = !{!"p1 _ZTS13X509_algor_st", !10, i64 0}
+!28 = !{!9, !9, i64 0}
+!29 = !{!30, !31, i64 8}
+!30 = !{!"evp_pkey_st", !4, i64 0, !4, i64 4, !31, i64 8, !32, i64 16, !32, i64 24, !5, i64 32, !5, i64 40, !13, i64 48, !10, i64 56, !33, i64 64, !4, i64 72, !4, i64 76, !34, i64 80, !37, i64 96, !10, i64 104, !9, i64 112, !38, i64 120, !9, i64 128, !39, i64 136}
+!31 = !{!"p1 _ZTS23evp_pkey_asn1_method_st", !10, i64 0}
+!32 = !{!"p1 _ZTS9engine_st", !10, i64 0}
+!33 = !{!"p1 _ZTS23stack_st_X509_ATTRIBUTE", !10, i64 0}
+!34 = !{!"crypto_ex_data_st", !35, i64 0, !36, i64 8}
+!35 = !{!"p1 _ZTS15ossl_lib_ctx_st", !10, i64 0}
+!36 = !{!"p1 _ZTS13stack_st_void", !10, i64 0}
+!37 = !{!"p1 _ZTS14evp_keymgmt_st", !10, i64 0}
+!38 = !{!"p1 _ZTS22stack_st_OP_CACHE_ELEM", !10, i64 0}
+!39 = !{!"", !4, i64 0, !4, i64 4, !4, i64 8}
+!40 = !{!41, !4, i64 0}
+!41 = !{!"evp_pkey_ctx_st", !4, i64 0, !35, i64 8, !11, i64 16, !11, i64 24, !37, i64 32, !5, i64 40, !42, i64 56, !10, i64 88, !10, i64 96, !43, i64 104, !4, i64 112, !4, i64 116, !44, i64 120, !32, i64 128, !45, i64 136, !45, i64 144, !10, i64 152, !4, i64 160, !46, i64 168}
+!42 = !{!"", !11, i64 0, !10, i64 8, !9, i64 16, !4, i64 24}
+!43 = !{!"p1 int", !10, i64 0}
+!44 = !{!"p1 _ZTS18evp_pkey_method_st", !10, i64 0}
+!45 = !{!"p1 _ZTS11evp_pkey_st", !10, i64 0}
+!46 = !{!"p1 _ZTS9bignum_st", !10, i64 0}
+!47 = !{i64 0, i64 8, !25, i64 8, i64 4, !3, i64 16, i64 8, !48, i64 24, i64 8, !28, i64 32, i64 8, !28}
+!48 = !{!10, !10, i64 0}
+!49 = !{!50, !9, i64 32}
+!50 = !{!"ossl_param_st", !11, i64 0, !4, i64 8, !10, i64 16, !9, i64 24, !9, i64 32}
+!51 = !{!52, !10, i64 208}
+!52 = !{!"evp_pkey_asn1_method_st", !4, i64 0, !4, i64 4, !9, i64 8, !11, i64 16, !11, i64 24, !10, i64 32, !10, i64 40, !10, i64 48, !10, i64 56, !10, i64 64, !10, i64 72, !10, i64 80, !10, i64 88, !10, i64 96, !10, i64 104, !10, i64 112, !10, i64 120, !10, i64 128, !10, i64 136, !10, i64 144, !10, i64 152, !10, i64 160, !10, i64 168, !10, i64 176, !10, i64 184, !10, i64 192, !10, i64 200, !10, i64 208, !10, i64 216, !10, i64 224, !10, i64 232, !10, i64 240, !10, i64 248, !10, i64 256, !10, i64 264, !10, i64 272, !10, i64 280, !10, i64 288, !10, i64 296, !10, i64 304, !10, i64 312}
+!53 = !{!54, !4, i64 0}
+!54 = !{!"asn1_string_st", !4, i64 0, !4, i64 4, !11, i64 8, !9, i64 16}
+!55 = !{!52, !4, i64 0}
+!56 = !{!52, !9, i64 8}

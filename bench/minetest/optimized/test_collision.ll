@@ -531,7 +531,7 @@ for.cond.cleanup5:                                ; preds = %for.cond.cleanup10
 
 for.cond.cleanup10:                               ; preds = %if.end1179
   %exitcond2814.not = icmp eq i32 %add18, 4
-  br i1 %exitcond2814.not, label %for.cond.cleanup5, label %for.cond7.preheader, !llvm.loop !22
+  br i1 %exitcond2814.not, label %for.cond.cleanup5, label %for.cond7.preheader, !llvm.loop !21
 
 for.body11:                                       ; preds = %if.end1179, %for.cond7.preheader
   %indvars.iv = phi i32 [ -3, %for.cond7.preheader ], [ %add21, %if.end1179 ]
@@ -540,21 +540,21 @@ for.body11:                                       ; preds = %if.end1179, %for.co
   %conv14 = sitofp i16 %2 to float
   %add21 = add nsw i32 %indvars.iv, 1
   %conv22 = sitofp i32 %add21 to float
-  store float %conv12, ptr %s, align 4, !tbaa !23
-  store float %conv13, ptr %Y.i.i, align 4, !tbaa !26
-  store float %conv14, ptr %Z.i.i, align 4, !tbaa !27
-  store float %conv16, ptr %MaxEdge.i, align 4, !tbaa !23
-  store float %conv19, ptr %Y.i2.i, align 4, !tbaa !26
-  store float %conv22, ptr %Z.i3.i, align 4, !tbaa !27
+  store float %conv12, ptr %s, align 4, !tbaa !22
+  store float %conv13, ptr %Y.i.i, align 4, !tbaa !25
+  store float %conv14, ptr %Z.i.i, align 4, !tbaa !26
+  store float %conv16, ptr %MaxEdge.i, align 4, !tbaa !22
+  store float %conv19, ptr %Y.i2.i, align 4, !tbaa !25
+  store float %conv22, ptr %Z.i3.i, align 4, !tbaa !26
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %m) #22
-  store float %conv24, ptr %m, align 4, !tbaa !23
-  store float %conv13, ptr %Y.i.i1457, align 4, !tbaa !26
-  store float %conv14, ptr %Z.i.i1458, align 4, !tbaa !27
-  store float %conv29, ptr %MaxEdge.i1459, align 4, !tbaa !23
-  store float %conv19, ptr %Y.i2.i1460, align 4, !tbaa !26
-  store float %conv22, ptr %Z.i3.i1461, align 4, !tbaa !27
+  store float %conv24, ptr %m, align 4, !tbaa !22
+  store float %conv13, ptr %Y.i.i1457, align 4, !tbaa !25
+  store float %conv14, ptr %Z.i.i1458, align 4, !tbaa !26
+  store float %conv29, ptr %MaxEdge.i1459, align 4, !tbaa !22
+  store float %conv19, ptr %Y.i2.i1460, align 4, !tbaa !25
+  store float %conv22, ptr %Z.i3.i1461, align 4, !tbaa !26
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %dtime) #22
-  store float 1.000000e+00, ptr %dtime, align 4, !tbaa !28
+  store float 1.000000e+00, ptr %dtime, align 4, !tbaa !27
   %call = call noundef i32 @_Z20axisAlignedCollisionRKN3irr4core8aabbox3dIfEES4_NS0_8vector3dIfEEPf(ptr noundef nonnull align 4 dereferenceable(24) %s, ptr noundef nonnull align 4 dereferenceable(24) %m, <2 x float> <float 1.000000e+00, float 0.000000e+00>, float 0.000000e+00, ptr noundef nonnull %dtime)
   %cmp36 = icmp eq i32 %call, 0
   br i1 %cmp36, label %if.end, label %if.then
@@ -602,7 +602,7 @@ ehcleanup:                                        ; preds = %lpad38
   br i1 %cleanup.isactive.0, label %ehcleanup62.sink.split, label %ehcleanup62
 
 if.end:                                           ; preds = %for.body11
-  %8 = load float, ptr %dtime, align 4, !tbaa !28
+  %8 = load float, ptr %dtime, align 4, !tbaa !27
   %conv42 = fpext float %8 to double
   %sub43 = fadd nsz double %conv42, -1.000000e+00
   %9 = call nsz double @llvm.fabs.f64(double %sub43)
@@ -656,21 +656,21 @@ if.end61:                                         ; preds = %if.end
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %m) #22
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %s) #22
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %s66) #22
-  store float %conv12, ptr %s66, align 4, !tbaa !23
-  store float %conv13, ptr %Y.i.i1468, align 4, !tbaa !26
-  store float %conv14, ptr %Z.i.i1469, align 4, !tbaa !27
-  store float %conv16, ptr %MaxEdge.i1470, align 4, !tbaa !23
-  store float %conv19, ptr %Y.i2.i1471, align 4, !tbaa !26
-  store float %conv22, ptr %Z.i3.i1472, align 4, !tbaa !27
+  store float %conv12, ptr %s66, align 4, !tbaa !22
+  store float %conv13, ptr %Y.i.i1468, align 4, !tbaa !25
+  store float %conv14, ptr %Z.i.i1469, align 4, !tbaa !26
+  store float %conv16, ptr %MaxEdge.i1470, align 4, !tbaa !22
+  store float %conv19, ptr %Y.i2.i1471, align 4, !tbaa !25
+  store float %conv22, ptr %Z.i3.i1472, align 4, !tbaa !26
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %m79) #22
-  store float %conv24, ptr %m79, align 4, !tbaa !23
-  store float %conv13, ptr %Y.i.i1473, align 4, !tbaa !26
-  store float %conv14, ptr %Z.i.i1474, align 4, !tbaa !27
-  store float %conv29, ptr %MaxEdge.i1475, align 4, !tbaa !23
-  store float %conv19, ptr %Y.i2.i1476, align 4, !tbaa !26
-  store float %conv22, ptr %Z.i3.i1477, align 4, !tbaa !27
+  store float %conv24, ptr %m79, align 4, !tbaa !22
+  store float %conv13, ptr %Y.i.i1473, align 4, !tbaa !25
+  store float %conv14, ptr %Z.i.i1474, align 4, !tbaa !26
+  store float %conv29, ptr %MaxEdge.i1475, align 4, !tbaa !22
+  store float %conv19, ptr %Y.i2.i1476, align 4, !tbaa !25
+  store float %conv22, ptr %Z.i3.i1477, align 4, !tbaa !26
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %dtime95) #22
-  store float 1.000000e+00, ptr %dtime95, align 4, !tbaa !28
+  store float 1.000000e+00, ptr %dtime95, align 4, !tbaa !27
   %call97 = call noundef i32 @_Z20axisAlignedCollisionRKN3irr4core8aabbox3dIfEES4_NS0_8vector3dIfEEPf(ptr noundef nonnull align 4 dereferenceable(24) %s66, ptr noundef nonnull align 4 dereferenceable(24) %m79, <2 x float> <float -1.000000e+00, float 0.000000e+00>, float 0.000000e+00, ptr noundef nonnull %dtime95)
   %cmp98 = icmp eq i32 %call97, -1
   br i1 %cmp98, label %if.end115, label %if.then99
@@ -747,23 +747,23 @@ if.end115:                                        ; preds = %if.end61
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %m79) #22
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %s66) #22
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %s120) #22
-  store float %conv12, ptr %s120, align 4, !tbaa !23
-  store float %conv13, ptr %Y.i.i1486, align 4, !tbaa !26
-  store float %conv14, ptr %Z.i.i1487, align 4, !tbaa !27
-  store float %conv16, ptr %MaxEdge.i1488, align 4, !tbaa !23
-  store float %conv19, ptr %Y.i2.i1489, align 4, !tbaa !26
-  store float %conv22, ptr %Z.i3.i1490, align 4, !tbaa !27
+  store float %conv12, ptr %s120, align 4, !tbaa !22
+  store float %conv13, ptr %Y.i.i1486, align 4, !tbaa !25
+  store float %conv14, ptr %Z.i.i1487, align 4, !tbaa !26
+  store float %conv16, ptr %MaxEdge.i1488, align 4, !tbaa !22
+  store float %conv19, ptr %Y.i2.i1489, align 4, !tbaa !25
+  store float %conv22, ptr %Z.i3.i1490, align 4, !tbaa !26
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %m133) #22
   %sub150 = add nsw i32 %indvars.iv, -1
   %conv151 = sitofp i32 %sub150 to float
-  store float %conv24, ptr %m133, align 4, !tbaa !23
-  store float %conv140, ptr %Y.i.i1491, align 4, !tbaa !26
-  store float %conv14, ptr %Z.i.i1492, align 4, !tbaa !27
-  store float %conv29, ptr %MaxEdge.i1493, align 4, !tbaa !23
-  store float %conv148, ptr %Y.i2.i1494, align 4, !tbaa !26
-  store float %conv151, ptr %Z.i3.i1495, align 4, !tbaa !27
+  store float %conv24, ptr %m133, align 4, !tbaa !22
+  store float %conv140, ptr %Y.i.i1491, align 4, !tbaa !25
+  store float %conv14, ptr %Z.i.i1492, align 4, !tbaa !26
+  store float %conv29, ptr %MaxEdge.i1493, align 4, !tbaa !22
+  store float %conv148, ptr %Y.i2.i1494, align 4, !tbaa !25
+  store float %conv151, ptr %Z.i3.i1495, align 4, !tbaa !26
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %dtime153) #22
-  store float 1.000000e+00, ptr %dtime153, align 4, !tbaa !28
+  store float 1.000000e+00, ptr %dtime153, align 4, !tbaa !27
   %call155 = call noundef i32 @_Z20axisAlignedCollisionRKN3irr4core8aabbox3dIfEES4_NS0_8vector3dIfEEPf(ptr noundef nonnull align 4 dereferenceable(24) %s120, ptr noundef nonnull align 4 dereferenceable(24) %m133, <2 x float> <float 1.000000e+00, float 0.000000e+00>, float 0.000000e+00, ptr noundef nonnull %dtime153)
   %cmp156 = icmp eq i32 %call155, -1
   br i1 %cmp156, label %if.end173, label %if.then157
@@ -827,21 +827,21 @@ if.end173:                                        ; preds = %if.end115
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %m133) #22
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %s120) #22
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %s178) #22
-  store float %conv12, ptr %s178, align 4, !tbaa !23
-  store float %conv13, ptr %Y.i.i1504, align 4, !tbaa !26
-  store float %conv14, ptr %Z.i.i1505, align 4, !tbaa !27
-  store float %conv16, ptr %MaxEdge.i1506, align 4, !tbaa !23
-  store float %conv19, ptr %Y.i2.i1507, align 4, !tbaa !26
-  store float %conv22, ptr %Z.i3.i1508, align 4, !tbaa !27
+  store float %conv12, ptr %s178, align 4, !tbaa !22
+  store float %conv13, ptr %Y.i.i1504, align 4, !tbaa !25
+  store float %conv14, ptr %Z.i.i1505, align 4, !tbaa !26
+  store float %conv16, ptr %MaxEdge.i1506, align 4, !tbaa !22
+  store float %conv19, ptr %Y.i2.i1507, align 4, !tbaa !25
+  store float %conv22, ptr %Z.i3.i1508, align 4, !tbaa !26
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %m191) #22
-  store float %conv24, ptr %m191, align 4, !tbaa !23
-  store float %conv198, ptr %Y.i.i1509, align 4, !tbaa !26
-  store float %conv14, ptr %Z.i.i1510, align 4, !tbaa !27
-  store float %conv203, ptr %MaxEdge.i1511, align 4, !tbaa !23
-  store float %conv207, ptr %Y.i2.i1512, align 4, !tbaa !26
-  store float %conv22, ptr %Z.i3.i1513, align 4, !tbaa !27
+  store float %conv24, ptr %m191, align 4, !tbaa !22
+  store float %conv198, ptr %Y.i.i1509, align 4, !tbaa !25
+  store float %conv14, ptr %Z.i.i1510, align 4, !tbaa !26
+  store float %conv203, ptr %MaxEdge.i1511, align 4, !tbaa !22
+  store float %conv207, ptr %Y.i2.i1512, align 4, !tbaa !25
+  store float %conv22, ptr %Z.i3.i1513, align 4, !tbaa !26
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %dtime212) #22
-  store float 3.000000e+00, ptr %dtime212, align 4, !tbaa !28
+  store float 3.000000e+00, ptr %dtime212, align 4, !tbaa !27
   %call214 = call noundef i32 @_Z20axisAlignedCollisionRKN3irr4core8aabbox3dIfEES4_NS0_8vector3dIfEEPf(ptr noundef nonnull align 4 dereferenceable(24) %s178, ptr noundef nonnull align 4 dereferenceable(24) %m191, <2 x float> <float 5.000000e-01, float 0x3FB99999A0000000>, float 0.000000e+00, ptr noundef nonnull %dtime212)
   %cmp215 = icmp eq i32 %call214, 0
   br i1 %cmp215, label %if.end232, label %if.then216
@@ -889,7 +889,7 @@ ehcleanup226:                                     ; preds = %lpad222
   br i1 %cleanup.isactive224.0, label %ehcleanup253.sink.split, label %ehcleanup253
 
 if.end232:                                        ; preds = %if.end173
-  %30 = load float, ptr %dtime212, align 4, !tbaa !28
+  %30 = load float, ptr %dtime212, align 4, !tbaa !27
   %conv233 = fpext float %30 to double
   %sub234 = fadd nsz double %conv233, -3.000000e+00
   %31 = call nsz double @llvm.fabs.f64(double %sub234)
@@ -943,21 +943,21 @@ if.end252:                                        ; preds = %if.end232
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %m191) #22
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %s178) #22
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %s257) #22
-  store float %conv12, ptr %s257, align 4, !tbaa !23
-  store float %conv13, ptr %Y.i.i1528, align 4, !tbaa !26
-  store float %conv14, ptr %Z.i.i1529, align 4, !tbaa !27
-  store float %conv16, ptr %MaxEdge.i1530, align 4, !tbaa !23
-  store float %conv19, ptr %Y.i2.i1531, align 4, !tbaa !26
-  store float %conv22, ptr %Z.i3.i1532, align 4, !tbaa !27
+  store float %conv12, ptr %s257, align 4, !tbaa !22
+  store float %conv13, ptr %Y.i.i1528, align 4, !tbaa !25
+  store float %conv14, ptr %Z.i.i1529, align 4, !tbaa !26
+  store float %conv16, ptr %MaxEdge.i1530, align 4, !tbaa !22
+  store float %conv19, ptr %Y.i2.i1531, align 4, !tbaa !25
+  store float %conv22, ptr %Z.i3.i1532, align 4, !tbaa !26
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %m270) #22
-  store float %conv24, ptr %m270, align 4, !tbaa !23
-  store float %conv198, ptr %Y.i.i1533, align 4, !tbaa !26
-  store float %conv14, ptr %Z.i.i1534, align 4, !tbaa !27
-  store float %conv203, ptr %MaxEdge.i1535, align 4, !tbaa !23
-  store float %conv207, ptr %Y.i2.i1536, align 4, !tbaa !26
-  store float %conv22, ptr %Z.i3.i1537, align 4, !tbaa !27
+  store float %conv24, ptr %m270, align 4, !tbaa !22
+  store float %conv198, ptr %Y.i.i1533, align 4, !tbaa !25
+  store float %conv14, ptr %Z.i.i1534, align 4, !tbaa !26
+  store float %conv203, ptr %MaxEdge.i1535, align 4, !tbaa !22
+  store float %conv207, ptr %Y.i2.i1536, align 4, !tbaa !25
+  store float %conv22, ptr %Z.i3.i1537, align 4, !tbaa !26
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %dtime291) #22
-  store float 3.000000e+00, ptr %dtime291, align 4, !tbaa !28
+  store float 3.000000e+00, ptr %dtime291, align 4, !tbaa !27
   %call293 = call noundef i32 @_Z20axisAlignedCollisionRKN3irr4core8aabbox3dIfEES4_NS0_8vector3dIfEEPf(ptr noundef nonnull align 4 dereferenceable(24) %s257, ptr noundef nonnull align 4 dereferenceable(24) %m270, <2 x float> <float 5.000000e-01, float 0x3FB99999A0000000>, float 0.000000e+00, ptr noundef nonnull %dtime291)
   %cmp294 = icmp eq i32 %call293, 0
   br i1 %cmp294, label %if.end311, label %if.then295
@@ -1018,7 +1018,7 @@ ehcleanup305:                                     ; preds = %lpad301
   br i1 %cleanup.isactive303.0, label %ehcleanup332.sink.split, label %ehcleanup332
 
 if.end311:                                        ; preds = %if.end252
-  %42 = load float, ptr %dtime291, align 4, !tbaa !28
+  %42 = load float, ptr %dtime291, align 4, !tbaa !27
   %conv312 = fpext float %42 to double
   %sub313 = fadd nsz double %conv312, -3.000000e+00
   %43 = call nsz double @llvm.fabs.f64(double %sub313)
@@ -1072,21 +1072,21 @@ if.end331:                                        ; preds = %if.end311
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %m270) #22
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %s257) #22
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %s336) #22
-  store float %conv12, ptr %s336, align 4, !tbaa !23
-  store float %conv13, ptr %Y.i.i1552, align 4, !tbaa !26
-  store float %conv14, ptr %Z.i.i1553, align 4, !tbaa !27
-  store float %conv16, ptr %MaxEdge.i1554, align 4, !tbaa !23
-  store float %conv19, ptr %Y.i2.i1555, align 4, !tbaa !26
-  store float %conv22, ptr %Z.i3.i1556, align 4, !tbaa !27
+  store float %conv12, ptr %s336, align 4, !tbaa !22
+  store float %conv13, ptr %Y.i.i1552, align 4, !tbaa !25
+  store float %conv14, ptr %Z.i.i1553, align 4, !tbaa !26
+  store float %conv16, ptr %MaxEdge.i1554, align 4, !tbaa !22
+  store float %conv19, ptr %Y.i2.i1555, align 4, !tbaa !25
+  store float %conv22, ptr %Z.i3.i1556, align 4, !tbaa !26
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %m349) #22
-  store float %conv352, ptr %m349, align 4, !tbaa !23
-  store float %conv13, ptr %Y.i.i1557, align 4, !tbaa !26
-  store float %conv14, ptr %Z.i.i1558, align 4, !tbaa !27
-  store float %conv357, ptr %MaxEdge.i1559, align 4, !tbaa !23
-  store float %conv19, ptr %Y.i2.i1560, align 4, !tbaa !26
-  store float %conv22, ptr %Z.i3.i1561, align 4, !tbaa !27
+  store float %conv352, ptr %m349, align 4, !tbaa !22
+  store float %conv13, ptr %Y.i.i1557, align 4, !tbaa !25
+  store float %conv14, ptr %Z.i.i1558, align 4, !tbaa !26
+  store float %conv357, ptr %MaxEdge.i1559, align 4, !tbaa !22
+  store float %conv19, ptr %Y.i2.i1560, align 4, !tbaa !25
+  store float %conv22, ptr %Z.i3.i1561, align 4, !tbaa !26
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %dtime365) #22
-  store float 1.000000e+00, ptr %dtime365, align 4, !tbaa !28
+  store float 1.000000e+00, ptr %dtime365, align 4, !tbaa !27
   %call367 = call noundef i32 @_Z20axisAlignedCollisionRKN3irr4core8aabbox3dIfEES4_NS0_8vector3dIfEEPf(ptr noundef nonnull align 4 dereferenceable(24) %s336, ptr noundef nonnull align 4 dereferenceable(24) %m349, <2 x float> <float -1.000000e+00, float 0.000000e+00>, float 0.000000e+00, ptr noundef nonnull %dtime365)
   %cmp368 = icmp eq i32 %call367, 0
   br i1 %cmp368, label %if.end385, label %if.then369
@@ -1147,7 +1147,7 @@ ehcleanup379:                                     ; preds = %lpad375
   br i1 %cleanup.isactive377.0, label %ehcleanup406.sink.split, label %ehcleanup406
 
 if.end385:                                        ; preds = %if.end331
-  %54 = load float, ptr %dtime365, align 4, !tbaa !28
+  %54 = load float, ptr %dtime365, align 4, !tbaa !27
   %conv386 = fpext float %54 to double
   %sub387 = fadd nsz double %conv386, -1.000000e+00
   %55 = call nsz double @llvm.fabs.f64(double %sub387)
@@ -1201,21 +1201,21 @@ if.end405:                                        ; preds = %if.end385
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %m349) #22
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %s336) #22
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %s410) #22
-  store float %conv12, ptr %s410, align 4, !tbaa !23
-  store float %conv13, ptr %Y.i.i1576, align 4, !tbaa !26
-  store float %conv14, ptr %Z.i.i1577, align 4, !tbaa !27
-  store float %conv16, ptr %MaxEdge.i1578, align 4, !tbaa !23
-  store float %conv19, ptr %Y.i2.i1579, align 4, !tbaa !26
-  store float %conv22, ptr %Z.i3.i1580, align 4, !tbaa !27
+  store float %conv12, ptr %s410, align 4, !tbaa !22
+  store float %conv13, ptr %Y.i.i1576, align 4, !tbaa !25
+  store float %conv14, ptr %Z.i.i1577, align 4, !tbaa !26
+  store float %conv16, ptr %MaxEdge.i1578, align 4, !tbaa !22
+  store float %conv19, ptr %Y.i2.i1579, align 4, !tbaa !25
+  store float %conv22, ptr %Z.i3.i1580, align 4, !tbaa !26
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %m423) #22
-  store float %conv352, ptr %m423, align 4, !tbaa !23
-  store float %conv13, ptr %Y.i.i1581, align 4, !tbaa !26
-  store float %conv14, ptr %Z.i.i1582, align 4, !tbaa !27
-  store float %conv357, ptr %MaxEdge.i1583, align 4, !tbaa !23
-  store float %conv19, ptr %Y.i2.i1584, align 4, !tbaa !26
-  store float %conv22, ptr %Z.i3.i1585, align 4, !tbaa !27
+  store float %conv352, ptr %m423, align 4, !tbaa !22
+  store float %conv13, ptr %Y.i.i1581, align 4, !tbaa !25
+  store float %conv14, ptr %Z.i.i1582, align 4, !tbaa !26
+  store float %conv357, ptr %MaxEdge.i1583, align 4, !tbaa !22
+  store float %conv19, ptr %Y.i2.i1584, align 4, !tbaa !25
+  store float %conv22, ptr %Z.i3.i1585, align 4, !tbaa !26
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %dtime439) #22
-  store float 1.000000e+00, ptr %dtime439, align 4, !tbaa !28
+  store float 1.000000e+00, ptr %dtime439, align 4, !tbaa !27
   %call441 = call noundef i32 @_Z20axisAlignedCollisionRKN3irr4core8aabbox3dIfEES4_NS0_8vector3dIfEEPf(ptr noundef nonnull align 4 dereferenceable(24) %s410, ptr noundef nonnull align 4 dereferenceable(24) %m423, <2 x float> <float 1.000000e+00, float 0.000000e+00>, float 0.000000e+00, ptr noundef nonnull %dtime439)
   %cmp442 = icmp eq i32 %call441, -1
   br i1 %cmp442, label %if.end459, label %if.then443
@@ -1292,26 +1292,26 @@ if.end459:                                        ; preds = %if.end405
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %m423) #22
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %s410) #22
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %s464) #22
-  store float %conv12, ptr %s464, align 4, !tbaa !23
-  store float %conv13, ptr %Y.i.i1594, align 4, !tbaa !26
-  store float %conv14, ptr %Z.i.i1595, align 4, !tbaa !27
-  store float %conv16, ptr %MaxEdge.i1596, align 4, !tbaa !23
-  store float %conv19, ptr %Y.i2.i1597, align 4, !tbaa !26
-  store float %conv22, ptr %Z.i3.i1598, align 4, !tbaa !27
+  store float %conv12, ptr %s464, align 4, !tbaa !22
+  store float %conv13, ptr %Y.i.i1594, align 4, !tbaa !25
+  store float %conv14, ptr %Z.i.i1595, align 4, !tbaa !26
+  store float %conv16, ptr %MaxEdge.i1596, align 4, !tbaa !22
+  store float %conv19, ptr %Y.i2.i1597, align 4, !tbaa !25
+  store float %conv22, ptr %Z.i3.i1598, align 4, !tbaa !26
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %m477) #22
   %conv483 = sitofp i16 %2 to double
   %add484 = fadd nsz double %conv483, 1.500000e+00
   %conv485 = fptrunc double %add484 to float
   %add494 = fadd nsz double %conv483, 3.500000e+00
   %conv495 = fptrunc double %add494 to float
-  store float %conv352, ptr %m477, align 4, !tbaa !23
-  store float %conv13, ptr %Y.i.i1599, align 4, !tbaa !26
-  store float %conv485, ptr %Z.i.i1600, align 4, !tbaa !27
-  store float %conv357, ptr %MaxEdge.i1601, align 4, !tbaa !23
-  store float %conv19, ptr %Y.i2.i1602, align 4, !tbaa !26
-  store float %conv495, ptr %Z.i3.i1603, align 4, !tbaa !27
+  store float %conv352, ptr %m477, align 4, !tbaa !22
+  store float %conv13, ptr %Y.i.i1599, align 4, !tbaa !25
+  store float %conv485, ptr %Z.i.i1600, align 4, !tbaa !26
+  store float %conv357, ptr %MaxEdge.i1601, align 4, !tbaa !22
+  store float %conv19, ptr %Y.i2.i1602, align 4, !tbaa !25
+  store float %conv495, ptr %Z.i3.i1603, align 4, !tbaa !26
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %dtime497) #22
-  store float 1.000000e+00, ptr %dtime497, align 4, !tbaa !28
+  store float 1.000000e+00, ptr %dtime497, align 4, !tbaa !27
   %call499 = call noundef i32 @_Z20axisAlignedCollisionRKN3irr4core8aabbox3dIfEES4_NS0_8vector3dIfEEPf(ptr noundef nonnull align 4 dereferenceable(24) %s464, ptr noundef nonnull align 4 dereferenceable(24) %m477, <2 x float> <float -1.000000e+00, float 0.000000e+00>, float 0.000000e+00, ptr noundef nonnull %dtime497)
   %cmp500 = icmp eq i32 %call499, -1
   br i1 %cmp500, label %if.end517, label %if.then501
@@ -1375,21 +1375,21 @@ if.end517:                                        ; preds = %if.end459
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %m477) #22
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %s464) #22
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %s522) #22
-  store float %conv12, ptr %s522, align 4, !tbaa !23
-  store float %conv13, ptr %Y.i.i1612, align 4, !tbaa !26
-  store float %conv14, ptr %Z.i.i1613, align 4, !tbaa !27
-  store float %conv16, ptr %MaxEdge.i1614, align 4, !tbaa !23
-  store float %conv19, ptr %Y.i2.i1615, align 4, !tbaa !26
-  store float %conv22, ptr %Z.i3.i1616, align 4, !tbaa !27
+  store float %conv12, ptr %s522, align 4, !tbaa !22
+  store float %conv13, ptr %Y.i.i1612, align 4, !tbaa !25
+  store float %conv14, ptr %Z.i.i1613, align 4, !tbaa !26
+  store float %conv16, ptr %MaxEdge.i1614, align 4, !tbaa !22
+  store float %conv19, ptr %Y.i2.i1615, align 4, !tbaa !25
+  store float %conv22, ptr %Z.i3.i1616, align 4, !tbaa !26
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %m535) #22
-  store float %conv352, ptr %m535, align 4, !tbaa !23
-  store float %conv198, ptr %Y.i.i1617, align 4, !tbaa !26
-  store float %conv14, ptr %Z.i.i1618, align 4, !tbaa !27
-  store float %conv547, ptr %MaxEdge.i1619, align 4, !tbaa !23
-  store float %conv551, ptr %Y.i2.i1620, align 4, !tbaa !26
-  store float %conv22, ptr %Z.i3.i1621, align 4, !tbaa !27
+  store float %conv352, ptr %m535, align 4, !tbaa !22
+  store float %conv198, ptr %Y.i.i1617, align 4, !tbaa !25
+  store float %conv14, ptr %Z.i.i1618, align 4, !tbaa !26
+  store float %conv547, ptr %MaxEdge.i1619, align 4, !tbaa !22
+  store float %conv551, ptr %Y.i2.i1620, align 4, !tbaa !25
+  store float %conv22, ptr %Z.i3.i1621, align 4, !tbaa !26
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %dtime556) #22
-  store float 2.500000e+00, ptr %dtime556, align 4, !tbaa !28
+  store float 2.500000e+00, ptr %dtime556, align 4, !tbaa !27
   %call558 = call noundef i32 @_Z20axisAlignedCollisionRKN3irr4core8aabbox3dIfEES4_NS0_8vector3dIfEEPf(ptr noundef nonnull align 4 dereferenceable(24) %s522, ptr noundef nonnull align 4 dereferenceable(24) %m535, <2 x float> <float -5.000000e-01, float 0x3FC99999A0000000>, float 0.000000e+00, ptr noundef nonnull %dtime556)
   %cmp559 = icmp eq i32 %call558, 1
   br i1 %cmp559, label %if.end576, label %if.then560
@@ -1437,7 +1437,7 @@ ehcleanup570:                                     ; preds = %lpad566
   br i1 %cleanup.isactive568.0, label %ehcleanup597.sink.split, label %ehcleanup597
 
 if.end576:                                        ; preds = %if.end517
-  %76 = load float, ptr %dtime556, align 4, !tbaa !28
+  %76 = load float, ptr %dtime556, align 4, !tbaa !27
   %conv577 = fpext float %76 to double
   %sub578 = fadd nsz double %conv577, -2.500000e+00
   %77 = call nsz double @llvm.fabs.f64(double %sub578)
@@ -1491,21 +1491,21 @@ if.end596:                                        ; preds = %if.end576
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %m535) #22
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %s522) #22
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %s601) #22
-  store float %conv12, ptr %s601, align 4, !tbaa !23
-  store float %conv13, ptr %Y.i.i1636, align 4, !tbaa !26
-  store float %conv14, ptr %Z.i.i1637, align 4, !tbaa !27
-  store float %conv16, ptr %MaxEdge.i1638, align 4, !tbaa !23
-  store float %conv19, ptr %Y.i2.i1639, align 4, !tbaa !26
-  store float %conv22, ptr %Z.i3.i1640, align 4, !tbaa !27
+  store float %conv12, ptr %s601, align 4, !tbaa !22
+  store float %conv13, ptr %Y.i.i1636, align 4, !tbaa !25
+  store float %conv14, ptr %Z.i.i1637, align 4, !tbaa !26
+  store float %conv16, ptr %MaxEdge.i1638, align 4, !tbaa !22
+  store float %conv19, ptr %Y.i2.i1639, align 4, !tbaa !25
+  store float %conv22, ptr %Z.i3.i1640, align 4, !tbaa !26
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %m614) #22
-  store float %conv352, ptr %m614, align 4, !tbaa !23
-  store float %conv198, ptr %Y.i.i1641, align 4, !tbaa !26
-  store float %conv14, ptr %Z.i.i1642, align 4, !tbaa !27
-  store float %conv547, ptr %MaxEdge.i1643, align 4, !tbaa !23
-  store float %conv551, ptr %Y.i2.i1644, align 4, !tbaa !26
-  store float %conv22, ptr %Z.i3.i1645, align 4, !tbaa !27
+  store float %conv352, ptr %m614, align 4, !tbaa !22
+  store float %conv198, ptr %Y.i.i1641, align 4, !tbaa !25
+  store float %conv14, ptr %Z.i.i1642, align 4, !tbaa !26
+  store float %conv547, ptr %MaxEdge.i1643, align 4, !tbaa !22
+  store float %conv551, ptr %Y.i2.i1644, align 4, !tbaa !25
+  store float %conv22, ptr %Z.i3.i1645, align 4, !tbaa !26
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %dtime635) #22
-  store float 2.000000e+00, ptr %dtime635, align 4, !tbaa !28
+  store float 2.000000e+00, ptr %dtime635, align 4, !tbaa !27
   %call637 = call noundef i32 @_Z20axisAlignedCollisionRKN3irr4core8aabbox3dIfEES4_NS0_8vector3dIfEEPf(ptr noundef nonnull align 4 dereferenceable(24) %s601, ptr noundef nonnull align 4 dereferenceable(24) %m614, <2 x float> <float -5.000000e-01, float 0x3FD3333340000000>, float 0.000000e+00, ptr noundef nonnull %dtime635)
   %cmp638 = icmp eq i32 %call637, 0
   br i1 %cmp638, label %if.end655, label %if.then639
@@ -1566,7 +1566,7 @@ ehcleanup649:                                     ; preds = %lpad645
   br i1 %cleanup.isactive647.0, label %ehcleanup676.sink.split, label %ehcleanup676
 
 if.end655:                                        ; preds = %if.end596
-  %88 = load float, ptr %dtime635, align 4, !tbaa !28
+  %88 = load float, ptr %dtime635, align 4, !tbaa !27
   %conv656 = fpext float %88 to double
   %sub657 = fadd nsz double %conv656, -2.000000e+00
   %89 = call nsz double @llvm.fabs.f64(double %sub657)
@@ -1622,25 +1622,25 @@ if.end675:                                        ; preds = %if.end655
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %s680) #22
   %add691 = add nsw i32 %indvars.iv, 2
   %conv692 = sitofp i32 %add691 to float
-  store float %conv12, ptr %s680, align 4, !tbaa !23
-  store float %conv13, ptr %Y.i.i1660, align 4, !tbaa !26
-  store float %conv14, ptr %Z.i.i1661, align 4, !tbaa !27
-  store float %conv352, ptr %MaxEdge.i1662, align 4, !tbaa !23
-  store float %conv689, ptr %Y.i2.i1663, align 4, !tbaa !26
-  store float %conv692, ptr %Z.i3.i1664, align 4, !tbaa !27
+  store float %conv12, ptr %s680, align 4, !tbaa !22
+  store float %conv13, ptr %Y.i.i1660, align 4, !tbaa !25
+  store float %conv14, ptr %Z.i.i1661, align 4, !tbaa !26
+  store float %conv352, ptr %MaxEdge.i1662, align 4, !tbaa !22
+  store float %conv689, ptr %Y.i2.i1663, align 4, !tbaa !25
+  store float %conv692, ptr %Z.i3.i1664, align 4, !tbaa !26
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %m693) #22
   %add704 = fadd nsz double %conv483, 2.290000e+00
   %conv705 = fptrunc double %add704 to float
   %add716 = fadd nsz double %conv483, 4.200000e+00
   %conv717 = fptrunc double %add716 to float
-  store float %conv697, ptr %m693, align 4, !tbaa !23
-  store float %conv701, ptr %Y.i.i1665, align 4, !tbaa !26
-  store float %conv705, ptr %Z.i.i1666, align 4, !tbaa !27
-  store float %conv709, ptr %MaxEdge.i1667, align 4, !tbaa !23
-  store float %conv713, ptr %Y.i2.i1668, align 4, !tbaa !26
-  store float %conv717, ptr %Z.i3.i1669, align 4, !tbaa !27
+  store float %conv697, ptr %m693, align 4, !tbaa !22
+  store float %conv701, ptr %Y.i.i1665, align 4, !tbaa !25
+  store float %conv705, ptr %Z.i.i1666, align 4, !tbaa !26
+  store float %conv709, ptr %MaxEdge.i1667, align 4, !tbaa !22
+  store float %conv713, ptr %Y.i2.i1668, align 4, !tbaa !25
+  store float %conv717, ptr %Z.i3.i1669, align 4, !tbaa !26
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %dtime719) #22
-  store float 1.000000e+00, ptr %dtime719, align 4, !tbaa !28
+  store float 1.000000e+00, ptr %dtime719, align 4, !tbaa !27
   %call721 = call noundef i32 @_Z20axisAlignedCollisionRKN3irr4core8aabbox3dIfEES4_NS0_8vector3dIfEEPf(ptr noundef nonnull align 4 dereferenceable(24) %s680, ptr noundef nonnull align 4 dereferenceable(24) %m693, <2 x float> splat (float 0xBFD5555560000000), float 0xBFD5555560000000, ptr noundef nonnull %dtime719)
   %cmp722 = icmp eq i32 %call721, 0
   br i1 %cmp722, label %if.end739, label %if.then723
@@ -1701,7 +1701,7 @@ ehcleanup733:                                     ; preds = %lpad729
   br i1 %cleanup.isactive731.0, label %ehcleanup760.sink.split, label %ehcleanup760
 
 if.end739:                                        ; preds = %if.end675
-  %100 = load float, ptr %dtime719, align 4, !tbaa !28
+  %100 = load float, ptr %dtime719, align 4, !tbaa !27
   %conv740 = fpext float %100 to double
   %sub741 = fadd nsz double %conv740, -9.000000e-01
   %101 = call nsz double @llvm.fabs.f64(double %sub741)
@@ -1755,21 +1755,21 @@ if.end759:                                        ; preds = %if.end739
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %m693) #22
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %s680) #22
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %s764) #22
-  store float %conv12, ptr %s764, align 4, !tbaa !23
-  store float %conv13, ptr %Y.i.i1684, align 4, !tbaa !26
-  store float %conv14, ptr %Z.i.i1685, align 4, !tbaa !27
-  store float %conv352, ptr %MaxEdge.i1686, align 4, !tbaa !23
-  store float %conv689, ptr %Y.i2.i1687, align 4, !tbaa !26
-  store float %conv692, ptr %Z.i3.i1688, align 4, !tbaa !27
+  store float %conv12, ptr %s764, align 4, !tbaa !22
+  store float %conv13, ptr %Y.i.i1684, align 4, !tbaa !25
+  store float %conv14, ptr %Z.i.i1685, align 4, !tbaa !26
+  store float %conv352, ptr %MaxEdge.i1686, align 4, !tbaa !22
+  store float %conv689, ptr %Y.i2.i1687, align 4, !tbaa !25
+  store float %conv692, ptr %Z.i3.i1688, align 4, !tbaa !26
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %m777) #22
-  store float %conv781, ptr %m777, align 4, !tbaa !23
-  store float %conv785, ptr %Y.i.i1689, align 4, !tbaa !26
-  store float %conv705, ptr %Z.i.i1690, align 4, !tbaa !27
-  store float %conv709, ptr %MaxEdge.i1691, align 4, !tbaa !23
-  store float %conv713, ptr %Y.i2.i1692, align 4, !tbaa !26
-  store float %conv717, ptr %Z.i3.i1693, align 4, !tbaa !27
+  store float %conv781, ptr %m777, align 4, !tbaa !22
+  store float %conv785, ptr %Y.i.i1689, align 4, !tbaa !25
+  store float %conv705, ptr %Z.i.i1690, align 4, !tbaa !26
+  store float %conv709, ptr %MaxEdge.i1691, align 4, !tbaa !22
+  store float %conv713, ptr %Y.i2.i1692, align 4, !tbaa !25
+  store float %conv717, ptr %Z.i3.i1693, align 4, !tbaa !26
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %dtime803) #22
-  store float 1.000000e+00, ptr %dtime803, align 4, !tbaa !28
+  store float 1.000000e+00, ptr %dtime803, align 4, !tbaa !27
   %call805 = call noundef i32 @_Z20axisAlignedCollisionRKN3irr4core8aabbox3dIfEES4_NS0_8vector3dIfEEPf(ptr noundef nonnull align 4 dereferenceable(24) %s764, ptr noundef nonnull align 4 dereferenceable(24) %m777, <2 x float> splat (float 0xBFD5555560000000), float 0xBFD5555560000000, ptr noundef nonnull %dtime803)
   %cmp806 = icmp eq i32 %call805, 1
   br i1 %cmp806, label %if.end823, label %if.then807
@@ -1830,7 +1830,7 @@ ehcleanup817:                                     ; preds = %lpad813
   br i1 %cleanup.isactive815.0, label %ehcleanup844.sink.split, label %ehcleanup844
 
 if.end823:                                        ; preds = %if.end759
-  %112 = load float, ptr %dtime803, align 4, !tbaa !28
+  %112 = load float, ptr %dtime803, align 4, !tbaa !27
   %conv824 = fpext float %112 to double
   %sub825 = fadd nsz double %conv824, -9.000000e-01
   %113 = call nsz double @llvm.fabs.f64(double %sub825)
@@ -1884,23 +1884,23 @@ if.end843:                                        ; preds = %if.end823
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %m777) #22
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %s764) #22
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %s848) #22
-  store float %conv12, ptr %s848, align 4, !tbaa !23
-  store float %conv13, ptr %Y.i.i1708, align 4, !tbaa !26
-  store float %conv14, ptr %Z.i.i1709, align 4, !tbaa !27
-  store float %conv352, ptr %MaxEdge.i1710, align 4, !tbaa !23
-  store float %conv689, ptr %Y.i2.i1711, align 4, !tbaa !26
-  store float %conv692, ptr %Z.i3.i1712, align 4, !tbaa !27
+  store float %conv12, ptr %s848, align 4, !tbaa !22
+  store float %conv13, ptr %Y.i.i1708, align 4, !tbaa !25
+  store float %conv14, ptr %Z.i.i1709, align 4, !tbaa !26
+  store float %conv352, ptr %MaxEdge.i1710, align 4, !tbaa !22
+  store float %conv689, ptr %Y.i2.i1711, align 4, !tbaa !25
+  store float %conv692, ptr %Z.i3.i1712, align 4, !tbaa !26
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %m861) #22
   %add872 = fadd nsz double %conv483, 2.300000e+00
   %conv873 = fptrunc double %add872 to float
-  store float %conv781, ptr %m861, align 4, !tbaa !23
-  store float %conv701, ptr %Y.i.i1713, align 4, !tbaa !26
-  store float %conv873, ptr %Z.i.i1714, align 4, !tbaa !27
-  store float %conv709, ptr %MaxEdge.i1715, align 4, !tbaa !23
-  store float %conv713, ptr %Y.i2.i1716, align 4, !tbaa !26
-  store float %conv717, ptr %Z.i3.i1717, align 4, !tbaa !27
+  store float %conv781, ptr %m861, align 4, !tbaa !22
+  store float %conv701, ptr %Y.i.i1713, align 4, !tbaa !25
+  store float %conv873, ptr %Z.i.i1714, align 4, !tbaa !26
+  store float %conv709, ptr %MaxEdge.i1715, align 4, !tbaa !22
+  store float %conv713, ptr %Y.i2.i1716, align 4, !tbaa !25
+  store float %conv717, ptr %Z.i3.i1717, align 4, !tbaa !26
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %dtime887) #22
-  store float 1.000000e+00, ptr %dtime887, align 4, !tbaa !28
+  store float 1.000000e+00, ptr %dtime887, align 4, !tbaa !27
   %call889 = call noundef i32 @_Z20axisAlignedCollisionRKN3irr4core8aabbox3dIfEES4_NS0_8vector3dIfEEPf(ptr noundef nonnull align 4 dereferenceable(24) %s848, ptr noundef nonnull align 4 dereferenceable(24) %m861, <2 x float> splat (float 0xBFD5555560000000), float 0xBFD5555560000000, ptr noundef nonnull %dtime887)
   %cmp890 = icmp eq i32 %call889, 2
   br i1 %cmp890, label %if.end907, label %if.then891
@@ -1961,7 +1961,7 @@ ehcleanup901:                                     ; preds = %lpad897
   br i1 %cleanup.isactive899.0, label %ehcleanup928.sink.split, label %ehcleanup928
 
 if.end907:                                        ; preds = %if.end843
-  %124 = load float, ptr %dtime887, align 4, !tbaa !28
+  %124 = load float, ptr %dtime887, align 4, !tbaa !27
   %conv908 = fpext float %124 to double
   %sub909 = fadd nsz double %conv908, -9.000000e-01
   %125 = call nsz double @llvm.fabs.f64(double %sub909)
@@ -2015,25 +2015,25 @@ if.end927:                                        ; preds = %if.end907
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %m861) #22
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %s848) #22
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %s932) #22
-  store float %conv12, ptr %s932, align 4, !tbaa !23
-  store float %conv13, ptr %Y.i.i1732, align 4, !tbaa !26
-  store float %conv14, ptr %Z.i.i1733, align 4, !tbaa !27
-  store float %conv352, ptr %MaxEdge.i1734, align 4, !tbaa !23
-  store float %conv689, ptr %Y.i2.i1735, align 4, !tbaa !26
-  store float %conv692, ptr %Z.i3.i1736, align 4, !tbaa !27
+  store float %conv12, ptr %s932, align 4, !tbaa !22
+  store float %conv13, ptr %Y.i.i1732, align 4, !tbaa !25
+  store float %conv14, ptr %Z.i.i1733, align 4, !tbaa !26
+  store float %conv352, ptr %MaxEdge.i1734, align 4, !tbaa !22
+  store float %conv689, ptr %Y.i2.i1735, align 4, !tbaa !25
+  store float %conv692, ptr %Z.i3.i1736, align 4, !tbaa !26
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %m945) #22
   %sub956 = fadd nsz double %conv483, -4.200000e+00
   %conv957 = fptrunc double %sub956 to float
   %sub968 = fadd nsz double %conv483, -2.290000e+00
   %conv969 = fptrunc double %sub968 to float
-  store float %conv949, ptr %m945, align 4, !tbaa !23
-  store float %conv953, ptr %Y.i.i1737, align 4, !tbaa !26
-  store float %conv957, ptr %Z.i.i1738, align 4, !tbaa !27
-  store float %conv961, ptr %MaxEdge.i1739, align 4, !tbaa !23
-  store float %conv965, ptr %Y.i2.i1740, align 4, !tbaa !26
-  store float %conv969, ptr %Z.i3.i1741, align 4, !tbaa !27
+  store float %conv949, ptr %m945, align 4, !tbaa !22
+  store float %conv953, ptr %Y.i.i1737, align 4, !tbaa !25
+  store float %conv957, ptr %Z.i.i1738, align 4, !tbaa !26
+  store float %conv961, ptr %MaxEdge.i1739, align 4, !tbaa !22
+  store float %conv965, ptr %Y.i2.i1740, align 4, !tbaa !25
+  store float %conv969, ptr %Z.i3.i1741, align 4, !tbaa !26
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %dtime971) #22
-  store float 1.700000e+01, ptr %dtime971, align 4, !tbaa !28
+  store float 1.700000e+01, ptr %dtime971, align 4, !tbaa !27
   %call973 = call noundef i32 @_Z20axisAlignedCollisionRKN3irr4core8aabbox3dIfEES4_NS0_8vector3dIfEEPf(ptr noundef nonnull align 4 dereferenceable(24) %s932, ptr noundef nonnull align 4 dereferenceable(24) %m945, <2 x float> splat (float 0x3FC24924A0000000), float 0x3FC24924A0000000, ptr noundef nonnull %dtime971)
   %cmp974 = icmp eq i32 %call973, 0
   br i1 %cmp974, label %if.end991, label %if.then975
@@ -2094,7 +2094,7 @@ ehcleanup985:                                     ; preds = %lpad981
   br i1 %cleanup.isactive983.0, label %ehcleanup1012.sink.split, label %ehcleanup1012
 
 if.end991:                                        ; preds = %if.end927
-  %136 = load float, ptr %dtime971, align 4, !tbaa !28
+  %136 = load float, ptr %dtime971, align 4, !tbaa !27
   %conv992 = fpext float %136 to double
   %sub993 = fadd nsz double %conv992, -1.610000e+01
   %137 = call nsz double @llvm.fabs.f64(double %sub993)
@@ -2148,21 +2148,21 @@ if.end1011:                                       ; preds = %if.end991
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %m945) #22
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %s932) #22
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %s1016) #22
-  store float %conv12, ptr %s1016, align 4, !tbaa !23
-  store float %conv13, ptr %Y.i.i1756, align 4, !tbaa !26
-  store float %conv14, ptr %Z.i.i1757, align 4, !tbaa !27
-  store float %conv352, ptr %MaxEdge.i1758, align 4, !tbaa !23
-  store float %conv689, ptr %Y.i2.i1759, align 4, !tbaa !26
-  store float %conv692, ptr %Z.i3.i1760, align 4, !tbaa !27
+  store float %conv12, ptr %s1016, align 4, !tbaa !22
+  store float %conv13, ptr %Y.i.i1756, align 4, !tbaa !25
+  store float %conv14, ptr %Z.i.i1757, align 4, !tbaa !26
+  store float %conv352, ptr %MaxEdge.i1758, align 4, !tbaa !22
+  store float %conv689, ptr %Y.i2.i1759, align 4, !tbaa !25
+  store float %conv692, ptr %Z.i3.i1760, align 4, !tbaa !26
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %m1029) #22
-  store float %conv949, ptr %m1029, align 4, !tbaa !23
-  store float %conv953, ptr %Y.i.i1761, align 4, !tbaa !26
-  store float %conv957, ptr %Z.i.i1762, align 4, !tbaa !27
-  store float %conv1045, ptr %MaxEdge.i1763, align 4, !tbaa !23
-  store float %conv1049, ptr %Y.i2.i1764, align 4, !tbaa !26
-  store float %conv969, ptr %Z.i3.i1765, align 4, !tbaa !27
+  store float %conv949, ptr %m1029, align 4, !tbaa !22
+  store float %conv953, ptr %Y.i.i1761, align 4, !tbaa !25
+  store float %conv957, ptr %Z.i.i1762, align 4, !tbaa !26
+  store float %conv1045, ptr %MaxEdge.i1763, align 4, !tbaa !22
+  store float %conv1049, ptr %Y.i2.i1764, align 4, !tbaa !25
+  store float %conv969, ptr %Z.i3.i1765, align 4, !tbaa !26
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %dtime1055) #22
-  store float 1.700000e+01, ptr %dtime1055, align 4, !tbaa !28
+  store float 1.700000e+01, ptr %dtime1055, align 4, !tbaa !27
   %call1057 = call noundef i32 @_Z20axisAlignedCollisionRKN3irr4core8aabbox3dIfEES4_NS0_8vector3dIfEEPf(ptr noundef nonnull align 4 dereferenceable(24) %s1016, ptr noundef nonnull align 4 dereferenceable(24) %m1029, <2 x float> splat (float 0x3FC24924A0000000), float 0x3FC24924A0000000, ptr noundef nonnull %dtime1055)
   %cmp1058 = icmp eq i32 %call1057, 1
   br i1 %cmp1058, label %if.end1075, label %if.then1059
@@ -2223,7 +2223,7 @@ ehcleanup1069:                                    ; preds = %lpad1065
   br i1 %cleanup.isactive1067.0, label %ehcleanup1096.sink.split, label %ehcleanup1096
 
 if.end1075:                                       ; preds = %if.end1011
-  %148 = load float, ptr %dtime1055, align 4, !tbaa !28
+  %148 = load float, ptr %dtime1055, align 4, !tbaa !27
   %conv1076 = fpext float %148 to double
   %sub1077 = fadd nsz double %conv1076, -1.610000e+01
   %149 = call nsz double @llvm.fabs.f64(double %sub1077)
@@ -2277,23 +2277,23 @@ if.end1095:                                       ; preds = %if.end1075
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %m1029) #22
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %s1016) #22
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %s1100) #22
-  store float %conv12, ptr %s1100, align 4, !tbaa !23
-  store float %conv13, ptr %Y.i.i1780, align 4, !tbaa !26
-  store float %conv14, ptr %Z.i.i1781, align 4, !tbaa !27
-  store float %conv352, ptr %MaxEdge.i1782, align 4, !tbaa !23
-  store float %conv689, ptr %Y.i2.i1783, align 4, !tbaa !26
-  store float %conv692, ptr %Z.i3.i1784, align 4, !tbaa !27
+  store float %conv12, ptr %s1100, align 4, !tbaa !22
+  store float %conv13, ptr %Y.i.i1780, align 4, !tbaa !25
+  store float %conv14, ptr %Z.i.i1781, align 4, !tbaa !26
+  store float %conv352, ptr %MaxEdge.i1782, align 4, !tbaa !22
+  store float %conv689, ptr %Y.i2.i1783, align 4, !tbaa !25
+  store float %conv692, ptr %Z.i3.i1784, align 4, !tbaa !26
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %m1113) #22
   %sub1136 = fadd nsz double %conv483, -2.300000e+00
   %conv1137 = fptrunc double %sub1136 to float
-  store float %conv949, ptr %m1113, align 4, !tbaa !23
-  store float %conv953, ptr %Y.i.i1785, align 4, !tbaa !26
-  store float %conv957, ptr %Z.i.i1786, align 4, !tbaa !27
-  store float %conv1045, ptr %MaxEdge.i1787, align 4, !tbaa !23
-  store float %conv965, ptr %Y.i2.i1788, align 4, !tbaa !26
-  store float %conv1137, ptr %Z.i3.i1789, align 4, !tbaa !27
+  store float %conv949, ptr %m1113, align 4, !tbaa !22
+  store float %conv953, ptr %Y.i.i1785, align 4, !tbaa !25
+  store float %conv957, ptr %Z.i.i1786, align 4, !tbaa !26
+  store float %conv1045, ptr %MaxEdge.i1787, align 4, !tbaa !22
+  store float %conv965, ptr %Y.i2.i1788, align 4, !tbaa !25
+  store float %conv1137, ptr %Z.i3.i1789, align 4, !tbaa !26
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %dtime1139) #22
-  store float 1.700000e+01, ptr %dtime1139, align 4, !tbaa !28
+  store float 1.700000e+01, ptr %dtime1139, align 4, !tbaa !27
   %call1141 = call noundef i32 @_Z20axisAlignedCollisionRKN3irr4core8aabbox3dIfEES4_NS0_8vector3dIfEEPf(ptr noundef nonnull align 4 dereferenceable(24) %s1100, ptr noundef nonnull align 4 dereferenceable(24) %m1113, <2 x float> splat (float 0x3FC24924A0000000), float 0x3FC24924A0000000, ptr noundef nonnull %dtime1139)
   %cmp1142 = icmp eq i32 %call1141, 2
   br i1 %cmp1142, label %if.end1159, label %if.then1143
@@ -2354,7 +2354,7 @@ ehcleanup1153:                                    ; preds = %lpad1149
   br i1 %cleanup.isactive1151.0, label %ehcleanup1180.sink.split, label %ehcleanup1180
 
 if.end1159:                                       ; preds = %if.end1095
-  %160 = load float, ptr %dtime1139, align 4, !tbaa !28
+  %160 = load float, ptr %dtime1139, align 4, !tbaa !27
   %conv1160 = fpext float %160 to double
   %sub1161 = fadd nsz double %conv1160, -1.610000e+01
   %161 = call nsz double @llvm.fabs.f64(double %sub1161)
@@ -2408,7 +2408,7 @@ if.end1179:                                       ; preds = %if.end1159
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %m1113) #22
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %s1100) #22
   %exitcond.not = icmp eq i32 %add21, 4
-  br i1 %exitcond.not, label %for.cond.cleanup10, label %for.body11, !llvm.loop !29
+  br i1 %exitcond.not, label %for.cond.cleanup10, label %for.body11, !llvm.loop !28
 
 ehcleanup1180.sink.split:                         ; preds = %ehcleanup1173, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i1800, %ehcleanup1173.thread, %ehcleanup1153, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i1794, %ehcleanup1153.thread
   %exception1164.sink = phi ptr [ %exception1144, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i1794 ], [ %exception1144, %ehcleanup1153.thread ], [ %exception1144, %ehcleanup1153 ], [ %exception1164, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i1800 ], [ %exception1164, %ehcleanup1173.thread ], [ %exception1164, %ehcleanup1173 ]
@@ -2443,7 +2443,7 @@ define linkonce_odr dso_local void @_ZNSt7__cxx1112basic_stringIcSt11char_traits
 entry:
   %__dnew.i = alloca i64, align 8
   %0 = getelementptr inbounds nuw i8, ptr %this, i64 16
-  store ptr %0, ptr %this, align 8, !tbaa !30
+  store ptr %0, ptr %this, align 8, !tbaa !29
   %cmp = icmp eq ptr %__s, null
   br i1 %cmp, label %if.then, label %if.end
 
@@ -2454,15 +2454,15 @@ if.then:                                          ; preds = %entry
 if.end:                                           ; preds = %entry
   %call.i = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %__s) #22
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__dnew.i) #22
-  store i64 %call.i, ptr %__dnew.i, align 8, !tbaa !31
+  store i64 %call.i, ptr %__dnew.i, align 8, !tbaa !30
   %cmp.i = icmp ugt i64 %call.i, 15
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %if.end
   %call2.i11 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(8) %__dnew.i, i64 noundef 0)
   store ptr %call2.i11, ptr %this, align 8, !tbaa !7
-  %1 = load i64, ptr %__dnew.i, align 8, !tbaa !31
-  store i64 %1, ptr %0, align 8, !tbaa !32
+  %1 = load i64, ptr %__dnew.i, align 8, !tbaa !30
+  store i64 %1, ptr %0, align 8, !tbaa !31
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i, %if.end
@@ -2473,8 +2473,8 @@ if.end.i:                                         ; preds = %if.then.i, %if.end
   ]
 
 if.then.i.i.i:                                    ; preds = %if.end.i
-  %3 = load i8, ptr %__s, align 1, !tbaa !32
-  store i8 %3, ptr %2, align 1, !tbaa !32
+  %3 = load i8, ptr %__s, align 1, !tbaa !31
+  store i8 %3, ptr %2, align 1, !tbaa !31
   br label %invoke.cont5
 
 if.end.i.i.i.i:                                   ; preds = %if.end.i
@@ -2482,12 +2482,12 @@ if.end.i.i.i.i:                                   ; preds = %if.end.i
   br label %invoke.cont5
 
 invoke.cont5:                                     ; preds = %if.end.i.i.i.i, %if.then.i.i.i, %if.end.i
-  %4 = load i64, ptr %__dnew.i, align 8, !tbaa !31
+  %4 = load i64, ptr %__dnew.i, align 8, !tbaa !30
   %_M_string_length.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i64 %4, ptr %_M_string_length.i.i.i, align 8, !tbaa !13
   %5 = load ptr, ptr %this, align 8, !tbaa !7
   %arrayidx.i.i = getelementptr inbounds i8, ptr %5, i64 %4
-  store i8 0, ptr %arrayidx.i.i, align 1, !tbaa !32
+  store i8 0, ptr %arrayidx.i.i, align 1, !tbaa !31
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__dnew.i) #22
   ret void
 }
@@ -2497,7 +2497,7 @@ define linkonce_odr dso_local void @_ZN19TestFailedExceptionC2ENSt7__cxx1112basi
 entry:
   %__dnew.i.i = alloca i64, align 8
   %0 = getelementptr inbounds nuw i8, ptr %this, i64 16
-  store ptr %0, ptr %this, align 8, !tbaa !30
+  store ptr %0, ptr %this, align 8, !tbaa !29
   %1 = load ptr, ptr %in_message, align 8, !tbaa !7
   %2 = getelementptr inbounds nuw i8, ptr %in_message, i64 16
   %cmp.i.i = icmp eq ptr %1, %2
@@ -2514,8 +2514,8 @@ if.then.i:                                        ; preds = %entry
 
 if.else.i:                                        ; preds = %entry
   store ptr %1, ptr %this, align 8, !tbaa !7
-  %4 = load i64, ptr %2, align 8, !tbaa !32
-  store i64 %4, ptr %0, align 8, !tbaa !32
+  %4 = load i64, ptr %2, align 8, !tbaa !31
+  store i64 %4, ptr %0, align 8, !tbaa !31
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit: ; preds = %if.else.i, %if.then.i
@@ -2525,14 +2525,14 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit: ; preds = %if
   store i64 %5, ptr %_M_string_length.i29.i, align 8, !tbaa !13
   store ptr %2, ptr %in_message, align 8, !tbaa !7
   store i64 0, ptr %_M_string_length.i28.i, align 8, !tbaa !13
-  store i8 0, ptr %2, align 1, !tbaa !32
+  store i8 0, ptr %2, align 1, !tbaa !31
   %call = invoke noundef ptr @_ZN2fs19GetFilenameFromPathEPKc(ptr noundef %in_file)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit
   %file = getelementptr inbounds nuw i8, ptr %this, i64 32
   %6 = getelementptr inbounds nuw i8, ptr %this, i64 48
-  store ptr %6, ptr %file, align 8, !tbaa !30
+  store ptr %6, ptr %file, align 8, !tbaa !29
   %cmp.i = icmp eq ptr %call, null
   br i1 %cmp.i, label %if.then.i7, label %if.end.i
 
@@ -2546,7 +2546,7 @@ if.then.i7:                                       ; preds = %invoke.cont
 if.end.i:                                         ; preds = %invoke.cont
   %call.i.i = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %call) #22
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__dnew.i.i) #22
-  store i64 %call.i.i, ptr %__dnew.i.i, align 8, !tbaa !31
+  store i64 %call.i.i, ptr %__dnew.i.i, align 8, !tbaa !30
   %cmp.i.i6 = icmp ugt i64 %call.i.i, 15
   br i1 %cmp.i.i6, label %if.then.i.i, label %if.end.i.i
 
@@ -2556,8 +2556,8 @@ if.then.i.i:                                      ; preds = %if.end.i
 
 call2.i11.i.noexc:                                ; preds = %if.then.i.i
   store ptr %call2.i11.i8, ptr %file, align 8, !tbaa !7
-  %7 = load i64, ptr %__dnew.i.i, align 8, !tbaa !31
-  store i64 %7, ptr %6, align 8, !tbaa !32
+  %7 = load i64, ptr %__dnew.i.i, align 8, !tbaa !30
+  store i64 %7, ptr %6, align 8, !tbaa !31
   br label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %call2.i11.i.noexc, %if.end.i
@@ -2568,8 +2568,8 @@ if.end.i.i:                                       ; preds = %call2.i11.i.noexc, 
   ]
 
 if.then.i.i.i.i:                                  ; preds = %if.end.i.i
-  %9 = load i8, ptr %call, align 1, !tbaa !32
-  store i8 %9, ptr %8, align 1, !tbaa !32
+  %9 = load i8, ptr %call, align 1, !tbaa !31
+  store i8 %9, ptr %8, align 1, !tbaa !31
   br label %invoke.cont3
 
 if.end.i.i.i.i.i:                                 ; preds = %if.end.i.i
@@ -2577,15 +2577,15 @@ if.end.i.i.i.i.i:                                 ; preds = %if.end.i.i
   br label %invoke.cont3
 
 invoke.cont3:                                     ; preds = %if.end.i.i.i.i.i, %if.then.i.i.i.i, %if.end.i.i
-  %10 = load i64, ptr %__dnew.i.i, align 8, !tbaa !31
+  %10 = load i64, ptr %__dnew.i.i, align 8, !tbaa !30
   %_M_string_length.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   store i64 %10, ptr %_M_string_length.i.i.i.i, align 8, !tbaa !13
   %11 = load ptr, ptr %file, align 8, !tbaa !7
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %11, i64 %10
-  store i8 0, ptr %arrayidx.i.i.i, align 1, !tbaa !32
+  store i8 0, ptr %arrayidx.i.i.i, align 1, !tbaa !31
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__dnew.i.i) #22
   %line = getelementptr inbounds nuw i8, ptr %this, i64 64
-  store i32 %in_line, ptr %line, align 8, !tbaa !33
+  store i32 %in_line, ptr %line, align 8, !tbaa !32
   ret void
 
 lpad:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit
@@ -2678,7 +2678,7 @@ define linkonce_odr dso_local void @_ZN11TestManager18registerTestModuleEP8TestB
 entry:
   %0 = load atomic i8, ptr @_ZGVZN11TestManager14getTestModulesEvE17m_modules_to_test acquire, align 8
   %guard.uninitialized.i = icmp eq i8 %0, 0
-  br i1 %guard.uninitialized.i, label %init.check.i, label %_ZN11TestManager14getTestModulesEv.exit, !prof !36
+  br i1 %guard.uninitialized.i, label %init.check.i, label %_ZN11TestManager14getTestModulesEv.exit, !prof !35
 
 init.check.i:                                     ; preds = %entry
   %1 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN11TestManager14getTestModulesEvE17m_modules_to_test) #22
@@ -2693,15 +2693,15 @@ init.i:                                           ; preds = %init.check.i
 
 _ZN11TestManager14getTestModulesEv.exit:          ; preds = %init.i, %init.check.i, %entry
   %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZN11TestManager14getTestModulesEvE17m_modules_to_test, i64 8), align 8, !tbaa !14
-  %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZN11TestManager14getTestModulesEvE17m_modules_to_test, i64 16), align 8, !tbaa !37
+  %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZN11TestManager14getTestModulesEvE17m_modules_to_test, i64 16), align 8, !tbaa !36
   %cmp.not.i = icmp eq ptr %3, %4
   br i1 %cmp.not.i, label %if.else.i, label %if.then.i
 
 if.then.i:                                        ; preds = %_ZN11TestManager14getTestModulesEv.exit
   store ptr %module, ptr %3, align 8, !tbaa !14
-  %5 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZN11TestManager14getTestModulesEvE17m_modules_to_test, i64 8), align 8, !tbaa !39
+  %5 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZN11TestManager14getTestModulesEvE17m_modules_to_test, i64 8), align 8, !tbaa !38
   %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store ptr %incdec.ptr.i, ptr getelementptr inbounds nuw (i8, ptr @_ZZN11TestManager14getTestModulesEvE17m_modules_to_test, i64 8), align 8, !tbaa !39
+  store ptr %incdec.ptr.i, ptr getelementptr inbounds nuw (i8, ptr @_ZZN11TestManager14getTestModulesEvE17m_modules_to_test, i64 8), align 8, !tbaa !38
   br label %_ZNSt6vectorIP8TestBaseSaIS1_EE9push_backERKS1_.exit
 
 if.else.i:                                        ; preds = %_ZN11TestManager14getTestModulesEv.exit
@@ -2746,10 +2746,10 @@ if.then.i39.i.i:                                  ; preds = %_ZNSt6vectorIP8Test
   br label %_ZNSt6vectorIP8TestBaseSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i
 
 _ZNSt6vectorIP8TestBaseSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i: ; preds = %if.then.i39.i.i, %_ZNSt6vectorIP8TestBaseSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit38.i.i
-  store ptr %call5.i.i.i.i.i, ptr @_ZZN11TestManager14getTestModulesEvE17m_modules_to_test, align 8, !tbaa !40
-  store ptr %incdec.ptr.i.i, ptr getelementptr inbounds nuw (i8, ptr @_ZZN11TestManager14getTestModulesEvE17m_modules_to_test, i64 8), align 8, !tbaa !39
+  store ptr %call5.i.i.i.i.i, ptr @_ZZN11TestManager14getTestModulesEvE17m_modules_to_test, align 8, !tbaa !39
+  store ptr %incdec.ptr.i.i, ptr getelementptr inbounds nuw (i8, ptr @_ZZN11TestManager14getTestModulesEvE17m_modules_to_test, i64 8), align 8, !tbaa !38
   %add.ptr19.i.i = getelementptr inbounds nuw ptr, ptr %call5.i.i.i.i.i, i64 %cond.i.i.i
-  store ptr %add.ptr19.i.i, ptr getelementptr inbounds nuw (i8, ptr @_ZZN11TestManager14getTestModulesEvE17m_modules_to_test, i64 16), align 8, !tbaa !37
+  store ptr %add.ptr19.i.i, ptr getelementptr inbounds nuw (i8, ptr @_ZZN11TestManager14getTestModulesEvE17m_modules_to_test, i64 16), align 8, !tbaa !36
   br label %_ZNSt6vectorIP8TestBaseSaIS1_EE9push_backERKS1_.exit
 
 _ZNSt6vectorIP8TestBaseSaIS1_EE9push_backERKS1_.exit: ; preds = %_ZNSt6vectorIP8TestBaseSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i, %if.then.i
@@ -2776,7 +2776,7 @@ declare i32 @__cxa_guard_acquire(ptr) local_unnamed_addr #2
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZNSt6vectorIP8TestBaseSaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #10 comdat align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
-  %0 = load ptr, ptr %this, align 8, !tbaa !40
+  %0 = load ptr, ptr %this, align 8, !tbaa !39
   %tobool.not.i.i = icmp eq ptr %0, null
   br i1 %tobool.not.i.i, label %_ZNSt12_Vector_baseIP8TestBaseSaIS1_EED2Ev.exit, label %if.then.i.i
 
@@ -2854,9 +2854,9 @@ define internal void @_GLOBAL__sub_I_test_collision.cpp() #19 section ".text.sta
 entry:
   tail call void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZStL8__ioinit)
   %0 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #22
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZL15g_test_instance, i64 32), ptr getelementptr inbounds nuw (i8, ptr @_ZL15g_test_instance, i64 16), align 8, !tbaa !30
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZL15g_test_instance, i64 32), ptr getelementptr inbounds nuw (i8, ptr @_ZL15g_test_instance, i64 16), align 8, !tbaa !29
   store i64 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL15g_test_instance, i64 24), align 8, !tbaa !13
-  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL15g_test_instance, i64 32), align 8, !tbaa !32
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL15g_test_instance, i64 32), align 8, !tbaa !31
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTV13TestCollision, i64 16), ptr @_ZL15g_test_instance, align 8, !tbaa !4
   invoke void @_ZN11TestManager18registerTestModuleEP8TestBase(ptr noundef nonnull @_ZL15g_test_instance)
           to label %__cxx_global_var_init.1.exit unwind label %lpad.i.i
@@ -2944,25 +2944,24 @@ attributes #25 = { builtin allocsize(0) }
 !16 = !{!"_ZTSSt8functionIFvvEE", !17, i64 0, !10, i64 24}
 !17 = !{!"_ZTSSt14_Function_base", !11, i64 0, !10, i64 16}
 !18 = !{!17, !10, i64 16}
-!19 = distinct !{!19, !20, !21}
+!19 = distinct !{!19, !20}
 !20 = !{!"llvm.loop.mustprogress"}
-!21 = !{!"llvm.loop.estimated_trip_count"}
-!22 = distinct !{!22, !20, !21}
-!23 = !{!24, !25, i64 0}
-!24 = !{!"_ZTSN3irr4core8vector3dIfEE", !25, i64 0, !25, i64 4, !25, i64 8}
-!25 = !{!"float", !11, i64 0}
-!26 = !{!24, !25, i64 4}
-!27 = !{!24, !25, i64 8}
-!28 = !{!25, !25, i64 0}
-!29 = distinct !{!29, !20, !21}
-!30 = !{!9, !10, i64 0}
-!31 = !{!12, !12, i64 0}
-!32 = !{!11, !11, i64 0}
-!33 = !{!34, !35, i64 64}
-!34 = !{!"_ZTS19TestFailedException", !8, i64 0, !8, i64 32, !35, i64 64}
-!35 = !{!"int", !11, i64 0}
-!36 = !{!"branch_weights", i32 1, i32 1048575}
-!37 = !{!38, !10, i64 16}
-!38 = !{!"_ZTSNSt12_Vector_baseIP8TestBaseSaIS1_EE17_Vector_impl_dataE", !10, i64 0, !10, i64 8, !10, i64 16}
-!39 = !{!38, !10, i64 8}
-!40 = !{!38, !10, i64 0}
+!21 = distinct !{!21, !20}
+!22 = !{!23, !24, i64 0}
+!23 = !{!"_ZTSN3irr4core8vector3dIfEE", !24, i64 0, !24, i64 4, !24, i64 8}
+!24 = !{!"float", !11, i64 0}
+!25 = !{!23, !24, i64 4}
+!26 = !{!23, !24, i64 8}
+!27 = !{!24, !24, i64 0}
+!28 = distinct !{!28, !20}
+!29 = !{!9, !10, i64 0}
+!30 = !{!12, !12, i64 0}
+!31 = !{!11, !11, i64 0}
+!32 = !{!33, !34, i64 64}
+!33 = !{!"_ZTS19TestFailedException", !8, i64 0, !8, i64 32, !34, i64 64}
+!34 = !{!"int", !11, i64 0}
+!35 = !{!"branch_weights", i32 1, i32 1048575}
+!36 = !{!37, !10, i64 16}
+!37 = !{!"_ZTSNSt12_Vector_baseIP8TestBaseSaIS1_EE17_Vector_impl_dataE", !10, i64 0, !10, i64 8, !10, i64 16}
+!38 = !{!37, !10, i64 8}
+!39 = !{!37, !10, i64 0}

@@ -253,7 +253,7 @@ _ZNK24G1ConcurrentRefineThread13report_activeEPKc.exit3: ; preds = %41, %_ZN26Su
 ._crit_edge:                                      ; preds = %_ZNK24G1ConcurrentRefineThread13report_activeEPKc.exit3, %46, %_ZNK24G1ConcurrentRefineThread13report_activeEPKc.exit
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %2)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %2, ptr noundef nonnull align 8 dereferenceable(40) %13, i64 40, i1 false)
-  %56 = call noundef nonnull align 8 dereferenceable(40) ptr @_ZN23G1ConcurrentRefineStatsmIERKS_(ptr noundef nonnull align 8 dereferenceable(40) %2, ptr noundef nonnull align 8 dereferenceable(40) %4) #9, !noalias !12
+  %56 = call noundef nonnull align 8 dereferenceable(40) ptr @_ZN23G1ConcurrentRefineStatsmIERKS_(ptr noundef nonnull align 8 dereferenceable(40) %2, ptr noundef nonnull align 8 dereferenceable(40) %4) #9, !noalias !11
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %6, ptr noundef nonnull align 8 dereferenceable(40) %56, i64 40, i1 false)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %2)
   %57 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_127ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
@@ -280,7 +280,7 @@ _ZN26SuspendibleThreadSetJoinerD2Ev.exit:         ; preds = %._crit_edge, %58
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 240
   %70 = load ptr, ptr %69, align 8
   %71 = call noundef zeroext i1 %70(ptr noundef nonnull align 8 dereferenceable(1104) %0) #9
-  br i1 %71, label %17, label %._crit_edge9, !llvm.loop !15
+  br i1 %71, label %17, label %._crit_edge9, !llvm.loop !14
 
 ._crit_edge9:                                     ; preds = %_ZN26SuspendibleThreadSetJoinerD2Ev.exit, %1
   %72 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_127ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
@@ -633,7 +633,7 @@ _ZN13MonitorLocker4waitEl.exit:                   ; preds = %.lr.ph
   %7 = tail call noundef zeroext i1 @_ZN7Monitor28wait_without_safepoint_checkEm(ptr noundef nonnull align 8 dereferenceable(104) %2, i64 noundef 0) #9
   %8 = load i8, ptr %3, align 8
   %9 = trunc i8 %8 to i1
-  br i1 %9, label %_ZN13MonitorLockerD2Ev.exit, label %.lr.ph, !llvm.loop !16
+  br i1 %9, label %_ZN13MonitorLockerD2Ev.exit, label %.lr.ph, !llvm.loop !15
 
 _ZN13MonitorLockerD2Ev.exit:                      ; preds = %.lr.ph, %_ZN13MonitorLocker4waitEl.exit, %1
   %10 = tail call noundef zeroext i1 @_ZNK18ConcurrentGCThread16should_terminateEv(ptr noundef nonnull align 8 dereferenceable(918) %0) #9
@@ -990,11 +990,10 @@ attributes #10 = { noreturn nounwind }
 !6 = !{!7}
 !7 = distinct !{!7, !8, !"_Zmi23G1ConcurrentRefineStatsRKS_: argument 0"}
 !8 = distinct !{!8, !"_Zmi23G1ConcurrentRefineStatsRKS_"}
-!9 = distinct !{!9, !10, !11}
+!9 = distinct !{!9, !10}
 !10 = !{!"llvm.loop.mustprogress"}
-!11 = !{!"llvm.loop.estimated_trip_count"}
-!12 = !{!13}
-!13 = distinct !{!13, !14, !"_Zmi23G1ConcurrentRefineStatsRKS_: argument 0"}
-!14 = distinct !{!14, !"_Zmi23G1ConcurrentRefineStatsRKS_"}
-!15 = distinct !{!15, !10, !11}
-!16 = distinct !{!16, !10, !11}
+!11 = !{!12}
+!12 = distinct !{!12, !13, !"_Zmi23G1ConcurrentRefineStatsRKS_: argument 0"}
+!13 = distinct !{!13, !"_Zmi23G1ConcurrentRefineStatsRKS_"}
+!14 = distinct !{!14, !10}
+!15 = distinct !{!15, !10}

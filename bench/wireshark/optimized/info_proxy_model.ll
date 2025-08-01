@@ -613,13 +613,13 @@ define void @_ZNK14InfoProxyModel5indexEiiRK11QModelIndex(ptr dead_on_unwind noa
   br i1 %22, label %23, label %27
 
 23:                                               ; preds = %15
-  store i32 %2, ptr %0, align 8, !alias.scope !9
+  store i32 %2, ptr %0, align 8, !alias.scope !8
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 %3, ptr %24, align 4, !alias.scope !9
+  store i32 %3, ptr %24, align 4, !alias.scope !8
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 0, ptr %25, align 8, !alias.scope !9
+  store i64 0, ptr %25, align 8, !alias.scope !8
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %1, ptr %26, align 8, !alias.scope !9
+  store ptr %1, ptr %26, align 8, !alias.scope !8
   br label %28
 
 .critedge:                                        ; preds = %5
@@ -1693,7 +1693,7 @@ _ZN7QStringC2ERKS_.exit.i:                        ; preds = %59, %49
   %63 = add i64 %62, 1
   store i64 %63, ptr %48, align 8
   %64 = icmp ult ptr %61, %45
-  br i1 %64, label %49, label %_ZN9QtPrivate16QGenericArrayOpsI7QStringE10copyAppendEPKS1_S4_.exit, !llvm.loop !12
+  br i1 %64, label %49, label %_ZN9QtPrivate16QGenericArrayOpsI7QStringE10copyAppendEPKS1_S4_.exit, !llvm.loop !11
 
 65:                                               ; preds = %_ZNK17QArrayDataPointerI7QStringE11needsDetachEv.exit30
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1735,7 +1735,7 @@ _ZN7QStringC2ERKS_.exit.i:                        ; preds = %59, %49
   %86 = add i64 %85, 1
   store i64 %86, ptr %71, align 8
   %87 = icmp ult ptr %84, %68
-  br i1 %87, label %72, label %_ZN9QtPrivate16QGenericArrayOpsI7QStringE10copyAppendEPKS1_S4_.exit, !llvm.loop !13
+  br i1 %87, label %72, label %_ZN9QtPrivate16QGenericArrayOpsI7QStringE10copyAppendEPKS1_S4_.exit, !llvm.loop !12
 
 _ZN9QtPrivate16QGenericArrayOpsI7QStringE10copyAppendEPKS1_S4_.exit: ; preds = %72, %_ZN7QStringC2ERKS_.exit.i, %65, %_ZNK17QArrayDataPointerI7QStringE11needsDetachEv.exit30.thread, %35
   %88 = load ptr, ptr %0, align 8
@@ -2859,11 +2859,10 @@ attributes #18 = { cold noreturn }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = !{!10}
-!10 = distinct !{!10, !11, !"_ZNK18QAbstractItemModel11createIndexEiiPKv: argument 0"}
-!11 = distinct !{!11, !"_ZNK18QAbstractItemModel11createIndexEiiPKv"}
-!12 = distinct !{!12, !7, !8}
-!13 = distinct !{!13, !7, !8}
+!8 = !{!9}
+!9 = distinct !{!9, !10, !"_ZNK18QAbstractItemModel11createIndexEiiPKv: argument 0"}
+!10 = distinct !{!10, !"_ZNK18QAbstractItemModel11createIndexEiiPKv"}
+!11 = distinct !{!11, !7}
+!12 = distinct !{!12, !7}

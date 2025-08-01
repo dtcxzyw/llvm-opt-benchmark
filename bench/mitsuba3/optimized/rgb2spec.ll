@@ -185,7 +185,7 @@ define void @rgb2spec_fetch(ptr noundef readonly captures(none) %0, ptr noundef 
   %.1 = select i1 %41, i32 %.0114128, i32 %42
   %indvars.iv.next135 = add nuw nsw i64 %indvars.iv134, 1
   %exitcond137.not = icmp eq i64 %indvars.iv.next135, 3
-  br i1 %exitcond137.not, label %43, label %.preheader, !llvm.loop !7
+  br i1 %exitcond137.not, label %43, label %.preheader, !llvm.loop !6
 
 43:                                               ; preds = %.preheader
   %44 = zext nneg i32 %.1 to i64
@@ -231,7 +231,7 @@ define void @rgb2spec_fetch(ptr noundef readonly captures(none) %0, ptr noundef 
   %.117.i = select i1 %76, i32 %70, i32 %77
   %.1.i = select i1 %76, i32 %.019.i, i32 %72
   %78 = icmp sgt i32 %.117.i, 0
-  br i1 %78, label %.lr.ph.i, label %rgb2spec_find_interval.exit, !llvm.loop !8
+  br i1 %78, label %.lr.ph.i, label %rgb2spec_find_interval.exit, !llvm.loop !7
 
 rgb2spec_find_interval.exit:                      ; preds = %.lr.ph.i, %43
   %.0.lcssa.i = phi i32 [ 0, %43 ], [ %.1.i, %.lr.ph.i ]
@@ -327,7 +327,7 @@ rgb2spec_find_interval.exit:                      ; preds = %.lr.ph.i, %43
   %160 = add i32 %.0118131, 1
   %indvars.iv.next139 = add nuw nsw i64 %indvars.iv138, 1
   %exitcond141.not = icmp eq i64 %indvars.iv.next139, 3
-  br i1 %exitcond141.not, label %.loopexit, label %107, !llvm.loop !9
+  br i1 %exitcond141.not, label %.loopexit, label %107, !llvm.loop !8
 
 .loopexit:                                        ; preds = %107, %33
   ret void
@@ -500,9 +500,8 @@ attributes #16 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5, !6}
+!4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{!"llvm.loop.estimated_trip_count"}
-!7 = distinct !{!7, !5, !6}
-!8 = distinct !{!8, !5, !6}
-!9 = distinct !{!9, !5, !6}
+!6 = distinct !{!6, !5}
+!7 = distinct !{!7, !5}
+!8 = distinct !{!8, !5}

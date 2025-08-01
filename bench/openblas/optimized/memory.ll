@@ -339,7 +339,7 @@ blas_get_cpu_number.exit:                         ; preds = %12, %8
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 16
   %26 = load volatile i32, ptr %25, align 16, !tbaa !8
   %.not49 = icmp eq i32 %26, 0
-  br i1 %.not49, label %35, label %27
+  br i1 %.not49, label %37, label %27
 
 27:                                               ; preds = %23
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -351,134 +351,134 @@ blas_get_cpu_number.exit:                         ; preds = %12, %8
   br i1 %.b46, label %.preheader56, label %.loopexit58
 
 .preheader56:                                     ; preds = %28
-  %29 = load ptr, ptr @newmemory, align 8, !tbaa !15
-  %invariant.gep = getelementptr i8, ptr %29, i64 -3184
+  %29 = load ptr, ptr @newmemory, align 8, !tbaa !14
   br label %30
 
-30:                                               ; preds = %.preheader56, %32
-  %indvars.iv81 = phi i64 [ 50, %.preheader56 ], [ %indvars.iv.next82, %32 ]
-  %gep = getelementptr %struct.newmemstruct, ptr %invariant.gep, i64 %indvars.iv81
-  %31 = load volatile i32, ptr %gep, align 8, !tbaa !17
-  %.not51 = icmp eq i32 %31, 0
-  br i1 %.not51, label %.loopexit, label %32
+30:                                               ; preds = %.preheader56, %34
+  %indvars.iv81 = phi i64 [ 50, %.preheader56 ], [ %indvars.iv.next82, %34 ]
+  %31 = getelementptr %struct.newmemstruct, ptr %29, i64 %indvars.iv81
+  %32 = getelementptr i8, ptr %31, i64 -3184
+  %33 = load volatile i32, ptr %32, align 8, !tbaa !16
+  %.not51 = icmp eq i32 %33, 0
+  br i1 %.not51, label %.loopexit, label %34
 
-32:                                               ; preds = %30
+34:                                               ; preds = %30
   %indvars.iv.next82 = add nuw nsw i64 %indvars.iv81, 1
   %exitcond84.not = icmp eq i64 %indvars.iv.next82, 562
-  br i1 %exitcond84.not, label %.loopexit58, label %30, !llvm.loop !19
+  br i1 %exitcond84.not, label %.loopexit58, label %30, !llvm.loop !18
 
-.loopexit58:                                      ; preds = %32, %28
-  %.135 = phi i64 [ 50, %28 ], [ 562, %32 ]
-  %33 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @alloc_lock) #15
-  %34 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @alloc_lock) #15
+.loopexit58:                                      ; preds = %34, %28
+  %.135 = phi i64 [ 50, %28 ], [ 562, %34 ]
+  %35 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @alloc_lock) #15
+  %36 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @alloc_lock) #15
   %.b = load i1, ptr @memory_overflowed, align 4
-  br i1 %.b, label %86, label %52
+  br i1 %.b, label %88, label %54
 
-35:                                               ; preds = %23
-  %36 = getelementptr inbounds nuw i8, ptr %24, i64 16
-  store volatile i32 1, ptr %36, align 16, !tbaa !8
-  %37 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @alloc_lock) #15
-  %38 = getelementptr inbounds nuw i8, ptr %24, i64 8
-  %39 = load volatile ptr, ptr %38, align 8, !tbaa !20
-  %.not50 = icmp eq ptr %39, null
-  br i1 %.not50, label %.preheader, label %50
+37:                                               ; preds = %23
+  %38 = getelementptr inbounds nuw i8, ptr %24, i64 16
+  store volatile i32 1, ptr %38, align 16, !tbaa !8
+  %39 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @alloc_lock) #15
+  %40 = getelementptr inbounds nuw i8, ptr %24, i64 8
+  %41 = load volatile ptr, ptr %40, align 8, !tbaa !19
+  %.not50 = icmp eq ptr %41, null
+  br i1 %.not50, label %.preheader, label %52
 
-.preheader:                                       ; preds = %35, %.preheader
-  %40 = phi ptr [ %.mux, %.preheader ], [ @alloc_mmap, %35 ]
-  %.070 = phi ptr [ %.mux106, %.preheader ], [ @__const.blas_memory_alloc.memoryalloc, %35 ]
-  %41 = tail call ptr %40(ptr noundef null) #15
-  %42 = getelementptr inbounds nuw i8, ptr %.070, i64 8
-  %43 = load ptr, ptr %42, align 8, !tbaa !21
-  %44 = icmp ne ptr %43, null
-  %45 = icmp eq ptr %41, inttoptr (i64 -1 to ptr)
-  %46 = and i1 %44, %45
-  %.mux = select i1 %46, ptr %43, ptr @alloc_mmap
-  %.mux106 = select i1 %46, ptr %42, ptr @__const.blas_memory_alloc.memoryalloc
-  br i1 %45, label %.preheader, label %47, !llvm.loop !22
+.preheader:                                       ; preds = %37, %.preheader
+  %42 = phi ptr [ %.mux, %.preheader ], [ @alloc_mmap, %37 ]
+  %.070 = phi ptr [ %.mux106, %.preheader ], [ @__const.blas_memory_alloc.memoryalloc, %37 ]
+  %43 = tail call ptr %42(ptr noundef null) #15
+  %44 = getelementptr inbounds nuw i8, ptr %.070, i64 8
+  %45 = load ptr, ptr %44, align 8, !tbaa !20
+  %46 = icmp ne ptr %45, null
+  %47 = icmp eq ptr %43, inttoptr (i64 -1 to ptr)
+  %48 = and i1 %46, %47
+  %.mux = select i1 %48, ptr %45, ptr @alloc_mmap
+  %.mux106 = select i1 %48, ptr %44, ptr @__const.blas_memory_alloc.memoryalloc
+  br i1 %47, label %.preheader, label %49, !llvm.loop !21
 
-47:                                               ; preds = %.preheader
-  %48 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @alloc_lock) #15
-  store volatile ptr %41, ptr %38, align 8, !tbaa !20
-  %49 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @alloc_lock) #15
-  br label %50
+49:                                               ; preds = %.preheader
+  %50 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @alloc_lock) #15
+  store volatile ptr %43, ptr %40, align 8, !tbaa !19
+  %51 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @alloc_lock) #15
+  br label %52
 
-50:                                               ; preds = %47, %35
-  %51 = load volatile ptr, ptr %38, align 8, !tbaa !20
-  br label %89
+52:                                               ; preds = %49, %37
+  %53 = load volatile ptr, ptr %40, align 8, !tbaa !19
+  br label %91
 
-52:                                               ; preds = %.loopexit58
-  %53 = load ptr, ptr @stderr, align 8, !tbaa !23
-  %54 = tail call i64 @fwrite(ptr nonnull @.str.1, i64 96, i64 1, ptr %53) #16
-  %55 = load ptr, ptr @stderr, align 8, !tbaa !23
-  %56 = tail call i64 @fwrite(ptr nonnull @.str.2, i64 94, i64 1, ptr %55) #16
-  %57 = load ptr, ptr @stderr, align 8, !tbaa !23
-  %58 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %57, ptr noundef nonnull @.str.3, i32 noundef 16) #17
+54:                                               ; preds = %.loopexit58
+  %55 = load ptr, ptr @stderr, align 8, !tbaa !22
+  %56 = tail call i64 @fwrite(ptr nonnull @.str.1, i64 96, i64 1, ptr %55) #16
+  %57 = load ptr, ptr @stderr, align 8, !tbaa !22
+  %58 = tail call i64 @fwrite(ptr nonnull @.str.2, i64 94, i64 1, ptr %57) #16
+  %59 = load ptr, ptr @stderr, align 8, !tbaa !22
+  %60 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %59, ptr noundef nonnull @.str.3, i32 noundef 16) #17
   store i1 true, ptr @memory_overflowed, align 4
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !25
-  %59 = tail call noalias dereferenceable_or_null(12288) ptr @malloc(i64 noundef 12288) #18
-  store ptr %59, ptr @new_release_info, align 8, !tbaa !26
-  %60 = tail call noalias dereferenceable_or_null(32768) ptr @malloc(i64 noundef 32768) #18
-  store ptr %60, ptr @newmemory, align 8, !tbaa !15
-  br label %61
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !24
+  %61 = tail call noalias dereferenceable_or_null(12288) ptr @malloc(i64 noundef 12288) #18
+  store ptr %61, ptr @new_release_info, align 8, !tbaa !25
+  %62 = tail call noalias dereferenceable_or_null(32768) ptr @malloc(i64 noundef 32768) #18
+  store ptr %62, ptr @newmemory, align 8, !tbaa !14
+  br label %63
 
-61:                                               ; preds = %52, %61
-  %indvars.iv85 = phi i64 [ 0, %52 ], [ %indvars.iv.next86, %61 ]
-  %62 = getelementptr inbounds nuw %struct.newmemstruct, ptr %60, i64 %indvars.iv85, i32 1
-  store volatile ptr null, ptr %62, align 8, !tbaa !28
-  %63 = getelementptr inbounds nuw %struct.newmemstruct, ptr %60, i64 %indvars.iv85, i32 2
-  store volatile i32 0, ptr %63, align 8, !tbaa !17
-  %64 = getelementptr inbounds nuw %struct.newmemstruct, ptr %60, i64 %indvars.iv85
-  store volatile i64 0, ptr %64, align 8, !tbaa !29
+63:                                               ; preds = %54, %63
+  %indvars.iv85 = phi i64 [ 0, %54 ], [ %indvars.iv.next86, %63 ]
+  %64 = getelementptr inbounds nuw %struct.newmemstruct, ptr %62, i64 %indvars.iv85, i32 1
+  store volatile ptr null, ptr %64, align 8, !tbaa !27
+  %65 = getelementptr inbounds nuw %struct.newmemstruct, ptr %62, i64 %indvars.iv85, i32 2
+  store volatile i32 0, ptr %65, align 8, !tbaa !16
+  %66 = getelementptr inbounds nuw %struct.newmemstruct, ptr %62, i64 %indvars.iv85
+  store volatile i64 0, ptr %66, align 8, !tbaa !28
   %indvars.iv.next86 = add nuw nsw i64 %indvars.iv85, 1
   %exitcond88.not = icmp eq i64 %indvars.iv.next86, 512
-  br i1 %exitcond88.not, label %.loopexit, label %61, !llvm.loop !30
+  br i1 %exitcond88.not, label %.loopexit, label %63, !llvm.loop !29
 
-.loopexit:                                        ; preds = %30, %61
-  %65 = phi ptr [ %60, %61 ], [ %29, %30 ]
-  %.3 = phi i64 [ %.135, %61 ], [ %indvars.iv81, %30 ]
-  %66 = add i64 %.3, 4294967246
-  %67 = and i64 %66, 4294967295
-  %68 = getelementptr inbounds nuw %struct.newmemstruct, ptr %65, i64 %67, i32 2
-  store volatile i32 1, ptr %68, align 8, !tbaa !17
-  %69 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @alloc_lock) #15
-  br label %70
+.loopexit:                                        ; preds = %30, %63
+  %67 = phi ptr [ %62, %63 ], [ %29, %30 ]
+  %.3 = phi i64 [ %.135, %63 ], [ %indvars.iv81, %30 ]
+  %68 = add i64 %.3, 4294967246
+  %69 = and i64 %68, 4294967295
+  %70 = getelementptr inbounds nuw %struct.newmemstruct, ptr %67, i64 %69, i32 2
+  store volatile i32 1, ptr %70, align 8, !tbaa !16
+  %71 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @alloc_lock) #15
+  br label %72
 
-70:                                               ; preds = %70, %.loopexit
-  %71 = phi ptr [ %.mux108, %70 ], [ @alloc_mmap, %.loopexit ]
-  %.169 = phi ptr [ %.mux109, %70 ], [ @__const.blas_memory_alloc.memoryalloc, %.loopexit ]
-  %72 = tail call ptr %71(ptr noundef null) #15
-  %73 = getelementptr inbounds nuw i8, ptr %.169, i64 8
-  %74 = load ptr, ptr %73, align 8, !tbaa !21
-  %75 = icmp ne ptr %74, null
-  %76 = icmp eq ptr %72, inttoptr (i64 -1 to ptr)
-  %77 = and i1 %75, %76
-  %.mux108 = select i1 %77, ptr %74, ptr @alloc_mmap
-  %.mux109 = select i1 %77, ptr %73, ptr @__const.blas_memory_alloc.memoryalloc
-  br i1 %76, label %70, label %78, !llvm.loop !31
+72:                                               ; preds = %72, %.loopexit
+  %73 = phi ptr [ %.mux108, %72 ], [ @alloc_mmap, %.loopexit ]
+  %.169 = phi ptr [ %.mux109, %72 ], [ @__const.blas_memory_alloc.memoryalloc, %.loopexit ]
+  %74 = tail call ptr %73(ptr noundef null) #15
+  %75 = getelementptr inbounds nuw i8, ptr %.169, i64 8
+  %76 = load ptr, ptr %75, align 8, !tbaa !20
+  %77 = icmp ne ptr %76, null
+  %78 = icmp eq ptr %74, inttoptr (i64 -1 to ptr)
+  %79 = and i1 %77, %78
+  %.mux108 = select i1 %79, ptr %76, ptr @alloc_mmap
+  %.mux109 = select i1 %79, ptr %75, ptr @__const.blas_memory_alloc.memoryalloc
+  br i1 %78, label %72, label %80, !llvm.loop !30
 
-78:                                               ; preds = %70
-  %79 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @alloc_lock) #15
-  %80 = load ptr, ptr @newmemory, align 8, !tbaa !15
-  %81 = getelementptr inbounds nuw %struct.newmemstruct, ptr %80, i64 %67, i32 1
-  store volatile ptr %72, ptr %81, align 8, !tbaa !28
-  %82 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @alloc_lock) #15
-  %83 = load ptr, ptr @newmemory, align 8, !tbaa !15
-  %84 = getelementptr inbounds nuw %struct.newmemstruct, ptr %83, i64 %67, i32 1
-  %85 = load volatile ptr, ptr %84, align 8, !tbaa !28
-  br label %89
+80:                                               ; preds = %72
+  %81 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @alloc_lock) #15
+  %82 = load ptr, ptr @newmemory, align 8, !tbaa !14
+  %83 = getelementptr inbounds nuw %struct.newmemstruct, ptr %82, i64 %69, i32 1
+  store volatile ptr %74, ptr %83, align 8, !tbaa !27
+  %84 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @alloc_lock) #15
+  %85 = load ptr, ptr @newmemory, align 8, !tbaa !14
+  %86 = getelementptr inbounds nuw %struct.newmemstruct, ptr %85, i64 %69, i32 1
+  %87 = load volatile ptr, ptr %86, align 8, !tbaa !27
+  br label %91
 
-86:                                               ; preds = %.loopexit58
-  %87 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @alloc_lock) #15
+88:                                               ; preds = %.loopexit58
+  %89 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @alloc_lock) #15
   %puts = tail call i32 @puts(ptr nonnull dereferenceable(1) @str)
-  %88 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.5, i32 noundef 50)
+  %90 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.5, i32 noundef 50)
   %puts52 = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.1)
   %puts53 = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.2)
   %puts54 = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.3)
   %puts55 = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.4)
-  br label %89
+  br label %91
 
-89:                                               ; preds = %86, %78, %50
-  %.037 = phi ptr [ null, %86 ], [ %85, %78 ], [ %51, %50 ]
+91:                                               ; preds = %88, %80, %52
+  %.037 = phi ptr [ null, %88 ], [ %87, %80 ], [ %53, %52 ]
   ret ptr %.037
 }
 
@@ -504,24 +504,24 @@ define internal ptr @alloc_mmap(ptr noundef %0) #0 {
   %8 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @alloc_lock) #15
   %9 = load i32, ptr @release_pos, align 4, !tbaa !3
   %10 = icmp slt i32 %9, 50
-  br i1 %10, label %11, label %15, !prof !32
+  br i1 %10, label %11, label %15, !prof !31
 
 11:                                               ; preds = %7
   %12 = sext i32 %9 to i64
   %13 = getelementptr inbounds [50 x %struct.release_t], ptr @release_info, i64 0, i64 %12
-  store ptr %.0, ptr %13, align 8, !tbaa !33
+  store ptr %.0, ptr %13, align 8, !tbaa !32
   %14 = getelementptr inbounds [50 x %struct.release_t], ptr @release_info, i64 0, i64 %12, i32 1
-  store ptr @alloc_mmap_free, ptr %14, align 8, !tbaa !35
+  store ptr @alloc_mmap_free, ptr %14, align 8, !tbaa !34
   br label %.split
 
 15:                                               ; preds = %7
-  %16 = load ptr, ptr @new_release_info, align 8, !tbaa !26
+  %16 = load ptr, ptr @new_release_info, align 8, !tbaa !25
   %17 = zext nneg i32 %9 to i64
   %18 = getelementptr %struct.release_t, ptr %16, i64 %17
   %19 = getelementptr i8, ptr %18, i64 -1200
-  store ptr %.0, ptr %19, align 8, !tbaa !33
+  store ptr %.0, ptr %19, align 8, !tbaa !32
   %20 = getelementptr i8, ptr %18, i64 -1192
-  store ptr @alloc_mmap_free, ptr %20, align 8, !tbaa !35
+  store ptr @alloc_mmap_free, ptr %20, align 8, !tbaa !34
   br label %.split
 
 .split:                                           ; preds = %15, %11
@@ -547,24 +547,24 @@ define internal noundef nonnull ptr @alloc_malloc(ptr readnone captures(none) %0
 4:                                                ; preds = %1
   %5 = load i32, ptr @release_pos, align 4, !tbaa !3
   %6 = icmp slt i32 %5, 50
-  br i1 %6, label %7, label %11, !prof !32
+  br i1 %6, label %7, label %11, !prof !31
 
 7:                                                ; preds = %4
   %8 = sext i32 %5 to i64
   %9 = getelementptr inbounds [50 x %struct.release_t], ptr @release_info, i64 0, i64 %8
-  store ptr %spec.store.select, ptr %9, align 8, !tbaa !33
+  store ptr %spec.store.select, ptr %9, align 8, !tbaa !32
   %10 = getelementptr inbounds [50 x %struct.release_t], ptr @release_info, i64 0, i64 %8, i32 1
-  store ptr @alloc_malloc_free, ptr %10, align 8, !tbaa !35
+  store ptr @alloc_malloc_free, ptr %10, align 8, !tbaa !34
   br label %17
 
 11:                                               ; preds = %4
-  %12 = load ptr, ptr @new_release_info, align 8, !tbaa !26
+  %12 = load ptr, ptr @new_release_info, align 8, !tbaa !25
   %13 = zext nneg i32 %5 to i64
   %14 = getelementptr %struct.release_t, ptr %12, i64 %13
   %15 = getelementptr i8, ptr %14, i64 -1200
-  store ptr %spec.store.select, ptr %15, align 8, !tbaa !33
+  store ptr %spec.store.select, ptr %15, align 8, !tbaa !32
   %16 = getelementptr i8, ptr %14, i64 -1192
-  store ptr @alloc_malloc_free, ptr %16, align 8, !tbaa !35
+  store ptr @alloc_malloc_free, ptr %16, align 8, !tbaa !34
   br label %17
 
 17:                                               ; preds = %11, %7
@@ -601,63 +601,63 @@ define void @blas_memory_free(ptr noundef %0) local_unnamed_addr #0 {
 3:                                                ; preds = %1, %6
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %6 ]
   %4 = getelementptr inbounds nuw [50 x %struct.anon], ptr @memory, i64 0, i64 %indvars.iv, i32 1
-  %5 = load volatile ptr, ptr %4, align 8, !tbaa !20
+  %5 = load volatile ptr, ptr %4, align 8, !tbaa !19
   %.not = icmp eq ptr %5, %0
   br i1 %.not, label %.thread, label %6
 
 6:                                                ; preds = %3
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 50
-  br i1 %exitcond.not, label %.critedge, label %3, !llvm.loop !36
+  br i1 %exitcond.not, label %.critedge, label %3, !llvm.loop !35
 
 .critedge:                                        ; preds = %6
   %.b = load i1, ptr @memory_overflowed, align 4
-  br i1 %.b, label %.lr.ph, label %18
+  br i1 %.b, label %.lr.ph, label %20
 
 .lr.ph:                                           ; preds = %.critedge
-  %7 = load ptr, ptr @newmemory, align 8, !tbaa !15
-  %invariant.gep = getelementptr i8, ptr %7, i64 -3192
+  %7 = load ptr, ptr @newmemory, align 8, !tbaa !14
   br label %8
 
-.critedge3.thread:                                ; preds = %10
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !37
-  br label %18
+.critedge3.thread:                                ; preds = %12
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !36
+  br label %20
 
-8:                                                ; preds = %.lr.ph, %10
-  %indvars.iv31 = phi i64 [ 50, %.lr.ph ], [ %indvars.iv.next32, %10 ]
-  %gep = getelementptr %struct.newmemstruct, ptr %invariant.gep, i64 %indvars.iv31
-  %9 = load volatile ptr, ptr %gep, align 8, !tbaa !28
-  %.not18 = icmp eq ptr %9, %0
-  br i1 %.not18, label %11, label %10
+8:                                                ; preds = %.lr.ph, %12
+  %indvars.iv31 = phi i64 [ 50, %.lr.ph ], [ %indvars.iv.next32, %12 ]
+  %9 = getelementptr %struct.newmemstruct, ptr %7, i64 %indvars.iv31
+  %10 = getelementptr i8, ptr %9, i64 -3192
+  %11 = load volatile ptr, ptr %10, align 8, !tbaa !27
+  %.not18 = icmp eq ptr %11, %0
+  br i1 %.not18, label %13, label %12
 
-10:                                               ; preds = %8
+12:                                               ; preds = %8
   %indvars.iv.next32 = add nuw nsw i64 %indvars.iv31, 1
   %exitcond34.not = icmp eq i64 %indvars.iv.next32, 562
-  br i1 %exitcond34.not, label %.critedge3.thread, label %8, !llvm.loop !38
+  br i1 %exitcond34.not, label %.critedge3.thread, label %8, !llvm.loop !37
 
-11:                                               ; preds = %8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !37
-  %12 = load ptr, ptr @newmemory, align 8, !tbaa !15
-  %13 = and i64 %indvars.iv31, 4294967295
-  %14 = getelementptr %struct.newmemstruct, ptr %12, i64 %13
-  %15 = getelementptr i8, ptr %14, i64 -3184
-  store volatile i32 0, ptr %15, align 8, !tbaa !17
-  br label %20
+13:                                               ; preds = %8
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !36
+  %14 = load ptr, ptr @newmemory, align 8, !tbaa !14
+  %15 = and i64 %indvars.iv31, 4294967295
+  %16 = getelementptr %struct.newmemstruct, ptr %14, i64 %15
+  %17 = getelementptr i8, ptr %16, i64 -3184
+  store volatile i32 0, ptr %17, align 8, !tbaa !16
+  br label %22
 
 .thread:                                          ; preds = %3
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !39
-  %16 = and i64 %indvars.iv, 4294967295
-  %17 = getelementptr inbounds nuw [50 x %struct.anon], ptr @memory, i64 0, i64 %16, i32 2
-  store volatile i32 0, ptr %17, align 16, !tbaa !8
-  br label %20
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !38
+  %18 = and i64 %indvars.iv, 4294967295
+  %19 = getelementptr inbounds nuw [50 x %struct.anon], ptr @memory, i64 0, i64 %18, i32 2
+  store volatile i32 0, ptr %19, align 16, !tbaa !8
+  br label %22
 
-18:                                               ; preds = %.critedge3.thread, %.critedge
+20:                                               ; preds = %.critedge3.thread, %.critedge
   %.1 = phi i32 [ 50, %.critedge ], [ 562, %.critedge3.thread ]
-  %19 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.10, i32 noundef %.1, ptr noundef %0)
-  br label %20
+  %21 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.10, i32 noundef %.1, ptr noundef %0)
+  br label %22
 
-20:                                               ; preds = %18, %.thread, %11
-  %21 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @alloc_lock) #15
+22:                                               ; preds = %20, %.thread, %13
+  %23 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @alloc_lock) #15
   ret void
 }
 
@@ -687,21 +687,21 @@ define void @blas_shutdown() local_unnamed_addr #0 {
 .lr.ph:                                           ; preds = %0, %16
   %indvars.iv = phi i64 [ %indvars.iv.next, %16 ], [ 0, %0 ]
   %5 = icmp samesign ult i64 %indvars.iv, 50
-  br i1 %5, label %6, label %10, !prof !32
+  br i1 %5, label %6, label %10, !prof !31
 
 6:                                                ; preds = %.lr.ph
   %7 = getelementptr inbounds nuw [50 x %struct.release_t], ptr @release_info, i64 0, i64 %indvars.iv
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %9 = load ptr, ptr %8, align 8, !tbaa !35
+  %9 = load ptr, ptr %8, align 8, !tbaa !34
   tail call void %9(ptr noundef nonnull %7) #15
   br label %16
 
 10:                                               ; preds = %.lr.ph
-  %11 = load ptr, ptr @new_release_info, align 8, !tbaa !26
+  %11 = load ptr, ptr @new_release_info, align 8, !tbaa !25
   %12 = getelementptr %struct.release_t, ptr %11, i64 %indvars.iv
   %13 = getelementptr i8, ptr %12, i64 -1200
   %14 = getelementptr i8, ptr %12, i64 -1192
-  %15 = load ptr, ptr %14, align 8, !tbaa !35
+  %15 = load ptr, ptr %14, align 8, !tbaa !34
   tail call void %15(ptr noundef %13) #15
   br label %16
 
@@ -710,7 +710,7 @@ define void @blas_shutdown() local_unnamed_addr #0 {
   %17 = load i32, ptr @release_pos, align 4, !tbaa !3
   %18 = sext i32 %17 to i64
   %19 = icmp slt i64 %indvars.iv.next, %18
-  br i1 %19, label %.lr.ph, label %.preheader17.preheader, !llvm.loop !40
+  br i1 %19, label %.lr.ph, label %.preheader17.preheader, !llvm.loop !39
 
 .preheader17.preheader:                           ; preds = %16, %0
   br label %.preheader17
@@ -719,37 +719,37 @@ define void @blas_shutdown() local_unnamed_addr #0 {
   %indvars.iv22 = phi i64 [ %indvars.iv.next23, %.preheader17 ], [ 0, %.preheader17.preheader ]
   %20 = getelementptr inbounds nuw [50 x %struct.anon], ptr @memory, i64 0, i64 %indvars.iv22
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
-  store volatile ptr null, ptr %21, align 8, !tbaa !20
+  store volatile ptr null, ptr %21, align 8, !tbaa !19
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 16
   store volatile i32 0, ptr %22, align 16, !tbaa !8
-  store volatile i64 0, ptr %20, align 16, !tbaa !41
+  store volatile i64 0, ptr %20, align 16, !tbaa !40
   %indvars.iv.next23 = add nuw nsw i64 %indvars.iv22, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next23, 50
-  br i1 %exitcond.not, label %23, label %.preheader17, !llvm.loop !42
+  br i1 %exitcond.not, label %23, label %.preheader17, !llvm.loop !41
 
 23:                                               ; preds = %.preheader17
   %.b = load i1, ptr @memory_overflowed, align 4
   br i1 %.b, label %.preheader, label %30
 
 .preheader:                                       ; preds = %23
-  %24 = load ptr, ptr @newmemory, align 8, !tbaa !15
+  %24 = load ptr, ptr @newmemory, align 8, !tbaa !14
   br label %25
 
 25:                                               ; preds = %.preheader, %25
   %indvars.iv25 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next26, %25 ]
   %26 = getelementptr inbounds nuw %struct.newmemstruct, ptr %24, i64 %indvars.iv25, i32 1
-  store volatile ptr null, ptr %26, align 8, !tbaa !28
+  store volatile ptr null, ptr %26, align 8, !tbaa !27
   %27 = getelementptr inbounds nuw %struct.newmemstruct, ptr %24, i64 %indvars.iv25, i32 2
-  store volatile i32 0, ptr %27, align 8, !tbaa !17
+  store volatile i32 0, ptr %27, align 8, !tbaa !16
   %28 = getelementptr inbounds nuw %struct.newmemstruct, ptr %24, i64 %indvars.iv25
-  store volatile i64 0, ptr %28, align 8, !tbaa !29
+  store volatile i64 0, ptr %28, align 8, !tbaa !28
   %indvars.iv.next26 = add nuw nsw i64 %indvars.iv25, 1
   %exitcond28.not = icmp eq i64 %indvars.iv.next26, 512
-  br i1 %exitcond28.not, label %29, label %25, !llvm.loop !43
+  br i1 %exitcond28.not, label %29, label %25, !llvm.loop !42
 
 29:                                               ; preds = %25
   tail call void @free(ptr noundef nonnull %24) #15
-  store ptr null, ptr @newmemory, align 8, !tbaa !15
+  store ptr null, ptr @newmemory, align 8, !tbaa !14
   store i1 false, ptr @memory_overflowed, align 4
   br label %30
 
@@ -850,7 +850,7 @@ declare ptr @mmap(ptr noundef, i64 noundef, i32 noundef, i32 noundef, i32 nounde
 
 ; Function Attrs: nounwind uwtable
 define internal void @alloc_mmap_free(ptr noundef readonly captures(none) %0) #0 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !33
+  %2 = load ptr, ptr %0, align 8, !tbaa !32
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %10, label %3
 
@@ -863,7 +863,7 @@ define internal void @alloc_mmap_free(ptr noundef readonly captures(none) %0) #0
   %6 = tail call ptr @__errno_location() #19
   %7 = load i32, ptr %6, align 4, !tbaa !3
   tail call void @perror(ptr noundef nonnull @.str.11) #16
-  %8 = load ptr, ptr %0, align 8, !tbaa !33
+  %8 = load ptr, ptr %0, align 8, !tbaa !32
   %9 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.12, i32 noundef %7, ptr noundef %8)
   br label %10
 
@@ -885,7 +885,7 @@ declare i64 @syscall(i64 noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
 define internal void @alloc_malloc_free(ptr noundef readonly captures(none) %0) #12 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !33
+  %2 = load ptr, ptr %0, align 8, !tbaa !32
   tail call void @free(ptr noundef %2) #15
   ret void
 }
@@ -937,35 +937,34 @@ attributes #19 = { nounwind willreturn memory(none) }
 !9 = !{!"", !10, i64 0, !11, i64 8, !4, i64 16, !5, i64 20}
 !10 = !{!"long", !5, i64 0}
 !11 = !{!"any pointer", !5, i64 0}
-!12 = distinct !{!12, !13, !14}
+!12 = distinct !{!12, !13}
 !13 = !{!"llvm.loop.mustprogress"}
-!14 = !{!"llvm.loop.estimated_trip_count"}
-!15 = !{!16, !16, i64 0}
-!16 = !{!"p1 _ZTS12newmemstruct", !11, i64 0}
-!17 = !{!18, !4, i64 16}
-!18 = !{!"newmemstruct", !10, i64 0, !11, i64 8, !4, i64 16, !5, i64 20}
-!19 = distinct !{!19, !13, !14}
-!20 = !{!9, !11, i64 8}
-!21 = !{!11, !11, i64 0}
-!22 = distinct !{!22, !13, !14}
-!23 = !{!24, !24, i64 0}
-!24 = !{!"p1 _ZTS8_IO_FILE", !11, i64 0}
-!25 = !{i64 2150313993}
-!26 = !{!27, !27, i64 0}
-!27 = !{!"p1 _ZTS9release_t", !11, i64 0}
-!28 = !{!18, !11, i64 8}
-!29 = !{!18, !10, i64 0}
-!30 = distinct !{!30, !13, !14}
-!31 = distinct !{!31, !13, !14}
-!32 = !{!"branch_weights", !"expected", i32 2000, i32 1}
-!33 = !{!34, !11, i64 0}
-!34 = !{!"release_t", !11, i64 0, !11, i64 8, !10, i64 16}
-!35 = !{!34, !11, i64 8}
-!36 = distinct !{!36, !13, !14}
-!37 = !{i64 2150315312}
-!38 = distinct !{!38, !13, !14}
-!39 = !{i64 2150315614}
-!40 = distinct !{!40, !13, !14}
-!41 = !{!9, !10, i64 0}
-!42 = distinct !{!42, !13, !14}
-!43 = distinct !{!43, !13, !14}
+!14 = !{!15, !15, i64 0}
+!15 = !{!"p1 _ZTS12newmemstruct", !11, i64 0}
+!16 = !{!17, !4, i64 16}
+!17 = !{!"newmemstruct", !10, i64 0, !11, i64 8, !4, i64 16, !5, i64 20}
+!18 = distinct !{!18, !13}
+!19 = !{!9, !11, i64 8}
+!20 = !{!11, !11, i64 0}
+!21 = distinct !{!21, !13}
+!22 = !{!23, !23, i64 0}
+!23 = !{!"p1 _ZTS8_IO_FILE", !11, i64 0}
+!24 = !{i64 2150313993}
+!25 = !{!26, !26, i64 0}
+!26 = !{!"p1 _ZTS9release_t", !11, i64 0}
+!27 = !{!17, !11, i64 8}
+!28 = !{!17, !10, i64 0}
+!29 = distinct !{!29, !13}
+!30 = distinct !{!30, !13}
+!31 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!32 = !{!33, !11, i64 0}
+!33 = !{!"release_t", !11, i64 0, !11, i64 8, !10, i64 16}
+!34 = !{!33, !11, i64 8}
+!35 = distinct !{!35, !13}
+!36 = !{i64 2150315312}
+!37 = distinct !{!37, !13}
+!38 = !{i64 2150315614}
+!39 = distinct !{!39, !13}
+!40 = !{!9, !10, i64 0}
+!41 = distinct !{!41, !13}
+!42 = distinct !{!42, !13}

@@ -131,7 +131,7 @@ define noundef range(i32 -1, 1) i32 @_ZN3zmq15socket_poller_t7rebuildEv(ptr noun
 
 34:                                               ; preds = %30
   %35 = tail call ptr @__errno_location() #26
-  store i32 12, ptr %35, align 4, !tbaa !33
+  store i32 12, ptr %35, align 4, !tbaa !32
   store i8 1, ptr %5, align 8, !tbaa !21
   br label %.loopexit
 
@@ -142,12 +142,12 @@ define noundef range(i32 -1, 1) i32 @_ZN3zmq15socket_poller_t7rebuildEv(ptr noun
 
 39:                                               ; preds = %36
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %41 = load ptr, ptr %40, align 8, !tbaa !34
+  %41 = load ptr, ptr %40, align 8, !tbaa !33
   %42 = tail call noundef i32 @_ZNK3zmq10signaler_t6get_fdEv(ptr noundef nonnull align 4 dereferenceable(12) %41)
   %43 = load ptr, ptr %6, align 8, !tbaa !17
-  store i32 %42, ptr %43, align 4, !tbaa !35
+  store i32 %42, ptr %43, align 4, !tbaa !34
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 4
-  store i16 1, ptr %44, align 4, !tbaa !37
+  store i16 1, ptr %44, align 4, !tbaa !36
   br label %45
 
 45:                                               ; preds = %39, %36
@@ -176,19 +176,19 @@ define noundef range(i32 -1, 1) i32 @_ZN3zmq15socket_poller_t7rebuildEv(ptr noun
 
 54:                                               ; preds = %52
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #24
-  store i64 4, ptr %2, align 8, !tbaa !38
+  store i64 4, ptr %2, align 8, !tbaa !37
   %55 = load ptr, ptr %.sroa.021.043, align 8, !tbaa !27
   %56 = load ptr, ptr %6, align 8, !tbaa !17
   %57 = sext i32 %.144 to i64
   %58 = getelementptr inbounds %struct.pollfd, ptr %56, i64 %57
   %59 = call noundef i32 @_ZN3zmq13socket_base_t10getsockoptEiPvPm(ptr noundef nonnull align 8 dereferenceable(1825) %55, i32 noundef 14, ptr noundef %58, ptr noundef nonnull %2)
   %.not18 = icmp eq i32 %59, 0
-  br i1 %.not18, label %65, label %60, !prof !40
+  br i1 %.not18, label %65, label %60, !prof !39
 
 60:                                               ; preds = %54
-  %61 = load ptr, ptr @stderr, align 8, !tbaa !41
+  %61 = load ptr, ptr @stderr, align 8, !tbaa !40
   %62 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %61, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 288) #27
-  %63 = load ptr, ptr @stderr, align 8, !tbaa !41
+  %63 = load ptr, ptr @stderr, align 8, !tbaa !40
   %64 = call i32 @fflush(ptr noundef %63)
   call void @_ZN3zmq9zmq_abortEPKc(ptr noundef nonnull @.str.1)
   br label %65
@@ -196,18 +196,18 @@ define noundef range(i32 -1, 1) i32 @_ZN3zmq15socket_poller_t7rebuildEv(ptr noun
 65:                                               ; preds = %60, %54
   %66 = load ptr, ptr %6, align 8, !tbaa !17
   %67 = getelementptr inbounds %struct.pollfd, ptr %66, i64 %57, i32 1
-  store i16 1, ptr %67, align 4, !tbaa !37
+  store i16 1, ptr %67, align 4, !tbaa !36
   %68 = add nsw i32 %.144, 1
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #24
   br label %85
 
 69:                                               ; preds = %50
   %70 = getelementptr inbounds nuw i8, ptr %.sroa.021.043, i64 8
-  %71 = load i32, ptr %70, align 8, !tbaa !43
+  %71 = load i32, ptr %70, align 8, !tbaa !42
   %72 = load ptr, ptr %6, align 8, !tbaa !17
   %73 = sext i32 %.144 to i64
   %74 = getelementptr inbounds %struct.pollfd, ptr %72, i64 %73
-  store i32 %71, ptr %74, align 4, !tbaa !35
+  store i32 %71, ptr %74, align 4, !tbaa !34
   %75 = and i16 %49, 1
   %76 = shl i16 %49, 1
   %77 = and i16 %76, 4
@@ -216,9 +216,9 @@ define noundef range(i32 -1, 1) i32 @_ZN3zmq15socket_poller_t7rebuildEv(ptr noun
   %80 = and i16 %79, 2
   %81 = or disjoint i16 %78, %80
   %82 = getelementptr inbounds %struct.pollfd, ptr %72, i64 %73, i32 1
-  store i16 %81, ptr %82, align 4, !tbaa !37
+  store i16 %81, ptr %82, align 4, !tbaa !36
   %83 = getelementptr inbounds nuw i8, ptr %.sroa.021.043, i64 28
-  store i32 %.144, ptr %83, align 4, !tbaa !44
+  store i32 %.144, ptr %83, align 4, !tbaa !43
   %84 = add nsw i32 %.144, 1
   br label %85
 
@@ -226,7 +226,7 @@ define noundef range(i32 -1, 1) i32 @_ZN3zmq15socket_poller_t7rebuildEv(ptr noun
   %.2 = phi i32 [ %.144, %52 ], [ %68, %65 ], [ %84, %69 ], [ %.144, %.lr.ph46 ]
   %86 = getelementptr inbounds nuw i8, ptr %.sroa.021.043, i64 32
   %.not39 = icmp eq ptr %86, %47
-  br i1 %.not39, label %.loopexit, label %.lr.ph46, !llvm.loop !45
+  br i1 %.not39, label %.loopexit, label %.lr.ph46, !llvm.loop !44
 
 .loopexit:                                        ; preds = %85, %45, %._crit_edge, %34
   %.0 = phi i32 [ -1, %34 ], [ 0, %._crit_edge ], [ 0, %45 ], [ 0, %85 ]
@@ -251,7 +251,7 @@ define void @_ZN3zmq15socket_poller_tD2Ev(ptr noundef nonnull align 8 captures(n
 
 ._crit_edge:                                      ; preds = %20, %1
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %8 = load ptr, ptr %7, align 8, !tbaa !34
+  %8 = load ptr, ptr %7, align 8, !tbaa !33
   %.not = icmp eq ptr %8, null
   br i1 %.not, label %23, label %22
 
@@ -278,19 +278,19 @@ _ZL14is_thread_safeRKN3zmq13socket_base_tE.exit:  ; preds = %14
 
 17:                                               ; preds = %_ZL14is_thread_safeRKN3zmq13socket_base_tE.exit
   %18 = load ptr, ptr %.sroa.04.012, align 8, !tbaa !27
-  %19 = load ptr, ptr %6, align 8, !tbaa !34
+  %19 = load ptr, ptr %6, align 8, !tbaa !33
   invoke void @_ZN3zmq13socket_base_t15remove_signalerEPNS_10signaler_tE(ptr noundef nonnull align 8 dereferenceable(1825) %18, ptr noundef %19)
           to label %20 unwind label %30
 
 20:                                               ; preds = %9, %13, %_ZL14is_thread_safeRKN3zmq13socket_base_tE.exit, %17
   %21 = getelementptr inbounds nuw i8, ptr %.sroa.04.012, i64 32
   %.not10 = icmp eq ptr %21, %5
-  br i1 %.not10, label %._crit_edge, label %9, !llvm.loop !46
+  br i1 %.not10, label %._crit_edge, label %9, !llvm.loop !45
 
 22:                                               ; preds = %._crit_edge
   tail call void @_ZN3zmq10signaler_tD1Ev(ptr noundef nonnull align 4 dereferenceable(12) %8) #24
   tail call void @_ZdlPv(ptr noundef nonnull %8) #23
-  store ptr null, ptr %7, align 8, !tbaa !34
+  store ptr null, ptr %7, align 8, !tbaa !33
   br label %23
 
 23:                                               ; preds = %22, %._crit_edge
@@ -365,18 +365,18 @@ define noundef zeroext i1 @_ZNK3zmq15socket_poller_t9check_tagEv(ptr noundef non
 ; Function Attrs: mustprogress uwtable
 define noundef range(i32 -1, 1) i32 @_ZNK3zmq15socket_poller_t11signaler_fdEPi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !tbaa !34
+  %4 = load ptr, ptr %3, align 8, !tbaa !33
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %7, label %5
 
 5:                                                ; preds = %2
   %6 = tail call noundef i32 @_ZNK3zmq10signaler_t6get_fdEv(ptr noundef nonnull align 4 dereferenceable(12) %4)
-  store i32 %6, ptr %1, align 4, !tbaa !33
+  store i32 %6, ptr %1, align 4, !tbaa !32
   br label %9
 
 7:                                                ; preds = %2
   %8 = tail call ptr @__errno_location() #26
-  store i32 22, ptr %8, align 4, !tbaa !33
+  store i32 22, ptr %8, align 4, !tbaa !32
   br label %9
 
 9:                                                ; preds = %7, %5
@@ -407,7 +407,7 @@ define noundef range(i32 -1, 1) i32 @_ZN3zmq15socket_poller_t3addEPNS_13socket_b
 11:                                               ; preds = %.lr.ph.i
   %12 = getelementptr inbounds nuw i8, ptr %.sroa.01.05.i, i64 32
   %.not.i = icmp eq ptr %12, %8
-  br i1 %.not.i, label %_ZL8find_if2IN9__gnu_cxx17__normal_iteratorIPN3zmq15socket_poller_t6item_tESt6vectorIS4_SaIS4_EEEEPNS2_13socket_base_tEPFbRKS4_PKSA_EET_SI_SI_RKT0_T1_.exit.thread, label %.lr.ph.i, !llvm.loop !47
+  br i1 %.not.i, label %_ZL8find_if2IN9__gnu_cxx17__normal_iteratorIPN3zmq15socket_poller_t6item_tESt6vectorIS4_SaIS4_EEEEPNS2_13socket_base_tEPFbRKS4_PKSA_EET_SI_SI_RKT0_T1_.exit.thread, label %.lr.ph.i, !llvm.loop !46
 
 _ZL8find_if2IN9__gnu_cxx17__normal_iteratorIPN3zmq15socket_poller_t6item_tESt6vectorIS4_SaIS4_EEEEPNS2_13socket_base_tEPFbRKS4_PKSA_EET_SI_SI_RKT0_T1_.exit: ; preds = %.lr.ph.i
   %13 = icmp eq ptr %.sroa.01.05.i, %8
@@ -415,7 +415,7 @@ _ZL8find_if2IN9__gnu_cxx17__normal_iteratorIPN3zmq15socket_poller_t6item_tESt6ve
 
 14:                                               ; preds = %_ZL8find_if2IN9__gnu_cxx17__normal_iteratorIPN3zmq15socket_poller_t6item_tESt6vectorIS4_SaIS4_EEEEPNS2_13socket_base_tEPFbRKS4_PKSA_EET_SI_SI_RKT0_T1_.exit
   %15 = tail call ptr @__errno_location() #26
-  store i32 22, ptr %15, align 4, !tbaa !33
+  store i32 22, ptr %15, align 4, !tbaa !32
   br label %75
 
 _ZL8find_if2IN9__gnu_cxx17__normal_iteratorIPN3zmq15socket_poller_t6item_tESt6vectorIS4_SaIS4_EEEEPNS2_13socket_base_tEPFbRKS4_PKSA_EET_SI_SI_RKT0_T1_.exit.thread: ; preds = %11, %4, %_ZL8find_if2IN9__gnu_cxx17__normal_iteratorIPN3zmq15socket_poller_t6item_tESt6vectorIS4_SaIS4_EEEEPNS2_13socket_base_tEPFbRKS4_PKSA_EET_SI_SI_RKT0_T1_.exit
@@ -424,7 +424,7 @@ _ZL8find_if2IN9__gnu_cxx17__normal_iteratorIPN3zmq15socket_poller_t6item_tESt6ve
 
 17:                                               ; preds = %_ZL8find_if2IN9__gnu_cxx17__normal_iteratorIPN3zmq15socket_poller_t6item_tESt6vectorIS4_SaIS4_EEEEPNS2_13socket_base_tEPFbRKS4_PKSA_EET_SI_SI_RKT0_T1_.exit.thread
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %19 = load ptr, ptr %18, align 8, !tbaa !34
+  %19 = load ptr, ptr %18, align 8, !tbaa !33
   %20 = icmp eq ptr %19, null
   br i1 %20, label %21, label %36
 
@@ -438,9 +438,9 @@ _ZL8find_if2IN9__gnu_cxx17__normal_iteratorIPN3zmq15socket_poller_t6item_tESt6ve
           to label %29 unwind label %27
 
 25:                                               ; preds = %21
-  store ptr null, ptr %18, align 8, !tbaa !34
+  store ptr null, ptr %18, align 8, !tbaa !33
   %26 = tail call ptr @__errno_location() #26
-  store i32 12, ptr %26, align 4, !tbaa !33
+  store i32 12, ptr %26, align 4, !tbaa !32
   br label %75
 
 27:                                               ; preds = %24
@@ -450,9 +450,9 @@ _ZL8find_if2IN9__gnu_cxx17__normal_iteratorIPN3zmq15socket_poller_t6item_tESt6ve
   br label %76
 
 29:                                               ; preds = %24
-  store ptr %22, ptr %18, align 8, !tbaa !34
+  store ptr %22, ptr %18, align 8, !tbaa !33
   %30 = tail call noundef zeroext i1 @_ZNK3zmq10signaler_t5validEv(ptr noundef nonnull align 4 dereferenceable(12) %22)
-  %.pre = load ptr, ptr %18, align 8, !tbaa !34
+  %.pre = load ptr, ptr %18, align 8, !tbaa !33
   br i1 %30, label %36, label %31
 
 31:                                               ; preds = %29
@@ -465,9 +465,9 @@ _ZL8find_if2IN9__gnu_cxx17__normal_iteratorIPN3zmq15socket_poller_t6item_tESt6ve
   br label %34
 
 34:                                               ; preds = %33, %31
-  store ptr null, ptr %18, align 8, !tbaa !34
+  store ptr null, ptr %18, align 8, !tbaa !33
   %35 = tail call ptr @__errno_location() #26
-  store i32 24, ptr %35, align 4, !tbaa !33
+  store i32 24, ptr %35, align 4, !tbaa !32
   br label %75
 
 36:                                               ; preds = %29, %17
@@ -476,25 +476,25 @@ _ZL8find_if2IN9__gnu_cxx17__normal_iteratorIPN3zmq15socket_poller_t6item_tESt6ve
   br label %38
 
 38:                                               ; preds = %36, %_ZL8find_if2IN9__gnu_cxx17__normal_iteratorIPN3zmq15socket_poller_t6item_tESt6vectorIS4_SaIS4_EEEEPNS2_13socket_base_tEPFbRKS4_PKSA_EET_SI_SI_RKT0_T1_.exit.thread
-  %39 = load ptr, ptr %7, align 8, !tbaa !48
+  %39 = load ptr, ptr %7, align 8, !tbaa !47
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %41 = load ptr, ptr %40, align 8, !tbaa !49
+  %41 = load ptr, ptr %40, align 8, !tbaa !48
   %.not.i16 = icmp eq ptr %39, %41
   br i1 %.not.i16, label %45, label %42
 
 42:                                               ; preds = %38
-  store ptr %1, ptr %39, align 8, !tbaa !50
+  store ptr %1, ptr %39, align 8, !tbaa !49
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %39, i64 8
-  store i32 0, ptr %.sroa.6.0..sroa_idx, align 8, !tbaa !33
+  store i32 0, ptr %.sroa.6.0..sroa_idx, align 8, !tbaa !32
   %.sroa.723.0..sroa_idx = getelementptr inbounds nuw i8, ptr %39, i64 16
-  store ptr %2, ptr %.sroa.723.0..sroa_idx, align 8, !tbaa !51
+  store ptr %2, ptr %.sroa.723.0..sroa_idx, align 8, !tbaa !50
   %.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %39, i64 24
-  store i16 %3, ptr %.sroa.8.0..sroa_idx, align 8, !tbaa !52
+  store i16 %3, ptr %.sroa.8.0..sroa_idx, align 8, !tbaa !51
   %.sroa.930.0..sroa_idx = getelementptr inbounds nuw i8, ptr %39, i64 28
-  store i32 -1, ptr %.sroa.930.0..sroa_idx, align 4, !tbaa !33
-  %43 = load ptr, ptr %7, align 8, !tbaa !48
+  store i32 -1, ptr %.sroa.930.0..sroa_idx, align 4, !tbaa !32
+  %43 = load ptr, ptr %7, align 8, !tbaa !47
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 32
-  store ptr %44, ptr %7, align 8, !tbaa !48
+  store ptr %44, ptr %7, align 8, !tbaa !47
   br label %_ZNSt6vectorIN3zmq15socket_poller_t6item_tESaIS2_EE9push_backERKS2_.exit
 
 45:                                               ; preds = %38
@@ -527,15 +527,15 @@ _ZNKSt6vectorIN3zmq15socket_poller_t6item_tESaIS2_EE12_M_check_lenEmPKc.exit.i.i
 
 .noexc17:                                         ; preds = %_ZNKSt6vectorIN3zmq15socket_poller_t6item_tESaIS2_EE12_M_check_lenEmPKc.exit.i.i
   %59 = getelementptr inbounds i8, ptr %58, i64 %49
-  store ptr %1, ptr %59, align 8, !tbaa !50
+  store ptr %1, ptr %59, align 8, !tbaa !49
   %.sroa.6.0..sroa_idx19 = getelementptr inbounds nuw i8, ptr %59, i64 8
-  store i32 0, ptr %.sroa.6.0..sroa_idx19, align 8, !tbaa !33
+  store i32 0, ptr %.sroa.6.0..sroa_idx19, align 8, !tbaa !32
   %.sroa.723.0..sroa_idx24 = getelementptr inbounds nuw i8, ptr %59, i64 16
-  store ptr %2, ptr %.sroa.723.0..sroa_idx24, align 8, !tbaa !51
+  store ptr %2, ptr %.sroa.723.0..sroa_idx24, align 8, !tbaa !50
   %.sroa.8.0..sroa_idx26 = getelementptr inbounds nuw i8, ptr %59, i64 24
-  store i16 %3, ptr %.sroa.8.0..sroa_idx26, align 8, !tbaa !52
+  store i16 %3, ptr %.sroa.8.0..sroa_idx26, align 8, !tbaa !51
   %.sroa.930.0..sroa_idx31 = getelementptr inbounds nuw i8, ptr %59, i64 28
-  store i32 -1, ptr %.sroa.930.0..sroa_idx31, align 4, !tbaa !33
+  store i32 -1, ptr %.sroa.930.0..sroa_idx31, align 4, !tbaa !32
   %60 = icmp sgt i64 %49, 0
   br i1 %60, label %61, label %_ZNSt6vectorIN3zmq15socket_poller_t6item_tESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
 
@@ -554,9 +554,9 @@ _ZNSt6vectorIN3zmq15socket_poller_t6item_tESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.
 
 _ZNSt6vectorIN3zmq15socket_poller_t6item_tESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %63, %_ZNSt6vectorIN3zmq15socket_poller_t6item_tESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
   store ptr %58, ptr %5, align 8, !tbaa !18
-  store ptr %62, ptr %7, align 8, !tbaa !48
+  store ptr %62, ptr %7, align 8, !tbaa !47
   %64 = getelementptr inbounds nuw %"struct.zmq::socket_poller_t::item_t", ptr %58, i64 %56
-  store ptr %64, ptr %40, align 8, !tbaa !49
+  store ptr %64, ptr %40, align 8, !tbaa !48
   br label %_ZNSt6vectorIN3zmq15socket_poller_t6item_tESaIS2_EE9push_backERKS2_.exit
 
 65:                                               ; preds = %_ZNKSt6vectorIN3zmq15socket_poller_t6item_tESaIS2_EE12_M_check_lenEmPKc.exit.i.i, %51
@@ -572,7 +572,7 @@ _ZNSt6vectorIN3zmq15socket_poller_t6item_tESaIS2_EE17_M_realloc_insertIJRKS2_EEE
   %71 = extractvalue { ptr, i32 } %66, 0
   %72 = tail call ptr @__cxa_begin_catch(ptr %71) #24
   %73 = tail call ptr @__errno_location() #26
-  store i32 12, ptr %73, align 4, !tbaa !33
+  store i32 12, ptr %73, align 4, !tbaa !32
   tail call void @__cxa_end_catch()
   br label %75
 
@@ -629,7 +629,7 @@ define noundef range(i32 -1, 1) i32 @_ZN3zmq15socket_poller_t6add_fdEiPvs(ptr no
 14:                                               ; preds = %.lr.ph.i
   %15 = getelementptr inbounds nuw i8, ptr %.sroa.01.05.i, i64 32
   %.not.i = icmp eq ptr %15, %8
-  br i1 %.not.i, label %_ZL8find_if2IN9__gnu_cxx17__normal_iteratorIPN3zmq15socket_poller_t6item_tESt6vectorIS4_SaIS4_EEEEiPFbRKS4_iEET_SE_SE_RKT0_T1_.exit.thread, label %.lr.ph.i, !llvm.loop !53
+  br i1 %.not.i, label %_ZL8find_if2IN9__gnu_cxx17__normal_iteratorIPN3zmq15socket_poller_t6item_tESt6vectorIS4_SaIS4_EEEEiPFbRKS4_iEET_SE_SE_RKT0_T1_.exit.thread, label %.lr.ph.i, !llvm.loop !52
 
 _ZL8find_if2IN9__gnu_cxx17__normal_iteratorIPN3zmq15socket_poller_t6item_tESt6vectorIS4_SaIS4_EEEEiPFbRKS4_iEET_SE_SE_RKT0_T1_.exit: ; preds = %.lr.ph.i
   %16 = icmp eq ptr %.sroa.01.05.i, %8
@@ -637,28 +637,28 @@ _ZL8find_if2IN9__gnu_cxx17__normal_iteratorIPN3zmq15socket_poller_t6item_tESt6ve
 
 17:                                               ; preds = %_ZL8find_if2IN9__gnu_cxx17__normal_iteratorIPN3zmq15socket_poller_t6item_tESt6vectorIS4_SaIS4_EEEEiPFbRKS4_iEET_SE_SE_RKT0_T1_.exit
   %18 = tail call ptr @__errno_location() #26
-  store i32 22, ptr %18, align 4, !tbaa !33
+  store i32 22, ptr %18, align 4, !tbaa !32
   br label %54
 
 _ZL8find_if2IN9__gnu_cxx17__normal_iteratorIPN3zmq15socket_poller_t6item_tESt6vectorIS4_SaIS4_EEEEiPFbRKS4_iEET_SE_SE_RKT0_T1_.exit.thread: ; preds = %14, %4, %_ZL8find_if2IN9__gnu_cxx17__normal_iteratorIPN3zmq15socket_poller_t6item_tESt6vectorIS4_SaIS4_EEEEiPFbRKS4_iEET_SE_SE_RKT0_T1_.exit
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %20 = load ptr, ptr %19, align 8, !tbaa !49
+  %20 = load ptr, ptr %19, align 8, !tbaa !48
   %.not.i8 = icmp eq ptr %8, %20
   br i1 %.not.i8, label %24, label %21
 
 21:                                               ; preds = %_ZL8find_if2IN9__gnu_cxx17__normal_iteratorIPN3zmq15socket_poller_t6item_tESt6vectorIS4_SaIS4_EEEEiPFbRKS4_iEET_SE_SE_RKT0_T1_.exit.thread
-  store ptr null, ptr %8, align 8, !tbaa !50
+  store ptr null, ptr %8, align 8, !tbaa !49
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store i32 %1, ptr %.sroa.6.0..sroa_idx, align 8, !tbaa !33
+  store i32 %1, ptr %.sroa.6.0..sroa_idx, align 8, !tbaa !32
   %.sroa.715.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 16
-  store ptr %2, ptr %.sroa.715.0..sroa_idx, align 8, !tbaa !51
+  store ptr %2, ptr %.sroa.715.0..sroa_idx, align 8, !tbaa !50
   %.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 24
-  store i16 %3, ptr %.sroa.8.0..sroa_idx, align 8, !tbaa !52
+  store i16 %3, ptr %.sroa.8.0..sroa_idx, align 8, !tbaa !51
   %.sroa.922.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 28
-  store i32 -1, ptr %.sroa.922.0..sroa_idx, align 4, !tbaa !33
-  %22 = load ptr, ptr %7, align 8, !tbaa !48
+  store i32 -1, ptr %.sroa.922.0..sroa_idx, align 4, !tbaa !32
+  %22 = load ptr, ptr %7, align 8, !tbaa !47
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 32
-  store ptr %23, ptr %7, align 8, !tbaa !48
+  store ptr %23, ptr %7, align 8, !tbaa !47
   br label %_ZNSt6vectorIN3zmq15socket_poller_t6item_tESaIS2_EE9push_backERKS2_.exit
 
 24:                                               ; preds = %_ZL8find_if2IN9__gnu_cxx17__normal_iteratorIPN3zmq15socket_poller_t6item_tESt6vectorIS4_SaIS4_EEEEiPFbRKS4_iEET_SE_SE_RKT0_T1_.exit.thread
@@ -690,15 +690,15 @@ _ZNKSt6vectorIN3zmq15socket_poller_t6item_tESaIS2_EE12_M_check_lenEmPKc.exit.i.i
 
 .noexc9:                                          ; preds = %_ZNKSt6vectorIN3zmq15socket_poller_t6item_tESaIS2_EE12_M_check_lenEmPKc.exit.i.i
   %37 = getelementptr inbounds i8, ptr %36, i64 %27
-  store ptr null, ptr %37, align 8, !tbaa !50
+  store ptr null, ptr %37, align 8, !tbaa !49
   %.sroa.6.0..sroa_idx11 = getelementptr inbounds nuw i8, ptr %37, i64 8
-  store i32 %1, ptr %.sroa.6.0..sroa_idx11, align 8, !tbaa !33
+  store i32 %1, ptr %.sroa.6.0..sroa_idx11, align 8, !tbaa !32
   %.sroa.715.0..sroa_idx16 = getelementptr inbounds nuw i8, ptr %37, i64 16
-  store ptr %2, ptr %.sroa.715.0..sroa_idx16, align 8, !tbaa !51
+  store ptr %2, ptr %.sroa.715.0..sroa_idx16, align 8, !tbaa !50
   %.sroa.8.0..sroa_idx18 = getelementptr inbounds nuw i8, ptr %37, i64 24
-  store i16 %3, ptr %.sroa.8.0..sroa_idx18, align 8, !tbaa !52
+  store i16 %3, ptr %.sroa.8.0..sroa_idx18, align 8, !tbaa !51
   %.sroa.922.0..sroa_idx23 = getelementptr inbounds nuw i8, ptr %37, i64 28
-  store i32 -1, ptr %.sroa.922.0..sroa_idx23, align 4, !tbaa !33
+  store i32 -1, ptr %.sroa.922.0..sroa_idx23, align 4, !tbaa !32
   %38 = icmp sgt i64 %27, 0
   br i1 %38, label %39, label %_ZNSt6vectorIN3zmq15socket_poller_t6item_tESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
 
@@ -717,9 +717,9 @@ _ZNSt6vectorIN3zmq15socket_poller_t6item_tESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.
 
 _ZNSt6vectorIN3zmq15socket_poller_t6item_tESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %41, %_ZNSt6vectorIN3zmq15socket_poller_t6item_tESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
   store ptr %36, ptr %5, align 8, !tbaa !18
-  store ptr %40, ptr %7, align 8, !tbaa !48
+  store ptr %40, ptr %7, align 8, !tbaa !47
   %42 = getelementptr inbounds nuw %"struct.zmq::socket_poller_t::item_t", ptr %36, i64 %34
-  store ptr %42, ptr %19, align 8, !tbaa !49
+  store ptr %42, ptr %19, align 8, !tbaa !48
   br label %_ZNSt6vectorIN3zmq15socket_poller_t6item_tESaIS2_EE9push_backERKS2_.exit
 
 43:                                               ; preds = %_ZNKSt6vectorIN3zmq15socket_poller_t6item_tESaIS2_EE12_M_check_lenEmPKc.exit.i.i, %29
@@ -735,7 +735,7 @@ _ZNSt6vectorIN3zmq15socket_poller_t6item_tESaIS2_EE17_M_realloc_insertIJRKS2_EEE
   %49 = extractvalue { ptr, i32 } %44, 0
   %50 = tail call ptr @__cxa_begin_catch(ptr %49) #24
   %51 = tail call ptr @__errno_location() #26
-  store i32 12, ptr %51, align 4, !tbaa !33
+  store i32 12, ptr %51, align 4, !tbaa !32
   tail call void @__cxa_end_catch()
   br label %54
 
@@ -770,7 +770,7 @@ define noundef range(i32 -1, 1) i32 @_ZN3zmq15socket_poller_t6modifyEPKNS_13sock
 10:                                               ; preds = %.lr.ph.i
   %11 = getelementptr inbounds nuw i8, ptr %.sroa.01.05.i, i64 32
   %.not.i = icmp eq ptr %11, %7
-  br i1 %.not.i, label %_ZL8find_if2IN9__gnu_cxx17__normal_iteratorIPN3zmq15socket_poller_t6item_tESt6vectorIS4_SaIS4_EEEEPKNS2_13socket_base_tEPFbRKS4_SC_EET_SH_SH_RKT0_T1_.exit, label %.lr.ph.i, !llvm.loop !54
+  br i1 %.not.i, label %_ZL8find_if2IN9__gnu_cxx17__normal_iteratorIPN3zmq15socket_poller_t6item_tESt6vectorIS4_SaIS4_EEEEPKNS2_13socket_base_tEPFbRKS4_SC_EET_SH_SH_RKT0_T1_.exit, label %.lr.ph.i, !llvm.loop !53
 
 _ZL8find_if2IN9__gnu_cxx17__normal_iteratorIPN3zmq15socket_poller_t6item_tESt6vectorIS4_SaIS4_EEEEPKNS2_13socket_base_tEPFbRKS4_SC_EET_SH_SH_RKT0_T1_.exit: ; preds = %.lr.ph.i, %10, %3
   %.sroa.01.0.lcssa.i = phi ptr [ %5, %3 ], [ %11, %10 ], [ %.sroa.01.05.i, %.lr.ph.i ]
@@ -779,7 +779,7 @@ _ZL8find_if2IN9__gnu_cxx17__normal_iteratorIPN3zmq15socket_poller_t6item_tESt6ve
 
 13:                                               ; preds = %_ZL8find_if2IN9__gnu_cxx17__normal_iteratorIPN3zmq15socket_poller_t6item_tESt6vectorIS4_SaIS4_EEEEPKNS2_13socket_base_tEPFbRKS4_SC_EET_SH_SH_RKT0_T1_.exit
   %14 = tail call ptr @__errno_location() #26
-  store i32 22, ptr %14, align 4, !tbaa !33
+  store i32 22, ptr %14, align 4, !tbaa !32
   br label %18
 
 15:                                               ; preds = %_ZL8find_if2IN9__gnu_cxx17__normal_iteratorIPN3zmq15socket_poller_t6item_tESt6vectorIS4_SaIS4_EEEEPKNS2_13socket_base_tEPFbRKS4_SC_EET_SH_SH_RKT0_T1_.exit
@@ -816,7 +816,7 @@ define noundef range(i32 -1, 1) i32 @_ZN3zmq15socket_poller_t9modify_fdEis(ptr n
 13:                                               ; preds = %.lr.ph.i
   %14 = getelementptr inbounds nuw i8, ptr %.sroa.01.05.i, i64 32
   %.not.i = icmp eq ptr %14, %7
-  br i1 %.not.i, label %_ZL8find_if2IN9__gnu_cxx17__normal_iteratorIPN3zmq15socket_poller_t6item_tESt6vectorIS4_SaIS4_EEEEiPFbRKS4_iEET_SE_SE_RKT0_T1_.exit, label %.lr.ph.i, !llvm.loop !53
+  br i1 %.not.i, label %_ZL8find_if2IN9__gnu_cxx17__normal_iteratorIPN3zmq15socket_poller_t6item_tESt6vectorIS4_SaIS4_EEEEiPFbRKS4_iEET_SE_SE_RKT0_T1_.exit, label %.lr.ph.i, !llvm.loop !52
 
 _ZL8find_if2IN9__gnu_cxx17__normal_iteratorIPN3zmq15socket_poller_t6item_tESt6vectorIS4_SaIS4_EEEEiPFbRKS4_iEET_SE_SE_RKT0_T1_.exit: ; preds = %.lr.ph.i, %13, %3
   %.sroa.01.0.lcssa.i = phi ptr [ %5, %3 ], [ %14, %13 ], [ %.sroa.01.05.i, %.lr.ph.i ]
@@ -825,7 +825,7 @@ _ZL8find_if2IN9__gnu_cxx17__normal_iteratorIPN3zmq15socket_poller_t6item_tESt6ve
 
 16:                                               ; preds = %_ZL8find_if2IN9__gnu_cxx17__normal_iteratorIPN3zmq15socket_poller_t6item_tESt6vectorIS4_SaIS4_EEEEiPFbRKS4_iEET_SE_SE_RKT0_T1_.exit
   %17 = tail call ptr @__errno_location() #26
-  store i32 22, ptr %17, align 4, !tbaa !33
+  store i32 22, ptr %17, align 4, !tbaa !32
   br label %21
 
 18:                                               ; preds = %_ZL8find_if2IN9__gnu_cxx17__normal_iteratorIPN3zmq15socket_poller_t6item_tESt6vectorIS4_SaIS4_EEEEiPFbRKS4_iEET_SE_SE_RKT0_T1_.exit
@@ -858,7 +858,7 @@ define noundef range(i32 -1, 1) i32 @_ZN3zmq15socket_poller_t6removeEPNS_13socke
 9:                                                ; preds = %.lr.ph.i
   %10 = getelementptr inbounds nuw i8, ptr %.sroa.01.05.i, i64 32
   %.not.i = icmp eq ptr %10, %6
-  br i1 %.not.i, label %_ZL8find_if2IN9__gnu_cxx17__normal_iteratorIPN3zmq15socket_poller_t6item_tESt6vectorIS4_SaIS4_EEEEPNS2_13socket_base_tEPFbRKS4_PKSA_EET_SI_SI_RKT0_T1_.exit.thread, label %.lr.ph.i, !llvm.loop !47
+  br i1 %.not.i, label %_ZL8find_if2IN9__gnu_cxx17__normal_iteratorIPN3zmq15socket_poller_t6item_tESt6vectorIS4_SaIS4_EEEEPNS2_13socket_base_tEPFbRKS4_PKSA_EET_SI_SI_RKT0_T1_.exit.thread, label %.lr.ph.i, !llvm.loop !46
 
 _ZL8find_if2IN9__gnu_cxx17__normal_iteratorIPN3zmq15socket_poller_t6item_tESt6vectorIS4_SaIS4_EEEEPNS2_13socket_base_tEPFbRKS4_PKSA_EET_SI_SI_RKT0_T1_.exit: ; preds = %.lr.ph.i, %2
   %.sroa.01.0.lcssa.i = phi ptr [ %4, %2 ], [ %.sroa.01.05.i, %.lr.ph.i ]
@@ -867,7 +867,7 @@ _ZL8find_if2IN9__gnu_cxx17__normal_iteratorIPN3zmq15socket_poller_t6item_tESt6ve
 
 _ZL8find_if2IN9__gnu_cxx17__normal_iteratorIPN3zmq15socket_poller_t6item_tESt6vectorIS4_SaIS4_EEEEPNS2_13socket_base_tEPFbRKS4_PKSA_EET_SI_SI_RKT0_T1_.exit.thread: ; preds = %9, %_ZL8find_if2IN9__gnu_cxx17__normal_iteratorIPN3zmq15socket_poller_t6item_tESt6vectorIS4_SaIS4_EEEEPNS2_13socket_base_tEPFbRKS4_PKSA_EET_SI_SI_RKT0_T1_.exit
   %12 = tail call ptr @__errno_location() #26
-  store i32 22, ptr %12, align 4, !tbaa !33
+  store i32 22, ptr %12, align 4, !tbaa !32
   br label %29
 
 13:                                               ; preds = %_ZL8find_if2IN9__gnu_cxx17__normal_iteratorIPN3zmq15socket_poller_t6item_tESt6vectorIS4_SaIS4_EEEEPNS2_13socket_base_tEPFbRKS4_PKSA_EET_SI_SI_RKT0_T1_.exit
@@ -884,13 +884,13 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN3zmq15socket_poller_t6item_tESt6vecto
   %20 = ptrtoint ptr %18 to i64
   %21 = sub i64 %19, %20
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %17, ptr nonnull align 8 %18, i64 %21, i1 false)
-  %.pre.i.i = load ptr, ptr %5, align 8, !tbaa !48
+  %.pre.i.i = load ptr, ptr %5, align 8, !tbaa !47
   br label %_ZNSt6vectorIN3zmq15socket_poller_t6item_tESaIS2_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS2_S4_EE.exit
 
 _ZNSt6vectorIN3zmq15socket_poller_t6item_tESaIS2_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS2_S4_EE.exit: ; preds = %13, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN3zmq15socket_poller_t6item_tESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit.i.i
   %22 = phi ptr [ %.pre.i.i, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN3zmq15socket_poller_t6item_tESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit.i.i ], [ %6, %13 ]
   %23 = getelementptr inbounds i8, ptr %22, i64 -32
-  store ptr %23, ptr %5, align 8, !tbaa !48
+  store ptr %23, ptr %5, align 8, !tbaa !47
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i8 1, ptr %24, align 8, !tbaa !21
   %25 = tail call noundef zeroext i1 @_ZNK3zmq13socket_base_t14is_thread_safeEv(ptr noundef nonnull align 8 dereferenceable(1825) %1)
@@ -898,7 +898,7 @@ _ZNSt6vectorIN3zmq15socket_poller_t6item_tESaIS2_EE5eraseEN9__gnu_cxx17__normal_
 
 26:                                               ; preds = %_ZNSt6vectorIN3zmq15socket_poller_t6item_tESaIS2_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS2_S4_EE.exit
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %28 = load ptr, ptr %27, align 8, !tbaa !34
+  %28 = load ptr, ptr %27, align 8, !tbaa !33
   tail call void @_ZN3zmq13socket_base_t15remove_signalerEPNS_10signaler_tE(ptr noundef nonnull align 8 dereferenceable(1825) %1, ptr noundef %28)
   br label %29
 
@@ -929,7 +929,7 @@ define noundef range(i32 -1, 1) i32 @_ZN3zmq15socket_poller_t9remove_fdEi(ptr no
 12:                                               ; preds = %.lr.ph.i
   %13 = getelementptr inbounds nuw i8, ptr %.sroa.01.05.i, i64 32
   %.not.i = icmp eq ptr %13, %6
-  br i1 %.not.i, label %_ZL8find_if2IN9__gnu_cxx17__normal_iteratorIPN3zmq15socket_poller_t6item_tESt6vectorIS4_SaIS4_EEEEiPFbRKS4_iEET_SE_SE_RKT0_T1_.exit.thread, label %.lr.ph.i, !llvm.loop !53
+  br i1 %.not.i, label %_ZL8find_if2IN9__gnu_cxx17__normal_iteratorIPN3zmq15socket_poller_t6item_tESt6vectorIS4_SaIS4_EEEEiPFbRKS4_iEET_SE_SE_RKT0_T1_.exit.thread, label %.lr.ph.i, !llvm.loop !52
 
 _ZL8find_if2IN9__gnu_cxx17__normal_iteratorIPN3zmq15socket_poller_t6item_tESt6vectorIS4_SaIS4_EEEEiPFbRKS4_iEET_SE_SE_RKT0_T1_.exit: ; preds = %.lr.ph.i, %2
   %.sroa.01.0.lcssa.i = phi ptr [ %4, %2 ], [ %.sroa.01.05.i, %.lr.ph.i ]
@@ -938,7 +938,7 @@ _ZL8find_if2IN9__gnu_cxx17__normal_iteratorIPN3zmq15socket_poller_t6item_tESt6ve
 
 _ZL8find_if2IN9__gnu_cxx17__normal_iteratorIPN3zmq15socket_poller_t6item_tESt6vectorIS4_SaIS4_EEEEiPFbRKS4_iEET_SE_SE_RKT0_T1_.exit.thread: ; preds = %12, %_ZL8find_if2IN9__gnu_cxx17__normal_iteratorIPN3zmq15socket_poller_t6item_tESt6vectorIS4_SaIS4_EEEEiPFbRKS4_iEET_SE_SE_RKT0_T1_.exit
   %15 = tail call ptr @__errno_location() #26
-  store i32 22, ptr %15, align 4, !tbaa !33
+  store i32 22, ptr %15, align 4, !tbaa !32
   br label %28
 
 16:                                               ; preds = %_ZL8find_if2IN9__gnu_cxx17__normal_iteratorIPN3zmq15socket_poller_t6item_tESt6vectorIS4_SaIS4_EEEEiPFbRKS4_iEET_SE_SE_RKT0_T1_.exit
@@ -955,13 +955,13 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN3zmq15socket_poller_t6item_tESt6vecto
   %23 = ptrtoint ptr %21 to i64
   %24 = sub i64 %22, %23
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %20, ptr nonnull align 8 %21, i64 %24, i1 false)
-  %.pre.i.i = load ptr, ptr %5, align 8, !tbaa !48
+  %.pre.i.i = load ptr, ptr %5, align 8, !tbaa !47
   br label %_ZNSt6vectorIN3zmq15socket_poller_t6item_tESaIS2_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS2_S4_EE.exit
 
 _ZNSt6vectorIN3zmq15socket_poller_t6item_tESaIS2_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS2_S4_EE.exit: ; preds = %16, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN3zmq15socket_poller_t6item_tESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit.i.i
   %25 = phi ptr [ %.pre.i.i, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN3zmq15socket_poller_t6item_tESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit.i.i ], [ %6, %16 ]
   %26 = getelementptr inbounds i8, ptr %25, i64 -32
-  store ptr %26, ptr %5, align 8, !tbaa !48
+  store ptr %26, ptr %5, align 8, !tbaa !47
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i8 1, ptr %27, align 8, !tbaa !21
   br label %28
@@ -1000,16 +1000,16 @@ define void @_ZN3zmq15socket_poller_t17zero_trail_eventsEP18zmq_poller_event_tii
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ %5, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %6 = getelementptr inbounds %struct.zmq_poller_event_t, ptr %0, i64 %indvars.iv
-  store ptr null, ptr %6, align 8, !tbaa !55
+  store ptr null, ptr %6, align 8, !tbaa !54
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store i32 -1, ptr %7, align 8, !tbaa !57
+  store i32 -1, ptr %7, align 8, !tbaa !56
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  store ptr null, ptr %8, align 8, !tbaa !58
+  store ptr null, ptr %8, align 8, !tbaa !57
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  store i16 0, ptr %9, align 8, !tbaa !59
+  store i16 0, ptr %9, align 8, !tbaa !58
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !60
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !59
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -1038,7 +1038,7 @@ define noundef i32 @_ZN3zmq15socket_poller_t12check_eventsEP18zmq_poller_event_t
 
 16:                                               ; preds = %14
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #24
-  store i64 4, ptr %4, align 8, !tbaa !38
+  store i64 4, ptr %4, align 8, !tbaa !37
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #24
   %17 = call noundef i32 @_ZN3zmq13socket_base_t10getsockoptEiPvPm(ptr noundef nonnull align 8 dereferenceable(1825) %15, i32 noundef 15, ptr noundef nonnull %5, ptr noundef nonnull %4)
   %.not53 = icmp eq i32 %17, -1
@@ -1048,7 +1048,7 @@ define noundef i32 @_ZN3zmq15socket_poller_t12check_eventsEP18zmq_poller_event_t
   %19 = getelementptr inbounds nuw i8, ptr %.sroa.055.070, i64 24
   %20 = load i16, ptr %19, align 8, !tbaa !23
   %21 = sext i16 %20 to i32
-  %22 = load i32, ptr %5, align 4, !tbaa !33
+  %22 = load i32, ptr %5, align 4, !tbaa !32
   %23 = and i32 %22, %21
   %.not52 = icmp eq i32 %23, 0
   br i1 %.not52, label %.thread, label %24
@@ -1057,17 +1057,17 @@ define noundef i32 @_ZN3zmq15socket_poller_t12check_eventsEP18zmq_poller_event_t
   %25 = load ptr, ptr %.sroa.055.070, align 8, !tbaa !27
   %26 = sext i32 %.04172 to i64
   %27 = getelementptr inbounds %struct.zmq_poller_event_t, ptr %1, i64 %26
-  store ptr %25, ptr %27, align 8, !tbaa !55
+  store ptr %25, ptr %27, align 8, !tbaa !54
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
-  store i32 -1, ptr %28, align 8, !tbaa !57
+  store i32 -1, ptr %28, align 8, !tbaa !56
   %29 = getelementptr inbounds nuw i8, ptr %.sroa.055.070, i64 16
-  %30 = load ptr, ptr %29, align 8, !tbaa !61
+  %30 = load ptr, ptr %29, align 8, !tbaa !60
   %31 = getelementptr inbounds nuw i8, ptr %27, i64 16
-  store ptr %30, ptr %31, align 8, !tbaa !58
+  store ptr %30, ptr %31, align 8, !tbaa !57
   %32 = trunc i32 %22 to i16
   %33 = and i16 %20, %32
   %34 = getelementptr inbounds nuw i8, ptr %27, i64 24
-  store i16 %33, ptr %34, align 8, !tbaa !59
+  store i16 %33, ptr %34, align 8, !tbaa !58
   %35 = add nsw i32 %.04172, 1
   br label %.thread
 
@@ -1090,17 +1090,17 @@ define noundef i32 @_ZN3zmq15socket_poller_t12check_eventsEP18zmq_poller_event_t
 
 40:                                               ; preds = %37
   %41 = getelementptr inbounds nuw i8, ptr %.sroa.055.070, i64 28
-  %42 = load i32, ptr %41, align 4, !tbaa !44
+  %42 = load i32, ptr %41, align 4, !tbaa !43
   %43 = icmp slt i32 %42, 0
-  br i1 %43, label %44, label %49, !prof !62
+  br i1 %43, label %44, label %49, !prof !61
 
 44:                                               ; preds = %40
-  %45 = load ptr, ptr @stderr, align 8, !tbaa !41
+  %45 = load ptr, ptr @stderr, align 8, !tbaa !40
   %46 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %45, ptr noundef nonnull @.str, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.2, i32 noundef 421) #27
-  %47 = load ptr, ptr @stderr, align 8, !tbaa !41
+  %47 = load ptr, ptr @stderr, align 8, !tbaa !40
   %48 = call i32 @fflush(ptr noundef %47)
   call void @_ZN3zmq9zmq_abortEPKc(ptr noundef nonnull @.str.3)
-  %.pre = load i32, ptr %41, align 4, !tbaa !44
+  %.pre = load i32, ptr %41, align 4, !tbaa !43
   br label %49
 
 49:                                               ; preds = %44, %40
@@ -1108,7 +1108,7 @@ define noundef i32 @_ZN3zmq15socket_poller_t12check_eventsEP18zmq_poller_event_t
   %51 = load ptr, ptr %13, align 8, !tbaa !17
   %52 = sext i32 %50 to i64
   %53 = getelementptr inbounds %struct.pollfd, ptr %51, i64 %52, i32 2
-  %54 = load i16, ptr %53, align 2, !tbaa !63
+  %54 = load i16, ptr %53, align 2, !tbaa !62
   %55 = and i16 %54, 1
   %56 = lshr i16 %54, 1
   %57 = and i16 %56, 2
@@ -1125,17 +1125,17 @@ define noundef i32 @_ZN3zmq15socket_poller_t12check_eventsEP18zmq_poller_event_t
 61:                                               ; preds = %49
   %62 = sext i32 %.04172 to i64
   %63 = getelementptr inbounds %struct.zmq_poller_event_t, ptr %1, i64 %62
-  store ptr null, ptr %63, align 8, !tbaa !55
+  store ptr null, ptr %63, align 8, !tbaa !54
   %64 = getelementptr inbounds nuw i8, ptr %.sroa.055.070, i64 8
-  %65 = load i32, ptr %64, align 8, !tbaa !43
+  %65 = load i32, ptr %64, align 8, !tbaa !42
   %66 = getelementptr inbounds nuw i8, ptr %63, i64 8
-  store i32 %65, ptr %66, align 8, !tbaa !57
+  store i32 %65, ptr %66, align 8, !tbaa !56
   %67 = getelementptr inbounds nuw i8, ptr %.sroa.055.070, i64 16
-  %68 = load ptr, ptr %67, align 8, !tbaa !61
+  %68 = load ptr, ptr %67, align 8, !tbaa !60
   %69 = getelementptr inbounds nuw i8, ptr %63, i64 16
-  store ptr %68, ptr %69, align 8, !tbaa !58
+  store ptr %68, ptr %69, align 8, !tbaa !57
   %70 = getelementptr inbounds nuw i8, ptr %63, i64 24
-  store i16 %.3, ptr %70, align 8, !tbaa !59
+  store i16 %.3, ptr %70, align 8, !tbaa !58
   %71 = add nsw i32 %.04172, 1
   br label %72
 
@@ -1145,7 +1145,7 @@ define noundef i32 @_ZN3zmq15socket_poller_t12check_eventsEP18zmq_poller_event_t
   %74 = icmp ne ptr %73, %9
   %75 = icmp slt i32 %.5, %2
   %76 = select i1 %74, i1 %75, i1 false
-  br i1 %76, label %14, label %.loopexit, !llvm.loop !64
+  br i1 %76, label %14, label %.loopexit, !llvm.loop !63
 
 .loopexit:                                        ; preds = %72, %3, %36
   %spec.select54 = phi i32 [ -1, %36 ], [ 0, %3 ], [ %.5, %72 ]
@@ -1162,29 +1162,29 @@ define noundef range(i32 0, 2) i32 @_ZN3zmq15socket_poller_t14adjust_timeoutERNS
   br i1 %8, label %9, label %13
 
 9:                                                ; preds = %7
-  %10 = load i8, ptr %4, align 1, !tbaa !65, !range !28, !noundef !29
+  %10 = load i8, ptr %4, align 1, !tbaa !64, !range !28, !noundef !29
   %11 = trunc nuw i8 %10 to i1
   br i1 %11, label %12, label %21
 
 12:                                               ; preds = %9
-  store i8 0, ptr %4, align 1, !tbaa !65
+  store i8 0, ptr %4, align 1, !tbaa !64
   br label %21
 
 13:                                               ; preds = %7
   %14 = tail call noundef i64 @_ZN3zmq7clock_t6now_msEv(ptr noundef nonnull align 8 dereferenceable(16) %0)
-  store i64 %14, ptr %2, align 8, !tbaa !38
-  %15 = load i8, ptr %4, align 1, !tbaa !65, !range !28, !noundef !29
+  store i64 %14, ptr %2, align 8, !tbaa !37
+  %15 = load i8, ptr %4, align 1, !tbaa !64, !range !28, !noundef !29
   %16 = trunc nuw i8 %15 to i1
   br i1 %16, label %17, label %19
 
 17:                                               ; preds = %13
   %18 = add i64 %14, %1
-  store i64 %18, ptr %3, align 8, !tbaa !38
-  store i8 0, ptr %4, align 1, !tbaa !65
+  store i64 %18, ptr %3, align 8, !tbaa !37
+  store i8 0, ptr %4, align 1, !tbaa !64
   br label %21
 
 19:                                               ; preds = %13
-  %20 = load i64, ptr %3, align 8, !tbaa !38
+  %20 = load i64, ptr %3, align 8, !tbaa !37
   %.not = icmp ult i64 %14, %20
   %. = zext i1 %.not to i32
   br label %21
@@ -1210,7 +1210,7 @@ define noundef range(i32 1, 0) i32 @_ZN3zmq15socket_poller_t4waitEP18zmq_poller_
 
 12:                                               ; preds = %4
   %13 = tail call ptr @__errno_location() #26
-  store i32 14, ptr %13, align 4, !tbaa !33
+  store i32 14, ptr %13, align 4, !tbaa !32
   br label %84
 
 14:                                               ; preds = %4
@@ -1228,18 +1228,18 @@ define noundef range(i32 1, 0) i32 @_ZN3zmq15socket_poller_t4waitEP18zmq_poller_
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %22 = load i32, ptr %21, align 4, !tbaa !20
   %23 = icmp eq i32 %22, 0
-  br i1 %23, label %24, label %33, !prof !62
+  br i1 %23, label %24, label %33, !prof !61
 
 24:                                               ; preds = %20
   %25 = tail call ptr @__errno_location() #26
   br i1 %11, label %26, label %27
 
 26:                                               ; preds = %24
-  store i32 14, ptr %25, align 4, !tbaa !33
+  store i32 14, ptr %25, align 4, !tbaa !32
   br label %84
 
 27:                                               ; preds = %24
-  store i32 11, ptr %25, align 4, !tbaa !33
+  store i32 11, ptr %25, align 4, !tbaa !32
   %28 = icmp eq i64 %3, 0
   br i1 %28, label %84, label %29
 
@@ -1287,13 +1287,13 @@ _ZN3zmq15socket_poller_t17zero_trail_eventsEP18zmq_poller_event_tii.exit: ; pred
 
 45:                                               ; preds = %_ZN3zmq15socket_poller_t17zero_trail_eventsEP18zmq_poller_event_tii.exit
   %46 = tail call ptr @__errno_location() #26
-  %47 = load i32, ptr %46, align 4, !tbaa !33
+  %47 = load i32, ptr %46, align 4, !tbaa !32
   %48 = icmp eq i32 %47, 4
   br i1 %48, label %_ZN3zmq15socket_poller_t17zero_trail_eventsEP18zmq_poller_event_tii.exit.thread, label %.thread
 
 49:                                               ; preds = %_ZN3zmq15socket_poller_t17zero_trail_eventsEP18zmq_poller_event_tii.exit
   %50 = icmp slt i32 %43, 0
-  br i1 %50, label %..thread_crit_edge, label %57, !prof !66
+  br i1 %50, label %..thread_crit_edge, label %57, !prof !65
 
 ..thread_crit_edge:                               ; preds = %49
   %.pre = tail call ptr @__errno_location() #26
@@ -1301,11 +1301,11 @@ _ZN3zmq15socket_poller_t17zero_trail_eventsEP18zmq_poller_event_tii.exit: ; pred
 
 .thread:                                          ; preds = %..thread_crit_edge, %45
   %.pre-phi = phi ptr [ %.pre, %..thread_crit_edge ], [ %46, %45 ]
-  %51 = load i32, ptr %.pre-phi, align 4, !tbaa !33
+  %51 = load i32, ptr %.pre-phi, align 4, !tbaa !32
   %52 = call ptr @strerror(i32 noundef %51) #24
-  %53 = load ptr, ptr @stderr, align 8, !tbaa !41
+  %53 = load ptr, ptr @stderr, align 8, !tbaa !40
   %54 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %53, ptr noundef nonnull @.str.4, ptr noundef %52, ptr noundef nonnull @.str.2, i32 noundef 570) #27
-  %55 = load ptr, ptr @stderr, align 8, !tbaa !41
+  %55 = load ptr, ptr @stderr, align 8, !tbaa !40
   %56 = call i32 @fflush(ptr noundef %55)
   call void @_ZN3zmq9zmq_abortEPKc(ptr noundef %52)
   br label %57
@@ -1318,13 +1318,13 @@ _ZN3zmq15socket_poller_t17zero_trail_eventsEP18zmq_poller_event_tii.exit: ; pred
 60:                                               ; preds = %57
   %61 = load ptr, ptr %34, align 8, !tbaa !17
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 6
-  %63 = load i16, ptr %62, align 2, !tbaa !63
+  %63 = load i16, ptr %62, align 2, !tbaa !62
   %64 = and i16 %63, 1
   %.not = icmp eq i16 %64, 0
   br i1 %.not, label %67, label %65
 
 65:                                               ; preds = %60
-  %66 = load ptr, ptr %36, align 8, !tbaa !34
+  %66 = load ptr, ptr %36, align 8, !tbaa !33
   call void @_ZN3zmq10signaler_t4recvEv(ptr noundef nonnull align 4 dereferenceable(12) %66)
   br label %67
 
@@ -1347,16 +1347,16 @@ _ZN3zmq15socket_poller_t17zero_trail_eventsEP18zmq_poller_event_tii.exit: ; pred
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ %72, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
   %73 = getelementptr inbounds nuw %struct.zmq_poller_event_t, ptr %1, i64 %indvars.iv.i
-  store ptr null, ptr %73, align 8, !tbaa !55
+  store ptr null, ptr %73, align 8, !tbaa !54
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 8
-  store i32 -1, ptr %74, align 8, !tbaa !57
+  store i32 -1, ptr %74, align 8, !tbaa !56
   %75 = getelementptr inbounds nuw i8, ptr %73, i64 16
-  store ptr null, ptr %75, align 8, !tbaa !58
+  store ptr null, ptr %75, align 8, !tbaa !57
   %76 = getelementptr inbounds nuw i8, ptr %73, i64 24
-  store i16 0, ptr %76, align 8, !tbaa !59
+  store i16 0, ptr %76, align 8, !tbaa !58
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %_ZN3zmq15socket_poller_t17zero_trail_eventsEP18zmq_poller_event_tii.exit.thread, label %.lr.ph.i, !llvm.loop !60
+  br i1 %exitcond.not.i, label %_ZN3zmq15socket_poller_t17zero_trail_eventsEP18zmq_poller_event_tii.exit.thread, label %.lr.ph.i, !llvm.loop !59
 
 77:                                               ; preds = %67
   br i1 %37, label %_ZN3zmq15socket_poller_t14adjust_timeoutERNS_7clock_tElRmS3_Rb.exit.thread56, label %78
@@ -1378,7 +1378,7 @@ _ZN3zmq15socket_poller_t14adjust_timeoutERNS_7clock_tElRmS3_Rb.exit: ; preds = %
 
 _ZN3zmq15socket_poller_t14adjust_timeoutERNS_7clock_tElRmS3_Rb.exit.thread56: ; preds = %_ZN3zmq15socket_poller_t14adjust_timeoutERNS_7clock_tElRmS3_Rb.exit, %77
   %83 = tail call ptr @__errno_location() #26
-  store i32 11, ptr %83, align 4, !tbaa !33
+  store i32 11, ptr %83, align 4, !tbaa !32
   br label %_ZN3zmq15socket_poller_t17zero_trail_eventsEP18zmq_poller_event_tii.exit.thread
 
 _ZN3zmq15socket_poller_t17zero_trail_eventsEP18zmq_poller_event_tii.exit.thread: ; preds = %45, %.lr.ph.i, %69, %_ZN3zmq15socket_poller_t14adjust_timeoutERNS_7clock_tElRmS3_Rb.exit.thread56
@@ -1490,40 +1490,39 @@ attributes #31 = { builtin allocsize(0) }
 !27 = !{!24, !25, i64 0}
 !28 = !{i8 0, i8 2}
 !29 = !{}
-!30 = distinct !{!30, !31, !32}
+!30 = distinct !{!30, !31}
 !31 = !{!"llvm.loop.mustprogress"}
-!32 = !{!"llvm.loop.estimated_trip_count"}
-!33 = !{!5, !5, i64 0}
-!34 = !{!4, !8, i64 8}
-!35 = !{!36, !5, i64 0}
-!36 = !{!"_ZTS6pollfd", !5, i64 0, !26, i64 4, !26, i64 6}
-!37 = !{!36, !26, i64 4}
-!38 = !{!39, !39, i64 0}
-!39 = !{!"long", !6, i64 0}
-!40 = !{!"branch_weights", !"expected", i32 2000, i32 1}
-!41 = !{!42, !42, i64 0}
-!42 = !{!"p1 _ZTS8_IO_FILE", !9, i64 0}
-!43 = !{!24, !5, i64 8}
-!44 = !{!24, !5, i64 28}
-!45 = distinct !{!45, !31, !32}
-!46 = distinct !{!46, !31, !32}
-!47 = distinct !{!47, !31, !32}
-!48 = !{!13, !14, i64 8}
-!49 = !{!13, !14, i64 16}
-!50 = !{!25, !25, i64 0}
-!51 = !{!9, !9, i64 0}
-!52 = !{!26, !26, i64 0}
-!53 = distinct !{!53, !31, !32}
-!54 = distinct !{!54, !31, !32}
-!55 = !{!56, !9, i64 0}
-!56 = !{!"_ZTS18zmq_poller_event_t", !9, i64 0, !5, i64 8, !9, i64 16, !26, i64 24}
-!57 = !{!56, !5, i64 8}
-!58 = !{!56, !9, i64 16}
-!59 = !{!56, !26, i64 24}
-!60 = distinct !{!60, !31, !32}
-!61 = !{!24, !9, i64 16}
-!62 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!63 = !{!36, !26, i64 6}
-!64 = distinct !{!64, !31, !32}
-!65 = !{!15, !15, i64 0}
-!66 = !{!"branch_weights", !"expected", i32 0, i32 -2147483648}
+!32 = !{!5, !5, i64 0}
+!33 = !{!4, !8, i64 8}
+!34 = !{!35, !5, i64 0}
+!35 = !{!"_ZTS6pollfd", !5, i64 0, !26, i64 4, !26, i64 6}
+!36 = !{!35, !26, i64 4}
+!37 = !{!38, !38, i64 0}
+!38 = !{!"long", !6, i64 0}
+!39 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!40 = !{!41, !41, i64 0}
+!41 = !{!"p1 _ZTS8_IO_FILE", !9, i64 0}
+!42 = !{!24, !5, i64 8}
+!43 = !{!24, !5, i64 28}
+!44 = distinct !{!44, !31}
+!45 = distinct !{!45, !31}
+!46 = distinct !{!46, !31}
+!47 = !{!13, !14, i64 8}
+!48 = !{!13, !14, i64 16}
+!49 = !{!25, !25, i64 0}
+!50 = !{!9, !9, i64 0}
+!51 = !{!26, !26, i64 0}
+!52 = distinct !{!52, !31}
+!53 = distinct !{!53, !31}
+!54 = !{!55, !9, i64 0}
+!55 = !{!"_ZTS18zmq_poller_event_t", !9, i64 0, !5, i64 8, !9, i64 16, !26, i64 24}
+!56 = !{!55, !5, i64 8}
+!57 = !{!55, !9, i64 16}
+!58 = !{!55, !26, i64 24}
+!59 = distinct !{!59, !31}
+!60 = !{!24, !9, i64 16}
+!61 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!62 = !{!35, !26, i64 6}
+!63 = distinct !{!63, !31}
+!64 = !{!15, !15, i64 0}
+!65 = !{!"branch_weights", !"expected", i32 0, i32 -2147483648}

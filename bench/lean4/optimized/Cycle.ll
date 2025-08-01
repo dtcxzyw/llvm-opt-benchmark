@@ -274,7 +274,7 @@ lean_alloc_ctor.exit:                             ; preds = %lean_dec.exit46
 
 .backedge:                                        ; preds = %lean_alloc_ctor.exit, %lean_dec.exit44
   %.042.be = phi ptr [ %.0, %lean_dec.exit44 ], [ %96, %lean_alloc_ctor.exit ]
-  br label %6, !llvm.loop !12
+  br label %6
 }
 
 declare ptr @l_List_reverse___rarg(ptr noundef) local_unnamed_addr #1
@@ -301,9 +301,9 @@ lean_alloc_closure.exit:                          ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr @l_List_mapTR_loop___at_Lake_formatCycle___spec__1___rarg, ptr %6, align 8, !tbaa !10
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store i16 3, ptr %7, align 8, !tbaa !14
+  store i16 3, ptr %7, align 8, !tbaa !12
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 18
-  store i16 0, ptr %8, align 2, !tbaa !14
+  store i16 0, ptr %8, align 2, !tbaa !12
   ret ptr %2
 }
 
@@ -335,9 +335,9 @@ lean_alloc_closure.exit:                          ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr @l_Lake_formatCycle___rarg, ptr %6, align 8, !tbaa !10
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store i16 2, ptr %7, align 8, !tbaa !14
+  store i16 2, ptr %7, align 8, !tbaa !12
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 18
-  store i16 0, ptr %8, align 2, !tbaa !14
+  store i16 0, ptr %8, align 2, !tbaa !12
   ret ptr %2
 }
 
@@ -467,9 +467,9 @@ lean_alloc_closure.exit:                          ; preds = %lean_inc.exit
   %24 = getelementptr inbounds nuw i8, ptr %20, i64 8
   store ptr @l_Lake_instMonadCallStackOfMonadCallStackOf___rarg___lambda__1, ptr %24, align 8, !tbaa !10
   %25 = getelementptr inbounds nuw i8, ptr %20, i64 16
-  store i16 4, ptr %25, align 8, !tbaa !14
+  store i16 4, ptr %25, align 8, !tbaa !12
   %26 = getelementptr inbounds nuw i8, ptr %20, i64 18
-  store i16 1, ptr %26, align 2, !tbaa !14
+  store i16 1, ptr %26, align 2, !tbaa !12
   %27 = getelementptr inbounds nuw i8, ptr %20, i64 24
   store ptr %0, ptr %27, align 8, !tbaa !10
   %.val = load i32, ptr %0, align 4, !tbaa !4
@@ -594,9 +594,9 @@ lean_alloc_closure.exit:                          ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr @l_Lake_instMonadCallStackOfMonadCallStackOf___rarg, ptr %7, align 8, !tbaa !10
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store i16 1, ptr %8, align 8, !tbaa !14
+  store i16 1, ptr %8, align 8, !tbaa !12
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 18
-  store i16 0, ptr %9, align 2, !tbaa !14
+  store i16 0, ptr %9, align 2, !tbaa !12
   ret ptr %3
 }
 
@@ -674,9 +674,9 @@ lean_alloc_closure.exit:                          ; preds = %5
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr @l_Lake_instMonadCallStackOfOfMonadLiftOfMonadFunctor___rarg___lambda__1, ptr %10, align 8, !tbaa !10
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  store i16 4, ptr %11, align 8, !tbaa !14
+  store i16 4, ptr %11, align 8, !tbaa !12
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 18
-  store i16 2, ptr %12, align 2, !tbaa !14
+  store i16 2, ptr %12, align 2, !tbaa !12
   %13 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store ptr %0, ptr %13, align 8, !tbaa !10
   %14 = getelementptr inbounds nuw i8, ptr %6, i64 32
@@ -730,9 +730,9 @@ lean_alloc_closure.exit:                          ; preds = %lean_inc.exit
   %19 = getelementptr inbounds nuw i8, ptr %15, i64 8
   store ptr @l_Lake_instMonadCallStackOfOfMonadLiftOfMonadFunctor___rarg___lambda__2, ptr %19, align 8, !tbaa !10
   %20 = getelementptr inbounds nuw i8, ptr %15, i64 16
-  store i16 5, ptr %20, align 8, !tbaa !14
+  store i16 5, ptr %20, align 8, !tbaa !12
   %21 = getelementptr inbounds nuw i8, ptr %15, i64 18
-  store i16 2, ptr %21, align 2, !tbaa !14
+  store i16 2, ptr %21, align 2, !tbaa !12
   %22 = getelementptr inbounds nuw i8, ptr %15, i64 24
   store ptr %2, ptr %22, align 8, !tbaa !10
   %23 = getelementptr inbounds nuw i8, ptr %15, i64 32
@@ -777,9 +777,9 @@ lean_alloc_closure.exit:                          ; preds = %3
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr @l_Lake_instMonadCallStackOfOfMonadLiftOfMonadFunctor___rarg, ptr %8, align 8, !tbaa !10
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store i16 3, ptr %9, align 8, !tbaa !14
+  store i16 3, ptr %9, align 8, !tbaa !12
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 18
-  store i16 0, ptr %10, align 2, !tbaa !14
+  store i16 0, ptr %10, align 2, !tbaa !12
   ret ptr %4
 }
 
@@ -884,9 +884,9 @@ lean_alloc_closure.exit:                          ; preds = %lean_inc.exit
   %17 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store ptr @l_Lake_instMonadCycleOfMonadCycleOf___rarg___lambda__1, ptr %17, align 8, !tbaa !10
   %18 = getelementptr inbounds nuw i8, ptr %13, i64 16
-  store i16 3, ptr %18, align 8, !tbaa !14
+  store i16 3, ptr %18, align 8, !tbaa !12
   %19 = getelementptr inbounds nuw i8, ptr %13, i64 18
-  store i16 1, ptr %19, align 2, !tbaa !14
+  store i16 1, ptr %19, align 2, !tbaa !12
   %20 = getelementptr inbounds nuw i8, ptr %13, i64 24
   store ptr %0, ptr %20, align 8, !tbaa !10
   tail call void @lean_inc_heartbeat() #3
@@ -927,9 +927,9 @@ lean_alloc_closure.exit:                          ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr @l_Lake_instMonadCycleOfMonadCycleOf___rarg, ptr %7, align 8, !tbaa !10
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store i16 1, ptr %8, align 8, !tbaa !14
+  store i16 1, ptr %8, align 8, !tbaa !12
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 18
-  store i16 0, ptr %9, align 2, !tbaa !14
+  store i16 0, ptr %9, align 2, !tbaa !12
   ret ptr %3
 }
 
@@ -1059,9 +1059,9 @@ lean_alloc_closure.exit:                          ; preds = %lean_inc.exit
   %27 = getelementptr inbounds nuw i8, ptr %23, i64 8
   store ptr @l_Lake_instMonadCycleOfOfMonadLiftOfMonadFunctor___rarg___lambda__1, ptr %27, align 8, !tbaa !10
   %28 = getelementptr inbounds nuw i8, ptr %23, i64 16
-  store i16 4, ptr %28, align 8, !tbaa !14
+  store i16 4, ptr %28, align 8, !tbaa !12
   %29 = getelementptr inbounds nuw i8, ptr %23, i64 18
-  store i16 2, ptr %29, align 2, !tbaa !14
+  store i16 2, ptr %29, align 2, !tbaa !12
   %30 = getelementptr inbounds nuw i8, ptr %23, i64 24
   store ptr %2, ptr %30, align 8, !tbaa !10
   %31 = getelementptr inbounds nuw i8, ptr %23, i64 32
@@ -1104,9 +1104,9 @@ lean_alloc_closure.exit:                          ; preds = %3
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr @l_Lake_instMonadCycleOfOfMonadLiftOfMonadFunctor___rarg, ptr %8, align 8, !tbaa !10
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store i16 3, ptr %9, align 8, !tbaa !14
+  store i16 3, ptr %9, align 8, !tbaa !12
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 18
-  store i16 0, ptr %10, align 2, !tbaa !14
+  store i16 0, ptr %10, align 2, !tbaa !12
   ret ptr %4
 }
 
@@ -1184,9 +1184,9 @@ lean_alloc_closure.exit:                          ; preds = %3
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr @l_Lake_inhabitedOfMonadCycle___rarg, ptr %8, align 8, !tbaa !10
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store i16 1, ptr %9, align 8, !tbaa !14
+  store i16 1, ptr %9, align 8, !tbaa !12
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 18
-  store i16 0, ptr %10, align 2, !tbaa !14
+  store i16 0, ptr %10, align 2, !tbaa !12
   ret ptr %4
 }
 
@@ -1214,9 +1214,9 @@ lean_alloc_closure.exit:                          ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr @l_ReaderT_read___rarg, ptr %6, align 8, !tbaa !10
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store i16 2, ptr %7, align 8, !tbaa !14
+  store i16 2, ptr %7, align 8, !tbaa !12
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 18
-  store i16 1, ptr %8, align 2, !tbaa !14
+  store i16 1, ptr %8, align 2, !tbaa !12
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store ptr %0, ptr %9, align 8, !tbaa !10
   %10 = load ptr, ptr @l_Lake_instMonadCallStackOfCallStackTOfMonad___rarg___closed__1, align 8, !tbaa !10
@@ -1260,9 +1260,9 @@ lean_alloc_closure.exit:                          ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr @l_Lake_instMonadCallStackOfCallStackTOfMonad___rarg, ptr %7, align 8, !tbaa !10
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store i16 1, ptr %8, align 8, !tbaa !14
+  store i16 1, ptr %8, align 8, !tbaa !12
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 18
-  store i16 0, ptr %9, align 2, !tbaa !14
+  store i16 0, ptr %9, align 2, !tbaa !12
   ret ptr %3
 }
 
@@ -1457,9 +1457,9 @@ lean_alloc_closure.exit.i:                        ; preds = %lean_inc.exit
   %15 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store ptr @l_ReaderT_read___rarg, ptr %15, align 8, !tbaa !10
   %16 = getelementptr inbounds nuw i8, ptr %11, i64 16
-  store i16 2, ptr %16, align 8, !tbaa !14
+  store i16 2, ptr %16, align 8, !tbaa !12
   %17 = getelementptr inbounds nuw i8, ptr %11, i64 18
-  store i16 1, ptr %17, align 2, !tbaa !14
+  store i16 1, ptr %17, align 2, !tbaa !12
   %18 = getelementptr inbounds nuw i8, ptr %11, i64 24
   store ptr %10, ptr %18, align 8, !tbaa !10
   %19 = load ptr, ptr @l_Lake_instMonadCallStackOfCallStackTOfMonad___rarg___closed__1, align 8, !tbaa !10
@@ -1496,9 +1496,9 @@ lean_alloc_closure.exit:                          ; preds = %l_Lake_instMonadCal
   %30 = getelementptr inbounds nuw i8, ptr %26, i64 8
   store ptr @l_Lake_instMonadCycleOfCycleTOfMonad___rarg___lambda__1___boxed, ptr %30, align 8, !tbaa !10
   %31 = getelementptr inbounds nuw i8, ptr %26, i64 16
-  store i16 4, ptr %31, align 8, !tbaa !14
+  store i16 4, ptr %31, align 8, !tbaa !12
   %32 = getelementptr inbounds nuw i8, ptr %26, i64 18
-  store i16 1, ptr %32, align 2, !tbaa !14
+  store i16 1, ptr %32, align 2, !tbaa !12
   %33 = getelementptr inbounds nuw i8, ptr %26, i64 24
   store ptr %0, ptr %33, align 8, !tbaa !10
   tail call void @lean_inc_heartbeat() #3
@@ -1571,9 +1571,9 @@ lean_alloc_closure.exit:                          ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr @l_Lake_instMonadCycleOfCycleTOfMonad___rarg, ptr %7, align 8, !tbaa !10
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store i16 1, ptr %8, align 8, !tbaa !14
+  store i16 1, ptr %8, align 8, !tbaa !12
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 18
-  store i16 0, ptr %9, align 2, !tbaa !14
+  store i16 0, ptr %9, align 2, !tbaa !12
   ret ptr %3
 }
 
@@ -1896,7 +1896,7 @@ lean_dec.exit144:                                 ; preds = %119, %118, %116, %l
   br label %.backedge
 
 .backedge:                                        ; preds = %123, %122
-  br label %11, !llvm.loop !16
+  br label %11
 
 124:                                              ; preds = %81
   %125 = ptrtoint ptr %88 to i64
@@ -2090,7 +2090,7 @@ lean_alloc_ctor.exit212:                          ; preds = %182
 .outer.backedge:                                  ; preds = %lean_alloc_ctor.exit212, %lean_alloc_ctor.exit213, %316, %331
   %.0135.ph.be = phi ptr [ %.0, %331 ], [ %.0133, %316 ], [ %190, %lean_alloc_ctor.exit213 ], [ %183, %lean_alloc_ctor.exit212 ]
   %.0134.ph.be = phi ptr [ %200, %331 ], [ %200, %316 ], [ %86, %lean_alloc_ctor.exit213 ], [ %86, %lean_alloc_ctor.exit212 ]
-  br label %.outer, !llvm.loop !16
+  br label %.outer
 
 189:                                              ; preds = %lean_dec.exit142
   store ptr %88, ptr %85, align 8, !tbaa !10
@@ -2519,9 +2519,9 @@ lean_alloc_closure.exit:                          ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr @l_List_partition_loop___at_Lake_guardCycle___spec__1___rarg, ptr %6, align 8, !tbaa !10
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store i16 4, ptr %7, align 8, !tbaa !14
+  store i16 4, ptr %7, align 8, !tbaa !12
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 18
-  store i16 0, ptr %8, align 2, !tbaa !14
+  store i16 0, ptr %8, align 2, !tbaa !12
   ret ptr %2
 }
 
@@ -3079,9 +3079,9 @@ lean_alloc_closure.exit:                          ; preds = %lean_inc.exit
   %49 = getelementptr inbounds nuw i8, ptr %45, i64 8
   store ptr @l_Lake_guardCycle___rarg___lambda__1, ptr %49, align 8, !tbaa !10
   %50 = getelementptr inbounds nuw i8, ptr %45, i64 16
-  store i16 6, ptr %50, align 8, !tbaa !14
+  store i16 6, ptr %50, align 8, !tbaa !12
   %51 = getelementptr inbounds nuw i8, ptr %45, i64 18
-  store i16 5, ptr %51, align 2, !tbaa !14
+  store i16 5, ptr %51, align 2, !tbaa !12
   %52 = getelementptr inbounds nuw i8, ptr %45, i64 24
   store ptr %0, ptr %52, align 8, !tbaa !10
   %53 = getelementptr inbounds nuw i8, ptr %45, i64 32
@@ -3116,9 +3116,9 @@ lean_alloc_closure.exit:                          ; preds = %3
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr @l_Lake_guardCycle___rarg, ptr %8, align 8, !tbaa !10
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store i16 5, ptr %9, align 8, !tbaa !14
+  store i16 5, ptr %9, align 8, !tbaa !12
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 18
-  store i16 0, ptr %10, align 2, !tbaa !14
+  store i16 0, ptr %10, align 2, !tbaa !12
   ret ptr %4
 }
 
@@ -3242,9 +3242,9 @@ _init_l_Lake_instMonadCallStackOfCallStackTOfMonad___rarg___closed__1.exit: ; pr
   %45 = getelementptr inbounds nuw i8, ptr %41, i64 8
   store ptr @l_Lake_instMonadCallStackOfCallStackTOfMonad___rarg___lambda__1___boxed, ptr %45, align 8, !tbaa !10
   %46 = getelementptr inbounds nuw i8, ptr %41, i64 16
-  store i16 4, ptr %46, align 8, !tbaa !14
+  store i16 4, ptr %46, align 8, !tbaa !12
   %47 = getelementptr inbounds nuw i8, ptr %41, i64 18
-  store i16 0, ptr %47, align 2, !tbaa !14
+  store i16 0, ptr %47, align 2, !tbaa !12
   store ptr %41, ptr @l_Lake_instMonadCallStackOfCallStackTOfMonad___rarg___closed__1, align 8, !tbaa !10
   tail call void @lean_mark_persistent(ptr noundef nonnull %41) #3
   tail call void @lean_inc_heartbeat() #3
@@ -3332,8 +3332,5 @@ attributes #4 = { noreturn nounwind }
 !9 = !{!"branch_weights", !"expected", i32 2000, i32 1}
 !10 = !{!11, !11, i64 0}
 !11 = !{!"any pointer", !7, i64 0}
-!12 = distinct !{!12, !13}
-!13 = !{!"llvm.loop.estimated_trip_count"}
-!14 = !{!15, !15, i64 0}
-!15 = !{!"short", !7, i64 0}
-!16 = distinct !{!16, !13}
+!12 = !{!13, !13, i64 0}
+!13 = !{!"short", !7, i64 0}

@@ -1050,7 +1050,7 @@ define internal void @ssh_secrets_block_callback(ptr noundef %0, i32 noundef %1)
   %26 = icmp ne ptr %.1.i, null
   %27 = icmp ult ptr %.1.i, %4
   %28 = and i1 %26, %27
-  br i1 %28, label %9, label %ssh_keylog_process_lines.exit, !llvm.loop !9
+  br i1 %28, label %9, label %ssh_keylog_process_lines.exit, !llvm.loop !8
 
 ssh_keylog_process_lines.exit:                    ; preds = %23, %2
   ret void
@@ -1309,7 +1309,7 @@ switch.lookup:                                    ; preds = %65
   %.2145 = phi i32 [ %.0143, %157 ], [ 2, %158 ], [ 2, %161 ], [ %spec.select, %164 ]
   %167 = call i32 @tvb_ensure_captured_length_remaining(ptr noundef %0, i32 noundef %.0121)
   %168 = call i32 @tvb_find_uint8(ptr noundef %0, i32 noundef %.0121, i32 noundef -1, i8 noundef zeroext 10)
-  %169 = load i8, ptr @ssh_desegment, align 1, !range !10, !noundef !11
+  %169 = load i8, ptr @ssh_desegment, align 1, !range !9, !noundef !10
   %170 = trunc nuw i8 %169 to i1
   br i1 %170, label %171, label %177
 
@@ -1445,7 +1445,7 @@ ssh_dissect_protocol.exit:                        ; preds = %173
   %235 = load i32, ptr @ett_ssh1, align 4
   %236 = call ptr @proto_tree_add_subtree(ptr noundef %72, ptr noundef %0, i32 noundef %.0121, i32 noundef -1, i32 noundef %235, ptr noundef null, ptr noundef nonnull @.str.566)
   %237 = call i32 @tvb_ensure_captured_length_remaining(ptr noundef %0, i32 noundef %.0121)
-  %238 = load i8, ptr @ssh_desegment, align 1, !range !10, !noundef !11
+  %238 = load i8, ptr @ssh_desegment, align 1, !range !9, !noundef !10
   %239 = trunc nuw i8 %238 to i1
   br i1 %239, label %240, label %247
 
@@ -1468,7 +1468,7 @@ ssh_dissect_protocol.exit:                        ; preds = %173
   %249 = and i32 %248, 7
   %.neg.i = or i32 %248, -8
   %250 = sub nuw nsw i32 8, %249
-  %251 = load i8, ptr @ssh_desegment, align 1, !range !10, !noundef !11
+  %251 = load i8, ptr @ssh_desegment, align 1, !range !9, !noundef !10
   %252 = trunc nuw i8 %251 to i1
   br i1 %252, label %253, label %264
 
@@ -1702,7 +1702,7 @@ ssh_dissect_protocol.exit:                        ; preds = %173
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #25
   store i32 0, ptr %6, align 4
   %363 = call i32 @tvb_ensure_captured_length_remaining(ptr noundef %0, i32 noundef %.06494.i)
-  %364 = load i8, ptr @ssh_desegment, align 1, !range !10, !noundef !11
+  %364 = load i8, ptr @ssh_desegment, align 1, !range !9, !noundef !10
   %365 = trunc nuw i8 %364 to i1
   br i1 %365, label %366, label %372
 
@@ -1720,7 +1720,7 @@ ssh_dissect_protocol.exit:                        ; preds = %173
 
 372:                                              ; preds = %366, %362
   %373 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %.06494.i)
-  %374 = load i8, ptr @ssh_desegment, align 1, !range !10, !noundef !11
+  %374 = load i8, ptr @ssh_desegment, align 1, !range !9, !noundef !10
   %375 = trunc nuw i8 %374 to i1
   br i1 %375, label %376, label %383
 
@@ -2418,7 +2418,7 @@ ssh_increment_message_number.exit.i:              ; preds = %754, %748, %744, %7
 758:                                              ; preds = %756, %ssh_increment_message_number.exit.i
   %759 = call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %.3.i)
   %760 = icmp sgt i32 %759, 0
-  br i1 %760, label %.lr.ph.i, label %.loopexit, !llvm.loop !12
+  br i1 %760, label %.lr.ph.i, label %.loopexit
 
 .loopexit:                                        ; preds = %758, %229, %232, %314
   %.1144.ph = phi i32 [ 1, %314 ], [ 0, %232 ], [ %.3.ph, %229 ], [ 2, %758 ]
@@ -2734,7 +2734,7 @@ ssh_kex_make_bignum.exit216:                      ; preds = %ssh_kex_make_bignum
   store i8 %69, ptr %71, align 1
   %72 = add nuw nsw i64 %.0189219, 1
   %exitcond.not = icmp eq i64 %72, %28
-  br i1 %exitcond.not, label %.critedge.preheader, label %.lr.ph, !llvm.loop !13
+  br i1 %exitcond.not, label %.critedge.preheader, label %.lr.ph, !llvm.loop !11
 
 .lr.ph222:                                        ; preds = %.critedge.preheader, %.critedge
   %.0191221 = phi i64 [ %106, %.critedge ], [ 0, %.critedge.preheader ]
@@ -2800,7 +2800,7 @@ ssh_kex_make_bignum.exit216:                      ; preds = %ssh_kex_make_bignum
   store i8 %103, ptr %105, align 1
   %106 = add nuw nsw i64 %.0191221, 1
   %exitcond224.not = icmp eq i64 %106, %18
-  br i1 %exitcond224.not, label %.critedge213, label %.lr.ph222, !llvm.loop !14
+  br i1 %exitcond224.not, label %.critedge213, label %.lr.ph222, !llvm.loop !12
 
 .critedge213:                                     ; preds = %.critedge, %.critedge.preheader
   %107 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc(i64 noundef 16) #27
@@ -3179,7 +3179,7 @@ ssh_decrypt_chacha20.exit.i:                      ; preds = %38
   %80 = add nuw nsw i32 %74, 4
   %81 = zext nneg i32 %80 to i64
   %82 = call noalias ptr @wmem_alloc0(ptr noundef %79, i64 noundef %81) #24
-  %83 = call ptr @__memcpy_chk(ptr noundef %82, ptr noundef nonnull %11, i64 noundef 4, i64 noundef %81) #25, !alias.scope !15
+  %83 = call ptr @__memcpy_chk(ptr noundef %82, ptr noundef nonnull %11, i64 noundef 4, i64 noundef %81) #25, !alias.scope !13
   %84 = add i32 %3, 4
   %85 = call ptr @tvb_get_ptr(ptr noundef %0, i32 noundef %84, i32 noundef %74)
   %86 = load ptr, ptr %17, align 8
@@ -3319,7 +3319,7 @@ ssh_decrypt_chacha20.exit243.i:                   ; preds = %77
   %155 = icmp samesign ugt i64 %indvars.iv.next.i, 4
   %156 = icmp eq i8 %154, 0
   %or.cond242.i = select i1 %155, i1 %156, i1 false
-  br i1 %or.cond242.i, label %.preheader.i, label %.critedge.i, !llvm.loop !19
+  br i1 %or.cond242.i, label %.preheader.i, label %.critedge.i, !llvm.loop !17
 
 .critedge.i:                                      ; preds = %.preheader.i
   %157 = load ptr, ptr %17, align 8
@@ -3416,7 +3416,7 @@ ssh_decrypt_chacha20.exit243.i:                   ; preds = %77
   %211 = add nuw nsw i32 %202, 4
   %212 = zext nneg i32 %211 to i64
   %213 = call noalias ptr @wmem_alloc(ptr noundef %210, i64 noundef %212) #24
-  %214 = call ptr @__memcpy_chk(ptr noundef %213, ptr noundef nonnull %16, i64 noundef 16, i64 noundef %212) #25, !alias.scope !20
+  %214 = call ptr @__memcpy_chk(ptr noundef %213, ptr noundef nonnull %16, i64 noundef 16, i64 noundef %212) #25, !alias.scope !18
   %215 = add nsw i32 %202, -12
   %.not230.i = icmp eq i32 %215, 0
   br i1 %.not230.i, label %.thread255.i, label %216
@@ -3512,11 +3512,11 @@ ssh_hmac_final.exit.i.i:                          ; preds = %ssh_hmac_init.exit.
   %259 = load ptr, ptr %6, align 8
   %260 = call ptr @gcry_md_read(ptr noundef %259, i32 noundef %256)
   %261 = zext nneg i32 %257 to i64
-  %262 = call ptr @__memcpy_chk(ptr noundef nonnull %7, ptr noundef %260, i64 noundef range(i64 0, 4294967296) %261, i64 noundef 48) #25, !alias.scope !24
+  %262 = call ptr @__memcpy_chk(ptr noundef nonnull %7, ptr noundef %260, i64 noundef range(i64 0, 4294967296) %261, i64 noundef 48) #25, !alias.scope !22
   %.val13.i.i = load ptr, ptr %6, align 8
   call void @gcry_md_close(ptr noundef %.val13.i.i)
   call fastcc void @ssh_print_data(ptr noundef nonnull @.str.523, ptr noundef nonnull %7, i64 noundef %261)
-  %263 = call ptr @__memcpy_chk(ptr noundef nonnull %10, ptr noundef nonnull %7, i64 noundef range(i64 0, 4294967296) %261, i64 noundef 48) #25, !alias.scope !28
+  %263 = call ptr @__memcpy_chk(ptr noundef nonnull %10, ptr noundef nonnull %7, i64 noundef range(i64 0, 4294967296) %261, i64 noundef 48) #25, !alias.scope !26
   br label %265
 
 .thread258.i:                                     ; preds = %.thread255.i, %216, %185, %180
@@ -3606,7 +3606,7 @@ ssh_hmac_final.exit.i.i:                          ; preds = %ssh_hmac_init.exit.
   %305 = load ptr, ptr %.0.i, align 8
   %.not241.i = icmp eq ptr %305, null
   %306 = getelementptr inbounds nuw i8, ptr %305, i64 32
-  br i1 %.not241.i, label %307, label %304, !llvm.loop !32
+  br i1 %.not241.i, label %307, label %304, !llvm.loop !30
 
 307:                                              ; preds = %304
   store ptr %290, ptr %.0.i, align 8
@@ -3642,7 +3642,7 @@ ssh_decrypt_packet.exit:                          ; preds = %25, %275, %307, %.t
   %320 = getelementptr inbounds nuw i8, ptr %.013.i, i64 32
   %.0.i33 = load ptr, ptr %320, align 8
   %.not10.i = icmp eq ptr %.0.i33, null
-  br i1 %.not10.i, label %.thread, label %.lr.ph.i, !llvm.loop !33
+  br i1 %.not10.i, label %.thread, label %.lr.ph.i, !llvm.loop !31
 
 ssh_get_message.exit:                             ; preds = %.lr.ph.i
   %321 = call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %3)
@@ -3656,7 +3656,7 @@ ssh_get_message.exit:                             ; preds = %.lr.ph.i
   %328 = call ptr @tvb_new_child_real_data(ptr noundef %321, ptr noundef %323, i32 noundef %325, i32 noundef %325)
   call void @add_new_data_source(ptr noundef %1, ptr noundef %328, ptr noundef nonnull @.str.528)
   %329 = call i32 @tvb_ensure_captured_length_remaining(ptr noundef %328, i32 noundef 0)
-  %330 = load i8, ptr @ssh_desegment, align 1, !range !10, !noundef !11
+  %330 = load i8, ptr @ssh_desegment, align 1, !range !9, !noundef !10
   %331 = trunc nuw i8 %330 to i1
   br i1 %331, label %332, label %340
 
@@ -3677,7 +3677,7 @@ ssh_get_message.exit:                             ; preds = %.lr.ph.i
 
 340:                                              ; preds = %332, %ssh_get_message.exit
   %341 = call i32 @tvb_get_ntohl(ptr noundef %328, i32 noundef 0)
-  %342 = load i8, ptr @ssh_desegment, align 1, !range !10, !noundef !11
+  %342 = load i8, ptr @ssh_desegment, align 1, !range !9, !noundef !10
   %343 = trunc nuw i8 %342 to i1
   br i1 %343, label %344, label %354
 
@@ -3923,7 +3923,7 @@ ssh_dissect_rfc8308_extension.exit.i.i:           ; preds = %502, %498, %492, %4
   %.0.i.i.i = phi i32 [ %460, %457 ], [ %477, %463 ], [ %483, %480 ], [ %489, %486 ], [ %495, %492 ], [ %501, %498 ], [ %503, %502 ]
   %504 = add nuw i32 %.0107.i.i, 1
   %exitcond.not.i.i = icmp eq i32 %504, %431
-  br i1 %exitcond.not.i.i, label %ssh_dissect_transport_generic.exit.i, label %436, !llvm.loop !34
+  br i1 %exitcond.not.i.i, label %ssh_dissect_transport_generic.exit.i, label %436, !llvm.loop !32
 
 ssh_dissect_transport_generic.exit.i:             ; preds = %ssh_dissect_rfc8308_extension.exit.i.i, %430, %423, %416, %400, %393, %377, %369
   %.0104.i.i = phi i32 [ %392, %377 ], [ %399, %393 ], [ %415, %400 ], [ %422, %416 ], [ %429, %423 ], [ 6, %369 ], [ 10, %430 ], [ %.0.i.i.i, %ssh_dissect_rfc8308_extension.exit.i.i ]
@@ -4195,7 +4195,7 @@ ssh_dissect_userauth_generic.exit.i:              ; preds = %630, %622, %610, %6
   %691 = getelementptr i8, ptr %2, i64 280
   %.val.i = load ptr, ptr %691, align 8
   %692 = getelementptr i8, ptr %.val.i, i64 729
-  %.val.val.i = load i8, ptr %692, align 1, !range !10, !noundef !11
+  %.val.val.i = load i8, ptr %692, align 1, !range !9, !noundef !10
   %693 = call fastcc i32 @ssh_dissect_local_extension(ptr noundef %328, ptr noundef %1, i8 %.val.val.i, ptr noundef %690, i32 noundef %367)
   %694 = add i32 %693, -5
   br label %695
@@ -4411,7 +4411,7 @@ define internal fastcc noundef i32 @ssh_tree_add_hostkey(ptr noundef %0, i32 nou
   %40 = select i1 %39, i64 0, i64 %38
   %41 = icmp ne i64 %40, -1
   tail call void @llvm.assume(i1 %41)
-  %42 = tail call ptr @__memcpy_chk(ptr noundef %37, ptr noundef readonly %20, i64 noundef range(i64 0, 4294967296) %19, i64 noundef %40) #25, !alias.scope !35
+  %42 = tail call ptr @__memcpy_chk(ptr noundef %37, ptr noundef readonly %20, i64 noundef range(i64 0, 4294967296) %19, i64 noundef %40) #25, !alias.scope !33
   tail call void @wmem_array_append(ptr noundef nonnull %22, ptr noundef %26, i32 noundef %14)
   br label %ssh_hash_buffer_put_string.exit
 
@@ -4716,7 +4716,7 @@ ssh_set_mac_length.exit:                          ; preds = %.thread, %93
   %98 = load ptr, ptr %97, align 8
   %99 = getelementptr inbounds nuw i8, ptr %28, i64 104
   call fastcc void @ssh_choose_algo(ptr noundef %96, ptr noundef %98, ptr noundef nonnull %99)
-  br i1 %27, label %26, label %10, !llvm.loop !39
+  br i1 %27, label %26, label %10, !llvm.loop !37
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
@@ -4822,7 +4822,7 @@ ssh_keylog_reset.exit20.i:                        ; preds = %28, %27
 .critedge2.i:                                     ; preds = %.lr.ph.i, %.lr.ph.i
   store i8 0, ptr %33, align 1
   %.not18.i = icmp eq i64 %32, 0
-  br i1 %.not18.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !40
+  br i1 %.not18.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !38
 
 .thread22.i:                                      ; preds = %ssh_keylog_reset.exit20.i, %._crit_edge31.i
   call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %3) #25
@@ -4836,7 +4836,7 @@ ssh_keylog_reset.exit20.i:                        ; preds = %28, %27
   %35 = load ptr, ptr @ssh_keylog_file, align 8
   %36 = call ptr @fgets(ptr noundef nonnull %3, i32 noundef 512, ptr noundef %35)
   %.not16.i = icmp eq ptr %36, null
-  br i1 %.not16.i, label %._crit_edge31.i, label %.lr.ph30.i, !llvm.loop !41
+  br i1 %.not16.i, label %._crit_edge31.i, label %.lr.ph30.i
 
 ssh_keylog_read_file.exit:                        ; preds = %1, %6, %.thread.i, %.thread22.i
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -5019,7 +5019,7 @@ ssh_kex_make_bignum.exit:                         ; preds = %107, %74, %82
   %125 = select i1 %124, i64 0, i64 %123
   %126 = icmp ne i64 %125, -1
   call void @llvm.assume(i1 %126)
-  %127 = call ptr @__memcpy_chk(ptr noundef %119, ptr noundef %120, i64 noundef range(i64 0, 4294967296) %122, i64 noundef %125) #25, !alias.scope !42
+  %127 = call ptr @__memcpy_chk(ptr noundef %119, ptr noundef %120, i64 noundef range(i64 0, 4294967296) %122, i64 noundef %125) #25, !alias.scope !39
   store i8 0, ptr %118, align 1
   store ptr %118, ptr %.0167, align 8
   store i32 %115, ptr %113, align 8
@@ -5060,7 +5060,7 @@ ssh_kex_make_bignum.exit:                         ; preds = %107, %74, %82
   %153 = select i1 %152, i64 0, i64 %151
   %154 = icmp ne i64 %153, -1
   call void @llvm.assume(i1 %154)
-  %155 = call ptr @__memcpy_chk(ptr noundef %149, ptr noundef readonly %129, i64 noundef range(i64 0, 4294967296) %150, i64 noundef %153) #25, !alias.scope !46
+  %155 = call ptr @__memcpy_chk(ptr noundef %149, ptr noundef readonly %129, i64 noundef range(i64 0, 4294967296) %150, i64 noundef %153) #25, !alias.scope !43
   call void @wmem_array_append(ptr noundef nonnull %131, ptr noundef %138, i32 noundef %136)
   br label %ssh_hash_buffer_put_string.exit
 
@@ -5103,7 +5103,7 @@ ssh_hash_buffer_put_string.exit:                  ; preds = %128, %133
   %182 = select i1 %181, i64 0, i64 %180
   %183 = icmp ne i64 %182, -1
   call void @llvm.assume(i1 %183)
-  %184 = call ptr @__memcpy_chk(ptr noundef %178, ptr noundef readonly %163, i64 noundef range(i64 0, 4294967296) %179, i64 noundef %182) #25, !alias.scope !50
+  %184 = call ptr @__memcpy_chk(ptr noundef %178, ptr noundef readonly %163, i64 noundef range(i64 0, 4294967296) %179, i64 noundef %182) #25, !alias.scope !47
   call void @wmem_array_append(ptr noundef nonnull %157, ptr noundef %167, i32 noundef %165)
   br label %ssh_hash_buffer_put_string.exit197
 
@@ -5146,7 +5146,7 @@ ssh_hash_buffer_put_string.exit197:               ; preds = %160, %ssh_hash_buff
   %211 = select i1 %210, i64 0, i64 %209
   %212 = icmp ne i64 %211, -1
   call void @llvm.assume(i1 %212)
-  %213 = call ptr @__memcpy_chk(ptr noundef %207, ptr noundef readonly %192, i64 noundef range(i64 0, 4294967296) %208, i64 noundef %211) #25, !alias.scope !54
+  %213 = call ptr @__memcpy_chk(ptr noundef %207, ptr noundef readonly %192, i64 noundef range(i64 0, 4294967296) %208, i64 noundef %211) #25, !alias.scope !51
   call void @wmem_array_append(ptr noundef nonnull %186, ptr noundef %196, i32 noundef %194)
   br label %ssh_hash_buffer_put_string.exit199
 
@@ -5189,7 +5189,7 @@ ssh_hash_buffer_put_string.exit199:               ; preds = %189, %ssh_hash_buff
   %240 = select i1 %239, i64 0, i64 %238
   %241 = icmp ne i64 %240, -1
   call void @llvm.assume(i1 %241)
-  %242 = call ptr @__memcpy_chk(ptr noundef %236, ptr noundef readonly %221, i64 noundef range(i64 0, 4294967296) %237, i64 noundef %240) #25, !alias.scope !58
+  %242 = call ptr @__memcpy_chk(ptr noundef %236, ptr noundef readonly %221, i64 noundef range(i64 0, 4294967296) %237, i64 noundef %240) #25, !alias.scope !55
   call void @wmem_array_append(ptr noundef nonnull %215, ptr noundef %225, i32 noundef %223)
   br label %ssh_hash_buffer_put_string.exit201
 
@@ -5232,7 +5232,7 @@ ssh_hash_buffer_put_string.exit201:               ; preds = %218, %ssh_hash_buff
   %269 = select i1 %268, i64 0, i64 %267
   %270 = icmp ne i64 %269, -1
   call void @llvm.assume(i1 %270)
-  %271 = call ptr @__memcpy_chk(ptr noundef %265, ptr noundef readonly %250, i64 noundef range(i64 0, 4294967296) %266, i64 noundef %269) #25, !alias.scope !62
+  %271 = call ptr @__memcpy_chk(ptr noundef %265, ptr noundef readonly %250, i64 noundef range(i64 0, 4294967296) %266, i64 noundef %269) #25, !alias.scope !59
   call void @wmem_array_append(ptr noundef nonnull %244, ptr noundef %254, i32 noundef %252)
   br label %ssh_hash_buffer_put_string.exit203
 
@@ -5514,7 +5514,7 @@ ssh_debug_flush.exit.i:                           ; preds = %424, %422, %421, %4
 ssh_debug_flush.exit70.i:                         ; preds = %431, %429, %ssh_debug_flush.exit.i
   %.1.i = phi i32 [ 32, %ssh_debug_flush.exit.i ], [ %.063.i, %429 ], [ %.063.i, %431 ]
   %spec.select.i = call i32 @llvm.umax.i32(i32 %.06472.i, i32 %.1.i)
-  br i1 %415, label %414, label %.preheader.i, !llvm.loop !66
+  br i1 %415, label %414, label %.preheader.i, !llvm.loop !63
 
 433:                                              ; preds = %532, %.preheader.i
   %indvars.iv75.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next76.i, %532 ]
@@ -5582,7 +5582,7 @@ ssh_kex_hash_type.exit.i.i:                       ; preds = %ssh_kex_hash_type.e
   %468 = select i1 %467, i64 0, i64 %466
   %469 = icmp ne i64 %468, -1
   call void @llvm.assume(i1 %469)
-  %470 = call ptr @__memcpy_chk(ptr noundef %464, ptr noundef readonly %448, i64 noundef range(i64 0, 4294967296) %465, i64 noundef %468) #25, !alias.scope !67
+  %470 = call ptr @__memcpy_chk(ptr noundef %464, ptr noundef readonly %448, i64 noundef range(i64 0, 4294967296) %465, i64 noundef %468) #25, !alias.scope !64
   %471 = call i32 @gcry_md_open(ptr noundef nonnull %2, i32 noundef %444, i32 noundef 0)
   %472 = icmp eq i32 %471, 0
   br i1 %472, label %473, label %500
@@ -5673,7 +5673,7 @@ ssh_kex_hash_type.exit.i.i:                       ; preds = %ssh_kex_hash_type.e
 526:                                              ; preds = %507, %504
   %527 = add i32 %.05267.i.i, %445
   %528 = icmp ult i32 %527, %spec.select.i
-  br i1 %528, label %504, label %ssh_derive_symmetric_key.exit.i, !llvm.loop !71
+  br i1 %528, label %504, label %ssh_derive_symmetric_key.exit.i, !llvm.loop !68
 
 ssh_derive_symmetric_key.exit.i:                  ; preds = %526, %500
   %529 = getelementptr inbounds nuw i8, ptr %436, i64 8
@@ -5692,7 +5692,7 @@ switch.lookup:                                    ; preds = %ssh_derive_symmetri
 532:                                              ; preds = %ssh_derive_symmetric_key.exit.i, %switch.lookup
   %indvars.iv.next76.i = add nuw nsw i64 %indvars.iv75.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next76.i, 6
-  br i1 %exitcond.not.i, label %ssh_derive_symmetric_keys.exit, label %433, !llvm.loop !72
+  br i1 %exitcond.not.i, label %ssh_derive_symmetric_keys.exit, label %433, !llvm.loop !69
 
 ssh_derive_symmetric_keys.exit.sink.split:        ; preds = %ssh_kex_make_bignum.exit, %93, %90, %64
   %533 = getelementptr inbounds nuw i8, ptr %0, i64 728
@@ -5839,7 +5839,7 @@ define internal fastcc void @ssh_choose_algo(ptr noundef %0, ptr noundef %1, ptr
   %14 = getelementptr i8, ptr %.02538, i64 8
   %15 = load ptr, ptr %14, align 8
   %.not32 = icmp eq ptr %15, null
-  br i1 %.not32, label %._crit_edge, label %.lr.ph, !llvm.loop !73
+  br i1 %.not32, label %._crit_edge, label %.lr.ph, !llvm.loop !70
 
 ._crit_edge:                                      ; preds = %.lr.ph, %9
   %.024.lcssa = phi ptr [ null, %9 ], [ %13, %.lr.ph ]
@@ -5852,7 +5852,7 @@ define internal fastcc void @ssh_choose_algo(ptr noundef %0, ptr noundef %1, ptr
   %19 = getelementptr i8, ptr %.141, i64 8
   %20 = load ptr, ptr %19, align 8
   %.not33 = icmp eq ptr %20, null
-  br i1 %.not33, label %.loopexit, label %.lr.ph43, !llvm.loop !74
+  br i1 %.not33, label %.loopexit, label %.lr.ph43, !llvm.loop !71
 
 .lr.ph43:                                         ; preds = %._crit_edge, %18
   %21 = phi ptr [ %20, %18 ], [ %17, %._crit_edge ]
@@ -6286,7 +6286,7 @@ define internal fastcc void @ssh_print_data(ptr noundef %0, ptr noundef readonly
   %22 = icmp samesign ult i64 %.02834, 15
   %23 = icmp samesign ult i64 %20, %2
   %24 = select i1 %22, i1 %23, i1 false
-  br i1 %24, label %14, label %.preheader, !llvm.loop !75
+  br i1 %24, label %14, label %.preheader, !llvm.loop !72
 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %.135 = phi i64 [ %27, %.lr.ph ], [ %21, %.preheader ]
@@ -6294,7 +6294,7 @@ define internal fastcc void @ssh_print_data(ptr noundef %0, ptr noundef readonly
   %26 = tail call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %25, i32 noundef 2, ptr noundef nonnull @.str.493)
   %27 = add nuw nsw i64 %.135, 1
   %28 = icmp samesign ult i64 %.135, 15
-  br i1 %28, label %.lr.ph, label %.lr.ph39.preheader, !llvm.loop !76
+  br i1 %28, label %.lr.ph, label %.lr.ph39.preheader, !llvm.loop !73
 
 .lr.ph39.preheader:                               ; preds = %.lr.ph, %.preheader
   %29 = load ptr, ptr @ssh_debug_file, align 8
@@ -6320,7 +6320,7 @@ define internal fastcc void @ssh_print_data(ptr noundef %0, ptr noundef readonly
   %43 = add nuw nsw i64 %.13036, 1
   %44 = add nuw nsw i64 %.237, 1
   %exitcond.not = icmp eq i64 %.237, %umin
-  br i1 %exitcond.not, label %._crit_edge40, label %.lr.ph39, !llvm.loop !77
+  br i1 %exitcond.not, label %._crit_edge40, label %.lr.ph39, !llvm.loop !74
 
 ._crit_edge40:                                    ; preds = %.lr.ph39
   %45 = load ptr, ptr @ssh_debug_file, align 8
@@ -6328,7 +6328,7 @@ define internal fastcc void @ssh_print_data(ptr noundef %0, ptr noundef readonly
   %47 = add nuw nsw i64 %.041, 16
   %48 = icmp samesign ult i64 %47, %2
   %indvars.iv.next = add nsw i64 %indvars.iv, -16
-  br i1 %48, label %10, label %.loopexit, !llvm.loop !78
+  br i1 %48, label %10, label %.loopexit, !llvm.loop !75
 
 .loopexit:                                        ; preds = %._crit_edge40, %5, %3
   ret void
@@ -6824,7 +6824,7 @@ get_channel_info_for_channel.exit:                ; preds = %95
 120:                                              ; preds = %114, %108
   %121 = getelementptr inbounds nuw i8, ptr %1, i64 328
   %122 = load i16, ptr %121, align 8
-  %123 = load i8, ptr @ssh_desegment, align 1, !range !10, !noundef !11
+  %123 = load i8, ptr @ssh_desegment, align 1, !range !9, !noundef !10
   %124 = trunc nuw i8 %123 to i1
   br i1 %124, label %125, label %409
 
@@ -7407,12 +7407,12 @@ ssh_proto_tree_add_segment_data.exit277.i.i:      ; preds = %396, %392
   %407 = load ptr, ptr %132, align 8
   %408 = call ptr @wmem_tree_lookup32(ptr noundef %407, i32 noundef %406)
   %.not.i.i = icmp eq ptr %408, null
-  br i1 %.not.i.i, label %184, label %._crit_edge.i.i, !llvm.loop !79
+  br i1 %.not.i.i, label %184, label %._crit_edge.i.i
 
 409:                                              ; preds = %120
   store i16 0, ptr %121, align 8
   %410 = getelementptr inbounds nuw i8, ptr %1, i64 272
-  %411 = load i8, ptr %410, align 8, !range !10, !noundef !11
+  %411 = load i8, ptr %410, align 8, !range !9, !noundef !10
   store i8 1, ptr %410, align 8
   %412 = call ptr @tvb_new_subset_remaining(ptr noundef %101, i32 noundef 0)
   %413 = getelementptr inbounds nuw i8, ptr %107, i64 16
@@ -7936,7 +7936,7 @@ define internal fastcc void @ssh_decryption_setup_cipher(ptr noundef %0, ptr nou
   br i1 %.not111, label %56, label %54
 
 54:                                               ; preds = %51
-  %55 = call ptr @__memcpy_chk(ptr noundef nonnull %6, ptr noundef nonnull %52, i64 noundef range(i64 0, 4294967296) %53, i64 noundef 32) #25, !alias.scope !80
+  %55 = call ptr @__memcpy_chk(ptr noundef nonnull %6, ptr noundef nonnull %52, i64 noundef range(i64 0, 4294967296) %53, i64 noundef 32) #25, !alias.scope !76
   br label %58
 
 56:                                               ; preds = %51
@@ -8018,7 +8018,7 @@ define internal fastcc void @ssh_decryption_setup_cipher(ptr noundef %0, ptr nou
   br i1 %.not106, label %92, label %90
 
 90:                                               ; preds = %87
-  %91 = call ptr @__memcpy_chk(ptr noundef nonnull %8, ptr noundef nonnull %88, i64 noundef range(i64 0, 4294967296) %89, i64 noundef 32) #25, !alias.scope !84
+  %91 = call ptr @__memcpy_chk(ptr noundef nonnull %8, ptr noundef nonnull %88, i64 noundef range(i64 0, 4294967296) %89, i64 noundef 32) #25, !alias.scope !80
   br label %94
 
 92:                                               ; preds = %87
@@ -8096,7 +8096,7 @@ define internal fastcc void @ssh_decryption_setup_cipher(ptr noundef %0, ptr nou
   br i1 %.not102, label %125, label %123
 
 123:                                              ; preds = %120
-  %124 = call ptr @__memcpy_chk(ptr noundef nonnull %10, ptr noundef nonnull %121, i64 noundef range(i64 0, 4294967296) %122, i64 noundef 32) #25, !alias.scope !88
+  %124 = call ptr @__memcpy_chk(ptr noundef nonnull %10, ptr noundef nonnull %121, i64 noundef range(i64 0, 4294967296) %122, i64 noundef 32) #25, !alias.scope !84
   br label %127
 
 125:                                              ; preds = %120
@@ -8833,80 +8833,80 @@ attributes #29 = { allocsize(2) }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = !{i8 0, i8 2}
-!11 = !{}
-!12 = distinct !{!12, !8}
-!13 = distinct !{!13, !7, !8}
-!14 = distinct !{!14, !7, !8}
-!15 = !{!16, !18}
-!16 = distinct !{!16, !17, !"memcpy.inline: argument 0"}
-!17 = distinct !{!17, !"memcpy.inline"}
-!18 = distinct !{!18, !17, !"memcpy.inline: argument 1"}
-!19 = distinct !{!19, !7, !8}
-!20 = !{!21, !23}
-!21 = distinct !{!21, !22, !"memcpy.inline: argument 0"}
-!22 = distinct !{!22, !"memcpy.inline"}
-!23 = distinct !{!23, !22, !"memcpy.inline: argument 1"}
-!24 = !{!25, !27}
-!25 = distinct !{!25, !26, !"memcpy.inline: argument 0"}
-!26 = distinct !{!26, !"memcpy.inline"}
-!27 = distinct !{!27, !26, !"memcpy.inline: argument 1"}
-!28 = !{!29, !31}
-!29 = distinct !{!29, !30, !"memcpy.inline: argument 0"}
-!30 = distinct !{!30, !"memcpy.inline"}
-!31 = distinct !{!31, !30, !"memcpy.inline: argument 1"}
-!32 = distinct !{!32, !7, !8}
-!33 = distinct !{!33, !7, !8}
-!34 = distinct !{!34, !7, !8}
-!35 = !{!36, !38}
-!36 = distinct !{!36, !37, !"memcpy.inline: argument 0"}
-!37 = distinct !{!37, !"memcpy.inline"}
-!38 = distinct !{!38, !37, !"memcpy.inline: argument 1"}
-!39 = distinct !{!39, !7, !8}
-!40 = distinct !{!40, !7, !8}
-!41 = distinct !{!41, !8}
-!42 = !{!43, !45}
-!43 = distinct !{!43, !44, !"memcpy.inline: argument 0"}
-!44 = distinct !{!44, !"memcpy.inline"}
-!45 = distinct !{!45, !44, !"memcpy.inline: argument 1"}
-!46 = !{!47, !49}
-!47 = distinct !{!47, !48, !"memcpy.inline: argument 0"}
-!48 = distinct !{!48, !"memcpy.inline"}
-!49 = distinct !{!49, !48, !"memcpy.inline: argument 1"}
-!50 = !{!51, !53}
-!51 = distinct !{!51, !52, !"memcpy.inline: argument 0"}
-!52 = distinct !{!52, !"memcpy.inline"}
-!53 = distinct !{!53, !52, !"memcpy.inline: argument 1"}
-!54 = !{!55, !57}
-!55 = distinct !{!55, !56, !"memcpy.inline: argument 0"}
-!56 = distinct !{!56, !"memcpy.inline"}
-!57 = distinct !{!57, !56, !"memcpy.inline: argument 1"}
-!58 = !{!59, !61}
-!59 = distinct !{!59, !60, !"memcpy.inline: argument 0"}
-!60 = distinct !{!60, !"memcpy.inline"}
-!61 = distinct !{!61, !60, !"memcpy.inline: argument 1"}
-!62 = !{!63, !65}
-!63 = distinct !{!63, !64, !"memcpy.inline: argument 0"}
-!64 = distinct !{!64, !"memcpy.inline"}
-!65 = distinct !{!65, !64, !"memcpy.inline: argument 1"}
-!66 = distinct !{!66, !7, !8}
-!67 = !{!68, !70}
-!68 = distinct !{!68, !69, !"memcpy.inline: argument 0"}
-!69 = distinct !{!69, !"memcpy.inline"}
-!70 = distinct !{!70, !69, !"memcpy.inline: argument 1"}
-!71 = distinct !{!71, !7, !8}
-!72 = distinct !{!72, !7, !8}
-!73 = distinct !{!73, !7, !8}
-!74 = distinct !{!74, !7, !8}
-!75 = distinct !{!75, !7, !8}
-!76 = distinct !{!76, !7, !8}
-!77 = distinct !{!77, !7, !8}
-!78 = distinct !{!78, !7, !8}
-!79 = distinct !{!79, !8}
+!8 = distinct !{!8, !7}
+!9 = !{i8 0, i8 2}
+!10 = !{}
+!11 = distinct !{!11, !7}
+!12 = distinct !{!12, !7}
+!13 = !{!14, !16}
+!14 = distinct !{!14, !15, !"memcpy.inline: argument 0"}
+!15 = distinct !{!15, !"memcpy.inline"}
+!16 = distinct !{!16, !15, !"memcpy.inline: argument 1"}
+!17 = distinct !{!17, !7}
+!18 = !{!19, !21}
+!19 = distinct !{!19, !20, !"memcpy.inline: argument 0"}
+!20 = distinct !{!20, !"memcpy.inline"}
+!21 = distinct !{!21, !20, !"memcpy.inline: argument 1"}
+!22 = !{!23, !25}
+!23 = distinct !{!23, !24, !"memcpy.inline: argument 0"}
+!24 = distinct !{!24, !"memcpy.inline"}
+!25 = distinct !{!25, !24, !"memcpy.inline: argument 1"}
+!26 = !{!27, !29}
+!27 = distinct !{!27, !28, !"memcpy.inline: argument 0"}
+!28 = distinct !{!28, !"memcpy.inline"}
+!29 = distinct !{!29, !28, !"memcpy.inline: argument 1"}
+!30 = distinct !{!30, !7}
+!31 = distinct !{!31, !7}
+!32 = distinct !{!32, !7}
+!33 = !{!34, !36}
+!34 = distinct !{!34, !35, !"memcpy.inline: argument 0"}
+!35 = distinct !{!35, !"memcpy.inline"}
+!36 = distinct !{!36, !35, !"memcpy.inline: argument 1"}
+!37 = distinct !{!37, !7}
+!38 = distinct !{!38, !7}
+!39 = !{!40, !42}
+!40 = distinct !{!40, !41, !"memcpy.inline: argument 0"}
+!41 = distinct !{!41, !"memcpy.inline"}
+!42 = distinct !{!42, !41, !"memcpy.inline: argument 1"}
+!43 = !{!44, !46}
+!44 = distinct !{!44, !45, !"memcpy.inline: argument 0"}
+!45 = distinct !{!45, !"memcpy.inline"}
+!46 = distinct !{!46, !45, !"memcpy.inline: argument 1"}
+!47 = !{!48, !50}
+!48 = distinct !{!48, !49, !"memcpy.inline: argument 0"}
+!49 = distinct !{!49, !"memcpy.inline"}
+!50 = distinct !{!50, !49, !"memcpy.inline: argument 1"}
+!51 = !{!52, !54}
+!52 = distinct !{!52, !53, !"memcpy.inline: argument 0"}
+!53 = distinct !{!53, !"memcpy.inline"}
+!54 = distinct !{!54, !53, !"memcpy.inline: argument 1"}
+!55 = !{!56, !58}
+!56 = distinct !{!56, !57, !"memcpy.inline: argument 0"}
+!57 = distinct !{!57, !"memcpy.inline"}
+!58 = distinct !{!58, !57, !"memcpy.inline: argument 1"}
+!59 = !{!60, !62}
+!60 = distinct !{!60, !61, !"memcpy.inline: argument 0"}
+!61 = distinct !{!61, !"memcpy.inline"}
+!62 = distinct !{!62, !61, !"memcpy.inline: argument 1"}
+!63 = distinct !{!63, !7}
+!64 = !{!65, !67}
+!65 = distinct !{!65, !66, !"memcpy.inline: argument 0"}
+!66 = distinct !{!66, !"memcpy.inline"}
+!67 = distinct !{!67, !66, !"memcpy.inline: argument 1"}
+!68 = distinct !{!68, !7}
+!69 = distinct !{!69, !7}
+!70 = distinct !{!70, !7}
+!71 = distinct !{!71, !7}
+!72 = distinct !{!72, !7}
+!73 = distinct !{!73, !7}
+!74 = distinct !{!74, !7}
+!75 = distinct !{!75, !7}
+!76 = !{!77, !79}
+!77 = distinct !{!77, !78, !"memcpy.inline: argument 0"}
+!78 = distinct !{!78, !"memcpy.inline"}
+!79 = distinct !{!79, !78, !"memcpy.inline: argument 1"}
 !80 = !{!81, !83}
 !81 = distinct !{!81, !82, !"memcpy.inline: argument 0"}
 !82 = distinct !{!82, !"memcpy.inline"}
@@ -8915,7 +8915,3 @@ attributes #29 = { allocsize(2) }
 !85 = distinct !{!85, !86, !"memcpy.inline: argument 0"}
 !86 = distinct !{!86, !"memcpy.inline"}
 !87 = distinct !{!87, !86, !"memcpy.inline: argument 1"}
-!88 = !{!89, !91}
-!89 = distinct !{!89, !90, !"memcpy.inline: argument 0"}
-!90 = distinct !{!90, !"memcpy.inline"}
-!91 = distinct !{!91, !90, !"memcpy.inline: argument 1"}

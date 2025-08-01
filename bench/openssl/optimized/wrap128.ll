@@ -83,7 +83,7 @@ define range(i64 0, 2147483657) i64 @CRYPTO_128_wrap(ptr noundef %0, ptr noundef
 ._crit_edge.us:                                   ; preds = %42
   %46 = add nuw nsw i64 %.03644.us, 1
   %exitcond50.not = icmp eq i64 %46, 6
-  br i1 %exitcond50.not, label %.split47.us, label %.preheader.us, !llvm.loop !9
+  br i1 %exitcond50.not, label %.split47.us, label %.preheader.us, !llvm.loop !8
 
 .split47.us:                                      ; preds = %._crit_edge.us
   %.pre = load i64, ptr %7, align 16
@@ -191,12 +191,12 @@ crypto_128_unwrap_raw.exit.thread14:              ; preds = %14
   %46 = add nuw nsw i64 %.03944.us.i, 8
   %47 = add i64 %.145.us.i, -1
   %48 = icmp ult i64 %46, %9
-  br i1 %48, label %25, label %._crit_edge.us.i, !llvm.loop !11
+  br i1 %48, label %25, label %._crit_edge.us.i, !llvm.loop !10
 
 ._crit_edge.us.i:                                 ; preds = %43
   %49 = add nuw nsw i64 %.03847.us.i, 1
   %exitcond.not.i = icmp eq i64 %49, 6
-  br i1 %exitcond.not.i, label %crypto_128_unwrap_raw.exit, label %.lr.ph.us.i, !llvm.loop !12
+  br i1 %exitcond.not.i, label %crypto_128_unwrap_raw.exit, label %.lr.ph.us.i, !llvm.loop !11
 
 crypto_128_unwrap_raw.exit:                       ; preds = %._crit_edge.us.i
   %.pre.i = load i64, ptr %7, align 16
@@ -337,7 +337,7 @@ define range(i64 -2147483648, 2147483648) i64 @CRYPTO_128_wrap_pad(ptr noundef %
 ._crit_edge.us.i:                                 ; preds = %57
   %61 = add nuw nsw i64 %.03644.us.i, 1
   %exitcond50.not.i = icmp eq i64 %61, 6
-  br i1 %exitcond50.not.i, label %.split47.us.i, label %.preheader.us.i, !llvm.loop !9
+  br i1 %exitcond50.not.i, label %.split47.us.i, label %.preheader.us.i, !llvm.loop !8
 
 .split47.us.i:                                    ; preds = %._crit_edge.us.i
   %.pre.i = load i64, ptr %7, align 16
@@ -454,12 +454,12 @@ define range(i64 0, 4294967296) i64 @CRYPTO_128_unwrap_pad(ptr noundef %0, ptr n
   %54 = add nuw nsw i64 %.03944.us.i, 8
   %55 = add i64 %.145.us.i, -1
   %56 = icmp ult i64 %54, %21
-  br i1 %56, label %33, label %._crit_edge.us.i, !llvm.loop !11
+  br i1 %56, label %33, label %._crit_edge.us.i, !llvm.loop !10
 
 ._crit_edge.us.i:                                 ; preds = %51
   %57 = add nuw nsw i64 %.03847.us.i, 1
   %exitcond.not.i = icmp eq i64 %57, 6
-  br i1 %exitcond.not.i, label %crypto_128_unwrap_raw.exit.thread, label %.lr.ph.us.i, !llvm.loop !12
+  br i1 %exitcond.not.i, label %crypto_128_unwrap_raw.exit.thread, label %.lr.ph.us.i, !llvm.loop !11
 
 crypto_128_unwrap_raw.exit.thread:                ; preds = %._crit_edge.us.i
   %.pre.i = load i64, ptr %7, align 16
@@ -557,10 +557,9 @@ attributes #6 = { nounwind }
 !3 = !{!4, !4, i64 0}
 !4 = !{!"omnipotent char", !5, i64 0}
 !5 = !{!"Simple C/C++ TBAA"}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8, !10}
-!10 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!11 = distinct !{!11, !7, !8}
-!12 = distinct !{!12, !7, !8, !10}
+!8 = distinct !{!8, !7, !9}
+!9 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7, !9}

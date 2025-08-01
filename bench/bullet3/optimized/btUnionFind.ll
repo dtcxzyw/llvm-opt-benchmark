@@ -178,7 +178,7 @@ _ZN20btAlignedObjectArrayI9btElementE10deallocateEv.exit.i.i: ; preds = %28, %_Z
   store i64 0, ptr %33, align 4
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %_ZN20btAlignedObjectArrayI9btElementE6resizeEiRKS0_.exit, label %31, !llvm.loop !20
+  br i1 %exitcond.not.i, label %_ZN20btAlignedObjectArrayI9btElementE6resizeEiRKS0_.exit, label %31, !llvm.loop !19
 
 _ZN20btAlignedObjectArrayI9btElementE6resizeEiRKS0_.exit: ; preds = %31, %2
   store i32 %1, ptr %3, align 4, !tbaa !15
@@ -270,7 +270,7 @@ _ZN20btAlignedObjectArrayI9btElementE10deallocateEv.exit.i.i.i: ; preds = %28, %
   store i64 0, ptr %33, align 4
   %indvars.iv.next.i.i = add nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %_ZN11btUnionFind8allocateEi.exit, label %31, !llvm.loop !20
+  br i1 %exitcond.not.i.i, label %_ZN11btUnionFind8allocateEi.exit, label %31, !llvm.loop !19
 
 _ZN11btUnionFind8allocateEi.exit:                 ; preds = %31, %2
   store i32 %1, ptr %3, align 4, !tbaa !15
@@ -290,12 +290,12 @@ _ZN11btUnionFind8allocateEi.exit:                 ; preds = %31, %2
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %37 ]
   %38 = getelementptr inbounds nuw %struct.btElement, ptr %36, i64 %indvars.iv
   %39 = trunc nuw nsw i64 %indvars.iv to i32
-  store i32 %39, ptr %38, align 4, !tbaa !21
+  store i32 %39, ptr %38, align 4, !tbaa !20
   %40 = getelementptr inbounds nuw i8, ptr %38, i64 4
-  store i32 1, ptr %40, align 4, !tbaa !23
+  store i32 1, ptr %40, align 4, !tbaa !22
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %37, !llvm.loop !24
+  br i1 %exitcond.not, label %._crit_edge, label %37, !llvm.loop !23
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -333,7 +333,7 @@ _ZN20btAlignedObjectArrayI9btElementE9quickSortI31btUnionFindElementSortPredicat
 10:                                               ; preds = %.lr.ph, %_ZN11btUnionFind4findEi.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZN11btUnionFind4findEi.exit ]
   %11 = getelementptr inbounds nuw %struct.btElement, ptr %7, i64 %indvars.iv
-  %12 = load i32, ptr %11, align 4, !tbaa !21
+  %12 = load i32, ptr %11, align 4, !tbaa !20
   %13 = zext i32 %12 to i64
   %.not7.i = icmp eq i64 %indvars.iv, %13
   %14 = trunc nuw nsw i64 %indvars.iv to i32
@@ -344,20 +344,20 @@ _ZN20btAlignedObjectArrayI9btElementE9quickSortI31btUnionFindElementSortPredicat
   %16 = phi ptr [ %21, %.lr.ph.i ], [ %11, %10 ]
   %17 = sext i32 %15 to i64
   %18 = getelementptr inbounds %struct.btElement, ptr %7, i64 %17
-  %19 = load i32, ptr %18, align 4, !tbaa !21
-  store i32 %19, ptr %16, align 4, !tbaa !21
+  %19 = load i32, ptr %18, align 4, !tbaa !20
+  store i32 %19, ptr %16, align 4, !tbaa !20
   %20 = sext i32 %19 to i64
   %21 = getelementptr inbounds %struct.btElement, ptr %7, i64 %20
-  %22 = load i32, ptr %21, align 4, !tbaa !21
+  %22 = load i32, ptr %21, align 4, !tbaa !20
   %.not.i = icmp eq i32 %19, %22
-  br i1 %.not.i, label %_ZN11btUnionFind4findEi.exit, label %.lr.ph.i, !llvm.loop !25
+  br i1 %.not.i, label %_ZN11btUnionFind4findEi.exit, label %.lr.ph.i, !llvm.loop !24
 
 _ZN11btUnionFind4findEi.exit:                     ; preds = %.lr.ph.i, %10
   %.0.lcssa.i = phi i32 [ %14, %10 ], [ %19, %.lr.ph.i ]
-  store i32 %.0.lcssa.i, ptr %11, align 4, !tbaa !21
+  store i32 %.0.lcssa.i, ptr %11, align 4, !tbaa !20
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %10, !llvm.loop !26
+  br i1 %exitcond.not, label %._crit_edge, label %10, !llvm.loop !25
 }
 
 declare noundef ptr @_Z22btAlignedAllocInternalmi(i64 noundef, i32 noundef) local_unnamed_addr #6
@@ -390,10 +390,10 @@ tailrecurse:                                      ; preds = %40, %4
 15:                                               ; preds = %15, %12
   %indvars.iv = phi i64 [ %indvars.iv.next, %15 ], [ %14, %12 ]
   %16 = getelementptr inbounds %struct.btElement, ptr %13, i64 %indvars.iv
-  %17 = load i32, ptr %16, align 4, !tbaa !21
+  %17 = load i32, ptr %16, align 4, !tbaa !20
   %18 = icmp slt i32 %17, %.sroa.0.0.extract.trunc
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
-  br i1 %18, label %15, label %.preheader, !llvm.loop !27
+  br i1 %18, label %15, label %.preheader, !llvm.loop !26
 
 .preheader:                                       ; preds = %15
   %19 = getelementptr inbounds %struct.btElement, ptr %13, i64 %indvars.iv
@@ -403,10 +403,10 @@ tailrecurse:                                      ; preds = %40, %4
 21:                                               ; preds = %21, %.preheader
   %indvars.iv45 = phi i64 [ %indvars.iv.next46, %21 ], [ %20, %.preheader ]
   %22 = getelementptr inbounds %struct.btElement, ptr %13, i64 %indvars.iv45
-  %23 = load i32, ptr %22, align 4, !tbaa !21
+  %23 = load i32, ptr %22, align 4, !tbaa !20
   %24 = icmp sgt i32 %23, %.sroa.0.0.extract.trunc
   %indvars.iv.next46 = add nsw i64 %indvars.iv45, -1
-  br i1 %24, label %21, label %25, !llvm.loop !28
+  br i1 %24, label %21, label %25, !llvm.loop !27
 
 25:                                               ; preds = %21
   %26 = trunc nsw i64 %indvars.iv to i32
@@ -430,7 +430,7 @@ tailrecurse:                                      ; preds = %40, %4
   %.230 = phi i32 [ %34, %28 ], [ %26, %25 ]
   %.2 = phi i32 [ %35, %28 ], [ %27, %25 ]
   %.not33 = icmp sgt i32 %.230, %.2
-  br i1 %.not33, label %37, label %12, !llvm.loop !29
+  br i1 %.not33, label %37, label %12, !llvm.loop !28
 
 37:                                               ; preds = %36
   %38 = icmp slt i32 %.tr36, %.2
@@ -477,16 +477,15 @@ attributes #8 = { nounwind }
 !14 = !{!5, !12, i64 24}
 !15 = !{!5, !7, i64 4}
 !16 = !{!5, !7, i64 8}
-!17 = distinct !{!17, !18, !19}
+!17 = distinct !{!17, !18}
 !18 = !{!"llvm.loop.mustprogress"}
-!19 = !{!"llvm.loop.estimated_trip_count"}
-!20 = distinct !{!20, !18, !19}
-!21 = !{!22, !7, i64 0}
-!22 = !{!"_ZTS9btElement", !7, i64 0, !7, i64 4}
-!23 = !{!22, !7, i64 4}
-!24 = distinct !{!24, !18, !19}
-!25 = distinct !{!25, !18, !19}
-!26 = distinct !{!26, !18, !19}
-!27 = distinct !{!27, !18, !19}
-!28 = distinct !{!28, !18, !19}
-!29 = distinct !{!29, !18, !19}
+!19 = distinct !{!19, !18}
+!20 = !{!21, !7, i64 0}
+!21 = !{!"_ZTS9btElement", !7, i64 0, !7, i64 4}
+!22 = !{!21, !7, i64 4}
+!23 = distinct !{!23, !18}
+!24 = distinct !{!24, !18}
+!25 = distinct !{!25, !18}
+!26 = distinct !{!26, !18}
+!27 = distinct !{!27, !18}
+!28 = distinct !{!28, !18}

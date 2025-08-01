@@ -54,7 +54,7 @@ define dso_local i32 @_ZNK4absl12crc_internal26CrcNonTemporalMemcpyEngine7Comput
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 %.0.lcssa
   %17 = tail call i32 @_ZN4absl12crc_internal20ExtendCrc32cInternalENS_8crc32c_tESt17basic_string_viewIcSt11char_traitsIcEE(i32 %.sroa.026.0.lcssa, i64 %15, ptr %16)
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 %.0.lcssa
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %18, ptr align 1 %16, i64 %15, i1 false), !alias.scope !11
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %18, ptr align 1 %16, i64 %15, i1 false), !alias.scope !10
   br label %19
 
 19:                                               ; preds = %14, %._crit_edge
@@ -80,7 +80,7 @@ define dso_local i32 @_ZNK4absl12crc_internal29CrcNonTemporalMemcpyAVXEngine7Com
   %11 = tail call noundef ptr @_ZN4absl12crc_internal29non_temporal_store_memcpy_avxEPvPKvm(ptr noundef %10, ptr noundef %8, i64 noundef 8192)
   %12 = add i64 %7, 8192
   %13 = icmp ult i64 %12, %3
-  br i1 %13, label %.lr.ph, label %._crit_edge, !llvm.loop !15
+  br i1 %13, label %.lr.ph, label %._crit_edge, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5
   %.0.lcssa = phi i64 [ 0, %5 ], [ %7, %.lr.ph ]
@@ -148,11 +148,10 @@ attributes #7 = { builtin nounwind }
 !5 = distinct !{!5, !6, !"_ZN4absl12crc_internal25non_temporal_store_memcpyEPvPKvm: argument 0"}
 !6 = distinct !{!6, !"_ZN4absl12crc_internal25non_temporal_store_memcpyEPvPKvm"}
 !7 = distinct !{!7, !6, !"_ZN4absl12crc_internal25non_temporal_store_memcpyEPvPKvm: argument 1"}
-!8 = distinct !{!8, !9, !10}
+!8 = distinct !{!8, !9}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = !{!"llvm.loop.estimated_trip_count"}
-!11 = !{!12, !14}
-!12 = distinct !{!12, !13, !"_ZN4absl12crc_internal25non_temporal_store_memcpyEPvPKvm: argument 0"}
-!13 = distinct !{!13, !"_ZN4absl12crc_internal25non_temporal_store_memcpyEPvPKvm"}
-!14 = distinct !{!14, !13, !"_ZN4absl12crc_internal25non_temporal_store_memcpyEPvPKvm: argument 1"}
-!15 = distinct !{!15, !9, !10}
+!10 = !{!11, !13}
+!11 = distinct !{!11, !12, !"_ZN4absl12crc_internal25non_temporal_store_memcpyEPvPKvm: argument 0"}
+!12 = distinct !{!12, !"_ZN4absl12crc_internal25non_temporal_store_memcpyEPvPKvm"}
+!13 = distinct !{!13, !12, !"_ZN4absl12crc_internal25non_temporal_store_memcpyEPvPKvm: argument 1"}
+!14 = distinct !{!14, !9}

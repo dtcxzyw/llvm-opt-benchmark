@@ -132,9 +132,9 @@ define internal i32 @xwd_parse(ptr noundef captures(none) initializes((40, 44)) 
   store i32 %69, ptr %3, align 4, !tbaa !9
   store i32 1, ptr %10, align 8, !tbaa !15
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 232
-  store i32 1, ptr %71, align 8, !tbaa !26
+  store i32 1, ptr %71, align 8, !tbaa !25
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 296
-  store i32 1, ptr %72, align 8, !tbaa !27
+  store i32 1, ptr %72, align 8, !tbaa !26
   br label %73
 
 73:                                               ; preds = %68, %66
@@ -187,8 +187,7 @@ attributes #5 = { nounwind }
 !20 = !{!18, !10, i64 52}
 !21 = !{!7, !7, i64 0}
 !22 = !{!19, !10, i64 24}
-!23 = distinct !{!23, !24, !25}
+!23 = distinct !{!23, !24}
 !24 = !{!"llvm.loop.mustprogress"}
-!25 = !{!"llvm.loop.estimated_trip_count"}
-!26 = !{!12, !10, i64 232}
-!27 = !{!12, !10, i64 296}
+!25 = !{!12, !10, i64 232}
+!26 = !{!12, !10, i64 296}

@@ -58,7 +58,7 @@ for.body12:                                       ; preds = %for.end, %for.body1
   %call21 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 79, ptr noundef nonnull @.str.1)
   %add23 = add nuw nsw i32 %i9.0102, 1310
   %cmp11 = icmp samesign ult i32 %i9.0102, 62915
-  br i1 %cmp11, label %for.body12, label %for.end24, !llvm.loop !8
+  br i1 %cmp11, label %for.body12, label %for.end24, !llvm.loop !7
 
 for.end24:                                        ; preds = %for.body12
   %call27 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 84, ptr noundef nonnull @.str.2)
@@ -69,7 +69,7 @@ for.body33:                                       ; preds = %for.end24, %for.bod
   %call40 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 94, ptr noundef nonnull @.str.1)
   %add42 = add nuw i32 %i30.0103, 8589934
   %cmp32 = icmp ult i32 %i30.0103, -17179869
-  br i1 %cmp32, label %for.body33, label %for.end43, !llvm.loop !9
+  br i1 %cmp32, label %for.body33, label %for.end43, !llvm.loop !8
 
 for.end43:                                        ; preds = %for.body33
   %call46 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 99, ptr noundef nonnull @.str.2)
@@ -101,7 +101,7 @@ for.body.i:                                       ; preds = %for.end43, %for.bod
   store i32 %3, ptr %add.ptr.i, align 4
   store i32 %2, ptr %add.ptr2.i, align 4
   %exitcond.not.i = icmp eq i64 %add.i, 6
-  br i1 %exitcond.not.i, label %for.cond59.preheader, label %for.body.i, !llvm.loop !10
+  br i1 %exitcond.not.i, label %for.cond59.preheader, label %for.body.i, !llvm.loop !9
 
 for.cond59.preheader:                             ; preds = %for.body.i
   %4 = load i32, ptr %intArray, align 16
@@ -187,7 +187,7 @@ for.inc86:                                        ; preds = %_ZN5eastl6vectorImN
   %rngArray.sroa.12.1 = getelementptr inbounds nuw i8, ptr %rngArray.sroa.12.0.pn, i64 8
   %inc87 = add nuw nsw i64 %storemerge108, 1
   %exitcond112.not = icmp eq i64 %inc87, 200
-  br i1 %exitcond112.not, label %for.end88, label %for.body85, !llvm.loop !11
+  br i1 %exitcond112.not, label %for.end88, label %for.body85, !llvm.loop !10
 
 lpad.loopexit91:                                  ; preds = %if.then.i.i.i
   %lpad.loopexit93 = landingpad { ptr, i32 }
@@ -227,7 +227,7 @@ for.body.i48:                                     ; preds = %for.end88, %for.bod
   store i64 %13, ptr %add.ptr.i50, align 8
   store i64 %12, ptr %add.ptr2.i59, align 8
   %exitcond.not.i60 = icmp eq i64 %add.i51, %sub.ptr.div.i.i.i
-  br i1 %exitcond.not.i60, label %invoke.cont91, label %for.body.i48, !llvm.loop !12
+  br i1 %exitcond.not.i60, label %invoke.cont91, label %for.body.i48, !llvm.loop !11
 
 invoke.cont91:                                    ; preds = %for.body.i48, %for.end88
   %cmp.i62 = icmp uge ptr %rngArray.sroa.12.1, %rngArray.sroa.0.1
@@ -258,7 +258,7 @@ for.body100:                                      ; preds = %invoke.cont96, %inv
 invoke.cont104:                                   ; preds = %for.body100
   %inc107 = add nuw i64 %s.0110, 1
   %exitcond113.not = icmp eq i64 %inc107, %sub.ptr.div.i.i.i
-  br i1 %exitcond113.not, label %for.end108.loopexit, label %for.body100, !llvm.loop !13
+  br i1 %exitcond113.not, label %for.end108.loopexit, label %for.body100, !llvm.loop !12
 
 lpad101.loopexit:                                 ; preds = %for.body100
   %lpad.loopexit = landingpad { ptr, i32 }
@@ -386,7 +386,7 @@ for.inc.us:                                       ; preds = %if.then.us, %lor.lh
   %incdec.ptr.us = getelementptr inbounds nuw i8, ptr %first.addr.022.us, i64 4
   %inc6.us = add nuw nsw i32 %seqIndex.024.us, 1
   %cmp.not.us = icmp eq ptr %incdec.ptr.us, %last
-  br i1 %cmp.not.us, label %for.end13, label %for.body.us, !llvm.loop !14
+  br i1 %cmp.not.us, label %for.end13, label %for.body.us, !llvm.loop !13
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %bReturnValue.025 = phi i1 [ %bReturnValue.1, %for.inc ], [ true, %for.body.lr.ph ]
@@ -430,7 +430,7 @@ for.inc:                                          ; preds = %if.then, %lor.lhs.f
   %incdec.ptr = getelementptr inbounds nuw i8, ptr %first.addr.022, i64 4
   %inc6 = add nuw nsw i32 %seqIndex.024, 1
   %cmp.not = icmp eq ptr %incdec.ptr, %last
-  br i1 %cmp.not, label %for.end13, label %for.body, !llvm.loop !16
+  br i1 %cmp.not, label %for.end13, label %for.body, !llvm.loop !15
 
 for.end13:                                        ; preds = %for.inc, %for.inc.us
   %argIndex.0.lcssa = phi i32 [ %inc6.us, %for.inc.us ], [ %inc6, %for.inc ]
@@ -499,7 +499,7 @@ vaarg.end41:                                      ; preds = %vaarg.in_mem37, %va
   %vaarg.addr42 = phi ptr [ %19, %vaarg.in_reg35 ], [ %overflow_arg_area3939, %vaarg.in_mem37 ]
   %21 = load i32, ptr %vaarg.addr42, align 4
   %cmp43.not = icmp eq i32 %21, -1
-  br i1 %cmp43.not, label %do.end, label %do.body, !llvm.loop !17
+  br i1 %cmp43.not, label %do.end, label %do.body, !llvm.loop !16
 
 do.end:                                           ; preds = %vaarg.end41
   %tobool44.not = icmp eq ptr %pName, null
@@ -554,7 +554,7 @@ _ZN5eastl6rbtreeImmNS_4lessImEENS_9allocatorENS_8use_selfImEELb0ELb1EE10DoFreeNo
   %1 = load ptr, ptr %mpNodeLeft, align 8
   tail call void @_ZdaPv(ptr noundef nonnull %pNode.addr.05) #8
   %tobool.not = icmp eq ptr %1, null
-  br i1 %tobool.not, label %while.end, label %_ZN5eastl6rbtreeImmNS_4lessImEENS_9allocatorENS_8use_selfImEELb0ELb1EE10DoFreeNodeEPNS_11rbtree_nodeImEE.exit, !llvm.loop !18
+  br i1 %tobool.not, label %while.end, label %_ZN5eastl6rbtreeImmNS_4lessImEENS_9allocatorENS_8use_selfImEELb0ELb1EE10DoFreeNodeEPNS_11rbtree_nodeImEE.exit, !llvm.loop !17
 
 while.end:                                        ; preds = %_ZN5eastl6rbtreeImmNS_4lessImEENS_9allocatorENS_8use_selfImEELb0ELb1EE10DoFreeNodeEPNS_11rbtree_nodeImEE.exit, %entry
   ret void
@@ -603,7 +603,7 @@ while.body.i:                                     ; preds = %entry, %while.body.
   %pCurrent.1.in.i = getelementptr inbounds nuw i8, ptr %pCurrent.017.i, i64 %pCurrent.1.in.idx.i
   %pCurrent.0.i = load ptr, ptr %pCurrent.1.in.i, align 8
   %tobool.not.i = icmp eq ptr %pCurrent.0.i, null
-  br i1 %tobool.not.i, label %while.end.i, label %while.body.i, !llvm.loop !19
+  br i1 %tobool.not.i, label %while.end.i, label %while.body.i, !llvm.loop !18
 
 while.end.i:                                      ; preds = %while.body.i
   br i1 %cmp.i.i.i, label %if.then7.i, label %_ZN5eastl6rbtreeImmNS_4lessImEENS_9allocatorENS_8use_selfImEELb0ELb1EE35DoGetKeyInsertionPositionUniqueKeysERbRKm.exit
@@ -693,18 +693,17 @@ attributes #10 = { noreturn nounwind }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6, !7}
+!5 = distinct !{!5, !6}
 !6 = !{!"llvm.loop.mustprogress"}
-!7 = !{!"llvm.loop.estimated_trip_count"}
-!8 = distinct !{!8, !6, !7}
-!9 = distinct !{!9, !6, !7}
-!10 = distinct !{!10, !6, !7}
-!11 = distinct !{!11, !6, !7}
-!12 = distinct !{!12, !6, !7}
-!13 = distinct !{!13, !6, !7}
-!14 = distinct !{!14, !6, !7, !15}
-!15 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!16 = distinct !{!16, !6, !7}
-!17 = distinct !{!17, !6, !7}
-!18 = distinct !{!18, !6, !7}
-!19 = distinct !{!19, !6, !7}
+!7 = distinct !{!7, !6}
+!8 = distinct !{!8, !6}
+!9 = distinct !{!9, !6}
+!10 = distinct !{!10, !6}
+!11 = distinct !{!11, !6}
+!12 = distinct !{!12, !6}
+!13 = distinct !{!13, !6, !14}
+!14 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!15 = distinct !{!15, !6}
+!16 = distinct !{!16, !6}
+!17 = distinct !{!17, !6}
+!18 = distinct !{!18, !6}

@@ -114,19 +114,19 @@ sub_1:                                            ; preds = %sub_0
 ._crit_edge:                                      ; preds = %33, %4
   %.030.lcssa = phi i32 [ 0, %4 ], [ %.1, %33 ]
   %35 = getelementptr inbounds nuw i8, ptr %5, i64 1748
-  %36 = load i32, ptr %35, align 4, !tbaa !81
+  %36 = load i32, ptr %35, align 4, !tbaa !80
   %.not = icmp eq i32 %36, 0
   br i1 %.not, label %37, label %38
 
 37:                                               ; preds = %._crit_edge
-  store i32 1, ptr %35, align 4, !tbaa !81
+  store i32 1, ptr %35, align 4, !tbaa !80
   br label %38
 
 38:                                               ; preds = %37, %._crit_edge
   %39 = getelementptr inbounds nuw i8, ptr %5, i64 1492
-  store i32 1, ptr %39, align 4, !tbaa !82
+  store i32 1, ptr %39, align 4, !tbaa !81
   %40 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %41 = load i32, ptr %40, align 8, !tbaa !83
+  %41 = load i32, ptr %40, align 8, !tbaa !82
   %42 = icmp ne i32 %41, 1
   %43 = getelementptr inbounds nuw i8, ptr %5, i64 1412
   %44 = load i32, ptr %43, align 4
@@ -317,9 +317,8 @@ attributes #9 = { cold }
 !75 = !{!"kh_oid_set", !18, i64 0, !18, i64 4, !18, i64 8, !18, i64 12, !76, i64 16, !67, i64 24, !76, i64 32}
 !76 = !{!"p1 int", !6, i64 0}
 !77 = !{!11, !11, i64 0}
-!78 = distinct !{!78, !79, !80}
+!78 = distinct !{!78, !79}
 !79 = !{!"llvm.loop.mustprogress"}
-!80 = !{!"llvm.loop.estimated_trip_count"}
-!81 = !{!31, !18, i64 1748}
-!82 = !{!31, !18, i64 1492}
-!83 = !{!31, !18, i64 8}
+!80 = !{!31, !18, i64 1748}
+!81 = !{!31, !18, i64 1492}
+!82 = !{!31, !18, i64 8}

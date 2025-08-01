@@ -406,21 +406,21 @@ define internal fastcc range(i32 0, 2) i32 @use_ecc(ptr noundef %0, i32 noundef 
   %.02848 = phi i32 [ %13, %12 ], [ 0, %9 ]
   %14 = tail call ptr @OPENSSL_sk_value(ptr noundef %10, i32 noundef %.02848) #10
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 28
-  %16 = load i32, ptr %15, align 4, !tbaa !88
+  %16 = load i32, ptr %15, align 4, !tbaa !87
   %17 = and i32 %16, 132
   %.not = icmp eq i32 %17, 0
   br i1 %.not, label %18, label %.thread.thread
 
 18:                                               ; preds = %.lr.ph
   %19 = getelementptr inbounds nuw i8, ptr %14, i64 32
-  %20 = load i32, ptr %19, align 8, !tbaa !90
+  %20 = load i32, ptr %19, align 8, !tbaa !89
   %21 = and i32 %20, 8
   %.not35 = icmp eq i32 %21, 0
   br i1 %.not35, label %22, label %.thread.thread
 
 22:                                               ; preds = %18
   %23 = getelementptr inbounds nuw i8, ptr %14, i64 44
-  %24 = load i32, ptr %23, align 4, !tbaa !91
+  %24 = load i32, ptr %23, align 4, !tbaa !90
   %25 = icmp sgt i32 %24, 771
   br i1 %25, label %.thread.thread, label %12
 
@@ -435,7 +435,7 @@ define internal fastcc range(i32 0, 2) i32 @use_ecc(ptr noundef %0, i32 noundef 
   %.03449 = phi i64 [ %33, %.critedge ], [ 0, %.thread.thread ]
   %27 = load ptr, ptr %4, align 8, !tbaa !83
   %28 = getelementptr inbounds nuw i16, ptr %27, i64 %.03449
-  %29 = load i16, ptr %28, align 2, !tbaa !92
+  %29 = load i16, ptr %28, align 2, !tbaa !91
   %30 = call i32 @tls_valid_group(ptr noundef nonnull %0, i16 noundef zeroext %29, i32 noundef %1, i32 noundef %2, i32 noundef 1, ptr noundef null) #10
   %.not37 = icmp eq i32 %30, 0
   br i1 %.not37, label %.critedge, label %31
@@ -449,7 +449,7 @@ define internal fastcc range(i32 0, 2) i32 @use_ecc(ptr noundef %0, i32 noundef 
   %33 = add nuw i64 %.03449, 1
   %34 = load i64, ptr %5, align 8, !tbaa !82
   %35 = icmp ult i64 %33, %34
-  br i1 %35, label %.lr.ph50, label %.loopexit, !llvm.loop !93
+  br i1 %35, label %.lr.ph50, label %.loopexit, !llvm.loop !92
 
 .critedge46:                                      ; preds = %12, %9
   tail call void @OPENSSL_sk_free(ptr noundef %10) #10
@@ -549,7 +549,7 @@ define range(i32 0, 3) i32 @tls_construct_ctos_supported_groups(ptr noundef %0, 
   %.04258 = phi i64 [ %.244, %56 ], [ 0, %.preheader ]
   %38 = load ptr, ptr %6, align 8, !tbaa !83
   %39 = getelementptr inbounds nuw i16, ptr %38, i64 %.03860
-  %40 = load i16, ptr %39, align 2, !tbaa !92
+  %40 = load i16, ptr %39, align 2, !tbaa !91
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #10
   %41 = load i32, ptr %8, align 4, !tbaa !80
   %42 = load i32, ptr %9, align 4, !tbaa !80
@@ -593,7 +593,7 @@ define range(i32 0, 3) i32 @tls_construct_ctos_supported_groups(ptr noundef %0, 
   %57 = add nuw i64 %.03860, 1
   %58 = load i64, ptr %7, align 8, !tbaa !82
   %59 = icmp ult i64 %57, %58
-  br i1 %59, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !94
+  br i1 %59, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !93
 
 ._crit_edge.loopexit:                             ; preds = %56
   %60 = icmp eq i64 %.244, 0
@@ -661,10 +661,10 @@ define range(i32 0, 3) i32 @tls_construct_ctos_session_ticket(ptr noundef %0, pt
 
 7:                                                ; preds = %5
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 124
-  %9 = load i32, ptr %8, align 4, !tbaa !95
+  %9 = load i32, ptr %8, align 4, !tbaa !94
   %.not32 = icmp eq i32 %9, 0
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 2304
-  %11 = load ptr, ptr %10, align 8, !tbaa !96
+  %11 = load ptr, ptr %10, align 8, !tbaa !95
   %.not33 = icmp eq ptr %11, null
   br i1 %.not32, label %12, label %21
 
@@ -673,18 +673,18 @@ define range(i32 0, 3) i32 @tls_construct_ctos_session_ticket(ptr noundef %0, pt
 
 13:                                               ; preds = %12
   %14 = getelementptr inbounds nuw i8, ptr %11, i64 808
-  %15 = load ptr, ptr %14, align 8, !tbaa !97
+  %15 = load ptr, ptr %14, align 8, !tbaa !96
   %.not34 = icmp eq ptr %15, null
   br i1 %.not34, label %.thread45, label %16
 
 16:                                               ; preds = %13
-  %17 = load i32, ptr %11, align 8, !tbaa !100
+  %17 = load i32, ptr %11, align 8, !tbaa !99
   %.not35 = icmp eq i32 %17, 772
   br i1 %.not35, label %.thread45, label %18
 
 18:                                               ; preds = %16
   %19 = getelementptr inbounds nuw i8, ptr %11, i64 816
-  %20 = load i64, ptr %19, align 8, !tbaa !101
+  %20 = load i64, ptr %19, align 8, !tbaa !100
   br label %40
 
 21:                                               ; preds = %7
@@ -693,33 +693,33 @@ define range(i32 0, 3) i32 @tls_construct_ctos_session_ticket(ptr noundef %0, pt
 .thread45:                                        ; preds = %13, %16, %21
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 2304
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 2760
-  %24 = load ptr, ptr %23, align 8, !tbaa !102
+  %24 = load ptr, ptr %23, align 8, !tbaa !101
   %.not37 = icmp eq ptr %24, null
   br i1 %.not37, label %.thread, label %25
 
 25:                                               ; preds = %.thread45
   %26 = getelementptr inbounds nuw i8, ptr %24, i64 8
-  %27 = load ptr, ptr %26, align 8, !tbaa !103
+  %27 = load ptr, ptr %26, align 8, !tbaa !102
   %.not38 = icmp eq ptr %27, null
   br i1 %.not38, label %.thread, label %28
 
 28:                                               ; preds = %25
-  %29 = load i16, ptr %24, align 8, !tbaa !105
+  %29 = load i16, ptr %24, align 8, !tbaa !104
   %30 = zext i16 %29 to i64
   %31 = tail call noalias ptr @CRYPTO_malloc(i64 noundef %30, ptr noundef nonnull @.str, i32 noundef 300) #10
-  %32 = load ptr, ptr %22, align 8, !tbaa !96
+  %32 = load ptr, ptr %22, align 8, !tbaa !95
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 808
-  store ptr %31, ptr %33, align 8, !tbaa !97
+  store ptr %31, ptr %33, align 8, !tbaa !96
   %34 = icmp eq ptr %31, null
   br i1 %34, label %.sink.split, label %35
 
 35:                                               ; preds = %28
-  %36 = load ptr, ptr %23, align 8, !tbaa !102
+  %36 = load ptr, ptr %23, align 8, !tbaa !101
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 8
-  %38 = load ptr, ptr %37, align 8, !tbaa !103
+  %38 = load ptr, ptr %37, align 8, !tbaa !102
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %31, ptr align 1 %38, i64 %30, i1 false)
   %39 = getelementptr inbounds nuw i8, ptr %32, i64 816
-  store i64 %30, ptr %39, align 8, !tbaa !101
+  store i64 %30, ptr %39, align 8, !tbaa !100
   br label %40
 
 40:                                               ; preds = %35, %18
@@ -729,13 +729,13 @@ define range(i32 0, 3) i32 @tls_construct_ctos_session_ticket(ptr noundef %0, pt
 
 .thread:                                          ; preds = %12, %21, %.thread45, %25, %40
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 2760
-  %43 = load ptr, ptr %42, align 8, !tbaa !102
+  %43 = load ptr, ptr %42, align 8, !tbaa !101
   %.not39 = icmp eq ptr %43, null
   br i1 %.not39, label %48, label %44
 
 44:                                               ; preds = %.thread
   %45 = getelementptr inbounds nuw i8, ptr %43, i64 8
-  %46 = load ptr, ptr %45, align 8, !tbaa !103
+  %46 = load ptr, ptr %45, align 8, !tbaa !102
   %47 = icmp eq ptr %46, null
   br i1 %47, label %56, label %48
 
@@ -747,9 +747,9 @@ define range(i32 0, 3) i32 @tls_construct_ctos_session_ticket(ptr noundef %0, pt
 
 50:                                               ; preds = %48
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 2304
-  %52 = load ptr, ptr %51, align 8, !tbaa !96
+  %52 = load ptr, ptr %51, align 8, !tbaa !95
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 808
-  %54 = load ptr, ptr %53, align 8, !tbaa !97
+  %54 = load ptr, ptr %53, align 8, !tbaa !96
   %55 = tail call i32 @WPACKET_sub_memcpy__(ptr noundef %1, ptr noundef %54, i64 noundef %.043, i64 noundef 2) #10
   %.not41 = icmp eq i32 %55, 0
   br i1 %.not41, label %.sink.split, label %56
@@ -786,7 +786,7 @@ define range(i32 0, 3) i32 @tls_construct_ctos_sig_algs(ptr noundef %0, ptr noun
   %13 = and i32 %12, 8
   %.not = icmp eq i32 %13, 0
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 2516
-  %15 = load i32, ptr %14, align 4, !tbaa !106
+  %15 = load i32, ptr %14, align 4, !tbaa !105
   br i1 %.not, label %16, label %18
 
 16:                                               ; preds = %5
@@ -856,7 +856,7 @@ define range(i32 0, 3) i32 @tls_construct_ctos_status_request(ptr noundef %0, pt
 
 8:                                                ; preds = %5
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 2600
-  %10 = load i32, ptr %9, align 8, !tbaa !107
+  %10 = load i32, ptr %9, align 8, !tbaa !106
   %.not42 = icmp eq i32 %10, 1
   br i1 %.not42, label %11, label %60
 
@@ -882,7 +882,7 @@ define range(i32 0, 3) i32 @tls_construct_ctos_status_request(ptr noundef %0, pt
 
 .preheader:                                       ; preds = %17
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 2624
-  %20 = load ptr, ptr %19, align 8, !tbaa !108
+  %20 = load ptr, ptr %19, align 8, !tbaa !107
   %21 = tail call i32 @OPENSSL_sk_num(ptr noundef %20) #10
   %22 = icmp sgt i32 %21, 0
   br i1 %22, label %.lr.ph, label %._crit_edge
@@ -896,7 +896,7 @@ define range(i32 0, 3) i32 @tls_construct_ctos_status_request(ptr noundef %0, pt
 .lr.ph:                                           ; preds = %.preheader, %33
   %.03758 = phi i32 [ %34, %33 ], [ 0, %.preheader ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #10
-  %24 = load ptr, ptr %19, align 8, !tbaa !108
+  %24 = load ptr, ptr %19, align 8, !tbaa !107
   %25 = call ptr @OPENSSL_sk_value(ptr noundef %24, i32 noundef %.03758) #10
   %26 = call i32 @i2d_OCSP_RESPID(ptr noundef %25, ptr noundef null) #10
   %27 = icmp slt i32 %26, 1
@@ -923,10 +923,10 @@ define range(i32 0, 3) i32 @tls_construct_ctos_status_request(ptr noundef %0, pt
 33:                                               ; preds = %31
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #10
   %34 = add nuw nsw i32 %.03758, 1
-  %35 = load ptr, ptr %19, align 8, !tbaa !108
+  %35 = load ptr, ptr %19, align 8, !tbaa !107
   %36 = call i32 @OPENSSL_sk_num(ptr noundef %35) #10
   %37 = icmp slt i32 %34, %36
-  br i1 %37, label %.lr.ph, label %._crit_edge, !llvm.loop !109
+  br i1 %37, label %.lr.ph, label %._crit_edge, !llvm.loop !108
 
 ._crit_edge:                                      ; preds = %33, %.preheader
   %38 = call i32 @WPACKET_close(ptr noundef %1) #10
@@ -946,7 +946,7 @@ define range(i32 0, 3) i32 @tls_construct_ctos_status_request(ptr noundef %0, pt
 
 42:                                               ; preds = %39
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 2632
-  %44 = load ptr, ptr %43, align 8, !tbaa !110
+  %44 = load ptr, ptr %43, align 8, !tbaa !109
   %.not49 = icmp eq ptr %44, null
   br i1 %.not49, label %55, label %45
 
@@ -963,7 +963,7 @@ define range(i32 0, 3) i32 @tls_construct_ctos_status_request(ptr noundef %0, pt
   br i1 %.not50, label %.critedge57, label %51
 
 51:                                               ; preds = %48
-  %52 = load ptr, ptr %43, align 8, !tbaa !110
+  %52 = load ptr, ptr %43, align 8, !tbaa !109
   %53 = call i32 @i2d_X509_EXTENSIONS(ptr noundef %52, ptr noundef nonnull %7) #10
   %.not51 = icmp eq i32 %53, %46
   br i1 %.not51, label %54, label %.critedge57
@@ -1016,21 +1016,21 @@ declare i32 @WPACKET_allocate_bytes(ptr noundef, i64 noundef, ptr noundef) local
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 3) i32 @tls_construct_ctos_npn(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef readnone captures(none) %3, i64 noundef %4) local_unnamed_addr #0 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %7 = load ptr, ptr %6, align 8, !tbaa !111
+  %7 = load ptr, ptr %6, align 8, !tbaa !110
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 768
-  %9 = load ptr, ptr %8, align 8, !tbaa !112
+  %9 = load ptr, ptr %8, align 8, !tbaa !111
   %10 = icmp eq ptr %9, null
   br i1 %10, label %24, label %11
 
 11:                                               ; preds = %5
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 608
-  %13 = load i64, ptr %12, align 8, !tbaa !127
+  %13 = load i64, ptr %12, align 8, !tbaa !126
   %14 = icmp eq i64 %13, 0
   br i1 %14, label %19, label %15
 
 15:                                               ; preds = %11
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 744
-  %17 = load i64, ptr %16, align 8, !tbaa !128
+  %17 = load i64, ptr %16, align 8, !tbaa !127
   %18 = icmp eq i64 %17, 0
   br i1 %18, label %19, label %24
 
@@ -1058,21 +1058,21 @@ define range(i32 0, 3) i32 @tls_construct_ctos_npn(ptr noundef %0, ptr noundef %
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 3) i32 @tls_construct_ctos_alpn(ptr noundef initializes((1240, 1244)) %0, ptr noundef %1, i32 noundef %2, ptr noundef readnone captures(none) %3, i64 noundef %4) local_unnamed_addr #0 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 1240
-  store i32 0, ptr %6, align 8, !tbaa !129
+  store i32 0, ptr %6, align 8, !tbaa !128
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 2800
-  %8 = load ptr, ptr %7, align 8, !tbaa !130
+  %8 = load ptr, ptr %7, align 8, !tbaa !129
   %9 = icmp eq ptr %8, null
   br i1 %9, label %31, label %10
 
 10:                                               ; preds = %5
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 608
-  %12 = load i64, ptr %11, align 8, !tbaa !127
+  %12 = load i64, ptr %11, align 8, !tbaa !126
   %13 = icmp eq i64 %12, 0
   br i1 %13, label %18, label %14
 
 14:                                               ; preds = %10
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 744
-  %16 = load i64, ptr %15, align 8, !tbaa !128
+  %16 = load i64, ptr %15, align 8, !tbaa !127
   %17 = icmp eq i64 %16, 0
   br i1 %17, label %18, label %31
 
@@ -1087,9 +1087,9 @@ define range(i32 0, 3) i32 @tls_construct_ctos_alpn(ptr noundef initializes((124
   br i1 %.not12, label %29, label %22
 
 22:                                               ; preds = %20
-  %23 = load ptr, ptr %7, align 8, !tbaa !130
+  %23 = load ptr, ptr %7, align 8, !tbaa !129
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 2808
-  %25 = load i64, ptr %24, align 8, !tbaa !131
+  %25 = load i64, ptr %24, align 8, !tbaa !130
   %26 = tail call i32 @WPACKET_sub_memcpy__(ptr noundef %1, ptr noundef %23, i64 noundef %25, i64 noundef 2) #10
   %.not13 = icmp eq i32 %26, 0
   br i1 %.not13, label %29, label %27
@@ -1106,7 +1106,7 @@ define range(i32 0, 3) i32 @tls_construct_ctos_alpn(ptr noundef initializes((124
   br label %31
 
 30:                                               ; preds = %27
-  store i32 1, ptr %6, align 8, !tbaa !129
+  store i32 1, ptr %6, align 8, !tbaa !128
   br label %31
 
 31:                                               ; preds = %5, %14, %30, %29
@@ -1143,7 +1143,7 @@ define range(i32 0, 3) i32 @tls_construct_ctos_use_srtp(ptr noundef %0, ptr noun
 17:                                               ; preds = %21
   %18 = add nuw nsw i32 %.02332, 1
   %exitcond.not = icmp eq i32 %18, %15
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !132
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !131
 
 .lr.ph:                                           ; preds = %14, %17
   %.02332 = phi i32 [ %18, %17 ], [ 0, %14 ]
@@ -1153,7 +1153,7 @@ define range(i32 0, 3) i32 @tls_construct_ctos_use_srtp(ptr noundef %0, ptr noun
 
 21:                                               ; preds = %.lr.ph
   %22 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  %23 = load i64, ptr %22, align 8, !tbaa !133
+  %23 = load i64, ptr %22, align 8, !tbaa !132
   %24 = tail call i32 @WPACKET_put_bytes__(ptr noundef %1, i64 noundef %23, i64 noundef 2) #10
   %.not31 = icmp eq i32 %24, 0
   br i1 %.not31, label %.sink.split, label %17
@@ -1190,7 +1190,7 @@ declare ptr @SSL_get_srtp_profiles(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 3) i32 @tls_construct_ctos_etm(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef readnone captures(none) %3, i64 noundef %4) local_unnamed_addr #0 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 2480
-  %7 = load i64, ptr %6, align 8, !tbaa !135
+  %7 = load i64, ptr %6, align 8, !tbaa !134
   %8 = and i64 %7, 524288
   %.not = icmp eq i64 %8, 0
   br i1 %.not, label %9, label %14
@@ -1219,7 +1219,7 @@ define range(i32 0, 3) i32 @tls_construct_ctos_etm(ptr noundef %0, ptr noundef %
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 3) i32 @tls_construct_ctos_sct(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef readnone captures(address_is_null) %3, i64 noundef %4) local_unnamed_addr #0 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 2920
-  %7 = load ptr, ptr %6, align 8, !tbaa !136
+  %7 = load ptr, ptr %6, align 8, !tbaa !135
   %8 = icmp ne ptr %7, null
   %.not = icmp eq ptr %3, null
   %or.cond = and i1 %.not, %8
@@ -1249,7 +1249,7 @@ define range(i32 0, 3) i32 @tls_construct_ctos_sct(ptr noundef %0, ptr noundef %
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 3) i32 @tls_construct_ctos_ems(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef readnone captures(none) %3, i64 noundef %4) local_unnamed_addr #0 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 2480
-  %7 = load i64, ptr %6, align 8, !tbaa !135
+  %7 = load i64, ptr %6, align 8, !tbaa !134
   %8 = and i64 %7, 1
   %.not = icmp eq i64 %8, 0
   br i1 %.not, label %9, label %14
@@ -1320,7 +1320,7 @@ define range(i32 0, 3) i32 @tls_construct_ctos_supported_versions(ptr noundef %0
   %23 = load i32, ptr %6, align 4, !tbaa !80
   %24 = sext i32 %23 to i64
   %.not21.not = icmp sgt i64 %indvars.iv, %24
-  br i1 %.not21.not, label %.lr.ph, label %._crit_edge, !llvm.loop !137
+  br i1 %.not21.not, label %.lr.ph, label %._crit_edge, !llvm.loop !136
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %22
   %indvars.iv = phi i64 [ %21, %.lr.ph.preheader ], [ %indvars.iv.next, %22 ]
@@ -1356,7 +1356,7 @@ define range(i32 0, 3) i32 @tls_construct_ctos_supported_versions(ptr noundef %0
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @tls_construct_ctos_psk_kex_modes(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef readnone captures(none) %3, i64 noundef %4) local_unnamed_addr #0 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 2480
-  %7 = load i64, ptr %6, align 8, !tbaa !135
+  %7 = load i64, ptr %6, align 8, !tbaa !134
   %8 = tail call i32 @WPACKET_put_bytes__(ptr noundef %1, i64 noundef 45, i64 noundef 2) #10
   %.not = icmp eq i32 %8, 0
   br i1 %.not, label %23, label %9
@@ -1405,7 +1405,7 @@ define range(i32 0, 2) i32 @tls_construct_ctos_psk_kex_modes(ptr noundef %0, ptr
 24:                                               ; preds = %21
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 2832
   %spec.select = select i1 %.not16, i32 2, i32 3
-  store i32 %spec.select, ptr %25, align 8, !tbaa !138
+  store i32 %spec.select, ptr %25, align 8, !tbaa !137
   br label %26
 
 26:                                               ; preds = %24, %23
@@ -1449,7 +1449,7 @@ define range(i32 0, 2) i32 @tls_construct_ctos_key_share(ptr noundef %0, ptr nou
 
 17:                                               ; preds = %14
   %18 = load ptr, ptr %7, align 8, !tbaa !83
-  %19 = load i16, ptr %18, align 2, !tbaa !92
+  %19 = load i16, ptr %18, align 2, !tbaa !91
   %.not64 = icmp eq i16 %19, 0
   br i1 %.not64, label %20, label %thread-pre-split.thread
 
@@ -1472,9 +1472,9 @@ thread-pre-split:                                 ; preds = %20, %14
 thread-pre-split.thread:                          ; preds = %17, %thread-pre-split
   %.03261 = phi i1 [ %16, %thread-pre-split ], [ true, %17 ]
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 824
-  store i64 0, ptr %24, align 8, !tbaa !139
+  store i64 0, ptr %24, align 8, !tbaa !138
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 1246
-  %26 = load i16, ptr %25, align 2, !tbaa !140
+  %26 = load i16, ptr %25, align 2, !tbaa !139
   %.not40 = icmp eq i16 %26, 0
   br i1 %.not40, label %.lr.ph, label %27
 
@@ -1486,7 +1486,7 @@ thread-pre-split.thread:                          ; preds = %17, %thread-pre-spl
 
 .lr.ph:                                           ; preds = %thread-pre-split.thread
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 2704
-  %31 = load ptr, ptr %30, align 8, !tbaa !141
+  %31 = load ptr, ptr %30, align 8, !tbaa !140
   %.fr56 = freeze ptr %31
   %32 = icmp ne ptr %.fr56, null
   %.not44 = and i1 %.03261, %32
@@ -1497,7 +1497,7 @@ thread-pre-split.thread:                          ; preds = %17, %thread-pre-spl
   %.03450.us = phi i64 [ %53, %52 ], [ 0, %.lr.ph ]
   %33 = load ptr, ptr %7, align 8, !tbaa !83
   %34 = getelementptr inbounds nuw i16, ptr %33, i64 %.03450.us
-  %35 = load i16, ptr %34, align 2, !tbaa !92
+  %35 = load i16, ptr %34, align 2, !tbaa !91
   %36 = call i32 @tls_group_allowed(ptr noundef %0, i16 noundef zeroext %35, i32 noundef 131076) #10
   %.not41.us = icmp eq i32 %36, 0
   br i1 %.not41.us, label %52, label %37
@@ -1505,7 +1505,7 @@ thread-pre-split.thread:                          ; preds = %17, %thread-pre-spl
 37:                                               ; preds = %.lr.ph.split.us
   %38 = load ptr, ptr %7, align 8, !tbaa !83
   %39 = getelementptr inbounds nuw i16, ptr %38, i64 %.03450.us
-  %40 = load i16, ptr %39, align 2, !tbaa !92
+  %40 = load i16, ptr %39, align 2, !tbaa !91
   %41 = call i32 @tls_valid_group(ptr noundef %0, i16 noundef zeroext %40, i32 noundef 772, i32 noundef 772, i32 noundef 0, ptr noundef null) #10
   %.not42.us = icmp eq i32 %41, 0
   br i1 %.not42.us, label %52, label %42
@@ -1513,7 +1513,7 @@ thread-pre-split.thread:                          ; preds = %17, %thread-pre-spl
 42:                                               ; preds = %37
   %43 = load ptr, ptr %7, align 8, !tbaa !83
   %44 = getelementptr inbounds nuw i16, ptr %43, i64 %.03450.us
-  %45 = load i16, ptr %44, align 2, !tbaa !92
+  %45 = load i16, ptr %44, align 2, !tbaa !91
   %46 = icmp eq i16 %45, 0
   br i1 %46, label %.split.us, label %47
 
@@ -1532,13 +1532,13 @@ thread-pre-split.thread:                          ; preds = %17, %thread-pre-spl
   %53 = add nuw i64 %.03450.us, 1
   %54 = load i64, ptr %6, align 8, !tbaa !82
   %55 = icmp ult i64 %53, %54
-  br i1 %55, label %.lr.ph.split.us, label %.loopexit, !llvm.loop !142
+  br i1 %55, label %.lr.ph.split.us, label %.loopexit, !llvm.loop !141
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %73
   %.03450 = phi i64 [ %74, %73 ], [ 0, %.lr.ph ]
   %56 = load ptr, ptr %7, align 8, !tbaa !83
   %57 = getelementptr inbounds nuw i16, ptr %56, i64 %.03450
-  %58 = load i16, ptr %57, align 2, !tbaa !92
+  %58 = load i16, ptr %57, align 2, !tbaa !91
   %59 = call i32 @tls_group_allowed(ptr noundef %0, i16 noundef zeroext %58, i32 noundef 131076) #10
   %.not41 = icmp eq i32 %59, 0
   br i1 %.not41, label %73, label %60
@@ -1546,7 +1546,7 @@ thread-pre-split.thread:                          ; preds = %17, %thread-pre-spl
 60:                                               ; preds = %.lr.ph.split
   %61 = load ptr, ptr %7, align 8, !tbaa !83
   %62 = getelementptr inbounds nuw i16, ptr %61, i64 %.03450
-  %63 = load i16, ptr %62, align 2, !tbaa !92
+  %63 = load i16, ptr %62, align 2, !tbaa !91
   %64 = call i32 @tls_valid_group(ptr noundef %0, i16 noundef zeroext %63, i32 noundef 772, i32 noundef 772, i32 noundef 0, ptr noundef null) #10
   %.not42 = icmp eq i32 %64, 0
   br i1 %.not42, label %73, label %65
@@ -1554,7 +1554,7 @@ thread-pre-split.thread:                          ; preds = %17, %thread-pre-spl
 65:                                               ; preds = %60
   %66 = load ptr, ptr %7, align 8, !tbaa !83
   %67 = getelementptr inbounds nuw i16, ptr %66, i64 %.03450
-  %68 = load i16, ptr %67, align 2, !tbaa !92
+  %68 = load i16, ptr %67, align 2, !tbaa !91
   %69 = icmp eq i16 %68, 0
   br i1 %69, label %.split.us, label %70
 
@@ -1574,7 +1574,7 @@ thread-pre-split.thread:                          ; preds = %17, %thread-pre-spl
   %74 = add nuw i64 %.03450, 1
   %75 = load i64, ptr %6, align 8, !tbaa !82
   %76 = icmp ult i64 %74, %75
-  br i1 %76, label %.lr.ph.split, label %.loopexit, !llvm.loop !144
+  br i1 %76, label %.lr.ph.split, label %.loopexit, !llvm.loop !143
 
 .loopexit:                                        ; preds = %73, %52, %70, %27
   %77 = call i32 @WPACKET_close(ptr noundef %1) #10
@@ -1607,7 +1607,7 @@ define internal fastcc range(i32 0, 2) i32 @add_key_share(ptr noundef %0, ptr no
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #10
   store ptr null, ptr %5, align 8, !tbaa !81
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 776
-  %7 = load ptr, ptr %6, align 8, !tbaa !145
+  %7 = load ptr, ptr %6, align 8, !tbaa !144
   %8 = icmp ne ptr %7, null
   %9 = icmp eq i64 %3, 0
   %or.cond = and i1 %9, %8
@@ -1615,9 +1615,9 @@ define internal fastcc range(i32 0, 2) i32 @add_key_share(ptr noundef %0, ptr no
 
 10:                                               ; preds = %4
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 2256
-  %12 = load i32, ptr %11, align 8, !tbaa !146
+  %12 = load i32, ptr %11, align 8, !tbaa !145
   %13 = icmp eq i32 %12, 1
-  br i1 %13, label %19, label %14, !prof !147
+  br i1 %13, label %19, label %14, !prof !146
 
 14:                                               ; preds = %10
   tail call void @ERR_new() #10
@@ -1657,24 +1657,24 @@ define internal fastcc range(i32 0, 2) i32 @add_key_share(ptr noundef %0, ptr no
   br label %32
 
 29:                                               ; preds = %28
-  store ptr %.031, ptr %6, align 8, !tbaa !145
+  store ptr %.031, ptr %6, align 8, !tbaa !144
   %30 = trunc nuw i32 %2 to i16
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 1246
-  store i16 %30, ptr %31, align 2, !tbaa !140
+  store i16 %30, ptr %31, align 2, !tbaa !139
   br label %32
 
 32:                                               ; preds = %._crit_edge, %29
   %.pre-phi = phi i16 [ %.pre, %._crit_edge ], [ %30, %29 ]
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 784
   %34 = getelementptr inbounds nuw [4 x ptr], ptr %33, i64 0, i64 %3
-  store ptr %.031, ptr %34, align 8, !tbaa !148
+  store ptr %.031, ptr %34, align 8, !tbaa !147
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 816
   %36 = getelementptr inbounds nuw [4 x i16], ptr %35, i64 0, i64 %3
-  store i16 %.pre-phi, ptr %36, align 2, !tbaa !92
+  store i16 %.pre-phi, ptr %36, align 2, !tbaa !91
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 824
-  %38 = load i64, ptr %37, align 8, !tbaa !139
+  %38 = load i64, ptr %37, align 8, !tbaa !138
   %39 = add i64 %38, 1
-  store i64 %39, ptr %37, align 8, !tbaa !139
+  store i64 %39, ptr %37, align 8, !tbaa !138
   %40 = load ptr, ptr %5, align 8, !tbaa !81
   call void @CRYPTO_free(ptr noundef %40, ptr noundef nonnull @.str, i32 noundef 678) #10
   br label %47
@@ -1685,7 +1685,7 @@ define internal fastcc range(i32 0, 2) i32 @add_key_share(ptr noundef %0, ptr no
   call void @ERR_new() #10
   call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink36, ptr noundef nonnull @__func__.add_key_share) #10
   call void (ptr, i32, i32, ptr, ...) @ossl_statem_fatal(ptr noundef nonnull %0, i32 noundef 80, i32 noundef %.sink, ptr noundef null) #10
-  %42 = load ptr, ptr %6, align 8, !tbaa !145
+  %42 = load ptr, ptr %6, align 8, !tbaa !144
   %43 = icmp eq ptr %42, null
   br i1 %43, label %44, label %45
 
@@ -1707,7 +1707,7 @@ define internal fastcc range(i32 0, 2) i32 @add_key_share(ptr noundef %0, ptr no
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 3) i32 @tls_construct_ctos_cookie(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef readnone captures(none) %3, i64 noundef %4) local_unnamed_addr #0 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 2856
-  %7 = load i64, ptr %6, align 8, !tbaa !149
+  %7 = load i64, ptr %6, align 8, !tbaa !148
   %8 = icmp eq i64 %7, 0
   br i1 %8, label %24, label %9
 
@@ -1723,8 +1723,8 @@ define range(i32 0, 3) i32 @tls_construct_ctos_cookie(ptr noundef %0, ptr nounde
 
 13:                                               ; preds = %11
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 2848
-  %15 = load ptr, ptr %14, align 8, !tbaa !150
-  %16 = load i64, ptr %6, align 8, !tbaa !149
+  %15 = load ptr, ptr %14, align 8, !tbaa !149
+  %16 = load i64, ptr %6, align 8, !tbaa !148
   %17 = tail call i32 @WPACKET_sub_memcpy__(ptr noundef %1, ptr noundef %15, i64 noundef %16, i64 noundef 2) #10
   %.not14 = icmp eq i32 %17, 0
   br i1 %.not14, label %20, label %18
@@ -1743,7 +1743,7 @@ define range(i32 0, 3) i32 @tls_construct_ctos_cookie(ptr noundef %0, ptr nounde
 21:                                               ; preds = %18, %20
   %.0 = phi i32 [ 0, %20 ], [ 1, %18 ]
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 2848
-  %23 = load ptr, ptr %22, align 8, !tbaa !150
+  %23 = load ptr, ptr %22, align 8, !tbaa !149
   tail call void @CRYPTO_free(ptr noundef %23, ptr noundef nonnull @.str, i32 noundef 792) #10
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %22, i8 0, i64 16, i1 false)
   br label %24
@@ -1769,11 +1769,11 @@ define range(i32 0, 3) i32 @tls_construct_ctos_early_data(ptr noundef %0, ptr no
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #10
   store i64 0, ptr %8, align 8, !tbaa !82
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #10
-  store ptr null, ptr %9, align 8, !tbaa !151
+  store ptr null, ptr %9, align 8, !tbaa !150
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %13 = load ptr, ptr %12, align 8, !tbaa !152
+  %13 = load ptr, ptr %12, align 8, !tbaa !151
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 2256
-  %15 = load i32, ptr %14, align 8, !tbaa !146
+  %15 = load i32, ptr %14, align 8, !tbaa !145
   %16 = icmp eq i32 %15, 1
   br i1 %16, label %17, label %19
 
@@ -1784,14 +1784,14 @@ define range(i32 0, 3) i32 @tls_construct_ctos_early_data(ptr noundef %0, ptr no
 19:                                               ; preds = %17, %5
   %.070 = phi ptr [ %18, %17 ], [ null, %5 ]
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 2440
-  %21 = load ptr, ptr %20, align 8, !tbaa !153
+  %21 = load ptr, ptr %20, align 8, !tbaa !152
   %.not = icmp eq ptr %21, null
   br i1 %.not, label %.thread, label %22
 
 22:                                               ; preds = %19
   %23 = call i32 %21(ptr noundef %13, ptr noundef %.070, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %9) #10
   %.not79 = icmp eq i32 %23, 0
-  %.pre = load ptr, ptr %9, align 8, !tbaa !151
+  %.pre = load ptr, ptr %9, align 8, !tbaa !150
   br i1 %.not79, label %27, label %24
 
 24:                                               ; preds = %22
@@ -1799,7 +1799,7 @@ define range(i32 0, 3) i32 @tls_construct_ctos_early_data(ptr noundef %0, ptr no
   br i1 %.not80, label %.thread, label %25
 
 25:                                               ; preds = %24
-  %26 = load i32, ptr %.pre, align 8, !tbaa !100
+  %26 = load i32, ptr %.pre, align 8, !tbaa !99
   %.not81 = icmp eq i32 %26, 772
   br i1 %.not81, label %.thread111, label %27
 
@@ -1812,7 +1812,7 @@ define range(i32 0, 3) i32 @tls_construct_ctos_early_data(ptr noundef %0, ptr no
 
 .thread:                                          ; preds = %19, %24
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 2416
-  %29 = load ptr, ptr %28, align 8, !tbaa !154
+  %29 = load ptr, ptr %28, align 8, !tbaa !153
   %.not82 = icmp eq ptr %29, null
   br i1 %.not82, label %.thread111, label %30
 
@@ -1862,7 +1862,7 @@ define range(i32 0, 3) i32 @tls_construct_ctos_early_data(ptr noundef %0, ptr no
 
 44:                                               ; preds = %40
   %45 = call ptr @SSL_SESSION_new() #10
-  store ptr %45, ptr %9, align 8, !tbaa !151
+  store ptr %45, ptr %9, align 8, !tbaa !150
   %46 = icmp eq ptr %45, null
   br i1 %46, label %55, label %47
 
@@ -1872,13 +1872,13 @@ define range(i32 0, 3) i32 @tls_construct_ctos_early_data(ptr noundef %0, ptr no
   br i1 %.not84, label %55, label %49
 
 49:                                               ; preds = %47
-  %50 = load ptr, ptr %9, align 8, !tbaa !151
+  %50 = load ptr, ptr %9, align 8, !tbaa !150
   %51 = call i32 @SSL_SESSION_set_cipher(ptr noundef %50, ptr noundef nonnull %41) #10
   %.not85 = icmp eq i32 %51, 0
   br i1 %.not85, label %55, label %52
 
 52:                                               ; preds = %49
-  %53 = load ptr, ptr %9, align 8, !tbaa !151
+  %53 = load ptr, ptr %9, align 8, !tbaa !150
   %54 = call i32 @SSL_SESSION_set_protocol_version(ptr noundef %53, i32 noundef 772) #10
   %.not86 = icmp eq i32 %54, 0
   br i1 %.not86, label %55, label %56
@@ -1905,27 +1905,27 @@ define range(i32 0, 3) i32 @tls_construct_ctos_early_data(ptr noundef %0, ptr no
 
 .thread111:                                       ; preds = %25, %57, %.thread
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 2312
-  %59 = load ptr, ptr %58, align 8, !tbaa !155
+  %59 = load ptr, ptr %58, align 8, !tbaa !154
   call void @SSL_SESSION_free(ptr noundef %59) #10
-  %60 = load ptr, ptr %9, align 8, !tbaa !151
-  store ptr %60, ptr %58, align 8, !tbaa !155
+  %60 = load ptr, ptr %9, align 8, !tbaa !150
+  store ptr %60, ptr %58, align 8, !tbaa !154
   %.not87 = icmp eq ptr %60, null
   br i1 %.not87, label %73, label %61
 
 61:                                               ; preds = %.thread111
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 2320
-  %63 = load ptr, ptr %62, align 8, !tbaa !156
+  %63 = load ptr, ptr %62, align 8, !tbaa !155
   call void @CRYPTO_free(ptr noundef %63, ptr noundef nonnull @.str, i32 noundef 877) #10
   %64 = load ptr, ptr %7, align 8, !tbaa !81
   %65 = load i64, ptr %8, align 8, !tbaa !82
   %66 = call noalias ptr @CRYPTO_memdup(ptr noundef %64, i64 noundef %65, ptr noundef nonnull @.str, i32 noundef 878) #10
-  store ptr %66, ptr %62, align 8, !tbaa !156
+  store ptr %66, ptr %62, align 8, !tbaa !155
   %67 = icmp eq ptr %66, null
   br i1 %67, label %68, label %70
 
 68:                                               ; preds = %61
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 2328
-  store i64 0, ptr %69, align 8, !tbaa !157
+  store i64 0, ptr %69, align 8, !tbaa !156
   call void @ERR_new() #10
   call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 881, ptr noundef nonnull @__func__.tls_construct_ctos_early_data) #10
   call void (ptr, i32, i32, ptr, ...) @ossl_statem_fatal(ptr noundef nonnull %0, i32 noundef 80, i32 noundef 786691, ptr noundef null) #10
@@ -1934,20 +1934,20 @@ define range(i32 0, 3) i32 @tls_construct_ctos_early_data(ptr noundef %0, ptr no
 70:                                               ; preds = %61
   %71 = load i64, ptr %8, align 8, !tbaa !82
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 2328
-  store i64 %71, ptr %72, align 8, !tbaa !157
+  store i64 %71, ptr %72, align 8, !tbaa !156
   br label %73
 
 73:                                               ; preds = %70, %.thread111
   %74 = getelementptr inbounds nuw i8, ptr %0, i64 240
-  %75 = load i32, ptr %74, align 8, !tbaa !158
+  %75 = load i32, ptr %74, align 8, !tbaa !157
   %.not88 = icmp eq i32 %75, 2
   br i1 %.not88, label %76, label %88
 
 76:                                               ; preds = %73
   %77 = getelementptr inbounds nuw i8, ptr %0, i64 2304
-  %78 = load ptr, ptr %77, align 8, !tbaa !96
+  %78 = load ptr, ptr %77, align 8, !tbaa !95
   %79 = getelementptr inbounds nuw i8, ptr %78, i64 836
-  %80 = load i32, ptr %79, align 4, !tbaa !159
+  %80 = load i32, ptr %79, align 4, !tbaa !158
   %81 = icmp eq i32 %80, 0
   %.pre124 = load ptr, ptr %9, align 8
   br i1 %81, label %82, label %90
@@ -1958,23 +1958,23 @@ define range(i32 0, 3) i32 @tls_construct_ctos_early_data(ptr noundef %0, ptr no
 
 84:                                               ; preds = %82
   %85 = getelementptr inbounds nuw i8, ptr %.pre124, i64 836
-  %86 = load i32, ptr %85, align 4, !tbaa !159
+  %86 = load i32, ptr %85, align 4, !tbaa !158
   %87 = icmp eq i32 %86, 0
   br i1 %87, label %88, label %90
 
 88:                                               ; preds = %84, %82, %73
   %89 = getelementptr inbounds nuw i8, ptr %0, i64 5440
-  store i32 0, ptr %89, align 8, !tbaa !160
+  store i32 0, ptr %89, align 8, !tbaa !159
   br label %.critedge106
 
 90:                                               ; preds = %84, %76
   %91 = phi ptr [ %.pre124, %84 ], [ %78, %76 ]
   %92 = getelementptr inbounds nuw i8, ptr %91, i64 800
   %93 = getelementptr inbounds nuw i8, ptr %91, i64 836
-  %94 = load i32, ptr %93, align 4, !tbaa !159
+  %94 = load i32, ptr %93, align 4, !tbaa !158
   %95 = getelementptr inbounds nuw i8, ptr %0, i64 5440
-  store i32 %94, ptr %95, align 8, !tbaa !160
-  %96 = load ptr, ptr %92, align 8, !tbaa !161
+  store i32 %94, ptr %95, align 8, !tbaa !159
+  %96 = load ptr, ptr %92, align 8, !tbaa !160
   %.not90 = icmp eq ptr %96, null
   br i1 %.not90, label %104, label %97
 
@@ -1997,10 +1997,10 @@ define range(i32 0, 3) i32 @tls_construct_ctos_early_data(ptr noundef %0, ptr no
 
 104:                                              ; preds = %101, %90
   %105 = getelementptr inbounds nuw i8, ptr %0, i64 2800
-  %106 = load ptr, ptr %105, align 8, !tbaa !130
+  %106 = load ptr, ptr %105, align 8, !tbaa !129
   %107 = icmp eq ptr %106, null
   %108 = getelementptr inbounds nuw i8, ptr %91, i64 840
-  %109 = load ptr, ptr %108, align 8, !tbaa !162
+  %109 = load ptr, ptr %108, align 8, !tbaa !161
   %.not92 = icmp eq ptr %109, null
   br i1 %107, label %110, label %112
 
@@ -2019,7 +2019,7 @@ define range(i32 0, 3) i32 @tls_construct_ctos_early_data(ptr noundef %0, ptr no
 
 114:                                              ; preds = %112
   %115 = getelementptr inbounds nuw i8, ptr %0, i64 2808
-  %116 = load i64, ptr %115, align 8, !tbaa !131
+  %116 = load i64, ptr %115, align 8, !tbaa !130
   %117 = icmp slt i64 %116, 0
   br i1 %117, label %119, label %PACKET_buf_init.exit.preheader
 
@@ -2040,7 +2040,7 @@ PACKET_buf_init.exit.preheader:                   ; preds = %114
 120:                                              ; preds = %.lr.ph, %PACKET_buf_init.exit.backedge
   %.sroa.0110.0122 = phi ptr [ %106, %.lr.ph ], [ %127, %PACKET_buf_init.exit.backedge ]
   %.sroa.6.0121 = phi i64 [ %116, %.lr.ph ], [ %128, %PACKET_buf_init.exit.backedge ]
-  %121 = load i8, ptr %.sroa.0110.0122, align 1, !tbaa !163
+  %121 = load i8, ptr %.sroa.0110.0122, align 1, !tbaa !162
   %122 = add i64 %.sroa.6.0121, -1
   %123 = zext i8 %121 to i64
   %124 = icmp ult i64 %122, %123
@@ -2050,19 +2050,19 @@ PACKET_buf_init.exit.preheader:                   ; preds = %114
   %126 = getelementptr inbounds nuw i8, ptr %.sroa.0110.0122, i64 1
   %127 = getelementptr inbounds nuw i8, ptr %126, i64 %123
   %128 = sub nuw i64 %122, %123
-  %129 = load i64, ptr %118, align 8, !tbaa !164
+  %129 = load i64, ptr %118, align 8, !tbaa !163
   %.not.i = icmp eq i64 %129, %123
   br i1 %.not.i, label %PACKET_equal.exit, label %PACKET_buf_init.exit.backedge
 
 PACKET_equal.exit:                                ; preds = %125
-  %130 = load ptr, ptr %113, align 8, !tbaa !162
+  %130 = load ptr, ptr %113, align 8, !tbaa !161
   %131 = call i32 @CRYPTO_memcmp(ptr noundef nonnull %126, ptr noundef %130, i64 noundef %123) #10
   %.not123 = icmp eq i32 %131, 0
   br i1 %.not123, label %.loopexit, label %PACKET_buf_init.exit.backedge
 
 PACKET_buf_init.exit.backedge:                    ; preds = %PACKET_equal.exit, %125
   %.not.i.i.i = icmp eq i64 %128, 0
-  br i1 %.not.i.i.i, label %.critedge104, label %120, !llvm.loop !165
+  br i1 %.not.i.i.i, label %.critedge104, label %120, !llvm.loop !164
 
 .critedge104:                                     ; preds = %120, %PACKET_buf_init.exit.backedge, %PACKET_buf_init.exit.preheader
   call void @ERR_new() #10
@@ -2093,9 +2093,9 @@ PACKET_buf_init.exit.backedge:                    ; preds = %PACKET_equal.exit, 
 
 138:                                              ; preds = %135
   %139 = getelementptr inbounds nuw i8, ptr %0, i64 2840
-  store i32 1, ptr %139, align 8, !tbaa !166
+  store i32 1, ptr %139, align 8, !tbaa !165
   %140 = getelementptr inbounds nuw i8, ptr %0, i64 2844
-  store i32 1, ptr %140, align 4, !tbaa !167
+  store i32 1, ptr %140, align 4, !tbaa !166
   br label %.critedge106
 
 .critedge102:                                     ; preds = %.critedge, %34
@@ -2142,7 +2142,7 @@ define range(i32 0, 3) i32 @tls_construct_ctos_padding(ptr noundef %0, ptr nound
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #10
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #10
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 2480
-  %9 = load i64, ptr %8, align 8, !tbaa !135
+  %9 = load i64, ptr %8, align 8, !tbaa !134
   %10 = and i64 %9, 16
   %11 = icmp eq i64 %10, 0
   br i1 %11, label %.critedge, label %12
@@ -2160,28 +2160,28 @@ define range(i32 0, 3) i32 @tls_construct_ctos_padding(ptr noundef %0, ptr nound
 
 15:                                               ; preds = %12
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 2304
-  %17 = load ptr, ptr %16, align 8, !tbaa !96
-  %18 = load i32, ptr %17, align 8, !tbaa !100
+  %17 = load ptr, ptr %16, align 8, !tbaa !95
+  %18 = load i32, ptr %17, align 8, !tbaa !99
   %19 = icmp eq i32 %18, 772
   br i1 %19, label %20, label %.critedge32
 
 20:                                               ; preds = %15
   %21 = getelementptr inbounds nuw i8, ptr %17, i64 816
-  %22 = load i64, ptr %21, align 8, !tbaa !101
+  %22 = load i64, ptr %21, align 8, !tbaa !100
   %.not27 = icmp eq i64 %22, 0
   br i1 %.not27, label %.critedge32, label %23
 
 23:                                               ; preds = %20
   %24 = getelementptr inbounds nuw i8, ptr %17, i64 760
-  %25 = load ptr, ptr %24, align 8, !tbaa !168
+  %25 = load ptr, ptr %24, align 8, !tbaa !167
   %.not28 = icmp eq ptr %25, null
   br i1 %.not28, label %.critedge32, label %26
 
 26:                                               ; preds = %23
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %28 = load ptr, ptr %27, align 8, !tbaa !111
+  %28 = load ptr, ptr %27, align 8, !tbaa !110
   %29 = getelementptr inbounds nuw i8, ptr %25, i64 64
-  %30 = load i32, ptr %29, align 8, !tbaa !169
+  %30 = load i32, ptr %29, align 8, !tbaa !168
   %31 = call ptr @ssl_md(ptr noundef %28, i32 noundef %30) #10
   %.not29 = icmp eq ptr %31, null
   br i1 %.not29, label %.critedge32, label %32
@@ -2192,9 +2192,9 @@ define range(i32 0, 3) i32 @tls_construct_ctos_padding(ptr noundef %0, ptr nound
   br i1 %34, label %35, label %.critedge
 
 35:                                               ; preds = %32
-  %36 = load ptr, ptr %16, align 8, !tbaa !96
+  %36 = load ptr, ptr %16, align 8, !tbaa !95
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 816
-  %38 = load i64, ptr %37, align 8, !tbaa !101
+  %38 = load i64, ptr %37, align 8, !tbaa !100
   %39 = load i64, ptr %7, align 8, !tbaa !82
   %narrow = add nuw i32 %33, 15
   %40 = zext i32 %narrow to i64
@@ -2262,38 +2262,38 @@ define range(i32 0, 3) i32 @tls_construct_ctos_psk(ptr noundef initializes((2872
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #10
   store ptr null, ptr %9, align 8, !tbaa !81
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %11 = load ptr, ptr %10, align 8, !tbaa !111
+  %11 = load ptr, ptr %10, align 8, !tbaa !110
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 2872
-  store i32 0, ptr %12, align 8, !tbaa !170
+  store i32 0, ptr %12, align 8, !tbaa !169
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 2304
-  %14 = load ptr, ptr %13, align 8, !tbaa !96
-  %15 = load i32, ptr %14, align 8, !tbaa !100
+  %14 = load ptr, ptr %13, align 8, !tbaa !95
+  %15 = load i32, ptr %14, align 8, !tbaa !99
   %.not = icmp eq i32 %15, 772
   br i1 %.not, label %16, label %167
 
 16:                                               ; preds = %5
   %17 = getelementptr inbounds nuw i8, ptr %14, i64 816
-  %18 = load i64, ptr %17, align 8, !tbaa !101
+  %18 = load i64, ptr %17, align 8, !tbaa !100
   %19 = icmp eq i64 %18, 0
   br i1 %19, label %20, label %24
 
 20:                                               ; preds = %16
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 2312
-  %22 = load ptr, ptr %21, align 8, !tbaa !155
+  %22 = load ptr, ptr %21, align 8, !tbaa !154
   %23 = icmp eq ptr %22, null
   br i1 %23, label %167, label %24
 
 24:                                               ; preds = %20, %16
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 2256
-  %26 = load i32, ptr %25, align 8, !tbaa !146
+  %26 = load i32, ptr %25, align 8, !tbaa !145
   %27 = icmp eq i32 %26, 1
   br i1 %27, label %28, label %30
 
 28:                                               ; preds = %24
   %29 = tail call ptr @ssl_handshake_md(ptr noundef nonnull %0) #10
-  %.pre = load ptr, ptr %13, align 8, !tbaa !96
+  %.pre = load ptr, ptr %13, align 8, !tbaa !95
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 816
-  %.pre149 = load i64, ptr %.phi.trans.insert, align 8, !tbaa !101
+  %.pre149 = load i64, ptr %.phi.trans.insert, align 8, !tbaa !100
   br label %30
 
 30:                                               ; preds = %28, %24
@@ -2305,7 +2305,7 @@ define range(i32 0, 3) i32 @tls_construct_ctos_psk(ptr noundef initializes((2872
 
 33:                                               ; preds = %30
   %34 = getelementptr inbounds nuw i8, ptr %32, i64 760
-  %35 = load ptr, ptr %34, align 8, !tbaa !168
+  %35 = load ptr, ptr %34, align 8, !tbaa !167
   %36 = icmp eq ptr %35, null
   br i1 %36, label %37, label %38
 
@@ -2317,13 +2317,13 @@ define range(i32 0, 3) i32 @tls_construct_ctos_psk(ptr noundef initializes((2872
 
 38:                                               ; preds = %33
   %39 = getelementptr inbounds nuw i8, ptr %35, i64 64
-  %40 = load i32, ptr %39, align 8, !tbaa !169
+  %40 = load i32, ptr %39, align 8, !tbaa !168
   %41 = tail call ptr @ssl_md(ptr noundef %11, i32 noundef %40) #10
   %42 = icmp eq ptr %41, null
   br i1 %42, label %65, label %43
 
 43:                                               ; preds = %38
-  %44 = load i32, ptr %25, align 8, !tbaa !146
+  %44 = load i32, ptr %25, align 8, !tbaa !145
   %45 = icmp ne i32 %44, 1
   %.not108 = icmp eq ptr %41, %.095
   %or.cond = select i1 %45, i1 true, i1 %.not108
@@ -2331,7 +2331,7 @@ define range(i32 0, 3) i32 @tls_construct_ctos_psk(ptr noundef initializes((2872
 
 46:                                               ; preds = %43
   %47 = tail call i64 @ossl_time_now() #10
-  %48 = load ptr, ptr %13, align 8, !tbaa !96
+  %48 = load ptr, ptr %13, align 8, !tbaa !95
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 736
   %50 = load i64, ptr %49, align 8
   %..i = tail call i64 @llvm.usub.sat.i64(i64 %47, i64 %50)
@@ -2339,7 +2339,7 @@ define range(i32 0, 3) i32 @tls_construct_ctos_psk(ptr noundef initializes((2872
   %52 = trunc i64 %51 to i32
   %spec.select = tail call i32 @llvm.usub.sat.i32(i32 %52, i32 1)
   %53 = getelementptr inbounds nuw i8, ptr %48, i64 824
-  %54 = load i64, ptr %53, align 8, !tbaa !171
+  %54 = load i64, ptr %53, align 8, !tbaa !170
   %55 = zext i32 %spec.select to i64
   %56 = icmp ult i64 %54, %55
   br i1 %56, label %65, label %57
@@ -2356,7 +2356,7 @@ define range(i32 0, 3) i32 @tls_construct_ctos_psk(ptr noundef initializes((2872
 
 59:                                               ; preds = %58, %57
   %60 = getelementptr inbounds nuw i8, ptr %48, i64 832
-  %61 = load i32, ptr %60, align 8, !tbaa !172
+  %61 = load i32, ptr %60, align 8, !tbaa !171
   %62 = add i32 %61, %mul.val
   %63 = tail call i32 @EVP_MD_get_size(ptr noundef nonnull %41) #10
   %64 = icmp slt i32 %63, 1
@@ -2367,7 +2367,7 @@ define range(i32 0, 3) i32 @tls_construct_ctos_psk(ptr noundef initializes((2872
   %.091.ph = phi i32 [ 0, %43 ], [ 0, %30 ], [ %63, %59 ], [ 0, %58 ], [ 0, %46 ], [ 0, %38 ]
   %.090.ph = phi i32 [ 0, %43 ], [ 0, %30 ], [ %62, %59 ], [ %mul.val, %58 ], [ 0, %46 ], [ 0, %38 ]
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 2312
-  %67 = load ptr, ptr %66, align 8, !tbaa !155
+  %67 = load ptr, ptr %66, align 8, !tbaa !154
   %68 = icmp eq ptr %67, null
   br i1 %68, label %167, label %.thread
 
@@ -2376,11 +2376,11 @@ define range(i32 0, 3) i32 @tls_construct_ctos_psk(ptr noundef initializes((2872
   br label %74
 
 70:                                               ; preds = %59
-  %71 = load i32, ptr %12, align 8, !tbaa !170
+  %71 = load i32, ptr %12, align 8, !tbaa !169
   %72 = add nsw i32 %71, 1
-  store i32 %72, ptr %12, align 8, !tbaa !170
+  store i32 %72, ptr %12, align 8, !tbaa !169
   %.phi.trans.insert150 = getelementptr inbounds nuw i8, ptr %0, i64 2312
-  %.pre151 = load ptr, ptr %.phi.trans.insert150, align 8, !tbaa !155
+  %.pre151 = load ptr, ptr %.phi.trans.insert150, align 8, !tbaa !154
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 2312
   %.not113 = icmp eq ptr %.pre151, null
   br i1 %.not113, label %92, label %74
@@ -2393,9 +2393,9 @@ define range(i32 0, 3) i32 @tls_construct_ctos_psk(ptr noundef initializes((2872
   %.090147157 = phi i32 [ %.090.ph, %.thread ], [ %62, %70 ]
   %76 = phi ptr [ %67, %.thread ], [ %.pre151, %70 ]
   %77 = getelementptr inbounds nuw i8, ptr %76, i64 760
-  %78 = load ptr, ptr %77, align 8, !tbaa !168
+  %78 = load ptr, ptr %77, align 8, !tbaa !167
   %79 = getelementptr inbounds nuw i8, ptr %78, i64 64
-  %80 = load i32, ptr %79, align 8, !tbaa !169
+  %80 = load i32, ptr %79, align 8, !tbaa !168
   %81 = tail call ptr @ssl_md(ptr noundef %11, i32 noundef %80) #10
   %82 = icmp eq ptr %81, null
   br i1 %82, label %83, label %84
@@ -2407,7 +2407,7 @@ define range(i32 0, 3) i32 @tls_construct_ctos_psk(ptr noundef initializes((2872
   br label %167
 
 84:                                               ; preds = %74
-  %85 = load i32, ptr %25, align 8, !tbaa !146
+  %85 = load i32, ptr %25, align 8, !tbaa !145
   %86 = icmp ne i32 %85, 1
   %.not114 = icmp eq ptr %81, %.095
   %or.cond136 = select i1 %86, i1 true, i1 %.not114
@@ -2462,11 +2462,11 @@ define range(i32 0, 3) i32 @tls_construct_ctos_psk(ptr noundef initializes((2872
   br i1 %.not112143162, label %112, label %101
 
 101:                                              ; preds = %100
-  %102 = load ptr, ptr %13, align 8, !tbaa !96
+  %102 = load ptr, ptr %13, align 8, !tbaa !95
   %103 = getelementptr inbounds nuw i8, ptr %102, i64 808
-  %104 = load ptr, ptr %103, align 8, !tbaa !97
+  %104 = load ptr, ptr %103, align 8, !tbaa !96
   %105 = getelementptr inbounds nuw i8, ptr %102, i64 816
-  %106 = load i64, ptr %105, align 8, !tbaa !101
+  %106 = load i64, ptr %105, align 8, !tbaa !100
   %107 = tail call i32 @WPACKET_sub_memcpy__(ptr noundef %1, ptr noundef %104, i64 noundef %106, i64 noundef 2) #10
   %.not118 = icmp eq i32 %107, 0
   br i1 %.not118, label %111, label %108
@@ -2484,15 +2484,15 @@ define range(i32 0, 3) i32 @tls_construct_ctos_psk(ptr noundef initializes((2872
   br label %167
 
 112:                                              ; preds = %108, %100
-  %113 = load ptr, ptr %93, align 8, !tbaa !155
+  %113 = load ptr, ptr %93, align 8, !tbaa !154
   %.not120 = icmp eq ptr %113, null
   br i1 %.not120, label %126, label %114
 
 114:                                              ; preds = %112
   %115 = getelementptr inbounds nuw i8, ptr %0, i64 2320
-  %116 = load ptr, ptr %115, align 8, !tbaa !156
+  %116 = load ptr, ptr %115, align 8, !tbaa !155
   %117 = getelementptr inbounds nuw i8, ptr %0, i64 2328
-  %118 = load i64, ptr %117, align 8, !tbaa !157
+  %118 = load i64, ptr %117, align 8, !tbaa !156
   %119 = tail call i32 @WPACKET_sub_memcpy__(ptr noundef %1, ptr noundef %116, i64 noundef %118, i64 noundef 2) #10
   %.not121 = icmp eq i32 %119, 0
   br i1 %.not121, label %122, label %120
@@ -2509,9 +2509,9 @@ define range(i32 0, 3) i32 @tls_construct_ctos_psk(ptr noundef initializes((2872
   br label %167
 
 123:                                              ; preds = %120
-  %124 = load i32, ptr %12, align 8, !tbaa !170
+  %124 = load i32, ptr %12, align 8, !tbaa !169
   %125 = add nsw i32 %124, 1
-  store i32 %125, ptr %12, align 8, !tbaa !170
+  store i32 %125, ptr %12, align 8, !tbaa !169
   br label %126
 
 126:                                              ; preds = %123, %112
@@ -2539,7 +2539,7 @@ define range(i32 0, 3) i32 @tls_construct_ctos_psk(ptr noundef initializes((2872
   br i1 %.not126, label %149, label %136
 
 136:                                              ; preds = %133, %132
-  %137 = load ptr, ptr %93, align 8, !tbaa !155
+  %137 = load ptr, ptr %93, align 8, !tbaa !154
   %.not127 = icmp eq ptr %137, null
   br i1 %.not127, label %141, label %138
 
@@ -2585,13 +2585,13 @@ define range(i32 0, 3) i32 @tls_construct_ctos_psk(ptr noundef initializes((2872
 155:                                              ; preds = %150
   %156 = load i64, ptr %6, align 8, !tbaa !82
   %157 = load ptr, ptr %8, align 8, !tbaa !81
-  %158 = load ptr, ptr %13, align 8, !tbaa !96
+  %158 = load ptr, ptr %13, align 8, !tbaa !95
   %159 = call i32 @tls_psk_do_binder(ptr noundef nonnull %0, ptr noundef %.094141164, ptr noundef %154, i64 noundef %156, ptr noundef null, ptr noundef %157, ptr noundef %158, i32 noundef 1, i32 noundef 0) #10
   %.not133 = icmp eq i32 %159, 1
   br i1 %.not133, label %160, label %167
 
 160:                                              ; preds = %155, %150
-  %161 = load ptr, ptr %93, align 8, !tbaa !155
+  %161 = load ptr, ptr %93, align 8, !tbaa !154
   %.not134 = icmp eq ptr %161, null
   br i1 %.not134, label %166, label %162
 
@@ -2625,7 +2625,7 @@ declare i32 @tls_psk_do_binder(ptr noundef, ptr noundef, ptr noundef, i64 nounde
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 3) i32 @tls_construct_ctos_post_handshake_auth(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef readnone captures(none) %3, i64 noundef %4) local_unnamed_addr #0 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 2988
-  %7 = load i32, ptr %6, align 4, !tbaa !173
+  %7 = load i32, ptr %6, align 4, !tbaa !172
   %.not = icmp eq i32 %7, 0
   br i1 %.not, label %17, label %8
 
@@ -2652,7 +2652,7 @@ define range(i32 0, 3) i32 @tls_construct_ctos_post_handshake_auth(ptr noundef %
 
 15:                                               ; preds = %12
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 2984
-  store i32 1, ptr %16, align 8, !tbaa !174
+  store i32 1, ptr %16, align 8, !tbaa !173
   br label %17
 
 17:                                               ; preds = %5, %15, %14
@@ -2665,7 +2665,7 @@ define range(i32 0, 2) i32 @tls_parse_stoc_renegotiate(ptr noundef %0, ptr nound
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 1120
   %7 = load i64, ptr %6, align 8, !tbaa !76
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 1192
-  %9 = load i64, ptr %8, align 8, !tbaa !175
+  %9 = load i64, ptr %8, align 8, !tbaa !174
   %10 = add i64 %9, %7
   %11 = icmp eq i64 %10, 0
   br i1 %11, label %.critedge33, label %12
@@ -2674,7 +2674,7 @@ define range(i32 0, 2) i32 @tls_parse_stoc_renegotiate(ptr noundef %0, ptr nound
   %13 = icmp ne i64 %7, 0
   %14 = icmp ne i64 %9, 0
   %or.cond = and i1 %13, %14
-  br i1 %or.cond, label %.critedge33, label %15, !prof !176
+  br i1 %or.cond, label %.critedge33, label %15, !prof !175
 
 15:                                               ; preds = %12
   tail call void @ERR_new() #10
@@ -2684,7 +2684,7 @@ define range(i32 0, 2) i32 @tls_parse_stoc_renegotiate(ptr noundef %0, ptr nound
 
 .critedge33:                                      ; preds = %12, %5
   %16 = getelementptr i8, ptr %1, i64 8
-  %.val.i.i.i = load i64, ptr %16, align 8, !tbaa !177
+  %.val.i.i.i = load i64, ptr %16, align 8, !tbaa !176
   %.not.i.i.i = icmp eq i64 %.val.i.i.i, 0
   br i1 %.not.i.i.i, label %17, label %18
 
@@ -2695,12 +2695,12 @@ define range(i32 0, 2) i32 @tls_parse_stoc_renegotiate(ptr noundef %0, ptr nound
   br label %37
 
 18:                                               ; preds = %.critedge33
-  %19 = load ptr, ptr %1, align 8, !tbaa !179
-  %20 = load i8, ptr %19, align 1, !tbaa !163
+  %19 = load ptr, ptr %1, align 8, !tbaa !178
+  %20 = load i8, ptr %19, align 1, !tbaa !162
   %21 = getelementptr inbounds nuw i8, ptr %19, i64 1
-  store ptr %21, ptr %1, align 8, !tbaa !179
+  store ptr %21, ptr %1, align 8, !tbaa !178
   %22 = add i64 %.val.i.i.i, -1
-  store i64 %22, ptr %16, align 8, !tbaa !177
+  store i64 %22, ptr %16, align 8, !tbaa !176
   %23 = zext i8 %20 to i64
   %.not25 = icmp eq i64 %22, %23
   br i1 %.not25, label %25, label %24
@@ -2727,8 +2727,8 @@ define range(i32 0, 2) i32 @tls_parse_stoc_renegotiate(ptr noundef %0, ptr nound
 
 29:                                               ; preds = %27
   %30 = getelementptr inbounds nuw i8, ptr %21, i64 %7
-  store ptr %30, ptr %1, align 8, !tbaa !179
-  store i64 %9, ptr %16, align 8, !tbaa !177
+  store ptr %30, ptr %1, align 8, !tbaa !178
+  store i64 %9, ptr %16, align 8, !tbaa !176
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 1056
   %bcmp = tail call i32 @bcmp(ptr nonnull %21, ptr nonnull %31, i64 %7)
   %.not28 = icmp eq i32 %bcmp, 0
@@ -2742,8 +2742,8 @@ PACKET_get_bytes.exit.thread:                     ; preds = %27, %29
 
 32:                                               ; preds = %29
   %33 = getelementptr inbounds nuw i8, ptr %30, i64 %9
-  store ptr %33, ptr %1, align 8, !tbaa !179
-  store i64 0, ptr %16, align 8, !tbaa !177
+  store ptr %33, ptr %1, align 8, !tbaa !178
+  store i64 0, ptr %16, align 8, !tbaa !176
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 1128
   %bcmp30 = tail call i32 @bcmp(ptr nonnull %30, ptr nonnull %34, i64 %9)
   %.not31 = icmp eq i32 %bcmp30, 0
@@ -2757,7 +2757,7 @@ PACKET_get_bytes.exit36.thread:                   ; preds = %32
 
 35:                                               ; preds = %32
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 1200
-  store i32 1, ptr %36, align 8, !tbaa !180
+  store i32 1, ptr %36, align 8, !tbaa !179
   br label %37
 
 37:                                               ; preds = %35, %PACKET_get_bytes.exit36.thread, %PACKET_get_bytes.exit.thread, %26, %24, %17, %15
@@ -2768,7 +2768,7 @@ PACKET_get_bytes.exit36.thread:                   ; preds = %32
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @tls_parse_stoc_maxfragmentlen(ptr noundef %0, ptr noundef captures(none) %1, i32 noundef %2, ptr noundef readnone captures(none) %3, i64 noundef %4) local_unnamed_addr #0 {
   %6 = getelementptr i8, ptr %1, i64 8
-  %.val = load i64, ptr %6, align 8, !tbaa !177
+  %.val = load i64, ptr %6, align 8, !tbaa !176
   %.not = icmp eq i64 %.val, 1
   br i1 %.not, label %8, label %7
 
@@ -2779,11 +2779,11 @@ define range(i32 0, 2) i32 @tls_parse_stoc_maxfragmentlen(ptr noundef %0, ptr no
   br label %22
 
 8:                                                ; preds = %5
-  %9 = load ptr, ptr %1, align 8, !tbaa !179
-  %10 = load i8, ptr %9, align 1, !tbaa !163
+  %9 = load ptr, ptr %1, align 8, !tbaa !178
+  %10 = load i8, ptr %9, align 1, !tbaa !162
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 1
-  store ptr %11, ptr %1, align 8, !tbaa !179
-  store i64 0, ptr %6, align 8, !tbaa !177
+  store ptr %11, ptr %1, align 8, !tbaa !178
+  store i64 0, ptr %6, align 8, !tbaa !176
   %12 = add i8 %10, -1
   %or.cond = icmp ult i8 %12, 4
   br i1 %or.cond, label %14, label %13
@@ -2808,9 +2808,9 @@ define range(i32 0, 2) i32 @tls_parse_stoc_maxfragmentlen(ptr noundef %0, ptr no
 
 18:                                               ; preds = %14
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 2304
-  %20 = load ptr, ptr %19, align 8, !tbaa !96
+  %20 = load ptr, ptr %19, align 8, !tbaa !95
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 856
-  store i8 %10, ptr %21, align 8, !tbaa !181
+  store i8 %10, ptr %21, align 8, !tbaa !180
   br label %22
 
 22:                                               ; preds = %18, %17, %13, %7
@@ -2833,7 +2833,7 @@ define range(i32 0, 2) i32 @tls_parse_stoc_server_name(ptr noundef %0, ptr nound
 
 10:                                               ; preds = %5
   %11 = getelementptr i8, ptr %1, i64 8
-  %.val = load i64, ptr %11, align 8, !tbaa !177
+  %.val = load i64, ptr %11, align 8, !tbaa !176
   %.not = icmp eq i64 %.val, 0
   br i1 %.not, label %13, label %12
 
@@ -2845,15 +2845,15 @@ define range(i32 0, 2) i32 @tls_parse_stoc_server_name(ptr noundef %0, ptr nound
 
 13:                                               ; preds = %10
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 1288
-  %15 = load i32, ptr %14, align 8, !tbaa !182
+  %15 = load i32, ptr %14, align 8, !tbaa !181
   %.not11 = icmp eq i32 %15, 0
   br i1 %.not11, label %16, label %28
 
 16:                                               ; preds = %13
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 2304
-  %18 = load ptr, ptr %17, align 8, !tbaa !96
+  %18 = load ptr, ptr %17, align 8, !tbaa !95
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 800
-  %20 = load ptr, ptr %19, align 8, !tbaa !161
+  %20 = load ptr, ptr %19, align 8, !tbaa !160
   %.not12 = icmp eq ptr %20, null
   br i1 %.not12, label %22, label %21
 
@@ -2865,9 +2865,9 @@ define range(i32 0, 2) i32 @tls_parse_stoc_server_name(ptr noundef %0, ptr nound
 
 22:                                               ; preds = %16
   %23 = tail call noalias ptr @CRYPTO_strdup(ptr noundef nonnull %7, ptr noundef nonnull @.str, i32 noundef 1395) #10
-  %24 = load ptr, ptr %17, align 8, !tbaa !96
+  %24 = load ptr, ptr %17, align 8, !tbaa !95
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 800
-  store ptr %23, ptr %25, align 8, !tbaa !161
+  store ptr %23, ptr %25, align 8, !tbaa !160
   %26 = icmp eq ptr %23, null
   br i1 %26, label %27, label %28
 
@@ -2893,7 +2893,7 @@ define range(i32 0, 2) i32 @tls_parse_stoc_ec_pt_formats(ptr noundef %0, ptr nou
 
 6:                                                ; preds = %5
   %.sroa.0.0.copyload.i = load ptr, ptr %1, align 8, !tbaa !81
-  %7 = load i8, ptr %.sroa.0.0.copyload.i, align 1, !tbaa !163
+  %7 = load i8, ptr %.sroa.0.0.copyload.i, align 1, !tbaa !162
   %8 = add i64 %.sroa.8.0.copyload.i, -1
   %9 = zext i8 %7 to i64
   %.not5.i = icmp eq i64 %8, %9
@@ -2911,7 +2911,7 @@ define range(i32 0, 2) i32 @tls_parse_stoc_ec_pt_formats(ptr noundef %0, ptr nou
   store ptr %13, ptr %1, align 8, !tbaa !81
   store i64 0, ptr %.sroa.8.0..sroa_idx.i, align 8, !tbaa !82
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 1288
-  %15 = load i32, ptr %14, align 8, !tbaa !182
+  %15 = load i32, ptr %14, align 8, !tbaa !181
   %.not18 = icmp eq i32 %15, 0
   br i1 %.not18, label %16, label %26
 
@@ -2927,24 +2927,24 @@ define range(i32 0, 2) i32 @tls_parse_stoc_ec_pt_formats(ptr noundef %0, ptr nou
 
 19:                                               ; preds = %16
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 2680
-  store i64 0, ptr %20, align 8, !tbaa !183
+  store i64 0, ptr %20, align 8, !tbaa !182
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 2688
-  %22 = load ptr, ptr %21, align 8, !tbaa !184
+  %22 = load ptr, ptr %21, align 8, !tbaa !183
   tail call void @CRYPTO_free(ptr noundef %22, ptr noundef nonnull @.str, i32 noundef 1424) #10
   %23 = tail call noalias ptr @CRYPTO_malloc(i64 noundef %8, ptr noundef nonnull @.str, i32 noundef 1425) #10
-  store ptr %23, ptr %21, align 8, !tbaa !184
+  store ptr %23, ptr %21, align 8, !tbaa !183
   %24 = icmp eq ptr %23, null
   br i1 %24, label %25, label %PACKET_copy_bytes.exit
 
 25:                                               ; preds = %19
-  store i64 0, ptr %20, align 8, !tbaa !183
+  store i64 0, ptr %20, align 8, !tbaa !182
   tail call void @ERR_new() #10
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 1428, ptr noundef nonnull @__func__.tls_parse_stoc_ec_pt_formats) #10
   tail call void (ptr, i32, i32, ptr, ...) @ossl_statem_fatal(ptr noundef nonnull %0, i32 noundef 80, i32 noundef 786691, ptr noundef null) #10
   br label %26
 
 PACKET_copy_bytes.exit:                           ; preds = %19
-  store i64 %8, ptr %20, align 8, !tbaa !183
+  store i64 %8, ptr %20, align 8, !tbaa !182
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %23, ptr nonnull align 1 %12, i64 %8, i1 false)
   br label %26
 
@@ -2956,19 +2956,19 @@ PACKET_copy_bytes.exit:                           ; preds = %19
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @tls_parse_stoc_session_ticket(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2, ptr noundef readnone captures(none) %3, i64 noundef %4) local_unnamed_addr #0 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 2768
-  %7 = load ptr, ptr %6, align 8, !tbaa !185
+  %7 = load ptr, ptr %6, align 8, !tbaa !184
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %17, label %8
 
 8:                                                ; preds = %5
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %10 = load ptr, ptr %9, align 8, !tbaa !152
-  %.val18 = load ptr, ptr %1, align 8, !tbaa !179
+  %10 = load ptr, ptr %9, align 8, !tbaa !151
+  %.val18 = load ptr, ptr %1, align 8, !tbaa !178
   %11 = getelementptr i8, ptr %1, i64 8
-  %.val17 = load i64, ptr %11, align 8, !tbaa !177
+  %.val17 = load i64, ptr %11, align 8, !tbaa !176
   %12 = trunc i64 %.val17 to i32
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 2776
-  %14 = load ptr, ptr %13, align 8, !tbaa !186
+  %14 = load ptr, ptr %13, align 8, !tbaa !185
   %15 = tail call i32 %7(ptr noundef %10, ptr noundef %.val18, i32 noundef %12, ptr noundef %14) #10
   %.not14 = icmp eq i32 %15, 0
   br i1 %.not14, label %16, label %17
@@ -2992,7 +2992,7 @@ define range(i32 0, 2) i32 @tls_parse_stoc_session_ticket(ptr noundef %0, ptr no
 
 20:                                               ; preds = %17
   %21 = getelementptr i8, ptr %1, i64 8
-  %.val = load i64, ptr %21, align 8, !tbaa !177
+  %.val = load i64, ptr %21, align 8, !tbaa !176
   %.not16 = icmp eq i64 %.val, 0
   br i1 %.not16, label %23, label %22
 
@@ -3004,7 +3004,7 @@ define range(i32 0, 2) i32 @tls_parse_stoc_session_ticket(ptr noundef %0, ptr no
 
 23:                                               ; preds = %20
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 2656
-  store i32 1, ptr %24, align 8, !tbaa !187
+  store i32 1, ptr %24, align 8, !tbaa !186
   br label %25
 
 25:                                               ; preds = %23, %22, %19, %16
@@ -3019,7 +3019,7 @@ define i32 @tls_parse_stoc_status_request(ptr noundef %0, ptr noundef %1, i32 no
 
 7:                                                ; preds = %5
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 2600
-  %9 = load i32, ptr %8, align 8, !tbaa !107
+  %9 = load i32, ptr %8, align 8, !tbaa !106
   %.not = icmp eq i32 %9, 1
   br i1 %.not, label %11, label %10
 
@@ -3041,7 +3041,7 @@ define i32 @tls_parse_stoc_status_request(ptr noundef %0, ptr noundef %1, i32 no
   br i1 %.not17, label %19, label %.thread24
 
 19:                                               ; preds = %11
-  %20 = load i32, ptr %13, align 8, !tbaa !188
+  %20 = load i32, ptr %13, align 8, !tbaa !187
   %21 = icmp slt i32 %20, 772
   %.not18 = icmp eq i32 %20, 65536
   %or.cond = or i1 %21, %.not18
@@ -3049,13 +3049,13 @@ define i32 @tls_parse_stoc_status_request(ptr noundef %0, ptr noundef %1, i32 no
 
 22:                                               ; preds = %19
   %23 = getelementptr i8, ptr %1, i64 8
-  %.val = load i64, ptr %23, align 8, !tbaa !177
+  %.val = load i64, ptr %23, align 8, !tbaa !176
   %.not19 = icmp eq i64 %.val, 0
   br i1 %.not19, label %.thread27, label %25
 
 .thread24:                                        ; preds = %11
   %24 = getelementptr i8, ptr %1, i64 8
-  %.val25 = load i64, ptr %24, align 8, !tbaa !177
+  %.val25 = load i64, ptr %24, align 8, !tbaa !176
   %.not1926 = icmp eq i64 %.val25, 0
   br i1 %.not1926, label %.thread27, label %25
 
@@ -3075,7 +3075,7 @@ define i32 @tls_parse_stoc_status_request(ptr noundef %0, ptr noundef %1, i32 no
 
 .thread27:                                        ; preds = %22, %.thread24
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 2620
-  store i32 1, ptr %28, align 4, !tbaa !189
+  store i32 1, ptr %28, align 4, !tbaa !188
   br label %29
 
 29:                                               ; preds = %.thread, %5, %.thread27, %26, %25, %10
@@ -3092,48 +3092,48 @@ define range(i32 0, 2) i32 @tls_parse_stoc_sct(ptr noundef %0, ptr noundef captu
 
 7:                                                ; preds = %5
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 2920
-  %9 = load ptr, ptr %8, align 8, !tbaa !136
+  %9 = load ptr, ptr %8, align 8, !tbaa !135
   %.not = icmp eq ptr %9, null
   br i1 %.not, label %26, label %10
 
 10:                                               ; preds = %7
   %11 = getelementptr i8, ptr %1, i64 8
-  %.val40 = load i64, ptr %11, align 8, !tbaa !177
+  %.val40 = load i64, ptr %11, align 8, !tbaa !176
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 2608
-  %13 = load ptr, ptr %12, align 8, !tbaa !190
+  %13 = load ptr, ptr %12, align 8, !tbaa !189
   tail call void @CRYPTO_free(ptr noundef %13, ptr noundef nonnull @.str, i32 noundef 1533) #10
-  store ptr null, ptr %12, align 8, !tbaa !190
+  store ptr null, ptr %12, align 8, !tbaa !189
   %14 = trunc i64 %.val40 to i16
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 2616
-  store i16 %14, ptr %15, align 8, !tbaa !191
+  store i16 %14, ptr %15, align 8, !tbaa !190
   %.not36 = icmp eq i64 %.val40, 0
   br i1 %.not36, label %.thread, label %16
 
 16:                                               ; preds = %10
   %17 = tail call noalias ptr @CRYPTO_malloc(i64 noundef %.val40, ptr noundef nonnull @.str, i32 noundef 1538) #10
-  store ptr %17, ptr %12, align 8, !tbaa !190
+  store ptr %17, ptr %12, align 8, !tbaa !189
   %18 = icmp eq ptr %17, null
   br i1 %18, label %19, label %20
 
 19:                                               ; preds = %16
-  store i16 0, ptr %15, align 8, !tbaa !191
+  store i16 0, ptr %15, align 8, !tbaa !190
   tail call void @ERR_new() #10
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 1541, ptr noundef nonnull @__func__.tls_parse_stoc_sct) #10
   tail call void (ptr, i32, i32, ptr, ...) @ossl_statem_fatal(ptr noundef nonnull %0, i32 noundef 80, i32 noundef 524303, ptr noundef null) #10
   br label %38
 
 20:                                               ; preds = %16
-  %.val.i.i = load i64, ptr %11, align 8, !tbaa !177
+  %.val.i.i = load i64, ptr %11, align 8, !tbaa !176
   %21 = icmp ult i64 %.val.i.i, %.val40
   br i1 %21, label %25, label %PACKET_copy_bytes.exit
 
 PACKET_copy_bytes.exit:                           ; preds = %20
-  %22 = load ptr, ptr %1, align 8, !tbaa !179
+  %22 = load ptr, ptr %1, align 8, !tbaa !178
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %17, ptr align 1 %22, i64 %.val40, i1 false)
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 %.val40
-  store ptr %23, ptr %1, align 8, !tbaa !179
+  store ptr %23, ptr %1, align 8, !tbaa !178
   %24 = sub nuw i64 %.val.i.i, %.val40
-  store i64 %24, ptr %11, align 8, !tbaa !177
+  store i64 %24, ptr %11, align 8, !tbaa !176
   br label %.thread
 
 25:                                               ; preds = %20
@@ -3147,7 +3147,7 @@ PACKET_copy_bytes.exit:                           ; preds = %20
   %28 = and i32 %27, 2
   %29 = xor i32 %28, 2
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 2176
-  %31 = load ptr, ptr %30, align 8, !tbaa !192
+  %31 = load ptr, ptr %30, align 8, !tbaa !191
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 128
   %33 = tail call ptr @custom_ext_find(ptr noundef nonnull %32, i32 noundef %29, i32 noundef 18, ptr noundef null) #10
   %34 = icmp eq ptr %33, null
@@ -3160,9 +3160,9 @@ PACKET_copy_bytes.exit:                           ; preds = %20
   br label %38
 
 35:                                               ; preds = %26
-  %.val41 = load ptr, ptr %1, align 8, !tbaa !179
+  %.val41 = load ptr, ptr %1, align 8, !tbaa !178
   %36 = getelementptr i8, ptr %1, i64 8
-  %.val = load i64, ptr %36, align 8, !tbaa !177
+  %.val = load i64, ptr %36, align 8, !tbaa !176
   %37 = tail call i32 @custom_ext_parse(ptr noundef nonnull %0, i32 noundef %2, i32 noundef 18, ptr noundef %.val41, i64 noundef %.val, ptr noundef %3, i64 noundef %4) #10
   %.not35.not = icmp eq i32 %37, 0
   br i1 %.not35.not, label %38, label %.thread
@@ -3186,21 +3186,21 @@ define range(i32 0, 2) i32 @tls_parse_stoc_npn(ptr noundef %0, ptr noundef reado
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #10
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %7) #10
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %9 = load ptr, ptr %8, align 8, !tbaa !111
+  %9 = load ptr, ptr %8, align 8, !tbaa !110
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 608
-  %11 = load i64, ptr %10, align 8, !tbaa !127
+  %11 = load i64, ptr %10, align 8, !tbaa !126
   %12 = icmp eq i64 %11, 0
   br i1 %12, label %17, label %13
 
 13:                                               ; preds = %5
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 744
-  %15 = load i64, ptr %14, align 8, !tbaa !128
+  %15 = load i64, ptr %14, align 8, !tbaa !127
   %16 = icmp eq i64 %15, 0
   br i1 %16, label %17, label %59
 
 17:                                               ; preds = %13, %5
   %18 = getelementptr inbounds nuw i8, ptr %9, i64 768
-  %19 = load ptr, ptr %18, align 8, !tbaa !112
+  %19 = load ptr, ptr %18, align 8, !tbaa !111
   %20 = icmp eq ptr %19, null
   br i1 %20, label %21, label %22
 
@@ -3223,7 +3223,7 @@ define range(i32 0, 2) i32 @tls_parse_stoc_npn(ptr noundef %0, ptr noundef reado
   br i1 %.not.i, label %ssl_next_proto_validate.exit, label %25
 
 25:                                               ; preds = %23
-  %26 = load i8, ptr %.sroa.0.0, align 1, !tbaa !163
+  %26 = load i8, ptr %.sroa.0.0, align 1, !tbaa !162
   %27 = add i64 %24, -1
   %28 = zext i8 %26 to i64
   %29 = icmp ult i64 %27, %28
@@ -3232,7 +3232,7 @@ define range(i32 0, 2) i32 @tls_parse_stoc_npn(ptr noundef %0, ptr noundef reado
   %32 = sub nuw i64 %27, %28
   %33 = icmp eq i8 %26, 0
   %or.cond30 = or i1 %33, %29
-  br i1 %or.cond30, label %ssl_next_proto_validate.exit.thread, label %23, !llvm.loop !193
+  br i1 %or.cond30, label %ssl_next_proto_validate.exit.thread, label %23, !llvm.loop !192
 
 ssl_next_proto_validate.exit.thread:              ; preds = %25
   tail call void @ERR_new() #10
@@ -3242,10 +3242,10 @@ ssl_next_proto_validate.exit.thread:              ; preds = %25
 
 ssl_next_proto_validate.exit:                     ; preds = %23
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %35 = load ptr, ptr %34, align 8, !tbaa !152
+  %35 = load ptr, ptr %34, align 8, !tbaa !151
   %36 = trunc i64 %.sroa.5.0.copyload to i32
   %37 = getelementptr inbounds nuw i8, ptr %9, i64 776
-  %38 = load ptr, ptr %37, align 8, !tbaa !194
+  %38 = load ptr, ptr %37, align 8, !tbaa !193
   %39 = call i32 %19(ptr noundef %35, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef %.sroa.0.0.copyload, i32 noundef %36, ptr noundef %38) #10
   %40 = icmp ne i32 %39, 0
   %41 = load i8, ptr %7, align 1
@@ -3261,18 +3261,18 @@ ssl_next_proto_validate.exit:                     ; preds = %23
 
 44:                                               ; preds = %ssl_next_proto_validate.exit
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 2816
-  %46 = load ptr, ptr %45, align 8, !tbaa !195
+  %46 = load ptr, ptr %45, align 8, !tbaa !194
   call void @CRYPTO_free(ptr noundef %46, ptr noundef nonnull @.str, i32 noundef 1636) #10
-  %47 = load i8, ptr %7, align 1, !tbaa !163
+  %47 = load i8, ptr %7, align 1, !tbaa !162
   %48 = zext i8 %47 to i64
   %49 = call noalias ptr @CRYPTO_malloc(i64 noundef %48, ptr noundef nonnull @.str, i32 noundef 1637) #10
-  store ptr %49, ptr %45, align 8, !tbaa !195
+  store ptr %49, ptr %45, align 8, !tbaa !194
   %50 = icmp eq ptr %49, null
   br i1 %50, label %51, label %53
 
 51:                                               ; preds = %44
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 2824
-  store i64 0, ptr %52, align 8, !tbaa !196
+  store i64 0, ptr %52, align 8, !tbaa !195
   call void @ERR_new() #10
   call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 1640, ptr noundef nonnull @__func__.tls_parse_stoc_npn) #10
   call void (ptr, i32, i32, ptr, ...) @ossl_statem_fatal(ptr noundef nonnull %0, i32 noundef 80, i32 noundef 786691, ptr noundef null) #10
@@ -3280,13 +3280,13 @@ ssl_next_proto_validate.exit:                     ; preds = %23
 
 53:                                               ; preds = %44
   %54 = load ptr, ptr %6, align 8, !tbaa !81
-  %55 = load i8, ptr %7, align 1, !tbaa !163
+  %55 = load i8, ptr %7, align 1, !tbaa !162
   %56 = zext i8 %55 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %49, ptr align 1 %54, i64 %56, i1 false)
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 2824
-  store i64 %56, ptr %57, align 8, !tbaa !196
+  store i64 %56, ptr %57, align 8, !tbaa !195
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 1204
-  store i32 1, ptr %58, align 4, !tbaa !197
+  store i32 1, ptr %58, align 4, !tbaa !196
   br label %59
 
 59:                                               ; preds = %ssl_next_proto_validate.exit.thread, %13, %53, %51, %43, %21
@@ -3299,7 +3299,7 @@ ssl_next_proto_validate.exit:                     ; preds = %23
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @tls_parse_stoc_alpn(ptr noundef %0, ptr noundef captures(none) %1, i32 noundef %2, ptr noundef readnone captures(none) %3, i64 noundef %4) local_unnamed_addr #0 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 1240
-  %7 = load i32, ptr %6, align 8, !tbaa !129
+  %7 = load i32, ptr %6, align 8, !tbaa !128
   %.not = icmp eq i32 %7, 0
   br i1 %.not, label %8, label %9
 
@@ -3311,34 +3311,34 @@ define range(i32 0, 2) i32 @tls_parse_stoc_alpn(ptr noundef %0, ptr noundef capt
 
 9:                                                ; preds = %5
   %10 = getelementptr i8, ptr %1, i64 8
-  %.val.i.i.i = load i64, ptr %10, align 8, !tbaa !177
+  %.val.i.i.i = load i64, ptr %10, align 8, !tbaa !176
   %11 = icmp ult i64 %.val.i.i.i, 2
   br i1 %11, label %PACKET_get_net_2_len.exit.thread, label %12
 
 12:                                               ; preds = %9
-  %13 = load ptr, ptr %1, align 8, !tbaa !179
-  %14 = load i8, ptr %13, align 1, !tbaa !163
+  %13 = load ptr, ptr %1, align 8, !tbaa !178
+  %14 = load i8, ptr %13, align 1, !tbaa !162
   %15 = zext i8 %14 to i64
   %16 = shl nuw nsw i64 %15, 8
   %17 = getelementptr inbounds nuw i8, ptr %13, i64 1
-  %18 = load i8, ptr %17, align 1, !tbaa !163
+  %18 = load i8, ptr %17, align 1, !tbaa !162
   %19 = zext i8 %18 to i64
   %20 = or disjoint i64 %16, %19
   %21 = getelementptr inbounds nuw i8, ptr %13, i64 2
-  store ptr %21, ptr %1, align 8, !tbaa !179
+  store ptr %21, ptr %1, align 8, !tbaa !178
   %22 = add i64 %.val.i.i.i, -2
-  store i64 %22, ptr %10, align 8, !tbaa !177
+  store i64 %22, ptr %10, align 8, !tbaa !176
   %.not43 = icmp ne i64 %22, %20
   %.not.i.i.i = icmp eq i64 %22, 0
   %or.cond = or i1 %.not.i.i.i, %.not43
   br i1 %or.cond, label %PACKET_get_net_2_len.exit.thread, label %23
 
 23:                                               ; preds = %12
-  %24 = load i8, ptr %21, align 1, !tbaa !163
+  %24 = load i8, ptr %21, align 1, !tbaa !162
   %25 = getelementptr inbounds nuw i8, ptr %13, i64 3
-  store ptr %25, ptr %1, align 8, !tbaa !179
+  store ptr %25, ptr %1, align 8, !tbaa !178
   %26 = add nsw i64 %.val.i.i.i, -3
-  store i64 %26, ptr %10, align 8, !tbaa !177
+  store i64 %26, ptr %10, align 8, !tbaa !176
   %27 = zext i8 %24 to i64
   %.not45 = icmp eq i64 %26, %27
   br i1 %.not45, label %28, label %PACKET_get_net_2_len.exit.thread
@@ -3351,7 +3351,7 @@ PACKET_get_net_2_len.exit.thread:                 ; preds = %9, %23, %12
 
 28:                                               ; preds = %23
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 2808
-  %30 = load i64, ptr %29, align 8, !tbaa !131
+  %30 = load i64, ptr %29, align 8, !tbaa !130
   %31 = icmp slt i64 %30, 0
   br i1 %31, label %34, label %PACKET_buf_init.exit.preheader
 
@@ -3361,7 +3361,7 @@ PACKET_buf_init.exit.preheader:                   ; preds = %28
 
 .lr.ph.preheader:                                 ; preds = %PACKET_buf_init.exit.preheader
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 2800
-  %33 = load ptr, ptr %32, align 8, !tbaa !130
+  %33 = load ptr, ptr %32, align 8, !tbaa !129
   br label %.lr.ph
 
 34:                                               ; preds = %28
@@ -3373,7 +3373,7 @@ PACKET_buf_init.exit.preheader:                   ; preds = %28
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %PACKET_buf_init.exit.backedge
   %.sroa.064.096 = phi ptr [ %41, %PACKET_buf_init.exit.backedge ], [ %33, %.lr.ph.preheader ]
   %.sroa.5.095 = phi i64 [ %42, %PACKET_buf_init.exit.backedge ], [ %30, %.lr.ph.preheader ]
-  %35 = load i8, ptr %.sroa.064.096, align 1, !tbaa !163
+  %35 = load i8, ptr %.sroa.064.096, align 1, !tbaa !162
   %36 = add i64 %.sroa.5.095, -1
   %37 = zext i8 %35 to i64
   %38 = icmp ult i64 %36, %37
@@ -3388,7 +3388,7 @@ PACKET_buf_init.exit.preheader:                   ; preds = %28
 
 PACKET_buf_init.exit.backedge:                    ; preds = %39, %43
   %.not.i.i.i61 = icmp eq i64 %42, 0
-  br i1 %.not.i.i.i61, label %.critedge, label %.lr.ph, !llvm.loop !198
+  br i1 %.not.i.i.i61, label %.critedge, label %.lr.ph, !llvm.loop !197
 
 43:                                               ; preds = %39
   %bcmp = tail call i32 @bcmp(ptr nonnull %25, ptr nonnull %40, i64 %26)
@@ -3403,23 +3403,23 @@ PACKET_buf_init.exit.backedge:                    ; preds = %39, %43
 
 45:                                               ; preds = %43
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 1208
-  %47 = load ptr, ptr %46, align 8, !tbaa !199
+  %47 = load ptr, ptr %46, align 8, !tbaa !198
   tail call void @CRYPTO_free(ptr noundef %47, ptr noundef nonnull @.str, i32 noundef 1698) #10
   %48 = tail call noalias ptr @CRYPTO_malloc(i64 noundef %26, ptr noundef nonnull @.str, i32 noundef 1699) #10
-  store ptr %48, ptr %46, align 8, !tbaa !199
+  store ptr %48, ptr %46, align 8, !tbaa !198
   %49 = icmp eq ptr %48, null
   br i1 %49, label %50, label %52
 
 50:                                               ; preds = %45
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 1216
-  store i64 0, ptr %51, align 8, !tbaa !200
+  store i64 0, ptr %51, align 8, !tbaa !199
   tail call void @ERR_new() #10
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 1702, ptr noundef nonnull @__func__.tls_parse_stoc_alpn) #10
   tail call void (ptr, i32, i32, ptr, ...) @ossl_statem_fatal(ptr noundef nonnull %0, i32 noundef 80, i32 noundef 786691, ptr noundef null) #10
   br label %87
 
 52:                                               ; preds = %45
-  %.val.i.i = load i64, ptr %10, align 8, !tbaa !177
+  %.val.i.i = load i64, ptr %10, align 8, !tbaa !176
   %53 = icmp ult i64 %.val.i.i, %26
   br i1 %53, label %54, label %55
 
@@ -3430,24 +3430,24 @@ PACKET_buf_init.exit.backedge:                    ; preds = %39, %43
   br label %87
 
 55:                                               ; preds = %52
-  %56 = load ptr, ptr %1, align 8, !tbaa !179
+  %56 = load ptr, ptr %1, align 8, !tbaa !178
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %48, ptr align 1 %56, i64 %26, i1 false)
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 %26
-  store ptr %57, ptr %1, align 8, !tbaa !179
+  store ptr %57, ptr %1, align 8, !tbaa !178
   %58 = sub nuw i64 %.val.i.i, %26
-  store i64 %58, ptr %10, align 8, !tbaa !177
+  store i64 %58, ptr %10, align 8, !tbaa !176
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 1216
-  store i64 %26, ptr %59, align 8, !tbaa !200
+  store i64 %26, ptr %59, align 8, !tbaa !199
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 2304
-  %61 = load ptr, ptr %60, align 8, !tbaa !96
+  %61 = load ptr, ptr %60, align 8, !tbaa !95
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 840
-  %63 = load ptr, ptr %62, align 8, !tbaa !162
+  %63 = load ptr, ptr %62, align 8, !tbaa !161
   %64 = icmp eq ptr %63, null
   br i1 %64, label %.thread91, label %65
 
 65:                                               ; preds = %55
   %66 = getelementptr inbounds nuw i8, ptr %61, i64 848
-  %67 = load i64, ptr %66, align 8, !tbaa !164
+  %67 = load i64, ptr %66, align 8, !tbaa !163
   %.not51 = icmp eq i64 %67, %26
   br i1 %.not51, label %68, label %69
 
@@ -3458,23 +3458,23 @@ PACKET_buf_init.exit.backedge:                    ; preds = %39, %43
 
 69:                                               ; preds = %65, %68
   %70 = getelementptr inbounds nuw i8, ptr %0, i64 2844
-  store i32 0, ptr %70, align 4, !tbaa !167
+  store i32 0, ptr %70, align 4, !tbaa !166
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 1288
-  %72 = load i32, ptr %71, align 8, !tbaa !182
+  %72 = load i32, ptr %71, align 8, !tbaa !181
   %.not54 = icmp eq i32 %72, 0
   br i1 %.not54, label %.thread90, label %87
 
 .thread91:                                        ; preds = %55
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 2844
-  store i32 0, ptr %73, align 4, !tbaa !167
+  store i32 0, ptr %73, align 4, !tbaa !166
   %74 = getelementptr inbounds nuw i8, ptr %0, i64 1288
-  %75 = load i32, ptr %74, align 8, !tbaa !182
+  %75 = load i32, ptr %74, align 8, !tbaa !181
   %.not5492 = icmp eq i32 %75, 0
   br i1 %.not5492, label %.thread93, label %87
 
 .thread:                                          ; preds = %68
   %76 = getelementptr inbounds nuw i8, ptr %0, i64 1288
-  %77 = load i32, ptr %76, align 8, !tbaa !182
+  %77 = load i32, ptr %76, align 8, !tbaa !181
   %.not5489 = icmp eq i32 %77, 0
   br i1 %.not5489, label %.thread90, label %87
 
@@ -3486,24 +3486,24 @@ PACKET_buf_init.exit.backedge:                    ; preds = %39, %43
 
 .thread93:                                        ; preds = %.thread91
   %78 = tail call noalias ptr @CRYPTO_memdup(ptr noundef nonnull %48, i64 noundef %26, ptr noundef nonnull @.str, i32 noundef 1728) #10
-  %79 = load ptr, ptr %60, align 8, !tbaa !96
+  %79 = load ptr, ptr %60, align 8, !tbaa !95
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 840
-  store ptr %78, ptr %80, align 8, !tbaa !162
+  store ptr %78, ptr %80, align 8, !tbaa !161
   %81 = icmp eq ptr %78, null
   br i1 %81, label %82, label %84
 
 82:                                               ; preds = %.thread93
   %83 = getelementptr inbounds nuw i8, ptr %79, i64 848
-  store i64 0, ptr %83, align 8, !tbaa !164
+  store i64 0, ptr %83, align 8, !tbaa !163
   tail call void @ERR_new() #10
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 1731, ptr noundef nonnull @__func__.tls_parse_stoc_alpn) #10
   tail call void (ptr, i32, i32, ptr, ...) @ossl_statem_fatal(ptr noundef nonnull %0, i32 noundef 80, i32 noundef 786691, ptr noundef null) #10
   br label %87
 
 84:                                               ; preds = %.thread93
-  %85 = load i64, ptr %59, align 8, !tbaa !200
+  %85 = load i64, ptr %59, align 8, !tbaa !199
   %86 = getelementptr inbounds nuw i8, ptr %79, i64 848
-  store i64 %85, ptr %86, align 8, !tbaa !164
+  store i64 %85, ptr %86, align 8, !tbaa !163
   br label %87
 
 87:                                               ; preds = %.thread91, %.thread, %69, %84, %82, %.thread90, %54, %50, %.critedge, %34, %PACKET_get_net_2_len.exit.thread, %8
@@ -3514,49 +3514,49 @@ PACKET_buf_init.exit.backedge:                    ; preds = %39, %43
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @tls_parse_stoc_use_srtp(ptr noundef %0, ptr noundef captures(none) %1, i32 noundef %2, ptr noundef readnone captures(none) %3, i64 noundef %4) local_unnamed_addr #0 {
   %6 = getelementptr i8, ptr %1, i64 8
-  %.val.i.i = load i64, ptr %6, align 8, !tbaa !177
+  %.val.i.i = load i64, ptr %6, align 8, !tbaa !176
   %7 = icmp ult i64 %.val.i.i, 2
   br i1 %7, label %PACKET_get_net_2.exit.thread, label %PACKET_get_net_2.exit
 
 PACKET_get_net_2.exit:                            ; preds = %5
-  %8 = load ptr, ptr %1, align 8, !tbaa !179
-  %9 = load i8, ptr %8, align 1, !tbaa !163
+  %8 = load ptr, ptr %1, align 8, !tbaa !178
+  %9 = load i8, ptr %8, align 1, !tbaa !162
   %10 = zext i8 %9 to i32
   %11 = shl nuw nsw i32 %10, 8
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 1
-  %13 = load i8, ptr %12, align 1, !tbaa !163
+  %13 = load i8, ptr %12, align 1, !tbaa !162
   %14 = zext i8 %13 to i32
   %15 = or disjoint i32 %11, %14
   %16 = getelementptr inbounds nuw i8, ptr %8, i64 2
-  store ptr %16, ptr %1, align 8, !tbaa !179
+  store ptr %16, ptr %1, align 8, !tbaa !178
   %17 = add i64 %.val.i.i, -2
-  store i64 %17, ptr %6, align 8, !tbaa !177
+  store i64 %17, ptr %6, align 8, !tbaa !176
   %.not = icmp ne i32 %15, 2
   %18 = icmp ult i64 %17, 2
   %or.cond = or i1 %.not, %18
   br i1 %or.cond, label %PACKET_get_net_2.exit.thread, label %19
 
 19:                                               ; preds = %PACKET_get_net_2.exit
-  %20 = load i8, ptr %16, align 1, !tbaa !163
+  %20 = load i8, ptr %16, align 1, !tbaa !162
   %21 = zext i8 %20 to i64
   %22 = shl nuw nsw i64 %21, 8
   %23 = getelementptr inbounds nuw i8, ptr %8, i64 3
-  %24 = load i8, ptr %23, align 1, !tbaa !163
+  %24 = load i8, ptr %23, align 1, !tbaa !162
   %25 = zext i8 %24 to i64
   %26 = or disjoint i64 %22, %25
   %27 = getelementptr inbounds nuw i8, ptr %8, i64 4
-  store ptr %27, ptr %1, align 8, !tbaa !179
+  store ptr %27, ptr %1, align 8, !tbaa !178
   %28 = add i64 %.val.i.i, -4
-  store i64 %28, ptr %6, align 8, !tbaa !177
+  store i64 %28, ptr %6, align 8, !tbaa !176
   %.not.i.i = icmp eq i64 %28, 0
   br i1 %.not.i.i, label %PACKET_get_net_2.exit.thread, label %29
 
 29:                                               ; preds = %19
-  %30 = load i8, ptr %27, align 1, !tbaa !163
+  %30 = load i8, ptr %27, align 1, !tbaa !162
   %31 = getelementptr inbounds nuw i8, ptr %8, i64 5
-  store ptr %31, ptr %1, align 8, !tbaa !179
+  store ptr %31, ptr %1, align 8, !tbaa !178
   %32 = add i64 %.val.i.i, -5
-  store i64 %32, ptr %6, align 8, !tbaa !177
+  store i64 %32, ptr %6, align 8, !tbaa !176
   %.not22 = icmp eq i64 %32, 0
   br i1 %.not22, label %33, label %PACKET_get_net_2.exit.thread
 
@@ -3596,19 +3596,19 @@ PACKET_get_net_2.exit.thread:                     ; preds = %19, %5, %29, %PACKE
   %42 = add nuw nsw i32 %.01943, 1
   %43 = tail call i32 @OPENSSL_sk_num(ptr noundef nonnull %36) #10
   %44 = icmp slt i32 %42, %43
-  br i1 %44, label %.lr.ph, label %._crit_edge, !llvm.loop !201
+  br i1 %44, label %.lr.ph, label %._crit_edge, !llvm.loop !200
 
 .lr.ph:                                           ; preds = %.preheader, %41
   %.01943 = phi i32 [ %42, %41 ], [ 0, %.preheader ]
   %45 = tail call ptr @OPENSSL_sk_value(ptr noundef nonnull %36, i32 noundef %.01943) #10
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 8
-  %47 = load i64, ptr %46, align 8, !tbaa !133
+  %47 = load i64, ptr %46, align 8, !tbaa !132
   %48 = icmp eq i64 %47, %26
   br i1 %48, label %49, label %41
 
 49:                                               ; preds = %.lr.ph
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 2968
-  store ptr %45, ptr %50, align 8, !tbaa !202
+  store ptr %45, ptr %50, align 8, !tbaa !201
   br label %51
 
 ._crit_edge:                                      ; preds = %41, %.preheader
@@ -3625,22 +3625,22 @@ PACKET_get_net_2.exit.thread:                     ; preds = %19, %5, %29, %PACKE
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define noundef i32 @tls_parse_stoc_etm(ptr noundef captures(none) %0, ptr noundef readnone captures(none) %1, i32 noundef %2, ptr noundef readnone captures(none) %3, i64 noundef %4) local_unnamed_addr #6 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 2480
-  %7 = load i64, ptr %6, align 8, !tbaa !135
+  %7 = load i64, ptr %6, align 8, !tbaa !134
   %8 = and i64 %7, 524288
   %.not = icmp eq i64 %8, 0
   br i1 %.not, label %9, label %19
 
 9:                                                ; preds = %5
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 768
-  %11 = load ptr, ptr %10, align 8, !tbaa !203
+  %11 = load ptr, ptr %10, align 8, !tbaa !202
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 40
-  %13 = load i32, ptr %12, align 8, !tbaa !204
+  %13 = load i32, ptr %12, align 8, !tbaa !203
   %.not8 = icmp eq i32 %13, 64
   br i1 %.not8, label %19, label %14
 
 14:                                               ; preds = %9
   %15 = getelementptr inbounds nuw i8, ptr %11, i64 36
-  %16 = load i32, ptr %15, align 4, !tbaa !205
+  %16 = load i32, ptr %15, align 4, !tbaa !204
   switch i32 %16, label %17 [
     i32 4, label %19
     i32 1024, label %19
@@ -3651,7 +3651,7 @@ define noundef i32 @tls_parse_stoc_etm(ptr noundef captures(none) %0, ptr nounde
 
 17:                                               ; preds = %14
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 2836
-  store i32 1, ptr %18, align 4, !tbaa !206
+  store i32 1, ptr %18, align 4, !tbaa !205
   br label %19
 
 19:                                               ; preds = %14, %14, %14, %14, %14, %17, %9, %5
@@ -3661,28 +3661,28 @@ define noundef i32 @tls_parse_stoc_etm(ptr noundef captures(none) %0, ptr nounde
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define noundef i32 @tls_parse_stoc_ems(ptr noundef captures(none) %0, ptr noundef readnone captures(none) %1, i32 noundef %2, ptr noundef readnone captures(none) %3, i64 noundef %4) local_unnamed_addr #7 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 2480
-  %7 = load i64, ptr %6, align 8, !tbaa !135
+  %7 = load i64, ptr %6, align 8, !tbaa !134
   %8 = and i64 %7, 1
   %.not = icmp eq i64 %8, 0
   br i1 %.not, label %9, label %21
 
 9:                                                ; preds = %5
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 352
-  %11 = load i64, ptr %10, align 8, !tbaa !207
+  %11 = load i64, ptr %10, align 8, !tbaa !206
   %12 = or i64 %11, 512
-  store i64 %12, ptr %10, align 8, !tbaa !207
+  store i64 %12, ptr %10, align 8, !tbaa !206
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 1288
-  %14 = load i32, ptr %13, align 8, !tbaa !182
+  %14 = load i32, ptr %13, align 8, !tbaa !181
   %.not4 = icmp eq i32 %14, 0
   br i1 %.not4, label %15, label %21
 
 15:                                               ; preds = %9
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 2304
-  %17 = load ptr, ptr %16, align 8, !tbaa !96
+  %17 = load ptr, ptr %16, align 8, !tbaa !95
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 888
-  %19 = load i32, ptr %18, align 8, !tbaa !208
+  %19 = load i32, ptr %18, align 8, !tbaa !207
   %20 = or i32 %19, 1
-  store i32 %20, ptr %18, align 8, !tbaa !208
+  store i32 %20, ptr %18, align 8, !tbaa !207
   br label %21
 
 21:                                               ; preds = %9, %15, %5
@@ -3692,19 +3692,19 @@ define noundef i32 @tls_parse_stoc_ems(ptr noundef captures(none) %0, ptr nounde
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @tls_parse_stoc_supported_versions(ptr noundef %0, ptr noundef captures(none) %1, i32 noundef %2, ptr noundef readnone captures(none) %3, i64 noundef %4) local_unnamed_addr #0 {
   %6 = getelementptr i8, ptr %1, i64 8
-  %.val.i.i = load i64, ptr %6, align 8, !tbaa !177
+  %.val.i.i = load i64, ptr %6, align 8, !tbaa !176
   %7 = icmp ult i64 %.val.i.i, 2
   br i1 %7, label %PACKET_get_net_2.exit.thread, label %8
 
 8:                                                ; preds = %5
-  %9 = load ptr, ptr %1, align 8, !tbaa !179
-  %10 = load i8, ptr %9, align 1, !tbaa !163
+  %9 = load ptr, ptr %1, align 8, !tbaa !178
+  %10 = load i8, ptr %9, align 1, !tbaa !162
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 1
-  %12 = load i8, ptr %11, align 1, !tbaa !163
+  %12 = load i8, ptr %11, align 1, !tbaa !162
   %13 = getelementptr inbounds nuw i8, ptr %9, i64 2
-  store ptr %13, ptr %1, align 8, !tbaa !179
+  store ptr %13, ptr %1, align 8, !tbaa !178
   %14 = add i64 %.val.i.i, -2
-  store i64 %14, ptr %6, align 8, !tbaa !177
+  store i64 %14, ptr %6, align 8, !tbaa !176
   %.not9 = icmp eq i64 %14, 0
   br i1 %.not9, label %15, label %PACKET_get_net_2.exit.thread
 
@@ -3757,13 +3757,13 @@ define range(i32 0, 2) i32 @tls_parse_stoc_key_share(ptr noundef %0, ptr noundef
   %6 = alloca ptr, align 8
   %7 = alloca i64, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 776
-  %9 = load ptr, ptr %8, align 8, !tbaa !145
+  %9 = load ptr, ptr %8, align 8, !tbaa !144
   %10 = icmp eq ptr %9, null
   br i1 %10, label %14, label %11
 
 11:                                               ; preds = %5
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 1248
-  %13 = load ptr, ptr %12, align 8, !tbaa !209
+  %13 = load ptr, ptr %12, align 8, !tbaa !208
   %.not = icmp eq ptr %13, null
   br i1 %.not, label %15, label %14
 
@@ -3775,7 +3775,7 @@ define range(i32 0, 2) i32 @tls_parse_stoc_key_share(ptr noundef %0, ptr noundef
 
 15:                                               ; preds = %11
   %16 = getelementptr i8, ptr %1, i64 8
-  %.val.i.i = load i64, ptr %16, align 8, !tbaa !177
+  %.val.i.i = load i64, ptr %16, align 8, !tbaa !176
   %17 = icmp ult i64 %.val.i.i, 2
   br i1 %17, label %18, label %19
 
@@ -3786,25 +3786,25 @@ define range(i32 0, 2) i32 @tls_parse_stoc_key_share(ptr noundef %0, ptr noundef
   br label %147
 
 19:                                               ; preds = %15
-  %20 = load ptr, ptr %1, align 8, !tbaa !179
-  %21 = load i8, ptr %20, align 1, !tbaa !163
+  %20 = load ptr, ptr %1, align 8, !tbaa !178
+  %21 = load i8, ptr %20, align 1, !tbaa !162
   %22 = zext i8 %21 to i32
   %23 = shl nuw nsw i32 %22, 8
   %24 = getelementptr inbounds nuw i8, ptr %20, i64 1
-  %25 = load i8, ptr %24, align 1, !tbaa !163
+  %25 = load i8, ptr %24, align 1, !tbaa !162
   %26 = zext i8 %25 to i32
   %27 = or disjoint i32 %23, %26
   %28 = getelementptr inbounds nuw i8, ptr %20, i64 2
-  store ptr %28, ptr %1, align 8, !tbaa !179
+  store ptr %28, ptr %1, align 8, !tbaa !178
   %29 = add i64 %.val.i.i, -2
-  store i64 %29, ptr %16, align 8, !tbaa !177
+  store i64 %29, ptr %16, align 8, !tbaa !176
   %30 = and i32 %2, 2048
   %.not98 = icmp eq i32 %30, 0
   br i1 %.not98, label %.preheader, label %34
 
 .preheader:                                       ; preds = %19
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 824
-  %32 = load i64, ptr %31, align 8, !tbaa !139
+  %32 = load i64, ptr %31, align 8, !tbaa !138
   %.not152 = icmp eq i64 %32, 0
   br i1 %.not152, label %.critedge, label %.lr.ph148
 
@@ -3821,7 +3821,7 @@ define range(i32 0, 2) i32 @tls_parse_stoc_key_share(ptr noundef %0, ptr noundef
 
 .preheader136:                                    ; preds = %34
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 824
-  %36 = load i64, ptr %35, align 8, !tbaa !139
+  %36 = load i64, ptr %35, align 8, !tbaa !138
   %.not149 = icmp eq i64 %36, 0
   br i1 %.not149, label %._crit_edge, label %.lr.ph
 
@@ -3838,12 +3838,12 @@ define range(i32 0, 2) i32 @tls_parse_stoc_key_share(ptr noundef %0, ptr noundef
 39:                                               ; preds = %41
   %40 = add nuw i64 %.086139, 1
   %exitcond.not = icmp eq i64 %40, %36
-  br i1 %exitcond.not, label %._crit_edge, label %41, !llvm.loop !210
+  br i1 %exitcond.not, label %._crit_edge, label %41, !llvm.loop !209
 
 41:                                               ; preds = %.lr.ph, %39
   %.086139 = phi i64 [ 0, %.lr.ph ], [ %40, %39 ]
   %42 = getelementptr inbounds nuw [4 x i16], ptr %37, i64 0, i64 %.086139
-  %43 = load i16, ptr %42, align 2, !tbaa !92
+  %43 = load i16, ptr %42, align 2, !tbaa !91
   %44 = zext i16 %43 to i32
   %45 = icmp eq i32 %27, %44
   br i1 %45, label %46, label %39
@@ -3867,12 +3867,12 @@ define range(i32 0, 2) i32 @tls_parse_stoc_key_share(ptr noundef %0, ptr noundef
 49:                                               ; preds = %51
   %50 = add nuw i64 %.187140, 1
   %exitcond154.not = icmp eq i64 %50, %47
-  br i1 %exitcond154.not, label %.loopexit, label %51, !llvm.loop !211
+  br i1 %exitcond154.not, label %.loopexit, label %51, !llvm.loop !210
 
 51:                                               ; preds = %.lr.ph142, %49
   %.187140 = phi i64 [ 0, %.lr.ph142 ], [ %50, %49 ]
   %52 = getelementptr inbounds nuw i16, ptr %48, i64 %.187140
-  %53 = load i16, ptr %52, align 2, !tbaa !92
+  %53 = load i16, ptr %52, align 2, !tbaa !91
   %54 = zext i16 %53 to i32
   %55 = icmp eq i32 %27, %54
   br i1 %55, label %56, label %49
@@ -3896,8 +3896,8 @@ define range(i32 0, 2) i32 @tls_parse_stoc_key_share(ptr noundef %0, ptr noundef
 
 61:                                               ; preds = %59
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 1246
-  store i16 %57, ptr %62, align 2, !tbaa !140
-  %63 = load i64, ptr %35, align 8, !tbaa !139
+  store i16 %57, ptr %62, align 2, !tbaa !139
+  %63 = load i64, ptr %35, align 8, !tbaa !138
   %.not151 = icmp eq i64 %63, 0
   br i1 %.not151, label %._crit_edge146, label %.lr.ph145
 
@@ -3909,25 +3909,25 @@ define range(i32 0, 2) i32 @tls_parse_stoc_key_share(ptr noundef %0, ptr noundef
   %66 = phi i64 [ %63, %.lr.ph145 ], [ %71, %70 ]
   %.288143 = phi i64 [ 0, %.lr.ph145 ], [ %72, %70 ]
   %67 = getelementptr inbounds nuw [4 x ptr], ptr %64, i64 0, i64 %.288143
-  %68 = load ptr, ptr %67, align 8, !tbaa !148
+  %68 = load ptr, ptr %67, align 8, !tbaa !147
   %.not109 = icmp eq ptr %68, null
   br i1 %.not109, label %70, label %69
 
 69:                                               ; preds = %65
   call void @EVP_PKEY_free(ptr noundef nonnull %68) #10
-  store ptr null, ptr %67, align 8, !tbaa !148
-  %.pre = load i64, ptr %35, align 8, !tbaa !139
+  store ptr null, ptr %67, align 8, !tbaa !147
+  %.pre = load i64, ptr %35, align 8, !tbaa !138
   br label %70
 
 70:                                               ; preds = %65, %69
   %71 = phi i64 [ %66, %65 ], [ %.pre, %69 ]
   %72 = add nuw i64 %.288143, 1
   %73 = icmp ult i64 %72, %71
-  br i1 %73, label %65, label %._crit_edge146, !llvm.loop !212
+  br i1 %73, label %65, label %._crit_edge146, !llvm.loop !211
 
 ._crit_edge146:                                   ; preds = %70, %61
-  store i64 0, ptr %35, align 8, !tbaa !139
-  store ptr null, ptr %8, align 8, !tbaa !145
+  store i64 0, ptr %35, align 8, !tbaa !138
+  store ptr null, ptr %8, align 8, !tbaa !144
   br label %74
 
 74:                                               ; preds = %._crit_edge146, %.loopexit, %46, %38
@@ -3939,7 +3939,7 @@ define range(i32 0, 2) i32 @tls_parse_stoc_key_share(ptr noundef %0, ptr noundef
 75:                                               ; preds = %.lr.ph148, %87
   %.389147 = phi i64 [ 0, %.lr.ph148 ], [ %88, %87 ]
   %76 = getelementptr inbounds nuw [4 x i16], ptr %33, i64 0, i64 %.389147
-  %77 = load i16, ptr %76, align 2, !tbaa !92
+  %77 = load i16, ptr %76, align 2, !tbaa !91
   %78 = zext i16 %77 to i32
   %79 = icmp eq i32 %27, %78
   br i1 %79, label %80, label %87
@@ -3948,17 +3948,17 @@ define range(i32 0, 2) i32 @tls_parse_stoc_key_share(ptr noundef %0, ptr noundef
   %81 = trunc nuw i32 %27 to i16
   %82 = getelementptr inbounds nuw i8, ptr %0, i64 784
   %83 = getelementptr inbounds nuw [4 x ptr], ptr %82, i64 0, i64 %.389147
-  %84 = load ptr, ptr %83, align 8, !tbaa !148
+  %84 = load ptr, ptr %83, align 8, !tbaa !147
   %85 = getelementptr inbounds nuw i8, ptr %0, i64 1246
-  store i16 %81, ptr %85, align 2, !tbaa !140
-  store ptr %84, ptr %8, align 8, !tbaa !145
+  store i16 %81, ptr %85, align 2, !tbaa !139
+  store ptr %84, ptr %8, align 8, !tbaa !144
   %86 = icmp eq i32 %27, 0
   br i1 %86, label %.critedge, label %89
 
 87:                                               ; preds = %75
   %88 = add nuw i64 %.389147, 1
   %exitcond155.not = icmp eq i64 %88, %32
-  br i1 %exitcond155.not, label %.critedge, label %75, !llvm.loop !213
+  br i1 %exitcond155.not, label %.critedge, label %75, !llvm.loop !212
 
 .critedge:                                        ; preds = %87, %.preheader, %80
   tail call void @ERR_new() #10
@@ -3968,19 +3968,19 @@ define range(i32 0, 2) i32 @tls_parse_stoc_key_share(ptr noundef %0, ptr noundef
 
 89:                                               ; preds = %80
   %90 = getelementptr inbounds nuw i8, ptr %0, i64 1288
-  %91 = load i32, ptr %90, align 8, !tbaa !182
+  %91 = load i32, ptr %90, align 8, !tbaa !181
   %.not99 = icmp eq i32 %91, 0
   %92 = getelementptr inbounds nuw i8, ptr %0, i64 2304
-  %93 = load ptr, ptr %92, align 8, !tbaa !96
+  %93 = load ptr, ptr %92, align 8, !tbaa !95
   %94 = getelementptr inbounds nuw i8, ptr %93, i64 776
   br i1 %.not99, label %95, label %96
 
 95:                                               ; preds = %89
-  store i32 %27, ptr %94, align 8, !tbaa !214
+  store i32 %27, ptr %94, align 8, !tbaa !213
   br label %103
 
 96:                                               ; preds = %89
-  %97 = load i32, ptr %94, align 8, !tbaa !214
+  %97 = load i32, ptr %94, align 8, !tbaa !213
   %.not100 = icmp eq i32 %27, %97
   br i1 %.not100, label %103, label %98
 
@@ -3996,16 +3996,16 @@ define range(i32 0, 2) i32 @tls_parse_stoc_key_share(ptr noundef %0, ptr noundef
   br label %147
 
 100:                                              ; preds = %98
-  %101 = load ptr, ptr %92, align 8, !tbaa !96
+  %101 = load ptr, ptr %92, align 8, !tbaa !95
   tail call void @SSL_SESSION_free(ptr noundef %101) #10
-  store ptr %99, ptr %92, align 8, !tbaa !96
+  store ptr %99, ptr %92, align 8, !tbaa !95
   %102 = getelementptr inbounds nuw i8, ptr %99, i64 776
-  store i32 %27, ptr %102, align 8, !tbaa !214
+  store i32 %27, ptr %102, align 8, !tbaa !213
   br label %103
 
 103:                                              ; preds = %100, %96, %95
   %104 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %105 = load ptr, ptr %104, align 8, !tbaa !111
+  %105 = load ptr, ptr %104, align 8, !tbaa !110
   %106 = tail call ptr @tls1_group_id_lookup(ptr noundef %105, i16 noundef zeroext %81) #10
   %107 = icmp eq ptr %106, null
   br i1 %107, label %108, label %109
@@ -4023,11 +4023,11 @@ define range(i32 0, 2) i32 @tls_parse_stoc_key_share(ptr noundef %0, ptr noundef
 
 111:                                              ; preds = %109
   %.sroa.0.0.copyload.i = load ptr, ptr %1, align 8, !tbaa !81
-  %112 = load i8, ptr %.sroa.0.0.copyload.i, align 1, !tbaa !163
+  %112 = load i8, ptr %.sroa.0.0.copyload.i, align 1, !tbaa !162
   %113 = zext i8 %112 to i64
   %114 = shl nuw nsw i64 %113, 8
   %115 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i, i64 1
-  %116 = load i8, ptr %115, align 1, !tbaa !163
+  %116 = load i8, ptr %115, align 1, !tbaa !162
   %117 = zext i8 %116 to i64
   %118 = or disjoint i64 %114, %117
   %119 = add i64 %.sroa.8.0.copyload.i, -2
@@ -4050,7 +4050,7 @@ PACKET_as_length_prefixed_2.exit.thread:          ; preds = %111, %109, %120
 
 124:                                              ; preds = %120
   %125 = getelementptr inbounds nuw i8, ptr %106, i64 48
-  %126 = load i8, ptr %125, align 8, !tbaa !215
+  %126 = load i8, ptr %125, align 8, !tbaa !214
   %.not103 = icmp eq i8 %126, 0
   br i1 %.not103, label %127, label %143
 
@@ -4093,7 +4093,7 @@ PACKET_as_length_prefixed_2.exit.thread:          ; preds = %111, %109, %120
   br label %147
 
 142:                                              ; preds = %138
-  store ptr %128, ptr %12, align 8, !tbaa !209
+  store ptr %128, ptr %12, align 8, !tbaa !208
   br label %145
 
 143:                                              ; preds = %124
@@ -4103,7 +4103,7 @@ PACKET_as_length_prefixed_2.exit.thread:          ; preds = %111, %109, %120
 
 145:                                              ; preds = %143, %142
   %146 = getelementptr inbounds nuw i8, ptr %0, i64 1245
-  store i8 1, ptr %146, align 1, !tbaa !217
+  store i8 1, ptr %146, align 1, !tbaa !216
   br label %147
 
 147:                                              ; preds = %.thread131, %143, %145, %141, %137, %133, %PACKET_as_length_prefixed_2.exit.thread, %108, %.critedge, %74, %18, %14
@@ -4136,11 +4136,11 @@ define range(i32 0, 2) i32 @tls_parse_stoc_cookie(ptr noundef %0, ptr noundef ca
 
 7:                                                ; preds = %5
   %.sroa.0.0.copyload.i = load ptr, ptr %1, align 8, !tbaa !81
-  %8 = load i8, ptr %.sroa.0.0.copyload.i, align 1, !tbaa !163
+  %8 = load i8, ptr %.sroa.0.0.copyload.i, align 1, !tbaa !162
   %9 = zext i8 %8 to i64
   %10 = shl nuw nsw i64 %9, 8
   %11 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i, i64 1
-  %12 = load i8, ptr %11, align 1, !tbaa !163
+  %12 = load i8, ptr %11, align 1, !tbaa !162
   %13 = zext i8 %12 to i64
   %14 = or disjoint i64 %10, %13
   %15 = add i64 %.sroa.8.0.copyload.i, -2
@@ -4185,7 +4185,7 @@ PACKET_memdup.exit.thread:                        ; preds = %16, %26, %PACKET_me
 define range(i32 0, 2) i32 @tls_parse_stoc_early_data(ptr noundef %0, ptr noundef captures(none) %1, i32 noundef %2, ptr noundef readnone captures(none) %3, i64 noundef %4) local_unnamed_addr #0 {
   %6 = icmp eq i32 %2, 8192
   %7 = getelementptr i8, ptr %1, i64 8
-  %.val.i.i = load i64, ptr %7, align 8, !tbaa !177
+  %.val.i.i = load i64, ptr %7, align 8, !tbaa !176
   br i1 %6, label %8, label %42
 
 8:                                                ; preds = %5
@@ -4193,18 +4193,18 @@ define range(i32 0, 2) i32 @tls_parse_stoc_early_data(ptr noundef %0, ptr nounde
   br i1 %9, label %PACKET_get_net_4.exit.thread, label %10
 
 10:                                               ; preds = %8
-  %11 = load ptr, ptr %1, align 8, !tbaa !179
-  %12 = load i8, ptr %11, align 1, !tbaa !163
+  %11 = load ptr, ptr %1, align 8, !tbaa !178
+  %12 = load i8, ptr %11, align 1, !tbaa !162
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 1
-  %14 = load i8, ptr %13, align 1, !tbaa !163
+  %14 = load i8, ptr %13, align 1, !tbaa !162
   %15 = getelementptr inbounds nuw i8, ptr %11, i64 2
-  %16 = load i8, ptr %15, align 1, !tbaa !163
+  %16 = load i8, ptr %15, align 1, !tbaa !162
   %17 = getelementptr inbounds nuw i8, ptr %11, i64 3
-  %18 = load i8, ptr %17, align 1, !tbaa !163
+  %18 = load i8, ptr %17, align 1, !tbaa !162
   %19 = getelementptr inbounds nuw i8, ptr %11, i64 4
-  store ptr %19, ptr %1, align 8, !tbaa !179
+  store ptr %19, ptr %1, align 8, !tbaa !178
   %20 = add i64 %.val.i.i, -4
-  store i64 %20, ptr %7, align 8, !tbaa !177
+  store i64 %20, ptr %7, align 8, !tbaa !176
   %.not18 = icmp eq i64 %20, 0
   br i1 %.not18, label %21, label %PACKET_get_net_4.exit.thread
 
@@ -4227,11 +4227,11 @@ PACKET_get_net_4.exit.thread:                     ; preds = %8, %10
   %31 = or disjoint i64 %29, %30
   %32 = trunc nuw i64 %31 to i32
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 2304
-  %34 = load ptr, ptr %33, align 8, !tbaa !96
+  %34 = load ptr, ptr %33, align 8, !tbaa !95
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 836
-  store i32 %32, ptr %35, align 4, !tbaa !159
+  store i32 %32, ptr %35, align 4, !tbaa !158
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 352
-  %37 = load i64, ptr %36, align 8, !tbaa !207
+  %37 = load i64, ptr %36, align 8, !tbaa !206
   %38 = and i64 %37, 8192
   %39 = icmp ne i64 %38, 0
   %40 = icmp ne i64 %31, 4294967295
@@ -4239,7 +4239,7 @@ PACKET_get_net_4.exit.thread:                     ; preds = %8, %10
   br i1 %or.cond, label %41, label %53
 
 41:                                               ; preds = %21
-  store i32 1, ptr %35, align 4, !tbaa !159
+  store i32 1, ptr %35, align 4, !tbaa !158
   tail call void @ERR_new() #10
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 2064, ptr noundef nonnull @__func__.tls_parse_stoc_early_data) #10
   tail call void (ptr, i32, i32, ptr, ...) @ossl_statem_fatal(ptr noundef nonnull %0, i32 noundef 47, i32 noundef 174, ptr noundef null) #10
@@ -4257,13 +4257,13 @@ PACKET_get_net_4.exit.thread:                     ; preds = %8, %10
 
 44:                                               ; preds = %42
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 2844
-  %46 = load i32, ptr %45, align 4, !tbaa !167
+  %46 = load i32, ptr %45, align 4, !tbaa !166
   %.not15 = icmp eq i32 %46, 0
   br i1 %.not15, label %50, label %47
 
 47:                                               ; preds = %44
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 1288
-  %49 = load i32, ptr %48, align 8, !tbaa !182
+  %49 = load i32, ptr %48, align 8, !tbaa !181
   %.not16 = icmp eq i32 %49, 0
   br i1 %.not16, label %50, label %51
 
@@ -4275,7 +4275,7 @@ PACKET_get_net_4.exit.thread:                     ; preds = %8, %10
 
 51:                                               ; preds = %47
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 2840
-  store i32 2, ptr %52, align 8, !tbaa !166
+  store i32 2, ptr %52, align 8, !tbaa !165
   br label %53
 
 53:                                               ; preds = %PACKET_get_net_4.exit.thread, %41, %21, %51, %50, %43
@@ -4286,23 +4286,23 @@ PACKET_get_net_4.exit.thread:                     ; preds = %8, %10
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @tls_parse_stoc_psk(ptr noundef %0, ptr noundef captures(none) %1, i32 noundef %2, ptr noundef readnone captures(none) %3, i64 noundef %4) local_unnamed_addr #0 {
   %6 = getelementptr i8, ptr %1, i64 8
-  %.val.i.i = load i64, ptr %6, align 8, !tbaa !177
+  %.val.i.i = load i64, ptr %6, align 8, !tbaa !176
   %7 = icmp ult i64 %.val.i.i, 2
   br i1 %7, label %PACKET_get_net_2.exit.thread, label %8
 
 8:                                                ; preds = %5
-  %9 = load ptr, ptr %1, align 8, !tbaa !179
-  %10 = load i8, ptr %9, align 1, !tbaa !163
+  %9 = load ptr, ptr %1, align 8, !tbaa !178
+  %10 = load i8, ptr %9, align 1, !tbaa !162
   %11 = zext i8 %10 to i32
   %12 = shl nuw nsw i32 %11, 8
   %13 = getelementptr inbounds nuw i8, ptr %9, i64 1
-  %14 = load i8, ptr %13, align 1, !tbaa !163
+  %14 = load i8, ptr %13, align 1, !tbaa !162
   %15 = zext i8 %14 to i32
   %16 = or disjoint i32 %12, %15
   %17 = getelementptr inbounds nuw i8, ptr %9, i64 2
-  store ptr %17, ptr %1, align 8, !tbaa !179
+  store ptr %17, ptr %1, align 8, !tbaa !178
   %18 = add i64 %.val.i.i, -2
-  store i64 %18, ptr %6, align 8, !tbaa !177
+  store i64 %18, ptr %6, align 8, !tbaa !176
   %.not27 = icmp eq i64 %18, 0
   br i1 %.not27, label %19, label %PACKET_get_net_2.exit.thread
 
@@ -4314,7 +4314,7 @@ PACKET_get_net_2.exit.thread:                     ; preds = %5, %8
 
 19:                                               ; preds = %8
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 2872
-  %21 = load i32, ptr %20, align 8, !tbaa !170
+  %21 = load i32, ptr %20, align 8, !tbaa !169
   %.not28 = icmp ult i32 %16, %21
   br i1 %.not28, label %23, label %22
 
@@ -4327,7 +4327,7 @@ PACKET_get_net_2.exit.thread:                     ; preds = %5, %8
 23:                                               ; preds = %19
   %24 = icmp eq i32 %16, 0
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 2312
-  %26 = load ptr, ptr %25, align 8, !tbaa !155
+  %26 = load ptr, ptr %25, align 8, !tbaa !154
   %27 = icmp eq ptr %26, null
   br i1 %24, label %28, label %32
 
@@ -4338,9 +4338,9 @@ PACKET_get_net_2.exit.thread:                     ; preds = %5, %8
 
 30:                                               ; preds = %28
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 1288
-  store i32 1, ptr %31, align 8, !tbaa !182
+  store i32 1, ptr %31, align 8, !tbaa !181
   tail call void @SSL_SESSION_free(ptr noundef %26) #10
-  store ptr null, ptr %25, align 8, !tbaa !155
+  store ptr null, ptr %25, align 8, !tbaa !154
   br label %56
 
 32:                                               ; preds = %23
@@ -4355,7 +4355,7 @@ PACKET_get_net_2.exit.thread:                     ; preds = %5, %8
 .thread:                                          ; preds = %28, %32
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 2312
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 240
-  %36 = load i32, ptr %35, align 8, !tbaa !158
+  %36 = load i32, ptr %35, align 8, !tbaa !157
   switch i32 %36, label %._crit_edge40 [
     i32 3, label %37
     i32 7, label %37
@@ -4363,20 +4363,20 @@ PACKET_get_net_2.exit.thread:                     ; preds = %5, %8
 
 ._crit_edge40:                                    ; preds = %.thread
   %.phi.trans.insert38.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 2304
-  %.pre39.pre = load ptr, ptr %.phi.trans.insert38.phi.trans.insert, align 8, !tbaa !96
+  %.pre39.pre = load ptr, ptr %.phi.trans.insert38.phi.trans.insert, align 8, !tbaa !95
   br label %46
 
 37:                                               ; preds = %.thread, %.thread
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 2304
-  %39 = load ptr, ptr %38, align 8, !tbaa !96
+  %39 = load ptr, ptr %38, align 8, !tbaa !95
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 836
-  %41 = load i32, ptr %40, align 4, !tbaa !159
+  %41 = load i32, ptr %40, align 4, !tbaa !158
   %.not31 = icmp eq i32 %41, 0
   br i1 %.not31, label %42, label %46
 
 42:                                               ; preds = %37
   %43 = getelementptr inbounds nuw i8, ptr %26, i64 836
-  %44 = load i32, ptr %43, align 4, !tbaa !159
+  %44 = load i32, ptr %43, align 4, !tbaa !158
   %45 = icmp eq i32 %44, 0
   br i1 %45, label %46, label %49
 
@@ -4391,16 +4391,16 @@ PACKET_get_net_2.exit.thread:                     ; preds = %5, %8
   %50 = phi ptr [ %.pre39, %46 ], [ %39, %42 ]
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 2304
   tail call void @SSL_SESSION_free(ptr noundef %50) #10
-  %52 = load ptr, ptr %34, align 8, !tbaa !155
-  store ptr %52, ptr %51, align 8, !tbaa !96
-  store ptr null, ptr %34, align 8, !tbaa !155
+  %52 = load ptr, ptr %34, align 8, !tbaa !154
+  store ptr %52, ptr %51, align 8, !tbaa !95
+  store ptr null, ptr %34, align 8, !tbaa !154
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 1288
-  store i32 1, ptr %53, align 8, !tbaa !182
+  store i32 1, ptr %53, align 8, !tbaa !181
   br i1 %24, label %56, label %54
 
 54:                                               ; preds = %49
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 2844
-  store i32 0, ptr %55, align 4, !tbaa !167
+  store i32 0, ptr %55, align 4, !tbaa !166
   br label %56
 
 56:                                               ; preds = %49, %54, %33, %30, %22, %PACKET_get_net_2.exit.thread
@@ -4411,9 +4411,9 @@ PACKET_get_net_2.exit.thread:                     ; preds = %5, %8
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 3) i32 @tls_construct_ctos_client_cert_type(ptr noundef initializes((2897, 2898)) %0, ptr noundef %1, i32 noundef %2, ptr noundef readnone captures(none) %3, i64 noundef %4) local_unnamed_addr #0 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 2897
-  store i8 0, ptr %6, align 1, !tbaa !218
+  store i8 0, ptr %6, align 1, !tbaa !217
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 5528
-  %8 = load ptr, ptr %7, align 8, !tbaa !219
+  %8 = load ptr, ptr %7, align 8, !tbaa !218
   %9 = icmp eq ptr %8, null
   br i1 %9, label %23, label %10
 
@@ -4428,9 +4428,9 @@ define range(i32 0, 3) i32 @tls_construct_ctos_client_cert_type(ptr noundef init
   br i1 %.not10, label %21, label %14
 
 14:                                               ; preds = %12
-  %15 = load ptr, ptr %7, align 8, !tbaa !219
+  %15 = load ptr, ptr %7, align 8, !tbaa !218
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 5536
-  %17 = load i64, ptr %16, align 8, !tbaa !220
+  %17 = load i64, ptr %16, align 8, !tbaa !219
   %18 = tail call i32 @WPACKET_sub_memcpy__(ptr noundef %1, ptr noundef %15, i64 noundef %17, i64 noundef 1) #10
   %.not11 = icmp eq i32 %18, 0
   br i1 %.not11, label %21, label %19
@@ -4447,7 +4447,7 @@ define range(i32 0, 3) i32 @tls_construct_ctos_client_cert_type(ptr noundef init
   br label %23
 
 22:                                               ; preds = %19
-  store i8 1, ptr %6, align 1, !tbaa !218
+  store i8 1, ptr %6, align 1, !tbaa !217
   br label %23
 
 23:                                               ; preds = %5, %22, %21
@@ -4458,7 +4458,7 @@ define range(i32 0, 3) i32 @tls_construct_ctos_client_cert_type(ptr noundef init
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @tls_parse_stoc_client_cert_type(ptr noundef %0, ptr noundef captures(none) %1, i32 noundef %2, ptr noundef readnone captures(none) %3, i64 noundef %4) local_unnamed_addr #0 {
   %6 = getelementptr i8, ptr %1, i64 8
-  %.val = load i64, ptr %6, align 8, !tbaa !177
+  %.val = load i64, ptr %6, align 8, !tbaa !176
   %.not = icmp eq i64 %.val, 1
   br i1 %.not, label %8, label %7
 
@@ -4469,16 +4469,16 @@ define range(i32 0, 2) i32 @tls_parse_stoc_client_cert_type(ptr noundef %0, ptr 
   br label %30
 
 8:                                                ; preds = %5
-  %9 = load ptr, ptr %1, align 8, !tbaa !179
-  %10 = load i8, ptr %9, align 1, !tbaa !163
+  %9 = load ptr, ptr %1, align 8, !tbaa !178
+  %10 = load i8, ptr %9, align 1, !tbaa !162
   %11 = zext i8 %10 to i32
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 1
-  store ptr %12, ptr %1, align 8, !tbaa !179
-  store i64 0, ptr %6, align 8, !tbaa !177
+  store ptr %12, ptr %1, align 8, !tbaa !178
+  store i64 0, ptr %6, align 8, !tbaa !176
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 2897
-  %14 = load i8, ptr %13, align 1, !tbaa !218
+  %14 = load i8, ptr %13, align 1, !tbaa !217
   %15 = icmp eq i8 %14, 1
-  br i1 %15, label %17, label %16, !prof !147
+  br i1 %15, label %17, label %16, !prof !146
 
 16:                                               ; preds = %8
   tail call void @ERR_new() #10
@@ -4488,7 +4488,7 @@ define range(i32 0, 2) i32 @tls_parse_stoc_client_cert_type(ptr noundef %0, ptr 
 
 17:                                               ; preds = %8
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 5528
-  %19 = load ptr, ptr %18, align 8, !tbaa !219
+  %19 = load ptr, ptr %18, align 8, !tbaa !218
   %20 = icmp eq ptr %19, null
   br i1 %20, label %21, label %22
 
@@ -4500,7 +4500,7 @@ define range(i32 0, 2) i32 @tls_parse_stoc_client_cert_type(ptr noundef %0, ptr 
 
 22:                                               ; preds = %17
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 5536
-  %24 = load i64, ptr %23, align 8, !tbaa !220
+  %24 = load i64, ptr %23, align 8, !tbaa !219
   %25 = tail call ptr @memchr(ptr noundef nonnull %19, i32 noundef %11, i64 noundef %24) #11
   %26 = icmp eq ptr %25, null
   br i1 %26, label %27, label %28
@@ -4513,7 +4513,7 @@ define range(i32 0, 2) i32 @tls_parse_stoc_client_cert_type(ptr noundef %0, ptr 
 
 28:                                               ; preds = %22
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 2896
-  store i8 %10, ptr %29, align 8, !tbaa !221
+  store i8 %10, ptr %29, align 8, !tbaa !220
   br label %30
 
 30:                                               ; preds = %28, %27, %21, %16, %7
@@ -4527,9 +4527,9 @@ declare ptr @memchr(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #2
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 3) i32 @tls_construct_ctos_server_cert_type(ptr noundef initializes((2899, 2900)) %0, ptr noundef %1, i32 noundef %2, ptr noundef readnone captures(none) %3, i64 noundef %4) local_unnamed_addr #0 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 2899
-  store i8 0, ptr %6, align 1, !tbaa !222
+  store i8 0, ptr %6, align 1, !tbaa !221
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 5544
-  %8 = load ptr, ptr %7, align 8, !tbaa !223
+  %8 = load ptr, ptr %7, align 8, !tbaa !222
   %9 = icmp eq ptr %8, null
   br i1 %9, label %23, label %10
 
@@ -4544,9 +4544,9 @@ define range(i32 0, 3) i32 @tls_construct_ctos_server_cert_type(ptr noundef init
   br i1 %.not10, label %21, label %14
 
 14:                                               ; preds = %12
-  %15 = load ptr, ptr %7, align 8, !tbaa !223
+  %15 = load ptr, ptr %7, align 8, !tbaa !222
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 5552
-  %17 = load i64, ptr %16, align 8, !tbaa !224
+  %17 = load i64, ptr %16, align 8, !tbaa !223
   %18 = tail call i32 @WPACKET_sub_memcpy__(ptr noundef %1, ptr noundef %15, i64 noundef %17, i64 noundef 1) #10
   %.not11 = icmp eq i32 %18, 0
   br i1 %.not11, label %21, label %19
@@ -4563,7 +4563,7 @@ define range(i32 0, 3) i32 @tls_construct_ctos_server_cert_type(ptr noundef init
   br label %23
 
 22:                                               ; preds = %19
-  store i8 1, ptr %6, align 1, !tbaa !222
+  store i8 1, ptr %6, align 1, !tbaa !221
   br label %23
 
 23:                                               ; preds = %5, %22, %21
@@ -4574,7 +4574,7 @@ define range(i32 0, 3) i32 @tls_construct_ctos_server_cert_type(ptr noundef init
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @tls_parse_stoc_server_cert_type(ptr noundef %0, ptr noundef captures(none) %1, i32 noundef %2, ptr noundef readnone captures(none) %3, i64 noundef %4) local_unnamed_addr #0 {
   %6 = getelementptr i8, ptr %1, i64 8
-  %.val = load i64, ptr %6, align 8, !tbaa !177
+  %.val = load i64, ptr %6, align 8, !tbaa !176
   %.not = icmp eq i64 %.val, 1
   br i1 %.not, label %8, label %7
 
@@ -4585,16 +4585,16 @@ define range(i32 0, 2) i32 @tls_parse_stoc_server_cert_type(ptr noundef %0, ptr 
   br label %30
 
 8:                                                ; preds = %5
-  %9 = load ptr, ptr %1, align 8, !tbaa !179
-  %10 = load i8, ptr %9, align 1, !tbaa !163
+  %9 = load ptr, ptr %1, align 8, !tbaa !178
+  %10 = load i8, ptr %9, align 1, !tbaa !162
   %11 = zext i8 %10 to i32
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 1
-  store ptr %12, ptr %1, align 8, !tbaa !179
-  store i64 0, ptr %6, align 8, !tbaa !177
+  store ptr %12, ptr %1, align 8, !tbaa !178
+  store i64 0, ptr %6, align 8, !tbaa !176
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 2899
-  %14 = load i8, ptr %13, align 1, !tbaa !222
+  %14 = load i8, ptr %13, align 1, !tbaa !221
   %15 = icmp eq i8 %14, 1
-  br i1 %15, label %17, label %16, !prof !147
+  br i1 %15, label %17, label %16, !prof !146
 
 16:                                               ; preds = %8
   tail call void @ERR_new() #10
@@ -4604,7 +4604,7 @@ define range(i32 0, 2) i32 @tls_parse_stoc_server_cert_type(ptr noundef %0, ptr 
 
 17:                                               ; preds = %8
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 5544
-  %19 = load ptr, ptr %18, align 8, !tbaa !223
+  %19 = load ptr, ptr %18, align 8, !tbaa !222
   %20 = icmp eq ptr %19, null
   br i1 %20, label %21, label %22
 
@@ -4616,7 +4616,7 @@ define range(i32 0, 2) i32 @tls_parse_stoc_server_cert_type(ptr noundef %0, ptr 
 
 22:                                               ; preds = %17
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 5552
-  %24 = load i64, ptr %23, align 8, !tbaa !224
+  %24 = load i64, ptr %23, align 8, !tbaa !223
   %25 = tail call ptr @memchr(ptr noundef nonnull %19, i32 noundef %11, i64 noundef %24) #11
   %26 = icmp eq ptr %25, null
   br i1 %26, label %27, label %28
@@ -4629,7 +4629,7 @@ define range(i32 0, 2) i32 @tls_parse_stoc_server_cert_type(ptr noundef %0, ptr 
 
 28:                                               ; preds = %22
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 2898
-  store i8 %10, ptr %29, align 2, !tbaa !225
+  store i8 %10, ptr %29, align 2, !tbaa !224
   br label %30
 
 30:                                               ; preds = %28, %27, %21, %16, %7
@@ -4759,144 +4759,143 @@ attributes #11 = { nounwind willreturn memory(read) }
 !82 = !{!19, !19, i64 0}
 !83 = !{!36, !36, i64 0}
 !84 = !{!4, !6, i64 72}
-!85 = distinct !{!85, !86, !87}
+!85 = distinct !{!85, !86}
 !86 = !{!"llvm.loop.mustprogress"}
-!87 = !{!"llvm.loop.estimated_trip_count"}
-!88 = !{!89, !6, i64 28}
-!89 = !{!"ssl_cipher_st", !6, i64 0, !29, i64 8, !29, i64 16, !6, i64 24, !6, i64 28, !6, i64 32, !6, i64 36, !6, i64 40, !6, i64 44, !6, i64 48, !6, i64 52, !6, i64 56, !6, i64 60, !6, i64 64, !6, i64 68, !6, i64 72}
-!90 = !{!89, !6, i64 32}
-!91 = !{!89, !6, i64 44}
-!92 = !{!38, !38, i64 0}
-!93 = distinct !{!93, !86, !87}
-!94 = distinct !{!94, !86, !87}
-!95 = !{!4, !6, i64 124}
-!96 = !{!4, !49, i64 2304}
-!97 = !{!98, !29, i64 808}
-!98 = !{!"ssl_session_st", !6, i64 0, !19, i64 8, !7, i64 16, !7, i64 80, !19, i64 592, !7, i64 600, !19, i64 632, !7, i64 640, !29, i64 672, !29, i64 680, !6, i64 688, !28, i64 696, !46, i64 704, !44, i64 712, !19, i64 720, !18, i64 728, !18, i64 736, !18, i64 744, !6, i64 752, !27, i64 760, !19, i64 768, !6, i64 776, !13, i64 784, !99, i64 800, !29, i64 864, !29, i64 872, !19, i64 880, !6, i64 888, !9, i64 896, !49, i64 904, !49, i64 912, !12, i64 920}
-!99 = !{!"", !29, i64 0, !29, i64 8, !19, i64 16, !19, i64 24, !6, i64 32, !6, i64 36, !29, i64 40, !19, i64 48, !7, i64 56}
-!100 = !{!98, !6, i64 0}
-!101 = !{!98, !19, i64 816}
-!102 = !{!4, !55, i64 2760}
-!103 = !{!104, !10, i64 8}
-!104 = !{!"tls_session_ticket_ext_st", !38, i64 0, !10, i64 8}
-!105 = !{!104, !38, i64 0}
-!106 = !{!4, !6, i64 2516}
-!107 = !{!4, !6, i64 2600}
-!108 = !{!4, !52, i64 2624}
-!109 = distinct !{!109, !86, !87}
-!110 = !{!4, !53, i64 2632}
-!111 = !{!4, !9, i64 8}
-!112 = !{!113, !10, i64 768}
-!113 = !{!"ssl_ctx_st", !14, i64 0, !11, i64 8, !47, i64 16, !47, i64 24, !47, i64 32, !114, i64 40, !115, i64 48, !19, i64 56, !49, i64 64, !49, i64 72, !6, i64 80, !18, i64 88, !10, i64 96, !10, i64 104, !10, i64 112, !116, i64 120, !12, i64 164, !10, i64 168, !10, i64 176, !10, i64 184, !10, i64 192, !10, i64 200, !10, i64 208, !10, i64 216, !10, i64 224, !10, i64 232, !13, i64 240, !32, i64 256, !32, i64 264, !44, i64 272, !117, i64 280, !10, i64 288, !30, i64 296, !30, i64 304, !19, i64 312, !6, i64 320, !6, i64 324, !6, i64 328, !19, i64 336, !48, i64 344, !10, i64 352, !6, i64 360, !10, i64 368, !10, i64 376, !6, i64 384, !19, i64 392, !7, i64 400, !10, i64 432, !10, i64 440, !40, i64 448, !6, i64 456, !118, i64 464, !10, i64 472, !10, i64 480, !19, i64 488, !19, i64 496, !19, i64 504, !19, i64 512, !119, i64 520, !10, i64 528, !10, i64 536, !10, i64 544, !10, i64 552, !120, i64 560, !10, i64 816, !10, i64 824, !10, i64 832, !10, i64 840, !59, i64 848, !122, i64 976, !57, i64 1008, !10, i64 1016, !10, i64 1024, !10, i64 1032, !6, i64 1040, !6, i64 1044, !10, i64 1048, !10, i64 1056, !19, i64 1064, !19, i64 1072, !10, i64 1080, !10, i64 1088, !10, i64 1096, !19, i64 1104, !10, i64 1112, !10, i64 1120, !6, i64 1128, !10, i64 1136, !10, i64 1144, !29, i64 1152, !7, i64 1160, !7, i64 1216, !7, i64 1408, !7, i64 1520, !19, i64 1632, !34, i64 1640, !36, i64 1648, !124, i64 1656, !19, i64 1664, !19, i64 1672, !125, i64 1680, !19, i64 1688, !19, i64 1696, !6, i64 1704, !6, i64 1708, !6, i64 1712, !6, i64 1716, !29, i64 1720, !19, i64 1728, !29, i64 1736, !19, i64 1744, !19, i64 1752, !126, i64 1760, !29, i64 1768}
-!114 = !{!"p1 _ZTS13x509_store_st", !10, i64 0}
-!115 = !{!"p1 _ZTS20lhash_st_SSL_SESSION", !10, i64 0}
-!116 = !{!"", !7, i64 0, !7, i64 4, !7, i64 8, !7, i64 12, !7, i64 16, !7, i64 20, !7, i64 24, !7, i64 28, !7, i64 32, !7, i64 36, !7, i64 40}
-!117 = !{!"p1 _ZTS17stack_st_SSL_COMP", !10, i64 0}
-!118 = !{!"p1 _ZTS14ctlog_store_st", !10, i64 0}
-!119 = !{!"p1 _ZTS9engine_st", !10, i64 0}
-!120 = !{!"", !10, i64 0, !10, i64 8, !7, i64 16, !121, i64 32, !10, i64 40, !10, i64 48, !10, i64 56, !10, i64 64, !6, i64 72, !7, i64 76, !19, i64 80, !29, i64 88, !19, i64 96, !36, i64 104, !19, i64 112, !36, i64 120, !19, i64 128, !54, i64 136, !36, i64 144, !19, i64 152, !10, i64 160, !10, i64 168, !29, i64 176, !19, i64 184, !10, i64 192, !10, i64 200, !10, i64 208, !10, i64 216, !7, i64 224}
-!121 = !{!"p1 _ZTS21ssl_ctx_ext_secure_st", !10, i64 0}
-!122 = !{!"dane_ctx_st", !123, i64 0, !29, i64 8, !7, i64 16, !19, i64 24}
-!123 = !{!"p2 _ZTS9evp_md_st", !10, i64 0}
-!124 = !{!"p1 _ZTS17tls_group_info_st", !10, i64 0}
-!125 = !{!"p1 _ZTS18tls_sigalg_info_st", !10, i64 0}
-!126 = !{!"p1 _ZTS18ssl_token_store_st", !10, i64 0}
-!127 = !{!4, !19, i64 608}
-!128 = !{!4, !19, i64 744}
-!129 = !{!4, !6, i64 1240}
-!130 = !{!4, !29, i64 2800}
-!131 = !{!4, !19, i64 2808}
-!132 = distinct !{!132, !86, !87}
-!133 = !{!134, !19, i64 8}
-!134 = !{!"srtp_protection_profile_st", !29, i64 0, !19, i64 8}
-!135 = !{!4, !19, i64 2480}
-!136 = !{!4, !10, i64 2920}
-!137 = distinct !{!137, !86, !87}
-!138 = !{!4, !6, i64 2832}
-!139 = !{!4, !19, i64 824}
-!140 = !{!4, !38, i64 1246}
-!141 = !{!4, !36, i64 2704}
-!142 = distinct !{!142, !86, !87, !143}
-!143 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!144 = distinct !{!144, !86, !87}
-!145 = !{!4, !28, i64 776}
-!146 = !{!4, !6, i64 2256}
-!147 = !{!"branch_weights", !"expected", i32 2000, i32 1}
-!148 = !{!28, !28, i64 0}
-!149 = !{!4, !19, i64 2856}
-!150 = !{!4, !29, i64 2848}
-!151 = !{!49, !49, i64 0}
-!152 = !{!4, !16, i64 64}
-!153 = !{!4, !10, i64 2440}
-!154 = !{!4, !10, i64 2416}
-!155 = !{!4, !49, i64 2312}
-!156 = !{!4, !29, i64 2320}
-!157 = !{!4, !19, i64 2328}
-!158 = !{!4, !6, i64 240}
-!159 = !{!98, !6, i64 836}
-!160 = !{!4, !6, i64 5440}
-!161 = !{!98, !29, i64 800}
-!162 = !{!98, !29, i64 840}
-!163 = !{!7, !7, i64 0}
-!164 = !{!98, !19, i64 848}
-!165 = distinct !{!165, !86, !87}
-!166 = !{!4, !6, i64 2840}
-!167 = !{!4, !6, i64 2844}
-!168 = !{!98, !27, i64 760}
-!169 = !{!89, !6, i64 64}
-!170 = !{!4, !6, i64 2872}
-!171 = !{!98, !19, i64 824}
-!172 = !{!98, !6, i64 832}
-!173 = !{!4, !6, i64 2988}
-!174 = !{!4, !6, i64 2984}
-!175 = !{!4, !19, i64 1192}
-!176 = !{!"branch_weights", i32 4000000, i32 4001}
-!177 = !{!178, !19, i64 8}
-!178 = !{!"", !29, i64 0, !19, i64 8}
-!179 = !{!178, !29, i64 0}
-!180 = !{!4, !6, i64 1200}
-!181 = !{!98, !7, i64 856}
-!182 = !{!4, !6, i64 1288}
-!183 = !{!4, !19, i64 2680}
-!184 = !{!4, !29, i64 2688}
-!185 = !{!4, !10, i64 2768}
-!186 = !{!4, !10, i64 2776}
-!187 = !{!4, !6, i64 2656}
-!188 = !{!71, !6, i64 0}
-!189 = !{!4, !6, i64 2620}
-!190 = !{!4, !29, i64 2608}
-!191 = !{!4, !38, i64 2616}
-!192 = !{!4, !48, i64 2176}
-!193 = distinct !{!193, !86, !87}
-!194 = !{!113, !10, i64 776}
-!195 = !{!4, !29, i64 2816}
-!196 = !{!4, !19, i64 2824}
-!197 = !{!4, !6, i64 1204}
-!198 = distinct !{!198, !86, !87}
-!199 = !{!4, !29, i64 1208}
-!200 = !{!4, !19, i64 1216}
-!201 = distinct !{!201, !86, !87}
-!202 = !{!4, !58, i64 2968}
-!203 = !{!4, !27, i64 768}
-!204 = !{!89, !6, i64 40}
-!205 = !{!89, !6, i64 36}
-!206 = !{!4, !6, i64 2836}
-!207 = !{!4, !19, i64 352}
-!208 = !{!98, !6, i64 888}
-!209 = !{!4, !28, i64 1248}
-!210 = distinct !{!210, !86, !87}
-!211 = distinct !{!211, !86, !87}
-!212 = distinct !{!212, !86, !87}
-!213 = distinct !{!213, !86, !87}
-!214 = !{!98, !6, i64 776}
-!215 = !{!216, !7, i64 48}
-!216 = !{!"tls_group_info_st", !29, i64 0, !29, i64 8, !29, i64 16, !6, i64 24, !38, i64 28, !6, i64 32, !6, i64 36, !6, i64 40, !6, i64 44, !7, i64 48}
-!217 = !{!4, !7, i64 1245}
-!218 = !{!4, !7, i64 2897}
-!219 = !{!4, !29, i64 5528}
-!220 = !{!4, !19, i64 5536}
-!221 = !{!4, !7, i64 2896}
-!222 = !{!4, !7, i64 2899}
-!223 = !{!4, !29, i64 5544}
-!224 = !{!4, !19, i64 5552}
-!225 = !{!4, !7, i64 2898}
+!87 = !{!88, !6, i64 28}
+!88 = !{!"ssl_cipher_st", !6, i64 0, !29, i64 8, !29, i64 16, !6, i64 24, !6, i64 28, !6, i64 32, !6, i64 36, !6, i64 40, !6, i64 44, !6, i64 48, !6, i64 52, !6, i64 56, !6, i64 60, !6, i64 64, !6, i64 68, !6, i64 72}
+!89 = !{!88, !6, i64 32}
+!90 = !{!88, !6, i64 44}
+!91 = !{!38, !38, i64 0}
+!92 = distinct !{!92, !86}
+!93 = distinct !{!93, !86}
+!94 = !{!4, !6, i64 124}
+!95 = !{!4, !49, i64 2304}
+!96 = !{!97, !29, i64 808}
+!97 = !{!"ssl_session_st", !6, i64 0, !19, i64 8, !7, i64 16, !7, i64 80, !19, i64 592, !7, i64 600, !19, i64 632, !7, i64 640, !29, i64 672, !29, i64 680, !6, i64 688, !28, i64 696, !46, i64 704, !44, i64 712, !19, i64 720, !18, i64 728, !18, i64 736, !18, i64 744, !6, i64 752, !27, i64 760, !19, i64 768, !6, i64 776, !13, i64 784, !98, i64 800, !29, i64 864, !29, i64 872, !19, i64 880, !6, i64 888, !9, i64 896, !49, i64 904, !49, i64 912, !12, i64 920}
+!98 = !{!"", !29, i64 0, !29, i64 8, !19, i64 16, !19, i64 24, !6, i64 32, !6, i64 36, !29, i64 40, !19, i64 48, !7, i64 56}
+!99 = !{!97, !6, i64 0}
+!100 = !{!97, !19, i64 816}
+!101 = !{!4, !55, i64 2760}
+!102 = !{!103, !10, i64 8}
+!103 = !{!"tls_session_ticket_ext_st", !38, i64 0, !10, i64 8}
+!104 = !{!103, !38, i64 0}
+!105 = !{!4, !6, i64 2516}
+!106 = !{!4, !6, i64 2600}
+!107 = !{!4, !52, i64 2624}
+!108 = distinct !{!108, !86}
+!109 = !{!4, !53, i64 2632}
+!110 = !{!4, !9, i64 8}
+!111 = !{!112, !10, i64 768}
+!112 = !{!"ssl_ctx_st", !14, i64 0, !11, i64 8, !47, i64 16, !47, i64 24, !47, i64 32, !113, i64 40, !114, i64 48, !19, i64 56, !49, i64 64, !49, i64 72, !6, i64 80, !18, i64 88, !10, i64 96, !10, i64 104, !10, i64 112, !115, i64 120, !12, i64 164, !10, i64 168, !10, i64 176, !10, i64 184, !10, i64 192, !10, i64 200, !10, i64 208, !10, i64 216, !10, i64 224, !10, i64 232, !13, i64 240, !32, i64 256, !32, i64 264, !44, i64 272, !116, i64 280, !10, i64 288, !30, i64 296, !30, i64 304, !19, i64 312, !6, i64 320, !6, i64 324, !6, i64 328, !19, i64 336, !48, i64 344, !10, i64 352, !6, i64 360, !10, i64 368, !10, i64 376, !6, i64 384, !19, i64 392, !7, i64 400, !10, i64 432, !10, i64 440, !40, i64 448, !6, i64 456, !117, i64 464, !10, i64 472, !10, i64 480, !19, i64 488, !19, i64 496, !19, i64 504, !19, i64 512, !118, i64 520, !10, i64 528, !10, i64 536, !10, i64 544, !10, i64 552, !119, i64 560, !10, i64 816, !10, i64 824, !10, i64 832, !10, i64 840, !59, i64 848, !121, i64 976, !57, i64 1008, !10, i64 1016, !10, i64 1024, !10, i64 1032, !6, i64 1040, !6, i64 1044, !10, i64 1048, !10, i64 1056, !19, i64 1064, !19, i64 1072, !10, i64 1080, !10, i64 1088, !10, i64 1096, !19, i64 1104, !10, i64 1112, !10, i64 1120, !6, i64 1128, !10, i64 1136, !10, i64 1144, !29, i64 1152, !7, i64 1160, !7, i64 1216, !7, i64 1408, !7, i64 1520, !19, i64 1632, !34, i64 1640, !36, i64 1648, !123, i64 1656, !19, i64 1664, !19, i64 1672, !124, i64 1680, !19, i64 1688, !19, i64 1696, !6, i64 1704, !6, i64 1708, !6, i64 1712, !6, i64 1716, !29, i64 1720, !19, i64 1728, !29, i64 1736, !19, i64 1744, !19, i64 1752, !125, i64 1760, !29, i64 1768}
+!113 = !{!"p1 _ZTS13x509_store_st", !10, i64 0}
+!114 = !{!"p1 _ZTS20lhash_st_SSL_SESSION", !10, i64 0}
+!115 = !{!"", !7, i64 0, !7, i64 4, !7, i64 8, !7, i64 12, !7, i64 16, !7, i64 20, !7, i64 24, !7, i64 28, !7, i64 32, !7, i64 36, !7, i64 40}
+!116 = !{!"p1 _ZTS17stack_st_SSL_COMP", !10, i64 0}
+!117 = !{!"p1 _ZTS14ctlog_store_st", !10, i64 0}
+!118 = !{!"p1 _ZTS9engine_st", !10, i64 0}
+!119 = !{!"", !10, i64 0, !10, i64 8, !7, i64 16, !120, i64 32, !10, i64 40, !10, i64 48, !10, i64 56, !10, i64 64, !6, i64 72, !7, i64 76, !19, i64 80, !29, i64 88, !19, i64 96, !36, i64 104, !19, i64 112, !36, i64 120, !19, i64 128, !54, i64 136, !36, i64 144, !19, i64 152, !10, i64 160, !10, i64 168, !29, i64 176, !19, i64 184, !10, i64 192, !10, i64 200, !10, i64 208, !10, i64 216, !7, i64 224}
+!120 = !{!"p1 _ZTS21ssl_ctx_ext_secure_st", !10, i64 0}
+!121 = !{!"dane_ctx_st", !122, i64 0, !29, i64 8, !7, i64 16, !19, i64 24}
+!122 = !{!"p2 _ZTS9evp_md_st", !10, i64 0}
+!123 = !{!"p1 _ZTS17tls_group_info_st", !10, i64 0}
+!124 = !{!"p1 _ZTS18tls_sigalg_info_st", !10, i64 0}
+!125 = !{!"p1 _ZTS18ssl_token_store_st", !10, i64 0}
+!126 = !{!4, !19, i64 608}
+!127 = !{!4, !19, i64 744}
+!128 = !{!4, !6, i64 1240}
+!129 = !{!4, !29, i64 2800}
+!130 = !{!4, !19, i64 2808}
+!131 = distinct !{!131, !86}
+!132 = !{!133, !19, i64 8}
+!133 = !{!"srtp_protection_profile_st", !29, i64 0, !19, i64 8}
+!134 = !{!4, !19, i64 2480}
+!135 = !{!4, !10, i64 2920}
+!136 = distinct !{!136, !86}
+!137 = !{!4, !6, i64 2832}
+!138 = !{!4, !19, i64 824}
+!139 = !{!4, !38, i64 1246}
+!140 = !{!4, !36, i64 2704}
+!141 = distinct !{!141, !86, !142}
+!142 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!143 = distinct !{!143, !86}
+!144 = !{!4, !28, i64 776}
+!145 = !{!4, !6, i64 2256}
+!146 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!147 = !{!28, !28, i64 0}
+!148 = !{!4, !19, i64 2856}
+!149 = !{!4, !29, i64 2848}
+!150 = !{!49, !49, i64 0}
+!151 = !{!4, !16, i64 64}
+!152 = !{!4, !10, i64 2440}
+!153 = !{!4, !10, i64 2416}
+!154 = !{!4, !49, i64 2312}
+!155 = !{!4, !29, i64 2320}
+!156 = !{!4, !19, i64 2328}
+!157 = !{!4, !6, i64 240}
+!158 = !{!97, !6, i64 836}
+!159 = !{!4, !6, i64 5440}
+!160 = !{!97, !29, i64 800}
+!161 = !{!97, !29, i64 840}
+!162 = !{!7, !7, i64 0}
+!163 = !{!97, !19, i64 848}
+!164 = distinct !{!164, !86}
+!165 = !{!4, !6, i64 2840}
+!166 = !{!4, !6, i64 2844}
+!167 = !{!97, !27, i64 760}
+!168 = !{!88, !6, i64 64}
+!169 = !{!4, !6, i64 2872}
+!170 = !{!97, !19, i64 824}
+!171 = !{!97, !6, i64 832}
+!172 = !{!4, !6, i64 2988}
+!173 = !{!4, !6, i64 2984}
+!174 = !{!4, !19, i64 1192}
+!175 = !{!"branch_weights", i32 4000000, i32 4001}
+!176 = !{!177, !19, i64 8}
+!177 = !{!"", !29, i64 0, !19, i64 8}
+!178 = !{!177, !29, i64 0}
+!179 = !{!4, !6, i64 1200}
+!180 = !{!97, !7, i64 856}
+!181 = !{!4, !6, i64 1288}
+!182 = !{!4, !19, i64 2680}
+!183 = !{!4, !29, i64 2688}
+!184 = !{!4, !10, i64 2768}
+!185 = !{!4, !10, i64 2776}
+!186 = !{!4, !6, i64 2656}
+!187 = !{!71, !6, i64 0}
+!188 = !{!4, !6, i64 2620}
+!189 = !{!4, !29, i64 2608}
+!190 = !{!4, !38, i64 2616}
+!191 = !{!4, !48, i64 2176}
+!192 = distinct !{!192, !86}
+!193 = !{!112, !10, i64 776}
+!194 = !{!4, !29, i64 2816}
+!195 = !{!4, !19, i64 2824}
+!196 = !{!4, !6, i64 1204}
+!197 = distinct !{!197, !86}
+!198 = !{!4, !29, i64 1208}
+!199 = !{!4, !19, i64 1216}
+!200 = distinct !{!200, !86}
+!201 = !{!4, !58, i64 2968}
+!202 = !{!4, !27, i64 768}
+!203 = !{!88, !6, i64 40}
+!204 = !{!88, !6, i64 36}
+!205 = !{!4, !6, i64 2836}
+!206 = !{!4, !19, i64 352}
+!207 = !{!97, !6, i64 888}
+!208 = !{!4, !28, i64 1248}
+!209 = distinct !{!209, !86}
+!210 = distinct !{!210, !86}
+!211 = distinct !{!211, !86}
+!212 = distinct !{!212, !86}
+!213 = !{!97, !6, i64 776}
+!214 = !{!215, !7, i64 48}
+!215 = !{!"tls_group_info_st", !29, i64 0, !29, i64 8, !29, i64 16, !6, i64 24, !38, i64 28, !6, i64 32, !6, i64 36, !6, i64 40, !6, i64 44, !7, i64 48}
+!216 = !{!4, !7, i64 1245}
+!217 = !{!4, !7, i64 2897}
+!218 = !{!4, !29, i64 5528}
+!219 = !{!4, !19, i64 5536}
+!220 = !{!4, !7, i64 2896}
+!221 = !{!4, !7, i64 2899}
+!222 = !{!4, !29, i64 5544}
+!223 = !{!4, !19, i64 5552}
+!224 = !{!4, !7, i64 2898}

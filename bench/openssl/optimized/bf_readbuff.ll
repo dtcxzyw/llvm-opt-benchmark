@@ -127,7 +127,7 @@ define internal i32 @readbuffer_read(ptr noundef %0, ptr noundef writeonly captu
 
 59:                                               ; preds = %46
   store i32 %52, ptr %15, align 8, !tbaa !18
-  br label %18, !llvm.loop !23
+  br label %18
 
 readbuffer_resize.exit:                           ; preds = %41, %20, %54, %6, %10, %3, %56
   %.0 = phi i32 [ %58, %56 ], [ 0, %3 ], [ 0, %10 ], [ 0, %6 ], [ %.1, %54 ], [ 0, %41 ], [ %29, %20 ]
@@ -189,9 +189,9 @@ define internal i32 @readbuffer_gets(ptr noundef %0, ptr noundef writeonly captu
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %35 ]
   %.16683 = phi ptr [ %1, %.lr.ph.preheader ], [ %30, %35 ]
   %28 = getelementptr inbounds nuw i8, ptr %25, i64 %indvars.iv
-  %29 = load i8, ptr %28, align 1, !tbaa !25
+  %29 = load i8, ptr %28, align 1, !tbaa !23
   %30 = getelementptr inbounds nuw i8, ptr %.16683, i64 1
-  store i8 %29, ptr %.16683, align 1, !tbaa !25
+  store i8 %29, ptr %.16683, align 1, !tbaa !23
   %31 = icmp eq i8 %29, 10
   br i1 %31, label %32, label %35
 
@@ -208,7 +208,7 @@ define internal i32 @readbuffer_gets(ptr noundef %0, ptr noundef writeonly captu
   %38 = icmp slt i64 %indvars.iv.next, %37
   %39 = icmp samesign ult i64 %indvars.iv.next, %27
   %40 = select i1 %38, i1 %39, i1 false
-  br i1 %40, label %.lr.ph, label %.loopexit.loopexit, !llvm.loop !26
+  br i1 %40, label %.lr.ph, label %.loopexit.loopexit, !llvm.loop !24
 
 .loopexit.loopexit:                               ; preds = %35
   %41 = trunc nuw nsw i64 %indvars.iv.next to i32
@@ -230,7 +230,7 @@ define internal i32 @readbuffer_gets(ptr noundef %0, ptr noundef writeonly captu
   br i1 %or.cond3, label %49, label %50
 
 49:                                               ; preds = %.loopexit
-  store i8 0, ptr %.267, align 1, !tbaa !25
+  store i8 0, ptr %.267, align 1, !tbaa !23
   br label %readbuffer_resize.exit
 
 50:                                               ; preds = %._crit_edge110, %.loopexit
@@ -284,31 +284,31 @@ define internal i32 @readbuffer_gets(ptr noundef %0, ptr noundef writeonly captu
 
 74:                                               ; preds = %.lr.ph91
   tail call void @BIO_copy_next_retry(ptr noundef nonnull %0) #5
-  store i8 0, ptr %.387, align 1, !tbaa !25
+  store i8 0, ptr %.387, align 1, !tbaa !23
   %75 = icmp sgt i32 %.16488, 0
   %76 = select i1 %75, i32 %.16488, i32 %72
   br label %readbuffer_resize.exit
 
 77:                                               ; preds = %.lr.ph91
-  %78 = load i8, ptr %.06089, align 1, !tbaa !25
+  %78 = load i8, ptr %.06089, align 1, !tbaa !23
   %79 = getelementptr inbounds nuw i8, ptr %.387, i64 1
-  store i8 %78, ptr %.387, align 1, !tbaa !25
+  store i8 %78, ptr %.387, align 1, !tbaa !23
   %80 = add nuw nsw i32 %.16488, 1
   %81 = load i32, ptr %52, align 4, !tbaa !20
   %82 = add nsw i32 %81, 1
   store i32 %82, ptr %52, align 4, !tbaa !20
-  %83 = load i8, ptr %.06089, align 1, !tbaa !25
+  %83 = load i8, ptr %.06089, align 1, !tbaa !23
   %84 = icmp ne i8 %83, 10
   %85 = getelementptr inbounds nuw i8, ptr %.06089, i64 1
   %86 = add nuw nsw i32 %.05990, 1
   %87 = icmp slt i32 %86, %.068
   %or.cond99 = select i1 %84, i1 %87, i1 false
-  br i1 %or.cond99, label %.lr.ph91, label %._crit_edge, !llvm.loop !28
+  br i1 %or.cond99, label %.lr.ph91, label %._crit_edge, !llvm.loop !26
 
 ._crit_edge:                                      ; preds = %77, %._crit_edge112
   %.4 = phi ptr [ %.065, %._crit_edge112 ], [ %79, %77 ]
   %.2 = phi i32 [ %.063, %._crit_edge112 ], [ %80, %77 ]
-  store i8 0, ptr %.4, align 1, !tbaa !25
+  store i8 0, ptr %.4, align 1, !tbaa !23
   br label %readbuffer_resize.exit
 
 readbuffer_resize.exit:                           ; preds = %61, %6, %11, %3, %._crit_edge, %74, %49
@@ -417,11 +417,11 @@ define internal range(i32 0, 2) i32 @readbuffer_new(ptr noundef writeonly captur
 
 9:                                                ; preds = %4
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store i32 1, ptr %10, align 8, !tbaa !29
+  store i32 1, ptr %10, align 8, !tbaa !27
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr %2, ptr %11, align 8, !tbaa !3
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store i32 0, ptr %12, align 8, !tbaa !30
+  store i32 0, ptr %12, align 8, !tbaa !28
   br label %13
 
 13:                                               ; preds = %1, %9, %8
@@ -444,9 +444,9 @@ define internal range(i32 0, 2) i32 @readbuffer_free(ptr noundef captures(addres
   tail call void @CRYPTO_free(ptr noundef %8, ptr noundef nonnull @.str.2, i32 noundef 80) #5
   store ptr null, ptr %4, align 8, !tbaa !3
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store i32 0, ptr %9, align 8, !tbaa !29
+  store i32 0, ptr %9, align 8, !tbaa !27
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store i32 0, ptr %10, align 8, !tbaa !30
+  store i32 0, ptr %10, align 8, !tbaa !28
   br label %11
 
 11:                                               ; preds = %1, %3
@@ -524,11 +524,9 @@ attributes #5 = { nounwind }
 !20 = !{!19, !11, i64 20}
 !21 = !{!19, !10, i64 8}
 !22 = !{!19, !11, i64 0}
-!23 = distinct !{!23, !24}
-!24 = !{!"llvm.loop.estimated_trip_count"}
-!25 = !{!7, !7, i64 0}
-!26 = distinct !{!26, !27, !24}
-!27 = !{!"llvm.loop.mustprogress"}
-!28 = distinct !{!28, !27, !24}
-!29 = !{!4, !11, i64 40}
-!30 = !{!4, !11, i64 48}
+!23 = !{!7, !7, i64 0}
+!24 = distinct !{!24, !25}
+!25 = !{!"llvm.loop.mustprogress"}
+!26 = distinct !{!26, !25}
+!27 = !{!4, !11, i64 40}
+!28 = !{!4, !11, i64 48}

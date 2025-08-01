@@ -337,7 +337,7 @@ define hidden void @SDL_UDEV_Quit() local_unnamed_addr #0 {
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 40
   %34 = load ptr, ptr %33, align 8
   %.not6 = icmp eq ptr %34, null
-  br i1 %.not6, label %._crit_edge, label %.lr.ph, !llvm.loop !6
+  br i1 %.not6, label %._crit_edge, label %.lr.ph, !llvm.loop !5
 
 ._crit_edge:                                      ; preds = %.lr.ph, %24
   %.lcssa = phi ptr [ %25, %24 ], [ %32, %.lr.ph ]
@@ -451,7 +451,7 @@ define hidden zeroext i1 @SDL_UDEV_Scan() local_unnamed_addr #0 {
   %52 = getelementptr inbounds nuw i8, ptr %.017.i, i64 8
   %.0.i = load ptr, ptr %52, align 8
   %.not14.i = icmp eq ptr %.0.i, null
-  br i1 %.not14.i, label %device_event.exit, label %.lr.ph.i, !llvm.loop !7
+  br i1 %.not14.i, label %device_event.exit, label %.lr.ph.i, !llvm.loop !6
 
 device_event.exit:                                ; preds = %.lr.ph.i, %41, %46, %48
   %53 = load ptr, ptr @_this, align 8
@@ -466,7 +466,7 @@ device_event.exit:                                ; preds = %.lr.ph.i, %41, %46,
   %59 = load ptr, ptr %58, align 8
   %60 = tail call ptr %59(ptr noundef nonnull %.01624) #8
   %.not21 = icmp eq ptr %60, null
-  br i1 %.not21, label %._crit_edge, label %.lr.ph, !llvm.loop !8
+  br i1 %.not21, label %._crit_edge, label %.lr.ph, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %56, %10
   %61 = load ptr, ptr @_this, align 8
@@ -1139,7 +1139,7 @@ define hidden void @SDL_UDEV_Poll() local_unnamed_addr #0 {
   %36 = getelementptr inbounds nuw i8, ptr %.017.i, i64 8
   %.0.i = load ptr, ptr %36, align 8
   %.not14.i = icmp eq ptr %.0.i, null
-  br i1 %.not14.i, label %device_event.exit, label %.lr.ph.i, !llvm.loop !7
+  br i1 %.not14.i, label %device_event.exit, label %.lr.ph.i, !llvm.loop !6
 
 37:                                               ; preds = %22
   %38 = tail call i32 @SDL_strcmp_REAL(ptr noundef nonnull %21, ptr noundef nonnull @.str.13) #8
@@ -1168,7 +1168,7 @@ define hidden void @SDL_UDEV_Poll() local_unnamed_addr #0 {
   %49 = getelementptr inbounds nuw i8, ptr %.017.i16, i64 8
   %.0.i17 = load ptr, ptr %49, align 8
   %.not14.i18 = icmp eq ptr %.0.i17, null
-  br i1 %.not14.i18, label %device_event.exit, label %.lr.ph.i15, !llvm.loop !7
+  br i1 %.not14.i18, label %device_event.exit, label %.lr.ph.i15, !llvm.loop !6
 
 device_event.exit:                                ; preds = %.lr.ph.i15, %.lr.ph.i, %45, %40, %32, %30, %25, %37, %17
   %50 = load ptr, ptr @_this, align 8
@@ -1179,7 +1179,7 @@ device_event.exit:                                ; preds = %.lr.ph.i15, %.lr.ph
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 24
   %55 = load ptr, ptr %54, align 8
   %.not.i = icmp eq ptr %55, null
-  br i1 %.not.i, label %SDL_UDEV_hotplug_update_available.exit, label %.lr.ph, !llvm.loop !9
+  br i1 %.not.i, label %SDL_UDEV_hotplug_update_available.exit, label %.lr.ph, !llvm.loop !8
 
 SDL_UDEV_hotplug_update_available.exit:           ; preds = %10, %device_event.exit, %.lr.ph, %.preheader, %0
   ret void
@@ -1237,7 +1237,7 @@ define hidden void @SDL_UDEV_DelCallback(ptr noundef readnone captures(address) 
 .lr.ph:                                           ; preds = %.lr.ph29
   %7 = load ptr, ptr %.012, align 8
   %8 = icmp eq ptr %7, %0
-  br i1 %8, label %.lr.ph._crit_edge, label %.lr.ph29, !llvm.loop !10
+  br i1 %8, label %.lr.ph._crit_edge, label %.lr.ph29, !llvm.loop !9
 
 .lr.ph._crit_edge:                                ; preds = %.lr.ph, %.lr.ph.preheader
   %.01221.lcssa = phi ptr [ %.01218, %.lr.ph.preheader ], [ %.012, %.lr.ph ]
@@ -1275,7 +1275,7 @@ define hidden void @SDL_UDEV_DelCallback(ptr noundef readnone captures(address) 
   %20 = getelementptr inbounds nuw i8, ptr %.0122128, i64 8
   %.012 = load ptr, ptr %20, align 8
   %.not14 = icmp eq ptr %.012, null
-  br i1 %.not14, label %.loopexit, label %.lr.ph, !llvm.loop !10
+  br i1 %.not14, label %.loopexit, label %.lr.ph, !llvm.loop !9
 
 .loopexit:                                        ; preds = %.lr.ph29, %3, %1, %19
   ret void
@@ -1339,7 +1339,7 @@ define internal fastcc i32 @guess_device_class(ptr noundef nonnull %0) unnamed_a
   %15 = load ptr, ptr %14, align 8
   %16 = tail call ptr %15(ptr noundef nonnull %.019, ptr noundef nonnull @.str.3, ptr noundef null) #8
   %.not = icmp eq ptr %16, null
-  br i1 %.not, label %.critedge17, label %7, !llvm.loop !11
+  br i1 %.not, label %.critedge17, label %7, !llvm.loop !10
 
 .critedge:                                        ; preds = %7
   call fastcc void @get_caps(ptr noundef %.019, ptr noundef nonnull @.str.57, ptr noundef %2, i64 noundef 1)
@@ -1401,7 +1401,7 @@ define internal fastcc void @get_caps(ptr noundef nonnull %0, ptr noundef %1, pt
   store i8 0, ptr %15, align 1
   %22 = call ptr @SDL_strrchr_REAL(ptr noundef nonnull %5, i32 noundef 32) #8
   %.not22 = icmp eq ptr %22, null
-  br i1 %.not22, label %._crit_edge, label %.lr.ph, !llvm.loop !12
+  br i1 %.not22, label %._crit_edge, label %.lr.ph, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %21
   %23 = and i64 %indvars.iv.next, 4294967295
@@ -1452,13 +1452,12 @@ attributes #8 = { nounwind }
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = distinct !{!3, !4, !5}
+!3 = distinct !{!3, !4}
 !4 = !{!"llvm.loop.mustprogress"}
-!5 = !{!"llvm.loop.estimated_trip_count"}
-!6 = distinct !{!6, !4, !5}
-!7 = distinct !{!7, !4, !5}
-!8 = distinct !{!8, !4, !5}
-!9 = distinct !{!9, !4, !5}
-!10 = distinct !{!10, !4, !5}
-!11 = distinct !{!11, !4, !5}
-!12 = distinct !{!12, !4, !5}
+!5 = distinct !{!5, !4}
+!6 = distinct !{!6, !4}
+!7 = distinct !{!7, !4}
+!8 = distinct !{!8, !4}
+!9 = distinct !{!9, !4}
+!10 = distinct !{!10, !4}
+!11 = distinct !{!11, !4}

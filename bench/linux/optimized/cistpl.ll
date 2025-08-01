@@ -209,7 +209,7 @@ define dso_local noundef range(i32 -1, 1) i32 @pcmcia_read_cis_mem(ptr noundef %
   %84 = icmp eq i32 %81, 0
   %85 = icmp eq ptr %83, %69
   %86 = select i1 %84, i1 true, i1 %85
-  br i1 %86, label %.loopexit.loopexit, label %76, !llvm.loop !11
+  br i1 %86, label %.loopexit.loopexit, label %76, !llvm.loop !10
 
 .loopexit.loopexit:                               ; preds = %76
   %.pre = load i32, ptr %51, align 4
@@ -221,7 +221,7 @@ define dso_local noundef range(i32 -1, 1) i32 @pcmcia_read_cis_mem(ptr noundef %
   %89 = phi ptr [ %61, %66 ], [ %82, %.loopexit.loopexit ]
   %90 = add i32 %87, %60
   %91 = icmp eq i32 %88, 0
-  br i1 %91, label %.thread, label %59, !llvm.loop !12
+  br i1 %91, label %.thread, label %59, !llvm.loop !11
 
 .thread.sink.split:                               ; preds = %59, %41, %8
   %.sink18 = phi i32 [ %3, %8 ], [ %3, %41 ], [ %62, %59 ]
@@ -404,7 +404,7 @@ define dso_local noundef range(i32 -22, 1) i32 @pcmcia_write_cis_mem(ptr noundef
   %38 = add i32 %36, -1
   %39 = getelementptr i8, ptr %35, i64 1
   %40 = icmp eq i32 %38, 0
-  br i1 %40, label %.loopexit5, label %34, !llvm.loop !13
+  br i1 %40, label %.loopexit5, label %34, !llvm.loop !12
 
 41:                                               ; preds = %5
   %42 = and i32 %1, 1
@@ -458,7 +458,7 @@ define dso_local noundef range(i32 -22, 1) i32 @pcmcia_write_cis_mem(ptr noundef
   %79 = icmp eq i32 %76, 0
   %80 = icmp eq ptr %78, %64
   %81 = select i1 %79, i1 true, i1 %80
-  br i1 %81, label %.loopexit.loopexit, label %71, !llvm.loop !14
+  br i1 %81, label %.loopexit.loopexit, label %71, !llvm.loop !13
 
 .loopexit.loopexit:                               ; preds = %71
   %.pre = load i32, ptr %47, align 4
@@ -470,7 +470,7 @@ define dso_local noundef range(i32 -22, 1) i32 @pcmcia_write_cis_mem(ptr noundef
   %84 = phi ptr [ %56, %61 ], [ %77, %.loopexit.loopexit ]
   %85 = add i32 %82, %55
   %86 = icmp eq i32 %83, 0
-  br i1 %86, label %.loopexit5, label %54, !llvm.loop !15
+  br i1 %86, label %.loopexit5, label %54, !llvm.loop !14
 
 .loopexit5:                                       ; preds = %34, %.loopexit, %54, %41, %14, %11
   %87 = phi i32 [ -22, %11 ], [ 0, %41 ], [ 0, %14 ], [ -22, %54 ], [ 0, %.loopexit ], [ 0, %34 ]
@@ -496,7 +496,7 @@ define dso_local void @destroy_cis_cache(ptr noundef readonly captures(address) 
   store ptr inttoptr (i64 -2401263026318606046 to ptr), ptr %7, align 8
   tail call void @kfree(ptr noundef %5) #13
   %10 = icmp eq ptr %6, %2
-  br i1 %10, label %.loopexit, label %.preheader, !llvm.loop !16
+  br i1 %10, label %.loopexit, label %.preheader, !llvm.loop !15
 
 .loopexit:                                        ; preds = %.preheader, %1
   ret void
@@ -541,7 +541,7 @@ define dso_local noundef range(i32 -22, 1) i32 @verify_cis_cache(ptr noundef %0)
   %24 = load i32, ptr %23, align 8
   %25 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %26 = load i32, ptr %25, align 8
-  %27 = tail call i32 @pcmcia_read_cis_mem(ptr noundef %0, i32 noundef %24, i32 noundef %26, i32 noundef %22, ptr noundef nonnull %8), !range !17
+  %27 = tail call i32 @pcmcia_read_cis_mem(ptr noundef %0, i32 noundef %24, i32 noundef %26, i32 noundef %22, ptr noundef nonnull %8), !range !16
   %28 = icmp eq i32 %27, 0
   br i1 %28, label %29, label %34
 
@@ -550,7 +550,7 @@ define dso_local noundef range(i32 -22, 1) i32 @verify_cis_cache(ptr noundef %0)
   %31 = sext i32 %22 to i64
   %32 = tail call i32 @bcmp(ptr nonnull %8, ptr nonnull %30, i64 %31)
   %33 = icmp eq i32 %32, 0
-  br i1 %33, label %15, label %34, !llvm.loop !18
+  br i1 %33, label %15, label %34, !llvm.loop !17
 
 34:                                               ; preds = %29, %19
   tail call void @kfree(ptr noundef nonnull %8) #13
@@ -653,13 +653,13 @@ define dso_local noundef range(i32 -28, 1) i32 @pccard_get_first_tuple(ptr nound
   %23 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %24 = load i8, ptr %23, align 4
   store i8 6, ptr %23, align 4
-  %25 = tail call i32 @pccard_get_next_tuple(ptr noundef nonnull %0, i32 noundef %1, ptr noundef %2), !range !19
+  %25 = tail call i32 @pccard_get_next_tuple(ptr noundef nonnull %0, i32 noundef %1, ptr noundef %2), !range !18
   %26 = icmp eq i32 %25, 0
   br i1 %26, label %27, label %30
 
 27:                                               ; preds = %22
   store i8 19, ptr %23, align 4
-  %28 = tail call i32 @pccard_get_next_tuple(ptr noundef nonnull %0, i32 noundef %1, ptr noundef %2), !range !19
+  %28 = tail call i32 @pccard_get_next_tuple(ptr noundef nonnull %0, i32 noundef %1, ptr noundef %2), !range !18
   %29 = icmp eq i32 %28, 0
   br i1 %29, label %31, label %34
 
@@ -673,7 +673,7 @@ define dso_local noundef range(i32 -28, 1) i32 @pccard_get_first_tuple(ptr nound
   br label %32
 
 32:                                               ; preds = %31, %18, %10
-  %33 = tail call i32 @pccard_get_next_tuple(ptr noundef nonnull %0, i32 noundef %1, ptr noundef %2), !range !19
+  %33 = tail call i32 @pccard_get_next_tuple(ptr noundef nonnull %0, i32 noundef %1, ptr noundef %2), !range !18
   br label %34
 
 34:                                               ; preds = %32, %27, %5, %3
@@ -688,7 +688,7 @@ define dso_local noundef range(i32 -28, 1) i32 @pccard_get_next_tuple(ptr nounde
   %6 = alloca i8, align 1
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %5) #13
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6) #13
-  store i8 0, ptr %6, align 1, !annotation !20
+  store i8 0, ptr %6, align 1, !annotation !19
   %7 = icmp eq ptr %0, null
   br i1 %7, label %.thread9, label %8
 
@@ -700,7 +700,7 @@ define dso_local noundef range(i32 -28, 1) i32 @pccard_get_next_tuple(ptr nounde
   br i1 %12, label %13, label %.thread9
 
 13:                                               ; preds = %8
-  store i16 0, ptr %5, align 2, !annotation !20
+  store i16 0, ptr %5, align 2, !annotation !19
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 21
   %15 = load i8, ptr %14, align 1
   %16 = getelementptr inbounds nuw i8, ptr %5, i64 1
@@ -738,7 +738,7 @@ define dso_local noundef range(i32 -28, 1) i32 @pccard_get_next_tuple(ptr nounde
   br label %47
 
 40:                                               ; preds = %34
-  %41 = call fastcc i32 @read_cis_cache(ptr noundef nonnull %0, i32 noundef %35, i32 noundef %37, i64 noundef 2, ptr noundef nonnull %5), !range !21
+  %41 = call fastcc i32 @read_cis_cache(ptr noundef nonnull %0, i32 noundef %35, i32 noundef %37, i64 noundef 2, ptr noundef nonnull %5), !range !20
   %42 = icmp eq i32 %41, 0
   br i1 %42, label %43, label %.thread9
 
@@ -755,7 +755,7 @@ define dso_local noundef range(i32 -28, 1) i32 @pccard_get_next_tuple(ptr nounde
 
 47:                                               ; preds = %43, %.thread
   call void @llvm.lifetime.start.p0(i64 5, ptr nonnull %4) #13
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %4, i8 0, i64 5, i1 false), !annotation !20
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %4, i8 0, i64 5, i1 false), !annotation !19
   %48 = load i16, ptr %21, align 8
   %49 = and i16 %48, 224
   %50 = icmp eq i16 %49, 0
@@ -765,7 +765,7 @@ define dso_local noundef range(i32 -28, 1) i32 @pccard_get_next_tuple(ptr nounde
   %52 = and i16 %48, 15
   %53 = zext nneg i16 %52 to i32
   %54 = load i32, ptr %26, align 4
-  %55 = call fastcc i32 @read_cis_cache(ptr noundef nonnull %0, i32 noundef %53, i32 noundef %54, i64 noundef 5, ptr noundef nonnull %4), !range !21
+  %55 = call fastcc i32 @read_cis_cache(ptr noundef nonnull %0, i32 noundef %53, i32 noundef %54, i64 noundef 5, ptr noundef nonnull %4), !range !20
   %56 = icmp eq i32 %55, 0
   br i1 %56, label %57, label %.thread8
 
@@ -809,7 +809,7 @@ define dso_local noundef range(i32 -28, 1) i32 @pccard_get_next_tuple(ptr nounde
 
 85:                                               ; preds = %79
   %86 = zext nneg i16 %83 to i32
-  %87 = call fastcc i32 @read_cis_cache(ptr noundef nonnull %0, i32 noundef %86, i32 noundef %81, i64 noundef 5, ptr noundef nonnull %4), !range !21
+  %87 = call fastcc i32 @read_cis_cache(ptr noundef nonnull %0, i32 noundef %86, i32 noundef %81, i64 noundef 5, ptr noundef nonnull %4), !range !20
   %88 = icmp eq i32 %87, 0
   br i1 %88, label %89, label %.thread8
 
@@ -870,7 +870,7 @@ define dso_local noundef range(i32 -28, 1) i32 @pccard_get_next_tuple(ptr nounde
 122:                                              ; preds = %113, %109, %.preheader10
   %123 = load ptr, ptr %105, align 8
   %124 = icmp eq ptr %123, %30
-  br i1 %124, label %.loopexit11, label %.preheader10, !llvm.loop !22
+  br i1 %124, label %.loopexit11, label %.preheader10, !llvm.loop !21
 
 .loopexit11:                                      ; preds = %122, %117, %98
   tail call void @mutex_unlock(ptr noundef nonnull %29) #13
@@ -884,7 +884,7 @@ define dso_local noundef range(i32 -28, 1) i32 @pccard_get_next_tuple(ptr nounde
 127:                                              ; preds = %.loopexit11, %79
   %.pre-phi33 = phi i32 [ %126, %.loopexit11 ], [ 0, %79 ]
   %128 = phi i32 [ %125, %.loopexit11 ], [ %81, %79 ]
-  %129 = call fastcc i32 @read_cis_cache(ptr noundef nonnull %0, i32 noundef %.pre-phi33, i32 noundef %128, i64 noundef 5, ptr noundef nonnull %4), !range !21
+  %129 = call fastcc i32 @read_cis_cache(ptr noundef nonnull %0, i32 noundef %.pre-phi33, i32 noundef %128, i64 noundef 5, ptr noundef nonnull %4), !range !20
   %130 = icmp eq i32 %129, 0
   br i1 %130, label %131, label %.thread8
 
@@ -945,7 +945,7 @@ define dso_local noundef range(i32 -28, 1) i32 @pccard_get_next_tuple(ptr nounde
 164:                                              ; preds = %155, %151, %.preheader
   %165 = load ptr, ptr %147, align 8
   %166 = icmp eq ptr %165, %30
-  br i1 %166, label %.loopexit, label %.preheader, !llvm.loop !23
+  br i1 %166, label %.loopexit, label %.preheader, !llvm.loop !21
 
 .loopexit:                                        ; preds = %164, %159, %140
   tail call void @mutex_unlock(ptr noundef nonnull %29) #13
@@ -966,7 +966,7 @@ define dso_local noundef range(i32 -28, 1) i32 @pccard_get_next_tuple(ptr nounde
   %172 = lshr i16 %171, 8
   %173 = and i16 %172, 15
   %174 = zext nneg i16 %173 to i32
-  %175 = call fastcc i32 @read_cis_cache(ptr noundef nonnull %0, i32 noundef %174, i32 noundef %168, i64 noundef 2, ptr noundef nonnull %5), !range !21
+  %175 = call fastcc i32 @read_cis_cache(ptr noundef nonnull %0, i32 noundef %174, i32 noundef %168, i64 noundef 2, ptr noundef nonnull %5), !range !20
   %176 = icmp eq i32 %175, 0
   br i1 %176, label %thread-pre-split, label %.thread9
 
@@ -996,7 +996,7 @@ thread-pre-split:                                 ; preds = %170
   %187 = or disjoint i16 %186, 17
   store i16 %187, ptr %21, align 8
   %188 = add i32 %179, 2
-  %189 = tail call fastcc i32 @read_cis_cache(ptr noundef nonnull %0, i32 noundef %180, i32 noundef %188, i64 noundef 4, ptr noundef nonnull %26), !range !21
+  %189 = tail call fastcc i32 @read_cis_cache(ptr noundef nonnull %0, i32 noundef %180, i32 noundef %188, i64 noundef 4, ptr noundef nonnull %26), !range !20
   %190 = icmp eq i32 %189, 0
   br i1 %190, label %228, label %.thread9
 
@@ -1009,7 +1009,7 @@ thread-pre-split:                                 ; preds = %170
   %197 = or disjoint i16 %196, 16
   store i16 %197, ptr %21, align 8
   %198 = add i32 %179, 2
-  %199 = tail call fastcc i32 @read_cis_cache(ptr noundef nonnull %0, i32 noundef %180, i32 noundef %198, i64 noundef 4, ptr noundef nonnull %26), !range !21
+  %199 = tail call fastcc i32 @read_cis_cache(ptr noundef nonnull %0, i32 noundef %180, i32 noundef %198, i64 noundef 4, ptr noundef nonnull %26), !range !20
   %200 = icmp eq i32 %199, 0
   br i1 %200, label %228, label %.thread9
 
@@ -1033,7 +1033,7 @@ thread-pre-split:                                 ; preds = %170
 
 211:                                              ; preds = %205
   %212 = add i32 %179, 2
-  %213 = call fastcc i32 @read_cis_cache(ptr noundef nonnull %0, i32 noundef %180, i32 noundef %212, i64 noundef 1, ptr noundef nonnull %6), !range !21
+  %213 = call fastcc i32 @read_cis_cache(ptr noundef nonnull %0, i32 noundef %180, i32 noundef %212, i64 noundef 1, ptr noundef nonnull %6), !range !20
   %214 = icmp eq i32 %213, 0
   br i1 %214, label %215, label %.thread9
 
@@ -1092,7 +1092,7 @@ thread-pre-split:                                 ; preds = %170
   %246 = phi i32 [ %180, %239 ], [ %35, %45 ]
   %247 = add nuw nsw i32 %36, 1
   %248 = icmp eq i32 %247, 200
-  br i1 %248, label %.thread9, label %34, !llvm.loop !24
+  br i1 %248, label %.thread9, label %34, !llvm.loop !22
 
 249:                                              ; preds = %228, %236, %233
   %250 = icmp eq i32 %36, 200
@@ -1181,11 +1181,11 @@ define internal fastcc noundef range(i32 -22, 1) i32 @read_cis_cache(ptr noundef
 43:                                               ; preds = %37, %32, %.preheader
   %44 = load ptr, ptr %28, align 8
   %45 = icmp eq ptr %44, %25
-  br i1 %45, label %.loopexit, label %.preheader, !llvm.loop !25
+  br i1 %45, label %.loopexit, label %.preheader, !llvm.loop !23
 
 .loopexit:                                        ; preds = %43, %24
   %46 = trunc nuw nsw i64 %3 to i32
-  %47 = tail call i32 @pcmcia_read_cis_mem(ptr noundef nonnull %0, i32 noundef %1, i32 noundef %2, i32 noundef %46, ptr noundef %4), !range !17
+  %47 = tail call i32 @pcmcia_read_cis_mem(ptr noundef nonnull %0, i32 noundef %1, i32 noundef %2, i32 noundef %46, ptr noundef %4), !range !16
   %48 = icmp eq i32 %47, 0
   br i1 %48, label %49, label %61
 
@@ -1261,7 +1261,7 @@ define dso_local noundef range(i32 -28, 1) i32 @pccard_get_tuple_data(ptr nounde
   %29 = zext nneg i32 %28 to i64
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %31 = load ptr, ptr %30, align 8
-  %32 = tail call fastcc i32 @read_cis_cache(ptr noundef nonnull %0, i32 noundef %21, i32 noundef %24, i64 noundef %29, ptr noundef %31), !range !21
+  %32 = tail call fastcc i32 @read_cis_cache(ptr noundef nonnull %0, i32 noundef %21, i32 noundef %24, i64 noundef %29, ptr noundef %31), !range !20
   %33 = icmp ne i32 %32, 0
   %34 = sext i1 %33 to i32
   br label %35
@@ -1391,7 +1391,7 @@ define dso_local range(i32 -22, 1) i32 @pcmcia_parse_tuple(ptr noundef readonly 
 59:                                               ; preds = %55
   %60 = getelementptr i8, ptr %56, i64 1
   %61 = icmp eq ptr %60, %15
-  br i1 %61, label %.thread67, label %55, !llvm.loop !26
+  br i1 %61, label %.thread67, label %55, !llvm.loop !24
 
 62:                                               ; preds = %34, %33, %32, %31, %22
   %63 = phi i32 [ 100, %34 ], [ 150, %33 ], [ 200, %32 ], [ 250, %31 ], [ 0, %22 ]
@@ -1433,7 +1433,7 @@ define dso_local range(i32 -22, 1) i32 @pcmcia_parse_tuple(ptr noundef readonly 
   %87 = add nuw nsw i64 %18, 1
   %88 = icmp eq i64 %87, 4
   %89 = select i1 %86, i1 true, i1 %88
-  br i1 %89, label %.thread67, label %17, !llvm.loop !27
+  br i1 %89, label %.thread67, label %17, !llvm.loop !25
 
 90:                                               ; preds = %8
   %91 = icmp ult i8 %4, 5
@@ -1505,7 +1505,7 @@ define dso_local range(i32 -22, 1) i32 @pcmcia_parse_tuple(ptr noundef readonly 
   %136 = getelementptr i8, ptr %130, i64 5
   %137 = add nuw nsw i64 %129, 1
   %138 = icmp eq i64 %137, %127
-  br i1 %138, label %.thread67, label %128, !llvm.loop !28
+  br i1 %138, label %.thread67, label %128, !llvm.loop !26
 
 139:                                              ; preds = %8
   %140 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -1530,7 +1530,7 @@ define dso_local range(i32 -22, 1) i32 @pcmcia_parse_tuple(ptr noundef readonly 
 
 154:                                              ; preds = %179
   %155 = icmp eq i64 %165, 4
-  br i1 %155, label %.loopexit82, label %156, !llvm.loop !29
+  br i1 %155, label %.loopexit82, label %156, !llvm.loop !27
 
 156:                                              ; preds = %154, %150
   %157 = phi i64 [ 0, %150 ], [ %165, %154 ]
@@ -1566,7 +1566,7 @@ define dso_local range(i32 -22, 1) i32 @pcmcia_parse_tuple(ptr noundef readonly 
 176:                                              ; preds = %166
   %177 = getelementptr i8, ptr %167, i64 1
   %178 = icmp eq ptr %177, %143
-  br i1 %178, label %.thread67, label %166, !llvm.loop !30
+  br i1 %178, label %.thread67, label %166, !llvm.loop !28
 
 179:                                              ; preds = %166
   %180 = getelementptr i8, ptr %167, i64 1
@@ -1602,7 +1602,7 @@ define dso_local range(i32 -22, 1) i32 @pcmcia_parse_tuple(ptr noundef readonly 
 
 197:                                              ; preds = %221
   %198 = icmp eq i64 %207, 4
-  br i1 %198, label %.loopexit84, label %.preheader, !llvm.loop !31
+  br i1 %198, label %.loopexit84, label %.preheader, !llvm.loop !27
 
 .preheader:                                       ; preds = %189, %197
   %199 = phi i64 [ %207, %197 ], [ 0, %189 ]
@@ -1638,7 +1638,7 @@ define dso_local range(i32 -22, 1) i32 @pcmcia_parse_tuple(ptr noundef readonly 
 218:                                              ; preds = %208
   %219 = getelementptr i8, ptr %209, i64 1
   %220 = icmp eq ptr %219, %193
-  br i1 %220, label %.thread67, label %208, !llvm.loop !32
+  br i1 %220, label %.thread67, label %208, !llvm.loop !28
 
 221:                                              ; preds = %208
   %222 = getelementptr i8, ptr %209, i64 1
@@ -1700,7 +1700,7 @@ define dso_local range(i32 -22, 1) i32 @pcmcia_parse_tuple(ptr noundef readonly 
   %256 = icmp samesign ugt i64 %247, 2
   %257 = icmp ugt ptr %254, %242
   %258 = or i1 %256, %257
-  br i1 %258, label %259, label %246, !llvm.loop !33
+  br i1 %258, label %259, label %246, !llvm.loop !29
 
 259:                                              ; preds = %246
   %260 = trunc nuw nsw i64 %255 to i8
@@ -1770,7 +1770,7 @@ define dso_local range(i32 -22, 1) i32 @pcmcia_parse_tuple(ptr noundef readonly 
   %299 = load i8, ptr %3, align 8
   %300 = zext i8 %299 to i64
   %301 = icmp samesign ult i64 %298, %300
-  br i1 %301, label %292, label %.thread67, !llvm.loop !34
+  br i1 %301, label %292, label %.thread67, !llvm.loop !30
 
 302:                                              ; preds = %8
   %303 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -1810,7 +1810,7 @@ define dso_local range(i32 -22, 1) i32 @pcmcia_parse_tuple(ptr noundef readonly 
   store i32 %330, ptr %318, align 4
   %331 = add nuw nsw i64 %322, 1
   %332 = icmp eq i64 %331, %320
-  br i1 %332, label %333, label %321, !llvm.loop !35
+  br i1 %332, label %333, label %321, !llvm.loop !31
 
 333:                                              ; preds = %321
   %334 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -1839,7 +1839,7 @@ define dso_local range(i32 -22, 1) i32 @pcmcia_parse_tuple(ptr noundef readonly 
   store i32 %353, ptr %351, align 4
   %354 = add nuw nsw i64 %341, 1
   %355 = icmp eq i64 %354, %339
-  br i1 %355, label %356, label %340, !llvm.loop !36
+  br i1 %355, label %356, label %340, !llvm.loop !32
 
 356:                                              ; preds = %340
   %357 = load i8, ptr %3, align 8
@@ -2218,7 +2218,7 @@ define dso_local range(i32 -22, 1) i32 @pcmcia_parse_tuple(ptr noundef readonly 
   %601 = add nuw nsw i32 %592, 1
   %602 = getelementptr i8, ptr %593, i64 1
   %603 = icmp eq i32 %601, %575
-  br i1 %603, label %.loopexit97, label %.preheader95, !llvm.loop !37
+  br i1 %603, label %.loopexit97, label %.preheader95, !llvm.loop !33
 
 .preheader92:                                     ; preds = %.loopexit97, %608
   %604 = phi i32 [ %613, %608 ], [ 1, %.loopexit97 ]
@@ -2237,13 +2237,13 @@ define dso_local range(i32 -22, 1) i32 @pcmcia_parse_tuple(ptr noundef readonly 
   %614 = add nuw nsw i32 %605, 1
   %615 = getelementptr i8, ptr %606, i64 1
   %616 = icmp eq i32 %614, %579
-  br i1 %616, label %.loopexit94, label %.preheader92, !llvm.loop !38
+  br i1 %616, label %.loopexit94, label %.preheader92, !llvm.loop !34
 
 .loopexit94:                                      ; preds = %608, %.loopexit97
   %617 = phi ptr [ %590, %.loopexit97 ], [ %615, %608 ]
   %618 = add nuw nsw i64 %586, 1
   %619 = icmp eq i64 %618, %584
-  br i1 %619, label %.loopexit98, label %585, !llvm.loop !39
+  br i1 %619, label %.loopexit98, label %585, !llvm.loop !35
 
 .loopexit98:                                      ; preds = %.loopexit94, %554
   %620 = phi ptr [ %561, %554 ], [ %617, %.loopexit94 ]
@@ -2425,7 +2425,7 @@ define dso_local range(i32 -22, 1) i32 @pcmcia_parse_tuple(ptr noundef readonly 
   %734 = add nuw nsw i32 %727, 1
   %735 = getelementptr i8, ptr %728, i64 1
   %736 = icmp eq i32 %734, %691
-  br i1 %736, label %715, label %.preheader90, !llvm.loop !40
+  br i1 %736, label %715, label %.preheader90, !llvm.loop !36
 
 .preheader89:                                     ; preds = %722, %.preheader89
   %737 = phi i32 [ %744, %.preheader89 ], [ 0, %722 ]
@@ -2439,7 +2439,7 @@ define dso_local range(i32 -22, 1) i32 @pcmcia_parse_tuple(ptr noundef readonly 
   %745 = add nuw nsw i32 %738, 1
   %746 = getelementptr i8, ptr %739, i64 1
   %747 = icmp eq i32 %745, %693
-  br i1 %747, label %748, label %.preheader89, !llvm.loop !41
+  br i1 %747, label %748, label %.preheader89, !llvm.loop !37
 
 748:                                              ; preds = %.preheader89
   %749 = getelementptr i8, ptr %720, i64 %707
@@ -2464,7 +2464,7 @@ define dso_local range(i32 -22, 1) i32 @pcmcia_parse_tuple(ptr noundef readonly 
   %763 = add nuw nsw i32 %756, 1
   %764 = getelementptr i8, ptr %757, i64 1
   %765 = icmp eq i32 %763, %693
-  br i1 %765, label %766, label %.preheader88, !llvm.loop !42
+  br i1 %765, label %766, label %.preheader88, !llvm.loop !38
 
 766:                                              ; preds = %.preheader88
   %767 = getelementptr i8, ptr %749, i64 %707
@@ -2483,7 +2483,7 @@ define dso_local range(i32 -22, 1) i32 @pcmcia_parse_tuple(ptr noundef readonly 
   store i32 %771, ptr %774, align 4
   %775 = add nuw nsw i64 %709, 1
   %776 = icmp eq i64 %775, %705
-  br i1 %776, label %777, label %708, !llvm.loop !43
+  br i1 %776, label %777, label %708, !llvm.loop !39
 
 777:                                              ; preds = %.thread72
   %778 = icmp eq ptr %770, null
@@ -2519,7 +2519,7 @@ default.unreachable225:                           ; preds = %649
 
 795:                                              ; preds = %790
   %796 = icmp eq ptr %794, %365
-  br i1 %796, label %.thread67, label %790, !llvm.loop !44
+  br i1 %796, label %.thread67, label %790, !llvm.loop !40
 
 .loopexit86:                                      ; preds = %790, %779
   %797 = phi ptr [ %780, %779 ], [ %794, %790 ]
@@ -2590,7 +2590,7 @@ default.unreachable225:                           ; preds = %649
   %849 = icmp samesign ugt i64 %813, 2
   %850 = icmp ugt ptr %847, %808
   %851 = or i1 %849, %850
-  br i1 %851, label %852, label %812, !llvm.loop !45
+  br i1 %851, label %852, label %812, !llvm.loop !41
 
 852:                                              ; preds = %812
   %853 = trunc nuw nsw i64 %848 to i8
@@ -2639,7 +2639,7 @@ default.unreachable225:                           ; preds = %649
 
 882:                                              ; preds = %907
   %883 = icmp eq i64 %893, 2
-  br i1 %883, label %.thread75, label %884, !llvm.loop !46
+  br i1 %883, label %.thread75, label %884, !llvm.loop !27
 
 884:                                              ; preds = %882, %858
   %885 = phi i64 [ 1, %882 ], [ 0, %858 ]
@@ -2675,7 +2675,7 @@ default.unreachable225:                           ; preds = %649
 904:                                              ; preds = %894
   %905 = getelementptr i8, ptr %895, i64 1
   %906 = icmp eq ptr %905, %862
-  br i1 %906, label %.thread67, label %894, !llvm.loop !47
+  br i1 %906, label %.thread67, label %894, !llvm.loop !28
 
 907:                                              ; preds = %894
   %908 = getelementptr i8, ptr %895, i64 1
@@ -2711,7 +2711,7 @@ default.unreachable225:                           ; preds = %649
 923:                                              ; preds = %932
   %924 = add nuw nsw i64 %927, 1
   %925 = icmp eq i64 %924, 30
-  br i1 %925, label %.thread67, label %926, !llvm.loop !48
+  br i1 %925, label %.thread67, label %926, !llvm.loop !42
 
 926:                                              ; preds = %923, %920
   %927 = phi i64 [ 0, %920 ], [ %924, %923 ]
@@ -2777,9 +2777,9 @@ define dso_local range(i32 -22, 1) i32 @pccard_validate_cis(ptr noundef %0, ptr 
   br i1 %12, label %13, label %14
 
 13:                                               ; preds = %8, %4
-  tail call void asm sideeffect "362: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 362b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 362) #13, !srcloc !49
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.4, i32 1387, i32 2305, i64 12) #13, !srcloc !50
-  tail call void asm sideeffect "363: nop\0A\09.pushsection .discard.instr_end\0A\09.long 363b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 363) #13, !srcloc !51
+  tail call void asm sideeffect "362: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 362b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 362) #13, !srcloc !43
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.4, i32 1387, i32 2305, i64 12) #13, !srcloc !44
+  tail call void asm sideeffect "363: nop\0A\09.pushsection .discard.instr_end\0A\09.long 363b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 363) #13, !srcloc !45
   br label %112
 
 14:                                               ; preds = %8
@@ -2802,7 +2802,7 @@ define dso_local range(i32 -22, 1) i32 @pccard_validate_cis(ptr noundef %0, ptr 
   store ptr inttoptr (i64 -2401263026318606046 to ptr), ptr %21, align 8
   tail call void @kfree(ptr noundef %19) #13
   %24 = icmp eq ptr %20, %16
-  br i1 %24, label %.loopexit18, label %.preheader17, !llvm.loop !52
+  br i1 %24, label %.loopexit18, label %.preheader17, !llvm.loop !15
 
 .loopexit18:                                      ; preds = %.preheader17, %14
   tail call void @mutex_unlock(ptr noundef nonnull %15) #13
@@ -2846,7 +2846,7 @@ pccard_get_first_tuple.exit:                      ; preds = %36
   store i32 0, ptr %43, align 4
   %44 = getelementptr inbounds nuw i8, ptr %26, i64 16
   store i32 0, ptr %44, align 8
-  %45 = tail call i32 @pccard_get_next_tuple(ptr noundef nonnull %0, i32 noundef 255, ptr noundef nonnull %26), !range !19
+  %45 = tail call i32 @pccard_get_next_tuple(ptr noundef nonnull %0, i32 noundef 255, ptr noundef nonnull %26), !range !18
   %46 = icmp eq i32 %45, 0
   br i1 %46, label %47, label %.thread15
 
@@ -2893,7 +2893,7 @@ pccard_get_first_tuple.exit:                      ; preds = %36
 .preheader16:                                     ; preds = %.preheader16.preheader, %73
   %69 = phi i32 [ %81, %73 ], [ 0, %.preheader16.preheader ]
   %70 = phi i32 [ %82, %73 ], [ 1, %.preheader16.preheader ]
-  %71 = tail call i32 @pccard_get_next_tuple(ptr noundef nonnull %0, i32 noundef 255, ptr noundef nonnull %26), !range !19
+  %71 = tail call i32 @pccard_get_next_tuple(ptr noundef nonnull %0, i32 noundef 255, ptr noundef nonnull %26), !range !18
   %72 = icmp eq i32 %71, 0
   br i1 %72, label %73, label %84
 
@@ -2910,7 +2910,7 @@ pccard_get_first_tuple.exit:                      ; preds = %36
   %81 = add i32 %69, %80
   %82 = add nuw nsw i32 %70, 1
   %83 = icmp eq i32 %82, 200
-  br i1 %83, label %.thread15, label %.preheader16, !llvm.loop !53
+  br i1 %83, label %.thread15, label %.preheader16, !llvm.loop !46
 
 84:                                               ; preds = %.preheader16
   %85 = icmp eq i32 %70, 200
@@ -2954,7 +2954,7 @@ pccard_get_first_tuple.exit:                      ; preds = %36
   store ptr inttoptr (i64 -2401263026318606046 to ptr), ptr %102, align 8
   tail call void @kfree(ptr noundef %100) #13
   %105 = icmp eq ptr %101, %16
-  br i1 %105, label %.loopexit, label %.preheader, !llvm.loop !54
+  br i1 %105, label %.loopexit, label %.preheader, !llvm.loop !15
 
 .loopexit:                                        ; preds = %.preheader, %95
   tail call void @mutex_unlock(ptr noundef nonnull %15) #13
@@ -3055,7 +3055,7 @@ pccard_get_first_tuple.exit:                      ; preds = %40
   %46 = getelementptr inbounds nuw i8, ptr %7, i64 12
   store i32 0, ptr %46, align 4
   %47 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %48 = call i32 @pccard_get_next_tuple(ptr noundef nonnull %15, i32 noundef 255, ptr noundef nonnull %7), !range !19
+  %48 = call i32 @pccard_get_next_tuple(ptr noundef nonnull %15, i32 noundef 255, ptr noundef nonnull %7), !range !18
   %49 = icmp eq i32 %48, 0
   br i1 %49, label %50, label %.critedge
 
@@ -3097,7 +3097,7 @@ pccard_get_first_tuple.exit:                      ; preds = %40
   %75 = add i32 %74, %67
   %76 = call i32 @llvm.umin.i32(i32 %69, i32 255)
   %77 = zext nneg i32 %76 to i64
-  %78 = call fastcc i32 @read_cis_cache(ptr noundef nonnull %15, i32 noundef %73, i32 noundef %75, i64 noundef %77, ptr noundef nonnull %30), !range !21
+  %78 = call fastcc i32 @read_cis_cache(ptr noundef nonnull %15, i32 noundef %73, i32 noundef %75, i64 noundef %77, ptr noundef nonnull %30), !range !20
   %.not = icmp eq i32 %78, 0
   br i1 %.not, label %.critedge8, label %.critedge
 
@@ -3144,7 +3144,7 @@ pccard_get_first_tuple.exit:                      ; preds = %40
   %101 = phi i64 [ %99, %95 ], [ %90, %88 ]
   %102 = add nuw nsw i64 %89, 1
   %103 = icmp eq i64 %89, %87
-  br i1 %103, label %.loopexit, label %88, !llvm.loop !55
+  br i1 %103, label %.loopexit, label %88, !llvm.loop !47
 
 .loopexit:                                        ; preds = %100, %.critedge8
   %104 = phi i64 [ %59, %.critedge8 ], [ %101, %100 ]
@@ -3154,9 +3154,9 @@ pccard_get_first_tuple.exit:                      ; preds = %40
   br i1 %107, label %.critedge, label %108
 
 108:                                              ; preds = %.loopexit
-  %109 = call i32 @pccard_get_next_tuple(ptr noundef nonnull %15, i32 noundef 255, ptr noundef nonnull %7), !range !19
+  %109 = call i32 @pccard_get_next_tuple(ptr noundef nonnull %15, i32 noundef 255, ptr noundef nonnull %7), !range !18
   %110 = icmp eq i32 %109, 0
-  br i1 %110, label %58, label %.critedge, !llvm.loop !56
+  br i1 %110, label %58, label %.critedge, !llvm.loop !48
 
 .critedge:                                        ; preds = %58, %108, %.loopexit, %66, %40, %36, %pccard_get_first_tuple.exit
   %111 = phi i64 [ 0, %pccard_get_first_tuple.exit ], [ 0, %36 ], [ 0, %40 ], [ %59, %58 ], [ %104, %.loopexit ], [ %59, %66 ], [ %104, %108 ]
@@ -3208,7 +3208,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @pccard_store_cis(ptr rea
   br i1 %20, label %25, label %21
 
 21:                                               ; preds = %16
-  %22 = tail call i32 @pcmcia_replace_cis(ptr noundef %12, ptr noundef %3, i64 noundef %5), !range !21
+  %22 = tail call i32 @pcmcia_replace_cis(ptr noundef %12, ptr noundef %3, i64 noundef %5), !range !20
   %23 = icmp eq i32 %22, 0
   br i1 %23, label %24, label %25
 
@@ -3336,7 +3336,7 @@ define internal fastcc ptr @parse_power(ptr noundef readonly captures(address, r
 63:                                               ; preds = %60, %59, %56, %49
   %64 = load i8, ptr %43, align 1
   %65 = icmp sgt i8 %64, -1
-  br i1 %65, label %.loopexit6, label %.preheader, !llvm.loop !57
+  br i1 %65, label %.loopexit6, label %.preheader, !llvm.loop !49
 
 .loopexit6:                                       ; preds = %63, %20
   %66 = phi ptr [ %13, %20 ], [ %43, %63 ]
@@ -3347,7 +3347,7 @@ define internal fastcc ptr @parse_power(ptr noundef readonly captures(address, r
   %69 = phi ptr [ %67, %.loopexit6 ], [ %13, %11 ]
   %70 = add nuw nsw i64 %12, 1
   %71 = icmp eq i64 %70, 7
-  br i1 %71, label %.loopexit, label %11, !llvm.loop !58
+  br i1 %71, label %.loopexit, label %11, !llvm.loop !50
 
 .loopexit:                                        ; preds = %68, %18, %55, %.preheader, %3
   %72 = phi ptr [ null, %3 ], [ null, %.preheader ], [ null, %55 ], [ %69, %68 ], [ null, %18 ]
@@ -3396,55 +3396,47 @@ attributes #16 = { nounwind allocsize(0) }
 !4 = !{i32 4, !"SkipRaxSetup", i32 1}
 !5 = !{i64 2154783825}
 !6 = !{i64 2154781371}
-!7 = distinct !{!7, !8, !9, !10}
+!7 = distinct !{!7, !8, !9}
 !8 = !{!"llvm.loop.mustprogress"}
 !9 = !{!"llvm.loop.unroll.disable"}
-!10 = !{!"llvm.loop.estimated_trip_count"}
-!11 = distinct !{!11, !8, !9, !10}
-!12 = distinct !{!12, !8, !9, !10}
-!13 = distinct !{!13, !8, !9, !10}
-!14 = distinct !{!14, !8, !9, !10}
-!15 = distinct !{!15, !8, !9, !10}
-!16 = distinct !{!16, !8, !9, !10}
-!17 = !{i32 -1, i32 1}
-!18 = distinct !{!18, !8, !9, !10}
-!19 = !{i32 -28, i32 1}
-!20 = !{!"auto-init"}
-!21 = !{i32 -22, i32 1}
-!22 = distinct !{!22, !8, !9, !10}
-!23 = distinct !{!23, !8, !9, !10}
-!24 = distinct !{!24, !8, !9, !10}
-!25 = distinct !{!25, !8, !9, !10}
-!26 = distinct !{!26, !8, !9, !10}
-!27 = distinct !{!27, !8, !9, !10}
-!28 = distinct !{!28, !8, !9, !10}
-!29 = distinct !{!29, !8, !9, !10}
-!30 = distinct !{!30, !9, !10}
-!31 = distinct !{!31, !8, !9, !10}
-!32 = distinct !{!32, !9, !10}
-!33 = distinct !{!33, !8, !9, !10}
-!34 = distinct !{!34, !8, !9, !10}
-!35 = distinct !{!35, !8, !9, !10}
-!36 = distinct !{!36, !8, !9, !10}
-!37 = distinct !{!37, !8, !9, !10}
-!38 = distinct !{!38, !8, !9, !10}
-!39 = distinct !{!39, !8, !9, !10}
-!40 = distinct !{!40, !8, !9, !10}
-!41 = distinct !{!41, !8, !9, !10}
-!42 = distinct !{!42, !8, !9, !10}
-!43 = distinct !{!43, !8, !9, !10}
-!44 = distinct !{!44, !8, !9, !10}
-!45 = distinct !{!45, !8, !9, !10}
-!46 = distinct !{!46, !8, !9, !10}
-!47 = distinct !{!47, !9, !10}
-!48 = distinct !{!48, !8, !9, !10}
-!49 = !{i64 2155394898, i64 2155394707, i64 2155394759, i64 2155394805, i64 2155394833}
-!50 = !{i64 2155394972, i64 2155395001, i64 2155395047, i64 2155395105, i64 2155395159, i64 2155395213, i64 2155395268, i64 2155395299, i64 2155395607, i64 2155395613, i64 2155395660, i64 2155395683, i64 2155395709}
-!51 = !{i64 2155396166, i64 2155395977, i64 2155396027, i64 2155396073, i64 2155396101}
-!52 = distinct !{!52, !8, !9, !10}
-!53 = distinct !{!53, !8, !9, !10}
-!54 = distinct !{!54, !8, !9, !10}
-!55 = distinct !{!55, !8, !9, !10}
-!56 = distinct !{!56, !8, !9, !10}
-!57 = distinct !{!57, !8, !9, !10}
-!58 = distinct !{!58, !8, !9, !10}
+!10 = distinct !{!10, !8, !9}
+!11 = distinct !{!11, !8, !9}
+!12 = distinct !{!12, !8, !9}
+!13 = distinct !{!13, !8, !9}
+!14 = distinct !{!14, !8, !9}
+!15 = distinct !{!15, !8, !9}
+!16 = !{i32 -1, i32 1}
+!17 = distinct !{!17, !8, !9}
+!18 = !{i32 -28, i32 1}
+!19 = !{!"auto-init"}
+!20 = !{i32 -22, i32 1}
+!21 = distinct !{!21, !8, !9}
+!22 = distinct !{!22, !8, !9}
+!23 = distinct !{!23, !8, !9}
+!24 = distinct !{!24, !8, !9}
+!25 = distinct !{!25, !8, !9}
+!26 = distinct !{!26, !8, !9}
+!27 = distinct !{!27, !8, !9}
+!28 = distinct !{!28, !9}
+!29 = distinct !{!29, !8, !9}
+!30 = distinct !{!30, !8, !9}
+!31 = distinct !{!31, !8, !9}
+!32 = distinct !{!32, !8, !9}
+!33 = distinct !{!33, !8, !9}
+!34 = distinct !{!34, !8, !9}
+!35 = distinct !{!35, !8, !9}
+!36 = distinct !{!36, !8, !9}
+!37 = distinct !{!37, !8, !9}
+!38 = distinct !{!38, !8, !9}
+!39 = distinct !{!39, !8, !9}
+!40 = distinct !{!40, !8, !9}
+!41 = distinct !{!41, !8, !9}
+!42 = distinct !{!42, !8, !9}
+!43 = !{i64 2155394898, i64 2155394707, i64 2155394759, i64 2155394805, i64 2155394833}
+!44 = !{i64 2155394972, i64 2155395001, i64 2155395047, i64 2155395105, i64 2155395159, i64 2155395213, i64 2155395268, i64 2155395299, i64 2155395607, i64 2155395613, i64 2155395660, i64 2155395683, i64 2155395709}
+!45 = !{i64 2155396166, i64 2155395977, i64 2155396027, i64 2155396073, i64 2155396101}
+!46 = distinct !{!46, !8, !9}
+!47 = distinct !{!47, !8, !9}
+!48 = distinct !{!48, !8, !9}
+!49 = distinct !{!49, !8, !9}
+!50 = distinct !{!50, !8, !9}

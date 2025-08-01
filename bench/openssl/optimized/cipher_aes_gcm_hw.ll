@@ -169,7 +169,7 @@ define internal range(i32 0, 2) i32 @vaes_gcm_aadupdate(ptr noundef %0, ptr noun
   store i8 %50, ptr %48, align 1, !tbaa !13
   %51 = add nuw i64 %.04465, 1
   %exitcond.not = icmp eq i64 %51, %.251
-  br i1 %exitcond.not, label %.loopexit.loopexit, label %44, !llvm.loop !17
+  br i1 %exitcond.not, label %.loopexit.loopexit, label %44, !llvm.loop !16
 
 .loopexit.loopexit:                               ; preds = %44
   %52 = trunc nuw nsw i64 %.251 to i32
@@ -250,7 +250,7 @@ define internal range(i32 0, 2) i32 @vaes_gcm_cipherfinal(ptr noundef %0, ptr no
 
 11:                                               ; preds = %2
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i64 16, ptr %12, align 8, !tbaa !18
+  store i64 16, ptr %12, align 8, !tbaa !17
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 312
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) %13, i64 16, i1 false)
   store i32 0, ptr %spec.select, align 4, !tbaa !3
@@ -259,7 +259,7 @@ define internal range(i32 0, 2) i32 @vaes_gcm_cipherfinal(ptr noundef %0, ptr no
 14:                                               ; preds = %2
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %17 = load i64, ptr %16, align 8, !tbaa !18
+  %17 = load i64, ptr %16, align 8, !tbaa !17
   %18 = tail call i32 @CRYPTO_memcmp(ptr noundef nonnull %15, ptr noundef %1, i64 noundef %17) #4
   %.not18 = icmp eq i32 %18, 0
   %19 = zext i1 %.not18 to i32
@@ -305,7 +305,7 @@ define internal noundef i32 @aesni_gcm_initkey(ptr noundef %0, ptr noundef %1, i
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 248
   tail call void @CRYPTO_gcm128_init(ptr noundef nonnull %7, ptr noundef nonnull %4, ptr noundef nonnull @aesni_encrypt) #4
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 696
-  store ptr @aesni_ctr32_encrypt_blocks, ptr %8, align 8, !tbaa !23
+  store ptr @aesni_ctr32_encrypt_blocks, ptr %8, align 8, !tbaa !22
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 84
   %10 = load i8, ptr %9, align 4
   %11 = or i8 %10, 4
@@ -324,7 +324,7 @@ define internal range(i32 0, 2) i32 @generic_aes_gcm_cipher_update(ptr noundef %
   %7 = and i8 %6, 1
   %.not = icmp eq i8 %7, 0
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 696
-  %9 = load ptr, ptr %8, align 8, !tbaa !23
+  %9 = load ptr, ptr %8, align 8, !tbaa !22
   %.not84 = icmp eq ptr %9, null
   br i1 %.not, label %48, label %10
 
@@ -340,13 +340,13 @@ define internal range(i32 0, 2) i32 @generic_aes_gcm_cipher_update(ptr noundef %
 14:                                               ; preds = %11
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 608
-  %17 = load ptr, ptr %16, align 8, !tbaa !24
+  %17 = load ptr, ptr %16, align 8, !tbaa !23
   %18 = icmp eq ptr %17, @gcm_ghash_avx
   br i1 %18, label %19, label %38
 
 19:                                               ; preds = %14
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 624
-  %21 = load i32, ptr %20, align 8, !tbaa !25
+  %21 = load i32, ptr %20, align 8, !tbaa !24
   %22 = sub i32 0, %21
   %23 = and i32 %22, 15
   %24 = zext nneg i32 %23 to i64
@@ -359,7 +359,7 @@ define internal range(i32 0, 2) i32 @generic_aes_gcm_cipher_update(ptr noundef %
   %28 = getelementptr inbounds nuw i8, ptr %3, i64 %24
   %29 = sub nuw i64 %2, %24
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 640
-  %31 = load ptr, ptr %30, align 8, !tbaa !26
+  %31 = load ptr, ptr %30, align 8, !tbaa !25
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %33 = tail call i64 @aesni_gcm_encrypt(ptr noundef %27, ptr noundef %28, i64 noundef %29, ptr noundef %31, ptr noundef nonnull %15, ptr noundef nonnull %32) #4
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 304
@@ -367,7 +367,7 @@ define internal range(i32 0, 2) i32 @generic_aes_gcm_cipher_update(ptr noundef %
   %36 = add i64 %35, %33
   store i64 %36, ptr %34, align 8, !tbaa !13
   %37 = add i64 %33, %24
-  %.pre = load ptr, ptr %8, align 8, !tbaa !23
+  %.pre = load ptr, ptr %8, align 8, !tbaa !22
   br label %38
 
 38:                                               ; preds = %26, %14, %11
@@ -399,13 +399,13 @@ define internal range(i32 0, 2) i32 @generic_aes_gcm_cipher_update(ptr noundef %
 52:                                               ; preds = %49
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 608
-  %55 = load ptr, ptr %54, align 8, !tbaa !24
+  %55 = load ptr, ptr %54, align 8, !tbaa !23
   %56 = icmp eq ptr %55, @gcm_ghash_avx
   br i1 %56, label %57, label %76
 
 57:                                               ; preds = %52
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 624
-  %59 = load i32, ptr %58, align 8, !tbaa !25
+  %59 = load i32, ptr %58, align 8, !tbaa !24
   %60 = sub i32 0, %59
   %61 = and i32 %60, 15
   %62 = zext nneg i32 %61 to i64
@@ -418,7 +418,7 @@ define internal range(i32 0, 2) i32 @generic_aes_gcm_cipher_update(ptr noundef %
   %66 = getelementptr inbounds nuw i8, ptr %3, i64 %62
   %67 = sub nuw i64 %2, %62
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 640
-  %69 = load ptr, ptr %68, align 8, !tbaa !26
+  %69 = load ptr, ptr %68, align 8, !tbaa !25
   %70 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %71 = tail call i64 @aesni_gcm_decrypt(ptr noundef %65, ptr noundef %66, i64 noundef %67, ptr noundef %69, ptr noundef nonnull %53, ptr noundef nonnull %70) #4
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 304
@@ -426,7 +426,7 @@ define internal range(i32 0, 2) i32 @generic_aes_gcm_cipher_update(ptr noundef %
   %74 = add i64 %73, %71
   store i64 %74, ptr %72, align 8, !tbaa !13
   %75 = add i64 %71, %62
-  %.pre102 = load ptr, ptr %8, align 8, !tbaa !23
+  %.pre102 = load ptr, ptr %8, align 8, !tbaa !22
   br label %76
 
 76:                                               ; preds = %64, %52, %49
@@ -490,7 +490,7 @@ define internal noundef i32 @aes_gcm_initkey(ptr noundef %0, ptr noundef %1, i64
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 696
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 84
   %.ossl_bsaes_ctr32_encrypt_blocks = select i1 %.not, ptr null, ptr @ossl_bsaes_ctr32_encrypt_blocks
-  store ptr %.ossl_bsaes_ctr32_encrypt_blocks, ptr %10, align 8, !tbaa !23
+  store ptr %.ossl_bsaes_ctr32_encrypt_blocks, ptr %10, align 8, !tbaa !22
   %12 = load i8, ptr %11, align 4
   %13 = or i8 %12, 4
   store i8 %13, ptr %11, align 4
@@ -525,16 +525,15 @@ attributes #4 = { nounwind }
 !11 = !{!8, !4, i64 380}
 !12 = !{!8, !4, i64 376}
 !13 = !{!5, !5, i64 0}
-!14 = distinct !{!14, !15, !16}
+!14 = distinct !{!14, !15}
 !15 = !{!"llvm.loop.mustprogress"}
-!16 = !{!"llvm.loop.estimated_trip_count"}
-!17 = distinct !{!17, !15, !16}
-!18 = !{!19, !20, i64 24}
-!19 = !{!"prov_gcm_ctx_st", !4, i64 0, !20, i64 8, !20, i64 16, !20, i64 24, !20, i64 32, !20, i64 40, !20, i64 48, !20, i64 56, !20, i64 64, !20, i64 72, !4, i64 80, !4, i64 84, !4, i64 84, !4, i64 84, !4, i64 84, !4, i64 84, !5, i64 85, !5, i64 213, !21, i64 232, !22, i64 240, !8, i64 248, !10, i64 696}
-!20 = !{!"long", !5, i64 0}
-!21 = !{!"p1 _ZTS15ossl_lib_ctx_st", !10, i64 0}
-!22 = !{!"p1 _ZTS14prov_gcm_hw_st", !10, i64 0}
-!23 = !{!19, !10, i64 696}
-!24 = !{!19, !10, i64 608}
-!25 = !{!19, !4, i64 624}
-!26 = !{!19, !10, i64 640}
+!16 = distinct !{!16, !15}
+!17 = !{!18, !19, i64 24}
+!18 = !{!"prov_gcm_ctx_st", !4, i64 0, !19, i64 8, !19, i64 16, !19, i64 24, !19, i64 32, !19, i64 40, !19, i64 48, !19, i64 56, !19, i64 64, !19, i64 72, !4, i64 80, !4, i64 84, !4, i64 84, !4, i64 84, !4, i64 84, !4, i64 84, !5, i64 85, !5, i64 213, !20, i64 232, !21, i64 240, !8, i64 248, !10, i64 696}
+!19 = !{!"long", !5, i64 0}
+!20 = !{!"p1 _ZTS15ossl_lib_ctx_st", !10, i64 0}
+!21 = !{!"p1 _ZTS14prov_gcm_hw_st", !10, i64 0}
+!22 = !{!18, !10, i64 696}
+!23 = !{!18, !10, i64 608}
+!24 = !{!18, !4, i64 624}
+!25 = !{!18, !10, i64 640}

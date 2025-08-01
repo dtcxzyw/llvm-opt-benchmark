@@ -147,7 +147,7 @@ define hidden noundef ptr @_ZN12ImageStrings11starts_withEPKcS1_(ptr noundef rea
   %9 = getelementptr inbounds nuw i8, ptr %.0814, i64 1
   %10 = load i8, ptr %8, align 1
   %.not = icmp eq i8 %10, 0
-  br i1 %.not, label %.critedge, label %.lr.ph, !llvm.loop !9
+  br i1 %.not, label %.critedge, label %.lr.ph, !llvm.loop !8
 
 .critedge:                                        ; preds = %6, %7, %.lr.ph, %2
   %.0 = phi ptr [ %0, %2 ], [ %.0715, %.lr.ph ], [ %8, %7 ], [ null, %6 ]
@@ -188,7 +188,7 @@ define hidden void @_ZN13ImageLocation8set_dataEPh(ptr noundef nonnull writeonly
   %14 = or disjoint i64 %10, %13
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %_ZN13ImageLocation15attribute_valueEPhh.exit, label %.lr.ph.i, !llvm.loop !10
+  br i1 %exitcond.not.i, label %_ZN13ImageLocation15attribute_valueEPhh.exit, label %.lr.ph.i, !llvm.loop !9
 
 _ZN13ImageLocation15attribute_valueEPhh.exit:     ; preds = %.lr.ph.i
   %15 = zext nneg i8 %5 to i64
@@ -255,7 +255,7 @@ define hidden noundef ptr @_ZN15ImageModuleData17package_to_moduleEPKc(ptr nound
   %14 = getelementptr inbounds nuw i8, ptr %7, i64 %indvars.iv
   store i8 %13, ptr %14, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  br label %8, !llvm.loop !11
+  br label %8, !llvm.loop !10
 
 15:                                               ; preds = %8
   %16 = getelementptr inbounds nuw i8, ptr %7, i64 %indvars.iv
@@ -315,7 +315,7 @@ define hidden noundef ptr @_ZN15ImageModuleData17package_to_moduleEPKc(ptr nound
   %48 = getelementptr inbounds nuw i8, ptr %.03746, i64 8
   %49 = add nuw nsw i32 %.145, 8
   %50 = icmp slt i32 %49, %25
-  br i1 %50, label %31, label %.loopexit, !llvm.loop !12
+  br i1 %50, label %31, label %.loopexit, !llvm.loop !11
 
 .loopexit:                                        ; preds = %47, %22, %38
   %.036 = phi i64 [ %46, %38 ], [ 0, %22 ], [ 0, %47 ]
@@ -480,7 +480,7 @@ _ZN12ImageStrings4findEP6EndianPKcPij.exit:       ; preds = %_ZN12ImageStrings9h
   %63 = or disjoint i64 %59, %62
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %_ZN13ImageLocation15attribute_valueEPhh.exit.i, label %.lr.ph.i.i10, !llvm.loop !10
+  br i1 %exitcond.not.i.i, label %_ZN13ImageLocation15attribute_valueEPhh.exit.i, label %.lr.ph.i.i10, !llvm.loop !9
 
 _ZN13ImageLocation15attribute_valueEPhh.exit.i:   ; preds = %.lr.ph.i.i10
   %64 = zext nneg i8 %54 to i64
@@ -645,7 +645,7 @@ define hidden void @_ZN20ImageFileReaderTable6removeEP15ImageFileReader(ptr noun
 6:                                                ; preds = %7
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %7, !llvm.loop !13
+  br i1 %exitcond.not, label %.loopexit, label %7, !llvm.loop !12
 
 7:                                                ; preds = %.lr.ph, %6
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %6 ]
@@ -711,7 +711,7 @@ define hidden noundef zeroext i1 @_ZN20ImageFileReaderTable8containsEP15ImageFil
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   %or.cond = select i1 %9, i1 true, i1 %exitcond.not
-  br i1 %or.cond, label %._crit_edge, label %6, !llvm.loop !14
+  br i1 %or.cond, label %._crit_edge, label %6, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %6, %2
   %.lcssa = phi i1 [ false, %2 ], [ %9, %6 ]
@@ -735,7 +735,7 @@ define hidden noundef ptr @_ZN15ImageFileReader10find_imageEPKc(ptr noundef read
 4:                                                ; preds = %5
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %5, !llvm.loop !15
+  br i1 %exitcond.not, label %.loopexit, label %5, !llvm.loop !14
 
 5:                                                ; preds = %.lr.ph, %4
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %4 ]
@@ -789,7 +789,7 @@ define hidden noundef ptr @_ZN15ImageFileReader4openEPKcb(ptr noundef readonly c
 5:                                                ; preds = %6
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %.loopexit.i, label %6, !llvm.loop !15
+  br i1 %exitcond.not.i, label %.loopexit.i, label %6, !llvm.loop !14
 
 6:                                                ; preds = %5, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %5 ]
@@ -875,7 +875,7 @@ _ZN15ImageFileReader10find_imageEPKc.exit:        ; preds = %.loopexit.i
 39:                                               ; preds = %40
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %40, !llvm.loop !16
+  br i1 %exitcond.not, label %._crit_edge, label %40, !llvm.loop !15
 
 40:                                               ; preds = %.lr.ph, %39
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %39 ]
@@ -1238,7 +1238,7 @@ define hidden void @_ZN15ImageFileReader5closeEPS_(ptr noundef %0) local_unnamed
 9:                                                ; preds = %10
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %.loopexit.i, label %10, !llvm.loop !13
+  br i1 %exitcond.not.i, label %.loopexit.i, label %10, !llvm.loop !12
 
 10:                                               ; preds = %9, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %9 ]
@@ -1325,7 +1325,7 @@ define hidden noundef zeroext i1 @_ZN15ImageFileReader8id_checkEy(i64 noundef %0
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   %or.cond = select i1 %8, i1 true, i1 %exitcond.not.i
-  br i1 %or.cond, label %_ZN20ImageFileReaderTable8containsEP15ImageFileReader.exit, label %5, !llvm.loop !14
+  br i1 %or.cond, label %_ZN20ImageFileReaderTable8containsEP15ImageFileReader.exit, label %5, !llvm.loop !13
 
 _ZN20ImageFileReaderTable8containsEP15ImageFileReader.exit: ; preds = %5, %1
   %.lcssa.i = phi i1 [ false, %1 ], [ %8, %5 ]
@@ -1562,7 +1562,7 @@ define hidden noundef zeroext i1 @_ZNK15ImageFileReader15verify_locationER13Imag
   %28 = getelementptr inbounds nuw i8, ptr %.0814.i, i64 1
   %29 = load i8, ptr %27, align 1
   %.not.i = icmp eq i8 %29, 0
-  br i1 %.not.i, label %_ZN12ImageStrings11starts_withEPKcS1_.exit, label %.lr.ph.i, !llvm.loop !9
+  br i1 %.not.i, label %_ZN12ImageStrings11starts_withEPKcS1_.exit, label %.lr.ph.i, !llvm.loop !8
 
 30:                                               ; preds = %.lr.ph.i
   %31 = getelementptr inbounds nuw i8, ptr %.0715.i, i64 1
@@ -1602,7 +1602,7 @@ define hidden noundef zeroext i1 @_ZNK15ImageFileReader15verify_locationER13Imag
   %44 = getelementptr inbounds nuw i8, ptr %.0715.i4093, i64 1
   %45 = load i8, ptr %44, align 1
   %.not.i45 = icmp eq i8 %45, 0
-  br i1 %.not.i45, label %_ZN12ImageStrings11starts_withEPKcS1_.exit, label %.lr.ph.i39thread-pre-split, !llvm.loop !9
+  br i1 %.not.i45, label %_ZN12ImageStrings11starts_withEPKcS1_.exit, label %.lr.ph.i39thread-pre-split, !llvm.loop !8
 
 46:                                               ; preds = %.lr.ph.i39thread-pre-split
   %47 = getelementptr inbounds nuw i8, ptr %.0715.i4093, i64 2
@@ -1639,7 +1639,7 @@ define hidden noundef zeroext i1 @_ZNK15ImageFileReader15verify_locationER13Imag
   %59 = getelementptr inbounds nuw i8, ptr %.0814.i50, i64 1
   %60 = load i8, ptr %58, align 1
   %.not.i54 = icmp eq i8 %60, 0
-  br i1 %.not.i54, label %.loopexit, label %.lr.ph.i48, !llvm.loop !9
+  br i1 %.not.i54, label %.loopexit, label %.lr.ph.i48, !llvm.loop !8
 
 .loopexit:                                        ; preds = %.lr.ph.i48, %57, %48
   %61 = phi i8 [ 0, %48 ], [ %54, %.lr.ph.i48 ], [ 0, %57 ]
@@ -1679,7 +1679,7 @@ define hidden noundef zeroext i1 @_ZNK15ImageFileReader15verify_locationER13Imag
   %76 = getelementptr inbounds nuw i8, ptr %.0814.i59, i64 1
   %77 = load i8, ptr %75, align 1
   %.not.i63 = icmp eq i8 %77, 0
-  br i1 %.not.i63, label %_ZN12ImageStrings11starts_withEPKcS1_.exit64.thread, label %.lr.ph.i57, !llvm.loop !9
+  br i1 %.not.i63, label %_ZN12ImageStrings11starts_withEPKcS1_.exit64.thread, label %.lr.ph.i57, !llvm.loop !8
 
 _ZN12ImageStrings11starts_withEPKcS1_.exit64.thread: ; preds = %74, %.lr.ph.i57, %68, %.loopexit
   %78 = phi i8 [ %61, %.loopexit ], [ 0, %68 ], [ 1, %.lr.ph.i57 ], [ 0, %74 ]
@@ -1822,7 +1822,7 @@ _ZN12ImageStrings4findEP6EndianPKcPij.exit:       ; preds = %_ZN12ImageStrings9h
   %64 = or disjoint i64 %60, %63
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, %wide.trip.count.i.i.i
-  br i1 %exitcond.not.i.i.i, label %_ZN13ImageLocation15attribute_valueEPhh.exit.i.i, label %.lr.ph.i.i.i10, !llvm.loop !10
+  br i1 %exitcond.not.i.i.i, label %_ZN13ImageLocation15attribute_valueEPhh.exit.i.i, label %.lr.ph.i.i.i10, !llvm.loop !9
 
 _ZN13ImageLocation15attribute_valueEPhh.exit.i.i: ; preds = %.lr.ph.i.i.i10
   %65 = zext nneg i8 %55 to i64
@@ -1891,7 +1891,7 @@ define hidden void @_ZNK15ImageFileReader12get_resourceEjPh(ptr noundef nonnull 
   %20 = or disjoint i64 %16, %19
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, %wide.trip.count.i.i.i
-  br i1 %exitcond.not.i.i.i, label %_ZN13ImageLocation15attribute_valueEPhh.exit.i.i, label %.lr.ph.i.i.i, !llvm.loop !10
+  br i1 %exitcond.not.i.i.i, label %_ZN13ImageLocation15attribute_valueEPhh.exit.i.i, label %.lr.ph.i.i.i, !llvm.loop !9
 
 _ZN13ImageLocation15attribute_valueEPhh.exit.i.i: ; preds = %.lr.ph.i.i.i
   %21 = zext nneg i8 %11 to i64
@@ -1972,14 +1972,13 @@ attributes #28 = { noreturn nounwind }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7, !8}
-!11 = distinct !{!11, !7, !8}
-!12 = distinct !{!12, !7, !8}
-!13 = distinct !{!13, !7, !8}
-!14 = distinct !{!14, !7, !8}
-!15 = distinct !{!15, !7, !8}
-!16 = distinct !{!16, !7, !8}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7}
+!12 = distinct !{!12, !7}
+!13 = distinct !{!13, !7}
+!14 = distinct !{!14, !7}
+!15 = distinct !{!15, !7}

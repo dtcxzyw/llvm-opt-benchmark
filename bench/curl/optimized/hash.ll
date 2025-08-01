@@ -85,7 +85,7 @@ define hidden noundef ptr @Curl_hash_add2(ptr noundef %0, ptr noundef %1, i64 no
   %29 = load ptr, ptr %26, align 8, !tbaa !11
   %30 = getelementptr inbounds nuw i8, ptr %28, i64 56
   %31 = getelementptr inbounds nuw i8, ptr %28, i64 48
-  %32 = load i64, ptr %31, align 8, !tbaa !19
+  %32 = load i64, ptr %31, align 8, !tbaa !18
   %33 = tail call i64 %29(ptr noundef nonnull %30, i64 noundef %32, ptr noundef %1, i64 noundef %2) #9
   %.not43 = icmp eq i64 %33, 0
   br i1 %.not43, label %38, label %34
@@ -101,7 +101,7 @@ define hidden noundef ptr @Curl_hash_add2(ptr noundef %0, ptr noundef %1, i64 no
 38:                                               ; preds = %27
   %39 = tail call ptr @Curl_node_next(ptr noundef nonnull %.03949) #9
   %.not42 = icmp eq ptr %39, null
-  br i1 %.not42, label %.loopexit, label %27, !llvm.loop !23
+  br i1 %.not42, label %.loopexit, label %27, !llvm.loop !22
 
 .loopexit:                                        ; preds = %38, %.loopexit45, %34
   %40 = load ptr, ptr @Curl_cmalloc, align 8, !tbaa !15
@@ -114,11 +114,11 @@ define hidden noundef ptr @Curl_hash_add2(ptr noundef %0, ptr noundef %1, i64 no
   %44 = getelementptr inbounds nuw i8, ptr %42, i64 56
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %44, ptr readonly align 1 %1, i64 %2, i1 false)
   %45 = getelementptr inbounds nuw i8, ptr %42, i64 48
-  store i64 %2, ptr %45, align 8, !tbaa !19
+  store i64 %2, ptr %45, align 8, !tbaa !18
   %46 = getelementptr inbounds nuw i8, ptr %42, i64 32
-  store ptr %3, ptr %46, align 8, !tbaa !24
+  store ptr %3, ptr %46, align 8, !tbaa !23
   %47 = getelementptr inbounds nuw i8, ptr %42, i64 40
-  store ptr %4, ptr %47, align 8, !tbaa !25
+  store ptr %4, ptr %47, align 8, !tbaa !24
   tail call void @Curl_llist_append(ptr noundef %24, ptr noundef nonnull %42, ptr noundef nonnull %42) #9
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %49 = load i64, ptr %48, align 8, !tbaa !13
@@ -136,20 +136,20 @@ declare void @Curl_llist_init(ptr noundef, ptr noundef) local_unnamed_addr #2
 ; Function Attrs: nounwind uwtable
 define internal void @hash_element_dtor(ptr noundef readonly captures(none) %0, ptr noundef %1) #1 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %4 = load ptr, ptr %3, align 8, !tbaa !24
+  %4 = load ptr, ptr %3, align 8, !tbaa !23
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %16, label %5
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %7 = load ptr, ptr %6, align 8, !tbaa !25
+  %7 = load ptr, ptr %6, align 8, !tbaa !24
   %.not14 = icmp eq ptr %7, null
   br i1 %.not14, label %12, label %8
 
 8:                                                ; preds = %5
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %11 = load i64, ptr %10, align 8, !tbaa !19
+  %11 = load i64, ptr %10, align 8, !tbaa !18
   tail call void %7(ptr noundef nonnull %9, i64 noundef %11, ptr noundef nonnull %4) #9
   br label %15
 
@@ -160,12 +160,12 @@ define internal void @hash_element_dtor(ptr noundef readonly captures(none) %0, 
   br label %15
 
 15:                                               ; preds = %12, %8
-  store ptr null, ptr %3, align 8, !tbaa !24
+  store ptr null, ptr %3, align 8, !tbaa !23
   br label %16
 
 16:                                               ; preds = %15, %2
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  store i64 0, ptr %17, align 8, !tbaa !19
+  store i64 0, ptr %17, align 8, !tbaa !18
   %18 = load ptr, ptr @Curl_cfree, align 8, !tbaa !15
   tail call void %18(ptr noundef nonnull %1) #9
   ret void
@@ -214,7 +214,7 @@ define hidden range(i32 0, 2) i32 @Curl_hash_delete(ptr noundef %0, ptr noundef 
   %16 = load ptr, ptr %13, align 8, !tbaa !11
   %17 = getelementptr inbounds nuw i8, ptr %15, i64 56
   %18 = getelementptr inbounds nuw i8, ptr %15, i64 48
-  %19 = load i64, ptr %18, align 8, !tbaa !19
+  %19 = load i64, ptr %18, align 8, !tbaa !18
   %20 = tail call i64 %16(ptr noundef nonnull %17, i64 noundef %19, ptr noundef %1, i64 noundef %2) #9
   %.not25 = icmp eq i64 %20, 0
   br i1 %.not25, label %.critedge, label %22
@@ -222,7 +222,7 @@ define hidden range(i32 0, 2) i32 @Curl_hash_delete(ptr noundef %0, ptr noundef 
 .critedge:                                        ; preds = %14
   %21 = tail call ptr @Curl_node_next(ptr noundef nonnull %.02229) #9
   %.not24.not = icmp eq ptr %21, null
-  br i1 %.not24.not, label %.thread, label %14, !llvm.loop !26
+  br i1 %.not24.not, label %.thread, label %14, !llvm.loop !25
 
 22:                                               ; preds = %14
   tail call void @Curl_node_uremove(ptr noundef nonnull %.02229, ptr noundef nonnull %0) #9
@@ -264,7 +264,7 @@ define hidden ptr @Curl_hash_pick(ptr noundef readonly captures(none) %0, ptr no
   %16 = load ptr, ptr %13, align 8, !tbaa !11
   %17 = getelementptr inbounds nuw i8, ptr %15, i64 56
   %18 = getelementptr inbounds nuw i8, ptr %15, i64 48
-  %19 = load i64, ptr %18, align 8, !tbaa !19
+  %19 = load i64, ptr %18, align 8, !tbaa !18
   %20 = tail call i64 %16(ptr noundef nonnull %17, i64 noundef %19, ptr noundef %1, i64 noundef %2) #9
   %.not23 = icmp eq i64 %20, 0
   br i1 %.not23, label %21, label %23
@@ -272,11 +272,11 @@ define hidden ptr @Curl_hash_pick(ptr noundef readonly captures(none) %0, ptr no
 21:                                               ; preds = %14
   %22 = tail call ptr @Curl_node_next(ptr noundef nonnull %.02030) #9
   %.not22.not = icmp eq ptr %22, null
-  br i1 %.not22.not, label %.thread26, label %14, !llvm.loop !27
+  br i1 %.not22.not, label %.thread26, label %14, !llvm.loop !26
 
 23:                                               ; preds = %14
   %24 = getelementptr inbounds nuw i8, ptr %15, i64 32
-  %25 = load ptr, ptr %24, align 8, !tbaa !24
+  %25 = load ptr, ptr %24, align 8, !tbaa !23
   br label %.thread26
 
 .thread26:                                        ; preds = %21, %5, %3, %23
@@ -304,7 +304,7 @@ define hidden void @Curl_hash_destroy(ptr noundef %0) local_unnamed_addr #1 {
   %7 = add nuw i64 %.010, 1
   %8 = load i64, ptr %3, align 8, !tbaa !14
   %9 = icmp ult i64 %7, %8
-  br i1 %9, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !28
+  br i1 %9, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !27
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
   %.pre = load ptr, ptr %0, align 8, !tbaa !3
@@ -357,7 +357,7 @@ define hidden void @Curl_hash_clean(ptr noundef %0) local_unnamed_addr #1 {
   %10 = add nuw i64 %.027.us.i, 1
   %11 = load i64, ptr %4, align 8, !tbaa !14
   %12 = icmp ult i64 %10, %11
-  br i1 %12, label %.lr.ph28.split.us.i, label %Curl_hash_clean_with_criterium.exit, !llvm.loop !29
+  br i1 %12, label %.lr.ph28.split.us.i, label %Curl_hash_clean_with_criterium.exit, !llvm.loop !28
 
 .lr.ph.us.i:                                      ; preds = %.lr.ph28.split.us.i, %.lr.ph.us.i
   %.01826.us.us.i = phi ptr [ %14, %.lr.ph.us.i ], [ %9, %.lr.ph28.split.us.i ]
@@ -368,7 +368,7 @@ define hidden void @Curl_hash_clean(ptr noundef %0) local_unnamed_addr #1 {
   %16 = add i64 %15, -1
   store i64 %16, ptr %6, align 8, !tbaa !13
   %.not22.us.us.i = icmp eq ptr %14, null
-  br i1 %.not22.us.us.i, label %._crit_edge.split.us.us.i, label %.lr.ph.us.i, !llvm.loop !31
+  br i1 %.not22.us.us.i, label %._crit_edge.split.us.us.i, label %.lr.ph.us.i, !llvm.loop !30
 
 Curl_hash_clean_with_criterium.exit:              ; preds = %._crit_edge.split.us.us.i, %1, %2, %.preheader.i
   ret void
@@ -407,7 +407,7 @@ define hidden void @Curl_hash_clean_with_criterium(ptr noundef %0, ptr noundef %
   %12 = add nuw i64 %.027.us, 1
   %13 = load i64, ptr %6, align 8, !tbaa !14
   %14 = icmp ult i64 %12, %13
-  br i1 %14, label %.lr.ph28.split.us, label %.loopexit, !llvm.loop !29
+  br i1 %14, label %.lr.ph28.split.us, label %.loopexit, !llvm.loop !28
 
 .lr.ph.us:                                        ; preds = %.lr.ph28.split.us, %.lr.ph.us
   %.01826.us.us = phi ptr [ %16, %.lr.ph.us ], [ %11, %.lr.ph28.split.us ]
@@ -418,7 +418,7 @@ define hidden void @Curl_hash_clean_with_criterium(ptr noundef %0, ptr noundef %
   %18 = add i64 %17, -1
   store i64 %18, ptr %8, align 8, !tbaa !13
   %.not22.us.us = icmp eq ptr %16, null
-  br i1 %.not22.us.us, label %._crit_edge.split.us.us, label %.lr.ph.us, !llvm.loop !31
+  br i1 %.not22.us.us, label %._crit_edge.split.us.us, label %.lr.ph.us, !llvm.loop !30
 
 .lr.ph28.split:                                   ; preds = %.lr.ph28, %._crit_edge.split
   %.027 = phi i64 [ %31, %._crit_edge.split ], [ 0, %.lr.ph28 ]
@@ -433,7 +433,7 @@ define hidden void @Curl_hash_clean_with_criterium(ptr noundef %0, ptr noundef %
   %22 = tail call ptr @Curl_node_elem(ptr noundef nonnull %.01826) #9
   %23 = tail call ptr @Curl_node_next(ptr noundef nonnull %.01826) #9
   %24 = getelementptr inbounds nuw i8, ptr %22, i64 32
-  %25 = load ptr, ptr %24, align 8, !tbaa !24
+  %25 = load ptr, ptr %24, align 8, !tbaa !23
   %26 = tail call i32 %2(ptr noundef %1, ptr noundef %25) #9
   %.not24 = icmp eq i32 %26, 0
   br i1 %.not24, label %30, label %27
@@ -447,13 +447,13 @@ define hidden void @Curl_hash_clean_with_criterium(ptr noundef %0, ptr noundef %
 
 30:                                               ; preds = %27, %.lr.ph
   %.not22 = icmp eq ptr %23, null
-  br i1 %.not22, label %._crit_edge.split, label %.lr.ph, !llvm.loop !32
+  br i1 %.not22, label %._crit_edge.split, label %.lr.ph, !llvm.loop !31
 
 ._crit_edge.split:                                ; preds = %30, %.lr.ph28.split
   %31 = add nuw i64 %.027, 1
   %32 = load i64, ptr %6, align 8, !tbaa !14
   %33 = icmp ult i64 %31, %32
-  br i1 %33, label %.lr.ph28.split, label %.loopexit, !llvm.loop !33
+  br i1 %33, label %.lr.ph28.split, label %.loopexit, !llvm.loop !32
 
 .loopexit:                                        ; preds = %._crit_edge.split, %._crit_edge.split.us.us, %.preheader, %3, %4
   ret void
@@ -476,12 +476,12 @@ define hidden range(i64 0, -1) i64 @Curl_hash_str(ptr noundef readonly captures(
   %.013 = phi ptr [ %5, %.lr.ph ], [ %0, %3 ]
   %.01112 = phi i64 [ %9, %.lr.ph ], [ 5381, %3 ]
   %5 = getelementptr inbounds nuw i8, ptr %.013, i64 1
-  %6 = load i8, ptr %.013, align 1, !tbaa !34
+  %6 = load i8, ptr %.013, align 1, !tbaa !33
   %7 = sext i8 %6 to i64
   %8 = mul i64 %.01112, 33
   %9 = xor i64 %8, %7
   %10 = icmp ult ptr %5, %4
-  br i1 %10, label %.lr.ph, label %._crit_edge, !llvm.loop !35
+  br i1 %10, label %.lr.ph, label %._crit_edge, !llvm.loop !34
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   %.011.lcssa = phi i64 [ 5381, %3 ], [ %9, %.lr.ph ]
@@ -509,7 +509,7 @@ define hidden range(i64 0, 2) i64 @Curl_str_key_compare(ptr noundef readonly cap
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define hidden void @Curl_hash_start_iterate(ptr noundef %0, ptr noundef writeonly captures(none) initializes((0, 24)) %1) local_unnamed_addr #0 {
-  store ptr %0, ptr %1, align 8, !tbaa !36
+  store ptr %0, ptr %1, align 8, !tbaa !35
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
   ret void
@@ -517,26 +517,26 @@ define hidden void @Curl_hash_start_iterate(ptr noundef %0, ptr noundef writeonl
 
 ; Function Attrs: nounwind uwtable
 define hidden ptr @Curl_hash_next_element(ptr noundef captures(none) %0) local_unnamed_addr #1 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !36
+  %2 = load ptr, ptr %0, align 8, !tbaa !35
   %3 = load ptr, ptr %2, align 8, !tbaa !3
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %thread-pre-split.thread, label %4
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %6 = load ptr, ptr %5, align 8, !tbaa !39
+  %6 = load ptr, ptr %5, align 8, !tbaa !38
   %.not23 = icmp eq ptr %6, null
   br i1 %.not23, label %.thread, label %7
 
 7:                                                ; preds = %4
   %8 = tail call ptr @Curl_node_next(ptr noundef nonnull %6) #9
-  store ptr %8, ptr %5, align 8, !tbaa !39
+  store ptr %8, ptr %5, align 8, !tbaa !38
   %.not24 = icmp eq ptr %8, null
   br i1 %.not24, label %.thread, label %.thread28
 
 .thread:                                          ; preds = %4, %7
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %10 = load i64, ptr %9, align 8, !tbaa !40
+  %10 = load i64, ptr %9, align 8, !tbaa !39
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %12 = load i64, ptr %11, align 8, !tbaa !14
   %13 = icmp ult i64 %10, %12
@@ -554,19 +554,19 @@ define hidden ptr @Curl_hash_next_element(ptr noundef captures(none) %0) local_u
   %18 = load ptr, ptr %2, align 8, !tbaa !3
   %19 = getelementptr inbounds nuw %struct.Curl_llist, ptr %18, i64 %.02031
   %20 = tail call ptr @Curl_llist_head(ptr noundef %19) #9
-  store ptr %20, ptr %5, align 8, !tbaa !39
+  store ptr %20, ptr %5, align 8, !tbaa !38
   %21 = add nuw i64 %.02031, 1
-  store i64 %21, ptr %9, align 8, !tbaa !40
+  store i64 %21, ptr %9, align 8, !tbaa !39
   br label %thread-pre-split
 
 22:                                               ; preds = %.lr.ph
   %23 = add nuw i64 %.02031, 1
   %24 = load i64, ptr %11, align 8, !tbaa !14
   %25 = icmp ult i64 %23, %24
-  br i1 %25, label %.lr.ph, label %thread-pre-split.loopexit, !llvm.loop !41
+  br i1 %25, label %.lr.ph, label %thread-pre-split.loopexit, !llvm.loop !40
 
 thread-pre-split.loopexit:                        ; preds = %22
-  %.pr.pre = load ptr, ptr %5, align 8, !tbaa !39
+  %.pr.pre = load ptr, ptr %5, align 8, !tbaa !38
   br label %thread-pre-split
 
 thread-pre-split:                                 ; preds = %thread-pre-split.loopexit, %17
@@ -603,7 +603,7 @@ define hidden void @Curl_hash_offt_init(ptr noundef writeonly captures(none) ini
 ; Function Attrs: nounwind uwtable
 define hidden noundef ptr @Curl_hash_offt_set(ptr noundef %0, i64 noundef %1, ptr noundef %2) local_unnamed_addr #1 {
   %4 = alloca i64, align 8
-  store i64 %1, ptr %4, align 8, !tbaa !42
+  store i64 %1, ptr %4, align 8, !tbaa !41
   %5 = call noundef ptr @Curl_hash_add2(ptr noundef %0, ptr noundef nonnull %4, i64 noundef 8, ptr noundef %2, ptr noundef null)
   ret ptr %5
 }
@@ -611,7 +611,7 @@ define hidden noundef ptr @Curl_hash_offt_set(ptr noundef %0, i64 noundef %1, pt
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 0, 2) i32 @Curl_hash_offt_remove(ptr noundef %0, i64 noundef %1) local_unnamed_addr #1 {
   %3 = alloca i64, align 8
-  store i64 %1, ptr %3, align 8, !tbaa !42
+  store i64 %1, ptr %3, align 8, !tbaa !41
   %4 = load ptr, ptr %0, align 8, !tbaa !3
   %.not.i = icmp eq ptr %4, null
   br i1 %.not.i, label %Curl_hash_delete.exit, label %5
@@ -637,7 +637,7 @@ define hidden range(i32 0, 2) i32 @Curl_hash_offt_remove(ptr noundef %0, i64 nou
   %16 = load ptr, ptr %13, align 8, !tbaa !11
   %17 = getelementptr inbounds nuw i8, ptr %15, i64 56
   %18 = getelementptr inbounds nuw i8, ptr %15, i64 48
-  %19 = load i64, ptr %18, align 8, !tbaa !19
+  %19 = load i64, ptr %18, align 8, !tbaa !18
   %20 = call i64 %16(ptr noundef nonnull %17, i64 noundef %19, ptr noundef nonnull %3, i64 noundef 8) #9
   %.not25.i = icmp eq i64 %20, 0
   br i1 %.not25.i, label %.critedge.i, label %22
@@ -645,7 +645,7 @@ define hidden range(i32 0, 2) i32 @Curl_hash_offt_remove(ptr noundef %0, i64 nou
 .critedge.i:                                      ; preds = %14
   %21 = call ptr @Curl_node_next(ptr noundef nonnull %.02229.i) #9
   %.not24.not.i = icmp eq ptr %21, null
-  br i1 %.not24.not.i, label %Curl_hash_delete.exit, label %14, !llvm.loop !26
+  br i1 %.not24.not.i, label %Curl_hash_delete.exit, label %14, !llvm.loop !25
 
 22:                                               ; preds = %14
   call void @Curl_node_uremove(ptr noundef nonnull %.02229.i, ptr noundef nonnull %0) #9
@@ -663,7 +663,7 @@ Curl_hash_delete.exit:                            ; preds = %.critedge.i, %2, %5
 ; Function Attrs: nounwind uwtable
 define hidden ptr @Curl_hash_offt_get(ptr noundef readonly captures(none) %0, i64 noundef %1) local_unnamed_addr #1 {
   %3 = alloca i64, align 8
-  store i64 %1, ptr %3, align 8, !tbaa !42
+  store i64 %1, ptr %3, align 8, !tbaa !41
   %4 = load ptr, ptr %0, align 8, !tbaa !3
   %.not.i = icmp eq ptr %4, null
   br i1 %.not.i, label %Curl_hash_pick.exit, label %5
@@ -689,7 +689,7 @@ define hidden ptr @Curl_hash_offt_get(ptr noundef readonly captures(none) %0, i6
   %16 = load ptr, ptr %13, align 8, !tbaa !11
   %17 = getelementptr inbounds nuw i8, ptr %15, i64 56
   %18 = getelementptr inbounds nuw i8, ptr %15, i64 48
-  %19 = load i64, ptr %18, align 8, !tbaa !19
+  %19 = load i64, ptr %18, align 8, !tbaa !18
   %20 = call i64 %16(ptr noundef nonnull %17, i64 noundef %19, ptr noundef nonnull %3, i64 noundef 8) #9
   %.not23.i = icmp eq i64 %20, 0
   br i1 %.not23.i, label %21, label %23
@@ -697,11 +697,11 @@ define hidden ptr @Curl_hash_offt_get(ptr noundef readonly captures(none) %0, i6
 21:                                               ; preds = %14
   %22 = call ptr @Curl_node_next(ptr noundef nonnull %.02030.i) #9
   %.not22.not.i = icmp eq ptr %22, null
-  br i1 %.not22.not.i, label %Curl_hash_pick.exit, label %14, !llvm.loop !27
+  br i1 %.not22.not.i, label %Curl_hash_pick.exit, label %14, !llvm.loop !26
 
 23:                                               ; preds = %14
   %24 = getelementptr inbounds nuw i8, ptr %15, i64 32
-  %25 = load ptr, ptr %24, align 8, !tbaa !24
+  %25 = load ptr, ptr %24, align 8, !tbaa !23
   br label %Curl_hash_pick.exit
 
 Curl_hash_pick.exit:                              ; preds = %21, %2, %5, %23
@@ -747,30 +747,29 @@ attributes #9 = { nounwind }
 !13 = !{!4, !9, i64 40}
 !14 = !{!4, !9, i64 32}
 !15 = !{!6, !6, i64 0}
-!16 = distinct !{!16, !17, !18}
+!16 = distinct !{!16, !17}
 !17 = !{!"llvm.loop.mustprogress"}
-!18 = !{!"llvm.loop.estimated_trip_count"}
-!19 = !{!20, !9, i64 48}
-!20 = !{!"Curl_hash_element", !21, i64 0, !6, i64 32, !6, i64 40, !9, i64 48, !7, i64 56}
-!21 = !{!"Curl_llist_node", !5, i64 0, !6, i64 8, !22, i64 16, !22, i64 24}
-!22 = !{!"p1 _ZTS15Curl_llist_node", !6, i64 0}
-!23 = distinct !{!23, !17, !18}
-!24 = !{!20, !6, i64 32}
-!25 = !{!20, !6, i64 40}
-!26 = distinct !{!26, !17, !18}
-!27 = distinct !{!27, !17, !18}
-!28 = distinct !{!28, !17, !18}
-!29 = distinct !{!29, !17, !18, !30}
-!30 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!31 = distinct !{!31, !17, !18, !30}
-!32 = distinct !{!32, !17, !18}
-!33 = distinct !{!33, !17, !18}
-!34 = !{!7, !7, i64 0}
-!35 = distinct !{!35, !17, !18}
-!36 = !{!37, !38, i64 0}
-!37 = !{!"Curl_hash_iterator", !38, i64 0, !9, i64 8, !22, i64 16}
-!38 = !{!"p1 _ZTS9Curl_hash", !6, i64 0}
-!39 = !{!37, !22, i64 16}
-!40 = !{!37, !9, i64 8}
-!41 = distinct !{!41, !17, !18}
-!42 = !{!9, !9, i64 0}
+!18 = !{!19, !9, i64 48}
+!19 = !{!"Curl_hash_element", !20, i64 0, !6, i64 32, !6, i64 40, !9, i64 48, !7, i64 56}
+!20 = !{!"Curl_llist_node", !5, i64 0, !6, i64 8, !21, i64 16, !21, i64 24}
+!21 = !{!"p1 _ZTS15Curl_llist_node", !6, i64 0}
+!22 = distinct !{!22, !17}
+!23 = !{!19, !6, i64 32}
+!24 = !{!19, !6, i64 40}
+!25 = distinct !{!25, !17}
+!26 = distinct !{!26, !17}
+!27 = distinct !{!27, !17}
+!28 = distinct !{!28, !17, !29}
+!29 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!30 = distinct !{!30, !17, !29}
+!31 = distinct !{!31, !17}
+!32 = distinct !{!32, !17}
+!33 = !{!7, !7, i64 0}
+!34 = distinct !{!34, !17}
+!35 = !{!36, !37, i64 0}
+!36 = !{!"Curl_hash_iterator", !37, i64 0, !9, i64 8, !21, i64 16}
+!37 = !{!"p1 _ZTS9Curl_hash", !6, i64 0}
+!38 = !{!36, !21, i64 16}
+!39 = !{!36, !9, i64 8}
+!40 = distinct !{!40, !17}
+!41 = !{!9, !9, i64 0}

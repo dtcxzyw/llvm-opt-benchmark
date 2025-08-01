@@ -155,7 +155,7 @@ define noundef zeroext i1 @ECPGsetcommit(i32 noundef %0, ptr noundef %1, ptr nou
   %7 = load ptr, ptr %4, align 8
   tail call void (ptr, ...) @ecpg_log(ptr noundef nonnull @.str.1, i32 noundef %0, ptr noundef %1, ptr noundef %7) #8
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %9 = load i8, ptr %8, align 8, !range !6, !noundef !7
+  %9 = load i8, ptr %8, align 8, !range !5, !noundef !6
   %10 = trunc nuw i8 %9 to i1
   %11 = load i8, ptr %1, align 1
   %.not30 = icmp eq i8 %11, 111
@@ -512,7 +512,7 @@ define noundef zeroext i1 @ECPGconnect(i32 noundef %0, i32 noundef %1, ptr nound
 101:                                              ; preds = %.preheader417, %99
   %.10 = phi i32 [ %100, %99 ], [ %.9, %.preheader417 ]
   %102 = add i32 %.0291, 1
-  br label %.preheader417, !llvm.loop !8
+  br label %.preheader417, !llvm.loop !7
 
 .thread400:                                       ; preds = %.preheader417, %31, %91, %.thread, %92, %95
   %.not361411 = phi i1 [ true, %95 ], [ true, %92 ], [ true, %.thread ], [ true, %91 ], [ true, %31 ], [ false, %.preheader417 ]
@@ -691,7 +691,7 @@ define noundef zeroext i1 @ECPGconnect(i32 noundef %0, i32 noundef %1, ptr nound
   %.not376 = icmp eq ptr %.3323407, null
   %159 = select i1 %.not376, ptr @.str.17, ptr %.3323407
   %.not377 = icmp eq ptr %.4319408, null
-  %160 = load i8, ptr @ecpg_internal_regression_mode, align 1, !range !6
+  %160 = load i8, ptr @ecpg_internal_regression_mode, align 1, !range !5
   %161 = trunc nuw i8 %160 to i1
   %162 = select i1 %161, ptr @.str.20, ptr %.4319408
   %163 = select i1 %.not377, ptr @.str.17, ptr %162
@@ -804,7 +804,7 @@ define noundef zeroext i1 @ECPGconnect(i32 noundef %0, i32 noundef %1, ptr nound
   %203 = getelementptr inbounds nuw i8, ptr %.0285421, i64 1
   %.pr = load i8, ptr %203, align 1
   %204 = icmp eq i8 %.pr, 32
-  br i1 %204, label %.lr.ph, label %.preheader412, !llvm.loop !9
+  br i1 %204, label %.lr.ph, label %.preheader412, !llvm.loop !8
 
 205:                                              ; preds = %.preheader412, %207
   %206 = phi i8 [ %.pre, %207 ], [ %202, %.preheader412 ]
@@ -819,7 +819,7 @@ define noundef zeroext i1 @ECPGconnect(i32 noundef %0, i32 noundef %1, ptr nound
   %.phi.trans.insert = sext i32 %208 to i64
   %.phi.trans.insert433 = getelementptr inbounds i8, ptr %.0285.lcssa, i64 %.phi.trans.insert
   %.pre = load i8, ptr %.phi.trans.insert433, align 1
-  br label %205, !llvm.loop !10
+  br label %205, !llvm.loop !9
 
 209:                                              ; preds = %205
   %210 = sext i32 %.0287 to i64
@@ -832,7 +832,7 @@ define noundef zeroext i1 @ECPGconnect(i32 noundef %0, i32 noundef %1, ptr nound
   %.0284 = getelementptr inbounds nuw i8, ptr %.pn, i64 1
   %213 = load i8, ptr %.0284, align 1
   %214 = icmp eq i8 %213, 32
-  br i1 %214, label %212, label %.preheader, !llvm.loop !11
+  br i1 %214, label %212, label %.preheader, !llvm.loop !10
 
 .preheader:                                       ; preds = %212, %216
   %215 = phi i8 [ %.pre436, %216 ], [ %213, %212 ]
@@ -847,7 +847,7 @@ define noundef zeroext i1 @ECPGconnect(i32 noundef %0, i32 noundef %1, ptr nound
   %.phi.trans.insert434 = sext i32 %217 to i64
   %.phi.trans.insert435 = getelementptr inbounds i8, ptr %.0284, i64 %.phi.trans.insert434
   %.pre436 = load i8, ptr %.phi.trans.insert435, align 1
-  br label %.preheader, !llvm.loop !12
+  br label %.preheader, !llvm.loop !11
 
 218:                                              ; preds = %.preheader
   %219 = sext i32 %.0286 to i64
@@ -871,7 +871,7 @@ define noundef zeroext i1 @ECPGconnect(i32 noundef %0, i32 noundef %1, ptr nound
   %227 = add i32 %.7426, 1
   %.pre437 = load i8, ptr %.1289, align 1
   %.not384 = icmp eq i8 %.pre437, 0
-  br i1 %.not384, label %.loopexit416, label %.preheader414, !llvm.loop !13
+  br i1 %.not384, label %.loopexit416, label %.preheader414, !llvm.loop !12
 
 .loopexit416:                                     ; preds = %.loopexit413, %205, %.preheader415, %198
   %.6 = phi i32 [ %.5, %198 ], [ %.5, %.preheader415 ], [ %.7426, %205 ], [ %227, %.loopexit413 ]
@@ -1015,7 +1015,7 @@ define internal fastcc void @ecpg_finish(ptr noundef %0) unnamed_addr #0 {
   %.not30 = icmp eq ptr %12, null
   %.not31 = icmp eq ptr %12, %0
   %or.cond = or i1 %.not30, %.not31
-  br i1 %or.cond, label %.critedge, label %.preheader36, !llvm.loop !14
+  br i1 %or.cond, label %.critedge, label %.preheader36, !llvm.loop !13
 
 .critedge:                                        ; preds = %.preheader36
   br i1 %.not30, label %17, label %13
@@ -1064,7 +1064,7 @@ define internal fastcc void @ecpg_finish(ptr noundef %0) unnamed_addr #0 {
   %34 = load ptr, ptr %.038, align 8
   tail call void @ecpg_free(ptr noundef nonnull %.038) #8
   %.not34 = icmp eq ptr %34, null
-  br i1 %.not34, label %._crit_edge, label %.lr.ph, !llvm.loop !15
+  br i1 %.not34, label %._crit_edge, label %.lr.ph, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %.lr.ph, %30
   %35 = load ptr, ptr %0, align 8
@@ -1085,7 +1085,7 @@ define internal fastcc void @ecpg_finish(ptr noundef %0) unnamed_addr #0 {
   tail call void @ecpg_free(ptr noundef nonnull %39) #8
   %42 = load ptr, ptr @ivlist, align 8
   %.not35 = icmp eq ptr %42, null
-  br i1 %.not35, label %.loopexit, label %.lr.ph40, !llvm.loop !16
+  br i1 %.not35, label %.loopexit, label %.lr.ph40, !llvm.loop !15
 
 43:                                               ; preds = %1
   tail call void (ptr, ...) @ecpg_log(ptr noundef nonnull @.str.33) #8
@@ -1200,7 +1200,7 @@ define noundef zeroext i1 @ECPGdisconnect(i32 noundef %0, ptr noundef %1) local_
   %13 = load ptr, ptr %12, align 8
   tail call fastcc void @ecpg_finish(ptr noundef nonnull %.01316)
   %.not = icmp eq ptr %13, null
-  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !17
+  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !16
 
 14:                                               ; preds = %6
   %15 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %1, ptr noundef nonnull dereferenceable(8) @.str) #9
@@ -1303,18 +1303,17 @@ attributes #9 = { nounwind willreturn memory(read) }
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = distinct !{!3, !4, !5}
+!3 = distinct !{!3, !4}
 !4 = !{!"llvm.loop.mustprogress"}
-!5 = !{!"llvm.loop.estimated_trip_count"}
-!6 = !{i8 0, i8 2}
-!7 = !{}
-!8 = distinct !{!8, !4, !5}
-!9 = distinct !{!9, !4, !5}
-!10 = distinct !{!10, !4, !5}
-!11 = distinct !{!11, !4, !5}
-!12 = distinct !{!12, !4, !5}
-!13 = distinct !{!13, !4, !5}
-!14 = distinct !{!14, !4, !5}
-!15 = distinct !{!15, !4, !5}
-!16 = distinct !{!16, !4, !5}
-!17 = distinct !{!17, !4, !5}
+!5 = !{i8 0, i8 2}
+!6 = !{}
+!7 = distinct !{!7, !4}
+!8 = distinct !{!8, !4}
+!9 = distinct !{!9, !4}
+!10 = distinct !{!10, !4}
+!11 = distinct !{!11, !4}
+!12 = distinct !{!12, !4}
+!13 = distinct !{!13, !4}
+!14 = distinct !{!14, !4}
+!15 = distinct !{!15, !4}
+!16 = distinct !{!16, !4}

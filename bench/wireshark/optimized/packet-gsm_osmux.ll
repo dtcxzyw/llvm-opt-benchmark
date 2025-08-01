@@ -479,7 +479,7 @@ define internal i32 @dissect_osmux(ptr noundef %0, ptr noundef %1, ptr noundef %
   %30 = zext i8 %29 to i32
   %31 = call ptr @val_to_str(i32 noundef %30, ptr noundef nonnull @osmux_ft_vals, ptr noundef nonnull @.str.60)
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %28, i32 noundef 25, ptr noundef nonnull @.str.59, ptr noundef %31)
-  %32 = load i8, ptr %15, align 8, !range !9, !noundef !10
+  %32 = load i8, ptr %15, align 8, !range !8, !noundef !9
   %33 = trunc nuw i8 %32 to i1
   br i1 %33, label %34, label %36
 
@@ -579,7 +579,7 @@ amr_ft_to_bytes.exit:                             ; preds = %61, %87
   %96 = add i8 %.08192, 1
   %97 = load i8, ptr %22, align 2
   %.not = icmp ult i8 %97, %96
-  br i1 %.not, label %98, label %92, !llvm.loop !11
+  br i1 %.not, label %98, label %92, !llvm.loop !10
 
 98:                                               ; preds = %92
   call fastcc void @finish_process_pkt(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %15)
@@ -587,7 +587,7 @@ amr_ft_to_bytes.exit:                             ; preds = %61, %87
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #12
   %99 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %95)
   %100 = icmp sgt i32 %99, 1
-  br i1 %100, label %13, label %._crit_edge, !llvm.loop !12
+  br i1 %100, label %13, label %._crit_edge, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %98, %4
   %101 = call i32 @tvb_reported_length(ptr noundef %0)
@@ -660,7 +660,7 @@ define internal noundef i32 @osmux_stats_tree_packet(ptr noundef %0, ptr noundef
   %38 = tail call i32 @stats_tree_manip_node_int(i32 noundef 0, ptr noundef %0, ptr noundef nonnull @.str.70, i32 noundef %37, i1 noundef zeroext true, i32 noundef 1)
   %39 = load ptr, ptr %14, align 8
   %40 = getelementptr inbounds nuw i8, ptr %3, i64 9
-  %41 = load i8, ptr %40, align 1, !range !9, !noundef !10
+  %41 = load i8, ptr %40, align 1, !range !8, !noundef !9
   %42 = trunc nuw i8 %41 to i1
   br i1 %42, label %49, label %43
 
@@ -683,7 +683,7 @@ define internal noundef i32 @osmux_stats_tree_packet(ptr noundef %0, ptr noundef
   br i1 %56, label %57, label %182
 
 57:                                               ; preds = %49
-  %58 = load i8, ptr %40, align 1, !range !9, !noundef !10
+  %58 = load i8, ptr %40, align 1, !range !8, !noundef !9
   %59 = trunc nuw i8 %58 to i1
   br i1 %59, label %182, label %60
 
@@ -700,11 +700,11 @@ define internal noundef i32 @osmux_stats_tree_packet(ptr noundef %0, ptr noundef
   %70 = add nuw nsw i32 %69, 1
   %71 = tail call i32 @stats_tree_manip_node_int(i32 noundef 3, ptr noundef %0, ptr noundef nonnull @.str.71, i32 noundef %67, i1 noundef zeroext true, i32 noundef %70)
   %72 = load i32, ptr %27, align 8
-  %73 = load i8, ptr %3, align 8, !range !9, !noundef !10
+  %73 = load i8, ptr %3, align 8, !range !8, !noundef !9
   %74 = zext nneg i8 %73 to i32
   %75 = tail call i32 @stats_tree_manip_node_int(i32 noundef 0, ptr noundef %0, ptr noundef nonnull @.str.72, i32 noundef %72, i1 noundef zeroext true, i32 noundef %74)
   %76 = load i32, ptr %27, align 8
-  %77 = load i8, ptr %3, align 8, !range !9, !noundef !10
+  %77 = load i8, ptr %3, align 8, !range !8, !noundef !9
   %78 = zext nneg i8 %77 to i32
   %79 = tail call i32 @stats_tree_manip_node_int(i32 noundef 3, ptr noundef %0, ptr noundef nonnull @.str.72, i32 noundef %76, i1 noundef zeroext true, i32 noundef %78)
   %80 = getelementptr inbounds nuw i8, ptr %8, i64 24
@@ -719,7 +719,7 @@ define internal noundef i32 @osmux_stats_tree_packet(ptr noundef %0, ptr noundef
   br i1 %86, label %90, label %87
 
 87:                                               ; preds = %83, %60
-  %88 = load i8, ptr %3, align 8, !range !9, !noundef !10
+  %88 = load i8, ptr %3, align 8, !range !8, !noundef !9
   %89 = trunc nuw i8 %88 to i1
   br i1 %89, label %90, label %98
 
@@ -780,7 +780,7 @@ define internal noundef i32 @osmux_stats_tree_packet(ptr noundef %0, ptr noundef
   %133 = getelementptr inbounds nuw i8, ptr %8, i64 20
   store i32 %132, ptr %133, align 4
   %134 = getelementptr inbounds nuw i8, ptr %8, i64 12
-  %135 = load i8, ptr %134, align 4, !range !9, !noundef !10
+  %135 = load i8, ptr %134, align 4, !range !8, !noundef !9
   %136 = trunc nuw i8 %135 to i1
   br i1 %136, label %137, label %145
 
@@ -1146,10 +1146,9 @@ attributes #14 = { allocsize(2) }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = !{i8 0, i8 2}
-!10 = !{}
-!11 = distinct !{!11, !7, !8}
-!12 = distinct !{!12, !7, !8}
+!8 = !{i8 0, i8 2}
+!9 = !{}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7}

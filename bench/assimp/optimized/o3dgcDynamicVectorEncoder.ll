@@ -181,7 +181,7 @@ _ZN5o3dgc6VectorIhE8PushBackERKh.exit.i.i:        ; preds = %25, %._crit_edge.i.
   %30 = lshr i16 %.045.i.i, 7
   %31 = add nuw nsw i64 %.06.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %31, 5
-  br i1 %exitcond.not.i.i, label %_ZN5o3dgc12BinaryStream11WriteUInt32EmNS_15O3DGCStreamTypeE.exit, label %12, !llvm.loop !6
+  br i1 %exitcond.not.i.i, label %_ZN5o3dgc12BinaryStream11WriteUInt32EmNS_15O3DGCStreamTypeE.exit, label %12, !llvm.loop !5
 
 32:                                               ; preds = %4
   tail call void @_ZN5o3dgc12BinaryStream14WriteUInt32BinEm(ptr noundef nonnull align 8 dereferenceable(28) %3, i64 noundef 498)
@@ -243,7 +243,7 @@ _ZN5o3dgc6VectorIhE8PushBackERKh.exit.i.i18:      ; preds = %50, %._crit_edge.i.
   store i8 0, ptr %54, align 1
   %55 = add nuw nsw i64 %.06.i.i14, 1
   %exitcond.not.i.i19 = icmp eq i64 %55, 5
-  br i1 %exitcond.not.i.i19, label %_ZN5o3dgc12BinaryStream11WriteUInt32EmNS_15O3DGCStreamTypeE.exit24, label %39, !llvm.loop !6
+  br i1 %exitcond.not.i.i19, label %_ZN5o3dgc12BinaryStream11WriteUInt32EmNS_15O3DGCStreamTypeE.exit24, label %39, !llvm.loop !5
 
 56:                                               ; preds = %_ZN5o3dgc12BinaryStream11WriteUInt32EmNS_15O3DGCStreamTypeE.exit
   tail call void @_ZN5o3dgc12BinaryStream14WriteUInt32BinEm(ptr noundef nonnull align 8 dereferenceable(28) %3, i64 noundef 0)
@@ -312,7 +312,7 @@ _ZN5o3dgc6VectorIhE8PushBackERKh.exit.i.i29:      ; preds = %79, %._crit_edge.i.
   %84 = lshr i64 %.045.i.i26, 7
   %85 = add nuw nsw i64 %.06.i.i25, 1
   %exitcond.not.i.i30 = icmp eq i64 %85, 5
-  br i1 %exitcond.not.i.i30, label %_ZN5o3dgc12BinaryStream11WriteUInt32EmNS_15O3DGCStreamTypeE.exit35, label %66, !llvm.loop !6
+  br i1 %exitcond.not.i.i30, label %_ZN5o3dgc12BinaryStream11WriteUInt32EmNS_15O3DGCStreamTypeE.exit35, label %66, !llvm.loop !5
 
 86:                                               ; preds = %_ZN5o3dgc12BinaryStream11WriteUInt32EmNS_15O3DGCStreamTypeE.exit24
   tail call void @_ZN5o3dgc12BinaryStream14WriteUInt32BinEm(ptr noundef nonnull align 8 dereferenceable(28) %3, i64 noundef %61)
@@ -382,7 +382,7 @@ _ZN5o3dgc6VectorIhE8PushBackERKh.exit.i.i40:      ; preds = %108, %._crit_edge.i
   %113 = lshr i64 %.045.i.i37, 7
   %114 = add nuw nsw i64 %.06.i.i36, 1
   %exitcond.not.i.i41 = icmp eq i64 %114, 5
-  br i1 %exitcond.not.i.i41, label %_ZN5o3dgc12BinaryStream11WriteUInt32EmNS_15O3DGCStreamTypeE.exit46, label %95, !llvm.loop !6
+  br i1 %exitcond.not.i.i41, label %_ZN5o3dgc12BinaryStream11WriteUInt32EmNS_15O3DGCStreamTypeE.exit46, label %95, !llvm.loop !5
 
 115:                                              ; preds = %88
   tail call void @_ZN5o3dgc12BinaryStream14WriteUInt32BinEm(ptr noundef nonnull align 8 dereferenceable(28) %3, i64 noundef %90)
@@ -460,7 +460,7 @@ _ZN5o3dgc6VectorIhE8PushBackERKh.exit.i.i:        ; preds = %27, %._crit_edge.i.
   store i8 0, ptr %31, align 1
   %32 = add nuw nsw i64 %.06.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %32, 5
-  br i1 %exitcond.not.i.i, label %_ZN5o3dgc12BinaryStream11WriteUInt32EmNS_15O3DGCStreamTypeE.exit, label %16, !llvm.loop !6
+  br i1 %exitcond.not.i.i, label %_ZN5o3dgc12BinaryStream11WriteUInt32EmNS_15O3DGCStreamTypeE.exit, label %16, !llvm.loop !5
 
 33:                                               ; preds = %4
   tail call void @_ZN5o3dgc12BinaryStream14WriteUInt32BinEm(ptr noundef nonnull align 8 dereferenceable(28) %3, i64 noundef 0)
@@ -554,12 +554,12 @@ _ZN5o3dgc12BinaryStream11WriteUInt32EmNS_15O3DGCStreamTypeE.exit: ; preds = %_ZN
   store i64 %80, ptr %83, align 8
   %84 = add nuw i64 %.033.us.i, 1
   %exitcond.not.i = icmp eq i64 %84, %10
-  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %74, !llvm.loop !7
+  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %74, !llvm.loop !6
 
 ._crit_edge.us.i:                                 ; preds = %74
   %85 = add nuw i64 %.02734.us.i, 1
   %exitcond40.not.i = icmp eq i64 %85, %9
-  br i1 %exitcond40.not.i, label %.lr.ph87, label %.lr.ph.us.i, !llvm.loop !8
+  br i1 %exitcond40.not.i, label %.lr.ph87, label %.lr.ph.us.i, !llvm.loop !7
 
 .lr.ph87:                                         ; preds = %._crit_edge.us.i
   %86 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -595,7 +595,7 @@ _ZN5o3dgc12BinaryStream11WriteUInt32EmNS_15O3DGCStreamTypeE.exit: ; preds = %_ZN
   store i64 %103, ptr %94, align 8
   %104 = add nuw nsw i64 %.016.i.i.us, 2
   %105 = icmp slt i64 %104, %92
-  br i1 %105, label %.lr.ph.i.i.us, label %._crit_edge.i.i.us, !llvm.loop !10
+  br i1 %105, label %.lr.ph.i.i.us, label %._crit_edge.i.i.us, !llvm.loop !9
 
 ._crit_edge.i.i.us:                               ; preds = %.lr.ph.i.i.us, %91
   %.0.lcssa.i.i.us = phi i64 [ 1, %91 ], [ %104, %.lr.ph.i.i.us ]
@@ -635,7 +635,7 @@ _ZN5o3dgc7PredictEPll.exit.i.us:                  ; preds = %107, %._crit_edge.i
   store i64 %127, ptr %118, align 8
   %128 = add nuw nsw i64 %.018.i.i.us, 2
   %129 = icmp slt i64 %128, %92
-  br i1 %129, label %.lr.ph.i11.i.us, label %._crit_edge.i9.i.us, !llvm.loop !11
+  br i1 %129, label %.lr.ph.i11.i.us, label %._crit_edge.i9.i.us, !llvm.loop !10
 
 ._crit_edge.i9.i.us:                              ; preds = %.lr.ph.i11.i.us, %_ZN5o3dgc7PredictEPll.exit.i.us
   %.0.lcssa.i10.i.us = phi i64 [ 2, %_ZN5o3dgc7PredictEPll.exit.i.us ], [ %128, %.lr.ph.i11.i.us ]
@@ -670,25 +670,25 @@ _ZN5o3dgc6UpdateEPll.exit.i.us:                   ; preds = %131, %._crit_edge.i
   store i64 %141, ptr %140, align 8
   %143 = add nuw nsw i64 %.014.i.i.us, 2
   %144 = icmp slt i64 %143, %.01217.i.i.us
-  br i1 %144, label %138, label %145, !llvm.loop !12
+  br i1 %144, label %138, label %145, !llvm.loop !11
 
 145:                                              ; preds = %138
   %146 = add nuw nsw i64 %.01316.i.i.us, 1
   %.012.i.i.us = add nsw i64 %.01217.i.i.us, -1
   %147 = icmp slt i64 %146, %.012.i.i.us
-  br i1 %147, label %.preheader.i.i.us, label %_ZN5o3dgc5SplitEPll.exit.i.us, !llvm.loop !13
+  br i1 %147, label %.preheader.i.i.us, label %_ZN5o3dgc5SplitEPll.exit.i.us, !llvm.loop !12
 
 _ZN5o3dgc5SplitEPll.exit.i.us:                    ; preds = %145, %_ZN5o3dgc6UpdateEPll.exit.i.us
   %148 = lshr i64 %.014.i.us, 1
   %149 = and i64 %.014.i.us, 1
   %150 = add nuw i64 %148, %149
   %151 = icmp ugt i64 %150, 1
-  br i1 %151, label %91, label %_ZN5o3dgc9TransformEPlm.exit.loopexit.us, !llvm.loop !14
+  br i1 %151, label %91, label %_ZN5o3dgc9TransformEPlm.exit.loopexit.us, !llvm.loop !13
 
 _ZN5o3dgc9TransformEPlm.exit.loopexit.us:         ; preds = %_ZN5o3dgc5SplitEPll.exit.i.us
   %152 = add nuw i64 %.05986.us, 1
   %exitcond.not = icmp eq i64 %152, %9
-  br i1 %exitcond.not, label %._crit_edge88, label %.lr.ph.i.us, !llvm.loop !15
+  br i1 %exitcond.not, label %._crit_edge88, label %.lr.ph.i.us, !llvm.loop !14
 
 153:                                              ; preds = %.lr.ph, %_ZN5o3dgc12BinaryStream12WriteFloat32EfNS_15O3DGCStreamTypeE.exit74
   %.06085 = phi i64 [ 0, %.lr.ph ], [ %210, %_ZN5o3dgc12BinaryStream12WriteFloat32EfNS_15O3DGCStreamTypeE.exit74 ]
@@ -751,7 +751,7 @@ _ZN5o3dgc6VectorIhE8PushBackERKh.exit.i.i.i:      ; preds = %174, %._crit_edge.i
   %179 = lshr i32 %.045.i.i.i, 7
   %180 = add nuw nsw i64 %.06.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %180, 5
-  br i1 %exitcond.not.i.i.i, label %_ZN5o3dgc12BinaryStream12WriteFloat32EfNS_15O3DGCStreamTypeE.exit, label %161, !llvm.loop !6
+  br i1 %exitcond.not.i.i.i, label %_ZN5o3dgc12BinaryStream12WriteFloat32EfNS_15O3DGCStreamTypeE.exit, label %161, !llvm.loop !5
 
 181:                                              ; preds = %153
   tail call void @_ZN5o3dgc12BinaryStream15WriteFloat32BinEf(ptr noundef nonnull align 8 dereferenceable(28) %3, float noundef %156)
@@ -817,7 +817,7 @@ _ZN5o3dgc6VectorIhE8PushBackERKh.exit.i.i.i68:    ; preds = %202, %._crit_edge.i
   %207 = lshr i32 %.045.i.i.i65, 7
   %208 = add nuw nsw i64 %.06.i.i.i64, 1
   %exitcond.not.i.i.i69 = icmp eq i64 %208, 5
-  br i1 %exitcond.not.i.i.i69, label %_ZN5o3dgc12BinaryStream12WriteFloat32EfNS_15O3DGCStreamTypeE.exit74, label %189, !llvm.loop !6
+  br i1 %exitcond.not.i.i.i69, label %_ZN5o3dgc12BinaryStream12WriteFloat32EfNS_15O3DGCStreamTypeE.exit74, label %189, !llvm.loop !5
 
 209:                                              ; preds = %_ZN5o3dgc12BinaryStream12WriteFloat32EfNS_15O3DGCStreamTypeE.exit
   tail call void @_ZN5o3dgc12BinaryStream15WriteFloat32BinEf(ptr noundef nonnull align 8 dereferenceable(28) %3, float noundef %184)
@@ -827,7 +827,7 @@ _ZN5o3dgc12BinaryStream12WriteFloat32EfNS_15O3DGCStreamTypeE.exit74: ; preds = %
   %210 = add nuw i64 %.06085, 1
   %211 = load i64, ptr %8, align 8
   %212 = icmp ult i64 %210, %211
-  br i1 %212, label %153, label %._crit_edge, !llvm.loop !16
+  br i1 %212, label %153, label %._crit_edge, !llvm.loop !15
 
 ._crit_edge88:                                    ; preds = %_ZN5o3dgc9TransformEPlm.exit.loopexit.us, %61
   %213 = load i32, ptr %11, align 8
@@ -1010,17 +1010,17 @@ _ZN5o3dgc6VectorIhE8PushBackERKh.exit14.i.us:     ; preds = %281, %._crit_edge.i
   store i64 %284, ptr %6, align 8
   %285 = getelementptr inbounds nuw i8, ptr %283, i64 %282
   store i8 %270, ptr %285, align 1
-  br i1 %268, label %264, label %_ZN5o3dgc12BinaryStream14WriteUIntASCIIEm.exit.us, !llvm.loop !17
+  br i1 %268, label %264, label %_ZN5o3dgc12BinaryStream14WriteUIntASCIIEm.exit.us, !llvm.loop !16
 
 _ZN5o3dgc12BinaryStream14WriteUIntASCIIEm.exit.us: ; preds = %_ZN5o3dgc6VectorIhE8PushBackERKh.exit14.i.us, %_ZN5o3dgc6VectorIhE8PushBackERKh.exit21.i.us
   %286 = add nuw i64 %.05796.us, 1
   %exitcond108.not = icmp eq i64 %286, %9
-  br i1 %exitcond108.not, label %._crit_edge98.us, label %221, !llvm.loop !18
+  br i1 %exitcond108.not, label %._crit_edge98.us, label %221, !llvm.loop !17
 
 ._crit_edge98.us:                                 ; preds = %_ZN5o3dgc12BinaryStream14WriteUIntASCIIEm.exit.us
   %287 = add nuw i64 %.05899.us, 1
   %exitcond109.not = icmp eq i64 %287, %10
-  br i1 %exitcond109.not, label %.loopexit, label %.preheader.us, !llvm.loop !19
+  br i1 %exitcond109.not, label %.loopexit, label %.preheader.us, !llvm.loop !18
 
 288:                                              ; preds = %._crit_edge88.thread111, %._crit_edge88.thread, %._crit_edge88
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #14
@@ -1034,17 +1034,17 @@ _ZN5o3dgc12BinaryStream14WriteUIntASCIIEm.exit.us: ; preds = %_ZN5o3dgc6VectorIh
   %292 = phi i64 [ %297, %294 ], [ %290, %288 ]
   %.05590117 = phi i64 [ %295, %294 ], [ 1, %288 ]
   %293 = icmp samesign ult i64 %.05590117, 512
-  br i1 %293, label %294, label %._crit_edge121, !llvm.loop !20
+  br i1 %293, label %294, label %._crit_edge121, !llvm.loop !19
 
 294:                                              ; preds = %.lr.ph119
   %295 = shl nuw nsw i64 %.05590117, 1
   %296 = call noundef i32 @_ZN5o3dgc20DynamicVectorEncoder8EncodeACEmmmRm(ptr noundef nonnull align 8 dereferenceable(60) %0, i64 noundef %10, i64 noundef %9, i64 noundef %295, ptr noundef nonnull align 8 dereferenceable(8) %5)
   %297 = load i64, ptr %5, align 8
   %298 = icmp ugt i64 %297, %292
-  br i1 %298, label %._crit_edge120, label %.lr.ph119, !llvm.loop !20
+  br i1 %298, label %._crit_edge120, label %.lr.ph119, !llvm.loop !19
 
 ._crit_edge121:                                   ; preds = %.lr.ph119
-  br label %._crit_edge120, !llvm.loop !20
+  br label %._crit_edge120, !llvm.loop !19
 
 ._crit_edge120:                                   ; preds = %294, %._crit_edge121, %288
   %.054.lcssa = phi i64 [ %.05590117, %._crit_edge121 ], [ 1, %288 ], [ %.05590117, %294 ]
@@ -1109,7 +1109,7 @@ _ZN5o3dgc12BinaryStream14WriteUChar8BinEh.exit:   ; preds = %._crit_edge.i.i75, 
   store i8 %306, ptr %321, align 1
   %322 = add nuw i64 %.092, 1
   %exitcond107.not = icmp eq i64 %322, %300
-  br i1 %exitcond107.not, label %._crit_edge95, label %303, !llvm.loop !21
+  br i1 %exitcond107.not, label %._crit_edge95, label %303, !llvm.loop !20
 
 .loopexit.thread:                                 ; preds = %.preheader83, %._crit_edge88.thread111
   %323 = load i64, ptr %6, align 8
@@ -1388,7 +1388,7 @@ _ZN5o3dgc16Arithmetic_Codec15ExpGolombEncodeEjiRNS_16Static_Bit_ModelERNS_18Adap
   %41 = add nuw nsw i32 %.01115.i, 1
   %42 = shl nuw i32 2, %.01115.i
   %.not.i = icmp ult i32 %40, %42
-  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !22
+  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !21
 
 ._crit_edge.i:                                    ; preds = %.noexc, %_ZN5o3dgc16Arithmetic_Codec15ExpGolombEncodeEjiRNS_16Static_Bit_ModelERNS_18Adaptive_Bit_ModelE.exit
   %.011.lcssa.i = phi i32 [ 0, %_ZN5o3dgc16Arithmetic_Codec15ExpGolombEncodeEjiRNS_16Static_Bit_ModelERNS_18Adaptive_Bit_ModelE.exit ], [ %41, %.noexc ]
@@ -1410,7 +1410,7 @@ _ZN5o3dgc16Arithmetic_Codec15ExpGolombEncodeEjiRNS_16Static_Bit_ModelERNS_18Adap
 
 .noexc34:                                         ; preds = %.lr.ph21.i
   %.not13.i = icmp eq i32 %43, 0
-  br i1 %.not13.i, label %_ZN5o3dgc16Arithmetic_Codec15ExpGolombEncodeEjiRNS_16Static_Bit_ModelERNS_18Adaptive_Bit_ModelE.exit35, label %.lr.ph21.i, !llvm.loop !23
+  br i1 %.not13.i, label %_ZN5o3dgc16Arithmetic_Codec15ExpGolombEncodeEjiRNS_16Static_Bit_ModelERNS_18Adaptive_Bit_ModelE.exit35, label %.lr.ph21.i, !llvm.loop !22
 
 _ZN5o3dgc16Arithmetic_Codec15ExpGolombEncodeEjiRNS_16Static_Bit_ModelERNS_18Adaptive_Bit_ModelE.exit35: ; preds = %.noexc34, %.noexc33
   %.not = icmp eq i64 %1, 0
@@ -1460,7 +1460,7 @@ _ZN5o3dgc16Arithmetic_Codec15ExpGolombEncodeEjiRNS_16Static_Bit_ModelERNS_18Adap
   %61 = add nuw nsw i32 %.01115.i.i.us, 1
   %62 = shl nuw i32 2, %.01115.i.i.us
   %.not.i.i.us = icmp ult i32 %60, %62
-  br i1 %.not.i.i.us, label %._crit_edge.i.i.us, label %.lr.ph.i.i.us, !llvm.loop !22
+  br i1 %.not.i.i.us, label %._crit_edge.i.i.us, label %.lr.ph.i.i.us, !llvm.loop !21
 
 ._crit_edge.i.i.us:                               ; preds = %.noexc39.us
   invoke void @_ZN5o3dgc16Arithmetic_Codec6encodeEjRNS_18Adaptive_Bit_ModelE(ptr noundef nonnull align 8 dereferenceable(44) %6, i32 noundef 0, ptr noundef nonnull align 4 dereferenceable(20) %8)
@@ -1476,7 +1476,7 @@ _ZN5o3dgc16Arithmetic_Codec15ExpGolombEncodeEjiRNS_16Static_Bit_ModelERNS_18Adap
 
 .noexc41.us:                                      ; preds = %.lr.ph21.i.i.us
   %.not13.i.i.us = icmp eq i32 %63, 0
-  br i1 %.not13.i.i.us, label %_ZN5o3dgc14EncodeIntACEGCElRNS_16Arithmetic_CodecERNS_19Adaptive_Data_ModelERNS_16Static_Bit_ModelERNS_18Adaptive_Bit_ModelEm.exit.us, label %.lr.ph21.i.i.us, !llvm.loop !23
+  br i1 %.not13.i.i.us, label %_ZN5o3dgc14EncodeIntACEGCElRNS_16Arithmetic_CodecERNS_19Adaptive_Data_ModelERNS_16Static_Bit_ModelERNS_18Adaptive_Bit_ModelEm.exit.us, label %.lr.ph21.i.i.us, !llvm.loop !22
 
 ._crit_edge.i.thread.i.us:                        ; preds = %.noexc37.us
   invoke void @_ZN5o3dgc16Arithmetic_Codec6encodeEjRNS_18Adaptive_Bit_ModelE(ptr noundef nonnull align 8 dereferenceable(44) %6, i32 noundef 0, ptr noundef nonnull align 4 dereferenceable(20) %8)
@@ -1490,12 +1490,12 @@ _ZN5o3dgc16Arithmetic_Codec15ExpGolombEncodeEjiRNS_16Static_Bit_ModelERNS_18Adap
 _ZN5o3dgc14EncodeIntACEGCElRNS_16Arithmetic_CodecERNS_19Adaptive_Data_ModelERNS_16Static_Bit_ModelERNS_18Adaptive_Bit_ModelEm.exit.us: ; preds = %.noexc41.us, %66, %._crit_edge.i.thread.i.us
   %68 = add nuw i64 %.055.us, 1
   %exitcond.not = icmp eq i64 %68, %2
-  br i1 %exitcond.not, label %._crit_edge.us, label %47, !llvm.loop !24
+  br i1 %exitcond.not, label %._crit_edge.us, label %47, !llvm.loop !23
 
 ._crit_edge.us:                                   ; preds = %_ZN5o3dgc14EncodeIntACEGCElRNS_16Arithmetic_CodecERNS_19Adaptive_Data_ModelERNS_16Static_Bit_ModelERNS_18Adaptive_Bit_ModelEm.exit.us
   %69 = add nuw i64 %.02056.us, 1
   %exitcond65.not = icmp eq i64 %69, %1
-  br i1 %exitcond65.not, label %._crit_edge57, label %.preheader.us, !llvm.loop !25
+  br i1 %exitcond65.not, label %._crit_edge57, label %.preheader.us, !llvm.loop !24
 
 .loopexit.split-lp.loopexit.split-lp.split.us:    ; preds = %66, %._crit_edge.i.thread.i.us, %._crit_edge.i.i.us, %56
   %lpad.loopexit.split-lp43.us = landingpad { ptr, i32 }
@@ -1644,12 +1644,12 @@ define hidden noundef i32 @_ZN5o3dgc20DynamicVectorEncoder8QuantizeEPKfmmmS2_S2_
   store i64 %42, ptr %45, align 8
   %46 = add nuw i64 %.033.us, 1
   %exitcond.not = icmp eq i64 %46, %2
-  br i1 %exitcond.not, label %._crit_edge.us, label %36, !llvm.loop !7
+  br i1 %exitcond.not, label %._crit_edge.us, label %36, !llvm.loop !6
 
 ._crit_edge.us:                                   ; preds = %36
   %47 = add nuw i64 %.02734.us, 1
   %exitcond40.not = icmp eq i64 %47, %3
-  br i1 %exitcond40.not, label %._crit_edge37, label %.lr.ph.us, !llvm.loop !8
+  br i1 %exitcond40.not, label %._crit_edge37, label %.lr.ph.us, !llvm.loop !7
 
 ._crit_edge37:                                    ; preds = %._crit_edge.us, %.lr.ph36, %23
   ret i32 0
@@ -2389,26 +2389,25 @@ attributes #14 = { nounwind }
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = distinct !{!3, !4, !5}
+!3 = distinct !{!3, !4}
 !4 = !{!"llvm.loop.mustprogress"}
-!5 = !{!"llvm.loop.estimated_trip_count"}
-!6 = distinct !{!6, !4, !5}
-!7 = distinct !{!7, !4, !5}
-!8 = distinct !{!8, !4, !5, !9}
-!9 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!10 = distinct !{!10, !4, !5}
-!11 = distinct !{!11, !4, !5}
-!12 = distinct !{!12, !4, !5}
-!13 = distinct !{!13, !4, !5}
-!14 = distinct !{!14, !4, !5}
-!15 = distinct !{!15, !4, !5, !9}
-!16 = distinct !{!16, !4, !5}
-!17 = distinct !{!17, !4, !5}
-!18 = distinct !{!18, !4, !5}
-!19 = distinct !{!19, !4, !5, !9}
-!20 = distinct !{!20, !4, !5}
-!21 = distinct !{!21, !4, !5}
-!22 = distinct !{!22, !4, !5}
-!23 = distinct !{!23, !4, !5}
-!24 = distinct !{!24, !4, !5}
-!25 = distinct !{!25, !4, !5, !9}
+!5 = distinct !{!5, !4}
+!6 = distinct !{!6, !4}
+!7 = distinct !{!7, !4, !8}
+!8 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!9 = distinct !{!9, !4}
+!10 = distinct !{!10, !4}
+!11 = distinct !{!11, !4}
+!12 = distinct !{!12, !4}
+!13 = distinct !{!13, !4}
+!14 = distinct !{!14, !4, !8}
+!15 = distinct !{!15, !4}
+!16 = distinct !{!16, !4}
+!17 = distinct !{!17, !4}
+!18 = distinct !{!18, !4, !8}
+!19 = distinct !{!19, !4}
+!20 = distinct !{!20, !4}
+!21 = distinct !{!21, !4}
+!22 = distinct !{!22, !4}
+!23 = distinct !{!23, !4}
+!24 = distinct !{!24, !4, !8}

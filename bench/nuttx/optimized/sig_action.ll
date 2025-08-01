@@ -254,7 +254,7 @@ up_irq_restore.exit.i:                            ; preds = %93, %89
   store ptr %.013.i.i, ptr getelementptr inbounds nuw (i8, ptr @g_sigfreeaction, i64 8), align 8
   %105 = add nuw nsw i32 %.0912.i.i, 1
   %exitcond.not.i.i = icmp eq i32 %105, 4
-  br i1 %exitcond.not.i.i, label %106, label %97, !llvm.loop !12
+  br i1 %exitcond.not.i.i, label %106, label %97, !llvm.loop !11
 
 106:                                              ; preds = %103
   %107 = and i64 %96, 512
@@ -282,7 +282,7 @@ nxsig_alloc_actionblock.exit.i:                   ; preds = %108, %106, %.lr.ph.
 
 up_irq_restore.exit5.i:                           ; preds = %112, %nxsig_alloc_actionblock.exit.i
   %.not.i103 = icmp eq ptr %110, null
-  br i1 %.not.i103, label %.lr.ph.i, label %nxsig_alloc_action.exit, !llvm.loop !13
+  br i1 %.not.i103, label %.lr.ph.i, label %nxsig_alloc_action.exit, !llvm.loop !12
 
 nxsig_alloc_action.exit:                          ; preds = %up_irq_restore.exit5.i, %up_irq_restore.exit.i
   %.0.lcssa.i = phi ptr [ %91, %up_irq_restore.exit.i ], [ %110, %up_irq_restore.exit5.i ]
@@ -420,8 +420,7 @@ attributes #5 = { allocsize(0) }
 !6 = !{i64 218831, i64 218849}
 !7 = !{i64 219450}
 !8 = !{i64 219571}
-!9 = distinct !{!9, !10, !11}
+!9 = distinct !{!9, !10}
 !10 = !{!"llvm.loop.mustprogress"}
-!11 = !{!"llvm.loop.estimated_trip_count"}
-!12 = distinct !{!12, !10, !11}
-!13 = distinct !{!13, !10, !11}
+!11 = distinct !{!11, !10}
+!12 = distinct !{!12, !10}

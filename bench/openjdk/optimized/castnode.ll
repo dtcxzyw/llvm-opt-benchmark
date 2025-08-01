@@ -308,7 +308,7 @@ define hidden noundef zeroext i1 @_ZNK18ConstraintCastNode18higher_equal_typesEP
   %29 = load i32, ptr %28, align 4
   %30 = zext i32 %29 to i64
   %31 = icmp samesign ult i64 %indvars.iv.next, %30
-  br i1 %31, label %.lr.ph, label %.loopexit, !llvm.loop !9
+  br i1 %31, label %.lr.ph, label %.loopexit, !llvm.loop !8
 
 .lr.ph:                                           ; preds = %.preheader, %26
   %indvars.iv = phi i64 [ %indvars.iv.next, %26 ], [ 0, %.preheader ]
@@ -1605,7 +1605,7 @@ _ZN4NodenwEm.exit:                                ; preds = %66, %68
   %97 = getelementptr inbounds i8, ptr %.0.i.i, i64 -8
   %98 = load ptr, ptr %97, align 8
   %.not.i.i = icmp eq ptr %98, %82
-  br i1 %.not.i.i, label %99, label %96, !llvm.loop !10
+  br i1 %.not.i.i, label %99, label %96, !llvm.loop !9
 
 99:                                               ; preds = %96
   %100 = add i32 %93, -1
@@ -3029,8 +3029,7 @@ attributes #7 = { noreturn nounwind }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7, !8}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}

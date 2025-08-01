@@ -394,7 +394,7 @@ roon_map_name.exit90.thread:                      ; preds = %91, %bsearch.exit.i
   %121 = add i32 %46, %.063117
   %122 = tail call i32 @tvb_reported_length(ptr noundef %0)
   %123 = icmp ult i32 %121, %122
-  br i1 %123, label %.lr.ph.i.i.preheader, label %._crit_edge, !llvm.loop !9
+  br i1 %123, label %.lr.ph.i.i.preheader, label %._crit_edge, !llvm.loop !8
 
 124:                                              ; preds = %._crit_edge, %10, %15, %4, %7
   %.0 = phi i32 [ 0, %7 ], [ 0, %4 ], [ %33, %._crit_edge ], [ 0, %10 ], [ 0, %15 ]
@@ -460,7 +460,6 @@ attributes #3 = { nounwind willreturn memory(read) }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
+!8 = distinct !{!8, !7}

@@ -1022,7 +1022,7 @@ define hidden range(i32 0, 2) i32 @avifROStreamReadString(ptr noundef captures(n
 12:                                               ; preds = %.lr.ph
   %13 = add nuw i64 %.02633, 1
   %exitcond.not = icmp eq i64 %13, %9
-  br i1 %exitcond.not, label %.critedge, label %.lr.ph, !llvm.loop !7
+  br i1 %exitcond.not, label %.critedge, label %.lr.ph, !llvm.loop !6
 
 .lr.ph:                                           ; preds = %3, %12
   %.02633 = phi i64 [ %13, %12 ], [ 0, %3 ]
@@ -1867,7 +1867,7 @@ define hidden i32 @avifRWStreamWriteBits(ptr noundef captures(none) %0, i32 noun
 48:                                               ; preds = %47, %24
   %49 = phi i64 [ 0, %47 ], [ %45, %24 ]
   %.not = icmp eq i64 %33, 0
-  br i1 %.not, label %._crit_edge, label %6, !llvm.loop !8
+  br i1 %.not, label %._crit_edge, label %6, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %9, %48, %3
   %.0 = phi i32 [ 0, %3 ], [ 0, %48 ], [ %16, %9 ]
@@ -1953,7 +1953,7 @@ define hidden i32 @avifRWStreamWriteVarInt(ptr noundef %0, i32 noundef %1) local
 49:                                               ; preds = %48, %25
   %50 = phi i64 [ 0, %48 ], [ %46, %25 ]
   %.not.i = icmp eq i64 %34, 0
-  br i1 %.not.i, label %avifRWStreamWriteBits.exit.thread, label %7, !llvm.loop !8
+  br i1 %.not.i, label %avifRWStreamWriteBits.exit.thread, label %7, !llvm.loop !7
 
 51:                                               ; preds = %2
   %52 = icmp ult i32 %1, 2288
@@ -2036,7 +2036,7 @@ define hidden i32 @avifRWStreamWriteVarInt(ptr noundef %0, i32 noundef %1) local
 101:                                              ; preds = %100, %77
   %.pre.i103 = phi i64 [ 0, %100 ], [ %98, %77 ]
   %.not.i96 = icmp eq i64 %86, 0
-  br i1 %.not.i96, label %102, label %59, !llvm.loop !8
+  br i1 %.not.i96, label %102, label %59, !llvm.loop !7
 
 102:                                              ; preds = %101
   %103 = and i32 %54, 255
@@ -2110,7 +2110,7 @@ define hidden i32 @avifRWStreamWriteVarInt(ptr noundef %0, i32 noundef %1) local
 146:                                              ; preds = %145, %122
   %147 = phi i64 [ 0, %145 ], [ %143, %122 ]
   %.not.i108 = icmp eq i64 %131, 0
-  br i1 %.not.i108, label %avifRWStreamWriteBits.exit.thread, label %104, !llvm.loop !8
+  br i1 %.not.i108, label %avifRWStreamWriteBits.exit.thread, label %104, !llvm.loop !7
 
 148:                                              ; preds = %51
   %149 = icmp ult i32 %1, 67824
@@ -2190,7 +2190,7 @@ define hidden i32 @avifRWStreamWriteVarInt(ptr noundef %0, i32 noundef %1) local
 195:                                              ; preds = %194, %171
   %.pre.i127 = phi i64 [ 0, %194 ], [ %192, %171 ]
   %.not.i120 = icmp eq i64 %180, 0
-  br i1 %.not.i120, label %196, label %153, !llvm.loop !8
+  br i1 %.not.i120, label %196, label %153, !llvm.loop !7
 
 196:                                              ; preds = %195
   %197 = add nsw i32 %1, -2288
@@ -2265,7 +2265,7 @@ define hidden i32 @avifRWStreamWriteVarInt(ptr noundef %0, i32 noundef %1) local
 241:                                              ; preds = %240, %217
   %242 = phi i64 [ 0, %240 ], [ %238, %217 ]
   %.not.i132 = icmp eq i64 %226, 0
-  br i1 %.not.i132, label %243, label %199, !llvm.loop !8
+  br i1 %.not.i132, label %243, label %199, !llvm.loop !7
 
 243:                                              ; preds = %241
   %244 = and i32 %197, 255
@@ -2348,7 +2348,7 @@ define hidden i32 @avifRWStreamWriteVarInt(ptr noundef %0, i32 noundef %1) local
 291:                                              ; preds = %290, %267
   %.pre.i151 = phi i64 [ 0, %290 ], [ %288, %267 ]
   %.not.i144 = icmp eq i64 %276, 0
-  br i1 %.not.i144, label %292, label %.preheader, !llvm.loop !8
+  br i1 %.not.i144, label %292, label %.preheader, !llvm.loop !7
 
 292:                                              ; preds = %291
   %293 = and i32 %1, 255
@@ -2422,7 +2422,7 @@ define hidden i32 @avifRWStreamWriteVarInt(ptr noundef %0, i32 noundef %1) local
 336:                                              ; preds = %335, %312
   %337 = phi i64 [ 0, %335 ], [ %333, %312 ]
   %.not.i156 = icmp eq i64 %321, 0
-  br i1 %.not.i156, label %338, label %294, !llvm.loop !8
+  br i1 %.not.i156, label %338, label %294, !llvm.loop !7
 
 338:                                              ; preds = %336
   %339 = lshr i32 %1, 8
@@ -2505,7 +2505,7 @@ define hidden i32 @avifRWStreamWriteVarInt(ptr noundef %0, i32 noundef %1) local
 386:                                              ; preds = %385, %362
   %.pre.i175 = phi i64 [ 0, %385 ], [ %383, %362 ]
   %.not.i168 = icmp eq i64 %371, 0
-  br i1 %.not.i168, label %387, label %.preheader264, !llvm.loop !8
+  br i1 %.not.i168, label %387, label %.preheader264, !llvm.loop !7
 
 387:                                              ; preds = %386
   %388 = and i32 %1, 255
@@ -2579,7 +2579,7 @@ define hidden i32 @avifRWStreamWriteVarInt(ptr noundef %0, i32 noundef %1) local
 431:                                              ; preds = %430, %407
   %432 = phi i64 [ 0, %430 ], [ %428, %407 ]
   %.not.i180 = icmp eq i64 %416, 0
-  br i1 %.not.i180, label %433, label %389, !llvm.loop !8
+  br i1 %.not.i180, label %433, label %389, !llvm.loop !7
 
 433:                                              ; preds = %431
   %434 = lshr i32 %1, 8
@@ -2640,8 +2640,7 @@ attributes #12 = { nounwind willreturn memory(read) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5, !6}
+!4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{!"llvm.loop.estimated_trip_count"}
-!7 = distinct !{!7, !5, !6}
-!8 = distinct !{!8, !5, !6}
+!6 = distinct !{!6, !5}
+!7 = distinct !{!7, !5}

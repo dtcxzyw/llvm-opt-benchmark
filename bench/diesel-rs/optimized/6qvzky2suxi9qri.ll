@@ -682,7 +682,7 @@ define hidden void @_ZN13dsl_auto_type9auto_type14auto_type_impl17h3d135053200db
 .backedge389:                                     ; preds = %251, %317
   %.pre = load ptr, ptr %59, align 8
   %.pre392 = load ptr, ptr %240, align 8
-  br label %241, !llvm.loop !13
+  br label %241
 
 254:                                              ; preds = %250
   %255 = load ptr, ptr %159, align 8, !nonnull !4, !align !11, !noundef !4
@@ -712,17 +712,17 @@ define hidden void @_ZN13dsl_auto_type9auto_type14auto_type_impl17h3d135053200db
   br i1 %268, label %269, label %272
 
 269:                                              ; preds = %267
-  %270 = load i64, ptr %.sroa.453.0310, align 8, !range !15, !noundef !4
+  %270 = load i64, ptr %.sroa.453.0310, align 8, !range !13, !noundef !4
   %271 = icmp eq i64 %270, 20
   br i1 %271, label %275, label %280
 
 272:                                              ; preds = %267
-  %273 = load i64, ptr %266, align 8, !range !15, !noundef !4
+  %273 = load i64, ptr %266, align 8, !range !13, !noundef !4
   %274 = icmp eq i64 %273, 18
   br i1 %274, label %304, label %.backedge383.backedge
 
 .backedge383.backedge:                            ; preds = %272, %308
-  br label %.backedge383, !llvm.loop !16
+  br label %.backedge383
 
 275:                                              ; preds = %269
   %276 = getelementptr inbounds nuw i8, ptr %.sroa.453.0310, i64 184
@@ -736,7 +736,7 @@ define hidden void @_ZN13dsl_auto_type9auto_type14auto_type_impl17h3d135053200db
           to label %299 unwind label %.loopexit.split-lp
 
 281:                                              ; preds = %275
-  %282 = load i64, ptr %279, align 8, !range !17, !noundef !4
+  %282 = load i64, ptr %279, align 8, !range !14, !noundef !4
   %283 = icmp eq i64 %282, 29
   br i1 %283, label %285, label %280
 
@@ -1181,7 +1181,7 @@ define hidden void @_ZN13dsl_auto_type9auto_type14auto_type_impl17h3d135053200db
           to label %.backedge.backedge unwind label %384
 
 .backedge.backedge:                               ; preds = %.thread342, %398
-  br label %.backedge, !llvm.loop !18
+  br label %.backedge
 
 404:                                              ; preds = %331, %.thread322, %330
   %.pn238331 = phi { ptr, i32 } [ %.pn238332, %.thread322 ], [ %.pn235.pn, %330 ], [ %lpad.thr_comm.split-lp336, %331 ]
@@ -1650,7 +1650,7 @@ define void @"_ZN96_$LT$dsl_auto_type..auto_type..DeriveParameters$u20$as$u20$da
   br i1 %60, label %64, label %63
 
 61:                                               ; preds = %56
-  %62 = load i64, ptr %54, align 8, !range !19, !noundef !4
+  %62 = load i64, ptr %54, align 8, !range !15, !noundef !4
   %.not = icmp eq i64 %62, 41
   br i1 %.not, label %120, label %116
 
@@ -1853,7 +1853,7 @@ define void @"_ZN96_$LT$dsl_auto_type..auto_type..DeriveParameters$u20$as$u20$da
 
 116:                                              ; preds = %61
   store ptr %54, ptr %39, align 8
-  %117 = load i64, ptr %54, align 8, !range !20, !noundef !4
+  %117 = load i64, ptr %54, align 8, !range !16, !noundef !4
   %118 = add nsw i64 %117, -39
   %switch = icmp ult i64 %118, 2
   %. = select i1 %switch, i64 8, i64 176
@@ -1952,7 +1952,7 @@ define void @"_ZN96_$LT$dsl_auto_type..auto_type..DeriveParameters$u20$as$u20$da
   %.sroa.0125.2 = phi i32 [ %.sroa.0125.0.ph, %207 ], [ %.sroa.0125.0.ph, %197 ], [ %.sroa.0125.0.ph, %195 ], [ %.sroa.0125.0.ph, %188 ], [ %.fca.0.extract123, %186 ], [ %.sroa.0125.0.ph, %178 ], [ %.sroa.0125.0.ph, %167 ], [ %.sroa.0125.0.ph, %.invoke333 ]
   %.sroa.5127.2 = phi i32 [ %.sroa.5127.0.ph, %207 ], [ %.sroa.5127.0.ph, %197 ], [ %.sroa.5127.0.ph, %195 ], [ %.sroa.5127.0.ph, %188 ], [ %.fca.1.extract124, %186 ], [ %.sroa.5127.0.ph, %178 ], [ %.sroa.5127.0.ph, %167 ], [ %.sroa.5127.0.ph, %.invoke333 ]
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h4d27c8f4534fc6e3E"(ptr nonnull align 8 %38)
-          to label %.outer unwind label %.thread180.loopexit.split-lp, !llvm.loop !21
+          to label %.outer unwind label %.thread180.loopexit.split-lp
 
 158:                                              ; preds = %152
   %159 = load ptr, ptr %39, align 8, !nonnull !4, !align !11, !noundef !4
@@ -2149,7 +2149,7 @@ define void @"_ZN96_$LT$dsl_auto_type..auto_type..DeriveParameters$u20$as$u20$da
 
 212:                                              ; preds = %210
   invoke void @_ZN12darling_core5error11Accumulator4push17ha6e8eb8623cca1ddE(ptr nonnull align 8 %41, ptr nonnull align 8 %12)
-          to label %53 unwind label %.thread180.loopexit, !llvm.loop !21
+          to label %53 unwind label %.thread180.loopexit
 
 .thread173:                                       ; preds = %96
   br i1 %.4146, label %.thread173.thread, label %110
@@ -2539,12 +2539,7 @@ attributes #9 = { noreturn }
 !10 = !{i64 0, i64 -9223372036854775807}
 !11 = !{i64 8}
 !12 = !{i64 0, i64 17}
-!13 = distinct !{!13, !14}
-!14 = !{!"llvm.loop.estimated_trip_count"}
-!15 = !{i64 0, i64 22}
-!16 = distinct !{!16, !14}
-!17 = !{i64 0, i64 39}
-!18 = distinct !{!18, !14}
-!19 = !{i64 0, i64 42}
-!20 = !{i64 0, i64 41}
-!21 = distinct !{!21, !14}
+!13 = !{i64 0, i64 22}
+!14 = !{i64 0, i64 39}
+!15 = !{i64 0, i64 42}
+!16 = !{i64 0, i64 41}

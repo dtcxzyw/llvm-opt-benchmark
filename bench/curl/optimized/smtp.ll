@@ -580,13 +580,13 @@ smtp_parse_address.exit130.i.i.i:                 ; preds = %113
 .loopexit.i.i.i:                                  ; preds = %.loopexit.loopexit.i.i.i, %200, %195
   %.6.i.i.i = phi i8 [ %.2.i.i.i, %195 ], [ 0, %200 ], [ %spec.select.i.i.i, %.loopexit.loopexit.i.i.i ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #9
-  store ptr null, ptr %4, align 8, !tbaa !103
+  store ptr null, ptr %4, align 8, !tbaa !102
   %208 = call i32 @Curl_creader_create(ptr noundef nonnull %4, ptr noundef nonnull %0, ptr noundef nonnull @cr_eob, i32 noundef 3) #9
   %.not.i131.i.i.i = icmp eq i32 %208, 0
   br i1 %.not.i131.i.i.i, label %209, label %212
 
 209:                                              ; preds = %.loopexit.i.i.i
-  %210 = load ptr, ptr %4, align 8, !tbaa !103
+  %210 = load ptr, ptr %4, align 8, !tbaa !102
   %211 = call i32 @Curl_creader_add(ptr noundef nonnull %0, ptr noundef %210) #9
   br label %212
 
@@ -637,7 +637,7 @@ cr_eob_add.exit.i.i.i:                            ; preds = %212
 227:                                              ; preds = %.thread173.i.i.i
   %228 = load ptr, ptr %55, align 8, !tbaa !90
   %229 = getelementptr inbounds nuw i8, ptr %228, i64 1280
-  %230 = load i32, ptr %229, align 8, !tbaa !104
+  %230 = load i32, ptr %229, align 8, !tbaa !103
   %.not181.i.i.i = icmp eq i32 %230, 8
   br i1 %.not181.i.i.i, label %smtp_perform_mail.exit.thread.i.i, label %231
 
@@ -675,7 +675,7 @@ cr_eob_add.exit.i.i.i:                            ; preds = %212
   br label %smtp_perform_mail.exit.thread.i.i
 
 smtp_perform_mail.exit.thread.i.i:                ; preds = %244, %243, %237, %231, %227
-  store i32 8, ptr %229, align 8, !tbaa !104
+  store i32 8, ptr %229, align 8, !tbaa !103
   br label %249
 
 smtp_perform_mail.exit.i.i:                       ; preds = %52, %49
@@ -701,7 +701,7 @@ smtp_perform_mail.exit.i.i:                       ; preds = %52, %49
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3) #9
   store i8 0, ptr %3, align 1, !tbaa !79
   %259 = call i32 @Curl_conn_connect(ptr noundef nonnull %0, i32 noundef 0, i1 noundef zeroext false, ptr noundef nonnull %3) #9
-  %260 = load i8, ptr %3, align 1, !tbaa !79, !range !109, !noundef !110
+  %260 = load i8, ptr %3, align 1, !tbaa !79, !range !108, !noundef !109
   %261 = load i8, ptr %255, align 8
   %262 = and i8 %261, -2
   %263 = or disjoint i8 %262, %260
@@ -715,7 +715,7 @@ smtp_perform_mail.exit.i.i:                       ; preds = %52, %49
 .critedge.i.i.i:                                  ; preds = %258, %254, %249
   %264 = call i32 @Curl_pp_statemach(ptr noundef nonnull %0, ptr noundef nonnull %252, i1 noundef zeroext false, i1 noundef zeroext false) #9
   %265 = getelementptr inbounds nuw i8, ptr %251, i64 1280
-  %266 = load i32, ptr %265, align 8, !tbaa !104
+  %266 = load i32, ptr %265, align 8, !tbaa !103
   %267 = icmp eq i32 %266, 0
   %268 = zext i1 %267 to i8
   store i8 %268, ptr %1, align 1, !tbaa !79
@@ -757,7 +757,7 @@ smtp_perform_mail.exit.thread54.i.i:              ; preds = %smtp_multi_statemac
   br i1 %.old3.i.i, label %284, label %smtp_perform.exit.i
 
 284:                                              ; preds = %283, %277
-  %285 = load i8, ptr %1, align 1, !tbaa !79, !range !109, !noundef !110
+  %285 = load i8, ptr %1, align 1, !tbaa !79, !range !108, !noundef !109
   %286 = zext nneg i8 %285 to i32
   call void (ptr, ptr, ...) @Curl_trc_smtp(ptr noundef nonnull %0, ptr noundef nonnull @.str.53, i32 noundef %.1.i.i, i32 noundef %.025.i, i32 noundef %286) #9
   br label %smtp_perform.exit.i
@@ -767,7 +767,7 @@ smtp_perform.exit.i:                              ; preds = %284, %283, %277, %s
   br i1 %.not.i21, label %287, label %smtp_dophase_done.exit.i
 
 287:                                              ; preds = %smtp_perform.exit.i
-  %288 = load i8, ptr %1, align 1, !tbaa !79, !range !109, !noundef !110
+  %288 = load i8, ptr %1, align 1, !tbaa !79, !range !108, !noundef !109
   %289 = trunc nuw i8 %288 to i1
   br i1 %289, label %290, label %smtp_dophase_done.exit.i
 
@@ -808,7 +808,7 @@ smtp_dophase_done.exit.i:                         ; preds = %293, %290, %287, %s
   br i1 %.old1.i, label %smtp_regular_transfer.exit, label %smtp_regular_transfer.exit.thread
 
 smtp_regular_transfer.exit:                       ; preds = %299, %305
-  %306 = load i8, ptr %1, align 1, !tbaa !79, !range !109, !noundef !110
+  %306 = load i8, ptr %1, align 1, !tbaa !79, !range !108, !noundef !109
   %307 = zext nneg i8 %306 to i32
   call void (ptr, ptr, ...) @Curl_trc_smtp(ptr noundef nonnull %0, ptr noundef nonnull @.str.51, i32 noundef %.1.i.i, i32 noundef %307) #9
   %.pre = load i64, ptr %17, align 2
@@ -837,7 +837,7 @@ smtp_regular_transfer.exit.thread:                ; preds = %299, %305, %smtp_re
   br i1 %.old1, label %318, label %smtp_regular_transfer.exit.thread26
 
 318:                                              ; preds = %311, %317
-  %319 = load i8, ptr %1, align 1, !tbaa !79, !range !109, !noundef !110
+  %319 = load i8, ptr %1, align 1, !tbaa !79, !range !108, !noundef !109
   %320 = zext nneg i8 %319 to i32
   call void (ptr, ptr, ...) @Curl_trc_smtp(ptr noundef nonnull %0, ptr noundef nonnull @.str.50, i32 noundef %.1.i.i, i32 noundef %320) #9
   br label %smtp_regular_transfer.exit.thread26
@@ -859,9 +859,9 @@ define internal i32 @smtp_done(ptr noundef %0, i32 noundef %1, i1 noundef zeroex
 8:                                                ; preds = %3
   %9 = load ptr, ptr @Curl_cfree, align 8, !tbaa !3
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %11 = load ptr, ptr %10, align 8, !tbaa !111
+  %11 = load ptr, ptr %10, align 8, !tbaa !110
   tail call void %9(ptr noundef %11) #9
-  store ptr null, ptr %10, align 8, !tbaa !111
+  store ptr null, ptr %10, align 8, !tbaa !110
   %.not31 = icmp eq i32 %1, 0
   br i1 %.not31, label %13, label %12
 
@@ -898,7 +898,7 @@ define internal i32 @smtp_done(ptr noundef %0, i32 noundef %1, i1 noundef zeroex
 27:                                               ; preds = %24, %20
   %28 = load ptr, ptr %4, align 8, !tbaa !90
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 1280
-  %30 = load i32, ptr %29, align 8, !tbaa !104
+  %30 = load i32, ptr %29, align 8, !tbaa !103
   %.not42 = icmp eq i32 %30, 11
   %31 = and i64 %15, 2147483648
   %.not.i = icmp eq i64 %31, 0
@@ -933,20 +933,20 @@ define internal i32 @smtp_done(ptr noundef %0, i32 noundef %1, i1 noundef zeroex
   br label %smtp_state.exit
 
 smtp_state.exit:                                  ; preds = %27, %35, %41, %42
-  store i32 11, ptr %29, align 8, !tbaa !104
+  store i32 11, ptr %29, align 8, !tbaa !103
   %46 = getelementptr inbounds nuw i8, ptr %5, i64 1088
   %47 = getelementptr inbounds nuw i8, ptr %5, i64 1280
-  %48 = load i32, ptr %47, align 8, !tbaa !104
+  %48 = load i32, ptr %47, align 8, !tbaa !103
   %.not6.i = icmp eq i32 %48, 0
   br i1 %.not6.i, label %.loopexit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %smtp_state.exit, %.lr.ph.i
   %49 = tail call i32 @Curl_pp_statemach(ptr noundef nonnull %0, ptr noundef nonnull %46, i1 noundef zeroext true, i1 noundef zeroext false) #9
-  %50 = load i32, ptr %47, align 8, !tbaa !104
+  %50 = load i32, ptr %47, align 8, !tbaa !103
   %51 = icmp ne i32 %50, 0
   %.not.i39 = icmp eq i32 %49, 0
   %52 = select i1 %51, i1 %.not.i39, i1 false
-  br i1 %52, label %.lr.ph.i, label %.loopexit, !llvm.loop !112
+  br i1 %52, label %.lr.ph.i, label %.loopexit, !llvm.loop !111
 
 .loopexit:                                        ; preds = %.lr.ph.i, %12, %24, %17, %13, %smtp_state.exit
   %.026 = phi i32 [ %1, %12 ], [ 0, %13 ], [ 0, %24 ], [ 0, %17 ], [ 0, %smtp_state.exit ], [ %49, %.lr.ph.i ]
@@ -997,16 +997,16 @@ define internal i32 @smtp_connect(ptr noundef %0, ptr noundef writeonly captures
   store i8 0, ptr %1, align 1, !tbaa !79
   tail call void @Curl_conncontrol(ptr noundef %6, i32 noundef 0) #9
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 1144
-  store i64 120000, ptr %8, align 8, !tbaa !113
+  store i64 120000, ptr %8, align 8, !tbaa !112
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 1232
-  store ptr @smtp_statemachine, ptr %9, align 8, !tbaa !114
+  store ptr @smtp_statemachine, ptr %9, align 8, !tbaa !113
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 1240
-  store ptr @smtp_endofresp, ptr %10, align 8, !tbaa !115
+  store ptr @smtp_endofresp, ptr %10, align 8, !tbaa !114
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 1248
   tail call void @Curl_sasl_init(ptr noundef nonnull %11, ptr noundef %0, ptr noundef nonnull @saslsmtp) #9
   tail call void @Curl_pp_init(ptr noundef nonnull %7) #9
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 496
-  %13 = load ptr, ptr %12, align 8, !tbaa !116
+  %13 = load ptr, ptr %12, align 8, !tbaa !115
   %.not38.i = icmp eq ptr %13, null
   br i1 %.not38.i, label %.loopexit, label %.lr.ph.i
 
@@ -1027,7 +1027,7 @@ define internal i32 @smtp_connect(ptr noundef %0, ptr noundef writeonly captures
 16:                                               ; preds = %.preheader.i
   %17 = getelementptr inbounds nuw i8, ptr %.126.i, i64 1
   %.pr.i = load i8, ptr %17, align 1, !tbaa !7
-  br label %.preheader.i, !llvm.loop !124
+  br label %.preheader.i, !llvm.loop !123
 
 .critedge3.i:                                     ; preds = %.preheader.i, %.preheader.i
   %18 = getelementptr inbounds nuw i8, ptr %.126.i, i64 1
@@ -1044,7 +1044,7 @@ define internal i32 @smtp_connect(ptr noundef %0, ptr noundef writeonly captures
 21:                                               ; preds = %19
   %22 = getelementptr inbounds nuw i8, ptr %.2.i, i64 1
   %.pre.i = load i8, ptr %22, align 1, !tbaa !7
-  br label %19, !llvm.loop !125
+  br label %19, !llvm.loop !124
 
 .critedge5.i:                                     ; preds = %19, %19
   %23 = tail call i32 @curl_strnequal(ptr noundef nonnull %.02534.i, ptr noundef nonnull @.str.35, i64 noundef 5) #9
@@ -1061,12 +1061,12 @@ define internal i32 @smtp_connect(ptr noundef %0, ptr noundef writeonly captures
   %spec.select.idx.i = zext i1 %30 to i64
   %spec.select.i = getelementptr inbounds nuw i8, ptr %.2.i, i64 %spec.select.idx.i
   %31 = icmp eq i32 %28, 0
-  br i1 %31, label %.lr.ph.i, label %smtp_parse_url_options.exit, !llvm.loop !126
+  br i1 %31, label %.lr.ph.i, label %smtp_parse_url_options.exit, !llvm.loop !125
 
 .loopexit:                                        ; preds = %.lr.ph.i, %2
   %.val = load ptr, ptr %5, align 8, !tbaa !90
   %32 = getelementptr i8, ptr %0, i64 4616
-  %.val24 = load ptr, ptr %32, align 8, !tbaa !127
+  %.val24 = load ptr, ptr %32, align 8, !tbaa !126
   %33 = getelementptr inbounds nuw i8, ptr %.val24, i64 1
   call void @llvm.lifetime.start.p0(i64 1025, ptr nonnull %4) #9
   %34 = load i8, ptr %33, align 1, !tbaa !7
@@ -1090,7 +1090,7 @@ smtp_parse_url_path.exit:                         ; preds = %.loopexit, %35
 39:                                               ; preds = %smtp_parse_url_path.exit
   %40 = load ptr, ptr %5, align 8, !tbaa !90
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 1280
-  %42 = load i32, ptr %41, align 8, !tbaa !104
+  %42 = load i32, ptr %41, align 8, !tbaa !103
   %.not = icmp eq i32 %42, 1
   br i1 %.not, label %smtp_state.exit, label %43
 
@@ -1131,7 +1131,7 @@ smtp_parse_url_path.exit:                         ; preds = %.loopexit, %35
 
 smtp_state.exit:                                  ; preds = %39, %43, %50, %56, %57
   %61 = phi ptr [ %40, %39 ], [ %40, %43 ], [ %40, %50 ], [ %40, %56 ], [ %.pre, %57 ]
-  store i32 1, ptr %41, align 8, !tbaa !104
+  store i32 1, ptr %41, align 8, !tbaa !103
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 1088
   %63 = call zeroext i1 @Curl_conn_is_ssl(ptr noundef %61, i32 noundef 0) #9
   br i1 %63, label %64, label %.critedge.i
@@ -1147,7 +1147,7 @@ smtp_state.exit:                                  ; preds = %39, %43, %50, %56, 
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3) #9
   store i8 0, ptr %3, align 1, !tbaa !79
   %69 = call i32 @Curl_conn_connect(ptr noundef nonnull %0, i32 noundef 0, i1 noundef zeroext false, ptr noundef nonnull %3) #9
-  %70 = load i8, ptr %3, align 1, !tbaa !79, !range !109, !noundef !110
+  %70 = load i8, ptr %3, align 1, !tbaa !79, !range !108, !noundef !109
   %71 = load i8, ptr %65, align 8
   %72 = and i8 %71, -2
   %73 = or disjoint i8 %72, %70
@@ -1161,7 +1161,7 @@ smtp_state.exit:                                  ; preds = %39, %43, %50, %56, 
 .critedge.i:                                      ; preds = %68, %64, %smtp_state.exit
   %74 = call i32 @Curl_pp_statemach(ptr noundef nonnull %0, ptr noundef nonnull %62, i1 noundef zeroext false, i1 noundef zeroext false) #9
   %75 = getelementptr inbounds nuw i8, ptr %61, i64 1280
-  %76 = load i32, ptr %75, align 8, !tbaa !104
+  %76 = load i32, ptr %75, align 8, !tbaa !103
   %77 = icmp eq i32 %76, 0
   %78 = zext i1 %77 to i8
   store i8 %78, ptr %1, align 1, !tbaa !79
@@ -1192,7 +1192,7 @@ define internal i32 @smtp_multi_statemach(ptr noundef %0, ptr noundef writeonly 
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3) #9
   store i8 0, ptr %3, align 1, !tbaa !79
   %13 = call i32 @Curl_conn_connect(ptr noundef nonnull %0, i32 noundef 0, i1 noundef zeroext false, ptr noundef nonnull %3) #9
-  %14 = load i8, ptr %3, align 1, !tbaa !79, !range !109, !noundef !110
+  %14 = load i8, ptr %3, align 1, !tbaa !79, !range !108, !noundef !109
   %15 = load i8, ptr %9, align 8
   %16 = and i8 %15, -2
   %17 = or disjoint i8 %16, %14
@@ -1206,7 +1206,7 @@ define internal i32 @smtp_multi_statemach(ptr noundef %0, ptr noundef writeonly 
 .critedge:                                        ; preds = %12, %8, %2
   %18 = call i32 @Curl_pp_statemach(ptr noundef nonnull %0, ptr noundef nonnull %6, i1 noundef zeroext false, i1 noundef zeroext false) #9
   %19 = getelementptr inbounds nuw i8, ptr %5, i64 1280
-  %20 = load i32, ptr %19, align 8, !tbaa !104
+  %20 = load i32, ptr %19, align 8, !tbaa !103
   %21 = icmp eq i32 %20, 0
   %22 = zext i1 %21 to i8
   store i8 %22, ptr %1, align 1, !tbaa !79
@@ -1237,7 +1237,7 @@ define internal i32 @smtp_doing(ptr noundef %0, ptr noundef captures(none) %1) #
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3) #9
   store i8 0, ptr %3, align 1, !tbaa !79
   %13 = call i32 @Curl_conn_connect(ptr noundef nonnull %0, i32 noundef 0, i1 noundef zeroext false, ptr noundef nonnull %3) #9
-  %14 = load i8, ptr %3, align 1, !tbaa !79, !range !109, !noundef !110
+  %14 = load i8, ptr %3, align 1, !tbaa !79, !range !108, !noundef !109
   %15 = load i8, ptr %9, align 8
   %16 = and i8 %15, -2
   %17 = or disjoint i8 %16, %14
@@ -1251,7 +1251,7 @@ define internal i32 @smtp_doing(ptr noundef %0, ptr noundef captures(none) %1) #
 .critedge.i:                                      ; preds = %12, %8, %2
   %18 = call i32 @Curl_pp_statemach(ptr noundef nonnull %0, ptr noundef nonnull %6, i1 noundef zeroext false, i1 noundef zeroext false) #9
   %19 = getelementptr inbounds nuw i8, ptr %5, i64 1280
-  %20 = load i32, ptr %19, align 8, !tbaa !104
+  %20 = load i32, ptr %19, align 8, !tbaa !103
   %21 = icmp eq i32 %20, 0
   %22 = zext i1 %21 to i8
   store i8 %22, ptr %1, align 1, !tbaa !79
@@ -1263,7 +1263,7 @@ smtp_multi_statemach.exit:                        ; preds = %12, %.critedge.i
   br i1 %.not, label %23, label %smtp_dophase_done.exit
 
 23:                                               ; preds = %smtp_multi_statemach.exit
-  %24 = load i8, ptr %1, align 1, !tbaa !79, !range !109, !noundef !110
+  %24 = load i8, ptr %1, align 1, !tbaa !79, !range !108, !noundef !109
   %25 = trunc nuw i8 %24 to i1
   br i1 %25, label %26, label %smtp_dophase_done.exit
 
@@ -1306,7 +1306,7 @@ smtp_dophase_done.exit:                           ; preds = %23, %smtp_multi_sta
   br i1 %.old1, label %44, label %47
 
 44:                                               ; preds = %37, %43
-  %45 = load i8, ptr %1, align 1, !tbaa !79, !range !109, !noundef !110
+  %45 = load i8, ptr %1, align 1, !tbaa !79, !range !108, !noundef !109
   %46 = zext nneg i8 %45 to i32
   call void (ptr, ptr, ...) @Curl_trc_smtp(ptr noundef nonnull %0, ptr noundef nonnull @.str.68, i32 noundef %.1.i, i32 noundef %46) #9
   br label %47
@@ -1343,7 +1343,7 @@ define internal noundef i32 @smtp_disconnect(ptr noundef %0, ptr noundef %1, i1 
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %13 = load ptr, ptr %12, align 8, !tbaa !90
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 1280
-  %15 = load i32, ptr %14, align 8, !tbaa !104
+  %15 = load i32, ptr %14, align 8, !tbaa !103
   %16 = icmp ne i32 %15, 12
   %17 = icmp ne ptr %0, null
   %or.cond4.i.i = and i1 %17, %16
@@ -1384,30 +1384,30 @@ define internal noundef i32 @smtp_disconnect(ptr noundef %0, ptr noundef %1, i1 
   br label %36
 
 36:                                               ; preds = %11, %18, %25, %31, %32
-  store i32 12, ptr %14, align 8, !tbaa !104
+  store i32 12, ptr %14, align 8, !tbaa !103
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 1280
-  %38 = load i32, ptr %37, align 8, !tbaa !104
+  %38 = load i32, ptr %37, align 8, !tbaa !103
   %.not6.i = icmp eq i32 %38, 0
   br i1 %.not6.i, label %smtp_perform_quit.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %36, %.lr.ph.i
   %39 = tail call i32 @Curl_pp_statemach(ptr noundef nonnull %0, ptr noundef nonnull %4, i1 noundef zeroext true, i1 noundef zeroext true) #9
-  %40 = load i32, ptr %37, align 8, !tbaa !104
+  %40 = load i32, ptr %37, align 8, !tbaa !103
   %41 = icmp ne i32 %40, 0
   %.not.i22 = icmp eq i32 %39, 0
   %42 = select i1 %41, i1 %.not.i22, i1 false
-  br i1 %42, label %.lr.ph.i, label %smtp_perform_quit.exit, !llvm.loop !112
+  br i1 %42, label %.lr.ph.i, label %smtp_perform_quit.exit, !llvm.loop !111
 
 smtp_perform_quit.exit:                           ; preds = %.lr.ph.i, %36, %9, %5, %3
   %43 = tail call i32 @Curl_pp_disconnect(ptr noundef nonnull %4) #9
   %44 = getelementptr inbounds nuw i8, ptr %1, i64 1276
-  %45 = load i16, ptr %44, align 4, !tbaa !128
+  %45 = load i16, ptr %44, align 4, !tbaa !127
   tail call void @Curl_sasl_cleanup(ptr noundef %1, i16 noundef zeroext %45) #9
   %46 = load ptr, ptr @Curl_cfree, align 8, !tbaa !3
   %47 = getelementptr inbounds nuw i8, ptr %1, i64 1288
-  %48 = load ptr, ptr %47, align 8, !tbaa !129
+  %48 = load ptr, ptr %47, align 8, !tbaa !128
   tail call void %46(ptr noundef %48) #9
-  store ptr null, ptr %47, align 8, !tbaa !129
+  store ptr null, ptr %47, align 8, !tbaa !128
   %.not19 = icmp eq ptr %0, null
   br i1 %.not19, label %64, label %49
 
@@ -1471,9 +1471,9 @@ define internal i32 @smtp_statemachine(ptr noundef %0, ptr noundef %1) #0 {
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #9
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 1088
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #9
-  store i64 0, ptr %6, align 8, !tbaa !130
+  store i64 0, ptr %6, align 8, !tbaa !129
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 1280
-  %9 = load i32, ptr %8, align 8, !tbaa !104
+  %9 = load i32, ptr %8, align 8, !tbaa !103
   %10 = icmp eq i32 %9, 5
   br i1 %10, label %._crit_edge, label %12
 
@@ -1498,7 +1498,7 @@ define internal i32 @smtp_statemachine(ptr noundef %0, ptr noundef %1) #0 {
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 1276
   %27 = getelementptr inbounds nuw i8, ptr %1, i64 1288
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 1112
-  %29 = load i64, ptr %28, align 8, !tbaa !131
+  %29 = load i64, ptr %28, align 8, !tbaa !130
   %.not = icmp eq i64 %29, 0
   br i1 %.not, label %.preheader, label %30
 
@@ -1512,7 +1512,7 @@ define internal i32 @smtp_statemachine(ptr noundef %0, ptr noundef %1) #0 {
   br i1 %.not53, label %33, label %.critedge
 
 33:                                               ; preds = %.preheader
-  %34 = load i32, ptr %8, align 8, !tbaa !104
+  %34 = load i32, ptr %8, align 8, !tbaa !103
   %35 = icmp ne i32 %34, 12
   %36 = load i32, ptr %5, align 4
   %37 = icmp ne i32 %36, 1
@@ -1520,7 +1520,7 @@ define internal i32 @smtp_statemachine(ptr noundef %0, ptr noundef %1) #0 {
   br i1 %or.cond, label %38, label %39
 
 38:                                               ; preds = %33
-  store i32 %36, ptr %13, align 8, !tbaa !132
+  store i32 %36, ptr %13, align 8, !tbaa !131
   br label %39
 
 39:                                               ; preds = %38, %33
@@ -1554,15 +1554,15 @@ define internal i32 @smtp_statemachine(ptr noundef %0, ptr noundef %1) #0 {
   %44 = load ptr, ptr %14, align 8, !tbaa !90
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 1088
   %46 = getelementptr inbounds nuw i8, ptr %44, i64 1272
-  store i16 0, ptr %46, align 8, !tbaa !133
+  store i16 0, ptr %46, align 8, !tbaa !132
   %47 = getelementptr inbounds nuw i8, ptr %44, i64 1276
-  store i16 0, ptr %47, align 4, !tbaa !128
+  store i16 0, ptr %47, align 4, !tbaa !127
   %48 = getelementptr inbounds nuw i8, ptr %44, i64 1296
   %49 = load i8, ptr %48, align 8
   %50 = and i8 %49, -19
   store i8 %50, ptr %48, align 8
   %51 = getelementptr inbounds nuw i8, ptr %44, i64 1288
-  %52 = load ptr, ptr %51, align 8, !tbaa !129
+  %52 = load ptr, ptr %51, align 8, !tbaa !128
   %53 = call i32 (ptr, ptr, ptr, ...) @Curl_pp_sendf(ptr noundef %0, ptr noundef nonnull %45, ptr noundef nonnull @.str.2, ptr noundef %52) #9
   %.not.i.i = icmp eq i32 %53, 0
   br i1 %.not.i.i, label %54, label %.critedge
@@ -1570,7 +1570,7 @@ define internal i32 @smtp_statemachine(ptr noundef %0, ptr noundef %1) #0 {
 54:                                               ; preds = %43
   %55 = load ptr, ptr %14, align 8, !tbaa !90
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 1280
-  %57 = load i32, ptr %56, align 8, !tbaa !104
+  %57 = load i32, ptr %56, align 8, !tbaa !103
   %.not11.i.i = icmp eq i32 %57, 2
   br i1 %.not11.i.i, label %smtp_state.exit.i.i, label %58
 
@@ -1607,19 +1607,19 @@ define internal i32 @smtp_statemachine(ptr noundef %0, ptr noundef %1) #0 {
   br label %smtp_state.exit.i.i
 
 smtp_state.exit.i.i:                              ; preds = %70, %69, %63, %58, %54
-  store i32 2, ptr %56, align 8, !tbaa !104
+  store i32 2, ptr %56, align 8, !tbaa !103
   br label %smtp_state_servergreet_resp.exit.thread126thread-pre-split
 
 74:                                               ; preds = %40
   %75 = call ptr @Curl_dyn_ptr(ptr noundef nonnull %22) #9
-  %76 = load i64, ptr %23, align 8, !tbaa !134
+  %76 = load i64, ptr %23, align 8, !tbaa !133
   %77 = add i32 %36, -300
   %78 = icmp ult i32 %77, -100
   %or.cond.i = and i1 %37, %78
   br i1 %or.cond.i, label %79, label %108
 
 79:                                               ; preds = %74
-  %80 = load i8, ptr %21, align 4, !tbaa !135
+  %80 = load i8, ptr %21, align 4, !tbaa !134
   %81 = icmp ult i8 %80, 2
   br i1 %81, label %84, label %82
 
@@ -1628,8 +1628,8 @@ smtp_state.exit.i.i:                              ; preds = %70, %69, %63, %58, 
   br i1 %83, label %84, label %107
 
 84:                                               ; preds = %82, %79
-  store i16 0, ptr %26, align 4, !tbaa !128
-  %85 = load ptr, ptr %27, align 8, !tbaa !129
+  store i16 0, ptr %26, align 4, !tbaa !127
+  %85 = load ptr, ptr %27, align 8, !tbaa !128
   %86 = call i32 (ptr, ptr, ptr, ...) @Curl_pp_sendf(ptr noundef nonnull %0, ptr noundef nonnull %7, ptr noundef nonnull @.str.11, ptr noundef %85) #9
   %.not.i.i59 = icmp eq i32 %86, 0
   br i1 %.not.i.i59, label %87, label %.critedge
@@ -1637,7 +1637,7 @@ smtp_state.exit.i.i:                              ; preds = %70, %69, %63, %58, 
 87:                                               ; preds = %84
   %88 = load ptr, ptr %14, align 8, !tbaa !90
   %89 = getelementptr inbounds nuw i8, ptr %88, i64 1280
-  %90 = load i32, ptr %89, align 8, !tbaa !104
+  %90 = load i32, ptr %89, align 8, !tbaa !103
   %.not115.i = icmp eq i32 %90, 3
   br i1 %.not115.i, label %smtp_state.exit.i.i63, label %91
 
@@ -1674,7 +1674,7 @@ smtp_state.exit.i.i:                              ; preds = %70, %69, %63, %58, 
   br label %smtp_state.exit.i.i63
 
 smtp_state.exit.i.i63:                            ; preds = %103, %102, %96, %91, %87
-  store i32 3, ptr %89, align 8, !tbaa !104
+  store i32 3, ptr %89, align 8, !tbaa !103
   br label %smtp_state_servergreet_resp.exit.thread126thread-pre-split
 
 107:                                              ; preds = %82
@@ -1779,7 +1779,7 @@ smtp_state.exit.i.i63:                            ; preds = %103, %102, %96, %91
 .lr.ph.i.backedge:                                ; preds = %.critedge3.i, %.critedge100.i
   %.1120.i.be = phi i64 [ %134, %.critedge3.i ], [ %145, %.critedge100.i ]
   %.178119.i.be = phi ptr [ %133, %.critedge3.i ], [ %144, %.critedge100.i ]
-  br label %.lr.ph.i, !llvm.loop !136
+  br label %.lr.ph.i, !llvm.loop !135
 
 .critedge.preheader.i:                            ; preds = %.lr.ph.i, %.critedge.i
   %.075122.i = phi i64 [ %137, %.critedge.i ], [ 0, %.lr.ph.i ]
@@ -1795,7 +1795,7 @@ smtp_state.exit.i.i63:                            ; preds = %103, %102, %96, %91
 .critedge.i:                                      ; preds = %.critedge.preheader.i
   %137 = add nuw i64 %.075122.i, 1
   %exitcond.not.i = icmp eq i64 %137, %.1120.i
-  br i1 %exitcond.not.i, label %.critedge5.i, label %.critedge.preheader.i, !llvm.loop !137
+  br i1 %exitcond.not.i, label %.critedge5.i, label %.critedge.preheader.i, !llvm.loop !136
 
 .critedge5.i:                                     ; preds = %.critedge.i, %.critedge.preheader.i, %.critedge.preheader.i, %.critedge.preheader.i, %.critedge.preheader.i
   %.075.lcssa.i = phi i64 [ %.075122.i, %.critedge.preheader.i ], [ %.075122.i, %.critedge.preheader.i ], [ %.075122.i, %.critedge.preheader.i ], [ %.075122.i, %.critedge.preheader.i ], [ %.1120.i, %.critedge.i ]
@@ -1807,9 +1807,9 @@ smtp_state.exit.i.i63:                            ; preds = %103, %102, %96, %91
   br i1 %or.cond102.i, label %141, label %.critedge100.i
 
 141:                                              ; preds = %.critedge5.i
-  %142 = load i16, ptr %25, align 8, !tbaa !133
+  %142 = load i16, ptr %25, align 8, !tbaa !132
   %143 = or i16 %142, %138
-  store i16 %143, ptr %25, align 8, !tbaa !133
+  store i16 %143, ptr %25, align 8, !tbaa !132
   br label %.critedge100.i
 
 .critedge100.i:                                   ; preds = %141, %.critedge5.i
@@ -1824,7 +1824,7 @@ smtp_state.exit.i.i63:                            ; preds = %103, %102, %96, %91
   br i1 %37, label %146, label %smtp_state_servergreet_resp.exit.thread126thread-pre-split
 
 146:                                              ; preds = %.thread109.i
-  %147 = load i8, ptr %21, align 4, !tbaa !135
+  %147 = load i8, ptr %21, align 4, !tbaa !134
   %.not98.i = icmp eq i8 %147, 0
   br i1 %.not98.i, label %161, label %148
 
@@ -1843,7 +1843,7 @@ smtp_state.exit.i.i63:                            ; preds = %103, %102, %96, %91
   br label %smtp_state_servergreet_resp.exit
 
 155:                                              ; preds = %150
-  %156 = load i8, ptr %21, align 4, !tbaa !135
+  %156 = load i8, ptr %21, align 4, !tbaa !134
   %157 = icmp eq i8 %156, 1
   br i1 %157, label %158, label %160
 
@@ -1875,7 +1875,7 @@ smtp_state.exit.i.i63:                            ; preds = %103, %102, %96, %91
 166:                                              ; preds = %164
   %167 = load ptr, ptr %14, align 8, !tbaa !90
   %168 = getelementptr inbounds nuw i8, ptr %167, i64 1280
-  %169 = load i32, ptr %168, align 8, !tbaa !104
+  %169 = load i32, ptr %168, align 8, !tbaa !103
   %170 = icmp ne i32 %169, 0
   %or.cond4.i.i = and i1 %15, %170
   br i1 %or.cond4.i.i, label %171, label %smtp_state.exit.i
@@ -1913,7 +1913,7 @@ smtp_state.exit.i.i63:                            ; preds = %103, %102, %96, %91
   br label %smtp_state.exit.i
 
 smtp_state.exit.i:                                ; preds = %183, %182, %176, %171, %166
-  store i32 0, ptr %168, align 8, !tbaa !104
+  store i32 0, ptr %168, align 8, !tbaa !103
   br label %smtp_state_servergreet_resp.exit.thread126thread-pre-split
 
 187:                                              ; preds = %40
@@ -1928,7 +1928,7 @@ smtp_state.exit.i:                                ; preds = %183, %182, %176, %1
   br i1 %.not10.i, label %197, label %192
 
 192:                                              ; preds = %191
-  %193 = load i8, ptr %21, align 4, !tbaa !135
+  %193 = load i8, ptr %21, align 4, !tbaa !134
   %.not11.i = icmp eq i8 %193, 1
   br i1 %.not11.i, label %195, label %194
 
@@ -1950,7 +1950,7 @@ smtp_state_starttls_resp.exit:                    ; preds = %195, %197
   br i1 %.not55, label %199, label %.critedge
 
 199:                                              ; preds = %smtp_state_starttls_resp.exit
-  %200 = load i32, ptr %8, align 8, !tbaa !104
+  %200 = load i32, ptr %8, align 8, !tbaa !103
   %201 = icmp eq i32 %200, 5
   br i1 %201, label %._crit_edge, label %smtp_state_servergreet_resp.exit.thread126
 
@@ -1963,7 +1963,7 @@ smtp_state_starttls_resp.exit:                    ; preds = %195, %197
   br i1 %.not.i71, label %206, label %smtp_state_auth_resp.exit
 
 206:                                              ; preds = %202
-  %207 = load i32, ptr %3, align 4, !tbaa !138
+  %207 = load i32, ptr %3, align 4, !tbaa !137
   switch i32 %207, label %smtp_state_auth_resp.exit [
     i32 2, label %208
     i32 0, label %228
@@ -1972,7 +1972,7 @@ smtp_state_starttls_resp.exit:                    ; preds = %195, %197
 208:                                              ; preds = %206
   %209 = load ptr, ptr %14, align 8, !tbaa !90
   %210 = getelementptr inbounds nuw i8, ptr %209, i64 1280
-  %211 = load i32, ptr %210, align 8, !tbaa !104
+  %211 = load i32, ptr %210, align 8, !tbaa !103
   %.not9.i = icmp eq i32 %211, 0
   br i1 %.not9.i, label %smtp_state.exit.i76, label %212
 
@@ -2009,7 +2009,7 @@ smtp_state_starttls_resp.exit:                    ; preds = %195, %197
   br label %smtp_state.exit.i76
 
 smtp_state.exit.i76:                              ; preds = %224, %223, %217, %212, %208
-  store i32 0, ptr %210, align 8, !tbaa !104
+  store i32 0, ptr %210, align 8, !tbaa !103
   br label %smtp_state_auth_resp.exit
 
 228:                                              ; preds = %206
@@ -2075,7 +2075,7 @@ switch.early.test.i:                              ; preds = %229
 
 251:                                              ; preds = %249
   %252 = getelementptr inbounds nuw i8, ptr %250, i64 8
-  %253 = load ptr, ptr %252, align 8, !tbaa !139
+  %253 = load ptr, ptr %252, align 8, !tbaa !138
   store ptr %253, ptr %237, align 8, !tbaa !86
   %.not34.i = icmp eq ptr %253, null
   br i1 %.not34.i, label %256, label %254
@@ -2087,7 +2087,7 @@ switch.early.test.i:                              ; preds = %229
 256:                                              ; preds = %251
   %257 = load ptr, ptr %14, align 8, !tbaa !90
   %258 = getelementptr inbounds nuw i8, ptr %257, i64 1280
-  %259 = load i32, ptr %258, align 8, !tbaa !104
+  %259 = load i32, ptr %258, align 8, !tbaa !103
   %.not45.i = icmp eq i32 %259, 0
   br i1 %.not45.i, label %smtp_state.exit.i86, label %260
 
@@ -2124,13 +2124,13 @@ switch.early.test.i:                              ; preds = %229
   br label %smtp_state.exit.i86
 
 smtp_state.exit.i86:                              ; preds = %272, %271, %265, %260, %256
-  store i32 0, ptr %258, align 8, !tbaa !104
+  store i32 0, ptr %258, align 8, !tbaa !103
   br label %smtp_state_servergreet_resp.exit
 
 276:                                              ; preds = %249
   %277 = load ptr, ptr %14, align 8, !tbaa !90
   %278 = getelementptr inbounds nuw i8, ptr %277, i64 1280
-  %279 = load i32, ptr %278, align 8, !tbaa !104
+  %279 = load i32, ptr %278, align 8, !tbaa !103
   %.not46.i = icmp eq i32 %279, 0
   br i1 %.not46.i, label %smtp_state.exit42.i, label %280
 
@@ -2167,7 +2167,7 @@ smtp_state.exit.i86:                              ; preds = %272, %271, %265, %2
   br label %smtp_state.exit42.i
 
 smtp_state.exit42.i:                              ; preds = %292, %291, %285, %280, %276
-  store i32 0, ptr %278, align 8, !tbaa !104
+  store i32 0, ptr %278, align 8, !tbaa !103
   br label %smtp_state_servergreet_resp.exit
 
 296:                                              ; preds = %40
@@ -2212,7 +2212,7 @@ smtp_state.exit42.i:                              ; preds = %292, %291, %285, %2
   %312 = getelementptr inbounds nuw i8, ptr %301, i64 16
   %313 = load ptr, ptr %312, align 8, !tbaa !86
   %314 = getelementptr inbounds nuw i8, ptr %313, i64 8
-  %315 = load ptr, ptr %314, align 8, !tbaa !139
+  %315 = load ptr, ptr %314, align 8, !tbaa !138
   store ptr %315, ptr %312, align 8, !tbaa !86
   %.not26.i = icmp eq ptr %315, null
   br i1 %.not26.i, label %318, label %316
@@ -2242,7 +2242,7 @@ smtp_state.exit42.i:                              ; preds = %292, %291, %285, %2
 327:                                              ; preds = %325
   %328 = load ptr, ptr %14, align 8, !tbaa !90
   %329 = getelementptr inbounds nuw i8, ptr %328, i64 1280
-  %330 = load i32, ptr %329, align 8, !tbaa !104
+  %330 = load i32, ptr %329, align 8, !tbaa !103
   %.not31.i95 = icmp eq i32 %330, 10
   br i1 %.not31.i95, label %smtp_state.exit.i99, label %331
 
@@ -2279,7 +2279,7 @@ smtp_state.exit42.i:                              ; preds = %292, %291, %285, %2
   br label %smtp_state.exit.i99
 
 smtp_state.exit.i99:                              ; preds = %343, %342, %336, %331, %327
-  store i32 10, ptr %329, align 8, !tbaa !104
+  store i32 10, ptr %329, align 8, !tbaa !103
   br label %smtp_state_servergreet_resp.exit.thread126thread-pre-split
 
 347:                                              ; preds = %40
@@ -2296,7 +2296,7 @@ smtp_state.exit.i99:                              ; preds = %343, %342, %336, %3
   call void @Curl_xfer_setup1(ptr noundef %0, i32 noundef 2, i64 noundef -1, i1 noundef zeroext false) #9
   %351 = load ptr, ptr %14, align 8, !tbaa !90
   %352 = getelementptr inbounds nuw i8, ptr %351, i64 1280
-  %353 = load i32, ptr %352, align 8, !tbaa !104
+  %353 = load i32, ptr %352, align 8, !tbaa !103
   %354 = icmp ne i32 %353, 0
   %or.cond4.i.i104 = and i1 %15, %354
   br i1 %or.cond4.i.i104, label %355, label %smtp_state.exit.i105
@@ -2334,13 +2334,13 @@ smtp_state.exit.i99:                              ; preds = %343, %342, %336, %3
   br label %smtp_state.exit.i105
 
 smtp_state.exit.i105:                             ; preds = %367, %366, %360, %355, %349
-  store i32 0, ptr %352, align 8, !tbaa !104
+  store i32 0, ptr %352, align 8, !tbaa !103
   br label %smtp_state_servergreet_resp.exit.thread126thread-pre-split
 
 371:                                              ; preds = %40
   %372 = load ptr, ptr %14, align 8, !tbaa !90
   %373 = getelementptr inbounds nuw i8, ptr %372, i64 1280
-  %374 = load i32, ptr %373, align 8, !tbaa !104
+  %374 = load i32, ptr %373, align 8, !tbaa !103
   %375 = icmp ne i32 %374, 0
   %or.cond4.i.i111 = and i1 %15, %375
   br i1 %or.cond4.i.i111, label %376, label %smtp_state_postdata_resp.exit
@@ -2379,13 +2379,13 @@ smtp_state.exit.i105:                             ; preds = %367, %366, %360, %3
 
 smtp_state_postdata_resp.exit:                    ; preds = %371, %376, %381, %387, %388
   %.not.i113 = icmp eq i32 %36, 250
-  store i32 0, ptr %373, align 8, !tbaa !104
+  store i32 0, ptr %373, align 8, !tbaa !103
   br i1 %.not.i113, label %smtp_state_servergreet_resp.exit.thread126thread-pre-split, label %.critedge
 
 392:                                              ; preds = %40
   %393 = load ptr, ptr %14, align 8, !tbaa !90
   %394 = getelementptr inbounds nuw i8, ptr %393, i64 1280
-  %395 = load i32, ptr %394, align 8, !tbaa !104
+  %395 = load i32, ptr %394, align 8, !tbaa !103
   %396 = icmp ne i32 %395, 0
   %or.cond4.i = and i1 %15, %396
   br i1 %or.cond4.i, label %397, label %smtp_state.exit
@@ -2423,7 +2423,7 @@ smtp_state_postdata_resp.exit:                    ; preds = %371, %376, %381, %3
   br label %smtp_state.exit
 
 smtp_state.exit:                                  ; preds = %392, %397, %402, %408, %409
-  store i32 0, ptr %394, align 8, !tbaa !104
+  store i32 0, ptr %394, align 8, !tbaa !103
   br label %smtp_state_servergreet_resp.exit.thread126thread-pre-split
 
 smtp_state_servergreet_resp.exit:                 ; preds = %316, %298, %smtp_state.exit42.i, %smtp_state.exit.i86, %254, %248, %161, %158, %153, %smtp_state_auth_resp.exit
@@ -2432,7 +2432,7 @@ smtp_state_servergreet_resp.exit:                 ; preds = %316, %298, %smtp_st
   br i1 %.not56, label %smtp_state_servergreet_resp.exit.thread126thread-pre-split, label %.critedge
 
 smtp_state_servergreet_resp.exit.thread126thread-pre-split: ; preds = %smtp_state_servergreet_resp.exit, %smtp_state.exit, %smtp_state.exit.i.i, %.thread109.i, %smtp_state.exit.i.i63, %smtp_state.exit.i, %smtp_state.exit.i99, %smtp_state.exit.i105, %smtp_state_postdata_resp.exit
-  %.pr = load i32, ptr %8, align 8, !tbaa !104
+  %.pr = load i32, ptr %8, align 8, !tbaa !103
   br label %smtp_state_servergreet_resp.exit.thread126
 
 smtp_state_servergreet_resp.exit.thread126:       ; preds = %smtp_state_servergreet_resp.exit.thread126thread-pre-split, %199
@@ -2442,7 +2442,7 @@ smtp_state_servergreet_resp.exit.thread126:       ; preds = %smtp_state_servergr
 
 414:                                              ; preds = %smtp_state_servergreet_resp.exit.thread126
   %415 = call zeroext i1 @Curl_pp_moredata(ptr noundef nonnull %7) #9
-  br i1 %415, label %.preheader, label %.critedge, !llvm.loop !140
+  br i1 %415, label %.preheader, label %.critedge, !llvm.loop !139
 
 .critedge:                                        ; preds = %187, %325, %84, %43, %smtp_state_postdata_resp.exit, %smtp_state_starttls_resp.exit, %414, %39, %smtp_state_servergreet_resp.exit, %smtp_state_servergreet_resp.exit.thread126, %.preheader, %194, %348, %322, %310, %297, %243, %165, %163, %160, %107, %42, %30, %._crit_edge
   %.0 = phi i32 [ %11, %._crit_edge ], [ %31, %30 ], [ 55, %348 ], [ 55, %322 ], [ 55, %310 ], [ 55, %297 ], [ 8, %243 ], [ 9, %165 ], [ 8, %163 ], [ 64, %160 ], [ 9, %107 ], [ 8, %42 ], [ 64, %194 ], [ 8, %187 ], [ %.08.i, %smtp_state_starttls_resp.exit ], [ 8, %smtp_state_postdata_resp.exit ], [ %53, %43 ], [ %86, %84 ], [ %326, %325 ], [ 0, %39 ], [ 0, %smtp_state_servergreet_resp.exit.thread126 ], [ 0, %414 ], [ %.1, %smtp_state_servergreet_resp.exit ], [ %32, %.preheader ]
@@ -2497,7 +2497,7 @@ define internal noundef zeroext i1 @smtp_endofresp(ptr readnone captures(none) %
   %28 = tail call i32 @curlx_sltosi(i64 noundef %27) #9
   %29 = icmp eq i32 %28, 1
   %spec.select = select i1 %29, i32 0, i32 %28
-  store i32 %spec.select, ptr %4, align 4, !tbaa !138
+  store i32 %spec.select, ptr %4, align 4, !tbaa !137
   call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %6) #9
   br label %36
 
@@ -2507,14 +2507,14 @@ define internal noundef zeroext i1 @smtp_endofresp(ptr readnone captures(none) %
 
 32:                                               ; preds = %30
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 1280
-  %34 = load i32, ptr %33, align 8, !tbaa !104
+  %34 = load i32, ptr %33, align 8, !tbaa !103
   switch i32 %34, label %36 [
     i32 2, label %35
     i32 7, label %35
   ]
 
 35:                                               ; preds = %32, %32
-  store i32 1, ptr %4, align 4, !tbaa !138
+  store i32 1, ptr %4, align 4, !tbaa !137
   br label %36
 
 36:                                               ; preds = %24, %35, %30, %32, %5, %8, %11, %15
@@ -2547,21 +2547,21 @@ define internal fastcc i32 @smtp_perform_upgrade_tls(ptr noundef %0) unnamed_add
   br i1 %.not16, label %10, label %smtp_perform_ehlo.exit
 
 10:                                               ; preds = %8
-  %11 = load i8, ptr %2, align 1, !tbaa !79, !range !109, !noundef !110
+  %11 = load i8, ptr %2, align 1, !tbaa !79, !range !108, !noundef !109
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 1296
   %13 = load i8, ptr %12, align 8
   %14 = and i8 %13, -2
   %15 = or disjoint i8 %14, %11
   store i8 %15, ptr %12, align 8
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 1280
-  %17 = load i32, ptr %16, align 8, !tbaa !104
+  %17 = load i32, ptr %16, align 8, !tbaa !103
   %.not17 = icmp eq i32 %17, 5
   br i1 %.not17, label %40, label %18
 
 18:                                               ; preds = %10
   %19 = load ptr, ptr %3, align 8, !tbaa !90
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 1280
-  %21 = load i32, ptr %20, align 8, !tbaa !104
+  %21 = load i32, ptr %20, align 8, !tbaa !103
   %.not20 = icmp eq i32 %21, 5
   br i1 %.not20, label %smtp_state.exit, label %22
 
@@ -2600,7 +2600,7 @@ define internal fastcc i32 @smtp_perform_upgrade_tls(ptr noundef %0) unnamed_add
   br label %smtp_state.exit
 
 smtp_state.exit:                                  ; preds = %18, %22, %29, %35, %36
-  store i32 5, ptr %20, align 8, !tbaa !104
+  store i32 5, ptr %20, align 8, !tbaa !103
   %.pre = load i8, ptr %12, align 8
   br label %40
 
@@ -2612,7 +2612,7 @@ smtp_state.exit:                                  ; preds = %18, %22, %29, %35, 
 
 43:                                               ; preds = %40
   %44 = getelementptr inbounds nuw i8, ptr %4, i64 960
-  store ptr @Curl_handler_smtps, ptr %44, align 8, !tbaa !141
+  store ptr @Curl_handler_smtps, ptr %44, align 8, !tbaa !140
   %45 = getelementptr inbounds nuw i8, ptr %4, i64 952
   %46 = load i64, ptr %45, align 8
   %47 = or i64 %46, 134217728
@@ -2620,15 +2620,15 @@ smtp_state.exit:                                  ; preds = %18, %22, %29, %35, 
   %48 = load ptr, ptr %3, align 8, !tbaa !90
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 1088
   %50 = getelementptr inbounds nuw i8, ptr %48, i64 1272
-  store i16 0, ptr %50, align 8, !tbaa !133
+  store i16 0, ptr %50, align 8, !tbaa !132
   %51 = getelementptr inbounds nuw i8, ptr %48, i64 1276
-  store i16 0, ptr %51, align 4, !tbaa !128
+  store i16 0, ptr %51, align 4, !tbaa !127
   %52 = getelementptr inbounds nuw i8, ptr %48, i64 1296
   %53 = load i8, ptr %52, align 8
   %54 = and i8 %53, -19
   store i8 %54, ptr %52, align 8
   %55 = getelementptr inbounds nuw i8, ptr %48, i64 1288
-  %56 = load ptr, ptr %55, align 8, !tbaa !129
+  %56 = load ptr, ptr %55, align 8, !tbaa !128
   %57 = call i32 (ptr, ptr, ptr, ...) @Curl_pp_sendf(ptr noundef nonnull %0, ptr noundef nonnull %49, ptr noundef nonnull @.str.2, ptr noundef %56) #9
   %.not.i19 = icmp eq i32 %57, 0
   br i1 %.not.i19, label %58, label %smtp_perform_ehlo.exit
@@ -2636,7 +2636,7 @@ smtp_state.exit:                                  ; preds = %18, %22, %29, %35, 
 58:                                               ; preds = %43
   %59 = load ptr, ptr %3, align 8, !tbaa !90
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 1280
-  %61 = load i32, ptr %60, align 8, !tbaa !104
+  %61 = load i32, ptr %60, align 8, !tbaa !103
   %.not11.i = icmp eq i32 %61, 2
   br i1 %.not11.i, label %smtp_state.exit.i, label %62
 
@@ -2675,7 +2675,7 @@ smtp_state.exit:                                  ; preds = %18, %22, %29, %35, 
   br label %smtp_state.exit.i
 
 smtp_state.exit.i:                                ; preds = %76, %75, %69, %62, %58
-  store i32 2, ptr %60, align 8, !tbaa !104
+  store i32 2, ptr %60, align 8, !tbaa !103
   br label %smtp_perform_ehlo.exit
 
 smtp_perform_ehlo.exit:                           ; preds = %smtp_state.exit.i, %43, %8, %40, %6
@@ -2711,7 +2711,7 @@ define internal fastcc i32 @smtp_perform_starttls(ptr noundef %0, ptr noundef %1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = load ptr, ptr %6, align 8, !tbaa !90
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 1280
-  %9 = load i32, ptr %8, align 8, !tbaa !104
+  %9 = load i32, ptr %8, align 8, !tbaa !103
   %10 = icmp ne i32 %9, 4
   %11 = icmp ne ptr %0, null
   %or.cond4.i = and i1 %11, %10
@@ -2752,7 +2752,7 @@ define internal fastcc i32 @smtp_perform_starttls(ptr noundef %0, ptr noundef %1
   br label %smtp_state.exit
 
 smtp_state.exit:                                  ; preds = %5, %12, %19, %25, %26
-  store i32 4, ptr %8, align 8, !tbaa !104
+  store i32 4, ptr %8, align 8, !tbaa !103
   br label %30
 
 30:                                               ; preds = %smtp_state.exit, %2
@@ -2783,7 +2783,7 @@ define internal fastcc i32 @smtp_perform_authentication(ptr noundef %0) unnamed_
 11:                                               ; preds = %._crit_edge, %1
   %12 = phi ptr [ %.pre, %._crit_edge ], [ %4, %1 ]
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 1280
-  %14 = load i32, ptr %13, align 8, !tbaa !104
+  %14 = load i32, ptr %13, align 8, !tbaa !103
   %.not33 = icmp eq i32 %14, 0
   br i1 %.not33, label %smtp_state.exit, label %15
 
@@ -2822,7 +2822,7 @@ define internal fastcc i32 @smtp_perform_authentication(ptr noundef %0) unnamed_
   br label %smtp_state.exit
 
 smtp_state.exit:                                  ; preds = %11, %15, %22, %28, %29
-  store i32 0, ptr %13, align 8, !tbaa !104
+  store i32 0, ptr %13, align 8, !tbaa !103
   br label %72
 
 33:                                               ; preds = %8
@@ -2831,14 +2831,14 @@ smtp_state.exit:                                  ; preds = %11, %15, %22, %28, 
   br i1 %.not21, label %35, label %72
 
 35:                                               ; preds = %33
-  %36 = load i32, ptr %2, align 4, !tbaa !138
+  %36 = load i32, ptr %2, align 4, !tbaa !137
   %37 = icmp eq i32 %36, 1
   br i1 %37, label %38, label %60
 
 38:                                               ; preds = %35
   %39 = load ptr, ptr %3, align 8, !tbaa !90
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 1280
-  %41 = load i32, ptr %40, align 8, !tbaa !104
+  %41 = load i32, ptr %40, align 8, !tbaa !103
   %.not32 = icmp eq i32 %41, 6
   br i1 %.not32, label %smtp_state.exit31, label %42
 
@@ -2877,7 +2877,7 @@ smtp_state.exit:                                  ; preds = %11, %15, %22, %28, 
   br label %smtp_state.exit31
 
 smtp_state.exit31:                                ; preds = %38, %42, %49, %55, %56
-  store i32 6, ptr %40, align 8, !tbaa !104
+  store i32 6, ptr %40, align 8, !tbaa !103
   br label %72
 
 60:                                               ; preds = %35
@@ -2933,7 +2933,7 @@ define internal fastcc i32 @smtp_perform_command(ptr noundef %0) unnamed_addr #0
 
 9:                                                ; preds = %1
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %11 = load ptr, ptr %10, align 8, !tbaa !111
+  %11 = load ptr, ptr %10, align 8, !tbaa !110
   %.not41 = icmp eq ptr %11, null
   br i1 %.not41, label %14, label %12
 
@@ -3049,7 +3049,7 @@ define internal fastcc i32 @smtp_perform_command(ptr noundef %0) unnamed_addr #0
 66:                                               ; preds = %1
   %67 = getelementptr inbounds nuw i8, ptr %4, i64 1088
   %68 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %69 = load ptr, ptr %68, align 8, !tbaa !111
+  %69 = load ptr, ptr %68, align 8, !tbaa !110
   %.not39 = icmp eq ptr %69, null
   br i1 %.not39, label %72, label %70
 
@@ -3072,7 +3072,7 @@ define internal fastcc i32 @smtp_perform_command(ptr noundef %0) unnamed_addr #0
 76:                                               ; preds = %75
   %77 = load ptr, ptr %3, align 8, !tbaa !90
   %78 = getelementptr inbounds nuw i8, ptr %77, i64 1280
-  %79 = load i32, ptr %78, align 8, !tbaa !104
+  %79 = load i32, ptr %78, align 8, !tbaa !103
   %.not69 = icmp eq i32 %79, 7
   br i1 %.not69, label %smtp_state.exit, label %80
 
@@ -3111,7 +3111,7 @@ define internal fastcc i32 @smtp_perform_command(ptr noundef %0) unnamed_addr #0
   br label %smtp_state.exit
 
 smtp_state.exit:                                  ; preds = %76, %80, %87, %93, %94
-  store i32 7, ptr %78, align 8, !tbaa !104
+  store i32 7, ptr %78, align 8, !tbaa !103
   br label %98
 
 98:                                               ; preds = %65, %75, %smtp_state.exit
@@ -3208,7 +3208,7 @@ define internal fastcc i32 @smtp_perform_rcpt_to(ptr noundef %0) unnamed_addr #0
 35:                                               ; preds = %33
   %36 = load ptr, ptr %3, align 8, !tbaa !90
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 1280
-  %38 = load i32, ptr %37, align 8, !tbaa !104
+  %38 = load i32, ptr %37, align 8, !tbaa !103
   %.not = icmp eq i32 %38, 9
   br i1 %.not, label %smtp_state.exit, label %39
 
@@ -3247,7 +3247,7 @@ define internal fastcc i32 @smtp_perform_rcpt_to(ptr noundef %0) unnamed_addr #0
   br label %smtp_state.exit
 
 smtp_state.exit:                                  ; preds = %35, %39, %46, %52, %53
-  store i32 9, ptr %37, align 8, !tbaa !104
+  store i32 9, ptr %37, align 8, !tbaa !103
   br label %smtp_parse_address.exit
 
 smtp_parse_address.exit:                          ; preds = %1, %33, %smtp_state.exit
@@ -3342,7 +3342,7 @@ define internal noundef i32 @smtp_get_message(ptr noundef readonly captures(none
 .critedge:                                        ; preds = %14, %14
   %16 = getelementptr inbounds nuw i8, ptr %.023, i64 1
   %17 = add i64 %.0, -1
-  br label %14, !llvm.loop !142
+  br label %14, !llvm.loop !141
 
 .lr.ph:                                           ; preds = %.preheader, %21
   %.132 = phi i64 [ %18, %21 ], [ %.0, %.preheader ]
@@ -3358,7 +3358,7 @@ define internal noundef i32 @smtp_get_message(ptr noundef readonly captures(none
 
 21:                                               ; preds = %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph
   %.not = icmp eq i64 %18, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !143
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !142
 
 ._crit_edge:                                      ; preds = %21, %.lr.ph, %.preheader
   %.1.lcssa = phi i64 [ 0, %.preheader ], [ %.132, %.lr.ph ], [ 0, %21 ]
@@ -3422,9 +3422,9 @@ declare void @Curl_creader_free(ptr noundef, ptr noundef) local_unnamed_addr #2
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @cr_eob_init(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %4 = load ptr, ptr %3, align 8, !tbaa !144
+  %4 = load ptr, ptr %3, align 8, !tbaa !143
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 96
-  store i64 2, ptr %5, align 8, !tbaa !147
+  store i64 2, ptr %5, align 8, !tbaa !146
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 32
   tail call void @Curl_bufq_init2(ptr noundef nonnull %6, i64 noundef 16384, i64 noundef 1, i32 noundef 1) #9
   ret i32 0
@@ -3436,7 +3436,7 @@ define internal i32 @cr_eob_read(ptr noundef %0, ptr noundef readonly captures(n
   %8 = alloca i64, align 8
   %9 = alloca i8, align 1
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %11 = load ptr, ptr %10, align 8, !tbaa !144
+  %11 = load ptr, ptr %10, align 8, !tbaa !143
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #9
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #9
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %9) #9
@@ -3453,24 +3453,24 @@ define internal i32 @cr_eob_read(ptr noundef %0, ptr noundef readonly captures(n
 
 18:                                               ; preds = %15
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %20 = load ptr, ptr %19, align 8, !tbaa !149
+  %20 = load ptr, ptr %19, align 8, !tbaa !148
   %21 = call i32 @Curl_creader_read(ptr noundef %0, ptr noundef %20, ptr noundef %2, i64 noundef %3, ptr noundef nonnull %7, ptr noundef nonnull %9) #9
   %.not84 = icmp eq i32 %21, 0
   br i1 %.not84, label %22, label %.loopexit
 
 22:                                               ; preds = %18
-  %23 = load i8, ptr %9, align 1, !tbaa !79, !range !109, !noundef !110
+  %23 = load i8, ptr %9, align 1, !tbaa !79, !range !108, !noundef !109
   %24 = load i8, ptr %12, align 8
   %25 = and i8 %24, -2
   %26 = or disjoint i8 %25, %23
   store i8 %26, ptr %12, align 8
-  %27 = load i64, ptr %7, align 8, !tbaa !130
+  %27 = load i64, ptr %7, align 8, !tbaa !129
   %.not85 = icmp eq i64 %27, 0
   br i1 %.not85, label %69, label %28
 
 28:                                               ; preds = %22
   %29 = getelementptr inbounds nuw i8, ptr %11, i64 96
-  %30 = load i64, ptr %29, align 8, !tbaa !147
+  %30 = load i64, ptr %29, align 8, !tbaa !146
   %.not86 = icmp eq i64 %30, 0
   br i1 %.not86, label %31, label %.lr.ph
 
@@ -3480,7 +3480,7 @@ define internal i32 @cr_eob_read(ptr noundef %0, ptr noundef readonly captures(n
   br i1 %.not87, label %33, label %.lr.ph
 
 33:                                               ; preds = %31
-  store i64 %27, ptr %4, align 8, !tbaa !130
+  store i64 %27, ptr %4, align 8, !tbaa !129
   br label %.loopexit.sink.split
 
 .lr.ph:                                           ; preds = %28, %31
@@ -3507,7 +3507,7 @@ define internal i32 @cr_eob_read(ptr noundef %0, ptr noundef readonly captures(n
   br i1 %.not92, label %44, label %.loopexit
 
 44:                                               ; preds = %42
-  store i64 0, ptr %29, align 8, !tbaa !147
+  store i64 0, ptr %29, align 8, !tbaa !146
   %45 = load i64, ptr %34, align 8, !tbaa !96
   %46 = icmp sgt i64 %45, 0
   br i1 %46, label %47, label %49
@@ -3528,7 +3528,7 @@ define internal i32 @cr_eob_read(ptr noundef %0, ptr noundef readonly captures(n
   br i1 %.not93, label %.thread, label %55
 
 55:                                               ; preds = %49
-  store i64 0, ptr %29, align 8, !tbaa !147
+  store i64 0, ptr %29, align 8, !tbaa !146
   %.pre = load i8, ptr %51, align 1, !tbaa !7
   %56 = icmp eq i8 %.pre, 13
   br i1 %56, label %.thread, label %59
@@ -3536,15 +3536,15 @@ define internal i32 @cr_eob_read(ptr noundef %0, ptr noundef readonly captures(n
 .thread:                                          ; preds = %49, %55
   %57 = phi i64 [ 0, %55 ], [ %50, %49 ]
   %58 = add nuw nsw i64 %57, 1
-  store i64 %58, ptr %29, align 8, !tbaa !147
+  store i64 %58, ptr %29, align 8, !tbaa !146
   br label %59
 
 59:                                               ; preds = %55, %.thread
   %60 = phi i64 [ 0, %55 ], [ %58, %.thread ]
   %61 = add nuw i64 %.06999, 1
-  %62 = load i64, ptr %7, align 8, !tbaa !130
+  %62 = load i64, ptr %7, align 8, !tbaa !129
   %63 = icmp ult i64 %61, %62
-  br i1 %63, label %35, label %._crit_edge, !llvm.loop !150
+  br i1 %63, label %35, label %._crit_edge, !llvm.loop !149
 
 ._crit_edge:                                      ; preds = %59
   %64 = icmp ult i64 %.1, %62
@@ -3565,7 +3565,7 @@ define internal i32 @cr_eob_read(ptr noundef %0, ptr noundef readonly captures(n
 
 72:                                               ; preds = %69
   %73 = getelementptr inbounds nuw i8, ptr %11, i64 96
-  %74 = load i64, ptr %73, align 8, !tbaa !147
+  %74 = load i64, ptr %73, align 8, !tbaa !146
   %switch.selectcmp = icmp eq i64 %74, 3
   %switch.select = select i1 %switch.selectcmp, ptr @.str.66, ptr @.str.64
   %switch.selectcmp95 = icmp eq i64 %74, 2
@@ -3586,7 +3586,7 @@ define internal i32 @cr_eob_read(ptr noundef %0, ptr noundef readonly captures(n
   br label %83
 
 82:                                               ; preds = %77
-  store i64 0, ptr %4, align 8, !tbaa !130
+  store i64 0, ptr %4, align 8, !tbaa !129
   br label %83
 
 83:                                               ; preds = %82, %80
@@ -3629,7 +3629,7 @@ define internal i32 @cr_eob_read(ptr noundef %0, ptr noundef readonly captures(n
 ; Function Attrs: nounwind uwtable
 define internal void @cr_eob_close(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %4 = load ptr, ptr %3, align 8, !tbaa !144
+  %4 = load ptr, ptr %3, align 8, !tbaa !143
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 32
   tail call void @Curl_bufq_free(ptr noundef nonnull %5) #9
   ret void
@@ -3793,54 +3793,53 @@ attributes #10 = { nounwind willreturn memory(read) }
 !97 = !{!35, !35, i64 0}
 !98 = !{!99, !31, i64 0}
 !99 = !{!"curl_slist", !31, i64 0, !35, i64 8}
-!100 = distinct !{!100, !101, !102}
+!100 = distinct !{!100, !101}
 !101 = !{!"llvm.loop.mustprogress"}
-!102 = !{!"llvm.loop.estimated_trip_count"}
-!103 = !{!27, !27, i64 0}
-!104 = !{!105, !10, i64 192}
-!105 = !{!"smtp_conn", !106, i64 0, !107, i64 160, !10, i64 192, !31, i64 200, !10, i64 208, !10, i64 208, !10, i64 208, !10, i64 208, !10, i64 208}
-!106 = !{!"pingpong", !11, i64 0, !80, i64 8, !31, i64 16, !11, i64 24, !11, i64 32, !25, i64 40, !11, i64 56, !56, i64 64, !56, i64 96, !11, i64 128, !11, i64 136, !4, i64 144, !4, i64 152}
-!107 = !{!"SASL", !108, i64 0, !10, i64 8, !31, i64 16, !46, i64 24, !46, i64 26, !46, i64 28, !10, i64 30, !10, i64 30, !10, i64 30}
-!108 = !{!"p1 _ZTS9SASLproto", !4, i64 0}
-!109 = !{i8 0, i8 2}
-!110 = !{}
-!111 = !{!84, !31, i64 8}
-!112 = distinct !{!112, !101, !102}
-!113 = !{!106, !11, i64 56}
-!114 = !{!106, !4, i64 144}
-!115 = !{!106, !4, i64 152}
-!116 = !{!117, !31, i64 496}
-!117 = !{!"connectdata", !13, i64 0, !4, i64 32, !4, i64 40, !11, i64 48, !31, i64 56, !11, i64 64, !61, i64 72, !118, i64 80, !92, i64 88, !31, i64 120, !31, i64 128, !92, i64 136, !119, i64 168, !119, i64 224, !73, i64 280, !73, i64 380, !31, i64 480, !31, i64 488, !31, i64 496, !31, i64 504, !31, i64 512, !25, i64 520, !25, i64 536, !25, i64 552, !5, i64 568, !5, i64 576, !5, i64 592, !5, i64 608, !120, i64 624, !18, i64 664, !44, i64 696, !44, i64 824, !121, i64 952, !122, i64 960, !122, i64 968, !25, i64 976, !10, i64 992, !10, i64 996, !65, i64 1000, !10, i64 1032, !10, i64 1036, !123, i64 1040, !123, i64 1064, !5, i64 1088, !31, i64 1368, !31, i64 1376, !46, i64 1384, !10, i64 1388, !10, i64 1392, !10, i64 1396, !10, i64 1400, !46, i64 1404, !46, i64 1406, !5, i64 1408, !5, i64 1409, !5, i64 1410, !5, i64 1411, !5, i64 1412, !5, i64 1413, !5, i64 1414}
-!118 = !{!"p1 _ZTS16Curl_sockaddr_ex", !4, i64 0}
-!119 = !{!"proxy_info", !92, i64 0, !10, i64 32, !5, i64 36, !31, i64 40, !31, i64 48}
-!120 = !{!"", !5, i64 0, !10, i64 32}
-!121 = !{!"ConnectBits", !10, i64 0, !10, i64 0, !10, i64 0, !10, i64 0, !10, i64 0, !10, i64 0, !10, i64 0, !10, i64 0, !10, i64 1, !10, i64 1, !10, i64 1, !10, i64 1, !10, i64 1, !10, i64 1, !10, i64 1, !10, i64 1, !10, i64 2, !10, i64 2, !10, i64 2, !10, i64 2, !10, i64 2, !10, i64 2, !10, i64 2, !10, i64 2, !10, i64 3, !10, i64 3, !10, i64 3, !10, i64 3, !10, i64 3, !10, i64 3, !10, i64 3, !10, i64 3, !10, i64 4, !10, i64 4}
-!122 = !{!"p1 _ZTS12Curl_handler", !4, i64 0}
-!123 = !{!"ntlmdata", !10, i64 0, !5, i64 4, !10, i64 12, !4, i64 16}
-!124 = distinct !{!124, !101, !102}
-!125 = distinct !{!125, !101, !102}
-!126 = distinct !{!126, !101, !102}
-!127 = !{!9, !31, i64 4616}
-!128 = !{!105, !46, i64 188}
-!129 = !{!105, !31, i64 200}
-!130 = !{!11, !11, i64 0}
-!131 = !{!106, !11, i64 24}
-!132 = !{!9, !10, i64 5048}
-!133 = !{!105, !46, i64 184}
-!134 = !{!105, !11, i64 136}
-!135 = !{!9, !5, i64 2652}
-!136 = distinct !{!136, !102}
-!137 = distinct !{!137, !101, !102}
-!138 = !{!10, !10, i64 0}
-!139 = !{!99, !35, i64 8}
-!140 = distinct !{!140, !101, !102}
-!141 = !{!117, !122, i64 960}
-!142 = distinct !{!142, !101, !102}
-!143 = distinct !{!143, !101, !102}
-!144 = !{!145, !4, i64 16}
-!145 = !{!"Curl_creader", !146, i64 0, !27, i64 8, !4, i64 16, !10, i64 24}
-!146 = !{!"p1 _ZTS11Curl_crtype", !4, i64 0}
-!147 = !{!148, !11, i64 96}
-!148 = !{!"cr_eob_ctx", !145, i64 0, !28, i64 32, !11, i64 96, !11, i64 104, !10, i64 112, !10, i64 112}
-!149 = !{!145, !27, i64 8}
-!150 = distinct !{!150, !101, !102}
+!102 = !{!27, !27, i64 0}
+!103 = !{!104, !10, i64 192}
+!104 = !{!"smtp_conn", !105, i64 0, !106, i64 160, !10, i64 192, !31, i64 200, !10, i64 208, !10, i64 208, !10, i64 208, !10, i64 208, !10, i64 208}
+!105 = !{!"pingpong", !11, i64 0, !80, i64 8, !31, i64 16, !11, i64 24, !11, i64 32, !25, i64 40, !11, i64 56, !56, i64 64, !56, i64 96, !11, i64 128, !11, i64 136, !4, i64 144, !4, i64 152}
+!106 = !{!"SASL", !107, i64 0, !10, i64 8, !31, i64 16, !46, i64 24, !46, i64 26, !46, i64 28, !10, i64 30, !10, i64 30, !10, i64 30}
+!107 = !{!"p1 _ZTS9SASLproto", !4, i64 0}
+!108 = !{i8 0, i8 2}
+!109 = !{}
+!110 = !{!84, !31, i64 8}
+!111 = distinct !{!111, !101}
+!112 = !{!105, !11, i64 56}
+!113 = !{!105, !4, i64 144}
+!114 = !{!105, !4, i64 152}
+!115 = !{!116, !31, i64 496}
+!116 = !{!"connectdata", !13, i64 0, !4, i64 32, !4, i64 40, !11, i64 48, !31, i64 56, !11, i64 64, !61, i64 72, !117, i64 80, !92, i64 88, !31, i64 120, !31, i64 128, !92, i64 136, !118, i64 168, !118, i64 224, !73, i64 280, !73, i64 380, !31, i64 480, !31, i64 488, !31, i64 496, !31, i64 504, !31, i64 512, !25, i64 520, !25, i64 536, !25, i64 552, !5, i64 568, !5, i64 576, !5, i64 592, !5, i64 608, !119, i64 624, !18, i64 664, !44, i64 696, !44, i64 824, !120, i64 952, !121, i64 960, !121, i64 968, !25, i64 976, !10, i64 992, !10, i64 996, !65, i64 1000, !10, i64 1032, !10, i64 1036, !122, i64 1040, !122, i64 1064, !5, i64 1088, !31, i64 1368, !31, i64 1376, !46, i64 1384, !10, i64 1388, !10, i64 1392, !10, i64 1396, !10, i64 1400, !46, i64 1404, !46, i64 1406, !5, i64 1408, !5, i64 1409, !5, i64 1410, !5, i64 1411, !5, i64 1412, !5, i64 1413, !5, i64 1414}
+!117 = !{!"p1 _ZTS16Curl_sockaddr_ex", !4, i64 0}
+!118 = !{!"proxy_info", !92, i64 0, !10, i64 32, !5, i64 36, !31, i64 40, !31, i64 48}
+!119 = !{!"", !5, i64 0, !10, i64 32}
+!120 = !{!"ConnectBits", !10, i64 0, !10, i64 0, !10, i64 0, !10, i64 0, !10, i64 0, !10, i64 0, !10, i64 0, !10, i64 0, !10, i64 1, !10, i64 1, !10, i64 1, !10, i64 1, !10, i64 1, !10, i64 1, !10, i64 1, !10, i64 1, !10, i64 2, !10, i64 2, !10, i64 2, !10, i64 2, !10, i64 2, !10, i64 2, !10, i64 2, !10, i64 2, !10, i64 3, !10, i64 3, !10, i64 3, !10, i64 3, !10, i64 3, !10, i64 3, !10, i64 3, !10, i64 3, !10, i64 4, !10, i64 4}
+!121 = !{!"p1 _ZTS12Curl_handler", !4, i64 0}
+!122 = !{!"ntlmdata", !10, i64 0, !5, i64 4, !10, i64 12, !4, i64 16}
+!123 = distinct !{!123, !101}
+!124 = distinct !{!124, !101}
+!125 = distinct !{!125, !101}
+!126 = !{!9, !31, i64 4616}
+!127 = !{!104, !46, i64 188}
+!128 = !{!104, !31, i64 200}
+!129 = !{!11, !11, i64 0}
+!130 = !{!105, !11, i64 24}
+!131 = !{!9, !10, i64 5048}
+!132 = !{!104, !46, i64 184}
+!133 = !{!104, !11, i64 136}
+!134 = !{!9, !5, i64 2652}
+!135 = distinct !{!135, !101}
+!136 = distinct !{!136, !101}
+!137 = !{!10, !10, i64 0}
+!138 = !{!99, !35, i64 8}
+!139 = distinct !{!139, !101}
+!140 = !{!116, !121, i64 960}
+!141 = distinct !{!141, !101}
+!142 = distinct !{!142, !101}
+!143 = !{!144, !4, i64 16}
+!144 = !{!"Curl_creader", !145, i64 0, !27, i64 8, !4, i64 16, !10, i64 24}
+!145 = !{!"p1 _ZTS11Curl_crtype", !4, i64 0}
+!146 = !{!147, !11, i64 96}
+!147 = !{!"cr_eob_ctx", !144, i64 0, !28, i64 32, !11, i64 96, !11, i64 104, !10, i64 112, !10, i64 112}
+!148 = !{!144, !27, i64 8}
+!149 = distinct !{!149, !101}

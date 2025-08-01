@@ -553,7 +553,7 @@ _cmsFree.exit14:                                  ; preds = %_cmsFree.exit, %.lr
   %14 = load ptr, ptr %13, align 8
   tail call void %14(ptr noundef %11, ptr noundef nonnull %.018) #20
   %.not = icmp eq ptr %5, null
-  br i1 %.not, label %_cmsFree.exit16, label %.lr.ph, !llvm.loop !9
+  br i1 %.not, label %_cmsFree.exit16, label %.lr.ph, !llvm.loop !8
 
 _cmsFree.exit16:                                  ; preds = %_cmsFree.exit14, %1
   %15 = load ptr, ptr %0, align 8
@@ -1063,7 +1063,6 @@ attributes #21 = { nounwind allocsize(1) }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
+!8 = distinct !{!8, !7}

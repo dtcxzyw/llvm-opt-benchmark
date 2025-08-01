@@ -1026,7 +1026,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i16: 
   store i32 3, ptr %361, align 4
   %indvars.iv.next.i19 = add nuw nsw i64 %indvars.iv.i18, 1
   %exitcond.not.i20 = icmp eq i64 %indvars.iv.next.i19, 36
-  br i1 %exitcond.not.i20, label %368, label %360, !llvm.loop !8
+  br i1 %exitcond.not.i20, label %368, label %360, !llvm.loop !7
 
 362:                                              ; preds = %.noexc.i14, %_ZN10open_spiel7amazons12_GLOBAL__N_122PlayerOneSimpleWinTestEv.exit
   %363 = landingpad { ptr, i32 }
@@ -2248,7 +2248,6 @@ attributes #16 = { noreturn }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6, !7}
+!5 = distinct !{!5, !6}
 !6 = !{!"llvm.loop.mustprogress"}
-!7 = !{!"llvm.loop.estimated_trip_count"}
-!8 = distinct !{!8, !6, !7}
+!7 = distinct !{!7, !6}

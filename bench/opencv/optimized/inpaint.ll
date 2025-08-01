@@ -659,7 +659,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit136: ; preds = %_Z
   ]
 
 .fold.split.backedge:                             ; preds = %228, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit152, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit162
-  br label %.fold.split, !llvm.loop !67
+  br label %.fold.split
 
 229:                                              ; preds = %._crit_edge.i.i115
   %230 = landingpad { ptr, i32 }
@@ -1078,7 +1078,7 @@ define internal void @_ZL7onMouseiiiiPv(i32 noundef %0, i32 noundef %1, i32 noun
   br label %48
 
 17:                                               ; preds = %15
-  %18 = load i32, ptr @prevPt, align 8, !tbaa !69
+  %18 = load i32, ptr @prevPt, align 8, !tbaa !67
   %19 = icmp slt i32 %18, 0
   br i1 %19, label %20, label %.._crit_edge.i.i_crit_edge
 
@@ -1108,13 +1108,13 @@ define internal void @_ZL7onMouseiiiiPv(i32 noundef %0, i32 noundef %1, i32 noun
   store i32 50397184, ptr %6, align 8, !tbaa !64
   store ptr @inpaintMask, ptr %21, align 8, !tbaa !66
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #14
-  store double 2.550000e+02, ptr %7, align 8, !tbaa !71, !alias.scope !72
+  store double 2.550000e+02, ptr %7, align 8, !tbaa !69, !alias.scope !70
   %23 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store double 2.550000e+02, ptr %23, align 8, !tbaa !71, !alias.scope !72
+  store double 2.550000e+02, ptr %23, align 8, !tbaa !69, !alias.scope !70
   %24 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  store double 2.550000e+02, ptr %24, align 8, !tbaa !71, !alias.scope !72
+  store double 2.550000e+02, ptr %24, align 8, !tbaa !69, !alias.scope !70
   %25 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  store double 2.550000e+02, ptr %25, align 8, !tbaa !71, !alias.scope !72
+  store double 2.550000e+02, ptr %25, align 8, !tbaa !69, !alias.scope !70
   call void @_ZN2cv4lineERKNS_17_InputOutputArrayENS_6Point_IiEES4_RKNS_7Scalar_IdEEiii(ptr noundef nonnull align 8 dereferenceable(24) %6, i64 %.sroa.03.0.copyload, i64 %.sroa.023.0.insert.insert26.pre-phi, ptr noundef nonnull align 8 dereferenceable(32) %7, i32 noundef 5, i32 noundef 8, i32 noundef 0)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #14
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #14
@@ -1126,13 +1126,13 @@ define internal void @_ZL7onMouseiiiiPv(i32 noundef %0, i32 noundef %1, i32 noun
   store ptr @img, ptr %26, align 8, !tbaa !66
   %.sroa.01.0.copyload = load i64, ptr @prevPt, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9) #14
-  store double 2.550000e+02, ptr %9, align 8, !tbaa !71, !alias.scope !75
+  store double 2.550000e+02, ptr %9, align 8, !tbaa !69, !alias.scope !73
   %28 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  store double 2.550000e+02, ptr %28, align 8, !tbaa !71, !alias.scope !75
+  store double 2.550000e+02, ptr %28, align 8, !tbaa !69, !alias.scope !73
   %29 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  store double 2.550000e+02, ptr %29, align 8, !tbaa !71, !alias.scope !75
+  store double 2.550000e+02, ptr %29, align 8, !tbaa !69, !alias.scope !73
   %30 = getelementptr inbounds nuw i8, ptr %9, i64 24
-  store double 2.550000e+02, ptr %30, align 8, !tbaa !71, !alias.scope !75
+  store double 2.550000e+02, ptr %30, align 8, !tbaa !69, !alias.scope !73
   call void @_ZN2cv4lineERKNS_17_InputOutputArrayENS_6Point_IiEES4_RKNS_7Scalar_IdEEiii(ptr noundef nonnull align 8 dereferenceable(24) %8, i64 %.sroa.01.0.copyload, i64 %.sroa.023.0.insert.insert26.pre-phi, ptr noundef nonnull align 8 dereferenceable(32) %9, i32 noundef 5, i32 noundef 8, i32 noundef 0)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9) #14
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8) #14
@@ -1249,8 +1249,8 @@ define internal void @_GLOBAL__sub_I_inpaint.cpp() #11 section ".text.startup" {
   %2 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN2cv3MatD1Ev, ptr nonnull @img, ptr nonnull @__dso_handle) #14
   tail call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) @inpaintMask) #14
   %3 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN2cv3MatD1Ev, ptr nonnull @inpaintMask, ptr nonnull @__dso_handle) #14
-  store i32 -1, ptr @prevPt, align 8, !tbaa !69
-  store i32 -1, ptr getelementptr inbounds nuw (i8, ptr @prevPt, i64 4), align 4, !tbaa !78
+  store i32 -1, ptr @prevPt, align 8, !tbaa !67
+  store i32 -1, ptr getelementptr inbounds nuw (i8, ptr @prevPt, i64 4), align 4, !tbaa !76
   ret void
 }
 
@@ -1347,15 +1347,13 @@ attributes #16 = { noreturn }
 !64 = !{!65, !25, i64 0}
 !65 = !{!"_ZTSN2cv11_InputArrayE", !25, i64 0, !7, i64 8, !62, i64 16}
 !66 = !{!65, !7, i64 8}
-!67 = distinct !{!67, !68}
-!68 = !{!"llvm.loop.estimated_trip_count"}
-!69 = !{!70, !25, i64 0}
-!70 = !{!"_ZTSN2cv6Point_IiEE", !25, i64 0, !25, i64 4}
-!71 = !{!57, !57, i64 0}
-!72 = !{!73}
-!73 = distinct !{!73, !74, !"_ZN2cv7Scalar_IdE3allEd: argument 0"}
-!74 = distinct !{!74, !"_ZN2cv7Scalar_IdE3allEd"}
-!75 = !{!76}
-!76 = distinct !{!76, !77, !"_ZN2cv7Scalar_IdE3allEd: argument 0"}
-!77 = distinct !{!77, !"_ZN2cv7Scalar_IdE3allEd"}
-!78 = !{!70, !25, i64 4}
+!67 = !{!68, !25, i64 0}
+!68 = !{!"_ZTSN2cv6Point_IiEE", !25, i64 0, !25, i64 4}
+!69 = !{!57, !57, i64 0}
+!70 = !{!71}
+!71 = distinct !{!71, !72, !"_ZN2cv7Scalar_IdE3allEd: argument 0"}
+!72 = distinct !{!72, !"_ZN2cv7Scalar_IdE3allEd"}
+!73 = !{!74}
+!74 = distinct !{!74, !75, !"_ZN2cv7Scalar_IdE3allEd: argument 0"}
+!75 = distinct !{!75, !"_ZN2cv7Scalar_IdE3allEd"}
+!76 = !{!68, !25, i64 4}

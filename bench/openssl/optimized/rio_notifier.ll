@@ -126,7 +126,7 @@ define range(i32 0, 2) i32 @ossl_rio_notifier_unsignal(ptr noundef readonly capt
   br i1 %11, label %.critedge.backedge, label %.critedge2
 
 .critedge.backedge:                               ; preds = %8, %.critedge
-  br label %.critedge, !llvm.loop !13
+  br label %.critedge, !llvm.loop !12
 
 .critedge2:                                       ; preds = %8
   %12 = tail call i32 @BIO_fd_non_fatal_error(i32 noundef %10) #7
@@ -169,7 +169,6 @@ attributes #8 = { nounwind willreturn memory(none) }
 !7 = !{!8, !4, i64 0}
 !8 = !{!"rio_notifier_st", !4, i64 0, !4, i64 4}
 !9 = !{!8, !4, i64 4}
-!10 = distinct !{!10, !11, !12}
+!10 = distinct !{!10, !11}
 !11 = !{!"llvm.loop.mustprogress"}
-!12 = !{!"llvm.loop.estimated_trip_count"}
-!13 = distinct !{!13, !12}
+!12 = distinct !{!12, !11}

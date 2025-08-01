@@ -107,13 +107,13 @@ define ptr @cs_counts(ptr noundef %0, ptr noundef readonly captures(address_is_n
 .critedge:                                        ; preds = %56, %.lr.ph151, %.lr.ph154
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph154, !llvm.loop !17
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph154, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %.critedge, %.preheader147
   %59 = getelementptr inbounds nuw i8, ptr %24, i64 16
-  %60 = load ptr, ptr %59, align 8, !tbaa !18
+  %60 = load ptr, ptr %59, align 8, !tbaa !17
   %61 = getelementptr inbounds nuw i8, ptr %24, i64 24
-  %62 = load ptr, ptr %61, align 8, !tbaa !19
+  %62 = load ptr, ptr %61, align 8, !tbaa !18
   br i1 %.not136, label %init_ata.exit, label %63
 
 63:                                               ; preds = %._crit_edge
@@ -153,7 +153,7 @@ define ptr @cs_counts(ptr noundef %0, ptr noundef readonly captures(address_is_n
   store i32 %81, ptr %80, align 4, !tbaa !13
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %.preheader.i, label %.lr.ph.i, !llvm.loop !20
+  br i1 %exitcond.not.i, label %.preheader.i, label %.lr.ph.i, !llvm.loop !19
 
 82:                                               ; preds = %._crit_edge.i, %.lr.ph51.i
   %indvars.iv59.i = phi i64 [ 0, %.lr.ph51.i ], [ %indvars.iv.next60.i, %._crit_edge.i ]
@@ -181,7 +181,7 @@ define ptr @cs_counts(ptr noundef %0, ptr noundef readonly captures(address_is_n
   %.1..i = tail call i32 @llvm.smin.i32(i32 %.147.i, i32 %93)
   %indvars.iv.next55.i = add nsw i64 %indvars.iv54.i, 1
   %exitcond58.not.i = icmp eq i64 %indvars.iv.next55.i, %wide.trip.count57.i
-  br i1 %exitcond58.not.i, label %._crit_edge.i, label %.lr.ph48.i, !llvm.loop !21
+  br i1 %exitcond58.not.i, label %._crit_edge.i, label %.lr.ph48.i, !llvm.loop !20
 
 ._crit_edge.i:                                    ; preds = %.lr.ph48.i, %82
   %.1.lcssa.i = phi i32 [ %67, %82 ], [ %.1..i, %.lr.ph48.i ]
@@ -193,7 +193,7 @@ define ptr @cs_counts(ptr noundef %0, ptr noundef readonly captures(address_is_n
   %98 = trunc nuw nsw i64 %indvars.iv59.i to i32
   store i32 %98, ptr %95, align 4, !tbaa !13
   %exitcond63.not.i = icmp eq i64 %indvars.iv.next60.i, %wide.trip.count62.i
-  br i1 %exitcond63.not.i, label %init_ata.exit, label %82, !llvm.loop !22
+  br i1 %exitcond63.not.i, label %init_ata.exit, label %82, !llvm.loop !21
 
 init_ata.exit:                                    ; preds = %._crit_edge.i, %.preheader.i, %._crit_edge
   %.0145 = phi ptr [ null, %._crit_edge ], [ %70, %.preheader.i ], [ %70, %._crit_edge.i ]
@@ -215,7 +215,7 @@ init_ata.exit:                                    ; preds = %._crit_edge.i, %.pr
   store i32 %100, ptr %99, align 4, !tbaa !13
   %indvars.iv.next175 = add nuw nsw i64 %indvars.iv174, 1
   %exitcond178.not = icmp eq i64 %indvars.iv.next175, %wide.trip.count177
-  br i1 %exitcond178.not, label %.lr.ph167.preheader, label %.lr.ph156, !llvm.loop !23
+  br i1 %exitcond178.not, label %.lr.ph167.preheader, label %.lr.ph156, !llvm.loop !22
 
 .lr.ph169.preheader:                              ; preds = %170
   %wide.trip.count193 = zext nneg i32 %16 to i64
@@ -300,7 +300,7 @@ init_ata.exit:                                    ; preds = %._crit_edge.i, %.pr
   %138 = load i32, ptr %120, align 4, !tbaa !13
   %139 = sext i32 %138 to i64
   %140 = icmp slt i64 %indvars.iv.next183, %139
-  br i1 %140, label %.lr.ph159.us, label %._crit_edge165, !llvm.loop !24
+  br i1 %140, label %.lr.ph159.us, label %._crit_edge165, !llvm.loop !23
 
 .lr.ph164.split:                                  ; preds = %.lr.ph164.split.preheader, %._crit_edge160
   %.0124162 = phi i32 [ %166, %._crit_edge160 ], [ %114, %.lr.ph164.split.preheader ]
@@ -346,13 +346,13 @@ init_ata.exit:                                    ; preds = %._crit_edge.i, %.pr
   %162 = load i32, ptr %144, align 4, !tbaa !13
   %163 = sext i32 %162 to i64
   %164 = icmp slt i64 %indvars.iv.next180, %163
-  br i1 %164, label %.lr.ph159, label %._crit_edge160, !llvm.loop !24
+  br i1 %164, label %.lr.ph159, label %._crit_edge160, !llvm.loop !23
 
 ._crit_edge160:                                   ; preds = %.thread, %.lr.ph164.split
   %165 = getelementptr inbounds i32, ptr %.0144, i64 %141
   %166 = load i32, ptr %165, align 4, !tbaa !13
   %.not139 = icmp eq i32 %166, -1
-  br i1 %.not139, label %._crit_edge165, label %.lr.ph164.split, !llvm.loop !25
+  br i1 %.not139, label %._crit_edge165, label %.lr.ph164.split, !llvm.loop !24
 
 ._crit_edge165:                                   ; preds = %._crit_edge160, %.thread.us, %.thread195, %.lr.ph164.split.us, %112
   %167 = load i32, ptr %104, align 4, !tbaa !13
@@ -367,7 +367,7 @@ init_ata.exit:                                    ; preds = %._crit_edge.i, %.pr
 170:                                              ; preds = %._crit_edge165, %168
   %indvars.iv.next186 = add nuw nsw i64 %indvars.iv185, 1
   %exitcond189.not = icmp eq i64 %indvars.iv.next186, %wide.trip.count188
-  br i1 %exitcond189.not, label %.lr.ph169.preheader, label %.lr.ph167, !llvm.loop !26
+  br i1 %exitcond189.not, label %.lr.ph169.preheader, label %.lr.ph167, !llvm.loop !25
 
 .lr.ph169:                                        ; preds = %.lr.ph169.preheader, %180
   %indvars.iv190 = phi i64 [ 0, %.lr.ph169.preheader ], [ %indvars.iv.next191, %180 ]
@@ -389,7 +389,7 @@ init_ata.exit:                                    ; preds = %._crit_edge.i, %.pr
 180:                                              ; preds = %.lr.ph169, %173
   %indvars.iv.next191 = add nuw nsw i64 %indvars.iv190, 1
   %exitcond194.not = icmp eq i64 %indvars.iv.next191, %wide.trip.count193
-  br i1 %exitcond194.not, label %._crit_edge170, label %.lr.ph169, !llvm.loop !27
+  br i1 %exitcond194.not, label %._crit_edge170, label %.lr.ph169, !llvm.loop !26
 
 ._crit_edge170:                                   ; preds = %180, %init_ata.exit
   %181 = call ptr @cs_idone(ptr noundef nonnull %22, ptr noundef nonnull %24, ptr noundef nonnull %23, i32 noundef 1) #5
@@ -444,17 +444,16 @@ attributes #5 = { nounwind }
 !11 = !{!4, !5, i64 4}
 !12 = !{!4, !5, i64 8}
 !13 = !{!5, !5, i64 0}
-!14 = distinct !{!14, !15, !16}
+!14 = distinct !{!14, !15}
 !15 = !{!"llvm.loop.mustprogress"}
-!16 = !{!"llvm.loop.estimated_trip_count"}
-!17 = distinct !{!17, !15, !16}
-!18 = !{!4, !8, i64 16}
-!19 = !{!4, !8, i64 24}
-!20 = distinct !{!20, !15, !16}
-!21 = distinct !{!21, !15, !16}
-!22 = distinct !{!22, !15, !16}
-!23 = distinct !{!23, !15, !16}
-!24 = distinct !{!24, !15, !16}
-!25 = distinct !{!25, !15, !16}
-!26 = distinct !{!26, !15, !16}
-!27 = distinct !{!27, !15, !16}
+!16 = distinct !{!16, !15}
+!17 = !{!4, !8, i64 16}
+!18 = !{!4, !8, i64 24}
+!19 = distinct !{!19, !15}
+!20 = distinct !{!20, !15}
+!21 = distinct !{!21, !15}
+!22 = distinct !{!22, !15}
+!23 = distinct !{!23, !15}
+!24 = distinct !{!24, !15}
+!25 = distinct !{!25, !15}
+!26 = distinct !{!26, !15}

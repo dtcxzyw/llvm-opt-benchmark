@@ -1633,7 +1633,7 @@ define internal fastcc noundef zeroext i1 @_ZN3ozz9animation7offline12_GLOBAL__N
   %15 = sub i64 %13, %14
   %16 = sdiv exact i64 %15, 96
   %.not = icmp ult i64 %10, %16
-  br i1 %.not, label %.lr.ph, label %.loopexit, !llvm.loop !90
+  br i1 %.not, label %.lr.ph, label %.loopexit, !llvm.loop !89
 
 .lr.ph:                                           ; preds = %2, %9
   %17 = phi ptr [ %12, %9 ], [ %7, %2 ]
@@ -1641,7 +1641,7 @@ define internal fastcc noundef zeroext i1 @_ZN3ozz9animation7offline12_GLOBAL__N
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #12
   %18 = getelementptr inbounds nuw %"struct.ozz::animation::offline::RawSkeleton::Joint", ptr %17, i64 %.01528, i32 1
   %19 = load ptr, ptr %18, align 8, !tbaa !65
-  store ptr %19, ptr %3, align 8, !tbaa !91
+  store ptr %19, ptr %3, align 8, !tbaa !90
   %20 = call { ptr, i8 } @_ZNSt8_Rb_treeIPKcS1_St9_IdentityIS1_EN3ozz8str_lessENS4_12StdAllocatorIS1_EEE16_M_insert_uniqueIRKS1_EESt4pairISt17_Rb_tree_iteratorIS1_EbEOT_(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull align 8 dereferenceable(8) %3)
   %.fca.1.extract = extractvalue { ptr, i8 } %20, 1
   %21 = trunc i8 %.fca.1.extract to i1
@@ -1655,7 +1655,7 @@ define internal fastcc noundef zeroext i1 @_ZN3ozz9animation7offline12_GLOBAL__N
           to label %_ZN3ozz3log6LoggerlsIA55_cEERSoRKT_.exit unwind label %57
 
 _ZN3ozz3log6LoggerlsIA55_cEERSoRKT_.exit:         ; preds = %22
-  %25 = load ptr, ptr %3, align 8, !tbaa !91
+  %25 = load ptr, ptr %3, align 8, !tbaa !90
   %.not.i = icmp eq ptr %25, null
   br i1 %.not.i, label %26, label %34
 
@@ -1775,25 +1775,25 @@ _ZNSt8_Rb_treeIPKcS1_St9_IdentityIS1_EN3ozz8str_lessENS4_12StdAllocatorIS1_EEED2
 define linkonce_odr dso_local { ptr, i8 } @_ZNSt8_Rb_treeIPKcS1_St9_IdentityIS1_EN3ozz8str_lessENS4_12StdAllocatorIS1_EEE16_M_insert_uniqueIRKS1_EESt4pairISt17_Rb_tree_iteratorIS1_EbEOT_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %.02022.i = load ptr, ptr %3, align 8, !tbaa !92
+  %.02022.i = load ptr, ptr %3, align 8, !tbaa !91
   %.not23.i = icmp eq ptr %.02022.i, null
   br i1 %.not23.i, label %._crit_edge.thread.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %2
-  %5 = load ptr, ptr %1, align 8, !tbaa !91
+  %5 = load ptr, ptr %1, align 8, !tbaa !90
   br label %6
 
 6:                                                ; preds = %6, %.lr.ph.i
   %.02024.i = phi ptr [ %.02022.i, %.lr.ph.i ], [ %.020.i, %6 ]
   %7 = getelementptr inbounds nuw i8, ptr %.02024.i, i64 32
-  %8 = load ptr, ptr %7, align 8, !tbaa !91
+  %8 = load ptr, ptr %7, align 8, !tbaa !90
   %9 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(1) %8) #15
   %10 = icmp slt i32 %9, 0
   %.in.v.i = select i1 %10, i64 16, i64 24
   %.in.i = getelementptr inbounds nuw i8, ptr %.02024.i, i64 %.in.v.i
-  %.020.i = load ptr, ptr %.in.i, align 8, !tbaa !92
+  %.020.i = load ptr, ptr %.in.i, align 8, !tbaa !91
   %.not.i = icmp eq ptr %.020.i, null
-  br i1 %.not.i, label %._crit_edge.i, label %6, !llvm.loop !93
+  br i1 %.not.i, label %._crit_edge.i, label %6, !llvm.loop !92
 
 ._crit_edge.i:                                    ; preds = %6
   br i1 %10, label %._crit_edge.thread.i, label %16
@@ -1808,8 +1808,8 @@ define linkonce_odr dso_local { ptr, i8 } @_ZNSt8_Rb_treeIPKcS1_St9_IdentityIS1_
 14:                                               ; preds = %._crit_edge.thread.i
   %15 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.019.lcssa28.i) #15
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %15, i64 32
-  %.pre = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !91
-  %.pre18 = load ptr, ptr %1, align 8, !tbaa !91
+  %.pre = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !90
+  %.pre18 = load ptr, ptr %1, align 8, !tbaa !90
   br label %16
 
 16:                                               ; preds = %14, %._crit_edge.i
@@ -1828,8 +1828,8 @@ select.unfold:                                    ; preds = %16, %._crit_edge.th
 
 22:                                               ; preds = %select.unfold
   %23 = getelementptr inbounds nuw i8, ptr %.sroa.4.0.i.ph, i64 32
-  %24 = load ptr, ptr %1, align 8, !tbaa !91
-  %25 = load ptr, ptr %23, align 8, !tbaa !91
+  %24 = load ptr, ptr %1, align 8, !tbaa !90
+  %25 = load ptr, ptr %23, align 8, !tbaa !90
   %26 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %24, ptr noundef nonnull dereferenceable(1) %25) #15
   %27 = icmp slt i32 %26, 0
   br label %28
@@ -1855,8 +1855,8 @@ select.unfold:                                    ; preds = %16, %._crit_edge.th
 
 _ZNSt8_Rb_treeIPKcS1_St9_IdentityIS1_EN3ozz8str_lessENS4_12StdAllocatorIS1_EEE10_M_insert_IRKS1_NS8_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS1_EPSt18_Rb_tree_node_baseSG_OT_RT0_.exit: ; preds = %31
   %39 = getelementptr inbounds nuw i8, ptr %35, i64 32
-  %40 = load ptr, ptr %1, align 8, !tbaa !91
-  store ptr %40, ptr %39, align 8, !tbaa !91
+  %40 = load ptr, ptr %1, align 8, !tbaa !90
+  store ptr %40, ptr %39, align 8, !tbaa !90
   tail call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %29, ptr noundef %35, ptr noundef nonnull %.sroa.4.0.i.ph, ptr noundef nonnull align 8 dereferenceable(32) %4) #12
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %42 = load i64, ptr %41, align 8, !tbaa !44
@@ -1894,10 +1894,10 @@ _ZNSt8_Rb_treeIPKcS1_St9_IdentityIS1_EN3ozz8str_lessENS4_12StdAllocatorIS1_EEE12
 
 3:                                                ; preds = %_ZNSt8_Rb_treeIPKcS1_St9_IdentityIS1_EN3ozz8str_lessENS4_12StdAllocatorIS1_EEE12_M_drop_nodeEPSt13_Rb_tree_nodeIS1_E.exit
   %4 = getelementptr inbounds nuw i8, ptr %.0, i64 24
-  %5 = load ptr, ptr %4, align 8, !tbaa !94
+  %5 = load ptr, ptr %4, align 8, !tbaa !93
   tail call void @_ZNSt8_Rb_treeIPKcS1_St9_IdentityIS1_EN3ozz8str_lessENS4_12StdAllocatorIS1_EEE8_M_eraseEPSt13_Rb_tree_nodeIS1_E(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %5)
   %6 = getelementptr inbounds nuw i8, ptr %.0, i64 16
-  %7 = load ptr, ptr %6, align 8, !tbaa !95
+  %7 = load ptr, ptr %6, align 8, !tbaa !94
   %8 = invoke noundef ptr @_ZN3ozz6memory17default_allocatorEv()
           to label %9 unwind label %13
 
@@ -1906,7 +1906,7 @@ _ZNSt8_Rb_treeIPKcS1_St9_IdentityIS1_EN3ozz8str_lessENS4_12StdAllocatorIS1_EEE12
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 24
   %12 = load ptr, ptr %11, align 8
   invoke void %12(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull %.0)
-          to label %_ZNSt8_Rb_treeIPKcS1_St9_IdentityIS1_EN3ozz8str_lessENS4_12StdAllocatorIS1_EEE12_M_drop_nodeEPSt13_Rb_tree_nodeIS1_E.exit unwind label %13, !llvm.loop !96
+          to label %_ZNSt8_Rb_treeIPKcS1_St9_IdentityIS1_EN3ozz8str_lessENS4_12StdAllocatorIS1_EEE12_M_drop_nodeEPSt13_Rb_tree_nodeIS1_E.exit unwind label %13, !llvm.loop !95
 
 13:                                               ; preds = %9, %3
   %14 = landingpad { ptr, i32 }
@@ -2050,13 +2050,12 @@ attributes #15 = { nounwind willreturn memory(read) }
 !84 = !{!70, !76, i64 84}
 !85 = !{!70, !76, i64 88}
 !86 = !{!70, !76, i64 92}
-!87 = distinct !{!87, !88, !89}
+!87 = distinct !{!87, !88}
 !88 = !{!"llvm.loop.mustprogress"}
-!89 = !{!"llvm.loop.estimated_trip_count"}
-!90 = distinct !{!90, !88, !89}
-!91 = !{!68, !68, i64 0}
-!92 = !{!40, !40, i64 0}
-!93 = distinct !{!93, !88, !89}
-!94 = !{!38, !40, i64 24}
-!95 = !{!38, !40, i64 16}
-!96 = distinct !{!96, !88, !89}
+!89 = distinct !{!89, !88}
+!90 = !{!68, !68, i64 0}
+!91 = !{!40, !40, i64 0}
+!92 = distinct !{!92, !88}
+!93 = !{!38, !40, i64 24}
+!94 = !{!38, !40, i64 16}
+!95 = distinct !{!95, !88}

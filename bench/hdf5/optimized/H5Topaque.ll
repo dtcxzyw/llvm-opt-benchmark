@@ -133,7 +133,7 @@ define range(i32 -1, 1) i32 @H5Tset_tag(i64 noundef %0, ptr noundef %1) local_un
 57:                                               ; preds = %.preheader
   %58 = getelementptr inbounds nuw i8, ptr %.022, i64 40
   %59 = getelementptr inbounds nuw i8, ptr %54, i64 12
-  %60 = load i32, ptr %59, align 4, !tbaa !34
+  %60 = load i32, ptr %59, align 4, !tbaa !33
   %.not27 = icmp eq i32 %60, 5
   br i1 %.not27, label %65, label %61, !prof !29
 
@@ -170,12 +170,12 @@ define range(i32 -1, 1) i32 @H5Tset_tag(i64 noundef %0, ptr noundef %1) local_un
 
 78:                                               ; preds = %70
   %79 = getelementptr inbounds nuw i8, ptr %54, i64 48
-  %80 = load ptr, ptr %79, align 8, !tbaa !35
+  %80 = load ptr, ptr %79, align 8, !tbaa !34
   %81 = call ptr @H5MM_xfree(ptr noundef %80) #5
   %82 = call noalias ptr @H5MM_strdup(ptr noundef nonnull %1) #5
   %83 = load ptr, ptr %58, align 8, !tbaa !15
   %84 = getelementptr inbounds nuw i8, ptr %83, i64 48
-  store ptr %82, ptr %84, align 8, !tbaa !35
+  store ptr %82, ptr %84, align 8, !tbaa !34
   %85 = call i32 @H5CX_pop(i1 noundef zeroext true) #5
   br label %87
 
@@ -299,11 +299,11 @@ define noalias ptr @H5Tget_tag(i64 noundef %0) local_unnamed_addr #0 {
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 32
   %46 = load ptr, ptr %45, align 8, !tbaa !30
   %.not = icmp eq ptr %46, null
-  br i1 %.not, label %47, label %.preheader, !llvm.loop !36
+  br i1 %.not, label %47, label %.preheader, !llvm.loop !35
 
 47:                                               ; preds = %.preheader
   %48 = getelementptr inbounds nuw i8, ptr %44, i64 12
-  %49 = load i32, ptr %48, align 4, !tbaa !34
+  %49 = load i32, ptr %48, align 4, !tbaa !33
   %.not19 = icmp eq i32 %49, 5
   br i1 %.not19, label %54, label %50, !prof !29
 
@@ -315,7 +315,7 @@ define noalias ptr @H5Tget_tag(i64 noundef %0) local_unnamed_addr #0 {
 
 54:                                               ; preds = %47
   %55 = getelementptr inbounds nuw i8, ptr %44, i64 48
-  %56 = load ptr, ptr %55, align 8, !tbaa !35
+  %56 = load ptr, ptr %55, align 8, !tbaa !34
   %57 = call noalias ptr @H5MM_strdup(ptr noundef %56) #5
   %58 = icmp eq ptr %57, null
   br i1 %58, label %59, label %64, !prof !14
@@ -385,9 +385,8 @@ attributes #6 = { nounwind willreturn memory(read) }
 !28 = !{!"p1 _ZTS5H5T_t", !20, i64 0}
 !29 = !{!"branch_weights", i32 -2147483648, i32 0}
 !30 = !{!27, !28, i64 32}
-!31 = distinct !{!31, !32, !33}
+!31 = distinct !{!31, !32}
 !32 = !{!"llvm.loop.mustprogress"}
-!33 = !{!"llvm.loop.estimated_trip_count"}
-!34 = !{!27, !18, i64 12}
-!35 = !{!5, !5, i64 0}
-!36 = distinct !{!36, !32, !33}
+!33 = !{!27, !18, i64 12}
+!34 = !{!5, !5, i64 0}
+!35 = distinct !{!35, !32}

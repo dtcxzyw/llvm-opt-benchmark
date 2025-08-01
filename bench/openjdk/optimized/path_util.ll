@@ -65,7 +65,7 @@ define hidden void @collapse(ptr noundef %0) local_unnamed_addr #0 {
 19:                                               ; preds = %15
   %20 = getelementptr inbounds nuw i8, ptr %.116.i, i64 1
   %.pre.i = load i8, ptr %20, align 1
-  br label %15, !llvm.loop !9
+  br label %15, !llvm.loop !8
 
 collapsible.exit:                                 ; preds = %.loopexit.i
   %.not21.i = icmp eq i32 %.014.i, 0
@@ -96,14 +96,14 @@ collapsible.exit:                                 ; preds = %.loopexit.i
   switch i8 %30, label %29 [
     i8 0, label %splitNames.exit
     i8 47, label %.loopexit.i48
-  ], !llvm.loop !10
+  ], !llvm.loop !9
 
 .loopexit.i48:                                    ; preds = %29
   %31 = getelementptr inbounds nuw i8, ptr %.08.pn.i, i64 2
   store i8 0, ptr %.1.i47, align 1
   %.pre.i49 = load i8, ptr %31, align 1
   %32 = icmp eq i8 %.pre.i49, 0
-  br i1 %32, label %splitNames.exit, label %.lr.ph.i, !llvm.loop !11
+  br i1 %32, label %splitNames.exit, label %.lr.ph.i, !llvm.loop !10
 
 splitNames.exit:                                  ; preds = %.loopexit.i48, %29, %23
   %33 = zext nneg i32 %21 to i64
@@ -139,7 +139,7 @@ splitNames.exit:                                  ; preds = %.loopexit.i48, %29,
 47:                                               ; preds = %40, %43, %35
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %48 = icmp slt i64 %indvars.iv.next, %33
-  br i1 %48, label %35, label %.thread84.preheader, !llvm.loop !12
+  br i1 %48, label %35, label %.thread84.preheader, !llvm.loop !11
 
 49:                                               ; preds = %43
   %50 = trunc nsw i64 %indvars.iv to i32
@@ -166,7 +166,7 @@ splitNames.exit:                                  ; preds = %.loopexit.i48, %29,
   %57 = getelementptr inbounds nuw ptr, ptr %26, i64 %56
   %58 = load ptr, ptr %57, align 8
   %.not46 = icmp eq ptr %58, null
-  br i1 %.not46, label %.preheader, label %62, !llvm.loop !13
+  br i1 %.not46, label %.preheader, label %62, !llvm.loop !12
 
 59:                                               ; preds = %.preheader
   %60 = load i8, ptr %0, align 1
@@ -191,7 +191,7 @@ splitNames.exit:                                  ; preds = %.loopexit.i48, %29,
   %.26063 = phi i32 [ %50, %59 ], [ %.26063.ph, %.sink.split ]
   %68 = add nsw i32 %.26063, 1
   %69 = icmp slt i32 %68, %21
-  br i1 %69, label %.preheader66, label %.thread84.preheader, !llvm.loop !14
+  br i1 %69, label %.preheader66, label %.thread84.preheader, !llvm.loop !13
 
 .thread84.preheader:                              ; preds = %.thread, %49, %67, %47
   br label %.thread84
@@ -233,13 +233,13 @@ splitNames.exit:                                  ; preds = %.loopexit.i48, %29,
   %84 = getelementptr inbounds nuw i8, ptr %.2.i52, i64 1
   store i8 %83, ptr %.2.i52, align 1
   %.not21.i54 = icmp eq i8 %83, 0
-  br i1 %.not21.i54, label %.loopexit.i55, label %.preheader.i, !llvm.loop !15
+  br i1 %.not21.i54, label %.loopexit.i55, label %.preheader.i, !llvm.loop !14
 
 .loopexit.i55:                                    ; preds = %.preheader.i, %78, %.thread84
   %.1.i56 = phi ptr [ %81, %78 ], [ %.01723.i, %.thread84 ], [ %84, %.preheader.i ]
   %indvars.iv.next.i57 = add nuw nsw i64 %indvars.iv.i50, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i57, %24
-  br i1 %exitcond.not.i, label %joinNames.exit, label %.thread84, !llvm.loop !16
+  br i1 %exitcond.not.i, label %joinNames.exit, label %.thread84, !llvm.loop !15
 
 joinNames.exit:                                   ; preds = %.loopexit.i55
   store i8 0, ptr %.1.i56, align 1
@@ -264,14 +264,13 @@ attributes #2 = { nounwind willreturn memory(read) }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7, !8}
-!11 = distinct !{!11, !7, !8}
-!12 = distinct !{!12, !7, !8}
-!13 = distinct !{!13, !7, !8}
-!14 = distinct !{!14, !7, !8}
-!15 = distinct !{!15, !7, !8}
-!16 = distinct !{!16, !7, !8}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7}
+!12 = distinct !{!12, !7}
+!13 = distinct !{!13, !7}
+!14 = distinct !{!14, !7}
+!15 = distinct !{!15, !7}

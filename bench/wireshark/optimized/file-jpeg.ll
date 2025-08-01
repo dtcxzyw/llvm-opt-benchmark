@@ -602,7 +602,7 @@ define internal i32 @dissect_jfif(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %33 = sub i32 %5, %31
   %34 = icmp eq i32 %33, 1
   %or.cond = or i1 %32, %34
-  br i1 %or.cond, label %._crit_edge, label %.lr.ph, !llvm.loop !6
+  br i1 %or.cond, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %29, %21
   %.lcssa145 = phi i32 [ %22, %21 ], [ %31, %29 ]
@@ -631,7 +631,7 @@ define internal i32 @dissect_jfif(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %42 = add i32 %.0124, 1
   %43 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %42)
   %44 = icmp eq i8 %43, -1
-  br i1 %44, label %.preheader, label %45, !llvm.loop !8
+  br i1 %44, label %.preheader, label %45, !llvm.loop !6
 
 45:                                               ; preds = %.preheader
   %.not133 = icmp eq i32 %.0124, %35
@@ -743,7 +743,7 @@ define internal i32 @dissect_jfif(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %95 = tail call ptr @proto_tree_add_item(ptr noundef %71, i32 noundef %93, ptr noundef %62, i32 noundef %91, i32 noundef 1, i32 noundef 0)
   %96 = add i8 %.03337.i, -1
   %.not35.i = icmp eq i8 %96, 0
-  br i1 %.not35.i, label %process_sof_header.exit, label %.lr.ph.i, !llvm.loop !10
+  br i1 %.not35.i, label %process_sof_header.exit, label %.lr.ph.i, !llvm.loop !8
 
 97:                                               ; preds = %57
   tail call fastcc void @process_sos_header(ptr noundef %20, ptr noundef %62, i16 noundef zeroext -38, ptr noundef %53)
@@ -1120,7 +1120,7 @@ define internal fastcc void @process_sos_header(ptr noundef %0, ptr noundef %1, 
   %25 = tail call ptr @proto_tree_add_item(ptr noundef %9, i32 noundef %23, ptr noundef %1, i32 noundef %19, i32 noundef 1, i32 noundef 0)
   %26 = add i8 %.03640, -1
   %.not38 = icmp eq i8 %26, 0
-  br i1 %.not38, label %._crit_edge, label %.lr.ph, !llvm.loop !11
+  br i1 %.not38, label %._crit_edge, label %.lr.ph, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5
   %.0.lcssa = phi i32 [ 5, %5 ], [ %24, %.lr.ph ]
@@ -1437,7 +1437,7 @@ switch.lookup:                                    ; preds = %.lr.ph161
   %115 = add nuw i32 %.0130158, 1
   %116 = load i32, ptr %11, align 4
   %117 = icmp ult i32 %115, %116
-  br i1 %117, label %.lr.ph, label %.loopexit, !llvm.loop !12
+  br i1 %117, label %.lr.ph, label %.loopexit, !llvm.loop !10
 
 .loopexit:                                        ; preds = %.critedge, %65, %67, %57
   %118 = add i32 %.0126160, 12
@@ -1445,7 +1445,7 @@ switch.lookup:                                    ; preds = %.lr.ph161
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #5
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #5
   %.not = icmp eq i32 %28, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph161, !llvm.loop !13
+  br i1 %.not, label %._crit_edge, label %.lr.ph161, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %.loopexit, %17
   %.0126.lcssa = phi i32 [ %27, %17 ], [ %118, %.loopexit ]
@@ -1468,7 +1468,7 @@ switch.lookup:                                    ; preds = %.lr.ph161
   %129 = call i32 @tvb_reported_length_remaining(ptr noundef %1, i32 noundef %121)
   %130 = icmp slt i32 %129, 6
   %131 = add i32 %.0123, 1
-  br i1 %130, label %132, label %17, !llvm.loop !14
+  br i1 %130, label %132, label %17
 
 132:                                              ; preds = %128
   %133 = call i32 @tvb_reported_length_remaining(ptr noundef %1, i32 noundef 6)
@@ -1524,11 +1524,8 @@ attributes #6 = { nounwind willreturn memory(read) }
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = distinct !{!6, !7}
-!7 = !{!"llvm.loop.estimated_trip_count"}
-!8 = distinct !{!8, !9, !7}
-!9 = !{!"llvm.loop.mustprogress"}
-!10 = distinct !{!10, !9, !7}
-!11 = distinct !{!11, !9, !7}
-!12 = distinct !{!12, !9, !7}
-!13 = distinct !{!13, !9, !7}
-!14 = distinct !{!14, !7}
+!7 = !{!"llvm.loop.mustprogress"}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7}

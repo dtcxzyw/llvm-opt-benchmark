@@ -253,7 +253,7 @@ define internal i32 @luaRegisterFunction(ptr noundef %0) #0 {
   br i1 %.not29.i.i.i, label %.thread.sink.split.i.i, label %.lr.ph.i.i.i, !llvm.loop !19
 
 53:                                               ; preds = %.lr.ph.i.i.i
-  %54 = load i64, ptr %.044.i.i.i, align 8, !tbaa !22
+  %54 = load i64, ptr %.044.i.i.i, align 8, !tbaa !21
   %55 = trunc i64 %54 to i32
   %56 = or i32 %.02546.i.i.i, %55
   tail call void @lua_settop(ptr noundef %0, i32 noundef -2) #9
@@ -369,8 +369,8 @@ luaRegisterFunctionReadArgs.exit:                 ; preds = %75, %65
   %.sroa.11.0 = phi ptr [ %77, %75 ], [ %.239.i.i, %65 ]
   %.sroa.16.0 = phi i64 [ 0, %75 ], [ %.165.i.i, %65 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #9
-  store ptr null, ptr %2, align 8, !tbaa !23
-  %80 = load ptr, ptr %3, align 8, !tbaa !24
+  store ptr null, ptr %2, align 8, !tbaa !22
+  %80 = load ptr, ptr %3, align 8, !tbaa !23
   %81 = call i32 @functionLibCreateFunction(ptr noundef nonnull %.sroa.0.0, ptr noundef nonnull %.sroa.11.0, ptr noundef %80, ptr noundef %.sroa.7.0, i64 noundef %.sroa.16.0, ptr noundef nonnull %2) #9
   %.not12 = icmp eq i32 %81, 0
   br i1 %.not12, label %88, label %82
@@ -388,9 +388,9 @@ luaRegisterFunctionArgsDispose.exit:              ; preds = %82, %83
   %84 = load i32, ptr %.sroa.11.0, align 4, !tbaa !12
   call void @luaL_unref(ptr noundef %0, i32 noundef -10000, i32 noundef %84) #9
   call void @zfree(ptr noundef nonnull %.sroa.11.0) #9
-  %85 = load ptr, ptr %2, align 8, !tbaa !23
+  %85 = load ptr, ptr %2, align 8, !tbaa !22
   call void @luaPushError(ptr noundef %0, ptr noundef %85) #9
-  %86 = load ptr, ptr %2, align 8, !tbaa !23
+  %86 = load ptr, ptr %2, align 8, !tbaa !22
   call void @sdsfree(ptr noundef %86) #9
   %87 = call i32 @luaError(ptr noundef %0) #9
   br label %88
@@ -445,7 +445,7 @@ define internal range(i32 -1, 1) i32 @luaEngineCreate(ptr noundef readonly captu
   tail call void @lua_enablereadonlytable(ptr noundef %8, i32 noundef -10002, i32 noundef 1) #9
   tail call void @lua_settop(ptr noundef %8, i32 noundef -2) #9
   %10 = getelementptr inbounds i8, ptr %2, i64 -1
-  %11 = load i8, ptr %10, align 1, !tbaa !27
+  %11 = load i8, ptr %10, align 1, !tbaa !26
   %12 = zext i8 %11 to i32
   %13 = and i32 %12, 7
   switch i32 %13, label %sdslen.exit [
@@ -463,25 +463,25 @@ define internal range(i32 -1, 1) i32 @luaEngineCreate(ptr noundef readonly captu
 
 17:                                               ; preds = %5
   %18 = getelementptr inbounds i8, ptr %2, i64 -3
-  %19 = load i8, ptr %18, align 1, !tbaa !27
+  %19 = load i8, ptr %18, align 1, !tbaa !26
   %20 = zext i8 %19 to i64
   br label %sdslen.exit
 
 21:                                               ; preds = %5
   %22 = getelementptr inbounds i8, ptr %2, i64 -5
-  %23 = load i16, ptr %22, align 1, !tbaa !28
+  %23 = load i16, ptr %22, align 1, !tbaa !27
   %24 = zext i16 %23 to i64
   br label %sdslen.exit
 
 25:                                               ; preds = %5
   %26 = getelementptr inbounds i8, ptr %2, i64 -9
-  %27 = load i32, ptr %26, align 1, !tbaa !30
+  %27 = load i32, ptr %26, align 1, !tbaa !29
   %28 = zext i32 %27 to i64
   br label %sdslen.exit
 
 29:                                               ; preds = %5
   %30 = getelementptr inbounds i8, ptr %2, i64 -17
-  %31 = load i64, ptr %30, align 1, !tbaa !31
+  %31 = load i64, ptr %30, align 1, !tbaa !30
   br label %sdslen.exit
 
 sdslen.exit:                                      ; preds = %5, %14, %17, %21, %25, %29
@@ -494,14 +494,14 @@ sdslen.exit:                                      ; preds = %5, %14, %17, %21, %
   %34 = tail call ptr @sdsempty() #9
   %35 = tail call ptr @lua_tolstring(ptr noundef %8, i32 noundef -1, ptr noundef null) #9
   %36 = tail call ptr (ptr, ptr, ...) @sdscatprintf(ptr noundef %34, ptr noundef nonnull @.str.30, ptr noundef %35) #9
-  store ptr %36, ptr %4, align 8, !tbaa !23
+  store ptr %36, ptr %4, align 8, !tbaa !22
   tail call void @lua_settop(ptr noundef %8, i32 noundef -2) #9
   br label %52
 
 37:                                               ; preds = %sdslen.exit
   %38 = tail call i32 @lua_type(ptr noundef %8, i32 noundef -1) #9
   %39 = icmp eq i32 %38, 6
-  br i1 %39, label %41, label %40, !prof !32
+  br i1 %39, label %41, label %40, !prof !31
 
 40:                                               ; preds = %37
   tail call void @_serverAssert(ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.32, i32 noundef 106) #9
@@ -509,13 +509,13 @@ sdslen.exit:                                      ; preds = %5, %14, %17, %21, %
   unreachable
 
 41:                                               ; preds = %37
-  store ptr %1, ptr %6, align 8, !tbaa !24
+  store ptr %1, ptr %6, align 8, !tbaa !23
   %42 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %43 = load ptr, ptr @getMonotonicUs, align 8, !tbaa !11
   %44 = tail call i64 %43() #9
-  store i64 %44, ptr %42, align 8, !tbaa !33
+  store i64 %44, ptr %42, align 8, !tbaa !32
   %45 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  store i64 %3, ptr %45, align 8, !tbaa !34
+  store i64 %3, ptr %45, align 8, !tbaa !33
   call void @luaSaveOnRegistry(ptr noundef %8, ptr noundef nonnull @.str.10, ptr noundef nonnull %6) #9
   %46 = call i32 @lua_sethook(ptr noundef %8, ptr noundef nonnull @luaEngineLoadHook, i32 noundef 8, i32 noundef 100000) #9
   %47 = call i32 @lua_pcall(ptr noundef %8, i32 noundef 0, i32 noundef 0, i32 noundef 0) #9
@@ -527,9 +527,9 @@ sdslen.exit:                                      ; preds = %5, %14, %17, %21, %
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, i8 0, i64 32, i1 false)
   call void @luaExtractErrorInformation(ptr noundef %8, ptr noundef nonnull %7) #9
   %49 = call ptr @sdsempty() #9
-  %50 = load ptr, ptr %7, align 8, !tbaa !35
+  %50 = load ptr, ptr %7, align 8, !tbaa !34
   %51 = call ptr (ptr, ptr, ...) @sdscatprintf(ptr noundef %49, ptr noundef nonnull @.str.33, ptr noundef %50) #9
-  store ptr %51, ptr %4, align 8, !tbaa !23
+  store ptr %51, ptr %4, align 8, !tbaa !22
   call void @lua_settop(ptr noundef %8, i32 noundef -2) #9
   call void @luaErrorInformationDiscard(ptr noundef nonnull %7) #9
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #9
@@ -558,7 +558,7 @@ define internal void @luaEngineCall(ptr noundef %0, ptr noundef readonly capture
   tail call void @lua_rawgeti(ptr noundef %8, i32 noundef -10000, i32 noundef %9) #9
   %10 = tail call i32 @lua_type(ptr noundef %8, i32 noundef -1) #9
   %11 = icmp eq i32 %10, 6
-  br i1 %11, label %13, label %12, !prof !32
+  br i1 %11, label %13, label %12, !prof !31
 
 12:                                               ; preds = %7
   tail call void @_serverAssert(ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.32, i32 noundef 164) #9
@@ -605,13 +605,13 @@ define internal void @luaEngineFreeCtx(ptr noundef %0) #0 {
   %2 = alloca i32, align 4
   %3 = load ptr, ptr %0, align 8, !tbaa !5
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  %5 = load ptr, ptr %4, align 8, !tbaa !37
+  %5 = load ptr, ptr %4, align 8, !tbaa !36
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  %7 = load ptr, ptr %6, align 8, !tbaa !46
+  %7 = load ptr, ptr %6, align 8, !tbaa !45
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #9
   %8 = ptrtoint ptr %7 to i64
   %9 = trunc i64 %8 to i32
-  store i32 %9, ptr %2, align 4, !tbaa !30
+  store i32 %9, ptr %2, align 4, !tbaa !29
   %10 = tail call i32 @lua_gc(ptr noundef %3, i32 noundef 2, i32 noundef 0) #9
   %11 = load ptr, ptr %0, align 8, !tbaa !5
   tail call void @lua_close(ptr noundef %11) #9
@@ -685,7 +685,7 @@ declare i32 @lua_sethook(ptr noundef, ptr noundef, i32 noundef, i32 noundef) loc
 define internal void @luaEngineLoadHook(ptr noundef %0, ptr readnone captures(none) %1) #0 {
   %3 = tail call ptr @luaGetFromRegistry(ptr noundef %0, ptr noundef nonnull @.str.10) #9
   %.not = icmp eq ptr %3, null
-  br i1 %.not, label %4, label %5, !prof !52
+  br i1 %.not, label %4, label %5, !prof !51
 
 4:                                                ; preds = %2
   tail call void @_serverAssert(ptr noundef nonnull @.str.34, ptr noundef nonnull @.str.32, i32 noundef 70) #9
@@ -694,13 +694,13 @@ define internal void @luaEngineLoadHook(ptr noundef %0, ptr readnone captures(no
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %7 = load i64, ptr %6, align 8, !tbaa !33
+  %7 = load i64, ptr %6, align 8, !tbaa !32
   %8 = load ptr, ptr @getMonotonicUs, align 8, !tbaa !11
   %9 = tail call i64 %8() #9
   %10 = sub i64 %9, %7
   %11 = udiv i64 %10, 1000
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %13 = load i64, ptr %12, align 8, !tbaa !34
+  %13 = load i64, ptr %12, align 8, !tbaa !33
   %.not9 = icmp ne i64 %13, 0
   %14 = icmp ugt i64 %11, %13
   %or.cond = select i1 %.not9, i1 %14, i1 false
@@ -772,37 +772,36 @@ attributes #11 = { noreturn nounwind }
 !16 = !{!"scriptFlag", !17, i64 0, !18, i64 8}
 !17 = !{!"long", !9, i64 0}
 !18 = !{!"p1 omnipotent char", !8, i64 0}
-!19 = distinct !{!19, !20, !21}
+!19 = distinct !{!19, !20}
 !20 = !{!"llvm.loop.mustprogress"}
-!21 = !{!"llvm.loop.estimated_trip_count"}
-!22 = !{!16, !17, i64 0}
-!23 = !{!18, !18, i64 0}
-!24 = !{!25, !26, i64 0}
-!25 = !{!"loadCtx", !26, i64 0, !17, i64 8, !17, i64 16}
-!26 = !{!"p1 _ZTS15functionLibInfo", !8, i64 0}
-!27 = !{!9, !9, i64 0}
-!28 = !{!29, !29, i64 0}
-!29 = !{!"short", !9, i64 0}
-!30 = !{!14, !14, i64 0}
-!31 = !{!17, !17, i64 0}
-!32 = !{!"branch_weights", !"expected", i32 2000, i32 1}
-!33 = !{!25, !17, i64 8}
-!34 = !{!25, !17, i64 16}
-!35 = !{!36, !18, i64 0}
-!36 = !{!"errorInfo", !18, i64 0, !18, i64 8, !18, i64 16, !14, i64 24}
-!37 = !{!38, !41, i64 32}
-!38 = !{!"lua_State", !39, i64 0, !9, i64 8, !9, i64 9, !9, i64 10, !40, i64 16, !40, i64 24, !41, i64 32, !42, i64 40, !43, i64 48, !40, i64 56, !40, i64 64, !42, i64 72, !42, i64 80, !14, i64 88, !14, i64 92, !29, i64 96, !29, i64 98, !9, i64 100, !9, i64 101, !14, i64 104, !14, i64 108, !8, i64 112, !44, i64 120, !44, i64 136, !39, i64 152, !39, i64 160, !45, i64 168, !17, i64 176}
-!39 = !{!"p1 _ZTS8GCObject", !8, i64 0}
-!40 = !{!"p1 _ZTS10lua_TValue", !8, i64 0}
-!41 = !{!"p1 _ZTS12global_State", !8, i64 0}
-!42 = !{!"p1 _ZTS8CallInfo", !8, i64 0}
-!43 = !{!"p1 int", !8, i64 0}
-!44 = !{!"lua_TValue", !9, i64 0, !14, i64 8}
-!45 = !{!"p1 _ZTS11lua_longjmp", !8, i64 0}
-!46 = !{!47, !8, i64 24}
-!47 = !{!"global_State", !48, i64 0, !8, i64 16, !8, i64 24, !9, i64 32, !9, i64 33, !14, i64 36, !39, i64 40, !49, i64 48, !39, i64 56, !39, i64 64, !39, i64 72, !39, i64 80, !50, i64 88, !17, i64 112, !17, i64 120, !17, i64 128, !17, i64 136, !14, i64 144, !14, i64 148, !8, i64 152, !44, i64 160, !7, i64 176, !51, i64 184, !9, i64 224, !9, i64 296}
-!48 = !{!"stringtable", !49, i64 0, !14, i64 8, !14, i64 12}
-!49 = !{!"p2 _ZTS8GCObject", !8, i64 0}
-!50 = !{!"Mbuffer", !18, i64 0, !17, i64 8, !17, i64 16}
-!51 = !{!"UpVal", !39, i64 0, !9, i64 8, !9, i64 9, !40, i64 16, !9, i64 24}
-!52 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!21 = !{!16, !17, i64 0}
+!22 = !{!18, !18, i64 0}
+!23 = !{!24, !25, i64 0}
+!24 = !{!"loadCtx", !25, i64 0, !17, i64 8, !17, i64 16}
+!25 = !{!"p1 _ZTS15functionLibInfo", !8, i64 0}
+!26 = !{!9, !9, i64 0}
+!27 = !{!28, !28, i64 0}
+!28 = !{!"short", !9, i64 0}
+!29 = !{!14, !14, i64 0}
+!30 = !{!17, !17, i64 0}
+!31 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!32 = !{!24, !17, i64 8}
+!33 = !{!24, !17, i64 16}
+!34 = !{!35, !18, i64 0}
+!35 = !{!"errorInfo", !18, i64 0, !18, i64 8, !18, i64 16, !14, i64 24}
+!36 = !{!37, !40, i64 32}
+!37 = !{!"lua_State", !38, i64 0, !9, i64 8, !9, i64 9, !9, i64 10, !39, i64 16, !39, i64 24, !40, i64 32, !41, i64 40, !42, i64 48, !39, i64 56, !39, i64 64, !41, i64 72, !41, i64 80, !14, i64 88, !14, i64 92, !28, i64 96, !28, i64 98, !9, i64 100, !9, i64 101, !14, i64 104, !14, i64 108, !8, i64 112, !43, i64 120, !43, i64 136, !38, i64 152, !38, i64 160, !44, i64 168, !17, i64 176}
+!38 = !{!"p1 _ZTS8GCObject", !8, i64 0}
+!39 = !{!"p1 _ZTS10lua_TValue", !8, i64 0}
+!40 = !{!"p1 _ZTS12global_State", !8, i64 0}
+!41 = !{!"p1 _ZTS8CallInfo", !8, i64 0}
+!42 = !{!"p1 int", !8, i64 0}
+!43 = !{!"lua_TValue", !9, i64 0, !14, i64 8}
+!44 = !{!"p1 _ZTS11lua_longjmp", !8, i64 0}
+!45 = !{!46, !8, i64 24}
+!46 = !{!"global_State", !47, i64 0, !8, i64 16, !8, i64 24, !9, i64 32, !9, i64 33, !14, i64 36, !38, i64 40, !48, i64 48, !38, i64 56, !38, i64 64, !38, i64 72, !38, i64 80, !49, i64 88, !17, i64 112, !17, i64 120, !17, i64 128, !17, i64 136, !14, i64 144, !14, i64 148, !8, i64 152, !43, i64 160, !7, i64 176, !50, i64 184, !9, i64 224, !9, i64 296}
+!47 = !{!"stringtable", !48, i64 0, !14, i64 8, !14, i64 12}
+!48 = !{!"p2 _ZTS8GCObject", !8, i64 0}
+!49 = !{!"Mbuffer", !18, i64 0, !17, i64 8, !17, i64 16}
+!50 = !{!"UpVal", !38, i64 0, !9, i64 8, !9, i64 9, !39, i64 16, !9, i64 24}
+!51 = !{!"branch_weights", !"expected", i32 1, i32 2000}

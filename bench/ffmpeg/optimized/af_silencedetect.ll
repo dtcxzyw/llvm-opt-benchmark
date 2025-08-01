@@ -132,21 +132,21 @@ update.exit:                                      ; preds = %20, %32
 ; Function Attrs: nounwind uwtable
 define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr noundef %1) #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %4 = load ptr, ptr %3, align 8, !tbaa !34
+  %4 = load ptr, ptr %3, align 8, !tbaa !33
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %6 = load ptr, ptr %5, align 8, !tbaa !4
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 76
-  %8 = load i32, ptr %7, align 4, !tbaa !42
+  %8 = load i32, ptr %7, align 4, !tbaa !41
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %10 = load i32, ptr %9, align 8, !tbaa !43
+  %10 = load i32, ptr %9, align 8, !tbaa !42
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 112
-  %12 = load i32, ptr %11, align 8, !tbaa !44
+  %12 = load i32, ptr %11, align 8, !tbaa !43
   %13 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %14 = load i64, ptr %13, align 8, !tbaa !49
+  %14 = load i64, ptr %13, align 8, !tbaa !48
   %15 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %16 = load i32, ptr %15, align 8, !tbaa !29
   %17 = getelementptr inbounds nuw i8, ptr %6, i64 64
-  %18 = load i32, ptr %17, align 8, !tbaa !50
+  %18 = load i32, ptr %17, align 8, !tbaa !49
   %.not38 = icmp eq i32 %18, 0
   %.not39 = icmp eq i32 %18, %10
   %or.cond = select i1 %.not38, i1 true, i1 %.not39
@@ -175,7 +175,7 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
   store i64 %30, ptr %27, align 8, !tbaa !27
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %26, !llvm.loop !51
+  br i1 %exitcond.not, label %.loopexit, label %26, !llvm.loop !50
 
 .loopexit:                                        ; preds = %26, %.preheader, %2
   %.not = icmp eq i32 %16, 0
@@ -183,14 +183,14 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
   %32 = sext i32 %31 to i64
   %33 = mul nsw i64 %14, %32
   %34 = mul nsw i32 %12, %8
-  store i32 %10, ptr %17, align 8, !tbaa !50
+  store i32 %10, ptr %17, align 8, !tbaa !49
   %35 = getelementptr inbounds nuw i8, ptr %6, i64 68
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %37 = load i64, ptr %36, align 8
   store i64 %37, ptr %35, align 4
   %38 = getelementptr inbounds nuw i8, ptr %1, i64 136
-  %39 = load i64, ptr %38, align 8, !tbaa !52
-  %40 = load i32, ptr %11, align 8, !tbaa !44
+  %39 = load i64, ptr %38, align 8, !tbaa !51
+  %40 = load i32, ptr %11, align 8, !tbaa !43
   %41 = sext i32 %40 to i64
   %.sroa.2.0.insert.ext = zext i32 %10 to i64
   %.sroa.2.0.insert.shift = shl nuw i64 %.sroa.2.0.insert.ext, 32
@@ -201,13 +201,13 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
   %45 = getelementptr inbounds nuw i8, ptr %6, i64 56
   store i64 %44, ptr %45, align 8, !tbaa !28
   %46 = getelementptr inbounds nuw i8, ptr %6, i64 80
-  %47 = load ptr, ptr %46, align 8, !tbaa !53
+  %47 = load ptr, ptr %46, align 8, !tbaa !52
   %48 = load i64, ptr %36, align 8
   tail call void %47(ptr noundef nonnull %6, ptr noundef nonnull %1, i32 noundef %34, i64 noundef %33, i64 %48) #7
-  %49 = load ptr, ptr %3, align 8, !tbaa !34
+  %49 = load ptr, ptr %3, align 8, !tbaa !33
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 56
-  %51 = load ptr, ptr %50, align 8, !tbaa !54
-  %52 = load ptr, ptr %51, align 8, !tbaa !55
+  %51 = load ptr, ptr %50, align 8, !tbaa !53
+  %52 = load ptr, ptr %51, align 8, !tbaa !54
   %53 = tail call i32 @ff_filter_frame(ptr noundef %52, ptr noundef nonnull %1) #7
   ret i32 %53
 }
@@ -215,20 +215,20 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -558323010, 1) i32 @config_input(ptr noundef readonly captures(none) %0) #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %3 = load ptr, ptr %2, align 8, !tbaa !34
+  %3 = load ptr, ptr %2, align 8, !tbaa !33
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 72
   %5 = load ptr, ptr %4, align 8, !tbaa !4
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 76
-  %7 = load i32, ptr %6, align 4, !tbaa !42
+  %7 = load i32, ptr %6, align 4, !tbaa !41
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 28
-  store i32 %7, ptr %8, align 4, !tbaa !57
+  store i32 %7, ptr %8, align 4, !tbaa !56
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %10 = load i64, ptr %9, align 8, !tbaa !49
+  %10 = load i64, ptr %9, align 8, !tbaa !48
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %12 = load i32, ptr %11, align 8, !tbaa !43
+  %12 = load i32, ptr %11, align 8, !tbaa !42
   %13 = sext i32 %12 to i64
   %14 = tail call i64 @av_rescale(i64 noundef %10, i64 noundef %13, i64 noundef 1000000) #8
-  store i64 %14, ptr %9, align 8, !tbaa !49
+  store i64 %14, ptr %9, align 8, !tbaa !48
   %15 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %16 = load i32, ptr %15, align 8, !tbaa !29
   %.not = icmp eq i32 %16, 0
@@ -266,11 +266,11 @@ define internal range(i32 -558323010, 1) i32 @config_input(ptr noundef readonly 
   store i64 -9223372036854775808, ptr %28, align 8, !tbaa !27
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !58
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !57
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 36
-  %30 = load i32, ptr %29, align 4, !tbaa !59
+  %30 = load i32, ptr %29, align 4, !tbaa !58
   switch i32 %30, label %51 [
     i32 4, label %.sink.split
     i32 3, label %31
@@ -287,16 +287,16 @@ define internal range(i32 -558323010, 1) i32 @config_input(ptr noundef readonly 
 
 32:                                               ; preds = %._crit_edge
   %33 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %34 = load double, ptr %33, align 8, !tbaa !60
+  %34 = load double, ptr %33, align 8, !tbaa !59
   %35 = fmul nsz double %34, 0x41DFFFFFFFC00000
-  store double %35, ptr %33, align 8, !tbaa !60
+  store double %35, ptr %33, align 8, !tbaa !59
   br label %.sink.split
 
 36:                                               ; preds = %._crit_edge
   %37 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %38 = load double, ptr %37, align 8, !tbaa !60
+  %38 = load double, ptr %37, align 8, !tbaa !59
   %39 = fmul nsz double %38, 3.276700e+04
-  store double %39, ptr %37, align 8, !tbaa !60
+  store double %39, ptr %37, align 8, !tbaa !59
   br label %.sink.split
 
 40:                                               ; preds = %._crit_edge
@@ -307,22 +307,22 @@ define internal range(i32 -558323010, 1) i32 @config_input(ptr noundef readonly 
 
 42:                                               ; preds = %._crit_edge
   %43 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %44 = load double, ptr %43, align 8, !tbaa !60
+  %44 = load double, ptr %43, align 8, !tbaa !59
   %45 = fmul nsz double %44, 0x41DFFFFFFFC00000
-  store double %45, ptr %43, align 8, !tbaa !60
+  store double %45, ptr %43, align 8, !tbaa !59
   br label %.sink.split
 
 46:                                               ; preds = %._crit_edge
   %47 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %48 = load double, ptr %47, align 8, !tbaa !60
+  %48 = load double, ptr %47, align 8, !tbaa !59
   %49 = fmul nsz double %48, 3.276700e+04
-  store double %49, ptr %47, align 8, !tbaa !60
+  store double %49, ptr %47, align 8, !tbaa !59
   br label %.sink.split
 
 .sink.split:                                      ; preds = %._crit_edge, %46, %42, %41, %40, %36, %32, %31
   %silencedetect_dbl.sink = phi ptr [ @silencedetect_flt, %31 ], [ @silencedetect_s32, %32 ], [ @silencedetect_s16, %36 ], [ @silencedetect_dblp, %40 ], [ @silencedetect_fltp, %41 ], [ @silencedetect_s32p, %42 ], [ @silencedetect_s16p, %46 ], [ @silencedetect_dbl, %._crit_edge ]
   %50 = getelementptr inbounds nuw i8, ptr %5, i64 80
-  store ptr %silencedetect_dbl.sink, ptr %50, align 8, !tbaa !53
+  store ptr %silencedetect_dbl.sink, ptr %50, align 8, !tbaa !52
   br label %51
 
 51:                                               ; preds = %.sink.split, %._crit_edge, %21, %1
@@ -360,12 +360,12 @@ define internal void @silencedetect_dbl(ptr noundef %0, ptr noundef %1, i32 noun
   %13 = alloca [32 x i8], align 1
   %14 = alloca [32 x i8], align 1
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %16 = load double, ptr %15, align 8, !tbaa !60
+  %16 = load double, ptr %15, align 8, !tbaa !59
   %17 = icmp sgt i32 %2, 0
   br i1 %17, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %5
-  %18 = load ptr, ptr %1, align 8, !tbaa !61
+  %18 = load ptr, ptr %1, align 8, !tbaa !60
   %19 = fneg nsz double %16
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -380,7 +380,7 @@ define internal void @silencedetect_dbl(ptr noundef %0, ptr noundef %1, i32 noun
 28:                                               ; preds = %.lr.ph, %update.exit
   %.034 = phi i32 [ 0, %.lr.ph ], [ %110, %update.exit ]
   %.01333 = phi ptr [ %18, %.lr.ph ], [ %111, %update.exit ]
-  %29 = load double, ptr %.01333, align 8, !tbaa !62
+  %29 = load double, ptr %.01333, align 8, !tbaa !61
   %30 = fcmp nsz uge double %29, %16
   %31 = fcmp nsz ule double %29, %19
   %narrow.not = or i1 %30, %31
@@ -412,8 +412,8 @@ define internal void @silencedetect_dbl(ptr noundef %0, ptr noundef %1, i32 noun
   br i1 %.not67.i, label %update.exit, label %44
 
 44:                                               ; preds = %39
-  %45 = load i64, ptr %23, align 8, !tbaa !52
-  %46 = load i32, ptr %24, align 4, !tbaa !57
+  %45 = load i64, ptr %23, align 8, !tbaa !51
+  %46 = load i32, ptr %24, align 4, !tbaa !56
   %47 = sdiv i32 %.034, %46
   %48 = add nsw i32 %47, 1
   %49 = sext i32 %48 to i64
@@ -422,7 +422,7 @@ define internal void @silencedetect_dbl(ptr noundef %0, ptr noundef %1, i32 noun
   %52 = sext i32 %46 to i64
   %53 = sdiv i64 %51, %52
   %54 = sub nsw i64 %49, %53
-  %55 = load i32, ptr %25, align 8, !tbaa !50
+  %55 = load i32, ptr %25, align 8, !tbaa !49
   %.sroa.26.0.insert.ext.i = zext i32 %55 to i64
   %.sroa.26.0.insert.shift.i = shl nuw i64 %.sroa.26.0.insert.ext.i, 32
   %.sroa.05.0.insert.insert.i = or disjoint i64 %.sroa.26.0.insert.shift.i, 1
@@ -470,11 +470,11 @@ set_meta.exit:                                    ; preds = %61, %64
   br i1 %.not62.i, label %105, label %75
 
 75:                                               ; preds = %74
-  %76 = load i64, ptr %23, align 8, !tbaa !52
-  %77 = load i32, ptr %24, align 4, !tbaa !57
+  %76 = load i64, ptr %23, align 8, !tbaa !51
+  %77 = load i32, ptr %24, align 4, !tbaa !56
   %78 = sdiv i32 %.034, %77
   %79 = sext i32 %78 to i64
-  %80 = load i32, ptr %25, align 8, !tbaa !50
+  %80 = load i32, ptr %25, align 8, !tbaa !49
   %.sroa.2.0.insert.ext.i = zext i32 %80 to i64
   %.sroa.2.0.insert.shift.i = shl nuw i64 %.sroa.2.0.insert.ext.i, 32
   %.sroa.0.0.insert.insert.i = or disjoint i64 %.sroa.2.0.insert.shift.i, 1
@@ -554,7 +554,7 @@ update.exit:                                      ; preds = %38, %39, %69, %105
   %110 = add nuw nsw i32 %.034, 1
   %111 = getelementptr inbounds nuw i8, ptr %.01333, i64 8
   %exitcond.not = icmp eq i32 %110, %2
-  br i1 %exitcond.not, label %._crit_edge, label %28, !llvm.loop !63
+  br i1 %exitcond.not, label %._crit_edge, label %28, !llvm.loop !62
 
 ._crit_edge:                                      ; preds = %update.exit, %5
   ret void
@@ -572,13 +572,13 @@ define internal void @silencedetect_flt(ptr noundef %0, ptr noundef %1, i32 noun
   %13 = alloca [32 x i8], align 1
   %14 = alloca [32 x i8], align 1
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %16 = load double, ptr %15, align 8, !tbaa !60
+  %16 = load double, ptr %15, align 8, !tbaa !59
   %17 = fptrunc nsz double %16 to float
   %18 = icmp sgt i32 %2, 0
   br i1 %18, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %5
-  %19 = load ptr, ptr %1, align 8, !tbaa !61
+  %19 = load ptr, ptr %1, align 8, !tbaa !60
   %20 = fneg nsz float %17
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -593,7 +593,7 @@ define internal void @silencedetect_flt(ptr noundef %0, ptr noundef %1, i32 noun
 29:                                               ; preds = %.lr.ph, %update.exit
   %.034 = phi i32 [ 0, %.lr.ph ], [ %111, %update.exit ]
   %.01333 = phi ptr [ %19, %.lr.ph ], [ %112, %update.exit ]
-  %30 = load float, ptr %.01333, align 4, !tbaa !64
+  %30 = load float, ptr %.01333, align 4, !tbaa !63
   %31 = fcmp nsz uge float %30, %17
   %32 = fcmp nsz ule float %30, %20
   %narrow.not = or i1 %31, %32
@@ -625,8 +625,8 @@ define internal void @silencedetect_flt(ptr noundef %0, ptr noundef %1, i32 noun
   br i1 %.not67.i, label %update.exit, label %45
 
 45:                                               ; preds = %40
-  %46 = load i64, ptr %24, align 8, !tbaa !52
-  %47 = load i32, ptr %25, align 4, !tbaa !57
+  %46 = load i64, ptr %24, align 8, !tbaa !51
+  %47 = load i32, ptr %25, align 4, !tbaa !56
   %48 = sdiv i32 %.034, %47
   %49 = add nsw i32 %48, 1
   %50 = sext i32 %49 to i64
@@ -635,7 +635,7 @@ define internal void @silencedetect_flt(ptr noundef %0, ptr noundef %1, i32 noun
   %53 = sext i32 %47 to i64
   %54 = sdiv i64 %52, %53
   %55 = sub nsw i64 %50, %54
-  %56 = load i32, ptr %26, align 8, !tbaa !50
+  %56 = load i32, ptr %26, align 8, !tbaa !49
   %.sroa.26.0.insert.ext.i = zext i32 %56 to i64
   %.sroa.26.0.insert.shift.i = shl nuw i64 %.sroa.26.0.insert.ext.i, 32
   %.sroa.05.0.insert.insert.i = or disjoint i64 %.sroa.26.0.insert.shift.i, 1
@@ -683,11 +683,11 @@ set_meta.exit:                                    ; preds = %62, %65
   br i1 %.not62.i, label %106, label %76
 
 76:                                               ; preds = %75
-  %77 = load i64, ptr %24, align 8, !tbaa !52
-  %78 = load i32, ptr %25, align 4, !tbaa !57
+  %77 = load i64, ptr %24, align 8, !tbaa !51
+  %78 = load i32, ptr %25, align 4, !tbaa !56
   %79 = sdiv i32 %.034, %78
   %80 = sext i32 %79 to i64
-  %81 = load i32, ptr %26, align 8, !tbaa !50
+  %81 = load i32, ptr %26, align 8, !tbaa !49
   %.sroa.2.0.insert.ext.i = zext i32 %81 to i64
   %.sroa.2.0.insert.shift.i = shl nuw i64 %.sroa.2.0.insert.ext.i, 32
   %.sroa.0.0.insert.insert.i = or disjoint i64 %.sroa.2.0.insert.shift.i, 1
@@ -767,7 +767,7 @@ update.exit:                                      ; preds = %39, %40, %70, %106
   %111 = add nuw nsw i32 %.034, 1
   %112 = getelementptr inbounds nuw i8, ptr %.01333, i64 4
   %exitcond.not = icmp eq i32 %111, %2
-  br i1 %exitcond.not, label %._crit_edge, label %29, !llvm.loop !66
+  br i1 %exitcond.not, label %._crit_edge, label %29, !llvm.loop !65
 
 ._crit_edge:                                      ; preds = %update.exit, %5
   ret void
@@ -785,13 +785,13 @@ define internal void @silencedetect_s32(ptr noundef %0, ptr noundef %1, i32 noun
   %13 = alloca [32 x i8], align 1
   %14 = alloca [32 x i8], align 1
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %16 = load double, ptr %15, align 8, !tbaa !60
+  %16 = load double, ptr %15, align 8, !tbaa !59
   %17 = fptosi double %16 to i32
   %18 = icmp sgt i32 %2, 0
   br i1 %18, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %5
-  %19 = load ptr, ptr %1, align 8, !tbaa !61
+  %19 = load ptr, ptr %1, align 8, !tbaa !60
   %20 = sub nsw i32 0, %17
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -806,7 +806,7 @@ define internal void @silencedetect_s32(ptr noundef %0, ptr noundef %1, i32 noun
 29:                                               ; preds = %.lr.ph, %update.exit
   %.034 = phi i32 [ 0, %.lr.ph ], [ %111, %update.exit ]
   %.01333 = phi ptr [ %19, %.lr.ph ], [ %112, %update.exit ]
-  %30 = load i32, ptr %.01333, align 4, !tbaa !67
+  %30 = load i32, ptr %.01333, align 4, !tbaa !66
   %31 = icmp sge i32 %30, %17
   %32 = icmp sle i32 %30, %20
   %narrow.not = select i1 %31, i1 true, i1 %32
@@ -838,8 +838,8 @@ define internal void @silencedetect_s32(ptr noundef %0, ptr noundef %1, i32 noun
   br i1 %.not67.i, label %update.exit, label %45
 
 45:                                               ; preds = %40
-  %46 = load i64, ptr %24, align 8, !tbaa !52
-  %47 = load i32, ptr %25, align 4, !tbaa !57
+  %46 = load i64, ptr %24, align 8, !tbaa !51
+  %47 = load i32, ptr %25, align 4, !tbaa !56
   %48 = sdiv i32 %.034, %47
   %49 = add nsw i32 %48, 1
   %50 = sext i32 %49 to i64
@@ -848,7 +848,7 @@ define internal void @silencedetect_s32(ptr noundef %0, ptr noundef %1, i32 noun
   %53 = sext i32 %47 to i64
   %54 = sdiv i64 %52, %53
   %55 = sub nsw i64 %50, %54
-  %56 = load i32, ptr %26, align 8, !tbaa !50
+  %56 = load i32, ptr %26, align 8, !tbaa !49
   %.sroa.26.0.insert.ext.i = zext i32 %56 to i64
   %.sroa.26.0.insert.shift.i = shl nuw i64 %.sroa.26.0.insert.ext.i, 32
   %.sroa.05.0.insert.insert.i = or disjoint i64 %.sroa.26.0.insert.shift.i, 1
@@ -896,11 +896,11 @@ set_meta.exit:                                    ; preds = %62, %65
   br i1 %.not62.i, label %106, label %76
 
 76:                                               ; preds = %75
-  %77 = load i64, ptr %24, align 8, !tbaa !52
-  %78 = load i32, ptr %25, align 4, !tbaa !57
+  %77 = load i64, ptr %24, align 8, !tbaa !51
+  %78 = load i32, ptr %25, align 4, !tbaa !56
   %79 = sdiv i32 %.034, %78
   %80 = sext i32 %79 to i64
-  %81 = load i32, ptr %26, align 8, !tbaa !50
+  %81 = load i32, ptr %26, align 8, !tbaa !49
   %.sroa.2.0.insert.ext.i = zext i32 %81 to i64
   %.sroa.2.0.insert.shift.i = shl nuw i64 %.sroa.2.0.insert.ext.i, 32
   %.sroa.0.0.insert.insert.i = or disjoint i64 %.sroa.2.0.insert.shift.i, 1
@@ -980,7 +980,7 @@ update.exit:                                      ; preds = %39, %40, %70, %106
   %111 = add nuw nsw i32 %.034, 1
   %112 = getelementptr inbounds nuw i8, ptr %.01333, i64 4
   %exitcond.not = icmp eq i32 %111, %2
-  br i1 %exitcond.not, label %._crit_edge, label %29, !llvm.loop !68
+  br i1 %exitcond.not, label %._crit_edge, label %29, !llvm.loop !67
 
 ._crit_edge:                                      ; preds = %update.exit, %5
   ret void
@@ -998,13 +998,13 @@ define internal void @silencedetect_s16(ptr noundef %0, ptr noundef %1, i32 noun
   %13 = alloca [32 x i8], align 1
   %14 = alloca [32 x i8], align 1
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %16 = load double, ptr %15, align 8, !tbaa !60
+  %16 = load double, ptr %15, align 8, !tbaa !59
   %17 = fptosi double %16 to i16
   %18 = icmp sgt i32 %2, 0
   br i1 %18, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %5
-  %19 = load ptr, ptr %1, align 8, !tbaa !61
+  %19 = load ptr, ptr %1, align 8, !tbaa !60
   %20 = sext i16 %17 to i32
   %21 = sub nsw i32 0, %20
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -1020,7 +1020,7 @@ define internal void @silencedetect_s16(ptr noundef %0, ptr noundef %1, i32 noun
 30:                                               ; preds = %.lr.ph, %update.exit
   %.034 = phi i32 [ 0, %.lr.ph ], [ %113, %update.exit ]
   %.01333 = phi ptr [ %19, %.lr.ph ], [ %114, %update.exit ]
-  %31 = load i16, ptr %.01333, align 2, !tbaa !69
+  %31 = load i16, ptr %.01333, align 2, !tbaa !68
   %32 = icmp sge i16 %31, %17
   %33 = sext i16 %31 to i32
   %34 = icmp sle i32 %33, %21
@@ -1053,8 +1053,8 @@ define internal void @silencedetect_s16(ptr noundef %0, ptr noundef %1, i32 noun
   br i1 %.not67.i, label %update.exit, label %47
 
 47:                                               ; preds = %42
-  %48 = load i64, ptr %25, align 8, !tbaa !52
-  %49 = load i32, ptr %26, align 4, !tbaa !57
+  %48 = load i64, ptr %25, align 8, !tbaa !51
+  %49 = load i32, ptr %26, align 4, !tbaa !56
   %50 = sdiv i32 %.034, %49
   %51 = add nsw i32 %50, 1
   %52 = sext i32 %51 to i64
@@ -1063,7 +1063,7 @@ define internal void @silencedetect_s16(ptr noundef %0, ptr noundef %1, i32 noun
   %55 = sext i32 %49 to i64
   %56 = sdiv i64 %54, %55
   %57 = sub nsw i64 %52, %56
-  %58 = load i32, ptr %27, align 8, !tbaa !50
+  %58 = load i32, ptr %27, align 8, !tbaa !49
   %.sroa.26.0.insert.ext.i = zext i32 %58 to i64
   %.sroa.26.0.insert.shift.i = shl nuw i64 %.sroa.26.0.insert.ext.i, 32
   %.sroa.05.0.insert.insert.i = or disjoint i64 %.sroa.26.0.insert.shift.i, 1
@@ -1111,11 +1111,11 @@ set_meta.exit:                                    ; preds = %64, %67
   br i1 %.not62.i, label %108, label %78
 
 78:                                               ; preds = %77
-  %79 = load i64, ptr %25, align 8, !tbaa !52
-  %80 = load i32, ptr %26, align 4, !tbaa !57
+  %79 = load i64, ptr %25, align 8, !tbaa !51
+  %80 = load i32, ptr %26, align 4, !tbaa !56
   %81 = sdiv i32 %.034, %80
   %82 = sext i32 %81 to i64
-  %83 = load i32, ptr %27, align 8, !tbaa !50
+  %83 = load i32, ptr %27, align 8, !tbaa !49
   %.sroa.2.0.insert.ext.i = zext i32 %83 to i64
   %.sroa.2.0.insert.shift.i = shl nuw i64 %.sroa.2.0.insert.ext.i, 32
   %.sroa.0.0.insert.insert.i = or disjoint i64 %.sroa.2.0.insert.shift.i, 1
@@ -1195,7 +1195,7 @@ update.exit:                                      ; preds = %41, %42, %72, %108
   %113 = add nuw nsw i32 %.034, 1
   %114 = getelementptr inbounds nuw i8, ptr %.01333, i64 2
   %exitcond.not = icmp eq i32 %113, %2
-  br i1 %exitcond.not, label %._crit_edge, label %30, !llvm.loop !71
+  br i1 %exitcond.not, label %._crit_edge, label %30, !llvm.loop !70
 
 ._crit_edge:                                      ; preds = %update.exit, %5
   ret void
@@ -1213,9 +1213,9 @@ define internal void @silencedetect_dblp(ptr noundef %0, ptr noundef %1, i32 nou
   %13 = alloca [32 x i8], align 1
   %14 = alloca [32 x i8], align 1
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 388
-  %16 = load i32, ptr %15, align 4, !tbaa !72
+  %16 = load i32, ptr %15, align 4, !tbaa !71
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %18 = load double, ptr %17, align 8, !tbaa !60
+  %18 = load double, ptr %17, align 8, !tbaa !59
   %19 = sdiv i32 %2, %16
   %20 = icmp sgt i32 %19, 0
   br i1 %20, label %.preheader.lr.ph, label %._crit_edge48
@@ -1256,15 +1256,15 @@ define internal void @silencedetect_dblp(ptr noundef %0, ptr noundef %1, i32 nou
   %36 = phi i32 [ %33, %.preheader ], [ %125, %update.exit ]
   %indvars.iv.next52 = add nuw nsw i64 %indvars.iv51, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next52, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge48, label %.preheader, !llvm.loop !73
+  br i1 %exitcond.not, label %._crit_edge48, label %.preheader, !llvm.loop !72
 
 37:                                               ; preds = %.lr.ph, %update.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %update.exit ]
-  %38 = load ptr, ptr %21, align 8, !tbaa !75
+  %38 = load ptr, ptr %21, align 8, !tbaa !74
   %39 = getelementptr inbounds nuw ptr, ptr %38, i64 %indvars.iv
-  %40 = load ptr, ptr %39, align 8, !tbaa !61
+  %40 = load ptr, ptr %39, align 8, !tbaa !60
   %41 = getelementptr inbounds nuw double, ptr %40, i64 %indvars.iv51
-  %42 = load double, ptr %41, align 8, !tbaa !62
+  %42 = load double, ptr %41, align 8, !tbaa !61
   %43 = fcmp nsz uge double %42, %18
   %44 = fcmp nsz ule double %42, %22
   %narrow.not = or i1 %43, %44
@@ -1298,8 +1298,8 @@ define internal void @silencedetect_dblp(ptr noundef %0, ptr noundef %1, i32 nou
   br i1 %.not67.i, label %update.exit, label %59
 
 59:                                               ; preds = %54
-  %60 = load i64, ptr %26, align 8, !tbaa !52
-  %61 = load i32, ptr %27, align 4, !tbaa !57
+  %60 = load i64, ptr %26, align 8, !tbaa !51
+  %61 = load i32, ptr %27, align 4, !tbaa !56
   %62 = sdiv i32 %47, %61
   %63 = add nsw i32 %62, 1
   %64 = sext i32 %63 to i64
@@ -1308,7 +1308,7 @@ define internal void @silencedetect_dblp(ptr noundef %0, ptr noundef %1, i32 nou
   %67 = sext i32 %61 to i64
   %68 = sdiv i64 %66, %67
   %69 = sub nsw i64 %64, %68
-  %70 = load i32, ptr %28, align 8, !tbaa !50
+  %70 = load i32, ptr %28, align 8, !tbaa !49
   %.sroa.26.0.insert.ext.i = zext i32 %70 to i64
   %.sroa.26.0.insert.shift.i = shl nuw i64 %.sroa.26.0.insert.ext.i, 32
   %.sroa.05.0.insert.insert.i = or disjoint i64 %.sroa.26.0.insert.shift.i, 1
@@ -1358,11 +1358,11 @@ set_meta.exit:                                    ; preds = %77, %79
   br i1 %.not62.i, label %120, label %90
 
 90:                                               ; preds = %89
-  %91 = load i64, ptr %26, align 8, !tbaa !52
-  %92 = load i32, ptr %27, align 4, !tbaa !57
+  %91 = load i64, ptr %26, align 8, !tbaa !51
+  %92 = load i32, ptr %27, align 4, !tbaa !56
   %93 = sdiv i32 %47, %92
   %94 = sext i32 %93 to i64
-  %95 = load i32, ptr %28, align 8, !tbaa !50
+  %95 = load i32, ptr %28, align 8, !tbaa !49
   %.sroa.2.0.insert.ext.i = zext i32 %95 to i64
   %.sroa.2.0.insert.shift.i = shl nuw i64 %.sroa.2.0.insert.ext.i, 32
   %.sroa.0.0.insert.insert.i = or disjoint i64 %.sroa.2.0.insert.shift.i, 1
@@ -1443,10 +1443,10 @@ update.exit:                                      ; preds = %53, %54, %84, %120
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %13)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %14)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %125 = load i32, ptr %15, align 4, !tbaa !72
+  %125 = load i32, ptr %15, align 4, !tbaa !71
   %126 = sext i32 %125 to i64
   %127 = icmp slt i64 %indvars.iv.next, %126
-  br i1 %127, label %37, label %._crit_edge, !llvm.loop !76
+  br i1 %127, label %37, label %._crit_edge, !llvm.loop !75
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1461,9 +1461,9 @@ define internal void @silencedetect_fltp(ptr noundef %0, ptr noundef %1, i32 nou
   %13 = alloca [32 x i8], align 1
   %14 = alloca [32 x i8], align 1
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 388
-  %16 = load i32, ptr %15, align 4, !tbaa !72
+  %16 = load i32, ptr %15, align 4, !tbaa !71
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %18 = load double, ptr %17, align 8, !tbaa !60
+  %18 = load double, ptr %17, align 8, !tbaa !59
   %19 = fptrunc nsz double %18 to float
   %20 = sdiv i32 %2, %16
   %21 = icmp sgt i32 %20, 0
@@ -1505,15 +1505,15 @@ define internal void @silencedetect_fltp(ptr noundef %0, ptr noundef %1, i32 nou
   %37 = phi i32 [ %34, %.preheader ], [ %126, %update.exit ]
   %indvars.iv.next52 = add nuw nsw i64 %indvars.iv51, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next52, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge48, label %.preheader, !llvm.loop !77
+  br i1 %exitcond.not, label %._crit_edge48, label %.preheader, !llvm.loop !76
 
 38:                                               ; preds = %.lr.ph, %update.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %update.exit ]
-  %39 = load ptr, ptr %22, align 8, !tbaa !75
+  %39 = load ptr, ptr %22, align 8, !tbaa !74
   %40 = getelementptr inbounds nuw ptr, ptr %39, i64 %indvars.iv
-  %41 = load ptr, ptr %40, align 8, !tbaa !61
+  %41 = load ptr, ptr %40, align 8, !tbaa !60
   %42 = getelementptr inbounds nuw float, ptr %41, i64 %indvars.iv51
-  %43 = load float, ptr %42, align 4, !tbaa !64
+  %43 = load float, ptr %42, align 4, !tbaa !63
   %44 = fcmp nsz uge float %43, %19
   %45 = fcmp nsz ule float %43, %23
   %narrow.not = or i1 %44, %45
@@ -1547,8 +1547,8 @@ define internal void @silencedetect_fltp(ptr noundef %0, ptr noundef %1, i32 nou
   br i1 %.not67.i, label %update.exit, label %60
 
 60:                                               ; preds = %55
-  %61 = load i64, ptr %27, align 8, !tbaa !52
-  %62 = load i32, ptr %28, align 4, !tbaa !57
+  %61 = load i64, ptr %27, align 8, !tbaa !51
+  %62 = load i32, ptr %28, align 4, !tbaa !56
   %63 = sdiv i32 %48, %62
   %64 = add nsw i32 %63, 1
   %65 = sext i32 %64 to i64
@@ -1557,7 +1557,7 @@ define internal void @silencedetect_fltp(ptr noundef %0, ptr noundef %1, i32 nou
   %68 = sext i32 %62 to i64
   %69 = sdiv i64 %67, %68
   %70 = sub nsw i64 %65, %69
-  %71 = load i32, ptr %29, align 8, !tbaa !50
+  %71 = load i32, ptr %29, align 8, !tbaa !49
   %.sroa.26.0.insert.ext.i = zext i32 %71 to i64
   %.sroa.26.0.insert.shift.i = shl nuw i64 %.sroa.26.0.insert.ext.i, 32
   %.sroa.05.0.insert.insert.i = or disjoint i64 %.sroa.26.0.insert.shift.i, 1
@@ -1607,11 +1607,11 @@ set_meta.exit:                                    ; preds = %78, %80
   br i1 %.not62.i, label %121, label %91
 
 91:                                               ; preds = %90
-  %92 = load i64, ptr %27, align 8, !tbaa !52
-  %93 = load i32, ptr %28, align 4, !tbaa !57
+  %92 = load i64, ptr %27, align 8, !tbaa !51
+  %93 = load i32, ptr %28, align 4, !tbaa !56
   %94 = sdiv i32 %48, %93
   %95 = sext i32 %94 to i64
-  %96 = load i32, ptr %29, align 8, !tbaa !50
+  %96 = load i32, ptr %29, align 8, !tbaa !49
   %.sroa.2.0.insert.ext.i = zext i32 %96 to i64
   %.sroa.2.0.insert.shift.i = shl nuw i64 %.sroa.2.0.insert.ext.i, 32
   %.sroa.0.0.insert.insert.i = or disjoint i64 %.sroa.2.0.insert.shift.i, 1
@@ -1692,10 +1692,10 @@ update.exit:                                      ; preds = %54, %55, %85, %121
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %13)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %14)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %126 = load i32, ptr %15, align 4, !tbaa !72
+  %126 = load i32, ptr %15, align 4, !tbaa !71
   %127 = sext i32 %126 to i64
   %128 = icmp slt i64 %indvars.iv.next, %127
-  br i1 %128, label %38, label %._crit_edge, !llvm.loop !78
+  br i1 %128, label %38, label %._crit_edge, !llvm.loop !77
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1710,9 +1710,9 @@ define internal void @silencedetect_s32p(ptr noundef %0, ptr noundef %1, i32 nou
   %13 = alloca [32 x i8], align 1
   %14 = alloca [32 x i8], align 1
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 388
-  %16 = load i32, ptr %15, align 4, !tbaa !72
+  %16 = load i32, ptr %15, align 4, !tbaa !71
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %18 = load double, ptr %17, align 8, !tbaa !60
+  %18 = load double, ptr %17, align 8, !tbaa !59
   %19 = fptosi double %18 to i32
   %20 = sdiv i32 %2, %16
   %21 = icmp sgt i32 %20, 0
@@ -1754,15 +1754,15 @@ define internal void @silencedetect_s32p(ptr noundef %0, ptr noundef %1, i32 nou
   %37 = phi i32 [ %34, %.preheader ], [ %126, %update.exit ]
   %indvars.iv.next52 = add nuw nsw i64 %indvars.iv51, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next52, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge48, label %.preheader, !llvm.loop !79
+  br i1 %exitcond.not, label %._crit_edge48, label %.preheader, !llvm.loop !78
 
 38:                                               ; preds = %.lr.ph, %update.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %update.exit ]
-  %39 = load ptr, ptr %22, align 8, !tbaa !75
+  %39 = load ptr, ptr %22, align 8, !tbaa !74
   %40 = getelementptr inbounds nuw ptr, ptr %39, i64 %indvars.iv
-  %41 = load ptr, ptr %40, align 8, !tbaa !61
+  %41 = load ptr, ptr %40, align 8, !tbaa !60
   %42 = getelementptr inbounds nuw i32, ptr %41, i64 %indvars.iv51
-  %43 = load i32, ptr %42, align 4, !tbaa !67
+  %43 = load i32, ptr %42, align 4, !tbaa !66
   %44 = icmp sge i32 %43, %19
   %45 = icmp sle i32 %43, %23
   %narrow.not = select i1 %44, i1 true, i1 %45
@@ -1796,8 +1796,8 @@ define internal void @silencedetect_s32p(ptr noundef %0, ptr noundef %1, i32 nou
   br i1 %.not67.i, label %update.exit, label %60
 
 60:                                               ; preds = %55
-  %61 = load i64, ptr %27, align 8, !tbaa !52
-  %62 = load i32, ptr %28, align 4, !tbaa !57
+  %61 = load i64, ptr %27, align 8, !tbaa !51
+  %62 = load i32, ptr %28, align 4, !tbaa !56
   %63 = sdiv i32 %48, %62
   %64 = add nsw i32 %63, 1
   %65 = sext i32 %64 to i64
@@ -1806,7 +1806,7 @@ define internal void @silencedetect_s32p(ptr noundef %0, ptr noundef %1, i32 nou
   %68 = sext i32 %62 to i64
   %69 = sdiv i64 %67, %68
   %70 = sub nsw i64 %65, %69
-  %71 = load i32, ptr %29, align 8, !tbaa !50
+  %71 = load i32, ptr %29, align 8, !tbaa !49
   %.sroa.26.0.insert.ext.i = zext i32 %71 to i64
   %.sroa.26.0.insert.shift.i = shl nuw i64 %.sroa.26.0.insert.ext.i, 32
   %.sroa.05.0.insert.insert.i = or disjoint i64 %.sroa.26.0.insert.shift.i, 1
@@ -1856,11 +1856,11 @@ set_meta.exit:                                    ; preds = %78, %80
   br i1 %.not62.i, label %121, label %91
 
 91:                                               ; preds = %90
-  %92 = load i64, ptr %27, align 8, !tbaa !52
-  %93 = load i32, ptr %28, align 4, !tbaa !57
+  %92 = load i64, ptr %27, align 8, !tbaa !51
+  %93 = load i32, ptr %28, align 4, !tbaa !56
   %94 = sdiv i32 %48, %93
   %95 = sext i32 %94 to i64
-  %96 = load i32, ptr %29, align 8, !tbaa !50
+  %96 = load i32, ptr %29, align 8, !tbaa !49
   %.sroa.2.0.insert.ext.i = zext i32 %96 to i64
   %.sroa.2.0.insert.shift.i = shl nuw i64 %.sroa.2.0.insert.ext.i, 32
   %.sroa.0.0.insert.insert.i = or disjoint i64 %.sroa.2.0.insert.shift.i, 1
@@ -1941,10 +1941,10 @@ update.exit:                                      ; preds = %54, %55, %85, %121
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %13)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %14)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %126 = load i32, ptr %15, align 4, !tbaa !72
+  %126 = load i32, ptr %15, align 4, !tbaa !71
   %127 = sext i32 %126 to i64
   %128 = icmp slt i64 %indvars.iv.next, %127
-  br i1 %128, label %38, label %._crit_edge, !llvm.loop !80
+  br i1 %128, label %38, label %._crit_edge, !llvm.loop !79
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1959,9 +1959,9 @@ define internal void @silencedetect_s16p(ptr noundef %0, ptr noundef %1, i32 nou
   %13 = alloca [32 x i8], align 1
   %14 = alloca [32 x i8], align 1
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 388
-  %16 = load i32, ptr %15, align 4, !tbaa !72
+  %16 = load i32, ptr %15, align 4, !tbaa !71
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %18 = load double, ptr %17, align 8, !tbaa !60
+  %18 = load double, ptr %17, align 8, !tbaa !59
   %19 = fptosi double %18 to i16
   %20 = sdiv i32 %2, %16
   %21 = icmp sgt i32 %20, 0
@@ -2004,15 +2004,15 @@ define internal void @silencedetect_s16p(ptr noundef %0, ptr noundef %1, i32 nou
   %38 = phi i32 [ %35, %.preheader ], [ %128, %update.exit ]
   %indvars.iv.next52 = add nuw nsw i64 %indvars.iv51, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next52, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge48, label %.preheader, !llvm.loop !81
+  br i1 %exitcond.not, label %._crit_edge48, label %.preheader, !llvm.loop !80
 
 39:                                               ; preds = %.lr.ph, %update.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %update.exit ]
-  %40 = load ptr, ptr %22, align 8, !tbaa !75
+  %40 = load ptr, ptr %22, align 8, !tbaa !74
   %41 = getelementptr inbounds nuw ptr, ptr %40, i64 %indvars.iv
-  %42 = load ptr, ptr %41, align 8, !tbaa !61
+  %42 = load ptr, ptr %41, align 8, !tbaa !60
   %43 = getelementptr inbounds nuw i16, ptr %42, i64 %indvars.iv51
-  %44 = load i16, ptr %43, align 2, !tbaa !69
+  %44 = load i16, ptr %43, align 2, !tbaa !68
   %45 = icmp sge i16 %44, %19
   %46 = sext i16 %44 to i32
   %47 = icmp sle i32 %46, %24
@@ -2047,8 +2047,8 @@ define internal void @silencedetect_s16p(ptr noundef %0, ptr noundef %1, i32 nou
   br i1 %.not67.i, label %update.exit, label %62
 
 62:                                               ; preds = %57
-  %63 = load i64, ptr %28, align 8, !tbaa !52
-  %64 = load i32, ptr %29, align 4, !tbaa !57
+  %63 = load i64, ptr %28, align 8, !tbaa !51
+  %64 = load i32, ptr %29, align 4, !tbaa !56
   %65 = sdiv i32 %50, %64
   %66 = add nsw i32 %65, 1
   %67 = sext i32 %66 to i64
@@ -2057,7 +2057,7 @@ define internal void @silencedetect_s16p(ptr noundef %0, ptr noundef %1, i32 nou
   %70 = sext i32 %64 to i64
   %71 = sdiv i64 %69, %70
   %72 = sub nsw i64 %67, %71
-  %73 = load i32, ptr %30, align 8, !tbaa !50
+  %73 = load i32, ptr %30, align 8, !tbaa !49
   %.sroa.26.0.insert.ext.i = zext i32 %73 to i64
   %.sroa.26.0.insert.shift.i = shl nuw i64 %.sroa.26.0.insert.ext.i, 32
   %.sroa.05.0.insert.insert.i = or disjoint i64 %.sroa.26.0.insert.shift.i, 1
@@ -2107,11 +2107,11 @@ set_meta.exit:                                    ; preds = %80, %82
   br i1 %.not62.i, label %123, label %93
 
 93:                                               ; preds = %92
-  %94 = load i64, ptr %28, align 8, !tbaa !52
-  %95 = load i32, ptr %29, align 4, !tbaa !57
+  %94 = load i64, ptr %28, align 8, !tbaa !51
+  %95 = load i32, ptr %29, align 4, !tbaa !56
   %96 = sdiv i32 %50, %95
   %97 = sext i32 %96 to i64
-  %98 = load i32, ptr %30, align 8, !tbaa !50
+  %98 = load i32, ptr %30, align 8, !tbaa !49
   %.sroa.2.0.insert.ext.i = zext i32 %98 to i64
   %.sroa.2.0.insert.shift.i = shl nuw i64 %.sroa.2.0.insert.ext.i, 32
   %.sroa.0.0.insert.insert.i = or disjoint i64 %.sroa.2.0.insert.shift.i, 1
@@ -2192,10 +2192,10 @@ update.exit:                                      ; preds = %56, %57, %87, %123
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %13)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %14)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %128 = load i32, ptr %15, align 4, !tbaa !72
+  %128 = load i32, ptr %15, align 4, !tbaa !71
   %129 = sext i32 %128 to i64
   %130 = icmp slt i64 %indvars.iv.next, %129
-  br i1 %130, label %39, label %._crit_edge, !llvm.loop !82
+  br i1 %130, label %39, label %._crit_edge, !llvm.loop !81
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
@@ -2257,55 +2257,54 @@ attributes #8 = { nounwind willreturn memory(none) }
 !28 = !{!21, !23, i64 56}
 !29 = !{!21, !15, i64 24}
 !30 = !{!21, !24, i64 40}
-!31 = distinct !{!31, !32, !33}
+!31 = distinct !{!31, !32}
 !32 = !{!"llvm.loop.mustprogress"}
-!33 = !{!"llvm.loop.estimated_trip_count"}
-!34 = !{!35, !36, i64 16}
-!35 = !{!"AVFilterLink", !36, i64 0, !12, i64 8, !36, i64 16, !12, i64 24, !15, i64 32, !15, i64 36, !15, i64 40, !15, i64 44, !25, i64 48, !15, i64 56, !15, i64 60, !15, i64 64, !37, i64 72, !25, i64 96, !38, i64 104, !15, i64 112, !39, i64 120, !39, i64 160}
-!36 = !{!"p1 _ZTS15AVFilterContext", !7, i64 0}
-!37 = !{!"AVChannelLayout", !15, i64 0, !15, i64 4, !8, i64 8, !7, i64 16}
-!38 = !{!"p2 _ZTS15AVFrameSideData", !14, i64 0}
-!39 = !{!"AVFilterFormatsConfig", !40, i64 0, !40, i64 8, !41, i64 16, !40, i64 24, !40, i64 32}
-!40 = !{!"p1 _ZTS15AVFilterFormats", !7, i64 0}
-!41 = !{!"p1 _ZTS22AVFilterChannelLayouts", !7, i64 0}
-!42 = !{!35, !15, i64 76}
-!43 = !{!35, !15, i64 64}
-!44 = !{!45, !15, i64 112}
-!45 = !{!"AVFrame", !8, i64 0, !8, i64 64, !46, i64 96, !15, i64 104, !15, i64 108, !15, i64 112, !15, i64 116, !15, i64 120, !25, i64 124, !23, i64 136, !23, i64 144, !25, i64 152, !15, i64 160, !7, i64 168, !15, i64 176, !15, i64 180, !8, i64 184, !47, i64 248, !15, i64 256, !38, i64 264, !15, i64 272, !15, i64 276, !15, i64 280, !15, i64 284, !15, i64 288, !15, i64 292, !15, i64 296, !23, i64 304, !48, i64 312, !15, i64 320, !19, i64 328, !19, i64 336, !23, i64 344, !23, i64 352, !23, i64 360, !23, i64 368, !7, i64 376, !37, i64 384, !23, i64 408}
-!46 = !{!"p2 omnipotent char", !14, i64 0}
-!47 = !{!"p2 _ZTS11AVBufferRef", !14, i64 0}
-!48 = !{!"p1 _ZTS12AVDictionary", !7, i64 0}
-!49 = !{!21, !23, i64 16}
-!50 = !{!21, !15, i64 64}
-!51 = distinct !{!51, !32, !33}
-!52 = !{!45, !23, i64 136}
-!53 = !{!21, !7, i64 80}
-!54 = !{!5, !13, i64 56}
-!55 = !{!56, !56, i64 0}
-!56 = !{!"p1 _ZTS12AVFilterLink", !7, i64 0}
-!57 = !{!21, !15, i64 28}
-!58 = distinct !{!58, !32, !33}
-!59 = !{!35, !15, i64 36}
-!60 = !{!21, !22, i64 8}
-!61 = !{!11, !11, i64 0}
-!62 = !{!22, !22, i64 0}
-!63 = distinct !{!63, !32, !33}
-!64 = !{!65, !65, i64 0}
-!65 = !{!"float", !8, i64 0}
-!66 = distinct !{!66, !32, !33}
-!67 = !{!15, !15, i64 0}
-!68 = distinct !{!68, !32, !33}
-!69 = !{!70, !70, i64 0}
-!70 = !{!"short", !8, i64 0}
-!71 = distinct !{!71, !32, !33}
-!72 = !{!45, !15, i64 388}
-!73 = distinct !{!73, !32, !33, !74}
-!74 = !{!"llvm.loop.unswitch.partial.disable"}
-!75 = !{!45, !46, i64 96}
-!76 = distinct !{!76, !32, !33}
-!77 = distinct !{!77, !32, !33, !74}
-!78 = distinct !{!78, !32, !33}
-!79 = distinct !{!79, !32, !33, !74}
-!80 = distinct !{!80, !32, !33}
-!81 = distinct !{!81, !32, !33, !74}
-!82 = distinct !{!82, !32, !33}
+!33 = !{!34, !35, i64 16}
+!34 = !{!"AVFilterLink", !35, i64 0, !12, i64 8, !35, i64 16, !12, i64 24, !15, i64 32, !15, i64 36, !15, i64 40, !15, i64 44, !25, i64 48, !15, i64 56, !15, i64 60, !15, i64 64, !36, i64 72, !25, i64 96, !37, i64 104, !15, i64 112, !38, i64 120, !38, i64 160}
+!35 = !{!"p1 _ZTS15AVFilterContext", !7, i64 0}
+!36 = !{!"AVChannelLayout", !15, i64 0, !15, i64 4, !8, i64 8, !7, i64 16}
+!37 = !{!"p2 _ZTS15AVFrameSideData", !14, i64 0}
+!38 = !{!"AVFilterFormatsConfig", !39, i64 0, !39, i64 8, !40, i64 16, !39, i64 24, !39, i64 32}
+!39 = !{!"p1 _ZTS15AVFilterFormats", !7, i64 0}
+!40 = !{!"p1 _ZTS22AVFilterChannelLayouts", !7, i64 0}
+!41 = !{!34, !15, i64 76}
+!42 = !{!34, !15, i64 64}
+!43 = !{!44, !15, i64 112}
+!44 = !{!"AVFrame", !8, i64 0, !8, i64 64, !45, i64 96, !15, i64 104, !15, i64 108, !15, i64 112, !15, i64 116, !15, i64 120, !25, i64 124, !23, i64 136, !23, i64 144, !25, i64 152, !15, i64 160, !7, i64 168, !15, i64 176, !15, i64 180, !8, i64 184, !46, i64 248, !15, i64 256, !37, i64 264, !15, i64 272, !15, i64 276, !15, i64 280, !15, i64 284, !15, i64 288, !15, i64 292, !15, i64 296, !23, i64 304, !47, i64 312, !15, i64 320, !19, i64 328, !19, i64 336, !23, i64 344, !23, i64 352, !23, i64 360, !23, i64 368, !7, i64 376, !36, i64 384, !23, i64 408}
+!45 = !{!"p2 omnipotent char", !14, i64 0}
+!46 = !{!"p2 _ZTS11AVBufferRef", !14, i64 0}
+!47 = !{!"p1 _ZTS12AVDictionary", !7, i64 0}
+!48 = !{!21, !23, i64 16}
+!49 = !{!21, !15, i64 64}
+!50 = distinct !{!50, !32}
+!51 = !{!44, !23, i64 136}
+!52 = !{!21, !7, i64 80}
+!53 = !{!5, !13, i64 56}
+!54 = !{!55, !55, i64 0}
+!55 = !{!"p1 _ZTS12AVFilterLink", !7, i64 0}
+!56 = !{!21, !15, i64 28}
+!57 = distinct !{!57, !32}
+!58 = !{!34, !15, i64 36}
+!59 = !{!21, !22, i64 8}
+!60 = !{!11, !11, i64 0}
+!61 = !{!22, !22, i64 0}
+!62 = distinct !{!62, !32}
+!63 = !{!64, !64, i64 0}
+!64 = !{!"float", !8, i64 0}
+!65 = distinct !{!65, !32}
+!66 = !{!15, !15, i64 0}
+!67 = distinct !{!67, !32}
+!68 = !{!69, !69, i64 0}
+!69 = !{!"short", !8, i64 0}
+!70 = distinct !{!70, !32}
+!71 = !{!44, !15, i64 388}
+!72 = distinct !{!72, !32, !73}
+!73 = !{!"llvm.loop.unswitch.partial.disable"}
+!74 = !{!44, !45, i64 96}
+!75 = distinct !{!75, !32}
+!76 = distinct !{!76, !32, !73}
+!77 = distinct !{!77, !32}
+!78 = distinct !{!78, !32, !73}
+!79 = distinct !{!79, !32}
+!80 = distinct !{!80, !32, !73}
+!81 = distinct !{!81, !32}

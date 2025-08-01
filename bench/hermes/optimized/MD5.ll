@@ -1041,15 +1041,15 @@ entry:
 for.body:                                         ; preds = %entry, %for.body
   %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %for.body ]
   %arrayidx.i.i = getelementptr inbounds nuw [16 x i8], ptr %this, i64 0, i64 %indvars.iv
-  call void @llvm.experimental.noalias.scope.decl(metadata !7)
-  store ptr @.str, ptr %Fmt.i.i.i, align 8, !alias.scope !7
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4llvh13format_objectIJhEEE, i64 16), ptr %ref.tmp, align 8, !alias.scope !7
-  %0 = load i8, ptr %arrayidx.i.i, align 1, !noalias !7
-  store i8 %0, ptr %Vals.i.i, align 8, !alias.scope !7
+  call void @llvm.experimental.noalias.scope.decl(metadata !6)
+  store ptr @.str, ptr %Fmt.i.i.i, align 8, !alias.scope !6
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4llvh13format_objectIJhEEE, i64 16), ptr %ref.tmp, align 8, !alias.scope !6
+  %0 = load i8, ptr %arrayidx.i.i, align 1, !noalias !6
+  store i8 %0, ptr %Vals.i.i, align 8, !alias.scope !6
   %call2 = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostreamlsERKNS_18format_object_baseE(ptr noundef nonnull align 8 dereferenceable(36) %Res, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp) #16
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !10
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !9
 
 for.end:                                          ; preds = %for.body
   call void @_ZN4llvh11raw_ostreamD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %Res) #16
@@ -1064,22 +1064,22 @@ entry:
   %Res.i = alloca %"class.llvh::raw_svector_ostream", align 8
   %ref.tmp.i = alloca %"class.llvh::format_object", align 8
   %ref.tmp = alloca %"class.llvh::SmallString", align 8
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !11)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !10)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %Res.i)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp.i)
   %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 16
-  store ptr %add.ptr.i.i.i.i.i.i.i, ptr %ref.tmp, align 8, !alias.scope !11
+  store ptr %add.ptr.i.i.i.i.i.i.i, ptr %ref.tmp, align 8, !alias.scope !10
   %Size.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
-  store i32 0, ptr %Size.i.i.i.i.i.i.i, align 8, !alias.scope !11
+  store i32 0, ptr %Size.i.i.i.i.i.i.i, align 8, !alias.scope !10
   %Capacity2.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 12
-  store i32 32, ptr %Capacity2.i.i.i.i.i.i.i, align 4, !alias.scope !11
+  store i32 32, ptr %Capacity2.i.i.i.i.i.i.i, align 4, !alias.scope !10
   %BufferMode.i.i.i.i = getelementptr inbounds nuw i8, ptr %Res.i, i64 32
-  store i32 1, ptr %BufferMode.i.i.i.i, align 8, !noalias !11
+  store i32 1, ptr %BufferMode.i.i.i.i, align 8, !noalias !10
   %OutBufStart.i.i.i.i = getelementptr inbounds nuw i8, ptr %Res.i, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %OutBufStart.i.i.i.i, i8 0, i64 24, i1 false), !noalias !11
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4llvh19raw_svector_ostreamE, i64 16), ptr %Res.i, align 8, !noalias !11
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %OutBufStart.i.i.i.i, i8 0, i64 24, i1 false), !noalias !10
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4llvh19raw_svector_ostreamE, i64 16), ptr %Res.i, align 8, !noalias !10
   %OS.i.i = getelementptr inbounds nuw i8, ptr %Res.i, i64 40
-  store ptr %ref.tmp, ptr %OS.i.i, align 8, !noalias !11
+  store ptr %ref.tmp, ptr %OS.i.i, align 8, !noalias !10
   call void @_ZN4llvh11raw_ostream16SetBufferAndModeEPcmNS0_10BufferKindE(ptr noundef nonnull align 8 dereferenceable(48) %Res.i, ptr noundef null, i64 noundef 0, i32 noundef 0) #16
   %Fmt.i.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 8
   %Vals.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 16
@@ -1088,15 +1088,15 @@ entry:
 for.body.i:                                       ; preds = %for.body.i, %entry
   %indvars.iv.i = phi i64 [ 0, %entry ], [ %indvars.iv.next.i, %for.body.i ]
   %arrayidx.i.i.i = getelementptr inbounds nuw [16 x i8], ptr %Result, i64 0, i64 %indvars.iv.i
-  call void @llvm.experimental.noalias.scope.decl(metadata !14)
-  store ptr @.str, ptr %Fmt.i.i.i.i, align 8, !alias.scope !14, !noalias !11
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4llvh13format_objectIJhEEE, i64 16), ptr %ref.tmp.i, align 8, !alias.scope !14, !noalias !11
-  %0 = load i8, ptr %arrayidx.i.i.i, align 1, !noalias !17
-  store i8 %0, ptr %Vals.i.i.i, align 8, !alias.scope !14, !noalias !11
+  call void @llvm.experimental.noalias.scope.decl(metadata !13)
+  store ptr @.str, ptr %Fmt.i.i.i.i, align 8, !alias.scope !13, !noalias !10
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4llvh13format_objectIJhEEE, i64 16), ptr %ref.tmp.i, align 8, !alias.scope !13, !noalias !10
+  %0 = load i8, ptr %arrayidx.i.i.i, align 1, !noalias !16
+  store i8 %0, ptr %Vals.i.i.i, align 8, !alias.scope !13, !noalias !10
   %call2.i = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostreamlsERKNS_18format_object_baseE(ptr noundef nonnull align 8 dereferenceable(36) %Res.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i) #16
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 16
-  br i1 %exitcond.not.i, label %_ZNK4llvh3MD59MD5Result6digestEv.exit, label %for.body.i, !llvm.loop !10
+  br i1 %exitcond.not.i, label %_ZNK4llvh3MD59MD5Result6digestEv.exit, label %for.body.i, !llvm.loop !9
 
 _ZNK4llvh3MD59MD5Result6digestEv.exit:            ; preds = %for.body.i
   call void @_ZN4llvh11raw_ostreamD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %Res.i) #16
@@ -1359,17 +1359,16 @@ attributes #16 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5, !6}
+!4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{!"llvm.loop.estimated_trip_count"}
-!7 = !{!8}
-!8 = distinct !{!8, !9, !"_ZN4llvh6formatIJhEEENS_13format_objectIJDpT_EEEPKcDpRKS2_: %agg.result"}
-!9 = distinct !{!9, !"_ZN4llvh6formatIJhEEENS_13format_objectIJDpT_EEEPKcDpRKS2_"}
-!10 = distinct !{!10, !5, !6}
-!11 = !{!12}
-!12 = distinct !{!12, !13, !"_ZNK4llvh3MD59MD5Result6digestEv: %agg.result"}
-!13 = distinct !{!13, !"_ZNK4llvh3MD59MD5Result6digestEv"}
-!14 = !{!15}
-!15 = distinct !{!15, !16, !"_ZN4llvh6formatIJhEEENS_13format_objectIJDpT_EEEPKcDpRKS2_: %agg.result"}
-!16 = distinct !{!16, !"_ZN4llvh6formatIJhEEENS_13format_objectIJDpT_EEEPKcDpRKS2_"}
-!17 = !{!15, !12}
+!6 = !{!7}
+!7 = distinct !{!7, !8, !"_ZN4llvh6formatIJhEEENS_13format_objectIJDpT_EEEPKcDpRKS2_: %agg.result"}
+!8 = distinct !{!8, !"_ZN4llvh6formatIJhEEENS_13format_objectIJDpT_EEEPKcDpRKS2_"}
+!9 = distinct !{!9, !5}
+!10 = !{!11}
+!11 = distinct !{!11, !12, !"_ZNK4llvh3MD59MD5Result6digestEv: %agg.result"}
+!12 = distinct !{!12, !"_ZNK4llvh3MD59MD5Result6digestEv"}
+!13 = !{!14}
+!14 = distinct !{!14, !15, !"_ZN4llvh6formatIJhEEENS_13format_objectIJDpT_EEEPKcDpRKS2_: %agg.result"}
+!15 = distinct !{!15, !"_ZN4llvh6formatIJhEEENS_13format_objectIJDpT_EEEPKcDpRKS2_"}
+!16 = !{!14, !11}

@@ -128,7 +128,7 @@ define dso_local noundef i32 @acpi_irq_penalty_init() local_unnamed_addr #0 sect
 .loopexit:                                        ; preds = %21, %29, %24
   %34 = load ptr, ptr %3, align 8
   %35 = icmp eq ptr %34, @acpi_link_list
-  br i1 %35, label %.loopexit5, label %.preheader, !llvm.loop !9
+  br i1 %35, label %.loopexit5, label %.preheader, !llvm.loop !8
 
 .loopexit5:                                       ; preds = %.loopexit, %0
   ret i32 0
@@ -215,7 +215,7 @@ define dso_local i32 @acpi_pci_link_allocate_irq(ptr noundef %0, i32 noundef %1,
 48:                                               ; preds = %43
   %49 = add nuw nsw i64 %44, 1
   %50 = icmp eq i64 %49, %35
-  br i1 %50, label %.thread, label %43, !llvm.loop !10
+  br i1 %50, label %.thread, label %43, !llvm.loop !9
 
 51:                                               ; preds = %43
   %52 = trunc i64 %44 to i32
@@ -301,7 +301,7 @@ thread-pre-split32:                               ; preds = %68, %.thread29
   %88 = phi i32 [ %97, %.preheader38 ], [ %115, %114 ]
   %89 = load ptr, ptr %91, align 8
   %90 = icmp eq ptr %89, @acpi_link_list
-  br i1 %90, label %.loopexit39, label %.preheader38, !llvm.loop !11
+  br i1 %90, label %.loopexit39, label %.preheader38, !llvm.loop !10
 
 .preheader38:                                     ; preds = %87, %.loopexit36
   %91 = phi ptr [ %89, %.loopexit36 ], [ %74, %87 ]
@@ -339,7 +339,7 @@ thread-pre-split32:                               ; preds = %68, %.thread29
   %115 = phi i32 [ %113, %111 ], [ %107, %105 ]
   %116 = add nuw nsw i64 %106, 1
   %117 = icmp eq i64 %116, %104
-  br i1 %117, label %.loopexit36, label %105, !llvm.loop !12
+  br i1 %117, label %.loopexit36, label %105, !llvm.loop !11
 
 .loopexit39:                                      ; preds = %.loopexit36, %83
   %118 = phi i32 [ %86, %83 ], [ %88, %.loopexit36 ]
@@ -374,7 +374,7 @@ thread-pre-split32:                               ; preds = %68, %.thread29
   %137 = phi i32 [ %146, %.preheader37 ], [ %164, %163 ]
   %138 = load ptr, ptr %140, align 8
   %139 = icmp eq ptr %138, @acpi_link_list
-  br i1 %139, label %.thread31, label %.preheader37, !llvm.loop !13
+  br i1 %139, label %.thread31, label %.preheader37, !llvm.loop !10
 
 .preheader37:                                     ; preds = %136, %.loopexit35
   %140 = phi ptr [ %138, %.loopexit35 ], [ %74, %136 ]
@@ -412,7 +412,7 @@ thread-pre-split32:                               ; preds = %68, %.thread29
   %164 = phi i32 [ %162, %160 ], [ %156, %154 ]
   %165 = add nuw nsw i64 %155, 1
   %166 = icmp eq i64 %165, %153
-  br i1 %166, label %.loopexit35, label %154, !llvm.loop !14
+  br i1 %166, label %.loopexit35, label %154, !llvm.loop !11
 
 .thread31:                                        ; preds = %.loopexit35, %.thread30, %136, %130
   %167 = phi i32 [ %131, %130 ], [ %123, %136 ], [ %128, %.thread30 ], [ %123, %.loopexit35 ]
@@ -424,7 +424,7 @@ thread-pre-split32:                               ; preds = %68, %.thread29
   %173 = icmp sgt i32 %168, %172
   %174 = select i1 %173, i32 %167, i32 %80
   %175 = icmp sgt i64 %79, 1
-  br i1 %175, label %78, label %.loopexit40, !llvm.loop !15
+  br i1 %175, label %78, label %.loopexit40, !llvm.loop !12
 
 .loopexit40:                                      ; preds = %.thread31, %..loopexit40_crit_edge, %thread-pre-split32
   %176 = phi i32 [ %.pre59, %..loopexit40_crit_edge ], [ %.pre60, %thread-pre-split32 ], [ %.pre60, %.thread31 ]
@@ -448,7 +448,7 @@ thread-pre-split32:                               ; preds = %68, %.thread29
   %187 = phi i32 [ %196, %.preheader ], [ %214, %213 ]
   %188 = load ptr, ptr %190, align 8
   %189 = icmp eq ptr %188, @acpi_link_list
-  br i1 %189, label %.loopexit34, label %.preheader, !llvm.loop !16
+  br i1 %189, label %.loopexit34, label %.preheader, !llvm.loop !10
 
 .preheader:                                       ; preds = %184, %.loopexit
   %190 = phi ptr [ %188, %.loopexit ], [ %185, %184 ]
@@ -486,7 +486,7 @@ thread-pre-split32:                               ; preds = %68, %.thread29
   %214 = phi i32 [ %212, %210 ], [ %206, %204 ]
   %215 = add nuw nsw i64 %205, 1
   %216 = icmp eq i64 %215, %203
-  br i1 %216, label %.loopexit, label %204, !llvm.loop !17
+  br i1 %216, label %.loopexit, label %204, !llvm.loop !11
 
 .loopexit34:                                      ; preds = %.loopexit, %184, %180
   %217 = phi i32 [ %183, %180 ], [ 0, %184 ], [ %187, %.loopexit ]
@@ -783,8 +783,8 @@ define internal fastcc i32 @acpi_pci_link_set(ptr noundef captures(none) %0, i32
 
 10:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #14
-  store i64 0, ptr %3, align 8, !annotation !18
-  call void asm sideeffect "# __raw_save_flags\0A\09pushf ; pop $0", "=*rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %3) #14, !srcloc !19
+  store i64 0, ptr %3, align 8, !annotation !13
+  call void asm sideeffect "# __raw_save_flags\0A\09pushf ; pop $0", "=*rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %3) #14, !srcloc !14
   %11 = load i64, ptr %3, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #14
   %12 = and i64 %11, 512
@@ -1059,7 +1059,7 @@ define internal fastcc void @acpi_irq_penalty_update(ptr noundef %0, i32 noundef
 6:                                                ; preds = %21, %2
   %7 = phi i32 [ 0, %2 ], [ %23, %21 ]
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #14
-  store i32 0, ptr %4, align 4, !annotation !18
+  store i32 0, ptr %4, align 4, !annotation !13
   %8 = call i32 @get_option(ptr noundef nonnull %3, ptr noundef nonnull %4) #14
   %9 = icmp eq i32 %8, 0
   br i1 %9, label %.thread, label %10
@@ -1096,7 +1096,7 @@ define internal fastcc void @acpi_irq_penalty_update(ptr noundef %0, i32 noundef
   %23 = add nuw nsw i32 %7, 1
   %24 = icmp eq i32 %23, 16
   %25 = select i1 %22, i1 true, i1 %24
-  br i1 %25, label %.loopexit, label %6, !llvm.loop !20
+  br i1 %25, label %.loopexit, label %6, !llvm.loop !15
 
 .loopexit:                                        ; preds = %21, %.thread
   ret void
@@ -1138,7 +1138,7 @@ define internal void @irqrouter_resume() #2 align 16 {
 18:                                               ; preds = %16, %11, %7, %.preheader
   %19 = load ptr, ptr %3, align 8
   %20 = icmp eq ptr %19, @acpi_link_list
-  br i1 %20, label %.loopexit, label %.preheader, !llvm.loop !21
+  br i1 %20, label %.loopexit, label %.preheader, !llvm.loop !16
 
 .loopexit:                                        ; preds = %18, %0
   ret void
@@ -1265,7 +1265,7 @@ define internal noundef range(i32 0, 16388) i32 @acpi_pci_link_check_possible(pt
   %27 = icmp samesign ult i64 %25, %26
   %28 = icmp samesign ult i64 %14, 15
   %29 = and i1 %28, %27
-  br i1 %29, label %12, label %.sink.split, !llvm.loop !22
+  br i1 %29, label %12, label %.sink.split, !llvm.loop !17
 
 30:                                               ; preds = %2
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 13
@@ -1303,7 +1303,7 @@ define internal noundef range(i32 0, 16388) i32 @acpi_pci_link_check_possible(pt
   %52 = icmp samesign ult i64 %50, %51
   %53 = icmp samesign ult i64 %40, 15
   %54 = and i1 %53, %52
-  br i1 %54, label %38, label %.sink.split, !llvm.loop !23
+  br i1 %54, label %38, label %.sink.split, !llvm.loop !18
 
 .sink.split:                                      ; preds = %23, %48
   %.sink = phi i8 [ 15, %48 ], [ 0, %23 ]
@@ -1353,22 +1353,17 @@ attributes #17 = { cold nounwind }
 !2 = !{i32 4, !"function_return_thunk_extern", i32 1}
 !3 = !{i32 4, !"indirect_branch_cs_prefix", i32 1}
 !4 = !{i32 4, !"SkipRaxSetup", i32 1}
-!5 = distinct !{!5, !6, !7, !8}
+!5 = distinct !{!5, !6, !7}
 !6 = !{!"llvm.loop.mustprogress"}
 !7 = !{!"llvm.loop.unroll.disable"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !6, !7, !8}
-!10 = distinct !{!10, !6, !7, !8}
-!11 = distinct !{!11, !6, !7, !8}
-!12 = distinct !{!12, !6, !7, !8}
-!13 = distinct !{!13, !6, !7, !8}
-!14 = distinct !{!14, !6, !7, !8}
-!15 = distinct !{!15, !6, !7, !8}
-!16 = distinct !{!16, !6, !7, !8}
-!17 = distinct !{!17, !6, !7, !8}
-!18 = !{!"auto-init"}
-!19 = !{i64 1928501, i64 1928522}
-!20 = distinct !{!20, !6, !7, !8}
-!21 = distinct !{!21, !6, !7, !8}
-!22 = distinct !{!22, !6, !7, !8}
-!23 = distinct !{!23, !6, !7, !8}
+!8 = distinct !{!8, !6, !7}
+!9 = distinct !{!9, !6, !7}
+!10 = distinct !{!10, !6, !7}
+!11 = distinct !{!11, !6, !7}
+!12 = distinct !{!12, !6, !7}
+!13 = !{!"auto-init"}
+!14 = !{i64 1928501, i64 1928522}
+!15 = distinct !{!15, !6, !7}
+!16 = distinct !{!16, !6, !7}
+!17 = distinct !{!17, !6, !7}
+!18 = distinct !{!18, !6, !7}

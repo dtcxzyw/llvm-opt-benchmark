@@ -534,7 +534,7 @@ select.unfold:                                    ; preds = %19, %19, %19, %19, 
   %73 = getelementptr inbounds i8, ptr %71, i64 %59
   %74 = add nuw nsw i32 %.03140.i, 1
   %exitcond.not.i = icmp eq i32 %74, %12
-  br i1 %exitcond.not.i, label %scale_mat_nearest_4.exit, label %.lr.ph.i, !llvm.loop !6
+  br i1 %exitcond.not.i, label %scale_mat_nearest_4.exit, label %.lr.ph.i, !llvm.loop !5
 
 75:                                               ; preds = %select.unfold
   br i1 %53, label %.lr.ph47.i, label %scale_mat_nearest_4.exit
@@ -582,14 +582,14 @@ select.unfold:                                    ; preds = %19, %19, %19, %19, 
   store i8 %95, ptr %96, align 1
   %97 = getelementptr inbounds nuw i8, ptr %.142.i, i64 3
   %.not.i63 = icmp eq i32 %85, 0
-  br i1 %.not.i63, label %._crit_edge.i64, label %84, !llvm.loop !7
+  br i1 %.not.i63, label %._crit_edge.i64, label %84, !llvm.loop !6
 
 ._crit_edge.i64:                                  ; preds = %84
   %98 = add i64 %.03743.i, %48
   %99 = getelementptr inbounds i8, ptr %97, i64 %79
   %100 = add nuw nsw i32 %.03544.i, 1
   %exitcond.not.i65 = icmp eq i32 %100, %12
-  br i1 %exitcond.not.i65, label %scale_mat_nearest_4.exit, label %.lr.ph.i62, !llvm.loop !8
+  br i1 %exitcond.not.i65, label %scale_mat_nearest_4.exit, label %.lr.ph.i62, !llvm.loop !7
 
 101:                                              ; preds = %select.unfold
   br i1 %53, label %.lr.ph43.i66, label %scale_mat_nearest_4.exit
@@ -629,14 +629,14 @@ select.unfold:                                    ; preds = %19, %19, %19, %19, 
   store i16 %117, ptr %.138.i73, align 2
   %118 = getelementptr inbounds nuw i8, ptr %.138.i73, i64 2
   %.not.i76 = icmp eq i32 %112, 0
-  br i1 %.not.i76, label %._crit_edge.i77, label %111, !llvm.loop !9
+  br i1 %.not.i76, label %._crit_edge.i77, label %111, !llvm.loop !8
 
 ._crit_edge.i77:                                  ; preds = %111
   %119 = add i64 %.03339.i72, %48
   %120 = getelementptr inbounds i8, ptr %118, i64 %106
   %121 = add nuw nsw i32 %.03140.i71, 1
   %exitcond.not.i78 = icmp eq i32 %121, %12
-  br i1 %exitcond.not.i78, label %scale_mat_nearest_4.exit, label %.lr.ph.i69, !llvm.loop !10
+  br i1 %exitcond.not.i78, label %scale_mat_nearest_4.exit, label %.lr.ph.i69, !llvm.loop !9
 
 122:                                              ; preds = %select.unfold
   br i1 %53, label %.lr.ph43.i79, label %scale_mat_nearest_4.exit
@@ -674,14 +674,14 @@ select.unfold:                                    ; preds = %19, %19, %19, %19, 
   store i8 %136, ptr %.138.i86, align 1
   %137 = getelementptr inbounds nuw i8, ptr %.138.i86, i64 1
   %.not.i89 = icmp eq i32 %132, 0
-  br i1 %.not.i89, label %._crit_edge.i90, label %131, !llvm.loop !11
+  br i1 %.not.i89, label %._crit_edge.i90, label %131, !llvm.loop !10
 
 ._crit_edge.i90:                                  ; preds = %131
   %138 = add i64 %.03339.i85, %48
   %139 = getelementptr inbounds i8, ptr %137, i64 %126
   %140 = add nuw nsw i32 %.03140.i84, 1
   %exitcond.not.i91 = icmp eq i32 %140, %12
-  br i1 %exitcond.not.i91, label %scale_mat_nearest_4.exit, label %.lr.ph.i82, !llvm.loop !12
+  br i1 %exitcond.not.i91, label %scale_mat_nearest_4.exit, label %.lr.ph.i82, !llvm.loop !11
 
 scale_mat_nearest_4.exit:                         ; preds = %._crit_edge.i77, %._crit_edge.i64, %._crit_edge.i, %._crit_edge.i90, %.lr.ph43.i79, %122, %.lr.ph43.i66, %101, %.lr.ph47.i, %75, %.lr.ph43.i, %54
   ret void
@@ -866,7 +866,7 @@ define internal fastcc void @SDL_StretchSurfaceUncheckedLinear(i32 %.16.val, ptr
   %132 = add nsw i32 %.pr.i, -1
   store i32 %132, ptr %9, align 4
   %.not.i = icmp eq i32 %.pr.i, 0
-  br i1 %.not.i, label %.preheader69.i, label %91, !llvm.loop !13
+  br i1 %.not.i, label %.preheader69.i, label %91, !llvm.loop !12
 
 .preheader.i:                                     ; preds = %.lr.ph75.i, %.preheader69.i
   %.2.lcssa.i = phi ptr [ %.1.lcssa.i, %.preheader69.i ], [ %267, %.lr.ph75.i ]
@@ -1021,7 +1021,7 @@ define internal fastcc void @SDL_StretchSurfaceUncheckedLinear(i32 %.16.val, ptr
   store i8 %265, ptr %266, align 1
   %267 = getelementptr inbounds nuw i8, ptr %.274.i, i64 4
   %.not65.i = icmp eq i32 %145, 0
-  br i1 %.not65.i, label %.preheader.i, label %.lr.ph75.i, !llvm.loop !14
+  br i1 %.not65.i, label %.preheader.i, label %.lr.ph75.i, !llvm.loop !13
 
 268:                                              ; preds = %268, %.lr.ph79.i
   %.378.i = phi ptr [ %.2.lcssa.i, %.lr.ph79.i ], [ %308, %268 ]
@@ -1073,14 +1073,14 @@ define internal fastcc void @SDL_StretchSurfaceUncheckedLinear(i32 %.16.val, ptr
   %310 = add nsw i32 %309, -1
   store i32 %310, ptr %10, align 4
   %.not66.i = icmp eq i32 %309, 0
-  br i1 %.not66.i, label %._crit_edge.i, label %268, !llvm.loop !15
+  br i1 %.not66.i, label %._crit_edge.i, label %268, !llvm.loop !14
 
 ._crit_edge.i:                                    ; preds = %268, %.preheader.i
   %.3.lcssa.i = phi ptr [ %.2.lcssa.i, %.preheader.i ], [ %308, %268 ]
   %311 = getelementptr inbounds i8, ptr %.3.lcssa.i, i64 %55
   %312 = add nuw nsw i32 %.06281.i, 1
   %exitcond.not.i = icmp eq i32 %312, %24
-  br i1 %exitcond.not.i, label %scale_mat.exit, label %56, !llvm.loop !16
+  br i1 %exitcond.not.i, label %scale_mat.exit, label %56, !llvm.loop !15
 
 scale_mat.exit:                                   ; preds = %._crit_edge.i, %2
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #5
@@ -1136,7 +1136,7 @@ define internal fastcc void @get_scaler_datas(i32 noundef %0, i32 noundef %1, pt
   %23 = add nsw i64 %.026, %9
   %24 = add nuw nsw i32 %.02425, 1
   %exitcond.not = icmp eq i32 %24, %1
-  br i1 %exitcond.not, label %._crit_edge, label %14, !llvm.loop !17
+  br i1 %exitcond.not, label %._crit_edge, label %14, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %22, %6
   ret void
@@ -1154,18 +1154,17 @@ attributes #5 = { nounwind }
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = distinct !{!3, !4, !5}
+!3 = distinct !{!3, !4}
 !4 = !{!"llvm.loop.mustprogress"}
-!5 = !{!"llvm.loop.estimated_trip_count"}
-!6 = distinct !{!6, !4, !5}
-!7 = distinct !{!7, !4, !5}
-!8 = distinct !{!8, !4, !5}
-!9 = distinct !{!9, !4, !5}
-!10 = distinct !{!10, !4, !5}
-!11 = distinct !{!11, !4, !5}
-!12 = distinct !{!12, !4, !5}
-!13 = distinct !{!13, !4, !5}
-!14 = distinct !{!14, !4, !5}
-!15 = distinct !{!15, !4, !5}
-!16 = distinct !{!16, !4, !5}
-!17 = distinct !{!17, !4, !5}
+!5 = distinct !{!5, !4}
+!6 = distinct !{!6, !4}
+!7 = distinct !{!7, !4}
+!8 = distinct !{!8, !4}
+!9 = distinct !{!9, !4}
+!10 = distinct !{!10, !4}
+!11 = distinct !{!11, !4}
+!12 = distinct !{!12, !4}
+!13 = distinct !{!13, !4}
+!14 = distinct !{!14, !4}
+!15 = distinct !{!15, !4}
+!16 = distinct !{!16, !4}

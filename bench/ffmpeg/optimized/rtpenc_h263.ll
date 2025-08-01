@@ -55,9 +55,9 @@ define void @ff_rtp_send_h263(ptr noundef %0, ptr noundef %1, i32 noundef %2) lo
 
 .lr.ph:                                           ; preds = %3
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %6 = load ptr, ptr %5, align 8, !tbaa !10
+  %6 = load ptr, ptr %5, align 8, !tbaa !9
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 56
-  %8 = load i32, ptr %7, align 8, !tbaa !28
+  %8 = load i32, ptr %7, align 8, !tbaa !27
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 96
   %10 = add nsw i32 %8, -2
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 52
@@ -67,7 +67,7 @@ define void @ff_rtp_send_h263(ptr noundef %0, ptr noundef %1, i32 noundef %2) lo
 13:                                               ; preds = %.lr.ph, %49
   %.052 = phi ptr [ %1, %.lr.ph ], [ %60, %49 ]
   %.04051 = phi i32 [ %2, %.lr.ph ], [ %61, %49 ]
-  %14 = load ptr, ptr %9, align 8, !tbaa !32
+  %14 = load ptr, ptr %9, align 8, !tbaa !31
   %.not = icmp eq i32 %.04051, 1
   br i1 %.not, label %25, label %15
 
@@ -115,25 +115,25 @@ define void @ff_rtp_send_h263(ptr noundef %0, ptr noundef %1, i32 noundef %2) lo
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %42
   %.025.i.idx = phi i64 [ %.025.i.add, %42 ], [ %.add, %.lr.ph.i.preheader ]
   %.025.i.ptr = getelementptr inbounds i8, ptr %.1, i64 %.025.i.idx
-  %33 = load i8, ptr %.025.i.ptr, align 1, !tbaa !4, !alias.scope !33, !noalias !36
+  %33 = load i8, ptr %.025.i.ptr, align 1, !tbaa !4, !alias.scope !32, !noalias !35
   %.not.i = icmp eq i8 %33, 0
   br i1 %.not.i, label %34, label %42
 
 34:                                               ; preds = %.lr.ph.i
   %35 = getelementptr inbounds nuw i8, ptr %.025.i.ptr, i64 1
-  %36 = load i8, ptr %35, align 1, !tbaa !4, !alias.scope !33, !noalias !36
+  %36 = load i8, ptr %35, align 1, !tbaa !4, !alias.scope !32, !noalias !35
   %.not15.i = icmp eq i8 %36, 0
   br i1 %.not15.i, label %37, label %.thread.i
 
 37:                                               ; preds = %34
   %38 = getelementptr inbounds nuw i8, ptr %.025.i.ptr, i64 2
-  %39 = load i8, ptr %38, align 1, !tbaa !4, !alias.scope !33, !noalias !36
+  %39 = load i8, ptr %38, align 1, !tbaa !4, !alias.scope !32, !noalias !35
   %.not16.i = icmp eq i8 %39, 0
   br i1 %.not16.i, label %42, label %ff_h263_find_resync_marker_reverse.exit
 
 .thread.i:                                        ; preds = %34
   %40 = getelementptr inbounds i8, ptr %.025.i.ptr, i64 -1
-  %41 = load i8, ptr %40, align 1, !tbaa !4, !alias.scope !33, !noalias !36
+  %41 = load i8, ptr %40, align 1, !tbaa !4, !alias.scope !32, !noalias !35
   %.not1719.i = icmp eq i8 %41, 0
   br i1 %.not1719.i, label %ff_h263_find_resync_marker_reverse.exit.loopexit.split.loop.exit, label %42
 
@@ -159,9 +159,9 @@ ff_h263_find_resync_marker_reverse.exit:          ; preds = %37, %42, %ff_h263_f
   %50 = sext i32 %.042 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %27, ptr align 1 %.1, i64 %50, i1 false)
   %51 = getelementptr inbounds i8, ptr %27, i64 %50
-  %52 = load i32, ptr %11, align 4, !tbaa !38
-  store i32 %52, ptr %12, align 4, !tbaa !39
-  %53 = load ptr, ptr %9, align 8, !tbaa !32
+  %52 = load i32, ptr %11, align 4, !tbaa !37
+  store i32 %52, ptr %12, align 4, !tbaa !38
+  %53 = load ptr, ptr %9, align 8, !tbaa !31
   %54 = ptrtoint ptr %51 to i64
   %55 = ptrtoint ptr %53 to i64
   %56 = sub i64 %54, %55
@@ -172,7 +172,7 @@ ff_h263_find_resync_marker_reverse.exit:          ; preds = %37, %42, %ff_h263_f
   %60 = getelementptr inbounds i8, ptr %.1, i64 %50
   %61 = sub nsw i32 %.141, %.042
   %62 = icmp sgt i32 %61, 0
-  br i1 %62, label %13, label %._crit_edge, !llvm.loop !40
+  br i1 %62, label %13, label %._crit_edge, !llvm.loop !39
 
 ._crit_edge:                                      ; preds = %49, %3
   ret void
@@ -202,37 +202,36 @@ attributes #5 = { nounwind }
 !4 = !{!5, !5, i64 0}
 !5 = !{!"omnipotent char", !6, i64 0}
 !6 = !{!"Simple C/C++ TBAA"}
-!7 = distinct !{!7, !8, !9}
+!7 = distinct !{!7, !8}
 !8 = !{!"llvm.loop.mustprogress"}
-!9 = !{!"llvm.loop.estimated_trip_count"}
-!10 = !{!11, !13, i64 24}
-!11 = !{!"AVFormatContext", !12, i64 0, !14, i64 8, !15, i64 16, !13, i64 24, !16, i64 32, !17, i64 40, !17, i64 44, !18, i64 48, !17, i64 56, !20, i64 64, !17, i64 72, !21, i64 80, !22, i64 88, !23, i64 96, !23, i64 104, !23, i64 112, !17, i64 120, !17, i64 124, !17, i64 128, !23, i64 136, !23, i64 144, !22, i64 152, !17, i64 160, !17, i64 164, !24, i64 168, !17, i64 176, !17, i64 180, !17, i64 184, !17, i64 188, !25, i64 192, !23, i64 200, !17, i64 208, !17, i64 212, !26, i64 216, !17, i64 232, !17, i64 236, !17, i64 240, !17, i64 244, !23, i64 248, !17, i64 256, !17, i64 260, !17, i64 264, !17, i64 268, !17, i64 272, !17, i64 276, !17, i64 280, !17, i64 284, !17, i64 288, !17, i64 292, !17, i64 296, !17, i64 300, !23, i64 304, !17, i64 312, !17, i64 316, !17, i64 320, !17, i64 324, !17, i64 328, !22, i64 336, !22, i64 344, !22, i64 352, !22, i64 360, !17, i64 368, !27, i64 376, !27, i64 384, !27, i64 392, !27, i64 400, !17, i64 408, !13, i64 416, !13, i64 424, !23, i64 432, !22, i64 440, !13, i64 448, !13, i64 456, !23, i64 464}
-!12 = !{!"p1 _ZTS7AVClass", !13, i64 0}
-!13 = !{!"any pointer", !5, i64 0}
-!14 = !{!"p1 _ZTS13AVInputFormat", !13, i64 0}
-!15 = !{!"p1 _ZTS14AVOutputFormat", !13, i64 0}
-!16 = !{!"p1 _ZTS11AVIOContext", !13, i64 0}
-!17 = !{!"int", !5, i64 0}
-!18 = !{!"p2 _ZTS8AVStream", !19, i64 0}
-!19 = !{!"any p2 pointer", !13, i64 0}
-!20 = !{!"p2 _ZTS13AVStreamGroup", !19, i64 0}
-!21 = !{!"p2 _ZTS9AVChapter", !19, i64 0}
-!22 = !{!"p1 omnipotent char", !13, i64 0}
-!23 = !{!"long", !5, i64 0}
-!24 = !{!"p2 _ZTS9AVProgram", !19, i64 0}
-!25 = !{!"p1 _ZTS12AVDictionary", !13, i64 0}
-!26 = !{!"AVIOInterruptCB", !13, i64 0, !13, i64 8}
-!27 = !{!"p1 _ZTS7AVCodec", !13, i64 0}
-!28 = !{!29, !17, i64 56}
-!29 = !{!"RTPMuxContext", !12, i64 0, !30, i64 8, !31, i64 16, !17, i64 24, !17, i64 28, !22, i64 32, !17, i64 40, !17, i64 44, !17, i64 48, !17, i64 52, !17, i64 56, !17, i64 60, !23, i64 64, !23, i64 72, !17, i64 80, !17, i64 84, !17, i64 88, !17, i64 92, !22, i64 96, !22, i64 104, !17, i64 112, !17, i64 116, !17, i64 120, !17, i64 124, !17, i64 128}
-!30 = !{!"p1 _ZTS15AVFormatContext", !13, i64 0}
-!31 = !{!"p1 _ZTS8AVStream", !13, i64 0}
-!32 = !{!29, !22, i64 96}
-!33 = !{!34}
-!34 = distinct !{!34, !35, !"ff_h263_find_resync_marker_reverse: argument 1"}
-!35 = distinct !{!35, !"ff_h263_find_resync_marker_reverse"}
-!36 = !{!37}
-!37 = distinct !{!37, !35, !"ff_h263_find_resync_marker_reverse: argument 0"}
-!38 = !{!29, !17, i64 52}
-!39 = !{!29, !17, i64 44}
-!40 = distinct !{!40, !8, !9}
+!9 = !{!10, !12, i64 24}
+!10 = !{!"AVFormatContext", !11, i64 0, !13, i64 8, !14, i64 16, !12, i64 24, !15, i64 32, !16, i64 40, !16, i64 44, !17, i64 48, !16, i64 56, !19, i64 64, !16, i64 72, !20, i64 80, !21, i64 88, !22, i64 96, !22, i64 104, !22, i64 112, !16, i64 120, !16, i64 124, !16, i64 128, !22, i64 136, !22, i64 144, !21, i64 152, !16, i64 160, !16, i64 164, !23, i64 168, !16, i64 176, !16, i64 180, !16, i64 184, !16, i64 188, !24, i64 192, !22, i64 200, !16, i64 208, !16, i64 212, !25, i64 216, !16, i64 232, !16, i64 236, !16, i64 240, !16, i64 244, !22, i64 248, !16, i64 256, !16, i64 260, !16, i64 264, !16, i64 268, !16, i64 272, !16, i64 276, !16, i64 280, !16, i64 284, !16, i64 288, !16, i64 292, !16, i64 296, !16, i64 300, !22, i64 304, !16, i64 312, !16, i64 316, !16, i64 320, !16, i64 324, !16, i64 328, !21, i64 336, !21, i64 344, !21, i64 352, !21, i64 360, !16, i64 368, !26, i64 376, !26, i64 384, !26, i64 392, !26, i64 400, !16, i64 408, !12, i64 416, !12, i64 424, !22, i64 432, !21, i64 440, !12, i64 448, !12, i64 456, !22, i64 464}
+!11 = !{!"p1 _ZTS7AVClass", !12, i64 0}
+!12 = !{!"any pointer", !5, i64 0}
+!13 = !{!"p1 _ZTS13AVInputFormat", !12, i64 0}
+!14 = !{!"p1 _ZTS14AVOutputFormat", !12, i64 0}
+!15 = !{!"p1 _ZTS11AVIOContext", !12, i64 0}
+!16 = !{!"int", !5, i64 0}
+!17 = !{!"p2 _ZTS8AVStream", !18, i64 0}
+!18 = !{!"any p2 pointer", !12, i64 0}
+!19 = !{!"p2 _ZTS13AVStreamGroup", !18, i64 0}
+!20 = !{!"p2 _ZTS9AVChapter", !18, i64 0}
+!21 = !{!"p1 omnipotent char", !12, i64 0}
+!22 = !{!"long", !5, i64 0}
+!23 = !{!"p2 _ZTS9AVProgram", !18, i64 0}
+!24 = !{!"p1 _ZTS12AVDictionary", !12, i64 0}
+!25 = !{!"AVIOInterruptCB", !12, i64 0, !12, i64 8}
+!26 = !{!"p1 _ZTS7AVCodec", !12, i64 0}
+!27 = !{!28, !16, i64 56}
+!28 = !{!"RTPMuxContext", !11, i64 0, !29, i64 8, !30, i64 16, !16, i64 24, !16, i64 28, !21, i64 32, !16, i64 40, !16, i64 44, !16, i64 48, !16, i64 52, !16, i64 56, !16, i64 60, !22, i64 64, !22, i64 72, !16, i64 80, !16, i64 84, !16, i64 88, !16, i64 92, !21, i64 96, !21, i64 104, !16, i64 112, !16, i64 116, !16, i64 120, !16, i64 124, !16, i64 128}
+!29 = !{!"p1 _ZTS15AVFormatContext", !12, i64 0}
+!30 = !{!"p1 _ZTS8AVStream", !12, i64 0}
+!31 = !{!28, !21, i64 96}
+!32 = !{!33}
+!33 = distinct !{!33, !34, !"ff_h263_find_resync_marker_reverse: argument 1"}
+!34 = distinct !{!34, !"ff_h263_find_resync_marker_reverse"}
+!35 = !{!36}
+!36 = distinct !{!36, !34, !"ff_h263_find_resync_marker_reverse: argument 0"}
+!37 = !{!28, !16, i64 52}
+!38 = !{!28, !16, i64 44}
+!39 = distinct !{!39, !8}

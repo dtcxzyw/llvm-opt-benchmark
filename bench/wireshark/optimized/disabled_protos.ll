@@ -550,7 +550,7 @@ read_heur_dissector_list.exit:                    ; preds = %89, %95, %96
   %134 = getelementptr inbounds nuw i8, ptr %.023.i, i64 8
   %135 = load ptr, ptr %134, align 8
   %.not.i35 = icmp eq ptr %135, null
-  br i1 %.not.i35, label %.loopexit21.i, label %.lr.ph.i, !llvm.loop !11
+  br i1 %.not.i35, label %.loopexit21.i, label %.lr.ph.i, !llvm.loop !10
 
 .loopexit21.i:                                    ; preds = %133, %124, %117
   %136 = load ptr, ptr @global_disabled_heuristics, align 8
@@ -581,7 +581,7 @@ read_heur_dissector_list.exit:                    ; preds = %89, %95, %96
   %148 = getelementptr inbounds nuw i8, ptr %.125.i, i64 8
   %149 = load ptr, ptr %148, align 8
   %.not19.i = icmp eq ptr %149, null
-  br i1 %.not19.i, label %set_disabled_heur_dissector_list.exit, label %.lr.ph26.i, !llvm.loop !12
+  br i1 %.not19.i, label %set_disabled_heur_dissector_list.exit, label %.lr.ph26.i, !llvm.loop !11
 
 set_disabled_heur_dissector_list.exit:            ; preds = %147, %.loopexit21.i, %138
   store i8 0, ptr @unsaved_changes, align 1
@@ -615,7 +615,7 @@ define internal fastcc void @read_protos_list(ptr noundef writeonly captures(non
   %16 = getelementptr inbounds nuw i8, ptr %.012.i, i64 8
   %17 = load ptr, ptr %16, align 8
   %.not10.i = icmp eq ptr %17, null
-  br i1 %.not10.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !13
+  br i1 %.not10.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !12
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %12
   %18 = load ptr, ptr %7, align 8
@@ -684,7 +684,7 @@ discard_existing_list.exit:                       ; preds = %9, %._crit_edge.i
   %38 = getelementptr inbounds nuw i8, ptr %.012.i52, i64 8
   %39 = load ptr, ptr %38, align 8
   %.not10.i53 = icmp eq ptr %39, null
-  br i1 %.not10.i53, label %._crit_edge.i54, label %.lr.ph.i51, !llvm.loop !13
+  br i1 %.not10.i53, label %._crit_edge.i54, label %.lr.ph.i51, !llvm.loop !12
 
 ._crit_edge.i54:                                  ; preds = %.lr.ph.i51, %34
   %40 = load ptr, ptr %8, align 8
@@ -776,7 +776,7 @@ define internal fastcc void @set_protos_list(ptr noundef %0, ptr noundef %1, i1 
   %15 = getelementptr inbounds nuw i8, ptr %.027, i64 8
   %16 = load ptr, ptr %15, align 8
   %.not = icmp eq ptr %16, null
-  br i1 %.not, label %.loopexit25, label %.lr.ph, !llvm.loop !14
+  br i1 %.not, label %.loopexit25, label %.lr.ph, !llvm.loop !13
 
 .loopexit25:                                      ; preds = %14, %5, %3
   %17 = icmp eq ptr %1, null
@@ -808,7 +808,7 @@ define internal fastcc void @set_protos_list(ptr noundef %0, ptr noundef %1, i1 
   %28 = getelementptr inbounds nuw i8, ptr %.129, i64 8
   %29 = load ptr, ptr %28, align 8
   %.not24 = icmp eq ptr %29, null
-  br i1 %.not24, label %.loopexit, label %.lr.ph30, !llvm.loop !15
+  br i1 %.not24, label %.loopexit, label %.lr.ph30, !llvm.loop !14
 
 .loopexit:                                        ; preds = %27, %18, %.loopexit25
   ret void
@@ -989,7 +989,7 @@ define internal fastcc void @save_protos_list(ptr noundef writeonly captures(non
 
 17:                                               ; preds = %.lr.ph.split.us
   %18 = call ptr @find_protocol_by_id(i32 noundef %.03339.us)
-  %19 = call zeroext i1 %4(ptr noundef %18), !callees !16
+  %19 = call zeroext i1 %4(ptr noundef %18), !callees !15
   br i1 %19, label %20, label %23
 
 20:                                               ; preds = %17
@@ -1000,7 +1000,7 @@ define internal fastcc void @save_protos_list(ptr noundef writeonly captures(non
 23:                                               ; preds = %20, %17, %.lr.ph.split.us
   %24 = call i32 @proto_get_next_protocol(ptr noundef nonnull %6)
   %.not.us = icmp eq i32 %24, -1
-  br i1 %.not.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !17
+  br i1 %.not.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !16
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %35
   %.040 = phi i1 [ %.1, %35 ], [ true, %.lr.ph ]
@@ -1010,7 +1010,7 @@ define internal fastcc void @save_protos_list(ptr noundef writeonly captures(non
 
 26:                                               ; preds = %.lr.ph.split
   %27 = call ptr @find_protocol_by_id(i32 noundef %.03339)
-  %28 = call zeroext i1 %4(ptr noundef %27), !callees !16
+  %28 = call zeroext i1 %4(ptr noundef %27), !callees !15
   br i1 %28, label %29, label %35
 
 29:                                               ; preds = %26
@@ -1029,7 +1029,7 @@ define internal fastcc void @save_protos_list(ptr noundef writeonly captures(non
   %.1 = phi i1 [ %.040, %26 ], [ false, %32 ], [ %.040, %.lr.ph.split ]
   %36 = call i32 @proto_get_next_protocol(ptr noundef nonnull %6)
   %.not = icmp eq i32 %36, -1
-  br i1 %.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !19
+  br i1 %.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !18
 
 ._crit_edge:                                      ; preds = %35, %23, %14
   %37 = call i32 @fclose(ptr noundef nonnull %9)
@@ -1155,7 +1155,7 @@ define internal fastcc i32 @read_protos_list_file(ptr noundef %0, ptr noundef no
   %10 = load ptr, ptr %5, align 8
   %11 = load ptr, ptr %6, align 8
   %.not.i = icmp ult ptr %10, %11
-  br i1 %.not.i, label %getc_unlocked.exit.thread, label %getc_unlocked.exit, !prof !20
+  br i1 %.not.i, label %getc_unlocked.exit.thread, label %getc_unlocked.exit, !prof !19
 
 getc_unlocked.exit.thread:                        ; preds = %9
   %12 = getelementptr i8, ptr %10, i64 1
@@ -1177,7 +1177,7 @@ getc_unlocked.exit:                               ; preds = %9
   %21 = load i16, ptr %20, align 2
   %22 = and i16 %21, 256
   %.not97 = icmp eq i16 %22, 0
-  br i1 %.not97, label %.critedge, label %9, !llvm.loop !21
+  br i1 %.not97, label %.critedge, label %9, !llvm.loop !20
 
 23:                                               ; preds = %getc_unlocked.exit
   %24 = tail call i32 @ferror(ptr noundef nonnull %1) #11
@@ -1195,7 +1195,7 @@ getc_unlocked.exit:                               ; preds = %9
   %27 = load ptr, ptr %5, align 8
   %28 = load ptr, ptr %6, align 8
   %.not.i104 = icmp ult ptr %27, %28
-  br i1 %.not.i104, label %getc_unlocked.exit105.thread, label %getc_unlocked.exit105, !prof !20
+  br i1 %.not.i104, label %getc_unlocked.exit105.thread, label %getc_unlocked.exit105, !prof !19
 
 getc_unlocked.exit105.thread:                     ; preds = %26
   %29 = getelementptr i8, ptr %27, i64 1
@@ -1242,7 +1242,7 @@ getc_unlocked.exit105:                            ; preds = %26
   %51 = getelementptr i8, ptr %.4, i64 %50
   store i8 %36, ptr %51, align 1
   %52 = add i32 %.086, 1
-  br label %26, !llvm.loop !22
+  br label %26
 
 53:                                               ; preds = %41, %34, %getc_unlocked.exit105
   %54 = phi i32 [ -1, %getc_unlocked.exit105 ], [ %35, %34 ], [ 35, %41 ]
@@ -1261,7 +1261,7 @@ getc_unlocked.exit105:                            ; preds = %26
   %62 = load ptr, ptr %5, align 8
   %63 = load ptr, ptr %6, align 8
   %.not.i106 = icmp ult ptr %62, %63
-  br i1 %.not.i106, label %66, label %64, !prof !20
+  br i1 %.not.i106, label %66, label %64, !prof !19
 
 64:                                               ; preds = %.preheader113
   %65 = tail call i32 @__uflow(ptr noundef nonnull %1)
@@ -1288,7 +1288,7 @@ getc_unlocked.exit107:                            ; preds = %64, %66
   %75 = load i16, ptr %74, align 2
   %76 = and i16 %75, 256
   %.not100 = icmp eq i16 %76, 0
-  br i1 %.not100, label %.critedge5, label %.preheader113, !llvm.loop !23
+  br i1 %.not100, label %.critedge5, label %.preheader113, !llvm.loop !21
 
 .critedge5:                                       ; preds = %71
   switch i32 %70, label %77 [
@@ -1314,7 +1314,7 @@ getc_unlocked.exit107:                            ; preds = %64, %66
   %79 = load ptr, ptr %5, align 8
   %80 = load ptr, ptr %6, align 8
   %.not.i108 = icmp ult ptr %79, %80
-  br i1 %.not.i108, label %83, label %81, !prof !20
+  br i1 %.not.i108, label %83, label %81, !prof !19
 
 81:                                               ; preds = %.preheader
   %82 = tail call i32 @__uflow(ptr noundef nonnull %1)
@@ -1332,7 +1332,7 @@ getc_unlocked.exit109:                            ; preds = %81, %83
   switch i32 %87, label %.preheader [
     i32 -1, label %.loopexit
     i32 10, label %.loopexit
-  ], !llvm.loop !24
+  ]
 
 .loopexit:                                        ; preds = %getc_unlocked.exit109, %getc_unlocked.exit109, %.loopexit114, %.loopexit114
   %.1 = phi i32 [ %.079, %.loopexit114 ], [ %.079, %.loopexit114 ], [ %87, %getc_unlocked.exit109 ], [ %87, %getc_unlocked.exit109 ]
@@ -1380,7 +1380,7 @@ getc_unlocked.exit109:                            ; preds = %81, %83
   %.390 = phi i32 [ %.491, %98 ], [ %.188, %92 ]
   %.5 = phi ptr [ %.6, %98 ], [ %.3, %92 ]
   %106 = add i32 %.085, 1
-  br label %8, !llvm.loop !25
+  br label %8
 
 107:                                              ; preds = %23, %91
   %.2 = phi ptr [ %.080, %23 ], [ %.3, %91 ]
@@ -1450,7 +1450,7 @@ define internal fastcc i32 @read_heur_dissector_list_file(ptr noundef %0, ptr no
   %10 = load ptr, ptr %5, align 8
   %11 = load ptr, ptr %6, align 8
   %.not.i = icmp ult ptr %10, %11
-  br i1 %.not.i, label %getc_unlocked.exit.thread, label %getc_unlocked.exit, !prof !20
+  br i1 %.not.i, label %getc_unlocked.exit.thread, label %getc_unlocked.exit, !prof !19
 
 getc_unlocked.exit.thread:                        ; preds = %9
   %12 = getelementptr i8, ptr %10, i64 1
@@ -1472,7 +1472,7 @@ getc_unlocked.exit:                               ; preds = %9
   %21 = load i16, ptr %20, align 2
   %22 = and i16 %21, 256
   %.not98 = icmp eq i16 %22, 0
-  br i1 %.not98, label %.critedge, label %9, !llvm.loop !26
+  br i1 %.not98, label %.critedge, label %9, !llvm.loop !22
 
 23:                                               ; preds = %getc_unlocked.exit
   %24 = tail call i32 @ferror(ptr noundef nonnull %1) #11
@@ -1494,7 +1494,7 @@ getc_unlocked.exit:                               ; preds = %9
   %27 = load ptr, ptr %5, align 8
   %28 = load ptr, ptr %6, align 8
   %.not.i105 = icmp ult ptr %27, %28
-  br i1 %.not.i105, label %getc_unlocked.exit106.thread, label %getc_unlocked.exit106, !prof !20
+  br i1 %.not.i105, label %getc_unlocked.exit106.thread, label %getc_unlocked.exit106, !prof !19
 
 getc_unlocked.exit106.thread:                     ; preds = %26
   %29 = getelementptr i8, ptr %27, i64 1
@@ -1522,7 +1522,7 @@ getc_unlocked.exit106:                            ; preds = %26
   switch i32 %35, label %41 [
     i32 44, label %26
     i32 35, label %.loopexit114.loopexit
-  ], !llvm.loop !27
+  ]
 
 41:                                               ; preds = %40
   %42 = trunc i32 %35 to i8
@@ -1551,7 +1551,7 @@ getc_unlocked.exit106:                            ; preds = %26
   %54 = getelementptr i8, ptr %.4, i64 %53
   store i8 %42, ptr %54, align 1
   %55 = add i32 %.088.ph, 1
-  br label %.outer, !llvm.loop !27
+  br label %.outer
 
 .loopexit114.loopexit:                            ; preds = %getc_unlocked.exit106, %34, %40
   %.ph = phi i32 [ -1, %getc_unlocked.exit106 ], [ %35, %34 ], [ %35, %40 ]
@@ -1575,7 +1575,7 @@ getc_unlocked.exit106:                            ; preds = %26
   %62 = load ptr, ptr %5, align 8
   %63 = load ptr, ptr %6, align 8
   %.not.i107 = icmp ult ptr %62, %63
-  br i1 %.not.i107, label %66, label %64, !prof !20
+  br i1 %.not.i107, label %66, label %64, !prof !19
 
 64:                                               ; preds = %.preheader112
   %65 = tail call i32 @__uflow(ptr noundef nonnull %1)
@@ -1602,7 +1602,7 @@ getc_unlocked.exit108:                            ; preds = %64, %66
   %75 = load i16, ptr %74, align 2
   %76 = and i16 %75, 256
   %.not101 = icmp eq i16 %76, 0
-  br i1 %.not101, label %.critedge5, label %.preheader112, !llvm.loop !28
+  br i1 %.not101, label %.critedge5, label %.preheader112, !llvm.loop !23
 
 .critedge5:                                       ; preds = %71
   switch i32 %70, label %77 [
@@ -1625,7 +1625,7 @@ getc_unlocked.exit108:                            ; preds = %64, %66
   %78 = load ptr, ptr %5, align 8
   %79 = load ptr, ptr %6, align 8
   %.not.i109 = icmp ult ptr %78, %79
-  br i1 %.not.i109, label %82, label %80, !prof !20
+  br i1 %.not.i109, label %82, label %80, !prof !19
 
 80:                                               ; preds = %.preheader
   %81 = tail call i32 @__uflow(ptr noundef nonnull %1)
@@ -1643,7 +1643,7 @@ getc_unlocked.exit110:                            ; preds = %80, %82
   switch i32 %86, label %.preheader [
     i32 -1, label %.loopexit
     i32 10, label %.loopexit
-  ], !llvm.loop !29
+  ]
 
 .loopexit:                                        ; preds = %getc_unlocked.exit110, %getc_unlocked.exit110, %.loopexit113, %.loopexit113
   %.1 = phi i32 [ %.082, %.loopexit113 ], [ %.082, %.loopexit113 ], [ %86, %getc_unlocked.exit110 ], [ %86, %getc_unlocked.exit110 ]
@@ -1685,7 +1685,7 @@ getc_unlocked.exit110:                            ; preds = %80, %82
   %104 = tail call ptr @g_list_append(ptr noundef %103, ptr noundef %100)
   store ptr %104, ptr %2, align 8
   %105 = add i32 %.085, 1
-  br label %8, !llvm.loop !30
+  br label %8
 
 106:                                              ; preds = %23, %90
   %.2 = phi ptr [ %.083, %23 ], [ %.3.ph, %90 ]
@@ -1813,26 +1813,19 @@ attributes #13 = { allocsize(0) }
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i8 0, i8 2}
 !7 = !{}
-!8 = distinct !{!8, !9, !10}
+!8 = distinct !{!8, !9}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = !{!"llvm.loop.estimated_trip_count"}
-!11 = distinct !{!11, !9, !10}
-!12 = distinct !{!12, !9, !10}
-!13 = distinct !{!13, !9, !10}
-!14 = distinct !{!14, !9, !10}
-!15 = distinct !{!15, !9, !10}
-!16 = !{ptr @disable_proto_list_check, ptr @enable_proto_list_check}
-!17 = distinct !{!17, !9, !10, !18}
-!18 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!19 = distinct !{!19, !9, !10}
-!20 = !{!"branch_weights", !"expected", i32 2000, i32 1}
-!21 = distinct !{!21, !9, !10}
-!22 = distinct !{!22, !10}
-!23 = distinct !{!23, !9, !10}
-!24 = distinct !{!24, !10}
-!25 = distinct !{!25, !10}
-!26 = distinct !{!26, !9, !10}
-!27 = distinct !{!27, !10}
-!28 = distinct !{!28, !9, !10}
-!29 = distinct !{!29, !10}
-!30 = distinct !{!30, !10}
+!10 = distinct !{!10, !9}
+!11 = distinct !{!11, !9}
+!12 = distinct !{!12, !9}
+!13 = distinct !{!13, !9}
+!14 = distinct !{!14, !9}
+!15 = !{ptr @disable_proto_list_check, ptr @enable_proto_list_check}
+!16 = distinct !{!16, !9, !17}
+!17 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!18 = distinct !{!18, !9}
+!19 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!20 = distinct !{!20, !9}
+!21 = distinct !{!21, !9}
+!22 = distinct !{!22, !9}
+!23 = distinct !{!23, !9}

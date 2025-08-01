@@ -582,31 +582,31 @@ define linkonce_odr void @_ZN4llvm4yaml7yamlizeIiEENSt9enable_ifIXsr16has_Scalar
 14:                                               ; preds = %4
   call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %5) #13
   %15 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  store ptr %15, ptr %5, align 8, !tbaa !187
+  store ptr %15, ptr %5, align 8, !tbaa !186
   %16 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store i64 0, ptr %16, align 8, !tbaa !189
+  store i64 0, ptr %16, align 8, !tbaa !188
   %17 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store i64 128, ptr %17, align 8, !tbaa !190
+  store i64 128, ptr %17, align 8, !tbaa !189
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %6) #13
   %18 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store i32 2, ptr %18, align 8, !tbaa !191
+  store i32 2, ptr %18, align 8, !tbaa !190
   %19 = getelementptr inbounds nuw i8, ptr %6, i64 40
-  store i8 0, ptr %19, align 8, !tbaa !195
+  store i8 0, ptr %19, align 8, !tbaa !194
   %20 = getelementptr inbounds nuw i8, ptr %6, i64 44
-  store i32 1, ptr %20, align 4, !tbaa !196
+  store i32 1, ptr %20, align 4, !tbaa !195
   %21 = getelementptr inbounds nuw i8, ptr %6, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %21, i8 0, i64 24, i1 false)
   store ptr getelementptr inbounds nuw inrange(-16, 112) (i8, ptr @_ZTVN4llvm19raw_svector_ostreamE, i64 16), ptr %6, align 8, !tbaa !3
   %22 = getelementptr inbounds nuw i8, ptr %6, i64 48
-  store ptr %5, ptr %22, align 8, !tbaa !197
+  store ptr %5, ptr %22, align 8, !tbaa !196
   call void @_ZN4llvm11raw_ostream16SetBufferAndModeEPcmNS0_10BufferKindE(ptr noundef nonnull align 8 dereferenceable(56) %6, ptr noundef null, i64 noundef 0, i32 noundef 0) #13
   %23 = call noundef ptr @_ZNK4llvm4yaml2IO10getContextEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #13
   call void @_ZN4llvm4yaml12ScalarTraitsIivE6outputERKiPvRNS_11raw_ostreamE(ptr noundef nonnull align 4 dereferenceable(4) %1, ptr noundef %23, ptr noundef nonnull align 8 dereferenceable(48) %6) #13
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #13
-  %24 = load ptr, ptr %22, align 8, !tbaa !199
-  %25 = load ptr, ptr %24, align 8, !tbaa !187
+  %24 = load ptr, ptr %22, align 8, !tbaa !198
+  %25 = load ptr, ptr %24, align 8, !tbaa !186
   %26 = getelementptr inbounds nuw i8, ptr %24, i64 8
-  %27 = load i64, ptr %26, align 8, !tbaa !189
+  %27 = load i64, ptr %26, align 8, !tbaa !188
   store ptr %25, ptr %7, align 8
   %28 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i64 %27, ptr %28, align 8
@@ -617,7 +617,7 @@ define linkonce_odr void @_ZN4llvm4yaml7yamlizeIiEENSt9enable_ifIXsr16has_Scalar
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #13
   call void @_ZN4llvm11raw_ostreamD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %6) #13
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %6) #13
-  %32 = load ptr, ptr %5, align 8, !tbaa !187
+  %32 = load ptr, ptr %5, align 8, !tbaa !186
   %33 = icmp eq ptr %32, %15
   br i1 %33, label %_ZN4llvm11SmallVectorIcLj128EED2Ev.exit, label %34
 
@@ -637,8 +637,8 @@ _ZN4llvm11SmallVectorIcLj128EED2Ev.exit:          ; preds = %14, %34
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 216
   %38 = load ptr, ptr %37, align 8
   call void %38(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %8, i32 noundef 0) #13
-  %.sroa.0.0.copyload = load ptr, ptr %8, align 8, !tbaa !202
-  %.sroa.2.0.copyload = load i64, ptr %.sroa.22.0..sroa_idx, align 8, !tbaa !203
+  %.sroa.0.0.copyload = load ptr, ptr %8, align 8, !tbaa !201
+  %.sroa.2.0.copyload = load i64, ptr %.sroa.22.0..sroa_idx, align 8, !tbaa !202
   %39 = call noundef ptr @_ZNK4llvm4yaml2IO10getContextEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #13
   %40 = call { ptr, i64 } @_ZN4llvm4yaml12ScalarTraitsIivE5inputENS_9StringRefEPvRi(ptr %.sroa.0.0.copyload, i64 %.sroa.2.0.copyload, ptr noundef %39, ptr noundef nonnull align 4 dereferenceable(4) %1) #13
   %41 = extractvalue { ptr, i64 } %40, 1
@@ -649,9 +649,9 @@ _ZN4llvm11SmallVectorIcLj128EED2Ev.exit:          ; preds = %14, %34
   %44 = extractvalue { ptr, i64 } %40, 0
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %9) #13
   %45 = getelementptr inbounds nuw i8, ptr %9, i64 32
-  store i8 5, ptr %45, align 8, !tbaa !204
+  store i8 5, ptr %45, align 8, !tbaa !203
   %46 = getelementptr inbounds nuw i8, ptr %9, i64 33
-  store i8 1, ptr %46, align 1, !tbaa !207
+  store i8 1, ptr %46, align 1, !tbaa !206
   store ptr %44, ptr %9, align 8, !tbaa !179
   %47 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i64 %41, ptr %47, align 8, !tbaa !179
@@ -996,27 +996,26 @@ attributes #14 = { builtin nounwind }
 !181 = !{!19, !19, i64 0}
 !182 = !{!183, !9, i64 0}
 !183 = !{!"_ZTSN4llvm8RegisterE", !9, i64 0}
-!184 = distinct !{!184, !185, !186}
+!184 = distinct !{!184, !185}
 !185 = !{!"llvm.loop.mustprogress"}
-!186 = !{!"llvm.loop.estimated_trip_count"}
-!187 = !{!188, !19, i64 0}
-!188 = !{!"_ZTSN4llvm15SmallVectorBaseImEE", !19, i64 0, !11, i64 8, !11, i64 16}
-!189 = !{!188, !11, i64 8}
-!190 = !{!188, !11, i64 16}
-!191 = !{!192, !193, i64 8}
-!192 = !{!"_ZTSN4llvm11raw_ostreamE", !193, i64 8, !28, i64 16, !28, i64 24, !28, i64 32, !13, i64 40, !194, i64 44}
-!193 = !{!"_ZTSN4llvm11raw_ostream11OStreamKindE", !10, i64 0}
-!194 = !{!"_ZTSN4llvm11raw_ostream10BufferKindE", !10, i64 0}
-!195 = !{!192, !13, i64 40}
-!196 = !{!192, !194, i64 44}
-!197 = !{!198, !198, i64 0}
-!198 = !{!"p1 _ZTSN4llvm15SmallVectorImplIcEE", !19, i64 0}
-!199 = !{!200, !198, i64 48}
-!200 = !{!"_ZTSN4llvm19raw_svector_ostreamE", !201, i64 0, !198, i64 48}
-!201 = !{!"_ZTSN4llvm17raw_pwrite_streamE", !192, i64 0}
-!202 = !{!28, !28, i64 0}
-!203 = !{!11, !11, i64 0}
-!204 = !{!205, !206, i64 32}
-!205 = !{!"_ZTSN4llvm5TwineE", !10, i64 0, !10, i64 16, !206, i64 32, !206, i64 33}
-!206 = !{!"_ZTSN4llvm5Twine8NodeKindE", !10, i64 0}
-!207 = !{!205, !206, i64 33}
+!186 = !{!187, !19, i64 0}
+!187 = !{!"_ZTSN4llvm15SmallVectorBaseImEE", !19, i64 0, !11, i64 8, !11, i64 16}
+!188 = !{!187, !11, i64 8}
+!189 = !{!187, !11, i64 16}
+!190 = !{!191, !192, i64 8}
+!191 = !{!"_ZTSN4llvm11raw_ostreamE", !192, i64 8, !28, i64 16, !28, i64 24, !28, i64 32, !13, i64 40, !193, i64 44}
+!192 = !{!"_ZTSN4llvm11raw_ostream11OStreamKindE", !10, i64 0}
+!193 = !{!"_ZTSN4llvm11raw_ostream10BufferKindE", !10, i64 0}
+!194 = !{!191, !13, i64 40}
+!195 = !{!191, !193, i64 44}
+!196 = !{!197, !197, i64 0}
+!197 = !{!"p1 _ZTSN4llvm15SmallVectorImplIcEE", !19, i64 0}
+!198 = !{!199, !197, i64 48}
+!199 = !{!"_ZTSN4llvm19raw_svector_ostreamE", !200, i64 0, !197, i64 48}
+!200 = !{!"_ZTSN4llvm17raw_pwrite_streamE", !191, i64 0}
+!201 = !{!28, !28, i64 0}
+!202 = !{!11, !11, i64 0}
+!203 = !{!204, !205, i64 32}
+!204 = !{!"_ZTSN4llvm5TwineE", !10, i64 0, !10, i64 16, !205, i64 32, !205, i64 33}
+!205 = !{!"_ZTSN4llvm5Twine8NodeKindE", !10, i64 0}
+!206 = !{!204, !205, i64 33}

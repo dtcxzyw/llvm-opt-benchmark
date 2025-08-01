@@ -997,7 +997,7 @@ _ZN10QByteArrayD2Ev.exit21:                       ; preds = %26, %_ZN17QArrayDat
   %31 = add nuw nsw i32 %.0922, 1
   %32 = call noundef i32 @_ZNK9QComboBox5countEv(ptr noundef align 8 dereferenceable_or_null(40) %0)
   %33 = icmp slt i32 %31, %32
-  br i1 %33, label %9, label %._crit_edge, !llvm.loop !27
+  br i1 %33, label %9, label %._crit_edge, !llvm.loop !26
 
 ._crit_edge:                                      ; preds = %_ZN10QByteArrayD2Ev.exit21, %2
   ret void
@@ -1127,7 +1127,7 @@ define linkonce_odr void @_ZN9QtPrivate11QSlotObjectIM17CaptureFilterEditFvvENS_
   %14 = load ptr, ptr %11, align 8
   %15 = getelementptr i8, ptr %14, i64 %.unpack12
   %16 = getelementptr i8, ptr %15, i64 -1
-  %17 = load ptr, ptr %16, align 8, !nosanitize !28
+  %17 = load ptr, ptr %16, align 8, !nosanitize !27
   br label %_ZN9QtPrivate15FunctionPointerIM17CaptureFilterEditFvvEE4callINS_4ListIJEEEvEEvS3_PS1_PPv.exit
 
 18:                                               ; preds = %9
@@ -1190,7 +1190,7 @@ define linkonce_odr void @_ZN9QtPrivate11QSlotObjectIM18CaptureFilterComboFvbENS
   %14 = load ptr, ptr %11, align 8
   %15 = getelementptr i8, ptr %14, i64 %.unpack12
   %16 = getelementptr i8, ptr %15, i64 -1
-  %17 = load ptr, ptr %16, align 8, !nosanitize !28
+  %17 = load ptr, ptr %16, align 8, !nosanitize !27
   br label %_ZN9QtPrivate15FunctionPointerIM18CaptureFilterComboFvbEE4callINS_4ListIJbEEEvEEvS3_PS1_PPv.exit
 
 18:                                               ; preds = %9
@@ -1201,7 +1201,7 @@ _ZN9QtPrivate15FunctionPointerIM18CaptureFilterComboFvbEE4callINS_4ListIJbEEEvEE
   %20 = phi ptr [ %17, %13 ], [ %19, %18 ]
   %21 = getelementptr i8, ptr %3, i64 8
   %22 = load ptr, ptr %21, align 8
-  %23 = load i8, ptr %22, align 1, !range !29, !noundef !28
+  %23 = load i8, ptr %22, align 1, !range !28, !noundef !27
   %24 = trunc nuw i8 %23 to i1
   tail call void %20(ptr noundef align 8 dereferenceable_or_null(48) %11, i1 noundef zeroext %24)
   br label %33
@@ -1257,7 +1257,7 @@ define linkonce_odr void @_ZN9QtPrivate11QSlotObjectIM18CaptureFilterComboFvvENS
   %14 = load ptr, ptr %11, align 8
   %15 = getelementptr i8, ptr %14, i64 %.unpack12
   %16 = getelementptr i8, ptr %15, i64 -1
-  %17 = load ptr, ptr %16, align 8, !nosanitize !28
+  %17 = load ptr, ptr %16, align 8, !nosanitize !27
   br label %_ZN9QtPrivate15FunctionPointerIM18CaptureFilterComboFvvEE4callINS_4ListIJEEEvEEvS3_PS1_PPv.exit
 
 18:                                               ; preds = %9
@@ -1332,9 +1332,8 @@ attributes #11 = { builtin nounwind }
 !21 = !{!22}
 !22 = distinct !{!22, !23, !"_ZN7QObject7connectIM15MainApplicationFvvEM18CaptureFilterComboFvvEEEN11QMetaObject10ConnectionEPKN9QtPrivate15FunctionPointerIT_E6ObjectESB_PKNSA_IT0_E6ObjectESG_N2Qt14ConnectionTypeE: argument 0"}
 !23 = distinct !{!23, !"_ZN7QObject7connectIM15MainApplicationFvvEM18CaptureFilterComboFvvEEEN11QMetaObject10ConnectionEPKN9QtPrivate15FunctionPointerIT_E6ObjectESB_PKNSA_IT0_E6ObjectESG_N2Qt14ConnectionTypeE"}
-!24 = distinct !{!24, !25, !26}
+!24 = distinct !{!24, !25}
 !25 = !{!"llvm.loop.mustprogress"}
-!26 = !{!"llvm.loop.estimated_trip_count"}
-!27 = distinct !{!27, !25, !26}
-!28 = !{}
-!29 = !{i8 0, i8 2}
+!26 = distinct !{!26, !25}
+!27 = !{}
+!28 = !{i8 0, i8 2}

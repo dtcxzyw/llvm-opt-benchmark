@@ -301,7 +301,7 @@ define hidden noundef zeroext i1 @KMSDRM_Vulkan_CreateSurface(ptr noundef readon
   %56 = load i32, ptr %6, align 4
   %57 = zext i32 %56 to i64
   %58 = icmp samesign ult i64 %indvars.iv.next, %57
-  br i1 %58, label %49, label %._crit_edge, !llvm.loop !6
+  br i1 %58, label %49, label %._crit_edge, !llvm.loop !5
 
 ._crit_edge:                                      ; preds = %55, %41
   %59 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.21) #5
@@ -372,7 +372,7 @@ define hidden noundef zeroext i1 @KMSDRM_Vulkan_CreateSurface(ptr noundef readon
 100:                                              ; preds = %90, %95
   %indvars.iv.next290 = add nuw nsw i64 %indvars.iv289, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next290, %wide.trip.count
-  br i1 %exitcond.not, label %.thread181, label %90, !llvm.loop !7
+  br i1 %exitcond.not, label %.thread181, label %90, !llvm.loop !6
 
 101:                                              ; preds = %95
   %102 = icmp ne i32 %.pre, 0
@@ -474,7 +474,7 @@ thread-pre-split:                                 ; preds = %.thread181
 145:                                              ; preds = %.lr.ph267
   %indvars.iv.next293 = add nuw nsw i64 %indvars.iv292, 1
   %exitcond296.not = icmp eq i64 %indvars.iv.next293, %wide.trip.count295
-  br i1 %exitcond296.not, label %._crit_edge268.thread, label %.lr.ph267, !llvm.loop !8
+  br i1 %exitcond296.not, label %._crit_edge268.thread, label %.lr.ph267, !llvm.loop !7
 
 .lr.ph267:                                        ; preds = %.lr.ph267.preheader, %145
   %indvars.iv292 = phi i64 [ 0, %.lr.ph267.preheader ], [ %indvars.iv.next293, %145 ]
@@ -509,7 +509,7 @@ thread-pre-split:                                 ; preds = %.thread181
   %155 = load i32, ptr %9, align 4
   %156 = zext i32 %155 to i64
   %157 = icmp samesign ult i64 %indvars.iv.next298, %156
-  br i1 %157, label %.lr.ph274, label %._crit_edge275, !llvm.loop !9
+  br i1 %157, label %.lr.ph274, label %._crit_edge275, !llvm.loop !8
 
 ._crit_edge275:                                   ; preds = %154, %149
   %.1 = phi i32 [ -1, %154 ], [ %131, %149 ]
@@ -656,10 +656,9 @@ attributes #5 = { nounwind }
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = distinct !{!3, !4, !5}
+!3 = distinct !{!3, !4}
 !4 = !{!"llvm.loop.mustprogress"}
-!5 = !{!"llvm.loop.estimated_trip_count"}
-!6 = distinct !{!6, !4, !5}
-!7 = distinct !{!7, !4, !5}
-!8 = distinct !{!8, !4, !5}
-!9 = distinct !{!9, !4, !5}
+!5 = distinct !{!5, !4}
+!6 = distinct !{!6, !4}
+!7 = distinct !{!7, !4}
+!8 = distinct !{!8, !4}

@@ -1495,7 +1495,7 @@ define internal i32 @dissect_ecat_datagram(ptr noundef %0, ptr noundef %1, ptr n
   %71 = zext nneg i16 %narrow.i.i to i32
   %72 = add i32 %.05182.i, %71
   %73 = icmp ult i32 %72, %31
-  br i1 %73, label %.lr.ph.i, label %.thread78.i, !llvm.loop !9
+  br i1 %73, label %.lr.ph.i, label %.thread78.i
 
 .thread78.i:                                      ; preds = %70, %66
   switch i32 %.085.i, label %.thread78.thread.i [
@@ -1906,7 +1906,7 @@ proto_item_set_hidden.exit333:                    ; preds = %277, %274, %proto_i
   %308 = add i32 %.067.i, 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
-  br i1 %exitcond.not.i, label %init_dc_measure.exit, label %305, !llvm.loop !10
+  br i1 %exitcond.not.i, label %init_dc_measure.exit, label %305, !llvm.loop !8
 
 init_dc_measure.exit:                             ; preds = %305
   %309 = load i32, ptr @ett_ecat_dc, align 4
@@ -2261,7 +2261,7 @@ proto_item_set_hidden.exit366:                    ; preds = %479, %476, %471, %4
   %485 = icmp ult i32 %483, %13
   %486 = icmp slt i16 %162, 0
   %487 = select i1 %485, i1 %486, i1 false
-  br i1 %487, label %153, label %488, !llvm.loop !11
+  br i1 %487, label %153, label %488, !llvm.loop !9
 
 488:                                              ; preds = %proto_item_set_hidden.exit366
   %.not318 = icmp eq i32 %13, %31
@@ -2394,7 +2394,7 @@ define internal fastcc range(i32 -1, 1) i32 @dissect_esc_register(ptr noundef %0
   %.2.lcssa.us = phi i32 [ %.164.us, %.preheader.us ], [ %.3.us.us, %._crit_edge77 ]
   %indvars.iv.next74 = add nuw nsw i64 %indvars.iv73, 1
   %exitcond76.not = icmp eq i64 %indvars.iv.next74, 108
-  br i1 %exitcond76.not, label %.loopexit, label %23, !llvm.loop !12
+  br i1 %exitcond76.not, label %.loopexit, label %23, !llvm.loop !10
 
 .preheader.us:                                    ; preds = %23
   %28 = getelementptr inbounds nuw i8, ptr %24, i64 4
@@ -2420,7 +2420,7 @@ define internal fastcc range(i32 -1, 1) i32 @dissect_esc_register(ptr noundef %0
   %.3.us.us = select i1 %34, i32 %.261.us.us, i32 0
   %35 = add nuw nsw i32 %.04860.us.us, 1
   %exitcond72.not = icmp eq i32 %35, %30
-  br i1 %exitcond72.not, label %._crit_edge.split.us.us, label %._crit_edge77, !llvm.loop !14
+  br i1 %exitcond72.not, label %._crit_edge.split.us.us, label %._crit_edge77, !llvm.loop !12
 
 .split:                                           ; preds = %.split.preheader, %._crit_edge.split
   %indvars.iv = phi i64 [ 0, %.split.preheader ], [ %indvars.iv.next, %._crit_edge.split ]
@@ -2511,13 +2511,13 @@ define internal fastcc range(i32 -1, 1) i32 @dissect_esc_register(ptr noundef %0
   %.3 = phi i32 [ %.261, %._crit_edge ], [ 0, %67 ], [ 0, %75 ], [ 0, %61 ], [ %.261, %55 ]
   %82 = add nuw nsw i32 %.04860, 1
   %exitcond.not = icmp eq i32 %82, %45
-  br i1 %exitcond.not, label %._crit_edge.split, label %52, !llvm.loop !15
+  br i1 %exitcond.not, label %._crit_edge.split, label %52, !llvm.loop !13
 
 ._crit_edge.split:                                ; preds = %81, %.preheader
   %.2.lcssa = phi i32 [ %.164, %.preheader ], [ %.3, %81 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond71.not = icmp eq i64 %indvars.iv.next, 108
-  br i1 %exitcond71.not, label %.loopexit, label %.split, !llvm.loop !16
+  br i1 %exitcond71.not, label %.loopexit, label %.split, !llvm.loop !14
 
 .loopexit:                                        ; preds = %._crit_edge.split, %.split, %._crit_edge.split.us.us, %23, %8, %7
   %.047 = phi i32 [ -1, %8 ], [ -1, %7 ], [ %.2.lcssa.us, %._crit_edge.split.us.us ], [ %.164.us, %23 ], [ %.2.lcssa, %._crit_edge.split ], [ %.164, %.split ]
@@ -2641,14 +2641,12 @@ attributes #5 = { nounwind }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !8}
-!10 = distinct !{!10, !7, !8}
-!11 = distinct !{!11, !7, !8}
-!12 = distinct !{!12, !7, !8, !13}
-!13 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!14 = distinct !{!14, !7, !8, !13}
-!15 = distinct !{!15, !7, !8}
-!16 = distinct !{!16, !7, !8}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7, !11}
+!11 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!12 = distinct !{!12, !7, !11}
+!13 = distinct !{!13, !7}
+!14 = distinct !{!14, !7}

@@ -345,7 +345,7 @@ define dso_local range(i32 0, 3) i32 @yyparse(ptr noundef writeonly captures(non
   %.11153 = phi i32 [ %2091, %2090 ], [ %2026, %2023 ], [ %2030, %2027 ], [ %99, %105 ]
   %.1 = phi i32 [ %.7, %2090 ], [ %.9, %2023 ], [ %.9, %2027 ], [ -2, %105 ]
   %29 = getelementptr inbounds nuw i8, ptr %.11169, i64 2
-  br label %30, !llvm.loop !14
+  br label %30
 
 30:                                               ; preds = %28, %4
   %.01456 = phi ptr [ %10, %4 ], [ %.11457, %28 ]
@@ -360,7 +360,7 @@ define dso_local range(i32 0, 3) i32 @yyparse(ptr noundef writeonly captures(non
   %.01152 = phi i32 [ 0, %4 ], [ %.11153, %28 ]
   %.01147 = phi i32 [ -2, %4 ], [ %.1, %28 ]
   %31 = trunc nsw i32 %.01152 to i16
-  store i16 %31, ptr %.01168, align 2, !tbaa !16
+  store i16 %31, ptr %.01168, align 2, !tbaa !14
   %32 = getelementptr inbounds i16, ptr %.01161, i64 %.01158
   %33 = getelementptr inbounds i8, ptr %32, i64 -2
   %.not = icmp ugt ptr %33, %.01168
@@ -430,7 +430,7 @@ define dso_local range(i32 0, 3) i32 @yyparse(ptr noundef writeonly captures(non
 67:                                               ; preds = %.thread1479
   %68 = sext i32 %.01152 to i64
   %69 = getelementptr inbounds [315 x i16], ptr @yypact, i64 0, i64 %68
-  %70 = load i16, ptr %69, align 2, !tbaa !16
+  %70 = load i16, ptr %69, align 2, !tbaa !14
   %71 = sext i16 %70 to i32
   %72 = icmp eq i16 %70, -157
   br i1 %72, label %109, label %73
@@ -477,14 +477,14 @@ define dso_local range(i32 0, 3) i32 @yyparse(ptr noundef writeonly captures(non
 91:                                               ; preds = %89
   %92 = zext nneg i32 %90 to i64
   %93 = getelementptr inbounds nuw [2052 x i16], ptr @yycheck, i64 0, i64 %92
-  %94 = load i16, ptr %93, align 2, !tbaa !16
+  %94 = load i16, ptr %93, align 2, !tbaa !14
   %95 = sext i16 %94 to i32
   %.not1233 = icmp eq i32 %.01205, %95
   br i1 %.not1233, label %96, label %109
 
 96:                                               ; preds = %91
   %97 = getelementptr inbounds nuw [2052 x i16], ptr @yytable, i64 0, i64 %92
-  %98 = load i16, ptr %97, align 2, !tbaa !16
+  %98 = load i16, ptr %97, align 2, !tbaa !14
   %99 = sext i16 %98 to i32
   %100 = icmp slt i16 %98, 1
   br i1 %100, label %101, label %105
@@ -500,7 +500,7 @@ define dso_local range(i32 0, 3) i32 @yyparse(ptr noundef writeonly captures(non
 105:                                              ; preds = %96
   %spec.select = call i32 @llvm.usub.sat.i32(i32 %.01155, i32 1)
   %106 = getelementptr inbounds nuw i8, ptr %.21183, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %106, ptr noundef nonnull align 8 dereferenceable(16) %5, i64 16, i1 false), !tbaa.struct !18
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %106, ptr noundef nonnull align 8 dereferenceable(16) %5, i64 16, i1 false), !tbaa.struct !16
   %107 = getelementptr inbounds nuw i8, ptr %.21196, i64 8
   %108 = load i64, ptr %6, align 8
   store i64 %108, ptr %107, align 4
@@ -534,14 +534,14 @@ define dso_local range(i32 0, 3) i32 @yyparse(ptr noundef writeonly captures(non
   %123 = sub nsw i64 0, %118
   %124 = getelementptr inbounds %struct.location, ptr %.21196, i64 %123
   %125 = getelementptr inbounds nuw i8, ptr %124, i64 8
-  %126 = load i32, ptr %125, align 4, !tbaa !19
+  %126 = load i32, ptr %125, align 4, !tbaa !17
   %127 = getelementptr inbounds nuw i8, ptr %.21196, i64 4
-  %128 = load i32, ptr %127, align 4, !tbaa !21
+  %128 = load i32, ptr %127, align 4, !tbaa !19
   br label %132
 
 129:                                              ; preds = %114
   %130 = getelementptr inbounds nuw i8, ptr %.21196, i64 4
-  %131 = load i32, ptr %130, align 4, !tbaa !21
+  %131 = load i32, ptr %130, align 4, !tbaa !19
   br label %132
 
 132:                                              ; preds = %129, %122
@@ -742,8 +742,8 @@ define dso_local range(i32 0, 3) i32 @yyparse(ptr noundef writeonly captures(non
   %154 = call { ptr, ptr } @block_join(ptr %149, ptr %150, ptr %151, ptr %153) #10
   %155 = extractvalue { ptr, ptr } %154, 0
   %156 = extractvalue { ptr, ptr } %154, 1
-  store ptr %155, ptr %0, align 8, !tbaa !22
-  store ptr %156, ptr %.sroa.4562.0..sroa_idx, align 8, !tbaa !22
+  store ptr %155, ptr %0, align 8, !tbaa !20
+  store ptr %156, ptr %.sroa.4562.0..sroa_idx, align 8, !tbaa !20
   br label %2001
 
 157:                                              ; preds = %132
@@ -764,15 +764,15 @@ define dso_local range(i32 0, 3) i32 @yyparse(ptr noundef writeonly captures(non
   %172 = call { ptr, ptr } @block_join(ptr %167, ptr %168, ptr %169, ptr %171) #10
   %173 = extractvalue { ptr, ptr } %172, 0
   %174 = extractvalue { ptr, ptr } %172, 1
-  store ptr %173, ptr %0, align 8, !tbaa !22
-  store ptr %174, ptr %.sroa.4562.0..sroa_idx, align 8, !tbaa !22
+  store ptr %173, ptr %0, align 8, !tbaa !20
+  store ptr %174, ptr %.sroa.4562.0..sroa_idx, align 8, !tbaa !20
   br label %2001
 
 175:                                              ; preds = %132
   %176 = call { ptr, ptr } (...) @gen_noop() #10
   %177 = extractvalue { ptr, ptr } %176, 0
   %178 = extractvalue { ptr, ptr } %176, 1
-  store ptr %177, ptr %.sroa.0616, align 8, !tbaa !22
+  store ptr %177, ptr %.sroa.0616, align 8, !tbaa !20
   br label %2001
 
 179:                                              ; preds = %132
@@ -796,7 +796,7 @@ define dso_local range(i32 0, 3) i32 @yyparse(ptr noundef writeonly captures(non
   %186 = call { ptr, ptr } (...) @gen_noop() #10
   %187 = extractvalue { ptr, ptr } %186, 0
   %188 = extractvalue { ptr, ptr } %186, 1
-  store ptr %187, ptr %.sroa.0616, align 8, !tbaa !22
+  store ptr %187, ptr %.sroa.0616, align 8, !tbaa !20
   %189 = load ptr, ptr %180, align 8
   %190 = load ptr, ptr %182, align 8
   call void @block_free(ptr %189, ptr %190) #10
@@ -821,7 +821,7 @@ define dso_local range(i32 0, 3) i32 @yyparse(ptr noundef writeonly captures(non
   %196 = call { ptr, ptr } (...) @gen_noop() #10
   %197 = extractvalue { ptr, ptr } %196, 0
   %198 = extractvalue { ptr, ptr } %196, 1
-  store ptr %197, ptr %.sroa.0616, align 8, !tbaa !22
+  store ptr %197, ptr %.sroa.0616, align 8, !tbaa !20
   %199 = load ptr, ptr %180, align 8
   %200 = load ptr, ptr %182, align 8
   call void @block_free(ptr %199, ptr %200) #10
@@ -833,14 +833,14 @@ define dso_local range(i32 0, 3) i32 @yyparse(ptr noundef writeonly captures(non
   %204 = call { ptr, ptr } @gen_module(ptr %202, ptr %203) #10
   %205 = extractvalue { ptr, ptr } %204, 0
   %206 = extractvalue { ptr, ptr } %204, 1
-  store ptr %205, ptr %.sroa.0616, align 8, !tbaa !22
+  store ptr %205, ptr %.sroa.0616, align 8, !tbaa !20
   br label %2001
 
 207:                                              ; preds = %132
   %208 = call { ptr, ptr } (...) @gen_noop() #10
   %209 = extractvalue { ptr, ptr } %208, 0
   %210 = extractvalue { ptr, ptr } %208, 1
-  store ptr %209, ptr %.sroa.0616, align 8, !tbaa !22
+  store ptr %209, ptr %.sroa.0616, align 8, !tbaa !20
   br label %2001
 
 211:                                              ; preds = %132
@@ -854,14 +854,14 @@ define dso_local range(i32 0, 3) i32 @yyparse(ptr noundef writeonly captures(non
   %219 = call { ptr, ptr } @block_join(ptr %213, ptr %215, ptr %216, ptr %218) #10
   %220 = extractvalue { ptr, ptr } %219, 0
   %221 = extractvalue { ptr, ptr } %219, 1
-  store ptr %220, ptr %.sroa.0616, align 8, !tbaa !22
+  store ptr %220, ptr %.sroa.0616, align 8, !tbaa !20
   br label %2001
 
 222:                                              ; preds = %132
   %223 = call { ptr, ptr } (...) @gen_noop() #10
   %224 = extractvalue { ptr, ptr } %223, 0
   %225 = extractvalue { ptr, ptr } %223, 1
-  store ptr %224, ptr %.sroa.0616, align 8, !tbaa !22
+  store ptr %224, ptr %.sroa.0616, align 8, !tbaa !20
   br label %2001
 
 226:                                              ; preds = %132
@@ -875,7 +875,7 @@ define dso_local range(i32 0, 3) i32 @yyparse(ptr noundef writeonly captures(non
   %234 = call { ptr, ptr } @block_join(ptr %228, ptr %230, ptr %231, ptr %233) #10
   %235 = extractvalue { ptr, ptr } %234, 0
   %236 = extractvalue { ptr, ptr } %234, 1
-  store ptr %235, ptr %.sroa.0616, align 8, !tbaa !22
+  store ptr %235, ptr %.sroa.0616, align 8, !tbaa !20
   br label %2001
 
 237:                                              ; preds = %132
@@ -889,7 +889,7 @@ define dso_local range(i32 0, 3) i32 @yyparse(ptr noundef writeonly captures(non
   %245 = call { ptr, ptr } @block_bind_referenced(ptr %239, ptr %241, ptr %242, ptr %244, i32 noundef 128) #10
   %246 = extractvalue { ptr, ptr } %245, 0
   %247 = extractvalue { ptr, ptr } %245, 1
-  store ptr %246, ptr %.sroa.0616, align 8, !tbaa !22
+  store ptr %246, ptr %.sroa.0616, align 8, !tbaa !20
   br label %2001
 
 248:                                              ; preds = %132
@@ -907,7 +907,7 @@ define dso_local range(i32 0, 3) i32 @yyparse(ptr noundef writeonly captures(non
   %260 = call { ptr, ptr } @gen_destructure(ptr %251, ptr %253, ptr %254, ptr %256, ptr %257, ptr %259) #10
   %261 = extractvalue { ptr, ptr } %260, 0
   %262 = extractvalue { ptr, ptr } %260, 1
-  store ptr %261, ptr %.sroa.0616, align 8, !tbaa !22
+  store ptr %261, ptr %.sroa.0616, align 8, !tbaa !20
   br label %2001
 
 263:                                              ; preds = %132
@@ -927,7 +927,7 @@ define dso_local range(i32 0, 3) i32 @yyparse(ptr noundef writeonly captures(non
   %277 = call { ptr, ptr } @gen_reduce(ptr %268, ptr %270, ptr %271, ptr %273, ptr %274, ptr %276, ptr noundef nonnull byval(%struct.block) align 8 %267) #10
   %278 = extractvalue { ptr, ptr } %277, 0
   %279 = extractvalue { ptr, ptr } %277, 1
-  store ptr %278, ptr %.sroa.0616, align 8, !tbaa !22
+  store ptr %278, ptr %.sroa.0616, align 8, !tbaa !20
   br label %2001
 
 280:                                              ; preds = %132
@@ -948,7 +948,7 @@ define dso_local range(i32 0, 3) i32 @yyparse(ptr noundef writeonly captures(non
   %295 = call { ptr, ptr } @gen_foreach(ptr %286, ptr %288, ptr %289, ptr %291, ptr %292, ptr %294, ptr noundef nonnull byval(%struct.block) align 8 %284, ptr noundef nonnull byval(%struct.block) align 8 %285) #10
   %296 = extractvalue { ptr, ptr } %295, 0
   %297 = extractvalue { ptr, ptr } %295, 1
-  store ptr %296, ptr %.sroa.0616, align 8, !tbaa !22
+  store ptr %296, ptr %.sroa.0616, align 8, !tbaa !20
   br label %2001
 
 298:                                              ; preds = %132
@@ -973,7 +973,7 @@ define dso_local range(i32 0, 3) i32 @yyparse(ptr noundef writeonly captures(non
   %315 = call { ptr, ptr } @gen_foreach(ptr %306, ptr %308, ptr %309, ptr %311, ptr %312, ptr %314, ptr noundef nonnull byval(%struct.block) align 8 %302, ptr noundef nonnull byval(%struct.block) align 8 %14) #10
   %316 = extractvalue { ptr, ptr } %315, 0
   %317 = extractvalue { ptr, ptr } %315, 1
-  store ptr %316, ptr %.sroa.0616, align 8, !tbaa !22
+  store ptr %316, ptr %.sroa.0616, align 8, !tbaa !20
   br label %2001
 
 318:                                              ; preds = %132
@@ -991,7 +991,7 @@ define dso_local range(i32 0, 3) i32 @yyparse(ptr noundef writeonly captures(non
   %330 = call { ptr, ptr } @gen_cond(ptr %321, ptr %323, ptr %324, ptr %326, ptr %327, ptr %329) #10
   %331 = extractvalue { ptr, ptr } %330, 0
   %332 = extractvalue { ptr, ptr } %330, 1
-  store ptr %331, ptr %.sroa.0616, align 8, !tbaa !22
+  store ptr %331, ptr %.sroa.0616, align 8, !tbaa !20
   br label %2001
 
 333:                                              ; preds = %132
@@ -1004,10 +1004,10 @@ define dso_local range(i32 0, 3) i32 @yyparse(ptr noundef writeonly captures(non
   call void @yyerror(ptr noundef nonnull %15, ptr poison, ptr noundef %1, ptr noundef %2, ptr poison, ptr noundef nonnull @.str.6)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15) #10
   %334 = getelementptr inbounds i8, ptr %.21183, i64 -32
-  %335 = load i64, ptr %334, align 8, !tbaa !22
-  store i64 %335, ptr %.sroa.0616, align 8, !tbaa !22
+  %335 = load i64, ptr %334, align 8, !tbaa !20
+  store i64 %335, ptr %.sroa.0616, align 8, !tbaa !20
   %.sroa.181.0..sroa_idx617 = getelementptr inbounds i8, ptr %.21183, i64 -24
-  %.sroa.181.0.copyload618 = load ptr, ptr %.sroa.181.0..sroa_idx617, align 8, !tbaa !22
+  %.sroa.181.0.copyload618 = load ptr, ptr %.sroa.181.0..sroa_idx617, align 8, !tbaa !20
   br label %2001
 
 336:                                              ; preds = %132
@@ -1021,7 +1021,7 @@ define dso_local range(i32 0, 3) i32 @yyparse(ptr noundef writeonly captures(non
   %344 = call { ptr, ptr } @gen_try(ptr %338, ptr %340, ptr %341, ptr %343) #10
   %345 = extractvalue { ptr, ptr } %344, 0
   %346 = extractvalue { ptr, ptr } %344, 1
-  store ptr %345, ptr %.sroa.0616, align 8, !tbaa !22
+  store ptr %345, ptr %.sroa.0616, align 8, !tbaa !20
   br label %2001
 
 347:                                              ; preds = %132
@@ -1034,7 +1034,7 @@ define dso_local range(i32 0, 3) i32 @yyparse(ptr noundef writeonly captures(non
   %354 = call { ptr, ptr } @gen_try(ptr %351, ptr %353, ptr %349, ptr %350) #10
   %355 = extractvalue { ptr, ptr } %354, 0
   %356 = extractvalue { ptr, ptr } %354, 1
-  store ptr %355, ptr %.sroa.0616, align 8, !tbaa !22
+  store ptr %355, ptr %.sroa.0616, align 8, !tbaa !20
   br label %2001
 
 357:                                              ; preds = %132
@@ -1047,10 +1047,10 @@ define dso_local range(i32 0, 3) i32 @yyparse(ptr noundef writeonly captures(non
   call void @yyerror(ptr noundef nonnull %16, ptr poison, ptr noundef %1, ptr noundef %2, ptr poison, ptr noundef nonnull @.str.7)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16) #10
   %358 = getelementptr inbounds i8, ptr %.21183, i64 -32
-  %359 = load i64, ptr %358, align 8, !tbaa !22
-  store i64 %359, ptr %.sroa.0616, align 8, !tbaa !22
+  %359 = load i64, ptr %358, align 8, !tbaa !20
+  store i64 %359, ptr %.sroa.0616, align 8, !tbaa !20
   %.sroa.181.0..sroa_idx619 = getelementptr inbounds i8, ptr %.21183, i64 -24
-  %.sroa.181.0.copyload620 = load ptr, ptr %.sroa.181.0..sroa_idx619, align 8, !tbaa !22
+  %.sroa.181.0.copyload620 = load ptr, ptr %.sroa.181.0..sroa_idx619, align 8, !tbaa !20
   br label %2001
 
 360:                                              ; preds = %132
@@ -1076,7 +1076,7 @@ define dso_local range(i32 0, 3) i32 @yyparse(ptr noundef writeonly captures(non
   %376 = call { ptr, ptr } @gen_location(i64 %.sroa.01266.0.insert.insert, ptr noundef %2, ptr %374, ptr %375) #10
   %377 = extractvalue { ptr, ptr } %376, 0
   %378 = extractvalue { ptr, ptr } %376, 1
-  store ptr %377, ptr %.sroa.0616, align 8, !tbaa !22
+  store ptr %377, ptr %.sroa.0616, align 8, !tbaa !20
   %379 = load i64, ptr %361, align 8
   %380 = load ptr, ptr %363, align 8
   call void @jv_free(i64 %379, ptr %380) #10
@@ -1094,7 +1094,7 @@ define dso_local range(i32 0, 3) i32 @yyparse(ptr noundef writeonly captures(non
   %389 = call { ptr, ptr } @gen_try(ptr %386, ptr %388, ptr %384, ptr %385) #10
   %390 = extractvalue { ptr, ptr } %389, 0
   %391 = extractvalue { ptr, ptr } %389, 1
-  store ptr %390, ptr %.sroa.0616, align 8, !tbaa !22
+  store ptr %390, ptr %.sroa.0616, align 8, !tbaa !20
   br label %2001
 
 392:                                              ; preds = %132
@@ -1117,7 +1117,7 @@ define dso_local range(i32 0, 3) i32 @yyparse(ptr noundef writeonly captures(non
   %409 = call { ptr, ptr } @gen_call(ptr noundef nonnull @.str.9, ptr %407, ptr %408) #10
   %410 = extractvalue { ptr, ptr } %409, 0
   %411 = extractvalue { ptr, ptr } %409, 1
-  store ptr %410, ptr %.sroa.0616, align 8, !tbaa !22
+  store ptr %410, ptr %.sroa.0616, align 8, !tbaa !20
   br label %2001
 
 412:                                              ; preds = %132
@@ -1131,7 +1131,7 @@ define dso_local range(i32 0, 3) i32 @yyparse(ptr noundef writeonly captures(non
   %420 = call { ptr, ptr } @gen_or(ptr %414, ptr %416, ptr %417, ptr %419) #10
   %421 = extractvalue { ptr, ptr } %420, 0
   %422 = extractvalue { ptr, ptr } %420, 1
-  store ptr %421, ptr %.sroa.0616, align 8, !tbaa !22
+  store ptr %421, ptr %.sroa.0616, align 8, !tbaa !20
   br label %2001
 
 423:                                              ; preds = %132
@@ -1145,7 +1145,7 @@ define dso_local range(i32 0, 3) i32 @yyparse(ptr noundef writeonly captures(non
   %431 = call { ptr, ptr } @gen_and(ptr %425, ptr %427, ptr %428, ptr %430) #10
   %432 = extractvalue { ptr, ptr } %431, 0
   %433 = extractvalue { ptr, ptr } %431, 1
-  store ptr %432, ptr %.sroa.0616, align 8, !tbaa !22
+  store ptr %432, ptr %.sroa.0616, align 8, !tbaa !20
   br label %2001
 
 434:                                              ; preds = %132
@@ -1159,7 +1159,7 @@ define dso_local range(i32 0, 3) i32 @yyparse(ptr noundef writeonly captures(non
   %442 = call { ptr, ptr } @gen_definedor(ptr %436, ptr %438, ptr %439, ptr %441) #10
   %443 = extractvalue { ptr, ptr } %442, 0
   %444 = extractvalue { ptr, ptr } %442, 1
-  store ptr %443, ptr %.sroa.0616, align 8, !tbaa !22
+  store ptr %443, ptr %.sroa.0616, align 8, !tbaa !20
   br label %2001
 
 445:                                              ; preds = %132
@@ -1173,7 +1173,7 @@ define dso_local range(i32 0, 3) i32 @yyparse(ptr noundef writeonly captures(non
   %453 = call fastcc { ptr, ptr } @gen_definedor_assign(ptr %447, ptr %449, ptr %450, ptr %452)
   %454 = extractvalue { ptr, ptr } %453, 0
   %455 = extractvalue { ptr, ptr } %453, 1
-  store ptr %454, ptr %.sroa.0616, align 8, !tbaa !22
+  store ptr %454, ptr %.sroa.0616, align 8, !tbaa !20
   br label %2001
 
 456:                                              ; preds = %132
@@ -1196,7 +1196,7 @@ define dso_local range(i32 0, 3) i32 @yyparse(ptr noundef writeonly captures(non
   %473 = call { ptr, ptr } @gen_call(ptr noundef nonnull @.str.10, ptr %471, ptr %472) #10
   %474 = extractvalue { ptr, ptr } %473, 0
   %475 = extractvalue { ptr, ptr } %473, 1
-  store ptr %474, ptr %.sroa.0616, align 8, !tbaa !22
+  store ptr %474, ptr %.sroa.0616, align 8, !tbaa !20
   br label %2001
 
 476:                                              ; preds = %132
@@ -1210,7 +1210,7 @@ define dso_local range(i32 0, 3) i32 @yyparse(ptr noundef writeonly captures(non
   %484 = call { ptr, ptr } @block_join(ptr %478, ptr %480, ptr %481, ptr %483) #10
   %485 = extractvalue { ptr, ptr } %484, 0
   %486 = extractvalue { ptr, ptr } %484, 1
-  store ptr %485, ptr %.sroa.0616, align 8, !tbaa !22
+  store ptr %485, ptr %.sroa.0616, align 8, !tbaa !20
   br label %2001
 
 487:                                              ; preds = %132
@@ -1224,7 +1224,7 @@ define dso_local range(i32 0, 3) i32 @yyparse(ptr noundef writeonly captures(non
   %495 = call { ptr, ptr } @gen_both(ptr %489, ptr %491, ptr %492, ptr %494) #10
   %496 = extractvalue { ptr, ptr } %495, 0
   %497 = extractvalue { ptr, ptr } %495, 1
-  store ptr %496, ptr %.sroa.0616, align 8, !tbaa !22
+  store ptr %496, ptr %.sroa.0616, align 8, !tbaa !20
   br label %2001
 
 498:                                              ; preds = %132
@@ -1238,7 +1238,7 @@ define dso_local range(i32 0, 3) i32 @yyparse(ptr noundef writeonly captures(non
   %506 = call fastcc { ptr, ptr } @gen_binop(ptr %500, ptr %502, ptr %503, ptr %505, i32 noundef 43)
   %507 = extractvalue { ptr, ptr } %506, 0
   %508 = extractvalue { ptr, ptr } %506, 1
-  store ptr %507, ptr %.sroa.0616, align 8, !tbaa !22
+  store ptr %507, ptr %.sroa.0616, align 8, !tbaa !20
   br label %2001
 
 509:                                              ; preds = %132
@@ -1252,7 +1252,7 @@ define dso_local range(i32 0, 3) i32 @yyparse(ptr noundef writeonly captures(non
   %517 = call fastcc { ptr, ptr } @gen_update(ptr %511, ptr %513, ptr %514, ptr %516, i32 noundef 43)
   %518 = extractvalue { ptr, ptr } %517, 0
   %519 = extractvalue { ptr, ptr } %517, 1
-  store ptr %518, ptr %.sroa.0616, align 8, !tbaa !22
+  store ptr %518, ptr %.sroa.0616, align 8, !tbaa !20
   br label %2001
 
 520:                                              ; preds = %132
@@ -1268,7 +1268,7 @@ define dso_local range(i32 0, 3) i32 @yyparse(ptr noundef writeonly captures(non
   %530 = call { ptr, ptr } @block_join(ptr %527, ptr %529, ptr %525, ptr %526) #10
   %531 = extractvalue { ptr, ptr } %530, 0
   %532 = extractvalue { ptr, ptr } %530, 1
-  store ptr %531, ptr %.sroa.0616, align 8, !tbaa !22
+  store ptr %531, ptr %.sroa.0616, align 8, !tbaa !20
   br label %2001
 
 533:                                              ; preds = %132
@@ -1282,7 +1282,7 @@ define dso_local range(i32 0, 3) i32 @yyparse(ptr noundef writeonly captures(non
   %541 = call fastcc { ptr, ptr } @gen_binop(ptr %535, ptr %537, ptr %538, ptr %540, i32 noundef 45)
   %542 = extractvalue { ptr, ptr } %541, 0
   %543 = extractvalue { ptr, ptr } %541, 1
-  store ptr %542, ptr %.sroa.0616, align 8, !tbaa !22
+  store ptr %542, ptr %.sroa.0616, align 8, !tbaa !20
   br label %2001
 
 544:                                              ; preds = %132
@@ -1296,7 +1296,7 @@ define dso_local range(i32 0, 3) i32 @yyparse(ptr noundef writeonly captures(non
   %552 = call fastcc { ptr, ptr } @gen_update(ptr %546, ptr %548, ptr %549, ptr %551, i32 noundef 45)
   %553 = extractvalue { ptr, ptr } %552, 0
   %554 = extractvalue { ptr, ptr } %552, 1
-  store ptr %553, ptr %.sroa.0616, align 8, !tbaa !22
+  store ptr %553, ptr %.sroa.0616, align 8, !tbaa !20
   br label %2001
 
 555:                                              ; preds = %132
@@ -1310,7 +1310,7 @@ define dso_local range(i32 0, 3) i32 @yyparse(ptr noundef writeonly captures(non
   %563 = call fastcc { ptr, ptr } @gen_binop(ptr %557, ptr %559, ptr %560, ptr %562, i32 noundef 42)
   %564 = extractvalue { ptr, ptr } %563, 0
   %565 = extractvalue { ptr, ptr } %563, 1
-  store ptr %564, ptr %.sroa.0616, align 8, !tbaa !22
+  store ptr %564, ptr %.sroa.0616, align 8, !tbaa !20
   br label %2001
 
 566:                                              ; preds = %132
@@ -1324,7 +1324,7 @@ define dso_local range(i32 0, 3) i32 @yyparse(ptr noundef writeonly captures(non
   %574 = call fastcc { ptr, ptr } @gen_update(ptr %568, ptr %570, ptr %571, ptr %573, i32 noundef 42)
   %575 = extractvalue { ptr, ptr } %574, 0
   %576 = extractvalue { ptr, ptr } %574, 1
-  store ptr %575, ptr %.sroa.0616, align 8, !tbaa !22
+  store ptr %575, ptr %.sroa.0616, align 8, !tbaa !20
   br label %2001
 
 577:                                              ; preds = %132
@@ -1338,7 +1338,7 @@ define dso_local range(i32 0, 3) i32 @yyparse(ptr noundef writeonly captures(non
   %585 = call fastcc { ptr, ptr } @gen_binop(ptr %579, ptr %581, ptr %582, ptr %584, i32 noundef 47)
   %586 = extractvalue { ptr, ptr } %585, 0
   %587 = extractvalue { ptr, ptr } %585, 1
-  store ptr %586, ptr %.sroa.0616, align 8, !tbaa !22
+  store ptr %586, ptr %.sroa.0616, align 8, !tbaa !20
   br label %2001
 
 588:                                              ; preds = %132
@@ -1352,7 +1352,7 @@ define dso_local range(i32 0, 3) i32 @yyparse(ptr noundef writeonly captures(non
   %596 = call fastcc { ptr, ptr } @gen_binop(ptr %590, ptr %592, ptr %593, ptr %595, i32 noundef 37)
   %597 = extractvalue { ptr, ptr } %596, 0
   %598 = extractvalue { ptr, ptr } %596, 1
-  store ptr %597, ptr %.sroa.0616, align 8, !tbaa !22
+  store ptr %597, ptr %.sroa.0616, align 8, !tbaa !20
   br label %2001
 
 599:                                              ; preds = %132
@@ -1366,7 +1366,7 @@ define dso_local range(i32 0, 3) i32 @yyparse(ptr noundef writeonly captures(non
   %607 = call fastcc { ptr, ptr } @gen_update(ptr %601, ptr %603, ptr %604, ptr %606, i32 noundef 47)
   %608 = extractvalue { ptr, ptr } %607, 0
   %609 = extractvalue { ptr, ptr } %607, 1
-  store ptr %608, ptr %.sroa.0616, align 8, !tbaa !22
+  store ptr %608, ptr %.sroa.0616, align 8, !tbaa !20
   br label %2001
 
 610:                                              ; preds = %132
@@ -1380,7 +1380,7 @@ define dso_local range(i32 0, 3) i32 @yyparse(ptr noundef writeonly captures(non
   %618 = call fastcc { ptr, ptr } @gen_update(ptr %612, ptr %614, ptr %615, ptr %617, i32 noundef 37)
   %619 = extractvalue { ptr, ptr } %618, 0
   %620 = extractvalue { ptr, ptr } %618, 1
-  store ptr %619, ptr %.sroa.0616, align 8, !tbaa !22
+  store ptr %619, ptr %.sroa.0616, align 8, !tbaa !20
   br label %2001
 
 621:                                              ; preds = %132
@@ -1394,7 +1394,7 @@ define dso_local range(i32 0, 3) i32 @yyparse(ptr noundef writeonly captures(non
   %629 = call fastcc { ptr, ptr } @gen_binop(ptr %623, ptr %625, ptr %626, ptr %628, i32 noundef 266)
   %630 = extractvalue { ptr, ptr } %629, 0
   %631 = extractvalue { ptr, ptr } %629, 1
-  store ptr %630, ptr %.sroa.0616, align 8, !tbaa !22
+  store ptr %630, ptr %.sroa.0616, align 8, !tbaa !20
   br label %2001
 
 632:                                              ; preds = %132
@@ -1408,7 +1408,7 @@ define dso_local range(i32 0, 3) i32 @yyparse(ptr noundef writeonly captures(non
   %640 = call fastcc { ptr, ptr } @gen_binop(ptr %634, ptr %636, ptr %637, ptr %639, i32 noundef 267)
   %641 = extractvalue { ptr, ptr } %640, 0
   %642 = extractvalue { ptr, ptr } %640, 1
-  store ptr %641, ptr %.sroa.0616, align 8, !tbaa !22
+  store ptr %641, ptr %.sroa.0616, align 8, !tbaa !20
   br label %2001
 
 643:                                              ; preds = %132
@@ -1422,7 +1422,7 @@ define dso_local range(i32 0, 3) i32 @yyparse(ptr noundef writeonly captures(non
   %651 = call fastcc { ptr, ptr } @gen_binop(ptr %645, ptr %647, ptr %648, ptr %650, i32 noundef 60)
   %652 = extractvalue { ptr, ptr } %651, 0
   %653 = extractvalue { ptr, ptr } %651, 1
-  store ptr %652, ptr %.sroa.0616, align 8, !tbaa !22
+  store ptr %652, ptr %.sroa.0616, align 8, !tbaa !20
   br label %2001
 
 654:                                              ; preds = %132
@@ -1436,7 +1436,7 @@ define dso_local range(i32 0, 3) i32 @yyparse(ptr noundef writeonly captures(non
   %662 = call fastcc { ptr, ptr } @gen_binop(ptr %656, ptr %658, ptr %659, ptr %661, i32 noundef 62)
   %663 = extractvalue { ptr, ptr } %662, 0
   %664 = extractvalue { ptr, ptr } %662, 1
-  store ptr %663, ptr %.sroa.0616, align 8, !tbaa !22
+  store ptr %663, ptr %.sroa.0616, align 8, !tbaa !20
   br label %2001
 
 665:                                              ; preds = %132
@@ -1450,7 +1450,7 @@ define dso_local range(i32 0, 3) i32 @yyparse(ptr noundef writeonly captures(non
   %673 = call fastcc { ptr, ptr } @gen_binop(ptr %667, ptr %669, ptr %670, ptr %672, i32 noundef 294)
   %674 = extractvalue { ptr, ptr } %673, 0
   %675 = extractvalue { ptr, ptr } %673, 1
-  store ptr %674, ptr %.sroa.0616, align 8, !tbaa !22
+  store ptr %674, ptr %.sroa.0616, align 8, !tbaa !20
   br label %2001
 
 676:                                              ; preds = %132
@@ -1464,22 +1464,22 @@ define dso_local range(i32 0, 3) i32 @yyparse(ptr noundef writeonly captures(non
   %684 = call fastcc { ptr, ptr } @gen_binop(ptr %678, ptr %680, ptr %681, ptr %683, i32 noundef 295)
   %685 = extractvalue { ptr, ptr } %684, 0
   %686 = extractvalue { ptr, ptr } %684, 1
-  store ptr %685, ptr %.sroa.0616, align 8, !tbaa !22
+  store ptr %685, ptr %.sroa.0616, align 8, !tbaa !20
   br label %2001
 
 687:                                              ; preds = %132
-  %688 = load i64, ptr %.21183, align 8, !tbaa !22
-  store i64 %688, ptr %.sroa.0616, align 8, !tbaa !22
+  %688 = load i64, ptr %.21183, align 8, !tbaa !20
+  store i64 %688, ptr %.sroa.0616, align 8, !tbaa !20
   %.sroa.181.0..sroa_idx621 = getelementptr inbounds nuw i8, ptr %.21183, i64 8
-  %.sroa.181.0.copyload622 = load ptr, ptr %.sroa.181.0..sroa_idx621, align 8, !tbaa !22
+  %.sroa.181.0.copyload622 = load ptr, ptr %.sroa.181.0..sroa_idx621, align 8, !tbaa !20
   br label %2001
 
 689:                                              ; preds = %132
   %690 = getelementptr inbounds i8, ptr %.21183, i64 -16
-  %691 = load i64, ptr %690, align 8, !tbaa !22
-  store i64 %691, ptr %.sroa.0616, align 8, !tbaa !22
+  %691 = load i64, ptr %690, align 8, !tbaa !20
+  store i64 %691, ptr %.sroa.0616, align 8, !tbaa !20
   %.sroa.181.0..sroa_idx623 = getelementptr inbounds i8, ptr %.21183, i64 -8
-  %.sroa.181.0.copyload624 = load ptr, ptr %.sroa.181.0..sroa_idx623, align 8, !tbaa !22
+  %.sroa.181.0.copyload624 = load ptr, ptr %.sroa.181.0..sroa_idx623, align 8, !tbaa !20
   br label %2001
 
 692:                                              ; preds = %132
@@ -1503,7 +1503,7 @@ define dso_local range(i32 0, 3) i32 @yyparse(ptr noundef writeonly captures(non
   %699 = call { ptr, ptr } (...) @gen_noop() #10
   %700 = extractvalue { ptr, ptr } %699, 0
   %701 = extractvalue { ptr, ptr } %699, 1
-  store ptr %700, ptr %.sroa.0616, align 8, !tbaa !22
+  store ptr %700, ptr %.sroa.0616, align 8, !tbaa !20
   %702 = getelementptr inbounds i8, ptr %.21183, i64 -32
   %703 = load ptr, ptr %702, align 8
   %704 = getelementptr inbounds i8, ptr %.21183, i64 -24
@@ -1533,7 +1533,7 @@ define dso_local range(i32 0, 3) i32 @yyparse(ptr noundef writeonly captures(non
   %713 = call { ptr, ptr } (...) @gen_noop() #10
   %714 = extractvalue { ptr, ptr } %713, 0
   %715 = extractvalue { ptr, ptr } %713, 1
-  store ptr %714, ptr %.sroa.0616, align 8, !tbaa !22
+  store ptr %714, ptr %.sroa.0616, align 8, !tbaa !20
   %716 = getelementptr inbounds i8, ptr %.21183, i64 -32
   %717 = load ptr, ptr %716, align 8
   %718 = getelementptr inbounds i8, ptr %.21183, i64 -24
@@ -1554,7 +1554,7 @@ define dso_local range(i32 0, 3) i32 @yyparse(ptr noundef writeonly captures(non
   %729 = call { ptr, ptr } @gen_import_meta(ptr %724, ptr %726, ptr %727, ptr %728) #10
   %730 = extractvalue { ptr, ptr } %729, 0
   %731 = extractvalue { ptr, ptr } %729, 1
-  store ptr %730, ptr %.sroa.0616, align 8, !tbaa !22
+  store ptr %730, ptr %.sroa.0616, align 8, !tbaa !20
   br label %2001
 
 732:                                              ; preds = %132
@@ -1573,7 +1573,7 @@ define dso_local range(i32 0, 3) i32 @yyparse(ptr noundef writeonly captures(non
   %745 = call { ptr, ptr } @gen_import(ptr noundef %740, ptr noundef %744, i32 noundef 1) #10
   %746 = extractvalue { ptr, ptr } %745, 0
   %747 = extractvalue { ptr, ptr } %745, 1
-  store ptr %746, ptr %.sroa.0616, align 8, !tbaa !22
+  store ptr %746, ptr %.sroa.0616, align 8, !tbaa !20
   %748 = load ptr, ptr %733, align 8
   %749 = load ptr, ptr %735, align 8
   call void @block_free(ptr %748, ptr %749) #10
@@ -1599,7 +1599,7 @@ define dso_local range(i32 0, 3) i32 @yyparse(ptr noundef writeonly captures(non
   %765 = call { ptr, ptr } @gen_import(ptr noundef %760, ptr noundef %764, i32 noundef 0) #10
   %766 = extractvalue { ptr, ptr } %765, 0
   %767 = extractvalue { ptr, ptr } %765, 1
-  store ptr %766, ptr %.sroa.0616, align 8, !tbaa !22
+  store ptr %766, ptr %.sroa.0616, align 8, !tbaa !20
   %768 = load ptr, ptr %753, align 8
   %769 = load ptr, ptr %755, align 8
   call void @block_free(ptr %768, ptr %769) #10
@@ -1620,7 +1620,7 @@ define dso_local range(i32 0, 3) i32 @yyparse(ptr noundef writeonly captures(non
   %780 = call { ptr, ptr } @gen_import(ptr noundef %779, ptr noundef null, i32 noundef 0) #10
   %781 = extractvalue { ptr, ptr } %780, 0
   %782 = extractvalue { ptr, ptr } %780, 1
-  store ptr %781, ptr %.sroa.0616, align 8, !tbaa !22
+  store ptr %781, ptr %.sroa.0616, align 8, !tbaa !20
   %783 = load ptr, ptr %.21183, align 8
   %784 = load ptr, ptr %774, align 8
   call void @block_free(ptr %783, ptr %784) #10
@@ -1650,16 +1650,16 @@ define dso_local range(i32 0, 3) i32 @yyparse(ptr noundef writeonly captures(non
   %794 = call { ptr, ptr } @gen_const(i64 %792, ptr %793) #10
   %795 = extractvalue { ptr, ptr } %794, 0
   %796 = extractvalue { ptr, ptr } %794, 1
-  store ptr %795, ptr %.sroa.0616, align 8, !tbaa !22
+  store ptr %795, ptr %.sroa.0616, align 8, !tbaa !20
   %797 = load ptr, ptr %.21183, align 8
   %798 = load ptr, ptr %787, align 8
   call void @block_free(ptr %797, ptr %798) #10
   br label %2001
 
 799:                                              ; preds = %785
-  %800 = load i64, ptr %.21183, align 8, !tbaa !22
-  store i64 %800, ptr %.sroa.0616, align 8, !tbaa !22
-  %.sroa.181.0.copyload626 = load ptr, ptr %787, align 8, !tbaa !22
+  %800 = load i64, ptr %.21183, align 8, !tbaa !20
+  store i64 %800, ptr %.sroa.0616, align 8, !tbaa !20
+  %.sroa.181.0.copyload626 = load ptr, ptr %787, align 8, !tbaa !20
   br label %2001
 
 801:                                              ; preds = %132
@@ -1678,7 +1678,7 @@ define dso_local range(i32 0, 3) i32 @yyparse(ptr noundef writeonly captures(non
   %814 = call { ptr, ptr } @gen_function(ptr noundef %806, ptr %808, ptr %809, ptr %811, ptr %813) #10
   %815 = extractvalue { ptr, ptr } %814, 0
   %816 = extractvalue { ptr, ptr } %814, 1
-  store ptr %815, ptr %.sroa.0616, align 8, !tbaa !22
+  store ptr %815, ptr %.sroa.0616, align 8, !tbaa !20
   %817 = load i64, ptr %802, align 8
   %818 = load ptr, ptr %804, align 8
   call void @jv_free(i64 %817, ptr %818) #10
@@ -1701,17 +1701,17 @@ define dso_local range(i32 0, 3) i32 @yyparse(ptr noundef writeonly captures(non
   %833 = call { ptr, ptr } @gen_function(ptr noundef %824, ptr %827, ptr %829, ptr %830, ptr %832) #10
   %834 = extractvalue { ptr, ptr } %833, 0
   %835 = extractvalue { ptr, ptr } %833, 1
-  store ptr %834, ptr %.sroa.0616, align 8, !tbaa !22
+  store ptr %834, ptr %.sroa.0616, align 8, !tbaa !20
   %836 = load i64, ptr %820, align 8
   %837 = load ptr, ptr %822, align 8
   call void @jv_free(i64 %836, ptr %837) #10
   br label %2001
 
 838:                                              ; preds = %132
-  %839 = load i64, ptr %.21183, align 8, !tbaa !22
-  store i64 %839, ptr %.sroa.0616, align 8, !tbaa !22
+  %839 = load i64, ptr %.21183, align 8, !tbaa !20
+  store i64 %839, ptr %.sroa.0616, align 8, !tbaa !20
   %.sroa.181.0..sroa_idx627 = getelementptr inbounds nuw i8, ptr %.21183, i64 8
-  %.sroa.181.0.copyload628 = load ptr, ptr %.sroa.181.0..sroa_idx627, align 8, !tbaa !22
+  %.sroa.181.0.copyload628 = load ptr, ptr %.sroa.181.0..sroa_idx627, align 8, !tbaa !20
   br label %2001
 
 840:                                              ; preds = %132
@@ -1725,7 +1725,7 @@ define dso_local range(i32 0, 3) i32 @yyparse(ptr noundef writeonly captures(non
   %848 = call { ptr, ptr } @block_join(ptr %842, ptr %844, ptr %845, ptr %847) #10
   %849 = extractvalue { ptr, ptr } %848, 0
   %850 = extractvalue { ptr, ptr } %848, 1
-  store ptr %849, ptr %.sroa.0616, align 8, !tbaa !22
+  store ptr %849, ptr %.sroa.0616, align 8, !tbaa !20
   br label %2001
 
 851:                                              ; preds = %132
@@ -1736,7 +1736,7 @@ define dso_local range(i32 0, 3) i32 @yyparse(ptr noundef writeonly captures(non
   %856 = call { ptr, ptr } @gen_param_regular(ptr noundef %855) #10
   %857 = extractvalue { ptr, ptr } %856, 0
   %858 = extractvalue { ptr, ptr } %856, 1
-  store ptr %857, ptr %.sroa.0616, align 8, !tbaa !22
+  store ptr %857, ptr %.sroa.0616, align 8, !tbaa !20
   %859 = load i64, ptr %.21183, align 8
   %860 = load ptr, ptr %853, align 8
   call void @jv_free(i64 %859, ptr %860) #10
@@ -1750,7 +1750,7 @@ define dso_local range(i32 0, 3) i32 @yyparse(ptr noundef writeonly captures(non
   %866 = call { ptr, ptr } @gen_param(ptr noundef %865) #10
   %867 = extractvalue { ptr, ptr } %866, 0
   %868 = extractvalue { ptr, ptr } %866, 1
-  store ptr %867, ptr %.sroa.0616, align 8, !tbaa !22
+  store ptr %867, ptr %.sroa.0616, align 8, !tbaa !20
   %869 = load i64, ptr %.21183, align 8
   %870 = load ptr, ptr %863, align 8
   call void @jv_free(i64 %869, ptr %870) #10
@@ -1773,10 +1773,10 @@ define dso_local range(i32 0, 3) i32 @yyparse(ptr noundef writeonly captures(non
 
 878:                                              ; preds = %132
   %879 = getelementptr inbounds i8, ptr %.21183, i64 -16
-  %880 = load i64, ptr %879, align 8, !tbaa !22
-  store i64 %880, ptr %.sroa.0616, align 8, !tbaa !22
+  %880 = load i64, ptr %879, align 8, !tbaa !20
+  store i64 %880, ptr %.sroa.0616, align 8, !tbaa !20
   %.sroa.181.0..sroa_idx631 = getelementptr inbounds i8, ptr %.21183, i64 -8
-  %.sroa.181.0.copyload632 = load ptr, ptr %.sroa.181.0..sroa_idx631, align 8, !tbaa !22
+  %.sroa.181.0.copyload632 = load ptr, ptr %.sroa.181.0..sroa_idx631, align 8, !tbaa !20
   %881 = getelementptr inbounds i8, ptr %.21183, i64 -32
   %882 = load i64, ptr %881, align 8
   %883 = getelementptr inbounds i8, ptr %.21183, i64 -24
@@ -1791,7 +1791,7 @@ define dso_local range(i32 0, 3) i32 @yyparse(ptr noundef writeonly captures(non
   %889 = call { ptr, ptr } @gen_const(i64 %887, ptr %888) #10
   %890 = extractvalue { ptr, ptr } %889, 0
   %891 = extractvalue { ptr, ptr } %889, 1
-  store ptr %890, ptr %.sroa.0616, align 8, !tbaa !22
+  store ptr %890, ptr %.sroa.0616, align 8, !tbaa !20
   br label %2001
 
 892:                                              ; preds = %132
@@ -1808,7 +1808,7 @@ define dso_local range(i32 0, 3) i32 @yyparse(ptr noundef writeonly captures(non
   %903 = call fastcc { ptr, ptr } @gen_binop(ptr %900, ptr %902, ptr %898, ptr %899, i32 noundef 43)
   %904 = extractvalue { ptr, ptr } %903, 0
   %905 = extractvalue { ptr, ptr } %903, 1
-  store ptr %904, ptr %.sroa.0616, align 8, !tbaa !22
+  store ptr %904, ptr %.sroa.0616, align 8, !tbaa !20
   br label %2001
 
 906:                                              ; preds = %132
@@ -1833,7 +1833,7 @@ define dso_local range(i32 0, 3) i32 @yyparse(ptr noundef writeonly captures(non
   %925 = call fastcc { ptr, ptr } @gen_binop(ptr %922, ptr %924, ptr %920, ptr %921, i32 noundef 43)
   %926 = extractvalue { ptr, ptr } %925, 0
   %927 = extractvalue { ptr, ptr } %925, 1
-  store ptr %926, ptr %.sroa.0616, align 8, !tbaa !22
+  store ptr %926, ptr %.sroa.0616, align 8, !tbaa !20
   br label %2001
 
 928:                                              ; preds = %132
@@ -1851,22 +1851,22 @@ define dso_local range(i32 0, 3) i32 @yyparse(ptr noundef writeonly captures(non
   %940 = call { ptr, ptr } @gen_cond(ptr %931, ptr %933, ptr %934, ptr %936, ptr %937, ptr %939) #10
   %941 = extractvalue { ptr, ptr } %940, 0
   %942 = extractvalue { ptr, ptr } %940, 1
-  store ptr %941, ptr %.sroa.0616, align 8, !tbaa !22
+  store ptr %941, ptr %.sroa.0616, align 8, !tbaa !20
   br label %2001
 
 943:                                              ; preds = %132
   %944 = getelementptr inbounds i8, ptr %.21183, i64 -16
-  %945 = load i64, ptr %944, align 8, !tbaa !22
-  store i64 %945, ptr %.sroa.0616, align 8, !tbaa !22
+  %945 = load i64, ptr %944, align 8, !tbaa !20
+  store i64 %945, ptr %.sroa.0616, align 8, !tbaa !20
   %.sroa.181.0..sroa_idx633 = getelementptr inbounds i8, ptr %.21183, i64 -8
-  %.sroa.181.0.copyload634 = load ptr, ptr %.sroa.181.0..sroa_idx633, align 8, !tbaa !22
+  %.sroa.181.0.copyload634 = load ptr, ptr %.sroa.181.0..sroa_idx633, align 8, !tbaa !20
   br label %2001
 
 946:                                              ; preds = %132
   %947 = call { ptr, ptr } (...) @gen_noop() #10
   %948 = extractvalue { ptr, ptr } %947, 0
   %949 = extractvalue { ptr, ptr } %947, 1
-  store ptr %948, ptr %.sroa.0616, align 8, !tbaa !22
+  store ptr %948, ptr %.sroa.0616, align 8, !tbaa !20
   br label %2001
 
 950:                                              ; preds = %132
@@ -1880,7 +1880,7 @@ define dso_local range(i32 0, 3) i32 @yyparse(ptr noundef writeonly captures(non
   %958 = call { ptr, ptr } @block_join(ptr %952, ptr %954, ptr %955, ptr %957) #10
   %959 = extractvalue { ptr, ptr } %958, 0
   %960 = extractvalue { ptr, ptr } %958, 1
-  store ptr %959, ptr %.sroa.0616, align 8, !tbaa !22
+  store ptr %959, ptr %.sroa.0616, align 8, !tbaa !20
   br label %2001
 
 961:                                              ; preds = %132
@@ -1896,21 +1896,21 @@ define dso_local range(i32 0, 3) i32 @yyparse(ptr noundef writeonly captures(non
   %971 = call { ptr, ptr } @block_join(ptr %968, ptr %970, ptr %966, ptr %967) #10
   %972 = extractvalue { ptr, ptr } %971, 0
   %973 = extractvalue { ptr, ptr } %971, 1
-  store ptr %972, ptr %.sroa.0616, align 8, !tbaa !22
+  store ptr %972, ptr %.sroa.0616, align 8, !tbaa !20
   br label %2001
 
 974:                                              ; preds = %132
-  %975 = load i64, ptr %.21183, align 8, !tbaa !22
-  store i64 %975, ptr %.sroa.0616, align 8, !tbaa !22
+  %975 = load i64, ptr %.21183, align 8, !tbaa !20
+  store i64 %975, ptr %.sroa.0616, align 8, !tbaa !20
   %.sroa.181.0..sroa_idx635 = getelementptr inbounds nuw i8, ptr %.21183, i64 8
-  %.sroa.181.0.copyload636 = load ptr, ptr %.sroa.181.0..sroa_idx635, align 8, !tbaa !22
+  %.sroa.181.0.copyload636 = load ptr, ptr %.sroa.181.0..sroa_idx635, align 8, !tbaa !20
   br label %2001
 
 976:                                              ; preds = %132
   %977 = call { ptr, ptr } (...) @gen_noop() #10
   %978 = extractvalue { ptr, ptr } %977, 0
   %979 = extractvalue { ptr, ptr } %977, 1
-  store ptr %978, ptr %.sroa.0616, align 8, !tbaa !22
+  store ptr %978, ptr %.sroa.0616, align 8, !tbaa !20
   br label %2001
 
 980:                                              ; preds = %132
@@ -1920,7 +1920,7 @@ define dso_local range(i32 0, 3) i32 @yyparse(ptr noundef writeonly captures(non
   %984 = call { ptr, ptr } @gen_call(ptr noundef nonnull @.str.15, ptr %982, ptr %983) #10
   %985 = extractvalue { ptr, ptr } %984, 0
   %986 = extractvalue { ptr, ptr } %984, 1
-  store ptr %985, ptr %.sroa.0616, align 8, !tbaa !22
+  store ptr %985, ptr %.sroa.0616, align 8, !tbaa !20
   br label %2001
 
 987:                                              ; preds = %132
@@ -1951,7 +1951,7 @@ define dso_local range(i32 0, 3) i32 @yyparse(ptr noundef writeonly captures(non
   %1008 = call { ptr, ptr } @gen_location(i64 %.sroa.01266.0.insert.insert1270, ptr noundef %2, ptr %1006, ptr %1007) #10
   %1009 = extractvalue { ptr, ptr } %1008, 0
   %1010 = extractvalue { ptr, ptr } %1008, 1
-  store ptr %1009, ptr %.sroa.0616, align 8, !tbaa !22
+  store ptr %1009, ptr %.sroa.0616, align 8, !tbaa !20
   call void @jv_free(i64 %993, ptr %994) #10
   %1011 = load i64, ptr %.21183, align 8
   %1012 = load ptr, ptr %989, align 8
@@ -1970,7 +1970,7 @@ define dso_local range(i32 0, 3) i32 @yyparse(ptr noundef writeonly captures(non
   %1014 = call { ptr, ptr } (...) @gen_noop() #10
   %1015 = extractvalue { ptr, ptr } %1014, 0
   %1016 = extractvalue { ptr, ptr } %1014, 1
-  store ptr %1015, ptr %.sroa.0616, align 8, !tbaa !22
+  store ptr %1015, ptr %.sroa.0616, align 8, !tbaa !20
   br label %2001
 
 1017:                                             ; preds = %132
@@ -1988,7 +1988,7 @@ define dso_local range(i32 0, 3) i32 @yyparse(ptr noundef writeonly captures(non
   %1029 = call fastcc { ptr, ptr } @gen_index_opt(ptr %1026, ptr %1028, ptr %1024, ptr %1025)
   %1030 = extractvalue { ptr, ptr } %1029, 0
   %1031 = extractvalue { ptr, ptr } %1029, 1
-  store ptr %1030, ptr %.sroa.0616, align 8, !tbaa !22
+  store ptr %1030, ptr %.sroa.0616, align 8, !tbaa !20
   br label %2001
 
 1032:                                             ; preds = %132
@@ -2005,7 +2005,7 @@ define dso_local range(i32 0, 3) i32 @yyparse(ptr noundef writeonly captures(non
   %1043 = call fastcc { ptr, ptr } @gen_index_opt(ptr %1034, ptr %1035, ptr %1041, ptr %1042)
   %1044 = extractvalue { ptr, ptr } %1043, 0
   %1045 = extractvalue { ptr, ptr } %1043, 1
-  store ptr %1044, ptr %.sroa.0616, align 8, !tbaa !22
+  store ptr %1044, ptr %.sroa.0616, align 8, !tbaa !20
   br label %2001
 
 1046:                                             ; preds = %132
@@ -2020,7 +2020,7 @@ define dso_local range(i32 0, 3) i32 @yyparse(ptr noundef writeonly captures(non
   %1055 = call fastcc { ptr, ptr } @gen_index_opt(ptr %1049, ptr %1051, ptr %1052, ptr %1054)
   %1056 = extractvalue { ptr, ptr } %1055, 0
   %1057 = extractvalue { ptr, ptr } %1055, 1
-  store ptr %1056, ptr %.sroa.0616, align 8, !tbaa !22
+  store ptr %1056, ptr %.sroa.0616, align 8, !tbaa !20
   br label %2001
 
 1058:                                             ; preds = %132
@@ -2034,7 +2034,7 @@ define dso_local range(i32 0, 3) i32 @yyparse(ptr noundef writeonly captures(non
   %1066 = call fastcc { ptr, ptr } @gen_index_opt(ptr %1060, ptr %1061, ptr %1063, ptr %1065)
   %1067 = extractvalue { ptr, ptr } %1066, 0
   %1068 = extractvalue { ptr, ptr } %1066, 1
-  store ptr %1067, ptr %.sroa.0616, align 8, !tbaa !22
+  store ptr %1067, ptr %.sroa.0616, align 8, !tbaa !20
   br label %2001
 
 1069:                                             ; preds = %132
@@ -2051,7 +2051,7 @@ define dso_local range(i32 0, 3) i32 @yyparse(ptr noundef writeonly captures(non
   %1080 = call fastcc { ptr, ptr } @gen_index(ptr %1077, ptr %1079, ptr %1075, ptr %1076)
   %1081 = extractvalue { ptr, ptr } %1080, 0
   %1082 = extractvalue { ptr, ptr } %1080, 1
-  store ptr %1081, ptr %.sroa.0616, align 8, !tbaa !22
+  store ptr %1081, ptr %.sroa.0616, align 8, !tbaa !20
   br label %2001
 
 1083:                                             ; preds = %132
@@ -2067,7 +2067,7 @@ define dso_local range(i32 0, 3) i32 @yyparse(ptr noundef writeonly captures(non
   %1093 = call fastcc { ptr, ptr } @gen_index(ptr %1085, ptr %1086, ptr %1091, ptr %1092)
   %1094 = extractvalue { ptr, ptr } %1093, 0
   %1095 = extractvalue { ptr, ptr } %1093, 1
-  store ptr %1094, ptr %.sroa.0616, align 8, !tbaa !22
+  store ptr %1094, ptr %.sroa.0616, align 8, !tbaa !20
   br label %2001
 
 1096:                                             ; preds = %132
@@ -2081,7 +2081,7 @@ define dso_local range(i32 0, 3) i32 @yyparse(ptr noundef writeonly captures(non
   %1104 = call fastcc { ptr, ptr } @gen_index(ptr %1098, ptr %1100, ptr %1101, ptr %1103)
   %1105 = extractvalue { ptr, ptr } %1104, 0
   %1106 = extractvalue { ptr, ptr } %1104, 1
-  store ptr %1105, ptr %.sroa.0616, align 8, !tbaa !22
+  store ptr %1105, ptr %.sroa.0616, align 8, !tbaa !20
   br label %2001
 
 1107:                                             ; preds = %132
@@ -2094,7 +2094,7 @@ define dso_local range(i32 0, 3) i32 @yyparse(ptr noundef writeonly captures(non
   %1114 = call fastcc { ptr, ptr } @gen_index(ptr %1109, ptr %1110, ptr %1111, ptr %1113)
   %1115 = extractvalue { ptr, ptr } %1114, 0
   %1116 = extractvalue { ptr, ptr } %1114, 1
-  store ptr %1115, ptr %.sroa.0616, align 8, !tbaa !22
+  store ptr %1115, ptr %.sroa.0616, align 8, !tbaa !20
   br label %2001
 
 1117:                                             ; preds = %132
@@ -2109,7 +2109,7 @@ define dso_local range(i32 0, 3) i32 @yyparse(ptr noundef writeonly captures(non
   %1118 = call { ptr, ptr } (...) @gen_noop() #10
   %1119 = extractvalue { ptr, ptr } %1118, 0
   %1120 = extractvalue { ptr, ptr } %1118, 1
-  store ptr %1119, ptr %.sroa.0616, align 8, !tbaa !22
+  store ptr %1119, ptr %.sroa.0616, align 8, !tbaa !20
   br label %2001
 
 1121:                                             ; preds = %132
@@ -2129,7 +2129,7 @@ define dso_local range(i32 0, 3) i32 @yyparse(ptr noundef writeonly captures(non
   %1126 = call { ptr, ptr } (...) @gen_noop() #10
   %1127 = extractvalue { ptr, ptr } %1126, 0
   %1128 = extractvalue { ptr, ptr } %1126, 1
-  store ptr %1127, ptr %.sroa.0616, align 8, !tbaa !22
+  store ptr %1127, ptr %.sroa.0616, align 8, !tbaa !20
   br label %2001
 
 1129:                                             ; preds = %132
@@ -2144,7 +2144,7 @@ define dso_local range(i32 0, 3) i32 @yyparse(ptr noundef writeonly captures(non
   %1138 = call fastcc { ptr, ptr } @gen_index_opt(ptr %1132, ptr %1134, ptr %1135, ptr %1137)
   %1139 = extractvalue { ptr, ptr } %1138, 0
   %1140 = extractvalue { ptr, ptr } %1138, 1
-  store ptr %1139, ptr %.sroa.0616, align 8, !tbaa !22
+  store ptr %1139, ptr %.sroa.0616, align 8, !tbaa !20
   br label %2001
 
 1141:                                             ; preds = %132
@@ -2159,7 +2159,7 @@ define dso_local range(i32 0, 3) i32 @yyparse(ptr noundef writeonly captures(non
   %1150 = call fastcc { ptr, ptr } @gen_index(ptr %1144, ptr %1146, ptr %1147, ptr %1149)
   %1151 = extractvalue { ptr, ptr } %1150, 0
   %1152 = extractvalue { ptr, ptr } %1150, 1
-  store ptr %1151, ptr %.sroa.0616, align 8, !tbaa !22
+  store ptr %1151, ptr %.sroa.0616, align 8, !tbaa !20
   br label %2001
 
 1153:                                             ; preds = %132
@@ -2174,7 +2174,7 @@ define dso_local range(i32 0, 3) i32 @yyparse(ptr noundef writeonly captures(non
   %1162 = call fastcc { ptr, ptr } @gen_index_opt(ptr %1156, ptr %1158, ptr %1159, ptr %1161)
   %1163 = extractvalue { ptr, ptr } %1162, 0
   %1164 = extractvalue { ptr, ptr } %1162, 1
-  store ptr %1163, ptr %.sroa.0616, align 8, !tbaa !22
+  store ptr %1163, ptr %.sroa.0616, align 8, !tbaa !20
   br label %2001
 
 1165:                                             ; preds = %132
@@ -2189,7 +2189,7 @@ define dso_local range(i32 0, 3) i32 @yyparse(ptr noundef writeonly captures(non
   %1174 = call fastcc { ptr, ptr } @gen_index(ptr %1168, ptr %1170, ptr %1171, ptr %1173)
   %1175 = extractvalue { ptr, ptr } %1174, 0
   %1176 = extractvalue { ptr, ptr } %1174, 1
-  store ptr %1175, ptr %.sroa.0616, align 8, !tbaa !22
+  store ptr %1175, ptr %.sroa.0616, align 8, !tbaa !20
   br label %2001
 
 1177:                                             ; preds = %132
@@ -2203,7 +2203,7 @@ define dso_local range(i32 0, 3) i32 @yyparse(ptr noundef writeonly captures(non
   %1185 = call { ptr, ptr } @block_join(ptr %1182, ptr %1184, ptr %1180, ptr %1181) #10
   %1186 = extractvalue { ptr, ptr } %1185, 0
   %1187 = extractvalue { ptr, ptr } %1185, 1
-  store ptr %1186, ptr %.sroa.0616, align 8, !tbaa !22
+  store ptr %1186, ptr %.sroa.0616, align 8, !tbaa !20
   br label %2001
 
 1188:                                             ; preds = %132
@@ -2217,7 +2217,7 @@ define dso_local range(i32 0, 3) i32 @yyparse(ptr noundef writeonly captures(non
   %1196 = call { ptr, ptr } @block_join(ptr %1193, ptr %1195, ptr %1191, ptr %1192) #10
   %1197 = extractvalue { ptr, ptr } %1196, 0
   %1198 = extractvalue { ptr, ptr } %1196, 1
-  store ptr %1197, ptr %.sroa.0616, align 8, !tbaa !22
+  store ptr %1197, ptr %.sroa.0616, align 8, !tbaa !20
   br label %2001
 
 1199:                                             ; preds = %132
@@ -2231,7 +2231,7 @@ define dso_local range(i32 0, 3) i32 @yyparse(ptr noundef writeonly captures(non
   %1207 = call { ptr, ptr } @block_join(ptr %1204, ptr %1206, ptr %1202, ptr %1203) #10
   %1208 = extractvalue { ptr, ptr } %1207, 0
   %1209 = extractvalue { ptr, ptr } %1207, 1
-  store ptr %1208, ptr %.sroa.0616, align 8, !tbaa !22
+  store ptr %1208, ptr %.sroa.0616, align 8, !tbaa !20
   br label %2001
 
 1210:                                             ; preds = %132
@@ -2245,7 +2245,7 @@ define dso_local range(i32 0, 3) i32 @yyparse(ptr noundef writeonly captures(non
   %1218 = call { ptr, ptr } @block_join(ptr %1215, ptr %1217, ptr %1213, ptr %1214) #10
   %1219 = extractvalue { ptr, ptr } %1218, 0
   %1220 = extractvalue { ptr, ptr } %1218, 1
-  store ptr %1219, ptr %.sroa.0616, align 8, !tbaa !22
+  store ptr %1219, ptr %.sroa.0616, align 8, !tbaa !20
   br label %2001
 
 1221:                                             ; preds = %132
@@ -2264,7 +2264,7 @@ define dso_local range(i32 0, 3) i32 @yyparse(ptr noundef writeonly captures(non
   %1234 = call fastcc { ptr, ptr } @gen_slice_index(ptr %1225, ptr %1227, ptr %1228, ptr %1230, ptr %1231, ptr %1233, i32 noundef 11)
   %1235 = extractvalue { ptr, ptr } %1234, 0
   %1236 = extractvalue { ptr, ptr } %1234, 1
-  store ptr %1235, ptr %.sroa.0616, align 8, !tbaa !22
+  store ptr %1235, ptr %.sroa.0616, align 8, !tbaa !20
   br label %2001
 
 1237:                                             ; preds = %132
@@ -2285,7 +2285,7 @@ define dso_local range(i32 0, 3) i32 @yyparse(ptr noundef writeonly captures(non
   %1252 = call fastcc { ptr, ptr } @gen_slice_index(ptr %1246, ptr %1248, ptr %1249, ptr %1251, ptr %1244, ptr %1245, i32 noundef 11)
   %1253 = extractvalue { ptr, ptr } %1252, 0
   %1254 = extractvalue { ptr, ptr } %1252, 1
-  store ptr %1253, ptr %.sroa.0616, align 8, !tbaa !22
+  store ptr %1253, ptr %.sroa.0616, align 8, !tbaa !20
   br label %2001
 
 1255:                                             ; preds = %132
@@ -2306,7 +2306,7 @@ define dso_local range(i32 0, 3) i32 @yyparse(ptr noundef writeonly captures(non
   %1270 = call fastcc { ptr, ptr } @gen_slice_index(ptr %1264, ptr %1266, ptr %1261, ptr %1262, ptr %1267, ptr %1269, i32 noundef 11)
   %1271 = extractvalue { ptr, ptr } %1270, 0
   %1272 = extractvalue { ptr, ptr } %1270, 1
-  store ptr %1271, ptr %.sroa.0616, align 8, !tbaa !22
+  store ptr %1271, ptr %.sroa.0616, align 8, !tbaa !20
   br label %2001
 
 1273:                                             ; preds = %132
@@ -2325,7 +2325,7 @@ define dso_local range(i32 0, 3) i32 @yyparse(ptr noundef writeonly captures(non
   %1286 = call fastcc { ptr, ptr } @gen_slice_index(ptr %1277, ptr %1279, ptr %1280, ptr %1282, ptr %1283, ptr %1285, i32 noundef 10)
   %1287 = extractvalue { ptr, ptr } %1286, 0
   %1288 = extractvalue { ptr, ptr } %1286, 1
-  store ptr %1287, ptr %.sroa.0616, align 8, !tbaa !22
+  store ptr %1287, ptr %.sroa.0616, align 8, !tbaa !20
   br label %2001
 
 1289:                                             ; preds = %132
@@ -2346,7 +2346,7 @@ define dso_local range(i32 0, 3) i32 @yyparse(ptr noundef writeonly captures(non
   %1304 = call fastcc { ptr, ptr } @gen_slice_index(ptr %1298, ptr %1300, ptr %1301, ptr %1303, ptr %1296, ptr %1297, i32 noundef 10)
   %1305 = extractvalue { ptr, ptr } %1304, 0
   %1306 = extractvalue { ptr, ptr } %1304, 1
-  store ptr %1305, ptr %.sroa.0616, align 8, !tbaa !22
+  store ptr %1305, ptr %.sroa.0616, align 8, !tbaa !20
   br label %2001
 
 1307:                                             ; preds = %132
@@ -2367,7 +2367,7 @@ define dso_local range(i32 0, 3) i32 @yyparse(ptr noundef writeonly captures(non
   %1322 = call fastcc { ptr, ptr } @gen_slice_index(ptr %1316, ptr %1318, ptr %1313, ptr %1314, ptr %1319, ptr %1321, i32 noundef 10)
   %1323 = extractvalue { ptr, ptr } %1322, 0
   %1324 = extractvalue { ptr, ptr } %1322, 1
-  store ptr %1323, ptr %.sroa.0616, align 8, !tbaa !22
+  store ptr %1323, ptr %.sroa.0616, align 8, !tbaa !20
   br label %2001
 
 1325:                                             ; preds = %132
@@ -2377,14 +2377,14 @@ define dso_local range(i32 0, 3) i32 @yyparse(ptr noundef writeonly captures(non
   %1329 = call { ptr, ptr } @gen_const(i64 %1326, ptr %1328) #10
   %1330 = extractvalue { ptr, ptr } %1329, 0
   %1331 = extractvalue { ptr, ptr } %1329, 1
-  store ptr %1330, ptr %.sroa.0616, align 8, !tbaa !22
+  store ptr %1330, ptr %.sroa.0616, align 8, !tbaa !20
   br label %2001
 
 1332:                                             ; preds = %132
-  %1333 = load i64, ptr %.21183, align 8, !tbaa !22
-  store i64 %1333, ptr %.sroa.0616, align 8, !tbaa !22
+  %1333 = load i64, ptr %.21183, align 8, !tbaa !20
+  store i64 %1333, ptr %.sroa.0616, align 8, !tbaa !20
   %.sroa.181.0..sroa_idx637 = getelementptr inbounds nuw i8, ptr %.21183, i64 8
-  %.sroa.181.0.copyload638 = load ptr, ptr %.sroa.181.0..sroa_idx637, align 8, !tbaa !22
+  %.sroa.181.0.copyload638 = load ptr, ptr %.sroa.181.0..sroa_idx637, align 8, !tbaa !20
   br label %2001
 
 1334:                                             ; preds = %132
@@ -2397,15 +2397,15 @@ define dso_local range(i32 0, 3) i32 @yyparse(ptr noundef writeonly captures(non
   %1341 = call fastcc { ptr, ptr } @gen_format(ptr %1336, ptr %1337, i64 %1338, ptr %1340)
   %1342 = extractvalue { ptr, ptr } %1341, 0
   %1343 = extractvalue { ptr, ptr } %1341, 1
-  store ptr %1342, ptr %.sroa.0616, align 8, !tbaa !22
+  store ptr %1342, ptr %.sroa.0616, align 8, !tbaa !20
   br label %2001
 
 1344:                                             ; preds = %132
   %1345 = getelementptr inbounds i8, ptr %.21183, i64 -16
-  %1346 = load i64, ptr %1345, align 8, !tbaa !22
-  store i64 %1346, ptr %.sroa.0616, align 8, !tbaa !22
+  %1346 = load i64, ptr %1345, align 8, !tbaa !20
+  store i64 %1346, ptr %.sroa.0616, align 8, !tbaa !20
   %.sroa.181.0..sroa_idx639 = getelementptr inbounds i8, ptr %.21183, i64 -8
-  %.sroa.181.0.copyload640 = load ptr, ptr %.sroa.181.0..sroa_idx639, align 8, !tbaa !22
+  %.sroa.181.0.copyload640 = load ptr, ptr %.sroa.181.0..sroa_idx639, align 8, !tbaa !20
   br label %2001
 
 1347:                                             ; preds = %132
@@ -2416,7 +2416,7 @@ define dso_local range(i32 0, 3) i32 @yyparse(ptr noundef writeonly captures(non
   %1352 = call { ptr, ptr } @gen_collect(ptr %1349, ptr %1351) #10
   %1353 = extractvalue { ptr, ptr } %1352, 0
   %1354 = extractvalue { ptr, ptr } %1352, 1
-  store ptr %1353, ptr %.sroa.0616, align 8, !tbaa !22
+  store ptr %1353, ptr %.sroa.0616, align 8, !tbaa !20
   br label %2001
 
 1355:                                             ; preds = %132
@@ -2426,7 +2426,7 @@ define dso_local range(i32 0, 3) i32 @yyparse(ptr noundef writeonly captures(non
   %1359 = call { ptr, ptr } @gen_const(i64 %1357, ptr %1358) #10
   %1360 = extractvalue { ptr, ptr } %1359, 0
   %1361 = extractvalue { ptr, ptr } %1359, 1
-  store ptr %1360, ptr %.sroa.0616, align 8, !tbaa !22
+  store ptr %1360, ptr %.sroa.0616, align 8, !tbaa !20
   br label %2001
 
 1362:                                             ; preds = %132
@@ -2465,7 +2465,7 @@ define dso_local range(i32 0, 3) i32 @yyparse(ptr noundef writeonly captures(non
   %storemerge = phi ptr [ %1388, %1369 ], [ %1368, %1362 ]
   %.pn1239 = phi { ptr, ptr } [ %1387, %1369 ], [ %1367, %1362 ]
   %.sroa.181.1 = extractvalue { ptr, ptr } %.pn1239, 1
-  store ptr %storemerge, ptr %.sroa.0616, align 8, !tbaa !22
+  store ptr %storemerge, ptr %.sroa.0616, align 8, !tbaa !20
   br label %2001
 
 1390:                                             ; preds = %132
@@ -2483,7 +2483,7 @@ define dso_local range(i32 0, 3) i32 @yyparse(ptr noundef writeonly captures(non
   %1398 = call { ptr, ptr } @gen_location(i64 %.sroa.01266.0.insert.insert1274, ptr noundef %2, ptr %1396, ptr %1397) #10
   %1399 = extractvalue { ptr, ptr } %1398, 0
   %1400 = extractvalue { ptr, ptr } %1398, 1
-  store ptr %1399, ptr %.sroa.0616, align 8, !tbaa !22
+  store ptr %1399, ptr %.sroa.0616, align 8, !tbaa !20
   %1401 = load i64, ptr %.21183, align 8
   %1402 = load ptr, ptr %1392, align 8
   call void @jv_free(i64 %1401, ptr %1402) #10
@@ -2504,7 +2504,7 @@ define dso_local range(i32 0, 3) i32 @yyparse(ptr noundef writeonly captures(non
   %1411 = call { ptr, ptr } @gen_location(i64 %.sroa.01266.0.insert.insert1278, ptr noundef %2, ptr %1409, ptr %1410) #10
   %1412 = extractvalue { ptr, ptr } %1411, 0
   %1413 = extractvalue { ptr, ptr } %1411, 1
-  store ptr %1412, ptr %.sroa.0616, align 8, !tbaa !22
+  store ptr %1412, ptr %.sroa.0616, align 8, !tbaa !20
   %1414 = load i64, ptr %.21183, align 8
   %1415 = load ptr, ptr %1405, align 8
   call void @jv_free(i64 %1414, ptr %1415) #10
@@ -2514,7 +2514,7 @@ define dso_local range(i32 0, 3) i32 @yyparse(ptr noundef writeonly captures(non
   %1417 = call fastcc { ptr, ptr } @gen_loc_object(i32 %.sroa.01266.0, ptr noundef %2)
   %1418 = extractvalue { ptr, ptr } %1417, 0
   %1419 = extractvalue { ptr, ptr } %1417, 1
-  store ptr %1418, ptr %.sroa.0616, align 8, !tbaa !22
+  store ptr %1418, ptr %.sroa.0616, align 8, !tbaa !20
   br label %2001
 
 1420:                                             ; preds = %132
@@ -2574,7 +2574,7 @@ define dso_local range(i32 0, 3) i32 @yyparse(ptr noundef writeonly captures(non
 1456:                                             ; preds = %1435, %1448, %1443, %1427
   %.sink1588 = phi { ptr, ptr } [ %1439, %1435 ], [ %1455, %1448 ], [ %1447, %1443 ], [ %1431, %1427 ]
   %1457 = extractvalue { ptr, ptr } %.sink1588, 0
-  store ptr %1457, ptr %.sroa.0616, align 8, !tbaa !22
+  store ptr %1457, ptr %.sroa.0616, align 8, !tbaa !20
   %.sroa.181.2 = extractvalue { ptr, ptr } %.sink1588, 1
   %1458 = load i64, ptr %.21183, align 8
   %1459 = load ptr, ptr %1422, align 8
@@ -2594,13 +2594,13 @@ define dso_local range(i32 0, 3) i32 @yyparse(ptr noundef writeonly captures(non
   %1470 = call { ptr, ptr } @gen_call(ptr noundef %1465, ptr %1467, ptr %1469) #10
   %1471 = extractvalue { ptr, ptr } %1470, 0
   %1472 = extractvalue { ptr, ptr } %1470, 1
-  store ptr %1471, ptr %.sroa.0616, align 8, !tbaa !22
+  store ptr %1471, ptr %.sroa.0616, align 8, !tbaa !20
   %1473 = getelementptr inbounds i8, ptr %.21196, i64 -24
   %1474 = load i64, ptr %1473, align 4
   %1475 = call { ptr, ptr } @gen_location(i64 %1474, ptr noundef %2, ptr %1471, ptr %1472) #10
   %1476 = extractvalue { ptr, ptr } %1475, 0
   %1477 = extractvalue { ptr, ptr } %1475, 1
-  store ptr %1476, ptr %.sroa.0616, align 8, !tbaa !22
+  store ptr %1476, ptr %.sroa.0616, align 8, !tbaa !20
   %1478 = load i64, ptr %1461, align 8
   %1479 = load ptr, ptr %1463, align 8
   call void @jv_free(i64 %1478, ptr %1479) #10
@@ -2610,36 +2610,36 @@ define dso_local range(i32 0, 3) i32 @yyparse(ptr noundef writeonly captures(non
   %1481 = call { ptr, ptr } (...) @gen_noop() #10
   %1482 = extractvalue { ptr, ptr } %1481, 0
   %1483 = extractvalue { ptr, ptr } %1481, 1
-  store ptr %1482, ptr %.sroa.0616, align 8, !tbaa !22
+  store ptr %1482, ptr %.sroa.0616, align 8, !tbaa !20
   br label %2001
 
 1484:                                             ; preds = %132
   %1485 = call { ptr, ptr } (...) @gen_noop() #10
   %1486 = extractvalue { ptr, ptr } %1485, 0
   %1487 = extractvalue { ptr, ptr } %1485, 1
-  store ptr %1486, ptr %.sroa.0616, align 8, !tbaa !22
+  store ptr %1486, ptr %.sroa.0616, align 8, !tbaa !20
   br label %2001
 
 1488:                                             ; preds = %132
   %1489 = getelementptr inbounds i8, ptr %.21183, i64 -48
-  %1490 = load i64, ptr %1489, align 8, !tbaa !22
-  store i64 %1490, ptr %.sroa.0616, align 8, !tbaa !22
+  %1490 = load i64, ptr %1489, align 8, !tbaa !20
+  store i64 %1490, ptr %.sroa.0616, align 8, !tbaa !20
   %.sroa.181.0..sroa_idx641 = getelementptr inbounds i8, ptr %.21183, i64 -40
-  %.sroa.181.0.copyload642 = load ptr, ptr %.sroa.181.0..sroa_idx641, align 8, !tbaa !22
+  %.sroa.181.0.copyload642 = load ptr, ptr %.sroa.181.0..sroa_idx641, align 8, !tbaa !20
   br label %2001
 
 1491:                                             ; preds = %132
   %1492 = call { ptr, ptr } (...) @gen_noop() #10
   %1493 = extractvalue { ptr, ptr } %1492, 0
   %1494 = extractvalue { ptr, ptr } %1492, 1
-  store ptr %1493, ptr %.sroa.0616, align 8, !tbaa !22
+  store ptr %1493, ptr %.sroa.0616, align 8, !tbaa !20
   br label %2001
 
 1495:                                             ; preds = %132
-  %1496 = load i64, ptr %.21183, align 8, !tbaa !22
-  store i64 %1496, ptr %.sroa.0616, align 8, !tbaa !22
+  %1496 = load i64, ptr %.21183, align 8, !tbaa !20
+  store i64 %1496, ptr %.sroa.0616, align 8, !tbaa !20
   %.sroa.181.0..sroa_idx643 = getelementptr inbounds nuw i8, ptr %.21183, i64 8
-  %.sroa.181.0.copyload644 = load ptr, ptr %.sroa.181.0..sroa_idx643, align 8, !tbaa !22
+  %.sroa.181.0.copyload644 = load ptr, ptr %.sroa.181.0..sroa_idx643, align 8, !tbaa !20
   br label %2001
 
 1497:                                             ; preds = %132
@@ -2653,7 +2653,7 @@ define dso_local range(i32 0, 3) i32 @yyparse(ptr noundef writeonly captures(non
   %1505 = call { ptr, ptr } @block_join(ptr %1499, ptr %1501, ptr %1502, ptr %1504) #10
   %1506 = extractvalue { ptr, ptr } %1505, 0
   %1507 = extractvalue { ptr, ptr } %1505, 1
-  store ptr %1506, ptr %.sroa.0616, align 8, !tbaa !22
+  store ptr %1506, ptr %.sroa.0616, align 8, !tbaa !20
   br label %2001
 
 1508:                                             ; preds = %132
@@ -2663,7 +2663,7 @@ define dso_local range(i32 0, 3) i32 @yyparse(ptr noundef writeonly captures(non
   %1512 = call { ptr, ptr } @gen_lambda(ptr %1509, ptr %1511) #10
   %1513 = extractvalue { ptr, ptr } %1512, 0
   %1514 = extractvalue { ptr, ptr } %1512, 1
-  store ptr %1513, ptr %.sroa.0616, align 8, !tbaa !22
+  store ptr %1513, ptr %.sroa.0616, align 8, !tbaa !20
   br label %2001
 
 1515:                                             ; preds = %132
@@ -2680,7 +2680,7 @@ define dso_local range(i32 0, 3) i32 @yyparse(ptr noundef writeonly captures(non
   %1526 = call { ptr, ptr } @block_join(ptr %1523, ptr %1525, ptr %1521, ptr %1522) #10
   %1527 = extractvalue { ptr, ptr } %1526, 0
   %1528 = extractvalue { ptr, ptr } %1526, 1
-  store ptr %1527, ptr %.sroa.0616, align 8, !tbaa !22
+  store ptr %1527, ptr %.sroa.0616, align 8, !tbaa !20
   br label %2001
 
 1529:                                             ; preds = %132
@@ -2690,7 +2690,7 @@ define dso_local range(i32 0, 3) i32 @yyparse(ptr noundef writeonly captures(non
   %1533 = call { ptr, ptr } @gen_destructure_alt(ptr %1530, ptr %1532) #10
   %1534 = extractvalue { ptr, ptr } %1533, 0
   %1535 = extractvalue { ptr, ptr } %1533, 1
-  store ptr %1534, ptr %.sroa.0616, align 8, !tbaa !22
+  store ptr %1534, ptr %.sroa.0616, align 8, !tbaa !20
   br label %2001
 
 1536:                                             ; preds = %132
@@ -2704,14 +2704,14 @@ define dso_local range(i32 0, 3) i32 @yyparse(ptr noundef writeonly captures(non
   %1544 = call { ptr, ptr } @block_join(ptr %1538, ptr %1540, ptr %1541, ptr %1543) #10
   %1545 = extractvalue { ptr, ptr } %1544, 0
   %1546 = extractvalue { ptr, ptr } %1544, 1
-  store ptr %1545, ptr %.sroa.0616, align 8, !tbaa !22
+  store ptr %1545, ptr %.sroa.0616, align 8, !tbaa !20
   br label %2001
 
 1547:                                             ; preds = %132
-  %1548 = load i64, ptr %.21183, align 8, !tbaa !22
-  store i64 %1548, ptr %.sroa.0616, align 8, !tbaa !22
+  %1548 = load i64, ptr %.21183, align 8, !tbaa !20
+  store i64 %1548, ptr %.sroa.0616, align 8, !tbaa !20
   %.sroa.181.0..sroa_idx645 = getelementptr inbounds nuw i8, ptr %.21183, i64 8
-  %.sroa.181.0.copyload646 = load ptr, ptr %.sroa.181.0..sroa_idx645, align 8, !tbaa !22
+  %.sroa.181.0.copyload646 = load ptr, ptr %.sroa.181.0..sroa_idx645, align 8, !tbaa !20
   br label %2001
 
 1549:                                             ; preds = %132
@@ -2722,7 +2722,7 @@ define dso_local range(i32 0, 3) i32 @yyparse(ptr noundef writeonly captures(non
   %1554 = call { ptr, ptr } @gen_op_unbound(i32 noundef 8, ptr noundef %1553) #10
   %1555 = extractvalue { ptr, ptr } %1554, 0
   %1556 = extractvalue { ptr, ptr } %1554, 1
-  store ptr %1555, ptr %.sroa.0616, align 8, !tbaa !22
+  store ptr %1555, ptr %.sroa.0616, align 8, !tbaa !20
   %1557 = load i64, ptr %.21183, align 8
   %1558 = load ptr, ptr %1551, align 8
   call void @jv_free(i64 %1557, ptr %1558) #10
@@ -2739,7 +2739,7 @@ define dso_local range(i32 0, 3) i32 @yyparse(ptr noundef writeonly captures(non
   %1567 = call { ptr, ptr } @block_join(ptr %1564, ptr %1566, ptr %1562, ptr %1563) #10
   %1568 = extractvalue { ptr, ptr } %1567, 0
   %1569 = extractvalue { ptr, ptr } %1567, 1
-  store ptr %1568, ptr %.sroa.0616, align 8, !tbaa !22
+  store ptr %1568, ptr %.sroa.0616, align 8, !tbaa !20
   br label %2001
 
 1570:                                             ; preds = %132
@@ -2753,7 +2753,7 @@ define dso_local range(i32 0, 3) i32 @yyparse(ptr noundef writeonly captures(non
   %1578 = call { ptr, ptr } @block_join(ptr %1575, ptr %1577, ptr %1573, ptr %1574) #10
   %1579 = extractvalue { ptr, ptr } %1578, 0
   %1580 = extractvalue { ptr, ptr } %1578, 1
-  store ptr %1579, ptr %.sroa.0616, align 8, !tbaa !22
+  store ptr %1579, ptr %.sroa.0616, align 8, !tbaa !20
   br label %2001
 
 1581:                                             ; preds = %132
@@ -2766,7 +2766,7 @@ define dso_local range(i32 0, 3) i32 @yyparse(ptr noundef writeonly captures(non
   %1588 = call { ptr, ptr } @gen_array_matcher(ptr %1583, ptr %1584, ptr %1585, ptr %1587) #10
   %1589 = extractvalue { ptr, ptr } %1588, 0
   %1590 = extractvalue { ptr, ptr } %1588, 1
-  store ptr %1589, ptr %.sroa.0616, align 8, !tbaa !22
+  store ptr %1589, ptr %.sroa.0616, align 8, !tbaa !20
   br label %2001
 
 1591:                                             ; preds = %132
@@ -2780,14 +2780,14 @@ define dso_local range(i32 0, 3) i32 @yyparse(ptr noundef writeonly captures(non
   %1599 = call { ptr, ptr } @gen_array_matcher(ptr %1593, ptr %1595, ptr %1596, ptr %1598) #10
   %1600 = extractvalue { ptr, ptr } %1599, 0
   %1601 = extractvalue { ptr, ptr } %1599, 1
-  store ptr %1600, ptr %.sroa.0616, align 8, !tbaa !22
+  store ptr %1600, ptr %.sroa.0616, align 8, !tbaa !20
   br label %2001
 
 1602:                                             ; preds = %132
-  %1603 = load i64, ptr %.21183, align 8, !tbaa !22
-  store i64 %1603, ptr %.sroa.0616, align 8, !tbaa !22
+  %1603 = load i64, ptr %.21183, align 8, !tbaa !20
+  store i64 %1603, ptr %.sroa.0616, align 8, !tbaa !20
   %.sroa.181.0..sroa_idx647 = getelementptr inbounds nuw i8, ptr %.21183, i64 8
-  %.sroa.181.0.copyload648 = load ptr, ptr %.sroa.181.0..sroa_idx647, align 8, !tbaa !22
+  %.sroa.181.0.copyload648 = load ptr, ptr %.sroa.181.0..sroa_idx647, align 8, !tbaa !20
   br label %2001
 
 1604:                                             ; preds = %132
@@ -2801,7 +2801,7 @@ define dso_local range(i32 0, 3) i32 @yyparse(ptr noundef writeonly captures(non
   %1612 = call { ptr, ptr } @block_join(ptr %1606, ptr %1608, ptr %1609, ptr %1611) #10
   %1613 = extractvalue { ptr, ptr } %1612, 0
   %1614 = extractvalue { ptr, ptr } %1612, 1
-  store ptr %1613, ptr %.sroa.0616, align 8, !tbaa !22
+  store ptr %1613, ptr %.sroa.0616, align 8, !tbaa !20
   br label %2001
 
 1615:                                             ; preds = %132
@@ -2820,7 +2820,7 @@ define dso_local range(i32 0, 3) i32 @yyparse(ptr noundef writeonly captures(non
   %1628 = call { ptr, ptr } @gen_object_matcher(ptr %1620, ptr %1621, ptr %1626, ptr %1627) #10
   %1629 = extractvalue { ptr, ptr } %1628, 0
   %1630 = extractvalue { ptr, ptr } %1628, 1
-  store ptr %1629, ptr %.sroa.0616, align 8, !tbaa !22
+  store ptr %1629, ptr %.sroa.0616, align 8, !tbaa !20
   br label %2001
 
 1631:                                             ; preds = %132
@@ -2852,7 +2852,7 @@ define dso_local range(i32 0, 3) i32 @yyparse(ptr noundef writeonly captures(non
   %1657 = call { ptr, ptr } @gen_object_matcher(ptr %1637, ptr %1638, ptr %1655, ptr %1656) #10
   %1658 = extractvalue { ptr, ptr } %1657, 0
   %1659 = extractvalue { ptr, ptr } %1657, 1
-  store ptr %1658, ptr %.sroa.0616, align 8, !tbaa !22
+  store ptr %1658, ptr %.sroa.0616, align 8, !tbaa !20
   br label %2001
 
 1660:                                             ; preds = %132
@@ -2869,7 +2869,7 @@ define dso_local range(i32 0, 3) i32 @yyparse(ptr noundef writeonly captures(non
   %1671 = call { ptr, ptr } @gen_object_matcher(ptr %1666, ptr %1667, ptr %1668, ptr %1670) #10
   %1672 = extractvalue { ptr, ptr } %1671, 0
   %1673 = extractvalue { ptr, ptr } %1671, 1
-  store ptr %1672, ptr %.sroa.0616, align 8, !tbaa !22
+  store ptr %1672, ptr %.sroa.0616, align 8, !tbaa !20
   br label %2001
 
 1674:                                             ; preds = %132
@@ -2886,7 +2886,7 @@ define dso_local range(i32 0, 3) i32 @yyparse(ptr noundef writeonly captures(non
   %1685 = call { ptr, ptr } @gen_object_matcher(ptr %1680, ptr %1681, ptr %1682, ptr %1684) #10
   %1686 = extractvalue { ptr, ptr } %1685, 0
   %1687 = extractvalue { ptr, ptr } %1685, 1
-  store ptr %1686, ptr %.sroa.0616, align 8, !tbaa !22
+  store ptr %1686, ptr %.sroa.0616, align 8, !tbaa !20
   br label %2001
 
 1688:                                             ; preds = %132
@@ -2900,7 +2900,7 @@ define dso_local range(i32 0, 3) i32 @yyparse(ptr noundef writeonly captures(non
   %1696 = call { ptr, ptr } @gen_object_matcher(ptr %1690, ptr %1692, ptr %1693, ptr %1695) #10
   %1697 = extractvalue { ptr, ptr } %1696, 0
   %1698 = extractvalue { ptr, ptr } %1696, 1
-  store ptr %1697, ptr %.sroa.0616, align 8, !tbaa !22
+  store ptr %1697, ptr %.sroa.0616, align 8, !tbaa !20
   br label %2001
 
 1699:                                             ; preds = %132
@@ -2937,7 +2937,7 @@ define dso_local range(i32 0, 3) i32 @yyparse(ptr noundef writeonly captures(non
   %1716 = call { ptr, ptr } @gen_object_matcher(ptr %1711, ptr %1712, ptr %1713, ptr %1715) #10
   %1717 = extractvalue { ptr, ptr } %1716, 0
   %1718 = extractvalue { ptr, ptr } %1716, 1
-  store ptr %1717, ptr %.sroa.0616, align 8, !tbaa !22
+  store ptr %1717, ptr %.sroa.0616, align 8, !tbaa !20
   br label %2001
 
 1719:                                             ; preds = %132
@@ -2949,10 +2949,10 @@ define dso_local range(i32 0, 3) i32 @yyparse(ptr noundef writeonly captures(non
   store i64 %.sroa.01266.0.insert.insert1302, ptr %24, align 8
   call void @yyerror(ptr noundef nonnull %24, ptr poison, ptr noundef %1, ptr noundef %2, ptr poison, ptr noundef nonnull @.str.22)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %24) #10
-  %1720 = load i64, ptr %.21183, align 8, !tbaa !22
-  store i64 %1720, ptr %.sroa.0616, align 8, !tbaa !22
+  %1720 = load i64, ptr %.21183, align 8, !tbaa !20
+  store i64 %1720, ptr %.sroa.0616, align 8, !tbaa !20
   %.sroa.181.0..sroa_idx649 = getelementptr inbounds nuw i8, ptr %.21183, i64 8
-  %.sroa.181.0.copyload650 = load ptr, ptr %.sroa.181.0..sroa_idx649, align 8, !tbaa !22
+  %.sroa.181.0.copyload650 = load ptr, ptr %.sroa.181.0..sroa_idx649, align 8, !tbaa !20
   br label %2001
 
 1721:                                             ; preds = %132
@@ -3085,14 +3085,14 @@ define dso_local range(i32 0, 3) i32 @yyparse(ptr noundef writeonly captures(non
   %1794 = call { ptr, ptr } (...) @gen_noop() #10
   %1795 = extractvalue { ptr, ptr } %1794, 0
   %1796 = extractvalue { ptr, ptr } %1794, 1
-  store ptr %1795, ptr %.sroa.0616, align 8, !tbaa !22
+  store ptr %1795, ptr %.sroa.0616, align 8, !tbaa !20
   br label %2001
 
 1797:                                             ; preds = %132
-  %1798 = load i64, ptr %.21183, align 8, !tbaa !22
-  store i64 %1798, ptr %.sroa.0616, align 8, !tbaa !22
+  %1798 = load i64, ptr %.21183, align 8, !tbaa !20
+  store i64 %1798, ptr %.sroa.0616, align 8, !tbaa !20
   %.sroa.181.0..sroa_idx651 = getelementptr inbounds nuw i8, ptr %.21183, i64 8
-  %.sroa.181.0.copyload652 = load ptr, ptr %.sroa.181.0..sroa_idx651, align 8, !tbaa !22
+  %.sroa.181.0.copyload652 = load ptr, ptr %.sroa.181.0..sroa_idx651, align 8, !tbaa !20
   br label %2001
 
 1799:                                             ; preds = %132
@@ -3106,14 +3106,14 @@ define dso_local range(i32 0, 3) i32 @yyparse(ptr noundef writeonly captures(non
   %1807 = call { ptr, ptr } @block_join(ptr %1801, ptr %1803, ptr %1804, ptr %1806) #10
   %1808 = extractvalue { ptr, ptr } %1807, 0
   %1809 = extractvalue { ptr, ptr } %1807, 1
-  store ptr %1808, ptr %.sroa.0616, align 8, !tbaa !22
+  store ptr %1808, ptr %.sroa.0616, align 8, !tbaa !20
   br label %2001
 
 1810:                                             ; preds = %132
-  %1811 = load i64, ptr %.21183, align 8, !tbaa !22
-  store i64 %1811, ptr %.sroa.0616, align 8, !tbaa !22
+  %1811 = load i64, ptr %.21183, align 8, !tbaa !20
+  store i64 %1811, ptr %.sroa.0616, align 8, !tbaa !20
   %.sroa.181.0..sroa_idx653 = getelementptr inbounds nuw i8, ptr %.21183, i64 8
-  %.sroa.181.0.copyload654 = load ptr, ptr %.sroa.181.0..sroa_idx653, align 8, !tbaa !22
+  %.sroa.181.0.copyload654 = load ptr, ptr %.sroa.181.0..sroa_idx653, align 8, !tbaa !20
   br label %2001
 
 1812:                                             ; preds = %132
@@ -3130,7 +3130,7 @@ define dso_local range(i32 0, 3) i32 @yyparse(ptr noundef writeonly captures(non
   %1823 = call { ptr, ptr } @gen_dictpair(ptr %1818, ptr %1819, ptr %1820, ptr %1822) #10
   %1824 = extractvalue { ptr, ptr } %1823, 0
   %1825 = extractvalue { ptr, ptr } %1823, 1
-  store ptr %1824, ptr %.sroa.0616, align 8, !tbaa !22
+  store ptr %1824, ptr %.sroa.0616, align 8, !tbaa !20
   br label %2001
 
 1826:                                             ; preds = %132
@@ -3147,7 +3147,7 @@ define dso_local range(i32 0, 3) i32 @yyparse(ptr noundef writeonly captures(non
   %1837 = call { ptr, ptr } @gen_dictpair(ptr %1832, ptr %1833, ptr %1834, ptr %1836) #10
   %1838 = extractvalue { ptr, ptr } %1837, 0
   %1839 = extractvalue { ptr, ptr } %1837, 1
-  store ptr %1838, ptr %.sroa.0616, align 8, !tbaa !22
+  store ptr %1838, ptr %.sroa.0616, align 8, !tbaa !20
   br label %2001
 
 1840:                                             ; preds = %132
@@ -3161,7 +3161,7 @@ define dso_local range(i32 0, 3) i32 @yyparse(ptr noundef writeonly captures(non
   %1848 = call { ptr, ptr } @gen_dictpair(ptr %1842, ptr %1844, ptr %1845, ptr %1847) #10
   %1849 = extractvalue { ptr, ptr } %1848, 0
   %1850 = extractvalue { ptr, ptr } %1848, 1
-  store ptr %1849, ptr %.sroa.0616, align 8, !tbaa !22
+  store ptr %1849, ptr %.sroa.0616, align 8, !tbaa !20
   br label %2001
 
 1851:                                             ; preds = %132
@@ -3192,7 +3192,7 @@ define dso_local range(i32 0, 3) i32 @yyparse(ptr noundef writeonly captures(non
   %1876 = call { ptr, ptr } @gen_dictpair(ptr %1873, ptr %1875, ptr %1871, ptr %1872) #10
   %1877 = extractvalue { ptr, ptr } %1876, 0
   %1878 = extractvalue { ptr, ptr } %1876, 1
-  store ptr %1877, ptr %.sroa.0616, align 8, !tbaa !22
+  store ptr %1877, ptr %.sroa.0616, align 8, !tbaa !20
   br label %2001
 
 1879:                                             ; preds = %132
@@ -3217,7 +3217,7 @@ define dso_local range(i32 0, 3) i32 @yyparse(ptr noundef writeonly captures(non
   %1894 = call { ptr, ptr } @gen_dictpair(ptr %1889, ptr %1890, ptr %1891, ptr %1893) #10
   %1895 = extractvalue { ptr, ptr } %1894, 0
   %1896 = extractvalue { ptr, ptr } %1894, 1
-  store ptr %1895, ptr %.sroa.0616, align 8, !tbaa !22
+  store ptr %1895, ptr %.sroa.0616, align 8, !tbaa !20
   %1897 = load i64, ptr %1880, align 8
   %1898 = load ptr, ptr %1882, align 8
   call void @jv_free(i64 %1897, ptr %1898) #10
@@ -3246,7 +3246,7 @@ define dso_local range(i32 0, 3) i32 @yyparse(ptr noundef writeonly captures(non
   %1915 = call { ptr, ptr } @gen_dictpair(ptr %1904, ptr %1905, ptr %1913, ptr %1914) #10
   %1916 = extractvalue { ptr, ptr } %1915, 0
   %1917 = extractvalue { ptr, ptr } %1915, 1
-  store ptr %1916, ptr %.sroa.0616, align 8, !tbaa !22
+  store ptr %1916, ptr %.sroa.0616, align 8, !tbaa !20
   br label %2001
 
 1918:                                             ; preds = %132
@@ -3273,7 +3273,7 @@ define dso_local range(i32 0, 3) i32 @yyparse(ptr noundef writeonly captures(non
   %1939 = call { ptr, ptr } @gen_dictpair(ptr %1926, ptr %1927, ptr %1937, ptr %1938) #10
   %1940 = extractvalue { ptr, ptr } %1939, 0
   %1941 = extractvalue { ptr, ptr } %1939, 1
-  store ptr %1940, ptr %.sroa.0616, align 8, !tbaa !22
+  store ptr %1940, ptr %.sroa.0616, align 8, !tbaa !20
   br label %2001
 
 1942:                                             ; preds = %132
@@ -3289,7 +3289,7 @@ define dso_local range(i32 0, 3) i32 @yyparse(ptr noundef writeonly captures(non
   %1952 = call { ptr, ptr } @gen_dictpair(ptr %1947, ptr %1948, ptr %1950, ptr %1951) #10
   %1953 = extractvalue { ptr, ptr } %1952, 0
   %1954 = extractvalue { ptr, ptr } %1952, 1
-  store ptr %1953, ptr %.sroa.0616, align 8, !tbaa !22
+  store ptr %1953, ptr %.sroa.0616, align 8, !tbaa !20
   br label %2001
 
 1955:                                             ; preds = %132
@@ -3316,7 +3316,7 @@ define dso_local range(i32 0, 3) i32 @yyparse(ptr noundef writeonly captures(non
   %1976 = call { ptr, ptr } @gen_dictpair(ptr %1963, ptr %1964, ptr %1974, ptr %1975) #10
   %1977 = extractvalue { ptr, ptr } %1976, 0
   %1978 = extractvalue { ptr, ptr } %1976, 1
-  store ptr %1977, ptr %.sroa.0616, align 8, !tbaa !22
+  store ptr %1977, ptr %.sroa.0616, align 8, !tbaa !20
   br label %2001
 
 1979:                                             ; preds = %132
@@ -3353,7 +3353,7 @@ define dso_local range(i32 0, 3) i32 @yyparse(ptr noundef writeonly captures(non
   %1996 = call { ptr, ptr } @gen_dictpair(ptr %1991, ptr %1992, ptr %1993, ptr %1995) #10
   %1997 = extractvalue { ptr, ptr } %1996, 0
   %1998 = extractvalue { ptr, ptr } %1996, 1
-  store ptr %1997, ptr %.sroa.0616, align 8, !tbaa !22
+  store ptr %1997, ptr %.sroa.0616, align 8, !tbaa !20
   br label %2001
 
 1999:                                             ; preds = %132
@@ -3365,10 +3365,10 @@ define dso_local range(i32 0, 3) i32 @yyparse(ptr noundef writeonly captures(non
   store i64 %.sroa.01266.0.insert.insert1294, ptr %26, align 8
   call void @yyerror(ptr noundef nonnull %26, ptr poison, ptr noundef %1, ptr noundef %2, ptr poison, ptr noundef nonnull @.str.22)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %26) #10
-  %2000 = load i64, ptr %.21183, align 8, !tbaa !22
-  store i64 %2000, ptr %.sroa.0616, align 8, !tbaa !22
+  %2000 = load i64, ptr %.21183, align 8, !tbaa !20
+  store i64 %2000, ptr %.sroa.0616, align 8, !tbaa !20
   %.sroa.181.0..sroa_idx655 = getelementptr inbounds nuw i8, ptr %.21183, i64 8
-  %.sroa.181.0.copyload656 = load ptr, ptr %.sroa.181.0..sroa_idx655, align 8, !tbaa !22
+  %.sroa.181.0.copyload656 = load ptr, ptr %.sroa.181.0..sroa_idx655, align 8, !tbaa !20
   br label %2001
 
 2001:                                             ; preds = %132, %790, %799, %698, %722, %712, %185, %201, %195, %1999, %1990, %1955, %1942, %1918, %1899, %1879, %1851, %1840, %1826, %1812, %1810, %1799, %1797, %1793, %1789, %1785, %1781, %1777, %1773, %1769, %1765, %1761, %1757, %1753, %1749, %1745, %1741, %1737, %1733, %1729, %1725, %1721, %1719, %1710, %1688, %1674, %1660, %1631, %1615, %1604, %1602, %1591, %1581, %1570, %1559, %1549, %1547, %1536, %1529, %1515, %1508, %1497, %1495, %1491, %1488, %1484, %1480, %1460, %1456, %1416, %1403, %1390, %1389, %1355, %1347, %1344, %1334, %1332, %1325, %1307, %1289, %1273, %1255, %1237, %1221, %1210, %1199, %1188, %1177, %1165, %1153, %1141, %1129, %1121, %1117, %1107, %1096, %1083, %1069, %1058, %1046, %1032, %1017, %1013, %987, %980, %976, %974, %961, %950, %946, %943, %928, %906, %892, %885, %878, %874, %871, %861, %851, %840, %838, %819, %801, %772, %752, %732, %689, %687, %676, %665, %654, %643, %632, %621, %610, %599, %588, %577, %566, %555, %544, %533, %520, %509, %498, %487, %476, %456, %445, %434, %423, %412, %392, %381, %360, %357, %347, %336, %333, %318, %298, %280, %263, %248, %237, %226, %222, %211, %207, %175, %157, %133
@@ -3393,9 +3393,9 @@ define dso_local range(i32 0, 3) i32 @yyparse(ptr noundef writeonly captures(non
   %2010 = sext i8 %2009 to i64
   %2011 = add nsw i64 %2010, -70
   %2012 = getelementptr inbounds [29 x i16], ptr @yypgoto, i64 0, i64 %2011
-  %2013 = load i16, ptr %2012, align 2, !tbaa !16
+  %2013 = load i16, ptr %2012, align 2, !tbaa !14
   %2014 = sext i16 %2013 to i32
-  %2015 = load i16, ptr %2004, align 2, !tbaa !16
+  %2015 = load i16, ptr %2004, align 2, !tbaa !14
   %2016 = sext i16 %2015 to i32
   %2017 = add nsw i32 %2016, %2014
   %or.cond5 = icmp ult i32 %2017, 2052
@@ -3404,13 +3404,13 @@ define dso_local range(i32 0, 3) i32 @yyparse(ptr noundef writeonly captures(non
 2018:                                             ; preds = %2001
   %2019 = zext nneg i32 %2017 to i64
   %2020 = getelementptr inbounds nuw [2052 x i16], ptr @yycheck, i64 0, i64 %2019
-  %2021 = load i16, ptr %2020, align 2, !tbaa !16
+  %2021 = load i16, ptr %2020, align 2, !tbaa !14
   %2022 = icmp eq i16 %2021, %2015
   br i1 %2022, label %2023, label %2027
 
 2023:                                             ; preds = %2018
   %2024 = getelementptr inbounds nuw [2052 x i16], ptr @yytable, i64 0, i64 %2019
-  %2025 = load i16, ptr %2024, align 2, !tbaa !16
+  %2025 = load i16, ptr %2024, align 2, !tbaa !14
   %2026 = sext i16 %2025 to i32
   br label %28
 
@@ -3531,13 +3531,13 @@ define dso_local range(i32 0, 3) i32 @yyparse(ptr noundef writeonly captures(non
   %2070 = sext i16 %2066 to i64
   %2071 = add nsw i64 %2070, 1
   %2072 = getelementptr inbounds [2052 x i16], ptr @yycheck, i64 0, i64 %2071
-  %2073 = load i16, ptr %2072, align 2, !tbaa !16
+  %2073 = load i16, ptr %2072, align 2, !tbaa !14
   %2074 = icmp eq i16 %2073, 1
   br i1 %2074, label %2075, label %2079
 
 2075:                                             ; preds = %2069
   %2076 = getelementptr inbounds [2052 x i16], ptr @yytable, i64 0, i64 %2071
-  %2077 = load i16, ptr %2076, align 2, !tbaa !16
+  %2077 = load i16, ptr %2076, align 2, !tbaa !14
   %2078 = icmp sgt i16 %2077, 0
   br i1 %2078, label %2090, label %2079
 
@@ -3554,22 +3554,22 @@ define dso_local range(i32 0, 3) i32 @yyparse(ptr noundef writeonly captures(non
   %2085 = getelementptr inbounds i8, ptr %.61187, i64 -16
   %2086 = getelementptr inbounds i8, ptr %.61174, i64 -2
   %2087 = getelementptr inbounds i8, ptr %.61200, i64 -8
-  %2088 = load i16, ptr %2086, align 2, !tbaa !16
+  %2088 = load i16, ptr %2086, align 2, !tbaa !14
   %2089 = sext i16 %2088 to i32
   %.phi.trans.insert = sext i16 %2088 to i64
   %.phi.trans.insert1573 = getelementptr inbounds [315 x i16], ptr @yypact, i64 0, i64 %.phi.trans.insert
-  %.pre = load i16, ptr %.phi.trans.insert1573, align 2, !tbaa !16
-  br label %2065, !llvm.loop !24
+  %.pre = load i16, ptr %.phi.trans.insert1573, align 2, !tbaa !14
+  br label %2065
 
 2090:                                             ; preds = %2075
   %2091 = zext nneg i16 %2077 to i32
   %2092 = getelementptr inbounds nuw i8, ptr %.61187, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2092, ptr noundef nonnull align 8 dereferenceable(16) %5, i64 16, i1 false), !tbaa.struct !18
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2092, ptr noundef nonnull align 8 dereferenceable(16) %5, i64 16, i1 false), !tbaa.struct !16
   %.sroa.8.16.copyload = load i32, ptr %.sroa.8.16..sroa_idx, align 4, !tbaa !4
   %2093 = getelementptr inbounds nuw i8, ptr %.61200, i64 8
-  store i32 %.sroa.2609.1, ptr %2093, align 4, !tbaa !19
+  store i32 %.sroa.2609.1, ptr %2093, align 4, !tbaa !17
   %2094 = getelementptr inbounds nuw i8, ptr %.61200, i64 12
-  store i32 %.sroa.8.16.copyload, ptr %2094, align 4, !tbaa !21
+  store i32 %.sroa.8.16.copyload, ptr %2094, align 4, !tbaa !19
   br label %28
 
 .thread1470:                                      ; preds = %41, %34, %2052
@@ -3634,7 +3634,7 @@ define dso_local range(i32 0, 3) i32 @yyparse(ptr noundef writeonly captures(non
 .lr.ph:                                           ; preds = %2105, %.lr.ph
   %.811761558 = phi ptr [ %2112, %.lr.ph ], [ %.711751514, %2105 ]
   %.811891557 = phi ptr [ %2111, %.lr.ph ], [ %.711881512, %2105 ]
-  %2106 = load i16, ptr %.811761558, align 2, !tbaa !16
+  %2106 = load i16, ptr %.811761558, align 2, !tbaa !14
   %2107 = sext i16 %2106 to i64
   %2108 = getelementptr inbounds [315 x i8], ptr @yystos, i64 0, i64 %2107
   %2109 = load i8, ptr %2108, align 1, !tbaa !11
@@ -3643,7 +3643,7 @@ define dso_local range(i32 0, 3) i32 @yyparse(ptr noundef writeonly captures(non
   %2111 = getelementptr inbounds i8, ptr %.811891557, i64 -16
   %2112 = getelementptr inbounds i8, ptr %.811761558, i64 -2
   %.not1249 = icmp eq ptr %2112, %.611671516
-  br i1 %.not1249, label %._crit_edge, label %.lr.ph, !llvm.loop !25
+  br i1 %.not1249, label %._crit_edge, label %.lr.ph, !llvm.loop !22
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2105
   %.not1250 = icmp eq ptr %.611671516, %7
@@ -4222,10 +4222,10 @@ define internal fastcc range(i32 -2, 1) i32 @yysyntax_error(ptr noundef nonnull 
 3:                                                ; preds = %1
   store i32 %.8.val, ptr %2, align 16, !tbaa !4
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  %.val.val.i = load i16, ptr %.0.val1, align 2, !tbaa !16
+  %.val.val.i = load i16, ptr %.0.val1, align 2, !tbaa !14
   %5 = sext i16 %.val.val.i to i64
   %6 = getelementptr inbounds [315 x i16], ptr @yypact, i64 0, i64 %5
-  %7 = load i16, ptr %6, align 2, !tbaa !16
+  %7 = load i16, ptr %6, align 2, !tbaa !14
   %8 = icmp eq i16 %7, -157
   br i1 %8, label %.critedge.thread.i.i, label %9
 
@@ -4250,7 +4250,7 @@ define internal fastcc range(i32 -2, 1) i32 @yysyntax_error(ptr noundef nonnull 
   %.1385.i.i = phi i32 [ 0, %.lr.ph.preheader.i.i ], [ %.2.i.i, %36 ]
   %19 = add nsw i64 %indvars.iv.i.i, %17
   %20 = getelementptr inbounds [2052 x i16], ptr @yycheck, i64 0, i64 %19
-  %21 = load i16, ptr %20, align 2, !tbaa !16
+  %21 = load i16, ptr %20, align 2, !tbaa !14
   %22 = sext i16 %21 to i32
   %23 = trunc nsw i64 %indvars.iv.i.i to i32
   %24 = icmp eq i32 %23, %22
@@ -4260,7 +4260,7 @@ define internal fastcc range(i32 -2, 1) i32 @yysyntax_error(ptr noundef nonnull 
 
 26:                                               ; preds = %.lr.ph.i.i
   %27 = getelementptr inbounds [2052 x i16], ptr @yytable, i64 0, i64 %19
-  %28 = load i16, ptr %27, align 2, !tbaa !16
+  %28 = load i16, ptr %27, align 2, !tbaa !14
   %29 = icmp eq i16 %28, -156
   br i1 %29, label %36, label %30
 
@@ -4279,7 +4279,7 @@ define internal fastcc range(i32 -2, 1) i32 @yysyntax_error(ptr noundef nonnull 
   %.2.i.i = phi i32 [ %.1385.i.i, %26 ], [ %33, %32 ], [ %.1385.i.i, %.lr.ph.i.i ]
   %indvars.iv.next.i.i = add nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i.i, %18
-  br i1 %exitcond.not.i, label %.critedge.i.i, label %.lr.ph.i.i, !llvm.loop !27
+  br i1 %exitcond.not.i, label %.critedge.i.i, label %.lr.ph.i.i, !llvm.loop !24
 
 .critedge.i.i:                                    ; preds = %36
   switch i32 %.2.i.i, label %yy_syntax_error_arguments.exit [
@@ -4335,7 +4335,7 @@ yy_syntax_error_arguments.exit.thread6:           ; preds = %30, %.critedge.thre
   %47 = load i32, ptr %46, align 4, !tbaa !4
   %48 = sext i32 %47 to i64
   %49 = getelementptr inbounds [100 x ptr], ptr @yytname, i64 0, i64 %48
-  %50 = load ptr, ptr %49, align 8, !tbaa !28
+  %50 = load ptr, ptr %49, align 8, !tbaa !25
   %51 = load i8, ptr %50, align 1, !tbaa !11
   %52 = icmp eq i8 %51, 34
   br i1 %52, label %.preheader.split.us.i, label %.thread.i
@@ -4361,7 +4361,7 @@ yy_syntax_error_arguments.exit.thread6:           ; preds = %30, %.critedge.thre
 58:                                               ; preds = %55, %.preheader.split.us.i
   %.1.us.i = phi ptr [ %53, %.preheader.split.us.i ], [ %56, %55 ]
   %59 = add nuw nsw i64 %.020.us.i, 1
-  br label %.preheader.split.us.i, !llvm.loop !30
+  br label %.preheader.split.us.i, !llvm.loop !27
 
 .thread.i:                                        ; preds = %55, %.preheader.split.us.i, %.preheader.split.us.i, %.lr.ph
   %60 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %50) #9
@@ -4376,7 +4376,7 @@ yytnamerr.exit:                                   ; preds = %.preheader.split.us
   %62 = add nsw i64 %.122.i, %.04917
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.thread, label %.lr.ph, !llvm.loop !32
+  br i1 %exitcond.not, label %.thread, label %.lr.ph, !llvm.loop !29
 
 .thread:                                          ; preds = %61, %yy_syntax_error_arguments.exit.thread6
   %.049.lcssa = phi i64 [ %45, %yy_syntax_error_arguments.exit.thread6 ], [ %62, %61 ]
@@ -4417,7 +4417,7 @@ yytnamerr.exit:                                   ; preds = %.preheader.split.us
   %77 = load i32, ptr %76, align 4, !tbaa !4
   %78 = sext i32 %77 to i64
   %79 = getelementptr inbounds [100 x ptr], ptr @yytname, i64 0, i64 %78
-  %80 = load ptr, ptr %79, align 8, !tbaa !28
+  %80 = load ptr, ptr %79, align 8, !tbaa !25
   %81 = load i8, ptr %80, align 1, !tbaa !11
   %82 = icmp eq i8 %81, 34
   br i1 %82, label %.preheader.split.i, label %.thread.thread.i
@@ -4445,7 +4445,7 @@ yytnamerr.exit:                                   ; preds = %.preheader.split.us
   %89 = getelementptr inbounds nuw i8, ptr %.039, i64 %.020.i
   store i8 %84, ptr %89, align 1, !tbaa !11
   %90 = add nuw nsw i64 %.020.i, 1
-  br label %.preheader.split.i, !llvm.loop !33
+  br label %.preheader.split.i
 
 .split.us.thread.i:                               ; preds = %.preheader.split.i
   %91 = getelementptr inbounds nuw i8, ptr %.039, i64 %.020.i
@@ -4465,7 +4465,7 @@ yytnamerr.exit68:                                 ; preds = %68, %.preheader, %.
   %.1 = phi i32 [ %74, %.thread.thread.i ], [ %74, %.split.us.thread.i ], [ %.0, %.preheader ], [ %.0, %68 ]
   %96 = getelementptr inbounds i8, ptr %.039, i64 %.sink26
   %97 = getelementptr inbounds nuw i8, ptr %.147, i64 %.sink
-  br label %.preheader, !llvm.loop !34
+  br label %.preheader, !llvm.loop !30
 
 yy_syntax_error_arguments.exit.thread8:           ; preds = %yytnamerr.exit, %.preheader, %.critedge.i.i, %65, %yy_syntax_error_arguments.exit
   %.041 = phi i32 [ -2, %yy_syntax_error_arguments.exit ], [ -1, %65 ], [ %.2.i.i, %.critedge.i.i ], [ 0, %.preheader ], [ -2, %yytnamerr.exit ]
@@ -4753,9 +4753,9 @@ define dso_local i32 @jq_parse(ptr noundef %0, ptr noundef captures(none) initia
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #10
   %5 = call i32 @jq_yylex_init_extra(i32 noundef 0, ptr noundef nonnull %3) #10
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %7 = load ptr, ptr %6, align 8, !tbaa !35
+  %7 = load ptr, ptr %6, align 8, !tbaa !31
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %9 = load i32, ptr %8, align 8, !tbaa !40
+  %9 = load i32, ptr %8, align 8, !tbaa !36
   %10 = load ptr, ptr %3, align 8, !tbaa !8
   %11 = call ptr @jq_yy_scan_bytes(ptr noundef %7, i32 noundef %9, ptr noundef %10) #10
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #10
@@ -4763,9 +4763,9 @@ define dso_local i32 @jq_parse(ptr noundef %0, ptr noundef captures(none) initia
   %12 = call { ptr, ptr } (...) @gen_noop() #10
   %13 = extractvalue { ptr, ptr } %12, 0
   %14 = extractvalue { ptr, ptr } %12, 1
-  store ptr %13, ptr %1, align 8, !tbaa !22
+  store ptr %13, ptr %1, align 8, !tbaa !20
   %.sroa.42.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store ptr %14, ptr %.sroa.42.0..sroa_idx, align 8, !tbaa !22
+  store ptr %14, ptr %.sroa.42.0..sroa_idx, align 8, !tbaa !20
   %15 = call i32 @yyparse(ptr noundef nonnull %1, ptr noundef nonnull %4, ptr noundef %0, ptr noundef nonnull %3)
   %16 = load ptr, ptr %3, align 8, !tbaa !8
   call void @jq_yy_delete_buffer(ptr noundef %11, ptr noundef %16) #10
@@ -4782,8 +4782,8 @@ define dso_local i32 @jq_parse(ptr noundef %0, ptr noundef captures(none) initia
   %24 = call { ptr, ptr } (...) @gen_noop() #10
   %25 = extractvalue { ptr, ptr } %24, 0
   %26 = extractvalue { ptr, ptr } %24, 1
-  store ptr %25, ptr %1, align 8, !tbaa !22
-  store ptr %26, ptr %.sroa.42.0..sroa_idx, align 8, !tbaa !22
+  store ptr %25, ptr %1, align 8, !tbaa !20
+  store ptr %26, ptr %.sroa.42.0..sroa_idx, align 8, !tbaa !20
   br label %27
 
 27:                                               ; preds = %21, %2
@@ -4912,30 +4912,26 @@ attributes #10 = { nounwind }
 !11 = !{!6, !6, i64 0}
 !12 = !{!13, !13, i64 0}
 !13 = !{!"long", !6, i64 0}
-!14 = distinct !{!14, !15}
-!15 = !{!"llvm.loop.estimated_trip_count"}
-!16 = !{!17, !17, i64 0}
-!17 = !{!"short", !6, i64 0}
-!18 = !{i64 0, i64 16, !11}
-!19 = !{!20, !5, i64 0}
-!20 = !{!"", !5, i64 0, !5, i64 4}
-!21 = !{!20, !5, i64 4}
-!22 = !{!23, !23, i64 0}
-!23 = !{!"p1 _ZTS4inst", !10, i64 0}
-!24 = distinct !{!24, !15}
-!25 = distinct !{!25, !26, !15}
-!26 = !{!"llvm.loop.mustprogress"}
-!27 = distinct !{!27, !26, !15}
-!28 = !{!29, !29, i64 0}
-!29 = !{!"p1 omnipotent char", !10, i64 0}
-!30 = distinct !{!30, !15, !31}
-!31 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!32 = distinct !{!32, !26, !15}
-!33 = distinct !{!33, !15}
-!34 = distinct !{!34, !26, !15}
-!35 = !{!36, !29, i64 16}
-!36 = !{!"locfile", !37, i64 0, !29, i64 16, !5, i64 24, !38, i64 32, !5, i64 40, !29, i64 48, !39, i64 56, !5, i64 64}
-!37 = !{!"", !6, i64 0, !6, i64 1, !17, i64 2, !5, i64 4, !6, i64 8}
-!38 = !{!"p1 int", !10, i64 0}
-!39 = !{!"p1 _ZTS8jq_state", !10, i64 0}
-!40 = !{!36, !5, i64 24}
+!14 = !{!15, !15, i64 0}
+!15 = !{!"short", !6, i64 0}
+!16 = !{i64 0, i64 16, !11}
+!17 = !{!18, !5, i64 0}
+!18 = !{!"", !5, i64 0, !5, i64 4}
+!19 = !{!18, !5, i64 4}
+!20 = !{!21, !21, i64 0}
+!21 = !{!"p1 _ZTS4inst", !10, i64 0}
+!22 = distinct !{!22, !23}
+!23 = !{!"llvm.loop.mustprogress"}
+!24 = distinct !{!24, !23}
+!25 = !{!26, !26, i64 0}
+!26 = !{!"p1 omnipotent char", !10, i64 0}
+!27 = distinct !{!27, !28}
+!28 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!29 = distinct !{!29, !23}
+!30 = distinct !{!30, !23}
+!31 = !{!32, !26, i64 16}
+!32 = !{!"locfile", !33, i64 0, !26, i64 16, !5, i64 24, !34, i64 32, !5, i64 40, !26, i64 48, !35, i64 56, !5, i64 64}
+!33 = !{!"", !6, i64 0, !6, i64 1, !15, i64 2, !5, i64 4, !6, i64 8}
+!34 = !{!"p1 int", !10, i64 0}
+!35 = !{!"p1 _ZTS8jq_state", !10, i64 0}
+!36 = !{!32, !5, i64 24}

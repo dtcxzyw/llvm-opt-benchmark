@@ -1366,15 +1366,15 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @ossltest_aes128_cbc_hmac_sha1_init_key(ptr noundef %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2, i32 %3) #1 {
   %5 = tail call ptr @EVP_CIPHER_CTX_get_cipher_data(ptr noundef %0) #8
-  store i64 -1, ptr %5, align 8, !tbaa !26
+  store i64 -1, ptr %5, align 8, !tbaa !25
   ret i32 1
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @ossltest_aes128_cbc_hmac_sha1_cipher(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef readonly captures(none) %2, i64 noundef %3) #1 {
   %5 = tail call ptr @EVP_CIPHER_CTX_get_cipher_data(ptr noundef %0) #8
-  %6 = load i64, ptr %5, align 8, !tbaa !26
-  store i64 -1, ptr %5, align 8, !tbaa !26
+  %6 = load i64, ptr %5, align 8, !tbaa !25
+  store i64 -1, ptr %5, align 8, !tbaa !25
   %7 = and i64 %3, 15
   %.not = icmp eq i64 %7, 0
   br i1 %.not, label %8, label %.critedge
@@ -1438,7 +1438,7 @@ fill_known_data.exit:                             ; preds = %18
 
 28:                                               ; preds = %27
   %29 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %30 = load i32, ptr %29, align 8, !tbaa !29
+  %30 = load i32, ptr %29, align 8, !tbaa !28
   %31 = icmp ugt i32 %30, 769
   br i1 %31, label %32, label %37
 
@@ -1477,7 +1477,7 @@ fill_known_data.exit:                             ; preds = %18
 52:                                               ; preds = %.lr.ph68
   %53 = add i64 %.267, 1
   %exitcond.not = icmp eq i64 %53, %.053
-  br i1 %exitcond.not, label %.critedge, label %.lr.ph68, !llvm.loop !30
+  br i1 %exitcond.not, label %.critedge, label %.lr.ph68, !llvm.loop !29
 
 .lr.ph68:                                         ; preds = %47, %52
   %.267 = phi i64 [ %53, %52 ], [ %50, %47 ]
@@ -1521,15 +1521,15 @@ define internal range(i32 -65503, 65572) i32 @ossltest_aes128_cbc_hmac_sha1_ctrl
   %22 = zext i8 %21 to i32
   %23 = or disjoint i32 %19, %22
   %24 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store i32 %23, ptr %24, align 8, !tbaa !29
+  store i32 %23, ptr %24, align 8, !tbaa !28
   %25 = tail call i32 @EVP_CIPHER_CTX_is_encrypting(ptr noundef %0) #8
   %.not32 = icmp eq i32 %25, 0
   br i1 %.not32, label %41, label %26
 
 26:                                               ; preds = %7
   %27 = zext nneg i32 %15 to i64
-  store i64 %27, ptr %5, align 8, !tbaa !26
-  %28 = load i32, ptr %24, align 8, !tbaa !29
+  store i64 %27, ptr %5, align 8, !tbaa !25
+  %28 = load i32, ptr %24, align 8, !tbaa !28
   %29 = icmp ugt i32 %28, 769
   br i1 %29, label %30, label %37
 
@@ -1554,7 +1554,7 @@ define internal range(i32 -65503, 65572) i32 @ossltest_aes128_cbc_hmac_sha1_ctrl
   br label %43
 
 41:                                               ; preds = %7
-  store i64 13, ptr %5, align 8, !tbaa !26
+  store i64 13, ptr %5, align 8, !tbaa !25
   br label %43
 
 42:                                               ; preds = %4
@@ -1594,7 +1594,7 @@ define internal noundef i32 @ossltest_rand_bytes(ptr noundef writeonly captures(
   %6 = getelementptr inbounds nuw i8, ptr %.035, i64 1
   store i8 %.07, ptr %.035, align 1, !tbaa !22
   %7 = icmp samesign ugt i32 %.026, 1
-  br i1 %7, label %.lr.ph, label %._crit_edge, !llvm.loop !31
+  br i1 %7, label %.lr.ph, label %._crit_edge, !llvm.loop !30
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   ret i32 1
@@ -1665,12 +1665,11 @@ attributes #10 = { cold nounwind }
 !20 = !{!21, !21, i64 0}
 !21 = !{!"p1 _ZTS8_IO_FILE", !5, i64 0}
 !22 = !{!6, !6, i64 0}
-!23 = distinct !{!23, !24, !25}
+!23 = distinct !{!23, !24}
 !24 = !{!"llvm.loop.mustprogress"}
-!25 = !{!"llvm.loop.estimated_trip_count"}
-!26 = !{!27, !28, i64 0}
-!27 = !{!"", !28, i64 0, !13, i64 8}
-!28 = !{!"long", !6, i64 0}
-!29 = !{!27, !13, i64 8}
-!30 = distinct !{!30, !24, !25}
-!31 = distinct !{!31, !24, !25}
+!25 = !{!26, !27, i64 0}
+!26 = !{!"", !27, i64 0, !13, i64 8}
+!27 = !{!"long", !6, i64 0}
+!28 = !{!26, !13, i64 8}
+!29 = distinct !{!29, !24}
+!30 = distinct !{!30, !24}

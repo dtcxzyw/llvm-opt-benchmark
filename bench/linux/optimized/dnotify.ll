@@ -137,7 +137,7 @@ define dso_local void @dnotify_flush(ptr noundef readonly captures(address) %0, 
 65:                                               ; preds = %38, %.preheader5
   %66 = load ptr, ptr %33, align 8
   %67 = icmp eq ptr %66, null
-  br i1 %67, label %.loopexit6, label %.preheader5, !llvm.loop !13
+  br i1 %67, label %.loopexit6, label %.preheader5, !llvm.loop !12
 
 .loopexit6:                                       ; preds = %65, %62, %.loopexit, %28
   tail call void @_raw_spin_unlock(ptr noundef nonnull %29) #6
@@ -238,7 +238,7 @@ define internal fastcc void @dnotify_recalc_inode_mask(ptr noundef nonnull %0) u
   %15 = or i32 %14, %11
   %16 = load ptr, ptr %10, align 8
   %17 = icmp eq ptr %16, null
-  br i1 %17, label %.loopexit, label %.preheader, !llvm.loop !14
+  br i1 %17, label %.loopexit, label %.preheader, !llvm.loop !9
 
 .loopexit:                                        ; preds = %.preheader, %6
   %18 = phi i32 [ 0, %6 ], [ %15, %.preheader ]
@@ -413,7 +413,7 @@ define dso_local i32 @fcntl_dirnotify(i32 noundef %0, ptr noundef %1, i32 nounde
   %81 = getelementptr inbounds nuw i8, ptr %5, i64 1416
   %82 = load ptr, ptr %81, align 8
   tail call void @__f_setown(ptr noundef %1, ptr noundef %82, i32 noundef 1, i32 noundef 0) #6
-  %83 = tail call fastcc i32 @attach_dn(ptr noundef nonnull %45, ptr noundef nonnull %76, ptr noundef %7, i32 noundef %0, ptr noundef %1, i32 noundef %38), !range !15
+  %83 = tail call fastcc i32 @attach_dn(ptr noundef nonnull %45, ptr noundef nonnull %76, ptr noundef %7, i32 noundef %0, ptr noundef %1, i32 noundef %38), !range !13
   %84 = icmp eq i32 %83, 0
   %85 = icmp eq i32 %83, -17
   %86 = select i1 %85, i32 0, i32 %83
@@ -533,7 +533,7 @@ define internal fastcc noundef range(i32 -17, 1) i32 @attach_dn(ptr noundef nonn
 23:                                               ; preds = %14, %.preheader
   %24 = load ptr, ptr %10, align 8
   %25 = icmp eq ptr %24, null
-  br i1 %25, label %.loopexit, label %.preheader, !llvm.loop !16
+  br i1 %25, label %.loopexit, label %.preheader, !llvm.loop !14
 
 .loopexit:                                        ; preds = %23, %6
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -680,7 +680,7 @@ define internal noundef i32 @dnotify_handle_event(ptr noundef %0, i32 noundef %1
   %49 = or i32 %48, %45
   %50 = load ptr, ptr %44, align 8
   %51 = icmp eq ptr %50, null
-  br i1 %51, label %.loopexit, label %.preheader, !llvm.loop !17
+  br i1 %51, label %.loopexit, label %.preheader, !llvm.loop !9
 
 .loopexit:                                        ; preds = %.preheader, %41
   %52 = phi i32 [ 0, %41 ], [ %49, %.preheader ]
@@ -698,7 +698,7 @@ define internal noundef i32 @dnotify_handle_event(ptr noundef %0, i32 noundef %1
   %58 = phi ptr [ %20, %19 ], [ %20, %26 ], [ %21, %.loopexit ], [ %21, %55 ]
   %59 = load ptr, ptr %58, align 8
   %60 = icmp eq ptr %59, null
-  br i1 %60, label %.loopexit4, label %19, !llvm.loop !18
+  br i1 %60, label %.loopexit4, label %19, !llvm.loop !15
 
 .loopexit4:                                       ; preds = %57, %12
   tail call void @_raw_spin_unlock(ptr noundef nonnull %13) #6
@@ -713,11 +713,11 @@ define internal void @dnotify_free_mark(ptr noundef %0) #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
-  br i1 %4, label %6, label %5, !prof !19
+  br i1 %4, label %6, label %5, !prof !16
 
 5:                                                ; preds = %1
-  tail call void asm sideeffect "358: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 358b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 358) #6, !srcloc !20
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 135, i32 0, i64 12) #6, !srcloc !21
+  tail call void asm sideeffect "358: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 358b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 358) #6, !srcloc !17
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 135, i32 0, i64 12) #6, !srcloc !18
   unreachable
 
 6:                                                ; preds = %1
@@ -756,16 +756,13 @@ attributes #8 = { cold noreturn nounwind }
 !6 = !{!"branch_weights", i32 1, i32 2000}
 !7 = !{i64 2154483407, i64 2154483216, i64 2154483268, i64 2154483314, i64 2154483342}
 !8 = !{i64 2154483481, i64 2154483510, i64 2154483556, i64 2154483614, i64 2154483668, i64 2154483722, i64 2154483777, i64 2154483808}
-!9 = distinct !{!9, !10, !11, !12}
+!9 = distinct !{!9, !10, !11}
 !10 = !{!"llvm.loop.mustprogress"}
 !11 = !{!"llvm.loop.unroll.disable"}
-!12 = !{!"llvm.loop.estimated_trip_count"}
-!13 = distinct !{!13, !10, !11, !12}
-!14 = distinct !{!14, !10, !11, !12}
-!15 = !{i32 -17, i32 1}
-!16 = distinct !{!16, !10, !11, !12}
-!17 = distinct !{!17, !10, !11, !12}
-!18 = distinct !{!18, !10, !11, !12}
-!19 = !{!"branch_weights", i32 2000, i32 1}
-!20 = !{i64 2154491233, i64 2154491042, i64 2154491094, i64 2154491140, i64 2154491168}
-!21 = !{i64 2154491307, i64 2154491336, i64 2154491382, i64 2154491440, i64 2154491494, i64 2154491548, i64 2154491603, i64 2154491634}
+!12 = distinct !{!12, !10, !11}
+!13 = !{i32 -17, i32 1}
+!14 = distinct !{!14, !10, !11}
+!15 = distinct !{!15, !10, !11}
+!16 = !{!"branch_weights", i32 2000, i32 1}
+!17 = !{i64 2154491233, i64 2154491042, i64 2154491094, i64 2154491140, i64 2154491168}
+!18 = !{i64 2154491307, i64 2154491336, i64 2154491382, i64 2154491440, i64 2154491494, i64 2154491548, i64 2154491603, i64 2154491634}

@@ -439,7 +439,7 @@ define dso_local void @acpi_device_hotplug(ptr noundef %0, i32 noundef %1) local
 
 43:                                               ; preds = %39
   %44 = load ptr, ptr %7, align 8
-  %45 = tail call i32 @acpi_bus_scan(ptr noundef %44), !range !9
+  %45 = tail call i32 @acpi_bus_scan(ptr noundef %44), !range !8
   %46 = icmp eq i32 %45, 0
   br i1 %46, label %49, label %47
 
@@ -454,7 +454,7 @@ define dso_local void @acpi_device_hotplug(ptr noundef %0, i32 noundef %1) local
   br i1 %51, label %.thread26.sink.split, label %.thread27
 
 52:                                               ; preds = %33
-  %53 = tail call fastcc i32 @acpi_scan_device_not_enumerated(ptr noundef %0), !range !10
+  %53 = tail call fastcc i32 @acpi_scan_device_not_enumerated(ptr noundef %0), !range !9
   br label %189
 
 54:                                               ; preds = %30, %30
@@ -479,7 +479,7 @@ define dso_local void @acpi_device_hotplug(ptr noundef %0, i32 noundef %1) local
   %65 = tail call i32 @acpi_evaluate_ost(ptr noundef %8, i32 noundef 3, i32 noundef 132, ptr noundef null) #19
   %66 = load ptr, ptr %7, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #19
-  store i64 0, ptr %6, align 8, !annotation !11
+  store i64 0, ptr %6, align 8, !annotation !10
   %67 = load ptr, ptr %55, align 8
   %68 = icmp eq ptr %67, null
   br i1 %68, label %103, label %69
@@ -540,7 +540,7 @@ define dso_local void @acpi_device_hotplug(ptr noundef %0, i32 noundef %1) local
 100:                                              ; preds = %94, %90, %86, %.preheader29
   %101 = load ptr, ptr %80, align 8
   %102 = icmp eq ptr %101, %77
-  br i1 %102, label %.loopexit30, label %.preheader29, !llvm.loop !12
+  br i1 %102, label %.loopexit30, label %.preheader29, !llvm.loop !5
 
 .loopexit30:                                      ; preds = %100, %74
   tail call void @mutex_unlock(ptr noundef nonnull %76) #19
@@ -560,7 +560,7 @@ define dso_local void @acpi_device_hotplug(ptr noundef %0, i32 noundef %1) local
   br label %144
 
 108:                                              ; preds = %103
-  %109 = call i32 @acpi_bus_offline(ptr noundef %66, i32 poison, ptr noundef null, ptr noundef nonnull %4), !range !13
+  %109 = call i32 @acpi_bus_offline(ptr noundef %66, i32 poison, ptr noundef null, ptr noundef nonnull %4), !range !11
   %110 = load ptr, ptr %4, align 8
   %111 = icmp eq ptr %110, null
   br i1 %111, label %.thread21, label %112
@@ -573,7 +573,7 @@ define dso_local void @acpi_device_hotplug(ptr noundef %0, i32 noundef %1) local
   br i1 %115, label %116, label %.thread
 
 116:                                              ; preds = %112
-  %117 = call i32 @acpi_bus_offline(ptr noundef %66, i32 poison, ptr noundef nonnull inttoptr (i64 1 to ptr), ptr noundef nonnull %4), !range !13
+  %117 = call i32 @acpi_bus_offline(ptr noundef %66, i32 poison, ptr noundef nonnull inttoptr (i64 1 to ptr), ptr noundef nonnull %4), !range !11
   %.pr = load ptr, ptr %4, align 8
   %118 = icmp eq ptr %.pr, null
   br i1 %118, label %.thread21, label %.thread
@@ -619,7 +619,7 @@ define dso_local void @acpi_device_hotplug(ptr noundef %0, i32 noundef %1) local
 141:                                              ; preds = %135, %.preheader
   %142 = load ptr, ptr %130, align 8
   %143 = icmp eq ptr %142, %127
-  br i1 %143, label %.loopexit, label %.preheader, !llvm.loop !14
+  br i1 %143, label %.loopexit, label %.preheader, !llvm.loop !12
 
 .loopexit:                                        ; preds = %141, %125
   call void @mutex_unlock(ptr noundef nonnull %126) #19
@@ -925,7 +925,7 @@ define dso_local i32 @acpi_device_add(ptr noundef %0) local_unnamed_addr #0 alig
   %24 = load ptr, ptr %23, align 8
   %25 = tail call i32 @strcmp(ptr noundef %24, ptr noundef %17) #19
   %26 = icmp eq i32 %25, 0
-  br i1 %26, label %27, label %18, !llvm.loop !15
+  br i1 %26, label %27, label %18, !llvm.loop !13
 
 27:                                               ; preds = %22
   %28 = getelementptr i8, ptr %20, i64 -24
@@ -1022,7 +1022,7 @@ define dso_local i32 @acpi_device_add(ptr noundef %0) local_unnamed_addr #0 alig
 
 75:                                               ; preds = %73, %68
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #19
-  store ptr null, ptr %2, align 8, !annotation !11
+  store ptr null, ptr %2, align 8, !annotation !10
   %76 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %77 = load ptr, ptr %76, align 8
   %78 = call i32 @acpi_get_physical_device_location(ptr noundef %77, ptr noundef nonnull %2) #19
@@ -1138,7 +1138,7 @@ define dso_local i32 @acpi_bus_get_ejd(ptr noundef %0, ptr noundef %1) #0 align 
   %3 = alloca ptr, align 8
   %4 = alloca %struct.acpi_buffer, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #19
-  store ptr null, ptr %3, align 8, !annotation !11
+  store ptr null, ptr %3, align 8, !annotation !10
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #19
   store i64 -1, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -1223,7 +1223,7 @@ define dso_local zeroext i1 @acpi_bay_match(ptr noundef %0) local_unnamed_addr #
   br i1 %11, label %24, label %12
 
 12:                                               ; preds = %10
-  store ptr null, ptr %2, align 8, !annotation !11
+  store ptr null, ptr %2, align 8, !annotation !10
   %13 = call i32 @acpi_get_parent(ptr noundef %0, ptr noundef nonnull %2) #19
   %14 = icmp eq i32 %13, 0
   br i1 %14, label %15, label %24
@@ -1270,7 +1270,7 @@ define dso_local noundef zeroext i1 @acpi_device_is_battery(ptr noundef readonly
   %8 = load ptr, ptr %7, align 8
   %9 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(8) @.str.12, ptr noundef %8) #19
   %10 = icmp eq i32 %9, 0
-  br i1 %10, label %11, label %3, !llvm.loop !16
+  br i1 %10, label %11, label %3, !llvm.loop !14
 
 11:                                               ; preds = %6, %3
   ret i1 %.not.not.not.not.not
@@ -1382,7 +1382,7 @@ define dso_local void @acpi_free_pnp_ids(ptr noundef readonly captures(address) 
   tail call void @kfree_const(ptr noundef %8) #19
   tail call void @kfree(ptr noundef %5) #19
   %9 = icmp eq ptr %6, %2
-  br i1 %9, label %.loopexit, label %.preheader, !llvm.loop !17
+  br i1 %9, label %.loopexit, label %.preheader, !llvm.loop !15
 
 .loopexit:                                        ; preds = %.preheader, %1
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -1444,7 +1444,7 @@ define dso_local range(i32 -2147483648, 1) i32 @acpi_dma_get_range(ptr noundef r
   %17 = getelementptr inbounds nuw i8, ptr %6, i64 64
   %18 = load ptr, ptr %17, align 8
   %19 = icmp eq ptr %18, null
-  br i1 %19, label %.thread, label %5, !llvm.loop !18
+  br i1 %19, label %.thread, label %5, !llvm.loop !16
 
 20:                                               ; preds = %12
   %21 = getelementptr i8, ptr %8, i64 -8
@@ -1471,7 +1471,7 @@ define dso_local range(i32 -2147483648, 1) i32 @acpi_dma_get_range(ptr noundef r
   %33 = sext i32 %32 to i64
   %34 = call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %33, i64 24)
   %35 = extractvalue { i64, i1 } %34, 1
-  br i1 %35, label %.thread7, label %36, !prof !19
+  br i1 %35, label %.thread7, label %36, !prof !17
 
 36:                                               ; preds = %31
   %37 = extractvalue { i64, i1 } %34, 0
@@ -1521,7 +1521,7 @@ define dso_local range(i32 -2147483648, 1) i32 @acpi_dma_get_range(ptr noundef r
   %66 = getelementptr i8, ptr %44, i64 24
   %67 = load ptr, ptr %43, align 8
   %68 = icmp eq ptr %67, %3
-  br i1 %68, label %.thread7, label %.preheader, !llvm.loop !20
+  br i1 %68, label %.thread7, label %.preheader, !llvm.loop !18
 
 .thread7:                                         ; preds = %52, %31, %51, %40, %36, %28
   %69 = phi i32 [ -22, %51 ], [ %29, %28 ], [ -12, %36 ], [ %29, %40 ], [ -12, %31 ], [ %29, %52 ]
@@ -1651,7 +1651,7 @@ define dso_local void @acpi_init_device_object(ptr noundef %0, ptr noundef %1, i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #19
   %28 = icmp eq ptr %27, null
   %29 = select i1 %26, i1 true, i1 %28
-  br i1 %29, label %.preheader, label %.loopexit21, !llvm.loop !21
+  br i1 %29, label %.preheader, label %.loopexit21, !llvm.loop !19
 
 .loopexit21:                                      ; preds = %23, %19, %14
   %30 = phi ptr [ %15, %14 ], [ %22, %19 ], [ %27, %23 ]
@@ -1752,7 +1752,7 @@ define dso_local void @acpi_init_device_object(ptr noundef %0, ptr noundef %1, i
   store i8 0, ptr %62, align 1
   %66 = add nsw i32 %60, -1
   %67 = icmp ugt i32 %60, 2
-  br i1 %67, label %59, label %68, !llvm.loop !22
+  br i1 %67, label %59, label %68, !llvm.loop !20
 
 68:                                               ; preds = %65, %59
   %69 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %31, ptr noundef nonnull dereferenceable(1) %9) #19
@@ -1922,7 +1922,7 @@ define dso_local void @acpi_init_device_object(ptr noundef %0, ptr noundef %1, i
   %151 = add nuw i32 %133, 1
   %152 = load i32, ptr %126, align 8
   %153 = icmp ult i32 %151, %152
-  br i1 %153, label %132, label %.loopexit.loopexit, !llvm.loop !23
+  br i1 %153, label %132, label %.loopexit.loopexit, !llvm.loop !21
 
 .loopexit.loopexit:                               ; preds = %150
   %.pre27 = load ptr, ptr %8, align 8
@@ -2340,7 +2340,7 @@ define dso_local void @acpi_init_device_object(ptr noundef %0, ptr noundef %1, i
   br i1 %363, label %382, label %364
 
 364:                                              ; preds = %361, %351
-  %365 = load i8, ptr @x86_apple_machine, align 1, !range !24, !noundef !25
+  %365 = load i8, ptr @x86_apple_machine, align 1, !range !22, !noundef !23
   %366 = icmp eq i8 %365, 0
   br i1 %366, label %373, label %367
 
@@ -2367,7 +2367,7 @@ define dso_local void @acpi_init_device_object(ptr noundef %0, ptr noundef %1, i
   store volatile ptr %6, ptr %377, align 8
   %378 = call i32 @acpi_dev_get_resources(ptr noundef %0, ptr noundef nonnull %6, ptr noundef nonnull @acpi_check_serial_bus_slave, ptr noundef nonnull %7) #19
   call void @acpi_dev_free_resource_list(ptr noundef nonnull %6) #19
-  %379 = load i8, ptr %7, align 1, !range !24, !noundef !25
+  %379 = load i8, ptr %7, align 1, !range !22, !noundef !23
   %380 = icmp eq i8 %379, 0
   %381 = select i1 %380, i32 0, i32 4096
   br label %382
@@ -2553,7 +2553,7 @@ define dso_local void @acpi_dev_clear_dependencies(ptr noundef readonly captures
 
 38:                                               ; preds = %36, %29, %12
   %39 = getelementptr inbounds nuw i8, ptr %7, i64 34
-  %40 = load i8, ptr %39, align 2, !range !24, !noundef !25
+  %40 = load i8, ptr %39, align 2, !range !22, !noundef !23
   %41 = icmp eq i8 %40, 0
   br i1 %41, label %47, label %42
 
@@ -2576,7 +2576,7 @@ define dso_local void @acpi_dev_clear_dependencies(ptr noundef readonly captures
 
 49:                                               ; preds = %47, %42, %.preheader
   %50 = icmp eq ptr %8, @acpi_dep_list
-  br i1 %50, label %.loopexit, label %.preheader, !llvm.loop !26
+  br i1 %50, label %.loopexit, label %.preheader, !llvm.loop !24
 
 .loopexit:                                        ; preds = %49, %1
   call void @mutex_unlock(ptr noundef nonnull @acpi_dep_list_lock) #19
@@ -2656,7 +2656,7 @@ define dso_local ptr @acpi_dev_get_next_consumer_dev(ptr noundef readonly captur
 28:                                               ; preds = %.thread, %22, %.preheader
   %29 = phi ptr [ %27, %22 ], [ %8, %.preheader ], [ %21, %.thread ]
   %30 = icmp eq ptr %10, @acpi_dep_list
-  br i1 %30, label %.loopexit, label %.preheader, !llvm.loop !27
+  br i1 %30, label %.loopexit, label %.preheader, !llvm.loop !24
 
 .loopexit:                                        ; preds = %28, %22, %2
   %31 = phi ptr [ %1, %2 ], [ %27, %22 ], [ %29, %28 ]
@@ -2682,7 +2682,7 @@ define dso_local noundef range(i32 -19, 1) i32 @acpi_bus_scan(ptr noundef %0) #0
   %4 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #19
   store ptr null, ptr %4, align 8
-  %5 = call fastcc i32 @acpi_bus_check_add(ptr noundef %0, i1 noundef zeroext true, ptr noundef nonnull %4), !range !28
+  %5 = call fastcc i32 @acpi_bus_check_add(ptr noundef %0, i1 noundef zeroext true, ptr noundef nonnull %4), !range !25
   %6 = icmp eq i32 %5, 0
   br i1 %6, label %7, label %9
 
@@ -2724,7 +2724,7 @@ define dso_local noundef range(i32 -19, 1) i32 @acpi_bus_scan(ptr noundef %0) #0
   call void @mutex_unlock(ptr noundef nonnull @acpi_dep_list_lock) #19
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #19
   store ptr null, ptr %2, align 8
-  %27 = call fastcc i32 @acpi_bus_check_add(ptr noundef %20, i1 noundef zeroext false, ptr noundef nonnull %2), !range !28
+  %27 = call fastcc i32 @acpi_bus_check_add(ptr noundef %20, i1 noundef zeroext false, ptr noundef nonnull %2), !range !25
   %28 = icmp eq i32 %27, 0
   br i1 %28, label %29, label %33
 
@@ -2742,7 +2742,7 @@ define dso_local noundef range(i32 -19, 1) i32 @acpi_bus_scan(ptr noundef %0) #0
 
 34:                                               ; preds = %33, %.preheader
   %35 = getelementptr inbounds nuw i8, ptr %17, i64 33
-  %36 = load i8, ptr %35, align 1, !range !24, !noundef !25
+  %36 = load i8, ptr %35, align 1, !range !22, !noundef !23
   %37 = icmp eq i8 %36, 0
   br i1 %37, label %43, label %38
 
@@ -2765,7 +2765,7 @@ define dso_local noundef range(i32 -19, 1) i32 @acpi_bus_scan(ptr noundef %0) #0
 
 45:                                               ; preds = %43, %38
   %46 = icmp eq ptr %18, @acpi_dep_list
-  br i1 %46, label %.loopexit, label %.preheader, !llvm.loop !29
+  br i1 %46, label %.loopexit, label %.preheader, !llvm.loop !26
 
 .loopexit:                                        ; preds = %45, %12
   call void @mutex_unlock(ptr noundef nonnull @acpi_dep_list_lock) #19
@@ -2785,7 +2785,7 @@ define internal fastcc noundef range(i32 0, 16391) i32 @acpi_bus_check_add(ptr n
   %6 = alloca ptr, align 8
   %7 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #19
-  store ptr null, ptr %6, align 8, !annotation !11
+  store ptr null, ptr %6, align 8, !annotation !10
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #19
   store ptr null, ptr %5, align 8
   %8 = call i32 @acpi_get_data_full(ptr noundef %0, ptr noundef nonnull @acpi_scan_drop_device, ptr noundef nonnull %5, ptr noundef null) #19
@@ -2799,7 +2799,7 @@ define internal fastcc noundef range(i32 0, 16391) i32 @acpi_bus_check_add(ptr n
   br i1 %12, label %13, label %.loopexit10
 
 13:                                               ; preds = %3
-  store i32 0, ptr %7, align 4, !annotation !11
+  store i32 0, ptr %7, align 4, !annotation !10
   %14 = call i32 @acpi_get_type(ptr noundef %0, ptr noundef nonnull %7) #19
   %15 = icmp eq i32 %14, 0
   br i1 %15, label %16, label %107
@@ -2816,7 +2816,7 @@ define internal fastcc noundef range(i32 0, 16391) i32 @acpi_bus_check_add(ptr n
 
 18:                                               ; preds = %16
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4) #19
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %4, i8 0, i64 64, i1 false), !annotation !11
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %4, i8 0, i64 64, i1 false), !annotation !10
   %19 = load i64, ptr @spcr_uart_addr, align 8
   %20 = icmp eq i64 %19, 0
   br i1 %20, label %31, label %21
@@ -2899,7 +2899,7 @@ define internal fastcc noundef range(i32 0, 16391) i32 @acpi_bus_check_add(ptr n
   %62 = load ptr, ptr %61, align 8
   %63 = call i32 @strcmp(ptr noundef nonnull dereferenceable(8) @.str.12, ptr noundef %62) #19
   %64 = icmp eq i32 %63, 0
-  br i1 %64, label %.loopexit12, label %56, !llvm.loop !30
+  br i1 %64, label %.loopexit12, label %56, !llvm.loop !14
 
 .loopexit11:                                      ; preds = %56, %51
   %65 = call zeroext i1 @acpi_bay_match(ptr noundef %52)
@@ -2941,7 +2941,7 @@ define internal fastcc noundef range(i32 0, 16391) i32 @acpi_bus_check_add(ptr n
 .loopexit7:                                       ; preds = %93, %86, %82
   %84 = load ptr, ptr %77, align 8
   %85 = icmp eq ptr %84, @acpi_scan_handlers_list
-  br i1 %85, label %.loopexit, label %.preheader8, !llvm.loop !31
+  br i1 %85, label %.loopexit, label %.preheader8, !llvm.loop !27
 
 86:                                               ; preds = %.preheader8
   %87 = load ptr, ptr %78, align 8
@@ -2959,19 +2959,19 @@ define internal fastcc noundef range(i32 0, 16391) i32 @acpi_bus_check_add(ptr n
   %94 = getelementptr i8, ptr %90, i64 32
   %95 = load i8, ptr %94, align 8
   %96 = icmp eq i8 %95, 0
-  br i1 %96, label %.loopexit7, label %.preheader, !llvm.loop !32
+  br i1 %96, label %.loopexit7, label %.preheader, !llvm.loop !28
 
 .loopexit:                                        ; preds = %.loopexit7, %82, %.preheader, %72
   %97 = phi ptr [ null, %72 ], [ %78, %.preheader ], [ %78, %82 ], [ null, %.loopexit7 ]
   %98 = icmp eq ptr %97, null
-  br i1 %98, label %68, label %99, !llvm.loop !33
+  br i1 %98, label %68, label %99
 
 99:                                               ; preds = %.loopexit
   %100 = getelementptr inbounds nuw i8, ptr %45, i64 116
   %101 = load i32, ptr %100, align 4
   %102 = or i32 %101, 128
   store i32 %102, ptr %100, align 4
-  br label %.loopexit10, !llvm.loop !34
+  br label %.loopexit10, !llvm.loop !29
 
 .loopexit10:                                      ; preds = %68, %99, %.loopexit12, %3
   %103 = load ptr, ptr %2, align 8
@@ -2992,7 +2992,7 @@ define internal fastcc noundef range(i32 0, 16391) i32 @acpi_bus_check_add(ptr n
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal noundef range(i32 0, 16391) i32 @acpi_bus_check_add_1(ptr noundef %0, i32 %1, ptr readnone captures(none) %2, ptr noundef captures(none) %3) #0 align 16 {
-  %5 = tail call fastcc i32 @acpi_bus_check_add(ptr noundef %0, i1 noundef zeroext true, ptr noundef %3), !range !28
+  %5 = tail call fastcc i32 @acpi_bus_check_add(ptr noundef %0, i1 noundef zeroext true, ptr noundef %3), !range !25
   ret i32 %5
 }
 
@@ -3017,19 +3017,19 @@ define internal noundef i32 @acpi_bus_attach(ptr noundef %0, ptr noundef %1) #0 
   %11 = and i32 %10, 64
   %.not = icmp eq i32 %11, 0
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #19
-  store ptr null, ptr %6, align 8, !annotation !11
+  store ptr null, ptr %6, align 8, !annotation !10
   br i1 %.not, label %12, label %149
 
 .critedge:                                        ; preds = %2
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #19
-  store ptr null, ptr %6, align 8, !annotation !11
+  store ptr null, ptr %6, align 8, !annotation !10
   br label %12
 
 12:                                               ; preds = %.critedge, %8
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %14 = load ptr, ptr %13, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #19
-  store ptr null, ptr %4, align 8, !annotation !11
+  store ptr null, ptr %4, align 8, !annotation !10
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #19
   store i64 -1, ptr %5, align 8
   %15 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -3143,7 +3143,7 @@ define internal noundef i32 @acpi_bus_attach(ptr noundef %0, ptr noundef %1) #0 
   %76 = phi ptr [ %.pr, %.lr.ph.splitthread-pre-split ], [ %74, %70 ]
   %77 = phi ptr [ %116, %.lr.ph.splitthread-pre-split ], [ %73, %70 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #19
-  store ptr null, ptr %3, align 8, !annotation !11
+  store ptr null, ptr %3, align 8, !annotation !10
   %78 = getelementptr inbounds nuw i8, ptr %77, i64 16
   %79 = load ptr, ptr %78, align 8
   %80 = icmp eq ptr %76, @acpi_scan_handlers_list
@@ -3164,7 +3164,7 @@ define internal noundef i32 @acpi_bus_attach(ptr noundef %0, ptr noundef %1) #0 
 .loopexit:                                        ; preds = %98, %90, %86
   %88 = load ptr, ptr %81, align 8
   %89 = icmp eq ptr %88, @acpi_scan_handlers_list
-  br i1 %89, label %.backedge.sink.split, label %.preheader14, !llvm.loop !35
+  br i1 %89, label %.backedge.sink.split, label %.preheader14, !llvm.loop !27
 
 90:                                               ; preds = %.preheader14
   %91 = load ptr, ptr %82, align 8
@@ -3186,7 +3186,7 @@ define internal noundef i32 @acpi_bus_attach(ptr noundef %0, ptr noundef %1) #0 
   %99 = getelementptr i8, ptr %94, i64 32
   %100 = load i8, ptr %99, align 8
   %101 = icmp eq i8 %100, 0
-  br i1 %101, label %.loopexit, label %.preheader, !llvm.loop !36
+  br i1 %101, label %.loopexit, label %.preheader, !llvm.loop !28
 
 .loopexit15:                                      ; preds = %86, %97
   %102 = icmp eq ptr %82, null
@@ -3225,7 +3225,7 @@ define internal noundef i32 @acpi_bus_attach(ptr noundef %0, ptr noundef %1) #0 
 .backedge:                                        ; preds = %.backedge.sink.split, %115
   %116 = load ptr, ptr %77, align 8
   %.not29 = icmp eq ptr %116, %71
-  br i1 %.not29, label %.loopexit16.thread, label %.lr.ph.splitthread-pre-split, !llvm.loop !37
+  br i1 %.not29, label %.loopexit16.thread, label %.lr.ph.splitthread-pre-split, !llvm.loop !30
 
 .loopexit16.thread:                               ; preds = %.backedge, %70
   %117 = load i32, ptr %33, align 4
@@ -3452,7 +3452,7 @@ define internal fastcc i32 @acpi_add_single_object(ptr noundef writeonly capture
 
 32:                                               ; preds = %25
   %33 = getelementptr inbounds nuw i8, ptr %28, i64 32
-  %34 = load i8, ptr %33, align 8, !range !24, !noundef !25
+  %34 = load i8, ptr %33, align 8, !range !22, !noundef !23
   %35 = icmp eq i8 %34, 0
   br i1 %35, label %38, label %36
 
@@ -3472,7 +3472,7 @@ define internal fastcc i32 @acpi_add_single_object(ptr noundef writeonly capture
   %43 = phi i32 [ %39, %38 ], [ %27, %25 ]
   %44 = load ptr, ptr %28, align 8
   %45 = icmp eq ptr %44, @acpi_dep_list
-  br i1 %45, label %.loopexit, label %25, !llvm.loop !39
+  br i1 %45, label %.loopexit, label %25, !llvm.loop !32
 
 .loopexit:                                        ; preds = %41, %17, %16
   %46 = tail call i32 @acpi_bus_get_status(ptr noundef nonnull %11) #19
@@ -3640,7 +3640,7 @@ define internal fastcc i32 @acpi_add_single_object(ptr noundef writeonly capture
   call void @llvm.lifetime.end.p0(i64 5, ptr nonnull %7) #19
   %136 = add nuw nsw i64 %95, 1
   %137 = icmp eq i64 %136, 4
-  br i1 %137, label %138, label %94, !llvm.loop !40
+  br i1 %137, label %138, label %94, !llvm.loop !33
 
 138:                                              ; preds = %133
   %139 = getelementptr i8, ptr %11, i64 376
@@ -3804,7 +3804,7 @@ define internal fastcc i32 @acpi_add_single_object(ptr noundef writeonly capture
 
 232:                                              ; preds = %229
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #19
-  store i32 0, ptr %6, align 4, !annotation !11
+  store i32 0, ptr %6, align 4, !annotation !10
   %233 = call i32 @acpi_power_wakeup_list_init(ptr noundef nonnull %174, ptr noundef nonnull %6) #19
   %234 = icmp eq i32 %233, 0
   br i1 %234, label %235, label %244
@@ -3971,7 +3971,7 @@ define dso_local void @acpi_scan_init() local_unnamed_addr #11 section ".init.te
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #19
-  store ptr null, ptr %4, align 8, !annotation !11
+  store ptr null, ptr %4, align 8, !annotation !10
   tail call void @acpi_pci_root_init() #19
   tail call void @acpi_pci_link_init() #19
   tail call void @acpi_processor_init() #19
@@ -4026,7 +4026,7 @@ define dso_local void @acpi_scan_init() local_unnamed_addr #11 section ".init.te
   call void @acpi_gpe_apply_masked_gpes() #19
   %24 = call i32 @acpi_update_all_gpes() #19
   call void @mutex_lock(ptr noundef nonnull @acpi_scan_lock) #19
-  %25 = call i32 @acpi_bus_scan(ptr noundef nonnull inttoptr (i64 -1 to ptr)), !range !9
+  %25 = call i32 @acpi_bus_scan(ptr noundef nonnull inttoptr (i64 -1 to ptr)), !range !8
   %26 = icmp eq i32 %25, 0
   br i1 %26, label %27, label %70
 
@@ -4162,7 +4162,7 @@ declare dso_local i32 @acpi_get_table(ptr noundef, i32 noundef, ptr noundef) loc
 define internal fastcc void @acpi_get_spcr_uart_addr() unnamed_addr #11 section ".init.text" align 16 {
   %1 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1) #19
-  store ptr null, ptr %1, align 8, !annotation !11
+  store ptr null, ptr %1, align 8, !annotation !10
   %2 = call i32 @acpi_get_table(ptr noundef nonnull @.str.94, i32 noundef 0, ptr noundef nonnull %1) #19
   %3 = icmp eq i32 %2, 0
   br i1 %3, label %6, label %4
@@ -4241,7 +4241,7 @@ define dso_local i32 @__acpi_probe_device_table(ptr noundef %0, i32 noundef %1) 
   store ptr %28, ptr @ape, align 8
   %29 = add i32 %9, -1
   %30 = icmp eq i32 %29, 0
-  br i1 %30, label %.loopexit, label %.preheader, !llvm.loop !41
+  br i1 %30, label %.loopexit, label %.preheader, !llvm.loop !34
 
 .loopexit:                                        ; preds = %24, %5
   %31 = phi i32 [ 0, %5 ], [ %26, %24 ]
@@ -4323,7 +4323,7 @@ define dso_local void @acpi_scan_table_notify() local_unnamed_addr #0 align 16 {
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @acpi_table_events_fn(ptr noundef %0) #0 align 16 {
   tail call void @mutex_lock(ptr noundef nonnull @acpi_scan_lock) #19
-  %2 = tail call i32 @acpi_bus_scan(ptr noundef nonnull inttoptr (i64 -1 to ptr)), !range !9
+  %2 = tail call i32 @acpi_bus_scan(ptr noundef nonnull inttoptr (i64 -1 to ptr)), !range !8
   tail call void @mutex_unlock(ptr noundef nonnull @acpi_scan_lock) #19
   tail call void @kfree(ptr noundef %0) #19
   ret void
@@ -4426,7 +4426,7 @@ define internal i32 @acpi_scan_bus_check(ptr noundef %0, ptr readnone captures(n
 45:                                               ; preds = %39, %37
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %47 = load ptr, ptr %46, align 8
-  %48 = tail call i32 @acpi_bus_scan(ptr noundef %47), !range !9
+  %48 = tail call i32 @acpi_bus_scan(ptr noundef %47), !range !8
   %49 = icmp eq i32 %48, 0
   br i1 %49, label %52, label %50
 
@@ -4595,7 +4595,7 @@ define internal range(i32 0, 16) i32 @acpi_bus_offline(ptr noundef %0, i32 %1, p
 44:                                               ; preds = %36, %38
   %45 = load ptr, ptr %28, align 8
   %46 = icmp eq ptr %45, %25
-  br i1 %46, label %.thread, label %.lr.ph.split.us.split, !llvm.loop !42
+  br i1 %46, label %.thread, label %.lr.ph.split.us.split, !llvm.loop !35
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %65
   %47 = phi ptr [ %66, %65 ], [ %26, %.lr.ph ]
@@ -4630,7 +4630,7 @@ define internal range(i32 0, 16) i32 @acpi_bus_offline(ptr noundef %0, i32 %1, p
 65:                                               ; preds = %57, %.lr.ph.split
   %66 = load ptr, ptr %47, align 8
   %67 = icmp eq ptr %66, %25
-  br i1 %67, label %.thread, label %.lr.ph.split, !llvm.loop !44
+  br i1 %67, label %.thread, label %.lr.ph.split, !llvm.loop !37
 
 .thread:                                          ; preds = %65, %44, %..thread_crit_edge.split, %23
   %68 = phi i32 [ 1, %..thread_crit_edge.split ], [ 0, %23 ], [ 0, %44 ], [ 0, %65 ]
@@ -4683,7 +4683,7 @@ define internal noundef i32 @acpi_bus_online(ptr noundef %0, i32 %1, ptr readnon
 27:                                               ; preds = %21, %.preheader
   %28 = load ptr, ptr %16, align 8
   %29 = icmp eq ptr %28, %13
-  br i1 %29, label %.loopexit, label %.preheader, !llvm.loop !45
+  br i1 %29, label %.loopexit, label %.preheader, !llvm.loop !12
 
 .loopexit:                                        ; preds = %27, %11
   call void @mutex_unlock(ptr noundef nonnull %12) #19
@@ -4755,7 +4755,7 @@ define internal void @acpi_device_del_work_fn(ptr readnone captures(none) %0) #0
   %25 = phi ptr [ %23, %21 ], [ @.str.40, %17 ]
   %26 = tail call i32 @strcmp(ptr noundef %18, ptr noundef %25) #19
   %27 = icmp eq i32 %26, 0
-  br i1 %27, label %28, label %12, !llvm.loop !46
+  br i1 %27, label %28, label %12, !llvm.loop !38
 
 28:                                               ; preds = %24
   %29 = getelementptr i8, ptr %14, i64 -16
@@ -4818,7 +4818,7 @@ define internal void @acpi_device_del_work_fn(ptr readnone captures(none) %0) #0
   tail call void @mutex_lock(ptr noundef nonnull @acpi_device_del_lock) #19
   %56 = load volatile ptr, ptr @acpi_device_del_list, align 8
   %57 = icmp eq ptr %56, @acpi_device_del_list
-  br i1 %57, label %.thread, label %.lr.ph, !llvm.loop !47
+  br i1 %57, label %.thread, label %.lr.ph
 }
 
 ; Function Attrs: null_pointer_is_valid
@@ -4914,7 +4914,7 @@ define internal fastcc noundef zeroext i1 @acpi_ibm_smbus_match(ptr noundef %0) 
   %2 = alloca [5 x i8], align 1
   %3 = alloca %struct.acpi_buffer, align 8
   call void @llvm.lifetime.start.p0(i64 5, ptr nonnull %2) #19
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %2, i8 0, i64 5, i1 false), !annotation !11
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %2, i8 0, i64 5, i1 false), !annotation !10
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #19
   store i64 5, ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -4960,7 +4960,7 @@ define internal fastcc noundef zeroext i1 @acpi_ibm_smbus_match(ptr noundef %0) 
 define internal fastcc zeroext i1 @acpi_object_is_system_bus(ptr noundef readnone captures(address) %0) unnamed_addr #0 align 16 {
   %2 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #19
-  store ptr null, ptr %2, align 8, !annotation !11
+  store ptr null, ptr %2, align 8, !annotation !10
   %3 = call i32 @acpi_get_handle(ptr noundef null, ptr noundef nonnull @.str.65, ptr noundef nonnull %2) #19
   %4 = icmp eq i32 %3, 0
   %5 = load ptr, ptr %2, align 8
@@ -5055,7 +5055,7 @@ define internal fastcc i32 @acpi_scan_check_dep(ptr noundef %0) unnamed_addr #0 
   br i1 %6, label %7, label %107
 
 7:                                                ; preds = %5
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false), !annotation !11
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false), !annotation !10
   %8 = call zeroext i1 @acpi_evaluate_reference(ptr noundef %0, ptr noundef nonnull @.str.74, ptr noundef null, ptr noundef nonnull %2) #19
   br i1 %8, label %9, label %107
 
@@ -5072,7 +5072,7 @@ define internal fastcc i32 @acpi_scan_check_dep(ptr noundef %0) unnamed_addr #0 
   %15 = phi i32 [ 0, %12 ], [ %102, %101 ]
   %16 = phi i32 [ 0, %12 ], [ %103, %101 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #19
-  store ptr null, ptr %3, align 8, !annotation !11
+  store ptr null, ptr %3, align 8, !annotation !10
   %17 = load ptr, ptr %13, align 8
   %18 = sext i32 %16 to i64
   %19 = getelementptr ptr, ptr %17, i64 %18
@@ -5116,7 +5116,7 @@ define internal fastcc i32 @acpi_scan_check_dep(ptr noundef %0) unnamed_addr #0 
   %44 = add nuw i32 %48, 1
   %45 = load i32, ptr %38, align 8
   %46 = icmp ult i32 %44, %45
-  br i1 %46, label %47, label %.loopexit10, !llvm.loop !48
+  br i1 %46, label %47, label %.loopexit10, !llvm.loop !39
 
 47:                                               ; preds = %.preheader9, %43
   %48 = phi i32 [ %44, %43 ], [ 0, %.preheader9 ]
@@ -5164,7 +5164,7 @@ define internal fastcc i32 @acpi_scan_check_dep(ptr noundef %0) unnamed_addr #0 
   %75 = add nuw i32 %79, 1
   %76 = load i32, ptr %69, align 8
   %77 = icmp ult i32 %75, %76
-  br i1 %77, label %78, label %.loopexit, !llvm.loop !49
+  br i1 %77, label %78, label %.loopexit, !llvm.loop !39
 
 78:                                               ; preds = %.preheader, %74
   %79 = phi i32 [ %75, %74 ], [ 0, %.preheader ]
@@ -5215,7 +5215,7 @@ define internal fastcc i32 @acpi_scan_check_dep(ptr noundef %0) unnamed_addr #0 
   %103 = add nuw i32 %16, 1
   %104 = load i32, ptr %2, align 8
   %105 = icmp ult i32 %103, %104
-  br i1 %105, label %14, label %.loopexit12, !llvm.loop !50
+  br i1 %105, label %14, label %.loopexit12, !llvm.loop !40
 
 .loopexit12:                                      ; preds = %101, %9
   %106 = phi i32 [ 0, %9 ], [ %102, %101 ]
@@ -5296,7 +5296,7 @@ declare dso_local ptr @acpi_create_platform_device(ptr noundef, ptr noundef) loc
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal noundef range(i32 0, 16391) i32 @acpi_bus_check_add_2(ptr noundef %0, i32 %1, ptr readnone captures(none) %2, ptr noundef captures(none) %3) #0 align 16 {
-  %5 = tail call fastcc i32 @acpi_bus_check_add(ptr noundef %0, i1 noundef zeroext false, ptr noundef %3), !range !28
+  %5 = tail call fastcc i32 @acpi_bus_check_add(ptr noundef %0, i1 noundef zeroext false, ptr noundef %3), !range !25
   ret i32 %5
 }
 
@@ -5326,7 +5326,7 @@ define internal void @acpi_device_release(ptr noundef %0) #0 align 16 {
   tail call void @kfree_const(ptr noundef %9) #19
   tail call void @kfree(ptr noundef %6) #19
   %10 = icmp eq ptr %7, %3
-  br i1 %10, label %.loopexit2, label %.preheader1, !llvm.loop !51
+  br i1 %10, label %.loopexit2, label %.preheader1, !llvm.loop !15
 
 .loopexit2:                                       ; preds = %.preheader1, %1
   %11 = getelementptr i8, ptr %0, i64 -472
@@ -5361,7 +5361,7 @@ define internal void @acpi_device_release(ptr noundef %0) #0 align 16 {
   tail call void @acpi_power_resources_list_free(ptr noundef %27) #19
   %28 = add nuw nsw i64 %26, 1
   %29 = icmp eq i64 %28, 4
-  br i1 %29, label %.loopexit, label %25, !llvm.loop !52
+  br i1 %29, label %.loopexit, label %25, !llvm.loop !41
 
 .loopexit:                                        ; preds = %25, %19
   tail call void @kfree(ptr noundef %2) #19
@@ -5472,51 +5472,40 @@ attributes #24 = { cold }
 !2 = !{i32 4, !"function_return_thunk_extern", i32 1}
 !3 = !{i32 4, !"indirect_branch_cs_prefix", i32 1}
 !4 = !{i32 4, !"SkipRaxSetup", i32 1}
-!5 = distinct !{!5, !6, !7, !8}
+!5 = distinct !{!5, !6, !7}
 !6 = !{!"llvm.loop.mustprogress"}
 !7 = !{!"llvm.loop.unroll.disable"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = !{i32 -19, i32 1}
-!10 = !{i32 -114, i32 1}
-!11 = !{!"auto-init"}
-!12 = distinct !{!12, !6, !7, !8}
-!13 = !{i32 0, i32 16}
-!14 = distinct !{!14, !6, !7, !8}
-!15 = distinct !{!15, !6, !7, !8}
-!16 = distinct !{!16, !6, !7, !8}
-!17 = distinct !{!17, !6, !7, !8}
-!18 = distinct !{!18, !6, !7, !8}
-!19 = !{!"branch_weights", i32 1, i32 2000}
-!20 = distinct !{!20, !6, !7, !8}
-!21 = distinct !{!21, !6, !7, !8}
-!22 = distinct !{!22, !6, !7, !8}
-!23 = distinct !{!23, !6, !7, !8}
-!24 = !{i8 0, i8 2}
-!25 = !{}
-!26 = distinct !{!26, !6, !7, !8}
-!27 = distinct !{!27, !6, !7, !8}
-!28 = !{i32 0, i32 16391}
-!29 = distinct !{!29, !6, !7, !8}
-!30 = distinct !{!30, !6, !7, !8}
-!31 = distinct !{!31, !6, !7, !8}
-!32 = distinct !{!32, !6, !7, !8}
-!33 = distinct !{!33, !8}
+!8 = !{i32 -19, i32 1}
+!9 = !{i32 -114, i32 1}
+!10 = !{!"auto-init"}
+!11 = !{i32 0, i32 16}
+!12 = distinct !{!12, !6, !7}
+!13 = distinct !{!13, !6, !7}
+!14 = distinct !{!14, !6, !7}
+!15 = distinct !{!15, !6, !7}
+!16 = distinct !{!16, !6, !7}
+!17 = !{!"branch_weights", i32 1, i32 2000}
+!18 = distinct !{!18, !6, !7}
+!19 = distinct !{!19, !6, !7}
+!20 = distinct !{!20, !6, !7}
+!21 = distinct !{!21, !6, !7}
+!22 = !{i8 0, i8 2}
+!23 = !{}
+!24 = distinct !{!24, !6, !7}
+!25 = !{i32 0, i32 16391}
+!26 = distinct !{!26, !6, !7}
+!27 = distinct !{!27, !6, !7}
+!28 = distinct !{!28, !6, !7}
+!29 = distinct !{!29, !6, !7}
+!30 = distinct !{!30, !6, !7, !31}
+!31 = !{!"llvm.loop.unswitch.partial.disable"}
+!32 = distinct !{!32, !6, !7}
+!33 = distinct !{!33, !6, !7}
 !34 = distinct !{!34, !6, !7}
-!35 = distinct !{!35, !6, !7, !8}
-!36 = distinct !{!36, !6, !7, !8}
-!37 = distinct !{!37, !6, !7, !8, !38}
-!38 = !{!"llvm.loop.unswitch.partial.disable"}
-!39 = distinct !{!39, !6, !7, !8}
-!40 = distinct !{!40, !6, !7, !8}
-!41 = distinct !{!41, !6, !7, !8}
-!42 = distinct !{!42, !6, !7, !8, !43}
-!43 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!44 = distinct !{!44, !6, !7, !8}
-!45 = distinct !{!45, !6, !7, !8}
-!46 = distinct !{!46, !6, !7, !8}
-!47 = distinct !{!47, !8}
-!48 = distinct !{!48, !6, !7, !8}
-!49 = distinct !{!49, !6, !7, !8}
-!50 = distinct !{!50, !6, !7, !8}
-!51 = distinct !{!51, !6, !7, !8}
-!52 = distinct !{!52, !6, !7, !8}
+!35 = distinct !{!35, !6, !7, !36}
+!36 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!37 = distinct !{!37, !6, !7}
+!38 = distinct !{!38, !6, !7}
+!39 = distinct !{!39, !6, !7}
+!40 = distinct !{!40, !6, !7}
+!41 = distinct !{!41, !6, !7}

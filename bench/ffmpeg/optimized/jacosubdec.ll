@@ -303,16 +303,16 @@ jss_skip_whitespace.exit.i:                       ; preds = %43, %25
     i8 11, label %80
     i8 10, label %80
     i8 9, label %80
-  ], !llvm.loop !34
+  ], !llvm.loop !33
 
 80:                                               ; preds = %78, %78, %78, %78, %78, %78
   %81 = getelementptr inbounds nuw i8, ptr %.3.i, i64 1
-  br label %78, !llvm.loop !35
+  br label %78, !llvm.loop !34
 
 82:                                               ; preds = %.preheader, %95
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %95 ], [ 0, %.preheader ]
   %83 = getelementptr inbounds nuw [14 x %struct.anon], ptr @ass_codes_map, i64 0, i64 %indvars.iv.i
-  %84 = load ptr, ptr %83, align 8, !tbaa !36
+  %84 = load ptr, ptr %83, align 8, !tbaa !35
   %85 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %84) #8
   %86 = call i32 @strncmp(ptr noundef nonnull %.2.i, ptr noundef nonnull %84, i64 noundef %85) #8
   %.not79.i = icmp eq i32 %86, 0
@@ -320,10 +320,10 @@ jss_skip_whitespace.exit.i:                       ; preds = %43, %25
 
 .thread16.i:                                      ; preds = %82
   %87 = getelementptr inbounds nuw i8, ptr %83, i64 8
-  %88 = load ptr, ptr %87, align 8, !tbaa !38
+  %88 = load ptr, ptr %87, align 8, !tbaa !37
   %89 = getelementptr inbounds nuw i8, ptr %.2.i, i64 %85
   %90 = getelementptr inbounds nuw i8, ptr %83, i64 16
-  %91 = load ptr, ptr %90, align 8, !tbaa !39
+  %91 = load ptr, ptr %90, align 8, !tbaa !38
   %92 = call i32 %91(ptr noundef nonnull %6, ptr noundef nonnull %89, ptr noundef %88) #7
   %93 = sext i32 %92 to i64
   %94 = getelementptr inbounds i8, ptr %89, i64 %93
@@ -332,7 +332,7 @@ jss_skip_whitespace.exit.i:                       ; preds = %43, %25
 95:                                               ; preds = %82
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 14
-  br i1 %exitcond.not.i, label %96, label %82, !llvm.loop !40
+  br i1 %exitcond.not.i, label %96, label %82, !llvm.loop !39
 
 96:                                               ; preds = %95
   %97 = getelementptr inbounds nuw i8, ptr %.2.i, i64 1
@@ -342,14 +342,14 @@ jss_skip_whitespace.exit.i:                       ; preds = %43, %25
 
 .backedge.i.backedge:                             ; preds = %78, %96, %.thread16.i
   %.2.i.be = phi ptr [ %97, %96 ], [ %94, %.thread16.i ], [ %.3.i, %78 ]
-  br label %.backedge.i, !llvm.loop !34
+  br label %.backedge.i, !llvm.loop !33
 
 jacosub_to_ass.exit:                              ; preds = %.backedge.i, %.backedge.i
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %5) #7
-  %99 = load ptr, ptr %6, align 8, !tbaa !41
-  %100 = load i32, ptr %10, align 4, !tbaa !43
+  %99 = load ptr, ptr %6, align 8, !tbaa !40
+  %100 = load i32, ptr %10, align 4, !tbaa !42
   %101 = add nsw i32 %100, 1
-  store i32 %101, ptr %10, align 4, !tbaa !43
+  store i32 %101, ptr %10, align 4, !tbaa !42
   %102 = call i32 @ff_ass_add_rect(ptr noundef %1, ptr noundef %99, i32 noundef %100, i32 noundef 0, ptr noundef null, ptr noundef null) #7
   %103 = call i32 @av_bprint_finalize(ptr noundef nonnull %6, ptr noundef null) #7
   %104 = icmp slt i32 %102, 0
@@ -365,10 +365,10 @@ jacosub_to_ass.exit:                              ; preds = %.backedge.i, %.back
 
 106:                                              ; preds = %.thread, %14, %4
   %107 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %108 = load i32, ptr %107, align 4, !tbaa !45
+  %108 = load i32, ptr %107, align 4, !tbaa !44
   %109 = icmp ne i32 %108, 0
   %110 = zext i1 %109 to i32
-  store i32 %110, ptr %2, align 4, !tbaa !49
+  store i32 %110, ptr %2, align 4, !tbaa !48
   %111 = load i32, ptr %11, align 8, !tbaa !29
   br label %112
 
@@ -423,7 +423,7 @@ define internal noundef i32 @insert_datetime(ptr noundef %0, ptr readnone captur
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %4, i8 0, i64 16, i1 false)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #7
   %7 = tail call i64 @time(ptr noundef null) #7
-  store i64 %7, ptr %5, align 8, !tbaa !50
+  store i64 %7, ptr %5, align 8, !tbaa !49
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %6) #7
   %8 = call ptr @localtime_r(ptr noundef nonnull %5, ptr noundef nonnull %6) #7
   %9 = call i64 @strftime(ptr noundef nonnull %4, i64 noundef 16, ptr noundef %2, ptr noundef nonnull %6) #7
@@ -503,23 +503,22 @@ attributes #8 = { nounwind willreturn memory(read) }
 !28 = !{!"any p2 pointer", !7, i64 0}
 !29 = !{!5, !12, i64 32}
 !30 = !{!8, !8, i64 0}
-!31 = distinct !{!31, !32, !33}
+!31 = distinct !{!31, !32}
 !32 = !{!"llvm.loop.mustprogress"}
-!33 = !{!"llvm.loop.estimated_trip_count"}
-!34 = distinct !{!34, !32, !33}
-!35 = distinct !{!35, !32, !33}
-!36 = !{!37, !11, i64 0}
-!37 = !{!"", !11, i64 0, !11, i64 8, !7, i64 16}
-!38 = !{!37, !11, i64 8}
-!39 = !{!37, !7, i64 16}
-!40 = distinct !{!40, !32, !33}
-!41 = !{!42, !11, i64 0}
-!42 = !{!"AVBPrint", !11, i64 0, !12, i64 8, !12, i64 12, !12, i64 16, !8, i64 20, !8, i64 21}
-!43 = !{!44, !12, i64 0}
-!44 = !{!"FFASSDecoderContext", !12, i64 0}
-!45 = !{!46, !12, i64 12}
-!46 = !{!"AVSubtitle", !47, i64 0, !12, i64 4, !12, i64 8, !12, i64 12, !48, i64 16, !10, i64 24}
-!47 = !{!"short", !8, i64 0}
-!48 = !{!"p2 _ZTS14AVSubtitleRect", !28, i64 0}
-!49 = !{!12, !12, i64 0}
-!50 = !{!10, !10, i64 0}
+!33 = distinct !{!33, !32}
+!34 = distinct !{!34, !32}
+!35 = !{!36, !11, i64 0}
+!36 = !{!"", !11, i64 0, !11, i64 8, !7, i64 16}
+!37 = !{!36, !11, i64 8}
+!38 = !{!36, !7, i64 16}
+!39 = distinct !{!39, !32}
+!40 = !{!41, !11, i64 0}
+!41 = !{!"AVBPrint", !11, i64 0, !12, i64 8, !12, i64 12, !12, i64 16, !8, i64 20, !8, i64 21}
+!42 = !{!43, !12, i64 0}
+!43 = !{!"FFASSDecoderContext", !12, i64 0}
+!44 = !{!45, !12, i64 12}
+!45 = !{!"AVSubtitle", !46, i64 0, !12, i64 4, !12, i64 8, !12, i64 12, !47, i64 16, !10, i64 24}
+!46 = !{!"short", !8, i64 0}
+!47 = !{!"p2 _ZTS14AVSubtitleRect", !28, i64 0}
+!48 = !{!12, !12, i64 0}
+!49 = !{!10, !10, i64 0}

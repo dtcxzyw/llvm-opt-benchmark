@@ -275,7 +275,7 @@ deinsert.exit.i:                                  ; preds = %50, %36
 
 freeHandler.exit:                                 ; preds = %deinsert.exit.i, %33, %31
   %.not27 = icmp eq ptr %22, null
-  br i1 %.not27, label %._crit_edge, label %.lr.ph, !llvm.loop !9
+  br i1 %.not27, label %._crit_edge, label %.lr.ph, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %freeHandler.exit, %13
   %52 = load ptr, ptr @handlerLock, align 8
@@ -522,7 +522,7 @@ freeHandler.exit:                                 ; preds = %17, %31
 
 freeHandler.exit.thread:                          ; preds = %14, %freeHandler.exit, %.lr.ph
   %.not = icmp eq ptr %12, null
-  br i1 %.not, label %freeHandler.exit._crit_edge, label %.lr.ph, !llvm.loop !10
+  br i1 %.not, label %freeHandler.exit._crit_edge, label %.lr.ph, !llvm.loop !9
 
 freeHandler.exit._crit_edge:                      ; preds = %freeHandler.exit.thread, %freeHandler.exit, %getHandlerChain.exit
   %.1 = phi i32 [ 0, %getHandlerChain.exit ], [ %32, %freeHandler.exit ], [ 0, %freeHandler.exit.thread ]
@@ -602,7 +602,7 @@ deinsert.exit.i:                                  ; preds = %25, %11
 
 freeHandler.exit:                                 ; preds = %deinsert.exit.i, %8, %.lr.ph
   %.not = icmp eq ptr %6, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !11
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %freeHandler.exit, %1
   %27 = load ptr, ptr @handlerLock, align 8
@@ -645,7 +645,7 @@ getHandlerChain.exit.i:                           ; preds = %5, %2
   %14 = getelementptr inbounds nuw i8, ptr %.09.i.i, i64 16
   %.0.i.i = load ptr, ptr %14, align 8
   %.not.i.i = icmp eq ptr %.0.i.i, null
-  br i1 %.not.i.i, label %freeHandler.exit, label %.lr.ph.i.i, !llvm.loop !12
+  br i1 %.not.i.i, label %freeHandler.exit, label %.lr.ph.i.i, !llvm.loop !11
 
 find.exit:                                        ; preds = %.lr.ph.i.i
   %15 = getelementptr inbounds nuw i8, ptr %.09.i.i, i64 9
@@ -3556,7 +3556,7 @@ define internal void @cbVMDeath(ptr readnone captures(none) %0, ptr noundef %1) 
   tail call void @debugMonitorWait(ptr noundef %34) #6
   %35 = load i32, ptr @active_callbacks, align 4
   %36 = icmp sgt i32 %35, 0
-  br i1 %36, label %.lr.ph, label %._crit_edge, !llvm.loop !13
+  br i1 %36, label %.lr.ph, label %._crit_edge, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %.lr.ph, %28
   %37 = load ptr, ptr @callbackLock, align 8
@@ -4052,12 +4052,12 @@ freeHandler.exit.i:                               ; preds = %44, %30
 
 freeHandler.exit.thread.i:                        ; preds = %freeHandler.exit.i, %.lr.ph.i
   %.not.i20 = icmp eq ptr %27, null
-  br i1 %.not.i20, label %freeHandlerChain.exit, label %.lr.ph.i, !llvm.loop !14
+  br i1 %.not.i20, label %freeHandlerChain.exit, label %.lr.ph.i, !llvm.loop !13
 
 freeHandlerChain.exit:                            ; preds = %freeHandler.exit.thread.i, %getHandlerChain.exit
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 23
-  br i1 %exitcond.not, label %46, label %getHandlerChain.exit, !llvm.loop !15
+  br i1 %exitcond.not, label %46, label %getHandlerChain.exit, !llvm.loop !14
 
 46:                                               ; preds = %freeHandlerChain.exit
   store i32 1, ptr @requestIdCounter, align 4
@@ -4084,7 +4084,7 @@ define hidden void @eventHandler_waitForActiveCallbacks() local_unnamed_addr #0 
   tail call void @debugMonitorWait(ptr noundef %4) #6
   %5 = load i32, ptr @active_callbacks, align 4
   %6 = icmp sgt i32 %5, 0
-  br i1 %6, label %.lr.ph, label %._crit_edge, !llvm.loop !16
+  br i1 %6, label %.lr.ph, label %._crit_edge, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %.lr.ph, %0
   %7 = load ptr, ptr @callbackLock, align 8
@@ -4483,7 +4483,7 @@ define internal fastcc void @event_callback(ptr noundef %0, ptr noundef nonnull 
   tail call void @eventHelper_reportInvokeDone(i8 noundef signext %6, ptr noundef nonnull %43) #6
   %55 = tail call zeroext i8 @invoker_doInvoke(ptr noundef nonnull %43) #6
   %.not51 = icmp eq i8 %55, 0
-  br i1 %.not51, label %.critedge, label %.lr.ph, !llvm.loop !17
+  br i1 %.not51, label %.critedge, label %.lr.ph, !llvm.loop !16
 
 56:                                               ; preds = %42
   %57 = tail call ptr @eventHelper_createEventBag() #6
@@ -4600,7 +4600,7 @@ deinsert.exit.i.i:                                ; preds = %101, %87
 
 freeHandler.exit.i:                               ; preds = %deinsert.exit.i.i, %84, %82
   %.not.i = icmp eq ptr %72, null
-  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !18
+  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !17
 
 ._crit_edge.i:                                    ; preds = %freeHandler.exit.i, %getHandlerChain.exit.i
   call void @jvmtiDeallocate(ptr noundef %70) #6
@@ -4759,7 +4759,7 @@ deferEventReport.exit.i.i:                        ; preds = %152, %148, %141
   call void @eventHelper_reportInvokeDone(i8 noundef signext %6, ptr noundef nonnull %105) #6
   %161 = call zeroext i8 @invoker_doInvoke(ptr noundef nonnull %105) #6
   %.not38.i.i = icmp eq i8 %161, 0
-  br i1 %.not38.i.i, label %.critedge.i.i, label %.lr.ph.i.i, !llvm.loop !19
+  br i1 %.not38.i.i, label %.critedge.i.i, label %.lr.ph.i.i, !llvm.loop !18
 
 .critedge.i.i:                                    ; preds = %.lr.ph.i.i, %.preheader.i.i, %157
   call void @bagDestroyBag(ptr noundef nonnull %155) #6
@@ -4886,17 +4886,16 @@ attributes #7 = { nounwind willreturn memory(read) }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7, !8}
-!11 = distinct !{!11, !7, !8}
-!12 = distinct !{!12, !7, !8}
-!13 = distinct !{!13, !7, !8}
-!14 = distinct !{!14, !7, !8}
-!15 = distinct !{!15, !7, !8}
-!16 = distinct !{!16, !7, !8}
-!17 = distinct !{!17, !7, !8}
-!18 = distinct !{!18, !7, !8}
-!19 = distinct !{!19, !7, !8}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7}
+!12 = distinct !{!12, !7}
+!13 = distinct !{!13, !7}
+!14 = distinct !{!14, !7}
+!15 = distinct !{!15, !7}
+!16 = distinct !{!16, !7}
+!17 = distinct !{!17, !7}
+!18 = distinct !{!18, !7}

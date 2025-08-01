@@ -111,16 +111,16 @@ onas_free_listnode.exit.i.i.i:                    ; preds = %20, %onas_free_list
   tail call void @free(ptr noundef %25) #20
   tail call void @free(ptr noundef nonnull %.09.i.i.i) #20
   %.not8.i.i.i = icmp eq ptr %24, null
-  br i1 %.not8.i.i.i, label %onas_free_dirlist.exit.i.i, label %onas_free_listnode.exit.i.i.i, !llvm.loop !33
+  br i1 %.not8.i.i.i, label %onas_free_dirlist.exit.i.i, label %onas_free_listnode.exit.i.i.i
 
 onas_free_dirlist.exit.i.i:                       ; preds = %onas_free_listnode.exit.i.i.i, %20
   store ptr null, ptr %21, align 8, !tbaa !27
   %26 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  %27 = load ptr, ptr %26, align 8, !tbaa !35
+  %27 = load ptr, ptr %26, align 8, !tbaa !33
   tail call void @free(ptr noundef %27) #20
-  store ptr null, ptr %26, align 8, !tbaa !35
+  store ptr null, ptr %26, align 8, !tbaa !33
   %28 = getelementptr inbounds nuw i8, ptr %19, i64 24
-  %29 = load ptr, ptr %28, align 8, !tbaa !36
+  %29 = load ptr, ptr %28, align 8, !tbaa !34
   tail call void @free(ptr noundef %29) #20
   tail call void @free(ptr noundef nonnull %19) #20
   br label %onas_free_element.exit
@@ -130,7 +130,7 @@ onas_free_element.exit:                           ; preds = %14, %onas_free_dirl
   %30 = add nuw i32 %.09.i, 1
   %31 = load i32, ptr %11, align 8, !tbaa !17
   %32 = icmp ult i32 %30, %31
-  br i1 %32, label %14, label %._crit_edge.i, !llvm.loop !37
+  br i1 %32, label %14, label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %onas_free_element.exit, %.preheader.i
   tail call void @free(ptr noundef nonnull %11) #20
@@ -146,7 +146,7 @@ onas_free_bucket.exit:                            ; preds = %.lr.ph, %._crit_edg
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %36 = zext i32 %33 to i64
   %37 = icmp samesign ult i64 %indvars.iv.next, %36
-  br i1 %37, label %.lr.ph, label %._crit_edge, !llvm.loop !38
+  br i1 %37, label %.lr.ph, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %onas_free_bucket.exit
   tail call void @free(ptr noundef nonnull %34) #20
@@ -176,11 +176,11 @@ define dso_local noalias noundef ptr @onas_element_init(ptr noundef %0, ptr noun
   br i1 %.not, label %6, label %5
 
 5:                                                ; preds = %3
-  store ptr %1, ptr %4, align 8, !tbaa !39
+  store ptr %1, ptr %4, align 8, !tbaa !35
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store i64 %2, ptr %.sroa.2.0..sroa_idx, align 8, !tbaa !40
+  store i64 %2, ptr %.sroa.2.0..sroa_idx, align 8, !tbaa !36
   %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store ptr %0, ptr %.sroa.3.0..sroa_idx, align 8, !tbaa !41
+  store ptr %0, ptr %.sroa.3.0..sroa_idx, align 8, !tbaa !37
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.4.0..sroa_idx, i8 0, i64 16, i1 false)
   br label %6
@@ -215,16 +215,16 @@ onas_free_listnode.exit.i.i:                      ; preds = %5, %onas_free_listn
   tail call void @free(ptr noundef %10) #20
   tail call void @free(ptr noundef nonnull %.09.i.i) #20
   %.not8.i.i = icmp eq ptr %9, null
-  br i1 %.not8.i.i, label %onas_free_dirlist.exit.i, label %onas_free_listnode.exit.i.i, !llvm.loop !33
+  br i1 %.not8.i.i, label %onas_free_dirlist.exit.i, label %onas_free_listnode.exit.i.i
 
 onas_free_dirlist.exit.i:                         ; preds = %onas_free_listnode.exit.i.i, %5
   store ptr null, ptr %6, align 8, !tbaa !27
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %12 = load ptr, ptr %11, align 8, !tbaa !35
+  %12 = load ptr, ptr %11, align 8, !tbaa !33
   tail call void @free(ptr noundef %12) #20
-  store ptr null, ptr %11, align 8, !tbaa !35
+  store ptr null, ptr %11, align 8, !tbaa !33
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  %14 = load ptr, ptr %13, align 8, !tbaa !36
+  %14 = load ptr, ptr %13, align 8, !tbaa !34
   tail call void @free(ptr noundef %14) #20
   tail call void @free(ptr noundef nonnull %4) #20
   br label %onas_free_hashnode.exit
@@ -257,16 +257,16 @@ onas_free_listnode.exit.i:                        ; preds = %2, %onas_free_listn
   tail call void @free(ptr noundef %7) #20
   tail call void @free(ptr noundef nonnull %.09.i) #20
   %.not8.i = icmp eq ptr %6, null
-  br i1 %.not8.i, label %onas_free_dirlist.exit, label %onas_free_listnode.exit.i, !llvm.loop !33
+  br i1 %.not8.i, label %onas_free_dirlist.exit, label %onas_free_listnode.exit.i
 
 onas_free_dirlist.exit:                           ; preds = %onas_free_listnode.exit.i, %2
   store ptr null, ptr %3, align 8, !tbaa !27
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %9 = load ptr, ptr %8, align 8, !tbaa !35
+  %9 = load ptr, ptr %8, align 8, !tbaa !33
   tail call void @free(ptr noundef %9) #20
-  store ptr null, ptr %8, align 8, !tbaa !35
+  store ptr null, ptr %8, align 8, !tbaa !33
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %11 = load ptr, ptr %10, align 8, !tbaa !36
+  %11 = load ptr, ptr %10, align 8, !tbaa !34
   tail call void @free(ptr noundef %11) #20
   tail call void @free(ptr noundef nonnull %0) #20
   br label %12
@@ -283,13 +283,13 @@ define dso_local range(i32 0, 3) i32 @onas_ht_insert(ptr noundef captures(addres
   br i1 %or.cond, label %5, label %65
 
 5:                                                ; preds = %2
-  %6 = load ptr, ptr %1, align 8, !tbaa !42
+  %6 = load ptr, ptr %1, align 8, !tbaa !38
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %65, label %7
 
 7:                                                ; preds = %5
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %9 = load i64, ptr %8, align 8, !tbaa !43
+  %9 = load i64, ptr %8, align 8, !tbaa !39
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %11 = load i32, ptr %10, align 8, !tbaa !15
   %.not.i = icmp eq i64 %9, 0
@@ -300,7 +300,7 @@ define dso_local range(i32 0, 3) i32 @onas_ht_insert(ptr noundef captures(addres
   %.011.i = phi i32 [ %27, %.lr.ph.i ], [ 0, %7 ]
   %.0810.i = phi i32 [ %26, %.lr.ph.i ], [ 1, %7 ]
   %13 = getelementptr inbounds nuw i8, ptr %6, i64 %12
-  %14 = load i8, ptr %13, align 1, !tbaa !44
+  %14 = load i8, ptr %13, align 1, !tbaa !40
   %15 = sext i8 %14 to i32
   %16 = add i32 %.0810.i, %15
   %17 = xor i32 %16, -1
@@ -316,7 +316,7 @@ define dso_local range(i32 0, 3) i32 @onas_ht_insert(ptr noundef captures(addres
   %27 = add i32 %.011.i, 1
   %28 = zext i32 %27 to i64
   %29 = icmp ugt i64 %9, %28
-  br i1 %29, label %.lr.ph.i, label %onas_hash.exit, !llvm.loop !45
+  br i1 %29, label %.lr.ph.i, label %onas_hash.exit
 
 onas_hash.exit:                                   ; preds = %.lr.ph.i, %7
   %.08.lcssa.i = phi i32 [ 1, %7 ], [ %26, %.lr.ph.i ]
@@ -337,31 +337,31 @@ onas_hash.exit:                                   ; preds = %.lr.ph.i, %7
 38:                                               ; preds = %37, %onas_hash.exit
   %.037 = phi ptr [ %calloc.i, %37 ], [ %35, %onas_hash.exit ]
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %40 = load i32, ptr %39, align 4, !tbaa !46
+  %40 = load i32, ptr %39, align 4, !tbaa !41
   %41 = icmp eq i32 %40, 0
   br i1 %41, label %42, label %45
 
 42:                                               ; preds = %38
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.037, ptr %43, align 8, !tbaa !47
+  store ptr %.037, ptr %43, align 8, !tbaa !42
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %.037, ptr %44, align 8, !tbaa !48
+  store ptr %.037, ptr %44, align 8, !tbaa !43
   br label %49
 
 45:                                               ; preds = %38
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %47 = load ptr, ptr %46, align 8, !tbaa !48
+  %47 = load ptr, ptr %46, align 8, !tbaa !43
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 24
-  store ptr %.037, ptr %48, align 8, !tbaa !49
-  store ptr %.037, ptr %46, align 8, !tbaa !48
+  store ptr %.037, ptr %48, align 8, !tbaa !44
+  store ptr %.037, ptr %46, align 8, !tbaa !43
   br label %49
 
 49:                                               ; preds = %42, %45
   %.sink = phi ptr [ null, %42 ], [ %47, %45 ]
   %50 = getelementptr inbounds nuw i8, ptr %.037, i64 32
-  store ptr %.sink, ptr %50, align 8, !tbaa !50
+  store ptr %.sink, ptr %50, align 8, !tbaa !45
   %51 = getelementptr inbounds nuw i8, ptr %.037, i64 24
-  store ptr null, ptr %51, align 8, !tbaa !49
+  store ptr null, ptr %51, align 8, !tbaa !44
   %52 = load i32, ptr %.037, align 8, !tbaa !17
   %53 = icmp eq i32 %52, 0
   br i1 %53, label %.thread, label %57
@@ -370,7 +370,7 @@ onas_hash.exit:                                   ; preds = %.lr.ph.i, %7
   %54 = getelementptr inbounds nuw i8, ptr %.037, i64 8
   store ptr %1, ptr %54, align 8, !tbaa !20
   %55 = getelementptr inbounds nuw i8, ptr %.037, i64 16
-  store ptr %1, ptr %55, align 8, !tbaa !51
+  store ptr %1, ptr %55, align 8, !tbaa !46
   %56 = getelementptr inbounds nuw i8, ptr %1, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %56, i8 0, i64 16, i1 false)
   store i32 1, ptr %.037, align 8, !tbaa !17
@@ -378,12 +378,12 @@ onas_hash.exit:                                   ; preds = %.lr.ph.i, %7
 
 57:                                               ; preds = %49
   %58 = getelementptr inbounds nuw i8, ptr %.037, i64 16
-  %59 = load ptr, ptr %58, align 8, !tbaa !51
+  %59 = load ptr, ptr %58, align 8, !tbaa !46
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 24
   store ptr %1, ptr %60, align 8, !tbaa !21
-  store ptr %1, ptr %58, align 8, !tbaa !51
+  store ptr %1, ptr %58, align 8, !tbaa !46
   %61 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  store ptr %59, ptr %61, align 8, !tbaa !52
+  store ptr %59, ptr %61, align 8, !tbaa !47
   %62 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store ptr null, ptr %62, align 8, !tbaa !21
   %storemerge.i = add i32 %52, 1
@@ -393,7 +393,7 @@ onas_hash.exit:                                   ; preds = %.lr.ph.i, %7
 
 63:                                               ; preds = %.thread, %57
   %64 = add i32 %40, 1
-  store i32 %64, ptr %39, align 4, !tbaa !46
+  store i32 %64, ptr %39, align 4, !tbaa !41
   br label %65
 
 65:                                               ; preds = %63, %57, %2, %5
@@ -407,7 +407,7 @@ define dso_local range(i32 0, 4) i32 @onas_ht_get(ptr noundef readonly captures(
   br i1 %.not, label %6, label %5
 
 5:                                                ; preds = %4
-  store ptr null, ptr %3, align 8, !tbaa !53
+  store ptr null, ptr %3, align 8, !tbaa !48
   br label %6
 
 6:                                                ; preds = %5, %4
@@ -429,7 +429,7 @@ define dso_local range(i32 0, 4) i32 @onas_ht_get(ptr noundef readonly captures(
   %.011.i = phi i32 [ %29, %.lr.ph.i ], [ 0, %10 ]
   %.0810.i = phi i32 [ %28, %.lr.ph.i ], [ 1, %10 ]
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 %14
-  %16 = load i8, ptr %15, align 1, !tbaa !44
+  %16 = load i8, ptr %15, align 1, !tbaa !40
   %17 = sext i8 %16 to i32
   %18 = add i32 %.0810.i, %17
   %19 = xor i32 %18, -1
@@ -445,7 +445,7 @@ define dso_local range(i32 0, 4) i32 @onas_ht_get(ptr noundef readonly captures(
   %29 = add i32 %.011.i, 1
   %30 = zext i32 %29 to i64
   %31 = icmp ugt i64 %2, %30
-  br i1 %31, label %.lr.ph.i, label %onas_hash.exit, !llvm.loop !45
+  br i1 %31, label %.lr.ph.i, label %onas_hash.exit
 
 onas_hash.exit:                                   ; preds = %.lr.ph.i
   %32 = add i32 %13, -1
@@ -463,28 +463,28 @@ onas_hash.exit:                                   ; preds = %.lr.ph.i
 
 40:                                               ; preds = %37
   %41 = getelementptr inbounds nuw i8, ptr %36, i64 8
-  %.036 = load ptr, ptr %41, align 8, !tbaa !53
+  %.036 = load ptr, ptr %41, align 8, !tbaa !48
   %.not3237 = icmp eq ptr %.036, null
   br i1 %.not3237, label %.critedge34, label %.lr.ph
 
 .lr.ph:                                           ; preds = %40, %44
   %.038 = phi ptr [ %.0, %44 ], [ %.036, %40 ]
-  %42 = load ptr, ptr %.038, align 8, !tbaa !42
+  %42 = load ptr, ptr %.038, align 8, !tbaa !38
   %43 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %42, ptr noundef nonnull dereferenceable(1) %1) #21
   %.not33 = icmp eq i32 %43, 0
   br i1 %.not33, label %.critedge, label %44
 
 44:                                               ; preds = %.lr.ph
   %45 = getelementptr inbounds nuw i8, ptr %.038, i64 24
-  %.0 = load ptr, ptr %45, align 8, !tbaa !53
+  %.0 = load ptr, ptr %45, align 8, !tbaa !48
   %.not32 = icmp eq ptr %.0, null
-  br i1 %.not32, label %.critedge34, label %.lr.ph, !llvm.loop !54
+  br i1 %.not32, label %.critedge34, label %.lr.ph
 
 .critedge:                                        ; preds = %.lr.ph
   br i1 %.not, label %.critedge34, label %46
 
 46:                                               ; preds = %.critedge
-  store ptr %.038, ptr %3, align 8, !tbaa !53
+  store ptr %.038, ptr %3, align 8, !tbaa !48
   br label %.critedge34
 
 .critedge34:                                      ; preds = %44, %40, %.critedge, %37, %onas_hash.exit, %46, %6
@@ -515,7 +515,7 @@ define dso_local range(i32 0, 4) i32 @onas_ht_remove(ptr noundef readonly captur
   %.011.i = phi i32 [ %27, %.lr.ph.i ], [ 0, %8 ]
   %.0810.i = phi i32 [ %26, %.lr.ph.i ], [ 1, %8 ]
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 %12
-  %14 = load i8, ptr %13, align 1, !tbaa !44
+  %14 = load i8, ptr %13, align 1, !tbaa !40
   %15 = sext i8 %14 to i32
   %16 = add i32 %.0810.i, %15
   %17 = xor i32 %16, -1
@@ -531,7 +531,7 @@ define dso_local range(i32 0, 4) i32 @onas_ht_remove(ptr noundef readonly captur
   %27 = add i32 %.011.i, 1
   %28 = zext i32 %27 to i64
   %29 = icmp ugt i64 %2, %28
-  br i1 %29, label %.lr.ph.i, label %onas_hash.exit, !llvm.loop !45
+  br i1 %29, label %.lr.ph.i, label %onas_hash.exit
 
 onas_hash.exit:                                   ; preds = %.lr.ph.i
   %30 = add i32 %11, -1
@@ -547,7 +547,7 @@ onas_hash.exit:                                   ; preds = %.lr.ph.i
   %.011.i.i = phi i32 [ %50, %.lr.ph.i.i ], [ 0, %onas_hash.exit ]
   %.0810.i.i = phi i32 [ %49, %.lr.ph.i.i ], [ 1, %onas_hash.exit ]
   %36 = getelementptr inbounds nuw i8, ptr %1, i64 %35
-  %37 = load i8, ptr %36, align 1, !tbaa !44
+  %37 = load i8, ptr %36, align 1, !tbaa !40
   %38 = sext i8 %37 to i32
   %39 = add i32 %.0810.i.i, %38
   %40 = xor i32 %39, -1
@@ -563,7 +563,7 @@ onas_hash.exit:                                   ; preds = %.lr.ph.i
   %50 = add i32 %.011.i.i, 1
   %51 = zext i32 %50 to i64
   %52 = icmp samesign ugt i64 %2, %51
-  br i1 %52, label %.lr.ph.i.i, label %onas_hash.exit.i, !llvm.loop !45
+  br i1 %52, label %.lr.ph.i.i, label %onas_hash.exit.i
 
 onas_hash.exit.i:                                 ; preds = %.lr.ph.i.i
   %53 = and i32 %49, %30
@@ -580,22 +580,22 @@ onas_hash.exit.i:                                 ; preds = %.lr.ph.i.i
 
 60:                                               ; preds = %57
   %61 = getelementptr inbounds nuw i8, ptr %56, i64 8
-  %.036.i = load ptr, ptr %61, align 8, !tbaa !53
+  %.036.i = load ptr, ptr %61, align 8, !tbaa !48
   %.not3237.i = icmp eq ptr %.036.i, null
   br i1 %.not3237.i, label %onas_ht_get.exit.thread, label %.lr.ph.i27
 
 .lr.ph.i27:                                       ; preds = %60, %64
   %.038.i = phi ptr [ %.0.i, %64 ], [ %.036.i, %60 ]
-  %62 = load ptr, ptr %.038.i, align 8, !tbaa !42
+  %62 = load ptr, ptr %.038.i, align 8, !tbaa !38
   %63 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %62, ptr noundef nonnull readonly dereferenceable(1) %1) #21
   %.not33.i = icmp eq i32 %63, 0
   br i1 %.not33.i, label %onas_ht_get.exit, label %64
 
 64:                                               ; preds = %.lr.ph.i27
   %65 = getelementptr inbounds nuw i8, ptr %.038.i, i64 24
-  %.0.i = load ptr, ptr %65, align 8, !tbaa !53
+  %.0.i = load ptr, ptr %65, align 8, !tbaa !48
   %.not32.i = icmp eq ptr %.0.i, null
-  br i1 %.not32.i, label %onas_ht_get.exit.thread, label %.lr.ph.i27, !llvm.loop !54
+  br i1 %.not32.i, label %onas_ht_get.exit.thread, label %.lr.ph.i27
 
 onas_ht_get.exit:                                 ; preds = %.lr.ph.i27
   %66 = getelementptr inbounds nuw i8, ptr %34, i64 8
@@ -603,12 +603,12 @@ onas_ht_get.exit:                                 ; preds = %.lr.ph.i27
 
 67:                                               ; preds = %67, %onas_ht_get.exit
   %.0.in.i = phi ptr [ %66, %onas_ht_get.exit ], [ %71, %67 ]
-  %.0.i28 = load ptr, ptr %.0.in.i, align 8, !tbaa !53
+  %.0.i28 = load ptr, ptr %.0.in.i, align 8, !tbaa !48
   %68 = icmp ne ptr %.0.i28, null
   %69 = icmp ne ptr %.0.i28, %.038.i
   %70 = and i1 %68, %69
   %71 = getelementptr inbounds nuw i8, ptr %.0.i28, i64 24
-  br i1 %70, label %67, label %72, !llvm.loop !55
+  br i1 %70, label %67, label %72
 
 72:                                               ; preds = %67
   br i1 %68, label %73, label %onas_bucket_remove.exit
@@ -627,7 +627,7 @@ onas_ht_get.exit:                                 ; preds = %.lr.ph.i27
 
 79:                                               ; preds = %76
   %80 = getelementptr inbounds nuw i8, ptr %78, i64 32
-  store ptr null, ptr %80, align 8, !tbaa !52
+  store ptr null, ptr %80, align 8, !tbaa !47
   br label %81
 
 81:                                               ; preds = %79, %76
@@ -636,14 +636,14 @@ onas_ht_get.exit:                                 ; preds = %.lr.ph.i27
 
 82:                                               ; preds = %73
   %83 = getelementptr inbounds nuw i8, ptr %34, i64 16
-  %84 = load ptr, ptr %83, align 8, !tbaa !51
+  %84 = load ptr, ptr %83, align 8, !tbaa !46
   %85 = icmp eq ptr %84, %.038.i
   %86 = getelementptr inbounds nuw i8, ptr %.038.i, i64 32
-  %87 = load ptr, ptr %86, align 8, !tbaa !52
+  %87 = load ptr, ptr %86, align 8, !tbaa !47
   br i1 %85, label %88, label %92
 
 88:                                               ; preds = %82
-  store ptr %87, ptr %83, align 8, !tbaa !51
+  store ptr %87, ptr %83, align 8, !tbaa !46
   %.not39.i = icmp eq ptr %87, null
   br i1 %.not39.i, label %91, label %89
 
@@ -653,7 +653,7 @@ onas_ht_get.exit:                                 ; preds = %.lr.ph.i27
   br label %91
 
 91:                                               ; preds = %89, %88
-  store ptr null, ptr %86, align 8, !tbaa !52
+  store ptr null, ptr %86, align 8, !tbaa !47
   br label %100
 
 92:                                               ; preds = %82
@@ -666,7 +666,7 @@ onas_ht_get.exit:                                 ; preds = %.lr.ph.i27
   %96 = getelementptr inbounds nuw i8, ptr %87, i64 24
   store ptr %95, ptr %96, align 8, !tbaa !21
   %97 = getelementptr inbounds nuw i8, ptr %95, i64 32
-  store ptr %87, ptr %97, align 8, !tbaa !52
+  store ptr %87, ptr %97, align 8, !tbaa !47
   br label %98
 
 98:                                               ; preds = %93, %92
@@ -686,7 +686,7 @@ onas_bucket_remove.exit:                          ; preds = %72, %100
   br i1 %.not25, label %onas_ht_get.exit.thread, label %103
 
 103:                                              ; preds = %onas_bucket_remove.exit
-  store ptr %.038.i, ptr %3, align 8, !tbaa !53
+  store ptr %.038.i, ptr %3, align 8, !tbaa !48
   br label %onas_ht_get.exit.thread
 
 onas_ht_get.exit.thread:                          ; preds = %64, %60, %57, %onas_hash.exit.i, %103, %onas_bucket_remove.exit, %onas_hash.exit, %4
@@ -708,7 +708,7 @@ onas_free_listnode.exit:                          ; preds = %1, %onas_free_listn
   tail call void @free(ptr noundef %4) #20
   tail call void @free(ptr noundef nonnull %.09) #20
   %.not8 = icmp eq ptr %3, null
-  br i1 %.not8, label %.loopexit, label %onas_free_listnode.exit, !llvm.loop !33
+  br i1 %.not8, label %.loopexit, label %onas_free_listnode.exit
 
 .loopexit:                                        ; preds = %onas_free_listnode.exit, %1
   ret void
@@ -740,14 +740,14 @@ define dso_local range(i32 0, 3) i32 @onas_add_listnode(ptr noundef %0, ptr noun
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %7 = load ptr, ptr %6, align 8, !tbaa !56
+  %7 = load ptr, ptr %6, align 8, !tbaa !49
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %1, ptr %8, align 8, !tbaa !30
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  store ptr %7, ptr %9, align 8, !tbaa !56
+  store ptr %7, ptr %9, align 8, !tbaa !49
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr %0, ptr %10, align 8, !tbaa !30
-  store ptr %1, ptr %6, align 8, !tbaa !56
+  store ptr %1, ptr %6, align 8, !tbaa !49
   br label %11
 
 11:                                               ; preds = %2, %5
@@ -785,19 +785,19 @@ define dso_local range(i32 0, 35) i32 @onas_rm_listnode(ptr noundef readonly cap
 15:                                               ; preds = %10
   %16 = tail call i32 @strncmp(ptr noundef nonnull %11, ptr noundef nonnull %1, i64 noundef %6) #21
   %.not24 = icmp eq i32 %16, 0
-  br i1 %.not24, label %17, label %7, !llvm.loop !57
+  br i1 %.not24, label %17, label %7
 
 17:                                               ; preds = %15
   %18 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %19 = load ptr, ptr %18, align 8, !tbaa !30
   %.not25 = icmp eq ptr %19, null
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %9, i64 16
-  %.pre = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !56
+  %.pre = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !49
   br i1 %.not25, label %._crit_edge, label %20
 
 20:                                               ; preds = %17
   %21 = getelementptr inbounds nuw i8, ptr %19, i64 16
-  store ptr %.pre, ptr %21, align 8, !tbaa !56
+  store ptr %.pre, ptr %21, align 8, !tbaa !49
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %17, %20
@@ -851,20 +851,20 @@ define dso_local range(i32 0, 4) i32 @onas_ht_rm_child(ptr noundef readonly capt
   %.015.i = phi i32 [ %19, %18 ], [ %13, %11 ]
   %15 = zext nneg i32 %.015.i to i64
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 %15
-  %17 = load i8, ptr %16, align 1, !tbaa !44
+  %17 = load i8, ptr %16, align 1, !tbaa !40
   %.not.i = icmp eq i8 %17, 47
   br i1 %.not.i, label %onas_get_dirname_idx.exit, label %18
 
 18:                                               ; preds = %.lr.ph.i
   %19 = add nsw i32 %.015.i, -1
   %20 = icmp sgt i32 %.015.i, 0
-  br i1 %20, label %.lr.ph.i, label %onas_get_dirname_idx.exit, !llvm.loop !58
+  br i1 %20, label %.lr.ph.i, label %onas_get_dirname_idx.exit
 
 onas_get_dirname_idx.exit:                        ; preds = %.lr.ph.i, %18, %11
   %.0.lcssa.i = phi i32 [ %13, %11 ], [ %.015.i, %.lr.ph.i ], [ -1, %18 ]
   %21 = sext i32 %.0.lcssa.i to i64
   %22 = getelementptr inbounds i8, ptr %3, i64 %21
-  %23 = load i8, ptr %22, align 1, !tbaa !44
+  %23 = load i8, ptr %22, align 1, !tbaa !40
   %24 = icmp eq i8 %23, 47
   %25 = zext i1 %24 to i32
   %.1.i = add nsw i32 %.0.lcssa.i, %25
@@ -882,7 +882,7 @@ onas_get_dirname_idx.exit:                        ; preds = %.lr.ph.i, %18, %11
   %.011.i.i = phi i32 [ %46, %.lr.ph.i.i ], [ 0, %27 ]
   %.0810.i.i = phi i32 [ %45, %.lr.ph.i.i ], [ 1, %27 ]
   %32 = getelementptr inbounds nuw i8, ptr %1, i64 %31
-  %33 = load i8, ptr %32, align 1, !tbaa !44
+  %33 = load i8, ptr %32, align 1, !tbaa !40
   %34 = sext i8 %33 to i32
   %35 = add i32 %.0810.i.i, %34
   %36 = xor i32 %35, -1
@@ -898,7 +898,7 @@ onas_get_dirname_idx.exit:                        ; preds = %.lr.ph.i, %18, %11
   %46 = add i32 %.011.i.i, 1
   %47 = zext i32 %46 to i64
   %48 = icmp ugt i64 %2, %47
-  br i1 %48, label %.lr.ph.i.i, label %onas_hash.exit.i, !llvm.loop !45
+  br i1 %48, label %.lr.ph.i.i, label %onas_hash.exit.i
 
 onas_hash.exit.i:                                 ; preds = %.lr.ph.i.i
   %49 = add i32 %30, -1
@@ -916,22 +916,22 @@ onas_hash.exit.i:                                 ; preds = %.lr.ph.i.i
 
 57:                                               ; preds = %54
   %58 = getelementptr inbounds nuw i8, ptr %53, i64 8
-  %.036.i = load ptr, ptr %58, align 8, !tbaa !53
+  %.036.i = load ptr, ptr %58, align 8, !tbaa !48
   %.not3237.i = icmp eq ptr %.036.i, null
   br i1 %.not3237.i, label %onas_ht_get.exit.thread, label %.lr.ph.i37
 
 .lr.ph.i37:                                       ; preds = %57, %61
   %.038.i = phi ptr [ %.0.i, %61 ], [ %.036.i, %57 ]
-  %59 = load ptr, ptr %.038.i, align 8, !tbaa !42
+  %59 = load ptr, ptr %.038.i, align 8, !tbaa !38
   %60 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %59, ptr noundef nonnull readonly dereferenceable(1) %1) #21
   %.not33.i = icmp eq i32 %60, 0
   br i1 %.not33.i, label %onas_ht_get.exit, label %61
 
 61:                                               ; preds = %.lr.ph.i37
   %62 = getelementptr inbounds nuw i8, ptr %.038.i, i64 24
-  %.0.i = load ptr, ptr %62, align 8, !tbaa !53
+  %.0.i = load ptr, ptr %62, align 8, !tbaa !48
   %.not32.i = icmp eq ptr %.0.i, null
-  br i1 %.not32.i, label %onas_ht_get.exit.thread, label %.lr.ph.i37, !llvm.loop !54
+  br i1 %.not32.i, label %onas_ht_get.exit.thread, label %.lr.ph.i37
 
 onas_ht_get.exit:                                 ; preds = %.lr.ph.i37
   %63 = getelementptr inbounds nuw i8, ptr %.038.i, i64 16
@@ -966,19 +966,19 @@ onas_ht_get.exit:                                 ; preds = %.lr.ph.i37
 79:                                               ; preds = %74
   %80 = tail call i32 @strncmp(ptr noundef nonnull %75, ptr noundef nonnull readonly %68, i64 noundef %70) #21
   %.not24.i = icmp eq i32 %80, 0
-  br i1 %.not24.i, label %81, label %71, !llvm.loop !57
+  br i1 %.not24.i, label %81, label %71
 
 81:                                               ; preds = %79
   %82 = getelementptr inbounds nuw i8, ptr %73, i64 8
   %83 = load ptr, ptr %82, align 8, !tbaa !30
   %.not25.i = icmp eq ptr %83, null
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %73, i64 16
-  %.pre.i = load ptr, ptr %.phi.trans.insert.i, align 8, !tbaa !56
+  %.pre.i = load ptr, ptr %.phi.trans.insert.i, align 8, !tbaa !49
   br i1 %.not25.i, label %._crit_edge.i, label %84
 
 84:                                               ; preds = %81
   %85 = getelementptr inbounds nuw i8, ptr %83, i64 16
-  store ptr %.pre.i, ptr %85, align 8, !tbaa !56
+  store ptr %.pre.i, ptr %85, align 8, !tbaa !49
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %84, %81
@@ -1024,20 +1024,20 @@ define dso_local range(i32 0, 21) i32 @onas_ht_add_child(ptr noundef readonly ca
   %.015.i = phi i32 [ %19, %18 ], [ %13, %11 ]
   %15 = zext nneg i32 %.015.i to i64
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 %15
-  %17 = load i8, ptr %16, align 1, !tbaa !44
+  %17 = load i8, ptr %16, align 1, !tbaa !40
   %.not.i = icmp eq i8 %17, 47
   br i1 %.not.i, label %onas_get_dirname_idx.exit, label %18
 
 18:                                               ; preds = %.lr.ph.i
   %19 = add nsw i32 %.015.i, -1
   %20 = icmp sgt i32 %.015.i, 0
-  br i1 %20, label %.lr.ph.i, label %onas_get_dirname_idx.exit, !llvm.loop !58
+  br i1 %20, label %.lr.ph.i, label %onas_get_dirname_idx.exit
 
 onas_get_dirname_idx.exit:                        ; preds = %.lr.ph.i, %18, %11
   %.0.lcssa.i = phi i32 [ %13, %11 ], [ %.015.i, %.lr.ph.i ], [ -1, %18 ]
   %21 = sext i32 %.0.lcssa.i to i64
   %22 = getelementptr inbounds i8, ptr %3, i64 %21
-  %23 = load i8, ptr %22, align 1, !tbaa !44
+  %23 = load i8, ptr %22, align 1, !tbaa !40
   %24 = icmp eq i8 %23, 47
   %25 = zext i1 %24 to i32
   %.1.i = add nsw i32 %.0.lcssa.i, %25
@@ -1055,7 +1055,7 @@ onas_get_dirname_idx.exit:                        ; preds = %.lr.ph.i, %18, %11
   %.011.i.i = phi i32 [ %46, %.lr.ph.i.i ], [ 0, %27 ]
   %.0810.i.i = phi i32 [ %45, %.lr.ph.i.i ], [ 1, %27 ]
   %32 = getelementptr inbounds nuw i8, ptr %1, i64 %31
-  %33 = load i8, ptr %32, align 1, !tbaa !44
+  %33 = load i8, ptr %32, align 1, !tbaa !40
   %34 = sext i8 %33 to i32
   %35 = add i32 %.0810.i.i, %34
   %36 = xor i32 %35, -1
@@ -1071,7 +1071,7 @@ onas_get_dirname_idx.exit:                        ; preds = %.lr.ph.i, %18, %11
   %46 = add i32 %.011.i.i, 1
   %47 = zext i32 %46 to i64
   %48 = icmp ugt i64 %2, %47
-  br i1 %48, label %.lr.ph.i.i, label %onas_hash.exit.i, !llvm.loop !45
+  br i1 %48, label %.lr.ph.i.i, label %onas_hash.exit.i
 
 onas_hash.exit.i:                                 ; preds = %.lr.ph.i.i
   %49 = add i32 %30, -1
@@ -1089,22 +1089,22 @@ onas_hash.exit.i:                                 ; preds = %.lr.ph.i.i
 
 57:                                               ; preds = %54
   %58 = getelementptr inbounds nuw i8, ptr %53, i64 8
-  %.036.i = load ptr, ptr %58, align 8, !tbaa !53
+  %.036.i = load ptr, ptr %58, align 8, !tbaa !48
   %.not3237.i = icmp eq ptr %.036.i, null
   br i1 %.not3237.i, label %onas_add_hashnode_child.exit, label %.lr.ph.i36
 
 .lr.ph.i36:                                       ; preds = %57, %61
   %.038.i = phi ptr [ %.0.i, %61 ], [ %.036.i, %57 ]
-  %59 = load ptr, ptr %.038.i, align 8, !tbaa !42
+  %59 = load ptr, ptr %.038.i, align 8, !tbaa !38
   %60 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %59, ptr noundef nonnull readonly dereferenceable(1) %1) #21
   %.not33.i = icmp eq i32 %60, 0
   br i1 %.not33.i, label %onas_ht_get.exit, label %61
 
 61:                                               ; preds = %.lr.ph.i36
   %62 = getelementptr inbounds nuw i8, ptr %.038.i, i64 24
-  %.0.i = load ptr, ptr %62, align 8, !tbaa !53
+  %.0.i = load ptr, ptr %62, align 8, !tbaa !48
   %.not32.i = icmp eq ptr %.0.i, null
-  br i1 %.not32.i, label %onas_add_hashnode_child.exit, label %.lr.ph.i36, !llvm.loop !54
+  br i1 %.not32.i, label %onas_add_hashnode_child.exit, label %.lr.ph.i36
 
 onas_ht_get.exit:                                 ; preds = %.lr.ph.i36
   %63 = getelementptr inbounds nuw i8, ptr %.038.i, i64 16
@@ -1124,20 +1124,20 @@ onas_ht_get.exit:                                 ; preds = %.lr.ph.i36
   %70 = tail call noalias ptr @strndup(ptr noundef nonnull readonly %66, i64 noundef %69) #20
   store ptr %70, ptr %calloc.i.i, align 8, !tbaa !32
   %71 = getelementptr inbounds nuw i8, ptr %64, i64 40
-  %72 = load ptr, ptr %71, align 8, !tbaa !59
+  %72 = load ptr, ptr %71, align 8, !tbaa !50
   %.not13.i = icmp eq ptr %72, null
   br i1 %.not13.i, label %onas_add_hashnode_child.exit, label %73
 
 73:                                               ; preds = %68
   %74 = getelementptr inbounds nuw i8, ptr %72, i64 16
-  %75 = load ptr, ptr %74, align 8, !tbaa !56
+  %75 = load ptr, ptr %74, align 8, !tbaa !49
   %76 = getelementptr inbounds nuw i8, ptr %75, i64 8
   store ptr %calloc.i.i, ptr %76, align 8, !tbaa !30
   %77 = getelementptr inbounds nuw i8, ptr %calloc.i.i, i64 16
-  store ptr %75, ptr %77, align 8, !tbaa !56
+  store ptr %75, ptr %77, align 8, !tbaa !49
   %78 = getelementptr inbounds nuw i8, ptr %calloc.i.i, i64 8
   store ptr %72, ptr %78, align 8, !tbaa !30
-  store ptr %calloc.i.i, ptr %74, align 8, !tbaa !56
+  store ptr %calloc.i.i, ptr %74, align 8, !tbaa !49
   br label %onas_add_hashnode_child.exit
 
 onas_add_hashnode_child.exit:                     ; preds = %61, %57, %onas_hash.exit.i, %54, %onas_get_dirname_idx.exit, %onas_ht_get.exit, %67, %68, %73, %5
@@ -1168,14 +1168,14 @@ define dso_local range(i32 -1, 21) i32 @onas_ht_add_hierarchy(ptr noundef captur
   %.020.i = phi i32 [ %17, %16 ], [ %11, %9 ]
   %13 = zext nneg i32 %.020.i to i64
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 %13
-  %15 = load i8, ptr %14, align 1, !tbaa !44
+  %15 = load i8, ptr %14, align 1, !tbaa !40
   %.not.i = icmp eq i8 %15, 47
   br i1 %.not.i, label %.critedge.i, label %16
 
 16:                                               ; preds = %.lr.ph.i
   %17 = add nsw i32 %.020.i, -1
   %18 = icmp sgt i32 %.020.i, 0
-  br i1 %18, label %.lr.ph.i, label %.critedge.i, !llvm.loop !60
+  br i1 %18, label %.lr.ph.i, label %.critedge.i
 
 .critedge.i:                                      ; preds = %16, %.lr.ph.i, %9
   %.0.lcssa.i = phi i32 [ %11, %9 ], [ %.020.i, %.lr.ph.i ], [ -1, %16 ]
@@ -1199,9 +1199,9 @@ onas_get_parent.exit.thread:                      ; preds = %21, %6, %onas_get_p
   %.014.i101 = phi ptr [ %20, %onas_get_parent.exit ], [ null, %6 ], [ null, %21 ]
   tail call void @free(ptr noundef %.014.i101) #20
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #20
-  store ptr %1, ptr %3, align 16, !tbaa !39
+  store ptr %1, ptr %3, align 16, !tbaa !35
   %25 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store ptr null, ptr %25, align 8, !tbaa !39
+  store ptr null, ptr %25, align 8, !tbaa !35
   %26 = call ptr @fts_open(ptr noundef nonnull %3, i32 noundef 80, ptr noundef null) #20
   %.not65 = icmp eq ptr %26, null
   br i1 %.not65, label %.thread109, label %.preheader117
@@ -1218,7 +1218,7 @@ onas_get_parent.exit.thread:                      ; preds = %21, %6, %onas_get_p
 .lr.ph:                                           ; preds = %.preheader117, %119
   %29 = phi ptr [ %120, %119 ], [ %27, %.preheader117 ]
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 98
-  %31 = load i16, ptr %30, align 2, !tbaa !61
+  %31 = load i16, ptr %30, align 2, !tbaa !51
   %cond = icmp eq i16 %31, 1
   br i1 %cond, label %32, label %119
 
@@ -1241,7 +1241,7 @@ onas_free_hashnode.exit.i:                        ; preds = %33
 35:                                               ; preds = %33
   %calloc.i15.i = call noalias noundef dereferenceable_or_null(24) ptr @calloc(i64 1, i64 24)
   %36 = getelementptr inbounds nuw i8, ptr %calloc.i, i64 40
-  store ptr %calloc.i15.i, ptr %36, align 8, !tbaa !59
+  store ptr %calloc.i15.i, ptr %36, align 8, !tbaa !50
   %.not14.i = icmp eq ptr %calloc.i15.i, null
   br i1 %.not14.i, label %onas_free_listnode.exit.i.i18.i.preheader, label %45
 
@@ -1258,16 +1258,16 @@ onas_free_listnode.exit.i.i18.i:                  ; preds = %onas_free_listnode.
   call void @free(ptr noundef %40) #20
   call void @free(ptr noundef nonnull %.09.i.i19.i) #20
   %.not8.i.i20.i = icmp eq ptr %39, null
-  br i1 %.not8.i.i20.i, label %onas_free_hashnode.exit22.i, label %onas_free_listnode.exit.i.i18.i, !llvm.loop !33
+  br i1 %.not8.i.i20.i, label %onas_free_hashnode.exit22.i, label %onas_free_listnode.exit.i.i18.i
 
 onas_free_hashnode.exit22.i:                      ; preds = %onas_free_listnode.exit.i.i18.i
   store ptr null, ptr %37, align 8, !tbaa !27
   %41 = getelementptr inbounds nuw i8, ptr %calloc.i, i64 8
-  %42 = load ptr, ptr %41, align 8, !tbaa !35
+  %42 = load ptr, ptr %41, align 8, !tbaa !33
   call void @free(ptr noundef %42) #20
-  store ptr null, ptr %41, align 8, !tbaa !35
+  store ptr null, ptr %41, align 8, !tbaa !33
   %43 = getelementptr inbounds nuw i8, ptr %calloc.i, i64 24
-  %44 = load ptr, ptr %43, align 8, !tbaa !36
+  %44 = load ptr, ptr %43, align 8, !tbaa !34
   call void @free(ptr noundef %44) #20
   call void @free(ptr noundef nonnull %calloc.i) #20
   br label %.thread112
@@ -1276,17 +1276,17 @@ onas_free_hashnode.exit22.i:                      ; preds = %onas_free_listnode.
   %46 = getelementptr inbounds nuw i8, ptr %calloc.i.i, i64 8
   store ptr %calloc.i15.i, ptr %46, align 8, !tbaa !30
   %47 = getelementptr inbounds nuw i8, ptr %calloc.i15.i, i64 16
-  store ptr %calloc.i.i, ptr %47, align 8, !tbaa !56
+  store ptr %calloc.i.i, ptr %47, align 8, !tbaa !49
   %48 = getelementptr inbounds nuw i8, ptr %29, i64 64
-  %49 = load i16, ptr %48, align 8, !tbaa !66
+  %49 = load i16, ptr %48, align 8, !tbaa !56
   %50 = zext i16 %49 to i32
-  store i32 %50, ptr %calloc.i, align 8, !tbaa !67
+  store i32 %50, ptr %calloc.i, align 8, !tbaa !57
   %51 = getelementptr inbounds nuw i8, ptr %29, i64 48
-  %52 = load ptr, ptr %51, align 8, !tbaa !68
+  %52 = load ptr, ptr %51, align 8, !tbaa !58
   %53 = zext i16 %49 to i64
   %54 = call noalias ptr @strndup(ptr noundef %52, i64 noundef %53) #20
   %55 = getelementptr inbounds nuw i8, ptr %calloc.i, i64 8
-  store ptr %54, ptr %55, align 8, !tbaa !35
+  store ptr %54, ptr %55, align 8, !tbaa !33
   %56 = icmp eq ptr %54, null
   %57 = icmp ult i16 %49, 2
   %or.cond.i75 = or i1 %57, %56
@@ -1300,14 +1300,14 @@ onas_free_hashnode.exit22.i:                      ; preds = %onas_free_listnode.
   %.020.i82 = phi i32 [ %64, %63 ], [ %59, %58 ]
   %60 = zext nneg i32 %.020.i82 to i64
   %61 = getelementptr inbounds nuw i8, ptr %54, i64 %60
-  %62 = load i8, ptr %61, align 1, !tbaa !44
+  %62 = load i8, ptr %61, align 1, !tbaa !40
   %.not.i83 = icmp eq i8 %62, 47
   br i1 %.not.i83, label %.critedge.i76, label %63
 
 63:                                               ; preds = %.lr.ph.i81
   %64 = add nsw i32 %.020.i82, -1
   %65 = icmp sgt i32 %.020.i82, 0
-  br i1 %65, label %.lr.ph.i81, label %.critedge.i76, !llvm.loop !60
+  br i1 %65, label %.lr.ph.i81, label %.critedge.i76
 
 .critedge.i76:                                    ; preds = %63, %.lr.ph.i81
   %.0.lcssa.i77 = phi i32 [ -1, %63 ], [ %.020.i82, %.lr.ph.i81 ]
@@ -1324,21 +1324,21 @@ onas_free_hashnode.exit22.i:                      ; preds = %onas_free_listnode.
 
 70:                                               ; preds = %.critedge.i76
   %71 = getelementptr inbounds nuw i8, ptr %calloc.i, i64 24
-  store ptr %67, ptr %71, align 8, !tbaa !36
+  store ptr %67, ptr %71, align 8, !tbaa !34
   %72 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %67) #21
   %73 = trunc i64 %72 to i32
   br label %76
 
 74:                                               ; preds = %45, %68
   %75 = getelementptr inbounds nuw i8, ptr %calloc.i, i64 24
-  store ptr null, ptr %75, align 8, !tbaa !36
+  store ptr null, ptr %75, align 8, !tbaa !34
   br label %76
 
 76:                                               ; preds = %70, %74
   %.sink = phi i32 [ %73, %70 ], [ 0, %74 ]
   %77 = phi ptr [ %71, %70 ], [ %75, %74 ]
   %78 = getelementptr inbounds nuw i8, ptr %calloc.i, i64 16
-  store i32 %.sink, ptr %78, align 8, !tbaa !69
+  store i32 %.sink, ptr %78, align 8, !tbaa !59
   %79 = call ptr @fts_children(ptr noundef nonnull %26, i32 noundef 0) #20
   %.not69 = icmp eq ptr %79, null
   br i1 %.not69, label %.loopexit, label %.preheader
@@ -1346,7 +1346,7 @@ onas_free_hashnode.exit22.i:                      ; preds = %onas_free_listnode.
 .preheader:                                       ; preds = %76, %onas_add_hashnode_child.exit.thread
   %.054 = phi ptr [ %103, %onas_add_hashnode_child.exit.thread ], [ %79, %76 ]
   %80 = getelementptr inbounds nuw i8, ptr %.054, i64 98
-  %81 = load i16, ptr %80, align 2, !tbaa !61
+  %81 = load i16, ptr %80, align 2, !tbaa !51
   %82 = icmp eq i16 %81, 1
   br i1 %82, label %83, label %onas_add_hashnode_child.exit.thread
 
@@ -1360,20 +1360,20 @@ onas_free_hashnode.exit22.i:                      ; preds = %onas_free_listnode.
   %86 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %85) #21
   %87 = call noalias ptr @strndup(ptr noundef nonnull readonly %85, i64 noundef %86) #20
   store ptr %87, ptr %calloc.i.i87, align 8, !tbaa !32
-  %88 = load ptr, ptr %36, align 8, !tbaa !59
+  %88 = load ptr, ptr %36, align 8, !tbaa !50
   %.not13.i89 = icmp eq ptr %88, null
   br i1 %.not13.i89, label %onas_add_hashnode_child.exit.thread, label %89
 
 89:                                               ; preds = %84
   %90 = getelementptr inbounds nuw i8, ptr %88, i64 16
-  %91 = load ptr, ptr %90, align 8, !tbaa !56
+  %91 = load ptr, ptr %90, align 8, !tbaa !49
   %92 = getelementptr inbounds nuw i8, ptr %91, i64 8
   store ptr %calloc.i.i87, ptr %92, align 8, !tbaa !30
   %93 = getelementptr inbounds nuw i8, ptr %calloc.i.i87, i64 16
-  store ptr %91, ptr %93, align 8, !tbaa !56
+  store ptr %91, ptr %93, align 8, !tbaa !49
   %94 = getelementptr inbounds nuw i8, ptr %calloc.i.i87, i64 8
   store ptr %88, ptr %94, align 8, !tbaa !30
-  store ptr %calloc.i.i87, ptr %90, align 8, !tbaa !56
+  store ptr %calloc.i.i87, ptr %90, align 8, !tbaa !49
   br label %onas_add_hashnode_child.exit.thread
 
 onas_add_hashnode_child.exit:                     ; preds = %83
@@ -1391,27 +1391,27 @@ onas_free_listnode.exit.i.i:                      ; preds = %onas_add_hashnode_c
   call void @free(ptr noundef %99) #20
   call void @free(ptr noundef nonnull %.09.i.i) #20
   %.not8.i.i = icmp eq ptr %98, null
-  br i1 %.not8.i.i, label %onas_free_hashnode.exit, label %onas_free_listnode.exit.i.i, !llvm.loop !33
+  br i1 %.not8.i.i, label %onas_free_hashnode.exit, label %onas_free_listnode.exit.i.i
 
 onas_free_hashnode.exit:                          ; preds = %onas_free_listnode.exit.i.i, %onas_add_hashnode_child.exit
   store ptr null, ptr %95, align 8, !tbaa !27
-  %100 = load ptr, ptr %55, align 8, !tbaa !35
+  %100 = load ptr, ptr %55, align 8, !tbaa !33
   call void @free(ptr noundef %100) #20
-  store ptr null, ptr %55, align 8, !tbaa !35
-  %101 = load ptr, ptr %77, align 8, !tbaa !36
+  store ptr null, ptr %55, align 8, !tbaa !33
+  %101 = load ptr, ptr %77, align 8, !tbaa !34
   call void @free(ptr noundef %101) #20
   call void @free(ptr noundef nonnull %calloc.i) #20
   br label %.thread112
 
 onas_add_hashnode_child.exit.thread:              ; preds = %89, %84, %.preheader
   %102 = getelementptr inbounds nuw i8, ptr %.054, i64 16
-  %103 = load ptr, ptr %102, align 8, !tbaa !70
+  %103 = load ptr, ptr %102, align 8, !tbaa !60
   %.not70 = icmp eq ptr %103, null
-  br i1 %.not70, label %.loopexit, label %.preheader, !llvm.loop !71
+  br i1 %.not70, label %.loopexit, label %.preheader
 
 .loopexit:                                        ; preds = %onas_add_hashnode_child.exit.thread, %76
-  %104 = load ptr, ptr %55, align 8, !tbaa !35
-  %105 = load i32, ptr %calloc.i, align 8, !tbaa !67
+  %104 = load ptr, ptr %55, align 8, !tbaa !33
+  %105 = load i32, ptr %calloc.i, align 8, !tbaa !57
   %106 = call noalias dereferenceable_or_null(40) ptr @malloc(i64 noundef 40) #18
   %.not.i91 = icmp eq ptr %106, null
   br i1 %.not.i91, label %107, label %115
@@ -1431,29 +1431,29 @@ onas_free_listnode.exit.i.i94:                    ; preds = %107, %onas_free_lis
   call void @free(ptr noundef %112) #20
   call void @free(ptr noundef nonnull %.09.i.i95) #20
   %.not8.i.i96 = icmp eq ptr %111, null
-  br i1 %.not8.i.i96, label %onas_free_hashnode.exit98.loopexit, label %onas_free_listnode.exit.i.i94, !llvm.loop !33
+  br i1 %.not8.i.i96, label %onas_free_hashnode.exit98.loopexit, label %onas_free_listnode.exit.i.i94
 
 onas_free_hashnode.exit98.loopexit:               ; preds = %onas_free_listnode.exit.i.i94
-  %.pre = load ptr, ptr %55, align 8, !tbaa !35
+  %.pre = load ptr, ptr %55, align 8, !tbaa !33
   br label %onas_free_hashnode.exit98
 
 onas_free_hashnode.exit98:                        ; preds = %onas_free_hashnode.exit98.loopexit, %107
   %113 = phi ptr [ %.pre, %onas_free_hashnode.exit98.loopexit ], [ %104, %107 ]
   store ptr null, ptr %108, align 8, !tbaa !27
   call void @free(ptr noundef %113) #20
-  store ptr null, ptr %55, align 8, !tbaa !35
-  %114 = load ptr, ptr %77, align 8, !tbaa !36
+  store ptr null, ptr %55, align 8, !tbaa !33
+  %114 = load ptr, ptr %77, align 8, !tbaa !34
   call void @free(ptr noundef %114) #20
   call void @free(ptr noundef nonnull %calloc.i) #20
   br label %.thread112
 
 115:                                              ; preds = %.loopexit
   %116 = sext i32 %105 to i64
-  store ptr %104, ptr %106, align 8, !tbaa !39
+  store ptr %104, ptr %106, align 8, !tbaa !35
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %106, i64 8
-  store i64 %116, ptr %.sroa.2.0..sroa_idx.i, align 8, !tbaa !40
+  store i64 %116, ptr %.sroa.2.0..sroa_idx.i, align 8, !tbaa !36
   %.sroa.3.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %106, i64 16
-  store ptr %calloc.i, ptr %.sroa.3.0..sroa_idx.i, align 8, !tbaa !41
+  store ptr %calloc.i, ptr %.sroa.3.0..sroa_idx.i, align 8, !tbaa !37
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %106, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.4.0..sroa_idx.i, i8 0, i64 16, i1 false)
   %117 = call i32 @onas_ht_insert(ptr noundef nonnull %0, ptr noundef nonnull %106)
@@ -1507,7 +1507,7 @@ define dso_local noundef range(i32 0, 21) i32 @onas_ht_rm_hierarchy(ptr noundef 
   %.011.i.i = phi i32 [ %27, %.lr.ph.i.i ], [ 0, %8 ]
   %.0810.i.i = phi i32 [ %26, %.lr.ph.i.i ], [ 1, %8 ]
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 %12
-  %14 = load i8, ptr %13, align 1, !tbaa !44
+  %14 = load i8, ptr %13, align 1, !tbaa !40
   %15 = sext i8 %14 to i32
   %16 = add i32 %.0810.i.i, %15
   %17 = xor i32 %16, -1
@@ -1523,7 +1523,7 @@ define dso_local noundef range(i32 0, 21) i32 @onas_ht_rm_hierarchy(ptr noundef 
   %27 = add i32 %.011.i.i, 1
   %28 = zext i32 %27 to i64
   %29 = icmp ugt i64 %2, %28
-  br i1 %29, label %.lr.ph.i.i, label %onas_hash.exit.i, !llvm.loop !45
+  br i1 %29, label %.lr.ph.i.i, label %onas_hash.exit.i
 
 onas_hash.exit.i:                                 ; preds = %.lr.ph.i.i
   %30 = add i32 %11, -1
@@ -1541,22 +1541,22 @@ onas_hash.exit.i:                                 ; preds = %.lr.ph.i.i
 
 38:                                               ; preds = %35
   %39 = getelementptr inbounds nuw i8, ptr %34, i64 8
-  %.036.i = load ptr, ptr %39, align 8, !tbaa !53
+  %.036.i = load ptr, ptr %39, align 8, !tbaa !48
   %.not3237.i = icmp eq ptr %.036.i, null
   br i1 %.not3237.i, label %.critedge, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %38, %42
   %.038.i = phi ptr [ %.0.i, %42 ], [ %.036.i, %38 ]
-  %40 = load ptr, ptr %.038.i, align 8, !tbaa !42
+  %40 = load ptr, ptr %.038.i, align 8, !tbaa !38
   %41 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %40, ptr noundef nonnull readonly dereferenceable(1) %1) #21
   %.not33.i = icmp eq i32 %41, 0
   br i1 %.not33.i, label %onas_ht_get.exit, label %42
 
 42:                                               ; preds = %.lr.ph.i
   %43 = getelementptr inbounds nuw i8, ptr %.038.i, i64 24
-  %.0.i = load ptr, ptr %43, align 8, !tbaa !53
+  %.0.i = load ptr, ptr %43, align 8, !tbaa !48
   %.not32.i = icmp eq ptr %.0.i, null
-  br i1 %.not32.i, label %.critedge, label %.lr.ph.i, !llvm.loop !54
+  br i1 %.not32.i, label %.critedge, label %.lr.ph.i
 
 onas_ht_get.exit:                                 ; preds = %.lr.ph.i
   %44 = getelementptr inbounds nuw i8, ptr %.038.i, i64 16
@@ -1580,14 +1580,14 @@ onas_ht_get.exit:                                 ; preds = %.lr.ph.i
   %.020.i = phi i32 [ %59, %58 ], [ %53, %51 ]
   %55 = zext nneg i32 %.020.i to i64
   %56 = getelementptr inbounds nuw i8, ptr %1, i64 %55
-  %57 = load i8, ptr %56, align 1, !tbaa !44
+  %57 = load i8, ptr %56, align 1, !tbaa !40
   %.not.i = icmp eq i8 %57, 47
   br i1 %.not.i, label %.critedge.i59, label %58
 
 58:                                               ; preds = %.lr.ph.i60
   %59 = add nsw i32 %.020.i, -1
   %60 = icmp sgt i32 %.020.i, 0
-  br i1 %60, label %.lr.ph.i60, label %.critedge.i59, !llvm.loop !60
+  br i1 %60, label %.lr.ph.i60, label %.critedge.i59
 
 .critedge.i59:                                    ; preds = %58, %.lr.ph.i60, %51
   %.0.lcssa.i = phi i32 [ %53, %51 ], [ %.020.i, %.lr.ph.i60 ], [ -1, %58 ]
@@ -1613,7 +1613,7 @@ onas_get_parent.exit:                             ; preds = %.critedge.i59
   %68 = getelementptr inbounds nuw i8, ptr %45, i64 40
   %69 = getelementptr inbounds nuw i8, ptr %47, i64 8
   %70 = load ptr, ptr %69, align 8, !tbaa !30
-  %71 = load ptr, ptr %68, align 8, !tbaa !59
+  %71 = load ptr, ptr %68, align 8, !tbaa !50
   %.not5770 = icmp eq ptr %70, %71
   br i1 %.not5770, label %._crit_edge, label %.lr.ph
 
@@ -1633,10 +1633,10 @@ onas_get_parent.exit:                             ; preds = %.critedge.i59
   br i1 %.not58, label %.critedge, label %81
 
 81:                                               ; preds = %75
-  %82 = load ptr, ptr %73, align 8, !tbaa !35
+  %82 = load ptr, ptr %73, align 8, !tbaa !33
   %83 = getelementptr i8, ptr %82, i64 %2
   %84 = getelementptr i8, ptr %83, i64 -1
-  %85 = load i8, ptr %84, align 1, !tbaa !44
+  %85 = load i8, ptr %84, align 1, !tbaa !40
   %86 = icmp eq i8 %85, 47
   %.str.2..str.3 = select i1 %86, ptr @.str.2, ptr @.str.3
   %87 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %80, i64 noundef %79, ptr noundef nonnull %.str.2..str.3, ptr noundef nonnull %82, ptr noundef nonnull %77) #20
@@ -1644,9 +1644,9 @@ onas_get_parent.exit:                             ; preds = %.critedge.i59
   tail call void @free(ptr noundef nonnull %80) #20
   %89 = getelementptr inbounds nuw i8, ptr %76, i64 8
   %90 = load ptr, ptr %89, align 8, !tbaa !30
-  %91 = load ptr, ptr %68, align 8, !tbaa !59
+  %91 = load ptr, ptr %68, align 8, !tbaa !50
   %.not57 = icmp eq ptr %90, %91
-  br i1 %.not57, label %._crit_edge, label %75, !llvm.loop !72
+  br i1 %.not57, label %._crit_edge, label %75
 
 ._crit_edge:                                      ; preds = %81, %67
   %92 = tail call i32 @onas_ht_remove(ptr noundef nonnull %0, ptr noundef nonnull %1, i64 noundef %2, ptr noundef null)
@@ -1737,43 +1737,31 @@ attributes #22 = { nounwind willreturn memory(none) }
 !30 = !{!31, !29, i64 8}
 !31 = !{!"onas_lnode", !23, i64 0, !29, i64 8, !29, i64 16}
 !32 = !{!31, !23, i64 0}
-!33 = distinct !{!33, !34}
-!34 = !{!"llvm.loop.estimated_trip_count"}
-!35 = !{!28, !23, i64 8}
-!36 = !{!28, !23, i64 24}
-!37 = distinct !{!37, !34}
-!38 = distinct !{!38, !34}
-!39 = !{!23, !23, i64 0}
-!40 = !{!24, !24, i64 0}
-!41 = !{!25, !25, i64 0}
-!42 = !{!22, !23, i64 0}
-!43 = !{!22, !24, i64 8}
-!44 = !{!7, !7, i64 0}
-!45 = distinct !{!45, !34}
-!46 = !{!12, !10, i64 28}
-!47 = !{!12, !14, i64 8}
-!48 = !{!12, !14, i64 16}
-!49 = !{!18, !14, i64 24}
-!50 = !{!18, !14, i64 32}
-!51 = !{!18, !19, i64 16}
-!52 = !{!22, !19, i64 32}
-!53 = !{!19, !19, i64 0}
-!54 = distinct !{!54, !34}
-!55 = distinct !{!55, !34}
-!56 = !{!31, !29, i64 16}
-!57 = distinct !{!57, !34}
-!58 = distinct !{!58, !34}
-!59 = !{!28, !29, i64 40}
-!60 = distinct !{!60, !34}
-!61 = !{!62, !64, i64 98}
-!62 = !{!"_ftsent", !63, i64 0, !63, i64 8, !63, i64 16, !24, i64 24, !6, i64 32, !23, i64 40, !23, i64 48, !10, i64 56, !10, i64 60, !64, i64 64, !64, i64 66, !24, i64 72, !24, i64 80, !24, i64 88, !64, i64 96, !64, i64 98, !64, i64 100, !64, i64 102, !65, i64 104, !7, i64 112}
-!63 = !{!"p1 _ZTS7_ftsent", !6, i64 0}
-!64 = !{!"short", !7, i64 0}
-!65 = !{!"p1 _ZTS4stat", !6, i64 0}
-!66 = !{!62, !64, i64 64}
-!67 = !{!28, !10, i64 0}
-!68 = !{!62, !23, i64 48}
-!69 = !{!28, !10, i64 16}
-!70 = !{!62, !63, i64 16}
-!71 = distinct !{!71, !34}
-!72 = distinct !{!72, !34}
+!33 = !{!28, !23, i64 8}
+!34 = !{!28, !23, i64 24}
+!35 = !{!23, !23, i64 0}
+!36 = !{!24, !24, i64 0}
+!37 = !{!25, !25, i64 0}
+!38 = !{!22, !23, i64 0}
+!39 = !{!22, !24, i64 8}
+!40 = !{!7, !7, i64 0}
+!41 = !{!12, !10, i64 28}
+!42 = !{!12, !14, i64 8}
+!43 = !{!12, !14, i64 16}
+!44 = !{!18, !14, i64 24}
+!45 = !{!18, !14, i64 32}
+!46 = !{!18, !19, i64 16}
+!47 = !{!22, !19, i64 32}
+!48 = !{!19, !19, i64 0}
+!49 = !{!31, !29, i64 16}
+!50 = !{!28, !29, i64 40}
+!51 = !{!52, !54, i64 98}
+!52 = !{!"_ftsent", !53, i64 0, !53, i64 8, !53, i64 16, !24, i64 24, !6, i64 32, !23, i64 40, !23, i64 48, !10, i64 56, !10, i64 60, !54, i64 64, !54, i64 66, !24, i64 72, !24, i64 80, !24, i64 88, !54, i64 96, !54, i64 98, !54, i64 100, !54, i64 102, !55, i64 104, !7, i64 112}
+!53 = !{!"p1 _ZTS7_ftsent", !6, i64 0}
+!54 = !{!"short", !7, i64 0}
+!55 = !{!"p1 _ZTS4stat", !6, i64 0}
+!56 = !{!52, !54, i64 64}
+!57 = !{!28, !10, i64 0}
+!58 = !{!52, !23, i64 48}
+!59 = !{!28, !10, i64 16}
+!60 = !{!52, !53, i64 16}

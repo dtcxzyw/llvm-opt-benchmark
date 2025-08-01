@@ -744,7 +744,7 @@ define internal fastcc ptr @ExecParallelSetupTupleQueues(ptr noundef readonly ca
   %31 = load i32, ptr %3, align 4
   %32 = sext i32 %31 to i64
   %33 = icmp slt i64 %indvars.iv.next, %32
-  br i1 %33, label %23, label %._crit_edge, !llvm.loop !9
+  br i1 %33, label %23, label %._crit_edge, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %23, %19
   br i1 %1, label %37, label %34
@@ -833,7 +833,7 @@ define internal fastcc noundef i64 @SerializeParamExecParams(ptr noundef readonl
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %4) #9
   %39 = call i32 @bms_next_member(ptr noundef nonnull %1, i32 noundef %14) #9
   %40 = icmp sgt i32 %39, -1
-  br i1 %40, label %13, label %EstimateParamExecSpace.exit, !llvm.loop !10
+  br i1 %40, label %13, label %EstimateParamExecSpace.exit, !llvm.loop !9
 
 EstimateParamExecSpace.exit:                      ; preds = %29, %3
   %.012.lcssa.i = phi i64 [ 4, %3 ], [ %38, %29 ]
@@ -900,7 +900,7 @@ EstimateParamExecSpace.exit:                      ; preds = %29, %3
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %7) #9
   %75 = call i32 @bms_next_member(ptr noundef nonnull %1, i32 noundef %50) #9
   %76 = icmp sgt i32 %75, -1
-  br i1 %76, label %49, label %._crit_edge, !llvm.loop !11
+  br i1 %76, label %49, label %._crit_edge, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %67, %EstimateParamExecSpace.exit
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #9
@@ -1136,7 +1136,7 @@ define dso_local void @ExecParallelCreateReaders(ptr noundef captures(none) %0) 
   store ptr %25, ptr %27, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %8
-  br i1 %exitcond.not, label %.loopexit, label %13, !llvm.loop !12
+  br i1 %exitcond.not, label %.loopexit, label %13, !llvm.loop !11
 
 .loopexit:                                        ; preds = %13, %1
   ret void
@@ -1203,7 +1203,7 @@ define dso_local void @ExecParallelReinitialize(ptr noundef %0, ptr noundef capt
   %36 = load i32, ptr %15, align 4
   %37 = sext i32 %36 to i64
   %38 = icmp slt i64 %indvars.iv.next.i, %37
-  br i1 %38, label %28, label %ExecParallelSetupTupleQueues.exit, !llvm.loop !9
+  br i1 %38, label %28, label %ExecParallelSetupTupleQueues.exit, !llvm.loop !8
 
 ExecParallelSetupTupleQueues.exit:                ; preds = %28, %18, %10
   %.0.i = phi ptr [ null, %10 ], [ %21, %18 ], [ %21, %28 ]
@@ -1415,7 +1415,7 @@ define dso_local void @ExecParallelFinish(ptr noundef captures(none) %0) local_u
   tail call void @shm_mq_detach(ptr noundef %15) #9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !13
+  br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !12
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
   %.pre = load ptr, ptr %10, align 8
@@ -1449,7 +1449,7 @@ define dso_local void @ExecParallelFinish(ptr noundef captures(none) %0) local_u
   tail call void @DestroyTupleQueueReader(ptr noundef %23) #9
   %indvars.iv.next38 = add nuw nsw i64 %indvars.iv37, 1
   %exitcond41.not = icmp eq i64 %indvars.iv.next38, %wide.trip.count40
-  br i1 %exitcond41.not, label %._crit_edge31.loopexit, label %.lr.ph30, !llvm.loop !14
+  br i1 %exitcond41.not, label %._crit_edge31.loopexit, label %.lr.ph30, !llvm.loop !13
 
 ._crit_edge31.loopexit:                           ; preds = %.lr.ph30
   %.pre47 = load ptr, ptr %18, align 8
@@ -1482,7 +1482,7 @@ define dso_local void @ExecParallelFinish(ptr noundef captures(none) %0) local_u
   tail call void @InstrAccumParallelQuery(ptr noundef %32, ptr noundef %34) #9
   %indvars.iv.next43 = add nuw nsw i64 %indvars.iv42, 1
   %exitcond46.not = icmp eq i64 %indvars.iv.next43, %wide.trip.count45
-  br i1 %exitcond46.not, label %._crit_edge35, label %30, !llvm.loop !15
+  br i1 %exitcond46.not, label %._crit_edge35, label %30, !llvm.loop !14
 
 ._crit_edge35:                                    ; preds = %30, %25
   store i8 1, ptr %6, align 8
@@ -1563,7 +1563,7 @@ define dso_local void @ExecParallelCleanup(ptr noundef %0) local_unnamed_addr #0
   %29 = load i32, ptr %9, align 8
   %30 = sext i32 %29 to i64
   %31 = icmp slt i64 %indvars.iv.next.i, %30
-  br i1 %31, label %27, label %ExecParallelRetrieveJitInstrumentation.exit, !llvm.loop !16
+  br i1 %31, label %27, label %ExecParallelRetrieveJitInstrumentation.exit, !llvm.loop !15
 
 ExecParallelRetrieveJitInstrumentation.exit:      ; preds = %27, %.._crit_edge_crit_edge.i
   %.pre-phi.i = phi i64 [ %.pre21.i, %.._crit_edge_crit_edge.i ], [ %30, %27 ]
@@ -1646,7 +1646,7 @@ define internal zeroext i1 @ExecParallelRetrieveInstrumentation(ptr noundef %0, 
 15:                                               ; preds = %11
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %11, !llvm.loop !17
+  br i1 %exitcond.not, label %._crit_edge, label %11, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %15, %2
   %16 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
@@ -1686,7 +1686,7 @@ define internal zeroext i1 @ExecParallelRetrieveInstrumentation(ptr noundef %0, 
   %34 = load i32, ptr %24, align 4
   %35 = sext i32 %34 to i64
   %36 = icmp slt i64 %indvars.iv.next50, %35
-  br i1 %36, label %31, label %._crit_edge45, !llvm.loop !18
+  br i1 %36, label %31, label %._crit_edge45, !llvm.loop !17
 
 ._crit_edge45:                                    ; preds = %31, %.._crit_edge45_crit_edge
   %.pre-phi = phi i64 [ %.pre, %.._crit_edge45_crit_edge ], [ %35, %31 ]
@@ -1846,7 +1846,7 @@ define dso_local void @ParallelQueryMain(ptr noundef %0, ptr noundef %1) local_u
   store ptr null, ptr %57, align 8
   %61 = add nuw nsw i32 %.08.i, 1
   %exitcond.not.i = icmp eq i32 %61, %.0.copyload5.i
-  br i1 %exitcond.not.i, label %RestoreParamExecParams.exit, label %52, !llvm.loop !19
+  br i1 %exitcond.not.i, label %RestoreParamExecParams.exit, label %52, !llvm.loop !18
 
 RestoreParamExecParams.exit:                      ; preds = %52, %45
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
@@ -2105,7 +2105,7 @@ define internal zeroext i1 @ExecParallelReportInstrumentation(ptr noundef %0, pt
 17:                                               ; preds = %13
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %13, !llvm.loop !20
+  br i1 %exitcond.not, label %._crit_edge, label %13, !llvm.loop !19
 
 ._crit_edge:                                      ; preds = %17, %2
   %18 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
@@ -2323,18 +2323,17 @@ attributes #11 = { cold nounwind }
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i8 0, i8 2}
 !5 = !{}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7, !8}
-!11 = distinct !{!11, !7, !8}
-!12 = distinct !{!12, !7, !8}
-!13 = distinct !{!13, !7, !8}
-!14 = distinct !{!14, !7, !8}
-!15 = distinct !{!15, !7, !8}
-!16 = distinct !{!16, !7, !8}
-!17 = distinct !{!17, !7, !8}
-!18 = distinct !{!18, !7, !8}
-!19 = distinct !{!19, !7, !8}
-!20 = distinct !{!20, !7, !8}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7}
+!12 = distinct !{!12, !7}
+!13 = distinct !{!13, !7}
+!14 = distinct !{!14, !7}
+!15 = distinct !{!15, !7}
+!16 = distinct !{!16, !7}
+!17 = distinct !{!17, !7}
+!18 = distinct !{!18, !7}
+!19 = distinct !{!19, !7}

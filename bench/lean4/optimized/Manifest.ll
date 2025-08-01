@@ -7040,7 +7040,7 @@ lean_alloc_ctor.exit:                             ; preds = %lean_dec.exit
   %69 = getelementptr inbounds nuw i8, ptr %65, i64 8
   store ptr %36, ptr %69, align 8, !tbaa !9
   %70 = tail call ptr @l_Lean_RBNode_insert___at_Lean_Json_mkObj___spec__1(ptr noundef %62, ptr noundef %64, ptr noundef nonnull %65) #6
-  br label %3, !llvm.loop !17
+  br label %3
 }
 
 declare ptr @l_Lean_Name_toString(ptr noundef, i8 noundef zeroext, ptr noundef) local_unnamed_addr #2
@@ -20531,13 +20531,13 @@ lean_inc.exit268:                                 ; preds = %79, %69
   %87 = ptrtoint ptr %83 to i64
   %88 = and i64 %87, 1
   %.not.i.i = icmp eq i64 %88, 0
-  br i1 %.not.i.i, label %lean_int_dec_lt.exit, label %89, !prof !19
+  br i1 %.not.i.i, label %lean_int_dec_lt.exit, label %89, !prof !17
 
 89:                                               ; preds = %81
   %90 = ptrtoint ptr %86 to i64
   %91 = and i64 %90, 1
   %.not7.i.i = icmp eq i64 %91, 0
-  br i1 %.not7.i.i, label %lean_int_dec_lt.exit.thread509, label %lean_int_dec_lt.exit.thread, !prof !19
+  br i1 %.not7.i.i, label %lean_int_dec_lt.exit.thread509, label %lean_int_dec_lt.exit.thread, !prof !17
 
 lean_int_dec_lt.exit:                             ; preds = %81
   %92 = tail call zeroext i1 @lean_int_big_lt(ptr noundef %83, ptr noundef %86) #6
@@ -20642,7 +20642,7 @@ lean_dec.exit305:                                 ; preds = %.thread, %128, %127
   %129 = ptrtoint ptr %85 to i64
   %130 = and i64 %129, 1
   %.not551 = icmp eq i64 %130, 0
-  br i1 %.not551, label %132, label %lean_nat_eq.exit.thread, !prof !19
+  br i1 %.not551, label %132, label %lean_nat_eq.exit.thread, !prof !17
 
 lean_nat_eq.exit.thread:                          ; preds = %lean_dec.exit305
   %131 = icmp eq ptr %85, inttoptr (i64 1 to ptr)
@@ -21169,13 +21169,13 @@ lean_inc.exit264:                                 ; preds = %326, %325, %323, %l
 
 lean_dec.exit291:                                 ; preds = %333, %332, %330, %lean_inc.exit264
   %334 = load ptr, ptr @l_Lake_Manifest_getVersion___closed__3, align 8, !tbaa !9
-  br i1 %.not533, label %lean_int_dec_lt.exit434, label %335, !prof !19
+  br i1 %.not533, label %lean_int_dec_lt.exit434, label %335, !prof !17
 
 335:                                              ; preds = %lean_dec.exit291
   %336 = ptrtoint ptr %334 to i64
   %337 = and i64 %336, 1
   %.not7.i.i430 = icmp eq i64 %337, 0
-  br i1 %.not7.i.i430, label %lean_int_dec_lt.exit434.thread511, label %lean_int_dec_lt.exit434.thread, !prof !19
+  br i1 %.not7.i.i430, label %lean_int_dec_lt.exit434.thread511, label %lean_int_dec_lt.exit434.thread, !prof !17
 
 lean_int_dec_lt.exit434:                          ; preds = %lean_dec.exit291
   %338 = tail call zeroext i1 @lean_int_big_lt(ptr noundef %308, ptr noundef %334) #6
@@ -21277,7 +21277,7 @@ lean_nat_abs.exit446:                             ; preds = %lean_int_neg.exit.i
 
 lean_dec.exit290:                                 ; preds = %.thread497, %374, %373, %371, %lean_nat_abs.exit446
   %.0.i440499 = phi ptr [ %.0.i440, %lean_nat_abs.exit446 ], [ %.0.i440, %371 ], [ %.0.i440, %373 ], [ %.0.i440, %374 ], [ %308, %.thread497 ]
-  br i1 %.not532, label %376, label %lean_nat_eq.exit388.thread, !prof !19
+  br i1 %.not532, label %376, label %lean_nat_eq.exit388.thread, !prof !17
 
 lean_nat_eq.exit388.thread:                       ; preds = %lean_dec.exit290
   %375 = icmp eq ptr %310, inttoptr (i64 1 to ptr)
@@ -36582,6 +36582,4 @@ attributes #7 = { noreturn nounwind }
 !14 = !{!7, !7, i64 0}
 !15 = !{!16, !16, i64 0}
 !16 = !{!"short", !7, i64 0}
-!17 = distinct !{!17, !18}
-!18 = !{!"llvm.loop.estimated_trip_count"}
-!19 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!17 = !{!"branch_weights", !"expected", i32 1, i32 2000}

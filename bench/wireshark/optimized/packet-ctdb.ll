@@ -1198,7 +1198,7 @@ define internal fastcc noundef i32 @dissect_ctdb_key(ptr noundef %0, ptr noundef
   %20 = add i32 %19, %.0910.i
   %21 = add nuw i32 %.011.i, 1
   %exitcond.not.i = icmp eq i32 %21, %3
-  br i1 %exitcond.not.i, label %ctdb_hash.exit.loopexit, label %.lr.ph.i, !llvm.loop !9
+  br i1 %exitcond.not.i, label %ctdb_hash.exit.loopexit, label %.lr.ph.i, !llvm.loop !8
 
 ctdb_hash.exit.loopexit:                          ; preds = %.lr.ph.i
   %22 = mul i32 %20, 1103515243
@@ -1525,7 +1525,7 @@ define internal noundef i32 @dissect_control_get_nodemap_reply(ptr noundef %0, p
   %26 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %24, ptr noundef %2, i32 noundef %25, i32 noundef 4, i32 noundef 0)
   %27 = add i32 %.03235, 24
   %.not33 = icmp eq i32 %18, 0
-  br i1 %.not33, label %.loopexit, label %.lr.ph, !llvm.loop !10
+  br i1 %.not33, label %.loopexit, label %.lr.ph, !llvm.loop !9
 
 .loopexit:                                        ; preds = %.lr.ph, %.preheader, %16
   %.0 = phi i32 [ %14, %16 ], [ %14, %.preheader ], [ %27, %.lr.ph ]
@@ -1586,8 +1586,7 @@ attributes #6 = { allocsize(1) }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7, !8}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}

@@ -1349,7 +1349,7 @@ define linkonce_odr void @_ZN13sentencepiece10filesystem17PosixWritableFileC2ESt
 
 15:                                               ; preds = %4, %13
   %16 = phi ptr [ @_ZSt4cout, %4 ], [ %12, %13 ]
-  store ptr %16, ptr %9, align 8, !tbaa !94
+  store ptr %16, ptr %9, align 8, !tbaa !93
   %17 = load ptr, ptr %16, align 8, !tbaa !18
   %18 = getelementptr i8, ptr %17, i64 -24
   %19 = load i64, ptr %18, align 8
@@ -1570,7 +1570,7 @@ declare void @_ZNSt14basic_ofstreamIcSt11char_traitsIcEEC1EPKcSt13_Ios_Openmode(
 define linkonce_odr void @_ZN13sentencepiece10filesystem17PosixWritableFileD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #10 comdat align 2 {
   store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN13sentencepiece10filesystem17PosixWritableFileE, i64 16), ptr %0, align 8, !tbaa !18
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %3 = load ptr, ptr %2, align 8, !tbaa !94
+  %3 = load ptr, ptr %2, align 8, !tbaa !93
   %.not = icmp eq ptr %3, @_ZSt4cout
   %4 = icmp eq ptr %3, null
   %or.cond = or i1 %.not, %4
@@ -1593,7 +1593,7 @@ define linkonce_odr void @_ZN13sentencepiece10filesystem17PosixWritableFileD2Ev(
 define linkonce_odr void @_ZN13sentencepiece10filesystem17PosixWritableFileD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #10 comdat align 2 {
   store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN13sentencepiece10filesystem17PosixWritableFileE, i64 16), ptr %0, align 8, !tbaa !18
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %3 = load ptr, ptr %2, align 8, !tbaa !94
+  %3 = load ptr, ptr %2, align 8, !tbaa !93
   %.not.i = icmp eq ptr %3, @_ZSt4cout
   %4 = icmp eq ptr %3, null
   %or.cond.i = or i1 %.not.i, %4
@@ -1623,9 +1623,9 @@ define linkonce_odr void @_ZNK13sentencepiece10filesystem17PosixWritableFile6sta
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef zeroext i1 @_ZN13sentencepiece10filesystem17PosixWritableFile5WriteESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 %1, ptr %2) unnamed_addr #3 comdat align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %5 = load ptr, ptr %4, align 8, !tbaa !94
+  %5 = load ptr, ptr %4, align 8, !tbaa !93
   %6 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef %2, i64 noundef %1)
-  %7 = load ptr, ptr %4, align 8, !tbaa !94
+  %7 = load ptr, ptr %4, align 8, !tbaa !93
   %8 = load ptr, ptr %7, align 8, !tbaa !18
   %9 = getelementptr i8, ptr %8, i64 -24
   %10 = load i64, ptr %9, align 8
@@ -1789,9 +1789,8 @@ attributes #23 = { noreturn nounwind }
 !88 = !{!49, !50, i64 16}
 !89 = !{!49, !50, i64 24}
 !90 = !{!"branch_weights", !"expected", i32 2000, i32 1}
-!91 = distinct !{!91, !92, !93}
+!91 = distinct !{!91, !92}
 !92 = !{!"llvm.loop.mustprogress"}
-!93 = !{!"llvm.loop.estimated_trip_count"}
-!94 = !{!95, !70, i64 16}
-!95 = !{!"_ZTSN13sentencepiece10filesystem17PosixWritableFileE", !96, i64 0, !23, i64 8, !70, i64 16}
-!96 = !{!"_ZTSN13sentencepiece10filesystem12WritableFileE"}
+!93 = !{!94, !70, i64 16}
+!94 = !{!"_ZTSN13sentencepiece10filesystem17PosixWritableFileE", !95, i64 0, !23, i64 8, !70, i64 16}
+!95 = !{!"_ZTSN13sentencepiece10filesystem12WritableFileE"}

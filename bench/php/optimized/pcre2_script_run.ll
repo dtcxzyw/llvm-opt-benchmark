@@ -275,7 +275,7 @@ define hidden range(i32 0, 2) i32 @_pcre2_script_run_8(ptr noundef readonly capt
 164:                                              ; preds = %.preheader204
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond = icmp eq i64 %indvars.iv.next, 6
-  br i1 %exitcond, label %.thread197, label %.preheader204, !llvm.loop !14
+  br i1 %exitcond, label %.thread197, label %.preheader204
 
 .preheader204:                                    ; preds = %139, %164
   %indvars.iv = phi i64 [ %indvars.iv.next, %164 ], [ 0, %139 ]
@@ -305,7 +305,7 @@ define hidden range(i32 0, 2) i32 @_pcre2_script_run_8(ptr noundef readonly capt
   store i32 %176, ptr %174, align 4, !tbaa !7
   %indvars.iv.next237 = add nuw nsw i64 %indvars.iv236, 1
   %exitcond239.not = icmp eq i64 %indvars.iv.next237, 6
-  br i1 %exitcond239.not, label %.critedge, label %.preheader, !llvm.loop !16
+  br i1 %exitcond239.not, label %.critedge, label %.preheader
 
 default.unreachable240:                           ; preds = %139
   unreachable
@@ -337,7 +337,7 @@ switch.lookup246:                                 ; preds = %switch.hole_check24
 .critedge:                                        ; preds = %.preheader, %switch.lookup246, %switch.lookup, %144, %.fold.split, %151, %160, %156, %152, %143, %142, %127, %127
   %.2150 = phi i32 [ %.0148216, %127 ], [ %.0148216, %127 ], [ 1, %142 ], [ 2, %143 ], [ 3, %152 ], [ 4, %156 ], [ 5, %160 ], [ 2, %.fold.split ], [ 3, %151 ], [ 4, %144 ], [ %switch.load, %switch.lookup ], [ %switch.load251, %switch.lookup246 ], [ 1, %.preheader ]
   %179 = getelementptr inbounds nuw i8, ptr %122, i64 1
-  %180 = load i8, ptr %179, align 1, !tbaa !17
+  %180 = load i8, ptr %179, align 1, !tbaa !14
   %181 = icmp eq i8 %180, 13
   br i1 %181, label %182, label %193
 
@@ -364,7 +364,7 @@ switch.lookup246:                                 ; preds = %switch.hole_check24
   %.0. = select i1 %.not186, i32 %.0213, i32 %187
   %191 = add nuw nsw i32 %..0132, 1
   %.not185 = icmp samesign ugt i32 %.0., %191
-  br i1 %.not185, label %.lr.ph, label %.loopexit, !llvm.loop !18
+  br i1 %.not185, label %.lr.ph, label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %184, %182
   %.0136 = phi i32 [ 1, %182 ], [ %185, %184 ], [ %.0., %.lr.ph ]
@@ -514,7 +514,7 @@ switch.lookup246:                                 ; preds = %switch.hole_check24
   %303 = getelementptr inbounds nuw %struct.ucd_record, ptr @_pcre2_ucd_records_8, i64 %302
   %304 = load i8, ptr %303, align 4, !tbaa !11
   %305 = icmp eq i8 %304, 98
-  br i1 %305, label %.thread197, label %120, !llvm.loop !19
+  br i1 %305, label %.thread197, label %120
 
 .thread197:                                       ; preds = %.loopexit, %290, %193, %152, %156, %160, %144, %164, %.preheader207.preheader, %103, %3
   %.0134 = phi i32 [ 1, %3 ], [ 1, %103 ], [ 0, %.preheader207.preheader ], [ 0, %164 ], [ 0, %.loopexit ], [ 0, %290 ], [ 1, %193 ], [ 0, %152 ], [ 0, %156 ], [ 0, %160 ], [ %.3142, %144 ]
@@ -557,9 +557,4 @@ attributes #4 = { nounwind }
 !11 = !{!12, !5, i64 0}
 !12 = !{!"", !5, i64 0, !5, i64 1, !5, i64 2, !5, i64 3, !8, i64 4, !10, i64 8, !10, i64 10}
 !13 = !{!12, !10, i64 8}
-!14 = distinct !{!14, !15}
-!15 = !{!"llvm.loop.estimated_trip_count"}
-!16 = distinct !{!16, !15}
-!17 = !{!12, !5, i64 1}
-!18 = distinct !{!18, !15}
-!19 = distinct !{!19, !15}
+!14 = !{!12, !5, i64 1}

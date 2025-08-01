@@ -233,7 +233,7 @@ define dso_local void @extractPageMap(ptr noundef %0, i64 noundef %1, i32 nounde
 extractPageInfo.exit:                             ; preds = %83, %75
   %88 = load i64, ptr %20, align 8
   %89 = icmp ult i64 %88, %3
-  br i1 %89, label %21, label %90, !llvm.loop !7
+  br i1 %89, label %21, label %90, !llvm.loop !6
 
 90:                                               ; preds = %extractPageInfo.exit
   %.not = icmp eq i64 %88, %3
@@ -329,7 +329,7 @@ define internal range(i32 -1, 8193) i32 @SimpleXLogPageRead(ptr noundef %0, i64 
   %38 = getelementptr inbounds %struct.TimeLineHistoryEntry, ptr %.pre50.pre, i64 %indvars.iv.next, i32 2
   %39 = load i64, ptr %38, align 8
   %40 = icmp ult i64 %39, %13
-  br i1 %40, label %.lr.ph53, label %.critedge, !llvm.loop !8
+  br i1 %40, label %.lr.ph53, label %.critedge, !llvm.loop !7
 
 .lr.ph53:                                         ; preds = %.lr.ph, %37
   %indvars.iv52 = phi i64 [ %indvars.iv.next, %37 ], [ %33, %.lr.ph ]
@@ -337,10 +337,10 @@ define internal range(i32 -1, 8193) i32 @SimpleXLogPageRead(ptr noundef %0, i64 
   %41 = trunc nsw i64 %indvars.iv.next to i32
   store i32 %41, ptr %29, align 8
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %..critedge.loopexit_crit_edge, label %37, !llvm.loop !8
+  br i1 %exitcond.not, label %..critedge.loopexit_crit_edge, label %37, !llvm.loop !7
 
 ..critedge.loopexit_crit_edge:                    ; preds = %.lr.ph53
-  br label %.critedge, !llvm.loop !8
+  br label %.critedge, !llvm.loop !7
 
 .critedge:                                        ; preds = %37, %.lr.ph, %..critedge.loopexit_crit_edge, %26
   %.pr = phi i32 [ %.promoted, %26 ], [ %41, %..critedge.loopexit_crit_edge ], [ %.promoted, %.lr.ph ], [ %41, %37 ]
@@ -359,7 +359,7 @@ define internal range(i32 -1, 8193) i32 @SimpleXLogPageRead(ptr noundef %0, i64 
   %48 = add nsw i32 %43, -1
   store i32 %48, ptr %29, align 8
   %49 = icmp sgt i32 %43, 1
-  br i1 %49, label %.lr.ph42, label %.critedge2, !llvm.loop !9
+  br i1 %49, label %.lr.ph42, label %.critedge2, !llvm.loop !8
 
 .critedge2:                                       ; preds = %.lr.ph42, %47, %.critedge
   %.lcssa = phi i32 [ %.pr, %.critedge ], [ 0, %47 ], [ %43, %.lr.ph42 ]
@@ -399,7 +399,7 @@ define internal range(i32 -1, 8193) i32 @SimpleXLogPageRead(ptr noundef %0, i64 
 72:                                               ; preds = %67
   %73 = load i32, ptr @__pg_log_level, align 4
   %74 = icmp ult i32 %73, 2
-  br i1 %74, label %75, label %76, !prof !10
+  br i1 %74, label %75, label %76, !prof !9
 
 75:                                               ; preds = %72
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 1, i32 noundef 0, ptr noundef nonnull @.str.10, ptr noundef nonnull @xlogfpath) #7
@@ -674,7 +674,7 @@ define dso_local void @findLastCheckpoint(ptr noundef %0, i64 noundef %1, i32 no
   call void @XLogBeginRead(ptr noundef nonnull %26, i64 noundef %69) #7
   %70 = call ptr @XLogReadRecord(ptr noundef nonnull %26, ptr noundef nonnull %8) #7
   %71 = icmp eq ptr %70, null
-  br i1 %71, label %._crit_edge, label %41, !llvm.loop !11
+  br i1 %71, label %._crit_edge, label %41
 
 72:                                               ; preds = %60
   %73 = getelementptr inbounds nuw i8, ptr %61, i64 72
@@ -739,11 +739,9 @@ attributes #8 = { cold noreturn nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = distinct !{!4, !5, !6}
+!4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{!"llvm.loop.estimated_trip_count"}
-!7 = distinct !{!7, !5, !6}
-!8 = distinct !{!8, !5, !6}
-!9 = distinct !{!9, !5, !6}
-!10 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!11 = distinct !{!11, !6}
+!6 = distinct !{!6, !5}
+!7 = distinct !{!7, !5}
+!8 = distinct !{!8, !5}
+!9 = !{!"branch_weights", !"expected", i32 1, i32 2000}

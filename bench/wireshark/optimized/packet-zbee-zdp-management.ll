@@ -133,7 +133,7 @@ define hidden void @dissect_zbee_zdp_req_mgmt_nwk_disc(ptr noundef %0, ptr nound
   %.1 = phi i8 [ %.045, %8 ], [ 0, %21 ], [ 0, %11 ]
   %23 = add nuw nsw i32 %.3, 1
   %24 = icmp ult i32 %.3, 26
-  br i1 %24, label %8, label %25, !llvm.loop !9
+  br i1 %24, label %8, label %25, !llvm.loop !8
 
 25:                                               ; preds = %22
   %26 = trunc nuw i8 %.1 to i1
@@ -383,7 +383,7 @@ define hidden void @dissect_zbee_zdp_req_mgmt_nwkupdate_enh(ptr noundef %0, ptr 
   %13 = add nuw i32 %.019, 1
   %14 = load i32, ptr %6, align 4
   %15 = icmp ult i32 %13, %14
-  br i1 %15, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !10
+  br i1 %15, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !9
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
   %.pre = load i32, ptr %4, align 4
@@ -526,7 +526,7 @@ define hidden void @dissect_zbee_zdp_req_security_get_configuration(ptr noundef 
   %12 = add nuw nsw i32 %.121, 1
   %lftr.wideiv = trunc i32 %12 to i8
   %exitcond.not = icmp eq i8 %9, %lftr.wideiv
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !11
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !10
 
 .loopexit:                                        ; preds = %.lr.ph, %5, %3
   %.0 = phi i32 [ 0, %3 ], [ 1, %5 ], [ %12, %.lr.ph ]
@@ -660,7 +660,7 @@ zdp_parse_nwk_desc.exit:                          ; preds = %30, %59
   %66 = add nuw i32 %.024, 1
   %67 = load i32, ptr %6, align 4
   %68 = icmp ult i32 %66, %67
-  br i1 %68, label %30, label %._crit_edge, !llvm.loop !12
+  br i1 %68, label %30, label %._crit_edge, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %zdp_parse_nwk_desc.exit, %27
   %69 = call ptr @zdp_status_name(i8 noundef zeroext %7)
@@ -811,7 +811,7 @@ zdp_parse_neighbor_table_entry.exit:              ; preds = %78, %84
   %88 = add nuw i32 %.020, 1
   %89 = load i32, ptr %7, align 4
   %90 = icmp ult i32 %88, %89
-  br i1 %90, label %30, label %.loopexit, !llvm.loop !13
+  br i1 %90, label %30, label %.loopexit, !llvm.loop !12
 
 .loopexit:                                        ; preds = %zdp_parse_neighbor_table_entry.exit, %23, %4
   %91 = call ptr @zdp_status_name(i8 noundef zeroext %8)
@@ -908,7 +908,7 @@ define hidden void @dissect_zbee_zdp_rsp_mgmt_rtg(ptr noundef %0, ptr noundef %1
   %60 = add nuw i32 %.024, 1
   %61 = load i32, ptr %5, align 4
   %62 = icmp ult i32 %60, %61
-  br i1 %62, label %.lr.ph, label %._crit_edge, !llvm.loop !14
+  br i1 %62, label %.lr.ph, label %._crit_edge, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %.lr.ph, %28
   %63 = call ptr @zdp_status_name(i8 noundef zeroext %6)
@@ -971,7 +971,7 @@ define hidden void @dissect_zbee_zdp_rsp_mgmt_bind(ptr noundef %0, ptr noundef %
   %29 = add nuw i32 %.024, 1
   %30 = load i32, ptr %6, align 4
   %31 = icmp ult i32 %29, %30
-  br i1 %31, label %.lr.ph, label %._crit_edge, !llvm.loop !15
+  br i1 %31, label %.lr.ph, label %._crit_edge, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %.lr.ph, %27
   %32 = call ptr @zdp_status_name(i8 noundef zeroext %7)
@@ -1085,7 +1085,7 @@ define hidden void @dissect_zbee_zdp_rsp_mgmt_cache(ptr noundef %0, ptr noundef 
   %35 = add nuw i32 %.024, 1
   %36 = load i32, ptr %5, align 4
   %37 = icmp ult i32 %35, %36
-  br i1 %37, label %.lr.ph, label %.loopexit, !llvm.loop !16
+  br i1 %37, label %.lr.ph, label %.loopexit, !llvm.loop !15
 
 .loopexit:                                        ; preds = %.lr.ph, %21, %3
   %38 = call ptr @zdp_status_name(i8 noundef zeroext %6)
@@ -1163,7 +1163,7 @@ define hidden void @dissect_zbee_zdp_not_mgmt_nwkupdate(ptr noundef %0, ptr noun
   %.1.ph = phi i32 [ %.02633, %23 ], [ %37, %29 ]
   %40 = add nuw nsw i32 %.02534, 1
   %exitcond.not = icmp eq i32 %40, 32
-  br i1 %exitcond.not, label %41, label %23, !llvm.loop !17
+  br i1 %exitcond.not, label %41, label %23, !llvm.loop !16
 
 41:                                               ; preds = %27, %38
   %42 = phi i32 [ %24, %27 ], [ %39, %38 ]
@@ -1229,7 +1229,7 @@ define hidden void @dissect_zbee_zdp_rsp_mgmt_ieee_join_list(ptr noundef %0, ptr
   %35 = add nuw i32 %.019, 1
   %36 = load i32, ptr %5, align 4
   %37 = icmp ult i32 %35, %36
-  br i1 %37, label %.lr.ph, label %.loopexit.loopexit, !llvm.loop !18
+  br i1 %37, label %.lr.ph, label %.loopexit.loopexit, !llvm.loop !17
 
 .loopexit.loopexit:                               ; preds = %.lr.ph
   %.pre = load i32, ptr %6, align 4
@@ -1407,16 +1407,15 @@ attributes #3 = { nounwind }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7, !8}
-!11 = distinct !{!11, !7, !8}
-!12 = distinct !{!12, !7, !8}
-!13 = distinct !{!13, !7, !8}
-!14 = distinct !{!14, !7, !8}
-!15 = distinct !{!15, !7, !8}
-!16 = distinct !{!16, !7, !8}
-!17 = distinct !{!17, !7, !8}
-!18 = distinct !{!18, !7, !8}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7}
+!12 = distinct !{!12, !7}
+!13 = distinct !{!13, !7}
+!14 = distinct !{!14, !7}
+!15 = distinct !{!15, !7}
+!16 = distinct !{!16, !7}
+!17 = distinct !{!17, !7}

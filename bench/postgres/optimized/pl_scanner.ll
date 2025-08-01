@@ -897,7 +897,7 @@ define hidden i32 @plpgsql_location_to_lineno(i32 noundef %0, ptr noundef readon
   %.not = icmp ne ptr %43, null
   %44 = icmp ugt ptr %11, %43
   %or.cond = and i1 %.not, %44
-  br i1 %or.cond, label %.lr.ph, label %.critedge, !llvm.loop !8
+  br i1 %or.cond, label %.lr.ph, label %.critedge, !llvm.loop !7
 
 .critedge:                                        ; preds = %.lr.ph, %23
   %.lcssa = phi ptr [ %24, %23 ], [ %41, %.lr.ph ]
@@ -981,7 +981,7 @@ define internal range(i32 -65536, 65535) i32 @UnreservedPLKeywords_hash_func(ptr
   %10 = mul i32 %.0814, 8191
   %11 = add i32 %10, %8
   %.not = icmp eq i64 %3, 0
-  br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !9
+  br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !8
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
   %12 = urem i32 %9, 167
@@ -1032,7 +1032,7 @@ define internal range(i32 -256, 255) i32 @ReservedPLKeywords_hash_func(ptr nound
   %10 = mul i32 %.0814, 8191
   %11 = add i32 %10, %8
   %.not = icmp eq i64 %3, 0
-  br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !10
+  br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !9
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
   %12 = urem i32 %9, 49
@@ -1080,9 +1080,8 @@ attributes #14 = { nounwind willreturn memory(read) }
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i8 0, i8 2}
 !4 = !{}
-!5 = distinct !{!5, !6, !7}
+!5 = distinct !{!5, !6}
 !6 = !{!"llvm.loop.mustprogress"}
-!7 = !{!"llvm.loop.estimated_trip_count"}
-!8 = distinct !{!8, !6, !7}
-!9 = distinct !{!9, !6, !7}
-!10 = distinct !{!10, !6, !7}
+!7 = distinct !{!7, !6}
+!8 = distinct !{!8, !6}
+!9 = distinct !{!9, !6}

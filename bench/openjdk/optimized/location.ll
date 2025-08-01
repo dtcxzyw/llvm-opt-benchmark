@@ -227,7 +227,7 @@ define hidden void @_ZN8Location8write_onEP20DebugInfoWriteStream(ptr noundef no
   %18 = icmp ule i32 %3, %17
   %19 = icmp eq i32 %15, 4
   %or.cond.i.i.i.i = select i1 %18, i1 true, i1 %19
-  br i1 %or.cond.i.i.i.i, label %._crit_edge.loopexit.i.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !9
+  br i1 %or.cond.i.i.i.i, label %._crit_edge.loopexit.i.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !8
 
 _ZN9UNSIGNED513fits_in_limitIiEEbjT_S1_.exit.i.i: ; preds = %._crit_edge.loopexit.i.i.i.i, %9
   %.0.lcssa.i.i.i.i = phi i32 [ 1, %9 ], [ %11, %._crit_edge.loopexit.i.i.i.i ]
@@ -269,7 +269,7 @@ _ZN9UNSIGNED513fits_in_limitIiEEbjT_S1_.exit.thread.i.i: ; preds = %21, %_ZN9UNS
   %33 = icmp ult i32 %29, 12224
   %34 = icmp eq i64 %indvars.iv.next.i.i.i, 4
   %or.cond.i.i.i = select i1 %33, i1 true, i1 %34
-  br i1 %or.cond.i.i.i, label %26, label %.preheader.i.i.i, !llvm.loop !10
+  br i1 %or.cond.i.i.i, label %26, label %.preheader.i.i.i, !llvm.loop !9
 
 _ZN21CompressedWriteStream9write_intEj.exit:      ; preds = %_ZN9UNSIGNED513fits_in_limitIiEEbjT_S1_.exit.thread.i.i, %26
   %.lcssa.sink.i.i.i = phi i32 [ %32, %26 ], [ %3, %_ZN9UNSIGNED513fits_in_limitIiEEbjT_S1_.exit.thread.i.i ]
@@ -309,8 +309,7 @@ attributes #4 = { nounwind }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7, !8}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}

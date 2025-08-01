@@ -66,7 +66,7 @@ define hidden i32 @SDL_IOReady(i32 noundef %0, i32 noundef %1, i64 noundef %2) l
   %26 = tail call ptr @__errno_location() #5
   %27 = load i32, ptr %26, align 4
   %28 = icmp eq i32 %27, 4
-  br i1 %28, label %.split.split, label %.critedge, !llvm.loop !7
+  br i1 %28, label %.split.split, label %.critedge, !llvm.loop !6
 
 .critedge:                                        ; preds = %25, %.split.split, %.split.us, %18, %.split.split.us
   %.us-phi = phi i32 [ %22, %.split.split.us ], [ %16, %18 ], [ %16, %.split.us ], [ %23, %.split.split ], [ %23, %25 ]
@@ -96,8 +96,7 @@ attributes #5 = { nounwind willreturn memory(none) }
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = distinct !{!3, !4, !5, !6}
+!3 = distinct !{!3, !4, !5}
 !4 = !{!"llvm.loop.mustprogress"}
-!5 = !{!"llvm.loop.estimated_trip_count"}
-!6 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!7 = distinct !{!7, !4, !5}
+!5 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!6 = distinct !{!6, !4}

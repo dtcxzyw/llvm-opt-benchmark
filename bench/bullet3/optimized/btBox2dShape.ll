@@ -386,9 +386,9 @@ _ZNK9btVector314serializeFloatER18btVector3FloatData.exit11: ; preds = %13
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %18 = load float, ptr %17, align 8, !tbaa !14
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  store float %18, ptr %19, align 8, !tbaa !24
+  store float %18, ptr %19, align 8, !tbaa !23
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 52
-  store i32 0, ptr %20, align 4, !tbaa !29
+  store i32 0, ptr %20, align 4, !tbaa !28
   ret ptr @.str.1
 }
 
@@ -516,7 +516,7 @@ define linkonce_odr dso_local void @_ZNK12btBox2dShape49batchedUnitVectorGetSupp
   store float 0.000000e+00, ptr %31, align 4, !tbaa !7
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %9, !llvm.loop !30
+  br i1 %exitcond.not, label %._crit_edge, label %9, !llvm.loop !29
 }
 
 declare void @_ZNK21btConvexInternalShape11getAabbSlowERK11btTransformR9btVector3S4_(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 4 dereferenceable(64), ptr noundef nonnull align 4 dereferenceable(16), ptr noundef nonnull align 4 dereferenceable(16)) unnamed_addr #5
@@ -848,13 +848,12 @@ attributes #12 = { noreturn nounwind }
 !18 = !{!"int", !9, i64 0}
 !19 = !{!"any pointer", !9, i64 0}
 !20 = !{!"_ZTS9btVector3", !9, i64 0}
-!21 = distinct !{!21, !22, !23}
+!21 = distinct !{!21, !22}
 !22 = !{!"llvm.loop.mustprogress"}
-!23 = !{!"llvm.loop.estimated_trip_count"}
-!24 = !{!25, !8, i64 48}
-!25 = !{!"_ZTS25btConvexInternalShapeData", !26, i64 0, !28, i64 16, !28, i64 32, !8, i64 48, !18, i64 52}
-!26 = !{!"_ZTS20btCollisionShapeData", !27, i64 0, !18, i64 8, !9, i64 12}
-!27 = !{!"p1 omnipotent char", !19, i64 0}
-!28 = !{!"_ZTS18btVector3FloatData", !9, i64 0}
-!29 = !{!25, !18, i64 52}
-!30 = distinct !{!30, !22, !23}
+!23 = !{!24, !8, i64 48}
+!24 = !{!"_ZTS25btConvexInternalShapeData", !25, i64 0, !27, i64 16, !27, i64 32, !8, i64 48, !18, i64 52}
+!25 = !{!"_ZTS20btCollisionShapeData", !26, i64 0, !18, i64 8, !9, i64 12}
+!26 = !{!"p1 omnipotent char", !19, i64 0}
+!27 = !{!"_ZTS18btVector3FloatData", !9, i64 0}
+!28 = !{!24, !18, i64 52}
+!29 = distinct !{!29, !22}
